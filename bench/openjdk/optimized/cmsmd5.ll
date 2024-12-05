@@ -14,18 +14,18 @@ define hidden ptr @cmsMD5alloc(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %3, label %11, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %2, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store ptr %0, ptr %5, align 8
   store i32 1732584193, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 -271733879, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 -1732584194, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 271733878, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %2, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 20
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 0, ptr %10, align 4
   br label %11
 
@@ -38,18 +38,18 @@ declare ptr @_cmsMallocZero(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cmsMD5add(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #2 {
 ._crit_edge47:
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = shl i32 %2, 3
   %6 = add i32 %4, %5
   store i32 %6, ptr %3, align 8
   %7 = icmp ult i32 %6, %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %9 = load i32, ptr %8, align 4
   %10 = zext i1 %7 to i32
   %11 = add i32 %9, %10
   %12 = lshr i32 %2, 29
-  %13 = getelementptr inbounds i8, ptr %0, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = add i32 %11, %12
   store i32 %14, ptr %13, align 4
   %15 = lshr i32 %4, 3
@@ -58,9 +58,9 @@ define hidden void @cmsMD5add(ptr nocapture noundef %0, ptr nocapture noundef re
   br i1 %.not, label %29, label %17
 
 17:                                               ; preds = %._crit_edge47
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = zext nneg i32 %16 to i64
-  %20 = getelementptr inbounds i8, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 %19
   %21 = sub nuw nsw i32 64, %16
   %22 = icmp ult i32 %2, %21
   br i1 %22, label %23, label %25
@@ -74,7 +74,7 @@ define hidden void @cmsMD5add(ptr nocapture noundef %0, ptr nocapture noundef re
   %26 = zext nneg i32 %21 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %20, ptr noundef nonnull align 1 dereferenceable(1) %1, i64 %26, i1 false)
   tail call fastcc void @cmsMD5_Transform(ptr noundef nonnull %0, ptr noundef nonnull %18)
-  %27 = getelementptr inbounds i8, ptr %1, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 %26
   %28 = sub nuw i32 %2, %21
   br label %29
 
@@ -85,7 +85,7 @@ define hidden void @cmsMD5add(ptr nocapture noundef %0, ptr nocapture noundef re
   br i1 %30, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %29
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %32
 
 32:                                               ; preds = %.lr.ph, %32
@@ -93,7 +93,7 @@ define hidden void @cmsMD5add(ptr nocapture noundef %0, ptr nocapture noundef re
   %.13843 = phi i32 [ %.037, %.lr.ph ], [ %34, %32 ]
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %31, ptr noundef nonnull align 1 dereferenceable(64) %.144, i64 64, i1 false)
   tail call fastcc void @cmsMD5_Transform(ptr noundef nonnull %0, ptr noundef nonnull %31)
-  %33 = getelementptr inbounds i8, ptr %.144, i64 64
+  %33 = getelementptr inbounds nuw i8, ptr %.144, i64 64
   %34 = add i32 %.13843, -64
   %35 = icmp ugt i32 %34, 63
   br i1 %35, label %32, label %._crit_edge, !llvm.loop !6
@@ -101,7 +101,7 @@ define hidden void @cmsMD5add(ptr nocapture noundef %0, ptr nocapture noundef re
 ._crit_edge:                                      ; preds = %32, %29
   %.138.lcssa = phi i32 [ %.037, %29 ], [ %34, %32 ]
   %.1.lcssa = phi ptr [ %.0, %29 ], [ %33, %32 ]
-  %36 = getelementptr inbounds i8, ptr %0, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = zext nneg i32 %.138.lcssa to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %36, ptr align 1 %.1.lcssa, i64 %37, i1 false)
   br label %38
@@ -116,11 +116,11 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal fastcc void @cmsMD5_Transform(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #4 {
   %3 = load i32, ptr %0, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %9 = load i32, ptr %8, align 4
   %10 = xor i32 %9, %7
   %11 = and i32 %10, %5
@@ -134,7 +134,7 @@ define internal fastcc void @cmsMD5_Transform(ptr nocapture noundef %0, ptr noca
   %19 = xor i32 %7, %5
   %20 = and i32 %18, %19
   %21 = xor i32 %20, %7
-  %22 = getelementptr inbounds i8, ptr %1, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %23 = load i32, ptr %22, align 4
   %24 = add i32 %9, -389564586
   %25 = add i32 %24, %23
@@ -144,7 +144,7 @@ define internal fastcc void @cmsMD5_Transform(ptr nocapture noundef %0, ptr noca
   %29 = xor i32 %18, %5
   %30 = and i32 %28, %29
   %31 = xor i32 %30, %5
-  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %33 = load i32, ptr %32, align 4
   %34 = add i32 %7, 606105819
   %35 = add i32 %34, %33
@@ -154,7 +154,7 @@ define internal fastcc void @cmsMD5_Transform(ptr nocapture noundef %0, ptr noca
   %39 = xor i32 %28, %18
   %40 = and i32 %38, %39
   %41 = xor i32 %40, %18
-  %42 = getelementptr inbounds i8, ptr %1, i64 12
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %43 = load i32, ptr %42, align 4
   %44 = add i32 %5, -1044525330
   %45 = add i32 %44, %43
@@ -164,7 +164,7 @@ define internal fastcc void @cmsMD5_Transform(ptr nocapture noundef %0, ptr noca
   %49 = xor i32 %38, %28
   %50 = and i32 %48, %49
   %51 = xor i32 %50, %28
-  %52 = getelementptr inbounds i8, ptr %1, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %53 = load i32, ptr %52, align 4
   %54 = add i32 %53, -176418897
   %55 = add i32 %54, %18
@@ -174,7 +174,7 @@ define internal fastcc void @cmsMD5_Transform(ptr nocapture noundef %0, ptr noca
   %59 = xor i32 %48, %38
   %60 = and i32 %58, %59
   %61 = xor i32 %60, %38
-  %62 = getelementptr inbounds i8, ptr %1, i64 20
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %63 = load i32, ptr %62, align 4
   %64 = add i32 %63, 1200080426
   %65 = add i32 %64, %28
@@ -184,7 +184,7 @@ define internal fastcc void @cmsMD5_Transform(ptr nocapture noundef %0, ptr noca
   %69 = xor i32 %58, %48
   %70 = and i32 %68, %69
   %71 = xor i32 %70, %48
-  %72 = getelementptr inbounds i8, ptr %1, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %73 = load i32, ptr %72, align 4
   %74 = add i32 %73, -1473231341
   %75 = add i32 %74, %38
@@ -194,7 +194,7 @@ define internal fastcc void @cmsMD5_Transform(ptr nocapture noundef %0, ptr noca
   %79 = xor i32 %68, %58
   %80 = and i32 %78, %79
   %81 = xor i32 %80, %58
-  %82 = getelementptr inbounds i8, ptr %1, i64 28
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %83 = load i32, ptr %82, align 4
   %84 = add i32 %83, -45705983
   %85 = add i32 %84, %48
@@ -204,7 +204,7 @@ define internal fastcc void @cmsMD5_Transform(ptr nocapture noundef %0, ptr noca
   %89 = xor i32 %78, %68
   %90 = and i32 %88, %89
   %91 = xor i32 %90, %68
-  %92 = getelementptr inbounds i8, ptr %1, i64 32
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %93 = load i32, ptr %92, align 4
   %94 = add i32 %93, 1770035416
   %95 = add i32 %94, %58
@@ -214,7 +214,7 @@ define internal fastcc void @cmsMD5_Transform(ptr nocapture noundef %0, ptr noca
   %99 = xor i32 %88, %78
   %100 = and i32 %98, %99
   %101 = xor i32 %100, %78
-  %102 = getelementptr inbounds i8, ptr %1, i64 36
+  %102 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %103 = load i32, ptr %102, align 4
   %104 = add i32 %103, -1958414417
   %105 = add i32 %104, %68
@@ -224,7 +224,7 @@ define internal fastcc void @cmsMD5_Transform(ptr nocapture noundef %0, ptr noca
   %109 = xor i32 %98, %88
   %110 = and i32 %108, %109
   %111 = xor i32 %110, %88
-  %112 = getelementptr inbounds i8, ptr %1, i64 40
+  %112 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %113 = load i32, ptr %112, align 4
   %114 = add i32 %113, -42063
   %115 = add i32 %114, %78
@@ -234,7 +234,7 @@ define internal fastcc void @cmsMD5_Transform(ptr nocapture noundef %0, ptr noca
   %119 = xor i32 %108, %98
   %120 = and i32 %118, %119
   %121 = xor i32 %120, %98
-  %122 = getelementptr inbounds i8, ptr %1, i64 44
+  %122 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %123 = load i32, ptr %122, align 4
   %124 = add i32 %123, -1990404162
   %125 = add i32 %124, %88
@@ -244,7 +244,7 @@ define internal fastcc void @cmsMD5_Transform(ptr nocapture noundef %0, ptr noca
   %129 = xor i32 %118, %108
   %130 = and i32 %128, %129
   %131 = xor i32 %130, %108
-  %132 = getelementptr inbounds i8, ptr %1, i64 48
+  %132 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %133 = load i32, ptr %132, align 4
   %134 = add i32 %133, 1804603682
   %135 = add i32 %134, %98
@@ -254,7 +254,7 @@ define internal fastcc void @cmsMD5_Transform(ptr nocapture noundef %0, ptr noca
   %139 = xor i32 %128, %118
   %140 = and i32 %138, %139
   %141 = xor i32 %140, %118
-  %142 = getelementptr inbounds i8, ptr %1, i64 52
+  %142 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %143 = load i32, ptr %142, align 4
   %144 = add i32 %143, -40341101
   %145 = add i32 %144, %108
@@ -264,7 +264,7 @@ define internal fastcc void @cmsMD5_Transform(ptr nocapture noundef %0, ptr noca
   %149 = xor i32 %138, %128
   %150 = and i32 %148, %149
   %151 = xor i32 %150, %128
-  %152 = getelementptr inbounds i8, ptr %1, i64 56
+  %152 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %153 = load i32, ptr %152, align 4
   %154 = add i32 %153, -1502002290
   %155 = add i32 %154, %118
@@ -274,7 +274,7 @@ define internal fastcc void @cmsMD5_Transform(ptr nocapture noundef %0, ptr noca
   %159 = xor i32 %148, %138
   %160 = and i32 %158, %159
   %161 = xor i32 %160, %138
-  %162 = getelementptr inbounds i8, ptr %1, i64 60
+  %162 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %163 = load i32, ptr %162, align 4
   %164 = add i32 %163, 1236535329
   %165 = add i32 %164, %128
@@ -661,14 +661,14 @@ define internal fastcc void @cmsMD5_Transform(ptr nocapture noundef %0, ptr noca
 
 ; Function Attrs: nounwind uwtable
 define hidden void @cmsMD5finish(ptr nocapture noundef writeonly initializes((0, 16)) %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = lshr i32 %4, 3
   %6 = and i32 %5, 63
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = zext nneg i32 %6 to i64
-  %9 = getelementptr inbounds i8, ptr %7, i64 %8
-  %10 = getelementptr inbounds i8, ptr %9, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store i8 -128, ptr %9, align 1
   %11 = xor i32 %6, 63
   %12 = icmp samesign ult i32 %11, 8
@@ -679,6 +679,7 @@ define hidden void @cmsMD5finish(ptr nocapture noundef writeonly initializes((0,
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %10, i8 0, i64 %14, i1 false)
   tail call fastcc void @cmsMD5_Transform(ptr noundef nonnull %1, ptr noundef nonnull %7)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 56, i1 false)
+  %.pre = load i32, ptr %3, align 8
   br label %18
 
 15:                                               ; preds = %2
@@ -688,16 +689,16 @@ define hidden void @cmsMD5finish(ptr nocapture noundef writeonly initializes((0,
   br label %18
 
 18:                                               ; preds = %15, %13
-  %19 = load i32, ptr %3, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 80
+  %19 = phi i32 [ %4, %15 ], [ %.pre, %13 ]
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store i32 %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %22 = load i32, ptr %21, align 4
-  %23 = getelementptr inbounds i8, ptr %1, i64 84
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 84
   store i32 %22, ptr %23, align 4
   tail call fastcc void @cmsMD5_Transform(ptr noundef nonnull %1, ptr noundef nonnull %7)
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
-  %24 = getelementptr inbounds i8, ptr %1, i64 88
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %25 = load ptr, ptr %24, align 8
   tail call void @_cmsFree(ptr noundef %25, ptr noundef nonnull %1) #8
   ret void
@@ -714,11 +715,11 @@ define hidden range(i32 0, 2) i32 @cmsMD5computeID(ptr noundef %0) local_unnamed
   %3 = alloca %struct._cms_iccprofile_struct, align 8
   %4 = tail call ptr @cmsGetProfileContextID(ptr noundef %0) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3760) %3, ptr noundef nonnull align 8 dereferenceable(3760) %0, i64 3760, i1 false)
-  %5 = getelementptr inbounds i8, ptr %0, i64 112
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i64 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 92
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i32 0, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 124
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 124
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %8 = call i32 @cmsSaveProfileToMem(ptr noundef %0, ptr noundef null, ptr noundef nonnull %2) #8
   %.not = icmp eq i32 %8, 0
@@ -741,17 +742,17 @@ define hidden range(i32 0, 2) i32 @cmsMD5computeID(ptr noundef %0) local_unnamed
   br i1 %17, label %cmsMD5alloc.exit.thread, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %16, i64 88
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 88
   store ptr %4, ptr %19, align 8
   store i32 1732584193, ptr %16, align 8
-  %20 = getelementptr inbounds i8, ptr %16, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store i32 -271733879, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %16, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i32 -1732584194, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %16, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 271733878, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %16, i64 16
-  %24 = getelementptr inbounds i8, ptr %16, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %16, i64 20
   %25 = load i32, ptr %2, align 4
   %26 = shl i32 %25, 3
   store i32 %26, ptr %23, align 8
@@ -761,7 +762,7 @@ define hidden range(i32 0, 2) i32 @cmsMD5computeID(ptr noundef %0) local_unnamed
   br i1 %28, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %18
-  %29 = getelementptr inbounds i8, ptr %16, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %16, i64 24
   br label %30
 
 30:                                               ; preds = %30, %.lr.ph.i
@@ -769,7 +770,7 @@ define hidden range(i32 0, 2) i32 @cmsMD5computeID(ptr noundef %0) local_unnamed
   %.13843.i = phi i32 [ %25, %.lr.ph.i ], [ %32, %30 ]
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %29, ptr noundef nonnull align 1 dereferenceable(64) %.144.i, i64 64, i1 false)
   call fastcc void @cmsMD5_Transform(ptr noundef nonnull %16, ptr noundef nonnull %29)
-  %31 = getelementptr inbounds i8, ptr %.144.i, i64 64
+  %31 = getelementptr inbounds nuw i8, ptr %.144.i, i64 64
   %32 = add i32 %.13843.i, -64
   %33 = icmp ugt i32 %32, 63
   br i1 %33, label %30, label %._crit_edge.i, !llvm.loop !6
@@ -777,7 +778,7 @@ define hidden range(i32 0, 2) i32 @cmsMD5computeID(ptr noundef %0) local_unnamed
 ._crit_edge.i:                                    ; preds = %30, %18
   %.138.lcssa.i = phi i32 [ %25, %18 ], [ %32, %30 ]
   %.1.lcssa.i = phi ptr [ %11, %18 ], [ %31, %30 ]
-  %34 = getelementptr inbounds i8, ptr %16, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %35 = zext nneg i32 %.138.lcssa.i to i64
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %34, ptr nonnull align 1 %.1.lcssa.i, i64 %35, i1 false)
   call void @_cmsFree(ptr noundef %4, ptr noundef nonnull %11) #8
@@ -786,8 +787,8 @@ define hidden range(i32 0, 2) i32 @cmsMD5computeID(ptr noundef %0) local_unnamed
   %37 = lshr i32 %36, 3
   %38 = and i32 %37, 63
   %39 = zext nneg i32 %38 to i64
-  %40 = getelementptr inbounds i8, ptr %34, i64 %39
-  %41 = getelementptr inbounds i8, ptr %40, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %34, i64 %39
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 1
   store i8 -128, ptr %40, align 1
   %42 = xor i32 %38, 63
   %43 = icmp samesign ult i32 %42, 8
@@ -798,6 +799,7 @@ define hidden range(i32 0, 2) i32 @cmsMD5computeID(ptr noundef %0) local_unnamed
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %41, i8 0, i64 %45, i1 false)
   call fastcc void @cmsMD5_Transform(ptr noundef nonnull %16, ptr noundef nonnull %34)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %34, i8 0, i64 56, i1 false)
+  %.pre.i = load i32, ptr %23, align 8
   br label %cmsMD5finish.exit
 
 46:                                               ; preds = %._crit_edge.i
@@ -807,11 +809,11 @@ define hidden range(i32 0, 2) i32 @cmsMD5computeID(ptr noundef %0) local_unnamed
   br label %cmsMD5finish.exit
 
 cmsMD5finish.exit:                                ; preds = %44, %46
-  %49 = load i32, ptr %23, align 8
-  %50 = getelementptr inbounds i8, ptr %16, i64 80
+  %49 = phi i32 [ %36, %46 ], [ %.pre.i, %44 ]
+  %50 = getelementptr inbounds nuw i8, ptr %16, i64 80
   store i32 %49, ptr %50, align 8
   %51 = load i32, ptr %24, align 4
-  %52 = getelementptr inbounds i8, ptr %16, i64 84
+  %52 = getelementptr inbounds nuw i8, ptr %16, i64 84
   store i32 %51, ptr %52, align 4
   call fastcc void @cmsMD5_Transform(ptr noundef nonnull %16, ptr noundef nonnull %34)
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %16, i64 16, i1 false)

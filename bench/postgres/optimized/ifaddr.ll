@@ -30,9 +30,9 @@ define dso_local range(i32 0, 2) i32 @pg_range_sockaddr(ptr nocapture noundef re
   br label %range_sockaddr_AF_INET6.exit
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %17
 
 16:                                               ; preds = %17
@@ -101,9 +101,9 @@ define dso_local range(i32 -1, 1) i32 @pg_sockaddr_cidr_mask(ptr nocapture nound
   %23 = tail call i32 @llvm.bswap.i32(i32 %22)
   %24 = select i1 %.not32, i32 0, i32 %23
   store i32 0, ptr %0, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %24, ptr %.sroa.2.0..sroa_idx, align 4
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.sroa.3.0..sroa_idx, align 8
   br label %41
 
@@ -113,7 +113,7 @@ define dso_local range(i32 -1, 1) i32 @pg_sockaddr_cidr_mask(ptr nocapture nound
 
 26:                                               ; preds = %25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %5, i8 0, i64 28, i1 false)
-  %27 = getelementptr inbounds i8, ptr %5, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %28
 
 28:                                               ; preds = %26, %37
@@ -183,16 +183,16 @@ define dso_local range(i32 -1, 1) i32 @pg_foreach_ifaddr(ptr nocapture noundef r
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 4
-  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 8
-  %.8..8..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.8..8..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %8
 
 8:                                                ; preds = %.lr.ph, %run_ifaddr_callback.exit
   %.09 = phi ptr [ %.07, %.lr.ph ], [ %.0, %run_ifaddr_callback.exit ]
-  %9 = getelementptr inbounds i8, ptr %.09, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %.09, i64 24
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %.09, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %.09, i64 32
   %12 = load ptr, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4)
   %.not.i = icmp eq ptr %10, null
@@ -215,7 +215,7 @@ define dso_local range(i32 -1, 1) i32 @pg_foreach_ifaddr(ptr nocapture noundef r
   ]
 
 17:                                               ; preds = %16
-  %18 = getelementptr inbounds i8, ptr %12, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %select.unfold.thread.i, label %.thread.i
@@ -225,7 +225,7 @@ select.unfold.thread.i:                           ; preds = %17
   br label %37
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %12, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %.thread.i

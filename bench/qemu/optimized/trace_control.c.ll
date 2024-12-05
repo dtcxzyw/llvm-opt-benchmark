@@ -131,10 +131,10 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define dso_local void @trace_event_iter_init_all(ptr nocapture noundef writeonly initializes((0, 32)) %iter) local_unnamed_addr #3 {
 entry:
-  %group_id = getelementptr inbounds i8, ptr %iter, i64 16
+  %group_id = getelementptr inbounds nuw i8, ptr %iter, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %iter, i8 0, i64 16, i1 false)
   store i64 -1, ptr %group_id, align 8
-  %pattern = getelementptr inbounds i8, ptr %iter, i64 24
+  %pattern = getelementptr inbounds nuw i8, ptr %iter, i64 24
   store ptr null, ptr %pattern, align 8
   ret void
 }
@@ -142,15 +142,15 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @trace_event_iter_next(ptr nocapture noundef %iter) local_unnamed_addr #0 {
 entry:
-  %group = getelementptr inbounds i8, ptr %iter, i64 8
+  %group = getelementptr inbounds nuw i8, ptr %iter, i64 8
   %0 = load i64, ptr %group, align 8
   %1 = load i64, ptr @nevent_groups, align 8
   %cmp19 = icmp ult i64 %0, %1
   br i1 %cmp19, label %land.rhs.lr.ph, label %return
 
 land.rhs.lr.ph:                                   ; preds = %entry
-  %pattern = getelementptr inbounds i8, ptr %iter, i64 24
-  %group_id = getelementptr inbounds i8, ptr %iter, i64 16
+  %pattern = getelementptr inbounds nuw i8, ptr %iter, i64 24
+  %group_id = getelementptr inbounds nuw i8, ptr %iter, i64 16
   %.pre22 = load ptr, ptr @event_groups, align 8
   br label %land.rhs
 
@@ -219,10 +219,10 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define dso_local void @trace_event_iter_init_pattern(ptr nocapture noundef writeonly initializes((0, 32)) %iter, ptr noundef %pattern) local_unnamed_addr #3 {
 entry:
-  %group_id.i = getelementptr inbounds i8, ptr %iter, i64 16
+  %group_id.i = getelementptr inbounds nuw i8, ptr %iter, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %iter, i8 0, i64 16, i1 false)
   store i64 -1, ptr %group_id.i, align 8
-  %pattern.i = getelementptr inbounds i8, ptr %iter, i64 24
+  %pattern.i = getelementptr inbounds nuw i8, ptr %iter, i64 24
   store ptr %pattern, ptr %pattern.i, align 8
   ret void
 }
@@ -230,9 +230,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define dso_local void @trace_event_iter_init_group(ptr nocapture noundef writeonly initializes((0, 32)) %iter, i64 noundef %group_id) local_unnamed_addr #3 {
 entry:
-  %group_id.i = getelementptr inbounds i8, ptr %iter, i64 16
+  %group_id.i = getelementptr inbounds nuw i8, ptr %iter, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %iter, i8 0, i64 16, i1 false)
-  %pattern.i = getelementptr inbounds i8, ptr %iter, i64 24
+  %pattern.i = getelementptr inbounds nuw i8, ptr %iter, i64 24
   store ptr null, ptr %pattern.i, align 8
   store i64 %group_id, ptr %group_id.i, align 8
   ret void
@@ -288,7 +288,7 @@ entry:
   br i1 %.not.i, label %entry.tail.i, label %is_help_option.exit
 
 entry.tail.i:                                     ; preds = %entry
-  %1 = getelementptr inbounds i8, ptr %line_buf, i64 1
+  %1 = getelementptr inbounds nuw i8, ptr %line_buf, i64 1
   %2 = load i8, ptr %1, align 1
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %if.then, label %is_help_option.exit

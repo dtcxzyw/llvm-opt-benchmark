@@ -55,11 +55,11 @@ entry:
   br i1 %cmp, label %skip_cbs, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mem_fns = getelementptr inbounds i8, ptr %fns, i64 8
+  %mem_fns = getelementptr inbounds nuw i8, ptr %fns, i64 8
   %1 = load ptr, ptr %mem_fns, align 8
-  %realloc_fn = getelementptr inbounds i8, ptr %fns, i64 16
+  %realloc_fn = getelementptr inbounds nuw i8, ptr %fns, i64 16
   %2 = load ptr, ptr %realloc_fn, align 8
-  %free_fn = getelementptr inbounds i8, ptr %fns, i64 24
+  %free_fn = getelementptr inbounds nuw i8, ptr %fns, i64 24
   %3 = load ptr, ptr %free_fn, align 8
   %call3 = tail call i32 @CRYPTO_set_mem_functions(ptr noundef %1, ptr noundef %2, ptr noundef %3) #8
   %call4 = tail call i32 @OPENSSL_init_crypto(i64 noundef 524288, ptr noundef null) #8
@@ -1166,7 +1166,7 @@ if.end7:                                          ; preds = %if.end
 if.then10:                                        ; preds = %if.end7
   %2 = load ptr, ptr %writefd, align 8
   %3 = load i32, ptr %2, align 4
-  %arrayidx11 = getelementptr inbounds i8, ptr %pipefds, i64 4
+  %arrayidx11 = getelementptr inbounds nuw i8, ptr %pipefds, i64 4
   store i32 %3, ptr %arrayidx11, align 4
   br label %if.end27
 
@@ -1187,7 +1187,7 @@ if.then18:                                        ; preds = %if.end15
   br label %if.end38
 
 if.end19:                                         ; preds = %if.end15
-  %arrayidx20 = getelementptr inbounds i8, ptr %pipefds, i64 4
+  %arrayidx20 = getelementptr inbounds nuw i8, ptr %pipefds, i64 4
   %5 = load i32, ptr %arrayidx20, align 4
   %6 = load ptr, ptr %writefd, align 8
   store i32 %5, ptr %6, align 4
@@ -1295,9 +1295,9 @@ if.then:                                          ; preds = %land.lhs.true
 
 if.end10:                                         ; preds = %land.lhs.true.if.end10_crit_edge, %if.then, %entry
   %1 = phi ptr [ %.pre, %land.lhs.true.if.end10_crit_edge ], [ %call4, %if.then ], [ %0, %entry ]
-  %numpipes = getelementptr inbounds i8, ptr %call, i64 8
+  %numpipes = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i32 0, ptr %numpipes, align 8
-  %aadctr = getelementptr inbounds i8, ptr %call, i64 456
+  %aadctr = getelementptr inbounds nuw i8, ptr %call, i64 456
   store i32 0, ptr %aadctr, align 8
   %call12 = tail call ptr @EVP_CIPHER_CTX_set_cipher_data(ptr noundef %ctx, ptr noundef %1) #8
   %call13 = tail call ptr @EVP_CIPHER_meth_get_init(ptr noundef %cipher) #8
@@ -1326,12 +1326,12 @@ declare ptr @EVP_CIPHER_meth_get_init(ptr noundef) local_unnamed_addr #2
 define internal fastcc i32 @dasync_cipher_helper(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %inl, ptr noundef %cipher) unnamed_addr #1 {
 entry:
   %call = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #8
-  %numpipes = getelementptr inbounds i8, ptr %call, i64 8
+  %numpipes = getelementptr inbounds nuw i8, ptr %call, i64 8
   %0 = load i32, ptr %numpipes, align 8
   %1 = load ptr, ptr %call, align 8
   %call1 = tail call ptr @EVP_CIPHER_CTX_set_cipher_data(ptr noundef %ctx, ptr noundef %1) #8
   %cmp = icmp eq i32 %0, 0
-  %aadctr = getelementptr inbounds i8, ptr %call, i64 456
+  %aadctr = getelementptr inbounds nuw i8, ptr %call, i64 456
   %2 = load i32, ptr %aadctr, align 8
   br i1 %cmp, label %if.then, label %if.else
 
@@ -1343,7 +1343,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then
   %call7 = tail call ptr @EVP_CIPHER_meth_get_ctrl(ptr noundef %cipher) #8
-  %tlsaad = getelementptr inbounds i8, ptr %call, i64 40
+  %tlsaad = getelementptr inbounds nuw i8, ptr %call, i64 40
   %call8 = tail call i32 %call7(ptr noundef %ctx, i32 noundef 22, i32 noundef 13, ptr noundef nonnull %tlsaad) #8
   br label %if.end9
 
@@ -1359,10 +1359,10 @@ if.else:                                          ; preds = %entry
   br i1 %or.cond, label %for.cond.preheader, label %return
 
 for.cond.preheader:                               ; preds = %if.else
-  %tlsaad23 = getelementptr inbounds i8, ptr %call, i64 40
-  %outbufs = getelementptr inbounds i8, ptr %call, i64 24
-  %inbufs = getelementptr inbounds i8, ptr %call, i64 16
-  %lens = getelementptr inbounds i8, ptr %call, i64 32
+  %tlsaad23 = getelementptr inbounds nuw i8, ptr %call, i64 40
+  %outbufs = getelementptr inbounds nuw i8, ptr %call, i64 24
+  %inbufs = getelementptr inbounds nuw i8, ptr %call, i64 16
+  %lens = getelementptr inbounds nuw i8, ptr %call, i64 32
   %wide.trip.count = zext i32 %0 to i64
   br label %for.body
 
@@ -1375,7 +1375,7 @@ for.body:                                         ; preds = %for.cond.preheader,
 
 if.then21:                                        ; preds = %for.body
   %call22 = tail call ptr @EVP_CIPHER_meth_get_ctrl(ptr noundef %cipher) #8
-  %arrayidx24 = getelementptr inbounds [32 x [13 x i8]], ptr %tlsaad23, i64 0, i64 %indvars.iv
+  %arrayidx24 = getelementptr inbounds nuw [32 x [13 x i8]], ptr %tlsaad23, i64 0, i64 %indvars.iv
   %call26 = tail call i32 %call22(ptr noundef %ctx, i32 noundef 22, i32 noundef 13, ptr noundef nonnull %arrayidx24) #8
   br label %if.end27
 
@@ -1386,13 +1386,13 @@ if.end27:                                         ; preds = %if.then21, %for.bod
 land.rhs:                                         ; preds = %if.end27
   %call28 = tail call ptr @EVP_CIPHER_meth_get_do_cipher(ptr noundef %cipher) #8
   %4 = load ptr, ptr %outbufs, align 8
-  %arrayidx30 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
+  %arrayidx30 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   %5 = load ptr, ptr %arrayidx30, align 8
   %6 = load ptr, ptr %inbufs, align 8
-  %arrayidx32 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
+  %arrayidx32 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   %7 = load ptr, ptr %arrayidx32, align 8
   %8 = load ptr, ptr %lens, align 8
-  %arrayidx34 = getelementptr inbounds i64, ptr %8, i64 %indvars.iv
+  %arrayidx34 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv
   %9 = load i64, ptr %arrayidx34, align 8
   %call35 = tail call i32 %call28(ptr noundef %ctx, ptr noundef %5, ptr noundef %7, i64 noundef %9) #8
   %tobool36 = icmp ne i32 %call35, 0
@@ -1411,7 +1411,7 @@ for.end:                                          ; preds = %land.end
 
 if.end38:                                         ; preds = %for.end, %if.end9
   %ret.0 = phi i32 [ %call11, %if.end9 ], [ %land.ext, %for.end ]
-  %aadctr39 = getelementptr inbounds i8, ptr %call, i64 456
+  %aadctr39 = getelementptr inbounds nuw i8, ptr %call, i64 456
   store i32 0, ptr %aadctr39, align 8
   %call40 = tail call ptr @EVP_CIPHER_CTX_set_cipher_data(ptr noundef %ctx, ptr noundef nonnull %call) #8
   br label %return
@@ -1458,23 +1458,23 @@ if.end6:                                          ; preds = %sw.bb
   br label %return
 
 sw.bb9:                                           ; preds = %if.end
-  %numpipes = getelementptr inbounds i8, ptr %call, i64 8
+  %numpipes = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i32 %arg, ptr %numpipes, align 8
-  %outbufs = getelementptr inbounds i8, ptr %call, i64 24
+  %outbufs = getelementptr inbounds nuw i8, ptr %call, i64 24
   store ptr %ptr, ptr %outbufs, align 8
   br label %return
 
 sw.bb10:                                          ; preds = %if.end
-  %numpipes11 = getelementptr inbounds i8, ptr %call, i64 8
+  %numpipes11 = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i32 %arg, ptr %numpipes11, align 8
-  %inbufs = getelementptr inbounds i8, ptr %call, i64 16
+  %inbufs = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr %ptr, ptr %inbufs, align 8
   br label %return
 
 sw.bb12:                                          ; preds = %if.end
-  %numpipes13 = getelementptr inbounds i8, ptr %call, i64 8
+  %numpipes13 = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i32 %arg, ptr %numpipes13, align 8
-  %lens = getelementptr inbounds i8, ptr %call, i64 32
+  %lens = getelementptr inbounds nuw i8, ptr %call, i64 32
   store ptr %ptr, ptr %lens, align 8
   br label %return
 
@@ -1498,24 +1498,24 @@ sw.bb23:                                          ; preds = %if.end
   br i1 %or.cond, label %return, label %if.end28
 
 if.end28:                                         ; preds = %sw.bb23
-  %aadctr = getelementptr inbounds i8, ptr %call, i64 456
+  %aadctr = getelementptr inbounds nuw i8, ptr %call, i64 456
   %2 = load i32, ptr %aadctr, align 8
   %cmp29 = icmp ugt i32 %2, 31
   br i1 %cmp29, label %return, label %if.end32
 
 if.end32:                                         ; preds = %if.end28
-  %tlsaad = getelementptr inbounds i8, ptr %call, i64 40
+  %tlsaad = getelementptr inbounds nuw i8, ptr %call, i64 40
   %idxprom = zext nneg i32 %2 to i64
-  %arrayidx = getelementptr inbounds [32 x [13 x i8]], ptr %tlsaad, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [32 x [13 x i8]], ptr %tlsaad, i64 0, i64 %idxprom
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %arrayidx, ptr noundef nonnull align 1 dereferenceable(13) %ptr, i64 13, i1 false)
   %3 = load i32, ptr %aadctr, align 8
   %inc = add i32 %3, 1
   store i32 %inc, ptr %aadctr, align 8
-  %arrayidx36 = getelementptr inbounds i8, ptr %ptr, i64 11
+  %arrayidx36 = getelementptr inbounds nuw i8, ptr %ptr, i64 11
   %4 = load i8, ptr %arrayidx36, align 1
   %conv37 = zext i8 %4 to i32
   %shl = shl nuw nsw i32 %conv37, 8
-  %arrayidx40 = getelementptr inbounds i8, ptr %ptr, i64 12
+  %arrayidx40 = getelementptr inbounds nuw i8, ptr %ptr, i64 12
   %5 = load i8, ptr %arrayidx40, align 1
   %conv41 = zext i8 %5 to i32
   %or = or disjoint i32 %shl, %conv41
@@ -1524,11 +1524,11 @@ if.end32:                                         ; preds = %if.end28
   br i1 %tobool43.not, label %return, label %if.then44
 
 if.then44:                                        ; preds = %if.end32
-  %arrayidx47 = getelementptr inbounds i8, ptr %ptr, i64 9
+  %arrayidx47 = getelementptr inbounds nuw i8, ptr %ptr, i64 9
   %6 = load i8, ptr %arrayidx47, align 1
   %conv48 = zext i8 %6 to i32
   %shl49 = shl nuw nsw i32 %conv48, 8
-  %arrayidx52 = getelementptr inbounds i8, ptr %ptr, i64 10
+  %arrayidx52 = getelementptr inbounds nuw i8, ptr %ptr, i64 10
   %7 = load i8, ptr %arrayidx52, align 1
   %conv53 = zext i8 %7 to i32
   %or54 = or disjoint i32 %shl49, %conv53

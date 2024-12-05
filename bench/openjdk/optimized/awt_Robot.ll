@@ -40,7 +40,7 @@ define void @Java_sun_awt_X11_XRobotPeer_setup(ptr noundef %0, ptr nocapture nou
   %11 = alloca i32, align 4
   store i32 %2, ptr @num_buttons, align 4
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 1496
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1496
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr %14(ptr noundef nonnull %0, ptr noundef %3, ptr noundef null) #8
   %16 = icmp eq ptr %15, null
@@ -69,11 +69,11 @@ define void @Java_sun_awt_X11_XRobotPeer_setup(ptr noundef %0, ptr nocapture nou
 
 25:                                               ; preds = %.thread, %20
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 136
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 136
   %28 = load ptr, ptr %27, align 8
   tail call void %28(ptr noundef nonnull %0) #8
   %29 = load ptr, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 1560
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 1560
   %31 = load ptr, ptr %30, align 8
   tail call void %31(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %15, i32 noundef 0) #8
   %32 = load ptr, ptr @jvm, align 8
@@ -83,9 +83,9 @@ define void @Java_sun_awt_X11_XRobotPeer_setup(ptr noundef %0, ptr nocapture nou
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
-  %34 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4
-  %36 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv
   store i32 %35, ptr %36, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %21
@@ -93,11 +93,11 @@ define void @Java_sun_awt_X11_XRobotPeer_setup(ptr noundef %0, ptr nocapture nou
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %37 = load ptr, ptr %0, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 1560
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 1560
   %39 = load ptr, ptr %38, align 8
   tail call void %39(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %15, i32 noundef 0) #8
   %40 = load ptr, ptr %0, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 1824
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 1824
   %42 = load ptr, ptr %41, align 8
   %43 = tail call zeroext i8 %42(ptr noundef nonnull %0) #8
   %.not = icmp eq i8 %43, 0
@@ -105,20 +105,20 @@ define void @Java_sun_awt_X11_XRobotPeer_setup(ptr noundef %0, ptr nocapture nou
 
 44:                                               ; preds = %._crit_edge
   %45 = load ptr, ptr %0, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 136
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 136
   %47 = load ptr, ptr %46, align 8
   tail call void %47(ptr noundef nonnull %0) #8
   br label %48
 
 48:                                               ; preds = %44, %._crit_edge
   %49 = load ptr, ptr %0, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 1128
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 1128
   %51 = load ptr, ptr %50, align 8
   %52 = load ptr, ptr @tkClass, align 8
   %53 = load ptr, ptr @awtLockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %51(ptr noundef nonnull %0, ptr noundef %52, ptr noundef %53) #8
   %54 = load ptr, ptr %0, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 1824
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 1824
   %56 = load ptr, ptr %55, align 8
   %57 = tail call zeroext i8 %56(ptr noundef nonnull %0) #8
   %.not53 = icmp eq i8 %57, 0
@@ -126,7 +126,7 @@ define void @Java_sun_awt_X11_XRobotPeer_setup(ptr noundef %0, ptr nocapture nou
 
 58:                                               ; preds = %48
   %59 = load ptr, ptr %0, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 136
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 136
   %61 = load ptr, ptr %60, align 8
   tail call void %61(ptr noundef nonnull %0) #8
   br label %62
@@ -191,7 +191,7 @@ isXTestAvailable.exit:                            ; preds = %73, %75
 78:                                               ; preds = %isXTestAvailable.exit, %.thread59
   call void (...) @awt_output_flush() #8
   %79 = load ptr, ptr %0, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 120
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 120
   %81 = load ptr, ptr %80, align 8
   %82 = call ptr %81(ptr noundef nonnull %0) #8
   %.not55 = icmp eq ptr %82, null
@@ -199,20 +199,20 @@ isXTestAvailable.exit:                            ; preds = %73, %75
 
 83:                                               ; preds = %78
   %84 = load ptr, ptr %0, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 136
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 136
   %86 = load ptr, ptr %85, align 8
   call void %86(ptr noundef nonnull %0) #8
   br label %87
 
 87:                                               ; preds = %83, %78
   %88 = load ptr, ptr %0, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 1128
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 1128
   %90 = load ptr, ptr %89, align 8
   %91 = load ptr, ptr @tkClass, align 8
   %92 = load ptr, ptr @awtUnlockMID, align 8
   call void (ptr, ptr, ptr, ...) %90(ptr noundef nonnull %0, ptr noundef %91, ptr noundef %92) #8
   %93 = load ptr, ptr %0, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 1824
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 1824
   %95 = load ptr, ptr %94, align 8
   %96 = call zeroext i8 %95(ptr noundef nonnull %0) #8
   %.not56 = icmp eq i8 %96, 0
@@ -220,7 +220,7 @@ isXTestAvailable.exit:                            ; preds = %73, %75
 
 97:                                               ; preds = %87
   %98 = load ptr, ptr %0, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 136
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 136
   %100 = load ptr, ptr %99, align 8
   call void %100(ptr noundef nonnull %0) #8
   br label %101
@@ -230,7 +230,7 @@ isXTestAvailable.exit:                            ; preds = %73, %75
 
 102:                                              ; preds = %101
   %103 = load ptr, ptr %0, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 104
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 104
   %105 = load ptr, ptr %104, align 8
   %106 = call i32 %105(ptr noundef nonnull %0, ptr noundef nonnull %82) #8
   br label %107
@@ -265,13 +265,13 @@ define void @Java_sun_awt_X11_XRobotPeer_getRGBPixelsImpl(ptr noundef %0, ptr no
 
 18:                                               ; preds = %9
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 808
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 808
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr @x11GraphicsConfigIDs, align 8
   %23 = tail call i64 %21(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %22) #8
   %24 = inttoptr i64 %23 to ptr
   %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 1824
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 1824
   %27 = load ptr, ptr %26, align 8
   %28 = tail call zeroext i8 %27(ptr noundef nonnull %0) #8
   %.not = icmp eq i8 %28, 0
@@ -279,20 +279,20 @@ define void @Java_sun_awt_X11_XRobotPeer_getRGBPixelsImpl(ptr noundef %0, ptr no
 
 29:                                               ; preds = %18
   %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 136
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 136
   %32 = load ptr, ptr %31, align 8
   tail call void %32(ptr noundef nonnull %0) #8
   br label %33
 
 33:                                               ; preds = %29, %18
   %34 = load ptr, ptr %0, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 1128
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 1128
   %36 = load ptr, ptr %35, align 8
   %37 = load ptr, ptr @tkClass, align 8
   %38 = load ptr, ptr @awtLockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %36(ptr noundef nonnull %0, ptr noundef %37, ptr noundef %38) #8
   %39 = load ptr, ptr %0, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 1824
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 1824
   %41 = load ptr, ptr %40, align 8
   %42 = tail call zeroext i8 %41(ptr noundef nonnull %0) #8
   %.not150 = icmp eq i8 %42, 0
@@ -300,14 +300,14 @@ define void @Java_sun_awt_X11_XRobotPeer_getRGBPixelsImpl(ptr noundef %0, ptr no
 
 43:                                               ; preds = %33
   %44 = load ptr, ptr %0, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 136
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 136
   %46 = load ptr, ptr %45, align 8
   tail call void %46(ptr noundef nonnull %0) #8
   br label %47
 
 47:                                               ; preds = %33, %43
   %48 = load ptr, ptr @awt_display, align 8
-  %49 = getelementptr inbounds i8, ptr %24, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %50 = load i32, ptr %49, align 8
   %51 = tail call i64 @XRootWindow(ptr noundef %48, i32 noundef %50) #8
   %.not151 = icmp eq i8 %8, 0
@@ -388,7 +388,7 @@ hasXCompositeOverlayExtension.exit:               ; preds = %60
   br i1 %.not155, label %84, label %96
 
 84:                                               ; preds = %81
-  %85 = getelementptr inbounds i8, ptr %15, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %86 = load i32, ptr %85, align 8
   %87 = add nsw i32 %86, %83
   %.not156 = icmp sgt i32 %87, %3
@@ -396,13 +396,13 @@ hasXCompositeOverlayExtension.exit:               ; preds = %60
 
 88:                                               ; preds = %84
   %89 = add nsw i32 %6, %4
-  %90 = getelementptr inbounds i8, ptr %15, i64 4
+  %90 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %91 = load i32, ptr %90, align 4
   %.not157 = icmp sgt i32 %89, %91
   br i1 %.not157, label %92, label %96
 
 92:                                               ; preds = %88
-  %93 = getelementptr inbounds i8, ptr %15, i64 12
+  %93 = getelementptr inbounds nuw i8, ptr %15, i64 12
   %94 = load i32, ptr %93, align 4
   %95 = add nsw i32 %94, %91
   %.not158 = icmp sgt i32 %95, %4
@@ -411,7 +411,7 @@ hasXCompositeOverlayExtension.exit:               ; preds = %60
 96:                                               ; preds = %78, %81, %84, %88, %92
   call void (...) @awt_output_flush() #8
   %97 = load ptr, ptr %0, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 120
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 120
   %99 = load ptr, ptr %98, align 8
   %100 = call ptr %99(ptr noundef nonnull %0) #8
   %.not165 = icmp eq ptr %100, null
@@ -419,20 +419,20 @@ hasXCompositeOverlayExtension.exit:               ; preds = %60
 
 101:                                              ; preds = %96
   %102 = load ptr, ptr %0, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 136
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 136
   %104 = load ptr, ptr %103, align 8
   call void %104(ptr noundef nonnull %0) #8
   br label %105
 
 105:                                              ; preds = %101, %96
   %106 = load ptr, ptr %0, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 1128
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 1128
   %108 = load ptr, ptr %107, align 8
   %109 = load ptr, ptr @tkClass, align 8
   %110 = load ptr, ptr @awtUnlockMID, align 8
   call void (ptr, ptr, ptr, ...) %108(ptr noundef nonnull %0, ptr noundef %109, ptr noundef %110) #8
   %111 = load ptr, ptr %0, align 8
-  %112 = getelementptr inbounds i8, ptr %111, i64 1824
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 1824
   %113 = load ptr, ptr %112, align 8
   %114 = call zeroext i8 %113(ptr noundef nonnull %0) #8
   %.not166 = icmp eq i8 %114, 0
@@ -440,7 +440,7 @@ hasXCompositeOverlayExtension.exit:               ; preds = %60
 
 115:                                              ; preds = %105
   %116 = load ptr, ptr %0, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 136
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 136
   %118 = load ptr, ptr %117, align 8
   call void %118(ptr noundef nonnull %0) #8
   br label %119
@@ -465,15 +465,15 @@ hasXCompositeOverlayExtension.exit:               ; preds = %60
 
 132:                                              ; preds = %120
   %133 = load ptr, ptr @gtk, align 8
-  %134 = getelementptr inbounds i8, ptr %133, i64 248
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 248
   %135 = load ptr, ptr %134, align 8
   call void %135() #8
   %136 = load ptr, ptr @gtk, align 8
-  %137 = getelementptr inbounds i8, ptr %136, i64 272
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 272
   %138 = load ptr, ptr %137, align 8
   %139 = call i32 %138(ptr noundef nonnull %0, ptr noundef %7, i32 noundef %121, i32 noundef %122, i32 noundef %123, i32 noundef %125, i32 noundef %5, i32 noundef %128, i32 noundef %131) #8
   %140 = load ptr, ptr @gtk, align 8
-  %141 = getelementptr inbounds i8, ptr %140, i64 256
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 256
   %142 = load ptr, ptr %141, align 8
   call void %142() #8
   %143 = icmp eq i32 %139, 0
@@ -483,7 +483,7 @@ hasXCompositeOverlayExtension.exit:               ; preds = %60
   %144 = load ptr, ptr @awt_display, align 8
   %145 = call fastcc ptr @getWindowImage(ptr noundef %144, i64 noundef %.0, i32 noundef %121, i32 noundef %122, i32 noundef %123, i32 noundef %125)
   %146 = load ptr, ptr %0, align 8
-  %147 = getelementptr inbounds i8, ptr %146, i64 1776
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 1776
   %148 = load ptr, ptr %147, align 8
   %149 = call ptr %148(ptr noundef nonnull %0, ptr noundef %7, ptr noundef null) #8
   %.not160 = icmp eq ptr %149, null
@@ -495,7 +495,7 @@ hasXCompositeOverlayExtension.exit:               ; preds = %60
 
 .preheader.lr.ph:                                 ; preds = %.preheader172
   %151 = icmp sgt i32 %123, 0
-  %152 = getelementptr inbounds i8, ptr %145, i64 104
+  %152 = getelementptr inbounds nuw i8, ptr %145, i64 104
   br i1 %151, label %.preheader.us.preheader, label %._crit_edge175
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
@@ -530,12 +530,12 @@ hasXCompositeOverlayExtension.exit:               ; preds = %60
   br i1 %exitcond178.not, label %._crit_edge175, label %.preheader.us, !llvm.loop !9
 
 166:                                              ; preds = %.critedge
-  %167 = getelementptr inbounds i8, ptr %145, i64 96
+  %167 = getelementptr inbounds nuw i8, ptr %145, i64 96
   %168 = load ptr, ptr %167, align 8
   %169 = call i32 %168(ptr noundef %145) #8
   call void (...) @awt_output_flush() #8
   %170 = load ptr, ptr %0, align 8
-  %171 = getelementptr inbounds i8, ptr %170, i64 120
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 120
   %172 = load ptr, ptr %171, align 8
   %173 = call ptr %172(ptr noundef nonnull %0) #8
   %.not161 = icmp eq ptr %173, null
@@ -543,20 +543,20 @@ hasXCompositeOverlayExtension.exit:               ; preds = %60
 
 174:                                              ; preds = %166
   %175 = load ptr, ptr %0, align 8
-  %176 = getelementptr inbounds i8, ptr %175, i64 136
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 136
   %177 = load ptr, ptr %176, align 8
   call void %177(ptr noundef nonnull %0) #8
   br label %178
 
 178:                                              ; preds = %174, %166
   %179 = load ptr, ptr %0, align 8
-  %180 = getelementptr inbounds i8, ptr %179, i64 1128
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 1128
   %181 = load ptr, ptr %180, align 8
   %182 = load ptr, ptr @tkClass, align 8
   %183 = load ptr, ptr @awtUnlockMID, align 8
   call void (ptr, ptr, ptr, ...) %181(ptr noundef nonnull %0, ptr noundef %182, ptr noundef %183) #8
   %184 = load ptr, ptr %0, align 8
-  %185 = getelementptr inbounds i8, ptr %184, i64 1824
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 1824
   %186 = load ptr, ptr %185, align 8
   %187 = call zeroext i8 %186(ptr noundef nonnull %0) #8
   %.not162 = icmp eq i8 %187, 0
@@ -564,7 +564,7 @@ hasXCompositeOverlayExtension.exit:               ; preds = %60
 
 188:                                              ; preds = %178
   %189 = load ptr, ptr %0, align 8
-  %190 = getelementptr inbounds i8, ptr %189, i64 136
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 136
   %191 = load ptr, ptr %190, align 8
   call void %191(ptr noundef nonnull %0) #8
   br label %192
@@ -573,11 +573,11 @@ hasXCompositeOverlayExtension.exit:               ; preds = %60
   br i1 %.not161, label %227, label %.sink.split
 
 ._crit_edge175:                                   ; preds = %._crit_edge.us, %.preheader.lr.ph, %.preheader172
-  %193 = getelementptr inbounds i8, ptr %145, i64 96
+  %193 = getelementptr inbounds nuw i8, ptr %145, i64 96
   %194 = load ptr, ptr %193, align 8
   %195 = call i32 %194(ptr noundef %145) #8
   %196 = load ptr, ptr %0, align 8
-  %197 = getelementptr inbounds i8, ptr %196, i64 1784
+  %197 = getelementptr inbounds nuw i8, ptr %196, i64 1784
   %198 = load ptr, ptr %197, align 8
   call void %198(ptr noundef nonnull %0, ptr noundef %7, ptr noundef nonnull %149, i32 noundef 0) #8
   br label %199
@@ -585,7 +585,7 @@ hasXCompositeOverlayExtension.exit:               ; preds = %60
 199:                                              ; preds = %132, %._crit_edge175
   call void (...) @awt_output_flush() #8
   %200 = load ptr, ptr %0, align 8
-  %201 = getelementptr inbounds i8, ptr %200, i64 120
+  %201 = getelementptr inbounds nuw i8, ptr %200, i64 120
   %202 = load ptr, ptr %201, align 8
   %203 = call ptr %202(ptr noundef nonnull %0) #8
   %.not163 = icmp eq ptr %203, null
@@ -593,20 +593,20 @@ hasXCompositeOverlayExtension.exit:               ; preds = %60
 
 204:                                              ; preds = %199
   %205 = load ptr, ptr %0, align 8
-  %206 = getelementptr inbounds i8, ptr %205, i64 136
+  %206 = getelementptr inbounds nuw i8, ptr %205, i64 136
   %207 = load ptr, ptr %206, align 8
   call void %207(ptr noundef nonnull %0) #8
   br label %208
 
 208:                                              ; preds = %204, %199
   %209 = load ptr, ptr %0, align 8
-  %210 = getelementptr inbounds i8, ptr %209, i64 1128
+  %210 = getelementptr inbounds nuw i8, ptr %209, i64 1128
   %211 = load ptr, ptr %210, align 8
   %212 = load ptr, ptr @tkClass, align 8
   %213 = load ptr, ptr @awtUnlockMID, align 8
   call void (ptr, ptr, ptr, ...) %211(ptr noundef nonnull %0, ptr noundef %212, ptr noundef %213) #8
   %214 = load ptr, ptr %0, align 8
-  %215 = getelementptr inbounds i8, ptr %214, i64 1824
+  %215 = getelementptr inbounds nuw i8, ptr %214, i64 1824
   %216 = load ptr, ptr %215, align 8
   %217 = call zeroext i8 %216(ptr noundef nonnull %0) #8
   %.not164 = icmp eq i8 %217, 0
@@ -614,7 +614,7 @@ hasXCompositeOverlayExtension.exit:               ; preds = %60
 
 218:                                              ; preds = %208
   %219 = load ptr, ptr %0, align 8
-  %220 = getelementptr inbounds i8, ptr %219, i64 136
+  %220 = getelementptr inbounds nuw i8, ptr %219, i64 136
   %221 = load ptr, ptr %220, align 8
   call void %221(ptr noundef nonnull %0) #8
   br label %222
@@ -625,7 +625,7 @@ hasXCompositeOverlayExtension.exit:               ; preds = %60
 .sink.split:                                      ; preds = %222, %192, %119
   %.sink = phi ptr [ %100, %119 ], [ %173, %192 ], [ %203, %222 ]
   %223 = load ptr, ptr %0, align 8
-  %224 = getelementptr inbounds i8, ptr %223, i64 104
+  %224 = getelementptr inbounds nuw i8, ptr %223, i64 104
   %225 = load ptr, ptr %224, align 8
   %226 = call i32 %225(ptr noundef nonnull %0, ptr noundef nonnull %.sink) #8
   br label %227
@@ -671,7 +671,7 @@ define internal fastcc ptr @getWindowImage(ptr noundef %0, i64 noundef %1, i32 n
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_awt_X11_XRobotPeer_keyPressImpl(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 1824
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1824
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i8 %6(ptr noundef nonnull %0) #8
   %.not = icmp eq i8 %7, 0
@@ -679,20 +679,20 @@ define void @Java_sun_awt_X11_XRobotPeer_keyPressImpl(ptr noundef %0, ptr nocapt
 
 8:                                                ; preds = %3
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 136
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 136
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull %0) #8
   br label %12
 
 12:                                               ; preds = %8, %3
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 1128
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 1128
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr @tkClass, align 8
   %17 = load ptr, ptr @awtLockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %15(ptr noundef nonnull %0, ptr noundef %16, ptr noundef %17) #8
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 1824
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 1824
   %20 = load ptr, ptr %19, align 8
   %21 = tail call zeroext i8 %20(ptr noundef nonnull %0) #8
   %.not24 = icmp eq i8 %21, 0
@@ -700,7 +700,7 @@ define void @Java_sun_awt_X11_XRobotPeer_keyPressImpl(ptr noundef %0, ptr nocapt
 
 22:                                               ; preds = %12
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 136
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 136
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull %0) #8
   br label %26
@@ -715,7 +715,7 @@ define void @Java_sun_awt_X11_XRobotPeer_keyPressImpl(ptr noundef %0, ptr nocapt
   %33 = tail call i32 @XSync(ptr noundef %32, i32 noundef 0) #8
   tail call void (...) @awt_output_flush() #8
   %34 = load ptr, ptr %0, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 120
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 120
   %36 = load ptr, ptr %35, align 8
   %37 = tail call ptr %36(ptr noundef nonnull %0) #8
   %.not25 = icmp eq ptr %37, null
@@ -723,20 +723,20 @@ define void @Java_sun_awt_X11_XRobotPeer_keyPressImpl(ptr noundef %0, ptr nocapt
 
 38:                                               ; preds = %26
   %39 = load ptr, ptr %0, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 136
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 136
   %41 = load ptr, ptr %40, align 8
   tail call void %41(ptr noundef nonnull %0) #8
   br label %42
 
 42:                                               ; preds = %38, %26
   %43 = load ptr, ptr %0, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 1128
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 1128
   %45 = load ptr, ptr %44, align 8
   %46 = load ptr, ptr @tkClass, align 8
   %47 = load ptr, ptr @awtUnlockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %45(ptr noundef nonnull %0, ptr noundef %46, ptr noundef %47) #8
   %48 = load ptr, ptr %0, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 1824
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 1824
   %50 = load ptr, ptr %49, align 8
   %51 = tail call zeroext i8 %50(ptr noundef nonnull %0) #8
   %.not26 = icmp eq i8 %51, 0
@@ -744,7 +744,7 @@ define void @Java_sun_awt_X11_XRobotPeer_keyPressImpl(ptr noundef %0, ptr nocapt
 
 52:                                               ; preds = %42
   %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 136
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 136
   %55 = load ptr, ptr %54, align 8
   tail call void %55(ptr noundef nonnull %0) #8
   br label %56
@@ -754,7 +754,7 @@ define void @Java_sun_awt_X11_XRobotPeer_keyPressImpl(ptr noundef %0, ptr nocapt
 
 57:                                               ; preds = %56
   %58 = load ptr, ptr %0, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 104
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 104
   %60 = load ptr, ptr %59, align 8
   %61 = tail call i32 %60(ptr noundef nonnull %0, ptr noundef nonnull %37) #8
   br label %62
@@ -774,7 +774,7 @@ declare i32 @XSync(ptr noundef, i32 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_awt_X11_XRobotPeer_keyReleaseImpl(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 1824
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1824
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i8 %6(ptr noundef nonnull %0) #8
   %.not = icmp eq i8 %7, 0
@@ -782,20 +782,20 @@ define void @Java_sun_awt_X11_XRobotPeer_keyReleaseImpl(ptr noundef %0, ptr noca
 
 8:                                                ; preds = %3
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 136
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 136
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull %0) #8
   br label %12
 
 12:                                               ; preds = %8, %3
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 1128
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 1128
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr @tkClass, align 8
   %17 = load ptr, ptr @awtLockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %15(ptr noundef nonnull %0, ptr noundef %16, ptr noundef %17) #8
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 1824
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 1824
   %20 = load ptr, ptr %19, align 8
   %21 = tail call zeroext i8 %20(ptr noundef nonnull %0) #8
   %.not24 = icmp eq i8 %21, 0
@@ -803,7 +803,7 @@ define void @Java_sun_awt_X11_XRobotPeer_keyReleaseImpl(ptr noundef %0, ptr noca
 
 22:                                               ; preds = %12
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 136
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 136
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull %0) #8
   br label %26
@@ -818,7 +818,7 @@ define void @Java_sun_awt_X11_XRobotPeer_keyReleaseImpl(ptr noundef %0, ptr noca
   %33 = tail call i32 @XSync(ptr noundef %32, i32 noundef 0) #8
   tail call void (...) @awt_output_flush() #8
   %34 = load ptr, ptr %0, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 120
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 120
   %36 = load ptr, ptr %35, align 8
   %37 = tail call ptr %36(ptr noundef nonnull %0) #8
   %.not25 = icmp eq ptr %37, null
@@ -826,20 +826,20 @@ define void @Java_sun_awt_X11_XRobotPeer_keyReleaseImpl(ptr noundef %0, ptr noca
 
 38:                                               ; preds = %26
   %39 = load ptr, ptr %0, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 136
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 136
   %41 = load ptr, ptr %40, align 8
   tail call void %41(ptr noundef nonnull %0) #8
   br label %42
 
 42:                                               ; preds = %38, %26
   %43 = load ptr, ptr %0, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 1128
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 1128
   %45 = load ptr, ptr %44, align 8
   %46 = load ptr, ptr @tkClass, align 8
   %47 = load ptr, ptr @awtUnlockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %45(ptr noundef nonnull %0, ptr noundef %46, ptr noundef %47) #8
   %48 = load ptr, ptr %0, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 1824
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 1824
   %50 = load ptr, ptr %49, align 8
   %51 = tail call zeroext i8 %50(ptr noundef nonnull %0) #8
   %.not26 = icmp eq i8 %51, 0
@@ -847,7 +847,7 @@ define void @Java_sun_awt_X11_XRobotPeer_keyReleaseImpl(ptr noundef %0, ptr noca
 
 52:                                               ; preds = %42
   %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 136
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 136
   %55 = load ptr, ptr %54, align 8
   tail call void %55(ptr noundef nonnull %0) #8
   br label %56
@@ -857,7 +857,7 @@ define void @Java_sun_awt_X11_XRobotPeer_keyReleaseImpl(ptr noundef %0, ptr noca
 
 57:                                               ; preds = %56
   %58 = load ptr, ptr %0, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 104
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 104
   %60 = load ptr, ptr %59, align 8
   %61 = tail call i32 %60(ptr noundef nonnull %0, ptr noundef nonnull %37) #8
   br label %62
@@ -869,7 +869,7 @@ define void @Java_sun_awt_X11_XRobotPeer_keyReleaseImpl(ptr noundef %0, ptr noca
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_awt_X11_XRobotPeer_mouseMoveImpl(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 1824
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1824
   %8 = load ptr, ptr %7, align 8
   %9 = tail call zeroext i8 %8(ptr noundef nonnull %0) #8
   %.not = icmp eq i8 %9, 0
@@ -877,20 +877,20 @@ define void @Java_sun_awt_X11_XRobotPeer_mouseMoveImpl(ptr noundef %0, ptr nocap
 
 10:                                               ; preds = %5
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 136
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 136
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull %0) #8
   br label %14
 
 14:                                               ; preds = %10, %5
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 1128
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1128
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr @tkClass, align 8
   %19 = load ptr, ptr @awtLockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %17(ptr noundef nonnull %0, ptr noundef %18, ptr noundef %19) #8
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 1824
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 1824
   %22 = load ptr, ptr %21, align 8
   %23 = tail call zeroext i8 %22(ptr noundef nonnull %0) #8
   %.not29 = icmp eq i8 %23, 0
@@ -898,20 +898,20 @@ define void @Java_sun_awt_X11_XRobotPeer_mouseMoveImpl(ptr noundef %0, ptr nocap
 
 24:                                               ; preds = %14
   %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 136
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 136
   %27 = load ptr, ptr %26, align 8
   tail call void %27(ptr noundef nonnull %0) #8
   br label %28
 
 28:                                               ; preds = %14, %24
   %29 = load ptr, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 808
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 808
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr @x11GraphicsConfigIDs, align 8
   %33 = tail call i64 %31(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %32) #8
   %34 = inttoptr i64 %33 to ptr
   %35 = load ptr, ptr @awt_display, align 8
-  %36 = getelementptr inbounds i8, ptr %34, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %37 = load i32, ptr %36, align 8
   %38 = tail call i64 @XRootWindow(ptr noundef %35, i32 noundef %37) #8
   %39 = tail call i32 @XWarpPointer(ptr noundef %35, i64 noundef 0, i64 noundef %38, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef %3, i32 noundef %4) #8
@@ -919,7 +919,7 @@ define void @Java_sun_awt_X11_XRobotPeer_mouseMoveImpl(ptr noundef %0, ptr nocap
   %41 = tail call i32 @XSync(ptr noundef %40, i32 noundef 0) #8
   tail call void (...) @awt_output_flush() #8
   %42 = load ptr, ptr %0, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 120
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 120
   %44 = load ptr, ptr %43, align 8
   %45 = tail call ptr %44(ptr noundef nonnull %0) #8
   %.not30 = icmp eq ptr %45, null
@@ -927,20 +927,20 @@ define void @Java_sun_awt_X11_XRobotPeer_mouseMoveImpl(ptr noundef %0, ptr nocap
 
 46:                                               ; preds = %28
   %47 = load ptr, ptr %0, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 136
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 136
   %49 = load ptr, ptr %48, align 8
   tail call void %49(ptr noundef nonnull %0) #8
   br label %50
 
 50:                                               ; preds = %46, %28
   %51 = load ptr, ptr %0, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 1128
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 1128
   %53 = load ptr, ptr %52, align 8
   %54 = load ptr, ptr @tkClass, align 8
   %55 = load ptr, ptr @awtUnlockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %53(ptr noundef nonnull %0, ptr noundef %54, ptr noundef %55) #8
   %56 = load ptr, ptr %0, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 1824
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 1824
   %58 = load ptr, ptr %57, align 8
   %59 = tail call zeroext i8 %58(ptr noundef nonnull %0) #8
   %.not31 = icmp eq i8 %59, 0
@@ -948,7 +948,7 @@ define void @Java_sun_awt_X11_XRobotPeer_mouseMoveImpl(ptr noundef %0, ptr nocap
 
 60:                                               ; preds = %50
   %61 = load ptr, ptr %0, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 136
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 136
   %63 = load ptr, ptr %62, align 8
   tail call void %63(ptr noundef nonnull %0) #8
   br label %64
@@ -958,7 +958,7 @@ define void @Java_sun_awt_X11_XRobotPeer_mouseMoveImpl(ptr noundef %0, ptr nocap
 
 65:                                               ; preds = %64
   %66 = load ptr, ptr %0, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 104
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 104
   %68 = load ptr, ptr %67, align 8
   %69 = tail call i32 %68(ptr noundef nonnull %0, ptr noundef nonnull %45) #8
   br label %70
@@ -972,7 +972,7 @@ declare i32 @XWarpPointer(ptr noundef, i64 noundef, i64 noundef, i32 noundef, i3
 ; Function Attrs: nounwind uwtable
 define hidden void @mouseAction(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 1824
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 1824
   %7 = load ptr, ptr %6, align 8
   %8 = tail call zeroext i8 %7(ptr noundef nonnull %0) #8
   %.not = icmp eq i8 %8, 0
@@ -980,20 +980,20 @@ define hidden void @mouseAction(ptr noundef %0, ptr nocapture readnone %1, i32 n
 
 9:                                                ; preds = %4
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 136
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 136
   %12 = load ptr, ptr %11, align 8
   tail call void %12(ptr noundef nonnull %0) #8
   br label %13
 
 13:                                               ; preds = %9, %4
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 1128
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 1128
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr @tkClass, align 8
   %18 = load ptr, ptr @awtLockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %16(ptr noundef nonnull %0, ptr noundef %17, ptr noundef %18) #8
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 1824
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 1824
   %21 = load ptr, ptr %20, align 8
   %22 = tail call zeroext i8 %21(ptr noundef nonnull %0) #8
   %.not44 = icmp eq i8 %22, 0
@@ -1001,7 +1001,7 @@ define hidden void @mouseAction(ptr noundef %0, ptr nocapture readnone %1, i32 n
 
 23:                                               ; preds = %13
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 136
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 136
   %26 = load ptr, ptr %25, align 8
   tail call void %26(ptr noundef nonnull %0) #8
   br label %27
@@ -1076,7 +1076,7 @@ define hidden void @mouseAction(ptr noundef %0, ptr nocapture readnone %1, i32 n
   %57 = phi i32 [ %55, %.lr.ph.preheader ], [ %68, %67 ]
   %58 = phi ptr [ %.pre59, %.lr.ph.preheader ], [ %69, %67 ]
   %indvars.iv = phi i64 [ 3, %.lr.ph.preheader ], [ %indvars.iv.next, %67 ]
-  %59 = getelementptr inbounds i32, ptr %58, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv
   %60 = load i32, ptr %59, align 4
   %61 = and i32 %60, %2
   %.not51 = icmp eq i32 %61, 0
@@ -1104,7 +1104,7 @@ define hidden void @mouseAction(ptr noundef %0, ptr nocapture readnone %1, i32 n
   %73 = tail call i32 @XSync(ptr noundef %72, i32 noundef 0) #8
   tail call void (...) @awt_output_flush() #8
   %74 = load ptr, ptr %0, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 120
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 120
   %76 = load ptr, ptr %75, align 8
   %77 = tail call ptr %76(ptr noundef nonnull %0) #8
   %.not49 = icmp eq ptr %77, null
@@ -1112,20 +1112,20 @@ define hidden void @mouseAction(ptr noundef %0, ptr nocapture readnone %1, i32 n
 
 78:                                               ; preds = %.thread
   %79 = load ptr, ptr %0, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 136
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 136
   %81 = load ptr, ptr %80, align 8
   tail call void %81(ptr noundef nonnull %0) #8
   br label %82
 
 82:                                               ; preds = %78, %.thread
   %83 = load ptr, ptr %0, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 1128
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 1128
   %85 = load ptr, ptr %84, align 8
   %86 = load ptr, ptr @tkClass, align 8
   %87 = load ptr, ptr @awtUnlockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %85(ptr noundef nonnull %0, ptr noundef %86, ptr noundef %87) #8
   %88 = load ptr, ptr %0, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 1824
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 1824
   %90 = load ptr, ptr %89, align 8
   %91 = tail call zeroext i8 %90(ptr noundef nonnull %0) #8
   %.not50 = icmp eq i8 %91, 0
@@ -1133,7 +1133,7 @@ define hidden void @mouseAction(ptr noundef %0, ptr nocapture readnone %1, i32 n
 
 92:                                               ; preds = %82
   %93 = load ptr, ptr %0, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 136
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 136
   %95 = load ptr, ptr %94, align 8
   tail call void %95(ptr noundef nonnull %0) #8
   br label %96
@@ -1143,7 +1143,7 @@ define hidden void @mouseAction(ptr noundef %0, ptr nocapture readnone %1, i32 n
 
 97:                                               ; preds = %96
   %98 = load ptr, ptr %0, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 104
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 104
   %100 = load ptr, ptr %99, align 8
   %101 = tail call i32 %100(ptr noundef nonnull %0, ptr noundef nonnull %77) #8
   br label %102
@@ -1171,7 +1171,7 @@ define void @Java_sun_awt_X11_XRobotPeer_mouseWheelImpl(ptr noundef %0, ptr noca
   %4 = icmp slt i32 %2, 0
   %5 = select i1 %4, i32 4, i32 5
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 1824
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1824
   %8 = load ptr, ptr %7, align 8
   %9 = tail call zeroext i8 %8(ptr noundef nonnull %0) #8
   %.not = icmp eq i8 %9, 0
@@ -1179,20 +1179,20 @@ define void @Java_sun_awt_X11_XRobotPeer_mouseWheelImpl(ptr noundef %0, ptr noca
 
 10:                                               ; preds = %3
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 136
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 136
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull %0) #8
   br label %14
 
 14:                                               ; preds = %10, %3
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 1128
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1128
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr @tkClass, align 8
   %19 = load ptr, ptr @awtLockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %17(ptr noundef nonnull %0, ptr noundef %18, ptr noundef %19) #8
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 1824
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 1824
   %22 = load ptr, ptr %21, align 8
   %23 = tail call zeroext i8 %22(ptr noundef nonnull %0) #8
   %.not31 = icmp eq i8 %23, 0
@@ -1200,7 +1200,7 @@ define void @Java_sun_awt_X11_XRobotPeer_mouseWheelImpl(ptr noundef %0, ptr noca
 
 24:                                               ; preds = %14
   %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 136
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 136
   %27 = load ptr, ptr %26, align 8
   tail call void %27(ptr noundef nonnull %0) #8
   br label %28
@@ -1228,7 +1228,7 @@ define void @Java_sun_awt_X11_XRobotPeer_mouseWheelImpl(ptr noundef %0, ptr noca
   %35 = tail call i32 @XSync(ptr noundef %34, i32 noundef 0) #8
   tail call void (...) @awt_output_flush() #8
   %36 = load ptr, ptr %0, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 120
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 120
   %38 = load ptr, ptr %37, align 8
   %39 = tail call ptr %38(ptr noundef nonnull %0) #8
   %.not32 = icmp eq ptr %39, null
@@ -1236,20 +1236,20 @@ define void @Java_sun_awt_X11_XRobotPeer_mouseWheelImpl(ptr noundef %0, ptr noca
 
 40:                                               ; preds = %._crit_edge
   %41 = load ptr, ptr %0, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 136
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 136
   %43 = load ptr, ptr %42, align 8
   tail call void %43(ptr noundef nonnull %0) #8
   br label %44
 
 44:                                               ; preds = %40, %._crit_edge
   %45 = load ptr, ptr %0, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 1128
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 1128
   %47 = load ptr, ptr %46, align 8
   %48 = load ptr, ptr @tkClass, align 8
   %49 = load ptr, ptr @awtUnlockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %47(ptr noundef nonnull %0, ptr noundef %48, ptr noundef %49) #8
   %50 = load ptr, ptr %0, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 1824
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 1824
   %52 = load ptr, ptr %51, align 8
   %53 = tail call zeroext i8 %52(ptr noundef nonnull %0) #8
   %.not33 = icmp eq i8 %53, 0
@@ -1257,7 +1257,7 @@ define void @Java_sun_awt_X11_XRobotPeer_mouseWheelImpl(ptr noundef %0, ptr noca
 
 54:                                               ; preds = %44
   %55 = load ptr, ptr %0, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 136
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 136
   %57 = load ptr, ptr %56, align 8
   tail call void %57(ptr noundef nonnull %0) #8
   br label %58
@@ -1267,7 +1267,7 @@ define void @Java_sun_awt_X11_XRobotPeer_mouseWheelImpl(ptr noundef %0, ptr noca
 
 59:                                               ; preds = %58
   %60 = load ptr, ptr %0, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 104
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 104
   %62 = load ptr, ptr %61, align 8
   %63 = tail call i32 %62(ptr noundef nonnull %0, ptr noundef nonnull %39) #8
   br label %64

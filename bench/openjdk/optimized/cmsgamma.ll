@@ -34,7 +34,7 @@ define hidden void @_cmsAllocCurvesPluginChunk(ptr nocapture noundef %0, ptr nou
   br i1 %.not3.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %7
 
 7:                                                ; preds = %16, %.lr.ph.i
@@ -47,20 +47,20 @@ define hidden void @_cmsAllocCurvesPluginChunk(ptr nocapture noundef %0, ptr nou
   br i1 %11, label %DupPluginCurvesList.exit, label %12
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %10, i64 176
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 176
   store ptr null, ptr %13, align 8
   %.not17.i = icmp eq ptr %.0154.i, null
   br i1 %.not17.i, label %16, label %14
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %.0154.i, i64 176
+  %15 = getelementptr inbounds nuw i8, ptr %.0154.i, i64 176
   store ptr %10, ptr %15, align 8
   br label %16
 
 16:                                               ; preds = %14, %12
   %17 = icmp eq ptr %8, null
   %spec.select.i = select i1 %17, ptr %10, ptr %8
-  %18 = getelementptr inbounds i8, ptr %.05.i, i64 176
+  %18 = getelementptr inbounds nuw i8, ptr %.05.i, i64 176
   %.0.i = load ptr, ptr %18, align 8
   %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %._crit_edge.i, label %7, !llvm.loop !6
@@ -68,10 +68,10 @@ define hidden void @_cmsAllocCurvesPluginChunk(ptr nocapture noundef %0, ptr nou
 ._crit_edge.i:                                    ; preds = %16, %4
   %.lcssa.i = phi ptr [ null, %4 ], [ %spec.select.i, %16 ]
   store ptr %.lcssa.i, ptr %3, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @_cmsSubAllocDup(ptr noundef %20, ptr noundef nonnull %3, i32 noundef 8) #13
-  %22 = getelementptr inbounds i8, ptr %0, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %21, ptr %22, align 8
   br label %DupPluginCurvesList.exit
 
@@ -80,10 +80,10 @@ DupPluginCurvesList.exit:                         ; preds = %7, %._crit_edge.i
   br label %28
 
 23:                                               ; preds = %2
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = tail call ptr @_cmsSubAllocDup(ptr noundef %25, ptr noundef nonnull @_cmsAllocCurvesPluginChunk.CurvesPluginChunk, i32 noundef 8) #13
-  %27 = getelementptr inbounds i8, ptr %0, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %26, ptr %27, align 8
   br label %28
 
@@ -105,24 +105,24 @@ define hidden range(i32 0, 2) i32 @_cmsRegisterParametricCurvesPlugin(ptr nounde
   br i1 %7, label %22, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %1, i64 192
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 168
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 168
   store ptr %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load i32, ptr %12, align 8
   %spec.select = tail call i32 @llvm.umin.i32(i32 %13, i32 20)
   store i32 %spec.select, ptr %6, align 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 4
-  %15 = getelementptr inbounds i8, ptr %1, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %16 = shl nuw nsw i32 %spec.select, 2
   %17 = zext nneg i32 %16 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %14, ptr nonnull align 4 %15, i64 %17, i1 false)
-  %18 = getelementptr inbounds i8, ptr %6, i64 84
-  %19 = getelementptr inbounds i8, ptr %1, i64 108
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 84
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 108
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %18, ptr nonnull align 4 %19, i64 %17, i1 false)
   %20 = load ptr, ptr %3, align 8
-  %21 = getelementptr inbounds i8, ptr %6, i64 176
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 176
   store ptr %20, ptr %21, align 8
   br label %.sink.split
 
@@ -145,14 +145,14 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i32 @cmsGetToneCurveEstimatedTableEntries(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @cmsGetToneCurveEstimatedTable(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
@@ -192,47 +192,47 @@ define internal fastcc ptr @AllocateToneCurveStruct(ptr noundef %0, i32 noundef 
   br i1 %10, label %16, label %19
 
 16:                                               ; preds = %15
-  %17 = getelementptr inbounds i8, ptr %14, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr null, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %14, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr null, ptr %18, align 8
   br label %27
 
 19:                                               ; preds = %15
   %20 = tail call ptr @_cmsCalloc(ptr noundef %0, i32 noundef %2, i32 noundef 112) #13
-  %21 = getelementptr inbounds i8, ptr %14, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %20, ptr %21, align 8
   %22 = icmp eq ptr %20, null
   br i1 %22, label %.lr.ph, label %23
 
 23:                                               ; preds = %19
   %24 = tail call ptr @_cmsCalloc(ptr noundef %0, i32 noundef %2, i32 noundef 8) #13
-  %25 = getelementptr inbounds i8, ptr %14, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr %24, ptr %25, align 8
   %26 = icmp eq ptr %24, null
   br i1 %26, label %.lr.ph, label %27
 
 27:                                               ; preds = %23, %16
-  %28 = getelementptr inbounds i8, ptr %14, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 %2, ptr %28, align 8
   br i1 %9, label %.thread, label %31
 
 .thread:                                          ; preds = %27
-  %29 = getelementptr inbounds i8, ptr %14, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %14, i64 48
   store ptr null, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %14, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store i32 0, ptr %30, align 8
   br label %.loopexit153
 
 31:                                               ; preds = %27
   %32 = tail call ptr @_cmsCalloc(ptr noundef %0, i32 noundef %1, i32 noundef 2) #13
-  %33 = getelementptr inbounds i8, ptr %14, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %14, i64 48
   store ptr %32, ptr %33, align 8
   %34 = icmp eq ptr %32, null
   br i1 %34, label %100, label %35
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %14, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store i32 %1, ptr %36, align 8
   %.not149 = icmp eq ptr %4, null
   br i1 %.not149, label %.loopexit153, label %.preheader152
@@ -243,10 +243,10 @@ define internal fastcc ptr @AllocateToneCurveStruct(ptr noundef %0, i32 noundef 
 
 37:                                               ; preds = %.preheader152, %37
   %indvars.iv = phi i64 [ 0, %.preheader152 ], [ %indvars.iv.next, %37 ]
-  %38 = getelementptr inbounds i16, ptr %4, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv
   %39 = load i16, ptr %38, align 2
   %40 = load ptr, ptr %33, align 8
-  %41 = getelementptr inbounds i16, ptr %40, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw i16, ptr %40, i64 %indvars.iv
   store i16 %39, ptr %41, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -261,50 +261,50 @@ define internal fastcc ptr @AllocateToneCurveStruct(ptr noundef %0, i32 noundef 
 
 45:                                               ; preds = %.loopexit153
   %46 = tail call ptr @_cmsCalloc(ptr noundef %0, i32 noundef %2, i32 noundef 8) #13
-  %47 = getelementptr inbounds i8, ptr %14, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store ptr %46, ptr %47, align 8
   %48 = icmp eq ptr %46, null
   br i1 %48, label %.lr.ph, label %.preheader
 
 .preheader:                                       ; preds = %45
-  %49 = getelementptr inbounds i8, ptr %14, i64 16
-  %50 = getelementptr inbounds i8, ptr %14, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %wide.trip.count167 = zext i32 %2 to i64
   br label %51
 
 51:                                               ; preds = %.preheader, %GetParametricCurveByType.exit
   %indvars.iv164 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next165, %GetParametricCurveByType.exit ]
-  %52 = getelementptr inbounds %struct.cmsCurveSegment, ptr %3, i64 %indvars.iv164
-  %53 = getelementptr inbounds i8, ptr %52, i64 8
+  %52 = getelementptr inbounds nuw %struct.cmsCurveSegment, ptr %3, i64 %indvars.iv164
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load i32, ptr %53, align 8
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %56, label %62
 
 56:                                               ; preds = %51
-  %57 = getelementptr inbounds i8, ptr %52, i64 96
+  %57 = getelementptr inbounds nuw i8, ptr %52, i64 96
   %58 = load i32, ptr %57, align 8
   %59 = tail call ptr @_cmsComputeInterpParams(ptr noundef %0, i32 noundef %58, i32 noundef 1, i32 noundef 1, ptr noundef null, i32 noundef 1) #13
   %60 = load ptr, ptr %47, align 8
-  %61 = getelementptr inbounds ptr, ptr %60, i64 %indvars.iv164
+  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %indvars.iv164
   store ptr %59, ptr %61, align 8
   br label %62
 
 62:                                               ; preds = %56, %51
   %63 = load ptr, ptr %49, align 8
-  %64 = getelementptr inbounds %struct.cmsCurveSegment, ptr %63, i64 %indvars.iv164
+  %64 = getelementptr inbounds nuw %struct.cmsCurveSegment, ptr %63, i64 %indvars.iv164
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %64, ptr noundef nonnull align 8 dereferenceable(112) %52, i64 112, i1 false)
   %65 = load i32, ptr %53, align 8
   %66 = icmp eq i32 %65, 0
   br i1 %66, label %67, label %75
 
 67:                                               ; preds = %62
-  %68 = getelementptr inbounds i8, ptr %52, i64 104
+  %68 = getelementptr inbounds nuw i8, ptr %52, i64 104
   %69 = load ptr, ptr %68, align 8
   %.not135 = icmp eq ptr %69, null
   br i1 %.not135, label %75, label %70
 
 70:                                               ; preds = %67
-  %71 = getelementptr inbounds i8, ptr %52, i64 96
+  %71 = getelementptr inbounds nuw i8, ptr %52, i64 96
   %72 = load i32, ptr %71, align 8
   %73 = shl i32 %72, 2
   %74 = tail call ptr @_cmsDupMem(ptr noundef %0, ptr noundef nonnull %69, i32 noundef %73) #13
@@ -313,7 +313,7 @@ define internal fastcc ptr @AllocateToneCurveStruct(ptr noundef %0, i32 noundef 
 75:                                               ; preds = %62, %67, %70
   %.sink = phi ptr [ %74, %70 ], [ null, %67 ], [ null, %62 ]
   %76 = load ptr, ptr %49, align 8
-  %77 = getelementptr inbounds %struct.cmsCurveSegment, ptr %76, i64 %indvars.iv164, i32 5
+  %77 = getelementptr inbounds nuw %struct.cmsCurveSegment, ptr %76, i64 %indvars.iv164, i32 5
   store ptr %.sink, ptr %77, align 8
   %78 = load i32, ptr %53, align 8
   %79 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %0, i32 noundef 6) #13
@@ -324,7 +324,7 @@ define internal fastcc ptr @AllocateToneCurveStruct(ptr noundef %0, i32 noundef 
 
 .lr.ph.i:                                         ; preds = %75, %IsInSet.exit.thread.i
   %.02049.i = phi ptr [ %.020.i, %IsInSet.exit.thread.i ], [ %.02047.i, %75 ]
-  %80 = getelementptr inbounds i8, ptr %.02049.i, i64 4
+  %80 = getelementptr inbounds nuw i8, ptr %.02049.i, i64 4
   %81 = load i32, ptr %.02049.i, align 8
   %82 = icmp sgt i32 %81, 0
   br i1 %82, label %.lr.ph.preheader.i.i, label %IsInSet.exit.thread.i
@@ -335,7 +335,7 @@ define internal fastcc ptr @AllocateToneCurveStruct(ptr noundef %0, i32 noundef 
 
 .lr.ph.i.i:                                       ; preds = %86, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %86 ]
-  %83 = getelementptr inbounds [20 x i32], ptr %80, i64 0, i64 %indvars.iv.i.i
+  %83 = getelementptr inbounds nuw [20 x i32], ptr %80, i64 0, i64 %indvars.iv.i.i
   %84 = load i32, ptr %83, align 4
   %85 = icmp eq i32 %.pre.i, %84
   br i1 %85, label %.loopexit, label %86
@@ -346,7 +346,7 @@ define internal fastcc ptr @AllocateToneCurveStruct(ptr noundef %0, i32 noundef 
   br i1 %exitcond.not.i.i, label %IsInSet.exit.thread.i, label %.lr.ph.i.i, !llvm.loop !9
 
 IsInSet.exit.thread.i:                            ; preds = %86, %.lr.ph.i
-  %87 = getelementptr inbounds i8, ptr %.02049.i, i64 176
+  %87 = getelementptr inbounds nuw i8, ptr %.02049.i, i64 176
   %.020.i = load ptr, ptr %87, align 8
   %.not.i = icmp eq ptr %.020.i, null
   br i1 %.not.i, label %.lr.ph.i33.i.preheader, label %.lr.ph.i, !llvm.loop !10
@@ -356,7 +356,7 @@ IsInSet.exit.thread.i:                            ; preds = %86, %.lr.ph.i
 
 .lr.ph.i33.i:                                     ; preds = %.lr.ph.i33.i.preheader, %91
   %indvars.iv.i34.i = phi i64 [ %indvars.iv.next.i35.i, %91 ], [ 0, %.lr.ph.i33.i.preheader ]
-  %88 = getelementptr inbounds [20 x i32], ptr getelementptr inbounds (i8, ptr @DefaultCurves, i64 4), i64 0, i64 %indvars.iv.i34.i
+  %88 = getelementptr inbounds nuw [20 x i32], ptr getelementptr inbounds nuw (i8, ptr @DefaultCurves, i64 4), i64 0, i64 %indvars.iv.i34.i
   %89 = load i32, ptr %88, align 4
   %90 = icmp eq i32 %.pre.i, %89
   br i1 %90, label %.loopexit, label %91
@@ -368,10 +368,10 @@ IsInSet.exit.thread.i:                            ; preds = %86, %.lr.ph.i
 
 .loopexit:                                        ; preds = %.lr.ph.i33.i, %.lr.ph.i.i
   %.0.i.ph = phi ptr [ %.02049.i, %.lr.ph.i.i ], [ @DefaultCurves, %.lr.ph.i33.i ]
-  %92 = getelementptr inbounds i8, ptr %.0.i.ph, i64 168
+  %92 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 168
   %93 = load ptr, ptr %92, align 8
   %94 = load ptr, ptr %50, align 8
-  %95 = getelementptr inbounds ptr, ptr %94, i64 %indvars.iv164
+  %95 = getelementptr inbounds nuw ptr, ptr %94, i64 %indvars.iv164
   store ptr %93, ptr %95, align 8
   br label %GetParametricCurveByType.exit
 
@@ -382,7 +382,7 @@ GetParametricCurveByType.exit:                    ; preds = %91, %.loopexit
 
 .loopexit151:                                     ; preds = %GetParametricCurveByType.exit, %.loopexit153
   %96 = load i32, ptr %42, align 8
-  %97 = getelementptr inbounds i8, ptr %14, i64 48
+  %97 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %98 = load ptr, ptr %97, align 8
   %99 = tail call ptr @_cmsComputeInterpParams(ptr noundef %0, i32 noundef %96, i32 noundef 1, i32 noundef 1, ptr noundef %98, i32 noundef 0) #13
   store ptr %99, ptr %14, align 8
@@ -393,8 +393,8 @@ GetParametricCurveByType.exit:                    ; preds = %91, %.loopexit
   br i1 %10, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %19, %23, %45, %100
-  %101 = getelementptr inbounds i8, ptr %14, i64 16
-  %102 = getelementptr inbounds i8, ptr %14, i64 24
+  %101 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %wide.trip.count172 = zext i32 %2 to i64
   br label %103
 
@@ -405,7 +405,7 @@ GetParametricCurveByType.exit:                    ; preds = %91, %.loopexit
   br i1 %.not141, label %109, label %105
 
 105:                                              ; preds = %103
-  %106 = getelementptr inbounds %struct.cmsCurveSegment, ptr %104, i64 %indvars.iv169, i32 5
+  %106 = getelementptr inbounds nuw %struct.cmsCurveSegment, ptr %104, i64 %indvars.iv169, i32 5
   %107 = load ptr, ptr %106, align 8
   %.not142 = icmp eq ptr %107, null
   br i1 %.not142, label %109, label %108
@@ -420,7 +420,7 @@ GetParametricCurveByType.exit:                    ; preds = %91, %.loopexit
   br i1 %.not143, label %115, label %111
 
 111:                                              ; preds = %109
-  %112 = getelementptr inbounds ptr, ptr %110, i64 %indvars.iv169
+  %112 = getelementptr inbounds nuw ptr, ptr %110, i64 %indvars.iv169
   %113 = load ptr, ptr %112, align 8
   %.not144 = icmp eq ptr %113, null
   br i1 %.not144, label %115, label %114
@@ -435,7 +435,7 @@ GetParametricCurveByType.exit:                    ; preds = %91, %.loopexit
   br i1 %exitcond173.not, label %._crit_edge, label %103, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %115, %100
-  %116 = getelementptr inbounds i8, ptr %14, i64 24
+  %116 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %117 = load ptr, ptr %116, align 8
   %.not137 = icmp eq ptr %117, null
   br i1 %.not137, label %119, label %118
@@ -445,7 +445,7 @@ GetParametricCurveByType.exit:                    ; preds = %91, %.loopexit
   br label %119
 
 119:                                              ; preds = %118, %._crit_edge
-  %120 = getelementptr inbounds i8, ptr %14, i64 16
+  %120 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %121 = load ptr, ptr %120, align 8
   %.not138 = icmp eq ptr %121, null
   br i1 %.not138, label %123, label %122
@@ -455,7 +455,7 @@ GetParametricCurveByType.exit:                    ; preds = %91, %.loopexit
   br label %123
 
 123:                                              ; preds = %122, %119
-  %124 = getelementptr inbounds i8, ptr %14, i64 32
+  %124 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %125 = load ptr, ptr %124, align 8
   %.not139 = icmp eq ptr %125, null
   br i1 %.not139, label %127, label %126
@@ -465,7 +465,7 @@ GetParametricCurveByType.exit:                    ; preds = %91, %.loopexit
   br label %127
 
 127:                                              ; preds = %126, %123
-  %128 = getelementptr inbounds i8, ptr %14, i64 48
+  %128 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %129 = load ptr, ptr %128, align 8
   %.not140 = icmp eq ptr %129, null
   br i1 %.not140, label %131, label %130
@@ -491,13 +491,13 @@ define hidden ptr @cmsBuildSegmentedToneCurve(ptr noundef %0, i32 noundef %1, pt
   br i1 %6, label %7, label %17
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 1
   br i1 %10, label %11, label %17
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %2, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %13 = load double, ptr %12, align 8
   %14 = fadd double %13, -1.000000e+00
   %15 = tail call double @llvm.fabs.f64(double %14)
@@ -514,11 +514,11 @@ define hidden ptr @cmsBuildSegmentedToneCurve(ptr noundef %0, i32 noundef %1, pt
 .preheader:                                       ; preds = %17
   %20 = add nsw i32 %.0, -1
   %21 = uitofp nneg i32 %20 to double
-  %22 = getelementptr inbounds i8, ptr %18, i64 8
-  %23 = getelementptr inbounds i8, ptr %18, i64 16
-  %24 = getelementptr inbounds i8, ptr %18, i64 32
-  %25 = getelementptr inbounds i8, ptr %18, i64 24
-  %26 = getelementptr inbounds i8, ptr %18, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %wide.trip.count = zext nneg i32 %.0 to i64
   br label %27
 
@@ -541,21 +541,21 @@ define hidden ptr @cmsBuildSegmentedToneCurve(ptr noundef %0, i32 noundef %1, pt
 35:                                               ; preds = %76, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %34, %.lr.ph.i ], [ %indvars.iv.next.i, %76 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %36 = getelementptr inbounds %struct.cmsCurveSegment, ptr %33, i64 %indvars.iv.next.i
+  %36 = getelementptr inbounds nuw %struct.cmsCurveSegment, ptr %33, i64 %indvars.iv.next.i
   %37 = load float, ptr %36, align 8
   %38 = fpext float %37 to double
   %39 = fcmp ogt double %30, %38
   br i1 %39, label %40, label %76
 
 40:                                               ; preds = %35
-  %41 = getelementptr inbounds i8, ptr %36, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %42 = load float, ptr %41, align 4
   %43 = fpext float %42 to double
   %44 = fcmp ugt double %30, %43
   br i1 %44, label %76, label %45
 
 45:                                               ; preds = %40
-  %46 = getelementptr inbounds i8, ptr %36, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %47 = load i32, ptr %46, align 8
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %49, label %67
@@ -566,17 +566,17 @@ define hidden ptr @cmsBuildSegmentedToneCurve(ptr noundef %0, i32 noundef %1, pt
   %52 = fsub float %42, %37
   %53 = fdiv float %51, %52
   store float %53, ptr %5, align 4
-  %54 = getelementptr inbounds %struct.cmsCurveSegment, ptr %33, i64 %indvars.iv.next.i, i32 5
+  %54 = getelementptr inbounds nuw %struct.cmsCurveSegment, ptr %33, i64 %indvars.iv.next.i, i32 5
   %55 = load ptr, ptr %54, align 8
   %56 = load ptr, ptr %25, align 8
-  %57 = getelementptr inbounds ptr, ptr %56, i64 %indvars.iv.next.i
+  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv.next.i
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 200
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 200
   store ptr %55, ptr %59, align 8
   %60 = load ptr, ptr %25, align 8
-  %61 = getelementptr inbounds ptr, ptr %60, i64 %indvars.iv.next.i
+  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %indvars.iv.next.i
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 208
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 208
   %64 = load ptr, ptr %63, align 8
   call void %64(ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef %62) #13
   %65 = load float, ptr %4, align 4
@@ -585,9 +585,9 @@ define hidden ptr @cmsBuildSegmentedToneCurve(ptr noundef %0, i32 noundef %1, pt
 
 67:                                               ; preds = %45
   %68 = load ptr, ptr %24, align 8
-  %69 = getelementptr inbounds ptr, ptr %68, i64 %indvars.iv.next.i
+  %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %indvars.iv.next.i
   %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %36, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %72 = call double %70(i32 noundef %47, ptr noundef nonnull %71, double noundef %30) #13
   br label %73
 
@@ -634,7 +634,7 @@ EvalSegmentedFn.exit:                             ; preds = %73
 _cmsQuickSaturateWord.exit:                       ; preds = %.thread, %EvalSegmentedFn.exit.thread, %EvalSegmentedFn.exit, %81, %83
   %.0.i22 = phi i16 [ %88, %83 ], [ 0, %EvalSegmentedFn.exit ], [ -1, %81 ], [ 0, %EvalSegmentedFn.exit.thread ], [ -1, %.thread ]
   %89 = load ptr, ptr %26, align 8
-  %90 = getelementptr inbounds i16, ptr %89, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw i16, ptr %89, i64 %indvars.iv
   store i16 %.0.i22, ptr %90, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -654,48 +654,48 @@ define hidden ptr @cmsBuildTabulatedToneCurveFloat(ptr noundef %0, i32 noundef %
 
 7:                                                ; preds = %3
   store float 0xC480F0CF00000000, ptr %4, align 16
-  %8 = getelementptr inbounds i8, ptr %4, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store float 0.000000e+00, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 6, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store double 1.000000e+00, ptr %10, align 16
-  %11 = getelementptr inbounds i8, ptr %4, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   %12 = load float, ptr %2, align 4
   %13 = fpext float %12 to double
-  %14 = getelementptr inbounds i8, ptr %4, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store double %13, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store double 0.000000e+00, ptr %15, align 16
-  %16 = getelementptr inbounds i8, ptr %4, i64 112
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 112
   store float 0.000000e+00, ptr %16, align 16
-  %17 = getelementptr inbounds i8, ptr %4, i64 116
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 116
   store float 1.000000e+00, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %4, i64 120
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i32 0, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 208
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 208
   store i32 %1, ptr %19, align 16
-  %20 = getelementptr inbounds i8, ptr %4, i64 216
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 216
   store ptr %2, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %4, i64 224
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 224
   store float 1.000000e+00, ptr %21, align 16
-  %22 = getelementptr inbounds i8, ptr %4, i64 228
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 228
   store float 0x4480F0CF00000000, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %4, i64 232
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 232
   store i32 6, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %4, i64 240
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 240
   store double 1.000000e+00, ptr %24, align 16
-  %25 = getelementptr inbounds i8, ptr %4, i64 248
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 248
   %26 = add i32 %1, -1
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds float, ptr %2, i64 %27
+  %28 = getelementptr inbounds nuw float, ptr %2, i64 %27
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
   %29 = load float, ptr %28, align 4
   %30 = fpext float %29 to double
-  %31 = getelementptr inbounds i8, ptr %4, i64 264
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 264
   store double %30, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %4, i64 272
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 272
   store double 0.000000e+00, ptr %32, align 16
   %33 = call ptr @cmsBuildSegmentedToneCurve(ptr noundef %0, i32 noundef 3, ptr noundef nonnull %4)
   br label %34
@@ -716,7 +716,7 @@ define hidden ptr @cmsBuildParametricToneCurve(ptr noundef %0, i32 noundef %1, p
 
 .lr.ph.i:                                         ; preds = %3, %IsInSet.exit.thread.i
   %.02049.i = phi ptr [ %.020.i, %IsInSet.exit.thread.i ], [ %.02047.i, %3 ]
-  %6 = getelementptr inbounds i8, ptr %.02049.i, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %.02049.i, i64 4
   %7 = load i32, ptr %.02049.i, align 8
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph.preheader.i.i, label %IsInSet.exit.thread.i
@@ -727,7 +727,7 @@ define hidden ptr @cmsBuildParametricToneCurve(ptr noundef %0, i32 noundef %1, p
 
 .lr.ph.i.i:                                       ; preds = %12, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %12 ]
-  %9 = getelementptr inbounds [20 x i32], ptr %6, i64 0, i64 %indvars.iv.i.i
+  %9 = getelementptr inbounds nuw [20 x i32], ptr %6, i64 0, i64 %indvars.iv.i.i
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %.pre.i, %10
   br i1 %11, label %.loopexit, label %12
@@ -738,7 +738,7 @@ define hidden ptr @cmsBuildParametricToneCurve(ptr noundef %0, i32 noundef %1, p
   br i1 %exitcond.not.i.i, label %IsInSet.exit.thread.i, label %.lr.ph.i.i, !llvm.loop !9
 
 IsInSet.exit.thread.i:                            ; preds = %12, %.lr.ph.i
-  %13 = getelementptr inbounds i8, ptr %.02049.i, i64 176
+  %13 = getelementptr inbounds nuw i8, ptr %.02049.i, i64 176
   %.020.i = load ptr, ptr %13, align 8
   %.not.i = icmp eq ptr %.020.i, null
   br i1 %.not.i, label %.lr.ph.i33.i.preheader, label %.lr.ph.i, !llvm.loop !10
@@ -748,7 +748,7 @@ IsInSet.exit.thread.i:                            ; preds = %12, %.lr.ph.i
 
 .lr.ph.i33.i:                                     ; preds = %.lr.ph.i33.i.preheader, %17
   %indvars.iv.i34.i = phi i64 [ %indvars.iv.next.i35.i, %17 ], [ 0, %.lr.ph.i33.i.preheader ]
-  %14 = getelementptr inbounds [20 x i32], ptr getelementptr inbounds (i8, ptr @DefaultCurves, i64 4), i64 0, i64 %indvars.iv.i34.i
+  %14 = getelementptr inbounds nuw [20 x i32], ptr getelementptr inbounds nuw (i8, ptr @DefaultCurves, i64 4), i64 0, i64 %indvars.iv.i34.i
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %.pre.i, %15
   br i1 %16, label %.loopexit, label %17
@@ -765,20 +765,20 @@ IsInSet.exit38.thread.i:                          ; preds = %17
 .loopexit:                                        ; preds = %.lr.ph.i.i, %.lr.ph.i33.i
   %indvars.iv.i34.lcssa.sink.i = phi i64 [ %indvars.iv.i34.i, %.lr.ph.i33.i ], [ %indvars.iv.i.i, %.lr.ph.i.i ]
   %.0.ph.i = phi ptr [ @DefaultCurves, %.lr.ph.i33.i ], [ %.02049.i, %.lr.ph.i.i ]
-  %18 = getelementptr inbounds i8, ptr %4, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %18, i8 0, i64 104, i1 false)
   store float 0xC480F0CF00000000, ptr %4, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store float 0x4480F0CF00000000, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %4, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %1, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %.0.ph.i, i64 84
+  %21 = getelementptr inbounds nuw i8, ptr %.0.ph.i, i64 84
   %sext = shl i64 %indvars.iv.i34.lcssa.sink.i, 32
   %22 = ashr exact i64 %sext, 32
   %23 = getelementptr inbounds [20 x i32], ptr %21, i64 0, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = shl i32 %24, 3
-  %26 = getelementptr inbounds i8, ptr %4, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %27 = zext i32 %25 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %26, ptr align 8 %2, i64 %27, i1 false)
   %28 = call ptr @cmsBuildSegmentedToneCurve(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %4)
@@ -811,7 +811,7 @@ define hidden void @cmsFreeToneCurve(ptr noundef %0) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = load ptr, ptr %4, align 8
   tail call void @_cmsFreeInterpParams(ptr noundef nonnull %4) #13
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %9, label %8
@@ -821,25 +821,25 @@ define hidden void @cmsFreeToneCurve(ptr noundef %0) local_unnamed_addr #0 {
   br label %9
 
 9:                                                ; preds = %8, %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
   %.not32 = icmp eq ptr %11, null
   br i1 %.not32, label %32, label %.preheader
 
 .preheader:                                       ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i32, ptr %12, align 8
   %.not37 = icmp eq i32 %13, 0
   br i1 %.not37, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %15
 
 15:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
   %16 = load ptr, ptr %10, align 8
-  %17 = getelementptr inbounds %struct.cmsCurveSegment, ptr %16, i64 %indvars.iv, i32 5
+  %17 = getelementptr inbounds nuw %struct.cmsCurveSegment, ptr %16, i64 %indvars.iv, i32 5
   %18 = load ptr, ptr %17, align 8
   %.not34 = icmp eq ptr %18, null
   br i1 %.not34, label %20, label %19
@@ -850,7 +850,7 @@ define hidden void @cmsFreeToneCurve(ptr noundef %0) local_unnamed_addr #0 {
 
 20:                                               ; preds = %19, %15
   %21 = load ptr, ptr %14, align 8
-  %22 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8
   %.not35 = icmp eq ptr %23, null
   br i1 %.not35, label %25, label %24
@@ -873,13 +873,13 @@ define hidden void @cmsFreeToneCurve(ptr noundef %0) local_unnamed_addr #0 {
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
   %29 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %11, %.preheader ]
   tail call void @_cmsFree(ptr noundef %5, ptr noundef %29) #13
-  %30 = getelementptr inbounds i8, ptr %0, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %31 = load ptr, ptr %30, align 8
   tail call void @_cmsFree(ptr noundef %5, ptr noundef %31) #13
   br label %32
 
 32:                                               ; preds = %._crit_edge, %9
-  %33 = getelementptr inbounds i8, ptr %0, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %34 = load ptr, ptr %33, align 8
   %.not33 = icmp eq ptr %34, null
   br i1 %.not33, label %36, label %35
@@ -911,7 +911,7 @@ define hidden void @cmsFreeToneCurveTriple(ptr nocapture noundef %0) local_unnam
   br label %4
 
 4:                                                ; preds = %3, %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not11 = icmp eq ptr %6, null
   br i1 %.not11, label %8, label %7
@@ -921,7 +921,7 @@ define hidden void @cmsFreeToneCurveTriple(ptr nocapture noundef %0) local_unnam
   br label %8
 
 8:                                                ; preds = %7, %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not12 = icmp eq ptr %10, null
   br i1 %.not12, label %12, label %11
@@ -943,13 +943,13 @@ define hidden ptr @cmsDupToneCurve(ptr noundef readonly %0) local_unnamed_addr #
 3:                                                ; preds = %1
   %4 = load ptr, ptr %0, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load ptr, ptr %12, align 8
   %14 = tail call fastcc ptr @AllocateToneCurveStruct(ptr noundef %5, i32 noundef %7, i32 noundef %9, ptr noundef %11, ptr noundef %13)
   br label %15
@@ -992,7 +992,7 @@ define hidden ptr @cmsJoinToneCurve(ptr noundef %0, ptr nocapture noundef readon
   %16 = fdiv float %15, %12
   %17 = tail call float @cmsEvalToneCurveFloat(ptr noundef %1, float noundef %16)
   %18 = tail call float @cmsEvalToneCurveFloat(ptr noundef nonnull %6, float noundef %17)
-  %19 = getelementptr inbounds float, ptr %9, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv
   store float %18, ptr %19, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1001,48 +1001,48 @@ define hidden ptr @cmsJoinToneCurve(ptr noundef %0, ptr nocapture noundef readon
 ._crit_edge:                                      ; preds = %13
   call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %5)
   store float 0xC480F0CF00000000, ptr %5, align 16
-  %20 = getelementptr inbounds i8, ptr %5, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store float 0.000000e+00, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %5, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 6, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %5, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store double 1.000000e+00, ptr %22, align 16
-  %23 = getelementptr inbounds i8, ptr %5, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
   %24 = load float, ptr %9, align 4
   %25 = fpext float %24 to double
-  %26 = getelementptr inbounds i8, ptr %5, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store double %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %5, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store double 0.000000e+00, ptr %27, align 16
-  %28 = getelementptr inbounds i8, ptr %5, i64 112
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 112
   store float 0.000000e+00, ptr %28, align 16
-  %29 = getelementptr inbounds i8, ptr %5, i64 116
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 116
   store float 1.000000e+00, ptr %29, align 4
-  %30 = getelementptr inbounds i8, ptr %5, i64 120
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 120
   store i32 0, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %5, i64 208
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 208
   store i32 %3, ptr %31, align 16
-  %32 = getelementptr inbounds i8, ptr %5, i64 216
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 216
   store ptr %9, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %5, i64 224
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 224
   store float 1.000000e+00, ptr %33, align 16
-  %34 = getelementptr inbounds i8, ptr %5, i64 228
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 228
   store float 0x4480F0CF00000000, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %5, i64 232
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 232
   store i32 6, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %5, i64 240
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 240
   store double 1.000000e+00, ptr %36, align 16
-  %37 = getelementptr inbounds i8, ptr %5, i64 248
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 248
   %38 = add i32 %3, -1
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds float, ptr %9, i64 %39
+  %40 = getelementptr inbounds nuw float, ptr %9, i64 %39
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, i8 0, i64 16, i1 false)
   %41 = load float, ptr %40, align 4
   %42 = fpext float %41 to double
-  %43 = getelementptr inbounds i8, ptr %5, i64 264
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 264
   store double %42, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %5, i64 272
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 272
   store double 0.000000e+00, ptr %44, align 16
   %45 = call ptr @cmsBuildSegmentedToneCurve(ptr noundef %0, i32 noundef 3, ptr noundef nonnull %5)
   br label %.thread
@@ -1065,15 +1065,15 @@ define hidden ptr @cmsJoinToneCurve(ptr noundef %0, ptr nocapture noundef readon
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @cmsReverseToneCurveEx(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 1
   br i1 %5, label %6, label %GetParametricCurveByType.exit
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %12, label %GetParametricCurveByType.exit
@@ -1088,7 +1088,7 @@ define hidden ptr @cmsReverseToneCurveEx(i32 noundef %0, ptr nocapture noundef r
 
 .lr.ph.i:                                         ; preds = %12, %IsInSet.exit.thread.i
   %.02049.i = phi ptr [ %.020.i, %IsInSet.exit.thread.i ], [ %.02047.i, %12 ]
-  %16 = getelementptr inbounds i8, ptr %.02049.i, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %.02049.i, i64 4
   %17 = load i32, ptr %.02049.i, align 8
   %18 = icmp sgt i32 %17, 0
   br i1 %18, label %.lr.ph.preheader.i.i, label %IsInSet.exit.thread.i
@@ -1099,7 +1099,7 @@ define hidden ptr @cmsReverseToneCurveEx(i32 noundef %0, ptr nocapture noundef r
 
 .lr.ph.i.i:                                       ; preds = %22, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %22 ]
-  %19 = getelementptr inbounds [20 x i32], ptr %16, i64 0, i64 %indvars.iv.i.i
+  %19 = getelementptr inbounds nuw [20 x i32], ptr %16, i64 0, i64 %indvars.iv.i.i
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %10, %20
   br i1 %21, label %.loopexit71, label %22
@@ -1110,7 +1110,7 @@ define hidden ptr @cmsReverseToneCurveEx(i32 noundef %0, ptr nocapture noundef r
   br i1 %exitcond.not.i.i, label %IsInSet.exit.thread.i, label %.lr.ph.i.i, !llvm.loop !9
 
 IsInSet.exit.thread.i:                            ; preds = %22, %.lr.ph.i
-  %23 = getelementptr inbounds i8, ptr %.02049.i, i64 176
+  %23 = getelementptr inbounds nuw i8, ptr %.02049.i, i64 176
   %.020.i = load ptr, ptr %23, align 8
   %.not.i = icmp eq ptr %.020.i, null
   br i1 %.not.i, label %.lr.ph.i33.i.preheader, label %.lr.ph.i, !llvm.loop !10
@@ -1120,7 +1120,7 @@ IsInSet.exit.thread.i:                            ; preds = %22, %.lr.ph.i
 
 .lr.ph.i33.i:                                     ; preds = %.lr.ph.i33.i.preheader, %27
   %indvars.iv.i34.i = phi i64 [ %indvars.iv.next.i35.i, %27 ], [ 0, %.lr.ph.i33.i.preheader ]
-  %24 = getelementptr inbounds [20 x i32], ptr getelementptr inbounds (i8, ptr @DefaultCurves, i64 4), i64 0, i64 %indvars.iv.i34.i
+  %24 = getelementptr inbounds nuw [20 x i32], ptr getelementptr inbounds nuw (i8, ptr @DefaultCurves, i64 4), i64 0, i64 %indvars.iv.i34.i
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %10, %25
   br i1 %26, label %.loopexit71, label %27
@@ -1134,10 +1134,10 @@ IsInSet.exit.thread.i:                            ; preds = %22, %.lr.ph.i
   %28 = load ptr, ptr %1, align 8
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr %7, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load i32, ptr %31, align 8
   %33 = sub nsw i32 0, %32
-  %34 = getelementptr inbounds i8, ptr %30, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %35 = tail call ptr @cmsBuildParametricToneCurve(ptr noundef %29, i32 noundef %33, ptr noundef nonnull %34)
   br label %.loopexit
 
@@ -1149,14 +1149,14 @@ GetParametricCurveByType.exit:                    ; preds = %27, %6, %2
   br i1 %39, label %.loopexit, label %40
 
 40:                                               ; preds = %GetParametricCurveByType.exit
-  %41 = getelementptr inbounds i8, ptr %1, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %42 = load ptr, ptr %41, align 8
   %43 = load i16, ptr %42, align 2
-  %44 = getelementptr inbounds i8, ptr %1, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %45 = load i32, ptr %44, align 8
   %46 = add i32 %45, -1
   %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds i16, ptr %42, i64 %47
+  %48 = getelementptr inbounds nuw i16, ptr %42, i64 %47
   %49 = load i16, ptr %48, align 2
   %.not = icmp ugt i16 %43, %49
   %50 = icmp sgt i32 %0, 0
@@ -1165,7 +1165,7 @@ GetParametricCurveByType.exit:                    ; preds = %27, %6, %2
 .lr.ph:                                           ; preds = %40
   %51 = add nsw i32 %0, -1
   %52 = uitofp nneg i32 %51 to double
-  %53 = getelementptr inbounds i8, ptr %38, i64 48
+  %53 = getelementptr inbounds nuw i8, ptr %38, i64 48
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %54
 
@@ -1187,7 +1187,7 @@ GetParametricCurveByType.exit:                    ; preds = %27, %6, %2
 63:                                               ; preds = %54
   %64 = load i16, ptr %59, align 2
   %65 = zext i32 %.val to i64
-  %66 = getelementptr inbounds i16, ptr %59, i64 %65
+  %66 = getelementptr inbounds nuw i16, ptr %59, i64 %65
   %67 = load i16, ptr %66, align 2
   %68 = icmp ult i16 %64, %67
   %69 = icmp sgt i32 %.val, 0
@@ -1203,7 +1203,7 @@ GetParametricCurveByType.exit:                    ; preds = %27, %6, %2
   %70 = phi i16 [ %72, %83 ], [ %67, %.preheader.i62 ]
   %indvars.iv21.i = phi i64 [ %indvars.iv.next22.i, %83 ], [ %65, %.preheader.i62 ]
   %indvars.iv.next22.i = add nsw i64 %indvars.iv21.i, -1
-  %71 = getelementptr inbounds i16, ptr %59, i64 %indvars.iv.next22.i
+  %71 = getelementptr inbounds nuw i16, ptr %59, i64 %indvars.iv.next22.i
   %72 = load i16, ptr %71, align 2
   %.not58.i = icmp ugt i16 %72, %70
   br i1 %.not58.i, label %78, label %73
@@ -1232,7 +1232,7 @@ GetParametricCurveByType.exit:                    ; preds = %27, %6, %2
   %85 = phi i16 [ %87, %98 ], [ %64, %.preheader1.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %98 ], [ 0, %.preheader1.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %86 = getelementptr inbounds i16, ptr %59, i64 %indvars.iv.next.i
+  %86 = getelementptr inbounds nuw i16, ptr %59, i64 %indvars.iv.next.i
   %87 = load i16, ptr %86, align 2
   %.not.i61 = icmp ugt i16 %85, %87
   br i1 %.not.i61, label %93, label %88
@@ -1265,12 +1265,12 @@ GetInterval.exit:                                 ; preds = %88, %93, %73, %78
 
 100:                                              ; preds = %GetInterval.exit
   %101 = and i64 %.046.i.in, 2147483647
-  %102 = getelementptr inbounds i16, ptr %59, i64 %101
+  %102 = getelementptr inbounds nuw i16, ptr %59, i64 %101
   %103 = load i16, ptr %102, align 2
   %104 = uitofp i16 %103 to double
   %105 = add nuw nsw i32 %.046.i, 1
   %106 = zext nneg i32 %105 to i64
-  %107 = getelementptr inbounds i16, ptr %59, i64 %106
+  %107 = getelementptr inbounds nuw i16, ptr %59, i64 %106
   %108 = load i16, ptr %107, align 2
   %109 = uitofp i16 %108 to double
   %110 = uitofp nneg i32 %.046.i to double
@@ -1336,7 +1336,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %143, %141, %GetInte
   %.252 = phi double [ %.05075, %126 ], [ %.05075, %120 ], [ %.05075, %124 ], [ %.151, %143 ], [ %.151, %GetInterval.exit.thread ], [ %.151, %141 ]
   %.2 = phi double [ %.04878, %126 ], [ %.04878, %120 ], [ %.04878, %124 ], [ %.1, %143 ], [ %.1, %GetInterval.exit.thread ], [ %.1, %141 ]
   %149 = load ptr, ptr %53, align 8
-  %150 = getelementptr inbounds i16, ptr %149, i64 %indvars.iv
+  %150 = getelementptr inbounds nuw i16, ptr %149, i64 %indvars.iv
   store i16 %.0.i64.sink, ptr %150, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1355,7 +1355,7 @@ define hidden float @cmsEvalToneCurveFloat(ptr nocapture noundef readonly %0, fl
   %4 = alloca float, align 4
   %5 = alloca i16, align 2
   %6 = alloca i16, align 2
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0
   %10 = fpext float %1 to double
@@ -1385,7 +1385,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %11, %15, %17
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
   store i16 %.0.i, ptr %5, align 2
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 208
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 208
   %25 = load ptr, ptr %24, align 8
   call void %25(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %23) #13
   %26 = load i16, ptr %6, align 2
@@ -1402,7 +1402,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %11, %15, %17
   br i1 %30, label %.lr.ph.i, label %EvalSegmentedFn.exit
 
 .lr.ph.i:                                         ; preds = %29
-  %31 = getelementptr inbounds i8, ptr %0, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load ptr, ptr %31, align 8
   %33 = zext nneg i32 %8 to i64
   br label %34
@@ -1410,19 +1410,19 @@ _cmsQuickSaturateWord.exit:                       ; preds = %11, %15, %17
 34:                                               ; preds = %75, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %33, %.lr.ph.i ], [ %indvars.iv.next.i, %75 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %35 = getelementptr inbounds %struct.cmsCurveSegment, ptr %32, i64 %indvars.iv.next.i
+  %35 = getelementptr inbounds nuw %struct.cmsCurveSegment, ptr %32, i64 %indvars.iv.next.i
   %36 = load float, ptr %35, align 8
   %37 = fcmp ogt float %1, %36
   br i1 %37, label %38, label %75
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %35, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %40 = load float, ptr %39, align 4
   %41 = fcmp ugt float %1, %40
   br i1 %41, label %75, label %42
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %35, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %44 = load i32, ptr %43, align 8
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %46, label %64
@@ -1432,18 +1432,18 @@ _cmsQuickSaturateWord.exit:                       ; preds = %11, %15, %17
   %48 = fsub float %40, %36
   %49 = fdiv float %47, %48
   store float %49, ptr %4, align 4
-  %50 = getelementptr inbounds %struct.cmsCurveSegment, ptr %32, i64 %indvars.iv.next.i, i32 5
+  %50 = getelementptr inbounds nuw %struct.cmsCurveSegment, ptr %32, i64 %indvars.iv.next.i, i32 5
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds ptr, ptr %53, i64 %indvars.iv.next.i
+  %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv.next.i
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 200
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 200
   store ptr %51, ptr %56, align 8
   %57 = load ptr, ptr %52, align 8
-  %58 = getelementptr inbounds ptr, ptr %57, i64 %indvars.iv.next.i
+  %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv.next.i
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 208
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 208
   %61 = load ptr, ptr %60, align 8
   call void %61(ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef %59) #13
   %62 = load float, ptr %3, align 4
@@ -1451,11 +1451,11 @@ _cmsQuickSaturateWord.exit:                       ; preds = %11, %15, %17
   br label %71
 
 64:                                               ; preds = %42
-  %65 = getelementptr inbounds i8, ptr %0, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds ptr, ptr %66, i64 %indvars.iv.next.i
+  %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %indvars.iv.next.i
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %35, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %70 = tail call double %68(i32 noundef %44, ptr noundef nonnull %69, double noundef %10) #13
   br label %71
 
@@ -1486,14 +1486,14 @@ EvalSegmentedFn.exit:                             ; preds = %75, %29, %71, %74
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden range(i32 0, 2) i32 @cmsIsToneCurveDescending(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = load i16, ptr %3, align 2
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load i32, ptr %5, align 8
   %7 = add i32 %6, -1
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds i16, ptr %3, i64 %8
+  %9 = getelementptr inbounds nuw i16, ptr %3, i64 %8
   %10 = load i16, ptr %9, align 2
   %11 = icmp ugt i16 %4, %10
   %12 = zext i1 %11 to i32
@@ -1521,8 +1521,8 @@ define hidden range(i32 0, 2) i32 @cmsSmoothToneCurve(ptr noundef readonly %0, d
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load i32, ptr %8, align 8
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %.lr.ph.i, label %cmsIsToneCurveLinear.exit.thread
@@ -1538,7 +1538,7 @@ define hidden range(i32 0, 2) i32 @cmsSmoothToneCurve(ptr noundef readonly %0, d
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %11 ], [ 0, %5 ]
   %15 = phi i32 [ %12, %11 ], [ %9, %5 ]
   %16 = load ptr, ptr %7, align 8
-  %17 = getelementptr inbounds i16, ptr %16, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw i16, ptr %16, i64 %indvars.iv.i
   %18 = load i16, ptr %17, align 2
   %19 = zext i16 %18 to i32
   %20 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -1583,13 +1583,13 @@ cmsIsToneCurveLinear.exit:                        ; preds = %.lr.ph.i
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %40 = load ptr, ptr %7, align 8
-  %41 = getelementptr inbounds i16, ptr %40, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw i16, ptr %40, i64 %indvars.iv
   %42 = load i16, ptr %41, align 2
   %43 = uitofp i16 %42 to float
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %44 = getelementptr inbounds float, ptr %32, i64 %indvars.iv.next
+  %44 = getelementptr inbounds nuw float, ptr %32, i64 %indvars.iv.next
   store float %43, ptr %44, align 4
-  %45 = getelementptr inbounds float, ptr %31, i64 %indvars.iv.next
+  %45 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv.next
   store float 1.000000e+00, ptr %45, align 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
@@ -1610,26 +1610,26 @@ cmsIsToneCurveLinear.exit:                        ; preds = %.lr.ph.i
   br i1 %or.cond3.i, label %55, label %286
 
 55:                                               ; preds = %._crit_edge
-  %56 = getelementptr inbounds i8, ptr %31, i64 4
+  %56 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %57 = load float, ptr %56, align 4
   %58 = fadd float %57, %48
-  %59 = getelementptr inbounds i8, ptr %50, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %50, i64 4
   store float %58, ptr %59, align 4
   %60 = fmul float %48, -2.000000e+00
   %61 = fdiv float %60, %58
-  %62 = getelementptr inbounds i8, ptr %49, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %49, i64 4
   store float %61, ptr %62, align 4
   %63 = load float, ptr %59, align 4
   %64 = fdiv float %48, %63
-  %65 = getelementptr inbounds i8, ptr %51, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %51, i64 4
   store float %64, ptr %65, align 4
   %66 = load float, ptr %56, align 4
-  %67 = getelementptr inbounds i8, ptr %32, i64 4
+  %67 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %68 = load float, ptr %67, align 4
   %69 = fmul float %66, %68
-  %70 = getelementptr inbounds i8, ptr %33, i64 4
+  %70 = getelementptr inbounds nuw i8, ptr %33, i64 4
   store float %69, ptr %70, align 4
-  %71 = getelementptr inbounds i8, ptr %31, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %72 = load float, ptr %71, align 4
   %73 = tail call float @llvm.fmuladd.f32(float %48, float 5.000000e+00, float %72)
   %74 = load float, ptr %59, align 4
@@ -1637,7 +1637,7 @@ cmsIsToneCurveLinear.exit:                        ; preds = %.lr.ph.i
   %76 = fneg float %75
   %77 = fmul float %74, %76
   %78 = tail call float @llvm.fmuladd.f32(float %77, float %75, float %73)
-  %79 = getelementptr inbounds i8, ptr %50, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store float %78, ptr %79, align 4
   %80 = load float, ptr %62, align 4
   %81 = fmul float %74, %80
@@ -1646,21 +1646,21 @@ cmsIsToneCurveLinear.exit:                        ; preds = %.lr.ph.i
   %84 = fmul float %81, %83
   %85 = tail call float @llvm.fmuladd.f32(float %48, float -4.000000e+00, float %84)
   %86 = fdiv float %85, %78
-  %87 = getelementptr inbounds i8, ptr %49, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store float %86, ptr %87, align 4
   %88 = load float, ptr %79, align 4
   %89 = fdiv float %48, %88
-  %90 = getelementptr inbounds i8, ptr %51, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store float %89, ptr %90, align 4
   %91 = load float, ptr %71, align 4
-  %92 = getelementptr inbounds i8, ptr %32, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %93 = load float, ptr %92, align 4
   %94 = load float, ptr %62, align 4
   %95 = load float, ptr %70, align 4
   %96 = fneg float %95
   %97 = fmul float %94, %96
   %98 = tail call float @llvm.fmuladd.f32(float %91, float %93, float %97)
-  %99 = getelementptr inbounds i8, ptr %33, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store float %98, ptr %99, align 4
   %100 = add nsw i32 %27, -1
   %101 = icmp samesign ugt i32 %27, 4
@@ -1706,7 +1706,7 @@ cmsIsToneCurveLinear.exit:                        ; preds = %.lr.ph.i
   %indvars.iv.i119.lver.orig = phi i64 [ %indvars.iv.next.i120.lver.orig, %.lr.ph.i118.lver.orig ], [ 3, %.lr.ph.i118.lver.check ]
   %103 = add nsw i64 %indvars.iv.i119.lver.orig, -1
   %104 = add nsw i64 %indvars.iv.i119.lver.orig, -2
-  %105 = getelementptr inbounds float, ptr %31, i64 %indvars.iv.i119.lver.orig
+  %105 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv.i119.lver.orig
   %106 = load float, ptr %105, align 4
   %107 = tail call float @llvm.fmuladd.f32(float %48, float 6.000000e+00, float %106)
   %108 = getelementptr inbounds float, ptr %49, i64 %103
@@ -1723,7 +1723,7 @@ cmsIsToneCurveLinear.exit:                        ; preds = %.lr.ph.i
   %119 = fneg float %116
   %120 = fmul float %116, %119
   %121 = tail call float @llvm.fmuladd.f32(float %120, float %118, float %114)
-  %122 = getelementptr inbounds float, ptr %50, i64 %indvars.iv.i119.lver.orig
+  %122 = getelementptr inbounds nuw float, ptr %50, i64 %indvars.iv.i119.lver.orig
   store float %121, ptr %122, align 4
   %123 = load float, ptr %108, align 4
   %124 = fmul float %111, %123
@@ -1733,14 +1733,14 @@ cmsIsToneCurveLinear.exit:                        ; preds = %.lr.ph.i
   %128 = fmul float %124, %127
   %129 = tail call float @llvm.fmuladd.f32(float %48, float -4.000000e+00, float %128)
   %130 = fdiv float %129, %121
-  %131 = getelementptr inbounds float, ptr %49, i64 %indvars.iv.i119.lver.orig
+  %131 = getelementptr inbounds nuw float, ptr %49, i64 %indvars.iv.i119.lver.orig
   store float %130, ptr %131, align 4
   %132 = load float, ptr %122, align 4
   %133 = fdiv float %48, %132
-  %134 = getelementptr inbounds float, ptr %51, i64 %indvars.iv.i119.lver.orig
+  %134 = getelementptr inbounds nuw float, ptr %51, i64 %indvars.iv.i119.lver.orig
   store float %133, ptr %134, align 4
   %135 = load float, ptr %105, align 4
-  %136 = getelementptr inbounds float, ptr %32, i64 %indvars.iv.i119.lver.orig
+  %136 = getelementptr inbounds nuw float, ptr %32, i64 %indvars.iv.i119.lver.orig
   %137 = load float, ptr %136, align 4
   %138 = load float, ptr %108, align 4
   %139 = getelementptr inbounds float, ptr %33, i64 %103
@@ -1753,7 +1753,7 @@ cmsIsToneCurveLinear.exit:                        ; preds = %.lr.ph.i
   %146 = load float, ptr %145, align 4
   %147 = fneg float %144
   %148 = tail call float @llvm.fmuladd.f32(float %147, float %146, float %143)
-  %149 = getelementptr inbounds float, ptr %33, i64 %indvars.iv.i119.lver.orig
+  %149 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv.i119.lver.orig
   store float %148, ptr %149, align 4
   %indvars.iv.next.i120.lver.orig = add nuw nsw i64 %indvars.iv.i119.lver.orig, 1
   %exitcond.not.i.lver.orig = icmp eq i64 %indvars.iv.next.i120.lver.orig, %wide.trip.count.i
@@ -1777,7 +1777,7 @@ cmsIsToneCurveLinear.exit:                        ; preds = %.lr.ph.i
   %store_forwarded202 = phi float [ %load_initial201, %.lr.ph.i118.ph ], [ %163, %.lr.ph.i118 ]
   %indvars.iv.i119 = phi i64 [ 3, %.lr.ph.i118.ph ], [ %indvars.iv.next.i120, %.lr.ph.i118 ]
   %150 = add nsw i64 %indvars.iv.i119, -2
-  %151 = getelementptr inbounds float, ptr %31, i64 %indvars.iv.i119
+  %151 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv.i119
   %152 = load float, ptr %151, align 4
   %153 = tail call float @llvm.fmuladd.f32(float %48, float 6.000000e+00, float %152)
   %154 = fneg float %store_forwarded211
@@ -1790,21 +1790,21 @@ cmsIsToneCurveLinear.exit:                        ; preds = %.lr.ph.i
   %161 = fneg float %158
   %162 = fmul float %158, %161
   %163 = tail call float @llvm.fmuladd.f32(float %162, float %160, float %156)
-  %164 = getelementptr inbounds float, ptr %50, i64 %indvars.iv.i119
+  %164 = getelementptr inbounds nuw float, ptr %50, i64 %indvars.iv.i119
   store float %163, ptr %164, align 4
   %165 = fmul float %store_forwarded202, %store_forwarded211
   %166 = fneg float %store_forwarded208
   %167 = fmul float %165, %166
   %168 = tail call float @llvm.fmuladd.f32(float %48, float -4.000000e+00, float %167)
   %169 = fdiv float %168, %163
-  %170 = getelementptr inbounds float, ptr %49, i64 %indvars.iv.i119
+  %170 = getelementptr inbounds nuw float, ptr %49, i64 %indvars.iv.i119
   store float %169, ptr %170, align 4
   %171 = load float, ptr %164, align 4
   %172 = fdiv float %48, %171
-  %173 = getelementptr inbounds float, ptr %51, i64 %indvars.iv.i119
+  %173 = getelementptr inbounds nuw float, ptr %51, i64 %indvars.iv.i119
   store float %172, ptr %173, align 4
   %174 = load float, ptr %151, align 4
-  %175 = getelementptr inbounds float, ptr %32, i64 %indvars.iv.i119
+  %175 = getelementptr inbounds nuw float, ptr %32, i64 %indvars.iv.i119
   %176 = load float, ptr %175, align 4
   %177 = fneg float %store_forwarded205
   %178 = fmul float %store_forwarded211, %177
@@ -1814,7 +1814,7 @@ cmsIsToneCurveLinear.exit:                        ; preds = %.lr.ph.i
   %182 = load float, ptr %181, align 4
   %183 = fneg float %180
   %184 = tail call float @llvm.fmuladd.f32(float %183, float %182, float %179)
-  %185 = getelementptr inbounds float, ptr %33, i64 %indvars.iv.i119
+  %185 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv.i119
   store float %184, ptr %185, align 4
   %indvars.iv.next.i120 = add nuw nsw i64 %indvars.iv.i119, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i120, %wide.trip.count.i
@@ -1871,7 +1871,7 @@ cmsIsToneCurveLinear.exit:                        ; preds = %.lr.ph.i
   %231 = getelementptr inbounds float, ptr %33, i64 %188
   store float %230, ptr %231, align 4
   %232 = zext nneg i32 %27 to i64
-  %233 = getelementptr inbounds float, ptr %31, i64 %232
+  %233 = getelementptr inbounds nuw float, ptr %31, i64 %232
   %234 = load float, ptr %233, align 4
   %235 = fadd float %234, %48
   %236 = load float, ptr %217, align 4
@@ -1884,10 +1884,10 @@ cmsIsToneCurveLinear.exit:                        ; preds = %.lr.ph.i
   %243 = fneg float %241
   %244 = fmul float %241, %243
   %245 = tail call float @llvm.fmuladd.f32(float %244, float %242, float %240)
-  %246 = getelementptr inbounds float, ptr %50, i64 %232
+  %246 = getelementptr inbounds nuw float, ptr %50, i64 %232
   store float %245, ptr %246, align 4
   %247 = load float, ptr %233, align 4
-  %248 = getelementptr inbounds float, ptr %32, i64 %232
+  %248 = getelementptr inbounds nuw float, ptr %32, i64 %232
   %249 = load float, ptr %248, align 4
   %250 = load float, ptr %217, align 4
   %251 = load float, ptr %231, align 4
@@ -1899,7 +1899,7 @@ cmsIsToneCurveLinear.exit:                        ; preds = %.lr.ph.i
   %257 = fneg float %255
   %258 = tail call float @llvm.fmuladd.f32(float %257, float %256, float %254)
   %259 = fdiv float %258, %245
-  %260 = getelementptr inbounds float, ptr %33, i64 %232
+  %260 = getelementptr inbounds nuw float, ptr %33, i64 %232
   store float %259, ptr %260, align 4
   %261 = load float, ptr %208, align 4
   %262 = fdiv float %251, %261
@@ -1921,18 +1921,18 @@ cmsIsToneCurveLinear.exit:                        ; preds = %.lr.ph.i
 .lr.ph222.i:                                      ; preds = %.lr.ph222.i, %.lr.ph222.preheader.i
   %store_forwarded = phi float [ %load_initial, %.lr.ph222.preheader.i ], [ %284, %.lr.ph222.i ]
   %indvars.iv224.i = phi i64 [ %267, %.lr.ph222.preheader.i ], [ %indvars.iv.next225.i, %.lr.ph222.i ]
-  %270 = getelementptr inbounds float, ptr %33, i64 %indvars.iv224.i
+  %270 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv224.i
   %271 = load float, ptr %270, align 4
-  %272 = getelementptr inbounds float, ptr %50, i64 %indvars.iv224.i
+  %272 = getelementptr inbounds nuw float, ptr %50, i64 %indvars.iv224.i
   %273 = load float, ptr %272, align 4
   %274 = fdiv float %271, %273
-  %275 = getelementptr inbounds float, ptr %49, i64 %indvars.iv224.i
+  %275 = getelementptr inbounds nuw float, ptr %49, i64 %indvars.iv224.i
   %276 = load float, ptr %275, align 4
   %277 = fneg float %276
   %278 = tail call float @llvm.fmuladd.f32(float %277, float %store_forwarded, float %274)
-  %279 = getelementptr inbounds float, ptr %51, i64 %indvars.iv224.i
+  %279 = getelementptr inbounds nuw float, ptr %51, i64 %indvars.iv224.i
   %280 = load float, ptr %279, align 4
-  %281 = getelementptr inbounds i8, ptr %270, i64 8
+  %281 = getelementptr inbounds nuw i8, ptr %270, i64 8
   %282 = load float, ptr %281, align 4
   %283 = fneg float %280
   %284 = tail call float @llvm.fmuladd.f32(float %283, float %282, float %278)
@@ -1985,7 +1985,7 @@ smooth2.exit:                                     ; preds = %290, %291
   %indvars.iv154 = phi i64 [ %293, %.lr.ph145.preheader ], [ %indvars.iv.next155, %294 ]
   %.087144 = phi i32 [ 0, %.lr.ph145.preheader ], [ %.2, %294 ]
   %.088143 = phi i32 [ 0, %.lr.ph145.preheader ], [ %.290, %294 ]
-  %296 = getelementptr inbounds float, ptr %33, i64 %indvars.iv154
+  %296 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv154
   %297 = load float, ptr %296, align 4
   %298 = fcmp oeq float %297, 0.000000e+00
   %299 = zext i1 %298 to i32
@@ -2039,7 +2039,7 @@ smooth2.exit:                                     ; preds = %290, %291
 .lr.ph148:                                        ; preds = %.lr.ph148.preheader, %_cmsQuickSaturateWord.exit
   %indvars.iv157 = phi i64 [ 0, %.lr.ph148.preheader ], [ %indvars.iv.next158, %_cmsQuickSaturateWord.exit ]
   %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
-  %312 = getelementptr inbounds float, ptr %33, i64 %indvars.iv.next158
+  %312 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv.next158
   %313 = load float, ptr %312, align 4
   %314 = fpext float %313 to double
   %315 = fadd double %314, 5.000000e-01
@@ -2061,7 +2061,7 @@ smooth2.exit:                                     ; preds = %290, %291
 _cmsQuickSaturateWord.exit:                       ; preds = %.lr.ph148, %317, %319
   %.0.i121 = phi i16 [ %324, %319 ], [ 0, %.lr.ph148 ], [ -1, %317 ]
   %325 = load ptr, ptr %7, align 8
-  %326 = getelementptr inbounds i16, ptr %325, i64 %indvars.iv157
+  %326 = getelementptr inbounds nuw i16, ptr %325, i64 %indvars.iv157
   store i16 %.0.i121, ptr %326, align 2
   %exitcond161.not = icmp eq i64 %indvars.iv.next158, %wide.trip.count160
   br i1 %exitcond161.not, label %.critedge117.thread, label %.lr.ph148, !llvm.loop !25
@@ -2106,8 +2106,8 @@ cmsIsToneCurveLinear.exit.thread:                 ; preds = %11, %5, %2, %3, %32
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @cmsIsToneCurveLinear(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -2123,7 +2123,7 @@ define hidden range(i32 0, 2) i32 @cmsIsToneCurveLinear(ptr nocapture noundef re
   %indvars.iv = phi i64 [ %indvars.iv.next, %6 ], [ 0, %1 ]
   %10 = phi i32 [ %7, %6 ], [ %4, %1 ]
   %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds i16, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv
   %13 = load i16, ptr %12, align 2
   %14 = zext i16 %13 to i32
   %15 = trunc nuw nsw i64 %indvars.iv to i32
@@ -2147,18 +2147,18 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define hidden range(i32 0, 2) i32 @cmsIsToneCurveMonotonic(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   %4 = icmp ult i32 %3, 2
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = load i16, ptr %7, align 2
   %9 = add i32 %3, -1
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds i16, ptr %7, i64 %10
+  %11 = getelementptr inbounds nuw i16, ptr %7, i64 %10
   %12 = load i16, ptr %11, align 2
   %.not = icmp ugt i16 %8, %12
   %13 = icmp sgt i32 %3, 1
@@ -2180,7 +2180,7 @@ define hidden range(i32 0, 2) i32 @cmsIsToneCurveMonotonic(ptr nocapture noundef
 .lr.ph35:                                         ; preds = %.lr.ph35.preheader, %16
   %indvars.iv = phi i64 [ 1, %.lr.ph35.preheader ], [ %indvars.iv.next, %16 ]
   %.02334 = phi i32 [ %15, %.lr.ph35.preheader ], [ %19, %16 ]
-  %17 = getelementptr inbounds i16, ptr %7, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv
   %18 = load i16, ptr %17, align 2
   %19 = zext i16 %18 to i32
   %20 = sub nsw i32 %19, %.02334
@@ -2204,7 +2204,7 @@ define hidden range(i32 0, 2) i32 @cmsIsToneCurveMonotonic(ptr nocapture noundef
   %.130 = phi i32 [ %31, %25 ], [ %24, %.lr.ph.preheader ]
   %.12529 = phi i32 [ %26, %25 ], [ %23, %.lr.ph.preheader ]
   %28 = zext nneg i32 %.12529 to i64
-  %29 = getelementptr inbounds i16, ptr %7, i64 %28
+  %29 = getelementptr inbounds nuw i16, ptr %7, i64 %28
   %30 = load i16, ptr %29, align 2
   %31 = zext i16 %30 to i32
   %32 = sub nsw i32 %31, %.130
@@ -2218,7 +2218,7 @@ define hidden range(i32 0, 2) i32 @cmsIsToneCurveMonotonic(ptr nocapture noundef
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i32 0, 2) i32 @cmsIsToneCurveMultisegment(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp ugt i32 %3, 1
   %5 = zext i1 %4 to i32
@@ -2227,15 +2227,15 @@ define hidden range(i32 0, 2) i32 @cmsIsToneCurveMultisegment(ptr nocapture noun
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden i32 @cmsGetToneCurveParametricType(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 1
   br i1 %.not, label %4, label %9
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i32, ptr %7, align 8
   br label %9
 
@@ -2250,7 +2250,7 @@ define hidden zeroext i16 @cmsEvalToneCurve16(ptr nocapture noundef readonly %0,
   %4 = alloca i16, align 2
   store i16 %1, ptr %3, align 2
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 208
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 208
   %7 = load ptr, ptr %6, align 8
   call void %7(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %5) #13
   %8 = load i16, ptr %4, align 2
@@ -2331,16 +2331,16 @@ define hidden ptr @cmsGetToneCurveSegment(i32 noundef %0, ptr nocapture noundef 
   br i1 %3, label %12, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 8
   %.not = icmp slt i32 %0, %6
   br i1 %.not, label %7, label %12
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = zext nneg i32 %0 to i64
-  %11 = getelementptr inbounds %struct.cmsCurveSegment, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw %struct.cmsCurveSegment, ptr %9, i64 %10
   br label %12
 
 12:                                               ; preds = %2, %4, %7
@@ -2424,14 +2424,14 @@ define internal double @DefaultEvalParametricFn(i32 noundef %0, ptr noundef read
   br label %.thread
 
 26:                                               ; preds = %3
-  %27 = getelementptr inbounds i8, ptr %1, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %28 = load double, ptr %27, align 8
   %29 = tail call double @llvm.fabs.f64(double %28)
   %30 = fcmp olt double %29, 1.000000e-04
   br i1 %30, label %.thread, label %31
 
 31:                                               ; preds = %26
-  %32 = getelementptr inbounds i8, ptr %1, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %33 = load double, ptr %32, align 8
   %34 = fneg double %33
   %35 = fdiv double %34, %28
@@ -2455,7 +2455,7 @@ define internal double @DefaultEvalParametricFn(i32 noundef %0, ptr noundef read
   br i1 %46, label %.thread, label %47
 
 47:                                               ; preds = %43
-  %48 = getelementptr inbounds i8, ptr %1, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %49 = load double, ptr %48, align 8
   %50 = tail call double @llvm.fabs.f64(double %49)
   %51 = fcmp olt double %50, 1.000000e-04
@@ -2466,7 +2466,7 @@ define internal double @DefaultEvalParametricFn(i32 noundef %0, ptr noundef read
 53:                                               ; preds = %47
   %54 = fdiv double 1.000000e+00, %44
   %55 = tail call double @pow(double noundef %2, double noundef %54) #13
-  %56 = getelementptr inbounds i8, ptr %1, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %57 = load double, ptr %56, align 8
   %58 = fsub double %55, %57
   %59 = load double, ptr %48, align 8
@@ -2478,14 +2478,14 @@ define internal double @DefaultEvalParametricFn(i32 noundef %0, ptr noundef read
   br label %.thread
 
 63:                                               ; preds = %3
-  %64 = getelementptr inbounds i8, ptr %1, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %65 = load double, ptr %64, align 8
   %66 = tail call double @llvm.fabs.f64(double %65)
   %67 = fcmp olt double %66, 1.000000e-04
   br i1 %67, label %.thread, label %68
 
 68:                                               ; preds = %63
-  %69 = getelementptr inbounds i8, ptr %1, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %70 = load double, ptr %69, align 8
   %71 = fneg double %70
   %72 = fdiv double %71, %65
@@ -2502,13 +2502,13 @@ define internal double @DefaultEvalParametricFn(i32 noundef %0, ptr noundef read
 78:                                               ; preds = %75
   %79 = load double, ptr %1, align 8
   %80 = tail call double @pow(double noundef %76, double noundef %79) #13
-  %81 = getelementptr inbounds i8, ptr %1, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %82 = load double, ptr %81, align 8
   %83 = fadd double %80, %82
   br label %.thread
 
 84:                                               ; preds = %68
-  %85 = getelementptr inbounds i8, ptr %1, i64 24
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %86 = load double, ptr %85, align 8
   br label %.thread
 
@@ -2519,14 +2519,14 @@ define internal double @DefaultEvalParametricFn(i32 noundef %0, ptr noundef read
   br i1 %90, label %.thread, label %91
 
 91:                                               ; preds = %87
-  %92 = getelementptr inbounds i8, ptr %1, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %93 = load double, ptr %92, align 8
   %94 = tail call double @llvm.fabs.f64(double %93)
   %95 = fcmp olt double %94, 1.000000e-04
   br i1 %95, label %.thread, label %96
 
 96:                                               ; preds = %91
-  %97 = getelementptr inbounds i8, ptr %1, i64 24
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %98 = load double, ptr %97, align 8
   %99 = fcmp ult double %2, %98
   br i1 %99, label %111, label %100
@@ -2539,7 +2539,7 @@ define internal double @DefaultEvalParametricFn(i32 noundef %0, ptr noundef read
 103:                                              ; preds = %100
   %104 = fdiv double 1.000000e+00, %88
   %105 = tail call double @pow(double noundef %101, double noundef %104) #13
-  %106 = getelementptr inbounds i8, ptr %1, i64 16
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %107 = load double, ptr %106, align 8
   %108 = fsub double %105, %107
   %109 = load double, ptr %92, align 8
@@ -2547,22 +2547,22 @@ define internal double @DefaultEvalParametricFn(i32 noundef %0, ptr noundef read
   br label %.thread
 
 111:                                              ; preds = %96
-  %112 = getelementptr inbounds i8, ptr %1, i64 16
+  %112 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %113 = load double, ptr %112, align 8
   %114 = fneg double %113
   %115 = fdiv double %114, %93
   br label %.thread
 
 116:                                              ; preds = %3
-  %117 = getelementptr inbounds i8, ptr %1, i64 32
+  %117 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %118 = load double, ptr %117, align 8
   %119 = fcmp ult double %2, %118
   br i1 %119, label %130, label %120
 
 120:                                              ; preds = %116
-  %121 = getelementptr inbounds i8, ptr %1, i64 8
+  %121 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %122 = load double, ptr %121, align 8
-  %123 = getelementptr inbounds i8, ptr %1, i64 16
+  %123 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %124 = load double, ptr %123, align 8
   %125 = tail call double @llvm.fmuladd.f64(double %122, double %2, double %124)
   %126 = fcmp ogt double %125, 0.000000e+00
@@ -2574,17 +2574,17 @@ define internal double @DefaultEvalParametricFn(i32 noundef %0, ptr noundef read
   br label %.thread
 
 130:                                              ; preds = %116
-  %131 = getelementptr inbounds i8, ptr %1, i64 24
+  %131 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %132 = load double, ptr %131, align 8
   %133 = fmul double %2, %132
   br label %.thread
 
 134:                                              ; preds = %3
-  %135 = getelementptr inbounds i8, ptr %1, i64 8
+  %135 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %136 = load double, ptr %135, align 8
-  %137 = getelementptr inbounds i8, ptr %1, i64 32
+  %137 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %138 = load double, ptr %137, align 8
-  %139 = getelementptr inbounds i8, ptr %1, i64 16
+  %139 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %140 = load double, ptr %139, align 8
   %141 = tail call double @llvm.fmuladd.f64(double %136, double %138, double %140)
   %142 = fcmp olt double %141, 0.000000e+00
@@ -2622,7 +2622,7 @@ define internal double @DefaultEvalParametricFn(i32 noundef %0, ptr noundef read
   br label %.thread
 
 163:                                              ; preds = %146
-  %164 = getelementptr inbounds i8, ptr %1, i64 24
+  %164 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %165 = load double, ptr %164, align 8
   %166 = tail call double @llvm.fabs.f64(double %165)
   %167 = fcmp olt double %166, 1.000000e-04
@@ -2633,15 +2633,15 @@ define internal double @DefaultEvalParametricFn(i32 noundef %0, ptr noundef read
   br label %.thread
 
 170:                                              ; preds = %3
-  %171 = getelementptr inbounds i8, ptr %1, i64 32
+  %171 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %172 = load double, ptr %171, align 8
   %173 = fcmp ult double %2, %172
   br i1 %173, label %190, label %174
 
 174:                                              ; preds = %170
-  %175 = getelementptr inbounds i8, ptr %1, i64 8
+  %175 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %176 = load double, ptr %175, align 8
-  %177 = getelementptr inbounds i8, ptr %1, i64 16
+  %177 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %178 = load double, ptr %177, align 8
   %179 = tail call double @llvm.fmuladd.f64(double %176, double %2, double %178)
   %180 = fcmp ogt double %179, 0.000000e+00
@@ -2650,37 +2650,37 @@ define internal double @DefaultEvalParametricFn(i32 noundef %0, ptr noundef read
 181:                                              ; preds = %174
   %182 = load double, ptr %1, align 8
   %183 = tail call double @pow(double noundef %179, double noundef %182) #13
-  %184 = getelementptr inbounds i8, ptr %1, i64 40
+  %184 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %185 = load double, ptr %184, align 8
   %186 = fadd double %183, %185
   br label %.thread
 
 187:                                              ; preds = %174
-  %188 = getelementptr inbounds i8, ptr %1, i64 40
+  %188 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %189 = load double, ptr %188, align 8
   br label %.thread
 
 190:                                              ; preds = %170
-  %191 = getelementptr inbounds i8, ptr %1, i64 24
+  %191 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %192 = load double, ptr %191, align 8
-  %193 = getelementptr inbounds i8, ptr %1, i64 48
+  %193 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %194 = load double, ptr %193, align 8
   %195 = tail call double @llvm.fmuladd.f64(double %2, double %192, double %194)
   br label %.thread
 
 196:                                              ; preds = %3
-  %197 = getelementptr inbounds i8, ptr %1, i64 24
+  %197 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %198 = load double, ptr %197, align 8
-  %199 = getelementptr inbounds i8, ptr %1, i64 32
+  %199 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %200 = load double, ptr %199, align 8
-  %201 = getelementptr inbounds i8, ptr %1, i64 48
+  %201 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %202 = load double, ptr %201, align 8
   %203 = tail call double @llvm.fmuladd.f64(double %198, double %200, double %202)
   %204 = fcmp ult double %2, %203
   br i1 %204, label %227, label %205
 
 205:                                              ; preds = %196
-  %206 = getelementptr inbounds i8, ptr %1, i64 40
+  %206 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %207 = load double, ptr %206, align 8
   %208 = fsub double %2, %207
   %209 = fcmp olt double %208, 0.000000e+00
@@ -2693,7 +2693,7 @@ define internal double @DefaultEvalParametricFn(i32 noundef %0, ptr noundef read
   br i1 %213, label %.thread, label %214
 
 214:                                              ; preds = %210
-  %215 = getelementptr inbounds i8, ptr %1, i64 8
+  %215 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %216 = load double, ptr %215, align 8
   %217 = tail call double @llvm.fabs.f64(double %216)
   %218 = fcmp olt double %217, 1.000000e-04
@@ -2702,7 +2702,7 @@ define internal double @DefaultEvalParametricFn(i32 noundef %0, ptr noundef read
 219:                                              ; preds = %214
   %220 = fdiv double 1.000000e+00, %211
   %221 = tail call double @pow(double noundef %208, double noundef %220) #13
-  %222 = getelementptr inbounds i8, ptr %1, i64 16
+  %222 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %223 = load double, ptr %222, align 8
   %224 = fsub double %221, %223
   %225 = load double, ptr %215, align 8
@@ -2720,9 +2720,9 @@ define internal double @DefaultEvalParametricFn(i32 noundef %0, ptr noundef read
   br label %.thread
 
 233:                                              ; preds = %3
-  %234 = getelementptr inbounds i8, ptr %1, i64 8
+  %234 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %235 = load double, ptr %234, align 8
-  %236 = getelementptr inbounds i8, ptr %1, i64 16
+  %236 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %237 = load double, ptr %236, align 8
   %238 = tail call double @llvm.fmuladd.f64(double %235, double %2, double %237)
   %239 = load double, ptr %1, align 8
@@ -2730,7 +2730,7 @@ define internal double @DefaultEvalParametricFn(i32 noundef %0, ptr noundef read
   br i1 %240, label %241, label %245
 
 241:                                              ; preds = %233
-  %242 = getelementptr inbounds i8, ptr %1, i64 24
+  %242 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %243 = load double, ptr %242, align 8
   %244 = fadd double %238, %243
   br label %.thread
@@ -2740,13 +2740,13 @@ define internal double @DefaultEvalParametricFn(i32 noundef %0, ptr noundef read
   br i1 %246, label %247, label %250
 
 247:                                              ; preds = %245
-  %248 = getelementptr inbounds i8, ptr %1, i64 24
+  %248 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %249 = load double, ptr %248, align 8
   br label %.thread
 
 250:                                              ; preds = %245
   %251 = tail call double @pow(double noundef %238, double noundef %239) #13
-  %252 = getelementptr inbounds i8, ptr %1, i64 24
+  %252 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %253 = load double, ptr %252, align 8
   %254 = fadd double %251, %253
   br label %.thread
@@ -2758,14 +2758,14 @@ define internal double @DefaultEvalParametricFn(i32 noundef %0, ptr noundef read
   br i1 %258, label %.thread, label %259
 
 259:                                              ; preds = %255
-  %260 = getelementptr inbounds i8, ptr %1, i64 8
+  %260 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %261 = load double, ptr %260, align 8
   %262 = tail call double @llvm.fabs.f64(double %261)
   %263 = fcmp olt double %262, 1.000000e-04
   br i1 %263, label %.thread, label %264
 
 264:                                              ; preds = %259
-  %265 = getelementptr inbounds i8, ptr %1, i64 24
+  %265 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %266 = load double, ptr %265, align 8
   %267 = fsub double %2, %266
   %268 = fcmp olt double %267, 0.000000e+00
@@ -2774,7 +2774,7 @@ define internal double @DefaultEvalParametricFn(i32 noundef %0, ptr noundef read
 269:                                              ; preds = %264
   %270 = fdiv double 1.000000e+00, %256
   %271 = tail call double @pow(double noundef %267, double noundef %270) #13
-  %272 = getelementptr inbounds i8, ptr %1, i64 16
+  %272 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %273 = load double, ptr %272, align 8
   %274 = fsub double %271, %273
   %275 = load double, ptr %260, align 8
@@ -2782,26 +2782,26 @@ define internal double @DefaultEvalParametricFn(i32 noundef %0, ptr noundef read
   br label %.thread
 
 277:                                              ; preds = %3
-  %278 = getelementptr inbounds i8, ptr %1, i64 16
+  %278 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %279 = load double, ptr %278, align 8
   %280 = load double, ptr %1, align 8
   %281 = tail call double @pow(double noundef %2, double noundef %280) #13
-  %282 = getelementptr inbounds i8, ptr %1, i64 24
+  %282 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %283 = load double, ptr %282, align 8
   %284 = tail call double @llvm.fmuladd.f64(double %279, double %281, double %283)
   %285 = fcmp ugt double %284, 0.000000e+00
   br i1 %285, label %289, label %286
 
 286:                                              ; preds = %277
-  %287 = getelementptr inbounds i8, ptr %1, i64 32
+  %287 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %288 = load double, ptr %287, align 8
   br label %.thread
 
 289:                                              ; preds = %277
-  %290 = getelementptr inbounds i8, ptr %1, i64 8
+  %290 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %291 = load double, ptr %290, align 8
   %292 = tail call double @llvm.log10.f64(double %284)
-  %293 = getelementptr inbounds i8, ptr %1, i64 32
+  %293 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %294 = load double, ptr %293, align 8
   %295 = tail call double @llvm.fmuladd.f64(double %291, double %292, double %294)
   br label %.thread
@@ -2813,26 +2813,26 @@ define internal double @DefaultEvalParametricFn(i32 noundef %0, ptr noundef read
   br i1 %299, label %.thread, label %300
 
 300:                                              ; preds = %296
-  %301 = getelementptr inbounds i8, ptr %1, i64 8
+  %301 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %302 = load double, ptr %301, align 8
   %303 = tail call double @llvm.fabs.f64(double %302)
   %304 = fcmp olt double %303, 1.000000e-04
   br i1 %304, label %.thread, label %305
 
 305:                                              ; preds = %300
-  %306 = getelementptr inbounds i8, ptr %1, i64 16
+  %306 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %307 = load double, ptr %306, align 8
   %308 = tail call double @llvm.fabs.f64(double %307)
   %309 = fcmp olt double %308, 1.000000e-04
   br i1 %309, label %.thread, label %310
 
 310:                                              ; preds = %305
-  %311 = getelementptr inbounds i8, ptr %1, i64 32
+  %311 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %312 = load double, ptr %311, align 8
   %313 = fsub double %2, %312
   %314 = fdiv double %313, %302
   %315 = tail call double @pow(double noundef 1.000000e+01, double noundef %314) #13
-  %316 = getelementptr inbounds i8, ptr %1, i64 24
+  %316 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %317 = load double, ptr %316, align 8
   %318 = fsub double %315, %317
   %319 = load double, ptr %306, align 8
@@ -2844,21 +2844,21 @@ define internal double @DefaultEvalParametricFn(i32 noundef %0, ptr noundef read
 
 324:                                              ; preds = %3
   %325 = load double, ptr %1, align 8
-  %326 = getelementptr inbounds i8, ptr %1, i64 8
+  %326 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %327 = load double, ptr %326, align 8
-  %328 = getelementptr inbounds i8, ptr %1, i64 16
+  %328 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %329 = load double, ptr %328, align 8
-  %330 = getelementptr inbounds i8, ptr %1, i64 24
+  %330 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %331 = load double, ptr %330, align 8
   %332 = tail call double @llvm.fmuladd.f64(double %329, double %2, double %331)
   %333 = tail call double @pow(double noundef %327, double noundef %332) #13
-  %334 = getelementptr inbounds i8, ptr %1, i64 32
+  %334 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %335 = load double, ptr %334, align 8
   %336 = tail call double @llvm.fmuladd.f64(double %325, double %333, double %335)
   br label %.thread
 
 337:                                              ; preds = %3
-  %338 = getelementptr inbounds i8, ptr %1, i64 32
+  %338 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %339 = load double, ptr %338, align 8
   %340 = fsub double %2, %339
   %341 = fcmp olt double %340, 0.000000e+00
@@ -2871,7 +2871,7 @@ define internal double @DefaultEvalParametricFn(i32 noundef %0, ptr noundef read
   br i1 %345, label %.thread, label %346
 
 346:                                              ; preds = %342
-  %347 = getelementptr inbounds i8, ptr %1, i64 16
+  %347 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %348 = load double, ptr %347, align 8
   %349 = tail call double @llvm.fabs.f64(double %348)
   %350 = fcmp olt double %349, 1.000000e-04
@@ -2880,11 +2880,11 @@ define internal double @DefaultEvalParametricFn(i32 noundef %0, ptr noundef read
 351:                                              ; preds = %346
   %352 = fdiv double %340, %343
   %353 = tail call double @log(double noundef %352) #13
-  %354 = getelementptr inbounds i8, ptr %1, i64 8
+  %354 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %355 = load double, ptr %354, align 8
   %356 = tail call double @log(double noundef %355) #13
   %357 = fdiv double %353, %356
-  %358 = getelementptr inbounds i8, ptr %1, i64 24
+  %358 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %359 = load double, ptr %358, align 8
   %360 = fsub double %357, %359
   %361 = load double, ptr %347, align 8

@@ -24,7 +24,7 @@ define dso_local i32 @nghttp2_submit_trailer(ptr noundef %0, i32 noundef %1, ptr
 define internal fastcc i32 @submit_headers_shared_nva(ptr noundef %0, i8 noundef zeroext range(i8 0, 34) %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef %4, i64 noundef %5, ptr noundef readonly %6, ptr noundef %7) unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = alloca %struct.nghttp2_priority_spec, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 2528
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 2528
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %12
 
@@ -54,18 +54,18 @@ define internal fastcc i32 @submit_headers_shared_nva(ptr noundef %0, i8 noundef
   br i1 %.not.i, label %27, label %22
 
 22:                                               ; preds = %21
-  %23 = getelementptr inbounds i8, ptr %6, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %24 = load ptr, ptr %23, align 8
   %.not43.i = icmp eq ptr %24, null
   br i1 %.not43.i, label %27, label %25
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %19, i64 96
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull readonly align 8 dereferenceable(16) %6, i64 16, i1 false)
   br label %27
 
 27:                                               ; preds = %25, %22, %21
-  %28 = getelementptr inbounds i8, ptr %19, i64 112
+  %28 = getelementptr inbounds nuw i8, ptr %19, i64 112
   store ptr %7, ptr %28, align 8
   %29 = and i8 %1, 33
   %30 = or disjoint i8 %29, 4
@@ -73,7 +73,7 @@ define internal fastcc i32 @submit_headers_shared_nva(ptr noundef %0, i8 noundef
   br i1 %31, label %32, label %38
 
 32:                                               ; preds = %27
-  %33 = getelementptr inbounds i8, ptr %0, i64 2712
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 2712
   %34 = load i32, ptr %33, align 8
   %35 = icmp slt i32 %34, 0
   br i1 %35, label %41, label %36
@@ -117,7 +117,7 @@ define dso_local i32 @nghttp2_submit_headers(ptr noundef %0, i8 noundef zeroext 
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 2844
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 2844
   %11 = load i8, ptr %10, align 4
   %.not = icmp eq i8 %11, 0
   br i1 %.not, label %14, label %30
@@ -137,7 +137,7 @@ define dso_local i32 @nghttp2_submit_headers(ptr noundef %0, i8 noundef zeroext 
   br i1 %.not26, label %18, label %28
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %0, i64 2792
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 2792
   %20 = load i32, ptr %19, align 4
   %.not27 = icmp eq i32 %20, 1
   br i1 %.not27, label %28, label %21
@@ -146,7 +146,7 @@ define dso_local i32 @nghttp2_submit_headers(ptr noundef %0, i8 noundef zeroext 
   br i1 %8, label %22, label %detect_self_dependency.exit
 
 22:                                               ; preds = %21
-  %23 = getelementptr inbounds i8, ptr %0, i64 2712
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 2712
   %24 = load i32, ptr %23, align 8
   br label %detect_self_dependency.exit
 
@@ -185,8 +185,8 @@ declare i32 @nghttp2_session_add_ping(ptr noundef, i8 noundef zeroext, ptr nound
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @nghttp2_submit_priority(ptr noundef %0, i8 noundef zeroext %1, i32 noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   %5 = alloca %struct.nghttp2_priority_spec, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 2528
-  %7 = getelementptr inbounds i8, ptr %0, i64 2792
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2528
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2792
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 1
   br i1 %9, label %22, label %10
@@ -261,7 +261,7 @@ declare i32 @nghttp2_session_add_rst_stream(ptr noundef, i32 noundef, i32 nounde
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @nghttp2_submit_goaway(ptr noundef %0, i8 noundef zeroext %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 2845
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2845
   %8 = load i8, ptr %7, align 1
   %9 = and i8 %8, 1
   %.not = icmp eq i8 %9, 0
@@ -280,13 +280,13 @@ declare i32 @nghttp2_session_add_goaway(ptr noundef, i32 noundef, i32 noundef, p
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @nghttp2_submit_shutdown_notice(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 2844
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 2844
   %3 = load i8, ptr %2, align 4
   %.not = icmp eq i8 %3, 0
   br i1 %.not, label %9, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 2845
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 2845
   %6 = load i8, ptr %5, align 1
   %.not3 = icmp eq i8 %6, 0
   br i1 %.not3, label %7, label %9
@@ -311,7 +311,7 @@ declare i32 @nghttp2_session_add_settings(ptr noundef, i8 noundef zeroext, ptr n
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @nghttp2_submit_push_promise(ptr noundef %0, i8 noundef zeroext %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca ptr, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 2528
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 2528
   %9 = icmp slt i32 %2, 1
   br i1 %9, label %32, label %10
 
@@ -321,13 +321,13 @@ define dso_local i32 @nghttp2_submit_push_promise(ptr noundef %0, i8 noundef zer
   br i1 %.not, label %12, label %32
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %0, i64 2844
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 2844
   %14 = load i8, ptr %13, align 4
   %.not39 = icmp eq i8 %14, 0
   br i1 %.not39, label %32, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %0, i64 2712
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 2712
   %17 = load i32, ptr %16, align 8
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %32, label %19
@@ -339,7 +339,7 @@ define dso_local i32 @nghttp2_submit_push_promise(ptr noundef %0, i8 noundef zer
 
 22:                                               ; preds = %19
   tail call void @nghttp2_outbound_item_init(ptr noundef nonnull %20) #5
-  %23 = getelementptr inbounds i8, ptr %20, i64 112
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 112
   store ptr %5, ptr %23, align 8
   %24 = call i32 @nghttp2_nv_array_copy(ptr noundef nonnull %7, ptr noundef %3, i64 noundef %4, ptr noundef nonnull %8) #5
   %25 = icmp slt i32 %24, 0
@@ -389,9 +389,9 @@ define dso_local i32 @nghttp2_submit_window_update(ptr noundef %0, i8 noundef ze
   br i1 %8, label %9, label %14
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 2756
-  %11 = getelementptr inbounds i8, ptr %0, i64 2744
-  %12 = getelementptr inbounds i8, ptr %0, i64 2752
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 2756
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 2744
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 2752
   %13 = call i32 @nghttp2_adjust_local_window_size(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %5) #5
   %.not32 = icmp eq i32 %13, 0
   br i1 %.not32, label %21, label %37
@@ -402,9 +402,9 @@ define dso_local i32 @nghttp2_submit_window_update(ptr noundef %0, i8 noundef ze
   br i1 %.not, label %37, label %16
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %15, i64 188
-  %18 = getelementptr inbounds i8, ptr %15, i64 176
-  %19 = getelementptr inbounds i8, ptr %15, i64 184
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 188
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 176
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 184
   %20 = call i32 @nghttp2_adjust_local_window_size(ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %5) #5
   %.not31 = icmp eq i32 %20, 0
   br i1 %.not31, label %.thread, label %37
@@ -420,7 +420,7 @@ define dso_local i32 @nghttp2_submit_window_update(ptr noundef %0, i8 noundef ze
   br i1 %25, label %30, label %37
 
 26:                                               ; preds = %21
-  %27 = getelementptr inbounds i8, ptr %0, i64 2748
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 2748
   %28 = load i32, ptr %27, align 4
   %29 = sub nsw i32 %28, %22
   %spec.select = call i32 @llvm.smax.i32(i32 %29, i32 0)
@@ -428,7 +428,7 @@ define dso_local i32 @nghttp2_submit_window_update(ptr noundef %0, i8 noundef ze
   br label %34
 
 30:                                               ; preds = %.thread
-  %31 = getelementptr inbounds i8, ptr %15, i64 180
+  %31 = getelementptr inbounds nuw i8, ptr %15, i64 180
   %32 = load i32, ptr %31, align 4
   %33 = sub nsw i32 %32, %24
   %spec.select33 = call i32 @llvm.smax.i32(i32 %33, i32 0)
@@ -462,7 +462,7 @@ define dso_local i32 @nghttp2_session_set_local_window_size(ptr noundef %0, i8 n
   br i1 %8, label %9, label %29
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 2756
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 2756
   %11 = load i32, ptr %10, align 4
   %12 = sub nsw i32 %3, %11
   store i32 %12, ptr %5, align 4
@@ -471,8 +471,8 @@ define dso_local i32 @nghttp2_session_set_local_window_size(ptr noundef %0, i8 n
 
 14:                                               ; preds = %9
   %15 = icmp slt i32 %12, 0
-  %16 = getelementptr inbounds i8, ptr %0, i64 2744
-  %17 = getelementptr inbounds i8, ptr %0, i64 2752
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 2744
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 2752
   br i1 %15, label %18, label %20
 
 18:                                               ; preds = %14
@@ -503,7 +503,7 @@ define dso_local i32 @nghttp2_session_set_local_window_size(ptr noundef %0, i8 n
   br i1 %31, label %52, label %32
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %30, i64 188
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 188
   %34 = load i32, ptr %33, align 4
   %35 = sub nsw i32 %3, %34
   store i32 %35, ptr %5, align 4
@@ -512,8 +512,8 @@ define dso_local i32 @nghttp2_session_set_local_window_size(ptr noundef %0, i8 n
 
 37:                                               ; preds = %32
   %38 = icmp slt i32 %35, 0
-  %39 = getelementptr inbounds i8, ptr %30, i64 176
-  %40 = getelementptr inbounds i8, ptr %30, i64 184
+  %39 = getelementptr inbounds nuw i8, ptr %30, i64 176
+  %40 = getelementptr inbounds nuw i8, ptr %30, i64 184
   br i1 %38, label %41, label %43
 
 41:                                               ; preds = %37
@@ -551,8 +551,8 @@ declare i32 @nghttp2_session_update_recv_stream_window_size(ptr noundef, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @nghttp2_submit_altsvc(ptr noundef %0, i8 noundef zeroext %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6) local_unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %0, i64 2528
-  %9 = getelementptr inbounds i8, ptr %0, i64 2844
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 2528
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 2844
   %10 = load i8, ptr %9, align 4
   %.not = icmp eq i8 %10, 0
   br i1 %.not, label %41, label %11
@@ -591,7 +591,7 @@ define dso_local i32 @nghttp2_submit_altsvc(ptr noundef %0, i8 noundef zeroext %
 .thread58:                                        ; preds = %.thread, %25
   %27 = phi ptr [ %21, %25 ], [ %23, %.thread ]
   %.048 = phi ptr [ %26, %25 ], [ %23, %.thread ]
-  %28 = getelementptr inbounds i8, ptr %.048, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %.048, i64 1
   store i8 0, ptr %.048, align 1
   %.not56 = icmp eq i64 %6, 0
   br i1 %.not56, label %31, label %29
@@ -613,10 +613,10 @@ define dso_local i32 @nghttp2_submit_altsvc(ptr noundef %0, i8 noundef zeroext %
 
 35:                                               ; preds = %31
   tail call void @nghttp2_outbound_item_init(ptr noundef nonnull %32) #5
-  %36 = getelementptr inbounds i8, ptr %32, i64 96
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 96
   store i8 1, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %32, i64 64
-  %38 = getelementptr inbounds i8, ptr %32, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %38 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store ptr %37, ptr %38, align 8
   tail call void @nghttp2_frame_altsvc_init(ptr noundef nonnull %32, i32 noundef %2, ptr noundef nonnull %27, i64 noundef %4, ptr noundef nonnull %28, i64 noundef %6) #5
   %39 = tail call i32 @nghttp2_session_add_item(ptr noundef nonnull %0, ptr noundef nonnull %32) #5
@@ -644,8 +644,8 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @nghttp2_submit_origin(ptr noundef %0, i8 noundef zeroext %1, ptr nocapture noundef readonly %2, i64 noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 2528
-  %6 = getelementptr inbounds i8, ptr %0, i64 2844
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 2528
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2844
   %7 = load i8, ptr %6, align 4
   %.not = icmp eq i8 %7, 0
   br i1 %.not, label %44, label %8
@@ -688,13 +688,13 @@ define dso_local i32 @nghttp2_submit_origin(ptr noundef %0, i8 noundef zeroext %
   %26 = getelementptr inbounds %struct.nghttp2_origin_entry, ptr %20, i64 %.168
   store ptr %.05867, ptr %26, align 8
   %27 = getelementptr inbounds %struct.nghttp2_origin_entry, ptr %2, i64 %.168
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load i64, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %26, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i64 %29, ptr %30, align 8
   %31 = load ptr, ptr %27, align 8
   %32 = tail call ptr @nghttp2_cpymem(ptr noundef %.05867, ptr noundef %31, i64 noundef %29) #5
-  %33 = getelementptr inbounds i8, ptr %32, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 1
   store i8 0, ptr %32, align 1
   %34 = add nuw i64 %.168, 1
   %exitcond69.not = icmp eq i64 %34, %3
@@ -712,10 +712,10 @@ define dso_local i32 @nghttp2_submit_origin(ptr noundef %0, i8 noundef zeroext %
 
 38:                                               ; preds = %.loopexit
   tail call void @nghttp2_outbound_item_init(ptr noundef nonnull %35) #5
-  %39 = getelementptr inbounds i8, ptr %35, i64 96
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 96
   store i8 1, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %35, i64 64
-  %41 = getelementptr inbounds i8, ptr %35, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 64
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store ptr %40, ptr %41, align 8
   tail call void @nghttp2_frame_origin_init(ptr noundef nonnull %35, ptr noundef %.056, i64 noundef %3) #5
   %42 = tail call i32 @nghttp2_session_add_item(ptr noundef %0, ptr noundef nonnull %35) #5
@@ -738,14 +738,14 @@ declare void @nghttp2_frame_origin_free(ptr noundef, ptr noundef) local_unnamed_
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @nghttp2_submit_priority_update(ptr noundef %0, i8 noundef zeroext %1, i32 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 2528
-  %7 = getelementptr inbounds i8, ptr %0, i64 2844
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2528
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2844
   %8 = load i8, ptr %7, align 4
   %.not = icmp eq i8 %8, 0
   br i1 %.not, label %9, label %34
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 2792
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 2792
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %34, label %13
@@ -784,10 +784,10 @@ define dso_local i32 @nghttp2_submit_priority_update(ptr noundef %0, i8 noundef 
 
 28:                                               ; preds = %24
   tail call void @nghttp2_outbound_item_init(ptr noundef nonnull %25) #5
-  %29 = getelementptr inbounds i8, ptr %25, i64 96
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 96
   store i8 1, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %25, i64 64
-  %31 = getelementptr inbounds i8, ptr %25, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 64
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store ptr %30, ptr %31, align 8
   tail call void @nghttp2_frame_priority_update_init(ptr noundef nonnull %25, i32 noundef %2, ptr noundef %.035, i64 noundef %4) #5
   %32 = tail call i32 @nghttp2_session_add_item(ptr noundef nonnull %0, ptr noundef nonnull %25) #5
@@ -810,7 +810,7 @@ declare void @nghttp2_frame_priority_update_free(ptr noundef, ptr noundef) local
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @nghttp2_submit_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 2844
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2844
   %8 = load i8, ptr %7, align 4
   %.not = icmp eq i8 %8, 0
   br i1 %.not, label %9, label %28
@@ -825,13 +825,13 @@ define dso_local i32 @nghttp2_submit_request(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not21, label %12, label %19
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %0, i64 2792
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 2792
   %14 = load i32, ptr %13, align 4
   %.not22 = icmp eq i32 %14, 1
   br i1 %.not22, label %19, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %0, i64 2712
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 2712
   %17 = load i32, ptr %16, align 8
   %18 = load i32, ptr %1, align 4
   %.not24 = icmp eq i32 %17, %18
@@ -843,7 +843,7 @@ define dso_local i32 @nghttp2_submit_request(ptr noundef %0, ptr noundef %1, ptr
   br i1 %20, label %25, label %21
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %4, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %set_request_flags.exit
@@ -870,7 +870,7 @@ define dso_local i32 @nghttp2_submit_response(ptr noundef %0, i32 noundef %1, pt
   br i1 %6, label %18, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 2844
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 2844
   %9 = load i8, ptr %8, align 4
   %.not = icmp eq i8 %9, 0
   br i1 %.not, label %18, label %10
@@ -880,7 +880,7 @@ define dso_local i32 @nghttp2_submit_response(ptr noundef %0, i32 noundef %1, pt
   br i1 %11, label %16, label %12
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %4, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %set_response_flags.exit
@@ -901,7 +901,7 @@ set_response_flags.exit:                          ; preds = %12, %16
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @nghttp2_submit_data(ptr noundef %0, i8 noundef zeroext %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
   %5 = and i8 %1, 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 2528
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2528
   %7 = icmp eq i32 %2, 0
   br i1 %7, label %17, label %8
 
@@ -912,11 +912,11 @@ define dso_local i32 @nghttp2_submit_data(ptr noundef %0, i8 noundef zeroext %1,
 
 11:                                               ; preds = %8
   tail call void @nghttp2_outbound_item_init(ptr noundef nonnull %9) #5
-  %12 = getelementptr inbounds i8, ptr %9, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
-  %13 = getelementptr inbounds i8, ptr %9, i64 113
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 113
   store i8 0, ptr %13, align 1
-  %14 = getelementptr inbounds i8, ptr %9, i64 112
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 112
   store i8 %5, ptr %14, align 8
   tail call void @nghttp2_frame_data_init(ptr noundef nonnull %9, i8 noundef zeroext 0, i32 noundef %2) #5
   %15 = tail call i32 @nghttp2_session_add_item(ptr noundef %0, ptr noundef nonnull %9) #5
@@ -963,12 +963,12 @@ declare i64 @nghttp2_frame_pack_settings_payload(ptr noundef, ptr noundef, i64 n
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @nghttp2_submit_extension(ptr noundef %0, i8 noundef zeroext %1, i8 noundef zeroext %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 2528
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2528
   %7 = icmp ult i8 %1, 10
   br i1 %7, label %17, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 2488
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 2488
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %17, label %11

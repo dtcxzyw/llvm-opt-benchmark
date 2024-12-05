@@ -47,7 +47,7 @@ define void @_ZN5boost6locale8ios_infoD2Ev(ptr noundef nonnull align 8 dereferen
 
 _ZNKSt14default_deleteIKN5boost6locale6detail10any_string4baseEEclEPS5_.exit.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !22
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   br label %_ZN5boost6locale6detail10any_stringD2Ev.exit
@@ -131,7 +131,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
 
 23:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit
   %24 = load ptr, ptr %22, align 8, !tbaa !22
-  %25 = getelementptr inbounds i8, ptr %24, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
   %27 = invoke noundef ptr %26(ptr noundef nonnull align 8 dereferenceable(8) %22)
           to label %28 unwind label %31
@@ -184,7 +184,7 @@ define noundef nonnull align 8 dereferenceable(56) ptr @_ZN5boost6locale8ios_inf
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %7, align 8, !tbaa !22
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %7)
   br label %_ZN5boost6locale6detail10any_stringC2ERKS2_.exit
@@ -198,7 +198,7 @@ _ZN5boost6locale6detail10any_stringC2ERKS2_.exit: ; preds = %2, %8
 
 _ZNKSt14default_deleteIKN5boost6locale6detail10any_string4baseEEclEPS5_.exit.i.i: ; preds = %_ZN5boost6locale6detail10any_stringC2ERKS2_.exit
   %15 = load ptr, ptr %14, align 8, !tbaa !22
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %14) #15
   br label %_ZN5boost6locale6detail10any_stringD2Ev.exit

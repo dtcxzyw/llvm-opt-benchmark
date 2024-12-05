@@ -33,7 +33,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @file_vopen(ptr noundef %0,
   br i1 %12, label %13, label %19
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %4, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr i8, ptr %15, i64 %16
@@ -42,7 +42,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @file_vopen(ptr noundef %0,
   br label %23
 
 19:                                               ; preds = %10
-  %20 = getelementptr inbounds i8, ptr %4, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr i8, ptr %21, i64 8
   store ptr %22, ptr %20, align 8
@@ -58,10 +58,10 @@ define internal fastcc range(i32 -2147483648, 1) i32 @file_vopen(ptr noundef %0,
   %27 = xor i32 %3, -1
   %28 = and i32 %.038, %27
   store ptr %1, ptr %6, align 8
-  %29 = getelementptr inbounds i8, ptr %6, i64 8
-  %30 = getelementptr inbounds i8, ptr %6, i64 32
-  %31 = getelementptr inbounds i8, ptr %6, i64 40
-  %32 = getelementptr inbounds i8, ptr %6, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %33 = lshr i32 %2, 12
   %34 = trunc i32 %33 to i8
   %35 = and i8 %34, 1
@@ -99,13 +99,13 @@ define internal fastcc range(i32 -2147483648, 1) i32 @file_vopen(ptr noundef %0,
   br i1 %.not.i, label %59, label %53
 
 53:                                               ; preds = %51
-  %54 = getelementptr inbounds i8, ptr %.val55, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %.val55, i64 16
   %55 = load ptr, ptr %54, align 8
   %.not10.i = icmp eq ptr %55, null
   br i1 %.not10.i, label %56, label %59
 
 56:                                               ; preds = %53
-  %57 = getelementptr inbounds i8, ptr %.val55, i64 40
+  %57 = getelementptr inbounds nuw i8, ptr %.val55, i64 40
   %58 = load ptr, ptr %57, align 8
   %.not11.i = icmp eq ptr %58, null
   br i1 %.not11.i, label %inode_checkflags.exit.thread, label %59
@@ -116,13 +116,13 @@ define internal fastcc range(i32 -2147483648, 1) i32 @file_vopen(ptr noundef %0,
   br i1 %.not12.i, label %inode_checkflags.exit, label %61
 
 61:                                               ; preds = %59
-  %62 = getelementptr inbounds i8, ptr %.val55, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %.val55, i64 24
   %63 = load ptr, ptr %62, align 8
   %.not13.i = icmp eq ptr %63, null
   br i1 %.not13.i, label %64, label %inode_checkflags.exit
 
 64:                                               ; preds = %61
-  %65 = getelementptr inbounds i8, ptr %.val55, i64 40
+  %65 = getelementptr inbounds nuw i8, ptr %.val55, i64 40
   %66 = load ptr, ptr %65, align 8
   %.not14.i = icmp eq ptr %66, null
   br i1 %.not14.i, label %inode_checkflags.exit.thread, label %inode_checkflags.exit
@@ -130,7 +130,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @file_vopen(ptr noundef %0,
 inode_checkflags.exit:                            ; preds = %59, %61, %64, %._crit_edge
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   store i32 %2, ptr %0, align 8
-  %67 = getelementptr inbounds i8, ptr %0, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %39, ptr %67, align 8
   %68 = and i32 %2, 2048
   %.not50 = icmp eq i32 %68, 0
@@ -193,7 +193,7 @@ inode_checkflags.exit:                            ; preds = %59, %61, %64, %._cr
 
 inode_checkflags.exit.thread:                     ; preds = %72, %56, %64, %49, %.thread
   %.0 = phi i32 [ %.2, %.thread ], [ -13, %56 ], [ -13, %64 ], [ -6, %49 ], [ -6, %72 ]
-  %93 = getelementptr inbounds i8, ptr %0, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %93, align 8
   call void @inode_release(ptr noundef nonnull %39) #6
   br label %94
@@ -227,12 +227,12 @@ define i32 @nx_open_from_tcb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ...
   br i1 %8, label %nx_vopen.exit, label %9
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %4, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %4, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @file_allocate_from_tcb(ptr noundef %0, ptr noundef %11, i32 noundef %12, i32 noundef %14, ptr noundef %16, i32 noundef 0, i1 noundef zeroext false) #6
   %18 = icmp slt i32 %17, 0
@@ -262,12 +262,12 @@ define i32 @nx_open(ptr noundef %0, i32 noundef %1, ...) local_unnamed_addr #0 {
   br i1 %8, label %nx_vopen.exit, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %3, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %3, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @file_allocate_from_tcb(ptr noundef %5, ptr noundef %11, i32 noundef %12, i32 noundef %14, ptr noundef %16, i32 noundef 0, i1 noundef zeroext false) #6
   %18 = icmp slt i32 %17, 0
@@ -299,12 +299,12 @@ define range(i32 -1, -2147483648) i32 @open(ptr noundef %0, i32 noundef %1, ...)
   br i1 %8, label %21, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %3, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %3, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @file_allocate_from_tcb(ptr noundef %5, ptr noundef %11, i32 noundef %12, i32 noundef %14, ptr noundef %16, i32 noundef 0, i1 noundef zeroext false) #6
   %18 = icmp slt i32 %17, 0

@@ -180,28 +180,28 @@ define internal void @virtio_snd_class_init(ptr noundef %klass, ptr nocapture re
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #11
   %call.i11 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_CLASS) #11
-  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
+  %categories = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 64
   store i64 %or.i, ptr %categories, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @virtio_snd_properties) #11
-  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
+  %vmsd = getelementptr inbounds nuw i8, ptr %call.i, i64 160
   store ptr @vmstate_virtio_snd, ptr %vmsd, align 8
-  %vmsd2 = getelementptr inbounds i8, ptr %call.i11, i64 336
+  %vmsd2 = getelementptr inbounds nuw i8, ptr %call.i11, i64 336
   store ptr @vmstate_virtio_snd_device, ptr %vmsd2, align 8
-  %realize = getelementptr inbounds i8, ptr %call.i11, i64 176
+  %realize = getelementptr inbounds nuw i8, ptr %call.i11, i64 176
   store ptr @virtio_snd_realize, ptr %realize, align 8
-  %unrealize = getelementptr inbounds i8, ptr %call.i11, i64 184
+  %unrealize = getelementptr inbounds nuw i8, ptr %call.i11, i64 184
   store ptr @virtio_snd_unrealize, ptr %unrealize, align 8
-  %get_config = getelementptr inbounds i8, ptr %call.i11, i64 224
+  %get_config = getelementptr inbounds nuw i8, ptr %call.i11, i64 224
   store ptr @virtio_snd_get_config, ptr %get_config, align 8
-  %set_config = getelementptr inbounds i8, ptr %call.i11, i64 232
+  %set_config = getelementptr inbounds nuw i8, ptr %call.i11, i64 232
   store ptr @virtio_snd_set_config, ptr %set_config, align 8
-  %get_features = getelementptr inbounds i8, ptr %call.i11, i64 192
+  %get_features = getelementptr inbounds nuw i8, ptr %call.i11, i64 192
   store ptr @get_features, ptr %get_features, align 8
-  %reset = getelementptr inbounds i8, ptr %call.i11, i64 240
+  %reset = getelementptr inbounds nuw i8, ptr %call.i11, i64 240
   store ptr @virtio_snd_reset, ptr %reset, align 8
-  %legacy_features = getelementptr inbounds i8, ptr %call.i11, i64 272
+  %legacy_features = getelementptr inbounds nuw i8, ptr %call.i11, i64 272
   store i64 0, ptr %legacy_features, align 8
   ret void
 }
@@ -215,7 +215,7 @@ entry:
   %_auto_errp_prop = alloca %struct.ErrorPropagator, align 8
   %default_params = alloca %struct.virtio_snd_pcm_set_params, align 4
   store ptr null, ptr %_auto_errp_prop, align 8
-  %errp1 = getelementptr inbounds i8, ptr %_auto_errp_prop, i64 8
+  %errp1 = getelementptr inbounds nuw i8, ptr %_auto_errp_prop, i64 8
   store ptr %errp, ptr %errp1, align 8
   %tobool = icmp eq ptr %errp, null
   %cmp = icmp eq ptr %errp, @error_fatal
@@ -247,7 +247,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
   %4 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %call) #11
   br label %trace_virtio_snd_realize.exit
@@ -258,7 +258,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_virtio_snd_realize.exit:                    ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %snd_conf = getelementptr inbounds i8, ptr %call, i64 608
+  %snd_conf = getelementptr inbounds nuw i8, ptr %call, i64 608
   %6 = load i32, ptr %snd_conf, align 8
   %cmp4 = icmp ugt i32 %6, 8
   br i1 %cmp4, label %if.then5, label %if.end8
@@ -268,7 +268,7 @@ if.then5:                                         ; preds = %trace_virtio_snd_re
   br label %cleanup
 
 if.end8:                                          ; preds = %trace_virtio_snd_realize.exit
-  %streams = getelementptr inbounds i8, ptr %call, i64 612
+  %streams = getelementptr inbounds nuw i8, ptr %call, i64 612
   %7 = load i32, ptr %streams, align 4
   %8 = add i32 %7, -11
   %or.cond52 = icmp ult i32 %8, -10
@@ -279,7 +279,7 @@ if.then15:                                        ; preds = %if.end8
   br label %cleanup
 
 if.end18:                                         ; preds = %if.end8
-  %chmaps = getelementptr inbounds i8, ptr %call, i64 616
+  %chmaps = getelementptr inbounds nuw i8, ptr %call, i64 616
   %9 = load i32, ptr %chmaps, align 8
   %cmp20 = icmp ugt i32 %9, 18
   br i1 %cmp20, label %if.then21, label %if.end24
@@ -289,49 +289,49 @@ if.then21:                                        ; preds = %if.end18
   br label %cleanup
 
 if.end24:                                         ; preds = %if.end18
-  %card = getelementptr inbounds i8, ptr %call, i64 568
+  %card = getelementptr inbounds nuw i8, ptr %call, i64 568
   %call25 = call zeroext i1 @AUD_register_card(ptr noundef nonnull @.str.14, ptr noundef nonnull %card, ptr noundef nonnull %spec.select) #11
   br i1 %call25, label %if.end27, label %cleanup
 
 if.end27:                                         ; preds = %if.end24
   %call28 = call ptr @qemu_add_vm_change_state_handler(ptr noundef nonnull @virtio_snd_vm_state_change, ptr noundef nonnull %call) #11
-  %vmstate = getelementptr inbounds i8, ptr %call, i64 600
+  %vmstate = getelementptr inbounds nuw i8, ptr %call, i64 600
   store ptr %call28, ptr %vmstate, align 8
   %call29 = call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #12
-  %pcm = getelementptr inbounds i8, ptr %call, i64 560
+  %pcm = getelementptr inbounds nuw i8, ptr %call, i64 560
   store ptr %call29, ptr %pcm, align 8
   store ptr %call, ptr %call29, align 8
   %10 = load i32, ptr %streams, align 4
   %conv = zext i32 %10 to i64
   %call33 = call noalias ptr @g_malloc0_n(i64 noundef %conv, i64 noundef 8) #12
   %11 = load ptr, ptr %pcm, align 8
-  %streams35 = getelementptr inbounds i8, ptr %11, i64 16
+  %streams35 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %call33, ptr %streams35, align 8
   %12 = load i32, ptr %streams, align 4
   %conv38 = zext i32 %12 to i64
   %call39 = call noalias ptr @g_malloc0_n(i64 noundef %conv38, i64 noundef 24) #12
   %13 = load ptr, ptr %pcm, align 8
-  %pcm_params = getelementptr inbounds i8, ptr %13, i64 8
+  %pcm_params = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %call39, ptr %pcm_params, align 8
   call void @virtio_init(ptr noundef %call.i, i16 noundef zeroext 25, i64 noundef 12) #11
-  %features = getelementptr inbounds i8, ptr %call, i64 552
+  %features = getelementptr inbounds nuw i8, ptr %call, i64 552
   %14 = load i64, ptr %features, align 8
   %or.i = or i64 %14, 4294967296
   store i64 %or.i, ptr %features, align 8
-  %features41 = getelementptr inbounds i8, ptr %default_params, i64 16
+  %features41 = getelementptr inbounds nuw i8, ptr %default_params, i64 16
   store i32 0, ptr %features41, align 4
-  %buffer_bytes = getelementptr inbounds i8, ptr %default_params, i64 8
+  %buffer_bytes = getelementptr inbounds nuw i8, ptr %default_params, i64 8
   store i32 8192, ptr %buffer_bytes, align 4
-  %period_bytes = getelementptr inbounds i8, ptr %default_params, i64 12
+  %period_bytes = getelementptr inbounds nuw i8, ptr %default_params, i64 12
   store i32 2048, ptr %period_bytes, align 4
-  %channels = getelementptr inbounds i8, ptr %default_params, i64 20
+  %channels = getelementptr inbounds nuw i8, ptr %default_params, i64 20
   store i8 2, ptr %channels, align 4
-  %format = getelementptr inbounds i8, ptr %default_params, i64 21
+  %format = getelementptr inbounds nuw i8, ptr %default_params, i64 21
   store i8 5, ptr %format, align 1
-  %rate = getelementptr inbounds i8, ptr %default_params, i64 22
+  %rate = getelementptr inbounds nuw i8, ptr %default_params, i64 22
   store i8 7, ptr %rate, align 2
   %call44 = call ptr @virtio_add_queue(ptr noundef %call.i, i32 noundef 64, ptr noundef nonnull @virtio_snd_handle_ctrl) #11
-  %queues = getelementptr inbounds i8, ptr %call, i64 520
+  %queues = getelementptr inbounds nuw i8, ptr %call, i64 520
   store ptr %call44, ptr %queues, align 8
   %call45 = call ptr @virtio_add_queue(ptr noundef %call.i, i32 noundef 64, ptr noundef nonnull @virtio_snd_handle_event) #11
   %arrayidx47 = getelementptr i8, ptr %call, i64 528
@@ -342,11 +342,11 @@ if.end27:                                         ; preds = %if.end24
   %call51 = call ptr @virtio_add_queue(ptr noundef %call.i, i32 noundef 64, ptr noundef nonnull @virtio_snd_handle_rx_xfer) #11
   %arrayidx53 = getelementptr i8, ptr %call, i64 544
   store ptr %call51, ptr %arrayidx53, align 8
-  %cmdq_mutex = getelementptr inbounds i8, ptr %call, i64 624
+  %cmdq_mutex = getelementptr inbounds nuw i8, ptr %call, i64 624
   call void @qemu_mutex_init(ptr noundef nonnull %cmdq_mutex) #11
-  %cmdq = getelementptr inbounds i8, ptr %call, i64 672
+  %cmdq = getelementptr inbounds nuw i8, ptr %call, i64 672
   store ptr null, ptr %cmdq, align 8
-  %tql_prev = getelementptr inbounds i8, ptr %call, i64 680
+  %tql_prev = getelementptr inbounds nuw i8, ptr %call, i64 680
   store ptr %cmdq, ptr %tql_prev, align 8
   %15 = load i32, ptr %streams, align 4
   %cmp6165.not = icmp eq i32 %15, 0
@@ -394,7 +394,7 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #11
   %call1 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.10, i32 noundef 1341, ptr noundef nonnull @__func__.virtio_snd_unrealize) #11
-  %vmstate = getelementptr inbounds i8, ptr %call1, i64 600
+  %vmstate = getelementptr inbounds nuw i8, ptr %call1, i64 600
   %0 = load ptr, ptr %vmstate, align 8
   tail call void @qemu_del_vm_change_state_handler(ptr noundef %0) #11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -420,7 +420,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.72, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef nonnull %call1) #11
   br label %trace_virtio_snd_unrealize.exit
@@ -431,19 +431,19 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_virtio_snd_unrealize.exit:                  ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %pcm = getelementptr inbounds i8, ptr %call1, i64 560
+  %pcm = getelementptr inbounds nuw i8, ptr %call1, i64 560
   %7 = load ptr, ptr %pcm, align 8
   %tobool.not = icmp eq ptr %7, null
   br i1 %tobool.not, label %if.end16, label %if.then
 
 if.then:                                          ; preds = %trace_virtio_snd_unrealize.exit
-  %streams = getelementptr inbounds i8, ptr %7, i64 16
+  %streams = getelementptr inbounds nuw i8, ptr %7, i64 16
   %8 = load ptr, ptr %streams, align 8
   %tobool3.not = icmp eq ptr %8, null
   br i1 %tobool3.not, label %if.end12, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.then
-  %streams5 = getelementptr inbounds i8, ptr %call1, i64 612
+  %streams5 = getelementptr inbounds nuw i8, ptr %call1, i64 612
   %9 = load i32, ptr %streams5, align 4
   %cmp24.not = icmp eq i32 %9, 0
   br i1 %cmp24.not, label %for.end, label %for.body
@@ -452,7 +452,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %10 = phi i32 [ %28, %for.inc ], [ %9, %for.cond.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %for.cond.preheader ]
   %11 = load ptr, ptr %pcm, align 8
-  %streams7 = getelementptr inbounds i8, ptr %11, i64 16
+  %streams7 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %12 = load ptr, ptr %streams7, align 8
   %arrayidx = getelementptr ptr, ptr %12, i64 %indvars.iv
   %13 = load ptr, ptr %arrayidx, align 8
@@ -460,18 +460,18 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %tobool8.not, label %for.inc, label %if.then9
 
 if.then9:                                         ; preds = %for.body
-  %s = getelementptr inbounds i8, ptr %13, i64 88
+  %s = getelementptr inbounds nuw i8, ptr %13, i64 88
   %14 = load ptr, ptr %s, align 8
   tail call fastcc void @virtio_snd_process_cmdq(ptr noundef %14)
-  %direction.i.i = getelementptr inbounds i8, ptr %13, i64 32
+  %direction.i.i = getelementptr inbounds nuw i8, ptr %13, i64 32
   %15 = load i8, ptr %direction.i.i, align 8
   %cmp.i.i = icmp eq i8 %15, 0
   %cond.i.i = select i1 %cmp.i.i, ptr @return_tx_buffer, ptr @return_rx_buffer
-  %queue_mutex.i.i = getelementptr inbounds i8, ptr %13, i64 128
+  %queue_mutex.i.i = getelementptr inbounds nuw i8, ptr %13, i64 128
   %16 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %17 = inttoptr i64 %16 to ptr
   tail call void %17(ptr noundef nonnull %queue_mutex.i.i, ptr noundef nonnull @.str.26, i32 noundef 122) #11
-  %queue.i.i = getelementptr inbounds i8, ptr %13, i64 184
+  %queue.i.i = getelementptr inbounds nuw i8, ptr %13, i64 184
   %18 = load ptr, ptr %queue.i.i, align 8
   %cmp2.not7.us.i.i = icmp eq ptr %18, null
   br i1 %cmp2.not7.us.i.i, label %virtio_snd_pcm_flush.exit.i, label %while.body.us.i.i
@@ -494,8 +494,8 @@ virtio_snd_pcm_flush.exit.i:                      ; preds = %while.body.us.i.i, 
 if.then2.i:                                       ; preds = %virtio_snd_pcm_flush.exit.i
   %22 = load ptr, ptr %13, align 8
   %23 = load ptr, ptr %22, align 8
-  %card.i = getelementptr inbounds i8, ptr %23, i64 568
-  %voice.i = getelementptr inbounds i8, ptr %13, i64 120
+  %card.i = getelementptr inbounds nuw i8, ptr %23, i64 568
+  %voice.i = getelementptr inbounds nuw i8, ptr %13, i64 120
   %24 = load ptr, ptr %voice.i, align 8
   tail call void @AUD_close_out(ptr noundef nonnull %card.i, ptr noundef %24) #11
   store ptr null, ptr %voice.i, align 8
@@ -504,8 +504,8 @@ if.then2.i:                                       ; preds = %virtio_snd_pcm_flus
 if.then9.i:                                       ; preds = %virtio_snd_pcm_flush.exit.i
   %25 = load ptr, ptr %13, align 8
   %26 = load ptr, ptr %25, align 8
-  %card12.i = getelementptr inbounds i8, ptr %26, i64 568
-  %voice13.i = getelementptr inbounds i8, ptr %13, i64 120
+  %card12.i = getelementptr inbounds nuw i8, ptr %26, i64 568
+  %voice13.i = getelementptr inbounds nuw i8, ptr %13, i64 120
   %27 = load ptr, ptr %voice13.i, align 8
   tail call void @AUD_close_in(ptr noundef nonnull %card12.i, ptr noundef %27) #11
   store ptr null, ptr %voice13.i, align 8
@@ -526,7 +526,7 @@ for.inc:                                          ; preds = %for.body, %virtio_s
 
 for.end.loopexit:                                 ; preds = %for.inc
   %.pre27 = load ptr, ptr %pcm, align 8
-  %streams11.phi.trans.insert = getelementptr inbounds i8, ptr %.pre27, i64 16
+  %streams11.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre27, i64 16
   %.pre28 = load ptr, ptr %streams11.phi.trans.insert, align 8
   br label %for.end
 
@@ -538,7 +538,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
 
 if.end12:                                         ; preds = %for.end, %if.then
   %31 = phi ptr [ %.pre29, %for.end ], [ %7, %if.then ]
-  %pcm_params = getelementptr inbounds i8, ptr %31, i64 8
+  %pcm_params = getelementptr inbounds nuw i8, ptr %31, i64 8
   %32 = load ptr, ptr %pcm_params, align 8
   tail call void @g_free(ptr noundef %32) #11
   %33 = load ptr, ptr %pcm, align 8
@@ -547,11 +547,11 @@ if.end12:                                         ; preds = %for.end, %if.then
   br label %if.end16
 
 if.end16:                                         ; preds = %if.end12, %trace_virtio_snd_unrealize.exit
-  %card = getelementptr inbounds i8, ptr %call1, i64 568
+  %card = getelementptr inbounds nuw i8, ptr %call1, i64 568
   tail call void @AUD_remove_card(ptr noundef nonnull %card) #11
-  %cmdq_mutex = getelementptr inbounds i8, ptr %call1, i64 624
+  %cmdq_mutex = getelementptr inbounds nuw i8, ptr %call1, i64 624
   tail call void @qemu_mutex_destroy(ptr noundef nonnull %cmdq_mutex) #11
-  %queues = getelementptr inbounds i8, ptr %call1, i64 520
+  %queues = getelementptr inbounds nuw i8, ptr %call1, i64 520
   %34 = load ptr, ptr %queues, align 8
   tail call void @virtio_delete_queue(ptr noundef %34) #11
   %arrayidx19 = getelementptr i8, ptr %call1, i64 528
@@ -572,11 +572,11 @@ define internal void @virtio_snd_get_config(ptr noundef %vdev, ptr nocapture nou
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.10, i32 noundef 95, ptr noundef nonnull @__func__.virtio_snd_get_config) #11
-  %snd_conf = getelementptr inbounds i8, ptr %call, i64 608
+  %snd_conf = getelementptr inbounds nuw i8, ptr %call, i64 608
   %0 = load i32, ptr %snd_conf, align 8
-  %streams = getelementptr inbounds i8, ptr %call, i64 612
+  %streams = getelementptr inbounds nuw i8, ptr %call, i64 612
   %1 = load i32, ptr %streams, align 4
-  %chmaps = getelementptr inbounds i8, ptr %call, i64 616
+  %chmaps = getelementptr inbounds nuw i8, ptr %call, i64 616
   %2 = load i32, ptr %chmaps, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %3 = load i32, ptr @trace_events_enabled_count, align 4
@@ -601,7 +601,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.74, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef %vdev, i32 noundef %0, i32 noundef %1, i32 noundef %2) #11
   br label %trace_virtio_snd_get_config.exit
@@ -621,16 +621,16 @@ define internal void @virtio_snd_set_config(ptr noundef %vdev, ptr nocapture nou
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.10, i32 noundef 113, ptr noundef nonnull @__func__.virtio_snd_set_config) #11
-  %snd_conf = getelementptr inbounds i8, ptr %call, i64 608
+  %snd_conf = getelementptr inbounds nuw i8, ptr %call, i64 608
   %0 = load i32, ptr %snd_conf, align 8
   %1 = load i32, ptr %config, align 4
-  %streams = getelementptr inbounds i8, ptr %call, i64 612
+  %streams = getelementptr inbounds nuw i8, ptr %call, i64 612
   %2 = load i32, ptr %streams, align 4
-  %streams3 = getelementptr inbounds i8, ptr %config, i64 4
+  %streams3 = getelementptr inbounds nuw i8, ptr %config, i64 4
   %3 = load i32, ptr %streams3, align 4
-  %chmaps = getelementptr inbounds i8, ptr %call, i64 616
+  %chmaps = getelementptr inbounds nuw i8, ptr %call, i64 616
   %4 = load i32, ptr %chmaps, align 8
-  %chmaps5 = getelementptr inbounds i8, ptr %config, i64 8
+  %chmaps5 = getelementptr inbounds nuw i8, ptr %config, i64 8
   %5 = load i32, ptr %chmaps5, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %6 = load i32, ptr @trace_events_enabled_count, align 4
@@ -655,7 +655,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
   %10 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.76, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, ptr noundef %vdev, i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #11
   br label %trace_virtio_snd_set_config.exit
@@ -675,7 +675,7 @@ define internal i64 @get_features(ptr noundef %vdev, i64 noundef %features, ptr 
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.10, i32 noundef 1043, ptr noundef nonnull @__func__.get_features) #11
-  %features1 = getelementptr inbounds i8, ptr %call, i64 552
+  %features1 = getelementptr inbounds nuw i8, ptr %call, i64 552
   %0 = load i64, ptr %features1, align 8
   %or = or i64 %0, %features
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -701,7 +701,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.78, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %vdev, i64 noundef %or) #11
   br label %trace_virtio_snd_get_features.exit
@@ -719,27 +719,27 @@ trace_virtio_snd_get_features.exit:               ; preds = %entry, %land.lhs.tr
 define internal void @virtio_snd_reset(ptr noundef %vdev) #0 {
 while.cond.preheader.us:
   %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.10, i32 noundef 1376, ptr noundef nonnull @__func__.virtio_snd_reset) #11
-  %cmdq_mutex = getelementptr inbounds i8, ptr %call, i64 624
+  %cmdq_mutex = getelementptr inbounds nuw i8, ptr %call, i64 624
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
   tail call void %1(ptr noundef nonnull %cmdq_mutex, ptr noundef nonnull @.str.26, i32 noundef 122) #11
-  %cmdq = getelementptr inbounds i8, ptr %call, i64 672
-  %tql_prev11 = getelementptr inbounds i8, ptr %call, i64 680
+  %cmdq = getelementptr inbounds nuw i8, ptr %call, i64 672
+  %tql_prev11 = getelementptr inbounds nuw i8, ptr %call, i64 680
   %2 = load ptr, ptr %cmdq, align 8
   %cmp.not15.us = icmp eq ptr %2, null
   br i1 %cmp.not15.us, label %qemu_lockable_auto_unlock.exit.us, label %while.body.us
 
 while.body.us:                                    ; preds = %while.cond.preheader.us, %if.end.us
   %3 = phi ptr [ %8, %if.end.us ], [ %2, %while.cond.preheader.us ]
-  %next.us = getelementptr inbounds i8, ptr %3, i64 24
+  %next.us = getelementptr inbounds nuw i8, ptr %3, i64 24
   %4 = load ptr, ptr %next.us, align 8
   %cmp3.not.us = icmp eq ptr %4, null
-  %tql_prev9.us = getelementptr inbounds i8, ptr %3, i64 32
+  %tql_prev9.us = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %tql_prev9.us, align 8
   br i1 %cmp3.not.us, label %if.else.us, label %if.then.us
 
 if.then.us:                                       ; preds = %while.body.us
-  %tql_prev7.us = getelementptr inbounds i8, ptr %4, i64 32
+  %tql_prev7.us = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %5, ptr %tql_prev7.us, align 8
   br label %if.end.us
 
@@ -807,7 +807,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
   %4 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5) #11
   br label %trace_virtio_snd_vm_state_running.exit
@@ -844,7 +844,7 @@ if.then8.i.i11:                                   ; preds = %if.then.i.i8
   %call9.i.i12 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i1, ptr noundef null) #11
   %call10.i.i13 = tail call i32 @qemu_get_thread_id() #11
   %10 = load i64, ptr %_now.i.i1, align 8
-  %tv_usec.i.i14 = getelementptr inbounds i8, ptr %_now.i.i1, i64 8
+  %tv_usec.i.i14 = getelementptr inbounds nuw i8, ptr %_now.i.i1, i64 8
   %11 = load i64, ptr %tv_usec.i.i14, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i32 noundef %call10.i.i13, i64 noundef %10, i64 noundef %11) #11
   br label %trace_virtio_snd_vm_state_stopped.exit
@@ -896,7 +896,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
   %4 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %vdev, ptr noundef %vq) #11
   br label %trace_virtio_snd_handle_ctrl.exit
@@ -917,21 +917,21 @@ if.end:                                           ; preds = %trace_virtio_snd_ha
   br i1 %tobool3.not16, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end
-  %tql_prev = getelementptr inbounds i8, ptr %call, i64 680
+  %tql_prev = getelementptr inbounds nuw i8, ptr %call, i64 680
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
   %elem.017 = phi ptr [ %call2, %while.body.lr.ph ], [ %call15, %while.body ]
   %call4 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #12
   store ptr %elem.017, ptr %call4, align 8
-  %vq6 = getelementptr inbounds i8, ptr %call4, i64 8
+  %vq6 = getelementptr inbounds nuw i8, ptr %call4, i64 8
   store ptr %vq, ptr %vq6, align 8
-  %resp = getelementptr inbounds i8, ptr %call4, i64 20
+  %resp = getelementptr inbounds nuw i8, ptr %call4, i64 20
   store i32 32768, ptr %resp, align 4
-  %next = getelementptr inbounds i8, ptr %call4, i64 24
+  %next = getelementptr inbounds nuw i8, ptr %call4, i64 24
   store ptr null, ptr %next, align 8
   %6 = load ptr, ptr %tql_prev, align 8
-  %tql_prev9 = getelementptr inbounds i8, ptr %call4, i64 32
+  %tql_prev9 = getelementptr inbounds nuw i8, ptr %call4, i64 32
   store ptr %6, ptr %tql_prev9, align 8
   store ptr %call4, ptr %6, align 8
   store ptr %next, ptr %tql_prev, align 8
@@ -984,7 +984,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.51, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6) #11
   br label %trace_virtio_snd_handle_event.exit
@@ -1032,7 +1032,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
   %4 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.53, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5) #11
   br label %trace_virtio_snd_handle_tx_xfer.exit
@@ -1043,8 +1043,8 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_virtio_snd_handle_tx_xfer.exit:             ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %streams = getelementptr inbounds i8, ptr %call, i64 612
-  %pcm = getelementptr inbounds i8, ptr %call, i64 560
+  %streams = getelementptr inbounds nuw i8, ptr %call, i64 612
+  %pcm = getelementptr inbounds nuw i8, ptr %call, i64 560
   %call26387 = tail call ptr @virtqueue_pop(ptr noundef %vq, i64 noundef 56) #11
   %tobool3.not6488 = icmp eq ptr %call26387, null
   br i1 %tobool3.not6488, label %if.end67, label %if.end5.preheader
@@ -1058,15 +1058,15 @@ if.end5.preheader:                                ; preds = %trace_virtio_snd_ha
 if.end5:                                          ; preds = %if.end5.preheader, %if.end23
   %call267 = phi ptr [ %call2, %if.end23 ], [ %call26391, %if.end5.preheader ]
   %stream.066 = phi ptr [ %15, %if.end23 ], [ %stream.0.ph89, %if.end5.preheader ]
-  %out_sg = getelementptr inbounds i8, ptr %call267, i64 48
+  %out_sg = getelementptr inbounds nuw i8, ptr %call267, i64 48
   %6 = load ptr, ptr %out_sg, align 8
-  %out_num = getelementptr inbounds i8, ptr %call267, i64 12
+  %out_num = getelementptr inbounds nuw i8, ptr %call267, i64 12
   %7 = load i32, ptr %out_num, align 4
   %tobool.i.not = icmp eq i32 %7, 0
   br i1 %tobool.i.not, label %iov_to_buf.exit, label %land.lhs.true1.i
 
 land.lhs.true1.i:                                 ; preds = %if.end5
-  %iov_len.i = getelementptr inbounds i8, ptr %6, i64 8
+  %iov_len.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i64, ptr %iov_len.i, align 8
   %cmp5.not.i = icmp ult i64 %8, 4
   br i1 %cmp5.not.i, label %iov_to_buf.exit, label %iov_to_buf.exit.thread
@@ -1094,7 +1094,7 @@ if.end8:                                          ; preds = %iov_to_buf.exit.if.
 
 lor.lhs.false:                                    ; preds = %if.end8
   %13 = load ptr, ptr %pcm, align 8
-  %streams12 = getelementptr inbounds i8, ptr %13, i64 16
+  %streams12 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %14 = load ptr, ptr %streams12, align 8
   %idxprom = zext i32 %11 to i64
   %arrayidx = getelementptr ptr, ptr %14, i64 %idxprom
@@ -1103,32 +1103,32 @@ lor.lhs.false:                                    ; preds = %if.end8
   br i1 %cmp13, label %tx_err, label %if.end15
 
 if.end15:                                         ; preds = %lor.lhs.false
-  %direction = getelementptr inbounds i8, ptr %15, i64 32
+  %direction = getelementptr inbounds nuw i8, ptr %15, i64 32
   %16 = load i8, ptr %direction, align 8
   %cmp20.not = icmp eq i8 %16, 0
   br i1 %cmp20.not, label %if.end23, label %tx_err
 
 if.end23:                                         ; preds = %if.end15
-  %queue_mutex = getelementptr inbounds i8, ptr %15, i64 128
+  %queue_mutex = getelementptr inbounds nuw i8, ptr %15, i64 128
   %17 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %18 = inttoptr i64 %17 to ptr
   call void %18(ptr noundef nonnull %queue_mutex, ptr noundef nonnull @.str.26, i32 noundef 122) #11
-  %sqh_last = getelementptr inbounds i8, ptr %15, i64 192
+  %sqh_last = getelementptr inbounds nuw i8, ptr %15, i64 192
   %19 = load ptr, ptr %out_sg, align 8
   %20 = load i32, ptr %out_num, align 4
   %call29.us = call i64 @iov_size(ptr noundef %19, i32 noundef %20) #11
   %sub.us = add i64 %call29.us, -4
   %add.us = add i64 %call29.us, 44
   %call30.us = call noalias ptr @g_malloc0(i64 noundef %add.us) #13
-  %elem31.us = getelementptr inbounds i8, ptr %call30.us, i64 8
+  %elem31.us = getelementptr inbounds nuw i8, ptr %call30.us, i64 8
   store ptr %call267, ptr %elem31.us, align 8
-  %populated.us = getelementptr inbounds i8, ptr %call30.us, i64 40
+  %populated.us = getelementptr inbounds nuw i8, ptr %call30.us, i64 40
   store i8 0, ptr %populated.us, align 8
-  %vq32.us = getelementptr inbounds i8, ptr %call30.us, i64 16
+  %vq32.us = getelementptr inbounds nuw i8, ptr %call30.us, i64 16
   store ptr %vq, ptr %vq32.us, align 8
-  %size33.us = getelementptr inbounds i8, ptr %call30.us, i64 24
+  %size33.us = getelementptr inbounds nuw i8, ptr %call30.us, i64 24
   store i64 %sub.us, ptr %size33.us, align 8
-  %offset.us = getelementptr inbounds i8, ptr %call30.us, i64 32
+  %offset.us = getelementptr inbounds nuw i8, ptr %call30.us, i64 32
   store i64 0, ptr %offset.us, align 8
   store ptr null, ptr %call30.us, align 8
   %21 = load ptr, ptr %sqh_last, align 8
@@ -1141,15 +1141,15 @@ if.end23:                                         ; preds = %if.end15
 
 tx_err:                                           ; preds = %if.end15, %if.end8, %lor.lhs.false, %iov_to_buf.exit
   %stream.1 = phi ptr [ %stream.066, %iov_to_buf.exit ], [ %stream.066, %if.end8 ], [ %stream.066, %lor.lhs.false ], [ %15, %if.end15 ]
-  %queue_mutex41 = getelementptr inbounds i8, ptr %stream.1, i64 128
+  %queue_mutex41 = getelementptr inbounds nuw i8, ptr %stream.1, i64 128
   %22 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %23 = inttoptr i64 %22 to ptr
   call void %23(ptr noundef nonnull %queue_mutex41, ptr noundef nonnull @.str.26, i32 noundef 122) #11
-  %sqh_last55 = getelementptr inbounds i8, ptr %stream.1, i64 208
+  %sqh_last55 = getelementptr inbounds nuw i8, ptr %stream.1, i64 208
   %call49.us = call noalias dereferenceable_or_null(48) ptr @g_malloc0(i64 noundef 48) #13
-  %elem50.us = getelementptr inbounds i8, ptr %call49.us, i64 8
+  %elem50.us = getelementptr inbounds nuw i8, ptr %call49.us, i64 8
   store ptr %call267, ptr %elem50.us, align 8
-  %vq51.us = getelementptr inbounds i8, ptr %call49.us, i64 16
+  %vq51.us = getelementptr inbounds nuw i8, ptr %call49.us, i64 16
   store ptr %vq, ptr %vq51.us, align 8
   store ptr null, ptr %call49.us, align 8
   %24 = load ptr, ptr %sqh_last55, align 8
@@ -1205,7 +1205,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
   %4 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.55, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5) #11
   br label %trace_virtio_snd_handle_rx_xfer.exit
@@ -1216,8 +1216,8 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_virtio_snd_handle_rx_xfer.exit:             ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %streams = getelementptr inbounds i8, ptr %call, i64 612
-  %pcm = getelementptr inbounds i8, ptr %call, i64 560
+  %streams = getelementptr inbounds nuw i8, ptr %call, i64 612
+  %pcm = getelementptr inbounds nuw i8, ptr %call, i64 560
   %call25983 = tail call ptr @virtqueue_pop(ptr noundef %vq, i64 noundef 56) #11
   %tobool3.not6084 = icmp eq ptr %call25983, null
   br i1 %tobool3.not6084, label %if.end67, label %if.end5.preheader
@@ -1231,15 +1231,15 @@ if.end5.preheader:                                ; preds = %trace_virtio_snd_ha
 if.end5:                                          ; preds = %if.end5.preheader, %if.end25
   %call263 = phi ptr [ %call2, %if.end25 ], [ %call25987, %if.end5.preheader ]
   %stream.062 = phi ptr [ %15, %if.end25 ], [ %stream.0.ph85, %if.end5.preheader ]
-  %out_sg = getelementptr inbounds i8, ptr %call263, i64 48
+  %out_sg = getelementptr inbounds nuw i8, ptr %call263, i64 48
   %6 = load ptr, ptr %out_sg, align 8
-  %out_num = getelementptr inbounds i8, ptr %call263, i64 12
+  %out_num = getelementptr inbounds nuw i8, ptr %call263, i64 12
   %7 = load i32, ptr %out_num, align 4
   %tobool.i.not = icmp eq i32 %7, 0
   br i1 %tobool.i.not, label %iov_to_buf.exit, label %land.lhs.true1.i
 
 land.lhs.true1.i:                                 ; preds = %if.end5
-  %iov_len.i = getelementptr inbounds i8, ptr %6, i64 8
+  %iov_len.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i64, ptr %iov_len.i, align 8
   %cmp5.not.i = icmp ult i64 %8, 4
   br i1 %cmp5.not.i, label %iov_to_buf.exit, label %iov_to_buf.exit.thread
@@ -1267,7 +1267,7 @@ if.end8:                                          ; preds = %iov_to_buf.exit.if.
 
 lor.lhs.false:                                    ; preds = %if.end8
   %13 = load ptr, ptr %pcm, align 8
-  %streams12 = getelementptr inbounds i8, ptr %13, i64 16
+  %streams12 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %14 = load ptr, ptr %streams12, align 8
   %idxprom = zext i32 %11 to i64
   %arrayidx = getelementptr ptr, ptr %14, i64 %idxprom
@@ -1276,29 +1276,29 @@ lor.lhs.false:                                    ; preds = %if.end8
   br i1 %tobool13.not, label %rx_err, label %lor.lhs.false21
 
 lor.lhs.false21:                                  ; preds = %lor.lhs.false
-  %direction = getelementptr inbounds i8, ptr %15, i64 32
+  %direction = getelementptr inbounds nuw i8, ptr %15, i64 32
   %16 = load i8, ptr %direction, align 8
   %cmp22.not = icmp eq i8 %16, 1
   br i1 %cmp22.not, label %if.end25, label %rx_err
 
 if.end25:                                         ; preds = %lor.lhs.false21
-  %queue_mutex = getelementptr inbounds i8, ptr %15, i64 128
+  %queue_mutex = getelementptr inbounds nuw i8, ptr %15, i64 128
   %17 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %18 = inttoptr i64 %17 to ptr
   call void %18(ptr noundef nonnull %queue_mutex, ptr noundef nonnull @.str.26, i32 noundef 122) #11
-  %in_sg = getelementptr inbounds i8, ptr %call263, i64 40
-  %in_num = getelementptr inbounds i8, ptr %call263, i64 16
-  %sqh_last = getelementptr inbounds i8, ptr %15, i64 192
+  %in_sg = getelementptr inbounds nuw i8, ptr %call263, i64 40
+  %in_num = getelementptr inbounds nuw i8, ptr %call263, i64 16
+  %sqh_last = getelementptr inbounds nuw i8, ptr %15, i64 192
   %19 = load ptr, ptr %in_sg, align 8
   %20 = load i32, ptr %in_num, align 8
   %call29.us = call i64 @iov_size(ptr noundef %19, i32 noundef %20) #11
   %add.us = add i64 %call29.us, 40
   %call30.us = call noalias ptr @g_malloc0(i64 noundef %add.us) #13
-  %elem31.us = getelementptr inbounds i8, ptr %call30.us, i64 8
+  %elem31.us = getelementptr inbounds nuw i8, ptr %call30.us, i64 8
   store ptr %call263, ptr %elem31.us, align 8
-  %vq32.us = getelementptr inbounds i8, ptr %call30.us, i64 16
+  %vq32.us = getelementptr inbounds nuw i8, ptr %call30.us, i64 16
   store ptr %vq, ptr %vq32.us, align 8
-  %size33.us = getelementptr inbounds i8, ptr %call30.us, i64 24
+  %size33.us = getelementptr inbounds nuw i8, ptr %call30.us, i64 24
   store ptr null, ptr %call30.us, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %size33.us, i8 0, i64 16, i1 false)
   %21 = load ptr, ptr %sqh_last, align 8
@@ -1311,15 +1311,15 @@ if.end25:                                         ; preds = %lor.lhs.false21
 
 rx_err:                                           ; preds = %lor.lhs.false21, %if.end8, %lor.lhs.false, %iov_to_buf.exit
   %stream.1 = phi ptr [ %stream.062, %iov_to_buf.exit ], [ %stream.062, %if.end8 ], [ %15, %lor.lhs.false21 ], [ %stream.062, %lor.lhs.false ]
-  %queue_mutex41 = getelementptr inbounds i8, ptr %stream.1, i64 128
+  %queue_mutex41 = getelementptr inbounds nuw i8, ptr %stream.1, i64 128
   %22 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %23 = inttoptr i64 %22 to ptr
   call void %23(ptr noundef nonnull %queue_mutex41, ptr noundef nonnull @.str.26, i32 noundef 122) #11
-  %sqh_last55 = getelementptr inbounds i8, ptr %stream.1, i64 208
+  %sqh_last55 = getelementptr inbounds nuw i8, ptr %stream.1, i64 208
   %call49.us = call noalias dereferenceable_or_null(48) ptr @g_malloc0(i64 noundef 48) #13
-  %elem50.us = getelementptr inbounds i8, ptr %call49.us, i64 8
+  %elem50.us = getelementptr inbounds nuw i8, ptr %call49.us, i64 8
   store ptr %call263, ptr %elem50.us, align 8
-  %vq51.us = getelementptr inbounds i8, ptr %call49.us, i64 16
+  %vq51.us = getelementptr inbounds nuw i8, ptr %call49.us, i64 16
   store ptr %vq, ptr %vq51.us, align 8
   store ptr null, ptr %call49.us, align 8
   %24 = load ptr, ptr %sqh_last55, align 8
@@ -1346,15 +1346,15 @@ declare void @qemu_mutex_init(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc range(i32 32768, 32771) i32 @virtio_snd_set_pcm_params(ptr noundef %s, i32 noundef %stream_id, ptr nocapture noundef nonnull readonly %params) unnamed_addr #0 {
 entry:
-  %streams = getelementptr inbounds i8, ptr %s, i64 612
+  %streams = getelementptr inbounds nuw i8, ptr %s, i64 612
   %0 = load i32, ptr %streams, align 4
   %cmp.not = icmp ult i32 %stream_id, %0
   br i1 %cmp.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %pcm = getelementptr inbounds i8, ptr %s, i64 560
+  %pcm = getelementptr inbounds nuw i8, ptr %s, i64 560
   %1 = load ptr, ptr %pcm, align 8
-  %pcm_params = getelementptr inbounds i8, ptr %1, i64 8
+  %pcm_params = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2 = load ptr, ptr %pcm_params, align 8
   %cmp1 = icmp eq ptr %2, null
   br i1 %cmp1, label %if.then, label %virtio_snd_pcm_get_params.exit
@@ -1367,7 +1367,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
 virtio_snd_pcm_get_params.exit:                   ; preds = %lor.lhs.false
   %idxprom.i = zext i32 %stream_id to i64
   %arrayidx.i = getelementptr %struct.virtio_snd_pcm_set_params, ptr %2, i64 %idxprom.i
-  %channels = getelementptr inbounds i8, ptr %params, i64 20
+  %channels = getelementptr inbounds nuw i8, ptr %params, i64 20
   %3 = load i8, ptr %channels, align 4
   %4 = add i8 %3, -17
   %or.cond = icmp ult i8 %4, -16
@@ -1378,7 +1378,7 @@ if.then11:                                        ; preds = %virtio_snd_pcm_get_
   br label %return
 
 if.end13:                                         ; preds = %virtio_snd_pcm_get_params.exit
-  %format = getelementptr inbounds i8, ptr %params, i64 21
+  %format = getelementptr inbounds nuw i8, ptr %params, i64 21
   %5 = load i8, ptr %format, align 1
   %sh_prom = zext nneg i8 %5 to i64
   %shl = shl nuw i64 1, %sh_prom
@@ -1391,7 +1391,7 @@ if.then16:                                        ; preds = %if.end13
   br label %return
 
 if.end18:                                         ; preds = %if.end13
-  %rate = getelementptr inbounds i8, ptr %params, i64 22
+  %rate = getelementptr inbounds nuw i8, ptr %params, i64 22
   %6 = load i8, ptr %rate, align 2
   %tobool24.not = icmp ugt i8 %6, 13
   br i1 %tobool24.not, label %if.then25, label %if.end27
@@ -1401,26 +1401,26 @@ if.then25:                                        ; preds = %if.end18
   br label %return
 
 if.end27:                                         ; preds = %if.end18
-  %buffer_bytes = getelementptr inbounds i8, ptr %params, i64 8
+  %buffer_bytes = getelementptr inbounds nuw i8, ptr %params, i64 8
   %7 = load i32, ptr %buffer_bytes, align 4
-  %buffer_bytes29 = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %buffer_bytes29 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   store i32 %7, ptr %buffer_bytes29, align 4
-  %period_bytes = getelementptr inbounds i8, ptr %params, i64 12
+  %period_bytes = getelementptr inbounds nuw i8, ptr %params, i64 12
   %8 = load i32, ptr %period_bytes, align 4
-  %period_bytes31 = getelementptr inbounds i8, ptr %arrayidx.i, i64 12
+  %period_bytes31 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 12
   store i32 %8, ptr %period_bytes31, align 4
-  %features = getelementptr inbounds i8, ptr %params, i64 16
+  %features = getelementptr inbounds nuw i8, ptr %params, i64 16
   %9 = load i32, ptr %features, align 4
-  %features33 = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
+  %features33 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   store i32 %9, ptr %features33, align 4
   %10 = load i8, ptr %channels, align 4
-  %channels35 = getelementptr inbounds i8, ptr %arrayidx.i, i64 20
+  %channels35 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 20
   store i8 %10, ptr %channels35, align 4
   %11 = load i8, ptr %format, align 1
-  %format37 = getelementptr inbounds i8, ptr %arrayidx.i, i64 21
+  %format37 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 21
   store i8 %11, ptr %format37, align 1
   %12 = load i8, ptr %rate, align 2
-  %rate39 = getelementptr inbounds i8, ptr %arrayidx.i, i64 22
+  %rate39 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 22
   store i8 %12, ptr %rate39, align 2
   br label %return
 
@@ -1433,21 +1433,21 @@ return:                                           ; preds = %if.end27, %if.then2
 define internal fastcc range(i32 32768, 32770) i32 @virtio_snd_pcm_prepare(ptr noundef %s, i32 noundef %stream_id) unnamed_addr #0 {
 entry:
   %as = alloca %struct.audsettings, align 4
-  %pcm = getelementptr inbounds i8, ptr %s, i64 560
+  %pcm = getelementptr inbounds nuw i8, ptr %s, i64 560
   %0 = load ptr, ptr %pcm, align 8
-  %streams = getelementptr inbounds i8, ptr %0, i64 16
+  %streams = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load ptr, ptr %streams, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %pcm_params = getelementptr inbounds i8, ptr %0, i64 8
+  %pcm_params = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load ptr, ptr %pcm_params, align 8
   %cmp2 = icmp eq ptr %2, null
   br i1 %cmp2, label %return, label %lor.lhs.false3
 
 lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %streams4 = getelementptr inbounds i8, ptr %s, i64 612
+  %streams4 = getelementptr inbounds nuw i8, ptr %s, i64 612
   %3 = load i32, ptr %streams4, align 4
   %cmp5.not = icmp ult i32 %stream_id, %3
   br i1 %cmp5.not, label %virtio_snd_pcm_get_params.exit, label %return
@@ -1466,26 +1466,26 @@ virtio_snd_pcm_get_stream.exit:                   ; preds = %virtio_snd_pcm_get_
 
 if.then13:                                        ; preds = %virtio_snd_pcm_get_stream.exit
   %call14 = tail call noalias dereferenceable_or_null(216) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 216) #12
-  %active = getelementptr inbounds i8, ptr %call14, i64 176
+  %active = getelementptr inbounds nuw i8, ptr %call14, i64 176
   store i8 0, ptr %active, align 8
-  %id = getelementptr inbounds i8, ptr %call14, i64 64
+  %id = getelementptr inbounds nuw i8, ptr %call14, i64 64
   store i32 %stream_id, ptr %id, align 8
   %5 = load ptr, ptr %pcm, align 8
   store ptr %5, ptr %call14, align 8
-  %s17 = getelementptr inbounds i8, ptr %call14, i64 88
+  %s17 = getelementptr inbounds nuw i8, ptr %call14, i64 88
   store ptr %s, ptr %s17, align 8
-  %queue_mutex = getelementptr inbounds i8, ptr %call14, i64 128
+  %queue_mutex = getelementptr inbounds nuw i8, ptr %call14, i64 128
   tail call void @qemu_mutex_init(ptr noundef nonnull %queue_mutex) #11
-  %queue = getelementptr inbounds i8, ptr %call14, i64 184
+  %queue = getelementptr inbounds nuw i8, ptr %call14, i64 184
   store ptr null, ptr %queue, align 8
-  %sqh_last = getelementptr inbounds i8, ptr %call14, i64 192
+  %sqh_last = getelementptr inbounds nuw i8, ptr %call14, i64 192
   store ptr %queue, ptr %sqh_last, align 8
-  %invalid = getelementptr inbounds i8, ptr %call14, i64 200
+  %invalid = getelementptr inbounds nuw i8, ptr %call14, i64 200
   store ptr null, ptr %invalid, align 8
-  %sqh_last26 = getelementptr inbounds i8, ptr %call14, i64 208
+  %sqh_last26 = getelementptr inbounds nuw i8, ptr %call14, i64 208
   store ptr %invalid, ptr %sqh_last26, align 8
   %6 = load ptr, ptr %pcm, align 8
-  %streams29 = getelementptr inbounds i8, ptr %6, i64 16
+  %streams29 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %7 = load ptr, ptr %streams29, align 8
   %arrayidx = getelementptr ptr, ptr %7, i64 %idxprom.i
   store ptr %call14, ptr %arrayidx, align 8
@@ -1493,13 +1493,13 @@ if.then13:                                        ; preds = %virtio_snd_pcm_get_
 
 if.end30:                                         ; preds = %if.then13, %virtio_snd_pcm_get_stream.exit
   %stream.0 = phi ptr [ %call14, %if.then13 ], [ %4, %virtio_snd_pcm_get_stream.exit ]
-  %channels.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 20
+  %channels.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 20
   %8 = load i8, ptr %channels.i, align 4
   %9 = tail call i8 @llvm.umin.i8(i8 %8, i8 16)
   %cond.i59 = zext nneg i8 %9 to i32
-  %nchannels.i = getelementptr inbounds i8, ptr %as, i64 4
+  %nchannels.i = getelementptr inbounds nuw i8, ptr %as, i64 4
   store i32 %cond.i59, ptr %nchannels.i, align 4
-  %format.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 21
+  %format.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 21
   %10 = load i8, ptr %format.i, align 1
   %switch.tableidx = add i8 %10, -3
   %11 = icmp ult i8 %switch.tableidx, 17
@@ -1517,11 +1517,11 @@ switch.hole_check:                                ; preds = %if.end30
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %12 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [17 x i32], ptr @switch.table.virtio_snd_pcm_prepare, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw [17 x i32], ptr @switch.table.virtio_snd_pcm_prepare, i64 0, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
-  %fmt.i = getelementptr inbounds i8, ptr %as, i64 8
+  %fmt.i = getelementptr inbounds nuw i8, ptr %as, i64 8
   store i32 %switch.load, ptr %fmt.i, align 4
-  %rate.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 22
+  %rate.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 22
   %13 = load i8, ptr %rate.i, align 2
   %14 = icmp ult i8 %13, 14
   br i1 %14, label %switch.lookup60, label %do.body.i15.i
@@ -1532,12 +1532,12 @@ do.body.i15.i:                                    ; preds = %switch.lookup
 
 switch.lookup60:                                  ; preds = %switch.lookup
   %15 = zext nneg i8 %13 to i64
-  %switch.gep61 = getelementptr inbounds [14 x i32], ptr @switch.table.virtio_snd_pcm_prepare.9, i64 0, i64 %15
+  %switch.gep61 = getelementptr inbounds nuw [14 x i32], ptr @switch.table.virtio_snd_pcm_prepare.9, i64 0, i64 %15
   %switch.load62 = load i32, ptr %switch.gep61, align 4
   store i32 %switch.load62, ptr %as, align 4
   %call5.i = tail call zeroext i1 @target_words_bigendian() #11
   %cond7.i = zext i1 %call5.i to i32
-  %endianness.i = getelementptr inbounds i8, ptr %as, i64 12
+  %endianness.i = getelementptr inbounds nuw i8, ptr %as, i64 12
   store i32 %cond7.i, ptr %endianness.i, align 4
   %16 = load i32, ptr %streams4, align 4
   %div51 = lshr i32 %16, 1
@@ -1545,30 +1545,30 @@ switch.lookup60:                                  ; preds = %switch.lookup
   %add = add nuw i32 %div51, %and
   %cmp35 = icmp uge i32 %stream_id, %add
   %conv = zext i1 %cmp35 to i8
-  %info = getelementptr inbounds i8, ptr %stream.0, i64 8
-  %direction = getelementptr inbounds i8, ptr %stream.0, i64 32
+  %info = getelementptr inbounds nuw i8, ptr %stream.0, i64 8
+  %direction = getelementptr inbounds nuw i8, ptr %stream.0, i64 32
   store i8 %conv, ptr %direction, align 8
   store i32 0, ptr %info, align 8
-  %features = getelementptr inbounds i8, ptr %stream.0, i64 12
+  %features = getelementptr inbounds nuw i8, ptr %stream.0, i64 12
   store i32 0, ptr %features, align 4
-  %channels_min = getelementptr inbounds i8, ptr %stream.0, i64 33
+  %channels_min = getelementptr inbounds nuw i8, ptr %stream.0, i64 33
   store i8 1, ptr %channels_min, align 1
-  %channels_max = getelementptr inbounds i8, ptr %stream.0, i64 34
+  %channels_max = getelementptr inbounds nuw i8, ptr %stream.0, i64 34
   store i8 %9, ptr %channels_max, align 2
-  %formats = getelementptr inbounds i8, ptr %stream.0, i64 16
+  %formats = getelementptr inbounds nuw i8, ptr %stream.0, i64 16
   store i64 917624, ptr %formats, align 8
-  %rates = getelementptr inbounds i8, ptr %stream.0, i64 24
+  %rates = getelementptr inbounds nuw i8, ptr %stream.0, i64 24
   store i64 16383, ptr %rates, align 8
-  %params45 = getelementptr inbounds i8, ptr %stream.0, i64 40
+  %params45 = getelementptr inbounds nuw i8, ptr %stream.0, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %params45, ptr noundef nonnull align 4 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
-  %positions = getelementptr inbounds i8, ptr %stream.0, i64 68
+  %positions = getelementptr inbounds nuw i8, ptr %stream.0, i64 68
   store i8 3, ptr %positions, align 4
   %arrayidx48 = getelementptr i8, ptr %stream.0, i64 69
   store i8 4, ptr %arrayidx48, align 1
-  %as49 = getelementptr inbounds i8, ptr %stream.0, i64 100
+  %as49 = getelementptr inbounds nuw i8, ptr %stream.0, i64 100
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %as49, ptr noundef nonnull align 4 dereferenceable(16) %as, i64 16, i1 false)
-  %card59 = getelementptr inbounds i8, ptr %s, i64 568
-  %voice60 = getelementptr inbounds i8, ptr %stream.0, i64 120
+  %card59 = getelementptr inbounds nuw i8, ptr %s, i64 568
+  %voice60 = getelementptr inbounds nuw i8, ptr %stream.0, i64 120
   %17 = load ptr, ptr %voice60, align 8
   br i1 %cmp35, label %if.else, label %if.then55
 
@@ -1618,30 +1618,30 @@ entry:
   %_now.i.i.i.i = alloca %struct.timeval, align 8
   %req.i.i = alloca %struct.virtio_snd_query_info, align 4
   %_now.i.i.i = alloca %struct.timeval, align 8
-  %processing_cmdq = getelementptr inbounds i8, ptr %s, i64 688
+  %processing_cmdq = getelementptr inbounds nuw i8, ptr %s, i64 688
   %0 = load atomic i8, ptr %processing_cmdq monotonic, align 8
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %for.end, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cmdq_mutex = getelementptr inbounds i8, ptr %s, i64 624
+  %cmdq_mutex = getelementptr inbounds nuw i8, ptr %s, i64 624
   %1 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %2 = inttoptr i64 %1 to ptr
   tail call void %2(ptr noundef nonnull %cmdq_mutex, ptr noundef nonnull @.str.26, i32 noundef 122) #11
-  %cmdq = getelementptr inbounds i8, ptr %s, i64 672
-  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
-  %tv_usec.i.i134.i = getelementptr inbounds i8, ptr %_now.i.i121.i, i64 8
-  %tv_usec.i.i.i109.i = getelementptr inbounds i8, ptr %_now.i.i.i77.i, i64 8
-  %streams.i.i93.i = getelementptr inbounds i8, ptr %s, i64 612
-  %pcm.i.i95.i = getelementptr inbounds i8, ptr %s, i64 560
-  %tv_usec.i.i24.i.i = getelementptr inbounds i8, ptr %_now.i.i11.i.i, i64 8
-  %stream_id7.i.i = getelementptr inbounds i8, ptr %req.i34.i, i64 4
-  %tv_usec.i.i.i55.i = getelementptr inbounds i8, ptr %_now.i.i.i33.i, i64 8
-  %start_id7.i.i = getelementptr inbounds i8, ptr %req.i.i, i64 4
-  %count9.i.i = getelementptr inbounds i8, ptr %req.i.i, i64 8
-  %size11.i.i = getelementptr inbounds i8, ptr %req.i.i, i64 12
-  %tv_usec.i.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i.i, i64 8
-  %tql_prev31 = getelementptr inbounds i8, ptr %s, i64 680
+  %cmdq = getelementptr inbounds nuw i8, ptr %s, i64 672
+  %tv_usec.i.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i.i, i64 8
+  %tv_usec.i.i134.i = getelementptr inbounds nuw i8, ptr %_now.i.i121.i, i64 8
+  %tv_usec.i.i.i109.i = getelementptr inbounds nuw i8, ptr %_now.i.i.i77.i, i64 8
+  %streams.i.i93.i = getelementptr inbounds nuw i8, ptr %s, i64 612
+  %pcm.i.i95.i = getelementptr inbounds nuw i8, ptr %s, i64 560
+  %tv_usec.i.i24.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i11.i.i, i64 8
+  %stream_id7.i.i = getelementptr inbounds nuw i8, ptr %req.i34.i, i64 4
+  %tv_usec.i.i.i55.i = getelementptr inbounds nuw i8, ptr %_now.i.i.i33.i, i64 8
+  %start_id7.i.i = getelementptr inbounds nuw i8, ptr %req.i.i, i64 4
+  %count9.i.i = getelementptr inbounds nuw i8, ptr %req.i.i, i64 8
+  %size11.i.i = getelementptr inbounds nuw i8, ptr %req.i.i, i64 12
+  %tv_usec.i.i.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i.i.i, i64 8
+  %tql_prev31 = getelementptr inbounds nuw i8, ptr %s, i64 680
   store atomic i8 1, ptr %processing_cmdq monotonic, align 8
   %3 = load ptr, ptr %cmdq, align 8
   %cmp.not21 = icmp eq ptr %3, null
@@ -1650,16 +1650,16 @@ if.end:                                           ; preds = %entry
 while.body18:                                     ; preds = %if.end, %if.end32
   %4 = phi ptr [ %128, %if.end32 ], [ %3, %if.end ]
   %5 = load ptr, ptr %4, align 8
-  %out_sg.i = getelementptr inbounds i8, ptr %5, i64 48
+  %out_sg.i = getelementptr inbounds nuw i8, ptr %5, i64 48
   %6 = load ptr, ptr %out_sg.i, align 8
-  %out_num.i = getelementptr inbounds i8, ptr %5, i64 12
+  %out_num.i = getelementptr inbounds nuw i8, ptr %5, i64 12
   %7 = load i32, ptr %out_num.i, align 4
-  %ctrl.i = getelementptr inbounds i8, ptr %4, i64 16
+  %ctrl.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %tobool.i.not.i = icmp eq i32 %7, 0
   br i1 %tobool.i.not.i, label %iov_to_buf.exit.i, label %land.lhs.true1.i.i
 
 land.lhs.true1.i.i:                               ; preds = %while.body18
-  %iov_len.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  %iov_len.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i64, ptr %iov_len.i.i, align 8
   %cmp5.not.i.i = icmp ult i64 %8, 4
   br i1 %cmp5.not.i.i, label %iov_to_buf.exit.i, label %iov_to_buf.exit.thread.i
@@ -1788,22 +1788,22 @@ if.then18.i:                                      ; preds = %do.body10.i
   br label %do.end20.i
 
 do.end20.i:                                       ; preds = %if.then18.i, %do.body10.i
-  %resp.i = getelementptr inbounds i8, ptr %4, i64 20
+  %resp.i = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 32770, ptr %resp.i, align 4
   br label %sw.epilog.i
 
 sw.bb23.i:                                        ; preds = %trace_virtio_snd_handle_code.exit.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %req.i.i)
   %20 = load ptr, ptr %4, align 8
-  %out_sg.i.i = getelementptr inbounds i8, ptr %20, i64 48
+  %out_sg.i.i = getelementptr inbounds nuw i8, ptr %20, i64 48
   %21 = load ptr, ptr %out_sg.i.i, align 8
-  %out_num.i.i = getelementptr inbounds i8, ptr %20, i64 12
+  %out_num.i.i = getelementptr inbounds nuw i8, ptr %20, i64 12
   %22 = load i32, ptr %out_num.i.i, align 4
   %tobool.i.not.i.i = icmp eq i32 %22, 0
   br i1 %tobool.i.not.i.i, label %iov_to_buf.exit.i.i, label %land.lhs.true1.i.i.i
 
 land.lhs.true1.i.i.i:                             ; preds = %sw.bb23.i
-  %iov_len.i.i.i = getelementptr inbounds i8, ptr %21, i64 8
+  %iov_len.i.i.i = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i64, ptr %iov_len.i.i.i, align 8
   %cmp5.not.i.i.i = icmp ult i64 %23, 16
   br i1 %cmp5.not.i.i.i, label %iov_to_buf.exit.i.i, label %iov_to_buf.exit.thread.i.i
@@ -1833,7 +1833,7 @@ if.then4.i.i:                                     ; preds = %do.body.i.i
   br label %do.end.i.i
 
 do.end.i.i:                                       ; preds = %if.then4.i.i, %do.body.i.i
-  %resp.i.i = getelementptr inbounds i8, ptr %4, i64 20
+  %resp.i.i = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 32769, ptr %resp.i.i, align 4
   br label %virtio_snd_handle_pcm_info.exit.i
 
@@ -1842,9 +1842,9 @@ if.end6.i.i:                                      ; preds = %iov_to_buf.exit.if.
   %27 = load i32, ptr %start_id7.i.i, align 4
   %28 = load i32, ptr %count9.i.i, align 4
   %29 = load i32, ptr %size11.i.i, align 4
-  %in_sg.i.i = getelementptr inbounds i8, ptr %26, i64 40
+  %in_sg.i.i = getelementptr inbounds nuw i8, ptr %26, i64 40
   %30 = load ptr, ptr %in_sg.i.i, align 8
-  %in_num.i.i = getelementptr inbounds i8, ptr %26, i64 16
+  %in_num.i.i = getelementptr inbounds nuw i8, ptr %26, i64 16
   %31 = load i32, ptr %in_num.i.i, align 8
   %call15.i.i = call i64 @iov_size(ptr noundef %30, i32 noundef %31) #11
   %mul.i.i = mul i32 %29, %28
@@ -1855,13 +1855,13 @@ if.end6.i.i:                                      ; preds = %iov_to_buf.exit.if.
 
 if.then19.i.i:                                    ; preds = %if.end6.i.i
   %32 = load ptr, ptr %4, align 8
-  %in_sg21.i.i = getelementptr inbounds i8, ptr %32, i64 40
+  %in_sg21.i.i = getelementptr inbounds nuw i8, ptr %32, i64 40
   %33 = load ptr, ptr %in_sg21.i.i, align 8
-  %in_num23.i.i = getelementptr inbounds i8, ptr %32, i64 16
+  %in_num23.i.i = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load i32, ptr %in_num23.i.i, align 8
   %call24.i.i = call i64 @iov_size(ptr noundef %33, i32 noundef %34) #11
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.33, i64 noundef %call24.i.i, i64 noundef 32) #11
-  %resp26.i.i = getelementptr inbounds i8, ptr %4, i64 20
+  %resp26.i.i = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 32769, ptr %resp26.i.i, align 4
   br label %virtio_snd_handle_pcm_info.exit.i
 
@@ -1914,7 +1914,7 @@ trace_virtio_snd_handle_pcm_info.exit.i.i:        ; preds = %if.else.i.i.i.i, %i
 
 virtio_snd_pcm_get_stream.exit.i.i:               ; preds = %trace_virtio_snd_handle_pcm_info.exit.i.i
   %43 = load ptr, ptr %pcm.i.i95.i, align 8
-  %streams1.i.i.i = getelementptr inbounds i8, ptr %43, i64 16
+  %streams1.i.i.i = getelementptr inbounds nuw i8, ptr %43, i64 16
   %44 = load ptr, ptr %streams1.i.i.i, align 8
   %idxprom.i.i.i = zext i32 %add33.i.i to i64
   %arrayidx.i.i.i = getelementptr ptr, ptr %44, i64 %idxprom.i.i.i
@@ -1924,30 +1924,30 @@ virtio_snd_pcm_get_stream.exit.i.i:               ; preds = %trace_virtio_snd_ha
 
 if.then36.i.i:                                    ; preds = %virtio_snd_pcm_get_stream.exit.i.i, %trace_virtio_snd_handle_pcm_info.exit.i.i
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.34, i32 noundef %add33.i.i) #11
-  %resp38.i.i = getelementptr inbounds i8, ptr %4, i64 20
+  %resp38.i.i = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 32769, ptr %resp38.i.i, align 4
   br label %virtio_snd_handle_pcm_info.exit.i
 
 if.end40.i.i:                                     ; preds = %virtio_snd_pcm_get_stream.exit.i.i
-  %info.i.i = getelementptr inbounds i8, ptr %45, i64 8
+  %info.i.i = getelementptr inbounds nuw i8, ptr %45, i64 8
   %val.sroa.0.0.copyload.i.i = load i32, ptr %info.i.i, align 8
-  %val.sroa.4.0.info.sroa_idx.i.i = getelementptr inbounds i8, ptr %45, i64 12
+  %val.sroa.4.0.info.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %45, i64 12
   %val.sroa.4.0.copyload.i.i = load i32, ptr %val.sroa.4.0.info.sroa_idx.i.i, align 4
-  %val.sroa.6.0.info.sroa_idx.i.i = getelementptr inbounds i8, ptr %45, i64 16
+  %val.sroa.6.0.info.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %45, i64 16
   %val.sroa.6.0.copyload.i.i = load i64, ptr %val.sroa.6.0.info.sroa_idx.i.i, align 8
-  %val.sroa.8.0.info.sroa_idx.i.i = getelementptr inbounds i8, ptr %45, i64 24
+  %val.sroa.8.0.info.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %45, i64 24
   %val.sroa.8.0.copyload.i.i = load i64, ptr %val.sroa.8.0.info.sroa_idx.i.i, align 8
-  %val.sroa.10.0.info.sroa_idx.i.i = getelementptr inbounds i8, ptr %45, i64 32
+  %val.sroa.10.0.info.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %45, i64 32
   %46 = load i64, ptr %val.sroa.10.0.info.sroa_idx.i.i, align 8
   %arrayidx.i.i = getelementptr %struct.virtio_snd_pcm_info, ptr %call30.i.i, i64 %indvars.iv.i.i
   store i32 %val.sroa.0.0.copyload.i.i, ptr %arrayidx.i.i, align 8
-  %val.sroa.4.0.arrayidx.sroa_idx.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 4
+  %val.sroa.4.0.arrayidx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 4
   store i32 %val.sroa.4.0.copyload.i.i, ptr %val.sroa.4.0.arrayidx.sroa_idx.i.i, align 4
-  %val.sroa.6.0.arrayidx.sroa_idx.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
+  %val.sroa.6.0.arrayidx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 8
   store i64 %val.sroa.6.0.copyload.i.i, ptr %val.sroa.6.0.arrayidx.sroa_idx.i.i, align 8
-  %val.sroa.8.0.arrayidx.sroa_idx.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
+  %val.sroa.8.0.arrayidx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 16
   store i64 %val.sroa.8.0.copyload.i.i, ptr %val.sroa.8.0.arrayidx.sroa_idx.i.i, align 8
-  %val.sroa.10.0.arrayidx.sroa_idx.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 24
+  %val.sroa.10.0.arrayidx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 24
   store i64 %46, ptr %val.sroa.10.0.arrayidx.sroa_idx.i.i, align 8
   %padding.i.i = getelementptr %struct.virtio_snd_pcm_info, ptr %call30.i.i, i64 %indvars.iv.i.i, i32 7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %padding.i.i, i8 0, i64 5, i1 false)
@@ -1956,13 +1956,13 @@ if.end40.i.i:                                     ; preds = %virtio_snd_pcm_get_
   br i1 %exitcond.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !12
 
 for.end.i.i:                                      ; preds = %if.end40.i.i, %if.end28.i.i
-  %resp53.i.i = getelementptr inbounds i8, ptr %4, i64 20
+  %resp53.i.i = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 32768, ptr %resp53.i.i, align 4
   %mul60.i.i = shl nuw nsw i64 %conv29.i.i, 5
   %47 = load ptr, ptr %4, align 8
-  %in_num58.i.i = getelementptr inbounds i8, ptr %47, i64 16
+  %in_num58.i.i = getelementptr inbounds nuw i8, ptr %47, i64 16
   %48 = load i32, ptr %in_num58.i.i, align 8
-  %in_sg56.i.i = getelementptr inbounds i8, ptr %47, i64 40
+  %in_sg56.i.i = getelementptr inbounds nuw i8, ptr %47, i64 40
   %49 = load ptr, ptr %in_sg56.i.i, align 8
   %call.i29.i.i = call i64 @iov_from_buf_full(ptr noundef %49, i32 noundef %48, i64 noundef 4, ptr noundef %call30.i.i, i64 noundef %mul60.i.i) #11
   br label %virtio_snd_handle_pcm_info.exit.i
@@ -1985,15 +1985,15 @@ sw.bb26.i:                                        ; preds = %trace_virtio_snd_ha
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %req.i34.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %req.i34.i, i8 0, i64 24, i1 false)
   %50 = load ptr, ptr %4, align 8
-  %out_sg.i35.i = getelementptr inbounds i8, ptr %50, i64 48
+  %out_sg.i35.i = getelementptr inbounds nuw i8, ptr %50, i64 48
   %51 = load ptr, ptr %out_sg.i35.i, align 8
-  %out_num.i36.i = getelementptr inbounds i8, ptr %50, i64 12
+  %out_num.i36.i = getelementptr inbounds nuw i8, ptr %50, i64 12
   %52 = load i32, ptr %out_num.i36.i, align 4
   %tobool.i.not.i37.i = icmp eq i32 %52, 0
   br i1 %tobool.i.not.i37.i, label %iov_to_buf.exit.i56.i, label %land.lhs.true1.i.i38.i
 
 land.lhs.true1.i.i38.i:                           ; preds = %sw.bb26.i
-  %iov_len.i.i39.i = getelementptr inbounds i8, ptr %51, i64 8
+  %iov_len.i.i39.i = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = load i64, ptr %iov_len.i.i39.i, align 8
   %cmp5.not.i.i40.i = icmp ult i64 %53, 24
   br i1 %cmp5.not.i.i40.i, label %iov_to_buf.exit.i56.i, label %iov_to_buf.exit.thread.i41.i
@@ -2058,7 +2058,7 @@ trace_virtio_snd_handle_pcm_set_params.exit.i.i:  ; preds = %if.else.i.i.i51.i, 
 
 virtio_snd_handle_pcm_set_params.exit.i:          ; preds = %trace_virtio_snd_handle_pcm_set_params.exit.i.i, %if.then4.i62.i, %do.body.i59.i
   %call9.sink.i.i = phi i32 [ %call9.i.i, %trace_virtio_snd_handle_pcm_set_params.exit.i.i ], [ 32769, %do.body.i59.i ], [ 32769, %if.then4.i62.i ]
-  %resp10.i.i = getelementptr inbounds i8, ptr %4, i64 20
+  %resp10.i.i = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 %call9.sink.i.i, ptr %resp10.i.i, align 4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %req.i34.i)
   br label %sw.epilog.i
@@ -2066,15 +2066,15 @@ virtio_snd_handle_pcm_set_params.exit.i:          ; preds = %trace_virtio_snd_ha
 sw.bb27.i:                                        ; preds = %trace_virtio_snd_handle_code.exit.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %stream_id.i.i)
   %63 = load ptr, ptr %4, align 8
-  %out_sg.i63.i = getelementptr inbounds i8, ptr %63, i64 48
+  %out_sg.i63.i = getelementptr inbounds nuw i8, ptr %63, i64 48
   %64 = load ptr, ptr %out_sg.i63.i, align 8
-  %out_num.i64.i = getelementptr inbounds i8, ptr %63, i64 12
+  %out_num.i64.i = getelementptr inbounds nuw i8, ptr %63, i64 12
   %65 = load i32, ptr %out_num.i64.i, align 4
   %tobool.i.not.i65.i = icmp eq i32 %65, 0
   br i1 %tobool.i.not.i65.i, label %iov_to_buf.exit.i74.i, label %land.lhs.true1.i.i66.i
 
 land.lhs.true1.i.i66.i:                           ; preds = %sw.bb27.i
-  %iov_len.i.i67.i = getelementptr inbounds i8, ptr %64, i64 8
+  %iov_len.i.i67.i = getelementptr inbounds nuw i8, ptr %64, i64 8
   %66 = load i64, ptr %iov_len.i.i67.i, align 8
   %cmp.not.i.i68.i = icmp ult i64 %66, 4
   %67 = and i64 %66, -4
@@ -2102,7 +2102,7 @@ cond.true.i.i:                                    ; preds = %iov_to_buf.exit.i74
 
 virtio_snd_handle_pcm_prepare.exit.i:             ; preds = %cond.true.i.i, %iov_to_buf.exit.i74.i
   %cond.i.i = phi i32 [ %call3.i.i, %cond.true.i.i ], [ 32769, %iov_to_buf.exit.i74.i ]
-  %resp.i73.i = getelementptr inbounds i8, ptr %4, i64 20
+  %resp.i73.i = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 %cond.i.i, ptr %resp.i73.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %stream_id.i.i)
   br label %sw.epilog.i
@@ -2110,15 +2110,15 @@ virtio_snd_handle_pcm_prepare.exit.i:             ; preds = %cond.true.i.i, %iov
 sw.bb28.i:                                        ; preds = %trace_virtio_snd_handle_code.exit.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %stream_id.i78.i)
   %72 = load ptr, ptr %4, align 8
-  %out_sg.i79.i = getelementptr inbounds i8, ptr %72, i64 48
+  %out_sg.i79.i = getelementptr inbounds nuw i8, ptr %72, i64 48
   %73 = load ptr, ptr %out_sg.i79.i, align 8
-  %out_num.i80.i = getelementptr inbounds i8, ptr %72, i64 12
+  %out_num.i80.i = getelementptr inbounds nuw i8, ptr %72, i64 12
   %74 = load i32, ptr %out_num.i80.i, align 4
   %tobool.i.not.i81.i = icmp eq i32 %74, 0
   br i1 %tobool.i.not.i81.i, label %iov_to_buf.exit.i110.i, label %land.lhs.true1.i.i82.i
 
 land.lhs.true1.i.i82.i:                           ; preds = %sw.bb28.i
-  %iov_len.i.i83.i = getelementptr inbounds i8, ptr %73, i64 8
+  %iov_len.i.i83.i = getelementptr inbounds nuw i8, ptr %73, i64 8
   %75 = load i64, ptr %iov_len.i.i83.i, align 8
   %cmp.not.i.i84.i = icmp ult i64 %75, 4
   %76 = and i64 %75, -4
@@ -2194,7 +2194,7 @@ trace_virtio_snd_handle_pcm_release.exit.i.i:     ; preds = %if.else.i.i.i105.i,
 
 virtio_snd_pcm_get_stream.exit.i94.i:             ; preds = %trace_virtio_snd_handle_pcm_release.exit.i.i
   %89 = load ptr, ptr %pcm.i.i95.i, align 8
-  %streams1.i.i96.i = getelementptr inbounds i8, ptr %89, i64 16
+  %streams1.i.i96.i = getelementptr inbounds nuw i8, ptr %89, i64 16
   %90 = load ptr, ptr %streams1.i.i96.i, align 8
   %idxprom.i.i97.i = zext i32 %87 to i64
   %arrayidx.i.i98.i = getelementptr ptr, ptr %90, i64 %idxprom.i.i97.i
@@ -2210,11 +2210,11 @@ if.then11.i.i:                                    ; preds = %virtio_snd_pcm_get_
   br label %virtio_snd_handle_pcm_release.exit.i
 
 if.end16.i.i:                                     ; preds = %virtio_snd_pcm_get_stream.exit.i94.i
-  %queue_mutex.i.i.i = getelementptr inbounds i8, ptr %91, i64 128
+  %queue_mutex.i.i.i = getelementptr inbounds nuw i8, ptr %91, i64 128
   %93 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %94 = inttoptr i64 %93 to ptr
   call void %94(ptr noundef nonnull %queue_mutex.i.i.i, ptr noundef nonnull @.str.26, i32 noundef 122) #11
-  %queue.i.i.i = getelementptr inbounds i8, ptr %91, i64 184
+  %queue.i.i.i = getelementptr inbounds nuw i8, ptr %91, i64 184
   br label %for.cond1.us.i.i.i
 
 for.cond1.us.i.i.i:                               ; preds = %for.cond1.us.i.i.i, %if.end16.i.i
@@ -2226,7 +2226,7 @@ for.cond1.us.i.i.i:                               ; preds = %for.cond1.us.i.i.i,
   br i1 %tobool2.not.us.i.i.i, label %for.cond6.us.preheader.i.i.i, label %for.cond1.us.i.i.i, !llvm.loop !13
 
 for.cond6.us.preheader.i.i.i:                     ; preds = %for.cond1.us.i.i.i
-  %invalid.i.i.i = getelementptr inbounds i8, ptr %91, i64 200
+  %invalid.i.i.i = getelementptr inbounds nuw i8, ptr %91, i64 200
   br label %for.cond6.us.i.i.i
 
 for.cond6.us.i.i.i:                               ; preds = %for.cond6.us.i.i.i, %for.cond6.us.preheader.i.i.i
@@ -2277,7 +2277,7 @@ if.else.i.i20.i.i:                                ; preds = %if.then.i.i18.i.i
 
 trace_virtio_snd_pcm_stream_flush.exit.i.i:       ; preds = %if.else.i.i20.i.i, %if.then8.i.i21.i.i, %land.lhs.true5.i.i15.i.i, %if.then19.i99.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i11.i.i)
-  %direction.i.i.i = getelementptr inbounds i8, ptr %91, i64 32
+  %direction.i.i.i = getelementptr inbounds nuw i8, ptr %91, i64 32
   %102 = load i8, ptr %direction.i.i.i, align 8
   %cmp.i25.i.i = icmp eq i8 %102, 0
   %cond.i26.i.i = select i1 %cmp.i25.i.i, ptr @return_tx_buffer, ptr @return_rx_buffer
@@ -2301,7 +2301,7 @@ virtio_snd_pcm_flush.exit.i.i:                    ; preds = %while.body.us.i.i.i
 
 virtio_snd_handle_pcm_release.exit.i:             ; preds = %virtio_snd_pcm_flush.exit.i.i, %virtio_snd_pcm_get_io_msgs_count.exit.i.i, %if.then11.i.i, %if.then4.i116.i, %do.body.i113.i
   %.sink.i.i = phi i32 [ 32769, %if.then11.i.i ], [ 32769, %do.body.i113.i ], [ 32769, %if.then4.i116.i ], [ 32768, %virtio_snd_pcm_flush.exit.i.i ], [ 32768, %virtio_snd_pcm_get_io_msgs_count.exit.i.i ]
-  %resp22.i.i = getelementptr inbounds i8, ptr %4, i64 20
+  %resp22.i.i = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 %.sink.i.i, ptr %resp22.i.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %stream_id.i78.i)
   br label %sw.epilog.i
@@ -2350,28 +2350,28 @@ if.else.i.i130.i:                                 ; preds = %if.then.i.i128.i
 
 trace_virtio_snd_handle_chmap_info.exit.i:        ; preds = %if.else.i.i130.i, %if.then8.i.i131.i, %land.lhs.true5.i.i125.i, %do.end40.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i121.i)
-  %resp42.i = getelementptr inbounds i8, ptr %4, i64 20
+  %resp42.i = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 32770, ptr %resp42.i, align 4
   br label %sw.epilog.i
 
 sw.default.i:                                     ; preds = %trace_virtio_snd_handle_code.exit.i
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.30, i32 noundef %12) #11
-  %resp45.i = getelementptr inbounds i8, ptr %4, i64 20
+  %resp45.i = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 32769, ptr %resp45.i, align 4
   br label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %sw.default.i, %trace_virtio_snd_handle_chmap_info.exit.i, %virtio_snd_handle_pcm_release.exit.i, %virtio_snd_handle_pcm_prepare.exit.i, %virtio_snd_handle_pcm_set_params.exit.i, %sw.bb25.i, %sw.bb24.i, %virtio_snd_handle_pcm_info.exit.i, %do.end20.i
   %115 = load ptr, ptr %4, align 8
-  %in_sg.i = getelementptr inbounds i8, ptr %115, i64 40
+  %in_sg.i = getelementptr inbounds nuw i8, ptr %115, i64 40
   %116 = load ptr, ptr %in_sg.i, align 8
-  %in_num.i = getelementptr inbounds i8, ptr %115, i64 16
+  %in_num.i = getelementptr inbounds nuw i8, ptr %115, i64 16
   %117 = load i32, ptr %in_num.i, align 8
-  %resp49.i = getelementptr inbounds i8, ptr %4, i64 20
+  %resp49.i = getelementptr inbounds nuw i8, ptr %4, i64 20
   %tobool.i135.not.i = icmp eq i32 %117, 0
   br i1 %tobool.i135.not.i, label %if.else.i136.i, label %land.lhs.true1.i139.i
 
 land.lhs.true1.i139.i:                            ; preds = %sw.epilog.i
-  %iov_len.i140.i = getelementptr inbounds i8, ptr %116, i64 8
+  %iov_len.i140.i = getelementptr inbounds nuw i8, ptr %116, i64 8
   %118 = load i64, ptr %iov_len.i140.i, align 8
   %cmp5.not.i142.i = icmp ult i64 %118, 4
   br i1 %cmp5.not.i142.i, label %if.else.i136.i, label %if.then.i143.i
@@ -2387,7 +2387,7 @@ if.else.i136.i:                                   ; preds = %land.lhs.true1.i139
   br label %iov_from_buf.exit.i
 
 iov_from_buf.exit.i:                              ; preds = %if.else.i136.i, %if.then.i143.i
-  %vq.i = getelementptr inbounds i8, ptr %4, i64 8
+  %vq.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %121 = load ptr, ptr %vq.i, align 8
   %122 = load ptr, ptr %4, align 8
   call void @virtqueue_push(ptr noundef %121, ptr noundef %122, i32 noundef 4) #11
@@ -2397,15 +2397,15 @@ iov_from_buf.exit.i:                              ; preds = %if.else.i136.i, %if
   br label %process_cmd.exit
 
 process_cmd.exit:                                 ; preds = %do.body.i, %if.then4.i, %iov_from_buf.exit.i
-  %next = getelementptr inbounds i8, ptr %4, i64 24
+  %next = getelementptr inbounds nuw i8, ptr %4, i64 24
   %124 = load ptr, ptr %next, align 8
   %cmp21.not = icmp eq ptr %124, null
-  %tql_prev29 = getelementptr inbounds i8, ptr %4, i64 32
+  %tql_prev29 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %125 = load ptr, ptr %tql_prev29, align 8
   br i1 %cmp21.not, label %if.else, label %if.then23
 
 if.then23:                                        ; preds = %process_cmd.exit
-  %tql_prev27 = getelementptr inbounds i8, ptr %124, i64 32
+  %tql_prev27 = getelementptr inbounds nuw i8, ptr %124, i64 32
   store ptr %125, ptr %tql_prev27, align 8
   br label %if.end32
 
@@ -2445,15 +2445,15 @@ entry:
   %req = alloca %struct.virtio_snd_pcm_hdr, align 8
   %frombool = zext i1 %start to i8
   %0 = load ptr, ptr %cmd, align 8
-  %out_sg = getelementptr inbounds i8, ptr %0, i64 48
+  %out_sg = getelementptr inbounds nuw i8, ptr %0, i64 48
   %1 = load ptr, ptr %out_sg, align 8
-  %out_num = getelementptr inbounds i8, ptr %0, i64 12
+  %out_num = getelementptr inbounds nuw i8, ptr %0, i64 12
   %2 = load i32, ptr %out_num, align 4
   %tobool.i.not = icmp eq i32 %2, 0
   br i1 %tobool.i.not, label %iov_to_buf.exit, label %land.lhs.true1.i
 
 land.lhs.true1.i:                                 ; preds = %entry
-  %iov_len.i = getelementptr inbounds i8, ptr %1, i64 8
+  %iov_len.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3 = load i64, ptr %iov_len.i, align 8
   %cmp5.not.i = icmp ult i64 %3, 8
   br i1 %cmp5.not.i, label %iov_to_buf.exit, label %iov_to_buf.exit.thread
@@ -2472,7 +2472,7 @@ iov_to_buf.exit:                                  ; preds = %entry, %land.lhs.tr
   br i1 %cmp.not, label %iov_to_buf.exit.if.end6_crit_edge, label %do.body
 
 iov_to_buf.exit.if.end6_crit_edge:                ; preds = %iov_to_buf.exit
-  %stream_id7.phi.trans.insert = getelementptr inbounds i8, ptr %req, i64 4
+  %stream_id7.phi.trans.insert = getelementptr inbounds nuw i8, ptr %req, i64 4
   %.pre = load i32, ptr %stream_id7.phi.trans.insert, align 4
   br label %if.end6
 
@@ -2487,13 +2487,13 @@ if.then4:                                         ; preds = %do.body
   br label %do.end
 
 do.end:                                           ; preds = %do.body, %if.then4
-  %resp = getelementptr inbounds i8, ptr %cmd, i64 20
+  %resp = getelementptr inbounds nuw i8, ptr %cmd, i64 20
   store i32 32769, ptr %resp, align 4
   br label %return
 
 if.end6:                                          ; preds = %iov_to_buf.exit.if.end6_crit_edge, %iov_to_buf.exit.thread
   %9 = phi i32 [ %.pre, %iov_to_buf.exit.if.end6_crit_edge ], [ %7, %iov_to_buf.exit.thread ]
-  %resp10 = getelementptr inbounds i8, ptr %cmd, i64 20
+  %resp10 = getelementptr inbounds nuw i8, ptr %cmd, i64 20
   store i32 32768, ptr %resp10, align 4
   %cond = select i1 %start, ptr @.str.37, ptr @.str.38
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -2519,7 +2519,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = call i32 @qemu_get_thread_id() #11
   %14 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %15 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, i32 noundef %call10.i.i, i64 noundef %14, i64 noundef %15, ptr noundef nonnull %cond, i32 noundef %9) #11
   br label %trace_virtio_snd_handle_pcm_start_stop.exit
@@ -2530,15 +2530,15 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_virtio_snd_handle_pcm_start_stop.exit:      ; preds = %if.end6, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %streams.i = getelementptr inbounds i8, ptr %s, i64 612
+  %streams.i = getelementptr inbounds nuw i8, ptr %s, i64 612
   %16 = load i32, ptr %streams.i, align 4
   %cmp.not.i = icmp ult i32 %9, %16
   br i1 %cmp.not.i, label %virtio_snd_pcm_get_stream.exit, label %if.else31
 
 virtio_snd_pcm_get_stream.exit:                   ; preds = %trace_virtio_snd_handle_pcm_start_stop.exit
-  %pcm.i = getelementptr inbounds i8, ptr %s, i64 560
+  %pcm.i = getelementptr inbounds nuw i8, ptr %s, i64 560
   %17 = load ptr, ptr %pcm.i, align 8
-  %streams1.i = getelementptr inbounds i8, ptr %17, i64 16
+  %streams1.i = getelementptr inbounds nuw i8, ptr %17, i64 16
   %18 = load ptr, ptr %streams1.i, align 8
   %idxprom.i = zext i32 %9 to i64
   %arrayidx.i = getelementptr ptr, ptr %18, i64 %idxprom.i
@@ -2547,17 +2547,17 @@ virtio_snd_pcm_get_stream.exit:                   ; preds = %trace_virtio_snd_ha
   br i1 %tobool15.not, label %if.else31, label %qemu_lockable_auto_unlock.exit.us
 
 qemu_lockable_auto_unlock.exit.us:                ; preds = %virtio_snd_pcm_get_stream.exit
-  %queue_mutex = getelementptr inbounds i8, ptr %19, i64 128
+  %queue_mutex = getelementptr inbounds nuw i8, ptr %19, i64 128
   %20 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %21 = inttoptr i64 %20 to ptr
   call void %21(ptr noundef nonnull %queue_mutex, ptr noundef nonnull @.str.26, i32 noundef 122) #11
-  %active = getelementptr inbounds i8, ptr %19, i64 176
+  %active = getelementptr inbounds nuw i8, ptr %19, i64 176
   store i8 %frombool, ptr %active, align 8
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %queue_mutex, ptr noundef nonnull @.str.26, i32 noundef 132) #11
-  %direction = getelementptr inbounds i8, ptr %19, i64 32
+  %direction = getelementptr inbounds nuw i8, ptr %19, i64 32
   %22 = load i8, ptr %direction, align 8
   %cmp22 = icmp eq i8 %22, 0
-  %voice = getelementptr inbounds i8, ptr %19, i64 120
+  %voice = getelementptr inbounds nuw i8, ptr %19, i64 120
   %23 = load ptr, ptr %voice, align 8
   %conv26 = zext i1 %start to i32
   br i1 %cmp22, label %if.then24, label %if.else
@@ -2609,22 +2609,22 @@ define internal void @return_tx_buffer(ptr noundef %stream, ptr noundef %buffer)
 entry:
   %resp = alloca %struct.virtio_snd_pcm_status, align 8
   store i64 32768, ptr %resp, align 8
-  %size = getelementptr inbounds i8, ptr %buffer, i64 24
+  %size = getelementptr inbounds nuw i8, ptr %buffer, i64 24
   %0 = load i64, ptr %size, align 8
   %conv = trunc i64 %0 to i32
-  %latency_bytes = getelementptr inbounds i8, ptr %resp, i64 4
+  %latency_bytes = getelementptr inbounds nuw i8, ptr %resp, i64 4
   store i32 %conv, ptr %latency_bytes, align 4
-  %elem = getelementptr inbounds i8, ptr %buffer, i64 8
+  %elem = getelementptr inbounds nuw i8, ptr %buffer, i64 8
   %1 = load ptr, ptr %elem, align 8
-  %in_sg = getelementptr inbounds i8, ptr %1, i64 40
+  %in_sg = getelementptr inbounds nuw i8, ptr %1, i64 40
   %2 = load ptr, ptr %in_sg, align 8
-  %in_num = getelementptr inbounds i8, ptr %1, i64 16
+  %in_num = getelementptr inbounds nuw i8, ptr %1, i64 16
   %3 = load i32, ptr %in_num, align 8
   %tobool.i.not = icmp eq i32 %3, 0
   br i1 %tobool.i.not, label %if.else.i, label %land.lhs.true1.i
 
 land.lhs.true1.i:                                 ; preds = %entry
-  %iov_len.i = getelementptr inbounds i8, ptr %2, i64 8
+  %iov_len.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i64, ptr %iov_len.i, align 8
   %cmp5.not.i = icmp ult i64 %4, 8
   br i1 %cmp5.not.i, label %if.else.i, label %if.then.i
@@ -2640,16 +2640,16 @@ if.else.i:                                        ; preds = %land.lhs.true1.i, %
   br label %iov_from_buf.exit
 
 iov_from_buf.exit:                                ; preds = %if.then.i, %if.else.i
-  %vq = getelementptr inbounds i8, ptr %buffer, i64 16
+  %vq = getelementptr inbounds nuw i8, ptr %buffer, i64 16
   %7 = load ptr, ptr %vq, align 8
   %8 = load ptr, ptr %elem, align 8
   call void @virtqueue_push(ptr noundef %7, ptr noundef %8, i32 noundef 8) #11
-  %s = getelementptr inbounds i8, ptr %stream, i64 88
+  %s = getelementptr inbounds nuw i8, ptr %stream, i64 88
   %9 = load ptr, ptr %s, align 8
   %call.i24 = call ptr @object_dynamic_cast_assert(ptr noundef %9, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #11
   %10 = load ptr, ptr %vq, align 8
   call void @virtio_notify(ptr noundef %call.i24, ptr noundef %10) #11
-  %queue = getelementptr inbounds i8, ptr %stream, i64 184
+  %queue = getelementptr inbounds nuw i8, ptr %stream, i64 184
   %11 = load ptr, ptr %queue, align 8
   %cmp = icmp eq ptr %11, %buffer
   br i1 %cmp, label %do.body8, label %while.cond
@@ -2675,7 +2675,7 @@ while.end:                                        ; preds = %while.cond
 do.end47.sink.split:                              ; preds = %while.end, %do.body8
   %curelm.0.lcssa.sink = phi ptr [ %queue, %do.body8 ], [ %curelm.0, %while.end ]
   %.sink.ph = phi ptr [ %11, %do.body8 ], [ %buffer, %while.end ]
-  %sqh_last42 = getelementptr inbounds i8, ptr %stream, i64 192
+  %sqh_last42 = getelementptr inbounds nuw i8, ptr %stream, i64 192
   store ptr %curelm.0.lcssa.sink, ptr %sqh_last42, align 8
   br label %do.end47
 
@@ -2693,27 +2693,27 @@ define internal void @return_rx_buffer(ptr noundef %stream, ptr noundef %buffer)
 entry:
   %resp = alloca %struct.virtio_snd_pcm_status, align 8
   store i64 32768, ptr %resp, align 8
-  %elem = getelementptr inbounds i8, ptr %buffer, i64 8
-  %size = getelementptr inbounds i8, ptr %buffer, i64 24
+  %elem = getelementptr inbounds nuw i8, ptr %buffer, i64 8
+  %size = getelementptr inbounds nuw i8, ptr %buffer, i64 24
   %0 = load i64, ptr %size, align 8
-  %data = getelementptr inbounds i8, ptr %buffer, i64 41
+  %data = getelementptr inbounds nuw i8, ptr %buffer, i64 41
   %1 = load ptr, ptr %elem, align 8
-  %in_num = getelementptr inbounds i8, ptr %1, i64 16
+  %in_num = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2 = load i32, ptr %in_num, align 8
-  %in_sg = getelementptr inbounds i8, ptr %1, i64 40
+  %in_sg = getelementptr inbounds nuw i8, ptr %1, i64 40
   %3 = load ptr, ptr %in_sg, align 8
   %call.i = tail call i64 @iov_from_buf_full(ptr noundef %3, i32 noundef %2, i64 noundef 0, ptr noundef nonnull %data, i64 noundef %0) #11
   %4 = load ptr, ptr %elem, align 8
-  %in_sg4 = getelementptr inbounds i8, ptr %4, i64 40
+  %in_sg4 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %5 = load ptr, ptr %in_sg4, align 8
-  %in_num6 = getelementptr inbounds i8, ptr %4, i64 16
+  %in_num6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i32, ptr %in_num6, align 8
   %7 = load i64, ptr %size, align 8
   %tobool.i29.not = icmp eq i32 %6, 0
   br i1 %tobool.i29.not, label %if.else.i31, label %land.lhs.true1.i34
 
 land.lhs.true1.i34:                               ; preds = %entry
-  %iov_len.i35 = getelementptr inbounds i8, ptr %5, i64 8
+  %iov_len.i35 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load i64, ptr %iov_len.i35, align 8
   %cmp.not.i = icmp ugt i64 %7, %8
   %sub.i = sub nuw i64 %8, %7
@@ -2733,19 +2733,19 @@ if.else.i31:                                      ; preds = %land.lhs.true1.i34,
   br label %iov_from_buf.exit38
 
 iov_from_buf.exit38:                              ; preds = %if.then.i37, %if.else.i31
-  %vq = getelementptr inbounds i8, ptr %buffer, i64 16
+  %vq = getelementptr inbounds nuw i8, ptr %buffer, i64 16
   %11 = load ptr, ptr %vq, align 8
   %12 = load ptr, ptr %elem, align 8
   %13 = load i64, ptr %size, align 8
   %14 = trunc i64 %13 to i32
   %conv = add i32 %14, 8
   call void @virtqueue_push(ptr noundef %11, ptr noundef %12, i32 noundef %conv) #11
-  %s = getelementptr inbounds i8, ptr %stream, i64 88
+  %s = getelementptr inbounds nuw i8, ptr %stream, i64 88
   %15 = load ptr, ptr %s, align 8
   %call.i39 = call ptr @object_dynamic_cast_assert(ptr noundef %15, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #11
   %16 = load ptr, ptr %vq, align 8
   call void @virtio_notify(ptr noundef %call.i39, ptr noundef %16) #11
-  %queue = getelementptr inbounds i8, ptr %stream, i64 184
+  %queue = getelementptr inbounds nuw i8, ptr %stream, i64 184
   %17 = load ptr, ptr %queue, align 8
   %cmp = icmp eq ptr %17, %buffer
   br i1 %cmp, label %do.body14, label %while.cond
@@ -2771,7 +2771,7 @@ while.end:                                        ; preds = %while.cond
 do.end53.sink.split:                              ; preds = %while.end, %do.body14
   %curelm.0.lcssa.sink = phi ptr [ %queue, %do.body14 ], [ %curelm.0, %while.end ]
   %.sink.ph = phi ptr [ %17, %do.body14 ], [ %buffer, %while.end ]
-  %sqh_last48 = getelementptr inbounds i8, ptr %stream, i64 192
+  %sqh_last48 = getelementptr inbounds nuw i8, ptr %stream, i64 192
   store ptr %curelm.0.lcssa.sink, ptr %sqh_last48, align 8
   br label %do.end53
 
@@ -2795,20 +2795,20 @@ entry:
   %resp = alloca %struct.virtio_snd_pcm_status, align 8
   store i64 0, ptr %resp, align 8
   %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.10, i32 noundef 836, ptr noundef nonnull @__func__.empty_invalid_queue) #11
-  %streams = getelementptr inbounds i8, ptr %call, i64 612
+  %streams = getelementptr inbounds nuw i8, ptr %call, i64 612
   %0 = load i32, ptr %streams, align 4
   %cmp27.not = icmp eq i32 %0, 0
   br i1 %cmp27.not, label %for.end34, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %pcm = getelementptr inbounds i8, ptr %call, i64 560
+  %pcm = getelementptr inbounds nuw i8, ptr %call, i64 560
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc33
   %1 = phi i32 [ %0, %for.body.lr.ph ], [ %22, %for.inc33 ]
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc33 ]
   %2 = load ptr, ptr %pcm, align 8
-  %streams1 = getelementptr inbounds i8, ptr %2, i64 16
+  %streams1 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %3 = load ptr, ptr %streams1, align 8
   %arrayidx = getelementptr ptr, ptr %3, i64 %indvars.iv
   %4 = load ptr, ptr %arrayidx, align 8
@@ -2816,24 +2816,24 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %tobool.not, label %for.inc33, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %queue_mutex = getelementptr inbounds i8, ptr %4, i64 128
+  %queue_mutex = getelementptr inbounds nuw i8, ptr %4, i64 128
   %5 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %6 = inttoptr i64 %5 to ptr
   call void %6(ptr noundef nonnull %queue_mutex, ptr noundef nonnull @.str.26, i32 noundef 122) #11
-  %invalid = getelementptr inbounds i8, ptr %4, i64 200
-  %sqh_last = getelementptr inbounds i8, ptr %4, i64 208
+  %invalid = getelementptr inbounds nuw i8, ptr %4, i64 200
+  %sqh_last = getelementptr inbounds nuw i8, ptr %4, i64 208
   %7 = load ptr, ptr %invalid, align 8
   %cmp6.not22 = icmp eq ptr %7, null
   br i1 %cmp6.not22, label %qemu_lockable_auto_unlock.exit, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %if.then
-  %vq933 = getelementptr inbounds i8, ptr %7, i64 16
+  %vq933 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %8 = load ptr, ptr %vq933, align 8
   %cmp10.not34 = icmp eq ptr %8, %vq
   br i1 %cmp10.not34, label %if.end, label %qemu_lockable_auto_unlock.exit
 
 while.body:                                       ; preds = %if.end26
-  %vq9 = getelementptr inbounds i8, ptr %21, i64 16
+  %vq9 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %9 = load ptr, ptr %vq9, align 8
   %cmp10.not = icmp eq ptr %9, %vq
   br i1 %cmp10.not, label %if.end, label %if.then30, !llvm.loop !18
@@ -2841,17 +2841,17 @@ while.body:                                       ; preds = %if.end26
 if.end:                                           ; preds = %while.body.preheader, %while.body
   %10 = phi ptr [ %21, %while.body ], [ %7, %while.body.preheader ]
   store i32 32769, ptr %resp, align 8
-  %elem = getelementptr inbounds i8, ptr %10, i64 8
+  %elem = getelementptr inbounds nuw i8, ptr %10, i64 8
   %11 = load ptr, ptr %elem, align 8
-  %in_sg = getelementptr inbounds i8, ptr %11, i64 40
+  %in_sg = getelementptr inbounds nuw i8, ptr %11, i64 40
   %12 = load ptr, ptr %in_sg, align 8
-  %in_num = getelementptr inbounds i8, ptr %11, i64 16
+  %in_num = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i32, ptr %in_num, align 8
   %tobool.i.not = icmp eq i32 %13, 0
   br i1 %tobool.i.not, label %if.else.i, label %land.lhs.true1.i
 
 land.lhs.true1.i:                                 ; preds = %if.end
-  %iov_len.i = getelementptr inbounds i8, ptr %12, i64 8
+  %iov_len.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i64, ptr %iov_len.i, align 8
   %cmp5.not.i = icmp ult i64 %14, 8
   br i1 %cmp5.not.i, label %if.else.i, label %if.then.i
@@ -2913,13 +2913,13 @@ declare ptr @AUD_open_out(ptr noundef, ptr noundef, ptr noundef, ptr noundef, pt
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_snd_pcm_out_cb(ptr noundef %data, i32 noundef %available) #0 {
 entry:
-  %queue_mutex = getelementptr inbounds i8, ptr %data, i64 128
+  %queue_mutex = getelementptr inbounds nuw i8, ptr %data, i64 128
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
   tail call void %1(ptr noundef nonnull %queue_mutex, ptr noundef nonnull @.str.26, i32 noundef 122) #11
-  %queue = getelementptr inbounds i8, ptr %data, i64 184
-  %active = getelementptr inbounds i8, ptr %data, i64 176
-  %voice = getelementptr inbounds i8, ptr %data, i64 120
+  %queue = getelementptr inbounds nuw i8, ptr %data, i64 184
+  %active = getelementptr inbounds nuw i8, ptr %data, i64 176
+  %voice = getelementptr inbounds nuw i8, ptr %data, i64 120
   %2 = load ptr, ptr %queue, align 8
   %cmp.not42 = icmp eq ptr %2, null
   br i1 %cmp.not42, label %glib_autoptr_cleanup_QemuLockable.exit, label %while.body
@@ -2927,7 +2927,7 @@ entry:
 while.body:                                       ; preds = %entry, %while.cond.backedge
   %3 = phi ptr [ %6, %while.cond.backedge ], [ %2, %entry ]
   %available.addr.143 = phi i32 [ %available.addr.1.be, %while.cond.backedge ], [ %available, %entry ]
-  %vq = getelementptr inbounds i8, ptr %3, i64 16
+  %vq = getelementptr inbounds nuw i8, ptr %3, i64 16
   %4 = load ptr, ptr %vq, align 8
   %call3 = tail call i32 @virtio_queue_ready(ptr noundef %4) #11
   %tobool4.not = icmp eq i32 %call3, 0
@@ -2949,29 +2949,29 @@ while.cond.backedge:                              ; preds = %if.then6, %for.end
   br i1 %cmp.not, label %glib_autoptr_cleanup_QemuLockable.exit, label %while.body, !llvm.loop !20
 
 if.end7:                                          ; preds = %if.end
-  %populated = getelementptr inbounds i8, ptr %3, i64 40
+  %populated = getelementptr inbounds nuw i8, ptr %3, i64 40
   %7 = load i8, ptr %populated, align 8
   %tobool8 = trunc i8 %7 to i1
   br i1 %tobool8, label %if.end15, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end7
-  %size12 = getelementptr inbounds i8, ptr %3, i64 24
+  %size12 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %8 = load i64, ptr %size12, align 8
-  %data11 = getelementptr inbounds i8, ptr %3, i64 41
-  %elem = getelementptr inbounds i8, ptr %3, i64 8
+  %data11 = getelementptr inbounds nuw i8, ptr %3, i64 41
+  %elem = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load ptr, ptr %elem, align 8
-  %out_num = getelementptr inbounds i8, ptr %9, i64 12
+  %out_num = getelementptr inbounds nuw i8, ptr %9, i64 12
   %10 = load i32, ptr %out_num, align 4
-  %out_sg = getelementptr inbounds i8, ptr %9, i64 48
+  %out_sg = getelementptr inbounds nuw i8, ptr %9, i64 48
   %11 = load ptr, ptr %out_sg, align 8
   %call.i = tail call i64 @iov_to_buf_full(ptr noundef %11, i32 noundef %10, i64 noundef 4, ptr noundef nonnull %data11, i64 noundef %8) #11
   store i8 1, ptr %populated, align 8
   br label %if.end15
 
 if.end15:                                         ; preds = %if.else.i, %if.end7
-  %data17 = getelementptr inbounds i8, ptr %3, i64 41
-  %offset = getelementptr inbounds i8, ptr %3, i64 32
-  %size19 = getelementptr inbounds i8, ptr %3, i64 24
+  %data17 = getelementptr inbounds nuw i8, ptr %3, i64 41
+  %offset = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %size19 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.pre = load i64, ptr %offset, align 8
   %.pre49 = load i64, ptr %size19, align 8
   br label %for.cond16
@@ -3030,14 +3030,14 @@ declare ptr @AUD_open_in(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_snd_pcm_in_cb(ptr noundef %data, i32 noundef %available) #0 {
 entry:
-  %queue_mutex = getelementptr inbounds i8, ptr %data, i64 128
+  %queue_mutex = getelementptr inbounds nuw i8, ptr %data, i64 128
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
   tail call void %1(ptr noundef nonnull %queue_mutex, ptr noundef nonnull @.str.26, i32 noundef 122) #11
-  %queue = getelementptr inbounds i8, ptr %data, i64 184
-  %active = getelementptr inbounds i8, ptr %data, i64 176
-  %voice = getelementptr inbounds i8, ptr %data, i64 120
-  %period_bytes = getelementptr inbounds i8, ptr %data, i64 52
+  %queue = getelementptr inbounds nuw i8, ptr %data, i64 184
+  %active = getelementptr inbounds nuw i8, ptr %data, i64 176
+  %voice = getelementptr inbounds nuw i8, ptr %data, i64 120
+  %period_bytes = getelementptr inbounds nuw i8, ptr %data, i64 52
   br label %while.cond.outer
 
 while.cond.outer:                                 ; preds = %entry, %for.end
@@ -3048,7 +3048,7 @@ while.cond.outer:                                 ; preds = %entry, %for.end
 
 while.body:                                       ; preds = %while.cond.outer, %if.then6
   %3 = phi ptr [ %6, %if.then6 ], [ %2, %while.cond.outer ]
-  %vq = getelementptr inbounds i8, ptr %3, i64 16
+  %vq = getelementptr inbounds nuw i8, ptr %3, i64 16
   %4 = load ptr, ptr %vq, align 8
   %call3 = tail call i32 @virtio_queue_ready(ptr noundef %4) #11
   %tobool4.not = icmp eq i32 %call3, 0
@@ -3060,8 +3060,8 @@ if.end:                                           ; preds = %while.body
   br i1 %tobool5, label %for.cond8.preheader, label %if.then6
 
 for.cond8.preheader:                              ; preds = %if.end
-  %data9 = getelementptr inbounds i8, ptr %3, i64 41
-  %size10 = getelementptr inbounds i8, ptr %3, i64 24
+  %data9 = getelementptr inbounds nuw i8, ptr %3, i64 41
+  %size10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.pre = load i64, ptr %size10, align 8
   %.pre45 = load i32, ptr %period_bytes, align 4
   br label %for.cond8

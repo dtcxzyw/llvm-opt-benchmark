@@ -16,7 +16,7 @@ entry:
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %entry
   %i.06.i.i = phi i64 [ 0, %entry ], [ %inc.i.i, %for.inc.i.i ]
-  %arrayidx.i.i.i.i = getelementptr inbounds [4 x i64], ptr %cr, i64 0, i64 %i.06.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [4 x i64], ptr %cr, i64 0, i64 %i.06.i.i
   %0 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %cmp4.not.i.i = icmp eq i64 %0, 0
   br i1 %cmp4.not.i.i, label %for.inc.i.i, label %_ZNK3ue29CharReach10find_firstEv.exit
@@ -42,7 +42,7 @@ do.end.preheader:                                 ; preds = %_ZNK3ue29CharReach1
   %4 = lshr i32 %3, 4
   %conv339 = and i32 %4, 7
   %shl40 = shl nuw nsw i32 1, %conv339
-  %arrayidx41 = getelementptr inbounds i8, ptr %cond37, i64 %conv38
+  %arrayidx41 = getelementptr inbounds nuw i8, ptr %cond37, i64 %conv38
   %5 = load i8, ptr %arrayidx41, align 1
   %6 = trunc nuw i32 %shl40 to i8
   %conv642 = or i8 %5, %6
@@ -61,7 +61,7 @@ for.cond.i.i.preheader:                           ; preds = %if.then5.i.i, %if.e
   br label %for.cond.i.i
 
 if.then5.i.i:                                     ; preds = %if.end.i.i
-  %arrayidx.i.i.i.i10 = getelementptr inbounds [4 x i64], ptr %cr, i64 0, i64 %div1.i.i.i
+  %arrayidx.i.i.i.i10 = getelementptr inbounds nuw [4 x i64], ptr %cr, i64 0, i64 %div1.i.i.i
   %7 = load i64, ptr %arrayidx.i.i.i.i10, align 8
   %shl.i.i = shl nsw i64 -2, %rem.i.i
   %and.i.i = and i64 %7, %shl.i.i
@@ -79,7 +79,7 @@ for.cond.i.i:                                     ; preds = %for.cond.i.i.prehea
 
 for.body.i.i12:                                   ; preds = %for.cond.i.i
   %i.0.i.i = add nuw nsw i64 %i.0.in.i.i, 1
-  %arrayidx.i.i13.i.i = getelementptr inbounds [4 x i64], ptr %cr, i64 0, i64 %i.0.i.i
+  %arrayidx.i.i13.i.i = getelementptr inbounds nuw [4 x i64], ptr %cr, i64 0, i64 %i.0.i.i
   %8 = load i64, ptr %arrayidx.i.i13.i.i, align 8
   %tobool17.not.i.i = icmp eq i64 %8, 0
   br i1 %tobool17.not.i.i, label %for.cond.i.i, label %if.then18.i.i, !llvm.loop !7
@@ -101,7 +101,7 @@ _ZNK3ue29CharReach9find_nextEm.exit:              ; preds = %if.then7.i.i, %if.t
   %11 = lshr i32 %10, 4
   %conv3 = and i32 %11, 7
   %shl = shl nuw nsw i32 1, %conv3
-  %arrayidx = getelementptr inbounds i8, ptr %cond, i64 %conv
+  %arrayidx = getelementptr inbounds nuw i8, ptr %cond, i64 %conv
   %12 = load i8, ptr %arrayidx, align 1
   %13 = trunc nuw i32 %shl to i8
   %conv6 = or i8 %12, %13
@@ -124,7 +124,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds i8, ptr %highclear, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw i8, ptr %highclear, i64 %indvars.iv
   %0 = load i8, ptr %arrayidx, align 1
   %tobool.not19 = icmp eq i8 %0, 0
   br i1 %tobool.not19, label %while.end, label %while.body.preheader
@@ -145,7 +145,7 @@ while.body:                                       ; preds = %while.body.preheade
   %rem.i.i.i = and i64 %4, 63
   %shl.i.i.i = shl nuw i64 1, %rem.i.i.i
   %div1.i.i.i = lshr i64 %4, 6
-  %arrayidx.i.i.i.i = getelementptr inbounds [4 x i64], ptr %agg.result, i64 0, i64 %div1.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [4 x i64], ptr %agg.result, i64 0, i64 %div1.i.i.i
   %5 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %or.i.i = or i64 %shl.i.i.i, %5
   store i64 %or.i.i, ptr %arrayidx.i.i.i.i, align 8
@@ -153,7 +153,7 @@ while.body:                                       ; preds = %while.body.preheade
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !10
 
 while.end:                                        ; preds = %while.body, %for.body
-  %arrayidx5 = getelementptr inbounds i8, ptr %highset, i64 %indvars.iv
+  %arrayidx5 = getelementptr inbounds nuw i8, ptr %highset, i64 %indvars.iv
   %6 = load i8, ptr %arrayidx5, align 1
   %tobool8.not21 = icmp eq i8 %6, 0
   br i1 %tobool8.not21, label %for.inc, label %while.body9.preheader
@@ -175,7 +175,7 @@ while.body9:                                      ; preds = %while.body9.prehead
   %conv16 = lshr i64 %9, 6
   %conv.i13 = and i64 %conv16, 1
   %div1.i.i.i16 = or disjoint i64 %conv.i13, 2
-  %arrayidx.i.i.i.i17 = getelementptr inbounds [4 x i64], ptr %agg.result, i64 0, i64 %div1.i.i.i16
+  %arrayidx.i.i.i.i17 = getelementptr inbounds nuw [4 x i64], ptr %agg.result, i64 0, i64 %div1.i.i.i16
   %10 = load i64, ptr %arrayidx.i.i.i.i17, align 8
   %or.i.i18 = or i64 %shl.i.i.i15, %10
   store i64 %or.i.i18, ptr %arrayidx.i.i.i.i17, align 8

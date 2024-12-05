@@ -192,14 +192,14 @@ define internal i32 @dissect_elcom(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %6, label %186, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @col_set_str(ptr noundef %9, i32 noundef 34, ptr noundef nonnull @.str.60) #3
   %10 = load ptr, ptr %8, align 8
   tail call void @col_clear(ptr noundef %10, i32 noundef 25) #3
-  %11 = getelementptr inbounds i8, ptr %1, i64 292
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 292
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 288
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %12, %14
   %16 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0) #3
@@ -248,7 +248,7 @@ define internal i32 @dissect_elcom(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %.not106, label %38, label %186
 
 38:                                               ; preds = %36
-  %39 = getelementptr inbounds i8, ptr %1, i64 408
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %40 = load ptr, ptr %39, align 8
   %41 = tail call ptr @tvb_get_string_enc(ptr noundef %40, ptr noundef %0, i32 noundef 22, i32 noundef 2, i32 noundef 0) #3
   %42 = load ptr, ptr %8, align 8
@@ -289,13 +289,13 @@ switch.lookup:                                    ; preds = %38, %43
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %57
 
 57:                                               ; preds = %48
-  %58 = getelementptr inbounds i8, ptr %56, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %56, i64 32
   %59 = load ptr, ptr %58, align 8
   %.not5.i = icmp eq ptr %59, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %60
 
 60:                                               ; preds = %57
-  %61 = getelementptr inbounds i8, ptr %59, i64 28
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 28
   %62 = load i32, ptr %61, align 4
   %63 = or i32 %62, 1
   store i32 %63, ptr %61, align 4
@@ -334,7 +334,7 @@ proto_item_set_hidden.exit:                       ; preds = %48, %57, %60
 77:                                               ; preds = %75, %75
   %78 = load i32, ptr @hf_elcom_initiator, align 4
   %79 = tail call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %78, ptr noundef %0, i32 noundef 3, i32 noundef 21, i32 noundef 0) #3
-  %80 = getelementptr inbounds i8, ptr %1, i64 408
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %81 = load ptr, ptr %80, align 8
   %82 = load i32, ptr @ett_elcom_initiator, align 4
   %83 = load i32, ptr @hf_elcom_initiator_endian, align 4

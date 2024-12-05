@@ -102,13 +102,13 @@ define range(i32 -1, 1) i32 @mca_base_cmd_line_process_args(ptr noundef %0, ptr 
   %22 = phi ptr [ %30, %.lr.ph.i ], [ %21, %19 ]
   %23 = call i32 @mca_base_var_env_name(ptr noundef nonnull %22, ptr noundef nonnull %5) #7
   %24 = load ptr, ptr %5, align 8
-  %25 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv.i
   %26 = load ptr, ptr %25, align 8
   %27 = call i32 @opal_setenv(ptr noundef %24, ptr noundef %26, i1 noundef zeroext true, ptr noundef %1) #7
   %28 = load ptr, ptr %5, align 8
   call void @free(ptr noundef %28) #7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %29 = getelementptr inbounds ptr, ptr %.pre, i64 %indvars.iv.next.i
+  %29 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv.next.i
   %30 = load ptr, ptr %29, align 8
   %.not.i = icmp eq ptr %30, null
   br i1 %.not.i, label %add_to_env.exit.loopexit, label %.lr.ph.i, !llvm.loop !6
@@ -162,13 +162,13 @@ add_to_env.exit:                                  ; preds = %add_to_env.exit.loo
   %43 = phi ptr [ %51, %.lr.ph.i31 ], [ %42, %40 ]
   %44 = call i32 @mca_base_var_env_name(ptr noundef nonnull %43, ptr noundef nonnull %4) #7
   %45 = load ptr, ptr %4, align 8
-  %46 = getelementptr inbounds ptr, ptr %41, i64 %indvars.iv.i32
+  %46 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv.i32
   %47 = load ptr, ptr %46, align 8
   %48 = call i32 @opal_setenv(ptr noundef %45, ptr noundef %47, i1 noundef zeroext true, ptr noundef %2) #7
   %49 = load ptr, ptr %4, align 8
   call void @free(ptr noundef %49) #7
   %indvars.iv.next.i33 = add nuw nsw i64 %indvars.iv.i32, 1
-  %50 = getelementptr inbounds ptr, ptr %.pre45, i64 %indvars.iv.next.i33
+  %50 = getelementptr inbounds nuw ptr, ptr %.pre45, i64 %indvars.iv.next.i33
   %51 = load ptr, ptr %50, align 8
   %.not.i34 = icmp eq ptr %51, null
   br i1 %.not.i34, label %add_to_env.exit35.loopexit, label %.lr.ph.i31, !llvm.loop !6
@@ -209,7 +209,7 @@ define internal fastcc range(i32 -1, 1) i32 @process_arg(ptr noundef %0, ptr noc
   br i1 %12, label %13, label %19
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %1, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %15 = tail call noalias ptr @strdup(ptr noundef nonnull %14) #7
   %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #8
   %17 = getelementptr i8, ptr %15, i64 %16
@@ -234,7 +234,7 @@ define internal fastcc range(i32 -1, 1) i32 @process_arg(ptr noundef %0, ptr noc
 
 24:                                               ; preds = %.lr.ph30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %25 = getelementptr inbounds ptr, ptr %22, i64 %indvars.iv.next
+  %25 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv.next
   %26 = load ptr, ptr %25, align 8
   %.not25 = icmp eq ptr %26, null
   br i1 %.not25, label %.critedge, label %.lr.ph30

@@ -19,22 +19,22 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define i32 @constrained_majorization_vpsc(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %8 = load i32, ptr %7, align 4
   %9 = add i32 %8, %6
   %10 = icmp eq i32 %3, 0
   br i1 %10, label %.loopexit171, label %11
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %0, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load i32, ptr %18, align 8
   %20 = icmp sgt i32 %19, 0
   br i1 %20, label %.preheader173, label %.loopexit172
@@ -44,22 +44,22 @@ define i32 @constrained_majorization_vpsc(ptr nocapture noundef readonly %0, ptr
   br i1 %21, label %.lr.ph, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader173
-  %22 = getelementptr inbounds i8, ptr %0, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %23 = load ptr, ptr %22, align 8
   tail call void @satisfyVPSC(ptr noundef %23) #13
   br label %.loopexit172
 
 .lr.ph:                                           ; preds = %.preheader173
-  %24 = getelementptr inbounds i8, ptr %0, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %wide.trip.count = zext nneg i32 %9 to i64
   br label %25
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
   %26 = load ptr, ptr %24, align 8
-  %27 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds float, ptr %2, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
   %30 = load float, ptr %29, align 4
   %31 = fpext float %30 to double
   tail call void @setVariableDesiredPos(ptr noundef %28, double noundef %31) #13
@@ -68,21 +68,21 @@ define i32 @constrained_majorization_vpsc(ptr nocapture noundef readonly %0, ptr
   br i1 %exitcond.not, label %._crit_edge, label %25
 
 ._crit_edge:                                      ; preds = %25
-  %32 = getelementptr inbounds i8, ptr %0, i64 56
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %33 = load ptr, ptr %32, align 8
   tail call void @satisfyVPSC(ptr noundef %33) #13
-  %34 = getelementptr inbounds i8, ptr %0, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %wide.trip.count241 = zext nneg i32 %9 to i64
   br label %35
 
 35:                                               ; preds = %._crit_edge, %35
   %indvars.iv238 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next239, %35 ]
   %36 = load ptr, ptr %34, align 8
-  %37 = getelementptr inbounds ptr, ptr %36, i64 %indvars.iv238
+  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv238
   %38 = load ptr, ptr %37, align 8
   %39 = tail call double @getVariablePos(ptr noundef %38) #13
   %40 = fptrunc double %39 to float
-  %41 = getelementptr inbounds float, ptr %2, i64 %indvars.iv238
+  %41 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv238
   store float %40, ptr %41, align 4
   %indvars.iv.next239 = add nuw nsw i64 %indvars.iv238, 1
   %exitcond242.not = icmp eq i64 %indvars.iv.next239, %wide.trip.count241
@@ -94,8 +94,8 @@ define i32 @constrained_majorization_vpsc(ptr nocapture noundef readonly %0, ptr
 
 .preheader170.lr.ph:                              ; preds = %.loopexit172
   %43 = icmp sgt i32 %9, 0
-  %44 = getelementptr inbounds i8, ptr %0, i64 24
-  %45 = getelementptr inbounds i8, ptr %0, i64 56
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %wide.trip.count251 = zext nneg i32 %9 to i64
   %wide.trip.count261 = zext nneg i32 %9 to i64
   %wide.trip.count266 = zext nneg i32 %9 to i64
@@ -116,14 +116,14 @@ define i32 @constrained_majorization_vpsc(ptr nocapture noundef readonly %0, ptr
 
 .lr.ph183:                                        ; preds = %.preheader170, %._crit_edge181
   %indvars.iv248 = phi i64 [ %indvars.iv.next249, %._crit_edge181 ], [ 0, %.preheader170 ]
-  %46 = getelementptr inbounds float, ptr %2, i64 %indvars.iv248
+  %46 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv248
   %47 = load float, ptr %46, align 4
-  %48 = getelementptr inbounds float, ptr %15, i64 %indvars.iv248
+  %48 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv248
   store float %47, ptr %48, align 4
-  %49 = getelementptr inbounds float, ptr %1, i64 %indvars.iv248
+  %49 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv248
   %50 = load float, ptr %49, align 4
   %51 = fmul float %50, 2.000000e+00
-  %52 = getelementptr inbounds float, ptr %13, i64 %indvars.iv248
+  %52 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv248
   store float %51, ptr %52, align 4
   br label %53
 
@@ -131,11 +131,11 @@ define i32 @constrained_majorization_vpsc(ptr nocapture noundef readonly %0, ptr
   %54 = phi float [ %51, %.lr.ph183 ], [ %63, %53 ]
   %indvars.iv243 = phi i64 [ 0, %.lr.ph183 ], [ %indvars.iv.next244, %53 ]
   %55 = load ptr, ptr %0, align 8
-  %56 = getelementptr inbounds ptr, ptr %55, i64 %indvars.iv248
+  %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv248
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds float, ptr %57, i64 %indvars.iv243
+  %58 = getelementptr inbounds nuw float, ptr %57, i64 %indvars.iv243
   %59 = load float, ptr %58, align 4
-  %60 = getelementptr inbounds float, ptr %2, i64 %indvars.iv243
+  %60 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv243
   %61 = load float, ptr %60, align 4
   %62 = fmul float %59, -2.000000e+00
   %63 = tail call float @llvm.fmuladd.f32(float %62, float %61, float %54)
@@ -153,19 +153,19 @@ define i32 @constrained_majorization_vpsc(ptr nocapture noundef readonly %0, ptr
   %indvars.iv258 = phi i64 [ 0, %.lr.ph192.preheader ], [ %indvars.iv.next259, %._crit_edge188 ]
   %.0147191 = phi float [ 0.000000e+00, %.lr.ph192.preheader ], [ %77, %._crit_edge188 ]
   %.0149190 = phi float [ 0.000000e+00, %.lr.ph192.preheader ], [ %75, %._crit_edge188 ]
-  %64 = getelementptr inbounds float, ptr %13, i64 %indvars.iv258
+  %64 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv258
   %65 = load float, ptr %64, align 4
-  %66 = getelementptr inbounds ptr, ptr %.pre, i64 %indvars.iv258
+  %66 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv258
   %67 = load ptr, ptr %66, align 8
   br label %68
 
 68:                                               ; preds = %.lr.ph192, %68
   %indvars.iv253 = phi i64 [ 0, %.lr.ph192 ], [ %indvars.iv.next254, %68 ]
   %.0185 = phi float [ 0.000000e+00, %.lr.ph192 ], [ %74, %68 ]
-  %69 = getelementptr inbounds float, ptr %67, i64 %indvars.iv253
+  %69 = getelementptr inbounds nuw float, ptr %67, i64 %indvars.iv253
   %70 = load float, ptr %69, align 4
   %71 = fmul float %70, 2.000000e+00
-  %72 = getelementptr inbounds float, ptr %13, i64 %indvars.iv253
+  %72 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv253
   %73 = load float, ptr %72, align 4
   %74 = tail call float @llvm.fmuladd.f32(float %71, float %73, float %.0185)
   %indvars.iv.next254 = add nuw nsw i64 %indvars.iv253, 1
@@ -189,9 +189,9 @@ define i32 @constrained_majorization_vpsc(ptr nocapture noundef readonly %0, ptr
 
 81:                                               ; preds = %.lr.ph198, %81
   %indvars.iv263 = phi i64 [ 0, %.lr.ph198 ], [ %indvars.iv.next264, %81 ]
-  %82 = getelementptr inbounds float, ptr %13, i64 %indvars.iv263
+  %82 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv263
   %83 = load float, ptr %82, align 4
-  %84 = getelementptr inbounds float, ptr %2, i64 %indvars.iv263
+  %84 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv263
   %85 = load float, ptr %84, align 4
   %86 = tail call float @llvm.fmuladd.f32(float %80, float %83, float %85)
   store float %86, ptr %84, align 4
@@ -215,9 +215,9 @@ define i32 @constrained_majorization_vpsc(ptr nocapture noundef readonly %0, ptr
 .lr.ph201:                                        ; preds = %.preheader168, %.lr.ph201
   %indvars.iv268 = phi i64 [ %indvars.iv.next269, %.lr.ph201 ], [ 0, %.preheader168 ]
   %90 = load ptr, ptr %44, align 8
-  %91 = getelementptr inbounds ptr, ptr %90, i64 %indvars.iv268
+  %91 = getelementptr inbounds nuw ptr, ptr %90, i64 %indvars.iv268
   %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds float, ptr %2, i64 %indvars.iv268
+  %93 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv268
   %94 = load float, ptr %93, align 4
   %95 = fpext float %94 to double
   tail call void @setVariableDesiredPos(ptr noundef %92, double noundef %95) #13
@@ -233,11 +233,11 @@ define i32 @constrained_majorization_vpsc(ptr nocapture noundef readonly %0, ptr
 .lr.ph205:                                        ; preds = %._crit_edge202, %.lr.ph205
   %indvars.iv273 = phi i64 [ %indvars.iv.next274, %.lr.ph205 ], [ 0, %._crit_edge202 ]
   %97 = load ptr, ptr %44, align 8
-  %98 = getelementptr inbounds ptr, ptr %97, i64 %indvars.iv273
+  %98 = getelementptr inbounds nuw ptr, ptr %97, i64 %indvars.iv273
   %99 = load ptr, ptr %98, align 8
   %100 = tail call double @getVariablePos(ptr noundef %99) #13
   %101 = fptrunc double %100 to float
-  %102 = getelementptr inbounds float, ptr %2, i64 %indvars.iv273
+  %102 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv273
   store float %101, ptr %102, align 4
   %indvars.iv.next274 = add nuw nsw i64 %indvars.iv273, 1
   %exitcond277.not = icmp eq i64 %indvars.iv.next274, %wide.trip.count276
@@ -252,12 +252,12 @@ define i32 @constrained_majorization_vpsc(ptr nocapture noundef readonly %0, ptr
 
 .lr.ph208:                                        ; preds = %.loopexit, %.lr.ph208
   %indvars.iv278 = phi i64 [ %indvars.iv.next279, %.lr.ph208 ], [ 0, %.loopexit ]
-  %103 = getelementptr inbounds float, ptr %2, i64 %indvars.iv278
+  %103 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv278
   %104 = load float, ptr %103, align 4
-  %105 = getelementptr inbounds float, ptr %15, i64 %indvars.iv278
+  %105 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv278
   %106 = load float, ptr %105, align 4
   %107 = fsub float %104, %106
-  %108 = getelementptr inbounds float, ptr %17, i64 %indvars.iv278
+  %108 = getelementptr inbounds nuw float, ptr %17, i64 %indvars.iv278
   store float %107, ptr %108, align 4
   %indvars.iv.next279 = add nuw nsw i64 %indvars.iv278, 1
   %exitcond282.not = icmp eq i64 %indvars.iv.next279, %wide.trip.count281
@@ -267,21 +267,21 @@ define i32 @constrained_majorization_vpsc(ptr nocapture noundef readonly %0, ptr
   %indvars.iv288 = phi i64 [ 0, %.lr.ph218.preheader ], [ %indvars.iv.next289, %._crit_edge213 ]
   %.1148217 = phi float [ 0.000000e+00, %.lr.ph218.preheader ], [ %123, %._crit_edge213 ]
   %.1150216 = phi float [ 0.000000e+00, %.lr.ph218.preheader ], [ %122, %._crit_edge213 ]
-  %109 = getelementptr inbounds float, ptr %13, i64 %indvars.iv288
+  %109 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv288
   %110 = load float, ptr %109, align 4
-  %111 = getelementptr inbounds float, ptr %17, i64 %indvars.iv288
+  %111 = getelementptr inbounds nuw float, ptr %17, i64 %indvars.iv288
   %112 = load float, ptr %111, align 4
-  %113 = getelementptr inbounds ptr, ptr %.pre298, i64 %indvars.iv288
+  %113 = getelementptr inbounds nuw ptr, ptr %.pre298, i64 %indvars.iv288
   %114 = load ptr, ptr %113, align 8
   br label %115
 
 115:                                              ; preds = %.lr.ph218, %115
   %indvars.iv283 = phi i64 [ 0, %.lr.ph218 ], [ %indvars.iv.next284, %115 ]
   %.1210 = phi float [ 0.000000e+00, %.lr.ph218 ], [ %121, %115 ]
-  %116 = getelementptr inbounds float, ptr %114, i64 %indvars.iv283
+  %116 = getelementptr inbounds nuw float, ptr %114, i64 %indvars.iv283
   %117 = load float, ptr %116, align 4
   %118 = fmul float %117, 2.000000e+00
-  %119 = getelementptr inbounds float, ptr %17, i64 %indvars.iv283
+  %119 = getelementptr inbounds nuw float, ptr %17, i64 %indvars.iv283
   %120 = load float, ptr %119, align 4
   %121 = tail call float @llvm.fmuladd.f32(float %118, float %120, float %.1210)
   %indvars.iv.next284 = add nuw nsw i64 %indvars.iv283, 1
@@ -310,23 +310,23 @@ define i32 @constrained_majorization_vpsc(ptr nocapture noundef readonly %0, ptr
   br i1 %or.cond, label %129, label %._crit_edge299
 
 ._crit_edge299:                                   ; preds = %128
-  %.phi.trans.insert = getelementptr inbounds float, ptr %2, i64 %indvars.iv293
+  %.phi.trans.insert = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv293
   %.pre300 = load float, ptr %.phi.trans.insert, align 4
   br label %136
 
 129:                                              ; preds = %128
-  %130 = getelementptr inbounds float, ptr %15, i64 %indvars.iv293
+  %130 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv293
   %131 = load float, ptr %130, align 4
-  %132 = getelementptr inbounds float, ptr %17, i64 %indvars.iv293
+  %132 = getelementptr inbounds nuw float, ptr %17, i64 %indvars.iv293
   %133 = load float, ptr %132, align 4
   %134 = tail call float @llvm.fmuladd.f32(float %.0151, float %133, float %131)
-  %135 = getelementptr inbounds float, ptr %2, i64 %indvars.iv293
+  %135 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv293
   store float %134, ptr %135, align 4
   br label %136
 
 136:                                              ; preds = %._crit_edge299, %129
   %137 = phi float [ %.pre300, %._crit_edge299 ], [ %134, %129 ]
-  %138 = getelementptr inbounds float, ptr %15, i64 %indvars.iv293
+  %138 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv293
   %139 = load float, ptr %138, align 4
   %140 = fsub float %137, %139
   %141 = tail call float @llvm.fabs.f32(float %140)
@@ -379,21 +379,21 @@ define noundef ptr @initCMajVPSC(i32 noundef %0, ptr noundef %1, ptr noundef %2,
   unreachable
 
 gv_alloc.exit:                                    ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %3, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = shl nsw i32 %16, 1
-  %18 = getelementptr inbounds i8, ptr %8, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 %17, ptr %18, align 4
   %19 = sub nsw i32 %0, %17
-  %20 = getelementptr inbounds i8, ptr %8, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %8, i64 16
-  %22 = getelementptr inbounds i8, ptr %8, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %23 = sext i32 %0 to i64
   %24 = tail call fastcc ptr @gv_calloc(i64 noundef %23, i64 noundef 8)
-  %25 = getelementptr inbounds i8, ptr %8, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %24, ptr %25, align 8
   %26 = icmp sgt i32 %0, 0
   br i1 %26, label %.lr.ph.preheader, label %._crit_edge
@@ -407,14 +407,14 @@ gv_alloc.exit:                                    ; preds = %5
   %27 = trunc nuw nsw i64 %indvars.iv to i32
   %28 = tail call ptr @newVariable(i32 noundef %27, double noundef 1.000000e+00, double noundef 1.000000e+00) #13
   %29 = load ptr, ptr %25, align 8
-  %30 = getelementptr inbounds ptr, ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv
   store ptr %28, ptr %30, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %gv_alloc.exit
-  %31 = getelementptr inbounds i8, ptr %8, i64 36
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 36
   store i32 0, ptr %31, align 4
   switch i32 %4, label %.loopexit212 [
     i32 1, label %32
@@ -442,13 +442,13 @@ gv_alloc.exit:                                    ; preds = %5
 
 .preheader213:                                    ; preds = %.preheader213.preheader, %._crit_edge239
   %indvars.iv281 = phi i64 [ 0, %.preheader213.preheader ], [ %indvars.iv.next282, %._crit_edge239 ]
-  %41 = getelementptr inbounds %struct.vtx_data, ptr %2, i64 %indvars.iv281
+  %41 = getelementptr inbounds nuw %struct.vtx_data, ptr %2, i64 %indvars.iv281
   %42 = load i64, ptr %41, align 8
   %43 = icmp ugt i64 %42, 1
   br i1 %43, label %.lr.ph238, label %._crit_edge239
 
 .lr.ph238:                                        ; preds = %.preheader213
-  %44 = getelementptr inbounds i8, ptr %41, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 32
   %45 = load ptr, ptr %44, align 8
   br label %46
 
@@ -486,20 +486,20 @@ gv_alloc.exit:                                    ; preds = %5
   br i1 %60, label %.preheader211.lr.ph, label %.loopexit212
 
 .preheader211.lr.ph:                              ; preds = %._crit_edge241
-  %61 = getelementptr inbounds i8, ptr %3, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %.preheader211
 
 .preheader211:                                    ; preds = %.preheader211.lr.ph, %._crit_edge244
   %62 = phi i32 [ %59, %.preheader211.lr.ph ], [ %95, %._crit_edge244 ]
   %indvars.iv284 = phi i64 [ 0, %.preheader211.lr.ph ], [ %indvars.iv.next285, %._crit_edge244 ]
-  %63 = getelementptr inbounds %struct.vtx_data, ptr %2, i64 %indvars.iv284
+  %63 = getelementptr inbounds nuw %struct.vtx_data, ptr %2, i64 %indvars.iv284
   %64 = load i64, ptr %63, align 8
   %65 = icmp ugt i64 %64, 1
   br i1 %65, label %.lr.ph243, label %._crit_edge244
 
 .lr.ph243:                                        ; preds = %.preheader211
-  %66 = getelementptr inbounds i8, ptr %63, i64 32
-  %67 = getelementptr inbounds i8, ptr %63, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %63, i64 32
+  %67 = getelementptr inbounds nuw i8, ptr %63, i64 8
   br label %68
 
 68:                                               ; preds = %.lr.ph243, %91
@@ -516,7 +516,7 @@ gv_alloc.exit:                                    ; preds = %5
   %76 = getelementptr inbounds i32, ptr %75, i64 %.0198242
   %77 = load i32, ptr %76, align 4
   %78 = load ptr, ptr %25, align 8
-  %79 = getelementptr inbounds ptr, ptr %78, i64 %indvars.iv284
+  %79 = getelementptr inbounds nuw ptr, ptr %78, i64 %indvars.iv284
   %80 = load ptr, ptr %79, align 8
   %81 = sext i32 %77 to i64
   %82 = getelementptr inbounds ptr, ptr %78, i64 %81
@@ -589,7 +589,7 @@ gv_alloc.exit:                                    ; preds = %5
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.015.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %121, %.lr.ph.i ]
-  %117 = getelementptr inbounds %struct.DigColaLevel, ptr %107, i64 %indvars.iv.i, i32 1
+  %117 = getelementptr inbounds nuw %struct.DigColaLevel, ptr %107, i64 %indvars.iv.i, i32 1
   %118 = load i32, ptr %117, align 8
   %gep.i = getelementptr %struct.DigColaLevel, ptr %invariant.gep.i, i64 %indvars.iv.i
   %119 = load i32, ptr %gep.i, align 8
@@ -601,7 +601,7 @@ gv_alloc.exit:                                    ; preds = %5
 
 get_num_digcola_constraints.exit:                 ; preds = %.lr.ph.i, %113
   %.0.lcssa.i = phi i32 [ 0, %113 ], [ %121, %.lr.ph.i ]
-  %122 = getelementptr inbounds i8, ptr %107, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %123 = load i32, ptr %122, align 8
   %124 = sext i32 %115 to i64
   %125 = getelementptr %struct.DigColaLevel, ptr %107, i64 %124
@@ -628,10 +628,10 @@ get_num_digcola_constraints.exit:                 ; preds = %.lr.ph.i, %113
 
 .lr.ph221:                                        ; preds = %.lr.ph221.preheader, %.lr.ph221
   %indvars.iv256 = phi i64 [ 0, %.lr.ph221.preheader ], [ %indvars.iv.next257, %.lr.ph221 ]
-  %137 = getelementptr inbounds ptr, ptr %99, i64 %indvars.iv256
+  %137 = getelementptr inbounds nuw ptr, ptr %99, i64 %indvars.iv256
   %138 = load ptr, ptr %137, align 8
   %139 = load ptr, ptr %25, align 8
-  %140 = getelementptr inbounds ptr, ptr %139, i64 %indvars.iv256
+  %140 = getelementptr inbounds nuw ptr, ptr %139, i64 %indvars.iv256
   store ptr %138, ptr %140, align 8
   %indvars.iv.next257 = add nuw nsw i64 %indvars.iv256, 1
   %exitcond260.not = icmp eq i64 %indvars.iv.next257, %wide.trip.count259
@@ -659,7 +659,7 @@ get_num_digcola_constraints.exit:                 ; preds = %.lr.ph.i, %113
 
 ._crit_edge226:                                   ; preds = %.lr.ph225
   %151 = icmp sgt i32 %148, 0
-  %152 = getelementptr inbounds i8, ptr %3, i64 8
+  %152 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %153 = load double, ptr %152, align 8
   br i1 %151, label %.lr.ph234, label %.loopexit212
 
@@ -681,15 +681,15 @@ get_num_digcola_constraints.exit:                 ; preds = %.lr.ph.i, %113
   br i1 %160, label %.lr.ph229, label %.preheader216
 
 .lr.ph229:                                        ; preds = %.lr.ph234
-  %161 = getelementptr inbounds %struct.DigColaLevel, ptr %107, i64 %indvars.iv274
+  %161 = getelementptr inbounds nuw %struct.DigColaLevel, ptr %107, i64 %indvars.iv274
   %162 = load ptr, ptr %161, align 8
   %wide.trip.count267 = zext nneg i32 %158 to i64
   br label %168
 
 .preheader216:                                    ; preds = %168, %.lr.ph234
   %indvars.iv.next275 = add nuw nsw i64 %indvars.iv274, 1
-  %163 = getelementptr inbounds %struct.DigColaLevel, ptr %107, i64 %indvars.iv.next275
-  %164 = getelementptr inbounds i8, ptr %163, i64 8
+  %163 = getelementptr inbounds nuw %struct.DigColaLevel, ptr %107, i64 %indvars.iv.next275
+  %164 = getelementptr inbounds nuw i8, ptr %163, i64 8
   %165 = load i32, ptr %164, align 8
   %166 = icmp sgt i32 %165, 0
   br i1 %166, label %.lr.ph231, label %.loopexit217
@@ -702,7 +702,7 @@ get_num_digcola_constraints.exit:                 ; preds = %.lr.ph.i, %113
 168:                                              ; preds = %.lr.ph229, %168
   %indvars.iv264 = phi i64 [ 0, %.lr.ph229 ], [ %indvars.iv.next265, %168 ]
   %169 = load ptr, ptr %25, align 8
-  %170 = getelementptr inbounds i32, ptr %162, i64 %indvars.iv264
+  %170 = getelementptr inbounds nuw i32, ptr %162, i64 %indvars.iv264
   %171 = load i32, ptr %170, align 4
   %172 = sext i32 %171 to i64
   %173 = getelementptr inbounds ptr, ptr %169, i64 %172
@@ -726,7 +726,7 @@ get_num_digcola_constraints.exit:                 ; preds = %.lr.ph.i, %113
   %184 = load ptr, ptr %25, align 8
   %185 = getelementptr inbounds ptr, ptr %184, i64 %159
   %186 = load ptr, ptr %185, align 8
-  %187 = getelementptr inbounds i32, ptr %167, i64 %indvars.iv269
+  %187 = getelementptr inbounds nuw i32, ptr %167, i64 %indvars.iv269
   %188 = load i32, ptr %187, align 4
   %189 = sext i32 %188 to i64
   %190 = getelementptr inbounds ptr, ptr %184, i64 %189
@@ -768,7 +768,7 @@ get_num_digcola_constraints.exit:                 ; preds = %.lr.ph.i, %113
 
 .loopexit212:                                     ; preds = %.lr.ph236, %._crit_edge244, %._crit_edge222, %._crit_edge226, %.preheader214, %._crit_edge241, %._crit_edge
   %214 = load ptr, ptr %13, align 8
-  %215 = getelementptr inbounds i8, ptr %214, i64 4
+  %215 = getelementptr inbounds nuw i8, ptr %214, i64 4
   %216 = load i32, ptr %215, align 4
   %217 = icmp sgt i32 %216, 0
   br i1 %217, label %218, label %.loopexit
@@ -787,10 +787,10 @@ get_num_digcola_constraints.exit:                 ; preds = %.lr.ph.i, %113
 
 .lr.ph248:                                        ; preds = %218, %.lr.ph248
   %indvars.iv287 = phi i64 [ %indvars.iv.next288, %.lr.ph248 ], [ 0, %218 ]
-  %227 = getelementptr inbounds ptr, ptr %219, i64 %indvars.iv287
+  %227 = getelementptr inbounds nuw ptr, ptr %219, i64 %indvars.iv287
   %228 = load ptr, ptr %227, align 8
   %229 = load ptr, ptr %22, align 8
-  %230 = getelementptr inbounds ptr, ptr %229, i64 %indvars.iv287
+  %230 = getelementptr inbounds nuw ptr, ptr %229, i64 %indvars.iv287
   store ptr %228, ptr %230, align 8
   %indvars.iv.next288 = add nuw nsw i64 %indvars.iv287, 1
   %231 = load i32, ptr %31, align 4
@@ -808,7 +808,7 @@ get_num_digcola_constraints.exit:                 ; preds = %.lr.ph.i, %113
 
 234:                                              ; preds = %._crit_edge249.thread, %._crit_edge249
   %235 = load ptr, ptr %13, align 8
-  %236 = getelementptr inbounds i8, ptr %235, i64 4
+  %236 = getelementptr inbounds nuw i8, ptr %235, i64 4
   %237 = load i32, ptr %236, align 4
   %238 = icmp sgt i32 %237, 0
   br i1 %238, label %.preheader, label %.loopexit
@@ -816,9 +816,9 @@ get_num_digcola_constraints.exit:                 ; preds = %.lr.ph.i, %113
 .preheader:                                       ; preds = %234, %._crit_edge252
   %239 = phi ptr [ %284, %._crit_edge252 ], [ %235, %234 ]
   %indvars.iv293 = phi i64 [ %indvars.iv.next294, %._crit_edge252 ], [ 0, %234 ]
-  %240 = getelementptr inbounds i8, ptr %239, i64 8
+  %240 = getelementptr inbounds nuw i8, ptr %239, i64 8
   %241 = load ptr, ptr %240, align 8
-  %242 = getelementptr inbounds i32, ptr %241, i64 %indvars.iv293
+  %242 = getelementptr inbounds nuw i32, ptr %241, i64 %indvars.iv293
   %243 = load i32, ptr %242, align 4
   %244 = icmp sgt i32 %243, 0
   br i1 %244, label %.lr.ph251, label %._crit_edge252
@@ -832,11 +832,11 @@ get_num_digcola_constraints.exit:                 ; preds = %.lr.ph.i, %113
   %indvars.iv290 = phi i64 [ 0, %.lr.ph251 ], [ %indvars.iv.next291, %246 ]
   %247 = phi ptr [ %239, %.lr.ph251 ], [ %277, %246 ]
   %248 = load ptr, ptr %25, align 8
-  %249 = getelementptr inbounds i8, ptr %247, i64 16
+  %249 = getelementptr inbounds nuw i8, ptr %247, i64 16
   %250 = load ptr, ptr %249, align 8
-  %251 = getelementptr inbounds ptr, ptr %250, i64 %indvars.iv293
+  %251 = getelementptr inbounds nuw ptr, ptr %250, i64 %indvars.iv293
   %252 = load ptr, ptr %251, align 8
-  %253 = getelementptr inbounds i32, ptr %252, i64 %indvars.iv290
+  %253 = getelementptr inbounds nuw i32, ptr %252, i64 %indvars.iv290
   %254 = load i32, ptr %253, align 4
   %255 = sext i32 %254 to i64
   %256 = getelementptr inbounds ptr, ptr %248, i64 %255
@@ -866,9 +866,9 @@ get_num_digcola_constraints.exit:                 ; preds = %.lr.ph.i, %113
   store ptr %271, ptr %276, align 8
   %indvars.iv.next291 = add nuw nsw i64 %indvars.iv290, 1
   %277 = load ptr, ptr %13, align 8
-  %278 = getelementptr inbounds i8, ptr %277, i64 8
+  %278 = getelementptr inbounds nuw i8, ptr %277, i64 8
   %279 = load ptr, ptr %278, align 8
-  %280 = getelementptr inbounds i32, ptr %279, i64 %indvars.iv293
+  %280 = getelementptr inbounds nuw i32, ptr %279, i64 %indvars.iv293
   %281 = load i32, ptr %280, align 4
   %282 = sext i32 %281 to i64
   %283 = icmp slt i64 %indvars.iv.next291, %282
@@ -877,16 +877,16 @@ get_num_digcola_constraints.exit:                 ; preds = %.lr.ph.i, %113
 ._crit_edge252:                                   ; preds = %246, %.preheader
   %284 = phi ptr [ %239, %.preheader ], [ %277, %246 ]
   %indvars.iv.next294 = add nuw nsw i64 %indvars.iv293, 1
-  %285 = getelementptr inbounds i8, ptr %284, i64 4
+  %285 = getelementptr inbounds nuw i8, ptr %284, i64 4
   %286 = load i32, ptr %285, align 4
   %287 = sext i32 %286 to i64
   %288 = icmp slt i64 %indvars.iv.next294, %287
   br i1 %288, label %.preheader, label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge252, %234, %.loopexit212
-  %289 = getelementptr inbounds i8, ptr %8, i64 32
+  %289 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i32 0, ptr %289, align 8
-  %290 = getelementptr inbounds i8, ptr %8, i64 40
+  %290 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store ptr null, ptr %290, align 8
   %291 = load i32, ptr %31, align 4
   %292 = icmp sgt i32 %291, 0
@@ -898,7 +898,7 @@ get_num_digcola_constraints.exit:                 ; preds = %.lr.ph.i, %113
   %296 = load ptr, ptr %25, align 8
   %297 = load ptr, ptr %22, align 8
   %298 = call ptr @newIncVPSC(i32 noundef %295, ptr noundef %296, i32 noundef %291, ptr noundef %297) #13
-  %299 = getelementptr inbounds i8, ptr %8, i64 56
+  %299 = getelementptr inbounds nuw i8, ptr %8, i64 56
   store ptr %298, ptr %299, align 8
   %300 = load i32, ptr %31, align 4
   store i32 %300, ptr %289, align 8
@@ -917,13 +917,13 @@ get_num_digcola_constraints.exit:                 ; preds = %.lr.ph.i, %113
 
 305:                                              ; preds = %303, %302
   %306 = call fastcc ptr @gv_calloc(i64 noundef %23, i64 noundef 4)
-  %307 = getelementptr inbounds i8, ptr %8, i64 64
+  %307 = getelementptr inbounds nuw i8, ptr %8, i64 64
   store ptr %306, ptr %307, align 8
   %308 = call fastcc ptr @gv_calloc(i64 noundef %23, i64 noundef 4)
-  %309 = getelementptr inbounds i8, ptr %8, i64 72
+  %309 = getelementptr inbounds nuw i8, ptr %8, i64 72
   store ptr %308, ptr %309, align 8
   %310 = call fastcc ptr @gv_calloc(i64 noundef %23, i64 noundef 4)
-  %311 = getelementptr inbounds i8, ptr %8, i64 80
+  %311 = getelementptr inbounds nuw i8, ptr %8, i64 80
   store ptr %310, ptr %311, align 8
   %312 = load i8, ptr @Verbose, align 1
   %.not210 = icmp eq i8 %312, 0
@@ -994,7 +994,7 @@ define noalias noundef ptr @assign_digcola_levels(ptr nocapture noundef readonly
   %6 = sext i32 %5 to i64
   %7 = tail call fastcc ptr @gv_calloc(i64 noundef %6, i64 noundef 16)
   %8 = load i32, ptr %2, align 4
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %8, ptr %9, align 8
   %10 = sext i32 %8 to i64
   %11 = tail call fastcc ptr @gv_calloc(i64 noundef %10, i64 noundef 4)
@@ -1018,13 +1018,13 @@ define noalias noundef ptr @assign_digcola_levels(ptr nocapture noundef readonly
 
 .lr.ph63:                                         ; preds = %.lr.ph63.preheader, %._crit_edge
   %indvars.iv = phi i64 [ 1, %.lr.ph63.preheader ], [ %indvars.iv.next, %._crit_edge ]
-  %16 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4
   %18 = getelementptr i8, ptr %16, i64 -4
   %19 = load i32, ptr %18, align 4
   %20 = sub nsw i32 %17, %19
-  %21 = getelementptr inbounds %struct.DigColaLevel, ptr %7, i64 %indvars.iv
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %21 = getelementptr inbounds nuw %struct.DigColaLevel, ptr %7, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i32 %20, ptr %22, align 8
   %23 = sext i32 %20 to i64
   %24 = tail call fastcc ptr @gv_calloc(i64 noundef %23, i64 noundef 4)
@@ -1057,8 +1057,8 @@ define noalias noundef ptr @assign_digcola_levels(ptr nocapture noundef readonly
   %35 = getelementptr i8, ptr %34, i64 -4
   %36 = load i32, ptr %35, align 4
   %37 = sub nsw i32 %1, %36
-  %38 = getelementptr inbounds %struct.DigColaLevel, ptr %7, i64 %33
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
+  %38 = getelementptr inbounds nuw %struct.DigColaLevel, ptr %7, i64 %33
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store i32 %37, ptr %39, align 8
   %40 = sext i32 %37 to i64
   %41 = tail call fastcc ptr @gv_calloc(i64 noundef %40, i64 noundef 4)
@@ -1093,7 +1093,7 @@ define i32 @get_num_digcola_constraints(ptr nocapture noundef readonly %0, i32 n
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.015 = phi i32 [ 0, %.lr.ph.preheader ], [ %8, %.lr.ph ]
-  %4 = getelementptr inbounds %struct.DigColaLevel, ptr %0, i64 %indvars.iv, i32 1
+  %4 = getelementptr inbounds nuw %struct.DigColaLevel, ptr %0, i64 %indvars.iv, i32 1
   %5 = load i32, ptr %4, align 8
   %gep = getelementptr %struct.DigColaLevel, ptr %invariant.gep, i64 %indvars.iv
   %6 = load i32, ptr %gep, align 8
@@ -1105,7 +1105,7 @@ define i32 @get_num_digcola_constraints(ptr nocapture noundef readonly %0, i32 n
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi i32 [ 0, %2 ], [ %8, %.lr.ph ]
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = sext i32 %1 to i64
   %12 = getelementptr %struct.DigColaLevel, ptr %0, i64 %11
@@ -1139,18 +1139,18 @@ define void @deleteCMajEnvVPSC(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br label %6
 
 6:                                                ; preds = %3, %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i32, ptr %7, align 8
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %10, label %44
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = load ptr, ptr %11, align 8
   tail call void @deleteVPSC(ptr noundef %12) #13
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = load ptr, ptr %15, align 8
   %.not24 = icmp eq ptr %14, %16
   %.not25 = icmp eq ptr %16, null
@@ -1166,9 +1166,9 @@ define void @deleteCMajEnvVPSC(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %19 = phi ptr [ %.pre, %17 ], [ %14, %10 ]
   %20 = load i32, ptr %7, align 8
   tail call void @deleteConstraints(i32 noundef %20, ptr noundef %19) #13
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 12
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load i32, ptr %21, align 8
   %25 = load i32, ptr %22, align 4
   %26 = add nsw i32 %25, %24
@@ -1178,13 +1178,13 @@ define void @deleteCMajEnvVPSC(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br i1 %29, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %18
-  %30 = getelementptr inbounds i8, ptr %0, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %31
 
 31:                                               ; preds = %.lr.ph, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
   %32 = load ptr, ptr %30, align 8
-  %33 = getelementptr inbounds ptr, ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8
   tail call void @deleteVariable(ptr noundef %34) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1198,19 +1198,19 @@ define void @deleteCMajEnvVPSC(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br i1 %41, label %31, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %31, %18
-  %42 = getelementptr inbounds i8, ptr %0, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %43 = load ptr, ptr %42, align 8
   tail call void @free(ptr noundef %43) #13
   br label %44
 
 44:                                               ; preds = %._crit_edge, %6
-  %45 = getelementptr inbounds i8, ptr %0, i64 64
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %46 = load ptr, ptr %45, align 8
   tail call void @free(ptr noundef %46) #13
-  %47 = getelementptr inbounds i8, ptr %0, i64 72
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %48 = load ptr, ptr %47, align 8
   tail call void @free(ptr noundef %48) #13
-  %49 = getelementptr inbounds i8, ptr %0, i64 80
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %50 = load ptr, ptr %49, align 8
   tail call void @free(ptr noundef %50) #13
   tail call void @free(ptr noundef nonnull %0) #13
@@ -1224,16 +1224,16 @@ declare void @deleteVariable(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i1 noundef zeroext %4, ptr nocapture noundef readonly %5) local_unnamed_addr #0 {
   %7 = alloca ptr, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = add nsw i32 %11, %9
   %13 = sext i32 %12 to i64
   %14 = tail call fastcc ptr @gv_calloc(i64 noundef %13, i64 noundef 32)
-  %15 = getelementptr inbounds i8, ptr %5, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = icmp sgt i32 %18, 0
   %20 = tail call i32 @llvm.smax.i32(i32 %18, i32 0)
@@ -1248,14 +1248,14 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
   %.0349 = select i1 %22, float %24, float %1
   %25 = load ptr, ptr %2, align 8
   %26 = fpext float %.0349 to double
-  %27 = getelementptr inbounds i8, ptr %5, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %5, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %30 = load double, ptr %29, align 8
   %31 = fmul double %30, 5.000000e-01
-  %32 = getelementptr inbounds i8, ptr %2, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %5, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %35 = load double, ptr %34, align 8
   %36 = fmul double %35, 5.000000e-01
   %wide.trip.count = zext nneg i32 %.0357 to i64
@@ -1263,35 +1263,35 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
 
 37:                                               ; preds = %.lr.ph, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
-  %38 = getelementptr inbounds float, ptr %25, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv
   %39 = load float, ptr %38, align 4
   %40 = fpext float %39 to double
-  %41 = getelementptr inbounds %struct.pointf_s, ptr %28, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw %struct.pointf_s, ptr %28, i64 %indvars.iv
   %42 = load double, ptr %41, align 8
   %43 = fmul double %42, %26
   %44 = fmul double %43, 5.000000e-01
   %45 = fsub double %40, %44
   %46 = fsub double %45, %31
-  %47 = getelementptr inbounds %struct.boxf, ptr %14, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw %struct.boxf, ptr %14, i64 %indvars.iv
   store double %46, ptr %47, align 8
   %48 = fadd double %44, %40
   %49 = fadd double %31, %48
-  %50 = getelementptr inbounds i8, ptr %47, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 16
   store double %49, ptr %50, align 8
-  %51 = getelementptr inbounds float, ptr %33, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv
   %52 = load float, ptr %51, align 4
   %53 = fpext float %52 to double
-  %54 = getelementptr inbounds %struct.pointf_s, ptr %28, i64 %indvars.iv, i32 1
+  %54 = getelementptr inbounds nuw %struct.pointf_s, ptr %28, i64 %indvars.iv, i32 1
   %55 = load double, ptr %54, align 8
   %56 = fmul double %55, %26
   %57 = fmul double %56, 5.000000e-01
   %58 = fsub double %53, %57
   %59 = fsub double %58, %36
-  %60 = getelementptr inbounds i8, ptr %47, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store double %59, ptr %60, align 8
   %61 = fadd double %57, %53
   %62 = fadd double %36, %61
-  %63 = getelementptr inbounds i8, ptr %47, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %47, i64 24
   store double %62, ptr %63, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1305,19 +1305,19 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
   %66 = zext nneg i32 %65 to i64
   %67 = tail call fastcc ptr @gv_calloc(i64 noundef %66, i64 noundef 8)
   %68 = load ptr, ptr %15, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %70 = load i32, ptr %69, align 4
   %71 = add nsw i32 %70, 1
   %72 = sext i32 %71 to i64
   %73 = tail call fastcc ptr @gv_calloc(i64 noundef %72, i64 noundef 4)
   %74 = load ptr, ptr %15, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 4
   %76 = load i32, ptr %75, align 4
   %77 = icmp sgt i32 %76, 0
   br i1 %77, label %.lr.ph391, label %._crit_edge392
 
 .lr.ph391:                                        ; preds = %64
-  %78 = getelementptr inbounds i8, ptr %0, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %79 = sext i32 %.0357 to i64
   br label %80
 
@@ -1325,9 +1325,9 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
   %indvars.iv438 = phi i64 [ 0, %.lr.ph391 ], [ %indvars.iv.next439, %165 ]
   %81 = phi ptr [ %74, %.lr.ph391 ], [ %168, %165 ]
   %.0355388 = phi i32 [ 0, %.lr.ph391 ], [ %167, %165 ]
-  %82 = getelementptr inbounds i8, ptr %81, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds i32, ptr %83, i64 %indvars.iv438
+  %84 = getelementptr inbounds nuw i32, ptr %83, i64 %indvars.iv438
   %85 = load i32, ptr %84, align 4
   %86 = add nsw i32 %85, 2
   %87 = sext i32 %86 to i64
@@ -1338,7 +1338,7 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
   br i1 %90, label %.lr.ph383, label %._crit_edge384
 
 .lr.ph383:                                        ; preds = %80
-  %91 = getelementptr inbounds i8, ptr %.pre, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   %92 = load ptr, ptr %78, align 8
   %wide.trip.count436 = zext nneg i32 %85 to i64
   br label %93
@@ -1350,30 +1350,30 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
   %.sroa.16.0378 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph383 ], [ %119, %93 ]
   %.sroa.24.0377 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph383 ], [ %121, %93 ]
   %94 = load ptr, ptr %91, align 8
-  %95 = getelementptr inbounds ptr, ptr %94, i64 %indvars.iv438
+  %95 = getelementptr inbounds nuw ptr, ptr %94, i64 %indvars.iv438
   %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i32, ptr %96, i64 %indvars.iv433
+  %97 = getelementptr inbounds nuw i32, ptr %96, i64 %indvars.iv433
   %98 = load i32, ptr %97, align 4
   %99 = sext i32 %98 to i64
   %100 = getelementptr inbounds ptr, ptr %92, i64 %99
   %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds ptr, ptr %88, i64 %indvars.iv433
+  %102 = getelementptr inbounds nuw ptr, ptr %88, i64 %indvars.iv433
   store ptr %101, ptr %102, align 8
   %103 = getelementptr inbounds %struct.boxf, ptr %14, i64 %99
   %104 = load double, ptr %103, align 8
-  %105 = getelementptr inbounds %struct.boxf, ptr %89, i64 %indvars.iv433
+  %105 = getelementptr inbounds nuw %struct.boxf, ptr %89, i64 %indvars.iv433
   store double %104, ptr %105, align 8
-  %106 = getelementptr inbounds i8, ptr %103, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %103, i64 8
   %107 = load double, ptr %106, align 8
-  %108 = getelementptr inbounds i8, ptr %105, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %105, i64 8
   store double %107, ptr %108, align 8
-  %109 = getelementptr inbounds i8, ptr %103, i64 16
+  %109 = getelementptr inbounds nuw i8, ptr %103, i64 16
   %110 = load double, ptr %109, align 8
-  %111 = getelementptr inbounds i8, ptr %105, i64 16
+  %111 = getelementptr inbounds nuw i8, ptr %105, i64 16
   store double %110, ptr %111, align 8
-  %112 = getelementptr inbounds i8, ptr %103, i64 24
+  %112 = getelementptr inbounds nuw i8, ptr %103, i64 24
   %113 = load double, ptr %112, align 8
-  %114 = getelementptr inbounds i8, ptr %105, i64 24
+  %114 = getelementptr inbounds nuw i8, ptr %105, i64 24
   store double %113, ptr %114, align 8
   %115 = fcmp olt double %.sroa.0.0380, %104
   %.sroa.0.0. = select i1 %115, double %.sroa.0.0380, double %104
@@ -1392,24 +1392,24 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
   %.sroa.16.0.lcssa = phi double [ 0xFFEFFFFFFFFFFFFF, %80 ], [ %119, %93 ]
   %.sroa.8.0.lcssa = phi double [ 0x7FEFFFFFFFFFFFFF, %80 ], [ %117, %93 ]
   %.sroa.0.0.lcssa = phi double [ 0x7FEFFFFFFFFFFFFF, %80 ], [ %.sroa.0.0., %93 ]
-  %122 = getelementptr inbounds i8, ptr %.pre, i64 40
+  %122 = getelementptr inbounds nuw i8, ptr %.pre, i64 40
   %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds %struct.boxf, ptr %123, i64 %indvars.iv438
+  %124 = getelementptr inbounds nuw %struct.boxf, ptr %123, i64 %indvars.iv438
   store double %.sroa.0.0.lcssa, ptr %124, align 8
   %125 = load ptr, ptr %15, align 8
-  %126 = getelementptr inbounds i8, ptr %125, i64 40
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 40
   %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds %struct.boxf, ptr %127, i64 %indvars.iv438, i32 0, i32 1
+  %128 = getelementptr inbounds nuw %struct.boxf, ptr %127, i64 %indvars.iv438, i32 0, i32 1
   store double %.sroa.8.0.lcssa, ptr %128, align 8
   %129 = load ptr, ptr %15, align 8
-  %130 = getelementptr inbounds i8, ptr %129, i64 40
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 40
   %131 = load ptr, ptr %130, align 8
-  %132 = getelementptr inbounds %struct.boxf, ptr %131, i64 %indvars.iv438, i32 1
+  %132 = getelementptr inbounds nuw %struct.boxf, ptr %131, i64 %indvars.iv438, i32 1
   store double %.sroa.16.0.lcssa, ptr %132, align 8
   %133 = load ptr, ptr %15, align 8
-  %134 = getelementptr inbounds i8, ptr %133, i64 40
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 40
   %135 = load ptr, ptr %134, align 8
-  %136 = getelementptr inbounds %struct.boxf, ptr %135, i64 %indvars.iv438, i32 1, i32 1
+  %136 = getelementptr inbounds nuw %struct.boxf, ptr %135, i64 %indvars.iv438, i32 1, i32 1
   store double %.sroa.24.0.lcssa, ptr %136, align 8
   %137 = load ptr, ptr %78, align 8
   %.idx = shl i64 %indvars.iv438, 4
@@ -1427,21 +1427,21 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
   store ptr %144, ptr %147, align 8
   %148 = getelementptr inbounds %struct.boxf, ptr %89, i64 %141
   store double %.sroa.0.0.lcssa, ptr %148, align 8
-  %149 = getelementptr inbounds i8, ptr %148, i64 8
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 8
   store double %.sroa.8.0.lcssa, ptr %149, align 8
-  %150 = getelementptr inbounds i8, ptr %148, i64 16
+  %150 = getelementptr inbounds nuw i8, ptr %148, i64 16
   store double %.sroa.16.0.lcssa, ptr %150, align 8
-  %151 = getelementptr inbounds i8, ptr %148, i64 24
+  %151 = getelementptr inbounds nuw i8, ptr %148, i64 24
   store double %.sroa.24.0.lcssa, ptr %151, align 8
   %152 = getelementptr inbounds %struct.boxf, ptr %89, i64 %146
   store double %.sroa.0.0.lcssa, ptr %152, align 8
-  %153 = getelementptr inbounds i8, ptr %152, i64 8
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
   store double %.sroa.8.0.lcssa, ptr %153, align 8
-  %154 = getelementptr inbounds i8, ptr %152, i64 16
+  %154 = getelementptr inbounds nuw i8, ptr %152, i64 16
   store double %.sroa.16.0.lcssa, ptr %154, align 8
-  %155 = getelementptr inbounds i8, ptr %152, i64 24
+  %155 = getelementptr inbounds nuw i8, ptr %152, i64 24
   store double %.sroa.24.0.lcssa, ptr %155, align 8
-  %156 = getelementptr inbounds ptr, ptr %67, i64 %indvars.iv438
+  %156 = getelementptr inbounds nuw ptr, ptr %67, i64 %indvars.iv438
   br i1 %22, label %157, label %161
 
 157:                                              ; preds = %._crit_edge384
@@ -1462,14 +1462,14 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
 
 165:                                              ; preds = %161, %157
   %.sink = phi i32 [ %160, %157 ], [ %164, %161 ]
-  %166 = getelementptr inbounds i32, ptr %73, i64 %indvars.iv438
+  %166 = getelementptr inbounds nuw i32, ptr %73, i64 %indvars.iv438
   store i32 %.sink, ptr %166, align 4
   %167 = add nsw i32 %.sink, %.0355388
   tail call void @free(ptr noundef nonnull %88) #13
   tail call void @free(ptr noundef nonnull %89) #13
   %indvars.iv.next439 = add nuw nsw i64 %indvars.iv438, 1
   %168 = load ptr, ptr %15, align 8
-  %169 = getelementptr inbounds i8, ptr %168, i64 4
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 4
   %170 = load i32, ptr %169, align 4
   %171 = sext i32 %170 to i64
   %172 = icmp slt i64 %indvars.iv.next439, %171
@@ -1479,21 +1479,21 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
   %.0355.lcssa = phi i32 [ 0, %64 ], [ %167, %165 ]
   %.lcssa375 = phi ptr [ %74, %64 ], [ %168, %165 ]
   %.lcssa374 = phi i32 [ %76, %64 ], [ %170, %165 ]
-  %173 = getelementptr inbounds i8, ptr %.lcssa375, i64 24
+  %173 = getelementptr inbounds nuw i8, ptr %.lcssa375, i64 24
   %174 = load i32, ptr %173, align 8
   %175 = add nsw i32 %174, %.lcssa374
   %176 = sext i32 %175 to i64
   %177 = tail call fastcc ptr @gv_calloc(i64 noundef %176, i64 noundef 8)
   %178 = tail call fastcc ptr @gv_calloc(i64 noundef %176, i64 noundef 32)
   %179 = load ptr, ptr %15, align 8
-  %180 = getelementptr inbounds i8, ptr %179, i64 24
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 24
   %181 = load i32, ptr %180, align 8
   %182 = icmp sgt i32 %181, 0
   br i1 %182, label %.lr.ph398, label %.preheader372
 
 .lr.ph398:                                        ; preds = %._crit_edge392
-  %183 = getelementptr inbounds i8, ptr %179, i64 32
-  %184 = getelementptr inbounds i8, ptr %0, i64 24
+  %183 = getelementptr inbounds nuw i8, ptr %179, i64 32
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %185 = load ptr, ptr %184, align 8
   br label %188
 
@@ -1509,28 +1509,28 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
 188:                                              ; preds = %.lr.ph398, %188
   %indvars.iv441 = phi i64 [ 0, %.lr.ph398 ], [ %indvars.iv.next442, %188 ]
   %189 = load ptr, ptr %183, align 8
-  %190 = getelementptr inbounds i32, ptr %189, i64 %indvars.iv441
+  %190 = getelementptr inbounds nuw i32, ptr %189, i64 %indvars.iv441
   %191 = load i32, ptr %190, align 4
   %192 = sext i32 %191 to i64
   %193 = getelementptr inbounds ptr, ptr %185, i64 %192
   %194 = load ptr, ptr %193, align 8
-  %195 = getelementptr inbounds ptr, ptr %177, i64 %indvars.iv441
+  %195 = getelementptr inbounds nuw ptr, ptr %177, i64 %indvars.iv441
   store ptr %194, ptr %195, align 8
   %196 = getelementptr inbounds %struct.boxf, ptr %14, i64 %192
   %197 = load double, ptr %196, align 8
-  %198 = getelementptr inbounds %struct.boxf, ptr %178, i64 %indvars.iv441
+  %198 = getelementptr inbounds nuw %struct.boxf, ptr %178, i64 %indvars.iv441
   store double %197, ptr %198, align 8
-  %199 = getelementptr inbounds i8, ptr %196, i64 8
+  %199 = getelementptr inbounds nuw i8, ptr %196, i64 8
   %200 = load double, ptr %199, align 8
-  %201 = getelementptr inbounds i8, ptr %198, i64 8
+  %201 = getelementptr inbounds nuw i8, ptr %198, i64 8
   store double %200, ptr %201, align 8
-  %202 = getelementptr inbounds i8, ptr %196, i64 16
+  %202 = getelementptr inbounds nuw i8, ptr %196, i64 16
   %203 = load double, ptr %202, align 8
-  %204 = getelementptr inbounds i8, ptr %198, i64 16
+  %204 = getelementptr inbounds nuw i8, ptr %198, i64 16
   store double %203, ptr %204, align 8
-  %205 = getelementptr inbounds i8, ptr %196, i64 24
+  %205 = getelementptr inbounds nuw i8, ptr %196, i64 24
   %206 = load double, ptr %205, align 8
-  %207 = getelementptr inbounds i8, ptr %198, i64 24
+  %207 = getelementptr inbounds nuw i8, ptr %198, i64 24
   store double %206, ptr %207, align 8
   %indvars.iv.next442 = add nuw nsw i64 %indvars.iv441, 1
   %208 = load i32, ptr %180, align 8
@@ -1546,11 +1546,11 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
   %214 = getelementptr inbounds ptr, ptr %177, i64 %indvars.iv444
   store ptr %213, ptr %214, align 8
   %215 = load ptr, ptr %15, align 8
-  %216 = getelementptr inbounds i8, ptr %215, i64 24
+  %216 = getelementptr inbounds nuw i8, ptr %215, i64 24
   %217 = load i32, ptr %216, align 8
   %218 = sext i32 %217 to i64
   %219 = sub nsw i64 %indvars.iv444, %218
-  %220 = getelementptr inbounds i8, ptr %215, i64 40
+  %220 = getelementptr inbounds nuw i8, ptr %215, i64 40
   %221 = load ptr, ptr %220, align 8
   %222 = getelementptr inbounds %struct.boxf, ptr %221, i64 %219
   %223 = load double, ptr %222, align 8
@@ -1559,17 +1559,17 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
   %225 = load ptr, ptr %220, align 8
   %226 = getelementptr inbounds %struct.boxf, ptr %225, i64 %219, i32 0, i32 1
   %227 = load double, ptr %226, align 8
-  %228 = getelementptr inbounds i8, ptr %224, i64 8
+  %228 = getelementptr inbounds nuw i8, ptr %224, i64 8
   store double %227, ptr %228, align 8
   %229 = load ptr, ptr %220, align 8
   %230 = getelementptr inbounds %struct.boxf, ptr %229, i64 %219, i32 1
   %231 = load double, ptr %230, align 8
-  %232 = getelementptr inbounds i8, ptr %224, i64 16
+  %232 = getelementptr inbounds nuw i8, ptr %224, i64 16
   store double %231, ptr %232, align 8
   %233 = load ptr, ptr %220, align 8
   %234 = getelementptr inbounds %struct.boxf, ptr %233, i64 %219, i32 1, i32 1
   %235 = load double, ptr %234, align 8
-  %236 = getelementptr inbounds i8, ptr %224, i64 24
+  %236 = getelementptr inbounds nuw i8, ptr %224, i64 24
   store double %235, ptr %236, align 8
   %indvars.iv.next445 = add nsw i64 %indvars.iv444, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next445 to i32
@@ -1578,7 +1578,7 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
 
 ._crit_edge402:                                   ; preds = %.lr.ph401, %.preheader372
   %237 = phi ptr [ %179, %.preheader372 ], [ %215, %.lr.ph401 ]
-  %238 = getelementptr inbounds i8, ptr %237, i64 4
+  %238 = getelementptr inbounds nuw i8, ptr %237, i64 4
   %239 = load i32, ptr %238, align 4
   %240 = sext i32 %239 to i64
   %241 = getelementptr inbounds ptr, ptr %67, i64 %240
@@ -1597,20 +1597,20 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
   %.sink477 = phi i32 [ %246, %245 ], [ %244, %243 ]
   store i32 %.sink477, ptr %242, align 4
   %248 = load ptr, ptr %15, align 8
-  %249 = getelementptr inbounds i8, ptr %248, i64 24
+  %249 = getelementptr inbounds nuw i8, ptr %248, i64 24
   %250 = load i32, ptr %249, align 8
   %251 = icmp slt i32 %250, %175
   br i1 %251, label %.lr.ph405, label %._crit_edge406
 
 .lr.ph405:                                        ; preds = %247
-  %252 = getelementptr inbounds i8, ptr %0, i64 24
+  %252 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %253 = sext i32 %250 to i64
   br label %254
 
 254:                                              ; preds = %.lr.ph405, %272
   %indvars.iv448 = phi i64 [ %253, %.lr.ph405 ], [ %indvars.iv.next449, %272 ]
   %255 = load ptr, ptr %15, align 8
-  %256 = getelementptr inbounds i8, ptr %255, i64 24
+  %256 = getelementptr inbounds nuw i8, ptr %255, i64 24
   %257 = load i32, ptr %256, align 8
   %258 = trunc nsw i64 %indvars.iv448 to i32
   %259 = sub nsw i32 %258, %257
@@ -1618,16 +1618,16 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
   br i1 %22, label %261, label %266
 
 261:                                              ; preds = %254
-  %262 = getelementptr inbounds i8, ptr %260, i64 16
+  %262 = getelementptr inbounds nuw i8, ptr %260, i64 16
   %263 = load double, ptr %262, align 8
   %264 = load double, ptr %260, align 8
   %265 = fsub double %263, %264
   br label %272
 
 266:                                              ; preds = %254
-  %267 = getelementptr inbounds i8, ptr %260, i64 24
+  %267 = getelementptr inbounds nuw i8, ptr %260, i64 24
   %268 = load double, ptr %267, align 8
-  %269 = getelementptr inbounds i8, ptr %260, i64 8
+  %269 = getelementptr inbounds nuw i8, ptr %260, i64 8
   %270 = load double, ptr %269, align 8
   %271 = fsub double %268, %270
   br label %272
@@ -1663,7 +1663,7 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
 
 ._crit_edge406:                                   ; preds = %._crit_edge406.loopexit, %247
   %287 = phi ptr [ %.pre465, %._crit_edge406.loopexit ], [ %248, %247 ]
-  %288 = getelementptr inbounds i8, ptr %287, i64 4
+  %288 = getelementptr inbounds nuw i8, ptr %287, i64 4
   %289 = load i32, ptr %288, align 4
   %290 = sext i32 %289 to i64
   %291 = getelementptr inbounds i32, ptr %73, i64 %290
@@ -1674,7 +1674,7 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
   %294 = tail call ptr @newConstraints(i32 noundef %293) #13
   store ptr %294, ptr %7, align 8
   %295 = load ptr, ptr %15, align 8
-  %296 = getelementptr inbounds i8, ptr %295, i64 4
+  %296 = getelementptr inbounds nuw i8, ptr %295, i64 4
   %297 = load i32, ptr %296, align 4
   %.not413 = icmp slt i32 %297, 0
   br i1 %.not413, label %._crit_edge416, label %.preheader
@@ -1682,22 +1682,22 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
 .preheader:                                       ; preds = %._crit_edge406, %._crit_edge410
   %indvars.iv456 = phi i64 [ %indvars.iv.next457, %._crit_edge410 ], [ 0, %._crit_edge406 ]
   %.0350415 = phi ptr [ %.1.lcssa, %._crit_edge410 ], [ %294, %._crit_edge406 ]
-  %298 = getelementptr inbounds i32, ptr %73, i64 %indvars.iv456
+  %298 = getelementptr inbounds nuw i32, ptr %73, i64 %indvars.iv456
   %299 = load i32, ptr %298, align 4
   %300 = icmp sgt i32 %299, 0
   br i1 %300, label %.lr.ph409, label %._crit_edge410
 
 .lr.ph409:                                        ; preds = %.preheader
-  %301 = getelementptr inbounds ptr, ptr %67, i64 %indvars.iv456
+  %301 = getelementptr inbounds nuw ptr, ptr %67, i64 %indvars.iv456
   br label %302
 
 302:                                              ; preds = %.lr.ph409, %302
   %indvars.iv453 = phi i64 [ 0, %.lr.ph409 ], [ %indvars.iv.next454, %302 ]
   %.1408 = phi ptr [ %.0350415, %.lr.ph409 ], [ %306, %302 ]
   %303 = load ptr, ptr %301, align 8
-  %304 = getelementptr inbounds ptr, ptr %303, i64 %indvars.iv453
+  %304 = getelementptr inbounds nuw ptr, ptr %303, i64 %indvars.iv453
   %305 = load ptr, ptr %304, align 8
-  %306 = getelementptr inbounds i8, ptr %.1408, i64 8
+  %306 = getelementptr inbounds nuw i8, ptr %.1408, i64 8
   store ptr %305, ptr %.1408, align 8
   %indvars.iv.next454 = add nuw nsw i64 %indvars.iv453, 1
   %307 = load i32, ptr %298, align 4
@@ -1707,12 +1707,12 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
 
 ._crit_edge410:                                   ; preds = %302, %.preheader
   %.1.lcssa = phi ptr [ %.0350415, %.preheader ], [ %306, %302 ]
-  %310 = getelementptr inbounds ptr, ptr %67, i64 %indvars.iv456
+  %310 = getelementptr inbounds nuw ptr, ptr %67, i64 %indvars.iv456
   %311 = load ptr, ptr %310, align 8
   tail call void @deleteConstraints(i32 noundef 0, ptr noundef %311) #13
   %indvars.iv.next457 = add nuw nsw i64 %indvars.iv456, 1
   %312 = load ptr, ptr %15, align 8
-  %313 = getelementptr inbounds i8, ptr %312, i64 4
+  %313 = getelementptr inbounds nuw i8, ptr %312, i64 4
   %314 = load i32, ptr %313, align 4
   %315 = sext i32 %314 to i64
   %.not.not = icmp slt i64 %indvars.iv456, %315
@@ -1724,7 +1724,7 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
   br label %323
 
 316:                                              ; preds = %._crit_edge
-  %317 = getelementptr inbounds i8, ptr %0, i64 24
+  %317 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %318 = load ptr, ptr %317, align 8
   br i1 %22, label %319, label %321
 
@@ -1738,23 +1738,23 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
 
 323:                                              ; preds = %319, %321, %._crit_edge416
   %.1356 = phi i32 [ %293, %._crit_edge416 ], [ %320, %319 ], [ %322, %321 ]
-  %324 = getelementptr inbounds i8, ptr %0, i64 32
+  %324 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %325 = load i32, ptr %324, align 8
   %326 = icmp sgt i32 %325, 0
   br i1 %326, label %327, label %348
 
 327:                                              ; preds = %323
-  %328 = getelementptr inbounds i8, ptr %0, i64 56
+  %328 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %329 = load ptr, ptr %328, align 8
   call void @deleteVPSC(ptr noundef %329) #13
-  %330 = getelementptr inbounds i8, ptr %0, i64 36
+  %330 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %331 = load i32, ptr %330, align 4
   %332 = load i32, ptr %324, align 8
   %333 = icmp slt i32 %331, %332
   br i1 %333, label %.lr.ph419, label %._crit_edge420
 
 .lr.ph419:                                        ; preds = %327
-  %334 = getelementptr inbounds i8, ptr %0, i64 40
+  %334 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %335 = sext i32 %331 to i64
   br label %336
 
@@ -1771,9 +1771,9 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
   br i1 %342, label %336, label %._crit_edge420
 
 ._crit_edge420:                                   ; preds = %336, %327
-  %343 = getelementptr inbounds i8, ptr %0, i64 40
+  %343 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %344 = load ptr, ptr %343, align 8
-  %345 = getelementptr inbounds i8, ptr %0, i64 48
+  %345 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %346 = load ptr, ptr %345, align 8
   %.not370 = icmp eq ptr %344, %346
   br i1 %.not370, label %348, label %347
@@ -1783,7 +1783,7 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
   br label %348
 
 348:                                              ; preds = %._crit_edge420, %347, %323
-  %349 = getelementptr inbounds i8, ptr %0, i64 36
+  %349 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %350 = load i32, ptr %349, align 4
   %351 = icmp eq i32 %350, 0
   br i1 %351, label %352, label %355
@@ -1791,7 +1791,7 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
 352:                                              ; preds = %348
   store i32 %.1356, ptr %324, align 8
   %353 = load ptr, ptr %7, align 8
-  %354 = getelementptr inbounds i8, ptr %0, i64 40
+  %354 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %353, ptr %354, align 8
   br label %382
 
@@ -1799,14 +1799,14 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
   %356 = add nsw i32 %350, %.1356
   store i32 %356, ptr %324, align 8
   %357 = call ptr @newConstraints(i32 noundef %356) #13
-  %358 = getelementptr inbounds i8, ptr %0, i64 40
+  %358 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %357, ptr %358, align 8
   %359 = load i32, ptr %324, align 8
   %360 = icmp sgt i32 %359, 0
   br i1 %360, label %.lr.ph423, label %._crit_edge424
 
 .lr.ph423:                                        ; preds = %355
-  %361 = getelementptr inbounds i8, ptr %0, i64 48
+  %361 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %362
 
 362:                                              ; preds = %.lr.ph423, %375
@@ -1818,7 +1818,7 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
 
 366:                                              ; preds = %362
   %367 = load ptr, ptr %361, align 8
-  %368 = getelementptr inbounds ptr, ptr %367, i64 %indvars.iv462
+  %368 = getelementptr inbounds nuw ptr, ptr %367, i64 %indvars.iv462
   br label %375
 
 369:                                              ; preds = %362
@@ -1833,7 +1833,7 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
   %.sink478.in = phi ptr [ %368, %366 ], [ %374, %369 ]
   %.sink478 = load ptr, ptr %.sink478.in, align 8
   %376 = load ptr, ptr %358, align 8
-  %377 = getelementptr inbounds ptr, ptr %376, i64 %indvars.iv462
+  %377 = getelementptr inbounds nuw ptr, ptr %376, i64 %indvars.iv462
   store ptr %.sink478, ptr %377, align 8
   %indvars.iv.next463 = add nuw nsw i64 %indvars.iv462, 1
   %378 = load i32, ptr %324, align 8
@@ -1864,15 +1864,15 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
   %389 = load i32, ptr %8, align 8
   %390 = load i32, ptr %10, align 4
   %391 = add nsw i32 %390, %389
-  %392 = getelementptr inbounds i8, ptr %0, i64 16
+  %392 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %393 = load i32, ptr %392, align 8
   %394 = add nsw i32 %391, %393
-  %395 = getelementptr inbounds i8, ptr %0, i64 24
+  %395 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %396 = load ptr, ptr %395, align 8
-  %397 = getelementptr inbounds i8, ptr %0, i64 40
+  %397 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %398 = load ptr, ptr %397, align 8
   %399 = call ptr @newIncVPSC(i32 noundef %394, ptr noundef %396, i32 noundef %388, ptr noundef %398) #13
-  %400 = getelementptr inbounds i8, ptr %0, i64 56
+  %400 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %399, ptr %400, align 8
   call void @free(ptr noundef %14) #13
   ret void
@@ -1892,26 +1892,26 @@ declare void @deleteConstraint(ptr noundef) local_unnamed_addr #1
 define void @removeoverlaps(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   %4 = tail call ptr @initCMajVPSC(i32 noundef %0, ptr noundef null, ptr noundef null, ptr noundef %2, i32 noundef 0)
   tail call void @generateNonoverlapConstraints(ptr noundef %4, float noundef 1.000000e+00, ptr noundef %1, i32 noundef 0, i1 noundef zeroext true, ptr noundef %2)
-  %5 = getelementptr inbounds i8, ptr %4, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %6 = load ptr, ptr %5, align 8
   tail call void @solveVPSC(ptr noundef %6) #13
   %7 = icmp sgt i32 %0, 0
   br i1 %7, label %.lr.ph, label %._crit_edge29.critedge
 
 .lr.ph:                                           ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %4, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %9
 
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %10 = load ptr, ptr %8, align 8
-  %11 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = tail call double @getVariablePos(ptr noundef %12) #13
   %14 = fptrunc double %13 to float
   %15 = load ptr, ptr %1, align 8
-  %16 = getelementptr inbounds float, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv
   store float %14, ptr %16, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1921,20 +1921,20 @@ define void @removeoverlaps(i32 noundef %0, ptr nocapture noundef readonly %1, p
   tail call void @generateNonoverlapConstraints(ptr noundef nonnull %4, float noundef 1.000000e+00, ptr noundef nonnull %1, i32 noundef 1, i1 noundef zeroext false, ptr noundef %2)
   %17 = load ptr, ptr %5, align 8
   tail call void @solveVPSC(ptr noundef %17) #13
-  %18 = getelementptr inbounds i8, ptr %4, i64 24
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %wide.trip.count34 = zext nneg i32 %0 to i64
   br label %20
 
 20:                                               ; preds = %._crit_edge, %20
   %indvars.iv31 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next32, %20 ]
   %21 = load ptr, ptr %18, align 8
-  %22 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv31
+  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv31
   %23 = load ptr, ptr %22, align 8
   %24 = tail call double @getVariablePos(ptr noundef %23) #13
   %25 = fptrunc double %24 to float
   %26 = load ptr, ptr %19, align 8
-  %27 = getelementptr inbounds float, ptr %26, i64 %indvars.iv31
+  %27 = getelementptr inbounds nuw float, ptr %26, i64 %indvars.iv31
   store float %25, ptr %27, align 4
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %exitcond35.not = icmp eq i64 %indvars.iv.next32, %wide.trip.count34

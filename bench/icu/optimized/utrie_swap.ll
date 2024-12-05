@@ -39,18 +39,18 @@ if.then12:                                        ; preds = %if.end8
   br label %return
 
 if.end13:                                         ; preds = %if.end8
-  %readUInt32 = getelementptr inbounds i8, ptr %ds, i64 16
+  %readUInt32 = getelementptr inbounds nuw i8, ptr %ds, i64 16
   %1 = load ptr, ptr %readUInt32, align 8
   %2 = load i32, ptr %inData, align 4
   %call14 = tail call noundef i32 %1(i32 noundef %2)
   %3 = load ptr, ptr %readUInt32, align 8
-  %options = getelementptr inbounds i8, ptr %inData, i64 4
+  %options = getelementptr inbounds nuw i8, ptr %inData, i64 4
   %4 = load i32, ptr %options, align 4
   %call17 = tail call noundef i32 %3(i32 noundef %4)
-  %indexLength = getelementptr inbounds i8, ptr %inData, i64 8
+  %indexLength = getelementptr inbounds nuw i8, ptr %inData, i64 8
   %5 = load i32, ptr %indexLength, align 4
   %call19 = tail call i32 @udata_readInt32_75(ptr noundef nonnull %ds, i32 noundef %5)
-  %dataLength = getelementptr inbounds i8, ptr %inData, i64 12
+  %dataLength = getelementptr inbounds nuw i8, ptr %inData, i64 12
   %6 = load i32, ptr %dataLength, align 4
   %call21 = tail call i32 @udata_readInt32_75(ptr noundef nonnull %ds, i32 noundef %6)
   %cmp24.not = icmp eq i32 %call14, 1416784229
@@ -106,29 +106,29 @@ if.then70:                                        ; preds = %if.then68
   br label %return
 
 if.end71:                                         ; preds = %if.then68
-  %swapArray32 = getelementptr inbounds i8, ptr %ds, i64 56
+  %swapArray32 = getelementptr inbounds nuw i8, ptr %ds, i64 56
   %11 = load ptr, ptr %swapArray32, align 8
   %call72 = tail call noundef i32 %11(ptr noundef nonnull %ds, ptr noundef nonnull %inData, i32 noundef 16, ptr noundef %outData, ptr noundef nonnull %pErrorCode)
-  %swapArray1690 = getelementptr inbounds i8, ptr %ds, i64 48
+  %swapArray1690 = getelementptr inbounds nuw i8, ptr %ds, i64 48
   %12 = load ptr, ptr %swapArray1690, align 8
-  %add.ptr91 = getelementptr inbounds i8, ptr %inData, i64 16
+  %add.ptr91 = getelementptr inbounds nuw i8, ptr %inData, i64 16
   br i1 %cmp57.not, label %if.else, label %if.then74
 
 if.then74:                                        ; preds = %if.end71
-  %add.ptr77 = getelementptr inbounds i8, ptr %outData, i64 16
+  %add.ptr77 = getelementptr inbounds nuw i8, ptr %outData, i64 16
   %call78 = tail call noundef i32 %12(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr91, i32 noundef %mul, ptr noundef nonnull %add.ptr77, ptr noundef nonnull %pErrorCode)
   %13 = load ptr, ptr %swapArray32, align 8
   %idx.ext = zext nneg i32 %call19 to i64
-  %add.ptr82 = getelementptr inbounds i16, ptr %add.ptr91, i64 %idx.ext
+  %add.ptr82 = getelementptr inbounds nuw i16, ptr %add.ptr91, i64 %idx.ext
   %mul84 = shl nsw i32 %call21, 2
-  %add.ptr88 = getelementptr inbounds i16, ptr %add.ptr77, i64 %idx.ext
+  %add.ptr88 = getelementptr inbounds nuw i16, ptr %add.ptr77, i64 %idx.ext
   %call89 = tail call noundef i32 %13(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr82, i32 noundef %mul84, ptr noundef nonnull %add.ptr88, ptr noundef nonnull %pErrorCode)
   br label %return
 
 if.else:                                          ; preds = %if.end71
   %add94 = add nuw nsw i32 %call21, %call19
   %mul95 = shl nuw nsw i32 %add94, 1
-  %add.ptr96 = getelementptr inbounds i8, ptr %outData, i64 16
+  %add.ptr96 = getelementptr inbounds nuw i8, ptr %outData, i64 16
   %call97 = tail call noundef i32 %12(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr91, i32 noundef %mul95, ptr noundef nonnull %add.ptr96, ptr noundef nonnull %pErrorCode)
   br label %return
 
@@ -171,21 +171,21 @@ if.then10:                                        ; preds = %if.end6
   br label %return
 
 if.end11:                                         ; preds = %if.end6
-  %readUInt32 = getelementptr inbounds i8, ptr %ds, i64 16
+  %readUInt32 = getelementptr inbounds nuw i8, ptr %ds, i64 16
   %1 = load ptr, ptr %readUInt32, align 8
   %2 = load i32, ptr %inData, align 4
   %call12 = tail call noundef i32 %1(i32 noundef %2)
-  %readUInt16 = getelementptr inbounds i8, ptr %ds, i64 8
+  %readUInt16 = getelementptr inbounds nuw i8, ptr %ds, i64 8
   %3 = load ptr, ptr %readUInt16, align 8
-  %options = getelementptr inbounds i8, ptr %inData, i64 4
+  %options = getelementptr inbounds nuw i8, ptr %inData, i64 4
   %4 = load i16, ptr %options, align 4
   %call14 = tail call noundef zeroext i16 %3(i16 noundef zeroext %4)
   %5 = load ptr, ptr %readUInt16, align 8
-  %indexLength = getelementptr inbounds i8, ptr %inData, i64 6
+  %indexLength = getelementptr inbounds nuw i8, ptr %inData, i64 6
   %6 = load i16, ptr %indexLength, align 2
   %call17 = tail call noundef zeroext i16 %5(i16 noundef zeroext %6)
   %7 = load ptr, ptr %readUInt16, align 8
-  %shiftedDataLength = getelementptr inbounds i8, ptr %inData, i64 8
+  %shiftedDataLength = getelementptr inbounds nuw i8, ptr %inData, i64 8
   %8 = load i16, ptr %shiftedDataLength, align 4
   %call20 = tail call noundef zeroext i16 %7(i16 noundef zeroext %8)
   %9 = and i16 %call14, 14
@@ -223,30 +223,30 @@ if.then51:                                        ; preds = %if.then49
   br label %return
 
 if.end52:                                         ; preds = %if.then49
-  %swapArray32 = getelementptr inbounds i8, ptr %ds, i64 56
+  %swapArray32 = getelementptr inbounds nuw i8, ptr %ds, i64 56
   %10 = load ptr, ptr %swapArray32, align 8
   %call55 = tail call noundef i32 %10(ptr noundef nonnull %ds, ptr noundef nonnull %inData, i32 noundef 4, ptr noundef %outData, ptr noundef nonnull %pErrorCode)
-  %swapArray16 = getelementptr inbounds i8, ptr %ds, i64 48
+  %swapArray16 = getelementptr inbounds nuw i8, ptr %ds, i64 48
   %11 = load ptr, ptr %swapArray16, align 8
-  %options57 = getelementptr inbounds i8, ptr %outData, i64 4
+  %options57 = getelementptr inbounds nuw i8, ptr %outData, i64 4
   %call58 = tail call noundef i32 %11(ptr noundef nonnull %ds, ptr noundef nonnull %options, i32 noundef 12, ptr noundef nonnull %options57, ptr noundef nonnull %pErrorCode)
   %12 = load ptr, ptr %swapArray16, align 8
-  %add.ptr69 = getelementptr inbounds i8, ptr %inData, i64 16
+  %add.ptr69 = getelementptr inbounds nuw i8, ptr %inData, i64 16
   br i1 %trunc, label %sw.bb67, label %sw.bb59
 
 sw.bb59:                                          ; preds = %if.end52
   %mul64 = add nuw nsw i32 %mul43, %mul
-  %add.ptr65 = getelementptr inbounds i8, ptr %outData, i64 16
+  %add.ptr65 = getelementptr inbounds nuw i8, ptr %outData, i64 16
   %call66 = tail call noundef i32 %12(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr69, i32 noundef %mul64, ptr noundef nonnull %add.ptr65, ptr noundef nonnull %pErrorCode)
   br label %return
 
 sw.bb67:                                          ; preds = %if.end52
-  %add.ptr73 = getelementptr inbounds i8, ptr %outData, i64 16
+  %add.ptr73 = getelementptr inbounds nuw i8, ptr %outData, i64 16
   %call74 = tail call noundef i32 %12(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr69, i32 noundef %mul, ptr noundef nonnull %add.ptr73, ptr noundef nonnull %pErrorCode)
   %13 = load ptr, ptr %swapArray32, align 8
   %idx.ext = zext i16 %call17 to i64
-  %add.ptr79 = getelementptr inbounds i16, ptr %add.ptr69, i64 %idx.ext
-  %add.ptr85 = getelementptr inbounds i16, ptr %add.ptr73, i64 %idx.ext
+  %add.ptr79 = getelementptr inbounds nuw i16, ptr %add.ptr69, i64 %idx.ext
+  %add.ptr85 = getelementptr inbounds nuw i16, ptr %add.ptr73, i64 %idx.ext
   %call86 = tail call noundef i32 %13(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr79, i32 noundef %mul46, ptr noundef nonnull %add.ptr85, ptr noundef nonnull %pErrorCode)
   br label %return
 
@@ -287,21 +287,21 @@ if.then10:                                        ; preds = %if.end6
   br label %return
 
 if.end11:                                         ; preds = %if.end6
-  %readUInt32 = getelementptr inbounds i8, ptr %ds, i64 16
+  %readUInt32 = getelementptr inbounds nuw i8, ptr %ds, i64 16
   %1 = load ptr, ptr %readUInt32, align 8
   %2 = load i32, ptr %inData, align 4
   %call12 = tail call noundef i32 %1(i32 noundef %2)
-  %readUInt16 = getelementptr inbounds i8, ptr %ds, i64 8
+  %readUInt16 = getelementptr inbounds nuw i8, ptr %ds, i64 8
   %3 = load ptr, ptr %readUInt16, align 8
-  %options = getelementptr inbounds i8, ptr %inData, i64 4
+  %options = getelementptr inbounds nuw i8, ptr %inData, i64 4
   %4 = load i16, ptr %options, align 4
   %call14 = tail call noundef zeroext i16 %3(i16 noundef zeroext %4)
   %5 = load ptr, ptr %readUInt16, align 8
-  %indexLength = getelementptr inbounds i8, ptr %inData, i64 6
+  %indexLength = getelementptr inbounds nuw i8, ptr %inData, i64 6
   %6 = load i16, ptr %indexLength, align 2
   %call17 = tail call noundef zeroext i16 %5(i16 noundef zeroext %6)
   %7 = load ptr, ptr %readUInt16, align 8
-  %dataLength20 = getelementptr inbounds i8, ptr %inData, i64 8
+  %dataLength20 = getelementptr inbounds nuw i8, ptr %inData, i64 8
   %8 = load i16, ptr %dataLength20, align 4
   %call21 = tail call noundef zeroext i16 %7(i16 noundef zeroext %8)
   %conv = zext i16 %call14 to i32
@@ -371,20 +371,20 @@ if.then66:                                        ; preds = %if.then64
   br label %return
 
 if.end67:                                         ; preds = %if.then64
-  %swapArray32 = getelementptr inbounds i8, ptr %ds, i64 56
+  %swapArray32 = getelementptr inbounds nuw i8, ptr %ds, i64 56
   %9 = load ptr, ptr %swapArray32, align 8
   %call70 = tail call noundef i32 %9(ptr noundef nonnull %ds, ptr noundef nonnull %inData, i32 noundef 4, ptr noundef %outData, ptr noundef nonnull %pErrorCode)
-  %swapArray16 = getelementptr inbounds i8, ptr %ds, i64 48
+  %swapArray16 = getelementptr inbounds nuw i8, ptr %ds, i64 48
   %10 = load ptr, ptr %swapArray16, align 8
-  %options72 = getelementptr inbounds i8, ptr %outData, i64 4
+  %options72 = getelementptr inbounds nuw i8, ptr %outData, i64 4
   %call73 = tail call noundef i32 %10(ptr noundef nonnull %ds, ptr noundef nonnull %options, i32 noundef 12, ptr noundef nonnull %options72, ptr noundef nonnull %pErrorCode)
-  %add.ptr = getelementptr inbounds i8, ptr %inData, i64 16
-  %add.ptr74 = getelementptr inbounds i8, ptr %outData, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %inData, i64 16
+  %add.ptr74 = getelementptr inbounds nuw i8, ptr %outData, i64 16
   %11 = load ptr, ptr %swapArray16, align 8
   %call79 = tail call noundef i32 %11(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr, i32 noundef %mul, ptr noundef nonnull %add.ptr74, ptr noundef nonnull %pErrorCode)
   %idx.ext = zext i16 %call17 to i64
-  %add.ptr83 = getelementptr inbounds i16, ptr %add.ptr, i64 %idx.ext
-  %add.ptr88 = getelementptr inbounds i16, ptr %add.ptr74, i64 %idx.ext
+  %add.ptr83 = getelementptr inbounds nuw i16, ptr %add.ptr, i64 %idx.ext
+  %add.ptr88 = getelementptr inbounds nuw i16, ptr %add.ptr74, i64 %idx.ext
   switch i32 %and26, label %default.unreachable [
     i32 0, label %sw.bb89
     i32 1, label %sw.bb93

@@ -59,7 +59,7 @@ entry:
   %ref.tmp6 = alloca %"class.std::__cxx11::basic_string", align 8
   %buffer = alloca [131072 x i32], align 16
   store i64 1442695040888963407, ptr %rng, align 8
-  %data_.i.i = getelementptr inbounds i8, ptr %rng, i64 16
+  %data_.i.i = getelementptr inbounds nuw i8, ptr %rng, i64 16
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %entry
@@ -75,14 +75,14 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %entr
   %conv8.i.i17.i.i = trunc i64 %shr7.i.i16.i.i to i32
   %or.i.i.i18.i.i = tail call noundef i32 @llvm.fshr.i32(i32 %conv8.i.i17.i.i, i32 %conv8.i.i17.i.i, i32 %conv5.i.i15.i.i)
   %xor.i.i = xor i32 %or.i.i.i18.i.i, 256438689
-  %arrayidx.i.i = getelementptr inbounds [64 x i32], ptr %data_.i.i, i64 0, i64 %i.019.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [64 x i32], ptr %data_.i.i, i64 0, i64 %i.019.i.i
   store i32 %xor.i.i, ptr %arrayidx.i.i, align 4
   %inc.i.i = add nuw nsw i64 %i.019.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, 64
   br i1 %exitcond.not.i.i, label %_ZN10pcg_detail8extendedILh6ELh16ENS_6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEEENS1_IjjNS_14rxs_m_xs_mixinIjjEELb1ENS_13oneseq_streamIjEENS6_IjEEEELb1EEC2Ev.exit, label %for.body.i.i, !llvm.loop !5
 
 _ZN10pcg_detail8extendedILh6ELh16ENS_6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEEENS1_IjjNS_14rxs_m_xs_mixinIjjEELb1ENS_13oneseq_streamIjEENS6_IjEEEELb1EEC2Ev.exit: ; preds = %for.body.i.i
-  %state_.i.i = getelementptr inbounds i8, ptr %rng, i64 8
+  %state_.i.i = getelementptr inbounds nuw i8, ptr %rng, i64 8
   store i64 6475785784497232925, ptr %state_.i.i, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #13
   %call.i10 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
@@ -185,7 +185,7 @@ for.cond18.preheader:                             ; preds = %invoke.cont14, %for
 for.body20:                                       ; preds = %for.cond18.preheader, %_ZN10pcg_detail8extendedILh6ELh16ENS_6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEEENS1_IjjNS_14rxs_m_xs_mixinIjjEELb1ENS_13oneseq_streamIjEENS6_IjEEEELb1EEclEv.exit
   %7 = phi i64 [ %.pre, %for.cond18.preheader ], [ %add.i.i.i, %_ZN10pcg_detail8extendedILh6ELh16ENS_6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEEENS1_IjjNS_14rxs_m_xs_mixinIjjEELb1ENS_13oneseq_streamIjEENS6_IjEEEELb1EEclEv.exit ]
   %__begin2.0.idx23 = phi i64 [ 0, %for.cond18.preheader ], [ %__begin2.0.add, %_ZN10pcg_detail8extendedILh6ELh16ENS_6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEEENS1_IjjNS_14rxs_m_xs_mixinIjjEELb1ENS_13oneseq_streamIjEENS6_IjEEEELb1EEclEv.exit ]
-  %__begin2.0.ptr24 = getelementptr inbounds i8, ptr %buffer, i64 %__begin2.0.idx23
+  %__begin2.0.ptr24 = getelementptr inbounds nuw i8, ptr %buffer, i64 %__begin2.0.idx23
   %and2.i = and i64 %7, 65535
   %cmp.i = icmp eq i64 %and2.i, 0
   br i1 %cmp.i, label %for.body.i, label %_ZN10pcg_detail8extendedILh6ELh16ENS_6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEEENS1_IjjNS_14rxs_m_xs_mixinIjjEELb1ENS_13oneseq_streamIjEENS6_IjEEEELb1EEclEv.exit
@@ -193,7 +193,7 @@ for.body20:                                       ; preds = %for.cond18.preheade
 for.body.i:                                       ; preds = %for.body20, %call4.i.i12.i.noexc
   %carry.027.i = phi i1 [ %13, %call4.i.i12.i.noexc ], [ false, %for.body20 ]
   %i.026.i = phi i64 [ %add4.i, %call4.i.i12.i.noexc ], [ 0, %for.body20 ]
-  %arrayidx.i14 = getelementptr inbounds [64 x i32], ptr %data_.i.i, i64 0, i64 %i.026.i
+  %arrayidx.i14 = getelementptr inbounds nuw [64 x i32], ptr %data_.i.i, i64 0, i64 %i.026.i
   %8 = load i32, ptr %arrayidx.i14, align 4
   br i1 %carry.027.i, label %if.then.i15, label %if.end.i
 
@@ -263,7 +263,7 @@ _ZN10pcg_detail8extendedILh6ELh16ENS_6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15sp
 _ZN10pcg_detail8extendedILh6ELh16ENS_6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEEENS1_IjjNS_14rxs_m_xs_mixinIjjEELb1ENS_13oneseq_streamIjEENS6_IjEEEELb1EEclEv.exit: ; preds = %_ZN10pcg_detail8extendedILh6ELh16ENS_6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEEENS1_IjjNS_14rxs_m_xs_mixinIjjEELb1ENS_13oneseq_streamIjEENS6_IjEEEELb1EEclEv.exit.loopexit, %for.body20
   %14 = phi i64 [ %.pre26, %_ZN10pcg_detail8extendedILh6ELh16ENS_6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEEENS1_IjjNS_14rxs_m_xs_mixinIjjEELb1ENS_13oneseq_streamIjEENS6_IjEEEELb1EEclEv.exit.loopexit ], [ %7, %for.body20 ]
   %and.i = and i64 %7, 63
-  %arrayidx.i = getelementptr inbounds [64 x i32], ptr %data_.i.i, i64 0, i64 %and.i
+  %arrayidx.i = getelementptr inbounds nuw [64 x i32], ptr %data_.i.i, i64 0, i64 %and.i
   %15 = load i32, ptr %arrayidx.i, align 4
   %mul.i.i.i = mul i64 %14, 6364136223846793005
   %16 = load i64, ptr %rng, align 8
@@ -323,7 +323,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_
 entry:
   %new_rng = alloca %"class.pcg_detail::extended", align 8
   store i64 1442695040888963407, ptr %new_rng, align 8
-  %data_.i.i = getelementptr inbounds i8, ptr %new_rng, i64 16
+  %data_.i.i = getelementptr inbounds nuw i8, ptr %new_rng, i64 16
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %entry
@@ -339,14 +339,14 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %entr
   %conv8.i.i17.i.i = trunc i64 %shr7.i.i16.i.i to i32
   %or.i.i.i18.i.i = tail call noundef i32 @llvm.fshr.i32(i32 %conv8.i.i17.i.i, i32 %conv8.i.i17.i.i, i32 %conv5.i.i15.i.i)
   %xor.i.i = xor i32 %or.i.i.i18.i.i, 256438689
-  %arrayidx.i.i = getelementptr inbounds [64 x i32], ptr %data_.i.i, i64 0, i64 %i.019.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [64 x i32], ptr %data_.i.i, i64 0, i64 %i.019.i.i
   store i32 %xor.i.i, ptr %arrayidx.i.i, align 4
   %inc.i.i = add nuw nsw i64 %i.019.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, 64
   br i1 %exitcond.not.i.i, label %_ZN10pcg_detail8extendedILh6ELh16ENS_6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEEENS1_IjjNS_14rxs_m_xs_mixinIjjEELb1ENS_13oneseq_streamIjEENS6_IjEEEELb1EEC2Ev.exit, label %for.body.i.i, !llvm.loop !5
 
 _ZN10pcg_detail8extendedILh6ELh16ENS_6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEEENS1_IjjNS_14rxs_m_xs_mixinIjjEELb1ENS_13oneseq_streamIjEENS6_IjEEEELb1EEC2Ev.exit: ; preds = %for.body.i.i
-  %state_.i.i = getelementptr inbounds i8, ptr %new_rng, i64 8
+  %state_.i.i = getelementptr inbounds nuw i8, ptr %new_rng, i64 8
   store i64 6475785784497232925, ptr %state_.i.i, align 8
   %call = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN10pcg_detailrsIcSt11char_traitsIcEjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEEERSt13basic_istreamIT_T0_ESD_RNS_6engineIT1_T2_T3_XT4_ET5_T6_EE(ptr noundef nonnull align 8 dereferenceable(16) %in, ptr noundef nonnull align 8 dereferenceable(16) %new_rng)
   %vtable = load ptr, ptr %in, align 8
@@ -361,7 +361,7 @@ if.end:                                           ; preds = %_ZN10pcg_detail8ext
   %vbase.offset.ptr3 = getelementptr i8, ptr %vtable2, i64 -24
   %vbase.offset4 = load i64, ptr %vbase.offset.ptr3, align 8
   %add.ptr5 = getelementptr inbounds i8, ptr %in, i64 %vbase.offset4
-  %_M_flags.i = getelementptr inbounds i8, ptr %add.ptr5, i64 24
+  %_M_flags.i = getelementptr inbounds nuw i8, ptr %add.ptr5, i64 24
   %3 = load i32, ptr %_M_flags.i, align 8
   store i32 4098, ptr %_M_flags.i, align 8
   br label %for.body
@@ -373,7 +373,7 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %if.end, %for.cond
   %__begin0.0.idx12 = phi i64 [ 16, %if.end ], [ %__begin0.0.add, %for.cond ]
-  %__begin0.0.ptr = getelementptr inbounds i8, ptr %new_rng, i64 %__begin0.0.idx12
+  %__begin0.0.ptr = getelementptr inbounds nuw i8, ptr %new_rng, i64 %__begin0.0.idx12
   %call10 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSirsERj(ptr noundef nonnull align 8 dereferenceable(16) %in, ptr noundef nonnull align 4 dereferenceable(4) %__begin0.0.ptr)
   %vtable11 = load ptr, ptr %in, align 8
   %vbase.offset.ptr12 = getelementptr i8, ptr %vtable11, i64 -24
@@ -391,7 +391,7 @@ bail:                                             ; preds = %for.body, %for.end
   %vbase.offset.ptr19 = getelementptr i8, ptr %vtable18, i64 -24
   %vbase.offset20 = load i64, ptr %vbase.offset.ptr19, align 8
   %add.ptr21 = getelementptr inbounds i8, ptr %in, i64 %vbase.offset20
-  %_M_flags.i11 = getelementptr inbounds i8, ptr %add.ptr21, i64 24
+  %_M_flags.i11 = getelementptr inbounds nuw i8, ptr %add.ptr21, i64 24
   store i32 %3, ptr %_M_flags.i11, align 8
   br label %return
 
@@ -534,7 +534,7 @@ entry:
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %in, i64 %vbase.offset
-  %_M_flags.i = getelementptr inbounds i8, ptr %add.ptr, i64 24
+  %_M_flags.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 24
   %0 = load i32, ptr %_M_flags.i, align 8
   store i32 4098, ptr %_M_flags.i, align 8
   %call2 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSirsERm(ptr noundef nonnull align 8 dereferenceable(16) %in, ptr noundef nonnull align 8 dereferenceable(8) %multiplier)
@@ -557,7 +557,7 @@ if.then12:                                        ; preds = %if.then
   %or.i = or i64 %2, 1
   store i64 %or.i, ptr %rng, align 8
   %3 = load i64, ptr %state, align 8
-  %state_ = getelementptr inbounds i8, ptr %rng, i64 8
+  %state_ = getelementptr inbounds nuw i8, ptr %rng, i64 8
   store i64 %3, ptr %state_, align 8
   br label %if.end26
 
@@ -574,7 +574,7 @@ if.end26:                                         ; preds = %if.then12, %if.else
   %vbase.offset.ptr28 = getelementptr i8, ptr %vtable27, i64 -24
   %vbase.offset29 = load i64, ptr %vbase.offset.ptr28, align 8
   %add.ptr30 = getelementptr inbounds i8, ptr %in, i64 %vbase.offset29
-  %_M_flags.i7 = getelementptr inbounds i8, ptr %add.ptr30, i64 24
+  %_M_flags.i7 = getelementptr inbounds nuw i8, ptr %add.ptr30, i64 24
   store i32 %0, ptr %_M_flags.i7, align 8
   ret ptr %in
 }

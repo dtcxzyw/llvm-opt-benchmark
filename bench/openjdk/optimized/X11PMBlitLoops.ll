@@ -48,7 +48,7 @@ define void @Java_sun_java2d_x11_X11PMBlitLoops_nativeBlit(ptr noundef %0, ptr n
   br i1 %28, label %104, label %29
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %19, i64 73
+  %30 = getelementptr inbounds nuw i8, ptr %19, i64 73
   %31 = load i8, ptr %30, align 1
   %.not59 = icmp eq i8 %31, 0
   br i1 %.not59, label %33, label %32
@@ -59,27 +59,27 @@ define void @Java_sun_java2d_x11_X11PMBlitLoops_nativeBlit(ptr noundef %0, ptr n
 
 33:                                               ; preds = %32, %29
   store i32 %6, ptr %14, align 4
-  %34 = getelementptr inbounds i8, ptr %14, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 %7, ptr %34, align 4
   %35 = add nsw i32 %10, %6
-  %36 = getelementptr inbounds i8, ptr %14, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 %35, ptr %36, align 4
   %37 = add nsw i32 %11, %7
-  %38 = getelementptr inbounds i8, ptr %14, i64 12
+  %38 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store i32 %37, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %19, i64 152
+  %39 = getelementptr inbounds nuw i8, ptr %19, i64 152
   %40 = load i32, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %19, i64 156
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 156
   %42 = load i32, ptr %41, align 4
   call void @SurfaceData_IntersectBoundsXYXY(ptr noundef nonnull %14, i32 noundef 0, i32 noundef 0, i32 noundef %40, i32 noundef %42) #4
   store i32 %8, ptr %13, align 4
-  %43 = getelementptr inbounds i8, ptr %13, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 %9, ptr %43, align 4
   %44 = add nsw i32 %10, %8
-  %45 = getelementptr inbounds i8, ptr %13, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 %44, ptr %45, align 4
   %46 = add nsw i32 %11, %9
-  %47 = getelementptr inbounds i8, ptr %13, i64 12
+  %47 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 %46, ptr %47, align 4
   %48 = sub nsw i32 %8, %6
   %49 = sub nsw i32 %9, %7
@@ -88,7 +88,7 @@ define void @Java_sun_java2d_x11_X11PMBlitLoops_nativeBlit(ptr noundef %0, ptr n
   %51 = load i32, ptr %34, align 4
   %52 = load i32, ptr %13, align 4
   %53 = load i32, ptr %43, align 4
-  %54 = getelementptr inbounds i8, ptr %19, i64 136
+  %54 = getelementptr inbounds nuw i8, ptr %19, i64 136
   %55 = load i64, ptr %54, align 8
   %.not60 = icmp eq i64 %55, 0
   br i1 %.not60, label %64, label %56
@@ -106,15 +106,15 @@ define void @Java_sun_java2d_x11_X11PMBlitLoops_nativeBlit(ptr noundef %0, ptr n
 64:                                               ; preds = %56, %33
   call void @SurfaceData_IntersectBounds(ptr noundef nonnull %15, ptr noundef nonnull %13) #4
   %65 = load i32, ptr %15, align 8
-  %66 = getelementptr inbounds i8, ptr %15, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %67 = load i32, ptr %66, align 8
   %.not61 = icmp slt i32 %65, %67
   br i1 %.not61, label %68, label %93
 
 68:                                               ; preds = %64
-  %69 = getelementptr inbounds i8, ptr %15, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %70 = load i32, ptr %69, align 4
-  %71 = getelementptr inbounds i8, ptr %15, i64 12
+  %71 = getelementptr inbounds nuw i8, ptr %15, i64 12
   %72 = load i32, ptr %71, align 4
   %.not62 = icmp slt i32 %70, %72
   br i1 %.not62, label %73, label %93
@@ -128,8 +128,8 @@ define void @Java_sun_java2d_x11_X11PMBlitLoops_nativeBlit(ptr noundef %0, ptr n
   br i1 %.not6367, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %73
-  %77 = getelementptr inbounds i8, ptr %19, i64 88
-  %78 = getelementptr inbounds i8, ptr %22, i64 88
+  %77 = getelementptr inbounds nuw i8, ptr %19, i64 88
+  %78 = getelementptr inbounds nuw i8, ptr %22, i64 88
   br label %79
 
 79:                                               ; preds = %.lr.ph, %79
@@ -164,13 +164,13 @@ define void @Java_sun_java2d_x11_X11PMBlitLoops_nativeBlit(ptr noundef %0, ptr n
   br label %98
 
 98:                                               ; preds = %95, %93
-  %99 = getelementptr inbounds i8, ptr %19, i64 192
+  %99 = getelementptr inbounds nuw i8, ptr %19, i64 192
   %100 = load i8, ptr %99, align 8
   %.not65 = icmp eq i8 %100, 0
   br i1 %.not65, label %103, label %101
 
 101:                                              ; preds = %98
-  %102 = getelementptr inbounds i8, ptr %19, i64 180
+  %102 = getelementptr inbounds nuw i8, ptr %19, i64 180
   store i8 1, ptr %102, align 4
   br label %103
 
@@ -231,7 +231,7 @@ define void @Java_sun_java2d_x11_X11PMBlitBgLoops_nativeBlitBg(ptr noundef %0, p
   br i1 %25, label %66, label %26
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %18, i64 73
+  %27 = getelementptr inbounds nuw i8, ptr %18, i64 73
   %28 = load i8, ptr %27, align 1
   %.not = icmp eq i8 %28, 0
   br i1 %.not, label %30, label %29
@@ -241,7 +241,7 @@ define void @Java_sun_java2d_x11_X11PMBlitBgLoops_nativeBlitBg(ptr noundef %0, p
   br label %30
 
 30:                                               ; preds = %29, %26
-  %31 = getelementptr inbounds i8, ptr %18, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %18, i64 56
   %32 = load ptr, ptr %31, align 8
   %33 = tail call i64 %32(ptr noundef %0, ptr noundef nonnull %18, i32 noundef %5) #4
   %34 = icmp eq i64 %33, 0
@@ -249,27 +249,27 @@ define void @Java_sun_java2d_x11_X11PMBlitBgLoops_nativeBlitBg(ptr noundef %0, p
 
 35:                                               ; preds = %30
   store i32 %6, ptr %14, align 4
-  %36 = getelementptr inbounds i8, ptr %14, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 %7, ptr %36, align 4
   %37 = add nsw i32 %10, %6
-  %38 = getelementptr inbounds i8, ptr %14, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 %37, ptr %38, align 4
   %39 = add nsw i32 %11, %7
-  %40 = getelementptr inbounds i8, ptr %14, i64 12
+  %40 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store i32 %39, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %18, i64 152
+  %41 = getelementptr inbounds nuw i8, ptr %18, i64 152
   %42 = load i32, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %18, i64 156
+  %43 = getelementptr inbounds nuw i8, ptr %18, i64 156
   %44 = load i32, ptr %43, align 4
   call void @SurfaceData_IntersectBoundsXYXY(ptr noundef nonnull %14, i32 noundef 0, i32 noundef 0, i32 noundef %42, i32 noundef %44) #4
   store i32 %8, ptr %13, align 4
-  %45 = getelementptr inbounds i8, ptr %13, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 %9, ptr %45, align 4
   %46 = add nsw i32 %10, %8
-  %47 = getelementptr inbounds i8, ptr %13, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 %46, ptr %47, align 4
   %48 = add nsw i32 %11, %9
-  %49 = getelementptr inbounds i8, ptr %13, i64 12
+  %49 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 %48, ptr %49, align 4
   %50 = sub nsw i32 %8, %6
   %51 = sub nsw i32 %9, %7
@@ -283,10 +283,10 @@ define void @Java_sun_java2d_x11_X11PMBlitBgLoops_nativeBlitBg(ptr noundef %0, p
   %58 = load i32, ptr %40, align 4
   %59 = sub nsw i32 %58, %53
   %60 = load ptr, ptr @awt_display, align 8
-  %61 = getelementptr inbounds i8, ptr %21, i64 88
+  %61 = getelementptr inbounds nuw i8, ptr %21, i64 88
   %62 = load i64, ptr %61, align 8
   %63 = call i32 @XCopyArea(ptr noundef %60, i64 noundef %33, i64 noundef %62, ptr noundef nonnull %24, i32 noundef %52, i32 noundef %53, i32 noundef %57, i32 noundef %59, i32 noundef %54, i32 noundef %55) #4
-  %64 = getelementptr inbounds i8, ptr %18, i64 64
+  %64 = getelementptr inbounds nuw i8, ptr %18, i64 64
   %65 = load ptr, ptr %64, align 8
   call void %65(ptr noundef %0, ptr noundef nonnull %18) #4
   call void @X11SD_DirectRenderNotify(ptr noundef %0, ptr noundef nonnull %21) #4
@@ -312,7 +312,7 @@ define void @Java_sun_java2d_x11_X11PMBlitLoops_updateBitmask(ptr noundef %0, pt
 
 12:                                               ; preds = %5
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 1824
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 1824
   %15 = load ptr, ptr %14, align 8
   %16 = tail call zeroext i8 %15(ptr noundef nonnull %0) #4
   %.not = icmp eq i8 %16, 0
@@ -320,20 +320,20 @@ define void @Java_sun_java2d_x11_X11PMBlitLoops_updateBitmask(ptr noundef %0, pt
 
 17:                                               ; preds = %12
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 136
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 136
   %20 = load ptr, ptr %19, align 8
   tail call void %20(ptr noundef nonnull %0) #4
   br label %21
 
 21:                                               ; preds = %17, %12
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 1128
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1128
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr @tkClass, align 8
   %26 = load ptr, ptr @awtLockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %24(ptr noundef nonnull %0, ptr noundef %25, ptr noundef %26) #4
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 1824
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 1824
   %29 = load ptr, ptr %28, align 8
   %30 = tail call zeroext i8 %29(ptr noundef nonnull %0) #4
   %.not290 = icmp eq i8 %30, 0
@@ -341,21 +341,21 @@ define void @Java_sun_java2d_x11_X11PMBlitLoops_updateBitmask(ptr noundef %0, pt
 
 31:                                               ; preds = %21
   %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 136
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 136
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull %0) #4
   br label %35
 
 35:                                               ; preds = %21, %31
-  %36 = getelementptr inbounds i8, ptr %8, i64 120
+  %36 = getelementptr inbounds nuw i8, ptr %8, i64 120
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load i32, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %8, i64 152
+  %40 = getelementptr inbounds nuw i8, ptr %8, i64 152
   %41 = load i32, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %8, i64 156
+  %42 = getelementptr inbounds nuw i8, ptr %8, i64 156
   %43 = load i32, ptr %42, align 4
-  %44 = getelementptr inbounds i8, ptr %8, i64 136
+  %44 = getelementptr inbounds nuw i8, ptr %8, i64 136
   %45 = load i64, ptr %44, align 8
   %46 = icmp eq i64 %45, 0
   br i1 %46, label %47, label %._crit_edge
@@ -366,7 +366,7 @@ define void @Java_sun_java2d_x11_X11PMBlitLoops_updateBitmask(ptr noundef %0, pt
 
 47:                                               ; preds = %35
   %48 = load ptr, ptr @awt_display, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 232
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 232
   %50 = load ptr, ptr %49, align 8
   %51 = sext i32 %39 to i64
   %52 = getelementptr inbounds %struct.Screen, ptr %50, i64 %51, i32 2
@@ -379,7 +379,7 @@ define void @Java_sun_java2d_x11_X11PMBlitLoops_updateBitmask(ptr noundef %0, pt
 56:                                               ; preds = %47
   tail call void (...) @awt_output_flush() #4
   %57 = load ptr, ptr %0, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 120
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 120
   %59 = load ptr, ptr %58, align 8
   %60 = tail call ptr %59(ptr noundef nonnull %0) #4
   %.not311 = icmp eq ptr %60, null
@@ -387,20 +387,20 @@ define void @Java_sun_java2d_x11_X11PMBlitLoops_updateBitmask(ptr noundef %0, pt
 
 61:                                               ; preds = %56
   %62 = load ptr, ptr %0, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 136
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 136
   %64 = load ptr, ptr %63, align 8
   tail call void %64(ptr noundef nonnull %0) #4
   br label %65
 
 65:                                               ; preds = %61, %56
   %66 = load ptr, ptr %0, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 1128
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 1128
   %68 = load ptr, ptr %67, align 8
   %69 = load ptr, ptr @tkClass, align 8
   %70 = load ptr, ptr @awtUnlockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %68(ptr noundef nonnull %0, ptr noundef %69, ptr noundef %70) #4
   %71 = load ptr, ptr %0, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 1824
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 1824
   %73 = load ptr, ptr %72, align 8
   %74 = tail call zeroext i8 %73(ptr noundef nonnull %0) #4
   %.not312 = icmp eq i8 %74, 0
@@ -408,7 +408,7 @@ define void @Java_sun_java2d_x11_X11PMBlitLoops_updateBitmask(ptr noundef %0, pt
 
 75:                                               ; preds = %65
   %76 = load ptr, ptr %0, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 136
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 136
   %78 = load ptr, ptr %77, align 8
   tail call void %78(ptr noundef nonnull %0) #4
   br label %79
@@ -418,14 +418,14 @@ define void @Java_sun_java2d_x11_X11PMBlitLoops_updateBitmask(ptr noundef %0, pt
 
 80:                                               ; preds = %79
   %81 = load ptr, ptr %0, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 104
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 104
   %83 = load ptr, ptr %82, align 8
   %84 = tail call i32 %83(ptr noundef nonnull %0, ptr noundef nonnull %60) #4
   br label %85
 
 85:                                               ; preds = %80, %79
   %86 = load ptr, ptr %0, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 1824
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 1824
   %88 = load ptr, ptr %87, align 8
   %89 = tail call zeroext i8 %88(ptr noundef nonnull %0) #4
   %.not313 = icmp eq i8 %89, 0
@@ -438,7 +438,7 @@ define void @Java_sun_java2d_x11_X11PMBlitLoops_updateBitmask(ptr noundef %0, pt
 91:                                               ; preds = %._crit_edge, %47
   %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %51, %47 ]
   %92 = load ptr, ptr @awt_display, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 232
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 232
   %94 = load ptr, ptr %93, align 8
   %95 = getelementptr inbounds %struct.Screen, ptr %94, i64 %.pre-phi, i32 10
   %96 = load ptr, ptr %95, align 8
@@ -449,7 +449,7 @@ define void @Java_sun_java2d_x11_X11PMBlitLoops_updateBitmask(ptr noundef %0, pt
 99:                                               ; preds = %91
   tail call void (...) @awt_output_flush() #4
   %100 = load ptr, ptr %0, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 120
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 120
   %102 = load ptr, ptr %101, align 8
   %103 = tail call ptr %102(ptr noundef nonnull %0) #4
   %.not308 = icmp eq ptr %103, null
@@ -457,20 +457,20 @@ define void @Java_sun_java2d_x11_X11PMBlitLoops_updateBitmask(ptr noundef %0, pt
 
 104:                                              ; preds = %99
   %105 = load ptr, ptr %0, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 136
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 136
   %107 = load ptr, ptr %106, align 8
   tail call void %107(ptr noundef nonnull %0) #4
   br label %108
 
 108:                                              ; preds = %104, %99
   %109 = load ptr, ptr %0, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 1128
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 1128
   %111 = load ptr, ptr %110, align 8
   %112 = load ptr, ptr @tkClass, align 8
   %113 = load ptr, ptr @awtUnlockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %111(ptr noundef nonnull %0, ptr noundef %112, ptr noundef %113) #4
   %114 = load ptr, ptr %0, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 1824
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 1824
   %116 = load ptr, ptr %115, align 8
   %117 = tail call zeroext i8 %116(ptr noundef nonnull %0) #4
   %.not309 = icmp eq i8 %117, 0
@@ -478,7 +478,7 @@ define void @Java_sun_java2d_x11_X11PMBlitLoops_updateBitmask(ptr noundef %0, pt
 
 118:                                              ; preds = %108
   %119 = load ptr, ptr %0, align 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 136
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 136
   %121 = load ptr, ptr %120, align 8
   tail call void %121(ptr noundef nonnull %0) #4
   br label %122
@@ -488,14 +488,14 @@ define void @Java_sun_java2d_x11_X11PMBlitLoops_updateBitmask(ptr noundef %0, pt
 
 123:                                              ; preds = %122
   %124 = load ptr, ptr %0, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 104
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 104
   %126 = load ptr, ptr %125, align 8
   %127 = tail call i32 %126(ptr noundef nonnull %0, ptr noundef nonnull %103) #4
   br label %128
 
 128:                                              ; preds = %123, %122
   %129 = load ptr, ptr %0, align 8
-  %130 = getelementptr inbounds i8, ptr %129, i64 1824
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 1824
   %131 = load ptr, ptr %130, align 8
   %132 = tail call zeroext i8 %131(ptr noundef nonnull %0) #4
   %.not310 = icmp eq i8 %132, 0
@@ -506,13 +506,13 @@ define void @Java_sun_java2d_x11_X11PMBlitLoops_updateBitmask(ptr noundef %0, pt
   br label %388
 
 134:                                              ; preds = %91
-  %135 = getelementptr inbounds i8, ptr %97, i64 44
+  %135 = getelementptr inbounds nuw i8, ptr %97, i64 44
   %136 = load i32, ptr %135, align 4
   %137 = sext i32 %136 to i64
   %138 = sext i32 %43 to i64
   %139 = mul nsw i64 %137, %138
   %140 = tail call noalias ptr @malloc(i64 noundef %139) #5
-  %141 = getelementptr inbounds i8, ptr %97, i64 16
+  %141 = getelementptr inbounds nuw i8, ptr %97, i64 16
   store ptr %140, ptr %141, align 8
   %142 = icmp eq ptr %140, null
   br i1 %142, label %143, label %179
@@ -521,7 +521,7 @@ define void @Java_sun_java2d_x11_X11PMBlitLoops_updateBitmask(ptr noundef %0, pt
   %144 = tail call i32 @XFree(ptr noundef nonnull %97) #4
   tail call void (...) @awt_output_flush() #4
   %145 = load ptr, ptr %0, align 8
-  %146 = getelementptr inbounds i8, ptr %145, i64 120
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 120
   %147 = load ptr, ptr %146, align 8
   %148 = tail call ptr %147(ptr noundef nonnull %0) #4
   %.not305 = icmp eq ptr %148, null
@@ -529,20 +529,20 @@ define void @Java_sun_java2d_x11_X11PMBlitLoops_updateBitmask(ptr noundef %0, pt
 
 149:                                              ; preds = %143
   %150 = load ptr, ptr %0, align 8
-  %151 = getelementptr inbounds i8, ptr %150, i64 136
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 136
   %152 = load ptr, ptr %151, align 8
   tail call void %152(ptr noundef nonnull %0) #4
   br label %153
 
 153:                                              ; preds = %149, %143
   %154 = load ptr, ptr %0, align 8
-  %155 = getelementptr inbounds i8, ptr %154, i64 1128
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 1128
   %156 = load ptr, ptr %155, align 8
   %157 = load ptr, ptr @tkClass, align 8
   %158 = load ptr, ptr @awtUnlockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %156(ptr noundef nonnull %0, ptr noundef %157, ptr noundef %158) #4
   %159 = load ptr, ptr %0, align 8
-  %160 = getelementptr inbounds i8, ptr %159, i64 1824
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 1824
   %161 = load ptr, ptr %160, align 8
   %162 = tail call zeroext i8 %161(ptr noundef nonnull %0) #4
   %.not306 = icmp eq i8 %162, 0
@@ -550,7 +550,7 @@ define void @Java_sun_java2d_x11_X11PMBlitLoops_updateBitmask(ptr noundef %0, pt
 
 163:                                              ; preds = %153
   %164 = load ptr, ptr %0, align 8
-  %165 = getelementptr inbounds i8, ptr %164, i64 136
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 136
   %166 = load ptr, ptr %165, align 8
   tail call void %166(ptr noundef nonnull %0) #4
   br label %167
@@ -560,14 +560,14 @@ define void @Java_sun_java2d_x11_X11PMBlitLoops_updateBitmask(ptr noundef %0, pt
 
 168:                                              ; preds = %167
   %169 = load ptr, ptr %0, align 8
-  %170 = getelementptr inbounds i8, ptr %169, i64 104
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 104
   %171 = load ptr, ptr %170, align 8
   %172 = tail call i32 %171(ptr noundef nonnull %0, ptr noundef nonnull %148) #4
   br label %173
 
 173:                                              ; preds = %168, %167
   %174 = load ptr, ptr %0, align 8
-  %175 = getelementptr inbounds i8, ptr %174, i64 1824
+  %175 = getelementptr inbounds nuw i8, ptr %174, i64 1824
   %176 = load ptr, ptr %175, align 8
   %177 = tail call zeroext i8 %176(ptr noundef nonnull %0) #4
   %.not307 = icmp eq i8 %177, 0
@@ -579,11 +579,11 @@ define void @Java_sun_java2d_x11_X11PMBlitLoops_updateBitmask(ptr noundef %0, pt
 
 179:                                              ; preds = %134
   store i32 0, ptr %6, align 8
-  %180 = getelementptr inbounds i8, ptr %6, i64 4
+  %180 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 0, ptr %180, align 4
-  %181 = getelementptr inbounds i8, ptr %6, i64 8
+  %181 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %41, ptr %181, align 8
-  %182 = getelementptr inbounds i8, ptr %6, i64 12
+  %182 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 %43, ptr %182, align 4
   %.not291 = icmp eq i8 %4, 0
   %183 = select i1 %.not291, i32 1, i32 5
@@ -593,12 +593,12 @@ define void @Java_sun_java2d_x11_X11PMBlitLoops_updateBitmask(ptr noundef %0, pt
   br i1 %.not292, label %218, label %186
 
 186:                                              ; preds = %179
-  %187 = getelementptr inbounds i8, ptr %97, i64 96
+  %187 = getelementptr inbounds nuw i8, ptr %97, i64 96
   %188 = load ptr, ptr %187, align 8
   %189 = call i32 %188(ptr noundef nonnull %97) #4
   call void (...) @awt_output_flush() #4
   %190 = load ptr, ptr %0, align 8
-  %191 = getelementptr inbounds i8, ptr %190, i64 120
+  %191 = getelementptr inbounds nuw i8, ptr %190, i64 120
   %192 = load ptr, ptr %191, align 8
   %193 = call ptr %192(ptr noundef nonnull %0) #4
   %.not303 = icmp eq ptr %193, null
@@ -606,20 +606,20 @@ define void @Java_sun_java2d_x11_X11PMBlitLoops_updateBitmask(ptr noundef %0, pt
 
 194:                                              ; preds = %186
   %195 = load ptr, ptr %0, align 8
-  %196 = getelementptr inbounds i8, ptr %195, i64 136
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 136
   %197 = load ptr, ptr %196, align 8
   call void %197(ptr noundef nonnull %0) #4
   br label %198
 
 198:                                              ; preds = %194, %186
   %199 = load ptr, ptr %0, align 8
-  %200 = getelementptr inbounds i8, ptr %199, i64 1128
+  %200 = getelementptr inbounds nuw i8, ptr %199, i64 1128
   %201 = load ptr, ptr %200, align 8
   %202 = load ptr, ptr @tkClass, align 8
   %203 = load ptr, ptr @awtUnlockMID, align 8
   call void (ptr, ptr, ptr, ...) %201(ptr noundef nonnull %0, ptr noundef %202, ptr noundef %203) #4
   %204 = load ptr, ptr %0, align 8
-  %205 = getelementptr inbounds i8, ptr %204, i64 1824
+  %205 = getelementptr inbounds nuw i8, ptr %204, i64 1824
   %206 = load ptr, ptr %205, align 8
   %207 = call zeroext i8 %206(ptr noundef nonnull %0) #4
   %.not304 = icmp eq i8 %207, 0
@@ -627,7 +627,7 @@ define void @Java_sun_java2d_x11_X11PMBlitLoops_updateBitmask(ptr noundef %0, pt
 
 208:                                              ; preds = %198
   %209 = load ptr, ptr %0, align 8
-  %210 = getelementptr inbounds i8, ptr %209, i64 136
+  %210 = getelementptr inbounds nuw i8, ptr %209, i64 136
   %211 = load ptr, ptr %210, align 8
   call void %211(ptr noundef nonnull %0) #4
   br label %212
@@ -637,25 +637,25 @@ define void @Java_sun_java2d_x11_X11PMBlitLoops_updateBitmask(ptr noundef %0, pt
 
 213:                                              ; preds = %212
   %214 = load ptr, ptr %0, align 8
-  %215 = getelementptr inbounds i8, ptr %214, i64 104
+  %215 = getelementptr inbounds nuw i8, ptr %214, i64 104
   %216 = load ptr, ptr %215, align 8
   %217 = call i32 %216(ptr noundef nonnull %0, ptr noundef nonnull %193) #4
   br label %388
 
 218:                                              ; preds = %179
-  %219 = getelementptr inbounds i8, ptr %7, i64 8
+  %219 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %220 = load ptr, ptr %219, align 8
   call void %220(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %6) #4
-  %221 = getelementptr inbounds i8, ptr %6, i64 32
+  %221 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %222 = load i32, ptr %221, align 8
   br i1 %.not291, label %285, label %223
 
 223:                                              ; preds = %218
-  %224 = getelementptr inbounds i8, ptr %6, i64 40
+  %224 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %225 = load ptr, ptr %224, align 8
-  %226 = getelementptr inbounds i8, ptr %6, i64 16
+  %226 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %227 = load ptr, ptr %226, align 8
-  %228 = getelementptr inbounds i8, ptr %97, i64 32
+  %228 = getelementptr inbounds nuw i8, ptr %97, i64 32
   %229 = load i32, ptr %228, align 8
   %230 = icmp eq i32 %229, 1
   %231 = sext i32 %222 to i64
@@ -689,10 +689,10 @@ define void @Java_sun_java2d_x11_X11PMBlitLoops_updateBitmask(ptr noundef %0, pt
   %.1260 = phi i32 [ %236, %234 ], [ %.0259, %232 ]
   %.1258 = phi i32 [ 0, %234 ], [ %.0257, %232 ]
   %.1256 = phi i32 [ 128, %234 ], [ %.0255, %232 ]
-  %240 = getelementptr inbounds i8, ptr %.0254, i64 1
+  %240 = getelementptr inbounds nuw i8, ptr %.0254, i64 1
   %241 = load i8, ptr %.0254, align 1
   %242 = zext i8 %241 to i64
-  %243 = getelementptr inbounds i32, ptr %225, i64 %242
+  %243 = getelementptr inbounds nuw i32, ptr %225, i64 %242
   %244 = load i32, ptr %243, align 4
   %isneg298 = icmp slt i32 %244, 0
   %245 = select i1 %isneg298, i32 %.1256, i32 0
@@ -742,10 +742,10 @@ define void @Java_sun_java2d_x11_X11PMBlitLoops_updateBitmask(ptr noundef %0, pt
   %.1252 = phi i32 [ %262, %260 ], [ %.0251, %259 ]
   %.1250 = phi i32 [ 0, %260 ], [ %.0249, %259 ]
   %.1248 = phi i32 [ 1, %260 ], [ %.0247, %259 ]
-  %266 = getelementptr inbounds i8, ptr %.0246, i64 1
+  %266 = getelementptr inbounds nuw i8, ptr %.0246, i64 1
   %267 = load i8, ptr %.0246, align 1
   %268 = zext i8 %267 to i64
-  %269 = getelementptr inbounds i32, ptr %225, i64 %268
+  %269 = getelementptr inbounds nuw i32, ptr %225, i64 %268
   %270 = load i32, ptr %269, align 4
   %isneg = icmp slt i32 %270, 0
   %271 = select i1 %isneg, i32 %.1248, i32 0
@@ -769,9 +769,9 @@ define void @Java_sun_java2d_x11_X11PMBlitLoops_updateBitmask(ptr noundef %0, pt
   br i1 %284, label %.preheader319, label %.loopexit, !llvm.loop !11
 
 285:                                              ; preds = %218
-  %286 = getelementptr inbounds i8, ptr %6, i64 16
+  %286 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %287 = load ptr, ptr %286, align 8
-  %288 = getelementptr inbounds i8, ptr %97, i64 32
+  %288 = getelementptr inbounds nuw i8, ptr %97, i64 32
   %289 = load i32, ptr %288, align 8
   %290 = icmp eq i32 %289, 1
   %291 = sext i32 %222 to i64
@@ -805,7 +805,7 @@ define void @Java_sun_java2d_x11_X11PMBlitLoops_updateBitmask(ptr noundef %0, pt
   %.1242 = phi i32 [ %296, %294 ], [ %.0241, %292 ]
   %.1239 = phi i32 [ 0, %294 ], [ %.0238, %292 ]
   %.1237 = phi i32 [ 128, %294 ], [ %.0236, %292 ]
-  %300 = getelementptr inbounds i8, ptr %.0235, i64 4
+  %300 = getelementptr inbounds nuw i8, ptr %.0235, i64 4
   %301 = load i32, ptr %.0235, align 4
   %.not296 = icmp ult i32 %301, 16777216
   %302 = select i1 %.not296, i32 0, i32 %.1237
@@ -855,7 +855,7 @@ define void @Java_sun_java2d_x11_X11PMBlitLoops_updateBitmask(ptr noundef %0, pt
   %.1233 = phi i32 [ %318, %316 ], [ %.0232, %315 ]
   %.1231 = phi i32 [ 0, %316 ], [ %.0230, %315 ]
   %.1 = phi i32 [ 1, %316 ], [ %.0229, %315 ]
-  %322 = getelementptr inbounds i8, ptr %.0, i64 4
+  %322 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   %323 = load i32, ptr %.0, align 4
   %.not295 = icmp ult i32 %323, 16777216
   %324 = select i1 %.not295, i32 0, i32 %.1
@@ -879,7 +879,7 @@ define void @Java_sun_java2d_x11_X11PMBlitLoops_updateBitmask(ptr noundef %0, pt
   br i1 %336, label %.preheader315, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %275, %249, %327, %305
-  %337 = getelementptr inbounds i8, ptr %7, i64 16
+  %337 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %338 = load ptr, ptr %337, align 8
   %.not299 = icmp eq ptr %338, null
   br i1 %.not299, label %340, label %339
@@ -889,7 +889,7 @@ define void @Java_sun_java2d_x11_X11PMBlitLoops_updateBitmask(ptr noundef %0, pt
   br label %340
 
 340:                                              ; preds = %339, %.loopexit
-  %341 = getelementptr inbounds i8, ptr %7, i64 24
+  %341 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %342 = load ptr, ptr %341, align 8
   %.not300 = icmp eq ptr %342, null
   br i1 %.not300, label %344, label %343
@@ -911,12 +911,12 @@ define void @Java_sun_java2d_x11_X11PMBlitLoops_updateBitmask(ptr noundef %0, pt
   %354 = call i32 @XPutImage(ptr noundef %352, i64 noundef %353, ptr noundef %347, ptr noundef nonnull %97, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef %41, i32 noundef %43) #4
   %355 = load ptr, ptr @awt_display, align 8
   %356 = call i32 @XFreeGC(ptr noundef %355, ptr noundef %347) #4
-  %357 = getelementptr inbounds i8, ptr %97, i64 96
+  %357 = getelementptr inbounds nuw i8, ptr %97, i64 96
   %358 = load ptr, ptr %357, align 8
   %359 = call i32 %358(ptr noundef nonnull %97) #4
   call void (...) @awt_output_flush() #4
   %360 = load ptr, ptr %0, align 8
-  %361 = getelementptr inbounds i8, ptr %360, i64 120
+  %361 = getelementptr inbounds nuw i8, ptr %360, i64 120
   %362 = load ptr, ptr %361, align 8
   %363 = call ptr %362(ptr noundef nonnull %0) #4
   %.not301 = icmp eq ptr %363, null
@@ -924,20 +924,20 @@ define void @Java_sun_java2d_x11_X11PMBlitLoops_updateBitmask(ptr noundef %0, pt
 
 364:                                              ; preds = %344
   %365 = load ptr, ptr %0, align 8
-  %366 = getelementptr inbounds i8, ptr %365, i64 136
+  %366 = getelementptr inbounds nuw i8, ptr %365, i64 136
   %367 = load ptr, ptr %366, align 8
   call void %367(ptr noundef nonnull %0) #4
   br label %368
 
 368:                                              ; preds = %364, %344
   %369 = load ptr, ptr %0, align 8
-  %370 = getelementptr inbounds i8, ptr %369, i64 1128
+  %370 = getelementptr inbounds nuw i8, ptr %369, i64 1128
   %371 = load ptr, ptr %370, align 8
   %372 = load ptr, ptr @tkClass, align 8
   %373 = load ptr, ptr @awtUnlockMID, align 8
   call void (ptr, ptr, ptr, ...) %371(ptr noundef nonnull %0, ptr noundef %372, ptr noundef %373) #4
   %374 = load ptr, ptr %0, align 8
-  %375 = getelementptr inbounds i8, ptr %374, i64 1824
+  %375 = getelementptr inbounds nuw i8, ptr %374, i64 1824
   %376 = load ptr, ptr %375, align 8
   %377 = call zeroext i8 %376(ptr noundef nonnull %0) #4
   %.not302 = icmp eq i8 %377, 0
@@ -945,7 +945,7 @@ define void @Java_sun_java2d_x11_X11PMBlitLoops_updateBitmask(ptr noundef %0, pt
 
 378:                                              ; preds = %368
   %379 = load ptr, ptr %0, align 8
-  %380 = getelementptr inbounds i8, ptr %379, i64 136
+  %380 = getelementptr inbounds nuw i8, ptr %379, i64 136
   %381 = load ptr, ptr %380, align 8
   call void %381(ptr noundef nonnull %0) #4
   br label %382
@@ -955,7 +955,7 @@ define void @Java_sun_java2d_x11_X11PMBlitLoops_updateBitmask(ptr noundef %0, pt
 
 383:                                              ; preds = %382
   %384 = load ptr, ptr %0, align 8
-  %385 = getelementptr inbounds i8, ptr %384, i64 104
+  %385 = getelementptr inbounds nuw i8, ptr %384, i64 104
   %386 = load ptr, ptr %385, align 8
   %387 = call i32 %386(ptr noundef nonnull %0, ptr noundef nonnull %363) #4
   br label %388

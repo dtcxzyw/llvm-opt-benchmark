@@ -22,12 +22,12 @@ define noundef zeroext i1 @in_poly(ptr nocapture readonly %0, i32 %1, double %2,
   %9 = srem i32 %8, %1
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds %struct.Pxy_t, ptr %0, i64 %10
-  %12 = getelementptr inbounds %struct.Pxy_t, ptr %0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw %struct.Pxy_t, ptr %0, i64 %indvars.iv
   %13 = load double, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %15 = load double, ptr %14, align 8
   %16 = load double, ptr %12, align 8
-  %17 = getelementptr inbounds i8, ptr %12, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %18 = load double, ptr %17, align 8
   %19 = tail call i32 @wind(double %13, double %15, double %16, double %18, double %2, double %3) #2
   %.not = icmp ne i32 %19, 1

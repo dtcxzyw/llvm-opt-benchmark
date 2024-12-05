@@ -168,9 +168,9 @@ _.exit7:                                          ; preds = %_.exit.thread, %_.e
   %retval.0.i6 = phi ptr [ %call.i5, %if.end3.i4 ], [ @.str.2, %_.exit ], [ @.str.2, %_.exit.thread ]
   store ptr %retval.0.i6, ptr @restore_error_msg, align 8
   store ptr @restore_terminal_on_suspend, ptr %sa, align 8
-  %sa_flags = getelementptr inbounds i8, ptr %sa, i64 136
+  %sa_flags = getelementptr inbounds nuw i8, ptr %sa, i64 136
   store i32 268435456, ptr %sa_flags, align 8
-  %sa_mask = getelementptr inbounds i8, ptr %sa, i64 8
+  %sa_mask = getelementptr inbounds nuw i8, ptr %sa, i64 8
   %call17 = call i32 @sigemptyset(ptr noundef nonnull %sa_mask) #13
   %call19 = call i32 @sigaddset(ptr noundef nonnull %sa_mask, i32 noundef 20) #13
   %call21 = call i32 @sigaddset(ptr noundef nonnull %sa_mask, i32 noundef 21) #13
@@ -251,11 +251,11 @@ if.then13:                                        ; preds = %if.end5
 if.end14:                                         ; preds = %if.end5
   %call15 = call i32 @sigemptyset(ptr noundef nonnull %mask) #13
   %call16 = call i32 @sigaddset(ptr noundef nonnull %mask, i32 noundef 22) #13
-  %sa_mask = getelementptr inbounds i8, ptr %sa, i64 8
-  %sa_mask17 = getelementptr inbounds i8, ptr %old_sa, i64 8
+  %sa_mask = getelementptr inbounds nuw i8, ptr %sa, i64 8
+  %sa_mask17 = getelementptr inbounds nuw i8, ptr %old_sa, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %sa_mask, ptr noundef nonnull align 8 dereferenceable(128) %sa_mask17, i64 128, i1 false)
   store ptr @print_background_resume_msg, ptr %sa, align 8
-  %sa_flags = getelementptr inbounds i8, ptr %sa, i64 136
+  %sa_flags = getelementptr inbounds nuw i8, ptr %sa, i64 136
   store i32 268435456, ptr %sa_flags, align 8
   %call18 = call i32 @sigaction(i32 noundef 22, ptr noundef nonnull %sa, ptr noundef nonnull %old_sa) #13
   br label %again
@@ -399,9 +399,9 @@ if.end:                                           ; preds = %entry, %if.then2, %
   br label %return
 
 if.end4:                                          ; preds = %lor.lhs.false
-  %len2.i = getelementptr inbounds i8, ptr %buf, i64 8
+  %len2.i = getelementptr inbounds nuw i8, ptr %buf, i64 8
   store i64 0, ptr %len2.i, align 8
-  %buf.i = getelementptr inbounds i8, ptr %buf, i64 16
+  %buf.i = getelementptr inbounds nuw i8, ptr %buf, i64 16
   %1 = load ptr, ptr %buf.i, align 8
   %cmp3.not.i = icmp eq ptr %1, @strbuf_slopbuf
   br i1 %cmp3.not.i, label %strbuf_setlen.exit, label %if.then4.i
@@ -455,11 +455,11 @@ if.then10:                                        ; preds = %strbuf_addch.exit
   %8 = load i64, ptr %len2.i, align 8
   %sub = add i64 %8, -1
   tail call void @strbuf_splice(ptr noundef nonnull %buf, i64 noundef %sub, i64 noundef 1, ptr noundef nonnull @.str.6, i64 noundef 2) #13
-  %len2.i.i = getelementptr inbounds i8, ptr %buf.i13, i64 8
-  %buf.i.i = getelementptr inbounds i8, ptr %buf.i13, i64 16
-  %hash1.i.i.i = getelementptr inbounds i8, ptr %key.i.i, i64 8
-  %tv_usec.i = getelementptr inbounds i8, ptr %tv.i, i64 8
-  %9 = getelementptr inbounds i8, ptr %readfds.i, i64 8
+  %len2.i.i = getelementptr inbounds nuw i8, ptr %buf.i13, i64 8
+  %buf.i.i = getelementptr inbounds nuw i8, ptr %buf.i13, i64 16
+  %hash1.i.i.i = getelementptr inbounds nuw i8, ptr %key.i.i, i64 8
+  %tv_usec.i = getelementptr inbounds nuw i8, ptr %tv.i, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %readfds.i, i64 8
   br label %while.cond
 
 while.cond:                                       ; preds = %strbuf_addch.exit35, %if.then10
@@ -496,7 +496,7 @@ if.end.i:                                         ; preds = %if.then4.i.i, %if.t
   br i1 %tobool4.not24.i, label %for.end.i, label %for.body.i
 
 for.cond.i:                                       ; preds = %if.end27.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %call9.i, i64 1
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %call9.i, i64 1
   %13 = load i8, ptr %add.ptr.i, align 1
   %tobool4.not.i = icmp eq i8 %13, 0
   br i1 %tobool4.not.i, label %for.end.i, label %for.body.i, !llvm.loop !5
@@ -508,7 +508,7 @@ for.body.i:                                       ; preds = %if.end.i, %for.cond
   br i1 %tobool6.not.i, label %for.end.i, label %if.end8.i
 
 if.end8.i:                                        ; preds = %for.body.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %call5.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %call5.i, i64 1
   %call9.i = call ptr @strchrnul(ptr noundef nonnull %incdec.ptr.i, i32 noundef 10) #15
   %call10.i = call i32 @starts_with(ptr noundef nonnull %incdec.ptr.i, ptr noundef nonnull @.str.15) #13
   %tobool11.not.i = icmp eq i32 %call10.i, 0
@@ -520,7 +520,7 @@ if.then12.i:                                      ; preds = %if.end8.i
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %call13.i = call ptr @memchr(ptr noundef nonnull %incdec.ptr.i, i32 noundef 44, i64 noundef %sub.ptr.sub.i) #15
   store i8 94, ptr %incdec.ptr.i, align 1
-  %arrayidx14.i = getelementptr inbounds i8, ptr %call5.i, i64 2
+  %arrayidx14.i = getelementptr inbounds nuw i8, ptr %call5.i, i64 2
   store i8 91, ptr %arrayidx14.i, align 1
   %sub.ptr.lhs.cast15.i = ptrtoint ptr %call13.i to i64
   %sub.ptr.sub17.i = sub i64 %sub.ptr.lhs.cast15.i, %sub.ptr.rhs.cast.i
@@ -542,10 +542,10 @@ if.then.i21.i:                                    ; preds = %st_add.exit.i
 st_add.exit22.i:                                  ; preds = %st_add.exit.i
   %add.i20.i = add nuw i64 %sub.ptr.sub17.i, 17
   %call20.i = call ptr @xcalloc(i64 noundef 1, i64 noundef %add.i20.i) #13
-  %sequence21.i = getelementptr inbounds i8, ptr %call20.i, i64 16
+  %sequence21.i = getelementptr inbounds nuw i8, ptr %call20.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %sequence21.i, ptr nonnull align 1 %incdec.ptr.i, i64 %sub.ptr.sub17.i, i1 false)
   %call25.i = call i32 @strhash(ptr noundef nonnull %sequence21.i) #13
-  %hash1.i.i = getelementptr inbounds i8, ptr %call20.i, i64 8
+  %hash1.i.i = getelementptr inbounds nuw i8, ptr %call20.i, i64 8
   store i32 %call25.i, ptr %hash1.i.i, align 8
   store ptr null, ptr %call20.i, align 8
   call void @hashmap_add(ptr noundef nonnull @is_known_escape_sequence.sequences, ptr noundef nonnull %call20.i) #13
@@ -722,7 +722,7 @@ entry:
 if.end:                                           ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %t, ptr noundef nonnull align 4 dereferenceable(60) @old_term, i64 60, i1 false)
   %not = xor i32 %bits, -1
-  %c_lflag = getelementptr inbounds i8, ptr %t, i64 12
+  %c_lflag = getelementptr inbounds nuw i8, ptr %t, i64 12
   %0 = load i32, ptr %c_lflag, align 4
   %and = and i32 %0, %not
   store i32 %and, ptr %c_lflag, align 4
@@ -731,9 +731,9 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.end5, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %arrayidx = getelementptr inbounds i8, ptr %t, i64 23
+  %arrayidx = getelementptr inbounds nuw i8, ptr %t, i64 23
   store i8 1, ptr %arrayidx, align 1
-  %arrayidx4 = getelementptr inbounds i8, ptr %t, i64 22
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %t, i64 22
   store i8 0, ptr %arrayidx4, align 2
   br label %if.end5
 
@@ -784,9 +784,9 @@ declare void @hashmap_init(ptr noundef, ptr noundef, ptr noundef, i64 noundef) l
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal i32 @sequence_entry_cmp(ptr nocapture readnone %hashmap_cmp_fn_data, ptr nocapture noundef readonly %he1, ptr nocapture noundef readonly %he2, ptr noundef readonly %keydata) #9 {
 entry:
-  %sequence = getelementptr inbounds i8, ptr %he1, i64 16
+  %sequence = getelementptr inbounds nuw i8, ptr %he1, i64 16
   %tobool.not = icmp eq ptr %keydata, null
-  %sequence2 = getelementptr inbounds i8, ptr %he2, i64 16
+  %sequence2 = getelementptr inbounds nuw i8, ptr %he2, i64 16
   %cond = select i1 %tobool.not, ptr %sequence2, ptr %keydata
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %sequence, ptr noundef nonnull dereferenceable(1) %cond) #15
   ret i32 %call

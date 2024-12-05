@@ -347,7 +347,7 @@ for.body:                                         ; preds = %sw.bb5, %for.body
   %helpp.0162 = phi ptr [ @opt_helplist, %sw.bb5 ], [ %incdec.ptr, %for.body ]
   %4 = load ptr, ptr @bio_err, align 8
   %call6 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %4, ptr noundef nonnull @.str.130, ptr noundef nonnull %3) #7
-  %incdec.ptr = getelementptr inbounds i8, ptr %helpp.0162, i64 8
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %helpp.0162, i64 8
   %5 = load ptr, ptr %incdec.ptr, align 8
   %tobool.not = icmp eq ptr %5, null
   br i1 %tobool.not, label %end, label %for.body, !llvm.loop !7
@@ -1382,7 +1382,7 @@ if.end16:                                         ; preds = %if.end12
 
 if.end21:                                         ; preds = %if.end16
   %call22 = tail call ptr @ASN1_TYPE_new() #7
-  %parameter = getelementptr inbounds i8, ptr %call13, i64 8
+  %parameter = getelementptr inbounds nuw i8, ptr %call13, i64 8
   store ptr %call22, ptr %parameter, align 8
   %cmp23 = icmp eq ptr %call22, null
   br i1 %cmp23, label %if.then72, label %if.end25
@@ -1601,7 +1601,7 @@ entry:
 
 land.rhs:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
-  %arrayidx = getelementptr inbounds [20 x i8], ptr %buf, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [20 x i8], ptr %buf, i64 0, i64 %indvars.iv
   %0 = load i8, ptr %arrayidx, align 1
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %for.inc, label %for.end.split.loop.exit17
@@ -1622,7 +1622,7 @@ for.end:                                          ; preds = %for.inc, %for.end.s
   br i1 %cmp6, label %err, label %if.end8
 
 if.end8:                                          ; preds = %for.end
-  %data = getelementptr inbounds i8, ptr %call5, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %call5, i64 8
   %2 = load ptr, ptr %data, align 8
   call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str.134, i32 noundef 571) #7
   %sub9 = sub nsw i32 8, %i.0.lcssa
@@ -1632,7 +1632,7 @@ if.end8:                                          ; preds = %for.end
   %call12 = call ptr @app_malloc(i64 noundef %conv, ptr noundef nonnull @.str.156) #7
   store ptr %call12, ptr %data, align 8
   %idx.ext = zext nneg i32 %i.0.lcssa to i64
-  %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw i8, ptr %buf, i64 %idx.ext
   %3 = load i32, ptr %call5, align 8
   %conv17 = sext i32 %3 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call12, ptr nonnull align 1 %add.ptr, i64 %conv17, i1 false)

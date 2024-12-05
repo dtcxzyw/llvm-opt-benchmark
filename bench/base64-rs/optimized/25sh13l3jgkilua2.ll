@@ -63,7 +63,7 @@ define noundef range(i64 0, 4) i64 @_ZN6base646encode11add_padding17h00d4e9c0ee6
 
 6:                                                ; preds = %.lr.ph
   %7 = add nuw nsw i64 %.sroa.01.09, 1
-  %8 = getelementptr inbounds [0 x i8], ptr %1, i64 0, i64 %.sroa.01.09
+  %8 = getelementptr inbounds nuw [0 x i8], ptr %1, i64 0, i64 %.sroa.01.09
   store i8 61, ptr %8, align 1
   %exitcond11.not = icmp eq i64 %7, %5
   br i1 %exitcond11.not, label %._crit_edge, label %.lr.ph
@@ -78,13 +78,13 @@ define noundef zeroext i1 @"_ZN71_$LT$base64..encode..EncodeSliceError$u20$as$u2
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   store ptr @anon.22e5fd453cee8def79982159f9b88e16.3, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr @anon.22e5fd453cee8def79982159f9b88e16.4, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %7, align 8
   %8 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17heacf5dba8c40948fE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)

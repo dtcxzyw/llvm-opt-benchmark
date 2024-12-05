@@ -84,7 +84,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 define internal i32 @dissect_bzr(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @col_set_str(ptr noundef %8, i32 noundef 34, ptr noundef nonnull @.str.33) #3
   %9 = load ptr, ptr %7, align 8
@@ -94,7 +94,7 @@ define internal i32 @dissect_bzr(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %1, i64 328
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 328
   br label %13
 
 13:                                               ; preds = %.lr.ph, %dissect_bzr_pdu.exit
@@ -168,9 +168,9 @@ get_bzr_pdu_len.exit:                             ; preds = %.lr.ph.i
   br i1 %or.cond, label %47, label %50
 
 47:                                               ; preds = %42
-  %48 = getelementptr inbounds i8, ptr %1, i64 332
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %.02633, ptr %48, align 4
-  %49 = getelementptr inbounds i8, ptr %1, i64 336
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 268435455, ptr %49, align 8
   br label %._crit_edge
 

@@ -34,9 +34,9 @@ define dso_local i32 @krb5_encrypt(ptr noundef %0, ptr noundef readonly %1, ptr 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 464, ptr nonnull %8) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(464) %8, i8 0, i64 464, i1 false), !annotation !5
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 36
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 36
   %12 = load i32, ptr %11, align 4
   %13 = urem i32 %4, %12
   %14 = icmp eq i32 %13, 0
@@ -62,19 +62,19 @@ define dso_local i32 @krb5_encrypt(ptr noundef %0, ptr noundef readonly %1, ptr 
   %24 = sext i32 %4 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr align 1 %2, i64 %24, i1 false)
   call void @sg_init_one(ptr noundef nonnull %6, ptr noundef %3, i32 noundef %4) #8
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
-  %26 = getelementptr inbounds i8, ptr %8, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 64
   store ptr %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %8, i64 48
-  %28 = getelementptr inbounds i8, ptr %8, i64 72
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 72
   store i32 0, ptr %28, align 8
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
-  %29 = getelementptr inbounds i8, ptr %8, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %6, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %8, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %6, ptr %30, align 8
   store i32 %4, ptr %8, align 8
-  %31 = getelementptr inbounds i8, ptr %8, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %7, ptr %31, align 8
   %32 = call i32 @crypto_skcipher_encrypt(ptr noundef nonnull %8) #8
   %33 = load ptr, ptr %26, align 8
@@ -122,9 +122,9 @@ define dso_local i32 @krb5_decrypt(ptr noundef %0, ptr noundef readonly %1, ptr 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 464, ptr nonnull %8) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(464) %8, i8 0, i64 464, i1 false), !annotation !5
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 36
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 36
   %12 = load i32, ptr %11, align 4
   %13 = urem i32 %4, %12
   %14 = icmp eq i32 %13, 0
@@ -150,19 +150,19 @@ define dso_local i32 @krb5_decrypt(ptr noundef %0, ptr noundef readonly %1, ptr 
   %24 = sext i32 %4 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr align 1 %2, i64 %24, i1 false)
   call void @sg_init_one(ptr noundef nonnull %6, ptr noundef %3, i32 noundef %4) #8
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
-  %26 = getelementptr inbounds i8, ptr %8, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 64
   store ptr %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %8, i64 48
-  %28 = getelementptr inbounds i8, ptr %8, i64 72
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 72
   store i32 0, ptr %28, align 8
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
-  %29 = getelementptr inbounds i8, ptr %8, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %6, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %8, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %6, ptr %30, align 8
   store i32 %4, ptr %8, align 8
-  %31 = getelementptr inbounds i8, ptr %8, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %7, ptr %31, align 8
   %32 = call i32 @crypto_skcipher_decrypt(ptr noundef nonnull %8) #8
   %33 = load ptr, ptr %26, align 8
@@ -190,9 +190,9 @@ define dso_local noundef range(i32 0, 851969) i32 @make_checksum(ptr nocapture n
   %9 = alloca [1 x %struct.scatterlist], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #8
   %10 = load i32, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 44
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 44
   %14 = load i32, ptr %13, align 4
   %15 = icmp ult i32 %10, %14
   br i1 %15, label %105, label %16
@@ -206,14 +206,14 @@ define dso_local noundef range(i32 0, 851969) i32 @make_checksum(ptr nocapture n
 20:                                               ; preds = %16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %9, i8 0, i64 32, i1 false), !annotation !5
   %21 = load ptr, ptr %11, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr @crypto_alloc_ahash(ptr noundef %23, i32 noundef 0, i32 noundef 128) #8
   %25 = icmp ugt ptr %24, inttoptr (i64 -4096 to ptr)
   br i1 %25, label %103, label %26
 
 26:                                               ; preds = %20
-  %27 = getelementptr inbounds i8, ptr %24, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %28 = load i32, ptr %27, align 8
   %29 = zext i32 %28 to i64
   %30 = add nuw nsw i64 %29, 80
@@ -222,14 +222,14 @@ define dso_local noundef range(i32 0, 851969) i32 @make_checksum(ptr nocapture n
   br i1 %32, label %100, label %33, !prof !7
 
 33:                                               ; preds = %26
-  %34 = getelementptr inbounds i8, ptr %24, i64 16
-  %35 = getelementptr inbounds i8, ptr %31, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 32
   store ptr %34, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %31, i64 16
-  %37 = getelementptr inbounds i8, ptr %31, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %36, i8 0, i64 16, i1 false)
+  %36 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %31, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, i8 0, i64 16, i1 false)
   store i32 512, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %24, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr i8, ptr %39, i64 -8
   %41 = load i32, ptr %40, align 8
@@ -238,7 +238,7 @@ define dso_local noundef range(i32 0, 851969) i32 @make_checksum(ptr nocapture n
 
 43:                                               ; preds = %33
   %44 = load ptr, ptr %11, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 56
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 56
   %46 = load i32, ptr %45, align 8
   %47 = tail call i32 @crypto_ahash_setkey(ptr noundef %24, ptr noundef nonnull %5, i32 noundef %46) #8
   %48 = icmp eq i32 %47, 0
@@ -251,18 +251,18 @@ define dso_local noundef range(i32 0, 851969) i32 @make_checksum(ptr nocapture n
 
 52:                                               ; preds = %49
   call void @sg_init_one(ptr noundef nonnull %9, ptr noundef %1, i32 noundef %2) #8
-  %53 = getelementptr inbounds i8, ptr %31, i64 56
+  %53 = getelementptr inbounds nuw i8, ptr %31, i64 56
   store ptr %9, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %31, i64 48
+  %54 = getelementptr inbounds nuw i8, ptr %31, i64 48
   store i32 %2, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %31, i64 64
+  %55 = getelementptr inbounds nuw i8, ptr %31, i64 64
   store ptr null, ptr %55, align 8
   %56 = call i32 @crypto_ahash_update(ptr noundef nonnull %31) #8
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %58, label %98
 
 58:                                               ; preds = %52
-  %59 = getelementptr inbounds i8, ptr %3, i64 64
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %60 = load i32, ptr %59, align 8
   %61 = sub i32 %60, %4
   %62 = call i32 @xdr_process_buf(ptr noundef %3, i32 noundef %4, i32 noundef %61, ptr noundef nonnull @checksummer, ptr noundef nonnull %31) #8
@@ -279,7 +279,7 @@ define dso_local noundef range(i32 0, 851969) i32 @make_checksum(ptr nocapture n
 
 67:                                               ; preds = %64
   %68 = load ptr, ptr %11, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %70 = load i32, ptr %69, align 4
   switch i32 %70, label %93 [
     i32 7, label %71
@@ -287,19 +287,19 @@ define dso_local noundef range(i32 0, 851969) i32 @make_checksum(ptr nocapture n
   ]
 
 71:                                               ; preds = %67
-  %72 = getelementptr inbounds i8, ptr %0, i64 32
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %73 = load ptr, ptr %72, align 8
   %74 = call i32 @krb5_encrypt(ptr noundef %73, ptr noundef null, ptr noundef nonnull %18, ptr noundef nonnull %18, i32 noundef %41)
   %75 = icmp eq i32 %74, 0
   br i1 %75, label %76, label %98
 
 76:                                               ; preds = %71
-  %77 = getelementptr inbounds i8, ptr %7, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %78 = load ptr, ptr %77, align 8
   %79 = zext i32 %41 to i64
   %80 = getelementptr i8, ptr %18, i64 %79
   %81 = load ptr, ptr %11, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 44
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 44
   %83 = load i32, ptr %82, align 4
   %84 = zext i32 %83 to i64
   %85 = sub nsw i64 0, %84
@@ -308,9 +308,9 @@ define dso_local noundef range(i32 0, 851969) i32 @make_checksum(ptr nocapture n
   br label %94
 
 87:                                               ; preds = %67
-  %88 = getelementptr inbounds i8, ptr %7, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %68, i64 44
+  %90 = getelementptr inbounds nuw i8, ptr %68, i64 44
   %91 = load i32, ptr %90, align 4
   %92 = zext i32 %91 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %89, ptr nonnull align 8 %18, i64 %92, i1 false)
@@ -323,7 +323,7 @@ define dso_local noundef range(i32 0, 851969) i32 @make_checksum(ptr nocapture n
 
 94:                                               ; preds = %87, %76
   %95 = load ptr, ptr %11, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 44
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 44
   %97 = load i32, ptr %96, align 4
   store i32 %97, ptr %7, align 8
   br label %98
@@ -335,8 +335,8 @@ define dso_local noundef range(i32 0, 851969) i32 @make_checksum(ptr nocapture n
 
 100:                                              ; preds = %98, %26
   %101 = phi i32 [ %99, %98 ], [ 851968, %26 ]
-  %102 = getelementptr inbounds i8, ptr %24, i64 16
-  call void @crypto_destroy_tfm(ptr noundef %24, ptr noundef %102) #8
+  %102 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  call void @crypto_destroy_tfm(ptr noundef %24, ptr noundef nonnull %102) #8
   br label %103
 
 103:                                              ; preds = %100, %20
@@ -367,13 +367,13 @@ declare dso_local i32 @xdr_process_buf(ptr noundef, i32 noundef, i32 noundef, pt
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @checksummer(ptr noundef %0, ptr noundef initializes((48, 52), (56, 72)) %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store ptr %0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i32 %4, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr null, ptr %7, align 8
   %8 = tail call i32 @crypto_ahash_update(ptr noundef %1) #8
   ret i32 %8
@@ -388,7 +388,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 0, 851969) i32 @gss_krb5_checksum(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) local_unnamed_addr #0 align 16 {
   %7 = alloca [1 x %struct.scatterlist], align 16
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr i8, ptr %9, i64 -8
   %11 = load i32, ptr %10, align 8
@@ -398,7 +398,7 @@ define dso_local noundef range(i32 0, 851969) i32 @gss_krb5_checksum(ptr noundef
   br i1 %14, label %62, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = zext i32 %17 to i64
   %19 = add nuw nsw i64 %18, 80
@@ -407,19 +407,19 @@ define dso_local noundef range(i32 0, 851969) i32 @gss_krb5_checksum(ptr noundef
   br i1 %21, label %60, label %22, !prof !7
 
 22:                                               ; preds = %15
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
-  %24 = getelementptr inbounds i8, ptr %20, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store ptr %23, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %20, i64 16
-  %26 = getelementptr inbounds i8, ptr %20, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %20, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
   store i32 512, ptr %26, align 8
   %27 = tail call i32 @crypto_ahash_init(ptr noundef nonnull %20) #8
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %29, label %58
 
 29:                                               ; preds = %22
-  %30 = getelementptr inbounds i8, ptr %3, i64 64
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %31 = load i32, ptr %30, align 8
   %32 = sub i32 %31, %4
   %33 = tail call i32 @xdr_process_buf(ptr noundef %3, i32 noundef %4, i32 noundef %32, ptr noundef nonnull @checksummer, ptr noundef nonnull %20) #8
@@ -434,11 +434,11 @@ define dso_local noundef range(i32 0, 851969) i32 @gss_krb5_checksum(ptr noundef
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, i8 0, i64 32, i1 false), !annotation !5
   call void @sg_init_one(ptr noundef nonnull %7, ptr noundef nonnull %1, i32 noundef %2) #8
-  %38 = getelementptr inbounds i8, ptr %20, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %20, i64 56
   store ptr %7, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %20, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %20, i64 48
   store i32 %2, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %20, i64 64
+  %40 = getelementptr inbounds nuw i8, ptr %20, i64 64
   store ptr null, ptr %40, align 8
   %41 = call i32 @crypto_ahash_update(ptr noundef nonnull %20) #8
   %42 = icmp eq i32 %41, 0
@@ -446,18 +446,18 @@ define dso_local noundef range(i32 0, 851969) i32 @gss_krb5_checksum(ptr noundef
   br i1 %42, label %43, label %58
 
 43:                                               ; preds = %37, %35
-  %44 = getelementptr inbounds i8, ptr %20, i64 56
+  %44 = getelementptr inbounds nuw i8, ptr %20, i64 56
   store ptr null, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %20, i64 48
+  %45 = getelementptr inbounds nuw i8, ptr %20, i64 48
   store i32 0, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %20, i64 64
+  %46 = getelementptr inbounds nuw i8, ptr %20, i64 64
   store ptr %13, ptr %46, align 8
   %47 = call i32 @crypto_ahash_final(ptr noundef nonnull %20) #8
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %49, label %58
 
 49:                                               ; preds = %43
-  %50 = getelementptr inbounds i8, ptr %5, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %51 = load ptr, ptr %50, align 8
   %52 = load i32, ptr %5, align 8
   %53 = load ptr, ptr %8, align 8
@@ -491,16 +491,16 @@ define dso_local i32 @gss_encrypt_xdr_buf(ptr noundef %0, ptr noundef %1, i32 no
   %5 = alloca %struct.encryptor_desc, align 8
   %6 = alloca [464 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 312, ptr nonnull %5) #8
-  %7 = getelementptr inbounds i8, ptr %5, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(312) %7, i8 0, i64 280, i1 false), !annotation !5
   call void @llvm.lifetime.start.p0(i64 464, ptr nonnull %6) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(464) %6, i8 0, i64 464, i1 false), !annotation !5
-  %8 = getelementptr inbounds i8, ptr %1, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %9 = load i32, ptr %8, align 8
   %10 = sub i32 %9, %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 36
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 36
   %14 = load i32, ptr %13, align 4
   %15 = urem i32 %10, %14
   %16 = icmp eq i32 %15, 0
@@ -512,28 +512,28 @@ define dso_local i32 @gss_encrypt_xdr_buf(ptr noundef %0, ptr noundef %1, i32 no
   unreachable
 
 18:                                               ; preds = %4
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
-  %20 = getelementptr inbounds i8, ptr %6, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store ptr %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %6, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  %22 = getelementptr inbounds i8, ptr %5, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %6, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %5, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 %2, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %5, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %1, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %5, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %3, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %5, i64 304
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 304
   store i32 0, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %5, i64 308
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 308
   store i32 0, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %5, i64 48
-  call void @sg_init_table(ptr noundef %28, i32 noundef 4) #8
-  %29 = getelementptr inbounds i8, ptr %5, i64 176
-  call void @sg_init_table(ptr noundef %29, i32 noundef 4) #8
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  call void @sg_init_table(ptr noundef nonnull %28, i32 noundef 4) #8
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 176
+  call void @sg_init_table(ptr noundef nonnull %29, i32 noundef 4) #8
   %30 = load i32, ptr %8, align 8
   %31 = sub i32 %30, %2
   %32 = call i32 @xdr_process_buf(ptr noundef %1, i32 noundef %2, i32 noundef %31, ptr noundef nonnull @encryptor, ptr noundef nonnull %5) #8
@@ -554,18 +554,18 @@ declare dso_local void @sg_init_table(ptr noundef, i32 noundef) local_unnamed_ad
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @encryptor(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 308
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 308
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %12 = load i32, ptr %11, align 4
   %13 = add i32 %12, %10
-  %14 = getelementptr inbounds i8, ptr %1, i64 304
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %15 = load i32, ptr %14, align 8
   %16 = icmp sgt i32 %15, 3
   br i1 %16, label %17, label %18, !prof !7
@@ -576,9 +576,9 @@ define internal i32 @encryptor(ptr nocapture noundef readonly %0, ptr noundef %1
   unreachable
 
 18:                                               ; preds = %2
-  %19 = getelementptr inbounds i8, ptr %1, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %20 = load i32, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %4, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %22 = load i64, ptr %21, align 8
   %23 = trunc i64 %22 to i32
   %24 = sub i32 %20, %23
@@ -586,17 +586,17 @@ define internal i32 @encryptor(ptr nocapture noundef readonly %0, ptr noundef %1
   br i1 %25, label %26, label %41
 
 26:                                               ; preds = %18
-  %27 = getelementptr inbounds i8, ptr %4, i64 52
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 52
   %28 = load i32, ptr %27, align 4
   %29 = icmp ult i32 %24, %28
   br i1 %29, label %30, label %41
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %4, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %32 = load i32, ptr %31, align 8
   %33 = add i32 %32, %24
   %34 = lshr i32 %33, 12
-  %35 = getelementptr inbounds i8, ptr %1, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %36 = load ptr, ptr %35, align 8
   %37 = zext nneg i32 %34 to i64
   %38 = getelementptr ptr, ptr %36, i64 %37
@@ -611,8 +611,8 @@ define internal i32 @encryptor(ptr nocapture noundef readonly %0, ptr noundef %1
 
 44:                                               ; preds = %41, %30
   %45 = phi i64 [ %40, %30 ], [ %43, %41 ]
-  %46 = getelementptr inbounds i8, ptr %1, i64 48
-  %47 = getelementptr inbounds i8, ptr %0, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %48 = and i64 %45, 3
   %49 = icmp eq i64 %48, 0
   br i1 %49, label %51, label %50, !prof !10
@@ -630,11 +630,11 @@ define internal i32 @encryptor(ptr nocapture noundef readonly %0, ptr noundef %1
   %56 = and i64 %55, 3
   %57 = or disjoint i64 %56, %45
   store i64 %57, ptr %54, align 8
-  %58 = getelementptr inbounds i8, ptr %54, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store i32 %52, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %54, i64 12
+  %59 = getelementptr inbounds nuw i8, ptr %54, i64 12
   store i32 %12, ptr %59, align 4
-  %60 = getelementptr inbounds i8, ptr %1, i64 176
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %61 = load i32, ptr %14, align 8
   %62 = sext i32 %61 to i64
   %63 = getelementptr [4 x %struct.scatterlist], ptr %60, i64 0, i64 %62
@@ -646,9 +646,9 @@ define internal i32 @encryptor(ptr nocapture noundef readonly %0, ptr noundef %1
   %69 = and i64 %68, 3
   %70 = or disjoint i64 %69, %65
   store i64 %70, ptr %63, align 8
-  %71 = getelementptr inbounds i8, ptr %63, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i32 %67, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %63, i64 12
+  %72 = getelementptr inbounds nuw i8, ptr %63, i64 12
   store i32 %66, ptr %72, align 4
   %73 = load i32, ptr %14, align 8
   %74 = add i32 %73, 1
@@ -663,7 +663,7 @@ define internal i32 @encryptor(ptr nocapture noundef readonly %0, ptr noundef %1
   store i32 %80, ptr %19, align 8
   %81 = getelementptr i8, ptr %8, i64 24
   %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 36
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 36
   %84 = load i32, ptr %83, align 4
   %85 = add i32 %84, -1
   %86 = and i32 %85, %13
@@ -687,12 +687,12 @@ define internal i32 @encryptor(ptr nocapture noundef readonly %0, ptr noundef %1
   %101 = or disjoint i64 %100, 2
   store i64 %101, ptr %98, align 8
   %102 = load ptr, ptr %5, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 16
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 16
   store ptr %46, ptr %103, align 8
-  %104 = getelementptr inbounds i8, ptr %102, i64 24
+  %104 = getelementptr inbounds nuw i8, ptr %102, i64 24
   store ptr %60, ptr %104, align 8
   store i32 %89, ptr %102, align 8
-  %105 = getelementptr inbounds i8, ptr %102, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %102, i64 8
   store ptr %1, ptr %105, align 8
   %106 = load ptr, ptr %5, align 8
   %107 = tail call i32 @crypto_skcipher_encrypt(ptr noundef %106) #8
@@ -700,8 +700,8 @@ define internal i32 @encryptor(ptr nocapture noundef readonly %0, ptr noundef %1
   br i1 %108, label %109, label %128
 
 109:                                              ; preds = %88
-  tail call void @sg_init_table(ptr noundef %46, i32 noundef 4) #8
-  tail call void @sg_init_table(ptr noundef %60, i32 noundef 4) #8
+  tail call void @sg_init_table(ptr noundef nonnull %46, i32 noundef 4) #8
+  tail call void @sg_init_table(ptr noundef nonnull %60, i32 noundef 4) #8
   %110 = icmp eq i32 %86, 0
   br i1 %110, label %126, label %111
 
@@ -716,11 +716,11 @@ define internal i32 @encryptor(ptr nocapture noundef readonly %0, ptr noundef %1
   %119 = and i64 %118, 3
   %120 = or disjoint i64 %119, %113
   store i64 %120, ptr %60, align 8
-  %121 = getelementptr inbounds i8, ptr %1, i64 184
+  %121 = getelementptr inbounds nuw i8, ptr %1, i64 184
   store i32 %117, ptr %121, align 8
-  %122 = getelementptr inbounds i8, ptr %1, i64 188
+  %122 = getelementptr inbounds nuw i8, ptr %1, i64 188
   store i32 %86, ptr %122, align 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %46, ptr noundef align 8 dereferenceable(32) %60, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %60, i64 32, i1 false)
   %123 = load i64, ptr %46, align 8
   %124 = and i64 %123, 3
   %125 = or disjoint i64 %124, %45
@@ -743,16 +743,16 @@ define dso_local i32 @gss_decrypt_xdr_buf(ptr noundef %0, ptr noundef %1, i32 no
   %4 = alloca %struct.decryptor_desc, align 8
   %5 = alloca [464 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %4) #8
-  %6 = getelementptr inbounds i8, ptr %4, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %6, i8 0, i64 128, i1 false), !annotation !5
   call void @llvm.lifetime.start.p0(i64 464, ptr nonnull %5) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(464) %5, i8 0, i64 464, i1 false), !annotation !5
-  %7 = getelementptr inbounds i8, ptr %1, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %8 = load i32, ptr %7, align 8
   %9 = sub i32 %8, %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 36
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 36
   %13 = load i32, ptr %12, align 4
   %14 = urem i32 %9, %13
   %15 = icmp eq i32 %14, 0
@@ -764,20 +764,20 @@ define dso_local i32 @gss_decrypt_xdr_buf(ptr noundef %0, ptr noundef %1, i32 no
   unreachable
 
 17:                                               ; preds = %3
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
-  %19 = getelementptr inbounds i8, ptr %5, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store ptr %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %5, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  %21 = getelementptr inbounds i8, ptr %4, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %5, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %4, i64 152
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i32 0, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %4, i64 156
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 156
   store i32 0, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %4, i64 24
-  call void @sg_init_table(ptr noundef %24, i32 noundef 4) #8
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  call void @sg_init_table(ptr noundef nonnull %24, i32 noundef 4) #8
   %25 = load i32, ptr %7, align 8
   %26 = sub i32 %25, %2
   %27 = call i32 @xdr_process_buf(ptr noundef %1, i32 noundef %2, i32 noundef %26, ptr noundef nonnull @decryptor, ptr noundef nonnull %4) #8
@@ -795,11 +795,11 @@ define dso_local i32 @gss_decrypt_xdr_buf(ptr noundef %0, ptr noundef %1, i32 no
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @decryptor(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 156
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 156
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 152
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %8 = load i32, ptr %7, align 8
   %9 = icmp sgt i32 %8, 3
   br i1 %9, label %10, label %11, !prof !7
@@ -810,25 +810,25 @@ define internal i32 @decryptor(ptr nocapture noundef readonly %0, ptr noundef %1
   unreachable
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %6, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %4, align 4
   %15 = load i32, ptr %3, align 4
   %16 = add i32 %15, %14
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = sext i32 %8 to i64
   %19 = getelementptr [4 x %struct.scatterlist], ptr %17, i64 0, i64 %18
   %20 = load i64, ptr %0, align 8
   %21 = and i64 %20, -4
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load i32, ptr %22, align 8
   %24 = load i64, ptr %19, align 8
   %25 = and i64 %24, 3
   %26 = or disjoint i64 %25, %21
   store i64 %26, ptr %19, align 8
-  %27 = getelementptr inbounds i8, ptr %19, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i32 %23, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %19, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %19, i64 12
   store i32 %14, ptr %28, align 4
   %29 = load i32, ptr %7, align 8
   %30 = add i32 %29, 1
@@ -839,7 +839,7 @@ define internal i32 @decryptor(ptr nocapture noundef readonly %0, ptr noundef %1
   store i32 %33, ptr %3, align 4
   %34 = getelementptr i8, ptr %13, i64 24
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 36
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 36
   %37 = load i32, ptr %36, align 4
   %38 = add i32 %37, -1
   %39 = and i32 %38, %16
@@ -854,12 +854,12 @@ define internal i32 @decryptor(ptr nocapture noundef readonly %0, ptr noundef %1
   %46 = and i64 %45, -4
   %47 = or disjoint i64 %46, 2
   store i64 %47, ptr %44, align 8
-  %48 = getelementptr inbounds i8, ptr %6, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %17, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %6, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %17, ptr %49, align 8
   store i32 %42, ptr %6, align 8
-  %50 = getelementptr inbounds i8, ptr %6, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %1, ptr %50, align 8
   %51 = load ptr, ptr %5, align 8
   %52 = tail call i32 @crypto_skcipher_decrypt(ptr noundef %51) #8
@@ -867,7 +867,7 @@ define internal i32 @decryptor(ptr nocapture noundef readonly %0, ptr noundef %1
   br i1 %53, label %54, label %70
 
 54:                                               ; preds = %41
-  tail call void @sg_init_table(ptr noundef %17, i32 noundef 4) #8
+  tail call void @sg_init_table(ptr noundef nonnull %17, i32 noundef 4) #8
   %55 = icmp eq i32 %39, 0
   br i1 %55, label %68, label %56
 
@@ -882,9 +882,9 @@ define internal i32 @decryptor(ptr nocapture noundef readonly %0, ptr noundef %1
   %64 = and i64 %63, 3
   %65 = or disjoint i64 %64, %58
   store i64 %65, ptr %17, align 8
-  %66 = getelementptr inbounds i8, ptr %1, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 %62, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %1, i64 36
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 36
   store i32 %39, ptr %67, align 4
   br label %68
 
@@ -919,14 +919,14 @@ define dso_local noundef i32 @xdr_extend_head(ptr nocapture noundef %0, i32 noun
   %11 = getelementptr i8, ptr %9, i64 %10
   %12 = zext nneg i32 %2 to i64
   %13 = getelementptr i8, ptr %11, i64 %12
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i64, ptr %14, align 8
   %16 = sub i64 %15, %10
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %13, ptr align 1 %11, i64 %16, i1 false)
   %17 = load i64, ptr %14, align 8
   %18 = add i64 %17, %12
   store i64 %18, ptr %14, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %20 = load i32, ptr %19, align 8
   %21 = add i32 %20, %2
   store i32 %21, ptr %19, align 8
@@ -946,17 +946,17 @@ define dso_local noundef range(i32 0, 851969) i32 @gss_krb5_aes_encrypt(ptr noca
   %6 = load i32, ptr %0, align 8
   %7 = icmp eq i32 %6, 0
   %8 = select i1 %7, i64 40, i64 48
-  %9 = getelementptr inbounds i8, ptr %0, i64 %8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 %8
   %10 = select i1 %7, i64 56, i64 64
-  %11 = getelementptr inbounds i8, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %10
   %12 = select i1 %7, i64 96, i64 88
-  %13 = getelementptr inbounds i8, ptr %0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %11, align 8
   %16 = load ptr, ptr %9, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 36
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 36
   %20 = load i32, ptr %19, align 4
   %21 = add i32 %1, 16
   %22 = icmp eq i32 %20, 0
@@ -981,14 +981,14 @@ define dso_local noundef range(i32 0, 851969) i32 @gss_krb5_aes_encrypt(ptr noca
   %29 = getelementptr i8, ptr %27, i64 %28
   %30 = zext nneg i32 %20 to i64
   %31 = getelementptr i8, ptr %29, i64 %30
-  %32 = getelementptr inbounds i8, ptr %2, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %33 = load i64, ptr %32, align 8
   %34 = sub i64 %33, %28
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %31, ptr align 1 %29, i64 %34, i1 false)
   %35 = load i64, ptr %32, align 8
   %36 = add i64 %35, %30
   store i64 %36, ptr %32, align 8
-  %37 = getelementptr inbounds i8, ptr %2, i64 64
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %38 = load i32, ptr %37, align 8
   %39 = add i32 %38, %20
   store i32 %39, ptr %37, align 8
@@ -1000,13 +1000,13 @@ define dso_local noundef range(i32 0, 851969) i32 @gss_krb5_aes_encrypt(ptr noca
   %41 = load ptr, ptr %2, align 8
   %42 = getelementptr i8, ptr %41, i64 %.pre-phi
   tail call void @get_random_bytes(ptr noundef %42, i64 noundef %.pre-phi4) #8
-  %43 = getelementptr inbounds i8, ptr %2, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, null
   br i1 %45, label %50, label %46
 
 46:                                               ; preds = %40
-  %47 = getelementptr inbounds i8, ptr %2, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %48 = load i64, ptr %47, align 8
   %49 = getelementptr i8, ptr %44, i64 %48
   %.pre = load ptr, ptr %2, align 8
@@ -1014,11 +1014,11 @@ define dso_local noundef range(i32 0, 851969) i32 @gss_krb5_aes_encrypt(ptr noca
 
 50:                                               ; preds = %40
   %51 = load ptr, ptr %2, align 8
-  %52 = getelementptr inbounds i8, ptr %2, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %53 = load i64, ptr %52, align 8
   %54 = getelementptr i8, ptr %51, i64 %53
   store ptr %54, ptr %43, align 8
-  %55 = getelementptr inbounds i8, ptr %2, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %55, align 8
   br label %56
 
@@ -1029,24 +1029,24 @@ define dso_local noundef range(i32 0, 851969) i32 @gss_krb5_aes_encrypt(ptr noca
   %59 = zext i32 %1 to i64
   %60 = getelementptr i8, ptr %57, i64 %59
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %58, ptr noundef align 1 dereferenceable(16) %60, i64 16, i1 false)
-  %61 = getelementptr inbounds i8, ptr %2, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %62 = load i64, ptr %61, align 8
   %63 = add i64 %62, 16
   store i64 %63, ptr %61, align 8
-  %64 = getelementptr inbounds i8, ptr %2, i64 64
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %65 = load i32, ptr %64, align 8
   %66 = add i32 %65, 16
   store i32 %66, ptr %64, align 8
-  %67 = getelementptr inbounds i8, ptr %0, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 44
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 44
   %70 = load i32, ptr %69, align 4
   store i32 %70, ptr %5, align 8
   %71 = load ptr, ptr %43, align 8
   %72 = getelementptr i8, ptr %71, i64 %63
-  %73 = getelementptr inbounds i8, ptr %5, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %72, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %2, i64 40
+  %74 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %75 = load ptr, ptr %74, align 8
   store ptr %3, ptr %74, align 8
   %76 = call i32 @gss_krb5_checksum(ptr noundef %14, ptr noundef null, i32 noundef 0, ptr noundef %2, i32 noundef %21, ptr noundef nonnull %5)
@@ -1061,14 +1061,14 @@ define dso_local noundef range(i32 0, 851969) i32 @gss_krb5_aes_encrypt(ptr noca
 
 81:                                               ; preds = %78
   %82 = load ptr, ptr %67, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 44
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 44
   %84 = load i32, ptr %83, align 4
   %85 = zext i32 %84 to i64
   %86 = load i64, ptr %61, align 8
   %87 = add i64 %86, %85
   store i64 %87, ptr %61, align 8
   %88 = load ptr, ptr %67, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 44
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 44
   %90 = load i32, ptr %89, align 4
   %91 = load i32, ptr %64, align 8
   %92 = add i32 %91, %90
@@ -1086,13 +1086,13 @@ define internal fastcc i32 @krb5_cbc_cts_encrypt(ptr noundef %0, ptr noundef %1,
   %6 = alloca %struct.encryptor_desc, align 8
   %7 = alloca [464 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 312, ptr nonnull %6) #8
-  %8 = getelementptr inbounds i8, ptr %6, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(312) %8, i8 0, i64 296, i1 false), !annotation !5
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 36
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 36
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %3, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %14 = load i32, ptr %13, align 8
   %15 = xor i32 %2, -1
   %16 = add i32 %12, %15
@@ -1109,27 +1109,27 @@ define internal fastcc i32 @krb5_cbc_cts_encrypt(ptr noundef %0, ptr noundef %1,
 24:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 464, ptr nonnull %7) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(464) %7, i8 0, i64 464, i1 false), !annotation !5
-  %25 = getelementptr inbounds i8, ptr %6, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 %2, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %6, i64 304
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 304
   store i32 0, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %6, i64 308
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 308
   store i32 0, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %6, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr %4, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %6, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %3, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %6, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %7, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
-  %32 = getelementptr inbounds i8, ptr %7, i64 64
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store ptr %31, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %7, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %33, i8 0, i64 16, i1 false)
-  %34 = getelementptr inbounds i8, ptr %6, i64 48
-  call void @sg_init_table(ptr noundef %34, i32 noundef 4) #8
-  %35 = getelementptr inbounds i8, ptr %6, i64 176
-  call void @sg_init_table(ptr noundef %35, i32 noundef 4) #8
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, i8 0, i64 16, i1 false)
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  call void @sg_init_table(ptr noundef nonnull %34, i32 noundef 4) #8
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 176
+  call void @sg_init_table(ptr noundef nonnull %35, i32 noundef 4) #8
   %36 = call i32 @xdr_process_buf(ptr noundef %3, i32 noundef %2, i32 noundef %22, ptr noundef nonnull @encryptor, ptr noundef nonnull %6) #8
   %37 = load ptr, ptr %32, align 8
   %38 = getelementptr i8, ptr %37, i64 -8
@@ -1169,18 +1169,18 @@ define dso_local i32 @gss_krb5_aes_decrypt(ptr nocapture noundef readonly %0, i3
   %11 = load i32, ptr %0, align 8
   %12 = icmp eq i32 %11, 0
   %13 = select i1 %12, i64 48, i64 40
-  %14 = getelementptr inbounds i8, ptr %0, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 %13
   %15 = select i1 %12, i64 64, i64 56
-  %16 = getelementptr inbounds i8, ptr %0, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 %15
   %17 = select i1 %12, i64 88, i64 96
-  %18 = getelementptr inbounds i8, ptr %0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %16, align 8
   %21 = load ptr, ptr %14, align 8
   %22 = add i32 %1, 16
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 44
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 44
   %26 = load i32, ptr %25, align 4
   %27 = add i32 %2, -16
   %28 = add i32 %1, %26
@@ -1193,10 +1193,10 @@ define dso_local i32 @gss_krb5_aes_decrypt(ptr nocapture noundef readonly %0, i3
 33:                                               ; preds = %6
   store i64 0, ptr %7, align 8, !annotation !5
   %34 = load ptr, ptr %23, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 44
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 44
   %36 = load i32, ptr %35, align 4
   store i32 %36, ptr %7, align 8
-  %37 = getelementptr inbounds i8, ptr %7, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %8, ptr %37, align 8
   %38 = call i32 @gss_krb5_checksum(ptr noundef %19, ptr noundef null, i32 noundef 0, ptr noundef nonnull %10, i32 noundef 0, ptr noundef nonnull %7)
   %39 = icmp eq i32 %38, 0
@@ -1204,7 +1204,7 @@ define dso_local i32 @gss_krb5_aes_decrypt(ptr nocapture noundef readonly %0, i3
 
 40:                                               ; preds = %33
   %41 = load ptr, ptr %23, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 44
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 44
   %43 = load i32, ptr %42, align 4
   %44 = sub i32 %2, %43
   %45 = call i32 @read_bytes_from_xdr_buf(ptr noundef %3, i32 noundef %44, ptr noundef nonnull %9, i32 noundef %43) #8
@@ -1213,7 +1213,7 @@ define dso_local i32 @gss_krb5_aes_decrypt(ptr nocapture noundef readonly %0, i3
 
 47:                                               ; preds = %40
   %48 = load ptr, ptr %23, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 44
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 44
   %50 = load i32, ptr %49, align 4
   %51 = zext i32 %50 to i64
   %52 = call i64 @__crypto_memneq(ptr noundef nonnull %9, ptr noundef nonnull %8, i64 noundef %51) #8
@@ -1221,13 +1221,13 @@ define dso_local i32 @gss_krb5_aes_decrypt(ptr nocapture noundef readonly %0, i3
   br i1 %53, label %54, label %62
 
 54:                                               ; preds = %47
-  %55 = getelementptr inbounds i8, ptr %21, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 36
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 36
   %58 = load i32, ptr %57, align 4
   store i32 %58, ptr %4, align 4
   %59 = load ptr, ptr %23, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 44
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 44
   %61 = load i32, ptr %60, align 4
   store i32 %61, ptr %5, align 4
   br label %62
@@ -1253,13 +1253,13 @@ define internal fastcc i32 @krb5_cbc_cts_decrypt(ptr noundef %0, ptr noundef %1,
   %4 = alloca %struct.decryptor_desc, align 8
   %5 = alloca [464 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %4) #8
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %6, i8 0, i64 144, i1 false), !annotation !5
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 36
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 36
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %2, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %12 = load i32, ptr %11, align 8
   %13 = add i32 %10, -1
   %14 = add i32 %13, %12
@@ -1275,19 +1275,19 @@ define internal fastcc i32 @krb5_cbc_cts_decrypt(ptr noundef %0, ptr noundef %1,
 21:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 464, ptr nonnull %5) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(464) %5, i8 0, i64 464, i1 false), !annotation !5
-  %22 = getelementptr inbounds i8, ptr %4, i64 152
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i32 0, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %4, i64 156
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 156
   store i32 0, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %4, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %5, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
-  %26 = getelementptr inbounds i8, ptr %5, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store ptr %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %5, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
-  %28 = getelementptr inbounds i8, ptr %4, i64 24
-  call void @sg_init_table(ptr noundef %28, i32 noundef 4) #8
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  call void @sg_init_table(ptr noundef nonnull %28, i32 noundef 4) #8
   %29 = call i32 @xdr_process_buf(ptr noundef %2, i32 noundef 0, i32 noundef %18, ptr noundef nonnull @decryptor, ptr noundef nonnull %4) #8
   %30 = load ptr, ptr %26, align 8
   %31 = getelementptr i8, ptr %30, i64 -8
@@ -1319,17 +1319,17 @@ define dso_local noundef range(i32 0, 851969) i32 @krb5_etm_encrypt(ptr nocaptur
   %5 = load i32, ptr %0, align 8
   %6 = icmp eq i32 %5, 0
   %7 = select i1 %6, i64 40, i64 48
-  %8 = getelementptr inbounds i8, ptr %0, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 %7
   %9 = select i1 %6, i64 56, i64 64
-  %10 = getelementptr inbounds i8, ptr %0, i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 %9
   %11 = select i1 %6, i64 96, i64 88
-  %12 = getelementptr inbounds i8, ptr %0, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %10, align 8
   %15 = load ptr, ptr %8, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 36
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 36
   %19 = load i32, ptr %18, align 4
   %20 = add i32 %1, 16
   %21 = icmp eq i32 %19, 0
@@ -1354,14 +1354,14 @@ define dso_local noundef range(i32 0, 851969) i32 @krb5_etm_encrypt(ptr nocaptur
   %28 = getelementptr i8, ptr %26, i64 %27
   %29 = zext nneg i32 %19 to i64
   %30 = getelementptr i8, ptr %28, i64 %29
-  %31 = getelementptr inbounds i8, ptr %2, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %32 = load i64, ptr %31, align 8
   %33 = sub i64 %32, %27
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %30, ptr align 1 %28, i64 %33, i1 false)
   %34 = load i64, ptr %31, align 8
   %35 = add i64 %34, %29
   store i64 %35, ptr %31, align 8
-  %36 = getelementptr inbounds i8, ptr %2, i64 64
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %37 = load i32, ptr %36, align 8
   %38 = add i32 %37, %19
   store i32 %38, ptr %36, align 8
@@ -1373,13 +1373,13 @@ define dso_local noundef range(i32 0, 851969) i32 @krb5_etm_encrypt(ptr nocaptur
   %40 = load ptr, ptr %2, align 8
   %41 = getelementptr i8, ptr %40, i64 %.pre-phi
   tail call void @get_random_bytes(ptr noundef %41, i64 noundef %.pre-phi7) #8
-  %42 = getelementptr inbounds i8, ptr %2, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
   br i1 %44, label %49, label %45
 
 45:                                               ; preds = %39
-  %46 = getelementptr inbounds i8, ptr %2, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %47 = load i64, ptr %46, align 8
   %48 = getelementptr i8, ptr %43, i64 %47
   %.pre = load ptr, ptr %2, align 8
@@ -1387,11 +1387,11 @@ define dso_local noundef range(i32 0, 851969) i32 @krb5_etm_encrypt(ptr nocaptur
 
 49:                                               ; preds = %39
   %50 = load ptr, ptr %2, align 8
-  %51 = getelementptr inbounds i8, ptr %2, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %52 = load i64, ptr %51, align 8
   %53 = getelementptr i8, ptr %50, i64 %52
   store ptr %53, ptr %42, align 8
-  %54 = getelementptr inbounds i8, ptr %2, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %54, align 8
   br label %55
 
@@ -1401,11 +1401,11 @@ define dso_local noundef range(i32 0, 851969) i32 @krb5_etm_encrypt(ptr nocaptur
   %58 = zext i32 %1 to i64
   %59 = getelementptr i8, ptr %56, i64 %58
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %57, ptr noundef align 1 dereferenceable(16) %59, i64 16, i1 false)
-  %60 = getelementptr inbounds i8, ptr %2, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %61 = load i64, ptr %60, align 8
   %62 = add i64 %61, 16
   store i64 %62, ptr %60, align 8
-  %63 = getelementptr inbounds i8, ptr %2, i64 64
+  %63 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %64 = load i32, ptr %63, align 8
   %65 = add i32 %64, 16
   store i32 %65, ptr %63, align 8
@@ -1417,9 +1417,9 @@ define dso_local noundef range(i32 0, 851969) i32 @krb5_etm_encrypt(ptr nocaptur
   %69 = load ptr, ptr %42, align 8
   %70 = load i64, ptr %60, align 8
   %71 = getelementptr i8, ptr %69, i64 %70
-  %72 = getelementptr inbounds i8, ptr %0, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 44
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 44
   %75 = load i32, ptr %74, align 4
   %.val = load ptr, ptr %16, align 8
   %76 = getelementptr i8, ptr %.val, i64 -16
@@ -1430,14 +1430,14 @@ define dso_local noundef range(i32 0, 851969) i32 @krb5_etm_encrypt(ptr nocaptur
 
 79:                                               ; preds = %68
   %80 = load ptr, ptr %72, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 44
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 44
   %82 = load i32, ptr %81, align 4
   %83 = zext i32 %82 to i64
   %84 = load i64, ptr %60, align 8
   %85 = add i64 %84, %83
   store i64 %85, ptr %60, align 8
   %86 = load ptr, ptr %72, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 44
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 44
   %88 = load i32, ptr %87, align 4
   %89 = load i32, ptr %63, align 8
   %90 = add i32 %89, %88
@@ -1454,7 +1454,7 @@ define internal fastcc noundef range(i32 0, 851969) i32 @krb5_etm_checksum(i32 %
   %4 = alloca [1 x %struct.scatterlist], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !5
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -8
   %8 = load i32, ptr %7, align 8
@@ -1470,7 +1470,7 @@ define internal fastcc noundef range(i32 0, 851969) i32 @krb5_etm_checksum(i32 %
   br i1 %15, label %49, label %16
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load i32, ptr %17, align 8
   %19 = zext i32 %18 to i64
   %20 = add nuw nsw i64 %19, 80
@@ -1479,12 +1479,12 @@ define internal fastcc noundef range(i32 0, 851969) i32 @krb5_etm_checksum(i32 %
   br i1 %22, label %49, label %23, !prof !7
 
 23:                                               ; preds = %16
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
-  %25 = getelementptr inbounds i8, ptr %21, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store ptr %24, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %21, i64 16
-  %27 = getelementptr inbounds i8, ptr %21, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
   store i32 512, ptr %27, align 8
   %28 = tail call i32 @crypto_ahash_init(ptr noundef nonnull %21) #8
   %29 = icmp eq i32 %28, 0
@@ -1492,18 +1492,18 @@ define internal fastcc noundef range(i32 0, 851969) i32 @krb5_etm_checksum(i32 %
 
 30:                                               ; preds = %23
   call void @sg_init_one(ptr noundef nonnull %4, ptr noundef nonnull %14, i32 noundef %.32.val.-16.val) #8
-  %31 = getelementptr inbounds i8, ptr %21, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %21, i64 56
   store ptr %4, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %21, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %21, i64 48
   store i32 %.32.val.-16.val, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %21, i64 64
+  %33 = getelementptr inbounds nuw i8, ptr %21, i64 64
   store ptr null, ptr %33, align 8
   %34 = call i32 @crypto_ahash_update(ptr noundef nonnull %21) #8
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %36, label %47
 
 36:                                               ; preds = %30
-  %37 = getelementptr inbounds i8, ptr %1, i64 64
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %38 = load i32, ptr %37, align 8
   %39 = sub i32 %38, %2
   %40 = call i32 @xdr_process_buf(ptr noundef %1, i32 noundef %2, i32 noundef %39, ptr noundef nonnull @checksummer, ptr noundef nonnull %21) #8
@@ -1554,25 +1554,25 @@ define dso_local range(i32 0, 851969) i32 @krb5_etm_decrypt(ptr nocapture nounde
   %10 = load i32, ptr %0, align 8
   %11 = icmp eq i32 %10, 0
   %12 = select i1 %11, i64 48, i64 40
-  %13 = getelementptr inbounds i8, ptr %0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 %12
   %14 = select i1 %11, i64 64, i64 56
-  %15 = getelementptr inbounds i8, ptr %0, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 %14
   %16 = select i1 %11, i64 88, i64 96
-  %17 = getelementptr inbounds i8, ptr %0, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %15, align 8
   %20 = load ptr, ptr %13, align 8
   %21 = add i32 %1, 16
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 44
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 44
   %25 = load i32, ptr %24, align 4
   %26 = add i32 %2, -16
   %27 = add i32 %1, %25
   %28 = sub i32 %26, %27
   %29 = call i32 @xdr_buf_subsegment(ptr noundef %3, ptr noundef nonnull %9, i32 noundef %21, i32 noundef %28) #8
   %30 = load ptr, ptr %22, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 44
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 44
   %32 = load i32, ptr %31, align 4
   %33 = getelementptr i8, ptr %20, i64 32
   %.val = load ptr, ptr %33, align 8
@@ -1584,7 +1584,7 @@ define dso_local range(i32 0, 851969) i32 @krb5_etm_decrypt(ptr nocapture nounde
 
 37:                                               ; preds = %6
   %38 = load ptr, ptr %22, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 44
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 44
   %40 = load i32, ptr %39, align 4
   %41 = sub i32 %2, %40
   %42 = call i32 @read_bytes_from_xdr_buf(ptr noundef %3, i32 noundef %41, ptr noundef nonnull %8, i32 noundef %40) #8
@@ -1593,7 +1593,7 @@ define dso_local range(i32 0, 851969) i32 @krb5_etm_decrypt(ptr nocapture nounde
 
 44:                                               ; preds = %37
   %45 = load ptr, ptr %22, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 44
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 44
   %47 = load i32, ptr %46, align 4
   %48 = zext i32 %47 to i64
   %49 = call i64 @__crypto_memneq(ptr noundef nonnull %8, ptr noundef nonnull %7, i64 noundef %48) #8
@@ -1607,11 +1607,11 @@ define dso_local range(i32 0, 851969) i32 @krb5_etm_decrypt(ptr nocapture nounde
 
 54:                                               ; preds = %51
   %55 = load ptr, ptr %33, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 36
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 36
   %57 = load i32, ptr %56, align 4
   store i32 %57, ptr %4, align 4
   %58 = load ptr, ptr %22, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 44
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 44
   %60 = load i32, ptr %59, align 4
   store i32 %60, ptr %5, align 4
   br label %.thread6
@@ -1648,7 +1648,7 @@ define internal fastcc i32 @gss_krb5_cts_crypt(ptr noundef %0, ptr noundef %1, i
   %8 = alloca [464 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #8
   call void @llvm.lifetime.start.p0(i64 464, ptr nonnull %8) #8
-  %9 = getelementptr inbounds i8, ptr %1, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %10 = load i32, ptr %9, align 8
   %11 = sub i32 %10, %2
   %12 = icmp ugt i32 %11, 32
@@ -1661,7 +1661,7 @@ define internal fastcc i32 @gss_krb5_cts_crypt(ptr noundef %0, ptr noundef %1, i
   br i1 %16, label %49, label %17
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %1, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq i32 %5, 0
   br i1 %20, label %22, label %21
@@ -1680,19 +1680,19 @@ define internal fastcc i32 @gss_krb5_cts_crypt(ptr noundef %0, ptr noundef %1, i
 
 25:                                               ; preds = %22
   call void @sg_init_one(ptr noundef nonnull %7, ptr noundef nonnull %15, i32 noundef %11) #8
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
-  %27 = getelementptr inbounds i8, ptr %8, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 64
   store ptr %26, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %8, i64 48
-  %29 = getelementptr inbounds i8, ptr %8, i64 72
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 72
   store i32 0, ptr %29, align 8
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %28, i8 0, i64 16, i1 false)
-  %30 = getelementptr inbounds i8, ptr %8, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, i8 0, i64 16, i1 false)
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %7, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %8, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %7, ptr %31, align 8
   store i32 %11, ptr %8, align 8
-  %32 = getelementptr inbounds i8, ptr %8, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %3, ptr %32, align 8
   br i1 %20, label %35, label %33
 

@@ -61,15 +61,15 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local void @filehash_init() local_unnamed_addr #0 {
   %1 = tail call ptr @pg_malloc0(i64 noundef 40) #11
-  %2 = getelementptr inbounds i8, ptr %1, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr null, ptr %2, align 8
   %3 = tail call ptr @pg_malloc0(i64 noundef 180224) #11
-  %4 = getelementptr inbounds i8, ptr %1, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %3, ptr %4, align 8
   store i64 2048, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 2047, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 1843, ptr %6, align 8
   store ptr %1, ptr @filehash, align 8
   ret void
@@ -96,7 +96,7 @@ define dso_local void @process_source_file(ptr noundef %0, i32 noundef %1, i64 n
 
 11:                                               ; preds = %8, %4
   %12 = tail call fastcc ptr @insert_filehash_entry(ptr noundef %0)
-  %13 = getelementptr inbounds i8, ptr %12, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %14 = load i8, ptr %13, align 8
   %15 = trunc i8 %14 to i1
   br i1 %15, label %16, label %17
@@ -108,9 +108,9 @@ define dso_local void @process_source_file(ptr noundef %0, i32 noundef %1, i64 n
 
 17:                                               ; preds = %11
   store i8 1, ptr %13, align 8
-  %18 = getelementptr inbounds i8, ptr %12, i64 60
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 60
   store i32 %spec.store.select, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %12, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 64
   store i64 %2, ptr %19, align 8
   %.not16 = icmp eq ptr %3, null
   br i1 %.not16, label %22, label %20
@@ -121,7 +121,7 @@ define dso_local void @process_source_file(ptr noundef %0, i32 noundef %1, i64 n
 
 22:                                               ; preds = %17, %20
   %23 = phi ptr [ %21, %20 ], [ null, %17 ]
-  %24 = getelementptr inbounds i8, ptr %12, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %12, i64 72
   store ptr %23, ptr %24, align 8
   ret void
 }
@@ -134,9 +134,9 @@ define internal fastcc zeroext i1 @isRelDataFile(ptr nocapture noundef readonly 
   %2 = alloca %struct.RelFileLocator, align 8
   %3 = alloca i32, align 4
   store i32 0, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %5, align 8
   store i32 0, ptr %3, align 4
   %6 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %0, ptr noundef nonnull @.str.14, ptr noundef nonnull %5, ptr noundef nonnull %3) #11
@@ -204,9 +204,9 @@ define internal fastcc noundef ptr @insert_filehash_entry(ptr noundef %0) unname
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #12
   %4 = trunc i64 %3 to i32
   %5 = tail call i32 @hash_bytes(ptr noundef %0, i32 noundef %4) #11
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
-  %8 = getelementptr inbounds i8, ptr %2, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %9 = getelementptr i8, ptr %2, i64 12
   %.pre.i.i = load i32, ptr %6, align 8
   %.pre173.i.i = load i32, ptr %7, align 8
@@ -369,7 +369,7 @@ filehash_grow.exit.i.i:                           ; preds = %74, %filehash_updat
   %87 = load i32, ptr %6, align 8
   %88 = add i32 %87, 1
   store i32 %88, ptr %6, align 8
-  %89 = getelementptr inbounds i8, ptr %.lcssa84.i.i, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %.lcssa84.i.i, i64 8
   store ptr %0, ptr %89, align 8
   br label %151
 
@@ -377,7 +377,7 @@ filehash_grow.exit.i.i:                           ; preds = %74, %filehash_updat
   %90 = phi ptr [ %148, %146 ], [ %84, %80 ]
   %.069113.i.i = phi i32 [ %106, %146 ], [ %82, %80 ]
   %.074112.i.i = phi i32 [ %137, %146 ], [ 0, %80 ]
-  %91 = getelementptr inbounds i8, ptr %90, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %92 = load ptr, ptr %91, align 8
   %93 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %92, ptr noundef nonnull dereferenceable(1) %0) #12
   %94 = icmp eq i32 %93, 0
@@ -416,7 +416,7 @@ filehash_distance.exit.i.i:                       ; preds = %100, %95
 .preheader.i.i:                                   ; preds = %.preheader83.i.i, %123
   %.lcssa97.i.i = phi i32 [ %125, %123 ], [ %106, %.preheader83.i.i ]
   %.lcssa95.i.i = phi ptr [ %127, %123 ], [ %108, %.preheader83.i.i ]
-  %111 = getelementptr inbounds i8, ptr %90, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %.not75137.i.i = icmp eq i32 %.lcssa97.i.i, %.069113.i.i
   br i1 %.not75137.i.i, label %._crit_edge141.i.i, label %.lr.ph140.i.i
 
@@ -494,18 +494,18 @@ filehash_distance.exit.i.i:                       ; preds = %100, %95
   %.lcssa215.lcssa.sink.sink.i.i = phi ptr [ %90, %._crit_edge141.i.i ], [ %.lcssa84.i.i, %._crit_edge.i.i ]
   store i32 1, ptr %.lcssa215.lcssa.sink.sink.i.i, align 8
   %152 = tail call ptr @pg_strdup(ptr noundef %0) #11
-  %153 = getelementptr inbounds i8, ptr %.lcssa215.lcssa.sink.sink.i.i, i64 8
+  %153 = getelementptr inbounds nuw i8, ptr %.lcssa215.lcssa.sink.sink.i.i, i64 8
   store ptr %152, ptr %153, align 8
   %154 = tail call fastcc zeroext i1 @isRelDataFile(ptr noundef %0)
-  %155 = getelementptr inbounds i8, ptr %.lcssa215.lcssa.sink.sink.i.i, i64 16
+  %155 = getelementptr inbounds nuw i8, ptr %.lcssa215.lcssa.sink.sink.i.i, i64 16
   %156 = zext i1 %154 to i8
   store i8 %156, ptr %155, align 8
-  %157 = getelementptr inbounds i8, ptr %.lcssa215.lcssa.sink.sink.i.i, i64 17
+  %157 = getelementptr inbounds nuw i8, ptr %.lcssa215.lcssa.sink.sink.i.i, i64 17
   store i8 0, ptr %157, align 1
-  %158 = getelementptr inbounds i8, ptr %.lcssa215.lcssa.sink.sink.i.i, i64 20
-  %159 = getelementptr inbounds i8, ptr %.lcssa215.lcssa.sink.sink.i.i, i64 56
+  %158 = getelementptr inbounds nuw i8, ptr %.lcssa215.lcssa.sink.sink.i.i, i64 20
+  %159 = getelementptr inbounds nuw i8, ptr %.lcssa215.lcssa.sink.sink.i.i, i64 56
   store i8 0, ptr %159, align 8
-  %160 = getelementptr inbounds i8, ptr %.lcssa215.lcssa.sink.sink.i.i, i64 60
+  %160 = getelementptr inbounds nuw i8, ptr %.lcssa215.lcssa.sink.sink.i.i, i64 60
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %158, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %160, i8 0, i64 24, i1 false)
   br label %filehash_insert.exit.thread
@@ -521,7 +521,7 @@ declare ptr @pg_strdup(ptr noundef) local_unnamed_addr #2
 define dso_local void @process_target_file(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str) #12
   %6 = tail call fastcc ptr @insert_filehash_entry(ptr noundef %0)
-  %7 = getelementptr inbounds i8, ptr %6, i64 17
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 17
   %8 = load i8, ptr %7, align 1
   %9 = trunc i8 %8 to i1
   br i1 %9, label %10, label %11
@@ -537,9 +537,9 @@ define dso_local void @process_target_file(ptr noundef %0, i32 noundef %1, i64 n
   %or.cond = and i1 %13, %12
   %spec.store.select = select i1 %or.cond, i32 2, i32 %1
   store i8 1, ptr %7, align 1
-  %14 = getelementptr inbounds i8, ptr %6, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 %spec.store.select, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %6, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 %2, ptr %15, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %18, label %16
@@ -550,7 +550,7 @@ define dso_local void @process_target_file(ptr noundef %0, i32 noundef %1, i64 n
 
 18:                                               ; preds = %11, %16
   %19 = phi ptr [ %17, %16 ], [ null, %11 ]
-  %20 = getelementptr inbounds i8, ptr %6, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %19, ptr %20, align 8
   ret void
 }
@@ -579,7 +579,7 @@ datasegpath.exit:                                 ; preds = %4, %7
   %13 = tail call i32 @hash_bytes(ptr noundef %.0.i, i32 noundef %12) #11
   %14 = getelementptr i8, ptr %10, i64 12
   %.val.i.i.i = load i32, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %10, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %16 = load ptr, ptr %15, align 8
   %.01214.i.i.i = and i32 %.val.i.i.i, %13
   %17 = zext i32 %.01214.i.i.i to i64
@@ -600,7 +600,7 @@ datasegpath.exit:                                 ; preds = %4, %7
 .lr.ph.i.i.i:                                     ; preds = %datasegpath.exit, %21
   %27 = phi ptr [ %24, %21 ], [ %18, %datasegpath.exit ]
   %.01215.i.i.i = phi i32 [ %.012.i.i.i, %21 ], [ %.01214.i.i.i, %datasegpath.exit ]
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull readonly dereferenceable(1) %.0.i) #12
   %31 = icmp eq i32 %30, 0
@@ -612,26 +612,26 @@ lookup_filehash_entry.exit.thread:                ; preds = %21, %datasegpath.ex
 
 32:                                               ; preds = %.lr.ph.i.i.i
   tail call void @pfree(ptr noundef %.0.i) #11
-  %33 = getelementptr inbounds i8, ptr %27, i64 17
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 17
   %34 = load i8, ptr %33, align 1
   %35 = trunc i8 %34 to i1
   br i1 %35, label %36, label %57
 
 36:                                               ; preds = %32
-  %37 = getelementptr inbounds i8, ptr %27, i64 20
+  %37 = getelementptr inbounds nuw i8, ptr %27, i64 20
   %38 = load i32, ptr %37, align 4
   %.not22 = icmp eq i32 %38, 1
   br i1 %.not22, label %42, label %39
 
 39:                                               ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %27, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %41 = load ptr, ptr %40, align 8
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %41) #11
   tail call void @exit(i32 noundef 1) #13
   unreachable
 
 42:                                               ; preds = %36
-  %43 = getelementptr inbounds i8, ptr %27, i64 56
+  %43 = getelementptr inbounds nuw i8, ptr %27, i64 56
   %44 = load i8, ptr %43, align 8
   %45 = trunc i8 %44 to i1
   br i1 %45, label %46, label %57
@@ -640,19 +640,19 @@ lookup_filehash_entry.exit.thread:                ; preds = %21, %datasegpath.ex
   %47 = shl nuw nsw i32 %5, 13
   %48 = add nuw nsw i32 %47, 8192
   %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr inbounds i8, ptr %27, i64 64
+  %50 = getelementptr inbounds nuw i8, ptr %27, i64 64
   %51 = load i64, ptr %50, align 8
   %.not23 = icmp ult i64 %51, %49
   br i1 %.not23, label %57, label %52
 
 52:                                               ; preds = %46
-  %53 = getelementptr inbounds i8, ptr %27, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %54 = load i64, ptr %53, align 8
   %.not24 = icmp ult i64 %54, %49
   br i1 %.not24, label %57, label %55
 
 55:                                               ; preds = %52
-  %56 = getelementptr inbounds i8, ptr %27, i64 40
+  %56 = getelementptr inbounds nuw i8, ptr %27, i64 40
   tail call void @datapagemap_add(ptr noundef nonnull %56, i32 noundef %5) #11
   br label %57
 
@@ -670,15 +670,15 @@ declare void @datapagemap_add(ptr noundef, i32 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local void @calculate_totals(ptr nocapture noundef initializes((0, 16)) %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph24, label %._crit_edge25
 
 .lr.ph24:                                         ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %8
 
 8:                                                ; preds = %.lr.ph24, %43
@@ -686,18 +686,18 @@ define dso_local void @calculate_totals(ptr nocapture noundef initializes((0, 16
   %indvars.iv = phi i64 [ 0, %.lr.ph24 ], [ %indvars.iv.next, %43 ]
   %10 = getelementptr [0 x ptr], ptr %7, i64 0, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 60
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 60
   %13 = load i32, ptr %12, align 4
   %.not = icmp eq i32 %13, 1
   br i1 %.not, label %14, label %43
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %11, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %16 = load i64, ptr %15, align 8
   %17 = load i64, ptr %0, align 8
   %18 = add i64 %17, %16
   store i64 %18, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %11, i64 80
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 80
   %20 = load i32, ptr %19, align 8
   switch i32 %20, label %32 [
     i32 2, label %21
@@ -713,7 +713,7 @@ define dso_local void @calculate_totals(ptr nocapture noundef initializes((0, 16
 
 25:                                               ; preds = %14
   %26 = load i64, ptr %15, align 8
-  %27 = getelementptr inbounds i8, ptr %11, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %28 = load i64, ptr %27, align 8
   %29 = sub i64 %26, %28
   %30 = load i64, ptr %3, align 8
@@ -722,13 +722,13 @@ define dso_local void @calculate_totals(ptr nocapture noundef initializes((0, 16
   br label %32
 
 32:                                               ; preds = %14, %25
-  %33 = getelementptr inbounds i8, ptr %11, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %34 = load i32, ptr %33, align 8
   %35 = icmp sgt i32 %34, 0
   br i1 %35, label %36, label %43
 
 36:                                               ; preds = %32
-  %37 = getelementptr inbounds i8, ptr %11, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %38 = call ptr @datapagemap_iterate(ptr noundef nonnull %37) #11
   %39 = call zeroext i1 @datapagemap_next(ptr noundef %38, ptr noundef nonnull %2) #11
   br i1 %39, label %.lr.ph, label %._crit_edge
@@ -764,26 +764,26 @@ declare void @pg_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @print_filemap(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %6
 
 6:                                                ; preds = %.lr.ph, %29
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
   %7 = getelementptr [0 x ptr], ptr %5, i64 0, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %10 = load i32, ptr %9, align 8
   %.not = icmp eq i32 %10, 4
   br i1 %.not, label %11, label %15
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %8, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %13 = load i32, ptr %12, align 8
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %15, label %29
@@ -794,7 +794,7 @@ define dso_local void @print_filemap(ptr nocapture noundef readonly %0) local_un
   br i1 %17, label %18, label %23
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %8, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %20 = load ptr, ptr %19, align 8
   %switch.tableidx = add i32 %10, -1
   %21 = icmp ult i32 %switch.tableidx, 6
@@ -802,7 +802,7 @@ define dso_local void @print_filemap(ptr nocapture noundef readonly %0) local_un
 
 switch.lookup:                                    ; preds = %18
   %22 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table.print_filemap, i64 0, i64 %22
+  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.print_filemap, i64 0, i64 %22
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %action_to_str.exit
 
@@ -812,13 +812,13 @@ action_to_str.exit:                               ; preds = %18, %switch.lookup
   br label %23
 
 23:                                               ; preds = %15, %action_to_str.exit
-  %24 = getelementptr inbounds i8, ptr %8, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %25 = load i32, ptr %24, align 8
   %26 = icmp sgt i32 %25, 0
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %8, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 40
   tail call void @datapagemap_print(ptr noundef nonnull %28) #11
   br label %29
 
@@ -849,7 +849,7 @@ define dso_local ptr @decide_file_actions() local_unnamed_addr #0 {
   br i1 %.not16.i, label %filehash_start_iterate.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %0
-  %4 = getelementptr inbounds i8, ptr %2, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %5 = load ptr, ptr %4, align 8
   br label %6
 
@@ -875,8 +875,8 @@ filehash_start_iterate.exit:                      ; preds = %6, %10, %0
   %15 = phi ptr [ %2, %filehash_start_iterate.exit ], [ %.pre, %decide_file_action.exit ]
   %.sroa.10.0 = phi i1 [ false, %filehash_start_iterate.exit ], [ %spec.select, %decide_file_action.exit ]
   %.sroa.0.0 = phi i32 [ %.0.i, %filehash_start_iterate.exit ], [ %26, %decide_file_action.exit ]
-  %16 = getelementptr inbounds i8, ptr %15, i64 24
-  %17 = getelementptr inbounds i8, ptr %15, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 12
   br label %18
 
 18:                                               ; preds = %20, %14
@@ -901,7 +901,7 @@ filehash_start_iterate.exit:                      ; preds = %6, %10, %0
   br i1 %31, label %filehash_iterate.exit, label %18, !llvm.loop !13
 
 filehash_iterate.exit:                            ; preds = %20
-  %32 = getelementptr inbounds i8, ptr %23, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %33, ptr noundef nonnull dereferenceable(18) @.str.18) #12
   %35 = icmp eq i32 %34, 0
@@ -939,7 +939,7 @@ filehash_iterate.exit:                            ; preds = %20
   %49 = icmp eq ptr %48, null
   %50 = getelementptr i8, ptr %48, i64 1
   %.025.i.i = select i1 %49, ptr %33, ptr %50
-  %51 = getelementptr inbounds i8, ptr %46, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %52 = load i8, ptr %51, align 8
   %53 = and i8 %52, 1
   %54 = xor i8 %53, 1
@@ -982,7 +982,7 @@ filehash_iterate.exit:                            ; preds = %20
 
 69:                                               ; preds = %.sink.split, %66, %59, %40, %38
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %1)
-  %70 = getelementptr inbounds i8, ptr %23, i64 17
+  %70 = getelementptr inbounds nuw i8, ptr %23, i64 17
   %71 = load i8, ptr %70, align 1
   %72 = trunc i8 %71 to i1
   %..i = select i1 %72, i32 6, i32 4
@@ -990,10 +990,10 @@ filehash_iterate.exit:                            ; preds = %20
 
 73:                                               ; preds = %62
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %1)
-  %74 = getelementptr inbounds i8, ptr %23, i64 17
+  %74 = getelementptr inbounds nuw i8, ptr %23, i64 17
   %75 = load i8, ptr %74, align 1
   %76 = trunc i8 %75 to i1
-  %77 = getelementptr inbounds i8, ptr %23, i64 56
+  %77 = getelementptr inbounds nuw i8, ptr %23, i64 56
   %78 = load i8, ptr %77, align 8
   %79 = trunc i8 %78 to i1
   br i1 %76, label %87, label %80
@@ -1002,7 +1002,7 @@ filehash_iterate.exit:                            ; preds = %20
   br i1 %79, label %81, label %decide_file_action.exit
 
 81:                                               ; preds = %80
-  %82 = getelementptr inbounds i8, ptr %23, i64 60
+  %82 = getelementptr inbounds nuw i8, ptr %23, i64 60
   %83 = load i32, ptr %82, align 4
   switch i32 %83, label %.thread30.i [
     i32 2, label %decide_file_action.exit
@@ -1024,14 +1024,14 @@ filehash_iterate.exit:                            ; preds = %20
   br i1 %79, label %..thread30.i_crit_edge, label %decide_file_action.exit
 
 ..thread30.i_crit_edge:                           ; preds = %87
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %23, i64 60
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %23, i64 60
   %.pre75 = load i32, ptr %.phi.trans.insert, align 4
   br label %.thread30.i
 
 .thread30.i:                                      ; preds = %..thread30.i_crit_edge, %81
   %88 = phi i32 [ %.pre75, %..thread30.i_crit_edge ], [ %83, %81 ]
-  %89 = getelementptr inbounds i8, ptr %23, i64 60
-  %90 = getelementptr inbounds i8, ptr %23, i64 20
+  %89 = getelementptr inbounds nuw i8, ptr %23, i64 60
+  %90 = getelementptr inbounds nuw i8, ptr %23, i64 20
   %91 = load i32, ptr %90, align 4
   %.not27.i = icmp eq i32 %88, %91
   %92 = load ptr, ptr %32, align 8
@@ -1056,15 +1056,15 @@ filehash_iterate.exit:                            ; preds = %20
   ]
 
 98:                                               ; preds = %96
-  %99 = getelementptr inbounds i8, ptr %23, i64 16
+  %99 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %100 = load i8, ptr %99, align 8
   %101 = trunc i8 %100 to i1
   br i1 %101, label %102, label %decide_file_action.exit
 
 102:                                              ; preds = %98
-  %103 = getelementptr inbounds i8, ptr %23, i64 24
+  %103 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %104 = load i64, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %23, i64 64
+  %105 = getelementptr inbounds nuw i8, ptr %23, i64 64
   %106 = load i64, ptr %105, align 8
   %107 = icmp ult i64 %104, %106
   br i1 %107, label %decide_file_action.exit, label %108
@@ -1086,29 +1086,29 @@ filehash_iterate.exit:                            ; preds = %20
 
 decide_file_action.exit:                          ; preds = %filehash_iterate.exit, %36, %69, %80, %81, %81, %84, %87, %94, %96, %96, %98, %102, %108
   %.0.i13 = phi i32 [ 2, %84 ], [ 4, %filehash_iterate.exit ], [ 4, %36 ], [ %..i, %69 ], [ 1, %81 ], [ 1, %81 ], [ 6, %87 ], [ 4, %94 ], [ 4, %96 ], [ 4, %96 ], [ 2, %98 ], [ 3, %102 ], [ %.28.i, %108 ], [ 4, %80 ]
-  %112 = getelementptr inbounds i8, ptr %23, i64 80
+  %112 = getelementptr inbounds nuw i8, ptr %23, i64 80
   store i32 %.0.i13, ptr %112, align 8
   %.pre = load ptr, ptr @filehash, align 8
   br label %14, !llvm.loop !16
 
 filehash_iterate.exit.thread:                     ; preds = %18
-  %113 = getelementptr inbounds i8, ptr %15, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %114 = load i32, ptr %113, align 8
   %115 = zext i32 %114 to i64
   %116 = shl nuw nsw i64 %115, 3
   %117 = add nuw nsw i64 %116, 24
   %118 = call ptr @pg_malloc(i64 noundef %117) #11
   %119 = load ptr, ptr @filehash, align 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 8
   %121 = load i32, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %118, i64 16
+  %122 = getelementptr inbounds nuw i8, ptr %118, i64 16
   store i32 %121, ptr %122, align 8
   %123 = load i64, ptr %119, align 8
   %.not16.i14 = icmp eq i64 %123, 0
   br i1 %.not16.i14, label %filehash_start_iterate.exit19, label %.lr.ph.i15
 
 .lr.ph.i15:                                       ; preds = %filehash_iterate.exit.thread
-  %124 = getelementptr inbounds i8, ptr %119, i64 24
+  %124 = getelementptr inbounds nuw i8, ptr %119, i64 24
   %125 = load ptr, ptr %124, align 8
   br label %126
 
@@ -1128,9 +1128,9 @@ filehash_iterate.exit.thread:                     ; preds = %18
 
 filehash_start_iterate.exit19:                    ; preds = %126, %130, %filehash_iterate.exit.thread
   %.0.i18 = phi i32 [ -1, %filehash_iterate.exit.thread ], [ -1, %130 ], [ %.01113.i16, %126 ]
-  %134 = getelementptr inbounds i8, ptr %119, i64 24
-  %135 = getelementptr inbounds i8, ptr %119, i64 12
-  %136 = getelementptr inbounds i8, ptr %118, i64 24
+  %134 = getelementptr inbounds nuw i8, ptr %119, i64 24
+  %135 = getelementptr inbounds nuw i8, ptr %119, i64 12
+  %136 = getelementptr inbounds nuw i8, ptr %118, i64 24
   br label %137
 
 137:                                              ; preds = %filehash_iterate.exit22, %filehash_start_iterate.exit19
@@ -1182,9 +1182,9 @@ declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local
 define internal i32 @final_filemap_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %8 = load i32, ptr %7, align 8
   %9 = icmp ugt i32 %6, %8
   br i1 %9, label %18, label %10
@@ -1197,9 +1197,9 @@ define internal i32 @final_filemap_cmp(ptr nocapture noundef readonly %0, ptr no
   %12 = icmp eq i32 %6, 6
   %. = select i1 %12, ptr %4, ptr %3
   %.17 = select i1 %12, ptr %3, ptr %4
-  %13 = getelementptr inbounds i8, ptr %., i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %., i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %.17, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.17, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) %16) #12
   br label %18

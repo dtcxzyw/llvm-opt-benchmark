@@ -54,9 +54,9 @@ define internal range(i32 -1, 57) i32 @prolog0(ptr nocapture noundef writeonly %
   br label %.sink.split
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %4, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 120
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   %13 = load i32, ptr %12, align 8
   %14 = shl nsw i32 %13, 1
   %15 = sext i32 %14 to i64
@@ -100,9 +100,9 @@ define internal range(i32 -1, 57) i32 @prolog1(ptr nocapture noundef writeonly %
   br label %20
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %4, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 120
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 120
   %12 = load i32, ptr %11, align 8
   %13 = shl nsw i32 %12, 1
   %14 = sext i32 %13 to i64
@@ -168,7 +168,7 @@ define internal range(i32 -1, 9) i32 @doctype1(ptr nocapture noundef writeonly %
   br label %.sink.split
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %4, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef %4, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @KW_SYSTEM) #5
   %.not = icmp eq i32 %10, 0
@@ -207,9 +207,9 @@ define internal range(i32 -1, 58) i32 @internalSubset(ptr nocapture noundef writ
   ]
 
 6:                                                ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %4, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 120
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 120
   %10 = load i32, ptr %9, align 8
   %11 = shl nsw i32 %10, 1
   %12 = sext i32 %11 to i64
@@ -499,7 +499,7 @@ define internal range(i32 -1, 13) i32 @entity2(ptr nocapture noundef writeonly %
   ]
 
 6:                                                ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %4, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef %4, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @KW_SYSTEM) #5
   %.not = icmp eq i32 %9, 0
@@ -521,7 +521,7 @@ define internal range(i32 -1, 13) i32 @entity2(ptr nocapture noundef writeonly %
 
 15:                                               ; preds = %5
   store ptr @declClose, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 11, ptr %16, align 4
   br label %18
 
@@ -543,7 +543,7 @@ define internal range(i32 -1, 13) i32 @entity7(ptr nocapture noundef writeonly %
   ]
 
 6:                                                ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %4, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef %4, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @KW_SYSTEM) #5
   %.not = icmp eq i32 %9, 0
@@ -565,7 +565,7 @@ define internal range(i32 -1, 13) i32 @entity7(ptr nocapture noundef writeonly %
 
 15:                                               ; preds = %5
   store ptr @declClose, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 11, ptr %16, align 4
   br label %18
 
@@ -628,13 +628,13 @@ define internal i32 @declClose(ptr nocapture noundef %0, i32 noundef %1, ptr noc
   ]
 
 6:                                                ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %8 = load i32, ptr %7, align 4
   br label %13
 
 9:                                                ; preds = %5
   store ptr @internalSubset, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %11 = load i32, ptr %10, align 4
   br label %13
 
@@ -719,7 +719,7 @@ define internal range(i32 -1, 16) i32 @entity5(ptr nocapture noundef writeonly %
   ]
 
 6:                                                ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %4, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef %4, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @KW_NDATA) #5
   %.not = icmp eq i32 %9, 0
@@ -748,7 +748,7 @@ define internal range(i32 -1, 17) i32 @entity6(ptr nocapture noundef writeonly %
 
 6:                                                ; preds = %5
   store ptr @declClose, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 11, ptr %7, align 4
   br label %9
 
@@ -796,13 +796,13 @@ define internal range(i32 -1, 34) i32 @attlist2(ptr nocapture noundef writeonly 
   ]
 
 .preheader:                                       ; preds = %5
-  %6 = getelementptr inbounds i8, ptr %4, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 40
   br label %7
 
 7:                                                ; preds = %.preheader, %15
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %15 ]
   %8 = load ptr, ptr %6, align 8
-  %9 = getelementptr inbounds [8 x ptr], ptr @attlist2.types, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x ptr], ptr @attlist2.types, i64 0, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %8(ptr noundef %4, ptr noundef %2, ptr noundef %3, ptr noundef %10) #5
   %.not19 = icmp eq i32 %11, 0
@@ -851,9 +851,9 @@ define internal range(i32 -1, 38) i32 @attlist8(ptr nocapture noundef writeonly 
   ]
 
 6:                                                ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %4, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 120
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 120
   %10 = load i32, ptr %9, align 8
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i8, ptr %2, i64 %11
@@ -1038,7 +1038,7 @@ define internal range(i32 -1, 45) i32 @element1(ptr nocapture noundef writeonly 
   ]
 
 6:                                                ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %4, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef %4, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @KW_EMPTY) #5
   %.not = icmp eq i32 %9, 0
@@ -1046,7 +1046,7 @@ define internal range(i32 -1, 45) i32 @element1(ptr nocapture noundef writeonly 
 
 10:                                               ; preds = %6
   store ptr @declClose, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 39, ptr %11, align 4
   br label %20
 
@@ -1058,13 +1058,13 @@ define internal range(i32 -1, 45) i32 @element1(ptr nocapture noundef writeonly 
 
 15:                                               ; preds = %12
   store ptr @declClose, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 39, ptr %16, align 4
   br label %20
 
 17:                                               ; preds = %5
   store ptr @element2, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1, ptr %18, align 8
   br label %20
 
@@ -1091,9 +1091,9 @@ define internal range(i32 -1, 55) i32 @element2(ptr nocapture noundef writeonly 
   ]
 
 6:                                                ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %4, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 120
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 120
   %10 = load i32, ptr %9, align 8
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i8, ptr %2, i64 %11
@@ -1102,7 +1102,7 @@ define internal range(i32 -1, 55) i32 @element2(ptr nocapture noundef writeonly 
   br i1 %.not, label %19, label %.sink.split
 
 14:                                               ; preds = %5
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 2, ptr %15, align 8
   br label %.sink.split
 
@@ -1140,13 +1140,13 @@ define internal range(i32 -1, 47) i32 @element3(ptr nocapture noundef writeonly 
 
 6:                                                ; preds = %5
   store ptr @declClose, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 39, ptr %7, align 4
   br label %12
 
 8:                                                ; preds = %5
   store ptr @declClose, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 39, ptr %9, align 4
   br label %12
 
@@ -1176,7 +1176,7 @@ define internal range(i32 -1, 55) i32 @element6(ptr nocapture noundef %0, i32 no
   ]
 
 6:                                                ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = add i32 %8, 1
   store i32 %9, ptr %7, align 8
@@ -1220,7 +1220,7 @@ define internal range(i32 -1, 51) i32 @element7(ptr nocapture noundef %0, i32 no
   ]
 
 6:                                                ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 8
@@ -1229,12 +1229,12 @@ define internal range(i32 -1, 51) i32 @element7(ptr nocapture noundef %0, i32 no
 
 11:                                               ; preds = %6
   store ptr @declClose, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 39, ptr %12, align 4
   br label %37
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = add i32 %15, -1
   store i32 %16, ptr %14, align 8
@@ -1243,12 +1243,12 @@ define internal range(i32 -1, 51) i32 @element7(ptr nocapture noundef %0, i32 no
 
 18:                                               ; preds = %13
   store ptr @declClose, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 39, ptr %19, align 4
   br label %37
 
 20:                                               ; preds = %5
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = add i32 %22, -1
   store i32 %23, ptr %21, align 8
@@ -1257,12 +1257,12 @@ define internal range(i32 -1, 51) i32 @element7(ptr nocapture noundef %0, i32 no
 
 25:                                               ; preds = %20
   store ptr @declClose, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 39, ptr %26, align 4
   br label %37
 
 27:                                               ; preds = %5
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load i32, ptr %28, align 8
   %30 = add i32 %29, -1
   store i32 %30, ptr %28, align 8
@@ -1271,7 +1271,7 @@ define internal range(i32 -1, 51) i32 @element7(ptr nocapture noundef %0, i32 no
 
 32:                                               ; preds = %27
   store ptr @declClose, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 12
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 39, ptr %33, align 4
   br label %37
 
@@ -1324,7 +1324,7 @@ define internal range(i32 -1, 47) i32 @element5(ptr nocapture noundef writeonly 
 
 6:                                                ; preds = %5
   store ptr @declClose, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 39, ptr %7, align 4
   br label %10
 
@@ -1349,7 +1349,7 @@ define internal range(i32 -1, 18) i32 @notation1(ptr nocapture noundef writeonly
   ]
 
 6:                                                ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %4, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef %4, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @KW_SYSTEM) #5
   %.not = icmp eq i32 %9, 0
@@ -1384,7 +1384,7 @@ define internal range(i32 -1, 20) i32 @notation3(ptr nocapture noundef writeonly
 
 6:                                                ; preds = %5
   store ptr @declClose, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 17, ptr %7, align 4
   br label %9
 
@@ -1428,7 +1428,7 @@ define internal range(i32 -1, 21) i32 @notation4(ptr nocapture noundef writeonly
 
 6:                                                ; preds = %5
   store ptr @declClose, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 17, ptr %7, align 4
   br label %10
 

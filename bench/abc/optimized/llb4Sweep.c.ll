@@ -43,12 +43,12 @@ define void @Llb_Nonlin4SweepOrder_rec(ptr noundef %0, ptr nocapture noundef %1,
   %17 = ptrtoint ptr %.val47 to i64
   %18 = and i64 %17, -2
   %19 = inttoptr i64 %18 to ptr
-  %20 = getelementptr inbounds i8, ptr %15, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %21 = load i64, ptr %20, align 8
   %22 = lshr i64 %21, 32
   %23 = trunc nuw i64 %22 to i32
   %24 = and i32 %23, 16777215
-  %25 = getelementptr inbounds i8, ptr %19, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %26 = load i64, ptr %25, align 8
   %27 = lshr i64 %26, 32
   %28 = trunc nuw i64 %27 to i32
@@ -96,13 +96,13 @@ define noundef ptr @Llb_Nonlin4SweepOrder(ptr noundef %0, ptr noundef writeonly 
   %8 = add i32 %.val38.val, -1
   %or.cond.i.i = icmp ult i32 %8, 15
   %spec.store.select.i.i = select i1 %or.cond.i.i, i32 16, i32 %.val38.val
-  %9 = getelementptr inbounds i8, ptr %7, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %spec.store.select.i.i, ptr %7, align 8
   %.not.i.i = icmp eq i32 %spec.store.select.i.i, 0
   br i1 %.not.i.i, label %Vec_IntAlloc.exit.thread.i, label %Vec_IntAlloc.exit.i
 
 Vec_IntAlloc.exit.thread.i:                       ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %7, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr null, ptr %10, align 8
   store i32 %.val38.val, ptr %9, align 4
   br label %Vec_IntStartFull.exit
@@ -111,7 +111,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %3
   %11 = sext i32 %spec.store.select.i.i to i64
   %12 = shl nsw i64 %11, 2
   %13 = tail call noalias ptr @malloc(i64 noundef %12) #12
-  %14 = getelementptr inbounds i8, ptr %7, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %13, ptr %14, align 8
   store i32 %.val38.val, ptr %9, align 4
   %.not.i = icmp eq ptr %13, null
@@ -129,9 +129,9 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   %.val39 = load ptr, ptr %18, align 8
   %19 = getelementptr i8, ptr %0, i64 312
   %.val = load i32, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %.val39, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %.val39, i64 32
   store i32 %.val, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr i8, ptr %22, i64 4
   %.val3646 = load i32, ptr %23, align 4
@@ -143,7 +143,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   br label %31
 
 .critedge.preheader:                              ; preds = %31, %Vec_IntStartFull.exit
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr i8, ptr %27, i64 4
   %.val3748 = load i32, ptr %28, align 4
@@ -159,7 +159,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   %32 = phi ptr [ %22, %.lr.ph ], [ %45, %31 ]
   %33 = getelementptr i8, ptr %32, i64 8
   %.val40 = load ptr, ptr %33, align 8
-  %34 = getelementptr inbounds ptr, ptr %.val40, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw ptr, ptr %.val40, i64 %indvars.iv
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr i8, ptr %35, i64 36
   %.val32 = load i32, ptr %36, align 4
@@ -189,7 +189,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   %indvars.iv52 = phi i64 [ 0, %.lr.ph50 ], [ %indvars.iv.next53, %.critedge ]
   %51 = getelementptr i8, ptr %50, i64 8
   %.val41 = load ptr, ptr %51, align 8
-  %52 = getelementptr inbounds ptr, ptr %.val41, i64 %indvars.iv52
+  %52 = getelementptr inbounds nuw ptr, ptr %.val41, i64 %indvars.iv52
   %53 = load ptr, ptr %52, align 8
   %.val42 = load ptr, ptr %30, align 8
   %54 = getelementptr i8, ptr %53, i64 36
@@ -246,7 +246,7 @@ define i32 @Llb4_Nonlin4SweepCutpoints(ptr noundef %0, ptr nocapture noundef rea
   %.val102.val = load i32, ptr %6, align 4
   %7 = tail call ptr @Cudd_Init(i32 noundef %.val102.val, i32 noundef 0, i32 noundef 256, i32 noundef 262144, i64 noundef 0) #13
   tail call void @Aig_ManCleanData(ptr noundef %0) #13
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr i8, ptr %9, i64 4
   %.val101119 = load i32, ptr %10, align 4
@@ -273,7 +273,7 @@ define i32 @Llb4_Nonlin4SweepCutpoints(ptr noundef %0, ptr nocapture noundef rea
   %18 = phi ptr [ %9, %.lr.ph ], [ %28, %17 ]
   %19 = getelementptr i8, ptr %18, i64 8
   %.val105 = load ptr, ptr %19, align 8
-  %20 = getelementptr inbounds ptr, ptr %.val105, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw ptr, ptr %.val105, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
   %.val110 = load ptr, ptr %12, align 8
   %22 = getelementptr i8, ptr %21, i64 36
@@ -282,7 +282,7 @@ define i32 @Llb4_Nonlin4SweepCutpoints(ptr noundef %0, ptr nocapture noundef rea
   %24 = getelementptr inbounds i32, ptr %.val110, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = tail call ptr @Cudd_bddIthVar(ptr noundef %7, i32 noundef %25) #13
-  %27 = getelementptr inbounds i8, ptr %21, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 40
   store ptr %26, ptr %27, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %28 = load ptr, ptr %8, align 8
@@ -302,7 +302,7 @@ define i32 @Llb4_Nonlin4SweepCutpoints(ptr noundef %0, ptr nocapture noundef rea
   %.0123 = phi i32 [ 0, %.lr.ph124 ], [ %.2, %.critedge ]
   %35 = getelementptr i8, ptr %34, i64 8
   %.val104 = load ptr, ptr %35, align 8
-  %36 = getelementptr inbounds ptr, ptr %.val104, i64 %indvars.iv129
+  %36 = getelementptr inbounds nuw ptr, ptr %.val104, i64 %indvars.iv129
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
   br i1 %38, label %.critedge, label %39
@@ -322,7 +322,7 @@ define i32 @Llb4_Nonlin4SweepCutpoints(ptr noundef %0, ptr nocapture noundef rea
   %46 = ptrtoint ptr %.val92 to i64
   %47 = and i64 %46, -2
   %48 = inttoptr i64 %47 to ptr
-  %49 = getelementptr inbounds i8, ptr %48, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 40
   %50 = load ptr, ptr %49, align 8
   %51 = ptrtoint ptr %50 to i64
   %52 = and i64 %46, 1
@@ -333,7 +333,7 @@ define i32 @Llb4_Nonlin4SweepCutpoints(ptr noundef %0, ptr nocapture noundef rea
   %56 = ptrtoint ptr %.val98 to i64
   %57 = and i64 %56, -2
   %58 = inttoptr i64 %57 to ptr
-  %59 = getelementptr inbounds i8, ptr %58, i64 40
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 40
   %60 = load ptr, ptr %59, align 8
   %61 = ptrtoint ptr %60 to i64
   %62 = and i64 %56, 1
@@ -357,7 +357,7 @@ define i32 @Llb4_Nonlin4SweepCutpoints(ptr noundef %0, ptr nocapture noundef rea
   %72 = ptrtoint ptr %.val91 to i64
   %73 = and i64 %72, -2
   %74 = inttoptr i64 %73 to ptr
-  %75 = getelementptr inbounds i8, ptr %74, i64 40
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 40
   %76 = load ptr, ptr %75, align 8
   tail call void @Cudd_RecursiveDeref(ptr noundef %7, ptr noundef %76) #13
   %.val90 = load ptr, ptr %45, align 8
@@ -378,7 +378,7 @@ define i32 @Llb4_Nonlin4SweepCutpoints(ptr noundef %0, ptr nocapture noundef rea
   %86 = ptrtoint ptr %.val97 to i64
   %87 = and i64 %86, -2
   %88 = inttoptr i64 %87 to ptr
-  %89 = getelementptr inbounds i8, ptr %88, i64 40
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 40
   %90 = load ptr, ptr %89, align 8
   tail call void @Cudd_RecursiveDeref(ptr noundef %7, ptr noundef %90) #13
   %.val96 = load ptr, ptr %55, align 8
@@ -401,14 +401,14 @@ define i32 @Llb4_Nonlin4SweepCutpoints(ptr noundef %0, ptr nocapture noundef rea
   %100 = ptrtoint ptr %.val95.sink to i64
   %101 = and i64 %100, -2
   %102 = inttoptr i64 %101 to ptr
-  %103 = getelementptr inbounds i8, ptr %102, i64 40
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 40
   store ptr %.sink144, ptr %103, align 8
   tail call void @Cudd_Ref(ptr noundef %.sink144) #13
   %.val94.sink = load ptr, ptr %.val94.sink.in, align 8
   %104 = ptrtoint ptr %.val94.sink to i64
   %105 = and i64 %104, -2
   %106 = inttoptr i64 %105 to ptr
-  %107 = getelementptr inbounds i8, ptr %106, i64 24
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 24
   %108 = load i64, ptr %107, align 8
   %109 = or i64 %108, 16
   store i64 %109, ptr %107, align 8
@@ -416,7 +416,7 @@ define i32 @Llb4_Nonlin4SweepCutpoints(ptr noundef %0, ptr nocapture noundef rea
   %110 = ptrtoint ptr %.val to i64
   %111 = and i64 %110, -2
   %112 = inttoptr i64 %111 to ptr
-  %113 = getelementptr inbounds i8, ptr %112, i64 40
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 40
   %114 = load ptr, ptr %113, align 8
   %115 = ptrtoint ptr %114 to i64
   %116 = and i64 %110, 1
@@ -426,7 +426,7 @@ define i32 @Llb4_Nonlin4SweepCutpoints(ptr noundef %0, ptr nocapture noundef rea
   %119 = ptrtoint ptr %.val93 to i64
   %120 = and i64 %119, -2
   %121 = inttoptr i64 %120 to ptr
-  %122 = getelementptr inbounds i8, ptr %121, i64 40
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 40
   %123 = load ptr, ptr %122, align 8
   %124 = ptrtoint ptr %123 to i64
   %125 = and i64 %119, 1
@@ -440,7 +440,7 @@ define i32 @Llb4_Nonlin4SweepCutpoints(ptr noundef %0, ptr nocapture noundef rea
 130:                                              ; preds = %99, %44
   %.082 = phi ptr [ %128, %99 ], [ %65, %44 ]
   %.1 = phi i32 [ %129, %99 ], [ %.0123, %44 ]
-  %131 = getelementptr inbounds i8, ptr %37, i64 40
+  %131 = getelementptr inbounds nuw i8, ptr %37, i64 40
   store ptr %.082, ptr %131, align 8
   %.pre = load ptr, ptr %5, align 8
   br label %.critedge
@@ -460,7 +460,7 @@ define i32 @Llb4_Nonlin4SweepCutpoints(ptr noundef %0, ptr nocapture noundef rea
   %indvars.iv132 = phi i64 [ %indvars.iv.next133, %.critedge2 ], [ 0, %.critedge2.preheader ]
   %137 = getelementptr i8, ptr %136, i64 8
   %.val103 = load ptr, ptr %137, align 8
-  %138 = getelementptr inbounds ptr, ptr %.val103, i64 %indvars.iv132
+  %138 = getelementptr inbounds nuw ptr, ptr %.val103, i64 %indvars.iv132
   %139 = load ptr, ptr %138, align 8
   %140 = icmp eq ptr %139, null
   br i1 %140, label %.critedge2, label %141
@@ -475,7 +475,7 @@ define i32 @Llb4_Nonlin4SweepCutpoints(ptr noundef %0, ptr nocapture noundef rea
   br i1 %narrow.i118, label %.critedge2, label %146
 
 146:                                              ; preds = %141
-  %147 = getelementptr inbounds i8, ptr %139, i64 40
+  %147 = getelementptr inbounds nuw i8, ptr %139, i64 40
   %148 = load ptr, ptr %147, align 8
   tail call void @Cudd_RecursiveDeref(ptr noundef %7, ptr noundef %148) #13
   %.pre136 = load ptr, ptr %5, align 8
@@ -549,7 +549,7 @@ define ptr @Llb_Nonlin4SweepPartitions_rec(ptr noundef %0, ptr nocapture noundef
   br label %91
 
 16:                                               ; preds = %4
-  %17 = getelementptr inbounds i8, ptr %1, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %18 = load ptr, ptr %17, align 8
   %.not58 = icmp eq ptr %18, null
   br i1 %.not58, label %19, label %91
@@ -581,14 +581,14 @@ define ptr @Llb_Nonlin4SweepPartitions_rec(ptr noundef %0, ptr nocapture noundef
   %36 = tail call ptr @Cudd_bddIthVar(ptr noundef %0, i32 noundef %35) #13
   %37 = tail call ptr @Cudd_bddXnor(ptr noundef %0, ptr noundef %36, ptr noundef %29) #13
   tail call void @Cudd_Ref(ptr noundef %37) #13
-  %38 = getelementptr inbounds i8, ptr %3, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %39 = load i32, ptr %38, align 4
   %40 = load i32, ptr %3, align 8
   %41 = icmp eq i32 %39, %40
   br i1 %41, label %42, label %.Vec_PtrGrow.exit11_crit_edge.i
 
 .Vec_PtrGrow.exit11_crit_edge.i:                  ; preds = %30
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %Vec_PtrPush.exit
 
@@ -597,7 +597,7 @@ define ptr @Llb_Nonlin4SweepPartitions_rec(ptr noundef %0, ptr nocapture noundef
   br i1 %43, label %44, label %52
 
 44:                                               ; preds = %42
-  %45 = getelementptr inbounds i8, ptr %3, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %46 = load ptr, ptr %45, align 8
   %.not9.i.i = icmp eq ptr %46, null
   br i1 %.not9.i.i, label %49, label %47
@@ -618,7 +618,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %49, %47
 
 52:                                               ; preds = %42
   %53 = shl nuw nsw i32 %39, 1
-  %54 = getelementptr inbounds i8, ptr %3, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %55 = load ptr, ptr %54, align 8
   %.not9.i10.i = icmp eq ptr %55, null
   %56 = zext nneg i32 %53 to i64
@@ -699,14 +699,14 @@ declare ptr @Cudd_bddXnor(ptr noundef, ptr noundef, ptr noundef) local_unnamed_a
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define internal fastcc void @Vec_PtrPush(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = load i32, ptr %0, align 8
   %6 = icmp eq i32 %4, %5
   br i1 %6, label %7, label %.Vec_PtrGrow.exit11_crit_edge
 
 .Vec_PtrGrow.exit11_crit_edge:                    ; preds = %2
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %Vec_PtrGrow.exit11
 
@@ -715,7 +715,7 @@ define internal fastcc void @Vec_PtrPush(ptr nocapture noundef %0, ptr noundef %
   br i1 %8, label %9, label %17
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not9.i = icmp eq ptr %11, null
   br i1 %.not9.i, label %14, label %12
@@ -736,7 +736,7 @@ Vec_PtrGrow.exit:                                 ; preds = %12, %14
 
 17:                                               ; preds = %7
   %18 = shl nuw nsw i32 %4, 1
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not9.i10 = icmp eq ptr %20, null
   %21 = zext nneg i32 %18 to i64
@@ -772,11 +772,11 @@ Vec_PtrGrow.exit11:                               ; preds = %.Vec_PtrGrow.exit11
 define noundef ptr @Llb_Nonlin4SweepPartitions(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   tail call void @Aig_ManCleanData(ptr noundef %1) #13
   %5 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #12
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 0, ptr %6, align 4
   store i32 100, ptr %5, align 8
   %7 = tail call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #12
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %8, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %.preheader, label %.preheader46
@@ -788,7 +788,7 @@ define noundef ptr @Llb_Nonlin4SweepPartitions(ptr noundef %0, ptr noundef %1, p
   br i1 %10, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader46
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = getelementptr i8, ptr %1, i64 112
   br label %16
 
@@ -799,7 +799,7 @@ define noundef ptr @Llb_Nonlin4SweepPartitions(ptr noundef %0, ptr noundef %1, p
   br i1 %14, label %.lr.ph52, label %.critedge
 
 .lr.ph52:                                         ; preds = %.preheader
-  %15 = getelementptr inbounds i8, ptr %1, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %26
 
 16:                                               ; preds = %.lr.ph, %16
@@ -823,7 +823,7 @@ define noundef ptr @Llb_Nonlin4SweepPartitions(ptr noundef %0, ptr noundef %1, p
   %27 = load ptr, ptr %15, align 8
   %28 = getelementptr i8, ptr %27, i64 8
   %.val40 = load ptr, ptr %28, align 8
-  %29 = getelementptr inbounds ptr, ptr %.val40, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw ptr, ptr %.val40, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8
   %31 = tail call ptr @Llb_Nonlin4SweepPartitions_rec(ptr noundef %0, ptr noundef %30, ptr noundef %2, ptr noundef nonnull %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -833,7 +833,7 @@ define noundef ptr @Llb_Nonlin4SweepPartitions(ptr noundef %0, ptr noundef %1, p
   br i1 %33, label %26, label %.critedge, !llvm.loop !11
 
 .critedge:                                        ; preds = %16, %26, %.preheader46, %.preheader
-  %34 = getelementptr inbounds i8, ptr %1, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr i8, ptr %35, i64 4
   %.val53 = load i32, ptr %36, align 4
@@ -845,7 +845,7 @@ define noundef ptr @Llb_Nonlin4SweepPartitions(ptr noundef %0, ptr noundef %1, p
   %indvars.iv58 = phi i64 [ %indvars.iv.next59, %52 ], [ 0, %.critedge ]
   %39 = getelementptr i8, ptr %38, i64 8
   %.val39 = load ptr, ptr %39, align 8
-  %40 = getelementptr inbounds ptr, ptr %.val39, i64 %indvars.iv58
+  %40 = getelementptr inbounds nuw ptr, ptr %.val39, i64 %indvars.iv58
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, null
   br i1 %42, label %52, label %43
@@ -860,7 +860,7 @@ define noundef ptr @Llb_Nonlin4SweepPartitions(ptr noundef %0, ptr noundef %1, p
   br i1 %narrow.i, label %52, label %48
 
 48:                                               ; preds = %43
-  %49 = getelementptr inbounds i8, ptr %41, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %41, i64 40
   %50 = load ptr, ptr %49, align 8
   %.not38 = icmp eq ptr %50, null
   br i1 %.not38, label %52, label %51
@@ -885,7 +885,7 @@ define noundef ptr @Llb_Nonlin4SweepPartitions(ptr noundef %0, ptr noundef %1, p
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Llb4_Nonlin4SweepBadMonitor(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 752
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 752
   %5 = load i64, ptr %4, align 8
   store i64 0, ptr %4, align 8
   %6 = tail call ptr @Cudd_ReadOne(ptr noundef %2) #13
@@ -896,7 +896,7 @@ define noundef ptr @Llb4_Nonlin4SweepBadMonitor(ptr nocapture noundef readonly %
   br i1 %8, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = getelementptr i8, ptr %1, i64 8
   br label %11
 
@@ -906,7 +906,7 @@ define noundef ptr @Llb4_Nonlin4SweepBadMonitor(ptr nocapture noundef readonly %
   %12 = load ptr, ptr %9, align 8
   %13 = getelementptr i8, ptr %12, i64 8
   %.val = load ptr, ptr %13, align 8
-  %14 = getelementptr inbounds ptr, ptr %.val, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   %.val22 = load ptr, ptr %10, align 8
   %16 = getelementptr i8, ptr %15, i64 36
@@ -942,7 +942,7 @@ declare void @Cudd_Deref(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nofree nounwind uwtable
 define noalias noundef ptr @Llb_Nonlin4SweepVars2Q(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #5 {
   %calloc = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
-  %4 = getelementptr inbounds i8, ptr %calloc, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %calloc, i64 4
   %5 = getelementptr i8, ptr %0, i64 32
   %.val24 = load ptr, ptr %5, align 8
   %6 = getelementptr i8, ptr %.val24, i64 4
@@ -951,7 +951,7 @@ define noalias noundef ptr @Llb_Nonlin4SweepVars2Q(ptr nocapture noundef readonl
   br i1 %.not.i.i, label %.lr.ph.i, label %Vec_IntFill.exit
 
 .lr.ph.i:                                         ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %calloc, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %calloc, i64 8
   %8 = zext nneg i32 %.val24.val to i64
   %9 = shl nuw nsw i64 %8, 2
   %10 = tail call noalias ptr @malloc(i64 noundef %9) #12
@@ -961,7 +961,7 @@ define noalias noundef ptr @Llb_Nonlin4SweepVars2Q(ptr nocapture noundef readonl
 
 11:                                               ; preds = %11, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %11 ]
-  %12 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.i
   store i32 1, ptr %12, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %8
@@ -976,7 +976,7 @@ Vec_IntFill.exit:                                 ; preds = %11, %3
   br i1 %14, label %.lr.ph, label %.critedge2
 
 .lr.ph:                                           ; preds = %Vec_IntFill.exit
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = getelementptr i8, ptr %0, i64 108
   %17 = getelementptr i8, ptr %1, i64 8
   %.pre = load ptr, ptr %15, align 8
@@ -1009,7 +1009,7 @@ Vec_IntFill.exit:                                 ; preds = %11, %3
   br i1 %.not, label %.critedge2, label %.lr.ph39
 
 .lr.ph39:                                         ; preds = %.critedge
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = getelementptr i8, ptr %0, i64 112
   %34 = getelementptr i8, ptr %1, i64 8
   %.pre41 = load ptr, ptr %32, align 8
@@ -1055,7 +1055,7 @@ define void @Llb_Nonlin4SweepDeref(ptr noundef %0, ptr nocapture noundef %1) loc
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
   %.val7 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds ptr, ptr %.val7, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw ptr, ptr %.val7, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %8) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1065,7 +1065,7 @@ define void @Llb_Nonlin4SweepDeref(ptr noundef %0, ptr nocapture noundef %1) loc
   br i1 %10, label %6, label %.critedge, !llvm.loop !17
 
 .critedge:                                        ; preds = %6, %2
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %Vec_PtrFree.exit, label %13
@@ -1095,7 +1095,7 @@ define void @Llb_Nonlin4SweepPrint(ptr nocapture noundef readonly %0) local_unna
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
   %.val7 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds ptr, ptr %.val7, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw ptr, ptr %.val7, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 @Cudd_DagSize(ptr noundef %8) #13
   %10 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %9)
@@ -1113,7 +1113,7 @@ define void @Llb_Nonlin4SweepPrint(ptr nocapture noundef readonly %0) local_unna
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Llb4_Nonlin4SweepBadStates(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %calloc.i = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
-  %4 = getelementptr inbounds i8, ptr %calloc.i, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 4
   %5 = getelementptr i8, ptr %0, i64 32
   %.val24.i = load ptr, ptr %5, align 8
   %6 = getelementptr i8, ptr %.val24.i, i64 4
@@ -1122,7 +1122,7 @@ define noundef ptr @Llb4_Nonlin4SweepBadStates(ptr noundef %0, ptr noundef %1, i
   br i1 %.not.i.i.i, label %.lr.ph.i.i, label %Vec_IntFill.exit.i
 
 .lr.ph.i.i:                                       ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %calloc.i, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
   %8 = zext nneg i32 %.val24.val.i to i64
   %9 = shl nuw nsw i64 %8, 2
   %10 = tail call noalias ptr @malloc(i64 noundef %9) #12
@@ -1132,7 +1132,7 @@ define noundef ptr @Llb4_Nonlin4SweepBadStates(ptr noundef %0, ptr noundef %1, i
 
 11:                                               ; preds = %11, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %11 ]
-  %12 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv.i.i
+  %12 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.i.i
   store i32 1, ptr %12, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %8
@@ -1147,7 +1147,7 @@ Vec_IntFill.exit.i:                               ; preds = %11, %3
   br i1 %14, label %.lr.ph.i, label %Llb_Nonlin4SweepVars2Q.exit
 
 .lr.ph.i:                                         ; preds = %Vec_IntFill.exit.i
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = getelementptr i8, ptr %0, i64 108
   %17 = getelementptr i8, ptr %1, i64 8
   %.pre.i = load ptr, ptr %15, align 8
@@ -1197,7 +1197,7 @@ Llb_Nonlin4SweepVars2Q.exit:                      ; preds = %20, %Vec_IntFill.ex
 37:                                               ; preds = %37, %.lr.ph.i24
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i24 ], [ %indvars.iv.next.i, %37 ]
   %.val7.i = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds ptr, ptr %.val7.i, i64 %indvars.iv.i
+  %38 = getelementptr inbounds nuw ptr, ptr %.val7.i, i64 %indvars.iv.i
   %39 = load ptr, ptr %38, align 8
   tail call void @Cudd_RecursiveDeref(ptr noundef %30, ptr noundef %39) #13
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1207,7 +1207,7 @@ Llb_Nonlin4SweepVars2Q.exit:                      ; preds = %20, %Vec_IntFill.ex
   br i1 %41, label %37, label %.critedge.i23, !llvm.loop !17
 
 .critedge.i23:                                    ; preds = %37, %Llb_Nonlin4SweepVars2Q.exit
-  %42 = getelementptr inbounds i8, ptr %31, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %43 = load ptr, ptr %42, align 8
   %.not.i.i = icmp eq ptr %43, null
   br i1 %.not.i.i, label %Llb_Nonlin4SweepDeref.exit, label %44
@@ -1218,7 +1218,7 @@ Llb_Nonlin4SweepVars2Q.exit:                      ; preds = %20, %Vec_IntFill.ex
 
 Llb_Nonlin4SweepDeref.exit:                       ; preds = %.critedge.i23, %44
   tail call void @free(ptr noundef nonnull %31) #13
-  %45 = getelementptr inbounds i8, ptr %calloc.i, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
   %46 = load ptr, ptr %45, align 8
   %.not.i = icmp eq ptr %46, null
   br i1 %.not.i, label %Vec_IntFree.exit, label %47
@@ -1229,7 +1229,7 @@ Llb_Nonlin4SweepDeref.exit:                       ; preds = %.critedge.i23, %44
 
 Vec_IntFree.exit:                                 ; preds = %Llb_Nonlin4SweepDeref.exit, %47
   tail call void @free(ptr noundef nonnull %calloc.i) #13
-  %48 = getelementptr inbounds i8, ptr %30, i64 736
+  %48 = getelementptr inbounds nuw i8, ptr %30, i64 736
   store ptr %33, ptr %48, align 8
   ret ptr %30
 }
@@ -1241,7 +1241,7 @@ declare ptr @Llb_Nonlin4Image(ptr noundef, ptr noundef, ptr noundef, ptr noundef
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Llb4_Nonlin4SweepGroups(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %calloc.i = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
-  %7 = getelementptr inbounds i8, ptr %calloc.i, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 4
   %8 = getelementptr i8, ptr %0, i64 32
   %.val24.i = load ptr, ptr %8, align 8
   %9 = getelementptr i8, ptr %.val24.i, i64 4
@@ -1250,7 +1250,7 @@ define noundef ptr @Llb4_Nonlin4SweepGroups(ptr noundef %0, ptr noundef %1, i32 
   br i1 %.not.i.i.i, label %.lr.ph.i.i, label %Vec_IntFill.exit.i
 
 .lr.ph.i.i:                                       ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %calloc.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
   %11 = zext nneg i32 %.val24.val.i to i64
   %12 = shl nuw nsw i64 %11, 2
   %13 = tail call noalias ptr @malloc(i64 noundef %12) #12
@@ -1260,7 +1260,7 @@ define noundef ptr @Llb4_Nonlin4SweepGroups(ptr noundef %0, ptr noundef %1, i32 
 
 14:                                               ; preds = %14, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %14 ]
-  %15 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv.i.i
+  %15 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.i.i
   store i32 1, ptr %15, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %11
@@ -1275,7 +1275,7 @@ Vec_IntFill.exit.i:                               ; preds = %14, %6
   br i1 %17, label %.lr.ph.i, label %Llb_Nonlin4SweepVars2Q.exit
 
 .lr.ph.i:                                         ; preds = %Vec_IntFill.exit.i
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = getelementptr i8, ptr %0, i64 108
   %20 = getelementptr i8, ptr %1, i64 8
   %.pre.i = load ptr, ptr %18, align 8
@@ -1305,7 +1305,7 @@ Vec_IntFill.exit.i:                               ; preds = %14, %6
   br i1 %exitcond.not, label %.critedge.i, label %23, !llvm.loop !15
 
 .critedge.i:                                      ; preds = %23
-  %33 = getelementptr inbounds i8, ptr %0, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %34 = getelementptr i8, ptr %0, i64 112
   %.pre41.i = load ptr, ptr %33, align 8
   %.val33.pre.i = load i32, ptr %34, align 8
@@ -1349,7 +1349,7 @@ Llb_Nonlin4SweepVars2Q.exit:                      ; preds = %37, %Vec_IntFill.ex
 53:                                               ; preds = %53, %.lr.ph.i18
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i18 ], [ %indvars.iv.next.i, %53 ]
   %.val7.i = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds ptr, ptr %.val7.i, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw ptr, ptr %.val7.i, i64 %indvars.iv.i
   %55 = load ptr, ptr %54, align 8
   tail call void @Cudd_RecursiveDeref(ptr noundef %47, ptr noundef %55) #13
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1359,7 +1359,7 @@ Llb_Nonlin4SweepVars2Q.exit:                      ; preds = %37, %Vec_IntFill.ex
   br i1 %57, label %53, label %.critedge.i17, !llvm.loop !17
 
 .critedge.i17:                                    ; preds = %53, %Llb_Nonlin4SweepVars2Q.exit
-  %58 = getelementptr inbounds i8, ptr %48, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %59 = load ptr, ptr %58, align 8
   %.not.i.i = icmp eq ptr %59, null
   br i1 %.not.i.i, label %Llb_Nonlin4SweepDeref.exit, label %60
@@ -1390,7 +1390,7 @@ Llb_Nonlin4SweepDeref.exit:                       ; preds = %.critedge.i17, %60
 68:                                               ; preds = %68, %.lr.ph.i22
   %indvars.iv.i23 = phi i64 [ 0, %.lr.ph.i22 ], [ %indvars.iv.next.i25, %68 ]
   %.val7.i24 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds ptr, ptr %.val7.i24, i64 %indvars.iv.i23
+  %69 = getelementptr inbounds nuw ptr, ptr %.val7.i24, i64 %indvars.iv.i23
   %70 = load ptr, ptr %69, align 8
   %71 = tail call i32 @Cudd_DagSize(ptr noundef %70) #13
   %72 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %71)
@@ -1405,7 +1405,7 @@ Llb_Nonlin4SweepPrint.exit:                       ; preds = %68, %61
   br label %75
 
 75:                                               ; preds = %Llb_Nonlin4SweepPrint.exit, %Llb_Nonlin4SweepDeref.exit
-  %76 = getelementptr inbounds i8, ptr %calloc.i, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
   %77 = load ptr, ptr %76, align 8
   %.not.i = icmp eq ptr %77, null
   br i1 %.not.i, label %Vec_IntFree.exit, label %78
@@ -1431,7 +1431,7 @@ define void @Llb_Nonlin4SweepPrintSuppProfile(ptr noundef %0, ptr nocapture noun
   %10 = getelementptr i8, ptr %3, i64 4
   %.val64 = load i32, ptr %10, align 4
   %11 = tail call ptr @Extra_VectorSupportArray(ptr noundef %0, ptr noundef %.val71, i32 noundef %.val64, ptr noundef %8) #13
-  %12 = getelementptr inbounds i8, ptr %1, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr i8, ptr %13, i64 4
   %.val63101 = load i32, ptr %14, align 4
@@ -1455,7 +1455,7 @@ define void @Llb_Nonlin4SweepPrintSuppProfile(ptr noundef %0, ptr nocapture noun
   %.050103 = phi i32 [ 0, %.lr.ph ], [ %.151, %53 ]
   %21 = getelementptr i8, ptr %20, i64 8
   %.val65 = load ptr, ptr %21, align 8
-  %22 = getelementptr inbounds ptr, ptr %.val65, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw ptr, ptr %.val65, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %53, label %25
@@ -1472,7 +1472,7 @@ define void @Llb_Nonlin4SweepPrintSuppProfile(ptr noundef %0, ptr nocapture noun
 
 31:                                               ; preds = %25
   %32 = zext nneg i32 %29 to i64
-  %33 = getelementptr inbounds i32, ptr %8, i64 %32
+  %33 = getelementptr inbounds nuw i32, ptr %8, i64 %32
   %34 = load i32, ptr %33, align 4
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %36, label %42
@@ -1599,7 +1599,7 @@ define void @Llb4_Nonlin4Sweep(ptr noundef %0, i32 noundef %1, i32 noundef %2, p
   tail call void @Aig_ManCleanMarkA(ptr noundef %0) #13
   %10 = call ptr @Llb_Nonlin4SweepOrder(ptr noundef %0, ptr noundef nonnull %9, i32 noundef 1)
   %11 = call i32 @Llb4_Nonlin4SweepCutpoints(ptr noundef %0, ptr noundef %10, i32 noundef %1, i32 noundef %6)
-  %12 = getelementptr inbounds i8, ptr %10, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %Vec_IntFree.exit, label %14
@@ -1624,10 +1624,10 @@ Vec_IntFree.exit:                                 ; preds = %7, %14
   %.val39 = load i32, ptr %18, align 4
   %22 = add nsw i32 %21, %.val39
   %23 = call ptr @Llb4_Nonlin4SweepGroups(ptr noundef %0, ptr noundef %15, i32 noundef %22, ptr noundef nonnull %8, i32 noundef %2, i32 noundef %6)
-  %24 = getelementptr inbounds i8, ptr %20, i64 736
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 736
   %25 = load ptr, ptr %24, align 8
   %26 = call ptr @Cudd_bddTransfer(ptr noundef %20, ptr noundef %23, ptr noundef %25) #13
-  %27 = getelementptr inbounds i8, ptr %23, i64 736
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 736
   store ptr %26, ptr %27, align 8
   call void @Cudd_Ref(ptr noundef %26) #13
   %28 = load ptr, ptr %24, align 8
@@ -1666,7 +1666,7 @@ define void @Llb4_Nonlin4SweepExperiment(ptr noundef %0) local_unnamed_addr #1 {
 10:                                               ; preds = %10, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %10 ]
   %.val7.i = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds ptr, ptr %.val7.i, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw ptr, ptr %.val7.i, i64 %indvars.iv.i
   %12 = load ptr, ptr %11, align 8
   tail call void @Cudd_RecursiveDeref(ptr noundef %5, ptr noundef %12) #13
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1676,7 +1676,7 @@ define void @Llb4_Nonlin4SweepExperiment(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %14, label %10, label %.critedge.i, !llvm.loop !17
 
 .critedge.i:                                      ; preds = %10, %1
-  %15 = getelementptr inbounds i8, ptr %6, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i, label %Llb_Nonlin4SweepDeref.exit, label %17
@@ -1687,12 +1687,12 @@ define void @Llb4_Nonlin4SweepExperiment(ptr noundef %0) local_unnamed_addr #1 {
 
 Llb_Nonlin4SweepDeref.exit:                       ; preds = %.critedge.i, %17
   tail call void @free(ptr noundef nonnull %6) #13
-  %18 = getelementptr inbounds i8, ptr %5, i64 736
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 736
   %19 = load ptr, ptr %18, align 8
   tail call void @Cudd_RecursiveDeref(ptr noundef %5, ptr noundef %19) #13
   tail call void @Extra_StopManager(ptr noundef %5) #13
   %20 = load ptr, ptr %3, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
   %.not.i = icmp eq ptr %22, null
   br i1 %.not.i, label %Vec_IntFree.exit, label %23

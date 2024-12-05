@@ -1037,7 +1037,7 @@ define internal fastcc ptr @_build_cluster_string() unnamed_addr #7 {
   %12 = load ptr, ptr %11, align 8
   %13 = call ptr @xstrdup(ptr noundef %12) #17
   store ptr %13, ptr @fed_name, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = call i32 @list_for_each(ptr noundef %15, ptr noundef nonnull @_foreach_cluster_list_to_str, ptr noundef nonnull %1) #17
   br label %17
@@ -1113,7 +1113,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   br label %_cluster_rep.exit
 
 26:                                               ; preds = %18
-  %27 = getelementptr inbounds i8, ptr %1, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = tail call i32 @xstrncasecmp(ptr noundef %28, ptr noundef nonnull @.str.60, i64 noundef 1) #17
   %30 = icmp eq i32 %29, 0
@@ -1121,7 +1121,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 31:                                               ; preds = %26
   %32 = add nsw i32 %0, -2
-  %33 = getelementptr inbounds i8, ptr %1, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %34 = tail call i32 @cluster_account_by_user(i32 noundef %32, ptr noundef nonnull %33) #17
   br label %86
 
@@ -1139,7 +1139,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 43:                                               ; preds = %39, %35
   %44 = add nsw i32 %0, -2
-  %45 = getelementptr inbounds i8, ptr %1, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %46 = tail call i32 @cluster_user_by_account(i32 noundef %44, ptr noundef nonnull %45) #17
   br label %86
 
@@ -1157,7 +1157,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 55:                                               ; preds = %51, %47
   %56 = add nsw i32 %0, -2
-  %57 = getelementptr inbounds i8, ptr %1, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %58 = tail call i32 @cluster_user_by_wckey(i32 noundef %56, ptr noundef nonnull %57) #17
   br label %86
 
@@ -1178,7 +1178,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 67:                                               ; preds = %63
   %68 = add nsw i32 %0, -2
-  %69 = getelementptr inbounds i8, ptr %1, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %70 = tail call i32 @cluster_utilization(i32 noundef %68, ptr noundef nonnull %69) #17
   br label %86
 
@@ -1190,7 +1190,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 75:                                               ; preds = %71
   %76 = add nsw i32 %0, -2
-  %77 = getelementptr inbounds i8, ptr %1, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %78 = tail call i32 @cluster_wckey_by_user(i32 noundef %76, ptr noundef nonnull %77) #17
   br label %86
 
@@ -1260,7 +1260,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   br label %_cluster_rep.exit
 
 113:                                              ; preds = %105
-  %114 = getelementptr inbounds i8, ptr %1, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %115 = load ptr, ptr %114, align 8
   %116 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %115) #21
   %117 = trunc i64 %116 to i32
@@ -1272,7 +1272,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 121:                                              ; preds = %113
   %122 = add nsw i32 %0, -2
-  %123 = getelementptr inbounds i8, ptr %1, i64 16
+  %123 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %124 = tail call i32 @job_sizes_grouped_by_acct(i32 noundef %122, ptr noundef nonnull %123) #17
   br label %152
 
@@ -1286,7 +1286,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 130:                                              ; preds = %125
   %131 = add nsw i32 %0, -2
-  %132 = getelementptr inbounds i8, ptr %1, i64 16
+  %132 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %133 = tail call i32 @job_sizes_grouped_by_wckey(i32 noundef %131, ptr noundef nonnull %132) #17
   br label %152
 
@@ -1300,7 +1300,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 139:                                              ; preds = %134
   %140 = add nsw i32 %0, -2
-  %141 = getelementptr inbounds i8, ptr %1, i64 16
+  %141 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %142 = tail call i32 @job_sizes_grouped_by_acct_and_wckey(i32 noundef %140, ptr noundef nonnull %141) #17
   br label %152
 
@@ -1502,7 +1502,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 246:                                              ; preds = %238
   %247 = add nsw i32 %0, -1
-  %248 = getelementptr inbounds i8, ptr %1, i64 8
+  %248 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call fastcc void @_resv_rep(i32 noundef %247, ptr noundef nonnull %248)
   br label %_cluster_rep.exit
 
@@ -1524,7 +1524,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   br label %_cluster_rep.exit
 
 259:                                              ; preds = %253
-  %260 = getelementptr inbounds i8, ptr %1, i64 8
+  %260 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %261 = load ptr, ptr %260, align 8
   tail call fastcc void @_set_sort(ptr noundef %261)
   br label %_cluster_rep.exit
@@ -1547,7 +1547,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   br label %_cluster_rep.exit
 
 272:                                              ; preds = %266
-  %273 = getelementptr inbounds i8, ptr %1, i64 8
+  %273 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %274 = load ptr, ptr %273, align 8
   tail call fastcc void @_set_time_format(ptr noundef %274)
   br label %_cluster_rep.exit
@@ -1618,7 +1618,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 307:                                              ; preds = %299
   %308 = add nsw i32 %0, -1
-  %309 = getelementptr inbounds i8, ptr %1, i64 8
+  %309 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call fastcc void @_user_rep(i32 noundef %308, ptr noundef nonnull %309)
   br label %_cluster_rep.exit
 
@@ -1661,7 +1661,7 @@ define internal noundef i32 @_foreach_cluster_list_to_str(ptr nocapture noundef 
   %3 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %3, null
   %4 = select i1 %.not, ptr @.str.33, ptr @.str.32
-  %5 = getelementptr inbounds i8, ptr %0, i64 272
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %6 = load ptr, ptr %5, align 8
   tail call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %1, ptr noundef nonnull @.str.31, ptr noundef nonnull %4, ptr noundef %6) #17
   ret i32 0
@@ -1734,7 +1734,7 @@ define internal fastcc void @_resv_rep(i32 noundef range(i32 1, 2147483647) %0, 
 
 6:                                                ; preds = %2
   %7 = add nsw i32 %0, -1
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = tail call i32 @resv_utilization(i32 noundef %7, ptr noundef nonnull %8) #17
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %19, label %18
@@ -1767,7 +1767,7 @@ define internal fastcc void @_user_rep(i32 noundef range(i32 1, 2147483647) %0, 
 
 6:                                                ; preds = %2
   %7 = add nsw i32 %0, -1
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = tail call i32 @user_top(i32 noundef %7, ptr noundef nonnull %8) #17
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %19, label %18

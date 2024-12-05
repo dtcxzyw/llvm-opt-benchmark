@@ -341,7 +341,7 @@ define hidden noundef i32 @_ZN9Bytecodes17special_length_atENS_4CodeEPhS1_(i32 n
 
 4:                                                ; preds = %3
   %.not37 = icmp eq ptr %2, null
-  %5 = getelementptr inbounds i8, ptr %1, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %.not38 = icmp ult ptr %5, %2
   %or.cond = select i1 %.not37, i1 true, i1 %.not38
   br i1 %or.cond, label %6, label %_ZN9Bytecodes15wide_length_forENS_4CodeE.exit
@@ -353,29 +353,29 @@ define hidden noundef i32 @_ZN9Bytecodes17special_length_atENS_4CodeEPhS1_(i32 n
 
 9:                                                ; preds = %6
   %10 = zext i8 %7 to i64
-  %11 = getelementptr inbounds [239 x i8], ptr @_ZN9Bytecodes8_lengthsE, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw [239 x i8], ptr @_ZN9Bytecodes8_lengthsE, i64 0, i64 %10
   %12 = load i8, ptr %11, align 1
   %13 = lshr i8 %12, 4
   %14 = zext nneg i8 %13 to i32
   br label %_ZN9Bytecodes15wide_length_forENS_4CodeE.exit
 
 15:                                               ; preds = %3
-  %16 = getelementptr inbounds i8, ptr %1, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %17 = ptrtoint ptr %16 to i64
   %18 = add i64 %17, 3
   %19 = and i64 %18, -4
   %20 = inttoptr i64 %19 to ptr
   %.not34 = icmp eq ptr %2, null
-  %21 = getelementptr inbounds i8, ptr %20, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 12
   %.not35 = icmp ult ptr %21, %2
   %or.cond39 = select i1 %.not34, i1 true, i1 %.not35
   br i1 %or.cond39, label %22, label %_ZN9Bytecodes15wide_length_forENS_4CodeE.exit
 
 22:                                               ; preds = %15
-  %23 = getelementptr inbounds i8, ptr %20, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %.0.i.i.i = load i32, ptr %23, align 4
   %24 = tail call noundef i32 @llvm.bswap.i32(i32 %.0.i.i.i)
-  %25 = getelementptr inbounds i8, ptr %20, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %.0.i.i.i42 = load i32, ptr %25, align 4
   %26 = tail call noundef i32 @llvm.bswap.i32(i32 %.0.i.i.i42)
   %.not36 = icmp sgt i32 %24, %26
@@ -397,19 +397,19 @@ define hidden noundef i32 @_ZN9Bytecodes17special_length_atENS_4CodeEPhS1_(i32 n
   br label %_ZN9Bytecodes15wide_length_forENS_4CodeE.exit
 
 38:                                               ; preds = %3, %3, %3
-  %39 = getelementptr inbounds i8, ptr %1, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %40 = ptrtoint ptr %39 to i64
   %41 = add i64 %40, 3
   %42 = and i64 %41, -4
   %43 = inttoptr i64 %42 to ptr
   %.not = icmp eq ptr %2, null
-  %44 = getelementptr inbounds i8, ptr %43, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %.not33 = icmp ult ptr %44, %2
   %or.cond40 = select i1 %.not, i1 true, i1 %.not33
   br i1 %or.cond40, label %45, label %_ZN9Bytecodes15wide_length_forENS_4CodeE.exit
 
 45:                                               ; preds = %38
-  %46 = getelementptr inbounds i8, ptr %43, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %.0.i.i.i43 = load i32, ptr %46, align 4
   %47 = tail call noundef i32 @llvm.bswap.i32(i32 %.0.i.i.i43)
   %48 = icmp sgt i32 %47, -1
@@ -458,12 +458,12 @@ define hidden void @_ZN9Bytecodes9def_flagsENS_4CodeEPKcS2_bS0_(i32 noundef %0, 
   %7 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef %1, i16 noundef zeroext %.1)
   %8 = and i32 %0, 255
   %9 = zext nneg i32 %8 to i64
-  %10 = getelementptr inbounds [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %9
   store i16 %7, ptr %10, align 2
   %11 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef %2, i16 noundef zeroext %.1)
   %12 = or disjoint i32 %8, 256
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %13
   store i16 %11, ptr %14, align 2
   ret void
 }
@@ -487,11 +487,11 @@ define hidden noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef
 
 8:                                                ; preds = %4
   %9 = or i16 %1, 1024
-  %10 = getelementptr inbounds i8, ptr %0, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1
   br label %.outer.preheader
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %0, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %13 = load i8, ptr %12, align 1
   %14 = icmp eq i8 %13, 98
   br i1 %14, label %17, label %15
@@ -504,7 +504,7 @@ define hidden noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef
 
 17:                                               ; preds = %11
   %18 = or i16 %1, 3072
-  %19 = getelementptr inbounds i8, ptr %0, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 2
   br label %.outer.preheader
 
 .outer.preheader:                                 ; preds = %17, %8, %6, %4
@@ -522,7 +522,7 @@ define hidden noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef
 
 20:                                               ; preds = %.outer, %20
   %.144 = phi ptr [ %21, %20 ], [ %.144.ph, %.outer ]
-  %21 = getelementptr inbounds i8, ptr %.144, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %.144, i64 1
   %22 = load i8, ptr %.144, align 1
   switch i8 %22, label %27 [
     i8 0, label %.loopexit
@@ -598,7 +598,7 @@ define hidden noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef
 .preheader:                                       ; preds = %34, %.preheader
   %.2 = phi ptr [ %39, %.preheader ], [ %21, %34 ]
   %.0 = phi i32 [ %42, %.preheader ], [ 2, %34 ]
-  %39 = getelementptr inbounds i8, ptr %.2, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   %40 = load i8, ptr %39, align 1
   %41 = icmp eq i8 %40, %22
   %42 = add nuw nsw i32 %.0, 1
@@ -665,733 +665,733 @@ define hidden void @_ZN9Bytecodes10initializeEv() local_unnamed_addr #1 align 2 
 3:                                                ; preds = %0
   %4 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
   store i16 %4, ptr @_ZN9Bytecodes6_flagsE, align 16
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 512), align 16
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 512), align 16
   %5 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %5, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 2), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 514), align 2
+  store i16 %5, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 2), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 514), align 2
   %6 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %6, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 4), align 4
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 516), align 4
+  store i16 %6, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 4), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 516), align 4
   %7 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %7, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 6), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 518), align 2
+  store i16 %7, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 6), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 518), align 2
   %8 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %8, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 8), align 8
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 520), align 8
+  store i16 %8, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 8), align 8
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 520), align 8
   %9 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %9, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 10), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 522), align 2
+  store i16 %9, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 10), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 522), align 2
   %10 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %10, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 12), align 4
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 524), align 4
+  store i16 %10, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 12), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 524), align 4
   %11 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %11, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 14), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 526), align 2
+  store i16 %11, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 14), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 526), align 2
   %12 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %12, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 16), align 16
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 528), align 16
+  store i16 %12, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 16), align 16
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 528), align 16
   %13 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %13, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 18), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 530), align 2
+  store i16 %13, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 18), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 530), align 2
   %14 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %14, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 20), align 4
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 532), align 4
+  store i16 %14, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 20), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 532), align 4
   %15 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %15, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 22), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 534), align 2
+  store i16 %15, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 22), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 534), align 2
   %16 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %16, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 24), align 8
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 536), align 8
+  store i16 %16, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 24), align 8
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 536), align 8
   %17 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %17, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 26), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 538), align 2
+  store i16 %17, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 26), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 538), align 2
   %18 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %18, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 28), align 4
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 540), align 4
+  store i16 %18, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 28), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 540), align 4
   %19 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %19, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 30), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 542), align 2
+  store i16 %19, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 30), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 542), align 2
   %20 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.253, i16 noundef zeroext 0)
-  store i16 %20, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 32), align 16
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 544), align 16
+  store i16 %20, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 32), align 16
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 544), align 16
   %21 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.254, i16 noundef zeroext 0)
-  store i16 %21, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 34), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 546), align 2
+  store i16 %21, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 34), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 546), align 2
   %22 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.255, i16 noundef zeroext 1)
-  store i16 %22, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 36), align 4
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 548), align 4
+  store i16 %22, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 36), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 548), align 4
   %23 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.256, i16 noundef zeroext 1)
-  store i16 %23, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 38), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 550), align 2
+  store i16 %23, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 38), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 550), align 2
   %24 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.256, i16 noundef zeroext 1)
-  store i16 %24, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 40), align 8
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 552), align 8
+  store i16 %24, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 40), align 8
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 552), align 8
   %25 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.257, i16 noundef zeroext 0)
-  store i16 %25, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 42), align 2
+  store i16 %25, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 42), align 2
   %26 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.258, i16 noundef zeroext 0)
-  store i16 %26, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 554), align 2
+  store i16 %26, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 554), align 2
   %27 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.257, i16 noundef zeroext 0)
-  store i16 %27, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 44), align 4
+  store i16 %27, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 44), align 4
   %28 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.258, i16 noundef zeroext 0)
-  store i16 %28, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 556), align 4
+  store i16 %28, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 556), align 4
   %29 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.257, i16 noundef zeroext 0)
-  store i16 %29, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 46), align 2
+  store i16 %29, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 46), align 2
   %30 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.258, i16 noundef zeroext 0)
-  store i16 %30, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 558), align 2
+  store i16 %30, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 558), align 2
   %31 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.257, i16 noundef zeroext 0)
-  store i16 %31, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 48), align 16
+  store i16 %31, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 48), align 16
   %32 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.258, i16 noundef zeroext 0)
-  store i16 %32, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 560), align 16
+  store i16 %32, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 560), align 16
   %33 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.257, i16 noundef zeroext 0)
-  store i16 %33, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 50), align 2
+  store i16 %33, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 50), align 2
   %34 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.258, i16 noundef zeroext 0)
-  store i16 %34, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 562), align 2
+  store i16 %34, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 562), align 2
   %35 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %35, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 52), align 4
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 564), align 4
+  store i16 %35, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 52), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 564), align 4
   %36 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %36, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 54), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 566), align 2
+  store i16 %36, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 54), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 566), align 2
   %37 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %37, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 56), align 8
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 568), align 8
+  store i16 %37, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 56), align 8
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 568), align 8
   %38 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %38, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 58), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 570), align 2
+  store i16 %38, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 58), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 570), align 2
   %39 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %39, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 60), align 4
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 572), align 4
+  store i16 %39, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 60), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 572), align 4
   %40 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %40, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 62), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 574), align 2
+  store i16 %40, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 62), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 574), align 2
   %41 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %41, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 64), align 16
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 576), align 16
+  store i16 %41, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 64), align 16
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 576), align 16
   %42 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %42, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 66), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 578), align 2
+  store i16 %42, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 66), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 578), align 2
   %43 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %43, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 68), align 4
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 580), align 4
+  store i16 %43, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 68), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 580), align 4
   %44 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %44, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 70), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 582), align 2
+  store i16 %44, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 70), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 582), align 2
   %45 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %45, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 72), align 8
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 584), align 8
+  store i16 %45, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 72), align 8
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 584), align 8
   %46 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %46, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 74), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 586), align 2
+  store i16 %46, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 74), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 586), align 2
   %47 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %47, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 76), align 4
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 588), align 4
+  store i16 %47, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 76), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 588), align 4
   %48 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %48, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 78), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 590), align 2
+  store i16 %48, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 78), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 590), align 2
   %49 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %49, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 80), align 16
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 592), align 16
+  store i16 %49, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 80), align 16
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 592), align 16
   %50 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %50, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 82), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 594), align 2
+  store i16 %50, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 82), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 594), align 2
   %51 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 1)
-  store i16 %51, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 84), align 4
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 596), align 4
+  store i16 %51, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 84), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 596), align 4
   %52 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %52, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 86), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 598), align 2
+  store i16 %52, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 86), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 598), align 2
   %53 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %53, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 88), align 8
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 600), align 8
+  store i16 %53, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 88), align 8
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 600), align 8
   %54 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %54, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 90), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 602), align 2
+  store i16 %54, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 90), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 602), align 2
   %55 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 1)
-  store i16 %55, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 92), align 4
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 604), align 4
+  store i16 %55, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 92), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 604), align 4
   %56 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 1)
-  store i16 %56, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 94), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 606), align 2
+  store i16 %56, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 94), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 606), align 2
   %57 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 1)
-  store i16 %57, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 96), align 16
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 608), align 16
+  store i16 %57, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 96), align 16
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 608), align 16
   %58 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 1)
-  store i16 %58, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 98), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 610), align 2
+  store i16 %58, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 98), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 610), align 2
   %59 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 1)
-  store i16 %59, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 100), align 4
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 612), align 4
+  store i16 %59, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 100), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 612), align 4
   %60 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 1)
-  store i16 %60, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 102), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 614), align 2
+  store i16 %60, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 102), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 614), align 2
   %61 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 1)
-  store i16 %61, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 104), align 8
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 616), align 8
+  store i16 %61, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 104), align 8
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 616), align 8
   %62 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 1)
-  store i16 %62, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 106), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 618), align 2
+  store i16 %62, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 106), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 618), align 2
   %63 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.257, i16 noundef zeroext 0)
-  store i16 %63, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 108), align 4
+  store i16 %63, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 108), align 4
   %64 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.258, i16 noundef zeroext 0)
-  store i16 %64, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 620), align 4
+  store i16 %64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 620), align 4
   %65 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.257, i16 noundef zeroext 0)
-  store i16 %65, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 110), align 2
+  store i16 %65, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 110), align 2
   %66 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.258, i16 noundef zeroext 0)
-  store i16 %66, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 622), align 2
+  store i16 %66, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 622), align 2
   %67 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.257, i16 noundef zeroext 0)
-  store i16 %67, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 112), align 16
+  store i16 %67, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 112), align 16
   %68 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.258, i16 noundef zeroext 0)
-  store i16 %68, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 624), align 16
+  store i16 %68, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 624), align 16
   %69 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.257, i16 noundef zeroext 0)
-  store i16 %69, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 114), align 2
+  store i16 %69, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 114), align 2
   %70 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.258, i16 noundef zeroext 0)
-  store i16 %70, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 626), align 2
+  store i16 %70, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 626), align 2
   %71 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.257, i16 noundef zeroext 0)
-  store i16 %71, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 116), align 4
+  store i16 %71, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 116), align 4
   %72 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.258, i16 noundef zeroext 0)
-  store i16 %72, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 628), align 4
+  store i16 %72, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 628), align 4
   %73 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %73, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 118), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 630), align 2
+  store i16 %73, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 118), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 630), align 2
   %74 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %74, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 120), align 8
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 632), align 8
+  store i16 %74, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 120), align 8
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 632), align 8
   %75 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %75, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 122), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 634), align 2
+  store i16 %75, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 122), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 634), align 2
   %76 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %76, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 124), align 4
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 636), align 4
+  store i16 %76, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 124), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 636), align 4
   %77 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %77, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 126), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 638), align 2
+  store i16 %77, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 126), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 638), align 2
   %78 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %78, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 128), align 16
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 640), align 16
+  store i16 %78, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 128), align 16
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 640), align 16
   %79 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %79, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 130), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 642), align 2
+  store i16 %79, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 130), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 642), align 2
   %80 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %80, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 132), align 4
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 644), align 4
+  store i16 %80, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 132), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 644), align 4
   %81 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %81, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 134), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 646), align 2
+  store i16 %81, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 134), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 646), align 2
   %82 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %82, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 136), align 8
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 648), align 8
+  store i16 %82, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 136), align 8
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 648), align 8
   %83 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %83, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 138), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 650), align 2
+  store i16 %83, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 138), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 650), align 2
   %84 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %84, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 140), align 4
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 652), align 4
+  store i16 %84, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 140), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 652), align 4
   %85 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %85, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 142), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 654), align 2
+  store i16 %85, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 142), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 654), align 2
   %86 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %86, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 144), align 16
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 656), align 16
+  store i16 %86, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 144), align 16
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 656), align 16
   %87 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %87, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 146), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 658), align 2
+  store i16 %87, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 146), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 658), align 2
   %88 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %88, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 148), align 4
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 660), align 4
+  store i16 %88, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 148), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 660), align 4
   %89 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %89, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 150), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 662), align 2
+  store i16 %89, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 150), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 662), align 2
   %90 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %90, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 152), align 8
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 664), align 8
+  store i16 %90, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 152), align 8
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 664), align 8
   %91 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %91, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 154), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 666), align 2
+  store i16 %91, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 154), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 666), align 2
   %92 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %92, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 156), align 4
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 668), align 4
+  store i16 %92, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 156), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 668), align 4
   %93 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 1)
-  store i16 %93, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 158), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 670), align 2
+  store i16 %93, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 158), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 670), align 2
   %94 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 1)
-  store i16 %94, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 160), align 16
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 672), align 16
+  store i16 %94, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 160), align 16
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 672), align 16
   %95 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 1)
-  store i16 %95, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 162), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 674), align 2
+  store i16 %95, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 162), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 674), align 2
   %96 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 1)
-  store i16 %96, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 164), align 4
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 676), align 4
+  store i16 %96, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 164), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 676), align 4
   %97 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 1)
-  store i16 %97, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 166), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 678), align 2
+  store i16 %97, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 166), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 678), align 2
   %98 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 1)
-  store i16 %98, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 168), align 8
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 680), align 8
+  store i16 %98, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 168), align 8
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 680), align 8
   %99 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 1)
-  store i16 %99, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 170), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 682), align 2
+  store i16 %99, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 170), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 682), align 2
   %100 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 1)
-  store i16 %100, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 172), align 4
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 684), align 4
+  store i16 %100, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 172), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 684), align 4
   %101 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %101, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 174), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 686), align 2
+  store i16 %101, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 174), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 686), align 2
   %102 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %102, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 176), align 16
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 688), align 16
+  store i16 %102, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 176), align 16
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 688), align 16
   %103 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %103, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 178), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 690), align 2
+  store i16 %103, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 178), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 690), align 2
   %104 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %104, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 180), align 4
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 692), align 4
+  store i16 %104, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 180), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 692), align 4
   %105 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %105, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 182), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 694), align 2
+  store i16 %105, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 182), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 694), align 2
   %106 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %106, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 184), align 8
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 696), align 8
+  store i16 %106, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 184), align 8
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 696), align 8
   %107 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %107, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 186), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 698), align 2
+  store i16 %107, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 186), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 698), align 2
   %108 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %108, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 188), align 4
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 700), align 4
+  store i16 %108, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 188), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 700), align 4
   %109 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %109, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 190), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 702), align 2
+  store i16 %109, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 190), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 702), align 2
   %110 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %110, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 192), align 16
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 704), align 16
+  store i16 %110, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 192), align 16
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 704), align 16
   %111 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %111, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 194), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 706), align 2
+  store i16 %111, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 194), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 706), align 2
   %112 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %112, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 196), align 4
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 708), align 4
+  store i16 %112, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 196), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 708), align 4
   %113 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %113, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 198), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 710), align 2
+  store i16 %113, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 198), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 710), align 2
   %114 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %114, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 200), align 8
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 712), align 8
+  store i16 %114, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 200), align 8
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 712), align 8
   %115 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %115, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 202), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 714), align 2
+  store i16 %115, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 202), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 714), align 2
   %116 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %116, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 204), align 4
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 716), align 4
+  store i16 %116, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 204), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 716), align 4
   %117 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %117, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 206), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 718), align 2
+  store i16 %117, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 206), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 718), align 2
   %118 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %118, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 208), align 16
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 720), align 16
+  store i16 %118, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 208), align 16
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 720), align 16
   %119 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %119, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 210), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 722), align 2
+  store i16 %119, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 210), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 722), align 2
   %120 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %120, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 212), align 4
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 724), align 4
+  store i16 %120, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 212), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 724), align 4
   %121 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %121, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 214), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 726), align 2
+  store i16 %121, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 214), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 726), align 2
   %122 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 1)
-  store i16 %122, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 216), align 8
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 728), align 8
+  store i16 %122, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 216), align 8
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 728), align 8
   %123 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 1)
-  store i16 %123, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 218), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 730), align 2
+  store i16 %123, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 218), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 730), align 2
   %124 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %124, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 220), align 4
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 732), align 4
+  store i16 %124, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 220), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 732), align 4
   %125 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %125, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 222), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 734), align 2
+  store i16 %125, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 222), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 734), align 2
   %126 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 1)
-  store i16 %126, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 224), align 16
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 736), align 16
+  store i16 %126, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 224), align 16
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 736), align 16
   %127 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 1)
-  store i16 %127, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 226), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 738), align 2
+  store i16 %127, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 226), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 738), align 2
   %128 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %128, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 228), align 4
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 740), align 4
+  store i16 %128, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 228), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 740), align 4
   %129 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %129, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 230), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 742), align 2
+  store i16 %129, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 230), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 742), align 2
   %130 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %130, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 232), align 8
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 744), align 8
+  store i16 %130, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 232), align 8
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 744), align 8
   %131 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %131, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 234), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 746), align 2
+  store i16 %131, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 234), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 746), align 2
   %132 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %132, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 236), align 4
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 748), align 4
+  store i16 %132, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 236), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 748), align 4
   %133 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %133, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 238), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 750), align 2
+  store i16 %133, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 238), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 750), align 2
   %134 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %134, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 240), align 16
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 752), align 16
+  store i16 %134, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 240), align 16
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 752), align 16
   %135 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %135, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 242), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 754), align 2
+  store i16 %135, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 242), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 754), align 2
   %136 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %136, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 244), align 4
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 756), align 4
+  store i16 %136, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 244), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 756), align 4
   %137 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %137, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 246), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 758), align 2
+  store i16 %137, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 246), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 758), align 2
   %138 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %138, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 248), align 8
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 760), align 8
+  store i16 %138, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 248), align 8
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 760), align 8
   %139 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %139, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 250), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 762), align 2
+  store i16 %139, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 250), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 762), align 2
   %140 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %140, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 252), align 4
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 764), align 4
+  store i16 %140, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 252), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 764), align 4
   %141 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %141, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 254), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 766), align 2
+  store i16 %141, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 254), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 766), align 2
   %142 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %142, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 256), align 16
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 768), align 16
+  store i16 %142, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 256), align 16
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 768), align 16
   %143 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %143, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 258), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 770), align 2
+  store i16 %143, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 258), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 770), align 2
   %144 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %144, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 260), align 4
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 772), align 4
+  store i16 %144, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 260), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 772), align 4
   %145 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %145, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 262), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 774), align 2
+  store i16 %145, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 262), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 774), align 2
   %146 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.259, i16 noundef zeroext 0)
-  store i16 %146, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 264), align 8
+  store i16 %146, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 264), align 8
   %147 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.260, i16 noundef zeroext 0)
-  store i16 %147, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 776), align 8
+  store i16 %147, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 776), align 8
   %148 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %148, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 266), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 778), align 2
+  store i16 %148, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 266), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 778), align 2
   %149 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %149, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 268), align 4
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 780), align 4
+  store i16 %149, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 268), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 780), align 4
   %150 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %150, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 270), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 782), align 2
+  store i16 %150, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 270), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 782), align 2
   %151 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %151, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 272), align 16
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 784), align 16
+  store i16 %151, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 272), align 16
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 784), align 16
   %152 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %152, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 274), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 786), align 2
+  store i16 %152, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 274), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 786), align 2
   %153 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %153, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 276), align 4
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 788), align 4
+  store i16 %153, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 276), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 788), align 4
   %154 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %154, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 278), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 790), align 2
+  store i16 %154, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 278), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 790), align 2
   %155 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %155, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 280), align 8
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 792), align 8
+  store i16 %155, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 280), align 8
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 792), align 8
   %156 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %156, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 282), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 794), align 2
+  store i16 %156, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 282), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 794), align 2
   %157 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %157, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 284), align 4
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 796), align 4
+  store i16 %157, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 284), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 796), align 4
   %158 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %158, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 286), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 798), align 2
+  store i16 %158, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 286), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 798), align 2
   %159 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %159, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 288), align 16
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 800), align 16
+  store i16 %159, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 288), align 16
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 800), align 16
   %160 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %160, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 290), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 802), align 2
+  store i16 %160, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 290), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 802), align 2
   %161 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %161, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 292), align 4
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 804), align 4
+  store i16 %161, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 292), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 804), align 4
   %162 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %162, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 294), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 806), align 2
+  store i16 %162, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 294), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 806), align 2
   %163 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %163, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 296), align 8
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 808), align 8
+  store i16 %163, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 296), align 8
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 808), align 8
   %164 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %164, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 298), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 810), align 2
+  store i16 %164, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 298), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 810), align 2
   %165 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %165, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 300), align 4
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 812), align 4
+  store i16 %165, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 300), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 812), align 4
   %166 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %166, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 302), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 814), align 2
+  store i16 %166, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 302), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 814), align 2
   %167 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %167, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 304), align 16
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 816), align 16
+  store i16 %167, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 304), align 16
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 816), align 16
   %168 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.261, i16 noundef zeroext 0)
-  store i16 %168, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 306), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 818), align 2
+  store i16 %168, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 306), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 818), align 2
   %169 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.261, i16 noundef zeroext 0)
-  store i16 %169, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 308), align 4
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 820), align 4
+  store i16 %169, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 308), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 820), align 4
   %170 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.261, i16 noundef zeroext 0)
-  store i16 %170, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 310), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 822), align 2
+  store i16 %170, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 310), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 822), align 2
   %171 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.261, i16 noundef zeroext 0)
-  store i16 %171, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 312), align 8
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 824), align 8
+  store i16 %171, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 312), align 8
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 824), align 8
   %172 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.261, i16 noundef zeroext 0)
-  store i16 %172, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 314), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 826), align 2
+  store i16 %172, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 314), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 826), align 2
   %173 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.261, i16 noundef zeroext 0)
-  store i16 %173, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 316), align 4
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 828), align 4
+  store i16 %173, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 316), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 828), align 4
   %174 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.261, i16 noundef zeroext 0)
-  store i16 %174, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 318), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 830), align 2
+  store i16 %174, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 318), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 830), align 2
   %175 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.261, i16 noundef zeroext 0)
-  store i16 %175, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 320), align 16
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 832), align 16
+  store i16 %175, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 320), align 16
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 832), align 16
   %176 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.261, i16 noundef zeroext 0)
-  store i16 %176, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 322), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 834), align 2
+  store i16 %176, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 322), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 834), align 2
   %177 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.261, i16 noundef zeroext 0)
-  store i16 %177, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 324), align 4
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 836), align 4
+  store i16 %177, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 324), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 836), align 4
   %178 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.261, i16 noundef zeroext 0)
-  store i16 %178, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 326), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 838), align 2
+  store i16 %178, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 326), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 838), align 2
   %179 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.261, i16 noundef zeroext 0)
-  store i16 %179, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 328), align 8
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 840), align 8
+  store i16 %179, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 328), align 8
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 840), align 8
   %180 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.261, i16 noundef zeroext 0)
-  store i16 %180, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 330), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 842), align 2
+  store i16 %180, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 330), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 842), align 2
   %181 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.261, i16 noundef zeroext 0)
-  store i16 %181, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 332), align 4
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 844), align 4
+  store i16 %181, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 332), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 844), align 4
   %182 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.261, i16 noundef zeroext 0)
-  store i16 %182, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 334), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 846), align 2
+  store i16 %182, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 334), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 846), align 2
   %183 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.261, i16 noundef zeroext 0)
-  store i16 %183, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 336), align 16
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 848), align 16
+  store i16 %183, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 336), align 16
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 848), align 16
   %184 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.257, i16 noundef zeroext 0)
-  store i16 %184, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 338), align 2
+  store i16 %184, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 338), align 2
   %185 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.258, i16 noundef zeroext 0)
-  store i16 %185, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 850), align 2
+  store i16 %185, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 850), align 2
   %186 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.262, i16 noundef zeroext 0)
-  store i16 %186, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 340), align 4
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 852), align 4
+  store i16 %186, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 340), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 852), align 4
   %187 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.262, i16 noundef zeroext 0)
-  store i16 %187, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 342), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 854), align 2
+  store i16 %187, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 342), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 854), align 2
   %188 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 1)
-  store i16 %188, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 344), align 8
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 856), align 8
+  store i16 %188, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 344), align 8
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 856), align 8
   %189 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 1)
-  store i16 %189, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 346), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 858), align 2
+  store i16 %189, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 346), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 858), align 2
   %190 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 1)
-  store i16 %190, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 348), align 4
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 860), align 4
+  store i16 %190, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 348), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 860), align 4
   %191 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 1)
-  store i16 %191, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 350), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 862), align 2
+  store i16 %191, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 350), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 862), align 2
   %192 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 1)
-  store i16 %192, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 352), align 16
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 864), align 16
+  store i16 %192, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 352), align 16
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 864), align 16
   %193 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 1)
-  store i16 %193, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 354), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 866), align 2
+  store i16 %193, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 354), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 866), align 2
   %194 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.263, i16 noundef zeroext 1)
-  store i16 %194, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 356), align 4
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 868), align 4
+  store i16 %194, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 356), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 868), align 4
   %195 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.263, i16 noundef zeroext 1)
-  store i16 %195, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 358), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 870), align 2
+  store i16 %195, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 358), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 870), align 2
   %196 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.263, i16 noundef zeroext 1)
-  store i16 %196, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 360), align 8
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 872), align 8
+  store i16 %196, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 360), align 8
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 872), align 8
   %197 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.263, i16 noundef zeroext 1)
-  store i16 %197, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 362), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 874), align 2
+  store i16 %197, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 362), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 874), align 2
   %198 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.263, i16 noundef zeroext 1)
-  store i16 %198, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 364), align 4
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 876), align 4
+  store i16 %198, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 364), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 876), align 4
   %199 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.263, i16 noundef zeroext 1)
-  store i16 %199, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 366), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 878), align 2
+  store i16 %199, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 366), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 878), align 2
   %200 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.263, i16 noundef zeroext 1)
-  store i16 %200, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 368), align 16
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 880), align 16
+  store i16 %200, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 368), align 16
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 880), align 16
   %201 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.264, i16 noundef zeroext 1)
-  store i16 %201, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 370), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 882), align 2
+  store i16 %201, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 370), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 882), align 2
   %202 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.265, i16 noundef zeroext 1)
-  store i16 %202, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 372), align 4
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 884), align 4
+  store i16 %202, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 372), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 884), align 4
   %203 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.256, i16 noundef zeroext 1)
-  store i16 %203, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 374), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 886), align 2
+  store i16 %203, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 374), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 886), align 2
   %204 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.253, i16 noundef zeroext 1)
-  store i16 %204, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 376), align 8
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 888), align 8
+  store i16 %204, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 376), align 8
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 888), align 8
   %205 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.256, i16 noundef zeroext 1)
-  store i16 %205, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 378), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 890), align 2
+  store i16 %205, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 378), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 890), align 2
   %206 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 1)
-  store i16 %206, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 380), align 4
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 892), align 4
+  store i16 %206, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 380), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 892), align 4
   %207 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 1)
-  store i16 %207, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 382), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 894), align 2
+  store i16 %207, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 382), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 894), align 2
   %208 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.256, i16 noundef zeroext 1)
-  store i16 %208, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 384), align 16
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 896), align 16
+  store i16 %208, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 384), align 16
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 896), align 16
   %209 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.256, i16 noundef zeroext 1)
-  store i16 %209, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 386), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 898), align 2
+  store i16 %209, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 386), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 898), align 2
   %210 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 1)
-  store i16 %210, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 388), align 4
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 900), align 4
+  store i16 %210, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 388), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 900), align 4
   %211 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 1)
-  store i16 %211, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 390), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 902), align 2
+  store i16 %211, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 390), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 902), align 2
   %212 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.262, i16 noundef zeroext 0)
-  store i16 %212, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 392), align 8
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 904), align 8
+  store i16 %212, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 392), align 8
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 904), align 8
   %213 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.266, i16 noundef zeroext 1)
-  store i16 %213, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 394), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 906), align 2
+  store i16 %213, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 394), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 906), align 2
   %214 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.261, i16 noundef zeroext 0)
-  store i16 %214, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 396), align 4
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 908), align 4
+  store i16 %214, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 396), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 908), align 4
   %215 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.261, i16 noundef zeroext 0)
-  store i16 %215, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 398), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 910), align 2
+  store i16 %215, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 398), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 910), align 2
   %216 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.267, i16 noundef zeroext 0)
-  store i16 %216, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 400), align 16
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 912), align 16
+  store i16 %216, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 400), align 16
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 912), align 16
   %217 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.267, i16 noundef zeroext 0)
-  store i16 %217, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 402), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 914), align 2
+  store i16 %217, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 402), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 914), align 2
   %218 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.262, i16 noundef zeroext 1)
-  store i16 %218, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 404), align 4
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 916), align 4
+  store i16 %218, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 404), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 916), align 4
   %219 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.263, i16 noundef zeroext 3)
-  store i16 %219, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 406), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 918), align 2
+  store i16 %219, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 406), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 918), align 2
   %220 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.263, i16 noundef zeroext 3)
-  store i16 %220, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 408), align 8
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 920), align 8
+  store i16 %220, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 408), align 8
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 920), align 8
   %221 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.263, i16 noundef zeroext 3)
-  store i16 %221, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 410), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 922), align 2
+  store i16 %221, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 410), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 922), align 2
   %222 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.263, i16 noundef zeroext 3)
-  store i16 %222, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 412), align 4
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 924), align 4
+  store i16 %222, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 412), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 924), align 4
   %223 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.263, i16 noundef zeroext 3)
-  store i16 %223, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 414), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 926), align 2
+  store i16 %223, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 414), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 926), align 2
   %224 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.263, i16 noundef zeroext 3)
-  store i16 %224, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 416), align 16
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 928), align 16
+  store i16 %224, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 416), align 16
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 928), align 16
   %225 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.263, i16 noundef zeroext 3)
-  store i16 %225, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 418), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 930), align 2
+  store i16 %225, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 418), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 930), align 2
   %226 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.263, i16 noundef zeroext 3)
-  store i16 %226, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 420), align 4
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 932), align 4
+  store i16 %226, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 420), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 932), align 4
   %227 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.263, i16 noundef zeroext 3)
-  store i16 %227, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 422), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 934), align 2
+  store i16 %227, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 422), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 934), align 2
   %228 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.263, i16 noundef zeroext 3)
-  store i16 %228, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 424), align 8
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 936), align 8
+  store i16 %228, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 424), align 8
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 936), align 8
   %229 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.263, i16 noundef zeroext 3)
-  store i16 %229, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 426), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 938), align 2
+  store i16 %229, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 426), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 938), align 2
   %230 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.263, i16 noundef zeroext 3)
-  store i16 %230, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 428), align 4
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 940), align 4
+  store i16 %230, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 428), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 940), align 4
   %231 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.263, i16 noundef zeroext 3)
-  store i16 %231, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 430), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 942), align 2
+  store i16 %231, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 430), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 942), align 2
   %232 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.263, i16 noundef zeroext 3)
-  store i16 %232, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 432), align 16
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 944), align 16
+  store i16 %232, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 432), align 16
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 944), align 16
   %233 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.263, i16 noundef zeroext 3)
-  store i16 %233, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 434), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 946), align 2
+  store i16 %233, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 434), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 946), align 2
   %234 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.263, i16 noundef zeroext 3)
-  store i16 %234, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 436), align 4
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 948), align 4
+  store i16 %234, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 436), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 948), align 4
   %235 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.263, i16 noundef zeroext 3)
-  store i16 %235, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 438), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 950), align 2
+  store i16 %235, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 438), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 950), align 2
   %236 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 3)
-  store i16 %236, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 440), align 8
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 952), align 8
+  store i16 %236, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 440), align 8
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 952), align 8
   %237 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.268, i16 noundef zeroext 3)
-  store i16 %237, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 442), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 954), align 2
+  store i16 %237, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 442), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 954), align 2
   %238 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.268, i16 noundef zeroext 3)
-  store i16 %238, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 444), align 4
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 956), align 4
+  store i16 %238, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 444), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 956), align 4
   %239 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.268, i16 noundef zeroext 3)
-  store i16 %239, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 446), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 958), align 2
+  store i16 %239, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 446), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 958), align 2
   %240 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.257, i16 noundef zeroext 2)
-  store i16 %240, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 448), align 16
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 960), align 16
+  store i16 %240, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 448), align 16
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 960), align 16
   %241 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.269, i16 noundef zeroext 2)
-  store i16 %241, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 450), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 962), align 2
+  store i16 %241, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 450), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 962), align 2
   %242 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.270, i16 noundef zeroext 2)
-  store i16 %242, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 452), align 4
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 964), align 4
+  store i16 %242, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 452), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 964), align 4
   %243 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.263, i16 noundef zeroext 3)
-  store i16 %243, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 454), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 966), align 2
+  store i16 %243, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 454), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 966), align 2
   %244 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.262, i16 noundef zeroext 2)
-  store i16 %244, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 456), align 8
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 968), align 8
+  store i16 %244, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 456), align 8
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 968), align 8
   %245 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.262, i16 noundef zeroext 2)
-  store i16 %245, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 458), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 970), align 2
+  store i16 %245, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 458), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 970), align 2
   %246 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.271, i16 noundef zeroext 3)
-  store i16 %246, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 460), align 4
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 972), align 4
+  store i16 %246, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 460), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 972), align 4
   %247 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.263, i16 noundef zeroext 3)
-  store i16 %247, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 462), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 974), align 2
+  store i16 %247, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 462), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 974), align 2
   %248 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 3)
-  store i16 %248, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 464), align 16
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 976), align 16
+  store i16 %248, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 464), align 16
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 976), align 16
   %249 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.263, i16 noundef zeroext 3)
-  store i16 %249, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 466), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 978), align 2
+  store i16 %249, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 466), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 978), align 2
   %250 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.263, i16 noundef zeroext 3)
-  store i16 %250, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 468), align 4
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 980), align 4
+  store i16 %250, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 468), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 980), align 4
   %251 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.263, i16 noundef zeroext 3)
-  store i16 %251, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 470), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 982), align 2
+  store i16 %251, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 470), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 982), align 2
   %252 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 3)
-  store i16 %252, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 472), align 8
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 984), align 8
+  store i16 %252, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 472), align 8
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 984), align 8
   %253 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.257, i16 noundef zeroext 2)
-  store i16 %253, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 474), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 986), align 2
+  store i16 %253, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 474), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 986), align 2
   %254 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef nonnull @.str.252, i16 noundef zeroext 0)
-  store i16 %254, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 476), align 4
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_flagsE, i64 988), align 4
+  store i16 %254, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 476), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_flagsE, i64 988), align 4
   store i8 1, ptr @_ZN9Bytecodes15_is_initializedE, align 1
   br label %255
 

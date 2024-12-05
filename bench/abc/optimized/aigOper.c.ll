@@ -59,8 +59,8 @@ define ptr @Aig_And(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unname
   br i1 %4, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
-  %6 = getelementptr inbounds i8, ptr %0, i64 320
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 320
   br label %7
 
 7:                                                ; preds = %.lr.ph, %tailrecurse.backedge
@@ -427,7 +427,7 @@ tailrecurse.backedge:                             ; preds = %61, %68, %89, %95, 
 
 .loopexit284:                                     ; preds = %.loopexit284.loopexit, %207
   %.pre-phi = phi i64 [ %.pre, %.loopexit284.loopexit ], [ 1, %207 ]
-  %214 = getelementptr inbounds i8, ptr %0, i64 316
+  %214 = getelementptr inbounds nuw i8, ptr %0, i64 316
   %215 = load i32, ptr %214, align 4
   %.not227 = icmp eq i32 %215, 0
   %216 = and i64 %.pre-phi, %8
@@ -480,7 +480,7 @@ Aig_ObjIsExorType.exit:                           ; preds = %230
   br label %.loopexit
 
 Aig_ObjIsExorType.exit.thread:                    ; preds = %224, %230, %218, %221, %.loopexit284
-  %239 = getelementptr inbounds i8, ptr %0, i64 80
+  %239 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %240 = load i64, ptr %239, align 8
   %241 = and i64 %240, -8
   %242 = or disjoint i64 %241, 5
@@ -489,9 +489,9 @@ Aig_ObjIsExorType.exit.thread:                    ; preds = %224, %230, %218, %2
   br i1 %243, label %Aig_ObjCreateGhost.exit, label %244
 
 244:                                              ; preds = %Aig_ObjIsExorType.exit.thread
-  %245 = getelementptr inbounds i8, ptr %20, i64 36
+  %245 = getelementptr inbounds nuw i8, ptr %20, i64 36
   %246 = load i32, ptr %245, align 4
-  %247 = getelementptr inbounds i8, ptr %30, i64 36
+  %247 = getelementptr inbounds nuw i8, ptr %30, i64 36
   %248 = load i32, ptr %247, align 4
   %249 = icmp slt i32 %246, %248
   %spec.select.i = select i1 %249, ptr %.tr282349, ptr %.tr283350
@@ -501,11 +501,11 @@ Aig_ObjIsExorType.exit.thread:                    ; preds = %224, %230, %218, %2
 Aig_ObjCreateGhost.exit:                          ; preds = %Aig_ObjIsExorType.exit.thread, %244
   %.sink15.i = phi ptr [ %.tr282349, %Aig_ObjIsExorType.exit.thread ], [ %spec.select.i, %244 ]
   %.sink.i = phi ptr [ null, %Aig_ObjIsExorType.exit.thread ], [ %spec.select17.i, %244 ]
-  %250 = getelementptr inbounds i8, ptr %0, i64 64
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %.sink15.i, ptr %250, align 8
-  %251 = getelementptr inbounds i8, ptr %0, i64 72
+  %251 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %.sink.i, ptr %251, align 8
-  %252 = getelementptr inbounds i8, ptr %0, i64 56
+  %252 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %253 = tail call ptr @Aig_TableLookup(ptr noundef nonnull %0, ptr noundef nonnull %252) #7
   %.not229 = icmp eq ptr %253, null
   br i1 %.not229, label %254, label %.loopexit
@@ -525,7 +525,7 @@ define ptr @Aig_Exor(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnam
   br i1 %4, label %5, label %11
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = ptrtoint ptr %7 to i64
   %9 = xor i64 %8, 1
@@ -540,7 +540,7 @@ define ptr @Aig_Exor(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnam
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %0, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %18 = load ptr, ptr %17, align 8
   br label %85
 
@@ -548,7 +548,7 @@ define ptr @Aig_Exor(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnam
   %20 = ptrtoint ptr %1 to i64
   %21 = and i64 %20, -2
   %22 = inttoptr i64 %21 to ptr
-  %23 = getelementptr inbounds i8, ptr %0, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, %22
   br i1 %25, label %26, label %31
@@ -574,7 +574,7 @@ define ptr @Aig_Exor(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnam
   br label %85
 
 40:                                               ; preds = %31
-  %41 = getelementptr inbounds i8, ptr %0, i64 316
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 316
   %42 = load i32, ptr %41, align 4
   %.not = icmp eq i32 %42, 0
   br i1 %.not, label %43, label %58
@@ -599,7 +599,7 @@ define ptr @Aig_Exor(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnam
 58:                                               ; preds = %40
   %59 = xor i64 %12, %20
   %60 = and i64 %59, 1
-  %61 = getelementptr inbounds i8, ptr %0, i64 80
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %62 = load i64, ptr %61, align 8
   %63 = and i64 %62, -8
   %64 = or disjoint i64 %63, 6
@@ -608,9 +608,9 @@ define ptr @Aig_Exor(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnam
   br i1 %65, label %Aig_ObjCreateGhost.exit, label %66
 
 66:                                               ; preds = %58
-  %67 = getelementptr inbounds i8, ptr %22, i64 36
+  %67 = getelementptr inbounds nuw i8, ptr %22, i64 36
   %68 = load i32, ptr %67, align 4
-  %69 = getelementptr inbounds i8, ptr %33, i64 36
+  %69 = getelementptr inbounds nuw i8, ptr %33, i64 36
   %70 = load i32, ptr %69, align 4
   %71 = icmp slt i32 %68, %70
   %spec.select.i = select i1 %71, ptr %22, ptr %33
@@ -620,11 +620,11 @@ define ptr @Aig_Exor(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnam
 Aig_ObjCreateGhost.exit:                          ; preds = %58, %66
   %.sink15.i = phi ptr [ %22, %58 ], [ %spec.select.i, %66 ]
   %.sink.i = phi ptr [ null, %58 ], [ %spec.select17.i, %66 ]
-  %72 = getelementptr inbounds i8, ptr %0, i64 64
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %.sink15.i, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %0, i64 72
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %.sink.i, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %0, i64 56
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %75 = tail call ptr @Aig_TableLookup(ptr noundef nonnull %0, ptr noundef nonnull %74) #7
   %.not44 = icmp eq ptr %75, null
   br i1 %.not44, label %80, label %76
@@ -701,14 +701,14 @@ define ptr @Aig_TableLookupInt(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %22 = ptrtoint ptr %1 to i64
   %23 = and i64 %22, -2
   %24 = inttoptr i64 %23 to ptr
-  %25 = getelementptr inbounds i8, ptr %24, i64 36
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 36
   %26 = load i32, ptr %25, align 4
   %27 = and i64 %13, -2
   %28 = inttoptr i64 %27 to ptr
-  %29 = getelementptr inbounds i8, ptr %28, i64 36
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 36
   %30 = load i32, ptr %29, align 4
   %31 = icmp slt i32 %26, %30
-  %32 = getelementptr inbounds i8, ptr %0, i64 80
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %33 = load i64, ptr %32, align 8
   %34 = and i64 %33, -8
   %35 = or disjoint i64 %34, 5
@@ -742,11 +742,11 @@ define ptr @Aig_TableLookupInt(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
 .sink.split:                                      ; preds = %44, %42, %38, %36
   %.sink15.i35.sink = phi ptr [ %1, %36 ], [ %spec.select.i, %38 ], [ %2, %42 ], [ %spec.select.i33, %44 ]
   %.sink.i36.sink = phi ptr [ null, %36 ], [ %spec.select17.i, %38 ], [ null, %42 ], [ %spec.select17.i34, %44 ]
-  %48 = getelementptr inbounds i8, ptr %0, i64 64
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %.sink15.i35.sink, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 72
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %.sink.i36.sink, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %51 = tail call ptr @Aig_TableLookup(ptr noundef nonnull %0, ptr noundef nonnull %50) #7
   br label %52
 
@@ -859,22 +859,22 @@ define ptr @Aig_Multi(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nounde
 
 ; Function Attrs: nounwind uwtable
 define ptr @Aig_Miter(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %7
 
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
   %8 = load ptr, ptr %6, align 8
-  %9 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = or disjoint i64 %indvars.iv, 1
-  %12 = getelementptr inbounds ptr, ptr %8, i64 %11
+  %12 = getelementptr inbounds nuw ptr, ptr %8, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr @Aig_Exor(ptr noundef %0, ptr noundef %10, ptr noundef %13)
   %15 = ptrtoint ptr %14 to i64
@@ -882,7 +882,7 @@ define ptr @Aig_Miter(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_ad
   %17 = inttoptr i64 %16 to ptr
   %18 = load ptr, ptr %6, align 8
   %19 = lshr exact i64 %indvars.iv, 1
-  %20 = getelementptr inbounds ptr, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %19
   store ptr %17, ptr %20, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %21 = load i32, ptr %3, align 4
@@ -894,7 +894,7 @@ define ptr @Aig_Miter(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_ad
   %.lcssa = phi i32 [ %4, %2 ], [ %21, %7 ]
   %24 = sdiv i32 %.lcssa, 2
   store i32 %24, ptr %3, align 4
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = tail call ptr @Aig_Multi_rec(ptr noundef %0, ptr noundef %26, i32 noundef %24, i32 noundef 5)
   %28 = ptrtoint ptr %27 to i64
@@ -905,30 +905,30 @@ define ptr @Aig_Miter(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_ad
 
 ; Function Attrs: nounwind uwtable
 define ptr @Aig_MiterTwo(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %9
 
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %10 = load ptr, ptr %7, align 8
-  %11 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr @Aig_Exor(ptr noundef %0, ptr noundef %12, ptr noundef %15)
   %17 = ptrtoint ptr %16 to i64
   %18 = xor i64 %17, 1
   %19 = inttoptr i64 %18 to ptr
   %20 = load ptr, ptr %7, align 8
-  %21 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
   store ptr %19, ptr %21, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %22 = load i32, ptr %4, align 4
@@ -938,7 +938,7 @@ define ptr @Aig_MiterTwo(ptr noundef %0, ptr nocapture noundef readonly %1, ptr 
 
 ._crit_edge:                                      ; preds = %9, %3
   %.lcssa = phi i32 [ %5, %3 ], [ %22, %9 ]
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = tail call ptr @Aig_Multi_rec(ptr noundef %0, ptr noundef %26, i32 noundef %.lcssa, i32 noundef 5)
   %28 = ptrtoint ptr %27 to i64
@@ -980,7 +980,7 @@ Aig_IthVar.exit:                                  ; preds = %.lr.ph.i, %7
   %.val7.i = load ptr, ptr %6, align 8
   %12 = getelementptr i8, ptr %.val7.i, i64 8
   %.val7.val.i = load ptr, ptr %12, align 8
-  %13 = getelementptr inbounds ptr, ptr %.val7.val.i, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw ptr, ptr %.val7.val.i, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr @Aig_And(ptr noundef %0, ptr noundef %.089, ptr noundef %14)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1025,7 +1025,7 @@ Aig_IthVar.exit:                                  ; preds = %.lr.ph.i, %7
   %.val7.i = load ptr, ptr %6, align 8
   %12 = getelementptr i8, ptr %.val7.i, i64 8
   %.val7.val.i = load ptr, ptr %12, align 8
-  %13 = getelementptr inbounds ptr, ptr %.val7.val.i, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw ptr, ptr %.val7.val.i, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
   %16 = xor i64 %15, 1
@@ -1079,7 +1079,7 @@ Aig_IthVar.exit:                                  ; preds = %.lr.ph.i, %10
   %.val7.i = load ptr, ptr %9, align 8
   %15 = getelementptr i8, ptr %.val7.i, i64 8
   %.val7.val.i = load ptr, ptr %15, align 8
-  %16 = getelementptr inbounds ptr, ptr %.val7.val.i, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw ptr, ptr %.val7.val.i, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr @Aig_Exor(ptr noundef %0, ptr noundef %.089, ptr noundef %17)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1095,11 +1095,11 @@ Aig_IthVar.exit:                                  ; preds = %.lr.ph.i, %10
 define void @Aig_MuxTest() local_unnamed_addr #0 {
   tail call void @srand(i32 noundef 321) #7
   %1 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #8
-  %2 = getelementptr inbounds i8, ptr %1, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 0, ptr %2, align 4
   store i32 100, ptr %1, align 8
   %3 = tail call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %3, ptr %4, align 8
   %5 = tail call ptr @Aig_ManStart(i32 noundef 10000) #7
   %6 = getelementptr i8, ptr %5, i64 136
@@ -1432,7 +1432,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 
 172:                                              ; preds = %.lr.ph, %172
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %172 ]
-  %173 = getelementptr inbounds ptr, ptr %.pre, i64 %indvars.iv
+  %173 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv
   %174 = load ptr, ptr %173, align 8
   %175 = tail call ptr @Aig_ObjCreateCo(ptr noundef %5, ptr noundef %174) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

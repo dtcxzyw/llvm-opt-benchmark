@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define float @YGNodeLayoutGetLeft(ptr nocapture noundef readonly %node) local_unnamed_addr #0 {
 entry:
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str)
-  %position_.i = getelementptr inbounds i8, ptr %node, i64 508
+  %position_.i = getelementptr inbounds nuw i8, ptr %node, i64 508
   %0 = load float, ptr %position_.i, align 4
   ret float %0
 }
@@ -19,7 +19,7 @@ entry:
 define float @YGNodeLayoutGetTop(ptr nocapture noundef readonly %node) local_unnamed_addr #0 {
 entry:
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str)
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %node, i64 512
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %node, i64 512
   %0 = load float, ptr %arrayidx.i.i.i, align 4
   ret float %0
 }
@@ -28,7 +28,7 @@ entry:
 define float @YGNodeLayoutGetRight(ptr nocapture noundef readonly %node) local_unnamed_addr #0 {
 entry:
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str)
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %node, i64 516
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %node, i64 516
   %0 = load float, ptr %arrayidx.i.i.i, align 4
   ret float %0
 }
@@ -37,7 +37,7 @@ entry:
 define float @YGNodeLayoutGetBottom(ptr nocapture noundef readonly %node) local_unnamed_addr #0 {
 entry:
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str)
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %node, i64 520
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %node, i64 520
   %0 = load float, ptr %arrayidx.i.i.i, align 4
   ret float %0
 }
@@ -45,7 +45,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define float @YGNodeLayoutGetWidth(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %dimensions_.i = getelementptr inbounds i8, ptr %node, i64 492
+  %dimensions_.i = getelementptr inbounds nuw i8, ptr %node, i64 492
   %0 = load float, ptr %dimensions_.i, align 4
   ret float %0
 }
@@ -53,7 +53,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define float @YGNodeLayoutGetHeight(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %node, i64 496
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %node, i64 496
   %0 = load float, ptr %arrayidx.i.i.i, align 4
   ret float %0
 }
@@ -61,7 +61,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i32 0, 4) i32 @YGNodeLayoutGetDirection(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %direction_.i = getelementptr inbounds i8, ptr %node, i64 488
+  %direction_.i = getelementptr inbounds nuw i8, ptr %node, i64 488
   %bf.load.i = load i8, ptr %direction_.i, align 4
   %bf.clear.i = and i8 %bf.load.i, 3
   %conv.i = zext nneg i8 %bf.clear.i to i32
@@ -71,7 +71,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define zeroext i1 @YGNodeLayoutGetHadOverflow(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %hadOverflow_.i = getelementptr inbounds i8, ptr %node, i64 488
+  %hadOverflow_.i = getelementptr inbounds nuw i8, ptr %node, i64 488
   %bf.load.i = load i8, ptr %hadOverflow_.i, align 4
   %0 = and i8 %bf.load.i, 4
   %bf.cast.i = icmp ne i8 %0, 0
@@ -90,7 +90,7 @@ entry:
   ]
 
 if.then.i:                                        ; preds = %entry
-  %direction_.i.i = getelementptr inbounds i8, ptr %node, i64 488
+  %direction_.i.i = getelementptr inbounds nuw i8, ptr %node, i64 488
   %bf.load.i.i = load i8, ptr %direction_.i.i, align 4
   %bf.clear.i.i = and i8 %bf.load.i.i, 3
   %cmp4.i = icmp eq i8 %bf.clear.i.i, 2
@@ -98,15 +98,15 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp4.i, label %if.then5.i, label %if.else.i
 
 if.then5.i:                                       ; preds = %if.then.i
-  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 532
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw i8, ptr %node, i64 532
   br label %_ZN12_GLOBAL__N_125getResolvedLayoutPropertyITnDaXadL_ZNK8facebook4yoga13LayoutResults6marginENS2_4EdgeEEEEEfPK6YGNodeS4_.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %margin_.i13.i = getelementptr inbounds i8, ptr %node, i64 524
+  %margin_.i13.i = getelementptr inbounds nuw i8, ptr %node, i64 524
   br label %_ZN12_GLOBAL__N_125getResolvedLayoutPropertyITnDaXadL_ZNK8facebook4yoga13LayoutResults6marginENS2_4EdgeEEEEEfPK6YGNodeS4_.exit
 
 if.then16.i:                                      ; preds = %entry
-  %direction_.i16.i = getelementptr inbounds i8, ptr %node, i64 488
+  %direction_.i16.i = getelementptr inbounds nuw i8, ptr %node, i64 488
   %bf.load.i17.i = load i8, ptr %direction_.i16.i, align 4
   %bf.clear.i18.i = and i8 %bf.load.i17.i, 3
   %cmp19.i = icmp eq i8 %bf.clear.i18.i, 2
@@ -114,20 +114,20 @@ if.then16.i:                                      ; preds = %entry
   br i1 %cmp19.i, label %if.then20.i, label %if.else28.i
 
 if.then20.i:                                      ; preds = %if.then16.i
-  %margin_.i20.i = getelementptr inbounds i8, ptr %node, i64 524
+  %margin_.i20.i = getelementptr inbounds nuw i8, ptr %node, i64 524
   br label %_ZN12_GLOBAL__N_125getResolvedLayoutPropertyITnDaXadL_ZNK8facebook4yoga13LayoutResults6marginENS2_4EdgeEEEEEfPK6YGNodeS4_.exit
 
 if.else28.i:                                      ; preds = %if.then16.i
-  %arrayidx.i.i.i24.i = getelementptr inbounds i8, ptr %node, i64 532
+  %arrayidx.i.i.i24.i = getelementptr inbounds nuw i8, ptr %node, i64 532
   br label %_ZN12_GLOBAL__N_125getResolvedLayoutPropertyITnDaXadL_ZNK8facebook4yoga13LayoutResults6marginENS2_4EdgeEEEEEfPK6YGNodeS4_.exit
 
 if.end36.i:                                       ; preds = %entry
   %cmp.i.i.i = icmp ult i8 %conv.i, 4
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext %cmp.i.i.i, ptr noundef nonnull @.str)
-  %margin_.i26.i = getelementptr inbounds i8, ptr %node, i64 524
+  %margin_.i26.i = getelementptr inbounds nuw i8, ptr %node, i64 524
   %conv.i.mask = and i32 %edge, 255
   %conv.i.i = zext nneg i32 %conv.i.mask to i64
-  %arrayidx.i.i.i27.i = getelementptr inbounds [4 x float], ptr %margin_.i26.i, i64 0, i64 %conv.i.i
+  %arrayidx.i.i.i27.i = getelementptr inbounds nuw [4 x float], ptr %margin_.i26.i, i64 0, i64 %conv.i.i
   br label %_ZN12_GLOBAL__N_125getResolvedLayoutPropertyITnDaXadL_ZNK8facebook4yoga13LayoutResults6marginENS2_4EdgeEEEEEfPK6YGNodeS4_.exit
 
 _ZN12_GLOBAL__N_125getResolvedLayoutPropertyITnDaXadL_ZNK8facebook4yoga13LayoutResults6marginENS2_4EdgeEEEEEfPK6YGNodeS4_.exit: ; preds = %if.then5.i, %if.else.i, %if.then20.i, %if.else28.i, %if.end36.i
@@ -148,7 +148,7 @@ entry:
   ]
 
 if.then.i:                                        ; preds = %entry
-  %direction_.i.i = getelementptr inbounds i8, ptr %node, i64 488
+  %direction_.i.i = getelementptr inbounds nuw i8, ptr %node, i64 488
   %bf.load.i.i = load i8, ptr %direction_.i.i, align 4
   %bf.clear.i.i = and i8 %bf.load.i.i, 3
   %cmp4.i = icmp eq i8 %bf.clear.i.i, 2
@@ -156,15 +156,15 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp4.i, label %if.then5.i, label %if.else.i
 
 if.then5.i:                                       ; preds = %if.then.i
-  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 548
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw i8, ptr %node, i64 548
   br label %_ZN12_GLOBAL__N_125getResolvedLayoutPropertyITnDaXadL_ZNK8facebook4yoga13LayoutResults6borderENS2_4EdgeEEEEEfPK6YGNodeS4_.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %border_.i13.i = getelementptr inbounds i8, ptr %node, i64 540
+  %border_.i13.i = getelementptr inbounds nuw i8, ptr %node, i64 540
   br label %_ZN12_GLOBAL__N_125getResolvedLayoutPropertyITnDaXadL_ZNK8facebook4yoga13LayoutResults6borderENS2_4EdgeEEEEEfPK6YGNodeS4_.exit
 
 if.then16.i:                                      ; preds = %entry
-  %direction_.i16.i = getelementptr inbounds i8, ptr %node, i64 488
+  %direction_.i16.i = getelementptr inbounds nuw i8, ptr %node, i64 488
   %bf.load.i17.i = load i8, ptr %direction_.i16.i, align 4
   %bf.clear.i18.i = and i8 %bf.load.i17.i, 3
   %cmp19.i = icmp eq i8 %bf.clear.i18.i, 2
@@ -172,20 +172,20 @@ if.then16.i:                                      ; preds = %entry
   br i1 %cmp19.i, label %if.then20.i, label %if.else28.i
 
 if.then20.i:                                      ; preds = %if.then16.i
-  %border_.i20.i = getelementptr inbounds i8, ptr %node, i64 540
+  %border_.i20.i = getelementptr inbounds nuw i8, ptr %node, i64 540
   br label %_ZN12_GLOBAL__N_125getResolvedLayoutPropertyITnDaXadL_ZNK8facebook4yoga13LayoutResults6borderENS2_4EdgeEEEEEfPK6YGNodeS4_.exit
 
 if.else28.i:                                      ; preds = %if.then16.i
-  %arrayidx.i.i.i24.i = getelementptr inbounds i8, ptr %node, i64 548
+  %arrayidx.i.i.i24.i = getelementptr inbounds nuw i8, ptr %node, i64 548
   br label %_ZN12_GLOBAL__N_125getResolvedLayoutPropertyITnDaXadL_ZNK8facebook4yoga13LayoutResults6borderENS2_4EdgeEEEEEfPK6YGNodeS4_.exit
 
 if.end36.i:                                       ; preds = %entry
   %cmp.i.i.i = icmp ult i8 %conv.i, 4
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext %cmp.i.i.i, ptr noundef nonnull @.str)
-  %border_.i26.i = getelementptr inbounds i8, ptr %node, i64 540
+  %border_.i26.i = getelementptr inbounds nuw i8, ptr %node, i64 540
   %conv.i.mask = and i32 %edge, 255
   %conv.i.i = zext nneg i32 %conv.i.mask to i64
-  %arrayidx.i.i.i27.i = getelementptr inbounds [4 x float], ptr %border_.i26.i, i64 0, i64 %conv.i.i
+  %arrayidx.i.i.i27.i = getelementptr inbounds nuw [4 x float], ptr %border_.i26.i, i64 0, i64 %conv.i.i
   br label %_ZN12_GLOBAL__N_125getResolvedLayoutPropertyITnDaXadL_ZNK8facebook4yoga13LayoutResults6borderENS2_4EdgeEEEEEfPK6YGNodeS4_.exit
 
 _ZN12_GLOBAL__N_125getResolvedLayoutPropertyITnDaXadL_ZNK8facebook4yoga13LayoutResults6borderENS2_4EdgeEEEEEfPK6YGNodeS4_.exit: ; preds = %if.then5.i, %if.else.i, %if.then20.i, %if.else28.i, %if.end36.i
@@ -206,7 +206,7 @@ entry:
   ]
 
 if.then.i:                                        ; preds = %entry
-  %direction_.i.i = getelementptr inbounds i8, ptr %node, i64 488
+  %direction_.i.i = getelementptr inbounds nuw i8, ptr %node, i64 488
   %bf.load.i.i = load i8, ptr %direction_.i.i, align 4
   %bf.clear.i.i = and i8 %bf.load.i.i, 3
   %cmp4.i = icmp eq i8 %bf.clear.i.i, 2
@@ -214,15 +214,15 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp4.i, label %if.then5.i, label %if.else.i
 
 if.then5.i:                                       ; preds = %if.then.i
-  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 564
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw i8, ptr %node, i64 564
   br label %_ZN12_GLOBAL__N_125getResolvedLayoutPropertyITnDaXadL_ZNK8facebook4yoga13LayoutResults7paddingENS2_4EdgeEEEEEfPK6YGNodeS4_.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %padding_.i13.i = getelementptr inbounds i8, ptr %node, i64 556
+  %padding_.i13.i = getelementptr inbounds nuw i8, ptr %node, i64 556
   br label %_ZN12_GLOBAL__N_125getResolvedLayoutPropertyITnDaXadL_ZNK8facebook4yoga13LayoutResults7paddingENS2_4EdgeEEEEEfPK6YGNodeS4_.exit
 
 if.then16.i:                                      ; preds = %entry
-  %direction_.i16.i = getelementptr inbounds i8, ptr %node, i64 488
+  %direction_.i16.i = getelementptr inbounds nuw i8, ptr %node, i64 488
   %bf.load.i17.i = load i8, ptr %direction_.i16.i, align 4
   %bf.clear.i18.i = and i8 %bf.load.i17.i, 3
   %cmp19.i = icmp eq i8 %bf.clear.i18.i, 2
@@ -230,20 +230,20 @@ if.then16.i:                                      ; preds = %entry
   br i1 %cmp19.i, label %if.then20.i, label %if.else28.i
 
 if.then20.i:                                      ; preds = %if.then16.i
-  %padding_.i20.i = getelementptr inbounds i8, ptr %node, i64 556
+  %padding_.i20.i = getelementptr inbounds nuw i8, ptr %node, i64 556
   br label %_ZN12_GLOBAL__N_125getResolvedLayoutPropertyITnDaXadL_ZNK8facebook4yoga13LayoutResults7paddingENS2_4EdgeEEEEEfPK6YGNodeS4_.exit
 
 if.else28.i:                                      ; preds = %if.then16.i
-  %arrayidx.i.i.i24.i = getelementptr inbounds i8, ptr %node, i64 564
+  %arrayidx.i.i.i24.i = getelementptr inbounds nuw i8, ptr %node, i64 564
   br label %_ZN12_GLOBAL__N_125getResolvedLayoutPropertyITnDaXadL_ZNK8facebook4yoga13LayoutResults7paddingENS2_4EdgeEEEEEfPK6YGNodeS4_.exit
 
 if.end36.i:                                       ; preds = %entry
   %cmp.i.i.i = icmp ult i8 %conv.i, 4
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext %cmp.i.i.i, ptr noundef nonnull @.str)
-  %padding_.i26.i = getelementptr inbounds i8, ptr %node, i64 556
+  %padding_.i26.i = getelementptr inbounds nuw i8, ptr %node, i64 556
   %conv.i.mask = and i32 %edge, 255
   %conv.i.i = zext nneg i32 %conv.i.mask to i64
-  %arrayidx.i.i.i27.i = getelementptr inbounds [4 x float], ptr %padding_.i26.i, i64 0, i64 %conv.i.i
+  %arrayidx.i.i.i27.i = getelementptr inbounds nuw [4 x float], ptr %padding_.i26.i, i64 0, i64 %conv.i.i
   br label %_ZN12_GLOBAL__N_125getResolvedLayoutPropertyITnDaXadL_ZNK8facebook4yoga13LayoutResults7paddingENS2_4EdgeEEEEEfPK6YGNodeS4_.exit
 
 _ZN12_GLOBAL__N_125getResolvedLayoutPropertyITnDaXadL_ZNK8facebook4yoga13LayoutResults7paddingENS2_4EdgeEEEEEfPK6YGNodeS4_.exit: ; preds = %if.then5.i, %if.else.i, %if.then20.i, %if.else28.i, %if.end36.i

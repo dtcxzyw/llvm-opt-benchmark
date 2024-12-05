@@ -36,11 +36,11 @@ declare dso_local i32 @acpi_install_address_space_handler(ptr noundef, i8 nounde
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 0, 18) i32 @acpi_pcc_address_space_handler(i32 %0, i64 %1, i32 %2, ptr noundef %3, ptr nocapture readnone %4, ptr noundef initializes((16, 20)) %5) #2 align 16 {
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 106
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 106
   %11 = load i16, ptr %10, align 2
   %12 = zext i16 %11 to i64
   tail call void @memcpy_toio(ptr noundef %9, ptr noundef %3, i64 noundef %12) #5
@@ -52,11 +52,11 @@ define internal noundef range(i32 0, 18) i32 @acpi_pcc_address_space_handler(i32
 
 17:                                               ; preds = %6
   %18 = load ptr, ptr %5, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load i32, ptr %19, align 8
   %21 = mul i32 %20, 500
   %22 = tail call i64 @__usecs_to_jiffies(i32 noundef %21) #5
-  %23 = tail call i64 @wait_for_completion_timeout(ptr noundef %7, i64 noundef %22) #5
+  %23 = tail call i64 @wait_for_completion_timeout(ptr noundef nonnull %7, i64 noundef %22) #5
   %24 = trunc i64 %23 to i32
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %28
@@ -88,29 +88,29 @@ define internal range(i32 0, 16) i32 @acpi_pcc_address_space_setup(ptr nocapture
   br i1 %7, label %54, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %6, i64 48
-  %10 = getelementptr inbounds i8, ptr %6, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 80
   store ptr @pcc_rx_callback, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 72
   store i8 1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %13 = load i16, ptr %12, align 2
-  %14 = getelementptr inbounds i8, ptr %6, i64 104
-  %15 = getelementptr inbounds i8, ptr %6, i64 106
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 104
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 106
   store i16 %13, ptr %15, align 2
   %16 = load i8, ptr %2, align 8
   store i8 %16, ptr %14, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %6, i64 112
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 112
   store ptr %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %6, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 0, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %6, i64 24
-  tail call void @__init_swait_queue_head(ptr noundef %21, ptr noundef nonnull @.str.6, ptr noundef nonnull @init_completion.__key) #5
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  tail call void @__init_swait_queue_head(ptr noundef nonnull %21, ptr noundef nonnull @.str.6, ptr noundef nonnull @init_completion.__key) #5
   %22 = load i8, ptr %2, align 8
   %23 = zext i8 %22 to i32
-  %24 = tail call ptr @pcc_mbox_request_channel(ptr noundef %9, i32 noundef %23) #5
+  %24 = tail call ptr @pcc_mbox_request_channel(ptr noundef nonnull %9, i32 noundef %23) #5
   store ptr %24, ptr %6, align 8
   %25 = icmp ugt ptr %24, inttoptr (i64 -4096 to ptr)
   br i1 %25, label %26, label %30
@@ -125,18 +125,18 @@ define internal range(i32 0, 16) i32 @acpi_pcc_address_space_setup(ptr nocapture
 30:                                               ; preds = %8
   %31 = load ptr, ptr %24, align 8
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 28
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 28
   %34 = load i8, ptr %33, align 4, !range !5, !noundef !6
   %35 = icmp eq i8 %34, 0
   br i1 %35, label %45, label %36
 
 36:                                               ; preds = %30
-  %37 = getelementptr inbounds i8, ptr %24, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %38 = load i64, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %24, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %40 = load i64, ptr %39, align 8
   %41 = tail call ptr @ioremap_cache(i64 noundef %38, i64 noundef %40) #5
-  %42 = getelementptr inbounds i8, ptr %6, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %41, ptr %42, align 8
   %43 = icmp eq ptr %41, null
   br i1 %43, label %45, label %44

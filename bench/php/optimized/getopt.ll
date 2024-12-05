@@ -48,7 +48,7 @@ define range(i32 -128, 128) i32 @php_getopt(i32 noundef %0, ptr nocapture nounde
   br i1 %13, label %15, label %php_opt_error.exit
 
 15:                                               ; preds = %14
-  %16 = getelementptr inbounds i8, ptr %.pre, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.pre, i64 1
   %17 = load i8, ptr %16, align 1
   %.not163 = icmp eq i8 %17, 0
   br i1 %.not163, label %php_opt_error.exit, label %.thread185
@@ -57,19 +57,19 @@ define range(i32 -128, 128) i32 @php_getopt(i32 noundef %0, ptr nocapture nounde
   br i1 %13, label %19, label %._crit_edge180
 
 19:                                               ; preds = %18
-  %20 = getelementptr inbounds i8, ptr %.pre, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %.pre, i64 1
   %21 = load i8, ptr %20, align 1
   %22 = icmp eq i8 %21, 45
   br i1 %22, label %26, label %._crit_edge180
 
 .thread185:                                       ; preds = %15
-  %23 = getelementptr inbounds i8, ptr %.pre, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %.pre, i64 1
   %24 = load i8, ptr %23, align 1
   %25 = icmp eq i8 %24, 45
   br i1 %25, label %26, label %79
 
 26:                                               ; preds = %.thread185, %19
-  %27 = getelementptr inbounds i8, ptr %.pre, i64 2
+  %27 = getelementptr inbounds nuw i8, ptr %.pre, i64 2
   %28 = load i8, ptr %27, align 1
   %29 = icmp eq i8 %28, 0
   br i1 %29, label %30, label %32
@@ -124,7 +124,7 @@ define range(i32 -128, 128) i32 @php_getopt(i32 noundef %0, ptr nocapture nounde
 .lr.ph:                                           ; preds = %32, %73
   %59 = phi i32 [ %74, %73 ], [ 0, %32 ]
   %60 = phi i64 [ %75, %73 ], [ 0, %32 ]
-  %61 = getelementptr inbounds %struct._opt_struct, ptr %2, i64 %60, i32 2
+  %61 = getelementptr inbounds nuw %struct._opt_struct, ptr %2, i64 %60, i32 2
   %62 = load ptr, ptr %61, align 8
   %.not165 = icmp eq ptr %62, null
   br i1 %.not165, label %73, label %63
@@ -134,7 +134,7 @@ define range(i32 -128, 128) i32 @php_getopt(i32 noundef %0, ptr nocapture nounde
   %65 = sext i32 %64 to i64
   %66 = getelementptr inbounds ptr, ptr %1, i64 %65
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 2
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 2
   %69 = tail call i32 @strncmp(ptr noundef nonnull %68, ptr noundef nonnull %62, i64 noundef %.0145) #5
   %.not166 = icmp eq i32 %69, 0
   br i1 %.not166, label %70, label %73
@@ -148,7 +148,7 @@ define range(i32 -128, 128) i32 @php_getopt(i32 noundef %0, ptr nocapture nounde
   %74 = add nuw nsw i32 %59, 1
   store i32 %74, ptr @php_optidx, align 4
   %75 = zext nneg i32 %74 to i64
-  %76 = getelementptr inbounds %struct._opt_struct, ptr %2, i64 %75
+  %76 = getelementptr inbounds nuw %struct._opt_struct, ptr %2, i64 %75
   %77 = load i8, ptr %76, align 8
   %78 = icmp eq i8 %77, 45
   br i1 %78, label %._crit_edge, label %.lr.ph
@@ -341,7 +341,7 @@ define range(i32 -128, 128) i32 @php_getopt(i32 noundef %0, ptr nocapture nounde
   br i1 %179, label %180, label %184
 
 180:                                              ; preds = %174
-  %181 = getelementptr inbounds i8, ptr %177, i64 1
+  %181 = getelementptr inbounds nuw i8, ptr %177, i64 1
   %182 = load i8, ptr %181, align 1
   %183 = icmp eq i8 %182, 45
   br i1 %183, label %192, label %184

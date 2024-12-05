@@ -106,16 +106,16 @@ declare noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef) local_unnamed_ad
 define linkonce_odr hidden void @_ZN10polynomial5cache3impC2ERNS_7managerE(ptr noundef nonnull align 8 dereferenceable(248) %this, ptr noundef nonnull align 8 dereferenceable(8) %_m) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %_m, ptr %this, align 8
-  %m_poly_table = getelementptr inbounds i8, ptr %this, i64 8
+  %m_poly_table = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = ptrtoint ptr %_m to i64
   store i64 %0, ptr %m_poly_table, align 8
-  %1 = getelementptr inbounds i8, ptr %this, i64 16
+  %1 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i64 %0, ptr %1, align 8
-  %m_init_slots.i = getelementptr inbounds i8, ptr %this, i64 36
+  %m_init_slots.i = getelementptr inbounds nuw i8, ptr %this, i64 36
   store i32 8, ptr %m_init_slots.i, align 4
-  %m_init_cellar.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_init_cellar.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i32 2, ptr %m_init_cellar.i, align 8
-  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %m_capacity.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i32 10, ptr %m_capacity.i.i, align 8
   %call.i.i.i.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 160)
   br label %for.body.i.i.i.i
@@ -125,32 +125,32 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   %curr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %call.i.i.i.i, %entry ]
   store ptr inttoptr (i64 1 to ptr), ptr %curr.06.i.i.i.i, align 8
   %inc.i.i.i.i = add nuw nsw i32 %i.07.i.i.i.i, 1
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %curr.06.i.i.i.i, i64 16
+  %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %curr.06.i.i.i.i, i64 16
   %exitcond.not.i.i.i.i = icmp eq i32 %inc.i.i.i.i, 10
   br i1 %exitcond.not.i.i.i.i, label %_ZN10chashtableIPN10polynomial10polynomialENS0_14poly_hash_procENS0_12poly_eq_procEEC2ERKS3_RKS4_jj.exit, label %for.body.i.i.i.i, !llvm.loop !4
 
 _ZN10chashtableIPN10polynomial10polynomialENS0_14poly_hash_procENS0_12poly_eq_procEEC2ERKS3_RKS4_jj.exit: ; preds = %for.body.i.i.i.i
-  %m_table.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_table.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %call.i.i.i.i, ptr %m_table.i.i, align 8
-  %m_slots.i.i = getelementptr inbounds i8, ptr %this, i64 44
+  %m_slots.i.i = getelementptr inbounds nuw i8, ptr %this, i64 44
   store i32 8, ptr %m_slots.i.i, align 4
-  %m_used_slots.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %m_used_slots.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i32 0, ptr %m_used_slots.i.i, align 8
-  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 52
+  %m_size.i.i = getelementptr inbounds nuw i8, ptr %this, i64 52
   store i32 0, ptr %m_size.i.i, align 4
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 128
-  %m_next_cell.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 128
+  %m_next_cell.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr %add.ptr.i.i, ptr %m_next_cell.i.i, align 8
-  %m_free_cell.i.i = getelementptr inbounds i8, ptr %this, i64 72
+  %m_free_cell.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_free_cell.i.i, i8 0, i64 16, i1 false)
-  %m_collisions.i = getelementptr inbounds i8, ptr %this, i64 56
+  %m_collisions.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i32 0, ptr %m_collisions.i, align 8
-  %m_psc_chain_cache = getelementptr inbounds i8, ptr %this, i64 88
-  %m_init_slots.i4 = getelementptr inbounds i8, ptr %this, i64 100
+  %m_psc_chain_cache = getelementptr inbounds nuw i8, ptr %this, i64 88
+  %m_init_slots.i4 = getelementptr inbounds nuw i8, ptr %this, i64 100
   store i32 8, ptr %m_init_slots.i4, align 4
-  %m_init_cellar.i5 = getelementptr inbounds i8, ptr %this, i64 104
+  %m_init_cellar.i5 = getelementptr inbounds nuw i8, ptr %this, i64 104
   store i32 2, ptr %m_init_cellar.i5, align 8
-  %m_capacity.i.i6 = getelementptr inbounds i8, ptr %this, i64 96
+  %m_capacity.i.i6 = getelementptr inbounds nuw i8, ptr %this, i64 96
   store i32 10, ptr %m_capacity.i.i6, align 8
   %call.i.i.i.i721 = invoke noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 160)
           to label %for.body.i.i.i.i8 unwind label %lpad
@@ -160,31 +160,31 @@ for.body.i.i.i.i8:                                ; preds = %_ZN10chashtableIPN1
   %curr.06.i.i.i.i10 = phi ptr [ %incdec.ptr.i.i.i.i12, %for.body.i.i.i.i8 ], [ %call.i.i.i.i721, %_ZN10chashtableIPN10polynomial10polynomialENS0_14poly_hash_procENS0_12poly_eq_procEEC2ERKS3_RKS4_jj.exit ]
   store ptr inttoptr (i64 1 to ptr), ptr %curr.06.i.i.i.i10, align 8
   %inc.i.i.i.i11 = add nuw nsw i32 %i.07.i.i.i.i9, 1
-  %incdec.ptr.i.i.i.i12 = getelementptr inbounds i8, ptr %curr.06.i.i.i.i10, i64 16
+  %incdec.ptr.i.i.i.i12 = getelementptr inbounds nuw i8, ptr %curr.06.i.i.i.i10, i64 16
   %exitcond.not.i.i.i.i13 = icmp eq i32 %inc.i.i.i.i11, 10
   br i1 %exitcond.not.i.i.i.i13, label %invoke.cont, label %for.body.i.i.i.i8, !llvm.loop !6
 
 invoke.cont:                                      ; preds = %for.body.i.i.i.i8
   store ptr %call.i.i.i.i721, ptr %m_psc_chain_cache, align 8
-  %m_slots.i.i14 = getelementptr inbounds i8, ptr %this, i64 108
+  %m_slots.i.i14 = getelementptr inbounds nuw i8, ptr %this, i64 108
   store i32 8, ptr %m_slots.i.i14, align 4
-  %m_used_slots.i.i15 = getelementptr inbounds i8, ptr %this, i64 112
+  %m_used_slots.i.i15 = getelementptr inbounds nuw i8, ptr %this, i64 112
   store i32 0, ptr %m_used_slots.i.i15, align 8
-  %m_size.i.i16 = getelementptr inbounds i8, ptr %this, i64 116
+  %m_size.i.i16 = getelementptr inbounds nuw i8, ptr %this, i64 116
   store i32 0, ptr %m_size.i.i16, align 4
-  %add.ptr.i.i17 = getelementptr inbounds i8, ptr %call.i.i.i.i721, i64 128
-  %m_next_cell.i.i18 = getelementptr inbounds i8, ptr %this, i64 128
+  %add.ptr.i.i17 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i721, i64 128
+  %m_next_cell.i.i18 = getelementptr inbounds nuw i8, ptr %this, i64 128
   store ptr %add.ptr.i.i17, ptr %m_next_cell.i.i18, align 8
-  %m_free_cell.i.i19 = getelementptr inbounds i8, ptr %this, i64 136
+  %m_free_cell.i.i19 = getelementptr inbounds nuw i8, ptr %this, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_free_cell.i.i19, i8 0, i64 16, i1 false)
-  %m_collisions.i20 = getelementptr inbounds i8, ptr %this, i64 120
+  %m_collisions.i20 = getelementptr inbounds nuw i8, ptr %this, i64 120
   store i32 0, ptr %m_collisions.i20, align 8
-  %m_factor_cache = getelementptr inbounds i8, ptr %this, i64 152
-  %m_init_slots.i22 = getelementptr inbounds i8, ptr %this, i64 164
+  %m_factor_cache = getelementptr inbounds nuw i8, ptr %this, i64 152
+  %m_init_slots.i22 = getelementptr inbounds nuw i8, ptr %this, i64 164
   store i32 8, ptr %m_init_slots.i22, align 4
-  %m_init_cellar.i23 = getelementptr inbounds i8, ptr %this, i64 168
+  %m_init_cellar.i23 = getelementptr inbounds nuw i8, ptr %this, i64 168
   store i32 2, ptr %m_init_cellar.i23, align 8
-  %m_capacity.i.i24 = getelementptr inbounds i8, ptr %this, i64 160
+  %m_capacity.i.i24 = getelementptr inbounds nuw i8, ptr %this, i64 160
   store i32 10, ptr %m_capacity.i.i24, align 8
   %call.i.i.i.i2539 = invoke noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 160)
           to label %for.body.i.i.i.i26 unwind label %lpad9
@@ -194,36 +194,36 @@ for.body.i.i.i.i26:                               ; preds = %invoke.cont, %for.b
   %curr.06.i.i.i.i28 = phi ptr [ %incdec.ptr.i.i.i.i30, %for.body.i.i.i.i26 ], [ %call.i.i.i.i2539, %invoke.cont ]
   store ptr inttoptr (i64 1 to ptr), ptr %curr.06.i.i.i.i28, align 8
   %inc.i.i.i.i29 = add nuw nsw i32 %i.07.i.i.i.i27, 1
-  %incdec.ptr.i.i.i.i30 = getelementptr inbounds i8, ptr %curr.06.i.i.i.i28, i64 16
+  %incdec.ptr.i.i.i.i30 = getelementptr inbounds nuw i8, ptr %curr.06.i.i.i.i28, i64 16
   %exitcond.not.i.i.i.i31 = icmp eq i32 %inc.i.i.i.i29, 10
   br i1 %exitcond.not.i.i.i.i31, label %invoke.cont13, label %for.body.i.i.i.i26, !llvm.loop !7
 
 invoke.cont13:                                    ; preds = %for.body.i.i.i.i26
   store ptr %call.i.i.i.i2539, ptr %m_factor_cache, align 8
-  %m_slots.i.i32 = getelementptr inbounds i8, ptr %this, i64 172
+  %m_slots.i.i32 = getelementptr inbounds nuw i8, ptr %this, i64 172
   store i32 8, ptr %m_slots.i.i32, align 4
-  %m_used_slots.i.i33 = getelementptr inbounds i8, ptr %this, i64 176
+  %m_used_slots.i.i33 = getelementptr inbounds nuw i8, ptr %this, i64 176
   store i32 0, ptr %m_used_slots.i.i33, align 8
-  %m_size.i.i34 = getelementptr inbounds i8, ptr %this, i64 180
+  %m_size.i.i34 = getelementptr inbounds nuw i8, ptr %this, i64 180
   store i32 0, ptr %m_size.i.i34, align 4
-  %add.ptr.i.i35 = getelementptr inbounds i8, ptr %call.i.i.i.i2539, i64 128
-  %m_next_cell.i.i36 = getelementptr inbounds i8, ptr %this, i64 192
+  %add.ptr.i.i35 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i2539, i64 128
+  %m_next_cell.i.i36 = getelementptr inbounds nuw i8, ptr %this, i64 192
   store ptr %add.ptr.i.i35, ptr %m_next_cell.i.i36, align 8
-  %m_free_cell.i.i37 = getelementptr inbounds i8, ptr %this, i64 200
+  %m_free_cell.i.i37 = getelementptr inbounds nuw i8, ptr %this, i64 200
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_free_cell.i.i37, i8 0, i64 16, i1 false)
-  %m_collisions.i38 = getelementptr inbounds i8, ptr %this, i64 184
+  %m_collisions.i38 = getelementptr inbounds nuw i8, ptr %this, i64 184
   store i32 0, ptr %m_collisions.i38, align 8
-  %m_cached_polys = getelementptr inbounds i8, ptr %this, i64 216
+  %m_cached_polys = getelementptr inbounds nuw i8, ptr %this, i64 216
   %2 = load ptr, ptr %this, align 8
   %3 = ptrtoint ptr %2 to i64
   store i64 %3, ptr %m_cached_polys, align 8
-  %m_nodes.i.i = getelementptr inbounds i8, ptr %this, i64 224
+  %m_nodes.i.i = getelementptr inbounds nuw i8, ptr %this, i64 224
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_nodes.i.i, i8 0, i64 16, i1 false)
   %call = invoke noundef nonnull align 8 dereferenceable(520) ptr @_ZNK10polynomial7manager9allocatorEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %invoke.cont18 unwind label %lpad17
 
 invoke.cont18:                                    ; preds = %invoke.cont13
-  %m_allocator = getelementptr inbounds i8, ptr %this, i64 240
+  %m_allocator = getelementptr inbounds nuw i8, ptr %this, i64 240
   store ptr %call, ptr %m_allocator, align 8
   ret void
 
@@ -240,7 +240,7 @@ lpad9:                                            ; preds = %invoke.cont
 lpad17:                                           ; preds = %invoke.cont13
   %6 = landingpad { ptr, i32 }
           cleanup
-  %m_in_cache = getelementptr inbounds i8, ptr %this, i64 232
+  %m_in_cache = getelementptr inbounds nuw i8, ptr %this, i64 232
   tail call void @_ZN7svectorIcjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_in_cache) #14
   tail call void @_ZN10ref_vectorIN10polynomial10polynomialENS0_7managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_cached_polys) #14
   tail call void @_ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %m_factor_cache) #14
@@ -315,7 +315,7 @@ define linkonce_odr hidden noundef ptr @_ZN10polynomial5cache3imp9mk_uniqueEPNS_
 entry:
   %p.addr = alloca ptr, align 8
   store ptr %p, ptr %p.addr, align 8
-  %m_in_cache = getelementptr inbounds i8, ptr %this, i64 232
+  %m_in_cache = getelementptr inbounds nuw i8, ptr %this, i64 232
   %call.i = tail call noundef i32 @_ZN10polynomial7manager2idEPKNS_10polynomialE(ptr noundef %p)
   %0 = load ptr, ptr %m_in_cache, align 8
   %cmp.i.i = icmp eq ptr %0, null
@@ -329,13 +329,13 @@ _ZNK6vectorIcLb0EjE3getEjRKc.exit:                ; preds = %entry
 
 _ZNK6vectorIcLb0EjE3getEjRKc.exit.cont:           ; preds = %_ZNK6vectorIcLb0EjE3getEjRKc.exit
   %idxprom.i = zext i32 %call.i to i64
-  %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %0, i64 %idxprom.i
   %.then.val = load i8, ptr %arrayidx.i, align 1
   %tobool.not = icmp eq i8 %.then.val, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry, %_ZNK6vectorIcLb0EjE3getEjRKc.exit, %_ZNK6vectorIcLb0EjE3getEjRKc.exit.cont
-  %m_poly_table = getelementptr inbounds i8, ptr %this, i64 8
+  %m_poly_table = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call3 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN10chashtableIPN10polynomial10polynomialENS0_14poly_hash_procENS0_12poly_eq_procEE19insert_if_not_thereERKS2_(ptr noundef nonnull align 8 dereferenceable(80) %m_poly_table, ptr noundef nonnull align 8 dereferenceable(8) %p.addr)
   %2 = load ptr, ptr %call3, align 8
   %3 = load ptr, ptr %p.addr, align 8
@@ -343,10 +343,10 @@ if.end:                                           ; preds = %entry, %_ZNK6vector
   br i1 %cmp, label %if.then4, label %return
 
 if.then4:                                         ; preds = %if.end
-  %m_cached_polys = getelementptr inbounds i8, ptr %this, i64 216
+  %m_cached_polys = getelementptr inbounds nuw i8, ptr %this, i64 216
   %4 = load ptr, ptr %m_cached_polys, align 8
   call void @_ZN10polynomial7manager7inc_refEPNS_10polynomialE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %2)
-  %m_nodes.i = getelementptr inbounds i8, ptr %this, i64 224
+  %m_nodes.i = getelementptr inbounds nuw i8, ptr %this, i64 224
   %5 = load ptr, ptr %m_nodes.i, align 8
   %cmp.i.i4 = icmp eq ptr %5, null
   br i1 %cmp.i.i4, label %if.then.i.i, label %lor.lhs.false.i.i
@@ -370,7 +370,7 @@ _ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7man
   %8 = phi i32 [ %.pre1.i.i, %if.then.i.i ], [ %6, %lor.lhs.false.i.i ]
   %9 = phi ptr [ %.pre.i.i, %if.then.i.i ], [ %5, %lor.lhs.false.i.i ]
   %idx.ext.i.i = zext i32 %8 to i64
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %9, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %9, i64 %idx.ext.i.i
   store ptr %2, ptr %add.ptr.i.i, align 8
   %10 = load ptr, ptr %m_nodes.i, align 8
   %arrayidx10.i.i = getelementptr inbounds i8, ptr %10, i64 -4
@@ -442,7 +442,7 @@ for.body.preheader.i.i:                           ; preds = %while.end.i.i
 _ZN6vectorIcLb0EjE4setxEjRKcS2_.exit:             ; preds = %_ZNK6vectorIcLb0EjE4sizeEv.exit.i, %_ZNK6vectorIcLb0EjE4sizeEv.exit.i.i, %if.then.i.i.i, %while.end.i.i, %for.body.preheader.i.i
   %18 = load ptr, ptr %m_in_cache, align 8
   %idxprom.i10 = zext i32 %call.i6 to i64
-  %arrayidx.i11 = getelementptr inbounds i8, ptr %18, i64 %idxprom.i10
+  %arrayidx.i11 = getelementptr inbounds nuw i8, ptr %18, i64 %idxprom.i10
   store i8 1, ptr %arrayidx.i11, align 1
   br label %return
 
@@ -512,27 +512,27 @@ entry:
   %sub4.i.i = sub i32 %xor3.i.i, %sub1.i.i
   %shl5.i.i = shl i32 %sub1.i.i, 10
   %xor6.i.i = xor i32 %sub4.i.i, %shl5.i.i
-  %m_allocator = getelementptr inbounds i8, ptr %this, i64 240
+  %m_allocator = getelementptr inbounds nuw i8, ptr %this, i64 240
   %4 = load ptr, ptr %m_allocator, align 8
   %call7 = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %4, i64 noundef 40)
   store ptr %call, ptr %call7, align 8
-  %m_q.i = getelementptr inbounds i8, ptr %call7, i64 8
+  %m_q.i = getelementptr inbounds nuw i8, ptr %call7, i64 8
   store ptr %call2, ptr %m_q.i, align 8
-  %m_x.i = getelementptr inbounds i8, ptr %call7, i64 16
+  %m_x.i = getelementptr inbounds nuw i8, ptr %call7, i64 16
   store i32 %x, ptr %m_x.i, align 8
-  %m_hash.i = getelementptr inbounds i8, ptr %call7, i64 20
+  %m_hash.i = getelementptr inbounds nuw i8, ptr %call7, i64 20
   store i32 %xor6.i.i, ptr %m_hash.i, align 4
-  %m_result_sz.i = getelementptr inbounds i8, ptr %call7, i64 24
+  %m_result_sz.i = getelementptr inbounds nuw i8, ptr %call7, i64 24
   store i32 0, ptr %m_result_sz.i, align 8
-  %m_result.i = getelementptr inbounds i8, ptr %call7, i64 32
+  %m_result.i = getelementptr inbounds nuw i8, ptr %call7, i64 32
   store ptr null, ptr %m_result.i, align 8
   store ptr %call7, ptr %entry6, align 8
-  %m_psc_chain_cache = getelementptr inbounds i8, ptr %this, i64 88
+  %m_psc_chain_cache = getelementptr inbounds nuw i8, ptr %this, i64 88
   %call8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE19insert_if_not_thereERKS2_(ptr noundef nonnull align 8 dereferenceable(64) %m_psc_chain_cache, ptr noundef nonnull align 8 dereferenceable(8) %entry6)
   %5 = load ptr, ptr %call8, align 8
   %6 = load ptr, ptr %entry6, align 8
   %cmp.not = icmp eq ptr %6, %5
-  %m_nodes.i30 = getelementptr inbounds i8, ptr %S, i64 8
+  %m_nodes.i30 = getelementptr inbounds nuw i8, ptr %S, i64 8
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -546,7 +546,7 @@ _ZNK6vectorIPN10polynomial10polynomialELb0EjE4sizeEv.exit.i: ; preds = %if.then
   %arrayidx.i.i = getelementptr inbounds i8, ptr %8, i64 -4
   %9 = load i32, ptr %arrayidx.i.i, align 4
   %10 = zext i32 %9 to i64
-  %add.ptr.i = getelementptr inbounds ptr, ptr %8, i64 %10
+  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %8, i64 %10
   %cmp3.i.not.i = icmp eq i32 %9, 0
   br i1 %cmp3.i.not.i, label %if.then.i.i, label %for.body.i.i
 
@@ -555,7 +555,7 @@ for.body.i.i:                                     ; preds = %_ZNK6vectorIPN10pol
   %11 = load ptr, ptr %it.04.i.i, align 8
   %12 = load ptr, ptr %S, align 8
   call void @_ZN10polynomial7manager7dec_refEPNS_10polynomialE(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef %11)
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %it.04.i.i, i64 8
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %it.04.i.i, i64 8
   %cmp.i1.i = icmp ult ptr %incdec.ptr.i.i, %add.ptr.i
   br i1 %cmp.i1.i, label %for.body.i.i, label %_ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE13dec_range_refEPKPS1_S8_.exit.i, !llvm.loop !9
 
@@ -571,19 +571,19 @@ if.then.i.i:                                      ; preds = %_ZN15ref_vector_cor
   br label %_ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE5resetEv.exit
 
 _ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE5resetEv.exit: ; preds = %if.then, %_ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE13dec_range_refEPKPS1_S8_.exit.i, %if.then.i.i
-  %m_result_sz = getelementptr inbounds i8, ptr %5, i64 24
+  %m_result_sz = getelementptr inbounds nuw i8, ptr %5, i64 24
   %14 = load i32, ptr %m_result_sz, align 8
   %cmp1037.not = icmp eq i32 %14, 0
   br i1 %cmp1037.not, label %if.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE5resetEv.exit
-  %m_result = getelementptr inbounds i8, ptr %5, i64 32
+  %m_result = getelementptr inbounds nuw i8, ptr %5, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE9push_backEPS1_.exit
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %_ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE9push_backEPS1_.exit ]
   %15 = load ptr, ptr %m_result, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
   %16 = load ptr, ptr %arrayidx, align 8
   %17 = load ptr, ptr %S, align 8
   call void @_ZN10polynomial7manager7inc_refEPNS_10polynomialE(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef %16)
@@ -610,7 +610,7 @@ _ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7man
   %21 = phi i32 [ %.pre1.i.i, %if.then.i.i29 ], [ %19, %lor.lhs.false.i.i ]
   %22 = phi ptr [ %.pre.i.i, %if.then.i.i29 ], [ %18, %lor.lhs.false.i.i ]
   %idx.ext.i.i = zext i32 %21 to i64
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %22, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %22, i64 %idx.ext.i.i
   store ptr %16, ptr %add.ptr.i.i, align 8
   %23 = load ptr, ptr %m_nodes.i30, align 8
   %arrayidx10.i.i = getelementptr inbounds i8, ptr %23, i64 -4
@@ -638,14 +638,14 @@ if.end.i.i:                                       ; preds = %if.else
 _ZNK15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE4sizeEv.exit: ; preds = %if.else, %if.end.i.i
   %retval.0.i.i = phi i32 [ %29, %if.end.i.i ], [ 0, %if.else ]
   %30 = load ptr, ptr %entry6, align 8
-  %m_result_sz13 = getelementptr inbounds i8, ptr %30, i64 24
+  %m_result_sz13 = getelementptr inbounds nuw i8, ptr %30, i64 24
   store i32 %retval.0.i.i, ptr %m_result_sz13, align 8
   %31 = load ptr, ptr %m_allocator, align 8
   %conv = zext i32 %retval.0.i.i to i64
   %mul = shl nuw nsw i64 %conv, 3
   %call15 = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %31, i64 noundef %mul)
   %32 = load ptr, ptr %entry6, align 8
-  %m_result16 = getelementptr inbounds i8, ptr %32, i64 32
+  %m_result16 = getelementptr inbounds nuw i8, ptr %32, i64 32
   store ptr %call15, ptr %m_result16, align 8
   %cmp1939.not = icmp eq i32 %retval.0.i.i, 0
   br i1 %cmp1939.not, label %if.end, label %for.body20
@@ -653,23 +653,23 @@ _ZNK15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7ma
 for.body20:                                       ; preds = %_ZNK15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE4sizeEv.exit, %for.body20
   %indvars.iv43 = phi i64 [ %indvars.iv.next44, %for.body20 ], [ 0, %_ZNK15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE4sizeEv.exit ]
   %33 = load ptr, ptr %m_nodes.i30, align 8
-  %arrayidx.i.i35 = getelementptr inbounds ptr, ptr %33, i64 %indvars.iv43
+  %arrayidx.i.i35 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv43
   %34 = load ptr, ptr %arrayidx.i.i35, align 8
   %call23 = call noundef ptr @_ZN10polynomial5cache3imp9mk_uniqueEPNS_10polynomialE(ptr noundef nonnull align 8 dereferenceable(248) %this, ptr noundef %34)
   %35 = load ptr, ptr %S, align 8
   call void @_ZN10polynomial7manager7inc_refEPNS_10polynomialE(ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef %call23)
   %36 = load ptr, ptr %m_nodes.i30, align 8
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %36, i64 %indvars.iv43
+  %arrayidx.i.i.i = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv43
   %37 = load ptr, ptr %arrayidx.i.i.i, align 8
   %38 = load ptr, ptr %S, align 8
   call void @_ZN10polynomial7manager7dec_refEPNS_10polynomialE(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef %37)
   %39 = load ptr, ptr %m_nodes.i30, align 8
-  %arrayidx.i4.i.i = getelementptr inbounds ptr, ptr %39, i64 %indvars.iv43
+  %arrayidx.i4.i.i = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv43
   store ptr %call23, ptr %arrayidx.i4.i.i, align 8
   %40 = load ptr, ptr %entry6, align 8
-  %m_result24 = getelementptr inbounds i8, ptr %40, i64 32
+  %m_result24 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %41 = load ptr, ptr %m_result24, align 8
-  %arrayidx26 = getelementptr inbounds ptr, ptr %41, i64 %indvars.iv43
+  %arrayidx26 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv43
   store ptr %call23, ptr %arrayidx26, align 8
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next44, %conv
@@ -694,7 +694,7 @@ entry:
   %fs = alloca %"class.polynomial::manager::factors", align 8
   %ref.tmp = alloca %"struct.polynomial::factor_params", align 4
   %ref.tmp24 = alloca %class.obj_ref, align 8
-  %m_nodes.i = getelementptr inbounds i8, ptr %distinct_factors, i64 8
+  %m_nodes.i = getelementptr inbounds nuw i8, ptr %distinct_factors, i64 8
   %0 = load ptr, ptr %m_nodes.i, align 8
   %cmp.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i, label %_ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE5resetEv.exit, label %_ZNK6vectorIPN10polynomial10polynomialELb0EjE4sizeEv.exit.i
@@ -703,7 +703,7 @@ _ZNK6vectorIPN10polynomial10polynomialELb0EjE4sizeEv.exit.i: ; preds = %entry
   %arrayidx.i.i = getelementptr inbounds i8, ptr %0, i64 -4
   %1 = load i32, ptr %arrayidx.i.i, align 4
   %2 = zext i32 %1 to i64
-  %add.ptr.i = getelementptr inbounds ptr, ptr %0, i64 %2
+  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %0, i64 %2
   %cmp3.i.not.i = icmp eq i32 %1, 0
   br i1 %cmp3.i.not.i, label %if.then.i.i, label %for.body.i.i
 
@@ -712,7 +712,7 @@ for.body.i.i:                                     ; preds = %_ZNK6vectorIPN10pol
   %3 = load ptr, ptr %it.04.i.i, align 8
   %4 = load ptr, ptr %distinct_factors, align 8
   tail call void @_ZN10polynomial7manager7dec_refEPNS_10polynomialE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %3)
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %it.04.i.i, i64 8
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %it.04.i.i, i64 8
   %cmp.i1.i = icmp ult ptr %incdec.ptr.i.i, %add.ptr.i
   br i1 %cmp.i1.i, label %for.body.i.i, label %_ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE13dec_range_refEPKPS1_S8_.exit.i, !llvm.loop !9
 
@@ -748,18 +748,18 @@ _ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7man
   %shr13.i = lshr i32 %add11.i, 16
   %7 = xor i32 %add11.i, %shr13.i
   %xor14.i = xor i32 %7, -1252372727
-  %m_allocator = getelementptr inbounds i8, ptr %this, i64 240
+  %m_allocator = getelementptr inbounds nuw i8, ptr %this, i64 240
   %8 = load ptr, ptr %m_allocator, align 8
   %call5 = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %8, i64 noundef 24)
   store ptr %call, ptr %call5, align 8
-  %m_hash.i = getelementptr inbounds i8, ptr %call5, i64 8
+  %m_hash.i = getelementptr inbounds nuw i8, ptr %call5, i64 8
   store i32 %xor14.i, ptr %m_hash.i, align 8
-  %m_result_sz.i = getelementptr inbounds i8, ptr %call5, i64 12
+  %m_result_sz.i = getelementptr inbounds nuw i8, ptr %call5, i64 12
   store i32 0, ptr %m_result_sz.i, align 4
-  %m_result.i = getelementptr inbounds i8, ptr %call5, i64 16
+  %m_result.i = getelementptr inbounds nuw i8, ptr %call5, i64 16
   store ptr null, ptr %m_result.i, align 8
   store ptr %call5, ptr %entry4, align 8
-  %m_factor_cache = getelementptr inbounds i8, ptr %this, i64 152
+  %m_factor_cache = getelementptr inbounds nuw i8, ptr %this, i64 152
   %call6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE19insert_if_not_thereERKS2_(ptr noundef nonnull align 8 dereferenceable(64) %m_factor_cache, ptr noundef nonnull align 8 dereferenceable(8) %entry4)
   %9 = load ptr, ptr %call6, align 8
   %10 = load ptr, ptr %entry4, align 8
@@ -777,7 +777,7 @@ _ZNK6vectorIPN10polynomial10polynomialELb0EjE4sizeEv.exit.i21: ; preds = %if.the
   %arrayidx.i.i22 = getelementptr inbounds i8, ptr %12, i64 -4
   %13 = load i32, ptr %arrayidx.i.i22, align 4
   %14 = zext i32 %13 to i64
-  %add.ptr.i23 = getelementptr inbounds ptr, ptr %12, i64 %14
+  %add.ptr.i23 = getelementptr inbounds nuw ptr, ptr %12, i64 %14
   %cmp3.i.not.i24 = icmp eq i32 %13, 0
   br i1 %cmp3.i.not.i24, label %if.then.i.i32, label %for.body.i.i25
 
@@ -786,7 +786,7 @@ for.body.i.i25:                                   ; preds = %_ZNK6vectorIPN10pol
   %15 = load ptr, ptr %it.04.i.i26, align 8
   %16 = load ptr, ptr %distinct_factors, align 8
   call void @_ZN10polynomial7manager7dec_refEPNS_10polynomialE(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef %15)
-  %incdec.ptr.i.i27 = getelementptr inbounds i8, ptr %it.04.i.i26, i64 8
+  %incdec.ptr.i.i27 = getelementptr inbounds nuw i8, ptr %it.04.i.i26, i64 8
   %cmp.i1.i28 = icmp ult ptr %incdec.ptr.i.i27, %add.ptr.i23
   br i1 %cmp.i1.i28, label %for.body.i.i25, label %_ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE13dec_range_refEPKPS1_S8_.exit.i29, !llvm.loop !9
 
@@ -802,19 +802,19 @@ if.then.i.i32:                                    ; preds = %_ZN15ref_vector_cor
   br label %_ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE5resetEv.exit34
 
 _ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE5resetEv.exit34: ; preds = %if.then, %_ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE13dec_range_refEPKPS1_S8_.exit.i29, %if.then.i.i32
-  %m_result_sz = getelementptr inbounds i8, ptr %9, i64 12
+  %m_result_sz = getelementptr inbounds nuw i8, ptr %9, i64 12
   %18 = load i32, ptr %m_result_sz, align 4
   %cmp861.not = icmp eq i32 %18, 0
   br i1 %cmp861.not, label %if.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE5resetEv.exit34
-  %m_result = getelementptr inbounds i8, ptr %9, i64 16
+  %m_result = getelementptr inbounds nuw i8, ptr %9, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE9push_backEPS1_.exit
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %_ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE9push_backEPS1_.exit ]
   %19 = load ptr, ptr %m_result, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %19, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
   %20 = load ptr, ptr %arrayidx, align 8
   %21 = load ptr, ptr %distinct_factors, align 8
   call void @_ZN10polynomial7manager7inc_refEPNS_10polynomialE(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef %20)
@@ -841,7 +841,7 @@ _ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7man
   %25 = phi i32 [ %.pre1.i.i, %if.then.i.i38 ], [ %23, %lor.lhs.false.i.i ]
   %26 = phi ptr [ %.pre.i.i, %if.then.i.i38 ], [ %22, %lor.lhs.false.i.i ]
   %idx.ext.i.i = zext i32 %25 to i64
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %26, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %26, i64 %idx.ext.i.i
   store ptr %20, ptr %add.ptr.i.i, align 8
   %27 = load ptr, ptr %m_nodes.i, align 8
   %arrayidx10.i.i = getelementptr inbounds i8, ptr %27, i64 -4
@@ -878,7 +878,7 @@ if.end.i.i:                                       ; preds = %invoke.cont11
 invoke.cont12:                                    ; preds = %if.end.i.i, %invoke.cont11
   %retval.0.i.i = phi i32 [ %34, %if.end.i.i ], [ 0, %invoke.cont11 ]
   %35 = load ptr, ptr %entry4, align 8
-  %m_result_sz14 = getelementptr inbounds i8, ptr %35, i64 12
+  %m_result_sz14 = getelementptr inbounds nuw i8, ptr %35, i64 12
   store i32 %retval.0.i.i, ptr %m_result_sz14, align 4
   %36 = load ptr, ptr %m_allocator, align 8
   %conv = zext i32 %retval.0.i.i to i64
@@ -888,13 +888,13 @@ invoke.cont12:                                    ; preds = %if.end.i.i, %invoke
 
 invoke.cont16:                                    ; preds = %invoke.cont12
   %37 = load ptr, ptr %entry4, align 8
-  %m_result18 = getelementptr inbounds i8, ptr %37, i64 16
+  %m_result18 = getelementptr inbounds nuw i8, ptr %37, i64 16
   store ptr %call17, ptr %m_result18, align 8
   %cmp2163.not = icmp eq i32 %retval.0.i.i, 0
   br i1 %cmp2163.not, label %for.end38, label %for.body22.lr.ph
 
 for.body22.lr.ph:                                 ; preds = %invoke.cont16
-  %m_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp24, i64 8
+  %m_manager.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp24, i64 8
   br label %for.body22
 
 for.body22:                                       ; preds = %for.body22.lr.ph, %invoke.cont31
@@ -957,7 +957,7 @@ invoke.cont31:                                    ; preds = %.noexc57, %lor.lhs.
   %48 = phi i32 [ %.pre1.i.i56, %.noexc57 ], [ %46, %lor.lhs.false.i.i45 ]
   %49 = phi ptr [ %.pre.i.i54, %.noexc57 ], [ %45, %lor.lhs.false.i.i45 ]
   %idx.ext.i.i49 = zext i32 %48 to i64
-  %add.ptr.i.i50 = getelementptr inbounds ptr, ptr %49, i64 %idx.ext.i.i49
+  %add.ptr.i.i50 = getelementptr inbounds nuw ptr, ptr %49, i64 %idx.ext.i.i49
   store ptr %call30, ptr %add.ptr.i.i50, align 8
   %50 = load ptr, ptr %m_nodes.i, align 8
   %arrayidx10.i.i51 = getelementptr inbounds i8, ptr %50, i64 -4
@@ -965,9 +965,9 @@ invoke.cont31:                                    ; preds = %.noexc57, %lor.lhs.
   %inc.i.i52 = add i32 %51, 1
   store i32 %inc.i.i52, ptr %arrayidx10.i.i51, align 4
   %52 = load ptr, ptr %entry4, align 8
-  %m_result33 = getelementptr inbounds i8, ptr %52, i64 16
+  %m_result33 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %53 = load ptr, ptr %m_result33, align 8
-  %arrayidx35 = getelementptr inbounds ptr, ptr %53, i64 %indvars.iv66
+  %arrayidx35 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv66
   store ptr %call30, ptr %arrayidx35, align 8
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next67, %conv
@@ -1043,7 +1043,7 @@ _ZN6vectorIcLb0EjED2Ev.exit:                      ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN10ref_vectorIN10polynomial10polynomialENS0_7managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_nodes.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_nodes.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_nodes.i, align 8
   %cmp.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i, label %_ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEED2Ev.exit, label %_ZNK6vectorIPN10polynomial10polynomialELb0EjE4sizeEv.exit.i
@@ -1052,7 +1052,7 @@ _ZNK6vectorIPN10polynomial10polynomialELb0EjE4sizeEv.exit.i: ; preds = %entry
   %arrayidx.i.i = getelementptr inbounds i8, ptr %0, i64 -4
   %1 = load i32, ptr %arrayidx.i.i, align 4
   %2 = zext i32 %1 to i64
-  %add.ptr.i = getelementptr inbounds ptr, ptr %0, i64 %2
+  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %0, i64 %2
   %cmp3.i.not.i = icmp eq i32 %1, 0
   br i1 %cmp3.i.not.i, label %if.then.i.i.i.i, label %for.body.i.i
 
@@ -1064,7 +1064,7 @@ for.body.i.i:                                     ; preds = %_ZNK6vectorIPN10pol
           to label %.noexc.i unwind label %terminate.lpad.i
 
 .noexc.i:                                         ; preds = %for.body.i.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %it.04.i.i, i64 8
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %it.04.i.i, i64 8
   %cmp.i1.i = icmp ult ptr %incdec.ptr.i.i, %add.ptr.i
   br i1 %cmp.i1.i, label %for.body.i.i, label %invoke.cont8.i, !llvm.loop !9
 
@@ -1144,7 +1144,7 @@ terminate.lpad:                                   ; preds = %for.cond.preheader.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN10chashtableIPN10polynomial10polynomialENS0_14poly_hash_procENS0_12poly_eq_procEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_table.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_table.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_table.i, align 8
   %cmp.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i, label %invoke.cont, label %for.cond.preheader.i.i
@@ -1177,20 +1177,20 @@ declare void @_ZN10polynomial7manager7dec_refEPNS_10polynomialE(ptr noundef nonn
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN10chashtableIPN10polynomial10polynomialENS0_14poly_hash_procENS0_12poly_eq_procEE19insert_if_not_thereERKS2_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(8) %d) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %m_free_cell.i = getelementptr inbounds i8, ptr %this, i64 64
+  %m_free_cell.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %m_free_cell.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNK10chashtableIPN10polynomial10polynomialENS0_14poly_hash_procENS0_12poly_eq_procEE14has_free_cellsEv.exit, label %if.end
 
 _ZNK10chashtableIPN10polynomial10polynomialENS0_14poly_hash_procENS0_12poly_eq_procEE14has_free_cellsEv.exit: ; preds = %entry
-  %m_next_cell.i = getelementptr inbounds i8, ptr %this, i64 56
+  %m_next_cell.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %1 = load ptr, ptr %m_next_cell.i, align 8
-  %m_table.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_table.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %m_table.i, align 8
-  %m_capacity.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_capacity.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load i32, ptr %m_capacity.i, align 8
   %idx.ext.i = zext i32 %3 to i64
-  %add.ptr.i = getelementptr inbounds %"struct.chashtable<polynomial::polynomial *, polynomial::poly_hash_proc, polynomial::poly_eq_proc>::cell", ptr %2, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw %"struct.chashtable<polynomial::polynomial *, polynomial::poly_hash_proc, polynomial::poly_eq_proc>::cell", ptr %2, i64 %idx.ext.i
   %cmp2.i = icmp ult ptr %1, %add.ptr.i
   br i1 %cmp2.i, label %if.end, label %if.then
 
@@ -1199,17 +1199,17 @@ if.then:                                          ; preds = %_ZNK10chashtableIPN
   br label %if.end
 
 if.end:                                           ; preds = %entry, %if.then, %_ZNK10chashtableIPN10polynomial10polynomialENS0_14poly_hash_procENS0_12poly_eq_procEE14has_free_cellsEv.exit
-  %m_slots = getelementptr inbounds i8, ptr %this, i64 36
+  %m_slots = getelementptr inbounds nuw i8, ptr %this, i64 36
   %4 = load i32, ptr %m_slots, align 4
   %sub = add i32 %4, -1
   %5 = load ptr, ptr %d, align 8
   %6 = load ptr, ptr %this, align 8
   %call.i.i = tail call noundef i32 @_ZN10polynomial7manager4hashEPKNS_10polynomialE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %5)
   %and = and i32 %call.i.i, %sub
-  %m_table = getelementptr inbounds i8, ptr %this, i64 16
+  %m_table = getelementptr inbounds nuw i8, ptr %this, i64 16
   %7 = load ptr, ptr %m_table, align 8
   %idx.ext = zext i32 %and to i64
-  %add.ptr = getelementptr inbounds %"struct.chashtable<polynomial::polynomial *, polynomial::poly_hash_proc, polynomial::poly_eq_proc>::cell", ptr %7, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw %"struct.chashtable<polynomial::polynomial *, polynomial::poly_hash_proc, polynomial::poly_eq_proc>::cell", ptr %7, i64 %idx.ext
   %8 = load ptr, ptr %add.ptr, align 8
   %9 = ptrtoint ptr %8 to i64
   %and.i = and i64 %9, 7
@@ -1217,28 +1217,28 @@ if.end:                                           ; preds = %entry, %if.then, %_
   br i1 %cmp.i, label %if.then4, label %do.body.preheader
 
 do.body.preheader:                                ; preds = %if.end
-  %add.ptr.i16 = getelementptr inbounds i8, ptr %this, i64 8
-  %m_collisions = getelementptr inbounds i8, ptr %this, i64 48
+  %add.ptr.i16 = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %m_collisions = getelementptr inbounds nuw i8, ptr %this, i64 48
   br label %do.body
 
 if.then4:                                         ; preds = %if.end
-  %m_size = getelementptr inbounds i8, ptr %this, i64 44
+  %m_size = getelementptr inbounds nuw i8, ptr %this, i64 44
   %10 = load i32, ptr %m_size, align 4
   %inc = add i32 %10, 1
   store i32 %inc, ptr %m_size, align 4
-  %m_used_slots = getelementptr inbounds i8, ptr %this, i64 40
+  %m_used_slots = getelementptr inbounds nuw i8, ptr %this, i64 40
   %11 = load i32, ptr %m_used_slots, align 8
   %inc5 = add i32 %11, 1
   store i32 %inc5, ptr %m_used_slots, align 8
   %12 = load ptr, ptr %d, align 8
-  %m_data = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  %m_data = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   store ptr %12, ptr %m_data, align 8
   store ptr null, ptr %add.ptr, align 8
   br label %return
 
 do.body:                                          ; preds = %do.body.preheader, %if.end11
   %it.0 = phi ptr [ %17, %if.end11 ], [ %add.ptr, %do.body.preheader ]
-  %m_data7 = getelementptr inbounds i8, ptr %it.0, i64 8
+  %m_data7 = getelementptr inbounds nuw i8, ptr %it.0, i64 8
   %13 = load ptr, ptr %m_data7, align 8
   %14 = load ptr, ptr %d, align 8
   %15 = load ptr, ptr %add.ptr.i16, align 8
@@ -1254,7 +1254,7 @@ if.end11:                                         ; preds = %do.body
   br i1 %cmp.not, label %do.end, label %do.body, !llvm.loop !14
 
 do.end:                                           ; preds = %if.end11
-  %m_size14 = getelementptr inbounds i8, ptr %this, i64 44
+  %m_size14 = getelementptr inbounds nuw i8, ptr %this, i64 44
   %18 = load i32, ptr %m_size14, align 4
   %inc15 = add i32 %18, 1
   store i32 %inc15, ptr %m_size14, align 4
@@ -1268,9 +1268,9 @@ if.then.i:                                        ; preds = %do.end
   br label %_ZN10chashtableIPN10polynomial10polynomialENS0_14poly_hash_procENS0_12poly_eq_procEE13get_free_cellEv.exit
 
 if.else.i:                                        ; preds = %do.end
-  %m_next_cell.i20 = getelementptr inbounds i8, ptr %this, i64 56
+  %m_next_cell.i20 = getelementptr inbounds nuw i8, ptr %this, i64 56
   %21 = load ptr, ptr %m_next_cell.i20, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %21, i64 16
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %incdec.ptr.i, ptr %m_next_cell.i20, align 8
   br label %_ZN10chashtableIPN10polynomial10polynomialENS0_14poly_hash_procENS0_12poly_eq_procEE13get_free_cellEv.exit
 
@@ -1278,13 +1278,13 @@ _ZN10chashtableIPN10polynomial10polynomialENS0_14poly_hash_procENS0_12poly_eq_pr
   %retval.0.i = phi ptr [ %19, %if.then.i ], [ %21, %if.else.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr, i64 16, i1 false)
   %22 = load ptr, ptr %d, align 8
-  %m_data17 = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  %m_data17 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   store ptr %22, ptr %m_data17, align 8
   store ptr %retval.0.i, ptr %add.ptr, align 8
   br label %return
 
 return.loopexit:                                  ; preds = %do.body
-  %m_data7.le = getelementptr inbounds i8, ptr %it.0, i64 8
+  %m_data7.le = getelementptr inbounds nuw i8, ptr %it.0, i64 8
   br label %return
 
 return:                                           ; preds = %return.loopexit, %_ZN10chashtableIPN10polynomial10polynomialENS0_14poly_hash_procENS0_12poly_eq_procEE13get_free_cellEv.exit, %if.then4
@@ -1297,14 +1297,14 @@ declare noundef i32 @_ZN10polynomial7manager2idEPKNS_10polynomialE(ptr noundef) 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN10chashtableIPN10polynomial10polynomialENS0_14poly_hash_procENS0_12poly_eq_procEE12expand_tableEv(ptr noundef nonnull align 8 dereferenceable(80) %this) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %m_capacity = getelementptr inbounds i8, ptr %this, i64 24
+  %m_capacity = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %m_capacity, align 8
-  %m_slots = getelementptr inbounds i8, ptr %this, i64 36
+  %m_slots = getelementptr inbounds nuw i8, ptr %this, i64 36
   %1 = load i32, ptr %m_slots, align 4
   %sub = sub i32 %0, %1
   %mul = shl i32 %1, 1
-  %m_table = getelementptr inbounds i8, ptr %this, i64 16
-  %m_used_slots = getelementptr inbounds i8, ptr %this, i64 40
+  %m_table = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %m_used_slots = getelementptr inbounds nuw i8, ptr %this, i64 40
   %sub.i = add i32 %mul, -1
   %idx.ext2.i = zext i32 %mul to i64
   br label %while.body
@@ -1324,7 +1324,7 @@ for.body.i.i:                                     ; preds = %while.body, %for.bo
   %curr.06.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %call.i.i, %while.body ]
   store ptr inttoptr (i64 1 to ptr), ptr %curr.06.i.i, align 8
   %inc.i.i = add nuw i32 %i.07.i.i, 1
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %curr.06.i.i, i64 16
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %curr.06.i.i, i64 16
   %exitcond.not.i.i = icmp eq i32 %inc.i.i, %add
   br i1 %exitcond.not.i.i, label %_ZN10chashtableIPN10polynomial10polynomialENS0_14poly_hash_procENS0_12poly_eq_procEE11alloc_tableEj.exit, label %for.body.i.i, !llvm.loop !4
 
@@ -1333,9 +1333,9 @@ _ZN10chashtableIPN10polynomial10polynomialENS0_14poly_hash_procENS0_12poly_eq_pr
   %3 = load i32, ptr %m_slots, align 4
   store i32 0, ptr %m_used_slots, align 8
   %idx.ext.i = zext i32 %3 to i64
-  %add.ptr.i = getelementptr inbounds %"struct.chashtable<polynomial::polynomial *, polynomial::poly_hash_proc, polynomial::poly_eq_proc>::cell", ptr %2, i64 %idx.ext.i
-  %add.ptr3.i = getelementptr inbounds %"struct.chashtable<polynomial::polynomial *, polynomial::poly_hash_proc, polynomial::poly_eq_proc>::cell", ptr %call.i.i, i64 %idx.ext2.i
-  %add.ptr5.i = getelementptr inbounds %"struct.chashtable<polynomial::polynomial *, polynomial::poly_hash_proc, polynomial::poly_eq_proc>::cell", ptr %call.i.i, i64 %conv.i.i
+  %add.ptr.i = getelementptr inbounds nuw %"struct.chashtable<polynomial::polynomial *, polynomial::poly_hash_proc, polynomial::poly_eq_proc>::cell", ptr %2, i64 %idx.ext.i
+  %add.ptr3.i = getelementptr inbounds nuw %"struct.chashtable<polynomial::polynomial *, polynomial::poly_hash_proc, polynomial::poly_eq_proc>::cell", ptr %call.i.i, i64 %idx.ext2.i
+  %add.ptr5.i = getelementptr inbounds nuw %"struct.chashtable<polynomial::polynomial *, polynomial::poly_hash_proc, polynomial::poly_eq_proc>::cell", ptr %call.i.i, i64 %conv.i.i
   %cmp.not26.i = icmp eq i32 %3, 0
   br i1 %cmp.not26.i, label %_ZN10chashtableIPN10polynomial10polynomialENS0_14poly_hash_procENS0_12poly_eq_procEE10copy_tableEPNS5_4cellEjjS7_jjRj.exit, label %for.body.i
 
@@ -1351,13 +1351,13 @@ for.body.i:                                       ; preds = %_ZN10chashtableIPN1
 do.body.i:                                        ; preds = %for.body.i, %if.end18.i
   %list_it.0.i = phi ptr [ %13, %if.end18.i ], [ %source_it.027.i, %for.body.i ]
   %target_cellar.1.i = phi ptr [ %target_cellar.2.i, %if.end18.i ], [ %target_cellar.028.i, %for.body.i ]
-  %m_data.i = getelementptr inbounds i8, ptr %list_it.0.i, i64 8
+  %m_data.i = getelementptr inbounds nuw i8, ptr %list_it.0.i, i64 8
   %6 = load ptr, ptr %m_data.i, align 8
   %7 = load ptr, ptr %this, align 8
   %call.i.i.i = tail call noundef i32 @_ZN10polynomial7manager4hashEPKNS_10polynomialE(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %6)
   %and.i = and i32 %call.i.i.i, %sub.i
   %idx.ext7.i = zext i32 %and.i to i64
-  %add.ptr8.i = getelementptr inbounds %"struct.chashtable<polynomial::polynomial *, polynomial::poly_hash_proc, polynomial::poly_eq_proc>::cell", ptr %call.i.i, i64 %idx.ext7.i
+  %add.ptr8.i = getelementptr inbounds nuw %"struct.chashtable<polynomial::polynomial *, polynomial::poly_hash_proc, polynomial::poly_eq_proc>::cell", ptr %call.i.i, i64 %idx.ext7.i
   %8 = load ptr, ptr %add.ptr8.i, align 8
   %9 = ptrtoint ptr %8 to i64
   %and.i22.i = and i64 %9, 7
@@ -1366,7 +1366,7 @@ do.body.i:                                        ; preds = %for.body.i, %if.end
 
 if.then10.i:                                      ; preds = %do.body.i
   %10 = load ptr, ptr %m_data.i, align 8
-  %m_data12.i = getelementptr inbounds i8, ptr %add.ptr8.i, i64 8
+  %m_data12.i = getelementptr inbounds nuw i8, ptr %add.ptr8.i, i64 8
   store ptr %10, ptr %m_data12.i, align 8
   store ptr null, ptr %add.ptr8.i, align 8
   %11 = load i32, ptr %m_used_slots, align 8
@@ -1381,10 +1381,10 @@ if.else.i:                                        ; preds = %do.body.i
 if.end.i:                                         ; preds = %if.else.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %target_cellar.1.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr8.i, i64 16, i1 false)
   %12 = load ptr, ptr %m_data.i, align 8
-  %m_data16.i = getelementptr inbounds i8, ptr %add.ptr8.i, i64 8
+  %m_data16.i = getelementptr inbounds nuw i8, ptr %add.ptr8.i, i64 8
   store ptr %12, ptr %m_data16.i, align 8
   store ptr %target_cellar.1.i, ptr %add.ptr8.i, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %target_cellar.1.i, i64 16
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %target_cellar.1.i, i64 16
   br label %if.end18.i
 
 if.end18.i:                                       ; preds = %if.end.i, %if.then10.i
@@ -1395,7 +1395,7 @@ if.end18.i:                                       ; preds = %if.end.i, %if.then1
 
 for.inc.i:                                        ; preds = %if.end18.i, %for.body.i
   %target_cellar.3.i = phi ptr [ %target_cellar.028.i, %for.body.i ], [ %target_cellar.2.i, %if.end18.i ]
-  %incdec.ptr22.i = getelementptr inbounds i8, ptr %source_it.027.i, i64 16
+  %incdec.ptr22.i = getelementptr inbounds nuw i8, ptr %source_it.027.i, i64 16
   %cmp.not.i = icmp eq ptr %incdec.ptr22.i, %add.ptr.i
   br i1 %cmp.not.i, label %_ZN10chashtableIPN10polynomial10polynomialENS0_14poly_hash_procENS0_12poly_eq_procEE10copy_tableEPNS5_4cellEjjS7_jjRj.exit, label %for.body.i, !llvm.loop !16
 
@@ -1417,9 +1417,9 @@ _ZN10chashtableIPN10polynomial10polynomialENS0_14poly_hash_procENS0_12poly_eq_pr
   store ptr %call.i.i, ptr %m_table, align 8
   store i32 %add, ptr %m_capacity, align 8
   store i32 %mul, ptr %m_slots, align 4
-  %m_next_cell = getelementptr inbounds i8, ptr %this, i64 56
+  %m_next_cell = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr %retval.0.i, ptr %m_next_cell, align 8
-  %m_free_cell = getelementptr inbounds i8, ptr %this, i64 64
+  %m_free_cell = getelementptr inbounds nuw i8, ptr %this, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_free_cell, i8 0, i64 16, i1 false)
   ret void
 
@@ -1453,9 +1453,9 @@ entry:
 if.then:                                          ; preds = %entry
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
   store i32 2, ptr %call, align 4
-  %incdec.ptr = getelementptr inbounds i8, ptr %call, i64 4
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %call, i64 4
   store i32 0, ptr %incdec.ptr, align 4
-  %incdec.ptr2 = getelementptr inbounds i8, ptr %call, i64 8
+  %incdec.ptr2 = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %incdec.ptr2, ptr %this, align 8
   br label %if.end28
 
@@ -1484,7 +1484,7 @@ if.then17:                                        ; preds = %lor.lhs.false, %if.
 
 invoke.cont:                                      ; preds = %if.then17
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
-  %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
+  %m_msg.i = getelementptr inbounds nuw i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #14
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #16
           to label %unreachable unwind label %ehcleanup
@@ -1506,7 +1506,7 @@ cleanup.action:                                   ; preds = %if.then17
 if.end:                                           ; preds = %lor.lhs.false
   %conv24 = zext i32 %add13 to i64
   %call25 = tail call noalias noundef ptr @_ZN6memory10reallocateEPvm(ptr noundef nonnull %arrayidx, i64 noundef %conv24)
-  %add.ptr26 = getelementptr inbounds i8, ptr %call25, i64 8
+  %add.ptr26 = getelementptr inbounds nuw i8, ptr %call25, i64 8
   store ptr %add.ptr26, ptr %this, align 8
   store i32 %shr, ptr %call25, align 4
   br label %if.end28
@@ -1562,7 +1562,7 @@ invoke.cont4:                                     ; preds = %if.end
 define linkonce_odr hidden void @_ZN17default_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %this, align 8
-  %m_msg = getelementptr inbounds i8, ptr %this, i64 8
+  %m_msg = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg) #14
   ret void
 }
@@ -1697,9 +1697,9 @@ entry:
 if.then:                                          ; preds = %entry
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 10)
   store i32 2, ptr %call, align 4
-  %incdec.ptr = getelementptr inbounds i8, ptr %call, i64 4
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %call, i64 4
   store i32 0, ptr %incdec.ptr, align 4
-  %incdec.ptr2 = getelementptr inbounds i8, ptr %call, i64 8
+  %incdec.ptr2 = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %incdec.ptr2, ptr %this, align 8
   br label %if.end28
 
@@ -1724,7 +1724,7 @@ if.then17:                                        ; preds = %if.else
 
 invoke.cont:                                      ; preds = %if.then17
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
-  %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
+  %m_msg.i = getelementptr inbounds nuw i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #14
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #16
           to label %unreachable unwind label %ehcleanup
@@ -1746,7 +1746,7 @@ cleanup.action:                                   ; preds = %if.then17
 if.end:                                           ; preds = %if.else
   %conv24 = zext i32 %narrow to i64
   %call25 = tail call noalias noundef ptr @_ZN6memory10reallocateEPvm(ptr noundef nonnull %arrayidx, i64 noundef %conv24)
-  %add.ptr26 = getelementptr inbounds i8, ptr %call25, i64 8
+  %add.ptr26 = getelementptr inbounds nuw i8, ptr %call25, i64 8
   store ptr %add.ptr26, ptr %this, align 8
   store i32 %shr, ptr %call25, align 4
   br label %if.end28
@@ -1767,19 +1767,19 @@ declare noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE19insert_if_not_thereERKS2_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(8) %d) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %m_free_cell.i = getelementptr inbounds i8, ptr %this, i64 48
+  %m_free_cell.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %m_free_cell.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
   %.pre21 = load ptr, ptr %this, align 8
   br i1 %cmp.not.i, label %_ZNK10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE14has_free_cellsEv.exit, label %if.end
 
 _ZNK10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE14has_free_cellsEv.exit: ; preds = %entry
-  %m_next_cell.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_next_cell.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %1 = load ptr, ptr %m_next_cell.i, align 8
-  %m_capacity.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_capacity.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i32, ptr %m_capacity.i, align 8
   %idx.ext.i = zext i32 %2 to i64
-  %add.ptr.i = getelementptr inbounds %"struct.chashtable<polynomial::psc_chain_entry *, polynomial::psc_chain_entry::hash_proc, polynomial::psc_chain_entry::eq_proc>::cell", ptr %.pre21, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw %"struct.chashtable<polynomial::psc_chain_entry *, polynomial::psc_chain_entry::hash_proc, polynomial::psc_chain_entry::eq_proc>::cell", ptr %.pre21, i64 %idx.ext.i
   %cmp2.i = icmp ult ptr %1, %add.ptr.i
   br i1 %cmp2.i, label %if.end, label %if.then
 
@@ -1790,15 +1790,15 @@ if.then:                                          ; preds = %_ZNK10chashtableIPN
 
 if.end:                                           ; preds = %entry, %if.then, %_ZNK10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE14has_free_cellsEv.exit
   %3 = phi ptr [ %.pre21, %entry ], [ %.pre, %if.then ], [ %.pre21, %_ZNK10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE14has_free_cellsEv.exit ]
-  %m_slots = getelementptr inbounds i8, ptr %this, i64 20
+  %m_slots = getelementptr inbounds nuw i8, ptr %this, i64 20
   %4 = load i32, ptr %m_slots, align 4
   %sub = add i32 %4, -1
   %5 = load ptr, ptr %d, align 8
-  %m_hash.i.i = getelementptr inbounds i8, ptr %5, i64 20
+  %m_hash.i.i = getelementptr inbounds nuw i8, ptr %5, i64 20
   %6 = load i32, ptr %m_hash.i.i, align 4
   %and = and i32 %6, %sub
   %idx.ext = zext i32 %and to i64
-  %add.ptr = getelementptr inbounds %"struct.chashtable<polynomial::psc_chain_entry *, polynomial::psc_chain_entry::hash_proc, polynomial::psc_chain_entry::eq_proc>::cell", ptr %3, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw %"struct.chashtable<polynomial::psc_chain_entry *, polynomial::psc_chain_entry::hash_proc, polynomial::psc_chain_entry::eq_proc>::cell", ptr %3, i64 %idx.ext
   %7 = load ptr, ptr %add.ptr, align 8
   %8 = ptrtoint ptr %7 to i64
   %and.i = and i64 %8, 7
@@ -1806,27 +1806,27 @@ if.end:                                           ; preds = %entry, %if.then, %_
   br i1 %cmp.i, label %if.then4, label %do.body.preheader
 
 do.body.preheader:                                ; preds = %if.end
-  %m_collisions = getelementptr inbounds i8, ptr %this, i64 32
+  %m_collisions = getelementptr inbounds nuw i8, ptr %this, i64 32
   br label %do.body
 
 if.then4:                                         ; preds = %if.end
-  %m_size = getelementptr inbounds i8, ptr %this, i64 28
+  %m_size = getelementptr inbounds nuw i8, ptr %this, i64 28
   %9 = load i32, ptr %m_size, align 4
   %inc = add i32 %9, 1
   store i32 %inc, ptr %m_size, align 4
-  %m_used_slots = getelementptr inbounds i8, ptr %this, i64 24
+  %m_used_slots = getelementptr inbounds nuw i8, ptr %this, i64 24
   %10 = load i32, ptr %m_used_slots, align 8
   %inc5 = add i32 %10, 1
   store i32 %inc5, ptr %m_used_slots, align 8
   %11 = load ptr, ptr %d, align 8
-  %m_data = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  %m_data = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   store ptr %11, ptr %m_data, align 8
   store ptr null, ptr %add.ptr, align 8
   br label %return
 
 do.body:                                          ; preds = %do.body.preheader, %if.end11
   %it.0 = phi ptr [ %21, %if.end11 ], [ %add.ptr, %do.body.preheader ]
-  %m_data7 = getelementptr inbounds i8, ptr %it.0, i64 8
+  %m_data7 = getelementptr inbounds nuw i8, ptr %it.0, i64 8
   %12 = load ptr, ptr %m_data7, align 8
   %13 = load ptr, ptr %d, align 8
   %14 = load ptr, ptr %12, align 8
@@ -1835,17 +1835,17 @@ do.body:                                          ; preds = %do.body.preheader, 
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %if.end11
 
 land.lhs.true.i.i:                                ; preds = %do.body
-  %m_q.i.i = getelementptr inbounds i8, ptr %12, i64 8
+  %m_q.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %16 = load ptr, ptr %m_q.i.i, align 8
-  %m_q3.i.i = getelementptr inbounds i8, ptr %13, i64 8
+  %m_q3.i.i = getelementptr inbounds nuw i8, ptr %13, i64 8
   %17 = load ptr, ptr %m_q3.i.i, align 8
   %cmp4.i.i = icmp eq ptr %16, %17
   br i1 %cmp4.i.i, label %_ZNK10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE6equalsERKS2_S7_.exit, label %if.end11
 
 _ZNK10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE6equalsERKS2_S7_.exit: ; preds = %land.lhs.true.i.i
-  %m_x.i.i = getelementptr inbounds i8, ptr %12, i64 16
+  %m_x.i.i = getelementptr inbounds nuw i8, ptr %12, i64 16
   %18 = load i32, ptr %m_x.i.i, align 8
-  %m_x5.i.i = getelementptr inbounds i8, ptr %13, i64 16
+  %m_x5.i.i = getelementptr inbounds nuw i8, ptr %13, i64 16
   %19 = load i32, ptr %m_x5.i.i, align 8
   %cmp6.i.i = icmp eq i32 %18, %19
   br i1 %cmp6.i.i, label %return.loopexit, label %if.end11
@@ -1859,7 +1859,7 @@ if.end11:                                         ; preds = %do.body, %land.lhs.
   br i1 %cmp.not, label %do.end, label %do.body, !llvm.loop !18
 
 do.end:                                           ; preds = %if.end11
-  %m_size14 = getelementptr inbounds i8, ptr %this, i64 28
+  %m_size14 = getelementptr inbounds nuw i8, ptr %this, i64 28
   %22 = load i32, ptr %m_size14, align 4
   %inc15 = add i32 %22, 1
   store i32 %inc15, ptr %m_size14, align 4
@@ -1873,9 +1873,9 @@ if.then.i:                                        ; preds = %do.end
   br label %_ZN10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE13get_free_cellEv.exit
 
 if.else.i:                                        ; preds = %do.end
-  %m_next_cell.i18 = getelementptr inbounds i8, ptr %this, i64 40
+  %m_next_cell.i18 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %25 = load ptr, ptr %m_next_cell.i18, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %25, i64 16
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %25, i64 16
   store ptr %incdec.ptr.i, ptr %m_next_cell.i18, align 8
   br label %_ZN10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE13get_free_cellEv.exit
 
@@ -1883,13 +1883,13 @@ _ZN10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE13g
   %retval.0.i = phi ptr [ %23, %if.then.i ], [ %25, %if.else.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr, i64 16, i1 false)
   %26 = load ptr, ptr %d, align 8
-  %m_data17 = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  %m_data17 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   store ptr %26, ptr %m_data17, align 8
   store ptr %retval.0.i, ptr %add.ptr, align 8
   br label %return
 
 return.loopexit:                                  ; preds = %_ZNK10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE6equalsERKS2_S7_.exit
-  %m_data7.le = getelementptr inbounds i8, ptr %it.0, i64 8
+  %m_data7.le = getelementptr inbounds nuw i8, ptr %it.0, i64 8
   br label %return
 
 return:                                           ; preds = %return.loopexit, %_ZN10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE13get_free_cellEv.exit, %if.then4
@@ -1904,13 +1904,13 @@ declare void @_ZN10polynomial7manager9psc_chainEPKNS_10polynomialES3_jR10ref_vec
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE12expand_tableEv(ptr noundef nonnull align 8 dereferenceable(64) %this) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %m_capacity = getelementptr inbounds i8, ptr %this, i64 8
+  %m_capacity = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %m_capacity, align 8
-  %m_slots = getelementptr inbounds i8, ptr %this, i64 20
+  %m_slots = getelementptr inbounds nuw i8, ptr %this, i64 20
   %1 = load i32, ptr %m_slots, align 4
   %sub = sub i32 %0, %1
   %mul = shl i32 %1, 1
-  %m_used_slots = getelementptr inbounds i8, ptr %this, i64 24
+  %m_used_slots = getelementptr inbounds nuw i8, ptr %this, i64 24
   %sub.i = add i32 %mul, -1
   %idx.ext2.i = zext i32 %mul to i64
   br label %while.body
@@ -1930,7 +1930,7 @@ for.body.i.i:                                     ; preds = %while.body, %for.bo
   %curr.06.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %call.i.i, %while.body ]
   store ptr inttoptr (i64 1 to ptr), ptr %curr.06.i.i, align 8
   %inc.i.i = add nuw i32 %i.07.i.i, 1
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %curr.06.i.i, i64 16
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %curr.06.i.i, i64 16
   %exitcond.not.i.i = icmp eq i32 %inc.i.i, %add
   br i1 %exitcond.not.i.i, label %_ZN10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE11alloc_tableEj.exit, label %for.body.i.i, !llvm.loop !6
 
@@ -1939,9 +1939,9 @@ _ZN10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE11a
   %3 = load i32, ptr %m_slots, align 4
   store i32 0, ptr %m_used_slots, align 8
   %idx.ext.i = zext i32 %3 to i64
-  %add.ptr.i = getelementptr inbounds %"struct.chashtable<polynomial::psc_chain_entry *, polynomial::psc_chain_entry::hash_proc, polynomial::psc_chain_entry::eq_proc>::cell", ptr %2, i64 %idx.ext.i
-  %add.ptr3.i = getelementptr inbounds %"struct.chashtable<polynomial::psc_chain_entry *, polynomial::psc_chain_entry::hash_proc, polynomial::psc_chain_entry::eq_proc>::cell", ptr %call.i.i, i64 %idx.ext2.i
-  %add.ptr5.i = getelementptr inbounds %"struct.chashtable<polynomial::psc_chain_entry *, polynomial::psc_chain_entry::hash_proc, polynomial::psc_chain_entry::eq_proc>::cell", ptr %call.i.i, i64 %conv.i.i
+  %add.ptr.i = getelementptr inbounds nuw %"struct.chashtable<polynomial::psc_chain_entry *, polynomial::psc_chain_entry::hash_proc, polynomial::psc_chain_entry::eq_proc>::cell", ptr %2, i64 %idx.ext.i
+  %add.ptr3.i = getelementptr inbounds nuw %"struct.chashtable<polynomial::psc_chain_entry *, polynomial::psc_chain_entry::hash_proc, polynomial::psc_chain_entry::eq_proc>::cell", ptr %call.i.i, i64 %idx.ext2.i
+  %add.ptr5.i = getelementptr inbounds nuw %"struct.chashtable<polynomial::psc_chain_entry *, polynomial::psc_chain_entry::hash_proc, polynomial::psc_chain_entry::eq_proc>::cell", ptr %call.i.i, i64 %conv.i.i
   %cmp.not26.i = icmp eq i32 %3, 0
   br i1 %cmp.not26.i, label %_ZN10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE10copy_tableEPNS5_4cellEjjS7_jjRj.exit, label %for.body.i
 
@@ -1957,13 +1957,13 @@ for.body.i:                                       ; preds = %_ZN10chashtableIPN1
 do.body.i:                                        ; preds = %for.body.i, %if.end18.i
   %list_it.0.i = phi ptr [ %12, %if.end18.i ], [ %source_it.027.i, %for.body.i ]
   %target_cellar.1.i = phi ptr [ %target_cellar.2.i, %if.end18.i ], [ %target_cellar.028.i, %for.body.i ]
-  %m_data.i = getelementptr inbounds i8, ptr %list_it.0.i, i64 8
+  %m_data.i = getelementptr inbounds nuw i8, ptr %list_it.0.i, i64 8
   %6 = load ptr, ptr %m_data.i, align 8
-  %m_hash.i.i.i = getelementptr inbounds i8, ptr %6, i64 20
+  %m_hash.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 20
   %7 = load i32, ptr %m_hash.i.i.i, align 4
   %and.i = and i32 %7, %sub.i
   %idx.ext7.i = zext i32 %and.i to i64
-  %add.ptr8.i = getelementptr inbounds %"struct.chashtable<polynomial::psc_chain_entry *, polynomial::psc_chain_entry::hash_proc, polynomial::psc_chain_entry::eq_proc>::cell", ptr %call.i.i, i64 %idx.ext7.i
+  %add.ptr8.i = getelementptr inbounds nuw %"struct.chashtable<polynomial::psc_chain_entry *, polynomial::psc_chain_entry::hash_proc, polynomial::psc_chain_entry::eq_proc>::cell", ptr %call.i.i, i64 %idx.ext7.i
   %8 = load ptr, ptr %add.ptr8.i, align 8
   %9 = ptrtoint ptr %8 to i64
   %and.i22.i = and i64 %9, 7
@@ -1971,7 +1971,7 @@ do.body.i:                                        ; preds = %for.body.i, %if.end
   br i1 %cmp.i23.i, label %if.then10.i, label %if.else.i
 
 if.then10.i:                                      ; preds = %do.body.i
-  %m_data12.i = getelementptr inbounds i8, ptr %add.ptr8.i, i64 8
+  %m_data12.i = getelementptr inbounds nuw i8, ptr %add.ptr8.i, i64 8
   store ptr %6, ptr %m_data12.i, align 8
   store ptr null, ptr %add.ptr8.i, align 8
   %10 = load i32, ptr %m_used_slots, align 8
@@ -1986,10 +1986,10 @@ if.else.i:                                        ; preds = %do.body.i
 if.end.i:                                         ; preds = %if.else.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %target_cellar.1.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr8.i, i64 16, i1 false)
   %11 = load ptr, ptr %m_data.i, align 8
-  %m_data16.i = getelementptr inbounds i8, ptr %add.ptr8.i, i64 8
+  %m_data16.i = getelementptr inbounds nuw i8, ptr %add.ptr8.i, i64 8
   store ptr %11, ptr %m_data16.i, align 8
   store ptr %target_cellar.1.i, ptr %add.ptr8.i, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %target_cellar.1.i, i64 16
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %target_cellar.1.i, i64 16
   br label %if.end18.i
 
 if.end18.i:                                       ; preds = %if.end.i, %if.then10.i
@@ -2000,7 +2000,7 @@ if.end18.i:                                       ; preds = %if.end.i, %if.then1
 
 for.inc.i:                                        ; preds = %if.end18.i, %for.body.i
   %target_cellar.3.i = phi ptr [ %target_cellar.028.i, %for.body.i ], [ %target_cellar.2.i, %if.end18.i ]
-  %incdec.ptr22.i = getelementptr inbounds i8, ptr %source_it.027.i, i64 16
+  %incdec.ptr22.i = getelementptr inbounds nuw i8, ptr %source_it.027.i, i64 16
   %cmp.not.i = icmp eq ptr %incdec.ptr22.i, %add.ptr.i
   br i1 %cmp.not.i, label %_ZN10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE10copy_tableEPNS5_4cellEjjS7_jjRj.exit, label %for.body.i, !llvm.loop !20
 
@@ -2022,9 +2022,9 @@ _ZN10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE12d
   store ptr %call.i.i, ptr %this, align 8
   store i32 %add, ptr %m_capacity, align 8
   store i32 %mul, ptr %m_slots, align 4
-  %m_next_cell = getelementptr inbounds i8, ptr %this, i64 40
+  %m_next_cell = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.0.i, ptr %m_next_cell, align 8
-  %m_free_cell = getelementptr inbounds i8, ptr %this, i64 48
+  %m_free_cell = getelementptr inbounds nuw i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_free_cell, i8 0, i64 16, i1 false)
   ret void
 
@@ -2043,19 +2043,19 @@ for.cond.preheader.i:                             ; preds = %if.else.i, %if.end
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE19insert_if_not_thereERKS2_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(8) %d) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %m_free_cell.i = getelementptr inbounds i8, ptr %this, i64 48
+  %m_free_cell.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %m_free_cell.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
   %.pre21 = load ptr, ptr %this, align 8
   br i1 %cmp.not.i, label %_ZNK10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE14has_free_cellsEv.exit, label %if.end
 
 _ZNK10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE14has_free_cellsEv.exit: ; preds = %entry
-  %m_next_cell.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_next_cell.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %1 = load ptr, ptr %m_next_cell.i, align 8
-  %m_capacity.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_capacity.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i32, ptr %m_capacity.i, align 8
   %idx.ext.i = zext i32 %2 to i64
-  %add.ptr.i = getelementptr inbounds %"struct.chashtable<polynomial::factor_entry *, polynomial::factor_entry::hash_proc, polynomial::factor_entry::eq_proc>::cell", ptr %.pre21, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw %"struct.chashtable<polynomial::factor_entry *, polynomial::factor_entry::hash_proc, polynomial::factor_entry::eq_proc>::cell", ptr %.pre21, i64 %idx.ext.i
   %cmp2.i = icmp ult ptr %1, %add.ptr.i
   br i1 %cmp2.i, label %if.end, label %if.then
 
@@ -2066,15 +2066,15 @@ if.then:                                          ; preds = %_ZNK10chashtableIPN
 
 if.end:                                           ; preds = %entry, %if.then, %_ZNK10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE14has_free_cellsEv.exit
   %3 = phi ptr [ %.pre21, %entry ], [ %.pre, %if.then ], [ %.pre21, %_ZNK10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE14has_free_cellsEv.exit ]
-  %m_slots = getelementptr inbounds i8, ptr %this, i64 20
+  %m_slots = getelementptr inbounds nuw i8, ptr %this, i64 20
   %4 = load i32, ptr %m_slots, align 4
   %sub = add i32 %4, -1
   %5 = load ptr, ptr %d, align 8
-  %m_hash.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %m_hash.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %6 = load i32, ptr %m_hash.i.i, align 8
   %and = and i32 %6, %sub
   %idx.ext = zext i32 %and to i64
-  %add.ptr = getelementptr inbounds %"struct.chashtable<polynomial::factor_entry *, polynomial::factor_entry::hash_proc, polynomial::factor_entry::eq_proc>::cell", ptr %3, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw %"struct.chashtable<polynomial::factor_entry *, polynomial::factor_entry::hash_proc, polynomial::factor_entry::eq_proc>::cell", ptr %3, i64 %idx.ext
   %7 = load ptr, ptr %add.ptr, align 8
   %8 = ptrtoint ptr %7 to i64
   %and.i = and i64 %8, 7
@@ -2082,27 +2082,27 @@ if.end:                                           ; preds = %entry, %if.then, %_
   br i1 %cmp.i, label %if.then4, label %do.body.preheader
 
 do.body.preheader:                                ; preds = %if.end
-  %m_collisions = getelementptr inbounds i8, ptr %this, i64 32
+  %m_collisions = getelementptr inbounds nuw i8, ptr %this, i64 32
   br label %do.body
 
 if.then4:                                         ; preds = %if.end
-  %m_size = getelementptr inbounds i8, ptr %this, i64 28
+  %m_size = getelementptr inbounds nuw i8, ptr %this, i64 28
   %9 = load i32, ptr %m_size, align 4
   %inc = add i32 %9, 1
   store i32 %inc, ptr %m_size, align 4
-  %m_used_slots = getelementptr inbounds i8, ptr %this, i64 24
+  %m_used_slots = getelementptr inbounds nuw i8, ptr %this, i64 24
   %10 = load i32, ptr %m_used_slots, align 8
   %inc5 = add i32 %10, 1
   store i32 %inc5, ptr %m_used_slots, align 8
   %11 = load ptr, ptr %d, align 8
-  %m_data = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  %m_data = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   store ptr %11, ptr %m_data, align 8
   store ptr null, ptr %add.ptr, align 8
   br label %return
 
 do.body:                                          ; preds = %do.body.preheader, %if.end11
   %it.0 = phi ptr [ %17, %if.end11 ], [ %add.ptr, %do.body.preheader ]
-  %m_data7 = getelementptr inbounds i8, ptr %it.0, i64 8
+  %m_data7 = getelementptr inbounds nuw i8, ptr %it.0, i64 8
   %12 = load ptr, ptr %m_data7, align 8
   %13 = load ptr, ptr %d, align 8
   %14 = load ptr, ptr %12, align 8
@@ -2119,7 +2119,7 @@ if.end11:                                         ; preds = %do.body
   br i1 %cmp.not, label %do.end, label %do.body, !llvm.loop !22
 
 do.end:                                           ; preds = %if.end11
-  %m_size14 = getelementptr inbounds i8, ptr %this, i64 28
+  %m_size14 = getelementptr inbounds nuw i8, ptr %this, i64 28
   %18 = load i32, ptr %m_size14, align 4
   %inc15 = add i32 %18, 1
   store i32 %inc15, ptr %m_size14, align 4
@@ -2133,9 +2133,9 @@ if.then.i:                                        ; preds = %do.end
   br label %_ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE13get_free_cellEv.exit
 
 if.else.i:                                        ; preds = %do.end
-  %m_next_cell.i18 = getelementptr inbounds i8, ptr %this, i64 40
+  %m_next_cell.i18 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %21 = load ptr, ptr %m_next_cell.i18, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %21, i64 16
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %incdec.ptr.i, ptr %m_next_cell.i18, align 8
   br label %_ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE13get_free_cellEv.exit
 
@@ -2143,13 +2143,13 @@ _ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE13get_
   %retval.0.i = phi ptr [ %19, %if.then.i ], [ %21, %if.else.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr, i64 16, i1 false)
   %22 = load ptr, ptr %d, align 8
-  %m_data17 = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  %m_data17 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   store ptr %22, ptr %m_data17, align 8
   store ptr %retval.0.i, ptr %add.ptr, align 8
   br label %return
 
 return.loopexit:                                  ; preds = %do.body
-  %m_data7.le = getelementptr inbounds i8, ptr %it.0, i64 8
+  %m_data7.le = getelementptr inbounds nuw i8, ptr %it.0, i64 8
   br label %return
 
 return:                                           ; preds = %return.loopexit, %_ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE13get_free_cellEv.exit, %if.then4
@@ -2173,7 +2173,7 @@ entry:
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %m_manager.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_manager.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %m_manager.i, align 8
   invoke void @_ZN10polynomial7manager7dec_refEPNS_10polynomialE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %0)
           to label %invoke.cont unwind label %terminate.lpad
@@ -2195,13 +2195,13 @@ declare void @_ZN10polynomial7manager7factorsD1Ev(ptr noundef nonnull align 8 de
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE12expand_tableEv(ptr noundef nonnull align 8 dereferenceable(64) %this) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %m_capacity = getelementptr inbounds i8, ptr %this, i64 8
+  %m_capacity = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %m_capacity, align 8
-  %m_slots = getelementptr inbounds i8, ptr %this, i64 20
+  %m_slots = getelementptr inbounds nuw i8, ptr %this, i64 20
   %1 = load i32, ptr %m_slots, align 4
   %sub = sub i32 %0, %1
   %mul = shl i32 %1, 1
-  %m_used_slots = getelementptr inbounds i8, ptr %this, i64 24
+  %m_used_slots = getelementptr inbounds nuw i8, ptr %this, i64 24
   %sub.i = add i32 %mul, -1
   %idx.ext2.i = zext i32 %mul to i64
   br label %while.body
@@ -2221,7 +2221,7 @@ for.body.i.i:                                     ; preds = %while.body, %for.bo
   %curr.06.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %call.i.i, %while.body ]
   store ptr inttoptr (i64 1 to ptr), ptr %curr.06.i.i, align 8
   %inc.i.i = add nuw i32 %i.07.i.i, 1
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %curr.06.i.i, i64 16
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %curr.06.i.i, i64 16
   %exitcond.not.i.i = icmp eq i32 %inc.i.i, %add
   br i1 %exitcond.not.i.i, label %_ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE11alloc_tableEj.exit, label %for.body.i.i, !llvm.loop !7
 
@@ -2230,9 +2230,9 @@ _ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE11allo
   %3 = load i32, ptr %m_slots, align 4
   store i32 0, ptr %m_used_slots, align 8
   %idx.ext.i = zext i32 %3 to i64
-  %add.ptr.i = getelementptr inbounds %"struct.chashtable<polynomial::factor_entry *, polynomial::factor_entry::hash_proc, polynomial::factor_entry::eq_proc>::cell", ptr %2, i64 %idx.ext.i
-  %add.ptr3.i = getelementptr inbounds %"struct.chashtable<polynomial::factor_entry *, polynomial::factor_entry::hash_proc, polynomial::factor_entry::eq_proc>::cell", ptr %call.i.i, i64 %idx.ext2.i
-  %add.ptr5.i = getelementptr inbounds %"struct.chashtable<polynomial::factor_entry *, polynomial::factor_entry::hash_proc, polynomial::factor_entry::eq_proc>::cell", ptr %call.i.i, i64 %conv.i.i
+  %add.ptr.i = getelementptr inbounds nuw %"struct.chashtable<polynomial::factor_entry *, polynomial::factor_entry::hash_proc, polynomial::factor_entry::eq_proc>::cell", ptr %2, i64 %idx.ext.i
+  %add.ptr3.i = getelementptr inbounds nuw %"struct.chashtable<polynomial::factor_entry *, polynomial::factor_entry::hash_proc, polynomial::factor_entry::eq_proc>::cell", ptr %call.i.i, i64 %idx.ext2.i
+  %add.ptr5.i = getelementptr inbounds nuw %"struct.chashtable<polynomial::factor_entry *, polynomial::factor_entry::hash_proc, polynomial::factor_entry::eq_proc>::cell", ptr %call.i.i, i64 %conv.i.i
   %cmp.not26.i = icmp eq i32 %3, 0
   br i1 %cmp.not26.i, label %_ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE10copy_tableEPNS5_4cellEjjS7_jjRj.exit, label %for.body.i
 
@@ -2248,13 +2248,13 @@ for.body.i:                                       ; preds = %_ZN10chashtableIPN1
 do.body.i:                                        ; preds = %for.body.i, %if.end18.i
   %list_it.0.i = phi ptr [ %12, %if.end18.i ], [ %source_it.027.i, %for.body.i ]
   %target_cellar.1.i = phi ptr [ %target_cellar.2.i, %if.end18.i ], [ %target_cellar.028.i, %for.body.i ]
-  %m_data.i = getelementptr inbounds i8, ptr %list_it.0.i, i64 8
+  %m_data.i = getelementptr inbounds nuw i8, ptr %list_it.0.i, i64 8
   %6 = load ptr, ptr %m_data.i, align 8
-  %m_hash.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  %m_hash.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %7 = load i32, ptr %m_hash.i.i.i, align 8
   %and.i = and i32 %7, %sub.i
   %idx.ext7.i = zext i32 %and.i to i64
-  %add.ptr8.i = getelementptr inbounds %"struct.chashtable<polynomial::factor_entry *, polynomial::factor_entry::hash_proc, polynomial::factor_entry::eq_proc>::cell", ptr %call.i.i, i64 %idx.ext7.i
+  %add.ptr8.i = getelementptr inbounds nuw %"struct.chashtable<polynomial::factor_entry *, polynomial::factor_entry::hash_proc, polynomial::factor_entry::eq_proc>::cell", ptr %call.i.i, i64 %idx.ext7.i
   %8 = load ptr, ptr %add.ptr8.i, align 8
   %9 = ptrtoint ptr %8 to i64
   %and.i22.i = and i64 %9, 7
@@ -2262,7 +2262,7 @@ do.body.i:                                        ; preds = %for.body.i, %if.end
   br i1 %cmp.i23.i, label %if.then10.i, label %if.else.i
 
 if.then10.i:                                      ; preds = %do.body.i
-  %m_data12.i = getelementptr inbounds i8, ptr %add.ptr8.i, i64 8
+  %m_data12.i = getelementptr inbounds nuw i8, ptr %add.ptr8.i, i64 8
   store ptr %6, ptr %m_data12.i, align 8
   store ptr null, ptr %add.ptr8.i, align 8
   %10 = load i32, ptr %m_used_slots, align 8
@@ -2277,10 +2277,10 @@ if.else.i:                                        ; preds = %do.body.i
 if.end.i:                                         ; preds = %if.else.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %target_cellar.1.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr8.i, i64 16, i1 false)
   %11 = load ptr, ptr %m_data.i, align 8
-  %m_data16.i = getelementptr inbounds i8, ptr %add.ptr8.i, i64 8
+  %m_data16.i = getelementptr inbounds nuw i8, ptr %add.ptr8.i, i64 8
   store ptr %11, ptr %m_data16.i, align 8
   store ptr %target_cellar.1.i, ptr %add.ptr8.i, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %target_cellar.1.i, i64 16
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %target_cellar.1.i, i64 16
   br label %if.end18.i
 
 if.end18.i:                                       ; preds = %if.end.i, %if.then10.i
@@ -2291,7 +2291,7 @@ if.end18.i:                                       ; preds = %if.end.i, %if.then1
 
 for.inc.i:                                        ; preds = %if.end18.i, %for.body.i
   %target_cellar.3.i = phi ptr [ %target_cellar.028.i, %for.body.i ], [ %target_cellar.2.i, %if.end18.i ]
-  %incdec.ptr22.i = getelementptr inbounds i8, ptr %source_it.027.i, i64 16
+  %incdec.ptr22.i = getelementptr inbounds nuw i8, ptr %source_it.027.i, i64 16
   %cmp.not.i = icmp eq ptr %incdec.ptr22.i, %add.ptr.i
   br i1 %cmp.not.i, label %_ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE10copy_tableEPNS5_4cellEjjS7_jjRj.exit, label %for.body.i, !llvm.loop !24
 
@@ -2313,9 +2313,9 @@ _ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE12dele
   store ptr %call.i.i, ptr %this, align 8
   store i32 %add, ptr %m_capacity, align 8
   store i32 %mul, ptr %m_slots, align 4
-  %m_next_cell = getelementptr inbounds i8, ptr %this, i64 40
+  %m_next_cell = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %retval.0.i, ptr %m_next_cell, align 8
-  %m_free_cell = getelementptr inbounds i8, ptr %this, i64 48
+  %m_free_cell = getelementptr inbounds nuw i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_free_cell, i8 0, i64 16, i1 false)
   ret void
 
@@ -2342,7 +2342,7 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont2 unwind label %terminate.lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
-  %m_in_cache = getelementptr inbounds i8, ptr %this, i64 232
+  %m_in_cache = getelementptr inbounds nuw i8, ptr %this, i64 232
   %0 = load ptr, ptr %m_in_cache, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZN7svectorIcjED2Ev.exit, label %if.then.i.i.i
@@ -2360,8 +2360,8 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   unreachable
 
 _ZN7svectorIcjED2Ev.exit:                         ; preds = %invoke.cont2, %if.then.i.i.i
-  %m_cached_polys = getelementptr inbounds i8, ptr %this, i64 216
-  %m_nodes.i.i = getelementptr inbounds i8, ptr %this, i64 224
+  %m_cached_polys = getelementptr inbounds nuw i8, ptr %this, i64 216
+  %m_nodes.i.i = getelementptr inbounds nuw i8, ptr %this, i64 224
   %3 = load ptr, ptr %m_nodes.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.i.i.i, label %_ZN10ref_vectorIN10polynomial10polynomialENS0_7managerEED2Ev.exit, label %_ZNK6vectorIPN10polynomial10polynomialELb0EjE4sizeEv.exit.i.i
@@ -2370,7 +2370,7 @@ _ZNK6vectorIPN10polynomial10polynomialELb0EjE4sizeEv.exit.i.i: ; preds = %_ZN7sv
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %3, i64 -4
   %4 = load i32, ptr %arrayidx.i.i.i, align 4
   %5 = zext i32 %4 to i64
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %3, i64 %5
+  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %3, i64 %5
   %cmp3.i.not.i.i = icmp eq i32 %4, 0
   br i1 %cmp3.i.not.i.i, label %if.then.i.i.i.i.i, label %for.body.i.i.i
 
@@ -2382,7 +2382,7 @@ for.body.i.i.i:                                   ; preds = %_ZNK6vectorIPN10pol
           to label %.noexc.i.i unwind label %terminate.lpad.i.i1
 
 .noexc.i.i:                                       ; preds = %for.body.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %it.04.i.i.i, i64 8
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %it.04.i.i.i, i64 8
   %cmp.i1.i.i = icmp ult ptr %incdec.ptr.i.i.i, %add.ptr.i.i
   br i1 %cmp.i1.i.i, label %for.body.i.i.i, label %invoke.cont8.i.i, !llvm.loop !9
 
@@ -2412,7 +2412,7 @@ terminate.lpad.i.i1:                              ; preds = %for.body.i.i.i
   unreachable
 
 _ZN10ref_vectorIN10polynomial10polynomialENS0_7managerEED2Ev.exit: ; preds = %_ZN7svectorIcjED2Ev.exit, %invoke.cont8.i.i, %if.then.i.i.i.i.i
-  %m_factor_cache = getelementptr inbounds i8, ptr %this, i64 152
+  %m_factor_cache = getelementptr inbounds nuw i8, ptr %this, i64 152
   %13 = load ptr, ptr %m_factor_cache, align 8
   %cmp.i.i.i2 = icmp eq ptr %13, null
   br i1 %cmp.i.i.i2, label %_ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEED2Ev.exit, label %for.cond.preheader.i.i.i
@@ -2429,7 +2429,7 @@ terminate.lpad.i:                                 ; preds = %for.cond.preheader.
   unreachable
 
 _ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEED2Ev.exit: ; preds = %_ZN10ref_vectorIN10polynomial10polynomialENS0_7managerEED2Ev.exit, %for.cond.preheader.i.i.i
-  %m_psc_chain_cache = getelementptr inbounds i8, ptr %this, i64 88
+  %m_psc_chain_cache = getelementptr inbounds nuw i8, ptr %this, i64 88
   %16 = load ptr, ptr %m_psc_chain_cache, align 8
   %cmp.i.i.i3 = icmp eq ptr %16, null
   br i1 %cmp.i.i.i3, label %_ZN10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEED2Ev.exit, label %for.cond.preheader.i.i.i4
@@ -2446,7 +2446,7 @@ terminate.lpad.i5:                                ; preds = %for.cond.preheader.
   unreachable
 
 _ZN10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEED2Ev.exit: ; preds = %_ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEED2Ev.exit, %for.cond.preheader.i.i.i4
-  %m_table.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_table.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %19 = load ptr, ptr %m_table.i.i, align 8
   %cmp.i.i.i6 = icmp eq ptr %19, null
   br i1 %cmp.i.i.i6, label %_ZN10chashtableIPN10polynomial10polynomialENS0_14poly_hash_procENS0_12poly_eq_procEED2Ev.exit, label %for.cond.preheader.i.i.i7
@@ -2476,12 +2476,12 @@ terminate.lpad:                                   ; preds = %invoke.cont, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN10polynomial5cache3imp21reset_psc_chain_cacheEv(ptr noundef nonnull align 8 dereferenceable(248) %this) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %m_psc_chain_cache = getelementptr inbounds i8, ptr %this, i64 88
+  %m_psc_chain_cache = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load ptr, ptr %m_psc_chain_cache, align 8, !noalias !26
-  %m_slots.i = getelementptr inbounds i8, ptr %this, i64 108
+  %m_slots.i = getelementptr inbounds nuw i8, ptr %this, i64 108
   %1 = load i32, ptr %m_slots.i, align 4, !noalias !26
   %idx.ext.i = zext i32 %1 to i64
-  %add.ptr.i = getelementptr inbounds %"struct.chashtable<polynomial::psc_chain_entry *, polynomial::psc_chain_entry::hash_proc, polynomial::psc_chain_entry::eq_proc>::cell", ptr %0, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw %"struct.chashtable<polynomial::psc_chain_entry *, polynomial::psc_chain_entry::hash_proc, polynomial::psc_chain_entry::eq_proc>::cell", ptr %0, i64 %idx.ext.i
   %cmp.not3.i.i.i = icmp eq i32 %1, 0
   br i1 %cmp.not3.i.i.i, label %for.end, label %while.body.i.i.i
 
@@ -2494,12 +2494,12 @@ while.body.i.i.i:                                 ; preds = %entry, %if.end.i.i.
   br i1 %cmp.i.i.i.i, label %if.end.i.i.i, label %for.body.lr.ph
 
 if.end.i.i.i:                                     ; preds = %while.body.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %it.sroa.0.1, i64 16
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %it.sroa.0.1, i64 16
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr.i
   br i1 %cmp.not.i.i.i, label %for.end, label %while.body.i.i.i, !llvm.loop !29
 
 for.body.lr.ph:                                   ; preds = %while.body.i.i.i
-  %m_allocator.i = getelementptr inbounds i8, ptr %this, i64 240
+  %m_allocator.i = getelementptr inbounds nuw i8, ptr %this, i64 240
   br label %for.body.outer
 
 for.body.outer:                                   ; preds = %while.body.i.i, %for.body.lr.ph
@@ -2508,9 +2508,9 @@ for.body.outer:                                   ; preds = %while.body.i.i, %fo
 
 for.body:                                         ; preds = %for.body.outer, %_ZN10polynomial5cache3imp19del_psc_chain_entryEPNS_15psc_chain_entryE.exit
   %it.sroa.7.012 = phi ptr [ %9, %_ZN10polynomial5cache3imp19del_psc_chain_entryEPNS_15psc_chain_entryE.exit ], [ %it.sroa.0.011.ph, %for.body.outer ]
-  %m_data.i = getelementptr inbounds i8, ptr %it.sroa.7.012, i64 8
+  %m_data.i = getelementptr inbounds nuw i8, ptr %it.sroa.7.012, i64 8
   %4 = load ptr, ptr %m_data.i, align 8
-  %m_result_sz.i = getelementptr inbounds i8, ptr %4, i64 24
+  %m_result_sz.i = getelementptr inbounds nuw i8, ptr %4, i64 24
   %5 = load i32, ptr %m_result_sz.i, align 8
   %cmp.not.i = icmp eq i32 %5, 0
   br i1 %cmp.not.i, label %_ZN10polynomial5cache3imp19del_psc_chain_entryEPNS_15psc_chain_entryE.exit, label %if.then.i
@@ -2519,7 +2519,7 @@ if.then.i:                                        ; preds = %for.body
   %6 = load ptr, ptr %m_allocator.i, align 8
   %conv.i = zext i32 %5 to i64
   %mul.i = shl nuw nsw i64 %conv.i, 3
-  %m_result.i = getelementptr inbounds i8, ptr %4, i64 32
+  %m_result.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   %7 = load ptr, ptr %m_result.i, align 8
   tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %6, i64 noundef %mul.i, ptr noundef %7)
   br label %_ZN10polynomial5cache3imp19del_psc_chain_entryEPNS_15psc_chain_entryE.exit
@@ -2532,7 +2532,7 @@ _ZN10polynomial5cache3imp19del_psc_chain_entryEPNS_15psc_chain_entryE.exit: ; pr
   br i1 %cmp.i3, label %if.then.i4, label %for.body, !llvm.loop !30
 
 if.then.i4:                                       ; preds = %_ZN10polynomial5cache3imp19del_psc_chain_entryEPNS_15psc_chain_entryE.exit
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.011.ph, i64 16
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %it.sroa.0.011.ph, i64 16
   %cmp.not3.i.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i
   br i1 %cmp.not3.i.i, label %for.end, label %while.body.i.i
 
@@ -2545,12 +2545,12 @@ while.body.i.i:                                   ; preds = %if.then.i4, %if.end
   br i1 %cmp.i.i.i, label %if.end.i.i, label %for.body.outer, !llvm.loop !30
 
 if.end.i.i:                                       ; preds = %while.body.i.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %it.sroa.0.3, i64 16
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %it.sroa.0.3, i64 16
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i
   br i1 %cmp.not.i.i, label %for.end, label %while.body.i.i, !llvm.loop !29
 
 for.end:                                          ; preds = %if.end.i.i.i, %if.then.i4, %if.end.i.i, %entry
-  %m_size.i = getelementptr inbounds i8, ptr %this, i64 116
+  %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 116
   %12 = load i32, ptr %m_size.i, align 4
   %cmp.i6 = icmp eq i32 %12, 0
   br i1 %cmp.i6, label %_ZN10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE5resetEv.exit, label %if.end.i
@@ -2565,12 +2565,12 @@ for.cond.preheader.i.i.i.i:                       ; preds = %if.end.i
   br label %_ZN10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE12delete_tableEv.exit.i.i
 
 _ZN10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE12delete_tableEv.exit.i.i: ; preds = %for.cond.preheader.i.i.i.i, %if.end.i
-  %m_init_slots.i.i = getelementptr inbounds i8, ptr %this, i64 100
+  %m_init_slots.i.i = getelementptr inbounds nuw i8, ptr %this, i64 100
   %14 = load i32, ptr %m_init_slots.i.i, align 4
-  %m_init_cellar.i.i = getelementptr inbounds i8, ptr %this, i64 104
+  %m_init_cellar.i.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   %15 = load i32, ptr %m_init_cellar.i.i, align 8
   %add.i.i.i = add i32 %15, %14
-  %m_capacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
+  %m_capacity.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   store i32 %add.i.i.i, ptr %m_capacity.i.i.i, align 8
   %conv.i.i.i.i.i = zext i32 %add.i.i.i to i64
   %mul.i.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i.i, 4
@@ -2583,21 +2583,21 @@ for.body.i.i.i.i.i:                               ; preds = %_ZN10chashtableIPN1
   %curr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %call.i.i.i.i.i, %_ZN10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE12delete_tableEv.exit.i.i ]
   store ptr inttoptr (i64 1 to ptr), ptr %curr.06.i.i.i.i.i, align 8
   %inc.i.i.i.i.i = add nuw i32 %i.07.i.i.i.i.i, 1
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %curr.06.i.i.i.i.i, i64 16
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %curr.06.i.i.i.i.i, i64 16
   %exitcond.not.i.i.i.i.i = icmp eq i32 %inc.i.i.i.i.i, %add.i.i.i
   br i1 %exitcond.not.i.i.i.i.i, label %_ZN10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE8finalizeEv.exit.i, label %for.body.i.i.i.i.i, !llvm.loop !6
 
 _ZN10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE8finalizeEv.exit.i: ; preds = %for.body.i.i.i.i.i, %_ZN10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE12delete_tableEv.exit.i.i
   store ptr %call.i.i.i.i.i, ptr %m_psc_chain_cache, align 8
   store i32 %14, ptr %m_slots.i, align 4
-  %m_used_slots.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
+  %m_used_slots.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   store i32 0, ptr %m_used_slots.i.i.i, align 8
   store i32 0, ptr %m_size.i, align 4
   %idx.ext.i.i.i = zext i32 %14 to i64
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.chashtable<polynomial::psc_chain_entry *, polynomial::psc_chain_entry::hash_proc, polynomial::psc_chain_entry::eq_proc>::cell", ptr %call.i.i.i.i.i, i64 %idx.ext.i.i.i
-  %m_next_cell.i.i.i = getelementptr inbounds i8, ptr %this, i64 128
+  %add.ptr.i.i.i = getelementptr inbounds nuw %"struct.chashtable<polynomial::psc_chain_entry *, polynomial::psc_chain_entry::hash_proc, polynomial::psc_chain_entry::eq_proc>::cell", ptr %call.i.i.i.i.i, i64 %idx.ext.i.i.i
+  %m_next_cell.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   store ptr %add.ptr.i.i.i, ptr %m_next_cell.i.i.i, align 8
-  %m_free_cell.i.i.i = getelementptr inbounds i8, ptr %this, i64 136
+  %m_free_cell.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_free_cell.i.i.i, i8 0, i64 16, i1 false)
   br label %_ZN10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE5resetEv.exit
 
@@ -2608,12 +2608,12 @@ _ZN10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE5re
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN10polynomial5cache3imp18reset_factor_cacheEv(ptr noundef nonnull align 8 dereferenceable(248) %this) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %m_factor_cache = getelementptr inbounds i8, ptr %this, i64 152
+  %m_factor_cache = getelementptr inbounds nuw i8, ptr %this, i64 152
   %0 = load ptr, ptr %m_factor_cache, align 8, !noalias !31
-  %m_slots.i = getelementptr inbounds i8, ptr %this, i64 172
+  %m_slots.i = getelementptr inbounds nuw i8, ptr %this, i64 172
   %1 = load i32, ptr %m_slots.i, align 4, !noalias !31
   %idx.ext.i = zext i32 %1 to i64
-  %add.ptr.i = getelementptr inbounds %"struct.chashtable<polynomial::factor_entry *, polynomial::factor_entry::hash_proc, polynomial::factor_entry::eq_proc>::cell", ptr %0, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw %"struct.chashtable<polynomial::factor_entry *, polynomial::factor_entry::hash_proc, polynomial::factor_entry::eq_proc>::cell", ptr %0, i64 %idx.ext.i
   %cmp.not3.i.i.i = icmp eq i32 %1, 0
   br i1 %cmp.not3.i.i.i, label %for.end, label %while.body.i.i.i
 
@@ -2626,12 +2626,12 @@ while.body.i.i.i:                                 ; preds = %entry, %if.end.i.i.
   br i1 %cmp.i.i.i.i, label %if.end.i.i.i, label %for.body.lr.ph
 
 if.end.i.i.i:                                     ; preds = %while.body.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %it.sroa.0.1, i64 16
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %it.sroa.0.1, i64 16
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr.i
   br i1 %cmp.not.i.i.i, label %for.end, label %while.body.i.i.i, !llvm.loop !34
 
 for.body.lr.ph:                                   ; preds = %while.body.i.i.i
-  %m_allocator.i = getelementptr inbounds i8, ptr %this, i64 240
+  %m_allocator.i = getelementptr inbounds nuw i8, ptr %this, i64 240
   br label %for.body.outer
 
 for.body.outer:                                   ; preds = %while.body.i.i, %for.body.lr.ph
@@ -2640,9 +2640,9 @@ for.body.outer:                                   ; preds = %while.body.i.i, %fo
 
 for.body:                                         ; preds = %for.body.outer, %_ZN10polynomial5cache3imp16del_factor_entryEPNS_12factor_entryE.exit
   %it.sroa.7.012 = phi ptr [ %9, %_ZN10polynomial5cache3imp16del_factor_entryEPNS_12factor_entryE.exit ], [ %it.sroa.0.011.ph, %for.body.outer ]
-  %m_data.i = getelementptr inbounds i8, ptr %it.sroa.7.012, i64 8
+  %m_data.i = getelementptr inbounds nuw i8, ptr %it.sroa.7.012, i64 8
   %4 = load ptr, ptr %m_data.i, align 8
-  %m_result_sz.i = getelementptr inbounds i8, ptr %4, i64 12
+  %m_result_sz.i = getelementptr inbounds nuw i8, ptr %4, i64 12
   %5 = load i32, ptr %m_result_sz.i, align 4
   %cmp.not.i = icmp eq i32 %5, 0
   br i1 %cmp.not.i, label %_ZN10polynomial5cache3imp16del_factor_entryEPNS_12factor_entryE.exit, label %if.then.i
@@ -2651,7 +2651,7 @@ if.then.i:                                        ; preds = %for.body
   %6 = load ptr, ptr %m_allocator.i, align 8
   %conv.i = zext i32 %5 to i64
   %mul.i = shl nuw nsw i64 %conv.i, 3
-  %m_result.i = getelementptr inbounds i8, ptr %4, i64 16
+  %m_result.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %7 = load ptr, ptr %m_result.i, align 8
   tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %6, i64 noundef %mul.i, ptr noundef %7)
   br label %_ZN10polynomial5cache3imp16del_factor_entryEPNS_12factor_entryE.exit
@@ -2664,7 +2664,7 @@ _ZN10polynomial5cache3imp16del_factor_entryEPNS_12factor_entryE.exit: ; preds = 
   br i1 %cmp.i3, label %if.then.i4, label %for.body, !llvm.loop !35
 
 if.then.i4:                                       ; preds = %_ZN10polynomial5cache3imp16del_factor_entryEPNS_12factor_entryE.exit
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.011.ph, i64 16
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %it.sroa.0.011.ph, i64 16
   %cmp.not3.i.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i
   br i1 %cmp.not3.i.i, label %for.end, label %while.body.i.i
 
@@ -2677,12 +2677,12 @@ while.body.i.i:                                   ; preds = %if.then.i4, %if.end
   br i1 %cmp.i.i.i, label %if.end.i.i, label %for.body.outer, !llvm.loop !35
 
 if.end.i.i:                                       ; preds = %while.body.i.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %it.sroa.0.3, i64 16
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %it.sroa.0.3, i64 16
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i
   br i1 %cmp.not.i.i, label %for.end, label %while.body.i.i, !llvm.loop !34
 
 for.end:                                          ; preds = %if.end.i.i.i, %if.then.i4, %if.end.i.i, %entry
-  %m_size.i = getelementptr inbounds i8, ptr %this, i64 180
+  %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 180
   %12 = load i32, ptr %m_size.i, align 4
   %cmp.i6 = icmp eq i32 %12, 0
   br i1 %cmp.i6, label %_ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE5resetEv.exit, label %if.end.i
@@ -2697,12 +2697,12 @@ for.cond.preheader.i.i.i.i:                       ; preds = %if.end.i
   br label %_ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE12delete_tableEv.exit.i.i
 
 _ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE12delete_tableEv.exit.i.i: ; preds = %for.cond.preheader.i.i.i.i, %if.end.i
-  %m_init_slots.i.i = getelementptr inbounds i8, ptr %this, i64 164
+  %m_init_slots.i.i = getelementptr inbounds nuw i8, ptr %this, i64 164
   %14 = load i32, ptr %m_init_slots.i.i, align 4
-  %m_init_cellar.i.i = getelementptr inbounds i8, ptr %this, i64 168
+  %m_init_cellar.i.i = getelementptr inbounds nuw i8, ptr %this, i64 168
   %15 = load i32, ptr %m_init_cellar.i.i, align 8
   %add.i.i.i = add i32 %15, %14
-  %m_capacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 160
+  %m_capacity.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 160
   store i32 %add.i.i.i, ptr %m_capacity.i.i.i, align 8
   %conv.i.i.i.i.i = zext i32 %add.i.i.i to i64
   %mul.i.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i.i, 4
@@ -2715,21 +2715,21 @@ for.body.i.i.i.i.i:                               ; preds = %_ZN10chashtableIPN1
   %curr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %call.i.i.i.i.i, %_ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE12delete_tableEv.exit.i.i ]
   store ptr inttoptr (i64 1 to ptr), ptr %curr.06.i.i.i.i.i, align 8
   %inc.i.i.i.i.i = add nuw i32 %i.07.i.i.i.i.i, 1
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %curr.06.i.i.i.i.i, i64 16
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %curr.06.i.i.i.i.i, i64 16
   %exitcond.not.i.i.i.i.i = icmp eq i32 %inc.i.i.i.i.i, %add.i.i.i
   br i1 %exitcond.not.i.i.i.i.i, label %_ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE8finalizeEv.exit.i, label %for.body.i.i.i.i.i, !llvm.loop !7
 
 _ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE8finalizeEv.exit.i: ; preds = %for.body.i.i.i.i.i, %_ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE12delete_tableEv.exit.i.i
   store ptr %call.i.i.i.i.i, ptr %m_factor_cache, align 8
   store i32 %14, ptr %m_slots.i, align 4
-  %m_used_slots.i.i.i = getelementptr inbounds i8, ptr %this, i64 176
+  %m_used_slots.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 176
   store i32 0, ptr %m_used_slots.i.i.i, align 8
   store i32 0, ptr %m_size.i, align 4
   %idx.ext.i.i.i = zext i32 %14 to i64
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.chashtable<polynomial::factor_entry *, polynomial::factor_entry::hash_proc, polynomial::factor_entry::eq_proc>::cell", ptr %call.i.i.i.i.i, i64 %idx.ext.i.i.i
-  %m_next_cell.i.i.i = getelementptr inbounds i8, ptr %this, i64 192
+  %add.ptr.i.i.i = getelementptr inbounds nuw %"struct.chashtable<polynomial::factor_entry *, polynomial::factor_entry::hash_proc, polynomial::factor_entry::eq_proc>::cell", ptr %call.i.i.i.i.i, i64 %idx.ext.i.i.i
+  %m_next_cell.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   store ptr %add.ptr.i.i.i, ptr %m_next_cell.i.i.i, align 8
-  %m_free_cell.i.i.i = getelementptr inbounds i8, ptr %this, i64 200
+  %m_free_cell.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_free_cell.i.i.i, i8 0, i64 16, i1 false)
   br label %_ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE5resetEv.exit
 

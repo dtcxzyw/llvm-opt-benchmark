@@ -21,7 +21,7 @@ define void @_ZN5serde2de9MapAccess10next_entry17h85474c78146c47f1E(ptr nocaptur
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load i8, ptr %8, align 8, !range !5, !noundef !4
   %10 = icmp eq i8 %9, 0
   br i1 %10, label %12, label %14
@@ -31,7 +31,7 @@ define void @_ZN5serde2de9MapAccess10next_entry17h85474c78146c47f1E(ptr nocaptur
   br label %_ZN5serde2de9MapAccess15next_entry_seed17h2d5f0fb344119ddbE.exit
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %13, align 8
   store i64 2, ptr %0, align 8
   br label %_ZN5serde2de9MapAccess15next_entry_seed17h2d5f0fb344119ddbE.exit
@@ -43,7 +43,7 @@ define void @_ZN5serde2de9MapAccess10next_entry17h85474c78146c47f1E(ptr nocaptur
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %18, align 8
   store i64 2, ptr %0, align 8
   br label %_ZN5serde2de9MapAccess15next_entry_seed17h2d5f0fb344119ddbE.exit
@@ -80,7 +80,7 @@ define void @_ZN5serde2de9MapAccess15next_entry_seed17h2d5f0fb344119ddbE(ptr noc
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load i8, ptr %8, align 8, !range !5, !noundef !4
   %10 = icmp eq i8 %9, 0
   br i1 %10, label %12, label %14
@@ -90,7 +90,7 @@ define void @_ZN5serde2de9MapAccess15next_entry_seed17h2d5f0fb344119ddbE(ptr noc
   br label %20
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %13, align 8
   store i64 2, ptr %0, align 8
   br label %20
@@ -102,7 +102,7 @@ define void @_ZN5serde2de9MapAccess15next_entry_seed17h2d5f0fb344119ddbE(ptr noc
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %18, align 8
   store i64 2, ptr %0, align 8
   br label %20
@@ -132,15 +132,15 @@ define void @"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$serde..d
   %9 = alloca { i64, [11 x i64] }, align 8
   %10 = alloca { { i64, [21 x i64] }, { { { { { i64, ptr }, i64 } } }, { i64, [2 x i64] }, { { i64, [2 x i64] }, { i64, [2 x i64] } }, { { i64, [2 x i64] }, { i64, [2 x i64] } } } }, align 8
   %11 = alloca { [3 x i64], i64, [39 x i64] }, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 344
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 344
   call void @"_ZN101_$LT$indexmap..map..iter..IntoIter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h45b2b8f1087048b9E"(ptr nonnull sret({ [3 x i64], i64, [39 x i64] }) align 8 %11, ptr nonnull align 8 %12)
-  %13 = getelementptr inbounds i8, ptr %11, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %14 = load i64, ptr %13, align 8, !range !6, !noundef !4
   %15 = icmp eq i64 %14, 12
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %2
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 2, ptr %17, align 8
   store i64 2, ptr %0, align 8
   br label %36
@@ -148,7 +148,7 @@ define void @"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$serde..d
 18:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %10, ptr noundef nonnull align 8 dereferenceable(320) %13, i64 320, i1 false)
-  %19 = getelementptr inbounds i8, ptr %10, i64 176
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 176
   invoke void @_ZN9toml_edit3key3Key4span17h61322e0934d0eda2E(ptr nonnull sret({ i64, [2 x i64] }) align 8 %4, ptr nonnull align 8 %19)
           to label %22 unwind label %20
 
@@ -160,7 +160,7 @@ define void @"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$serde..d
 
 22:                                               ; preds = %18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  %23 = getelementptr inbounds i8, ptr %6, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   invoke void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h29a8458109f5880aE"(ptr nonnull sret({ i64, [11 x i64] }) align 8 %7, ptr nonnull align 8 %6)
           to label %26 unwind label %24
@@ -185,9 +185,9 @@ define void @"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$serde..d
 
 30:                                               ; preds = %29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %19, i64 144, i1 false)
-  %31 = getelementptr inbounds i8, ptr %3, i64 144
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %31, ptr noundef nonnull align 8 dereferenceable(176) %10, i64 176, i1 false)
-  %32 = getelementptr inbounds i8, ptr %1, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 24
   invoke void @"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$$LP$toml_edit..key..Key$C$toml_edit..item..Item$RP$$GT$$GT$17hf49996d5c1a1c142E"(ptr nonnull align 8 %32)
           to label %35 unwind label %33
 
@@ -237,15 +237,15 @@ define void @"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$serde..d
   %9 = alloca { i64, [11 x i64] }, align 8
   %10 = alloca { { i64, [21 x i64] }, { { { { { i64, ptr }, i64 } } }, { i64, [2 x i64] }, { { i64, [2 x i64] }, { i64, [2 x i64] } }, { { i64, [2 x i64] }, { i64, [2 x i64] } } } }, align 8
   %11 = alloca { [3 x i64], i64, [39 x i64] }, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 344
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 344
   call void @"_ZN101_$LT$indexmap..map..iter..IntoIter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h45b2b8f1087048b9E"(ptr nonnull sret({ [3 x i64], i64, [39 x i64] }) align 8 %11, ptr nonnull align 8 %12)
-  %13 = getelementptr inbounds i8, ptr %11, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %14 = load i64, ptr %13, align 8, !range !6, !noundef !4
   %15 = icmp eq i64 %14, 12
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %2
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %17, align 8
   store i64 2, ptr %0, align 8
   br label %36
@@ -253,7 +253,7 @@ define void @"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$serde..d
 18:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %10, ptr noundef nonnull align 8 dereferenceable(320) %13, i64 320, i1 false)
-  %19 = getelementptr inbounds i8, ptr %10, i64 176
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 176
   invoke void @_ZN9toml_edit3key3Key4span17h61322e0934d0eda2E(ptr nonnull sret({ i64, [2 x i64] }) align 8 %4, ptr nonnull align 8 %19)
           to label %22 unwind label %20
 
@@ -265,7 +265,7 @@ define void @"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$serde..d
 
 22:                                               ; preds = %18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  %23 = getelementptr inbounds i8, ptr %6, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   invoke void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h4bb6d9bf89482d06E"(ptr nonnull sret({ i64, [11 x i64] }) align 8 %7, ptr nonnull align 8 %6)
           to label %26 unwind label %24
@@ -290,9 +290,9 @@ define void @"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$serde..d
 
 30:                                               ; preds = %29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %19, i64 144, i1 false)
-  %31 = getelementptr inbounds i8, ptr %3, i64 144
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %31, ptr noundef nonnull align 8 dereferenceable(176) %10, i64 176, i1 false)
-  %32 = getelementptr inbounds i8, ptr %1, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 24
   invoke void @"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$$LP$toml_edit..key..Key$C$toml_edit..item..Item$RP$$GT$$GT$17hf49996d5c1a1c142E"(ptr nonnull align 8 %32)
           to label %35 unwind label %33
 
@@ -425,7 +425,7 @@ define void @"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$serde..d
   %8 = alloca { i64, [2 x i64] }, align 8
   %9 = alloca { i64, [21 x i64] }, align 8
   %10 = alloca { { { { { i64, ptr }, i64 } } }, { i64, [2 x i64] }, { { i64, [2 x i64] }, { i64, [2 x i64] } }, { { i64, [2 x i64] }, { i64, [2 x i64] } } }, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 168
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 168
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   store i64 12, ptr %.sroa.2.0..sroa_idx, align 8
   %11 = icmp eq i64 %.sroa.2.0.copyload, 12
@@ -433,23 +433,23 @@ define void @"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$serde..d
 
 12:                                               ; preds = %2
   store ptr @anon.42149bed2bef2d9869e56fc8a260eeb9.1, ptr %3, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr @anon.42149bed2bef2d9869e56fc8a260eeb9.2, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %16, align 8
   call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr nonnull align 8 %3, ptr nonnull align 8 @anon.42149bed2bef2d9869e56fc8a260eeb9.4) #10
   unreachable
 
 17:                                               ; preds = %2
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 176
-  %18 = getelementptr inbounds i8, ptr %1, i64 24
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 176
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %10, ptr noundef nonnull align 8 dereferenceable(144) %18, i64 144, i1 false)
   store i64 %.sroa.2.0.copyload, ptr %9, align 8
-  %.sroa.4.144..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
+  %.sroa.4.144..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %.sroa.4.144..sroa_idx, ptr noundef nonnull align 8 dereferenceable(168) %.sroa.4.0..sroa_idx, i64 168, i1 false)
   invoke void @_ZN9toml_edit4item4Item4span17hfe5bfac86034a06cE(ptr nonnull sret({ i64, [2 x i64] }) align 8 %7, ptr nonnull align 8 %9)
           to label %20 unwind label %27
@@ -465,14 +465,14 @@ define void @"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$serde..d
 
 21:                                               ; preds = %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %5, ptr noundef nonnull align 8 dereferenceable(176) %9, i64 176, i1 false)
-  %22 = getelementptr inbounds i8, ptr %5, i64 176
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 176
   store i8 0, ptr %22, align 8
   invoke void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h95fd46c1fefc0d2fE"(ptr nonnull sret({ i64, [11 x i64] }) align 8 %6, ptr nonnull align 8 %5)
           to label %23 unwind label %19
 
 23:                                               ; preds = %21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
-  %24 = getelementptr inbounds i8, ptr %4, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %10, ptr %24, align 8
   invoke void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h56cf03cb674816b0E"(ptr sret({ i64, [11 x i64] }) align 8 %0, ptr nonnull align 8 %6, ptr nonnull align 8 %4)
           to label %25 unwind label %19
@@ -512,7 +512,7 @@ define void @"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$serde..d
   %8 = alloca { i64, [2 x i64] }, align 8
   %9 = alloca { i64, [21 x i64] }, align 8
   %10 = alloca { { { { { i64, ptr }, i64 } } }, { i64, [2 x i64] }, { { i64, [2 x i64] }, { i64, [2 x i64] } }, { { i64, [2 x i64] }, { i64, [2 x i64] } } }, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 168
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 168
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   store i64 12, ptr %.sroa.2.0..sroa_idx, align 8
   %11 = icmp eq i64 %.sroa.2.0.copyload, 12
@@ -520,23 +520,23 @@ define void @"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$serde..d
 
 12:                                               ; preds = %2
   store ptr @anon.42149bed2bef2d9869e56fc8a260eeb9.1, ptr %3, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr @anon.42149bed2bef2d9869e56fc8a260eeb9.2, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %16, align 8
   call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr nonnull align 8 %3, ptr nonnull align 8 @anon.42149bed2bef2d9869e56fc8a260eeb9.4) #10
   unreachable
 
 17:                                               ; preds = %2
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 176
-  %18 = getelementptr inbounds i8, ptr %1, i64 24
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 176
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %10, ptr noundef nonnull align 8 dereferenceable(144) %18, i64 144, i1 false)
   store i64 %.sroa.2.0.copyload, ptr %9, align 8
-  %.sroa.4.144..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
+  %.sroa.4.144..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %.sroa.4.144..sroa_idx, ptr noundef nonnull align 8 dereferenceable(168) %.sroa.4.0..sroa_idx, i64 168, i1 false)
   invoke void @_ZN9toml_edit4item4Item4span17hfe5bfac86034a06cE(ptr nonnull sret({ i64, [2 x i64] }) align 8 %7, ptr nonnull align 8 %9)
           to label %20 unwind label %27
@@ -552,14 +552,14 @@ define void @"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$serde..d
 
 21:                                               ; preds = %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %5, ptr noundef nonnull align 8 dereferenceable(176) %9, i64 176, i1 false)
-  %22 = getelementptr inbounds i8, ptr %5, i64 176
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 176
   store i8 0, ptr %22, align 8
   invoke void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h7a71a871b46d2768E"(ptr nonnull sret({ i64, [11 x i64] }) align 8 %6, ptr nonnull align 8 %5)
           to label %23 unwind label %19
 
 23:                                               ; preds = %21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
-  %24 = getelementptr inbounds i8, ptr %4, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %10, ptr %24, align 8
   invoke void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h851ba5297cf55d54E"(ptr sret({ i64, [11 x i64] }) align 8 %0, ptr nonnull align 8 %6, ptr nonnull align 8 %4)
           to label %25 unwind label %19
@@ -617,11 +617,11 @@ define void @"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$serde..d
   br i1 %.not, label %18, label %11
 
 11:                                               ; preds = %18, %9
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load ptr, ptr %12, align 8, !nonnull !4, !align !8, !noundef !4
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8, !nonnull !4, !noundef !4
-  %16 = getelementptr inbounds i8, ptr %13, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %17 = load i64, ptr %16, align 8, !noundef !4
   invoke void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17he880083d60677b8fE"(ptr nonnull sret({ { i64, ptr }, i64 }) align 8 %4, ptr nonnull align 1 %15, i64 %17)
           to label %19 unwind label %7
@@ -669,11 +669,11 @@ define void @"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$serde..d
   br i1 %.not, label %18, label %11
 
 11:                                               ; preds = %18, %9
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load ptr, ptr %12, align 8, !nonnull !4, !align !8, !noundef !4
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8, !nonnull !4, !noundef !4
-  %16 = getelementptr inbounds i8, ptr %13, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %17 = load i64, ptr %16, align 8, !noundef !4
   invoke void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17he880083d60677b8fE"(ptr nonnull sret({ { i64, ptr }, i64 }) align 8 %4, ptr nonnull align 1 %15, i64 %17)
           to label %19 unwind label %7

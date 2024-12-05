@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define void @Ssw_ManRefineByFilterSim(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 104
   %.val97 = load i32, ptr %5, align 8
@@ -28,7 +28,7 @@ define void @Ssw_ManRefineByFilterSim(ptr nocapture noundef readonly %0, i32 nou
   br i1 %6, label %.lr.ph, label %.critedge.preheader
 
 .lr.ph:                                           ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 248
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 248
   br label %10
 
 .critedge.preheader:                              ; preds = %10, %2
@@ -36,13 +36,13 @@ define void @Ssw_ManRefineByFilterSim(ptr nocapture noundef readonly %0, i32 nou
   br i1 %8, label %.lr.ph115, label %.critedge._crit_edge
 
 .lr.ph115:                                        ; preds = %.critedge.preheader
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %40
 
 10:                                               ; preds = %.lr.ph, %10
   %11 = phi ptr [ %4, %.lr.ph ], [ %37, %10 ]
   %.06998 = phi i32 [ 0, %.lr.ph ], [ %36, %10 ]
-  %12 = getelementptr inbounds i8, ptr %11, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr i8, ptr %11, i64 112
   %.val73 = load i32, ptr %14, align 8
@@ -62,7 +62,7 @@ define void @Ssw_ManRefineByFilterSim(ptr nocapture noundef readonly %0, i32 nou
   %26 = load i32, ptr %25, align 4
   %27 = and i32 %22, 31
   %28 = lshr i32 %26, %27
-  %29 = getelementptr inbounds i8, ptr %19, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %30 = load i64, ptr %29, align 8
   %31 = shl i32 %28, 5
   %32 = and i32 %31, 32
@@ -82,7 +82,7 @@ define void @Ssw_ManRefineByFilterSim(ptr nocapture noundef readonly %0, i32 nou
   %41 = load ptr, ptr %3, align 8
   %42 = getelementptr i8, ptr %41, i64 48
   %.val81 = load ptr, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %.val81, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %.val81, i64 24
   %44 = load i64, ptr %43, align 8
   %45 = or i64 %44, 32
   store i64 %45, ptr %43, align 8
@@ -102,13 +102,13 @@ define void @Ssw_ManRefineByFilterSim(ptr nocapture noundef readonly %0, i32 nou
 .lr.ph101:                                        ; preds = %40, %.lr.ph101
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph101 ], [ 0, %40 ]
   %52 = phi ptr [ %61, %.lr.ph101 ], [ %46, %40 ]
-  %53 = getelementptr inbounds i8, ptr %52, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr i8, ptr %54, i64 8
   %.val75 = load ptr, ptr %55, align 8
-  %56 = getelementptr inbounds ptr, ptr %.val75, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw ptr, ptr %.val75, i64 %indvars.iv
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %59 = load i64, ptr %58, align 8
   %60 = and i64 %59, -33
   store i64 %60, ptr %58, align 8
@@ -122,7 +122,7 @@ define void @Ssw_ManRefineByFilterSim(ptr nocapture noundef readonly %0, i32 nou
 
 .critedge4.preheader:                             ; preds = %.critedge2, %.critedge2.preheader
   %65 = phi ptr [ %49, %.critedge2.preheader ], [ %93, %.critedge2 ]
-  %66 = getelementptr inbounds i8, ptr %65, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 32
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr i8, ptr %67, i64 4
   %.val86105 = load i32, ptr %68, align 4
@@ -152,10 +152,10 @@ define void @Ssw_ManRefineByFilterSim(ptr nocapture noundef readonly %0, i32 nou
   %82 = sext i32 %81 to i64
   %83 = getelementptr inbounds ptr, ptr %.val84.val, i64 %82
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %77, i64 24
+  %85 = getelementptr inbounds nuw i8, ptr %77, i64 24
   %86 = load i64, ptr %85, align 8
   %87 = and i64 %86, 32
-  %88 = getelementptr inbounds i8, ptr %84, i64 24
+  %88 = getelementptr inbounds nuw i8, ptr %84, i64 24
   %89 = load i64, ptr %88, align 8
   %90 = and i64 %89, -33
   %91 = or disjoint i64 %90, %87
@@ -169,7 +169,7 @@ define void @Ssw_ManRefineByFilterSim(ptr nocapture noundef readonly %0, i32 nou
 
 .critedge6.preheader:                             ; preds = %.critedge4, %.critedge4.preheader
   %96 = phi ptr [ %65, %.critedge4.preheader ], [ %140, %.critedge4 ]
-  %97 = getelementptr inbounds i8, ptr %96, i64 24
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 24
   %98 = load ptr, ptr %97, align 8
   %99 = getelementptr i8, ptr %98, i64 4
   %.val87108 = load i32, ptr %99, align 4
@@ -182,7 +182,7 @@ define void @Ssw_ManRefineByFilterSim(ptr nocapture noundef readonly %0, i32 nou
   %102 = phi ptr [ %142, %.critedge4 ], [ %67, %.critedge4.preheader ]
   %103 = getelementptr i8, ptr %102, i64 8
   %.val76 = load ptr, ptr %103, align 8
-  %104 = getelementptr inbounds ptr, ptr %.val76, i64 %indvars.iv119
+  %104 = getelementptr inbounds nuw ptr, ptr %.val76, i64 %indvars.iv119
   %105 = load ptr, ptr %104, align 8
   %106 = icmp eq ptr %105, null
   br i1 %106, label %.critedge4, label %107
@@ -202,7 +202,7 @@ define void @Ssw_ManRefineByFilterSim(ptr nocapture noundef readonly %0, i32 nou
   %114 = ptrtoint ptr %.val90 to i64
   %115 = and i64 %114, -2
   %116 = inttoptr i64 %115 to ptr
-  %117 = getelementptr inbounds i8, ptr %116, i64 24
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 24
   %118 = load i64, ptr %117, align 8
   %119 = trunc i64 %118 to i32
   %120 = lshr i32 %119, 5
@@ -213,7 +213,7 @@ define void @Ssw_ManRefineByFilterSim(ptr nocapture noundef readonly %0, i32 nou
   %124 = ptrtoint ptr %.val94 to i64
   %125 = and i64 %124, -2
   %126 = inttoptr i64 %125 to ptr
-  %127 = getelementptr inbounds i8, ptr %126, i64 24
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 24
   %128 = load i64, ptr %127, align 8
   %129 = trunc i64 %128 to i32
   %130 = lshr i32 %129, 5
@@ -233,7 +233,7 @@ define void @Ssw_ManRefineByFilterSim(ptr nocapture noundef readonly %0, i32 nou
 .critedge4:                                       ; preds = %112, %107, %.lr.ph107
   %140 = phi ptr [ %.pre, %112 ], [ %101, %107 ], [ %101, %.lr.ph107 ]
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
-  %141 = getelementptr inbounds i8, ptr %140, i64 32
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 32
   %142 = load ptr, ptr %141, align 8
   %143 = getelementptr i8, ptr %142, i64 4
   %.val86 = load i32, ptr %143, align 4
@@ -246,16 +246,16 @@ define void @Ssw_ManRefineByFilterSim(ptr nocapture noundef readonly %0, i32 nou
   %146 = phi ptr [ %164, %.critedge6 ], [ %98, %.critedge6.preheader ]
   %147 = getelementptr i8, ptr %146, i64 8
   %.val77 = load ptr, ptr %147, align 8
-  %148 = getelementptr inbounds ptr, ptr %.val77, i64 %indvars.iv122
+  %148 = getelementptr inbounds nuw ptr, ptr %.val77, i64 %indvars.iv122
   %149 = load ptr, ptr %148, align 8
   %150 = getelementptr i8, ptr %149, i64 8
   %.val91 = load ptr, ptr %150, align 8
   %151 = ptrtoint ptr %.val91 to i64
   %152 = and i64 %151, -2
   %153 = inttoptr i64 %152 to ptr
-  %154 = getelementptr inbounds i8, ptr %153, i64 24
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 24
   %155 = load i64, ptr %154, align 8
-  %156 = getelementptr inbounds i8, ptr %149, i64 24
+  %156 = getelementptr inbounds nuw i8, ptr %149, i64 24
   %157 = load i64, ptr %156, align 8
   %158 = shl i64 %151, 5
   %.mask96 = xor i64 %158, %155
@@ -265,7 +265,7 @@ define void @Ssw_ManRefineByFilterSim(ptr nocapture noundef readonly %0, i32 nou
   store i64 %161, ptr %156, align 8
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %162 = load ptr, ptr %3, align 8
-  %163 = getelementptr inbounds i8, ptr %162, i64 24
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 24
   %164 = load ptr, ptr %163, align 8
   %165 = getelementptr i8, ptr %164, i64 4
   %.val87 = load i32, ptr %165, align 4
@@ -279,7 +279,7 @@ define void @Ssw_ManRefineByFilterSim(ptr nocapture noundef readonly %0, i32 nou
   br i1 %169, label %.preheader, label %194
 
 .preheader:                                       ; preds = %.critedge8
-  %170 = getelementptr inbounds i8, ptr %168, i64 32
+  %170 = getelementptr inbounds nuw i8, ptr %168, i64 32
   %171 = load ptr, ptr %170, align 8
   %172 = getelementptr i8, ptr %171, i64 4
   %.val88111 = load i32, ptr %172, align 4
@@ -292,13 +292,13 @@ define void @Ssw_ManRefineByFilterSim(ptr nocapture noundef readonly %0, i32 nou
   %175 = phi ptr [ %190, %187 ], [ %171, %.preheader ]
   %176 = getelementptr i8, ptr %175, i64 8
   %.val78 = load ptr, ptr %176, align 8
-  %177 = getelementptr inbounds ptr, ptr %.val78, i64 %indvars.iv125
+  %177 = getelementptr inbounds nuw ptr, ptr %.val78, i64 %indvars.iv125
   %178 = load ptr, ptr %177, align 8
   %179 = icmp eq ptr %178, null
   br i1 %179, label %187, label %180
 
 180:                                              ; preds = %.lr.ph113
-  %181 = getelementptr inbounds i8, ptr %178, i64 24
+  %181 = getelementptr inbounds nuw i8, ptr %178, i64 24
   %182 = load i64, ptr %181, align 8
   %183 = lshr i64 %182, 2
   %184 = and i64 %183, 8
@@ -311,7 +311,7 @@ define void @Ssw_ManRefineByFilterSim(ptr nocapture noundef readonly %0, i32 nou
 187:                                              ; preds = %180, %.lr.ph113
   %188 = phi ptr [ %.pre128, %180 ], [ %174, %.lr.ph113 ]
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
-  %189 = getelementptr inbounds i8, ptr %188, i64 32
+  %189 = getelementptr inbounds nuw i8, ptr %188, i64 32
   %190 = load ptr, ptr %189, align 8
   %191 = getelementptr i8, ptr %190, i64 4
   %.val88 = load i32, ptr %191, align 4
@@ -341,7 +341,7 @@ declare i32 @Ssw_ClassesRefine(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @Ssw_ManRollForward(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 104
   %.val75102 = load i32, ptr %5, align 8
@@ -349,7 +349,7 @@ define void @Ssw_ManRollForward(ptr nocapture noundef readonly %0, i32 noundef %
   br i1 %6, label %.lr.ph, label %.critedge.preheader
 
 .lr.ph:                                           ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 248
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 248
   br label %10
 
 .critedge.preheader:                              ; preds = %10, %2
@@ -360,7 +360,7 @@ define void @Ssw_ManRollForward(ptr nocapture noundef readonly %0, i32 noundef %
 10:                                               ; preds = %.lr.ph, %10
   %11 = phi ptr [ %4, %.lr.ph ], [ %37, %10 ]
   %.0103 = phi i32 [ 0, %.lr.ph ], [ %36, %10 ]
-  %12 = getelementptr inbounds i8, ptr %11, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr i8, ptr %11, i64 112
   %.val77 = load i32, ptr %14, align 8
@@ -380,7 +380,7 @@ define void @Ssw_ManRollForward(ptr nocapture noundef readonly %0, i32 noundef %
   %26 = load i32, ptr %25, align 4
   %27 = and i32 %22, 31
   %28 = lshr i32 %26, %27
-  %29 = getelementptr inbounds i8, ptr %19, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %30 = load i64, ptr %29, align 8
   %31 = shl i32 %28, 5
   %32 = and i32 %31, 32
@@ -403,7 +403,7 @@ define void @Ssw_ManRollForward(ptr nocapture noundef readonly %0, i32 noundef %
   br i1 %42, label %.lr.ph120, label %.critedge10
 
 .lr.ph120:                                        ; preds = %.preheader
-  %43 = getelementptr inbounds i8, ptr %0, i64 248
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 248
   br label %178
 
 .lr.ph117:                                        ; preds = %.critedge.preheader, %.critedge8
@@ -411,7 +411,7 @@ define void @Ssw_ManRollForward(ptr nocapture noundef readonly %0, i32 noundef %
   %.071116 = phi i32 [ %177, %.critedge8 ], [ 0, %.critedge.preheader ]
   %45 = getelementptr i8, ptr %44, i64 48
   %.val87 = load ptr, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %.val87, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %.val87, i64 24
   %47 = load i64, ptr %46, align 8
   %48 = or i64 %47, 32
   store i64 %48, ptr %46, align 8
@@ -431,14 +431,14 @@ define void @Ssw_ManRollForward(ptr nocapture noundef readonly %0, i32 noundef %
 .lr.ph106:                                        ; preds = %.lr.ph117, %.lr.ph106
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph106 ], [ 0, %.lr.ph117 ]
   %55 = phi ptr [ %69, %.lr.ph106 ], [ %49, %.lr.ph117 ]
-  %56 = getelementptr inbounds i8, ptr %55, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr i8, ptr %57, i64 8
   %.val81 = load ptr, ptr %58, align 8
-  %59 = getelementptr inbounds ptr, ptr %.val81, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw ptr, ptr %.val81, i64 %indvars.iv
   %60 = load ptr, ptr %59, align 8
   %61 = tail call i32 @Aig_ManRandom(i32 noundef 0) #11
-  %62 = getelementptr inbounds i8, ptr %60, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %63 = load i64, ptr %62, align 8
   %64 = shl i32 %61, 5
   %65 = and i32 %64, 32
@@ -456,7 +456,7 @@ define void @Ssw_ManRollForward(ptr nocapture noundef readonly %0, i32 noundef %
 
 .critedge4.preheader:                             ; preds = %.critedge2, %.critedge2.preheader
   %73 = phi ptr [ %52, %.critedge2.preheader ], [ %101, %.critedge2 ]
-  %74 = getelementptr inbounds i8, ptr %73, i64 32
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 32
   %75 = load ptr, ptr %74, align 8
   %76 = getelementptr i8, ptr %75, i64 4
   %.val93110 = load i32, ptr %76, align 4
@@ -486,10 +486,10 @@ define void @Ssw_ManRollForward(ptr nocapture noundef readonly %0, i32 noundef %
   %90 = sext i32 %89 to i64
   %91 = getelementptr inbounds ptr, ptr %.val90.val, i64 %90
   %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %85, i64 24
+  %93 = getelementptr inbounds nuw i8, ptr %85, i64 24
   %94 = load i64, ptr %93, align 8
   %95 = and i64 %94, 32
-  %96 = getelementptr inbounds i8, ptr %92, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %92, i64 24
   %97 = load i64, ptr %96, align 8
   %98 = and i64 %97, -33
   %99 = or disjoint i64 %98, %95
@@ -503,7 +503,7 @@ define void @Ssw_ManRollForward(ptr nocapture noundef readonly %0, i32 noundef %
 
 .critedge6.preheader:                             ; preds = %.critedge4, %.critedge4.preheader
   %104 = phi ptr [ %73, %.critedge4.preheader ], [ %148, %.critedge4 ]
-  %105 = getelementptr inbounds i8, ptr %104, i64 24
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 24
   %106 = load ptr, ptr %105, align 8
   %107 = getelementptr i8, ptr %106, i64 4
   %.val92113 = load i32, ptr %107, align 4
@@ -516,7 +516,7 @@ define void @Ssw_ManRollForward(ptr nocapture noundef readonly %0, i32 noundef %
   %110 = phi ptr [ %150, %.critedge4 ], [ %75, %.critedge4.preheader ]
   %111 = getelementptr i8, ptr %110, i64 8
   %.val80 = load ptr, ptr %111, align 8
-  %112 = getelementptr inbounds ptr, ptr %.val80, i64 %indvars.iv124
+  %112 = getelementptr inbounds nuw ptr, ptr %.val80, i64 %indvars.iv124
   %113 = load ptr, ptr %112, align 8
   %114 = icmp eq ptr %113, null
   br i1 %114, label %.critedge4, label %115
@@ -536,7 +536,7 @@ define void @Ssw_ManRollForward(ptr nocapture noundef readonly %0, i32 noundef %
   %122 = ptrtoint ptr %.val96 to i64
   %123 = and i64 %122, -2
   %124 = inttoptr i64 %123 to ptr
-  %125 = getelementptr inbounds i8, ptr %124, i64 24
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 24
   %126 = load i64, ptr %125, align 8
   %127 = trunc i64 %126 to i32
   %128 = lshr i32 %127, 5
@@ -547,7 +547,7 @@ define void @Ssw_ManRollForward(ptr nocapture noundef readonly %0, i32 noundef %
   %132 = ptrtoint ptr %.val99 to i64
   %133 = and i64 %132, -2
   %134 = inttoptr i64 %133 to ptr
-  %135 = getelementptr inbounds i8, ptr %134, i64 24
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 24
   %136 = load i64, ptr %135, align 8
   %137 = trunc i64 %136 to i32
   %138 = lshr i32 %137, 5
@@ -567,7 +567,7 @@ define void @Ssw_ManRollForward(ptr nocapture noundef readonly %0, i32 noundef %
 .critedge4:                                       ; preds = %120, %115, %.lr.ph112
   %148 = phi ptr [ %.pre, %120 ], [ %109, %115 ], [ %109, %.lr.ph112 ]
   %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
-  %149 = getelementptr inbounds i8, ptr %148, i64 32
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 32
   %150 = load ptr, ptr %149, align 8
   %151 = getelementptr i8, ptr %150, i64 4
   %.val93 = load i32, ptr %151, align 4
@@ -580,16 +580,16 @@ define void @Ssw_ManRollForward(ptr nocapture noundef readonly %0, i32 noundef %
   %154 = phi ptr [ %172, %.critedge6 ], [ %106, %.critedge6.preheader ]
   %155 = getelementptr i8, ptr %154, i64 8
   %.val79 = load ptr, ptr %155, align 8
-  %156 = getelementptr inbounds ptr, ptr %.val79, i64 %indvars.iv127
+  %156 = getelementptr inbounds nuw ptr, ptr %.val79, i64 %indvars.iv127
   %157 = load ptr, ptr %156, align 8
   %158 = getelementptr i8, ptr %157, i64 8
   %.val95 = load ptr, ptr %158, align 8
   %159 = ptrtoint ptr %.val95 to i64
   %160 = and i64 %159, -2
   %161 = inttoptr i64 %160 to ptr
-  %162 = getelementptr inbounds i8, ptr %161, i64 24
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 24
   %163 = load i64, ptr %162, align 8
-  %164 = getelementptr inbounds i8, ptr %157, i64 24
+  %164 = getelementptr inbounds nuw i8, ptr %157, i64 24
   %165 = load i64, ptr %164, align 8
   %166 = shl i64 %159, 5
   %.mask101 = xor i64 %166, %163
@@ -599,7 +599,7 @@ define void @Ssw_ManRollForward(ptr nocapture noundef readonly %0, i32 noundef %
   store i64 %169, ptr %164, align 8
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
   %170 = load ptr, ptr %3, align 8
-  %171 = getelementptr inbounds i8, ptr %170, i64 24
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 24
   %172 = load ptr, ptr %171, align 8
   %173 = getelementptr i8, ptr %172, i64 4
   %.val92 = load i32, ptr %173, align 4
@@ -616,7 +616,7 @@ define void @Ssw_ManRollForward(ptr nocapture noundef readonly %0, i32 noundef %
 178:                                              ; preds = %.lr.ph120, %206
   %179 = phi ptr [ %40, %.lr.ph120 ], [ %207, %206 ]
   %.5119 = phi i32 [ 0, %.lr.ph120 ], [ %208, %206 ]
-  %180 = getelementptr inbounds i8, ptr %179, i64 24
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 24
   %181 = load ptr, ptr %180, align 8
   %182 = getelementptr i8, ptr %179, i64 112
   %.val76 = load i32, ptr %182, align 8
@@ -626,7 +626,7 @@ define void @Ssw_ManRollForward(ptr nocapture noundef readonly %0, i32 noundef %
   %185 = sext i32 %183 to i64
   %186 = getelementptr inbounds ptr, ptr %.val78, i64 %185
   %187 = load ptr, ptr %186, align 8
-  %188 = getelementptr inbounds i8, ptr %187, i64 24
+  %188 = getelementptr inbounds nuw i8, ptr %187, i64 24
   %189 = load i64, ptr %188, align 8
   %190 = trunc i64 %189 to i32
   %191 = lshr i32 %190, 5
@@ -668,7 +668,7 @@ declare i32 @Aig_ManRandom(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @Ssw_ManFindStartingState(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 104
   %.val78104 = load i32, ptr %5, align 8
@@ -678,7 +678,7 @@ define void @Ssw_ManFindStartingState(ptr nocapture noundef readonly %0, ptr noc
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %7 = phi ptr [ %20, %.lr.ph ], [ %4, %2 ]
   %.071105 = phi i32 [ %19, %.lr.ph ], [ 0, %2 ]
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr i8, ptr %7, i64 112
   %.val79 = load i32, ptr %10, align 8
@@ -688,7 +688,7 @@ define void @Ssw_ManFindStartingState(ptr nocapture noundef readonly %0, ptr noc
   %13 = sext i32 %11 to i64
   %14 = getelementptr inbounds ptr, ptr %.val84, i64 %13
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load i64, ptr %16, align 8
   %18 = and i64 %17, -33
   store i64 %18, ptr %16, align 8
@@ -701,15 +701,15 @@ define void @Ssw_ManFindStartingState(ptr nocapture noundef readonly %0, ptr noc
 
 .critedge:                                        ; preds = %.lr.ph, %2
   %23 = phi ptr [ %4, %2 ], [ %20, %.lr.ph ]
-  %24 = getelementptr inbounds i8, ptr %1, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %25 = load i32, ptr %24, align 4
   %.not119 = icmp slt i32 %25, 0
   br i1 %.not119, label %.preheader, label %.lr.ph122
 
 .lr.ph122:                                        ; preds = %.critedge
-  %26 = getelementptr inbounds i8, ptr %1, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %27 = load i32, ptr %26, align 4
-  %28 = getelementptr inbounds i8, ptr %1, i64 20
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 20
   br label %33
 
 .preheader:                                       ; preds = %.critedge8, %.critedge
@@ -720,7 +720,7 @@ define void @Ssw_ManFindStartingState(ptr nocapture noundef readonly %0, ptr noc
   br i1 %31, label %.lr.ph125, label %.critedge10
 
 .lr.ph125:                                        ; preds = %.preheader
-  %32 = getelementptr inbounds i8, ptr %0, i64 248
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 248
   br label %175
 
 33:                                               ; preds = %.lr.ph122, %.critedge8
@@ -729,7 +729,7 @@ define void @Ssw_ManFindStartingState(ptr nocapture noundef readonly %0, ptr noc
   %.073120 = phi i32 [ 0, %.lr.ph122 ], [ %173, %.critedge8 ]
   %35 = getelementptr i8, ptr %34, i64 48
   %.val89 = load ptr, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %.val89, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %.val89, i64 24
   %37 = load i64, ptr %36, align 8
   %38 = or i64 %37, 32
   store i64 %38, ptr %36, align 8
@@ -751,11 +751,11 @@ define void @Ssw_ManFindStartingState(ptr nocapture noundef readonly %0, ptr noc
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph109 ], [ 0, %33 ]
   %45 = phi ptr [ %65, %.lr.ph109 ], [ %39, %33 ]
   %.1108 = phi i32 [ %51, %.lr.ph109 ], [ %.0121, %33 ]
-  %46 = getelementptr inbounds i8, ptr %45, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr i8, ptr %47, i64 8
   %.val83 = load ptr, ptr %48, align 8
-  %49 = getelementptr inbounds ptr, ptr %.val83, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw ptr, ptr %.val83, i64 %indvars.iv
   %50 = load ptr, ptr %49, align 8
   %51 = add nsw i32 %.1108, 1
   %52 = ashr i32 %.1108, 5
@@ -764,7 +764,7 @@ define void @Ssw_ManFindStartingState(ptr nocapture noundef readonly %0, ptr noc
   %55 = load i32, ptr %54, align 4
   %56 = and i32 %.1108, 31
   %57 = lshr i32 %55, %56
-  %58 = getelementptr inbounds i8, ptr %50, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %59 = load i64, ptr %58, align 8
   %60 = shl i32 %57, 5
   %61 = and i32 %60, 32
@@ -782,7 +782,7 @@ define void @Ssw_ManFindStartingState(ptr nocapture noundef readonly %0, ptr noc
 
 .critedge4.preheader:                             ; preds = %.critedge2, %.critedge2.preheader
   %69 = phi ptr [ %42, %.critedge2.preheader ], [ %97, %.critedge2 ]
-  %70 = getelementptr inbounds i8, ptr %69, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 32
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr i8, ptr %71, i64 4
   %.val95113 = load i32, ptr %72, align 4
@@ -812,10 +812,10 @@ define void @Ssw_ManFindStartingState(ptr nocapture noundef readonly %0, ptr noc
   %86 = sext i32 %85 to i64
   %87 = getelementptr inbounds ptr, ptr %.val92.val, i64 %86
   %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %81, i64 24
+  %89 = getelementptr inbounds nuw i8, ptr %81, i64 24
   %90 = load i64, ptr %89, align 8
   %91 = and i64 %90, 32
-  %92 = getelementptr inbounds i8, ptr %88, i64 24
+  %92 = getelementptr inbounds nuw i8, ptr %88, i64 24
   %93 = load i64, ptr %92, align 8
   %94 = and i64 %93, -33
   %95 = or disjoint i64 %94, %91
@@ -829,7 +829,7 @@ define void @Ssw_ManFindStartingState(ptr nocapture noundef readonly %0, ptr noc
 
 .critedge6.preheader:                             ; preds = %.critedge4, %.critedge4.preheader
   %100 = phi ptr [ %69, %.critedge4.preheader ], [ %144, %.critedge4 ]
-  %101 = getelementptr inbounds i8, ptr %100, i64 24
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 24
   %102 = load ptr, ptr %101, align 8
   %103 = getelementptr i8, ptr %102, i64 4
   %.val94116 = load i32, ptr %103, align 4
@@ -842,7 +842,7 @@ define void @Ssw_ManFindStartingState(ptr nocapture noundef readonly %0, ptr noc
   %106 = phi ptr [ %146, %.critedge4 ], [ %71, %.critedge4.preheader ]
   %107 = getelementptr i8, ptr %106, i64 8
   %.val82 = load ptr, ptr %107, align 8
-  %108 = getelementptr inbounds ptr, ptr %.val82, i64 %indvars.iv129
+  %108 = getelementptr inbounds nuw ptr, ptr %.val82, i64 %indvars.iv129
   %109 = load ptr, ptr %108, align 8
   %110 = icmp eq ptr %109, null
   br i1 %110, label %.critedge4, label %111
@@ -862,7 +862,7 @@ define void @Ssw_ManFindStartingState(ptr nocapture noundef readonly %0, ptr noc
   %118 = ptrtoint ptr %.val98 to i64
   %119 = and i64 %118, -2
   %120 = inttoptr i64 %119 to ptr
-  %121 = getelementptr inbounds i8, ptr %120, i64 24
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 24
   %122 = load i64, ptr %121, align 8
   %123 = trunc i64 %122 to i32
   %124 = lshr i32 %123, 5
@@ -873,7 +873,7 @@ define void @Ssw_ManFindStartingState(ptr nocapture noundef readonly %0, ptr noc
   %128 = ptrtoint ptr %.val101 to i64
   %129 = and i64 %128, -2
   %130 = inttoptr i64 %129 to ptr
-  %131 = getelementptr inbounds i8, ptr %130, i64 24
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 24
   %132 = load i64, ptr %131, align 8
   %133 = trunc i64 %132 to i32
   %134 = lshr i32 %133, 5
@@ -893,7 +893,7 @@ define void @Ssw_ManFindStartingState(ptr nocapture noundef readonly %0, ptr noc
 .critedge4:                                       ; preds = %116, %111, %.lr.ph115
   %144 = phi ptr [ %.pre, %116 ], [ %105, %111 ], [ %105, %.lr.ph115 ]
   %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
-  %145 = getelementptr inbounds i8, ptr %144, i64 32
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 32
   %146 = load ptr, ptr %145, align 8
   %147 = getelementptr i8, ptr %146, i64 4
   %.val95 = load i32, ptr %147, align 4
@@ -906,16 +906,16 @@ define void @Ssw_ManFindStartingState(ptr nocapture noundef readonly %0, ptr noc
   %150 = phi ptr [ %168, %.critedge6 ], [ %102, %.critedge6.preheader ]
   %151 = getelementptr i8, ptr %150, i64 8
   %.val81 = load ptr, ptr %151, align 8
-  %152 = getelementptr inbounds ptr, ptr %.val81, i64 %indvars.iv132
+  %152 = getelementptr inbounds nuw ptr, ptr %.val81, i64 %indvars.iv132
   %153 = load ptr, ptr %152, align 8
   %154 = getelementptr i8, ptr %153, i64 8
   %.val97 = load ptr, ptr %154, align 8
   %155 = ptrtoint ptr %.val97 to i64
   %156 = and i64 %155, -2
   %157 = inttoptr i64 %156 to ptr
-  %158 = getelementptr inbounds i8, ptr %157, i64 24
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 24
   %159 = load i64, ptr %158, align 8
-  %160 = getelementptr inbounds i8, ptr %153, i64 24
+  %160 = getelementptr inbounds nuw i8, ptr %153, i64 24
   %161 = load i64, ptr %160, align 8
   %162 = shl i64 %155, 5
   %.mask103 = xor i64 %162, %159
@@ -925,7 +925,7 @@ define void @Ssw_ManFindStartingState(ptr nocapture noundef readonly %0, ptr noc
   store i64 %165, ptr %160, align 8
   %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
   %166 = load ptr, ptr %3, align 8
-  %167 = getelementptr inbounds i8, ptr %166, i64 24
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 24
   %168 = load ptr, ptr %167, align 8
   %169 = getelementptr i8, ptr %168, i64 4
   %.val94 = load i32, ptr %169, align 4
@@ -943,7 +943,7 @@ define void @Ssw_ManFindStartingState(ptr nocapture noundef readonly %0, ptr noc
 175:                                              ; preds = %.lr.ph125, %201
   %176 = phi ptr [ %29, %.lr.ph125 ], [ %202, %201 ]
   %.5124 = phi i32 [ 0, %.lr.ph125 ], [ %203, %201 ]
-  %177 = getelementptr inbounds i8, ptr %176, i64 16
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 16
   %178 = load ptr, ptr %177, align 8
   %179 = getelementptr i8, ptr %176, i64 108
   %.val87 = load i32, ptr %179, align 4
@@ -953,7 +953,7 @@ define void @Ssw_ManFindStartingState(ptr nocapture noundef readonly %0, ptr noc
   %182 = sext i32 %180 to i64
   %183 = getelementptr inbounds ptr, ptr %.val80, i64 %182
   %184 = load ptr, ptr %183, align 8
-  %185 = getelementptr inbounds i8, ptr %184, i64 24
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 24
   %186 = load i64, ptr %185, align 8
   %187 = trunc i64 %186 to i32
   %188 = lshr i32 %187, 5
@@ -990,7 +990,7 @@ define void @Ssw_ManFindStartingState(ptr nocapture noundef readonly %0, ptr noc
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Ssw_ManSweepNodeFilter(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 256
   %.val38 = load ptr, ptr %6, align 8
@@ -1033,7 +1033,7 @@ Aig_ObjRepr.exit:                                 ; preds = %3
   br i1 %33, label %Aig_ObjRepr.exit.thread, label %34
 
 34:                                               ; preds = %13
-  %35 = getelementptr inbounds i8, ptr %0, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr i8, ptr %36, i64 48
   %.val = load ptr, ptr %37, align 8
@@ -1056,9 +1056,9 @@ Aig_ObjRepr.exit:                                 ; preds = %3
   ]
 
 43:                                               ; preds = %42
-  %44 = getelementptr inbounds i8, ptr %1, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %45 = load i64, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %11, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %47 = load i64, ptr %46, align 8
   %48 = xor i64 %47, %45
   %49 = lshr i64 %48, 3
@@ -1163,7 +1163,7 @@ define ptr @Ssw_ManSweepBmcFilter_rec(ptr noundef %0, ptr nocapture noundef read
   br i1 %.not, label %12, label %87
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr i8, ptr %1, i64 24
   %.val3.i = load i64, ptr %15, align 8
@@ -1179,7 +1179,7 @@ Saig_ObjIsLo.exit:                                ; preds = %12
   br i1 %.not55, label %Saig_ObjIsLo.exit.thread, label %18
 
 18:                                               ; preds = %Saig_ObjIsLo.exit
-  %19 = getelementptr inbounds i8, ptr %14, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr i8, ptr %14, i64 112
   %.val.i47 = load i32, ptr %21, align 8
@@ -1218,7 +1218,7 @@ Saig_ObjIsLo.exit.thread:                         ; preds = %12, %Saig_ObjIsLo.e
   %46 = and i64 %45, -2
   %47 = inttoptr i64 %46 to ptr
   %48 = tail call ptr @Ssw_ManSweepBmcFilter_rec(ptr noundef nonnull %0, ptr noundef %47, i32 noundef %2)
-  %49 = getelementptr inbounds i8, ptr %0, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %50 = load ptr, ptr %49, align 8
   %.val45 = load ptr, ptr %39, align 8
   %51 = ptrtoint ptr %.val45 to i64
@@ -1304,7 +1304,7 @@ define noundef i32 @Ssw_ManSweepBmcFilter(ptr noundef initializes((24, 32)) %0, 
 7:                                                ; preds = %2
   %8 = load i64, ptr %4, align 8
   %.neg214 = mul i64 %8, -1000000
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i64, ptr %9, align 8
   %.neg = sdiv i64 %10, -1000
   %.neg215 = add i64 %.neg, %.neg214
@@ -1313,18 +1313,18 @@ define noundef i32 @Ssw_ManSweepBmcFilter(ptr noundef initializes((24, 32)) %0, 
 Abc_Clock.exit:                                   ; preds = %2, %7
   %.0.i.neg = phi i64 [ %.neg215, %7 ], [ 1, %2 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr i8, ptr %12, i64 32
   %.val196 = load ptr, ptr %13, align 8
   %14 = getelementptr i8, ptr %.val196, i64 4
   %.val196.val = load i32, ptr %14, align 4
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 12
   %17 = load i32, ptr %16, align 4
   %18 = mul nsw i32 %17, %.val196.val
   %19 = call ptr @Aig_ManStart(i32 noundef %18) #11
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %19, ptr %20, align 8
   %21 = load ptr, ptr %11, align 8
   %22 = getelementptr i8, ptr %21, i64 104
@@ -1333,7 +1333,7 @@ Abc_Clock.exit:                                   ; preds = %2, %7
   br i1 %23, label %.lr.ph, label %.critedge.preheader
 
 .lr.ph:                                           ; preds = %Abc_Clock.exit
-  %24 = getelementptr inbounds i8, ptr %0, i64 248
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %25 = getelementptr i8, ptr %0, i64 8
   %26 = getelementptr i8, ptr %0, i64 32
   br label %38
@@ -1341,25 +1341,25 @@ Abc_Clock.exit:                                   ; preds = %2, %7
 .critedge.preheader:                              ; preds = %38, %Abc_Clock.exit
   %27 = phi ptr [ %21, %Abc_Clock.exit ], [ %66, %38 ]
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 12
   %30 = load i32, ptr %29, align 4
   %31 = icmp sgt i32 %30, 0
   br i1 %31, label %.lr.ph239, label %.loopexit
 
 .lr.ph239:                                        ; preds = %.critedge.preheader
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = getelementptr i8, ptr %0, i64 32
-  %34 = getelementptr inbounds i8, ptr %0, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.not141 = icmp eq i32 %1, 0
   %35 = sitofp i32 %1 to float
-  %36 = getelementptr inbounds i8, ptr %3, i64 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 64
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br label %69
 
 38:                                               ; preds = %.lr.ph, %38
   %39 = phi ptr [ %21, %.lr.ph ], [ %66, %38 ]
   %.0218 = phi i32 [ 0, %.lr.ph ], [ %65, %38 ]
-  %40 = getelementptr inbounds i8, ptr %39, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr i8, ptr %39, i64 108
   %.val153 = load i32, ptr %42, align 4
@@ -1441,7 +1441,7 @@ Abc_Clock.exit:                                   ; preds = %2, %7
   %88 = phi ptr [ %105, %104 ], [ %84, %.preheader ]
   %89 = getelementptr i8, ptr %88, i64 8
   %.val149 = load ptr, ptr %89, align 8
-  %90 = getelementptr inbounds ptr, ptr %.val149, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw ptr, ptr %.val149, i64 %indvars.iv
   %91 = load ptr, ptr %90, align 8
   %92 = icmp eq ptr %91, null
   br i1 %92, label %104, label %93
@@ -1522,7 +1522,7 @@ Abc_Clock.exit:                                   ; preds = %2, %7
 
 .critedge4.preheader:                             ; preds = %.lr.ph226, %115
   %128 = phi ptr [ %125, %115 ], [ %146, %.lr.ph226 ]
-  %129 = getelementptr inbounds i8, ptr %128, i64 32
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 32
   %130 = load ptr, ptr %129, align 8
   %131 = getelementptr i8, ptr %130, i64 4
   %.val163227 = load i32, ptr %131, align 4
@@ -1532,11 +1532,11 @@ Abc_Clock.exit:                                   ; preds = %2, %7
 .lr.ph226:                                        ; preds = %115, %.lr.ph226
   %indvars.iv245 = phi i64 [ %indvars.iv.next246, %.lr.ph226 ], [ 0, %115 ]
   %133 = phi ptr [ %146, %.lr.ph226 ], [ %125, %115 ]
-  %134 = getelementptr inbounds i8, ptr %133, i64 16
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 16
   %135 = load ptr, ptr %134, align 8
   %136 = getelementptr i8, ptr %135, i64 8
   %.val148 = load ptr, ptr %136, align 8
-  %137 = getelementptr inbounds ptr, ptr %.val148, i64 %indvars.iv245
+  %137 = getelementptr inbounds nuw ptr, ptr %.val148, i64 %indvars.iv245
   %138 = load ptr, ptr %137, align 8
   %139 = load ptr, ptr %20, align 8
   %140 = call ptr @Aig_ObjCreateCi(ptr noundef %139) #11
@@ -1562,7 +1562,7 @@ Abc_Clock.exit:                                   ; preds = %2, %7
   %150 = phi ptr [ %260, %Ssw_ManSweepNodeFilter.exit.thread ], [ %130, %.critedge4.preheader ]
   %151 = getelementptr i8, ptr %150, i64 8
   %.val147 = load ptr, ptr %151, align 8
-  %152 = getelementptr inbounds ptr, ptr %.val147, i64 %indvars.iv248
+  %152 = getelementptr inbounds nuw ptr, ptr %.val147, i64 %indvars.iv248
   %153 = load ptr, ptr %152, align 8
   %154 = icmp eq ptr %153, null
   br i1 %154, label %Ssw_ManSweepNodeFilter.exit.thread, label %155
@@ -1702,7 +1702,7 @@ Aig_ObjRepr.exit.i:                               ; preds = %Ssw_ObjChild1Fra.ex
 
 234:                                              ; preds = %233
   %235 = load i64, ptr %156, align 8
-  %236 = getelementptr inbounds i8, ptr %205, i64 24
+  %236 = getelementptr inbounds nuw i8, ptr %205, i64 24
   %237 = load i64, ptr %236, align 8
   %238 = xor i64 %237, %235
   %239 = lshr i64 %238, 3
@@ -1747,7 +1747,7 @@ Aig_ObjRepr.exit50.i:                             ; preds = %250, %247
 Ssw_ManSweepNodeFilter.exit.thread:               ; preds = %Ssw_ObjChild1Fra.exit, %Aig_ObjRepr.exit50.i, %257, %207, %Aig_ObjRepr.exit.i, %234, %155, %.lr.ph229
   %indvars.iv.next249 = add nuw nsw i64 %indvars.iv248, 1
   %258 = load ptr, ptr %11, align 8
-  %259 = getelementptr inbounds i8, ptr %258, i64 32
+  %259 = getelementptr inbounds nuw i8, ptr %258, i64 32
   %260 = load ptr, ptr %259, align 8
   %261 = getelementptr i8, ptr %260, i64 4
   %.val163 = load i32, ptr %261, align 4
@@ -1763,7 +1763,7 @@ Ssw_ManSweepNodeFilter.exit.thread:               ; preds = %Ssw_ObjChild1Fra.ex
 .critedge6:                                       ; preds = %.critedge6.loopexit, %.critedge4.preheader
   %.3.lcssa = phi i32 [ 0, %.critedge4.preheader ], [ %.3.lcssa.ph, %.critedge6.loopexit ]
   %264 = load ptr, ptr %0, align 8
-  %265 = getelementptr inbounds i8, ptr %264, i64 112
+  %265 = getelementptr inbounds nuw i8, ptr %264, i64 112
   %266 = load i32, ptr %265, align 8
   %.not140 = icmp eq i32 %266, 0
   br i1 %.not140, label %269, label %267
@@ -1776,7 +1776,7 @@ Ssw_ManSweepNodeFilter.exit.thread:               ; preds = %Ssw_ObjChild1Fra.ex
 
 269:                                              ; preds = %267, %.critedge6
   %270 = load ptr, ptr %11, align 8
-  %271 = getelementptr inbounds i8, ptr %270, i64 32
+  %271 = getelementptr inbounds nuw i8, ptr %270, i64 32
   %272 = load ptr, ptr %271, align 8
   %273 = getelementptr i8, ptr %272, i64 4
   %.val162 = load i32, ptr %273, align 4
@@ -1785,26 +1785,26 @@ Ssw_ManSweepNodeFilter.exit.thread:               ; preds = %Ssw_ObjChild1Fra.ex
   br i1 %274, label %276, label %282
 
 276:                                              ; preds = %269
-  %277 = getelementptr inbounds i8, ptr %275, i64 112
+  %277 = getelementptr inbounds nuw i8, ptr %275, i64 112
   %278 = load i32, ptr %277, align 8
   %.not143 = icmp eq i32 %278, 0
   br i1 %.not143, label %.loopexit, label %279
 
 279:                                              ; preds = %276
-  %280 = getelementptr inbounds i8, ptr %275, i64 32
+  %280 = getelementptr inbounds nuw i8, ptr %275, i64 32
   %281 = load i32, ptr %280, align 8
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.2, i32 noundef %281)
   br label %.loopexit
 
 282:                                              ; preds = %269
-  %283 = getelementptr inbounds i8, ptr %275, i64 12
+  %283 = getelementptr inbounds nuw i8, ptr %275, i64 12
   %284 = load i32, ptr %283, align 4
   %285 = add nsw i32 %284, -1
   %286 = icmp eq i32 %.0133238, %285
   br i1 %286, label %287, label %291
 
 287:                                              ; preds = %282
-  %288 = getelementptr inbounds i8, ptr %275, i64 112
+  %288 = getelementptr inbounds nuw i8, ptr %275, i64 112
   %289 = load i32, ptr %288, align 8
   %.not142 = icmp eq i32 %289, 0
   br i1 %.not142, label %.loopexit, label %290
@@ -1845,7 +1845,7 @@ Abc_Clock.exit206._crit_edge:                     ; preds = %Abc_Clock.exit206
 
 305:                                              ; preds = %Abc_Clock.exit206._crit_edge, %291
   %306 = phi ptr [ %.pre260, %Abc_Clock.exit206._crit_edge ], [ %270, %291 ]
-  %307 = getelementptr inbounds i8, ptr %306, i64 24
+  %307 = getelementptr inbounds nuw i8, ptr %306, i64 24
   %308 = load ptr, ptr %307, align 8
   %309 = getelementptr i8, ptr %308, i64 4
   %.val161231 = load i32, ptr %309, align 4
@@ -1865,7 +1865,7 @@ Abc_Clock.exit206._crit_edge:                     ; preds = %Abc_Clock.exit206
   %315 = phi ptr [ %342, %Ssw_ObjChild0Fra.exit211 ], [ %308, %305 ]
   %316 = getelementptr i8, ptr %315, i64 8
   %.val146 = load ptr, ptr %316, align 8
-  %317 = getelementptr inbounds ptr, ptr %.val146, i64 %indvars.iv251
+  %317 = getelementptr inbounds nuw ptr, ptr %.val146, i64 %indvars.iv251
   %318 = load ptr, ptr %317, align 8
   %319 = getelementptr i8, ptr %318, i64 8
   %.val193 = load ptr, ptr %319, align 8
@@ -1902,7 +1902,7 @@ Ssw_ObjChild0Fra.exit211:                         ; preds = %.lr.ph234, %322
   store ptr %334, ptr %339, align 8
   %indvars.iv.next252 = add nuw nsw i64 %indvars.iv251, 1
   %340 = load ptr, ptr %11, align 8
-  %341 = getelementptr inbounds i8, ptr %340, i64 24
+  %341 = getelementptr inbounds nuw i8, ptr %340, i64 24
   %342 = load ptr, ptr %341, align 8
   %343 = getelementptr i8, ptr %342, i64 4
   %.val161 = load i32, ptr %343, align 4
@@ -1964,7 +1964,7 @@ Ssw_ObjChild0Fra.exit211:                         ; preds = %.lr.ph234, %322
 .critedge10:                                      ; preds = %.critedge8, %.critedge8.preheader
   %380 = phi ptr [ %311, %.critedge8.preheader ], [ %377, %.critedge8 ]
   %381 = load ptr, ptr %0, align 8
-  %382 = getelementptr inbounds i8, ptr %381, i64 12
+  %382 = getelementptr inbounds nuw i8, ptr %381, i64 12
   %383 = load i32, ptr %382, align 4
   %384 = icmp slt i32 %314, %383
   br i1 %384, label %69, label %.loopexit, !llvm.loop !34
@@ -2007,7 +2007,7 @@ define void @Ssw_SignalFilter(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
 19:                                               ; preds = %14
   %20 = load i64, ptr %12, align 8
   %21 = mul nsw i64 %20, 1000000
-  %22 = getelementptr inbounds i8, ptr %12, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %23 = load i64, ptr %22, align 8
   %24 = sdiv i64 %23, 1000
   %25 = add nsw i64 %24, %21
@@ -2032,17 +2032,17 @@ Abc_Clock.exit:                                   ; preds = %14, %19
 33:                                               ; preds = %27
   %34 = call i32 @Aig_ManRandom(i32 noundef 1) #11
   call void @Ssw_ManSetDefaultParams(ptr noundef nonnull %13) #11
-  %35 = getelementptr inbounds i8, ptr %13, i64 12
+  %35 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 3, ptr %35, align 4
-  %36 = getelementptr inbounds i8, ptr %13, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store i32 %2, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %13, i64 60
+  %37 = getelementptr inbounds nuw i8, ptr %13, i64 60
   store i32 %4, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %13, i64 112
+  %38 = getelementptr inbounds nuw i8, ptr %13, i64 112
   store i32 %8, ptr %38, align 8
   %39 = call ptr @Ssw_ManCreate(ptr noundef nonnull %0, ptr noundef nonnull %13) #11
   store i32 %1, ptr %35, align 4
-  %40 = getelementptr inbounds i8, ptr %0, i64 256
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, null
   br i1 %42, label %43, label %45
@@ -2057,7 +2057,7 @@ Abc_Clock.exit:                                   ; preds = %14, %19
 
 47:                                               ; preds = %45, %43
   %.sink = phi ptr [ %44, %43 ], [ %46, %45 ]
-  %48 = getelementptr inbounds i8, ptr %39, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %39, i64 40
   store ptr %.sink, ptr %48, align 8
   call void @Ssw_ClassesSetData(ptr noundef %.sink, ptr noundef null, ptr noundef null, ptr noundef nonnull @Ssw_SmlObjIsConstBit, ptr noundef nonnull @Ssw_SmlObjsAreEqualBit) #11
   %.not61 = icmp eq ptr %6, null
@@ -2072,16 +2072,16 @@ Abc_Clock.exit:                                   ; preds = %14, %19
   br i1 %51, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %50
-  %52 = getelementptr inbounds i8, ptr %39, i64 64
-  %53 = getelementptr inbounds i8, ptr %11, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %39, i64 64
+  %53 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.not64 = icmp eq i32 %5, 0
-  %54 = getelementptr inbounds i8, ptr %10, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %10, i64 8
   br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.critedge.us
   %.05676.us = phi i32 [ %82, %.critedge.us ], [ 0, %.lr.ph ]
   %55 = load ptr, ptr %39, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 112
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 112
   %57 = load i32, ptr %56, align 8
   %.not62.us = icmp eq i32 %57, 0
   br i1 %.not62.us, label %59, label %58
@@ -2093,7 +2093,7 @@ Abc_Clock.exit:                                   ; preds = %14, %19
 
 59:                                               ; preds = %58, %.lr.ph.split.us
   %60 = phi ptr [ %.pre80, %58 ], [ %55, %.lr.ph.split.us ]
-  %61 = getelementptr inbounds i8, ptr %60, i64 12
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 12
   %62 = load i32, ptr %61, align 4
   call void @Ssw_ManRefineByFilterSim(ptr noundef nonnull %39, i32 noundef %62)
   %63 = load ptr, ptr %48, align 8
@@ -2109,7 +2109,7 @@ Abc_Clock.exit:                                   ; preds = %14, %19
 
 70:                                               ; preds = %66, %59
   %71 = load ptr, ptr %39, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 112
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 112
   %73 = load i32, ptr %72, align 8
   %.not63.us = icmp eq i32 %73, 0
   br i1 %.not63.us, label %.critedge.us, label %74
@@ -2129,7 +2129,7 @@ Abc_Clock.exit:                                   ; preds = %14, %19
   store ptr null, ptr %52, align 8
   call void @Ssw_ManCleanup(ptr noundef nonnull %39) #11
   %79 = load ptr, ptr %39, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 12
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 12
   %81 = load i32, ptr %80, align 4
   call void @Ssw_ManRollForward(ptr noundef nonnull %39, i32 noundef %81)
   %82 = add nuw nsw i32 %.05676.us, 1
@@ -2139,7 +2139,7 @@ Abc_Clock.exit:                                   ; preds = %14, %19
 .lr.ph.split:                                     ; preds = %.lr.ph, %133
   %.05676 = phi i32 [ %134, %133 ], [ 0, %.lr.ph ]
   %83 = load ptr, ptr %39, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 112
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 112
   %85 = load i32, ptr %84, align 8
   %.not62 = icmp eq i32 %85, 0
   br i1 %.not62, label %87, label %86
@@ -2151,7 +2151,7 @@ Abc_Clock.exit:                                   ; preds = %14, %19
 
 87:                                               ; preds = %86, %.lr.ph.split
   %88 = phi ptr [ %.pre, %86 ], [ %83, %.lr.ph.split ]
-  %89 = getelementptr inbounds i8, ptr %88, i64 12
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 12
   %90 = load i32, ptr %89, align 4
   call void @Ssw_ManRefineByFilterSim(ptr noundef nonnull %39, i32 noundef %90)
   %91 = load ptr, ptr %48, align 8
@@ -2171,7 +2171,7 @@ Abc_Clock.exit:                                   ; preds = %14, %19
 
 98:                                               ; preds = %94, %87
   %99 = load ptr, ptr %39, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 112
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 112
   %101 = load i32, ptr %100, align 8
   %.not63 = icmp eq i32 %101, 0
   br i1 %.not63, label %104, label %102
@@ -2222,7 +2222,7 @@ Abc_Clock.exit:                                   ; preds = %14, %19
   store ptr null, ptr %52, align 8
   call void @Ssw_ManCleanup(ptr noundef nonnull %39) #11
   %120 = load ptr, ptr %39, align 8
-  %121 = getelementptr inbounds i8, ptr %120, i64 12
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 12
   %122 = load i32, ptr %121, align 4
   call void @Ssw_ManRollForward(ptr noundef nonnull %39, i32 noundef %122)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
@@ -2254,7 +2254,7 @@ Abc_Clock.exit70:                                 ; preds = %.thread72, %125
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !35
 
 .loopexit:                                        ; preds = %133, %.critedge.us, %50, %132, %.split.us
-  %135 = getelementptr inbounds i8, ptr %39, i64 16
+  %135 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %136 = load ptr, ptr %135, align 8
   call void @Aig_ManSetPhase(ptr noundef %136) #11
   %137 = load ptr, ptr %135, align 8
@@ -2300,7 +2300,7 @@ declare void @Ssw_ManStop(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define void @Ssw_SignalFilterGia(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #0 {
   %10 = tail call ptr @Gia_ManToAigSimple(ptr noundef %0) #11
-  %11 = getelementptr inbounds i8, ptr %0, i64 192
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %12 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %20, label %13
@@ -2317,7 +2317,7 @@ define void @Ssw_SignalFilterGia(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   br label %16
 
 16:                                               ; preds = %13, %15
-  %17 = getelementptr inbounds i8, ptr %0, i64 200
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %18 = load ptr, ptr %17, align 8
   %.not23 = icmp eq ptr %18, null
   br i1 %.not23, label %20, label %19

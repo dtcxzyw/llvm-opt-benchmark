@@ -15,7 +15,7 @@ $_ZSt8__searchISt16reverse_iteratorIPKcES3_N9__gnu_cxx5__ops19_Iter_equal_to_ite
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4i18n12phonenumberslsERSoRKNS0_11StringPieceE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i64 noundef %5)
   ret ptr %0
@@ -25,9 +25,9 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr nou
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN4i18n12phonenumberseqERKNS0_11StringPieceES3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
   %.not = icmp eq i64 %4, %6
   br i1 %.not, label %7, label %11
@@ -46,7 +46,7 @@ define dso_local noundef zeroext i1 @_ZN4i18n12phonenumberseqERKNS0_11StringPiec
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK4i18n12phonenumbers11StringPiece12CopyToStringEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 0
   %6 = load ptr, ptr %0, align 8
@@ -59,7 +59,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK4i18n12phonenumbers11StringPiece14AppendToStringEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %9, label %6
@@ -77,7 +77,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece4copyEPcmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #3 align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = sub i64 %6, %3
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %2, i64 %7)
@@ -92,7 +92,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece4findERKS1_m(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = icmp ugt i64 %2, %5
   br i1 %6, label %24, label %7
@@ -102,7 +102,7 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece4findERKS1_m(p
   %9 = getelementptr inbounds i8, ptr %8, i64 %2
   %10 = getelementptr inbounds i8, ptr %8, i64 %5
   %11 = load ptr, ptr %1, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i64, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %11, i64 %13
   %15 = tail call noundef ptr @_ZSt8__searchIPKcS1_N9__gnu_cxx5__ops19_Iter_equal_to_iterEET_S5_S5_T0_S6_T1_(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %14)
@@ -124,7 +124,7 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece4findERKS1_m(p
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece4findEcm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i8 noundef signext %1, i64 noundef %2) local_unnamed_addr #5 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %.not = icmp ult i64 %2, %5
   br i1 %.not, label %6, label %53
@@ -152,25 +152,25 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece4findEcm(ptr n
   br i1 %16, label %_ZSt4findIPKccET_S2_S2_RKT0_.exit, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %.02946.i.i.i, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 1
   %19 = load i8, ptr %18, align 1
   %20 = icmp eq i8 %19, %1
   br i1 %20, label %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit, label %21
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %.02946.i.i.i, i64 2
+  %22 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 2
   %23 = load i8, ptr %22, align 1
   %24 = icmp eq i8 %23, %1
   br i1 %24, label %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit24, label %25
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %.02946.i.i.i, i64 3
+  %26 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 3
   %27 = load i8, ptr %26, align 1
   %28 = icmp eq i8 %27, %1
   br i1 %28, label %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit26, label %29
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %.02946.i.i.i, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 4
   %31 = add nsw i64 %.047.i.i.i, -1
   %32 = icmp sgt i64 %.047.i.i.i, 1
   br i1 %32, label %14, label %._crit_edge.i.i.i, !llvm.loop !5
@@ -191,7 +191,7 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece4findEcm(ptr n
   br i1 %36, label %_ZSt4findIPKccET_S2_S2_RKT0_.exit, label %37
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i, i64 1
   br label %._crit_edge._crit_edge.i.i.i
 
 ._crit_edge._crit_edge.i.i.i:                     ; preds = %._crit_edge.i.i.i, %37
@@ -201,7 +201,7 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece4findEcm(ptr n
   br i1 %40, label %_ZSt4findIPKccET_S2_S2_RKT0_.exit, label %41
 
 41:                                               ; preds = %._crit_edge._crit_edge.i.i.i
-  %42 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 1
+  %42 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 1
   br label %._crit_edge._crit_edge52.i.i.i
 
 ._crit_edge._crit_edge52.i.i.i:                   ; preds = %._crit_edge.i.i.i, %41
@@ -214,15 +214,15 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece4findEcm(ptr n
   br label %_ZSt4findIPKccET_S2_S2_RKT0_.exit
 
 _ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit: ; preds = %17
-  %46 = getelementptr inbounds i8, ptr %.02946.i.i.i, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 1
   br label %_ZSt4findIPKccET_S2_S2_RKT0_.exit
 
 _ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit24: ; preds = %21
-  %47 = getelementptr inbounds i8, ptr %.02946.i.i.i, i64 2
+  %47 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 2
   br label %_ZSt4findIPKccET_S2_S2_RKT0_.exit
 
 _ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit26: ; preds = %25
-  %48 = getelementptr inbounds i8, ptr %.02946.i.i.i, i64 3
+  %48 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 3
   br label %_ZSt4findIPKccET_S2_S2_RKT0_.exit
 
 _ZSt4findIPKccET_S2_S2_RKT0_.exit:                ; preds = %14, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit24, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit26, %34, %._crit_edge._crit_edge.i.i.i, %._crit_edge._crit_edge52.i.i.i, %45
@@ -246,9 +246,9 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece5rfindERKS1_m(
   %6 = alloca %"class.std::reverse_iterator", align 8
   %7 = alloca %"class.std::reverse_iterator", align 8
   %8 = alloca %"class.std::reverse_iterator", align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = icmp ult i64 %10, %12
   br i1 %13, label %31, label %14
@@ -304,7 +304,7 @@ _ZSt8find_endIPKcS1_ET_S2_S2_T0_S3_.exit:         ; preds = %14
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece5rfindEcm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i8 noundef signext %1, i64 noundef %2) local_unnamed_addr #5 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %.loopexit, label %7
@@ -338,13 +338,13 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece5rfindEcm(ptr 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece13find_first_ofERKS1_m(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i64 noundef %2) local_unnamed_addr #5 align 2 {
   %4 = alloca [256 x i8], align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %_ZNK4i18n12phonenumbers11StringPiece13find_first_ofEcm.exit, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i64, ptr %9, align 8
   switch i64 %10, label %61 [
     i64 0, label %_ZNK4i18n12phonenumbers11StringPiece13find_first_ofEcm.exit
@@ -380,25 +380,25 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece13find_first_o
   br i1 %24, label %_ZSt4findIPKccET_S2_S2_RKT0_.exit.i.i, label %25
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 1
   %27 = load i8, ptr %26, align 1
   %28 = icmp eq i8 %27, %13
   br i1 %28, label %_ZSt4findIPKccET_S2_S2_RKT0_.exit.i.i.loopexit.split.loop.exit, label %29
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 2
+  %30 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 2
   %31 = load i8, ptr %30, align 1
   %32 = icmp eq i8 %31, %13
   br i1 %32, label %_ZSt4findIPKccET_S2_S2_RKT0_.exit.i.i.loopexit.split.loop.exit28, label %33
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 3
+  %34 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 3
   %35 = load i8, ptr %34, align 1
   %36 = icmp eq i8 %35, %13
   br i1 %36, label %_ZSt4findIPKccET_S2_S2_RKT0_.exit.i.i.loopexit.split.loop.exit30, label %37
 
 37:                                               ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 4
   %39 = add nsw i64 %.047.i.i.i.i.i, -1
   %40 = icmp sgt i64 %.047.i.i.i.i.i, 1
   br i1 %40, label %22, label %._crit_edge.i.i.i.i.i, !llvm.loop !5
@@ -419,7 +419,7 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece13find_first_o
   br i1 %44, label %_ZSt4findIPKccET_S2_S2_RKT0_.exit.i.i, label %45
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i.i, i64 1
   br label %._crit_edge._crit_edge.i.i.i.i.i
 
 ._crit_edge._crit_edge.i.i.i.i.i:                 ; preds = %45, %._crit_edge.i.i.i.i.i
@@ -429,7 +429,7 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece13find_first_o
   br i1 %48, label %_ZSt4findIPKccET_S2_S2_RKT0_.exit.i.i, label %49
 
 49:                                               ; preds = %._crit_edge._crit_edge.i.i.i.i.i
-  %50 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i, i64 1
   br label %._crit_edge._crit_edge52.i.i.i.i.i
 
 ._crit_edge._crit_edge52.i.i.i.i.i:               ; preds = %49, %._crit_edge.i.i.i.i.i
@@ -442,15 +442,15 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece13find_first_o
   br label %_ZSt4findIPKccET_S2_S2_RKT0_.exit.i.i
 
 _ZSt4findIPKccET_S2_S2_RKT0_.exit.i.i.loopexit.split.loop.exit: ; preds = %25
-  %54 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 1
   br label %_ZSt4findIPKccET_S2_S2_RKT0_.exit.i.i
 
 _ZSt4findIPKccET_S2_S2_RKT0_.exit.i.i.loopexit.split.loop.exit28: ; preds = %29
-  %55 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 2
+  %55 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 2
   br label %_ZSt4findIPKccET_S2_S2_RKT0_.exit.i.i
 
 _ZSt4findIPKccET_S2_S2_RKT0_.exit.i.i.loopexit.split.loop.exit30: ; preds = %33
-  %56 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 3
+  %56 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 3
   br label %_ZSt4findIPKccET_S2_S2_RKT0_.exit.i.i
 
 _ZSt4findIPKccET_S2_S2_RKT0_.exit.i.i:            ; preds = %22, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.i.i.loopexit.split.loop.exit, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.i.i.loopexit.split.loop.exit28, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.i.i.loopexit.split.loop.exit30, %53, %._crit_edge._crit_edge52.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i, %42
@@ -472,7 +472,7 @@ _ZSt4findIPKccET_S2_S2_RKT0_.exit.i.i:            ; preds = %22, %_ZSt4findIPKcc
   %62 = getelementptr inbounds i8, ptr %.val, i64 %.01.i
   %63 = load i8, ptr %62, align 1
   %64 = zext i8 %63 to i64
-  %65 = getelementptr inbounds i8, ptr %4, i64 %64
+  %65 = getelementptr inbounds nuw i8, ptr %4, i64 %64
   store i8 1, ptr %65, align 1
   %66 = add nuw i64 %.01.i, 1
   %exitcond.not.i = icmp eq i64 %66, %10
@@ -491,7 +491,7 @@ _ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit.preheader:
   %70 = getelementptr inbounds i8, ptr %68, i64 %.022
   %71 = load i8, ptr %70, align 1
   %72 = zext i8 %71 to i64
-  %73 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %72
   %74 = load i8, ptr %73, align 1
   %75 = trunc i8 %74 to i1
   br i1 %75, label %_ZNK4i18n12phonenumbers11StringPiece13find_first_ofEcm.exit, label %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit
@@ -512,13 +512,13 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece17find_first_not_ofERKS1_m(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i64 noundef %2) local_unnamed_addr #5 align 2 {
   %4 = alloca [256 x i8], align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %_ZNK4i18n12phonenumbers11StringPiece17find_first_not_ofEcm.exit, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i64, ptr %9, align 8
   switch i64 %10, label %21 [
     i64 0, label %_ZNK4i18n12phonenumbers11StringPiece17find_first_not_ofEcm.exit
@@ -557,7 +557,7 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece17find_first_n
   %22 = getelementptr inbounds i8, ptr %.val, i64 %.01.i
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i64
-  %25 = getelementptr inbounds i8, ptr %4, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 %24
   store i8 1, ptr %25, align 1
   %26 = add nuw i64 %.01.i, 1
   %exitcond.not.i16 = icmp eq i64 %26, %10
@@ -576,7 +576,7 @@ _ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit.preheader:
   %30 = getelementptr inbounds i8, ptr %28, i64 %.019
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i64
-  %33 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %32
   %34 = load i8, ptr %33, align 1
   %35 = trunc i8 %34 to i1
   br i1 %35, label %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit, label %_ZNK4i18n12phonenumbers11StringPiece17find_first_not_ofEcm.exit
@@ -593,7 +593,7 @@ _ZNK4i18n12phonenumbers11StringPiece17find_first_not_ofEcm.exit: ; preds = %19, 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece17find_first_not_ofEcm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i8 noundef signext %1, i64 noundef %2) local_unnamed_addr #5 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = icmp ult i64 %2, %5
   br i1 %6, label %.lr.ph, label %.loopexit
@@ -622,13 +622,13 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece17find_first_n
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece12find_last_ofERKS1_m(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i64 noundef %2) local_unnamed_addr #5 align 2 {
   %4 = alloca [256 x i8], align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %_ZNK4i18n12phonenumbers11StringPiece12find_last_ofEcm.exit, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i64, ptr %9, align 8
   switch i64 %10, label %25 [
     i64 0, label %_ZNK4i18n12phonenumbers11StringPiece12find_last_ofEcm.exit
@@ -668,7 +668,7 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece12find_last_of
   %26 = getelementptr inbounds i8, ptr %.val, i64 %.01.i
   %27 = load i8, ptr %26, align 1
   %28 = zext i8 %27 to i64
-  %29 = getelementptr inbounds i8, ptr %4, i64 %28
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 %28
   store i8 1, ptr %29, align 1
   %30 = add nuw i64 %.01.i, 1
   %exitcond.not.i = icmp eq i64 %30, %10
@@ -681,7 +681,7 @@ _ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit: ; preds =
   %33 = getelementptr inbounds i8, ptr %32, i64 %.sroa.speculated
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i64
-  %36 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %35
   %37 = load i8, ptr %36, align 1
   %38 = trunc i8 %37 to i1
   br i1 %38, label %_ZNK4i18n12phonenumbers11StringPiece12find_last_ofEcm.exit, label %.lr.ph
@@ -696,7 +696,7 @@ _ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit: ; preds =
   %42 = getelementptr inbounds i8, ptr %32, i64 %41
   %43 = load i8, ptr %42, align 1
   %44 = zext i8 %43 to i64
-  %45 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %44
   %46 = load i8, ptr %45, align 1
   %47 = trunc i8 %46 to i1
   br i1 %47, label %_ZNK4i18n12phonenumbers11StringPiece12find_last_ofEcm.exit, label %.lr.ph, !llvm.loop !12
@@ -709,7 +709,7 @@ _ZNK4i18n12phonenumbers11StringPiece12find_last_ofEcm.exit: ; preds = %20, %.lr.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece16find_last_not_ofERKS1_m(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i64 noundef %2) local_unnamed_addr #5 align 2 {
   %4 = alloca [256 x i8], align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %_ZNK4i18n12phonenumbers11StringPiece16find_last_not_ofEcm.exit, label %8
@@ -717,7 +717,7 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece16find_last_no
 8:                                                ; preds = %3
   %9 = add i64 %6, -1
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %9, i64 %2)
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i64, ptr %10, align 8
   switch i64 %11, label %23 [
     i64 0, label %_ZNK4i18n12phonenumbers11StringPiece16find_last_not_ofEcm.exit
@@ -755,7 +755,7 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece16find_last_no
   %24 = getelementptr inbounds i8, ptr %.val, i64 %.01.i
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i64
-  %27 = getelementptr inbounds i8, ptr %4, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 %26
   store i8 1, ptr %27, align 1
   %28 = add nuw i64 %.01.i, 1
   %exitcond.not.i = icmp eq i64 %28, %11
@@ -766,7 +766,7 @@ _ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit.preheader:
   %30 = getelementptr inbounds i8, ptr %29, i64 %.sroa.speculated
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i64
-  %33 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %32
   %34 = load i8, ptr %33, align 1
   %35 = trunc i8 %34 to i1
   br i1 %35, label %.lr.ph, label %_ZNK4i18n12phonenumbers11StringPiece16find_last_not_ofEcm.exit
@@ -781,7 +781,7 @@ _ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit: ; preds =
   %38 = getelementptr inbounds i8, ptr %29, i64 %37
   %39 = load i8, ptr %38, align 1
   %40 = zext i8 %39 to i64
-  %41 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %40
   %42 = load i8, ptr %41, align 1
   %43 = trunc i8 %42 to i1
   br i1 %43, label %.lr.ph, label %_ZNK4i18n12phonenumbers11StringPiece16find_last_not_ofEcm.exit, !llvm.loop !14
@@ -793,7 +793,7 @@ _ZNK4i18n12phonenumbers11StringPiece16find_last_not_ofEcm.exit: ; preds = %19, %
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece16find_last_not_ofEcm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i8 noundef signext %1, i64 noundef %2) local_unnamed_addr #5 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %.loopexit, label %7
@@ -826,7 +826,7 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece16find_last_no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local { ptr, i64 } @_ZNK4i18n12phonenumbers11StringPiece6substrEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #7 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %spec.select = tail call i64 @llvm.umin.i64(i64 %1, i64 %5)
   %6 = sub i64 %5, %spec.select
@@ -846,7 +846,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt8__searchIPKcS1_N9__gnu_cxx5__ops
   br i1 %or.cond, label %_ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %2, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %9 = icmp eq ptr %8, %3
   %10 = ptrtoint ptr %1 to i64
   br i1 %9, label %11, label %.loopexit
@@ -872,25 +872,25 @@ define linkonce_odr dso_local noundef ptr @_ZSt8__searchIPKcS1_N9__gnu_cxx5__ops
   br i1 %20, label %_ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %.02946.i.i, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %.02946.i.i, i64 1
   %23 = load i8, ptr %22, align 1
   %24 = icmp eq i8 %23, %16
   br i1 %24, label %_ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit.loopexit.split.loop.exit110, label %25
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %.02946.i.i, i64 2
+  %26 = getelementptr inbounds nuw i8, ptr %.02946.i.i, i64 2
   %27 = load i8, ptr %26, align 1
   %28 = icmp eq i8 %27, %16
   br i1 %28, label %_ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit.loopexit.split.loop.exit108, label %29
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %.02946.i.i, i64 3
+  %30 = getelementptr inbounds nuw i8, ptr %.02946.i.i, i64 3
   %31 = load i8, ptr %30, align 1
   %32 = icmp eq i8 %31, %16
   br i1 %32, label %_ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit.loopexit.split.loop.exit, label %33
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %.02946.i.i, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %.02946.i.i, i64 4
   %35 = add nsw i64 %.047.i.i, -1
   %36 = icmp sgt i64 %.047.i.i, 1
   br i1 %36, label %18, label %._crit_edge.loopexit.i.i, !llvm.loop !15
@@ -924,7 +924,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt8__searchIPKcS1_N9__gnu_cxx5__ops
   br i1 %41, label %_ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit, label %42
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %.029.lcssa.i.i, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i, i64 1
   br label %44
 
 44:                                               ; preds = %42, %._crit_edge._crit_edge.i.i
@@ -935,7 +935,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt8__searchIPKcS1_N9__gnu_cxx5__ops
   br i1 %47, label %_ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit, label %48
 
 48:                                               ; preds = %44
-  %49 = getelementptr inbounds i8, ptr %.1.i.i, i64 1
+  %49 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 1
   br label %50
 
 50:                                               ; preds = %48, %._crit_edge._crit_edge52.i.i
@@ -970,25 +970,25 @@ define linkonce_odr dso_local noundef ptr @_ZSt8__searchIPKcS1_N9__gnu_cxx5__ops
   br i1 %63, label %_ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit65, label %64
 
 64:                                               ; preds = %61
-  %65 = getelementptr inbounds i8, ptr %.02946.i.i59, i64 1
+  %65 = getelementptr inbounds nuw i8, ptr %.02946.i.i59, i64 1
   %66 = load i8, ptr %65, align 1
   %67 = icmp eq i8 %66, %59
   br i1 %67, label %_ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit65.loopexit.split.loop.exit, label %68
 
 68:                                               ; preds = %64
-  %69 = getelementptr inbounds i8, ptr %.02946.i.i59, i64 2
+  %69 = getelementptr inbounds nuw i8, ptr %.02946.i.i59, i64 2
   %70 = load i8, ptr %69, align 1
   %71 = icmp eq i8 %70, %59
   br i1 %71, label %_ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit65.loopexit.split.loop.exit100, label %72
 
 72:                                               ; preds = %68
-  %73 = getelementptr inbounds i8, ptr %.02946.i.i59, i64 3
+  %73 = getelementptr inbounds nuw i8, ptr %.02946.i.i59, i64 3
   %74 = load i8, ptr %73, align 1
   %75 = icmp eq i8 %74, %59
   br i1 %75, label %_ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit65.loopexit.split.loop.exit102, label %76
 
 76:                                               ; preds = %72
-  %77 = getelementptr inbounds i8, ptr %.02946.i.i59, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %.02946.i.i59, i64 4
   %78 = add nsw i64 %.047.i.i58, -1
   %79 = icmp sgt i64 %.047.i.i58, 1
   br i1 %79, label %61, label %._crit_edge.loopexit.i.i60, !llvm.loop !15
@@ -1022,7 +1022,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt8__searchIPKcS1_N9__gnu_cxx5__ops
   br i1 %84, label %_ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit65, label %85
 
 85:                                               ; preds = %81
-  %86 = getelementptr inbounds i8, ptr %.029.lcssa.i.i48, i64 1
+  %86 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i48, i64 1
   br label %87
 
 87:                                               ; preds = %85, %._crit_edge._crit_edge.i.i53
@@ -1033,7 +1033,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt8__searchIPKcS1_N9__gnu_cxx5__ops
   br i1 %90, label %_ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit65, label %91
 
 91:                                               ; preds = %87
-  %92 = getelementptr inbounds i8, ptr %.1.i.i55, i64 1
+  %92 = getelementptr inbounds nuw i8, ptr %.1.i.i55, i64 1
   br label %93
 
 93:                                               ; preds = %91, %._crit_edge._crit_edge52.i.i49
@@ -1044,15 +1044,15 @@ define linkonce_odr dso_local noundef ptr @_ZSt8__searchIPKcS1_N9__gnu_cxx5__ops
   br i1 %96, label %_ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit65, label %_ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit
 
 _ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit65.loopexit.split.loop.exit: ; preds = %64
-  %97 = getelementptr inbounds i8, ptr %.02946.i.i59, i64 1
+  %97 = getelementptr inbounds nuw i8, ptr %.02946.i.i59, i64 1
   br label %_ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit65
 
 _ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit65.loopexit.split.loop.exit100: ; preds = %68
-  %98 = getelementptr inbounds i8, ptr %.02946.i.i59, i64 2
+  %98 = getelementptr inbounds nuw i8, ptr %.02946.i.i59, i64 2
   br label %_ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit65
 
 _ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit65.loopexit.split.loop.exit102: ; preds = %72
-  %99 = getelementptr inbounds i8, ptr %.02946.i.i59, i64 3
+  %99 = getelementptr inbounds nuw i8, ptr %.02946.i.i59, i64 3
   br label %_ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit65
 
 _ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit65: ; preds = %61, %_ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit65.loopexit.split.loop.exit, %_ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit65.loopexit.split.loop.exit100, %_ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit65.loopexit.split.loop.exit102, %81, %87, %93
@@ -1061,7 +1061,7 @@ _ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit65:
   br i1 %100, label %_ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit, label %101
 
 101:                                              ; preds = %_ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit65
-  %102 = getelementptr inbounds i8, ptr %.028.i.i52, i64 1
+  %102 = getelementptr inbounds nuw i8, ptr %.028.i.i52, i64 1
   %103 = icmp eq ptr %102, %1
   br i1 %103, label %_ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit, label %.preheader
 
@@ -1074,25 +1074,25 @@ _ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit65:
   br i1 %106, label %107, label %.loopexit, !llvm.loop !16
 
 107:                                              ; preds = %.preheader
-  %108 = getelementptr inbounds i8, ptr %.0, i64 1
+  %108 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   %109 = icmp eq ptr %108, %3
   br i1 %109, label %_ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit, label %110
 
 110:                                              ; preds = %107
-  %111 = getelementptr inbounds i8, ptr %.035, i64 1
+  %111 = getelementptr inbounds nuw i8, ptr %.035, i64 1
   %112 = icmp eq ptr %111, %1
   br i1 %112, label %_ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit, label %.preheader, !llvm.loop !17
 
 _ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit.loopexit.split.loop.exit: ; preds = %29
-  %113 = getelementptr inbounds i8, ptr %.02946.i.i, i64 3
+  %113 = getelementptr inbounds nuw i8, ptr %.02946.i.i, i64 3
   br label %_ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit
 
 _ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit.loopexit.split.loop.exit108: ; preds = %25
-  %114 = getelementptr inbounds i8, ptr %.02946.i.i, i64 2
+  %114 = getelementptr inbounds nuw i8, ptr %.02946.i.i, i64 2
   br label %_ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit
 
 _ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit.loopexit.split.loop.exit110: ; preds = %21
-  %115 = getelementptr inbounds i8, ptr %.02946.i.i, i64 1
+  %115 = getelementptr inbounds nuw i8, ptr %.02946.i.i, i64 1
   br label %_ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit
 
 _ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit: ; preds = %93, %._crit_edge.i.i46, %101, %_ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit65, %110, %107, %18, %_ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit.loopexit.split.loop.exit, %_ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit.loopexit.split.loop.exit108, %_ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit.loopexit.split.loop.exit110, %54, %50, %44, %38, %4

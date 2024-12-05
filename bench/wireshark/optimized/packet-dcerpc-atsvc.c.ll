@@ -375,7 +375,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden i32 @atsvc_dissect_bitmap_DaysOfMonth(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %11 = load i32, ptr %10, align 4
   %.not = icmp ne i32 %11, 0
   %12 = and i32 %1, 3
@@ -497,13 +497,13 @@ define hidden i32 @atsvc_dissect_bitmap_DaysOfWeek(ptr noundef %0, i32 noundef %
 define hidden i32 @atsvc_dissect_struct_JobInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   %10 = alloca i8, align 1
-  %11 = getelementptr inbounds i8, ptr %4, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 96
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, 1
   %.not = icmp eq i32 %15, 0
-  %16 = getelementptr inbounds i8, ptr %4, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %17 = load i32, ptr %16, align 4
   %.not58 = icmp ne i32 %17, 0
   br i1 %.not, label %23, label %18
@@ -617,14 +617,14 @@ atsvc_dissect_element_JobInfo_flags.exit:         ; preds = %63, %66
   %70 = sub i32 %69, %.0
   call void @proto_item_set_len(ptr noundef %.056, i32 noundef %70) #3
   %71 = load ptr, ptr %11, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 96
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 96
   %73 = load i32, ptr %72, align 8
   %74 = and i32 %73, 1
   %.not63 = icmp eq i32 %74, 0
   br i1 %.not63, label %82, label %75
 
 75:                                               ; preds = %atsvc_dissect_element_JobInfo_flags.exit
-  %76 = getelementptr inbounds i8, ptr %4, i64 28
+  %76 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %77 = load i32, ptr %76, align 4
   %.not64 = icmp ne i32 %77, 0
   %78 = and i32 %69, 7
@@ -652,13 +652,13 @@ declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 define hidden i32 @atsvc_dissect_struct_JobEnumInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   %10 = alloca i8, align 1
-  %11 = getelementptr inbounds i8, ptr %4, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 96
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, 1
   %.not = icmp eq i32 %15, 0
-  %16 = getelementptr inbounds i8, ptr %4, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %17 = load i32, ptr %16, align 4
   %.not64 = icmp ne i32 %17, 0
   br i1 %.not, label %23, label %18
@@ -774,14 +774,14 @@ atsvc_dissect_element_JobEnumInfo_flags.exit:     ; preds = %65, %68
   %72 = sub i32 %71, %.0
   call void @proto_item_set_len(ptr noundef %.062, i32 noundef %72) #3
   %73 = load ptr, ptr %11, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 96
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 96
   %75 = load i32, ptr %74, align 8
   %76 = and i32 %75, 1
   %.not69 = icmp eq i32 %76, 0
   br i1 %.not69, label %84, label %77
 
 77:                                               ; preds = %atsvc_dissect_element_JobEnumInfo_flags.exit
-  %78 = getelementptr inbounds i8, ptr %4, i64 28
+  %78 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %79 = load i32, ptr %78, align 4
   %.not70 = icmp ne i32 %79, 0
   %80 = and i32 %71, 7
@@ -801,13 +801,13 @@ atsvc_dissect_element_JobEnumInfo_flags.exit:     ; preds = %65, %68
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @atsvc_dissect_struct_enum_ctr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -855,14 +855,14 @@ define hidden i32 @atsvc_dissect_struct_enum_ctr(ptr noundef %0, i32 noundef %1,
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #3
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -949,7 +949,7 @@ define internal i32 @atsvc_dissect_element_enum_ctr_first_entry__(ptr noundef %0
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @atsvc_dissect_JobAdd_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.224, ptr %7, align 8
   %8 = load i32, ptr @hf_atsvc_servername, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @atsvc_dissect_element_JobAdd_servername_, i32 noundef 2, ptr noundef nonnull @.str.228, i32 noundef %8) #3
@@ -963,7 +963,7 @@ define internal i32 @atsvc_dissect_JobAdd_request(ptr noundef %0, i32 noundef %1
 ; Function Attrs: nounwind uwtable
 define internal i32 @atsvc_dissect_JobAdd_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.224, ptr %8, align 8
   %9 = load i32, ptr @hf_atsvc_job_id, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @atsvc_dissect_element_JobAdd_job_id_, i32 noundef 1, ptr noundef nonnull @.str.232, i32 noundef %9) #3
@@ -975,7 +975,7 @@ define internal i32 @atsvc_dissect_JobAdd_response(ptr noundef %0, i32 noundef %
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.231) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.230, ptr noundef %18) #3
@@ -987,7 +987,7 @@ define internal i32 @atsvc_dissect_JobAdd_response(ptr noundef %0, i32 noundef %
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @atsvc_dissect_JobDel_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.225, ptr %7, align 8
   %8 = load i32, ptr @hf_atsvc_servername, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @atsvc_dissect_element_JobDel_servername_, i32 noundef 2, ptr noundef nonnull @.str.228, i32 noundef %8) #3
@@ -1004,7 +1004,7 @@ define internal i32 @atsvc_dissect_JobDel_request(ptr noundef %0, i32 noundef %1
 ; Function Attrs: nounwind uwtable
 define internal i32 @atsvc_dissect_JobDel_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.225, ptr %8, align 8
   %9 = load i32, ptr @hf_atsvc_status, align 4
   %10 = call i32 @dissect_ntstatus(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -1013,7 +1013,7 @@ define internal i32 @atsvc_dissect_JobDel_response(ptr noundef %0, i32 noundef %
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.231) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.230, ptr noundef %15) #3
@@ -1025,7 +1025,7 @@ define internal i32 @atsvc_dissect_JobDel_response(ptr noundef %0, i32 noundef %
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @atsvc_dissect_JobEnum_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.226, ptr %7, align 8
   %8 = load i32, ptr @hf_atsvc_servername, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @atsvc_dissect_element_JobEnum_servername_, i32 noundef 2, ptr noundef nonnull @.str.228, i32 noundef %8) #3
@@ -1045,7 +1045,7 @@ define internal i32 @atsvc_dissect_JobEnum_request(ptr noundef %0, i32 noundef %
 ; Function Attrs: nounwind uwtable
 define internal i32 @atsvc_dissect_JobEnum_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.226, ptr %8, align 8
   %9 = load i32, ptr @hf_atsvc_atsvc_JobEnum_ctr, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @atsvc_dissect_element_JobEnum_ctr_, i32 noundef 1, ptr noundef nonnull @.str.233, i32 noundef %9) #3
@@ -1063,7 +1063,7 @@ define internal i32 @atsvc_dissect_JobEnum_response(ptr noundef %0, i32 noundef 
   br i1 %.not, label %25, label %21
 
 21:                                               ; preds = %6
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %20, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.231) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.230, ptr noundef %24) #3
@@ -1075,7 +1075,7 @@ define internal i32 @atsvc_dissect_JobEnum_response(ptr noundef %0, i32 noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @atsvc_dissect_JobGetInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.227, ptr %7, align 8
   %8 = load i32, ptr @hf_atsvc_servername, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @atsvc_dissect_element_JobGetInfo_servername_, i32 noundef 2, ptr noundef nonnull @.str.228, i32 noundef %8) #3
@@ -1089,7 +1089,7 @@ define internal i32 @atsvc_dissect_JobGetInfo_request(ptr noundef %0, i32 nounde
 ; Function Attrs: nounwind uwtable
 define internal i32 @atsvc_dissect_JobGetInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.227, ptr %8, align 8
   %9 = load i32, ptr @hf_atsvc_job_info, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @atsvc_dissect_element_JobGetInfo_job_info_, i32 noundef 1, ptr noundef nonnull @.str.229, i32 noundef %9) #3
@@ -1101,7 +1101,7 @@ define internal i32 @atsvc_dissect_JobGetInfo_response(ptr noundef %0, i32 nound
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.231) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.230, ptr noundef %18) #3

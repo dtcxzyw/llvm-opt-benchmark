@@ -255,14 +255,14 @@ define internal i32 @dissect_gmhdr(ptr noundef %0, ptr noundef %1, ptr noundef %
   %33 = load i32, ptr @hf_gmhdr_etype, align 4
   %34 = tail call ptr @proto_tree_add_uint(ptr noundef %.0, i32 noundef %33, ptr noundef %0, i32 noundef %.pre-phi, i32 noundef 2, i32 noundef %21) #4
   store i16 %19, ptr %5, align 8
-  %35 = getelementptr inbounds i8, ptr %5, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %20, ptr %35, align 4
-  %36 = getelementptr inbounds i8, ptr %5, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %.0, ptr %36, align 8
   %37 = load i32, ptr @hf_gmhdr_trailer, align 4
-  %38 = getelementptr inbounds i8, ptr %5, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %37, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %5, i64 20
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 0, ptr %39, align 4
   %40 = load ptr, ptr @ethertype_handle, align 8
   %41 = call i32 @call_dissector_with_data(ptr noundef %40, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5) #4
@@ -333,7 +333,7 @@ define internal range(i32 5, 1) i32 @dissect_gmtrailer(ptr noundef %0, ptr nound
   %23 = add nsw i32 %18, -2
   %24 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %23) #4
   %25 = add nsw i32 %18, -2
-  %26 = getelementptr inbounds i8, ptr %5, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %25, ptr %26, align 8
   %27 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 0, i32 noundef %25) #4
   store ptr %27, ptr %5, align 8
@@ -429,16 +429,16 @@ define internal range(i32 0, 15) i32 @dissect_gmtimestamp_trailer(ptr noundef %0
   %38 = zext i32 %37 to i64
   store i64 %38, ptr %5, align 8
   %39 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 10) #4
-  %40 = getelementptr inbounds i8, ptr %5, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %39, ptr %40, align 8
   %41 = call ptr @localtime(ptr noundef nonnull %5) #4
   %.not67 = icmp eq ptr %41, null
   br i1 %.not67, label %49, label %42
 
 42:                                               ; preds = %34
-  %43 = getelementptr inbounds i8, ptr %41, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %44 = load i32, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %41, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %41, i64 4
   %46 = load i32, ptr %45, align 4
   %47 = load i32, ptr %41, align 8
   %48 = load i32, ptr %40, align 8

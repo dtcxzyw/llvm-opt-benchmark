@@ -48,7 +48,7 @@ define noundef i32 @acct_gather_energy_p_update_node_energy() local_unnamed_addr
   br i1 %.not, label %7, label %2
 
 2:                                                ; preds = %0
-  %3 = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, -2
   br i1 %5, label %7, label %6
@@ -63,7 +63,7 @@ define noundef i32 @acct_gather_energy_p_update_node_energy() local_unnamed_addr
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_get_joules_task(ptr nocapture noundef %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, -2
   br i1 %4, label %39, label %5
@@ -73,14 +73,14 @@ define internal fastcc void @_get_joules_task(ptr nocapture noundef %0) unnamed_
   %7 = tail call fastcc i64 @_get_latest_stats(i32 noundef 0)
   %8 = tail call fastcc i64 @_get_latest_stats(i32 noundef 1)
   %9 = trunc i64 %8 to i32
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load i64, ptr %10, align 8
   %.not = icmp eq i64 %11, 0
   br i1 %.not, label %24, label %12
 
 12:                                               ; preds = %5
   %13 = sub i64 %7, %11
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, %13
   store i64 %16, ptr %14, align 8
@@ -94,7 +94,7 @@ define internal fastcc void @_get_joules_task(ptr nocapture noundef %0) unnamed_
   br label %26
 
 24:                                               ; preds = %5
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %7, ptr %25, align 8
   %.pre = load i32, ptr @_get_joules_task.readings, align 4
   %.pre27 = add i32 %.pre, 1
@@ -118,7 +118,7 @@ define internal fastcc void @_get_joules_task(ptr nocapture noundef %0) unnamed_
   br i1 %31, label %32, label %37
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %0, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %34 = load i64, ptr %33, align 8
   %.not26 = icmp eq i64 %34, 0
   %35 = sub nsw i64 %6, %34
@@ -129,7 +129,7 @@ define internal fastcc void @_get_joules_task(ptr nocapture noundef %0) unnamed_
 
 37:                                               ; preds = %26, %29, %32
   store i64 %7, ptr %10, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %6, ptr %38, align 8
   br label %39
 
@@ -178,13 +178,13 @@ define range(i32 -1, 1) i32 @acct_gather_energy_p_get_data(i32 noundef %0, ptr n
 
 10:                                               ; preds = %9, %9
   %11 = load ptr, ptr @local_energy, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, -2
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %1, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 -2, ptr %16, align 8
   br label %27
 
@@ -199,7 +199,7 @@ define range(i32 -1, 1) i32 @acct_gather_energy_p_get_data(i32 noundef %0, ptr n
 
 20:                                               ; preds = %9
   %21 = load ptr, ptr @local_energy, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %23 = load i64, ptr %22, align 8
   store i64 %23, ptr %1, align 8
   br label %27
@@ -243,7 +243,7 @@ define void @acct_gather_energy_p_conf_set(i32 %0, ptr nocapture readnone %1) lo
   br i1 %.not, label %11, label %13
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %10, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i32 -2, ptr %12, align 8
   br label %14
 
@@ -317,7 +317,7 @@ _running_profile.exit.i:                          ; preds = %9, %5
 
 19:                                               ; preds = %16
   %20 = load ptr, ptr @local_energy, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load i32, ptr %21, align 8
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.6, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._send_profile, ptr noundef nonnull @__func__._send_profile, i32 noundef %22) #8
   br label %23
@@ -360,7 +360,7 @@ thread-pre-split.i:                               ; preds = %33, %30
 
 40:                                               ; preds = %35, %23
   %41 = load ptr, ptr @local_energy, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %43 = load i32, ptr %42, align 8
   %44 = zext i32 %43 to i64
   store i64 %44, ptr %3, align 8
@@ -376,7 +376,7 @@ thread-pre-split.i:                               ; preds = %33, %30
   br i1 %49, label %50, label %53
 
 50:                                               ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %.pre4.i, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %.pre4.i, i64 24
   %52 = load i32, ptr %51, align 8
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.10, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._send_profile, i32 noundef %52) #8
   %.pre.i = load ptr, ptr @local_energy, align 8
@@ -385,7 +385,7 @@ thread-pre-split.i:                               ; preds = %33, %30
 53:                                               ; preds = %50, %47, %40
   %54 = phi ptr [ %41, %40 ], [ %.pre4.i, %47 ], [ %.pre.i, %50 ]
   %55 = load i32, ptr @_send_profile.dataset_id, align 4
-  %56 = getelementptr inbounds i8, ptr %54, i64 40
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 40
   %57 = load i64, ptr %56, align 8
   %58 = call i32 @acct_gather_profile_g_add_sample_data(i32 noundef %55, ptr noundef nonnull %3, i64 noundef %57) #8
   br label %_send_profile.exit
@@ -450,7 +450,7 @@ define internal fastcc i64 @_get_latest_stats(i32 noundef range(i32 0, 2) %0) un
 
 17:                                               ; preds = %13
   %18 = and i64 %14, 2147483647
-  %19 = getelementptr inbounds [72 x i8], ptr %3, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw [72 x i8], ptr %3, i64 0, i64 %18
   store i8 0, ptr %19, align 1
   %20 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %3, ptr noundef nonnull @.str.17, ptr noundef nonnull %2) #8
   br label %21

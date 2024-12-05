@@ -80,7 +80,7 @@ define dso_local i32 @acpi_evaluate_object_typed(ptr noundef %0, ptr noundef %1,
   br label %40
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %3, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = load i32, ptr %31, align 8
   %33 = icmp eq i32 %32, %4
@@ -166,7 +166,7 @@ define dso_local i32 @acpi_evaluate_object(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %25, label %.loopexit, label %26
 
 26:                                               ; preds = %24, %23
-  %27 = getelementptr inbounds i8, ptr %13, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %1, ptr %27, align 8
   %28 = icmp eq ptr %2, null
   br i1 %28, label %72, label %29
@@ -178,7 +178,7 @@ define dso_local i32 @acpi_evaluate_object(ptr noundef %0, ptr noundef %1, ptr n
 
 32:                                               ; preds = %29
   %33 = trunc i32 %30 to i16
-  %34 = getelementptr inbounds i8, ptr %13, i64 80
+  %34 = getelementptr inbounds nuw i8, ptr %13, i64 80
   store i16 %33, ptr %34, align 8
   %35 = and i32 %30, 65535
   %36 = icmp samesign ugt i32 %35, 7
@@ -203,7 +203,7 @@ define dso_local i32 @acpi_evaluate_object(ptr noundef %0, ptr noundef %1, ptr n
   %45 = shl nuw nsw i64 %44, 3
   %46 = add nuw nsw i64 %45, 8
   %47 = call noalias align 8 ptr @__kmalloc(i64 noundef %46, i32 noundef %43) #8
-  %48 = getelementptr inbounds i8, ptr %13, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %47, ptr %48, align 8
   %49 = icmp eq ptr %47, null
   br i1 %49, label %.loopexit, label %50
@@ -214,7 +214,7 @@ define dso_local i32 @acpi_evaluate_object(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %52, label %.loopexit17, label %53
 
 53:                                               ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %2, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %60
 
 55:                                               ; preds = %60
@@ -252,7 +252,7 @@ define dso_local i32 @acpi_evaluate_object(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %74, label %116, label %75
 
 75:                                               ; preds = %72
-  %76 = getelementptr inbounds i8, ptr %13, i64 56
+  %76 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %77 = load ptr, ptr %76, align 8
   %78 = icmp eq ptr %77, null
   br i1 %78, label %79, label %80
@@ -262,7 +262,7 @@ define dso_local i32 @acpi_evaluate_object(ptr noundef %0, ptr noundef %1, ptr n
   br label %.loopexit
 
 80:                                               ; preds = %75
-  %81 = getelementptr inbounds i8, ptr %77, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %82 = load i8, ptr %81, align 8
   %83 = icmp eq i8 %82, 15
   br i1 %83, label %.thread, label %84
@@ -277,13 +277,13 @@ define dso_local i32 @acpi_evaluate_object(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %85, label %86, label %116
 
 86:                                               ; preds = %84
-  %87 = getelementptr inbounds i8, ptr %77, i64 9
+  %87 = getelementptr inbounds nuw i8, ptr %77, i64 9
   %88 = load i8, ptr %87, align 1
   %89 = icmp eq i8 %88, 20
   br i1 %89, label %90, label %.thread16
 
 90:                                               ; preds = %86
-  %91 = getelementptr inbounds i8, ptr %77, i64 13
+  %91 = getelementptr inbounds nuw i8, ptr %77, i64 13
   %92 = load i8, ptr %91, align 1
   switch i8 %92, label %.thread16 [
     i8 3, label %93
@@ -291,12 +291,12 @@ define dso_local i32 @acpi_evaluate_object(ptr noundef %0, ptr noundef %1, ptr n
   ]
 
 93:                                               ; preds = %90
-  %94 = getelementptr inbounds i8, ptr %77, i64 32
+  %94 = getelementptr inbounds nuw i8, ptr %77, i64 32
   %95 = load ptr, ptr %94, align 8
   br label %100
 
 96:                                               ; preds = %90
-  %97 = getelementptr inbounds i8, ptr %77, i64 16
+  %97 = getelementptr inbounds nuw i8, ptr %77, i64 16
   %98 = load ptr, ptr %97, align 8
   %99 = icmp eq ptr %98, null
   br i1 %99, label %.thread16, label %100
@@ -333,7 +333,7 @@ define dso_local i32 @acpi_evaluate_object(ptr noundef %0, ptr noundef %1, ptr n
 
 116:                                              ; preds = %.thread, %113, %109, %.thread16, %84, %72
   %117 = phi i32 [ %73, %84 ], [ %107, %.thread16 ], [ %111, %109 ], [ %115, %113 ], [ %73, %72 ], [ 8, %.thread ]
-  %118 = getelementptr inbounds i8, ptr %13, i64 56
+  %118 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %119 = load ptr, ptr %118, align 8
   %120 = icmp eq ptr %119, null
   br i1 %120, label %.loopexit, label %121
@@ -347,7 +347,7 @@ define dso_local i32 @acpi_evaluate_object(ptr noundef %0, ptr noundef %1, ptr n
 
 .loopexit:                                        ; preds = %60, %121, %116, %79, %38, %24, %15
   %123 = phi i32 [ %117, %121 ], [ %117, %116 ], [ %73, %79 ], [ 4097, %15 ], [ 4097, %24 ], [ 4, %38 ], [ %66, %60 ]
-  %124 = getelementptr inbounds i8, ptr %13, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %125 = load ptr, ptr %124, align 8
   %126 = icmp eq ptr %125, null
   br i1 %126, label %128, label %127
@@ -478,9 +478,9 @@ define dso_local i32 @acpi_get_devices(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %6, label %15, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %2, ptr %9, align 8
   store ptr %1, ptr %5, align 8
   %10 = tail call i32 @acpi_ut_acquire_mutex(i32 noundef 1) #6
@@ -524,7 +524,7 @@ define internal i32 @acpi_ns_get_device_callback(ptr noundef %0, i32 noundef %1,
   store i32 0, ptr %5, align 4, !annotation !5
   store ptr null, ptr %6, align 8, !annotation !5
   store ptr null, ptr %7, align 8, !annotation !5
-  %17 = getelementptr inbounds i8, ptr %2, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %51, label %20
@@ -541,7 +541,7 @@ define internal i32 @acpi_ns_get_device_callback(ptr noundef %0, i32 noundef %1,
 
 23:                                               ; preds = %20
   %24 = load ptr, ptr %6, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr %17, align 8
   %28 = call i32 @strcmp(ptr noundef %26, ptr noundef %27) #6
@@ -606,7 +606,7 @@ define internal i32 @acpi_ns_get_device_callback(ptr noundef %0, i32 noundef %1,
 
 58:                                               ; preds = %54
   %59 = load ptr, ptr %2, align 8
-  %60 = getelementptr inbounds i8, ptr %2, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %61 = load ptr, ptr %60, align 8
   %62 = call i32 %59(ptr noundef %0, i32 noundef %1, ptr noundef %61, ptr noundef %3) #6
   br label %63

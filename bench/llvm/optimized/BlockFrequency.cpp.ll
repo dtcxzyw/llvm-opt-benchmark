@@ -129,7 +129,7 @@ define dso_local void @_ZN4llvm22printRelativeBlockFreqERNS_11raw_ostreamENS_14B
 14:                                               ; preds = %6
   store i8 48, ptr %10, align 1
   %15 = load ptr, ptr %9, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1
   store ptr %16, ptr %9, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -155,13 +155,13 @@ define dso_local void @_ZN4llvm22printRelativeBlockFreqERNS_11raw_ostreamENS_14B
 30:                                               ; preds = %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %23, ptr noundef nonnull align 1 dereferenceable(13) @.str.1, i64 13, i1 false)
   %31 = load ptr, ptr %22, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 13
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 13
   store ptr %32, ptr %22, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 _ZN4llvmdvImEENS_12ScaledNumberIT_EERKS3_S5_.exit: ; preds = %17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %.sroa.29.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.29.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %33 = tail call { i64, i16 } @_ZN4llvm13ScaledNumbers8divide64Emm(i64 noundef %2, i64 noundef %1) #7
   %.fca.0.extract.i.i.i.i = extractvalue { i64, i16 } %33, 0
   %.fca.1.extract.i.i.i.i = extractvalue { i64, i16 } %33, 1

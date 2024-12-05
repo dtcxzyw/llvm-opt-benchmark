@@ -34,7 +34,7 @@ define zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h17e576
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h85a4ee9d7c0376c9E.exit"
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %4, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store ptr %10, ptr %3, align 8
   %11 = call zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr align 8 %1, ptr nonnull align 1 @anon.cc5ee6b74427a82da77754f9a155c9de.1, i64 4, ptr nonnull align 1 %3, ptr nonnull align 8 @anon.cc5ee6b74427a82da77754f9a155c9de.2)
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h85a4ee9d7c0376c9E.exit"
@@ -59,7 +59,7 @@ define zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h62b761
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hd39dee6ecb43b416E.exit"
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %10, ptr %3, align 8
   %11 = call zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr align 8 %1, ptr nonnull align 1 @anon.cc5ee6b74427a82da77754f9a155c9de.1, i64 4, ptr nonnull align 1 %3, ptr nonnull align 8 @anon.cc5ee6b74427a82da77754f9a155c9de.3)
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hd39dee6ecb43b416E.exit"
@@ -198,7 +198,7 @@ define i48 @"_ZN4core6option15Option$LT$T$GT$6filter17h63526039e81cfa11E"(i48 %0
   %.sroa.2.0.extract.shift = lshr i48 %0, 16
   %.sroa.2.0.extract.trunc = trunc i48 %.sroa.2.0.extract.shift to i16
   store i16 %.sroa.2.0.extract.trunc, ptr %2, align 2
-  %6 = getelementptr inbounds i8, ptr %2, i64 2
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store i16 %.sroa.33.0.extract.trunc, ptr %6, align 2
   %7 = call zeroext i1 @"_ZN14cranelift_isle21DisjointSets$LT$T$GT$11in_same_set28_$u7b$$u7b$closure$u7d$$u7d$17h5574a22993f65a00E"(ptr nonnull align 2 %2)
   br i1 %7, label %8, label %11
@@ -225,7 +225,7 @@ define i48 @"_ZN4core6option15Option$LT$T$GT$6filter17h63526039e81cfa11E"(i48 %0
 ; Function Attrs: inlinehint nonlazybind uwtable
 define void @"_ZN4core6option15Option$LT$T$GT$6filter17h7798d0b234d79069E"(ptr nocapture writeonly sret({ [8 x i16], i16, [3 x i16] }) align 8 initializes((16, 18)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { i64, i8, [7 x i8] }, { { i16, [2 x i16] } }, [1 x i16] }, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i16, ptr %4, align 8, !range !9, !noundef !3
   %.not = icmp eq i16 %5, 3
   br i1 %.not, label %8, label %6
@@ -236,7 +236,7 @@ define void @"_ZN4core6option15Option$LT$T$GT$6filter17h7798d0b234d79069E"(ptr n
   br i1 %7, label %10, label %8
 
 8:                                                ; preds = %6, %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i16 3, ptr %9, align 8
   br label %11
 
@@ -330,7 +330,7 @@ define void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h66bfaace0a13a716E"(p
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i16 3, ptr %6, align 8
   br label %8
 
@@ -355,7 +355,7 @@ define zeroext i1 @"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt
   br label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store ptr %9, ptr %3, align 8
   %10 = call zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr align 8 %1, ptr nonnull align 1 @anon.cc5ee6b74427a82da77754f9a155c9de.1, i64 4, ptr nonnull align 1 %3, ptr nonnull align 8 @anon.cc5ee6b74427a82da77754f9a155c9de.2)
   br label %11
@@ -377,7 +377,7 @@ define zeroext i1 @"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt
   br label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %9, ptr %3, align 8
   %10 = call zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr align 8 %1, ptr nonnull align 1 @anon.cc5ee6b74427a82da77754f9a155c9de.1, i64 4, ptr nonnull align 1 %3, ptr nonnull align 8 @anon.cc5ee6b74427a82da77754f9a155c9de.3)
   br label %11
@@ -503,9 +503,9 @@ define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..t
   %4 = icmp ne i64 %3, -9223372036854775808
   %spec.select = zext i1 %4 to i64
   store i64 %spec.select, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %spec.select, ptr %6, align 8
   ret void
 }

@@ -51,7 +51,7 @@ define i32 @LAPACKE_dlascl(i32 noundef %0, i8 noundef signext %1, i32 noundef %2
   %28 = sext i32 %6 to i64
   %29 = sub nsw i64 0, %28
   %30 = getelementptr inbounds double, ptr %8, i64 %29
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = add nsw i32 %9, 1
   %33 = tail call i32 @LAPACKE_dgb_nancheck(i32 noundef 102, i32 noundef %7, i32 noundef %6, i32 noundef 0, i32 noundef %22, ptr noundef nonnull %31, i32 noundef %32) #2
   %34 = icmp eq i32 %33, 0
@@ -66,7 +66,7 @@ define i32 @LAPACKE_dlascl(i32 noundef %0, i8 noundef signext %1, i32 noundef %2
   %38 = sext i32 %7 to i64
   %39 = sub nsw i64 0, %38
   %40 = getelementptr inbounds double, ptr %8, i64 %39
-  %41 = getelementptr inbounds i8, ptr %40, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = add nsw i32 %9, 1
   %43 = tail call i32 @LAPACKE_dgb_nancheck(i32 noundef 102, i32 noundef %6, i32 noundef %7, i32 noundef 0, i32 noundef %36, ptr noundef nonnull %41, i32 noundef %42) #2
   %44 = icmp eq i32 %43, 0
@@ -87,7 +87,7 @@ define i32 @LAPACKE_dlascl(i32 noundef %0, i8 noundef signext %1, i32 noundef %2
   %52 = sext i32 %7 to i64
   %53 = sub nsw i64 0, %52
   %54 = getelementptr inbounds double, ptr %8, i64 %53
-  %55 = getelementptr inbounds i8, ptr %54, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = add nsw i32 %9, 1
   %57 = tail call i32 @LAPACKE_dgb_nancheck(i32 noundef 102, i32 noundef %6, i32 noundef %7, i32 noundef 1, i32 noundef %50, ptr noundef nonnull %55, i32 noundef %56) #2
   %58 = icmp eq i32 %57, 0

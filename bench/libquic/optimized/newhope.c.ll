@@ -35,7 +35,7 @@ entry:
   %pk = alloca %struct.newhope_poly_st, align 32
   tail call void @newhope_poly_getnoise(ptr noundef %sk) #7
   tail call void @newhope_poly_ntt(ptr noundef %sk) #7
-  %arrayidx = getelementptr inbounds i8, ptr %servermsg, i64 1792
+  %arrayidx = getelementptr inbounds nuw i8, ptr %servermsg, i64 1792
   %call = tail call i32 @RAND_bytes(ptr noundef nonnull %arrayidx, i64 noundef 32) #7
   call void @newhope_poly_uniform(ptr noundef nonnull %a, ptr noundef nonnull %arrayidx) #7
   call void @newhope_poly_getnoise(ptr noundef nonnull %e) #7
@@ -81,7 +81,7 @@ if.end:                                           ; preds = %entry
   call void @newhope_poly_ntt(ptr noundef nonnull %sp) #7
   call void @newhope_poly_getnoise(ptr noundef nonnull %ep) #7
   call void @newhope_poly_ntt(ptr noundef nonnull %ep) #7
-  %arrayidx = getelementptr inbounds i8, ptr %servermsg, i64 1792
+  %arrayidx = getelementptr inbounds nuw i8, ptr %servermsg, i64 1792
   call void @newhope_poly_uniform(ptr noundef nonnull %a, ptr noundef nonnull %arrayidx) #7
   call void @newhope_poly_pointwise(ptr noundef nonnull %bp, ptr noundef nonnull %a, ptr noundef nonnull %sp) #7
   call void @newhope_poly_add(ptr noundef nonnull %bp, ptr noundef nonnull %bp, ptr noundef nonnull %ep) #7
@@ -91,35 +91,35 @@ if.end:                                           ; preds = %entry
   call void @newhope_poly_pointwise(ptr noundef nonnull %v, ptr noundef nonnull %pk, ptr noundef nonnull %sp) #7
   call void @newhope_poly_invntt(ptr noundef nonnull %v) #7
   call void @newhope_poly_add(ptr noundef nonnull %v, ptr noundef nonnull %v, ptr noundef nonnull %epp) #7
-  %arrayidx1 = getelementptr inbounds i8, ptr %clientmsg, i64 1792
+  %arrayidx1 = getelementptr inbounds nuw i8, ptr %clientmsg, i64 1792
   call void @newhope_helprec(ptr noundef nonnull %c, ptr noundef nonnull %v) #7
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %if.end
   %indvars.iv.i = phi i64 [ 0, %if.end ], [ %indvars.iv.next.i, %for.body.i ]
   %0 = shl nuw nsw i64 %indvars.iv.i, 2
-  %arrayidx.i = getelementptr inbounds [1024 x i16], ptr %c, i64 0, i64 %0
+  %arrayidx.i = getelementptr inbounds nuw [1024 x i16], ptr %c, i64 0, i64 %0
   %1 = load i16, ptr %arrayidx.i, align 8
   %conv.i = trunc i16 %1 to i8
   %2 = or disjoint i64 %0, 1
-  %arrayidx4.i = getelementptr inbounds [1024 x i16], ptr %c, i64 0, i64 %2
+  %arrayidx4.i = getelementptr inbounds nuw [1024 x i16], ptr %c, i64 0, i64 %2
   %3 = load i16, ptr %arrayidx4.i, align 2
   %conv5.i = trunc i16 %3 to i8
   %shl.i = shl i8 %conv5.i, 2
   %or.i = or i8 %shl.i, %conv.i
   %4 = or disjoint i64 %0, 2
-  %arrayidx10.i = getelementptr inbounds [1024 x i16], ptr %c, i64 0, i64 %4
+  %arrayidx10.i = getelementptr inbounds nuw [1024 x i16], ptr %c, i64 0, i64 %4
   %5 = load i16, ptr %arrayidx10.i, align 4
   %conv11.i = trunc i16 %5 to i8
   %shl12.i = shl i8 %conv11.i, 4
   %or13.i = or i8 %or.i, %shl12.i
   %6 = or disjoint i64 %0, 3
-  %arrayidx18.i = getelementptr inbounds [1024 x i16], ptr %c, i64 0, i64 %6
+  %arrayidx18.i = getelementptr inbounds nuw [1024 x i16], ptr %c, i64 0, i64 %6
   %7 = load i16, ptr %arrayidx18.i, align 2
   %conv19.i = trunc i16 %7 to i8
   %shl20.i = shl i8 %conv19.i, 6
   %or21.i = or i8 %or13.i, %shl20.i
-  %arrayidx24.i = getelementptr inbounds i8, ptr %arrayidx1, i64 %indvars.iv.i
+  %arrayidx24.i = getelementptr inbounds nuw i8, ptr %arrayidx1, i64 %indvars.iv.i
   store i8 %or21.i, ptr %arrayidx24.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 256
@@ -176,34 +176,34 @@ if.end:                                           ; preds = %entry
   call void @newhope_poly_frombytes(ptr noundef nonnull %bp, ptr noundef %clientmsg) #7
   call void @newhope_poly_pointwise(ptr noundef nonnull %v, ptr noundef %sk, ptr noundef nonnull %bp) #7
   call void @newhope_poly_invntt(ptr noundef nonnull %v) #7
-  %arrayidx = getelementptr inbounds i8, ptr %clientmsg, i64 1792
+  %arrayidx = getelementptr inbounds nuw i8, ptr %clientmsg, i64 1792
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %if.end
   %indvars.iv.i = phi i64 [ 0, %if.end ], [ %indvars.iv.next.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds i8, ptr %arrayidx, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 %indvars.iv.i
   %0 = load i8, ptr %arrayidx.i, align 1
   %1 = and i8 %0, 3
   %conv1.i = zext nneg i8 %1 to i16
   %2 = shl nuw nsw i64 %indvars.iv.i, 2
-  %arrayidx3.i = getelementptr inbounds [1024 x i16], ptr %c, i64 0, i64 %2
+  %arrayidx3.i = getelementptr inbounds nuw [1024 x i16], ptr %c, i64 0, i64 %2
   store i16 %conv1.i, ptr %arrayidx3.i, align 8
   %3 = lshr i8 %0, 2
   %4 = and i8 %3, 3
   %conv8.i = zext nneg i8 %4 to i16
   %5 = or disjoint i64 %2, 1
-  %arrayidx13.i = getelementptr inbounds [1024 x i16], ptr %c, i64 0, i64 %5
+  %arrayidx13.i = getelementptr inbounds nuw [1024 x i16], ptr %c, i64 0, i64 %5
   store i16 %conv8.i, ptr %arrayidx13.i, align 2
   %6 = lshr i8 %0, 4
   %7 = and i8 %6, 3
   %conv19.i = zext nneg i8 %7 to i16
   %8 = or disjoint i64 %2, 2
-  %arrayidx24.i = getelementptr inbounds [1024 x i16], ptr %c, i64 0, i64 %8
+  %arrayidx24.i = getelementptr inbounds nuw [1024 x i16], ptr %c, i64 0, i64 %8
   store i16 %conv19.i, ptr %arrayidx24.i, align 4
   %9 = lshr i8 %0, 6
   %conv29.i = zext nneg i8 %9 to i16
   %10 = or disjoint i64 %2, 3
-  %arrayidx34.i = getelementptr inbounds [1024 x i16], ptr %c, i64 0, i64 %10
+  %arrayidx34.i = getelementptr inbounds nuw [1024 x i16], ptr %c, i64 0, i64 %10
   store i16 %conv29.i, ptr %arrayidx34.i, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 256

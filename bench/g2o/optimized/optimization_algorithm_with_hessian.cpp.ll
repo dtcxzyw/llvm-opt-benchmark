@@ -135,9 +135,9 @@ declare void @_ZN3g2o21OptimizationAlgorithmC2Ev(ptr noundef nonnull align 8 der
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZN3g2o11PropertyMap12makePropertyINS_8PropertyIbEEEEPT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS4_9ValueTypeE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.not11.i.i.i = icmp eq ptr %5, null
   br i1 %.not11.i.i.i, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3g2o12BasePropertyESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit.thread, label %.lr.ph.i.i.i
 
@@ -258,7 +258,7 @@ define noundef zeroext i1 @_ZN3g2o32OptimizationAlgorithmWithHessian4initEb(ptr 
   %8 = load i8, ptr %7, align 1
   %9 = trunc i8 %8 to i1
   %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 104
   %12 = load ptr, ptr %11, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(64) %4, i1 noundef zeroext %9)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -271,7 +271,7 @@ define noundef zeroext i1 @_ZN3g2o32OptimizationAlgorithmWithHessian4initEb(ptr 
   br i1 %.not7, label %.critedge, label %.lr.ph
 
 19:                                               ; preds = %.lr.ph
-  %20 = getelementptr inbounds i8, ptr %.sroa.04.08, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.04.08, i64 8
   %.not = icmp eq ptr %20, %18
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !6
 
@@ -286,7 +286,7 @@ define noundef zeroext i1 @_ZN3g2o32OptimizationAlgorithmWithHessian4initEb(ptr 
 25:                                               ; preds = %.lr.ph
   %26 = load ptr, ptr %3, align 8
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 80
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 80
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(64) %26)
   br i1 %30, label %.sink.split, label %40
@@ -294,7 +294,7 @@ define noundef zeroext i1 @_ZN3g2o32OptimizationAlgorithmWithHessian4initEb(ptr 
 .critedge:                                        ; preds = %19, %2
   %31 = load ptr, ptr %3, align 8
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 80
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 80
   %34 = load ptr, ptr %33, align 8
   %35 = tail call noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(64) %31)
   br i1 %35, label %.sink.split, label %40
@@ -303,7 +303,7 @@ define noundef zeroext i1 @_ZN3g2o32OptimizationAlgorithmWithHessian4initEb(ptr 
   %.sink9 = phi i1 [ true, %25 ], [ false, %.critedge ]
   %36 = load ptr, ptr %3, align 8
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load ptr, ptr %38, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(64) %36, i1 noundef zeroext %.sink9)
   br label %40
@@ -312,7 +312,7 @@ define noundef zeroext i1 @_ZN3g2o32OptimizationAlgorithmWithHessian4initEb(ptr 
   %41 = load ptr, ptr %3, align 8
   %42 = load ptr, ptr %13, align 8
   %43 = load ptr, ptr %41, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load ptr, ptr %44, align 8
   %46 = tail call noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(64) %41, ptr noundef %42, i1 noundef zeroext %1)
   ret i1 %46
@@ -323,7 +323,7 @@ define noundef zeroext i1 @_ZN3g2o32OptimizationAlgorithmWithHessian16computeMar
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 1 %1, ptr noundef nonnull align 1 %2)
   ret i1 %9
@@ -334,7 +334,7 @@ define noundef zeroext i1 @_ZN3g2o32OptimizationAlgorithmWithHessian20buildLinea
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(64) %3, i1 noundef zeroext false)
   ret i1 %7
@@ -345,7 +345,7 @@ define void @_ZN3g2o32OptimizationAlgorithmWithHessian18updateLinearSystemEv(ptr
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(64) %3)
   ret void
@@ -356,7 +356,7 @@ define noundef zeroext i1 @_ZN3g2o32OptimizationAlgorithmWithHessian15updateStru
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(48) %2)
   ret i1 %9
@@ -527,7 +527,7 @@ define linkonce_odr void @_ZN3g2o8PropertyIbED0Ev(ptr noundef nonnull align 8 de
 define linkonce_odr void @_ZNK3g2o8PropertyIbE8toStringB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(41) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %3)
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1

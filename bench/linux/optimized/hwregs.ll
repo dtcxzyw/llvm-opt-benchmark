@@ -28,7 +28,7 @@ define dso_local noundef range(i32 0, 4106) i32 @acpi_hw_validate_register(ptr n
   br i1 %4, label %102, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %2, align 8
   %8 = icmp eq i64 %7, 0
@@ -45,7 +45,7 @@ define dso_local noundef range(i32 0, 4106) i32 @acpi_hw_validate_register(ptr n
   br label %102
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 3
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %16 = load i8, ptr %15, align 1
   %17 = icmp ugt i8 %16, 4
   br i1 %17, label %18, label %20
@@ -56,13 +56,13 @@ define dso_local noundef range(i32 0, 4106) i32 @acpi_hw_validate_register(ptr n
   br label %102
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %0, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %22 = load i8, ptr %21, align 1
   %23 = icmp eq i8 %22, 0
   br i1 %23, label %24, label %34
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %0, i64 1
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %26 = load i8, ptr %25, align 1
   %27 = icmp eq i8 %26, 0
   br i1 %27, label %34, label %28
@@ -83,13 +83,13 @@ define dso_local noundef range(i32 0, 4106) i32 @acpi_hw_validate_register(ptr n
   %37 = zext nneg i8 %16 to i32
   %38 = shl nuw nsw i32 4, %37
   %39 = trunc i32 %38 to i8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 1
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 1
   %.pre = load i8, ptr %.phi.trans.insert, align 1
   br label %acpi_hw_get_access_bit_width.exit
 
 40:                                               ; preds = %34
   %41 = zext i8 %22 to i32
-  %42 = getelementptr inbounds i8, ptr %0, i64 1
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %43 = load i8, ptr %42, align 1
   %44 = zext i8 %43 to i32
   %45 = add nsw i32 %41, -1
@@ -212,13 +212,13 @@ define dso_local i32 @acpi_hw_read(ptr nocapture noundef %0, ptr noundef %1) loc
 8:                                                ; preds = %2
   store i64 0, ptr %0, align 8
   %9 = load i64, ptr %3, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %11 = load i8, ptr %10, align 1
   %12 = icmp eq i8 %11, 0
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %1, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %15 = load i8, ptr %14, align 1
   %16 = icmp eq i8 %15, 0
   br i1 %16, label %23, label %17
@@ -232,7 +232,7 @@ define dso_local i32 @acpi_hw_read(ptr nocapture noundef %0, ptr noundef %1) loc
   br i1 %22, label %acpi_hw_get_access_bit_width.exit, label %23
 
 23:                                               ; preds = %17, %13, %8
-  %24 = getelementptr inbounds i8, ptr %1, i64 3
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %25 = load i8, ptr %24, align 1
   %26 = icmp eq i8 %25, 0
   br i1 %26, label %31, label %27
@@ -241,14 +241,14 @@ define dso_local i32 @acpi_hw_read(ptr nocapture noundef %0, ptr noundef %1) loc
   %28 = zext nneg i8 %25 to i32
   %29 = shl nuw i32 4, %28
   %30 = trunc i32 %29 to i8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 1
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 1
   %.pre = load i8, ptr %.phi.trans.insert, align 1
   %.pre7 = zext i8 %.pre to i32
   br label %acpi_hw_get_access_bit_width.exit
 
 31:                                               ; preds = %23
   %32 = zext i8 %11 to i32
-  %33 = getelementptr inbounds i8, ptr %1, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i32
   %36 = add nsw i32 %32, -1
@@ -413,13 +413,13 @@ define dso_local i32 @acpi_hw_write(i64 noundef %0, ptr noundef %1) local_unname
 
 6:                                                ; preds = %2
   %7 = load i64, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 2
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %9 = load i8, ptr %8, align 1
   %10 = icmp eq i8 %9, 0
   br i1 %10, label %11, label %21
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %1, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %13 = load i8, ptr %12, align 1
   %14 = icmp eq i8 %13, 0
   br i1 %14, label %21, label %15
@@ -433,7 +433,7 @@ define dso_local i32 @acpi_hw_write(i64 noundef %0, ptr noundef %1) local_unname
   br i1 %20, label %acpi_hw_get_access_bit_width.exit, label %21
 
 21:                                               ; preds = %15, %11, %6
-  %22 = getelementptr inbounds i8, ptr %1, i64 3
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %23 = load i8, ptr %22, align 1
   %24 = icmp eq i8 %23, 0
   br i1 %24, label %29, label %25
@@ -442,14 +442,14 @@ define dso_local i32 @acpi_hw_write(i64 noundef %0, ptr noundef %1) local_unname
   %26 = zext nneg i8 %23 to i32
   %27 = shl nuw i32 4, %26
   %28 = trunc i32 %27 to i8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 1
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 1
   %.pre = load i8, ptr %.phi.trans.insert, align 1
   %.pre6 = zext i8 %.pre to i32
   br label %acpi_hw_get_access_bit_width.exit
 
 29:                                               ; preds = %21
   %30 = zext i8 %9 to i32
-  %31 = getelementptr inbounds i8, ptr %1, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %32 = load i8, ptr %31, align 1
   %33 = zext i8 %32 to i32
   %34 = add nsw i32 %30, -1

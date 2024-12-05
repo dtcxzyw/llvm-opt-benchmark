@@ -42,14 +42,14 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local range(i32 -38, 1) i32 @qemu_file_shutdown(ptr noundef %f) local_unnamed_addr #0 {
 entry:
-  %last_error = getelementptr inbounds i8, ptr %f, i64 33828
+  %last_error = getelementptr inbounds nuw i8, ptr %f, i64 33828
   %0 = load i32, ptr %last_error, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %qemu_file_set_error.exit, label %if.end
 
 qemu_file_set_error.exit:                         ; preds = %entry
   store i32 -5, ptr %last_error, align 4
-  %last_error_obj.i.i = getelementptr inbounds i8, ptr %f, i64 33832
+  %last_error_obj.i.i = getelementptr inbounds nuw i8, ptr %f, i64 33832
   tail call void @error_propagate(ptr noundef nonnull %last_error_obj.i.i, ptr noundef null) #15
   br label %if.end
 
@@ -73,7 +73,7 @@ return:                                           ; preds = %if.end2, %if.end
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_file_set_error(ptr noundef %f, i32 noundef %ret) local_unnamed_addr #0 {
 entry:
-  %last_error.i = getelementptr inbounds i8, ptr %f, i64 33828
+  %last_error.i = getelementptr inbounds nuw i8, ptr %f, i64 33828
   %0 = load i32, ptr %last_error.i, align 4
   %cmp.i = icmp eq i32 %0, 0
   %tobool.i = icmp ne i32 %ret, 0
@@ -82,7 +82,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store i32 %ret, ptr %last_error.i, align 4
-  %last_error_obj.i = getelementptr inbounds i8, ptr %f, i64 33832
+  %last_error_obj.i = getelementptr inbounds nuw i8, ptr %f, i64 33832
   tail call void @error_propagate(ptr noundef nonnull %last_error_obj.i, ptr noundef null) #15
   br label %qemu_file_set_error_obj.exit
 
@@ -98,14 +98,14 @@ declare i32 @qio_channel_shutdown(ptr noundef, i32 noundef, ptr noundef) local_u
 define dso_local noalias noundef ptr @qemu_file_get_return_path(ptr nocapture noundef readonly %f) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %f, align 8
-  %is_writable = getelementptr inbounds i8, ptr %f, i64 8
+  %is_writable = getelementptr inbounds nuw i8, ptr %f, i64 8
   %1 = load i8, ptr %is_writable, align 8
   %lnot = and i8 %1, 1
   %frombool.i = xor i8 %lnot, 1
   %call.i = tail call noalias dereferenceable_or_null(33840) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 33840) #16
   %call1.i = tail call ptr @object_ref(ptr noundef %0) #15
   store ptr %0, ptr %call.i, align 8
-  %is_writable3.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %is_writable3.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i8 %frombool.i, ptr %is_writable3.i, align 8
   ret ptr %call.i
 }
@@ -116,7 +116,7 @@ entry:
   %call.i = tail call noalias dereferenceable_or_null(33840) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 33840) #16
   %call1.i = tail call ptr @object_ref(ptr noundef %ioc) #15
   store ptr %ioc, ptr %call.i, align 8
-  %is_writable3.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %is_writable3.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i8 1, ptr %is_writable3.i, align 8
   ret ptr %call.i
 }
@@ -127,7 +127,7 @@ entry:
   %call.i = tail call noalias dereferenceable_or_null(33840) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 33840) #16
   %call1.i = tail call ptr @object_ref(ptr noundef %ioc) #15
   store ptr %ioc, ptr %call.i, align 8
-  %is_writable3.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %is_writable3.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i8 0, ptr %is_writable3.i, align 8
   ret ptr %call.i
 }
@@ -135,7 +135,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @qemu_file_get_error_obj(ptr nocapture noundef readonly %f, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %last_error = getelementptr inbounds i8, ptr %f, i64 33828
+  %last_error = getelementptr inbounds nuw i8, ptr %f, i64 33828
   %0 = load i32, ptr %last_error, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -145,7 +145,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool1.not, label %if.end8, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %last_error_obj = getelementptr inbounds i8, ptr %f, i64 33832
+  %last_error_obj = getelementptr inbounds nuw i8, ptr %f, i64 33832
   %1 = load ptr, ptr %last_error_obj, align 8
   %tobool3.not = icmp eq ptr %1, null
   br i1 %tobool3.not, label %if.else, label %if.then4
@@ -180,7 +180,7 @@ entry:
   br i1 %tobool.not, label %if.end3, label %if.then
 
 if.then:                                          ; preds = %entry
-  %last_error.i = getelementptr inbounds i8, ptr %f1, i64 33828
+  %last_error.i = getelementptr inbounds nuw i8, ptr %f1, i64 33828
   %0 = load i32, ptr %last_error.i, align 4
   %tobool.not.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i, label %if.end3, label %if.end.i
@@ -190,7 +190,7 @@ if.end.i:                                         ; preds = %if.then
   br i1 %tobool1.not.i, label %return, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %last_error_obj.i = getelementptr inbounds i8, ptr %f1, i64 33832
+  %last_error_obj.i = getelementptr inbounds nuw i8, ptr %f1, i64 33832
   %1 = load ptr, ptr %last_error_obj.i, align 8
   %tobool3.not.i = icmp eq ptr %1, null
   br i1 %tobool3.not.i, label %if.else.i, label %if.then4.i
@@ -215,7 +215,7 @@ if.end3:                                          ; preds = %if.then, %qemu_file
   br i1 %tobool4.not, label %return, label %if.then5
 
 if.then5:                                         ; preds = %if.end3
-  %last_error.i6 = getelementptr inbounds i8, ptr %f2, i64 33828
+  %last_error.i6 = getelementptr inbounds nuw i8, ptr %f2, i64 33828
   %2 = load i32, ptr %last_error.i6, align 4
   %tobool.not.i7 = icmp eq i32 %2, 0
   br i1 %tobool.not.i7, label %return, label %if.end.i8
@@ -225,7 +225,7 @@ if.end.i8:                                        ; preds = %if.then5
   br i1 %tobool1.not.i9, label %if.end8.i15, label %if.then2.i10
 
 if.then2.i10:                                     ; preds = %if.end.i8
-  %last_error_obj.i11 = getelementptr inbounds i8, ptr %f2, i64 33832
+  %last_error_obj.i11 = getelementptr inbounds nuw i8, ptr %f2, i64 33832
   %3 = load ptr, ptr %last_error_obj.i11, align 8
   %tobool3.not.i12 = icmp eq ptr %3, null
   br i1 %tobool3.not.i12, label %if.else.i17, label %if.then4.i13
@@ -252,7 +252,7 @@ return:                                           ; preds = %if.end.i, %if.end8.
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_file_set_error_obj(ptr noundef %f, i32 noundef %ret, ptr noundef %err) local_unnamed_addr #0 {
 entry:
-  %last_error = getelementptr inbounds i8, ptr %f, i64 33828
+  %last_error = getelementptr inbounds nuw i8, ptr %f, i64 33828
   %0 = load i32, ptr %last_error, align 4
   %cmp = icmp eq i32 %0, 0
   %tobool = icmp ne i32 %ret, 0
@@ -261,7 +261,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   store i32 %ret, ptr %last_error, align 4
-  %last_error_obj = getelementptr inbounds i8, ptr %f, i64 33832
+  %last_error_obj = getelementptr inbounds nuw i8, ptr %f, i64 33832
   tail call void @error_propagate(ptr noundef nonnull %last_error_obj, ptr noundef %err) #15
   br label %if.end4
 
@@ -284,7 +284,7 @@ declare void @error_report_err(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local i32 @qemu_file_get_error(ptr nocapture noundef readonly %f) local_unnamed_addr #2 {
 entry:
-  %last_error = getelementptr inbounds i8, ptr %f, i64 33828
+  %last_error = getelementptr inbounds nuw i8, ptr %f, i64 33828
   %0 = load i32, ptr %last_error, align 4
   ret i32 %0
 }
@@ -296,14 +296,14 @@ entry:
   %0 = getelementptr i8, ptr %f, i64 8
   %f.val = load i8, ptr %0, align 8
   %tobool.i = trunc i8 %f.val to i1
-  %last_error1 = getelementptr inbounds i8, ptr %f, i64 33828
+  %last_error1 = getelementptr inbounds nuw i8, ptr %f, i64 33828
   %1 = load i32, ptr %last_error1, align 4
   %tobool.not = icmp eq i32 %1, 0
   %or.cond = select i1 %tobool.i, i1 %tobool.not, i1 false
   br i1 %or.cond, label %if.end4, label %return
 
 if.end4:                                          ; preds = %entry
-  %iovcnt = getelementptr inbounds i8, ptr %f, i64 33824
+  %iovcnt = getelementptr inbounds nuw i8, ptr %f, i64 33824
   %2 = load i32, ptr %iovcnt, align 8
   %cmp.not = icmp eq i32 %2, 0
   br i1 %cmp.not, label %if.end16, label %if.then5
@@ -311,7 +311,7 @@ if.end4:                                          ; preds = %entry
 if.then5:                                         ; preds = %if.end4
   store ptr null, ptr %local_error, align 8
   %3 = load ptr, ptr %f, align 8
-  %iov = getelementptr inbounds i8, ptr %f, i64 32800
+  %iov = getelementptr inbounds nuw i8, ptr %f, i64 32800
   %conv = zext i32 %2 to i64
   %call7 = call i32 @qio_channel_writev_all(ptr noundef %3, ptr noundef nonnull %iov, i64 noundef %conv, ptr noundef nonnull %local_error) #15
   %cmp8 = icmp slt i32 %call7, 0
@@ -325,7 +325,7 @@ if.then10:                                        ; preds = %if.then5
 
 if.then.i:                                        ; preds = %if.then10
   store i32 -5, ptr %last_error1, align 4
-  %last_error_obj.i = getelementptr inbounds i8, ptr %f, i64 33832
+  %last_error_obj.i = getelementptr inbounds nuw i8, ptr %f, i64 33832
   call void @error_propagate(ptr noundef nonnull %last_error_obj.i, ptr noundef %4) #15
   br label %if.end15
 
@@ -344,7 +344,7 @@ if.else:                                          ; preds = %if.then5
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then3.i, %if.else.i, %if.then.i, %if.else
-  %may_free.i = getelementptr inbounds i8, ptr %f, i64 32792
+  %may_free.i = getelementptr inbounds nuw i8, ptr %f, i64 32792
   %8 = load i32, ptr %iovcnt, align 8
   %conv.i = zext i32 %8 to i64
   %call.i = call i64 @find_next_bit(ptr noundef nonnull %may_free.i, i64 noundef %conv.i, i64 noundef 0) #15
@@ -356,7 +356,7 @@ if.end15:                                         ; preds = %if.then3.i, %if.els
 if.end.i:                                         ; preds = %if.end15
   %arrayidx.i = getelementptr [64 x %struct.iovec], ptr %iov, i64 0, i64 %call.i
   %iov.sroa.0.0.copyload.i = load ptr, ptr %arrayidx.i, align 8
-  %iov.sroa.7.0.arrayidx.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %iov.sroa.7.0.arrayidx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %iov.sroa.7.0.copyload.i = load i64, ptr %iov.sroa.7.0.arrayidx.sroa_idx.i, align 8
   %add3040.i = add nuw nsw i64 %call.i, 1
   %call93141.i = call i64 @find_next_bit(ptr noundef nonnull %may_free.i, i64 noundef %conv2.i, i64 noundef %add3040.i) #15
@@ -383,7 +383,7 @@ while.body.i:                                     ; preds = %if.then19.i, %while
   br i1 %cmp17.i, label %if.then19.i, label %if.end25.i
 
 if.then19.i:                                      ; preds = %while.body.i
-  %iov_len22.i = getelementptr inbounds i8, ptr %arrayidx15.i, i64 8
+  %iov_len22.i = getelementptr inbounds nuw i8, ptr %arrayidx15.i, i64 8
   %14 = load i64, ptr %iov_len22.i, align 8
   %add24.i = add i64 %14, %iov.sroa.7.034.i
   %conv8.i = zext i32 %12 to i64
@@ -408,7 +408,7 @@ if.then31.i:                                      ; preds = %if.end25.i
 
 if.end36.i:                                       ; preds = %if.then31.i, %if.end25.i
   %iov.sroa.0.0.copyload10.i = load ptr, ptr %arrayidx15.i, align 8
-  %iov.sroa.7.0.arrayidx38.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx15.i, i64 8
+  %iov.sroa.7.0.arrayidx38.sroa_idx.i = getelementptr inbounds nuw i8, ptr %arrayidx15.i, i64 8
   %iov.sroa.7.0.copyload11.i = load i64, ptr %iov.sroa.7.0.arrayidx38.sroa_idx.i, align 8
   %17 = load i32, ptr %iovcnt, align 8
   %conv829.i = zext i32 %17 to i64
@@ -438,7 +438,7 @@ if.end49.i:                                       ; preds = %if.then44.i, %while
   br label %if.end16
 
 if.end16:                                         ; preds = %if.end49.i, %if.end15, %if.end4
-  %buf_index = getelementptr inbounds i8, ptr %f, i64 12
+  %buf_index = getelementptr inbounds nuw i8, ptr %f, i64 12
   store i32 0, ptr %buf_index, align 4
   store i32 0, ptr %iovcnt, align 8
   %20 = load i32, ptr %last_error1, align 4
@@ -470,7 +470,7 @@ if.then3:                                         ; preds = %entry
   br label %do.end
 
 do.end:                                           ; preds = %entry, %if.then3
-  %last_error_obj = getelementptr inbounds i8, ptr %f, i64 33832
+  %last_error_obj = getelementptr inbounds nuw i8, ptr %f, i64 33832
   %2 = load ptr, ptr %last_error_obj, align 8
   tail call void @error_free(ptr noundef %2) #15
   tail call void @g_free(ptr noundef nonnull %f) #15
@@ -497,7 +497,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call10.i.i = tail call i32 @qemu_get_thread_id() #15
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8) #15
   br label %trace_qemu_file_fclose.exit
@@ -524,31 +524,31 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_put_buffer_async(ptr noundef %f, ptr noundef %buf, i64 noundef %size, i1 noundef zeroext %may_free) local_unnamed_addr #0 {
 entry:
-  %last_error = getelementptr inbounds i8, ptr %f, i64 33828
+  %last_error = getelementptr inbounds nuw i8, ptr %f, i64 33828
   %0 = load i32, ptr %last_error, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %iovcnt.i = getelementptr inbounds i8, ptr %f, i64 33824
+  %iovcnt.i = getelementptr inbounds nuw i8, ptr %f, i64 33824
   %1 = load i32, ptr %iovcnt.i, align 8
   %cmp.not.i = icmp eq i32 %1, 0
   br i1 %cmp.not.i, label %if.end30.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end
-  %iov.i = getelementptr inbounds i8, ptr %f, i64 32800
+  %iov.i = getelementptr inbounds nuw i8, ptr %f, i64 32800
   %sub.i = add i32 %1, -1
   %idxprom.i = zext i32 %sub.i to i64
   %arrayidx.i = getelementptr [64 x %struct.iovec], ptr %iov.i, i64 0, i64 %idxprom.i
   %2 = load ptr, ptr %arrayidx.i, align 8
-  %iov_len.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %iov_len.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %3 = load i64, ptr %iov_len.i, align 8
   %add.ptr.i = getelementptr i8, ptr %2, i64 %3
   %cmp7.i = icmp eq ptr %buf, %add.ptr.i
   br i1 %cmp7.i, label %land.lhs.true8.i, label %if.else.i
 
 land.lhs.true8.i:                                 ; preds = %land.lhs.true.i
-  %may_free12.i = getelementptr inbounds i8, ptr %f, i64 32792
+  %may_free12.i = getelementptr inbounds nuw i8, ptr %f, i64 32792
   %div2.i.i = lshr i64 %idxprom.i, 6
   %arrayidx.i.i = getelementptr i64, ptr %may_free12.i, i64 %div2.i.i
   %4 = load i64, ptr %arrayidx.i.i, align 8
@@ -586,7 +586,7 @@ if.end30.i:                                       ; preds = %if.else.i, %if.end
   br i1 %may_free, label %if.then32.i, label %if.end37.i
 
 if.then32.i:                                      ; preds = %if.end30.i
-  %may_free35.i = getelementptr inbounds i8, ptr %f, i64 32792
+  %may_free35.i = getelementptr inbounds nuw i8, ptr %f, i64 32792
   %shl.i.i = shl nuw i64 1, %conv34.i
   %9 = load i64, ptr %may_free35.i, align 8
   %or.i.i = or i64 %9, %shl.i.i
@@ -594,7 +594,7 @@ if.then32.i:                                      ; preds = %if.end30.i
   br label %if.end37.i
 
 if.end37.i:                                       ; preds = %if.then32.i, %if.end30.i
-  %iov38.i = getelementptr inbounds i8, ptr %f, i64 32800
+  %iov38.i = getelementptr inbounds nuw i8, ptr %f, i64 32800
   %arrayidx41.i = getelementptr [64 x %struct.iovec], ptr %iov38.i, i64 0, i64 %conv34.i
   store ptr %buf, ptr %arrayidx41.i, align 8
   %10 = load i32, ptr %iovcnt.i, align 8
@@ -623,7 +623,7 @@ return:                                           ; preds = %if.then52.i, %if.en
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_put_buffer(ptr noundef %f, ptr nocapture noundef readonly %buf, i64 noundef %size) local_unnamed_addr #0 {
 entry:
-  %last_error = getelementptr inbounds i8, ptr %f, i64 33828
+  %last_error = getelementptr inbounds nuw i8, ptr %f, i64 33828
   %0 = load i32, ptr %last_error, align 4
   %tobool = icmp eq i32 %0, 0
   %cmp = icmp ne i64 %size, 0
@@ -631,8 +631,8 @@ entry:
   br i1 %or.cond, label %while.body.preheader, label %while.end
 
 while.body.preheader:                             ; preds = %entry
-  %buf_index = getelementptr inbounds i8, ptr %f, i64 12
-  %buf5 = getelementptr inbounds i8, ptr %f, i64 20
+  %buf_index = getelementptr inbounds nuw i8, ptr %f, i64 12
+  %buf5 = getelementptr inbounds nuw i8, ptr %f, i64 20
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -664,30 +664,30 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @add_buf_to_iovec(ptr noundef %f, i64 noundef %len) unnamed_addr #0 {
 entry:
-  %buf = getelementptr inbounds i8, ptr %f, i64 20
-  %buf_index = getelementptr inbounds i8, ptr %f, i64 12
+  %buf = getelementptr inbounds nuw i8, ptr %f, i64 20
+  %buf_index = getelementptr inbounds nuw i8, ptr %f, i64 12
   %0 = load i32, ptr %buf_index, align 4
   %idx.ext = sext i32 %0 to i64
   %add.ptr = getelementptr i8, ptr %buf, i64 %idx.ext
-  %iovcnt.i = getelementptr inbounds i8, ptr %f, i64 33824
+  %iovcnt.i = getelementptr inbounds nuw i8, ptr %f, i64 33824
   %1 = load i32, ptr %iovcnt.i, align 8
   %cmp.not.i = icmp eq i32 %1, 0
   br i1 %cmp.not.i, label %if.end30.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  %iov.i = getelementptr inbounds i8, ptr %f, i64 32800
+  %iov.i = getelementptr inbounds nuw i8, ptr %f, i64 32800
   %sub.i = add i32 %1, -1
   %idxprom.i = zext i32 %sub.i to i64
   %arrayidx.i = getelementptr [64 x %struct.iovec], ptr %iov.i, i64 0, i64 %idxprom.i
   %2 = load ptr, ptr %arrayidx.i, align 8
-  %iov_len.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %iov_len.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %3 = load i64, ptr %iov_len.i, align 8
   %add.ptr.i = getelementptr i8, ptr %2, i64 %3
   %cmp7.i = icmp eq ptr %add.ptr, %add.ptr.i
   br i1 %cmp7.i, label %land.lhs.true8.i, label %if.else.i
 
 land.lhs.true8.i:                                 ; preds = %land.lhs.true.i
-  %may_free12.i = getelementptr inbounds i8, ptr %f, i64 32792
+  %may_free12.i = getelementptr inbounds nuw i8, ptr %f, i64 32792
   %div2.i.i = lshr i64 %idxprom.i, 6
   %arrayidx.i.i = getelementptr i64, ptr %may_free12.i, i64 %div2.i.i
   %4 = load i64, ptr %arrayidx.i.i, align 8
@@ -710,7 +710,7 @@ if.else.i:                                        ; preds = %land.lhs.true8.i, %
   br i1 %cmp22.i, label %if.then24.i, label %if.end30.i
 
 if.then24.i:                                      ; preds = %if.else.i
-  %last_error.i.i = getelementptr inbounds i8, ptr %f, i64 33828
+  %last_error.i.i = getelementptr inbounds nuw i8, ptr %f, i64 33828
   %7 = load i32, ptr %last_error.i.i, align 4
   %tobool26.not.i = icmp eq i32 %7, 0
   br i1 %tobool26.not.i, label %lor.lhs.false.i, label %if.end7
@@ -727,7 +727,7 @@ if.else29.i:                                      ; preds = %lor.lhs.false.i
 
 if.end30.i:                                       ; preds = %if.else.i, %entry
   %conv34.i = zext nneg i32 %1 to i64
-  %iov38.i = getelementptr inbounds i8, ptr %f, i64 32800
+  %iov38.i = getelementptr inbounds nuw i8, ptr %f, i64 32800
   %arrayidx41.i = getelementptr [64 x %struct.iovec], ptr %iov38.i, i64 0, i64 %conv34.i
   store ptr %add.ptr, ptr %arrayidx41.i, align 8
   %9 = load i32, ptr %iovcnt.i, align 8
@@ -763,15 +763,15 @@ if.end7:                                          ; preds = %if.end7.sink.split,
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_put_byte(ptr noundef %f, i32 noundef %v) local_unnamed_addr #0 {
 entry:
-  %last_error = getelementptr inbounds i8, ptr %f, i64 33828
+  %last_error = getelementptr inbounds nuw i8, ptr %f, i64 33828
   %0 = load i32, ptr %last_error, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %conv = trunc i32 %v to i8
-  %buf = getelementptr inbounds i8, ptr %f, i64 20
-  %buf_index = getelementptr inbounds i8, ptr %f, i64 12
+  %buf = getelementptr inbounds nuw i8, ptr %f, i64 20
+  %buf_index = getelementptr inbounds nuw i8, ptr %f, i64 12
   %1 = load i32, ptr %buf_index, align 4
   %idxprom = sext i32 %1 to i64
   %arrayidx = getelementptr [32768 x i8], ptr %buf, i64 0, i64 %idxprom
@@ -786,10 +786,10 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define dso_local void @qemu_file_skip(ptr nocapture noundef %f, i32 noundef %size) local_unnamed_addr #4 {
 entry:
-  %buf_index = getelementptr inbounds i8, ptr %f, i64 12
+  %buf_index = getelementptr inbounds nuw i8, ptr %f, i64 12
   %0 = load i32, ptr %buf_index, align 4
   %add = add i32 %0, %size
-  %buf_size = getelementptr inbounds i8, ptr %f, i64 16
+  %buf_size = getelementptr inbounds nuw i8, ptr %f, i64 16
   %1 = load i32, ptr %buf_size, align 8
   %cmp.not = icmp sgt i32 %add, %1
   br i1 %cmp.not, label %if.end, label %if.then
@@ -832,11 +832,11 @@ if.else6:                                         ; preds = %if.end3
   unreachable
 
 if.end7:                                          ; preds = %if.end3
-  %buf_index = getelementptr inbounds i8, ptr %f, i64 12
+  %buf_index = getelementptr inbounds nuw i8, ptr %f, i64 12
   %1 = load i32, ptr %buf_index, align 4
   %conv = sext i32 %1 to i64
   %add = add nsw i64 %offset, %conv
-  %buf_size = getelementptr inbounds i8, ptr %f, i64 16
+  %buf_size = getelementptr inbounds nuw i8, ptr %f, i64 16
   %2 = load i32, ptr %buf_size, align 8
   %conv8 = sext i32 %2 to i64
   %sub9 = sub nsw i64 %conv8, %add
@@ -871,7 +871,7 @@ while.end:                                        ; preds = %while.body, %if.end
 
 if.end27:                                         ; preds = %while.end
   %spec.select = tail call i64 @llvm.umin.i64(i64 %pending.0.lcssa, i64 %size)
-  %buf32 = getelementptr inbounds i8, ptr %f, i64 20
+  %buf32 = getelementptr inbounds nuw i8, ptr %f, i64 20
   %add.ptr = getelementptr i8, ptr %buf32, i64 %index.0.lcssa
   store ptr %add.ptr, ptr %buf, align 8
   br label %return
@@ -899,16 +899,16 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %buf_size = getelementptr inbounds i8, ptr %f, i64 16
+  %buf_size = getelementptr inbounds nuw i8, ptr %f, i64 16
   %1 = load i32, ptr %buf_size, align 8
-  %buf_index = getelementptr inbounds i8, ptr %f, i64 12
+  %buf_index = getelementptr inbounds nuw i8, ptr %f, i64 12
   %2 = load i32, ptr %buf_index, align 4
   %sub = sub i32 %1, %2
   %cmp = icmp sgt i32 %sub, 0
   br i1 %cmp, label %if.then1, label %if.end5
 
 if.then1:                                         ; preds = %if.end
-  %buf = getelementptr inbounds i8, ptr %f, i64 20
+  %buf = getelementptr inbounds nuw i8, ptr %f, i64 20
   %idx.ext = sext i32 %2 to i64
   %add.ptr = getelementptr i8, ptr %buf, i64 %idx.ext
   %conv = zext nneg i32 %sub to i64
@@ -918,13 +918,13 @@ if.then1:                                         ; preds = %if.end
 if.end5:                                          ; preds = %if.then1, %if.end
   store i32 0, ptr %buf_index, align 4
   store i32 %sub, ptr %buf_size, align 8
-  %last_error.i = getelementptr inbounds i8, ptr %f, i64 33828
+  %last_error.i = getelementptr inbounds nuw i8, ptr %f, i64 33828
   %3 = load i32, ptr %last_error.i, align 4
   %tobool.not = icmp eq i32 %3, 0
   br i1 %tobool.not, label %do.body.preheader, label %return
 
 do.body.preheader:                                ; preds = %if.end5
-  %buf11 = getelementptr inbounds i8, ptr %f, i64 20
+  %buf11 = getelementptr inbounds nuw i8, ptr %f, i64 20
   %idx.ext13 = sext i32 %sub to i64
   %add.ptr14 = getelementptr i8, ptr %buf11, i64 %idx.ext13
   %sub15 = sub i32 32768, %sub
@@ -980,7 +980,7 @@ if.then43:                                        ; preds = %if.else40
 
 if.then.i:                                        ; preds = %if.then43
   store i32 -5, ptr %last_error.i, align 4
-  %last_error_obj.i = getelementptr inbounds i8, ptr %f, i64 33832
+  %last_error_obj.i = getelementptr inbounds nuw i8, ptr %f, i64 33832
   call void @error_propagate(ptr noundef nonnull %last_error_obj.i, ptr noundef %8) #15
   br label %if.end46
 
@@ -997,7 +997,7 @@ if.else44:                                        ; preds = %if.else40
 
 if.then.i34:                                      ; preds = %if.else44
   store i32 %spec.store.select, ptr %last_error.i, align 4
-  %last_error_obj.i35 = getelementptr inbounds i8, ptr %f, i64 33832
+  %last_error_obj.i35 = getelementptr inbounds nuw i8, ptr %f, i64 33832
   call void @error_propagate(ptr noundef nonnull %last_error_obj.i35, ptr noundef %8) #15
   br label %if.end46
 
@@ -1026,9 +1026,9 @@ entry:
 
 while.body.lr.ph:                                 ; preds = %entry
   %0 = getelementptr i8, ptr %f, i64 8
-  %buf_index.i = getelementptr inbounds i8, ptr %f, i64 12
-  %buf_size.i = getelementptr inbounds i8, ptr %f, i64 16
-  %buf32.i = getelementptr inbounds i8, ptr %f, i64 20
+  %buf_index.i = getelementptr inbounds nuw i8, ptr %f, i64 12
+  %buf_size.i = getelementptr inbounds nuw i8, ptr %f, i64 16
+  %buf32.i = getelementptr inbounds nuw i8, ptr %f, i64 20
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %qemu_file_skip.exit
@@ -1122,10 +1122,10 @@ if.else.i:                                        ; preds = %if.then
   unreachable
 
 if.end7.i:                                        ; preds = %if.then
-  %buf_index.i = getelementptr inbounds i8, ptr %f, i64 12
+  %buf_index.i = getelementptr inbounds nuw i8, ptr %f, i64 12
   %1 = load i32, ptr %buf_index.i, align 4
   %conv.i = sext i32 %1 to i64
-  %buf_size.i = getelementptr inbounds i8, ptr %f, i64 16
+  %buf_size.i = getelementptr inbounds nuw i8, ptr %f, i64 16
   %2 = load i32, ptr %buf_size.i, align 8
   %conv8.i = sext i32 %2 to i64
   %sub9.i = sub nsw i64 %conv8.i, %conv.i
@@ -1156,7 +1156,7 @@ while.end.i:                                      ; preds = %while.body.i, %if.e
   %index.0.lcssa.i = phi i64 [ %conv.i, %if.end7.i ], [ %conv.i, %while.body.i.preheader ], [ %conv19.i, %if.end17.i ], [ %conv19.i, %while.body.i ]
   %cmp24.i = icmp slt i64 %pending.0.lcssa.i, 1
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %pending.0.lcssa.i, i64 %size)
-  %buf32.i = getelementptr inbounds i8, ptr %f, i64 20
+  %buf32.i = getelementptr inbounds nuw i8, ptr %f, i64 20
   %add.ptr.i = getelementptr i8, ptr %buf32.i, i64 %index.0.lcssa.i
   %src.0 = select i1 %cmp24.i, ptr null, ptr %add.ptr.i
   %retval.0.i = select i1 %cmp24.i, i64 0, i64 %spec.select.i
@@ -1186,9 +1186,9 @@ if.end3:                                          ; preds = %while.end.i
 while.body.lr.ph.i:                               ; preds = %entry, %if.end3
   %7 = load ptr, ptr %buf, align 8
   %8 = getelementptr i8, ptr %f, i64 8
-  %buf_index.i.i = getelementptr inbounds i8, ptr %f, i64 12
-  %buf_size.i.i = getelementptr inbounds i8, ptr %f, i64 16
-  %buf32.i.i = getelementptr inbounds i8, ptr %f, i64 20
+  %buf_index.i.i = getelementptr inbounds nuw i8, ptr %f, i64 12
+  %buf_size.i.i = getelementptr inbounds nuw i8, ptr %f, i64 16
+  %buf32.i.i = getelementptr inbounds nuw i8, ptr %f, i64 20
   br label %while.body.i12
 
 while.body.i12:                                   ; preds = %qemu_file_skip.exit.i, %while.body.lr.ph.i
@@ -1268,7 +1268,7 @@ return:                                           ; preds = %qemu_file_skip.exit
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local range(i32 0, 256) i32 @qemu_peek_byte(ptr noundef %f, i32 noundef %offset) #0 {
 entry:
-  %buf_index = getelementptr inbounds i8, ptr %f, i64 12
+  %buf_index = getelementptr inbounds nuw i8, ptr %f, i64 12
   %0 = load i32, ptr %buf_index, align 4
   %add = add i32 %0, %offset
   %1 = getelementptr i8, ptr %f, i64 8
@@ -1289,7 +1289,7 @@ if.else2:                                         ; preds = %if.end
   unreachable
 
 if.end3:                                          ; preds = %if.end
-  %buf_size = getelementptr inbounds i8, ptr %f, i64 16
+  %buf_size = getelementptr inbounds nuw i8, ptr %f, i64 16
   %2 = load i32, ptr %buf_size, align 8
   %cmp4.not = icmp slt i32 %add, %2
   br i1 %cmp4.not, label %if.end13, label %if.then5
@@ -1304,7 +1304,7 @@ if.then5:                                         ; preds = %if.end3
 
 if.end13:                                         ; preds = %if.then5, %if.end3
   %index.0 = phi i32 [ %add8, %if.then5 ], [ %add, %if.end3 ]
-  %buf = getelementptr inbounds i8, ptr %f, i64 20
+  %buf = getelementptr inbounds nuw i8, ptr %f, i64 20
   %idxprom = sext i32 %index.0 to i64
   %arrayidx = getelementptr [32768 x i8], ptr %buf, i64 0, i64 %idxprom
   %5 = load i8, ptr %arrayidx, align 1
@@ -1319,7 +1319,7 @@ return:                                           ; preds = %if.then5, %if.end13
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local range(i32 0, 256) i32 @qemu_get_byte(ptr noundef %f) #0 {
 entry:
-  %buf_index.i = getelementptr inbounds i8, ptr %f, i64 12
+  %buf_index.i = getelementptr inbounds nuw i8, ptr %f, i64 12
   %0 = getelementptr i8, ptr %f, i64 8
   %f.val.i = load i8, ptr %0, align 8
   %tobool.i.i = trunc i8 %f.val.i to i1
@@ -1331,7 +1331,7 @@ if.else.i:                                        ; preds = %entry
 
 if.end.i:                                         ; preds = %entry
   %1 = load i32, ptr %buf_index.i, align 4
-  %buf_size.i = getelementptr inbounds i8, ptr %f, i64 16
+  %buf_size.i = getelementptr inbounds nuw i8, ptr %f, i64 16
   %2 = load i32, ptr %buf_size.i, align 8
   %cmp4.not.i = icmp slt i32 %1, %2
   br i1 %cmp4.not.i, label %if.end13.i, label %if.then5.i
@@ -1346,7 +1346,7 @@ if.then5.i:                                       ; preds = %if.end.i
 if.end13.i:                                       ; preds = %if.then5.i, %if.end.i
   %5 = phi i32 [ %4, %if.then5.i ], [ %2, %if.end.i ]
   %index.0.i = phi i32 [ %3, %if.then5.i ], [ %1, %if.end.i ]
-  %buf.i = getelementptr inbounds i8, ptr %f, i64 20
+  %buf.i = getelementptr inbounds nuw i8, ptr %f, i64 20
   %idxprom.i = sext i32 %index.0.i to i64
   %arrayidx.i = getelementptr [32768 x i8], ptr %buf.i, i64 0, i64 %idxprom.i
   %6 = load i8, ptr %arrayidx.i, align 1
@@ -1379,7 +1379,7 @@ entry:
   br i1 %tobool.i, label %for.cond.preheader, label %if.else
 
 for.cond.preheader:                               ; preds = %entry
-  %iovcnt = getelementptr inbounds i8, ptr %f, i64 33824
+  %iovcnt = getelementptr inbounds nuw i8, ptr %f, i64 33824
   %2 = load i32, ptr %iovcnt, align 8
   %cmp6.not = icmp eq i32 %2, 0
   br i1 %cmp6.not, label %for.end, label %for.body.lr.ph
@@ -1415,7 +1415,7 @@ declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, pt
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_put_be16(ptr noundef %f, i32 noundef %v) local_unnamed_addr #0 {
 entry:
-  %last_error.i = getelementptr inbounds i8, ptr %f, i64 33828
+  %last_error.i = getelementptr inbounds nuw i8, ptr %f, i64 33828
   %0 = load i32, ptr %last_error.i, align 4
   %tobool.not.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i, label %qemu_put_byte.exit, label %qemu_put_byte.exit11
@@ -1423,8 +1423,8 @@ entry:
 qemu_put_byte.exit:                               ; preds = %entry
   %shr = lshr i32 %v, 8
   %conv.i = trunc i32 %shr to i8
-  %buf.i = getelementptr inbounds i8, ptr %f, i64 20
-  %buf_index.i = getelementptr inbounds i8, ptr %f, i64 12
+  %buf.i = getelementptr inbounds nuw i8, ptr %f, i64 20
+  %buf_index.i = getelementptr inbounds nuw i8, ptr %f, i64 12
   %1 = load i32, ptr %buf_index.i, align 4
   %idxprom.i = sext i32 %1 to i64
   %arrayidx.i = getelementptr [32768 x i8], ptr %buf.i, i64 0, i64 %idxprom.i
@@ -1450,7 +1450,7 @@ qemu_put_byte.exit11:                             ; preds = %entry, %qemu_put_by
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_put_be32(ptr noundef %f, i32 noundef %v) local_unnamed_addr #0 {
 entry:
-  %last_error.i = getelementptr inbounds i8, ptr %f, i64 33828
+  %last_error.i = getelementptr inbounds nuw i8, ptr %f, i64 33828
   %0 = load i32, ptr %last_error.i, align 4
   %tobool.not.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i, label %qemu_put_byte.exit, label %qemu_put_byte.exit33
@@ -1458,8 +1458,8 @@ entry:
 qemu_put_byte.exit:                               ; preds = %entry
   %shr = lshr i32 %v, 24
   %conv.i = trunc nuw i32 %shr to i8
-  %buf.i = getelementptr inbounds i8, ptr %f, i64 20
-  %buf_index.i = getelementptr inbounds i8, ptr %f, i64 12
+  %buf.i = getelementptr inbounds nuw i8, ptr %f, i64 20
+  %buf_index.i = getelementptr inbounds nuw i8, ptr %f, i64 12
   %1 = load i32, ptr %buf_index.i, align 4
   %idxprom.i = sext i32 %1 to i64
   %arrayidx.i = getelementptr [32768 x i8], ptr %buf.i, i64 0, i64 %idxprom.i
@@ -1510,7 +1510,7 @@ qemu_put_byte.exit33:                             ; preds = %qemu_put_byte.exit,
 define dso_local void @qemu_put_be64(ptr noundef %f, i64 noundef %v) local_unnamed_addr #0 {
 entry:
   %shr = lshr i64 %v, 32
-  %last_error.i.i = getelementptr inbounds i8, ptr %f, i64 33828
+  %last_error.i.i = getelementptr inbounds nuw i8, ptr %f, i64 33828
   %0 = load i32, ptr %last_error.i.i, align 4
   %tobool.not.i.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i.i, label %qemu_put_byte.exit.i, label %qemu_put_be32.exit32
@@ -1518,8 +1518,8 @@ entry:
 qemu_put_byte.exit.i:                             ; preds = %entry
   %shr.i35 = lshr i64 %v, 56
   %conv.i.i = trunc nuw i64 %shr.i35 to i8
-  %buf.i.i = getelementptr inbounds i8, ptr %f, i64 20
-  %buf_index.i.i = getelementptr inbounds i8, ptr %f, i64 12
+  %buf.i.i = getelementptr inbounds nuw i8, ptr %f, i64 20
+  %buf_index.i.i = getelementptr inbounds nuw i8, ptr %f, i64 12
   %1 = load i32, ptr %buf_index.i.i, align 4
   %idxprom.i.i = sext i32 %1 to i64
   %arrayidx.i.i = getelementptr [32768 x i8], ptr %buf.i.i, i64 0, i64 %idxprom.i.i
@@ -1616,7 +1616,7 @@ qemu_put_be32.exit32:                             ; preds = %qemu_put_byte.exit2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local range(i32 0, 65536) i32 @qemu_get_be16(ptr noundef %f) local_unnamed_addr #0 {
 entry:
-  %buf_index.i.i = getelementptr inbounds i8, ptr %f, i64 12
+  %buf_index.i.i = getelementptr inbounds nuw i8, ptr %f, i64 12
   %0 = getelementptr i8, ptr %f, i64 8
   %f.val.i.i = load i8, ptr %0, align 8
   %tobool.i.i.i = trunc i8 %f.val.i.i to i1
@@ -1628,7 +1628,7 @@ if.else.i.i:                                      ; preds = %entry
 
 if.end.i.i:                                       ; preds = %entry
   %1 = load i32, ptr %buf_index.i.i, align 4
-  %buf_size.i.i = getelementptr inbounds i8, ptr %f, i64 16
+  %buf_size.i.i = getelementptr inbounds nuw i8, ptr %f, i64 16
   %2 = load i32, ptr %buf_size.i.i, align 8
   %cmp4.not.i.i = icmp slt i32 %1, %2
   br i1 %cmp4.not.i.i, label %if.end13.i.i, label %if.then5.i.i
@@ -1643,7 +1643,7 @@ if.then5.i.i:                                     ; preds = %if.end.i.i
 if.end13.i.i:                                     ; preds = %if.then5.i.i, %if.end.i.i
   %5 = phi i32 [ %4, %if.then5.i.i ], [ %2, %if.end.i.i ]
   %index.0.i.i = phi i32 [ %3, %if.then5.i.i ], [ %1, %if.end.i.i ]
-  %buf.i.i = getelementptr inbounds i8, ptr %f, i64 20
+  %buf.i.i = getelementptr inbounds nuw i8, ptr %f, i64 20
   %idxprom.i.i = sext i32 %index.0.i.i to i64
   %arrayidx.i.i = getelementptr [32768 x i8], ptr %buf.i.i, i64 0, i64 %idxprom.i.i
   %6 = load i8, ptr %arrayidx.i.i, align 1
@@ -1687,7 +1687,7 @@ if.then5.i.i9:                                    ; preds = %if.end.i.i6
 if.end13.i.i17:                                   ; preds = %if.then5.i.i9, %if.end.i.i6
   %13 = phi i32 [ %12, %if.then5.i.i9 ], [ %8, %if.end.i.i6 ]
   %index.0.i.i18 = phi i32 [ %11, %if.then5.i.i9 ], [ %10, %if.end.i.i6 ]
-  %buf.i.i19 = getelementptr inbounds i8, ptr %f, i64 20
+  %buf.i.i19 = getelementptr inbounds nuw i8, ptr %f, i64 20
   %idxprom.i.i20 = sext i32 %index.0.i.i18 to i64
   %arrayidx.i.i21 = getelementptr [32768 x i8], ptr %buf.i.i19, i64 0, i64 %idxprom.i.i20
   %14 = load i8, ptr %arrayidx.i.i21, align 1
@@ -1714,7 +1714,7 @@ qemu_get_byte.exit24:                             ; preds = %qemu_peek_byte.exit
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @qemu_get_be32(ptr noundef %f) local_unnamed_addr #0 {
 entry:
-  %buf_index.i.i = getelementptr inbounds i8, ptr %f, i64 12
+  %buf_index.i.i = getelementptr inbounds nuw i8, ptr %f, i64 12
   %0 = getelementptr i8, ptr %f, i64 8
   %f.val.i.i = load i8, ptr %0, align 8
   %tobool.i.i.i = trunc i8 %f.val.i.i to i1
@@ -1726,7 +1726,7 @@ if.else.i.i:                                      ; preds = %entry
 
 if.end.i.i:                                       ; preds = %entry
   %1 = load i32, ptr %buf_index.i.i, align 4
-  %buf_size.i.i = getelementptr inbounds i8, ptr %f, i64 16
+  %buf_size.i.i = getelementptr inbounds nuw i8, ptr %f, i64 16
   %2 = load i32, ptr %buf_size.i.i, align 8
   %cmp4.not.i.i = icmp slt i32 %1, %2
   br i1 %cmp4.not.i.i, label %if.end13.i.i, label %if.then5.i.i
@@ -1741,7 +1741,7 @@ if.then5.i.i:                                     ; preds = %if.end.i.i
 if.end13.i.i:                                     ; preds = %if.then5.i.i, %if.end.i.i
   %5 = phi i32 [ %4, %if.then5.i.i ], [ %2, %if.end.i.i ]
   %index.0.i.i = phi i32 [ %3, %if.then5.i.i ], [ %1, %if.end.i.i ]
-  %buf.i.i = getelementptr inbounds i8, ptr %f, i64 20
+  %buf.i.i = getelementptr inbounds nuw i8, ptr %f, i64 20
   %idxprom.i.i = sext i32 %index.0.i.i to i64
   %arrayidx.i.i = getelementptr [32768 x i8], ptr %buf.i.i, i64 0, i64 %idxprom.i.i
   %6 = load i8, ptr %arrayidx.i.i, align 1
@@ -1785,7 +1785,7 @@ if.then5.i.i13:                                   ; preds = %if.end.i.i10
 if.end13.i.i21:                                   ; preds = %if.then5.i.i13, %if.end.i.i10
   %13 = phi i32 [ %12, %if.then5.i.i13 ], [ %8, %if.end.i.i10 ]
   %index.0.i.i22 = phi i32 [ %11, %if.then5.i.i13 ], [ %10, %if.end.i.i10 ]
-  %buf.i.i23 = getelementptr inbounds i8, ptr %f, i64 20
+  %buf.i.i23 = getelementptr inbounds nuw i8, ptr %f, i64 20
   %idxprom.i.i24 = sext i32 %index.0.i.i22 to i64
   %arrayidx.i.i25 = getelementptr [32768 x i8], ptr %buf.i.i23, i64 0, i64 %idxprom.i.i24
   %14 = load i8, ptr %arrayidx.i.i25, align 1
@@ -1829,7 +1829,7 @@ if.then5.i.i35:                                   ; preds = %if.end.i.i32
 if.end13.i.i43:                                   ; preds = %if.then5.i.i35, %if.end.i.i32
   %21 = phi i32 [ %20, %if.then5.i.i35 ], [ %16, %if.end.i.i32 ]
   %index.0.i.i44 = phi i32 [ %19, %if.then5.i.i35 ], [ %18, %if.end.i.i32 ]
-  %buf.i.i45 = getelementptr inbounds i8, ptr %f, i64 20
+  %buf.i.i45 = getelementptr inbounds nuw i8, ptr %f, i64 20
   %idxprom.i.i46 = sext i32 %index.0.i.i44 to i64
   %arrayidx.i.i47 = getelementptr [32768 x i8], ptr %buf.i.i45, i64 0, i64 %idxprom.i.i46
   %22 = load i8, ptr %arrayidx.i.i47, align 1
@@ -1873,7 +1873,7 @@ if.then5.i.i57:                                   ; preds = %if.end.i.i54
 if.end13.i.i65:                                   ; preds = %if.then5.i.i57, %if.end.i.i54
   %29 = phi i32 [ %28, %if.then5.i.i57 ], [ %24, %if.end.i.i54 ]
   %index.0.i.i66 = phi i32 [ %27, %if.then5.i.i57 ], [ %26, %if.end.i.i54 ]
-  %buf.i.i67 = getelementptr inbounds i8, ptr %f, i64 20
+  %buf.i.i67 = getelementptr inbounds nuw i8, ptr %f, i64 20
   %idxprom.i.i68 = sext i32 %index.0.i.i66 to i64
   %arrayidx.i.i69 = getelementptr [32768 x i8], ptr %buf.i.i67, i64 0, i64 %idxprom.i.i68
   %30 = load i8, ptr %arrayidx.i.i69, align 1
@@ -1914,7 +1914,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local range(i64 -1, 2147483652) i64 @qemu_put_compression_data(ptr noundef %f, ptr noundef %stream, ptr noundef %p, i64 noundef %size) local_unnamed_addr #0 {
 entry:
-  %buf_index = getelementptr inbounds i8, ptr %f, i64 12
+  %buf_index = getelementptr inbounds nuw i8, ptr %f, i64 12
   %0 = load i32, ptr %buf_index, align 4
   %sub = sub i32 32768, %0
   %conv = sext i32 %sub to i64
@@ -1924,7 +1924,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %buf = getelementptr inbounds i8, ptr %f, i64 20
+  %buf = getelementptr inbounds nuw i8, ptr %f, i64 20
   %1 = load i32, ptr %buf_index, align 4
   %idx.ext = sext i32 %1 to i64
   %add.ptr = getelementptr i8, ptr %buf, i64 %idx.ext
@@ -1935,13 +1935,13 @@ if.end:                                           ; preds = %entry
 
 if.end.i:                                         ; preds = %if.end
   %conv.i = trunc i64 %size to i32
-  %avail_in.i = getelementptr inbounds i8, ptr %stream, i64 8
+  %avail_in.i = getelementptr inbounds nuw i8, ptr %stream, i64 8
   store i32 %conv.i, ptr %avail_in.i, align 8
   store ptr %p, ptr %stream, align 8
   %conv1.i = trunc i64 %sub1 to i32
-  %avail_out.i = getelementptr inbounds i8, ptr %stream, i64 32
+  %avail_out.i = getelementptr inbounds nuw i8, ptr %stream, i64 32
   store i32 %conv1.i, ptr %avail_out.i, align 8
-  %next_out.i = getelementptr inbounds i8, ptr %stream, i64 24
+  %next_out.i = getelementptr inbounds nuw i8, ptr %stream, i64 24
   store ptr %add.ptr4, ptr %next_out.i, align 8
   %call2.i = tail call i32 @deflate(ptr noundef nonnull %stream, i32 noundef 4) #15
   %cmp3.not.i = icmp eq i32 %call2.i, 1
@@ -1958,7 +1958,7 @@ qemu_compress_data.exit:                          ; preds = %if.end.i
 
 if.end10:                                         ; preds = %qemu_compress_data.exit
   %conv6 = and i64 %sub.ptr.sub.i, 2147483647
-  %last_error.i.i = getelementptr inbounds i8, ptr %f, i64 33828
+  %last_error.i.i = getelementptr inbounds nuw i8, ptr %f, i64 33828
   %4 = load i32, ptr %last_error.i.i, align 4
   %tobool.not.i.i = icmp eq i32 %4, 0
   br i1 %tobool.not.i.i, label %qemu_put_byte.exit.i, label %qemu_put_be32.exit
@@ -2023,22 +2023,22 @@ declare i64 @compressBound(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local range(i32 0, -2147483648) i32 @qemu_put_qemu_file(ptr noundef %f_des, ptr nocapture noundef %f_src) local_unnamed_addr #0 {
 entry:
-  %buf_index = getelementptr inbounds i8, ptr %f_src, i64 12
+  %buf_index = getelementptr inbounds nuw i8, ptr %f_src, i64 12
   %0 = load i32, ptr %buf_index, align 4
   %cmp = icmp sgt i32 %0, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %last_error.i = getelementptr inbounds i8, ptr %f_des, i64 33828
+  %last_error.i = getelementptr inbounds nuw i8, ptr %f_des, i64 33828
   %1 = load i32, ptr %last_error.i, align 4
   %tobool.i = icmp eq i32 %1, 0
   br i1 %tobool.i, label %while.body.preheader.i, label %qemu_put_buffer.exit
 
 while.body.preheader.i:                           ; preds = %if.then
   %conv = zext nneg i32 %0 to i64
-  %buf = getelementptr inbounds i8, ptr %f_src, i64 20
-  %buf_index.i = getelementptr inbounds i8, ptr %f_des, i64 12
-  %buf5.i = getelementptr inbounds i8, ptr %f_des, i64 20
+  %buf = getelementptr inbounds nuw i8, ptr %f_src, i64 20
+  %buf_index.i = getelementptr inbounds nuw i8, ptr %f_des, i64 12
+  %buf5.i = getelementptr inbounds nuw i8, ptr %f_des, i64 20
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.preheader.i
@@ -2062,7 +2062,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 qemu_put_buffer.exit:                             ; preds = %while.body.i, %if.then
   store i32 0, ptr %buf_index, align 4
-  %iovcnt = getelementptr inbounds i8, ptr %f_src, i64 33824
+  %iovcnt = getelementptr inbounds nuw i8, ptr %f_src, i64 33824
   store i32 0, ptr %iovcnt, align 8
   br label %if.end
 
@@ -2084,7 +2084,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %iovcnt = getelementptr inbounds i8, ptr %file, i64 33824
+  %iovcnt = getelementptr inbounds nuw i8, ptr %file, i64 33824
   %1 = load i32, ptr %iovcnt, align 8
   %tobool.not = icmp eq i32 %1, 0
   ret i1 %tobool.not
@@ -2093,7 +2093,7 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @qemu_get_counted_string(ptr noundef %f, ptr nocapture noundef writeonly %buf) #0 {
 entry:
-  %buf_index.i.i = getelementptr inbounds i8, ptr %f, i64 12
+  %buf_index.i.i = getelementptr inbounds nuw i8, ptr %f, i64 12
   %0 = getelementptr i8, ptr %f, i64 8
   %f.val.i.i = load i8, ptr %0, align 8
   %tobool.i.i.i = trunc i8 %f.val.i.i to i1
@@ -2105,7 +2105,7 @@ if.else.i.i:                                      ; preds = %entry
 
 if.end.i.i:                                       ; preds = %entry
   %1 = load i32, ptr %buf_index.i.i, align 4
-  %buf_size.i.i = getelementptr inbounds i8, ptr %f, i64 16
+  %buf_size.i.i = getelementptr inbounds nuw i8, ptr %f, i64 16
   %2 = load i32, ptr %buf_size.i.i, align 8
   %cmp4.not.i.i = icmp slt i32 %1, %2
   br i1 %cmp4.not.i.i, label %if.end13.i.i, label %if.then5.i.i
@@ -2120,7 +2120,7 @@ if.then5.i.i:                                     ; preds = %if.end.i.i
 if.end13.i.i:                                     ; preds = %if.then5.i.i, %if.end.i.i
   %5 = phi i32 [ %4, %if.then5.i.i ], [ %2, %if.end.i.i ]
   %index.0.i.i = phi i32 [ %3, %if.then5.i.i ], [ %1, %if.end.i.i ]
-  %buf.i.i = getelementptr inbounds i8, ptr %f, i64 20
+  %buf.i.i = getelementptr inbounds nuw i8, ptr %f, i64 20
   %idxprom.i.i = sext i32 %index.0.i.i to i64
   %arrayidx.i.i = getelementptr [32768 x i8], ptr %buf.i.i, i64 0, i64 %idxprom.i.i
   %6 = load i8, ptr %arrayidx.i.i, align 1
@@ -2145,7 +2145,7 @@ qemu_get_byte.exit:                               ; preds = %qemu_peek_byte.exit
   br i1 %cmp.not26.i, label %qemu_get_buffer.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %qemu_get_byte.exit
-  %buf32.i.i = getelementptr inbounds i8, ptr %f, i64 20
+  %buf32.i.i = getelementptr inbounds nuw i8, ptr %f, i64 20
   br label %while.body.i
 
 while.body.i:                                     ; preds = %qemu_file_skip.exit.i, %while.body.lr.ph.i
@@ -2239,15 +2239,15 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %last_error.i = getelementptr inbounds i8, ptr %f, i64 33828
+  %last_error.i = getelementptr inbounds nuw i8, ptr %f, i64 33828
   %0 = load i32, ptr %last_error.i, align 4
   %tobool.not.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i, label %qemu_put_byte.exit, label %qemu_put_buffer.exit
 
 qemu_put_byte.exit:                               ; preds = %if.end
   %conv.i = trunc nuw i64 %call to i8
-  %buf.i = getelementptr inbounds i8, ptr %f, i64 20
-  %buf_index.i = getelementptr inbounds i8, ptr %f, i64 12
+  %buf.i = getelementptr inbounds nuw i8, ptr %f, i64 20
+  %buf_index.i = getelementptr inbounds nuw i8, ptr %f, i64 12
   %1 = load i32, ptr %buf_index.i, align 4
   %idxprom.i = sext i32 %1 to i64
   %arrayidx.i = getelementptr [32768 x i8], ptr %buf.i, i64 0, i64 %idxprom.i
@@ -2260,8 +2260,8 @@ qemu_put_byte.exit:                               ; preds = %if.end
   br i1 %or.cond.i, label %while.body.preheader.i, label %qemu_put_buffer.exit
 
 while.body.preheader.i:                           ; preds = %qemu_put_byte.exit
-  %buf_index.i6 = getelementptr inbounds i8, ptr %f, i64 12
-  %buf5.i = getelementptr inbounds i8, ptr %f, i64 20
+  %buf_index.i6 = getelementptr inbounds nuw i8, ptr %f, i64 12
+  %buf5.i = getelementptr inbounds nuw i8, ptr %f, i64 20
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.preheader.i
@@ -2310,9 +2310,9 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @qemu_file_get_to_fd(ptr noundef %f, i32 noundef %fd, i64 noundef %size) local_unnamed_addr #0 {
 entry:
-  %buf_size = getelementptr inbounds i8, ptr %f, i64 16
-  %buf_index = getelementptr inbounds i8, ptr %f, i64 12
-  %buf = getelementptr inbounds i8, ptr %f, i64 20
+  %buf_size = getelementptr inbounds nuw i8, ptr %f, i64 16
+  %buf_index = getelementptr inbounds nuw i8, ptr %f, i64 12
+  %buf = getelementptr inbounds nuw i8, ptr %f, i64 20
   %tobool.not43 = icmp eq i64 %size, 0
   br i1 %tobool.not43, label %return, label %while.cond.preheader
 

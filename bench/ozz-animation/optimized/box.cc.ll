@@ -12,15 +12,15 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN3ozz4math3BoxC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #0 align 2 {
   store float 0x47EFFFFFE0000000, ptr %0, align 4
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store float 0x47EFFFFFE0000000, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store float 0x47EFFFFFE0000000, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store float 0xC7EFFFFFE0000000, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store float 0xC7EFFFFFE0000000, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store float 0xC7EFFFFFE0000000, ptr %6, align 4
   ret void
 }
@@ -45,11 +45,11 @@ define dso_local void @_ZN3ozz4math3BoxC2EPKNS0_6Float3Emm(ptr nocapture noundef
   %11 = fcmp olt float %.sroa.075.0.vec.extract77, %10
   %.sroa.075.0.vec.extract77. = select i1 %11, float %.sroa.075.0.vec.extract77, float %10
   %.sroa.075.4.vec.extract80 = extractelement <2 x float> %.sroa.075.092, i64 1
-  %12 = getelementptr inbounds i8, ptr %.094, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.094, i64 4
   %13 = load float, ptr %12, align 4
   %14 = fcmp olt float %.sroa.075.4.vec.extract80, %13
   %15 = select i1 %14, float %.sroa.075.4.vec.extract80, float %13
-  %16 = getelementptr inbounds i8, ptr %.094, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.094, i64 8
   %17 = load float, ptr %16, align 4
   %18 = fcmp olt float %.sroa.882.093, %17
   %19 = select i1 %18, float %.sroa.882.093, float %17
@@ -77,11 +77,11 @@ define dso_local void @_ZN3ozz4math3BoxC2EPKNS0_6Float3Emm(ptr nocapture noundef
   %.sroa.075.0.lcssa = phi <2 x float> [ splat (float 0x47EFFFFFE0000000), %4 ], [ %.sroa.0.4.vec.insert, %.lr.ph ]
   %.sroa.882.0.lcssa = phi float [ 0x47EFFFFFE0000000, %4 ], [ %19, %.lr.ph ]
   store <2 x float> %.sroa.075.0.lcssa, ptr %0, align 4
-  %.sroa.882.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.882.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store float %.sroa.882.0.lcssa, ptr %.sroa.882.0..sroa_idx, align 4
-  %30 = getelementptr inbounds i8, ptr %0, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store <2 x float> %.sroa.067.0.lcssa, ptr %30, align 4
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   store float %.sroa.8.0.lcssa, ptr %.sroa.8.0..sroa_idx, align 4
   ret void
 }
@@ -89,22 +89,22 @@ define dso_local void @_ZN3ozz4math3BoxC2EPKNS0_6Float3Emm(ptr nocapture noundef
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN3ozz4math12TransformBoxERKNS0_8Float4x4ERKNS0_3BoxE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.ozz::math::Box") align 4 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 16 dereferenceable(64) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %2) local_unnamed_addr #2 {
   %4 = load <4 x float>, ptr %2, align 4
-  %5 = getelementptr inbounds i8, ptr %2, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %6 = load <4 x float>, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load <4 x float>, ptr %7, align 4
   %9 = shufflevector <4 x float> %4, <4 x float> poison, <4 x i32> zeroinitializer
   %10 = load <4 x float>, ptr %1, align 16
   %11 = fmul <4 x float> %9, %10
   %12 = shufflevector <4 x float> %8, <4 x float> poison, <4 x i32> zeroinitializer
-  %13 = getelementptr inbounds i8, ptr %1, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %14 = load <4 x float>, ptr %13, align 16
   %15 = fmul <4 x float> %12, %14
-  %16 = getelementptr inbounds i8, ptr %1, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %17 = load <4 x float>, ptr %16, align 16
   %18 = fadd <4 x float> %15, %17
   %19 = shufflevector <4 x float> %6, <4 x float> poison, <4 x i32> zeroinitializer
-  %20 = getelementptr inbounds i8, ptr %1, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %21 = load <4 x float>, ptr %20, align 16
   %22 = fmul <4 x float> %19, %21
   %23 = fadd <4 x float> %11, %22
@@ -118,11 +118,11 @@ define dso_local void @_ZN3ozz4math12TransformBoxERKNS0_8Float4x4ERKNS0_3BoxE(pt
   %31 = fmul <4 x float> %30, %21
   %32 = fadd <4 x float> %26, %31
   %33 = fadd <4 x float> %29, %32
-  %34 = getelementptr inbounds i8, ptr %0, i64 4
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 12
-  %37 = getelementptr inbounds i8, ptr %0, i64 16
-  %38 = getelementptr inbounds i8, ptr %0, i64 20
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %39 = tail call noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %24, <4 x float> %33)
   %40 = extractelement <4 x float> %39, i64 0
   store float %40, ptr %0, align 4

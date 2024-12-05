@@ -18,9 +18,9 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden void @mbedtls_chacha20_init(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @mbedtls_platform_zeroize(ptr noundef %0, i64 noundef 64) #10
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %2, i64 noundef 64) #10
-  %3 = getelementptr inbounds i8, ptr %0, i64 128
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i64 64, ptr %3, align 8
   ret void
 }
@@ -43,76 +43,76 @@ define hidden void @mbedtls_chacha20_free(ptr noundef %0) local_unnamed_addr #0 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden noundef i32 @mbedtls_chacha20_setkey(ptr nocapture noundef writeonly initializes((0, 48)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
   store i32 1634760805, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 857760878, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 2036477234, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 1797285236, ptr %5, align 4
   %6 = load i32, ptr %1, align 1
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = load i32, ptr %8, align 1
-  %10 = getelementptr inbounds i8, ptr %0, i64 20
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %9, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i32, ptr %11, align 1
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %15 = load i32, ptr %14, align 1
-  %16 = getelementptr inbounds i8, ptr %0, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %15, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %1, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = load i32, ptr %17, align 1
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 20
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %21 = load i32, ptr %20, align 1
-  %22 = getelementptr inbounds i8, ptr %0, i64 36
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %21, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %1, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load i32, ptr %23, align 1
-  %25 = getelementptr inbounds i8, ptr %0, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %24, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 28
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %27 = load i32, ptr %26, align 1
-  %28 = getelementptr inbounds i8, ptr %0, i64 44
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %27, ptr %28, align 4
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @mbedtls_chacha20_starts(ptr noundef initializes((48, 64)) %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %2, ptr %4, align 8
   %5 = load i32, ptr %1, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 52
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 %5, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 1
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i32, ptr %10, align 1
-  %12 = getelementptr inbounds i8, ptr %0, i64 60
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 %11, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %13, i64 noundef 64) #10
-  %14 = getelementptr inbounds i8, ptr %0, i64 128
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i64 64, ptr %14, align 8
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @mbedtls_chacha20_update(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 128
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %.not105 = icmp eq i64 %1, 0
   br i1 %.not105, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.pre = load i64, ptr %5, align 8
   br label %7
 
@@ -126,7 +126,7 @@ define hidden noundef i32 @mbedtls_chacha20_update(ptr nocapture noundef %0, i64
 10:                                               ; preds = %7
   %11 = getelementptr inbounds i8, ptr %2, i64 %.099107
   %12 = load i8, ptr %11, align 1
-  %13 = getelementptr inbounds [64 x i8], ptr %6, i64 0, i64 %8
+  %13 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 0, i64 %8
   %14 = load i8, ptr %13, align 1
   %15 = xor i8 %14, %12
   %16 = getelementptr inbounds i8, ptr %3, i64 %.099107
@@ -144,8 +144,8 @@ define hidden noundef i32 @mbedtls_chacha20_update(ptr nocapture noundef %0, i64
   br i1 %21, label %.lr.ph115, label %._crit_edge.thread125
 
 .lr.ph115:                                        ; preds = %.critedge
-  %22 = getelementptr inbounds i8, ptr %0, i64 64
-  %23 = getelementptr inbounds i8, ptr %0, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %24
 
 24:                                               ; preds = %.lr.ph115, %93
@@ -162,7 +162,7 @@ define hidden noundef i32 @mbedtls_chacha20_update(ptr nocapture noundef %0, i64
   %28 = add i64 %.0112, %.1100114
   %29 = getelementptr inbounds i8, ptr %2, i64 %28
   %30 = load i8, ptr %29, align 1
-  %31 = getelementptr inbounds [64 x i8], ptr %22, i64 0, i64 %.0112
+  %31 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 0, i64 %.0112
   %32 = load i8, ptr %31, align 1
   %33 = xor i8 %32, %30
   %34 = getelementptr inbounds i8, ptr %3, i64 %28
@@ -171,7 +171,7 @@ define hidden noundef i32 @mbedtls_chacha20_update(ptr nocapture noundef %0, i64
   %36 = getelementptr inbounds i8, ptr %2, i64 %35
   %37 = load i8, ptr %36, align 1
   %38 = or disjoint i64 %.0112, 1
-  %39 = getelementptr inbounds [64 x i8], ptr %22, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 0, i64 %38
   %40 = load i8, ptr %39, align 1
   %41 = xor i8 %40, %37
   %42 = getelementptr inbounds i8, ptr %3, i64 %35
@@ -180,7 +180,7 @@ define hidden noundef i32 @mbedtls_chacha20_update(ptr nocapture noundef %0, i64
   %44 = getelementptr inbounds i8, ptr %2, i64 %43
   %45 = load i8, ptr %44, align 1
   %46 = or disjoint i64 %.0112, 2
-  %47 = getelementptr inbounds [64 x i8], ptr %22, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 0, i64 %46
   %48 = load i8, ptr %47, align 1
   %49 = xor i8 %48, %45
   %50 = getelementptr inbounds i8, ptr %3, i64 %43
@@ -189,7 +189,7 @@ define hidden noundef i32 @mbedtls_chacha20_update(ptr nocapture noundef %0, i64
   %52 = getelementptr inbounds i8, ptr %2, i64 %51
   %53 = load i8, ptr %52, align 1
   %54 = or disjoint i64 %.0112, 3
-  %55 = getelementptr inbounds [64 x i8], ptr %22, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 0, i64 %54
   %56 = load i8, ptr %55, align 1
   %57 = xor i8 %56, %53
   %58 = getelementptr inbounds i8, ptr %3, i64 %51
@@ -198,7 +198,7 @@ define hidden noundef i32 @mbedtls_chacha20_update(ptr nocapture noundef %0, i64
   %60 = getelementptr inbounds i8, ptr %2, i64 %59
   %61 = load i8, ptr %60, align 1
   %62 = or disjoint i64 %.0112, 4
-  %63 = getelementptr inbounds [64 x i8], ptr %22, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 0, i64 %62
   %64 = load i8, ptr %63, align 1
   %65 = xor i8 %64, %61
   %66 = getelementptr inbounds i8, ptr %3, i64 %59
@@ -207,7 +207,7 @@ define hidden noundef i32 @mbedtls_chacha20_update(ptr nocapture noundef %0, i64
   %68 = getelementptr inbounds i8, ptr %2, i64 %67
   %69 = load i8, ptr %68, align 1
   %70 = or disjoint i64 %.0112, 5
-  %71 = getelementptr inbounds [64 x i8], ptr %22, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 0, i64 %70
   %72 = load i8, ptr %71, align 1
   %73 = xor i8 %72, %69
   %74 = getelementptr inbounds i8, ptr %3, i64 %67
@@ -216,7 +216,7 @@ define hidden noundef i32 @mbedtls_chacha20_update(ptr nocapture noundef %0, i64
   %76 = getelementptr inbounds i8, ptr %2, i64 %75
   %77 = load i8, ptr %76, align 1
   %78 = or disjoint i64 %.0112, 6
-  %79 = getelementptr inbounds [64 x i8], ptr %22, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 0, i64 %78
   %80 = load i8, ptr %79, align 1
   %81 = xor i8 %80, %77
   %82 = getelementptr inbounds i8, ptr %3, i64 %75
@@ -225,7 +225,7 @@ define hidden noundef i32 @mbedtls_chacha20_update(ptr nocapture noundef %0, i64
   %84 = getelementptr inbounds i8, ptr %2, i64 %83
   %85 = load i8, ptr %84, align 1
   %86 = or disjoint i64 %.0112, 7
-  %87 = getelementptr inbounds [64 x i8], ptr %22, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 0, i64 %86
   %88 = load i8, ptr %87, align 1
   %89 = xor i8 %88, %85
   %90 = getelementptr inbounds i8, ptr %3, i64 %83
@@ -247,9 +247,9 @@ define hidden noundef i32 @mbedtls_chacha20_update(ptr nocapture noundef %0, i64
 ._crit_edge.thread125:                            ; preds = %.critedge, %._crit_edge
   %.1100.lcssa130 = phi i64 [ %94, %._crit_edge ], [ %.099107, %.critedge ]
   %.1102.lcssa129 = phi i64 [ %95, %._crit_edge ], [ %.0101106, %.critedge ]
-  %97 = getelementptr inbounds i8, ptr %0, i64 64
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call fastcc void @chacha20_block(ptr noundef nonnull %0, ptr noundef nonnull %97)
-  %98 = getelementptr inbounds i8, ptr %0, i64 48
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %99 = load i32, ptr %98, align 8
   %100 = add i32 %99, 1
   store i32 %100, ptr %98, align 8
@@ -260,7 +260,7 @@ define hidden noundef i32 @mbedtls_chacha20_update(ptr nocapture noundef %0, i64
   %102 = add i64 %.1118, %.1100.lcssa130
   %103 = getelementptr inbounds i8, ptr %2, i64 %102
   %104 = load i8, ptr %103, align 1
-  %105 = getelementptr inbounds [64 x i8], ptr %97, i64 0, i64 %.1118
+  %105 = getelementptr inbounds nuw [64 x i8], ptr %97, i64 0, i64 %.1118
   %106 = load i8, ptr %105, align 1
   %107 = xor i8 %106, %104
   %108 = getelementptr inbounds i8, ptr %3, i64 %102
@@ -281,21 +281,21 @@ define hidden noundef i32 @mbedtls_chacha20_update(ptr nocapture noundef %0, i64
 define internal fastcc void @chacha20_block(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
   %3 = alloca [16 x i32], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %3, ptr noundef nonnull align 4 dereferenceable(64) %0, i64 64, i1 false)
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  %5 = getelementptr inbounds i8, ptr %3, i64 48
-  %6 = getelementptr inbounds i8, ptr %3, i64 32
-  %7 = getelementptr inbounds i8, ptr %3, i64 20
-  %8 = getelementptr inbounds i8, ptr %3, i64 4
-  %9 = getelementptr inbounds i8, ptr %3, i64 52
-  %10 = getelementptr inbounds i8, ptr %3, i64 36
-  %11 = getelementptr inbounds i8, ptr %3, i64 24
-  %12 = getelementptr inbounds i8, ptr %3, i64 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 56
-  %14 = getelementptr inbounds i8, ptr %3, i64 40
-  %15 = getelementptr inbounds i8, ptr %3, i64 28
-  %16 = getelementptr inbounds i8, ptr %3, i64 12
-  %17 = getelementptr inbounds i8, ptr %3, i64 60
-  %18 = getelementptr inbounds i8, ptr %3, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 52
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 36
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 60
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 44
   %.promoted = load i32, ptr %4, align 16
   %.promoted33 = load i32, ptr %3, align 16
   %.promoted35 = load i32, ptr %5, align 16
@@ -436,63 +436,63 @@ define internal fastcc void @chacha20_block(ptr nocapture noundef readonly %0, p
   %134 = load i32, ptr %0, align 4
   %135 = add i32 %90, %134
   store i32 %135, ptr %3, align 16
-  %136 = getelementptr inbounds i8, ptr %0, i64 4
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %137 = load i32, ptr %136, align 4
   %138 = add i32 %102, %137
   store i32 %138, ptr %8, align 4
-  %139 = getelementptr inbounds i8, ptr %0, i64 8
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %140 = load i32, ptr %139, align 4
   %141 = add i32 %114, %140
   store i32 %141, ptr %12, align 8
-  %142 = getelementptr inbounds i8, ptr %0, i64 12
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %143 = load i32, ptr %142, align 4
   %144 = add i32 %126, %143
   store i32 %144, ptr %16, align 4
-  %145 = getelementptr inbounds i8, ptr %0, i64 16
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %146 = load i32, ptr %145, align 4
   %147 = add i32 %131, %146
   store i32 %147, ptr %4, align 16
-  %148 = getelementptr inbounds i8, ptr %0, i64 20
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %149 = load i32, ptr %148, align 4
   %150 = add i32 %95, %149
   store i32 %150, ptr %7, align 4
-  %151 = getelementptr inbounds i8, ptr %0, i64 24
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %152 = load i32, ptr %151, align 4
   %153 = add i32 %107, %152
   store i32 %153, ptr %11, align 8
-  %154 = getelementptr inbounds i8, ptr %0, i64 28
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %155 = load i32, ptr %154, align 4
   %156 = add i32 %119, %155
   store i32 %156, ptr %15, align 4
-  %157 = getelementptr inbounds i8, ptr %0, i64 32
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %158 = load i32, ptr %157, align 4
   %159 = add i32 %117, %158
   store i32 %159, ptr %6, align 16
-  %160 = getelementptr inbounds i8, ptr %0, i64 36
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %161 = load i32, ptr %160, align 4
   %162 = add i32 %129, %161
   store i32 %162, ptr %10, align 4
-  %163 = getelementptr inbounds i8, ptr %0, i64 40
+  %163 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %164 = load i32, ptr %163, align 4
   %165 = add i32 %93, %164
   store i32 %165, ptr %14, align 8
-  %166 = getelementptr inbounds i8, ptr %0, i64 44
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %167 = load i32, ptr %166, align 4
   %168 = add i32 %105, %167
   store i32 %168, ptr %18, align 4
-  %169 = getelementptr inbounds i8, ptr %0, i64 48
+  %169 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %170 = load i32, ptr %169, align 4
   %171 = add i32 %104, %170
   store i32 %171, ptr %5, align 16
-  %172 = getelementptr inbounds i8, ptr %0, i64 52
+  %172 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %173 = load i32, ptr %172, align 4
   %174 = add i32 %116, %173
   store i32 %174, ptr %9, align 4
-  %175 = getelementptr inbounds i8, ptr %0, i64 56
+  %175 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %176 = load i32, ptr %175, align 4
   %177 = add i32 %128, %176
   store i32 %177, ptr %13, align 8
-  %178 = getelementptr inbounds i8, ptr %0, i64 60
+  %178 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %179 = load i32, ptr %178, align 4
   %180 = add i32 %92, %179
   store i32 %180, ptr %17, align 4
@@ -501,25 +501,25 @@ define internal fastcc void @chacha20_block(ptr nocapture noundef readonly %0, p
 181:                                              ; preds = %133, %181
   %.164 = phi i64 [ 0, %133 ], [ %199, %181 ]
   %182 = shl nuw nsw i64 %.164, 2
-  %183 = getelementptr inbounds [16 x i32], ptr %3, i64 0, i64 %.164
+  %183 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %.164
   %184 = load i32, ptr %183, align 4
   %185 = trunc i32 %184 to i8
-  %186 = getelementptr inbounds i8, ptr %1, i64 %182
+  %186 = getelementptr inbounds nuw i8, ptr %1, i64 %182
   store i8 %185, ptr %186, align 1
   %187 = lshr i32 %184, 8
   %188 = trunc i32 %187 to i8
   %189 = or disjoint i64 %182, 1
-  %190 = getelementptr inbounds i8, ptr %1, i64 %189
+  %190 = getelementptr inbounds nuw i8, ptr %1, i64 %189
   store i8 %188, ptr %190, align 1
   %191 = lshr i32 %184, 16
   %192 = trunc i32 %191 to i8
   %193 = or disjoint i64 %182, 2
-  %194 = getelementptr inbounds i8, ptr %1, i64 %193
+  %194 = getelementptr inbounds nuw i8, ptr %1, i64 %193
   store i8 %192, ptr %194, align 1
   %195 = lshr i32 %184, 24
   %196 = trunc nuw i32 %195 to i8
   %197 = or disjoint i64 %182, 3
-  %198 = getelementptr inbounds i8, ptr %1, i64 %197
+  %198 = getelementptr inbounds nuw i8, ptr %1, i64 %197
   store i8 %196, ptr %198, align 1
   %199 = add nuw nsw i64 %.164, 1
   %exitcond80.not = icmp eq i64 %199, 16
@@ -534,60 +534,60 @@ define internal fastcc void @chacha20_block(ptr nocapture noundef readonly %0, p
 define hidden noundef i32 @mbedtls_chacha20_crypt(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i64 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
   %7 = alloca %struct.mbedtls_chacha20_context, align 8
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %7, i64 noundef 64) #10
-  %8 = getelementptr inbounds i8, ptr %7, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %8, i64 noundef 64) #10
-  %9 = getelementptr inbounds i8, ptr %7, i64 128
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 128
   store i64 64, ptr %9, align 8
   store i32 1634760805, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 857760878, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 2036477234, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 1797285236, ptr %12, align 4
   %13 = load i32, ptr %0, align 1
-  %14 = getelementptr inbounds i8, ptr %7, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 %13, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %16 = load i32, ptr %15, align 1
-  %17 = getelementptr inbounds i8, ptr %7, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i32 %16, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load i32, ptr %18, align 1
-  %20 = getelementptr inbounds i8, ptr %7, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %22 = load i32, ptr %21, align 1
-  %23 = getelementptr inbounds i8, ptr %7, i64 28
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 28
   store i32 %22, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load i32, ptr %24, align 1
-  %26 = getelementptr inbounds i8, ptr %7, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i32 %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 20
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %28 = load i32, ptr %27, align 1
-  %29 = getelementptr inbounds i8, ptr %7, i64 36
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 36
   store i32 %28, ptr %29, align 4
-  %30 = getelementptr inbounds i8, ptr %0, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %31 = load i32, ptr %30, align 1
-  %32 = getelementptr inbounds i8, ptr %7, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i32 %31, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 28
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %34 = load i32, ptr %33, align 1
-  %35 = getelementptr inbounds i8, ptr %7, i64 44
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 44
   store i32 %34, ptr %35, align 4
-  %36 = getelementptr inbounds i8, ptr %7, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store i32 %2, ptr %36, align 8
   %37 = load i32, ptr %1, align 1
-  %38 = getelementptr inbounds i8, ptr %7, i64 52
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 52
   store i32 %37, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %1, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %40 = load i32, ptr %39, align 1
-  %41 = getelementptr inbounds i8, ptr %7, i64 56
+  %41 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store i32 %40, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %1, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %43 = load i32, ptr %42, align 1
-  %44 = getelementptr inbounds i8, ptr %7, i64 60
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 60
   store i32 %43, ptr %44, align 4
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %8, i64 noundef 64) #10
   store i64 64, ptr %9, align 8
@@ -601,17 +601,17 @@ define hidden range(i32 -1, 1) i32 @mbedtls_chacha20_self_test(i32 noundef %0) l
   %2 = alloca %struct.mbedtls_chacha20_context, align 8
   %3 = alloca [381 x i8], align 16
   %.not20 = icmp eq i32 %0, 0
-  %4 = getelementptr inbounds i8, ptr %2, i64 64
-  %5 = getelementptr inbounds i8, ptr %2, i64 128
-  %6 = getelementptr inbounds i8, ptr %2, i64 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 12
-  %9 = getelementptr inbounds i8, ptr %2, i64 16
-  %10 = getelementptr inbounds i8, ptr %2, i64 44
-  %11 = getelementptr inbounds i8, ptr %2, i64 48
-  %12 = getelementptr inbounds i8, ptr %2, i64 52
-  %13 = getelementptr inbounds i8, ptr %2, i64 56
-  %14 = getelementptr inbounds i8, ptr %2, i64 60
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 44
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 52
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 60
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %1
@@ -625,11 +625,11 @@ define hidden range(i32 -1, 1) i32 @mbedtls_chacha20_self_test(i32 noundef %0) l
   br label %19
 
 19:                                               ; preds = %16, %.backedge
-  %20 = getelementptr inbounds [2 x i32], ptr @test_counters, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [2 x i32], ptr @test_counters, i64 0, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds [2 x i64], ptr @test_lengths, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [2 x i64], ptr @test_lengths, i64 0, i64 %indvars.iv
   %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds [2 x [375 x i8]], ptr @test_input, i64 0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [2 x [375 x i8]], ptr @test_input, i64 0, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2)
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %2, i64 noundef 64) #10
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 64) #10
@@ -638,14 +638,14 @@ define hidden range(i32 -1, 1) i32 @mbedtls_chacha20_self_test(i32 noundef %0) l
   store i32 857760878, ptr %6, align 4
   store i32 2036477234, ptr %7, align 8
   store i32 1797285236, ptr %8, align 4
-  %gep = getelementptr inbounds [2 x [32 x i8]], ptr getelementptr inbounds (i8, ptr @test_keys, i64 28), i64 0, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [2 x [32 x i8]], ptr getelementptr inbounds (i8, ptr @test_keys, i64 28), i64 0, i64 %indvars.iv
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %9, i8 0, i64 28, i1 false)
   %25 = load i32, ptr %gep, align 4
   store i32 %25, ptr %10, align 4
   store i32 %21, ptr %11, align 8
   store i32 0, ptr %12, align 4
   store i32 0, ptr %13, align 8
-  %gep22 = getelementptr inbounds [2 x [12 x i8]], ptr getelementptr inbounds (i8, ptr @test_nonces, i64 8), i64 0, i64 %indvars.iv
+  %gep22 = getelementptr inbounds nuw [2 x [12 x i8]], ptr getelementptr inbounds (i8, ptr @test_nonces, i64 8), i64 0, i64 %indvars.iv
   %26 = load i32, ptr %gep22, align 4
   store i32 %26, ptr %14, align 4
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 64) #10
@@ -653,7 +653,7 @@ define hidden range(i32 -1, 1) i32 @mbedtls_chacha20_self_test(i32 noundef %0) l
   %27 = call i32 @mbedtls_chacha20_update(ptr noundef nonnull %2, i64 noundef %23, ptr noundef nonnull readonly %24, ptr noundef nonnull %3)
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %2, i64 noundef 136) #10
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %2)
-  %28 = getelementptr inbounds [2 x [375 x i8]], ptr @test_output, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [2 x [375 x i8]], ptr @test_output, i64 0, i64 %indvars.iv
   %bcmp = call i32 @bcmp(ptr nonnull %3, ptr nonnull %28, i64 %23)
   %29 = icmp eq i32 %bcmp, 0
   br i1 %29, label %32, label %30

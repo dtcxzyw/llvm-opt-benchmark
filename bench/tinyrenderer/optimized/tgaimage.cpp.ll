@@ -56,12 +56,12 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN8TGAImageC2Eiii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 9)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store i32 %1, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %2, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = trunc i32 %3 to i8
   store i8 %7, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = mul nsw i32 %2, %1
   %10 = mul nsw i32 %9, %3
   %11 = sext i32 %10 to i64
@@ -80,15 +80,15 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %4
 .noexc8:                                          ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
   %13 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %11) #15
   store ptr %13, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 %11
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 %11
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %14, ptr %15, align 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %13, i8 0, i64 %11, i1 false)
   br label %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i
 
 _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i, %.noexc8
   %.0.i.i.i.i.i.i.i = phi ptr [ %14, %.noexc8 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.0.i.i.i.i.i.i.i, ptr %16, align 8
   ret void
 }
@@ -152,19 +152,19 @@ define dso_local noundef zeroext i1 @_ZN8TGAImage13read_tga_fileENSt7__cxx1112ba
   br i1 %21, label %23, label %.invoke
 
 23:                                               ; preds = %22
-  %24 = getelementptr inbounds i8, ptr %4, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %25 = load i16, ptr %24, align 1
   %26 = zext i16 %25 to i32
   store i32 %26, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %4, i64 14
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 14
   %28 = load i16, ptr %27, align 1
   %29 = zext i16 %28 to i32
-  %30 = getelementptr inbounds i8, ptr %0, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %29, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %4, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %32 = load i8, ptr %31, align 1
   %33 = lshr i8 %32, 3
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %33, ptr %34, align 8
   %35 = icmp eq i16 %25, 0
   %36 = icmp eq i16 %28, 0
@@ -187,12 +187,12 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %37, %37, %37
           to label %.noexc23 unwind label %62
 
 .noexc23:                                         ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
-  %43 = getelementptr inbounds i8, ptr %42, i64 %41
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 %41
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %42, i8 0, i64 %41, i1 false)
-  %44 = getelementptr inbounds i8, ptr %0, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 24
-  %47 = getelementptr inbounds i8, ptr %0, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %42, ptr %44, align 8
   store ptr %43, ptr %46, align 8
   store ptr %43, ptr %47, align 8
@@ -204,7 +204,7 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %37, %37, %37
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
 _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %48, %.noexc23
-  %49 = getelementptr inbounds i8, ptr %4, i64 2
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %50 = load i8, ptr %49, align 1
   %51 = and i8 %50, -2
   switch i8 %51, label %67 [
@@ -257,7 +257,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %48, %.noexc23
           to label %102 unwind label %12
 
 76:                                               ; preds = %66, %61
-  %77 = getelementptr inbounds i8, ptr %4, i64 17
+  %77 = getelementptr inbounds nuw i8, ptr %4, i64 17
   %78 = load i8, ptr %77, align 1
   %79 = and i8 %78, 32
   %.not18 = icmp eq i8 %79, 0
@@ -336,15 +336,15 @@ declare noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr nou
 define dso_local noundef zeroext i1 @_ZN8TGAImage13load_rle_dataERSt14basic_ifstreamIcSt11char_traitsIcEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(256) %1) local_unnamed_addr #3 align 2 {
   %3 = alloca %struct.TGAColor, align 4
   %4 = load i32, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = mul nsw i32 %6, %4
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds i8, ptr %3, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %3, align 4
   store i8 4, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %12
 
 12:                                               ; preds = %.loopexit, %2
@@ -397,7 +397,7 @@ define dso_local noundef zeroext i1 @_ZN8TGAImage13load_rle_dataERSt14basic_ifst
 .lr.ph63:                                         ; preds = %.preheader, %.lr.ph63
   %indvars.iv85 = phi i64 [ %indvars.iv.next86, %.lr.ph63 ], [ 0, %.preheader ]
   %.261 = phi i64 [ %36, %.lr.ph63 ], [ %.167, %.preheader ]
-  %34 = getelementptr inbounds [4 x i8], ptr %3, i64 0, i64 %indvars.iv85
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %indvars.iv85
   %35 = load i8, ptr %34, align 1
   %36 = add i64 %.261, 1
   %37 = load ptr, ptr %11, align 8
@@ -455,7 +455,7 @@ define dso_local noundef zeroext i1 @_ZN8TGAImage13load_rle_dataERSt14basic_ifst
 .lr.ph:                                           ; preds = %.preheader44, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader44 ]
   %.454 = phi i64 [ %62, %.lr.ph ], [ %.357, %.preheader44 ]
-  %60 = getelementptr inbounds [4 x i8], ptr %3, i64 0, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %indvars.iv
   %61 = load i8, ptr %60, align 1
   %62 = add i64 %.454, 1
   %63 = load ptr, ptr %11, align 8
@@ -494,7 +494,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN8TGAImage15flip_verticallyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = ashr i32 %3, 1
   %5 = load i32, ptr %0, align 8
@@ -503,8 +503,8 @@ define dso_local void @_ZN8TGAImage15flip_verticallyEv(ptr nocapture noundef non
 
 .preheader16.lr.ph:                               ; preds = %1
   %7 = icmp sgt i32 %4, 0
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br i1 %7, label %.preheader16.us.preheader, label %._crit_edge21
 
 .preheader16.us.preheader:                        ; preds = %.preheader16.lr.ph
@@ -582,9 +582,9 @@ define dso_local void @_ZN8TGAImage17flip_horizontallyEv(ptr nocapture noundef n
   br i1 %4, label %.preheader16.lr.ph, label %._crit_edge21
 
 .preheader16.lr.ph:                               ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %5, align 4
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.preheader16, label %._crit_edge21
@@ -702,12 +702,12 @@ define dso_local noundef zeroext i1 @_ZNK8TGAImage14write_tga_fileENSt7__cxx1112
   resume { ptr, i32 } %18
 
 19:                                               ; preds = %12
-  %20 = getelementptr inbounds i8, ptr %9, i64 2
-  %21 = getelementptr inbounds i8, ptr %9, i64 12
-  %22 = getelementptr inbounds i8, ptr %9, i64 14
-  %23 = getelementptr inbounds i8, ptr %9, i64 16
-  %24 = getelementptr inbounds i8, ptr %9, i64 17
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 14
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 17
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %9, i8 0, i64 12, i1 false)
   %26 = load i8, ptr %25, align 8
   %27 = shl i8 %26, 3
@@ -715,7 +715,7 @@ define dso_local noundef zeroext i1 @_ZNK8TGAImage14write_tga_fileENSt7__cxx1112
   %28 = load i32, ptr %0, align 8
   %29 = trunc i32 %28 to i16
   store i16 %29, ptr %21, align 1
-  %30 = getelementptr inbounds i8, ptr %0, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = trunc i32 %31 to i16
   store i16 %32, ptr %22, align 1
@@ -744,7 +744,7 @@ define dso_local noundef zeroext i1 @_ZNK8TGAImage14write_tga_fileENSt7__cxx1112
   br i1 %3, label %65, label %47
 
 47:                                               ; preds = %46
-  %48 = getelementptr inbounds i8, ptr %0, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %49 = load ptr, ptr %48, align 8
   %50 = load i32, ptr %0, align 8
   %51 = load i32, ptr %30, align 4
@@ -845,12 +845,12 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr nou
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZNK8TGAImage15unload_rle_dataERSt14basic_ofstreamIcSt11char_traitsIcEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(248) %1) local_unnamed_addr #3 align 2 {
   %3 = load i32, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = mul nsw i32 %5, %3
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %invariant.op = add nsw i64 %7, -1
   br label %10
 
@@ -993,8 +993,8 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local i40 @_ZNK8TGAImage3getEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #10 align 2 {
   %4 = alloca %struct.TGAColor, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %5, align 8
   %9 = icmp ne ptr %7, %8
@@ -1004,11 +1004,11 @@ define dso_local i40 @_ZNK8TGAImage3getEii(ptr nocapture noundef nonnull readonl
   %12 = load i32, ptr %0, align 8
   %.not = icmp slt i32 %1, %12
   %or.cond = select i1 %or.cond3.not22, i1 %.not, i1 false
-  %13 = getelementptr inbounds i8, ptr %0, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %14 = load i32, ptr %13, align 4
   %.not16 = icmp slt i32 %2, %14
   %or.cond19 = select i1 %or.cond, i1 %.not16, i1 false
-  %15 = getelementptr inbounds i8, ptr %4, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 4
   br i1 %or.cond19, label %17, label %16
 
 16:                                               ; preds = %3
@@ -1017,7 +1017,7 @@ define dso_local i40 @_ZNK8TGAImage3getEii(ptr nocapture noundef nonnull readonl
   br label %.loopexit
 
 17:                                               ; preds = %3
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8
   %19 = load i8, ptr %18, align 8
   store i8 %19, ptr %15, align 4
@@ -1050,8 +1050,8 @@ define dso_local i40 @_ZNK8TGAImage3getEii(ptr nocapture noundef nonnull readonl
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN8TGAImage3setEiiRK8TGAColor(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 1 dereferenceable(5) %3) local_unnamed_addr #10 align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %5, align 8
   %9 = icmp ne ptr %7, %8
@@ -1061,7 +1061,7 @@ define dso_local void @_ZN8TGAImage3setEiiRK8TGAColor(ptr nocapture noundef nonn
   %12 = load i32, ptr %0, align 8
   %.not = icmp slt i32 %1, %12
   %or.cond = select i1 %or.cond3.not16, i1 %.not, i1 false
-  %13 = getelementptr inbounds i8, ptr %0, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %14 = load i32, ptr %13, align 4
   %.not11 = icmp slt i32 %2, %14
   %or.cond13 = select i1 %or.cond, i1 %.not11, i1 false
@@ -1070,7 +1070,7 @@ define dso_local void @_ZN8TGAImage3setEiiRK8TGAColor(ptr nocapture noundef nonn
 15:                                               ; preds = %4
   %16 = mul nsw i32 %12, %2
   %17 = add nsw i32 %16, %1
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load i8, ptr %18, align 8
   %20 = zext i8 %19 to i32
   %21 = mul nsw i32 %17, %20
@@ -1092,7 +1092,7 @@ define dso_local noundef i32 @_ZNK8TGAImage5widthEv(ptr nocapture noundef nonnul
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i32 @_ZNK8TGAImage6heightEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #11 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }

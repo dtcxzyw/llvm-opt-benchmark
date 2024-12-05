@@ -107,7 +107,7 @@ if.end50:                                         ; preds = %if.end45
   %3 = ptrtoint ptr %rotated_mac_buf to i64
   %sub53 = sub i64 0, %3
   %and = and i64 %sub53, 48
-  %add.ptr = getelementptr inbounds i8, ptr %rotated_mac_buf, i64 %and
+  %add.ptr = getelementptr inbounds nuw i8, ptr %rotated_mac_buf, i64 %and
   %add54 = or disjoint i64 %mac_size, 256
   %spec.select = call i64 @llvm.usub.sat.i64(i64 %origreclen, i64 %add54)
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %add.ptr, i8 0, i64 %mac_size, i1 false)
@@ -177,7 +177,7 @@ for.body82:                                       ; preds = %for.cond79.preheade
   %and2.i.i = and i32 %13, %conv2.i
   %or.i.i = or i32 %and2.i.i, %and.i.i
   %inc92 = add i64 %rotate_offset.182, 1
-  %arrayidx95 = getelementptr inbounds [64 x i8], ptr %randmac, i64 0, i64 %j.181
+  %arrayidx95 = getelementptr inbounds nuw [64 x i8], ptr %randmac, i64 0, i64 %j.181
   %14 = load i8, ptr %arrayidx95, align 1
   %conv2.i61 = zext i8 %14 to i32
   %15 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, 256) %conv.i59) #5, !srcloc !6

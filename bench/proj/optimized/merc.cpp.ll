@@ -28,15 +28,15 @@ define hidden noundef ptr @pj_merc(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %6, label %13, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @.str, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr @_ZL8des_merc, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 360
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 360
   store i32 1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 380
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 380
   store i32 4, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %5, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 384
   store i32 1, ptr %12, align 8
   br label %13
 
@@ -48,7 +48,7 @@ define hidden noundef ptr @pj_merc(ptr noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z33pj_projection_specific_setup_mercP8PJconsts(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %2, ptr noundef %4, ptr noundef nonnull @.str.1)
   %6 = and i64 %5, 4294967295
@@ -70,13 +70,13 @@ define hidden noundef ptr @_Z33pj_projection_specific_setup_mercP8PJconsts(ptr n
   br label %38
 
 16:                                               ; preds = %1
-  %17 = getelementptr inbounds i8, ptr %0, i64 216
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %18 = load double, ptr %17, align 8
   %19 = fcmp une double %18, 0.000000e+00
   br i1 %19, label %29, label %35
 
 .thread:                                          ; preds = %7
-  %20 = getelementptr inbounds i8, ptr %0, i64 216
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %21 = load double, ptr %20, align 8
   %22 = fcmp une double %21, 0.000000e+00
   br i1 %22, label %23, label %32
@@ -86,27 +86,27 @@ define hidden noundef ptr @_Z33pj_projection_specific_setup_mercP8PJconsts(ptr n
   %25 = tail call double @cos(double %11)
   %26 = load double, ptr %20, align 8
   %27 = tail call noundef double @_Z7pj_msfnddd(double noundef %24, double noundef %25, double noundef %26)
-  %28 = getelementptr inbounds i8, ptr %0, i64 488
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 488
   store double %27, ptr %28, align 8
   br label %29
 
 29:                                               ; preds = %16, %23
-  %30 = getelementptr inbounds i8, ptr %0, i64 112
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @_ZL14merc_e_inverse5PJ_XYP8PJconsts, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 104
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr @_ZL14merc_e_forward5PJ_LPP8PJconsts, ptr %31, align 8
   br label %38
 
 32:                                               ; preds = %.thread
   %33 = tail call double @cos(double %11)
-  %34 = getelementptr inbounds i8, ptr %0, i64 488
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 488
   store double %33, ptr %34, align 8
   br label %35
 
 35:                                               ; preds = %16, %32
-  %36 = getelementptr inbounds i8, ptr %0, i64 112
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @_ZL14merc_s_inverse5PJ_XYP8PJconsts, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 104
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr @_ZL14merc_s_forward5PJ_LPP8PJconsts, ptr %37, align 8
   br label %38
 
@@ -137,11 +137,11 @@ declare double @cos(double noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress uwtable
 define internal { double, double } @_ZL14merc_e_inverse5PJ_XYP8PJconsts(double %0, double %1, ptr nocapture noundef readonly %2) #0 {
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 488
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 488
   %6 = load double, ptr %5, align 8
   %7 = fdiv double %1, %6
   %8 = tail call double @sinh(double noundef %7) #6
-  %9 = getelementptr inbounds i8, ptr %2, i64 208
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 208
   %10 = load double, ptr %9, align 8
   %11 = tail call noundef double @_Z17pj_sinhpsi2tanphiP6pj_ctxdd(ptr noundef %4, double noundef %8, double noundef %10)
   %12 = tail call double @atan(double noundef %11) #6
@@ -154,7 +154,7 @@ define internal { double, double } @_ZL14merc_e_inverse5PJ_XYP8PJconsts(double %
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
 define internal { double, double } @_ZL14merc_e_forward5PJ_LPP8PJconsts(double %0, double %1, ptr nocapture noundef readonly %2) #4 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 488
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 488
   %5 = load double, ptr %4, align 8
   %6 = fmul double %0, %5
   %7 = tail call double @sin(double noundef %1) #6
@@ -162,7 +162,7 @@ define internal { double, double } @_ZL14merc_e_forward5PJ_LPP8PJconsts(double %
   %9 = load double, ptr %4, align 8
   %10 = fdiv double %7, %8
   %11 = tail call double @asinh(double noundef %10) #6
-  %12 = getelementptr inbounds i8, ptr %2, i64 208
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 208
   %13 = load double, ptr %12, align 8
   %14 = fmul double %7, %13
   %15 = tail call double @atanh(double noundef %14) #6
@@ -176,7 +176,7 @@ define internal { double, double } @_ZL14merc_e_forward5PJ_LPP8PJconsts(double %
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
 define internal { double, double } @_ZL14merc_s_inverse5PJ_XYP8PJconsts(double %0, double %1, ptr nocapture noundef readonly %2) #4 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 488
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 488
   %5 = load double, ptr %4, align 8
   %6 = fdiv double %1, %5
   %7 = tail call double @sinh(double noundef %6) #6
@@ -190,7 +190,7 @@ define internal { double, double } @_ZL14merc_s_inverse5PJ_XYP8PJconsts(double %
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
 define internal { double, double } @_ZL14merc_s_forward5PJ_LPP8PJconsts(double %0, double %1, ptr nocapture noundef readonly %2) #4 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 488
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 488
   %5 = load double, ptr %4, align 8
   %6 = fmul double %0, %5
   %7 = tail call double @tan(double noundef %1) #6
@@ -207,11 +207,11 @@ define hidden noundef ptr @pj_webmerc(ptr noundef writeonly %0) local_unnamed_ad
   br i1 %.not, label %6, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 488
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 488
   store double 1.000000e+00, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @_ZL14merc_s_inverse5PJ_XYP8PJconsts, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr @_ZL14merc_s_forward5PJ_LPP8PJconsts, ptr %5, align 8
   br label %15
 
@@ -221,15 +221,15 @@ define hidden noundef ptr @pj_webmerc(ptr noundef writeonly %0) local_unnamed_ad
   br i1 %8, label %15, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %7, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @.str.4, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr @_ZL11des_webmerc, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 360
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 360
   store i32 1, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 380
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 380
   store i32 4, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %7, i64 384
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 384
   store i32 1, ptr %14, align 8
   br label %15
 
@@ -240,11 +240,11 @@ define hidden noundef ptr @pj_webmerc(ptr noundef writeonly %0) local_unnamed_ad
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden noundef ptr @_Z36pj_projection_specific_setup_webmercP8PJconsts(ptr noundef returned writeonly initializes((104, 120), (488, 496)) %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 488
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 488
   store double 1.000000e+00, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @_ZL14merc_s_inverse5PJ_XYP8PJconsts, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr @_ZL14merc_s_forward5PJ_LPP8PJconsts, ptr %4, align 8
   ret ptr %0
 }

@@ -83,9 +83,9 @@ define noundef i32 @init() local_unnamed_addr #0 {
 
 3:                                                ; preds = %0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 0, i64 32, i1 false)
-  %4 = getelementptr inbounds i8, ptr %1, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store ptr @.str, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr @.str.1, ptr %5, align 8
   %6 = call i32 @assoc_mgr_find_tres_pos(ptr noundef nonnull %1, i1 noundef zeroext false) #11
   store i32 %6, ptr @tres_pos, align 4
@@ -175,7 +175,7 @@ define noundef i32 @acct_gather_filesystem_p_node_update() local_unnamed_addr #0
 
 21:                                               ; preds = %19, %16
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %22 = getelementptr inbounds [3 x ptr], ptr @_llite_path.test_paths, i64 0, i64 %indvars.iv.i.i
+  %22 = getelementptr inbounds nuw [3 x ptr], ptr @_llite_path.test_paths, i64 0, i64 %indvars.iv.i.i
   %23 = load ptr, ptr %22, align 8
   store ptr %23, ptr @_llite_path.llite_path, align 8
   %.not6.i.i = icmp eq i64 %indvars.iv.i.i, 2
@@ -330,19 +330,19 @@ thread-pre-split.i:                               ; preds = %55
   %78 = sub i64 %76, %77
   %79 = uitofp i64 %78 to double
   %80 = fmul double %79, 0x3EB0000000000000
-  %81 = getelementptr inbounds i8, ptr %3, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store double %80, ptr %81, align 8
   %82 = load i64, ptr getelementptr inbounds (i8, ptr @lstats, i64 8), align 8
   %83 = load i64, ptr getelementptr inbounds (i8, ptr @lstats_prev, i64 8), align 8
   %84 = sub i64 %82, %83
-  %85 = getelementptr inbounds i8, ptr %3, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %84, ptr %85, align 16
   %86 = load i64, ptr getelementptr inbounds (i8, ptr @lstats, i64 24), align 8
   %87 = load i64, ptr getelementptr inbounds (i8, ptr @lstats_prev, i64 24), align 8
   %88 = sub i64 %86, %87
   %89 = uitofp i64 %88 to double
   %90 = fmul double %89, 0x3EB0000000000000
-  %91 = getelementptr inbounds i8, ptr %3, i64 24
+  %91 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store double %90, ptr %91, align 8
   %92 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %93 = and i64 %92, 2097152
@@ -577,7 +577,7 @@ define internal fastcc range(i32 -1, 1) i32 @_read_lustre_counters(i1 noundef ze
 
 17:                                               ; preds = %15, %12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %18 = getelementptr inbounds [3 x ptr], ptr @_llite_path.test_paths, i64 0, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [3 x ptr], ptr @_llite_path.test_paths, i64 0, i64 %indvars.iv.i
   %19 = load ptr, ptr %18, align 8
   store ptr %19, ptr @_llite_path.llite_path, align 8
   %.not6.i = icmp eq i64 %indvars.iv.i, 2
@@ -621,7 +621,7 @@ _llite_path.exit.thread33:                        ; preds = %1, %_llite_path.exi
   store i64 0, ptr %5, align 8
   store i64 0, ptr %6, align 8
   store i64 0, ptr %7, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 19
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 19
   %31 = call i32 @slurm_xstrcmp(ptr noundef nonnull %30, ptr noundef nonnull @.str.24) #11
   %.not25 = icmp eq i32 %31, 0
   br i1 %.not25, label %.backedge, label %32

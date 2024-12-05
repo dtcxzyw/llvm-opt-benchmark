@@ -84,9 +84,9 @@ define hidden noundef i32 @_ZNK4ncnn17BatchNorm_x86_avx15forward_inplaceERNS_3Ma
   %30 = fmul fast <8 x float> %29, %27
   %31 = fadd fast <8 x float> %30, %28
   store <8 x float> %31, ptr %.0268352, align 1
-  %32 = getelementptr inbounds i8, ptr %.0268352, i64 32
-  %33 = getelementptr inbounds i8, ptr %.0275351, i64 32
-  %34 = getelementptr inbounds i8, ptr %.0281350, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %.0268352, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %.0275351, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %.0281350, i64 32
   %35 = add nuw nsw i32 %.0284349, 8
   %36 = or disjoint i32 %35, 7
   %37 = icmp slt i32 %36, %22
@@ -111,9 +111,9 @@ define hidden noundef i32 @_ZNK4ncnn17BatchNorm_x86_avx15forward_inplaceERNS_3Ma
   %42 = fmul fast <4 x float> %41, %39
   %43 = fadd fast <4 x float> %42, %40
   store <4 x float> %43, ptr %.1269359, align 1
-  %44 = getelementptr inbounds i8, ptr %.1269359, i64 16
-  %45 = getelementptr inbounds i8, ptr %.1276358, i64 16
-  %46 = getelementptr inbounds i8, ptr %.1282357, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %.1269359, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %.1276358, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %.1282357, i64 16
   %47 = add nuw nsw i32 %.1285356, 4
   %48 = or disjoint i32 %47, 3
   %49 = icmp slt i32 %48, %22
@@ -130,9 +130,9 @@ define hidden noundef i32 @_ZNK4ncnn17BatchNorm_x86_avx15forward_inplaceERNS_3Ma
   %53 = load float, ptr %.2277367, align 4
   %54 = fadd fast float %52, %53
   store float %54, ptr %.2270368, align 4
-  %55 = getelementptr inbounds i8, ptr %.2270368, i64 4
-  %56 = getelementptr inbounds i8, ptr %.2277367, i64 4
-  %57 = getelementptr inbounds i8, ptr %.2283366, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %.2270368, i64 4
+  %56 = getelementptr inbounds nuw i8, ptr %.2277367, i64 4
+  %57 = getelementptr inbounds nuw i8, ptr %.2283366, i64 4
   %58 = add nuw nsw i32 %.2286365, 1
   %exitcond426.not = icmp eq i32 %58, %22
   br i1 %exitcond426.not, label %._crit_edge, label %.lr.ph369, !llvm.loop !7
@@ -163,10 +163,10 @@ define hidden noundef i32 @_ZNK4ncnn17BatchNorm_x86_avx15forward_inplaceERNS_3Ma
   %75 = mul i64 %73, %74
   %76 = getelementptr inbounds i8, ptr %70, i64 %75
   %77 = load ptr, ptr %63, align 8
-  %78 = getelementptr inbounds float, ptr %77, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw float, ptr %77, i64 %indvars.iv
   %79 = load float, ptr %78, align 4
   %80 = load ptr, ptr %64, align 8
-  %81 = getelementptr inbounds float, ptr %80, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw float, ptr %80, i64 %indvars.iv
   %82 = load float, ptr %81, align 4
   br i1 %65, label %89, label %83
 
@@ -183,18 +183,18 @@ define hidden noundef i32 @_ZNK4ncnn17BatchNorm_x86_avx15forward_inplaceERNS_3Ma
 
 89:                                               ; preds = %69
   %90 = shl nsw i64 %indvars.iv, 2
-  %91 = getelementptr inbounds float, ptr %77, i64 %90
+  %91 = getelementptr inbounds nuw float, ptr %77, i64 %90
   %92 = load <4 x float>, ptr %91, align 1
-  %93 = getelementptr inbounds float, ptr %80, i64 %90
+  %93 = getelementptr inbounds nuw float, ptr %80, i64 %90
   %94 = load <4 x float>, ptr %93, align 1
   %95 = shufflevector <4 x float> %92, <4 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
   br label %102
 
 96:                                               ; preds = %83
   %97 = shl nsw i64 %indvars.iv, 3
-  %98 = getelementptr inbounds float, ptr %77, i64 %97
+  %98 = getelementptr inbounds nuw float, ptr %77, i64 %97
   %99 = load <8 x float>, ptr %98, align 1
-  %100 = getelementptr inbounds float, ptr %80, i64 %97
+  %100 = getelementptr inbounds nuw float, ptr %80, i64 %97
   %101 = load <8 x float>, ptr %100, align 1
   br label %107
 
@@ -226,7 +226,7 @@ define hidden noundef i32 @_ZNK4ncnn17BatchNorm_x86_avx15forward_inplaceERNS_3Ma
   %115 = fmul fast <8 x float> %114, %111
   %116 = fadd fast <8 x float> %115, %108
   store <8 x float> %116, ptr %.0287370, align 1
-  %117 = getelementptr inbounds i8, ptr %.0287370, i64 32
+  %117 = getelementptr inbounds nuw i8, ptr %.0287370, i64 32
   %118 = add nuw nsw i32 %.0278371, 8
   %119 = or disjoint i32 %118, 7
   %120 = icmp slt i32 %119, %60
@@ -245,7 +245,7 @@ define hidden noundef i32 @_ZNK4ncnn17BatchNorm_x86_avx15forward_inplaceERNS_3Ma
   %123 = fmul fast <4 x float> %122, %110
   %124 = fadd fast <4 x float> %123, %109
   store <4 x float> %124, ptr %.1288376, align 1
-  %125 = getelementptr inbounds i8, ptr %.1288376, i64 16
+  %125 = getelementptr inbounds nuw i8, ptr %.1288376, i64 16
   %126 = add nuw nsw i32 %.1279377, 4
   %127 = or disjoint i32 %126, 3
   %128 = icmp slt i32 %127, %60
@@ -258,7 +258,7 @@ define hidden noundef i32 @_ZNK4ncnn17BatchNorm_x86_avx15forward_inplaceERNS_3Ma
   %130 = fmul fast float %129, %82
   %131 = fadd fast float %130, %79
   store float %131, ptr %.2289381, align 4
-  %132 = getelementptr inbounds i8, ptr %.2289381, i64 4
+  %132 = getelementptr inbounds nuw i8, ptr %.2289381, i64 4
   %133 = add nuw nsw i32 %.2280382, 1
   %exitcond.not = icmp eq i32 %133, %60
   br i1 %exitcond.not, label %._crit_edge384, label %.lr.ph383, !llvm.loop !10
@@ -301,10 +301,10 @@ define hidden noundef i32 @_ZNK4ncnn17BatchNorm_x86_avx15forward_inplaceERNS_3Ma
   %153 = mul i64 %151, %152
   %154 = getelementptr inbounds i8, ptr %149, i64 %153
   %155 = load ptr, ptr %142, align 8
-  %156 = getelementptr inbounds float, ptr %155, i64 %indvars.iv428
+  %156 = getelementptr inbounds nuw float, ptr %155, i64 %indvars.iv428
   %157 = load float, ptr %156, align 4
   %158 = load ptr, ptr %143, align 8
-  %159 = getelementptr inbounds float, ptr %158, i64 %indvars.iv428
+  %159 = getelementptr inbounds nuw float, ptr %158, i64 %indvars.iv428
   %160 = load float, ptr %159, align 4
   br i1 %144, label %167, label %161
 
@@ -321,18 +321,18 @@ define hidden noundef i32 @_ZNK4ncnn17BatchNorm_x86_avx15forward_inplaceERNS_3Ma
 
 167:                                              ; preds = %148
   %168 = shl nsw i64 %indvars.iv428, 2
-  %169 = getelementptr inbounds float, ptr %155, i64 %168
+  %169 = getelementptr inbounds nuw float, ptr %155, i64 %168
   %170 = load <4 x float>, ptr %169, align 1
-  %171 = getelementptr inbounds float, ptr %158, i64 %168
+  %171 = getelementptr inbounds nuw float, ptr %158, i64 %168
   %172 = load <4 x float>, ptr %171, align 1
   %173 = shufflevector <4 x float> %170, <4 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
   br label %180
 
 174:                                              ; preds = %161
   %175 = shl nsw i64 %indvars.iv428, 3
-  %176 = getelementptr inbounds float, ptr %155, i64 %175
+  %176 = getelementptr inbounds nuw float, ptr %155, i64 %175
   %177 = load <8 x float>, ptr %176, align 1
-  %178 = getelementptr inbounds float, ptr %158, i64 %175
+  %178 = getelementptr inbounds nuw float, ptr %158, i64 %175
   %179 = load <8 x float>, ptr %178, align 1
   br label %185
 
@@ -364,7 +364,7 @@ define hidden noundef i32 @_ZNK4ncnn17BatchNorm_x86_avx15forward_inplaceERNS_3Ma
   %193 = fmul fast <8 x float> %192, %189
   %194 = fadd fast <8 x float> %193, %186
   store <8 x float> %194, ptr %.0271389, align 1
-  %195 = getelementptr inbounds i8, ptr %.0271389, i64 32
+  %195 = getelementptr inbounds nuw i8, ptr %.0271389, i64 32
   %196 = add nuw nsw i32 %.0390, 8
   %197 = or disjoint i32 %196, 7
   %198 = icmp slt i32 %197, %138
@@ -383,7 +383,7 @@ define hidden noundef i32 @_ZNK4ncnn17BatchNorm_x86_avx15forward_inplaceERNS_3Ma
   %201 = fmul fast <4 x float> %200, %188
   %202 = fadd fast <4 x float> %201, %187
   store <4 x float> %202, ptr %.1272395, align 1
-  %203 = getelementptr inbounds i8, ptr %.1272395, i64 16
+  %203 = getelementptr inbounds nuw i8, ptr %.1272395, i64 16
   %204 = add nuw nsw i32 %.1396, 4
   %205 = or disjoint i32 %204, 3
   %206 = icmp slt i32 %205, %138
@@ -396,7 +396,7 @@ define hidden noundef i32 @_ZNK4ncnn17BatchNorm_x86_avx15forward_inplaceERNS_3Ma
   %208 = fmul fast float %207, %160
   %209 = fadd fast float %208, %157
   store float %209, ptr %.2273400, align 4
-  %210 = getelementptr inbounds i8, ptr %.2273400, i64 4
+  %210 = getelementptr inbounds nuw i8, ptr %.2273400, i64 4
   %211 = add nuw nsw i32 %.2401, 1
   %exitcond427.not = icmp eq i32 %211, %138
   br i1 %exitcond427.not, label %._crit_edge403, label %.lr.ph402, !llvm.loop !14
@@ -477,7 +477,7 @@ define linkonce_odr hidden void @_ZN4ncnn9BatchNormD2Ev(ptr noundef nonnull alig
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %10, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
   invoke void %15(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %11)
           to label %18 unwind label %24
@@ -523,7 +523,7 @@ define linkonce_odr hidden void @_ZN4ncnn9BatchNormD2Ev(ptr noundef nonnull alig
 
 34:                                               ; preds = %30
   %35 = load ptr, ptr %32, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   invoke void %37(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef %33)
           to label %40 unwind label %46
@@ -569,7 +569,7 @@ define linkonce_odr hidden void @_ZN4ncnn9BatchNormD2Ev(ptr noundef nonnull alig
 
 56:                                               ; preds = %52
   %57 = load ptr, ptr %54, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %59 = load ptr, ptr %58, align 8
   invoke void %59(ptr noundef nonnull align 8 dereferenceable(8) %54, ptr noundef %55)
           to label %62 unwind label %68
@@ -615,7 +615,7 @@ define linkonce_odr hidden void @_ZN4ncnn9BatchNormD2Ev(ptr noundef nonnull alig
 
 78:                                               ; preds = %74
   %79 = load ptr, ptr %76, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 24
   %81 = load ptr, ptr %80, align 8
   invoke void %81(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef %77)
           to label %84 unwind label %90
@@ -661,7 +661,7 @@ define linkonce_odr hidden void @_ZN4ncnn9BatchNormD2Ev(ptr noundef nonnull alig
 
 100:                                              ; preds = %96
   %101 = load ptr, ptr %98, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 24
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 24
   %103 = load ptr, ptr %102, align 8
   invoke void %103(ptr noundef nonnull align 8 dereferenceable(8) %98, ptr noundef %99)
           to label %106 unwind label %112
@@ -707,7 +707,7 @@ define linkonce_odr hidden void @_ZN4ncnn9BatchNormD2Ev(ptr noundef nonnull alig
 
 122:                                              ; preds = %118
   %123 = load ptr, ptr %120, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 24
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 24
   %125 = load ptr, ptr %124, align 8
   invoke void %125(ptr noundef nonnull align 8 dereferenceable(8) %120, ptr noundef %121)
           to label %128 unwind label %131

@@ -65,7 +65,7 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #16
   store i32 0, ptr %14, align 4, !tbaa !6
   %20 = tail call ptr @dt_colorspaces_get_output_profile(i32 noundef %7, i32 noundef %3, ptr noundef %4) #16
-  %21 = getelementptr inbounds i8, ptr %20, i64 1032
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 1032
   %22 = load ptr, ptr %21, align 8, !tbaa !10
   %23 = call i32 @cmsSaveProfileToMem(ptr noundef %22, ptr noundef null, ptr noundef nonnull %13) #16
   %24 = load i32, ptr %13, align 4, !tbaa !6
@@ -90,7 +90,7 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   br i1 %36, label %37, label %.loopexit191
 
 37:                                               ; preds = %32
-  %38 = getelementptr inbounds i8, ptr %10, i64 328
+  %38 = getelementptr inbounds nuw i8, ptr %10, i64 328
   %39 = load ptr, ptr %38, align 8, !tbaa !13
   %40 = icmp eq ptr %39, null
   br i1 %40, label %.loopexit191, label %.preheader190
@@ -99,12 +99,12 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   %41 = phi ptr [ %50, %.preheader190 ], [ %39, %37 ]
   %42 = phi i16 [ %48, %.preheader190 ], [ 1, %37 ]
   %43 = load ptr, ptr %41, align 8, !tbaa !14
-  %44 = getelementptr inbounds i8, ptr %43, i64 480
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 480
   %45 = load ptr, ptr %44, align 16, !tbaa !16
   %46 = call i32 @g_hash_table_size(ptr noundef %45) #16
   %47 = trunc i32 %46 to i16
   %48 = add i16 %42, %47
-  %49 = getelementptr inbounds i8, ptr %41, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %50 = load ptr, ptr %49, align 8, !tbaa !13
   %51 = icmp eq ptr %50, null
   br i1 %51, label %.loopexit191, label %.preheader190
@@ -133,7 +133,7 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
 
 65:                                               ; preds = %63, %58
   %66 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef nonnull %53, i32 noundef 269, ptr noundef %1) #16
-  %67 = getelementptr inbounds i8, ptr %0, i64 156
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %68 = load i32, ptr %67, align 4, !tbaa !27
   switch i32 %68, label %87 [
     i32 1, label %69
@@ -146,7 +146,7 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
 
 71:                                               ; preds = %65
   %72 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef nonnull %53, i32 noundef 259, i32 noundef 8) #16
-  %73 = getelementptr inbounds i8, ptr %0, i64 148
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %74 = load i32, ptr %73, align 4, !tbaa !30
   switch i32 %74, label %79 [
     i32 32, label %80
@@ -154,7 +154,7 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   ]
 
 75:                                               ; preds = %71
-  %76 = getelementptr inbounds i8, ptr %0, i64 152
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %77 = load i32, ptr %76, align 8, !tbaa !31
   %78 = icmp eq i32 %77, 0
   br i1 %78, label %79, label %80
@@ -165,7 +165,7 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
 80:                                               ; preds = %79, %75, %71, %69
   %81 = phi i32 [ 1, %69 ], [ 2, %79 ], [ 3, %71 ], [ 3, %75 ]
   %82 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef nonnull %53, i32 noundef 317, i32 noundef %81) #16
-  %83 = getelementptr inbounds i8, ptr %0, i64 160
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %84 = load i32, ptr %83, align 8, !tbaa !32
   %85 = and i32 %84, 65535
   %86 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef nonnull %53, i32 noundef 65557, i32 noundef %85) #16
@@ -182,26 +182,26 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
 
 92:                                               ; preds = %89, %87
   store volatile i16 3, ptr %15, align 2, !tbaa !33
-  %93 = getelementptr inbounds i8, ptr %0, i64 164
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %94 = load i32, ptr %93, align 4, !tbaa !34
   %95 = icmp eq i32 %94, 0
   br i1 %95, label %247, label %96
 
 96:                                               ; preds = %92
-  %97 = getelementptr inbounds i8, ptr %0, i64 12
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %98 = load i32, ptr %97, align 4, !tbaa !35
   %99 = icmp sgt i32 %98, 4
   br i1 %99, label %100, label %.loopexit187
 
 100:                                              ; preds = %96
-  %101 = getelementptr inbounds i8, ptr %0, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %102 = load i32, ptr %101, align 8, !tbaa !36
   %103 = icmp sgt i32 %102, 4
   br i1 %103, label %104, label %.loopexit187
 
 104:                                              ; preds = %100
   store volatile i16 1, ptr %15, align 2, !tbaa !33
-  %105 = getelementptr inbounds i8, ptr %0, i64 148
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %106 = load i32, ptr %105, align 4, !tbaa !30
   switch i32 %106, label %200 [
     i32 32, label %111
@@ -209,7 +209,7 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   ]
 
 107:                                              ; preds = %104
-  %108 = getelementptr inbounds i8, ptr %0, i64 152
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %109 = load i32, ptr %108, align 8, !tbaa !31
   %110 = icmp eq i32 %109, 0
   br i1 %110, label %156, label %111
@@ -238,7 +238,7 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   %125 = add i32 %119, %124
   %126 = shl nsw i32 %125, 2
   %127 = zext nneg i32 %126 to i64
-  %128 = getelementptr inbounds float, ptr %2, i64 %127
+  %128 = getelementptr inbounds nuw float, ptr %2, i64 %127
   %129 = load <2 x float>, ptr %128, align 4, !tbaa !37
   %130 = fcmp reassoc nsz arcp contract afn ogt <2 x float> %129, splat (float 0x3F50624DE0000000)
   %131 = select <2 x i1> %130, <2 x float> %129, <2 x float> splat (float 0x3F50624DE0000000)
@@ -250,7 +250,7 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   br i1 %136, label %149, label %137
 
 137:                                              ; preds = %123
-  %138 = getelementptr inbounds i8, ptr %128, i64 8
+  %138 = getelementptr inbounds nuw i8, ptr %128, i64 8
   %139 = load float, ptr %138, align 4, !tbaa !37
   %140 = fcmp reassoc nsz arcp contract afn ogt float %139, 0x3F50624DE0000000
   %141 = select reassoc nsz arcp contract afn i1 %140, float %139, float 0x3F50624DE0000000
@@ -303,10 +303,10 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   %170 = add i32 %164, %169
   %171 = shl nsw i32 %170, 2
   %172 = zext nneg i32 %171 to i64
-  %173 = getelementptr inbounds i16, ptr %2, i64 %172
+  %173 = getelementptr inbounds nuw i16, ptr %2, i64 %172
   %174 = load i16, ptr %173, align 2, !tbaa !33
   %175 = zext i16 %174 to i32
-  %176 = getelementptr inbounds i8, ptr %173, i64 2
+  %176 = getelementptr inbounds nuw i8, ptr %173, i64 2
   %177 = load i16, ptr %176, align 2, !tbaa !33
   %178 = zext i16 %177 to i32
   %179 = sub nsw i32 %175, %178
@@ -315,7 +315,7 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   br i1 %181, label %193, label %182
 
 182:                                              ; preds = %168
-  %183 = getelementptr inbounds i8, ptr %173, i64 4
+  %183 = getelementptr inbounds nuw i8, ptr %173, i64 4
   %184 = load i16, ptr %183, align 2, !tbaa !33
   %185 = zext i16 %184 to i32
   %186 = sub nsw i32 %175, %185
@@ -367,10 +367,10 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   %214 = add i32 %208, %213
   %215 = shl nsw i32 %214, 2
   %216 = zext nneg i32 %215 to i64
-  %217 = getelementptr inbounds i8, ptr %2, i64 %216
+  %217 = getelementptr inbounds nuw i8, ptr %2, i64 %216
   %218 = load i8, ptr %217, align 1, !tbaa !38
   %219 = zext i8 %218 to i32
-  %220 = getelementptr inbounds i8, ptr %217, i64 1
+  %220 = getelementptr inbounds nuw i8, ptr %217, i64 1
   %221 = load i8, ptr %220, align 1, !tbaa !38
   %222 = zext i8 %221 to i32
   %223 = sub nsw i32 %219, %222
@@ -379,7 +379,7 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   br i1 %225, label %237, label %226
 
 226:                                              ; preds = %212
-  %227 = getelementptr inbounds i8, ptr %217, i64 2
+  %227 = getelementptr inbounds nuw i8, ptr %217, i64 2
   %228 = load i8, ptr %227, align 1, !tbaa !38
   %229 = zext i8 %228 to i32
   %230 = sub nsw i32 %219, %229
@@ -421,7 +421,7 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   %.0..0..0..0.4 = load volatile i16, ptr %15, align 2, !tbaa !33
   %248 = zext i16 %.0..0..0..0.4 to i32
   %249 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %53, i32 noundef 277, i32 noundef %248) #16
-  %250 = getelementptr inbounds i8, ptr %0, i64 148
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %251 = load i32, ptr %250, align 4, !tbaa !30
   %252 = and i32 %251, 65535
   %253 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %53, i32 noundef 258, i32 noundef %252) #16
@@ -432,7 +432,7 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   ]
 
 255:                                              ; preds = %247
-  %256 = getelementptr inbounds i8, ptr %0, i64 152
+  %256 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %257 = load i32, ptr %256, align 8, !tbaa !31
   %258 = freeze i32 %257
   %259 = icmp eq i32 %258, 0
@@ -444,10 +444,10 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
 261:                                              ; preds = %260, %255, %247
   %262 = phi i32 [ 3, %260 ], [ 1, %255 ], [ 1, %247 ]
   %263 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %53, i32 noundef 339, i32 noundef %262) #16
-  %264 = getelementptr inbounds i8, ptr %0, i64 8
+  %264 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %265 = load i32, ptr %264, align 8, !tbaa !36
   %266 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %53, i32 noundef 256, i32 noundef %265) #16
-  %267 = getelementptr inbounds i8, ptr %0, i64 12
+  %267 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %268 = load i32, ptr %267, align 4, !tbaa !35
   %269 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %53, i32 noundef 257, i32 noundef %268) #16
   %.0..0..0..0.5 = load volatile i16, ptr %15, align 2, !tbaa !33
@@ -527,10 +527,10 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   %319 = zext i16 %.0..0..0..0.7 to i64
   %320 = shl nuw nsw i64 %319, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %316, ptr align 4 %317, i64 %320, i1 false)
-  %321 = getelementptr inbounds i8, ptr %317, i64 16
+  %321 = getelementptr inbounds nuw i8, ptr %317, i64 16
   %.0..0..0..0.8 = load volatile i16, ptr %15, align 2, !tbaa !33
   %322 = zext i16 %.0..0..0..0.8 to i64
-  %323 = getelementptr inbounds float, ptr %316, i64 %322
+  %323 = getelementptr inbounds nuw float, ptr %316, i64 %322
   %324 = add nuw nsw i32 %318, 1
   %325 = icmp eq i32 %324, %309
   br i1 %325, label %.loopexit167, label %.preheader166, !llvm.loop !39
@@ -549,40 +549,40 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   %333 = zext i16 %.0..0..0..0.9 to i64
   %334 = shl nuw nsw i64 %333, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %330, ptr align 4 %331, i64 %334, i1 false)
-  %335 = getelementptr inbounds i8, ptr %331, i64 16
+  %335 = getelementptr inbounds nuw i8, ptr %331, i64 16
   %.0..0..0..0.10 = load volatile i16, ptr %15, align 2, !tbaa !33
   %336 = zext i16 %.0..0..0..0.10 to i64
-  %337 = getelementptr inbounds float, ptr %330, i64 %336
+  %337 = getelementptr inbounds nuw float, ptr %330, i64 %336
   %.0..0..0..0.11 = load volatile i16, ptr %15, align 2, !tbaa !33
   %338 = zext i16 %.0..0..0..0.11 to i64
   %339 = shl nuw nsw i64 %338, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %337, ptr nonnull align 4 %335, i64 %339, i1 false)
-  %340 = getelementptr inbounds i8, ptr %331, i64 32
+  %340 = getelementptr inbounds nuw i8, ptr %331, i64 32
   %.0..0..0..0.12 = load volatile i16, ptr %15, align 2, !tbaa !33
   %341 = zext i16 %.0..0..0..0.12 to i64
-  %342 = getelementptr inbounds float, ptr %337, i64 %341
+  %342 = getelementptr inbounds nuw float, ptr %337, i64 %341
   %.0..0..0..0.13 = load volatile i16, ptr %15, align 2, !tbaa !33
   %343 = zext i16 %.0..0..0..0.13 to i64
   %344 = shl nuw nsw i64 %343, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %342, ptr nonnull align 4 %340, i64 %344, i1 false)
-  %345 = getelementptr inbounds i8, ptr %331, i64 48
+  %345 = getelementptr inbounds nuw i8, ptr %331, i64 48
   %.0..0..0..0.14 = load volatile i16, ptr %15, align 2, !tbaa !33
   %346 = zext i16 %.0..0..0..0.14 to i64
-  %347 = getelementptr inbounds float, ptr %342, i64 %346
+  %347 = getelementptr inbounds nuw float, ptr %342, i64 %346
   %.0..0..0..0.15 = load volatile i16, ptr %15, align 2, !tbaa !33
   %348 = zext i16 %.0..0..0..0.15 to i64
   %349 = shl nuw nsw i64 %348, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %347, ptr nonnull align 4 %345, i64 %349, i1 false)
-  %350 = getelementptr inbounds i8, ptr %331, i64 64
+  %350 = getelementptr inbounds nuw i8, ptr %331, i64 64
   %.0..0..0..0.16 = load volatile i16, ptr %15, align 2, !tbaa !33
   %351 = zext i16 %.0..0..0..0.16 to i64
-  %352 = getelementptr inbounds float, ptr %347, i64 %351
+  %352 = getelementptr inbounds nuw float, ptr %347, i64 %351
   %353 = add nuw nsw i32 %332, 4
   %354 = icmp eq i32 %353, %312
   br i1 %354, label %.loopexit168, label %329
 
 355:                                              ; preds = %292
-  %356 = getelementptr inbounds i8, ptr %0, i64 152
+  %356 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %357 = load i32, ptr %356, align 8, !tbaa !31
   %358 = icmp eq i32 %357, 0
   %359 = load i32, ptr %267, align 4, !tbaa !35
@@ -639,12 +639,12 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
 
 .preheader182:                                    ; preds = %.thread, %.preheader182
   %389 = phi i64 [ %396, %.preheader182 ], [ 0, %.thread ]
-  %390 = getelementptr inbounds float, ptr %386, i64 %389
+  %390 = getelementptr inbounds nuw float, ptr %386, i64 %389
   %391 = load float, ptr %390, align 4, !tbaa !37
   %392 = insertelement <4 x float> <float poison, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, float %391, i64 0
   %393 = call <8 x i16> @llvm.x86.vcvtps2ph.128(<4 x float> %392, i32 8)
   %394 = extractelement <8 x i16> %393, i64 0
-  %395 = getelementptr inbounds i16, ptr %387, i64 %389
+  %395 = getelementptr inbounds nuw i16, ptr %387, i64 %389
   store i16 %394, ptr %395, align 2, !tbaa !33
   %396 = add nuw nsw i64 %389, 1
   %.0..0..0..0.19 = load volatile i16, ptr %15, align 2, !tbaa !33
@@ -663,22 +663,22 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   br i1 %402, label %.loopexit164, label %362
 
 .loopexit181:                                     ; preds = %.preheader180, %379
-  %403 = getelementptr inbounds i8, ptr %381, i64 16
+  %403 = getelementptr inbounds nuw i8, ptr %381, i64 16
   %.0..0..0..0.21 = load volatile i16, ptr %15, align 2, !tbaa !33
   %404 = zext i16 %.0..0..0..0.21 to i64
-  %405 = getelementptr inbounds i16, ptr %380, i64 %404
+  %405 = getelementptr inbounds nuw i16, ptr %380, i64 %404
   %.0..0..0..0.22 = load volatile i16, ptr %15, align 2, !tbaa !33
   %406 = icmp eq i16 %.0..0..0..0.22, 0
   br i1 %406, label %.loopexit179, label %.preheader178
 
 .preheader178:                                    ; preds = %.loopexit181, %.preheader178
   %407 = phi i64 [ %414, %.preheader178 ], [ 0, %.loopexit181 ]
-  %408 = getelementptr inbounds float, ptr %403, i64 %407
+  %408 = getelementptr inbounds nuw float, ptr %403, i64 %407
   %409 = load float, ptr %408, align 4, !tbaa !37
   %410 = insertelement <4 x float> <float poison, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, float %409, i64 0
   %411 = call <8 x i16> @llvm.x86.vcvtps2ph.128(<4 x float> %410, i32 8)
   %412 = extractelement <8 x i16> %411, i64 0
-  %413 = getelementptr inbounds i16, ptr %405, i64 %407
+  %413 = getelementptr inbounds nuw i16, ptr %405, i64 %407
   store i16 %412, ptr %413, align 2, !tbaa !33
   %414 = add nuw nsw i64 %407, 1
   %.0..0..0..0.23 = load volatile i16, ptr %15, align 2, !tbaa !33
@@ -687,22 +687,22 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   br i1 %416, label %.preheader178, label %.loopexit179
 
 .loopexit179:                                     ; preds = %.preheader178, %.loopexit181
-  %417 = getelementptr inbounds i8, ptr %381, i64 32
+  %417 = getelementptr inbounds nuw i8, ptr %381, i64 32
   %.0..0..0..0.24 = load volatile i16, ptr %15, align 2, !tbaa !33
   %418 = zext i16 %.0..0..0..0.24 to i64
-  %419 = getelementptr inbounds i16, ptr %405, i64 %418
+  %419 = getelementptr inbounds nuw i16, ptr %405, i64 %418
   %420 = add i32 %382, 2
   %421 = icmp eq i32 %420, %378
   br i1 %421, label %384, label %379
 
 .preheader180:                                    ; preds = %379, %.preheader180
   %422 = phi i64 [ %429, %.preheader180 ], [ 0, %379 ]
-  %423 = getelementptr inbounds float, ptr %381, i64 %422
+  %423 = getelementptr inbounds nuw float, ptr %381, i64 %422
   %424 = load float, ptr %423, align 4, !tbaa !37
   %425 = insertelement <4 x float> <float poison, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, float %424, i64 0
   %426 = call <8 x i16> @llvm.x86.vcvtps2ph.128(<4 x float> %425, i32 8)
   %427 = extractelement <8 x i16> %426, i64 0
-  %428 = getelementptr inbounds i16, ptr %380, i64 %422
+  %428 = getelementptr inbounds nuw i16, ptr %380, i64 %422
   store i16 %427, ptr %428, align 2, !tbaa !33
   %429 = add nuw nsw i64 %422, 1
   %.0..0..0..0.25 = load volatile i16, ptr %15, align 2, !tbaa !33
@@ -753,10 +753,10 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   %456 = zext i16 %.0..0..0..0.26 to i64
   %457 = shl nuw nsw i64 %456, 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %453, ptr align 2 %454, i64 %457, i1 false)
-  %458 = getelementptr inbounds i8, ptr %454, i64 8
+  %458 = getelementptr inbounds nuw i8, ptr %454, i64 8
   %.0..0..0..0.27 = load volatile i16, ptr %15, align 2, !tbaa !33
   %459 = zext i16 %.0..0..0..0.27 to i64
-  %460 = getelementptr inbounds i16, ptr %453, i64 %459
+  %460 = getelementptr inbounds nuw i16, ptr %453, i64 %459
   %461 = add nuw nsw i32 %455, 1
   %462 = icmp eq i32 %461, %446
   br i1 %462, label %.loopexit173, label %.preheader172, !llvm.loop !41
@@ -775,34 +775,34 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   %470 = zext i16 %.0..0..0..0.28 to i64
   %471 = shl nuw nsw i64 %470, 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %467, ptr align 2 %468, i64 %471, i1 false)
-  %472 = getelementptr inbounds i8, ptr %468, i64 8
+  %472 = getelementptr inbounds nuw i8, ptr %468, i64 8
   %.0..0..0..0.29 = load volatile i16, ptr %15, align 2, !tbaa !33
   %473 = zext i16 %.0..0..0..0.29 to i64
-  %474 = getelementptr inbounds i16, ptr %467, i64 %473
+  %474 = getelementptr inbounds nuw i16, ptr %467, i64 %473
   %.0..0..0..0.30 = load volatile i16, ptr %15, align 2, !tbaa !33
   %475 = zext i16 %.0..0..0..0.30 to i64
   %476 = shl nuw nsw i64 %475, 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %474, ptr nonnull align 2 %472, i64 %476, i1 false)
-  %477 = getelementptr inbounds i8, ptr %468, i64 16
+  %477 = getelementptr inbounds nuw i8, ptr %468, i64 16
   %.0..0..0..0.31 = load volatile i16, ptr %15, align 2, !tbaa !33
   %478 = zext i16 %.0..0..0..0.31 to i64
-  %479 = getelementptr inbounds i16, ptr %474, i64 %478
+  %479 = getelementptr inbounds nuw i16, ptr %474, i64 %478
   %.0..0..0..0.32 = load volatile i16, ptr %15, align 2, !tbaa !33
   %480 = zext i16 %.0..0..0..0.32 to i64
   %481 = shl nuw nsw i64 %480, 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %479, ptr nonnull align 2 %477, i64 %481, i1 false)
-  %482 = getelementptr inbounds i8, ptr %468, i64 24
+  %482 = getelementptr inbounds nuw i8, ptr %468, i64 24
   %.0..0..0..0.33 = load volatile i16, ptr %15, align 2, !tbaa !33
   %483 = zext i16 %.0..0..0..0.33 to i64
-  %484 = getelementptr inbounds i16, ptr %479, i64 %483
+  %484 = getelementptr inbounds nuw i16, ptr %479, i64 %483
   %.0..0..0..0.34 = load volatile i16, ptr %15, align 2, !tbaa !33
   %485 = zext i16 %.0..0..0..0.34 to i64
   %486 = shl nuw nsw i64 %485, 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %484, ptr nonnull align 2 %482, i64 %486, i1 false)
-  %487 = getelementptr inbounds i8, ptr %468, i64 32
+  %487 = getelementptr inbounds nuw i8, ptr %468, i64 32
   %.0..0..0..0.35 = load volatile i16, ptr %15, align 2, !tbaa !33
   %488 = zext i16 %.0..0..0..0.35 to i64
-  %489 = getelementptr inbounds i16, ptr %484, i64 %488
+  %489 = getelementptr inbounds nuw i16, ptr %484, i64 %488
   %490 = add nuw nsw i32 %469, 4
   %491 = icmp eq i32 %490, %449
   br i1 %491, label %.loopexit174, label %466
@@ -851,10 +851,10 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   %.0..0..0..0.36 = load volatile i16, ptr %15, align 2, !tbaa !33
   %518 = zext i16 %.0..0..0..0.36 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %515, ptr align 1 %516, i64 %518, i1 false)
-  %519 = getelementptr inbounds i8, ptr %516, i64 4
+  %519 = getelementptr inbounds nuw i8, ptr %516, i64 4
   %.0..0..0..0.37 = load volatile i16, ptr %15, align 2, !tbaa !33
   %520 = zext i16 %.0..0..0..0.37 to i64
-  %521 = getelementptr inbounds i8, ptr %515, i64 %520
+  %521 = getelementptr inbounds nuw i8, ptr %515, i64 %520
   %522 = add nuw nsw i32 %517, 1
   %523 = icmp eq i32 %522, %508
   br i1 %523, label %.loopexit161, label %.preheader160, !llvm.loop !42
@@ -872,31 +872,31 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   %.0..0..0..0.38 = load volatile i16, ptr %15, align 2, !tbaa !33
   %531 = zext i16 %.0..0..0..0.38 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %528, ptr align 1 %529, i64 %531, i1 false)
-  %532 = getelementptr inbounds i8, ptr %529, i64 4
+  %532 = getelementptr inbounds nuw i8, ptr %529, i64 4
   %.0..0..0..0.39 = load volatile i16, ptr %15, align 2, !tbaa !33
   %533 = zext i16 %.0..0..0..0.39 to i64
-  %534 = getelementptr inbounds i8, ptr %528, i64 %533
+  %534 = getelementptr inbounds nuw i8, ptr %528, i64 %533
   %.0..0..0..0.40 = load volatile i16, ptr %15, align 2, !tbaa !33
   %535 = zext i16 %.0..0..0..0.40 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %534, ptr nonnull align 1 %532, i64 %535, i1 false)
-  %536 = getelementptr inbounds i8, ptr %529, i64 8
+  %536 = getelementptr inbounds nuw i8, ptr %529, i64 8
   %.0..0..0..0.41 = load volatile i16, ptr %15, align 2, !tbaa !33
   %537 = zext i16 %.0..0..0..0.41 to i64
-  %538 = getelementptr inbounds i8, ptr %534, i64 %537
+  %538 = getelementptr inbounds nuw i8, ptr %534, i64 %537
   %.0..0..0..0.42 = load volatile i16, ptr %15, align 2, !tbaa !33
   %539 = zext i16 %.0..0..0..0.42 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %538, ptr nonnull align 1 %536, i64 %539, i1 false)
-  %540 = getelementptr inbounds i8, ptr %529, i64 12
+  %540 = getelementptr inbounds nuw i8, ptr %529, i64 12
   %.0..0..0..0.43 = load volatile i16, ptr %15, align 2, !tbaa !33
   %541 = zext i16 %.0..0..0..0.43 to i64
-  %542 = getelementptr inbounds i8, ptr %538, i64 %541
+  %542 = getelementptr inbounds nuw i8, ptr %538, i64 %541
   %.0..0..0..0.44 = load volatile i16, ptr %15, align 2, !tbaa !33
   %543 = zext i16 %.0..0..0..0.44 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %542, ptr nonnull align 1 %540, i64 %543, i1 false)
-  %544 = getelementptr inbounds i8, ptr %529, i64 16
+  %544 = getelementptr inbounds nuw i8, ptr %529, i64 16
   %.0..0..0..0.45 = load volatile i16, ptr %15, align 2, !tbaa !33
   %545 = zext i16 %.0..0..0..0.45 to i64
-  %546 = getelementptr inbounds i8, ptr %542, i64 %545
+  %546 = getelementptr inbounds nuw i8, ptr %542, i64 %545
   %547 = add nuw nsw i32 %530, 4
   %548 = icmp eq i32 %547, %511
   br i1 %548, label %.loopexit162, label %527
@@ -929,14 +929,14 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
 564:                                              ; preds = %561
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %16) #16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %16, ptr noundef nonnull align 16 dereferenceable(256) @__const.write_image.missing_raster_mask, i64 256, i1 false)
-  %565 = getelementptr inbounds i8, ptr %10, i64 328
+  %565 = getelementptr inbounds nuw i8, ptr %10, i64 328
   %566 = load ptr, ptr %565, align 8, !tbaa !13
   %567 = icmp eq ptr %566, null
   br i1 %567, label %.loopexit164.sink.split, label %568
 
 568:                                              ; preds = %564
-  %569 = getelementptr inbounds i8, ptr %0, i64 152
-  %570 = getelementptr inbounds i8, ptr %0, i64 160
+  %569 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %570 = getelementptr inbounds nuw i8, ptr %0, i64 160
   br label %571
 
 571:                                              ; preds = %.loopexit158, %568
@@ -948,7 +948,7 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %17) #16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #16
-  %577 = getelementptr inbounds i8, ptr %576, i64 480
+  %577 = getelementptr inbounds nuw i8, ptr %576, i64 480
   %578 = load ptr, ptr %577, align 16, !tbaa !16
   call void @g_hash_table_iter_init(ptr noundef nonnull %17, ptr noundef %578) #16
   %579 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19) #16
@@ -992,7 +992,7 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   %604 = zext i16 %583 to i32
   %605 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %562, i32 noundef 297, i32 noundef %604, i32 noundef %56) #16
   %606 = load ptr, ptr %576, align 16, !tbaa !43
-  %607 = getelementptr inbounds i8, ptr %606, i64 792
+  %607 = getelementptr inbounds nuw i8, ptr %606, i64 792
   %608 = load ptr, ptr %607, align 8, !tbaa !44
   %609 = load ptr, ptr %18, align 8, !tbaa !13
   %610 = call ptr @g_hash_table_lookup(ptr noundef %608, ptr noundef %609) #16
@@ -1001,7 +1001,7 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
 
 612:                                              ; preds = %599
   %613 = load ptr, ptr %576, align 16, !tbaa !43
-  %614 = getelementptr inbounds i8, ptr %613, i64 40
+  %614 = getelementptr inbounds nuw i8, ptr %613, i64 40
   %615 = load ptr, ptr %614, align 8, !tbaa !50
   %616 = call ptr %615() #16
   br label %617
@@ -1144,7 +1144,7 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   br i1 %695, label %.loopexit134, label %696
 
 696:                                              ; preds = %.preheader144
-  %697 = getelementptr inbounds float, ptr %692, i64 %693
+  %697 = getelementptr inbounds nuw float, ptr %692, i64 %693
   %698 = load float, ptr %697, align 4, !tbaa !37
   br label %732
 
@@ -1164,7 +1164,7 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
 
 705:                                              ; preds = %705, %702
   %706 = phi i64 [ 0, %702 ], [ %708, %705 ]
-  %707 = getelementptr inbounds float, ptr %700, i64 %706
+  %707 = getelementptr inbounds nuw float, ptr %700, i64 %706
   store float %704, ptr %707, align 4, !tbaa !37
   %708 = add nuw nsw i64 %706, 1
   %.0..0..0..0.51 = load volatile i16, ptr %15, align 2, !tbaa !33
@@ -1185,20 +1185,20 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
 .loopexit134:                                     ; preds = %732, %.preheader144
   %.0..0..0..0.53 = load volatile i16, ptr %15, align 2, !tbaa !33
   %715 = zext i16 %.0..0..0..0.53 to i64
-  %716 = getelementptr inbounds float, ptr %694, i64 %715
+  %716 = getelementptr inbounds nuw float, ptr %694, i64 %715
   %.0..0..0..0.54 = load volatile i16, ptr %15, align 2, !tbaa !33
   %717 = icmp eq i16 %.0..0..0..0.54, 0
   br i1 %717, label %.loopexit133, label %718
 
 718:                                              ; preds = %.loopexit134
   %719 = or disjoint i64 %693, 1
-  %720 = getelementptr inbounds float, ptr %692, i64 %719
+  %720 = getelementptr inbounds nuw float, ptr %692, i64 %719
   %721 = load float, ptr %720, align 4, !tbaa !37
   br label %722
 
 722:                                              ; preds = %722, %718
   %723 = phi i64 [ 0, %718 ], [ %725, %722 ]
-  %724 = getelementptr inbounds float, ptr %716, i64 %723
+  %724 = getelementptr inbounds nuw float, ptr %716, i64 %723
   store float %721, ptr %724, align 4, !tbaa !37
   %725 = add nuw nsw i64 %723, 1
   %.0..0..0..0.55 = load volatile i16, ptr %15, align 2, !tbaa !33
@@ -1210,13 +1210,13 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   %728 = add nuw i64 %693, 2
   %.0..0..0..0.56 = load volatile i16, ptr %15, align 2, !tbaa !33
   %729 = zext i16 %.0..0..0..0.56 to i64
-  %730 = getelementptr inbounds float, ptr %716, i64 %729
+  %730 = getelementptr inbounds nuw float, ptr %716, i64 %729
   %731 = icmp eq i64 %728, %684
   br i1 %731, label %699, label %.preheader144
 
 732:                                              ; preds = %732, %696
   %733 = phi i64 [ 0, %696 ], [ %735, %732 ]
-  %734 = getelementptr inbounds float, ptr %694, i64 %733
+  %734 = getelementptr inbounds nuw float, ptr %694, i64 %733
   store float %698, ptr %734, align 4, !tbaa !37
   %735 = add nuw nsw i64 %733, 1
   %.0..0..0..0.57 = load volatile i16, ptr %15, align 2, !tbaa !33
@@ -1261,7 +1261,7 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   br i1 %756, label %.loopexit140, label %757
 
 757:                                              ; preds = %.preheader148
-  %758 = getelementptr inbounds float, ptr %753, i64 %754
+  %758 = getelementptr inbounds nuw float, ptr %753, i64 %754
   %759 = load float, ptr %758, align 4, !tbaa !37
   %760 = insertelement <4 x float> <float poison, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, float %759, i64 0
   %761 = call <8 x i16> @llvm.x86.vcvtps2ph.128(<4 x float> %760, i32 8)
@@ -1287,7 +1287,7 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
 
 772:                                              ; preds = %772, %766
   %773 = phi i64 [ 0, %766 ], [ %775, %772 ]
-  %774 = getelementptr inbounds i16, ptr %764, i64 %773
+  %774 = getelementptr inbounds nuw i16, ptr %764, i64 %773
   store i16 %771, ptr %774, align 2, !tbaa !33
   %775 = add nuw nsw i64 %773, 1
   %.0..0..0..0.60 = load volatile i16, ptr %15, align 2, !tbaa !33
@@ -1308,14 +1308,14 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
 .loopexit140:                                     ; preds = %802, %.preheader148
   %.0..0..0..0.62 = load volatile i16, ptr %15, align 2, !tbaa !33
   %782 = zext i16 %.0..0..0..0.62 to i64
-  %783 = getelementptr inbounds i16, ptr %755, i64 %782
+  %783 = getelementptr inbounds nuw i16, ptr %755, i64 %782
   %.0..0..0..0.63 = load volatile i16, ptr %15, align 2, !tbaa !33
   %784 = icmp eq i16 %.0..0..0..0.63, 0
   br i1 %784, label %.loopexit139, label %785
 
 785:                                              ; preds = %.loopexit140
   %786 = or disjoint i64 %754, 1
-  %787 = getelementptr inbounds float, ptr %753, i64 %786
+  %787 = getelementptr inbounds nuw float, ptr %753, i64 %786
   %788 = load float, ptr %787, align 4, !tbaa !37
   %789 = insertelement <4 x float> <float poison, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, float %788, i64 0
   %790 = call <8 x i16> @llvm.x86.vcvtps2ph.128(<4 x float> %789, i32 8)
@@ -1324,7 +1324,7 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
 
 792:                                              ; preds = %792, %785
   %793 = phi i64 [ 0, %785 ], [ %795, %792 ]
-  %794 = getelementptr inbounds i16, ptr %783, i64 %793
+  %794 = getelementptr inbounds nuw i16, ptr %783, i64 %793
   store i16 %791, ptr %794, align 2, !tbaa !33
   %795 = add nuw nsw i64 %793, 1
   %.0..0..0..0.64 = load volatile i16, ptr %15, align 2, !tbaa !33
@@ -1336,13 +1336,13 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   %798 = add nuw i64 %754, 2
   %.0..0..0..0.65 = load volatile i16, ptr %15, align 2, !tbaa !33
   %799 = zext i16 %.0..0..0..0.65 to i64
-  %800 = getelementptr inbounds i16, ptr %783, i64 %799
+  %800 = getelementptr inbounds nuw i16, ptr %783, i64 %799
   %801 = icmp eq i64 %798, %745
   br i1 %801, label %763, label %.preheader148
 
 802:                                              ; preds = %802, %757
   %803 = phi i64 [ 0, %757 ], [ %805, %802 ]
-  %804 = getelementptr inbounds i16, ptr %755, i64 %803
+  %804 = getelementptr inbounds nuw i16, ptr %755, i64 %803
   store i16 %762, ptr %804, align 2, !tbaa !33
   %805 = add nuw nsw i64 %803, 1
   %.0..0..0..0.66 = load volatile i16, ptr %15, align 2, !tbaa !33
@@ -1376,14 +1376,14 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   br i1 %820, label %.loopexit135, label %821
 
 821:                                              ; preds = %.preheader145
-  %822 = getelementptr inbounds float, ptr %817, i64 %818
+  %822 = getelementptr inbounds nuw float, ptr %817, i64 %818
   %823 = load float, ptr %822, align 4, !tbaa !37
   %824 = fcmp reassoc nsz arcp contract afn ult float %823, 0.000000e+00
   br i1 %824, label %.preheader, label %830
 
 .preheader:                                       ; preds = %821, %.preheader
   %825 = phi i64 [ %827, %.preheader ], [ 0, %821 ]
-  %826 = getelementptr inbounds i16, ptr %819, i64 %825
+  %826 = getelementptr inbounds nuw i16, ptr %819, i64 %825
   store i16 0, ptr %826, align 2, !tbaa !33
   %827 = add nuw nsw i64 %825, 1
   %.0..0..0..0.68 = load volatile i16, ptr %15, align 2, !tbaa !33
@@ -1397,7 +1397,7 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
 
 .preheader136:                                    ; preds = %830, %.preheader136
   %832 = phi i64 [ %834, %.preheader136 ], [ 0, %830 ]
-  %833 = getelementptr inbounds i16, ptr %819, i64 %832
+  %833 = getelementptr inbounds nuw i16, ptr %819, i64 %832
   store i16 -1, ptr %833, align 2, !tbaa !33
   %834 = add nuw nsw i64 %832, 1
   %.0..0..0..0.69 = load volatile i16, ptr %15, align 2, !tbaa !33
@@ -1421,13 +1421,13 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   %844 = add nuw nsw i64 %818, 1
   %.0..0..0..0.70 = load volatile i16, ptr %15, align 2, !tbaa !33
   %845 = zext i16 %.0..0..0..0.70 to i64
-  %846 = getelementptr inbounds i16, ptr %819, i64 %845
+  %846 = getelementptr inbounds nuw i16, ptr %819, i64 %845
   %847 = icmp eq i64 %844, %600
   br i1 %847, label %.loopexit146, label %.preheader145
 
 848:                                              ; preds = %848, %837
   %849 = phi i64 [ 0, %837 ], [ %851, %848 ]
-  %850 = getelementptr inbounds i16, ptr %819, i64 %849
+  %850 = getelementptr inbounds nuw i16, ptr %819, i64 %849
   store i16 %840, ptr %850, align 2, !tbaa !33
   %851 = add nuw nsw i64 %849, 1
   %.0..0..0..0.71 = load volatile i16, ptr %15, align 2, !tbaa !33
@@ -1467,7 +1467,7 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   br i1 %869, label %.loopexit132, label %870
 
 870:                                              ; preds = %.preheader142
-  %871 = getelementptr inbounds float, ptr %866, i64 %867
+  %871 = getelementptr inbounds nuw float, ptr %866, i64 %867
   br label %923
 
 872:                                              ; preds = %.loopexit
@@ -1501,7 +1501,7 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   %886 = phi float [ %884, %883 ], [ 2.550000e+02, %881 ], [ 0.000000e+00, %877 ]
   %887 = call reassoc nsz arcp contract afn float @llvm.round.f32(float %886)
   %888 = fptoui float %887 to i8
-  %889 = getelementptr inbounds i8, ptr %873, i64 %878
+  %889 = getelementptr inbounds nuw i8, ptr %873, i64 %878
   store i8 %888, ptr %889, align 1, !tbaa !38
   %890 = add nuw nsw i64 %878, 1
   %.0..0..0..0.74 = load volatile i16, ptr %15, align 2, !tbaa !33
@@ -1522,14 +1522,14 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
 .loopexit132:                                     ; preds = %931, %.preheader142
   %.0..0..0..0.76 = load volatile i16, ptr %15, align 2, !tbaa !33
   %897 = zext i16 %.0..0..0..0.76 to i64
-  %898 = getelementptr inbounds i8, ptr %868, i64 %897
+  %898 = getelementptr inbounds nuw i8, ptr %868, i64 %897
   %.0..0..0..0.77 = load volatile i16, ptr %15, align 2, !tbaa !33
   %899 = icmp eq i16 %.0..0..0..0.77, 0
   br i1 %899, label %.loopexit, label %900
 
 900:                                              ; preds = %.loopexit132
   %901 = or disjoint i64 %867, 1
-  %902 = getelementptr inbounds float, ptr %866, i64 %901
+  %902 = getelementptr inbounds nuw float, ptr %866, i64 %901
   br label %903
 
 903:                                              ; preds = %911, %900
@@ -1550,7 +1550,7 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   %912 = phi float [ %910, %909 ], [ 2.550000e+02, %907 ], [ 0.000000e+00, %903 ]
   %913 = call reassoc nsz arcp contract afn float @llvm.round.f32(float %912)
   %914 = fptoui float %913 to i8
-  %915 = getelementptr inbounds i8, ptr %898, i64 %904
+  %915 = getelementptr inbounds nuw i8, ptr %898, i64 %904
   store i8 %914, ptr %915, align 1, !tbaa !38
   %916 = add nuw nsw i64 %904, 1
   %.0..0..0..0.78 = load volatile i16, ptr %15, align 2, !tbaa !33
@@ -1562,7 +1562,7 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   %919 = add nuw i64 %867, 2
   %.0..0..0..0.79 = load volatile i16, ptr %15, align 2, !tbaa !33
   %920 = zext i16 %.0..0..0..0.79 to i64
-  %921 = getelementptr inbounds i8, ptr %898, i64 %920
+  %921 = getelementptr inbounds nuw i8, ptr %898, i64 %920
   %922 = icmp eq i64 %919, %858
   br i1 %922, label %872, label %.preheader142
 
@@ -1584,7 +1584,7 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   %932 = phi float [ %930, %929 ], [ 2.550000e+02, %927 ], [ 0.000000e+00, %923 ]
   %933 = call reassoc nsz arcp contract afn float @llvm.round.f32(float %932)
   %934 = fptoui float %933 to i8
-  %935 = getelementptr inbounds i8, ptr %868, i64 %924
+  %935 = getelementptr inbounds nuw i8, ptr %868, i64 %924
   store i8 %934, ptr %935, align 1, !tbaa !38
   %936 = add nuw nsw i64 %924, 1
   %.0..0..0..0.80 = load volatile i16, ptr %15, align 2, !tbaa !33
@@ -1613,7 +1613,7 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #16
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %17) #16
-  %949 = getelementptr inbounds i8, ptr %572, i64 8
+  %949 = getelementptr inbounds nuw i8, ptr %572, i64 8
   %950 = load ptr, ptr %949, align 8, !tbaa !13
   %951 = icmp eq ptr %950, null
   br i1 %951, label %.loopexit164.sink.split, label %571
@@ -1736,24 +1736,24 @@ define noundef ptr @legacy_params(ptr nocapture noundef readnone %0, ptr noundef
   %8 = tail call noalias dereferenceable_or_null(176) ptr @calloc(i64 noundef 1, i64 noundef 176) #18
   %9 = load <4 x i32>, ptr %1, align 8, !tbaa !6
   store <4 x i32> %9, ptr %8, align 8, !tbaa !6
-  %10 = getelementptr inbounds i8, ptr %8, i64 16
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = tail call i64 @g_strlcpy(ptr noundef nonnull %10, ptr noundef nonnull %11, i64 noundef 128) #16
-  %13 = getelementptr inbounds i8, ptr %8, i64 144
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 144
   store i32 0, ptr %13, align 8, !tbaa !51
-  %14 = getelementptr inbounds i8, ptr %1, i64 144
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %15 = load i32, ptr %14, align 8, !tbaa !53
-  %16 = getelementptr inbounds i8, ptr %8, i64 148
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 148
   store i32 %15, ptr %16, align 4, !tbaa !55
-  %17 = getelementptr inbounds i8, ptr %8, i64 152
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 152
   store i32 0, ptr %17, align 8, !tbaa !56
-  %18 = getelementptr inbounds i8, ptr %1, i64 148
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 148
   %19 = load i32, ptr %18, align 4, !tbaa !57
   %20 = icmp eq i32 %19, 3
   %21 = select i1 %20, i32 2, i32 %19
-  %22 = getelementptr inbounds i8, ptr %8, i64 156
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 156
   store i32 %21, ptr %22, align 4, !tbaa !58
-  %23 = getelementptr inbounds i8, ptr %8, i64 160
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 160
   store i32 6, ptr %23, align 8, !tbaa !59
   br label %65
 
@@ -1761,22 +1761,22 @@ define noundef ptr @legacy_params(ptr nocapture noundef readnone %0, ptr noundef
   %25 = tail call noalias dereferenceable_or_null(176) ptr @calloc(i64 noundef 1, i64 noundef 176) #18
   %26 = load <4 x i32>, ptr %1, align 8, !tbaa !6
   store <4 x i32> %26, ptr %25, align 8, !tbaa !6
-  %27 = getelementptr inbounds i8, ptr %25, i64 16
-  %28 = getelementptr inbounds i8, ptr %1, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %29 = tail call i64 @g_strlcpy(ptr noundef nonnull %27, ptr noundef nonnull %28, i64 noundef 128) #16
-  %30 = getelementptr inbounds i8, ptr %1, i64 144
-  %31 = getelementptr inbounds i8, ptr %25, i64 144
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 144
   %32 = load <2 x i32>, ptr %30, align 8, !tbaa !6
   store <2 x i32> %32, ptr %31, align 8, !tbaa !6
-  %33 = getelementptr inbounds i8, ptr %25, i64 152
+  %33 = getelementptr inbounds nuw i8, ptr %25, i64 152
   store i32 0, ptr %33, align 8, !tbaa !56
-  %34 = getelementptr inbounds i8, ptr %1, i64 152
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %35 = load i32, ptr %34, align 8, !tbaa !60
   %36 = icmp eq i32 %35, 3
   %37 = select i1 %36, i32 2, i32 %35
-  %38 = getelementptr inbounds i8, ptr %25, i64 156
+  %38 = getelementptr inbounds nuw i8, ptr %25, i64 156
   store i32 %37, ptr %38, align 4, !tbaa !58
-  %39 = getelementptr inbounds i8, ptr %25, i64 160
+  %39 = getelementptr inbounds nuw i8, ptr %25, i64 160
   store i32 6, ptr %39, align 8, !tbaa !59
   br label %65
 
@@ -1784,22 +1784,22 @@ define noundef ptr @legacy_params(ptr nocapture noundef readnone %0, ptr noundef
   %41 = tail call noalias dereferenceable_or_null(176) ptr @calloc(i64 noundef 1, i64 noundef 176) #18
   %42 = load <4 x i32>, ptr %1, align 8, !tbaa !6
   store <4 x i32> %42, ptr %41, align 8, !tbaa !6
-  %43 = getelementptr inbounds i8, ptr %41, i64 16
-  %44 = getelementptr inbounds i8, ptr %1, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %45 = tail call i64 @g_strlcpy(ptr noundef nonnull %43, ptr noundef nonnull %44, i64 noundef 128) #16
-  %46 = getelementptr inbounds i8, ptr %1, i64 144
-  %47 = getelementptr inbounds i8, ptr %41, i64 144
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  %47 = getelementptr inbounds nuw i8, ptr %41, i64 144
   %48 = load <2 x i32>, ptr %46, align 8, !tbaa !6
   store <2 x i32> %48, ptr %47, align 8, !tbaa !6
-  %49 = getelementptr inbounds i8, ptr %41, i64 152
+  %49 = getelementptr inbounds nuw i8, ptr %41, i64 152
   store i32 0, ptr %49, align 8, !tbaa !56
-  %50 = getelementptr inbounds i8, ptr %1, i64 156
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 156
   %51 = load i32, ptr %50, align 4, !tbaa !62
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %58, label %53
 
 53:                                               ; preds = %40
-  %54 = getelementptr inbounds i8, ptr %1, i64 152
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %55 = load i32, ptr %54, align 8, !tbaa !64
   %56 = icmp eq i32 %55, 3
   %57 = select i1 %56, i32 2, i32 %55
@@ -1808,11 +1808,11 @@ define noundef ptr @legacy_params(ptr nocapture noundef readnone %0, ptr noundef
 58:                                               ; preds = %53, %40
   %59 = phi i32 [ %57, %53 ], [ 0, %40 ]
   %60 = phi i32 [ %51, %53 ], [ 6, %40 ]
-  %61 = getelementptr inbounds i8, ptr %41, i64 156
+  %61 = getelementptr inbounds nuw i8, ptr %41, i64 156
   store i32 %59, ptr %61, align 4
-  %62 = getelementptr inbounds i8, ptr %41, i64 160
+  %62 = getelementptr inbounds nuw i8, ptr %41, i64 160
   store i32 %60, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %1, i64 160
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %64 = load i32, ptr %63, align 8, !tbaa !65
   br label %65
 
@@ -1820,11 +1820,11 @@ define noundef ptr @legacy_params(ptr nocapture noundef readnone %0, ptr noundef
   %66 = phi ptr [ %41, %58 ], [ %25, %24 ], [ %8, %7 ]
   %67 = phi i32 [ %64, %58 ], [ 0, %24 ], [ 0, %7 ]
   %68 = phi i64 [ 168, %58 ], [ 160, %24 ], [ 152, %7 ]
-  %69 = getelementptr inbounds i8, ptr %66, i64 164
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 164
   store i32 %67, ptr %69, align 4, !tbaa !66
-  %70 = getelementptr inbounds i8, ptr %1, i64 %68
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 %68
   %71 = load ptr, ptr %70, align 8, !tbaa !13
-  %72 = getelementptr inbounds i8, ptr %66, i64 168
+  %72 = getelementptr inbounds nuw i8, ptr %66, i64 168
   store ptr %71, ptr %72, align 8, !tbaa !67
   store i32 4, ptr %4, align 4, !tbaa !6
   store i64 168, ptr %5, align 8, !tbaa !68
@@ -1848,19 +1848,19 @@ define noalias noundef ptr @get_params(ptr nocapture noundef readnone %0) local_
 
 4:                                                ; preds = %1
   %5 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.5) #16
-  %6 = getelementptr inbounds i8, ptr %2, i64 148
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 148
   store i32 %5, ptr %6, align 4, !tbaa !30
   %7 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.6) #16
-  %8 = getelementptr inbounds i8, ptr %2, i64 152
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 152
   store i32 %7, ptr %8, align 8, !tbaa !31
   %9 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.7) #16
-  %10 = getelementptr inbounds i8, ptr %2, i64 156
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 156
   store i32 %9, ptr %10, align 4, !tbaa !27
   %11 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.8) #16
-  %12 = getelementptr inbounds i8, ptr %2, i64 160
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 160
   store i32 %11, ptr %12, align 8, !tbaa !32
   %13 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.9) #16
-  %14 = getelementptr inbounds i8, ptr %2, i64 164
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 164
   store i32 %13, ptr %14, align 4, !tbaa !34
   br label %15
 
@@ -1879,43 +1879,43 @@ define void @free_params(ptr nocapture noundef readnone %0, ptr nocapture nounde
 ; Function Attrs: nounwind uwtable
 define noundef range(i32 0, 2) i32 @set_params(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #9 {
   %4 = sext i32 %2 to i64
-  %5 = getelementptr inbounds i8, ptr %0, i64 112
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %6 = load ptr, ptr %5, align 8, !tbaa !69
   %7 = tail call i64 %6(ptr noundef %0) #16
   %8 = icmp eq i64 %7, %4
   br i1 %8, label %9, label %37
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 352
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %11 = load ptr, ptr %10, align 8, !tbaa !72
   %12 = load ptr, ptr %11, align 8, !tbaa !73
-  %13 = getelementptr inbounds i8, ptr %1, i64 148
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 148
   %14 = load i32, ptr %13, align 4, !tbaa !30
   %15 = icmp eq i32 %14, 16
   %16 = icmp eq i32 %14, 32
   %17 = select i1 %16, i32 2, i32 0
   %18 = select i1 %15, i32 1, i32 %17
   tail call void @dt_bauhaus_combobox_set(ptr noundef %12, i32 noundef %18) #16
-  %19 = getelementptr inbounds i8, ptr %11, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !75
-  %21 = getelementptr inbounds i8, ptr %1, i64 152
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %22 = load i32, ptr %21, align 8, !tbaa !31
   %23 = and i32 %22, 1
   tail call void @dt_bauhaus_combobox_set(ptr noundef %20, i32 noundef %23) #16
-  %24 = getelementptr inbounds i8, ptr %11, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %25 = load ptr, ptr %24, align 8, !tbaa !76
-  %26 = getelementptr inbounds i8, ptr %1, i64 156
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 156
   %27 = load i32, ptr %26, align 4, !tbaa !27
   tail call void @dt_bauhaus_combobox_set(ptr noundef %25, i32 noundef %27) #16
-  %28 = getelementptr inbounds i8, ptr %11, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %29 = load ptr, ptr %28, align 8, !tbaa !77
-  %30 = getelementptr inbounds i8, ptr %1, i64 160
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %31 = load i32, ptr %30, align 8, !tbaa !32
   %32 = sitofp i32 %31 to float
   tail call void @dt_bauhaus_slider_set(ptr noundef %29, float noundef %32) #16
-  %33 = getelementptr inbounds i8, ptr %11, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %34 = load ptr, ptr %33, align 8, !tbaa !78
-  %35 = getelementptr inbounds i8, ptr %1, i64 164
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 164
   %36 = load i32, ptr %35, align 4, !tbaa !34
   tail call void @dt_bauhaus_combobox_set(ptr noundef %34, i32 noundef %36) #16
   br label %37
@@ -1931,7 +1931,7 @@ declare void @dt_bauhaus_slider_set(ptr noundef, float noundef) local_unnamed_ad
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @bpp(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 148
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %3 = load i32, ptr %2, align 4, !tbaa !30
   switch i32 %3, label %8 [
     i32 32, label %9
@@ -1939,7 +1939,7 @@ define noundef i32 @bpp(ptr nocapture noundef readonly %0) local_unnamed_addr #1
   ]
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 152
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %6 = load i32, ptr %5, align 8, !tbaa !31
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %9
@@ -1954,7 +1954,7 @@ define noundef i32 @bpp(ptr nocapture noundef readonly %0) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef range(i32 256, 261) i32 @levels(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 148
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %3 = load i32, ptr %2, align 4, !tbaa !30
   switch i32 %3, label %8 [
     i32 8, label %9
@@ -1962,7 +1962,7 @@ define noundef range(i32 256, 261) i32 @levels(ptr nocapture noundef readonly %0
   ]
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 152
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %6 = load i32, ptr %5, align 8, !tbaa !31
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %9, label %8
@@ -2008,7 +2008,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #9 {
   br i1 %3, label %69, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 352
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 352
   store ptr %2, ptr %5, align 8, !tbaa !72
   %6 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.5) #16
   %7 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.6) #16
@@ -2017,7 +2017,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #9 {
   %10 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.8) #16
   %11 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.9) #16
   %12 = tail call ptr @gtk_box_new(i32 noundef 1, i32 noundef 0) #16
-  %13 = getelementptr inbounds i8, ptr %0, i64 344
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store ptr %12, ptr %13, align 8, !tbaa !79
   %14 = icmp eq i32 %6, 16
   %15 = icmp eq i32 %6, 32
@@ -2031,7 +2031,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #9 {
   %22 = load ptr, ptr %2, align 8, !tbaa !73
   tail call void @gtk_box_pack_start(ptr noundef %21, ptr noundef %22, i32 noundef 1, i32 noundef 1, i32 noundef 0) #16
   %23 = tail call ptr @dt_bauhaus_combobox_new_full(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.20, ptr noundef null, i32 noundef %8, ptr noundef nonnull @pixelformat_combobox_changed, ptr noundef null, ptr noundef nonnull @gui_init.texts.17) #16
-  %24 = getelementptr inbounds i8, ptr %2, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %23, ptr %24, align 8, !tbaa !75
   %25 = tail call i32 @dt_confgen_get_bool(ptr noundef nonnull @.str.6, i32 noundef 0) #16
   %26 = and i32 %25, 1
@@ -2046,7 +2046,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #9 {
   %32 = load ptr, ptr %24, align 8, !tbaa !75
   tail call void @gtk_widget_set_no_show_all(ptr noundef %32, i32 noundef 1) #16
   %33 = tail call ptr @dt_bauhaus_combobox_new_full(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.25, ptr noundef null, i32 noundef %9, ptr noundef nonnull @compress_combobox_changed, ptr noundef nonnull %2, ptr noundef nonnull @gui_init.texts.21) #16
-  %34 = getelementptr inbounds i8, ptr %2, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %33, ptr %34, align 8, !tbaa !76
   %35 = tail call i32 @dt_confgen_get_int(ptr noundef nonnull @.str.7, i32 noundef 0) #16
   tail call void @dt_bauhaus_combobox_set_default(ptr noundef %33, i32 noundef %35) #16
@@ -2061,7 +2061,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #9 {
   %43 = tail call i32 @dt_confgen_get_int(ptr noundef nonnull @.str.8, i32 noundef 0) #16
   %44 = sitofp i32 %43 to float
   %45 = tail call ptr @dt_bauhaus_slider_new_with_range(ptr noundef %0, float noundef %40, float noundef %42, float noundef 1.000000e+00, float noundef %44, i32 noundef 0) #16
-  %46 = getelementptr inbounds i8, ptr %2, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %45, ptr %46, align 8, !tbaa !77
   %47 = tail call ptr @dt_bauhaus_widget_set_label(ptr noundef %45, ptr noundef null, ptr noundef nonnull @.str.26) #16
   %48 = load ptr, ptr %46, align 8, !tbaa !77
@@ -2084,7 +2084,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #9 {
   tail call void @gtk_widget_set_no_show_all(ptr noundef %61, i32 noundef 1) #16
   %62 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.32, i32 noundef 5) #16
   %63 = tail call ptr @dt_bauhaus_combobox_new_full(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.31, ptr noundef %62, i32 noundef %11, ptr noundef nonnull @shortfile_combobox_changed, ptr noundef %0, ptr noundef nonnull @gui_init.texts.28) #16
-  %64 = getelementptr inbounds i8, ptr %2, i64 32
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr %63, ptr %64, align 8, !tbaa !78
   %65 = tail call i32 @dt_confgen_get_bool(ptr noundef nonnull @.str.9, i32 noundef 0) #16
   tail call void @dt_bauhaus_combobox_set_default(ptr noundef %63, i32 noundef %65) #16
@@ -2110,7 +2110,7 @@ define internal void @bpp_combobox_changed(ptr noundef %0, ptr nocapture noundef
   %6 = select i1 %5, i32 32, i32 8
   %7 = select i1 %4, i32 16, i32 %6
   tail call void @dt_conf_set_int(ptr noundef nonnull @.str.5, i32 noundef %7) #16
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !75
   %10 = zext i1 %4 to i32
   tail call void @gtk_widget_set_visible(ptr noundef %9, i32 noundef %10) #16
@@ -2143,7 +2143,7 @@ declare void @gtk_widget_set_no_show_all(ptr noundef, i32 noundef) local_unnamed
 define internal void @compress_combobox_changed(ptr noundef %0, ptr nocapture noundef readonly %1) #9 {
   %3 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %0) #16
   tail call void @dt_conf_set_int(ptr noundef nonnull @.str.7, i32 noundef %3) #16
-  %4 = getelementptr inbounds i8, ptr %1, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !77
   %6 = icmp ne i32 %3, 0
   %7 = zext i1 %6 to i32
@@ -2179,7 +2179,7 @@ define internal void @shortfile_combobox_changed(ptr noundef %0, ptr nocapture r
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @gui_cleanup(ptr nocapture noundef readonly %0) local_unnamed_addr #14 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 352
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %3 = load ptr, ptr %2, align 8, !tbaa !72
   tail call void @free(ptr noundef %3) #16
   ret void
@@ -2187,7 +2187,7 @@ define void @gui_cleanup(ptr nocapture noundef readonly %0) local_unnamed_addr #
 
 ; Function Attrs: nounwind uwtable
 define void @gui_reset(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 352
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %3 = load ptr, ptr %2, align 8, !tbaa !72
   %4 = tail call i32 @dt_confgen_get_int(ptr noundef nonnull @.str.5, i32 noundef 0) #16
   %5 = load ptr, ptr %3, align 8, !tbaa !73
@@ -2196,21 +2196,21 @@ define void @gui_reset(ptr nocapture noundef readonly %0) local_unnamed_addr #9 
   %8 = select i1 %7, i32 2, i32 0
   %9 = select i1 %6, i32 1, i32 %8
   tail call void @dt_bauhaus_combobox_set(ptr noundef %5, i32 noundef %9) #16
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !75
   %12 = tail call i32 @dt_confgen_get_bool(ptr noundef nonnull @.str.6, i32 noundef 0) #16
   %13 = and i32 %12, 1
   tail call void @dt_bauhaus_combobox_set(ptr noundef %11, i32 noundef %13) #16
-  %14 = getelementptr inbounds i8, ptr %3, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !76
   %16 = tail call i32 @dt_confgen_get_int(ptr noundef nonnull @.str.7, i32 noundef 0) #16
   tail call void @dt_bauhaus_combobox_set(ptr noundef %15, i32 noundef %16) #16
-  %17 = getelementptr inbounds i8, ptr %3, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !77
   %19 = tail call i32 @dt_confgen_get_int(ptr noundef nonnull @.str.8, i32 noundef 0) #16
   %20 = sitofp i32 %19 to float
   tail call void @dt_bauhaus_slider_set(ptr noundef %18, float noundef %20) #16
-  %21 = getelementptr inbounds i8, ptr %3, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %22 = load ptr, ptr %21, align 8, !tbaa !78
   %23 = tail call i32 @dt_confgen_get_bool(ptr noundef nonnull @.str.9, i32 noundef 0) #16
   tail call void @dt_bauhaus_combobox_set(ptr noundef %22, i32 noundef %23) #16

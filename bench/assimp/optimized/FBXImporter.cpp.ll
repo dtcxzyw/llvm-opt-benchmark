@@ -194,43 +194,43 @@ define hidden void @_ZN6Assimp11FBXImporter15SetupPropertiesEPKNS_8ImporterE(ptr
 entry:
   %call.i = tail call noundef i32 @_ZNK6Assimp8Importer18GetPropertyIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(8) %pImp, ptr noundef nonnull @.str.2, i32 noundef 1)
   %cmp.i = icmp ne i32 %call.i, 0
-  %mSettings = getelementptr inbounds i8, ptr %this, i64 72
-  %readAllLayers = getelementptr inbounds i8, ptr %this, i64 73
+  %mSettings = getelementptr inbounds nuw i8, ptr %this, i64 72
+  %readAllLayers = getelementptr inbounds nuw i8, ptr %this, i64 73
   %frombool = zext i1 %cmp.i to i8
   store i8 %frombool, ptr %readAllLayers, align 1
   %call.i15 = tail call noundef i32 @_ZNK6Assimp8Importer18GetPropertyIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(8) %pImp, ptr noundef nonnull @.str.3, i32 noundef 0)
   %cmp.i16 = icmp ne i32 %call.i15, 0
-  %readAllMaterials = getelementptr inbounds i8, ptr %this, i64 74
+  %readAllMaterials = getelementptr inbounds nuw i8, ptr %this, i64 74
   %frombool4 = zext i1 %cmp.i16 to i8
   store i8 %frombool4, ptr %readAllMaterials, align 2
   %call.i17 = tail call noundef i32 @_ZNK6Assimp8Importer18GetPropertyIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(8) %pImp, ptr noundef nonnull @.str.4, i32 noundef 1)
   %cmp.i18 = icmp ne i32 %call.i17, 0
-  %readMaterials = getelementptr inbounds i8, ptr %this, i64 75
+  %readMaterials = getelementptr inbounds nuw i8, ptr %this, i64 75
   %frombool7 = zext i1 %cmp.i18 to i8
   store i8 %frombool7, ptr %readMaterials, align 1
   %call.i19 = tail call noundef i32 @_ZNK6Assimp8Importer18GetPropertyIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(8) %pImp, ptr noundef nonnull @.str.5, i32 noundef 1)
   %cmp.i20 = icmp ne i32 %call.i19, 0
-  %readTextures = getelementptr inbounds i8, ptr %this, i64 76
+  %readTextures = getelementptr inbounds nuw i8, ptr %this, i64 76
   %frombool10 = zext i1 %cmp.i20 to i8
   store i8 %frombool10, ptr %readTextures, align 4
   %call.i21 = tail call noundef i32 @_ZNK6Assimp8Importer18GetPropertyIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(8) %pImp, ptr noundef nonnull @.str.6, i32 noundef 1)
   %cmp.i22 = icmp ne i32 %call.i21, 0
-  %readCameras = getelementptr inbounds i8, ptr %this, i64 77
+  %readCameras = getelementptr inbounds nuw i8, ptr %this, i64 77
   %frombool13 = zext i1 %cmp.i22 to i8
   store i8 %frombool13, ptr %readCameras, align 1
   %call.i23 = tail call noundef i32 @_ZNK6Assimp8Importer18GetPropertyIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(8) %pImp, ptr noundef nonnull @.str.7, i32 noundef 1)
   %cmp.i24 = icmp ne i32 %call.i23, 0
-  %readLights = getelementptr inbounds i8, ptr %this, i64 78
+  %readLights = getelementptr inbounds nuw i8, ptr %this, i64 78
   %frombool16 = zext i1 %cmp.i24 to i8
   store i8 %frombool16, ptr %readLights, align 2
   %call.i25 = tail call noundef i32 @_ZNK6Assimp8Importer18GetPropertyIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(8) %pImp, ptr noundef nonnull @.str.8, i32 noundef 1)
   %cmp.i26 = icmp ne i32 %call.i25, 0
-  %readAnimations = getelementptr inbounds i8, ptr %this, i64 79
+  %readAnimations = getelementptr inbounds nuw i8, ptr %this, i64 79
   %frombool19 = zext i1 %cmp.i26 to i8
   store i8 %frombool19, ptr %readAnimations, align 1
   %call.i27 = tail call noundef i32 @_ZNK6Assimp8Importer18GetPropertyIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(8) %pImp, ptr noundef nonnull @.str.9, i32 noundef 1)
   %cmp.i28 = icmp ne i32 %call.i27, 0
-  %readWeights = getelementptr inbounds i8, ptr %this, i64 80
+  %readWeights = getelementptr inbounds nuw i8, ptr %this, i64 80
   %frombool22 = zext i1 %cmp.i28 to i8
   store i8 %frombool22, ptr %readWeights, align 8
   %call.i29 = tail call noundef i32 @_ZNK6Assimp8Importer18GetPropertyIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(8) %pImp, ptr noundef nonnull @.str.10, i32 noundef 0)
@@ -239,32 +239,32 @@ entry:
   store i8 %frombool25, ptr %mSettings, align 8
   %call.i31 = tail call noundef i32 @_ZNK6Assimp8Importer18GetPropertyIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(8) %pImp, ptr noundef nonnull @.str.11, i32 noundef 1)
   %cmp.i32 = icmp ne i32 %call.i31, 0
-  %preservePivots = getelementptr inbounds i8, ptr %this, i64 82
+  %preservePivots = getelementptr inbounds nuw i8, ptr %this, i64 82
   %frombool28 = zext i1 %cmp.i32 to i8
   store i8 %frombool28, ptr %preservePivots, align 2
   %call.i33 = tail call noundef i32 @_ZNK6Assimp8Importer18GetPropertyIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(8) %pImp, ptr noundef nonnull @.str.12, i32 noundef 1)
   %cmp.i34 = icmp ne i32 %call.i33, 0
-  %optimizeEmptyAnimationCurves = getelementptr inbounds i8, ptr %this, i64 83
+  %optimizeEmptyAnimationCurves = getelementptr inbounds nuw i8, ptr %this, i64 83
   %frombool31 = zext i1 %cmp.i34 to i8
   store i8 %frombool31, ptr %optimizeEmptyAnimationCurves, align 1
   %call.i35 = tail call noundef i32 @_ZNK6Assimp8Importer18GetPropertyIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(8) %pImp, ptr noundef nonnull @.str.13, i32 noundef 0)
   %cmp.i36 = icmp ne i32 %call.i35, 0
-  %useLegacyEmbeddedTextureNaming = getelementptr inbounds i8, ptr %this, i64 84
+  %useLegacyEmbeddedTextureNaming = getelementptr inbounds nuw i8, ptr %this, i64 84
   %frombool34 = zext i1 %cmp.i36 to i8
   store i8 %frombool34, ptr %useLegacyEmbeddedTextureNaming, align 4
   %call.i37 = tail call noundef i32 @_ZNK6Assimp8Importer18GetPropertyIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(8) %pImp, ptr noundef nonnull @.str.14, i32 noundef 1)
   %cmp.i38 = icmp ne i32 %call.i37, 0
-  %removeEmptyBones = getelementptr inbounds i8, ptr %this, i64 85
+  %removeEmptyBones = getelementptr inbounds nuw i8, ptr %this, i64 85
   %frombool37 = zext i1 %cmp.i38 to i8
   store i8 %frombool37, ptr %removeEmptyBones, align 1
   %call.i39 = tail call noundef i32 @_ZNK6Assimp8Importer18GetPropertyIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(8) %pImp, ptr noundef nonnull @.str.15, i32 noundef 0)
   %cmp.i40 = icmp ne i32 %call.i39, 0
-  %convertToMeters = getelementptr inbounds i8, ptr %this, i64 86
+  %convertToMeters = getelementptr inbounds nuw i8, ptr %this, i64 86
   %frombool40 = zext i1 %cmp.i40 to i8
   store i8 %frombool40, ptr %convertToMeters, align 2
   %call.i41 = tail call noundef i32 @_ZNK6Assimp8Importer18GetPropertyIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(8) %pImp, ptr noundef nonnull @.str.16, i32 noundef 0)
   %cmp.i42 = icmp ne i32 %call.i41, 0
-  %useSkeleton = getelementptr inbounds i8, ptr %this, i64 81
+  %useSkeleton = getelementptr inbounds nuw i8, ptr %this, i64 81
   %frombool43 = zext i1 %cmp.i42 to i8
   store i8 %frombool43, ptr %useSkeleton, align 1
   ret void
@@ -309,7 +309,7 @@ invoke.cont:                                      ; preds = %.noexc
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %pFile) #19
   %call2.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
   %vtable.i = load ptr, ptr %pIOHandler, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 32
   %1 = load ptr, ptr %vfn.i, align 8
   %call3.i14 = invoke noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(32) %pIOHandler, ptr noundef %call.i, ptr noundef %call2.i)
           to label %invoke.cont4 unwind label %lpad3
@@ -317,7 +317,7 @@ invoke.cont:                                      ; preds = %.noexc
 invoke.cont4:                                     ; preds = %invoke.cont
   %2 = ptrtoint ptr %pIOHandler.addr to i64
   store i64 %2, ptr %stream, align 8
-  %3 = getelementptr inbounds i8, ptr %stream, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %stream, i64 8
   store ptr %call3.i14, ptr %3, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #19
@@ -395,14 +395,14 @@ invoke.cont10:                                    ; preds = %invoke.cont8
   call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %contents) #19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %contents, i8 0, i64 24, i1 false)
   %vtable = load ptr, ptr %call3.i14, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 48
   %9 = load ptr, ptr %vfn, align 8
   %call14 = invoke noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(8) %call3.i14)
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %invoke.cont10
   %add = add i64 %call14, 1
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %contents, i64 8
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %contents, i64 8
   %10 = load ptr, ptr %_M_finish.i.i, align 8
   %11 = load ptr, ptr %contents, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %10 to i64
@@ -413,7 +413,7 @@ invoke.cont13:                                    ; preds = %invoke.cont10
 
 if.then.i:                                        ; preds = %invoke.cont13
   %sub.i = sub nuw i64 %add, %sub.ptr.sub.i.i
-  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %contents, i64 16
+  %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %contents, i64 16
   %12 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %sub.ptr.lhs.cast.i8.i = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i9.i = sub i64 %sub.ptr.lhs.cast.i8.i, %sub.ptr.lhs.cast.i.i
@@ -427,7 +427,7 @@ if.then.i:                                        ; preds = %invoke.cont13
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i
   store i8 0, ptr %10, align 1
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 1
   %sub.i.i.i.i.i = add i64 %sub.i, -1
   %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPcmcET_S1_T0_RSaIT1_E.exit.i.i, label %if.then.i.i.i.i.i.i.i.i.i
@@ -462,14 +462,14 @@ _ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i.i
           to label %call5.i.i.i.i.i.noexc unwind label %lpad12
 
 call5.i.i.i.i.i.noexc:                            ; preds = %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i.i
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i21, i64 %sub.ptr.sub.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i21, i64 %sub.ptr.sub.i.i
   store i8 0, ptr %add.ptr.i.i, align 1
   %sub.i.i.i23.i.i = add nsw i64 %sub.i, -1
   %cmp.i.i.i.i.i24.i.i = icmp eq i64 %sub.i.i.i23.i.i, 0
   br i1 %cmp.i.i.i.i.i24.i.i, label %try.cont.i.i, label %if.then.i.i.i.i.i.i.i25.i.i
 
 if.then.i.i.i.i.i.i.i25.i.i:                      ; preds = %call5.i.i.i.i.i.noexc
-  %incdec.ptr.i.i.i22.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 1
+  %incdec.ptr.i.i.i22.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 1
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %incdec.ptr.i.i.i22.i.i, i8 0, i64 %sub.i.i.i23.i.i, i1 false)
   br label %try.cont.i.i
 
@@ -493,7 +493,7 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit33.i.i: ; preds = %if.then.i3
   store ptr %call5.i.i.i.i.i21, ptr %contents, align 8
   %add.ptr36.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i21, i64 %add
   store ptr %add.ptr36.i.i, ptr %_M_finish.i.i, align 8
-  %add.ptr39.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i21, i64 %13
+  %add.ptr39.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i21, i64 %13
   store ptr %add.ptr39.i.i, ptr %_M_end_of_storage.i.i, align 8
   br label %invoke.cont15
 
@@ -518,7 +518,7 @@ invoke.cont15:                                    ; preds = %invoke.cont.i.i, %i
   %16 = xor i64 %sub.ptr.rhs.cast.i, -1
   %sub = add i64 %sub.ptr.lhs.cast.i, %16
   %vtable21 = load ptr, ptr %call3.i14, align 8
-  %vfn22 = getelementptr inbounds i8, ptr %vtable21, i64 16
+  %vfn22 = getelementptr inbounds nuw i8, ptr %vtable21, i64 16
   %17 = load ptr, ptr %vfn22, align 8
   %call24 = invoke noundef i64 %17(ptr noundef nonnull align 8 dereferenceable(8) %call3.i14, ptr noundef nonnull %15, i64 noundef 1, i64 noundef %sub)
           to label %invoke.cont23 unwind label %lpad12
@@ -531,9 +531,9 @@ invoke.cont23:                                    ; preds = %invoke.cont15
   %19 = load ptr, ptr %contents, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %tokens, i8 0, i64 24, i1 false)
   store i64 16384, ptr %tempAllocator, align 8
-  %m_subIndex.i = getelementptr inbounds i8, ptr %tempAllocator, i64 8
+  %m_subIndex.i = getelementptr inbounds nuw i8, ptr %tempAllocator, i64 8
   store i64 67108864, ptr %m_subIndex.i, align 8
-  %m_storageBlocks.i = getelementptr inbounds i8, ptr %tempAllocator, i64 16
+  %m_storageBlocks.i = getelementptr inbounds nuw i8, ptr %tempAllocator, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_storageBlocks.i, i8 0, i64 24, i1 false)
   %call34 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(19) @.str.20, i64 noundef 18) #23
   %tobool.not = icmp eq i32 %call34, 0
@@ -567,19 +567,19 @@ if.end40:                                         ; preds = %if.else, %if.then35
           to label %invoke.cont42 unwind label %lpad37
 
 invoke.cont42:                                    ; preds = %if.end40
-  %mSettings = getelementptr inbounds i8, ptr %this, i64 72
+  %mSettings = getelementptr inbounds nuw i8, ptr %this, i64 72
   invoke void @_ZN6Assimp3FBX8DocumentC1ERNS0_6ParserERKNS0_14ImportSettingsE(ptr noundef nonnull align 8 dereferenceable(336) %doc, ptr noundef nonnull align 8 dereferenceable(49) %parser, ptr noundef nonnull align 1 dereferenceable(15) %mSettings)
           to label %invoke.cont44 unwind label %lpad43
 
 invoke.cont44:                                    ; preds = %invoke.cont42
-  %removeEmptyBones = getelementptr inbounds i8, ptr %this, i64 85
+  %removeEmptyBones = getelementptr inbounds nuw i8, ptr %this, i64 85
   %23 = load i8, ptr %removeEmptyBones, align 1
   %tobool46 = trunc i8 %23 to i1
   invoke void @_ZN6Assimp3FBX20ConvertToAssimpSceneEP7aiSceneRKNS0_8DocumentEb(ptr noundef %pScene, ptr noundef nonnull align 8 dereferenceable(336) %doc, i1 noundef zeroext %tobool46)
           to label %invoke.cont48 unwind label %lpad47
 
 invoke.cont48:                                    ; preds = %invoke.cont44
-  %globals.i = getelementptr inbounds i8, ptr %doc, i64 328
+  %globals.i = getelementptr inbounds nuw i8, ptr %doc, i64 328
   %24 = load ptr, ptr %globals.i, align 8
   %call52 = invoke noundef float @_ZNK6Assimp3FBX18FileGlobalSettings15UnitScaleFactorEv(ptr noundef nonnull align 8 dereferenceable(24) %24)
           to label %invoke.cont51 unwind label %lpad47
@@ -648,11 +648,11 @@ lpad47.body:                                      ; preds = %lpad.i33.body, %lpa
 invoke.cont66:                                    ; preds = %invoke.cont51
   %mul = fmul float %call52, 0x3F847AE140000000
   %conv56 = fpext float %mul to double
-  %fileScale.i = getelementptr inbounds i8, ptr %this, i64 16
+  %fileScale.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store double %conv56, ptr %fileScale.i, align 8
   call void @_ZN6Assimp3FBX8DocumentD1Ev(ptr noundef nonnull align 8 dereferenceable(336) %doc) #19
   call void @_ZN6Assimp3FBX6ParserD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %parser) #19
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %tempAllocator, i64 24
+  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %tempAllocator, i64 24
   %29 = load ptr, ptr %_M_finish.i.i.i, align 8
   %30 = load ptr, ptr %m_storageBlocks.i, align 8
   %cmp8.not.i.i38 = icmp eq ptr %29, %30
@@ -730,7 +730,7 @@ if.then.i44:                                      ; preds = %_ZNSt6vectorIcSaIcE
   %call2.val.i = load ptr, ptr %stream, align 8
   %call2.val.val.i = load ptr, ptr %call2.val.i, align 8
   %vtable.i.i = load ptr, ptr %call2.val.val.i, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 40
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 40
   %39 = load ptr, ptr %vfn.i.i, align 8
   invoke void %39(ptr noundef nonnull align 8 dereferenceable(32) %call2.val.val.i, ptr noundef nonnull %38)
           to label %"_ZNSt10unique_ptrIN6Assimp8IOStreamEZNS0_11FBXImporter14InternReadFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP7aiScenePNS0_8IOSystemEE3$_0ED2Ev.exit" unwind label %terminate.lpad.i
@@ -870,7 +870,7 @@ call.i.noexc3:                                    ; preds = %invoke.cont
 if.end.i:                                         ; preds = %call.i.noexc3
   %2 = call noundef ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(8) %call.i4, ptr nonnull @_ZTIN6Assimp3FBX8PropertyE, ptr nonnull @_ZTIN6Assimp3FBX13TypedPropertyIfEE, i64 0) #19
   %cmp2.i = icmp eq ptr %2, null
-  %value.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %value.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %spec.select.i = select i1 %cmp2.i, ptr %ref.tmp3, ptr %value.i.i
   %retval.0.i.pre = load float, ptr %spec.select.i, align 4
   br label %invoke.cont5
@@ -923,8 +923,8 @@ declare void @_ZSt9terminatev() local_unnamed_addr #6
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp14StackAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_storageBlocks.i = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_storageBlocks.i = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %m_storageBlocks.i, align 8
   %cmp8.not.i = icmp eq ptr %0, %1
@@ -960,7 +960,7 @@ for.end.i:                                        ; preds = %for.inc.i, %entry
   %.lcssa.i = phi ptr [ %1, %entry ], [ %5, %for.inc.i ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_storageBlocks.i, i8 0, i64 24, i1 false)
   store i64 16384, ptr %this, align 8
-  %m_subIndex.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_subIndex.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 67108864, ptr %m_subIndex.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %.lcssa.i, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIPhSaIS0_EED2Ev.exit, label %_ZN6Assimp14StackAllocator7FreeAllEv.exit
@@ -998,7 +998,7 @@ _ZNSt12_Vector_baseIcSaIcEED2Ev.exit:             ; preds = %invoke.cont, %if.th
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @"_ZNSt10unique_ptrIN6Assimp8IOStreamEZNS0_11FBXImporter14InternReadFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP7aiScenePNS0_8IOSystemEE3$_0ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %add.ptr.i.i.i.i, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1007,7 +1007,7 @@ if.then:                                          ; preds = %entry
   %call2.val = load ptr, ptr %this, align 8
   %call2.val.val = load ptr, ptr %call2.val, align 8
   %vtable.i = load ptr, ptr %call2.val.val, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 40
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 40
   %1 = load ptr, ptr %vfn.i, align 8
   invoke void %1(ptr noundef nonnull align 8 dereferenceable(32) %call2.val.val, ptr noundef nonnull %0)
           to label %if.end unwind label %terminate.lpad

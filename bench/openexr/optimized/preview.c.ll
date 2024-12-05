@@ -21,7 +21,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %if.end
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %0 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %0(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef %w, i32 noundef %h, i64 noundef %mul2) #3
   br label %return
@@ -31,7 +31,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %tobool6.not, label %if.then7, label %if.end9
 
 if.then7:                                         ; preds = %if.end5
-  %report_error = getelementptr inbounds i8, ptr %ctxt, i64 64
+  %report_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 64
   %1 = load ptr, ptr %report_error, align 8
   %call8 = tail call i32 %1(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.1) #3
   br label %return
@@ -42,25 +42,25 @@ if.end9:                                          ; preds = %if.end5
   br i1 %cmp10.not, label %return, label %if.then12
 
 if.then12:                                        ; preds = %if.end9
-  %alloc_fn = getelementptr inbounds i8, ptr %ctxt, i64 88
+  %alloc_fn = getelementptr inbounds nuw i8, ptr %ctxt, i64 88
   %2 = load ptr, ptr %alloc_fn, align 8
   %call13 = tail call ptr %2(i64 noundef %mul2) #3
-  %rgba = getelementptr inbounds i8, ptr %p, i64 16
+  %rgba = getelementptr inbounds nuw i8, ptr %p, i64 16
   store ptr %call13, ptr %rgba, align 8
   %cmp15 = icmp eq ptr %call13, null
   br i1 %cmp15, label %if.then17, label %if.end19
 
 if.then17:                                        ; preds = %if.then12
-  %standard_error = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %3 = load ptr, ptr %standard_error, align 8
   %call18 = tail call i32 %3(ptr noundef nonnull %ctxt, i32 noundef 1) #3
   br label %return
 
 if.end19:                                         ; preds = %if.then12
-  %alloc_size = getelementptr inbounds i8, ptr %p, i64 8
+  %alloc_size = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i64 %mul2, ptr %alloc_size, align 8
   store i32 %w, ptr %p, align 8
-  %height = getelementptr inbounds i8, ptr %p, i64 4
+  %height = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 %h, ptr %height, align 4
   br label %return
 
@@ -90,7 +90,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.i, label %if.then4.i, label %if.end5.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %print_error.i = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %0 = load ptr, ptr %print_error.i, align 8
   %call.i = tail call i32 (ptr, i32, ptr, ...) %0(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef %w, i32 noundef %h, i64 noundef %mul2.i) #3
   br label %exr_attr_preview_init.exit
@@ -100,7 +100,7 @@ if.end5.i:                                        ; preds = %if.end.i
   br i1 %tobool6.not.i, label %if.then7.i, label %if.end9.i
 
 if.then7.i:                                       ; preds = %if.end5.i
-  %report_error.i = getelementptr inbounds i8, ptr %ctxt, i64 64
+  %report_error.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 64
   %1 = load ptr, ptr %report_error.i, align 8
   %call8.i = tail call i32 %1(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.1) #3
   br label %exr_attr_preview_init.exit
@@ -111,25 +111,25 @@ if.end9.i:                                        ; preds = %if.end5.i
   br i1 %cmp10.not.i, label %if.then, label %if.then12.i
 
 if.then12.i:                                      ; preds = %if.end9.i
-  %alloc_fn.i = getelementptr inbounds i8, ptr %ctxt, i64 88
+  %alloc_fn.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 88
   %2 = load ptr, ptr %alloc_fn.i, align 8
   %call13.i = tail call ptr %2(i64 noundef %mul2.i) #3
-  %rgba.i = getelementptr inbounds i8, ptr %p, i64 16
+  %rgba.i = getelementptr inbounds nuw i8, ptr %p, i64 16
   store ptr %call13.i, ptr %rgba.i, align 8
   %cmp15.i = icmp eq ptr %call13.i, null
   br i1 %cmp15.i, label %if.then17.i, label %if.end19.i
 
 if.then17.i:                                      ; preds = %if.then12.i
-  %standard_error.i = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %3 = load ptr, ptr %standard_error.i, align 8
   %call18.i = tail call i32 %3(ptr noundef nonnull %ctxt, i32 noundef 1) #3
   br label %exr_attr_preview_init.exit
 
 if.end19.i:                                       ; preds = %if.then12.i
-  %alloc_size.i = getelementptr inbounds i8, ptr %p, i64 8
+  %alloc_size.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i64 %mul2.i, ptr %alloc_size.i, align 8
   store i32 %w, ptr %p, align 8
-  %height.i = getelementptr inbounds i8, ptr %p, i64 4
+  %height.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 %h, ptr %height.i, align 4
   br label %if.then
 
@@ -146,7 +146,7 @@ if.then:                                          ; preds = %if.end9.i, %if.end1
 
 if.then4:                                         ; preds = %if.then
   %conv = zext i32 %mul1 to i64
-  %rgba = getelementptr inbounds i8, ptr %p, i64 16
+  %rgba = getelementptr inbounds nuw i8, ptr %p, i64 16
   %4 = load ptr, ptr %rgba, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %4, ptr align 1 %d, i64 %conv, i1 false)
   br label %if.end5
@@ -167,19 +167,19 @@ if.end:                                           ; preds = %entry
   br i1 %tobool1.not, label %return, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %rgba = getelementptr inbounds i8, ptr %p, i64 16
+  %rgba = getelementptr inbounds nuw i8, ptr %p, i64 16
   %0 = load ptr, ptr %rgba, align 8
   %tobool3.not = icmp eq ptr %0, null
   br i1 %tobool3.not, label %if.end6, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then2
-  %alloc_size = getelementptr inbounds i8, ptr %p, i64 8
+  %alloc_size = getelementptr inbounds nuw i8, ptr %p, i64 8
   %1 = load i64, ptr %alloc_size, align 8
   %cmp.not = icmp eq i64 %1, 0
   br i1 %cmp.not, label %if.end6, label %if.then4
 
 if.then4:                                         ; preds = %land.lhs.true
-  %free_fn = getelementptr inbounds i8, ptr %ctxt, i64 96
+  %free_fn = getelementptr inbounds nuw i8, ptr %ctxt, i64 96
   %2 = load ptr, ptr %free_fn, align 8
   tail call void %2(ptr noundef nonnull %0) #3
   br label %if.end6

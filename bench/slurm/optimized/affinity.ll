@@ -21,7 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 define range(i32 0, 2) i32 @get_cpuset(ptr noundef initializes((0, 128)) %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [257 x i8], align 16
   %5 = alloca [1024 x i8], align 16
-  %6 = getelementptr inbounds i8, ptr %1, i64 312
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 312
   %7 = load i32, ptr %6, align 8
   call void @slurm_sprint_cpu_bind_type(ptr noundef nonnull %5, i32 noundef %7) #7
   %8 = call i32 @slurm_get_log_level() #7
@@ -30,7 +30,7 @@ define range(i32 0, 2) i32 @get_cpuset(ptr noundef initializes((0, 128)) %0, ptr
 
 10:                                               ; preds = %3
   %11 = load i32, ptr %6, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 320
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %13 = load ptr, ptr %12, align 8
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef nonnull @.str, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.get_cpuset, ptr noundef nonnull %5, i32 noundef %11, ptr noundef %13) #7
   br label %14
@@ -49,11 +49,11 @@ define range(i32 0, 2) i32 @get_cpuset(ptr noundef initializes((0, 128)) %0, ptr
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr @conf, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 4158
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 4158
   %22 = load i16, ptr %21, align 2
   %narrow = call i16 @llvm.umax.i16(i16 %22, i16 1)
   %spec.select = zext i16 %narrow to i32
-  %23 = getelementptr inbounds i8, ptr %1, i64 264
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 264
   %24 = load i16, ptr %23, align 8
   %25 = zext i16 %24 to i32
   %26 = mul nuw nsw i32 %spec.select, %25
@@ -66,7 +66,7 @@ define range(i32 0, 2) i32 @get_cpuset(ptr noundef initializes((0, 128)) %0, ptr
   %31 = and i64 %30, 63
   %32 = shl nuw i64 1, %31
   %33 = lshr i64 %30, 6
-  %34 = getelementptr inbounds i64, ptr %0, i64 %33
+  %34 = getelementptr inbounds nuw i64, ptr %0, i64 %33
   %35 = load i64, ptr %34, align 8
   %36 = or i64 %35, %32
   store i64 %36, ptr %34, align 8
@@ -82,7 +82,7 @@ define range(i32 0, 2) i32 @get_cpuset(ptr noundef initializes((0, 128)) %0, ptr
   br label %.loopexit
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %1, i64 320
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %42 = load ptr, ptr %41, align 8
   %.not99 = icmp eq ptr %42, null
   br i1 %.not99, label %.loopexit, label %.preheader
@@ -107,7 +107,7 @@ define range(i32 0, 2) i32 @get_cpuset(ptr noundef initializes((0, 128)) %0, ptr
   %49 = icmp eq i8 %46, 44
   %50 = zext i1 %49 to i32
   %spec.select116 = add nuw nsw i32 %.080125, %50
-  %51 = getelementptr inbounds i8, ptr %.083124, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %.083124, i64 1
   %52 = load i8, ptr %51, align 1
   %.not100 = icmp eq i8 %52, 0
   br i1 %.not100, label %._crit_edge, label %45, !llvm.loop !6
@@ -124,7 +124,7 @@ define range(i32 0, 2) i32 @get_cpuset(ptr noundef initializes((0, 128)) %0, ptr
   %55 = icmp eq i8 %54, 44
   %56 = sext i1 %55 to i32
   %spec.select117 = add nsw i32 %.081127, %56
-  %57 = getelementptr inbounds i8, ptr %.184126, i64 1
+  %57 = getelementptr inbounds nuw i8, ptr %.184126, i64 1
   %58 = load i8, ptr %57, align 1
   %59 = icmp ne i8 %58, 0
   %60 = icmp ne i32 %spec.select117, 0
@@ -160,8 +160,8 @@ define range(i32 0, 2) i32 @get_cpuset(ptr noundef initializes((0, 128)) %0, ptr
 
 65:                                               ; preds = %64
   %66 = add nuw nsw i32 %.2, 1
-  %67 = getelementptr inbounds i8, ptr %.289, i64 1
-  %68 = getelementptr inbounds i8, ptr %.285, i64 1
+  %67 = getelementptr inbounds nuw i8, ptr %.289, i64 1
+  %68 = getelementptr inbounds nuw i8, ptr %.285, i64 1
   store i8 %63, ptr %.285, align 1
   br label %.loopexit120, !llvm.loop !9
 
@@ -191,7 +191,7 @@ define range(i32 0, 2) i32 @get_cpuset(ptr noundef initializes((0, 128)) %0, ptr
   br i1 %79, label %80, label %83
 
 80:                                               ; preds = %77
-  %81 = getelementptr inbounds i8, ptr %4, i64 2
+  %81 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %82 = call i64 @strtoul(ptr nocapture noundef nonnull %81, ptr noundef null, i32 noundef 16) #7
   br label %85
 
@@ -209,7 +209,7 @@ define range(i32 0, 2) i32 @get_cpuset(ptr noundef initializes((0, 128)) %0, ptr
   %89 = and i64 %.086.in, 63
   %90 = shl nuw i64 1, %89
   %91 = lshr i64 %86, 6
-  %92 = getelementptr inbounds i64, ptr %0, i64 %91
+  %92 = getelementptr inbounds nuw i64, ptr %0, i64 %91
   %93 = load i64, ptr %92, align 8
   %94 = or i64 %93, %90
   store i64 %94, ptr %92, align 8
@@ -231,7 +231,7 @@ define range(i32 0, 2) i32 @get_cpuset(ptr noundef initializes((0, 128)) %0, ptr
   %.not109 = icmp eq i16 %lhsv, 30768
   %or.cond = select i1 %102, i1 %.not109, i1 false
   %.3.idx.sroa.sel.idx.sroa.sel.idx = select i1 %or.cond, i64 2, i64 0
-  %.3.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds i8, ptr %4, i64 %.3.idx.sroa.sel.idx.sroa.sel.idx
+  %.3.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %4, i64 %.3.idx.sroa.sel.idx.sroa.sel.idx
   %.079133 = getelementptr inbounds i8, ptr %101, i64 -1
   %.not110134 = icmp ult ptr %.079133, %.3.idx.sroa.sel.idx.sroa.sel
   br i1 %.not110134, label %.loopexit, label %.lr.ph138
@@ -302,7 +302,7 @@ define range(i32 0, 2) i32 @get_cpuset(ptr noundef initializes((0, 128)) %0, ptr
   br i1 %128, label %129, label %132
 
 129:                                              ; preds = %126
-  %130 = getelementptr inbounds i8, ptr %4, i64 2
+  %130 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %131 = call i64 @strtoul(ptr nocapture noundef nonnull %130, ptr noundef null, i32 noundef 16) #7
   br label %134
 
@@ -353,14 +353,14 @@ define internal fastcc void @_bind_ldom(i32 noundef %0, ptr nocapture noundef %1
 
 12:                                               ; preds = %11, %8
   %13 = load ptr, ptr @conf, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 4156
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4156
   %15 = load i16, ptr %14, align 4
   %16 = zext i16 %15 to i32
-  %17 = getelementptr inbounds i8, ptr %13, i64 4184
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 4184
   %18 = load i16, ptr %17, align 8
   %19 = zext i16 %18 to i32
   %20 = mul nuw nsw i32 %19, %16
-  %21 = getelementptr inbounds i8, ptr %13, i64 4158
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 4158
   %22 = load i16, ptr %21, align 2
   %23 = zext i16 %22 to i32
   %24 = mul nuw nsw i32 %20, %23
@@ -385,7 +385,7 @@ define internal fastcc void @_bind_ldom(i32 noundef %0, ptr nocapture noundef %1
   %31 = and i64 %indvars.iv, 63
   %32 = shl nuw i64 1, %31
   %33 = lshr i64 %indvars.iv, 6
-  %34 = getelementptr inbounds i64, ptr %1, i64 %33
+  %34 = getelementptr inbounds nuw i64, ptr %1, i64 %33
   %35 = load i64, ptr %34, align 8
   %36 = or i64 %35, %32
   store i64 %36, ptr %34, align 8

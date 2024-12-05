@@ -24,7 +24,7 @@ define hidden noundef ptr @standardHandlers_defaultHandler(i32 noundef %0) local
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [22 x ptr], ptr @switch.table.standardHandlers_defaultHandler, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [22 x ptr], ptr @switch.table.standardHandlers_defaultHandler, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -36,7 +36,7 @@ switch.lookup:                                    ; preds = %1
 ; Function Attrs: nounwind uwtable
 define internal void @genericHandler(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) #1 {
   %5 = load i32, ptr %2, align 4
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load i8, ptr %6, align 4
   tail call void @eventHelper_recordEvent(ptr noundef %1, i32 noundef %5, i8 noundef signext %7, ptr noundef %3) #3
   ret void
@@ -44,20 +44,20 @@ define internal void @genericHandler(ptr nocapture readnone %0, ptr noundef %1, 
 
 ; Function Attrs: nounwind uwtable
 define internal void @handleClassPrepare(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef %3) #1 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i8 @threadControl_isDebugThread(ptr noundef %6) #3
   %.not = icmp eq i8 %7, 0
   br i1 %.not, label %._crit_edge, label %8
 
 ._crit_edge:                                      ; preds = %4
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.pre = load i8, ptr %.phi.trans.insert, align 4
   br label %13
 
 8:                                                ; preds = %4
   store ptr null, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load i8, ptr %9, align 4
   %11 = icmp eq i8 %10, 1
   br i1 %11, label %12, label %13
@@ -80,7 +80,7 @@ define internal void @handleClassUnload(ptr nocapture readnone %0, ptr nocapture
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %5, i64 17
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 17
   %8 = load i8, ptr %7, align 1
   %.not1 = icmp eq i8 %8, 0
   br i1 %.not1, label %10, label %9
@@ -98,7 +98,7 @@ define internal void @handleFrameEvent(ptr nocapture readnone %0, ptr nocapture 
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   %7 = load ptr, ptr @gdata, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 528
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 528
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 4
   %.not = icmp eq i32 %10, 0
@@ -114,9 +114,9 @@ define internal void @handleFrameEvent(ptr nocapture readnone %0, ptr nocapture 
   %13 = phi ptr [ %7, %4 ], [ %.pre, %11 ]
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 144
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 144
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = call i32 %17(ptr noundef nonnull %14, ptr noundef %19, i32 noundef 0, ptr noundef nonnull %5, ptr noundef nonnull %6) #3
   %.not11 = icmp eq i32 %20, 0
@@ -132,18 +132,18 @@ define internal void @handleFrameEvent(ptr nocapture readnone %0, ptr nocapture 
 
 22:                                               ; preds = %._crit_edge, %21
   %23 = phi i64 [ %.pre12, %._crit_edge ], [ -1, %21 ]
-  %24 = getelementptr inbounds i8, ptr %1, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.sroa.0.0.copyload = load i64, ptr %24, align 8
   %25 = load i32, ptr %2, align 4
-  %26 = getelementptr inbounds i8, ptr %2, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %27 = load i8, ptr %26, align 4
   %28 = load i32, ptr %1, align 8
   %29 = load ptr, ptr %18, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %2, i64 12
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %35 = load i32, ptr %34, align 4
   call void @eventHelper_recordFrameEvent(i32 noundef %25, i8 noundef signext %27, i32 noundef %28, ptr noundef %29, ptr noundef %31, ptr noundef %33, i64 noundef %23, i32 noundef %35, i64 %.sroa.0.0.copyload, ptr noundef %3) #3
   ret void

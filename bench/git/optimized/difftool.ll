@@ -186,189 +186,189 @@ entry:
   store i32 0, ptr %tool_help, align 4
   store i32 0, ptr %no_index, align 4
   store i32 9, ptr %builtin_difftool_options, align 16
-  %short_name = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 4
+  %short_name = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 4
   store i32 103, ptr %short_name, align 4
-  %long_name = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 8
+  %long_name = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 8
   store ptr @.str, ptr %long_name, align 8
-  %value = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 16
+  %value = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 16
   store ptr %use_gui_tool, ptr %value, align 16
-  %argh = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 24
+  %argh = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 24
   store ptr null, ptr %argh, align 8
-  %help = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 32
+  %help = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 32
   store ptr @.str.1, ptr %help, align 16
-  %flags = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 40
+  %flags = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 40
   store i32 2, ptr %flags, align 8
-  %callback = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 48
+  %callback = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 48
   store ptr null, ptr %callback, align 16
-  %defval = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 56
+  %defval = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 56
   store i64 1, ptr %defval, align 8
-  %ll_callback = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 64
-  %arrayinit.element = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 88
+  %ll_callback = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 64
+  %arrayinit.element = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ll_callback, i8 0, i64 24, i1 false)
   store i32 9, ptr %arrayinit.element, align 8
-  %short_name2 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 92
+  %short_name2 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 92
   store i32 100, ptr %short_name2, align 4
-  %long_name3 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 96
+  %long_name3 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 96
   store ptr @.str.2, ptr %long_name3, align 16
-  %value4 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 104
+  %value4 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 104
   store ptr %dir_diff, ptr %value4, align 8
-  %argh5 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 112
+  %argh5 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 112
   store ptr null, ptr %argh5, align 16
-  %help6 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 120
+  %help6 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 120
   store ptr @.str.3, ptr %help6, align 8
-  %flags7 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 128
+  %flags7 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 128
   store i32 2, ptr %flags7, align 16
-  %callback8 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 136
+  %callback8 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 136
   store ptr null, ptr %callback8, align 8
-  %defval9 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 144
+  %defval9 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 144
   store i64 1, ptr %defval9, align 16
-  %ll_callback10 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 152
-  %arrayinit.element13 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 176
+  %ll_callback10 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 152
+  %arrayinit.element13 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 176
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ll_callback10, i8 0, i64 24, i1 false)
   store i32 9, ptr %arrayinit.element13, align 16
-  %short_name15 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 180
+  %short_name15 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 180
   store i32 121, ptr %short_name15, align 4
-  %long_name16 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 184
+  %long_name16 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 184
   store ptr @.str.4, ptr %long_name16, align 8
-  %value17 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 192
+  %value17 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 192
   store ptr %prompt, ptr %value17, align 16
-  %argh18 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 200
+  %argh18 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 200
   store ptr null, ptr %argh18, align 8
-  %help19 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 208
+  %help19 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 208
   store ptr @.str.5, ptr %help19, align 16
-  %flags20 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 216
+  %flags20 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 216
   store i32 6, ptr %flags20, align 8
-  %callback21 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 224
-  %arrayinit.element26 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 264
+  %callback21 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 224
+  %arrayinit.element26 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 264
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %callback21, i8 0, i64 40, i1 false)
   store i32 9, ptr %arrayinit.element26, align 8
-  %short_name28 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 268
+  %short_name28 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 268
   store i32 0, ptr %short_name28, align 4
-  %long_name29 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 272
+  %long_name29 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 272
   store ptr @.str.6, ptr %long_name29, align 16
-  %value30 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 280
+  %value30 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 280
   store ptr %prompt, ptr %value30, align 8
-  %argh31 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 288
-  %flags33 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 304
+  %argh31 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 288
+  %flags33 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 304
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %argh31, i8 0, i64 16, i1 false)
   store i32 14, ptr %flags33, align 16
-  %callback34 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 312
+  %callback34 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 312
   store ptr null, ptr %callback34, align 8
-  %defval35 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 320
+  %defval35 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 320
   store i64 1, ptr %defval35, align 16
-  %ll_callback36 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 328
-  %arrayinit.element39 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 352
+  %ll_callback36 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 328
+  %arrayinit.element39 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 352
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ll_callback36, i8 0, i64 24, i1 false)
   store i32 9, ptr %arrayinit.element39, align 16
-  %short_name41 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 356
+  %short_name41 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 356
   store i32 0, ptr %short_name41, align 4
-  %long_name42 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 360
+  %long_name42 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 360
   store ptr @.str.7, ptr %long_name42, align 8
-  %value43 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 368
+  %value43 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 368
   store ptr %symlinks, ptr %value43, align 16
-  %argh44 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 376
+  %argh44 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 376
   store ptr null, ptr %argh44, align 8
-  %help45 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 384
+  %help45 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 384
   store ptr @.str.8, ptr %help45, align 16
-  %flags46 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 392
+  %flags46 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 392
   store i32 2, ptr %flags46, align 8
-  %callback47 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 400
+  %callback47 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 400
   store ptr null, ptr %callback47, align 16
-  %defval48 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 408
+  %defval48 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 408
   store i64 1, ptr %defval48, align 8
-  %ll_callback49 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 416
-  %arrayinit.element52 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 440
+  %ll_callback49 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 416
+  %arrayinit.element52 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 440
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ll_callback49, i8 0, i64 24, i1 false)
   store i32 10, ptr %arrayinit.element52, align 8
-  %short_name54 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 444
+  %short_name54 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 444
   store i32 116, ptr %short_name54, align 4
-  %long_name55 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 448
+  %long_name55 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 448
   store ptr @.str.9, ptr %long_name55, align 16
-  %value56 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 456
+  %value56 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 456
   store ptr @cmd_difftool.difftool_cmd, ptr %value56, align 8
-  %argh57 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 464
+  %argh57 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 464
   store ptr @.str.9, ptr %argh57, align 16
-  %help58 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 472
+  %help58 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 472
   store ptr @.str.10, ptr %help58, align 8
-  %flags59 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 480
+  %flags59 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 480
   store i32 0, ptr %flags59, align 16
-  %callback60 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 488
-  %arrayinit.element65 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 528
+  %callback60 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 488
+  %arrayinit.element65 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 528
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %callback60, i8 0, i64 40, i1 false)
   store i32 9, ptr %arrayinit.element65, align 16
-  %short_name67 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 532
+  %short_name67 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 532
   store i32 0, ptr %short_name67, align 4
-  %long_name68 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 536
+  %long_name68 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 536
   store ptr @.str.11, ptr %long_name68, align 8
-  %value69 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 544
+  %value69 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 544
   store ptr %tool_help, ptr %value69, align 16
-  %argh70 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 552
+  %argh70 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 552
   store ptr null, ptr %argh70, align 8
-  %help71 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 560
+  %help71 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 560
   store ptr @.str.12, ptr %help71, align 16
-  %flags72 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 568
+  %flags72 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 568
   store i32 2, ptr %flags72, align 8
-  %callback73 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 576
+  %callback73 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 576
   store ptr null, ptr %callback73, align 16
-  %defval74 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 584
+  %defval74 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 584
   store i64 1, ptr %defval74, align 8
-  %ll_callback75 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 592
-  %arrayinit.element78 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 616
+  %ll_callback75 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 592
+  %arrayinit.element78 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 616
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ll_callback75, i8 0, i64 24, i1 false)
   store i32 9, ptr %arrayinit.element78, align 8
-  %short_name80 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 620
+  %short_name80 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 620
   store i32 0, ptr %short_name80, align 4
-  %long_name81 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 624
+  %long_name81 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 624
   store ptr @.str.13, ptr %long_name81, align 16
-  %value82 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 632
+  %value82 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 632
   store ptr @trust_exit_code, ptr %value82, align 8
-  %argh83 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 640
+  %argh83 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 640
   store ptr null, ptr %argh83, align 16
-  %help84 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 648
+  %help84 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 648
   store ptr @.str.14, ptr %help84, align 8
-  %flags85 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 656
+  %flags85 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 656
   store i32 2, ptr %flags85, align 16
-  %callback86 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 664
+  %callback86 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 664
   store ptr null, ptr %callback86, align 8
-  %defval87 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 672
+  %defval87 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 672
   store i64 1, ptr %defval87, align 16
-  %ll_callback88 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 680
-  %arrayinit.element91 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 704
+  %ll_callback88 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 680
+  %arrayinit.element91 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 704
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ll_callback88, i8 0, i64 24, i1 false)
   store i32 10, ptr %arrayinit.element91, align 16
-  %short_name93 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 708
+  %short_name93 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 708
   store i32 120, ptr %short_name93, align 4
-  %long_name94 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 712
+  %long_name94 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 712
   store ptr @.str.15, ptr %long_name94, align 8
-  %value95 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 720
+  %value95 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 720
   store ptr @cmd_difftool.extcmd, ptr %value95, align 16
-  %argh96 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 728
+  %argh96 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 728
   store ptr @.str.16, ptr %argh96, align 8
-  %help97 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 736
+  %help97 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 736
   store ptr @.str.17, ptr %help97, align 16
-  %flags98 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 744
+  %flags98 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 744
   store i32 0, ptr %flags98, align 8
-  %callback99 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 752
-  %arrayinit.element104 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 792
+  %callback99 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 752
+  %arrayinit.element104 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 792
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %callback99, i8 0, i64 40, i1 false)
   store i32 9, ptr %arrayinit.element104, align 8
-  %short_name106 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 796
+  %short_name106 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 796
   store i32 0, ptr %short_name106, align 4
-  %long_name107 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 800
+  %long_name107 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 800
   store ptr @.str.18, ptr %long_name107, align 16
-  %value108 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 808
+  %value108 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 808
   store ptr %no_index, ptr %value108, align 8
-  %argh109 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 816
+  %argh109 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 816
   store ptr null, ptr %argh109, align 16
-  %help110 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 824
+  %help110 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 824
   store ptr @.str.19, ptr %help110, align 8
-  %flags111 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 832
+  %flags111 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 832
   store i32 2, ptr %flags111, align 16
-  %callback112 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 840
+  %callback112 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 840
   store ptr null, ptr %callback112, align 8
-  %defval113 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 848
+  %defval113 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 848
   store i64 1, ptr %defval113, align 16
-  %ll_callback114 = getelementptr inbounds i8, ptr %builtin_difftool_options, i64 856
+  %ll_callback114 = getelementptr inbounds nuw i8, ptr %builtin_difftool_options, i64 856
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %ll_callback114, i8 0, i64 112, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %child, ptr noundef nonnull align 8 dereferenceable(120) @__const.changed_files.diff_files, i64 120, i1 false)
   call void @git_config(ptr noundef nonnull @difftool_config, ptr noundef null) #17
@@ -382,7 +382,7 @@ entry:
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %cmd.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %cmd.i, ptr noundef nonnull align 8 dereferenceable(120) @__const.changed_files.diff_files, i64 120, i1 false)
-  %git_cmd.i = getelementptr inbounds i8, ptr %cmd.i, i64 104
+  %git_cmd.i = getelementptr inbounds nuw i8, ptr %cmd.i, i64 104
   store i16 8, ptr %git_cmd.i, align 8
   call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %cmd.i, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.44, ptr noundef null) #17
   %call.i = call i32 @run_command(ptr noundef nonnull %cmd.i) #17
@@ -556,7 +556,7 @@ if.then199:                                       ; preds = %if.end196
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %submodules.i, ptr noundef nonnull align 8 dereferenceable(48) @__const.run_dir_diff.symlinks2, i64 48, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %symlinks2.i, ptr noundef nonnull align 8 dereferenceable(48) @__const.run_dir_diff.symlinks2, i64 48, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %wtindex.i, i8 0, i64 256, i1 false)
-  %repo.i = getelementptr inbounds i8, ptr %wtindex.i, i64 240
+  %repo.i = getelementptr inbounds nuw i8, ptr %wtindex.i, i64 240
   %20 = load ptr, ptr @the_repository, align 8
   store ptr %20, ptr %repo.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %cmd.i6, ptr noundef nonnull align 8 dereferenceable(120) @__const.changed_files.diff_files, i64 120, i1 false)
@@ -567,7 +567,7 @@ if.then199:                                       ; preds = %if.end196
   call void @strbuf_add_absolute_path(ptr noundef nonnull %tmpdir.i, ptr noundef nonnull %cond.i) #17
   call void @strbuf_trim_trailing_dir_sep(ptr noundef nonnull %tmpdir.i) #17
   call void @strbuf_add(ptr noundef nonnull %tmpdir.i, ptr noundef nonnull @.str.48, i64 noundef 20) #17
-  %buf3.i = getelementptr inbounds i8, ptr %tmpdir.i, i64 16
+  %buf3.i = getelementptr inbounds nuw i8, ptr %tmpdir.i, i64 16
   %21 = load ptr, ptr %buf3.i, align 8
   %call4.i = call ptr @mkdtemp(ptr noundef %21) #17
   %tobool5.not.i = icmp eq ptr %call4.i, null
@@ -584,13 +584,13 @@ if.end.i:                                         ; preds = %if.then199
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %rdir.i, ptr noundef nonnull @.str.51, ptr noundef %23) #17
   %call.i70.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call.i7) #19
   call void @strbuf_add(ptr noundef nonnull %wtdir.i, ptr noundef %call.i7, i64 noundef %call.i70.i) #17
-  %len.i = getelementptr inbounds i8, ptr %wtdir.i, i64 8
+  %len.i = getelementptr inbounds nuw i8, ptr %wtdir.i, i64 8
   %24 = load i64, ptr %len.i, align 8
   %tobool11.not.i = icmp eq i64 %24, 0
   br i1 %tobool11.not.i, label %if.then16.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end.i
-  %buf12.i = getelementptr inbounds i8, ptr %wtdir.i, i64 16
+  %buf12.i = getelementptr inbounds nuw i8, ptr %wtdir.i, i64 16
   %25 = load ptr, ptr %buf12.i, align 8
   %26 = getelementptr i8, ptr %25, i64 %24
   %arrayidx.i = getelementptr i8, ptr %26, i64 -1
@@ -615,7 +615,7 @@ if.then.i.i:                                      ; preds = %if.then16.i
 strbuf_addch.exit.i:                              ; preds = %if.then.i.i, %if.then16.i
   %inc.pre-phi.i.i = phi i64 [ %.pre8.i.i, %if.then.i.i ], [ %.neg.i.i, %if.then16.i ]
   %29 = phi i64 [ %.pre.i.i, %if.then.i.i ], [ %24, %if.then16.i ]
-  %buf.i.i = getelementptr inbounds i8, ptr %wtdir.i, i64 16
+  %buf.i.i = getelementptr inbounds nuw i8, ptr %wtdir.i, i64 16
   %30 = load ptr, ptr %buf.i.i, align 8
   store i64 %inc.pre-phi.i.i, ptr %len.i, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %30, i64 %29
@@ -627,50 +627,50 @@ strbuf_addch.exit.i:                              ; preds = %if.then.i.i, %if.th
   br label %if.end17.i
 
 if.end17.i:                                       ; preds = %strbuf_addch.exit.i, %lor.lhs.false.i
-  %buf18.i = getelementptr inbounds i8, ptr %ldir.i, i64 16
+  %buf18.i = getelementptr inbounds nuw i8, ptr %ldir.i, i64 16
   %33 = load ptr, ptr %buf18.i, align 8
   %call19.i = call i32 @mkdir(ptr noundef %33, i32 noundef 448) #17
-  %buf20.i = getelementptr inbounds i8, ptr %rdir.i, i64 16
+  %buf20.i = getelementptr inbounds nuw i8, ptr %rdir.i, i64 16
   %34 = load ptr, ptr %buf20.i, align 8
   %call21.i = call i32 @mkdir(ptr noundef %34, i32 noundef 448) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %lstate.i, i8 0, i64 128, i1 false)
   %35 = load ptr, ptr %buf18.i, align 8
   %call23.i = call ptr @xstrdup(ptr noundef %35) #17
-  %base_dir.i = getelementptr inbounds i8, ptr %lstate.i, i64 8
+  %base_dir.i = getelementptr inbounds nuw i8, ptr %lstate.i, i64 8
   store ptr %call23.i, ptr %base_dir.i, align 8
-  %len24.i = getelementptr inbounds i8, ptr %ldir.i, i64 8
+  %len24.i = getelementptr inbounds nuw i8, ptr %ldir.i, i64 8
   %36 = load i64, ptr %len24.i, align 8
   %conv25.i = trunc i64 %36 to i32
-  %base_dir_len.i = getelementptr inbounds i8, ptr %lstate.i, i64 16
+  %base_dir_len.i = getelementptr inbounds nuw i8, ptr %lstate.i, i64 16
   store i32 %conv25.i, ptr %base_dir_len.i, align 8
-  %force.i = getelementptr inbounds i8, ptr %lstate.i, i64 120
+  %force.i = getelementptr inbounds nuw i8, ptr %lstate.i, i64 120
   %bf.load.i = load i8, ptr %force.i, align 8
   %bf.set.i = or i8 %bf.load.i, 1
   store i8 %bf.set.i, ptr %force.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %rstate.i, i8 0, i64 128, i1 false)
   %37 = load ptr, ptr %buf20.i, align 8
   %call27.i = call ptr @xstrdup(ptr noundef %37) #17
-  %base_dir28.i = getelementptr inbounds i8, ptr %rstate.i, i64 8
+  %base_dir28.i = getelementptr inbounds nuw i8, ptr %rstate.i, i64 8
   store ptr %call27.i, ptr %base_dir28.i, align 8
-  %len29.i = getelementptr inbounds i8, ptr %rdir.i, i64 8
+  %len29.i = getelementptr inbounds nuw i8, ptr %rdir.i, i64 8
   %38 = load i64, ptr %len29.i, align 8
   %conv30.i = trunc i64 %38 to i32
-  %base_dir_len31.i = getelementptr inbounds i8, ptr %rstate.i, i64 16
+  %base_dir_len31.i = getelementptr inbounds nuw i8, ptr %rstate.i, i64 16
   store i32 %conv30.i, ptr %base_dir_len31.i, align 8
-  %force32.i = getelementptr inbounds i8, ptr %rstate.i, i64 120
+  %force32.i = getelementptr inbounds nuw i8, ptr %rstate.i, i64 120
   %bf.load33.i = load i8, ptr %force32.i, align 8
   %bf.set35.i = or i8 %bf.load33.i, 1
   store i8 %bf.set35.i, ptr %force32.i, align 8
   %39 = load i64, ptr %len24.i, align 8
   %40 = load i64, ptr %len.i, align 8
-  %no_stdin.i = getelementptr inbounds i8, ptr %child, i64 104
+  %no_stdin.i = getelementptr inbounds nuw i8, ptr %child, i64 104
   %bf.load39.i = load i16, ptr %no_stdin.i, align 8
   %bf.set44.i = and i16 %bf.load39.i, -298
   %bf.set50.i = or disjoint i16 %bf.set44.i, 265
   store i16 %bf.set50.i, ptr %no_stdin.i, align 8
-  %dir.i = getelementptr inbounds i8, ptr %child, i64 96
+  %dir.i = getelementptr inbounds nuw i8, ptr %child, i64 96
   store ptr %prefix, ptr %dir.i, align 8
-  %out.i = getelementptr inbounds i8, ptr %child, i64 84
+  %out.i = getelementptr inbounds nuw i8, ptr %child, i64 84
   store i32 -1, ptr %out.i, align 4
   %call51.i = call i32 @start_command(ptr noundef nonnull %child) #17
   %tobool52.not.i = icmp eq i32 %call51.i, 0
@@ -688,20 +688,20 @@ if.end54.i:                                       ; preds = %if.end17.i
   br i1 %tobool58.not369.i, label %while.body.lr.ph.i, label %while.end.i
 
 while.body.lr.ph.i:                               ; preds = %if.end54.i
-  %buf59.i = getelementptr inbounds i8, ptr %info.i, i64 16
-  %buf73.i = getelementptr inbounds i8, ptr %lpath.i, i64 16
-  %buf84.i = getelementptr inbounds i8, ptr %rpath.i, i64 16
-  %len.i108.i = getelementptr inbounds i8, ptr %buf.i106.i, i64 8
-  %buf1.i.i = getelementptr inbounds i8, ptr %buf.i106.i, i64 16
-  %st_mode.i.i = getelementptr inbounds i8, ptr %st.i.i, i64 24
-  %algo.i.i.i.i = getelementptr inbounds i8, ptr %roid.i, i64 32
-  %algo.i.i.i = getelementptr inbounds i8, ptr %wt_oid.i.i, i64 32
+  %buf59.i = getelementptr inbounds nuw i8, ptr %info.i, i64 16
+  %buf73.i = getelementptr inbounds nuw i8, ptr %lpath.i, i64 16
+  %buf84.i = getelementptr inbounds nuw i8, ptr %rpath.i, i64 16
+  %len.i108.i = getelementptr inbounds nuw i8, ptr %buf.i106.i, i64 8
+  %buf1.i.i = getelementptr inbounds nuw i8, ptr %buf.i106.i, i64 16
+  %st_mode.i.i = getelementptr inbounds nuw i8, ptr %st.i.i, i64 24
+  %algo.i.i.i.i = getelementptr inbounds nuw i8, ptr %roid.i, i64 32
+  %algo.i.i.i = getelementptr inbounds nuw i8, ptr %wt_oid.i.i, i64 32
   %tobool169.not.i = icmp eq i32 %19, 0
-  %buf171.i = getelementptr inbounds i8, ptr %wtdir.i, i64 16
-  %st_mode.i = getelementptr inbounds i8, ptr %st.i, i64 24
-  %len2.i.i = getelementptr inbounds i8, ptr %buf.i, i64 8
-  %buf.i78.i = getelementptr inbounds i8, ptr %buf.i, i64 16
-  %algo.i.i = getelementptr inbounds i8, ptr %loid.i, i64 32
+  %buf171.i = getelementptr inbounds nuw i8, ptr %wtdir.i, i64 16
+  %st_mode.i = getelementptr inbounds nuw i8, ptr %st.i, i64 24
+  %len2.i.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 8
+  %buf.i78.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 16
+  %algo.i.i = getelementptr inbounds nuw i8, ptr %loid.i, i64 32
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.cond.backedge.i, %while.body.lr.ph.i
@@ -729,7 +729,7 @@ if.then.i71.i:                                    ; preds = %if.end63.i
   br label %parse_index_info.exit.thread.i
 
 if.end.i.i:                                       ; preds = %if.end63.i
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %43, i64 1
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %43, i64 1
   %call4.i.i = call i64 @strtol(ptr noundef nonnull %add.ptr.i.i, ptr noundef nonnull %p.addr.i.i, i32 noundef 8) #17
   %conv5.i.i = trunc i64 %call4.i.i to i32
   %45 = load ptr, ptr %p.addr.i.i, align 8
@@ -743,7 +743,7 @@ if.then9.i.i:                                     ; preds = %if.end.i.i
   br label %parse_index_info.exit.thread.i
 
 if.end13.i.i:                                     ; preds = %if.end.i.i
-  %add.ptr14.i.i = getelementptr inbounds i8, ptr %45, i64 1
+  %add.ptr14.i.i = getelementptr inbounds nuw i8, ptr %45, i64 1
   %call15.i.i = call i64 @strtol(ptr noundef nonnull %add.ptr14.i.i, ptr noundef nonnull %p.addr.i.i, i32 noundef 8) #17
   %conv16.i.i = trunc i64 %call15.i.i to i32
   %47 = load ptr, ptr %p.addr.i.i, align 8
@@ -757,7 +757,7 @@ if.then20.i.i:                                    ; preds = %if.end13.i.i
   br label %parse_index_info.exit.thread.i
 
 if.end24.i.i:                                     ; preds = %if.end13.i.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %47, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %47, i64 1
   store ptr %incdec.ptr.i.i, ptr %p.addr.i.i, align 8
   %call25.i.i = call i32 @parse_oid_hex(ptr noundef nonnull %incdec.ptr.i.i, ptr noundef nonnull %loid.i, ptr noundef nonnull %p.addr.i.i) #17
   %tobool.not.i74.i = icmp eq i32 %call25.i.i, 0
@@ -779,7 +779,7 @@ if.then33.i.i:                                    ; preds = %if.end29.i.i
   br label %parse_index_info.exit.thread.i
 
 if.end37.i.i:                                     ; preds = %if.end29.i.i
-  %incdec.ptr38.i.i = getelementptr inbounds i8, ptr %49, i64 1
+  %incdec.ptr38.i.i = getelementptr inbounds nuw i8, ptr %49, i64 1
   store ptr %incdec.ptr38.i.i, ptr %p.addr.i.i, align 8
   %call39.i.i = call i32 @parse_oid_hex(ptr noundef nonnull %incdec.ptr38.i.i, ptr noundef nonnull %roid.i, ptr noundef nonnull %p.addr.i.i) #17
   %tobool40.not.i.i = icmp eq i32 %call39.i.i, 0
@@ -801,7 +801,7 @@ if.then48.i.i:                                    ; preds = %if.end44.i.i
   br label %parse_index_info.exit.thread.i
 
 if.end52.i.i:                                     ; preds = %if.end44.i.i
-  %incdec.ptr53.i.i = getelementptr inbounds i8, ptr %51, i64 1
+  %incdec.ptr53.i.i = getelementptr inbounds nuw i8, ptr %51, i64 1
   store ptr %incdec.ptr53.i.i, ptr %p.addr.i.i, align 8
   %53 = load i8, ptr %incdec.ptr53.i.i, align 1
   %tobool54.not.i.i = icmp eq i8 %53, 0
@@ -812,21 +812,21 @@ if.then55.i.i:                                    ; preds = %if.end52.i.i
   br label %parse_index_info.exit.thread.i
 
 if.end58.i.i:                                     ; preds = %if.end52.i.i
-  %arrayidx.i75.i = getelementptr inbounds i8, ptr %51, i64 2
+  %arrayidx.i75.i = getelementptr inbounds nuw i8, ptr %51, i64 2
   %54 = load i8, ptr %arrayidx.i75.i, align 1
   %tobool60.not.i.i = icmp eq i8 %54, 0
   br i1 %tobool60.not.i.i, label %if.end68.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end58.i.i
   %idxprom.i.i = zext i8 %54 to i64
-  %arrayidx62.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i.i
+  %arrayidx62.i.i = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i.i
   %55 = load i8, ptr %arrayidx62.i.i, align 1
   %56 = and i8 %55, 2
   %cmp64.not.i.i = icmp eq i8 %56, 0
   br i1 %cmp64.not.i.i, label %if.then66.i.i, label %if.end68.i
 
 if.then66.i.i:                                    ; preds = %land.lhs.true.i.i
-  %arrayidx.i75.i.le = getelementptr inbounds i8, ptr %51, i64 2
+  %arrayidx.i75.i.le = getelementptr inbounds nuw i8, ptr %51, i64 2
   %call68.i.i = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.77, ptr noundef nonnull %arrayidx.i75.i.le) #17
   br label %parse_index_info.exit.thread.i
 
@@ -901,7 +901,7 @@ strbuf_setlen.exit90.i:                           ; preds = %if.then4.i87.i, %st
 
 if.then.i95.i:                                    ; preds = %strbuf_setlen.exit90.i
   %63 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i = getelementptr inbounds i8, ptr %63, i64 256
+  %hash_algo.i.i = getelementptr inbounds nuw i8, ptr %63, i64 256
   %64 = load ptr, ptr %hash_algo.i.i, align 8
   br label %oideq.exit.i
 
@@ -996,10 +996,10 @@ if.then.i104.i:                                   ; preds = %st_add.exit.i
 st_add.exit105.i:                                 ; preds = %st_add.exit.i
   %add.i103.i = add nuw i64 %call135.i, 17
   %call138.i = call ptr @xcalloc(i64 noundef 1, i64 noundef %add.i103.i) #17
-  %path.i = getelementptr inbounds i8, ptr %call138.i, i64 16
+  %path.i = getelementptr inbounds nuw i8, ptr %call138.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %path.i, ptr align 1 %dst_path.0.i, i64 %call135.i, i1 false)
   %call140.i = call i32 @strhash(ptr noundef %dst_path.0.i) #17
-  %hash1.i.i = getelementptr inbounds i8, ptr %call138.i, i64 8
+  %hash1.i.i = getelementptr inbounds nuw i8, ptr %call138.i, i64 8
   store i32 %call140.i, ptr %hash1.i.i, align 8
   store ptr null, ptr %call138.i, align 8
   %call142.i = call ptr @hashmap_get(ptr noundef nonnull %working_tree_dups.i, ptr noundef nonnull %call138.i, ptr noundef null) #17
@@ -1050,7 +1050,7 @@ if.then8.i.i:                                     ; preds = %land.lhs.true5.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then8.i.i
   %72 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i.i.i = getelementptr inbounds i8, ptr %72, i64 256
+  %hash_algo.i.i.i.i = getelementptr inbounds nuw i8, ptr %72, i64 256
   %73 = load ptr, ptr %hash_algo.i.i.i.i, align 8
   br label %is_null_oid.exit.i.i
 
@@ -1114,7 +1114,7 @@ if.else156.i:                                     ; preds = %use_wt_file.exit.i,
 
 if.then.i.i.i:                                    ; preds = %if.else156.i
   %77 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i.i = getelementptr inbounds i8, ptr %77, i64 256
+  %hash_algo.i.i.i = getelementptr inbounds nuw i8, ptr %77, i64 256
   %78 = load ptr, ptr %hash_algo.i.i.i, align 8
   br label %is_null_oid.exit.i
 
@@ -1296,7 +1296,7 @@ if.then227.i:                                     ; preds = %strbuf_setlen.exit1
 
 if.else229.i:                                     ; preds = %strbuf_setlen.exit145.i
   %call231.i = call ptr @strvec_push(ptr noundef nonnull %cmd.i6, ptr noundef nonnull @.str.63) #17
-  %git_cmd232.i = getelementptr inbounds i8, ptr %cmd.i6, i64 104
+  %git_cmd232.i = getelementptr inbounds nuw i8, ptr %cmd.i6, i64 104
   %bf.load233.i = load i16, ptr %git_cmd232.i, align 8
   %bf.set235.i = or i16 %bf.load233.i, 8
   store i16 %bf.set235.i, ptr %git_cmd232.i, align 8
@@ -1310,7 +1310,7 @@ if.end237.i:                                      ; preds = %if.else229.i, %if.t
   %call241.i = call i32 @run_command(ptr noundef nonnull %cmd.i6) #17
   %97 = freeze i32 %call241.i
   call void @ensure_full_index(ptr noundef nonnull %wtindex.i) #17
-  %cache_nr.i = getelementptr inbounds i8, ptr %wtindex.i, i64 12
+  %cache_nr.i = getelementptr inbounds nuw i8, ptr %wtindex.i, i64 12
   %98 = load i32, ptr %cache_nr.i, align 4
   %conv242.i = zext i32 %98 to i64
   call void @hashmap_init(ptr noundef nonnull %wt_modified.i, ptr noundef nonnull @path_entry_cmp, ptr noundef null, i64 noundef %conv242.i) #17
@@ -1322,11 +1322,11 @@ if.end237.i:                                      ; preds = %if.else229.i, %if.t
   br i1 %cmp247377.not.i, label %if.else327.i, label %for.body249.lr.ph.i
 
 for.body249.lr.ph.i:                              ; preds = %if.end237.i
-  %st_mode261.i = getelementptr inbounds i8, ptr %st253.i, i64 24
-  %len2.i149.i = getelementptr inbounds i8, ptr %buf.i, i64 8
-  %buf.i150.i = getelementptr inbounds i8, ptr %buf.i, i64 16
-  %hash1.i167.i = getelementptr inbounds i8, ptr %dummy.i, i64 8
-  %buf299.i = getelementptr inbounds i8, ptr %wtdir.i, i64 16
+  %st_mode261.i = getelementptr inbounds nuw i8, ptr %st253.i, i64 24
+  %len2.i149.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 8
+  %buf.i150.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 16
+  %hash1.i167.i = getelementptr inbounds nuw i8, ptr %dummy.i, i64 8
+  %buf299.i = getelementptr inbounds nuw i8, ptr %wtdir.i, i64 16
   br label %for.body249.outer.i
 
 for.body249.outer.i:                              ; preds = %for.inc319.thread.i, %for.body249.lr.ph.i
@@ -1339,9 +1339,9 @@ for.body249.i:                                    ; preds = %for.inc319.i, %for.
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc319.i ], [ %indvars.iv.ph.i, %for.body249.outer.i ]
   %indices_loaded.0378.i = phi i32 [ %indices_loaded.1.i, %for.inc319.i ], [ %err.0379.ph.i, %for.body249.outer.i ]
   %102 = load ptr, ptr %wtindex.i, align 8
-  %arrayidx250.i = getelementptr inbounds ptr, ptr %102, i64 %indvars.iv.i
+  %arrayidx250.i = getelementptr inbounds nuw ptr, ptr %102, i64 %indvars.iv.i
   %103 = load ptr, ptr %arrayidx250.i, align 8
-  %name251.i = getelementptr inbounds i8, ptr %103, i64 108
+  %name251.i = getelementptr inbounds nuw i8, ptr %103, i64 108
   call fastcc void @add_path(ptr noundef %rdir.i, i64 noundef %38, ptr noundef nonnull %name251.i)
   %104 = load ptr, ptr %buf20.i, align 8
   %call255.i = call i32 @lstat64(ptr noundef %104, ptr noundef nonnull %st253.i) #17
@@ -1609,18 +1609,18 @@ if.else.i8:                                       ; preds = %if.end201
 
 if.end3.sink.split.i:                             ; preds = %if.else.i8, %if.end201
   %.str.98.sink.i = phi ptr [ @.str.97, %if.end201 ], [ @.str.98, %if.else.i8 ]
-  %arrayidx2.i = getelementptr inbounds i8, ptr %env.i, i64 16
+  %arrayidx2.i = getelementptr inbounds nuw i8, ptr %env.i, i64 16
   store ptr %.str.98.sink.i, ptr %arrayidx2.i, align 16
   br label %run_file_diff.exit
 
 run_file_diff.exit:                               ; preds = %if.else.i8, %if.end3.sink.split.i
-  %git_cmd.i10 = getelementptr inbounds i8, ptr %child, i64 104
+  %git_cmd.i10 = getelementptr inbounds nuw i8, ptr %child, i64 104
   %bf.load.i11 = load i16, ptr %git_cmd.i10, align 8
   %bf.set.i12 = or i16 %bf.load.i11, 8
   store i16 %bf.set.i12, ptr %git_cmd.i10, align 8
-  %dir.i13 = getelementptr inbounds i8, ptr %child, i64 96
+  %dir.i13 = getelementptr inbounds nuw i8, ptr %child, i64 96
   store ptr %prefix, ptr %dir.i13, align 8
-  %env4.i = getelementptr inbounds i8, ptr %child, i64 24
+  %env4.i = getelementptr inbounds nuw i8, ptr %child, i64 24
   call void @strvec_pushv(ptr noundef nonnull %env4.i, ptr noundef nonnull %env.i) #17
   %call.i14 = call i32 @run_command(ptr noundef nonnull %child) #17
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %env.i)
@@ -1720,8 +1720,8 @@ declare void @die_for_incompatible_opt4(i32 noundef, ptr noundef, i32 noundef, p
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @working_tree_entry_cmp(ptr nocapture readnone %cmp_data, ptr nocapture noundef readonly %eptr, ptr nocapture noundef readonly %entry_or_key, ptr nocapture readnone %keydata) #7 {
 entry:
-  %path = getelementptr inbounds i8, ptr %eptr, i64 16
-  %path2 = getelementptr inbounds i8, ptr %entry_or_key, i64 16
+  %path = getelementptr inbounds nuw i8, ptr %eptr, i64 16
+  %path2 = getelementptr inbounds nuw i8, ptr %entry_or_key, i64 16
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %path, ptr noundef nonnull dereferenceable(1) %path2) #19
   ret i32 %call
 }
@@ -1729,8 +1729,8 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @pair_cmp(ptr nocapture readnone %cmp_data, ptr nocapture noundef readonly %eptr, ptr nocapture noundef readonly %entry_or_key, ptr nocapture readnone %keydata) #7 {
 entry:
-  %path = getelementptr inbounds i8, ptr %eptr, i64 8208
-  %path2 = getelementptr inbounds i8, ptr %entry_or_key, i64 8208
+  %path = getelementptr inbounds nuw i8, ptr %eptr, i64 8208
+  %path2 = getelementptr inbounds nuw i8, ptr %entry_or_key, i64 8208
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %path, ptr noundef nonnull dereferenceable(1) %path2) #19
   ret i32 %call
 }
@@ -1786,10 +1786,10 @@ if.then.i16:                                      ; preds = %st_add.exit
 st_add.exit17:                                    ; preds = %st_add.exit
   %add.i15 = add nuw i64 %call, 8209
   %call3 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef %add.i15) #17
-  %path4 = getelementptr inbounds i8, ptr %call3, i64 8208
+  %path4 = getelementptr inbounds nuw i8, ptr %call3, i64 8208
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %path4, ptr align 1 %path, i64 %call, i1 false)
   %call6 = tail call i32 @strhash(ptr noundef %path) #17
-  %hash1.i = getelementptr inbounds i8, ptr %call3, i64 8
+  %hash1.i = getelementptr inbounds nuw i8, ptr %call3, i64 8
   store i32 %call6, ptr %hash1.i, align 8
   store ptr null, ptr %call3, align 8
   %call8 = tail call ptr @hashmap_get(ptr noundef nonnull %map, ptr noundef nonnull %call3, ptr noundef null) #17
@@ -1801,9 +1801,9 @@ if.then:                                          ; preds = %st_add.exit17
   br label %if.end
 
 if.else:                                          ; preds = %st_add.exit17
-  %right = getelementptr inbounds i8, ptr %call3, i64 4112
+  %right = getelementptr inbounds nuw i8, ptr %call3, i64 4112
   store i8 0, ptr %right, align 8
-  %left = getelementptr inbounds i8, ptr %call3, i64 16
+  %left = getelementptr inbounds nuw i8, ptr %call3, i64 16
   store i8 0, ptr %left, align 8
   tail call void @hashmap_add(ptr noundef nonnull %map, ptr noundef nonnull %call3) #17
   br label %if.end
@@ -1812,7 +1812,7 @@ if.end:                                           ; preds = %if.else, %if.then
   %e.0 = phi ptr [ %call8, %if.then ], [ %call3, %if.else ]
   %tobool12.not = icmp eq i32 %is_right, 0
   %cond.v = select i1 %tobool12.not, i64 16, i64 4112
-  %cond = getelementptr inbounds i8, ptr %e.0, i64 %cond.v
+  %cond = getelementptr inbounds nuw i8, ptr %e.0, i64 %cond.v
   %call17 = tail call i64 @gitstrlcpy(ptr noundef nonnull %cond, ptr noundef %content, i64 noundef 4096) #17
   ret void
 }
@@ -1820,14 +1820,14 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal fastcc range(i32 0, 2) i32 @oideq(ptr nocapture noundef nonnull readonly %oid1, ptr nocapture noundef readonly %oid2) unnamed_addr #10 {
 entry:
-  %algo = getelementptr inbounds i8, ptr %oid1, i64 32
+  %algo = getelementptr inbounds nuw i8, ptr %oid1, i64 32
   %0 = load i32, ptr %algo, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr @the_repository, align 8
-  %hash_algo = getelementptr inbounds i8, ptr %1, i64 256
+  %hash_algo = getelementptr inbounds nuw i8, ptr %1, i64 256
   %2 = load ptr, ptr %hash_algo, align 8
   br label %if.end
 
@@ -1855,14 +1855,14 @@ entry:
   %type = alloca i32, align 4
   %size = alloca i64, align 8
   %call.i = tail call ptr @null_oid() #17
-  %algo.i.i = getelementptr inbounds i8, ptr %oid, i64 32
+  %algo.i.i = getelementptr inbounds nuw i8, ptr %oid, i64 32
   %0 = load i32, ptr %algo.i.i, align 4
   %tobool.not.i.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %entry
   %1 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i = getelementptr inbounds i8, ptr %1, i64 256
+  %hash_algo.i.i = getelementptr inbounds nuw i8, ptr %1, i64 256
   %2 = load ptr, ptr %hash_algo.i.i, align 8
   br label %is_null_oid.exit
 
@@ -1960,9 +1960,9 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 if.end.i:                                         ; preds = %entry
-  %len2.i = getelementptr inbounds i8, ptr %buf, i64 8
+  %len2.i = getelementptr inbounds nuw i8, ptr %buf, i64 8
   store i64 %base_len, ptr %len2.i, align 8
-  %buf.i = getelementptr inbounds i8, ptr %buf, i64 16
+  %buf.i = getelementptr inbounds nuw i8, ptr %buf, i64 16
   %1 = load ptr, ptr %buf.i, align 8
   %cmp3.not.i = icmp eq ptr %1, @strbuf_slopbuf
   br i1 %cmp3.not.i, label %strbuf_setlen.exit, label %if.then4.i
@@ -2038,15 +2038,15 @@ declare i32 @finish_command(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @write_standin_files(ptr noundef nonnull %entry1, ptr noundef nonnull %ldir, i64 noundef %ldir_len, ptr noundef nonnull %rdir, i64 noundef %rdir_len) unnamed_addr #0 {
 entry:
-  %left = getelementptr inbounds i8, ptr %entry1, i64 16
+  %left = getelementptr inbounds nuw i8, ptr %entry1, i64 16
   %0 = load i8, ptr %left, align 8
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %path = getelementptr inbounds i8, ptr %entry1, i64 8208
+  %path = getelementptr inbounds nuw i8, ptr %entry1, i64 8208
   tail call fastcc void @add_path(ptr noundef nonnull %ldir, i64 noundef %ldir_len, ptr noundef nonnull %path)
-  %buf.i = getelementptr inbounds i8, ptr %ldir, i64 16
+  %buf.i = getelementptr inbounds nuw i8, ptr %ldir, i64 16
   %1 = load ptr, ptr %buf.i, align 8
   %call.i.i = tail call i32 @safe_create_leading_directories(ptr noundef %1) #17
   switch i32 %call.i.i, label %sw.default.i.i [
@@ -2076,15 +2076,15 @@ write_file_in_directory.exit:                     ; preds = %if.then, %if.then, 
   br label %if.end
 
 if.end:                                           ; preds = %write_file_in_directory.exit, %entry
-  %right = getelementptr inbounds i8, ptr %entry1, i64 4112
+  %right = getelementptr inbounds nuw i8, ptr %entry1, i64 4112
   %5 = load i8, ptr %right, align 8
   %tobool6.not = icmp eq i8 %5, 0
   br i1 %tobool6.not, label %if.end12, label %if.then7
 
 if.then7:                                         ; preds = %if.end
-  %path8 = getelementptr inbounds i8, ptr %entry1, i64 8208
+  %path8 = getelementptr inbounds nuw i8, ptr %entry1, i64 8208
   tail call fastcc void @add_path(ptr noundef nonnull %rdir, i64 noundef %rdir_len, ptr noundef nonnull %path8)
-  %buf.i6 = getelementptr inbounds i8, ptr %rdir, i64 16
+  %buf.i6 = getelementptr inbounds nuw i8, ptr %rdir, i64 16
   %6 = load ptr, ptr %buf.i6, align 8
   %call.i.i7 = tail call i32 @safe_create_leading_directories(ptr noundef %6) #17
   switch i32 %call.i.i7, label %sw.default.i.i9 [
@@ -2126,9 +2126,9 @@ declare void @hashmap_init(ptr noundef, ptr noundef, ptr noundef, i64 noundef) l
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal i32 @path_entry_cmp(ptr nocapture readnone %cmp_data, ptr nocapture noundef readonly %eptr, ptr nocapture noundef readonly %entry_or_key, ptr noundef readonly %key) #10 {
 entry:
-  %path = getelementptr inbounds i8, ptr %eptr, i64 16
+  %path = getelementptr inbounds nuw i8, ptr %eptr, i64 16
   %tobool.not = icmp eq ptr %key, null
-  %path2 = getelementptr inbounds i8, ptr %entry_or_key, i64 16
+  %path2 = getelementptr inbounds nuw i8, ptr %entry_or_key, i64 16
   %cond = select i1 %tobool.not, ptr %path2, ptr %key
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %path, ptr noundef nonnull dereferenceable(1) %cond) #19
   ret i32 %call
@@ -2151,27 +2151,27 @@ entry:
   %call = tail call ptr @get_git_dir() #17
   %call1 = tail call ptr @absolute_path(ptr noundef %call) #17
   call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %update_index, ptr noundef nonnull @.str.85, ptr noundef %call1, ptr noundef nonnull @.str.86, ptr noundef %workdir, ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.88, ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.90, ptr noundef null) #17
-  %no_stdin = getelementptr inbounds i8, ptr %update_index, i64 104
+  %no_stdin = getelementptr inbounds nuw i8, ptr %update_index, i64 104
   %bf.load = load i16, ptr %no_stdin, align 8
   %bf.set10 = and i16 %bf.load, -304
   %bf.set16 = or disjoint i16 %bf.set10, 271
   store i16 %bf.set16, ptr %no_stdin, align 8
-  %dir = getelementptr inbounds i8, ptr %update_index, i64 96
+  %dir = getelementptr inbounds nuw i8, ptr %update_index, i64 96
   store ptr %workdir, ptr %dir, align 8
-  %env = getelementptr inbounds i8, ptr %update_index, i64 24
+  %env = getelementptr inbounds nuw i8, ptr %update_index, i64 24
   %call17 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %env, ptr noundef nonnull @.str.91, ptr noundef %index_path) #17
   %call18 = call i32 @run_command(ptr noundef nonnull %update_index) #17
   call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %diff_files, ptr noundef nonnull @.str.85, ptr noundef %call1, ptr noundef nonnull @.str.86, ptr noundef %workdir, ptr noundef nonnull @.str.92, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.40, ptr noundef null) #17
-  %no_stdin20 = getelementptr inbounds i8, ptr %diff_files, i64 104
+  %no_stdin20 = getelementptr inbounds nuw i8, ptr %diff_files, i64 104
   %bf.load21 = load i16, ptr %no_stdin20, align 8
   %bf.set27 = and i16 %bf.load21, -298
   %bf.set35 = or disjoint i16 %bf.set27, 265
   store i16 %bf.set35, ptr %no_stdin20, align 8
-  %out = getelementptr inbounds i8, ptr %diff_files, i64 84
+  %out = getelementptr inbounds nuw i8, ptr %diff_files, i64 84
   store i32 -1, ptr %out, align 4
-  %dir36 = getelementptr inbounds i8, ptr %diff_files, i64 96
+  %dir36 = getelementptr inbounds nuw i8, ptr %diff_files, i64 96
   store ptr %workdir, ptr %dir36, align 8
-  %env37 = getelementptr inbounds i8, ptr %diff_files, i64 24
+  %env37 = getelementptr inbounds nuw i8, ptr %diff_files, i64 24
   %call38 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %env37, ptr noundef nonnull @.str.91, ptr noundef %index_path) #17
   %call39 = call i32 @start_command(ptr noundef nonnull %diff_files) #17
   %tobool.not = icmp eq i32 %call39, 0
@@ -2189,7 +2189,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool43.not16, label %do.body.lr.ph, label %while.end
 
 do.body.lr.ph:                                    ; preds = %if.end
-  %buf45 = getelementptr inbounds i8, ptr %buf, i64 16
+  %buf45 = getelementptr inbounds nuw i8, ptr %buf, i64 16
   br label %do.body
 
 do.body:                                          ; preds = %do.body.lr.ph, %st_add.exit13
@@ -2213,12 +2213,12 @@ if.then.i12:                                      ; preds = %st_add.exit
 st_add.exit13:                                    ; preds = %st_add.exit
   %add.i11 = add nuw i64 %call46, 17
   %call49 = call ptr @xcalloc(i64 noundef 1, i64 noundef %add.i11) #17
-  %path = getelementptr inbounds i8, ptr %call49, i64 16
+  %path = getelementptr inbounds nuw i8, ptr %call49, i64 16
   %2 = load ptr, ptr %buf45, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %path, ptr align 1 %2, i64 %call46, i1 false)
   %3 = load ptr, ptr %buf45, align 8
   %call53 = call i32 @strhash(ptr noundef %3) #17
-  %hash1.i = getelementptr inbounds i8, ptr %call49, i64 8
+  %hash1.i = getelementptr inbounds nuw i8, ptr %call49, i64 8
   store i32 %call53, ptr %hash1.i, align 8
   store ptr null, ptr %call49, align 8
   call void @hashmap_add(ptr noundef nonnull %result, ptr noundef nonnull %call49) #17

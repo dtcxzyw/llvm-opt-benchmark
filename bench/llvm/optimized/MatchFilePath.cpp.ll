@@ -55,9 +55,9 @@ define dso_local noundef zeroext i1 @_ZN5clang6format13matchFilePathEN4llvm9Stri
   br i1 %25, label %.critedge2, label %26
 
 26:                                               ; preds = %20
-  %27 = getelementptr inbounds i8, ptr %2, i64 %23
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 %23
   %28 = load i8, ptr %27, align 1
-  %29 = getelementptr inbounds i8, ptr %22, i64 %24
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 %24
   %30 = load i8, ptr %29, align 1
   switch i8 %30, label %140 [
     i8 92, label %31
@@ -73,7 +73,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6format13matchFilePathEN4llvm9Stri
   br i1 %34, label %.critedge2, label %35
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %22, i64 %33
+  %36 = getelementptr inbounds nuw i8, ptr %22, i64 %33
   %37 = load i8, ptr %36, align 1
   %.not111 = icmp eq i8 %28, %37
   br i1 %.not111, label %144, label %.critedge2
@@ -90,7 +90,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6format13matchFilePathEN4llvm9Stri
   br i1 %42, label %43, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i
 
 43:                                               ; preds = %.preheader124
-  %44 = getelementptr inbounds i8, ptr %22, i64 %41
+  %44 = getelementptr inbounds nuw i8, ptr %22, i64 %41
   %45 = load i8, ptr %44, align 1
   %46 = icmp eq i8 %45, 42
   br i1 %46, label %.preheader124, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, !llvm.loop !4
@@ -107,7 +107,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i:     ; preds = %43, %.preheader124
   br i1 %52, label %.critedge2, label %53
 
 53:                                               ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i
-  %54 = getelementptr inbounds i8, ptr %22, i64 %41
+  %54 = getelementptr inbounds nuw i8, ptr %22, i64 %41
   %55 = load i8, ptr %54, align 1
   %56 = icmp eq i8 %55, 92
   br i1 %56, label %57, label %61
@@ -119,7 +119,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i:     ; preds = %43, %.preheader124
   br i1 %60, label %.critedge2, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %57
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %22, i64 %59
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %22, i64 %59
   %.pre = load i8, ptr %.phi.trans.insert, align 1
   br label %61
 
@@ -140,7 +140,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i:     ; preds = %43, %.preheader124
 67:                                               ; preds = %61
   %68 = load i64, ptr %6, align 8
   %.sroa.speculated5.i = call i64 @llvm.umin.i64(i64 %68, i64 %.pre-phi)
-  %69 = getelementptr inbounds i8, ptr %22, i64 %.sroa.speculated5.i
+  %69 = getelementptr inbounds nuw i8, ptr %22, i64 %.sroa.speculated5.i
   %70 = sub i64 %68, %.sroa.speculated5.i
   %71 = zext i32 %.085135 to i64
   %72 = icmp ugt i64 %3, %71
@@ -155,7 +155,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i:     ; preds = %43, %.preheader124
 .lr.ph143:                                        ; preds = %67, %73
   %77 = phi i64 [ %75, %73 ], [ %71, %67 ]
   %.287142 = phi i32 [ %74, %73 ], [ %.085135, %67 ]
-  %78 = getelementptr inbounds i8, ptr %2, i64 %77
+  %78 = getelementptr inbounds nuw i8, ptr %2, i64 %77
   %79 = load i8, ptr %78, align 1
   %.not110 = icmp eq i8 %79, 47
   br i1 %.not110, label %.critedge2, label %80
@@ -183,7 +183,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i:     ; preds = %43, %.preheader124
 89:                                               ; preds = %87
   %90 = add i32 %.084136, 1
   %91 = zext i32 %90 to i64
-  %92 = getelementptr inbounds i8, ptr %22, i64 %91
+  %92 = getelementptr inbounds nuw i8, ptr %22, i64 %91
   %93 = load i8, ptr %92, align 1
   %.not105 = icmp eq i8 %93, 33
   br i1 %.not105, label %140, label %94
@@ -209,7 +209,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i:     ; preds = %43, %.preheader124
   br i1 %102, label %.critedge2, label %103
 
 103:                                              ; preds = %101
-  %104 = getelementptr inbounds i8, ptr %.pre159, i64 %.pre-phi165
+  %104 = getelementptr inbounds nuw i8, ptr %.pre159, i64 %.pre-phi165
   %105 = load i8, ptr %104, align 1
   %106 = icmp eq i8 %105, 33
   %107 = add i32 %.084136, 2
@@ -226,20 +226,20 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i:     ; preds = %43, %.preheader124
 
 113:                                              ; preds = %108
   %114 = zext i32 %112 to i64
-  %115 = getelementptr inbounds i8, ptr %.pre159, i64 %114
+  %115 = getelementptr inbounds nuw i8, ptr %.pre159, i64 %114
   %116 = load i8, ptr %115, align 1
   %117 = icmp eq i8 %116, 45
   br i1 %117, label %118, label %._crit_edge160
 
 118:                                              ; preds = %113
   %119 = zext i32 %.5 to i64
-  %120 = getelementptr inbounds i8, ptr %.pre159, i64 %119
+  %120 = getelementptr inbounds nuw i8, ptr %.pre159, i64 %119
   %121 = load i8, ptr %120, align 1
   %.not107 = icmp sgt i8 %121, %28
   br i1 %.not107, label %126, label %122
 
 122:                                              ; preds = %118
-  %123 = getelementptr inbounds i8, ptr %.pre159, i64 %110
+  %123 = getelementptr inbounds nuw i8, ptr %.pre159, i64 %110
   %124 = load i8, ptr %123, align 1
   %125 = icmp sle i8 %28, %124
   br label %126
@@ -251,7 +251,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i:     ; preds = %43, %.preheader124
 
 ._crit_edge160:                                   ; preds = %108, %113
   %129 = zext i32 %.5 to i64
-  %130 = getelementptr inbounds i8, ptr %.pre159, i64 %129
+  %130 = getelementptr inbounds nuw i8, ptr %.pre159, i64 %129
   %131 = load i8, ptr %130, align 1
   %132 = icmp eq i8 %28, %131
   br label %133
@@ -274,7 +274,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i:     ; preds = %43, %.preheader124
 
 140:                                              ; preds = %87, %89, %96, %94, %26
   %141 = phi ptr [ %21, %87 ], [ %21, %89 ], [ %.pre159, %96 ], [ %.pre159, %94 ], [ %21, %26 ]
-  %142 = getelementptr inbounds i8, ptr %141, i64 %24
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 %24
   %143 = load i8, ptr %142, align 1
   %.not112 = icmp eq i8 %28, %143
   br i1 %.not112, label %144, label %.critedge2
@@ -299,7 +299,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i:     ; preds = %43, %.preheader124
 .lr.ph138:                                        ; preds = %.preheader, %150
   %154 = phi i64 [ %152, %150 ], [ %18, %.preheader ]
   %.8137 = phi i32 [ %151, %150 ], [ %.084.lcssa, %.preheader ]
-  %155 = getelementptr inbounds i8, ptr %17, i64 %154
+  %155 = getelementptr inbounds nuw i8, ptr %17, i64 %154
   %156 = load i8, ptr %155, align 1
   %157 = icmp eq i8 %156, 42
   br i1 %157, label %150, label %.critedge4

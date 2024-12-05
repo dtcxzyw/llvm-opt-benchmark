@@ -85,14 +85,14 @@ define dso_local void @XLogCheckInvalidPages() local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %4, %report_invalid_page.exit
   %6 = phi ptr [ %17, %report_invalid_page.exit ], [ %5, %4 ]
-  %7 = getelementptr inbounds i8, ptr %6, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %6, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %12 = load i8, ptr %11, align 4
   %.sroa.0.0.copyload = load i64, ptr %6, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 4
   %.sroa.025.0.extract.trunc.i = trunc i64 %.sroa.0.0.copyload to i32
   %.sroa.226.0.extract.shift.i = lshr i64 %.sroa.0.0.copyload, 32
@@ -164,7 +164,7 @@ define dso_local range(i32 0, 4) i32 @XLogReadBufferForRedoExtended(ptr noundef 
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load i64, ptr %10, align 8
   %12 = call zeroext i1 @XLogRecGetBlockTagExtended(ptr noundef %0, i8 noundef zeroext %1, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #7
   br i1 %12, label %17, label %13
@@ -180,7 +180,7 @@ define dso_local range(i32 0, 4) i32 @XLogReadBufferForRedoExtended(ptr noundef 
 17:                                               ; preds = %5
   %18 = add i32 %2, -1
   %19 = icmp ult i32 %18, 2
-  %20 = getelementptr inbounds i8, ptr %0, i64 104
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %21 = load ptr, ptr %20, align 8
   %22 = zext i8 %1 to i64
   %.idx = shl nuw nsw i64 %22, 6
@@ -223,7 +223,7 @@ define dso_local range(i32 0, 4) i32 @XLogReadBufferForRedoExtended(ptr noundef 
   %42 = select i1 %3, i32 2, i32 1
   %43 = load i32, ptr %9, align 4
   %.sroa.02.0.copyload = load i64, ptr %6, align 8
-  %.sroa.23.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.23.0.copyload = load i32, ptr %.sroa.23.0..sroa_idx, align 8
   %44 = call i32 @XLogReadBufferExtended(i64 %.sroa.02.0.copyload, i32 %.sroa.23.0.copyload, i32 noundef %39, i32 noundef %40, i32 noundef %42, i32 noundef %43)
   store i32 %44, ptr %4, align 4
@@ -255,7 +255,7 @@ BufferGetPage.exit:                               ; preds = %46, %52
   %60 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   call void @llvm.assume(i1 %60)
   %61 = call i32 @errcode(i32 noundef 2600) #7
-  %62 = getelementptr inbounds i8, ptr %0, i64 1304
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 1304
   %63 = load ptr, ptr %62, align 8
   %64 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, ptr noundef %63) #7
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 398, ptr noundef nonnull @__func__.XLogReadBufferForRedoExtended) #7
@@ -272,7 +272,7 @@ BufferGetPage.exit:                               ; preds = %46, %52
   %70 = trunc nuw i64 %69 to i32
   store i32 %70, ptr %.0.i.i, align 4
   %71 = trunc i64 %11 to i32
-  %72 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   store i32 %71, ptr %72, align 4
   br label %73
 
@@ -291,7 +291,7 @@ BufferGetPage.exit:                               ; preds = %46, %52
 79:                                               ; preds = %34
   %80 = load i32, ptr %9, align 4
   %.sroa.0.0.copyload = load i64, ptr %6, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 8
   %81 = call i32 @XLogReadBufferExtended(i64 %.sroa.0.0.copyload, i32 %.sroa.2.0.copyload, i32 noundef %39, i32 noundef %40, i32 noundef %2, i32 noundef %80)
   store i32 %81, ptr %4, align 4
@@ -394,9 +394,9 @@ define dso_local i32 @XLogReadBufferExtended(i64 %0, i32 %1, i32 noundef %2, i32
 
 .thread55:                                        ; preds = %18
   store ptr null, ptr %7, align 8
-  %20 = getelementptr inbounds i8, ptr %7, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %13, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %7, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i8 112, ptr %21, align 8
   %22 = add i32 %3, 1
   %23 = tail call i32 @ExtendBufferedRelTo(ptr noundef nonnull byval(%struct.BufferManagerRelation) align 8 %7, i32 noundef %2, ptr noundef null, i32 noundef 3, i32 noundef %22, i32 noundef %4) #7
@@ -533,9 +533,9 @@ report_invalid_page.exit21:                       ; preds = %24, %.sink.split.i1
   br i1 %30, label %31, label %35
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %8, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i64 20, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %8, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i64 24, ptr %33, align 8
   %34 = call ptr @hash_create(ptr noundef nonnull @.str.14, i64 noundef 100, ptr noundef nonnull %8, i32 noundef 40) #7
   store ptr %34, ptr @invalid_page_tab, align 8
@@ -544,11 +544,11 @@ report_invalid_page.exit21:                       ; preds = %24, %.sink.split.i1
 35:                                               ; preds = %31, %28
   %36 = phi ptr [ %34, %31 ], [ %29, %28 ]
   store i64 %0, ptr %6, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %1, ptr %.sroa.4.0..sroa_idx, align 8
-  %37 = getelementptr inbounds i8, ptr %6, i64 12
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 %2, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %6, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %3, ptr %38, align 8
   %39 = call ptr @hash_search(ptr noundef %36, ptr noundef nonnull %6, i32 noundef 1, ptr noundef nonnull %7) #7
   %40 = load i8, ptr %7, align 1
@@ -556,7 +556,7 @@ report_invalid_page.exit21:                       ; preds = %24, %.sink.split.i1
   br i1 %41, label %44, label %42
 
 42:                                               ; preds = %35
-  %43 = getelementptr inbounds i8, ptr %39, i64 20
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 20
   store i8 %9, ptr %43, align 4
   br label %44
 
@@ -573,24 +573,24 @@ define dso_local noundef ptr @CreateFakeRelcacheEntry(i64 %0, i32 %1) local_unna
   %.sroa.013.sroa.3.0.extract.shift = lshr i64 %0, 32
   %.sroa.013.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.013.sroa.3.0.extract.shift to i32
   %3 = tail call ptr @palloc0(i64 noundef 624) #7
-  %4 = getelementptr inbounds i8, ptr %3, i64 480
-  %5 = getelementptr inbounds i8, ptr %3, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 480
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store ptr %4, ptr %5, align 8
   store i64 %0, ptr %3, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %1, ptr %.sroa.4.0..sroa_idx, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 28
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 28
   store i32 -1, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %3, i64 594
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 594
   store i8 112, ptr %7, align 2
-  %8 = getelementptr inbounds i8, ptr %3, i64 484
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 484
   %9 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.6, i32 noundef %1) #7
-  %10 = getelementptr inbounds i8, ptr %3, i64 76
-  %11 = getelementptr inbounds i8, ptr %3, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 76
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store i32 %.sroa.013.sroa.3.0.extract.trunc, ptr %11, align 4
   store i32 %1, ptr %10, align 4
   %12 = tail call ptr @smgropen(i64 %0, i32 %1, i32 noundef -1) #7
-  %13 = getelementptr inbounds i8, ptr %3, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %12, ptr %13, align 8
   ret ptr %3
 }
@@ -631,13 +631,13 @@ define internal fastcc void @forget_invalid_pages(i64 %0, i32 %1, i32 noundef %2
 
 .lr.ph:                                           ; preds = %8, %47
   %10 = phi ptr [ %48, %47 ], [ %9, %8 ]
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, %1
   br i1 %13, label %14, label %47
 
 14:                                               ; preds = %.lr.ph
-  %15 = getelementptr inbounds i8, ptr %10, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, %.sroa.215.0.extract.trunc
   br i1 %17, label %18, label %47
@@ -648,13 +648,13 @@ define internal fastcc void @forget_invalid_pages(i64 %0, i32 %1, i32 noundef %2
   br i1 %20, label %21, label %47
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %10, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i32 %23, %2
   br i1 %24, label %25, label %47
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %10, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %27 = load i32, ptr %26, align 4
   %.not18 = icmp ult i32 %27, %3
   br i1 %.not18, label %47, label %28
@@ -720,7 +720,7 @@ define dso_local void @XLogDropDatabase(i32 noundef %0) local_unnamed_addr #0 {
 
 .lr.ph.i:                                         ; preds = %5, %34
   %7 = phi ptr [ %35, %34 ], [ %6, %5 ]
-  %8 = getelementptr inbounds i8, ptr %7, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, %0
   br i1 %10, label %11, label %34
@@ -732,16 +732,16 @@ define dso_local void @XLogDropDatabase(i32 noundef %0) local_unnamed_addr #0 {
 13:                                               ; preds = %11
   %14 = load i32, ptr %8, align 4
   %15 = load i32, ptr %7, align 4
-  %16 = getelementptr inbounds i8, ptr %7, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %7, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %19 = load i32, ptr %18, align 4
   %20 = call ptr @GetRelationPath(i32 noundef %14, i32 noundef %15, i32 noundef %17, i32 noundef -1, i32 noundef %19) #7
   %21 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #7
   br i1 %21, label %22, label %26
 
 22:                                               ; preds = %13
-  %23 = getelementptr inbounds i8, ptr %7, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %24 = load i32, ptr %23, align 4
   %25 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.15, i32 noundef %24, ptr noundef %20) #7
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 224, ptr noundef nonnull @__func__.forget_invalid_pages_db) #7
@@ -784,13 +784,13 @@ define dso_local void @XLogTruncateRelation(i64 %0, i32 %1, i32 noundef %2, i32 
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @XLogReadDetermineTimeline(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 1216
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1216
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 1204
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1204
   %8 = load i32, ptr %7, align 4
   %9 = sext i32 %8 to i64
   %10 = mul i64 %6, %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 1232
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1232
   %12 = load i32, ptr %11, align 8
   %13 = zext i32 %12 to i64
   %14 = add i64 %10, %13
@@ -798,7 +798,7 @@ define dso_local void @XLogReadDetermineTimeline(ptr noundef %0, i64 noundef %1,
   br i1 %15, label %16, label %25
 
 16:                                               ; preds = %4
-  %17 = getelementptr inbounds i8, ptr %0, i64 176
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %18 = load i32, ptr %17, align 8
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %25, label %19
@@ -813,7 +813,7 @@ define dso_local void @XLogReadDetermineTimeline(ptr noundef %0, i64 noundef %1,
   br i1 %.not42, label %25, label %58
 
 25:                                               ; preds = %19, %16, %4
-  %26 = getelementptr inbounds i8, ptr %0, i64 1264
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 1264
   %27 = load i32, ptr %26, align 8
   %28 = icmp ne i32 %27, %3
   %.not43 = icmp ult i64 %1, %14
@@ -821,7 +821,7 @@ define dso_local void @XLogReadDetermineTimeline(ptr noundef %0, i64 noundef %1,
   br i1 %or.cond, label %29, label %58
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %0, i64 1272
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 1272
   %31 = load i64, ptr %30, align 8
   %.not44 = icmp eq i64 %31, 0
   br i1 %.not44, label %39, label %32
@@ -850,7 +850,7 @@ define dso_local void @XLogReadDetermineTimeline(ptr noundef %0, i64 noundef %1,
   %46 = add i64 %45, -1
   %47 = tail call i32 @tliOfPointInHistory(i64 noundef %46, ptr noundef %40) #7
   store i32 %47, ptr %26, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 1280
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 1280
   %49 = tail call i64 @tliSwitchPoint(i32 noundef %47, ptr noundef %40, ptr noundef nonnull %48) #7
   store i64 %49, ptr %30, align 8
   tail call void @list_free_deep(ptr noundef %40) #7
@@ -883,7 +883,7 @@ declare void @list_free_deep(ptr noundef) local_unnamed_addr #1
 define dso_local void @wal_segment_open(ptr nocapture noundef initializes((1208, 1212)) %0, i64 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   %4 = alloca [1024 x i8], align 16
   %5 = load i32, ptr %2, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 1204
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1204
   %7 = load i32, ptr %6, align 4
   %8 = sext i32 %7 to i64
   %9 = udiv i64 4294967296, %8
@@ -893,7 +893,7 @@ define dso_local void @wal_segment_open(ptr nocapture noundef initializes((1208,
   %13 = trunc nuw i64 %12 to i32
   %14 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.17, i32 noundef %5, i32 noundef %11, i32 noundef %13) #7
   %15 = call i32 @BasicOpenFile(ptr noundef nonnull %4, i32 noundef 0) #7
-  %16 = getelementptr inbounds i8, ptr %0, i64 1208
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1208
   store i32 %15, ptr %16, align 8
   %17 = icmp sgt i32 %15, -1
   br i1 %17, label %28, label %18
@@ -932,7 +932,7 @@ declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @wal_segment_close(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1208
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1208
   %3 = load i32, ptr %2, align 8
   %4 = tail call i32 @close(i32 noundef %3) #7
   store i32 -1, ptr %2, align 8
@@ -953,7 +953,7 @@ define internal fastcc i32 @read_local_xlog_page_guts(ptr noundef %0, i64 nounde
   %7 = alloca i32, align 4
   %8 = sext i32 %2 to i64
   %9 = add i64 %1, %8
-  %10 = getelementptr inbounds i8, ptr %0, i64 1264
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1264
   br i1 %4, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %5, %25
@@ -1020,14 +1020,14 @@ define internal fastcc i32 @read_local_xlog_page_guts(ptr noundef %0, i64 nounde
   br i1 %.not, label %37, label %.loopexit
 
 37:                                               ; preds = %36
-  %38 = getelementptr inbounds i8, ptr %0, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %39 = load ptr, ptr %38, align 8
   store i8 1, ptr %39, align 1
   br label %.loopexit
 
 .split41.us:                                      ; preds = %16, %31
   %.us-phi = phi i32 [ %33, %31 ], [ %18, %16 ]
-  %40 = getelementptr inbounds i8, ptr %0, i64 1272
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 1272
   %41 = load i64, ptr %40, align 8
   br label %.loopexit
 
@@ -1071,9 +1071,9 @@ define dso_local i32 @read_local_xlog_page_no_wait(ptr noundef %0, i64 noundef %
 ; Function Attrs: nounwind uwtable
 define dso_local void @WALReadRaiseError(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca [64 x i8], align 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
   %7 = load i32, ptr @wal_segment_size, align 4
   %8 = sext i32 %7 to i64
@@ -1083,7 +1083,7 @@ define dso_local void @WALReadRaiseError(ptr nocapture noundef readonly %0) loca
   %12 = urem i64 %6, %9
   %13 = trunc nuw i64 %12 to i32
   %14 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 64, ptr noundef nonnull @.str.18, i32 noundef %4, i32 noundef %11, i32 noundef %13) #7
-  %15 = getelementptr inbounds i8, ptr %0, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %16 = load i32, ptr %15, align 4
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %18, label %26
@@ -1095,7 +1095,7 @@ define dso_local void @WALReadRaiseError(ptr nocapture noundef readonly %0) loca
   %21 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   call void @llvm.assume(i1 %21)
   %22 = call i32 @errcode_for_file_access() #7
-  %23 = getelementptr inbounds i8, ptr %0, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %24 = load i32, ptr %23, align 4
   %25 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, ptr noundef nonnull %2, i32 noundef %24) #7
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1036, ptr noundef nonnull @__func__.WALReadRaiseError) #7
@@ -1109,10 +1109,10 @@ define dso_local void @WALReadRaiseError(ptr nocapture noundef readonly %0) loca
   %29 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   call void @llvm.assume(i1 %29)
   %30 = call i32 @errcode(i32 noundef 16779816) #7
-  %31 = getelementptr inbounds i8, ptr %0, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %32 = load i32, ptr %31, align 4
   %33 = load i32, ptr %15, align 4
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load i32, ptr %34, align 8
   %36 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef nonnull %2, i32 noundef %32, i32 noundef %33, i32 noundef %35) #7
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1044, ptr noundef nonnull @__func__.WALReadRaiseError) #7

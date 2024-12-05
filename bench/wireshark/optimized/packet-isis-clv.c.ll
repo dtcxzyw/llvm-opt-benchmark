@@ -207,7 +207,7 @@ define hidden void @isis_dissect_authentication_clv(ptr noundef %0, ptr noundef 
   br i1 %.not78, label %20, label %15
 
 15:                                               ; preds = %14
-  %16 = getelementptr inbounds i8, ptr %1, i64 408
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr @tvb_format_text(ptr noundef %17, ptr noundef %2, i32 noundef %12, i32 noundef %13) #2
   %19 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %0, i32 noundef %3, ptr noundef %2, i32 noundef %12, i32 noundef %13, ptr noundef null, ptr noundef nonnull @.str.5, i32 noundef %13, ptr noundef %18) #2
@@ -222,7 +222,7 @@ define hidden void @isis_dissect_authentication_clv(ptr noundef %0, ptr noundef 
   br i1 %23, label %24, label %29
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %1, i64 408
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %26 = load ptr, ptr %25, align 8
   %27 = tail call ptr @tvb_bytes_to_str(ptr noundef %26, ptr noundef %2, i32 noundef %12, i32 noundef 16) #2
   %28 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %0, i32 noundef %3, ptr noundef %2, i32 noundef %12, i32 noundef 16, ptr noundef null, ptr noundef nonnull @.str.7, i32 noundef 16, ptr noundef %27) #2
@@ -241,7 +241,7 @@ define hidden void @isis_dissect_authentication_clv(ptr noundef %0, ptr noundef 
   br i1 %.not, label %41, label %36
 
 36:                                               ; preds = %31
-  %37 = getelementptr inbounds i8, ptr %1, i64 408
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %38 = load ptr, ptr %37, align 8
   %39 = tail call ptr @tvb_bytes_to_str(ptr noundef %38, ptr noundef %2, i32 noundef %33, i32 noundef %34) #2
   %40 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %0, i32 noundef %3, ptr noundef %2, i32 noundef %33, i32 noundef %34, ptr noundef null, ptr noundef nonnull @.str.9, ptr noundef nonnull %35, i32 noundef %34, ptr noundef %39) #2
@@ -497,7 +497,7 @@ declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noun
 
 ; Function Attrs: nounwind uwtable
 define hidden void @isis_dissect_clvs(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef %10) local_unnamed_addr #0 {
-  %12 = getelementptr inbounds i8, ptr %6, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %13 = load i16, ptr %12, align 2
   %14 = zext i16 %13 to i32
   %15 = load i8, ptr %6, align 8
@@ -507,7 +507,7 @@ define hidden void @isis_dissect_clvs(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not98, label %.loopexit, label %.lr.ph102
 
 .lr.ph102:                                        ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %4, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 24
   br label %19
 
 19:                                               ; preds = %.lr.ph102, %58
@@ -544,7 +544,7 @@ define hidden void @isis_dissect_clvs(ptr noundef %0, ptr noundef %1, ptr nounde
   %35 = add i32 %.097, 1
   %36 = sext i32 %35 to i64
   %37 = getelementptr %struct.isis_clv_handle_t, ptr %4, i64 %36
-  %38 = getelementptr inbounds i8, ptr %37, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %39 = load ptr, ptr %38, align 8
   %.not87 = icmp eq ptr %39, null
   br i1 %.not87, label %._crit_edge, label %.lr.ph, !llvm.loop !10
@@ -557,12 +557,12 @@ define hidden void @isis_dissect_clvs(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not88, label %.critedge, label %34
 
 .critedge:                                        ; preds = %.lr.ph
-  %42 = getelementptr inbounds i8, ptr %40, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %43 = add nuw nsw i32 %29, 2
-  %44 = getelementptr inbounds i8, ptr %40, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %45 = load ptr, ptr %44, align 8
   %46 = load i32, ptr %45, align 4
-  %47 = getelementptr inbounds i8, ptr %40, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %48 = load ptr, ptr %47, align 8
   %49 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.082100, i32 noundef %43, i32 noundef %46, ptr noundef null, ptr noundef nonnull @.str.28, ptr noundef %48, i32 noundef %.pre, i32 noundef %29) #2
   %50 = tail call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %8, ptr noundef %0, i32 noundef %.082100, i32 noundef 1, i32 noundef 0) #2

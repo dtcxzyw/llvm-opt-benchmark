@@ -139,13 +139,13 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @efs_dissect_struct_EFS_HASH_BLOB(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -193,14 +193,14 @@ define hidden i32 @efs_dissect_struct_EFS_HASH_BLOB(ptr noundef %0, i32 noundef 
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -226,13 +226,13 @@ declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @efs_dissect_struct_ENCRYPTION_CERTIFICATE_HASH(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not52 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -284,14 +284,14 @@ define hidden i32 @efs_dissect_struct_ENCRYPTION_CERTIFICATE_HASH(ptr noundef %0
   %40 = sub i32 %39, %.0
   tail call void @proto_item_set_len(ptr noundef %.050, i32 noundef %40) #4
   %41 = load ptr, ptr %9, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 96
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 96
   %43 = load i32, ptr %42, align 8
   %44 = and i32 %43, 1
   %.not57 = icmp eq i32 %44, 0
   br i1 %.not57, label %52, label %45
 
 45:                                               ; preds = %31
-  %46 = getelementptr inbounds i8, ptr %4, i64 28
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %47 = load i32, ptr %46, align 4
   %.not58 = icmp ne i32 %47, 0
   %48 = and i32 %39, 7
@@ -311,13 +311,13 @@ define hidden i32 @efs_dissect_struct_ENCRYPTION_CERTIFICATE_HASH(ptr noundef %0
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @efs_dissect_struct_ENCRYPTION_CERTIFICATE_HASH_LIST(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -364,14 +364,14 @@ define hidden i32 @efs_dissect_struct_ENCRYPTION_CERTIFICATE_HASH_LIST(ptr nound
   %35 = sub i32 %34, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %35) #4
   %36 = load ptr, ptr %9, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 96
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 96
   %38 = load i32, ptr %37, align 8
   %39 = and i32 %38, 1
   %.not45 = icmp eq i32 %39, 0
   br i1 %.not45, label %47, label %40
 
 40:                                               ; preds = %31
-  %41 = getelementptr inbounds i8, ptr %4, i64 28
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %42 = load i32, ptr %41, align 4
   %.not46 = icmp ne i32 %42, 0
   %43 = and i32 %34, 7
@@ -391,13 +391,13 @@ define hidden i32 @efs_dissect_struct_ENCRYPTION_CERTIFICATE_HASH_LIST(ptr nound
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @efs_dissect_struct_EFS_CERTIFICATE_BLOB(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not46 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -447,14 +447,14 @@ define hidden i32 @efs_dissect_struct_EFS_CERTIFICATE_BLOB(ptr noundef %0, i32 n
   %38 = sub i32 %37, %.0
   tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #4
   %39 = load ptr, ptr %9, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 96
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
   %42 = and i32 %41, 1
   %.not51 = icmp eq i32 %42, 0
   br i1 %.not51, label %50, label %43
 
 43:                                               ; preds = %31
-  %44 = getelementptr inbounds i8, ptr %4, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %45 = load i32, ptr %44, align 4
   %.not52 = icmp ne i32 %45, 0
   %46 = and i32 %37, 7
@@ -474,13 +474,13 @@ define hidden i32 @efs_dissect_struct_EFS_CERTIFICATE_BLOB(ptr noundef %0, i32 n
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @efs_dissect_struct_ENCRYPTION_CERTIFICATE(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not46 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -530,14 +530,14 @@ define hidden i32 @efs_dissect_struct_ENCRYPTION_CERTIFICATE(ptr noundef %0, i32
   %38 = sub i32 %37, %.0
   tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #4
   %39 = load ptr, ptr %9, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 96
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
   %42 = and i32 %41, 1
   %.not51 = icmp eq i32 %42, 0
   br i1 %.not51, label %50, label %43
 
 43:                                               ; preds = %31
-  %44 = getelementptr inbounds i8, ptr %4, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %45 = load i32, ptr %44, align 4
   %.not52 = icmp ne i32 %45, 0
   %46 = and i32 %37, 7
@@ -694,7 +694,7 @@ define internal i32 @efs_dissect_element_ENCRYPTION_CERTIFICATE_pCertBlob_(ptr n
 ; Function Attrs: nounwind uwtable
 define internal i32 @efs_dissect_EfsRpcOpenFileRaw_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.63, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %9 = load i32, ptr @hf_efs_EfsRpcOpenFileRaw_FileName, align 4
@@ -712,7 +712,7 @@ define internal i32 @efs_dissect_EfsRpcOpenFileRaw_request(ptr noundef %0, i32 n
 ; Function Attrs: nounwind uwtable
 define internal i32 @efs_dissect_EfsRpcOpenFileRaw_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.63, ptr %8, align 8
   %9 = load i32, ptr @hf_efs_EfsRpcOpenFileRaw_pvContext, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @efs_dissect_element_EfsRpcOpenFileRaw_pvContext_, i32 noundef 1, ptr noundef nonnull @.str.79, i32 noundef %9) #4
@@ -724,7 +724,7 @@ define internal i32 @efs_dissect_EfsRpcOpenFileRaw_response(ptr noundef %0, i32 
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.78) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.77, ptr noundef %18) #4
@@ -736,7 +736,7 @@ define internal i32 @efs_dissect_EfsRpcOpenFileRaw_response(ptr noundef %0, i32 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @efs_dissect_EfsRpcReadFileRaw_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.64, ptr %7, align 8
   %8 = load i32, ptr @hf_efs_EfsRpcReadFileRaw_pvContext, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @efs_dissect_element_EfsRpcReadFileRaw_pvContext_, i32 noundef 1, ptr noundef nonnull @.str.79, i32 noundef %8) #4
@@ -747,7 +747,7 @@ define internal i32 @efs_dissect_EfsRpcReadFileRaw_request(ptr noundef %0, i32 n
 ; Function Attrs: nounwind uwtable
 define internal i32 @efs_dissect_EfsRpcReadFileRaw_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.64, ptr %8, align 8
   %9 = load i32, ptr @hf_efs_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -756,7 +756,7 @@ define internal i32 @efs_dissect_EfsRpcReadFileRaw_response(ptr noundef %0, i32 
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.78) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.77, ptr noundef %15) #4
@@ -768,7 +768,7 @@ define internal i32 @efs_dissect_EfsRpcReadFileRaw_response(ptr noundef %0, i32 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @efs_dissect_EfsRpcWriteFileRaw_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.65, ptr %7, align 8
   %8 = load i32, ptr @hf_efs_EfsRpcWriteFileRaw_pvContext, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @efs_dissect_element_EfsRpcWriteFileRaw_pvContext_, i32 noundef 1, ptr noundef nonnull @.str.79, i32 noundef %8) #4
@@ -779,7 +779,7 @@ define internal i32 @efs_dissect_EfsRpcWriteFileRaw_request(ptr noundef %0, i32 
 ; Function Attrs: nounwind uwtable
 define internal i32 @efs_dissect_EfsRpcWriteFileRaw_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.65, ptr %8, align 8
   %9 = load i32, ptr @hf_efs_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -788,7 +788,7 @@ define internal i32 @efs_dissect_EfsRpcWriteFileRaw_response(ptr noundef %0, i32
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.78) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.77, ptr noundef %15) #4
@@ -800,7 +800,7 @@ define internal i32 @efs_dissect_EfsRpcWriteFileRaw_response(ptr noundef %0, i32
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @efs_dissect_EfsRpcCloseRaw_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.66, ptr %7, align 8
   %8 = load i32, ptr @hf_efs_EfsRpcCloseRaw_pvContext, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @efs_dissect_element_EfsRpcCloseRaw_pvContext_, i32 noundef 1, ptr noundef nonnull @.str.79, i32 noundef %8) #4
@@ -810,7 +810,7 @@ define internal i32 @efs_dissect_EfsRpcCloseRaw_request(ptr noundef %0, i32 noun
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @efs_dissect_EfsRpcCloseRaw_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.66, ptr %7, align 8
   %8 = load i32, ptr @hf_efs_EfsRpcCloseRaw_pvContext, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @efs_dissect_element_EfsRpcCloseRaw_pvContext_, i32 noundef 1, ptr noundef nonnull @.str.79, i32 noundef %8) #4
@@ -821,7 +821,7 @@ define internal i32 @efs_dissect_EfsRpcCloseRaw_response(ptr noundef %0, i32 nou
 ; Function Attrs: nounwind uwtable
 define internal i32 @efs_dissect_EfsRpcEncryptFileSrv_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.67, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %9 = load i32, ptr @hf_efs_EfsRpcEncryptFileSrv_Filename, align 4
@@ -836,7 +836,7 @@ define internal i32 @efs_dissect_EfsRpcEncryptFileSrv_request(ptr noundef %0, i3
 ; Function Attrs: nounwind uwtable
 define internal i32 @efs_dissect_EfsRpcEncryptFileSrv_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.67, ptr %8, align 8
   %9 = load i32, ptr @hf_efs_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -845,7 +845,7 @@ define internal i32 @efs_dissect_EfsRpcEncryptFileSrv_response(ptr noundef %0, i
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.78) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.77, ptr noundef %15) #4
@@ -858,7 +858,7 @@ define internal i32 @efs_dissect_EfsRpcEncryptFileSrv_response(ptr noundef %0, i
 ; Function Attrs: nounwind uwtable
 define internal i32 @efs_dissect_EfsRpcDecryptFileSrv_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.68, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %9 = load i32, ptr @hf_efs_EfsRpcDecryptFileSrv_FileName, align 4
@@ -876,7 +876,7 @@ define internal i32 @efs_dissect_EfsRpcDecryptFileSrv_request(ptr noundef %0, i3
 ; Function Attrs: nounwind uwtable
 define internal i32 @efs_dissect_EfsRpcDecryptFileSrv_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.68, ptr %8, align 8
   %9 = load i32, ptr @hf_efs_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -885,7 +885,7 @@ define internal i32 @efs_dissect_EfsRpcDecryptFileSrv_response(ptr noundef %0, i
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.78) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.77, ptr noundef %15) #4
@@ -898,7 +898,7 @@ define internal i32 @efs_dissect_EfsRpcDecryptFileSrv_response(ptr noundef %0, i
 ; Function Attrs: nounwind uwtable
 define internal i32 @efs_dissect_EfsRpcQueryUsersOnFile_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.69, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %9 = load i32, ptr @hf_efs_EfsRpcQueryUsersOnFile_FileName, align 4
@@ -913,7 +913,7 @@ define internal i32 @efs_dissect_EfsRpcQueryUsersOnFile_request(ptr noundef %0, 
 ; Function Attrs: nounwind uwtable
 define internal i32 @efs_dissect_EfsRpcQueryUsersOnFile_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.69, ptr %8, align 8
   %9 = load i32, ptr @hf_efs_EfsRpcQueryUsersOnFile_pUsers, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @efs_dissect_element_EfsRpcQueryUsersOnFile_pUsers_, i32 noundef 1, ptr noundef nonnull @.str.80, i32 noundef %9) #4
@@ -925,7 +925,7 @@ define internal i32 @efs_dissect_EfsRpcQueryUsersOnFile_response(ptr noundef %0,
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.78) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.77, ptr noundef %18) #4
@@ -938,7 +938,7 @@ define internal i32 @efs_dissect_EfsRpcQueryUsersOnFile_response(ptr noundef %0,
 ; Function Attrs: nounwind uwtable
 define internal i32 @efs_dissect_EfsRpcQueryRecoveryAgents_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.70, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %9 = load i32, ptr @hf_efs_EfsRpcQueryRecoveryAgents_FileName, align 4
@@ -953,7 +953,7 @@ define internal i32 @efs_dissect_EfsRpcQueryRecoveryAgents_request(ptr noundef %
 ; Function Attrs: nounwind uwtable
 define internal i32 @efs_dissect_EfsRpcQueryRecoveryAgents_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.70, ptr %8, align 8
   %9 = load i32, ptr @hf_efs_EfsRpcQueryRecoveryAgents_pRecoveryAgents, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @efs_dissect_element_EfsRpcQueryRecoveryAgents_pRecoveryAgents_, i32 noundef 1, ptr noundef nonnull @.str.81, i32 noundef %9) #4
@@ -965,7 +965,7 @@ define internal i32 @efs_dissect_EfsRpcQueryRecoveryAgents_response(ptr noundef 
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.78) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.77, ptr noundef %18) #4
@@ -978,7 +978,7 @@ define internal i32 @efs_dissect_EfsRpcQueryRecoveryAgents_response(ptr noundef 
 ; Function Attrs: nounwind uwtable
 define internal i32 @efs_dissect_EfsRpcRemoveUsersFromFile_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.71, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %9 = load i32, ptr @hf_efs_EfsRpcRemoveUsersFromFile_FileName, align 4
@@ -993,7 +993,7 @@ define internal i32 @efs_dissect_EfsRpcRemoveUsersFromFile_request(ptr noundef %
 ; Function Attrs: nounwind uwtable
 define internal i32 @efs_dissect_EfsRpcRemoveUsersFromFile_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.71, ptr %8, align 8
   %9 = load i32, ptr @hf_efs_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -1002,7 +1002,7 @@ define internal i32 @efs_dissect_EfsRpcRemoveUsersFromFile_response(ptr noundef 
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.78) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.77, ptr noundef %15) #4
@@ -1015,7 +1015,7 @@ define internal i32 @efs_dissect_EfsRpcRemoveUsersFromFile_response(ptr noundef 
 ; Function Attrs: nounwind uwtable
 define internal i32 @efs_dissect_EfsRpcAddUsersToFile_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.72, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %9 = load i32, ptr @hf_efs_EfsRpcAddUsersToFile_FileName, align 4
@@ -1030,7 +1030,7 @@ define internal i32 @efs_dissect_EfsRpcAddUsersToFile_request(ptr noundef %0, i3
 ; Function Attrs: nounwind uwtable
 define internal i32 @efs_dissect_EfsRpcAddUsersToFile_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.72, ptr %8, align 8
   %9 = load i32, ptr @hf_efs_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -1039,7 +1039,7 @@ define internal i32 @efs_dissect_EfsRpcAddUsersToFile_response(ptr noundef %0, i
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.78) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.77, ptr noundef %15) #4
@@ -1051,7 +1051,7 @@ define internal i32 @efs_dissect_EfsRpcAddUsersToFile_response(ptr noundef %0, i
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @efs_dissect_EfsRpcSetFileEncryptionKey_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.73, ptr %7, align 8
   %8 = load i32, ptr @hf_efs_EfsRpcSetFileEncryptionKey_pEncryptionCertificate, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @efs_dissect_element_EfsRpcSetFileEncryptionKey_pEncryptionCertificate_, i32 noundef 2, ptr noundef nonnull @.str.82, i32 noundef %8) #4
@@ -1062,7 +1062,7 @@ define internal i32 @efs_dissect_EfsRpcSetFileEncryptionKey_request(ptr noundef 
 ; Function Attrs: nounwind uwtable
 define internal i32 @efs_dissect_EfsRpcSetFileEncryptionKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.73, ptr %8, align 8
   %9 = load i32, ptr @hf_efs_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -1071,7 +1071,7 @@ define internal i32 @efs_dissect_EfsRpcSetFileEncryptionKey_response(ptr noundef
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.78) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.77, ptr noundef %15) #4
@@ -1083,7 +1083,7 @@ define internal i32 @efs_dissect_EfsRpcSetFileEncryptionKey_response(ptr noundef
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @efs_dissect_EfsRpcNotSupported_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.74, ptr %7, align 8
   ret i32 %1
 }
@@ -1091,7 +1091,7 @@ define internal noundef i32 @efs_dissect_EfsRpcNotSupported_request(ptr nocaptur
 ; Function Attrs: nounwind uwtable
 define internal i32 @efs_dissect_EfsRpcNotSupported_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.74, ptr %8, align 8
   %9 = load i32, ptr @hf_efs_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -1100,7 +1100,7 @@ define internal i32 @efs_dissect_EfsRpcNotSupported_response(ptr noundef %0, i32
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.78) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.77, ptr noundef %15) #4
@@ -1112,7 +1112,7 @@ define internal i32 @efs_dissect_EfsRpcNotSupported_response(ptr noundef %0, i32
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @efs_dissect_EfsRpcFileKeyInfo_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.75, ptr %7, align 8
   ret i32 %1
 }
@@ -1120,7 +1120,7 @@ define internal noundef i32 @efs_dissect_EfsRpcFileKeyInfo_request(ptr nocapture
 ; Function Attrs: nounwind uwtable
 define internal i32 @efs_dissect_EfsRpcFileKeyInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.75, ptr %8, align 8
   %9 = load i32, ptr @hf_efs_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -1129,7 +1129,7 @@ define internal i32 @efs_dissect_EfsRpcFileKeyInfo_response(ptr noundef %0, i32 
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.78) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.77, ptr noundef %15) #4
@@ -1141,7 +1141,7 @@ define internal i32 @efs_dissect_EfsRpcFileKeyInfo_response(ptr noundef %0, i32 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @efs_dissect_EfsRpcDuplicateEncryptionInfoFile_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.76, ptr %7, align 8
   ret i32 %1
 }
@@ -1149,7 +1149,7 @@ define internal noundef i32 @efs_dissect_EfsRpcDuplicateEncryptionInfoFile_reque
 ; Function Attrs: nounwind uwtable
 define internal i32 @efs_dissect_EfsRpcDuplicateEncryptionInfoFile_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.76, ptr %8, align 8
   %9 = load i32, ptr @hf_efs_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -1158,7 +1158,7 @@ define internal i32 @efs_dissect_EfsRpcDuplicateEncryptionInfoFile_response(ptr 
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.78) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.77, ptr noundef %15) #4

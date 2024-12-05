@@ -239,7 +239,7 @@ define noundef ptr @cl_hash_file_fd_ctx(ptr noundef %0, i32 noundef %1, ptr noun
   br i1 %9, label %31, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %5, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %12 = load i64, ptr %11, align 8
   %13 = and i64 %12, 4294967295
   %14 = tail call noalias ptr @malloc(i64 noundef %13) #12
@@ -1009,7 +1009,7 @@ define range(i32 -1, 9) i32 @cl_validate_certificate_chain_ts_dir(ptr noundef %0
 
 6:                                                ; preds = %.lr.ph, %.backedge
   %7 = phi ptr [ %5, %.lr.ph ], [ %11, %.backedge ]
-  %8 = getelementptr inbounds i8, ptr %7, i64 19
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 19
   %9 = load i8, ptr %8, align 1
   %10 = icmp eq i8 %9, 46
   br i1 %10, label %.backedge, label %12
@@ -1518,7 +1518,7 @@ define noundef ptr @cl_ASN1_GetTimeT(ptr noundef readonly %0) local_unnamed_addr
   br i1 %.not, label %41, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not29 = icmp eq ptr %6, null
   br i1 %.not29, label %41, label %7
@@ -1534,7 +1534,7 @@ define noundef ptr @cl_ASN1_GetTimeT(ptr noundef readonly %0) local_unnamed_addr
   br i1 %.not30, label %41, label %12
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %0, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %14 = load i32, ptr %13, align 4
   switch i32 %14, label %31 [
     i32 23, label %15
@@ -1542,13 +1542,13 @@ define noundef ptr @cl_ASN1_GetTimeT(ptr noundef readonly %0) local_unnamed_addr
   ]
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %6, i64 3
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 3
   %17 = load i8, ptr %16, align 1
   %18 = icmp eq i8 %17, 48
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %6, i64 2
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 2
   store i8 48, ptr %20, align 1
   store i8 57, ptr %16, align 1
   br label %32
@@ -1559,13 +1559,13 @@ define noundef ptr @cl_ASN1_GetTimeT(ptr noundef readonly %0) local_unnamed_addr
   br label %32
 
 23:                                               ; preds = %12
-  %24 = getelementptr inbounds i8, ptr %6, i64 5
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 5
   %25 = load i8, ptr %24, align 1
   %26 = icmp eq i8 %25, 48
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %6, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i8 48, ptr %28, align 1
   store i8 57, ptr %24, align 1
   br label %32
@@ -1593,9 +1593,9 @@ define noundef ptr @cl_ASN1_GetTimeT(ptr noundef readonly %0) local_unnamed_addr
   %36 = tail call i64 @time(ptr noundef null) #11
   store i64 %36, ptr %2, align 8
   %37 = call ptr @localtime_r(ptr noundef nonnull %2, ptr noundef nonnull %3) #11
-  %38 = getelementptr inbounds i8, ptr %3, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %39 = load i32, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %11, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store i32 %39, ptr %40, align 8
   br label %41
 

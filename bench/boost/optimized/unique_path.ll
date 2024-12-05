@@ -138,7 +138,7 @@ _ZN5boost5scope15unique_resourceIiNS0_10fd_deleterENS0_18fd_resource_traitsEE5re
 
 32:                                               ; preds = %24
   %33 = add i64 %23, %.02042
-  %34 = getelementptr inbounds i8, ptr %.01843, i64 %23
+  %34 = getelementptr inbounds nuw i8, ptr %.01843, i64 %23
   br label %select.unfold
 
 select.unfold:                                    ; preds = %26, %32
@@ -210,7 +210,7 @@ define internal noundef range(i32 5, 4) i32 @_ZN5boost10filesystem6detail12_GLOB
 
 15:                                               ; preds = %.lr.ph
   %16 = add i64 %4, %.02233
-  %17 = getelementptr inbounds i8, ptr %.02034, i64 %4
+  %17 = getelementptr inbounds nuw i8, ptr %.02034, i64 %4
   br label %18
 
 18:                                               ; preds = %6, %15

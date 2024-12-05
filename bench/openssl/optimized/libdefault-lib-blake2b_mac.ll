@@ -32,7 +32,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not, label %return, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %params = getelementptr inbounds i8, ptr %call1, i64 240
+  %params = getelementptr inbounds nuw i8, ptr %call1, i64 240
   tail call void @ossl_blake2b_param_init(ptr noundef nonnull %params) #5
   br label %return
 
@@ -69,7 +69,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %key = getelementptr inbounds i8, ptr %vmacctx, i64 304
+  %key = getelementptr inbounds nuw i8, ptr %vmacctx, i64 304
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %key, i64 noundef 64) #5
   tail call void @CRYPTO_free(ptr noundef nonnull %vmacctx, ptr noundef nonnull @.str, i32 noundef 79) #5
   br label %if.end
@@ -106,25 +106,25 @@ blake2_setkey.exit.thread:                        ; preds = %if.then3
   br label %return
 
 if.end.i:                                         ; preds = %if.then3
-  %key2.i = getelementptr inbounds i8, ptr %vmacctx, i64 304
+  %key2.i = getelementptr inbounds nuw i8, ptr %vmacctx, i64 304
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %key2.i, ptr nonnull readonly align 1 %key, i64 %keylen, i1 false)
   %cmp3.i = icmp samesign ult i64 %keylen, 64
   br i1 %cmp3.i, label %if.then4.i, label %blake2_setkey.exit
 
 if.then4.i:                                       ; preds = %if.end.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %key2.i, i64 %keylen
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %key2.i, i64 %keylen
   %sub.i = sub nuw nsw i64 64, %keylen
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr.i, i8 0, i64 %sub.i, i1 false)
   br label %blake2_setkey.exit
 
 blake2_setkey.exit:                               ; preds = %if.end.i, %if.then4.i
-  %params.i = getelementptr inbounds i8, ptr %vmacctx, i64 240
+  %params.i = getelementptr inbounds nuw i8, ptr %vmacctx, i64 240
   %conv.i = trunc nuw nsw i64 %keylen to i8
   tail call void @ossl_blake2b_param_set_key_length(ptr noundef nonnull %params.i, i8 noundef zeroext %conv.i) #5
   br label %if.end13
 
 if.else:                                          ; preds = %if.end
-  %key_length = getelementptr inbounds i8, ptr %vmacctx, i64 241
+  %key_length = getelementptr inbounds nuw i8, ptr %vmacctx, i64 241
   %1 = load i8, ptr %key_length, align 1
   %cmp9 = icmp eq i8 %1, 0
   br i1 %cmp9, label %if.then11, label %if.end13
@@ -136,8 +136,8 @@ if.then11:                                        ; preds = %if.else
   br label %return
 
 if.end13:                                         ; preds = %blake2_setkey.exit, %if.else
-  %params14 = getelementptr inbounds i8, ptr %vmacctx, i64 240
-  %key15 = getelementptr inbounds i8, ptr %vmacctx, i64 304
+  %params14 = getelementptr inbounds nuw i8, ptr %vmacctx, i64 240
+  %key15 = getelementptr inbounds nuw i8, ptr %vmacctx, i64 304
   %call16 = tail call i32 @ossl_blake2b_init_key(ptr noundef %vmacctx, ptr noundef nonnull %params14, ptr noundef nonnull %key15) #5
   br label %return
 
@@ -254,7 +254,7 @@ if.then7:                                         ; preds = %if.then2
   br label %return
 
 if.end8:                                          ; preds = %if.then2
-  %params9 = getelementptr inbounds i8, ptr %vmacctx, i64 240
+  %params9 = getelementptr inbounds nuw i8, ptr %vmacctx, i64 240
   %conv = trunc nuw nsw i64 %0 to i8
   call void @ossl_blake2b_param_set_digest_length(ptr noundef nonnull %params9, i8 noundef zeroext %conv) #5
   br label %if.end10
@@ -265,7 +265,7 @@ if.end10:                                         ; preds = %if.end8, %if.end
   br i1 %cmp12.not, label %if.end17, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end10
-  %data_size = getelementptr inbounds i8, ptr %call11, i64 24
+  %data_size = getelementptr inbounds nuw i8, ptr %call11, i64 24
   %3 = load i64, ptr %data_size, align 8
   %4 = add i64 %3, -65
   %or.cond.i = icmp ult i64 %4, -64
@@ -278,21 +278,21 @@ blake2_setkey.exit.thread:                        ; preds = %land.lhs.true
   br label %return
 
 if.end.i:                                         ; preds = %land.lhs.true
-  %data = getelementptr inbounds i8, ptr %call11, i64 16
+  %data = getelementptr inbounds nuw i8, ptr %call11, i64 16
   %5 = load ptr, ptr %data, align 8
-  %key2.i = getelementptr inbounds i8, ptr %vmacctx, i64 304
+  %key2.i = getelementptr inbounds nuw i8, ptr %vmacctx, i64 304
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %key2.i, ptr readonly align 1 %5, i64 %3, i1 false)
   %cmp3.i = icmp samesign ult i64 %3, 64
   br i1 %cmp3.i, label %if.then4.i, label %blake2_setkey.exit
 
 if.then4.i:                                       ; preds = %if.end.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %key2.i, i64 %3
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %key2.i, i64 %3
   %sub.i = sub nuw nsw i64 64, %3
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr.i, i8 0, i64 %sub.i, i1 false)
   br label %blake2_setkey.exit
 
 blake2_setkey.exit:                               ; preds = %if.end.i, %if.then4.i
-  %params.i = getelementptr inbounds i8, ptr %vmacctx, i64 240
+  %params.i = getelementptr inbounds nuw i8, ptr %vmacctx, i64 240
   %conv.i = trunc nuw nsw i64 %3 to i8
   call void @ossl_blake2b_param_set_key_length(ptr noundef nonnull %params.i, i8 noundef zeroext %conv.i) #5
   br label %if.end17
@@ -303,7 +303,7 @@ if.end17:                                         ; preds = %blake2_setkey.exit,
   br i1 %cmp19.not, label %if.end30, label %if.then21
 
 if.then21:                                        ; preds = %if.end17
-  %data_size22 = getelementptr inbounds i8, ptr %call18, i64 24
+  %data_size22 = getelementptr inbounds nuw i8, ptr %call18, i64 24
   %6 = load i64, ptr %data_size22, align 8
   %cmp23 = icmp ugt i64 %6, 16
   br i1 %cmp23, label %if.then25, label %if.end26
@@ -315,8 +315,8 @@ if.then25:                                        ; preds = %if.then21
   br label %return
 
 if.end26:                                         ; preds = %if.then21
-  %params27 = getelementptr inbounds i8, ptr %vmacctx, i64 240
-  %data28 = getelementptr inbounds i8, ptr %call18, i64 16
+  %params27 = getelementptr inbounds nuw i8, ptr %vmacctx, i64 240
+  %data28 = getelementptr inbounds nuw i8, ptr %call18, i64 16
   %7 = load ptr, ptr %data28, align 8
   call void @ossl_blake2b_param_set_personal(ptr noundef nonnull %params27, ptr noundef %7, i64 noundef %6) #5
   br label %if.end30
@@ -327,7 +327,7 @@ if.end30:                                         ; preds = %if.end26, %if.end17
   br i1 %cmp32.not, label %return, label %if.then34
 
 if.then34:                                        ; preds = %if.end30
-  %data_size35 = getelementptr inbounds i8, ptr %call31, i64 24
+  %data_size35 = getelementptr inbounds nuw i8, ptr %call31, i64 24
   %8 = load i64, ptr %data_size35, align 8
   %cmp36 = icmp ugt i64 %8, 16
   br i1 %cmp36, label %if.then38, label %if.end39
@@ -339,8 +339,8 @@ if.then38:                                        ; preds = %if.then34
   br label %return
 
 if.end39:                                         ; preds = %if.then34
-  %params40 = getelementptr inbounds i8, ptr %vmacctx, i64 240
-  %data41 = getelementptr inbounds i8, ptr %call31, i64 16
+  %params40 = getelementptr inbounds nuw i8, ptr %vmacctx, i64 240
+  %data41 = getelementptr inbounds nuw i8, ptr %call31, i64 16
   %9 = load ptr, ptr %data41, align 8
   call void @ossl_blake2b_param_set_salt(ptr noundef nonnull %params40, ptr noundef %9, i64 noundef %8) #5
   br label %return

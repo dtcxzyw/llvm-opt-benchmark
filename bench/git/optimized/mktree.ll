@@ -57,73 +57,73 @@ entry:
   store i32 0, ptr %allow_missing, align 4
   store i32 0, ptr %is_batch_mode, align 4
   store i32 9, ptr %option, align 16
-  %short_name = getelementptr inbounds i8, ptr %option, i64 4
+  %short_name = getelementptr inbounds nuw i8, ptr %option, i64 4
   store i32 122, ptr %short_name, align 4
-  %long_name = getelementptr inbounds i8, ptr %option, i64 8
+  %long_name = getelementptr inbounds nuw i8, ptr %option, i64 8
   store ptr null, ptr %long_name, align 8
-  %value = getelementptr inbounds i8, ptr %option, i64 16
+  %value = getelementptr inbounds nuw i8, ptr %option, i64 16
   store ptr %nul_term_line, ptr %value, align 16
-  %argh = getelementptr inbounds i8, ptr %option, i64 24
+  %argh = getelementptr inbounds nuw i8, ptr %option, i64 24
   store ptr null, ptr %argh, align 8
-  %help = getelementptr inbounds i8, ptr %option, i64 32
+  %help = getelementptr inbounds nuw i8, ptr %option, i64 32
   store ptr @.str, ptr %help, align 16
-  %flags = getelementptr inbounds i8, ptr %option, i64 40
+  %flags = getelementptr inbounds nuw i8, ptr %option, i64 40
   store i32 2, ptr %flags, align 8
-  %callback = getelementptr inbounds i8, ptr %option, i64 48
+  %callback = getelementptr inbounds nuw i8, ptr %option, i64 48
   store ptr null, ptr %callback, align 16
-  %defval = getelementptr inbounds i8, ptr %option, i64 56
+  %defval = getelementptr inbounds nuw i8, ptr %option, i64 56
   store i64 1, ptr %defval, align 8
-  %ll_callback = getelementptr inbounds i8, ptr %option, i64 64
-  %arrayinit.element = getelementptr inbounds i8, ptr %option, i64 88
+  %ll_callback = getelementptr inbounds nuw i8, ptr %option, i64 64
+  %arrayinit.element = getelementptr inbounds nuw i8, ptr %option, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ll_callback, i8 0, i64 24, i1 false)
   store i32 9, ptr %arrayinit.element, align 8
-  %short_name2 = getelementptr inbounds i8, ptr %option, i64 92
+  %short_name2 = getelementptr inbounds nuw i8, ptr %option, i64 92
   store i32 0, ptr %short_name2, align 4
-  %long_name3 = getelementptr inbounds i8, ptr %option, i64 96
+  %long_name3 = getelementptr inbounds nuw i8, ptr %option, i64 96
   store ptr @.str.1, ptr %long_name3, align 16
-  %value4 = getelementptr inbounds i8, ptr %option, i64 104
+  %value4 = getelementptr inbounds nuw i8, ptr %option, i64 104
   store ptr %allow_missing, ptr %value4, align 8
-  %argh5 = getelementptr inbounds i8, ptr %option, i64 112
+  %argh5 = getelementptr inbounds nuw i8, ptr %option, i64 112
   store ptr null, ptr %argh5, align 16
-  %help6 = getelementptr inbounds i8, ptr %option, i64 120
+  %help6 = getelementptr inbounds nuw i8, ptr %option, i64 120
   store ptr @.str.2, ptr %help6, align 8
-  %flags7 = getelementptr inbounds i8, ptr %option, i64 128
+  %flags7 = getelementptr inbounds nuw i8, ptr %option, i64 128
   store i32 2, ptr %flags7, align 16
-  %callback8 = getelementptr inbounds i8, ptr %option, i64 136
+  %callback8 = getelementptr inbounds nuw i8, ptr %option, i64 136
   store ptr null, ptr %callback8, align 8
-  %defval9 = getelementptr inbounds i8, ptr %option, i64 144
+  %defval9 = getelementptr inbounds nuw i8, ptr %option, i64 144
   store i64 1, ptr %defval9, align 16
-  %ll_callback10 = getelementptr inbounds i8, ptr %option, i64 152
-  %arrayinit.element13 = getelementptr inbounds i8, ptr %option, i64 176
+  %ll_callback10 = getelementptr inbounds nuw i8, ptr %option, i64 152
+  %arrayinit.element13 = getelementptr inbounds nuw i8, ptr %option, i64 176
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ll_callback10, i8 0, i64 24, i1 false)
   store i32 9, ptr %arrayinit.element13, align 16
-  %short_name15 = getelementptr inbounds i8, ptr %option, i64 180
+  %short_name15 = getelementptr inbounds nuw i8, ptr %option, i64 180
   store i32 0, ptr %short_name15, align 4
-  %long_name16 = getelementptr inbounds i8, ptr %option, i64 184
+  %long_name16 = getelementptr inbounds nuw i8, ptr %option, i64 184
   store ptr @.str.3, ptr %long_name16, align 8
-  %value17 = getelementptr inbounds i8, ptr %option, i64 192
+  %value17 = getelementptr inbounds nuw i8, ptr %option, i64 192
   store ptr %is_batch_mode, ptr %value17, align 16
-  %argh18 = getelementptr inbounds i8, ptr %option, i64 200
+  %argh18 = getelementptr inbounds nuw i8, ptr %option, i64 200
   store ptr null, ptr %argh18, align 8
-  %help19 = getelementptr inbounds i8, ptr %option, i64 208
+  %help19 = getelementptr inbounds nuw i8, ptr %option, i64 208
   store ptr @.str.4, ptr %help19, align 16
-  %flags20 = getelementptr inbounds i8, ptr %option, i64 216
+  %flags20 = getelementptr inbounds nuw i8, ptr %option, i64 216
   store i32 2, ptr %flags20, align 8
-  %callback21 = getelementptr inbounds i8, ptr %option, i64 224
+  %callback21 = getelementptr inbounds nuw i8, ptr %option, i64 224
   store ptr null, ptr %callback21, align 16
-  %defval22 = getelementptr inbounds i8, ptr %option, i64 232
+  %defval22 = getelementptr inbounds nuw i8, ptr %option, i64 232
   store i64 1, ptr %defval22, align 8
-  %ll_callback23 = getelementptr inbounds i8, ptr %option, i64 240
+  %ll_callback23 = getelementptr inbounds nuw i8, ptr %option, i64 240
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %ll_callback23, i8 0, i64 112, i1 false)
   %call = call i32 @parse_options(i32 noundef %ac, ptr noundef %av, ptr noundef %prefix, ptr noundef nonnull %option, ptr noundef nonnull @mktree_usage, i32 noundef 0) #11
   %0 = load i32, ptr %nul_term_line, align 4
   %tobool.not = icmp eq i32 %0, 0
   %cond = select i1 %tobool.not, ptr @strbuf_getline_lf, ptr @strbuf_getline_nul
-  %buf = getelementptr inbounds i8, ptr %sb, i64 16
-  %1 = getelementptr inbounds i8, ptr %oi.i, i64 8
-  %algo.i.i.i = getelementptr inbounds i8, ptr %oid.i, i64 32
-  %buf15.i = getelementptr inbounds i8, ptr %buf.i, i64 16
-  %len16.i = getelementptr inbounds i8, ptr %buf.i, i64 8
+  %buf = getelementptr inbounds nuw i8, ptr %sb, i64 16
+  %1 = getelementptr inbounds nuw i8, ptr %oi.i, i64 8
+  %algo.i.i.i = getelementptr inbounds nuw i8, ptr %oid.i, i64 32
+  %buf15.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 16
+  %len16.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 8
   br label %while.body41.preheader
 
 while.body41.preheader:                           ; preds = %entry, %if.end60
@@ -179,13 +179,13 @@ if.then.i:                                        ; preds = %lor.lhs.false2.i, %
   unreachable
 
 if.end.i:                                         ; preds = %lor.lhs.false2.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %9, i64 1
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %9, i64 1
   %call6.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr.i, i32 noundef 32) #13
   %tobool7.not.i = icmp eq ptr %call6.i, null
   br i1 %tobool7.not.i, label %if.then16.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %if.end.i
-  %add.ptr9.i = getelementptr inbounds i8, ptr %call6.i, i64 1
+  %add.ptr9.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 1
   %call10.i = call i32 @parse_oid_hex(ptr noundef nonnull %add.ptr9.i, ptr noundef nonnull %oid.i, ptr noundef nonnull %p.i) #11
   %tobool11.not.i = icmp eq i32 %call10.i, 0
   br i1 %tobool11.not.i, label %lor.lhs.false12.i, label %if.then16.i
@@ -204,7 +204,7 @@ if.end17.i:                                       ; preds = %lor.lhs.false12.i
   %and.i = and i32 %conv.i, 61440
   %cmp18.i = icmp ne i32 %and.i, 57344
   store i8 0, ptr %call6.i, align 1
-  %add.ptr22.i = getelementptr inbounds i8, ptr %11, i64 1
+  %add.ptr22.i = getelementptr inbounds nuw i8, ptr %11, i64 1
   %tobool23.not.i = icmp eq i32 %7, 0
   br i1 %tobool23.not.i, label %land.lhs.true.i, label %if.end33.i
 
@@ -309,16 +309,16 @@ if.then.i12.i.i:                                  ; preds = %st_add.exit.i.i
 st_add.exit13.i.i:                                ; preds = %st_add.exit.i.i
   %add.i11.i.i = add nuw i64 %call.i.i, 45
   %call4.i.i = call ptr @xcalloc(i64 noundef 1, i64 noundef %add.i11.i.i) #11
-  %name.i.i = getelementptr inbounds i8, ptr %call4.i.i, i64 44
+  %name.i.i = getelementptr inbounds nuw i8, ptr %call4.i.i, i64 44
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %name.i.i, ptr align 1 %path.0.i, i64 %call.i.i, i1 false)
   store i32 %conv.i, ptr %call4.i.i, align 4
   %conv.i.i = trunc i64 %call.i.i to i32
-  %len6.i.i = getelementptr inbounds i8, ptr %call4.i.i, i64 40
+  %len6.i.i = getelementptr inbounds nuw i8, ptr %call4.i.i, i64 40
   store i32 %conv.i.i, ptr %len6.i.i, align 4
-  %oid7.i.i = getelementptr inbounds i8, ptr %call4.i.i, i64 4
+  %oid7.i.i = getelementptr inbounds nuw i8, ptr %call4.i.i, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %oid7.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid.i, i64 32, i1 false)
   %16 = load i32, ptr %algo.i.i.i, align 4
-  %algo3.i.i.i = getelementptr inbounds i8, ptr %call4.i.i, i64 36
+  %algo3.i.i.i = getelementptr inbounds nuw i8, ptr %call4.i.i, i64 36
   store i32 %16, ptr %algo3.i.i.i, align 4
   %17 = load i32, ptr @used, align 4
   %18 = load i32, ptr @alloc, align 4
@@ -412,9 +412,9 @@ for.body.lr.ph.i:                                 ; preds = %sane_qsort.exit.i
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
   %size.011.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %add3.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds ptr, ptr %29, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv.i
   %30 = load ptr, ptr %arrayidx.i, align 8
-  %len.i = getelementptr inbounds i8, ptr %30, i64 40
+  %len.i = getelementptr inbounds nuw i8, ptr %30, i64 40
   %31 = load i32, ptr %len.i, align 4
   %add.i = add nsw i32 %31, 32
   %conv2.i = sext i32 %add.i to i64
@@ -433,16 +433,16 @@ for.end.i:                                        ; preds = %for.body.i, %sane_q
 for.body7.i:                                      ; preds = %for.end.i, %for.body7.i
   %indvars.iv15.i = phi i64 [ %indvars.iv.next16.i, %for.body7.i ], [ 0, %for.end.i ]
   %33 = load ptr, ptr @entries, align 8
-  %arrayidx9.i = getelementptr inbounds ptr, ptr %33, i64 %indvars.iv15.i
+  %arrayidx9.i = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv15.i
   %34 = load ptr, ptr %arrayidx9.i, align 8
   %35 = load i32, ptr %34, align 4
-  %name.i = getelementptr inbounds i8, ptr %34, i64 44
+  %name.i = getelementptr inbounds nuw i8, ptr %34, i64 44
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf.i, ptr noundef nonnull @.str.15, i32 noundef %35, ptr noundef nonnull %name.i, i32 noundef 0) #11
-  %oid10.i = getelementptr inbounds i8, ptr %34, i64 4
+  %oid10.i = getelementptr inbounds nuw i8, ptr %34, i64 4
   %36 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i = getelementptr inbounds i8, ptr %36, i64 256
+  %hash_algo.i = getelementptr inbounds nuw i8, ptr %36, i64 256
   %37 = load ptr, ptr %hash_algo.i, align 8
-  %rawsz.i = getelementptr inbounds i8, ptr %37, i64 16
+  %rawsz.i = getelementptr inbounds nuw i8, ptr %37, i64 16
   %38 = load i64, ptr %rawsz.i, align 8
   call void @strbuf_add(ptr noundef nonnull %buf.i, ptr noundef nonnull %oid10.i, i64 noundef %38) #11
   %indvars.iv.next16.i = add nuw nsw i64 %indvars.iv15.i, 1
@@ -527,13 +527,13 @@ define internal i32 @ent_compare(ptr nocapture noundef readonly %a_, ptr nocaptu
 entry:
   %0 = load ptr, ptr %a_, align 8
   %1 = load ptr, ptr %b_, align 8
-  %name = getelementptr inbounds i8, ptr %0, i64 44
-  %len = getelementptr inbounds i8, ptr %0, i64 40
+  %name = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %len = getelementptr inbounds nuw i8, ptr %0, i64 40
   %2 = load i32, ptr %len, align 4
   %conv = sext i32 %2 to i64
   %3 = load i32, ptr %0, align 4
-  %name1 = getelementptr inbounds i8, ptr %1, i64 44
-  %len3 = getelementptr inbounds i8, ptr %1, i64 40
+  %name1 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %len3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load i32, ptr %len3, align 4
   %conv4 = sext i32 %4 to i64
   %5 = load i32, ptr %1, align 4

@@ -13,34 +13,34 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit:
   %6 = alloca [8 x i64], align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
   %7 = load i64, ptr %0, align 8, !noundef !4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8, !noundef !4
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i64, ptr %10, align 8, !noundef !4
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load i64, ptr %12, align 8, !noundef !4
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load i64, ptr %14, align 8, !noundef !4
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load i64, ptr %16, align 8, !noundef !4
-  %18 = getelementptr inbounds i8, ptr %0, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %19 = load i64, ptr %18, align 8, !noundef !4
-  %20 = getelementptr inbounds i8, ptr %0, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %21 = load i64, ptr %20, align 8, !noundef !4
   store i64 %7, ptr %6, align 8
-  %22 = getelementptr inbounds i8, ptr %6, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %9, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %6, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %11, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %6, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 %13, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %6, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i64 %15, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %6, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i64 %17, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %6, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i64 %19, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %6, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store i64 %21, ptr %28, align 8
   %29 = icmp eq i64 %7, -9223372036854775808
   %30 = or i64 %11, %9
@@ -204,7 +204,7 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit93: ; preds
   %101 = and i32 %95, 65472
   %102 = sub nsw i32 %100, %101
   %103 = trunc i32 %102 to i16
-  %104 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 %99
+  %104 = getelementptr inbounds nuw [8 x i64], ptr %5, i64 0, i64 %99
   %105 = and i32 %100, 63
   %106 = zext nneg i32 %105 to i64
   %107 = lshr i64 %.066, %106
@@ -221,7 +221,7 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit93: ; preds
 
 112:                                              ; preds = %.split
   %113 = sub nsw i16 0, %103
-  %114 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 %wide.trip.count
+  %114 = getelementptr inbounds nuw [8 x i64], ptr %5, i64 0, i64 %wide.trip.count
   %115 = and i16 %113, 63
   %116 = zext nneg i16 %115 to i64
   %117 = shl i64 %.066, %116
@@ -229,7 +229,7 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit93: ; preds
   br label %.loopexit
 
 118:                                              ; preds = %.loopexit
-  %119 = getelementptr inbounds i8, ptr %5, i64 64
+  %119 = getelementptr inbounds nuw i8, ptr %5, i64 64
   br label %120
 
 "_ZN109_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha5cc3784aa0d10b4E.exit.thread": ; preds = %120, %.lr.ph, %125, %.loopexit
@@ -265,19 +265,19 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit93: ; preds
 
 132:                                              ; preds = %180
   %.sroa.046.0.copyload = load i64, ptr %4, align 8
-  %.sroa.447.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.447.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.447.0.copyload = load i64, ptr %.sroa.447.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.648.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.648.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   %.sroa.648.0.copyload = load i64, ptr %.sroa.648.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 32
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.sroa.7.0.copyload = load i64, ptr %.sroa.7.0..sroa_idx, align 8
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 40
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 40
   %.sroa.8.0.copyload = load i64, ptr %.sroa.8.0..sroa_idx, align 8
-  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 48
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 48
   %.sroa.9.0.copyload = load i64, ptr %.sroa.9.0..sroa_idx, align 8
-  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 56
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 56
   %.sroa.10.0.copyload = load i64, ptr %.sroa.10.0..sroa_idx, align 8
   %133 = icmp eq i64 %.sroa.046.0.copyload, -9223372036854775808
   %134 = icmp eq i64 %.sroa.447.0.copyload, 0
@@ -387,34 +387,34 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit:
   %5 = alloca [8 x i64], align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
   %6 = load i64, ptr %0, align 8, !noundef !4
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8, !noundef !4
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !noundef !4
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i64, ptr %11, align 8, !noundef !4
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load i64, ptr %13, align 8, !noundef !4
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load i64, ptr %15, align 8, !noundef !4
-  %17 = getelementptr inbounds i8, ptr %0, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %18 = load i64, ptr %17, align 8, !noundef !4
-  %19 = getelementptr inbounds i8, ptr %0, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %20 = load i64, ptr %19, align 8, !noundef !4
   store i64 %6, ptr %5, align 8
-  %21 = getelementptr inbounds i8, ptr %5, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %8, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %5, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %10, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %5, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 %12, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %5, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i64 %14, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %5, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i64 %16, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %5, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store i64 %18, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %5, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store i64 %20, ptr %27, align 8
   %28 = icmp eq i64 %6, -9223372036854775808
   %29 = or i64 %10, %8
@@ -505,7 +505,7 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit.split: ; p
   %69 = zext nneg i32 %68 to i64
   %70 = sub nsw i32 271, %62
   %71 = and i32 %65, -64
-  %72 = getelementptr inbounds [8 x i64], ptr %4, i64 0, i64 %69
+  %72 = getelementptr inbounds nuw [8 x i64], ptr %4, i64 0, i64 %69
   %73 = and i32 %70, 63
   %74 = zext nneg i32 %73 to i64
   %75 = lshr i64 %59, %74
@@ -520,7 +520,7 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit.split: ; p
   br i1 %78, label %"_ZN109_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha5cc3784aa0d10b4E.exit.thread", label %84
 
 79:                                               ; preds = %_ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit.split
-  %80 = getelementptr inbounds [8 x i64], ptr %4, i64 0, i64 %wide.trip.count
+  %80 = getelementptr inbounds nuw [8 x i64], ptr %4, i64 0, i64 %wide.trip.count
   %81 = and i32 %.neg66, 63
   %82 = zext nneg i32 %81 to i64
   %83 = shl i64 %59, %82
@@ -528,7 +528,7 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit.split: ; p
   br label %.loopexit
 
 84:                                               ; preds = %.loopexit
-  %85 = getelementptr inbounds i8, ptr %4, i64 64
+  %85 = getelementptr inbounds nuw i8, ptr %4, i64 64
   br label %86
 
 "_ZN109_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha5cc3784aa0d10b4E.exit.thread": ; preds = %86, %.lr.ph, %91, %.loopexit
@@ -564,19 +564,19 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit.split: ; p
 
 98:                                               ; preds = %146
   %.sroa.035.0.copyload = load i64, ptr %3, align 8
-  %.sroa.436.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.436.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.436.0.copyload = load i64, ptr %.sroa.436.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.637.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 24
+  %.sroa.637.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.sroa.637.0.copyload = load i64, ptr %.sroa.637.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 32
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.sroa.7.0.copyload = load i64, ptr %.sroa.7.0..sroa_idx, align 8
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 40
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 40
   %.sroa.8.0.copyload = load i64, ptr %.sroa.8.0..sroa_idx, align 8
-  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 48
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 48
   %.sroa.9.0.copyload = load i64, ptr %.sroa.9.0..sroa_idx, align 8
-  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 56
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 56
   %.sroa.10.0.copyload = load i64, ptr %.sroa.10.0..sroa_idx, align 8
   %99 = icmp eq i64 %.sroa.035.0.copyload, -9223372036854775808
   %100 = icmp eq i64 %.sroa.436.0.copyload, 0

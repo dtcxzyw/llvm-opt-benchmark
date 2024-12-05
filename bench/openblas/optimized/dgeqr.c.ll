@@ -218,10 +218,10 @@ thread-pre-split:                                 ; preds = %17, %.thread
   %128 = sitofp i32 %127 to double
   store double %128, ptr %4, align 8, !tbaa !7
   %129 = sitofp i32 %96 to double
-  %130 = getelementptr inbounds i8, ptr %4, i64 8
+  %130 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store double %129, ptr %130, align 8, !tbaa !7
   %131 = uitofp nneg i32 %97 to double
-  %132 = getelementptr inbounds i8, ptr %4, i64 16
+  %132 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store double %131, ptr %132, align 8, !tbaa !7
   %133 = icmp samesign ult i32 %.pr10.pre20, 2
   %134 = uitofp nneg i32 %.pr10.pre20 to double
@@ -251,12 +251,12 @@ thread-pre-split:                                 ; preds = %17, %.thread
   br i1 %148, label %151, label %149
 
 149:                                              ; preds = %145, %143
-  %150 = getelementptr inbounds i8, ptr %4, i64 40
+  %150 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @dgeqrt_(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %12, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %150, ptr noundef nonnull %12, ptr noundef nonnull %6, ptr noundef nonnull %8) #5
   br label %153
 
 151:                                              ; preds = %145
-  %152 = getelementptr inbounds i8, ptr %4, i64 40
+  %152 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @dlatsqr_(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %152, ptr noundef nonnull %12, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #5
   br label %153
 

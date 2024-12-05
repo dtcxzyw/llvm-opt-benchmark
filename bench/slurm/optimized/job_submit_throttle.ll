@@ -90,7 +90,7 @@ define range(i32 0, 2051) i32 @job_submit(ptr nocapture noundef readonly %0, i32
   br i1 %.not.i, label %11, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %7, i64 23
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 23
   %10 = tail call i32 @atoi(ptr nocapture noundef nonnull %9) #11
   store i32 %10, ptr @jobs_per_user_per_hour, align 4
   br label %11
@@ -152,7 +152,7 @@ _get_config.exit:                                 ; preds = %14, %11, %3
 .lr.ph.i:                                         ; preds = %31, %51
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %51 ], [ 0, %31 ]
   %37 = load ptr, ptr @thru_put_array, align 8
-  %38 = getelementptr inbounds %struct.thru_put, ptr %37, i64 %indvars.iv.i, i32 1
+  %38 = getelementptr inbounds nuw %struct.thru_put, ptr %37, i64 %indvars.iv.i, i32 1
   %39 = load i32, ptr %38, align 4
   %40 = load i32, ptr @jobs_per_user_per_hour, align 4
   %41 = mul nsw i32 %40, %32
@@ -166,9 +166,9 @@ _get_config.exit:                                 ; preds = %14, %11, %3
 
 45:                                               ; preds = %.lr.ph.i
   %46 = load ptr, ptr @thru_put_array, align 8
-  %47 = getelementptr inbounds %struct.thru_put, ptr %46, i64 %indvars.iv.i
+  %47 = getelementptr inbounds nuw %struct.thru_put, ptr %46, i64 %indvars.iv.i
   %48 = load i32, ptr %47, align 4
-  %49 = getelementptr inbounds i8, ptr %47, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 4
   %50 = load i32, ptr %49, align 4
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 6, ptr noundef nonnull @.str.6, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._reset_counters, i32 noundef %48, i32 noundef %39, i32 noundef %50) #8
   br label %51
@@ -187,7 +187,7 @@ _reset_counters.exit:                             ; preds = %51, %25, %26
 
 .lr.ph:                                           ; preds = %_reset_counters.exit
   %57 = load ptr, ptr @thru_put_array, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 712
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 712
   %59 = load i32, ptr %58, align 8
   %wide.trip.count = zext nneg i32 %55 to i64
   br label %61
@@ -199,13 +199,13 @@ _reset_counters.exit:                             ; preds = %51, %25, %26
 
 61:                                               ; preds = %.lr.ph, %60
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %60 ]
-  %62 = getelementptr inbounds %struct.thru_put, ptr %57, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw %struct.thru_put, ptr %57, i64 %indvars.iv
   %63 = load i32, ptr %62, align 4
   %.not27 = icmp eq i32 %63, %59
   br i1 %.not27, label %64, label %60
 
 64:                                               ; preds = %61
-  %65 = getelementptr inbounds %struct.thru_put, ptr %57, i64 %indvars.iv, i32 1
+  %65 = getelementptr inbounds nuw %struct.thru_put, ptr %57, i64 %indvars.iv, i32 1
   %66 = load i32, ptr %65, align 4
   %67 = load i32, ptr @jobs_per_user_per_hour, align 4
   %68 = icmp ult i32 %66, %67
@@ -252,7 +252,7 @@ _reset_counters.exit:                             ; preds = %51, %25, %26
   %84 = shl nsw i64 %83, 3
   %85 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull @thru_put_array, i64 noundef 1, i64 noundef %84, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 177, ptr noundef nonnull @__func__.job_submit) #8
   store ptr %85, ptr @thru_put_array, align 8
-  %86 = getelementptr inbounds i8, ptr %0, i64 712
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 712
   %87 = load i32, ptr %86, align 8
   %88 = load i32, ptr @thru_put_size, align 4
   %89 = sext i32 %88 to i64

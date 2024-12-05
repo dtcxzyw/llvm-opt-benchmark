@@ -56,7 +56,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local { i64, i32 } @msix_get_message(ptr noundef %dev, i32 noundef %vector) local_unnamed_addr #0 {
 entry:
-  %msix_prepare_message = getelementptr inbounds i8, ptr %dev, i64 1312
+  %msix_prepare_message = getelementptr inbounds nuw i8, ptr %dev, i64 1312
   %0 = load ptr, ptr %msix_prepare_message, align 16
   %call = tail call { i64, i32 } %0(ptr noundef %dev, i32 noundef %vector) #14
   ret { i64, i32 } %call
@@ -65,7 +65,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @msix_set_message(ptr nocapture noundef readonly %dev, i32 noundef %vector, i64 %msg.coerce0, i32 %msg.coerce1) local_unnamed_addr #1 {
 entry:
-  %msix_table = getelementptr inbounds i8, ptr %dev, i64 1272
+  %msix_table = getelementptr inbounds nuw i8, ptr %dev, i64 1272
   %0 = load ptr, ptr %msix_table, align 8
   %mul = shl i32 %vector, 4
   %idx.ext = sext i32 %mul to i64
@@ -118,11 +118,11 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @msix_is_masked(ptr nocapture noundef readonly %dev, i32 noundef %vector) local_unnamed_addr #0 {
 entry:
-  %msix_function_masked = getelementptr inbounds i8, ptr %dev, i64 2152
+  %msix_function_masked = getelementptr inbounds nuw i8, ptr %dev, i64 2152
   %0 = load i8, ptr %msix_function_masked, align 8
   %tobool = trunc i8 %0 to i1
   %mul.i = shl i32 %vector, 4
-  %msix_table.i = getelementptr inbounds i8, ptr %dev, i64 1272
+  %msix_table.i = getelementptr inbounds nuw i8, ptr %dev, i64 1272
   %1 = load i8, ptr @xen_allowed, align 1
   %tobool.i = trunc i8 %1 to i1
   br i1 %tobool.i, label %land.lhs.true.i, label %if.end.i
@@ -160,7 +160,7 @@ msix_vector_masked.exit:                          ; preds = %land.lhs.true.i, %i
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @msix_set_mask(ptr noundef %dev, i32 noundef %vector, i1 noundef zeroext %mask) local_unnamed_addr #0 {
 entry:
-  %msix_entries_nr = getelementptr inbounds i8, ptr %dev, i64 1268
+  %msix_entries_nr = getelementptr inbounds nuw i8, ptr %dev, i64 1268
   %0 = load i32, ptr %msix_entries_nr, align 4
   %cmp = icmp slt i32 %vector, %0
   br i1 %cmp, label %if.end, label %if.else
@@ -172,10 +172,10 @@ if.else:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %mul = shl i32 %vector, 4
   %add = or disjoint i32 %mul, 12
-  %msix_function_masked.i = getelementptr inbounds i8, ptr %dev, i64 2152
+  %msix_function_masked.i = getelementptr inbounds nuw i8, ptr %dev, i64 2152
   %1 = load i8, ptr %msix_function_masked.i, align 8
   %tobool.i = trunc i8 %1 to i1
-  %msix_table.i.i = getelementptr inbounds i8, ptr %dev, i64 1272
+  %msix_table.i.i = getelementptr inbounds nuw i8, ptr %dev, i64 1272
   %2 = load i8, ptr @xen_allowed, align 1
   %tobool.i.i = trunc i8 %2 to i1
   br i1 %tobool.i.i, label %land.lhs.true.i.i, label %if.end.i.i
@@ -224,11 +224,11 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @msix_handle_mask_update(ptr noundef %dev, i32 noundef %vector, i1 noundef zeroext %was_masked) unnamed_addr #0 {
 entry:
-  %msix_function_masked.i = getelementptr inbounds i8, ptr %dev, i64 2152
+  %msix_function_masked.i = getelementptr inbounds nuw i8, ptr %dev, i64 2152
   %0 = load i8, ptr %msix_function_masked.i, align 8
   %tobool.i = trunc i8 %0 to i1
   %mul.i.i = shl i32 %vector, 4
-  %msix_table.i.i = getelementptr inbounds i8, ptr %dev, i64 1272
+  %msix_table.i.i = getelementptr inbounds nuw i8, ptr %dev, i64 1272
   %1 = load i8, ptr @xen_allowed, align 1
   %tobool.i.i = trunc i8 %1 to i1
   br i1 %tobool.i.i, label %land.lhs.true.i.i, label %if.end.i.i
@@ -279,7 +279,7 @@ if.end:                                           ; preds = %if.then, %msix_is_m
   br i1 %8, label %if.end9, label %if.end15
 
 if.end9:                                          ; preds = %if.end
-  %msix_vector_use_notifier.i = getelementptr inbounds i8, ptr %dev, i64 2560
+  %msix_vector_use_notifier.i = getelementptr inbounds nuw i8, ptr %dev, i64 2560
   %9 = load ptr, ptr %msix_vector_use_notifier.i, align 16
   %tobool.not.i = icmp eq ptr %9, null
   br i1 %tobool.not.i, label %msix_fire_vector_notifier.exit, label %if.end.i
@@ -288,13 +288,13 @@ if.end.i:                                         ; preds = %if.end9
   br i1 %retval.0.i.i, label %msix_fire_vector_notifier.exit.thread, label %if.else.i
 
 msix_fire_vector_notifier.exit.thread:            ; preds = %if.end.i
-  %msix_vector_release_notifier.i = getelementptr inbounds i8, ptr %dev, i64 2568
+  %msix_vector_release_notifier.i = getelementptr inbounds nuw i8, ptr %dev, i64 2568
   %10 = load ptr, ptr %msix_vector_release_notifier.i, align 8
   tail call void %10(ptr noundef nonnull %dev, i32 noundef %vector) #14
   br label %if.end15
 
 if.else.i:                                        ; preds = %if.end.i
-  %msix_prepare_message.i.i = getelementptr inbounds i8, ptr %dev, i64 1312
+  %msix_prepare_message.i.i = getelementptr inbounds nuw i8, ptr %dev, i64 1312
   %11 = load ptr, ptr %msix_prepare_message.i.i, align 16
   %call.i.i = tail call { i64, i32 } %11(ptr noundef nonnull %dev, i32 noundef %vector) #14
   %12 = extractvalue { i64, i32 } %call.i.i, 0
@@ -340,8 +340,8 @@ if.end15:                                         ; preds = %msix_fire_vector_no
 define dso_local void @msix_write_config(ptr noundef %dev, i32 noundef %addr, i32 noundef %val, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %msix_cap = getelementptr inbounds i8, ptr %dev, i64 1264
-  %cap_present.i = getelementptr inbounds i8, ptr %dev, i64 1260
+  %msix_cap = getelementptr inbounds nuw i8, ptr %dev, i64 1264
+  %cap_present.i = getelementptr inbounds nuw i8, ptr %dev, i64 1260
   %0 = load i32, ptr %cap_present.i, align 4
   %and.i = and i32 %0, 2
   %tobool.not = icmp eq i32 %and.i, 0
@@ -361,7 +361,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %narrow.i.not, label %for.end, label %msix_enabled.exit
 
 msix_enabled.exit:                                ; preds = %lor.lhs.false
-  %name = getelementptr inbounds i8, ptr %dev, i64 232
+  %name = getelementptr inbounds nuw i8, ptr %dev, i64 232
   %config.i = getelementptr i8, ptr %dev, i64 168
   %2 = load ptr, ptr %config.i, align 8
   %3 = getelementptr i8, ptr %2, i64 %conv
@@ -391,7 +391,7 @@ if.then9.i.i:                                     ; preds = %if.then.i.i
   %call10.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
   %call11.i.i = tail call i32 @qemu_get_thread_id() #14
   %10 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
   %.lobit43 = lshr i8 %4, 7
   %conv13.i.i = zext nneg i8 %.lobit43 to i32
@@ -410,7 +410,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_msix_write_config.exit:                     ; preds = %msix_enabled.exit, %land.lhs.true6.i.i, %if.then9.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %msix_function_masked = getelementptr inbounds i8, ptr %dev, i64 2152
+  %msix_function_masked = getelementptr inbounds nuw i8, ptr %dev, i64 2152
   %12 = load i8, ptr %msix_function_masked, align 8
   %.fr = freeze i8 %12
   %tobool9 = trunc i8 %.fr to i1
@@ -448,13 +448,13 @@ if.end13:                                         ; preds = %msix_enabled.exit.i
   br i1 %cmp, label %for.end, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end13
-  %msix_entries_nr = getelementptr inbounds i8, ptr %dev, i64 1268
+  %msix_entries_nr = getelementptr inbounds nuw i8, ptr %dev, i64 1268
   %23 = load i32, ptr %msix_entries_nr, align 4
   %cmp2245 = icmp sgt i32 %23, 0
   br i1 %cmp2245, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %msix_table.i = getelementptr inbounds i8, ptr %dev, i64 1272
+  %msix_table.i = getelementptr inbounds nuw i8, ptr %dev, i64 1272
   br i1 %tobool9, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %msix_vector_masked.exit.us
@@ -528,7 +528,7 @@ for.end:                                          ; preds = %msix_vector_masked.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local range(i32 0, 3) i32 @msix_present(ptr nocapture noundef readonly %dev) local_unnamed_addr #3 {
 entry:
-  %cap_present = getelementptr inbounds i8, ptr %dev, i64 1260
+  %cap_present = getelementptr inbounds nuw i8, ptr %dev, i64 1260
   %0 = load i32, ptr %cap_present, align 4
   %and = and i32 %0, 2
   ret i32 %and
@@ -537,16 +537,16 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local range(i32 0, 2) i32 @msix_enabled(ptr nocapture noundef readonly %dev) local_unnamed_addr #4 {
 entry:
-  %cap_present = getelementptr inbounds i8, ptr %dev, i64 1260
+  %cap_present = getelementptr inbounds nuw i8, ptr %dev, i64 1260
   %0 = load i32, ptr %cap_present, align 4
   %and = and i32 %0, 2
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
-  %config = getelementptr inbounds i8, ptr %dev, i64 168
+  %config = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %1 = load ptr, ptr %config, align 8
-  %msix_cap = getelementptr inbounds i8, ptr %dev, i64 1264
+  %msix_cap = getelementptr inbounds nuw i8, ptr %dev, i64 1264
   %2 = load i8, ptr %msix_cap, align 16
   %conv = zext i8 %2 to i64
   %3 = getelementptr i8, ptr %1, i64 %conv
@@ -639,22 +639,22 @@ if.end35:                                         ; preds = %lor.lhs.false32
 
 if.end40:                                         ; preds = %if.end35
   %conv41 = trunc i32 %call36 to i8
-  %msix_cap = getelementptr inbounds i8, ptr %dev, i64 1264
+  %msix_cap = getelementptr inbounds nuw i8, ptr %dev, i64 1264
   store i8 %conv41, ptr %msix_cap, align 16
-  %cap_present = getelementptr inbounds i8, ptr %dev, i64 1260
+  %cap_present = getelementptr inbounds nuw i8, ptr %dev, i64 1260
   %2 = load i32, ptr %cap_present, align 4
   %or42 = or i32 %2, 2
   store i32 %or42, ptr %cap_present, align 4
-  %config43 = getelementptr inbounds i8, ptr %dev, i64 168
+  %config43 = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %3 = load ptr, ptr %config43, align 8
   %idx.ext = zext nneg i32 %call36 to i64
   %add.ptr = getelementptr i8, ptr %3, i64 %idx.ext
   %add.ptr44 = getelementptr i8, ptr %add.ptr, i64 2
   %sub46 = add nsw i16 %nentries, -1
   store i16 %sub46, ptr %add.ptr44, align 1
-  %msix_entries_nr = getelementptr inbounds i8, ptr %dev, i64 1268
+  %msix_entries_nr = getelementptr inbounds nuw i8, ptr %dev, i64 1268
   store i32 %conv, ptr %msix_entries_nr, align 4
-  %msix_function_masked = getelementptr inbounds i8, ptr %dev, i64 2152
+  %msix_function_masked = getelementptr inbounds nuw i8, ptr %dev, i64 2152
   store i8 1, ptr %msix_function_masked, align 8
   %add.ptr49 = getelementptr i8, ptr %add.ptr, i64 4
   %or51 = or i32 %table_offset, %conv11
@@ -662,7 +662,7 @@ if.end40:                                         ; preds = %if.end35
   %add.ptr52 = getelementptr i8, ptr %add.ptr, i64 8
   %or54 = or i32 %pba_offset, %conv12
   store i32 %or54, ptr %add.ptr52, align 1
-  %wmask = getelementptr inbounds i8, ptr %dev, i64 184
+  %wmask = getelementptr inbounds nuw i8, ptr %dev, i64 184
   %4 = load ptr, ptr %wmask, align 8
   %add55 = add nuw i32 %call36, 3
   %idxprom = sext i32 %add55 to i64
@@ -672,27 +672,27 @@ if.end40:                                         ; preds = %if.end35
   store i8 %6, ptr %arrayidx, align 1
   %conv59 = zext nneg i32 %mul to i64
   %call60 = tail call noalias ptr @g_malloc0(i64 noundef %conv59) #16
-  %msix_table = getelementptr inbounds i8, ptr %dev, i64 1272
+  %msix_table = getelementptr inbounds nuw i8, ptr %dev, i64 1272
   store ptr %call60, ptr %msix_table, align 8
   %conv61 = zext nneg i32 %div1055 to i64
   %call62 = tail call noalias ptr @g_malloc0(i64 noundef %conv61) #16
-  %msix_pba = getelementptr inbounds i8, ptr %dev, i64 1280
+  %msix_pba = getelementptr inbounds nuw i8, ptr %dev, i64 1280
   store ptr %call62, ptr %msix_pba, align 16
   %7 = shl nuw nsw i16 %nentries, 2
   %mul64 = zext nneg i16 %7 to i64
   %call65 = tail call noalias ptr @g_malloc0(i64 noundef %mul64) #16
-  %msix_entry_used = getelementptr inbounds i8, ptr %dev, i64 2144
+  %msix_entry_used = getelementptr inbounds nuw i8, ptr %dev, i64 2144
   store ptr %call65, ptr %msix_entry_used, align 16
   tail call fastcc void @msix_mask_all(ptr noundef %dev, i32 noundef %conv)
-  %msix_table_mmio = getelementptr inbounds i8, ptr %dev, i64 1600
+  %msix_table_mmio = getelementptr inbounds nuw i8, ptr %dev, i64 1600
   tail call void @memory_region_init_io(ptr noundef nonnull %msix_table_mmio, ptr noundef %dev, ptr noundef nonnull @msix_table_mmio_ops, ptr noundef %dev, ptr noundef nonnull @.str.5, i64 noundef %conv59) #14
   %conv68 = zext i32 %table_offset to i64
   tail call void @memory_region_add_subregion(ptr noundef %table_bar, i64 noundef %conv68, ptr noundef nonnull %msix_table_mmio) #14
-  %msix_pba_mmio = getelementptr inbounds i8, ptr %dev, i64 1872
+  %msix_pba_mmio = getelementptr inbounds nuw i8, ptr %dev, i64 1872
   tail call void @memory_region_init_io(ptr noundef nonnull %msix_pba_mmio, ptr noundef %dev, ptr noundef nonnull @msix_pba_mmio_ops, ptr noundef %dev, ptr noundef nonnull @.str.6, i64 noundef %conv61) #14
   %conv71 = zext i32 %pba_offset to i64
   tail call void @memory_region_add_subregion(ptr noundef %pba_bar, i64 noundef %conv71, ptr noundef nonnull %msix_pba_mmio) #14
-  %msix_prepare_message = getelementptr inbounds i8, ptr %dev, i64 1312
+  %msix_prepare_message = getelementptr inbounds nuw i8, ptr %dev, i64 1312
   store ptr @msix_prepare_message, ptr %msix_prepare_message, align 16
   br label %return
 
@@ -717,8 +717,8 @@ entry:
   br i1 %cmp7.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %msix_function_masked.i = getelementptr inbounds i8, ptr %dev, i64 2152
-  %msix_table.i.i = getelementptr inbounds i8, ptr %dev, i64 1272
+  %msix_function_masked.i = getelementptr inbounds nuw i8, ptr %dev, i64 2152
+  %msix_table.i.i = getelementptr inbounds nuw i8, ptr %dev, i64 1272
   %wide.trip.count = zext i32 %nentries to i64
   br label %for.body
 
@@ -781,7 +781,7 @@ declare void @memory_region_add_subregion(ptr noundef, i64 noundef, ptr noundef)
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define internal { i64, i32 } @msix_prepare_message(ptr nocapture noundef readonly %dev, i32 noundef %vector) #4 {
 entry:
-  %msix_table = getelementptr inbounds i8, ptr %dev, i64 1272
+  %msix_table = getelementptr inbounds nuw i8, ptr %dev, i64 1272
   %0 = load ptr, ptr %msix_table, align 8
   %mul = shl i32 %vector, 4
   %idx.ext = zext i32 %mul to i64
@@ -812,9 +812,9 @@ entry:
   %sub2.i = add nuw nsw i64 %0, 4294967295
   %sh_prom.i = and i64 %sub2.i, 4294967295
   %shr.i = lshr exact i64 -9223372036854775808, %sh_prom.i
-  %name16 = getelementptr inbounds i8, ptr %dev, i64 232
+  %name16 = getelementptr inbounds nuw i8, ptr %dev, i64 232
   %call17 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.7, ptr noundef nonnull %name16) #14
-  %msix_exclusive_bar = getelementptr inbounds i8, ptr %dev, i64 1328
+  %msix_exclusive_bar = getelementptr inbounds nuw i8, ptr %dev, i64 1328
   tail call void @memory_region_init(ptr noundef nonnull %msix_exclusive_bar, ptr noundef %dev, ptr noundef %call17, i64 noundef %shr.i) #14
   tail call void @g_free(ptr noundef %call17) #14
   %call21 = tail call i32 @msix_init(ptr noundef %dev, i16 noundef zeroext %nentries, ptr noundef nonnull %msix_exclusive_bar, i8 noundef zeroext %bar_nr, i32 noundef 0, ptr noundef nonnull %msix_exclusive_bar, i8 noundef zeroext %bar_nr, i32 noundef %spec.select, i8 noundef zeroext 0, ptr noundef %errp)
@@ -841,7 +841,7 @@ declare void @pci_register_bar(ptr noundef, i32 noundef, i8 noundef zeroext, ptr
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @msix_uninit(ptr noundef %dev, ptr noundef %table_bar, ptr noundef %pba_bar) local_unnamed_addr #0 {
 entry:
-  %cap_present.i = getelementptr inbounds i8, ptr %dev, i64 1260
+  %cap_present.i = getelementptr inbounds nuw i8, ptr %dev, i64 1260
   %0 = load i32, ptr %cap_present.i, align 4
   %and.i = and i32 %0, 2
   %tobool.not = icmp eq i32 %and.i, 0
@@ -849,15 +849,15 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @pci_del_capability(ptr noundef nonnull %dev, i8 noundef zeroext 17, i8 noundef zeroext 12) #14
-  %msix_cap = getelementptr inbounds i8, ptr %dev, i64 1264
+  %msix_cap = getelementptr inbounds nuw i8, ptr %dev, i64 1264
   store i8 0, ptr %msix_cap, align 16
-  %msix_entries_nr.i = getelementptr inbounds i8, ptr %dev, i64 1268
+  %msix_entries_nr.i = getelementptr inbounds nuw i8, ptr %dev, i64 1268
   %1 = load i32, ptr %msix_entries_nr.i, align 4
   %cmp7.i = icmp sgt i32 %1, 0
   br i1 %cmp7.i, label %for.body.lr.ph.i, label %msix_free_irq_entries.exit
 
 for.body.lr.ph.i:                                 ; preds = %if.end
-  %msix_entry_used.i = getelementptr inbounds i8, ptr %dev, i64 2144
+  %msix_entry_used.i = getelementptr inbounds nuw i8, ptr %dev, i64 2144
   %2 = getelementptr i8, ptr %dev, i64 1280
   br label %for.body.i
 
@@ -885,26 +885,26 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 
 msix_free_irq_entries.exit:                       ; preds = %for.body.i, %if.end
   store i32 0, ptr %msix_entries_nr.i, align 4
-  %msix_pba_mmio = getelementptr inbounds i8, ptr %dev, i64 1872
+  %msix_pba_mmio = getelementptr inbounds nuw i8, ptr %dev, i64 1872
   tail call void @memory_region_del_subregion(ptr noundef %pba_bar, ptr noundef nonnull %msix_pba_mmio) #14
-  %msix_pba = getelementptr inbounds i8, ptr %dev, i64 1280
+  %msix_pba = getelementptr inbounds nuw i8, ptr %dev, i64 1280
   %8 = load ptr, ptr %msix_pba, align 16
   tail call void @g_free(ptr noundef %8) #14
   store ptr null, ptr %msix_pba, align 16
-  %msix_table_mmio = getelementptr inbounds i8, ptr %dev, i64 1600
+  %msix_table_mmio = getelementptr inbounds nuw i8, ptr %dev, i64 1600
   tail call void @memory_region_del_subregion(ptr noundef %table_bar, ptr noundef nonnull %msix_table_mmio) #14
-  %msix_table = getelementptr inbounds i8, ptr %dev, i64 1272
+  %msix_table = getelementptr inbounds nuw i8, ptr %dev, i64 1272
   %9 = load ptr, ptr %msix_table, align 8
   tail call void @g_free(ptr noundef %9) #14
   store ptr null, ptr %msix_table, align 8
-  %msix_entry_used = getelementptr inbounds i8, ptr %dev, i64 2144
+  %msix_entry_used = getelementptr inbounds nuw i8, ptr %dev, i64 2144
   %10 = load ptr, ptr %msix_entry_used, align 16
   tail call void @g_free(ptr noundef %10) #14
   store ptr null, ptr %msix_entry_used, align 16
   %11 = load i32, ptr %cap_present.i, align 4
   %and = and i32 %11, -3
   store i32 %and, ptr %cap_present.i, align 4
-  %msix_prepare_message = getelementptr inbounds i8, ptr %dev, i64 1312
+  %msix_prepare_message = getelementptr inbounds nuw i8, ptr %dev, i64 1312
   store ptr null, ptr %msix_prepare_message, align 16
   br label %return
 
@@ -919,14 +919,14 @@ declare void @memory_region_del_subregion(ptr noundef, ptr noundef) local_unname
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @msix_uninit_exclusive_bar(ptr noundef %dev) local_unnamed_addr #0 {
 entry:
-  %cap_present.i = getelementptr inbounds i8, ptr %dev, i64 1260
+  %cap_present.i = getelementptr inbounds nuw i8, ptr %dev, i64 1260
   %0 = load i32, ptr %cap_present.i, align 4
   %and.i = and i32 %0, 2
   %tobool.not = icmp eq i32 %and.i, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %msix_exclusive_bar = getelementptr inbounds i8, ptr %dev, i64 1328
+  %msix_exclusive_bar = getelementptr inbounds nuw i8, ptr %dev, i64 1328
   tail call void @msix_uninit(ptr noundef nonnull %dev, ptr noundef nonnull %msix_exclusive_bar, ptr noundef nonnull %msix_exclusive_bar)
   br label %if.end
 
@@ -937,21 +937,21 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @msix_save(ptr nocapture noundef readonly %dev, ptr noundef %f) local_unnamed_addr #0 {
 entry:
-  %cap_present.i = getelementptr inbounds i8, ptr %dev, i64 1260
+  %cap_present.i = getelementptr inbounds nuw i8, ptr %dev, i64 1260
   %0 = load i32, ptr %cap_present.i, align 4
   %and.i = and i32 %0, 2
   %tobool.not = icmp eq i32 %and.i, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %msix_entries_nr = getelementptr inbounds i8, ptr %dev, i64 1268
+  %msix_entries_nr = getelementptr inbounds nuw i8, ptr %dev, i64 1268
   %1 = load i32, ptr %msix_entries_nr, align 4
-  %msix_table = getelementptr inbounds i8, ptr %dev, i64 1272
+  %msix_table = getelementptr inbounds nuw i8, ptr %dev, i64 1272
   %2 = load ptr, ptr %msix_table, align 8
   %mul = shl i32 %1, 4
   %conv = zext i32 %mul to i64
   tail call void @qemu_put_buffer(ptr noundef %f, ptr noundef %2, i64 noundef %conv) #14
-  %msix_pba = getelementptr inbounds i8, ptr %dev, i64 1280
+  %msix_pba = getelementptr inbounds nuw i8, ptr %dev, i64 1280
   %3 = load ptr, ptr %msix_pba, align 16
   %sub = add i32 %1, 7
   %div6 = lshr i32 %sub, 3
@@ -968,9 +968,9 @@ declare void @qemu_put_buffer(ptr noundef, ptr noundef, i64 noundef) local_unnam
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @msix_load(ptr noundef %dev, ptr noundef %f) local_unnamed_addr #0 {
 entry:
-  %msix_entries_nr = getelementptr inbounds i8, ptr %dev, i64 1268
+  %msix_entries_nr = getelementptr inbounds nuw i8, ptr %dev, i64 1268
   %0 = load i32, ptr %msix_entries_nr, align 4
-  %cap_present.i = getelementptr inbounds i8, ptr %dev, i64 1260
+  %cap_present.i = getelementptr inbounds nuw i8, ptr %dev, i64 1260
   %1 = load i32, ptr %cap_present.i, align 4
   %and.i = and i32 %1, 2
   %tobool.not = icmp eq i32 %and.i, 0
@@ -1003,12 +1003,12 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %cmp.i, label %for.body.i, label %msix_clear_all_vectors.exit, !llvm.loop !9
 
 msix_clear_all_vectors.exit:                      ; preds = %for.body.i, %if.end
-  %msix_table = getelementptr inbounds i8, ptr %dev, i64 1272
+  %msix_table = getelementptr inbounds nuw i8, ptr %dev, i64 1272
   %5 = load ptr, ptr %msix_table, align 8
   %mul = shl i32 %0, 4
   %conv = zext i32 %mul to i64
   %call1 = tail call i64 @qemu_get_buffer(ptr noundef %f, ptr noundef %5, i64 noundef %conv) #14
-  %msix_pba = getelementptr inbounds i8, ptr %dev, i64 1280
+  %msix_pba = getelementptr inbounds nuw i8, ptr %dev, i64 1280
   %6 = load ptr, ptr %msix_pba, align 16
   %sub = add i32 %0, 7
   %div12 = lshr i32 %sub, 3
@@ -1038,7 +1038,7 @@ lor.rhs.i:                                        ; preds = %msix_enabled.exit.i
 
 msix_update_function_masked.exit:                 ; preds = %msix_clear_all_vectors.exit, %msix_enabled.exit.i, %lor.rhs.i
   %frombool.i = phi i8 [ 1, %msix_enabled.exit.i ], [ %.lobit.i, %lor.rhs.i ], [ 1, %msix_clear_all_vectors.exit ]
-  %msix_function_masked.i = getelementptr inbounds i8, ptr %dev, i64 2152
+  %msix_function_masked.i = getelementptr inbounds nuw i8, ptr %dev, i64 2152
   store i8 %frombool.i, ptr %msix_function_masked.i, align 8
   %cmp14.not = icmp eq i32 %0, 0
   br i1 %cmp14.not, label %for.end, label %for.body
@@ -1059,7 +1059,7 @@ declare i64 @qemu_get_buffer(ptr noundef, ptr noundef, i64 noundef) #5
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @msix_notify(ptr noundef %dev, i32 noundef %vector) local_unnamed_addr #0 {
 entry:
-  %msix_entries_nr = getelementptr inbounds i8, ptr %dev, i64 1268
+  %msix_entries_nr = getelementptr inbounds nuw i8, ptr %dev, i64 1268
   %0 = load i32, ptr %msix_entries_nr, align 4
   %cmp = icmp ult i32 %vector, %0
   br i1 %cmp, label %if.end, label %if.else
@@ -1069,7 +1069,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %msix_entry_used = getelementptr inbounds i8, ptr %dev, i64 2144
+  %msix_entry_used = getelementptr inbounds nuw i8, ptr %dev, i64 2144
   %1 = load ptr, ptr %msix_entry_used, align 16
   %idxprom = zext i32 %vector to i64
   %arrayidx = getelementptr i32, ptr %1, i64 %idxprom
@@ -1078,11 +1078,11 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %return, label %if.end2
 
 if.end2:                                          ; preds = %if.end
-  %msix_function_masked.i = getelementptr inbounds i8, ptr %dev, i64 2152
+  %msix_function_masked.i = getelementptr inbounds nuw i8, ptr %dev, i64 2152
   %3 = load i8, ptr %msix_function_masked.i, align 8
   %tobool.i = trunc i8 %3 to i1
   %mul.i.i = shl i32 %vector, 4
-  %msix_table.i.i = getelementptr inbounds i8, ptr %dev, i64 1272
+  %msix_table.i.i = getelementptr inbounds nuw i8, ptr %dev, i64 1272
   %4 = load i8, ptr @xen_allowed, align 1
   %tobool.i.i = trunc i8 %4 to i1
   br i1 %tobool.i.i, label %land.lhs.true.i.i, label %if.end.i.i
@@ -1129,7 +1129,7 @@ if.then3:                                         ; preds = %if.end.i.i, %lor.rh
   br label %return
 
 if.end4:                                          ; preds = %lor.rhs.i.i, %msix_is_masked.exit
-  %msix_prepare_message.i = getelementptr inbounds i8, ptr %dev, i64 1312
+  %msix_prepare_message.i = getelementptr inbounds nuw i8, ptr %dev, i64 1312
   %11 = load ptr, ptr %msix_prepare_message.i, align 16
   %call.i = tail call { i64, i32 } %11(ptr noundef nonnull %dev, i32 noundef %vector) #14
   %12 = extractvalue { i64, i32 } %call.i, 0
@@ -1146,14 +1146,14 @@ declare void @msi_send_message(ptr noundef, i64, i32) local_unnamed_addr #5
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @msix_reset(ptr noundef %dev) local_unnamed_addr #0 {
 entry:
-  %cap_present.i = getelementptr inbounds i8, ptr %dev, i64 1260
+  %cap_present.i = getelementptr inbounds nuw i8, ptr %dev, i64 1260
   %0 = load i32, ptr %cap_present.i, align 4
   %and.i = and i32 %0, 2
   %tobool.not = icmp eq i32 %and.i, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %msix_entries_nr.i = getelementptr inbounds i8, ptr %dev, i64 1268
+  %msix_entries_nr.i = getelementptr inbounds nuw i8, ptr %dev, i64 1268
   %1 = load i32, ptr %msix_entries_nr.i, align 4
   %cmp5.i = icmp sgt i32 %1, 0
   br i1 %cmp5.i, label %for.body.lr.ph.i, label %msix_clear_all_vectors.exit
@@ -1181,28 +1181,28 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %cmp.i, label %for.body.i, label %msix_clear_all_vectors.exit, !llvm.loop !9
 
 msix_clear_all_vectors.exit:                      ; preds = %for.body.i, %if.end
-  %wmask = getelementptr inbounds i8, ptr %dev, i64 184
+  %wmask = getelementptr inbounds nuw i8, ptr %dev, i64 184
   %5 = load ptr, ptr %wmask, align 8
-  %msix_cap = getelementptr inbounds i8, ptr %dev, i64 1264
+  %msix_cap = getelementptr inbounds nuw i8, ptr %dev, i64 1264
   %6 = load i8, ptr %msix_cap, align 16
   %conv = zext i8 %6 to i64
   %add = add nuw nsw i64 %conv, 3
   %arrayidx = getelementptr i8, ptr %5, i64 %add
   %7 = load i8, ptr %arrayidx, align 1
   %not = xor i8 %7, -1
-  %config = getelementptr inbounds i8, ptr %dev, i64 168
+  %config = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %8 = load ptr, ptr %config, align 8
   %arrayidx6 = getelementptr i8, ptr %8, i64 %add
   %9 = load i8, ptr %arrayidx6, align 1
   %and = and i8 %9, %not
   store i8 %and, ptr %arrayidx6, align 1
-  %msix_table = getelementptr inbounds i8, ptr %dev, i64 1272
+  %msix_table = getelementptr inbounds nuw i8, ptr %dev, i64 1272
   %10 = load ptr, ptr %msix_table, align 8
   %11 = load i32, ptr %msix_entries_nr.i, align 4
   %mul = shl i32 %11, 4
   %conv9 = sext i32 %mul to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %10, i8 0, i64 %conv9, i1 false)
-  %msix_pba = getelementptr inbounds i8, ptr %dev, i64 1280
+  %msix_pba = getelementptr inbounds nuw i8, ptr %dev, i64 1280
   %12 = load ptr, ptr %msix_pba, align 16
   %13 = load i32, ptr %msix_entries_nr.i, align 4
   %sub = add i32 %13, 63
@@ -1215,7 +1215,7 @@ msix_clear_all_vectors.exit:                      ; preds = %for.body.i, %if.end
   br i1 %cmp7.not.i, label %return, label %for.body.lr.ph.i12
 
 for.body.lr.ph.i12:                               ; preds = %msix_clear_all_vectors.exit
-  %msix_function_masked.i.i = getelementptr inbounds i8, ptr %dev, i64 2152
+  %msix_function_masked.i.i = getelementptr inbounds nuw i8, ptr %dev, i64 2152
   %wide.trip.count.i = zext i32 %14 to i64
   br label %for.body.i13
 
@@ -1277,7 +1277,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @msix_vector_use(ptr nocapture noundef readonly %dev, i32 noundef %vector) local_unnamed_addr #0 {
 entry:
-  %msix_entries_nr = getelementptr inbounds i8, ptr %dev, i64 1268
+  %msix_entries_nr = getelementptr inbounds nuw i8, ptr %dev, i64 1268
   %0 = load i32, ptr %msix_entries_nr, align 4
   %cmp = icmp ult i32 %vector, %0
   br i1 %cmp, label %if.end, label %if.else
@@ -1287,7 +1287,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %msix_entry_used = getelementptr inbounds i8, ptr %dev, i64 2144
+  %msix_entry_used = getelementptr inbounds nuw i8, ptr %dev, i64 2144
   %1 = load ptr, ptr %msix_entry_used, align 16
   %idxprom = zext i32 %vector to i64
   %arrayidx = getelementptr i32, ptr %1, i64 %idxprom
@@ -1300,7 +1300,7 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @msix_vector_unuse(ptr nocapture noundef readonly %dev, i32 noundef %vector) local_unnamed_addr #0 {
 entry:
-  %msix_entries_nr = getelementptr inbounds i8, ptr %dev, i64 1268
+  %msix_entries_nr = getelementptr inbounds nuw i8, ptr %dev, i64 1268
   %0 = load i32, ptr %msix_entries_nr, align 4
   %cmp = icmp ult i32 %vector, %0
   br i1 %cmp, label %if.end, label %if.else
@@ -1310,7 +1310,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %msix_entry_used = getelementptr inbounds i8, ptr %dev, i64 2144
+  %msix_entry_used = getelementptr inbounds nuw i8, ptr %dev, i64 2144
   %1 = load ptr, ptr %msix_entry_used, align 16
   %idxprom = zext i32 %vector to i64
   %arrayidx = getelementptr i32, ptr %1, i64 %idxprom
@@ -1346,20 +1346,20 @@ return:                                           ; preds = %if.end2, %if.end, %
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @msix_unuse_all_vectors(ptr nocapture noundef readonly %dev) local_unnamed_addr #8 {
 entry:
-  %cap_present.i = getelementptr inbounds i8, ptr %dev, i64 1260
+  %cap_present.i = getelementptr inbounds nuw i8, ptr %dev, i64 1260
   %0 = load i32, ptr %cap_present.i, align 4
   %and.i = and i32 %0, 2
   %tobool.not = icmp eq i32 %and.i, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %msix_entries_nr.i = getelementptr inbounds i8, ptr %dev, i64 1268
+  %msix_entries_nr.i = getelementptr inbounds nuw i8, ptr %dev, i64 1268
   %1 = load i32, ptr %msix_entries_nr.i, align 4
   %cmp7.i = icmp sgt i32 %1, 0
   br i1 %cmp7.i, label %for.body.lr.ph.i, label %return
 
 for.body.lr.ph.i:                                 ; preds = %if.end
-  %msix_entry_used.i = getelementptr inbounds i8, ptr %dev, i64 2144
+  %msix_entry_used.i = getelementptr inbounds nuw i8, ptr %dev, i64 2144
   %2 = getelementptr i8, ptr %dev, i64 1280
   br label %for.body.i
 
@@ -1392,7 +1392,7 @@ return:                                           ; preds = %for.body.i, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local i32 @msix_nr_vectors_allocated(ptr nocapture noundef readonly %dev) local_unnamed_addr #3 {
 entry:
-  %msix_entries_nr = getelementptr inbounds i8, ptr %dev, i64 1268
+  %msix_entries_nr = getelementptr inbounds nuw i8, ptr %dev, i64 1268
   %0 = load i32, ptr %msix_entries_nr, align 4
   ret i32 %0
 }
@@ -1410,15 +1410,15 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %msix_vector_use_notifier = getelementptr inbounds i8, ptr %dev, i64 2560
+  %msix_vector_use_notifier = getelementptr inbounds nuw i8, ptr %dev, i64 2560
   store ptr %use_notifier, ptr %msix_vector_use_notifier, align 16
-  %msix_vector_release_notifier = getelementptr inbounds i8, ptr %dev, i64 2568
+  %msix_vector_release_notifier = getelementptr inbounds nuw i8, ptr %dev, i64 2568
   store ptr %release_notifier, ptr %msix_vector_release_notifier, align 8
-  %msix_vector_poll_notifier = getelementptr inbounds i8, ptr %dev, i64 2576
+  %msix_vector_poll_notifier = getelementptr inbounds nuw i8, ptr %dev, i64 2576
   store ptr %poll_notifier, ptr %msix_vector_poll_notifier, align 16
-  %config = getelementptr inbounds i8, ptr %dev, i64 168
+  %config = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %0 = load ptr, ptr %config, align 8
-  %msix_cap = getelementptr inbounds i8, ptr %dev, i64 1264
+  %msix_cap = getelementptr inbounds nuw i8, ptr %dev, i64 1264
   %1 = load i8, ptr %msix_cap, align 16
   %conv = zext i8 %1 to i64
   %2 = getelementptr i8, ptr %0, i64 %conv
@@ -1428,15 +1428,15 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %for.cond.preheader, label %if.end11
 
 for.cond.preheader:                               ; preds = %if.end
-  %msix_entries_nr = getelementptr inbounds i8, ptr %dev, i64 1268
+  %msix_entries_nr = getelementptr inbounds nuw i8, ptr %dev, i64 1268
   %4 = load i32, ptr %msix_entries_nr, align 4
   %cmp546 = icmp sgt i32 %4, 0
   br i1 %cmp546, label %for.body.lr.ph, label %if.end11
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %msix_function_masked.i.i = getelementptr inbounds i8, ptr %dev, i64 2152
-  %msix_table.i.i.i = getelementptr inbounds i8, ptr %dev, i64 1272
-  %msix_prepare_message.i.i = getelementptr inbounds i8, ptr %dev, i64 1312
+  %msix_function_masked.i.i = getelementptr inbounds nuw i8, ptr %dev, i64 2152
+  %msix_table.i.i.i = getelementptr inbounds nuw i8, ptr %dev, i64 1272
+  %msix_prepare_message.i.i = getelementptr inbounds nuw i8, ptr %dev, i64 1312
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -1513,7 +1513,7 @@ if.end11:                                         ; preds = %if.end11.loopexit, 
   br i1 %tobool13.not, label %return, label %if.then14
 
 if.then14:                                        ; preds = %if.end11
-  %msix_entries_nr16 = getelementptr inbounds i8, ptr %dev, i64 1268
+  %msix_entries_nr16 = getelementptr inbounds nuw i8, ptr %dev, i64 1268
   %20 = load i32, ptr %msix_entries_nr16, align 4
   tail call void %19(ptr noundef nonnull %dev, i32 noundef 0, i32 noundef %20) #14
   br label %return
@@ -1577,13 +1577,13 @@ return:                                           ; preds = %if.end11, %if.then1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @msix_unset_vector_notifiers(ptr noundef %dev) local_unnamed_addr #0 {
 entry:
-  %msix_vector_use_notifier = getelementptr inbounds i8, ptr %dev, i64 2560
+  %msix_vector_use_notifier = getelementptr inbounds nuw i8, ptr %dev, i64 2560
   %0 = load ptr, ptr %msix_vector_use_notifier, align 16
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %msix_vector_release_notifier = getelementptr inbounds i8, ptr %dev, i64 2568
+  %msix_vector_release_notifier = getelementptr inbounds nuw i8, ptr %dev, i64 2568
   %1 = load ptr, ptr %msix_vector_release_notifier, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %if.else, label %if.end
@@ -1593,9 +1593,9 @@ if.else:                                          ; preds = %land.lhs.true, %ent
   unreachable
 
 if.end:                                           ; preds = %land.lhs.true
-  %config = getelementptr inbounds i8, ptr %dev, i64 168
+  %config = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %2 = load ptr, ptr %config, align 8
-  %msix_cap = getelementptr inbounds i8, ptr %dev, i64 1264
+  %msix_cap = getelementptr inbounds nuw i8, ptr %dev, i64 1264
   %3 = load i8, ptr %msix_cap, align 16
   %conv = zext i8 %3 to i64
   %4 = getelementptr i8, ptr %2, i64 %conv
@@ -1605,14 +1605,14 @@ if.end:                                           ; preds = %land.lhs.true
   br i1 %cmp, label %for.cond.preheader, label %if.end7
 
 for.cond.preheader:                               ; preds = %if.end
-  %msix_entries_nr = getelementptr inbounds i8, ptr %dev, i64 1268
+  %msix_entries_nr = getelementptr inbounds nuw i8, ptr %dev, i64 1268
   %6 = load i32, ptr %msix_entries_nr, align 4
   %cmp511 = icmp sgt i32 %6, 0
   br i1 %cmp511, label %for.body.lr.ph, label %if.end7
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %msix_function_masked.i.i = getelementptr inbounds i8, ptr %dev, i64 2152
-  %msix_table.i.i.i = getelementptr inbounds i8, ptr %dev, i64 1272
+  %msix_function_masked.i.i = getelementptr inbounds nuw i8, ptr %dev, i64 2152
+  %msix_table.i.i.i = getelementptr inbounds nuw i8, ptr %dev, i64 1272
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %msix_unset_notifier_for_vector.exit
@@ -1685,7 +1685,7 @@ define internal range(i64 0, 4294967296) i64 @msix_table_mmio_read(ptr nocapture
 entry:
   %conv = zext i32 %size to i64
   %add = add i64 %addr, %conv
-  %msix_entries_nr = getelementptr inbounds i8, ptr %opaque, i64 1268
+  %msix_entries_nr = getelementptr inbounds nuw i8, ptr %opaque, i64 1268
   %0 = load i32, ptr %msix_entries_nr, align 4
   %mul = shl i32 %0, 4
   %conv1 = sext i32 %mul to i64
@@ -1697,7 +1697,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %msix_table = getelementptr inbounds i8, ptr %opaque, i64 1272
+  %msix_table = getelementptr inbounds nuw i8, ptr %opaque, i64 1272
   %1 = load ptr, ptr %msix_table, align 8
   %add.ptr = getelementptr i8, ptr %1, i64 %addr
   %add.ptr.val = load i32, ptr %add.ptr, align 1
@@ -1710,7 +1710,7 @@ define internal void @msix_table_mmio_write(ptr noundef %opaque, i64 noundef %ad
 entry:
   %conv1 = zext i32 %size to i64
   %add = add i64 %addr, %conv1
-  %msix_entries_nr = getelementptr inbounds i8, ptr %opaque, i64 1268
+  %msix_entries_nr = getelementptr inbounds nuw i8, ptr %opaque, i64 1268
   %0 = load i32, ptr %msix_entries_nr, align 4
   %mul = shl i32 %0, 4
   %conv2 = sext i32 %mul to i64
@@ -1724,11 +1724,11 @@ if.else:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %div7 = lshr i64 %addr, 4
   %conv = trunc i64 %div7 to i32
-  %msix_function_masked.i = getelementptr inbounds i8, ptr %opaque, i64 2152
+  %msix_function_masked.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2152
   %1 = load i8, ptr %msix_function_masked.i, align 8
   %tobool.i = trunc i8 %1 to i1
   %mul.i.i = shl i32 %conv, 4
-  %msix_table.i.i = getelementptr inbounds i8, ptr %opaque, i64 1272
+  %msix_table.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 1272
   %2 = load i8, ptr @xen_allowed, align 1
   %tobool.i.i = trunc i8 %2 to i1
   br i1 %tobool.i.i, label %land.lhs.true.i.i, label %if.end.i.i
@@ -1771,7 +1771,7 @@ msix_is_masked.exit:                              ; preds = %land.lhs.true.i.i, 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 4294967296) i64 @msix_pba_mmio_read(ptr noundef %opaque, i64 noundef %addr, i32 noundef %size) #0 {
 entry:
-  %msix_vector_poll_notifier = getelementptr inbounds i8, ptr %opaque, i64 2576
+  %msix_vector_poll_notifier = getelementptr inbounds nuw i8, ptr %opaque, i64 2576
   %0 = load ptr, ptr %msix_vector_poll_notifier, align 16
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -1782,7 +1782,7 @@ if.then:                                          ; preds = %entry
   %mul1 = shl i32 %size, 3
   %conv2 = zext i32 %mul1 to i64
   %add = add i64 %addr, %conv2
-  %msix_entries_nr = getelementptr inbounds i8, ptr %opaque, i64 1268
+  %msix_entries_nr = getelementptr inbounds nuw i8, ptr %opaque, i64 1268
   %1 = load i32, ptr %msix_entries_nr, align 4
   %conv3 = sext i32 %1 to i64
   %cond = tail call i64 @llvm.umin.i64(i64 %add, i64 %conv3)
@@ -1791,7 +1791,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %msix_pba = getelementptr inbounds i8, ptr %opaque, i64 1280
+  %msix_pba = getelementptr inbounds nuw i8, ptr %opaque, i64 1280
   %2 = load ptr, ptr %msix_pba, align 16
   %add.ptr = getelementptr i8, ptr %2, i64 %addr
   %add.ptr.val = load i32, ptr %add.ptr, align 1
@@ -1818,21 +1818,21 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @put_msix_state(ptr noundef %f, ptr nocapture noundef readonly %pv, i64 %size, ptr nocapture readnone %field, ptr nocapture readnone %vmdesc) #0 {
 entry:
-  %cap_present.i.i = getelementptr inbounds i8, ptr %pv, i64 1260
+  %cap_present.i.i = getelementptr inbounds nuw i8, ptr %pv, i64 1260
   %0 = load i32, ptr %cap_present.i.i, align 4
   %and.i.i = and i32 %0, 2
   %tobool.not.i = icmp eq i32 %and.i.i, 0
   br i1 %tobool.not.i, label %msix_save.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %msix_entries_nr.i = getelementptr inbounds i8, ptr %pv, i64 1268
+  %msix_entries_nr.i = getelementptr inbounds nuw i8, ptr %pv, i64 1268
   %1 = load i32, ptr %msix_entries_nr.i, align 4
-  %msix_table.i = getelementptr inbounds i8, ptr %pv, i64 1272
+  %msix_table.i = getelementptr inbounds nuw i8, ptr %pv, i64 1272
   %2 = load ptr, ptr %msix_table.i, align 8
   %mul.i = shl i32 %1, 4
   %conv.i = zext i32 %mul.i to i64
   tail call void @qemu_put_buffer(ptr noundef %f, ptr noundef %2, i64 noundef %conv.i) #14
-  %msix_pba.i = getelementptr inbounds i8, ptr %pv, i64 1280
+  %msix_pba.i = getelementptr inbounds nuw i8, ptr %pv, i64 1280
   %3 = load ptr, ptr %msix_pba.i, align 16
   %sub.i = add i32 %1, 7
   %div6.i = lshr i32 %sub.i, 3

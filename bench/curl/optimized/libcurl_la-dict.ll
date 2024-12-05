@@ -31,12 +31,12 @@ define internal i32 @dict_do(ptr noundef %data, ptr nocapture noundef writeonly 
 entry:
   %out.i = alloca %struct.dynbuf, align 8
   %path = alloca ptr, align 8
-  %conn1 = getelementptr inbounds i8, ptr %data, i64 32
+  %conn1 = getelementptr inbounds nuw i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn1, align 8
-  %sock = getelementptr inbounds i8, ptr %0, i64 392
+  %sock = getelementptr inbounds nuw i8, ptr %0, i64 392
   %1 = load i32, ptr %sock, align 8
   store i8 1, ptr %done, align 1
-  %path2 = getelementptr inbounds i8, ptr %data, i64 4680
+  %path2 = getelementptr inbounds nuw i8, ptr %data, i64 4680
   %2 = load ptr, ptr %path2, align 8
   %call = call i32 @Curl_urldecode(ptr noundef %2, i64 noundef 0, ptr noundef nonnull %path, ptr noundef null, i32 noundef 3) #5
   %tobool.not = icmp eq i32 %call, 0
@@ -67,20 +67,20 @@ if.then10:                                        ; preds = %lor.lhs.false7, %lo
   br i1 %tobool12.not, label %land.lhs.true, label %if.then13
 
 if.then13:                                        ; preds = %if.then10
-  %incdec.ptr = getelementptr inbounds i8, ptr %call11, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %call11, i64 1
   %call14 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %incdec.ptr, i32 noundef 58) #6
   %tobool15.not = icmp eq ptr %call14, null
   br i1 %tobool15.not, label %lor.lhs.false30, label %if.then16
 
 if.then16:                                        ; preds = %if.then13
-  %incdec.ptr17 = getelementptr inbounds i8, ptr %call14, i64 1
+  %incdec.ptr17 = getelementptr inbounds nuw i8, ptr %call14, i64 1
   store i8 0, ptr %call14, align 1
   %call18 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %incdec.ptr17, i32 noundef 58) #6
   %tobool19.not = icmp eq ptr %call18, null
   br i1 %tobool19.not, label %lor.lhs.false30, label %if.then20
 
 if.then20:                                        ; preds = %if.then16
-  %incdec.ptr21 = getelementptr inbounds i8, ptr %call18, i64 1
+  %incdec.ptr21 = getelementptr inbounds nuw i8, ptr %call18, i64 1
   store i8 0, ptr %call18, align 1
   %call22 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %incdec.ptr21, i32 noundef 58) #6
   %tobool23.not = icmp eq ptr %call22, null
@@ -100,7 +100,7 @@ lor.lhs.false30:                                  ; preds = %if.then24, %if.then
 land.lhs.true:                                    ; preds = %lor.lhs.false30, %if.then10
   %strategy.075 = phi ptr [ %strategy.0.ph, %lor.lhs.false30 ], [ null, %if.then10 ]
   %database.072 = phi ptr [ %database.0.ph, %lor.lhs.false30 ], [ null, %if.then10 ]
-  %verbose = getelementptr inbounds i8, ptr %data, i64 2706
+  %verbose = getelementptr inbounds nuw i8, ptr %data, i64 2706
   %bf.load = load i64, ptr %verbose, align 2
   %8 = and i64 %bf.load, 536870912
   %tobool34.not = icmp eq i64 %8, 0
@@ -148,7 +148,7 @@ if.end51:                                         ; preds = %if.then50, %lor.lhs
   br i1 %tobool.not14.i, label %unescape_word.exit, label %for.body.i
 
 for.cond.i:                                       ; preds = %if.then18.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %ptr.015.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %ptr.015.i, i64 1
   %12 = load i8, ptr %incdec.ptr.i, align 1
   %.fr12.i = freeze i8 %12
   %tobool.not.i = icmp eq i8 %.fr12.i, 0
@@ -226,13 +226,13 @@ if.then68:                                        ; preds = %lor.lhs.false65, %l
   br i1 %tobool70.not, label %land.lhs.true91, label %if.then71
 
 if.then71:                                        ; preds = %if.then68
-  %incdec.ptr72 = getelementptr inbounds i8, ptr %call69, i64 1
+  %incdec.ptr72 = getelementptr inbounds nuw i8, ptr %call69, i64 1
   %call73 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %incdec.ptr72, i32 noundef 58) #6
   %tobool74.not = icmp eq ptr %call73, null
   br i1 %tobool74.not, label %lor.lhs.false84, label %if.then75
 
 if.then75:                                        ; preds = %if.then71
-  %incdec.ptr76 = getelementptr inbounds i8, ptr %call73, i64 1
+  %incdec.ptr76 = getelementptr inbounds nuw i8, ptr %call73, i64 1
   store i8 0, ptr %call73, align 1
   %call77 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %incdec.ptr76, i32 noundef 58) #6
   %tobool78.not = icmp eq ptr %call77, null
@@ -250,7 +250,7 @@ lor.lhs.false84:                                  ; preds = %if.then79, %if.then
 
 land.lhs.true91:                                  ; preds = %lor.lhs.false84, %if.then68
   %database.284 = phi ptr [ %database.2.ph, %lor.lhs.false84 ], [ null, %if.then68 ]
-  %verbose93 = getelementptr inbounds i8, ptr %data, i64 2706
+  %verbose93 = getelementptr inbounds nuw i8, ptr %data, i64 2706
   %bf.load94 = load i64, ptr %verbose93, align 2
   %21 = and i64 %bf.load94, 536870912
   %tobool98.not = icmp eq i64 %21, 0
@@ -300,12 +300,12 @@ if.else118:                                       ; preds = %lor.lhs.false65
   br i1 %tobool120.not, label %error, label %if.then121
 
 if.then121:                                       ; preds = %if.else118
-  %incdec.ptr122 = getelementptr inbounds i8, ptr %call119, i64 1
+  %incdec.ptr122 = getelementptr inbounds nuw i8, ptr %call119, i64 1
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.then121
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %if.then121 ]
-  %arrayidx123 = getelementptr inbounds i8, ptr %incdec.ptr122, i64 %indvars.iv
+  %arrayidx123 = getelementptr inbounds nuw i8, ptr %incdec.ptr122, i64 %indvars.iv
   %24 = load i8, ptr %arrayidx123, align 1
   switch i8 %24, label %for.inc [
     i8 0, label %for.end
@@ -368,7 +368,7 @@ entry:
   br i1 %tobool.not14, label %for.end, label %for.body
 
 for.cond:                                         ; preds = %if.then18
-  %incdec.ptr = getelementptr inbounds i8, ptr %ptr.015, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %ptr.015, i64 1
   %1 = load i8, ptr %incdec.ptr, align 1
   %.fr12 = freeze i8 %1
   %tobool.not = icmp eq i8 %.fr12, 0

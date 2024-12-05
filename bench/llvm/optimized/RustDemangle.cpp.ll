@@ -76,7 +76,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
-  %14 = getelementptr inbounds i8, ptr %1, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %15 = add i64 %0, -2
   %.not51.i = icmp eq i64 %15, 0
   br i1 %.not51.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread.i, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i
@@ -102,7 +102,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread.i: ; preds = 
   %.0.i1449.i = phi i64 [ %19, %21 ], [ -1, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.i ], [ -1, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ -1, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i ]
   %.sroa.01.0.i = phi i64 [ %.sroa.speculated.i.i, %21 ], [ %15, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.i ], [ %15, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ 0, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i ]
   store i64 %.sroa.01.0.i, ptr %5, align 8
-  %.sroa.3.0..sroa_idx3.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.sroa.3.0..sroa_idx3.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %14, ptr %.sroa.3.0..sroa_idx3.i, align 8
   %23 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19Demangler12demanglePathENS_8IsInTypeENS_17LeaveGenericsOpenE(ptr noundef nonnull align 8 dereferenceable(96) %3, i32 noundef 0, i32 noundef 0)
   %24 = load i64, ptr %10, align 8
@@ -1742,7 +1742,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_19Demangler15printIdentifierENS_10I
   %12 = load i8, ptr %11, align 8
   %13 = trunc i8 %12 to i1
   %.sroa.01.0.copyload = load i64, ptr %1, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.22.0.copyload = load ptr, ptr %.sroa.22.0..sroa_idx, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br i1 %13, label %15, label %218
@@ -2041,17 +2041,17 @@ _ZN4llvm16itanium_demangle12OutputBuffer6insertEmPKcm.exit.i: ; preds = %._ZN4ll
   %157 = phi i64 [ %52, %145 ], [ %.pre10.i.i, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i84.i ]
   %158 = phi ptr [ %.pre.i81.i, %145 ], [ %154, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i84.i ]
   %159 = getelementptr inbounds i8, ptr %158, i64 %147
-  %160 = getelementptr inbounds i8, ptr %159, i64 4
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 4
   %161 = sub i64 %157, %147
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %160, ptr align 1 %159, i64 %161, i1 false)
   %162 = load ptr, ptr %14, align 8
   %163 = getelementptr inbounds i8, ptr %162, i64 %147
   store i8 %.sroa.0.0.ph.i, ptr %163, align 1
-  %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %163, i64 1
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %163, i64 1
   store i8 %.sroa.6.0.ph.i, ptr %.sroa.6.0..sroa_idx.i, align 1
-  %.sroa.9.0..sroa_idx.i = getelementptr inbounds i8, ptr %163, i64 2
+  %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %163, i64 2
   store i8 %.sroa.9.0.ph.i, ptr %.sroa.9.0..sroa_idx.i, align 1
-  %.sroa.11.0..sroa_idx.i = getelementptr inbounds i8, ptr %163, i64 3
+  %.sroa.11.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %163, i64 3
   store i8 %.sroa.11.0.ph.i, ptr %.sroa.11.0..sroa_idx.i, align 1
   %164 = load i64, ptr %16, align 8
   %165 = add i64 %164, 4
@@ -2084,25 +2084,25 @@ _ZN4llvm16itanium_demangle12OutputBuffer6insertEmPKcm.exit.i: ; preds = %._ZN4ll
   br i1 %177, label %_ZSt9__find_ifIPcN9__gnu_cxx5__ops16_Iter_equals_valIKcEEET_S6_S6_T0_.exit.i.i.i.i, label %178
 
 178:                                              ; preds = %175
-  %179 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i.i, i64 1
+  %179 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i, i64 1
   %180 = load i8, ptr %179, align 1
   %181 = icmp eq i8 %180, 0
   br i1 %181, label %_ZSt9__find_ifIPcN9__gnu_cxx5__ops16_Iter_equals_valIKcEEET_S6_S6_T0_.exit.i.i.i.i.loopexit.split.loop.exit, label %182
 
 182:                                              ; preds = %178
-  %183 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i.i, i64 2
+  %183 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i, i64 2
   %184 = load i8, ptr %183, align 1
   %185 = icmp eq i8 %184, 0
   br i1 %185, label %_ZSt9__find_ifIPcN9__gnu_cxx5__ops16_Iter_equals_valIKcEEET_S6_S6_T0_.exit.i.i.i.i.loopexit.split.loop.exit45, label %186
 
 186:                                              ; preds = %182
-  %187 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i.i, i64 3
+  %187 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i, i64 3
   %188 = load i8, ptr %187, align 1
   %189 = icmp eq i8 %188, 0
   br i1 %189, label %_ZSt9__find_ifIPcN9__gnu_cxx5__ops16_Iter_equals_valIKcEEET_S6_S6_T0_.exit.i.i.i.i.loopexit.split.loop.exit47, label %190
 
 190:                                              ; preds = %186
-  %191 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i.i, i64 4
+  %191 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i, i64 4
   %192 = add nsw i64 %.047.i.i.i.i.i.i, -1
   %193 = icmp sgt i64 %.047.i.i.i.i.i.i, 1
   br i1 %193, label %175, label %._crit_edge.i.i.i.i.i.i, !llvm.loop !11
@@ -2123,7 +2123,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer6insertEmPKcm.exit.i: ; preds = %._ZN4ll
   br i1 %197, label %_ZSt9__find_ifIPcN9__gnu_cxx5__ops16_Iter_equals_valIKcEEET_S6_S6_T0_.exit.i.i.i.i, label %198
 
 198:                                              ; preds = %195
-  %199 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i.i, i64 1
+  %199 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i.i.i, i64 1
   br label %._crit_edge._crit_edge.i.i.i.i.i.i
 
 ._crit_edge._crit_edge.i.i.i.i.i.i:               ; preds = %198, %._crit_edge.i.i.i.i.i.i
@@ -2133,7 +2133,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer6insertEmPKcm.exit.i: ; preds = %._ZN4ll
   br i1 %201, label %_ZSt9__find_ifIPcN9__gnu_cxx5__ops16_Iter_equals_valIKcEEET_S6_S6_T0_.exit.i.i.i.i, label %202
 
 202:                                              ; preds = %._crit_edge._crit_edge.i.i.i.i.i.i
-  %203 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i.i, i64 1
+  %203 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i.i, i64 1
   br label %._crit_edge._crit_edge52.i.i.i.i.i.i
 
 ._crit_edge._crit_edge52.i.i.i.i.i.i:             ; preds = %202, %._crit_edge.i.i.i.i.i.i
@@ -2143,21 +2143,21 @@ _ZN4llvm16itanium_demangle12OutputBuffer6insertEmPKcm.exit.i: ; preds = %._ZN4ll
   br i1 %205, label %_ZSt9__find_ifIPcN9__gnu_cxx5__ops16_Iter_equals_valIKcEEET_S6_S6_T0_.exit.i.i.i.i, label %_ZL14decodePunycodeSt17basic_string_viewIcSt11char_traitsIcEERN4llvm16itanium_demangle12OutputBufferE.exit
 
 _ZSt9__find_ifIPcN9__gnu_cxx5__ops16_Iter_equals_valIKcEEET_S6_S6_T0_.exit.i.i.i.i.loopexit.split.loop.exit: ; preds = %178
-  %206 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i.i, i64 1
+  %206 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i, i64 1
   br label %_ZSt9__find_ifIPcN9__gnu_cxx5__ops16_Iter_equals_valIKcEEET_S6_S6_T0_.exit.i.i.i.i
 
 _ZSt9__find_ifIPcN9__gnu_cxx5__ops16_Iter_equals_valIKcEEET_S6_S6_T0_.exit.i.i.i.i.loopexit.split.loop.exit45: ; preds = %182
-  %207 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i.i, i64 2
+  %207 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i, i64 2
   br label %_ZSt9__find_ifIPcN9__gnu_cxx5__ops16_Iter_equals_valIKcEEET_S6_S6_T0_.exit.i.i.i.i
 
 _ZSt9__find_ifIPcN9__gnu_cxx5__ops16_Iter_equals_valIKcEEET_S6_S6_T0_.exit.i.i.i.i.loopexit.split.loop.exit47: ; preds = %186
-  %208 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i.i, i64 3
+  %208 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i, i64 3
   br label %_ZSt9__find_ifIPcN9__gnu_cxx5__ops16_Iter_equals_valIKcEEET_S6_S6_T0_.exit.i.i.i.i
 
 _ZSt9__find_ifIPcN9__gnu_cxx5__ops16_Iter_equals_valIKcEEET_S6_S6_T0_.exit.i.i.i.i: ; preds = %175, %_ZSt9__find_ifIPcN9__gnu_cxx5__ops16_Iter_equals_valIKcEEET_S6_S6_T0_.exit.i.i.i.i.loopexit.split.loop.exit, %_ZSt9__find_ifIPcN9__gnu_cxx5__ops16_Iter_equals_valIKcEEET_S6_S6_T0_.exit.i.i.i.i.loopexit.split.loop.exit45, %_ZSt9__find_ifIPcN9__gnu_cxx5__ops16_Iter_equals_valIKcEEET_S6_S6_T0_.exit.i.i.i.i.loopexit.split.loop.exit47, %._crit_edge._crit_edge52.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i, %195
   %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %195 ], [ %.1.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i.i ], [ %206, %_ZSt9__find_ifIPcN9__gnu_cxx5__ops16_Iter_equals_valIKcEEET_S6_S6_T0_.exit.i.i.i.i.loopexit.split.loop.exit ], [ %207, %_ZSt9__find_ifIPcN9__gnu_cxx5__ops16_Iter_equals_valIKcEEET_S6_S6_T0_.exit.i.i.i.i.loopexit.split.loop.exit45 ], [ %208, %_ZSt9__find_ifIPcN9__gnu_cxx5__ops16_Iter_equals_valIKcEEET_S6_S6_T0_.exit.i.i.i.i.loopexit.split.loop.exit47 ], [ %.02946.i.i.i.i.i.i, %175 ]
   %209 = icmp eq ptr %.028.i.i.i.i.i.i, %170
-  %.01730.i.i.i.i = getelementptr inbounds i8, ptr %.028.i.i.i.i.i.i, i64 1
+  %.01730.i.i.i.i = getelementptr inbounds nuw i8, ptr %.028.i.i.i.i.i.i, i64 1
   %.not31.i.i.i.i = icmp eq ptr %.01730.i.i.i.i, %170
   %or.cond.i.i.i.i = select i1 %209, i1 true, i1 %.not31.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %_ZL14decodePunycodeSt17basic_string_viewIcSt11char_traitsIcEERN4llvm16itanium_demangle12OutputBufferE.exit, label %.lr.ph.i.i.i.i
@@ -2171,12 +2171,12 @@ _ZSt9__find_ifIPcN9__gnu_cxx5__ops16_Iter_equals_valIKcEEET_S6_S6_T0_.exit.i.i.i
 
 212:                                              ; preds = %.lr.ph.i.i.i.i
   store i8 %210, ptr %.032.i.i.i.i, align 1
-  %213 = getelementptr inbounds i8, ptr %.032.i.i.i.i, i64 1
+  %213 = getelementptr inbounds nuw i8, ptr %.032.i.i.i.i, i64 1
   br label %214
 
 214:                                              ; preds = %212, %.lr.ph.i.i.i.i
   %.1.i.i.i.i = phi ptr [ %.032.i.i.i.i, %.lr.ph.i.i.i.i ], [ %213, %212 ]
-  %.017.i.i.i.i = getelementptr inbounds i8, ptr %.01733.i.i.i.i, i64 1
+  %.017.i.i.i.i = getelementptr inbounds nuw i8, ptr %.01733.i.i.i.i, i64 1
   %.not.i.i.i.i = icmp eq ptr %.017.i.i.i.i, %170
   br i1 %.not.i.i.i.i, label %_ZL14decodePunycodeSt17basic_string_viewIcSt11char_traitsIcEERN4llvm16itanium_demangle12OutputBufferE.exit, label %.lr.ph.i.i.i.i, !llvm.loop !12
 
@@ -2421,7 +2421,7 @@ _ZL7isValidc.exit27:                              ; preds = %.lr.ph.i.i.i.i
   br i1 %spec.select.i26, label %_ZL7isValidc.exit27.thread, label %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit
 
 _ZL7isValidc.exit27.thread:                       ; preds = %.lr.ph.i.i.i.i, %_ZL7isValidc.exit27
-  %91 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 1
+  %91 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 1
   %92 = load i8, ptr %91, align 1
   %93 = add i8 %92, -48
   %94 = icmp ult i8 %93, 10
@@ -2438,7 +2438,7 @@ _ZL7isValidc.exit24:                              ; preds = %_ZL7isValidc.exit27
   br i1 %spec.select.i23, label %_ZL7isValidc.exit24.thread, label %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit.loopexit.split.loop.exit
 
 _ZL7isValidc.exit24.thread:                       ; preds = %_ZL7isValidc.exit27.thread, %_ZL7isValidc.exit24
-  %100 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 2
+  %100 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 2
   %101 = load i8, ptr %100, align 1
   %102 = add i8 %101, -48
   %103 = icmp ult i8 %102, 10
@@ -2455,7 +2455,7 @@ _ZL7isValidc.exit21:                              ; preds = %_ZL7isValidc.exit24
   br i1 %spec.select.i20, label %_ZL7isValidc.exit21.thread, label %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit.loopexit.split.loop.exit44
 
 _ZL7isValidc.exit21.thread:                       ; preds = %_ZL7isValidc.exit24.thread, %_ZL7isValidc.exit21
-  %109 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 3
+  %109 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 3
   %110 = load i8, ptr %109, align 1
   %111 = add i8 %110, -48
   %112 = icmp ult i8 %111, 10
@@ -2472,7 +2472,7 @@ _ZL7isValidc.exit18:                              ; preds = %_ZL7isValidc.exit21
   br i1 %spec.select.i17, label %_ZL7isValidc.exit18.thread, label %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit.loopexit.split.loop.exit46
 
 _ZL7isValidc.exit18.thread:                       ; preds = %_ZL7isValidc.exit21.thread, %_ZL7isValidc.exit18
-  %118 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 4
+  %118 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 4
   %119 = add nsw i64 %.047.i.i.i.i, -1
   %120 = icmp sgt i64 %.047.i.i.i.i, 1
   br i1 %120, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !13
@@ -2504,7 +2504,7 @@ _ZL7isValidc.exit15:                              ; preds = %122
   br i1 %spec.select.i14, label %_ZL7isValidc.exit15.thread, label %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit
 
 _ZL7isValidc.exit15.thread:                       ; preds = %122, %_ZL7isValidc.exit15
-  %131 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i, i64 1
+  %131 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i, i64 1
   br label %132
 
 132:                                              ; preds = %_ZL7isValidc.exit15.thread, %._crit_edge.i.i.i.i
@@ -2525,7 +2525,7 @@ _ZL7isValidc.exit12:                              ; preds = %132
   br i1 %spec.select.i11, label %_ZL7isValidc.exit12.thread, label %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit
 
 _ZL7isValidc.exit12.thread:                       ; preds = %132, %_ZL7isValidc.exit12
-  %141 = getelementptr inbounds i8, ptr %.1.i.i.i.i, i64 1
+  %141 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 1
   br label %142
 
 142:                                              ; preds = %_ZL7isValidc.exit12.thread, %._crit_edge.i.i.i.i
@@ -2546,15 +2546,15 @@ _ZL7isValidc.exit:                                ; preds = %142
   br i1 %spec.select.i, label %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit.thread, label %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit
 
 _ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit.loopexit.split.loop.exit: ; preds = %_ZL7isValidc.exit24
-  %151 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 1
+  %151 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 1
   br label %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit
 
 _ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit.loopexit.split.loop.exit44: ; preds = %_ZL7isValidc.exit21
-  %152 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 2
+  %152 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 2
   br label %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit
 
 _ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit.loopexit.split.loop.exit46: ; preds = %_ZL7isValidc.exit18
-  %153 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 3
+  %153 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 3
   br label %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit
 
 _ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit:              ; preds = %_ZL7isValidc.exit27, %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit.loopexit.split.loop.exit, %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit.loopexit.split.loop.exit44, %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit.loopexit.split.loop.exit46, %_ZL7isValidc.exit15, %_ZL7isValidc.exit12, %_ZL7isValidc.exit
@@ -2569,7 +2569,7 @@ _ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit:              ; preds = %_ZL7isValidc.exit27
 
 _ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit.thread:       ; preds = %142, %_ZL7isValidc.exit, %._crit_edge.i.i.i.i, %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit
   store i64 %.0.i4, ptr %0, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %75, ptr %.sroa.3.0..sroa_idx, align 8
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.0.i.ph, ptr %156, align 8
@@ -4373,7 +4373,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i.i: ; preds = %._ZN4llvm
 
 _ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i.i, %86, %85
   %109 = phi i8 [ %52, %85 ], [ %52, %86 ], [ %.pre.i, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i.i ]
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8
   %110 = trunc i8 %109 to i1
   br i1 %110, label %_ZN12_GLOBAL__N_19Demangler16demangleConstIntEv.exit, label %111
@@ -5139,7 +5139,7 @@ _ZN4llvm16itanium_demangle12OutputBufferpLEc.exit.i: ; preds = %._ZN4llvm16itani
   br label %_ZN12_GLOBAL__N_19Demangler5printEc.exit
 
 _ZN12_GLOBAL__N_19Demangler5printEc.exit:         ; preds = %.lr.ph.split, %129, %_ZN4llvm16itanium_demangle12OutputBufferpLEc.exit.i
-  %146 = getelementptr inbounds i8, ptr %.010105, i64 1
+  %146 = getelementptr inbounds nuw i8, ptr %.010105, i64 1
   %.not = icmp eq ptr %146, %119
   br i1 %.not, label %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit33, label %.lr.ph.split, !llvm.loop !16
 
@@ -5519,7 +5519,7 @@ _ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exi
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %40
 
 40:                                               ; preds = %.lr.ph76, %_ZN12_GLOBAL__N_19Demangler16demangleDynTraitEv.exit
@@ -5989,7 +5989,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_19Demangler17demangleConstBoolEv(pt
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %3 = call fastcc noundef i64 @_ZN12_GLOBAL__N_19Demangler14parseHexNumberERSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(16) %2)
   %.sroa.01.0.copyload = load i64, ptr %2, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.22.0.copyload = load ptr, ptr %.sroa.22.0..sroa_idx, align 8
   %cond = icmp eq i64 %.sroa.01.0.copyload, 1
   br i1 %cond, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, label %58
@@ -6495,7 +6495,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i41: ; preds = %._ZN4llvm
 
 189:                                              ; preds = %184
   tail call fastcc void @_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(96) %0, i64 3, ptr nonnull @.str.56)
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
   tail call fastcc void @_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(96) %0, i64 %8, ptr %.sroa.2.0.copyload)
   tail call fastcc void @_ZN12_GLOBAL__N_19Demangler5printEc(ptr noundef nonnull align 8 dereferenceable(96) %0, i8 noundef signext 125)
@@ -6702,7 +6702,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %59
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds i8, ptr %66, i64 %4
   store i64 %.sroa.speculated.i, ptr %1, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %67, ptr %.sroa.2.0..sroa_idx, align 8
   br label %68
 

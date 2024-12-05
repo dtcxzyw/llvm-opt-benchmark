@@ -191,7 +191,7 @@ if.then14:                                        ; preds = %entry
 
 cond.false17:                                     ; preds = %if.then14
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp19, ptr noundef nonnull @.str, i32 noundef 18, i32 noundef 2)
-  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp19, i64 8
+  %stream_.i = getelementptr inbounds nuw i8, ptr %ref.tmp19, i64 8
   %call25 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.1)
           to label %invoke.cont24 unwind label %lpad21
 
@@ -241,7 +241,7 @@ if.then:                                          ; preds = %entry
 
 cond.false:                                       ; preds = %if.then
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp1, ptr noundef nonnull @.str, i32 noundef 26, i32 noundef 2)
-  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp1, i64 8
+  %stream_.i = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 8
   %call4 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.2)
           to label %invoke.cont3 unwind label %lpad
 
@@ -264,7 +264,7 @@ if.then12:                                        ; preds = %if.end
 
 cond.false15:                                     ; preds = %if.then12
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp17, ptr noundef nonnull @.str, i32 noundef 30, i32 noundef 2)
-  %stream_.i6 = getelementptr inbounds i8, ptr %ref.tmp17, i64 8
+  %stream_.i6 = getelementptr inbounds nuw i8, ptr %ref.tmp17, i64 8
   %call23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i6, ptr noundef nonnull @.str.2)
           to label %invoke.cont22 unwind label %lpad19
 
@@ -309,7 +309,7 @@ if.then14.i:                                      ; preds = %entry
 
 cond.false17.i:                                   ; preds = %if.then14.i
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp19.i, ptr noundef nonnull @.str, i32 noundef 18, i32 noundef 2)
-  %stream_.i.i = getelementptr inbounds i8, ptr %ref.tmp19.i, i64 8
+  %stream_.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp19.i, i64 8
   %call25.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i.i, ptr noundef nonnull @.str.1)
           to label %invoke.cont24.i unwind label %lpad21.i
 
@@ -377,7 +377,7 @@ sw.epilog:                                        ; preds = %entry
 
 cond.false:                                       ; preds = %sw.epilog
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp21, ptr noundef nonnull @.str, i32 noundef 83, i32 noundef 2)
-  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp21, i64 8
+  %stream_.i = getelementptr inbounds nuw i8, ptr %ref.tmp21, i64 8
   %call24 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.3)
           to label %invoke.cont23 unwind label %lpad
 
@@ -422,7 +422,7 @@ sw.default:                                       ; preds = %sw.bb
 
 cond.false:                                       ; preds = %sw.default
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp9, ptr noundef nonnull @.str, i32 noundef 166, i32 noundef 2)
-  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp9, i64 8
+  %stream_.i = getelementptr inbounds nuw i8, ptr %ref.tmp9, i64 8
   %call12 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.5)
           to label %invoke.cont11 unwind label %lpad
 
@@ -449,7 +449,7 @@ sw.default32:                                     ; preds = %switch.hole_check, 
 
 cond.false35:                                     ; preds = %sw.default32
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp37, ptr noundef nonnull @.str, i32 noundef 197, i32 noundef 2)
-  %stream_.i6 = getelementptr inbounds i8, ptr %ref.tmp37, i64 8
+  %stream_.i6 = getelementptr inbounds nuw i8, ptr %ref.tmp37, i64 8
   %call43 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i6, ptr noundef nonnull @.str.5)
           to label %invoke.cont42 unwind label %lpad39
 
@@ -472,7 +472,7 @@ sw.epilog:                                        ; preds = %entry
 
 cond.false56:                                     ; preds = %sw.epilog
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp58, ptr noundef nonnull @.str, i32 noundef 202, i32 noundef 2)
-  %stream_.i7 = getelementptr inbounds i8, ptr %ref.tmp58, i64 8
+  %stream_.i7 = getelementptr inbounds nuw i8, ptr %ref.tmp58, i64 8
   %call64 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i7, ptr noundef nonnull @.str.3)
           to label %invoke.cont63 unwind label %lpad60
 
@@ -491,7 +491,7 @@ lpad60:                                           ; preds = %invoke.cont63, %con
 
 switch.lookup:                                    ; preds = %sw.bb
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [8 x i32], ptr @switch.table._ZN3net13SpdyConstants18SerializeFrameTypeENS_16SpdyMajorVersionENS_13SpdyFrameTypeE, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN3net13SpdyConstants18SerializeFrameTypeENS_16SpdyMajorVersionENS_13SpdyFrameTypeE, i64 0, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %return
 
@@ -503,7 +503,7 @@ switch.hole_check:                                ; preds = %sw.bb19
 
 switch.lookup9:                                   ; preds = %switch.hole_check
   %6 = zext nneg i32 %frame_type to i64
-  %switch.gep10 = getelementptr inbounds [14 x i32], ptr @switch.table._ZN3net13SpdyConstants18SerializeFrameTypeENS_16SpdyMajorVersionENS_13SpdyFrameTypeE.1, i64 0, i64 %6
+  %switch.gep10 = getelementptr inbounds nuw [14 x i32], ptr @switch.table._ZN3net13SpdyConstants18SerializeFrameTypeENS_16SpdyMajorVersionENS_13SpdyFrameTypeE.1, i64 0, i64 %6
   %switch.load11 = load i32, ptr %switch.gep10, align 4
   br label %return
 
@@ -542,7 +542,7 @@ sw.epilog23:                                      ; preds = %sw.bb9, %switch.hol
 
 cond.false:                                       ; preds = %sw.epilog23
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp24, ptr noundef nonnull @.str, i32 noundef 140, i32 noundef 2)
-  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp24, i64 8
+  %stream_.i = getelementptr inbounds nuw i8, ptr %ref.tmp24, i64 8
   %call27 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.4)
           to label %invoke.cont26 unwind label %lpad
 
@@ -568,13 +568,13 @@ switch.hole_check:                                ; preds = %sw.bb
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [9 x i32], ptr @switch.table._ZN3net13SpdyConstants14ParseFrameTypeENS_16SpdyMajorVersionEi, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN3net13SpdyConstants14ParseFrameTypeENS_16SpdyMajorVersionEi, i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %return
 
 switch.lookup3:                                   ; preds = %sw.bb9
   %4 = zext nneg i32 %frame_type_field to i64
-  %switch.gep4 = getelementptr inbounds [12 x i32], ptr @switch.table._ZN3net13SpdyConstants14ParseFrameTypeENS_16SpdyMajorVersionEi.2, i64 0, i64 %4
+  %switch.gep4 = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZN3net13SpdyConstants14ParseFrameTypeENS_16SpdyMajorVersionEi.2, i64 0, i64 %4
   %switch.load5 = load i32, ptr %switch.gep4, align 4
   br label %return
 
@@ -597,7 +597,7 @@ sw.epilog:                                        ; preds = %entry
 
 cond.false:                                       ; preds = %sw.epilog
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp3, ptr noundef nonnull @.str, i32 noundef 214, i32 noundef 2)
-  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
+  %stream_.i = getelementptr inbounds nuw i8, ptr %ref.tmp3, i64 8
   %call6 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.3)
           to label %invoke.cont5 unwind label %lpad
 
@@ -670,7 +670,7 @@ sw.epilog:                                        ; preds = %entry
 
 cond.false:                                       ; preds = %sw.epilog
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp15, ptr noundef nonnull @.str, i32 noundef 280, i32 noundef 2)
-  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp15, i64 8
+  %stream_.i = getelementptr inbounds nuw i8, ptr %ref.tmp15, i64 8
   %call18 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.3)
           to label %invoke.cont17 unwind label %lpad
 
@@ -715,7 +715,7 @@ sw.default:                                       ; preds = %sw.bb
 
 cond.false:                                       ; preds = %sw.default
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp8, ptr noundef nonnull @.str, i32 noundef 347, i32 noundef 2)
-  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp8, i64 8
+  %stream_.i = getelementptr inbounds nuw i8, ptr %ref.tmp8, i64 8
   %call11 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.7)
           to label %invoke.cont10 unwind label %lpad
 
@@ -743,7 +743,7 @@ sw.default25:                                     ; preds = %switch.hole_check, 
 
 cond.false28:                                     ; preds = %sw.default25
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp30, ptr noundef nonnull @.str, i32 noundef 365, i32 noundef 2)
-  %stream_.i6 = getelementptr inbounds i8, ptr %ref.tmp30, i64 8
+  %stream_.i6 = getelementptr inbounds nuw i8, ptr %ref.tmp30, i64 8
   %call36 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i6, ptr noundef nonnull @.str.7)
           to label %invoke.cont35 unwind label %lpad32
 
@@ -766,7 +766,7 @@ sw.epilog:                                        ; preds = %entry
 
 cond.false49:                                     ; preds = %sw.epilog
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp51, ptr noundef nonnull @.str, i32 noundef 369, i32 noundef 2)
-  %stream_.i7 = getelementptr inbounds i8, ptr %ref.tmp51, i64 8
+  %stream_.i7 = getelementptr inbounds nuw i8, ptr %ref.tmp51, i64 8
   %call57 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i7, ptr noundef nonnull @.str.3)
           to label %invoke.cont56 unwind label %lpad53
 
@@ -791,7 +791,7 @@ switch.hole_check:                                ; preds = %sw.bb18
 
 switch.lookup10:                                  ; preds = %switch.hole_check
   %5 = zext nneg i32 %switch.tableidx9 to i64
-  %switch.gep = getelementptr inbounds [8 x i32], ptr @switch.table._ZN3net13SpdyConstants18SerializeSettingIdENS_16SpdyMajorVersionENS_15SpdySettingsIdsE, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN3net13SpdyConstants18SerializeSettingIdENS_16SpdyMajorVersionENS_15SpdySettingsIdsE, i64 0, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %return
 
@@ -831,7 +831,7 @@ sw.epilog16:                                      ; preds = %sw.bb8, %sw.bb, %en
 
 cond.false:                                       ; preds = %sw.epilog16
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp17, ptr noundef nonnull @.str, i32 noundef 323, i32 noundef 2)
-  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp17, i64 8
+  %stream_.i = getelementptr inbounds nuw i8, ptr %ref.tmp17, i64 8
   %call20 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.6)
           to label %invoke.cont19 unwind label %lpad
 
@@ -851,7 +851,7 @@ lpad:                                             ; preds = %invoke.cont19, %con
 
 switch.lookup3:                                   ; preds = %sw.bb8
   %3 = zext nneg i32 %switch.tableidx4 to i64
-  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._ZN3net13SpdyConstants14ParseSettingIdENS_16SpdyMajorVersionEi, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN3net13SpdyConstants14ParseSettingIdENS_16SpdyMajorVersionEi, i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %return
 
@@ -885,7 +885,7 @@ sw.epilog:                                        ; preds = %entry
 
 cond.false:                                       ; preds = %sw.epilog
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp15, ptr noundef nonnull @.str, i32 noundef 416, i32 noundef 2)
-  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp15, i64 8
+  %stream_.i = getelementptr inbounds nuw i8, ptr %ref.tmp15, i64 8
   %call18 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.3)
           to label %invoke.cont17 unwind label %lpad
 
@@ -930,7 +930,7 @@ sw.default:                                       ; preds = %switch.hole_check, 
 
 cond.false:                                       ; preds = %sw.default
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp11, ptr noundef nonnull @.str, i32 noundef 507, i32 noundef 2)
-  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp11, i64 8
+  %stream_.i = getelementptr inbounds nuw i8, ptr %ref.tmp11, i64 8
   %call14 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.9)
           to label %invoke.cont13 unwind label %lpad
 
@@ -958,7 +958,7 @@ sw.default33:                                     ; preds = %switch.hole_check10
 
 cond.false36:                                     ; preds = %sw.default33
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp38, ptr noundef nonnull @.str, i32 noundef 535, i32 noundef 2)
-  %stream_.i6 = getelementptr inbounds i8, ptr %ref.tmp38, i64 8
+  %stream_.i6 = getelementptr inbounds nuw i8, ptr %ref.tmp38, i64 8
   %call44 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i6, ptr noundef nonnull @.str.9)
           to label %invoke.cont43 unwind label %lpad40
 
@@ -981,7 +981,7 @@ sw.epilog:                                        ; preds = %entry
 
 cond.false57:                                     ; preds = %sw.epilog
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp59, ptr noundef nonnull @.str, i32 noundef 539, i32 noundef 2)
-  %stream_.i7 = getelementptr inbounds i8, ptr %ref.tmp59, i64 8
+  %stream_.i7 = getelementptr inbounds nuw i8, ptr %ref.tmp59, i64 8
   %call65 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i7, ptr noundef nonnull @.str.3)
           to label %invoke.cont64 unwind label %lpad61
 
@@ -1006,7 +1006,7 @@ switch.hole_check:                                ; preds = %sw.bb
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [11 x i32], ptr @switch.table._ZN3net13SpdyConstants20ParseRstStreamStatusENS_16SpdyMajorVersionEi, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw [11 x i32], ptr @switch.table._ZN3net13SpdyConstants20ParseRstStreamStatusENS_16SpdyMajorVersionEi, i64 0, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %return
 
@@ -1018,7 +1018,7 @@ switch.hole_check10:                              ; preds = %sw.bb21
 
 switch.lookup11:                                  ; preds = %switch.hole_check10
   %6 = zext nneg i32 %switch.tableidx9 to i64
-  %switch.gep15 = getelementptr inbounds [16 x i32], ptr @switch.table._ZN3net13SpdyConstants24SerializeRstStreamStatusENS_16SpdyMajorVersionENS_19SpdyRstStreamStatusE.3, i64 0, i64 %6
+  %switch.gep15 = getelementptr inbounds nuw [16 x i32], ptr @switch.table._ZN3net13SpdyConstants24SerializeRstStreamStatusENS_16SpdyMajorVersionENS_19SpdyRstStreamStatusE.3, i64 0, i64 %6
   %switch.load16 = load i32, ptr %switch.gep15, align 4
   br label %return
 
@@ -1058,7 +1058,7 @@ sw.epilog24:                                      ; preds = %switch.hole_check5,
 
 cond.false:                                       ; preds = %sw.epilog24
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp25, ptr noundef nonnull @.str, i32 noundef 476, i32 noundef 2)
-  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp25, i64 8
+  %stream_.i = getelementptr inbounds nuw i8, ptr %ref.tmp25, i64 8
   %call28 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.8)
           to label %invoke.cont27 unwind label %lpad
 
@@ -1084,7 +1084,7 @@ switch.hole_check:                                ; preds = %sw.bb
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [11 x i32], ptr @switch.table._ZN3net13SpdyConstants20ParseRstStreamStatusENS_16SpdyMajorVersionEi, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [11 x i32], ptr @switch.table._ZN3net13SpdyConstants20ParseRstStreamStatusENS_16SpdyMajorVersionEi, i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %return
 
@@ -1096,7 +1096,7 @@ switch.hole_check5:                               ; preds = %sw.bb11
 
 switch.lookup6:                                   ; preds = %switch.hole_check5
   %4 = zext nneg i32 %switch.tableidx4 to i64
-  %switch.gep10 = getelementptr inbounds [13 x i32], ptr @switch.table._ZN3net13SpdyConstants20ParseRstStreamStatusENS_16SpdyMajorVersionEi.4, i64 0, i64 %4
+  %switch.gep10 = getelementptr inbounds nuw [13 x i32], ptr @switch.table._ZN3net13SpdyConstants20ParseRstStreamStatusENS_16SpdyMajorVersionEi.4, i64 0, i64 %4
   %switch.load11 = load i32, ptr %switch.gep10, align 4
   br label %return
 
@@ -1128,7 +1128,7 @@ sw.epilog:                                        ; preds = %entry
 
 cond.false:                                       ; preds = %sw.epilog
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp15, ptr noundef nonnull @.str, i32 noundef 574, i32 noundef 2)
-  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp15, i64 8
+  %stream_.i = getelementptr inbounds nuw i8, ptr %ref.tmp15, i64 8
   %call18 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.10)
           to label %invoke.cont17 unwind label %lpad
 
@@ -1172,7 +1172,7 @@ sw.default:                                       ; preds = %sw.bb
 
 cond.false:                                       ; preds = %sw.default
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp3, ptr noundef nonnull @.str, i32 noundef 652, i32 noundef 2)
-  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
+  %stream_.i = getelementptr inbounds nuw i8, ptr %ref.tmp3, i64 8
   %call6 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.12)
           to label %invoke.cont5 unwind label %lpad
 
@@ -1199,7 +1199,7 @@ sw.default28:                                     ; preds = %sw.bb13
 
 cond.false31:                                     ; preds = %sw.default28
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp33, ptr noundef nonnull @.str, i32 noundef 686, i32 noundef 2)
-  %stream_.i6 = getelementptr inbounds i8, ptr %ref.tmp33, i64 8
+  %stream_.i6 = getelementptr inbounds nuw i8, ptr %ref.tmp33, i64 8
   %call39 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i6, ptr noundef nonnull @.str.12)
           to label %invoke.cont38 unwind label %lpad35
 
@@ -1222,7 +1222,7 @@ sw.epilog:                                        ; preds = %entry
 
 cond.false52:                                     ; preds = %sw.epilog
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp54, ptr noundef nonnull @.str, i32 noundef 690, i32 noundef 2)
-  %stream_.i7 = getelementptr inbounds i8, ptr %ref.tmp54, i64 8
+  %stream_.i7 = getelementptr inbounds nuw i8, ptr %ref.tmp54, i64 8
   %call60 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i7, ptr noundef nonnull @.str.10)
           to label %invoke.cont59 unwind label %lpad56
 
@@ -1241,7 +1241,7 @@ lpad56:                                           ; preds = %invoke.cont59, %con
 
 switch.lookup:                                    ; preds = %sw.bb
   %5 = zext nneg i32 %status to i64
-  %switch.gep = getelementptr inbounds [14 x i32], ptr @switch.table._ZN3net13SpdyConstants21SerializeGoAwayStatusENS_16SpdyMajorVersionENS_16SpdyGoAwayStatusE, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw [14 x i32], ptr @switch.table._ZN3net13SpdyConstants21SerializeGoAwayStatusENS_16SpdyMajorVersionENS_16SpdyGoAwayStatusE, i64 0, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %return
 
@@ -1279,7 +1279,7 @@ sw.epilog20:                                      ; preds = %sw.bb4, %sw.bb, %en
 
 cond.false:                                       ; preds = %sw.epilog20
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp21, ptr noundef nonnull @.str, i32 noundef 625, i32 noundef 2)
-  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp21, i64 8
+  %stream_.i = getelementptr inbounds nuw i8, ptr %ref.tmp21, i64 8
   %call24 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.11)
           to label %invoke.cont23 unwind label %lpad
 
@@ -1320,7 +1320,7 @@ sw.epilog:                                        ; preds = %entry
 
 cond.false:                                       ; preds = %sw.epilog
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2, ptr noundef nonnull @.str, i32 noundef 701, i32 noundef 2)
-  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
+  %stream_.i = getelementptr inbounds nuw i8, ptr %ref.tmp2, i64 8
   %call5 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.13)
           to label %invoke.cont4 unwind label %lpad
 
@@ -1362,7 +1362,7 @@ sw.epilog.i:                                      ; preds = %entry
 
 cond.false.i:                                     ; preds = %sw.epilog.i
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2.i, ptr noundef nonnull @.str, i32 noundef 701, i32 noundef 2)
-  %stream_.i.i = getelementptr inbounds i8, ptr %ref.tmp2.i, i64 8
+  %stream_.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp2.i, i64 8
   %call5.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i.i, ptr noundef nonnull @.str.13)
           to label %invoke.cont4.i unwind label %lpad.i
 
@@ -1405,7 +1405,7 @@ sw.epilog.i:                                      ; preds = %entry
 
 cond.false.i:                                     ; preds = %sw.epilog.i
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2.i, ptr noundef nonnull @.str, i32 noundef 701, i32 noundef 2)
-  %stream_.i.i = getelementptr inbounds i8, ptr %ref.tmp2.i, i64 8
+  %stream_.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp2.i, i64 8
   %call5.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i.i, ptr noundef nonnull @.str.13)
           to label %invoke.cont4.i unwind label %lpad.i
 
@@ -1543,7 +1543,7 @@ sw.default:                                       ; preds = %entry
 
 cond.false:                                       ; preds = %sw.default
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp6, ptr noundef nonnull @.str, i32 noundef 740, i32 noundef 2)
-  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp6, i64 8
+  %stream_.i = getelementptr inbounds nuw i8, ptr %ref.tmp6, i64 8
   %call11 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.16)
           to label %invoke.cont10 unwind label %lpad7
 
@@ -1609,12 +1609,12 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net26SpdyFrameWithHeaderBlockIRC2EjNS_15SpdyHeaderBlockE(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 13)) %this, i32 noundef %stream_id, ptr noundef nonnull %header_block) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %stream_id_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %stream_id_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %stream_id, ptr %stream_id_.i.i.i, align 8
-  %fin_.i = getelementptr inbounds i8, ptr %this, i64 12
+  %fin_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i8 0, ptr %fin_.i, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net26SpdyFrameWithHeaderBlockIRE, i64 16), ptr %this, align 8
-  %header_block_ = getelementptr inbounds i8, ptr %this, i64 16
+  %header_block_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN3net15SpdyHeaderBlockC1EOS0_(ptr noundef nonnull align 8 dereferenceable(88) %header_block_, ptr noundef nonnull align 8 dereferenceable(88) %header_block)
   ret void
 }
@@ -1625,7 +1625,7 @@ declare void @_ZN3net15SpdyHeaderBlockC1EOS0_(ptr noundef nonnull align 8 derefe
 define dso_local void @_ZN3net26SpdyFrameWithHeaderBlockIRD2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net26SpdyFrameWithHeaderBlockIRE, i64 16), ptr %this, align 8
-  %header_block_ = getelementptr inbounds i8, ptr %this, i64 16
+  %header_block_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN3net15SpdyHeaderBlockD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %header_block_) #16
   ret void
 }
@@ -1646,21 +1646,21 @@ declare void @llvm.trap() #6
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net10SpdyDataIRC2EjN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 13), (16, 24)) %this, i32 noundef %stream_id, ptr %data.coerce0, i64 %data.coerce1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %stream_id_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %stream_id_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %stream_id, ptr %stream_id_.i.i.i, align 8
-  %fin_.i = getelementptr inbounds i8, ptr %this, i64 12
+  %fin_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i8 0, ptr %fin_.i, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net10SpdyDataIRE, i64 16), ptr %this, align 8
-  %data_store_ = getelementptr inbounds i8, ptr %this, i64 16
+  %data_store_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr null, ptr %data_store_, align 8
-  %data_ = getelementptr inbounds i8, ptr %this, i64 24
+  %data_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   invoke void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %data_)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %padded_ = getelementptr inbounds i8, ptr %this, i64 40
+  %padded_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i8 0, ptr %padded_, align 8
-  %padding_payload_len_ = getelementptr inbounds i8, ptr %this, i64 44
+  %padding_payload_len_ = getelementptr inbounds nuw i8, ptr %this, i64 44
   store i32 0, ptr %padding_payload_len_, align 4
   invoke void @_ZN3net10SpdyDataIR11SetDataDeepEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %data.coerce0, i64 %data.coerce1)
           to label %invoke.cont2 unwind label %lpad
@@ -1684,7 +1684,7 @@ entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %ref.tmp7 = alloca %"class.base::BasicStringPiece", align 8
   store ptr %data.coerce0, ptr %data, align 8
-  %0 = getelementptr inbounds i8, ptr %data, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %data, i64 8
   store i64 %data.coerce1, ptr %0, align 8
   %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
   %call2 = invoke noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %data)
@@ -1700,7 +1700,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %invoke.cont3
-  %data_store_ = getelementptr inbounds i8, ptr %this, i64 16
+  %data_store_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %data_store_, align 8
   store ptr %call, ptr %data_store_, align 8
   %tobool.not.i.i = icmp eq ptr %1, null
@@ -1715,7 +1715,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #16
   %2 = load ptr, ptr %data_store_, align 8
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(32) %2)
-  %data_ = getelementptr inbounds i8, ptr %this, i64 24
+  %data_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data_, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, i64 16, i1 false)
   ret void
 
@@ -1762,23 +1762,23 @@ entry:
   %agg.tmp = alloca %"class.base::BasicStringPiece", align 8
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef %data)
   %0 = load ptr, ptr %agg.tmp, align 8
-  %1 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
   %2 = load i64, ptr %1, align 8
-  %stream_id_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %stream_id_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %stream_id, ptr %stream_id_.i.i.i.i, align 8
-  %fin_.i.i = getelementptr inbounds i8, ptr %this, i64 12
+  %fin_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i8 0, ptr %fin_.i.i, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net10SpdyDataIRE, i64 16), ptr %this, align 8
-  %data_store_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %data_store_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr null, ptr %data_store_.i, align 8
-  %data_.i = getelementptr inbounds i8, ptr %this, i64 24
+  %data_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   invoke void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %data_.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
-  %padded_.i = getelementptr inbounds i8, ptr %this, i64 40
+  %padded_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i8 0, ptr %padded_.i, align 8
-  %padding_payload_len_.i = getelementptr inbounds i8, ptr %this, i64 44
+  %padding_payload_len_.i = getelementptr inbounds nuw i8, ptr %this, i64 44
   store i32 0, ptr %padding_payload_len_.i, align 4
   invoke void @_ZN3net10SpdyDataIR11SetDataDeepEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %0, i64 %2)
           to label %_ZN3net10SpdyDataIRC2EjN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit unwind label %lpad.i
@@ -1798,24 +1798,24 @@ declare void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_tra
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net10SpdyDataIRC2EjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 13), (16, 24)) %this, i32 noundef %stream_id, ptr noundef %data) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %stream_id_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %stream_id_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %stream_id, ptr %stream_id_.i.i.i, align 8
-  %fin_.i = getelementptr inbounds i8, ptr %this, i64 12
+  %fin_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i8 0, ptr %fin_.i, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net10SpdyDataIRE, i64 16), ptr %this, align 8
-  %data_store_ = getelementptr inbounds i8, ptr %this, i64 16
+  %data_store_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
   %call.i2 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %call.i2, ptr noundef nonnull align 8 dereferenceable(32) %data) #16, !noalias !5
   store ptr %call.i2, ptr %data_store_, align 8, !alias.scope !5
-  %data_ = getelementptr inbounds i8, ptr %this, i64 24
+  %data_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   invoke void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %data_, ptr noundef nonnull align 8 dereferenceable(32) %call.i2)
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %entry
-  %padded_ = getelementptr inbounds i8, ptr %this, i64 40
+  %padded_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i8 0, ptr %padded_, align 8
-  %padding_payload_len_ = getelementptr inbounds i8, ptr %this, i64 44
+  %padding_payload_len_ = getelementptr inbounds nuw i8, ptr %this, i64 44
   store i32 0, ptr %padding_payload_len_, align 4
   ret void
 
@@ -1831,21 +1831,21 @@ declare void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_tra
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net10SpdyDataIRC2Ej(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 13), (16, 24)) %this, i32 noundef %stream_id) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %stream_id_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %stream_id_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %stream_id, ptr %stream_id_.i.i.i, align 8
-  %fin_.i = getelementptr inbounds i8, ptr %this, i64 12
+  %fin_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i8 0, ptr %fin_.i, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net10SpdyDataIRE, i64 16), ptr %this, align 8
-  %data_store_ = getelementptr inbounds i8, ptr %this, i64 16
+  %data_store_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr null, ptr %data_store_, align 8
-  %data_ = getelementptr inbounds i8, ptr %this, i64 24
+  %data_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   invoke void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %data_)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %padded_ = getelementptr inbounds i8, ptr %this, i64 40
+  %padded_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i8 0, ptr %padded_, align 8
-  %padding_payload_len_ = getelementptr inbounds i8, ptr %this, i64 44
+  %padding_payload_len_ = getelementptr inbounds nuw i8, ptr %this, i64 44
   store i32 0, ptr %padding_payload_len_, align 4
   ret void
 
@@ -1860,7 +1860,7 @@ lpad:                                             ; preds = %entry
 define dso_local void @_ZN3net10SpdyDataIRD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net10SpdyDataIRE, i64 16), ptr %this, align 8
-  %data_store_ = getelementptr inbounds i8, ptr %this, i64 16
+  %data_store_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %data_store_, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i
@@ -1879,7 +1879,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 define dso_local void @_ZN3net10SpdyDataIRD0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net10SpdyDataIRE, i64 16), ptr %this, align 8
-  %data_store_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %data_store_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %data_store_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZN3net10SpdyDataIRD2Ev.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
@@ -1901,7 +1901,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 define dso_local void @_ZNK3net10SpdyDataIR5VisitEPNS_16SpdyFrameVisitorE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %visitor) unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %visitor, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 104
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 104
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(8) %visitor, ptr noundef nonnull align 8 dereferenceable(48) %this)
   ret void
@@ -1920,7 +1920,7 @@ entry:
 define dso_local void @_ZNK3net14SpdySynReplyIR5VisitEPNS_16SpdyFrameVisitorE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef %visitor) unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %visitor, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 8
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(8) %visitor, ptr noundef nonnull align 8 dereferenceable(104) %this)
   ret void
@@ -1929,10 +1929,10 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN3net15SpdyRstStreamIRC2EjNS_19SpdyRstStreamStatusE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, i32 noundef %stream_id, i32 noundef %status) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %stream_id_.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %stream_id_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %stream_id, ptr %stream_id_.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net15SpdyRstStreamIRE, i64 16), ptr %this, align 8
-  %status_.i = getelementptr inbounds i8, ptr %this, i64 12
+  %status_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i32 %status, ptr %status_.i, align 4
   ret void
 }
@@ -1954,7 +1954,7 @@ entry:
 define dso_local void @_ZNK3net15SpdyRstStreamIR5VisitEPNS_16SpdyFrameVisitorE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %visitor) unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %visitor, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(8) %visitor, ptr noundef nonnull align 8 dereferenceable(16) %this)
   ret void
@@ -1964,19 +1964,19 @@ entry:
 define dso_local void @_ZN3net14SpdySettingsIRC2Ev(ptr noundef nonnull align 8 dereferenceable(58) initializes((0, 8), (16, 20), (24, 32)) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net14SpdySettingsIRE, i64 16), ptr %this, align 8
-  %0 = getelementptr inbounds i8, ptr %this, i64 16
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr null, ptr %_M_parent.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_left.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %0, ptr %_M_left.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_right.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %0, ptr %_M_right.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_node_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i64 0, ptr %_M_node_count.i.i.i.i.i, align 8
-  %clear_settings_ = getelementptr inbounds i8, ptr %this, i64 56
+  %clear_settings_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i8 0, ptr %clear_settings_, align 8
-  %is_ack_ = getelementptr inbounds i8, ptr %this, i64 57
+  %is_ack_ = getelementptr inbounds nuw i8, ptr %this, i64 57
   store i8 0, ptr %is_ack_, align 1
   ret void
 }
@@ -1985,8 +1985,8 @@ entry:
 define dso_local void @_ZN3net14SpdySettingsIRD2Ev(ptr noundef nonnull align 8 dereferenceable(58) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net14SpdySettingsIRE, i64 16), ptr %this, align 8
-  %values_ = getelementptr inbounds i8, ptr %this, i64 8
-  %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %values_ = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %_M_parent.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeIN3net15SpdySettingsIdsESt4pairIKS1_NS0_14SpdySettingsIR5ValueEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %values_, ptr noundef %0)
           to label %_ZNSt3mapIN3net15SpdySettingsIdsENS0_14SpdySettingsIR5ValueESt4lessIS1_ESaISt4pairIKS1_S3_EEED2Ev.exit unwind label %terminate.lpad.i.i
@@ -2006,8 +2006,8 @@ _ZNSt3mapIN3net15SpdySettingsIdsENS0_14SpdySettingsIR5ValueESt4lessIS1_ESaISt4pa
 define dso_local void @_ZN3net14SpdySettingsIRD0Ev(ptr noundef nonnull align 8 dereferenceable(58) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net14SpdySettingsIRE, i64 16), ptr %this, align 8
-  %values_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %values_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeIN3net15SpdySettingsIdsESt4pairIKS1_NS0_14SpdySettingsIR5ValueEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %values_.i, ptr noundef %0)
           to label %_ZN3net14SpdySettingsIRD2Ev.exit unwind label %terminate.lpad.i.i.i
@@ -2028,7 +2028,7 @@ _ZN3net14SpdySettingsIRD2Ev.exit:                 ; preds = %entry
 define dso_local void @_ZNK3net14SpdySettingsIR5VisitEPNS_16SpdyFrameVisitorE(ptr noundef nonnull align 8 dereferenceable(58) %this, ptr noundef %visitor) unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %visitor, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(8) %visitor, ptr noundef nonnull align 8 dereferenceable(58) %this)
   ret void
@@ -2038,7 +2038,7 @@ entry:
 define dso_local void @_ZNK3net10SpdyPingIR5VisitEPNS_16SpdyFrameVisitorE(ptr noundef nonnull align 8 dereferenceable(17) %this, ptr noundef %visitor) unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %visitor, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(8) %visitor, ptr noundef nonnull align 8 dereferenceable(17) %this)
   ret void
@@ -2048,15 +2048,15 @@ entry:
 define dso_local void @_ZN3net12SpdyGoAwayIRC2EjNS_16SpdyGoAwayStatusEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this, i32 noundef %last_good_stream_id, i32 noundef %status, ptr %description.coerce0, i64 %description.coerce1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net12SpdyGoAwayIRE, i64 16), ptr %this, align 8
-  %description_store_ = getelementptr inbounds i8, ptr %this, i64 16
+  %description_store_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %description_store_) #16
-  %description_ = getelementptr inbounds i8, ptr %this, i64 48
+  %description_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr %description.coerce0, ptr %description_, align 8
-  %description.sroa.2.0.description_.sroa_idx = getelementptr inbounds i8, ptr %this, i64 56
+  %description.sroa.2.0.description_.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i64 %description.coerce1, ptr %description.sroa.2.0.description_.sroa_idx, align 8
-  %last_good_stream_id_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %last_good_stream_id_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %last_good_stream_id, ptr %last_good_stream_id_.i, align 8
-  %status_.i = getelementptr inbounds i8, ptr %this, i64 12
+  %status_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i32 %status, ptr %status_.i, align 4
   ret void
 }
@@ -2073,18 +2073,18 @@ entry:
   %agg.tmp = alloca %"class.base::BasicStringPiece", align 8
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef %description)
   %0 = load ptr, ptr %agg.tmp, align 8
-  %1 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
   %2 = load i64, ptr %1, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net12SpdyGoAwayIRE, i64 16), ptr %this, align 8
-  %description_store_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %description_store_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %description_store_.i) #16
-  %description_.i = getelementptr inbounds i8, ptr %this, i64 48
+  %description_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr %0, ptr %description_.i, align 8
-  %description.sroa.2.0.description_.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 56
+  %description.sroa.2.0.description_.sroa_idx.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i64 %2, ptr %description.sroa.2.0.description_.sroa_idx.i, align 8
-  %last_good_stream_id_.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %last_good_stream_id_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %last_good_stream_id, ptr %last_good_stream_id_.i.i, align 8
-  %status_.i.i = getelementptr inbounds i8, ptr %this, i64 12
+  %status_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i32 %status, ptr %status_.i.i, align 4
   ret void
 }
@@ -2093,16 +2093,16 @@ entry:
 define dso_local void @_ZN3net12SpdyGoAwayIRC2EjNS_16SpdyGoAwayStatusENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this, i32 noundef %last_good_stream_id, i32 noundef %status, ptr noundef nonnull %description) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net12SpdyGoAwayIRE, i64 16), ptr %this, align 8
-  %description_store_ = getelementptr inbounds i8, ptr %this, i64 16
+  %description_store_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %description_store_, ptr noundef nonnull align 8 dereferenceable(32) %description) #16
-  %description_ = getelementptr inbounds i8, ptr %this, i64 48
+  %description_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   invoke void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %description_, ptr noundef nonnull align 8 dereferenceable(32) %description_store_)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %entry
-  %last_good_stream_id_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %last_good_stream_id_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %last_good_stream_id, ptr %last_good_stream_id_.i, align 8
-  %status_.i = getelementptr inbounds i8, ptr %this, i64 12
+  %status_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i32 %status, ptr %status_.i, align 4
   ret void
 
@@ -2120,7 +2120,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr n
 define dso_local void @_ZN3net12SpdyGoAwayIRD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net12SpdyGoAwayIRE, i64 16), ptr %this, align 8
-  %description_store_ = getelementptr inbounds i8, ptr %this, i64 16
+  %description_store_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %description_store_) #16
   ret void
 }
@@ -2129,7 +2129,7 @@ entry:
 define dso_local void @_ZN3net12SpdyGoAwayIRD0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net12SpdyGoAwayIRE, i64 16), ptr %this, align 8
-  %description_store_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %description_store_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %description_store_.i) #16
   tail call void @_ZdlPv(ptr noundef nonnull %this) #19
   ret void
@@ -2139,7 +2139,7 @@ entry:
 define dso_local void @_ZNK3net12SpdyGoAwayIR5VisitEPNS_16SpdyFrameVisitorE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %visitor) unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %visitor, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(8) %visitor, ptr noundef nonnull align 8 dereferenceable(64) %this)
   ret void
@@ -2149,7 +2149,7 @@ entry:
 define dso_local void @_ZNK3net13SpdyHeadersIR5VisitEPNS_16SpdyFrameVisitorE(ptr noundef nonnull align 8 dereferenceable(124) %this, ptr noundef %visitor) unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %visitor, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 48
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(8) %visitor, ptr noundef nonnull align 8 dereferenceable(124) %this)
   ret void
@@ -2159,7 +2159,7 @@ entry:
 define dso_local void @_ZNK3net18SpdyWindowUpdateIR5VisitEPNS_16SpdyFrameVisitorE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %visitor) unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %visitor, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 56
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(8) %visitor, ptr noundef nonnull align 8 dereferenceable(16) %this)
   ret void
@@ -2169,7 +2169,7 @@ entry:
 define dso_local void @_ZNK3net13SpdyBlockedIR5VisitEPNS_16SpdyFrameVisitorE(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef %visitor) unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %visitor, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 64
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(8) %visitor, ptr noundef nonnull align 8 dereferenceable(12) %this)
   ret void
@@ -2179,7 +2179,7 @@ entry:
 define dso_local void @_ZNK3net17SpdyPushPromiseIR5VisitEPNS_16SpdyFrameVisitorE(ptr noundef nonnull align 8 dereferenceable(116) %this, ptr noundef %visitor) unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %visitor, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 72
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(8) %visitor, ptr noundef nonnull align 8 dereferenceable(116) %this)
   ret void
@@ -2189,7 +2189,7 @@ entry:
 define dso_local void @_ZNK3net18SpdyContinuationIR5VisitEPNS_16SpdyFrameVisitorE(ptr noundef nonnull align 8 dereferenceable(105) %this, ptr noundef %visitor) unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %visitor, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 80
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(8) %visitor, ptr noundef nonnull align 8 dereferenceable(105) %this)
   ret void
@@ -2198,12 +2198,12 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net12SpdyAltSvcIRC2Ej(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 12)) %this, i32 noundef %stream_id) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %stream_id_.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %stream_id_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %stream_id, ptr %stream_id_.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net12SpdyAltSvcIRE, i64 16), ptr %this, align 8
-  %origin_ = getelementptr inbounds i8, ptr %this, i64 16
+  %origin_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %origin_) #16
-  %altsvc_vector_ = getelementptr inbounds i8, ptr %this, i64 48
+  %altsvc_vector_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %altsvc_vector_, i8 0, i64 24, i1 false)
   ret void
 }
@@ -2212,9 +2212,9 @@ entry:
 define dso_local void @_ZN3net12SpdyAltSvcIRD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net12SpdyAltSvcIRE, i64 16), ptr %this, align 8
-  %altsvc_vector_ = getelementptr inbounds i8, ptr %this, i64 48
+  %altsvc_vector_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %altsvc_vector_, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
@@ -2222,7 +2222,7 @@ entry:
 for.body.i.i.i.i:                                 ; preds = %entry, %for.body.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %0, %entry ]
   tail call void @_ZN3net20SpdyAltSvcWireFormat18AlternativeServiceD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %__first.addr.04.i.i.i.i) #16
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 96
+  %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i, i64 96
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !8
 
@@ -2240,7 +2240,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
   br label %_ZNSt6vectorIN3net20SpdyAltSvcWireFormat18AlternativeServiceESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN3net20SpdyAltSvcWireFormat18AlternativeServiceESaIS2_EED2Ev.exit: ; preds = %invoke.cont.i, %if.then.i.i.i
-  %origin_ = getelementptr inbounds i8, ptr %this, i64 16
+  %origin_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %origin_) #16
   ret void
 }
@@ -2249,9 +2249,9 @@ _ZNSt6vectorIN3net20SpdyAltSvcWireFormat18AlternativeServiceESaIS2_EED2Ev.exit: 
 define dso_local void @_ZN3net12SpdyAltSvcIRD0Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net12SpdyAltSvcIRE, i64 16), ptr %this, align 8
-  %altsvc_vector_.i = getelementptr inbounds i8, ptr %this, i64 48
+  %altsvc_vector_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %altsvc_vector_.i, align 8
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.not3.i.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.i.i
@@ -2259,7 +2259,7 @@ entry:
 for.body.i.i.i.i.i:                               ; preds = %entry, %for.body.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %0, %entry ]
   tail call void @_ZN3net20SpdyAltSvcWireFormat18AlternativeServiceD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %__first.addr.04.i.i.i.i.i) #16
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 96
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i, i64 96
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i.i, label %invoke.contthread-pre-split.i.i, label %for.body.i.i.i.i.i, !llvm.loop !8
 
@@ -2277,7 +2277,7 @@ if.then.i.i.i.i:                                  ; preds = %invoke.cont.i.i
   br label %_ZN3net12SpdyAltSvcIRD2Ev.exit
 
 _ZN3net12SpdyAltSvcIRD2Ev.exit:                   ; preds = %invoke.cont.i.i, %if.then.i.i.i.i
-  %origin_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %origin_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %origin_.i) #16
   tail call void @_ZdlPv(ptr noundef nonnull %this) #19
   ret void
@@ -2287,7 +2287,7 @@ _ZN3net12SpdyAltSvcIRD2Ev.exit:                   ; preds = %invoke.cont.i.i, %i
 define dso_local void @_ZNK3net12SpdyAltSvcIR5VisitEPNS_16SpdyFrameVisitorE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %visitor) unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %visitor, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 88
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 88
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(8) %visitor, ptr noundef nonnull align 8 dereferenceable(72) %this)
   ret void
@@ -2297,7 +2297,7 @@ entry:
 define dso_local void @_ZNK3net14SpdyPriorityIR5VisitEPNS_16SpdyFrameVisitorE(ptr noundef nonnull align 8 dereferenceable(21) %this, ptr noundef %visitor) unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %visitor, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 96
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 96
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(8) %visitor, ptr noundef nonnull align 8 dereferenceable(21) %this)
   ret void
@@ -2307,7 +2307,7 @@ entry:
 define linkonce_odr dso_local void @_ZN3net15SpdySynStreamIRD2Ev(ptr noundef nonnull align 8 dereferenceable(110) %this) unnamed_addr #4 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net26SpdyFrameWithHeaderBlockIRE, i64 16), ptr %this, align 8
-  %header_block_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %header_block_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN3net15SpdyHeaderBlockD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %header_block_.i) #16
   ret void
 }
@@ -2316,7 +2316,7 @@ entry:
 define linkonce_odr dso_local void @_ZN3net15SpdySynStreamIRD0Ev(ptr noundef nonnull align 8 dereferenceable(110) %this) unnamed_addr #4 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net26SpdyFrameWithHeaderBlockIRE, i64 16), ptr %this, align 8
-  %header_block_.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %header_block_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN3net15SpdyHeaderBlockD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %header_block_.i.i) #16
   tail call void @_ZdlPv(ptr noundef nonnull %this) #19
   ret void
@@ -2326,7 +2326,7 @@ entry:
 define linkonce_odr dso_local void @_ZN3net14SpdySynReplyIRD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #4 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net26SpdyFrameWithHeaderBlockIRE, i64 16), ptr %this, align 8
-  %header_block_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %header_block_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN3net15SpdyHeaderBlockD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %header_block_.i) #16
   ret void
 }
@@ -2335,7 +2335,7 @@ entry:
 define linkonce_odr dso_local void @_ZN3net14SpdySynReplyIRD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #4 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net26SpdyFrameWithHeaderBlockIRE, i64 16), ptr %this, align 8
-  %header_block_.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %header_block_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN3net15SpdyHeaderBlockD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %header_block_.i.i) #16
   tail call void @_ZdlPv(ptr noundef nonnull %this) #19
   ret void
@@ -2358,7 +2358,7 @@ entry:
 define linkonce_odr dso_local void @_ZN3net13SpdyHeadersIRD2Ev(ptr noundef nonnull align 8 dereferenceable(124) %this) unnamed_addr #4 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net26SpdyFrameWithHeaderBlockIRE, i64 16), ptr %this, align 8
-  %header_block_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %header_block_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN3net15SpdyHeaderBlockD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %header_block_.i) #16
   ret void
 }
@@ -2367,7 +2367,7 @@ entry:
 define linkonce_odr dso_local void @_ZN3net13SpdyHeadersIRD0Ev(ptr noundef nonnull align 8 dereferenceable(124) %this) unnamed_addr #4 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net26SpdyFrameWithHeaderBlockIRE, i64 16), ptr %this, align 8
-  %header_block_.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %header_block_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN3net15SpdyHeaderBlockD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %header_block_.i.i) #16
   tail call void @_ZdlPv(ptr noundef nonnull %this) #19
   ret void
@@ -2403,7 +2403,7 @@ entry:
 define linkonce_odr dso_local void @_ZN3net17SpdyPushPromiseIRD2Ev(ptr noundef nonnull align 8 dereferenceable(116) %this) unnamed_addr #4 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net26SpdyFrameWithHeaderBlockIRE, i64 16), ptr %this, align 8
-  %header_block_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %header_block_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN3net15SpdyHeaderBlockD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %header_block_.i) #16
   ret void
 }
@@ -2412,7 +2412,7 @@ entry:
 define linkonce_odr dso_local void @_ZN3net17SpdyPushPromiseIRD0Ev(ptr noundef nonnull align 8 dereferenceable(116) %this) unnamed_addr #4 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net26SpdyFrameWithHeaderBlockIRE, i64 16), ptr %this, align 8
-  %header_block_.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %header_block_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN3net15SpdyHeaderBlockD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %header_block_.i.i) #16
   tail call void @_ZdlPv(ptr noundef nonnull %this) #19
   ret void
@@ -2422,7 +2422,7 @@ entry:
 define linkonce_odr dso_local void @_ZN3net18SpdyContinuationIRD2Ev(ptr noundef nonnull align 8 dereferenceable(105) %this) unnamed_addr #4 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net26SpdyFrameWithHeaderBlockIRE, i64 16), ptr %this, align 8
-  %header_block_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %header_block_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN3net15SpdyHeaderBlockD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %header_block_.i) #16
   ret void
 }
@@ -2431,7 +2431,7 @@ entry:
 define linkonce_odr dso_local void @_ZN3net18SpdyContinuationIRD0Ev(ptr noundef nonnull align 8 dereferenceable(105) %this) unnamed_addr #4 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net26SpdyFrameWithHeaderBlockIRE, i64 16), ptr %this, align 8
-  %header_block_.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %header_block_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN3net15SpdyHeaderBlockD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %header_block_.i.i) #16
   tail call void @_ZdlPv(ptr noundef nonnull %this) #19
   ret void
@@ -2484,10 +2484,10 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %__x.addr.05 = phi ptr [ %1, %while.body ], [ %__x, %entry ]
-  %_M_right.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 24
+  %_M_right.i = getelementptr inbounds nuw i8, ptr %__x.addr.05, i64 24
   %0 = load ptr, ptr %_M_right.i, align 8
   tail call void @_ZNSt8_Rb_treeIN3net15SpdySettingsIdsESt4pairIKS1_NS0_14SpdySettingsIR5ValueEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-  %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
+  %_M_left.i = getelementptr inbounds nuw i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #19
   %cmp.not = icmp eq ptr %1, null

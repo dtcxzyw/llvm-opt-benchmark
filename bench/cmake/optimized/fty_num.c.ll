@@ -21,7 +21,7 @@ define internal noalias noundef ptr @Make_Numeric_Type(ptr nocapture noundef %0)
   br i1 %5, label %6, label %12
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = zext nneg i32 %4 to i64
   %10 = getelementptr i8, ptr %8, i64 %9
@@ -30,7 +30,7 @@ define internal noalias noundef ptr @Make_Numeric_Type(ptr nocapture noundef %0)
   br label %16
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr i8, ptr %14, i64 8
   store ptr %15, ptr %13, align 8
@@ -40,36 +40,36 @@ define internal noalias noundef ptr @Make_Numeric_Type(ptr nocapture noundef %0)
   %17 = phi ptr [ %10, %6 ], [ %14, %12 ]
   %18 = load i32, ptr %17, align 4
   store i32 %18, ptr %2, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %20 = load i32, ptr %19, align 4
   %21 = icmp ult i32 %20, 161
   br i1 %21, label %27, label %.thread
 
 .thread:                                          ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr i8, ptr %23, i64 8
   store ptr %24, ptr %22, align 8
   %25 = load double, ptr %23, align 8
-  %26 = getelementptr inbounds i8, ptr %2, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store double %25, ptr %26, align 8
   br label %42
 
 27:                                               ; preds = %16
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load ptr, ptr %28, align 8
   %30 = zext nneg i32 %20 to i64
   %31 = getelementptr i8, ptr %29, i64 %30
   %32 = add nuw nsw i32 %20, 16
   store i32 %32, ptr %19, align 4
   %33 = load double, ptr %31, align 8
-  %34 = getelementptr inbounds i8, ptr %2, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store double %33, ptr %34, align 8
   %35 = icmp ult i32 %20, 145
   br i1 %35, label %36, label %42
 
 36:                                               ; preds = %27
-  %37 = getelementptr inbounds i8, ptr %0, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %38 = load ptr, ptr %37, align 8
   %39 = zext nneg i32 %32 to i64
   %40 = getelementptr i8, ptr %38, i64 %39
@@ -78,7 +78,7 @@ define internal noalias noundef ptr @Make_Numeric_Type(ptr nocapture noundef %0)
   br label %46
 
 42:                                               ; preds = %.thread, %27
-  %43 = getelementptr inbounds i8, ptr %0, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr i8, ptr %44, i64 8
   store ptr %45, ptr %43, align 8
@@ -87,9 +87,9 @@ define internal noalias noundef ptr @Make_Numeric_Type(ptr nocapture noundef %0)
 46:                                               ; preds = %42, %36
   %47 = phi ptr [ %40, %36 ], [ %44, %42 ]
   %48 = load double, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %2, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store double %48, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %2, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr null, ptr %50, align 8
   br label %51
 
@@ -132,9 +132,9 @@ define internal void @Free_Numeric_Type(ptr noundef %0) #1 {
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @Check_Numeric_Field(ptr noundef %0, ptr nocapture noundef readonly %1) #2 {
   %3 = alloca [64 x i8], align 16
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load double, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load double, ptr %6, align 8
   %8 = load i32, ptr %1, align 8
   %9 = tail call ptr @field_buffer(ptr noundef %0, i32 noundef 0) #13
@@ -151,11 +151,11 @@ define internal noundef zeroext i1 @Check_Numeric_Field(ptr noundef %0, ptr noca
   ]
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %.038, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.038, i64 1
   br label %10, !llvm.loop !5
 
 14:                                               ; preds = %10, %10
-  %15 = getelementptr inbounds i8, ptr %.038, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %.038, i64 1
   %.pre = load i8, ptr %15, align 1
   br label %.loopexit56
 
@@ -174,14 +174,14 @@ define internal noundef zeroext i1 @Check_Numeric_Field(ptr noundef %0, ptr noca
   %20 = phi i8 [ %16, %.lr.ph ], [ %27, %25 ]
   %.263 = phi ptr [ %.1, %.lr.ph ], [ %26, %25 ]
   %21 = zext i8 %20 to i64
-  %22 = getelementptr inbounds i16, ptr %18, i64 %21
+  %22 = getelementptr inbounds nuw i16, ptr %18, i64 %21
   %23 = load i16, ptr %22, align 2
   %24 = and i16 %23, 2048
   %.not50 = icmp eq i16 %24, 0
   br i1 %.not50, label %28, label %25
 
 25:                                               ; preds = %19
-  %26 = getelementptr inbounds i8, ptr %.263, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %.263, i64 1
   %27 = load i8, ptr %26, align 1
   %.not49 = icmp eq i8 %27, 0
   br i1 %.not49, label %.thread.preheader, label %19, !llvm.loop !7
@@ -192,14 +192,14 @@ define internal noundef zeroext i1 @Check_Numeric_Field(ptr noundef %0, ptr noca
 
 .preheader:                                       ; preds = %28, %31
   %.2.pn = phi ptr [ %.4, %31 ], [ %.263, %28 ]
-  %.4 = getelementptr inbounds i8, ptr %.2.pn, i64 1
+  %.4 = getelementptr inbounds nuw i8, ptr %.2.pn, i64 1
   %30 = load i8, ptr %.4, align 1
   %.not51 = icmp eq i8 %30, 0
   br i1 %.not51, label %.thread.preheader, label %31
 
 31:                                               ; preds = %.preheader
   %32 = zext i8 %30 to i64
-  %33 = getelementptr inbounds i16, ptr %18, i64 %32
+  %33 = getelementptr inbounds nuw i16, ptr %18, i64 %32
   %34 = load i16, ptr %33, align 2
   %35 = and i16 %34, 2048
   %.not52 = icmp eq i16 %35, 0
@@ -219,7 +219,7 @@ define internal noundef zeroext i1 @Check_Numeric_Field(ptr noundef %0, ptr noca
   ]
 
 37:                                               ; preds = %.thread
-  %38 = getelementptr inbounds i8, ptr %.5, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %.5, i64 1
   %.pre71 = load i8, ptr %38, align 1
   br label %.thread, !llvm.loop !9
 

@@ -125,7 +125,7 @@ define internal i32 @dissect_wimax_pdu_decoder(ptr noundef %0, ptr noundef %1, p
   br i1 %39, label %40, label %45
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %1, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %42 = load ptr, ptr %41, align 8
   tail call void @col_append_sep_str(ptr noundef %42, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.8) #2
   %43 = load i32, ptr @proto_wimax_pdu_decoder, align 4
@@ -144,7 +144,7 @@ define internal i32 @dissect_wimax_pdu_decoder(ptr noundef %0, ptr noundef %1, p
 51:                                               ; preds = %45
   %52 = zext i8 %47 to i32
   %53 = zext i8 %50 to i32
-  %54 = getelementptr inbounds i8, ptr %1, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %55 = load ptr, ptr %54, align 8
   tail call void @col_append_sep_str(ptr noundef %55, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.10) #2
   %56 = load i32, ptr @proto_wimax_pdu_decoder, align 4

@@ -25,7 +25,7 @@ for.body.preheader.i:                             ; preds = %if.then
 for.body.i:                                       ; preds = %for.end.i, %for.body.preheader.i
   %0 = phi i32 [ 0, %for.body.preheader.i ], [ %add32.i, %for.end.i ]
   %indvars.iv43.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next44.i, %for.end.i ]
-  %arrayidx.i = getelementptr inbounds i64, ptr %bits, i64 %indvars.iv43.i
+  %arrayidx.i = getelementptr inbounds nuw i64, ptr %bits, i64 %indvars.iv43.i
   %1 = load i64, ptr %arrayidx.i, align 8
   %tobool.not34.i = icmp eq i64 %1, -1
   br i1 %tobool.not34.i, label %for.end.i, label %while.body6.preheader.i
@@ -58,7 +58,7 @@ while.body6.i:                                    ; preds = %while.body6.i, %whi
   %4 = tail call noundef i64 @llvm.x86.bmi.pext.64(i64 506097522914230528, i64 %mul.i)
   %add.i = add i64 %4, %base.035.i
   %idx.ext.i = zext nneg i32 %num_indexes_loop.036.i to i64
-  %add.ptr.i = getelementptr inbounds i8, ptr %byte_indexes.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %byte_indexes.i, i64 %idx.ext.i
   store i64 %add.i, ptr %add.ptr.i, align 8
   %add8.i = add i64 %base.035.i, 578721382704613384
   %and.i = and i64 %word.037.i, 255
@@ -71,14 +71,14 @@ while.body6.i:                                    ; preds = %while.body6.i, %whi
 
 for.body16.i:                                     ; preds = %for.body16.i, %for.body16.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body16.lr.ph.i ], [ %indvars.iv.next.i, %for.body16.i ]
-  %add.ptr19.i = getelementptr inbounds <2 x i64>, ptr %byte_indexes.i, i64 %indvars.iv.i
+  %add.ptr19.i = getelementptr inbounds nuw <2 x i64>, ptr %byte_indexes.i, i64 %indvars.iv.i
   %6 = load <16 x i8>, ptr %add.ptr19.i, align 16
   %conv.i.i = sext <16 x i8> %6 to <16 x i16>
   %add.i.i = add <16 x i16> %vecinit15.i.i, %conv.i.i
   %7 = load i32, ptr %num_indexes, align 4
   %idx.ext28.i = sext i32 %7 to i64
   %add.ptr29.i = getelementptr inbounds i16, ptr %indexes, i64 %idx.ext28.i
-  %add.ptr31.i = getelementptr inbounds <4 x i64>, ptr %add.ptr29.i, i64 %indvars.iv.i
+  %add.ptr31.i = getelementptr inbounds nuw <4 x i64>, ptr %add.ptr29.i, i64 %indvars.iv.i
   store <16 x i16> %add.i.i, ptr %add.ptr31.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -114,7 +114,7 @@ for.body.preheader.i7:                            ; preds = %while.end4
 for.body.i8:                                      ; preds = %for.end.i41, %for.body.preheader.i7
   %9 = phi i32 [ 0, %for.body.preheader.i7 ], [ %add32.i42, %for.end.i41 ]
   %indvars.iv42.i = phi i64 [ 0, %for.body.preheader.i7 ], [ %indvars.iv.next43.i, %for.end.i41 ]
-  %arrayidx.i9 = getelementptr inbounds i64, ptr %bits, i64 %indvars.iv42.i
+  %arrayidx.i9 = getelementptr inbounds nuw i64, ptr %bits, i64 %indvars.iv42.i
   %10 = load i64, ptr %arrayidx.i9, align 8
   %tobool.not33.i = icmp eq i64 %10, 0
   br i1 %tobool.not33.i, label %for.end.i41, label %while.body6.i10
@@ -143,7 +143,7 @@ while.body6.i10:                                  ; preds = %for.body.i8, %while
   %13 = tail call noundef i64 @llvm.x86.bmi.pext.64(i64 506097522914230528, i64 %mul.i11)
   %add.i12 = add i64 %13, %base.034.i
   %idx.ext.i13 = zext nneg i32 %num_indexes_loop.035.i to i64
-  %add.ptr.i14 = getelementptr inbounds i8, ptr %byte_indexes.i6, i64 %idx.ext.i13
+  %add.ptr.i14 = getelementptr inbounds nuw i8, ptr %byte_indexes.i6, i64 %idx.ext.i13
   store i64 %add.i12, ptr %add.ptr.i14, align 8
   %add8.i15 = add i64 %base.034.i, 578721382704613384
   %and.i16 = and i64 %word.036.i, 255
@@ -156,14 +156,14 @@ while.body6.i10:                                  ; preds = %for.body.i8, %while
 
 for.body16.i29:                                   ; preds = %for.body16.i29, %for.body16.lr.ph.i22
   %indvars.iv.i30 = phi i64 [ 0, %for.body16.lr.ph.i22 ], [ %indvars.iv.next.i37, %for.body16.i29 ]
-  %add.ptr19.i31 = getelementptr inbounds <2 x i64>, ptr %byte_indexes.i6, i64 %indvars.iv.i30
+  %add.ptr19.i31 = getelementptr inbounds nuw <2 x i64>, ptr %byte_indexes.i6, i64 %indvars.iv.i30
   %15 = load <16 x i8>, ptr %add.ptr19.i31, align 16
   %conv.i.i32 = sext <16 x i8> %15 to <16 x i16>
   %add.i.i33 = add <16 x i16> %vecinit15.i.i27, %conv.i.i32
   %16 = load i32, ptr %num_indexes, align 4
   %idx.ext28.i34 = sext i32 %16 to i64
   %add.ptr29.i35 = getelementptr inbounds i16, ptr %indexes, i64 %idx.ext28.i34
-  %add.ptr31.i36 = getelementptr inbounds <4 x i64>, ptr %add.ptr29.i35, i64 %indvars.iv.i30
+  %add.ptr31.i36 = getelementptr inbounds nuw <4 x i64>, ptr %add.ptr29.i35, i64 %indvars.iv.i30
   store <16 x i16> %add.i.i33, ptr %add.ptr31.i36, align 1
   %indvars.iv.next.i37 = add nuw nsw i64 %indvars.iv.i30, 1
   %exitcond.not.i38 = icmp eq i64 %indvars.iv.next.i37, %wide.trip.count.i28
@@ -208,7 +208,7 @@ for.body.preheader.i:                             ; preds = %if.then
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
   %indvars.iv107.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next108.i, %for.inc.i ]
   %num_indexes.0104.i = phi i32 [ 0, %for.body.preheader.i ], [ %num_indexes.1.lcssa.i, %for.inc.i ]
-  %arrayidx.i = getelementptr inbounds i64, ptr %bits, i64 %indvars.iv107.i
+  %arrayidx.i = getelementptr inbounds nuw i64, ptr %bits, i64 %indvars.iv107.i
   %0 = load i64, ptr %arrayidx.i, align 8
   %tobool.not98.i = icmp eq i64 %0, -1
   br i1 %tobool.not98.i, label %for.inc.i, label %while.body6.lr.ph.i
@@ -216,7 +216,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 while.body6.lr.ph.i:                              ; preds = %for.body.i
   %not.i = xor i64 %0, -1
   %add.ptr.idx.i = shl nsw i64 %indvars.iv107.i, 7
-  %add.ptr.i = getelementptr inbounds i8, ptr %input_indexes, i64 %add.ptr.idx.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %input_indexes, i64 %add.ptr.idx.i
   br label %while.body6.i
 
 while.body6.i:                                    ; preds = %while.body6.i, %while.body6.lr.ph.i
@@ -235,7 +235,7 @@ while.body6.i:                                    ; preds = %while.body6.i, %whi
   %7 = bitcast <8 x i32> %6 to <32 x i8>
   %8 = shufflevector <32 x i8> %4, <32 x i8> %7, <32 x i32> <i32 0, i32 33, i32 2, i32 35, i32 4, i32 37, i32 6, i32 39, i32 8, i32 41, i32 10, i32 43, i32 12, i32 45, i32 14, i32 47, i32 16, i32 49, i32 18, i32 51, i32 20, i32 53, i32 22, i32 55, i32 24, i32 57, i32 26, i32 59, i32 28, i32 61, i32 30, i32 63>
   %9 = and <32 x i8> %8, splat (i8 15)
-  %add.ptr20.i = getelementptr inbounds <4 x i64>, ptr %add.ptr.i, i64 %indvars.iv.i
+  %add.ptr20.i = getelementptr inbounds nuw <4 x i64>, ptr %add.ptr.i, i64 %indvars.iv.i
   %10 = load <32 x i8>, ptr %add.ptr20.i, align 1
   %11 = shufflevector <32 x i8> %10, <32 x i8> poison, <32 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14, i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15, i32 16, i32 18, i32 20, i32 22, i32 24, i32 26, i32 28, i32 30, i32 17, i32 19, i32 21, i32 23, i32 25, i32 27, i32 29, i32 31>
   %12 = bitcast <32 x i8> %11 to <4 x i64>
@@ -275,14 +275,14 @@ for.body.preheader.i7:                            ; preds = %if.else
 for.body.i9:                                      ; preds = %for.inc.i30, %for.body.preheader.i7
   %indvars.iv106.i = phi i64 [ 0, %for.body.preheader.i7 ], [ %indvars.iv.next107.i, %for.inc.i30 ]
   %num_indexes.0103.i = phi i32 [ 0, %for.body.preheader.i7 ], [ %num_indexes.1.lcssa.i31, %for.inc.i30 ]
-  %arrayidx.i10 = getelementptr inbounds i64, ptr %bits, i64 %indvars.iv106.i
+  %arrayidx.i10 = getelementptr inbounds nuw i64, ptr %bits, i64 %indvars.iv106.i
   %19 = load i64, ptr %arrayidx.i10, align 8
   %tobool.not97.i = icmp eq i64 %19, 0
   br i1 %tobool.not97.i, label %for.inc.i30, label %while.body6.lr.ph.i11
 
 while.body6.lr.ph.i11:                            ; preds = %for.body.i9
   %add.ptr.idx.i12 = shl nsw i64 %indvars.iv106.i, 7
-  %add.ptr.i13 = getelementptr inbounds i8, ptr %input_indexes, i64 %add.ptr.idx.i12
+  %add.ptr.i13 = getelementptr inbounds nuw i8, ptr %input_indexes, i64 %add.ptr.idx.i12
   br label %while.body6.i14
 
 while.body6.i14:                                  ; preds = %while.body6.i14, %while.body6.lr.ph.i11
@@ -301,7 +301,7 @@ while.body6.i14:                                  ; preds = %while.body6.i14, %w
   %26 = bitcast <8 x i32> %25 to <32 x i8>
   %27 = shufflevector <32 x i8> %23, <32 x i8> %26, <32 x i32> <i32 0, i32 33, i32 2, i32 35, i32 4, i32 37, i32 6, i32 39, i32 8, i32 41, i32 10, i32 43, i32 12, i32 45, i32 14, i32 47, i32 16, i32 49, i32 18, i32 51, i32 20, i32 53, i32 22, i32 55, i32 24, i32 57, i32 26, i32 59, i32 28, i32 61, i32 30, i32 63>
   %28 = and <32 x i8> %27, splat (i8 15)
-  %add.ptr20.i19 = getelementptr inbounds <4 x i64>, ptr %add.ptr.i13, i64 %indvars.iv.i15
+  %add.ptr20.i19 = getelementptr inbounds nuw <4 x i64>, ptr %add.ptr.i13, i64 %indvars.iv.i15
   %29 = load <32 x i8>, ptr %add.ptr20.i19, align 1
   %30 = shufflevector <32 x i8> %29, <32 x i8> poison, <32 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14, i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15, i32 16, i32 18, i32 20, i32 22, i32 24, i32 26, i32 28, i32 30, i32 17, i32 19, i32 21, i32 23, i32 25, i32 27, i32 29, i32 31>
   %31 = bitcast <32 x i8> %30 to <4 x i64>
@@ -349,7 +349,7 @@ for.body.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr inbounds i32, ptr %bits, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw i32, ptr %bits, i64 %indvars.iv
   %0 = load i32, ptr %arrayidx, align 4
   %vecinit.i = insertelement <8 x i32> poison, i32 %0, i64 0
   %vecinit7.i = shufflevector <8 x i32> %vecinit.i, <8 x i32> poison, <8 x i32> <i32 0, i32 poison, i32 poison, i32 poison, i32 0, i32 poison, i32 poison, i32 poison>
@@ -358,7 +358,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %3 = and <32 x i8> %2, <i8 1, i8 2, i8 4, i8 8, i8 16, i8 32, i8 64, i8 -128, i8 1, i8 2, i8 4, i8 8, i8 16, i8 32, i8 64, i8 -128, i8 1, i8 2, i8 4, i8 8, i8 16, i8 32, i8 64, i8 -128, i8 1, i8 2, i8 4, i8 8, i8 16, i8 32, i8 64, i8 -128>
   %cmp.i = icmp ne <32 x i8> %3, zeroinitializer
   %sext.i = sext <32 x i1> %cmp.i to <32 x i8>
-  %add.ptr = getelementptr inbounds <4 x i64>, ptr %bytes, i64 %indvars.iv
+  %add.ptr = getelementptr inbounds nuw <4 x i64>, ptr %bytes, i64 %indvars.iv
   store <32 x i8> %sext.i, ptr %add.ptr, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -381,10 +381,10 @@ for.body.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %add.ptr = getelementptr inbounds <4 x i64>, ptr %bytes, i64 %indvars.iv
+  %add.ptr = getelementptr inbounds nuw <4 x i64>, ptr %bytes, i64 %indvars.iv
   %0 = load <32 x i8>, ptr %add.ptr, align 1
   %1 = icmp slt <32 x i8> %0, zeroinitializer
-  %arrayidx = getelementptr inbounds i32, ptr %bits, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw i32, ptr %bits, i64 %indvars.iv
   store <32 x i1> %1, ptr %arrayidx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -409,7 +409,7 @@ for.body.preheader:                               ; preds = %entry
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %result_or.076 = phi <4 x i64> [ zeroinitializer, %for.body.preheader ], [ %or.i, %for.body ]
-  %add.ptr = getelementptr inbounds <4 x i64>, ptr %bytes, i64 %indvars.iv
+  %add.ptr = getelementptr inbounds nuw <4 x i64>, ptr %bytes, i64 %indvars.iv
   %0 = load <4 x i64>, ptr %add.ptr, align 1
   %or.i = or <4 x i64> %0, %result_or.076
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -433,7 +433,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
 
 if.then:                                          ; preds = %for.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %tail, i8 0, i64 32, i1 false)
-  %add.ptr10 = getelementptr inbounds i8, ptr %bytes, i64 %i.0.lcssa
+  %add.ptr10 = getelementptr inbounds nuw i8, ptr %bytes, i64 %i.0.lcssa
   %conv = zext nneg i32 %rem to i64
   %call12 = call i32 @memcmp(ptr noundef %add.ptr10, ptr noundef nonnull %tail, i64 noundef %conv) #7
   %or = or i32 %call12, %result_or.0.lcssa

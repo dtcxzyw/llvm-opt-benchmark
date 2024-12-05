@@ -17,7 +17,7 @@ define noundef i32 @MPL_args_serialize(i32 noundef %0, ptr nocapture noundef rea
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.03640 = phi i32 [ %6, %.lr.ph.preheader ], [ %12, %.lr.ph ]
-  %8 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #6
   %11 = trunc i64 %10 to i32
@@ -52,7 +52,7 @@ MPL_malloc.exit:                                  ; preds = %._crit_edge, %14
 .lr.ph44:                                         ; preds = %.lr.ph44.preheader, %.lr.ph44
   %indvars.iv52 = phi i64 [ 0, %.lr.ph44.preheader ], [ %indvars.iv.next53, %.lr.ph44 ]
   %.03742 = phi i32 [ 4, %.lr.ph44.preheader ], [ %23, %.lr.ph44 ]
-  %17 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv52
+  %17 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv52
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #6
   %20 = trunc i64 %19 to i32
@@ -69,7 +69,7 @@ MPL_malloc.exit:                                  ; preds = %._crit_edge, %14
   %.13846 = phi i32 [ %23, %.lr.ph48.preheader ], [ %31, %.lr.ph48 ]
   %24 = sext i32 %.13846 to i64
   %25 = getelementptr inbounds i8, ptr %.0.i, i64 %24
-  %26 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv57
+  %26 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv57
   %27 = load ptr, ptr %26, align 8
   %28 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #6
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %25, ptr align 1 %27, i64 %28, i1 false)
@@ -133,19 +133,19 @@ MPL_malloc.exit39:                                ; preds = %4
 
 MPL_malloc.exit41:                                ; preds = %.lr.ph, %16
   %.0.i40 = phi ptr [ %19, %16 ], [ null, %.lr.ph ]
-  %20 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
   store ptr %.0.i40, ptr %20, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.035 = getelementptr inbounds i8, ptr %.03544, i64 4
+  %.035 = getelementptr inbounds nuw i8, ptr %.03544, i64 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, %12
   br i1 %exitcond.not, label %.lr.ph47.preheader, label %.lr.ph, !llvm.loop !8
 
 .lr.ph47:                                         ; preds = %.lr.ph47.preheader, %.lr.ph47
   %indvars.iv50 = phi i64 [ 0, %.lr.ph47.preheader ], [ %indvars.iv.next51, %.lr.ph47 ]
   %.13645 = phi ptr [ %.035, %.lr.ph47.preheader ], [ %27, %.lr.ph47 ]
-  %21 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv50
+  %21 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv50
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv50
+  %23 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv50
   %24 = load i32, ptr %23, align 4
   %25 = sext i32 %24 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %22, ptr align 1 %.13645, i64 %25, i1 false)

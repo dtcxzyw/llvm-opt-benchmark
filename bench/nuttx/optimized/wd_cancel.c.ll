@@ -19,7 +19,7 @@ define range(i32 -22, 1) i32 @wd_cancel(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %24, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %.not18 = icmp eq ptr %6, null
   br i1 %.not18, label %24, label %.preheader
@@ -39,9 +39,9 @@ define range(i32 -22, 1) i32 @wd_cancel(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not19, label %18, label %12
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %.014, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %.014, i64 24
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %11, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %16 = load i64, ptr %15, align 8
   %17 = add nsw i64 %16, %14
   store i64 %17, ptr %15, align 8

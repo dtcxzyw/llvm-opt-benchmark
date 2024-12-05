@@ -24,11 +24,11 @@ define void @softfloat_shortShiftRightM(i8 noundef zeroext %0, ptr nocapture nou
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
   %.01923 = phi i32 [ %.01920, %.lr.ph ], [ %.019, %13 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %14 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.next
+  %14 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.next
   %15 = load i32, ptr %14, align 4
   %16 = shl i32 %15, %11
   %17 = or i32 %16, %.01923
-  %18 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   store i32 %17, ptr %18, align 4
   %.019 = lshr i32 %15, %5
   %.not = icmp eq i64 %indvars.iv.next, %12
@@ -41,7 +41,7 @@ define void @softfloat_shortShiftRightM(i8 noundef zeroext %0, ptr nocapture nou
 ._crit_edge:                                      ; preds = %4, %._crit_edge.loopexit
   %.0.lcssa = phi i64 [ %19, %._crit_edge.loopexit ], [ 0, %4 ]
   %.019.lcssa = phi i32 [ %.019, %._crit_edge.loopexit ], [ %.01920, %4 ]
-  %20 = getelementptr inbounds i32, ptr %3, i64 %.0.lcssa
+  %20 = getelementptr inbounds nuw i32, ptr %3, i64 %.0.lcssa
   store i32 %.019.lcssa, ptr %20, align 4
   ret void
 }

@@ -56,14 +56,14 @@ define hidden range(i32 -1, 2) i32 @ems_open(ptr nocapture noundef %0, ptr nound
   br i1 %.not.i, label %parse_ems_line.exit.thread, label %25
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %5, i64 4
-  %27 = getelementptr inbounds i8, ptr %5, i64 8
-  %28 = getelementptr inbounds i8, ptr %5, i64 12
-  %29 = getelementptr inbounds i8, ptr %5, i64 16
-  %30 = getelementptr inbounds i8, ptr %5, i64 20
-  %31 = getelementptr inbounds i8, ptr %5, i64 24
-  %32 = getelementptr inbounds i8, ptr %5, i64 28
-  %33 = getelementptr inbounds i8, ptr %5, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 20
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 28
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %34 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %4, ptr noundef nonnull @.str.1, ptr noundef nonnull %5, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef nonnull %28, ptr noundef nonnull %29, ptr noundef nonnull %30, ptr noundef nonnull %31, ptr noundef nonnull %32, ptr noundef nonnull %33) #4
   %.not19.i = icmp ne i32 %34, 9
   %35 = load i32, ptr %5, align 4
@@ -112,18 +112,18 @@ parse_ems_line.exit:                              ; preds = %25
   br label %66
 
 58:                                               ; preds = %51
-  %59 = getelementptr inbounds i8, ptr %0, i64 144
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 224, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %0, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 148
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 0, ptr %61, align 4
-  %62 = getelementptr inbounds i8, ptr %0, i64 112
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @ems_read, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %0, i64 120
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr @ems_seek_read, ptr %63, align 8
   %64 = load i32, ptr @ems_file_type_subtype, align 4
-  %65 = getelementptr inbounds i8, ptr %0, i64 20
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %64, ptr %65, align 4
   br label %66
 
@@ -223,7 +223,7 @@ define internal range(i32 0, 2) i32 @ems_read(ptr nocapture noundef readonly %0,
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @ems_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @file_seek(ptr noundef %8, i64 noundef %1, i32 noundef 0, ptr noundef %4) #4
   %10 = icmp eq i64 %9, -1
@@ -291,14 +291,14 @@ define internal fastcc range(i32 0, 2) i32 @ems_read_message(ptr noundef %0, ptr
   br i1 %.not.i, label %parse_ems_line.exit.thread, label %17
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %7, i64 4
-  %19 = getelementptr inbounds i8, ptr %7, i64 8
-  %20 = getelementptr inbounds i8, ptr %7, i64 12
-  %21 = getelementptr inbounds i8, ptr %7, i64 16
-  %22 = getelementptr inbounds i8, ptr %7, i64 20
-  %23 = getelementptr inbounds i8, ptr %7, i64 24
-  %24 = getelementptr inbounds i8, ptr %7, i64 28
-  %25 = getelementptr inbounds i8, ptr %7, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 28
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %26 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %6, ptr noundef nonnull @.str.1, ptr noundef nonnull %7, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull %25) #4
   %.not19.i = icmp ne i32 %26, 9
   %27 = load i32, ptr %7, align 4
@@ -339,7 +339,7 @@ parse_ems_line.exit:                              ; preds = %17
   %44 = load i32, ptr %7, align 4
   %45 = trunc i32 %44 to i8
   %46 = load ptr, ptr %2, align 8
-  %47 = getelementptr inbounds i8, ptr %2, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %48 = load i64, ptr %47, align 8
   %49 = getelementptr i8, ptr %46, i64 %48
   store i8 %45, ptr %49, align 1
@@ -392,8 +392,8 @@ parse_ems_line.exit:                              ; preds = %17
   %90 = getelementptr i8, ptr %88, i64 %89
   %91 = getelementptr i8, ptr %90, i64 7
   store i8 %87, ptr %91, align 1
-  %92 = getelementptr inbounds i8, ptr %10, i64 1
-  %93 = getelementptr inbounds i8, ptr %10, i64 2
+  %92 = getelementptr inbounds nuw i8, ptr %10, i64 1
+  %93 = getelementptr inbounds nuw i8, ptr %10, i64 2
   br label %94
 
 94:                                               ; preds = %43, %102
@@ -428,12 +428,12 @@ parse_ems_line.exit:                              ; preds = %17
   store i64 %111, ptr %47, align 8
   store i32 0, ptr %1, align 8
   %112 = call ptr @wtap_block_create(i32 noundef 5) #4
-  %113 = getelementptr inbounds i8, ptr %1, i64 232
+  %113 = getelementptr inbounds nuw i8, ptr %1, i64 232
   store ptr %112, ptr %113, align 8
-  %114 = getelementptr inbounds i8, ptr %1, i64 4
+  %114 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 1, ptr %114, align 4
-  %115 = getelementptr inbounds i8, ptr %1, i64 64
-  %116 = getelementptr inbounds i8, ptr %1, i64 68
+  %115 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %116 = getelementptr inbounds nuw i8, ptr %1, i64 68
   store i32 40, ptr %116, align 4
   store i32 40, ptr %115, align 8
   %117 = load i32, ptr %18, align 4
@@ -444,7 +444,7 @@ parse_ems_line.exit:                              ; preds = %17
   %122 = load i32, ptr %22, align 4
   %123 = load i32, ptr %23, align 4
   %124 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 32, ptr noundef nonnull @.str.2, i32 noundef %118, i32 noundef %119, i32 noundef %120, i32 noundef %121, i32 noundef %122, i32 noundef %123) #4
-  %125 = getelementptr inbounds i8, ptr %1, i64 16
+  %125 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %126 = call ptr @iso8601_to_nstime(ptr noundef nonnull %125, ptr noundef nonnull %8, i32 noundef 0) #4
   br label %.loopexit
 

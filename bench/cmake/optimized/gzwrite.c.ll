@@ -18,13 +18,13 @@ define dso_local noundef i32 @cm_zlib_gzwrite(ptr noundef %0, ptr noundef %1, i3
   br i1 %4, label %18, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %7, 31153
   br i1 %.not, label %8, label %18
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 116
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %10 = load i32, ptr %9, align 4
   %.not11 = icmp eq i32 %10, 0
   br i1 %.not11, label %11, label %18
@@ -56,7 +56,7 @@ define internal fastcc noundef i64 @gz_write(ptr noundef nonnull %0, ptr noundef
   br i1 %4, label %.critedge, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %12
@@ -67,17 +67,17 @@ define internal fastcc noundef i64 @gz_write(ptr noundef nonnull %0, ptr noundef
   br i1 %11, label %.critedge, label %12
 
 12:                                               ; preds = %9, %5
-  %13 = getelementptr inbounds i8, ptr %0, i64 112
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %14 = load i32, ptr %13, align 8
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %gz_zero.exit, label %15
 
 15:                                               ; preds = %12
   store i32 0, ptr %13, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 104
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 128
-  %19 = getelementptr inbounds i8, ptr %0, i64 136
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %20 = load i32, ptr %19, align 8
   %.not.i = icmp eq i32 %20, 0
   br i1 %.not.i, label %24, label %21
@@ -92,8 +92,8 @@ define internal fastcc noundef i64 @gz_write(ptr noundef nonnull %0, ptr noundef
   br i1 %.not2224.i, label %gz_zero.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %24
-  %25 = getelementptr inbounds i8, ptr %0, i64 48
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %29
 
 27:                                               ; preds = %38
@@ -137,13 +137,13 @@ gz_zero.exit:                                     ; preds = %27, %24, %12
   %44 = load i32, ptr %6, align 8
   %45 = zext i32 %44 to i64
   %46 = icmp ult i64 %2, %45
-  %47 = getelementptr inbounds i8, ptr %0, i64 128
-  %48 = getelementptr inbounds i8, ptr %0, i64 136
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 136
   br i1 %46, label %.preheader, label %82
 
 .preheader:                                       ; preds = %gz_zero.exit
-  %49 = getelementptr inbounds i8, ptr %0, i64 48
-  %50 = getelementptr inbounds i8, ptr %0, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %51
 
 51:                                               ; preds = %.preheader, %78
@@ -167,7 +167,7 @@ gz_zero.exit:                                     ; preds = %27, %24, %12
   %57 = phi ptr [ %.pre71, %._crit_edge ], [ %55, %54 ]
   %58 = phi ptr [ %.pre, %._crit_edge ], [ %55, %54 ]
   %59 = zext i32 %52 to i64
-  %60 = getelementptr inbounds i8, ptr %58, i64 %59
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 %59
   %61 = ptrtoint ptr %60 to i64
   %62 = ptrtoint ptr %57 to i64
   %63 = sub i64 %61, %62
@@ -179,7 +179,7 @@ gz_zero.exit:                                     ; preds = %27, %24, %12
   %69 = trunc nuw i64 %.055 to i32
   %spec.select = select i1 %68, i32 %69, i32 %66
   %70 = and i64 %63, 4294967295
-  %71 = getelementptr inbounds i8, ptr %57, i64 %70
+  %71 = getelementptr inbounds nuw i8, ptr %57, i64 %70
   %72 = zext i32 %spec.select to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %71, ptr align 1 %.054, i64 %72, i1 false)
   %73 = load i32, ptr %48, align 8
@@ -193,7 +193,7 @@ gz_zero.exit:                                     ; preds = %27, %24, %12
   br i1 %.not61, label %.critedge, label %78
 
 78:                                               ; preds = %56
-  %79 = getelementptr inbounds i8, ptr %.054, i64 %72
+  %79 = getelementptr inbounds nuw i8, ptr %.054, i64 %72
   %80 = tail call fastcc i32 @gz_comp(ptr noundef %0, i32 noundef 0)
   %81 = icmp eq i32 %80, -1
   br i1 %81, label %.critedge, label %51
@@ -210,7 +210,7 @@ gz_zero.exit:                                     ; preds = %27, %24, %12
 
 87:                                               ; preds = %84, %82
   store ptr %1, ptr %47, align 8
-  %88 = getelementptr inbounds i8, ptr %0, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %89
 
 89:                                               ; preds = %94, %87
@@ -241,13 +241,13 @@ define dso_local noundef i64 @cm_zlib_gzfwrite(ptr noundef %0, i64 noundef %1, i
   br i1 %5, label %19, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %3, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %8 = load i32, ptr %7, align 8
   %.not = icmp eq i32 %8, 31153
   br i1 %.not, label %9, label %19
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %3, i64 116
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 116
   %11 = load i32, ptr %10, align 4
   %.not19 = icmp eq i32 %11, 0
   br i1 %.not19, label %12, label %19
@@ -287,29 +287,29 @@ define dso_local range(i32 -1, 256) i32 @cm_zlib_gzputc(ptr noundef %0, i32 noun
   br i1 %4, label %gz_zero.exit.thread, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 128
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i32, ptr %7, align 8
   %.not = icmp eq i32 %8, 31153
   br i1 %.not, label %9, label %gz_zero.exit.thread
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 116
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %11 = load i32, ptr %10, align 4
   %.not29 = icmp eq i32 %11, 0
   br i1 %.not29, label %12, label %gz_zero.exit.thread
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 112
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %14 = load i32, ptr %13, align 8
   %.not30 = icmp eq i32 %14, 0
   br i1 %.not30, label %gz_zero.exit, label %15
 
 15:                                               ; preds = %12
   store i32 0, ptr %13, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 104
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 136
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %19 = load i32, ptr %18, align 8
   %.not.i = icmp eq i32 %19, 0
   br i1 %.not.i, label %23, label %20
@@ -324,9 +324,9 @@ define dso_local range(i32 -1, 256) i32 @cm_zlib_gzputc(ptr noundef %0, i32 noun
   br i1 %.not2224.i, label %gz_zero.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %23
-  %24 = getelementptr inbounds i8, ptr %0, i64 40
-  %25 = getelementptr inbounds i8, ptr %0, i64 48
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %29
 
 27:                                               ; preds = %38
@@ -367,25 +367,25 @@ define dso_local range(i32 -1, 256) i32 @cm_zlib_gzputc(ptr noundef %0, i32 noun
   br i1 %43, label %gz_zero.exit.thread, label %27
 
 gz_zero.exit:                                     ; preds = %27, %23, %12
-  %44 = getelementptr inbounds i8, ptr %0, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %45 = load i32, ptr %44, align 8
   %.not31 = icmp eq i32 %45, 0
   br i1 %.not31, label %73, label %46
 
 46:                                               ; preds = %gz_zero.exit
-  %47 = getelementptr inbounds i8, ptr %0, i64 136
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %48 = load i32, ptr %47, align 8
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %50, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %46
   %.pre = load ptr, ptr %6, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 48
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.pre34 = load ptr, ptr %.phi.trans.insert, align 8
   br label %53
 
 50:                                               ; preds = %46
-  %51 = getelementptr inbounds i8, ptr %0, i64 48
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %52 = load ptr, ptr %51, align 8
   store ptr %52, ptr %6, align 8
   br label %53
@@ -394,7 +394,7 @@ gz_zero.exit:                                     ; preds = %27, %23, %12
   %54 = phi ptr [ %.pre34, %._crit_edge ], [ %52, %50 ]
   %55 = phi ptr [ %.pre, %._crit_edge ], [ %52, %50 ]
   %56 = zext i32 %48 to i64
-  %57 = getelementptr inbounds i8, ptr %55, i64 %56
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 %56
   %58 = ptrtoint ptr %57 to i64
   %59 = ptrtoint ptr %54 to i64
   %60 = sub i64 %58, %59
@@ -405,12 +405,12 @@ gz_zero.exit:                                     ; preds = %27, %23, %12
 63:                                               ; preds = %53
   %64 = trunc i32 %1 to i8
   %65 = and i64 %60, 4294967295
-  %66 = getelementptr inbounds i8, ptr %54, i64 %65
+  %66 = getelementptr inbounds nuw i8, ptr %54, i64 %65
   store i8 %64, ptr %66, align 1
   %67 = load i32, ptr %47, align 8
   %68 = add i32 %67, 1
   store i32 %68, ptr %47, align 8
-  %69 = getelementptr inbounds i8, ptr %0, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %70 = load i64, ptr %69, align 8
   %71 = add nsw i64 %70, 1
   store i64 %71, ptr %69, align 8
@@ -437,13 +437,13 @@ define dso_local range(i32 -1, -2147483648) i32 @cm_zlib_gzputs(ptr noundef %0, 
   br i1 %3, label %18, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %6, 31153
   br i1 %.not, label %7, label %18
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 116
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %9 = load i32, ptr %8, align 4
   %.not18 = icmp eq i32 %9, 0
   br i1 %.not18, label %10, label %18
@@ -478,20 +478,20 @@ define dso_local i32 @cm_zlib_gzvprintf(ptr noundef %0, ptr nocapture noundef re
   br i1 %4, label %103, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 128
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i32, ptr %7, align 8
   %.not = icmp eq i32 %8, 31153
   br i1 %.not, label %9, label %103
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 116
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %11 = load i32, ptr %10, align 4
   %.not57 = icmp eq i32 %11, 0
   br i1 %.not57, label %12, label %103
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %21
@@ -506,16 +506,16 @@ define dso_local i32 @cm_zlib_gzvprintf(ptr noundef %0, ptr nocapture noundef re
   br label %103
 
 21:                                               ; preds = %16, %12
-  %22 = getelementptr inbounds i8, ptr %0, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %23 = load i32, ptr %22, align 8
   %.not58 = icmp eq i32 %23, 0
   br i1 %.not58, label %gz_zero.exit, label %24
 
 24:                                               ; preds = %21
   store i32 0, ptr %22, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 104
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 136
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %28 = load i32, ptr %27, align 8
   %.not.i = icmp eq i32 %28, 0
   br i1 %.not.i, label %32, label %29
@@ -530,8 +530,8 @@ define dso_local i32 @cm_zlib_gzvprintf(ptr noundef %0, ptr nocapture noundef re
   br i1 %.not2224.i, label %gz_zero.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %32
-  %33 = getelementptr inbounds i8, ptr %0, i64 48
-  %34 = getelementptr inbounds i8, ptr %0, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %37
 
 35:                                               ; preds = %46
@@ -576,10 +576,10 @@ define dso_local i32 @cm_zlib_gzvprintf(ptr noundef %0, ptr nocapture noundef re
   br label %103
 
 gz_zero.exit:                                     ; preds = %35, %32, %21
-  %53 = getelementptr inbounds i8, ptr %0, i64 136
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %54 = load i32, ptr %53, align 8
   %55 = icmp eq i32 %54, 0
-  %56 = getelementptr inbounds i8, ptr %0, i64 48
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %57 = load ptr, ptr %56, align 8
   br i1 %55, label %58, label %gz_zero.exit._crit_edge
 
@@ -593,17 +593,17 @@ gz_zero.exit._crit_edge:                          ; preds = %gz_zero.exit
 
 59:                                               ; preds = %gz_zero.exit._crit_edge, %58
   %60 = phi ptr [ %.pre63, %gz_zero.exit._crit_edge ], [ %57, %58 ]
-  %61 = getelementptr inbounds i8, ptr %0, i64 48
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %62 = ptrtoint ptr %60 to i64
   %63 = ptrtoint ptr %57 to i64
   %64 = sub i64 %62, %63
   %65 = getelementptr inbounds i8, ptr %57, i64 %64
   %66 = zext i32 %54 to i64
-  %67 = getelementptr inbounds i8, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw i8, ptr %65, i64 %66
   %68 = load i32, ptr %13, align 8
   %69 = add i32 %68, -1
   %70 = zext i32 %69 to i64
-  %71 = getelementptr inbounds i8, ptr %67, i64 %70
+  %71 = getelementptr inbounds nuw i8, ptr %67, i64 %70
   store i8 0, ptr %71, align 1
   %72 = load i32, ptr %13, align 8
   %73 = zext i32 %72 to i64
@@ -619,7 +619,7 @@ gz_zero.exit._crit_edge:                          ; preds = %gz_zero.exit
 78:                                               ; preds = %76
   %79 = add i32 %77, -1
   %80 = zext i32 %79 to i64
-  %81 = getelementptr inbounds i8, ptr %67, i64 %80
+  %81 = getelementptr inbounds nuw i8, ptr %67, i64 %80
   %82 = load i8, ptr %81, align 1
   %.not60 = icmp eq i8 %82, 0
   br i1 %.not60, label %83, label %103
@@ -629,7 +629,7 @@ gz_zero.exit._crit_edge:                          ; preds = %gz_zero.exit
   %85 = add i32 %84, %74
   store i32 %85, ptr %53, align 8
   %86 = sext i32 %74 to i64
-  %87 = getelementptr inbounds i8, ptr %0, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %88 = load i64, ptr %87, align 8
   %89 = add nsw i64 %88, %86
   store i64 %89, ptr %87, align 8
@@ -651,7 +651,7 @@ gz_zero.exit._crit_edge:                          ; preds = %gz_zero.exit
   %97 = load ptr, ptr %61, align 8
   %98 = load i32, ptr %13, align 8
   %99 = zext i32 %98 to i64
-  %100 = getelementptr inbounds i8, ptr %97, i64 %99
+  %100 = getelementptr inbounds nuw i8, ptr %97, i64 %99
   %101 = zext i32 %96 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %97, ptr align 1 %100, i64 %101, i1 false)
   %102 = load ptr, ptr %61, align 8
@@ -666,13 +666,13 @@ gz_zero.exit._crit_edge:                          ; preds = %gz_zero.exit
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @gz_init(ptr noundef nonnull initializes((48, 56)) %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %5 = shl i32 %4, 1
   %6 = zext i32 %5 to i64
   %7 = tail call noalias ptr @malloc(i64 noundef %6) #15
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %7, ptr %8, align 8
   %9 = icmp eq ptr %7, null
   br i1 %9, label %10, label %11
@@ -682,20 +682,20 @@ define internal fastcc range(i32 -1, 1) i32 @gz_init(ptr noundef nonnull initial
   br label %39
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %0, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = load i32, ptr %12, align 8
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %15, label %.thread
 
 .thread:                                          ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %4, ptr %14, align 8
   br label %39
 
 15:                                               ; preds = %11
   %16 = zext i32 %4 to i64
   %17 = tail call noalias ptr @malloc(i64 noundef %16) #15
-  %18 = getelementptr inbounds i8, ptr %0, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %17, ptr %18, align 8
   %19 = icmp eq ptr %17, null
   br i1 %19, label %20, label %21
@@ -706,11 +706,11 @@ define internal fastcc range(i32 -1, 1) i32 @gz_init(ptr noundef nonnull initial
   br label %39
 
 21:                                               ; preds = %15
-  %22 = getelementptr inbounds i8, ptr %0, i64 192
-  %23 = getelementptr inbounds i8, ptr %0, i64 88
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
   %24 = load i32, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 92
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %26 = load i32, ptr %25, align 4
   %27 = tail call i32 @cm_zlib_deflateInit2_(ptr noundef nonnull %2, i32 noundef %24, i32 noundef 8, i32 noundef 31, i32 noundef 8, i32 noundef %26, ptr noundef nonnull @.str.4, i32 noundef 112) #13
   %.not31 = icmp eq i32 %27, 0
@@ -728,18 +728,18 @@ define internal fastcc range(i32 -1, 1) i32 @gz_init(ptr noundef nonnull initial
   store ptr null, ptr %2, align 8
   %.pr = load i32, ptr %12, align 8
   %32 = load i32, ptr %3, align 4
-  %33 = getelementptr inbounds i8, ptr %0, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %32, ptr %33, align 8
   %.not32 = icmp eq i32 %.pr, 0
   br i1 %.not32, label %34, label %39
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %0, i64 160
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i32 %32, ptr %35, align 8
   %36 = load ptr, ptr %18, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 152
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %36, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %36, ptr %38, align 8
   br label %39
 
@@ -753,8 +753,8 @@ declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @gz_comp(ptr noundef nonnull %0, i32 noundef range(i32 0, 6) %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 128
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %10
@@ -765,19 +765,19 @@ define internal fastcc range(i32 -1, 1) i32 @gz_comp(ptr noundef nonnull %0, i32
   br i1 %9, label %.loopexit, label %10
 
 10:                                               ; preds = %7, %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = load i32, ptr %11, align 8
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %34, label %.preheader
 
 .preheader:                                       ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %0, i64 136
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %14 = load i32, ptr %13, align 8
   %.not7276 = icmp eq i32 %14, 0
   br i1 %.not7276, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %15 = getelementptr inbounds i8, ptr %0, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %.pre = load ptr, ptr %3, align 8
   br label %16
 
@@ -805,19 +805,19 @@ define internal fastcc range(i32 -1, 1) i32 @gz_comp(ptr noundef nonnull %0, i32
   store i32 %30, ptr %13, align 8
   %31 = load ptr, ptr %3, align 8
   %32 = and i64 %21, 2147483647
-  %33 = getelementptr inbounds i8, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 %32
   store ptr %33, ptr %3, align 8
   %.not72 = icmp eq i32 %30, 0
   br i1 %.not72, label %.loopexit, label %16, !llvm.loop !8
 
 34:                                               ; preds = %10
-  %35 = getelementptr inbounds i8, ptr %0, i64 96
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %36 = load i32, ptr %35, align 8
   %.not68 = icmp eq i32 %36, 0
   br i1 %.not68, label %43, label %37
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %0, i64 136
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %39 = load i32, ptr %38, align 8
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %.loopexit, label %41
@@ -828,13 +828,13 @@ define internal fastcc range(i32 -1, 1) i32 @gz_comp(ptr noundef nonnull %0, i32
   br label %43
 
 43:                                               ; preds = %41, %34
-  %44 = getelementptr inbounds i8, ptr %0, i64 160
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %.not69 = icmp eq i32 %1, 0
   %45 = icmp ne i32 %1, 4
-  %46 = getelementptr inbounds i8, ptr %0, i64 152
-  %47 = getelementptr inbounds i8, ptr %0, i64 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 28
-  %49 = getelementptr inbounds i8, ptr %0, i64 56
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.pre90 = load i32, ptr %44, align 8
   br i1 %.not69, label %.split.us, label %.split
 
@@ -890,7 +890,7 @@ define internal fastcc range(i32 -1, 1) i32 @gz_comp(ptr noundef nonnull %0, i32
 75:                                               ; preds = %.lr.ph77.us
   %76 = load ptr, ptr %47, align 8
   %77 = and i64 %73, 2147483647
-  %78 = getelementptr inbounds i8, ptr %76, i64 %77
+  %78 = getelementptr inbounds nuw i8, ptr %76, i64 %77
   store ptr %78, ptr %47, align 8
   %79 = load ptr, ptr %46, align 8
   %80 = icmp ugt ptr %79, %78
@@ -935,7 +935,7 @@ define internal fastcc range(i32 -1, 1) i32 @gz_comp(ptr noundef nonnull %0, i32
 101:                                              ; preds = %.lr.ph77
   %102 = load ptr, ptr %47, align 8
   %103 = and i64 %96, 2147483647
-  %104 = getelementptr inbounds i8, ptr %102, i64 %103
+  %104 = getelementptr inbounds nuw i8, ptr %102, i64 %103
   store ptr %104, ptr %47, align 8
   %105 = load ptr, ptr %46, align 8
   %106 = icmp ugt ptr %105, %104
@@ -1004,13 +1004,13 @@ define dso_local i32 @cm_zlib_gzflush(ptr noundef %0, i32 noundef %1) local_unna
   br i1 %3, label %45, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %6, 31153
   br i1 %.not, label %7, label %45
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 116
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %9 = load i32, ptr %8, align 4
   %.not17 = icmp ne i32 %9, 0
   %or.cond = icmp ugt i32 %1, 4
@@ -1018,17 +1018,17 @@ define dso_local i32 @cm_zlib_gzflush(ptr noundef %0, i32 noundef %1) local_unna
   br i1 %or.cond19, label %45, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 112
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %12 = load i32, ptr %11, align 8
   %.not18 = icmp eq i32 %12, 0
   br i1 %.not18, label %gz_zero.exit, label %13
 
 13:                                               ; preds = %10
   store i32 0, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 104
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 128
-  %17 = getelementptr inbounds i8, ptr %0, i64 136
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %18 = load i32, ptr %17, align 8
   %.not.i = icmp eq i32 %18, 0
   br i1 %.not.i, label %22, label %19
@@ -1043,9 +1043,9 @@ define dso_local i32 @cm_zlib_gzflush(ptr noundef %0, i32 noundef %1) local_unna
   br i1 %.not2224.i, label %gz_zero.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %22
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
-  %24 = getelementptr inbounds i8, ptr %0, i64 48
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %28
 
 26:                                               ; preds = %37
@@ -1104,41 +1104,41 @@ define dso_local i32 @cm_zlib_gzsetparams(ptr noundef %0, i32 noundef %1, i32 no
   br i1 %4, label %67, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 128
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i32, ptr %7, align 8
   %.not = icmp eq i32 %8, 31153
   br i1 %.not, label %9, label %67
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 116
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %11 = load i32, ptr %10, align 4
   %.not26 = icmp eq i32 %11, 0
   br i1 %.not26, label %12, label %67
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %1, %14
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %0, i64 92
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %2, %18
   br i1 %19, label %67, label %20
 
 20:                                               ; preds = %16, %12
-  %21 = getelementptr inbounds i8, ptr %0, i64 112
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %22 = load i32, ptr %21, align 8
   %.not27 = icmp eq i32 %22, 0
   br i1 %.not27, label %gz_zero.exit, label %23
 
 23:                                               ; preds = %20
   store i32 0, ptr %21, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 104
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 136
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %27 = load i32, ptr %26, align 8
   %.not.i = icmp eq i32 %27, 0
   br i1 %.not.i, label %31, label %28
@@ -1153,9 +1153,9 @@ define dso_local i32 @cm_zlib_gzsetparams(ptr noundef %0, i32 noundef %1, i32 no
   br i1 %.not2224.i, label %gz_zero.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %31
-  %32 = getelementptr inbounds i8, ptr %0, i64 40
-  %33 = getelementptr inbounds i8, ptr %0, i64 48
-  %34 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %37
 
 35:                                               ; preds = %46
@@ -1200,13 +1200,13 @@ define dso_local i32 @cm_zlib_gzsetparams(ptr noundef %0, i32 noundef %1, i32 no
   br label %67
 
 gz_zero.exit:                                     ; preds = %35, %31, %20
-  %53 = getelementptr inbounds i8, ptr %0, i64 40
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %54 = load i32, ptr %53, align 8
   %.not28 = icmp eq i32 %54, 0
   br i1 %.not28, label %65, label %55
 
 55:                                               ; preds = %gz_zero.exit
-  %56 = getelementptr inbounds i8, ptr %0, i64 136
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %57 = load i32, ptr %56, align 8
   %.not29 = icmp eq i32 %57, 0
   br i1 %.not29, label %63, label %58
@@ -1226,7 +1226,7 @@ gz_zero.exit:                                     ; preds = %35, %31, %20
 
 65:                                               ; preds = %63, %gz_zero.exit
   store i32 %1, ptr %13, align 8
-  %66 = getelementptr inbounds i8, ptr %0, i64 92
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i32 %2, ptr %66, align 4
   br label %67
 
@@ -1243,23 +1243,23 @@ define dso_local i32 @cm_zlib_gzclose_w(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %2, label %67, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 31153
   br i1 %.not, label %6, label %67
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 112
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %8 = load i32, ptr %7, align 8
   %.not22 = icmp eq i32 %8, 0
   br i1 %.not22, label %gz_zero.exit, label %9
 
 9:                                                ; preds = %6
   store i32 0, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 104
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 128
-  %13 = getelementptr inbounds i8, ptr %0, i64 136
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %14 = load i32, ptr %13, align 8
   %.not.i = icmp eq i32 %14, 0
   br i1 %.not.i, label %18, label %15
@@ -1274,9 +1274,9 @@ define dso_local i32 @cm_zlib_gzclose_w(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not2224.i, label %gz_zero.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %18
-  %19 = getelementptr inbounds i8, ptr %0, i64 40
-  %20 = getelementptr inbounds i8, ptr %0, i64 48
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %24
 
 22:                                               ; preds = %33
@@ -1317,7 +1317,7 @@ define dso_local i32 @cm_zlib_gzclose_w(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %38, label %.loopexit, label %22
 
 .loopexit:                                        ; preds = %33, %15
-  %39 = getelementptr inbounds i8, ptr %0, i64 116
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %40 = load i32, ptr %39, align 4
   br label %gz_zero.exit
 
@@ -1328,43 +1328,43 @@ gz_zero.exit:                                     ; preds = %22, %18, %.loopexit
   br i1 %42, label %43, label %46
 
 43:                                               ; preds = %gz_zero.exit
-  %44 = getelementptr inbounds i8, ptr %0, i64 116
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %45 = load i32, ptr %44, align 4
   br label %46
 
 46:                                               ; preds = %43, %gz_zero.exit
   %.1 = phi i32 [ %45, %43 ], [ %.020, %gz_zero.exit ]
-  %47 = getelementptr inbounds i8, ptr %0, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %48 = load i32, ptr %47, align 8
   %.not23 = icmp eq i32 %48, 0
   br i1 %.not23, label %60, label %49
 
 49:                                               ; preds = %46
-  %50 = getelementptr inbounds i8, ptr %0, i64 64
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %51 = load i32, ptr %50, align 8
   %.not24 = icmp eq i32 %51, 0
   br i1 %.not24, label %52, label %57
 
 52:                                               ; preds = %49
-  %53 = getelementptr inbounds i8, ptr %0, i64 128
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %54 = tail call i32 @cm_zlib_deflateEnd(ptr noundef nonnull %53) #13
-  %55 = getelementptr inbounds i8, ptr %0, i64 56
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %56 = load ptr, ptr %55, align 8
   tail call void @free(ptr noundef %56) #13
   br label %57
 
 57:                                               ; preds = %52, %49
-  %58 = getelementptr inbounds i8, ptr %0, i64 48
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %59 = load ptr, ptr %58, align 8
   tail call void @free(ptr noundef %59) #13
   br label %60
 
 60:                                               ; preds = %57, %46
   tail call void @cm_zlib_gz_error(ptr noundef nonnull %0, i32 noundef 0, ptr noundef null) #13
-  %61 = getelementptr inbounds i8, ptr %0, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %62 = load ptr, ptr %61, align 8
   tail call void @free(ptr noundef %62) #13
-  %63 = getelementptr inbounds i8, ptr %0, i64 28
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %64 = load i32, ptr %63, align 4
   %65 = tail call i32 @close(i32 noundef %64) #13
   %66 = icmp eq i32 %65, -1

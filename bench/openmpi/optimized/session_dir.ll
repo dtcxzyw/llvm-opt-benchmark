@@ -85,7 +85,7 @@ define i32 @prte_session_dir(ptr noundef %0) local_unnamed_addr #0 {
 
 22:                                               ; preds = %21, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %21 ]
-  %23 = getelementptr inbounds ptr, ptr %17, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv.i
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #9
   %26 = tail call i32 @strncmp(ptr noundef %20, ptr noundef %24, i64 noundef %25) #9
@@ -181,14 +181,14 @@ setup_base.exit.thread33:                         ; preds = %55, %1
   br label %setup_base.exit.thread.thread
 
 64:                                               ; preds = %setup_base.exit.thread33
-  %65 = getelementptr inbounds i8, ptr %60, i64 424
+  %65 = getelementptr inbounds nuw i8, ptr %60, i64 424
   %66 = load ptr, ptr %65, align 8
   %67 = icmp eq ptr %66, null
   br i1 %67, label %68, label %_setup_job_session_dir.exit.thread38
 
 68:                                               ; preds = %64
   %69 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 832), align 8
-  %70 = getelementptr inbounds i8, ptr %60, i64 168
+  %70 = getelementptr inbounds nuw i8, ptr %60, i64 168
   %71 = tail call ptr @prte_util_print_local_jobid(ptr noundef nonnull %70) #8
   %72 = tail call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %65, ptr noundef nonnull @.str.11, ptr noundef %69, ptr noundef %71) #8
   %73 = icmp slt i32 %72, 0
@@ -221,7 +221,7 @@ _setup_job_session_dir.exit.thread:               ; preds = %68, %_setup_job_ses
   br label %setup_base.exit.thread.thread
 
 _setup_job_session_dir.exit.thread38:             ; preds = %64, %_setup_job_session_dir.exit
-  %81 = getelementptr inbounds i8, ptr %0, i64 256
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %82 = load i32, ptr %81, align 4
   %83 = icmp ult i32 %82, -51
   br i1 %83, label %84, label %97
@@ -319,13 +319,13 @@ define void @prte_job_session_dir_finalize(ptr noundef %0) local_unnamed_addr #0
   br i1 %or.cond, label %35, label %12
 
 12:                                               ; preds = %7, %4
-  %13 = getelementptr inbounds i8, ptr %0, i64 424
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %35, label %16
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %0, i64 168
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %18 = tail call zeroext i1 @PMIx_Check_nspace(ptr noundef nonnull @prte_process_info, ptr noundef nonnull %17) #8
   br i1 %18, label %19, label %29
 
@@ -380,7 +380,7 @@ define internal zeroext i1 @_check_file(ptr noundef %0, ptr noundef %1) #0 {
   %9 = call i32 @stat(ptr noundef %8, ptr noundef nonnull %3) #8
   %10 = load ptr, ptr %4, align 8
   call void @free(ptr noundef %10) #8
-  %11 = getelementptr inbounds i8, ptr %3, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %12 = load i64, ptr %11, align 8
   %13 = icmp eq i64 %12, 0
   br label %14

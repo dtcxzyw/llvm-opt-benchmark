@@ -9,17 +9,17 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @intel_gt_init_clock_frequency(ptr nocapture noundef initializes((3584, 3588)) %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 7176
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 7176
   %7 = load i8, ptr %6, align 8
   %8 = icmp ugt i8 %7, 10
   br i1 %8, label %9, label %41
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %3, i64 144
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 144
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 %11(ptr noundef %3, i32 41580, i1 noundef zeroext true) #4
   %13 = and i32 %12, 1
@@ -82,7 +82,7 @@ define dso_local void @intel_gt_init_clock_frequency(ptr nocapture noundef initi
   br i1 %42, label %43, label %79
 
 43:                                               ; preds = %41
-  %44 = getelementptr inbounds i8, ptr %3, i64 144
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 144
   %45 = load ptr, ptr %44, align 8
   %46 = tail call i32 %45(ptr noundef %3, i32 41580, i1 noundef zeroext true) #4
   %47 = and i32 %46, 1
@@ -104,15 +104,15 @@ define dso_local void @intel_gt_init_clock_frequency(ptr nocapture noundef initi
 
 60:                                               ; preds = %43
   %61 = load ptr, ptr %4, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 7176
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 7176
   %63 = load i8, ptr %62, align 8
   %64 = icmp eq i8 %63, 9
   br i1 %64, label %65, label %73
 
 65:                                               ; preds = %60
-  %66 = getelementptr inbounds i8, ptr %61, i64 7168
+  %66 = getelementptr inbounds nuw i8, ptr %61, i64 7168
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 28
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 28
   %69 = load i64, ptr %68, align 4
   %70 = and i64 %69, 2
   %71 = icmp eq i64 %70, 0
@@ -136,7 +136,7 @@ define dso_local void @intel_gt_init_clock_frequency(ptr nocapture noundef initi
   br i1 %82, label %94, label %83
 
 83:                                               ; preds = %81
-  %84 = getelementptr inbounds i8, ptr %5, i64 7184
+  %84 = getelementptr inbounds nuw i8, ptr %5, i64 7184
   %85 = load i32, ptr %84, align 4
   %86 = and i32 %85, 196608
   %87 = icmp eq i32 %86, 0
@@ -147,26 +147,26 @@ define dso_local void @intel_gt_init_clock_frequency(ptr nocapture noundef initi
   br i1 %89, label %90, label %.thread
 
 90:                                               ; preds = %88
-  %91 = getelementptr inbounds i8, ptr %5, i64 7196
+  %91 = getelementptr inbounds nuw i8, ptr %5, i64 7196
   %92 = load i32, ptr %91, align 4
   %93 = mul i32 %92, 1000
   br label %94
 
 94:                                               ; preds = %90, %83, %81, %79, %73, %49, %35, %16
   %95 = phi i32 [ %93, %90 ], [ %25, %16 ], [ %40, %35 ], [ %59, %49 ], [ %78, %73 ], [ 12500000, %79 ], [ 1000000, %81 ], [ 976562, %83 ]
-  %96 = getelementptr inbounds i8, ptr %0, i64 3584
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 3584
   store i32 %95, ptr %96, align 8
   %97 = load ptr, ptr %0, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 7176
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 7176
   %99 = load i8, ptr %98, align 8
   %100 = icmp eq i8 %99, 11
   br i1 %100, label %113, label %106
 
 .thread:                                          ; preds = %88
-  %101 = getelementptr inbounds i8, ptr %0, i64 3584
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 3584
   store i32 0, ptr %101, align 8
   %102 = load ptr, ptr %0, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 7176
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 7176
   %104 = load i8, ptr %103, align 8
   %105 = icmp eq i8 %104, 11
   br i1 %105, label %113, label %.thread2
@@ -184,7 +184,7 @@ define dso_local void @intel_gt_init_clock_frequency(ptr nocapture noundef initi
 
 113:                                              ; preds = %.thread, %108, %94
   %114 = phi i32 [ %112, %108 ], [ 72, %94 ], [ 72, %.thread ]
-  %115 = getelementptr inbounds i8, ptr %0, i64 3588
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 3588
   store i32 %114, ptr %115, align 4
   br label %.thread2
 
@@ -195,7 +195,7 @@ define dso_local void @intel_gt_init_clock_frequency(ptr nocapture noundef initi
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
 define dso_local i64 @intel_gt_clock_interval_to_ns(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = mul i64 %1, 1000000000
-  %4 = getelementptr inbounds i8, ptr %0, i64 3584
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 3584
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
   %7 = add i64 %3, -1
@@ -207,7 +207,7 @@ define dso_local i64 @intel_gt_clock_interval_to_ns(ptr nocapture noundef readon
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
 define dso_local i64 @intel_gt_pm_interval_to_ns(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = mul i64 %1, 16000000000
-  %4 = getelementptr inbounds i8, ptr %0, i64 3584
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 3584
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
   %7 = add i64 %3, -1
@@ -218,7 +218,7 @@ define dso_local i64 @intel_gt_pm_interval_to_ns(ptr nocapture noundef readonly 
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
 define dso_local range(i64 0, 18446744074) i64 @intel_gt_ns_to_clock_interval(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 3584
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 3584
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
   %6 = mul i64 %1, %5
@@ -229,7 +229,7 @@ define dso_local range(i64 0, 18446744074) i64 @intel_gt_ns_to_clock_interval(pt
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
 define dso_local range(i64 0, 1152921530) i64 @intel_gt_ns_to_pm_interval(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #2 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 3584
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 3584
   %4 = load i32, ptr %3, align 8
   %5 = freeze i32 %4
   %6 = zext i32 %5 to i64
@@ -239,7 +239,7 @@ define dso_local range(i64 0, 1152921530) i64 @intel_gt_ns_to_pm_interval(ptr no
   %10 = add nuw nsw i64 %9, 15
   %11 = lshr i64 %10, 4
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 7176
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 7176
   %14 = load i8, ptr %13, align 8
   %15 = icmp eq i8 %14, 6
   br i1 %15, label %16, label %20

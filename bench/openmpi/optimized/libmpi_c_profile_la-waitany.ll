@@ -52,7 +52,7 @@ define i32 @PMPI_Waitany(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %33
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %33 ]
   %.04253 = phi ptr [ null, %.lr.ph.preheader ], [ %.1, %33 ]
-  %16 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %.loopexit, label %19
@@ -62,7 +62,7 @@ define i32 @PMPI_Waitany(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   br i1 %20, label %33, label %21
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %17, i64 152
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 152
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %33, label %25
@@ -72,7 +72,7 @@ define i32 @PMPI_Waitany(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   br i1 %26, label %33, label %27
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %.04253, i64 152
+  %28 = getelementptr inbounds nuw i8, ptr %.04253, i64 152
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr i8, ptr %23, i64 336
   %.val = load ptr, ptr %30, align 8
@@ -113,15 +113,15 @@ define i32 @PMPI_Waitany(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
 
 42:                                               ; preds = %41
   %43 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_status_empty, i64 4), align 4
-  %44 = getelementptr inbounds i8, ptr %3, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %43, ptr %44, align 4
   %45 = load i32, ptr @ompi_status_empty, align 8
   store i32 %45, ptr %3, align 8
   %46 = load i64, ptr getelementptr inbounds (i8, ptr @ompi_status_empty, i64 16), align 8
-  %47 = getelementptr inbounds i8, ptr %3, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %46, ptr %47, align 8
   %48 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_status_empty, i64 12), align 4
-  %49 = getelementptr inbounds i8, ptr %3, i64 12
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 %48, ptr %49, align 4
   br label %57
 

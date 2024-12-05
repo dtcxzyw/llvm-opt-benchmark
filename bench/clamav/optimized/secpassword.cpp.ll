@@ -31,14 +31,14 @@ define void @_ZN11SecPasswordC2Ev(ptr noundef nonnull align 8 dereferenceable(25
 
 6:                                                ; preds = %1
   store ptr %4, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 2048
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 2048
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %8, ptr %9, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(2048) %4, i8 0, i64 2048, i1 false)
   store ptr %8, ptr %7, align 8
   call void @_ZNSaIwED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #13
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 0, ptr %10, align 8
   %11 = load ptr, ptr %7, align 8
   %12 = load ptr, ptr %0, align 8
@@ -72,9 +72,9 @@ declare void @_ZNSaIwED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN11SecPassword3SetEPKw(ptr nocapture noundef nonnull align 8 dereferenceable(25) initializes((24, 25)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -138,9 +138,9 @@ _ZN11SecPassword7ProcessEPKwmPwmb.exit:           ; preds = %27, %14, %_ZN11SecP
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN11SecPasswordD2Ev(ptr noundef nonnull align 8 dereferenceable(25) initializes((24, 25)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = ptrtoint ptr %4 to i64
@@ -179,9 +179,9 @@ _ZNSt6vectorIwSaIwEED2Ev.exit:                    ; preds = %_ZN11SecPassword5Cl
 
 ; Function Attrs: mustprogress nofree norecurse nounwind uwtable
 define void @_ZN11SecPassword5CleanEv(ptr nocapture noundef nonnull align 8 dereferenceable(25) initializes((24, 25)) %0) local_unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = ptrtoint ptr %4 to i64
@@ -286,14 +286,14 @@ define void @_Z11SecHideDataPvmbb(ptr nocapture noundef %0, i64 noundef %1, i1 n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN11SecPassword3GetEPwm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %0, ptr nocapture noundef %1, i64 noundef %2) local_unnamed_addr #2 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
   br i1 %6, label %7, label %30
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = ptrtoint ptr %10 to i64
   %12 = ptrtoint ptr %8 to i64
@@ -344,14 +344,14 @@ declare i64 @wcslen(ptr nocapture noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef i64 @_ZN11SecPassword6LengthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %0) local_unnamed_addr #2 align 2 {
   %2 = alloca [512 x i32], align 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %27
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = ptrtoint ptr %9 to i64
   %11 = ptrtoint ptr %7 to i64
@@ -367,7 +367,7 @@ define noundef i64 @_ZN11SecPassword6LengthEv(ptr nocapture noundef nonnull read
 18:                                               ; preds = %18, %6
   %.06.i.i.i = phi i64 [ 0, %6 ], [ %25, %18 ]
   %19 = add nuw nsw i64 %.06.i.i.i, %17
-  %20 = getelementptr inbounds i8, ptr %2, i64 %.06.i.i.i
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 %.06.i.i.i
   %21 = load i8, ptr %20, align 1
   %22 = trunc i64 %19 to i8
   %23 = add i8 %22, 75
@@ -378,7 +378,7 @@ define noundef i64 @_ZN11SecPassword6LengthEv(ptr nocapture noundef nonnull read
   br i1 %exitcond.not.i.i.i, label %_ZN11SecPassword7ProcessEPKwmPwmb.exit.i, label %18, !llvm.loop !6
 
 _ZN11SecPassword7ProcessEPKwmPwmb.exit.i:         ; preds = %18
-  %26 = getelementptr inbounds i8, ptr %2, i64 2044
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 2044
   store i32 0, ptr %26, align 4
   br label %_ZN11SecPassword3GetEPwm.exit
 
@@ -392,7 +392,7 @@ _ZN11SecPassword3GetEPwm.exit:                    ; preds = %_ZN11SecPassword7Pr
 
 .preheader.i:                                     ; preds = %_ZN11SecPassword3GetEPwm.exit, %.preheader.i
   %.010.i = phi i64 [ %30, %.preheader.i ], [ 0, %_ZN11SecPassword3GetEPwm.exit ]
-  %29 = getelementptr inbounds i8, ptr %2, i64 %.010.i
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 %.010.i
   store volatile i8 0, ptr %29, align 1
   %30 = add nuw nsw i64 %.010.i, 1
   %exitcond.not.i = icmp eq i64 %30, 2048
@@ -406,14 +406,14 @@ _Z9cleandataPvm.exit:                             ; preds = %.preheader.i
 define noundef zeroext i1 @_ZN11SecPasswordeqERS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %1) local_unnamed_addr #2 align 2 {
   %3 = alloca [512 x i32], align 16
   %4 = alloca [512 x i32], align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %29
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = ptrtoint ptr %11 to i64
   %13 = ptrtoint ptr %9 to i64
@@ -429,7 +429,7 @@ define noundef zeroext i1 @_ZN11SecPasswordeqERS_(ptr nocapture noundef nonnull 
 20:                                               ; preds = %20, %8
   %.06.i.i.i = phi i64 [ 0, %8 ], [ %27, %20 ]
   %21 = add nuw nsw i64 %.06.i.i.i, %19
-  %22 = getelementptr inbounds i8, ptr %3, i64 %.06.i.i.i
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 %.06.i.i.i
   %23 = load i8, ptr %22, align 1
   %24 = trunc i64 %21 to i8
   %25 = add i8 %24, 75
@@ -440,7 +440,7 @@ define noundef zeroext i1 @_ZN11SecPasswordeqERS_(ptr nocapture noundef nonnull 
   br i1 %exitcond.not.i.i.i, label %_ZN11SecPassword7ProcessEPKwmPwmb.exit.i, label %20, !llvm.loop !6
 
 _ZN11SecPassword7ProcessEPKwmPwmb.exit.i:         ; preds = %20
-  %28 = getelementptr inbounds i8, ptr %3, i64 2044
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 2044
   store i32 0, ptr %28, align 4
   br label %_ZN11SecPassword3GetEPwm.exit
 
@@ -449,14 +449,14 @@ _ZN11SecPassword7ProcessEPKwmPwmb.exit.i:         ; preds = %20
   br label %_ZN11SecPassword3GetEPwm.exit
 
 _ZN11SecPassword3GetEPwm.exit:                    ; preds = %_ZN11SecPassword7ProcessEPKwmPwmb.exit.i, %29
-  %30 = getelementptr inbounds i8, ptr %1, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %31 = load i8, ptr %30, align 8
   %32 = trunc i8 %31 to i1
   br i1 %32, label %33, label %54
 
 33:                                               ; preds = %_ZN11SecPassword3GetEPwm.exit
   %34 = load ptr, ptr %1, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = ptrtoint ptr %36 to i64
   %38 = ptrtoint ptr %34 to i64
@@ -472,7 +472,7 @@ _ZN11SecPassword3GetEPwm.exit:                    ; preds = %_ZN11SecPassword7Pr
 45:                                               ; preds = %45, %33
   %.06.i.i.i2 = phi i64 [ 0, %33 ], [ %52, %45 ]
   %46 = add nuw nsw i64 %.06.i.i.i2, %44
-  %47 = getelementptr inbounds i8, ptr %4, i64 %.06.i.i.i2
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 %.06.i.i.i2
   %48 = load i8, ptr %47, align 1
   %49 = trunc i64 %46 to i8
   %50 = add i8 %49, 75
@@ -483,7 +483,7 @@ _ZN11SecPassword3GetEPwm.exit:                    ; preds = %_ZN11SecPassword7Pr
   br i1 %exitcond.not.i.i.i3, label %_ZN11SecPassword7ProcessEPKwmPwmb.exit.i4, label %45, !llvm.loop !6
 
 _ZN11SecPassword7ProcessEPKwmPwmb.exit.i4:        ; preds = %45
-  %53 = getelementptr inbounds i8, ptr %4, i64 2044
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 2044
   store i32 0, ptr %53, align 4
   br label %_ZN11SecPassword3GetEPwm.exit5
 
@@ -497,7 +497,7 @@ _ZN11SecPassword3GetEPwm.exit5:                   ; preds = %_ZN11SecPassword7Pr
 
 .preheader.i:                                     ; preds = %_ZN11SecPassword3GetEPwm.exit5, %.preheader.i
   %.010.i = phi i64 [ %57, %.preheader.i ], [ 0, %_ZN11SecPassword3GetEPwm.exit5 ]
-  %56 = getelementptr inbounds i8, ptr %3, i64 %.010.i
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 %.010.i
   store volatile i8 0, ptr %56, align 1
   %57 = add nuw nsw i64 %.010.i, 1
   %exitcond.not.i = icmp eq i64 %57, 2048
@@ -505,7 +505,7 @@ _ZN11SecPassword3GetEPwm.exit5:                   ; preds = %_ZN11SecPassword7Pr
 
 .preheader.i6:                                    ; preds = %.preheader.i, %.preheader.i6
   %.010.i7 = phi i64 [ %59, %.preheader.i6 ], [ 0, %.preheader.i ]
-  %58 = getelementptr inbounds i8, ptr %4, i64 %.010.i7
+  %58 = getelementptr inbounds nuw i8, ptr %4, i64 %.010.i7
   store volatile i8 0, ptr %58, align 1
   %59 = add nuw nsw i64 %.010.i7, 1
   %exitcond.not.i8 = icmp eq i64 %59, 2048

@@ -68,7 +68,7 @@ define hidden void @geod_set(i32 noundef %0, ptr nocapture noundef readonly %1) 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %16
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %16 ]
   %.05978 = phi ptr [ %8, %.lr.ph.preheader ], [ %17, %16 ]
-  %12 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef ptr @_Z10pj_mkparamPKc(ptr noundef %13)
   store ptr %14, ptr %.05978, align 8
@@ -118,7 +118,7 @@ define hidden void @geod_set(i32 noundef %0, ptr nocapture noundef readonly %1) 
   %indvars.iv97 = phi i64 [ %indvars.iv.next98, %39 ], [ 0, %.lr.ph82.split ]
   %29 = phi ptr [ %41, %39 ], [ %28, %.lr.ph82.split ]
   %.0618087 = phi i1 [ %.1, %39 ], [ false, %.lr.ph82.split ]
-  %30 = getelementptr inbounds i8, ptr %29, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 40
   %31 = load ptr, ptr %30, align 8
   %.not75 = icmp eq ptr %31, null
   br i1 %.not75, label %39, label %32
@@ -129,7 +129,7 @@ define hidden void @geod_set(i32 noundef %0, ptr nocapture noundef readonly %1) 
   br i1 %34, label %35, label %39
 
 35:                                               ; preds = %32
-  %36 = getelementptr inbounds i8, ptr %29, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %37 = load double, ptr %36, align 8
   store double %37, ptr @to_meter, align 8
   %38 = fdiv double 1.000000e+00, %37
@@ -139,7 +139,7 @@ define hidden void @geod_set(i32 noundef %0, ptr nocapture noundef readonly %1) 
 39:                                               ; preds = %.lr.ph89, %32, %35
   %.1 = phi i1 [ true, %35 ], [ %.0618087, %32 ], [ %.0618087, %.lr.ph89 ]
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
-  %40 = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv.next98
+  %40 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv.next98
   %41 = load ptr, ptr %40, align 8
   %.not70 = icmp eq ptr %41, null
   br i1 %.not70, label %.critedge, label %.lr.ph89

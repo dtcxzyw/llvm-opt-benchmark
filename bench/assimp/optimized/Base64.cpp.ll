@@ -93,7 +93,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   %0 = load i8, ptr %arrayidx, align 1
   %1 = lshr i8 %0, 2
   %conv.i = zext nneg i8 %1 to i64
-  %arrayidx.i = getelementptr inbounds [66 x i8], ptr @_ZN6Assimp6Base64L17tableEncodeBase64E, i64 0, i64 %conv.i
+  %arrayidx.i = getelementptr inbounds nuw [66 x i8], ptr @_ZN6Assimp6Base64L17tableEncodeBase64E, i64 0, i64 %conv.i
   %2 = load i8, ptr %arrayidx.i, align 1
   %inc = add i64 %j.059, 1
   %call6 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %out, i64 noundef %j.059)
@@ -111,7 +111,7 @@ if.then13:                                        ; preds = %for.body
   %7 = lshr i8 %6, 4
   %or47 = or disjoint i8 %7, %5
   %conv.i49 = zext nneg i8 %or47 to i64
-  %arrayidx.i50 = getelementptr inbounds [66 x i8], ptr @_ZN6Assimp6Base64L17tableEncodeBase64E, i64 0, i64 %conv.i49
+  %arrayidx.i50 = getelementptr inbounds nuw [66 x i8], ptr @_ZN6Assimp6Base64L17tableEncodeBase64E, i64 0, i64 %conv.i49
   %8 = load i8, ptr %arrayidx.i50, align 1
   %inc22 = add i64 %j.059, 2
   %call23 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %out, i64 noundef %inc)
@@ -129,20 +129,20 @@ if.then32:                                        ; preds = %if.then13
   %13 = lshr i8 %12, 6
   %or3948 = or disjoint i8 %13, %11
   %conv.i51 = zext nneg i8 %or3948 to i64
-  %arrayidx.i52 = getelementptr inbounds [66 x i8], ptr @_ZN6Assimp6Base64L17tableEncodeBase64E, i64 0, i64 %conv.i51
+  %arrayidx.i52 = getelementptr inbounds nuw [66 x i8], ptr @_ZN6Assimp6Base64L17tableEncodeBase64E, i64 0, i64 %conv.i51
   %14 = load i8, ptr %arrayidx.i52, align 1
   %call43 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %out, i64 noundef %inc22)
   store i8 %14, ptr %call43, align 1
   %15 = load i8, ptr %arrayidx34, align 1
   %16 = and i8 %15, 63
   %conv.i53 = zext nneg i8 %16 to i64
-  %arrayidx.i54 = getelementptr inbounds [66 x i8], ptr @_ZN6Assimp6Base64L17tableEncodeBase64E, i64 0, i64 %conv.i53
+  %arrayidx.i54 = getelementptr inbounds nuw [66 x i8], ptr @_ZN6Assimp6Base64L17tableEncodeBase64E, i64 0, i64 %conv.i53
   %17 = load i8, ptr %arrayidx.i54, align 1
   br label %for.inc
 
 if.else:                                          ; preds = %if.then13
   %conv.i55 = zext nneg i8 %11 to i64
-  %arrayidx.i56 = getelementptr inbounds [66 x i8], ptr @_ZN6Assimp6Base64L17tableEncodeBase64E, i64 0, i64 %conv.i55
+  %arrayidx.i56 = getelementptr inbounds nuw [66 x i8], ptr @_ZN6Assimp6Base64L17tableEncodeBase64E, i64 0, i64 %conv.i55
   %18 = load i8, ptr %arrayidx.i56, align 4
   %call54 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %out, i64 noundef %inc22)
   store i8 %18, ptr %call54, align 1
@@ -150,7 +150,7 @@ if.else:                                          ; preds = %if.then13
 
 if.else58:                                        ; preds = %for.body
   %conv.i57 = zext nneg i8 %5 to i64
-  %arrayidx.i58 = getelementptr inbounds [66 x i8], ptr @_ZN6Assimp6Base64L17tableEncodeBase64E, i64 0, i64 %conv.i57
+  %arrayidx.i58 = getelementptr inbounds nuw [66 x i8], ptr @_ZN6Assimp6Base64L17tableEncodeBase64E, i64 0, i64 %conv.i57
   %19 = load i8, ptr %arrayidx.i58, align 16
   %inc60 = add i64 %j.059, 2
   %call61 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %out, i64 noundef %inc)
@@ -187,7 +187,7 @@ declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_str
 define void @_ZN6Assimp6Base646EncodeERKSt6vectorIhSaIhEERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %in, ptr noundef nonnull align 8 dereferenceable(32) %out) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %in, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %in, i64 8
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %in, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
@@ -201,7 +201,7 @@ define void @_ZN6Assimp6Base646EncodeB5cxx11ERKSt6vectorIhSaIhEE(ptr noalias non
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #13
   %0 = load ptr, ptr %in, align 8
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %in, i64 8
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %in, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -349,7 +349,7 @@ lpad.i:                                           ; preds = %if.then.i
 
 _ZN6Assimp6Base6410DecodeCharEc.exit:             ; preds = %for.body
   %conv4.i = zext nneg i8 %5 to i64
-  %arrayidx.i = getelementptr inbounds [128 x i8], ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 0, i64 %conv4.i
+  %arrayidx.i = getelementptr inbounds nuw [128 x i8], ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 0, i64 %conv4.i
   %7 = load i8, ptr %arrayidx.i, align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %add28 = or disjoint i64 %i.0139, 1
@@ -377,7 +377,7 @@ lpad.i50:                                         ; preds = %if.then.i47
 
 _ZN6Assimp6Base6410DecodeCharEc.exit54:           ; preds = %_ZN6Assimp6Base6410DecodeCharEc.exit
   %conv4.i52 = zext nneg i8 %8 to i64
-  %arrayidx.i53 = getelementptr inbounds [128 x i8], ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 0, i64 %conv4.i52
+  %arrayidx.i53 = getelementptr inbounds nuw [128 x i8], ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 0, i64 %conv4.i52
   %10 = load i8, ptr %arrayidx.i53, align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i45)
   %add31 = or disjoint i64 %i.0139, 2
@@ -405,7 +405,7 @@ lpad.i60:                                         ; preds = %if.then.i57
 
 _ZN6Assimp6Base6410DecodeCharEc.exit64:           ; preds = %_ZN6Assimp6Base6410DecodeCharEc.exit54
   %conv4.i62 = zext nneg i8 %11 to i64
-  %arrayidx.i63 = getelementptr inbounds [128 x i8], ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 0, i64 %conv4.i62
+  %arrayidx.i63 = getelementptr inbounds nuw [128 x i8], ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 0, i64 %conv4.i62
   %13 = load i8, ptr %arrayidx.i63, align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i55)
   %add34 = or disjoint i64 %i.0139, 3
@@ -433,7 +433,7 @@ lpad.i70:                                         ; preds = %if.then.i67
 
 _ZN6Assimp6Base6410DecodeCharEc.exit74:           ; preds = %_ZN6Assimp6Base6410DecodeCharEc.exit64
   %conv4.i72 = zext nneg i8 %14 to i64
-  %arrayidx.i73 = getelementptr inbounds [128 x i8], ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 0, i64 %conv4.i72
+  %arrayidx.i73 = getelementptr inbounds nuw [128 x i8], ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 0, i64 %conv4.i72
   %16 = load i8, ptr %arrayidx.i73, align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i65)
   %shl = shl i8 %7, 2
@@ -487,7 +487,7 @@ lpad.i80:                                         ; preds = %if.then.i77
 
 _ZN6Assimp6Base6410DecodeCharEc.exit84:           ; preds = %for.end
   %conv4.i82 = zext nneg i8 %22 to i64
-  %arrayidx.i83 = getelementptr inbounds [128 x i8], ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 0, i64 %conv4.i82
+  %arrayidx.i83 = getelementptr inbounds nuw [128 x i8], ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 0, i64 %conv4.i82
   %24 = load i8, ptr %arrayidx.i83, align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i75)
   %add61 = or disjoint i64 %i.0.lcssa, 1
@@ -515,7 +515,7 @@ lpad.i90:                                         ; preds = %if.then.i87
 
 _ZN6Assimp6Base6410DecodeCharEc.exit94:           ; preds = %_ZN6Assimp6Base6410DecodeCharEc.exit84
   %conv4.i92 = zext nneg i8 %25 to i64
-  %arrayidx.i93 = getelementptr inbounds [128 x i8], ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 0, i64 %conv4.i92
+  %arrayidx.i93 = getelementptr inbounds nuw [128 x i8], ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 0, i64 %conv4.i92
   %27 = load i8, ptr %arrayidx.i93, align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i85)
   %add65 = or disjoint i64 %i.0.lcssa, 2
@@ -543,7 +543,7 @@ lpad.i100:                                        ; preds = %if.then.i97
 
 _ZN6Assimp6Base6410DecodeCharEc.exit104:          ; preds = %_ZN6Assimp6Base6410DecodeCharEc.exit94
   %conv4.i102 = zext nneg i8 %28 to i64
-  %arrayidx.i103 = getelementptr inbounds [128 x i8], ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 0, i64 %conv4.i102
+  %arrayidx.i103 = getelementptr inbounds nuw [128 x i8], ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 0, i64 %conv4.i102
   %30 = load i8, ptr %arrayidx.i103, align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i95)
   %add69 = or disjoint i64 %i.0.lcssa, 3
@@ -571,7 +571,7 @@ lpad.i110:                                        ; preds = %if.then.i107
 
 _ZN6Assimp6Base6410DecodeCharEc.exit114:          ; preds = %_ZN6Assimp6Base6410DecodeCharEc.exit104
   %conv4.i112 = zext nneg i8 %31 to i64
-  %arrayidx.i113 = getelementptr inbounds [128 x i8], ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 0, i64 %conv4.i112
+  %arrayidx.i113 = getelementptr inbounds nuw [128 x i8], ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 0, i64 %conv4.i112
   %33 = load i8, ptr %arrayidx.i113, align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i105)
   %shl73 = shl i8 %24, 2
@@ -676,7 +676,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %out, i64 16
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %out, i64 16
   %1 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8
   %2 = load ptr, ptr %out, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %1 to i64
@@ -696,7 +696,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
 _ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i.i.i: ; preds = %if.then.i.i.i
   %call5.i.i.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %call2) #15
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call5.i.i.i.i.i.i.i, ptr nonnull align 1 %0, i64 %call2, i1 false)
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %out, i64 8
+  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %out, i64 8
   %tobool.not.i.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i.i, label %if.then.i13.i.i.i
 
@@ -706,13 +706,13 @@ if.then.i13.i.i.i:                                ; preds = %_ZNSt12_Vector_base
 
 _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i.i: ; preds = %if.then.i13.i.i.i, %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i.i.i
   store ptr %call5.i.i.i.i.i.i.i, ptr %out, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 %call2
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i, i64 %call2
   store ptr %add.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8
   br label %delete.notnull
 
 if.else.i.i.i:                                    ; preds = %if.end
-  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %out, i64 8
+  %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %out, i64 8
   %3 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i14.i.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i16.i.i.i = sub i64 %sub.ptr.lhs.cast.i14.i.i.i, %sub.ptr.rhs.cast.i.i.i.i

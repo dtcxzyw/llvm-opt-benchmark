@@ -18,12 +18,12 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define noundef zeroext i1 @ecpg_register_prepared_stmt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.01118.i = load ptr, ptr %7, align 8
   %.not19.i = icmp eq ptr %.01118.i, null
   br i1 %.not19.i, label %ecpg_find_prepared_statement.exit.thread, label %.lr.ph.i.preheader
@@ -42,7 +42,7 @@ define noundef zeroext i1 @ecpg_register_prepared_stmt(ptr nocapture noundef rea
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %.01121.i47 = phi ptr [ %.011.i, %.lr.ph.i ], [ %.01118.i, %.lr.ph.i.preheader ]
-  %14 = getelementptr inbounds i8, ptr %.01121.i47, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %.01121.i47, i64 24
   %.011.i = load ptr, ptr %14, align 8
   %.not.i = icmp eq ptr %.011.i, null
   br i1 %.not.i, label %ecpg_find_prepared_statement.exit.thread, label %.lr.ph.i, !llvm.loop !4
@@ -70,24 +70,24 @@ ecpg_find_prepared_statement.exit.thread:         ; preds = %.lr.ph, %1, %ecpg_f
 20:                                               ; preds = %17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %18, i8 0, i64 112, i1 false)
   store i32 %4, ptr %18, align 8
-  %21 = getelementptr inbounds i8, ptr %18, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr %3, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr @ecpg_strdup(ptr noundef %23, i32 noundef %4) #11
-  %25 = getelementptr inbounds i8, ptr %18, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %24, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %18, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %18, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
   %27 = load ptr, ptr %5, align 8
   %28 = tail call ptr @ecpg_strdup(ptr noundef %27, i32 noundef %4) #11
   store ptr %28, ptr %16, align 8
-  %29 = getelementptr inbounds i8, ptr %16, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %18, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %16, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i8 1, ptr %30, align 8
   %31 = load ptr, ptr %7, align 8
-  %32 = getelementptr inbounds i8, ptr %16, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store ptr %31, ptr %32, align 8
   store ptr %16, ptr %7, align 8
   br label %33
@@ -99,7 +99,7 @@ ecpg_find_prepared_statement.exit.thread:         ; preds = %.lr.ph, %1, %ecpg_f
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef ptr @ecpg_find_prepared_statement(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef writeonly %2) local_unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.01118 = load ptr, ptr %4, align 8
   %.not19 = icmp eq ptr %.01118, null
   br i1 %.not19, label %.loopexit, label %.lr.ph.preheader
@@ -128,7 +128,7 @@ define noundef ptr @ecpg_find_prepared_statement(ptr nocapture noundef readonly 
 
 .lr.ph29:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %.0112128 = phi ptr [ %.011, %.lr.ph ], [ %.01118, %.lr.ph.preheader ]
-  %12 = getelementptr inbounds i8, ptr %.0112128, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %.0112128, i64 24
   %.011 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %.011, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !4
@@ -142,7 +142,7 @@ define noundef ptr @ecpg_find_prepared_statement(ptr nocapture noundef readonly 
 define internal fastcc noundef zeroext i1 @deallocate_one(i32 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef writeonly %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = load ptr, ptr %4, align 8
   tail call void (ptr, ...) @ecpg_log(ptr noundef nonnull @.str.6, i32 noundef %0, ptr noundef %6) #11
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i8, ptr %7, align 8
   %9 = trunc i8 %8 to i1
   br i1 %9, label %10, label %35
@@ -151,7 +151,7 @@ define internal fastcc noundef zeroext i1 @deallocate_one(i32 noundef %0, i32 no
   %11 = load ptr, ptr %4, align 8
   %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #10
   %13 = add i64 %12, 14
-  %14 = getelementptr inbounds i8, ptr %4, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr %15, align 8
   %17 = tail call ptr @ecpg_alloc(i64 noundef %13, i32 noundef %16) #11
@@ -162,18 +162,18 @@ define internal fastcc noundef zeroext i1 @deallocate_one(i32 noundef %0, i32 no
   %19 = load ptr, ptr %4, align 8
   %20 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %17, ptr noundef nonnull @.str.7, ptr noundef %19) #11
   %21 = load ptr, ptr %14, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = tail call ptr @PQexec(ptr noundef %25, ptr noundef nonnull %17) #11
   tail call void @ecpg_free(ptr noundef nonnull %17) #11
   %27 = load ptr, ptr %14, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %27, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %33 = load i32, ptr %32, align 8
   %34 = tail call zeroext i1 @ecpg_check_PQresult(ptr noundef %26, i32 noundef %0, ptr noundef %31, i32 noundef %33) #11
   br i1 %34, label %.thread, label %35
@@ -193,9 +193,9 @@ define internal fastcc noundef zeroext i1 @deallocate_one(i32 noundef %0, i32 no
   br label %54
 
 40:                                               ; preds = %.thread, %35
-  %41 = getelementptr inbounds i8, ptr %4, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load ptr, ptr %43, align 8
   tail call void @ecpg_free(ptr noundef %44) #11
   %45 = load ptr, ptr %41, align 8
@@ -203,17 +203,17 @@ define internal fastcc noundef zeroext i1 @deallocate_one(i32 noundef %0, i32 no
   %46 = load ptr, ptr %4, align 8
   tail call void @ecpg_free(ptr noundef %46) #11
   %.not36 = icmp eq ptr %3, null
-  %47 = getelementptr inbounds i8, ptr %4, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %48 = load ptr, ptr %47, align 8
   br i1 %.not36, label %51, label %49
 
 49:                                               ; preds = %40
-  %50 = getelementptr inbounds i8, ptr %3, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %48, ptr %50, align 8
   br label %53
 
 51:                                               ; preds = %40
-  %52 = getelementptr inbounds i8, ptr %2, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr %48, ptr %52, align 8
   br label %53
 
@@ -242,7 +242,7 @@ define noundef zeroext i1 @ECPGprepare(i32 noundef %0, ptr noundef %1, i1 zeroex
   br i1 %7, label %8, label %19
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %6, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %.01118.i = load ptr, ptr %9, align 8
   %.not19.i = icmp eq ptr %.01118.i, null
   br i1 %.not19.i, label %ecpg_find_prepared_statement.exit.thread, label %.lr.ph.i.preheader
@@ -261,7 +261,7 @@ define noundef zeroext i1 @ECPGprepare(i32 noundef %0, ptr noundef %1, i1 zeroex
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %.01121.i21 = phi ptr [ %.011.i, %.lr.ph.i ], [ %.01118.i, %.lr.ph.i.preheader ]
-  %16 = getelementptr inbounds i8, ptr %.01121.i21, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %.01121.i21, i64 24
   %.011.i = load ptr, ptr %16, align 8
   %.not.i = icmp eq ptr %.011.i, null
   br i1 %.not.i, label %ecpg_find_prepared_statement.exit.thread, label %.lr.ph.i, !llvm.loop !4
@@ -302,12 +302,12 @@ define internal fastcc noundef zeroext i1 @prepare_common(i32 noundef %0, ptr no
 
 9:                                                ; preds = %6
   store i32 %0, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %1, ptr %10, align 8
   %11 = tail call ptr @ecpg_strdup(ptr noundef %3, i32 noundef %0) #11
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   %14 = load i8, ptr %11, align 1
   %.not74.i = icmp eq i8 %14, 0
@@ -447,18 +447,18 @@ isvarchar.exit.thread.i:                          ; preds = %isvarchar.exit.i, %
 replace_variables.exit:                           ; preds = %28, %72, %9, %59
   %78 = tail call ptr @ecpg_strdup(ptr noundef %2, i32 noundef %0) #11
   store ptr %78, ptr %5, align 8
-  %79 = getelementptr inbounds i8, ptr %5, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %7, ptr %79, align 8
   %80 = load ptr, ptr %10, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %82 = load ptr, ptr %81, align 8
   %83 = load ptr, ptr %12, align 8
   %84 = tail call ptr @PQprepare(ptr noundef %82, ptr noundef %2, ptr noundef %83, i32 noundef 0, ptr noundef null) #11
   %85 = load i32, ptr %7, align 8
   %86 = load ptr, ptr %10, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %7, i64 32
+  %89 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %90 = load i32, ptr %89, align 8
   %91 = tail call zeroext i1 @ecpg_check_PQresult(ptr noundef %84, i32 noundef %85, ptr noundef %88, i32 noundef %90) #11
   br i1 %91, label %95, label %92
@@ -477,11 +477,11 @@ replace_variables.exit:                           ; preds = %28, %72, %9, %59
   %97 = load ptr, ptr %12, align 8
   tail call void (ptr, ...) @ecpg_log(ptr noundef nonnull @.str.4, i32 noundef %96, ptr noundef %2, ptr noundef %97) #11
   tail call void @PQclear(ptr noundef %84) #11
-  %98 = getelementptr inbounds i8, ptr %5, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 1, ptr %98, align 8
-  %99 = getelementptr inbounds i8, ptr %1, i64 32
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds i8, ptr %5, i64 24
+  %101 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %100, ptr %101, align 8
   store ptr %5, ptr %99, align 8
   br label %102
@@ -501,7 +501,7 @@ define noundef zeroext i1 @ECPGdeallocate(i32 noundef %0, i32 noundef %1, ptr no
   br i1 %6, label %7, label %19
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %5, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.01118.i = load ptr, ptr %8, align 8
   %.not19.i = icmp eq ptr %.01118.i, null
   br i1 %.not19.i, label %.loopexit, label %.lr.ph.i.preheader
@@ -520,7 +520,7 @@ define noundef zeroext i1 @ECPGdeallocate(i32 noundef %0, i32 noundef %1, ptr no
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %.01121.i23 = phi ptr [ %.011.i, %.lr.ph.i ], [ %.01118.i, %.lr.ph.i.preheader ]
-  %15 = getelementptr inbounds i8, ptr %.01121.i23, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %.01121.i23, i64 24
   %.011.i = load ptr, ptr %15, align 8
   %.not.i = icmp eq ptr %.011.i, null
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !4
@@ -549,7 +549,7 @@ declare void @ecpg_raise(i32 noundef, i32 noundef, ptr noundef, ptr noundef) loc
 
 ; Function Attrs: nounwind uwtable
 define noundef zeroext i1 @ecpg_deallocate_all_conn(i32 noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   br label %5
 
 5:                                                ; preds = %7, %3
@@ -568,7 +568,7 @@ define noundef zeroext i1 @ecpg_deallocate_all_conn(i32 noundef %0, i32 noundef 
 ; Function Attrs: nounwind uwtable
 define noundef zeroext i1 @ECPGdeallocate_all(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @ecpg_get_connection(ptr noundef %2) #11
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   br label %6
 
 6:                                                ; preds = %8, %3
@@ -586,7 +586,7 @@ ecpg_deallocate_all_conn.exit:                    ; preds = %6, %8
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
 define ptr @ecpg_prepared(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.01118.i = load ptr, ptr %3, align 8
   %.not19.i = icmp eq ptr %.01118.i, null
   br i1 %.not19.i, label %ecpg_find_prepared_statement.exit.thread, label %.lr.ph.i
@@ -599,15 +599,15 @@ define ptr @ecpg_prepared(ptr nocapture noundef readonly %0, ptr nocapture nound
   br i1 %6, label %ecpg_find_prepared_statement.exit, label %7
 
 7:                                                ; preds = %.lr.ph.i
-  %8 = getelementptr inbounds i8, ptr %.01121.i, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %.01121.i, i64 24
   %.011.i = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %.011.i, null
   br i1 %.not.i, label %ecpg_find_prepared_statement.exit.thread, label %.lr.ph.i, !llvm.loop !4
 
 ecpg_find_prepared_statement.exit:                ; preds = %.lr.ph.i
-  %9 = getelementptr inbounds i8, ptr %.01121.i, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %.01121.i, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   br label %ecpg_find_prepared_statement.exit.thread
 
@@ -619,7 +619,7 @@ ecpg_find_prepared_statement.exit.thread:         ; preds = %7, %2, %ecpg_find_p
 ; Function Attrs: nounwind uwtable
 define ptr @ECPGprepared_statement(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @ecpg_get_connection(ptr noundef %0) #11
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.01118.i.i = load ptr, ptr %5, align 8
   %.not19.i.i = icmp eq ptr %.01118.i.i, null
   br i1 %.not19.i.i, label %ecpg_prepared.exit, label %.lr.ph.i.i
@@ -632,15 +632,15 @@ define ptr @ECPGprepared_statement(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %8, label %ecpg_find_prepared_statement.exit.i, label %9
 
 9:                                                ; preds = %.lr.ph.i.i
-  %10 = getelementptr inbounds i8, ptr %.01121.i.i, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %.01121.i.i, i64 24
   %.011.i.i = load ptr, ptr %10, align 8
   %.not.i.i = icmp eq ptr %.011.i.i, null
   br i1 %.not.i.i, label %ecpg_prepared.exit, label %.lr.ph.i.i, !llvm.loop !4
 
 ecpg_find_prepared_statement.exit.i:              ; preds = %.lr.ph.i.i
-  %11 = getelementptr inbounds i8, ptr %.01121.i.i, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %.01121.i.i, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   br label %ecpg_prepared.exit
 
@@ -699,13 +699,13 @@ HashStmt.exit.i:                                  ; preds = %HashStmt.exit.i.pre
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %35 ], [ %indvars.iv.i.ph, %HashStmt.exit.i.preheader ]
   %.012.i = phi i32 [ %36, %35 ], [ 0, %HashStmt.exit.i.preheader ]
   %27 = getelementptr %struct.stmtCacheEntry, ptr %7, i64 %indvars.iv.i
-  %28 = getelementptr inbounds i8, ptr %27, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %29 = load i8, ptr %28, align 4
   %.not.i = icmp eq i8 %29, 0
   br i1 %.not.i, label %35, label %30
 
 30:                                               ; preds = %HashStmt.exit.i
-  %31 = getelementptr inbounds i8, ptr %27, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 40
   %32 = load ptr, ptr %31, align 8
   %33 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %32) #10
   %34 = icmp eq i32 %33, 0
@@ -729,7 +729,7 @@ HashStmt.exit.i:                                  ; preds = %HashStmt.exit.i.pre
   %42 = ashr exact i64 %sext, 32
   %43 = getelementptr %struct.stmtCacheEntry, ptr %41, i64 %42, i32 1
   %44 = tail call ptr @ecpg_get_connection(ptr noundef %1) #11
-  %45 = getelementptr inbounds i8, ptr %44, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %.01118.i = load ptr, ptr %45, align 8
   %.not19.i = icmp eq ptr %.01118.i, null
   br i1 %.not19.i, label %.loopexit, label %.lr.ph.i
@@ -742,7 +742,7 @@ HashStmt.exit.i:                                  ; preds = %HashStmt.exit.i.pre
   br i1 %48, label %ecpg_find_prepared_statement.exit, label %49
 
 49:                                               ; preds = %.lr.ph.i
-  %50 = getelementptr inbounds i8, ptr %.01121.i, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %.01121.i, i64 24
   %.011.i = load ptr, ptr %50, align 8
   %.not.i32 = icmp eq ptr %.011.i, null
   br i1 %.not.i32, label %.loopexit, label %.lr.ph.i, !llvm.loop !4
@@ -822,13 +822,13 @@ HashStmt.exit.i33:                                ; preds = %._crit_edge.loopexi
   %.02941.i = phi i32 [ %spec.select.i, %86 ], [ %.015.lcssa.i.i34, %HashStmt.exit.i33 ]
   %.03240.i = phi i32 [ %94, %86 ], [ 0, %HashStmt.exit.i33 ]
   %83 = getelementptr %struct.stmtCacheEntry, ptr %64, i64 %indvars.iv
-  %84 = getelementptr inbounds i8, ptr %83, i64 4
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 4
   %85 = load i8, ptr %84, align 4
   %.not.i35 = icmp eq i8 %85, 0
   br i1 %.not.i35, label %95, label %86
 
 86:                                               ; preds = %82
-  %87 = getelementptr inbounds i8, ptr %83, i64 48
+  %87 = getelementptr inbounds nuw i8, ptr %83, i64 48
   %88 = load i64, ptr %87, align 8
   %89 = sext i32 %.02941.i to i64
   %90 = getelementptr %struct.stmtCacheEntry, ptr %64, i64 %89, i32 3
@@ -851,16 +851,16 @@ HashStmt.exit.i33:                                ; preds = %._crit_edge.loopexi
   %98 = phi i32 [ %spec.select55.i, %95 ], [ %spec.select.i, %86 ]
   %99 = sext i32 %98 to i64
   %100 = getelementptr %struct.stmtCacheEntry, ptr %64, i64 %99
-  %101 = getelementptr inbounds i8, ptr %100, i64 4
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 4
   %102 = load i8, ptr %101, align 4
   %.not.i.i = icmp eq i8 %102, 0
   br i1 %.not.i.i, label %AddStmtToCache.exit, label %103
 
 103:                                              ; preds = %.thread.i37
-  %104 = getelementptr inbounds i8, ptr %100, i64 56
+  %104 = getelementptr inbounds nuw i8, ptr %100, i64 56
   %105 = load ptr, ptr %104, align 8
   %106 = call ptr @ecpg_get_connection(ptr noundef %105) #11
-  %107 = getelementptr inbounds i8, ptr %106, i64 32
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 32
   %.01118.i.i.i = load ptr, ptr %107, align 8
   %.not19.i.i.i = icmp eq ptr %.01118.i.i.i, null
   br i1 %.not19.i.i.i, label %ecpg_find_prepared_statement.exit.thread.i.i, label %.lr.ph.i.preheader.i.i
@@ -879,7 +879,7 @@ HashStmt.exit.i33:                                ; preds = %._crit_edge.loopexi
 
 .lr.ph.i34.i:                                     ; preds = %.lr.ph.i.preheader.i.i, %.lr.ph.i.i.i
   %.01121.i26.i.i = phi ptr [ %.011.i.i.i, %.lr.ph.i.i.i ], [ %.01118.i.i.i, %.lr.ph.i.preheader.i.i ]
-  %114 = getelementptr inbounds i8, ptr %.01121.i26.i.i, i64 24
+  %114 = getelementptr inbounds nuw i8, ptr %.01121.i26.i.i, i64 24
   %.011.i.i.i = load ptr, ptr %114, align 8
   %.not.i.i.i = icmp eq ptr %.011.i.i.i, null
   br i1 %.not.i.i.i, label %ecpg_find_prepared_statement.exit.thread.i.i, label %.lr.ph.i.i.i, !llvm.loop !4
@@ -892,7 +892,7 @@ ecpg_find_prepared_statement.exit.i.i:            ; preds = %.lr.ph.i.i.i, %.lr.
 
 ecpg_find_prepared_statement.exit.thread.i.i:     ; preds = %.lr.ph.i34.i, %ecpg_find_prepared_statement.exit.i.i, %103
   store i8 0, ptr %101, align 4
-  %116 = getelementptr inbounds i8, ptr %100, i64 40
+  %116 = getelementptr inbounds nuw i8, ptr %100, i64 40
   %117 = load ptr, ptr %116, align 8
   %.not19.i.i = icmp eq ptr %117, null
   br i1 %.not19.i.i, label %ecpg_freeStmtCacheEntry.exit.i, label %118
@@ -915,13 +915,13 @@ AddStmtToCache.exit:                              ; preds = %.thread.i37, %ecpg_
   %121 = getelementptr %struct.stmtCacheEntry, ptr %120, i64 %99
   store i32 %0, ptr %121, align 8
   %122 = call ptr @ecpg_strdup(ptr noundef %4, i32 noundef %0) #11
-  %123 = getelementptr inbounds i8, ptr %121, i64 40
+  %123 = getelementptr inbounds nuw i8, ptr %121, i64 40
   store ptr %122, ptr %123, align 8
-  %124 = getelementptr inbounds i8, ptr %121, i64 56
+  %124 = getelementptr inbounds nuw i8, ptr %121, i64 56
   store ptr %1, ptr %124, align 8
-  %125 = getelementptr inbounds i8, ptr %121, i64 48
+  %125 = getelementptr inbounds nuw i8, ptr %121, i64 48
   store i64 0, ptr %125, align 8
-  %126 = getelementptr inbounds i8, ptr %121, i64 4
+  %126 = getelementptr inbounds nuw i8, ptr %121, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %126, ptr noundef nonnull readonly align 16 dereferenceable(32) %6, i64 32, i1 false)
   %127 = icmp slt i32 %98, 0
   br i1 %127, label %AddStmtToCache.exit.thread, label %128

@@ -24,17 +24,17 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local noundef i64 @brin_bloom_opcinfo(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
   %2 = tail call ptr @palloc0(i64 noundef 80) #7
   store i16 1, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 2
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store i8 1, ptr %3, align 2
   %4 = getelementptr i8, ptr %2, i64 24
   %5 = ptrtoint ptr %4 to i64
   %6 = add i64 %5, 7
   %7 = and i64 %6, -8
   %8 = inttoptr i64 %7 to ptr
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %8, ptr %9, align 8
   %10 = tail call ptr @lookup_type_cache(i32 noundef 4600, i32 noundef 0) #7
-  %11 = getelementptr inbounds i8, ptr %2, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %10, ptr %11, align 8
   %12 = ptrtoint ptr %2 to i64
   ret i64 %12
@@ -46,7 +46,7 @@ declare ptr @lookup_type_cache(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @brin_bloom_add_value(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr i8, ptr %0, i64 48
@@ -56,10 +56,10 @@ define dso_local range(i64 0, 2) i64 @brin_bloom_add_value(ptr nocapture noundef
   %9 = load i64, ptr %8, align 8
   %10 = load ptr, ptr %0, align 8
   %11 = tail call ptr @get_fn_opclass_options(ptr noundef %10) #7
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load i32, ptr %12, align 8
   %14 = load i16, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %7, i64 3
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 3
   %16 = load i8, ptr %15, align 1
   %17 = trunc i8 %16 to i1
   br i1 %17, label %18, label %82
@@ -73,7 +73,7 @@ define dso_local range(i64 0, 2) i64 @brin_bloom_add_value(ptr nocapture noundef
   br i1 %.not.i, label %26, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %.val.val, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %.val.val, i64 4
   %23 = load i32, ptr %22, align 4
   %24 = mul i32 %23, 291
   %25 = uitofp i32 %24 to double
@@ -85,7 +85,7 @@ define dso_local range(i64 0, 2) i64 @brin_bloom_add_value(ptr nocapture noundef
   br i1 %.not19.i, label %brin_bloom_get_ndistinct.exit, label %28
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %11, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %30 = load double, ptr %29, align 8
   %31 = fcmp une double %30, 0.000000e+00
   br i1 %31, label %32, label %brin_bloom_get_ndistinct.exit
@@ -107,7 +107,7 @@ brin_bloom_get_ndistinct.exit:                    ; preds = %26, %28, %32
   br i1 %.not19.i, label %47, label %42
 
 42:                                               ; preds = %brin_bloom_get_ndistinct.exit
-  %43 = getelementptr inbounds i8, ptr %11, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %44 = load double, ptr %43, align 8
   %45 = fcmp une double %44, 0.000000e+00
   br i1 %45, label %46, label %47
@@ -150,24 +150,24 @@ bloom_init.exit:                                  ; preds = %47
   %narrow.i = add nuw nsw i32 %57, 16
   %72 = zext nneg i32 %narrow.i to i64
   %73 = tail call ptr @palloc0(i64 noundef %72) #7
-  %74 = getelementptr inbounds i8, ptr %73, i64 4
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 4
   store i16 0, ptr %74, align 4
   %75 = trunc i32 %71 to i8
-  %76 = getelementptr inbounds i8, ptr %73, i64 6
+  %76 = getelementptr inbounds nuw i8, ptr %73, i64 6
   store i8 %75, ptr %76, align 2
-  %77 = getelementptr inbounds i8, ptr %73, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %73, i64 8
   store i32 %62, ptr %77, align 4
   %78 = shl nuw nsw i32 %narrow.i, 2
   store i32 %78, ptr %73, align 4
   %79 = ptrtoint ptr %73 to i64
-  %80 = getelementptr inbounds i8, ptr %7, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %81 = load ptr, ptr %80, align 8
   store i64 %79, ptr %81, align 8
   store i8 0, ptr %15, align 1
   br label %88
 
 82:                                               ; preds = %1
-  %83 = getelementptr inbounds i8, ptr %7, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %84 = load ptr, ptr %83, align 8
   %85 = load i64, ptr %84, align 8
   %86 = inttoptr i64 %85 to ptr
@@ -177,26 +177,26 @@ bloom_init.exit:                                  ; preds = %47
 88:                                               ; preds = %82, %bloom_init.exit
   %.030 = phi i8 [ 1, %bloom_init.exit ], [ 0, %82 ]
   %.0 = phi ptr [ %73, %bloom_init.exit ], [ %87, %82 ]
-  %89 = getelementptr inbounds i8, ptr %4, i64 40
+  %89 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %90 = zext i16 %14 to i64
   %91 = add nsw i64 %90, -1
   %92 = getelementptr [0 x ptr], ptr %89, i64 0, i64 %91
   %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 48
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 48
   %97 = load i8, ptr %96, align 1
   %98 = trunc i8 %97 to i1
   br i1 %98, label %bloom_get_procinfo.exit, label %99
 
 99:                                               ; preds = %88
-  %100 = getelementptr inbounds i8, ptr %95, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %101 = load i32, ptr %100, align 8
   %102 = icmp eq i32 %101, 0
   br i1 %102, label %103, label %bloom_get_procinfo.exit
 
 103:                                              ; preds = %99
-  %104 = getelementptr inbounds i8, ptr %4, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %105 = load ptr, ptr %104, align 8
   %106 = tail call i32 @index_getprocid(ptr noundef %105, i16 noundef signext %14, i16 noundef zeroext 11) #7
   %.not.i28 = icmp eq i32 %106, 0
@@ -218,7 +218,7 @@ bloom_get_procinfo.exit:                          ; preds = %88, %99, %107, %111
   %112 = tail call i64 @FunctionCall1Coll(ptr noundef %.0.i27, i32 noundef %13, i64 noundef %9) #7
   %113 = trunc i64 %112 to i32
   %114 = tail call i64 @hash_bytes_uint32_extended(i32 noundef %113, i64 noundef 1910056111) #7
-  %115 = getelementptr inbounds i8, ptr %.0, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %116 = load i32, ptr %115, align 4
   %117 = zext i32 %116 to i64
   %118 = urem i64 %114, %117
@@ -226,14 +226,14 @@ bloom_get_procinfo.exit:                          ; preds = %88, %99, %107, %111
   %120 = load i32, ptr %115, align 4
   %121 = zext i32 %120 to i64
   %122 = urem i64 %119, %121
-  %123 = getelementptr inbounds i8, ptr %.0, i64 6
+  %123 = getelementptr inbounds nuw i8, ptr %.0, i64 6
   %124 = load i8, ptr %123, align 2
   %.not24.i = icmp eq i8 %124, 0
   br i1 %.not24.i, label %bloom_add_value.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %bloom_get_procinfo.exit
-  %125 = getelementptr inbounds i8, ptr %.0, i64 16
-  %126 = getelementptr inbounds i8, ptr %.0, i64 12
+  %125 = getelementptr inbounds nuw i8, ptr %.0, i64 16
+  %126 = getelementptr inbounds nuw i8, ptr %.0, i64 12
   %127 = zext i8 %124 to i64
   br label %128
 
@@ -272,7 +272,7 @@ bloom_get_procinfo.exit:                          ; preds = %88, %99, %107, %111
 bloom_add_value.exit:                             ; preds = %145, %bloom_get_procinfo.exit
   %.3 = phi i8 [ %.030, %bloom_get_procinfo.exit ], [ %.2, %145 ]
   %147 = ptrtoint ptr %.0 to i64
-  %148 = getelementptr inbounds i8, ptr %7, i64 8
+  %148 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %149 = load ptr, ptr %148, align 8
   store i64 %147, ptr %149, align 8
   %150 = and i8 %.3, 1
@@ -288,7 +288,7 @@ declare i64 @FunctionCall1Coll(ptr noundef, i32 noundef, i64 noundef) local_unna
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @brin_bloom_consistent(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr i8, ptr %0, i64 48
@@ -300,9 +300,9 @@ define dso_local range(i64 0, 2) i64 @brin_bloom_consistent(ptr nocapture nounde
   %11 = getelementptr i8, ptr %0, i64 80
   %12 = load i64, ptr %11, align 8
   %13 = trunc i64 %12 to i32
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = load i64, ptr %17, align 8
   %19 = inttoptr i64 %18 to ptr
@@ -311,11 +311,11 @@ define dso_local range(i64 0, 2) i64 @brin_bloom_consistent(ptr nocapture nounde
   br i1 %21, label %bloom_contains_value.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %22 = getelementptr inbounds i8, ptr %4, i64 40
-  %23 = getelementptr inbounds i8, ptr %4, i64 8
-  %24 = getelementptr inbounds i8, ptr %20, i64 8
-  %25 = getelementptr inbounds i8, ptr %20, i64 6
-  %26 = getelementptr inbounds i8, ptr %20, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 6
+  %26 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %wide.trip.count = and i64 %12, 2147483647
   br label %27
 
@@ -323,29 +323,29 @@ define dso_local range(i64 0, 2) i64 @brin_bloom_consistent(ptr nocapture nounde
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %bloom_contains_value.exit ]
   %28 = getelementptr ptr, ptr %10, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 6
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 6
   %31 = load i16, ptr %30, align 2
   %cond = icmp eq i16 %31, 1
   br i1 %cond, label %32, label %83
 
 32:                                               ; preds = %27
-  %33 = getelementptr inbounds i8, ptr %29, i64 64
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 64
   %34 = load i64, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %29, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %36 = load i16, ptr %35, align 4
   %37 = zext i16 %36 to i64
   %38 = add nsw i64 %37, -1
   %39 = getelementptr [0 x ptr], ptr %22, i64 0, i64 %38
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 48
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 48
   %44 = load i8, ptr %43, align 1
   %45 = trunc i8 %44 to i1
   br i1 %45, label %bloom_get_procinfo.exit, label %46
 
 46:                                               ; preds = %32
-  %47 = getelementptr inbounds i8, ptr %42, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %48 = load i32, ptr %47, align 8
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %50, label %bloom_get_procinfo.exit
@@ -414,7 +414,7 @@ bloom_contains_value.exit:                        ; preds = %70, %bloom_get_proc
   br i1 %exitcond.not, label %bloom_contains_value.exit.thread, label %27, !llvm.loop !8
 
 83:                                               ; preds = %27
-  %84 = getelementptr inbounds i8, ptr %29, i64 6
+  %84 = getelementptr inbounds nuw i8, ptr %29, i64 6
   %85 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   tail call void @llvm.assume(i1 %85)
   %86 = load i16, ptr %84, align 2
@@ -443,25 +443,25 @@ define dso_local noundef i64 @brin_bloom_union(ptr nocapture noundef readonly %0
   %5 = getelementptr i8, ptr %0, i64 64
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
   %12 = tail call ptr @pg_detoast_datum(ptr noundef %11) #7
-  %13 = getelementptr inbounds i8, ptr %7, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = load i64, ptr %14, align 8
   %16 = inttoptr i64 %15 to ptr
   %17 = tail call ptr @pg_detoast_datum(ptr noundef %16) #7
-  %18 = getelementptr inbounds i8, ptr %12, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %19 = load i32, ptr %18, align 4
   %.not = icmp ult i32 %19, 8
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %20 = lshr i32 %19, 3
-  %21 = getelementptr inbounds i8, ptr %17, i64 16
-  %22 = getelementptr inbounds i8, ptr %12, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %wide.trip.count = zext nneg i32 %20 to i64
   br label %23
 
@@ -483,7 +483,7 @@ define dso_local noundef i64 @brin_bloom_union(ptr nocapture noundef readonly %0
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @brin_bloom_options(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   tail call void @init_local_reloptions(ptr noundef %4, i64 noundef 24) #7
@@ -513,18 +513,18 @@ declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @brin_bloom_summary_out(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.StringInfoData, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
   %6 = tail call ptr @pg_detoast_datum_packed(ptr noundef %5) #7
   call void @initStringInfo(ptr noundef nonnull %2) #7
   call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 123) #7
-  %7 = getelementptr inbounds i8, ptr %6, i64 6
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 6
   %8 = load i8, ptr %7, align 2
   %9 = zext i8 %8 to i32
-  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %6, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %13 = load i32, ptr %12, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.8, i32 noundef %9, i32 noundef %11, i32 noundef %13) #7
   call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 125) #7

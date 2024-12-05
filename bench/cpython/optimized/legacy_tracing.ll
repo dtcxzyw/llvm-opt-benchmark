@@ -27,7 +27,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden i32 @_PyEval_SetOpcodeTrace(ptr nocapture noundef readonly %frame, i1 noundef zeroext %enable) local_unnamed_addr #0 {
 entry:
   %events = alloca i32, align 4
-  %f_frame = getelementptr inbounds i8, ptr %frame, i64 24
+  %f_frame = getelementptr inbounds nuw i8, ptr %frame, i64 24
   %0 = load ptr, ptr %f_frame, align 8
   %1 = load ptr, ptr %0, align 8
   store i32 0, ptr %events, align 4
@@ -84,9 +84,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %interp = getelementptr inbounds i8, ptr %tstate, i64 16
+  %interp = getelementptr inbounds nuw i8, ptr %tstate, i64 16
   %2 = load ptr, ptr %interp, align 8
-  %sys_profile_initialized = getelementptr inbounds i8, ptr %2, i64 414959
+  %sys_profile_initialized = getelementptr inbounds nuw i8, ptr %2, i64 414959
   %3 = load i8, ptr %sys_profile_initialized, align 1
   %tobool = trunc i8 %3 to i1
   br i1 %tobool, label %if.end33, label %if.then2
@@ -103,9 +103,9 @@ if.end8:                                          ; preds = %if.then2
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end8
-  %vectorcall1.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %vectorcall1.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store ptr @sys_profile_throw, ptr %vectorcall1.i, align 8
-  %event.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %event.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store i32 0, ptr %event.i, align 8
   %call2.i = tail call ptr @_PyMonitoring_RegisterCallback(i32 noundef 6, i32 noundef 13, ptr noundef nonnull %call.i) #4
   %cmp.not.i.i = icmp eq ptr %call2.i, null
@@ -171,13 +171,13 @@ if.end28:                                         ; preds = %if.end24
 if.end33:                                         ; preds = %if.end28, %if.end
   %cmp34 = icmp ne ptr %func, null
   %conv = zext i1 %cmp34 to i64
-  %c_profilefunc = getelementptr inbounds i8, ptr %tstate, i64 72
+  %c_profilefunc = getelementptr inbounds nuw i8, ptr %tstate, i64 72
   %8 = load ptr, ptr %c_profilefunc, align 8
   %cmp35 = icmp ne ptr %8, null
   %conv36.neg = sext i1 %cmp35 to i64
   %sub = add nsw i64 %conv36.neg, %conv
   store ptr %func, ptr %c_profilefunc, align 8
-  %c_profileobj = getelementptr inbounds i8, ptr %tstate, i64 88
+  %c_profileobj = getelementptr inbounds nuw i8, ptr %tstate, i64 88
   %9 = load ptr, ptr %c_profileobj, align 8
   %cmp.not.i.i9 = icmp eq ptr %arg, null
   br i1 %cmp.not.i.i9, label %_Py_XNewRef.exit, label %if.then.i.i10
@@ -215,12 +215,12 @@ if.then1.i.i17:                                   ; preds = %if.end.i.i14
 
 Py_XDECREF.exit:                                  ; preds = %_Py_XNewRef.exit, %if.then.i, %if.end.i.i14, %if.then1.i.i17
   %13 = load ptr, ptr %interp, align 8
-  %sys_profiling_threads = getelementptr inbounds i8, ptr %13, i64 414968
+  %sys_profiling_threads = getelementptr inbounds nuw i8, ptr %13, i64 414968
   %14 = load i64, ptr %sys_profiling_threads, align 8
   %add = add i64 %sub, %14
   store i64 %add, ptr %sys_profiling_threads, align 8
   %15 = load ptr, ptr %interp, align 8
-  %sys_profiling_threads43 = getelementptr inbounds i8, ptr %15, i64 414968
+  %sys_profiling_threads43 = getelementptr inbounds nuw i8, ptr %15, i64 414968
   %16 = load i64, ptr %sys_profiling_threads43, align 8
   %tobool44.not = icmp eq i64 %16, 0
   %spec.store.select = select i1 %tobool44.not, i32 0, i32 12319
@@ -242,9 +242,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %vectorcall1 = getelementptr inbounds i8, ptr %call, i64 16
+  %vectorcall1 = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr %vectorcall, ptr %vectorcall1, align 8
-  %event = getelementptr inbounds i8, ptr %call, i64 24
+  %event = getelementptr inbounds nuw i8, ptr %call, i64 24
   store i32 %legacy_event, ptr %event, align 8
   %call2 = tail call ptr @_PyMonitoring_RegisterCallback(i32 noundef %tool, i32 noundef %event1, ptr noundef nonnull %call) #4
   %cmp.not.i = icmp eq ptr %call2, null
@@ -317,7 +317,7 @@ define internal ptr @sys_profile_start(ptr nocapture noundef readonly %self, ptr
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %c_profilefunc.i = getelementptr inbounds i8, ptr %1, i64 72
+  %c_profilefunc.i = getelementptr inbounds nuw i8, ptr %1, i64 72
   %2 = load ptr, ptr %c_profilefunc.i, align 8
   %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %call_profile_func.exit, label %if.end.i
@@ -344,9 +344,9 @@ if.end.i13.i:                                     ; preds = %if.end4.i
 
 Py_INCREF.exit.i:                                 ; preds = %if.end.i13.i, %if.end4.i
   %5 = load ptr, ptr %c_profilefunc.i, align 8
-  %c_profileobj.i = getelementptr inbounds i8, ptr %1, i64 88
+  %c_profileobj.i = getelementptr inbounds nuw i8, ptr %1, i64 88
   %6 = load ptr, ptr %c_profileobj.i, align 8
-  %event.i = getelementptr inbounds i8, ptr %self, i64 24
+  %event.i = getelementptr inbounds nuw i8, ptr %self, i64 24
   %7 = load i32, ptr %event.i, align 8
   %call6.i = tail call i32 %5(ptr noundef %6, ptr noundef nonnull %call1.i, i32 noundef %7, ptr noundef nonnull @_Py_NoneStruct) #4
   %8 = load i64, ptr %call1.i, align 8
@@ -379,7 +379,7 @@ define internal ptr @sys_profile_throw(ptr nocapture noundef readonly %self, ptr
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %c_profilefunc.i = getelementptr inbounds i8, ptr %1, i64 72
+  %c_profilefunc.i = getelementptr inbounds nuw i8, ptr %1, i64 72
   %2 = load ptr, ptr %c_profilefunc.i, align 8
   %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %call_profile_func.exit, label %if.end.i
@@ -406,9 +406,9 @@ if.end.i13.i:                                     ; preds = %if.end4.i
 
 Py_INCREF.exit.i:                                 ; preds = %if.end.i13.i, %if.end4.i
   %5 = load ptr, ptr %c_profilefunc.i, align 8
-  %c_profileobj.i = getelementptr inbounds i8, ptr %1, i64 88
+  %c_profileobj.i = getelementptr inbounds nuw i8, ptr %1, i64 88
   %6 = load ptr, ptr %c_profileobj.i, align 8
-  %event.i = getelementptr inbounds i8, ptr %self, i64 24
+  %event.i = getelementptr inbounds nuw i8, ptr %self, i64 24
   %7 = load i32, ptr %event.i, align 8
   %call6.i = tail call i32 %5(ptr noundef %6, ptr noundef nonnull %call1.i, i32 noundef %7, ptr noundef nonnull @_Py_NoneStruct) #4
   %8 = load i64, ptr %call1.i, align 8
@@ -443,7 +443,7 @@ entry:
   %0 = load ptr, ptr %arrayidx, align 8
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %2 = load ptr, ptr %1, align 8
-  %c_profilefunc.i = getelementptr inbounds i8, ptr %2, i64 72
+  %c_profilefunc.i = getelementptr inbounds nuw i8, ptr %2, i64 72
   %3 = load ptr, ptr %c_profilefunc.i, align 8
   %cmp.i = icmp eq ptr %3, null
   br i1 %cmp.i, label %call_profile_func.exit, label %if.end.i
@@ -470,9 +470,9 @@ if.end.i13.i:                                     ; preds = %if.end4.i
 
 Py_INCREF.exit.i:                                 ; preds = %if.end.i13.i, %if.end4.i
   %6 = load ptr, ptr %c_profilefunc.i, align 8
-  %c_profileobj.i = getelementptr inbounds i8, ptr %2, i64 88
+  %c_profileobj.i = getelementptr inbounds nuw i8, ptr %2, i64 88
   %7 = load ptr, ptr %c_profileobj.i, align 8
-  %event.i = getelementptr inbounds i8, ptr %self, i64 24
+  %event.i = getelementptr inbounds nuw i8, ptr %self, i64 24
   %8 = load i32, ptr %event.i, align 8
   %call6.i = tail call i32 %6(ptr noundef %7, ptr noundef nonnull %call1.i, i32 noundef %8, ptr noundef %0) #4
   %9 = load i64, ptr %call1.i, align 8
@@ -505,7 +505,7 @@ define internal ptr @sys_profile_unwind(ptr nocapture noundef readonly %self, pt
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %c_profilefunc.i = getelementptr inbounds i8, ptr %1, i64 72
+  %c_profilefunc.i = getelementptr inbounds nuw i8, ptr %1, i64 72
   %2 = load ptr, ptr %c_profilefunc.i, align 8
   %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %call_profile_func.exit, label %if.end.i
@@ -532,9 +532,9 @@ if.end.i13.i:                                     ; preds = %if.end4.i
 
 Py_INCREF.exit.i:                                 ; preds = %if.end.i13.i, %if.end4.i
   %5 = load ptr, ptr %c_profilefunc.i, align 8
-  %c_profileobj.i = getelementptr inbounds i8, ptr %1, i64 88
+  %c_profileobj.i = getelementptr inbounds nuw i8, ptr %1, i64 88
   %6 = load ptr, ptr %c_profileobj.i, align 8
-  %event.i = getelementptr inbounds i8, ptr %self, i64 24
+  %event.i = getelementptr inbounds nuw i8, ptr %self, i64 24
   %7 = load i32, ptr %event.i, align 8
   %call6.i = tail call i32 %5(ptr noundef %6, ptr noundef nonnull %call1.i, i32 noundef %7, ptr noundef null) #4
   %8 = load i64, ptr %call1.i, align 8
@@ -580,7 +580,7 @@ PyObject_TypeCheck.exit:                          ; preds = %entry
 if.then:                                          ; preds = %entry, %PyObject_TypeCheck.exit
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %3 = load ptr, ptr %2, align 8
-  %c_profilefunc.i = getelementptr inbounds i8, ptr %3, i64 72
+  %c_profilefunc.i = getelementptr inbounds nuw i8, ptr %3, i64 72
   %4 = load ptr, ptr %c_profilefunc.i, align 8
   %cmp.i16 = icmp eq ptr %4, null
   br i1 %cmp.i16, label %return, label %if.end.i17
@@ -607,9 +607,9 @@ if.end.i13.i:                                     ; preds = %if.end4.i
 
 Py_INCREF.exit.i:                                 ; preds = %if.end.i13.i, %if.end4.i
   %7 = load ptr, ptr %c_profilefunc.i, align 8
-  %c_profileobj.i = getelementptr inbounds i8, ptr %3, i64 88
+  %c_profileobj.i = getelementptr inbounds nuw i8, ptr %3, i64 88
   %8 = load ptr, ptr %c_profileobj.i, align 8
-  %event.i = getelementptr inbounds i8, ptr %self, i64 24
+  %event.i = getelementptr inbounds nuw i8, ptr %self, i64 24
   %9 = load i32, ptr %event.i, align 8
   %call6.i = tail call i32 %7(ptr noundef %8, ptr noundef nonnull %call1.i, i32 noundef %9, ptr noundef nonnull %0) #4
   %10 = load i64, ptr %call1.i, align 8
@@ -644,7 +644,7 @@ if.then3:                                         ; preds = %if.end
   br i1 %cmp5, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.then3
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @PyMethodDescr_Type, i64 272), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyMethodDescr_Type, i64 272), align 8
   %14 = getelementptr i8, ptr %12, i64 8
   %.val14 = load ptr, ptr %14, align 8
   %call10 = tail call ptr %13(ptr noundef nonnull %0, ptr noundef %12, ptr noundef %.val14) #4
@@ -654,7 +654,7 @@ if.end7:                                          ; preds = %if.then3
 if.end13:                                         ; preds = %if.end7
   %15 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %16 = load ptr, ptr %15, align 8
-  %c_profilefunc.i18 = getelementptr inbounds i8, ptr %16, i64 72
+  %c_profilefunc.i18 = getelementptr inbounds nuw i8, ptr %16, i64 72
   %17 = load ptr, ptr %c_profilefunc.i18, align 8
   %cmp.i19 = icmp eq ptr %17, null
   br i1 %cmp.i19, label %call_profile_func.exit41, label %if.end.i20
@@ -681,9 +681,9 @@ if.end.i13.i26:                                   ; preds = %if.end4.i23
 
 Py_INCREF.exit.i27:                               ; preds = %if.end.i13.i26, %if.end4.i23
   %20 = load ptr, ptr %c_profilefunc.i18, align 8
-  %c_profileobj.i28 = getelementptr inbounds i8, ptr %16, i64 88
+  %c_profileobj.i28 = getelementptr inbounds nuw i8, ptr %16, i64 88
   %21 = load ptr, ptr %c_profileobj.i28, align 8
-  %event.i29 = getelementptr inbounds i8, ptr %self, i64 24
+  %event.i29 = getelementptr inbounds nuw i8, ptr %self, i64 24
   %22 = load i32, ptr %event.i29, align 8
   %call6.i30 = tail call i32 %20(ptr noundef %21, ptr noundef nonnull %call1.i21, i32 noundef %22, ptr noundef nonnull %call10) #4
   %23 = load i64, ptr %call1.i21, align 8
@@ -741,9 +741,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %interp = getelementptr inbounds i8, ptr %tstate, i64 16
+  %interp = getelementptr inbounds nuw i8, ptr %tstate, i64 16
   %2 = load ptr, ptr %interp, align 8
-  %sys_trace_initialized = getelementptr inbounds i8, ptr %2, i64 414960
+  %sys_trace_initialized = getelementptr inbounds nuw i8, ptr %2, i64 414960
   %3 = load i8, ptr %sys_trace_initialized, align 8
   %tobool = trunc i8 %3 to i1
   br i1 %tobool, label %if.end41, label %if.then2
@@ -760,9 +760,9 @@ if.end8:                                          ; preds = %if.then2
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end8
-  %vectorcall1.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %vectorcall1.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store ptr @sys_trace_throw, ptr %vectorcall1.i, align 8
-  %event.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %event.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store i32 0, ptr %event.i, align 8
   %call2.i = tail call ptr @_PyMonitoring_RegisterCallback(i32 noundef 7, i32 noundef 13, ptr noundef nonnull %call.i) #4
   %cmp.not.i.i = icmp eq ptr %call2.i, null
@@ -806,9 +806,9 @@ if.end12:                                         ; preds = %Py_XDECREF.exit.i, 
   br i1 %cmp.i12, label %return, label %if.end.i13
 
 if.end.i13:                                       ; preds = %if.end12
-  %vectorcall1.i14 = getelementptr inbounds i8, ptr %call.i11, i64 16
+  %vectorcall1.i14 = getelementptr inbounds nuw i8, ptr %call.i11, i64 16
   store ptr @sys_trace_return, ptr %vectorcall1.i14, align 8
-  %event.i15 = getelementptr inbounds i8, ptr %call.i11, i64 24
+  %event.i15 = getelementptr inbounds nuw i8, ptr %call.i11, i64 24
   store i32 3, ptr %event.i15, align 8
   %call2.i16 = tail call ptr @_PyMonitoring_RegisterCallback(i32 noundef 7, i32 noundef 2, ptr noundef nonnull %call.i11) #4
   %cmp.not.i.i17 = icmp eq ptr %call2.i16, null
@@ -879,13 +879,13 @@ if.end36:                                         ; preds = %if.end32
 if.end41:                                         ; preds = %if.end36, %if.end
   %cmp42 = icmp ne ptr %func, null
   %conv = zext i1 %cmp42 to i64
-  %c_tracefunc = getelementptr inbounds i8, ptr %tstate, i64 80
+  %c_tracefunc = getelementptr inbounds nuw i8, ptr %tstate, i64 80
   %12 = load ptr, ptr %c_tracefunc, align 8
   %cmp43 = icmp ne ptr %12, null
   %conv44.neg = sext i1 %cmp43 to i64
   %sub = add nsw i64 %conv44.neg, %conv
   store ptr %func, ptr %c_tracefunc, align 8
-  %c_traceobj = getelementptr inbounds i8, ptr %tstate, i64 96
+  %c_traceobj = getelementptr inbounds nuw i8, ptr %tstate, i64 96
   %13 = load ptr, ptr %c_traceobj, align 8
   %cmp.not.i.i32 = icmp eq ptr %arg, null
   br i1 %cmp.not.i.i32, label %_Py_XNewRef.exit, label %if.then.i.i33
@@ -923,26 +923,26 @@ if.then1.i.i40:                                   ; preds = %if.end.i.i37
 
 Py_XDECREF.exit:                                  ; preds = %_Py_XNewRef.exit, %if.then.i, %if.end.i.i37, %if.then1.i.i40
   %17 = load ptr, ptr %interp, align 8
-  %sys_tracing_threads = getelementptr inbounds i8, ptr %17, i64 414976
+  %sys_tracing_threads = getelementptr inbounds nuw i8, ptr %17, i64 414976
   %18 = load i64, ptr %sys_tracing_threads, align 8
   %add = add i64 %sub, %18
   store i64 %add, ptr %sys_tracing_threads, align 8
   %19 = load ptr, ptr %interp, align 8
-  %sys_tracing_threads51 = getelementptr inbounds i8, ptr %19, i64 414976
+  %sys_tracing_threads51 = getelementptr inbounds nuw i8, ptr %19, i64 414976
   %20 = load i64, ptr %sys_tracing_threads51, align 8
   %tobool52.not = icmp eq i64 %20, 0
   br i1 %tobool52.not, label %if.end63, label %if.then53
 
 if.then53:                                        ; preds = %Py_XDECREF.exit
   %call54 = tail call ptr @PyEval_GetFrame() #4
-  %f_trace_opcodes = getelementptr inbounds i8, ptr %call54, i64 45
+  %f_trace_opcodes = getelementptr inbounds nuw i8, ptr %call54, i64 45
   %21 = load i8, ptr %f_trace_opcodes, align 1
   %tobool55.not = icmp eq i8 %21, 0
   br i1 %tobool55.not, label %if.end63, label %if.then56
 
 if.then56:                                        ; preds = %if.then53
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %events.i)
-  %f_frame.i = getelementptr inbounds i8, ptr %call54, i64 24
+  %f_frame.i = getelementptr inbounds nuw i8, ptr %call54, i64 24
   %22 = load ptr, ptr %f_frame.i, align 8
   %23 = load ptr, ptr %22, align 8
   store i32 0, ptr %events.i, align 4
@@ -1084,7 +1084,7 @@ define internal ptr @sys_trace_line_func(ptr nocapture noundef readonly %self, p
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %c_tracefunc = getelementptr inbounds i8, ptr %1, i64 80
+  %c_tracefunc = getelementptr inbounds nuw i8, ptr %1, i64 80
   %2 = load ptr, ptr %c_tracefunc, align 8
   %cmp = icmp eq ptr %2, null
   br i1 %cmp, label %return, label %if.end
@@ -1103,7 +1103,7 @@ if.then4:                                         ; preds = %if.end
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %f_trace_lines.i = getelementptr inbounds i8, ptr %call2, i64 44
+  %f_trace_lines.i = getelementptr inbounds nuw i8, ptr %call2, i64 44
   %5 = load i8, ptr %f_trace_lines.i, align 4
   %tobool.not.i = icmp eq i8 %5, 0
   %cmp.i = icmp slt i32 %call1, 0
@@ -1121,12 +1121,12 @@ if.end.i11.i:                                     ; preds = %if.end2.i
   br label %Py_INCREF.exit.i
 
 Py_INCREF.exit.i:                                 ; preds = %if.end.i11.i, %if.end2.i
-  %f_lineno.i = getelementptr inbounds i8, ptr %call2, i64 40
+  %f_lineno.i = getelementptr inbounds nuw i8, ptr %call2, i64 40
   store i32 %call1, ptr %f_lineno.i, align 8
   %7 = load ptr, ptr %c_tracefunc, align 8
-  %c_traceobj.i = getelementptr inbounds i8, ptr %1, i64 96
+  %c_traceobj.i = getelementptr inbounds nuw i8, ptr %1, i64 96
   %8 = load ptr, ptr %c_traceobj.i, align 8
-  %event.i = getelementptr inbounds i8, ptr %self, i64 24
+  %event.i = getelementptr inbounds nuw i8, ptr %self, i64 24
   %9 = load i32, ptr %event.i, align 8
   %call.i = tail call i32 %7(ptr noundef %8, ptr noundef nonnull %call2, i32 noundef %9, ptr noundef nonnull @_Py_NoneStruct) #4
   store i32 0, ptr %f_lineno.i, align 8
@@ -1167,7 +1167,7 @@ define internal ptr @sys_trace_jump_func(ptr nocapture noundef readonly %self, p
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %c_tracefunc = getelementptr inbounds i8, ptr %1, i64 80
+  %c_tracefunc = getelementptr inbounds nuw i8, ptr %1, i64 80
   %2 = load ptr, ptr %c_tracefunc, align 8
   %cmp = icmp eq ptr %2, null
   br i1 %cmp, label %return, label %if.end
@@ -1202,7 +1202,7 @@ if.then22:                                        ; preds = %if.end18
   br label %return
 
 if.end23:                                         ; preds = %if.end18
-  %f_trace_lines = getelementptr inbounds i8, ptr %call19, i64 44
+  %f_trace_lines = getelementptr inbounds nuw i8, ptr %call19, i64 44
   %7 = load i8, ptr %f_trace_lines, align 4
   %tobool.not = icmp eq i8 %7, 0
   %cmp.i = icmp slt i32 %call13, 0
@@ -1220,12 +1220,12 @@ if.end.i11.i:                                     ; preds = %if.end2.i
   br label %Py_INCREF.exit.i
 
 Py_INCREF.exit.i:                                 ; preds = %if.end.i11.i, %if.end2.i
-  %f_lineno.i = getelementptr inbounds i8, ptr %call19, i64 40
+  %f_lineno.i = getelementptr inbounds nuw i8, ptr %call19, i64 40
   store i32 %call13, ptr %f_lineno.i, align 8
   %9 = load ptr, ptr %c_tracefunc, align 8
-  %c_traceobj.i = getelementptr inbounds i8, ptr %1, i64 96
+  %c_traceobj.i = getelementptr inbounds nuw i8, ptr %1, i64 96
   %10 = load ptr, ptr %c_traceobj.i, align 8
-  %event.i = getelementptr inbounds i8, ptr %self, i64 24
+  %event.i = getelementptr inbounds nuw i8, ptr %self, i64 24
   %11 = load i32, ptr %event.i, align 8
   %call.i = tail call i32 %9(ptr noundef %10, ptr noundef nonnull %call19, i32 noundef %11, ptr noundef nonnull @_Py_NoneStruct) #4
   store i32 0, ptr %f_lineno.i, align 8
@@ -1270,20 +1270,20 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %2 = load ptr, ptr %1, align 8
-  %c_tracefunc = getelementptr inbounds i8, ptr %2, i64 80
+  %c_tracefunc = getelementptr inbounds nuw i8, ptr %2, i64 80
   %3 = load ptr, ptr %c_tracefunc, align 8
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %if.then3, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %f_trace_opcodes = getelementptr inbounds i8, ptr %call, i64 45
+  %f_trace_opcodes = getelementptr inbounds nuw i8, ptr %call, i64 45
   %4 = load i8, ptr %f_trace_opcodes, align 1
   %tobool2.not = icmp eq i8 %4, 0
   br i1 %tobool2.not, label %if.then3, label %if.end8
 
 if.then3:                                         ; preds = %lor.lhs.false, %if.end
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %events.i)
-  %f_frame.i = getelementptr inbounds i8, ptr %call, i64 24
+  %f_frame.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   %5 = load ptr, ptr %f_frame.i, align 8
   %6 = load ptr, ptr %5, align 8
   store i32 0, ptr %events.i, align 4
@@ -1330,12 +1330,12 @@ if.end.i18:                                       ; preds = %if.end8
 
 Py_INCREF.exit:                                   ; preds = %if.end8, %if.end.i18
   %10 = phi ptr [ %3, %if.end8 ], [ %.pre, %if.end.i18 ]
-  %c_traceobj = getelementptr inbounds i8, ptr %2, i64 96
+  %c_traceobj = getelementptr inbounds nuw i8, ptr %2, i64 96
   %11 = load ptr, ptr %c_traceobj, align 8
-  %event = getelementptr inbounds i8, ptr %self, i64 24
+  %event = getelementptr inbounds nuw i8, ptr %self, i64 24
   %12 = load i32, ptr %event, align 8
   %call10 = tail call i32 %10(ptr noundef %11, ptr noundef nonnull %call, i32 noundef %12, ptr noundef nonnull @_Py_NoneStruct) #4
-  %f_lineno = getelementptr inbounds i8, ptr %call, i64 40
+  %f_lineno = getelementptr inbounds nuw i8, ptr %call, i64 40
   store i32 0, ptr %f_lineno, align 8
   %13 = load i64, ptr %call, align 8
   %14 = and i64 %13, 2147483648
@@ -1383,7 +1383,7 @@ entry:
   %events.i = alloca i32, align 4
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %c_tracefunc = getelementptr inbounds i8, ptr %1, i64 80
+  %c_tracefunc = getelementptr inbounds nuw i8, ptr %1, i64 80
   %2 = load ptr, ptr %c_tracefunc, align 8
   %cmp = icmp eq ptr %2, null
   br i1 %cmp, label %return, label %if.end
@@ -1399,14 +1399,14 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %f_trace_opcodes = getelementptr inbounds i8, ptr %call1, i64 45
+  %f_trace_opcodes = getelementptr inbounds nuw i8, ptr %call1, i64 45
   %4 = load i8, ptr %f_trace_opcodes, align 1
   %tobool.not = icmp eq i8 %4, 0
   br i1 %tobool.not, label %if.end10, label %if.then5
 
 if.then5:                                         ; preds = %if.end4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %events.i)
-  %f_frame.i = getelementptr inbounds i8, ptr %call1, i64 24
+  %f_frame.i = getelementptr inbounds nuw i8, ptr %call1, i64 24
   %5 = load ptr, ptr %f_frame.i, align 8
   %6 = load ptr, ptr %5, align 8
   store i32 0, ptr %events.i, align 4
@@ -1448,9 +1448,9 @@ if.end.i20:                                       ; preds = %if.end10
 
 Py_INCREF.exit:                                   ; preds = %if.end10, %if.end.i20
   %9 = load ptr, ptr %c_tracefunc, align 8
-  %c_traceobj = getelementptr inbounds i8, ptr %1, i64 96
+  %c_traceobj = getelementptr inbounds nuw i8, ptr %1, i64 96
   %10 = load ptr, ptr %c_traceobj, align 8
-  %event = getelementptr inbounds i8, ptr %self, i64 24
+  %event = getelementptr inbounds nuw i8, ptr %self, i64 24
   %11 = load i32, ptr %event, align 8
   %call12 = call i32 %9(ptr noundef %10, ptr noundef nonnull %call1, i32 noundef %11, ptr noundef %arg) #4
   %12 = load i64, ptr %call1, align 8

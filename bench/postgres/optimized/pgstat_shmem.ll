@@ -71,24 +71,24 @@ define dso_local void @StatsShmemInit() local_unnamed_addr #0 {
   call void @dsa_set_size_limit(ptr noundef %8, i64 noundef 262144) #14
   %9 = call ptr @dshash_create(ptr noundef %8, ptr noundef nonnull @dsh_params, ptr noundef null) #14
   %10 = call i64 @dshash_get_hash_table_handle(ptr noundef %9) #14
-  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %10, ptr %11, align 8
   call void @dsa_set_size_limit(ptr noundef %8, i64 noundef -1) #14
   call void @dshash_detach(ptr noundef %9) #14
   call void @dsa_detach(ptr noundef %8) #14
-  %12 = getelementptr inbounds i8, ptr %3, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store volatile i64 1, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 32
   call void @LWLockInitialize(ptr noundef nonnull %13, i32 noundef 79) #14
-  %14 = getelementptr inbounds i8, ptr %3, i64 328
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 328
   call void @LWLockInitialize(ptr noundef nonnull %14, i32 noundef 79) #14
-  %15 = getelementptr inbounds i8, ptr %3, i64 416
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 416
   call void @LWLockInitialize(ptr noundef nonnull %15, i32 noundef 79) #14
-  %16 = getelementptr inbounds i8, ptr %3, i64 17232
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 17232
   call void @LWLockInitialize(ptr noundef nonnull %16, i32 noundef 79) #14
-  %17 = getelementptr inbounds i8, ptr %3, i64 17760
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 17760
   call void @LWLockInitialize(ptr noundef nonnull %17, i32 noundef 79) #14
-  %18 = getelementptr inbounds i8, ptr %3, i64 584
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 584
   br label %19
 
 19:                                               ; preds = %6, %19
@@ -133,7 +133,7 @@ define dso_local void @pgstat_attach_shmem() local_unnamed_addr #0 {
   tail call void @dsa_pin_mapping(ptr noundef %5) #14
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 8), align 8
   %7 = load ptr, ptr @pgStatLocal, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = tail call ptr @dshash_attach(ptr noundef %6, ptr noundef nonnull @dsh_params, i64 noundef %9, ptr noundef null) #14
   store ptr %10, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 16), align 8
@@ -159,7 +159,7 @@ define dso_local void @pgstat_detach_shmem() local_unnamed_addr #0 {
   br i1 %.not16.i.i.i, label %pgstat_entry_ref_hash_start_iterate.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   br label %7
 
@@ -185,8 +185,8 @@ pgstat_entry_ref_hash_start_iterate.exit.split.us.i.i: ; preds = %.backedge.us.i
   %15 = phi ptr [ %.pre23.i.i, %.backedge.us.i.i ], [ %1, %pgstat_entry_ref_hash_start_iterate.exit.i.i ]
   %.sroa.5.0.us.i.i = phi i1 [ %spec.select.us.i.i, %.backedge.us.i.i ], [ false, %pgstat_entry_ref_hash_start_iterate.exit.i.i ]
   %.sroa.0.0.us.i.i = phi i32 [ %25, %.backedge.us.i.i ], [ %.0.i.i.i, %pgstat_entry_ref_hash_start_iterate.exit.i.i ]
-  %16 = getelementptr inbounds i8, ptr %15, i64 24
-  %17 = getelementptr inbounds i8, ptr %15, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 12
   %.pre.i = load ptr, ptr %16, align 8
   br label %18
 
@@ -206,7 +206,7 @@ pgstat_entry_ref_hash_start_iterate.exit.split.us.i.i: ; preds = %.backedge.us.i
   %27 = and i32 %24, %26
   %28 = icmp eq i32 %27, 0
   %spec.select.us.i.i = select i1 %28, i1 true, i1 %.sroa.5.1.us.i.i
-  %29 = getelementptr inbounds i8, ptr %22, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 12
   %30 = load i8, ptr %29, align 4
   %31 = icmp eq i8 %30, 1
   br i1 %31, label %pgstat_entry_ref_hash_iterate.exit.us.i.i, label %18, !llvm.loop !8
@@ -216,10 +216,10 @@ pgstat_entry_ref_hash_iterate.exit.us.i.i:        ; preds = %20
   br i1 %.not.us.i.i, label %pgstat_release_matching_entry_refs.exit.i, label %.backedge.us.i.i
 
 .backedge.us.i.i:                                 ; preds = %pgstat_entry_ref_hash_iterate.exit.us.i.i
-  %32 = getelementptr inbounds i8, ptr %22, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %33 = load ptr, ptr %32, align 8
   %.sroa.0.0.copyload.us.i.i = load i64, ptr %22, align 8
-  %.sroa.2.0..sroa_idx.us.i.i = getelementptr inbounds i8, ptr %22, i64 8
+  %.sroa.2.0..sroa_idx.us.i.i = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.sroa.2.0.copyload.us.i.i = load i32, ptr %.sroa.2.0..sroa_idx.us.i.i, align 8
   tail call fastcc void @pgstat_release_entry_ref(i64 %.sroa.0.0.copyload.us.i.i, i32 %.sroa.2.0.copyload.us.i.i, ptr noundef %33, i1 noundef zeroext false)
   %.pre23.i.i = load ptr, ptr @pgStatEntryRefHash, align 8
@@ -243,22 +243,22 @@ pgstat_release_all_entry_refs.exit:               ; preds = %0, %pgstat_release_
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @pgstat_init_entry(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store volatile i32 1, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %1, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i8 0, ptr %4, align 4
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 8), align 8
   %6 = tail call ptr @pgstat_get_kind_info(i32 noundef %0) #14
-  %7 = getelementptr inbounds i8, ptr %6, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = zext i32 %8 to i64
   %10 = tail call i64 @dsa_allocate_extended(ptr noundef %5, i64 noundef %9, i32 noundef 4) #14
   %11 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 8), align 8
   %12 = tail call ptr @dsa_get_address(ptr noundef %11, i64 noundef %10) #14
   store i32 -559038737, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 %10, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %12, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 4
   tail call void @LWLockInitialize(ptr noundef nonnull %14, i32 noundef 79) #14
   ret ptr %12
 }
@@ -275,9 +275,9 @@ define dso_local ptr @pgstat_get_entry_ref(i32 noundef %0, i32 noundef %1, i32 n
   %7 = alloca %struct.PgStat_HashKey, align 8
   %8 = alloca i8, align 1
   store i32 %0, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %1, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %7, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %2, ptr %10, align 8
   %11 = load ptr, ptr @pgStatSharedRefContext, align 8
   %.not.i = icmp eq ptr %11, null
@@ -308,21 +308,21 @@ pgstat_setup_memcxt.exit:                         ; preds = %15, %17
 
 22:                                               ; preds = %pgstat_setup_memcxt.exit
   %23 = tail call ptr @MemoryContextAllocZero(ptr noundef %20, i64 noundef 48) #14
-  %24 = getelementptr inbounds i8, ptr %23, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
   store ptr %20, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %23, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 40
   store ptr null, ptr %25, align 8
   %26 = tail call ptr @MemoryContextAllocExtended(ptr noundef %20, i64 noundef 6144, i32 noundef 5) #14
-  %27 = getelementptr inbounds i8, ptr %23, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 24
   store ptr %26, ptr %27, align 8
   store i64 256, ptr %23, align 8
-  %28 = getelementptr inbounds i8, ptr %23, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 12
   store i32 255, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %23, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store i32 230, ptr %29, align 8
   store ptr %23, ptr @pgStatEntryRefHash, align 8
   %30 = load ptr, ptr @pgStatLocal, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %32 = load volatile i64, ptr %31, align 8
   %33 = trunc i64 %32 to i32
   store i32 %33, ptr @pgStatSharedRefAge, align 4
@@ -339,7 +339,7 @@ pgstat_setup_shared_refs.exit:                    ; preds = %pgstat_setup_memcxt
 
 pgstat_need_entry_refs_gc.exit:                   ; preds = %pgstat_setup_shared_refs.exit, %35
   %36 = load ptr, ptr @pgStatLocal, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %38 = load volatile i64, ptr %37, align 8
   %39 = load i32, ptr @pgStatSharedRefAge, align 4
   %40 = sext i32 %39 to i64
@@ -353,7 +353,7 @@ pgstat_need_entry_refs_gc.exit:                   ; preds = %pgstat_setup_shared
   br i1 %.not16.i.i, label %pgstat_entry_ref_hash_start_iterate.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %41
-  %44 = getelementptr inbounds i8, ptr %34, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %45 = load ptr, ptr %44, align 8
   br label %46
 
@@ -379,8 +379,8 @@ pgstat_entry_ref_hash_start_iterate.exit.i:       ; preds = %50, %46, %41
   %.ph = phi ptr [ %.pre.i, %81 ], [ %34, %pgstat_entry_ref_hash_start_iterate.exit.i ]
   %.sroa.5.0.i.ph = phi i1 [ %spec.select.i, %81 ], [ false, %pgstat_entry_ref_hash_start_iterate.exit.i ]
   %.sroa.0.0.i.ph = phi i32 [ %64, %81 ], [ %.0.i.i, %pgstat_entry_ref_hash_start_iterate.exit.i ]
-  %54 = getelementptr inbounds i8, ptr %.ph, i64 24
-  %55 = getelementptr inbounds i8, ptr %.ph, i64 12
+  %54 = getelementptr inbounds nuw i8, ptr %.ph, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %.ph, i64 12
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %.backedge.i.backedge, %.backedge.i.outer
@@ -405,7 +405,7 @@ pgstat_entry_ref_hash_start_iterate.exit.i:       ; preds = %50, %46, %41
   %66 = and i32 %63, %65
   %67 = icmp eq i32 %66, 0
   %spec.select.i = select i1 %67, i1 true, i1 %.sroa.5.1.i
-  %68 = getelementptr inbounds i8, ptr %61, i64 12
+  %68 = getelementptr inbounds nuw i8, ptr %61, i64 12
   %69 = load i8, ptr %68, align 4
   %70 = icmp eq i8 %69, 1
   br i1 %70, label %pgstat_entry_ref_hash_iterate.exit.i, label %56, !llvm.loop !8
@@ -415,16 +415,16 @@ pgstat_entry_ref_hash_iterate.exit.i:             ; preds = %58
   br i1 %.not.i40, label %pgstat_gc_entry_refs.exit, label %71
 
 71:                                               ; preds = %pgstat_entry_ref_hash_iterate.exit.i
-  %72 = getelementptr inbounds i8, ptr %61, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %73 = load ptr, ptr %72, align 8
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 12
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 12
   %76 = load i8, ptr %75, align 4
   %77 = trunc i8 %76 to i1
   br i1 %77, label %78, label %.backedge.i.backedge
 
 78:                                               ; preds = %71
-  %79 = getelementptr inbounds i8, ptr %73, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %80 = load ptr, ptr %79, align 8
   %.not5.i = icmp eq ptr %80, null
   br i1 %.not5.i, label %81, label %.backedge.i.backedge
@@ -434,7 +434,7 @@ pgstat_entry_ref_hash_iterate.exit.i:             ; preds = %58
 
 81:                                               ; preds = %78
   %.sroa.0.0.copyload.i = load i64, ptr %61, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %61, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %61, i64 8
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 8
   tail call fastcc void @pgstat_release_entry_ref(i64 %.sroa.0.0.copyload.i, i32 %.sroa.2.0.copyload.i, ptr noundef nonnull %73, i1 noundef zeroext false)
   %.pre.i = load ptr, ptr @pgStatEntryRefHash, align 8
@@ -473,11 +473,11 @@ pgstat_need_entry_refs_gc.exit.thread:            ; preds = %pgstat_gc_entry_ref
   %105 = trunc i64 %104 to i32
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6)
   store i64 %.sroa.04.0.copyload, ptr %6, align 8
-  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %2, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
-  %106 = getelementptr inbounds i8, ptr %83, i64 8
-  %107 = getelementptr inbounds i8, ptr %83, i64 16
-  %108 = getelementptr inbounds i8, ptr %83, i64 24
+  %106 = getelementptr inbounds nuw i8, ptr %83, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %83, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %83, i64 24
   %109 = getelementptr i8, ptr %83, i64 32
   %110 = getelementptr i8, ptr %83, i64 12
   %.pre.i.i.i = load i32, ptr %106, align 8
@@ -562,7 +562,7 @@ pgstat_entry_ref_hash_update_parameters.exit.i.i.i.i: ; preds = %pgstat_entry_re
   %151 = phi i64 [ %183, %181 ], [ 0, %pgstat_entry_ref_hash_update_parameters.exit.i.i.i.i ]
   %.059.i.i.i.i = phi i32 [ %182, %181 ], [ 0, %pgstat_entry_ref_hash_update_parameters.exit.i.i.i.i ]
   %152 = getelementptr %struct.PgStat_EntryRefHashEntry, ptr %122, i64 %151
-  %153 = getelementptr inbounds i8, ptr %152, i64 12
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 12
   %154 = load i8, ptr %153, align 4
   %.not.i.i.i.i = icmp eq i8 %154, 1
   br i1 %.not.i.i.i.i, label %155, label %.lr.ph72.i.i.i.i.preheader
@@ -613,7 +613,7 @@ pgstat_entry_ref_hash_update_parameters.exit.i.i.i.i: ; preds = %pgstat_entry_re
   %.04969.i.i.i.i = phi i32 [ %spec.store.select.i.i.i.i, %227 ], [ %.04969.i.i.i.i.ph, %.lr.ph72.i.i.i.i.preheader ]
   %185 = zext i32 %.04969.i.i.i.i to i64
   %186 = getelementptr %struct.PgStat_EntryRefHashEntry, ptr %122, i64 %185
-  %187 = getelementptr inbounds i8, ptr %186, i64 12
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 12
   %188 = load i8, ptr %187, align 4
   %189 = icmp eq i8 %188, 1
   br i1 %189, label %190, label %227
@@ -649,7 +649,7 @@ pgstat_entry_ref_hash_update_parameters.exit.i.i.i.i: ; preds = %pgstat_entry_re
   %214 = and i32 %.val53.i.i.i.i, %213
   %215 = zext i32 %214 to i64
   %216 = getelementptr %struct.PgStat_EntryRefHashEntry, ptr %134, i64 %215
-  %217 = getelementptr inbounds i8, ptr %216, i64 12
+  %217 = getelementptr inbounds nuw i8, ptr %216, i64 12
   %218 = load i8, ptr %217, align 4
   %219 = icmp eq i8 %218, 0
   br i1 %219, label %._crit_edge67.i.i.i.i, label %.lr.ph66.i.i.i.i
@@ -660,7 +660,7 @@ pgstat_entry_ref_hash_update_parameters.exit.i.i.i.i: ; preds = %pgstat_entry_re
   %221 = and i32 %220, %.val53.i.i.i.i
   %222 = zext i32 %221 to i64
   %223 = getelementptr %struct.PgStat_EntryRefHashEntry, ptr %134, i64 %222
-  %224 = getelementptr inbounds i8, ptr %223, i64 12
+  %224 = getelementptr inbounds nuw i8, ptr %223, i64 12
   %225 = load i8, ptr %224, align 4
   %226 = icmp eq i8 %225, 0
   br i1 %226, label %._crit_edge67.i.i.i.i, label %.lr.ph66.i.i.i.i
@@ -690,14 +690,14 @@ pgstat_entry_ref_hash_grow.exit.i.i.i:            ; preds = %227, %pgstat_entry_
   %.066108.i.i.i = and i32 %.val.i.i.i, %105
   %235 = zext i32 %.066108.i.i.i to i64
   %236 = getelementptr %struct.PgStat_EntryRefHashEntry, ptr %234, i64 %235
-  %237 = getelementptr inbounds i8, ptr %236, i64 12
+  %237 = getelementptr inbounds nuw i8, ptr %236, i64 12
   %238 = load i8, ptr %237, align 4
   %239 = icmp eq i8 %238, 0
   br i1 %239, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %233, %317
   %.lcssa107.i.i.i = phi ptr [ %319, %317 ], [ %236, %233 ]
-  %240 = getelementptr inbounds i8, ptr %.lcssa107.i.i.i, i64 12
+  %240 = getelementptr inbounds nuw i8, ptr %.lcssa107.i.i.i, i64 12
   %241 = load i32, ptr %106, align 8
   %242 = add i32 %241, 1
   store i32 %242, ptr %106, align 8
@@ -761,7 +761,7 @@ pgstat_entry_ref_hash_distance.exit.i.i.i:        ; preds = %270, %245
   %276 = and i32 %275, %.val.i.i.i
   %277 = zext i32 %276 to i64
   %278 = getelementptr %struct.PgStat_EntryRefHashEntry, ptr %234, i64 %277
-  %279 = getelementptr inbounds i8, ptr %278, i64 12
+  %279 = getelementptr inbounds nuw i8, ptr %278, i64 12
   %280 = load i8, ptr %279, align 4
   %281 = icmp eq i8 %280, 0
   br i1 %281, label %.preheader.i.i.i, label %.lr.ph118.i.i.i
@@ -769,7 +769,7 @@ pgstat_entry_ref_hash_distance.exit.i.i.i:        ; preds = %270, %245
 .preheader.i.i.i:                                 ; preds = %.preheader78.i.i.i, %293
   %.lcssa92.i.i.i = phi i32 [ %295, %293 ], [ %276, %.preheader78.i.i.i ]
   %.lcssa90.i.i.i = phi ptr [ %297, %293 ], [ %278, %.preheader78.i.i.i ]
-  %.lcssa81.lcssa.i.i.i = getelementptr inbounds i8, ptr %243, i64 12
+  %.lcssa81.lcssa.i.i.i = getelementptr inbounds nuw i8, ptr %243, i64 12
   %.not72136.i.i.i = icmp eq i32 %.lcssa92.i.i.i, %.066110.i.i.i
   br i1 %.not72136.i.i.i, label %._crit_edge140.i.i.i, label %.lr.ph139.i.i.i
 
@@ -799,7 +799,7 @@ pgstat_entry_ref_hash_distance.exit.i.i.i:        ; preds = %270, %245
   %295 = and i32 %294, %.val.i.i.i
   %296 = zext i32 %295 to i64
   %297 = getelementptr %struct.PgStat_EntryRefHashEntry, ptr %234, i64 %296
-  %298 = getelementptr inbounds i8, ptr %297, i64 12
+  %298 = getelementptr inbounds nuw i8, ptr %297, i64 12
   %299 = load i8, ptr %298, align 4
   %300 = icmp eq i8 %299, 0
   br i1 %300, label %.preheader.i.i.i, label %.lr.ph118.i.i.i
@@ -842,7 +842,7 @@ pgstat_entry_ref_hash_distance.exit.i.i.i:        ; preds = %270, %245
   %.066.i.i.i = and i32 %275, %.val.i.i.i
   %318 = zext i32 %.066.i.i.i to i64
   %319 = getelementptr %struct.PgStat_EntryRefHashEntry, ptr %234, i64 %318
-  %320 = getelementptr inbounds i8, ptr %319, i64 12
+  %320 = getelementptr inbounds nuw i8, ptr %319, i64 12
   %321 = load i8, ptr %320, align 4
   %322 = icmp eq i8 %321, 0
   br i1 %322, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
@@ -854,7 +854,7 @@ pgstat_entry_ref_hash_insert.exit.thread.i:       ; preds = %._crit_edge140.i.i.
 
 323:                                              ; preds = %.lr.ph.i.i.i
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6)
-  %324 = getelementptr inbounds i8, ptr %243, i64 16
+  %324 = getelementptr inbounds nuw i8, ptr %243, i64 16
   %325 = load ptr, ptr %324, align 8
   %.not.i43 = icmp eq ptr %325, null
   br i1 %.not.i43, label %pgstat_get_entry_ref_cached.exit.thread, label %pgstat_get_entry_ref_cached.exit
@@ -863,14 +863,14 @@ pgstat_get_entry_ref_cached.exit.thread:          ; preds = %pgstat_entry_ref_ha
   %326 = phi ptr [ %.ph.i, %pgstat_entry_ref_hash_insert.exit.thread.i ], [ %243, %323 ]
   %327 = load ptr, ptr @pgStatSharedRefContext, align 8
   %328 = tail call ptr @MemoryContextAlloc(ptr noundef %327, i64 noundef 40) #14
-  %329 = getelementptr inbounds i8, ptr %326, i64 16
+  %329 = getelementptr inbounds nuw i8, ptr %326, i64 16
   store ptr %328, ptr %329, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %328, i8 0, i64 24, i1 false)
   %.pre.i41 = load ptr, ptr %329, align 8
   br label %332
 
 pgstat_get_entry_ref_cached.exit:                 ; preds = %323
-  %330 = getelementptr inbounds i8, ptr %325, i64 8
+  %330 = getelementptr inbounds nuw i8, ptr %325, i64 8
   %331 = load ptr, ptr %330, align 8
   %.not55 = icmp eq ptr %331, null
   br i1 %.not55, label %332, label %397
@@ -891,27 +891,27 @@ pgstat_get_entry_ref_cached.exit:                 ; preds = %323
   br i1 %341, label %359, label %342
 
 342:                                              ; preds = %337
-  %343 = getelementptr inbounds i8, ptr %339, i64 16
+  %343 = getelementptr inbounds nuw i8, ptr %339, i64 16
   store volatile i32 1, ptr %343, align 4
-  %344 = getelementptr inbounds i8, ptr %339, i64 12
+  %344 = getelementptr inbounds nuw i8, ptr %339, i64 12
   store i8 0, ptr %344, align 4
   %345 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 8), align 8
   %346 = call ptr @pgstat_get_kind_info(i32 noundef %0) #14
-  %347 = getelementptr inbounds i8, ptr %346, i64 4
+  %347 = getelementptr inbounds nuw i8, ptr %346, i64 4
   %348 = load i32, ptr %347, align 4
   %349 = zext i32 %348 to i64
   %350 = call i64 @dsa_allocate_extended(ptr noundef %345, i64 noundef %349, i32 noundef 4) #14
   %351 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 8), align 8
   %352 = call ptr @dsa_get_address(ptr noundef %351, i64 noundef %350) #14
   store i32 -559038737, ptr %352, align 4
-  %353 = getelementptr inbounds i8, ptr %339, i64 24
+  %353 = getelementptr inbounds nuw i8, ptr %339, i64 24
   store i64 %350, ptr %353, align 8
-  %354 = getelementptr inbounds i8, ptr %352, i64 4
+  %354 = getelementptr inbounds nuw i8, ptr %352, i64 4
   call void @LWLockInitialize(ptr noundef nonnull %354, i32 noundef 79) #14
   %355 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %343, i32 1, ptr nonnull elementtype(i32) %343) #14, !srcloc !14
   %356 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 16), align 8
   call void @dshash_release_lock(ptr noundef %356, ptr noundef %339) #14
-  %357 = getelementptr inbounds i8, ptr %333, i64 8
+  %357 = getelementptr inbounds nuw i8, ptr %333, i64 8
   store ptr %352, ptr %357, align 8
   store ptr %339, ptr %333, align 8
   br i1 %.not34, label %397, label %358
@@ -932,7 +932,7 @@ pgstat_get_entry_ref_cached.exit:                 ; preds = %323
   br label %397
 
 361:                                              ; preds = %359
-  %362 = getelementptr inbounds i8, ptr %.032, i64 12
+  %362 = getelementptr inbounds nuw i8, ptr %.032, i64 12
   %363 = load i8, ptr %362, align 4
   %364 = trunc i8 %363 to i1
   %brmerge.demorgan = and i1 %3, %364
@@ -940,26 +940,26 @@ pgstat_get_entry_ref_cached.exit:                 ; preds = %323
 
 365:                                              ; preds = %361
   %366 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 8), align 8
-  %367 = getelementptr inbounds i8, ptr %.032, i64 24
+  %367 = getelementptr inbounds nuw i8, ptr %.032, i64 24
   %368 = load i64, ptr %367, align 8
   %369 = call ptr @dsa_get_address(ptr noundef %366, i64 noundef %368) #14
-  %370 = getelementptr inbounds i8, ptr %.032, i64 16
+  %370 = getelementptr inbounds nuw i8, ptr %.032, i64 16
   %371 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %370, i32 1, ptr nonnull elementtype(i32) %370) #14, !srcloc !14
   store i8 0, ptr %362, align 4
   %372 = call ptr @pgstat_get_kind_info(i32 noundef %0) #14
-  %373 = getelementptr inbounds i8, ptr %372, i64 8
+  %373 = getelementptr inbounds nuw i8, ptr %372, i64 8
   %374 = load i32, ptr %373, align 8
   %375 = zext i32 %374 to i64
   %376 = getelementptr i8, ptr %369, i64 %375
   %377 = call ptr @pgstat_get_kind_info(i32 noundef %0) #14
-  %378 = getelementptr inbounds i8, ptr %377, i64 12
+  %378 = getelementptr inbounds nuw i8, ptr %377, i64 12
   %379 = load i32, ptr %378, align 4
   %380 = zext i32 %379 to i64
   call void @llvm.memset.p0.i64(ptr align 1 %376, i8 0, i64 %380, i1 false)
   %381 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %370, i32 1, ptr nonnull elementtype(i32) %370) #14, !srcloc !14
   %382 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 16), align 8
   call void @dshash_release_lock(ptr noundef %382, ptr noundef nonnull %.032) #14
-  %383 = getelementptr inbounds i8, ptr %333, i64 8
+  %383 = getelementptr inbounds nuw i8, ptr %333, i64 8
   store ptr %369, ptr %383, align 8
   store ptr %.032, ptr %333, align 8
   br i1 %.not34, label %397, label %384
@@ -981,14 +981,14 @@ pgstat_get_entry_ref_cached.exit:                 ; preds = %323
 
 388:                                              ; preds = %385
   %389 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 8), align 8
-  %390 = getelementptr inbounds i8, ptr %.032, i64 24
+  %390 = getelementptr inbounds nuw i8, ptr %.032, i64 24
   %391 = load i64, ptr %390, align 8
   %392 = call ptr @dsa_get_address(ptr noundef %389, i64 noundef %391) #14
-  %393 = getelementptr inbounds i8, ptr %.032, i64 16
+  %393 = getelementptr inbounds nuw i8, ptr %.032, i64 16
   %394 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %393, i32 1, ptr nonnull elementtype(i32) %393) #14, !srcloc !14
   %395 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 16), align 8
   call void @dshash_release_lock(ptr noundef %395, ptr noundef nonnull %.032) #14
-  %396 = getelementptr inbounds i8, ptr %333, i64 8
+  %396 = getelementptr inbounds nuw i8, ptr %333, i64 8
   store ptr %392, ptr %396, align 8
   store ptr %.032, ptr %333, align 8
   br label %397
@@ -1012,7 +1012,7 @@ define internal fastcc void @pgstat_release_entry_ref(i64 %0, i32 %1, ptr nounde
   br i1 %.not, label %.critedge, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8
   %.not16 = icmp eq ptr %8, null
   br i1 %.not16, label %14, label %9
@@ -1032,14 +1032,14 @@ define internal fastcc void @pgstat_release_entry_ref(i64 %0, i32 %1, ptr nounde
   unreachable
 
 14:                                               ; preds = %6, %10
-  %15 = getelementptr inbounds i8, ptr %2, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not17 = icmp eq ptr %16, null
   br i1 %.not17, label %.critedge, label %17
 
 17:                                               ; preds = %14
   %18 = load ptr, ptr %2, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = atomicrmw sub ptr %19, i32 1 seq_cst, align 4
   %21 = icmp eq i32 %20, 1
   br i1 %21, label %22, label %.critedge
@@ -1059,7 +1059,7 @@ define internal fastcc void @pgstat_release_entry_ref(i64 %0, i32 %1, ptr nounde
   unreachable
 
 29:                                               ; preds = %22
-  %30 = getelementptr inbounds i8, ptr %25, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %31 = load i64, ptr %30, align 8
   %32 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 16), align 8
   tail call void @dshash_delete_entry(ptr noundef %32, ptr noundef nonnull %25) #14
@@ -1071,7 +1071,7 @@ define internal fastcc void @pgstat_release_entry_ref(i64 %0, i32 %1, ptr nounde
   %34 = load ptr, ptr @pgStatEntryRefHash, align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5)
   store i64 %0, ptr %5, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %1, ptr %.sroa.2.0..sroa_idx.i, align 8
   %35 = lshr i64 %0, 23
   %36 = xor i64 %35, %0
@@ -1099,11 +1099,11 @@ define internal fastcc void @pgstat_release_entry_ref(i64 %0, i32 %1, ptr nounde
   %57 = getelementptr i8, ptr %34, i64 12
   %.val34.i = load i32, ptr %57, align 4
   %58 = and i32 %.val34.i, %56
-  %59 = getelementptr inbounds i8, ptr %34, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %60 = load ptr, ptr %59, align 8
   %61 = zext i32 %58 to i64
   %62 = getelementptr %struct.PgStat_EntryRefHashEntry, ptr %60, i64 %61
-  %63 = getelementptr inbounds i8, ptr %62, i64 12
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 12
   %64 = load i8, ptr %63, align 4
   %.not53.i = icmp eq i8 %64, 0
   br i1 %.not53.i, label %.loopexit19, label %.lr.ph.i
@@ -1121,7 +1121,7 @@ define internal fastcc void @pgstat_release_entry_ref(i64 %0, i32 %1, ptr nounde
   br i1 %69, label %70, label %115
 
 70:                                               ; preds = %68
-  %71 = getelementptr inbounds i8, ptr %34, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %72 = load i32, ptr %71, align 8
   %73 = add i32 %72, -1
   store i32 %73, ptr %71, align 8
@@ -1129,7 +1129,7 @@ define internal fastcc void @pgstat_release_entry_ref(i64 %0, i32 %1, ptr nounde
   %75 = and i32 %74, %.val34.i
   %76 = zext i32 %75 to i64
   %77 = getelementptr %struct.PgStat_EntryRefHashEntry, ptr %60, i64 %76
-  %78 = getelementptr inbounds i8, ptr %77, i64 12
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 12
   %79 = load i8, ptr %78, align 4
   %.not48.i = icmp eq i8 %79, 1
   br i1 %.not48.i, label %.lr.ph51.i, label %.loopexit
@@ -1177,7 +1177,7 @@ define internal fastcc void @pgstat_release_entry_ref(i64 %0, i32 %1, ptr nounde
   %110 = load ptr, ptr %59, align 8
   %111 = zext i32 %109 to i64
   %112 = getelementptr %struct.PgStat_EntryRefHashEntry, ptr %110, i64 %111
-  %113 = getelementptr inbounds i8, ptr %112, i64 12
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 12
   %114 = load i8, ptr %113, align 4
   %.not.i = icmp eq i8 %114, 1
   br i1 %.not.i, label %.lr.ph51.i, label %.loopexit
@@ -1187,7 +1187,7 @@ define internal fastcc void @pgstat_release_entry_ref(i64 %0, i32 %1, ptr nounde
   %117 = and i32 %116, %.val34.i
   %118 = zext i32 %117 to i64
   %119 = getelementptr %struct.PgStat_EntryRefHashEntry, ptr %60, i64 %118
-  %120 = getelementptr inbounds i8, ptr %119, i64 12
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 12
   %121 = load i8, ptr %120, align 4
   %.not54.i = icmp eq i8 %121, 0
   br i1 %.not54.i, label %.loopexit19, label %.lr.ph.i
@@ -1202,7 +1202,7 @@ define internal fastcc void @pgstat_release_entry_ref(i64 %0, i32 %1, ptr nounde
 
 .loopexit:                                        ; preds = %107, %.lr.ph51.i, %70
   %.031.lcssa.sink.i = phi ptr [ %66, %70 ], [ %.03149.i, %.lr.ph51.i ], [ %80, %107 ]
-  %124 = getelementptr inbounds i8, ptr %.031.lcssa.sink.i, i64 12
+  %124 = getelementptr inbounds nuw i8, ptr %.031.lcssa.sink.i, i64 12
   store i8 0, ptr %124, align 4
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
   br i1 %.not, label %126, label %125
@@ -1219,9 +1219,9 @@ declare void @dshash_release_lock(ptr noundef, ptr noundef) local_unnamed_addr #
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @pgstat_lock_entry(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   br i1 %1, label %6, label %8
 
 6:                                                ; preds = %2
@@ -1243,9 +1243,9 @@ declare zeroext i1 @LWLockAcquire(ptr noundef, i32 noundef) local_unnamed_addr #
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @pgstat_lock_entry_shared(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   br i1 %1, label %6, label %8
 
 6:                                                ; preds = %2
@@ -1263,9 +1263,9 @@ define dso_local zeroext i1 @pgstat_lock_entry_shared(ptr nocapture noundef read
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @pgstat_unlock_entry(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   tail call void @LWLockRelease(ptr noundef nonnull %4) #14
   ret void
 }
@@ -1275,9 +1275,9 @@ declare void @LWLockRelease(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @pgstat_get_entry_ref_locked(i32 noundef %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = tail call ptr @pgstat_get_entry_ref(i32 noundef %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext true, ptr noundef null)
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   br i1 %3, label %pgstat_lock_entry.exit, label %pgstat_lock_entry.exit.thread
 
 pgstat_lock_entry.exit.thread:                    ; preds = %4
@@ -1300,7 +1300,7 @@ pgstat_lock_entry.exit:                           ; preds = %4
 ; Function Attrs: nounwind uwtable
 define dso_local void @pgstat_request_entry_refs_gc() local_unnamed_addr #0 {
   %1 = load ptr, ptr @pgStatLocal, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %3 = tail call i64 asm sideeffect "\09lock\09\09\09\09\0A\09xaddq\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2, i64 1, ptr nonnull elementtype(i64) %2) #14, !srcloc !15
   ret void
 }
@@ -1311,9 +1311,9 @@ define dso_local noundef zeroext i1 @pgstat_drop_entry(i32 noundef %0, i32 nound
   %5 = alloca %struct.PgStat_HashKey, align 8
   %6 = alloca %struct.PgStat_HashKey, align 8
   store i32 %0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %1, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %2, ptr %8, align 8
   %9 = load ptr, ptr @pgStatEntryRefHash, align 8
   %.not = icmp eq ptr %9, null
@@ -1346,16 +1346,16 @@ define dso_local noundef zeroext i1 @pgstat_drop_entry(i32 noundef %0, i32 nound
   %32 = trunc i64 %31 to i32
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5)
   store i64 %.sroa.01.0.copyload, ptr %5, align 8
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %2, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %33 = getelementptr i8, ptr %9, i64 12
   %.val.i.i = load i32, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %9, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %35 = load ptr, ptr %34, align 8
   %.01113.i.i = and i32 %.val.i.i, %32
   %36 = zext i32 %.01113.i.i to i64
   %37 = getelementptr %struct.PgStat_EntryRefHashEntry, ptr %35, i64 %36
-  %38 = getelementptr inbounds i8, ptr %37, i64 12
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 12
   %39 = load i8, ptr %38, align 4
   %40 = icmp eq i8 %39, 0
   br i1 %40, label %pgstat_entry_ref_hash_lookup.exit.thread, label %.lr.ph.i.i
@@ -1365,7 +1365,7 @@ define dso_local noundef zeroext i1 @pgstat_drop_entry(i32 noundef %0, i32 nound
   %.011.i.i = and i32 %42, %.val.i.i
   %43 = zext i32 %.011.i.i to i64
   %44 = getelementptr %struct.PgStat_EntryRefHashEntry, ptr %35, i64 %43
-  %45 = getelementptr inbounds i8, ptr %44, i64 12
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 12
   %46 = load i8, ptr %45, align 4
   %47 = icmp eq i8 %46, 0
   br i1 %47, label %pgstat_entry_ref_hash_lookup.exit.thread, label %.lr.ph.i.i
@@ -1387,10 +1387,10 @@ pgstat_entry_ref_hash_lookup.exit:                ; preds = %.lr.ph.i.i
   br i1 %.not13, label %53, label %50
 
 50:                                               ; preds = %pgstat_entry_ref_hash_lookup.exit
-  %51 = getelementptr inbounds i8, ptr %48, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %52 = load ptr, ptr %51, align 8
   %.sroa.0.0.copyload = load i64, ptr %48, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %48, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 8
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 8
   tail call fastcc void @pgstat_release_entry_ref(i64 %.sroa.0.0.copyload, i32 %.sroa.2.0.copyload, ptr noundef %52, i1 noundef zeroext true)
   br label %53
@@ -1420,7 +1420,7 @@ pgstat_entry_ref_hash_lookup.exit:                ; preds = %.lr.ph.i.i
   br i1 %.not16.i.i.i.i, label %pgstat_entry_ref_hash_start_iterate.exit.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %64
-  %66 = getelementptr inbounds i8, ptr %62, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %62, i64 24
   %67 = load ptr, ptr %66, align 8
   br label %68
 
@@ -1446,8 +1446,8 @@ pgstat_entry_ref_hash_start_iterate.exit.split.i.i.i.outer: ; preds = %97, %pgst
   %.pre.i5.i.i.ph = phi ptr [ %.pre.i.pre.i.i, %97 ], [ %62, %pgstat_entry_ref_hash_start_iterate.exit.i.i.i ]
   %.sroa.5.0.i.i.i.ph = phi i1 [ %spec.select.i.i.i, %97 ], [ false, %pgstat_entry_ref_hash_start_iterate.exit.i.i.i ]
   %.sroa.0.0.i.i.i.ph = phi i32 [ %86, %97 ], [ %.0.i.i.i.i, %pgstat_entry_ref_hash_start_iterate.exit.i.i.i ]
-  %76 = getelementptr inbounds i8, ptr %.pre.i5.i.i.ph, i64 24
-  %77 = getelementptr inbounds i8, ptr %.pre.i5.i.i.ph, i64 12
+  %76 = getelementptr inbounds nuw i8, ptr %.pre.i5.i.i.ph, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %.pre.i5.i.i.ph, i64 12
   br label %pgstat_entry_ref_hash_start_iterate.exit.split.i.i.i
 
 pgstat_entry_ref_hash_start_iterate.exit.split.i.i.i: ; preds = %pgstat_entry_ref_hash_start_iterate.exit.split.i.i.i.outer, %93
@@ -1472,7 +1472,7 @@ pgstat_entry_ref_hash_start_iterate.exit.split.i.i.i: ; preds = %pgstat_entry_re
   %88 = and i32 %85, %87
   %89 = icmp eq i32 %88, 0
   %spec.select.i.i.i = select i1 %89, i1 true, i1 %.sroa.5.1.i.i.i
-  %90 = getelementptr inbounds i8, ptr %83, i64 12
+  %90 = getelementptr inbounds nuw i8, ptr %83, i64 12
   %91 = load i8, ptr %90, align 4
   %92 = icmp eq i8 %91, 1
   br i1 %92, label %pgstat_entry_ref_hash_iterate.exit.i.i.i, label %78, !llvm.loop !8
@@ -1482,16 +1482,16 @@ pgstat_entry_ref_hash_iterate.exit.i.i.i:         ; preds = %80
   br i1 %.not.i.i.i, label %pgstat_release_db_entry_refs.exit.i, label %93
 
 93:                                               ; preds = %pgstat_entry_ref_hash_iterate.exit.i.i.i
-  %94 = getelementptr inbounds i8, ptr %83, i64 4
+  %94 = getelementptr inbounds nuw i8, ptr %83, i64 4
   %95 = load i32, ptr %94, align 4
   %96 = icmp eq i32 %95, %61
   br i1 %96, label %97, label %pgstat_entry_ref_hash_start_iterate.exit.split.i.i.i, !llvm.loop !9
 
 97:                                               ; preds = %93
-  %98 = getelementptr inbounds i8, ptr %83, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %83, i64 16
   %99 = load ptr, ptr %98, align 8
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %83, align 8
-  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %83, i64 8
+  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %83, i64 8
   %.sroa.2.0.copyload.i.i.i = load i32, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   call fastcc void @pgstat_release_entry_ref(i64 %.sroa.0.0.copyload.i.i.i, i32 %.sroa.2.0.copyload.i.i.i, ptr noundef %99, i1 noundef zeroext true)
   %.pre.i.pre.i.i = load ptr, ptr @pgStatEntryRefHash, align 8
@@ -1515,7 +1515,7 @@ pgstat_release_db_entry_refs.exit.i:              ; preds = %pgstat_entry_ref_ha
 
 103:                                              ; preds = %.backedge.i, %.lr.ph.i
   %104 = phi ptr [ %102, %.lr.ph.i ], [ %108, %.backedge.i ]
-  %105 = getelementptr inbounds i8, ptr %104, i64 12
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 12
   %106 = load i8, ptr %105, align 4
   %107 = trunc i8 %106 to i1
   br i1 %107, label %.backedge.i, label %109
@@ -1526,21 +1526,21 @@ pgstat_release_db_entry_refs.exit.i:              ; preds = %pgstat_entry_ref_ha
   br i1 %.not.i, label %.outer._crit_edge.i, label %103, !llvm.loop !16
 
 109:                                              ; preds = %103
-  %110 = getelementptr inbounds i8, ptr %104, i64 4
+  %110 = getelementptr inbounds nuw i8, ptr %104, i64 4
   %111 = load i32, ptr %110, align 4
   %.not8.i = icmp eq i32 %111, %61
   br i1 %.not8.i, label %112, label %.backedge.i
 
 112:                                              ; preds = %109
-  %113 = getelementptr inbounds i8, ptr %104, i64 12
+  %113 = getelementptr inbounds nuw i8, ptr %104, i64 12
   store i8 1, ptr %113, align 4
-  %114 = getelementptr inbounds i8, ptr %104, i64 16
+  %114 = getelementptr inbounds nuw i8, ptr %104, i64 16
   %115 = atomicrmw sub ptr %114, i32 1 seq_cst, align 4
   %116 = icmp ne i32 %115, 1
   br i1 %116, label %pgstat_drop_entry_internal.exit.i, label %117
 
 117:                                              ; preds = %112
-  %118 = getelementptr inbounds i8, ptr %104, i64 24
+  %118 = getelementptr inbounds nuw i8, ptr %104, i64 24
   %119 = load i64, ptr %118, align 8
   call void @dshash_delete_current(ptr noundef nonnull %4) #14
   %120 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 8), align 8
@@ -1562,7 +1562,7 @@ pgstat_drop_entry_internal.exit.i:                ; preds = %117, %112
 
 123:                                              ; preds = %.outer._crit_edge.i
   %124 = load ptr, ptr @pgStatLocal, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 24
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 24
   %126 = call i64 asm sideeffect "\09lock\09\09\09\09\0A\09xaddq\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %125, i64 1, ptr nonnull elementtype(i64) %125) #14, !srcloc !15
   br label %pgstat_drop_database_and_contents.exit
 
@@ -1577,7 +1577,7 @@ pgstat_drop_database_and_contents.exit:           ; preds = %.outer._crit_edge.t
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @pgstat_drop_entry_internal(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i8, ptr %3, align 4
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %9
@@ -1591,13 +1591,13 @@ define internal fastcc noundef zeroext i1 @pgstat_drop_entry_internal(ptr nounde
 
 9:                                                ; preds = %2
   store i8 1, ptr %3, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = atomicrmw sub ptr %10, i32 1 seq_cst, align 4
   %12 = icmp eq i32 %11, 1
   br i1 %12, label %13, label %20
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load i64, ptr %14, align 8
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %16, label %18
@@ -1646,21 +1646,21 @@ define dso_local void @pgstat_drop_all_entries() local_unnamed_addr #0 {
   br i1 %.not, label %19, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %4, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %7 = load i8, ptr %6, align 4
   %8 = trunc i8 %7 to i1
   br i1 %8, label %3, label %9, !llvm.loop !17
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %4, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i8 1, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %12 = atomicrmw sub ptr %11, i32 1 seq_cst, align 4
   %13 = icmp ne i32 %12, 1
   br i1 %13, label %pgstat_drop_entry_internal.exit, label %14
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load i64, ptr %15, align 8
   call void @dshash_delete_current(ptr noundef nonnull %1) #14
   %17 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 8), align 8
@@ -1679,7 +1679,7 @@ pgstat_drop_entry_internal.exit:                  ; preds = %9, %14
 
 20:                                               ; preds = %19
   %21 = load ptr, ptr @pgStatLocal, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = call i64 asm sideeffect "\09lock\09\09\09\09\0A\09xaddq\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %22, i64 1, ptr nonnull elementtype(i64) %22) #14, !srcloc !15
   br label %24
 
@@ -1701,29 +1701,29 @@ define dso_local void @pgstat_reset_entry(i32 noundef %0, i32 noundef %1, i32 no
 
 6:                                                ; preds = %4
   %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %9 = load i8, ptr %8, align 4
   %10 = trunc i8 %9 to i1
   br i1 %10, label %32, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %14, i32 noundef 0) #14
   %16 = load ptr, ptr %12, align 8
   %17 = tail call ptr @pgstat_get_kind_info(i32 noundef %0) #14
   %18 = tail call ptr @pgstat_get_kind_info(i32 noundef %0) #14
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load i32, ptr %19, align 8
   %21 = zext i32 %20 to i64
   %22 = getelementptr i8, ptr %16, i64 %21
   %23 = tail call ptr @pgstat_get_kind_info(i32 noundef %0) #14
-  %24 = getelementptr inbounds i8, ptr %23, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 12
   %25 = load i32, ptr %24, align 4
   %26 = zext i32 %25 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %22, i8 0, i64 %26, i1 false)
-  %27 = getelementptr inbounds i8, ptr %17, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %28 = load ptr, ptr %27, align 8
   %.not.i = icmp eq ptr %28, null
   br i1 %.not.i, label %shared_stat_reset_contents.exit, label %29
@@ -1734,7 +1734,7 @@ define dso_local void @pgstat_reset_entry(i32 noundef %0, i32 noundef %1, i32 no
 
 shared_stat_reset_contents.exit:                  ; preds = %11, %29
   %30 = load ptr, ptr %12, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   tail call void @LWLockRelease(ptr noundef nonnull %31) #14
   br label %32
 
@@ -1753,7 +1753,7 @@ define dso_local void @pgstat_reset_matching_entries(ptr nocapture noundef reado
 
 .lr.ph:                                           ; preds = %3, %.backedge
   %7 = phi ptr [ %34, %.backedge ], [ %6, %3 ]
-  %8 = getelementptr inbounds i8, ptr %7, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %9 = load i8, ptr %8, align 4
   %10 = trunc i8 %9 to i1
   br i1 %10, label %.backedge, label %11
@@ -1764,24 +1764,24 @@ define dso_local void @pgstat_reset_matching_entries(ptr nocapture noundef reado
 
 13:                                               ; preds = %11
   %14 = load ptr, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 8), align 8
-  %15 = getelementptr inbounds i8, ptr %7, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %16 = load i64, ptr %15, align 8
   %17 = call ptr @dsa_get_address(ptr noundef %14, i64 noundef %16) #14
-  %18 = getelementptr inbounds i8, ptr %17, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %19 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %18, i32 noundef 0) #14
   %20 = load i32, ptr %7, align 8
   %21 = call ptr @pgstat_get_kind_info(i32 noundef %20) #14
   %22 = call ptr @pgstat_get_kind_info(i32 noundef %20) #14
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i32, ptr %23, align 8
   %25 = zext i32 %24 to i64
   %26 = getelementptr i8, ptr %17, i64 %25
   %27 = call ptr @pgstat_get_kind_info(i32 noundef %20) #14
-  %28 = getelementptr inbounds i8, ptr %27, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 12
   %29 = load i32, ptr %28, align 4
   %30 = zext i32 %29 to i64
   call void @llvm.memset.p0.i64(ptr align 1 %26, i8 0, i64 %30, i1 false)
-  %31 = getelementptr inbounds i8, ptr %21, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %32 = load ptr, ptr %31, align 8
   %.not.i = icmp eq ptr %32, null
   br i1 %.not.i, label %shared_stat_reset_contents.exit, label %33

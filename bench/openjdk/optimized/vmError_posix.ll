@@ -54,7 +54,7 @@ define internal void @_ZL13crash_handleriP9siginfo_tPv(i32 noundef %0, ptr nound
   ]
 
 8:                                                ; preds = %6, %6
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load ptr, ptr %9, align 8
   br label %11
 
@@ -72,7 +72,7 @@ define internal void @_ZL13crash_handleriP9siginfo_tPv(i32 noundef %0, ptr nound
   br i1 %or.cond5, label %17, label %24
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %1, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr @g_assert_poison, align 8
   %21 = icmp eq ptr %19, %20
@@ -98,7 +98,7 @@ define hidden void @_ZN7VMError32install_secondary_signal_handlerEv() local_unna
 
 3:                                                ; preds = %0, %3
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr inbounds [6 x i32], ptr @_ZZN7VMError32install_secondary_signal_handlerEvE17signals_to_handle, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [6 x i32], ptr @_ZZN7VMError32install_secondary_signal_handlerEvE17signals_to_handle, i64 0, i64 %indvars.iv
   %5 = load i32, ptr %4, align 4
   %6 = call noundef i32 @_ZN12PosixSignals32install_sigaction_signal_handlerEP9sigactionS1_iPFviP9siginfo_tPvE(ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %5, ptr noundef nonnull @_ZL13crash_handleriP9siginfo_tPv) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -128,7 +128,7 @@ define hidden void @_ZN7VMError24check_failing_cds_accessEP12outputStreamPKv(ptr
   ]
 
 7:                                                ; preds = %5, %5
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not10 = icmp eq ptr %9, null
   br i1 %.not10, label %17, label %10

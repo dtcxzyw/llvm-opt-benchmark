@@ -77,11 +77,11 @@ _ZN4llvm9call_onceIRFPvRNS_12PassRegistryEEJSt17reference_wrapperIS2_EEEEvRSt9on
 define internal noundef nonnull ptr @_ZL55initializeX86LoadValueInjectionRetHardeningPassPassOnceRN4llvm12PassRegistryE(ptr noundef nonnull align 8 dereferenceable(160) %0) #0 {
   %2 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #12
   store ptr @.str.9, ptr %2, align 8
-  %.sroa.25.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.25.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 20, ptr %.sroa.25.0..sroa_idx.i, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr @.str, ptr %3, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 24
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 11, ptr %.sroa.2.0..sroa_idx.i, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr @_ZN12_GLOBAL__N_137X86LoadValueInjectionRetHardeningPass2IDE, ptr %4, align 8
@@ -151,19 +151,19 @@ define internal { ptr, i64 } @_ZNK12_GLOBAL__N_137X86LoadValueInjectionRetHarden
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm19MachineFunctionPass16doInitializationERNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 1 %1) unnamed_addr #0 comdat align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 152
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 %5(ptr noundef nonnull align 8 dereferenceable(56) %0) #10
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %6, ptr %7, align 8
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 160
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i64 %10(ptr noundef nonnull align 8 dereferenceable(56) %0) #10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %11, ptr %12, align 8
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 168
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 168
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i64 %15(ptr noundef nonnull align 8 dereferenceable(56) %0) #10
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -254,7 +254,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_137X86LoadValueInjectionRetH
   br i1 %.not93101, label %.loopexit, label %.lr.ph105
 
 .lr.ph105:                                        ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %23, i64 616
+  %40 = getelementptr inbounds nuw i8, ptr %23, i64 616
   %41 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %42 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %43 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -273,8 +273,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_137X86LoadValueInjectionRetH
 54:                                               ; preds = %.lr.ph105, %_ZN4llvm17MachineBasicBlock5eraseENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.exit
   %.sroa.090.0103 = phi ptr [ %.sroa.090.0100, %.lr.ph105 ], [ %.sroa.090.0, %_ZN4llvm17MachineBasicBlock5eraseENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.exit ]
   %.040102 = phi i1 [ false, %.lr.ph105 ], [ %.1, %_ZN4llvm17MachineBasicBlock5eraseENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.exit ]
-  %55 = getelementptr inbounds i8, ptr %.sroa.090.0103, i64 56
-  %56 = getelementptr inbounds i8, ptr %.sroa.090.0103, i64 48
+  %55 = getelementptr inbounds nuw i8, ptr %.sroa.090.0103, i64 56
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.090.0103, i64 48
   %storemerge97 = load ptr, ptr %55, align 8
   store ptr %storemerge97, ptr %11, align 8
   %.not9498 = icmp eq ptr %storemerge97, %56

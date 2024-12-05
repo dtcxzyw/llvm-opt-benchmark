@@ -460,7 +460,7 @@ if.end:                                           ; preds = %entry
   %conv = zext nneg i32 %call to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call2, ptr align 1 %key, i64 %conv, i1 false)
   %call4 = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #6
-  %ks = getelementptr inbounds i8, ptr %call4, i64 16
+  %ks = getelementptr inbounds nuw i8, ptr %call4, i64 16
   %call5 = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #6
   tail call void @RC4_set_key(ptr noundef nonnull %ks, i32 noundef %call, ptr noundef %call5) #6
   br label %return
@@ -476,7 +476,7 @@ declare i32 @EVP_CIPHER_meth_set_do_cipher(ptr noundef, ptr noundef) local_unnam
 define internal noundef i32 @test_rc4_cipher(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %inl) #0 {
 entry:
   %call = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #6
-  %ks = getelementptr inbounds i8, ptr %call, i64 16
+  %ks = getelementptr inbounds nuw i8, ptr %call, i64 16
   tail call void @RC4(ptr noundef nonnull %ks, i64 noundef %inl, ptr noundef %in, ptr noundef %out) #6
   ret i32 1
 }

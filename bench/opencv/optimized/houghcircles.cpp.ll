@@ -57,7 +57,7 @@ define hidden noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr nocapture no
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %2
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8
   br label %27
 
@@ -123,15 +123,15 @@ define hidden noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr nocapture no
 
 46:                                               ; preds = %33
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #9
-  %47 = getelementptr inbounds i8, ptr %8, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 0, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %8, i64 20
+  %48 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i32 0, ptr %48, align 4
   store i32 16842752, ptr %8, align 8
-  %49 = getelementptr inbounds i8, ptr %8, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %3, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %9, i64 8
-  %51 = getelementptr inbounds i8, ptr %9, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 0, ptr %51, align 8
   store i32 33619968, ptr %9, align 8
   store ptr %7, ptr %50, align 8
@@ -139,15 +139,15 @@ define hidden noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr nocapture no
           to label %52 unwind label %106
 
 52:                                               ; preds = %46
-  %53 = getelementptr inbounds i8, ptr %10, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 0, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %10, i64 20
+  %54 = getelementptr inbounds nuw i8, ptr %10, i64 20
   store i32 0, ptr %54, align 4
   store i32 16842752, ptr %10, align 8
-  %55 = getelementptr inbounds i8, ptr %10, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %7, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %11, i64 8
-  %57 = getelementptr inbounds i8, ptr %11, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 0, ptr %57, align 8
   store i32 33619968, ptr %11, align 8
   store ptr %7, ptr %56, align 8
@@ -156,19 +156,19 @@ define hidden noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr nocapture no
 
 58:                                               ; preds = %52
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
-  %59 = getelementptr inbounds i8, ptr %13, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i32 0, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %13, i64 20
+  %60 = getelementptr inbounds nuw i8, ptr %13, i64 20
   store i32 0, ptr %60, align 4
   store i32 16842752, ptr %13, align 8
-  %61 = getelementptr inbounds i8, ptr %13, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %7, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %14, i64 8
-  %63 = getelementptr inbounds i8, ptr %14, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i64 0, ptr %63, align 8
   store i32 -2113732587, ptr %14, align 8
   store ptr %12, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %7, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %65 = load i32, ptr %64, align 8
   %66 = sdiv i32 %65, 16
   %67 = sitofp i32 %66 to double
@@ -176,25 +176,25 @@ define hidden noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr nocapture no
           to label %.preheader unwind label %112
 
 .preheader:                                       ; preds = %58
-  %68 = getelementptr inbounds i8, ptr %12, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %69 = load ptr, ptr %68, align 8
   %70 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %69, %70
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %71 = getelementptr inbounds i8, ptr %15, i64 4
-  %72 = getelementptr inbounds i8, ptr %16, i64 8
-  %73 = getelementptr inbounds i8, ptr %16, i64 16
-  %74 = getelementptr inbounds i8, ptr %17, i64 8
-  %75 = getelementptr inbounds i8, ptr %17, i64 16
-  %76 = getelementptr inbounds i8, ptr %17, i64 24
-  %77 = getelementptr inbounds i8, ptr %15, i64 8
-  %78 = getelementptr inbounds i8, ptr %18, i64 8
-  %79 = getelementptr inbounds i8, ptr %18, i64 16
-  %80 = getelementptr inbounds i8, ptr %19, i64 8
-  %81 = getelementptr inbounds i8, ptr %19, i64 16
-  %82 = getelementptr inbounds i8, ptr %19, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %19, i64 24
   br label %83
 
 83:                                               ; preds = %.lr.ph, %97
@@ -207,11 +207,11 @@ define hidden noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr nocapture no
 
 86:                                               ; preds = %86, %83
   %indvars.iv.i = phi i64 [ 0, %83 ], [ %indvars.iv.next.i, %86 ]
-  %87 = getelementptr inbounds [3 x float], ptr %85, i64 0, i64 %indvars.iv.i
+  %87 = getelementptr inbounds nuw [3 x float], ptr %85, i64 0, i64 %indvars.iv.i
   %88 = load float, ptr %87, align 4, !noalias !5
   %89 = insertelement <4 x float> poison, float %88, i64 0
   %90 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %89)
-  %91 = getelementptr inbounds [3 x i32], ptr %15, i64 0, i64 %indvars.iv.i
+  %91 = getelementptr inbounds nuw [3 x i32], ptr %15, i64 0, i64 %indvars.iv.i
   store i32 %90, ptr %91, align 4, !alias.scope !5
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -293,12 +293,12 @@ define hidden noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr nocapture no
           to label %118 unwind label %127
 
 118:                                              ; preds = %._crit_edge
-  %119 = getelementptr inbounds i8, ptr %22, i64 16
+  %119 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i32 0, ptr %119, align 8
-  %120 = getelementptr inbounds i8, ptr %22, i64 20
+  %120 = getelementptr inbounds nuw i8, ptr %22, i64 20
   store i32 0, ptr %120, align 4
   store i32 16842752, ptr %22, align 8
-  %121 = getelementptr inbounds i8, ptr %22, i64 8
+  %121 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %3, ptr %121, align 8
   invoke void @_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(24) %22)
           to label %122 unwind label %129

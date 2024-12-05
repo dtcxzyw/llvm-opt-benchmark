@@ -55,14 +55,14 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   %indvars.iv.i = phi i64 [ 0, %if.end ], [ %indvars.iv.next.i, %for.body.i ]
   %sum.07.i = phi i32 [ 0, %if.end ], [ %spec.select.i, %for.body.i ]
   %tgt_j.05.i = phi ptr [ @tr2_tgt_normal, %if.end ], [ %1, %for.body.i ]
-  %pfn_init.i = getelementptr inbounds i8, ptr %tgt_j.05.i, i64 8
+  %pfn_init.i = getelementptr inbounds nuw i8, ptr %tgt_j.05.i, i64 8
   %0 = load ptr, ptr %pfn_init.i, align 8
   %call.i = tail call i32 %0() #10
   %tobool1.not.i = icmp ne i32 %call.i, 0
   %inc.i = zext i1 %tobool1.not.i to i32
   %spec.select.i = add nuw nsw i32 %sum.07.i, %inc.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %arrayidx4.i = getelementptr inbounds [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next.i
+  %arrayidx4.i = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next.i
   %1 = load ptr, ptr %arrayidx4.i, align 8
   %tobool.not.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %tobool.not.i, label %tr2_tgt_want_builtins.exit, label %for.body.i, !llvm.loop !5
@@ -97,7 +97,7 @@ for.body:                                         ; preds = %if.end7, %for.inc
   br i1 %tobool13.not, label %for.inc, label %if.then14
 
 if.then14:                                        ; preds = %for.body
-  %pfn_version_fl = getelementptr inbounds i8, ptr %tgt_j.06, i64 24
+  %pfn_version_fl = getelementptr inbounds nuw i8, ptr %tgt_j.06, i64 24
   %3 = load ptr, ptr %pfn_version_fl, align 8
   %tobool15.not = icmp eq ptr %3, null
   br i1 %tobool15.not, label %for.inc, label %if.then16
@@ -108,7 +108,7 @@ if.then16:                                        ; preds = %if.then14
 
 for.inc:                                          ; preds = %for.body, %if.then16, %if.then14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx21 = getelementptr inbounds [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
+  %arrayidx21 = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
   %4 = load ptr, ptr %arrayidx21, align 8
   %tobool11.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %tobool11.not, label %for.end, label %for.body, !llvm.loop !7
@@ -152,7 +152,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %tobool3.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %pfn_atexit = getelementptr inbounds i8, ptr %tgt_j.07, i64 56
+  %pfn_atexit = getelementptr inbounds nuw i8, ptr %tgt_j.07, i64 56
   %1 = load ptr, ptr %pfn_atexit, align 8
   %tobool4.not = icmp eq ptr %1, null
   br i1 %tobool4.not, label %for.inc, label %if.then5
@@ -164,7 +164,7 @@ if.then5:                                         ; preds = %if.then
 
 for.inc:                                          ; preds = %for.body, %if.then5, %if.then
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx9 = getelementptr inbounds [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
+  %arrayidx9 = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
   %3 = load ptr, ptr %arrayidx9, align 8
   %tobool.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %tobool.not, label %for.body.i, label %for.body, !llvm.loop !8
@@ -172,11 +172,11 @@ for.inc:                                          ; preds = %for.body, %if.then5
 for.body.i:                                       ; preds = %for.inc, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %for.inc ]
   %tgt_j.04.i = phi ptr [ %5, %for.body.i ], [ @tr2_tgt_normal, %for.inc ]
-  %pfn_term.i = getelementptr inbounds i8, ptr %tgt_j.04.i, i64 16
+  %pfn_term.i = getelementptr inbounds nuw i8, ptr %tgt_j.04.i, i64 16
   %4 = load ptr, ptr %pfn_term.i, align 8
   tail call void %4() #10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %arrayidx2.i = getelementptr inbounds [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next.i
+  %arrayidx2.i = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next.i
   %5 = load ptr, ptr %arrayidx2.i, align 8
   %tobool.not.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %tobool.not.i, label %tr2_tgt_disable_builtins.exit, label %for.body.i, !llvm.loop !9
@@ -211,7 +211,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %tobool3.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %pfn_signal = getelementptr inbounds i8, ptr %tgt_j.09, i64 48
+  %pfn_signal = getelementptr inbounds nuw i8, ptr %tgt_j.09, i64 48
   %1 = load ptr, ptr %pfn_signal, align 8
   %tobool4.not = icmp eq ptr %1, null
   br i1 %tobool4.not, label %for.inc, label %if.then5
@@ -222,7 +222,7 @@ if.then5:                                         ; preds = %if.then
 
 for.inc:                                          ; preds = %for.body, %if.then5, %if.then
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx9 = getelementptr inbounds [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
+  %arrayidx9 = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
   %2 = load ptr, ptr %arrayidx9, align 8
   %tobool.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !10
@@ -267,7 +267,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   br i1 %tobool5.not, label %for.inc, label %if.then6
 
 if.then6:                                         ; preds = %for.body
-  %pfn_start_fl = getelementptr inbounds i8, ptr %tgt_j.09, i64 32
+  %pfn_start_fl = getelementptr inbounds nuw i8, ptr %tgt_j.09, i64 32
   %1 = load ptr, ptr %pfn_start_fl, align 8
   %tobool7.not = icmp eq ptr %1, null
   br i1 %tobool7.not, label %for.inc, label %if.then8
@@ -278,7 +278,7 @@ if.then8:                                         ; preds = %if.then6
 
 for.inc:                                          ; preds = %for.body, %if.then8, %if.then6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx13 = getelementptr inbounds [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
+  %arrayidx13 = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
   %2 = load ptr, ptr %arrayidx13, align 8
   %tobool3.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %tobool3.not, label %for.end, label %for.body, !llvm.loop !11
@@ -295,7 +295,7 @@ for.cond.preheader.i:                             ; preds = %for.end
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.inc.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %for.cond.preheader.i ]
   %4 = phi ptr [ %6, %for.inc.i ], [ %3, %for.cond.preheader.i ]
-  %arrayidx2.i = getelementptr inbounds ptr, ptr %call2, i64 %indvars.iv.i
+  %arrayidx2.i = getelementptr inbounds nuw ptr, ptr %call2, i64 %indvars.iv.i
   %5 = load ptr, ptr %arrayidx2.i, align 8
   %cmp5.not.i = icmp eq ptr %5, %4
   br i1 %cmp5.not.i, label %for.inc.i, label %if.then6.i
@@ -306,7 +306,7 @@ if.then6.i:                                       ; preds = %for.body.i
 
 for.inc.i:                                        ; preds = %if.then6.i, %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %arrayidx.i = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv.next.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %argv, i64 %indvars.iv.next.i
   %6 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not.i = icmp eq ptr %6, null
   br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !12
@@ -340,7 +340,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %indvars.iv113 = phi i32 [ %indvars.iv.next114, %for.inc ], [ 0, %for.cond.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %for.cond.preheader ]
   %1 = phi ptr [ %7, %for.inc ], [ %0, %for.cond.preheader ]
-  %arrayidx89 = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv
+  %arrayidx89 = getelementptr inbounds nuw ptr, ptr %argv, i64 %indvars.iv
   br i1 %.b.i, label %for.inc, label %do.body.i.preheader.i
 
 do.body.i.preheader.i:                            ; preds = %for.body
@@ -354,9 +354,9 @@ do.body.i.i:                                      ; preds = %do.cond.i.i, %do.bo
   br i1 %exitcond.i, label %if.end.i, label %do.cond.i.i
 
 do.cond.i.i:                                      ; preds = %do.body.i.i
-  %prefix.addr.0.i.ptr.i = getelementptr inbounds i8, ptr @.str.9, i64 %prefix.addr.0.i.idx.i
+  %prefix.addr.0.i.ptr.i = getelementptr inbounds nuw i8, ptr @.str.9, i64 %prefix.addr.0.i.idx.i
   %2 = load i8, ptr %prefix.addr.0.i.ptr.i, align 1
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %str.addr.0.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %str.addr.0.i.i, i64 1
   %3 = load i8, ptr %str.addr.0.i.i, align 1
   %prefix.addr.0.i.add.i = add nuw nsw i64 %prefix.addr.0.i.idx.i, 1
   %cmp.i.i = icmp eq i8 %3, %2
@@ -373,9 +373,9 @@ do.body.i10.i:                                    ; preds = %do.cond.i14.i, %do.
   br i1 %exitcond29.i, label %if.end.i, label %do.cond.i14.i
 
 do.cond.i14.i:                                    ; preds = %do.body.i10.i
-  %prefix.addr.0.i12.ptr.i = getelementptr inbounds i8, ptr @.str.10, i64 %prefix.addr.0.i12.idx.i
+  %prefix.addr.0.i12.ptr.i = getelementptr inbounds nuw i8, ptr @.str.10, i64 %prefix.addr.0.i12.idx.i
   %4 = load i8, ptr %prefix.addr.0.i12.ptr.i, align 1
-  %incdec.ptr.i15.i = getelementptr inbounds i8, ptr %str.addr.0.i11.i, i64 1
+  %incdec.ptr.i15.i = getelementptr inbounds nuw i8, ptr %str.addr.0.i11.i, i64 1
   %5 = load i8, ptr %str.addr.0.i11.i, align 1
   %prefix.addr.0.i12.add.i = add nuw nsw i64 %prefix.addr.0.i12.idx.i, 1
   %cmp.i17.i = icmp eq i8 %5, %4
@@ -408,7 +408,7 @@ redact_arg.exit:                                  ; preds = %if.end5.i
 for.inc:                                          ; preds = %do.cond.i14.i, %if.end5.i, %if.end.i, %for.body, %redact_arg.exit
   %.b.i123132 = phi i1 [ %.b.i.pre, %redact_arg.exit ], [ false, %if.end5.i ], [ false, %if.end.i ], [ true, %for.body ], [ false, %do.cond.i14.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv.next
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %argv, i64 %indvars.iv.next
   %7 = load ptr, ptr %arrayidx, align 8
   %tobool1.not = icmp eq ptr %7, null
   %indvars.iv.next114 = add nuw i32 %indvars.iv113, 1
@@ -421,7 +421,7 @@ for.end:                                          ; preds = %redact_arg.exit
 
 for.cond13:                                       ; preds = %for.end, %for.cond13
   %indvars.iv107 = phi i64 [ %indvars.iv.next108, %for.cond13 ], [ 0, %for.end ]
-  %arrayidx15 = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv107
+  %arrayidx15 = getelementptr inbounds nuw ptr, ptr %argv, i64 %indvars.iv107
   %8 = load ptr, ptr %arrayidx15, align 8
   %tobool16.not = icmp eq ptr %8, null
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
@@ -432,7 +432,7 @@ for.end20:                                        ; preds = %for.cond13
   %conv = add i64 %add, 8
   %mul.i = and i64 %conv, 34359738360
   %call22 = tail call ptr @xmalloc(i64 noundef %mul.i) #10
-  %arrayidx24 = getelementptr inbounds ptr, ptr %call22, i64 %indvars.iv107
+  %arrayidx24 = getelementptr inbounds nuw ptr, ptr %call22, i64 %indvars.iv107
   store ptr null, ptr %arrayidx24, align 8
   %cmp2690.not = icmp eq i64 %indvars.iv, 0
   br i1 %cmp2690.not, label %for.end35, label %for.body28.preheader
@@ -443,20 +443,20 @@ for.body28.preheader:                             ; preds = %for.end20
 
 for.body28:                                       ; preds = %for.body28.preheader, %for.body28
   %indvars.iv110 = phi i64 [ 0, %for.body28.preheader ], [ %indvars.iv.next111, %for.body28 ]
-  %arrayidx30 = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv110
+  %arrayidx30 = getelementptr inbounds nuw ptr, ptr %argv, i64 %indvars.iv110
   %9 = load ptr, ptr %arrayidx30, align 8
-  %arrayidx32 = getelementptr inbounds ptr, ptr %call22, i64 %indvars.iv110
+  %arrayidx32 = getelementptr inbounds nuw ptr, ptr %call22, i64 %indvars.iv110
   store ptr %9, ptr %arrayidx32, align 8
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next111, %wide.trip.count
   br i1 %exitcond.not, label %for.end35, label %for.body28, !llvm.loop !16
 
 for.end35:                                        ; preds = %for.body28, %for.end20
-  %arrayidx37 = getelementptr inbounds ptr, ptr %call22, i64 %indvars.iv
+  %arrayidx37 = getelementptr inbounds nuw ptr, ptr %call22, i64 %indvars.iv
   store ptr %call11.i, ptr %arrayidx37, align 8
   %i.192 = add nuw i64 %indvars.iv, 1
   %idxprom4093 = and i64 %i.192, 4294967295
-  %arrayidx4194 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom4093
+  %arrayidx4194 = getelementptr inbounds nuw ptr, ptr %argv, i64 %idxprom4093
   %10 = load ptr, ptr %arrayidx4194, align 8
   %tobool42.not95 = icmp eq ptr %10, null
   br i1 %tobool42.not95, label %return, label %for.body43.preheader
@@ -483,9 +483,9 @@ do.body.i.i41:                                    ; preds = %do.cond.i.i45, %do.
   br i1 %exitcond.i44, label %if.end.i62, label %do.cond.i.i45
 
 do.cond.i.i45:                                    ; preds = %do.body.i.i41
-  %prefix.addr.0.i.ptr.i46 = getelementptr inbounds i8, ptr @.str.9, i64 %prefix.addr.0.i.idx.i43
+  %prefix.addr.0.i.ptr.i46 = getelementptr inbounds nuw i8, ptr @.str.9, i64 %prefix.addr.0.i.idx.i43
   %12 = load i8, ptr %prefix.addr.0.i.ptr.i46, align 1
-  %incdec.ptr.i.i47 = getelementptr inbounds i8, ptr %str.addr.0.i.i42, i64 1
+  %incdec.ptr.i.i47 = getelementptr inbounds nuw i8, ptr %str.addr.0.i.i42, i64 1
   %13 = load i8, ptr %str.addr.0.i.i42, align 1
   %prefix.addr.0.i.add.i48 = add nuw nsw i64 %prefix.addr.0.i.idx.i43, 1
   %cmp.i.i49 = icmp eq i8 %13, %12
@@ -502,9 +502,9 @@ do.body.i10.i52:                                  ; preds = %do.cond.i14.i56, %d
   br i1 %exitcond29.i55, label %if.end.i62, label %do.cond.i14.i56
 
 do.cond.i14.i56:                                  ; preds = %do.body.i10.i52
-  %prefix.addr.0.i12.ptr.i57 = getelementptr inbounds i8, ptr @.str.10, i64 %prefix.addr.0.i12.idx.i54
+  %prefix.addr.0.i12.ptr.i57 = getelementptr inbounds nuw i8, ptr @.str.10, i64 %prefix.addr.0.i12.idx.i54
   %14 = load i8, ptr %prefix.addr.0.i12.ptr.i57, align 1
-  %incdec.ptr.i15.i58 = getelementptr inbounds i8, ptr %str.addr.0.i11.i53, i64 1
+  %incdec.ptr.i15.i58 = getelementptr inbounds nuw i8, ptr %str.addr.0.i11.i53, i64 1
   %15 = load i8, ptr %str.addr.0.i11.i53, align 1
   %prefix.addr.0.i12.add.i59 = add nuw nsw i64 %prefix.addr.0.i12.idx.i54, 1
   %cmp.i17.i60 = icmp eq i8 %15, %14
@@ -545,10 +545,10 @@ cond.false:                                       ; preds = %redact_arg.exit76
 cond.end:                                         ; preds = %for.body43, %redact_arg.exit76, %cond.false
   %.b.i38127 = phi i1 [ %.b.i38126, %cond.false ], [ %.b.i38126, %redact_arg.exit76 ], [ true, %for.body43 ]
   %cond = phi ptr [ %17, %cond.false ], [ %retval.0.i61, %redact_arg.exit76 ], [ %11, %for.body43 ]
-  %arrayidx51 = getelementptr inbounds ptr, ptr %call22, i64 %indvars.iv119
+  %arrayidx51 = getelementptr inbounds nuw ptr, ptr %call22, i64 %indvars.iv119
   store ptr %cond, ptr %arrayidx51, align 8
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
-  %arrayidx41 = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv.next120
+  %arrayidx41 = getelementptr inbounds nuw ptr, ptr %argv, i64 %indvars.iv.next120
   %18 = load ptr, ptr %arrayidx41, align 8
   %tobool42.not = icmp eq ptr %18, null
   br i1 %tobool42.not, label %return, label %for.body43, !llvm.loop !17
@@ -581,7 +581,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   br i1 %tobool4.not, label %for.inc, label %if.then5
 
 if.then5:                                         ; preds = %for.body
-  %pfn_exit_fl = getelementptr inbounds i8, ptr %tgt_j.08, i64 40
+  %pfn_exit_fl = getelementptr inbounds nuw i8, ptr %tgt_j.08, i64 40
   %1 = load ptr, ptr %pfn_exit_fl, align 8
   %tobool6.not = icmp eq ptr %1, null
   br i1 %tobool6.not, label %for.inc, label %if.then7
@@ -592,7 +592,7 @@ if.then7:                                         ; preds = %if.then5
 
 for.inc:                                          ; preds = %for.body, %if.then7, %if.then5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx12 = getelementptr inbounds [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
+  %arrayidx12 = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
   %2 = load ptr, ptr %arrayidx12, align 8
   %tobool2.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %tobool2.not, label %for.end, label %for.body, !llvm.loop !18
@@ -618,7 +618,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %tobool2.not, label %for.inc, label %if.then3
 
 if.then3:                                         ; preds = %for.body
-  %pfn_error_va_fl = getelementptr inbounds i8, ptr %tgt_j.06, i64 64
+  %pfn_error_va_fl = getelementptr inbounds nuw i8, ptr %tgt_j.06, i64 64
   %1 = load ptr, ptr %pfn_error_va_fl, align 8
   %tobool4.not = icmp eq ptr %1, null
   br i1 %tobool4.not, label %for.inc, label %if.then5
@@ -629,7 +629,7 @@ if.then5:                                         ; preds = %if.then3
 
 for.inc:                                          ; preds = %for.body, %if.then5, %if.then3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx10 = getelementptr inbounds [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
+  %arrayidx10 = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
   %2 = load ptr, ptr %arrayidx10, align 8
   %tobool1.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %tobool1.not, label %for.end, label %for.body, !llvm.loop !19
@@ -653,7 +653,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %tobool2.not, label %for.inc, label %if.then3
 
 if.then3:                                         ; preds = %for.body
-  %pfn_command_path_fl = getelementptr inbounds i8, ptr %tgt_j.06, i64 72
+  %pfn_command_path_fl = getelementptr inbounds nuw i8, ptr %tgt_j.06, i64 72
   %1 = load ptr, ptr %pfn_command_path_fl, align 8
   %tobool4.not = icmp eq ptr %1, null
   br i1 %tobool4.not, label %for.inc, label %if.then5
@@ -664,7 +664,7 @@ if.then5:                                         ; preds = %if.then3
 
 for.inc:                                          ; preds = %for.body, %if.then5, %if.then3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx10 = getelementptr inbounds [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
+  %arrayidx10 = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
   %2 = load ptr, ptr %arrayidx10, align 8
   %tobool1.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %tobool1.not, label %for.end, label %for.body, !llvm.loop !20
@@ -688,7 +688,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %tobool2.not, label %for.inc, label %if.then3
 
 if.then3:                                         ; preds = %for.body
-  %pfn_command_ancestry_fl = getelementptr inbounds i8, ptr %tgt_j.06, i64 80
+  %pfn_command_ancestry_fl = getelementptr inbounds nuw i8, ptr %tgt_j.06, i64 80
   %1 = load ptr, ptr %pfn_command_ancestry_fl, align 8
   %tobool4.not = icmp eq ptr %1, null
   br i1 %tobool4.not, label %for.inc, label %if.then5
@@ -699,7 +699,7 @@ if.then5:                                         ; preds = %if.then3
 
 for.inc:                                          ; preds = %for.body, %if.then5, %if.then3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx10 = getelementptr inbounds [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
+  %arrayidx10 = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
   %2 = load ptr, ptr %arrayidx10, align 8
   %tobool1.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %tobool1.not, label %for.end, label %for.body, !llvm.loop !21
@@ -728,7 +728,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   br i1 %tobool3.not, label %for.inc, label %if.then4
 
 if.then4:                                         ; preds = %for.body
-  %pfn_command_name_fl = getelementptr inbounds i8, ptr %tgt_j.07, i64 88
+  %pfn_command_name_fl = getelementptr inbounds nuw i8, ptr %tgt_j.07, i64 88
   %1 = load ptr, ptr %pfn_command_name_fl, align 8
   %tobool5.not = icmp eq ptr %1, null
   br i1 %tobool5.not, label %for.inc, label %if.then6
@@ -739,7 +739,7 @@ if.then6:                                         ; preds = %if.then4
 
 for.inc:                                          ; preds = %for.body, %if.then6, %if.then4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx11 = getelementptr inbounds [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
+  %arrayidx11 = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
   %2 = load ptr, ptr %arrayidx11, align 8
   %tobool1.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %tobool1.not, label %for.end, label %for.body, !llvm.loop !22
@@ -767,7 +767,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %tobool2.not, label %for.inc, label %if.then3
 
 if.then3:                                         ; preds = %for.body
-  %pfn_command_mode_fl = getelementptr inbounds i8, ptr %tgt_j.06, i64 96
+  %pfn_command_mode_fl = getelementptr inbounds nuw i8, ptr %tgt_j.06, i64 96
   %1 = load ptr, ptr %pfn_command_mode_fl, align 8
   %tobool4.not = icmp eq ptr %1, null
   br i1 %tobool4.not, label %for.inc, label %if.then5
@@ -778,7 +778,7 @@ if.then5:                                         ; preds = %if.then3
 
 for.inc:                                          ; preds = %for.body, %if.then5, %if.then3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx10 = getelementptr inbounds [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
+  %arrayidx10 = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
   %2 = load ptr, ptr %arrayidx10, align 8
   %tobool1.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %tobool1.not, label %for.end, label %for.body, !llvm.loop !23
@@ -802,7 +802,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %tobool2.not, label %for.inc, label %if.then3
 
 if.then3:                                         ; preds = %for.body
-  %pfn_alias_fl = getelementptr inbounds i8, ptr %tgt_j.06, i64 104
+  %pfn_alias_fl = getelementptr inbounds nuw i8, ptr %tgt_j.06, i64 104
   %1 = load ptr, ptr %pfn_alias_fl, align 8
   %tobool4.not = icmp eq ptr %1, null
   br i1 %tobool4.not, label %for.inc, label %if.then5
@@ -813,7 +813,7 @@ if.then5:                                         ; preds = %if.then3
 
 for.inc:                                          ; preds = %for.body, %if.then5, %if.then3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx10 = getelementptr inbounds [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
+  %arrayidx10 = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
   %2 = load ptr, ptr %arrayidx10, align 8
   %tobool1.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %tobool1.not, label %for.end, label %for.body, !llvm.loop !24
@@ -882,9 +882,9 @@ if.end:                                           ; preds = %entry
   %div = udiv i64 %call, 1000
   %call1 = tail call i64 @tr2tls_absolute_elapsed(i64 noundef %div) #10
   %call2 = tail call i32 @tr2tls_locked_increment(ptr noundef nonnull @tr2_next_child_id) #10
-  %trace2_child_id = getelementptr inbounds i8, ptr %cmd, i64 52
+  %trace2_child_id = getelementptr inbounds nuw i8, ptr %cmd, i64 52
   store i32 %call2, ptr %trace2_child_id, align 4
-  %trace2_child_us_start = getelementptr inbounds i8, ptr %cmd, i64 56
+  %trace2_child_us_start = getelementptr inbounds nuw i8, ptr %cmd, i64 56
   store i64 %div, ptr %trace2_child_us_start, align 8
   %call3 = tail call fastcc ptr @redact_argv(ptr noundef %0)
   store ptr %call3, ptr %cmd, align 8
@@ -899,7 +899,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   br i1 %tobool8.not, label %for.inc, label %if.then9
 
 if.then9:                                         ; preds = %for.body
-  %pfn_child_start_fl = getelementptr inbounds i8, ptr %tgt_j.020, i64 112
+  %pfn_child_start_fl = getelementptr inbounds nuw i8, ptr %tgt_j.020, i64 112
   %2 = load ptr, ptr %pfn_child_start_fl, align 8
   %tobool10.not = icmp eq ptr %2, null
   br i1 %tobool10.not, label %for.inc, label %if.then11
@@ -910,7 +910,7 @@ if.then11:                                        ; preds = %if.then9
 
 for.inc:                                          ; preds = %for.body, %if.then11, %if.then9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx16 = getelementptr inbounds [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
+  %arrayidx16 = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
   %3 = load ptr, ptr %arrayidx16, align 8
   %tobool6.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %tobool6.not, label %for.end, label %for.body, !llvm.loop !25
@@ -928,7 +928,7 @@ for.cond.preheader.i:                             ; preds = %for.end
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.inc.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %for.cond.preheader.i ]
   %6 = phi ptr [ %8, %for.inc.i ], [ %5, %for.cond.preheader.i ]
-  %arrayidx2.i = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv.i
+  %arrayidx2.i = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i
   %7 = load ptr, ptr %arrayidx2.i, align 8
   %cmp5.not.i = icmp eq ptr %7, %6
   br i1 %cmp5.not.i, label %for.inc.i, label %if.then6.i
@@ -939,7 +939,7 @@ if.then6.i:                                       ; preds = %for.body.i
 
 for.inc.i:                                        ; preds = %if.then6.i, %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %arrayidx.i = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv.next.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.next.i
   %8 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not.i = icmp eq ptr %8, null
   br i1 %tobool.not.i, label %free_redacted_argv.exit, label %for.body.i, !llvm.loop !12
@@ -965,13 +965,13 @@ if.end:                                           ; preds = %entry
   %call = tail call i64 @getnanotime() #10
   %div = udiv i64 %call, 1000
   %call1 = tail call i64 @tr2tls_absolute_elapsed(i64 noundef %div) #10
-  %trace2_child_us_start = getelementptr inbounds i8, ptr %cmd, i64 56
+  %trace2_child_us_start = getelementptr inbounds nuw i8, ptr %cmd, i64 56
   %0 = load i64, ptr %trace2_child_us_start, align 8
   %tobool2.not = icmp eq i64 %0, 0
   %sub = sub i64 %div, %0
   %us_elapsed_child.0 = select i1 %tobool2.not, i64 0, i64 %sub
-  %trace2_child_id = getelementptr inbounds i8, ptr %cmd, i64 52
-  %pid = getelementptr inbounds i8, ptr %cmd, i64 48
+  %trace2_child_id = getelementptr inbounds nuw i8, ptr %cmd, i64 52
+  %pid = getelementptr inbounds nuw i8, ptr %cmd, i64 48
   br label %for.body
 
 for.body:                                         ; preds = %if.end, %for.inc
@@ -983,7 +983,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   br i1 %tobool8.not, label %for.inc, label %if.then9
 
 if.then9:                                         ; preds = %for.body
-  %pfn_child_exit_fl = getelementptr inbounds i8, ptr %tgt_j.012, i64 120
+  %pfn_child_exit_fl = getelementptr inbounds nuw i8, ptr %tgt_j.012, i64 120
   %2 = load ptr, ptr %pfn_child_exit_fl, align 8
   %tobool10.not = icmp eq ptr %2, null
   br i1 %tobool10.not, label %for.inc, label %if.then11
@@ -996,7 +996,7 @@ if.then11:                                        ; preds = %if.then9
 
 for.inc:                                          ; preds = %for.body, %if.then11, %if.then9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx16 = getelementptr inbounds [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
+  %arrayidx16 = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
   %5 = load ptr, ptr %arrayidx16, align 8
   %tobool6.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %tobool6.not, label %for.end, label %for.body, !llvm.loop !26
@@ -1015,13 +1015,13 @@ if.end:                                           ; preds = %entry
   %call = tail call i64 @getnanotime() #10
   %div = udiv i64 %call, 1000
   %call1 = tail call i64 @tr2tls_absolute_elapsed(i64 noundef %div) #10
-  %trace2_child_us_start = getelementptr inbounds i8, ptr %cmd, i64 56
+  %trace2_child_us_start = getelementptr inbounds nuw i8, ptr %cmd, i64 56
   %0 = load i64, ptr %trace2_child_us_start, align 8
   %tobool2.not = icmp eq i64 %0, 0
   %sub = sub i64 %div, %0
   %us_elapsed_child.0 = select i1 %tobool2.not, i64 0, i64 %sub
-  %trace2_child_id = getelementptr inbounds i8, ptr %cmd, i64 52
-  %pid = getelementptr inbounds i8, ptr %cmd, i64 48
+  %trace2_child_id = getelementptr inbounds nuw i8, ptr %cmd, i64 52
+  %pid = getelementptr inbounds nuw i8, ptr %cmd, i64 48
   br label %for.body
 
 for.body:                                         ; preds = %if.end, %for.inc
@@ -1033,7 +1033,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   br i1 %tobool8.not, label %for.inc, label %if.then9
 
 if.then9:                                         ; preds = %for.body
-  %pfn_child_ready_fl = getelementptr inbounds i8, ptr %tgt_j.012, i64 128
+  %pfn_child_ready_fl = getelementptr inbounds nuw i8, ptr %tgt_j.012, i64 128
   %2 = load ptr, ptr %pfn_child_ready_fl, align 8
   %tobool10.not = icmp eq ptr %2, null
   br i1 %tobool10.not, label %for.inc, label %if.then11
@@ -1046,7 +1046,7 @@ if.then11:                                        ; preds = %if.then9
 
 for.inc:                                          ; preds = %for.body, %if.then11, %if.then9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx16 = getelementptr inbounds [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
+  %arrayidx16 = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
   %5 = load ptr, ptr %arrayidx16, align 8
   %tobool6.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %tobool6.not, label %for.end, label %for.body, !llvm.loop !27
@@ -1078,7 +1078,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   br i1 %tobool6.not, label %for.inc, label %if.then7
 
 if.then7:                                         ; preds = %for.body
-  %pfn_exec_fl = getelementptr inbounds i8, ptr %tgt_j.010, i64 152
+  %pfn_exec_fl = getelementptr inbounds nuw i8, ptr %tgt_j.010, i64 152
   %1 = load ptr, ptr %pfn_exec_fl, align 8
   %tobool8.not = icmp eq ptr %1, null
   br i1 %tobool8.not, label %for.inc, label %if.then9
@@ -1089,7 +1089,7 @@ if.then9:                                         ; preds = %if.then7
 
 for.inc:                                          ; preds = %for.body, %if.then9, %if.then7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx14 = getelementptr inbounds [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
+  %arrayidx14 = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
   %2 = load ptr, ptr %arrayidx14, align 8
   %tobool4.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %tobool4.not, label %for.end, label %for.body, !llvm.loop !28
@@ -1106,7 +1106,7 @@ for.cond.preheader.i:                             ; preds = %for.end
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.inc.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %for.cond.preheader.i ]
   %4 = phi ptr [ %6, %for.inc.i ], [ %3, %for.cond.preheader.i ]
-  %arrayidx2.i = getelementptr inbounds ptr, ptr %call3, i64 %indvars.iv.i
+  %arrayidx2.i = getelementptr inbounds nuw ptr, ptr %call3, i64 %indvars.iv.i
   %5 = load ptr, ptr %arrayidx2.i, align 8
   %cmp5.not.i = icmp eq ptr %5, %4
   br i1 %cmp5.not.i, label %for.inc.i, label %if.then6.i
@@ -1117,7 +1117,7 @@ if.then6.i:                                       ; preds = %for.body.i
 
 for.inc.i:                                        ; preds = %if.then6.i, %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %arrayidx.i = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv.next.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %argv, i64 %indvars.iv.next.i
   %6 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not.i = icmp eq ptr %6, null
   br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !12
@@ -1152,7 +1152,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   br i1 %tobool4.not, label %for.inc, label %if.then5
 
 if.then5:                                         ; preds = %for.body
-  %pfn_exec_result_fl = getelementptr inbounds i8, ptr %tgt_j.07, i64 160
+  %pfn_exec_result_fl = getelementptr inbounds nuw i8, ptr %tgt_j.07, i64 160
   %1 = load ptr, ptr %pfn_exec_result_fl, align 8
   %tobool6.not = icmp eq ptr %1, null
   br i1 %tobool6.not, label %for.inc, label %if.then7
@@ -1163,7 +1163,7 @@ if.then7:                                         ; preds = %if.then5
 
 for.inc:                                          ; preds = %for.body, %if.then7, %if.then5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx12 = getelementptr inbounds [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
+  %arrayidx12 = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
   %2 = load ptr, ptr %arrayidx12, align 8
   %tobool2.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %tobool2.not, label %for.end, label %for.body, !llvm.loop !29
@@ -1203,7 +1203,7 @@ for.body:                                         ; preds = %if.end3, %for.inc
   br i1 %tobool9.not, label %for.inc, label %if.then10
 
 if.then10:                                        ; preds = %for.body
-  %pfn_thread_start_fl = getelementptr inbounds i8, ptr %tgt_j.011, i64 136
+  %pfn_thread_start_fl = getelementptr inbounds nuw i8, ptr %tgt_j.011, i64 136
   %1 = load ptr, ptr %pfn_thread_start_fl, align 8
   %tobool11.not = icmp eq ptr %1, null
   br i1 %tobool11.not, label %for.inc, label %if.then12
@@ -1214,7 +1214,7 @@ if.then12:                                        ; preds = %if.then10
 
 for.inc:                                          ; preds = %for.body, %if.then12, %if.then10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx17 = getelementptr inbounds [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
+  %arrayidx17 = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
   %2 = load ptr, ptr %arrayidx17, align 8
   %tobool7.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %tobool7.not, label %for.end, label %for.body, !llvm.loop !30
@@ -1248,7 +1248,7 @@ for.body.i:                                       ; preds = %for.inc.i, %if.end.
   br i1 %tobool4.not.i, label %for.inc.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %for.body.i
-  %pfn_region_enter_printf_va_fl.i = getelementptr inbounds i8, ptr %tgt_j.08.i, i64 184
+  %pfn_region_enter_printf_va_fl.i = getelementptr inbounds nuw i8, ptr %tgt_j.08.i, i64 184
   %1 = load ptr, ptr %pfn_region_enter_printf_va_fl.i, align 8
   %tobool6.not.i = icmp eq ptr %1, null
   br i1 %tobool6.not.i, label %for.inc.i, label %if.then7.i
@@ -1259,7 +1259,7 @@ if.then7.i:                                       ; preds = %if.then5.i
 
 for.inc.i:                                        ; preds = %if.then7.i, %if.then5.i, %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %arrayidx12.i = getelementptr inbounds [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next.i
+  %arrayidx12.i = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next.i
   %2 = load ptr, ptr %arrayidx12.i, align 8
   %tobool2.not.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %tobool2.not.i, label %for.end.i, label %for.body.i, !llvm.loop !31
@@ -1313,7 +1313,7 @@ for.body:                                         ; preds = %if.end3, %for.inc
   br i1 %tobool9.not, label %for.inc, label %if.then10
 
 if.then10:                                        ; preds = %for.body
-  %pfn_thread_exit_fl = getelementptr inbounds i8, ptr %tgt_j.010, i64 144
+  %pfn_thread_exit_fl = getelementptr inbounds nuw i8, ptr %tgt_j.010, i64 144
   %1 = load ptr, ptr %pfn_thread_exit_fl, align 8
   %tobool11.not = icmp eq ptr %1, null
   br i1 %tobool11.not, label %for.inc, label %if.then12
@@ -1324,7 +1324,7 @@ if.then12:                                        ; preds = %if.then10
 
 for.inc:                                          ; preds = %for.body, %if.then12, %if.then10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx17 = getelementptr inbounds [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
+  %arrayidx17 = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
   %2 = load ptr, ptr %arrayidx17, align 8
   %tobool7.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %tobool7.not, label %for.end, label %for.body, !llvm.loop !32
@@ -1362,7 +1362,7 @@ for.body.i:                                       ; preds = %for.inc.i, %if.end.
   br i1 %tobool5.not.i, label %for.inc.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %for.body.i
-  %pfn_region_leave_printf_va_fl.i = getelementptr inbounds i8, ptr %tgt_j.08.i, i64 192
+  %pfn_region_leave_printf_va_fl.i = getelementptr inbounds nuw i8, ptr %tgt_j.08.i, i64 192
   %1 = load ptr, ptr %pfn_region_leave_printf_va_fl.i, align 8
   %tobool7.not.i = icmp eq ptr %1, null
   br i1 %tobool7.not.i, label %for.inc.i, label %if.then8.i
@@ -1373,7 +1373,7 @@ if.then8.i:                                       ; preds = %if.then6.i
 
 for.inc.i:                                        ; preds = %if.then8.i, %if.then6.i, %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %arrayidx13.i = getelementptr inbounds [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next.i
+  %arrayidx13.i = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next.i
   %2 = load ptr, ptr %arrayidx13.i, align 8
   %tobool3.not.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %tobool3.not.i, label %trace2_region_leave_printf_va_fl.exit, label %for.body.i, !llvm.loop !33
@@ -1403,7 +1403,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %tobool1.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %pfn_timer = getelementptr inbounds i8, ptr %tgt_j.06, i64 224
+  %pfn_timer = getelementptr inbounds nuw i8, ptr %tgt_j.06, i64 224
   %1 = load ptr, ptr %pfn_timer, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %for.inc, label %if.then3
@@ -1414,7 +1414,7 @@ if.then3:                                         ; preds = %if.then
 
 for.inc:                                          ; preds = %for.body, %if.then3, %if.then
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx7 = getelementptr inbounds [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
+  %arrayidx7 = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
   %2 = load ptr, ptr %arrayidx7, align 8
   %tobool.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !34
@@ -1439,7 +1439,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %tobool1.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %pfn_counter = getelementptr inbounds i8, ptr %tgt_j.06, i64 232
+  %pfn_counter = getelementptr inbounds nuw i8, ptr %tgt_j.06, i64 232
   %1 = load ptr, ptr %pfn_counter, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %for.inc, label %if.then3
@@ -1450,7 +1450,7 @@ if.then3:                                         ; preds = %if.then
 
 for.inc:                                          ; preds = %for.body, %if.then3, %if.then
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx7 = getelementptr inbounds [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
+  %arrayidx7 = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
   %2 = load ptr, ptr %arrayidx7, align 8
   %tobool.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !35
@@ -1490,9 +1490,9 @@ do.body.i.i:                                      ; preds = %do.cond.i.i, %do.bo
   br i1 %exitcond.i, label %if.end.i, label %do.cond.i.i
 
 do.cond.i.i:                                      ; preds = %do.body.i.i
-  %prefix.addr.0.i.ptr.i = getelementptr inbounds i8, ptr @.str.9, i64 %prefix.addr.0.i.idx.i
+  %prefix.addr.0.i.ptr.i = getelementptr inbounds nuw i8, ptr @.str.9, i64 %prefix.addr.0.i.idx.i
   %0 = load i8, ptr %prefix.addr.0.i.ptr.i, align 1
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %str.addr.0.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %str.addr.0.i.i, i64 1
   %1 = load i8, ptr %str.addr.0.i.i, align 1
   %prefix.addr.0.i.add.i = add nuw nsw i64 %prefix.addr.0.i.idx.i, 1
   %cmp.i.i = icmp eq i8 %1, %0
@@ -1509,9 +1509,9 @@ do.body.i10.i:                                    ; preds = %do.cond.i14.i, %do.
   br i1 %exitcond29.i, label %if.end.i, label %do.cond.i14.i
 
 do.cond.i14.i:                                    ; preds = %do.body.i10.i
-  %prefix.addr.0.i12.ptr.i = getelementptr inbounds i8, ptr @.str.10, i64 %prefix.addr.0.i12.idx.i
+  %prefix.addr.0.i12.ptr.i = getelementptr inbounds nuw i8, ptr @.str.10, i64 %prefix.addr.0.i12.idx.i
   %2 = load i8, ptr %prefix.addr.0.i12.ptr.i, align 1
-  %incdec.ptr.i15.i = getelementptr inbounds i8, ptr %str.addr.0.i11.i, i64 1
+  %incdec.ptr.i15.i = getelementptr inbounds nuw i8, ptr %str.addr.0.i11.i, i64 1
   %3 = load i8, ptr %str.addr.0.i11.i, align 1
   %prefix.addr.0.i12.add.i = add nuw nsw i64 %prefix.addr.0.i12.idx.i, 1
   %cmp.i17.i = icmp eq i8 %3, %2
@@ -1551,7 +1551,7 @@ for.body:                                         ; preds = %redact_arg.exit, %f
   br i1 %tobool3.not, label %for.inc, label %if.then4
 
 if.then4:                                         ; preds = %for.body
-  %pfn_param_fl = getelementptr inbounds i8, ptr %tgt_j.011, i64 168
+  %pfn_param_fl = getelementptr inbounds nuw i8, ptr %tgt_j.011, i64 168
   %6 = load ptr, ptr %pfn_param_fl, align 8
   %tobool5.not = icmp eq ptr %6, null
   br i1 %tobool5.not, label %for.inc, label %if.then6
@@ -1562,7 +1562,7 @@ if.then6:                                         ; preds = %if.then4
 
 for.inc:                                          ; preds = %for.body, %if.then6, %if.then4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx11 = getelementptr inbounds [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
+  %arrayidx11 = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
   %7 = load ptr, ptr %arrayidx11, align 8
   %tobool1.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %tobool1.not, label %for.end, label %for.body, !llvm.loop !36
@@ -1589,7 +1589,7 @@ entry:
   br i1 %.b, label %if.end, label %for.end
 
 if.end:                                           ; preds = %entry
-  %trace2_repo_id = getelementptr inbounds i8, ptr %repo, i64 268
+  %trace2_repo_id = getelementptr inbounds nuw i8, ptr %repo, i64 268
   %0 = load i32, ptr %trace2_repo_id, align 4
   %tobool1.not = icmp eq i32 %0, 0
   br i1 %tobool1.not, label %if.end3, label %for.end
@@ -1608,7 +1608,7 @@ for.body:                                         ; preds = %if.end3, %for.inc
   br i1 %tobool7.not, label %for.inc, label %if.then8
 
 if.then8:                                         ; preds = %for.body
-  %pfn_repo_fl = getelementptr inbounds i8, ptr %tgt_j.08, i64 176
+  %pfn_repo_fl = getelementptr inbounds nuw i8, ptr %tgt_j.08, i64 176
   %2 = load ptr, ptr %pfn_repo_fl, align 8
   %tobool9.not = icmp eq ptr %2, null
   br i1 %tobool9.not, label %for.inc, label %if.then10
@@ -1619,7 +1619,7 @@ if.then10:                                        ; preds = %if.then8
 
 for.inc:                                          ; preds = %for.body, %if.then10, %if.then8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx15 = getelementptr inbounds [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
+  %arrayidx15 = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
   %3 = load ptr, ptr %arrayidx15, align 8
   %tobool5.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %tobool5.not, label %for.end, label %for.body, !llvm.loop !37
@@ -1649,7 +1649,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   br i1 %tobool4.not, label %for.inc, label %if.then5
 
 if.then5:                                         ; preds = %for.body
-  %pfn_region_enter_printf_va_fl = getelementptr inbounds i8, ptr %tgt_j.08, i64 184
+  %pfn_region_enter_printf_va_fl = getelementptr inbounds nuw i8, ptr %tgt_j.08, i64 184
   %1 = load ptr, ptr %pfn_region_enter_printf_va_fl, align 8
   %tobool6.not = icmp eq ptr %1, null
   br i1 %tobool6.not, label %for.inc, label %if.then7
@@ -1660,7 +1660,7 @@ if.then7:                                         ; preds = %if.then5
 
 for.inc:                                          ; preds = %for.body, %if.then7, %if.then5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx12 = getelementptr inbounds [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
+  %arrayidx12 = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
   %2 = load ptr, ptr %arrayidx12, align 8
   %tobool2.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %tobool2.not, label %for.end, label %for.body, !llvm.loop !31
@@ -1698,7 +1698,7 @@ for.body.i:                                       ; preds = %for.inc.i, %if.end.
   br i1 %tobool4.not.i, label %for.inc.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %for.body.i
-  %pfn_region_enter_printf_va_fl.i = getelementptr inbounds i8, ptr %tgt_j.08.i, i64 184
+  %pfn_region_enter_printf_va_fl.i = getelementptr inbounds nuw i8, ptr %tgt_j.08.i, i64 184
   %1 = load ptr, ptr %pfn_region_enter_printf_va_fl.i, align 8
   %tobool6.not.i = icmp eq ptr %1, null
   br i1 %tobool6.not.i, label %for.inc.i, label %if.then7.i
@@ -1709,7 +1709,7 @@ if.then7.i:                                       ; preds = %if.then5.i
 
 for.inc.i:                                        ; preds = %if.then7.i, %if.then5.i, %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %arrayidx12.i = getelementptr inbounds [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next.i
+  %arrayidx12.i = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next.i
   %2 = load ptr, ptr %arrayidx12.i, align 8
   %tobool2.not.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %tobool2.not.i, label %for.end.i, label %for.body.i, !llvm.loop !31
@@ -1746,7 +1746,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   br i1 %tobool5.not, label %for.inc, label %if.then6
 
 if.then6:                                         ; preds = %for.body
-  %pfn_region_leave_printf_va_fl = getelementptr inbounds i8, ptr %tgt_j.08, i64 192
+  %pfn_region_leave_printf_va_fl = getelementptr inbounds nuw i8, ptr %tgt_j.08, i64 192
   %1 = load ptr, ptr %pfn_region_leave_printf_va_fl, align 8
   %tobool7.not = icmp eq ptr %1, null
   br i1 %tobool7.not, label %for.inc, label %if.then8
@@ -1757,7 +1757,7 @@ if.then8:                                         ; preds = %if.then6
 
 for.inc:                                          ; preds = %for.body, %if.then8, %if.then6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx13 = getelementptr inbounds [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
+  %arrayidx13 = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
   %2 = load ptr, ptr %arrayidx13, align 8
   %tobool3.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %tobool3.not, label %for.end, label %for.body, !llvm.loop !33
@@ -1793,7 +1793,7 @@ for.body.i:                                       ; preds = %for.inc.i, %if.end.
   br i1 %tobool5.not.i, label %for.inc.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %for.body.i
-  %pfn_region_leave_printf_va_fl.i = getelementptr inbounds i8, ptr %tgt_j.08.i, i64 192
+  %pfn_region_leave_printf_va_fl.i = getelementptr inbounds nuw i8, ptr %tgt_j.08.i, i64 192
   %1 = load ptr, ptr %pfn_region_leave_printf_va_fl.i, align 8
   %tobool7.not.i = icmp eq ptr %1, null
   br i1 %tobool7.not.i, label %for.inc.i, label %if.then8.i
@@ -1804,7 +1804,7 @@ if.then8.i:                                       ; preds = %if.then6.i
 
 for.inc.i:                                        ; preds = %if.then8.i, %if.then6.i, %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %arrayidx13.i = getelementptr inbounds [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next.i
+  %arrayidx13.i = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next.i
   %2 = load ptr, ptr %arrayidx13.i, align 8
   %tobool3.not.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %tobool3.not.i, label %trace2_region_leave_printf_va_fl.exit, label %for.body.i, !llvm.loop !33
@@ -1836,7 +1836,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   br i1 %tobool5.not, label %for.inc, label %if.then6
 
 if.then6:                                         ; preds = %for.body
-  %pfn_data_fl = getelementptr inbounds i8, ptr %tgt_j.08, i64 200
+  %pfn_data_fl = getelementptr inbounds nuw i8, ptr %tgt_j.08, i64 200
   %1 = load ptr, ptr %pfn_data_fl, align 8
   %tobool7.not = icmp eq ptr %1, null
   br i1 %tobool7.not, label %for.inc, label %if.then8
@@ -1847,7 +1847,7 @@ if.then8:                                         ; preds = %if.then6
 
 for.inc:                                          ; preds = %for.body, %if.then8, %if.then6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx13 = getelementptr inbounds [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
+  %arrayidx13 = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
   %2 = load ptr, ptr %arrayidx13, align 8
   %tobool3.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %tobool3.not, label %for.end, label %for.body, !llvm.loop !38
@@ -1866,7 +1866,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf_string, ptr noundef nonnull @.str.3, i64 noundef %value) #10
-  %buf = getelementptr inbounds i8, ptr %buf_string, i64 16
+  %buf = getelementptr inbounds nuw i8, ptr %buf_string, i64 16
   %0 = load ptr, ptr %buf, align 8
   %.b.i = load i1, ptr @trace2_enabled, align 4
   br i1 %.b.i, label %if.end.i, label %trace2_data_string_fl.exit
@@ -1887,7 +1887,7 @@ for.body.i:                                       ; preds = %for.inc.i, %if.end.
   br i1 %tobool5.not.i, label %for.inc.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %for.body.i
-  %pfn_data_fl.i = getelementptr inbounds i8, ptr %tgt_j.08.i, i64 200
+  %pfn_data_fl.i = getelementptr inbounds nuw i8, ptr %tgt_j.08.i, i64 200
   %2 = load ptr, ptr %pfn_data_fl.i, align 8
   %tobool7.not.i = icmp eq ptr %2, null
   br i1 %tobool7.not.i, label %for.inc.i, label %if.then8.i
@@ -1898,7 +1898,7 @@ if.then8.i:                                       ; preds = %if.then6.i
 
 for.inc.i:                                        ; preds = %if.then8.i, %if.then6.i, %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %arrayidx13.i = getelementptr inbounds [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next.i
+  %arrayidx13.i = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next.i
   %3 = load ptr, ptr %arrayidx13.i, align 8
   %tobool3.not.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %tobool3.not.i, label %trace2_data_string_fl.exit, label %for.body.i, !llvm.loop !38
@@ -1940,7 +1940,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   br i1 %tobool5.not, label %for.inc, label %if.then6
 
 if.then6:                                         ; preds = %for.body
-  %pfn_data_json_fl = getelementptr inbounds i8, ptr %tgt_j.08, i64 208
+  %pfn_data_json_fl = getelementptr inbounds nuw i8, ptr %tgt_j.08, i64 208
   %1 = load ptr, ptr %pfn_data_json_fl, align 8
   %tobool7.not = icmp eq ptr %1, null
   br i1 %tobool7.not, label %for.inc, label %if.then8
@@ -1951,7 +1951,7 @@ if.then8:                                         ; preds = %if.then6
 
 for.inc:                                          ; preds = %for.body, %if.then8, %if.then6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx13 = getelementptr inbounds [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
+  %arrayidx13 = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
   %2 = load ptr, ptr %arrayidx13, align 8
   %tobool3.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %tobool3.not, label %for.end, label %for.body, !llvm.loop !39
@@ -1981,7 +1981,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   br i1 %tobool4.not, label %for.inc, label %if.then5
 
 if.then5:                                         ; preds = %for.body
-  %pfn_printf_va_fl = getelementptr inbounds i8, ptr %tgt_j.07, i64 216
+  %pfn_printf_va_fl = getelementptr inbounds nuw i8, ptr %tgt_j.07, i64 216
   %1 = load ptr, ptr %pfn_printf_va_fl, align 8
   %tobool6.not = icmp eq ptr %1, null
   br i1 %tobool6.not, label %for.inc, label %if.then7
@@ -1992,7 +1992,7 @@ if.then7:                                         ; preds = %if.then5
 
 for.inc:                                          ; preds = %for.body, %if.then7, %if.then5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx12 = getelementptr inbounds [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
+  %arrayidx12 = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
   %2 = load ptr, ptr %arrayidx12, align 8
   %tobool2.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %tobool2.not, label %for.end, label %for.body, !llvm.loop !40
@@ -2024,7 +2024,7 @@ for.body.i:                                       ; preds = %for.inc.i, %if.end.
   br i1 %tobool4.not.i, label %for.inc.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %for.body.i
-  %pfn_printf_va_fl.i = getelementptr inbounds i8, ptr %tgt_j.07.i, i64 216
+  %pfn_printf_va_fl.i = getelementptr inbounds nuw i8, ptr %tgt_j.07.i, i64 216
   %1 = load ptr, ptr %pfn_printf_va_fl.i, align 8
   %tobool6.not.i = icmp eq ptr %1, null
   br i1 %tobool6.not.i, label %for.inc.i, label %if.then7.i
@@ -2035,7 +2035,7 @@ if.then7.i:                                       ; preds = %if.then5.i
 
 for.inc.i:                                        ; preds = %if.then7.i, %if.then5.i, %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %arrayidx12.i = getelementptr inbounds [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next.i
+  %arrayidx12.i = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next.i
   %2 = load ptr, ptr %arrayidx12.i, align 8
   %tobool2.not.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %tobool2.not.i, label %trace2_printf_va_fl.exit, label %for.body.i, !llvm.loop !40

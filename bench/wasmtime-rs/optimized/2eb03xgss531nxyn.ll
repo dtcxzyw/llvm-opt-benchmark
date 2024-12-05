@@ -33,9 +33,9 @@ define { i64, i64 } @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hfad27ffbea5f
   br i1 %7, label %8, label %15
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8, !noundef !4
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i64, ptr %11, align 8, !noundef !4
   %13 = insertvalue { i64, i64 } poison, i64 %10, 0
   %14 = insertvalue { i64, i64 } %13, i64 %12, 1
@@ -62,9 +62,9 @@ define void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h09613accfe8c8f7dE"(
   %.sink2 = phi ptr [ %9, %5 ], [ %1, %4 ]
   %.sink = phi i64 [ %8, %5 ], [ %2, %4 ]
   %storemerge = phi i64 [ 1, %5 ], [ 0, %4 ]
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink2, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sink, ptr %12, align 8
   store i64 %storemerge, ptr %0, align 8
   ret void
@@ -104,9 +104,9 @@ define void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h919b8e71b01080adE"(
   %.sink2 = phi i64 [ %6, %4 ], [ %1, %3 ]
   %.sink = phi i64 [ %7, %4 ], [ %2, %3 ]
   %storemerge = phi i64 [ 1, %4 ], [ 0, %3 ]
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sink2, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sink, ptr %10, align 8
   store i64 %storemerge, ptr %0, align 8
   ret void

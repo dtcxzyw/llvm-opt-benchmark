@@ -16,7 +16,7 @@ define hidden i32 @getHBScriptCode(i32 noundef %0) local_unnamed_addr #0 {
 
 5:                                                ; preds = %1
   %6 = zext nneg i32 %0 to i64
-  %7 = getelementptr inbounds [46 x i32], ptr @ICU_to_Harfbuzz_ScriptCode, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [46 x i32], ptr @ICU_to_Harfbuzz_ScriptCode, i64 0, i64 %6
   %8 = load i32, ptr %7, align 4
   br label %9
 

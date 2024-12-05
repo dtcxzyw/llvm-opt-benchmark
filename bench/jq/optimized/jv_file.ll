@@ -36,7 +36,7 @@ define { i64, ptr } @jv_load_file(ptr noundef %0, i32 noundef %1) local_unnamed_
   br i1 %17, label %23, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %3, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %20 = load i32, ptr %19, align 8
   %21 = and i32 %20, 61440
   %22 = icmp eq i32 %21, 16384

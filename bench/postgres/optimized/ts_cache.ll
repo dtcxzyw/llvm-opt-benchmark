@@ -59,9 +59,9 @@ define dso_local ptr @lookup_ts_parser_cache(i32 noundef %0) local_unnamed_addr 
   br i1 %6, label %7, label %14
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %3, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i64 4, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 224, ptr %9, align 8
   %10 = call ptr @hash_create(ptr noundef nonnull @.str, i64 noundef 4, ptr noundef nonnull %3, i32 noundef 40) #9
   store ptr %10, ptr @TSParserCacheHash, align 8
@@ -86,7 +86,7 @@ define dso_local ptr @lookup_ts_parser_cache(i32 noundef %0) local_unnamed_addr 
   br i1 %18, label %19, label %23
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %15, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %21 = load i8, ptr %20, align 4
   %22 = trunc i8 %21 to i1
   br i1 %22, label %114, label %23
@@ -98,7 +98,7 @@ define dso_local ptr @lookup_ts_parser_cache(i32 noundef %0) local_unnamed_addr 
   br i1 %26, label %31, label %27
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %25, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %29 = load i8, ptr %28, align 4
   %30 = trunc i8 %29 to i1
   br i1 %30, label %113, label %31
@@ -119,13 +119,13 @@ define dso_local ptr @lookup_ts_parser_cache(i32 noundef %0) local_unnamed_addr 
   unreachable
 
 39:                                               ; preds = %31
-  %40 = getelementptr inbounds i8, ptr %34, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 22
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 22
   %43 = load i8, ptr %42, align 2
   %44 = zext i8 %43 to i64
   %45 = getelementptr i8, ptr %41, i64 %44
-  %46 = getelementptr inbounds i8, ptr %45, i64 72
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 72
   %47 = load i32, ptr %46, align 4
   %.not59 = icmp eq i32 %47, 0
   br i1 %.not59, label %48, label %52
@@ -139,7 +139,7 @@ define dso_local ptr @lookup_ts_parser_cache(i32 noundef %0) local_unnamed_addr 
   unreachable
 
 52:                                               ; preds = %39
-  %53 = getelementptr inbounds i8, ptr %45, i64 76
+  %53 = getelementptr inbounds nuw i8, ptr %45, i64 76
   %54 = load i32, ptr %53, align 4
   %.not60 = icmp eq i32 %54, 0
   br i1 %.not60, label %55, label %59
@@ -153,7 +153,7 @@ define dso_local ptr @lookup_ts_parser_cache(i32 noundef %0) local_unnamed_addr 
   unreachable
 
 59:                                               ; preds = %52
-  %60 = getelementptr inbounds i8, ptr %45, i64 80
+  %60 = getelementptr inbounds nuw i8, ptr %45, i64 80
   %61 = load i32, ptr %60, align 4
   %.not61 = icmp eq i32 %61, 0
   br i1 %.not61, label %62, label %66
@@ -198,7 +198,7 @@ define dso_local ptr @lookup_ts_parser_cache(i32 noundef %0) local_unnamed_addr 
   br label %.loopexit
 
 83:                                               ; preds = %70
-  %84 = getelementptr inbounds i8, ptr %.1, i64 4
+  %84 = getelementptr inbounds nuw i8, ptr %.1, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(224) %84, i8 0, i64 220, i1 false)
   br label %.loopexit
 
@@ -206,33 +206,33 @@ define dso_local ptr @lookup_ts_parser_cache(i32 noundef %0) local_unnamed_addr 
   %85 = load i32, ptr %2, align 4
   store i32 %85, ptr %.1, align 8
   %86 = load i32, ptr %46, align 4
-  %87 = getelementptr inbounds i8, ptr %.1, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %.1, i64 8
   store i32 %86, ptr %87, align 8
   %88 = load i32, ptr %53, align 4
-  %89 = getelementptr inbounds i8, ptr %.1, i64 12
+  %89 = getelementptr inbounds nuw i8, ptr %.1, i64 12
   store i32 %88, ptr %89, align 4
   %90 = load i32, ptr %60, align 4
-  %91 = getelementptr inbounds i8, ptr %.1, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   store i32 %90, ptr %91, align 8
-  %92 = getelementptr inbounds i8, ptr %45, i64 84
+  %92 = getelementptr inbounds nuw i8, ptr %45, i64 84
   %93 = load i32, ptr %92, align 4
-  %94 = getelementptr inbounds i8, ptr %.1, i64 20
+  %94 = getelementptr inbounds nuw i8, ptr %.1, i64 20
   store i32 %93, ptr %94, align 4
-  %95 = getelementptr inbounds i8, ptr %45, i64 88
+  %95 = getelementptr inbounds nuw i8, ptr %45, i64 88
   %96 = load i32, ptr %95, align 4
-  %97 = getelementptr inbounds i8, ptr %.1, i64 24
+  %97 = getelementptr inbounds nuw i8, ptr %.1, i64 24
   store i32 %96, ptr %97, align 8
   call void @ReleaseSysCache(ptr noundef nonnull %34) #9
   %98 = load i32, ptr %87, align 8
-  %99 = getelementptr inbounds i8, ptr %.1, i64 32
+  %99 = getelementptr inbounds nuw i8, ptr %.1, i64 32
   %100 = load ptr, ptr @CacheMemoryContext, align 8
   call void @fmgr_info_cxt(i32 noundef %98, ptr noundef nonnull %99, ptr noundef %100) #9
   %101 = load i32, ptr %89, align 4
-  %102 = getelementptr inbounds i8, ptr %.1, i64 80
+  %102 = getelementptr inbounds nuw i8, ptr %.1, i64 80
   %103 = load ptr, ptr @CacheMemoryContext, align 8
   call void @fmgr_info_cxt(i32 noundef %101, ptr noundef nonnull %102, ptr noundef %103) #9
   %104 = load i32, ptr %91, align 8
-  %105 = getelementptr inbounds i8, ptr %.1, i64 128
+  %105 = getelementptr inbounds nuw i8, ptr %.1, i64 128
   %106 = load ptr, ptr @CacheMemoryContext, align 8
   call void @fmgr_info_cxt(i32 noundef %104, ptr noundef nonnull %105, ptr noundef %106) #9
   %107 = load i32, ptr %94, align 4
@@ -240,13 +240,13 @@ define dso_local ptr @lookup_ts_parser_cache(i32 noundef %0) local_unnamed_addr 
   br i1 %.not62, label %111, label %108
 
 108:                                              ; preds = %.loopexit
-  %109 = getelementptr inbounds i8, ptr %.1, i64 176
+  %109 = getelementptr inbounds nuw i8, ptr %.1, i64 176
   %110 = load ptr, ptr @CacheMemoryContext, align 8
   call void @fmgr_info_cxt(i32 noundef %107, ptr noundef nonnull %109, ptr noundef %110) #9
   br label %111
 
 111:                                              ; preds = %108, %.loopexit
-  %112 = getelementptr inbounds i8, ptr %.1, i64 4
+  %112 = getelementptr inbounds nuw i8, ptr %.1, i64 4
   store i8 1, ptr %112, align 4
   br label %113
 
@@ -275,7 +275,7 @@ define internal void @InvalidateTSCacheCallBack(i64 noundef %0, i32 %1, i32 %2) 
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %7 = phi ptr [ %9, %.lr.ph ], [ %6, %3 ]
-  %8 = getelementptr inbounds i8, ptr %7, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i8 0, ptr %8, align 4
   %9 = call ptr @hash_seq_search(ptr noundef nonnull %4) #9
   %.not = icmp eq ptr %9, null
@@ -328,9 +328,9 @@ define dso_local ptr @lookup_ts_dictionary_cache(i32 noundef %0) local_unnamed_a
   br i1 %7, label %8, label %17
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %3, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i64 4, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 80, ptr %10, align 8
   %11 = call ptr @hash_create(ptr noundef nonnull @.str.6, i64 noundef 8, ptr noundef nonnull %3, i32 noundef 40) #9
   store ptr %11, ptr @TSDictionaryCacheHash, align 8
@@ -358,7 +358,7 @@ define dso_local ptr @lookup_ts_dictionary_cache(i32 noundef %0) local_unnamed_a
   br i1 %21, label %22, label %26
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %18, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %24 = load i8, ptr %23, align 4
   %25 = trunc i8 %24 to i1
   br i1 %25, label %126, label %26
@@ -370,7 +370,7 @@ define dso_local ptr @lookup_ts_dictionary_cache(i32 noundef %0) local_unnamed_a
   br i1 %29, label %34, label %30
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %28, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %32 = load i8, ptr %31, align 4
   %33 = trunc i8 %32 to i1
   br i1 %33, label %125, label %34
@@ -391,13 +391,13 @@ define dso_local ptr @lookup_ts_dictionary_cache(i32 noundef %0) local_unnamed_a
   unreachable
 
 42:                                               ; preds = %34
-  %43 = getelementptr inbounds i8, ptr %37, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 22
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 22
   %46 = load i8, ptr %45, align 2
   %47 = zext i8 %46 to i64
   %48 = getelementptr i8, ptr %44, i64 %47
-  %49 = getelementptr inbounds i8, ptr %48, i64 76
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 76
   %50 = load i32, ptr %49, align 4
   %.not73 = icmp eq i32 %50, 0
   br i1 %.not73, label %51, label %55
@@ -425,13 +425,13 @@ define dso_local ptr @lookup_ts_dictionary_cache(i32 noundef %0) local_unnamed_a
   unreachable
 
 62:                                               ; preds = %55
-  %63 = getelementptr inbounds i8, ptr %57, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 22
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 22
   %66 = load i8, ptr %65, align 2
   %67 = zext i8 %66 to i64
   %68 = getelementptr i8, ptr %64, i64 %67
-  %69 = getelementptr inbounds i8, ptr %68, i64 76
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 76
   %70 = load i32, ptr %69, align 4
   %.not75 = icmp eq i32 %70, 0
   br i1 %.not75, label %71, label %75
@@ -445,7 +445,7 @@ define dso_local ptr @lookup_ts_dictionary_cache(i32 noundef %0) local_unnamed_a
   unreachable
 
 75:                                               ; preds = %62
-  %76 = getelementptr inbounds i8, ptr %48, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %48, i64 4
   br i1 %29, label %77, label %82
 
 77:                                               ; preds = %75
@@ -456,7 +456,7 @@ define dso_local ptr @lookup_ts_dictionary_cache(i32 noundef %0) local_unnamed_a
   br label %85
 
 82:                                               ; preds = %75
-  %83 = getelementptr inbounds i8, ptr %28, i64 64
+  %83 = getelementptr inbounds nuw i8, ptr %28, i64 64
   %84 = load ptr, ptr %83, align 8
   call void @MemoryContextSetIdentifier(ptr noundef %84, ptr noundef null) #9
   call void @MemoryContextReset(ptr noundef %84) #9
@@ -489,19 +489,19 @@ define dso_local ptr @lookup_ts_dictionary_cache(i32 noundef %0) local_unnamed_a
   br label %.loopexit
 
 99:                                               ; preds = %85
-  %100 = getelementptr inbounds i8, ptr %.1, i64 4
+  %100 = getelementptr inbounds nuw i8, ptr %.1, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(80) %100, i8 0, i64 76, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.preheader, %90, %99
   %101 = load i32, ptr %2, align 4
   store i32 %101, ptr %.1, align 8
-  %102 = getelementptr inbounds i8, ptr %.1, i64 64
+  %102 = getelementptr inbounds nuw i8, ptr %.1, i64 64
   store ptr %.sink79, ptr %102, align 8
   %103 = load i32, ptr %69, align 4
-  %104 = getelementptr inbounds i8, ptr %.1, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %.1, i64 8
   store i32 %103, ptr %104, align 8
-  %105 = getelementptr inbounds i8, ptr %68, i64 72
+  %105 = getelementptr inbounds nuw i8, ptr %68, i64 72
   %106 = load i32, ptr %105, align 4
   %.not76 = icmp eq i32 %106, 0
   br i1 %.not76, label %120, label %107
@@ -524,7 +524,7 @@ define dso_local ptr @lookup_ts_dictionary_cache(i32 noundef %0) local_unnamed_a
   %116 = load i32, ptr %105, align 4
   %117 = call i64 @OidFunctionCall1Coll(i32 noundef %116, i32 noundef 0, i64 noundef %.062) #9
   %118 = inttoptr i64 %117 to ptr
-  %119 = getelementptr inbounds i8, ptr %.1, i64 72
+  %119 = getelementptr inbounds nuw i8, ptr %.1, i64 72
   store ptr %118, ptr %119, align 8
   store ptr %108, ptr @CurrentMemoryContext, align 8
   br label %120
@@ -533,10 +533,10 @@ define dso_local ptr @lookup_ts_dictionary_cache(i32 noundef %0) local_unnamed_a
   call void @ReleaseSysCache(ptr noundef nonnull %57) #9
   call void @ReleaseSysCache(ptr noundef nonnull %37) #9
   %121 = load i32, ptr %104, align 8
-  %122 = getelementptr inbounds i8, ptr %.1, i64 16
+  %122 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %123 = load ptr, ptr %102, align 8
   call void @fmgr_info_cxt(i32 noundef %121, ptr noundef nonnull %122, ptr noundef %123) #9
-  %124 = getelementptr inbounds i8, ptr %.1, i64 4
+  %124 = getelementptr inbounds nuw i8, ptr %.1, i64 4
   store i8 1, ptr %124, align 4
   br label %125
 
@@ -579,9 +579,9 @@ define dso_local ptr @lookup_ts_config_cache(i32 noundef %0) local_unnamed_addr 
 
 10:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %2)
-  %11 = getelementptr inbounds i8, ptr %2, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i64 4, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i64 24, ptr %12, align 8
   %13 = call ptr @hash_create(ptr noundef nonnull @.str.19, i64 noundef 16, ptr noundef nonnull %2, i32 noundef 40) #9
   store ptr %13, ptr @TSConfigCacheHash, align 8
@@ -614,7 +614,7 @@ init_ts_config_cache.exit:                        ; preds = %10, %18
   br i1 %24, label %25, label %29
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %20, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %27 = load i8, ptr %26, align 4
   %28 = trunc i8 %27 to i1
   br i1 %28, label %170, label %29
@@ -626,7 +626,7 @@ init_ts_config_cache.exit:                        ; preds = %10, %18
   br i1 %32, label %37, label %33
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %31, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %35 = load i8, ptr %34, align 4
   %36 = trunc i8 %35 to i1
   br i1 %36, label %169, label %37
@@ -647,13 +647,13 @@ init_ts_config_cache.exit:                        ; preds = %10, %18
   unreachable
 
 45:                                               ; preds = %37
-  %46 = getelementptr inbounds i8, ptr %40, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 22
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 22
   %49 = load i8, ptr %48, align 2
   %50 = zext i8 %49 to i64
   %51 = getelementptr i8, ptr %47, i64 %50
-  %52 = getelementptr inbounds i8, ptr %51, i64 76
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 76
   %53 = load i32, ptr %52, align 4
   %.not116 = icmp eq i32 %53, 0
   br i1 %.not116, label %54, label %58
@@ -675,13 +675,13 @@ init_ts_config_cache.exit:                        ; preds = %10, %18
   br label %78
 
 62:                                               ; preds = %58
-  %63 = getelementptr inbounds i8, ptr %31, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %64 = load ptr, ptr %63, align 8
   %.not117 = icmp eq ptr %64, null
   br i1 %.not117, label %78, label %.preheader
 
 .preheader:                                       ; preds = %62
-  %65 = getelementptr inbounds i8, ptr %31, i64 12
+  %65 = getelementptr inbounds nuw i8, ptr %31, i64 12
   %66 = load i32, ptr %65, align 4
   %67 = icmp sgt i32 %66, 0
   br i1 %67, label %.lr.ph, label %._crit_edge
@@ -740,7 +740,7 @@ init_ts_config_cache.exit:                        ; preds = %10, %18
   br label %.loopexit
 
 91:                                               ; preds = %78
-  %92 = getelementptr inbounds i8, ptr %.1, i64 4
+  %92 = getelementptr inbounds nuw i8, ptr %.1, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %92, i8 0, i64 20, i1 false)
   br label %.loopexit
 
@@ -748,7 +748,7 @@ init_ts_config_cache.exit:                        ; preds = %10, %18
   %93 = load i32, ptr %3, align 4
   store i32 %93, ptr %.1, align 8
   %94 = load i32, ptr %52, align 4
-  %95 = getelementptr inbounds i8, ptr %.1, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %.1, i64 8
   store i32 %94, ptr %95, align 8
   call void @ReleaseSysCache(ptr noundef nonnull %40) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4112) %5, i8 0, i64 4112, i1 false)
@@ -766,13 +766,13 @@ init_ts_config_cache.exit:                        ; preds = %10, %18
   %102 = phi ptr [ %147, %146 ], [ %101, %.loopexit ]
   %.0101134 = phi i32 [ %.1102, %146 ], [ 0, %.loopexit ]
   %.0104133 = phi i32 [ %.1105, %146 ], [ 0, %.loopexit ]
-  %103 = getelementptr inbounds i8, ptr %102, i64 16
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 16
   %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 22
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 22
   %106 = load i8, ptr %105, align 2
   %107 = zext i8 %106 to i64
   %108 = getelementptr i8, ptr %104, i64 %107
-  %109 = getelementptr inbounds i8, ptr %108, i64 4
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 4
   %110 = load i32, ptr %109, align 4
   %111 = add i32 %110, -257
   %or.cond9 = icmp ult i32 %111, -256
@@ -812,13 +812,13 @@ init_ts_config_cache.exit:                        ; preds = %10, %18
   %128 = zext nneg i32 %.0104133 to i64
   %129 = shl nuw nsw i64 %128, 2
   %130 = call ptr @MemoryContextAlloc(ptr noundef %127, i64 noundef %129) #9
-  %131 = getelementptr inbounds i8, ptr %126, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %126, i64 8
   store ptr %130, ptr %131, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %130, ptr nonnull align 16 %6, i64 %129, i1 false)
   br label %132
 
 132:                                              ; preds = %124, %122
-  %133 = getelementptr inbounds i8, ptr %108, i64 12
+  %133 = getelementptr inbounds nuw i8, ptr %108, i64 12
   %134 = load i32, ptr %133, align 4
   store i32 %134, ptr %6, align 16
   br label %146
@@ -835,7 +835,7 @@ init_ts_config_cache.exit:                        ; preds = %10, %18
   unreachable
 
 140:                                              ; preds = %135
-  %141 = getelementptr inbounds i8, ptr %108, i64 12
+  %141 = getelementptr inbounds nuw i8, ptr %108, i64 12
   %142 = load i32, ptr %141, align 4
   %143 = add nsw i32 %.0104133, 1
   %144 = sext i32 %.0104133 to i64
@@ -867,17 +867,17 @@ init_ts_config_cache.exit:                        ; preds = %10, %18
   %153 = zext nneg i32 %.0104.lcssa to i64
   %154 = shl nuw nsw i64 %153, 2
   %155 = call ptr @MemoryContextAlloc(ptr noundef %152, i64 noundef %154) #9
-  %156 = getelementptr inbounds i8, ptr %151, i64 8
+  %156 = getelementptr inbounds nuw i8, ptr %151, i64 8
   store ptr %155, ptr %156, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %155, ptr nonnull align 16 %6, i64 %154, i1 false)
   %157 = add nuw nsw i32 %.0101.lcssa, 1
-  %158 = getelementptr inbounds i8, ptr %.1, i64 12
+  %158 = getelementptr inbounds nuw i8, ptr %.1, i64 12
   store i32 %157, ptr %158, align 4
   %159 = load ptr, ptr @CacheMemoryContext, align 8
   %160 = zext nneg i32 %157 to i64
   %161 = shl nuw nsw i64 %160, 4
   %162 = call ptr @MemoryContextAlloc(ptr noundef %159, i64 noundef %161) #9
-  %163 = getelementptr inbounds i8, ptr %.1, i64 16
+  %163 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   store ptr %162, ptr %163, align 8
   %164 = load i32, ptr %158, align 4
   %165 = sext i32 %164 to i64
@@ -886,7 +886,7 @@ init_ts_config_cache.exit:                        ; preds = %10, %18
   br label %167
 
 167:                                              ; preds = %149, %._crit_edge137
-  %168 = getelementptr inbounds i8, ptr %.1, i64 4
+  %168 = getelementptr inbounds nuw i8, ptr %.1, i64 4
   store i8 1, ptr %168, align 4
   br label %169
 
@@ -958,9 +958,9 @@ define dso_local i32 @getTSCurrentConfig(i1 noundef zeroext %0) local_unnamed_ad
 
 18:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %2)
-  %19 = getelementptr inbounds i8, ptr %2, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i64 4, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %2, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i64 24, ptr %20, align 8
   %21 = call ptr @hash_create(ptr noundef nonnull @.str.19, i64 noundef 16, ptr noundef nonnull %2, i32 noundef 40) #9
   store ptr %21, ptr @TSConfigCacheHash, align 8
@@ -1065,16 +1065,16 @@ define dso_local noundef zeroext i1 @check_default_text_search_config(ptr nocapt
   unreachable
 
 26:                                               ; preds = %20
-  %27 = getelementptr inbounds i8, ptr %22, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 22
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 22
   %30 = load i8, ptr %29, align 2
   %31 = zext i8 %30 to i64
   %32 = getelementptr i8, ptr %28, i64 %31
-  %33 = getelementptr inbounds i8, ptr %32, i64 68
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 68
   %34 = load i32, ptr %33, align 4
   %35 = call ptr @get_namespace_name(i32 noundef %34) #9
-  %36 = getelementptr inbounds i8, ptr %32, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %37 = call ptr @quote_qualified_identifier(ptr noundef %35, ptr noundef nonnull %36) #9
   call void @ReleaseSysCache(ptr noundef nonnull %22) #9
   %38 = load ptr, ptr %0, align 8

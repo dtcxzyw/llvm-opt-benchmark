@@ -446,7 +446,7 @@ define void @dggev_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
 
 261:                                              ; preds = %.loopexit44, %256
   %262 = phi i64 [ 1, %256 ], [ %335, %.loopexit44 ]
-  %263 = getelementptr inbounds double, ptr %42, i64 %262
+  %263 = getelementptr inbounds nuw double, ptr %42, i64 %262
   %264 = load double, ptr %263, align 8, !tbaa !7
   %265 = fcmp olt double %264, 0.000000e+00
   br i1 %265, label %.loopexit44, label %266
@@ -571,7 +571,7 @@ define void @dggev_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
 
 345:                                              ; preds = %.loopexit, %340
   %346 = phi i64 [ 1, %340 ], [ %419, %.loopexit ]
-  %347 = getelementptr inbounds double, ptr %42, i64 %346
+  %347 = getelementptr inbounds nuw double, ptr %42, i64 %346
   %348 = load double, ptr %347, align 8, !tbaa !7
   %349 = fcmp olt double %348, 0.000000e+00
   br i1 %349, label %.loopexit, label %350

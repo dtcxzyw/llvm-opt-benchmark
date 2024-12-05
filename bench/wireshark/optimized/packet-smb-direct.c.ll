@@ -167,7 +167,7 @@ define internal i32 @dissect_smb_direct_infiniband(ptr noundef %0, ptr noundef %
   br i1 %5, label %14, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = load i8, ptr %7, align 8
   switch i8 %8, label %14 [
     i8 0, label %9
@@ -247,7 +247,7 @@ define internal range(i32 0, 2) i32 @dissect_smb_direct_infiniband_heur(ptr noun
   br i1 %5, label %dissect_smb_direct_infiniband.exit, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = load i8, ptr %7, align 8
   switch i8 %8, label %dissect_smb_direct_infiniband.exit [
     i8 0, label %9
@@ -402,7 +402,7 @@ define internal fastcc range(i32 -1, 4) i32 @is_smb_direct(ptr noundef %0) unnam
 define internal fastcc void @dissect_smb_direct(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, -1) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @col_set_str(ptr noundef %8, i32 noundef 34, ptr noundef nonnull @.str.60) #4
   %9 = load ptr, ptr %7, align 8
@@ -539,11 +539,11 @@ define internal fastcc void @dissect_smb_direct(ptr noundef %0, ptr noundef %1, 
 
 98:                                               ; preds = %96
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %99 = getelementptr inbounds i8, ptr %1, i64 272
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %100 = load i32, ptr %99, align 8
-  %101 = getelementptr inbounds i8, ptr %1, i64 80
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 50
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 50
   %104 = load i16, ptr %103, align 2
   %105 = load i32, ptr @smb_direct_reassemble, align 4
   %.not.i = icmp eq i32 %105, 0
@@ -561,11 +561,11 @@ define internal fastcc void @dissect_smb_direct(ptr noundef %0, ptr noundef %1, 
   %.not40.i = icmp ne i32 %83, 0
   %spec.select.i = zext i1 %.not40.i to i32
   %112 = load ptr, ptr %101, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 50
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 50
   %114 = load i16, ptr %113, align 2
   %115 = and i16 %114, -9
   store i16 %115, ptr %113, align 2
-  %116 = getelementptr inbounds i8, ptr %107, i64 24
+  %116 = getelementptr inbounds nuw i8, ptr %107, i64 24
   %117 = load i32, ptr %116, align 8
   %118 = tail call i32 @tvb_captured_length(ptr noundef nonnull %97) #4
   %119 = tail call ptr @fragment_add_seq_next(ptr noundef nonnull @smb_direct_reassembly_table, ptr noundef nonnull %97, i32 noundef 0, ptr noundef nonnull %1, i32 noundef %117, ptr noundef null, i32 noundef %118, i32 noundef %spec.select.i) #4
@@ -607,7 +607,7 @@ dissect_smb_direct_payload.exit:                  ; preds = %121, %127, %130, %1
   %135 = and i16 %104, 8
   store i32 %100, ptr %99, align 8
   %136 = load ptr, ptr %101, align 8
-  %137 = getelementptr inbounds i8, ptr %136, i64 50
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 50
   %138 = load i16, ptr %137, align 2
   %139 = and i16 %138, -9
   %140 = or disjoint i16 %139, %135

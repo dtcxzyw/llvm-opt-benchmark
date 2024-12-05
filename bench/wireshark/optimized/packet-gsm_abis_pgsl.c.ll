@@ -239,9 +239,9 @@ define internal range(i32 1, 14) i32 @dissect_abis_pgsl(ptr noundef %0, ptr noun
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca %struct.RlcMacPrivateData_t, align 4
-  %10 = getelementptr inbounds i8, ptr %9, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %10, i8 0, i64 24, i1 false)
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void @col_set_str(ptr noundef %12, i32 noundef 34, ptr noundef nonnull @.str.127) #6
   %13 = load i32, ptr @proto_abis_pgsl, align 4
@@ -286,7 +286,7 @@ define internal range(i32 1, 14) i32 @dissect_abis_pgsl(ptr noundef %0, ptr noun
   %41 = load i32, ptr @hf_pgsl_afnd, align 4
   %42 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %16, i32 noundef %41, ptr noundef %0, i32 noundef 3, i32 noundef 3, i32 noundef -2147483648, ptr noundef nonnull %8) #6
   %43 = load i32, ptr %8, align 4
-  %44 = getelementptr inbounds i8, ptr %9, i64 12
+  %44 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 %43, ptr %44, align 4
   %45 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 6) #6
   %46 = load i32, ptr @hf_pgsl_ack_ind, align 4
@@ -338,7 +338,7 @@ define internal range(i32 1, 14) i32 @dissect_abis_pgsl(ptr noundef %0, ptr noun
 
 pgsl_cs_to_rlcmac_cs.exit:                        ; preds = %68, %74
   %.0.i = phi i32 [ %77, %74 ], [ 33, %68 ]
-  %78 = getelementptr inbounds i8, ptr %9, i64 4
+  %78 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %.0.i, ptr %78, align 4
   %79 = load i32, ptr %6, align 4
   %80 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %70, i32 noundef %79) #6
@@ -353,7 +353,7 @@ pgsl_cs_to_rlcmac_cs.exit:                        ; preds = %68, %74
   %86 = load i32, ptr @hf_pgsl_afnu, align 4
   %87 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %16, i32 noundef %86, ptr noundef %0, i32 noundef 3, i32 noundef 3, i32 noundef -2147483648, ptr noundef nonnull %8) #6
   %88 = load i32, ptr %8, align 4
-  %89 = getelementptr inbounds i8, ptr %9, i64 12
+  %89 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 %88, ptr %89, align 4
   %90 = load i32, ptr @hf_pgsl_codec_delay, align 4
   %91 = call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %90, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef 0) #6
@@ -398,7 +398,7 @@ pgsl_cs_to_rlcmac_cs.exit:                        ; preds = %68, %74
 
 pgsl_cs_to_rlcmac_cs.exit145:                     ; preds = %105, %114
   %.0.i144 = phi i32 [ %117, %114 ], [ 33, %105 ]
-  %118 = getelementptr inbounds i8, ptr %9, i64 4
+  %118 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %.0.i144, ptr %118, align 4
   %119 = load i32, ptr %6, align 4
   %120 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 11, i32 noundef %119) #6
@@ -463,7 +463,7 @@ define internal fastcc void @dissect_gprs_data(ptr noundef %0, ptr noundef %1, p
   %sub_handles.1.val = load ptr, ptr @sub_handles.1, align 8
   %sub_handles.0.val = load ptr, ptr @sub_handles.0, align 16
   %.0 = select i1 %.not, ptr %sub_handles.1.val, ptr %sub_handles.0.val
-  %6 = getelementptr inbounds i8, ptr %4, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %7 = load i32, ptr %6, align 4
   switch i32 %7, label %37 [
     i32 32, label %8
@@ -481,7 +481,7 @@ define internal fastcc void @dissect_gprs_data(ptr noundef %0, ptr noundef %1, p
 
 9:                                                ; preds = %5, %5, %5
   %10 = tail call i32 @call_dissector_with_data(ptr noundef %.0, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4) #6
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load i8, ptr %11, align 4
   %13 = icmp ult i8 %12, 11
   br i1 %13, label %15, label %14
@@ -518,7 +518,7 @@ define internal fastcc void @dissect_gprs_data(ptr noundef %0, ptr noundef %1, p
   %.sroa.6.0.i.ph = phi i32 [ 0, %15 ], [ %24, %20 ], [ 0, %25 ]
   %29 = shl i32 %18, 3
   %30 = or disjoint i32 %29, 2
-  %31 = getelementptr inbounds i8, ptr %4, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 1, ptr %31, align 4
   %32 = tail call fastcc ptr @get_egprs_data_block(ptr noundef %0, i32 noundef %.sroa.0.0.i.ph, i32 noundef %30, ptr noundef %1)
   %33 = tail call i32 @call_dissector_with_data(ptr noundef %.0, ptr noundef %32, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4) #6
@@ -599,7 +599,7 @@ define internal fastcc noundef ptr @get_egprs_data_block(ptr noundef %0, i32 nou
   %8 = add i32 %2, 13
   %9 = lshr i32 %8, 3
   tail call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef 0, i32 noundef %7) #6
-  %10 = getelementptr inbounds i8, ptr %3, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 408
   %11 = load ptr, ptr %10, align 8
   %12 = zext nneg i32 %9 to i64
   %13 = tail call noalias ptr @wmem_alloc(ptr noundef %11, i64 noundef %12) #6

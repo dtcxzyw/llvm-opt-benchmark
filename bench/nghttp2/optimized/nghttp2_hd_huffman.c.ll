@@ -21,7 +21,7 @@ for.body:                                         ; preds = %entry, %for.body
   %arrayidx = getelementptr inbounds i8, ptr %src, i64 %i.06
   %0 = load i8, ptr %arrayidx, align 1
   %idxprom = zext i8 %0 to i64
-  %arrayidx1 = getelementptr inbounds [0 x %struct.nghttp2_huff_sym], ptr @huff_sym_table, i64 0, i64 %idxprom
+  %arrayidx1 = getelementptr inbounds nuw [0 x %struct.nghttp2_huff_sym], ptr @huff_sym_table, i64 0, i64 %idxprom
   %1 = load i32, ptr %arrayidx1, align 4
   %conv = zext i32 %1 to i64
   %add = add i64 %nbits.07, %conv
@@ -43,11 +43,11 @@ for.end:                                          ; preds = %for.end.loopexit, %
 define hidden i32 @nghttp2_hd_huff_encode(ptr noundef %bufs, ptr noundef readonly %src, i64 noundef %srclen) local_unnamed_addr #1 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %src, i64 %srclen
-  %cur = getelementptr inbounds i8, ptr %bufs, i64 8
+  %cur = getelementptr inbounds nuw i8, ptr %bufs, i64 8
   %0 = load ptr, ptr %cur, align 8
-  %end1 = getelementptr inbounds i8, ptr %0, i64 16
+  %end1 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load ptr, ptr %end1, align 8
-  %last = getelementptr inbounds i8, ptr %0, i64 32
+  %last = getelementptr inbounds nuw i8, ptr %0, i64 32
   %2 = load ptr, ptr %last, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %2 to i64
@@ -73,11 +73,11 @@ for.cond47.preheader:                             ; preds = %for.cond
   br i1 %cmp4845, label %for.body50, label %for.end60
 
 for.body:                                         ; preds = %for.cond
-  %incdec.ptr = getelementptr inbounds i8, ptr %src.addr.0, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %src.addr.0, i64 1
   %3 = load i8, ptr %src.addr.0, align 1
   %idxprom = zext i8 %3 to i64
-  %arrayidx = getelementptr inbounds [0 x %struct.nghttp2_huff_sym], ptr @huff_sym_table, i64 0, i64 %idxprom
-  %code4 = getelementptr inbounds i8, ptr %arrayidx, i64 4
+  %arrayidx = getelementptr inbounds nuw [0 x %struct.nghttp2_huff_sym], ptr @huff_sym_table, i64 0, i64 %idxprom
+  %code4 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   %4 = load i32, ptr %code4, align 4
   %conv = zext i32 %4 to i64
   %sub = sub i64 32, %nbits.0
@@ -98,13 +98,13 @@ if.then11:                                        ; preds = %if.end
   %conv12 = trunc nuw i64 %shr to i32
   %call = tail call i32 @htonl(i32 noundef %conv12) #7
   %6 = load ptr, ptr %cur, align 8
-  %last15 = getelementptr inbounds i8, ptr %6, i64 32
+  %last15 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %7 = load ptr, ptr %last15, align 8
   store i32 %call, ptr %7, align 1
   %8 = load ptr, ptr %cur, align 8
-  %last18 = getelementptr inbounds i8, ptr %8, i64 32
+  %last18 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %9 = load ptr, ptr %last18, align 8
-  %add.ptr19 = getelementptr inbounds i8, ptr %9, i64 4
+  %add.ptr19 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store ptr %add.ptr19, ptr %last18, align 8
   %sub20 = add i64 %avail.0.ph, -4
   %shl21 = shl i64 %or, 32
@@ -134,9 +134,9 @@ if.end34:                                         ; preds = %for.body27
 
 for.end:                                          ; preds = %if.end34
   %10 = load ptr, ptr %cur, align 8
-  %end39 = getelementptr inbounds i8, ptr %10, i64 16
+  %end39 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %11 = load ptr, ptr %end39, align 8
-  %last42 = getelementptr inbounds i8, ptr %10, i64 32
+  %last42 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %12 = load ptr, ptr %last42, align 8
   %sub.ptr.lhs.cast43 = ptrtoint ptr %11 to i64
   %sub.ptr.rhs.cast44 = ptrtoint ptr %12 to i64
@@ -206,29 +206,29 @@ entry:
   br i1 %cmp.not14, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %last = getelementptr inbounds i8, ptr %buf, i64 24
+  %last = getelementptr inbounds nuw i8, ptr %buf, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end28
   %1 = phi i16 [ %0, %for.body.lr.ph ], [ %8, %if.end28 ]
   %src.addr.015 = phi ptr [ %src, %for.body.lr.ph ], [ %incdec.ptr, %if.end28 ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %src.addr.015, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %src.addr.015, i64 1
   %2 = load i8, ptr %src.addr.015, align 1
   %3 = and i16 %1, 511
   %idxprom = zext nneg i16 %3 to i64
   %conv3 = zext i8 %2 to i32
   %shr = lshr i32 %conv3, 4
   %idxprom4 = zext nneg i32 %shr to i64
-  %arrayidx5 = getelementptr inbounds [0 x [16 x %struct.nghttp2_huff_decode]], ptr @huff_decode_table, i64 0, i64 %idxprom, i64 %idxprom4
+  %arrayidx5 = getelementptr inbounds nuw [0 x [16 x %struct.nghttp2_huff_decode]], ptr @huff_decode_table, i64 0, i64 %idxprom, i64 %idxprom4
   %4 = load i16, ptr %arrayidx5, align 2
   %tobool.not = icmp sgt i16 %4, -1
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %sym9 = getelementptr inbounds i8, ptr %arrayidx5, i64 2
+  %sym9 = getelementptr inbounds nuw i8, ptr %arrayidx5, i64 2
   %5 = load i8, ptr %sym9, align 2
   %6 = load ptr, ptr %last, align 8
-  %incdec.ptr10 = getelementptr inbounds i8, ptr %6, i64 1
+  %incdec.ptr10 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store ptr %incdec.ptr10, ptr %last, align 8
   store i8 %5, ptr %6, align 1
   br label %if.end
@@ -238,16 +238,16 @@ if.end:                                           ; preds = %if.then, %for.body
   %idxprom14 = zext nneg i16 %7 to i64
   %and17 = and i32 %conv3, 15
   %idxprom18 = zext nneg i32 %and17 to i64
-  %arrayidx19 = getelementptr inbounds [0 x [16 x %struct.nghttp2_huff_decode]], ptr @huff_decode_table, i64 0, i64 %idxprom14, i64 %idxprom18
+  %arrayidx19 = getelementptr inbounds nuw [0 x [16 x %struct.nghttp2_huff_decode]], ptr @huff_decode_table, i64 0, i64 %idxprom14, i64 %idxprom18
   %8 = load i16, ptr %arrayidx19, align 2
   %tobool23.not = icmp sgt i16 %8, -1
   br i1 %tobool23.not, label %if.end28, label %if.then24
 
 if.then24:                                        ; preds = %if.end
-  %sym25 = getelementptr inbounds i8, ptr %arrayidx19, i64 2
+  %sym25 = getelementptr inbounds nuw i8, ptr %arrayidx19, i64 2
   %9 = load i8, ptr %sym25, align 2
   %10 = load ptr, ptr %last, align 8
-  %incdec.ptr27 = getelementptr inbounds i8, ptr %10, i64 1
+  %incdec.ptr27 = getelementptr inbounds nuw i8, ptr %10, i64 1
   store ptr %incdec.ptr27, ptr %last, align 8
   store i8 %9, ptr %10, align 1
   br label %if.end28

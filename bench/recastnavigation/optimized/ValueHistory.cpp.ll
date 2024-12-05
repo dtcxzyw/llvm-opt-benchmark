@@ -21,7 +21,7 @@ define dso_local noundef float @_ZNK12ValueHistory12getSampleMinEv(ptr nocapture
 3:                                                ; preds = %1, %3
   %indvars.iv = phi i64 [ 1, %1 ], [ %indvars.iv.next, %3 ]
   %.068 = phi float [ %2, %1 ], [ %.1, %3 ]
-  %4 = getelementptr inbounds [256 x float], ptr %0, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [256 x float], ptr %0, i64 0, i64 %indvars.iv
   %5 = load float, ptr %4, align 4
   %6 = fcmp olt float %5, %.068
   %.1 = select i1 %6, float %5, float %.068
@@ -41,7 +41,7 @@ define dso_local noundef float @_ZNK12ValueHistory12getSampleMaxEv(ptr nocapture
 3:                                                ; preds = %1, %3
   %indvars.iv = phi i64 [ 1, %1 ], [ %indvars.iv.next, %3 ]
   %.068 = phi float [ %2, %1 ], [ %.1, %3 ]
-  %4 = getelementptr inbounds [256 x float], ptr %0, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [256 x float], ptr %0, i64 0, i64 %indvars.iv
   %5 = load float, ptr %4, align 4
   %6 = fcmp ogt float %5, %.068
   %.1 = select i1 %6, float %5, float %.068
@@ -60,7 +60,7 @@ define dso_local noundef float @_ZNK12ValueHistory10getAverageEv(ptr nocapture n
 2:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
   %.056 = phi float [ 0.000000e+00, %1 ], [ %5, %2 ]
-  %3 = getelementptr inbounds [256 x float], ptr %0, i64 0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [256 x float], ptr %0, i64 0, i64 %indvars.iv
   %4 = load float, ptr %3, align 4
   %5 = fadd float %.056, %4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -75,26 +75,26 @@ define dso_local noundef float @_ZNK12ValueHistory10getAverageEv(ptr nocapture n
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN11GraphParams7setRectEiiiii(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(48) initializes((0, 20)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 align 2 {
   store i32 %1, ptr %0, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %2, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %3, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %4, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %5, ptr %10, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN11GraphParams13setValueRangeEffiPKc(ptr noundef nonnull align 4 dereferenceable(48) initializes((20, 32)) %0, float noundef %1, float noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #2 align 2 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store float %1, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store float %2, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %3, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %4) #9
   ret void
 }
@@ -107,16 +107,16 @@ define dso_local void @_Z19drawGraphBackgroundPK11GraphParams(ptr noundef %0) lo
   %2 = alloca [64 x i8], align 16
   %3 = load i32, ptr %0, align 4
   %4 = sitofp i32 %3 to float
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = sitofp i32 %6 to float
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 4
   %10 = sitofp i32 %9 to float
-  %11 = getelementptr inbounds i8, ptr %0, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %12 = load i32, ptr %11, align 4
   %13 = sitofp i32 %12 to float
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load i32, ptr %14, align 4
   %16 = sitofp i32 %15 to float
   tail call void @_Z20imguiDrawRoundedRectfffffj(float noundef %4, float noundef %7, float noundef %10, float noundef %13, float noundef %16, i32 noundef -2143272896)
@@ -125,9 +125,9 @@ define dso_local void @_Z19drawGraphBackgroundPK11GraphParams(ptr noundef %0) lo
   %19 = shl nsw i32 %18, 1
   %20 = sub nsw i32 %17, %19
   %21 = sitofp i32 %20 to float
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %23 = load float, ptr %22, align 4
-  %24 = getelementptr inbounds i8, ptr %0, i64 20
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %25 = load float, ptr %24, align 4
   %26 = fsub float %23, %25
   %27 = fdiv float %21, %26
@@ -136,13 +136,13 @@ define dso_local void @_Z19drawGraphBackgroundPK11GraphParams(ptr noundef %0) lo
   %30 = sitofp i32 %29 to float
   %31 = fneg float %25
   %32 = tail call float @llvm.fmuladd.f32(float %31, float %27, float %30)
-  %33 = getelementptr inbounds i8, ptr %0, i64 28
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %34 = load i32, ptr %33, align 4
   %.not38 = icmp slt i32 %34, 0
   br i1 %.not38, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %35 = getelementptr inbounds i8, ptr %0, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %36
 
 36:                                               ; preds = %.lr.ph, %36
@@ -201,21 +201,21 @@ declare void @_Z13imguiDrawLinefffffj(float noundef, float noundef, float nounde
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_Z9drawGraphPK11GraphParamsPK12ValueHistoryiPKcj(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #4 {
   %6 = alloca [64 x i8], align 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 4
   %11 = shl nsw i32 %10, 1
   %12 = sub nsw i32 %8, %11
   %13 = sitofp i32 %12 to float
   %14 = fmul float %13, 3.906250e-03
-  %15 = getelementptr inbounds i8, ptr %0, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %16 = load i32, ptr %15, align 4
   %17 = sub nsw i32 %16, %11
   %18 = sitofp i32 %17 to float
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load float, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %0, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %22 = load float, ptr %21, align 4
   %23 = fsub float %20, %22
   %24 = fdiv float %18, %23
@@ -223,13 +223,13 @@ define dso_local void @_Z9drawGraphPK11GraphParamsPK12ValueHistoryiPKcj(ptr noun
   %26 = sitofp i32 %25 to float
   %27 = sitofp i32 %10 to float
   %28 = fadd float %27, %26
-  %29 = getelementptr inbounds i8, ptr %0, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %30 = load i32, ptr %29, align 4
   %31 = sitofp i32 %30 to float
   %32 = fadd float %27, %31
   %33 = fneg float %22
   %34 = tail call float @llvm.fmuladd.f32(float %33, float %24, float %32)
-  %35 = getelementptr inbounds i8, ptr %1, i64 1024
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 1024
   br label %36
 
 36:                                               ; preds = %5, %47
@@ -276,7 +276,7 @@ define dso_local void @_Z9drawGraphPK11GraphParamsPK12ValueHistoryiPKcj(ptr noun
 60:                                               ; preds = %60, %49
   %indvars.iv.i = phi i64 [ 0, %49 ], [ %indvars.iv.next.i, %60 ]
   %.056.i = phi float [ 0.000000e+00, %49 ], [ %63, %60 ]
-  %61 = getelementptr inbounds [256 x float], ptr %1, i64 0, i64 %indvars.iv.i
+  %61 = getelementptr inbounds nuw [256 x float], ptr %1, i64 0, i64 %indvars.iv.i
   %62 = load float, ptr %61, align 4
   %63 = fadd float %.056.i, %62
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -286,7 +286,7 @@ define dso_local void @_Z9drawGraphPK11GraphParamsPK12ValueHistoryiPKcj(ptr noun
 _ZNK12ValueHistory10getAverageEv.exit:            ; preds = %60
   %64 = fmul float %63, 3.906250e-03
   %65 = fpext float %64 to double
-  %66 = getelementptr inbounds i8, ptr %0, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %67 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 64, ptr noundef nonnull @.str, double noundef %65, ptr noundef nonnull %66) #9
   %68 = add nsw i32 %52, 25
   %69 = add nsw i32 %57, 3

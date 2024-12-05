@@ -50,9 +50,9 @@ define dso_local void @_ZN16btBU_Simplex1to4C2Ev(ptr noundef nonnull align 8 der
 entry:
   tail call void @_ZN34btPolyhedralConvexAabbCachingShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(113) %this)
   store ptr getelementptr inbounds (i8, ptr @_ZTV16btBU_Simplex1to4, i64 16), ptr %this, align 8
-  %m_numVertices = getelementptr inbounds i8, ptr %this, i64 116
+  %m_numVertices = getelementptr inbounds nuw i8, ptr %this, i64 116
   store i32 0, ptr %m_numVertices, align 4
-  %m_shapeType = getelementptr inbounds i8, ptr %this, i64 8
+  %m_shapeType = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 2, ptr %m_shapeType, align 8
   ret void
 }
@@ -66,10 +66,10 @@ define dso_local void @_ZN16btBU_Simplex1to4C2ERK9btVector3(ptr noundef nonnull 
 entry:
   tail call void @_ZN34btPolyhedralConvexAabbCachingShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(113) %this)
   store ptr getelementptr inbounds (i8, ptr @_ZTV16btBU_Simplex1to4, i64 16), ptr %this, align 8
-  %m_numVertices = getelementptr inbounds i8, ptr %this, i64 116
-  %m_shapeType = getelementptr inbounds i8, ptr %this, i64 8
+  %m_numVertices = getelementptr inbounds nuw i8, ptr %this, i64 116
+  %m_shapeType = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 2, ptr %m_shapeType, align 8
-  %m_vertices.i = getelementptr inbounds i8, ptr %this, i64 120
+  %m_vertices.i = getelementptr inbounds nuw i8, ptr %this, i64 120
   store i32 1, ptr %m_numVertices, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_vertices.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %pt0, i64 16, i1 false)
   invoke void @_ZN34btPolyhedralConvexAabbCachingShape15recalcLocalAabbEv(ptr noundef nonnull align 8 dereferenceable(184) %this)
@@ -88,8 +88,8 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN16btBU_Simplex1to49addVertexERK9btVector3(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %pt) local_unnamed_addr #0 align 2 {
 entry:
-  %m_vertices = getelementptr inbounds i8, ptr %this, i64 120
-  %m_numVertices = getelementptr inbounds i8, ptr %this, i64 116
+  %m_vertices = getelementptr inbounds nuw i8, ptr %this, i64 120
+  %m_numVertices = getelementptr inbounds nuw i8, ptr %this, i64 116
   %0 = load i32, ptr %m_numVertices, align 4
   %inc = add nsw i32 %0, 1
   store i32 %inc, ptr %m_numVertices, align 4
@@ -105,10 +105,10 @@ define dso_local void @_ZN16btBU_Simplex1to4C2ERK9btVector3S2_(ptr noundef nonnu
 entry:
   tail call void @_ZN34btPolyhedralConvexAabbCachingShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(113) %this)
   store ptr getelementptr inbounds (i8, ptr @_ZTV16btBU_Simplex1to4, i64 16), ptr %this, align 8
-  %m_numVertices = getelementptr inbounds i8, ptr %this, i64 116
-  %m_shapeType = getelementptr inbounds i8, ptr %this, i64 8
+  %m_numVertices = getelementptr inbounds nuw i8, ptr %this, i64 116
+  %m_shapeType = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 2, ptr %m_shapeType, align 8
-  %m_vertices.i = getelementptr inbounds i8, ptr %this, i64 120
+  %m_vertices.i = getelementptr inbounds nuw i8, ptr %this, i64 120
   store i32 1, ptr %m_numVertices, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_vertices.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %pt0, i64 16, i1 false)
   invoke void @_ZN34btPolyhedralConvexAabbCachingShape15recalcLocalAabbEv(ptr noundef nonnull align 8 dereferenceable(184) %this)
@@ -139,10 +139,10 @@ define dso_local void @_ZN16btBU_Simplex1to4C2ERK9btVector3S2_S2_(ptr noundef no
 entry:
   tail call void @_ZN34btPolyhedralConvexAabbCachingShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(113) %this)
   store ptr getelementptr inbounds (i8, ptr @_ZTV16btBU_Simplex1to4, i64 16), ptr %this, align 8
-  %m_numVertices = getelementptr inbounds i8, ptr %this, i64 116
-  %m_shapeType = getelementptr inbounds i8, ptr %this, i64 8
+  %m_numVertices = getelementptr inbounds nuw i8, ptr %this, i64 116
+  %m_shapeType = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 2, ptr %m_shapeType, align 8
-  %m_vertices.i = getelementptr inbounds i8, ptr %this, i64 120
+  %m_vertices.i = getelementptr inbounds nuw i8, ptr %this, i64 120
   store i32 1, ptr %m_numVertices, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_vertices.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %pt0, i64 16, i1 false)
   invoke void @_ZN34btPolyhedralConvexAabbCachingShape15recalcLocalAabbEv(ptr noundef nonnull align 8 dereferenceable(184) %this)
@@ -183,10 +183,10 @@ define dso_local void @_ZN16btBU_Simplex1to4C2ERK9btVector3S2_S2_S2_(ptr noundef
 entry:
   tail call void @_ZN34btPolyhedralConvexAabbCachingShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(113) %this)
   store ptr getelementptr inbounds (i8, ptr @_ZTV16btBU_Simplex1to4, i64 16), ptr %this, align 8
-  %m_numVertices = getelementptr inbounds i8, ptr %this, i64 116
-  %m_shapeType = getelementptr inbounds i8, ptr %this, i64 8
+  %m_numVertices = getelementptr inbounds nuw i8, ptr %this, i64 116
+  %m_shapeType = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 2, ptr %m_shapeType, align 8
-  %m_vertices.i = getelementptr inbounds i8, ptr %this, i64 120
+  %m_vertices.i = getelementptr inbounds nuw i8, ptr %this, i64 120
   store i32 1, ptr %m_numVertices, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_vertices.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %pt0, i64 16, i1 false)
   invoke void @_ZN34btPolyhedralConvexAabbCachingShape15recalcLocalAabbEv(ptr noundef nonnull align 8 dereferenceable(184) %this)
@@ -249,7 +249,7 @@ declare void @_ZN34btPolyhedralConvexAabbCachingShape15recalcLocalAabbEv(ptr nou
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i32 @_ZNK16btBU_Simplex1to414getNumVerticesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %this) unnamed_addr #3 align 2 {
 entry:
-  %m_numVertices = getelementptr inbounds i8, ptr %this, i64 116
+  %m_numVertices = getelementptr inbounds nuw i8, ptr %this, i64 116
   %0 = load i32, ptr %m_numVertices, align 4
   ret i32 %0
 }
@@ -257,7 +257,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef range(i32 0, 7) i32 @_ZNK16btBU_Simplex1to411getNumEdgesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %this) unnamed_addr #3 align 2 {
 entry:
-  %m_numVertices = getelementptr inbounds i8, ptr %this, i64 116
+  %m_numVertices = getelementptr inbounds nuw i8, ptr %this, i64 116
   %0 = load i32, ptr %m_numVertices, align 4
   %switch.tableidx = add i32 %0, -2
   %1 = icmp ult i32 %switch.tableidx, 3
@@ -265,7 +265,7 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZNK16btBU_Simplex1to411getNumEdgesEv, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZNK16btBU_Simplex1to411getNumEdgesEv, i64 0, i64 %2
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %return
 
@@ -277,7 +277,7 @@ return:                                           ; preds = %entry, %switch.look
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZNK16btBU_Simplex1to47getEdgeEiR9btVector3S1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %this, i32 noundef %i, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %pa, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %pb) unnamed_addr #4 align 2 {
 entry:
-  %m_numVertices = getelementptr inbounds i8, ptr %this, i64 116
+  %m_numVertices = getelementptr inbounds nuw i8, ptr %this, i64 116
   %0 = load i32, ptr %m_numVertices, align 4
   switch i32 %0, label %sw.epilog52 [
     i32 2, label %sw.bb
@@ -286,9 +286,9 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %m_vertices = getelementptr inbounds i8, ptr %this, i64 120
+  %m_vertices = getelementptr inbounds nuw i8, ptr %this, i64 120
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %pa, ptr noundef nonnull align 8 dereferenceable(16) %m_vertices, i64 16, i1 false)
-  %arrayidx3 = getelementptr inbounds i8, ptr %this, i64 136
+  %arrayidx3 = getelementptr inbounds nuw i8, ptr %this, i64 136
   br label %sw.epilog52.sink.split
 
 sw.bb4:                                           ; preds = %entry
@@ -299,20 +299,20 @@ sw.bb4:                                           ; preds = %entry
   ]
 
 sw.bb5:                                           ; preds = %sw.bb4
-  %m_vertices6 = getelementptr inbounds i8, ptr %this, i64 120
+  %m_vertices6 = getelementptr inbounds nuw i8, ptr %this, i64 120
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %pa, ptr noundef nonnull align 8 dereferenceable(16) %m_vertices6, i64 16, i1 false)
-  %arrayidx9 = getelementptr inbounds i8, ptr %this, i64 136
+  %arrayidx9 = getelementptr inbounds nuw i8, ptr %this, i64 136
   br label %sw.epilog52.sink.split
 
 sw.bb10:                                          ; preds = %sw.bb4
-  %arrayidx12 = getelementptr inbounds i8, ptr %this, i64 136
+  %arrayidx12 = getelementptr inbounds nuw i8, ptr %this, i64 136
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %pa, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx12, i64 16, i1 false)
-  %arrayidx14 = getelementptr inbounds i8, ptr %this, i64 152
+  %arrayidx14 = getelementptr inbounds nuw i8, ptr %this, i64 152
   br label %sw.epilog52.sink.split
 
 sw.bb15:                                          ; preds = %sw.bb4
-  %m_vertices16 = getelementptr inbounds i8, ptr %this, i64 120
-  %arrayidx17 = getelementptr inbounds i8, ptr %this, i64 152
+  %m_vertices16 = getelementptr inbounds nuw i8, ptr %this, i64 120
+  %arrayidx17 = getelementptr inbounds nuw i8, ptr %this, i64 152
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %pa, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx17, i64 16, i1 false)
   br label %sw.epilog52.sink.split
 
@@ -327,39 +327,39 @@ sw.bb20:                                          ; preds = %entry
   ]
 
 sw.bb21:                                          ; preds = %sw.bb20
-  %m_vertices22 = getelementptr inbounds i8, ptr %this, i64 120
+  %m_vertices22 = getelementptr inbounds nuw i8, ptr %this, i64 120
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %pa, ptr noundef nonnull align 8 dereferenceable(16) %m_vertices22, i64 16, i1 false)
-  %arrayidx25 = getelementptr inbounds i8, ptr %this, i64 136
+  %arrayidx25 = getelementptr inbounds nuw i8, ptr %this, i64 136
   br label %sw.epilog52.sink.split
 
 sw.bb26:                                          ; preds = %sw.bb20
-  %arrayidx28 = getelementptr inbounds i8, ptr %this, i64 136
+  %arrayidx28 = getelementptr inbounds nuw i8, ptr %this, i64 136
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %pa, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx28, i64 16, i1 false)
-  %arrayidx30 = getelementptr inbounds i8, ptr %this, i64 152
+  %arrayidx30 = getelementptr inbounds nuw i8, ptr %this, i64 152
   br label %sw.epilog52.sink.split
 
 sw.bb31:                                          ; preds = %sw.bb20
-  %m_vertices32 = getelementptr inbounds i8, ptr %this, i64 120
-  %arrayidx33 = getelementptr inbounds i8, ptr %this, i64 152
+  %m_vertices32 = getelementptr inbounds nuw i8, ptr %this, i64 120
+  %arrayidx33 = getelementptr inbounds nuw i8, ptr %this, i64 152
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %pa, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx33, i64 16, i1 false)
   br label %sw.epilog52.sink.split
 
 sw.bb36:                                          ; preds = %sw.bb20
-  %m_vertices37 = getelementptr inbounds i8, ptr %this, i64 120
+  %m_vertices37 = getelementptr inbounds nuw i8, ptr %this, i64 120
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %pa, ptr noundef nonnull align 8 dereferenceable(16) %m_vertices37, i64 16, i1 false)
-  %arrayidx40 = getelementptr inbounds i8, ptr %this, i64 168
+  %arrayidx40 = getelementptr inbounds nuw i8, ptr %this, i64 168
   br label %sw.epilog52.sink.split
 
 sw.bb41:                                          ; preds = %sw.bb20
-  %arrayidx43 = getelementptr inbounds i8, ptr %this, i64 136
+  %arrayidx43 = getelementptr inbounds nuw i8, ptr %this, i64 136
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %pa, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx43, i64 16, i1 false)
-  %arrayidx45 = getelementptr inbounds i8, ptr %this, i64 168
+  %arrayidx45 = getelementptr inbounds nuw i8, ptr %this, i64 168
   br label %sw.epilog52.sink.split
 
 sw.bb46:                                          ; preds = %sw.bb20
-  %arrayidx48 = getelementptr inbounds i8, ptr %this, i64 152
+  %arrayidx48 = getelementptr inbounds nuw i8, ptr %this, i64 152
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %pa, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx48, i64 16, i1 false)
-  %arrayidx50 = getelementptr inbounds i8, ptr %this, i64 168
+  %arrayidx50 = getelementptr inbounds nuw i8, ptr %this, i64 168
   br label %sw.epilog52.sink.split
 
 sw.epilog52.sink.split:                           ; preds = %sw.bb, %sw.bb15, %sw.bb10, %sw.bb5, %sw.bb46, %sw.bb41, %sw.bb36, %sw.bb31, %sw.bb26, %sw.bb21
@@ -374,7 +374,7 @@ sw.epilog52:                                      ; preds = %sw.epilog52.sink.sp
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZNK16btBU_Simplex1to49getVertexEiR9btVector3(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %this, i32 noundef %i, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %vtx) unnamed_addr #4 align 2 {
 entry:
-  %m_vertices = getelementptr inbounds i8, ptr %this, i64 120
+  %m_vertices = getelementptr inbounds nuw i8, ptr %this, i64 120
   %idxprom = sext i32 %i to i64
   %arrayidx = getelementptr inbounds [4 x %class.btVector3], ptr %m_vertices, i64 0, i64 %idxprom
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %vtx, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx, i64 16, i1 false)
@@ -384,7 +384,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef range(i32 0, 5) i32 @_ZNK16btBU_Simplex1to412getNumPlanesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %this) unnamed_addr #3 align 2 {
 entry:
-  %m_numVertices = getelementptr inbounds i8, ptr %this, i64 116
+  %m_numVertices = getelementptr inbounds nuw i8, ptr %this, i64 116
   %0 = load i32, ptr %m_numVertices, align 4
   %switch.selectcmp = icmp eq i32 %0, 3
   %switch.select = select i1 %switch.selectcmp, i32 2, i32 0
@@ -447,7 +447,7 @@ declare void @_ZN34btPolyhedralConvexAabbCachingShape15setLocalScalingERK9btVect
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(16) ptr @_ZNK21btConvexInternalShape15getLocalScalingEv(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  %m_localScaling = getelementptr inbounds i8, ptr %this, i64 32
+  %m_localScaling = getelementptr inbounds nuw i8, ptr %this, i64 32
   ret ptr %m_localScaling
 }
 
@@ -468,7 +468,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN21btConvexInternalShape9setMarginEf(ptr noundef nonnull align 8 dereferenceable(72) %this, float noundef %margin) unnamed_addr #6 comdat align 2 {
 entry:
-  %m_collisionMargin = getelementptr inbounds i8, ptr %this, i64 64
+  %m_collisionMargin = getelementptr inbounds nuw i8, ptr %this, i64 64
   store float %margin, ptr %m_collisionMargin, align 8
   ret void
 }
@@ -476,7 +476,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef float @_ZNK21btConvexInternalShape9getMarginEv(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  %m_collisionMargin = getelementptr inbounds i8, ptr %this, i64 64
+  %m_collisionMargin = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load float, ptr %m_collisionMargin, align 8
   ret float %0
 }
@@ -491,41 +491,41 @@ entry:
 define linkonce_odr dso_local noundef ptr @_ZNK21btConvexInternalShape9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %dataBuffer, ptr noundef %serializer) unnamed_addr #0 comdat align 2 {
 entry:
   %call = tail call noundef ptr @_ZNK16btCollisionShape9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %dataBuffer, ptr noundef %serializer)
-  %m_implicitShapeDimensions = getelementptr inbounds i8, ptr %this, i64 48
-  %m_implicitShapeDimensions2 = getelementptr inbounds i8, ptr %dataBuffer, i64 32
+  %m_implicitShapeDimensions = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %m_implicitShapeDimensions2 = getelementptr inbounds nuw i8, ptr %dataBuffer, i64 32
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %indvars.iv.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [4 x float], ptr %m_implicitShapeDimensions, i64 0, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw [4 x float], ptr %m_implicitShapeDimensions, i64 0, i64 %indvars.iv.i
   %0 = load float, ptr %arrayidx.i, align 4
-  %arrayidx4.i = getelementptr inbounds [4 x float], ptr %m_implicitShapeDimensions2, i64 0, i64 %indvars.iv.i
+  %arrayidx4.i = getelementptr inbounds nuw [4 x float], ptr %m_implicitShapeDimensions2, i64 0, i64 %indvars.iv.i
   store float %0, ptr %arrayidx4.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond.not.i, label %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit, label %for.body.i, !llvm.loop !5
 
 _ZNK9btVector314serializeFloatER18btVector3FloatData.exit: ; preds = %for.body.i
-  %m_localScaling = getelementptr inbounds i8, ptr %this, i64 32
-  %m_localScaling3 = getelementptr inbounds i8, ptr %dataBuffer, i64 16
+  %m_localScaling = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %m_localScaling3 = getelementptr inbounds nuw i8, ptr %dataBuffer, i64 16
   br label %for.body.i5
 
 for.body.i5:                                      ; preds = %for.body.i5, %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit
   %indvars.iv.i6 = phi i64 [ 0, %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit ], [ %indvars.iv.next.i9, %for.body.i5 ]
-  %arrayidx.i7 = getelementptr inbounds [4 x float], ptr %m_localScaling, i64 0, i64 %indvars.iv.i6
+  %arrayidx.i7 = getelementptr inbounds nuw [4 x float], ptr %m_localScaling, i64 0, i64 %indvars.iv.i6
   %1 = load float, ptr %arrayidx.i7, align 4
-  %arrayidx4.i8 = getelementptr inbounds [4 x float], ptr %m_localScaling3, i64 0, i64 %indvars.iv.i6
+  %arrayidx4.i8 = getelementptr inbounds nuw [4 x float], ptr %m_localScaling3, i64 0, i64 %indvars.iv.i6
   store float %1, ptr %arrayidx4.i8, align 4
   %indvars.iv.next.i9 = add nuw nsw i64 %indvars.iv.i6, 1
   %exitcond.not.i10 = icmp eq i64 %indvars.iv.next.i9, 4
   br i1 %exitcond.not.i10, label %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit11, label %for.body.i5, !llvm.loop !5
 
 _ZNK9btVector314serializeFloatER18btVector3FloatData.exit11: ; preds = %for.body.i5
-  %m_collisionMargin = getelementptr inbounds i8, ptr %this, i64 64
+  %m_collisionMargin = getelementptr inbounds nuw i8, ptr %this, i64 64
   %2 = load float, ptr %m_collisionMargin, align 8
-  %m_collisionMargin4 = getelementptr inbounds i8, ptr %dataBuffer, i64 48
+  %m_collisionMargin4 = getelementptr inbounds nuw i8, ptr %dataBuffer, i64 48
   store float %2, ptr %m_collisionMargin4, align 8
-  %m_padding = getelementptr inbounds i8, ptr %dataBuffer, i64 52
+  %m_padding = getelementptr inbounds nuw i8, ptr %dataBuffer, i64 52
   store i32 0, ptr %m_padding, align 4
   ret ptr @.str.1
 }

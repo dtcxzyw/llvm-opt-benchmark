@@ -10,15 +10,15 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4llvh13StringMapImplC2Ejj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, i32 noundef %InitSize, i32 noundef %itemSize) unnamed_addr #0 align 2 {
 entry:
-  %NumBuckets = getelementptr inbounds i8, ptr %this, i64 8
-  %ItemSize = getelementptr inbounds i8, ptr %this, i64 20
+  %NumBuckets = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %ItemSize = getelementptr inbounds nuw i8, ptr %this, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
   store i32 %itemSize, ptr %ItemSize, align 4
   %tobool.not = icmp eq i32 %InitSize, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %NumTombstones = getelementptr inbounds i8, ptr %this, i64 16
+  %NumTombstones = getelementptr inbounds nuw i8, ptr %this, i64 16
   %mul.i = shl i32 %InitSize, 2
   %div.i = udiv i32 %mul.i, 3
   %add.i = add nuw nsw i32 %div.i, 1
@@ -49,7 +49,7 @@ _ZN4llvh13StringMapImpl4initEj.exit:              ; preds = %if.then, %if.then.i
   store ptr %call.i.i, ptr %this, align 8
   store i32 %conv1.i, ptr %NumBuckets, align 8
   %idxprom.i = zext i32 %conv1.i to i64
-  %arrayidx.i = getelementptr inbounds ptr, ptr %call.i.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %call.i.i, i64 %idxprom.i
   store ptr inttoptr (i64 2 to ptr), ptr %arrayidx.i, align 8
   br label %return
 
@@ -66,9 +66,9 @@ define hidden void @_ZN4llvh13StringMapImpl4initEj(ptr nocapture noundef nonnull
 entry:
   %tobool.not = icmp eq i32 %InitSize, 0
   %cond = select i1 %tobool.not, i32 16, i32 %InitSize
-  %NumItems = getelementptr inbounds i8, ptr %this, i64 12
+  %NumItems = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i32 0, ptr %NumItems, align 4
-  %NumTombstones = getelementptr inbounds i8, ptr %this, i64 16
+  %NumTombstones = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 0, ptr %NumTombstones, align 8
   %add = add i32 %cond, 1
   %conv = zext i32 %add to i64
@@ -82,10 +82,10 @@ if.then.i:                                        ; preds = %entry
 
 _ZN4llvh11safe_callocEmm.exit:                    ; preds = %entry, %if.then.i
   store ptr %call.i, ptr %this, align 8
-  %NumBuckets = getelementptr inbounds i8, ptr %this, i64 8
+  %NumBuckets = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %cond, ptr %NumBuckets, align 8
   %idxprom = zext i32 %cond to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %call.i, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %call.i, i64 %idxprom
   store ptr inttoptr (i64 2 to ptr), ptr %arrayidx, align 8
   ret void
 }
@@ -93,15 +93,15 @@ _ZN4llvh11safe_callocEmm.exit:                    ; preds = %entry, %if.then.i
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZN4llvh13StringMapImpl15LookupBucketForENS_9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr readonly %Name.coerce0, i64 %Name.coerce1) local_unnamed_addr #0 align 2 {
 entry:
-  %NumBuckets = getelementptr inbounds i8, ptr %this, i64 8
+  %NumBuckets = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %NumBuckets, align 8
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %NumItems.i = getelementptr inbounds i8, ptr %this, i64 12
+  %NumItems.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i32 0, ptr %NumItems.i, align 4
-  %NumTombstones.i = getelementptr inbounds i8, ptr %this, i64 16
+  %NumTombstones.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 0, ptr %NumTombstones.i, align 8
   %call.i.i = tail call noalias dereferenceable_or_null(204) ptr @calloc(i64 noundef 17, i64 noundef 12) #8
   %cmp.i.i = icmp eq ptr %call.i.i, null
@@ -114,7 +114,7 @@ if.then.i.i:                                      ; preds = %if.then
 _ZN4llvh13StringMapImpl4initEj.exit:              ; preds = %if.then, %if.then.i.i
   store ptr %call.i.i, ptr %this, align 8
   store i32 16, ptr %NumBuckets, align 8
-  %arrayidx.i = getelementptr inbounds i8, ptr %call.i.i, i64 128
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 128
   store ptr inttoptr (i64 2 to ptr), ptr %arrayidx.i, align 8
   br label %if.end
 
@@ -131,7 +131,7 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
   %add.i = mul i32 %H.addr.08.i, 33
   %conv.i = zext i8 %2 to i32
   %add3.i = add i32 %add.i, %conv.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.07.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.07.i, i64 1
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i.i.i
   br i1 %cmp.not.i, label %_ZN4llvh7djbHashENS_9StringRefEj.exit, label %for.body.i
 
@@ -140,9 +140,9 @@ _ZN4llvh7djbHashENS_9StringRefEj.exit:            ; preds = %for.body.i, %if.end
   %sub = add i32 %1, -1
   %3 = load ptr, ptr %this, align 8
   %idx.ext = zext i32 %1 to i64
-  %add.ptr = getelementptr inbounds ptr, ptr %3, i64 %idx.ext
-  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 8
-  %ItemSize = getelementptr inbounds i8, ptr %this, i64 20
+  %add.ptr = getelementptr inbounds nuw ptr, ptr %3, i64 %idx.ext
+  %add.ptr4 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
+  %ItemSize = getelementptr inbounds nuw i8, ptr %this, i64 20
   %4 = load i32, ptr %ItemSize, align 4
   %idx.ext25 = zext i32 %4 to i64
   br label %while.body
@@ -153,7 +153,7 @@ while.body:                                       ; preds = %if.end34, %_ZN4llvh
   %call.pn = phi i32 [ %H.addr.0.lcssa.i, %_ZN4llvh7djbHashENS_9StringRefEj.exit ], [ %add, %if.end34 ]
   %BucketNo.0 = and i32 %call.pn, %sub
   %idxprom = zext i32 %BucketNo.0 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %3, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8
   %magicptr = ptrtoint ptr %5 to i64
   switch i64 %magicptr, label %if.else [
@@ -176,13 +176,13 @@ if.then17:                                        ; preds = %while.body
   br label %if.end34
 
 if.else:                                          ; preds = %while.body
-  %arrayidx22 = getelementptr inbounds i32, ptr %add.ptr4, i64 %idxprom
+  %arrayidx22 = getelementptr inbounds nuw i32, ptr %add.ptr4, i64 %idxprom
   %6 = load i32, ptr %arrayidx22, align 4
   %cmp23 = icmp eq i32 %6, %H.addr.0.lcssa.i
   br i1 %cmp23, label %if.then24, label %if.end34
 
 if.then24:                                        ; preds = %if.else
-  %add.ptr26 = getelementptr inbounds i8, ptr %5, i64 %idx.ext25
+  %add.ptr26 = getelementptr inbounds nuw i8, ptr %5, i64 %idx.ext25
   %7 = load i64, ptr %5, align 8
   %cmp.i = icmp eq i64 %Name.coerce1, %7
   br i1 %cmp.i, label %land.rhs.i, label %if.end34
@@ -209,7 +209,7 @@ return:                                           ; preds = %land.rhs.i, %if.end
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr readonly %Key.coerce0, i64 %Key.coerce1) local_unnamed_addr #1 align 2 {
 entry:
-  %NumBuckets = getelementptr inbounds i8, ptr %this, i64 8
+  %NumBuckets = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %NumBuckets, align 8
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %return, label %if.end
@@ -226,7 +226,7 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
   %add.i = mul i32 %H.addr.08.i, 33
   %conv.i = zext i8 %1 to i32
   %add3.i = add i32 %add.i, %conv.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.07.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.07.i, i64 1
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i.i.i
   br i1 %cmp.not.i, label %_ZN4llvh7djbHashENS_9StringRefEj.exit, label %for.body.i
 
@@ -235,9 +235,9 @@ _ZN4llvh7djbHashENS_9StringRefEj.exit:            ; preds = %for.body.i, %if.end
   %sub = add i32 %0, -1
   %2 = load ptr, ptr %this, align 8
   %idx.ext = zext i32 %0 to i64
-  %add.ptr = getelementptr inbounds ptr, ptr %2, i64 %idx.ext
-  %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr, i64 8
-  %ItemSize = getelementptr inbounds i8, ptr %this, i64 20
+  %add.ptr = getelementptr inbounds nuw ptr, ptr %2, i64 %idx.ext
+  %add.ptr3 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
+  %ItemSize = getelementptr inbounds nuw i8, ptr %this, i64 20
   %3 = load i32, ptr %ItemSize, align 4
   %idx.ext14 = zext i32 %3 to i64
   br label %while.body
@@ -247,7 +247,7 @@ while.body:                                       ; preds = %if.end23, %_ZN4llvh
   %call.pn = phi i32 [ %H.addr.0.lcssa.i, %_ZN4llvh7djbHashENS_9StringRefEj.exit ], [ %add, %if.end23 ]
   %BucketNo.0 = and i32 %call.pn, %sub
   %idxprom = zext i32 %BucketNo.0 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %2, i64 %idxprom
   %4 = load ptr, ptr %arrayidx, align 8
   %magicptr = ptrtoint ptr %4 to i64
   switch i64 %magicptr, label %if.else [
@@ -256,13 +256,13 @@ while.body:                                       ; preds = %if.end23, %_ZN4llvh
   ]
 
 if.else:                                          ; preds = %while.body
-  %arrayidx11 = getelementptr inbounds i32, ptr %add.ptr3, i64 %idxprom
+  %arrayidx11 = getelementptr inbounds nuw i32, ptr %add.ptr3, i64 %idxprom
   %5 = load i32, ptr %arrayidx11, align 4
   %cmp12 = icmp eq i32 %5, %H.addr.0.lcssa.i
   br i1 %cmp12, label %if.then13, label %if.end23
 
 if.then13:                                        ; preds = %if.else
-  %add.ptr15 = getelementptr inbounds i8, ptr %4, i64 %idx.ext14
+  %add.ptr15 = getelementptr inbounds nuw i8, ptr %4, i64 %idx.ext14
   %6 = load i64, ptr %4, align 8
   %cmp.i = icmp eq i64 %Key.coerce1, %6
   br i1 %cmp.i, label %land.rhs.i, label %if.end23
@@ -288,10 +288,10 @@ return:                                           ; preds = %while.body, %land.r
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN4llvh13StringMapImpl9RemoveKeyEPNS_18StringMapEntryBaseE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %V) local_unnamed_addr #2 align 2 {
 entry:
-  %ItemSize = getelementptr inbounds i8, ptr %this, i64 20
+  %ItemSize = getelementptr inbounds nuw i8, ptr %this, i64 20
   %0 = load i32, ptr %ItemSize, align 4
   %idx.ext = zext i32 %0 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %V, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw i8, ptr %V, i64 %idx.ext
   %1 = load i64, ptr %V, align 8
   %call2 = tail call noundef ptr @_ZN4llvh13StringMapImpl9RemoveKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr nonnull %add.ptr, i64 %1)
   ret void
@@ -300,7 +300,7 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden noundef ptr @_ZN4llvh13StringMapImpl9RemoveKeyENS_9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr readonly %Key.coerce0, i64 %Key.coerce1) local_unnamed_addr #2 align 2 {
 entry:
-  %NumBuckets.i = getelementptr inbounds i8, ptr %this, i64 8
+  %NumBuckets.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %NumBuckets.i, align 8
   %cmp.i = icmp eq i32 %0, 0
   br i1 %cmp.i, label %return, label %if.end.i
@@ -314,8 +314,8 @@ _ZN4llvh7djbHashENS_9StringRefEj.exit.i.thread:   ; preds = %if.end.i
   %sub.i12 = add i32 %0, -1
   %1 = load ptr, ptr %this, align 8
   %idx.ext.i13 = zext i32 %0 to i64
-  %add.ptr.i14 = getelementptr inbounds ptr, ptr %1, i64 %idx.ext.i13
-  %add.ptr3.i15 = getelementptr inbounds i8, ptr %add.ptr.i14, i64 8
+  %add.ptr.i14 = getelementptr inbounds nuw ptr, ptr %1, i64 %idx.ext.i13
+  %add.ptr3.i15 = getelementptr inbounds nuw i8, ptr %add.ptr.i14, i64 8
   br label %while.body.i.us
 
 for.body.i.i:                                     ; preds = %if.end.i, %for.body.i.i
@@ -325,7 +325,7 @@ for.body.i.i:                                     ; preds = %if.end.i, %for.body
   %add.i.i = mul i32 %H.addr.08.i.i, 33
   %conv.i.i = zext i8 %2 to i32
   %add3.i.i = add i32 %add.i.i, %conv.i.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin1.07.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__begin1.07.i.i, i64 1
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i.i.i
   br i1 %cmp.not.i.i, label %_ZN4llvh7djbHashENS_9StringRefEj.exit.i, label %for.body.i.i
 
@@ -333,9 +333,9 @@ _ZN4llvh7djbHashENS_9StringRefEj.exit.i:          ; preds = %for.body.i.i
   %sub.i = add i32 %0, -1
   %3 = load ptr, ptr %this, align 8
   %idx.ext.i = zext i32 %0 to i64
-  %add.ptr.i = getelementptr inbounds ptr, ptr %3, i64 %idx.ext.i
-  %add.ptr3.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
-  %ItemSize.i = getelementptr inbounds i8, ptr %this, i64 20
+  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %3, i64 %idx.ext.i
+  %add.ptr3.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
+  %ItemSize.i = getelementptr inbounds nuw i8, ptr %this, i64 20
   %4 = load i32, ptr %ItemSize.i, align 4
   %idx.ext14.i = zext i32 %4 to i64
   br label %while.body.i
@@ -345,7 +345,7 @@ while.body.i.us:                                  ; preds = %_ZN4llvh7djbHashENS
   %call.pn.i.us = phi i32 [ %add.i.us, %if.end23.i.us ], [ 0, %_ZN4llvh7djbHashENS_9StringRefEj.exit.i.thread ]
   %BucketNo.0.i.us = and i32 %call.pn.i.us, %sub.i12
   %idxprom.i.us = zext i32 %BucketNo.0.i.us to i64
-  %arrayidx.i.us = getelementptr inbounds ptr, ptr %1, i64 %idxprom.i.us
+  %arrayidx.i.us = getelementptr inbounds nuw ptr, ptr %1, i64 %idxprom.i.us
   %5 = load ptr, ptr %arrayidx.i.us, align 8
   %magicptr.i.us = ptrtoint ptr %5 to i64
   switch i64 %magicptr.i.us, label %if.else.i.us [
@@ -354,7 +354,7 @@ while.body.i.us:                                  ; preds = %_ZN4llvh7djbHashENS
   ]
 
 if.else.i.us:                                     ; preds = %while.body.i.us
-  %arrayidx11.i.us = getelementptr inbounds i32, ptr %add.ptr3.i15, i64 %idxprom.i.us
+  %arrayidx11.i.us = getelementptr inbounds nuw i32, ptr %add.ptr3.i15, i64 %idxprom.i.us
   %6 = load i32, ptr %arrayidx11.i.us, align 4
   %cmp12.i.us = icmp eq i32 %6, 0
   br i1 %cmp12.i.us, label %if.then13.i.us, label %if.end23.i.us
@@ -374,7 +374,7 @@ while.body.i:                                     ; preds = %_ZN4llvh7djbHashENS
   %call.pn.i = phi i32 [ %add.i, %if.end23.i ], [ %add3.i.i, %_ZN4llvh7djbHashENS_9StringRefEj.exit.i ]
   %BucketNo.0.i = and i32 %call.pn.i, %sub.i
   %idxprom.i = zext i32 %BucketNo.0.i to i64
-  %arrayidx.i = getelementptr inbounds ptr, ptr %3, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %3, i64 %idxprom.i
   %8 = load ptr, ptr %arrayidx.i, align 8
   %magicptr.i = ptrtoint ptr %8 to i64
   switch i64 %magicptr.i, label %if.else.i [
@@ -383,7 +383,7 @@ while.body.i:                                     ; preds = %_ZN4llvh7djbHashENS
   ]
 
 if.else.i:                                        ; preds = %while.body.i
-  %arrayidx11.i = getelementptr inbounds i32, ptr %add.ptr3.i, i64 %idxprom.i
+  %arrayidx11.i = getelementptr inbounds nuw i32, ptr %add.ptr3.i, i64 %idxprom.i
   %9 = load i32, ptr %arrayidx11.i, align 4
   %cmp12.i = icmp eq i32 %9, %add3.i.i
   br i1 %cmp12.i, label %if.then13.i, label %if.end23.i
@@ -394,7 +394,7 @@ if.then13.i:                                      ; preds = %if.else.i
   br i1 %cmp.i.i, label %land.rhs.i.i, label %if.end23.i
 
 land.rhs.i.i:                                     ; preds = %if.then13.i
-  %add.ptr15.i = getelementptr inbounds i8, ptr %8, i64 %idx.ext14.i
+  %add.ptr15.i = getelementptr inbounds nuw i8, ptr %8, i64 %idx.ext14.i
   %bcmp.i = tail call i32 @bcmp(ptr readonly %Key.coerce0, ptr nonnull %add.ptr15.i, i64 %Key.coerce1)
   %11 = icmp eq i32 %bcmp.i, 0
   br i1 %11, label %_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE.exit, label %if.end23.i
@@ -415,11 +415,11 @@ if.end:                                           ; preds = %_ZNK4llvh13StringMa
   %arrayidx = getelementptr inbounds ptr, ptr %12, i64 %idxprom
   %13 = load ptr, ptr %arrayidx, align 8
   store ptr inttoptr (i64 -8 to ptr), ptr %arrayidx, align 8
-  %NumItems = getelementptr inbounds i8, ptr %this, i64 12
+  %NumItems = getelementptr inbounds nuw i8, ptr %this, i64 12
   %14 = load i32, ptr %NumItems, align 4
   %dec = add i32 %14, -1
   store i32 %dec, ptr %NumItems, align 4
-  %NumTombstones = getelementptr inbounds i8, ptr %this, i64 16
+  %NumTombstones = getelementptr inbounds nuw i8, ptr %this, i64 16
   %15 = load i32, ptr %NumTombstones, align 8
   %inc = add i32 %15, 1
   store i32 %inc, ptr %NumTombstones, align 8
@@ -434,12 +434,12 @@ return:                                           ; preds = %while.body.i, %whil
 define hidden noundef i32 @_ZN4llvh13StringMapImpl11RehashTableEj(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %BucketNo) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %NumBuckets = getelementptr inbounds i8, ptr %this, i64 8
+  %NumBuckets = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i32, ptr %NumBuckets, align 8
   %idx.ext = zext i32 %1 to i64
-  %add.ptr = getelementptr inbounds ptr, ptr %0, i64 %idx.ext
-  %add.ptr2 = getelementptr inbounds i8, ptr %add.ptr, i64 8
-  %NumItems = getelementptr inbounds i8, ptr %this, i64 12
+  %add.ptr = getelementptr inbounds nuw ptr, ptr %0, i64 %idx.ext
+  %add.ptr2 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
+  %NumItems = getelementptr inbounds nuw i8, ptr %this, i64 12
   %2 = load i32, ptr %NumItems, align 4
   %mul = shl i32 %2, 2
   %mul4 = mul i32 %1, 3
@@ -451,7 +451,7 @@ if.then:                                          ; preds = %entry
   br label %if.end14
 
 if.else:                                          ; preds = %entry
-  %NumTombstones = getelementptr inbounds i8, ptr %this, i64 16
+  %NumTombstones = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load i32, ptr %NumTombstones, align 8
   %4 = add i32 %2, %3
   %sub = sub i32 %1, %4
@@ -477,8 +477,8 @@ _ZN4llvh11safe_callocEmm.exit:                    ; preds = %if.end14, %if.then.
   %.pre44 = phi ptr [ %0, %if.end14 ], [ %.pre44.pre, %if.then.i ]
   %5 = phi i32 [ %1, %if.end14 ], [ %.pre, %if.then.i ]
   %idx.ext16 = zext i32 %NewSize.0 to i64
-  %add.ptr17 = getelementptr inbounds ptr, ptr %call.i, i64 %idx.ext16
-  %add.ptr18 = getelementptr inbounds i8, ptr %add.ptr17, i64 8
+  %add.ptr17 = getelementptr inbounds nuw ptr, ptr %call.i, i64 %idx.ext16
+  %add.ptr18 = getelementptr inbounds nuw i8, ptr %add.ptr17, i64 8
   store ptr inttoptr (i64 2 to ptr), ptr %add.ptr17, align 8
   %cmp20.not40 = icmp eq i32 %5, 0
   br i1 %cmp20.not40, label %for.end, label %for.body.lr.ph
@@ -492,7 +492,7 @@ for.body.lr.ph:                                   ; preds = %_ZN4llvh11safe_call
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %NewBucketNo.042 = phi i32 [ %BucketNo, %for.body.lr.ph ], [ %NewBucketNo.1, %for.inc ]
-  %arrayidx23 = getelementptr inbounds ptr, ptr %.pre44, i64 %indvars.iv
+  %arrayidx23 = getelementptr inbounds nuw ptr, ptr %.pre44, i64 %indvars.iv
   %8 = load ptr, ptr %arrayidx23, align 8
   %magicptr = ptrtoint ptr %8 to i64
   switch i64 %magicptr, label %if.then26 [
@@ -501,11 +501,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   ]
 
 if.then26:                                        ; preds = %for.body
-  %arrayidx28 = getelementptr inbounds i32, ptr %add.ptr2, i64 %indvars.iv
+  %arrayidx28 = getelementptr inbounds nuw i32, ptr %add.ptr2, i64 %indvars.iv
   %9 = load i32, ptr %arrayidx28, align 4
   %and = and i32 %9, %sub29
   %idxprom30 = zext i32 %and to i64
-  %arrayidx31 = getelementptr inbounds ptr, ptr %call.i, i64 %idxprom30
+  %arrayidx31 = getelementptr inbounds nuw ptr, ptr %call.i, i64 %idxprom30
   %10 = load ptr, ptr %arrayidx31, align 8
   %tobool32.not = icmp eq ptr %10, null
   br i1 %tobool32.not, label %if.then33, label %do.body
@@ -521,20 +521,20 @@ do.body:                                          ; preds = %if.then26, %do.body
   %add46 = add i32 %ProbeSize.0, %NewBucket.0
   %and48 = and i32 %add46, %sub29
   %idxprom49 = zext i32 %and48 to i64
-  %arrayidx50 = getelementptr inbounds ptr, ptr %call.i, i64 %idxprom49
+  %arrayidx50 = getelementptr inbounds nuw ptr, ptr %call.i, i64 %idxprom49
   %11 = load ptr, ptr %arrayidx50, align 8
   %tobool51.not = icmp eq ptr %11, null
   br i1 %tobool51.not, label %do.end, label %do.body, !llvm.loop !7
 
 do.end:                                           ; preds = %do.body
-  %arrayidx50.le = getelementptr inbounds ptr, ptr %call.i, i64 %idxprom49
+  %arrayidx50.le = getelementptr inbounds nuw ptr, ptr %call.i, i64 %idxprom49
   store ptr %8, ptr %arrayidx50.le, align 8
   br label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %if.then33, %do.end
   %idxprom49.lcssa46.sink = phi i64 [ %idxprom49, %do.end ], [ %idxprom30, %if.then33 ]
   %and48.lcssa.sink = phi i32 [ %and48, %do.end ], [ %and, %if.then33 ]
-  %arrayidx55 = getelementptr inbounds i32, ptr %add.ptr18, i64 %idxprom49.lcssa46.sink
+  %arrayidx55 = getelementptr inbounds nuw i32, ptr %add.ptr18, i64 %idxprom49.lcssa46.sink
   store i32 %9, ptr %arrayidx55, align 4
   %cmp56 = icmp eq i64 %indvars.iv, %6
   %spec.select37 = select i1 %cmp56, i32 %and48.lcssa.sink, i32 %NewBucketNo.042
@@ -551,7 +551,7 @@ for.end:                                          ; preds = %for.inc, %_ZN4llvh1
   tail call void @free(ptr noundef %.pre44) #9
   store ptr %call.i, ptr %this, align 8
   store i32 %NewSize.0, ptr %NumBuckets, align 8
-  %NumTombstones64 = getelementptr inbounds i8, ptr %this, i64 16
+  %NumTombstones64 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 0, ptr %NumTombstones64, align 8
   br label %return
 

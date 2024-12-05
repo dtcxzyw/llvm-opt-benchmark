@@ -13,15 +13,15 @@ define zeroext i8 @softfloat_addComplCarryM(i8 noundef zeroext %0, ptr nocapture
 9:                                                ; preds = %9, %5
   %indvars.iv = phi i64 [ %indvars.iv.next, %9 ], [ 0, %5 ]
   %.0 = phi i8 [ %.1, %9 ], [ %3, %5 ]
-  %10 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4
   %14 = xor i32 %13, -1
   %15 = zext i8 %.0 to i32
   %16 = add i32 %11, %15
   %17 = add i32 %16, %14
-  %18 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   store i32 %17, ptr %18, align 4
   %.not = icmp eq i32 %17, %11
   %19 = icmp ult i32 %17, %11

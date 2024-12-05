@@ -13,11 +13,11 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef nonnull ptr @_ZN15MetadataHandles24allocate_metadata_handleEP8Metadata(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 28
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  %7 = getelementptr inbounds i8, ptr %0, i64 36
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 36
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %2
@@ -31,9 +31,9 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse
 
 10:                                               ; preds = %tailrecurse
   %11 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 272, i8 noundef zeroext 8, i32 noundef 0) #4
-  %12 = getelementptr inbounds i8, ptr %11, i64 256
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 256
   store i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %11, i64 264
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 264
   store ptr null, ptr %13, align 8
   store ptr %11, ptr %0, align 8
   store ptr %11, ptr %3, align 8
@@ -45,14 +45,14 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse
 16:                                               ; preds = %tailrecurse._crit_edge, %10
   %.01722.i = phi ptr [ %8, %tailrecurse._crit_edge ], [ %11, %10 ]
   %17 = phi ptr [ %.pre, %tailrecurse._crit_edge ], [ %11, %10 ]
-  %18 = getelementptr inbounds i8, ptr %17, i64 256
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 256
   %19 = load i32, ptr %18, align 8
   %20 = icmp slt i32 %19, 32
   br i1 %20, label %21, label %30
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %17, i64 256
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 256
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load i32, ptr %23, align 8
   %25 = add nsw i32 %24, 1
   store i32 %25, ptr %23, align 8
@@ -86,7 +86,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse
   ret ptr %.0.i.ph
 
 _ZN15MetadataHandles10get_handleEv.exit:          ; preds = %30
-  %41 = getelementptr inbounds i8, ptr %17, i64 264
+  %41 = getelementptr inbounds nuw i8, ptr %17, i64 264
   %42 = load ptr, ptr %41, align 8
   %.not15 = icmp eq ptr %42, null
   br i1 %.not15, label %44, label %43
@@ -105,7 +105,7 @@ _ZN15MetadataHandles10get_handleEv.exit:          ; preds = %30
   %.01726.i = phi ptr [ %.017.i, %._crit_edge.i ], [ %.01722.i, %44 ]
   %.025.i = phi i32 [ %.1.lcssa.i, %._crit_edge.i ], [ 0, %44 ]
   %.01624.i = phi i32 [ %69, %._crit_edge.i ], [ 0, %44 ]
-  %48 = getelementptr inbounds i8, ptr %.01726.i, i64 256
+  %48 = getelementptr inbounds nuw i8, ptr %.01726.i, i64 256
   %49 = load i32, ptr %48, align 8
   %50 = icmp sgt i32 %49, 0
   br i1 %50, label %.lr.ph.i, label %._crit_edge.i
@@ -115,7 +115,7 @@ _ZN15MetadataHandles10get_handleEv.exit:          ; preds = %30
   %52 = phi i32 [ %65, %63 ], [ %49, %.preheader.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %63 ], [ 0, %.preheader.i ]
   %.121.i = phi i32 [ %.2.i, %63 ], [ %.025.i, %.preheader.i ]
-  %53 = getelementptr inbounds [32 x %struct._jmetadata], ptr %.01726.i, i64 0, i64 %indvars.iv.i
+  %53 = getelementptr inbounds nuw [32 x %struct._jmetadata], ptr %.01726.i, i64 0, i64 %indvars.iv.i
   %54 = load ptr, ptr %53, align 8
   %55 = icmp eq ptr %54, null
   br i1 %55, label %56, label %63
@@ -146,7 +146,7 @@ _ZN15MetadataHandles10get_handleEv.exit:          ; preds = %30
   %68 = phi i64 [ %47, %.preheader.i ], [ %64, %63 ]
   %.1.lcssa.i = phi i32 [ %.025.i, %.preheader.i ], [ %.2.i, %63 ]
   %69 = add nuw nsw i32 %.01624.i, 1
-  %70 = getelementptr inbounds i8, ptr %.01726.i, i64 264
+  %70 = getelementptr inbounds nuw i8, ptr %.01726.i, i64 264
   %.017.i = load ptr, ptr %70, align 8
   %.not.i16 = icmp eq ptr %.017.i, null
   br i1 %.not.i16, label %._crit_edge27.i, label %.preheader.i, !llvm.loop !8
@@ -166,15 +166,15 @@ _ZN15MetadataHandles10get_handleEv.exit:          ; preds = %30
 
 78:                                               ; preds = %44
   %79 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 272, i8 noundef zeroext 8, i32 noundef 0) #4
-  %80 = getelementptr inbounds i8, ptr %79, i64 256
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 256
   store i32 0, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %79, i64 264
+  %81 = getelementptr inbounds nuw i8, ptr %79, i64 264
   store ptr null, ptr %81, align 8
   %82 = load ptr, ptr %3, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 264
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 264
   store ptr %79, ptr %83, align 8
   %84 = load ptr, ptr %3, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 264
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 264
   %86 = load ptr, ptr %85, align 8
   store ptr %86, ptr %3, align 8
   %87 = load i32, ptr %6, align 8
@@ -196,15 +196,15 @@ define hidden void @_ZN15MetadataHandles17rebuild_free_listEv(ptr nocapture noun
   br i1 %.not23, label %._crit_edge27.thread, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %1
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 36
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
   %.01726 = phi ptr [ %.01722, %.preheader.lr.ph ], [ %.017, %._crit_edge ]
   %.025 = phi i32 [ 0, %.preheader.lr.ph ], [ %.1.lcssa, %._crit_edge ]
   %.01624 = phi i32 [ 0, %.preheader.lr.ph ], [ %23, %._crit_edge ]
-  %4 = getelementptr inbounds i8, ptr %.01726, i64 256
+  %4 = getelementptr inbounds nuw i8, ptr %.01726, i64 256
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
@@ -213,7 +213,7 @@ define hidden void @_ZN15MetadataHandles17rebuild_free_listEv(ptr nocapture noun
   %7 = phi i32 [ %20, %19 ], [ %5, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %19 ], [ 0, %.preheader ]
   %.121 = phi i32 [ %.2, %19 ], [ %.025, %.preheader ]
-  %8 = getelementptr inbounds [32 x %struct._jmetadata], ptr %.01726, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [32 x %struct._jmetadata], ptr %.01726, i64 0, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %19
@@ -243,7 +243,7 @@ define hidden void @_ZN15MetadataHandles17rebuild_free_listEv(ptr nocapture noun
 ._crit_edge:                                      ; preds = %19, %.preheader
   %.1.lcssa = phi i32 [ %.025, %.preheader ], [ %.2, %19 ]
   %23 = add nuw nsw i32 %.01624, 1
-  %24 = getelementptr inbounds i8, ptr %.01726, i64 264
+  %24 = getelementptr inbounds nuw i8, ptr %.01726, i64 264
   %.017 = load ptr, ptr %24, align 8
   %.not = icmp eq ptr %.017, null
   br i1 %.not, label %._crit_edge27, label %.preheader, !llvm.loop !8
@@ -258,7 +258,7 @@ define hidden void @_ZN15MetadataHandles17rebuild_free_listEv(ptr nocapture noun
 29:                                               ; preds = %._crit_edge27
   %30 = add nuw nsw i32 %27, 31
   %31 = lshr i32 %30, 5
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %31, ptr %32, align 8
   br label %._crit_edge27.thread
 
@@ -268,27 +268,27 @@ define hidden void @_ZN15MetadataHandles17rebuild_free_listEv(ptr nocapture noun
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN15MetadataHandles5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((8, 24)) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %2, align 8
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %3, ptr %4, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %1, %.preheader
   %.06 = phi ptr [ %7, %.preheader ], [ %3, %1 ]
-  %5 = getelementptr inbounds i8, ptr %.06, i64 256
+  %5 = getelementptr inbounds nuw i8, ptr %.06, i64 256
   store i32 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %.06, i64 264
+  %6 = getelementptr inbounds nuw i8, ptr %.06, i64 264
   %7 = load ptr, ptr %6, align 8
   %.not5 = icmp eq ptr %7, null
   br i1 %.not5, label %.loopexit, label %.preheader, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.preheader, %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 36
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 0, ptr %9, align 4
   ret void
 }
@@ -300,14 +300,14 @@ define hidden void @_ZN15MetadataHandles11metadata_doEPFvP8MetadataE(ptr nocaptu
   br i1 %.not21, label %._crit_edge23, label %.preheader
 
 3:                                                ; preds = %._crit_edge
-  %4 = getelementptr inbounds i8, ptr %.022, i64 264
+  %4 = getelementptr inbounds nuw i8, ptr %.022, i64 264
   %.0 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge23, label %.preheader, !llvm.loop !10
 
 .preheader:                                       ; preds = %2, %3
   %.022 = phi ptr [ %.0, %3 ], [ %.020, %2 ]
-  %5 = getelementptr inbounds i8, ptr %.022, i64 256
+  %5 = getelementptr inbounds nuw i8, ptr %.022, i64 256
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %._crit_edge23
@@ -315,7 +315,7 @@ define hidden void @_ZN15MetadataHandles11metadata_doEPFvP8MetadataE(ptr nocaptu
 .lr.ph:                                           ; preds = %.preheader, %15
   %8 = phi i32 [ %16, %15 ], [ %6, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %15 ], [ 0, %.preheader ]
-  %9 = getelementptr inbounds [32 x %struct._jmetadata], ptr %.022, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [32 x %struct._jmetadata], ptr %.022, i64 0, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %.not16 = icmp ne ptr %10, null
   %11 = ptrtoint ptr %10 to i64
@@ -351,21 +351,21 @@ define hidden void @_ZN15MetadataHandles12do_unloadingEv(ptr nocapture noundef n
   br i1 %.not35, label %._crit_edge37, label %.preheader
 
 2:                                                ; preds = %._crit_edge
-  %3 = getelementptr inbounds i8, ptr %.036, i64 264
+  %3 = getelementptr inbounds nuw i8, ptr %.036, i64 264
   %.0 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge37, label %.preheader, !llvm.loop !12
 
 .preheader:                                       ; preds = %1, %2
   %.036 = phi ptr [ %.0, %2 ], [ %.034, %1 ]
-  %4 = getelementptr inbounds i8, ptr %.036, i64 256
+  %4 = getelementptr inbounds nuw i8, ptr %.036, i64 256
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph, label %._crit_edge37
 
 .lr.ph:                                           ; preds = %.preheader, %49
   %indvars.iv = phi i64 [ %indvars.iv.next, %49 ], [ 0, %.preheader ]
-  %7 = getelementptr inbounds [32 x %struct._jmetadata], ptr %.036, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [32 x %struct._jmetadata], ptr %.036, i64 0, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %.not30 = icmp eq ptr %8, null
   br i1 %.not30, label %49, label %9
@@ -378,28 +378,28 @@ define hidden void @_ZN15MetadataHandles12do_unloadingEv(ptr nocapture noundef n
 
 13:                                               ; preds = %9
   %14 = load ptr, ptr %8, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(8) %8) #4
   br i1 %17, label %37, label %18
 
 18:                                               ; preds = %13
   %19 = load ptr, ptr %8, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(8) %8) #4
   br i1 %22, label %23, label %28
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds i8, ptr %8, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
   br label %.sink.split
 
 28:                                               ; preds = %18
   %29 = load ptr, ptr %8, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %31 = load ptr, ptr %30, align 8
   %32 = tail call noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(8) %8) #4
   br i1 %32, label %.sink.split, label %33
@@ -412,15 +412,15 @@ define hidden void @_ZN15MetadataHandles12do_unloadingEv(ptr nocapture noundef n
 
 .sink.split:                                      ; preds = %28, %23
   %.sink42 = phi ptr [ %27, %23 ], [ %8, %28 ]
-  %35 = getelementptr inbounds i8, ptr %.sink42, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %.sink42, i64 24
   %36 = load ptr, ptr %35, align 8
   br label %37
 
 37:                                               ; preds = %.sink.split, %13
   %.027 = phi ptr [ %8, %13 ], [ %36, %.sink.split ]
-  %38 = getelementptr inbounds i8, ptr %.027, i64 152
+  %38 = getelementptr inbounds nuw i8, ptr %.027, i64 152
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
   %41 = load i8, ptr %40, align 8
   %42 = trunc i8 %41 to i1
   br i1 %42, label %43, label %49

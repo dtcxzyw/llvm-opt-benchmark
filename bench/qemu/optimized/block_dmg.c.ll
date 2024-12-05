@@ -81,7 +81,7 @@ entry:
   %buffer.i71 = alloca i64, align 8
   %buffer.i = alloca [515 x i8], align 16
   %ds = alloca %struct.DmgHeaderState, align 8
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %call = tail call zeroext i1 @qemu_in_main_thread() #11
   br i1 %call, label %do.end, label %if.else
@@ -114,18 +114,18 @@ if.end12:                                         ; preds = %if.end7
   br i1 %cmp14, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.end16
 
 if.end16:                                         ; preds = %if.end12
-  %n_chunks = getelementptr inbounds i8, ptr %0, i64 48
+  %n_chunks = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 0, ptr %n_chunks, align 8
-  %sectorcounts = getelementptr inbounds i8, ptr %0, i64 88
-  %sectors = getelementptr inbounds i8, ptr %0, i64 80
-  %lengths = getelementptr inbounds i8, ptr %0, i64 72
-  %offsets = getelementptr inbounds i8, ptr %0, i64 64
+  %sectorcounts = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %sectors = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %lengths = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %offsets = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %offsets, i8 0, i64 32, i1 false)
-  %max_compressed_size = getelementptr inbounds i8, ptr %ds, i64 8
+  %max_compressed_size = getelementptr inbounds nuw i8, ptr %ds, i64 8
   store i32 1, ptr %max_compressed_size, align 8
-  %max_sectors_per_chunk = getelementptr inbounds i8, ptr %ds, i64 12
+  %max_sectors_per_chunk = getelementptr inbounds nuw i8, ptr %ds, i64 12
   store i32 1, ptr %max_sectors_per_chunk, align 4
-  %file = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %1 = load ptr, ptr %file, align 8
   call void @llvm.lifetime.start.p0(i64 515, ptr nonnull %buffer.i)
   %2 = load ptr, ptr %1, align 8
@@ -327,7 +327,7 @@ read_uint64.exit104.thread:                       ; preds = %if.end70
   br label %fail
 
 if.end76:                                         ; preds = %if.end70
-  %total_sectors = getelementptr inbounds i8, ptr %bs, i64 16888
+  %total_sectors = getelementptr inbounds nuw i8, ptr %bs, i64 16888
   %19 = load i64, ptr %buffer.i99, align 8
   %20 = call noundef i64 @llvm.bswap.i64(i64 %19)
   store i64 %20, ptr %total_sectors, align 8
@@ -360,7 +360,7 @@ if.end101:                                        ; preds = %if.then93, %if.then
   %add105 = add i32 %23, 1
   %conv106 = zext i32 %add105 to i64
   %call107 = call ptr @qemu_try_blockalign(ptr noundef %22, i64 noundef %conv106) #11
-  %compressed_chunk = getelementptr inbounds i8, ptr %0, i64 104
+  %compressed_chunk = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %call107, ptr %compressed_chunk, align 8
   %24 = load ptr, ptr %file, align 8
   %25 = load ptr, ptr %24, align 8
@@ -368,7 +368,7 @@ if.end101:                                        ; preds = %if.then93, %if.then
   %mul = shl i32 %26, 9
   %conv111 = zext i32 %mul to i64
   %call112 = call ptr @qemu_try_blockalign(ptr noundef %25, i64 noundef %conv111) #11
-  %uncompressed_chunk = getelementptr inbounds i8, ptr %0, i64 112
+  %uncompressed_chunk = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %call112, ptr %uncompressed_chunk, align 8
   %27 = load ptr, ptr %compressed_chunk, align 8
   %cmp114 = icmp eq ptr %27, null
@@ -377,21 +377,21 @@ if.end101:                                        ; preds = %if.then93, %if.then
   br i1 %or.cond, label %fail, label %if.end121
 
 if.end121:                                        ; preds = %if.end101
-  %zstream = getelementptr inbounds i8, ptr %0, i64 120
+  %zstream = getelementptr inbounds nuw i8, ptr %0, i64 120
   %call122 = call i32 @inflateInit_(ptr noundef nonnull %zstream, ptr noundef nonnull @.str.7, i32 noundef 112) #11
   %cmp123.not = icmp eq i32 %call122, 0
   br i1 %cmp123.not, label %if.end126, label %fail
 
 if.end126:                                        ; preds = %if.end121
   %28 = load i32, ptr %n_chunks, align 8
-  %current_chunk = getelementptr inbounds i8, ptr %0, i64 96
+  %current_chunk = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 %28, ptr %current_chunk, align 8
   call void @qemu_co_mutex_init(ptr noundef nonnull %0) #11
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 fail:                                             ; preds = %read_uint64.exit104.thread, %read_uint64.exit98.thread, %read_uint64.exit92.thread, %read_uint64.exit86.thread, %read_uint64.exit80.thread, %read_uint64.exit.thread, %if.end121, %if.end101, %if.else90, %if.end76, %if.end62, %if.end44, %if.else26, %if.then93, %if.then84, %if.then19
   %ret.0 = phi i32 [ %conv, %if.then19 ], [ %call85, %if.then84 ], [ %call94, %if.then93 ], [ -22, %if.else26 ], [ -22, %if.end44 ], [ -22, %if.end62 ], [ -22, %if.end76 ], [ -22, %if.else90 ], [ -12, %if.end101 ], [ -22, %if.end121 ], [ %call.i72, %read_uint64.exit.thread ], [ %call.i76, %read_uint64.exit80.thread ], [ %call.i82, %read_uint64.exit86.thread ], [ %call.i88, %read_uint64.exit92.thread ], [ %call.i94, %read_uint64.exit98.thread ], [ %call.i100, %read_uint64.exit104.thread ]
-  %types = getelementptr inbounds i8, ptr %0, i64 56
+  %types = getelementptr inbounds nuw i8, ptr %0, i64 56
   %29 = load ptr, ptr %types, align 8
   call void @g_free(ptr noundef %29) #11
   %30 = load ptr, ptr %offsets, align 8
@@ -402,10 +402,10 @@ fail:                                             ; preds = %read_uint64.exit104
   call void @g_free(ptr noundef %32) #11
   %33 = load ptr, ptr %sectorcounts, align 8
   call void @g_free(ptr noundef %33) #11
-  %compressed_chunk132 = getelementptr inbounds i8, ptr %0, i64 104
+  %compressed_chunk132 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %34 = load ptr, ptr %compressed_chunk132, align 8
   call void @qemu_vfree(ptr noundef %34) #11
-  %uncompressed_chunk133 = getelementptr inbounds i8, ptr %0, i64 112
+  %uncompressed_chunk133 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %35 = load ptr, ptr %uncompressed_chunk133, align 8
   call void @qemu_vfree(ptr noundef %35) #11
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
@@ -423,30 +423,30 @@ return:                                           ; preds = %if.end3, %do.end, %
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @dmg_close(ptr nocapture noundef readonly %bs) #0 {
 entry:
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %types = getelementptr inbounds i8, ptr %0, i64 56
+  %types = getelementptr inbounds nuw i8, ptr %0, i64 56
   %1 = load ptr, ptr %types, align 8
   tail call void @g_free(ptr noundef %1) #11
-  %offsets = getelementptr inbounds i8, ptr %0, i64 64
+  %offsets = getelementptr inbounds nuw i8, ptr %0, i64 64
   %2 = load ptr, ptr %offsets, align 8
   tail call void @g_free(ptr noundef %2) #11
-  %lengths = getelementptr inbounds i8, ptr %0, i64 72
+  %lengths = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %lengths, align 8
   tail call void @g_free(ptr noundef %3) #11
-  %sectors = getelementptr inbounds i8, ptr %0, i64 80
+  %sectors = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %sectors, align 8
   tail call void @g_free(ptr noundef %4) #11
-  %sectorcounts = getelementptr inbounds i8, ptr %0, i64 88
+  %sectorcounts = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load ptr, ptr %sectorcounts, align 8
   tail call void @g_free(ptr noundef %5) #11
-  %compressed_chunk = getelementptr inbounds i8, ptr %0, i64 104
+  %compressed_chunk = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load ptr, ptr %compressed_chunk, align 8
   tail call void @qemu_vfree(ptr noundef %6) #11
-  %uncompressed_chunk = getelementptr inbounds i8, ptr %0, i64 112
+  %uncompressed_chunk = getelementptr inbounds nuw i8, ptr %0, i64 112
   %7 = load ptr, ptr %uncompressed_chunk, align 8
   tail call void @qemu_vfree(ptr noundef %7) #11
-  %zstream = getelementptr inbounds i8, ptr %0, i64 120
+  %zstream = getelementptr inbounds nuw i8, ptr %0, i64 120
   %call = tail call i32 @inflateEnd(ptr noundef nonnull %zstream) #11
   ret void
 }
@@ -454,7 +454,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define internal void @dmg_refresh_limits(ptr nocapture noundef writeonly initializes((16464, 16468)) %bs, ptr nocapture readnone %errp) #2 {
 entry:
-  %bl = getelementptr inbounds i8, ptr %bs, i64 16464
+  %bl = getelementptr inbounds nuw i8, ptr %bs, i64 16464
   store i32 512, ptr %bl, align 8
   ret void
 }
@@ -492,7 +492,7 @@ return:                                           ; preds = %land.lhs.true, %ent
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i32 -5, 1) i32 @dmg_co_preadv(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 %flags) #0 {
 entry:
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %shr = ashr i64 %offset, 9
   %shr1 = lshr i64 %bytes, 9
@@ -520,10 +520,10 @@ if.end8:                                          ; preds = %if.end
   br i1 %cmp919, label %for.body.lr.ph, label %fail
 
 for.body.lr.ph:                                   ; preds = %if.end8
-  %types = getelementptr inbounds i8, ptr %0, i64 56
-  %current_chunk = getelementptr inbounds i8, ptr %0, i64 96
-  %sectors = getelementptr inbounds i8, ptr %0, i64 80
-  %uncompressed_chunk = getelementptr inbounds i8, ptr %0, i64 112
+  %types = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %current_chunk = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %sectors = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %uncompressed_chunk = getelementptr inbounds nuw i8, ptr %0, i64 112
   %wide.trip.count = and i64 %shr1, 2147483647
   br label %for.body
 
@@ -599,7 +599,7 @@ entry:
   %buffer.i32 = alloca i32, align 4
   %buffer.i26 = alloca i32, align 4
   %buffer.i = alloca i32, align 4
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %1 = getelementptr i8, ptr %bs, i64 16840
   %bs.val = load ptr, ptr %1, align 8
@@ -705,7 +705,7 @@ fail:                                             ; preds = %if.end38, %if.end47
 define internal fastcc range(i32 -22, 1) i32 @dmg_read_plist_xml(ptr nocapture noundef readonly %bs, ptr nocapture noundef nonnull %ds, i64 noundef %info_begin, i64 noundef range(i64 1, 0) %info_length) unnamed_addr #0 {
 entry:
   %out_len = alloca i64, align 8
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %cmp1 = icmp ugt i64 %info_length, 16777216
   br i1 %cmp1, label %fail, label %if.end
@@ -715,7 +715,7 @@ if.end:                                           ; preds = %entry
   %call = tail call noalias ptr @g_malloc(i64 noundef %add) #14
   %arrayidx = getelementptr i8, ptr %call, i64 %info_length
   store i8 0, ptr %arrayidx, align 1
-  %file = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %1 = load ptr, ptr %file, align 8
   %call2 = tail call i32 @bdrv_pread(ptr noundef %1, i64 noundef %info_begin, i64 noundef %info_length, ptr noundef %call, i32 noundef 0) #11
   %cmp3 = icmp slt i32 %call2, 0
@@ -795,29 +795,29 @@ if.end:                                           ; preds = %entry
   %add5 = add i64 %5, %1
   %sub = add i32 %count, -204
   %div = udiv i32 %sub, 40
-  %n_chunks = getelementptr inbounds i8, ptr %s, i64 48
+  %n_chunks = getelementptr inbounds nuw i8, ptr %s, i64 48
   %6 = load i32, ptr %n_chunks, align 8
   %add7 = add i32 %6, %div
   %conv = zext i32 %add7 to i64
   %mul = shl nuw nsw i64 %conv, 3
-  %types = getelementptr inbounds i8, ptr %s, i64 56
+  %types = getelementptr inbounds nuw i8, ptr %s, i64 56
   %7 = load ptr, ptr %types, align 8
   %div8 = shl nuw nsw i64 %conv, 2
   %call9 = tail call ptr @g_realloc(ptr noundef %7, i64 noundef %div8) #11
   store ptr %call9, ptr %types, align 8
-  %offsets = getelementptr inbounds i8, ptr %s, i64 64
+  %offsets = getelementptr inbounds nuw i8, ptr %s, i64 64
   %8 = load ptr, ptr %offsets, align 8
   %call11 = tail call ptr @g_realloc(ptr noundef %8, i64 noundef %mul) #11
   store ptr %call11, ptr %offsets, align 8
-  %lengths = getelementptr inbounds i8, ptr %s, i64 72
+  %lengths = getelementptr inbounds nuw i8, ptr %s, i64 72
   %9 = load ptr, ptr %lengths, align 8
   %call13 = tail call ptr @g_realloc(ptr noundef %9, i64 noundef %mul) #11
   store ptr %call13, ptr %lengths, align 8
-  %sectors = getelementptr inbounds i8, ptr %s, i64 80
+  %sectors = getelementptr inbounds nuw i8, ptr %s, i64 80
   %10 = load ptr, ptr %sectors, align 8
   %call15 = tail call ptr @g_realloc(ptr noundef %10, i64 noundef %mul) #11
   store ptr %call15, ptr %sectors, align 8
-  %sectorcounts = getelementptr inbounds i8, ptr %s, i64 88
+  %sectorcounts = getelementptr inbounds nuw i8, ptr %s, i64 88
   %11 = load ptr, ptr %sectorcounts, align 8
   %call17 = tail call ptr @g_realloc(ptr noundef %11, i64 noundef %mul) #11
   store ptr %call17, ptr %sectorcounts, align 8
@@ -829,8 +829,8 @@ if.end:                                           ; preds = %entry
   br i1 %cmp22105, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %max_compressed_size = getelementptr inbounds i8, ptr %ds, i64 8
-  %max_sectors_per_chunk = getelementptr inbounds i8, ptr %ds, i64 12
+  %max_compressed_size = getelementptr inbounds nuw i8, ptr %ds, i64 8
+  %max_sectors_per_chunk = getelementptr inbounds nuw i8, ptr %ds, i64 12
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -1044,14 +1044,14 @@ entry:
   %qiov.i87 = alloca %struct.QEMUIOVector, align 8
   %qiov.i82 = alloca %struct.QEMUIOVector, align 8
   %qiov.i = alloca %struct.QEMUIOVector, align 8
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %current_chunk = getelementptr inbounds i8, ptr %0, i64 96
+  %current_chunk = getelementptr inbounds nuw i8, ptr %0, i64 96
   %1 = load i32, ptr %current_chunk, align 8
-  %n_chunks.i = getelementptr inbounds i8, ptr %0, i64 48
+  %n_chunks.i = getelementptr inbounds nuw i8, ptr %0, i64 48
   %2 = load i32, ptr %n_chunks.i, align 8
   %cmp.not.i = icmp ult i32 %1, %2
-  %sectors.i = getelementptr inbounds i8, ptr %0, i64 80
+  %sectors.i = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %sectors.i, align 8
   br i1 %cmp.not.i, label %lor.lhs.false.i, label %if.then
 
@@ -1063,7 +1063,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %cmp1.i, label %if.then, label %is_sector_in_chunk.exit
 
 is_sector_in_chunk.exit:                          ; preds = %lor.lhs.false.i
-  %sectorcounts.i = getelementptr inbounds i8, ptr %0, i64 88
+  %sectorcounts.i = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load ptr, ptr %sectorcounts.i, align 8
   %arrayidx7.i = getelementptr i64, ptr %5, i64 %idxprom.i
   %6 = load i64, ptr %arrayidx7.i, align 8
@@ -1072,7 +1072,7 @@ is_sector_in_chunk.exit:                          ; preds = %lor.lhs.false.i
   br i1 %cmp8.not.i.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry, %lor.lhs.false.i, %is_sector_in_chunk.exit
-  %sectorcounts.i74 = getelementptr inbounds i8, ptr %0, i64 88
+  %sectorcounts.i74 = getelementptr inbounds nuw i8, ptr %0, i64 88
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end15.i, %if.then
@@ -1118,7 +1118,7 @@ search_chunk.exit:                                ; preds = %if.else.i
 
 if.end:                                           ; preds = %search_chunk.exit
   store i32 %2, ptr %current_chunk, align 8
-  %types = getelementptr inbounds i8, ptr %0, i64 56
+  %types = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load ptr, ptr %types, align 8
   %arrayidx = getelementptr i32, ptr %10, i64 %idxprom.i77
   %11 = load i32, ptr %arrayidx, align 4
@@ -1130,27 +1130,27 @@ if.end:                                           ; preds = %search_chunk.exit
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %file = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %12 = load ptr, ptr %file, align 8
-  %offsets = getelementptr inbounds i8, ptr %0, i64 64
+  %offsets = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = load ptr, ptr %offsets, align 8
   %arrayidx6 = getelementptr i64, ptr %13, i64 %idxprom.i77
   %14 = load i64, ptr %arrayidx6, align 8
-  %lengths = getelementptr inbounds i8, ptr %0, i64 72
+  %lengths = getelementptr inbounds nuw i8, ptr %0, i64 72
   %15 = load ptr, ptr %lengths, align 8
   %arrayidx8 = getelementptr i64, ptr %15, i64 %idxprom.i77
   %16 = load i64, ptr %arrayidx8, align 8
-  %compressed_chunk = getelementptr inbounds i8, ptr %0, i64 104
+  %compressed_chunk = getelementptr inbounds nuw i8, ptr %0, i64 104
   %17 = load ptr, ptr %compressed_chunk, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %qiov.i)
-  %18 = getelementptr inbounds i8, ptr %qiov.i, i64 16
-  %local_iov.i = getelementptr inbounds i8, ptr %qiov.i, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %qiov.i, i64 16
+  %local_iov.i = getelementptr inbounds nuw i8, ptr %qiov.i, i64 24
   store ptr %local_iov.i, ptr %qiov.i, align 8
-  %niov.i = getelementptr inbounds i8, ptr %qiov.i, i64 8
+  %niov.i = getelementptr inbounds nuw i8, ptr %qiov.i, i64 8
   store i32 1, ptr %niov.i, align 8
   store i32 -1, ptr %18, align 8
   store ptr %17, ptr %local_iov.i, align 8
-  %iov_len.i = getelementptr inbounds i8, ptr %qiov.i, i64 32
+  %iov_len.i = getelementptr inbounds nuw i8, ptr %qiov.i, i64 32
   store i64 %16, ptr %iov_len.i, align 8
   call void @assert_bdrv_graph_readable() #11
   %call.i = call i32 @bdrv_co_preadv(ptr noundef %12, i64 noundef %14, i64 noundef %16, ptr noundef nonnull %qiov.i, i32 noundef 0) #11
@@ -1160,24 +1160,24 @@ sw.bb:                                            ; preds = %if.end
 
 if.end12:                                         ; preds = %sw.bb
   %19 = load ptr, ptr %compressed_chunk, align 8
-  %zstream = getelementptr inbounds i8, ptr %0, i64 120
+  %zstream = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %19, ptr %zstream, align 8
   %20 = load ptr, ptr %lengths, align 8
   %arrayidx16 = getelementptr i64, ptr %20, i64 %idxprom.i77
   %21 = load i64, ptr %arrayidx16, align 8
   %conv = trunc i64 %21 to i32
-  %avail_in = getelementptr inbounds i8, ptr %0, i64 128
+  %avail_in = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 %conv, ptr %avail_in, align 8
-  %uncompressed_chunk = getelementptr inbounds i8, ptr %0, i64 112
+  %uncompressed_chunk = getelementptr inbounds nuw i8, ptr %0, i64 112
   %22 = load ptr, ptr %uncompressed_chunk, align 8
-  %next_out = getelementptr inbounds i8, ptr %0, i64 144
+  %next_out = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %22, ptr %next_out, align 8
   %23 = load ptr, ptr %sectorcounts.i74, align 8
   %arrayidx20 = getelementptr i64, ptr %23, i64 %idxprom.i77
   %24 = load i64, ptr %arrayidx20, align 8
   %.tr72 = trunc i64 %24 to i32
   %conv21 = shl i32 %.tr72, 9
-  %avail_out = getelementptr inbounds i8, ptr %0, i64 152
+  %avail_out = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i32 %conv21, ptr %avail_out, align 8
   %call24 = call i32 @inflateReset(ptr noundef nonnull %zstream) #11
   %cmp25.not = icmp eq i32 %call24, 0
@@ -1189,7 +1189,7 @@ if.end28:                                         ; preds = %if.end12
   br i1 %cmp31.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %if.end28
-  %total_out = getelementptr inbounds i8, ptr %0, i64 160
+  %total_out = getelementptr inbounds nuw i8, ptr %0, i64 160
   %25 = load i64, ptr %total_out, align 8
   %26 = load ptr, ptr %sectorcounts.i74, align 8
   %arrayidx36 = getelementptr i64, ptr %26, i64 %idxprom.i77
@@ -1204,27 +1204,27 @@ sw.bb42:                                          ; preds = %if.end
   br i1 %tobool43.not, label %sw.epilog, label %if.end45
 
 if.end45:                                         ; preds = %sw.bb42
-  %file46 = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file46 = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %29 = load ptr, ptr %file46, align 8
-  %offsets47 = getelementptr inbounds i8, ptr %0, i64 64
+  %offsets47 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %30 = load ptr, ptr %offsets47, align 8
   %arrayidx49 = getelementptr i64, ptr %30, i64 %idxprom.i77
   %31 = load i64, ptr %arrayidx49, align 8
-  %lengths50 = getelementptr inbounds i8, ptr %0, i64 72
+  %lengths50 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %32 = load ptr, ptr %lengths50, align 8
   %arrayidx52 = getelementptr i64, ptr %32, i64 %idxprom.i77
   %33 = load i64, ptr %arrayidx52, align 8
-  %compressed_chunk53 = getelementptr inbounds i8, ptr %0, i64 104
+  %compressed_chunk53 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %34 = load ptr, ptr %compressed_chunk53, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %qiov.i82)
-  %35 = getelementptr inbounds i8, ptr %qiov.i82, i64 16
-  %local_iov.i83 = getelementptr inbounds i8, ptr %qiov.i82, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %qiov.i82, i64 16
+  %local_iov.i83 = getelementptr inbounds nuw i8, ptr %qiov.i82, i64 24
   store ptr %local_iov.i83, ptr %qiov.i82, align 8
-  %niov.i84 = getelementptr inbounds i8, ptr %qiov.i82, i64 8
+  %niov.i84 = getelementptr inbounds nuw i8, ptr %qiov.i82, i64 8
   store i32 1, ptr %niov.i84, align 8
   store i32 -1, ptr %35, align 8
   store ptr %34, ptr %local_iov.i83, align 8
-  %iov_len.i85 = getelementptr inbounds i8, ptr %qiov.i82, i64 32
+  %iov_len.i85 = getelementptr inbounds nuw i8, ptr %qiov.i82, i64 32
   store i64 %33, ptr %iov_len.i85, align 8
   call void @assert_bdrv_graph_readable() #11
   %call.i86 = call i32 @bdrv_co_preadv(ptr noundef %29, i64 noundef %31, i64 noundef %33, ptr noundef nonnull %qiov.i82, i32 noundef 0) #11
@@ -1239,7 +1239,7 @@ if.end58:                                         ; preds = %if.end45
   %arrayidx62 = getelementptr i64, ptr %38, i64 %idxprom.i77
   %39 = load i64, ptr %arrayidx62, align 8
   %conv63 = trunc i64 %39 to i32
-  %uncompressed_chunk64 = getelementptr inbounds i8, ptr %0, i64 112
+  %uncompressed_chunk64 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %40 = load ptr, ptr %uncompressed_chunk64, align 8
   %41 = load ptr, ptr %sectorcounts.i74, align 8
   %arrayidx67 = getelementptr i64, ptr %41, i64 %idxprom.i77
@@ -1256,27 +1256,27 @@ sw.bb75:                                          ; preds = %if.end
   br i1 %tobool76.not, label %sw.epilog, label %if.end78
 
 if.end78:                                         ; preds = %sw.bb75
-  %file79 = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file79 = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %44 = load ptr, ptr %file79, align 8
-  %offsets80 = getelementptr inbounds i8, ptr %0, i64 64
+  %offsets80 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %45 = load ptr, ptr %offsets80, align 8
   %arrayidx82 = getelementptr i64, ptr %45, i64 %idxprom.i77
   %46 = load i64, ptr %arrayidx82, align 8
-  %lengths83 = getelementptr inbounds i8, ptr %0, i64 72
+  %lengths83 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %47 = load ptr, ptr %lengths83, align 8
   %arrayidx85 = getelementptr i64, ptr %47, i64 %idxprom.i77
   %48 = load i64, ptr %arrayidx85, align 8
-  %compressed_chunk86 = getelementptr inbounds i8, ptr %0, i64 104
+  %compressed_chunk86 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %49 = load ptr, ptr %compressed_chunk86, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %qiov.i87)
-  %50 = getelementptr inbounds i8, ptr %qiov.i87, i64 16
-  %local_iov.i88 = getelementptr inbounds i8, ptr %qiov.i87, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %qiov.i87, i64 16
+  %local_iov.i88 = getelementptr inbounds nuw i8, ptr %qiov.i87, i64 24
   store ptr %local_iov.i88, ptr %qiov.i87, align 8
-  %niov.i89 = getelementptr inbounds i8, ptr %qiov.i87, i64 8
+  %niov.i89 = getelementptr inbounds nuw i8, ptr %qiov.i87, i64 8
   store i32 1, ptr %niov.i89, align 8
   store i32 -1, ptr %50, align 8
   store ptr %49, ptr %local_iov.i88, align 8
-  %iov_len.i90 = getelementptr inbounds i8, ptr %qiov.i87, i64 32
+  %iov_len.i90 = getelementptr inbounds nuw i8, ptr %qiov.i87, i64 32
   store i64 %48, ptr %iov_len.i90, align 8
   call void @assert_bdrv_graph_readable() #11
   %call.i91 = call i32 @bdrv_co_preadv(ptr noundef %44, i64 noundef %46, i64 noundef %48, ptr noundef nonnull %qiov.i87, i32 noundef 0) #11
@@ -1291,7 +1291,7 @@ if.end91:                                         ; preds = %if.end78
   %arrayidx95 = getelementptr i64, ptr %53, i64 %idxprom.i77
   %54 = load i64, ptr %arrayidx95, align 8
   %conv96 = trunc i64 %54 to i32
-  %uncompressed_chunk97 = getelementptr inbounds i8, ptr %0, i64 112
+  %uncompressed_chunk97 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %55 = load ptr, ptr %uncompressed_chunk97, align 8
   %56 = load ptr, ptr %sectorcounts.i74, align 8
   %arrayidx100 = getelementptr i64, ptr %56, i64 %idxprom.i77
@@ -1303,27 +1303,27 @@ if.end91:                                         ; preds = %if.end78
   br i1 %cmp104, label %return, label %sw.epilog
 
 sw.bb108:                                         ; preds = %if.end
-  %file109 = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file109 = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %58 = load ptr, ptr %file109, align 8
-  %offsets110 = getelementptr inbounds i8, ptr %0, i64 64
+  %offsets110 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %59 = load ptr, ptr %offsets110, align 8
   %arrayidx112 = getelementptr i64, ptr %59, i64 %idxprom.i77
   %60 = load i64, ptr %arrayidx112, align 8
-  %lengths113 = getelementptr inbounds i8, ptr %0, i64 72
+  %lengths113 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %61 = load ptr, ptr %lengths113, align 8
   %arrayidx115 = getelementptr i64, ptr %61, i64 %idxprom.i77
   %62 = load i64, ptr %arrayidx115, align 8
-  %uncompressed_chunk116 = getelementptr inbounds i8, ptr %0, i64 112
+  %uncompressed_chunk116 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %63 = load ptr, ptr %uncompressed_chunk116, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %qiov.i92)
-  %64 = getelementptr inbounds i8, ptr %qiov.i92, i64 16
-  %local_iov.i93 = getelementptr inbounds i8, ptr %qiov.i92, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %qiov.i92, i64 16
+  %local_iov.i93 = getelementptr inbounds nuw i8, ptr %qiov.i92, i64 24
   store ptr %local_iov.i93, ptr %qiov.i92, align 8
-  %niov.i94 = getelementptr inbounds i8, ptr %qiov.i92, i64 8
+  %niov.i94 = getelementptr inbounds nuw i8, ptr %qiov.i92, i64 8
   store i32 1, ptr %niov.i94, align 8
   store i32 -1, ptr %64, align 8
   store ptr %63, ptr %local_iov.i93, align 8
-  %iov_len.i95 = getelementptr inbounds i8, ptr %qiov.i92, i64 32
+  %iov_len.i95 = getelementptr inbounds nuw i8, ptr %qiov.i92, i64 32
   store i64 %62, ptr %iov_len.i95, align 8
   call void @assert_bdrv_graph_readable() #11
   %call.i96 = call i32 @bdrv_co_preadv(ptr noundef %58, i64 noundef %60, i64 noundef %62, ptr noundef nonnull %qiov.i92, i32 noundef 0) #11
@@ -1350,14 +1350,14 @@ declare void @qemu_co_mutex_unlock(ptr noundef) #1
 define internal i32 @bdrv_co_pread(ptr noundef %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef %buf, i32 noundef %flags) #0 {
 entry:
   %qiov = alloca %struct.QEMUIOVector, align 8
-  %0 = getelementptr inbounds i8, ptr %qiov, i64 16
-  %local_iov = getelementptr inbounds i8, ptr %qiov, i64 24
+  %0 = getelementptr inbounds nuw i8, ptr %qiov, i64 16
+  %local_iov = getelementptr inbounds nuw i8, ptr %qiov, i64 24
   store ptr %local_iov, ptr %qiov, align 8
-  %niov = getelementptr inbounds i8, ptr %qiov, i64 8
+  %niov = getelementptr inbounds nuw i8, ptr %qiov, i64 8
   store i32 1, ptr %niov, align 8
   store i32 -1, ptr %0, align 8
   store ptr %buf, ptr %local_iov, align 8
-  %iov_len = getelementptr inbounds i8, ptr %qiov, i64 32
+  %iov_len = getelementptr inbounds nuw i8, ptr %qiov, i64 32
   store i64 %bytes, ptr %iov_len, align 8
   call void @assert_bdrv_graph_readable() #11
   %call = call i32 @bdrv_co_preadv(ptr noundef %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef nonnull %qiov, i32 noundef %flags) #11

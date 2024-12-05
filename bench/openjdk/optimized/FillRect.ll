@@ -25,9 +25,9 @@ define void @Java_sun_java2d_loops_FillRect_FillRect(ptr noundef %0, ptr noundef
   br i1 %16, label %68, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %15, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %23, label %22
@@ -44,15 +44,15 @@ define void @Java_sun_java2d_loops_FillRect_FillRect(ptr noundef %0, ptr noundef
 26:                                               ; preds = %23
   call void @GrPrim_Sg2dGetClip(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %9) #2
   call void @SurfaceData_IntersectBoundsXYWH(ptr noundef nonnull %9, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #2
-  %27 = getelementptr inbounds i8, ptr %9, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %28 = load i32, ptr %27, align 4
-  %29 = getelementptr inbounds i8, ptr %9, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %30 = load i32, ptr %29, align 4
   %.not43 = icmp sgt i32 %28, %30
   br i1 %.not43, label %31, label %68
 
 31:                                               ; preds = %26
-  %32 = getelementptr inbounds i8, ptr %9, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %33 = load i32, ptr %32, align 8
   %34 = load i32, ptr %9, align 8
   %.not44 = icmp sgt i32 %33, %34
@@ -60,7 +60,7 @@ define void @Java_sun_java2d_loops_FillRect_FillRect(ptr noundef %0, ptr noundef
 
 35:                                               ; preds = %31
   %36 = load ptr, ptr %24, align 8
-  %37 = getelementptr inbounds i8, ptr %15, i64 52
+  %37 = getelementptr inbounds nuw i8, ptr %15, i64 52
   %38 = load i32, ptr %37, align 4
   %39 = call i32 %36(ptr noundef %0, ptr noundef nonnull %24, ptr noundef nonnull %9, i32 noundef %38) #2
   %.not45 = icmp eq i32 %39, 0
@@ -79,16 +79,16 @@ define void @Java_sun_java2d_loops_FillRect_FillRect(ptr noundef %0, ptr noundef
   br i1 %47, label %48, label %64
 
 48:                                               ; preds = %44
-  %49 = getelementptr inbounds i8, ptr %24, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %50 = load ptr, ptr %49, align 8
   call void %50(ptr noundef %0, ptr noundef nonnull %24, ptr noundef nonnull %9) #2
-  %51 = getelementptr inbounds i8, ptr %9, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %52 = load ptr, ptr %51, align 8
   %.not46 = icmp eq ptr %52, null
   br i1 %.not46, label %60, label %53
 
 53:                                               ; preds = %48
-  %54 = getelementptr inbounds i8, ptr %15, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %55 = load ptr, ptr %54, align 8
   %56 = load i32, ptr %9, align 8
   %57 = load i32, ptr %29, align 4
@@ -98,7 +98,7 @@ define void @Java_sun_java2d_loops_FillRect_FillRect(ptr noundef %0, ptr noundef
   br label %60
 
 60:                                               ; preds = %48, %53
-  %61 = getelementptr inbounds i8, ptr %24, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %62 = load ptr, ptr %61, align 8
   %.not47 = icmp eq ptr %62, null
   br i1 %.not47, label %64, label %63
@@ -108,7 +108,7 @@ define void @Java_sun_java2d_loops_FillRect_FillRect(ptr noundef %0, ptr noundef
   br label %64
 
 64:                                               ; preds = %40, %44, %60, %63
-  %65 = getelementptr inbounds i8, ptr %24, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %66 = load ptr, ptr %65, align 8
   %.not48 = icmp eq ptr %66, null
   br i1 %.not48, label %68, label %67

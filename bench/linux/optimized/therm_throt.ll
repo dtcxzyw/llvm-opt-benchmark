@@ -205,7 +205,7 @@ define dso_local void @intel_thermal_interrupt() local_unnamed_addr #0 align 16 
   %20 = add i64 %19, ptrtoint (ptr @thermal_state to i64)
   %21 = inttoptr i64 %20 to ptr
   %22 = load volatile i64, ptr @jiffies, align 64
-  %23 = getelementptr inbounds i8, ptr %21, i64 608
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 608
   %24 = load i64, ptr %23, align 8
   %25 = sub i64 %22, %24
   %26 = icmp slt i64 %25, 0
@@ -230,7 +230,7 @@ define dso_local void @intel_thermal_interrupt() local_unnamed_addr #0 align 16 
   %38 = add i64 %37, ptrtoint (ptr @thermal_state to i64)
   %39 = inttoptr i64 %38 to ptr
   %40 = load volatile i64, ptr @jiffies, align 64
-  %41 = getelementptr inbounds i8, ptr %39, i64 760
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 760
   %42 = load i64, ptr %41, align 8
   %43 = sub i64 %40, %42
   %44 = icmp slt i64 %43, 0
@@ -268,12 +268,12 @@ define dso_local void @intel_thermal_interrupt() local_unnamed_addr #0 align 16 
   %66 = add i64 %65, ptrtoint (ptr @thermal_state to i64)
   %67 = inttoptr i64 %66 to ptr
   %68 = load volatile i64, ptr @jiffies, align 64
-  %69 = getelementptr inbounds i8, ptr %67, i64 289
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 289
   store i8 %61, ptr %69, align 1
   br i1 %59, label %74, label %70
 
 70:                                               ; preds = %57
-  %71 = getelementptr inbounds i8, ptr %67, i64 256
+  %71 = getelementptr inbounds nuw i8, ptr %67, i64 256
   %72 = load i64, ptr %71, align 8
   %73 = add i64 %72, 1
   store i64 %73, ptr %71, align 8
@@ -332,7 +332,7 @@ define dso_local void @intel_thermal_interrupt() local_unnamed_addr #0 align 16 
   %106 = add i64 %105, ptrtoint (ptr @thermal_state to i64)
   %107 = inttoptr i64 %106 to ptr
   %108 = load volatile i64, ptr @jiffies, align 64
-  %109 = getelementptr inbounds i8, ptr %107, i64 912
+  %109 = getelementptr inbounds nuw i8, ptr %107, i64 912
   %110 = load i64, ptr %109, align 8
   %111 = sub i64 %108, %110
   %112 = icmp slt i64 %111, 0
@@ -356,7 +356,7 @@ define dso_local void @intel_thermal_interrupt() local_unnamed_addr #0 align 16 
   %123 = add i64 %122, ptrtoint (ptr @thermal_state to i64)
   %124 = inttoptr i64 %123 to ptr
   %125 = load volatile i64, ptr @jiffies, align 64
-  %126 = getelementptr inbounds i8, ptr %124, i64 1064
+  %126 = getelementptr inbounds nuw i8, ptr %124, i64 1064
   %127 = load i64, ptr %126, align 8
   %128 = sub i64 %125, %127
   %129 = icmp slt i64 %128, 0
@@ -397,12 +397,12 @@ define dso_local void @intel_thermal_interrupt() local_unnamed_addr #0 align 16 
   %152 = add i64 %151, ptrtoint (ptr @thermal_state to i64)
   %153 = inttoptr i64 %152 to ptr
   %154 = load volatile i64, ptr @jiffies, align 64
-  %155 = getelementptr inbounds i8, ptr %153, i64 593
+  %155 = getelementptr inbounds nuw i8, ptr %153, i64 593
   store i8 %147, ptr %155, align 1
   br i1 %145, label %160, label %156
 
 156:                                              ; preds = %143
-  %157 = getelementptr inbounds i8, ptr %153, i64 560
+  %157 = getelementptr inbounds nuw i8, ptr %153, i64 560
   %158 = load i64, ptr %157, align 8
   %159 = add i64 %158, 1
   store i64 %159, ptr %157, align 8
@@ -428,25 +428,25 @@ define internal fastcc void @therm_throt_process(i1 noundef zeroext %0, i32 noun
   %10 = load volatile i64, ptr @jiffies, align 64
   %11 = icmp eq i32 %1, 0
   %12 = select i1 %11, i64 0, i64 304
-  %13 = getelementptr inbounds i8, ptr %9, i64 %12
-  %14 = getelementptr inbounds i8, ptr %13, i64 137
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 %12
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 137
   %15 = load i8, ptr %14, align 1, !range !14, !noundef !15
   %16 = icmp eq i8 %15, 0
   store i8 %3, ptr %14, align 1
   br i1 %0, label %17, label %.critedge
 
 17:                                               ; preds = %2
-  %18 = getelementptr inbounds i8, ptr %13, i64 104
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 104
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, 1
   store i64 %20, ptr %18, align 8
-  %21 = getelementptr inbounds i8, ptr %13, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %22 = load i64, ptr %21, align 8
   %23 = icmp eq i64 %22, 0
   br i1 %23, label %24, label %.critedge
 
 24:                                               ; preds = %17
-  %25 = getelementptr inbounds i8, ptr %13, i64 138
+  %25 = getelementptr inbounds nuw i8, ptr %13, i64 138
   %26 = load i8, ptr %25, align 2
   %27 = icmp eq i8 %26, 0
   %28 = select i1 %27, i32 412, i32 433
@@ -470,19 +470,19 @@ define internal fastcc void @therm_throt_process(i1 noundef zeroext %0, i32 noun
   br i1 %39, label %40, label %62
 
 40:                                               ; preds = %35
-  %41 = getelementptr inbounds i8, ptr %13, i64 142
+  %41 = getelementptr inbounds nuw i8, ptr %13, i64 142
   store i8 %38, ptr %41, align 2
   store i64 %10, ptr %21, align 8
-  %42 = getelementptr inbounds i8, ptr %13, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %43 = load ptr, ptr @system_wq, align 8
-  %44 = tail call zeroext i1 @queue_delayed_work_on(i32 noundef %4, ptr noundef %43, ptr noundef %42, i64 noundef 1000) #11
+  %44 = tail call zeroext i1 @queue_delayed_work_on(i32 noundef %4, ptr noundef %43, ptr noundef nonnull %42, i64 noundef 1000) #11
   br label %62
 
 .critedge:                                        ; preds = %2, %17
   br i1 %16, label %62, label %45
 
 45:                                               ; preds = %.critedge
-  %46 = getelementptr inbounds i8, ptr %13, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %47 = load i64, ptr %46, align 8
   %48 = icmp eq i64 %47, 0
   br i1 %48, label %62, label %49
@@ -492,7 +492,7 @@ define internal fastcc void @therm_throt_process(i1 noundef zeroext %0, i32 noun
   %51 = tail call i64 @llvm.smax.i64(i64 %50, i64 0)
   %52 = tail call i32 @jiffies_to_msecs(i64 noundef %51) #11
   %53 = zext i32 %52 to i64
-  %54 = getelementptr inbounds i8, ptr %13, i64 120
+  %54 = getelementptr inbounds nuw i8, ptr %13, i64 120
   %55 = load i64, ptr %54, align 8
   %56 = icmp ult i64 %55, %53
   br i1 %56, label %57, label %58
@@ -502,7 +502,7 @@ define internal fastcc void @therm_throt_process(i1 noundef zeroext %0, i32 noun
   br label %58
 
 58:                                               ; preds = %57, %49
-  %59 = getelementptr inbounds i8, ptr %13, i64 128
+  %59 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %60 = load i64, ptr %59, align 8
   %61 = add i64 %60, %53
   store i64 %61, ptr %59, align 8
@@ -557,7 +557,7 @@ define dso_local void @intel_init_thermal(ptr noundef %0) local_unnamed_addr #0 
   br i1 %5, label %.critedge, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load volatile i64, ptr %7, align 8
   %9 = and i64 %8, 4194304
   %10 = icmp eq i64 %9, 0
@@ -613,7 +613,7 @@ define dso_local void @intel_init_thermal(ptr noundef %0) local_unnamed_addr #0 
   br i1 %40, label %41, label %55
 
 41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %0, i64 2
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %43 = load i8, ptr %42, align 2
   switch i8 %43, label %55 [
     i8 9, label %44
@@ -941,30 +941,30 @@ define internal i32 @thermal_throttle_online(i32 noundef %0) #0 align 16 {
   %5 = add i64 %4, ptrtoint (ptr @thermal_state to i64)
   %6 = inttoptr i64 %5 to ptr
   %7 = tail call ptr @get_cpu_device(i32 noundef %0) #11
-  %8 = getelementptr inbounds i8, ptr %6, i64 442
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 442
   store i8 1, ptr %8, align 2
-  %9 = getelementptr inbounds i8, ptr %6, i64 138
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 138
   store i8 0, ptr %9, align 2
-  %10 = getelementptr inbounds i8, ptr %6, i64 320
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 320
   store i64 68719476704, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 328
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 328
   store volatile ptr %11, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 336
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 336
   store volatile ptr %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 344
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 344
   store ptr @throttle_active_work, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 352
-  tail call void @init_timer_key(ptr noundef %14, ptr noundef nonnull @delayed_work_timer_fn, i32 noundef 2097152, ptr noundef null, ptr noundef null) #11
-  %15 = getelementptr inbounds i8, ptr %6, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 352
+  tail call void @init_timer_key(ptr noundef nonnull %14, ptr noundef nonnull @delayed_work_timer_fn, i32 noundef 2097152, ptr noundef null, ptr noundef null) #11
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 68719476704, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store volatile ptr %16, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %6, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store volatile ptr %16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr @throttle_active_work, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %6, i64 48
-  tail call void @init_timer_key(ptr noundef %19, ptr noundef nonnull @delayed_work_timer_fn, i32 noundef 2097152, ptr noundef null, ptr noundef null) #11
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  tail call void @init_timer_key(ptr noundef nonnull %19, ptr noundef nonnull @delayed_work_timer_fn, i32 noundef 2097152, ptr noundef null, ptr noundef null) #11
   %20 = tail call i32 @__SCT__apic_call_read(i32 noundef 816) #11
   %21 = and i32 %20, -65537
   tail call void @__SCT__apic_call_write(i32 noundef 816, i32 noundef %21) #11
@@ -1048,13 +1048,13 @@ define internal noundef i32 @thermal_throttle_offline(i32 noundef %0) #0 align 1
   %8 = tail call i32 @__SCT__apic_call_read(i32 noundef 816) #11
   %9 = or i32 %8, 65536
   tail call void @__SCT__apic_call_write(i32 noundef 816, i32 noundef %9) #11
-  %10 = getelementptr inbounds i8, ptr %6, i64 320
-  %11 = tail call zeroext i1 @cancel_delayed_work_sync(ptr noundef %10) #11
-  %12 = getelementptr inbounds i8, ptr %6, i64 16
-  %13 = tail call zeroext i1 @cancel_delayed_work_sync(ptr noundef %12) #11
-  %14 = getelementptr inbounds i8, ptr %6, i64 440
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 320
+  %11 = tail call zeroext i1 @cancel_delayed_work_sync(ptr noundef nonnull %10) #11
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %13 = tail call zeroext i1 @cancel_delayed_work_sync(ptr noundef nonnull %12) #11
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 440
   store i8 0, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 136
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 136
   store i8 0, ptr %15, align 8
   tail call void @sysfs_remove_group(ptr noundef %7, ptr noundef nonnull @thermal_attr_group) #11
   ret i32 0
@@ -1253,7 +1253,7 @@ declare dso_local void @sysfs_remove_group(ptr noundef, ptr noundef) local_unnam
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i64 -2147483648, 2147483648) i64 @therm_throt_device_show_core_throttle_count(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 648
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %5 = load i32, ptr %4, align 8
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #11, !srcloc !22
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !23
@@ -1269,7 +1269,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @therm_throt_devi
   %12 = load i64, ptr %11, align 8
   %13 = add i64 %12, ptrtoint (ptr @thermal_state to i64)
   %14 = inttoptr i64 %13 to ptr
-  %15 = getelementptr inbounds i8, ptr %14, i64 104
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 104
   %16 = load i64, ptr %15, align 8
   %17 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.12, i64 noundef %16) #11
   %18 = sext i32 %17 to i64
@@ -1308,7 +1308,7 @@ declare void @llvm.assume(i1 noundef) #9
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i64 -2147483648, 2147483648) i64 @therm_throt_device_show_core_throttle_max_time_ms(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 648
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %5 = load i32, ptr %4, align 8
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #11, !srcloc !22
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !28
@@ -1324,7 +1324,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @therm_throt_devi
   %12 = load i64, ptr %11, align 8
   %13 = add i64 %12, ptrtoint (ptr @thermal_state to i64)
   %14 = inttoptr i64 %13 to ptr
-  %15 = getelementptr inbounds i8, ptr %14, i64 120
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 120
   %16 = load i64, ptr %15, align 8
   %17 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.12, i64 noundef %16) #11
   %18 = sext i32 %17 to i64
@@ -1351,7 +1351,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @therm_throt_devi
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i64 -2147483648, 2147483648) i64 @therm_throt_device_show_core_throttle_total_time_ms(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 648
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %5 = load i32, ptr %4, align 8
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #11, !srcloc !22
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !31
@@ -1367,7 +1367,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @therm_throt_devi
   %12 = load i64, ptr %11, align 8
   %13 = add i64 %12, ptrtoint (ptr @thermal_state to i64)
   %14 = inttoptr i64 %13 to ptr
-  %15 = getelementptr inbounds i8, ptr %14, i64 128
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 128
   %16 = load i64, ptr %15, align 8
   %17 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.12, i64 noundef %16) #11
   %18 = sext i32 %17 to i64
@@ -1394,7 +1394,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @therm_throt_devi
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i64 -2147483648, 2147483648) i64 @therm_throt_device_show_core_power_limit_count(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 648
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %5 = load i32, ptr %4, align 8
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #11, !srcloc !22
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !34
@@ -1410,7 +1410,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @therm_throt_devi
   %12 = load i64, ptr %11, align 8
   %13 = add i64 %12, ptrtoint (ptr @thermal_state to i64)
   %14 = inttoptr i64 %13 to ptr
-  %15 = getelementptr inbounds i8, ptr %14, i64 256
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 256
   %16 = load i64, ptr %15, align 8
   %17 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.12, i64 noundef %16) #11
   %18 = sext i32 %17 to i64
@@ -1437,7 +1437,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @therm_throt_devi
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i64 -2147483648, 2147483648) i64 @therm_throt_device_show_package_throttle_count(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 648
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %5 = load i32, ptr %4, align 8
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #11, !srcloc !22
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !37
@@ -1453,7 +1453,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @therm_throt_devi
   %12 = load i64, ptr %11, align 8
   %13 = add i64 %12, ptrtoint (ptr @thermal_state to i64)
   %14 = inttoptr i64 %13 to ptr
-  %15 = getelementptr inbounds i8, ptr %14, i64 408
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 408
   %16 = load i64, ptr %15, align 8
   %17 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.12, i64 noundef %16) #11
   %18 = sext i32 %17 to i64
@@ -1480,7 +1480,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @therm_throt_devi
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i64 -2147483648, 2147483648) i64 @therm_throt_device_show_package_throttle_max_time_ms(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 648
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %5 = load i32, ptr %4, align 8
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #11, !srcloc !22
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !40
@@ -1496,7 +1496,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @therm_throt_devi
   %12 = load i64, ptr %11, align 8
   %13 = add i64 %12, ptrtoint (ptr @thermal_state to i64)
   %14 = inttoptr i64 %13 to ptr
-  %15 = getelementptr inbounds i8, ptr %14, i64 424
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 424
   %16 = load i64, ptr %15, align 8
   %17 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.12, i64 noundef %16) #11
   %18 = sext i32 %17 to i64
@@ -1523,7 +1523,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @therm_throt_devi
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i64 -2147483648, 2147483648) i64 @therm_throt_device_show_package_throttle_total_time_ms(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 648
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %5 = load i32, ptr %4, align 8
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #11, !srcloc !22
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !43
@@ -1539,7 +1539,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @therm_throt_devi
   %12 = load i64, ptr %11, align 8
   %13 = add i64 %12, ptrtoint (ptr @thermal_state to i64)
   %14 = inttoptr i64 %13 to ptr
-  %15 = getelementptr inbounds i8, ptr %14, i64 432
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 432
   %16 = load i64, ptr %15, align 8
   %17 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.12, i64 noundef %16) #11
   %18 = sext i32 %17 to i64
@@ -1566,7 +1566,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @therm_throt_devi
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i64 -2147483648, 2147483648) i64 @therm_throt_device_show_package_power_limit_count(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 648
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %5 = load i32, ptr %4, align 8
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #11, !srcloc !22
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !46
@@ -1582,7 +1582,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @therm_throt_devi
   %12 = load i64, ptr %11, align 8
   %13 = add i64 %12, ptrtoint (ptr @thermal_state to i64)
   %14 = inttoptr i64 %13 to ptr
-  %15 = getelementptr inbounds i8, ptr %14, i64 560
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 560
   %16 = load i64, ptr %15, align 8
   %17 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.12, i64 noundef %16) #11
   %18 = sext i32 %17 to i64

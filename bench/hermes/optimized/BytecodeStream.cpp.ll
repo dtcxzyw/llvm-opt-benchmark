@@ -59,28 +59,28 @@ entry:
   %header = alloca %"struct.hermes::hbc::BytecodeFileHeader", align 8
   %fileHash = alloca %"struct.std::array", align 1
   %ref.tmp62 = alloca %"struct.hermes::hbc::BytecodeFileFooter", align 1
-  %bytecodeModule_ = getelementptr inbounds i8, ptr %this, i64 8
+  %bytecodeModule_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %BM, ptr %bytecodeModule_, align 8
-  %options_.i = getelementptr inbounds i8, ptr %BM, i64 512
+  %options_.i = getelementptr inbounds nuw i8, ptr %BM, i64 512
   %retval.sroa.0.0.copyload.i = load i8, ptr %options_.i, align 8
   %0 = and i8 %retval.sroa.0.0.copyload.i, 2
   %bf.cast.not = icmp eq i8 %0, 0
   %. = select i1 %bf.cast.not, i64 440, i64 464
   %.131 = select i1 %bf.cast.not, i64 448, i64 472
-  %cjsModuleTable_.i = getelementptr inbounds i8, ptr %BM, i64 %.
+  %cjsModuleTable_.i = getelementptr inbounds nuw i8, ptr %BM, i64 %.
   %1 = load ptr, ptr %cjsModuleTable_.i, align 8
-  %_M_finish.i.i.i27 = getelementptr inbounds i8, ptr %BM, i64 %.131
+  %_M_finish.i.i.i27 = getelementptr inbounds nuw i8, ptr %BM, i64 %.131
   %2 = load ptr, ptr %_M_finish.i.i.i27, align 8
   %sub.ptr.lhs.cast.i.i.i28 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i.i.i29 = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i.i30 = sub i64 %sub.ptr.lhs.cast.i.i.i28, %sub.ptr.rhs.cast.i.i.i29
   %cond = lshr exact i64 %sub.ptr.sub.i.i.i30, 3
   %conv = trunc i64 %cond to i32
-  %fileLength_ = getelementptr inbounds i8, ptr %this, i64 52
+  %fileLength_ = getelementptr inbounds nuw i8, ptr %this, i64 52
   %3 = load i32, ptr %fileLength_, align 4
-  %globalFunctionIndex_.i = getelementptr inbounds i8, ptr %BM, i64 24
+  %globalFunctionIndex_.i = getelementptr inbounds nuw i8, ptr %BM, i64 24
   %4 = load i32, ptr %globalFunctionIndex_.i, align 8
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %BM, i64 8
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %BM, i64 8
   %5 = load ptr, ptr %_M_finish.i.i, align 8
   %6 = load ptr, ptr %BM, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %5 to i64
@@ -88,17 +88,17 @@ entry:
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 3
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
-  %stringKinds_.i = getelementptr inbounds i8, ptr %BM, i64 32
+  %stringKinds_.i = getelementptr inbounds nuw i8, ptr %BM, i64 32
   %7 = load ptr, ptr %stringKinds_.i, align 8
-  %_M_finish.i.i.i35 = getelementptr inbounds i8, ptr %BM, i64 40
+  %_M_finish.i.i.i35 = getelementptr inbounds nuw i8, ptr %BM, i64 40
   %8 = load ptr, ptr %_M_finish.i.i.i35, align 8
   %sub.ptr.lhs.cast.i.i.i36 = ptrtoint ptr %8 to i64
   %sub.ptr.rhs.cast.i.i.i37 = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i.i.i38 = sub i64 %sub.ptr.lhs.cast.i.i.i36, %sub.ptr.rhs.cast.i.i.i37
   %sub.ptr.div.i.i.i39 = lshr exact i64 %sub.ptr.sub.i.i.i38, 2
   %conv14 = trunc i64 %sub.ptr.div.i.i.i39 to i32
-  %identifierHashes_.i = getelementptr inbounds i8, ptr %BM, i64 56
-  %_M_finish.i.i43 = getelementptr inbounds i8, ptr %BM, i64 64
+  %identifierHashes_.i = getelementptr inbounds nuw i8, ptr %BM, i64 56
+  %_M_finish.i.i43 = getelementptr inbounds nuw i8, ptr %BM, i64 64
   %9 = load ptr, ptr %_M_finish.i.i43, align 8
   %10 = load ptr, ptr %identifierHashes_.i, align 8
   %sub.ptr.lhs.cast.i.i44 = ptrtoint ptr %9 to i64
@@ -106,8 +106,8 @@ entry:
   %sub.ptr.sub.i.i46 = sub i64 %sub.ptr.lhs.cast.i.i44, %sub.ptr.rhs.cast.i.i45
   %sub.ptr.div.i.i47 = lshr exact i64 %sub.ptr.sub.i.i46, 2
   %conv.i48 = trunc i64 %sub.ptr.div.i.i47 to i32
-  %stringTable_.i = getelementptr inbounds i8, ptr %BM, i64 80
-  %_M_finish.i.i49 = getelementptr inbounds i8, ptr %BM, i64 88
+  %stringTable_.i = getelementptr inbounds nuw i8, ptr %BM, i64 80
+  %_M_finish.i.i49 = getelementptr inbounds nuw i8, ptr %BM, i64 88
   %11 = load ptr, ptr %_M_finish.i.i49, align 8
   %12 = load ptr, ptr %stringTable_.i, align 8
   %sub.ptr.lhs.cast.i.i50 = ptrtoint ptr %11 to i64
@@ -115,148 +115,148 @@ entry:
   %sub.ptr.sub.i.i52 = sub i64 %sub.ptr.lhs.cast.i.i50, %sub.ptr.rhs.cast.i.i51
   %sub.ptr.div.i.i53 = lshr exact i64 %sub.ptr.sub.i.i52, 3
   %conv.i54 = trunc i64 %sub.ptr.div.i.i53 to i32
-  %overflowStringEntryCount_ = getelementptr inbounds i8, ptr %this, i64 60
+  %overflowStringEntryCount_ = getelementptr inbounds nuw i8, ptr %this, i64 60
   %13 = load i32, ptr %overflowStringEntryCount_, align 4
-  %stringStorage_.i = getelementptr inbounds i8, ptr %BM, i64 104
-  %_M_finish.i.i55 = getelementptr inbounds i8, ptr %BM, i64 112
+  %stringStorage_.i = getelementptr inbounds nuw i8, ptr %BM, i64 104
+  %_M_finish.i.i55 = getelementptr inbounds nuw i8, ptr %BM, i64 112
   %14 = load ptr, ptr %_M_finish.i.i55, align 8
   %15 = load ptr, ptr %stringStorage_.i, align 8
   %sub.ptr.lhs.cast.i.i56 = ptrtoint ptr %14 to i64
   %sub.ptr.rhs.cast.i.i57 = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i.i58 = sub i64 %sub.ptr.lhs.cast.i.i56, %sub.ptr.rhs.cast.i.i57
   %conv.i59 = trunc i64 %sub.ptr.sub.i.i58 to i32
-  %bigIntTable_.i = getelementptr inbounds i8, ptr %BM, i64 128
+  %bigIntTable_.i = getelementptr inbounds nuw i8, ptr %BM, i64 128
   %16 = load ptr, ptr %bigIntTable_.i, align 8
-  %_M_finish.i.i.i60 = getelementptr inbounds i8, ptr %BM, i64 136
+  %_M_finish.i.i.i60 = getelementptr inbounds nuw i8, ptr %BM, i64 136
   %17 = load ptr, ptr %_M_finish.i.i.i60, align 8
   %sub.ptr.lhs.cast.i.i.i61 = ptrtoint ptr %17 to i64
   %sub.ptr.rhs.cast.i.i.i62 = ptrtoint ptr %16 to i64
   %sub.ptr.sub.i.i.i63 = sub i64 %sub.ptr.lhs.cast.i.i.i61, %sub.ptr.rhs.cast.i.i.i62
   %sub.ptr.div.i.i.i64 = lshr exact i64 %sub.ptr.sub.i.i.i63, 3
   %conv21 = trunc i64 %sub.ptr.div.i.i.i64 to i32
-  %bigIntStorage_.i = getelementptr inbounds i8, ptr %BM, i64 152
+  %bigIntStorage_.i = getelementptr inbounds nuw i8, ptr %BM, i64 152
   %18 = load ptr, ptr %bigIntStorage_.i, align 8
-  %_M_finish.i.i.i68 = getelementptr inbounds i8, ptr %BM, i64 160
+  %_M_finish.i.i.i68 = getelementptr inbounds nuw i8, ptr %BM, i64 160
   %19 = load ptr, ptr %_M_finish.i.i.i68, align 8
   %sub.ptr.lhs.cast.i.i.i69 = ptrtoint ptr %19 to i64
   %sub.ptr.rhs.cast.i.i.i70 = ptrtoint ptr %18 to i64
   %sub.ptr.sub.i.i.i71 = sub i64 %sub.ptr.lhs.cast.i.i.i69, %sub.ptr.rhs.cast.i.i.i70
   %conv25 = trunc i64 %sub.ptr.sub.i.i.i71 to i32
-  %regExpTable_.i = getelementptr inbounds i8, ptr %BM, i64 200
+  %regExpTable_.i = getelementptr inbounds nuw i8, ptr %BM, i64 200
   %20 = load ptr, ptr %regExpTable_.i, align 8
-  %_M_finish.i.i.i75 = getelementptr inbounds i8, ptr %BM, i64 208
+  %_M_finish.i.i.i75 = getelementptr inbounds nuw i8, ptr %BM, i64 208
   %21 = load ptr, ptr %_M_finish.i.i.i75, align 8
   %sub.ptr.lhs.cast.i.i.i76 = ptrtoint ptr %21 to i64
   %sub.ptr.rhs.cast.i.i.i77 = ptrtoint ptr %20 to i64
   %sub.ptr.sub.i.i.i78 = sub i64 %sub.ptr.lhs.cast.i.i.i76, %sub.ptr.rhs.cast.i.i.i77
   %sub.ptr.div.i.i.i79 = lshr exact i64 %sub.ptr.sub.i.i.i78, 3
   %conv29 = trunc i64 %sub.ptr.div.i.i.i79 to i32
-  %regExpStorage_.i = getelementptr inbounds i8, ptr %BM, i64 176
+  %regExpStorage_.i = getelementptr inbounds nuw i8, ptr %BM, i64 176
   %22 = load ptr, ptr %regExpStorage_.i, align 8
-  %_M_finish.i.i.i83 = getelementptr inbounds i8, ptr %BM, i64 184
+  %_M_finish.i.i.i83 = getelementptr inbounds nuw i8, ptr %BM, i64 184
   %23 = load ptr, ptr %_M_finish.i.i.i83, align 8
   %sub.ptr.lhs.cast.i.i.i84 = ptrtoint ptr %23 to i64
   %sub.ptr.rhs.cast.i.i.i85 = ptrtoint ptr %22 to i64
   %sub.ptr.sub.i.i.i86 = sub i64 %sub.ptr.lhs.cast.i.i.i84, %sub.ptr.rhs.cast.i.i.i85
   %conv33 = trunc i64 %sub.ptr.sub.i.i.i86 to i32
-  %arrayBuffer_.i = getelementptr inbounds i8, ptr %BM, i64 360
-  %_M_finish.i.i90 = getelementptr inbounds i8, ptr %BM, i64 368
+  %arrayBuffer_.i = getelementptr inbounds nuw i8, ptr %BM, i64 360
+  %_M_finish.i.i90 = getelementptr inbounds nuw i8, ptr %BM, i64 368
   %24 = load ptr, ptr %_M_finish.i.i90, align 8
   %25 = load ptr, ptr %arrayBuffer_.i, align 8
   %sub.ptr.lhs.cast.i.i91 = ptrtoint ptr %24 to i64
   %sub.ptr.rhs.cast.i.i92 = ptrtoint ptr %25 to i64
   %sub.ptr.sub.i.i93 = sub i64 %sub.ptr.lhs.cast.i.i91, %sub.ptr.rhs.cast.i.i92
   %conv.i94 = trunc i64 %sub.ptr.sub.i.i93 to i32
-  %objKeyBuffer_.i = getelementptr inbounds i8, ptr %BM, i64 384
-  %_M_finish.i.i95 = getelementptr inbounds i8, ptr %BM, i64 392
+  %objKeyBuffer_.i = getelementptr inbounds nuw i8, ptr %BM, i64 384
+  %_M_finish.i.i95 = getelementptr inbounds nuw i8, ptr %BM, i64 392
   %26 = load ptr, ptr %_M_finish.i.i95, align 8
   %27 = load ptr, ptr %objKeyBuffer_.i, align 8
   %sub.ptr.lhs.cast.i.i96 = ptrtoint ptr %26 to i64
   %sub.ptr.rhs.cast.i.i97 = ptrtoint ptr %27 to i64
   %sub.ptr.sub.i.i98 = sub i64 %sub.ptr.lhs.cast.i.i96, %sub.ptr.rhs.cast.i.i97
   %conv.i99 = trunc i64 %sub.ptr.sub.i.i98 to i32
-  %objValBuffer_.i = getelementptr inbounds i8, ptr %BM, i64 408
-  %_M_finish.i.i100 = getelementptr inbounds i8, ptr %BM, i64 416
+  %objValBuffer_.i = getelementptr inbounds nuw i8, ptr %BM, i64 408
+  %_M_finish.i.i100 = getelementptr inbounds nuw i8, ptr %BM, i64 416
   %28 = load ptr, ptr %_M_finish.i.i100, align 8
   %29 = load ptr, ptr %objValBuffer_.i, align 8
   %sub.ptr.lhs.cast.i.i101 = ptrtoint ptr %28 to i64
   %sub.ptr.rhs.cast.i.i102 = ptrtoint ptr %29 to i64
   %sub.ptr.sub.i.i103 = sub i64 %sub.ptr.lhs.cast.i.i101, %sub.ptr.rhs.cast.i.i102
   %conv.i104 = trunc i64 %sub.ptr.sub.i.i103 to i32
-  %segmentID_.i = getelementptr inbounds i8, ptr %BM, i64 432
+  %segmentID_.i = getelementptr inbounds nuw i8, ptr %BM, i64 432
   %30 = load i32, ptr %segmentID_.i, align 8
-  %functionSourceTable_.i = getelementptr inbounds i8, ptr %BM, i64 488
+  %functionSourceTable_.i = getelementptr inbounds nuw i8, ptr %BM, i64 488
   %31 = load ptr, ptr %functionSourceTable_.i, align 8
-  %_M_finish.i.i.i105 = getelementptr inbounds i8, ptr %BM, i64 496
+  %_M_finish.i.i.i105 = getelementptr inbounds nuw i8, ptr %BM, i64 496
   %32 = load ptr, ptr %_M_finish.i.i.i105, align 8
   %sub.ptr.lhs.cast.i.i.i106 = ptrtoint ptr %32 to i64
   %sub.ptr.rhs.cast.i.i.i107 = ptrtoint ptr %31 to i64
   %sub.ptr.sub.i.i.i108 = sub i64 %sub.ptr.lhs.cast.i.i.i106, %sub.ptr.rhs.cast.i.i.i107
   %sub.ptr.div.i.i.i109 = lshr exact i64 %sub.ptr.sub.i.i.i108, 3
   %conv41 = trunc i64 %sub.ptr.div.i.i.i109 to i32
-  %debugInfoOffset_ = getelementptr inbounds i8, ptr %this, i64 56
+  %debugInfoOffset_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %33 = load i32, ptr %debugInfoOffset_, align 8
   store i64 2240826417119764422, ptr %header, align 8
-  %version4.i = getelementptr inbounds i8, ptr %header, i64 8
+  %version4.i = getelementptr inbounds nuw i8, ptr %header, i64 8
   store i32 96, ptr %version4.i, align 8
-  %sourceHash5.i = getelementptr inbounds i8, ptr %header, i64 12
-  %fileLength6.i = getelementptr inbounds i8, ptr %header, i64 32
+  %sourceHash5.i = getelementptr inbounds nuw i8, ptr %header, i64 12
+  %fileLength6.i = getelementptr inbounds nuw i8, ptr %header, i64 32
   store i32 %3, ptr %fileLength6.i, align 8
-  %globalCodeIndex7.i = getelementptr inbounds i8, ptr %header, i64 36
+  %globalCodeIndex7.i = getelementptr inbounds nuw i8, ptr %header, i64 36
   store i32 %4, ptr %globalCodeIndex7.i, align 4
-  %functionCount8.i = getelementptr inbounds i8, ptr %header, i64 40
+  %functionCount8.i = getelementptr inbounds nuw i8, ptr %header, i64 40
   store i32 %conv.i, ptr %functionCount8.i, align 8
-  %stringKindCount9.i = getelementptr inbounds i8, ptr %header, i64 44
+  %stringKindCount9.i = getelementptr inbounds nuw i8, ptr %header, i64 44
   store i32 %conv14, ptr %stringKindCount9.i, align 4
-  %identifierCount10.i = getelementptr inbounds i8, ptr %header, i64 48
+  %identifierCount10.i = getelementptr inbounds nuw i8, ptr %header, i64 48
   store i32 %conv.i48, ptr %identifierCount10.i, align 8
-  %stringCount11.i = getelementptr inbounds i8, ptr %header, i64 52
+  %stringCount11.i = getelementptr inbounds nuw i8, ptr %header, i64 52
   store i32 %conv.i54, ptr %stringCount11.i, align 4
-  %overflowStringCount12.i = getelementptr inbounds i8, ptr %header, i64 56
+  %overflowStringCount12.i = getelementptr inbounds nuw i8, ptr %header, i64 56
   store i32 %13, ptr %overflowStringCount12.i, align 8
-  %stringStorageSize13.i = getelementptr inbounds i8, ptr %header, i64 60
+  %stringStorageSize13.i = getelementptr inbounds nuw i8, ptr %header, i64 60
   store i32 %conv.i59, ptr %stringStorageSize13.i, align 4
-  %bigIntCount14.i = getelementptr inbounds i8, ptr %header, i64 64
+  %bigIntCount14.i = getelementptr inbounds nuw i8, ptr %header, i64 64
   store i32 %conv21, ptr %bigIntCount14.i, align 8
-  %bigIntStorageSize15.i = getelementptr inbounds i8, ptr %header, i64 68
+  %bigIntStorageSize15.i = getelementptr inbounds nuw i8, ptr %header, i64 68
   store i32 %conv25, ptr %bigIntStorageSize15.i, align 4
-  %regExpCount16.i = getelementptr inbounds i8, ptr %header, i64 72
+  %regExpCount16.i = getelementptr inbounds nuw i8, ptr %header, i64 72
   store i32 %conv29, ptr %regExpCount16.i, align 8
-  %regExpStorageSize17.i = getelementptr inbounds i8, ptr %header, i64 76
+  %regExpStorageSize17.i = getelementptr inbounds nuw i8, ptr %header, i64 76
   store i32 %conv33, ptr %regExpStorageSize17.i, align 4
-  %arrayBufferSize18.i = getelementptr inbounds i8, ptr %header, i64 80
+  %arrayBufferSize18.i = getelementptr inbounds nuw i8, ptr %header, i64 80
   store i32 %conv.i94, ptr %arrayBufferSize18.i, align 8
-  %objKeyBufferSize19.i = getelementptr inbounds i8, ptr %header, i64 84
+  %objKeyBufferSize19.i = getelementptr inbounds nuw i8, ptr %header, i64 84
   store i32 %conv.i99, ptr %objKeyBufferSize19.i, align 4
-  %objValueBufferSize20.i = getelementptr inbounds i8, ptr %header, i64 88
+  %objValueBufferSize20.i = getelementptr inbounds nuw i8, ptr %header, i64 88
   store i32 %conv.i104, ptr %objValueBufferSize20.i, align 8
-  %segmentID21.i = getelementptr inbounds i8, ptr %header, i64 92
+  %segmentID21.i = getelementptr inbounds nuw i8, ptr %header, i64 92
   store i32 %30, ptr %segmentID21.i, align 4
-  %cjsModuleCount22.i = getelementptr inbounds i8, ptr %header, i64 96
+  %cjsModuleCount22.i = getelementptr inbounds nuw i8, ptr %header, i64 96
   store i32 %conv, ptr %cjsModuleCount22.i, align 8
-  %functionSourceCount23.i = getelementptr inbounds i8, ptr %header, i64 100
+  %functionSourceCount23.i = getelementptr inbounds nuw i8, ptr %header, i64 100
   store i32 %conv41, ptr %functionSourceCount23.i, align 4
-  %debugInfoOffset24.i = getelementptr inbounds i8, ptr %header, i64 104
+  %debugInfoOffset24.i = getelementptr inbounds nuw i8, ptr %header, i64 104
   store i32 %33, ptr %debugInfoOffset24.i, align 8
-  %options25.i = getelementptr inbounds i8, ptr %header, i64 108
+  %options25.i = getelementptr inbounds nuw i8, ptr %header, i64 108
   store i8 %retval.sroa.0.0.copyload.i, ptr %options25.i, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %sourceHash5.i, ptr noundef nonnull align 1 dereferenceable(20) %sourceHash, i64 20, i1 false)
-  %padding.i = getelementptr inbounds i8, ptr %header, i64 109
+  %padding.i = getelementptr inbounds nuw i8, ptr %header, i64 109
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %padding.i, i8 0, i64 19, i1 false)
-  %isLayout_.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %isLayout_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %34 = load i8, ptr %isLayout_.i.i, align 8
   %tobool.i.i = trunc i8 %34 to i1
   br i1 %tobool.i.i, label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_18BytecodeFileHeaderEEEvRKT_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %outputHasher_.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %outputHasher_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i, ptr nonnull align 1 dereferenceable(128) %header, i64 128) #12
   %35 = load ptr, ptr %this, align 8
   %call4.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %35, ptr noundef nonnull align 1 dereferenceable(128) %header, i64 noundef 128) #12
   br label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_18BytecodeFileHeaderEEEvRKT_.exit
 
 _ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_18BytecodeFileHeaderEEEvRKT_.exit: ; preds = %entry, %if.then.i.i
-  %loc_.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %loc_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %36 = load i64, ptr %loc_.i.i, align 8
   %add.i.i = add i64 %36, 128
   store i64 %add.i.i, ptr %loc_.i.i, align 8
@@ -271,7 +271,7 @@ for.body:                                         ; preds = %_ZN6hermes3hbc18Byt
   %__begin1.sroa.0.0128 = phi ptr [ %incdec.ptr.i, %for.body ], [ %37, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_18BytecodeFileHeaderEEEvRKT_.exit ]
   %39 = load ptr, ptr %__begin1.sroa.0.0128, align 8
   call void @_ZN6hermes3hbc18BytecodeSerializer21serializeFunctionInfoERNS0_16BytecodeFunctionE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(104) %39)
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0128, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.0128, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %38
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -283,7 +283,7 @@ for.end:                                          ; preds = %for.body, %_ZN6herm
   br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %for.end
-  %outputHasher_ = getelementptr inbounds i8, ptr %this, i64 64
+  %outputHasher_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %call57 = call { ptr, i64 } @_ZN4llvh4SHA16resultEv(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_) #12
   %41 = extractvalue { ptr, i64 } %call57, 1
   %cmp6.i.i.i.i.i = icmp sgt i64 %41, 0
@@ -300,8 +300,8 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.
   %__first.addr.07.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %42, %for.body.i.i.i.i.i.preheader ]
   %44 = load i8, ptr %__first.addr.07.i.i.i.i.i, align 1
   store i8 %44, ptr %__result.addr.08.i.i.i.i.i, align 1
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i, i64 1
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__result.addr.08.i.i.i.i.i, i64 1
   %exitcond.not = icmp eq ptr %__result.addr.08.i.i.i.i.i, %scevgep
   br i1 %exitcond.not, label %if.end, label %for.body.i.i.i.i.i, !llvm.loop !4
 
@@ -312,7 +312,7 @@ if.end:                                           ; preds = %for.body.i.i.i.i.i,
   br i1 %tobool.i.i117, label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_18BytecodeFileFooterEEEvRKT_.exit, label %if.then.i.i118
 
 if.then.i.i118:                                   ; preds = %if.end
-  %outputHasher_.i.i119 = getelementptr inbounds i8, ptr %this, i64 64
+  %outputHasher_.i.i119 = getelementptr inbounds nuw i8, ptr %this, i64 64
   call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i119, ptr nonnull align 1 dereferenceable(20) %ref.tmp62, i64 20) #12
   %46 = load ptr, ptr %this, align 8
   %call4.i.i120 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %46, ptr noundef nonnull align 1 dereferenceable(20) %ref.tmp62, i64 noundef 20) #12
@@ -358,7 +358,7 @@ entry:
   tail call void @_ZN6hermes3hbc18BytecodeSerializer16visitRegExpTableEv(ptr noundef nonnull align 8 dereferenceable(176) %visitor)
   tail call void @_ZN6hermes3hbc18BytecodeSerializer18visitRegExpStorageEv(ptr noundef nonnull align 8 dereferenceable(176) %visitor)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i)
-  %loc_.i.i = getelementptr inbounds i8, ptr %visitor, i64 40
+  %loc_.i.i = getelementptr inbounds nuw i8, ptr %visitor, i64 40
   %0 = load i64, ptr %loc_.i.i, align 8
   %rem.i.i = and i64 %0, 3
   %cmp.i.i = icmp eq i64 %rem.i.i, 0
@@ -367,8 +367,8 @@ entry:
 if.end.i.i:                                       ; preds = %entry
   %1 = trunc nuw nsw i64 %rem.i.i to i32
   %conv6.i.i = sub nuw nsw i32 4, %1
-  %isLayout_.i.i.i.i = getelementptr inbounds i8, ptr %visitor, i64 48
-  %outputHasher_.i.i.i.i = getelementptr inbounds i8, ptr %visitor, i64 64
+  %isLayout_.i.i.i.i = getelementptr inbounds nuw i8, ptr %visitor, i64 48
+  %outputHasher_.i.i.i.i = getelementptr inbounds nuw i8, ptr %visitor, i64 64
   %2 = load i8, ptr %isLayout_.i.i.i.i, align 8
   %3 = trunc i8 %2 to i1
   br i1 %3, label %for.body.us.i.preheader.i, label %for.body.i.i
@@ -404,7 +404,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i.i: ; preds = %if
 
 _ZN6hermes3hbc18BytecodeSerializer19visitCJSModuleTableEv.exit: ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i.i, %entry, %for.body.us.i.preheader.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i)
-  %bytecodeModule_.i = getelementptr inbounds i8, ptr %visitor, i64 8
+  %bytecodeModule_.i = getelementptr inbounds nuw i8, ptr %visitor, i64 8
   %9 = load ptr, ptr %bytecodeModule_.i, align 8
   call void @_ZN6hermes3hbc18BytecodeSerializer23serializeCJSModuleTableERNS0_14BytecodeModuleE(ptr noundef nonnull align 8 dereferenceable(176) %visitor, ptr noundef nonnull align 8 dereferenceable(513) %9)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i15)
@@ -416,8 +416,8 @@ _ZN6hermes3hbc18BytecodeSerializer19visitCJSModuleTableEv.exit: ; preds = %_ZN6h
 if.end.i.i19:                                     ; preds = %_ZN6hermes3hbc18BytecodeSerializer19visitCJSModuleTableEv.exit
   %11 = trunc nuw nsw i64 %rem.i.i17 to i32
   %conv6.i.i20 = sub nuw nsw i32 4, %11
-  %isLayout_.i.i.i.i21 = getelementptr inbounds i8, ptr %visitor, i64 48
-  %outputHasher_.i.i.i.i22 = getelementptr inbounds i8, ptr %visitor, i64 64
+  %isLayout_.i.i.i.i21 = getelementptr inbounds nuw i8, ptr %visitor, i64 48
+  %outputHasher_.i.i.i.i22 = getelementptr inbounds nuw i8, ptr %visitor, i64 64
   %12 = load i8, ptr %isLayout_.i.i.i.i21, align 8
   %13 = trunc i8 %12 to i1
   br i1 %13, label %for.body.us.i.preheader.i34, label %for.body.i.i23
@@ -469,19 +469,19 @@ entry:
   %ref.tmp56 = alloca i8, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %bcMap, i8 0, i64 20, i1 false)
   %0 = load ptr, ptr %BM, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %BM, i64 8
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %BM, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not66 = icmp eq ptr %0, %1
   br i1 %cmp.i.not66, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %optimizationEnabled = getelementptr inbounds i8, ptr %this, i64 20
-  %isLayout_ = getelementptr inbounds i8, ptr %this, i64 48
-  %loc_21 = getelementptr inbounds i8, ptr %this, i64 40
-  %key.sroa.2.0.ref.tmp.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %second.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  %outputHasher_.i = getelementptr inbounds i8, ptr %this, i64 64
-  %padFunctionBodiesPercent = getelementptr inbounds i8, ptr %this, i64 28
+  %optimizationEnabled = getelementptr inbounds nuw i8, ptr %this, i64 20
+  %isLayout_ = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %loc_21 = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %key.sroa.2.0.ref.tmp.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
+  %second.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
+  %outputHasher_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
+  %padFunctionBodiesPercent = getelementptr inbounds nuw i8, ptr %this, i64 28
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -498,7 +498,7 @@ if.then:                                          ; preds = %for.body
 
 if.then9:                                         ; preds = %if.then
   %4 = load ptr, ptr %3, align 8
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %_M_finish.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %4 to i64
@@ -517,7 +517,7 @@ if.then9:                                         ; preds = %if.then
 _ZN4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIhEEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E6insertEOSt4pairIS3_jE.exit.thread: ; preds = %if.then9
   %call.i2.i.i = call noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIhEEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E20InsertIntoBucketImplIS3_EEPS8_RKS3_RKT_SC_(ptr noundef nonnull align 1 dereferenceable(1) %bcMap, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp, ptr noundef %7), !noalias !11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i2.i.i, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp, i64 16, i1 false), !noalias !11
-  %second.i.i3.i.i = getelementptr inbounds i8, ptr %call.i2.i.i, i64 16
+  %second.i.i3.i.i = getelementptr inbounds nuw i8, ptr %call.i2.i.i, i64 16
   %8 = load i32, ptr %second.i.i, align 8, !noalias !11
   store i32 %8, ptr %second.i.i3.i.i, align 4, !noalias !11
   %.pre = load i8, ptr %isLayout_, align 8
@@ -525,14 +525,14 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIhEEjNS_12DenseMapInfoIS3_EENS_6
 
 if.then14:                                        ; preds = %if.then9
   %9 = load ptr, ptr %__begin1.sroa.0.067, align 8
-  %second17 = getelementptr inbounds i8, ptr %7, i64 16
+  %second17 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %10 = load i32, ptr %second17, align 8
-  %header_.i = getelementptr inbounds i8, ptr %9, i64 24
+  %header_.i = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i32 %10, ptr %header_.i, align 8
   br label %for.inc
 
 if.else:                                          ; preds = %if.then
-  %header_.i10 = getelementptr inbounds i8, ptr %3, i64 24
+  %header_.i10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %11 = load i32, ptr %header_.i10, align 8
   %conv20 = zext i32 %11 to i64
   %12 = load i64, ptr %loc_21, align 8
@@ -548,7 +548,7 @@ if.end26:                                         ; preds = %_ZN4llvh12DenseMapB
 if.then29:                                        ; preds = %if.end26
   %14 = load i64, ptr %loc_21, align 8
   %conv32 = trunc i64 %14 to i32
-  %header_.i11 = getelementptr inbounds i8, ptr %.pre71, i64 24
+  %header_.i11 = getelementptr inbounds nuw i8, ptr %.pre71, i64 24
   store i32 %conv32, ptr %header_.i11, align 8
   %.pre70 = load ptr, ptr %__begin1.sroa.0.067, align 8
   %.pre72 = load i8, ptr %isLayout_, align 8
@@ -557,7 +557,7 @@ if.then29:                                        ; preds = %if.end26
 if.end33:                                         ; preds = %if.then29, %if.end26
   %15 = phi i8 [ %.pre72, %if.then29 ], [ %13, %if.end26 ]
   %16 = phi ptr [ %.pre70, %if.then29 ], [ %.pre71, %if.end26 ]
-  %bytecodeSizeInBytes.i = getelementptr inbounds i8, ptr %16, i64 32
+  %bytecodeSizeInBytes.i = getelementptr inbounds nuw i8, ptr %16, i64 32
   %17 = load i32, ptr %bytecodeSizeInBytes.i, align 8
   %conv.i = zext i32 %17 to i64
   %tobool.i = trunc i8 %15 to i1
@@ -653,7 +653,7 @@ if.end44:                                         ; preds = %_ZN6hermes3hbc18Byt
 
 if.then47:                                        ; preds = %if.end44
   %39 = load ptr, ptr %__begin1.sroa.0.067, align 8
-  %bytecodeSizeInBytes.i25 = getelementptr inbounds i8, ptr %39, i64 32
+  %bytecodeSizeInBytes.i25 = getelementptr inbounds nuw i8, ptr %39, i64 32
   %40 = load i32, ptr %bytecodeSizeInBytes.i25, align 8
   %conv.i26 = zext i32 %40 to i64
   %conv54 = zext i32 %38 to i64
@@ -747,7 +747,7 @@ _ZN6hermes3hbc18BytecodeSerializer3padEj.exit55:  ; preds = %_ZN6hermes3hbc18Byt
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then14, %if.end44, %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit55, %if.else
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.067, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.067, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end.loopexit, label %for.body
 
@@ -767,26 +767,26 @@ entry:
   %ref.tmp.i = alloca i8, align 1
   %header = alloca %"struct.hermes::hbc::FunctionHeader", align 1
   %ref.tmp = alloca %"struct.hermes::hbc::SmallFuncHeader", align 1
-  %isLayout_ = getelementptr inbounds i8, ptr %this, i64 48
+  %isLayout_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load i8, ptr %isLayout_, align 8
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %loc_ = getelementptr inbounds i8, ptr %this, i64 40
+  %loc_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %1 = load i64, ptr %loc_, align 8
   %2 = trunc i64 %1 to i32
   %3 = add i32 %2, 3
   %conv = and i32 %3, -4
-  %infoOffset.i = getelementptr inbounds i8, ptr %BF, i64 40
+  %infoOffset.i = getelementptr inbounds nuw i8, ptr %BF, i64 40
   store i32 %conv, ptr %infoOffset.i, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %header_.i = getelementptr inbounds i8, ptr %BF, i64 24
+  %header_.i = getelementptr inbounds nuw i8, ptr %BF, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %header, ptr noundef nonnull align 8 dereferenceable(31) %header_.i, i64 31, i1 false)
   call void @_ZN6hermes3hbc15SmallFuncHeaderC2ERKNS0_14FunctionHeaderE(ptr noundef nonnull align 1 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 1 dereferenceable(31) %header)
-  %flags = getelementptr inbounds i8, ptr %ref.tmp, i64 15
+  %flags = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 15
   %bf.load = load i8, ptr %flags, align 1
   %4 = and i8 %bf.load, 32
   %bf.cast.not = icmp eq i8 %4, 0
@@ -794,7 +794,7 @@ if.end:                                           ; preds = %if.then, %entry
 
 if.then3:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %loc_.i = getelementptr inbounds i8, ptr %this, i64 40
+  %loc_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %5 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %5, 3
   %cmp.i = icmp eq i64 %rem.i, 0
@@ -804,7 +804,7 @@ if.then3:                                         ; preds = %if.end
 if.end.i:                                         ; preds = %if.then3
   %6 = trunc nuw nsw i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %6
-  %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %outputHasher_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %7 = trunc i8 %.pre4 to i1
   br i1 %7, label %for.body.us.i.preheader, label %for.body.i
 
@@ -850,7 +850,7 @@ _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18Byt
   br i1 %tobool.i.i, label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_14FunctionHeaderEEEvRKT_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit
-  %outputHasher_.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %outputHasher_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i, ptr nonnull align 1 dereferenceable(31) %header, i64 31) #12
   %17 = load ptr, ptr %this, align 8
   %call4.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %17, ptr noundef nonnull align 1 dereferenceable(31) %header, i64 noundef 31) #12
@@ -876,7 +876,7 @@ entry:
   %empty = alloca %"struct.hermes::hbc::DebugInfoHeader", align 1
   %header = alloca %"struct.hermes::hbc::DebugInfoHeader", align 4
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %loc_.i = getelementptr inbounds i8, ptr %this, i64 40
+  %loc_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %0, 3
   %cmp.i = icmp eq i64 %rem.i, 0
@@ -885,8 +885,8 @@ entry:
 if.end.i:                                         ; preds = %entry
   %1 = trunc nuw nsw i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %1
-  %isLayout_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %isLayout_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %outputHasher_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %2 = load i8, ptr %isLayout_.i.i.i, align 8
   %3 = trunc i8 %2 to i1
   br i1 %3, label %for.body.us.i.preheader, label %for.body.i
@@ -925,22 +925,22 @@ _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18Byt
   %11 = phi i64 [ %0, %entry ], [ %6, %for.body.us.i.preheader ], [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
   %conv = trunc i64 %11 to i32
-  %debugInfoOffset_ = getelementptr inbounds i8, ptr %this, i64 56
+  %debugInfoOffset_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i32 %conv, ptr %debugInfoOffset_, align 8
-  %stripDebugInfoSection = getelementptr inbounds i8, ptr %this, i64 21
+  %stripDebugInfoSection = getelementptr inbounds nuw i8, ptr %this, i64 21
   %12 = load i8, ptr %stripDebugInfoSection, align 1
   %tobool = trunc i8 %12 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %empty, i8 0, i64 28, i1 false)
-  %isLayout_.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %isLayout_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %13 = load i8, ptr %isLayout_.i.i, align 8
   %tobool.i.i = trunc i8 %13 to i1
   br i1 %tobool.i.i, label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_15DebugInfoHeaderEEEvRKT_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  %outputHasher_.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %outputHasher_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i, ptr nonnull align 1 dereferenceable(28) %empty, i64 28) #12
   %14 = load ptr, ptr %this, align 8
   %call4.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %14, ptr noundef nonnull align 1 dereferenceable(28) %empty, i64 noundef 28) #12
@@ -953,55 +953,55 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_15DebugInfoHeaderEEEvRKT_.ex
   br label %return
 
 if.end:                                           ; preds = %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit
-  %debugInfo_.i = getelementptr inbounds i8, ptr %BM, i64 224
+  %debugInfo_.i = getelementptr inbounds nuw i8, ptr %BM, i64 224
   %16 = load ptr, ptr %debugInfo_.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %BM, i64 232
+  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %BM, i64 232
   %17 = load ptr, ptr %_M_finish.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %17 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %16 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = lshr exact i64 %sub.ptr.sub.i.i.i, 3
-  %filenameStorage_.i = getelementptr inbounds i8, ptr %BM, i64 248
+  %filenameStorage_.i = getelementptr inbounds nuw i8, ptr %BM, i64 248
   %18 = load ptr, ptr %filenameStorage_.i, align 8
-  %_M_finish.i.i.i12 = getelementptr inbounds i8, ptr %BM, i64 256
+  %_M_finish.i.i.i12 = getelementptr inbounds nuw i8, ptr %BM, i64 256
   %19 = load ptr, ptr %_M_finish.i.i.i12, align 8
   %sub.ptr.lhs.cast.i.i.i13 = ptrtoint ptr %19 to i64
   %sub.ptr.rhs.cast.i.i.i14 = ptrtoint ptr %18 to i64
   %sub.ptr.sub.i.i.i15 = sub i64 %sub.ptr.lhs.cast.i.i.i13, %sub.ptr.rhs.cast.i.i.i14
-  %files_.i = getelementptr inbounds i8, ptr %BM, i64 272
-  %scopeDescDataOffset_.i = getelementptr inbounds i8, ptr %BM, i64 304
+  %files_.i = getelementptr inbounds nuw i8, ptr %BM, i64 272
+  %scopeDescDataOffset_.i = getelementptr inbounds nuw i8, ptr %BM, i64 304
   %20 = load i32, ptr %scopeDescDataOffset_.i, align 8
-  %textifiedCalleeOffset_.i = getelementptr inbounds i8, ptr %BM, i64 308
+  %textifiedCalleeOffset_.i = getelementptr inbounds nuw i8, ptr %BM, i64 308
   %21 = load i32, ptr %textifiedCalleeOffset_.i, align 4
-  %stringTableOffset_.i = getelementptr inbounds i8, ptr %BM, i64 312
+  %stringTableOffset_.i = getelementptr inbounds nuw i8, ptr %BM, i64 312
   %22 = load i32, ptr %stringTableOffset_.i, align 8
   %conv10 = trunc i64 %sub.ptr.div.i.i.i to i32
   store i32 %conv10, ptr %header, align 4
-  %filenameStorageSize = getelementptr inbounds i8, ptr %header, i64 4
+  %filenameStorageSize = getelementptr inbounds nuw i8, ptr %header, i64 4
   %conv12 = trunc i64 %sub.ptr.sub.i.i.i15 to i32
   store i32 %conv12, ptr %filenameStorageSize, align 4
-  %fileRegionCount = getelementptr inbounds i8, ptr %header, i64 8
-  %Size.i = getelementptr inbounds i8, ptr %BM, i64 280
+  %fileRegionCount = getelementptr inbounds nuw i8, ptr %header, i64 8
+  %Size.i = getelementptr inbounds nuw i8, ptr %BM, i64 280
   %23 = load i32, ptr %Size.i, align 8
   store i32 %23, ptr %fileRegionCount, align 4
-  %scopeDescDataOffset = getelementptr inbounds i8, ptr %header, i64 12
+  %scopeDescDataOffset = getelementptr inbounds nuw i8, ptr %header, i64 12
   store i32 %20, ptr %scopeDescDataOffset, align 4
-  %textifiedCalleeOffset = getelementptr inbounds i8, ptr %header, i64 16
+  %textifiedCalleeOffset = getelementptr inbounds nuw i8, ptr %header, i64 16
   store i32 %21, ptr %textifiedCalleeOffset, align 4
-  %stringTableOffset = getelementptr inbounds i8, ptr %header, i64 20
+  %stringTableOffset = getelementptr inbounds nuw i8, ptr %header, i64 20
   store i32 %22, ptr %stringTableOffset, align 4
-  %debugDataSize = getelementptr inbounds i8, ptr %header, i64 24
-  %Length.i.i = getelementptr inbounds i8, ptr %BM, i64 352
+  %debugDataSize = getelementptr inbounds nuw i8, ptr %header, i64 24
+  %Length.i.i = getelementptr inbounds nuw i8, ptr %BM, i64 352
   %24 = load i64, ptr %Length.i.i, align 8
   %conv16 = trunc i64 %24 to i32
   store i32 %conv16, ptr %debugDataSize, align 4
-  %isLayout_.i.i19 = getelementptr inbounds i8, ptr %this, i64 48
+  %isLayout_.i.i19 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %25 = load i8, ptr %isLayout_.i.i19, align 8
   %tobool.i.i20 = trunc i8 %25 to i1
   br i1 %tobool.i.i20, label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_15DebugInfoHeaderEEEvRKT_.exit26, label %if.then.i.i21
 
 if.then.i.i21:                                    ; preds = %if.end
-  %outputHasher_.i.i22 = getelementptr inbounds i8, ptr %this, i64 64
+  %outputHasher_.i.i22 = getelementptr inbounds nuw i8, ptr %this, i64 64
   call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i22, ptr nonnull align 1 dereferenceable(28) %header, i64 28) #12
   %26 = load ptr, ptr %this, align 8
   %call4.i.i23 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %26, ptr noundef nonnull align 1 dereferenceable(28) %header, i64 noundef 28) #12
@@ -1018,7 +1018,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_15DebugInfoHeaderEEEvRKT_.ex
   br i1 %tobool.i, label %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayINS_16StringTableEntryEEEvN4llvh8ArrayRefIT_EE.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_15DebugInfoHeaderEEEvRKT_.exit26
-  %outputHasher_.i = getelementptr inbounds i8, ptr %this, i64 64
+  %outputHasher_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i, ptr %16, i64 %sub.ptr.sub.i.i.i) #12
   %29 = load ptr, ptr %this, align 8
   %call4.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %29, ptr noundef %16, i64 noundef %sub.ptr.sub.i.i.i) #12
@@ -1035,7 +1035,7 @@ _ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayINS_16StringTableEntryEEEvN4
   br i1 %tobool.i30, label %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIhEEvN4llvh8ArrayRefIT_EE.exit, label %if.then.i31
 
 if.then.i31:                                      ; preds = %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayINS_16StringTableEntryEEEvN4llvh8ArrayRefIT_EE.exit
-  %outputHasher_.i32 = getelementptr inbounds i8, ptr %this, i64 64
+  %outputHasher_.i32 = getelementptr inbounds nuw i8, ptr %this, i64 64
   call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i32, ptr %18, i64 %sub.ptr.sub.i.i.i15) #12
   %32 = load ptr, ptr %this, align 8
   %call4.i33 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %32, ptr noundef %18, i64 noundef %sub.ptr.sub.i.i.i15) #12
@@ -1052,12 +1052,12 @@ _ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIhEEvN4llvh8ArrayRefIT_EE.ex
   %35 = load i32, ptr %Size.i, align 8
   %.fr = freeze i32 %35
   %conv.i38 = zext i32 %.fr to i64
-  %add.ptr.i = getelementptr inbounds %"struct.hermes::hbc::DebugFileRegion", ptr %34, i64 %conv.i38
+  %add.ptr.i = getelementptr inbounds nuw %"struct.hermes::hbc::DebugFileRegion", ptr %34, i64 %conv.i38
   %cmp.not57 = icmp eq i32 %.fr, 0
   br i1 %cmp.not57, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIhEEvN4llvh8ArrayRefIT_EE.exit
-  %outputHasher_.i.i42 = getelementptr inbounds i8, ptr %this, i64 64
+  %outputHasher_.i.i42 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %36 = trunc i8 %.pre66 to i1
   br i1 %36, label %for.body.lr.ph.split.us, label %for.body
 
@@ -1089,7 +1089,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_15DebugFileRegionEEEvRKT_.ex
   %46 = phi i64 [ %43, %for.body ], [ %.pre64, %if.then.i.i41 ]
   %add.i.i45 = add i64 %46, 12
   store i64 %add.i.i45, ptr %loc_.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.058, i64 12
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin1.058, i64 12
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %for.end.loopexit, label %for.body, !llvm.loop !17
 
@@ -1105,9 +1105,9 @@ for.end:                                          ; preds = %for.end.loopexit, %
   br i1 %tobool.i47, label %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIhEEvN4llvh8ArrayRefIT_EE.exit54, label %if.then.i48
 
 if.then.i48:                                      ; preds = %for.end
-  %ref_.i = getelementptr inbounds i8, ptr %BM, i64 344
+  %ref_.i = getelementptr inbounds nuw i8, ptr %BM, i64 344
   %agg.tmp20.sroa.0.0.copyload = load ptr, ptr %ref_.i, align 8
-  %outputHasher_.i49 = getelementptr inbounds i8, ptr %this, i64 64
+  %outputHasher_.i49 = getelementptr inbounds nuw i8, ptr %this, i64 64
   call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i49, ptr %agg.tmp20.sroa.0.0.copyload, i64 %agg.tmp20.sroa.2.0.copyload) #12
   %49 = load ptr, ptr %this, align 8
   %call4.i50 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %49, ptr noundef %agg.tmp20.sroa.0.0.copyload, i64 noundef %agg.tmp20.sroa.2.0.copyload) #12
@@ -1133,12 +1133,12 @@ declare { ptr, i64 } @_ZN4llvh4SHA16resultEv(ptr noundef nonnull align 4 derefer
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN6hermes3hbc18BytecodeSerializer12finishLayoutERNS0_14BytecodeModuleE(ptr nocapture noundef nonnull align 8 dereferenceable(176) initializes((48, 49), (52, 56)) %this, ptr nocapture noundef nonnull readnone align 8 dereferenceable(513) %BM) local_unnamed_addr #3 align 2 {
 entry:
-  %loc_ = getelementptr inbounds i8, ptr %this, i64 40
+  %loc_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %loc_, align 8
   %conv = trunc i64 %0 to i32
-  %fileLength_ = getelementptr inbounds i8, ptr %this, i64 52
+  %fileLength_ = getelementptr inbounds nuw i8, ptr %this, i64 52
   store i32 %conv, ptr %fileLength_, align 4
-  %isLayout_ = getelementptr inbounds i8, ptr %this, i64 48
+  %isLayout_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i8 0, ptr %isLayout_, align 8
   store i64 0, ptr %loc_, align 8
   ret void
@@ -1150,16 +1150,16 @@ entry:
   %header = alloca %"struct.hermes::hbc::FunctionHeader", align 1
   %ref.tmp = alloca %"struct.hermes::hbc::SmallFuncHeader", align 1
   %0 = load ptr, ptr %BM, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %BM, i64 8
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %BM, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not5 = icmp eq ptr %0, %1
   br i1 %cmp.i.not5, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %stripDebugInfoSection = getelementptr inbounds i8, ptr %this, i64 21
-  %isLayout_.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %outputHasher_.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  %loc_.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %stripDebugInfoSection = getelementptr inbounds nuw i8, ptr %this, i64 21
+  %isLayout_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %outputHasher_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
+  %loc_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_15SmallFuncHeaderEEEvRKT_.exit
@@ -1170,7 +1170,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 if.then:                                          ; preds = %for.body
   %3 = load ptr, ptr %__begin1.sroa.0.06, align 8
-  %flags.i = getelementptr inbounds i8, ptr %3, i64 54
+  %flags.i = getelementptr inbounds nuw i8, ptr %3, i64 54
   %bf.load = load i8, ptr %flags.i, align 1
   %bf.clear = and i8 %bf.load, -17
   store i8 %bf.clear, ptr %flags.i, align 1
@@ -1178,7 +1178,7 @@ if.then:                                          ; preds = %for.body
 
 if.end:                                           ; preds = %if.then, %for.body
   %4 = load ptr, ptr %__begin1.sroa.0.06, align 8
-  %header_.i = getelementptr inbounds i8, ptr %4, i64 24
+  %header_.i = getelementptr inbounds nuw i8, ptr %4, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %header, ptr noundef nonnull align 1 dereferenceable(31) %header_.i, i64 31, i1 false)
   call void @_ZN6hermes3hbc15SmallFuncHeaderC2ERKNS0_14FunctionHeaderE(ptr noundef nonnull align 1 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 1 dereferenceable(31) %header)
   %5 = load i8, ptr %isLayout_.i.i, align 8
@@ -1195,7 +1195,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_15SmallFuncHeaderEEEvRKT_.ex
   %7 = load i64, ptr %loc_.i.i, align 8
   %add.i.i = add i64 %7, 16
   store i64 %add.i.i, ptr %loc_.i.i, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.06, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.06, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -1209,9 +1209,9 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes3hbc15SmallFuncHeaderC2ERKNS0_14FunctionHeaderE(ptr noundef nonnull align 1 dereferenceable(16) %this, ptr noundef nonnull align 1 dereferenceable(31) %large) unnamed_addr #0 comdat align 2 {
 entry:
-  %flags = getelementptr inbounds i8, ptr %this, i64 15
+  %flags = getelementptr inbounds nuw i8, ptr %this, i64 15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %this, i8 0, i64 16, i1 false)
-  %flags2 = getelementptr inbounds i8, ptr %large, i64 30
+  %flags2 = getelementptr inbounds nuw i8, ptr %large, i64 30
   %0 = load i8, ptr %flags2, align 1
   store i8 %0, ptr %flags, align 1
   %1 = load i32, ptr %large, align 1
@@ -1219,7 +1219,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %infoOffset = getelementptr inbounds i8, ptr %large, i64 16
+  %infoOffset = getelementptr inbounds nuw i8, ptr %large, i64 16
   %2 = load i32, ptr %infoOffset, align 1
   %bf.set.i = or i8 %0, 32
   store i8 %bf.set.i, ptr %flags, align 1
@@ -1234,13 +1234,13 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %5 = zext nneg i32 %1 to i120
   store i120 %5, ptr %this, align 1
-  %paramCount = getelementptr inbounds i8, ptr %large, i64 4
+  %paramCount = getelementptr inbounds nuw i8, ptr %large, i64 4
   %6 = load i32, ptr %paramCount, align 1
   %cmp5 = icmp ugt i32 %6, 127
   br i1 %cmp5, label %if.then6, label %if.end8
 
 if.then6:                                         ; preds = %if.end
-  %infoOffset7 = getelementptr inbounds i8, ptr %large, i64 16
+  %infoOffset7 = getelementptr inbounds nuw i8, ptr %large, i64 16
   %7 = load i32, ptr %infoOffset7, align 1
   %bf.set.i36 = or i8 %0, 32
   store i8 %bf.set.i36, ptr %flags, align 1
@@ -1257,13 +1257,13 @@ if.end8:                                          ; preds = %if.end
   %bf.set1394 = or disjoint i32 %1, %10
   %bf.set13 = zext i32 %bf.set1394 to i120
   store i120 %bf.set13, ptr %this, align 1
-  %bytecodeSizeInBytes = getelementptr inbounds i8, ptr %large, i64 8
+  %bytecodeSizeInBytes = getelementptr inbounds nuw i8, ptr %large, i64 8
   %11 = load i32, ptr %bytecodeSizeInBytes, align 1
   %cmp14 = icmp ugt i32 %11, 32767
   br i1 %cmp14, label %if.then15, label %if.end17
 
 if.then15:                                        ; preds = %if.end8
-  %infoOffset16 = getelementptr inbounds i8, ptr %large, i64 16
+  %infoOffset16 = getelementptr inbounds nuw i8, ptr %large, i64 16
   %12 = load i32, ptr %infoOffset16, align 1
   %bf.set.i46 = or i8 %0, 32
   store i8 %bf.set.i46, ptr %flags, align 1
@@ -1282,13 +1282,13 @@ if.end17:                                         ; preds = %if.end8
   %bf.shl21 = shl nuw nsw i120 %15, 32
   %bf.set23 = or disjoint i120 %bf.shl21, %bf.set13
   store i120 %bf.set23, ptr %this, align 1
-  %functionName = getelementptr inbounds i8, ptr %large, i64 12
+  %functionName = getelementptr inbounds nuw i8, ptr %large, i64 12
   %16 = load i32, ptr %functionName, align 1
   %cmp24 = icmp ugt i32 %16, 131071
   br i1 %cmp24, label %if.then25, label %if.end27
 
 if.then25:                                        ; preds = %if.end17
-  %infoOffset26 = getelementptr inbounds i8, ptr %large, i64 16
+  %infoOffset26 = getelementptr inbounds nuw i8, ptr %large, i64 16
   %17 = load i32, ptr %infoOffset26, align 1
   %bf.set.i56 = or i8 %0, 32
   store i8 %bf.set.i56, ptr %flags, align 1
@@ -1307,7 +1307,7 @@ if.end27:                                         ; preds = %if.end17
   %bf.shl31 = shl nuw nsw i120 %20, 47
   %bf.set33 = or disjoint i120 %bf.shl31, %bf.set23
   store i120 %bf.set33, ptr %this, align 1
-  %infoOffset34 = getelementptr inbounds i8, ptr %large, i64 16
+  %infoOffset34 = getelementptr inbounds nuw i8, ptr %large, i64 16
   %21 = load i32, ptr %infoOffset34, align 1
   %cmp35 = icmp ugt i32 %21, 33554431
   br i1 %cmp35, label %if.then36, label %if.end38
@@ -1330,7 +1330,7 @@ if.end38:                                         ; preds = %if.end27
   %bf.shl42 = shl nuw nsw i120 %24, 64
   %bf.set44 = or disjoint i120 %bf.shl42, %bf.set33
   store i120 %bf.set44, ptr %this, align 1
-  %frameSize = getelementptr inbounds i8, ptr %large, i64 20
+  %frameSize = getelementptr inbounds nuw i8, ptr %large, i64 20
   %25 = load i32, ptr %frameSize, align 1
   %cmp45 = icmp ugt i32 %25, 127
   br i1 %cmp45, label %if.then46, label %if.end48
@@ -1354,7 +1354,7 @@ if.end48:                                         ; preds = %if.end38
   %bf.shl52 = shl nuw nsw i120 %29, 89
   %bf.set54 = or disjoint i120 %bf.shl52, %bf.set44
   store i120 %bf.set54, ptr %this, align 1
-  %environmentSize = getelementptr inbounds i8, ptr %large, i64 24
+  %environmentSize = getelementptr inbounds nuw i8, ptr %large, i64 24
   %30 = load i32, ptr %environmentSize, align 1
   %cmp55 = icmp ugt i32 %30, 255
   br i1 %cmp55, label %if.then56, label %if.end58
@@ -1379,14 +1379,14 @@ if.end58:                                         ; preds = %if.end48
   %bf.clear63 = and i120 %bf.set54, 664593794711016799045817176432836607
   %bf.set64 = or disjoint i120 %bf.shl62, %bf.clear63
   store i120 %bf.set64, ptr %this, align 1
-  %highestReadCacheIndex = getelementptr inbounds i8, ptr %large, i64 28
+  %highestReadCacheIndex = getelementptr inbounds nuw i8, ptr %large, i64 28
   %35 = load i8, ptr %highestReadCacheIndex, align 1
   %36 = zext i8 %35 to i120
   %bf.shl73 = shl nuw nsw i120 %36, 104
   %bf.clear74 = and i120 %bf.set64, 659441983443526760493796981062238207
   %bf.set75 = or disjoint i120 %bf.shl73, %bf.clear74
   store i120 %bf.set75, ptr %this, align 1
-  %highestWriteCacheIndex = getelementptr inbounds i8, ptr %large, i64 29
+  %highestWriteCacheIndex = getelementptr inbounds nuw i8, ptr %large, i64 29
   %37 = load i8, ptr %highestWriteCacheIndex, align 1
   %38 = zext i8 %37 to i120
   %bf.shl84 = shl nuw i120 %38, 112
@@ -1404,7 +1404,7 @@ define hidden void @_ZN6hermes3hbc18BytecodeSerializer23serializeCJSModuleTableE
 entry:
   %ref.tmp.i = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %loc_.i = getelementptr inbounds i8, ptr %this, i64 40
+  %loc_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %0, 3
   %cmp.i = icmp eq i64 %rem.i, 0
@@ -1413,8 +1413,8 @@ entry:
 if.end.i:                                         ; preds = %entry
   %1 = trunc nuw nsw i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %1
-  %isLayout_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %isLayout_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %outputHasher_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %2 = load i8, ptr %isLayout_.i.i.i, align 8
   %3 = trunc i8 %2 to i1
   br i1 %3, label %for.body.us.i.preheader, label %for.body.i
@@ -1452,16 +1452,16 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry, %for.body.us.i.preheader
   %11 = phi i64 [ %0, %entry ], [ %6, %for.body.us.i.preheader ], [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %cjsModuleTable_.i = getelementptr inbounds i8, ptr %BM, i64 440
+  %cjsModuleTable_.i = getelementptr inbounds nuw i8, ptr %BM, i64 440
   %12 = load ptr, ptr %cjsModuleTable_.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %BM, i64 448
+  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %BM, i64 448
   %13 = load ptr, ptr %_M_finish.i.i.i, align 8
   %cmp.not24 = icmp eq ptr %12, %13
   br i1 %cmp.not24, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit
-  %isLayout_.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %outputHasher_.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %isLayout_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %outputHasher_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIjEEvRKT_.exit13
@@ -1488,7 +1488,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIjEEvRKT_.exit: ; preds = %for.bo
   br i1 %tobool.i.i7, label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIjEEvRKT_.exit13, label %if.then.i.i8
 
 if.then.i.i8:                                     ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIjEEvRKT_.exit
-  %second = getelementptr inbounds i8, ptr %__begin1.025, i64 4
+  %second = getelementptr inbounds nuw i8, ptr %__begin1.025, i64 4
   call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i, ptr nonnull align 4 dereferenceable(4) %second, i64 4) #12
   %19 = load ptr, ptr %this, align 8
   %call4.i.i10 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %19, ptr noundef nonnull align 4 dereferenceable(4) %second, i64 noundef 4) #12
@@ -1499,26 +1499,26 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIjEEvRKT_.exit13: ; preds = %_ZN6
   %20 = phi i64 [ %add.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIjEEvRKT_.exit ], [ %.pre27, %if.then.i.i8 ]
   %add.i.i12 = add i64 %20, 4
   store i64 %add.i.i12, ptr %loc_.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.025, i64 8
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin1.025, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %13
   br i1 %cmp.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIjEEvRKT_.exit13, %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit
   %21 = phi i64 [ %11, %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit ], [ %add.i.i12, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIjEEvRKT_.exit13 ]
-  %cjsModuleTableStatic_.i = getelementptr inbounds i8, ptr %BM, i64 464
+  %cjsModuleTableStatic_.i = getelementptr inbounds nuw i8, ptr %BM, i64 464
   %22 = load ptr, ptr %cjsModuleTableStatic_.i, align 8
-  %_M_finish.i.i.i14 = getelementptr inbounds i8, ptr %BM, i64 472
+  %_M_finish.i.i.i14 = getelementptr inbounds nuw i8, ptr %BM, i64 472
   %23 = load ptr, ptr %_M_finish.i.i.i14, align 8
   %sub.ptr.lhs.cast.i.i.i15 = ptrtoint ptr %23 to i64
   %sub.ptr.rhs.cast.i.i.i16 = ptrtoint ptr %22 to i64
   %sub.ptr.sub.i.i.i17 = sub i64 %sub.ptr.lhs.cast.i.i.i15, %sub.ptr.rhs.cast.i.i.i16
-  %isLayout_.i = getelementptr inbounds i8, ptr %this, i64 48
+  %isLayout_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %24 = load i8, ptr %isLayout_.i, align 8
   %tobool.i = trunc i8 %24 to i1
   br i1 %tobool.i, label %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayISt4pairIjjEEEvN4llvh8ArrayRefIT_EE.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %for.end
-  %outputHasher_.i = getelementptr inbounds i8, ptr %this, i64 64
+  %outputHasher_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i, ptr %22, i64 %sub.ptr.sub.i.i.i17) #12
   %25 = load ptr, ptr %this, align 8
   %call4.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %25, ptr noundef %22, i64 noundef %sub.ptr.sub.i.i.i17) #12
@@ -1537,7 +1537,7 @@ define hidden void @_ZN6hermes3hbc18BytecodeSerializer28serializeFunctionSourceT
 entry:
   %ref.tmp.i = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %loc_.i = getelementptr inbounds i8, ptr %this, i64 40
+  %loc_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %0, 3
   %cmp.i = icmp eq i64 %rem.i, 0
@@ -1546,8 +1546,8 @@ entry:
 if.end.i:                                         ; preds = %entry
   %1 = trunc nuw nsw i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %1
-  %isLayout_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %isLayout_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %outputHasher_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %2 = load i8, ptr %isLayout_.i.i.i, align 8
   %3 = trunc i8 %2 to i1
   br i1 %3, label %for.body.us.i.preheader, label %for.body.i
@@ -1585,20 +1585,20 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry, %for.body.us.i.preheader
   %11 = phi i64 [ %0, %entry ], [ %6, %for.body.us.i.preheader ], [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %functionSourceTable_.i = getelementptr inbounds i8, ptr %BM, i64 488
+  %functionSourceTable_.i = getelementptr inbounds nuw i8, ptr %BM, i64 488
   %12 = load ptr, ptr %functionSourceTable_.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %BM, i64 496
+  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %BM, i64 496
   %13 = load ptr, ptr %_M_finish.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %13 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %isLayout_.i = getelementptr inbounds i8, ptr %this, i64 48
+  %isLayout_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %14 = load i8, ptr %isLayout_.i, align 8
   %tobool.i = trunc i8 %14 to i1
   br i1 %tobool.i, label %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayISt4pairIjjEEEvN4llvh8ArrayRefIT_EE.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit
-  %outputHasher_.i = getelementptr inbounds i8, ptr %this, i64 64
+  %outputHasher_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i, ptr %12, i64 %sub.ptr.sub.i.i.i) #12
   %15 = load ptr, ptr %this, align 8
   %call4.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %15, ptr noundef %12, i64 noundef %sub.ptr.sub.i.i.i) #12
@@ -1617,8 +1617,8 @@ define hidden void @_ZN6hermes3hbc18BytecodeSerializer30serializeExceptionHandle
 entry:
   %ref.tmp.i = alloca i8, align 1
   %header = alloca %"struct.hermes::hbc::ExceptionHandlerTableHeader", align 4
-  %exceptions_.i = getelementptr inbounds i8, ptr %BF, i64 72
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %BF, i64 80
+  %exceptions_.i = getelementptr inbounds nuw i8, ptr %BF, i64 72
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %BF, i64 80
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %exceptions_.i, align 8
   %cmp.i.not = icmp eq ptr %0, %1
@@ -1626,7 +1626,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %loc_.i = getelementptr inbounds i8, ptr %this, i64 40
+  %loc_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %2 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %2, 3
   %cmp.i3 = icmp eq i64 %rem.i, 0
@@ -1635,8 +1635,8 @@ if.end:                                           ; preds = %entry
 if.end.i:                                         ; preds = %if.end
   %3 = trunc nuw nsw i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %3
-  %isLayout_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %isLayout_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %outputHasher_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %4 = load i8, ptr %isLayout_.i.i.i, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %for.body.us.i.preheader, label %for.body.i
@@ -1682,13 +1682,13 @@ _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18Byt
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 12
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
   store i32 %conv.i, ptr %header, align 4
-  %isLayout_.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %isLayout_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %16 = load i8, ptr %isLayout_.i.i, align 8
   %tobool.i.i = trunc i8 %16 to i1
   br i1 %tobool.i.i, label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_27ExceptionHandlerTableHeaderEEEvRKT_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit
-  %outputHasher_.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %outputHasher_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i, ptr nonnull align 1 dereferenceable(4) %header, i64 4) #12
   %17 = load ptr, ptr %this, align 8
   %call4.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %17, ptr noundef nonnull align 1 dereferenceable(4) %header, i64 noundef 4) #12
@@ -1710,7 +1710,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_27ExceptionHandlerTableHeade
   br i1 %tobool.i, label %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayINS0_23HBCExceptionHandlerInfoEEEvN4llvh8ArrayRefIT_EE.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_27ExceptionHandlerTableHeaderEEEvRKT_.exit
-  %outputHasher_.i = getelementptr inbounds i8, ptr %this, i64 64
+  %outputHasher_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i, ptr %20, i64 %sub.ptr.sub.i.i.i) #12
   %22 = load ptr, ptr %this, align 8
   %call4.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %22, ptr noundef %20, i64 noundef %sub.ptr.sub.i.i.i) #12
@@ -1730,27 +1730,27 @@ return:                                           ; preds = %entry, %_ZN6hermes3
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6hermes3hbc18BytecodeSerializer20serializeArrayBufferERNS0_14BytecodeModuleE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(513) %BM) local_unnamed_addr #0 align 2 {
 entry:
-  %arrayBuffer_.i = getelementptr inbounds i8, ptr %BM, i64 360
+  %arrayBuffer_.i = getelementptr inbounds nuw i8, ptr %BM, i64 360
   %0 = load ptr, ptr %arrayBuffer_.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %BM, i64 368
+  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %BM, i64 368
   %1 = load ptr, ptr %_M_finish.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %isLayout_.i = getelementptr inbounds i8, ptr %this, i64 48
+  %isLayout_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %2 = load i8, ptr %isLayout_.i, align 8
   %tobool.i = trunc i8 %2 to i1
   br i1 %tobool.i, label %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIhEEvN4llvh8ArrayRefIT_EE.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %outputHasher_.i = getelementptr inbounds i8, ptr %this, i64 64
+  %outputHasher_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   tail call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i, ptr %0, i64 %sub.ptr.sub.i.i.i) #12
   %3 = load ptr, ptr %this, align 8
   %call4.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef %0, i64 noundef %sub.ptr.sub.i.i.i) #12
   br label %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIhEEvN4llvh8ArrayRefIT_EE.exit
 
 _ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIhEEvN4llvh8ArrayRefIT_EE.exit: ; preds = %entry, %if.then.i
-  %loc_.i = getelementptr inbounds i8, ptr %this, i64 40
+  %loc_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %4 = load i64, ptr %loc_.i, align 8
   %add.i = add i64 %4, %sub.ptr.sub.i.i.i
   store i64 %add.i, ptr %loc_.i, align 8
@@ -1760,27 +1760,27 @@ _ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIhEEvN4llvh8ArrayRefIT_EE.ex
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6hermes3hbc18BytecodeSerializer21serializeObjectBufferERNS0_14BytecodeModuleE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(513) %BM) local_unnamed_addr #0 align 2 {
 entry:
-  %objKeyBuffer_.i = getelementptr inbounds i8, ptr %BM, i64 384
+  %objKeyBuffer_.i = getelementptr inbounds nuw i8, ptr %BM, i64 384
   %0 = load ptr, ptr %objKeyBuffer_.i, align 8, !noalias !18
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %BM, i64 392
+  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %BM, i64 392
   %1 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !18
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %objValBuffer_.i = getelementptr inbounds i8, ptr %BM, i64 408
+  %objValBuffer_.i = getelementptr inbounds nuw i8, ptr %BM, i64 408
   %2 = load ptr, ptr %objValBuffer_.i, align 8, !noalias !18
-  %_M_finish.i.i2.i = getelementptr inbounds i8, ptr %BM, i64 416
+  %_M_finish.i.i2.i = getelementptr inbounds nuw i8, ptr %BM, i64 416
   %3 = load ptr, ptr %_M_finish.i.i2.i, align 8, !noalias !18
   %sub.ptr.lhs.cast.i.i3.i = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast.i.i4.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i.i5.i = sub i64 %sub.ptr.lhs.cast.i.i3.i, %sub.ptr.rhs.cast.i.i4.i
-  %isLayout_.i = getelementptr inbounds i8, ptr %this, i64 48
+  %isLayout_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %4 = load i8, ptr %isLayout_.i, align 8
   %tobool.i = trunc i8 %4 to i1
   br i1 %tobool.i, label %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIhEEvN4llvh8ArrayRefIT_EE.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %outputHasher_.i = getelementptr inbounds i8, ptr %this, i64 64
+  %outputHasher_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   tail call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i, ptr %0, i64 %sub.ptr.sub.i.i.i) #12
   %5 = load ptr, ptr %this, align 8
   %call4.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %5, ptr noundef %0, i64 noundef %sub.ptr.sub.i.i.i) #12
@@ -1789,7 +1789,7 @@ if.then.i:                                        ; preds = %entry
 
 _ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIhEEvN4llvh8ArrayRefIT_EE.exit: ; preds = %entry, %if.then.i
   %6 = phi i8 [ %4, %entry ], [ %.pre, %if.then.i ]
-  %loc_.i = getelementptr inbounds i8, ptr %this, i64 40
+  %loc_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %7 = load i64, ptr %loc_.i, align 8
   %add.i = add i64 %7, %sub.ptr.sub.i.i.i
   store i64 %add.i, ptr %loc_.i, align 8
@@ -1797,7 +1797,7 @@ _ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIhEEvN4llvh8ArrayRefIT_EE.ex
   br i1 %tobool.i2, label %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIhEEvN4llvh8ArrayRefIT_EE.exit8, label %if.then.i3
 
 if.then.i3:                                       ; preds = %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIhEEvN4llvh8ArrayRefIT_EE.exit
-  %outputHasher_.i4 = getelementptr inbounds i8, ptr %this, i64 64
+  %outputHasher_.i4 = getelementptr inbounds nuw i8, ptr %this, i64 64
   tail call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i4, ptr %2, i64 %sub.ptr.sub.i.i5.i) #12
   %8 = load ptr, ptr %this, align 8
   %call4.i5 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %8, ptr noundef %2, i64 noundef %sub.ptr.sub.i.i5.i) #12
@@ -1815,16 +1815,16 @@ _ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIhEEvN4llvh8ArrayRefIT_EE.ex
 define hidden void @_ZN6hermes3hbc18BytecodeSerializer21serializeDebugOffsetsERNS0_16BytecodeFunctionE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(104) %BF) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.i = alloca i8, align 1
-  %stripDebugInfoSection = getelementptr inbounds i8, ptr %this, i64 21
+  %stripDebugInfoSection = getelementptr inbounds nuw i8, ptr %this, i64 21
   %0 = load i8, ptr %stripDebugInfoSection, align 1
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %debugOffsets_.i = getelementptr inbounds i8, ptr %BF, i64 56
+  %debugOffsets_.i = getelementptr inbounds nuw i8, ptr %BF, i64 56
   %1 = load i32, ptr %debugOffsets_.i, align 8
   %cmp.not.i = icmp ne i32 %1, -1
-  %scopeDescData.i = getelementptr inbounds i8, ptr %BF, i64 60
+  %scopeDescData.i = getelementptr inbounds nuw i8, ptr %BF, i64 60
   %2 = load i32, ptr %scopeDescData.i, align 4
   %cmp3.i = icmp ne i32 %2, -1
   %3 = select i1 %cmp.not.i, i1 true, i1 %cmp3.i
@@ -1832,7 +1832,7 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.end:                                           ; preds = %lor.lhs.false
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %loc_.i = getelementptr inbounds i8, ptr %this, i64 40
+  %loc_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %4 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %4, 3
   %cmp.i = icmp eq i64 %rem.i, 0
@@ -1841,8 +1841,8 @@ if.end:                                           ; preds = %lor.lhs.false
 if.end.i:                                         ; preds = %if.end
   %5 = trunc nuw nsw i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %5
-  %isLayout_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %isLayout_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %outputHasher_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %6 = load i8, ptr %isLayout_.i.i.i, align 8
   %7 = trunc i8 %6 to i1
   br i1 %7, label %for.body.us.i.preheader, label %for.body.i
@@ -1880,13 +1880,13 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %if.end, %for.body.us.i.preheader
   %15 = phi i64 [ %4, %if.end ], [ %10, %for.body.us.i.preheader ], [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %isLayout_.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %isLayout_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %16 = load i8, ptr %isLayout_.i.i, align 8
   %tobool.i.i = trunc i8 %16 to i1
   br i1 %tobool.i.i, label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_12DebugOffsetsEEEvRKT_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit
-  %outputHasher_.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %outputHasher_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i, ptr nonnull align 4 dereferenceable(12) %debugOffsets_.i, i64 12) #12
   %17 = load ptr, ptr %this, align 8
   %call4.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %17, ptr noundef nonnull align 4 dereferenceable(12) %debugOffsets_.i, i64 noundef 12) #12
@@ -1912,7 +1912,7 @@ entry:
   %ref.tmp.i1 = alloca %"struct.hermes::hbc::SmallFuncHeader", align 1
   %ref.tmp.i = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %loc_.i = getelementptr inbounds i8, ptr %this, i64 40
+  %loc_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %0, 3
   %cmp.i = icmp eq i64 %rem.i, 0
@@ -1921,8 +1921,8 @@ entry:
 if.end.i:                                         ; preds = %entry
   %1 = trunc nuw nsw i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %1
-  %isLayout_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %isLayout_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %outputHasher_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %2 = load i8, ptr %isLayout_.i.i.i, align 8
   %3 = trunc i8 %2 to i1
   br i1 %3, label %for.body.us.i.preheader, label %for.body.i
@@ -1959,20 +1959,20 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
 
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry, %for.body.us.i.preheader
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %bytecodeModule_ = getelementptr inbounds i8, ptr %this, i64 8
+  %bytecodeModule_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %11 = load ptr, ptr %bytecodeModule_, align 8
   call void @llvm.lifetime.start.p0(i64 31, ptr nonnull %header.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i1)
   %12 = load ptr, ptr %11, align 8
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %11, i64 8
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.not5.i = icmp eq ptr %12, %13
   br i1 %cmp.i.not5.i, label %_ZN6hermes3hbc18BytecodeSerializer22serializeFunctionTableERNS0_14BytecodeModuleE.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit
-  %stripDebugInfoSection.i = getelementptr inbounds i8, ptr %this, i64 21
-  %isLayout_.i.i.i2 = getelementptr inbounds i8, ptr %this, i64 48
-  %outputHasher_.i.i.i3 = getelementptr inbounds i8, ptr %this, i64 64
+  %stripDebugInfoSection.i = getelementptr inbounds nuw i8, ptr %this, i64 21
+  %isLayout_.i.i.i2 = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %outputHasher_.i.i.i3 = getelementptr inbounds nuw i8, ptr %this, i64 64
   br label %for.body.i4
 
 for.body.i4:                                      ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_15SmallFuncHeaderEEEvRKT_.exit.i, %for.body.lr.ph.i
@@ -1983,7 +1983,7 @@ for.body.i4:                                      ; preds = %_ZN6hermes3hbc18Byt
 
 if.then.i:                                        ; preds = %for.body.i4
   %15 = load ptr, ptr %__begin1.sroa.0.06.i, align 8
-  %flags.i.i = getelementptr inbounds i8, ptr %15, i64 54
+  %flags.i.i = getelementptr inbounds nuw i8, ptr %15, i64 54
   %bf.load.i = load i8, ptr %flags.i.i, align 1
   %bf.clear.i = and i8 %bf.load.i, -17
   store i8 %bf.clear.i, ptr %flags.i.i, align 1
@@ -1991,7 +1991,7 @@ if.then.i:                                        ; preds = %for.body.i4
 
 if.end.i5:                                        ; preds = %if.then.i, %for.body.i4
   %16 = load ptr, ptr %__begin1.sroa.0.06.i, align 8
-  %header_.i.i = getelementptr inbounds i8, ptr %16, i64 24
+  %header_.i.i = getelementptr inbounds nuw i8, ptr %16, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %header.i, ptr noundef nonnull align 1 dereferenceable(31) %header_.i.i, i64 31, i1 false)
   call void @_ZN6hermes3hbc15SmallFuncHeaderC2ERKNS0_14FunctionHeaderE(ptr noundef nonnull align 1 dereferenceable(16) %ref.tmp.i1, ptr noundef nonnull align 1 dereferenceable(31) %header.i)
   %17 = load i8, ptr %isLayout_.i.i.i2, align 8
@@ -2008,7 +2008,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_15SmallFuncHeaderEEEvRKT_.ex
   %19 = load i64, ptr %loc_.i, align 8
   %add.i.i.i9 = add i64 %19, 16
   store i64 %add.i.i.i9, ptr %loc_.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.06.i, i64 8
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.06.i, i64 8
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %13
   br i1 %cmp.i.not.i, label %_ZN6hermes3hbc18BytecodeSerializer22serializeFunctionTableERNS0_14BytecodeModuleE.exit, label %for.body.i4
 
@@ -2023,7 +2023,7 @@ define hidden void @_ZN6hermes3hbc18BytecodeSerializer16visitStringKindsEv(ptr n
 entry:
   %ref.tmp.i = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %loc_.i = getelementptr inbounds i8, ptr %this, i64 40
+  %loc_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %0, 3
   %cmp.i = icmp eq i64 %rem.i, 0
@@ -2032,8 +2032,8 @@ entry:
 if.end.i:                                         ; preds = %entry
   %1 = trunc nuw nsw i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %1
-  %isLayout_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %isLayout_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %outputHasher_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %2 = load i8, ptr %isLayout_.i.i.i, align 8
   %3 = trunc i8 %2 to i1
   br i1 %3, label %for.body.us.i.preheader, label %for.body.i
@@ -2071,22 +2071,22 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry, %for.body.us.i.preheader
   %11 = phi i64 [ %0, %entry ], [ %6, %for.body.us.i.preheader ], [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %bytecodeModule_ = getelementptr inbounds i8, ptr %this, i64 8
+  %bytecodeModule_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %12 = load ptr, ptr %bytecodeModule_, align 8
-  %stringKinds_.i = getelementptr inbounds i8, ptr %12, i64 32
+  %stringKinds_.i = getelementptr inbounds nuw i8, ptr %12, i64 32
   %13 = load ptr, ptr %stringKinds_.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %12, i64 40
+  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 40
   %14 = load ptr, ptr %_M_finish.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %14 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %13 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %isLayout_.i = getelementptr inbounds i8, ptr %this, i64 48
+  %isLayout_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %15 = load i8, ptr %isLayout_.i, align 8
   %tobool.i = trunc i8 %15 to i1
   br i1 %tobool.i, label %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayINS_10StringKind5EntryEEEvN4llvh8ArrayRefIT_EE.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit
-  %outputHasher_.i = getelementptr inbounds i8, ptr %this, i64 64
+  %outputHasher_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i, ptr %13, i64 %sub.ptr.sub.i.i.i) #12
   %16 = load ptr, ptr %this, align 8
   %call4.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %16, ptr noundef %13, i64 noundef %sub.ptr.sub.i.i.i) #12
@@ -2105,7 +2105,7 @@ define hidden void @_ZN6hermes3hbc18BytecodeSerializer21visitIdentifierHashesEv(
 entry:
   %ref.tmp.i = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %loc_.i = getelementptr inbounds i8, ptr %this, i64 40
+  %loc_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %0, 3
   %cmp.i = icmp eq i64 %rem.i, 0
@@ -2114,8 +2114,8 @@ entry:
 if.end.i:                                         ; preds = %entry
   %1 = trunc nuw nsw i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %1
-  %isLayout_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %isLayout_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %outputHasher_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %2 = load i8, ptr %isLayout_.i.i.i, align 8
   %3 = trunc i8 %2 to i1
   br i1 %3, label %for.body.us.i.preheader, label %for.body.i
@@ -2153,22 +2153,22 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry, %for.body.us.i.preheader
   %11 = phi i64 [ %0, %entry ], [ %6, %for.body.us.i.preheader ], [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %bytecodeModule_ = getelementptr inbounds i8, ptr %this, i64 8
+  %bytecodeModule_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %12 = load ptr, ptr %bytecodeModule_, align 8
-  %identifierHashes_.i = getelementptr inbounds i8, ptr %12, i64 56
+  %identifierHashes_.i = getelementptr inbounds nuw i8, ptr %12, i64 56
   %13 = load ptr, ptr %identifierHashes_.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %12, i64 64
+  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 64
   %14 = load ptr, ptr %_M_finish.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %14 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %13 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %isLayout_.i = getelementptr inbounds i8, ptr %this, i64 48
+  %isLayout_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %15 = load i8, ptr %isLayout_.i, align 8
   %tobool.i = trunc i8 %15 to i1
   br i1 %tobool.i, label %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIjEEvN4llvh8ArrayRefIT_EE.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit
-  %outputHasher_.i = getelementptr inbounds i8, ptr %this, i64 64
+  %outputHasher_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i, ptr %13, i64 %sub.ptr.sub.i.i.i) #12
   %16 = load ptr, ptr %this, align 8
   %call4.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %16, ptr noundef %13, i64 noundef %sub.ptr.sub.i.i.i) #12
@@ -2188,7 +2188,7 @@ entry:
   %ref.tmp.i = alloca i8, align 1
   %small = alloca %"struct.hermes::hbc::SmallStringTableEntry", align 4
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %loc_.i = getelementptr inbounds i8, ptr %this, i64 40
+  %loc_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %0, 3
   %cmp.i = icmp eq i64 %rem.i, 0
@@ -2197,8 +2197,8 @@ entry:
 if.end.i:                                         ; preds = %entry
   %1 = trunc nuw nsw i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %1
-  %isLayout_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %isLayout_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %outputHasher_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %2 = load i8, ptr %isLayout_.i.i.i, align 8
   %3 = trunc i8 %2 to i1
   br i1 %3, label %for.body.us.i.preheader, label %for.body.i
@@ -2236,25 +2236,25 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry, %for.body.us.i.preheader
   %11 = phi i64 [ %0, %entry ], [ %6, %for.body.us.i.preheader ], [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %bytecodeModule_ = getelementptr inbounds i8, ptr %this, i64 8
+  %bytecodeModule_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %12 = load ptr, ptr %bytecodeModule_, align 8
-  %stringTable_.i = getelementptr inbounds i8, ptr %12, i64 80
+  %stringTable_.i = getelementptr inbounds nuw i8, ptr %12, i64 80
   %13 = load ptr, ptr %stringTable_.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %12, i64 88
+  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 88
   %14 = load ptr, ptr %_M_finish.i.i.i, align 8
   %cmp.not11 = icmp eq ptr %13, %14
   br i1 %cmp.not11, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit
-  %isLayout_.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %outputHasher_.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %isLayout_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %outputHasher_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_21SmallStringTableEntryEEEvRKT_.exit
   %15 = phi i64 [ %11, %for.body.lr.ph ], [ %add.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_21SmallStringTableEntryEEEvRKT_.exit ]
   %overflowCount.013 = phi i32 [ 0, %for.body.lr.ph ], [ %add, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_21SmallStringTableEntryEEEvRKT_.exit ]
   %__begin1.012 = phi ptr [ %13, %for.body.lr.ph ], [ %incdec.ptr, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_21SmallStringTableEntryEEEvRKT_.exit ]
-  %length_.i.i = getelementptr inbounds i8, ptr %__begin1.012, i64 4
+  %length_.i.i = getelementptr inbounds nuw i8, ptr %__begin1.012, i64 4
   %16 = load i32, ptr %length_.i.i, align 4
   %.lobit.i = lshr i32 %16, 31
   %17 = load i32, ptr %__begin1.012, align 4
@@ -2300,13 +2300,13 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_21SmallStringTableEntryEEEvR
   %cmp.i9 = icmp ugt i32 %bf.load.i8, -16777217
   %conv = zext i1 %cmp.i9 to i32
   %add = add i32 %overflowCount.013, %conv
-  %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.012, i64 8
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin1.012, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %14
   br i1 %cmp.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_21SmallStringTableEntryEEEvRKT_.exit, %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit
   %overflowCount.0.lcssa = phi i32 [ 0, %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit ], [ %add, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_21SmallStringTableEntryEEEvRKT_.exit ]
-  %overflowStringEntryCount_ = getelementptr inbounds i8, ptr %this, i64 60
+  %overflowStringEntryCount_ = getelementptr inbounds nuw i8, ptr %this, i64 60
   store i32 %overflowCount.0.lcssa, ptr %overflowStringEntryCount_, align 4
   ret void
 }
@@ -2317,7 +2317,7 @@ entry:
   %ref.tmp.i = alloca i8, align 1
   %overflow = alloca %"class.llvh::SmallVector.66", align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %loc_.i = getelementptr inbounds i8, ptr %this, i64 40
+  %loc_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %0, 3
   %cmp.i = icmp eq i64 %rem.i, 0
@@ -2326,8 +2326,8 @@ entry:
 if.end.i:                                         ; preds = %entry
   %1 = trunc nuw nsw i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %1
-  %isLayout_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %isLayout_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %outputHasher_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %2 = load i8, ptr %isLayout_.i.i.i, align 8
   %3 = trunc i8 %2 to i1
   br i1 %3, label %for.body.us.i.preheader, label %for.body.i
@@ -2364,17 +2364,17 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
 
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry, %for.body.us.i.preheader
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %overflow, i64 16
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %overflow, i64 16
   store ptr %add.ptr.i.i.i.i.i, ptr %overflow, align 8
-  %Size.i.i.i.i.i = getelementptr inbounds i8, ptr %overflow, i64 8
+  %Size.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %overflow, i64 8
   store i32 0, ptr %Size.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i = getelementptr inbounds i8, ptr %overflow, i64 12
+  %Capacity2.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %overflow, i64 12
   store i32 64, ptr %Capacity2.i.i.i.i.i, align 4
-  %bytecodeModule_ = getelementptr inbounds i8, ptr %this, i64 8
+  %bytecodeModule_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %11 = load ptr, ptr %bytecodeModule_, align 8
-  %stringTable_.i = getelementptr inbounds i8, ptr %11, i64 80
+  %stringTable_.i = getelementptr inbounds nuw i8, ptr %11, i64 80
   %12 = load ptr, ptr %stringTable_.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %11, i64 88
+  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 88
   %13 = load ptr, ptr %_M_finish.i.i.i, align 8
   %cmp.not26 = icmp eq ptr %12, %13
   br i1 %cmp.not26, label %for.end, label %for.body
@@ -2382,7 +2382,7 @@ _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18Byt
 for.body:                                         ; preds = %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, %for.inc
   %14 = phi i32 [ %21, %for.inc ], [ 0, %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit ]
   %__begin1.027 = phi ptr [ %incdec.ptr, %for.inc ], [ %12, %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit ]
-  %length_.i.i = getelementptr inbounds i8, ptr %__begin1.027, i64 4
+  %length_.i.i = getelementptr inbounds nuw i8, ptr %__begin1.027, i64 4
   %15 = load i32, ptr %length_.i.i, align 4
   %16 = load i32, ptr %__begin1.027, align 4
   %cmp.i6 = icmp ult i32 %16, 8388608
@@ -2412,9 +2412,9 @@ _ZN4llvh15SmallVectorImplIN6hermes3hbc24OverflowStringTableEntryEE12emplace_back
   %18 = phi i32 [ %.pre.i11, %if.then.i10 ], [ %14, %if.then ]
   %19 = load ptr, ptr %overflow, align 8
   %conv.i3.i = zext i32 %18 to i64
-  %add.ptr.i.i = getelementptr inbounds %"struct.hermes::hbc::OverflowStringTableEntry", ptr %19, i64 %conv.i3.i
+  %add.ptr.i.i = getelementptr inbounds nuw %"struct.hermes::hbc::OverflowStringTableEntry", ptr %19, i64 %conv.i3.i
   store i32 %16, ptr %add.ptr.i.i, align 1
-  %length3.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 4
+  %length3.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 4
   store i32 %and.i.i, ptr %length3.i.i, align 1
   %20 = load i32, ptr %Size.i.i.i.i.i, align 8
   %add.i = add i32 %20, 1
@@ -2423,7 +2423,7 @@ _ZN4llvh15SmallVectorImplIN6hermes3hbc24OverflowStringTableEntryEE12emplace_back
 
 for.inc:                                          ; preds = %_ZN6hermes3hbc21SmallStringTableEntryC2ERKNS_16StringTableEntryEj.exit, %_ZN4llvh15SmallVectorImplIN6hermes3hbc24OverflowStringTableEntryEE12emplace_backIJjjEEEvDpOT_.exit
   %21 = phi i32 [ %14, %_ZN6hermes3hbc21SmallStringTableEntryC2ERKNS_16StringTableEntryEj.exit ], [ %add.i, %_ZN4llvh15SmallVectorImplIN6hermes3hbc24OverflowStringTableEntryEE12emplace_backIJjjEEEvDpOT_.exit ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.027, i64 8
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin1.027, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %13
   br i1 %cmp.not, label %for.end.loopexit, label %for.body
 
@@ -2436,13 +2436,13 @@ for.end.loopexit:                                 ; preds = %for.inc
 for.end:                                          ; preds = %for.end.loopexit, %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit
   %.pre28 = phi ptr [ %.pre28.pre, %for.end.loopexit ], [ %add.ptr.i.i.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit ]
   %conv.i.i.i = phi i64 [ %23, %for.end.loopexit ], [ 0, %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit ]
-  %isLayout_.i = getelementptr inbounds i8, ptr %this, i64 48
+  %isLayout_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %24 = load i8, ptr %isLayout_.i, align 8
   %tobool.i = trunc i8 %24 to i1
   br i1 %tobool.i, label %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayINS0_24OverflowStringTableEntryEEEvN4llvh8ArrayRefIT_EE.exit, label %if.then.i15
 
 if.then.i15:                                      ; preds = %for.end
-  %outputHasher_.i = getelementptr inbounds i8, ptr %this, i64 64
+  %outputHasher_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i, ptr %.pre28, i64 %conv.i.i.i) #12
   %25 = load ptr, ptr %this, align 8
   %call4.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %25, ptr noundef %.pre28, i64 noundef %conv.i.i.i) #12
@@ -2470,7 +2470,7 @@ define hidden void @_ZN6hermes3hbc18BytecodeSerializer18visitStringStorageEv(ptr
 entry:
   %ref.tmp.i = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %loc_.i = getelementptr inbounds i8, ptr %this, i64 40
+  %loc_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %0, 3
   %cmp.i = icmp eq i64 %rem.i, 0
@@ -2479,8 +2479,8 @@ entry:
 if.end.i:                                         ; preds = %entry
   %1 = trunc nuw nsw i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %1
-  %isLayout_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %isLayout_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %outputHasher_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %2 = load i8, ptr %isLayout_.i.i.i, align 8
   %3 = trunc i8 %2 to i1
   br i1 %3, label %for.body.us.i.preheader, label %for.body.i
@@ -2518,22 +2518,22 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry, %for.body.us.i.preheader
   %11 = phi i64 [ %0, %entry ], [ %6, %for.body.us.i.preheader ], [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %bytecodeModule_ = getelementptr inbounds i8, ptr %this, i64 8
+  %bytecodeModule_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %12 = load ptr, ptr %bytecodeModule_, align 8
-  %stringStorage_.i = getelementptr inbounds i8, ptr %12, i64 104
+  %stringStorage_.i = getelementptr inbounds nuw i8, ptr %12, i64 104
   %13 = load ptr, ptr %stringStorage_.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %12, i64 112
+  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 112
   %14 = load ptr, ptr %_M_finish.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %14 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %13 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %isLayout_.i = getelementptr inbounds i8, ptr %this, i64 48
+  %isLayout_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %15 = load i8, ptr %isLayout_.i, align 8
   %tobool.i = trunc i8 %15 to i1
   br i1 %tobool.i, label %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIhEEvN4llvh8ArrayRefIT_EE.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit
-  %outputHasher_.i = getelementptr inbounds i8, ptr %this, i64 64
+  %outputHasher_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i, ptr %13, i64 %sub.ptr.sub.i.i.i) #12
   %16 = load ptr, ptr %this, align 8
   %call4.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %16, ptr noundef %13, i64 noundef %sub.ptr.sub.i.i.i) #12
@@ -2552,7 +2552,7 @@ define hidden void @_ZN6hermes3hbc18BytecodeSerializer16visitArrayBufferEv(ptr n
 entry:
   %ref.tmp.i = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %loc_.i = getelementptr inbounds i8, ptr %this, i64 40
+  %loc_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %0, 3
   %cmp.i = icmp eq i64 %rem.i, 0
@@ -2561,8 +2561,8 @@ entry:
 if.end.i:                                         ; preds = %entry
   %1 = trunc nuw nsw i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %1
-  %isLayout_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %isLayout_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %outputHasher_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %2 = load i8, ptr %isLayout_.i.i.i, align 8
   %3 = trunc i8 %2 to i1
   br i1 %3, label %for.body.us.i.preheader, label %for.body.i
@@ -2600,22 +2600,22 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry, %for.body.us.i.preheader
   %11 = phi i64 [ %0, %entry ], [ %6, %for.body.us.i.preheader ], [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %bytecodeModule_ = getelementptr inbounds i8, ptr %this, i64 8
+  %bytecodeModule_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %12 = load ptr, ptr %bytecodeModule_, align 8
-  %arrayBuffer_.i.i = getelementptr inbounds i8, ptr %12, i64 360
+  %arrayBuffer_.i.i = getelementptr inbounds nuw i8, ptr %12, i64 360
   %13 = load ptr, ptr %arrayBuffer_.i.i, align 8
-  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 368
+  %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 368
   %14 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %14 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %13 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  %isLayout_.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %isLayout_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %15 = load i8, ptr %isLayout_.i.i, align 8
   %tobool.i.i = trunc i8 %15 to i1
   br i1 %tobool.i.i, label %_ZN6hermes3hbc18BytecodeSerializer20serializeArrayBufferERNS0_14BytecodeModuleE.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit
-  %outputHasher_.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %outputHasher_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i, ptr %13, i64 %sub.ptr.sub.i.i.i.i) #12
   %16 = load ptr, ptr %this, align 8
   %call4.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %16, ptr noundef %13, i64 noundef %sub.ptr.sub.i.i.i.i) #12
@@ -2634,7 +2634,7 @@ define hidden void @_ZN6hermes3hbc18BytecodeSerializer20visitObjectKeyBufferEv(p
 entry:
   %ref.tmp.i = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %loc_.i = getelementptr inbounds i8, ptr %this, i64 40
+  %loc_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %0, 3
   %cmp.i = icmp eq i64 %rem.i, 0
@@ -2643,8 +2643,8 @@ entry:
 if.end.i:                                         ; preds = %entry
   %1 = trunc nuw nsw i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %1
-  %isLayout_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %isLayout_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %outputHasher_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %2 = load i8, ptr %isLayout_.i.i.i, align 8
   %3 = trunc i8 %2 to i1
   br i1 %3, label %for.body.us.i.preheader, label %for.body.i
@@ -2682,22 +2682,22 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry, %for.body.us.i.preheader
   %11 = phi i64 [ %0, %entry ], [ %6, %for.body.us.i.preheader ], [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %bytecodeModule_ = getelementptr inbounds i8, ptr %this, i64 8
+  %bytecodeModule_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %12 = load ptr, ptr %bytecodeModule_, align 8
-  %objKeyBuffer_.i = getelementptr inbounds i8, ptr %12, i64 384
+  %objKeyBuffer_.i = getelementptr inbounds nuw i8, ptr %12, i64 384
   %13 = load ptr, ptr %objKeyBuffer_.i, align 8, !noalias !21
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %12, i64 392
+  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 392
   %14 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !21
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %14 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %13 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %isLayout_.i = getelementptr inbounds i8, ptr %this, i64 48
+  %isLayout_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %15 = load i8, ptr %isLayout_.i, align 8
   %tobool.i = trunc i8 %15 to i1
   br i1 %tobool.i, label %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIhEEvN4llvh8ArrayRefIT_EE.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit
-  %outputHasher_.i = getelementptr inbounds i8, ptr %this, i64 64
+  %outputHasher_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i, ptr %13, i64 %sub.ptr.sub.i.i.i) #12
   %16 = load ptr, ptr %this, align 8
   %call4.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %16, ptr noundef %13, i64 noundef %sub.ptr.sub.i.i.i) #12
@@ -2716,7 +2716,7 @@ define hidden void @_ZN6hermes3hbc18BytecodeSerializer22visitObjectValueBufferEv
 entry:
   %ref.tmp.i = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %loc_.i = getelementptr inbounds i8, ptr %this, i64 40
+  %loc_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %0, 3
   %cmp.i = icmp eq i64 %rem.i, 0
@@ -2725,8 +2725,8 @@ entry:
 if.end.i:                                         ; preds = %entry
   %1 = trunc nuw nsw i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %1
-  %isLayout_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %isLayout_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %outputHasher_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %2 = load i8, ptr %isLayout_.i.i.i, align 8
   %3 = trunc i8 %2 to i1
   br i1 %3, label %for.body.us.i.preheader, label %for.body.i
@@ -2764,22 +2764,22 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry, %for.body.us.i.preheader
   %11 = phi i64 [ %0, %entry ], [ %6, %for.body.us.i.preheader ], [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %bytecodeModule_ = getelementptr inbounds i8, ptr %this, i64 8
+  %bytecodeModule_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %12 = load ptr, ptr %bytecodeModule_, align 8
-  %objValBuffer_.i = getelementptr inbounds i8, ptr %12, i64 408
+  %objValBuffer_.i = getelementptr inbounds nuw i8, ptr %12, i64 408
   %13 = load ptr, ptr %objValBuffer_.i, align 8, !noalias !24
-  %_M_finish.i.i2.i = getelementptr inbounds i8, ptr %12, i64 416
+  %_M_finish.i.i2.i = getelementptr inbounds nuw i8, ptr %12, i64 416
   %14 = load ptr, ptr %_M_finish.i.i2.i, align 8, !noalias !24
   %sub.ptr.lhs.cast.i.i3.i = ptrtoint ptr %14 to i64
   %sub.ptr.rhs.cast.i.i4.i = ptrtoint ptr %13 to i64
   %sub.ptr.sub.i.i5.i = sub i64 %sub.ptr.lhs.cast.i.i3.i, %sub.ptr.rhs.cast.i.i4.i
-  %isLayout_.i = getelementptr inbounds i8, ptr %this, i64 48
+  %isLayout_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %15 = load i8, ptr %isLayout_.i, align 8
   %tobool.i = trunc i8 %15 to i1
   br i1 %tobool.i, label %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIhEEvN4llvh8ArrayRefIT_EE.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit
-  %outputHasher_.i = getelementptr inbounds i8, ptr %this, i64 64
+  %outputHasher_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i, ptr %13, i64 %sub.ptr.sub.i.i5.i) #12
   %16 = load ptr, ptr %this, align 8
   %call4.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %16, ptr noundef %13, i64 noundef %sub.ptr.sub.i.i5.i) #12
@@ -2798,7 +2798,7 @@ define hidden void @_ZN6hermes3hbc18BytecodeSerializer16visitBigIntTableEv(ptr n
 entry:
   %ref.tmp.i = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %loc_.i = getelementptr inbounds i8, ptr %this, i64 40
+  %loc_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %0, 3
   %cmp.i = icmp eq i64 %rem.i, 0
@@ -2807,8 +2807,8 @@ entry:
 if.end.i:                                         ; preds = %entry
   %1 = trunc nuw nsw i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %1
-  %isLayout_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %isLayout_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %outputHasher_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %2 = load i8, ptr %isLayout_.i.i.i, align 8
   %3 = trunc i8 %2 to i1
   br i1 %3, label %for.body.us.i.preheader, label %for.body.i
@@ -2846,22 +2846,22 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry, %for.body.us.i.preheader
   %11 = phi i64 [ %0, %entry ], [ %6, %for.body.us.i.preheader ], [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %bytecodeModule_ = getelementptr inbounds i8, ptr %this, i64 8
+  %bytecodeModule_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %12 = load ptr, ptr %bytecodeModule_, align 8
-  %bigIntTable_.i = getelementptr inbounds i8, ptr %12, i64 128
+  %bigIntTable_.i = getelementptr inbounds nuw i8, ptr %12, i64 128
   %13 = load ptr, ptr %bigIntTable_.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %12, i64 136
+  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 136
   %14 = load ptr, ptr %_M_finish.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %14 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %13 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %isLayout_.i = getelementptr inbounds i8, ptr %this, i64 48
+  %isLayout_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %15 = load i8, ptr %isLayout_.i, align 8
   %tobool.i = trunc i8 %15 to i1
   br i1 %tobool.i, label %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayINS_6bigint16BigIntTableEntryEEEvN4llvh8ArrayRefIT_EE.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit
-  %outputHasher_.i = getelementptr inbounds i8, ptr %this, i64 64
+  %outputHasher_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i, ptr %13, i64 %sub.ptr.sub.i.i.i) #12
   %16 = load ptr, ptr %this, align 8
   %call4.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %16, ptr noundef %13, i64 noundef %sub.ptr.sub.i.i.i) #12
@@ -2880,7 +2880,7 @@ define hidden void @_ZN6hermes3hbc18BytecodeSerializer18visitBigIntStorageEv(ptr
 entry:
   %ref.tmp.i = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %loc_.i = getelementptr inbounds i8, ptr %this, i64 40
+  %loc_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %0, 3
   %cmp.i = icmp eq i64 %rem.i, 0
@@ -2889,8 +2889,8 @@ entry:
 if.end.i:                                         ; preds = %entry
   %1 = trunc nuw nsw i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %1
-  %isLayout_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %isLayout_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %outputHasher_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %2 = load i8, ptr %isLayout_.i.i.i, align 8
   %3 = trunc i8 %2 to i1
   br i1 %3, label %for.body.us.i.preheader, label %for.body.i
@@ -2928,22 +2928,22 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry, %for.body.us.i.preheader
   %11 = phi i64 [ %0, %entry ], [ %6, %for.body.us.i.preheader ], [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %bytecodeModule_ = getelementptr inbounds i8, ptr %this, i64 8
+  %bytecodeModule_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %12 = load ptr, ptr %bytecodeModule_, align 8
-  %bigIntStorage_.i = getelementptr inbounds i8, ptr %12, i64 152
+  %bigIntStorage_.i = getelementptr inbounds nuw i8, ptr %12, i64 152
   %13 = load ptr, ptr %bigIntStorage_.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %12, i64 160
+  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 160
   %14 = load ptr, ptr %_M_finish.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %14 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %13 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %isLayout_.i = getelementptr inbounds i8, ptr %this, i64 48
+  %isLayout_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %15 = load i8, ptr %isLayout_.i, align 8
   %tobool.i = trunc i8 %15 to i1
   br i1 %tobool.i, label %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIhEEvN4llvh8ArrayRefIT_EE.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit
-  %outputHasher_.i = getelementptr inbounds i8, ptr %this, i64 64
+  %outputHasher_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i, ptr %13, i64 %sub.ptr.sub.i.i.i) #12
   %16 = load ptr, ptr %this, align 8
   %call4.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %16, ptr noundef %13, i64 noundef %sub.ptr.sub.i.i.i) #12
@@ -2962,7 +2962,7 @@ define hidden void @_ZN6hermes3hbc18BytecodeSerializer16visitRegExpTableEv(ptr n
 entry:
   %ref.tmp.i = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %loc_.i = getelementptr inbounds i8, ptr %this, i64 40
+  %loc_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %0, 3
   %cmp.i = icmp eq i64 %rem.i, 0
@@ -2971,8 +2971,8 @@ entry:
 if.end.i:                                         ; preds = %entry
   %1 = trunc nuw nsw i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %1
-  %isLayout_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %isLayout_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %outputHasher_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %2 = load i8, ptr %isLayout_.i.i.i, align 8
   %3 = trunc i8 %2 to i1
   br i1 %3, label %for.body.us.i.preheader, label %for.body.i
@@ -3010,22 +3010,22 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry, %for.body.us.i.preheader
   %11 = phi i64 [ %0, %entry ], [ %6, %for.body.us.i.preheader ], [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %bytecodeModule_ = getelementptr inbounds i8, ptr %this, i64 8
+  %bytecodeModule_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %12 = load ptr, ptr %bytecodeModule_, align 8
-  %regExpTable_.i = getelementptr inbounds i8, ptr %12, i64 200
+  %regExpTable_.i = getelementptr inbounds nuw i8, ptr %12, i64 200
   %13 = load ptr, ptr %regExpTable_.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %12, i64 208
+  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 208
   %14 = load ptr, ptr %_M_finish.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %14 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %13 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %isLayout_.i = getelementptr inbounds i8, ptr %this, i64 48
+  %isLayout_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %15 = load i8, ptr %isLayout_.i, align 8
   %tobool.i = trunc i8 %15 to i1
   br i1 %tobool.i, label %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayINS_16RegExpTableEntryEEEvN4llvh8ArrayRefIT_EE.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit
-  %outputHasher_.i = getelementptr inbounds i8, ptr %this, i64 64
+  %outputHasher_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i, ptr %13, i64 %sub.ptr.sub.i.i.i) #12
   %16 = load ptr, ptr %this, align 8
   %call4.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %16, ptr noundef %13, i64 noundef %sub.ptr.sub.i.i.i) #12
@@ -3044,7 +3044,7 @@ define hidden void @_ZN6hermes3hbc18BytecodeSerializer18visitRegExpStorageEv(ptr
 entry:
   %ref.tmp.i = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %loc_.i = getelementptr inbounds i8, ptr %this, i64 40
+  %loc_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %0, 3
   %cmp.i = icmp eq i64 %rem.i, 0
@@ -3053,8 +3053,8 @@ entry:
 if.end.i:                                         ; preds = %entry
   %1 = trunc nuw nsw i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %1
-  %isLayout_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %isLayout_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %outputHasher_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %2 = load i8, ptr %isLayout_.i.i.i, align 8
   %3 = trunc i8 %2 to i1
   br i1 %3, label %for.body.us.i.preheader, label %for.body.i
@@ -3092,22 +3092,22 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry, %for.body.us.i.preheader
   %11 = phi i64 [ %0, %entry ], [ %6, %for.body.us.i.preheader ], [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %bytecodeModule_ = getelementptr inbounds i8, ptr %this, i64 8
+  %bytecodeModule_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %12 = load ptr, ptr %bytecodeModule_, align 8
-  %regExpStorage_.i = getelementptr inbounds i8, ptr %12, i64 176
+  %regExpStorage_.i = getelementptr inbounds nuw i8, ptr %12, i64 176
   %13 = load ptr, ptr %regExpStorage_.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %12, i64 184
+  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 184
   %14 = load ptr, ptr %_M_finish.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %14 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %13 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %isLayout_.i = getelementptr inbounds i8, ptr %this, i64 48
+  %isLayout_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %15 = load i8, ptr %isLayout_.i, align 8
   %tobool.i = trunc i8 %15 to i1
   br i1 %tobool.i, label %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIhEEvN4llvh8ArrayRefIT_EE.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit
-  %outputHasher_.i = getelementptr inbounds i8, ptr %this, i64 64
+  %outputHasher_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i, ptr %13, i64 %sub.ptr.sub.i.i.i) #12
   %16 = load ptr, ptr %this, align 8
   %call4.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %16, ptr noundef %13, i64 noundef %sub.ptr.sub.i.i.i) #12
@@ -3126,7 +3126,7 @@ define hidden void @_ZN6hermes3hbc18BytecodeSerializer19visitCJSModuleTableEv(pt
 entry:
   %ref.tmp.i = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %loc_.i = getelementptr inbounds i8, ptr %this, i64 40
+  %loc_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %0, 3
   %cmp.i = icmp eq i64 %rem.i, 0
@@ -3135,8 +3135,8 @@ entry:
 if.end.i:                                         ; preds = %entry
   %1 = trunc nuw nsw i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %1
-  %isLayout_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %isLayout_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %outputHasher_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %2 = load i8, ptr %isLayout_.i.i.i, align 8
   %3 = trunc i8 %2 to i1
   br i1 %3, label %for.body.us.i.preheader, label %for.body.i
@@ -3173,7 +3173,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
 
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry, %for.body.us.i.preheader
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %bytecodeModule_ = getelementptr inbounds i8, ptr %this, i64 8
+  %bytecodeModule_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %11 = load ptr, ptr %bytecodeModule_, align 8
   call void @_ZN6hermes3hbc18BytecodeSerializer23serializeCJSModuleTableERNS0_14BytecodeModuleE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(513) %11)
   ret void
@@ -3184,7 +3184,7 @@ define hidden void @_ZN6hermes3hbc18BytecodeSerializer24visitFunctionSourceTable
 entry:
   %ref.tmp.i = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %loc_.i = getelementptr inbounds i8, ptr %this, i64 40
+  %loc_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %0, 3
   %cmp.i = icmp eq i64 %rem.i, 0
@@ -3193,8 +3193,8 @@ entry:
 if.end.i:                                         ; preds = %entry
   %1 = trunc nuw nsw i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %1
-  %isLayout_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %isLayout_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %outputHasher_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %2 = load i8, ptr %isLayout_.i.i.i, align 8
   %3 = trunc i8 %2 to i1
   br i1 %3, label %for.body.us.i.preheader, label %for.body.i
@@ -3231,7 +3231,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
 
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry, %for.body.us.i.preheader
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %bytecodeModule_ = getelementptr inbounds i8, ptr %this, i64 8
+  %bytecodeModule_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %11 = load ptr, ptr %bytecodeModule_, align 8
   call void @_ZN6hermes3hbc18BytecodeSerializer28serializeFunctionSourceTableERNS0_14BytecodeModuleE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(513) %11)
   ret void
@@ -3251,14 +3251,14 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIhEEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPKS8_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(16) %Val, ptr noundef nonnull align 8 dereferenceable(8) %FoundBucket) local_unnamed_addr #0 comdat align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %NumBuckets.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %NumBuckets.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i32, ptr %NumBuckets.i.i, align 8
   %cmp = icmp eq i32 %1, 0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Val, align 8
-  %agg.tmp.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %Val, i64 8
+  %agg.tmp.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %Val, i64 8
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0..sroa_idx.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.copyload.i, i64 %agg.tmp.sroa.2.0.copyload.i
   %call.i.i.i.i = tail call i64 @_ZN4llvh7hashing6detail23hash_combine_range_implIKhEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_(ptr noundef %agg.tmp.sroa.0.0.copyload.i, ptr noundef %add.ptr.i.i.i.i)
@@ -3282,7 +3282,7 @@ while.body.us.us:                                 ; preds = %if.end.split.us, %_
   %FoundTombstone.0.us.us = phi ptr [ %spec.select.us.us, %_ZN4llvh12DenseMapInfoINS_8ArrayRefIhEEE7isEqualES2_S2_.exit42.us.us ], [ null, %if.end.split.us ]
   %BucketNo.0.us.us = and i32 %call5.pn.us.us, %sub
   %idx.ext.us.us = zext i32 %BucketNo.0.us.us to i64
-  %add.ptr.us.us = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %0, i64 %idx.ext.us.us
+  %add.ptr.us.us = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %0, i64 %idx.ext.us.us
   %agg.tmp6.sroa.0.0.copyload.us.us = load ptr, ptr %add.ptr.us.us, align 8
   %magicptr.i.us.us = ptrtoint ptr %agg.tmp6.sroa.0.0.copyload.us.us to i64
   switch i64 %magicptr.i.us.us, label %if.end19.i.us.us [
@@ -3294,7 +3294,7 @@ if.then.i.us.us:                                  ; preds = %while.body.us.us
   br i1 %cmp7.i, label %return, label %_ZN4llvh12DenseMapInfoINS_8ArrayRefIhEEE7isEqualES2_S2_.exit28.us.us
 
 if.end19.i.us.us:                                 ; preds = %while.body.us.us
-  %agg.tmp6.sroa.2.0.call7.sroa_idx.us.us = getelementptr inbounds i8, ptr %add.ptr.us.us, i64 8
+  %agg.tmp6.sroa.2.0.call7.sroa_idx.us.us = getelementptr inbounds nuw i8, ptr %add.ptr.us.us, i64 8
   %agg.tmp6.sroa.2.0.copyload.us.us = load i64, ptr %agg.tmp6.sroa.2.0.call7.sroa_idx.us.us, align 8
   %cmp.not.i.i.i.us.us = icmp eq i64 %agg.tmp6.sroa.2.0.copyload.us.us, 0
   br i1 %cmp.not.i.i.i.us.us, label %return, label %_ZN4llvh12DenseMapInfoINS_8ArrayRefIhEEE7isEqualES2_S2_.exit28.us.us
@@ -3318,7 +3318,7 @@ while.body.us:                                    ; preds = %if.end.split.us, %_
   %FoundTombstone.0.us = phi ptr [ %spec.select.us, %_ZN4llvh12DenseMapInfoINS_8ArrayRefIhEEE7isEqualES2_S2_.exit42.us ], [ null, %if.end.split.us ]
   %BucketNo.0.us = and i32 %call5.pn.us, %sub
   %idx.ext.us = zext i32 %BucketNo.0.us to i64
-  %add.ptr.us = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %0, i64 %idx.ext.us
+  %add.ptr.us = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %0, i64 %idx.ext.us
   %agg.tmp6.sroa.0.0.copyload.us = load ptr, ptr %add.ptr.us, align 8
   %magicptr = ptrtoint ptr %agg.tmp6.sroa.0.0.copyload.us to i64
   switch i64 %magicptr, label %if.end19.i.us [
@@ -3330,7 +3330,7 @@ if.then.i.us:                                     ; preds = %while.body.us
   br i1 %cmp7.i, label %return, label %_ZN4llvh12DenseMapInfoINS_8ArrayRefIhEEE7isEqualES2_S2_.exit28.us
 
 if.end19.i.us:                                    ; preds = %while.body.us
-  %agg.tmp6.sroa.2.0.call7.sroa_idx.us = getelementptr inbounds i8, ptr %add.ptr.us, i64 8
+  %agg.tmp6.sroa.2.0.call7.sroa_idx.us = getelementptr inbounds nuw i8, ptr %add.ptr.us, i64 8
   %agg.tmp6.sroa.2.0.copyload.us = load i64, ptr %agg.tmp6.sroa.2.0.call7.sroa_idx.us, align 8
   %cmp.not.i.i.i.us = icmp eq i64 %agg.tmp6.sroa.2.0.copyload.us, 0
   br i1 %cmp.not.i.i.i.us, label %return, label %_ZN4llvh12DenseMapInfoINS_8ArrayRefIhEEE7isEqualES2_S2_.exit28.us
@@ -3357,7 +3357,7 @@ while.body.us52:                                  ; preds = %if.end.split, %_ZN4
   %FoundTombstone.0.us55 = phi ptr [ %spec.select.us74, %_ZN4llvh12DenseMapInfoINS_8ArrayRefIhEEE7isEqualES2_S2_.exit42.us70 ], [ null, %if.end.split ]
   %BucketNo.0.us56 = and i32 %call5.pn.us54, %sub
   %idx.ext.us57 = zext i32 %BucketNo.0.us56 to i64
-  %add.ptr.us58 = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %0, i64 %idx.ext.us57
+  %add.ptr.us58 = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %0, i64 %idx.ext.us57
   %agg.tmp6.sroa.0.0.copyload.us59 = load ptr, ptr %add.ptr.us58, align 8
   %magicptr136 = ptrtoint ptr %agg.tmp6.sroa.0.0.copyload.us59 to i64
   switch i64 %magicptr136, label %if.end19.i.us63 [
@@ -3366,7 +3366,7 @@ while.body.us52:                                  ; preds = %if.end.split, %_ZN4
   ]
 
 if.end19.i.us63:                                  ; preds = %while.body.us52
-  %agg.tmp6.sroa.2.0.call7.sroa_idx.us64 = getelementptr inbounds i8, ptr %add.ptr.us58, i64 8
+  %agg.tmp6.sroa.2.0.call7.sroa_idx.us64 = getelementptr inbounds nuw i8, ptr %add.ptr.us58, i64 8
   %agg.tmp6.sroa.2.0.copyload.us65 = load i64, ptr %agg.tmp6.sroa.2.0.call7.sroa_idx.us64, align 8
   %cmp.not.i.i.i.us66 = icmp eq i64 %agg.tmp.sroa.2.0.copyload.fr, %agg.tmp6.sroa.2.0.copyload.us65
   br i1 %cmp.not.i.i.i.us66, label %if.end.i.i.i.us67, label %_ZN4llvh12DenseMapInfoINS_8ArrayRefIhEEE7isEqualES2_S2_.exit28.us68
@@ -3398,7 +3398,7 @@ while.body.us85:                                  ; preds = %if.end.split.split,
   %FoundTombstone.0.us88 = phi ptr [ %spec.select.us109, %_ZN4llvh12DenseMapInfoINS_8ArrayRefIhEEE7isEqualES2_S2_.exit42.us105 ], [ null, %if.end.split.split ]
   %BucketNo.0.us89 = and i32 %call5.pn.us87, %sub
   %idx.ext.us90 = zext i32 %BucketNo.0.us89 to i64
-  %add.ptr.us91 = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %0, i64 %idx.ext.us90
+  %add.ptr.us91 = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %0, i64 %idx.ext.us90
   %agg.tmp6.sroa.0.0.copyload.us92 = load ptr, ptr %add.ptr.us91, align 8
   %magicptr137 = ptrtoint ptr %agg.tmp6.sroa.0.0.copyload.us92 to i64
   switch i64 %magicptr137, label %if.end19.i.us96 [
@@ -3407,7 +3407,7 @@ while.body.us85:                                  ; preds = %if.end.split.split,
   ]
 
 if.end19.i.us96:                                  ; preds = %while.body.us85
-  %agg.tmp6.sroa.2.0.call7.sroa_idx.us97 = getelementptr inbounds i8, ptr %add.ptr.us91, i64 8
+  %agg.tmp6.sroa.2.0.call7.sroa_idx.us97 = getelementptr inbounds nuw i8, ptr %add.ptr.us91, i64 8
   %agg.tmp6.sroa.2.0.copyload.us98 = load i64, ptr %agg.tmp6.sroa.2.0.call7.sroa_idx.us97, align 8
   %cmp.not.i.i.i.us99 = icmp eq i64 %agg.tmp.sroa.2.0.copyload.fr, %agg.tmp6.sroa.2.0.copyload.us98
   br i1 %cmp.not.i.i.i.us99, label %if.end.i.i.i.us100, label %_ZN4llvh12DenseMapInfoINS_8ArrayRefIhEEE7isEqualES2_S2_.exit28.us103
@@ -3436,13 +3436,13 @@ while.body:                                       ; preds = %if.end.split.split,
   %FoundTombstone.0 = phi ptr [ %spec.select, %_ZN4llvh12DenseMapInfoINS_8ArrayRefIhEEE7isEqualES2_S2_.exit42 ], [ null, %if.end.split.split ]
   %BucketNo.0 = and i32 %call5.pn, %sub
   %idx.ext = zext i32 %BucketNo.0 to i64
-  %add.ptr = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %0, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %0, i64 %idx.ext
   %agg.tmp6.sroa.0.0.copyload = load ptr, ptr %add.ptr, align 8
   %switch = icmp ugt ptr %agg.tmp6.sroa.0.0.copyload, inttoptr (i64 -3 to ptr)
   br i1 %switch, label %_ZN4llvh12DenseMapInfoINS_8ArrayRefIhEEE7isEqualES2_S2_.exit28, label %if.end19.i
 
 if.end19.i:                                       ; preds = %while.body
-  %agg.tmp6.sroa.2.0.call7.sroa_idx = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  %agg.tmp6.sroa.2.0.call7.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   %agg.tmp6.sroa.2.0.copyload = load i64, ptr %agg.tmp6.sroa.2.0.call7.sroa_idx, align 8
   %cmp.not.i.i.i = icmp eq i64 %agg.tmp.sroa.2.0.copyload.fr, %agg.tmp6.sroa.2.0.copyload
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %_ZN4llvh12DenseMapInfoINS_8ArrayRefIhEEE7isEqualES2_S2_.exit28
@@ -3538,19 +3538,19 @@ if.end:                                           ; preds = %_ZN4llvh7hashing6de
   %xor5.i13.i = xor i64 %shr4.i12.i, %mul3.i11.i
   %mul6.i14.i = mul i64 %xor5.i13.i, -7070675565921424023
   %add2.i.i = add i64 %cond.i.i, %3
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %first, i64 8
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %first, i64 8
   %result.0.copyload.i.i.i = load i64, ptr %add.ptr.i.i, align 1, !noalias !29
   %add3.i.i = add i64 %add2.i.i, %result.0.copyload.i.i.i
   %cond.i.i.i = tail call i64 @llvm.fshl.i64(i64 %add3.i.i, i64 %add3.i.i, i64 27)
   %mul.i15.i = mul i64 %cond.i.i.i, -5435081209227447693
   %add7.i.i = mul i64 %3, -5435081209227447692
-  %add.ptr8.i.i = getelementptr inbounds i8, ptr %first, i64 48
+  %add.ptr8.i.i = getelementptr inbounds nuw i8, ptr %first, i64 48
   %result.0.copyload.i6.i.i = load i64, ptr %add.ptr8.i.i, align 1, !noalias !29
   %add10.i.i = add i64 %result.0.copyload.i6.i.i, %add7.i.i
   %cond.i7.i.i = tail call i64 @llvm.fshl.i64(i64 %add10.i.i, i64 %add10.i.i, i64 22)
   %mul12.i.i = mul i64 %cond.i7.i.i, -5435081209227447693
   %xor.i16.i = xor i64 %mul.i15.i, %mul6.i14.i
-  %add.ptr16.i.i = getelementptr inbounds i8, ptr %first, i64 40
+  %add.ptr16.i.i = getelementptr inbounds nuw i8, ptr %first, i64 40
   %result.0.copyload.i8.i.i = load i64, ptr %add.ptr16.i.i, align 1, !noalias !29
   %add18.i.i = add i64 %result.0.copyload.i8.i.i, %cond.i.i
   %add20.i.i = add i64 %add18.i.i, %mul12.i.i
@@ -3561,12 +3561,12 @@ if.end:                                           ; preds = %_ZN4llvh7hashing6de
   %add30.i.i = add i64 %xor.i16.i, %xor.i6.i
   %result.0.copyload.i.i.i.i = load i64, ptr %first, align 1, !noalias !29
   %add.i.i.i = add i64 %result.0.copyload.i.i.i.i, %mul26.i.i
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %first, i64 24
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %first, i64 24
   %result.0.copyload.i12.i.i.i = load i64, ptr %add.ptr.i.i.i, align 1, !noalias !29
   %add2.i.i.i = add i64 %add30.i.i, %add.i.i.i
   %add3.i.i.i = add i64 %add2.i.i.i, %result.0.copyload.i12.i.i.i
   %cond.i.i.i.i = tail call i64 @llvm.fshl.i64(i64 %add3.i.i.i, i64 %add3.i.i.i, i64 43)
-  %add.ptr7.i.i.i = getelementptr inbounds i8, ptr %first, i64 16
+  %add.ptr7.i.i.i = getelementptr inbounds nuw i8, ptr %first, i64 16
   %result.0.copyload.i14.i.i.i = load i64, ptr %add.ptr7.i.i.i, align 1, !noalias !29
   %add9.i.i.i = add i64 %add.i.i.i, %result.0.copyload.i.i.i
   %add10.i.i.i = add i64 %add9.i.i.i, %result.0.copyload.i14.i.i.i
@@ -3576,10 +3576,10 @@ if.end:                                           ; preds = %_ZN4llvh7hashing6de
   %add14.i.i.i = add i64 %add10.i.i.i, %result.0.copyload.i12.i.i.i
   %add36.i.i = add i64 %mul6.i14.i, %mul23.i.i
   %add41.i.i = add i64 %add20.i.i, %result.0.copyload.i14.i.i.i
-  %add.ptr43.i.i = getelementptr inbounds i8, ptr %first, i64 32
+  %add.ptr43.i.i = getelementptr inbounds nuw i8, ptr %first, i64 32
   %result.0.copyload.i.i11.i.i = load i64, ptr %add.ptr43.i.i, align 1, !noalias !29
   %add.i12.i.i = add i64 %add36.i.i, %result.0.copyload.i.i11.i.i
-  %add.ptr.i13.i.i = getelementptr inbounds i8, ptr %first, i64 56
+  %add.ptr.i13.i.i = getelementptr inbounds nuw i8, ptr %first, i64 56
   %result.0.copyload.i12.i14.i.i = load i64, ptr %add.ptr.i13.i.i, align 1, !noalias !29
   %add2.i15.i.i = add i64 %add41.i.i, %add.i12.i.i
   %add3.i16.i.i = add i64 %add2.i15.i.i, %result.0.copyload.i12.i14.i.i
@@ -3594,7 +3594,7 @@ if.end:                                           ; preds = %_ZN4llvh7hashing6de
   br i1 %cmp4.not126, label %while.end, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %if.end
-  %s_begin.0125 = getelementptr inbounds i8, ptr %first, i64 64
+  %s_begin.0125 = getelementptr inbounds nuw i8, ptr %first, i64 64
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -3607,7 +3607,7 @@ while.body:                                       ; preds = %while.body.preheade
   %state.sroa.36.0129 = phi i64 [ %add13.i.i, %while.body ], [ %add13.i.i.i, %while.body.preheader ]
   %state.sroa.46.0128 = phi i64 [ %add14.i27.i, %while.body ], [ %add14.i27.i.i, %while.body.preheader ]
   %state.sroa.56.0127 = phi i64 [ %add13.i26.i, %while.body ], [ %add13.i26.i.i, %while.body.preheader ]
-  %add.ptr.i = getelementptr inbounds i8, ptr %first.pn134, i64 72
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %first.pn134, i64 72
   %result.0.copyload.i.i = load i64, ptr %add.ptr.i, align 1
   %add.i = add i64 %state.sroa.10.0132, %state.sroa.26.0130
   %add2.i = add i64 %add.i, %state.sroa.0.0133
@@ -3615,13 +3615,13 @@ while.body:                                       ; preds = %while.body.preheade
   %cond.i.i16 = tail call i64 @llvm.fshl.i64(i64 %add3.i, i64 %add3.i, i64 27)
   %mul.i17 = mul i64 %cond.i.i16, -5435081209227447693
   %add7.i = add i64 %state.sroa.10.0132, %state.sroa.36.0129
-  %add.ptr8.i = getelementptr inbounds i8, ptr %first.pn134, i64 112
+  %add.ptr8.i = getelementptr inbounds nuw i8, ptr %first.pn134, i64 112
   %result.0.copyload.i6.i = load i64, ptr %add.ptr8.i, align 1
   %add10.i = add i64 %add7.i, %result.0.copyload.i6.i
   %cond.i7.i = tail call i64 @llvm.fshl.i64(i64 %add10.i, i64 %add10.i, i64 22)
   %mul12.i = mul i64 %cond.i7.i, -5435081209227447693
   %xor.i = xor i64 %mul.i17, %state.sroa.56.0127
-  %add.ptr16.i = getelementptr inbounds i8, ptr %first.pn134, i64 104
+  %add.ptr16.i = getelementptr inbounds nuw i8, ptr %first.pn134, i64 104
   %result.0.copyload.i8.i = load i64, ptr %add.ptr16.i, align 1
   %add18.i = add i64 %result.0.copyload.i8.i, %state.sroa.26.0130
   %add20.i = add i64 %add18.i, %mul12.i
@@ -3632,12 +3632,12 @@ while.body:                                       ; preds = %while.body.preheade
   %add30.i = add i64 %xor.i, %state.sroa.46.0128
   %result.0.copyload.i.i.i22 = load i64, ptr %s_begin.0135, align 1
   %add.i.i = add i64 %result.0.copyload.i.i.i22, %mul26.i
-  %add.ptr.i.i23 = getelementptr inbounds i8, ptr %first.pn134, i64 88
+  %add.ptr.i.i23 = getelementptr inbounds nuw i8, ptr %first.pn134, i64 88
   %result.0.copyload.i12.i.i = load i64, ptr %add.ptr.i.i23, align 1
   %add2.i.i24 = add i64 %add30.i, %add.i.i
   %add3.i.i25 = add i64 %add2.i.i24, %result.0.copyload.i12.i.i
   %cond.i.i.i26 = tail call i64 @llvm.fshl.i64(i64 %add3.i.i25, i64 %add3.i.i25, i64 43)
-  %add.ptr7.i.i = getelementptr inbounds i8, ptr %first.pn134, i64 80
+  %add.ptr7.i.i = getelementptr inbounds nuw i8, ptr %first.pn134, i64 80
   %result.0.copyload.i14.i.i = load i64, ptr %add.ptr7.i.i, align 1
   %add9.i.i = add i64 %add.i.i, %result.0.copyload.i.i
   %add10.i.i27 = add i64 %add9.i.i, %result.0.copyload.i14.i.i
@@ -3647,10 +3647,10 @@ while.body:                                       ; preds = %while.body.preheade
   %add14.i.i = add i64 %add10.i.i27, %result.0.copyload.i12.i.i
   %add36.i = add i64 %mul23.i, %state.sroa.56.0127
   %add41.i = add i64 %add20.i, %result.0.copyload.i14.i.i
-  %add.ptr43.i = getelementptr inbounds i8, ptr %first.pn134, i64 96
+  %add.ptr43.i = getelementptr inbounds nuw i8, ptr %first.pn134, i64 96
   %result.0.copyload.i.i11.i = load i64, ptr %add.ptr43.i, align 1
   %add.i12.i = add i64 %add36.i, %result.0.copyload.i.i11.i
-  %add.ptr.i13.i = getelementptr inbounds i8, ptr %first.pn134, i64 120
+  %add.ptr.i13.i = getelementptr inbounds nuw i8, ptr %first.pn134, i64 120
   %result.0.copyload.i12.i14.i = load i64, ptr %add.ptr.i13.i, align 1
   %add2.i15.i = add i64 %add41.i, %add.i12.i
   %add3.i16.i = add i64 %add2.i15.i, %result.0.copyload.i12.i14.i
@@ -3661,7 +3661,7 @@ while.body:                                       ; preds = %while.body.preheade
   %add12.i25.i = add i64 %cond.i.i17.i, %add.i12.i
   %add13.i26.i = add i64 %add12.i25.i, %cond.i15.i24.i
   %add14.i27.i = add i64 %add10.i23.i, %result.0.copyload.i12.i14.i
-  %s_begin.0 = getelementptr inbounds i8, ptr %s_begin.0135, i64 64
+  %s_begin.0 = getelementptr inbounds nuw i8, ptr %s_begin.0135, i64 64
   %cmp4.not = icmp eq ptr %s_begin.0, %add.ptr
   br i1 %cmp4.not, label %while.end, label %while.body, !llvm.loop !32
 
@@ -3799,7 +3799,7 @@ if.then:                                          ; preds = %entry
   %conv.i = zext i32 %result.0.copyload.i.i to i64
   %shl.i = shl nuw nsw i64 %conv.i, 3
   %add.i = add nuw nsw i64 %shl.i, %length
-  %add.ptr.i = getelementptr inbounds i8, ptr %s, i64 %length
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %s, i64 %length
   %add.ptr1.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -4
   %result.0.copyload.i3.i = load i32, ptr %add.ptr1.i, align 1
   %conv3.i = zext i32 %result.0.copyload.i3.i to i64
@@ -3822,7 +3822,7 @@ if.end:                                           ; preds = %entry
 
 if.then5:                                         ; preds = %if.end
   %result.0.copyload.i.i24 = load i64, ptr %s, align 1
-  %add.ptr.i25 = getelementptr inbounds i8, ptr %s, i64 %length
+  %add.ptr.i25 = getelementptr inbounds nuw i8, ptr %s, i64 %length
   %add.ptr1.i26 = getelementptr inbounds i8, ptr %add.ptr.i25, i64 -8
   %result.0.copyload.i5.i = load i64, ptr %add.ptr1.i26, align 1
   %xor.i27 = xor i64 %result.0.copyload.i.i24, %seed
@@ -3848,9 +3848,9 @@ if.end7:                                          ; preds = %if.end
 if.then11:                                        ; preds = %if.end7
   %result.0.copyload.i.i37 = load i64, ptr %s, align 1
   %mul.i = mul i64 %result.0.copyload.i.i37, -5435081209227447693
-  %add.ptr.i38 = getelementptr inbounds i8, ptr %s, i64 8
+  %add.ptr.i38 = getelementptr inbounds nuw i8, ptr %s, i64 8
   %result.0.copyload.i10.i = load i64, ptr %add.ptr.i38, align 1
-  %add.ptr2.i = getelementptr inbounds i8, ptr %s, i64 %length
+  %add.ptr2.i = getelementptr inbounds nuw i8, ptr %s, i64 %length
   %add.ptr3.i = getelementptr inbounds i8, ptr %add.ptr2.i, i64 -8
   %result.0.copyload.i11.i = load i64, ptr %add.ptr3.i, align 1
   %mul5.i = mul i64 %result.0.copyload.i11.i, -7286425919675154353
@@ -3885,7 +3885,7 @@ if.end13:                                         ; preds = %if.end7
   br i1 %cmp14, label %if.then15, label %if.end17
 
 if.then15:                                        ; preds = %if.end13
-  %add.ptr.i50 = getelementptr inbounds i8, ptr %s, i64 24
+  %add.ptr.i50 = getelementptr inbounds nuw i8, ptr %s, i64 24
   %result.0.copyload.i.i51 = load i64, ptr %add.ptr.i50, align 1
   %result.0.copyload.i36.i = load i64, ptr %s, align 1
   %add.ptr2.i52 = getelementptr inbounds i8, ptr %s, i64 %length
@@ -3897,11 +3897,11 @@ if.then15:                                        ; preds = %if.end13
   %add6.i = add i64 %add5.i, %result.0.copyload.i.i51
   %cond.i.i56 = tail call i64 @llvm.fshl.i64(i64 %add6.i, i64 %add6.i, i64 12)
   %cond.i38.i = tail call i64 @llvm.fshl.i64(i64 %add5.i, i64 %add5.i, i64 27)
-  %add.ptr9.i = getelementptr inbounds i8, ptr %s, i64 8
+  %add.ptr9.i = getelementptr inbounds nuw i8, ptr %s, i64 8
   %result.0.copyload.i39.i = load i64, ptr %add.ptr9.i, align 1
   %add11.i = add i64 %add5.i, %result.0.copyload.i39.i
   %cond.i40.i = tail call i64 @llvm.fshl.i64(i64 %add11.i, i64 %add11.i, i64 57)
-  %add.ptr14.i = getelementptr inbounds i8, ptr %s, i64 16
+  %add.ptr14.i = getelementptr inbounds nuw i8, ptr %s, i64 16
   %result.0.copyload.i41.i = load i64, ptr %add.ptr14.i, align 1
   %add16.i = add i64 %add11.i, %result.0.copyload.i41.i
   %cond.i42.i = tail call i64 @llvm.fshl.i64(i64 %add16.i, i64 %add16.i, i64 33)
@@ -3949,7 +3949,7 @@ if.end17:                                         ; preds = %if.end13
 if.then19:                                        ; preds = %if.end17
   %6 = load i8, ptr %s, align 1
   %shr.i = lshr i64 %length, 1
-  %arrayidx1.i = getelementptr inbounds i8, ptr %s, i64 %shr.i
+  %arrayidx1.i = getelementptr inbounds nuw i8, ptr %s, i64 %shr.i
   %7 = load i8, ptr %arrayidx1.i, align 1
   %8 = getelementptr i8, ptr %s, i64 %length
   %arrayidx2.i = getelementptr i8, ptr %8, i64 -1
@@ -3990,9 +3990,9 @@ define linkonce_odr hidden noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapINS_8
 entry:
   %ConstFoundBucket.i9 = alloca ptr, align 8
   %ConstFoundBucket.i = alloca ptr, align 8
-  %NumEntries.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %NumEntries.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %NumEntries.i.i, align 8
-  %NumBuckets.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %NumBuckets.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i32, ptr %NumBuckets.i.i, align 8
   %add = shl i32 %0, 2
   %mul = add i32 %add, 4
@@ -4010,7 +4010,7 @@ if.then:                                          ; preds = %entry
   br label %_ZN4llvh12DenseMapInfoINS_8ArrayRefIhEEE7isEqualES2_S2_.exit
 
 if.else:                                          ; preds = %entry
-  %NumTombstones.i.i = getelementptr inbounds i8, ptr %this, i64 12
+  %NumTombstones.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %3 = load i32, ptr %NumTombstones.i.i, align 4
   %add.neg = xor i32 %0, -1
   %add8.neg = add i32 %1, %add.neg
@@ -4037,7 +4037,7 @@ _ZN4llvh12DenseMapInfoINS_8ArrayRefIhEEE7isEqualES2_S2_.exit: ; preds = %if.else
   br i1 %cmp7.i, label %if.end18, label %if.then17
 
 if.then17:                                        ; preds = %_ZN4llvh12DenseMapInfoINS_8ArrayRefIhEEE7isEqualES2_S2_.exit
-  %NumTombstones.i.i.i = getelementptr inbounds i8, ptr %this, i64 12
+  %NumTombstones.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %6 = load i32, ptr %NumTombstones.i.i.i, align 4
   %sub.i = add i32 %6, -1
   store i32 %sub.i, ptr %NumTombstones.i.i.i, align 4
@@ -4051,7 +4051,7 @@ if.end18:                                         ; preds = %if.then17, %_ZN4llv
 define linkonce_odr hidden void @_ZN4llvh8DenseMapINS_8ArrayRefIhEEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEE4growEj(ptr noundef nonnull align 8 dereferenceable(20) %this, i32 noundef %AtLeast) local_unnamed_addr #0 comdat align 2 {
 _ZN4llvh8DenseMapINS_8ArrayRefIhEEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEE15allocateBucketsEj.exit:
   %ConstFoundBucket.i.i = alloca ptr, align 8
-  %NumBuckets = getelementptr inbounds i8, ptr %this, i64 16
+  %NumBuckets = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %NumBuckets, align 8
   %1 = load ptr, ptr %this, align 8
   %sub = add i32 %AtLeast, -1
@@ -4078,44 +4078,44 @@ _ZN4llvh8DenseMapINS_8ArrayRefIhEEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPa
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN4llvh8DenseMapINS_8ArrayRefIhEEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEE15allocateBucketsEj.exit
-  %NumEntries.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %NumEntries.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 0, ptr %NumEntries.i.i.i, align 8
-  %NumTombstones.i.i.i = getelementptr inbounds i8, ptr %this, i64 12
+  %NumTombstones.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i32 0, ptr %NumTombstones.i.i.i, align 4
   %3 = load i32, ptr %NumBuckets, align 8
   %idx.ext.i.i = zext i32 %3 to i64
-  %add.ptr.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %call.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %call.i, i64 %idx.ext.i.i
   %cmp.not3.i = icmp eq i32 %3, 0
   br i1 %cmp.not3.i, label %return, label %for.body.i
 
 for.body.i:                                       ; preds = %if.then, %for.body.i
   %B.04.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %call.i, %if.then ]
   store ptr inttoptr (i64 -1 to ptr), ptr %B.04.i, align 8
-  %EmptyKey.sroa.2.0.call4.sroa_idx.i = getelementptr inbounds i8, ptr %B.04.i, i64 8
+  %EmptyKey.sroa.2.0.call4.sroa_idx.i = getelementptr inbounds nuw i8, ptr %B.04.i, i64 8
   store i64 0, ptr %EmptyKey.sroa.2.0.call4.sroa_idx.i, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %B.04.i, i64 24
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %B.04.i, i64 24
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
   br i1 %cmp.not.i, label %return, label %for.body.i, !llvm.loop !33
 
 if.end:                                           ; preds = %_ZN4llvh8DenseMapINS_8ArrayRefIhEEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEE15allocateBucketsEj.exit
   %idx.ext = zext i32 %0 to i64
-  %add.ptr = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %1, i64 %idx.ext
-  %NumEntries.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %add.ptr = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %1, i64 %idx.ext
+  %NumEntries.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 0, ptr %NumEntries.i.i.i.i, align 8
-  %NumTombstones.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 12
+  %NumTombstones.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i32 0, ptr %NumTombstones.i.i.i.i, align 4
   %4 = load i32, ptr %NumBuckets, align 8
   %idx.ext.i.i.i = zext i32 %4 to i64
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %call.i, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %call.i, i64 %idx.ext.i.i.i
   %cmp.not3.i.i = icmp eq i32 %4, 0
   br i1 %cmp.not3.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIhEEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E9initEmptyEv.exit.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.end, %for.body.i.i
   %B.04.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %call.i, %if.end ]
   store ptr inttoptr (i64 -1 to ptr), ptr %B.04.i.i, align 8
-  %EmptyKey.sroa.2.0.call4.sroa_idx.i.i = getelementptr inbounds i8, ptr %B.04.i.i, i64 8
+  %EmptyKey.sroa.2.0.call4.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %B.04.i.i, i64 8
   store i64 0, ptr %EmptyKey.sroa.2.0.call4.sroa_idx.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %B.04.i.i, i64 24
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %B.04.i.i, i64 24
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
   br i1 %cmp.not.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIhEEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E9initEmptyEv.exit.i, label %for.body.i.i, !llvm.loop !33
 
@@ -4135,8 +4135,8 @@ if.then.i:                                        ; preds = %_ZN4llvh12DenseMapI
   %5 = load ptr, ptr %ConstFoundBucket.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %B.028.i, i64 16, i1 false)
-  %second.i.i = getelementptr inbounds i8, ptr %5, i64 16
-  %second.i23.i = getelementptr inbounds i8, ptr %B.028.i, i64 16
+  %second.i.i = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %second.i23.i = getelementptr inbounds nuw i8, ptr %B.028.i, i64 16
   %6 = load i32, ptr %second.i23.i, align 4
   store i32 %6, ptr %second.i.i, align 4
   %7 = load i32, ptr %NumEntries.i.i.i.i, align 8
@@ -4145,7 +4145,7 @@ if.then.i:                                        ; preds = %_ZN4llvh12DenseMapI
   br label %if.end.i5
 
 if.end.i5:                                        ; preds = %if.then.i, %_ZN4llvh12DenseMapInfoINS_8ArrayRefIhEEE7isEqualES2_S2_.exit.i
-  %incdec.ptr.i6 = getelementptr inbounds i8, ptr %B.028.i, i64 24
+  %incdec.ptr.i6 = getelementptr inbounds nuw i8, ptr %B.028.i, i64 24
   %cmp.not.i7 = icmp eq ptr %incdec.ptr.i6, %add.ptr
   br i1 %cmp.not.i7, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIhEEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E18moveFromOldBucketsEPS8_SB_.exit, label %_ZN4llvh12DenseMapInfoINS_8ArrayRefIhEEE7isEqualES2_S2_.exit.i, !llvm.loop !34
 

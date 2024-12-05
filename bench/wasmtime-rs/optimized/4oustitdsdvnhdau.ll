@@ -47,7 +47,7 @@ define zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h2c2c51
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h193f80ef3f9820c1E.exit"
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %10, ptr %3, align 8
   %11 = call zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr align 8 %1, ptr nonnull align 1 @anon.275256965f419aa4080486b85333747f.1, i64 4, ptr nonnull align 1 %3, ptr nonnull align 8 @anon.275256965f419aa4080486b85333747f.2)
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h193f80ef3f9820c1E.exit"
@@ -63,7 +63,7 @@ define zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h82621e
   %3 = alloca ptr, align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i8, ptr %5, align 8, !range !6, !noundef !3
   %7 = icmp eq i8 %6, 9
   br i1 %7, label %8, label %10
@@ -104,7 +104,7 @@ define void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h760c5bd178dd46aaE"
 define nonnull align 8 ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h7a514ffb45ea36e2E"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [2 x i64], i64, [6 x i64] }, align 8
   %4 = alloca { [2 x i64], i64, [6 x i64] }, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !range !7, !noundef !3
   %7 = icmp eq i64 %6, 6
   br i1 %7, label %8, label %9
@@ -146,7 +146,7 @@ define nonnull align 8 ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_wit
   %7 = extractvalue { i64, i64 } %6, 0
   %8 = extractvalue { i64, i64 } %6, 1
   store i64 %7, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %8, ptr %9, align 8
   %10 = icmp eq i64 %7, 2
   %11 = select i1 %10, ptr null, ptr %0
@@ -170,7 +170,7 @@ define nonnull align 2 ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_wit
   %7 = extractvalue { i16, i16 } %6, 0
   %8 = extractvalue { i16, i16 } %6, 1
   store i16 %7, ptr %0, align 2
-  %9 = getelementptr inbounds i8, ptr %0, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 %8, ptr %9, align 2
   %10 = icmp eq i16 %7, 2
   %11 = select i1 %10, ptr null, ptr %0
@@ -194,7 +194,7 @@ define nonnull align 2 ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_wit
   %7 = extractvalue { i16, i16 } %6, 0
   %8 = extractvalue { i16, i16 } %6, 1
   store i16 %7, ptr %0, align 2
-  %9 = getelementptr inbounds i8, ptr %0, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 %8, ptr %9, align 2
   %10 = icmp eq i16 %7, 2
   %11 = select i1 %10, ptr null, ptr %0
@@ -231,7 +231,7 @@ define { ptr, i64 } @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h6822b2ba40c3
 
 3:                                                ; preds = %1
   %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !10, !noundef !3
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !3
   br label %7
 
@@ -254,9 +254,9 @@ define void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT
   %7 = extractvalue { i64, ptr } %6, 0
   %8 = extractvalue { i64, ptr } %6, 1
   store i64 %7, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %10, align 8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h981f6d3602f7ed7cE"(ptr nonnull align 8 %4, i64 %2, ptr nonnull align 8 %1)
           to label %19 unwind label %17
@@ -266,9 +266,9 @@ define void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT
   %13 = extractvalue { i64, ptr } %12, 0
   %14 = extractvalue { i64, ptr } %12, 1
   store i64 %13, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %2, ptr %16, align 8
   br label %20
 
@@ -306,9 +306,9 @@ define void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT
   %7 = extractvalue { i64, ptr } %6, 0
   %8 = extractvalue { i64, ptr } %6, 1
   store i64 %7, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %10, align 8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17haea7ef94360d7bd9E"(ptr nonnull align 8 %4, i64 %2, ptr nonnull align 8 %1)
           to label %19 unwind label %17
@@ -318,9 +318,9 @@ define void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT
   %13 = extractvalue { i64, ptr } %12, 0
   %14 = extractvalue { i64, ptr } %12, 1
   store i64 %13, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %2, ptr %16, align 8
   br label %20
 
@@ -359,7 +359,7 @@ define zeroext i1 @"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt
   br label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %9, ptr %3, align 8
   %10 = call zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr align 8 %1, ptr nonnull align 1 @anon.275256965f419aa4080486b85333747f.1, i64 4, ptr nonnull align 1 %3, ptr nonnull align 8 @anon.275256965f419aa4080486b85333747f.2)
   br label %11
@@ -393,7 +393,7 @@ define zeroext i1 @"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt
 ; Function Attrs: inlinehint nonlazybind uwtable
 define zeroext i1 @"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hcd9ae7b1d454c5d2E"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i8, ptr %4, align 8, !range !6, !noundef !3
   %6 = icmp eq i8 %5, 9
   br i1 %6, label %7, label %9

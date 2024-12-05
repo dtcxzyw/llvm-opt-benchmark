@@ -203,7 +203,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @InitializeQueryCompletion(ptr nocapture noundef writeonly initializes((0, 4), (8, 16)) %0) local_unnamed_addr #0 {
   store i32 0, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %2, align 8
   ret void
 }
@@ -220,7 +220,7 @@ define dso_local ptr @GetCommandTagName(i32 noundef %0) local_unnamed_addr #1 {
 define dso_local ptr @GetCommandTagNameAndLen(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = zext i32 %0 to i64
   %4 = getelementptr [193 x %struct.CommandTagBehavior], ptr @tag_behavior, i64 0, i64 %3
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i8, ptr %5, align 8
   %7 = zext i8 %6 to i64
   store i64 %7, ptr %1, align 8
@@ -306,7 +306,7 @@ define dso_local noundef i64 @BuildQueryCompletionString(ptr noundef %0, ptr noc
   %4 = load i32, ptr %1, align 8
   %5 = zext i32 %4 to i64
   %6 = getelementptr [193 x %struct.CommandTagBehavior], ptr @tag_behavior, i64 0, i64 %5
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i8, ptr %7, align 8
   %9 = zext i8 %8 to i64
   %10 = load ptr, ptr %6, align 16
@@ -334,7 +334,7 @@ define dso_local noundef i64 @BuildQueryCompletionString(ptr noundef %0, ptr noc
   %.1 = phi ptr [ %19, %17 ], [ %11, %15 ]
   %21 = getelementptr i8, ptr %.1, i64 1
   store i8 32, ptr %.1, align 1
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load i64, ptr %22, align 8
   %24 = tail call i32 @pg_ulltoa_n(i64 noundef %23, ptr noundef %21) #5
   %25 = sext i32 %24 to i64

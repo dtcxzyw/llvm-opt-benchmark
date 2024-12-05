@@ -124,11 +124,11 @@ define void @_ZN2cv6detail8tracking3tld15tld_InitDatasetEiPKci(ptr dead_on_unwin
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds [10 x %"class.cv::Rect_"], ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 0, i64 %6
   %10 = load double, ptr %9, align 16
-  %11 = getelementptr inbounds i8, ptr %9, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load double, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %9, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %14 = load double, ptr %13, align 16
-  %15 = getelementptr inbounds i8, ptr %9, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %16 = load double, ptr %15, align 8
   %17 = getelementptr inbounds [10 x i32], ptr @_ZN2cv6detail8tracking3tld14tldFrameOffsetE, i64 0, i64 %6
   %18 = load i32, ptr %17, align 4
@@ -142,11 +142,11 @@ define void @_ZN2cv6detail8tracking3tld15tld_InitDatasetEiPKci(ptr dead_on_unwin
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds [60 x %"class.cv::Rect_"], ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 0, i64 %21
   %25 = load double, ptr %24, align 16
-  %26 = getelementptr inbounds i8, ptr %24, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %27 = load double, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %24, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %29 = load double, ptr %28, align 16
-  %30 = getelementptr inbounds i8, ptr %24, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %31 = load double, ptr %30, align 8
   %32 = getelementptr inbounds [60 x i32], ptr @_ZN2cv6detail8tracking3tld14votFrameOffsetE, i64 0, i64 %21
   %33 = load i32, ptr %32, align 4
@@ -180,11 +180,11 @@ define void @_ZN2cv6detail8tracking3tld15tld_InitDatasetEiPKci(ptr dead_on_unwin
   store i16 92, ptr %endptr, align 1
   %38 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) @_ZN2cv6detail8tracking3tld11tldRootPathE, ptr noundef nonnull dereferenceable(1) %.1) #10
   store double %.129, ptr %0, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %.127, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %.125, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %.123, ptr %41, align 8
   ret void
 }
@@ -309,9 +309,9 @@ define internal void @_GLOBAL__sub_I_tldDataset.cpp() #7 section ".text.startup"
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #10
   store double 1.650000e+02, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, align 16
-  store double 9.300000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 8), align 8
-  store double 5.100000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 16), align 16
-  store double 5.400000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 24), align 8
+  store double 9.300000e+01, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 8), align 8
+  store double 5.100000e+01, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 16), align 16
+  store double 5.400000e+01, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 24), align 8
   store double 1.470000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 32), align 16
   store double 1.100000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 40), align 8
   store double 3.300000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 48), align 16
@@ -349,9 +349,9 @@ define internal void @_GLOBAL__sub_I_tldDataset.cpp() #7 section ".text.startup"
   store double 2.700000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 304), align 16
   store double 2.200000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 312), align 8
   store double 1.420000e+02, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, align 16
-  store double 1.250000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 8), align 8
-  store double 9.000000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 16), align 16
-  store double 3.900000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 24), align 8
+  store double 1.250000e+02, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 8), align 8
+  store double 9.000000e+01, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 16), align 16
+  store double 3.900000e+01, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 24), align 8
   store double 4.900000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 32), align 16
   store double 4.000000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 40), align 8
   store double 4.000000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 48), align 16

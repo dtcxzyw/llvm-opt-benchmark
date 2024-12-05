@@ -283,7 +283,7 @@ lor.lhs.false138:                                 ; preds = %if.end134
 
 for.body:                                         ; preds = %lor.lhs.false138, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %lor.lhs.false138 ]
-  %arrayidx = getelementptr inbounds [35 x %struct.anon], ptr @tests, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [35 x %struct.anon], ptr @tests, i64 0, i64 %indvars.iv
   %1 = load i64, ptr %arrayidx, align 16
   %call151 = call fastcc i32 @send_record(ptr noundef %call58, i8 noundef zeroext 23, i64 noundef %1, ptr noundef nonnull %arrayidx, i64 noundef 8)
   %call154 = call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 569, ptr noundef nonnull @.str.28, i32 noundef %call151) #6
@@ -300,7 +300,7 @@ if.then156:                                       ; preds = %for.body
   br label %end
 
 if.end165:                                        ; preds = %for.body
-  %drop = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %drop = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %4 = load i32, ptr %drop, align 8
   %tobool168.not = icmp eq i32 %4, 0
   br i1 %tobool168.not, label %if.end170, label %for.inc
@@ -334,7 +334,7 @@ for.inc:                                          ; preds = %if.end184, %if.end1
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %for.inc
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @tests, i64 552), align 8
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @tests, i64 552), align 8
   %cmp200 = icmp ne i32 %8, 0
   %conv201 = zext i1 %cmp200 to i32
   %call202 = call i32 @test_false(ptr noundef nonnull @.str.1, i32 noundef 589, ptr noundef nonnull @.str.33, i32 noundef %conv201) #6
@@ -428,11 +428,11 @@ PACKET_get_1.exit:                                ; preds = %entry
   br i1 %or.cond272, label %return, label %PACKET_get_net_2.exit
 
 PACKET_get_net_2.exit:                            ; preds = %PACKET_get_1.exit
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %0, i64 1
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %0, i64 1
   %2 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i13 = zext i8 %2 to i32
   %shl.i.i = shl nuw nsw i32 %conv.i.i13, 8
-  %add.ptr.i.i14 = getelementptr inbounds i8, ptr %0, i64 2
+  %add.ptr.i.i14 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %3 = load i8, ptr %add.ptr.i.i14, align 1
   %conv2.i.i = zext i8 %3 to i32
   %or.i.i = or disjoint i32 %shl.i.i, %conv2.i.i
@@ -443,7 +443,7 @@ PACKET_get_net_2.exit:                            ; preds = %PACKET_get_1.exit
   br i1 %or.cond278, label %return, label %PACKET_get_1.exit28
 
 PACKET_get_1.exit28:                              ; preds = %PACKET_get_net_2.exit
-  %add.ptr.i.i18 = getelementptr inbounds i8, ptr %0, i64 13
+  %add.ptr.i.i18 = getelementptr inbounds nuw i8, ptr %0, i64 13
   %6 = load i8, ptr %add.ptr.i.i18, align 1
   %sub.i.i26 = add nsw i64 %call, -14
   %cmp22 = icmp ne i8 %6, 1
@@ -455,11 +455,11 @@ PACKET_get_1.exit28:                              ; preds = %PACKET_get_net_2.ex
   br i1 %or.cond279, label %return, label %PACKET_get_net_2.exit47
 
 PACKET_get_net_2.exit47:                          ; preds = %PACKET_get_1.exit28
-  %add.ptr.i.i32 = getelementptr inbounds i8, ptr %0, i64 25
+  %add.ptr.i.i32 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %7 = load i8, ptr %add.ptr.i.i32, align 1
   %conv.i.i39 = zext i8 %7 to i32
   %shl.i.i40 = shl nuw nsw i32 %conv.i.i39, 8
-  %add.ptr.i.i41 = getelementptr inbounds i8, ptr %0, i64 26
+  %add.ptr.i.i41 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %8 = load i8, ptr %add.ptr.i.i41, align 1
   %conv2.i.i42 = zext i8 %8 to i32
   %or.i.i43 = or disjoint i32 %shl.i.i40, %conv2.i.i42
@@ -470,13 +470,13 @@ PACKET_get_net_2.exit47:                          ; preds = %PACKET_get_1.exit28
   br i1 %or.cond275, label %return, label %if.end38
 
 if.end38:                                         ; preds = %PACKET_get_net_2.exit47
-  %add.ptr.i2.i44 = getelementptr inbounds i8, ptr %0, i64 27
+  %add.ptr.i2.i44 = getelementptr inbounds nuw i8, ptr %0, i64 27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) @client_random, ptr noundef nonnull align 1 dereferenceable(32) %add.ptr.i2.i44, i64 32, i1 false)
   %tobool.not.i.i.i = icmp eq i64 %call, 59
   br i1 %tobool.not.i.i.i, label %return, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end38
-  %add.ptr.i.i51 = getelementptr inbounds i8, ptr %0, i64 59
+  %add.ptr.i.i51 = getelementptr inbounds nuw i8, ptr %0, i64 59
   %9 = load i8, ptr %add.ptr.i.i51, align 1
   %sub.i.i.i = add nsw i64 %call, -60
   %conv.i = zext i8 %9 to i64
@@ -484,8 +484,8 @@ lor.lhs.false.i:                                  ; preds = %if.end38
   br i1 %cmp.i.i.i, label %return, label %lor.lhs.false41
 
 lor.lhs.false41:                                  ; preds = %lor.lhs.false.i
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %0, i64 60
-  %add.ptr.i.i5.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %conv.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %add.ptr.i.i5.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 %conv.i
   %cmp.not.i = icmp eq i8 %9, 32
   br i1 %cmp.not.i, label %PACKET_equal.exit, label %return
 
@@ -504,8 +504,8 @@ lor.lhs.false.i63:                                ; preds = %PACKET_equal.exit
   br i1 %cmp.i.i.i67, label %return, label %if.end49
 
 if.end49:                                         ; preds = %lor.lhs.false.i63
-  %add.ptr.i.i.i69 = getelementptr inbounds i8, ptr %add.ptr.i.i5.i, i64 1
-  %add.ptr.i.i5.i70 = getelementptr inbounds i8, ptr %add.ptr.i.i.i69, i64 %conv.i66
+  %add.ptr.i.i.i69 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i5.i, i64 1
+  %add.ptr.i.i5.i70 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i69, i64 %conv.i66
   %sub.i.i6.i71 = sub nuw nsw i64 %sub.i.i.i65, %conv.i66
   %tobool51.not = icmp eq i8 %10, 0
   br i1 %tobool51.not, label %if.end57, label %if.then52
@@ -528,7 +528,7 @@ lor.lhs.false60:                                  ; preds = %if.end57
   %11 = load i8, ptr %add.ptr.i.i5.i70, align 1
   %conv.i.i85 = zext i8 %11 to i64
   %shl.i.i86 = shl nuw nsw i64 %conv.i.i85, 8
-  %add.ptr.i.i87 = getelementptr inbounds i8, ptr %add.ptr.i.i5.i70, i64 1
+  %add.ptr.i.i87 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i5.i70, i64 1
   %12 = load i8, ptr %add.ptr.i.i87, align 1
   %conv2.i.i88 = zext i8 %12 to i64
   %or.i.i89 = or disjoint i64 %shl.i.i86, %conv2.i.i88
@@ -537,8 +537,8 @@ lor.lhs.false60:                                  ; preds = %if.end57
   br i1 %or.cond280.not, label %lor.lhs.false67, label %return
 
 lor.lhs.false67:                                  ; preds = %lor.lhs.false60
-  %add.ptr.i2.i90 = getelementptr inbounds i8, ptr %add.ptr.i.i5.i70, i64 2
-  %add.ptr.i.i97 = getelementptr inbounds i8, ptr %add.ptr.i2.i90, i64 %or.i.i89
+  %add.ptr.i2.i90 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i5.i70, i64 2
+  %add.ptr.i.i97 = getelementptr inbounds nuw i8, ptr %add.ptr.i2.i90, i64 %or.i.i89
   %13 = load i8, ptr %add.ptr.i.i97, align 1
   %14 = xor i64 %or.i.i89, -1
   %sub.i.i106 = add nsw i64 %sub.i.i91, %14
@@ -552,12 +552,12 @@ if.end72:                                         ; preds = %lor.lhs.false67
   br i1 %cmp.i.i117, label %return, label %lor.lhs.false75
 
 lor.lhs.false75:                                  ; preds = %if.end72
-  %add.ptr.i.i105 = getelementptr inbounds i8, ptr %add.ptr.i.i97, i64 1
-  %add.ptr.i.i112 = getelementptr inbounds i8, ptr %add.ptr.i.i105, i64 %conv68
+  %add.ptr.i.i105 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i97, i64 1
+  %add.ptr.i.i112 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i105, i64 %conv68
   %15 = load i8, ptr %add.ptr.i.i112, align 1
   %conv.i.i119 = zext i8 %15 to i64
   %shl.i.i120 = shl nuw nsw i64 %conv.i.i119, 8
-  %add.ptr.i.i121 = getelementptr inbounds i8, ptr %add.ptr.i.i112, i64 1
+  %add.ptr.i.i121 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i112, i64 1
   %16 = load i8, ptr %add.ptr.i.i121, align 1
   %conv2.i.i122 = zext i8 %16 to i64
   %or.i.i123 = or disjoint i64 %shl.i.i120, %conv2.i.i122
@@ -571,7 +571,7 @@ if.end84:                                         ; preds = %lor.lhs.false75
 land.lhs.true:                                    ; preds = %if.end84
   %17 = load ptr, ptr @handshake_md, align 8
   %18 = load ptr, ptr %data, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %18, i64 25
+  %add.ptr = getelementptr inbounds nuw i8, ptr %18, i64 25
   %call86 = call i32 @EVP_DigestUpdate(ptr noundef %17, ptr noundef nonnull %add.ptr, i64 noundef %sub.i.i33) #6
   %tobool87.not = icmp eq i32 %call86, 0
   br i1 %tobool87.not, label %return, label %if.end89
@@ -673,11 +673,11 @@ PACKET_get_1.exit:                                ; preds = %entry
   br i1 %or.cond154, label %return, label %PACKET_get_net_2.exit
 
 PACKET_get_net_2.exit:                            ; preds = %PACKET_get_1.exit
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %0, i64 1
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %0, i64 1
   %2 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i10 = zext i8 %2 to i32
   %shl.i.i = shl nuw nsw i32 %conv.i.i10, 8
-  %add.ptr.i.i11 = getelementptr inbounds i8, ptr %0, i64 2
+  %add.ptr.i.i11 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %3 = load i8, ptr %add.ptr.i.i11, align 1
   %conv2.i.i = zext i8 %3 to i32
   %or.i.i = or disjoint i32 %shl.i.i, %conv2.i.i
@@ -688,7 +688,7 @@ PACKET_get_net_2.exit:                            ; preds = %PACKET_get_1.exit
   br i1 %or.cond159, label %return, label %PACKET_get_1.exit25
 
 PACKET_get_1.exit25:                              ; preds = %PACKET_get_net_2.exit
-  %add.ptr.i.i15 = getelementptr inbounds i8, ptr %0, i64 13
+  %add.ptr.i.i15 = getelementptr inbounds nuw i8, ptr %0, i64 13
   %6 = load i8, ptr %add.ptr.i.i15, align 1
   %cmp22 = icmp ne i8 %6, 1
   %7 = and i64 %call, 9223372036854775806
@@ -697,11 +697,11 @@ PACKET_get_1.exit25:                              ; preds = %PACKET_get_net_2.ex
   br i1 %or.cond156, label %return, label %PACKET_get_net_2.exit37
 
 PACKET_get_net_2.exit37:                          ; preds = %PACKET_get_1.exit25
-  %add.ptr.i.i22 = getelementptr inbounds i8, ptr %0, i64 14
+  %add.ptr.i.i22 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %8 = load i8, ptr %add.ptr.i.i22, align 1
   %conv.i.i29 = zext i8 %8 to i32
   %shl.i.i30 = shl nuw nsw i32 %conv.i.i29, 8
-  %add.ptr.i.i31 = getelementptr inbounds i8, ptr %0, i64 15
+  %add.ptr.i.i31 = getelementptr inbounds nuw i8, ptr %0, i64 15
   %9 = load i8, ptr %add.ptr.i.i31, align 1
   %conv2.i.i32 = zext i8 %9 to i32
   %or.i.i33 = or disjoint i32 %shl.i.i30, %conv2.i.i32
@@ -711,7 +711,7 @@ PACKET_get_net_2.exit37:                          ; preds = %PACKET_get_1.exit25
   br i1 %or.cond157, label %return, label %PACKET_get_1.exit45
 
 PACKET_get_1.exit45:                              ; preds = %PACKET_get_net_2.exit37
-  %add.ptr.i2.i34 = getelementptr inbounds i8, ptr %0, i64 16
+  %add.ptr.i2.i34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i8, ptr %add.ptr.i2.i34, align 1
   %sub.i.i43 = add nsw i64 %call, -17
   %cmp34 = icmp ne i8 %10, 22
@@ -720,11 +720,11 @@ PACKET_get_1.exit45:                              ; preds = %PACKET_get_net_2.ex
   br i1 %or.cond158, label %return, label %PACKET_get_net_2.exit57
 
 PACKET_get_net_2.exit57:                          ; preds = %PACKET_get_1.exit45
-  %add.ptr.i.i42 = getelementptr inbounds i8, ptr %0, i64 17
+  %add.ptr.i.i42 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %11 = load i8, ptr %add.ptr.i.i42, align 1
   %conv.i.i49 = zext i8 %11 to i32
   %shl.i.i50 = shl nuw nsw i32 %conv.i.i49, 8
-  %add.ptr.i.i51 = getelementptr inbounds i8, ptr %0, i64 18
+  %add.ptr.i.i51 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %12 = load i8, ptr %add.ptr.i.i51, align 1
   %conv2.i.i52 = zext i8 %12 to i32
   %or.i.i53 = or disjoint i32 %shl.i.i50, %conv2.i.i52
@@ -735,11 +735,11 @@ PACKET_get_net_2.exit57:                          ; preds = %PACKET_get_1.exit45
   br i1 %or.cond160, label %return, label %if.end.i60
 
 if.end.i60:                                       ; preds = %PACKET_get_net_2.exit57
-  %add.ptr.i2.i54 = getelementptr inbounds i8, ptr %0, i64 19
+  %add.ptr.i2.i54 = getelementptr inbounds nuw i8, ptr %0, i64 19
   %13 = load i8, ptr %add.ptr.i2.i54, align 1
   %conv.i.i61 = zext i8 %13 to i32
   %shl.i.i62 = shl nuw nsw i32 %conv.i.i61, 8
-  %add.ptr.i.i63 = getelementptr inbounds i8, ptr %0, i64 20
+  %add.ptr.i.i63 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load i8, ptr %add.ptr.i.i63, align 1
   %conv2.i.i64 = zext i8 %14 to i32
   %or.i.i65 = or disjoint i32 %shl.i.i62, %conv2.i.i64
@@ -806,12 +806,12 @@ lor.lhs.false:                                    ; preds = %if.end
 if.end27:                                         ; preds = %lor.lhs.false
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40, i64 noundef 0) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
-  %arrayidx28 = getelementptr inbounds i8, ptr %params, i64 40
+  %arrayidx28 = getelementptr inbounds nuw i8, ptr %params, i64 40
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp29) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx28, ptr noundef nonnull align 8 dereferenceable(40) %tmp29, i64 40, i1 false)
   store i8 0, ptr %lenbytes, align 1
   %conv33 = trunc nuw nsw i64 %len to i8
-  %arrayidx34 = getelementptr inbounds i8, ptr %lenbytes, i64 1
+  %arrayidx34 = getelementptr inbounds nuw i8, ptr %lenbytes, i64 1
   store i8 %conv33, ptr %arrayidx34, align 1
   %call35 = call i32 @EVP_MAC_init(ptr noundef %call23, ptr noundef nonnull getelementptr inbounds (i8, ptr @key_block, i64 20), i64 noundef 20, ptr noundef nonnull %params) #6
   %tobool36.not = icmp eq i32 %call35, 0
@@ -848,7 +848,7 @@ lor.lhs.false53:                                  ; preds = %lor.lhs.false49
   br i1 %tobool55.not, label %end, label %lor.lhs.false56
 
 lor.lhs.false56:                                  ; preds = %lor.lhs.false53
-  %add.ptr = getelementptr inbounds i8, ptr %call, i64 %len
+  %add.ptr = getelementptr inbounds nuw i8, ptr %call, i64 %len
   %call57 = call i32 @EVP_MAC_final(ptr noundef %call23, ptr noundef nonnull %add.ptr, ptr noundef null, i64 noundef 20) #6
   %tobool58.not = icmp eq i32 %call57, 0
   br i1 %tobool58.not, label %end, label %do.body.preheader

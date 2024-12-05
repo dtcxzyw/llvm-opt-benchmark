@@ -14,7 +14,7 @@ define i32 @lib_vscanf(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2,
   %7 = alloca ptr, align 8
   %8 = load i32, ptr %0, align 8
   %9 = icmp eq ptr %1, null
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 %11(ptr noundef nonnull %0) #7
   %13 = load i8, ptr %2, align 1
@@ -22,8 +22,8 @@ define i32 @lib_vscanf(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2,
   br i1 %.not715, label %._crit_edge737, label %.lr.ph736
 
 .lr.ph736:                                        ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %3, i64 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %16
 
 16:                                               ; preds = %.lr.ph736, %511
@@ -67,7 +67,7 @@ define i32 @lib_vscanf(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2,
   %26 = sext i8 %25 to i32
   %27 = call i32 @isspace(i32 noundef %26) #8
   %.not453 = icmp eq i32 %27, 0
-  %28 = getelementptr inbounds i8, ptr %.1393, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %.1393, i64 1
   br i1 %.not453, label %29, label %24, !llvm.loop !8
 
 29:                                               ; preds = %24
@@ -103,7 +103,7 @@ define i32 @lib_vscanf(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2,
   ]
 
 35:                                               ; preds = %34, %34
-  %36 = getelementptr inbounds i8, ptr %.1393.pn638, i64 2
+  %36 = getelementptr inbounds nuw i8, ptr %.1393.pn638, i64 2
   %37 = load i8, ptr %36, align 1
   switch i8 %37, label %57 [
     i8 108, label %38
@@ -120,7 +120,7 @@ define i32 @lib_vscanf(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2,
   br label %57
 
 41:                                               ; preds = %34, %34
-  %42 = getelementptr inbounds i8, ptr %.1393.pn638, i64 2
+  %42 = getelementptr inbounds nuw i8, ptr %.1393.pn638, i64 2
   %43 = load i8, ptr %42, align 1
   switch i8 %43, label %57 [
     i8 104, label %44
@@ -141,7 +141,7 @@ define i32 @lib_vscanf(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2,
   %48 = sext i8 %47 to i32
   %isdigittmp = add nsw i32 %48, -48
   %isdigit = icmp ult i32 %isdigittmp, 10
-  %49 = getelementptr inbounds i8, ptr %.3395, i64 1
+  %49 = getelementptr inbounds nuw i8, ptr %.3395, i64 1
   br i1 %isdigit, label %.preheader, label %50, !llvm.loop !9
 
 50:                                               ; preds = %.preheader
@@ -159,7 +159,7 @@ define i32 @lib_vscanf(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2,
   %.2414 = phi i8 [ %.1413637, %38 ], [ %.1413637, %39 ], [ %.1413637, %40 ], [ %.1413637, %44 ], [ %.1413637, %50 ], [ %.1413637, %45 ], [ 1, %34 ], [ %.1413637, %35 ], [ %.1413637, %41 ]
   %.4396 = phi ptr [ %36, %38 ], [ %.2394640, %39 ], [ %.2394640, %40 ], [ %42, %44 ], [ %56, %50 ], [ %.2394640, %45 ], [ %.2394640, %34 ], [ %.2394640, %35 ], [ %.2394640, %41 ]
   %.2390 = phi i32 [ %.1389639, %38 ], [ %.1389639, %39 ], [ %.1389639, %40 ], [ %.1389639, %44 ], [ %55, %50 ], [ %.1389639, %45 ], [ %.1389639, %34 ], [ %.1389639, %35 ], [ %.1389639, %41 ]
-  %.2394 = getelementptr inbounds i8, ptr %.4396, i64 1
+  %.2394 = getelementptr inbounds nuw i8, ptr %.4396, i64 1
   %58 = load i8, ptr %.2394, align 1
   %.not455 = icmp eq i8 %58, 0
   br i1 %.not455, label %.thread, label %.lr.ph641, !llvm.loop !10
@@ -249,7 +249,7 @@ define i32 @lib_vscanf(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2,
 
 91:                                               ; preds = %90
   %92 = trunc i32 %.5576 to i8
-  %93 = getelementptr inbounds i8, ptr %.0420, i64 %indvars.iv775
+  %93 = getelementptr inbounds nuw i8, ptr %.0420, i64 %indvars.iv775
   store i8 %92, ptr %93, align 1
   br label %94
 
@@ -264,7 +264,7 @@ define i32 @lib_vscanf(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2,
 
 97:                                               ; preds = %.critedge
   %98 = and i64 %indvars.iv775, 4294967295
-  %99 = getelementptr inbounds i8, ptr %.0420, i64 %98
+  %99 = getelementptr inbounds nuw i8, ptr %.0420, i64 %98
   store i8 0, ptr %99, align 1
   %100 = add nsw i32 %.0401718, 1
   br label %101
@@ -324,7 +324,7 @@ define i32 @lib_vscanf(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2,
 
 124:                                              ; preds = %.lr.ph650
   %125 = trunc i32 %.7578648 to i8
-  %126 = getelementptr inbounds i8, ptr %.1421, i64 %indvars.iv
+  %126 = getelementptr inbounds nuw i8, ptr %.1421, i64 %indvars.iv
   store i8 %125, ptr %126, align 1
   br label %127
 
@@ -579,7 +579,7 @@ define i32 @lib_vscanf(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2,
   %225 = trunc i32 %.9580692 to i8
   %226 = add nuw nsw i32 %.2380693, 1
   %227 = zext nneg i32 %.2380693 to i64
-  %228 = getelementptr inbounds [128 x i8], ptr %5, i64 0, i64 %227
+  %228 = getelementptr inbounds nuw [128 x i8], ptr %5, i64 0, i64 %227
   store i8 %225, ptr %228, align 1
   %229 = load ptr, ptr %10, align 8
   %230 = call i32 %229(ptr noundef nonnull %0) #7
@@ -694,7 +694,7 @@ switch.early.test:                                ; preds = %239
   %258 = trunc i32 %.14585669 to i8
   %259 = add nuw nsw i32 %.7385670, 1
   %260 = zext nneg i32 %.7385670 to i64
-  %261 = getelementptr inbounds [128 x i8], ptr %5, i64 0, i64 %260
+  %261 = getelementptr inbounds nuw [128 x i8], ptr %5, i64 0, i64 %260
   store i8 %258, ptr %261, align 1
   %262 = load ptr, ptr %10, align 8
   %263 = call i32 %262(ptr noundef nonnull %0) #7
@@ -729,7 +729,7 @@ switch.early.test:                                ; preds = %239
   %270 = trunc i32 %.16663 to i8
   %271 = add nuw nsw i32 %.9387664, 1
   %272 = zext nneg i32 %.9387664 to i64
-  %273 = getelementptr inbounds [128 x i8], ptr %5, i64 0, i64 %272
+  %273 = getelementptr inbounds nuw [128 x i8], ptr %5, i64 0, i64 %272
   store i8 %270, ptr %273, align 1
   %274 = load ptr, ptr %10, align 8
   %275 = call i32 %274(ptr noundef nonnull %0) #7
@@ -1058,7 +1058,7 @@ switch.early.test:                                ; preds = %239
   %392 = trunc i32 %.21704 to i8
   %393 = add nuw nsw i32 %.13705, 1
   %394 = zext nneg i32 %.13705 to i64
-  %395 = getelementptr inbounds [128 x i8], ptr %5, i64 0, i64 %394
+  %395 = getelementptr inbounds nuw [128 x i8], ptr %5, i64 0, i64 %394
   store i8 %392, ptr %395, align 1
   %396 = load ptr, ptr %10, align 8
   %397 = call i32 %396(ptr noundef nonnull %0) #7
@@ -1307,7 +1307,7 @@ switch.early.test:                                ; preds = %239
   %.1351 = phi ptr [ %.0350729, %425 ], [ %.0350729, %501 ], [ %.3353, %498 ], [ %.0350729, %423 ], [ %.0350729, %._crit_edge702 ], [ %.2352, %340 ], [ %.2352, %._crit_edge661 ], [ %.0350729, %134 ], [ %.0350729, %119 ], [ %.0350729, %101 ], [ %.0350729, %._crit_edge656 ]
   %.1324 = phi double [ %.0323731, %425 ], [ %.0323731, %501 ], [ %.0323731, %498 ], [ %.2325, %423 ], [ %.0323731, %._crit_edge702 ], [ %.0323731, %340 ], [ %.0323731, %._crit_edge661 ], [ %.0323731, %134 ], [ %.0323731, %119 ], [ %.0323731, %101 ], [ %.0323731, %._crit_edge656 ]
   %.1 = phi float [ %.0322733, %425 ], [ %.0322733, %501 ], [ %.0322733, %498 ], [ %.2, %423 ], [ %.0322733, %._crit_edge702 ], [ %.0322733, %340 ], [ %.0322733, %._crit_edge661 ], [ %.0322733, %134 ], [ %.0322733, %119 ], [ %.0322733, %101 ], [ %.0322733, %._crit_edge656 ]
-  %505 = getelementptr inbounds i8, ptr %.1393.pn621, i64 2
+  %505 = getelementptr inbounds nuw i8, ptr %.1393.pn621, i64 2
   br label %511
 
 506:                                              ; preds = %29

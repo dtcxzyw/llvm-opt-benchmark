@@ -91,15 +91,15 @@ define dso_local void @acpi_table_print_madt_entry(ptr noundef readonly %0) loca
   ]
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 2
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 3
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i32
-  %12 = getelementptr inbounds i8, ptr %0, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %13 = load i32, ptr %12, align 1
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i16, ptr %14, align 1
   %16 = zext i16 %15 to i32
   %17 = and i32 %16, 3
@@ -123,7 +123,7 @@ define dso_local void @acpi_table_print_madt_entry(ptr noundef readonly %0) loca
   br label %122
 
 33:                                               ; preds = %3
-  %34 = getelementptr inbounds i8, ptr %0, i64 2
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %35 = load i16, ptr %34, align 1
   %36 = zext i16 %35 to i32
   %37 = and i32 %36, 3
@@ -135,16 +135,16 @@ define dso_local void @acpi_table_print_madt_entry(ptr noundef readonly %0) loca
   %43 = zext nneg i32 %42 to i64
   %44 = getelementptr [4 x ptr], ptr @mps_inti_flags_trigger, i64 0, i64 %43
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %47 = load i32, ptr %46, align 1
   %48 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, ptr noundef %40, ptr noundef %45, i32 noundef %47) #13
   br label %122
 
 49:                                               ; preds = %3
-  %50 = getelementptr inbounds i8, ptr %0, i64 2
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %51 = load i8, ptr %50, align 1
   %52 = zext i8 %51 to i32
-  %53 = getelementptr inbounds i8, ptr %0, i64 3
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %54 = load i16, ptr %53, align 1
   %55 = zext i16 %54 to i32
   %56 = and i32 %55, 3
@@ -156,19 +156,19 @@ define dso_local void @acpi_table_print_madt_entry(ptr noundef readonly %0) loca
   %62 = zext nneg i32 %61 to i64
   %63 = getelementptr [4 x ptr], ptr @mps_inti_flags_trigger, i64 0, i64 %62
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 5
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %66 = load i8, ptr %65, align 1
   %67 = zext i8 %66 to i32
   %68 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, i32 noundef %52, ptr noundef %59, ptr noundef %64, i32 noundef %67) #13
   br label %122
 
 69:                                               ; preds = %3
-  %70 = getelementptr inbounds i8, ptr %0, i64 2
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %71 = load i16, ptr %70, align 1
   %72 = and i16 %71, 3
   %73 = lshr i16 %71, 2
   %74 = and i16 %73, 3
-  %75 = getelementptr inbounds i8, ptr %0, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %76 = load i32, ptr %75, align 1
   %77 = zext nneg i16 %72 to i64
   %78 = getelementptr [4 x ptr], ptr @mps_inti_flags_polarity, i64 0, i64 %77
@@ -176,20 +176,20 @@ define dso_local void @acpi_table_print_madt_entry(ptr noundef readonly %0) loca
   %80 = zext nneg i16 %74 to i64
   %81 = getelementptr [4 x ptr], ptr @mps_inti_flags_trigger, i64 0, i64 %80
   %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %0, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %84 = load i8, ptr %83, align 1
   %85 = zext i8 %84 to i32
   %86 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4, i32 noundef %76, ptr noundef %79, ptr noundef %82, i32 noundef %85) #13
   br label %122
 
 87:                                               ; preds = %3
-  %88 = getelementptr inbounds i8, ptr %0, i64 4
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %89 = load i64, ptr %88, align 1
   %90 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.5, i64 noundef %89) #13
   br label %122
 
 91:                                               ; preds = %3
-  %92 = getelementptr inbounds i8, ptr %0, i64 2
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %93 = load i16, ptr %92, align 1
   %94 = zext i16 %93 to i32
   %95 = and i32 %94, 3
@@ -201,19 +201,19 @@ define dso_local void @acpi_table_print_madt_entry(ptr noundef readonly %0) loca
   %101 = zext nneg i32 %100 to i64
   %102 = getelementptr [4 x ptr], ptr @mps_inti_flags_trigger, i64 0, i64 %101
   %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %0, i64 4
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %105 = load i8, ptr %104, align 1
   %106 = zext i8 %105 to i32
-  %107 = getelementptr inbounds i8, ptr %0, i64 5
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %108 = load i8, ptr %107, align 1
   %109 = zext i8 %108 to i32
-  %110 = getelementptr inbounds i8, ptr %0, i64 6
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %111 = load i8, ptr %110, align 1
   %112 = zext i8 %111 to i32
-  %113 = getelementptr inbounds i8, ptr %0, i64 7
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 7
   %114 = load i8, ptr %113, align 1
   %115 = zext i8 %114 to i32
-  %116 = getelementptr inbounds i8, ptr %0, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %117 = load i32, ptr %116, align 1
   %118 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.6, ptr noundef %98, ptr noundef %103, i32 noundef %106, i32 noundef %109, i32 noundef %112, i32 noundef %115, i32 noundef %117) #13
   br label %122
@@ -291,9 +291,9 @@ define dso_local i32 @acpi_table_parse_cedt(i32 noundef %0, ptr noundef %1, ptr 
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !5
   store i32 %0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %2, ptr %6, align 8
   %7 = call i32 @acpi_table_parse_entries_array(ptr noundef nonnull @.str.9, i64 noundef 36, ptr noundef nonnull %4, i32 noundef 1, i32 noundef 0) #15
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #14
@@ -306,10 +306,10 @@ define dso_local i32 @acpi_table_parse_entries(ptr noundef %0, i64 noundef %1, i
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 40, i1 false), !annotation !5
   store i32 %2, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %3, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(20) %8, i8 0, i64 20, i1 false)
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %8, i8 0, i64 20, i1 false)
   %9 = call i32 @acpi_table_parse_entries_array(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %6, i32 noundef 1, i32 noundef %4) #15
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #14
   ret i32 %9
@@ -321,10 +321,10 @@ define dso_local i32 @acpi_table_parse_madt(i32 noundef %0, ptr noundef %1, i32 
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !5
   store i32 %0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
   %7 = call i32 @acpi_table_parse_entries_array(ptr noundef nonnull @.str.8, i64 noundef 44, ptr noundef nonnull %4, i32 noundef 1, i32 noundef %2) #15
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #14
   ret i32 %7
@@ -377,48 +377,48 @@ define dso_local void @acpi_table_upgrade() local_unnamed_addr #3 section ".init
   store i64 0, ptr %1, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #14
   store i8 107, ptr %2, align 16
-  %5 = getelementptr inbounds i8, ptr %2, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 1
   store i8 101, ptr %5, align 1
-  %6 = getelementptr inbounds i8, ptr %2, i64 2
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store i8 114, ptr %6, align 2
-  %7 = getelementptr inbounds i8, ptr %2, i64 3
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 3
   store i8 110, ptr %7, align 1
-  %8 = getelementptr inbounds i8, ptr %2, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i8 101, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %2, i64 5
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 5
   store i8 108, ptr %9, align 1
-  %10 = getelementptr inbounds i8, ptr %2, i64 6
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 6
   store i8 47, ptr %10, align 2
-  %11 = getelementptr inbounds i8, ptr %2, i64 7
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 7
   store i8 102, ptr %11, align 1
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i8 105, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 9
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 9
   store i8 114, ptr %13, align 1
-  %14 = getelementptr inbounds i8, ptr %2, i64 10
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 10
   store i8 109, ptr %14, align 2
-  %15 = getelementptr inbounds i8, ptr %2, i64 11
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 11
   store i8 119, ptr %15, align 1
-  %16 = getelementptr inbounds i8, ptr %2, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i8 97, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %2, i64 13
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 13
   store i8 114, ptr %17, align 1
-  %18 = getelementptr inbounds i8, ptr %2, i64 14
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 14
   store i8 101, ptr %18, align 2
-  %19 = getelementptr inbounds i8, ptr %2, i64 15
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 15
   store i8 47, ptr %19, align 1
-  %20 = getelementptr inbounds i8, ptr %2, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i8 97, ptr %20, align 16
-  %21 = getelementptr inbounds i8, ptr %2, i64 17
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 17
   store i8 99, ptr %21, align 1
-  %22 = getelementptr inbounds i8, ptr %2, i64 18
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 18
   store i8 112, ptr %22, align 2
-  %23 = getelementptr inbounds i8, ptr %2, i64 19
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 19
   store i8 105, ptr %23, align 1
-  %24 = getelementptr inbounds i8, ptr %2, i64 20
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i8 47, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %2, i64 21
-  call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(11) %25, i8 0, i64 11, i1 false)
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %25, i8 0, i64 11, i1 false)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #14
   %26 = load i64, ptr @initrd_start, align 8
   %27 = load i64, ptr @initrd_end, align 8
@@ -431,8 +431,8 @@ define dso_local void @acpi_table_upgrade() local_unnamed_addr #3 section ".init
 32:                                               ; preds = %0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false), !annotation !5
   %33 = inttoptr i64 %26 to ptr
-  %34 = getelementptr inbounds i8, ptr %3, i64 8
-  %35 = getelementptr inbounds i8, ptr %3, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %36
 
 36:                                               ; preds = %92, %32
@@ -457,7 +457,7 @@ define dso_local void @acpi_table_upgrade() local_unnamed_addr #3 section ".init
   br i1 %48, label %49, label %.preheader11
 
 49:                                               ; preds = %43
-  %50 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.10, ptr noundef nonnull %2, ptr noundef %35) #13
+  %50 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.10, ptr noundef nonnull %2, ptr noundef nonnull %35) #13
   br label %92
 
 .preheader11:                                     ; preds = %43, %55
@@ -478,18 +478,18 @@ define dso_local void @acpi_table_upgrade() local_unnamed_addr #3 section ".init
   br i1 %60, label %.critedge, label %62
 
 .critedge:                                        ; preds = %55, %58
-  %61 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.11, ptr noundef nonnull %2, ptr noundef %35) #13
+  %61 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.11, ptr noundef nonnull %2, ptr noundef nonnull %35) #13
   br label %92
 
 62:                                               ; preds = %58
-  %63 = getelementptr inbounds i8, ptr %41, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %41, i64 4
   %64 = load i32, ptr %63, align 1
   %65 = zext i32 %64 to i64
   %66 = icmp eq i64 %47, %65
   br i1 %66, label %69, label %67
 
 67:                                               ; preds = %62
-  %68 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.12, ptr noundef nonnull %2, ptr noundef %35) #13
+  %68 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.12, ptr noundef nonnull %2, ptr noundef nonnull %35) #13
   br label %92
 
 69:                                               ; preds = %62
@@ -511,11 +511,11 @@ define dso_local void @acpi_table_upgrade() local_unnamed_addr #3 section ".init
   br i1 %79, label %.thread, label %80
 
 80:                                               ; preds = %78
-  %81 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.13, ptr noundef nonnull %2, ptr noundef %35) #13
+  %81 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.13, ptr noundef nonnull %2, ptr noundef nonnull %35) #13
   br label %92
 
 .thread:                                          ; preds = %69, %78
-  %82 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.14, ptr noundef nonnull %41, ptr noundef nonnull %2, ptr noundef %35, i32 noundef %64) #13
+  %82 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.14, ptr noundef nonnull %41, ptr noundef nonnull %2, ptr noundef nonnull %35, i32 noundef %64) #13
   %83 = load i32, ptr %63, align 1
   %84 = load i32, ptr @all_tables_size, align 4
   %85 = add i32 %84, %83
@@ -525,7 +525,7 @@ define dso_local void @acpi_table_upgrade() local_unnamed_addr #3 section ".init
   %88 = getelementptr [64 x %struct.cpio_data], ptr @acpi_initrd_files, i64 0, i64 %87
   store ptr %86, ptr %88, align 8
   %89 = load i64, ptr %34, align 8
-  %90 = getelementptr inbounds i8, ptr %88, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %88, i64 8
   store i64 %89, ptr %90, align 8
   %91 = add i32 %40, 1
   br label %92
@@ -581,7 +581,7 @@ define dso_local void @acpi_table_upgrade() local_unnamed_addr #3 section ".init
   %119 = phi i64 [ 0, %116 ], [ %147, %.loopexit ]
   %120 = phi i64 [ 0, %116 ], [ %126, %.loopexit ]
   %121 = getelementptr [64 x %struct.cpio_data], ptr @acpi_initrd_files, i64 0, i64 %119
-  %122 = getelementptr inbounds i8, ptr %121, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %123 = load i64, ptr %122, align 8
   %124 = shl i64 %120, 32
   %125 = ashr exact i64 %124, 32
@@ -662,9 +662,9 @@ define dso_local noundef i32 @acpi_os_physical_table_override(ptr nocapture noun
   br i1 %8, label %.loopexit, label %9
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 10
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %13
 
 13:                                               ; preds = %51, %9
@@ -674,7 +674,7 @@ define dso_local noundef i32 @acpi_os_physical_table_override(ptr nocapture noun
   %17 = load i64, ptr @acpi_tables_addr, align 8
   %18 = add i64 %17, %14
   %19 = tail call ptr @acpi_os_map_memory(i64 noundef %18, i64 noundef 36) #14
-  %20 = getelementptr inbounds i8, ptr %19, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i32, ptr %20, align 1
   %22 = add i32 %21, %15
   %23 = load i32, ptr @all_tables_size, align 4
@@ -694,14 +694,14 @@ define dso_local noundef i32 @acpi_os_physical_table_override(ptr nocapture noun
   br i1 %28, label %29, label %51
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %19, i64 10
-  %31 = tail call i32 @bcmp(ptr noundef dereferenceable(6) %30, ptr noundef dereferenceable(6) %10, i64 6)
+  %30 = getelementptr inbounds nuw i8, ptr %19, i64 10
+  %31 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %30, ptr noundef nonnull dereferenceable(6) %10, i64 6)
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %33, label %51
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %19, i64 16
-  %35 = tail call i32 @bcmp(ptr noundef dereferenceable(8) %34, ptr noundef dereferenceable(8) %11, i64 8)
+  %34 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %35 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %34, ptr noundef nonnull dereferenceable(8) %11, i64 8)
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %51
 
@@ -715,7 +715,7 @@ define dso_local noundef i32 @acpi_os_physical_table_override(ptr nocapture noun
 
 42:                                               ; preds = %37
   %43 = load i32, ptr %12, align 1
-  %44 = getelementptr inbounds i8, ptr %19, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %45 = load i32, ptr %44, align 1
   %46 = icmp ult i32 %43, %45
   br i1 %46, label %47, label %51
@@ -725,7 +725,7 @@ define dso_local noundef i32 @acpi_os_physical_table_override(ptr nocapture noun
   %48 = load i64, ptr @acpi_tables_addr, align 8
   %49 = add i64 %48, %14
   store i64 %49, ptr %1, align 8
-  %50 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.26, ptr noundef %19, ptr noundef %30, ptr noundef %34) #13
+  %50 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.26, ptr noundef %19, ptr noundef nonnull %30, ptr noundef nonnull %34) #13
   tail call void @acpi_os_unmap_memory(ptr noundef %19, i64 noundef 36) #14
   br label %.loopexit
 
@@ -783,7 +783,7 @@ define dso_local void @acpi_reserve_initial_tables() local_unnamed_addr #3 secti
   %2 = phi i64 [ 0, %0 ], [ %17, %10 ]
   %3 = getelementptr [128 x %struct.acpi_table_desc], ptr @initial_tables, i64 0, i64 %2
   %4 = load i64, ptr %3, align 16
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load i32, ptr %5, align 16
   %7 = icmp ne i64 %4, 0
   %8 = icmp ne i32 %6, 0
@@ -792,10 +792,10 @@ define dso_local void @acpi_reserve_initial_tables() local_unnamed_addr #3 secti
 
 10:                                               ; preds = %1
   %11 = zext i32 %6 to i64
-  %12 = getelementptr inbounds i8, ptr %3, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %13 = add i64 %4, -1
   %14 = add i64 %13, %11
-  %15 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.19, ptr noundef %12, i64 noundef %4, i64 noundef %14) #13
+  %15 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.19, ptr noundef nonnull %12, i64 noundef %4, i64 noundef %14) #13
   %16 = tail call i32 @memblock_reserve(i64 noundef %4, i64 noundef %11) #14
   %17 = add nuw nsw i64 %2, 1
   %18 = icmp eq i64 %17, 128
@@ -831,7 +831,7 @@ define internal fastcc void @acpi_table_initrd_scan() unnamed_addr #3 section ".
   %9 = load i64, ptr @acpi_tables_addr, align 8
   %10 = add i64 %9, %6
   %11 = tail call ptr @acpi_os_map_memory(i64 noundef %10, i64 noundef 36) #14
-  %12 = getelementptr inbounds i8, ptr %11, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = load i32, ptr %12, align 1
   %14 = add i32 %13, %7
   %15 = load i32, ptr @all_tables_size, align 4
@@ -869,9 +869,9 @@ define internal fastcc void @acpi_table_initrd_scan() unnamed_addr #3 section ".
   br label %34
 
 27:                                               ; preds = %21
-  %28 = getelementptr inbounds i8, ptr %11, i64 10
-  %29 = getelementptr inbounds i8, ptr %11, i64 16
-  %30 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.30, ptr noundef %11, ptr noundef %28, ptr noundef %29) #13
+  %28 = getelementptr inbounds nuw i8, ptr %11, i64 10
+  %29 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %30 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.30, ptr noundef %11, ptr noundef nonnull %28, ptr noundef nonnull %29) #13
   tail call void @acpi_os_unmap_memory(ptr noundef %11, i64 noundef 36) #14
   %31 = load i64, ptr @acpi_tables_addr, align 8
   %32 = add i64 %31, %6

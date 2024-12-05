@@ -15,10 +15,10 @@ define dso_local range(i64 -46, 1) i64 @FSE_buildDTable_wksp(ptr nocapture nound
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc range(i64 -46, 1) i64 @FSE_buildDTable_internal(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef %4, i64 noundef %5) unnamed_addr #0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = zext i32 %2 to i64
-  %9 = getelementptr inbounds i16, ptr %4, i64 %8
-  %10 = getelementptr inbounds i8, ptr %9, i64 2
+  %9 = getelementptr inbounds nuw i16, ptr %4, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 2
   %11 = add i32 %2, 1
   %12 = shl nuw i32 1, %3
   %13 = add i32 %12, -1
@@ -47,7 +47,7 @@ define internal fastcc range(i64 -46, 1) i64 @FSE_buildDTable_internal(ptr nocap
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
   %.0112143 = phi i32 [ %13, %.lr.ph ], [ %.1, %37 ]
   %.sroa.2.0142 = phi i16 [ 1, %.lr.ph ], [ %.sroa.2.2, %37 ]
-  %27 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
   %28 = load i16, ptr %27, align 2
   %29 = icmp eq i16 %28, -1
   br i1 %29, label %30, label %35
@@ -58,7 +58,7 @@ define internal fastcc range(i64 -46, 1) i64 @FSE_buildDTable_internal(ptr nocap
   %33 = zext i32 %.0112143 to i64
   %.idx136 = shl nuw nsw i64 %33, 2
   %.offs137 = or disjoint i64 %.idx136, 2
-  %34 = getelementptr inbounds i8, ptr %7, i64 %.offs137
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 %.offs137
   store i8 %31, ptr %34, align 2
   br label %37
 
@@ -72,7 +72,7 @@ define internal fastcc range(i64 -46, 1) i64 @FSE_buildDTable_internal(ptr nocap
   %.sink = phi i16 [ 1, %30 ], [ %28, %35 ]
   %.sroa.2.2 = phi i16 [ %.sroa.2.0142, %30 ], [ %spec.select, %35 ]
   %.1 = phi i32 [ %32, %30 ], [ %.0112143, %35 ]
-  %38 = getelementptr inbounds i16, ptr %4, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv
   store i16 %.sink, ptr %38, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %14
@@ -80,7 +80,7 @@ define internal fastcc range(i64 -46, 1) i64 @FSE_buildDTable_internal(ptr nocap
 
 ._crit_edge:                                      ; preds = %37
   store i16 %24, ptr %0, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 2
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 %.sroa.2.2, ptr %.sroa.2.0..sroa_idx, align 2
   %39 = icmp eq i32 %.1, %13
   %40 = lshr i32 %12, 1
@@ -105,7 +105,7 @@ define internal fastcc range(i64 -46, 1) i64 @FSE_buildDTable_internal(ptr nocap
   %indvars.iv175 = phi i64 [ 0, %.lr.ph162.preheader ], [ %indvars.iv.next176, %._crit_edge157 ]
   %.0119160 = phi i64 [ 0, %.lr.ph162.preheader ], [ %56, %._crit_edge157 ]
   %.0121159 = phi i64 [ 0, %.lr.ph162.preheader ], [ %57, %._crit_edge157 ]
-  %48 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv175
+  %48 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv175
   %49 = load i16, ptr %48, align 2
   %50 = getelementptr inbounds i8, ptr %10, i64 %.0119160
   store i64 %.0121159, ptr %50, align 1
@@ -118,7 +118,7 @@ define internal fastcc range(i64 -46, 1) i64 @FSE_buildDTable_internal(ptr nocap
 
 .lr.ph156:                                        ; preds = %.lr.ph156.preheader, %.lr.ph156
   %indvars.iv172 = phi i64 [ 8, %.lr.ph156.preheader ], [ %indvars.iv.next173, %.lr.ph156 ]
-  %53 = getelementptr inbounds i8, ptr %50, i64 %indvars.iv172
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 %indvars.iv172
   store i64 %.0121159, ptr %53, align 1
   %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 8
   %54 = icmp samesign ult i64 %indvars.iv.next173, %52
@@ -136,20 +136,20 @@ define internal fastcc range(i64 -46, 1) i64 @FSE_buildDTable_internal(ptr nocap
   %.0122165 = phi i64 [ 0, %.preheader138 ], [ %70, %.preheader ]
   %.0123164 = phi i64 [ 0, %.preheader138 ], [ %69, %.preheader ]
   %58 = and i64 %.0123164, %41
-  %59 = getelementptr inbounds i8, ptr %10, i64 %.0122165
+  %59 = getelementptr inbounds nuw i8, ptr %10, i64 %.0122165
   %60 = load i8, ptr %59, align 1
   %.idx133 = shl nuw nsw i64 %58, 2
   %.offs134 = or disjoint i64 %.idx133, 2
-  %61 = getelementptr inbounds i8, ptr %7, i64 %.offs134
+  %61 = getelementptr inbounds nuw i8, ptr %7, i64 %.offs134
   store i8 %60, ptr %61, align 2
   %62 = add nuw nsw i64 %.0123164, %45
   %63 = and i64 %62, %41
   %64 = or disjoint i64 %.0122165, 1
-  %65 = getelementptr inbounds i8, ptr %10, i64 %64
+  %65 = getelementptr inbounds nuw i8, ptr %10, i64 %64
   %66 = load i8, ptr %65, align 1
   %.idx133.c = shl nuw nsw i64 %63, 2
   %.offs134.c = or disjoint i64 %.idx133.c, 2
-  %67 = getelementptr inbounds i8, ptr %7, i64 %.offs134.c
+  %67 = getelementptr inbounds nuw i8, ptr %7, i64 %.offs134.c
   store i8 %66, ptr %67, align 2
   %68 = add nuw nsw i64 %.0123164, %47
   %69 = and i64 %68, %41
@@ -168,7 +168,7 @@ define internal fastcc range(i64 -46, 1) i64 @FSE_buildDTable_internal(ptr nocap
 .preheader140:                                    ; preds = %.preheader140.lr.ph, %._crit_edge148
   %indvars.iv167 = phi i64 [ 0, %.preheader140.lr.ph ], [ %indvars.iv.next168, %._crit_edge148 ]
   %.0115151 = phi i32 [ 0, %.preheader140.lr.ph ], [ %.1116.lcssa, %._crit_edge148 ]
-  %75 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv167
+  %75 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv167
   %76 = load i16, ptr %75, align 2
   %77 = icmp sgt i16 %76, 0
   br i1 %77, label %.lr.ph147, label %._crit_edge148
@@ -183,7 +183,7 @@ define internal fastcc range(i64 -46, 1) i64 @FSE_buildDTable_internal(ptr nocap
   %80 = zext i32 %.1116145 to i64
   %.idx = shl nuw nsw i64 %80, 2
   %.offs = or disjoint i64 %.idx, 2
-  %81 = getelementptr inbounds i8, ptr %7, i64 %.offs
+  %81 = getelementptr inbounds nuw i8, ptr %7, i64 %.offs
   store i8 %78, ptr %81, align 2
   br label %82
 
@@ -221,11 +221,11 @@ define internal fastcc range(i64 -46, 1) i64 @FSE_buildDTable_internal(ptr nocap
 
 89:                                               ; preds = %.loopexit139, %89
   %indvars.iv181 = phi i64 [ 0, %.loopexit139 ], [ %indvars.iv.next182, %89 ]
-  %90 = getelementptr inbounds %struct.FSE_decode_t, ptr %7, i64 %indvars.iv181
-  %91 = getelementptr inbounds i8, ptr %90, i64 2
+  %90 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %7, i64 %indvars.iv181
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 2
   %92 = load i8, ptr %91, align 2
   %93 = zext i8 %92 to i64
-  %94 = getelementptr inbounds i16, ptr %4, i64 %93
+  %94 = getelementptr inbounds nuw i16, ptr %4, i64 %93
   %95 = load i16, ptr %94, align 2
   %96 = add i16 %95, 1
   store i16 %96, ptr %94, align 2
@@ -234,7 +234,7 @@ define internal fastcc range(i64 -46, 1) i64 @FSE_buildDTable_internal(ptr nocap
   %99 = xor i32 %98, 31
   %100 = sub nsw i32 %3, %99
   %101 = trunc nsw i32 %100 to i8
-  %102 = getelementptr inbounds i8, ptr %90, i64 3
+  %102 = getelementptr inbounds nuw i8, ptr %90, i64 3
   store i8 %101, ptr %102, align 1
   %103 = and i32 %100, 255
   %104 = shl i32 %97, %103
@@ -305,19 +305,19 @@ define dso_local i64 @FSE_decompress_wksp_bmi2(ptr noundef %0, i64 noundef %1, p
 
 43:                                               ; preds = %24
   %44 = add nuw nsw i32 %27, 1
-  %45 = getelementptr inbounds i8, ptr %5, i64 516
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 516
   %46 = sext i32 %44 to i64
   %47 = shl nsw i64 %46, 2
   %48 = getelementptr inbounds i8, ptr %45, i64 %47
   %.neg439.i = add i64 %6, -516
   %49 = sub i64 %.neg439.i, %47
-  %50 = getelementptr inbounds i8, ptr %5, i64 512
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 512
   %51 = call fastcc i64 @FSE_buildDTable_internal(ptr noundef nonnull %50, ptr noundef %5, i32 noundef %30, i32 noundef %22, ptr noundef nonnull %48, i64 noundef %49)
   %52 = icmp ult i64 %51, -119
   br i1 %52, label %53, label %FSE_decompress_wksp_body_default.exit
 
 53:                                               ; preds = %43
-  %54 = getelementptr inbounds i8, ptr %5, i64 514
+  %54 = getelementptr inbounds nuw i8, ptr %5, i64 514
   %55 = load i16, ptr %54, align 2
   %.not294.i = icmp eq i16 %55, 0
   %56 = getelementptr inbounds i8, ptr %0, i64 %1
@@ -332,20 +332,20 @@ define dso_local i64 @FSE_decompress_wksp_bmi2(ptr noundef %0, i64 noundef %1, p
 61:                                               ; preds = %58
   call fastcc void @FSE_initDState(ptr noundef %13, ptr noundef %12, ptr noundef nonnull %50)
   call fastcc void @FSE_initDState(ptr noundef %14, ptr noundef %12, ptr noundef nonnull %50)
-  %62 = getelementptr inbounds i8, ptr %12, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.promoted.i = load i32, ptr %62, align 8
   %.promoted463.i = load i64, ptr %12, align 8
   %.promoted466.i = load i64, ptr %13, align 8
   %.promoted468.i = load i64, ptr %14, align 8
-  %63 = getelementptr inbounds i8, ptr %12, i64 16
-  %64 = getelementptr inbounds i8, ptr %12, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %12, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %67 = load ptr, ptr %66, align 8
   %68 = ptrtoint ptr %67 to i64
-  %69 = getelementptr inbounds i8, ptr %13, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %14, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %72 = load ptr, ptr %71, align 8
   %.promoted470.i = load ptr, ptr %63, align 8
   %73 = icmp ugt i32 %.promoted.i, 64
@@ -415,9 +415,9 @@ BIT_reloadDStreamFast.exit.i:                     ; preds = %.lr.ph
 98:                                               ; preds = %93
   %99 = getelementptr inbounds %struct.FSE_decode_t, ptr %70, i64 %75
   %.sroa.0.0.copyload.i.i = load i16, ptr %99, align 2
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %99, i64 2
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %99, i64 2
   %.sroa.2.0.copyload.i.i = load i8, ptr %.sroa.2.0..sroa_idx.i.i, align 2
-  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %99, i64 3
+  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %99, i64 3
   %.sroa.3.0.copyload.i.i = load i8, ptr %.sroa.3.0..sroa_idx.i.i, align 1
   %100 = zext i8 %.sroa.3.0.copyload.i.i to i32
   %101 = and i32 %.lcssa461.promoted.i, 63
@@ -432,9 +432,9 @@ BIT_reloadDStreamFast.exit.i:                     ; preds = %.lr.ph
   store i8 %.sroa.2.0.copyload.i.i, ptr %.0266.i35, align 1
   %110 = getelementptr inbounds %struct.FSE_decode_t, ptr %72, i64 %76
   %.sroa.0.0.copyload.i328.i = load i16, ptr %110, align 2
-  %.sroa.2.0..sroa_idx.i329.i = getelementptr inbounds i8, ptr %110, i64 2
+  %.sroa.2.0..sroa_idx.i329.i = getelementptr inbounds nuw i8, ptr %110, i64 2
   %.sroa.2.0.copyload.i330.i = load i8, ptr %.sroa.2.0..sroa_idx.i329.i, align 2
-  %.sroa.3.0..sroa_idx.i331.i = getelementptr inbounds i8, ptr %110, i64 3
+  %.sroa.3.0..sroa_idx.i331.i = getelementptr inbounds nuw i8, ptr %110, i64 3
   %.sroa.3.0.copyload.i332.i = load i8, ptr %.sroa.3.0..sroa_idx.i331.i, align 1
   %111 = zext i8 %.sroa.3.0.copyload.i332.i to i32
   %112 = and i32 %108, 63
@@ -446,14 +446,14 @@ BIT_reloadDStreamFast.exit.i:                     ; preds = %.lr.ph
   %118 = lshr i64 %114, %117
   %119 = add i32 %108, %111
   %120 = zext i16 %.sroa.0.0.copyload.i328.i to i64
-  %121 = getelementptr inbounds i8, ptr %.0266.i35, i64 1
+  %121 = getelementptr inbounds nuw i8, ptr %.0266.i35, i64 1
   store i8 %.sroa.2.0.copyload.i330.i, ptr %121, align 1
   %122 = getelementptr %struct.FSE_decode_t, ptr %70, i64 %107
   %123 = getelementptr %struct.FSE_decode_t, ptr %122, i64 %109
   %.sroa.0.0.copyload.i335.i = load i16, ptr %123, align 2
-  %.sroa.2.0..sroa_idx.i336.i = getelementptr inbounds i8, ptr %123, i64 2
+  %.sroa.2.0..sroa_idx.i336.i = getelementptr inbounds nuw i8, ptr %123, i64 2
   %.sroa.2.0.copyload.i337.i = load i8, ptr %.sroa.2.0..sroa_idx.i336.i, align 2
-  %.sroa.3.0..sroa_idx.i338.i = getelementptr inbounds i8, ptr %123, i64 3
+  %.sroa.3.0..sroa_idx.i338.i = getelementptr inbounds nuw i8, ptr %123, i64 3
   %.sroa.3.0.copyload.i339.i = load i8, ptr %.sroa.3.0..sroa_idx.i338.i, align 1
   %124 = zext i8 %.sroa.3.0.copyload.i339.i to i32
   %125 = and i32 %119, 63
@@ -466,14 +466,14 @@ BIT_reloadDStreamFast.exit.i:                     ; preds = %.lr.ph
   %132 = add i32 %119, %124
   %133 = zext i16 %.sroa.0.0.copyload.i335.i to i64
   %134 = add i64 %131, %133
-  %135 = getelementptr inbounds i8, ptr %.0266.i35, i64 2
+  %135 = getelementptr inbounds nuw i8, ptr %.0266.i35, i64 2
   store i8 %.sroa.2.0.copyload.i337.i, ptr %135, align 1
   %136 = getelementptr %struct.FSE_decode_t, ptr %72, i64 %118
   %137 = getelementptr %struct.FSE_decode_t, ptr %136, i64 %120
   %.sroa.0.0.copyload.i342.i = load i16, ptr %137, align 2
-  %.sroa.2.0..sroa_idx.i343.i = getelementptr inbounds i8, ptr %137, i64 2
+  %.sroa.2.0..sroa_idx.i343.i = getelementptr inbounds nuw i8, ptr %137, i64 2
   %.sroa.2.0.copyload.i344.i = load i8, ptr %.sroa.2.0..sroa_idx.i343.i, align 2
-  %.sroa.3.0..sroa_idx.i345.i = getelementptr inbounds i8, ptr %137, i64 3
+  %.sroa.3.0..sroa_idx.i345.i = getelementptr inbounds nuw i8, ptr %137, i64 3
   %.sroa.3.0.copyload.i346.i = load i8, ptr %.sroa.3.0..sroa_idx.i345.i, align 1
   %138 = zext i8 %.sroa.3.0.copyload.i346.i to i32
   %139 = and i32 %132, 63
@@ -486,9 +486,9 @@ BIT_reloadDStreamFast.exit.i:                     ; preds = %.lr.ph
   %146 = add i32 %132, %138
   %147 = zext i16 %.sroa.0.0.copyload.i342.i to i64
   %148 = add i64 %145, %147
-  %149 = getelementptr inbounds i8, ptr %.0266.i35, i64 3
+  %149 = getelementptr inbounds nuw i8, ptr %.0266.i35, i64 3
   store i8 %.sroa.2.0.copyload.i344.i, ptr %149, align 1
-  %150 = getelementptr inbounds i8, ptr %.0266.i35, i64 4
+  %150 = getelementptr inbounds nuw i8, ptr %.0266.i35, i64 4
   %151 = icmp ugt i32 %146, 64
   br i1 %151, label %.preheader440.i, label %.lr.ph, !llvm.loop !14
 
@@ -508,9 +508,9 @@ BIT_reloadDStreamFast.exit.i:                     ; preds = %.lr.ph
   %158 = phi i64 [ %211, %.backedge442.i ], [ %.lcssa33, %.preheader440.i ]
   %159 = getelementptr inbounds %struct.FSE_decode_t, ptr %70, i64 %157
   %.sroa.0.0.copyload.i349.i = load i16, ptr %159, align 2
-  %.sroa.2.0..sroa_idx.i350.i = getelementptr inbounds i8, ptr %159, i64 2
+  %.sroa.2.0..sroa_idx.i350.i = getelementptr inbounds nuw i8, ptr %159, i64 2
   %.sroa.2.0.copyload.i351.i = load i8, ptr %.sroa.2.0..sroa_idx.i350.i, align 2
-  %.sroa.3.0..sroa_idx.i352.i = getelementptr inbounds i8, ptr %159, i64 3
+  %.sroa.3.0..sroa_idx.i352.i = getelementptr inbounds nuw i8, ptr %159, i64 3
   %.sroa.3.0.copyload.i353.i = load i8, ptr %.sroa.3.0..sroa_idx.i352.i, align 1
   %160 = zext i8 %.sroa.3.0.copyload.i353.i to i32
   %161 = and i32 %156, 63
@@ -523,7 +523,7 @@ BIT_reloadDStreamFast.exit.i:                     ; preds = %.lr.ph
   %168 = add i32 %156, %160
   %169 = zext i16 %.sroa.0.0.copyload.i349.i to i64
   %170 = add i64 %167, %169
-  %171 = getelementptr inbounds i8, ptr %.1267486.i, i64 1
+  %171 = getelementptr inbounds nuw i8, ptr %.1267486.i, i64 1
   store i8 %.sroa.2.0.copyload.i351.i, ptr %.1267486.i, align 1
   %172 = icmp ugt i32 %168, 64
   br i1 %172, label %.critedge310.i, label %173
@@ -566,7 +566,7 @@ BIT_reloadDStreamFast.exit358.i:                  ; preds = %173
 .critedge310.i:                                   ; preds = %.lr.ph.i
   %.sroa.2.0..sroa_idx.i360.i = getelementptr inbounds %struct.FSE_decode_t, ptr %72, i64 %158, i32 1
   %.sroa.2.0.copyload.i361.i = load i8, ptr %.sroa.2.0..sroa_idx.i360.i, align 2
-  %195 = getelementptr inbounds i8, ptr %.1267486.i, i64 2
+  %195 = getelementptr inbounds nuw i8, ptr %.1267486.i, i64 2
   store i8 %.sroa.2.0.copyload.i361.i, ptr %171, align 1
   br label %237
 
@@ -580,9 +580,9 @@ BIT_reloadDStreamFast.exit358.i:                  ; preds = %173
 199:                                              ; preds = %.critedge.i
   %200 = getelementptr inbounds %struct.FSE_decode_t, ptr %72, i64 %158
   %.sroa.0.0.copyload.i366.i = load i16, ptr %200, align 2
-  %.sroa.2.0..sroa_idx.i367.i = getelementptr inbounds i8, ptr %200, i64 2
+  %.sroa.2.0..sroa_idx.i367.i = getelementptr inbounds nuw i8, ptr %200, i64 2
   %.sroa.2.0.copyload.i368.i = load i8, ptr %.sroa.2.0..sroa_idx.i367.i, align 2
-  %.sroa.3.0..sroa_idx.i369.i = getelementptr inbounds i8, ptr %200, i64 3
+  %.sroa.3.0..sroa_idx.i369.i = getelementptr inbounds nuw i8, ptr %200, i64 3
   %.sroa.3.0.copyload.i370.i = load i8, ptr %.sroa.3.0..sroa_idx.i369.i, align 1
   %201 = zext i8 %.sroa.3.0.copyload.i370.i to i32
   %202 = and i32 %197, 63
@@ -595,7 +595,7 @@ BIT_reloadDStreamFast.exit358.i:                  ; preds = %173
   %209 = add i32 %197, %201
   %210 = zext i16 %.sroa.0.0.copyload.i366.i to i64
   %211 = add i64 %208, %210
-  %212 = getelementptr inbounds i8, ptr %.1267486.i, i64 2
+  %212 = getelementptr inbounds nuw i8, ptr %.1267486.i, i64 2
   store i8 %.sroa.2.0.copyload.i368.i, ptr %171, align 1
   %213 = icmp ugt i32 %209, 64
   br i1 %213, label %.critedge314.i, label %214
@@ -638,7 +638,7 @@ BIT_reloadDStreamFast.exit375.i:                  ; preds = %214
 .critedge314.i:                                   ; preds = %199
   %.sroa.2.0..sroa_idx.i377.i = getelementptr inbounds %struct.FSE_decode_t, ptr %70, i64 %170, i32 1
   %.sroa.2.0.copyload.i378.i = load i8, ptr %.sroa.2.0..sroa_idx.i377.i, align 2
-  %236 = getelementptr inbounds i8, ptr %.1267486.i, i64 3
+  %236 = getelementptr inbounds nuw i8, ptr %.1267486.i, i64 3
   store i8 %.sroa.2.0.copyload.i378.i, ptr %212, align 1
   br label %237
 
@@ -657,20 +657,20 @@ BIT_reloadDStreamFast.exit375.i:                  ; preds = %214
 244:                                              ; preds = %241
   call fastcc void @FSE_initDState(ptr noundef %10, ptr noundef %9, ptr noundef nonnull %50)
   call fastcc void @FSE_initDState(ptr noundef %11, ptr noundef %9, ptr noundef nonnull %50)
-  %245 = getelementptr inbounds i8, ptr %9, i64 8
+  %245 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.promoted501.i = load i32, ptr %245, align 8
   %.promoted503.i = load i64, ptr %9, align 8
   %.promoted505.i = load i64, ptr %10, align 8
   %.promoted507.i = load i64, ptr %11, align 8
-  %246 = getelementptr inbounds i8, ptr %9, i64 16
-  %247 = getelementptr inbounds i8, ptr %9, i64 32
+  %246 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %247 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %248 = load ptr, ptr %247, align 8
-  %249 = getelementptr inbounds i8, ptr %9, i64 24
+  %249 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %250 = load ptr, ptr %249, align 8
   %251 = ptrtoint ptr %250 to i64
-  %252 = getelementptr inbounds i8, ptr %10, i64 8
+  %252 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %253 = load ptr, ptr %252, align 8
-  %254 = getelementptr inbounds i8, ptr %11, i64 8
+  %254 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %255 = load ptr, ptr %254, align 8
   %.promoted509.i = load ptr, ptr %246, align 8
   %256 = icmp ugt i32 %.promoted501.i, 64
@@ -740,9 +740,9 @@ BIT_reloadDStreamFast.exit385.i:                  ; preds = %.lr.ph56
 284:                                              ; preds = %277
   %285 = getelementptr inbounds %struct.FSE_decode_t, ptr %253, i64 %259
   %.sroa.0.0.copyload.i386.i = load i16, ptr %285, align 2
-  %.sroa.2.0..sroa_idx.i387.i = getelementptr inbounds i8, ptr %285, i64 2
+  %.sroa.2.0..sroa_idx.i387.i = getelementptr inbounds nuw i8, ptr %285, i64 2
   %.sroa.2.0.copyload.i388.i = load i8, ptr %.sroa.2.0..sroa_idx.i387.i, align 2
-  %.sroa.3.0..sroa_idx.i389.i = getelementptr inbounds i8, ptr %285, i64 3
+  %.sroa.3.0..sroa_idx.i389.i = getelementptr inbounds nuw i8, ptr %285, i64 3
   %.sroa.3.0.copyload.i390.i = load i8, ptr %.sroa.3.0..sroa_idx.i389.i, align 1
   %286 = zext i8 %.sroa.3.0.copyload.i390.i to i32
   %287 = zext nneg i8 %.sroa.3.0.copyload.i390.i to i64
@@ -758,9 +758,9 @@ BIT_reloadDStreamFast.exit385.i:                  ; preds = %.lr.ph56
   store i8 %.sroa.2.0.copyload.i388.i, ptr %.0264.i55, align 1
   %296 = getelementptr inbounds %struct.FSE_decode_t, ptr %255, i64 %260
   %.sroa.0.0.copyload.i391.i = load i16, ptr %296, align 2
-  %.sroa.2.0..sroa_idx.i392.i = getelementptr inbounds i8, ptr %296, i64 2
+  %.sroa.2.0..sroa_idx.i392.i = getelementptr inbounds nuw i8, ptr %296, i64 2
   %.sroa.2.0.copyload.i393.i = load i8, ptr %.sroa.2.0..sroa_idx.i392.i, align 2
-  %.sroa.3.0..sroa_idx.i394.i = getelementptr inbounds i8, ptr %296, i64 3
+  %.sroa.3.0..sroa_idx.i394.i = getelementptr inbounds nuw i8, ptr %296, i64 3
   %.sroa.3.0.copyload.i395.i = load i8, ptr %.sroa.3.0..sroa_idx.i394.i, align 1
   %297 = zext i8 %.sroa.3.0.copyload.i395.i to i32
   %298 = zext nneg i8 %.sroa.3.0.copyload.i395.i to i64
@@ -773,14 +773,14 @@ BIT_reloadDStreamFast.exit385.i:                  ; preds = %.lr.ph56
   %304 = xor i64 %notmask.i396.i, -1
   %305 = and i64 %303, %304
   %306 = zext i16 %.sroa.0.0.copyload.i391.i to i64
-  %307 = getelementptr inbounds i8, ptr %.0264.i55, i64 1
+  %307 = getelementptr inbounds nuw i8, ptr %.0264.i55, i64 1
   store i8 %.sroa.2.0.copyload.i393.i, ptr %307, align 1
   %308 = getelementptr %struct.FSE_decode_t, ptr %253, i64 %294
   %309 = getelementptr %struct.FSE_decode_t, ptr %308, i64 %295
   %.sroa.0.0.copyload.i397.i = load i16, ptr %309, align 2
-  %.sroa.2.0..sroa_idx.i398.i = getelementptr inbounds i8, ptr %309, i64 2
+  %.sroa.2.0..sroa_idx.i398.i = getelementptr inbounds nuw i8, ptr %309, i64 2
   %.sroa.2.0.copyload.i399.i = load i8, ptr %.sroa.2.0..sroa_idx.i398.i, align 2
-  %.sroa.3.0..sroa_idx.i400.i = getelementptr inbounds i8, ptr %309, i64 3
+  %.sroa.3.0..sroa_idx.i400.i = getelementptr inbounds nuw i8, ptr %309, i64 3
   %.sroa.3.0.copyload.i401.i = load i8, ptr %.sroa.3.0..sroa_idx.i400.i, align 1
   %310 = zext i8 %.sroa.3.0.copyload.i401.i to i32
   %311 = zext nneg i8 %.sroa.3.0.copyload.i401.i to i64
@@ -794,14 +794,14 @@ BIT_reloadDStreamFast.exit385.i:                  ; preds = %.lr.ph56
   %318 = and i64 %316, %317
   %319 = zext i16 %.sroa.0.0.copyload.i397.i to i64
   %320 = add nuw i64 %318, %319
-  %321 = getelementptr inbounds i8, ptr %.0264.i55, i64 2
+  %321 = getelementptr inbounds nuw i8, ptr %.0264.i55, i64 2
   store i8 %.sroa.2.0.copyload.i399.i, ptr %321, align 1
   %322 = getelementptr %struct.FSE_decode_t, ptr %255, i64 %305
   %323 = getelementptr %struct.FSE_decode_t, ptr %322, i64 %306
   %.sroa.0.0.copyload.i403.i = load i16, ptr %323, align 2
-  %.sroa.2.0..sroa_idx.i404.i = getelementptr inbounds i8, ptr %323, i64 2
+  %.sroa.2.0..sroa_idx.i404.i = getelementptr inbounds nuw i8, ptr %323, i64 2
   %.sroa.2.0.copyload.i405.i = load i8, ptr %.sroa.2.0..sroa_idx.i404.i, align 2
-  %.sroa.3.0..sroa_idx.i406.i = getelementptr inbounds i8, ptr %323, i64 3
+  %.sroa.3.0..sroa_idx.i406.i = getelementptr inbounds nuw i8, ptr %323, i64 3
   %.sroa.3.0.copyload.i407.i = load i8, ptr %.sroa.3.0..sroa_idx.i406.i, align 1
   %324 = zext i8 %.sroa.3.0.copyload.i407.i to i32
   %325 = zext nneg i8 %.sroa.3.0.copyload.i407.i to i64
@@ -815,9 +815,9 @@ BIT_reloadDStreamFast.exit385.i:                  ; preds = %.lr.ph56
   %332 = and i64 %330, %331
   %333 = zext i16 %.sroa.0.0.copyload.i403.i to i64
   %334 = add nuw i64 %332, %333
-  %335 = getelementptr inbounds i8, ptr %.0264.i55, i64 3
+  %335 = getelementptr inbounds nuw i8, ptr %.0264.i55, i64 3
   store i8 %.sroa.2.0.copyload.i405.i, ptr %335, align 1
-  %336 = getelementptr inbounds i8, ptr %.0264.i55, i64 4
+  %336 = getelementptr inbounds nuw i8, ptr %.0264.i55, i64 4
   %337 = icmp ugt i32 %326, 64
   br i1 %337, label %.preheader.i, label %.lr.ph56, !llvm.loop !14
 
@@ -837,9 +837,9 @@ BIT_reloadDStreamFast.exit385.i:                  ; preds = %.lr.ph56
   %344 = phi i64 [ %397, %.backedge.i ], [ %.lcssa19, %.preheader.i ]
   %345 = getelementptr inbounds %struct.FSE_decode_t, ptr %253, i64 %343
   %.sroa.0.0.copyload.i409.i = load i16, ptr %345, align 2
-  %.sroa.2.0..sroa_idx.i410.i = getelementptr inbounds i8, ptr %345, i64 2
+  %.sroa.2.0..sroa_idx.i410.i = getelementptr inbounds nuw i8, ptr %345, i64 2
   %.sroa.2.0.copyload.i411.i = load i8, ptr %.sroa.2.0..sroa_idx.i410.i, align 2
-  %.sroa.3.0..sroa_idx.i412.i = getelementptr inbounds i8, ptr %345, i64 3
+  %.sroa.3.0..sroa_idx.i412.i = getelementptr inbounds nuw i8, ptr %345, i64 3
   %.sroa.3.0.copyload.i413.i = load i8, ptr %.sroa.3.0..sroa_idx.i412.i, align 1
   %346 = zext i8 %.sroa.3.0.copyload.i413.i to i32
   %347 = zext nneg i8 %.sroa.3.0.copyload.i413.i to i64
@@ -853,7 +853,7 @@ BIT_reloadDStreamFast.exit385.i:                  ; preds = %.lr.ph56
   %354 = and i64 %352, %353
   %355 = zext i16 %.sroa.0.0.copyload.i409.i to i64
   %356 = add nuw i64 %354, %355
-  %357 = getelementptr inbounds i8, ptr %.1525.i, i64 1
+  %357 = getelementptr inbounds nuw i8, ptr %.1525.i, i64 1
   store i8 %.sroa.2.0.copyload.i411.i, ptr %.1525.i, align 1
   %358 = icmp ugt i32 %348, 64
   br i1 %358, label %.critedge318.i, label %359
@@ -896,7 +896,7 @@ BIT_reloadDStreamFast.exit417.i:                  ; preds = %359
 .critedge318.i:                                   ; preds = %.lr.ph526.i
   %.sroa.2.0..sroa_idx.i419.i = getelementptr inbounds %struct.FSE_decode_t, ptr %255, i64 %344, i32 1
   %.sroa.2.0.copyload.i420.i = load i8, ptr %.sroa.2.0..sroa_idx.i419.i, align 2
-  %381 = getelementptr inbounds i8, ptr %.1525.i, i64 2
+  %381 = getelementptr inbounds nuw i8, ptr %.1525.i, i64 2
   store i8 %.sroa.2.0.copyload.i420.i, ptr %357, align 1
   br label %423
 
@@ -910,9 +910,9 @@ BIT_reloadDStreamFast.exit417.i:                  ; preds = %359
 385:                                              ; preds = %.critedge316.i
   %386 = getelementptr inbounds %struct.FSE_decode_t, ptr %255, i64 %344
   %.sroa.0.0.copyload.i424.i = load i16, ptr %386, align 2
-  %.sroa.2.0..sroa_idx.i425.i = getelementptr inbounds i8, ptr %386, i64 2
+  %.sroa.2.0..sroa_idx.i425.i = getelementptr inbounds nuw i8, ptr %386, i64 2
   %.sroa.2.0.copyload.i426.i = load i8, ptr %.sroa.2.0..sroa_idx.i425.i, align 2
-  %.sroa.3.0..sroa_idx.i427.i = getelementptr inbounds i8, ptr %386, i64 3
+  %.sroa.3.0..sroa_idx.i427.i = getelementptr inbounds nuw i8, ptr %386, i64 3
   %.sroa.3.0.copyload.i428.i = load i8, ptr %.sroa.3.0..sroa_idx.i427.i, align 1
   %387 = zext i8 %.sroa.3.0.copyload.i428.i to i32
   %388 = zext nneg i8 %.sroa.3.0.copyload.i428.i to i64
@@ -926,7 +926,7 @@ BIT_reloadDStreamFast.exit417.i:                  ; preds = %359
   %395 = and i64 %393, %394
   %396 = zext i16 %.sroa.0.0.copyload.i424.i to i64
   %397 = add nuw i64 %395, %396
-  %398 = getelementptr inbounds i8, ptr %.1525.i, i64 2
+  %398 = getelementptr inbounds nuw i8, ptr %.1525.i, i64 2
   store i8 %.sroa.2.0.copyload.i426.i, ptr %357, align 1
   %399 = icmp ugt i32 %389, 64
   br i1 %399, label %.critedge322.i, label %400
@@ -969,7 +969,7 @@ BIT_reloadDStreamFast.exit432.i:                  ; preds = %400
 .critedge322.i:                                   ; preds = %385
   %.sroa.2.0..sroa_idx.i434.i = getelementptr inbounds %struct.FSE_decode_t, ptr %253, i64 %356, i32 1
   %.sroa.2.0.copyload.i435.i = load i8, ptr %.sroa.2.0..sroa_idx.i434.i, align 2
-  %422 = getelementptr inbounds i8, ptr %.1525.i, i64 3
+  %422 = getelementptr inbounds nuw i8, ptr %.1525.i, i64 3
   store i8 %.sroa.2.0.copyload.i435.i, ptr %398, align 1
   br label %423
 
@@ -1008,10 +1008,10 @@ define internal fastcc range(i64 1, 0) i64 @BIT_initDStream(ptr nocapture nounde
   br label %82
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %8, ptr %9, align 8
   %10 = icmp ugt i64 %2, 7
   br i1 %10, label %11, label %24
@@ -1019,7 +1019,7 @@ define internal fastcc range(i64 1, 0) i64 @BIT_initDStream(ptr nocapture nounde
 11:                                               ; preds = %6
   %12 = getelementptr inbounds i8, ptr %1, i64 %2
   %13 = getelementptr inbounds i8, ptr %12, i64 -8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %13, ptr %14, align 8
   %.val = load i64, ptr %13, align 1
   store i64 %.val, ptr %0, align 8
@@ -1029,7 +1029,7 @@ define internal fastcc range(i64 1, 0) i64 @BIT_initDStream(ptr nocapture nounde
   br i1 %.not47, label %.thread, label %18
 
 .thread:                                          ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %17, align 8
   br label %82
 
@@ -1038,12 +1038,12 @@ define internal fastcc range(i64 1, 0) i64 @BIT_initDStream(ptr nocapture nounde
   %20 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 range(i32 0, 65536) %19, i1 true)
   %21 = xor i32 %20, 31
   %22 = sub nuw nsw i32 8, %21
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %22, ptr %23, align 8
   br label %82
 
 24:                                               ; preds = %6
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %25, align 8
   %26 = load i8, ptr %1, align 1
   %27 = zext i8 %26 to i64
@@ -1058,7 +1058,7 @@ define internal fastcc range(i64 1, 0) i64 @BIT_initDStream(ptr nocapture nounde
   ]
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %1, i64 6
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i64
   %32 = shl nuw nsw i64 %31, 48
@@ -1068,7 +1068,7 @@ define internal fastcc range(i64 1, 0) i64 @BIT_initDStream(ptr nocapture nounde
 
 34:                                               ; preds = %28, %24
   %35 = phi i64 [ %33, %28 ], [ %27, %24 ]
-  %36 = getelementptr inbounds i8, ptr %1, i64 5
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %37 = load i8, ptr %36, align 1
   %38 = zext i8 %37 to i64
   %39 = shl nuw nsw i64 %38, 40
@@ -1078,7 +1078,7 @@ define internal fastcc range(i64 1, 0) i64 @BIT_initDStream(ptr nocapture nounde
 
 41:                                               ; preds = %34, %24
   %42 = phi i64 [ %40, %34 ], [ %27, %24 ]
-  %43 = getelementptr inbounds i8, ptr %1, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %44 = load i8, ptr %43, align 1
   %45 = zext i8 %44 to i64
   %46 = shl nuw nsw i64 %45, 32
@@ -1088,7 +1088,7 @@ define internal fastcc range(i64 1, 0) i64 @BIT_initDStream(ptr nocapture nounde
 
 48:                                               ; preds = %41, %24
   %49 = phi i64 [ %47, %41 ], [ %27, %24 ]
-  %50 = getelementptr inbounds i8, ptr %1, i64 3
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %51 = load i8, ptr %50, align 1
   %52 = zext i8 %51 to i64
   %53 = shl nuw nsw i64 %52, 24
@@ -1098,7 +1098,7 @@ define internal fastcc range(i64 1, 0) i64 @BIT_initDStream(ptr nocapture nounde
 
 55:                                               ; preds = %48, %24
   %56 = phi i64 [ %54, %48 ], [ %27, %24 ]
-  %57 = getelementptr inbounds i8, ptr %1, i64 2
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %58 = load i8, ptr %57, align 1
   %59 = zext i8 %58 to i64
   %60 = shl nuw nsw i64 %59, 16
@@ -1108,7 +1108,7 @@ define internal fastcc range(i64 1, 0) i64 @BIT_initDStream(ptr nocapture nounde
 
 62:                                               ; preds = %55, %24
   %63 = phi i64 [ %61, %55 ], [ %27, %24 ]
-  %64 = getelementptr inbounds i8, ptr %1, i64 1
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %65 = load i8, ptr %64, align 1
   %66 = zext i8 %65 to i64
   %67 = shl nuw nsw i64 %66, 8
@@ -1124,14 +1124,14 @@ define internal fastcc range(i64 1, 0) i64 @BIT_initDStream(ptr nocapture nounde
   br i1 %.not, label %.thread48, label %74
 
 .thread48:                                        ; preds = %69
-  %73 = getelementptr inbounds i8, ptr %0, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %73, align 8
   br label %82
 
 74:                                               ; preds = %69
   %75 = zext i8 %72 to i32
   %76 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 range(i32 0, 65536) %75, i1 true)
-  %77 = getelementptr inbounds i8, ptr %0, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %78 = trunc nuw i64 %2 to i32
   %79 = shl nuw nsw i32 %78, 3
   %80 = sub nsw i32 %76, %79
@@ -1149,7 +1149,7 @@ define internal fastcc void @FSE_initDState(ptr nocapture noundef nonnull writeo
   %4 = load i16, ptr %2, align 2
   %5 = zext i16 %4 to i32
   %6 = load i64, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = zext nneg i16 %4 to i64
   %10 = add i32 %8, %5
@@ -1167,9 +1167,9 @@ define internal fastcc void @FSE_initDState(ptr nocapture noundef nonnull writeo
   br i1 %18, label %48, label %19
 
 19:                                               ; preds = %3
-  %20 = getelementptr inbounds i8, ptr %1, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %23 = load ptr, ptr %22, align 8
   %.not = icmp ult ptr %21, %23
   br i1 %.not, label %29, label %BIT_reloadDStreamFast.exit
@@ -1184,7 +1184,7 @@ BIT_reloadDStreamFast.exit:                       ; preds = %19
   br label %.sink.split
 
 29:                                               ; preds = %19
-  %30 = getelementptr inbounds i8, ptr %1, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %21, %31
   br i1 %32, label %48, label %33
@@ -1217,8 +1217,8 @@ BIT_reloadDStreamFast.exit:                       ; preds = %19
   br label %48
 
 48:                                               ; preds = %.sink.split, %29, %3
-  %49 = getelementptr inbounds i8, ptr %2, i64 4
-  %50 = getelementptr inbounds i8, ptr %0, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %49, ptr %50, align 8
   ret void
 }

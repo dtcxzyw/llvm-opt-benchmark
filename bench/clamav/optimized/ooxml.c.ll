@@ -195,14 +195,14 @@ define range(i32 0, 552) i32 @cli_ooxml_filetype(ptr noundef %0, ptr noundef %1)
   br i1 %13, label %14, label %19
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %3, i64 168
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 168
   %16 = load i32, ptr %15, align 8
   %17 = icmp ult i32 %16, 4
   br i1 %17, label %switch.lookup, label %19
 
 switch.lookup:                                    ; preds = %14
   %18 = zext nneg i32 %16 to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.cli_ooxml_filetype, i64 0, i64 %18
+  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.cli_ooxml_filetype, i64 0, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %19
 
@@ -239,7 +239,7 @@ define i32 @cli_process_ooxml(ptr noundef %0, i32 noundef %1) local_unnamed_addr
 
 8:                                                ; preds = %6
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.6) #6
-  %9 = getelementptr inbounds i8, ptr %0, i64 160
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %10 = load ptr, ptr %9, align 8
   %11 = call i32 @cli_json_parse_error(ptr noundef %10, ptr noundef nonnull @.str.7) #6
   br label %38
@@ -260,7 +260,7 @@ define i32 @cli_process_ooxml(ptr noundef %0, i32 noundef %1) local_unnamed_addr
 
 19:                                               ; preds = %17
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.8) #6
-  %20 = getelementptr inbounds i8, ptr %0, i64 160
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %21 = load ptr, ptr %20, align 8
   %22 = call i32 @cli_json_parse_error(ptr noundef %21, ptr noundef nonnull @.str.9) #6
   br label %38
@@ -280,7 +280,7 @@ define i32 @cli_process_ooxml(ptr noundef %0, i32 noundef %1) local_unnamed_addr
 
 29:                                               ; preds = %27
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.11) #6
-  %30 = getelementptr inbounds i8, ptr %0, i64 160
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %31 = load ptr, ptr %30, align 8
   %32 = call i32 @cli_json_parse_error(ptr noundef %31, ptr noundef nonnull @.str.12) #6
   br label %38
@@ -321,7 +321,7 @@ ooxml_updatelimits.exit.thread:                   ; preds = %5
   br label %21
 
 ooxml_updatelimits.exit:                          ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %6, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %10 = load i64, ptr %9, align 8
   %11 = tail call i32 @cli_updatelimits(ptr noundef %2, i64 noundef %10) #6
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6)
@@ -365,9 +365,9 @@ define internal i32 @ooxml_content_cb(i32 noundef %0, ptr nocapture readnone %1,
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   store i32 0, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %2, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %12 = load i32, ptr %11, align 8
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.33) #6
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6)
@@ -381,7 +381,7 @@ ooxml_updatelimits.exit.thread:                   ; preds = %5
   br label %165
 
 ooxml_updatelimits.exit:                          ; preds = %5
-  %15 = getelementptr inbounds i8, ptr %6, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %16 = load i64, ptr %15, align 8
   %17 = tail call i32 @cli_updatelimits(ptr noundef nonnull %2, i64 noundef %16) #6
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6)
@@ -395,7 +395,7 @@ ooxml_updatelimits.exit:                          ; preds = %5
 
 21:                                               ; preds = %18
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.34) #6
-  %22 = getelementptr inbounds i8, ptr %2, i64 160
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 160
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 @cli_json_parse_error(ptr noundef %23, ptr noundef nonnull @.str.35) #6
   store i64 %10, ptr %9, align 8
@@ -474,7 +474,7 @@ ooxml_updatelimits.exit:                          ; preds = %5
   br i1 %.not165, label %53, label %70
 
 53:                                               ; preds = %51
-  %54 = getelementptr inbounds i8, ptr %.0126.ph, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %.0126.ph, i64 1
   %55 = call i32 @xmlStrlen(ptr noundef nonnull %.0126.ph) #6
   %56 = add nsw i32 %55, -1
   %57 = sext i32 %56 to i64
@@ -515,7 +515,7 @@ ooxml_updatelimits.exit:                          ; preds = %5
   br i1 %.not168, label %72, label %89
 
 72:                                               ; preds = %70
-  %73 = getelementptr inbounds i8, ptr %.0126.ph, i64 1
+  %73 = getelementptr inbounds nuw i8, ptr %.0126.ph, i64 1
   %74 = call i32 @xmlStrlen(ptr noundef nonnull %.0126.ph) #6
   %75 = add nsw i32 %74, -1
   %76 = sext i32 %75 to i64
@@ -556,7 +556,7 @@ ooxml_updatelimits.exit:                          ; preds = %5
   br i1 %.not171, label %91, label %102
 
 91:                                               ; preds = %89
-  %92 = getelementptr inbounds i8, ptr %.0126.ph, i64 1
+  %92 = getelementptr inbounds nuw i8, ptr %.0126.ph, i64 1
   %93 = call i32 @xmlStrlen(ptr noundef nonnull %.0126.ph) #6
   %94 = add nsw i32 %93, -1
   %95 = sext i32 %94 to i64
@@ -621,7 +621,7 @@ ooxml_updatelimits.exit:                          ; preds = %5
   br i1 %.not177, label %116, label %108
 
 108:                                              ; preds = %.thread
-  %109 = getelementptr inbounds i8, ptr %2, i64 160
+  %109 = getelementptr inbounds nuw i8, ptr %2, i64 160
   %110 = load ptr, ptr %109, align 8
   %111 = call i32 @cli_jsonint(ptr noundef %110, ptr noundef nonnull @.str.50, i32 noundef %.1149) #6
   %112 = icmp sgt i32 %.1149, 1
@@ -645,7 +645,7 @@ ooxml_updatelimits.exit:                          ; preds = %5
   br i1 %.not179, label %124, label %118
 
 118:                                              ; preds = %116, %117
-  %119 = getelementptr inbounds i8, ptr %2, i64 160
+  %119 = getelementptr inbounds nuw i8, ptr %2, i64 160
   %120 = load ptr, ptr %119, align 8
   %121 = call i32 @cli_jsonint(ptr noundef %120, ptr noundef nonnull @.str.53, i32 noundef %.1137) #6
   %122 = load ptr, ptr %119, align 8
@@ -657,7 +657,7 @@ ooxml_updatelimits.exit:                          ; preds = %5
   br i1 %.not180, label %133, label %125
 
 125:                                              ; preds = %124
-  %126 = getelementptr inbounds i8, ptr %2, i64 160
+  %126 = getelementptr inbounds nuw i8, ptr %2, i64 160
   %127 = load ptr, ptr %126, align 8
   %128 = call i32 @cli_jsonint(ptr noundef %127, ptr noundef nonnull @.str.55, i32 noundef %.1146) #6
   %129 = icmp sgt i32 %.1146, 1
@@ -681,7 +681,7 @@ ooxml_updatelimits.exit:                          ; preds = %5
   br i1 %.not182, label %141, label %135
 
 135:                                              ; preds = %133, %134
-  %136 = getelementptr inbounds i8, ptr %2, i64 160
+  %136 = getelementptr inbounds nuw i8, ptr %2, i64 160
   %137 = load ptr, ptr %136, align 8
   %138 = call i32 @cli_jsonint(ptr noundef %137, ptr noundef nonnull @.str.58, i32 noundef %.1134) #6
   %139 = load ptr, ptr %136, align 8
@@ -693,7 +693,7 @@ ooxml_updatelimits.exit:                          ; preds = %5
   br i1 %.not183, label %150, label %142
 
 142:                                              ; preds = %141
-  %143 = getelementptr inbounds i8, ptr %2, i64 160
+  %143 = getelementptr inbounds nuw i8, ptr %2, i64 160
   %144 = load ptr, ptr %143, align 8
   %145 = call i32 @cli_jsonint(ptr noundef %144, ptr noundef nonnull @.str.60, i32 noundef %.1143) #6
   %146 = icmp sgt i32 %.1143, 1
@@ -717,7 +717,7 @@ ooxml_updatelimits.exit:                          ; preds = %5
   br i1 %.not185, label %158, label %152
 
 152:                                              ; preds = %150, %151
-  %153 = getelementptr inbounds i8, ptr %2, i64 160
+  %153 = getelementptr inbounds nuw i8, ptr %2, i64 160
   %154 = load ptr, ptr %153, align 8
   %155 = call i32 @cli_jsonint(ptr noundef %154, ptr noundef nonnull @.str.63, i32 noundef %.1131) #6
   %156 = load ptr, ptr %153, align 8
@@ -729,7 +729,7 @@ ooxml_updatelimits.exit:                          ; preds = %5
   br i1 %.not186, label %163, label %159
 
 159:                                              ; preds = %158
-  %160 = getelementptr inbounds i8, ptr %2, i64 160
+  %160 = getelementptr inbounds nuw i8, ptr %2, i64 160
   %161 = load ptr, ptr %160, align 8
   %162 = call i32 @cli_jsonint(ptr noundef %161, ptr noundef nonnull @.str.65, i32 noundef %.1140) #6
   br label %163
@@ -796,7 +796,7 @@ define internal noundef i32 @ooxml_core_cb(i32 noundef %0, ptr nocapture readnon
 
 .sink.split:                                      ; preds = %5, %7
   %.str.68.sink = phi ptr [ @.str.68, %7 ], [ @.str.67, %5 ]
-  %8 = getelementptr inbounds i8, ptr %2, i64 160
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 160
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 @cli_json_parse_error(ptr noundef %9, ptr noundef nonnull %.str.68.sink) #6
   br label %11
@@ -819,7 +819,7 @@ define internal noundef i32 @ooxml_extn_cb(i32 noundef %0, ptr nocapture readnon
 
 .sink.split:                                      ; preds = %5, %7
   %.str.153.sink = phi ptr [ @.str.153, %7 ], [ @.str.152, %5 ]
-  %8 = getelementptr inbounds i8, ptr %2, i64 160
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 160
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 @cli_json_parse_error(ptr noundef %9, ptr noundef nonnull %.str.153.sink) #6
   br label %11
@@ -845,7 +845,7 @@ ooxml_updatelimits.exit.thread:                   ; preds = %2
   br label %18
 
 ooxml_updatelimits.exit:                          ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %3, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = tail call i32 @cli_updatelimits(ptr noundef %1, i64 noundef %7) #6
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3)

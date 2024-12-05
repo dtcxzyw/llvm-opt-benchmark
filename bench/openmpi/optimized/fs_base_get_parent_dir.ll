@@ -33,7 +33,7 @@ define void @mca_fs_base_get_parent_dir(ptr nocapture noundef readonly %0, ptr n
   br i1 %.not.i, label %10, label %15
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %4, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 61440
   %14 = icmp eq i32 %13, 40960
@@ -84,7 +84,7 @@ mca_fs_base_get_real_filename.exit:               ; preds = %21, %23
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %30
-  %33 = getelementptr inbounds i8, ptr %.0, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   store i8 0, ptr %33, align 1
   br label %35
 
@@ -215,7 +215,7 @@ define range(i32 16, 46) i32 @mca_fs_base_get_mpi_err(i32 noundef %0) local_unna
 
 ; Function Attrs: nounwind uwtable
 define i32 @mca_fs_base_get_file_perm(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, -1
   br i1 %4, label %5, label %9

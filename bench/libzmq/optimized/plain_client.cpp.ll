@@ -44,7 +44,7 @@ define void @_ZN3zmq14plain_client_tC2EPNS_14session_base_tERKNS_9options_tE(ptr
 entry:
   tail call void @_ZN3zmq16mechanism_base_tC2EPNS_14session_base_tERKNS_9options_tE(ptr noundef nonnull align 8 dereferenceable(1496) %this, ptr noundef %session_, ptr noundef nonnull align 8 dereferenceable(1336) %options_)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq14plain_client_tE, i64 16), ptr %this, align 8
-  %_state = getelementptr inbounds i8, ptr %this, i64 1496
+  %_state = getelementptr inbounds nuw i8, ptr %this, i64 1496
   store i32 0, ptr %_state, align 8
   ret void
 }
@@ -72,7 +72,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 -1, 1) i32 @_ZN3zmq14plain_client_t22next_handshake_commandEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(1504) %this, ptr noundef %msg_) unnamed_addr #0 align 2 {
 entry:
-  %_state = getelementptr inbounds i8, ptr %this, i64 1496
+  %_state = getelementptr inbounds nuw i8, ptr %this, i64 1496
   %0 = load i32, ptr %_state, align 8
   switch i32 %0, label %sw.default [
     i32 0, label %sw.bb
@@ -104,7 +104,7 @@ define void @_ZNK3zmq14plain_client_t13produce_helloEPNS_5msg_tE(ptr noundef non
 entry:
   %username = alloca %"class.std::__cxx11::basic_string", align 8
   %password = alloca %"class.std::__cxx11::basic_string", align 8
-  %plain_username = getelementptr inbounds i8, ptr %this, i64 704
+  %plain_username = getelementptr inbounds nuw i8, ptr %this, i64 704
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %username, ptr noundef nonnull align 8 dereferenceable(32) %plain_username)
   %call = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %username) #10
   %cmp = icmp ugt i64 %call, 255
@@ -124,7 +124,7 @@ lpad:                                             ; preds = %do.end, %if.then
   br label %ehcleanup
 
 do.end:                                           ; preds = %if.then, %entry
-  %plain_password = getelementptr inbounds i8, ptr %this, i64 736
+  %plain_password = getelementptr inbounds nuw i8, ptr %this, i64 736
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %password, ptr noundef nonnull align 8 dereferenceable(32) %plain_password)
           to label %do.body8 unwind label %lpad
 
@@ -176,10 +176,10 @@ do.end41:                                         ; preds = %if.then31, %invoke.
 
 invoke.cont42:                                    ; preds = %do.end41
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %call43, ptr noundef nonnull align 1 dereferenceable(6) @_ZN3zmqL12hello_prefixE, i64 6, i1 false)
-  %add.ptr = getelementptr inbounds i8, ptr %call43, i64 6
+  %add.ptr = getelementptr inbounds nuw i8, ptr %call43, i64 6
   %call44 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %username) #10
   %conv = trunc i64 %call44 to i8
-  %incdec.ptr = getelementptr inbounds i8, ptr %call43, i64 7
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %call43, i64 7
   store i8 %conv, ptr %add.ptr, align 1
   %call45 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %username) #10
   %call46 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %username) #10
@@ -188,7 +188,7 @@ invoke.cont42:                                    ; preds = %do.end41
   %add.ptr48 = getelementptr inbounds i8, ptr %incdec.ptr, i64 %call47
   %call49 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %password) #10
   %conv50 = trunc i64 %call49 to i8
-  %incdec.ptr51 = getelementptr inbounds i8, ptr %add.ptr48, i64 1
+  %incdec.ptr51 = getelementptr inbounds nuw i8, ptr %add.ptr48, i64 1
   store i8 %conv50, ptr %add.ptr48, align 1
   %call52 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %password) #10
   %call53 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %password) #10
@@ -257,7 +257,7 @@ if.then16:                                        ; preds = %land.lhs.true13
   br label %if.end24
 
 if.end24.thread:                                  ; preds = %if.else11, %land.lhs.true13
-  %session = getelementptr inbounds i8, ptr %this, i64 1488
+  %session = getelementptr inbounds nuw i8, ptr %this, i64 1488
   %0 = load ptr, ptr %session, align 8
   %call19 = tail call noundef ptr @_ZNK3zmq14session_base_t10get_socketEv(ptr noundef nonnull align 8 dereferenceable(1624) %0)
   %1 = load ptr, ptr %session, align 8
@@ -316,13 +316,13 @@ declare noundef i64 @_ZNK3zmq5msg_t4sizeEv(ptr noundef nonnull align 8 dereferen
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 -1, 1) i32 @_ZN3zmq14plain_client_t15process_welcomeEPKhm(ptr nocapture noundef nonnull align 8 dereferenceable(1504) %this, ptr nocapture readnone %cmd_data_, i64 noundef %data_size_) local_unnamed_addr #0 align 2 {
 entry:
-  %_state = getelementptr inbounds i8, ptr %this, i64 1496
+  %_state = getelementptr inbounds nuw i8, ptr %this, i64 1496
   %0 = load i32, ptr %_state, align 8
   %cmp.not = icmp eq i32 %0, 1
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %session = getelementptr inbounds i8, ptr %this, i64 1488
+  %session = getelementptr inbounds nuw i8, ptr %this, i64 1488
   %1 = load ptr, ptr %session, align 8
   %call = tail call noundef ptr @_ZNK3zmq14session_base_t10get_socketEv(ptr noundef nonnull align 8 dereferenceable(1624) %1)
   %2 = load ptr, ptr %session, align 8
@@ -337,7 +337,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp5.not, label %if.end12, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  %session7 = getelementptr inbounds i8, ptr %this, i64 1488
+  %session7 = getelementptr inbounds nuw i8, ptr %this, i64 1488
   %3 = load ptr, ptr %session7, align 8
   %call8 = tail call noundef ptr @_ZNK3zmq14session_base_t10get_socketEv(ptr noundef nonnull align 8 dereferenceable(1624) %3)
   %4 = load ptr, ptr %session7, align 8
@@ -359,13 +359,13 @@ return:                                           ; preds = %if.end12, %if.then6
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN3zmq14plain_client_t13process_readyEPKhm(ptr noundef nonnull align 8 dereferenceable(1504) %this, ptr noundef %cmd_data_, i64 noundef %data_size_) local_unnamed_addr #0 align 2 {
 entry:
-  %_state = getelementptr inbounds i8, ptr %this, i64 1496
+  %_state = getelementptr inbounds nuw i8, ptr %this, i64 1496
   %0 = load i32, ptr %_state, align 8
   %cmp.not = icmp eq i32 %0, 3
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %session = getelementptr inbounds i8, ptr %this, i64 1488
+  %session = getelementptr inbounds nuw i8, ptr %this, i64 1488
   %1 = load ptr, ptr %session, align 8
   %call = tail call noundef ptr @_ZNK3zmq14session_base_t10get_socketEv(ptr noundef nonnull align 8 dereferenceable(1624) %1)
   %2 = load ptr, ptr %session, align 8
@@ -376,7 +376,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %add.ptr = getelementptr inbounds i8, ptr %cmd_data_, i64 6
+  %add.ptr = getelementptr inbounds nuw i8, ptr %cmd_data_, i64 6
   %sub = add i64 %data_size_, -6
   %call5 = tail call noundef i32 @_ZN3zmq11mechanism_t14parse_metadataEPKhmb(ptr noundef nonnull align 8 dereferenceable(1488) %this, ptr noundef nonnull %add.ptr, i64 noundef %sub, i1 noundef zeroext false)
   %cmp6 = icmp eq i32 %call5, 0
@@ -387,7 +387,7 @@ if.then7:                                         ; preds = %if.end
   br label %return
 
 if.else:                                          ; preds = %if.end
-  %session9 = getelementptr inbounds i8, ptr %this, i64 1488
+  %session9 = getelementptr inbounds nuw i8, ptr %this, i64 1488
   %3 = load ptr, ptr %session9, align 8
   %call10 = tail call noundef ptr @_ZNK3zmq14session_base_t10get_socketEv(ptr noundef nonnull align 8 dereferenceable(1624) %3)
   %4 = load ptr, ptr %session9, align 8
@@ -403,7 +403,7 @@ return:                                           ; preds = %if.then7, %if.else,
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 -1, 1) i32 @_ZN3zmq14plain_client_t13process_errorEPKhm(ptr noundef nonnull align 8 dereferenceable(1504) %this, ptr noundef %cmd_data_, i64 noundef %data_size_) local_unnamed_addr #0 align 2 {
 entry:
-  %_state = getelementptr inbounds i8, ptr %this, i64 1496
+  %_state = getelementptr inbounds nuw i8, ptr %this, i64 1496
   %0 = load i32, ptr %_state, align 8
   switch i32 %0, label %if.then [
     i32 1, label %if.end
@@ -411,7 +411,7 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry
-  %session = getelementptr inbounds i8, ptr %this, i64 1488
+  %session = getelementptr inbounds nuw i8, ptr %this, i64 1488
   %1 = load ptr, ptr %session, align 8
   %call = tail call noundef ptr @_ZNK3zmq14session_base_t10get_socketEv(ptr noundef nonnull align 8 dereferenceable(1624) %1)
   %2 = load ptr, ptr %session, align 8
@@ -426,7 +426,7 @@ if.end:                                           ; preds = %entry, %entry
   br i1 %cmp7, label %if.then8, label %if.end14
 
 if.then8:                                         ; preds = %if.end
-  %session9 = getelementptr inbounds i8, ptr %this, i64 1488
+  %session9 = getelementptr inbounds nuw i8, ptr %this, i64 1488
   %3 = load ptr, ptr %session9, align 8
   %call10 = tail call noundef ptr @_ZNK3zmq14session_base_t10get_socketEv(ptr noundef nonnull align 8 dereferenceable(1624) %3)
   %4 = load ptr, ptr %session9, align 8
@@ -437,7 +437,7 @@ if.then8:                                         ; preds = %if.end
   br label %return
 
 if.end14:                                         ; preds = %if.end
-  %arrayidx = getelementptr inbounds i8, ptr %cmd_data_, i64 5
+  %arrayidx = getelementptr inbounds nuw i8, ptr %cmd_data_, i64 5
   %5 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %5 to i64
   %sub = add i64 %data_size_, -6
@@ -445,7 +445,7 @@ if.end14:                                         ; preds = %if.end
   br i1 %cmp15, label %if.then16, label %if.end22
 
 if.then16:                                        ; preds = %if.end14
-  %session17 = getelementptr inbounds i8, ptr %this, i64 1488
+  %session17 = getelementptr inbounds nuw i8, ptr %this, i64 1488
   %6 = load ptr, ptr %session17, align 8
   %call18 = tail call noundef ptr @_ZNK3zmq14session_base_t10get_socketEv(ptr noundef nonnull align 8 dereferenceable(1624) %6)
   %7 = load ptr, ptr %session17, align 8
@@ -456,7 +456,7 @@ if.then16:                                        ; preds = %if.end14
   br label %return
 
 if.end22:                                         ; preds = %if.end14
-  %add.ptr = getelementptr inbounds i8, ptr %cmd_data_, i64 6
+  %add.ptr = getelementptr inbounds nuw i8, ptr %cmd_data_, i64 6
   tail call void @_ZN3zmq16mechanism_base_t19handle_error_reasonEPKcm(ptr noundef nonnull align 8 dereferenceable(1496) %this, ptr noundef nonnull %add.ptr, i64 noundef %conv)
   store i32 4, ptr %_state, align 8
   br label %return
@@ -490,7 +490,7 @@ declare noundef i32 @_ZN3zmq5msg_t4initEv(ptr noundef nonnull align 8 dereferenc
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef range(i32 0, 3) i32 @_ZNK3zmq14plain_client_t6statusEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1504) %this) unnamed_addr #7 align 2 {
 entry:
-  %_state = getelementptr inbounds i8, ptr %this, i64 1496
+  %_state = getelementptr inbounds nuw i8, ptr %this, i64 1496
   %0 = load i32, ptr %_state, align 8
   %switch.selectcmp = icmp eq i32 %0, 4
   %switch.select = select i1 %switch.selectcmp, i32 2, i32 0

@@ -36,7 +36,7 @@ if.then:                                          ; preds = %entry
   %0 = load ptr, ptr @stderr, align 8
   %sub = sub nsw i32 0, %call
   %idxprom = zext nneg i32 %sub to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %argv, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %argv, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8
   %call1 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef %1) #6
   br label %if.end4
@@ -84,7 +84,7 @@ if.end25:                                         ; preds = %if.then9, %if.then2
 if.end29:                                         ; preds = %if.end4
   %12 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 354), align 2
   %13 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 114), align 2
-  %arrayidx30 = getelementptr inbounds i8, ptr %argv, i64 8
+  %arrayidx30 = getelementptr inbounds nuw i8, ptr %argv, i64 8
   %14 = load ptr, ptr %arrayidx30, align 8
   %call31 = tail call i64 @strtoul(ptr nocapture noundef %14, ptr noundef null, i32 noundef 0) #5
   %conv32 = trunc i64 %call31 to i32
@@ -119,7 +119,7 @@ if.end29:                                         ; preds = %if.end4
   br i1 %cmp81, label %cond.end86, label %cond.false84
 
 cond.false84:                                     ; preds = %if.end29
-  %arrayidx85 = getelementptr inbounds i8, ptr %argv, i64 16
+  %arrayidx85 = getelementptr inbounds nuw i8, ptr %argv, i64 16
   %28 = load ptr, ptr %arrayidx85, align 8
   br label %cond.end86
 

@@ -103,23 +103,23 @@ declare noalias ptr @g_strjoinv(ptr noundef, ptr noundef) local_unnamed_addr #3
 define dso_local void @semihosting_arg_fallback(ptr noundef %file, ptr noundef %cmd) local_unnamed_addr #2 {
 entry:
   %call = tail call noalias ptr @g_strdup(ptr noundef %cmd) #8
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @semihosting, i64 16), align 8
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @semihosting, i64 16), align 8
   %inc.i = add i32 %0, 1
-  store i32 %inc.i, ptr getelementptr inbounds (i8, ptr @semihosting, i64 16), align 8
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @semihosting, i64 8), align 8
+  store i32 %inc.i, ptr getelementptr inbounds nuw (i8, ptr @semihosting, i64 16), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @semihosting, i64 8), align 8
   %add.i = add i32 %0, 2
   %conv.i = sext i32 %add.i to i64
   %call2.i = tail call ptr @g_realloc_n(ptr noundef %1, i64 noundef %conv.i, i64 noundef 8) #8
-  store ptr %call2.i, ptr getelementptr inbounds (i8, ptr @semihosting, i64 8), align 8
+  store ptr %call2.i, ptr getelementptr inbounds nuw (i8, ptr @semihosting, i64 8), align 8
   %call4.i = tail call noalias ptr @g_strdup(ptr noundef %file) #8
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @semihosting, i64 8), align 8
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @semihosting, i64 16), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @semihosting, i64 8), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @semihosting, i64 16), align 8
   %sub.i = add i32 %3, -1
   %idxprom.i = sext i32 %sub.i to i64
   %arrayidx.i = getelementptr ptr, ptr %2, i64 %idxprom.i
   store ptr %call4.i, ptr %arrayidx.i, align 8
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @semihosting, i64 8), align 8
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @semihosting, i64 16), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @semihosting, i64 8), align 8
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @semihosting, i64 16), align 8
   %idxprom9.i = sext i32 %5 to i64
   %arrayidx10.i = getelementptr ptr, ptr %4, i64 %idxprom9.i
   store ptr null, ptr %arrayidx10.i, align 8
@@ -129,23 +129,23 @@ entry:
 
 if.then.i4:                                       ; preds = %entry, %if.then.i4
   %cmd_token.017 = phi ptr [ %call4, %if.then.i4 ], [ %call2, %entry ]
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @semihosting, i64 16), align 8
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @semihosting, i64 16), align 8
   %inc.i5 = add i32 %6, 1
-  store i32 %inc.i5, ptr getelementptr inbounds (i8, ptr @semihosting, i64 16), align 8
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @semihosting, i64 8), align 8
+  store i32 %inc.i5, ptr getelementptr inbounds nuw (i8, ptr @semihosting, i64 16), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @semihosting, i64 8), align 8
   %add.i6 = add i32 %6, 2
   %conv.i7 = sext i32 %add.i6 to i64
   %call2.i8 = tail call ptr @g_realloc_n(ptr noundef %7, i64 noundef %conv.i7, i64 noundef 8) #8
-  store ptr %call2.i8, ptr getelementptr inbounds (i8, ptr @semihosting, i64 8), align 8
+  store ptr %call2.i8, ptr getelementptr inbounds nuw (i8, ptr @semihosting, i64 8), align 8
   %call4.i9 = tail call noalias ptr @g_strdup(ptr noundef nonnull %cmd_token.017) #8
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @semihosting, i64 8), align 8
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @semihosting, i64 16), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @semihosting, i64 8), align 8
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @semihosting, i64 16), align 8
   %sub.i10 = add i32 %9, -1
   %idxprom.i11 = sext i32 %sub.i10 to i64
   %arrayidx.i12 = getelementptr ptr, ptr %8, i64 %idxprom.i11
   store ptr %call4.i9, ptr %arrayidx.i12, align 8
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @semihosting, i64 8), align 8
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @semihosting, i64 16), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @semihosting, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @semihosting, i64 16), align 8
   %idxprom9.i13 = sext i32 %11 to i64
   %arrayidx10.i14 = getelementptr ptr, ptr %10, i64 %idxprom9.i13
   store ptr null, ptr %arrayidx10.i14, align 8
@@ -168,11 +168,11 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %argc = getelementptr inbounds i8, ptr %opaque, i64 16
+  %argc = getelementptr inbounds nuw i8, ptr %opaque, i64 16
   %0 = load i32, ptr %argc, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %argc, align 8
-  %argv = getelementptr inbounds i8, ptr %opaque, i64 8
+  %argv = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   %1 = load ptr, ptr %argv, align 8
   %add = add i32 %0, 2
   %conv = sext i32 %add to i64

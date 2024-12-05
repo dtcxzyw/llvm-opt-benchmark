@@ -171,7 +171,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_bat_batman(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.67) #2
   %7 = load ptr, ptr %5, align 8
@@ -186,7 +186,7 @@ define internal i32 @dissect_bat_batman(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %10, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %11 = getelementptr inbounds i8, ptr %1, i64 408
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %.not.i = icmp eq ptr %2, null
   br label %12
 
@@ -198,53 +198,53 @@ define internal i32 @dissect_bat_batman(ptr noundef %0, ptr noundef %1, ptr noun
   store i8 %15, ptr %14, align 8
   %16 = add i32 %.018, 1
   %17 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %16) #2
-  %18 = getelementptr inbounds i8, ptr %14, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 1
   store i8 %17, ptr %18, align 1
   %19 = add i32 %.018, 2
   %20 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %19) #2
-  %21 = getelementptr inbounds i8, ptr %14, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 2
   store i8 %20, ptr %21, align 2
   %22 = add i32 %.018, 3
   %23 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %22) #2
-  %24 = getelementptr inbounds i8, ptr %14, i64 3
+  %24 = getelementptr inbounds nuw i8, ptr %14, i64 3
   store i8 %23, ptr %24, align 1
   %25 = add i32 %.018, 4
   %26 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %25) #2
-  %27 = getelementptr inbounds i8, ptr %14, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i16 %26, ptr %27, align 4
   %28 = add i32 %.018, 6
   %29 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %28) #2
-  %30 = getelementptr inbounds i8, ptr %14, i64 6
+  %30 = getelementptr inbounds nuw i8, ptr %14, i64 6
   store i16 %29, ptr %30, align 2
   %31 = add i32 %.018, 8
   %32 = tail call i32 @tvb_get_ipv4(ptr noundef %0, i32 noundef %31) #2
-  %33 = getelementptr inbounds i8, ptr %14, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %34 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %31, i32 noundef 4) #2
   store i32 2, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %14, i64 12
+  %35 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store i32 4, ptr %35, align 4
-  %36 = getelementptr inbounds i8, ptr %14, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %34, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %14, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store ptr null, ptr %37, align 8
   %38 = add i32 %.018, 12
   %39 = tail call i32 @tvb_get_ipv4(ptr noundef %0, i32 noundef %38) #2
-  %40 = getelementptr inbounds i8, ptr %14, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %41 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %38, i32 noundef 4) #2
   store i32 2, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %14, i64 36
+  %42 = getelementptr inbounds nuw i8, ptr %14, i64 36
   store i32 4, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %14, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store ptr %41, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %14, i64 48
+  %44 = getelementptr inbounds nuw i8, ptr %14, i64 48
   store ptr null, ptr %44, align 8
   %45 = add i32 %.018, 16
   %46 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %45) #2
-  %47 = getelementptr inbounds i8, ptr %14, i64 56
+  %47 = getelementptr inbounds nuw i8, ptr %14, i64 56
   store i8 %46, ptr %47, align 8
   %48 = add i32 %.018, 17
   %49 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %48) #2
-  %50 = getelementptr inbounds i8, ptr %14, i64 57
+  %50 = getelementptr inbounds nuw i8, ptr %14, i64 57
   store i8 %49, ptr %50, align 1
   %51 = load ptr, ptr %5, align 8
   %52 = zext i16 %26 to i32
@@ -312,7 +312,7 @@ define internal i32 @dissect_bat_batman(ptr noundef %0, ptr noundef %1, ptr noun
 
 .lr.ph.i:                                         ; preds = %60
   %.not.i.i = icmp eq ptr %.0103.i, null
-  %104 = getelementptr inbounds i8, ptr %.0103.i, i64 40
+  %104 = getelementptr inbounds nuw i8, ptr %.0103.i, i64 40
   br i1 %.not.i.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %dissect_bat_hna.exit.us.i
@@ -357,7 +357,7 @@ dissect_bat_hna.exit.us.i:                        ; preds = %108, %.lr.ph.split.
   %123 = tail call i32 @tvb_get_ipv4(ptr noundef %117, i32 noundef 0) #2
   %124 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %117, i32 noundef 4) #2
   %125 = load ptr, ptr %104, align 8
-  %126 = getelementptr inbounds i8, ptr %125, i64 8
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
   %127 = load i32, ptr %126, align 8
   %.not17.i.i = icmp eq i32 %127, 0
   %128 = load i32, ptr @proto_bat_plugin, align 4
@@ -409,14 +409,14 @@ dissect_bat_batman_v5.exit:                       ; preds = %dissect_bat_hna.exi
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_bat_gw(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 408
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noalias ptr @wmem_alloc(ptr noundef %6, i64 noundef 1) #2
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #2
   %cond = icmp eq i8 %8, 3
   %. = select i1 %cond, i32 13, i32 1
   %9 = tail call i32 @tvb_get_ipv4(ptr noundef %0, i32 noundef %.) #2
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_set_str(ptr noundef %11, i32 noundef 34, ptr noundef nonnull @.str.72) #2
   %12 = load ptr, ptr %10, align 8
@@ -495,7 +495,7 @@ define internal i32 @dissect_bat_gw(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_bat_vis(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.77) #2
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #2
@@ -505,26 +505,26 @@ define internal i32 @dissect_bat_vis(ptr noundef %0, ptr noundef %1, ptr noundef
   ]
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %1, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noalias ptr @wmem_alloc(ptr noundef %10, i64 noundef 32) #2
   %12 = tail call i32 @tvb_get_ipv4(ptr noundef %0, i32 noundef 0) #2
   %13 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 0, i32 noundef 4) #2
   store i32 2, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 4, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %11, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %13, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %11, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr null, ptr %16, align 8
   %17 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #2
-  %18 = getelementptr inbounds i8, ptr %11, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i8 %17, ptr %18, align 8
   %19 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 5) #2
-  %20 = getelementptr inbounds i8, ptr %11, i64 25
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 25
   store i8 %19, ptr %20, align 1
   %21 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 6) #2
-  %22 = getelementptr inbounds i8, ptr %11, i64 26
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 26
   store i16 %21, ptr %22, align 2
   %23 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %23, i32 noundef 34, ptr noundef nonnull @.str.77) #2
@@ -607,17 +607,17 @@ dissect_vis_entry_v22.exit.us72.i:                ; preds = %58, %.lr.ph.split.s
   %62 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %55, i32 noundef 0) #2
   store i8 %62, ptr %61, align 8
   %63 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %55, i32 noundef 1) #2
-  %64 = getelementptr inbounds i8, ptr %61, i64 2
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 2
   store i16 %63, ptr %64, align 2
   %65 = tail call i32 @tvb_get_ipv4(ptr noundef %55, i32 noundef 3) #2
-  %66 = getelementptr inbounds i8, ptr %61, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %67 = tail call ptr @tvb_get_ptr(ptr noundef %55, i32 noundef 3, i32 noundef 4) #2
   store i32 2, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %61, i64 12
+  %68 = getelementptr inbounds nuw i8, ptr %61, i64 12
   store i32 4, ptr %68, align 4
-  %69 = getelementptr inbounds i8, ptr %61, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %61, i64 16
   store ptr %67, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %61, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %61, i64 24
   store ptr null, ptr %70, align 8
   %71 = add i32 %.06168.us69.i, 7
   %72 = add i32 %.06267.us70.i, 7
@@ -644,17 +644,17 @@ dissect_vis_entry_v22.exit.us72.i:                ; preds = %58, %.lr.ph.split.s
   %82 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %74, i32 noundef 0) #2
   store i8 %82, ptr %81, align 8
   %83 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %74, i32 noundef 1) #2
-  %84 = getelementptr inbounds i8, ptr %81, i64 2
+  %84 = getelementptr inbounds nuw i8, ptr %81, i64 2
   store i16 %83, ptr %84, align 2
   %85 = tail call i32 @tvb_get_ipv4(ptr noundef %74, i32 noundef 3) #2
-  %86 = getelementptr inbounds i8, ptr %81, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %87 = tail call ptr @tvb_get_ptr(ptr noundef %74, i32 noundef 3, i32 noundef 4) #2
   store i32 2, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %81, i64 12
+  %88 = getelementptr inbounds nuw i8, ptr %81, i64 12
   store i32 4, ptr %88, align 4
-  %89 = getelementptr inbounds i8, ptr %81, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %81, i64 16
   store ptr %87, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %81, i64 24
+  %90 = getelementptr inbounds nuw i8, ptr %81, i64 24
   store ptr null, ptr %90, align 8
   %91 = load i32, ptr @proto_bat_plugin, align 4
   %92 = zext i8 %82 to i32
@@ -709,26 +709,26 @@ dissect_vis_entry_v22.exit.i:                     ; preds = %.sink.split.i.i, %7
   br label %dissect_bat_vis_v22.exit.sink.split
 
 118:                                              ; preds = %4
-  %119 = getelementptr inbounds i8, ptr %1, i64 408
+  %119 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %120 = load ptr, ptr %119, align 8
   %121 = tail call noalias ptr @wmem_alloc(ptr noundef %120, i64 noundef 32) #2
   %122 = tail call i32 @tvb_get_ipv4(ptr noundef %0, i32 noundef 0) #2
   %123 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 0, i32 noundef 4) #2
   store i32 2, ptr %121, align 8
-  %124 = getelementptr inbounds i8, ptr %121, i64 4
+  %124 = getelementptr inbounds nuw i8, ptr %121, i64 4
   store i32 4, ptr %124, align 4
-  %125 = getelementptr inbounds i8, ptr %121, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %121, i64 8
   store ptr %123, ptr %125, align 8
-  %126 = getelementptr inbounds i8, ptr %121, i64 16
+  %126 = getelementptr inbounds nuw i8, ptr %121, i64 16
   store ptr null, ptr %126, align 8
   %127 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #2
-  %128 = getelementptr inbounds i8, ptr %121, i64 24
+  %128 = getelementptr inbounds nuw i8, ptr %121, i64 24
   store i8 %127, ptr %128, align 8
   %129 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 5) #2
-  %130 = getelementptr inbounds i8, ptr %121, i64 25
+  %130 = getelementptr inbounds nuw i8, ptr %121, i64 25
   store i8 %129, ptr %130, align 1
   %131 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 6) #2
-  %132 = getelementptr inbounds i8, ptr %121, i64 26
+  %132 = getelementptr inbounds nuw i8, ptr %121, i64 26
   store i8 %131, ptr %132, align 2
   %133 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %133, i32 noundef 34, ptr noundef nonnull @.str.77) #2
@@ -811,17 +811,17 @@ dissect_vis_entry_v23.exit.us72.i:                ; preds = %168, %.lr.ph.split.
   %172 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %165, i32 noundef 0) #2
   store i8 %172, ptr %171, align 8
   %173 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %165, i32 noundef 1) #2
-  %174 = getelementptr inbounds i8, ptr %171, i64 1
+  %174 = getelementptr inbounds nuw i8, ptr %171, i64 1
   store i8 %173, ptr %174, align 1
   %175 = tail call i32 @tvb_get_ipv4(ptr noundef %165, i32 noundef 2) #2
-  %176 = getelementptr inbounds i8, ptr %171, i64 8
+  %176 = getelementptr inbounds nuw i8, ptr %171, i64 8
   %177 = tail call ptr @tvb_get_ptr(ptr noundef %165, i32 noundef 2, i32 noundef 4) #2
   store i32 2, ptr %176, align 8
-  %178 = getelementptr inbounds i8, ptr %171, i64 12
+  %178 = getelementptr inbounds nuw i8, ptr %171, i64 12
   store i32 4, ptr %178, align 4
-  %179 = getelementptr inbounds i8, ptr %171, i64 16
+  %179 = getelementptr inbounds nuw i8, ptr %171, i64 16
   store ptr %177, ptr %179, align 8
-  %180 = getelementptr inbounds i8, ptr %171, i64 24
+  %180 = getelementptr inbounds nuw i8, ptr %171, i64 24
   store ptr null, ptr %180, align 8
   %181 = add i32 %.06168.us69.i28, 6
   %182 = add i32 %.06267.us70.i29, 6
@@ -848,17 +848,17 @@ dissect_vis_entry_v23.exit.us72.i:                ; preds = %168, %.lr.ph.split.
   %192 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %184, i32 noundef 0) #2
   store i8 %192, ptr %191, align 8
   %193 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %184, i32 noundef 1) #2
-  %194 = getelementptr inbounds i8, ptr %191, i64 1
+  %194 = getelementptr inbounds nuw i8, ptr %191, i64 1
   store i8 %193, ptr %194, align 1
   %195 = tail call i32 @tvb_get_ipv4(ptr noundef %184, i32 noundef 2) #2
-  %196 = getelementptr inbounds i8, ptr %191, i64 8
+  %196 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %197 = tail call ptr @tvb_get_ptr(ptr noundef %184, i32 noundef 2, i32 noundef 4) #2
   store i32 2, ptr %196, align 8
-  %198 = getelementptr inbounds i8, ptr %191, i64 12
+  %198 = getelementptr inbounds nuw i8, ptr %191, i64 12
   store i32 4, ptr %198, align 4
-  %199 = getelementptr inbounds i8, ptr %191, i64 16
+  %199 = getelementptr inbounds nuw i8, ptr %191, i64 16
   store ptr %197, ptr %199, align 8
-  %200 = getelementptr inbounds i8, ptr %191, i64 24
+  %200 = getelementptr inbounds nuw i8, ptr %191, i64 24
   store ptr null, ptr %200, align 8
   %201 = load i32, ptr @proto_bat_plugin, align 4
   %202 = zext i8 %192 to i32

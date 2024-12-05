@@ -14,10 +14,10 @@ define zeroext i16 @FT_Get_FSType_Flags(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %.thread, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 176
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %8 = load ptr, ptr %7, align 8
   %.not21 = icmp eq ptr %8, null
   br i1 %.not21, label %.thread, label %9
@@ -28,7 +28,7 @@ define zeroext i16 @FT_Get_FSType_Flags(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not22, label %.thread, label %11
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %10, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not23 = icmp eq ptr %13, null
   br i1 %.not23, label %.thread, label %14
@@ -52,7 +52,7 @@ define zeroext i16 @FT_Get_FSType_Flags(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not25, label %25, label %22
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %19, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %24 = load i16, ptr %23, align 8
   br label %25
 

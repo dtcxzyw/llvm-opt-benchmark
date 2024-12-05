@@ -91,14 +91,14 @@ entry:
   %b.i = alloca [4 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %b.i)
   store i8 118, ptr %b.i, align 1
-  %arrayidx2.i = getelementptr inbounds i8, ptr %b.i, i64 1
+  %arrayidx2.i = getelementptr inbounds nuw i8, ptr %b.i, i64 1
   store i8 47, ptr %arrayidx2.i, align 1
-  %arrayidx5.i = getelementptr inbounds i8, ptr %b.i, i64 2
+  %arrayidx5.i = getelementptr inbounds nuw i8, ptr %b.i, i64 2
   store i8 49, ptr %arrayidx5.i, align 1
-  %arrayidx8.i = getelementptr inbounds i8, ptr %b.i, i64 3
+  %arrayidx8.i = getelementptr inbounds nuw i8, ptr %b.i, i64 3
   store i8 1, ptr %arrayidx8.i, align 1
   %vtable.i.i.i = load ptr, ptr %os, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
   %0 = load ptr, ptr %vfn.i.i.i, align 8
   call void %0(ptr noundef nonnull align 8 dereferenceable(40) %os, ptr noundef nonnull %b.i, i32 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %b.i)
@@ -122,14 +122,14 @@ if.end7:                                          ; preds = %if.else, %land.lhs.
   store i8 2, ptr %b.i9, align 1
   %1 = or disjoint i8 %version.0, 4
   %shr.i = select i1 %call8, i8 %1, i8 %version.0
-  %arrayidx2.i10 = getelementptr inbounds i8, ptr %b.i9, i64 1
+  %arrayidx2.i10 = getelementptr inbounds nuw i8, ptr %b.i9, i64 1
   store i8 %shr.i, ptr %arrayidx2.i10, align 1
-  %arrayidx5.i11 = getelementptr inbounds i8, ptr %b.i9, i64 2
+  %arrayidx5.i11 = getelementptr inbounds nuw i8, ptr %b.i9, i64 2
   store i8 0, ptr %arrayidx5.i11, align 1
-  %arrayidx8.i12 = getelementptr inbounds i8, ptr %b.i9, i64 3
+  %arrayidx8.i12 = getelementptr inbounds nuw i8, ptr %b.i9, i64 3
   store i8 0, ptr %arrayidx8.i12, align 1
   %vtable.i.i.i13 = load ptr, ptr %os, align 8
-  %vfn.i.i.i14 = getelementptr inbounds i8, ptr %vtable.i.i.i13, i64 16
+  %vfn.i.i.i14 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i13, i64 16
   %2 = load ptr, ptr %vfn.i.i.i14, align 8
   call void %2(ptr noundef nonnull align 8 dereferenceable(40) %os, ptr noundef nonnull %b.i9, i32 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %b.i9)
@@ -153,14 +153,14 @@ entry:
   %b.i = alloca [4 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %b.i)
   store i8 118, ptr %b.i, align 1
-  %arrayidx2.i = getelementptr inbounds i8, ptr %b.i, i64 1
+  %arrayidx2.i = getelementptr inbounds nuw i8, ptr %b.i, i64 1
   store i8 47, ptr %arrayidx2.i, align 1
-  %arrayidx5.i = getelementptr inbounds i8, ptr %b.i, i64 2
+  %arrayidx5.i = getelementptr inbounds nuw i8, ptr %b.i, i64 2
   store i8 49, ptr %arrayidx5.i, align 1
-  %arrayidx8.i = getelementptr inbounds i8, ptr %b.i, i64 3
+  %arrayidx8.i = getelementptr inbounds nuw i8, ptr %b.i, i64 3
   store i8 1, ptr %arrayidx8.i, align 1
   %vtable.i.i.i = load ptr, ptr %os, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
   %0 = load ptr, ptr %vfn.i.i.i, align 8
   call void %0(ptr noundef nonnull align 8 dereferenceable(40) %os, ptr noundef nonnull %b.i, i32 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %b.i)
@@ -202,7 +202,7 @@ for.body.preheader:                               ; preds = %_ZSteqIcEN9__gnu_cx
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
   %version.126 = phi i32 [ %version.031, %for.body.preheader ], [ %version.3, %for.inc ]
-  %arrayidx7 = getelementptr inbounds %"class.Imf_3_2::Header", ptr %headers, i64 %indvars.iv
+  %arrayidx7 = getelementptr inbounds nuw %"class.Imf_3_2::Header", ptr %headers, i64 %indvars.iv
   %call8 = call noundef zeroext i1 @_ZN7Imf_3_213usesLongNamesERKNS_6HeaderE(ptr noundef nonnull align 8 dereferenceable(49) %arrayidx7)
   %or10 = or i32 %version.126, 1024
   %spec.select14 = select i1 %call8, i32 %or10, i32 %version.126
@@ -229,14 +229,14 @@ for.end:                                          ; preds = %for.inc, %if.end5
   store i8 %conv.i, ptr %b.i16, align 1
   %shr.i = lshr i32 %version.1.lcssa, 8
   %conv1.i = trunc nuw nsw i32 %shr.i to i8
-  %arrayidx2.i17 = getelementptr inbounds i8, ptr %b.i16, i64 1
+  %arrayidx2.i17 = getelementptr inbounds nuw i8, ptr %b.i16, i64 1
   store i8 %conv1.i, ptr %arrayidx2.i17, align 1
-  %arrayidx5.i18 = getelementptr inbounds i8, ptr %b.i16, i64 2
+  %arrayidx5.i18 = getelementptr inbounds nuw i8, ptr %b.i16, i64 2
   store i8 0, ptr %arrayidx5.i18, align 1
-  %arrayidx8.i19 = getelementptr inbounds i8, ptr %b.i16, i64 3
+  %arrayidx8.i19 = getelementptr inbounds nuw i8, ptr %b.i16, i64 3
   store i8 0, ptr %arrayidx8.i19, align 1
   %vtable.i.i.i20 = load ptr, ptr %os, align 8
-  %vfn.i.i.i21 = getelementptr inbounds i8, ptr %vtable.i.i.i20, i64 16
+  %vfn.i.i.i21 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i20, i64 16
   %2 = load ptr, ptr %vfn.i.i.i21, align 8
   call void %2(ptr noundef nonnull align 8 dereferenceable(40) %os, ptr noundef nonnull %b.i16, i32 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %b.i16)

@@ -408,7 +408,7 @@ define internal fastcc void @lv_spinbox_updatevalue(ptr noundef %0) unnamed_addr
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %25, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %29 = getelementptr inbounds [14 x i8], ptr %3, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [14 x i8], ptr %3, i64 0, i64 %indvars.iv
   %30 = load i8, ptr %29, align 1, !tbaa !18
   %31 = add nsw i64 %indvars.iv, %26
   %32 = getelementptr inbounds [14 x i8], ptr %3, i64 0, i64 %31
@@ -433,7 +433,7 @@ define internal fastcc void @lv_spinbox_updatevalue(ptr noundef %0) unnamed_addr
 .lr.ph75:                                         ; preds = %.lr.ph75.preheader, %39
   %indvars.iv94 = phi i64 [ 0, %.lr.ph75.preheader ], [ %indvars.iv.next95, %39 ]
   %.15874 = phi ptr [ %.057, %.lr.ph75.preheader ], [ %40, %39 ]
-  %37 = getelementptr inbounds [14 x i8], ptr %3, i64 0, i64 %indvars.iv94
+  %37 = getelementptr inbounds nuw [14 x i8], ptr %3, i64 0, i64 %indvars.iv94
   %38 = load i8, ptr %37, align 1, !tbaa !18
   %.not67 = icmp eq i8 %38, 0
   br i1 %.not67, label %.critedge.loopexit.split.loop.exit103, label %39
@@ -470,7 +470,7 @@ define internal fastcc void @lv_spinbox_updatevalue(ptr noundef %0) unnamed_addr
 .lr.ph83:                                         ; preds = %.lr.ph83.preheader, %49
   %indvars.iv97 = phi i64 [ %46, %.lr.ph83.preheader ], [ %indvars.iv.next98, %49 ]
   %.282.pn = phi ptr [ %.158.lcssa, %.lr.ph83.preheader ], [ %.282, %49 ]
-  %47 = getelementptr inbounds [14 x i8], ptr %3, i64 0, i64 %indvars.iv97
+  %47 = getelementptr inbounds nuw [14 x i8], ptr %3, i64 0, i64 %indvars.iv97
   %48 = load i8, ptr %47, align 1, !tbaa !18
   %.not69 = icmp eq i8 %48, 0
   br i1 %.not69, label %.critedge2, label %49

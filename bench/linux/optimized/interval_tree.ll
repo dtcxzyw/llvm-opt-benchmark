@@ -16,9 +16,9 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_interval_tre
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @interval_tree_insert(ptr noundef %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i64, ptr %5, align 8
   %7 = load ptr, ptr %1, align 8
   %8 = icmp eq ptr %7, null
@@ -27,7 +27,7 @@ define dso_local void @interval_tree_insert(ptr noundef %0, ptr noundef %1) #0 a
 .preheader:                                       ; preds = %2, %15
   %9 = phi ptr [ %22, %15 ], [ %7, %2 ]
   %10 = phi i8 [ %19, %15 ], [ 1, %2 ]
-  %11 = getelementptr inbounds i8, ptr %9, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %12 = load i64, ptr %11, align 8
   %13 = icmp ult i64 %12, %6
   br i1 %13, label %14, label %15
@@ -37,37 +37,37 @@ define dso_local void @interval_tree_insert(ptr noundef %0, ptr noundef %1) #0 a
   br label %15
 
 15:                                               ; preds = %14, %.preheader
-  %16 = getelementptr inbounds i8, ptr %9, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %17 = load i64, ptr %16, align 8
   %18 = icmp ult i64 %4, %17
   %19 = select i1 %18, i8 %10, i8 0
   %20 = select i1 %18, i64 16, i64 8
-  %21 = getelementptr inbounds i8, ptr %9, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %.preheader, !llvm.loop !5
 
 24:                                               ; preds = %15
-  %25 = getelementptr inbounds i8, ptr %9, i64 %20
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 %20
   %26 = ptrtoint ptr %9 to i64
   %27 = icmp eq i8 %19, 0
-  %28 = getelementptr inbounds i8, ptr %0, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %6, ptr %28, align 8
   store i64 %26, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
   store ptr %0, ptr %25, align 8
   br i1 %27, label %34, label %32
 
 30:                                               ; preds = %2
-  %31 = getelementptr inbounds i8, ptr %0, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %6, ptr %31, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   store ptr %0, ptr %1, align 8
   br label %32
 
 32:                                               ; preds = %30, %24
-  %33 = getelementptr inbounds i8, ptr %1, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %0, ptr %33, align 8
   br label %34
 
@@ -78,7 +78,7 @@ define dso_local void @interval_tree_insert(ptr noundef %0, ptr noundef %1) #0 a
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @interval_tree_remove(ptr noundef %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %0
   br i1 %5, label %6, label %8
@@ -89,9 +89,9 @@ define dso_local void @interval_tree_remove(ptr noundef %0, ptr noundef %1) #0 a
   br label %8
 
 8:                                                ; preds = %6, %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %33
@@ -104,10 +104,10 @@ define dso_local void @interval_tree_remove(ptr noundef %0, ptr noundef %1) #0 a
   br i1 %18, label %25, label %19
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %17, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, %0
-  %23 = getelementptr inbounds i8, ptr %17, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %24 = select i1 %22, ptr %20, ptr %23
   br label %25
 
@@ -140,7 +140,7 @@ define dso_local void @interval_tree_remove(ptr noundef %0, ptr noundef %1) #0 a
   br i1 %39, label %47, label %40
 
 40:                                               ; preds = %35
-  %41 = getelementptr inbounds i8, ptr %38, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, %0
   br i1 %43, label %44, label %45
@@ -150,7 +150,7 @@ define dso_local void @interval_tree_remove(ptr noundef %0, ptr noundef %1) #0 a
   br label %135
 
 45:                                               ; preds = %40
-  %46 = getelementptr inbounds i8, ptr %38, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store volatile ptr %12, ptr %46, align 8
   br label %135
 
@@ -159,17 +159,17 @@ define dso_local void @interval_tree_remove(ptr noundef %0, ptr noundef %1) #0 a
   br label %135
 
 48:                                               ; preds = %33
-  %49 = getelementptr inbounds i8, ptr %10, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %50, null
   br i1 %51, label %52, label %.preheader
 
 52:                                               ; preds = %48
-  %53 = getelementptr inbounds i8, ptr %10, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 40
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %56 = load i64, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %10, i64 40
+  %57 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i64 %56, ptr %57, align 8
   %.pre = ptrtoint ptr %10 to i64
   br label %.thread
@@ -177,15 +177,15 @@ define dso_local void @interval_tree_remove(ptr noundef %0, ptr noundef %1) #0 a
 .preheader:                                       ; preds = %48, %.preheader
   %58 = phi ptr [ %61, %.preheader ], [ %50, %48 ]
   %59 = phi ptr [ %58, %.preheader ], [ %10, %48 ]
-  %60 = getelementptr inbounds i8, ptr %58, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, null
   br i1 %62, label %63, label %.preheader, !llvm.loop !8
 
 63:                                               ; preds = %.preheader
-  %64 = getelementptr inbounds i8, ptr %58, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %59, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %59, i64 16
   store volatile ptr %65, ptr %66, align 8
   store volatile ptr %10, ptr %64, align 8
   %67 = load i64, ptr %10, align 8
@@ -193,44 +193,44 @@ define dso_local void @interval_tree_remove(ptr noundef %0, ptr noundef %1) #0 a
   %69 = ptrtoint ptr %58 to i64
   %70 = add i64 %68, %69
   store i64 %70, ptr %10, align 8
-  %71 = getelementptr inbounds i8, ptr %0, i64 40
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %72 = load i64, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %58, i64 40
+  %73 = getelementptr inbounds nuw i8, ptr %58, i64 40
   store i64 %72, ptr %73, align 8
   %74 = icmp eq ptr %59, %58
   br i1 %74, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %63, %99
   %75 = phi ptr [ %102, %99 ], [ %59, %63 ]
-  %76 = getelementptr inbounds i8, ptr %75, i64 32
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 32
   %77 = load i64, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %75, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %79 = load ptr, ptr %78, align 8
   %80 = icmp eq ptr %79, null
   br i1 %80, label %85, label %81
 
 81:                                               ; preds = %.lr.ph
-  %82 = getelementptr inbounds i8, ptr %79, i64 40
+  %82 = getelementptr inbounds nuw i8, ptr %79, i64 40
   %83 = load i64, ptr %82, align 8
   %84 = tail call i64 @llvm.umax.i64(i64 %83, i64 %77)
   br label %85
 
 85:                                               ; preds = %81, %.lr.ph
   %86 = phi i64 [ %77, %.lr.ph ], [ %84, %81 ]
-  %87 = getelementptr inbounds i8, ptr %75, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %88 = load ptr, ptr %87, align 8
   %89 = icmp eq ptr %88, null
   br i1 %89, label %94, label %90
 
 90:                                               ; preds = %85
-  %91 = getelementptr inbounds i8, ptr %88, i64 40
+  %91 = getelementptr inbounds nuw i8, ptr %88, i64 40
   %92 = load i64, ptr %91, align 8
   %93 = tail call i64 @llvm.umax.i64(i64 %92, i64 %86)
   br label %94
 
 94:                                               ; preds = %90, %85
   %95 = phi i64 [ %86, %85 ], [ %93, %90 ]
-  %96 = getelementptr inbounds i8, ptr %75, i64 40
+  %96 = getelementptr inbounds nuw i8, ptr %75, i64 40
   %97 = load i64, ptr %96, align 8
   %98 = icmp eq i64 %97, %95
   br i1 %98, label %.thread, label %99
@@ -249,7 +249,7 @@ define dso_local void @interval_tree_remove(ptr noundef %0, ptr noundef %1) #0 a
   %105 = phi ptr [ %58, %63 ], [ %10, %52 ], [ %58, %94 ], [ %58, %99 ]
   %106 = phi ptr [ %65, %63 ], [ %54, %52 ], [ %65, %94 ], [ %65, %99 ]
   %107 = load ptr, ptr %11, align 8
-  %108 = getelementptr inbounds i8, ptr %105, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %105, i64 16
   store volatile ptr %107, ptr %108, align 8
   %109 = load i64, ptr %107, align 8
   %110 = and i64 %109, 1
@@ -262,10 +262,10 @@ define dso_local void @interval_tree_remove(ptr noundef %0, ptr noundef %1) #0 a
 
 115:                                              ; preds = %.thread
   %116 = inttoptr i64 %113 to ptr
-  %117 = getelementptr inbounds i8, ptr %116, i64 16
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 16
   %118 = load ptr, ptr %117, align 8
   %119 = icmp eq ptr %118, %0
-  %120 = getelementptr inbounds i8, ptr %116, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %121 = select i1 %119, ptr %117, ptr %120
   br label %122
 
@@ -301,35 +301,35 @@ define dso_local void @interval_tree_remove(ptr noundef %0, ptr noundef %1) #0 a
 
 .lr.ph20:                                         ; preds = %135, %163
   %139 = phi ptr [ %166, %163 ], [ %136, %135 ]
-  %140 = getelementptr inbounds i8, ptr %139, i64 32
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 32
   %141 = load i64, ptr %140, align 8
-  %142 = getelementptr inbounds i8, ptr %139, i64 16
+  %142 = getelementptr inbounds nuw i8, ptr %139, i64 16
   %143 = load ptr, ptr %142, align 8
   %144 = icmp eq ptr %143, null
   br i1 %144, label %149, label %145
 
 145:                                              ; preds = %.lr.ph20
-  %146 = getelementptr inbounds i8, ptr %143, i64 40
+  %146 = getelementptr inbounds nuw i8, ptr %143, i64 40
   %147 = load i64, ptr %146, align 8
   %148 = tail call i64 @llvm.umax.i64(i64 %147, i64 %141)
   br label %149
 
 149:                                              ; preds = %145, %.lr.ph20
   %150 = phi i64 [ %141, %.lr.ph20 ], [ %148, %145 ]
-  %151 = getelementptr inbounds i8, ptr %139, i64 8
+  %151 = getelementptr inbounds nuw i8, ptr %139, i64 8
   %152 = load ptr, ptr %151, align 8
   %153 = icmp eq ptr %152, null
   br i1 %153, label %158, label %154
 
 154:                                              ; preds = %149
-  %155 = getelementptr inbounds i8, ptr %152, i64 40
+  %155 = getelementptr inbounds nuw i8, ptr %152, i64 40
   %156 = load i64, ptr %155, align 8
   %157 = tail call i64 @llvm.umax.i64(i64 %156, i64 %150)
   br label %158
 
 158:                                              ; preds = %154, %149
   %159 = phi i64 [ %150, %149 ], [ %157, %154 ]
-  %160 = getelementptr inbounds i8, ptr %139, i64 40
+  %160 = getelementptr inbounds nuw i8, ptr %139, i64 40
   %161 = load i64, ptr %160, align 8
   %162 = icmp eq i64 %161, %159
   br i1 %162, label %.thread17, label %163
@@ -361,52 +361,52 @@ define dso_local ptr @interval_tree_iter_first(ptr nocapture noundef readonly %0
   br i1 %5, label %.loopexit, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %4, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %8 = load i64, ptr %7, align 8
   %9 = icmp ult i64 %8, %1
   br i1 %9, label %.loopexit, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load i64, ptr %13, align 8
   %15 = icmp ugt i64 %14, %2
   br i1 %15, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %10, %.preheader.backedge
   %16 = phi ptr [ %.be, %.preheader.backedge ], [ %4, %10 ]
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %24, label %20
 
 20:                                               ; preds = %.preheader
-  %21 = getelementptr inbounds i8, ptr %18, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %22 = load i64, ptr %21, align 8
   %23 = icmp ult i64 %22, %1
   br i1 %23, label %24, label %.preheader.backedge
 
 24:                                               ; preds = %20, %.preheader
-  %25 = getelementptr inbounds i8, ptr %16, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %26 = load i64, ptr %25, align 8
   %27 = icmp ugt i64 %26, %2
   br i1 %27, label %.loopexit, label %28
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %16, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %30 = load i64, ptr %29, align 8
   %31 = icmp ult i64 %30, %1
   br i1 %31, label %32, label %.loopexit
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %16, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
   br i1 %35, label %.loopexit, label %36
 
 36:                                               ; preds = %32
-  %37 = getelementptr inbounds i8, ptr %34, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 40
   %38 = load i64, ptr %37, align 8
   %39 = icmp ult i64 %38, %1
   br i1 %39, label %.loopexit, label %.preheader.backedge
@@ -422,7 +422,7 @@ define dso_local ptr @interval_tree_iter_first(ptr nocapture noundef readonly %0
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
 define dso_local ptr @interval_tree_iter_next(ptr noundef readonly %0, i64 noundef %1, i64 noundef %2) #1 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   br label %6
 
@@ -436,44 +436,44 @@ define dso_local ptr @interval_tree_iter_next(ptr noundef readonly %0, i64 nound
   br label %.thread
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %7, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load i64, ptr %11, align 8
   %13 = icmp ult i64 %12, %1
   br i1 %13, label %.thread.preheader, label %.preheader
 
 .preheader:                                       ; preds = %10, %.preheader.backedge
   %14 = phi ptr [ %.be, %.preheader.backedge ], [ %7, %10 ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %22, label %18
 
 18:                                               ; preds = %.preheader
-  %19 = getelementptr inbounds i8, ptr %16, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %20 = load i64, ptr %19, align 8
   %21 = icmp ult i64 %20, %1
   br i1 %21, label %22, label %.preheader.backedge
 
 22:                                               ; preds = %18, %.preheader
-  %23 = getelementptr inbounds i8, ptr %14, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %24 = load i64, ptr %23, align 8
   %25 = icmp ugt i64 %24, %2
   br i1 %25, label %.loopexit, label %26
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %14, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %28 = load i64, ptr %27, align 8
   %29 = icmp ult i64 %28, %1
   br i1 %29, label %30, label %.loopexit
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %14, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
   br i1 %33, label %.loopexit, label %34
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %32, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 40
   %36 = load i64, ptr %35, align 8
   %37 = icmp ult i64 %36, %1
   br i1 %37, label %.loopexit, label %.preheader.backedge
@@ -491,19 +491,19 @@ define dso_local ptr @interval_tree_iter_next(ptr noundef readonly %0, i64 nound
 
 42:                                               ; preds = %.thread
   %43 = inttoptr i64 %40 to ptr
-  %44 = getelementptr inbounds i8, ptr %43, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %38, %45
   br i1 %46, label %.thread, label %47, !llvm.loop !10
 
 47:                                               ; preds = %42
-  %48 = getelementptr inbounds i8, ptr %43, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %49 = load i64, ptr %48, align 8
   %50 = icmp ugt i64 %49, %2
   br i1 %50, label %.loopexit, label %51
 
 51:                                               ; preds = %47
-  %52 = getelementptr inbounds i8, ptr %43, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %53 = load i64, ptr %52, align 8
   %54 = icmp ult i64 %53, %1
   br i1 %54, label %6, label %.loopexit, !llvm.loop !11
@@ -518,32 +518,32 @@ declare dso_local void @__rb_insert_augmented(ptr noundef, ptr noundef, ptr noun
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
 define internal void @interval_tree_augment_rotate(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((40, 48)) %1) #3 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i64 %4, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %15, label %11
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %9, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %13 = load i64, ptr %12, align 8
   %14 = tail call i64 @llvm.umax.i64(i64 %13, i64 %7)
   br label %15
 
 15:                                               ; preds = %11, %2
   %16 = phi i64 [ %7, %2 ], [ %14, %11 ]
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %24, label %20
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %18, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %22 = load i64, ptr %21, align 8
   %23 = tail call i64 @llvm.umax.i64(i64 %22, i64 %16)
   br label %24

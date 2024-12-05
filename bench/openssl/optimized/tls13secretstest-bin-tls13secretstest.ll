@@ -241,7 +241,7 @@ cond.end9:                                        ; preds = %lor.lhs.false, %con
 
 if.end14:                                         ; preds = %cond.end9
   %call15 = tail call ptr @SSL_SESSION_new() #5
-  %session = getelementptr inbounds i8, ptr %cond10, i64 2176
+  %session = getelementptr inbounds nuw i8, ptr %cond10, i64 2176
   store ptr %call15, ptr %session, align 8
   %call17 = tail call i32 @test_ptr(ptr noundef nonnull @.str.1, i32 noundef 298, ptr noundef nonnull @.str.5, ptr noundef %call15) #5
   %tobool18.not = icmp eq i32 %call17, 0
@@ -249,7 +249,7 @@ if.end14:                                         ; preds = %cond.end9
 
 if.end20:                                         ; preds = %if.end14
   %call.i = tail call ptr @EVP_sha256() #5
-  %early_secret = getelementptr inbounds i8, ptr %cond10, i64 1276
+  %early_secret = getelementptr inbounds nuw i8, ptr %cond10, i64 1276
   %call22 = tail call i32 @tls13_generate_secret(ptr noundef nonnull %cond10, ptr noundef %call.i, ptr noundef null, ptr noundef null, i64 noundef 0, ptr noundef nonnull %early_secret) #5
   %cmp23 = icmp ne i32 %call22, 0
   %conv = zext i1 %cmp23 to i32
@@ -283,7 +283,7 @@ if.then38:                                        ; preds = %if.end32
   br label %err
 
 if.end39:                                         ; preds = %if.end32
-  %handshake_secret = getelementptr inbounds i8, ptr %cond10, i64 1340
+  %handshake_secret = getelementptr inbounds nuw i8, ptr %cond10, i64 1340
   %call41 = tail call i32 @test_mem_eq(ptr noundef nonnull @.str.1, i32 noundef 320, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, ptr noundef nonnull %handshake_secret, i64 noundef 32, ptr noundef nonnull @handshake_secret, i64 noundef 32) #5
   %tobool42.not = icmp eq i32 %call41, 0
   br i1 %tobool42.not, label %err, label %if.end44

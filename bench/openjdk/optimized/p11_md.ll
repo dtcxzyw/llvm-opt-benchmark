@@ -13,7 +13,7 @@ define ptr @Java_sun_security_pkcs11_wrapper_PKCS11_connect(ptr noundef %0, ptr 
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 1352
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1352
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr %8(ptr noundef nonnull %0, ptr noundef %2, ptr noundef null) #7
   %10 = icmp eq ptr %9, null
@@ -64,7 +64,7 @@ define ptr @Java_sun_security_pkcs11_wrapper_PKCS11_connect(ptr noundef %0, ptr 
 
 35:                                               ; preds = %26
   %36 = load ptr, ptr %0, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 1352
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 1352
   %38 = load ptr, ptr %37, align 8
   %39 = tail call ptr %38(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef null) #7
   %40 = icmp eq ptr %39, null
@@ -104,13 +104,13 @@ define ptr @Java_sun_security_pkcs11_wrapper_PKCS11_connect(ptr noundef %0, ptr 
 
 54:                                               ; preds = %49
   store ptr %12, ptr %50, align 8
-  %55 = getelementptr inbounds i8, ptr %50, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %50, i64 24
   store ptr null, ptr %55, align 8
   %.not95 = icmp eq ptr %.077, null
   br i1 %.not95, label %60, label %56
 
 56:                                               ; preds = %54
-  %57 = getelementptr inbounds i8, ptr %50, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %58 = call i64 %.077(ptr noundef nonnull %57) #7
   %59 = call i64 @ckAssertReturnValueOK(ptr noundef nonnull %0, i64 noundef %58) #7
   %.not97 = icmp eq i64 %59, 0
@@ -127,9 +127,9 @@ define ptr @Java_sun_security_pkcs11_wrapper_PKCS11_connect(ptr noundef %0, ptr 
   br i1 %.not96, label %66, label %62
 
 62:                                               ; preds = %60
-  %63 = getelementptr inbounds i8, ptr %61, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %50, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store ptr %64, ptr %65, align 8
   br label %67
 
@@ -147,16 +147,16 @@ define ptr @Java_sun_security_pkcs11_wrapper_PKCS11_connect(ptr noundef %0, ptr 
   br i1 %or.cond3, label %73, label %76
 
 73:                                               ; preds = %67
-  %74 = getelementptr inbounds i8, ptr %68, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %75 = load ptr, ptr %74, align 8
   br label %76
 
 76:                                               ; preds = %67, %73
   %.sink = phi ptr [ %75, %73 ], [ null, %67 ]
-  %77 = getelementptr inbounds i8, ptr %50, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 16
   store ptr %.sink, ptr %77, align 8
   %78 = load ptr, ptr %0, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 168
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 168
   %80 = load ptr, ptr %79, align 8
   %81 = call ptr %80(ptr noundef nonnull %0, ptr noundef %1) #7
   call void @putModuleEntry(ptr noundef nonnull %0, ptr noundef %81, ptr noundef nonnull %50) #7
@@ -170,7 +170,7 @@ define ptr @Java_sun_security_pkcs11_wrapper_PKCS11_connect(ptr noundef %0, ptr 
 
 83:                                               ; preds = %82
   %84 = load ptr, ptr %0, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 1360
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 1360
   %86 = load ptr, ptr %85, align 8
   call void %86(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %9) #7
   br label %87
@@ -183,7 +183,7 @@ define ptr @Java_sun_security_pkcs11_wrapper_PKCS11_connect(ptr noundef %0, ptr 
 
 90:                                               ; preds = %87
   %91 = load ptr, ptr %0, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 1360
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 1360
   %93 = load ptr, ptr %92, align 8
   call void %93(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %.076) #7
   br label %94
@@ -193,7 +193,7 @@ define ptr @Java_sun_security_pkcs11_wrapper_PKCS11_connect(ptr noundef %0, ptr 
   br i1 %.not99, label %99, label %95
 
 95:                                               ; preds = %94
-  %96 = getelementptr inbounds i8, ptr %.078, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %.078, i64 8
   %97 = load ptr, ptr %96, align 8
   %98 = call ptr @ckVersionPtrToJVersion(ptr noundef nonnull %0, ptr noundef %97) #7
   br label %99

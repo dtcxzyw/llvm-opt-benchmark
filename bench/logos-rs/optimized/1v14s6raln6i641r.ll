@@ -30,7 +30,7 @@ define hidden void @"_ZN13logos_codegen8generate28_$u7b$$u7b$closure$u7d$$u7d$17
   %4 = alloca [32 x i8], align 8
   %5 = alloca [32 x i8], align 8
   %6 = alloca [88 x i8], align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %8 = load ptr, ptr %7, align 8
   call void @_ZN13logos_codegen4leaf4Leaf3new17h79eb671fa539b92eE(ptr nonnull sret([88 x i8]) align 8 %6, ptr align 8 %8, i32 %2)
   %9 = load i64, ptr %1, align 8
@@ -180,7 +180,7 @@ define hidden void @"_ZN13logos_codegen8generate28_$u7b$$u7b$closure$u7d$$u7d$17
           to label %29 unwind label %16
 
 29:                                               ; preds = %28
-  %30 = getelementptr inbounds i8, ptr %1, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = load ptr, ptr %30, align 8
   invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hd968260794a784bbE"(ptr align 8 %31, ptr nonnull align 8 %10)
           to label %32 unwind label %16
@@ -212,7 +212,7 @@ define hidden void @"_ZN13logos_codegen8generate28_$u7b$$u7b$closure$u7d$$u7d$17
           to label %39 unwind label %35
 
 39:                                               ; preds = %38
-  %40 = getelementptr inbounds i8, ptr %1, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %41 = load ptr, ptr %40, align 8
   invoke void @"_ZN77_$LT$logos_codegen..util..MaybeVoid$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hc79bb3713cc61a71E"(ptr align 8 %41, ptr nonnull align 8 %8)
           to label %42 unwind label %35
@@ -234,7 +234,7 @@ define hidden void @"_ZN13logos_codegen8generate28_$u7b$$u7b$closure$u7d$$u7d$17
           to label %46 unwind label %35
 
 46:                                               ; preds = %45
-  %47 = getelementptr inbounds i8, ptr %1, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %48 = load ptr, ptr %47, align 8
   invoke void @"_ZN77_$LT$logos_codegen..util..MaybeVoid$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hc79bb3713cc61a71E"(ptr align 8 %48, ptr nonnull align 8 %8)
           to label %49 unwind label %35
@@ -256,7 +256,7 @@ define hidden void @"_ZN13logos_codegen8generate28_$u7b$$u7b$closure$u7d$$u7d$17
           to label %53 unwind label %35
 
 53:                                               ; preds = %52
-  %54 = getelementptr inbounds i8, ptr %1, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %55 = load ptr, ptr %54, align 8
   invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hd968260794a784bbE"(ptr align 8 %55, ptr nonnull align 8 %8)
           to label %56 unwind label %35
@@ -385,31 +385,31 @@ define hidden void @"_ZN13logos_codegen8generate28_$u7b$$u7b$closure$u7d$$u7d$17
   store ptr %1, ptr %8, align 8
   store ptr %2, ptr %7, align 8
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   store ptr %8, ptr %4, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h5cfe351e61291627E", ptr %.sroa.22.0..sroa_idx, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %7, ptr %12, align 8
-  %.sroa.26.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h5cfe351e61291627E", ptr %.sroa.26.0..sroa_idx, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %11, ptr %13, align 8
-  %.sroa.210.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 40
+  %.sroa.210.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17h7e93687954fa76c5E", ptr %.sroa.210.0..sroa_idx, align 8
   store ptr @anon.15fd81149a81ef54644d573145ba727f.20, ptr %5, align 8
-  %14 = getelementptr inbounds i8, ptr %5, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 4, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr null, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %5, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %4, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 3, ptr %17, align 8
   call void @_ZN5alloc3fmt6format17h0016d02633801bf4E(ptr nonnull sret([24 x i8]) align 8 %6, ptr nonnull align 8 %5)
   %18 = load ptr, ptr %8, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 80
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 80
   %20 = load i32, ptr %19, align 8
   %21 = call align 8 ptr @_ZN13logos_codegen5error6Errors3err17hc24dc1b9f17beb8cE(ptr align 8 %9, ptr nonnull align 8 %6, i32 %20)
   ret void

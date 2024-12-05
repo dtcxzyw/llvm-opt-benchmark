@@ -275,7 +275,7 @@ define dso_local range(i64 1, -7) i64 @rb_enumeratorize_with_size_kw(i64 noundef
   %18 = load i64, ptr @rb_cEnumerator, align 8
   %19 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %18, i64 noundef 96, ptr noundef nonnull @enumerator_data_type) #17
   %20 = inttoptr i64 %19 to ptr
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load i64, ptr %21, align 8
   %23 = and i64 %22, 2
   %.not.i.i = icmp eq i64 %23, 0
@@ -298,7 +298,7 @@ enumerator_allocate.exit:                         ; preds = %17, %25
   %.0 = phi i64 [ %12, %11 ], [ %7, %enumerator_allocate.exit ], [ %7, %13 ]
   %31 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %.0, i64 noundef 96, ptr noundef nonnull @enumerator_data_type) #17
   %32 = inttoptr i64 %31 to ptr
-  %33 = getelementptr inbounds i8, ptr %32, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %34 = load i64, ptr %33, align 8
   %35 = and i64 %34, 2
   %.not.i.i10 = icmp eq i64 %35, 0
@@ -364,13 +364,13 @@ rb_check_frozen_inline.exit:                      ; preds = %13
 
 rb_obj_write.exit:                                ; preds = %23, %28
   %29 = tail call i64 @rb_to_id(i64 noundef %2) #17
-  %30 = getelementptr inbounds i8, ptr %20, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i64 %29, ptr %30, align 8
   %.not26 = icmp eq i32 %3, 0
   br i1 %.not26, label %rb_obj_write.exit27, label %31
 
 31:                                               ; preds = %rb_obj_write.exit
-  %32 = getelementptr inbounds i8, ptr %20, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %33 = sext i32 %3 to i64
   %34 = tail call i64 @rb_ary_new_from_values(i64 noundef %33, ptr noundef %4) #17
   store i64 %34, ptr %32, align 8
@@ -385,17 +385,17 @@ rb_obj_write.exit:                                ; preds = %23, %28
   br label %rb_obj_write.exit27
 
 rb_obj_write.exit27:                              ; preds = %39, %31, %rb_obj_write.exit
-  %40 = getelementptr inbounds i8, ptr %20, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i64 0, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %20, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store i64 4, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %20, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %20, i64 40
   store i64 36, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %20, i64 48
+  %43 = getelementptr inbounds nuw i8, ptr %20, i64 48
   store i64 36, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %20, i64 56
+  %44 = getelementptr inbounds nuw i8, ptr %20, i64 56
   store i64 0, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %20, i64 64
+  %45 = getelementptr inbounds nuw i8, ptr %20, i64 64
   store i64 %6, ptr %45, align 8
   %46 = and i64 %6, 7
   %47 = icmp ne i64 %46, 0
@@ -408,9 +408,9 @@ rb_obj_write.exit27:                              ; preds = %39, %31, %rb_obj_wr
   br label %rb_obj_write.exit28
 
 rb_obj_write.exit28:                              ; preds = %rb_obj_write.exit27, %50
-  %51 = getelementptr inbounds i8, ptr %20, i64 80
+  %51 = getelementptr inbounds nuw i8, ptr %20, i64 80
   store ptr %5, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %20, i64 88
+  %52 = getelementptr inbounds nuw i8, ptr %20, i64 88
   store i32 %7, ptr %52, align 8
   ret i64 %0
 }
@@ -419,7 +419,7 @@ rb_obj_write.exit28:                              ; preds = %rb_obj_write.exit27
 define internal i64 @enumerator_allocate(i64 noundef %0) #0 {
   %2 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %0, i64 noundef 96, ptr noundef nonnull @enumerator_data_type) #17
   %3 = inttoptr i64 %2 to ptr
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 2
   %.not.i = icmp eq i64 %6, 0
@@ -443,7 +443,7 @@ define dso_local range(i64 1, -7) i64 @rb_arith_seq_new(i64 noundef %0, i64 noun
   %10 = load i64, ptr @rb_cArithSeq, align 8
   %11 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %10, i64 noundef 96, ptr noundef nonnull @enumerator_data_type) #17
   %12 = inttoptr i64 %11 to ptr
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load i64, ptr %13, align 8
   %15 = and i64 %14, 2
   %.not.i.i = icmp eq i64 %15, 0
@@ -487,30 +487,30 @@ define dso_local range(i32 0, 2) i32 @rb_arithmetic_sequence_extract(i64 noundef
   store i64 %7, ptr %1, align 8
   %8 = load i64, ptr @id_end, align 8
   %9 = tail call i64 @rb_ivar_get(i64 noundef %0, i64 noundef %8) #17
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %9, ptr %10, align 8
   %11 = load i64, ptr @id_step, align 8
   %12 = tail call i64 @rb_ivar_get(i64 noundef %0, i64 noundef %11) #17
-  %13 = getelementptr inbounds i8, ptr %1, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %12, ptr %13, align 8
   %14 = load i64, ptr @id_exclude_end, align 8
   %15 = tail call i64 @rb_ivar_get(i64 noundef %0, i64 noundef %14) #17
   %16 = and i64 %15, -5
   %17 = icmp ne i64 %16, 0
   %18 = zext i1 %17 to i32
-  %19 = getelementptr inbounds i8, ptr %1, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 %18, ptr %19, align 8
   br label %26
 
 20:                                               ; preds = %2
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %23 = tail call i32 @rb_range_values(i64 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %21, ptr noundef nonnull %22) #17
   %.not14 = icmp eq i32 %23, 0
   br i1 %.not14, label %26, label %24
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %1, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 3, ptr %25, align 8
   br label %26
 
@@ -550,7 +550,7 @@ define dso_local i64 @rb_arithmetic_sequence_beg_len_step(i64 noundef %0, ptr no
   br i1 %.not, label %67, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %7, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %11 = load i64, ptr %10, align 8
   %12 = icmp eq i64 %11, 4
   br i1 %12, label %.thread, label %13
@@ -584,10 +584,10 @@ rb_num2long_inline.exit._crit_edge:               ; preds = %rb_num2long_inline.
   br label %42
 
 21:                                               ; preds = %rb_num2long_inline.exit
-  %22 = getelementptr inbounds i8, ptr %7, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %23 = load i32, ptr %22, align 8
   %.not22 = icmp eq i32 %23, 0
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %7, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br i1 %.not22, label %._crit_edge, label %24
 
@@ -632,7 +632,7 @@ rb_long2num_inline.exit:                          ; preds = %34, %37
 ._crit_edge:                                      ; preds = %21, %rb_long2num_inline.exit, %24
   %39 = phi i64 [ %.0.i27, %rb_long2num_inline.exit ], [ 4, %24 ], [ %.pre, %21 ]
   %40 = load i64, ptr %7, align 8
-  %41 = getelementptr inbounds i8, ptr %7, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %39, ptr %7, align 8
   store i64 %40, ptr %41, align 8
   br label %42
@@ -646,9 +646,9 @@ rb_long2num_inline.exit:                          ; preds = %34, %37
   br i1 %or.cond23, label %45, label %58
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %7, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %47 = load i64, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %7, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %49 = load i32, ptr %48, align 8
   %50 = call i64 @rb_range_component_beg_len(i64 noundef %.pre31, i64 noundef %47, i32 noundef %49, ptr noundef nonnull %1, ptr noundef nonnull %2, i64 noundef %4, i32 noundef 1) #17
   %51 = icmp eq i64 %50, 20
@@ -666,9 +666,9 @@ rb_long2num_inline.exit:                          ; preds = %34, %37
 
 58:                                               ; preds = %.thread, %42
   %59 = phi i64 [ %.pre30, %.thread ], [ %.pre31, %42 ]
-  %60 = getelementptr inbounds i8, ptr %7, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %61 = load i64, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %7, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %63 = load i32, ptr %62, align 8
   %64 = call i64 @rb_range_component_beg_len(i64 noundef %59, i64 noundef %61, i32 noundef %63, ptr noundef nonnull %1, ptr noundef nonnull %2, i64 noundef %4, i32 noundef %5) #17
   br label %67
@@ -1125,7 +1125,7 @@ define hidden void @InitVM_Enumerator() local_unnamed_addr #0 {
 
 311:                                              ; preds = %0
   %312 = inttoptr i64 %306 to ptr
-  %313 = getelementptr inbounds i8, ptr %312, i64 8
+  %313 = getelementptr inbounds nuw i8, ptr %312, i64 8
   br label %rb_class_of.exit
 
 314:                                              ; preds = %0
@@ -1219,7 +1219,7 @@ define internal range(i64 1, -7) i64 @obj_to_enum(i32 noundef %0, ptr noundef %1
   unreachable
 
 enumerator_ptr.exit:                              ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %10, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %17 = tail call i64 @rb_block_proc() #17
   store i64 %17, ptr %16, align 8
   %18 = and i64 %17, 7
@@ -1248,7 +1248,7 @@ define internal range(i64 1, -7) i64 @enumerator_initialize(i32 noundef %0, ptr 
   %5 = load i64, ptr @rb_cGenerator, align 8
   %6 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %5, i64 noundef 16, ptr noundef nonnull @generator_data_type) #17
   %7 = inttoptr i64 %6 to ptr
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 2
   %.not.i.i = icmp eq i64 %10, 0
@@ -1358,7 +1358,7 @@ RB_FLOAT_TYPE_P.exit.i:                           ; preds = %43
   br label %rb_float_value_inline.exit.i
 
 59:                                               ; preds = %RB_FLOAT_TYPE_P.exit.i
-  %60 = getelementptr inbounds i8, ptr %48, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %61 = load double, ptr %60, align 8
   br label %rb_float_value_inline.exit.i
 
@@ -1400,7 +1400,7 @@ define internal noundef i64 @enumerator_init_copy(i64 noundef returned %0, i64 n
   unreachable
 
 enumerator_ptr.exit:                              ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %5, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %12 = load i64, ptr %11, align 8
   %.not29 = icmp eq i64 %12, 0
   br i1 %.not29, label %15, label %13
@@ -1434,8 +1434,8 @@ enumerator_ptr.exit:                              ; preds = %6
   br label %rb_obj_write.exit
 
 rb_obj_write.exit:                                ; preds = %19, %25
-  %26 = getelementptr inbounds i8, ptr %16, i64 8
-  %27 = getelementptr inbounds i8, ptr %5, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %28 = load i64, ptr %27, align 8
   store i64 %28, ptr %26, align 8
   %29 = and i64 %28, 7
@@ -1449,8 +1449,8 @@ rb_obj_write.exit:                                ; preds = %19, %25
   br label %rb_obj_write.exit31
 
 rb_obj_write.exit31:                              ; preds = %rb_obj_write.exit, %33
-  %34 = getelementptr inbounds i8, ptr %16, i64 16
-  %35 = getelementptr inbounds i8, ptr %5, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %36 = load i64, ptr %35, align 8
   store i64 %36, ptr %34, align 8
   %37 = and i64 %36, 7
@@ -1464,14 +1464,14 @@ rb_obj_write.exit31:                              ; preds = %rb_obj_write.exit, 
   br label %rb_obj_write.exit32
 
 rb_obj_write.exit32:                              ; preds = %rb_obj_write.exit31, %41
-  %42 = getelementptr inbounds i8, ptr %16, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store i64 0, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %16, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store i64 36, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %16, i64 48
+  %44 = getelementptr inbounds nuw i8, ptr %16, i64 48
   store i64 36, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %16, i64 64
-  %46 = getelementptr inbounds i8, ptr %5, i64 64
+  %45 = getelementptr inbounds nuw i8, ptr %16, i64 64
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %47 = load i64, ptr %46, align 8
   store i64 %47, ptr %45, align 8
   %48 = and i64 %47, 7
@@ -1485,9 +1485,9 @@ rb_obj_write.exit32:                              ; preds = %rb_obj_write.exit31
   br label %rb_obj_write.exit33
 
 rb_obj_write.exit33:                              ; preds = %rb_obj_write.exit32, %52
-  %53 = getelementptr inbounds i8, ptr %5, i64 80
+  %53 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %16, i64 80
+  %55 = getelementptr inbounds nuw i8, ptr %16, i64 80
   store ptr %54, ptr %55, align 8
   br label %56
 
@@ -1532,7 +1532,7 @@ enumerator_ptr.exit:                              ; preds = %5
   unreachable
 
 enumerator_ptr.exit29:                            ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %13, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %20 = load i64, ptr %19, align 8
   %.not = icmp eq i64 %20, 0
   br i1 %.not, label %37, label %21
@@ -1550,7 +1550,7 @@ enumerator_ptr.exit29:                            ; preds = %14
   br label %rb_array_len.exit
 
 28:                                               ; preds = %21
-  %29 = getelementptr inbounds i8, ptr %22, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %30 = load i64, ptr %29, align 8
   br label %rb_array_len.exit
 
@@ -1590,9 +1590,9 @@ rb_long2int_inline.exit:                          ; preds = %rb_array_len.exit
   br label %rb_obj_write.exit
 
 rb_obj_write.exit:                                ; preds = %40, %45
-  %46 = getelementptr inbounds i8, ptr %13, i64 64
+  %46 = getelementptr inbounds nuw i8, ptr %13, i64 64
   store i64 4, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %13, i64 80
+  %47 = getelementptr inbounds nuw i8, ptr %13, i64 80
   store ptr null, ptr %47, align 8
   br label %48
 
@@ -1604,7 +1604,7 @@ rb_obj_write.exit:                                ; preds = %40, %45
   br i1 %.not26, label %lazy_precheck.exit, label %50
 
 50:                                               ; preds = %48
-  %51 = getelementptr inbounds i8, ptr %.021, i64 72
+  %51 = getelementptr inbounds nuw i8, ptr %.021, i64 72
   %52 = load i64, ptr %51, align 8
   %53 = and i64 %52, -5
   %.not14.i = icmp eq i64 %53, 0
@@ -1623,7 +1623,7 @@ rb_obj_write.exit:                                ; preds = %40, %45
   br label %rb_array_len.exit.i
 
 61:                                               ; preds = %54
-  %62 = getelementptr inbounds i8, ptr %55, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %63 = load i64, ptr %62, align 8
   br label %rb_array_len.exit.i
 
@@ -1633,8 +1633,8 @@ rb_array_len.exit.i:                              ; preds = %61, %58
   br i1 %64, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %rb_array_len.exit.i
-  %65 = getelementptr inbounds i8, ptr %55, i64 16
-  %66 = getelementptr inbounds i8, ptr %55, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %55, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %55, i64 32
   br label %67
 
 67:                                               ; preds = %82, %.lr.ph.i
@@ -1654,9 +1654,9 @@ RARRAY_AREF.exit.i:                               ; preds = %71, %67
   %73 = getelementptr i64, ptr %.0.i.i.i, i64 %68
   %74 = load i64, ptr %73, align 8
   %75 = tail call ptr @rb_check_typeddata(i64 noundef %74, ptr noundef nonnull @proc_entry_data_type) #17
-  %76 = getelementptr inbounds i8, ptr %75, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 16
   %79 = load ptr, ptr %78, align 8
   %.not.i33 = icmp eq ptr %79, null
   br i1 %.not.i33, label %82, label %80
@@ -1695,9 +1695,9 @@ define internal i64 @enumerator_each_with_index(i64 noundef %0) #0 {
 8:                                                ; preds = %1
   %9 = tail call i64 @rb_imemo_new(i32 noundef 5, i64 noundef 0) #17
   %10 = inttoptr i64 %9 to ptr
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %10, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   %13 = tail call fastcc i64 @enumerator_block_call(i64 noundef %0, ptr noundef nonnull @enumerator_with_index_i, i64 noundef %9)
   br label %enumerator_with_index.exit
@@ -1769,9 +1769,9 @@ rb_check_arity.exit:                              ; preds = %3
   %18 = phi i64 [ %16, %15 ], [ 1, %12 ], [ 1, %11 ]
   %19 = tail call i64 @rb_imemo_new(i32 noundef 5, i64 noundef 0) #17
   %20 = inttoptr i64 %19 to ptr
-  %21 = getelementptr inbounds i8, ptr %20, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i64 %18, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %20, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
   %23 = tail call fastcc i64 @enumerator_block_call(i64 noundef %2, ptr noundef nonnull @enumerator_with_index_i, i64 noundef %19)
   br label %24
@@ -1819,7 +1819,7 @@ RB_OBJ_FROZEN.exit.thread.i:                      ; preds = %12, %enumerator_ptr
   unreachable
 
 rb_check_frozen_inline.exit:                      ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %2, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %20 = load i64, ptr %19, align 8
   %21 = icmp eq i64 %20, 36
   br i1 %21, label %23, label %22
@@ -1882,7 +1882,7 @@ RB_OBJ_FROZEN.exit.thread.i.i:                    ; preds = %12, %enumerator_ptr
   unreachable
 
 rb_check_frozen_inline.exit.i:                    ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %2, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %20 = load i64, ptr %19, align 8
   %21 = icmp eq i64 %20, 36
   br i1 %21, label %23, label %22
@@ -1921,7 +1921,7 @@ enumerator_next_values.exit:                      ; preds = %22, %23
   br label %rb_array_len.exit.i
 
 39:                                               ; preds = %34
-  %40 = getelementptr inbounds i8, ptr %30, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %41 = load i64, ptr %40, align 8
   br label %rb_array_len.exit.i
 
@@ -1936,11 +1936,11 @@ rb_array_len.exit.i:                              ; preds = %39, %36
   br i1 %.not.i.i2, label %45, label %43
 
 43:                                               ; preds = %42
-  %44 = getelementptr inbounds i8, ptr %30, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %30, i64 16
   br label %RARRAY_AREF.exit.i
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %30, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %47 = load ptr, ptr %46, align 8
   br label %RARRAY_AREF.exit.i
 
@@ -1984,7 +1984,7 @@ define internal i64 @enumerator_peek(i64 noundef %0) #0 {
   br label %rb_array_len.exit.i
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %8, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %19 = load i64, ptr %18, align 8
   br label %rb_array_len.exit.i
 
@@ -1999,11 +1999,11 @@ rb_array_len.exit.i:                              ; preds = %17, %14
   br i1 %.not.i.i, label %23, label %21
 
 21:                                               ; preds = %20
-  %22 = getelementptr inbounds i8, ptr %8, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 16
   br label %RARRAY_AREF.exit.i
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %8, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %25 = load ptr, ptr %24, align 8
   br label %RARRAY_AREF.exit.i
 
@@ -2059,7 +2059,7 @@ RB_OBJ_FROZEN.exit.thread.i:                      ; preds = %13, %enumerator_ptr
   unreachable
 
 rb_check_frozen_inline.exit:                      ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %3, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %21 = load i64, ptr %20, align 8
   %22 = icmp eq i64 %21, 36
   br i1 %22, label %25, label %23
@@ -2125,15 +2125,15 @@ RB_OBJ_FROZEN.exit.thread.i:                      ; preds = %12, %enumerator_ptr
 rb_check_frozen_inline.exit:                      ; preds = %12
   %19 = load i64, ptr @id_rewind, align 8
   %20 = tail call i64 @rb_check_funcall(i64 noundef %4, i64 noundef %19, i32 noundef 0, ptr noundef null) #17
-  %21 = getelementptr inbounds i8, ptr %2, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %2, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i64 4, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %2, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i64 36, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %2, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i64 36, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %2, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i64 0, ptr %25, align 8
   ret i64 %0
 }
@@ -2161,7 +2161,7 @@ define internal i64 @enumerator_size(i64 noundef %0) #0 {
   unreachable
 
 enumerator_ptr.exit:                              ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %2, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %9 = load i64, ptr %8, align 8
   %.not = icmp eq i64 %9, 0
   br i1 %.not, label %45, label %10
@@ -2182,7 +2182,7 @@ enumerator_ptr.exit:                              ; preds = %3
   unreachable
 
 generator_ptr.exit:                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %11, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %18 = load i64, ptr %17, align 8
   %19 = tail call i64 @rb_check_funcall(i64 noundef %18, i64 noundef 2993, i32 noundef 0, ptr noundef null) #17
   br label %20
@@ -2198,7 +2198,7 @@ generator_ptr.exit:                               ; preds = %12
   br i1 %.not.i42, label %rb_array_len.exit, label %rb_array_len.exit.thread
 
 rb_array_len.exit:                                ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %22, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %26 = load i64, ptr %25, align 8
   %27 = icmp slt i64 %.033, %26
   br i1 %27, label %32, label %.loopexit
@@ -2210,11 +2210,11 @@ rb_array_len.exit.thread:                         ; preds = %20
   br i1 %30, label %.thread, label %.loopexit
 
 .thread:                                          ; preds = %rb_array_len.exit.thread
-  %31 = getelementptr inbounds i8, ptr %22, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %22, i64 16
   br label %RARRAY_AREF.exit
 
 32:                                               ; preds = %rb_array_len.exit
-  %33 = getelementptr inbounds i8, ptr %22, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %34 = load ptr, ptr %33, align 8
   br label %RARRAY_AREF.exit
 
@@ -2223,9 +2223,9 @@ RARRAY_AREF.exit:                                 ; preds = %.thread, %32
   %35 = getelementptr i64, ptr %.0.i.i, i64 %.033
   %36 = load i64, ptr %35, align 8
   %37 = tail call ptr @rb_check_typeddata(i64 noundef %36, ptr noundef nonnull @proc_entry_data_type) #17
-  %38 = getelementptr inbounds i8, ptr %37, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8
   %.not40 = icmp eq ptr %41, null
   br i1 %.not40, label %.loopexit, label %42
@@ -2236,10 +2236,10 @@ RARRAY_AREF.exit:                                 ; preds = %.thread, %32
   br label %20, !llvm.loop !9
 
 45:                                               ; preds = %enumerator_ptr.exit
-  %46 = getelementptr inbounds i8, ptr %2, i64 80
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %47 = load ptr, ptr %46, align 8
   %.not38 = icmp eq ptr %47, null
-  %48 = getelementptr inbounds i8, ptr %2, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %49 = load i64, ptr %48, align 8
   br i1 %.not38, label %52, label %50
 
@@ -2262,23 +2262,23 @@ RARRAY_AREF.exit:                                 ; preds = %.thread, %32
   %58 = trunc i64 %55 to i32
   %59 = lshr i32 %58, 15
   %60 = and i32 %59, 127
-  %61 = getelementptr inbounds i8, ptr %54, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %54, i64 16
   br label %rb_array_const_ptr.exit
 
 62:                                               ; preds = %53
-  %63 = getelementptr inbounds i8, ptr %54, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %64 = load i64, ptr %63, align 8
   %65 = trunc i64 %64 to i32
-  %66 = getelementptr inbounds i8, ptr %54, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %54, i64 32
   %67 = load ptr, ptr %66, align 8
   br label %rb_array_const_ptr.exit
 
 rb_array_const_ptr.exit:                          ; preds = %62, %57, %52
   %.032 = phi ptr [ null, %52 ], [ %61, %57 ], [ %67, %62 ]
   %.031 = phi i32 [ 0, %52 ], [ %60, %57 ], [ %65, %62 ]
-  %68 = getelementptr inbounds i8, ptr %2, i64 64
+  %68 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %69 = load i64, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %2, i64 88
+  %70 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %71 = load i32, ptr %70, align 8
   %72 = tail call i64 @rb_check_funcall_kw(i64 noundef %69, i64 noundef 3425, i32 noundef %.031, ptr noundef %.032, i32 noundef %71) #17
   %73 = icmp eq i64 %72, 36
@@ -2320,7 +2320,7 @@ define internal i64 @enumerable_lazy(i64 noundef %0) #0 {
   %4 = load i64, ptr @rb_cLazy, align 8
   %5 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %4, i64 noundef 96, ptr noundef nonnull @enumerator_data_type) #17
   %6 = inttoptr i64 %5 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, 2
   %.not.i.i.i = icmp eq i64 %9, 0
@@ -2383,7 +2383,7 @@ rb_check_arity.exit:                              ; preds = %3
   %16 = load i64, ptr @rb_cGenerator, align 8
   %17 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %16, i64 noundef 16, ptr noundef nonnull @generator_data_type) #17
   %18 = inttoptr i64 %17 to ptr
-  %19 = getelementptr inbounds i8, ptr %18, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load i64, ptr %19, align 8
   %21 = and i64 %20, 2
   %.not.i.i = icmp eq i64 %21, 0
@@ -2423,7 +2423,7 @@ define internal i64 @lazy_to_enum(i32 noundef %0, ptr noundef %1, i64 noundef %2
   %10 = load i64, ptr @rb_cLazy, align 8
   %11 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %10, i64 noundef 96, ptr noundef nonnull @enumerator_data_type) #17
   %12 = inttoptr i64 %11 to ptr
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load i64, ptr %13, align 8
   %15 = and i64 %14, 2
   %.not.i.i.i = icmp eq i64 %15, 0
@@ -2458,7 +2458,7 @@ lazy_to_enum_i.exit:                              ; preds = %3, %17
   unreachable
 
 enumerator_ptr.exit:                              ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %23, i64 64
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 64
   %30 = tail call i64 @rb_block_proc() #17
   store i64 %30, ptr %29, align 8
   %31 = and i64 %30, 7
@@ -2480,7 +2480,7 @@ define internal range(i64 1, -7) i64 @lazy_eager(i64 noundef %0) #0 {
   %2 = load i64, ptr @rb_cEnumerator, align 8
   %3 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %2, i64 noundef 96, ptr noundef nonnull @enumerator_data_type) #17
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 2
   %.not.i.i = icmp eq i64 %7, 0
@@ -2748,7 +2748,7 @@ rb_num2long_inline.exit:                          ; preds = %5, %7
   %.0.i = phi i64 [ %6, %5 ], [ %8, %7 ]
   %9 = load i64, ptr @sym_each, align 8
   store i64 %9, ptr %3, align 16
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %1, ptr %10, align 8
   %11 = icmp slt i64 %.0.i, 0
   br i1 %11, label %12, label %14
@@ -2793,7 +2793,7 @@ define internal i64 @lazy_super(i32 noundef %0, ptr noundef %1, i64 %2) #0 {
   %7 = load i64, ptr @rb_cLazy, align 8
   %8 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %7, i64 noundef 96, ptr noundef nonnull @enumerator_data_type) #17
   %9 = inttoptr i64 %8 to ptr
-  %10 = getelementptr inbounds i8, ptr %9, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load i64, ptr %10, align 8
   %12 = and i64 %11, 2
   %.not.i.i.i.i = icmp eq i64 %12, 0
@@ -2866,7 +2866,7 @@ define internal i64 @stop_result(i64 noundef %0) #0 {
 define internal i64 @generator_allocate(i64 noundef %0) #0 {
   %2 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %0, i64 noundef 16, ptr noundef nonnull @generator_data_type) #17
   %3 = inttoptr i64 %2 to ptr
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 2
   %.not.i = icmp eq i64 %6, 0
@@ -3037,7 +3037,7 @@ generator_ptr.exit:                               ; preds = %5
   %13 = load i64, ptr @rb_cYielder, align 8
   %14 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %13, i64 noundef 8, ptr noundef nonnull @yielder_data_type) #17
   %15 = inttoptr i64 %14 to ptr
-  %16 = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load i64, ptr %16, align 8
   %18 = and i64 %17, 2
   %.not.i.i.i = icmp eq i64 %18, 0
@@ -3094,7 +3094,7 @@ yielder_new.exit:                                 ; preds = %27, %32
 define internal i64 @yielder_allocate(i64 noundef %0) #0 {
   %2 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %0, i64 noundef 8, ptr noundef nonnull @yielder_data_type) #17
   %3 = inttoptr i64 %2 to ptr
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 2
   %.not.i = icmp eq i64 %6, 0
@@ -3197,7 +3197,7 @@ define internal i64 @yielder_to_proc(i64 noundef %0) #0 {
 define internal i64 @producer_allocate(i64 noundef %0) #0 {
   %2 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %0, i64 noundef 16, ptr noundef nonnull @producer_data_type) #17
   %3 = inttoptr i64 %2 to ptr
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 2
   %.not.i = icmp eq i64 %6, 0
@@ -3211,7 +3211,7 @@ define internal i64 @producer_allocate(i64 noundef %0) #0 {
 RTYPEDDATA_GET_DATA.exit:                         ; preds = %1, %8
   %10 = phi ptr [ %9, %8 ], [ %7, %1 ]
   store i64 36, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 36, ptr %11, align 8
   ret i64 %2
 }
@@ -3251,7 +3251,7 @@ define internal range(i64 1, -7) i64 @enumerator_s_produce(i32 noundef %0, ptr n
   %13 = load i64, ptr @rb_cEnumProducer, align 8
   %14 = call i64 @rb_data_typed_object_zalloc(i64 noundef %13, i64 noundef 16, ptr noundef nonnull @producer_data_type) #17
   %15 = inttoptr i64 %14 to ptr
-  %16 = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load i64, ptr %16, align 8
   %18 = and i64 %17, 2
   %.not.i.i = icmp eq i64 %18, 0
@@ -3265,7 +3265,7 @@ define internal range(i64 1, -7) i64 @enumerator_s_produce(i32 noundef %0, ptr n
 producer_allocate.exit:                           ; preds = %12, %20
   %22 = phi ptr [ %21, %20 ], [ %19, %12 ]
   store i64 36, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i64 36, ptr %23, align 8
   %24 = load i64, ptr %4, align 8
   %25 = call i64 @rb_block_proc() #17
@@ -3291,7 +3291,7 @@ producer_allocate.exit:                           ; preds = %12, %20
   br label %rb_obj_write.exit.i
 
 rb_obj_write.exit.i:                              ; preds = %34, %29
-  %35 = getelementptr inbounds i8, ptr %26, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i64 %25, ptr %35, align 8
   %36 = and i64 %25, 7
   %37 = icmp ne i64 %36, 0
@@ -3313,7 +3313,7 @@ producer_init.exit:                               ; preds = %rb_obj_write.exit.i
 define internal i64 @enum_chain_allocate(i64 noundef %0) #0 {
   %2 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %0, i64 noundef 16, ptr noundef nonnull @enum_chain_data_type) #17
   %3 = inttoptr i64 %2 to ptr
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 2
   %.not.i = icmp eq i64 %6, 0
@@ -3327,7 +3327,7 @@ define internal i64 @enum_chain_allocate(i64 noundef %0) #0 {
 RTYPEDDATA_GET_DATA.exit:                         ; preds = %1, %8
   %10 = phi ptr [ %9, %8 ], [ %7, %1 ]
   store i64 36, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 -1, ptr %11, align 8
   ret i64 %2
 }
@@ -3367,7 +3367,7 @@ rb_check_frozen_inline.exit:                      ; preds = %7
 17:                                               ; preds = %rb_check_frozen_inline.exit
   %18 = tail call i64 @rb_obj_freeze(i64 noundef %1) #17
   store i64 %18, ptr %14, align 8
-  %19 = getelementptr inbounds i8, ptr %14, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 -1, ptr %19, align 8
   ret i64 %0
 }
@@ -3406,9 +3406,9 @@ enum_chain_ptr.exit:                              ; preds = %6
 14:                                               ; preds = %enum_chain_ptr.exit
   %15 = load i64, ptr %5, align 8
   store i64 %15, ptr %11, align 8
-  %16 = getelementptr inbounds i8, ptr %5, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %11, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 %17, ptr %18, align 8
   br label %19
 
@@ -3449,9 +3449,9 @@ define internal i64 @enum_chain_each(i32 noundef %0, ptr noundef %1, i64 noundef
 enum_chain_ptr.exit:                              ; preds = %14
   %19 = tail call i64 @rb_block_proc() #17
   %20 = inttoptr i64 %15 to ptr
-  %21 = getelementptr inbounds i8, ptr %20, i64 16
-  %22 = getelementptr inbounds i8, ptr %13, i64 8
-  %23 = getelementptr inbounds i8, ptr %20, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 32
   br label %24
 
 24:                                               ; preds = %RARRAY_AREF.exit, %enum_chain_ptr.exit
@@ -3517,8 +3517,8 @@ define internal i64 @enum_chain_size(i64 noundef %0) #0 {
 
 enum_chain_ptr.exit:                              ; preds = %3
   %8 = inttoptr i64 %4 to ptr
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
-  %10 = getelementptr inbounds i8, ptr %8, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 32
   br label %11
 
 11:                                               ; preds = %rb_integer_type_p.exit.thread.i, %enum_chain_ptr.exit
@@ -3625,15 +3625,15 @@ define internal noundef i64 @enum_chain_rewind(i64 noundef returned %0) #0 {
   unreachable
 
 enum_chain_ptr.exit:                              ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = inttoptr i64 %4 to ptr
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = icmp sgt i64 %9, -1
   br i1 %12, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %enum_chain_ptr.exit
-  %13 = getelementptr inbounds i8, ptr %10, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 32
   br label %14
 
 14:                                               ; preds = %.lr.ph, %RARRAY_AREF.exit
@@ -3685,7 +3685,7 @@ declare void @rb_undef_method(i64 noundef, ptr noundef) local_unnamed_addr #1
 define internal i64 @enum_product_allocate(i64 noundef %0) #0 {
   %2 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %0, i64 noundef 8, ptr noundef nonnull @enum_product_data_type) #17
   %3 = inttoptr i64 %2 to ptr
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 2
   %.not.i = icmp eq i64 %6, 0
@@ -3728,7 +3728,7 @@ define internal range(i64 1, -7) i64 @enum_product_initialize(i32 noundef %0, pt
 16:                                               ; preds = %9
   %17 = add i64 %7, 24
   %18 = inttoptr i64 %17 to ptr
-  %19 = getelementptr inbounds i8, ptr %18, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load i64, ptr %19, align 8
   br label %RHASH_EMPTY_P.exit
 
@@ -3862,8 +3862,8 @@ define internal i64 @enum_product_size(i64 noundef %0) #0 {
 
 enum_product_ptr.exit:                            ; preds = %3
   %8 = inttoptr i64 %4 to ptr
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
-  %10 = getelementptr inbounds i8, ptr %8, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 32
   br label %11
 
 11:                                               ; preds = %rb_integer_type_p.exit.thread.i, %enum_product_ptr.exit
@@ -3966,8 +3966,8 @@ define internal noundef i64 @enum_product_rewind(i64 noundef returned %0) #0 {
 
 enum_product_ptr.exit.preheader:                  ; preds = %3
   %6 = inttoptr i64 %4 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
-  %8 = getelementptr inbounds i8, ptr %6, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
   br label %enum_product_ptr.exit
 
 9:                                                ; preds = %3, %1
@@ -4044,7 +4044,7 @@ define internal range(i64 1, -7) i64 @enumerator_s_product(i32 noundef %0, ptr n
 17:                                               ; preds = %10
   %18 = add i64 %8, 24
   %19 = inttoptr i64 %18 to ptr
-  %20 = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load i64, ptr %20, align 8
   br label %RHASH_EMPTY_P.exit
 
@@ -4063,7 +4063,7 @@ RHASH_EMPTY_P.exit:                               ; preds = %14, %17
   %27 = load i64, ptr @rb_cEnumProduct, align 8
   %28 = call i64 @rb_data_typed_object_zalloc(i64 noundef %27, i64 noundef 8, ptr noundef nonnull @enum_product_data_type) #17
   %29 = inttoptr i64 %28 to ptr
-  %30 = getelementptr inbounds i8, ptr %29, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %31 = load i64, ptr %30, align 8
   %32 = and i64 %31, 2
   %.not.i.i = icmp eq i64 %32, 0
@@ -4733,7 +4733,7 @@ define internal i64 @arith_seq_inspect(i64 noundef %0) #0 {
   %13 = select i1 %.not67, ptr @.str.157, ptr @.str.119
   %14 = select i1 %.not67, ptr @.str.157, ptr @.str.121
   %15 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str.156, ptr noundef nonnull %13, i64 noundef %.057, ptr noundef nonnull %14) #17
-  %16 = getelementptr inbounds i8, ptr %3, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %17 = load i64, ptr %16, align 8
   %18 = tail call i64 @rb_id2str(i64 noundef %17) #17
   %19 = tail call i64 @rb_str_buf_append(i64 noundef %15, i64 noundef %18) #17
@@ -4743,7 +4743,7 @@ define internal i64 @arith_seq_inspect(i64 noundef %0) #0 {
   br i1 %22, label %23, label %26
 
 23:                                               ; preds = %9
-  %24 = getelementptr inbounds i8, ptr %3, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %25 = load i64, ptr %24, align 8
   br label %26
 
@@ -4762,13 +4762,13 @@ define internal i64 @arith_seq_inspect(i64 noundef %0) #0 {
 31:                                               ; preds = %27
   %32 = lshr i64 %29, 15
   %33 = and i64 %32, 127
-  %34 = getelementptr inbounds i8, ptr %28, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %28, i64 16
   br label %rb_array_const_ptr.exit
 
 35:                                               ; preds = %27
-  %36 = getelementptr inbounds i8, ptr %28, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %37 = load i64, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %28, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %39 = load ptr, ptr %38, align 8
   br label %rb_array_const_ptr.exit
 
@@ -4839,7 +4839,7 @@ rb_array_const_ptr.exit:                          ; preds = %31, %35
 
 69:                                               ; preds = %68, %._crit_edge
   %70 = inttoptr i64 %15 to ptr
-  %71 = getelementptr inbounds i8, ptr %70, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %72 = load i64, ptr %71, align 8
   %73 = add i64 %72, -2
   call void @rb_str_set_len(i64 noundef %15, i64 noundef %73) #17
@@ -5329,7 +5329,7 @@ declare i64 @rb_block_proc() local_unnamed_addr #1
 define internal void @generator_mark(ptr nocapture noundef readonly %0) #0 {
   %2 = load i64, ptr %0, align 8
   tail call void @rb_gc_mark_movable(i64 noundef %2) #17
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   tail call void @rb_gc_mark_movable(i64 noundef %4) #17
   ret void
@@ -5340,7 +5340,7 @@ define internal void @generator_compact(ptr nocapture noundef %0) #0 {
   %2 = load i64, ptr %0, align 8
   %3 = tail call i64 @rb_gc_location(i64 noundef %2) #17
   store i64 %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = tail call i64 @rb_gc_location(i64 noundef %5) #17
   store i64 %6, ptr %4, align 8
@@ -5385,9 +5385,9 @@ define internal fastcc i64 @enumerator_block_call(i64 noundef %0, ptr noundef %1
   unreachable
 
 enumerator_ptr.exit:                              ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %15 = load i64, ptr %14, align 8
   store i64 %15, ptr %4, align 8
   %.not = icmp eq i64 %15, 0
@@ -5401,7 +5401,7 @@ enumerator_ptr.exit:                              ; preds = %7
   br i1 %.not.i.i, label %rb_array_len.exit.i, label %rb_array_len.exit.i.thread
 
 rb_array_len.exit.i:                              ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %17, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %21, 2147483648
   %.not.i1.i = icmp ult i64 %22, 4294967296
@@ -5411,7 +5411,7 @@ rb_array_len.exit.i.thread:                       ; preds = %16
   %23 = trunc i64 %18 to i32
   %24 = lshr i32 %23, 15
   %25 = and i32 %24, 127
-  %26 = getelementptr inbounds i8, ptr %17, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %17, i64 16
   br label %rb_array_const_ptr.exit
 
 27:                                               ; preds = %rb_array_len.exit.i
@@ -5420,14 +5420,14 @@ rb_array_len.exit.i.thread:                       ; preds = %16
 
 28:                                               ; preds = %rb_array_len.exit.i
   %29 = trunc i64 %21 to i32
-  %30 = getelementptr inbounds i8, ptr %17, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %31 = load ptr, ptr %30, align 8
   br label %rb_array_const_ptr.exit
 
 rb_array_const_ptr.exit:                          ; preds = %28, %rb_array_len.exit.i.thread, %enumerator_ptr.exit
   %.011 = phi ptr [ null, %enumerator_ptr.exit ], [ %26, %rb_array_len.exit.i.thread ], [ %31, %28 ]
   %.0 = phi i32 [ 0, %enumerator_ptr.exit ], [ %25, %rb_array_len.exit.i.thread ], [ %29, %28 ]
-  %32 = getelementptr inbounds i8, ptr %6, i64 88
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 88
   %33 = load i32, ptr %32, align 8
   %34 = tail call i64 @rb_block_call_kw(i64 noundef %8, i64 noundef %13, i32 noundef %.0, ptr noundef %.011, ptr noundef %1, i64 noundef %2, i32 noundef %33) #17
   store ptr %4, ptr %5, align 8
@@ -5444,7 +5444,7 @@ declare void @rb_out_of_int(i64 noundef) local_unnamed_addr #4
 define internal void @proc_entry_mark(ptr nocapture noundef readonly %0) #0 {
   %2 = load i64, ptr %0, align 8
   tail call void @rb_gc_mark_movable(i64 noundef %2) #17
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   tail call void @rb_gc_mark_movable(i64 noundef %4) #17
   ret void
@@ -5455,7 +5455,7 @@ define internal void @proc_entry_compact(ptr nocapture noundef %0) #0 {
   %2 = load i64, ptr %0, align 8
   %3 = tail call i64 @rb_gc_location(i64 noundef %2) #17
   store i64 %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = tail call i64 @rb_gc_location(i64 noundef %5) #17
   store i64 %6, ptr %4, align 8
@@ -5493,7 +5493,7 @@ declare i64 @rb_yield_values(i32 noundef, ...) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @enumerator_with_index_i(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, i64 %4) #0 {
   %6 = inttoptr i64 %1 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = tail call i64 @rb_int_succ(i64 noundef %8) #17
   store i64 %9, ptr %7, align 8
@@ -5529,7 +5529,7 @@ declare i64 @rb_imemo_new(i32 noundef, i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i64 @get_next_values(i64 noundef %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %5 = load i64, ptr %4, align 8
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %20, label %6
@@ -5559,7 +5559,7 @@ define internal fastcc i64 @get_next_values(i64 noundef %0, ptr nocapture nounde
 20:                                               ; preds = %2
   %21 = tail call i64 @rb_fiber_current() #17
   store i64 %21, ptr %3, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %23 = load i64, ptr %22, align 8
   %.not25 = icmp eq i64 %23, 0
   br i1 %.not25, label %26, label %24
@@ -5571,7 +5571,7 @@ define internal fastcc i64 @get_next_values(i64 noundef %0, ptr nocapture nounde
 
 26:                                               ; preds = %24, %20
   %27 = tail call i64 @rb_fiber_current() #17
-  %28 = getelementptr inbounds i8, ptr %1, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i64 %27, ptr %28, align 8
   %29 = and i64 %27, 7
   %30 = icmp ne i64 %29, 0
@@ -5597,7 +5597,7 @@ rb_obj_write.exit.i:                              ; preds = %33, %26
   br label %next_init.exit
 
 next_init.exit:                                   ; preds = %rb_obj_write.exit.i, %39
-  %40 = getelementptr inbounds i8, ptr %1, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i64 36, ptr %40, align 8
   br label %41
 
@@ -5610,11 +5610,11 @@ next_init.exit:                                   ; preds = %rb_obj_write.exit.i
 
 45:                                               ; preds = %41
   store i64 0, ptr %22, align 8
-  %46 = getelementptr inbounds i8, ptr %1, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i64 4, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %1, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i64 36, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %1, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i64 36, ptr %48, align 8
   call void @rb_exc_raise(i64 noundef %44) #18
   unreachable
@@ -5660,7 +5660,7 @@ define internal i64 @next_i(i64 %0, i64 noundef %1, i32 %2, ptr nocapture readno
 enumerator_ptr.exit:                              ; preds = %8
   store i64 4, ptr %6, align 8
   %13 = tail call i64 @rb_block_call(i64 noundef %1, i64 noundef 3041, i32 noundef 0, ptr noundef null, ptr noundef nonnull @next_ii, i64 noundef %1) #17
-  %14 = getelementptr inbounds i8, ptr %7, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %15 = load i64, ptr @rb_eStopIteration, align 8
   %16 = tail call i64 @rb_exc_new(i64 noundef %15, ptr noundef nonnull @.str.109, i64 noundef 24) #17
   store i64 %16, ptr %14, align 8
@@ -5707,7 +5707,7 @@ enumerator_ptr.exit:                              ; preds = %8
   %14 = tail call i64 @rb_ary_new_from_values(i64 noundef %13, ptr noundef %3) #17
   store i64 %14, ptr %6, align 8
   %15 = call i64 @rb_fiber_yield(i32 noundef 1, ptr noundef nonnull %6) #17
-  %16 = getelementptr inbounds i8, ptr %7, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %17, 36
   br i1 %18, label %20, label %19
@@ -5763,7 +5763,7 @@ RB_OBJ_FROZEN.exit.thread.i:                      ; preds = %12, %enumerator_ptr
   unreachable
 
 rb_check_frozen_inline.exit:                      ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %2, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %20 = load i64, ptr %19, align 8
   %21 = icmp eq i64 %20, 36
   br i1 %21, label %22, label %rb_obj_write.exit
@@ -5818,7 +5818,7 @@ define internal i64 @inspect_enumerator(i64 noundef %0, i64 %1, i32 noundef %2) 
   br label %.loopexit
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %4, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %18 = load i64, ptr %17, align 8
   %.not44 = icmp eq i64 %18, 0
   br i1 %.not44, label %68, label %19
@@ -5839,7 +5839,7 @@ define internal i64 @inspect_enumerator(i64 noundef %0, i64 %1, i32 noundef %2) 
   unreachable
 
 generator_ptr.exit:                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %20, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %27 = load i64, ptr %26, align 8
   %28 = tail call i64 @rb_obj_class(i64 noundef %27) #17
   %29 = icmp eq i64 %28, %5
@@ -5856,8 +5856,8 @@ generator_ptr.exit:                               ; preds = %21
 
 35:                                               ; preds = %32, %30
   %.039 = phi i64 [ %31, %30 ], [ %34, %32 ]
-  %36 = getelementptr inbounds i8, ptr %4, i64 8
-  %37 = getelementptr inbounds i8, ptr %4, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %38
 
 38:                                               ; preds = %RARRAY_AREF.exit, %35
@@ -5876,7 +5876,7 @@ generator_ptr.exit:                               ; preds = %21
   br label %rb_array_len.exit
 
 46:                                               ; preds = %38
-  %47 = getelementptr inbounds i8, ptr %40, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %48 = load i64, ptr %47, align 8
   br label %rb_array_len.exit
 
@@ -5895,11 +5895,11 @@ rb_array_len.exit:                                ; preds = %43, %46
   br i1 %.not.i.i, label %58, label %56
 
 56:                                               ; preds = %50
-  %57 = getelementptr inbounds i8, ptr %53, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %53, i64 16
   br label %RARRAY_AREF.exit
 
 58:                                               ; preds = %50
-  %59 = getelementptr inbounds i8, ptr %53, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %53, i64 32
   %60 = load ptr, ptr %59, align 8
   br label %RARRAY_AREF.exit
 
@@ -5928,9 +5928,9 @@ RARRAY_AREF.exit:                                 ; preds = %56, %58
   %.040 = phi i64 [ %73, %72 ], [ %70, %68 ]
   %75 = tail call i64 @rb_class_path(i64 noundef %5) #17
   %76 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str.116, i64 noundef %75, i64 noundef %.040) #17
-  %77 = getelementptr inbounds i8, ptr %4, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %78 = load i64, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %4, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %80 = load i64, ptr %79, align 8
   %81 = tail call fastcc i64 @append_method(i64 noundef %0, i64 noundef %76, i64 noundef %78, i64 noundef %80)
   %82 = tail call i64 @rb_str_cat(i64 noundef %76, ptr noundef nonnull @.str.115, i64 noundef 1) #17
@@ -6012,13 +6012,13 @@ Check_Type.exit:                                  ; preds = %8, %RB_SYMBOL_P.exi
 31:                                               ; preds = %27
   %32 = lshr i64 %29, 15
   %33 = and i64 %32, 127
-  %34 = getelementptr inbounds i8, ptr %28, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %28, i64 16
   br label %rb_array_const_ptr.exit
 
 35:                                               ; preds = %27
-  %36 = getelementptr inbounds i8, ptr %28, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %37 = load i64, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %28, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %39 = load ptr, ptr %38, align 8
   br label %rb_array_const_ptr.exit
 
@@ -6059,7 +6059,7 @@ rb_array_const_ptr.exit:                          ; preds = %31, %35
 60:                                               ; preds = %55
   %61 = add i64 %45, 24
   %62 = inttoptr i64 %61 to ptr
-  %63 = getelementptr inbounds i8, ptr %62, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load i64, ptr %63, align 8
   br label %RHASH_EMPTY_P.exit
 
@@ -6111,7 +6111,7 @@ RHASH_EMPTY_P.exit:                               ; preds = %57, %60
 
 80:                                               ; preds = %79, %._crit_edge
   %81 = inttoptr i64 %1 to ptr
-  %82 = getelementptr inbounds i8, ptr %81, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %83 = load i64, ptr %82, align 8
   %84 = add i64 %83, -2
   call void @rb_str_set_len(i64 noundef %1, i64 noundef %84) #17
@@ -6208,7 +6208,7 @@ define internal fastcc i64 @new_enum_chain(i64 noundef %0) unnamed_addr #0 {
   %2 = load i64, ptr @rb_cEnumChain, align 8
   %3 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %2, i64 noundef 16, ptr noundef nonnull @enum_chain_data_type) #17
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 2
   %.not.i.i = icmp eq i64 %7, 0
@@ -6222,7 +6222,7 @@ define internal fastcc i64 @new_enum_chain(i64 noundef %0) unnamed_addr #0 {
 enum_chain_allocate.exit:                         ; preds = %1, %9
   %11 = phi ptr [ %10, %9 ], [ %8, %1 ]
   store i64 36, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 -1, ptr %12, align 8
   %13 = and i64 %3, 7
   %14 = icmp ne i64 %13, 0
@@ -6256,11 +6256,11 @@ rb_check_frozen_inline.exit.i:                    ; preds = %17
 enum_chain_initialize.exit:                       ; preds = %rb_check_frozen_inline.exit.i
   %26 = tail call i64 @rb_obj_freeze(i64 noundef %0) #17
   store i64 %26, ptr %23, align 8
-  %27 = getelementptr inbounds i8, ptr %23, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 -1, ptr %27, align 8
   %28 = inttoptr i64 %0 to ptr
-  %29 = getelementptr inbounds i8, ptr %28, i64 16
-  %30 = getelementptr inbounds i8, ptr %28, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 32
   br label %31
 
 31:                                               ; preds = %RARRAY_AREF.exit, %enum_chain_initialize.exit
@@ -6302,7 +6302,7 @@ RARRAY_AREF.exit:                                 ; preds = %rb_array_len.exit.t
   %50 = load i64, ptr @rb_cLazy, align 8
   %51 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %50, i64 noundef 96, ptr noundef nonnull @enumerator_data_type) #17
   %52 = inttoptr i64 %51 to ptr
-  %53 = getelementptr inbounds i8, ptr %52, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %54 = load i64, ptr %53, align 8
   %55 = and i64 %54, 2
   %.not.i.i.i.i = icmp eq i64 %55, 0
@@ -6353,7 +6353,7 @@ define internal noundef i64 @lazy_init_iterator(i64 noundef %0, i64 noundef %1, 
 
 9:                                                ; preds = %5
   store i64 %1, ptr %6, align 16
-  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %0, ptr %10, align 8
   %11 = call i64 @rb_yield_values2(i32 noundef 2, ptr noundef nonnull %6) #17
   br label %34
@@ -6474,7 +6474,7 @@ enumerator_ptr.exit:                              ; preds = %8
   %13 = load i64, ptr @rb_cObject, align 8
   %14 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %13, i64 noundef 24, ptr noundef nonnull @proc_entry_data_type) #17
   %15 = inttoptr i64 %14 to ptr
-  %16 = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load i64, ptr %16, align 8
   %18 = and i64 %17, 2
   %.not.i39 = icmp eq i64 %18, 0
@@ -6505,9 +6505,9 @@ RTYPEDDATA_GET_DATA.exit:                         ; preds = %enumerator_ptr.exit
   br label %rb_obj_write.exit
 
 rb_obj_write.exit:                                ; preds = %30, %24, %RTYPEDDATA_GET_DATA.exit
-  %31 = getelementptr inbounds i8, ptr %22, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store ptr %5, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %22, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i64 %3, ptr %32, align 8
   %33 = and i64 %3, 7
   %34 = icmp ne i64 %33, 0
@@ -6528,7 +6528,7 @@ rb_obj_write.exit40:                              ; preds = %rb_obj_write.exit, 
   %43 = load i64, ptr @id_arguments, align 8
   %..i = select i1 %42, i64 0, i64 %4
   %44 = tail call i64 @rb_ivar_set(i64 noundef %14, i64 noundef %43, i64 noundef %..i) #17
-  %45 = getelementptr inbounds i8, ptr %7, i64 72
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %46 = load i64, ptr %45, align 8
   %47 = and i64 %46, -5
   %.not47 = icmp eq i64 %47, 0
@@ -6571,7 +6571,7 @@ enumerator_ptr.exit.i:                            ; preds = %55
   br label %rb_array_len.exit.i
 
 66:                                               ; preds = %enumerator_ptr.exit.i
-  %67 = getelementptr inbounds i8, ptr %60, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %68 = load i64, ptr %67, align 8
   br label %rb_array_len.exit.i
 
@@ -6596,7 +6596,7 @@ rb_array_len.exit.i:                              ; preds = %66, %63
   unreachable
 
 generator_ptr.exit.i:                             ; preds = %72
-  %77 = getelementptr inbounds i8, ptr %71, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %78 = load i64, ptr %77, align 8
   br label %79
 
@@ -6605,7 +6605,7 @@ generator_ptr.exit.i:                             ; preds = %72
   %80 = load i64, ptr @rb_cGenerator, align 8
   %81 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %80, i64 noundef 16, ptr noundef nonnull @generator_data_type) #17
   %82 = inttoptr i64 %81 to ptr
-  %83 = getelementptr inbounds i8, ptr %82, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 24
   %84 = load i64, ptr %83, align 8
   %85 = and i64 %84, 2
   %.not.i.i.i = icmp eq i64 %85, 0
@@ -6636,7 +6636,7 @@ generator_allocate.exit.i:                        ; preds = %87, %79
   unreachable
 
 generator_ptr.exit15.i:                           ; preds = %93
-  %98 = getelementptr inbounds i8, ptr %92, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %92, i64 8
   store i64 %.0.i, ptr %98, align 8
   %99 = and i64 %.0.i, 7
   %100 = icmp ne i64 %99, 0
@@ -6653,7 +6653,7 @@ lazy_generator_init.exit:                         ; preds = %generator_ptr.exit1
   %105 = load i64, ptr @rb_cLazy, align 8
   %106 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %105, i64 noundef 96, ptr noundef nonnull @enumerator_data_type) #17
   %107 = inttoptr i64 %106 to ptr
-  %108 = getelementptr inbounds i8, ptr %107, i64 24
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 24
   %109 = load i64, ptr %108, align 8
   %110 = and i64 %109, 2
   %.not.i.i41 = icmp eq i64 %110, 0
@@ -6691,7 +6691,7 @@ RTYPEDDATA_GET_DATA.exit43:                       ; preds = %enumerator_allocate
   br label %rb_obj_write.exit44
 
 rb_obj_write.exit44:                              ; preds = %RTYPEDDATA_GET_DATA.exit43, %125
-  %126 = getelementptr inbounds i8, ptr %120, i64 72
+  %126 = getelementptr inbounds nuw i8, ptr %120, i64 72
   store i64 %53, ptr %126, align 8
   %127 = and i64 %53, 7
   %128 = icmp ne i64 %127, 0
@@ -6719,9 +6719,9 @@ rb_obj_write.exit45:                              ; preds = %rb_obj_write.exit44
   %.sink = phi i64 [ %135, %132 ], [ 3041, %rb_obj_write.exit45 ]
   %.036 = phi ptr [ %133, %132 ], [ %2, %rb_obj_write.exit45 ]
   %.0 = phi i64 [ %137, %132 ], [ 0, %rb_obj_write.exit45 ]
-  %139 = getelementptr inbounds i8, ptr %120, i64 8
+  %139 = getelementptr inbounds nuw i8, ptr %120, i64 8
   store i64 %.sink, ptr %139, align 8
-  %140 = getelementptr inbounds i8, ptr %120, i64 16
+  %140 = getelementptr inbounds nuw i8, ptr %120, i64 16
   %141 = tail call i64 @rb_ary_new_from_values(i64 noundef %.0, ptr noundef %.036) #17
   store i64 %141, ptr %140, align 8
   %142 = and i64 %141, 7
@@ -6751,11 +6751,11 @@ define internal noundef i64 @lazy_init_block(i64 noundef %0, i64 noundef %1, i32
   br i1 %.not.i.i, label %11, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   br label %RARRAY_AREF.exit
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %6, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %13 = load ptr, ptr %12, align 8
   br label %RARRAY_AREF.exit
 
@@ -6776,7 +6776,7 @@ RARRAY_AREF.exit:                                 ; preds = %9, %11
   br label %rb_array_len.exit
 
 23:                                               ; preds = %RARRAY_AREF.exit
-  %24 = getelementptr inbounds i8, ptr %17, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %25 = load i64, ptr %24, align 8
   br label %rb_array_len.exit
 
@@ -6790,11 +6790,11 @@ rb_array_len.exit:                                ; preds = %20, %23
   br i1 %.not.i.i6, label %32, label %30
 
 30:                                               ; preds = %rb_array_len.exit
-  %31 = getelementptr inbounds i8, ptr %6, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 16
   br label %RARRAY_AREF.exit8
 
 32:                                               ; preds = %rb_array_len.exit
-  %33 = getelementptr inbounds i8, ptr %6, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %34 = load ptr, ptr %33, align 8
   br label %RARRAY_AREF.exit8
 
@@ -6817,11 +6817,11 @@ define internal i64 @lazy_init_yielder(i64 %0, i64 noundef %1, i32 noundef %2, p
   br i1 %.not.i.i, label %11, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   br label %RARRAY_AREF.exit12
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %6, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %13 = load ptr, ptr %12, align 8
   br label %RARRAY_AREF.exit12
 
@@ -6837,15 +6837,15 @@ RARRAY_AREF.exit12:                               ; preds = %9, %11
   %20 = select i1 %.inv, i64 0, i64 2
   %21 = tail call i64 @rb_imemo_new(i32 noundef 5, i64 noundef 0) #17
   %22 = inttoptr i64 %21 to ptr
-  %23 = getelementptr inbounds i8, ptr %22, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i64 %1, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %22, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store i64 %19, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %22, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 32
   store i64 %20, ptr %25, align 8
   %26 = inttoptr i64 %16 to ptr
-  %27 = getelementptr inbounds i8, ptr %26, i64 16
-  %28 = getelementptr inbounds i8, ptr %26, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 32
   br label %29
 
 29:                                               ; preds = %RARRAY_AREF.exit.i, %RARRAY_AREF.exit12
@@ -6875,7 +6875,7 @@ RARRAY_AREF.exit.i:                               ; preds = %37, %rb_array_len.e
   %39 = getelementptr i64, ptr %.0.i.i.i, i64 %.0.i
   %40 = load i64, ptr %39, align 8
   %41 = tail call ptr @rb_check_typeddata(i64 noundef %40, ptr noundef nonnull @proc_entry_data_type) #17
-  %42 = getelementptr inbounds i8, ptr %41, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr %43, align 8
   %45 = tail call ptr %44(i64 noundef %40, ptr noundef %22, i64 noundef %18, i64 noundef %.0.i) #17
@@ -6909,8 +6909,8 @@ declare i64 @rb_funcallv(i64 noundef, i64 noundef, i32 noundef, ptr noundef) loc
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef ptr @lazy_map_proc(i64 noundef %0, ptr noundef returned %1, i64 %2, i64 %3) #0 {
   %5 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @proc_entry_data_type) #17
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
-  %7 = getelementptr inbounds i8, ptr %1, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, 2
   %.not.i = icmp eq i64 %9, 0
@@ -6925,7 +6925,7 @@ define internal noundef ptr @lazy_map_proc(i64 noundef %0, ptr noundef returned 
   br i1 %.not.i.i.i, label %rb_array_len.exit.i.i, label %rb_array_len.exit.i.thread.i
 
 rb_array_len.exit.i.i:                            ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %12, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %16, 2147483648
   %.not.i1.i.i = icmp ult i64 %17, 4294967296
@@ -6935,7 +6935,7 @@ rb_array_len.exit.i.thread.i:                     ; preds = %10
   %18 = trunc i64 %13 to i32
   %19 = lshr i32 %18, 15
   %20 = and i32 %19, 127
-  %21 = getelementptr inbounds i8, ptr %12, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 16
   br label %lazyenum_yield_values.exit
 
 22:                                               ; preds = %rb_array_len.exit.i.i
@@ -6944,7 +6944,7 @@ rb_array_len.exit.i.thread.i:                     ; preds = %10
 
 23:                                               ; preds = %rb_array_len.exit.i.i
   %24 = trunc i64 %16 to i32
-  %25 = getelementptr inbounds i8, ptr %12, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %26 = load ptr, ptr %25, align 8
   br label %lazyenum_yield_values.exit
 
@@ -6984,8 +6984,8 @@ define internal noundef ptr @lazy_flat_map_proc(i64 noundef %0, ptr noundef %1, 
   %5 = alloca %struct.flat_map_i_arg, align 8
   %6 = alloca i64, align 8
   %7 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @proc_entry_data_type) #17
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load i64, ptr %9, align 8
   %11 = and i64 %10, 2
   %.not.i = icmp eq i64 %11, 0
@@ -7000,7 +7000,7 @@ define internal noundef ptr @lazy_flat_map_proc(i64 noundef %0, ptr noundef %1, 
   br i1 %.not.i.i.i, label %rb_array_len.exit.i.i, label %rb_array_len.exit.i.thread.i
 
 rb_array_len.exit.i.i:                            ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %14, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, 2147483648
   %.not.i1.i.i = icmp ult i64 %19, 4294967296
@@ -7010,7 +7010,7 @@ rb_array_len.exit.i.thread.i:                     ; preds = %12
   %20 = trunc i64 %15 to i32
   %21 = lshr i32 %20, 15
   %22 = and i32 %21, 127
-  %23 = getelementptr inbounds i8, ptr %14, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %14, i64 16
   br label %lazyenum_yield_values.exit
 
 24:                                               ; preds = %rb_array_len.exit.i.i
@@ -7019,7 +7019,7 @@ rb_array_len.exit.i.thread.i:                     ; preds = %12
 
 25:                                               ; preds = %rb_array_len.exit.i.i
   %26 = trunc i64 %18 to i32
-  %27 = getelementptr inbounds i8, ptr %14, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %28 = load ptr, ptr %27, align 8
   br label %lazyenum_yield_values.exit
 
@@ -7058,7 +7058,7 @@ lazyenum_yield_values.exit:                       ; preds = %4, %rb_array_len.ex
 
 48:                                               ; preds = %46
   store ptr %1, ptr %5, align 8
-  %49 = getelementptr inbounds i8, ptr %5, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %31, ptr %49, align 8
   %50 = load i64, ptr %9, align 8
   %51 = and i64 %50, -2
@@ -7088,8 +7088,8 @@ lazyenum_yield_values.exit:                       ; preds = %4, %rb_array_len.ex
   %61 = phi i64 [ %.pre, %._crit_edge ], [ %32, %39 ]
   %62 = and i64 %61, -2
   store i64 %62, ptr %9, align 8
-  %63 = getelementptr inbounds i8, ptr %.pre-phi, i64 16
-  %64 = getelementptr inbounds i8, ptr %.pre-phi, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %.pre-phi, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %.pre-phi, i64 32
   br label %65
 
 65:                                               ; preds = %RARRAY_AREF.exit, %60
@@ -7195,7 +7195,7 @@ MEMO_V2_SET.exit:                                 ; preds = %93, %98
 define internal i64 @lazy_flat_map_i(i64 %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, i64 %4) #0 {
   %6 = inttoptr i64 %1 to ptr
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = tail call fastcc i64 @lazy_yielder_yield(ptr noundef %7, i64 noundef %9, i32 noundef %2, ptr noundef %3)
   ret i64 %10
@@ -7205,7 +7205,7 @@ declare i64 @rb_check_array_type(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i64 @lazy_yielder_yield(ptr noundef initializes((24, 32)) %0, i64 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
   %8 = load i64, ptr %7, align 8
@@ -7214,11 +7214,11 @@ define internal fastcc i64 @lazy_yielder_yield(ptr noundef initializes((24, 32))
   br i1 %.not.i.i, label %12, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %7, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br label %RARRAY_AREF.exit16
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %7, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %14 = load ptr, ptr %13, align 8
   br label %RARRAY_AREF.exit16
 
@@ -7230,7 +7230,7 @@ RARRAY_AREF.exit16:                               ; preds = %10, %12
   %18 = load i64, ptr @id_memo, align 8
   %19 = tail call i64 @rb_attr_get(i64 noundef %15, i64 noundef %18) #17
   %20 = tail call i64 @rb_enum_values_pack(i32 noundef %2, ptr noundef %3) #17
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %20, ptr %21, align 8
   %22 = and i64 %20, 7
   %23 = icmp ne i64 %22, 0
@@ -7245,15 +7245,15 @@ RARRAY_AREF.exit16:                               ; preds = %10, %12
 
 MEMO_V2_SET.exit:                                 ; preds = %RARRAY_AREF.exit16, %26
   %28 = icmp sgt i32 %2, 1
-  %29 = getelementptr inbounds i8, ptr %0, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %30 = load i64, ptr %29, align 8
   %31 = and i64 %30, -3
   %masksel = select i1 %28, i64 2, i64 0
   %.sink = or disjoint i64 %31, %masksel
   store i64 %.sink, ptr %29, align 8
   %32 = inttoptr i64 %17 to ptr
-  %33 = getelementptr inbounds i8, ptr %32, i64 16
-  %34 = getelementptr inbounds i8, ptr %32, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 32
   br label %35
 
 35:                                               ; preds = %RARRAY_AREF.exit.i, %MEMO_V2_SET.exit
@@ -7283,7 +7283,7 @@ RARRAY_AREF.exit.i:                               ; preds = %43, %rb_array_len.e
   %45 = getelementptr i64, ptr %.0.i.i.i, i64 %.0.i
   %46 = load i64, ptr %45, align 8
   %47 = tail call ptr @rb_check_typeddata(i64 noundef %46, ptr noundef nonnull @proc_entry_data_type) #17
-  %48 = getelementptr inbounds i8, ptr %47, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 8
   %50 = load ptr, ptr %49, align 8
   %51 = tail call ptr %50(i64 noundef %46, ptr noundef %0, i64 noundef %19, i64 noundef %.0.i) #17
@@ -7296,7 +7296,7 @@ RARRAY_AREF.exit.i:                               ; preds = %43, %rb_array_len.e
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %RARRAY_AREF.exit.i, %.critedge.i
-  %54 = getelementptr inbounds i8, ptr %0, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %55 = load i64, ptr %54, align 8
   %56 = and i64 %55, 1
   %.not17.i = icmp eq i64 %56, 0
@@ -7315,7 +7315,7 @@ lazy_yielder_result.exit:                         ; preds = %.loopexit.i
 define internal ptr @lazy_select_proc(i64 noundef %0, ptr noundef %1, i64 %2, i64 %3) #0 {
   %5 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @proc_entry_data_type) #17
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = tail call i64 @rb_proc_call_with_block(i64 noundef %6, i32 noundef 1, ptr noundef nonnull %7, i64 noundef 4) #17
   %9 = and i64 %8, -5
   %.not = icmp eq i64 %9, 0
@@ -7326,8 +7326,8 @@ define internal ptr @lazy_select_proc(i64 noundef %0, ptr noundef %1, i64 %2, i6
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef ptr @lazy_filter_map_proc(i64 noundef %0, ptr noundef %1, i64 %2, i64 %3) #0 {
   %5 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @proc_entry_data_type) #17
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
-  %7 = getelementptr inbounds i8, ptr %1, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, 2
   %.not.i = icmp eq i64 %9, 0
@@ -7342,7 +7342,7 @@ define internal noundef ptr @lazy_filter_map_proc(i64 noundef %0, ptr noundef %1
   br i1 %.not.i.i.i, label %rb_array_len.exit.i.i, label %rb_array_len.exit.i.thread.i
 
 rb_array_len.exit.i.i:                            ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %12, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %16, 2147483648
   %.not.i1.i.i = icmp ult i64 %17, 4294967296
@@ -7352,7 +7352,7 @@ rb_array_len.exit.i.thread.i:                     ; preds = %10
   %18 = trunc i64 %13 to i32
   %19 = lshr i32 %18, 15
   %20 = and i32 %19, 127
-  %21 = getelementptr inbounds i8, ptr %12, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 16
   br label %lazyenum_yield_values.exit
 
 22:                                               ; preds = %rb_array_len.exit.i.i
@@ -7361,7 +7361,7 @@ rb_array_len.exit.i.thread.i:                     ; preds = %10
 
 23:                                               ; preds = %rb_array_len.exit.i.i
   %24 = trunc i64 %16 to i32
-  %25 = getelementptr inbounds i8, ptr %12, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %26 = load ptr, ptr %25, align 8
   br label %lazyenum_yield_values.exit
 
@@ -7400,7 +7400,7 @@ MEMO_V2_SET.exit:                                 ; preds = %30, %32
 define internal ptr @lazy_reject_proc(i64 noundef %0, ptr noundef %1, i64 %2, i64 %3) #0 {
   %5 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @proc_entry_data_type) #17
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = tail call i64 @rb_proc_call_with_block(i64 noundef %6, i32 noundef 1, ptr noundef nonnull %7, i64 noundef 4) #17
   %9 = and i64 %8, -5
   %.not = icmp eq i64 %9, 0
@@ -7411,9 +7411,9 @@ define internal ptr @lazy_reject_proc(i64 noundef %0, ptr noundef %1, i64 %2, i6
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef ptr @lazy_grep_iter_proc(i64 noundef %0, ptr noundef %1, i64 %2, i64 %3) #0 {
   %5 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @proc_entry_data_type) #17
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load i64, ptr %8, align 8
   %10 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %7, i64 noundef 141, i32 noundef 1, i64 noundef %9) #17
   %11 = and i64 %10, -5
@@ -7436,7 +7436,7 @@ define internal noundef ptr @lazy_grep_iter_proc(i64 noundef %0, ptr noundef %1,
   br label %MEMO_V2_SET.exit
 
 MEMO_V2_SET.exit:                                 ; preds = %12, %19
-  %21 = getelementptr inbounds i8, ptr %1, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %22 = load i64, ptr %21, align 8
   %23 = and i64 %22, -3
   store i64 %23, ptr %21, align 8
@@ -7450,9 +7450,9 @@ MEMO_V2_SET.exit:                                 ; preds = %12, %19
 ; Function Attrs: nounwind sspstrong uwtable
 define internal ptr @lazy_grep_proc(i64 noundef %0, ptr noundef readonly %1, i64 %2, i64 %3) #0 {
   %5 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @proc_entry_data_type) #17
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load i64, ptr %8, align 8
   %10 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %7, i64 noundef 141, i32 noundef 1, i64 noundef %9) #17
   %11 = and i64 %10, -5
@@ -7464,9 +7464,9 @@ define internal ptr @lazy_grep_proc(i64 noundef %0, ptr noundef readonly %1, i64
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef ptr @lazy_grep_v_iter_proc(i64 noundef %0, ptr noundef %1, i64 %2, i64 %3) #0 {
   %5 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @proc_entry_data_type) #17
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load i64, ptr %8, align 8
   %10 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %7, i64 noundef 141, i32 noundef 1, i64 noundef %9) #17
   %11 = and i64 %10, -5
@@ -7489,7 +7489,7 @@ define internal noundef ptr @lazy_grep_v_iter_proc(i64 noundef %0, ptr noundef %
   br label %MEMO_V2_SET.exit
 
 MEMO_V2_SET.exit:                                 ; preds = %12, %19
-  %21 = getelementptr inbounds i8, ptr %1, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %22 = load i64, ptr %21, align 8
   %23 = and i64 %22, -3
   store i64 %23, ptr %21, align 8
@@ -7503,9 +7503,9 @@ MEMO_V2_SET.exit:                                 ; preds = %12, %19
 ; Function Attrs: nounwind sspstrong uwtable
 define internal ptr @lazy_grep_v_proc(i64 noundef %0, ptr noundef readonly %1, i64 %2, i64 %3) #0 {
   %5 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @proc_entry_data_type) #17
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load i64, ptr %8, align 8
   %10 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %7, i64 noundef 141, i32 noundef 1, i64 noundef %9) #17
   %11 = and i64 %10, -5
@@ -7524,7 +7524,7 @@ define internal noundef ptr @lazy_zip_func(i64 noundef %0, ptr noundef returned 
   br i1 %7, label %8, label %40
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
   %12 = load i64, ptr %11, align 8
@@ -7538,15 +7538,15 @@ define internal noundef ptr @lazy_zip_func(i64 noundef %0, ptr noundef returned 
   br label %rb_array_len.exit
 
 17:                                               ; preds = %8
-  %18 = getelementptr inbounds i8, ptr %11, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %19 = load i64, ptr %18, align 8
   br label %rb_array_len.exit
 
 rb_array_len.exit:                                ; preds = %14, %17
   %.0.i = phi i64 [ %16, %14 ], [ %19, %17 ]
   %20 = tail call i64 @rb_ary_new_capa(i64 noundef %.0.i) #17
-  %21 = getelementptr inbounds i8, ptr %11, i64 16
-  %22 = getelementptr inbounds i8, ptr %11, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 32
   br label %23
 
 23:                                               ; preds = %RARRAY_AREF.exit, %rb_array_len.exit
@@ -7599,7 +7599,7 @@ RARRAY_AREF.exit:                                 ; preds = %rb_array_len.exit31
   br label %rb_array_len.exit34
 
 47:                                               ; preds = %40
-  %48 = getelementptr inbounds i8, ptr %41, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %49 = load i64, ptr %48, align 8
   br label %rb_array_len.exit34
 
@@ -7607,11 +7607,11 @@ rb_array_len.exit34:                              ; preds = %44, %47
   %.0.i33 = phi i64 [ %46, %44 ], [ %49, %47 ]
   %50 = add i64 %.0.i33, 1
   %51 = tail call i64 @rb_ary_new_capa(i64 noundef %50) #17
-  %52 = getelementptr inbounds i8, ptr %1, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %53 = load i64, ptr %52, align 8
   %54 = tail call i64 @rb_ary_push(i64 noundef %51, i64 noundef %53) #17
-  %55 = getelementptr inbounds i8, ptr %41, i64 16
-  %56 = getelementptr inbounds i8, ptr %41, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %41, i64 32
   br label %57
 
 57:                                               ; preds = %RARRAY_AREF.exit40, %rb_array_len.exit34
@@ -7660,7 +7660,7 @@ RARRAY_AREF.exit40:                               ; preds = %rb_array_len.exit37
   br label %MEMO_V2_SET.exit
 
 MEMO_V2_SET.exit:                                 ; preds = %73, %78
-  %80 = getelementptr inbounds i8, ptr %1, i64 32
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %81 = load i64, ptr %80, align 8
   %82 = or i64 %81, 2
   store i64 %82, ptr %80, align 8
@@ -7670,7 +7670,7 @@ MEMO_V2_SET.exit:                                 ; preds = %73, %78
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef ptr @lazy_zip_arrays_func(i64 noundef %0, ptr noundef returned %1, i64 noundef %2, i64 noundef %3) #0 {
   %5 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @proc_entry_data_type) #17
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = tail call i64 @rb_ary_entry(i64 noundef %2, i64 noundef %3) #24
   %9 = icmp eq i64 %8, 4
@@ -7703,7 +7703,7 @@ rb_num2long_inline.exit:                          ; preds = %14, %12, %4
   br label %rb_array_len.exit
 
 23:                                               ; preds = %rb_num2long_inline.exit
-  %24 = getelementptr inbounds i8, ptr %17, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %25 = load i64, ptr %24, align 8
   br label %rb_array_len.exit
 
@@ -7711,11 +7711,11 @@ rb_array_len.exit:                                ; preds = %20, %23
   %.0.i22 = phi i64 [ %22, %20 ], [ %25, %23 ]
   %26 = add i64 %.0.i22, 1
   %27 = tail call i64 @rb_ary_new_capa(i64 noundef %26) #17
-  %28 = getelementptr inbounds i8, ptr %1, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %29 = load i64, ptr %28, align 8
   %30 = tail call i64 @rb_ary_push(i64 noundef %27, i64 noundef %29) #17
-  %31 = getelementptr inbounds i8, ptr %17, i64 16
-  %32 = getelementptr inbounds i8, ptr %17, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %17, i64 32
   br label %33
 
 33:                                               ; preds = %RARRAY_AREF.exit, %rb_array_len.exit
@@ -7810,7 +7810,7 @@ define internal noundef ptr @lazy_take_proc(i64 noundef %0, ptr noundef returned
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %10 = load i64, ptr %9, align 8
   br label %11
 
@@ -7849,7 +7849,7 @@ rb_num2long_inline.exit:                          ; preds = %13, %15
   br label %rb_long2num_inline.exit
 
 .split12:                                         ; preds = %rb_num2long_inline.exit
-  %25 = getelementptr inbounds i8, ptr %1, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %26 = load i64, ptr %25, align 8
   %27 = or i64 %26, 1
   store i64 %27, ptr %25, align 8
@@ -7872,11 +7872,11 @@ define internal i64 @lazy_take_size(i64 noundef %0, i64 noundef %1) #0 {
   br i1 %.not.i.i, label %10, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %RARRAY_AREF.exit
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %5, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %12 = load ptr, ptr %11, align 8
   br label %RARRAY_AREF.exit
 
@@ -7930,7 +7930,7 @@ rb_long2num_inline.exit:                          ; preds = %20, %30, %27, %rb_n
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i32 0, 2) i32 @lazy_take_precheck(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @proc_entry_data_type) #17
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp ne i64 %4, 1
   %6 = zext i1 %5 to i32
@@ -7940,8 +7940,8 @@ define internal range(i32 0, 2) i32 @lazy_take_precheck(i64 noundef %0) #0 {
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef ptr @lazy_take_while_proc(i64 noundef %0, ptr noundef %1, i64 %2, i64 %3) #0 {
   %5 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @proc_entry_data_type) #17
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
-  %7 = getelementptr inbounds i8, ptr %1, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, 2
   %.not.i = icmp eq i64 %9, 0
@@ -7956,7 +7956,7 @@ define internal noundef ptr @lazy_take_while_proc(i64 noundef %0, ptr noundef %1
   br i1 %.not.i.i.i, label %rb_array_len.exit.i.i, label %rb_array_len.exit.i.thread.i
 
 rb_array_len.exit.i.i:                            ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %12, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %16, 2147483648
   %.not.i1.i.i = icmp ult i64 %17, 4294967296
@@ -7966,7 +7966,7 @@ rb_array_len.exit.i.thread.i:                     ; preds = %10
   %18 = trunc i64 %13 to i32
   %19 = lshr i32 %18, 15
   %20 = and i32 %19, 127
-  %21 = getelementptr inbounds i8, ptr %12, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 16
   br label %lazyenum_yield_values.exit
 
 22:                                               ; preds = %rb_array_len.exit.i.i
@@ -7975,7 +7975,7 @@ rb_array_len.exit.i.thread.i:                     ; preds = %10
 
 23:                                               ; preds = %rb_array_len.exit.i.i
   %24 = trunc i64 %16 to i32
-  %25 = getelementptr inbounds i8, ptr %12, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %26 = load ptr, ptr %25, align 8
   br label %lazyenum_yield_values.exit
 
@@ -8007,7 +8007,7 @@ define internal noundef ptr @lazy_drop_proc(i64 noundef %0, ptr noundef readnone
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %10 = load i64, ptr %9, align 8
   br label %11
 
@@ -8066,11 +8066,11 @@ define internal i64 @lazy_drop_size(i64 noundef %0, i64 noundef %1) #0 {
   br i1 %.not.i.i, label %10, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %RARRAY_AREF.exit
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %5, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %12 = load ptr, ptr %11, align 8
   br label %RARRAY_AREF.exit
 
@@ -8139,7 +8139,7 @@ define internal noundef ptr @lazy_drop_while_proc(i64 noundef %0, ptr noundef %1
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %10 = load i64, ptr %9, align 8
   br label %11
 
@@ -8151,8 +8151,8 @@ define internal noundef ptr @lazy_drop_while_proc(i64 noundef %0, ptr noundef %1
 
 13:                                               ; preds = %11
   %14 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @proc_entry_data_type) #17
-  %15 = getelementptr inbounds i8, ptr %1, i64 24
-  %16 = getelementptr inbounds i8, ptr %1, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %17 = load i64, ptr %16, align 8
   %18 = and i64 %17, 2
   %.not.i = icmp eq i64 %18, 0
@@ -8167,7 +8167,7 @@ define internal noundef ptr @lazy_drop_while_proc(i64 noundef %0, ptr noundef %1
   br i1 %.not.i.i.i, label %rb_array_len.exit.i.i, label %rb_array_len.exit.i.thread.i
 
 rb_array_len.exit.i.i:                            ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %21, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %25 = load i64, ptr %24, align 8
   %26 = add i64 %25, 2147483648
   %.not.i1.i.i = icmp ult i64 %26, 4294967296
@@ -8177,7 +8177,7 @@ rb_array_len.exit.i.thread.i:                     ; preds = %19
   %27 = trunc i64 %22 to i32
   %28 = lshr i32 %27, 15
   %29 = and i32 %28, 127
-  %30 = getelementptr inbounds i8, ptr %21, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %21, i64 16
   br label %lazyenum_yield_values.exit
 
 31:                                               ; preds = %rb_array_len.exit.i.i
@@ -8186,7 +8186,7 @@ rb_array_len.exit.i.thread.i:                     ; preds = %19
 
 32:                                               ; preds = %rb_array_len.exit.i.i
   %33 = trunc i64 %25 to i32
-  %34 = getelementptr inbounds i8, ptr %21, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %35 = load ptr, ptr %34, align 8
   br label %lazyenum_yield_values.exit
 
@@ -8212,7 +8212,7 @@ lazyenum_yield_values.exit:                       ; preds = %13, %rb_array_len.e
 define internal ptr @lazy_uniq_iter_proc(i64 noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) #0 {
   %5 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @proc_entry_data_type) #17
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = tail call i64 @rb_proc_call_with_block(i64 noundef %6, i32 noundef 1, ptr noundef nonnull %7, i64 noundef 4) #17
   %9 = tail call i64 @rb_ary_entry(i64 noundef %2, i64 noundef %3) #24
   %10 = icmp eq i64 %9, 4
@@ -8240,7 +8240,7 @@ declare i32 @rb_hash_add_new_element(i64 noundef, i64 noundef, i64 noundef) loca
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal ptr @lazy_uniq_proc(i64 %0, ptr noundef readonly %1, i64 noundef %2, i64 noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i64, ptr %5, align 8
   %7 = tail call i64 @rb_ary_entry(i64 noundef %2, i64 noundef %3) #24
   %8 = icmp eq i64 %7, 4
@@ -8262,7 +8262,7 @@ lazy_uniq_check.exit:                             ; preds = %4, %9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal ptr @lazy_compact_proc(i64 %0, ptr noundef readonly %1, i64 %2, i64 %3) #10 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 4
   %. = select i1 %7, ptr null, ptr %1
@@ -8280,16 +8280,16 @@ define internal noundef ptr @lazy_with_index_proc(i64 noundef %0, ptr noundef re
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %11 = load i64, ptr %10, align 8
   br label %12
 
 12:                                               ; preds = %9, %4
   %.0 = phi i64 [ %11, %9 ], [ %7, %4 ]
-  %13 = getelementptr inbounds i8, ptr %1, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %14 = load i64, ptr %13, align 8
   store i64 %14, ptr %5, align 16
-  %15 = getelementptr inbounds i8, ptr %5, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %.0, ptr %15, align 8
   %16 = load i64, ptr %6, align 8
   %.not = icmp eq i64 %16, 0
@@ -8297,7 +8297,7 @@ define internal noundef ptr @lazy_with_index_proc(i64 noundef %0, ptr noundef re
 
 17:                                               ; preds = %12
   %18 = call i64 @rb_proc_call_with_block(i64 noundef %16, i32 noundef 2, ptr noundef nonnull %5, i64 noundef 4) #17
-  %19 = getelementptr inbounds i8, ptr %1, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %20 = load i64, ptr %19, align 8
   %21 = and i64 %20, -3
   store i64 %21, ptr %19, align 8
@@ -8318,7 +8318,7 @@ define internal noundef ptr @lazy_with_index_proc(i64 noundef %0, ptr noundef re
   br label %MEMO_V2_SET.exit
 
 MEMO_V2_SET.exit:                                 ; preds = %22, %28
-  %30 = getelementptr inbounds i8, ptr %1, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %31 = load i64, ptr %30, align 8
   %32 = or i64 %31, 2
   store i64 %32, ptr %30, align 8
@@ -8405,7 +8405,7 @@ declare i64 @rb_obj_method(i64 noundef, i64 noundef) local_unnamed_addr #1
 define internal void @producer_mark(ptr nocapture noundef readonly %0) #0 {
   %2 = load i64, ptr %0, align 8
   tail call void @rb_gc_mark_movable(i64 noundef %2) #17
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   tail call void @rb_gc_mark_movable(i64 noundef %4) #17
   ret void
@@ -8421,7 +8421,7 @@ define internal void @producer_compact(ptr nocapture noundef %0) #0 {
   %2 = load i64, ptr %0, align 8
   %3 = tail call i64 @rb_gc_location(i64 noundef %2) #17
   store i64 %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = tail call i64 @rb_gc_location(i64 noundef %5) #17
   store i64 %6, ptr %4, align 8
@@ -8435,7 +8435,7 @@ define internal noundef i64 @producer_each_i(i64 noundef %0) #12 {
   br i1 %.not.i, label %7, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, 36
   br i1 %6, label %7, label %producer_ptr.exit
@@ -8619,7 +8619,7 @@ enum_product_ptr.exit:                            ; preds = %5
   br label %rb_array_len.exit.i
 
 16:                                               ; preds = %enum_product_ptr.exit
-  %17 = getelementptr inbounds i8, ptr %10, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %18 = load i64, ptr %17, align 8
   br label %rb_array_len.exit.i
 
@@ -8636,9 +8636,9 @@ rb_array_len.exit.i:                              ; preds = %16, %13
 RARRAY_LENINT.exit:                               ; preds = %rb_array_len.exit.i
   %21 = trunc i64 %.0.i.i to i32
   store i64 %0, ptr %3, align 8
-  %22 = getelementptr inbounds i8, ptr %3, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %1, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %3, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 %21, ptr %23, align 8
   %24 = icmp ugt i64 %.0.i.i, 2305843009213693951
   br i1 %24, label %25, label %rbimpl_size_mul_or_raise.exit
@@ -8648,12 +8648,12 @@ RARRAY_LENINT.exit:                               ; preds = %rb_array_len.exit.i
   unreachable
 
 rbimpl_size_mul_or_raise.exit:                    ; preds = %RARRAY_LENINT.exit
-  %26 = getelementptr inbounds i8, ptr %3, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %27 = shl nuw i64 %.0.i.i, 3
   %28 = and i64 %27, 34359738360
   %29 = alloca i8, i64 %28, align 16
   store ptr %29, ptr %26, align 8
-  %30 = getelementptr inbounds i8, ptr %3, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 0, ptr %30, align 8
   %31 = call fastcc i64 @product_each(i64 noundef %0, ptr noundef nonnull %3)
   ret i64 %0
@@ -8676,9 +8676,9 @@ define internal fastcc noundef i64 @product_each(i64 noundef returned %0, ptr no
   unreachable
 
 enum_product_ptr.exit:                            ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i32, ptr %11, align 8
   %13 = icmp slt i32 %10, %12
   br i1 %13, label %14, label %29
@@ -8692,11 +8692,11 @@ enum_product_ptr.exit:                            ; preds = %4
   br i1 %.not.i.i, label %21, label %19
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %16, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 16
   br label %RARRAY_AREF.exit
 
 21:                                               ; preds = %14
-  %22 = getelementptr inbounds i8, ptr %16, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %23 = load ptr, ptr %22, align 8
   br label %RARRAY_AREF.exit
 
@@ -8710,10 +8710,10 @@ RARRAY_AREF.exit:                                 ; preds = %19, %21
   br label %37
 
 29:                                               ; preds = %enum_product_ptr.exit
-  %30 = getelementptr inbounds i8, ptr %1, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = load i64, ptr %30, align 8
   %32 = sext i32 %12 to i64
-  %33 = getelementptr inbounds i8, ptr %1, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %34 = load ptr, ptr %33, align 8
   %35 = tail call i64 @rb_ary_new_from_values(i64 noundef %32, ptr noundef %34) #17
   %36 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %31, i64 noundef 3425, i32 noundef 1, i64 noundef %35) #17
@@ -8726,9 +8726,9 @@ RARRAY_AREF.exit:                                 ; preds = %19, %21
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @product_each_i(i64 noundef %0, i64 noundef %1, i32 %2, ptr nocapture readnone %3, i64 %4) #0 {
   %6 = inttoptr i64 %1 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %10 = load i32, ptr %9, align 8
   %11 = add i32 %10, 1
   store i32 %11, ptr %9, align 8

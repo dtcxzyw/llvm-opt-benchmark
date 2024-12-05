@@ -27,14 +27,14 @@ define i32 @MPL_get_sockaddr(ptr noundef %0, ptr nocapture noundef writeonly ini
   %3 = alloca %struct.addrinfo, align 8
   %4 = alloca ptr, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %1, i8 0, i64 128, i1 false)
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 32, i1 false)
   %6 = load i32, ptr @af_type, align 4
-  %7 = getelementptr inbounds i8, ptr %3, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %6, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 6, ptr %9, align 4
   store i32 8, ptr %3, align 8
   %10 = call i32 @getaddrinfo(ptr noundef %0, ptr noundef null, ptr noundef nonnull %3, ptr noundef nonnull %4) #12
@@ -50,13 +50,13 @@ define i32 @MPL_get_sockaddr(ptr noundef %0, ptr nocapture noundef writeonly ini
   ]
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %.pre, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %.pre, i64 24
   %15 = load ptr, ptr %14, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 2 dereferenceable(16) %15, i64 16, i1 false)
   br label %._crit_edge
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %.pre, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %.pre, i64 24
   %18 = load ptr, ptr %17, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %1, ptr noundef nonnull align 2 dereferenceable(28) %18, i64 28, i1 false)
   br label %._crit_edge
@@ -92,7 +92,7 @@ define noundef i32 @MPL_get_sockaddr_direct(i32 noundef %0, ptr nocapture nounde
 4:                                                ; preds = %2
   store i16 2, ptr %1, align 4
   %5 = icmp eq i32 %0, 1
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   br i1 %5, label %7, label %9
 
 7:                                                ; preds = %4
@@ -108,7 +108,7 @@ define noundef i32 @MPL_get_sockaddr_direct(i32 noundef %0, ptr nocapture nounde
 11:                                               ; preds = %2
   store i16 10, ptr %1, align 4
   %12 = icmp eq i32 %0, 1
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br i1 %12, label %14, label %15
 
 14:                                               ; preds = %11
@@ -174,7 +174,7 @@ define i32 @MPL_get_sockaddr_iface(ptr noundef readonly %0, ptr nocapture nounde
   ]
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %15, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %strcmpload.i.us = load i8, ptr %18, align 1
   switch i8 %strcmpload.i.us, label %is_localhost.exit.thread [
     i8 0, label %is_localhost.exit.thread36.us
@@ -182,20 +182,20 @@ define i32 @MPL_get_sockaddr_iface(ptr noundef readonly %0, ptr nocapture nounde
   ]
 
 sub_110.i.us:                                     ; preds = %17
-  %19 = getelementptr inbounds i8, ptr %15, i64 9
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 9
   %20 = load i8, ptr %19, align 1
   %.not12.i.us = icmp eq i8 %20, -128
   br i1 %.not12.i.us, label %is_localhost.exit.us, label %is_localhost.exit.thread
 
 sub_0.i.us:                                       ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %15, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %22 = load i8, ptr %21, align 1
   %.not13.i.us = icmp eq i8 %22, 127
   br i1 %.not13.i.us, label %is_localhost.exit.us, label %is_localhost.exit.thread
 
 is_localhost.exit.us:                             ; preds = %sub_0.i.us, %sub_110.i.us
   %.sink = phi i64 [ 10, %sub_110.i.us ], [ 5, %sub_0.i.us ]
-  %23 = getelementptr inbounds i8, ptr %15, i64 %.sink
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 %.sink
   %.0.shrunk.i.in.us = load i8, ptr %23, align 1
   %.0.shrunk.i.not.us = icmp eq i8 %.0.shrunk.i.in.us, 0
   br i1 %.0.shrunk.i.not.us, label %is_localhost.exit.thread36.us, label %is_localhost.exit.thread
@@ -209,7 +209,7 @@ is_localhost.exit.thread36.us:                    ; preds = %.split.us.us, %is_l
 .split.us.us:                                     ; preds = %.preheader.split.us, %is_localhost.exit.thread36.us
   %.019.us.us49 = phi ptr [ %.019.us.us, %is_localhost.exit.thread36.us ], [ %.019.us.us46, %.preheader.split.us ]
   %.0.ph.us48 = phi i32 [ %.2.us, %is_localhost.exit.thread36.us ], [ 0, %.preheader.split.us ]
-  %24 = getelementptr inbounds i8, ptr %.019.us.us49, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %.019.us.us49, i64 24
   %25 = load ptr, ptr %24, align 8
   %.not30.us = icmp eq ptr %25, null
   br i1 %.not30.us, label %is_localhost.exit.thread36.us, label %6
@@ -225,7 +225,7 @@ is_localhost.exit.thread36.us:                    ; preds = %.split.us.us, %is_l
   br i1 %.not26, label %is_localhost.exit.thread, label %27
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %.019, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.019, i64 8
   %29 = load ptr, ptr %28, align 8
   %.not28 = icmp eq ptr %29, null
   br i1 %.not28, label %.split, label %30
@@ -236,7 +236,7 @@ is_localhost.exit.thread36.us:                    ; preds = %.split.us.us, %is_l
   br i1 %.not29, label %.split, label %26, !llvm.loop !4
 
 .split:                                           ; preds = %30, %27
-  %32 = getelementptr inbounds i8, ptr %.019, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %.019, i64 24
   %33 = load ptr, ptr %32, align 8
   %.not30 = icmp eq ptr %33, null
   br i1 %.not30, label %.outer.backedge, label %34
@@ -251,7 +251,7 @@ is_localhost.exit.thread36.us:                    ; preds = %.split.us.us, %is_l
   br label %.outer, !llvm.loop !4
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %.019, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %.019, i64 24
   %40 = add nuw nsw i32 %.0.ph.ph, 1
   switch i32 %5, label %43 [
     i32 2, label %41
@@ -275,13 +275,13 @@ is_localhost.exit.thread36.us:                    ; preds = %.split.us.us, %is_l
   ]
 
 sub_0.i:                                          ; preds = %43
-  %46 = getelementptr inbounds i8, ptr %44, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %47 = load i8, ptr %46, align 1
   %.not13.i = icmp eq i8 %47, 127
   br i1 %.not13.i, label %is_localhost.exit, label %is_localhost.exit.thread
 
 48:                                               ; preds = %43
-  %49 = getelementptr inbounds i8, ptr %44, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %strcmpload.i = load i8, ptr %49, align 1
   switch i8 %strcmpload.i, label %is_localhost.exit.thread [
     i8 0, label %.outer.outer.backedge
@@ -297,14 +297,14 @@ sub_0.i:                                          ; preds = %43
   br label %.outer
 
 sub_110.i:                                        ; preds = %48
-  %50 = getelementptr inbounds i8, ptr %44, i64 9
+  %50 = getelementptr inbounds nuw i8, ptr %44, i64 9
   %51 = load i8, ptr %50, align 1
   %.not12.i = icmp eq i8 %51, -128
   br i1 %.not12.i, label %is_localhost.exit, label %is_localhost.exit.thread
 
 is_localhost.exit:                                ; preds = %sub_110.i, %sub_0.i
   %.sink58 = phi i64 [ 5, %sub_0.i ], [ 10, %sub_110.i ]
-  %52 = getelementptr inbounds i8, ptr %44, i64 %.sink58
+  %52 = getelementptr inbounds nuw i8, ptr %44, i64 %.sink58
   %.0.shrunk.i.in = load i8, ptr %52, align 1
   %.0.shrunk.i.not = icmp eq i8 %.0.shrunk.i.in, 0
   br i1 %.0.shrunk.i.not, label %.outer.outer.backedge, label %is_localhost.exit.thread
@@ -355,7 +355,7 @@ define i32 @MPL_connect(i32 noundef %0, ptr noundef %1, i16 noundef zeroext %2) 
 .sink.split:                                      ; preds = %3, %5
   %.sink = phi i32 [ 28, %5 ], [ 16, %3 ]
   %6 = tail call zeroext i16 @htons(i16 noundef zeroext %2) #13
-  %7 = getelementptr inbounds i8, ptr %1, i64 2
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i16 %6, ptr %7, align 2
   %8 = tail call i32 @connect(i32 noundef %0, ptr %1, i32 noundef %.sink) #12
   br label %9
@@ -394,7 +394,7 @@ define i32 @MPL_listen(i32 noundef %0, i16 noundef zeroext %1) local_unnamed_add
 
 7:                                                ; preds = %6
   store i16 10, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) @in6addr_loopback, i64 16, i1 false)
   br label %MPL_get_sockaddr_direct.exit.thread16
 
@@ -406,14 +406,14 @@ define i32 @MPL_listen(i32 noundef %0, i16 noundef zeroext %1) local_unnamed_add
 
 10:                                               ; preds = %9
   store i16 10, ptr %3, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(16) @in6addr_any, i64 16, i1 false)
   br label %MPL_get_sockaddr_direct.exit.thread16
 
 MPL_get_sockaddr_direct.exit.thread16.sink.split: ; preds = %9, %6
   %.sink18 = phi i32 [ 2130706433, %6 ], [ 0, %9 ]
   store i16 2, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %13 = tail call i32 @htonl(i32 noundef %.sink18) #13
   store i32 %13, ptr %12, align 4
   br label %MPL_get_sockaddr_direct.exit.thread16
@@ -421,7 +421,7 @@ MPL_get_sockaddr_direct.exit.thread16.sink.split: ; preds = %9, %6
 MPL_get_sockaddr_direct.exit.thread16:            ; preds = %10, %7, %MPL_get_sockaddr_direct.exit.thread16.sink.split
   %.sink = phi i32 [ 16, %MPL_get_sockaddr_direct.exit.thread16.sink.split ], [ 28, %7 ], [ 28, %10 ]
   %14 = tail call zeroext i16 @htons(i16 noundef zeroext %1) #13
-  %15 = getelementptr inbounds i8, ptr %3, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i16 %14, ptr %15, align 2
   %16 = call i32 @bind(i32 noundef %0, ptr nonnull %3, i32 noundef %.sink) #12
   %.not11 = icmp eq i32 %16, 0
@@ -461,7 +461,7 @@ define i32 @MPL_listen_anyport(i32 noundef %0, ptr nocapture noundef writeonly %
 
 8:                                                ; preds = %7
   store i16 10, ptr %3, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 4 dereferenceable(16) @in6addr_loopback, i64 16, i1 false)
   br label %MPL_get_sockaddr_direct.exit.thread22
 
@@ -473,21 +473,21 @@ define i32 @MPL_listen_anyport(i32 noundef %0, ptr nocapture noundef writeonly %
 
 11:                                               ; preds = %10
   store i16 10, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) @in6addr_any, i64 16, i1 false)
   br label %MPL_get_sockaddr_direct.exit.thread22
 
 MPL_get_sockaddr_direct.exit.thread22.sink.split: ; preds = %10, %7
   %.sink24 = phi i32 [ 2130706433, %7 ], [ 0, %10 ]
   store i16 2, ptr %3, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %14 = tail call i32 @htonl(i32 noundef %.sink24) #13
   store i32 %14, ptr %13, align 4
   br label %MPL_get_sockaddr_direct.exit.thread22
 
 MPL_get_sockaddr_direct.exit.thread22:            ; preds = %11, %8, %MPL_get_sockaddr_direct.exit.thread22.sink.split
   %.sink = phi i32 [ 16, %MPL_get_sockaddr_direct.exit.thread22.sink.split ], [ 28, %8 ], [ 28, %11 ]
-  %15 = getelementptr inbounds i8, ptr %3, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i16 0, ptr %15, align 2
   %16 = call i32 @bind(i32 noundef %0, ptr nonnull %3, i32 noundef %.sink) #12
   %.not16 = icmp eq i32 %16, 0
@@ -507,7 +507,7 @@ MPL_get_sockaddr_direct.exit.thread22:            ; preds = %11, %8, %MPL_get_so
   ]
 
 .sink.split:                                      ; preds = %18, %18
-  %20 = getelementptr inbounds i8, ptr %3, i64 2
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %21 = load i16, ptr %20, align 2
   %22 = call zeroext i16 @ntohs(i16 noundef zeroext %21) #13
   store i16 %22, ptr %1, align 2
@@ -576,70 +576,70 @@ define noundef i32 @MPL_sockaddr_to_str(ptr nocapture noundef readonly %0, ptr n
   ]
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = sext i32 %2 to i64
   %8 = load i8, ptr %6, align 1
   %9 = zext i8 %8 to i32
-  %10 = getelementptr inbounds i8, ptr %0, i64 5
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
-  %13 = getelementptr inbounds i8, ptr %0, i64 6
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i32
-  %16 = getelementptr inbounds i8, ptr %0, i64 7
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 7
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i32
   %19 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1, i64 noundef %7, ptr noundef nonnull @.str, i32 noundef %9, i32 noundef %12, i32 noundef %15, i32 noundef %18) #12
   br label %71
 
 20:                                               ; preds = %3
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = sext i32 %2 to i64
   %23 = load i8, ptr %21, align 1
   %24 = zext i8 %23 to i32
-  %25 = getelementptr inbounds i8, ptr %0, i64 9
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %26 = load i8, ptr %25, align 1
   %27 = zext i8 %26 to i32
-  %28 = getelementptr inbounds i8, ptr %0, i64 10
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i32
-  %31 = getelementptr inbounds i8, ptr %0, i64 11
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 11
   %32 = load i8, ptr %31, align 1
   %33 = zext i8 %32 to i32
-  %34 = getelementptr inbounds i8, ptr %0, i64 12
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %35 = load i8, ptr %34, align 1
   %36 = zext i8 %35 to i32
-  %37 = getelementptr inbounds i8, ptr %0, i64 13
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 13
   %38 = load i8, ptr %37, align 1
   %39 = zext i8 %38 to i32
-  %40 = getelementptr inbounds i8, ptr %0, i64 14
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %41 = load i8, ptr %40, align 1
   %42 = zext i8 %41 to i32
-  %43 = getelementptr inbounds i8, ptr %0, i64 15
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 15
   %44 = load i8, ptr %43, align 1
   %45 = zext i8 %44 to i32
-  %46 = getelementptr inbounds i8, ptr %0, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %47 = load i8, ptr %46, align 1
   %48 = zext i8 %47 to i32
-  %49 = getelementptr inbounds i8, ptr %0, i64 17
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %50 = load i8, ptr %49, align 1
   %51 = zext i8 %50 to i32
-  %52 = getelementptr inbounds i8, ptr %0, i64 18
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %53 = load i8, ptr %52, align 1
   %54 = zext i8 %53 to i32
-  %55 = getelementptr inbounds i8, ptr %0, i64 19
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 19
   %56 = load i8, ptr %55, align 1
   %57 = zext i8 %56 to i32
-  %58 = getelementptr inbounds i8, ptr %0, i64 20
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %59 = load i8, ptr %58, align 1
   %60 = zext i8 %59 to i32
-  %61 = getelementptr inbounds i8, ptr %0, i64 21
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 21
   %62 = load i8, ptr %61, align 1
   %63 = zext i8 %62 to i32
-  %64 = getelementptr inbounds i8, ptr %0, i64 22
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 22
   %65 = load i8, ptr %64, align 1
   %66 = zext i8 %65 to i32
-  %67 = getelementptr inbounds i8, ptr %0, i64 23
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 23
   %68 = load i8, ptr %67, align 1
   %69 = zext i8 %68 to i32
   %70 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1, i64 noundef %22, ptr noundef nonnull @.str.1, i32 noundef %24, i32 noundef %27, i32 noundef %30, i32 noundef %33, i32 noundef %36, i32 noundef %39, i32 noundef %42, i32 noundef %45, i32 noundef %48, i32 noundef %51, i32 noundef %54, i32 noundef %57, i32 noundef %60, i32 noundef %63, i32 noundef %66, i32 noundef %69) #12
@@ -661,7 +661,7 @@ define range(i32 0, 65536) i32 @MPL_sockaddr_port(ptr nocapture noundef readonly
   ]
 
 .sink.split:                                      ; preds = %1, %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 2
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %4 = load i16, ptr %3, align 2
   %5 = tail call zeroext i16 @ntohs(i16 noundef zeroext %4) #13
   %6 = zext i16 %5 to i32

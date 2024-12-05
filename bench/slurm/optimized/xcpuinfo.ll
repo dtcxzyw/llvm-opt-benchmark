@@ -235,7 +235,7 @@ define range(i32 -1, 1) i32 @xcpuinfo_hwloc_topo_load(ptr noundef %0, ptr nounde
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %81 ], [ 0, %.preheader.i ]
   %.128.i = phi ptr [ %.3.i, %81 ], [ null, %.preheader.i ]
   %67 = load ptr, ptr %5, align 8
-  %68 = getelementptr inbounds %struct.hwloc_info_s, ptr %67, i64 %indvars.iv.i
+  %68 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %67, i64 %indvars.iv.i
   %69 = load ptr, ptr %68, align 8
   %70 = call i32 @xstrcasecmp(ptr noundef %69, ptr noundef nonnull @.str.27) #11
   %.not25.i = icmp eq i32 %70, 0
@@ -243,7 +243,7 @@ define range(i32 -1, 1) i32 @xcpuinfo_hwloc_topo_load(ptr noundef %0, ptr nounde
 
 71:                                               ; preds = %.lr.ph.i
   %72 = load ptr, ptr %5, align 8
-  %73 = getelementptr inbounds %struct.hwloc_info_s, ptr %72, i64 %indvars.iv.i, i32 1
+  %73 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %72, i64 %indvars.iv.i, i32 1
   %74 = load ptr, ptr %73, align 8
   %75 = call i32 @xstrcasecmp(ptr noundef %74, ptr noundef nonnull @.str.28) #11
   %.not26.i = icmp eq i32 %75, 0
@@ -288,7 +288,7 @@ _remove_ecores.exit:                              ; preds = %53, %56, %.loopexit
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %88 = load ptr, ptr @conf, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 4426
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 4426
   %90 = load i8, ptr %89, align 2
   %91 = trunc i8 %90 to i1
   br i1 %91, label %101, label %92
@@ -383,7 +383,7 @@ define range(i32 0, 3) i32 @xcpuinfo_hwloc_topo_get(ptr nocapture noundef writeo
 
 26:                                               ; preds = %24
   %27 = load ptr, ptr @conf, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 4360
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 4360
   %29 = load ptr, ptr %28, align 8
   %30 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.10, ptr noundef %29) #11
   store ptr %30, ptr @hwloc_xml_whole, align 8
@@ -403,9 +403,9 @@ define range(i32 0, 3) i32 @xcpuinfo_hwloc_topo_get(ptr nocapture noundef writeo
 
 37:                                               ; preds = %31
   store i32 1, ptr %10, align 4
-  %38 = getelementptr inbounds i8, ptr %10, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 2, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %10, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 3, ptr %39, align 4
   %40 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1072), align 8
   %41 = call ptr @xstrcasestr(ptr noundef %40, ptr noundef nonnull @.str.11) #11
@@ -449,7 +449,7 @@ hwloc_get_next_obj_by_type.exit:                  ; preds = %53
   br i1 %.not121, label %hwloc_get_next_obj_by_type.exit.thread, label %57
 
 57:                                               ; preds = %hwloc_get_next_obj_by_type.exit
-  %58 = getelementptr inbounds i8, ptr %56, i64 72
+  %58 = getelementptr inbounds nuw i8, ptr %56, i64 72
   %59 = load ptr, ptr %58, align 8
   %.not122 = icmp eq ptr %59, null
   br i1 %.not122, label %hwloc_get_next_obj_by_type.exit.thread, label %60
@@ -476,25 +476,25 @@ hwloc_get_next_obj_by_type.exit.thread:           ; preds = %53, %51, %60, %69, 
   %70 = phi i32 [ 1, %53 ], [ 1, %51 ], [ %61, %60 ], [ %61, %69 ], [ %61, %64 ], [ 1, %57 ], [ 1, %hwloc_get_next_obj_by_type.exit ], [ 6, %50 ]
   %71 = load ptr, ptr %9, align 8
   %72 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %71, i32 noundef 0, i32 noundef 0) #13
-  %73 = getelementptr inbounds i8, ptr %72, i64 120
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 120
   %74 = load ptr, ptr %73, align 8
   %75 = icmp eq ptr %74, null
   br i1 %75, label %76, label %hwloc_get_next_child.exit
 
 76:                                               ; preds = %hwloc_get_next_obj_by_type.exit.thread
-  %77 = getelementptr inbounds i8, ptr %72, i64 144
+  %77 = getelementptr inbounds nuw i8, ptr %72, i64 144
   %78 = load ptr, ptr %77, align 8
   %79 = icmp eq ptr %78, null
   br i1 %79, label %80, label %hwloc_get_next_child.exit
 
 80:                                               ; preds = %76
-  %81 = getelementptr inbounds i8, ptr %72, i64 160
+  %81 = getelementptr inbounds nuw i8, ptr %72, i64 160
   %82 = load ptr, ptr %81, align 8
   %83 = icmp eq ptr %82, null
   br i1 %83, label %84, label %hwloc_get_next_child.exit
 
 84:                                               ; preds = %80
-  %85 = getelementptr inbounds i8, ptr %72, i64 176
+  %85 = getelementptr inbounds nuw i8, ptr %72, i64 176
   %86 = load ptr, ptr %85, align 8
   br label %hwloc_get_next_child.exit
 
@@ -506,7 +506,7 @@ hwloc_get_next_child.exit:                        ; preds = %hwloc_get_next_obj_
   br i1 %.not123, label %89, label %93
 
 89:                                               ; preds = %hwloc_get_next_child.exit
-  %90 = getelementptr inbounds i8, ptr %.325.i, i64 48
+  %90 = getelementptr inbounds nuw i8, ptr %.325.i, i64 48
   %91 = load i32, ptr %90, align 8
   %92 = call i32 @hwloc_get_nbobjs_by_depth(ptr noundef %71, i32 noundef %91) #13
   %spec.select = call i32 @llvm.umax.i32(i32 %92, i32 1)
@@ -542,10 +542,10 @@ hwloc_get_next_child.exit:                        ; preds = %hwloc_get_next_obj_
 
 106:                                              ; preds = %.lr.ph
   %107 = call fastcc i32 @_core_child_count(ptr noundef nonnull %103)
-  %108 = getelementptr inbounds i32, ptr %100, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw i32, ptr %100, i64 %indvars.iv
   store i32 %107, ptr %108, align 4
   %109 = load ptr, ptr %13, align 8
-  %110 = getelementptr inbounds i32, ptr %109, i64 %indvars.iv
+  %110 = getelementptr inbounds nuw i32, ptr %109, i64 %indvars.iv
   %111 = load i32, ptr %110, align 4
   %112 = icmp sgt i32 %111, 0
   br i1 %112, label %113, label %117
@@ -750,8 +750,8 @@ hwloc_get_nbobjs_by_type.exit139:                 ; preds = %155, %158, %159
   br i1 %186, label %.lr.ph170, label %.loopexit149
 
 .lr.ph170:                                        ; preds = %.preheader
-  %187 = getelementptr inbounds i8, ptr %11, i64 4
-  %188 = getelementptr inbounds i8, ptr %11, i64 8
+  %187 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %188 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.not179 = icmp eq i32 %.fr178, 0
   %.pre194 = load ptr, ptr %12, align 8
   br i1 %.not179, label %.lr.ph170.split, label %.lr.ph170.split.us
@@ -768,13 +768,13 @@ hwloc_get_nbobjs_by_type.exit139:                 ; preds = %155, %158, %159
 
 192:                                              ; preds = %.lr.ph170.split.us
   store i32 0, ptr %187, align 4
-  %193 = getelementptr inbounds i32, ptr %123, i64 %190
+  %193 = getelementptr inbounds nuw i32, ptr %123, i64 %190
   %194 = load i32, ptr %193, align 4
   %.not181 = icmp eq i32 %194, 0
   br i1 %.not181, label %.loopexit.us, label %.lr.ph160.us.us.preheader
 
 .lr.ph160.us.us.preheader:                        ; preds = %192
-  %195 = getelementptr inbounds i32, ptr %123, i64 %190
+  %195 = getelementptr inbounds nuw i32, ptr %123, i64 %190
   br label %.lr.ph160.us.us
 
 .loopexit.us:                                     ; preds = %._crit_edge161.us.us, %192, %.lr.ph170.split.us
@@ -807,11 +807,11 @@ hwloc_get_nbobjs_by_type.exit139:                 ; preds = %155, %158, %159
   br i1 %.not.i.us.us, label %hwloc_get_obj_below_array_by_type.exit.thread.us.us, label %205
 
 205:                                              ; preds = %204
-  %206 = getelementptr inbounds i8, ptr %.01214.i.us.us, i64 184
+  %206 = getelementptr inbounds nuw i8, ptr %.01214.i.us.us, i64 184
   %207 = load ptr, ptr %206, align 8
-  %208 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv.i.us.us
+  %208 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.i.us.us
   %209 = load i32, ptr %208, align 4
-  %210 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv.i.us.us
+  %210 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.i.us.us
   %211 = load i32, ptr %210, align 4
   %212 = call i32 @hwloc_get_type_depth(ptr noundef %202, i32 noundef %209) #11
   %or.cond.i.i.us.us = icmp ugt i32 %212, -3
@@ -825,7 +825,7 @@ hwloc_get_nbobjs_by_type.exit139:                 ; preds = %155, %158, %159
 .preheader.i.i.i.us.us:                           ; preds = %213, %224
   %.019.i.i.i.us.us = phi i32 [ %.1.i.i.i.us.us, %224 ], [ 0, %213 ]
   %.01218.i.i.i.us.us = phi ptr [ %226, %224 ], [ %214, %213 ]
-  %215 = getelementptr inbounds i8, ptr %.01218.i.i.i.us.us, i64 184
+  %215 = getelementptr inbounds nuw i8, ptr %.01218.i.i.i.us.us, i64 184
   %216 = load ptr, ptr %215, align 8
   %217 = call i32 @hwloc_bitmap_iszero(ptr noundef %216) #13
   %.not16.i.i.i.us.us = icmp eq i32 %217, 0
@@ -846,7 +846,7 @@ hwloc_get_nbobjs_by_type.exit139:                 ; preds = %155, %158, %159
 
 224:                                              ; preds = %222, %218, %.preheader.i.i.i.us.us
   %.1.i.i.i.us.us = phi i32 [ %.019.i.i.i.us.us, %.preheader.i.i.i.us.us ], [ %223, %222 ], [ %.019.i.i.i.us.us, %218 ]
-  %225 = getelementptr inbounds i8, ptr %.01218.i.i.i.us.us, i64 56
+  %225 = getelementptr inbounds nuw i8, ptr %.01218.i.i.i.us.us, i64 56
   %226 = load ptr, ptr %225, align 8
   %.not15.i.i.i.us.us = icmp eq ptr %226, null
   br i1 %.not15.i.i.i.us.us, label %hwloc_get_obj_inside_cpuset_by_type.exit.i.us.us, label %.preheader.i.i.i.us.us, !llvm.loop !11
@@ -862,7 +862,7 @@ hwloc_get_obj_below_array_by_type.exit.us.us:     ; preds = %hwloc_get_obj_insid
   br i1 %.not131.us.us, label %hwloc_get_obj_below_array_by_type.exit.thread.us.us, label %227
 
 227:                                              ; preds = %hwloc_get_obj_below_array_by_type.exit.us.us
-  %228 = getelementptr inbounds i8, ptr %.0.i.i.us.us, i64 16
+  %228 = getelementptr inbounds nuw i8, ptr %.0.i.i.us.us, i64 16
   %229 = load i32, ptr %228, align 8
   %230 = add i32 %storemerge130157.us.us, %200
   %.not132.us.us = icmp slt i32 %229, %.0.i138
@@ -909,10 +909,10 @@ hwloc_get_obj_below_array_by_type.exit.thread.us.us: ; preds = %204, %235, %227,
   %indvars.iv187 = phi i64 [ 0, %.lr.ph156.preheader ], [ %indvars.iv.next188, %.lr.ph156 ]
   %248 = trunc i64 %indvars.iv187 to i16
   %249 = load ptr, ptr %6, align 8
-  %250 = getelementptr inbounds i16, ptr %249, i64 %indvars.iv187
+  %250 = getelementptr inbounds nuw i16, ptr %249, i64 %indvars.iv187
   store i16 %248, ptr %250, align 2
   %251 = load ptr, ptr %7, align 8
-  %252 = getelementptr inbounds i16, ptr %251, i64 %indvars.iv187
+  %252 = getelementptr inbounds nuw i16, ptr %251, i64 %indvars.iv187
   store i16 %248, ptr %252, align 2
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
   %exitcond191.not = icmp eq i64 %indvars.iv.next188, %wide.trip.count190
@@ -992,13 +992,13 @@ define internal fastcc i32 @_core_child_count(ptr nocapture noundef readonly %0)
   br i1 %3, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %6 = getelementptr inbounds i8, ptr %0, i64 112
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %7 = load ptr, ptr %6, align 8
   %wide.trip.count = zext i32 %5 to i64
   br label %8
@@ -1006,7 +1006,7 @@ define internal fastcc i32 @_core_child_count(ptr nocapture noundef readonly %0)
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
   %.091 = phi i32 [ 0, %.lr.ph ], [ %12, %8 ]
-  %9 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = tail call fastcc i32 @_core_child_count(ptr noundef %10)
   %12 = add nsw i32 %11, %.091
@@ -1094,15 +1094,15 @@ define range(i32 -1, 1) i32 @xcpuinfo_abs_to_mac(ptr noundef %0, ptr nocapture n
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr @conf, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 4156
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 4156
   %10 = load i16, ptr %9, align 4
   %11 = zext i16 %10 to i32
-  %12 = getelementptr inbounds i8, ptr %8, i64 4184
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 4184
   %13 = load i16, ptr %12, align 8
   %14 = zext i16 %13 to i32
   %15 = mul nuw nsw i32 %14, %11
   store i32 %15, ptr @xcpuinfo_abs_to_mac.total_cores, align 4
-  %16 = getelementptr inbounds i8, ptr %8, i64 4232
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 4232
   %17 = load i16, ptr %16, align 8
   %18 = zext i16 %17 to i32
   store i32 %18, ptr @xcpuinfo_abs_to_mac.total_cpus, align 4
@@ -1140,7 +1140,7 @@ define range(i32 -1, 1) i32 @xcpuinfo_abs_to_mac(ptr noundef %0, ptr nocapture n
 
 .preheader:                                       ; preds = %.lr.ph27
   %33 = load ptr, ptr @conf, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 4158
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 4158
   %35 = load i16, ptr %34, align 2
   %.not28 = icmp eq i16 %35, 0
   br i1 %.not28, label %.loopexit, label %.lr.ph.preheader
@@ -1152,17 +1152,17 @@ define range(i32 -1, 1) i32 @xcpuinfo_abs_to_mac(ptr noundef %0, ptr nocapture n
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %37 = phi ptr [ %54, %.lr.ph ], [ %33, %.lr.ph.preheader ]
   %.01724 = phi i32 [ %53, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %38 = getelementptr inbounds i8, ptr %37, i64 4204
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 4204
   %39 = load i16, ptr %38, align 4
   %40 = zext i16 %39 to i32
   %41 = mul nuw nsw i32 %36, %40
   %42 = add nuw nsw i32 %41, %.01724
   %43 = load i32, ptr @xcpuinfo_abs_to_mac.total_cpus, align 4
   %44 = srem i32 %42, %43
-  %45 = getelementptr inbounds i8, ptr %37, i64 4240
+  %45 = getelementptr inbounds nuw i8, ptr %37, i64 4240
   %46 = load ptr, ptr %45, align 8
   %47 = zext nneg i32 %44 to i64
-  %48 = getelementptr inbounds i16, ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw i16, ptr %46, i64 %47
   %49 = load i16, ptr %48, align 2
   %50 = zext i16 %49 to i32
   %51 = srem i32 %50, %43
@@ -1170,7 +1170,7 @@ define range(i32 -1, 1) i32 @xcpuinfo_abs_to_mac(ptr noundef %0, ptr nocapture n
   tail call void @bit_set(ptr noundef nonnull %25, i64 noundef %52) #11
   %53 = add nuw nsw i32 %.01724, 1
   %54 = load ptr, ptr @conf, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 4158
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 4158
   %56 = load i16, ptr %55, align 2
   %57 = zext i16 %56 to i32
   %58 = icmp samesign ult i32 %53, %57
@@ -1247,15 +1247,15 @@ define range(i32 -1, 1) i32 @xcpuinfo_mac_to_abs(ptr noundef %0, ptr nocapture n
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr @conf, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 4156
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4156
   %11 = load i16, ptr %10, align 4
   %12 = zext i16 %11 to i32
-  %13 = getelementptr inbounds i8, ptr %9, i64 4184
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 4184
   %14 = load i16, ptr %13, align 8
   %15 = zext i16 %14 to i32
   %16 = mul nuw nsw i32 %15, %12
   store i32 %16, ptr @xcpuinfo_mac_to_abs.total_cores, align 4
-  %17 = getelementptr inbounds i8, ptr %9, i64 4232
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 4232
   %18 = load i16, ptr %17, align 8
   %19 = zext i16 %18 to i32
   store i32 %19, ptr @xcpuinfo_mac_to_abs.total_cpus, align 4
@@ -1297,7 +1297,7 @@ define range(i32 -1, 1) i32 @xcpuinfo_mac_to_abs(ptr noundef %0, ptr nocapture n
   %36 = phi i32 [ %34, %.preheader38.lr.ph ], [ %68, %._crit_edge ]
   %37 = phi ptr [ %.pre52, %.preheader38.lr.ph ], [ %69, %._crit_edge ]
   %.02741 = phi i32 [ 0, %.preheader38.lr.ph ], [ %70, %._crit_edge ]
-  %38 = getelementptr inbounds i8, ptr %37, i64 4158
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 4158
   %39 = load i16, ptr %38, align 2
   %.not47 = icmp eq i16 %39, 0
   br i1 %.not47, label %._crit_edge, label %.lr.ph
@@ -1313,7 +1313,7 @@ define range(i32 -1, 1) i32 @xcpuinfo_mac_to_abs(ptr noundef %0, ptr nocapture n
 .lr.ph:                                           ; preds = %.preheader38, %61
   %41 = phi ptr [ %63, %61 ], [ %37, %.preheader38 ]
   %.02840 = phi i32 [ %62, %61 ], [ 0, %.preheader38 ]
-  %42 = getelementptr inbounds i8, ptr %41, i64 4204
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 4204
   %43 = load i16, ptr %42, align 4
   %44 = zext i16 %43 to i32
   %45 = mul nuw nsw i32 %.02741, %44
@@ -1327,9 +1327,9 @@ define range(i32 -1, 1) i32 @xcpuinfo_mac_to_abs(ptr noundef %0, ptr nocapture n
 
 51:                                               ; preds = %.lr.ph
   %52 = load ptr, ptr @conf, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 4248
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 4248
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i16, ptr %54, i64 %49
+  %55 = getelementptr inbounds nuw i16, ptr %54, i64 %49
   %56 = load i16, ptr %55, align 2
   %57 = zext i16 %56 to i32
   %58 = load i32, ptr @xcpuinfo_mac_to_abs.total_cpus, align 4
@@ -1341,7 +1341,7 @@ define range(i32 -1, 1) i32 @xcpuinfo_mac_to_abs(ptr noundef %0, ptr nocapture n
 61:                                               ; preds = %.lr.ph, %51
   %62 = add nuw nsw i32 %.02840, 1
   %63 = load ptr, ptr @conf, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 4158
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 4158
   %65 = load i16, ptr %64, align 2
   %66 = zext i16 %65 to i32
   %67 = icmp samesign ult i32 %62, %66
@@ -1361,7 +1361,7 @@ define range(i32 -1, 1) i32 @xcpuinfo_mac_to_abs(ptr noundef %0, ptr nocapture n
 .preheader:                                       ; preds = %.preheader.lr.ph, %.loopexit
   %72 = phi ptr [ %.pre55, %.preheader.lr.ph ], [ %94, %.loopexit ]
   %indvars.iv = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next, %.loopexit ]
-  %73 = getelementptr inbounds i8, ptr %72, i64 4158
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 4158
   %74 = load i16, ptr %73, align 2
   %.not48 = icmp eq i16 %74, 0
   br i1 %.not48, label %.loopexit, label %.lr.ph43.preheader
@@ -1373,7 +1373,7 @@ define range(i32 -1, 1) i32 @xcpuinfo_mac_to_abs(ptr noundef %0, ptr nocapture n
 76:                                               ; preds = %.lr.ph43
   %77 = add nuw nsw i32 %.02542, 1
   %78 = load ptr, ptr @conf, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 4158
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 4158
   %80 = load i16, ptr %79, align 2
   %81 = zext i16 %80 to i32
   %82 = icmp samesign ult i32 %77, %81
@@ -1382,7 +1382,7 @@ define range(i32 -1, 1) i32 @xcpuinfo_mac_to_abs(ptr noundef %0, ptr nocapture n
 .lr.ph43:                                         ; preds = %.lr.ph43.preheader, %76
   %83 = phi ptr [ %78, %76 ], [ %72, %.lr.ph43.preheader ]
   %.02542 = phi i32 [ %77, %76 ], [ 0, %.lr.ph43.preheader ]
-  %84 = getelementptr inbounds i8, ptr %83, i64 4204
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 4204
   %85 = load i16, ptr %84, align 4
   %86 = zext i16 %85 to i32
   %87 = mul nuw nsw i32 %75, %86
@@ -1500,7 +1500,7 @@ define range(i32 -1, 1) i32 @xcpuinfo_abs_to_map(ptr noundef %0, ptr nocapture n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.04575.i12 = phi ptr [ %21, %.lr.ph ], [ %.04575.ph.i, %.lr.ph.preheader ]
-  %21 = getelementptr inbounds i8, ptr %.04575.i12, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %.04575.i12, i64 1
   %22 = load i8, ptr %21, align 1
   %23 = sext i8 %22 to i64
   %24 = getelementptr inbounds i16, ptr %13, i64 %23
@@ -1562,7 +1562,7 @@ define range(i32 -1, 1) i32 @xcpuinfo_abs_to_map(ptr noundef %0, ptr nocapture n
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %48, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %50 = getelementptr inbounds i16, ptr %8, i64 %indvars.iv.i
+  %50 = getelementptr inbounds nuw i16, ptr %8, i64 %indvars.iv.i
   store i16 1, ptr %50, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %51 = icmp samesign ult i64 %indvars.iv.i, %49
@@ -1582,7 +1582,7 @@ define range(i32 -1, 1) i32 @xcpuinfo_abs_to_map(ptr noundef %0, ptr nocapture n
   %.04376.ph.be.i = phi ptr [ null, %30 ], [ %.14470.i, %.thread.i ], [ %.04376.i.lcssa, %27 ]
   %.04973.ph.be.i = phi i32 [ 1, %30 ], [ %.251.i, %.thread.i ], [ %.04973.ph.i, %27 ]
   %.05272.ph.be.i = phi i32 [ 0, %30 ], [ %.15368.i, %.thread.i ], [ %.05272.i.lcssa, %27 ]
-  %.04575.ph.be.i = getelementptr inbounds i8, ptr %.04575.i.lcssa, i64 1
+  %.04575.ph.be.i = getelementptr inbounds nuw i8, ptr %.04575.i.lcssa, i64 1
   br label %.outer.i, !llvm.loop !23
 
 _range_to_map.exit:                               ; preds = %._crit_edge, %.thread.i

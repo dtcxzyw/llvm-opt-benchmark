@@ -11,17 +11,17 @@ target triple = "x86_64-unknown-linux-gnu"
 define void @ossl_quic_reactor_init(ptr nocapture noundef initializes((0, 4), (16, 20), (32, 56)) %rtor, ptr noundef %tick_cb, ptr noundef %tick_cb_arg, i64 %initial_tick_deadline.coerce) local_unnamed_addr #0 {
 entry:
   store i32 0, ptr %rtor, align 8
-  %poll_w = getelementptr inbounds i8, ptr %rtor, i64 16
+  %poll_w = getelementptr inbounds nuw i8, ptr %rtor, i64 16
   store i32 0, ptr %poll_w, align 8
-  %net_read_desired = getelementptr inbounds i8, ptr %rtor, i64 56
+  %net_read_desired = getelementptr inbounds nuw i8, ptr %rtor, i64 56
   %bf.load = load i8, ptr %net_read_desired, align 8
   %bf.clear9 = and i8 %bf.load, -16
   store i8 %bf.clear9, ptr %net_read_desired, align 8
-  %tick_deadline = getelementptr inbounds i8, ptr %rtor, i64 32
+  %tick_deadline = getelementptr inbounds nuw i8, ptr %rtor, i64 32
   store i64 %initial_tick_deadline.coerce, ptr %tick_deadline, align 8
-  %tick_cb11 = getelementptr inbounds i8, ptr %rtor, i64 40
+  %tick_cb11 = getelementptr inbounds nuw i8, ptr %rtor, i64 40
   store ptr %tick_cb, ptr %tick_cb11, align 8
-  %tick_cb_arg12 = getelementptr inbounds i8, ptr %rtor, i64 48
+  %tick_cb_arg12 = getelementptr inbounds nuw i8, ptr %rtor, i64 48
   store ptr %tick_cb_arg, ptr %tick_cb_arg12, align 8
   ret void
 }
@@ -48,7 +48,7 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.else, %if.then
   %cmp.i = phi i8 [ %1, %if.else ], [ 0, %if.then ]
-  %can_poll_r = getelementptr inbounds i8, ptr %rtor, i64 56
+  %can_poll_r = getelementptr inbounds nuw i8, ptr %rtor, i64 56
   %bf.load = load i8, ptr %can_poll_r, align 8
   %bf.clear = and i8 %bf.load, -5
   %bf.set = or disjoint i8 %bf.clear, %cmp.i
@@ -69,7 +69,7 @@ entry:
 define void @ossl_quic_reactor_set_poll_w(ptr nocapture noundef initializes((16, 20)) %rtor, ptr noundef readonly %w) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %w, null
-  %poll_w = getelementptr inbounds i8, ptr %rtor, i64 16
+  %poll_w = getelementptr inbounds nuw i8, ptr %rtor, i64 16
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -85,7 +85,7 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.else, %if.then
   %cmp.i = phi i8 [ %1, %if.else ], [ 0, %if.then ]
-  %can_poll_w = getelementptr inbounds i8, ptr %rtor, i64 56
+  %can_poll_w = getelementptr inbounds nuw i8, ptr %rtor, i64 56
   %bf.load = load i8, ptr %can_poll_w, align 8
   %bf.clear = and i8 %bf.load, -9
   %bf.set = or disjoint i8 %bf.clear, %cmp.i
@@ -102,14 +102,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define nonnull ptr @ossl_quic_reactor_get_poll_w(ptr noundef readnone %rtor) local_unnamed_addr #3 {
 entry:
-  %poll_w = getelementptr inbounds i8, ptr %rtor, i64 16
+  %poll_w = getelementptr inbounds nuw i8, ptr %rtor, i64 16
   ret ptr %poll_w
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i32 0, 2) i32 @ossl_quic_reactor_can_poll_r(ptr nocapture noundef readonly %rtor) local_unnamed_addr #2 {
 entry:
-  %can_poll_r = getelementptr inbounds i8, ptr %rtor, i64 56
+  %can_poll_r = getelementptr inbounds nuw i8, ptr %rtor, i64 56
   %bf.load = load i8, ptr %can_poll_r, align 8
   %bf.lshr = lshr i8 %bf.load, 2
   %bf.clear = and i8 %bf.lshr, 1
@@ -120,7 +120,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i32 0, 2) i32 @ossl_quic_reactor_can_poll_w(ptr nocapture noundef readonly %rtor) local_unnamed_addr #2 {
 entry:
-  %can_poll_w = getelementptr inbounds i8, ptr %rtor, i64 56
+  %can_poll_w = getelementptr inbounds nuw i8, ptr %rtor, i64 56
   %bf.load = load i8, ptr %can_poll_w, align 8
   %bf.lshr = lshr i8 %bf.load, 3
   %bf.clear = and i8 %bf.lshr, 1
@@ -131,7 +131,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i32 0, 2) i32 @ossl_quic_reactor_net_read_desired(ptr nocapture noundef readonly %rtor) local_unnamed_addr #2 {
 entry:
-  %net_read_desired = getelementptr inbounds i8, ptr %rtor, i64 56
+  %net_read_desired = getelementptr inbounds nuw i8, ptr %rtor, i64 56
   %bf.load = load i8, ptr %net_read_desired, align 8
   %bf.clear = and i8 %bf.load, 1
   %bf.cast = zext nneg i8 %bf.clear to i32
@@ -141,7 +141,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i32 0, 2) i32 @ossl_quic_reactor_net_write_desired(ptr nocapture noundef readonly %rtor) local_unnamed_addr #2 {
 entry:
-  %net_write_desired = getelementptr inbounds i8, ptr %rtor, i64 56
+  %net_write_desired = getelementptr inbounds nuw i8, ptr %rtor, i64 56
   %bf.load = load i8, ptr %net_write_desired, align 8
   %bf.lshr = lshr i8 %bf.load, 1
   %bf.clear = and i8 %bf.lshr, 1
@@ -152,7 +152,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @ossl_quic_reactor_get_tick_deadline(ptr nocapture noundef readonly %rtor) local_unnamed_addr #2 {
 entry:
-  %tick_deadline = getelementptr inbounds i8, ptr %rtor, i64 32
+  %tick_deadline = getelementptr inbounds nuw i8, ptr %rtor, i64 32
   %retval.sroa.0.0.copyload = load i64, ptr %tick_deadline, align 8
   ret i64 %retval.sroa.0.0.copyload
 }
@@ -162,25 +162,25 @@ define noundef i32 @ossl_quic_reactor_tick(ptr nocapture noundef initializes((32
 entry:
   %res = alloca %struct.quic_tick_result_st, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %res, i8 0, i64 16, i1 false)
-  %tick_cb = getelementptr inbounds i8, ptr %rtor, i64 40
+  %tick_cb = getelementptr inbounds nuw i8, ptr %rtor, i64 40
   %0 = load ptr, ptr %tick_cb, align 8
-  %tick_cb_arg = getelementptr inbounds i8, ptr %rtor, i64 48
+  %tick_cb_arg = getelementptr inbounds nuw i8, ptr %rtor, i64 48
   %1 = load ptr, ptr %tick_cb_arg, align 8
   call void %0(ptr noundef nonnull %res, ptr noundef %1, i32 noundef %flags) #10
   %2 = load i8, ptr %res, align 8
-  %net_read_desired1 = getelementptr inbounds i8, ptr %rtor, i64 56
+  %net_read_desired1 = getelementptr inbounds nuw i8, ptr %rtor, i64 56
   %bf.load = load i8, ptr %net_read_desired1, align 8
   %bf.value = and i8 %2, 1
   %bf.clear = and i8 %bf.load, -4
   %bf.set = or disjoint i8 %bf.clear, %bf.value
-  %net_write_desired = getelementptr inbounds i8, ptr %res, i64 1
+  %net_write_desired = getelementptr inbounds nuw i8, ptr %res, i64 1
   %3 = load i8, ptr %net_write_desired, align 1
   %bf.value5 = shl i8 %3, 1
   %bf.shl = and i8 %bf.value5, 2
   %bf.set7 = or disjoint i8 %bf.shl, %bf.set
   store i8 %bf.set7, ptr %net_read_desired1, align 8
-  %tick_deadline = getelementptr inbounds i8, ptr %rtor, i64 32
-  %tick_deadline9 = getelementptr inbounds i8, ptr %res, i64 8
+  %tick_deadline = getelementptr inbounds nuw i8, ptr %rtor, i64 32
+  %tick_deadline9 = getelementptr inbounds nuw i8, ptr %res, i64 8
   %4 = load i64, ptr %tick_deadline9, align 8
   store i64 %4, ptr %tick_deadline, align 8
   ret i32 1
@@ -194,17 +194,17 @@ define i32 @ossl_quic_reactor_block_until_pred(ptr nocapture noundef %rtor, ptr 
 entry:
   %pfds.i.i = alloca [2 x %struct.pollfd], align 16
   %res.i = alloca %struct.quic_tick_result_st, align 8
-  %tick_cb.i = getelementptr inbounds i8, ptr %rtor, i64 40
-  %tick_cb_arg.i = getelementptr inbounds i8, ptr %rtor, i64 48
-  %net_read_desired1.i = getelementptr inbounds i8, ptr %rtor, i64 56
-  %net_write_desired.i = getelementptr inbounds i8, ptr %res.i, i64 1
-  %tick_deadline.i = getelementptr inbounds i8, ptr %rtor, i64 32
-  %tick_deadline9.i = getelementptr inbounds i8, ptr %res.i, i64 8
-  %poll_w.i = getelementptr inbounds i8, ptr %rtor, i64 16
-  %value.i.i = getelementptr inbounds i8, ptr %rtor, i64 8
-  %value.i4.i = getelementptr inbounds i8, ptr %rtor, i64 24
-  %events18.i.i = getelementptr inbounds i8, ptr %pfds.i.i, i64 4
-  %.sroa.gep32.sroa.gep.i.i = getelementptr inbounds i8, ptr %pfds.i.i, i64 12
+  %tick_cb.i = getelementptr inbounds nuw i8, ptr %rtor, i64 40
+  %tick_cb_arg.i = getelementptr inbounds nuw i8, ptr %rtor, i64 48
+  %net_read_desired1.i = getelementptr inbounds nuw i8, ptr %rtor, i64 56
+  %net_write_desired.i = getelementptr inbounds nuw i8, ptr %res.i, i64 1
+  %tick_deadline.i = getelementptr inbounds nuw i8, ptr %rtor, i64 32
+  %tick_deadline9.i = getelementptr inbounds nuw i8, ptr %res.i, i64 8
+  %poll_w.i = getelementptr inbounds nuw i8, ptr %rtor, i64 16
+  %value.i.i = getelementptr inbounds nuw i8, ptr %rtor, i64 8
+  %value.i4.i = getelementptr inbounds nuw i8, ptr %rtor, i64 24
+  %events18.i.i = getelementptr inbounds nuw i8, ptr %pfds.i.i, i64 4
+  %.sroa.gep32.sroa.gep.i.i = getelementptr inbounds nuw i8, ptr %pfds.i.i, i64 12
   %cmp61.not.i.i = icmp eq ptr %mutex, null
   br label %for.cond
 
@@ -296,7 +296,7 @@ if.else.i.i:                                      ; preds = %if.end.i
   %cmp25.not.i.i = icmp ne i8 %bf.clear.i8, 0
   %or.cond28.not.not.not41.i.i = and i1 %cmp25.not.i.i, %cmp19.i.i
   %npfd.1.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx = select i1 %or.cond28.not.not.not41.i.i, i64 8, i64 0
-  %npfd.1.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds i8, ptr %pfds.i.i, i64 %npfd.1.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx
+  %npfd.1.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %pfds.i.i, i64 %npfd.1.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx
   store i32 %.sink.i7.i, ptr %npfd.1.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel, align 8
   %10 = shl nuw nsw i8 %bf.clear.i11, 2
   %conv34.i.i = zext nneg i8 %10 to i16

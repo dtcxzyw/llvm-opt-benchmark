@@ -93,15 +93,15 @@ define dso_local noundef ptr @create_buf(ptr noundef %0, i32 noundef %1) #0 {
 6:                                                ; preds = %2
   %7 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 123, ptr noundef nonnull @__func__.create_buf) #15
   store i32 1112884549, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 %1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i32 0, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %7, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i8 0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 25
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 25
   store i8 0, ptr %12, align 1
   br label %13
 
@@ -145,7 +145,7 @@ define dso_local noundef ptr @create_mmap_buf(ptr noundef %0) #0 {
   br label %42
 
 17:                                               ; preds = %9
-  %18 = getelementptr inbounds i8, ptr %2, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %19 = load i64, ptr %18, align 8
   %20 = tail call ptr @mmap(ptr noundef null, i64 noundef %19, i32 noundef 1, i32 noundef 1, i32 noundef %3, i64 noundef 0) #15
   %21 = tail call i32 @close(i32 noundef %3) #15
@@ -173,14 +173,14 @@ create_buf.exit.thread:                           ; preds = %27
 31:                                               ; preds = %27
   %32 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 123, ptr noundef nonnull @__func__.create_buf) #15
   store i32 1112884549, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store i32 %28, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %32, i64 20
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 20
   store i32 0, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %32, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr %20, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %32, i64 24
-  %37 = getelementptr inbounds i8, ptr %32, i64 25
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %32, i64 25
   store i8 0, ptr %37, align 1
   store i8 1, ptr %36, align 8
   br label %38
@@ -212,15 +212,15 @@ create_buf.exit.thread:                           ; preds = %2
 5:                                                ; preds = %2
   %6 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 123, ptr noundef nonnull @__func__.create_buf) #15
   store i32 1112884549, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 0, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i8 0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 25
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 25
   store i8 1, ptr %11, align 1
   br label %12
 
@@ -237,28 +237,28 @@ define dso_local void @free_buf(ptr noundef %0) #0 {
   br i1 %.not, label %21, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
   br i1 %6, label %7, label %14
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i32, ptr %10, align 8
   %12 = zext i32 %11 to i64
   %13 = tail call i32 @munmap(ptr noundef %9, i64 noundef %12) #15
   br label %20
 
 14:                                               ; preds = %3
-  %15 = getelementptr inbounds i8, ptr %0, i64 25
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %16 = load i8, ptr %15, align 1
   %17 = trunc i8 %16 to i1
   br i1 %17, label %20, label %18
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @slurm_xfree(ptr noundef nonnull %19) #15
   br label %20
 
@@ -273,11 +273,11 @@ define dso_local void @free_buf(ptr noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local void @grow_buf(ptr noundef %0, i32 noundef %1) #0 {
   %3 = zext i32 %1 to i64
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
   %7 = add nuw nsw i64 %6, %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i8, ptr %8, align 8
   %10 = trunc i8 %9 to i1
   br i1 %10, label %11, label %12
@@ -287,7 +287,7 @@ define dso_local void @grow_buf(ptr noundef %0, i32 noundef %1) #0 {
   unreachable
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 25
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %14 = load i8, ptr %13, align 1
   %15 = trunc i8 %14 to i1
   br i1 %15, label %16, label %17
@@ -307,7 +307,7 @@ define dso_local void @grow_buf(ptr noundef %0, i32 noundef %1) #0 {
 20:                                               ; preds = %17
   %21 = trunc nuw i64 %7 to i32
   store i32 %21, ptr %4, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %22, i64 noundef 1, i64 noundef %7, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 212, ptr noundef nonnull @__func__.grow_buf) #15
   ret void
 }
@@ -326,17 +326,17 @@ define dso_local noundef ptr @init_buf(i32 noundef %0) #0 {
   %spec.store.select = select i1 %5, i32 16384, i32 %0
   %6 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 259, ptr noundef nonnull @__func__.init_buf) #15
   store i32 1112884549, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %spec.store.select, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 0, ptr %8, align 4
   %9 = zext i32 %spec.store.select to i64
   %10 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %9, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 263, ptr noundef nonnull @__func__.init_buf) #15
-  %11 = getelementptr inbounds i8, ptr %6, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i8 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 25
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 25
   store i8 0, ptr %13, align 1
   ret ptr %6
 }
@@ -345,7 +345,7 @@ define dso_local noundef ptr @init_buf(i32 noundef %0) #0 {
 define dso_local ptr @xfer_buf_data(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %7
@@ -355,7 +355,7 @@ define dso_local ptr @xfer_buf_data(ptr noundef %0) #0 {
   unreachable
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 25
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %9 = load i8, ptr %8, align 1
   %10 = trunc i8 %9 to i1
   br i1 %10, label %11, label %12
@@ -365,7 +365,7 @@ define dso_local ptr @xfer_buf_data(ptr noundef %0) #0 {
   unreachable
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
   call void @slurm_xfree(ptr noundef nonnull %2) #15
   ret ptr %14
@@ -373,9 +373,9 @@ define dso_local ptr @xfer_buf_data(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @pack_time(i64 noundef %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = sub i32 %4, %6
   %8 = icmp ult i32 %7, 8
@@ -384,13 +384,13 @@ define dso_local void @pack_time(i64 noundef %0, ptr noundef %1) #0 {
 9:                                                ; preds = %2
   %10 = zext i32 %4 to i64
   %11 = add nuw nsw i64 %10, 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load i8, ptr %12, align 8
   %14 = trunc i8 %13 to i1
   br i1 %14, label %try_grow_buf_remaining.exit.thread, label %15
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %1, i64 25
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 25
   %17 = load i8, ptr %16, align 1
   %18 = trunc i8 %17 to i1
   br i1 %18, label %try_grow_buf_remaining.exit.thread, label %19
@@ -404,7 +404,7 @@ define dso_local void @pack_time(i64 noundef %0, ptr noundef %1) #0 {
   br label %try_grow_buf_remaining.exit.thread
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %24, i64 noundef 1, i64 noundef %11, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.1, i32 noundef 229, ptr noundef nonnull @__func__.try_grow_buf) #15
   %.not.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i, label %try_grow_buf_remaining.exit.thread, label %26
@@ -418,10 +418,10 @@ define dso_local void @pack_time(i64 noundef %0, ptr noundef %1) #0 {
 try_grow_buf_remaining.exit:                      ; preds = %26, %2
   %28 = phi i32 [ %.pre, %26 ], [ %6, %2 ]
   %29 = tail call i64 @llvm.bswap.i64(i64 %0)
-  %30 = getelementptr inbounds i8, ptr %1, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = zext i32 %28 to i64
-  %33 = getelementptr inbounds i8, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 %32
   store i64 %29, ptr %33, align 1
   %34 = load i32, ptr %5, align 4
   %35 = add i32 %34, 8
@@ -434,19 +434,19 @@ try_grow_buf_remaining.exit.thread:               ; preds = %23, %9, %15, %21, %
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local range(i32 -1, 1) i32 @unpack_time(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = sub i32 %4, %6
   %8 = icmp ult i32 %7, 8
   br i1 %8, label %16, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = zext i32 %6 to i64
-  %13 = getelementptr inbounds i8, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 %12
   %.0.copyload = load i64, ptr %13, align 1
   %14 = add i32 %6, 8
   store i32 %14, ptr %5, align 4
@@ -463,9 +463,9 @@ define dso_local range(i32 -1, 1) i32 @unpack_time(ptr nocapture noundef writeon
 define dso_local void @packfloat(float noundef %0, ptr noundef %1) #0 {
   %3 = fmul float %0, 1.000000e+06
   %4 = bitcast float %3 to i32
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %8 = load i32, ptr %7, align 4
   %9 = sub i32 %6, %8
   %10 = icmp ult i32 %9, 4
@@ -474,13 +474,13 @@ define dso_local void @packfloat(float noundef %0, ptr noundef %1) #0 {
 11:                                               ; preds = %2
   %12 = zext i32 %6 to i64
   %13 = add nuw nsw i64 %12, 4
-  %14 = getelementptr inbounds i8, ptr %1, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load i8, ptr %14, align 8
   %16 = trunc i8 %15 to i1
   br i1 %16, label %pack32.exit, label %17
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %1, i64 25
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 25
   %19 = load i8, ptr %18, align 1
   %20 = trunc i8 %19 to i1
   br i1 %20, label %pack32.exit, label %21
@@ -494,7 +494,7 @@ define dso_local void @packfloat(float noundef %0, ptr noundef %1) #0 {
   br label %pack32.exit
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %1, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %27 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %26, i64 noundef 1, i64 noundef %13, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.1, i32 noundef 229, ptr noundef nonnull @__func__.try_grow_buf) #15
   %.not.i.i.i = icmp eq ptr %27, null
   br i1 %.not.i.i.i, label %pack32.exit, label %28
@@ -508,10 +508,10 @@ define dso_local void @packfloat(float noundef %0, ptr noundef %1) #0 {
 try_grow_buf_remaining.exit.i:                    ; preds = %28, %2
   %30 = phi i32 [ %.pre.i, %28 ], [ %8, %2 ]
   %31 = tail call i32 @htonl(i32 noundef %4) #17
-  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = zext i32 %30 to i64
-  %35 = getelementptr inbounds i8, ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 %34
   store i32 %31, ptr %35, align 1
   %36 = load i32, ptr %7, align 4
   %37 = add i32 %36, 4
@@ -524,19 +524,19 @@ pack32.exit:                                      ; preds = %11, %17, %23, %25, 
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local range(i32 -1, 1) i32 @unpackfloat(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1) #2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = sub i32 %4, %6
   %8 = icmp ult i32 %7, 4
   br i1 %8, label %unpack32.exit, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = zext i32 %6 to i64
-  %13 = getelementptr inbounds i8, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 %12
   %.0.copyload.i = load i32, ptr %13, align 1
   %14 = tail call i32 @ntohl(i32 noundef %.0.copyload.i) #17
   %15 = add i32 %6, 4
@@ -553,9 +553,9 @@ unpack32.exit:                                    ; preds = %2, %9
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @packdouble(double noundef %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = sub i32 %4, %6
   %8 = icmp ult i32 %7, 8
@@ -564,13 +564,13 @@ define dso_local void @packdouble(double noundef %0, ptr noundef %1) #0 {
 9:                                                ; preds = %2
   %10 = zext i32 %4 to i64
   %11 = add nuw nsw i64 %10, 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load i8, ptr %12, align 8
   %14 = trunc i8 %13 to i1
   br i1 %14, label %try_grow_buf_remaining.exit.thread, label %15
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %1, i64 25
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 25
   %17 = load i8, ptr %16, align 1
   %18 = trunc i8 %17 to i1
   br i1 %18, label %try_grow_buf_remaining.exit.thread, label %19
@@ -584,7 +584,7 @@ define dso_local void @packdouble(double noundef %0, ptr noundef %1) #0 {
   br label %try_grow_buf_remaining.exit.thread
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %24, i64 noundef 1, i64 noundef %11, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.1, i32 noundef 229, ptr noundef nonnull @__func__.try_grow_buf) #15
   %.not.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i, label %try_grow_buf_remaining.exit.thread, label %26
@@ -600,10 +600,10 @@ try_grow_buf_remaining.exit:                      ; preds = %26, %2
   %29 = fmul double %0, 1.000000e+06
   %30 = bitcast double %29 to i64
   %31 = tail call i64 @llvm.bswap.i64(i64 %30)
-  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = zext i32 %28 to i64
-  %35 = getelementptr inbounds i8, ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 %34
   store i64 %31, ptr %35, align 1
   %36 = load i32, ptr %5, align 4
   %37 = add i32 %36, 8
@@ -616,19 +616,19 @@ try_grow_buf_remaining.exit.thread:               ; preds = %23, %9, %15, %21, %
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local range(i32 -1, 1) i32 @unpackdouble(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = sub i32 %4, %6
   %8 = icmp ult i32 %7, 8
   br i1 %8, label %18, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = zext i32 %6 to i64
-  %13 = getelementptr inbounds i8, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 %12
   %.0.copyload = load i64, ptr %13, align 1
   %14 = add i32 %6, 8
   store i32 %14, ptr %5, align 4
@@ -657,19 +657,19 @@ define dso_local void @packlongdouble(x86_fp80 noundef %0, ptr noundef %1) #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @unpacklongdouble(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1) #0 {
   %3 = alloca x86_fp80, align 16
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %7 = load i32, ptr %6, align 4
   %8 = sub i32 %5, %7
   %9 = icmp ult i32 %8, 4
   br i1 %9, label %unpackmem_ptr.exit.thread, label %10
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = zext i32 %7 to i64
-  %14 = getelementptr inbounds i8, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 %13
   %.0.copyload.i.i = load i32, ptr %14, align 1
   %15 = tail call i32 @ntohl(i32 noundef %.0.copyload.i.i) #17
   %16 = add i32 %7, 4
@@ -692,7 +692,7 @@ define dso_local range(i32 -1, 1) i32 @unpacklongdouble(ptr nocapture noundef wr
 
 24:                                               ; preds = %21
   %25 = zext i32 %16 to i64
-  %26 = getelementptr inbounds i8, ptr %12, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr %12, i64 %25
   %27 = add i32 %15, %16
   store i32 %27, ptr %6, align 4
   br label %unpackmem_ptr.exit
@@ -717,9 +717,9 @@ unpackmem_ptr.exit.thread:                        ; preds = %2, %19, %21, %unpac
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @pack64(i64 noundef %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = sub i32 %4, %6
   %8 = icmp ult i32 %7, 8
@@ -728,13 +728,13 @@ define dso_local void @pack64(i64 noundef %0, ptr noundef %1) #0 {
 9:                                                ; preds = %2
   %10 = zext i32 %4 to i64
   %11 = add nuw nsw i64 %10, 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load i8, ptr %12, align 8
   %14 = trunc i8 %13 to i1
   br i1 %14, label %try_grow_buf_remaining.exit.thread, label %15
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %1, i64 25
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 25
   %17 = load i8, ptr %16, align 1
   %18 = trunc i8 %17 to i1
   br i1 %18, label %try_grow_buf_remaining.exit.thread, label %19
@@ -748,7 +748,7 @@ define dso_local void @pack64(i64 noundef %0, ptr noundef %1) #0 {
   br label %try_grow_buf_remaining.exit.thread
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %24, i64 noundef 1, i64 noundef %11, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.1, i32 noundef 229, ptr noundef nonnull @__func__.try_grow_buf) #15
   %.not.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i, label %try_grow_buf_remaining.exit.thread, label %26
@@ -762,10 +762,10 @@ define dso_local void @pack64(i64 noundef %0, ptr noundef %1) #0 {
 try_grow_buf_remaining.exit:                      ; preds = %26, %2
   %28 = phi i32 [ %.pre, %26 ], [ %6, %2 ]
   %29 = tail call i64 @llvm.bswap.i64(i64 %0)
-  %30 = getelementptr inbounds i8, ptr %1, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = zext i32 %28 to i64
-  %33 = getelementptr inbounds i8, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 %32
   store i64 %29, ptr %33, align 1
   %34 = load i32, ptr %5, align 4
   %35 = add i32 %34, 8
@@ -778,19 +778,19 @@ try_grow_buf_remaining.exit.thread:               ; preds = %23, %9, %15, %21, %
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local range(i32 -1, 1) i32 @unpack64(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = sub i32 %4, %6
   %8 = icmp ult i32 %7, 8
   br i1 %8, label %17, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = zext i32 %6 to i64
-  %13 = getelementptr inbounds i8, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 %12
   %.0.copyload = load i64, ptr %13, align 1
   %14 = tail call i64 @llvm.bswap.i64(i64 %.0.copyload)
   store i64 %14, ptr %0, align 8
@@ -806,9 +806,9 @@ define dso_local range(i32 -1, 1) i32 @unpack64(ptr nocapture noundef writeonly 
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @pack32(i32 noundef %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = sub i32 %4, %6
   %8 = icmp ult i32 %7, 4
@@ -817,13 +817,13 @@ define dso_local void @pack32(i32 noundef %0, ptr noundef %1) #0 {
 9:                                                ; preds = %2
   %10 = zext i32 %4 to i64
   %11 = add nuw nsw i64 %10, 4
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load i8, ptr %12, align 8
   %14 = trunc i8 %13 to i1
   br i1 %14, label %try_grow_buf_remaining.exit.thread, label %15
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %1, i64 25
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 25
   %17 = load i8, ptr %16, align 1
   %18 = trunc i8 %17 to i1
   br i1 %18, label %try_grow_buf_remaining.exit.thread, label %19
@@ -837,7 +837,7 @@ define dso_local void @pack32(i32 noundef %0, ptr noundef %1) #0 {
   br label %try_grow_buf_remaining.exit.thread
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %24, i64 noundef 1, i64 noundef %11, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.1, i32 noundef 229, ptr noundef nonnull @__func__.try_grow_buf) #15
   %.not.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i, label %try_grow_buf_remaining.exit.thread, label %26
@@ -851,10 +851,10 @@ define dso_local void @pack32(i32 noundef %0, ptr noundef %1) #0 {
 try_grow_buf_remaining.exit:                      ; preds = %26, %2
   %28 = phi i32 [ %.pre, %26 ], [ %6, %2 ]
   %29 = tail call i32 @htonl(i32 noundef %0) #17
-  %30 = getelementptr inbounds i8, ptr %1, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = zext i32 %28 to i64
-  %33 = getelementptr inbounds i8, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 %32
   store i32 %29, ptr %33, align 1
   %34 = load i32, ptr %5, align 4
   %35 = add i32 %34, 4
@@ -867,19 +867,19 @@ try_grow_buf_remaining.exit.thread:               ; preds = %23, %9, %15, %21, %
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local range(i32 -1, 1) i32 @unpack32(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1) #2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = sub i32 %4, %6
   %8 = icmp ult i32 %7, 4
   br i1 %8, label %17, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = zext i32 %6 to i64
-  %13 = getelementptr inbounds i8, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 %12
   %.0.copyload = load i32, ptr %13, align 1
   %14 = tail call i32 @ntohl(i32 noundef %.0.copyload) #17
   store i32 %14, ptr %0, align 4
@@ -895,9 +895,9 @@ define dso_local range(i32 -1, 1) i32 @unpack32(ptr nocapture noundef writeonly 
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @pack16(i16 noundef zeroext %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = sub i32 %4, %6
   %8 = icmp ult i32 %7, 2
@@ -906,13 +906,13 @@ define dso_local void @pack16(i16 noundef zeroext %0, ptr noundef %1) #0 {
 9:                                                ; preds = %2
   %10 = zext i32 %4 to i64
   %11 = add nuw nsw i64 %10, 2
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load i8, ptr %12, align 8
   %14 = trunc i8 %13 to i1
   br i1 %14, label %try_grow_buf_remaining.exit.thread, label %15
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %1, i64 25
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 25
   %17 = load i8, ptr %16, align 1
   %18 = trunc i8 %17 to i1
   br i1 %18, label %try_grow_buf_remaining.exit.thread, label %19
@@ -926,7 +926,7 @@ define dso_local void @pack16(i16 noundef zeroext %0, ptr noundef %1) #0 {
   br label %try_grow_buf_remaining.exit.thread
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %24, i64 noundef 1, i64 noundef %11, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.1, i32 noundef 229, ptr noundef nonnull @__func__.try_grow_buf) #15
   %.not.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i, label %try_grow_buf_remaining.exit.thread, label %26
@@ -940,10 +940,10 @@ define dso_local void @pack16(i16 noundef zeroext %0, ptr noundef %1) #0 {
 try_grow_buf_remaining.exit:                      ; preds = %26, %2
   %28 = phi i32 [ %.pre, %26 ], [ %6, %2 ]
   %29 = tail call zeroext i16 @htons(i16 noundef zeroext %0) #17
-  %30 = getelementptr inbounds i8, ptr %1, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = zext i32 %28 to i64
-  %33 = getelementptr inbounds i8, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 %32
   store i16 %29, ptr %33, align 1
   %34 = load i32, ptr %5, align 4
   %35 = add i32 %34, 2
@@ -956,19 +956,19 @@ try_grow_buf_remaining.exit.thread:               ; preds = %23, %9, %15, %21, %
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local range(i32 -1, 1) i32 @unpack16(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1) #2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = sub i32 %4, %6
   %8 = icmp ult i32 %7, 2
   br i1 %8, label %17, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = zext i32 %6 to i64
-  %13 = getelementptr inbounds i8, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 %12
   %.0.copyload = load i16, ptr %13, align 1
   %14 = tail call zeroext i16 @ntohs(i16 noundef zeroext %.0.copyload) #17
   store i16 %14, ptr %0, align 2
@@ -984,9 +984,9 @@ define dso_local range(i32 -1, 1) i32 @unpack16(ptr nocapture noundef writeonly 
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @pack8(i8 noundef zeroext %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %4, %6
   br i1 %7, label %8, label %try_grow_buf_remaining.exit
@@ -994,13 +994,13 @@ define dso_local void @pack8(i8 noundef zeroext %0, ptr noundef %1) #0 {
 8:                                                ; preds = %2
   %9 = zext i32 %4 to i64
   %10 = add nuw nsw i64 %9, 1
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load i8, ptr %11, align 8
   %13 = trunc i8 %12 to i1
   br i1 %13, label %try_grow_buf_remaining.exit.thread, label %14
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %1, i64 25
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 25
   %16 = load i8, ptr %15, align 1
   %17 = trunc i8 %16 to i1
   br i1 %17, label %try_grow_buf_remaining.exit.thread, label %18
@@ -1014,7 +1014,7 @@ define dso_local void @pack8(i8 noundef zeroext %0, ptr noundef %1) #0 {
   br label %try_grow_buf_remaining.exit.thread
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %23, i64 noundef 1, i64 noundef %10, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.1, i32 noundef 229, ptr noundef nonnull @__func__.try_grow_buf) #15
   %.not.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i, label %try_grow_buf_remaining.exit.thread, label %25
@@ -1027,10 +1027,10 @@ define dso_local void @pack8(i8 noundef zeroext %0, ptr noundef %1) #0 {
 
 try_grow_buf_remaining.exit:                      ; preds = %25, %2
   %27 = phi i32 [ %.pre, %25 ], [ %6, %2 ]
-  %28 = getelementptr inbounds i8, ptr %1, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = zext i32 %27 to i64
-  %31 = getelementptr inbounds i8, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 %30
   store i8 %0, ptr %31, align 1
   %32 = load i32, ptr %5, align 4
   %33 = add i32 %32, 1
@@ -1043,18 +1043,18 @@ try_grow_buf_remaining.exit.thread:               ; preds = %22, %8, %14, %20, %
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local range(i32 -1, 1) i32 @unpack8(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %4, %6
   br i1 %7, label %16, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = zext i32 %6 to i64
-  %12 = getelementptr inbounds i8, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 %11
   %13 = load i8, ptr %12, align 1
   store i8 %13, ptr %0, align 1
   %14 = load i32, ptr %5, align 4
@@ -1070,9 +1070,9 @@ define dso_local range(i32 -1, 1) i32 @unpack8(ptr nocapture noundef writeonly %
 ; Function Attrs: nounwind uwtable
 define dso_local void @packbool(i1 noundef zeroext %0, ptr noundef %1) #0 {
   %3 = zext i1 %0 to i8
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %5, %7
   br i1 %8, label %9, label %try_grow_buf_remaining.exit.i
@@ -1080,13 +1080,13 @@ define dso_local void @packbool(i1 noundef zeroext %0, ptr noundef %1) #0 {
 9:                                                ; preds = %2
   %10 = zext i32 %5 to i64
   %11 = add nuw nsw i64 %10, 1
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load i8, ptr %12, align 8
   %14 = trunc i8 %13 to i1
   br i1 %14, label %pack8.exit, label %15
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %1, i64 25
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 25
   %17 = load i8, ptr %16, align 1
   %18 = trunc i8 %17 to i1
   br i1 %18, label %pack8.exit, label %19
@@ -1100,7 +1100,7 @@ define dso_local void @packbool(i1 noundef zeroext %0, ptr noundef %1) #0 {
   br label %pack8.exit
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %24, i64 noundef 1, i64 noundef %11, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.1, i32 noundef 229, ptr noundef nonnull @__func__.try_grow_buf) #15
   %.not.i.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i.i, label %pack8.exit, label %26
@@ -1113,10 +1113,10 @@ define dso_local void @packbool(i1 noundef zeroext %0, ptr noundef %1) #0 {
 
 try_grow_buf_remaining.exit.i:                    ; preds = %26, %2
   %28 = phi i32 [ %.pre.i, %26 ], [ %7, %2 ]
-  %29 = getelementptr inbounds i8, ptr %1, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = zext i32 %28 to i64
-  %32 = getelementptr inbounds i8, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 %31
   store i8 %3, ptr %32, align 1
   %33 = load i32, ptr %6, align 4
   %34 = add i32 %33, 1
@@ -1129,18 +1129,18 @@ pack8.exit:                                       ; preds = %9, %15, %21, %23, %
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local range(i32 -1, 1) i32 @unpackbool(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %4, %6
   br i1 %7, label %unpack8.exit, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = zext i32 %6 to i64
-  %12 = getelementptr inbounds i8, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 %11
   %13 = load i8, ptr %12, align 1
   %14 = add i32 %6, 1
   store i32 %14, ptr %5, align 4
@@ -1156,9 +1156,9 @@ unpack8.exit:                                     ; preds = %2, %8
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @pack16_array(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %7 = load i32, ptr %6, align 4
   %8 = sub i32 %5, %7
   %9 = icmp ult i32 %8, 4
@@ -1167,13 +1167,13 @@ define dso_local void @pack16_array(ptr nocapture noundef readonly %0, i32 nound
 10:                                               ; preds = %3
   %11 = zext i32 %5 to i64
   %12 = add nuw nsw i64 %11, 4
-  %13 = getelementptr inbounds i8, ptr %2, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %14 = load i8, ptr %13, align 8
   %15 = trunc i8 %14 to i1
   br i1 %15, label %pack32.exit, label %16
 
 16:                                               ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %2, i64 25
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 25
   %18 = load i8, ptr %17, align 1
   %19 = trunc i8 %18 to i1
   br i1 %19, label %pack32.exit, label %20
@@ -1187,7 +1187,7 @@ define dso_local void @pack16_array(ptr nocapture noundef readonly %0, i32 nound
   br label %pack32.exit
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %25, i64 noundef 1, i64 noundef %12, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.1, i32 noundef 229, ptr noundef nonnull @__func__.try_grow_buf) #15
   %.not.i.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i.i, label %pack32.exit, label %27
@@ -1201,10 +1201,10 @@ define dso_local void @pack16_array(ptr nocapture noundef readonly %0, i32 nound
 try_grow_buf_remaining.exit.i:                    ; preds = %27, %3
   %29 = phi i32 [ %.pre.i, %27 ], [ %7, %3 ]
   %30 = tail call i32 @htonl(i32 noundef %1) #17
-  %31 = getelementptr inbounds i8, ptr %2, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = zext i32 %29 to i64
-  %34 = getelementptr inbounds i8, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 %33
   store i32 %30, ptr %34, align 1
   %35 = load i32, ptr %6, align 4
   %36 = add i32 %35, 4
@@ -1216,15 +1216,15 @@ pack32.exit:                                      ; preds = %10, %16, %22, %24, 
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %pack32.exit
-  %37 = getelementptr inbounds i8, ptr %2, i64 24
-  %38 = getelementptr inbounds i8, ptr %2, i64 25
-  %39 = getelementptr inbounds i8, ptr %2, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 25
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %wide.trip.count = zext i32 %1 to i64
   br label %40
 
 40:                                               ; preds = %.lr.ph, %pack16.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %pack16.exit ]
-  %41 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
   %42 = load i16, ptr %41, align 2
   %43 = load i32, ptr %4, align 8
   %44 = load i32, ptr %6, align 4
@@ -1268,7 +1268,7 @@ try_grow_buf_remaining.exit.i7:                   ; preds = %61, %40
   %64 = tail call zeroext i16 @htons(i16 noundef zeroext %42) #17
   %65 = load ptr, ptr %39, align 8
   %66 = zext i32 %63 to i64
-  %67 = getelementptr inbounds i8, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw i8, ptr %65, i64 %66
   store i16 %64, ptr %67, align 1
   %68 = load i32, ptr %6, align 4
   %69 = add i32 %68, 2
@@ -1287,19 +1287,19 @@ pack16.exit:                                      ; preds = %47, %52, %57, %59, 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @unpack16_array(ptr noundef initializes((0, 8)) %0, ptr nocapture noundef %1, ptr nocapture noundef %2) #0 {
   store ptr null, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %7 = load i32, ptr %6, align 4
   %8 = sub i32 %5, %7
   %9 = icmp ult i32 %8, 4
   br i1 %9, label %unpack32.exit, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = zext i32 %7 to i64
-  %14 = getelementptr inbounds i8, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 %13
   %.0.copyload.i = load i32, ptr %14, align 1
   %15 = tail call i32 @ntohl(i32 noundef %.0.copyload.i) #17
   store i32 %15, ptr %1, align 4
@@ -1340,10 +1340,10 @@ define dso_local range(i32 -1, 1) i32 @unpack16_array(ptr noundef initializes((0
 
 30:                                               ; preds = %25
   %31 = load ptr, ptr %0, align 8
-  %32 = getelementptr inbounds i16, ptr %31, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw i16, ptr %31, i64 %indvars.iv
   %33 = load ptr, ptr %11, align 8
   %34 = zext i32 %26 to i64
-  %35 = getelementptr inbounds i8, ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 %34
   %.0.copyload.i23 = load i16, ptr %35, align 1
   %36 = tail call zeroext i16 @ntohs(i16 noundef zeroext %.0.copyload.i23) #17
   store i16 %36, ptr %32, align 2
@@ -1367,9 +1367,9 @@ unpack32.exit:                                    ; preds = %25, %3, %20
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @pack32_array(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %7 = load i32, ptr %6, align 4
   %8 = sub i32 %5, %7
   %9 = icmp ult i32 %8, 4
@@ -1378,13 +1378,13 @@ define dso_local void @pack32_array(ptr nocapture noundef readonly %0, i32 nound
 10:                                               ; preds = %3
   %11 = zext i32 %5 to i64
   %12 = add nuw nsw i64 %11, 4
-  %13 = getelementptr inbounds i8, ptr %2, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %14 = load i8, ptr %13, align 8
   %15 = trunc i8 %14 to i1
   br i1 %15, label %pack32.exit, label %16
 
 16:                                               ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %2, i64 25
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 25
   %18 = load i8, ptr %17, align 1
   %19 = trunc i8 %18 to i1
   br i1 %19, label %pack32.exit, label %20
@@ -1398,7 +1398,7 @@ define dso_local void @pack32_array(ptr nocapture noundef readonly %0, i32 nound
   br label %pack32.exit
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %25, i64 noundef 1, i64 noundef %12, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.1, i32 noundef 229, ptr noundef nonnull @__func__.try_grow_buf) #15
   %.not.i.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i.i, label %pack32.exit, label %27
@@ -1412,10 +1412,10 @@ define dso_local void @pack32_array(ptr nocapture noundef readonly %0, i32 nound
 try_grow_buf_remaining.exit.i:                    ; preds = %27, %3
   %29 = phi i32 [ %.pre.i, %27 ], [ %7, %3 ]
   %30 = tail call i32 @htonl(i32 noundef %1) #17
-  %31 = getelementptr inbounds i8, ptr %2, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = zext i32 %29 to i64
-  %34 = getelementptr inbounds i8, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 %33
   store i32 %30, ptr %34, align 1
   %35 = load i32, ptr %6, align 4
   %36 = add i32 %35, 4
@@ -1427,15 +1427,15 @@ pack32.exit:                                      ; preds = %10, %16, %22, %24, 
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %pack32.exit
-  %37 = getelementptr inbounds i8, ptr %2, i64 24
-  %38 = getelementptr inbounds i8, ptr %2, i64 25
-  %39 = getelementptr inbounds i8, ptr %2, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 25
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %wide.trip.count = zext i32 %1 to i64
   br label %40
 
 40:                                               ; preds = %.lr.ph, %pack32.exit10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %pack32.exit10 ]
-  %41 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %42 = load i32, ptr %41, align 4
   %43 = load i32, ptr %4, align 8
   %44 = load i32, ptr %6, align 4
@@ -1479,7 +1479,7 @@ try_grow_buf_remaining.exit.i7:                   ; preds = %61, %40
   %64 = tail call i32 @htonl(i32 noundef %42) #17
   %65 = load ptr, ptr %39, align 8
   %66 = zext i32 %63 to i64
-  %67 = getelementptr inbounds i8, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw i8, ptr %65, i64 %66
   store i32 %64, ptr %67, align 1
   %68 = load i32, ptr %6, align 4
   %69 = add i32 %68, 4
@@ -1498,19 +1498,19 @@ pack32.exit10:                                    ; preds = %47, %52, %57, %59, 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @unpack32_array(ptr noundef initializes((0, 8)) %0, ptr nocapture noundef %1, ptr nocapture noundef %2) #0 {
   store ptr null, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %7 = load i32, ptr %6, align 4
   %8 = sub i32 %5, %7
   %9 = icmp ult i32 %8, 4
   br i1 %9, label %unpack32.exit, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = zext i32 %7 to i64
-  %14 = getelementptr inbounds i8, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 %13
   %.0.copyload.i = load i32, ptr %14, align 1
   %15 = tail call i32 @ntohl(i32 noundef %.0.copyload.i) #17
   store i32 %15, ptr %1, align 4
@@ -1551,10 +1551,10 @@ define dso_local range(i32 -1, 1) i32 @unpack32_array(ptr noundef initializes((0
 
 30:                                               ; preds = %25
   %31 = load ptr, ptr %0, align 8
-  %32 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv
   %33 = load ptr, ptr %11, align 8
   %34 = zext i32 %26 to i64
-  %35 = getelementptr inbounds i8, ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 %34
   %.0.copyload.i23 = load i32, ptr %35, align 1
   %36 = tail call i32 @ntohl(i32 noundef %.0.copyload.i23) #17
   store i32 %36, ptr %32, align 4
@@ -1589,9 +1589,9 @@ define dso_local void @packmem(ptr nocapture noundef readonly %0, i32 noundef %1
 8:                                                ; preds = %3
   %9 = zext nneg i32 %1 to i64
   %10 = add nuw nsw i32 %1, 4
-  %11 = getelementptr inbounds i8, ptr %2, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %14 = load i32, ptr %13, align 4
   %15 = sub i32 %12, %14
   %16 = icmp ult i32 %15, %10
@@ -1601,13 +1601,13 @@ define dso_local void @packmem(ptr nocapture noundef readonly %0, i32 noundef %1
   %18 = zext nneg i32 %10 to i64
   %19 = zext i32 %12 to i64
   %20 = add nuw nsw i64 %19, %18
-  %21 = getelementptr inbounds i8, ptr %2, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %22 = load i8, ptr %21, align 8
   %23 = trunc i8 %22 to i1
   br i1 %23, label %try_grow_buf_remaining.exit.thread, label %24
 
 24:                                               ; preds = %17
-  %25 = getelementptr inbounds i8, ptr %2, i64 25
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 25
   %26 = load i8, ptr %25, align 1
   %27 = trunc i8 %26 to i1
   br i1 %27, label %try_grow_buf_remaining.exit.thread, label %28
@@ -1621,7 +1621,7 @@ define dso_local void @packmem(ptr nocapture noundef readonly %0, i32 noundef %1
   br label %try_grow_buf_remaining.exit.thread
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %2, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %34 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %33, i64 noundef 1, i64 noundef %20, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.1, i32 noundef 229, ptr noundef nonnull @__func__.try_grow_buf) #15
   %.not.i.i = icmp eq ptr %34, null
   br i1 %.not.i.i, label %try_grow_buf_remaining.exit.thread, label %35
@@ -1634,10 +1634,10 @@ define dso_local void @packmem(ptr nocapture noundef readonly %0, i32 noundef %1
 
 try_grow_buf_remaining.exit:                      ; preds = %35, %8
   %37 = phi i32 [ %.pre, %35 ], [ %14, %8 ]
-  %38 = getelementptr inbounds i8, ptr %2, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = zext i32 %37 to i64
-  %41 = getelementptr inbounds i8, ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 %40
   store i32 %4, ptr %41, align 1
   %42 = load i32, ptr %13, align 4
   %43 = add i32 %42, 4
@@ -1648,7 +1648,7 @@ try_grow_buf_remaining.exit:                      ; preds = %35, %8
 44:                                               ; preds = %try_grow_buf_remaining.exit
   %45 = load ptr, ptr %38, align 8
   %46 = zext i32 %43 to i64
-  %47 = getelementptr inbounds i8, ptr %45, i64 %46
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 %46
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %47, ptr align 1 %0, i64 %9, i1 false)
   %48 = load i32, ptr %13, align 4
   %49 = add i32 %48, %1
@@ -1662,19 +1662,19 @@ try_grow_buf_remaining.exit.thread:               ; preds = %32, %17, %24, %30, 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @unpackmem_ptr(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef initializes((0, 4)) %1, ptr nocapture noundef %2) #0 {
   store ptr null, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %7 = load i32, ptr %6, align 4
   %8 = sub i32 %5, %7
   %9 = icmp ult i32 %8, 4
   br i1 %9, label %unpack32.exit, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = zext i32 %7 to i64
-  %14 = getelementptr inbounds i8, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 %13
   %.0.copyload.i = load i32, ptr %14, align 1
   %15 = tail call i32 @ntohl(i32 noundef %.0.copyload.i) #17
   store i32 %15, ptr %1, align 4
@@ -1702,7 +1702,7 @@ define dso_local range(i32 -1, 1) i32 @unpackmem_ptr(ptr nocapture noundef write
 27:                                               ; preds = %23
   %28 = load ptr, ptr %11, align 8
   %29 = zext i32 %17 to i64
-  %30 = getelementptr inbounds i8, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 %29
   store ptr %30, ptr %0, align 8
   %31 = load i32, ptr %1, align 4
   %32 = load i32, ptr %6, align 4
@@ -1722,19 +1722,19 @@ unpack32.exit:                                    ; preds = %3, %23, %21
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @unpackmem_xmalloc(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef initializes((0, 4)) %1, ptr nocapture noundef %2) #0 {
   store ptr null, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %7 = load i32, ptr %6, align 4
   %8 = sub i32 %5, %7
   %9 = icmp ult i32 %8, 4
   br i1 %9, label %unpack32.exit, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = zext i32 %7 to i64
-  %14 = getelementptr inbounds i8, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 %13
   %.0.copyload.i = load i32, ptr %14, align 1
   %15 = tail call i32 @ntohl(i32 noundef %.0.copyload.i) #17
   store i32 %15, ptr %1, align 4
@@ -1770,7 +1770,7 @@ define dso_local range(i32 -1, 1) i32 @unpackmem_xmalloc(ptr nocapture noundef w
   %31 = load ptr, ptr %11, align 8
   %32 = load i32, ptr %6, align 4
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds i8, ptr %31, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 %33
   %35 = load i32, ptr %1, align 4
   %36 = zext i32 %35 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %29, ptr align 1 %34, i64 %36, i1 false)
@@ -1792,19 +1792,19 @@ unpack32.exit:                                    ; preds = %3, %27, %23, %21
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @unpackstr_xmalloc(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef initializes((0, 4)) %1, ptr nocapture noundef %2) #0 {
   store ptr null, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %7 = load i32, ptr %6, align 4
   %8 = sub i32 %5, %7
   %9 = icmp ult i32 %8, 4
   br i1 %9, label %unpack32.exit, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = zext i32 %7 to i64
-  %14 = getelementptr inbounds i8, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 %13
   %.0.copyload.i = load i32, ptr %14, align 1
   %15 = tail call i32 @ntohl(i32 noundef %.0.copyload.i) #17
   store i32 %15, ptr %1, align 4
@@ -1834,7 +1834,7 @@ define dso_local range(i32 -1, 1) i32 @unpackstr_xmalloc(ptr nocapture noundef w
   %29 = add nsw i32 %18, -1
   %30 = add i32 %29, %17
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds i8, ptr %28, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 %31
   %33 = load i8, ptr %32, align 1
   %.not26 = icmp eq i8 %33, 0
   br i1 %.not26, label %34, label %unpack32.exit
@@ -1850,7 +1850,7 @@ define dso_local range(i32 -1, 1) i32 @unpackstr_xmalloc(ptr nocapture noundef w
   %38 = load ptr, ptr %11, align 8
   %39 = load i32, ptr %6, align 4
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds i8, ptr %38, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 %40
   %42 = load i32, ptr %1, align 4
   %43 = zext i32 %42 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %36, ptr align 1 %41, i64 %43, i1 false)
@@ -1872,19 +1872,19 @@ unpack32.exit:                                    ; preds = %3, %34, %27, %23, %
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @unpackstr_xmalloc_escaped(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef initializes((0, 4)) %1, ptr nocapture noundef %2) #0 {
   store ptr null, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %7 = load i32, ptr %6, align 4
   %8 = sub i32 %5, %7
   %9 = icmp ult i32 %8, 4
   br i1 %9, label %unpack32.exit, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = zext i32 %7 to i64
-  %14 = getelementptr inbounds i8, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 %13
   %.0.copyload.i = load i32, ptr %14, align 1
   %15 = tail call i32 @ntohl(i32 noundef %.0.copyload.i) #17
   store i32 %15, ptr %1, align 4
@@ -1922,7 +1922,7 @@ define dso_local range(i32 -1, 1) i32 @unpackstr_xmalloc_escaped(ptr nocapture n
   %33 = load ptr, ptr %11, align 8
   %34 = load i32, ptr %6, align 4
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds i8, ptr %33, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 %35
   br label %37
 
 37:                                               ; preds = %32, %45
@@ -1934,14 +1934,14 @@ define dso_local range(i32 -1, 1) i32 @unpackstr_xmalloc_escaped(ptr nocapture n
   br i1 %.not41, label %.critedge, label %39
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds i8, ptr %.03644, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %.03644, i64 1
   switch i8 %38, label %45 [
     i8 92, label %41
     i8 39, label %41
   ]
 
 41:                                               ; preds = %39, %39
-  %42 = getelementptr inbounds i8, ptr %.03545, i64 1
+  %42 = getelementptr inbounds nuw i8, ptr %.03545, i64 1
   store i8 92, ptr %.03545, align 1
   %43 = load i32, ptr %1, align 4
   %44 = add i32 %43, 1
@@ -1950,7 +1950,7 @@ define dso_local range(i32 -1, 1) i32 @unpackstr_xmalloc_escaped(ptr nocapture n
 
 45:                                               ; preds = %39, %41
   %.1 = phi ptr [ %42, %41 ], [ %.03545, %39 ]
-  %46 = getelementptr inbounds i8, ptr %.1, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   store i8 %38, ptr %.1, align 1
   %47 = add nuw i32 %.046, 1
   %exitcond.not = icmp eq i32 %47, %18
@@ -1992,9 +1992,9 @@ define dso_local range(i32 -1, 1) i32 @unpackstr_xmalloc_chooser(ptr nocapture n
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @packstr_array(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %7 = load i32, ptr %6, align 4
   %8 = sub i32 %5, %7
   %9 = icmp ult i32 %8, 4
@@ -2003,13 +2003,13 @@ define dso_local void @packstr_array(ptr nocapture noundef readonly %0, i32 noun
 10:                                               ; preds = %3
   %11 = zext i32 %5 to i64
   %12 = add nuw nsw i64 %11, 4
-  %13 = getelementptr inbounds i8, ptr %2, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %14 = load i8, ptr %13, align 8
   %15 = trunc i8 %14 to i1
   br i1 %15, label %try_grow_buf_remaining.exit.thread, label %16
 
 16:                                               ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %2, i64 25
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 25
   %18 = load i8, ptr %17, align 1
   %19 = trunc i8 %18 to i1
   br i1 %19, label %try_grow_buf_remaining.exit.thread, label %20
@@ -2023,7 +2023,7 @@ define dso_local void @packstr_array(ptr nocapture noundef readonly %0, i32 noun
   br label %try_grow_buf_remaining.exit.thread
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %25, i64 noundef 1, i64 noundef %12, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.1, i32 noundef 229, ptr noundef nonnull @__func__.try_grow_buf) #15
   %.not.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i, label %try_grow_buf_remaining.exit.thread, label %27
@@ -2037,10 +2037,10 @@ define dso_local void @packstr_array(ptr nocapture noundef readonly %0, i32 noun
 try_grow_buf_remaining.exit:                      ; preds = %27, %3
   %29 = phi i32 [ %.pre, %27 ], [ %7, %3 ]
   %30 = tail call i32 @htonl(i32 noundef %1) #17
-  %31 = getelementptr inbounds i8, ptr %2, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = zext i32 %29 to i64
-  %34 = getelementptr inbounds i8, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 %33
   store i32 %30, ptr %34, align 1
   %35 = load i32, ptr %6, align 4
   %36 = add i32 %35, 4
@@ -2054,7 +2054,7 @@ try_grow_buf_remaining.exit:                      ; preds = %27, %3
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %43 ]
-  %37 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8
   %.not17 = icmp eq ptr %38, null
   br i1 %.not17, label %43, label %39
@@ -2080,19 +2080,19 @@ try_grow_buf_remaining.exit.thread:               ; preds = %43, %try_grow_buf_r
 define dso_local range(i32 -1, 1) i32 @unpackstr_array(ptr noundef initializes((0, 8)) %0, ptr nocapture noundef initializes((0, 4)) %1, ptr nocapture noundef %2) #0 {
   %4 = alloca i32, align 4
   store ptr null, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %8 = load i32, ptr %7, align 4
   %9 = sub i32 %6, %8
   %10 = icmp ult i32 %9, 4
   br i1 %10, label %unpack32.exit, label %11
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = zext i32 %8 to i64
-  %15 = getelementptr inbounds i8, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 %14
   %.0.copyload.i = load i32, ptr %15, align 1
   %16 = tail call i32 @ntohl(i32 noundef %.0.copyload.i) #17
   store i32 %16, ptr %1, align 4
@@ -2130,7 +2130,7 @@ define dso_local range(i32 -1, 1) i32 @unpackstr_array(ptr noundef initializes((
 .lr.ph:                                           ; preds = %.preheader, %27
   %indvars.iv = phi i64 [ %indvars.iv.next, %27 ], [ 0, %.preheader ]
   %31 = load ptr, ptr %0, align 8
-  %32 = getelementptr inbounds ptr, ptr %31, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv
   %33 = load ptr, ptr @slurmdbd_conf, align 8
   %.not.i = icmp eq ptr %33, null
   br i1 %.not.i, label %36, label %34
@@ -2160,9 +2160,9 @@ unpack32.exit:                                    ; preds = %unpackstr_xmalloc_c
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @packmem_array(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %7 = load i32, ptr %6, align 4
   %8 = sub i32 %5, %7
   %9 = icmp ult i32 %8, %1
@@ -2172,13 +2172,13 @@ define dso_local void @packmem_array(ptr nocapture noundef readonly %0, i32 noun
 11:                                               ; preds = %3
   %12 = zext i32 %5 to i64
   %13 = add nuw nsw i64 %12, %10
-  %14 = getelementptr inbounds i8, ptr %2, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %15 = load i8, ptr %14, align 8
   %16 = trunc i8 %15 to i1
   br i1 %16, label %try_grow_buf_remaining.exit.thread, label %17
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %2, i64 25
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 25
   %19 = load i8, ptr %18, align 1
   %20 = trunc i8 %19 to i1
   br i1 %20, label %try_grow_buf_remaining.exit.thread, label %21
@@ -2192,7 +2192,7 @@ define dso_local void @packmem_array(ptr nocapture noundef readonly %0, i32 noun
   br label %try_grow_buf_remaining.exit.thread
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %2, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %27 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %26, i64 noundef 1, i64 noundef %13, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.1, i32 noundef 229, ptr noundef nonnull @__func__.try_grow_buf) #15
   %.not.i.i = icmp eq ptr %27, null
   br i1 %.not.i.i, label %try_grow_buf_remaining.exit.thread, label %28
@@ -2205,10 +2205,10 @@ define dso_local void @packmem_array(ptr nocapture noundef readonly %0, i32 noun
 
 try_grow_buf_remaining.exit:                      ; preds = %3, %28
   %30 = phi i32 [ %.pre, %28 ], [ %7, %3 ]
-  %31 = getelementptr inbounds i8, ptr %2, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = zext i32 %30 to i64
-  %34 = getelementptr inbounds i8, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 %33
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %34, ptr align 1 %0, i64 %10, i1 false)
   %35 = load i32, ptr %6, align 4
   %36 = add i32 %35, %1
@@ -2221,19 +2221,19 @@ try_grow_buf_remaining.exit.thread:               ; preds = %25, %11, %17, %23, 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local range(i32 -1, 1) i32 @unpackmem_array(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef %2) #3 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %7 = load i32, ptr %6, align 4
   %8 = sub i32 %5, %7
   %.not = icmp ult i32 %8, %1
   br i1 %.not, label %17, label %9
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %2, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = zext i32 %7 to i64
-  %13 = getelementptr inbounds i8, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 %12
   %14 = zext i32 %1 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr align 1 %13, i64 %14, i1 false)
   %15 = load i32, ptr %6, align 4
@@ -2282,17 +2282,17 @@ declare ptr @slurm_xrecalloc(ptr noundef, i64 noundef, i64 noundef, i1 noundef z
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 9206) i32 @try_grow_buf(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = zext i32 %1 to i64
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
   %7 = add nuw nsw i64 %6, %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i8, ptr %8, align 8
   %10 = trunc i8 %9 to i1
   br i1 %10, label %24, label %11
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 25
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %13 = load i8, ptr %12, align 1
   %14 = trunc i8 %13 to i1
   br i1 %14, label %24, label %15
@@ -2306,7 +2306,7 @@ define dso_local range(i32 0, 9206) i32 @try_grow_buf(ptr noundef %0, i32 nounde
   br label %24
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %20, i64 noundef 1, i64 noundef %7, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.1, i32 noundef 229, ptr noundef nonnull @__func__.try_grow_buf) #15
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %24, label %22
@@ -2323,9 +2323,9 @@ define dso_local range(i32 0, 9206) i32 @try_grow_buf(ptr noundef %0, i32 nounde
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 9206) i32 @try_grow_buf_remaining(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = sub i32 %4, %6
   %8 = icmp ult i32 %7, %1
@@ -2335,13 +2335,13 @@ define dso_local range(i32 0, 9206) i32 @try_grow_buf_remaining(ptr noundef %0, 
   %10 = zext i32 %1 to i64
   %11 = zext i32 %4 to i64
   %12 = add nuw nsw i64 %11, %10
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load i8, ptr %13, align 8
   %15 = trunc i8 %14 to i1
   br i1 %15, label %try_grow_buf.exit, label %16
 
 16:                                               ; preds = %9
-  %17 = getelementptr inbounds i8, ptr %0, i64 25
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %18 = load i8, ptr %17, align 1
   %19 = trunc i8 %18 to i1
   br i1 %19, label %try_grow_buf.exit, label %20
@@ -2355,7 +2355,7 @@ define dso_local range(i32 0, 9206) i32 @try_grow_buf_remaining(ptr noundef %0, 
   br label %try_grow_buf.exit
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %25, i64 noundef 1, i64 noundef %12, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.1, i32 noundef 229, ptr noundef nonnull @__func__.try_grow_buf) #15
   %.not.i = icmp eq ptr %26, null
   br i1 %.not.i, label %try_grow_buf.exit, label %27
@@ -2395,7 +2395,7 @@ define dso_local ptr @try_init_buf(i32 noundef %0) local_unnamed_addr #0 {
 10:                                               ; preds = %6
   %11 = zext i32 %spec.store.select to i64
   %12 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %11, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.1, i32 noundef 288, ptr noundef nonnull @__func__.try_init_buf) #15
-  %13 = getelementptr inbounds i8, ptr %7, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %12, ptr %13, align 8
   %.not7 = icmp eq ptr %12, null
   br i1 %.not7, label %14, label %16
@@ -2408,13 +2408,13 @@ define dso_local ptr @try_init_buf(i32 noundef %0) local_unnamed_addr #0 {
 
 16:                                               ; preds = %10
   store i32 1112884549, ptr %7, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 %spec.store.select, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %7, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i32 0, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %7, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i8 0, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %7, i64 25
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 25
   store i8 0, ptr %20, align 1
   br label %21
 
@@ -2431,36 +2431,36 @@ define dso_local range(i32 0, 23) i32 @swap_buf_data(ptr noundef %0, ptr noundef
   br i1 %or.cond, label %5, label %30
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   store ptr %9, ptr %6, align 8
   store ptr %7, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 20
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %1, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %13 = load i32, ptr %12, align 4
   store i32 %13, ptr %10, align 4
   store i32 %11, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load i32, ptr %16, align 8
   store i32 %17, ptr %14, align 8
   store i32 %15, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load i8, ptr %18, align 8
   %20 = and i8 %19, 1
-  %21 = getelementptr inbounds i8, ptr %1, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load i8, ptr %21, align 8
   %23 = and i8 %22, 1
   store i8 %23, ptr %18, align 8
   store i8 %20, ptr %21, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 25
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %25 = load i8, ptr %24, align 1
   %26 = and i8 %25, 1
-  %27 = getelementptr inbounds i8, ptr %1, i64 25
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 25
   %28 = load i8, ptr %27, align 1
   %29 = and i8 %28, 1
   store i8 %29, ptr %24, align 1
@@ -2492,9 +2492,9 @@ declare i32 @ntohl(i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @pack64_array(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %7 = load i32, ptr %6, align 4
   %8 = sub i32 %5, %7
   %9 = icmp ult i32 %8, 4
@@ -2503,13 +2503,13 @@ define dso_local void @pack64_array(ptr nocapture noundef readonly %0, i32 nound
 10:                                               ; preds = %3
   %11 = zext i32 %5 to i64
   %12 = add nuw nsw i64 %11, 4
-  %13 = getelementptr inbounds i8, ptr %2, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %14 = load i8, ptr %13, align 8
   %15 = trunc i8 %14 to i1
   br i1 %15, label %pack32.exit, label %16
 
 16:                                               ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %2, i64 25
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 25
   %18 = load i8, ptr %17, align 1
   %19 = trunc i8 %18 to i1
   br i1 %19, label %pack32.exit, label %20
@@ -2523,7 +2523,7 @@ define dso_local void @pack64_array(ptr nocapture noundef readonly %0, i32 nound
   br label %pack32.exit
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %25, i64 noundef 1, i64 noundef %12, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.1, i32 noundef 229, ptr noundef nonnull @__func__.try_grow_buf) #15
   %.not.i.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i.i, label %pack32.exit, label %27
@@ -2537,10 +2537,10 @@ define dso_local void @pack64_array(ptr nocapture noundef readonly %0, i32 nound
 try_grow_buf_remaining.exit.i:                    ; preds = %27, %3
   %29 = phi i32 [ %.pre.i, %27 ], [ %7, %3 ]
   %30 = tail call i32 @htonl(i32 noundef %1) #17
-  %31 = getelementptr inbounds i8, ptr %2, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = zext i32 %29 to i64
-  %34 = getelementptr inbounds i8, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 %33
   store i32 %30, ptr %34, align 1
   %35 = load i32, ptr %6, align 4
   %36 = add i32 %35, 4
@@ -2552,15 +2552,15 @@ pack32.exit:                                      ; preds = %10, %16, %22, %24, 
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %pack32.exit
-  %37 = getelementptr inbounds i8, ptr %2, i64 24
-  %38 = getelementptr inbounds i8, ptr %2, i64 25
-  %39 = getelementptr inbounds i8, ptr %2, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 25
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %wide.trip.count = zext i32 %1 to i64
   br label %40
 
 40:                                               ; preds = %.lr.ph, %pack64.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %pack64.exit ]
-  %41 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
   %42 = load i64, ptr %41, align 8
   %43 = load i32, ptr %4, align 8
   %44 = load i32, ptr %6, align 4
@@ -2604,7 +2604,7 @@ try_grow_buf_remaining.exit.i7:                   ; preds = %61, %40
   %64 = tail call i64 @llvm.bswap.i64(i64 %42)
   %65 = load ptr, ptr %39, align 8
   %66 = zext i32 %63 to i64
-  %67 = getelementptr inbounds i8, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw i8, ptr %65, i64 %66
   store i64 %64, ptr %67, align 1
   %68 = load i32, ptr %6, align 4
   %69 = add i32 %68, 8
@@ -2623,19 +2623,19 @@ pack64.exit:                                      ; preds = %47, %52, %57, %59, 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @unpack64_array(ptr noundef initializes((0, 8)) %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   store ptr null, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %7 = load i32, ptr %6, align 4
   %8 = sub i32 %5, %7
   %9 = icmp ult i32 %8, 4
   br i1 %9, label %unpack32.exit, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = zext i32 %7 to i64
-  %14 = getelementptr inbounds i8, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 %13
   %.0.copyload.i = load i32, ptr %14, align 1
   %15 = tail call i32 @ntohl(i32 noundef %.0.copyload.i) #17
   store i32 %15, ptr %1, align 4
@@ -2676,10 +2676,10 @@ define dso_local range(i32 -1, 1) i32 @unpack64_array(ptr noundef initializes((0
 
 30:                                               ; preds = %25
   %31 = load ptr, ptr %0, align 8
-  %32 = getelementptr inbounds i64, ptr %31, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw i64, ptr %31, i64 %indvars.iv
   %33 = load ptr, ptr %11, align 8
   %34 = zext i32 %26 to i64
-  %35 = getelementptr inbounds i8, ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 %34
   %.0.copyload.i23 = load i64, ptr %35, align 1
   %36 = tail call i64 @llvm.bswap.i64(i64 %.0.copyload.i23)
   store i64 %36, ptr %32, align 8
@@ -2703,9 +2703,9 @@ unpack32.exit:                                    ; preds = %25, %3, %20
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @packdouble_array(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %7 = load i32, ptr %6, align 4
   %8 = sub i32 %5, %7
   %9 = icmp ult i32 %8, 4
@@ -2714,13 +2714,13 @@ define dso_local void @packdouble_array(ptr nocapture noundef readonly %0, i32 n
 10:                                               ; preds = %3
   %11 = zext i32 %5 to i64
   %12 = add nuw nsw i64 %11, 4
-  %13 = getelementptr inbounds i8, ptr %2, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %14 = load i8, ptr %13, align 8
   %15 = trunc i8 %14 to i1
   br i1 %15, label %pack32.exit, label %16
 
 16:                                               ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %2, i64 25
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 25
   %18 = load i8, ptr %17, align 1
   %19 = trunc i8 %18 to i1
   br i1 %19, label %pack32.exit, label %20
@@ -2734,7 +2734,7 @@ define dso_local void @packdouble_array(ptr nocapture noundef readonly %0, i32 n
   br label %pack32.exit
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %25, i64 noundef 1, i64 noundef %12, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.1, i32 noundef 229, ptr noundef nonnull @__func__.try_grow_buf) #15
   %.not.i.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i.i, label %pack32.exit, label %27
@@ -2748,10 +2748,10 @@ define dso_local void @packdouble_array(ptr nocapture noundef readonly %0, i32 n
 try_grow_buf_remaining.exit.i:                    ; preds = %27, %3
   %29 = phi i32 [ %.pre.i, %27 ], [ %7, %3 ]
   %30 = tail call i32 @htonl(i32 noundef %1) #17
-  %31 = getelementptr inbounds i8, ptr %2, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = zext i32 %29 to i64
-  %34 = getelementptr inbounds i8, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 %33
   store i32 %30, ptr %34, align 1
   %35 = load i32, ptr %6, align 4
   %36 = add i32 %35, 4
@@ -2763,15 +2763,15 @@ pack32.exit:                                      ; preds = %10, %16, %22, %24, 
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %pack32.exit
-  %37 = getelementptr inbounds i8, ptr %2, i64 24
-  %38 = getelementptr inbounds i8, ptr %2, i64 25
-  %39 = getelementptr inbounds i8, ptr %2, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 25
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %wide.trip.count = zext i32 %1 to i64
   br label %40
 
 40:                                               ; preds = %.lr.ph, %packdouble.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %packdouble.exit ]
-  %41 = getelementptr inbounds double, ptr %0, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv
   %42 = load double, ptr %41, align 8
   %43 = load i32, ptr %4, align 8
   %44 = load i32, ptr %6, align 4
@@ -2817,7 +2817,7 @@ try_grow_buf_remaining.exit.i7:                   ; preds = %61, %40
   %66 = tail call i64 @llvm.bswap.i64(i64 %65)
   %67 = load ptr, ptr %39, align 8
   %68 = zext i32 %63 to i64
-  %69 = getelementptr inbounds i8, ptr %67, i64 %68
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 %68
   store i64 %66, ptr %69, align 1
   %70 = load i32, ptr %6, align 4
   %71 = add i32 %70, 8
@@ -2836,19 +2836,19 @@ packdouble.exit:                                  ; preds = %47, %52, %57, %59, 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @unpackdouble_array(ptr noundef initializes((0, 8)) %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   store ptr null, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %7 = load i32, ptr %6, align 4
   %8 = sub i32 %5, %7
   %9 = icmp ult i32 %8, 4
   br i1 %9, label %unpack32.exit, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = zext i32 %7 to i64
-  %14 = getelementptr inbounds i8, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 %13
   %.0.copyload.i = load i32, ptr %14, align 1
   %15 = tail call i32 @ntohl(i32 noundef %.0.copyload.i) #17
   store i32 %15, ptr %1, align 4
@@ -2885,10 +2885,10 @@ define dso_local range(i32 -1, 1) i32 @unpackdouble_array(ptr noundef initialize
 
 29:                                               ; preds = %.lr.ph
   %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr inbounds double, ptr %30, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv
   %32 = load ptr, ptr %11, align 8
   %33 = zext i32 %26 to i64
-  %34 = getelementptr inbounds i8, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 %33
   %.0.copyload.i23 = load i64, ptr %34, align 1
   %35 = add i32 %26, 8
   store i32 %35, ptr %6, align 4
@@ -2914,9 +2914,9 @@ unpack32.exit:                                    ; preds = %.lr.ph, %3, %20
 ; Function Attrs: nounwind uwtable
 define dso_local void @packlongdouble_array(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [256 x i8], align 16
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %8 = load i32, ptr %7, align 4
   %9 = sub i32 %6, %8
   %10 = icmp ult i32 %9, 4
@@ -2925,13 +2925,13 @@ define dso_local void @packlongdouble_array(ptr nocapture noundef readonly %0, i
 11:                                               ; preds = %3
   %12 = zext i32 %6 to i64
   %13 = add nuw nsw i64 %12, 4
-  %14 = getelementptr inbounds i8, ptr %2, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %15 = load i8, ptr %14, align 8
   %16 = trunc i8 %15 to i1
   br i1 %16, label %pack32.exit, label %17
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %2, i64 25
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 25
   %19 = load i8, ptr %18, align 1
   %20 = trunc i8 %19 to i1
   br i1 %20, label %pack32.exit, label %21
@@ -2945,7 +2945,7 @@ define dso_local void @packlongdouble_array(ptr nocapture noundef readonly %0, i
   br label %pack32.exit
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %2, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %27 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %26, i64 noundef 1, i64 noundef %13, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.1, i32 noundef 229, ptr noundef nonnull @__func__.try_grow_buf) #15
   %.not.i.i.i = icmp eq ptr %27, null
   br i1 %.not.i.i.i, label %pack32.exit, label %28
@@ -2959,10 +2959,10 @@ define dso_local void @packlongdouble_array(ptr nocapture noundef readonly %0, i
 try_grow_buf_remaining.exit.i:                    ; preds = %28, %3
   %30 = phi i32 [ %.pre.i, %28 ], [ %8, %3 ]
   %31 = tail call i32 @htonl(i32 noundef %1) #17
-  %32 = getelementptr inbounds i8, ptr %2, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = zext i32 %30 to i64
-  %35 = getelementptr inbounds i8, ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 %34
   store i32 %31, ptr %35, align 1
   %36 = load i32, ptr %7, align 4
   %37 = add i32 %36, 4
@@ -2979,7 +2979,7 @@ pack32.exit:                                      ; preds = %11, %17, %23, %25, 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %38 = getelementptr inbounds x86_fp80, ptr %0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw x86_fp80, ptr %0, i64 %indvars.iv
   %39 = load x86_fp80, ptr %38, align 16
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4)
   %40 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 256, ptr noundef nonnull @.str.13, x86_fp80 noundef %39) #15
@@ -3000,19 +3000,19 @@ pack32.exit:                                      ; preds = %11, %17, %23, %25, 
 define dso_local range(i32 -1, 1) i32 @unpacklongdouble_array(ptr noundef initializes((0, 8)) %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = alloca x86_fp80, align 16
   store ptr null, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %8 = load i32, ptr %7, align 4
   %9 = sub i32 %6, %8
   %10 = icmp ult i32 %9, 4
   br i1 %10, label %unpack32.exit, label %11
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = zext i32 %8 to i64
-  %15 = getelementptr inbounds i8, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 %14
   %.0.copyload.i = load i32, ptr %15, align 1
   %16 = tail call i32 @ntohl(i32 noundef %.0.copyload.i) #17
   store i32 %16, ptr %1, align 4
@@ -3042,7 +3042,7 @@ define dso_local range(i32 -1, 1) i32 @unpacklongdouble_array(ptr noundef initia
 .lr.ph:                                           ; preds = %24, %50
   %indvars.iv = phi i64 [ %indvars.iv.next, %50 ], [ 0, %24 ]
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds x86_fp80, ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw x86_fp80, ptr %26, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %28 = load i32, ptr %5, align 8
   %29 = load i32, ptr %7, align 4
@@ -3053,7 +3053,7 @@ define dso_local range(i32 -1, 1) i32 @unpacklongdouble_array(ptr noundef initia
 32:                                               ; preds = %.lr.ph
   %33 = load ptr, ptr %12, align 8
   %34 = zext i32 %29 to i64
-  %35 = getelementptr inbounds i8, ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 %34
   %.0.copyload.i.i.i = load i32, ptr %35, align 1
   %36 = call i32 @ntohl(i32 noundef %.0.copyload.i.i.i) #17
   %37 = add i32 %29, 4
@@ -3076,7 +3076,7 @@ define dso_local range(i32 -1, 1) i32 @unpacklongdouble_array(ptr noundef initia
 
 45:                                               ; preds = %42
   %46 = zext i32 %37 to i64
-  %47 = getelementptr inbounds i8, ptr %33, i64 %46
+  %47 = getelementptr inbounds nuw i8, ptr %33, i64 %46
   %48 = add i32 %36, %37
   store i32 %48, ptr %7, align 4
   br label %unpackmem_ptr.exit.i
@@ -3120,15 +3120,15 @@ declare zeroext i16 @ntohs(i16 noundef zeroext) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @packbuf(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 20
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %try_grow_buf_remaining.exit.thread, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %9 = load i32, ptr %8, align 4
   %10 = sub i32 %7, %9
   %11 = icmp ult i32 %10, %4
@@ -3138,13 +3138,13 @@ define dso_local void @packbuf(ptr nocapture noundef readonly %0, ptr noundef %1
 13:                                               ; preds = %5
   %14 = zext i32 %7 to i64
   %15 = add nuw nsw i64 %14, %12
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load i8, ptr %16, align 8
   %18 = trunc i8 %17 to i1
   br i1 %18, label %try_grow_buf_remaining.exit.thread, label %19
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %1, i64 25
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 25
   %21 = load i8, ptr %20, align 1
   %22 = trunc i8 %21 to i1
   br i1 %22, label %try_grow_buf_remaining.exit.thread, label %23
@@ -3158,7 +3158,7 @@ define dso_local void @packbuf(ptr nocapture noundef readonly %0, ptr noundef %1
   br label %try_grow_buf_remaining.exit.thread
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %1, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %28, i64 noundef 1, i64 noundef %15, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.1, i32 noundef 229, ptr noundef nonnull @__func__.try_grow_buf) #15
   %.not.i.i = icmp eq ptr %29, null
   br i1 %.not.i.i, label %try_grow_buf_remaining.exit.thread, label %30
@@ -3171,11 +3171,11 @@ define dso_local void @packbuf(ptr nocapture noundef readonly %0, ptr noundef %1
 
 try_grow_buf_remaining.exit:                      ; preds = %5, %30
   %32 = phi i32 [ %.pre, %30 ], [ %9, %5 ]
-  %33 = getelementptr inbounds i8, ptr %1, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = zext i32 %32 to i64
-  %36 = getelementptr inbounds i8, ptr %34, i64 %35
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 %35
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load ptr, ptr %37, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %36, ptr align 1 %38, i64 %12, i1 false)
   %39 = load i32, ptr %8, align 4

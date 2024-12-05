@@ -16,39 +16,39 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local noundef ptr @ExecInitSort(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call noundef ptr @palloc0(i64 noundef 280) #4
   store i32 410, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr @ExecSort, ptr %7, align 8
   %8 = and i32 %2, 28
   %9 = icmp ne i32 %8, 0
-  %10 = getelementptr inbounds i8, ptr %4, i64 224
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 224
   %11 = zext i1 %9 to i8
   store i8 %11, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 225
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 225
   store i8 0, ptr %12, align 1
-  %13 = getelementptr inbounds i8, ptr %4, i64 240
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 240
   store i8 0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 256
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 256
   store ptr null, ptr %14, align 8
   %15 = and i32 %2, -29
-  %16 = getelementptr inbounds i8, ptr %0, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr @ExecInitNode(ptr noundef %17, ptr noundef %1, i32 noundef %15) #4
-  %19 = getelementptr inbounds i8, ptr %4, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr %18, ptr %19, align 8
   tail call void @ExecCreateScanSlotFromOuterPlan(ptr noundef %1, ptr noundef nonnull %4, ptr noundef nonnull @TTSOpsVirtual) #4
   tail call void @ExecInitResultTupleSlotTL(ptr noundef nonnull %4, ptr noundef nonnull @TTSOpsMinimalTuple) #4
-  %20 = getelementptr inbounds i8, ptr %4, i64 136
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 136
   store ptr null, ptr %20, align 8
   %21 = load ptr, ptr %19, align 8
   %22 = tail call ptr @ExecGetResultType(ptr noundef %21) #4
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i32 %23, 1
   %spec.select = zext i1 %24 to i8
-  %25 = getelementptr inbounds i8, ptr %4, i64 265
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 265
   store i8 %spec.select, ptr %25, align 1
   ret ptr %4
 }
@@ -64,47 +64,47 @@ define internal ptr @ExecSort(ptr nocapture noundef %0) #0 {
   br label %4
 
 4:                                                ; preds = %1, %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 256
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 240
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %12 = load i8, ptr %11, align 8
   %13 = trunc i8 %12 to i1
   br i1 %13, label %115, label %14
 
 14:                                               ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
   store i32 1, ptr %7, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr @ExecGetResultType(ptr noundef %18) #4
-  %20 = getelementptr inbounds i8, ptr %0, i64 224
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %21 = load i8, ptr %20, align 8
   %22 = and i8 %21, 1
   %spec.select = zext nneg i8 %22 to i32
-  %23 = getelementptr inbounds i8, ptr %0, i64 225
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 225
   %24 = load i8, ptr %23, align 1
   %25 = trunc i8 %24 to i1
   %26 = or disjoint i32 %spec.select, 2
   %.169 = select i1 %25, i32 %26, i32 %spec.select
-  %27 = getelementptr inbounds i8, ptr %0, i64 265
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 265
   %28 = load i8, ptr %27, align 1
   %29 = trunc i8 %28 to i1
-  %30 = getelementptr inbounds i8, ptr %16, i64 136
+  %30 = getelementptr inbounds nuw i8, ptr %16, i64 136
   %31 = load ptr, ptr %30, align 8
   br i1 %29, label %32, label %45
 
 32:                                               ; preds = %14
-  %33 = getelementptr inbounds i8, ptr %19, i64 92
+  %33 = getelementptr inbounds nuw i8, ptr %19, i64 92
   %34 = load i32, ptr %33, align 4
-  %35 = getelementptr inbounds i8, ptr %16, i64 120
+  %35 = getelementptr inbounds nuw i8, ptr %16, i64 120
   %36 = load ptr, ptr %35, align 8
   %37 = load i32, ptr %36, align 4
-  %38 = getelementptr inbounds i8, ptr %16, i64 128
+  %38 = getelementptr inbounds nuw i8, ptr %16, i64 128
   %39 = load ptr, ptr %38, align 8
   %40 = load i32, ptr %39, align 4
   %41 = load i8, ptr %31, align 1
@@ -114,13 +114,13 @@ define internal ptr @ExecSort(ptr nocapture noundef %0) #0 {
   br label %56
 
 45:                                               ; preds = %14
-  %46 = getelementptr inbounds i8, ptr %16, i64 104
+  %46 = getelementptr inbounds nuw i8, ptr %16, i64 104
   %47 = load i32, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %16, i64 112
+  %48 = getelementptr inbounds nuw i8, ptr %16, i64 112
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %16, i64 120
+  %50 = getelementptr inbounds nuw i8, ptr %16, i64 120
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %16, i64 128
+  %52 = getelementptr inbounds nuw i8, ptr %16, i64 128
   %53 = load ptr, ptr %52, align 8
   %54 = load i32, ptr @work_mem, align 4
   %55 = tail call ptr @tuplesort_begin_heap(ptr noundef %19, i32 noundef %47, ptr noundef %49, ptr noundef %51, ptr noundef %53, ptr noundef %31, i32 noundef %54, ptr noundef null, i32 noundef %.169) #4
@@ -133,7 +133,7 @@ define internal ptr @ExecSort(ptr nocapture noundef %0) #0 {
   br i1 %58, label %59, label %62
 
 59:                                               ; preds = %56
-  %60 = getelementptr inbounds i8, ptr %0, i64 232
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %61 = load i64, ptr %60, align 8
   tail call void @tuplesort_set_bound(ptr noundef %.1, i64 noundef %61) #4
   br label %62
@@ -142,8 +142,8 @@ define internal ptr @ExecSort(ptr nocapture noundef %0) #0 {
   store ptr %.1, ptr %9, align 8
   %63 = load i8, ptr %27, align 1
   %64 = trunc i8 %63 to i1
-  %65 = getelementptr inbounds i8, ptr %18, i64 104
-  %66 = getelementptr inbounds i8, ptr %18, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %18, i64 104
+  %66 = getelementptr inbounds nuw i8, ptr %18, i64 24
   br i1 %64, label %.preheader, label %.preheader78
 
 .preheader:                                       ; preds = %62, %slot_getsomeattrs.exit
@@ -162,14 +162,14 @@ ExecProcNode.exit:                                ; preds = %.preheader, %68
   br i1 %71, label %.loopexit, label %72
 
 72:                                               ; preds = %ExecProcNode.exit
-  %73 = getelementptr inbounds i8, ptr %70, i64 4
+  %73 = getelementptr inbounds nuw i8, ptr %70, i64 4
   %74 = load i16, ptr %73, align 4
   %75 = and i16 %74, 2
   %.not74 = icmp eq i16 %75, 0
   br i1 %.not74, label %76, label %.loopexit
 
 76:                                               ; preds = %72
-  %77 = getelementptr inbounds i8, ptr %70, i64 6
+  %77 = getelementptr inbounds nuw i8, ptr %70, i64 6
   %78 = load i16, ptr %77, align 2
   %79 = icmp slt i16 %78, 1
   br i1 %79, label %80, label %slot_getsomeattrs.exit
@@ -179,10 +179,10 @@ ExecProcNode.exit:                                ; preds = %.preheader, %68
   br label %slot_getsomeattrs.exit
 
 slot_getsomeattrs.exit:                           ; preds = %76, %80
-  %81 = getelementptr inbounds i8, ptr %70, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %70, i64 24
   %82 = load ptr, ptr %81, align 8
   %83 = load i64, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %70, i64 32
+  %84 = getelementptr inbounds nuw i8, ptr %70, i64 32
   %85 = load ptr, ptr %84, align 8
   %86 = load i8, ptr %85, align 1
   %87 = trunc i8 %86 to i1
@@ -205,7 +205,7 @@ ExecProcNode.exit77:                              ; preds = %.preheader78, %89
   br i1 %92, label %.loopexit, label %93
 
 93:                                               ; preds = %ExecProcNode.exit77
-  %94 = getelementptr inbounds i8, ptr %91, i64 4
+  %94 = getelementptr inbounds nuw i8, ptr %91, i64 4
   %95 = load i16, ptr %94, align 4
   %96 = and i16 %95, 2
   %.not73 = icmp eq i16 %96, 0
@@ -220,26 +220,26 @@ ExecProcNode.exit77:                              ; preds = %.preheader78, %89
   store i32 %8, ptr %7, align 4
   store i8 1, ptr %11, align 8
   %98 = load i8, ptr %23, align 1
-  %99 = getelementptr inbounds i8, ptr %0, i64 241
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 241
   %100 = and i8 %98, 1
   store i8 %100, ptr %99, align 1
-  %101 = getelementptr inbounds i8, ptr %0, i64 232
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %102 = load i64, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %0, i64 248
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store i64 %102, ptr %103, align 8
-  %104 = getelementptr inbounds i8, ptr %0, i64 272
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %105 = load ptr, ptr %104, align 8
   %.not75 = icmp eq ptr %105, null
   br i1 %.not75, label %115, label %106
 
 106:                                              ; preds = %.loopexit
-  %107 = getelementptr inbounds i8, ptr %0, i64 264
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %108 = load i8, ptr %107, align 8
   %109 = trunc i8 %108 to i1
   br i1 %109, label %110, label %115
 
 110:                                              ; preds = %106
-  %111 = getelementptr inbounds i8, ptr %105, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %112 = load i32, ptr @ParallelWorkerNumber, align 4
   %113 = sext i32 %112 to i64
   %114 = getelementptr [0 x %struct.TuplesortInstrumentation], ptr %111, i64 0, i64 %113
@@ -248,23 +248,23 @@ ExecProcNode.exit77:                              ; preds = %.preheader78, %89
 
 115:                                              ; preds = %.loopexit, %106, %110, %4
   %.0 = phi ptr [ %10, %4 ], [ %.1, %110 ], [ %.1, %106 ], [ %.1, %.loopexit ]
-  %116 = getelementptr inbounds i8, ptr %0, i64 120
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds i8, ptr %0, i64 265
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 265
   %119 = load i8, ptr %118, align 1
   %120 = trunc i8 %119 to i1
   br i1 %120, label %121, label %134
 
 121:                                              ; preds = %115
-  %122 = getelementptr inbounds i8, ptr %117, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 24
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 24
   %125 = load ptr, ptr %124, align 8
   tail call void %125(ptr noundef %117) #4
   %126 = icmp eq i32 %8, 1
-  %127 = getelementptr inbounds i8, ptr %117, i64 24
+  %127 = getelementptr inbounds nuw i8, ptr %117, i64 24
   %128 = load ptr, ptr %127, align 8
-  %129 = getelementptr inbounds i8, ptr %117, i64 32
+  %129 = getelementptr inbounds nuw i8, ptr %117, i64 32
   %130 = load ptr, ptr %129, align 8
   %131 = tail call zeroext i1 @tuplesort_getdatum(ptr noundef %.0, i1 noundef zeroext %126, i1 noundef zeroext false, ptr noundef %128, ptr noundef %130, ptr noundef null) #4
   br i1 %131, label %132, label %137
@@ -292,7 +292,7 @@ declare ptr @ExecGetResultType(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecEndSort(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 256
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -303,7 +303,7 @@ define dso_local void @ExecEndSort(ptr nocapture noundef %0) local_unnamed_addr 
 
 5:                                                ; preds = %4, %1
   store ptr null, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load ptr, ptr %6, align 8
   tail call void @ExecEndNode(ptr noundef %7) #4
   ret void
@@ -315,13 +315,13 @@ declare void @ExecEndNode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecSortMarkPos(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 240
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 256
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %7 = load ptr, ptr %6, align 8
   tail call void @tuplesort_markpos(ptr noundef %7) #4
   br label %8
@@ -334,13 +334,13 @@ declare void @tuplesort_markpos(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecSortRestrPos(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 240
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 256
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %7 = load ptr, ptr %6, align 8
   tail call void @tuplesort_restorepos(ptr noundef %7) #4
   br label %8
@@ -353,30 +353,30 @@ declare void @tuplesort_restorepos(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecReScanSort(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 240
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
   br i1 %6, label %7, label %41
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 120
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef %9) #4
-  %14 = getelementptr inbounds i8, ptr %3, i64 104
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %15 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %16, label %32
 
 16:                                               ; preds = %7
-  %17 = getelementptr inbounds i8, ptr %0, i64 225
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 225
   %18 = load i8, ptr %17, align 1
-  %19 = getelementptr inbounds i8, ptr %0, i64 241
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 241
   %20 = load i8, ptr %19, align 1
   %21 = xor i8 %20, %18
   %22 = and i8 %21, 1
@@ -384,22 +384,22 @@ define dso_local void @ExecReScanSort(ptr nocapture noundef %0) local_unnamed_ad
   br i1 %.not15, label %23, label %32
 
 23:                                               ; preds = %16
-  %24 = getelementptr inbounds i8, ptr %0, i64 232
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 248
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %27 = load i64, ptr %26, align 8
   %.not16 = icmp eq i64 %25, %27
   br i1 %.not16, label %28, label %32
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds i8, ptr %0, i64 224
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %30 = load i8, ptr %29, align 8
   %31 = trunc i8 %30 to i1
   br i1 %31, label %38, label %32
 
 32:                                               ; preds = %28, %23, %16, %7
   store i8 0, ptr %4, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 256
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %34 = load ptr, ptr %33, align 8
   tail call void @tuplesort_end(ptr noundef %34) #4
   store ptr null, ptr %33, align 8
@@ -412,7 +412,7 @@ define dso_local void @ExecReScanSort(ptr nocapture noundef %0) local_unnamed_ad
   br label %41
 
 38:                                               ; preds = %28
-  %39 = getelementptr inbounds i8, ptr %0, i64 256
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %40 = load ptr, ptr %39, align 8
   tail call void @tuplesort_rescan(ptr noundef %40) #4
   br label %41
@@ -427,13 +427,13 @@ declare void @tuplesort_rescan(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecSortEstimate(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %21, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %21, label %9
@@ -442,13 +442,13 @@ define dso_local void @ExecSortEstimate(ptr nocapture noundef readonly %0, ptr n
   %10 = sext i32 %7 to i64
   %11 = tail call i64 @mul_size(i64 noundef %10, i64 noundef 16) #4
   %12 = tail call i64 @add_size(i64 noundef %11, i64 noundef 8) #4
-  %13 = getelementptr inbounds i8, ptr %1, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %14 = load i64, ptr %13, align 8
   %15 = add i64 %12, 31
   %16 = and i64 %15, -32
   %17 = tail call i64 @add_size(i64 noundef %14, i64 noundef %16) #4
   store i64 %17, ptr %13, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %19 = load i64, ptr %18, align 8
   %20 = tail call i64 @add_size(i64 noundef %19, i64 noundef 1) #4
   store i64 %20, ptr %18, align 8
@@ -464,13 +464,13 @@ declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecSortInitializeDSM(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %26, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %26, label %9
@@ -479,19 +479,19 @@ define dso_local void @ExecSortInitializeDSM(ptr nocapture noundef %0, ptr nocap
   %10 = sext i32 %7 to i64
   %11 = shl nsw i64 %10, 4
   %12 = or disjoint i64 %11, 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr @shm_toc_allocate(ptr noundef %14, i64 noundef %12) #4
-  %16 = getelementptr inbounds i8, ptr %0, i64 272
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store ptr %15, ptr %16, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %15, i8 0, i64 %12, i1 false)
   %17 = load i32, ptr %6, align 4
   %18 = load ptr, ptr %16, align 8
   store i32 %17, ptr %18, align 8
   %19 = load ptr, ptr %13, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %23 = load i32, ptr %22, align 8
   %24 = sext i32 %23 to i64
   %25 = load ptr, ptr %16, align 8
@@ -511,17 +511,17 @@ declare void @shm_toc_insert(ptr noundef, i64 noundef, ptr noundef) local_unname
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecSortInitializeWorker(ptr nocapture noundef initializes((264, 265), (272, 280)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %8 = load i32, ptr %7, align 8
   %9 = sext i32 %8 to i64
   %10 = tail call ptr @shm_toc_lookup(ptr noundef %4, i64 noundef %9, i1 noundef zeroext true) #4
-  %11 = getelementptr inbounds i8, ptr %0, i64 272
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store ptr %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 264
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 264
   store i8 1, ptr %12, align 8
   ret void
 }
@@ -530,7 +530,7 @@ declare ptr @shm_toc_lookup(ptr noundef, i64 noundef, i1 noundef zeroext) local_
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecSortRetrieveInstrumentation(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 272
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %12, label %5

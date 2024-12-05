@@ -36,19 +36,19 @@ define internal i32 @ps_unicode_value(ptr noundef readonly %0) #1 {
   br i1 %3, label %4, label %.thread72.preheader
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %6 = load i8, ptr %5, align 1
   %7 = icmp eq i8 %6, 110
   br i1 %7, label %8, label %.thread
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %10 = load i8, ptr %9, align 1
   %11 = icmp eq i8 %10, 105
   br i1 %11, label %12, label %.thread
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 3
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %scevgep = getelementptr i8, ptr %0, i64 7
   br label %14
 
@@ -72,7 +72,7 @@ define internal i32 @ps_unicode_value(ptr noundef readonly %0) #1 {
   %24 = shl i32 %.06093, 4
   %25 = or disjoint i32 %.057, %24
   %26 = add nsw i32 %.05895, -1
-  %27 = getelementptr inbounds i8, ptr %.05994, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.05994, i64 1
   %28 = icmp ugt i32 %.05895, 1
   br i1 %28, label %14, label %29, !llvm.loop !4
 
@@ -111,7 +111,7 @@ define internal i32 @ps_unicode_value(ptr noundef readonly %0) #1 {
   %43 = shl i32 %.05598, 4
   %44 = or disjoint i32 %.052, %43
   %45 = add nsw i32 %.05697, -1
-  %.054 = getelementptr inbounds i8, ptr %.05499, i64 1
+  %.054 = getelementptr inbounds nuw i8, ptr %.05499, i64 1
   %46 = icmp ugt i32 %.05697, 1
   br i1 %46, label %33, label %.thread73, !llvm.loop !6
 
@@ -145,12 +145,12 @@ define internal i32 @ps_unicode_value(ptr noundef readonly %0) #1 {
 
 53:                                               ; preds = %.thread72
   %.0.add = add nuw nsw i64 %.0.idx, 1
-  %.0.ptr.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 %.0.add
+  %.0.ptr.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 %.0.add
   %.pre = load i8, ptr %.0.ptr.phi.trans.insert, align 1
   br label %.thread72, !llvm.loop !7
 
 .critedge:                                        ; preds = %.thread72, %.thread72
-  %.0.ptr.le = getelementptr inbounds i8, ptr %0, i64 %.0.idx
+  %.0.ptr.le = getelementptr inbounds nuw i8, ptr %0, i64 %.0.idx
   %.not = icmp eq i64 %.0.idx, 0
   br i1 %.not, label %118, label %.preheader
 
@@ -164,23 +164,23 @@ define internal i32 @ps_unicode_value(ptr noundef readonly %0) #1 {
   %58 = load i8, ptr %57, align 2
   %59 = zext i8 %58 to i64
   %60 = shl nuw nsw i64 %59, 8
-  %61 = getelementptr inbounds i8, ptr %57, i64 1
+  %61 = getelementptr inbounds nuw i8, ptr %57, i64 1
   %62 = load i8, ptr %61, align 1
   %63 = zext i8 %62 to i64
   %64 = or disjoint i64 %60, %63
-  %65 = getelementptr inbounds i8, ptr @ft_adobe_glyph_list, i64 %64
+  %65 = getelementptr inbounds nuw i8, ptr @ft_adobe_glyph_list, i64 %64
   %66 = load i8, ptr %65, align 1
   %67 = and i8 %66, 127
   %68 = icmp eq i8 %67, %2
   br i1 %68, label %.preheader.i, label %70
 
 .preheader.i:                                     ; preds = %.preheader
-  %69 = getelementptr inbounds i8, ptr @ft_adobe_glyph_list, i64 %64
+  %69 = getelementptr inbounds nuw i8, ptr @ft_adobe_glyph_list, i64 %64
   %.not5978.i.not = icmp eq i64 %.0.idx, 1
   br i1 %.not5978.i.not, label %._crit_edge.i, label %.lr.ph81.i.preheader
 
 .lr.ph81.i.preheader:                             ; preds = %.preheader.i
-  %.04877.i = getelementptr inbounds i8, ptr %0, i64 1
+  %.04877.i = getelementptr inbounds nuw i8, ptr %0, i64 1
   br label %.lr.ph81.i
 
 70:                                               ; preds = %.preheader
@@ -199,17 +199,17 @@ define internal i32 @ps_unicode_value(ptr noundef readonly %0) #1 {
   br i1 %76, label %77, label %ft_get_adobe_glyph_index.exit
 
 77:                                               ; preds = %._crit_edge.i
-  %78 = getelementptr inbounds i8, ptr %.050.lcssa.i, i64 1
+  %78 = getelementptr inbounds nuw i8, ptr %.050.lcssa.i, i64 1
   %79 = load i8, ptr %78, align 1
   %.not63.i = icmp sgt i8 %79, -1
   br i1 %.not63.i, label %ft_get_adobe_glyph_index.exit, label %80
 
 80:                                               ; preds = %77
-  %81 = getelementptr inbounds i8, ptr %.050.lcssa.i, i64 2
+  %81 = getelementptr inbounds nuw i8, ptr %.050.lcssa.i, i64 2
   %82 = load i8, ptr %81, align 1
   %83 = zext i8 %82 to i32
   %84 = shl nuw nsw i32 %83, 8
-  %85 = getelementptr inbounds i8, ptr %.050.lcssa.i, i64 3
+  %85 = getelementptr inbounds nuw i8, ptr %.050.lcssa.i, i64 3
   %86 = load i8, ptr %85, align 1
   %87 = zext i8 %86 to i32
   %88 = or disjoint i32 %84, %87
@@ -221,7 +221,7 @@ define internal i32 @ps_unicode_value(ptr noundef readonly %0) #1 {
   %.05079.i = phi ptr [ %.050.be.i, %.backedge.i ], [ %69, %.lr.ph81.i.preheader ]
   %90 = load i8, ptr %.04880.i, align 1
   %.not60.i = icmp sgt i8 %89, -1
-  %91 = getelementptr inbounds i8, ptr %.05079.i, i64 1
+  %91 = getelementptr inbounds nuw i8, ptr %.05079.i, i64 1
   %92 = load i8, ptr %91, align 1
   %93 = and i8 %92, 127
   br i1 %.not60.i, label %97, label %94
@@ -231,13 +231,13 @@ define internal i32 @ps_unicode_value(ptr noundef readonly %0) #1 {
   br i1 %.not62.i, label %.backedge.i, label %ft_get_adobe_glyph_index.exit
 
 .backedge.i.loopexit:                             ; preds = %.lr.ph.i
-  %95 = getelementptr inbounds i8, ptr @ft_adobe_glyph_list, i64 %107
+  %95 = getelementptr inbounds nuw i8, ptr @ft_adobe_glyph_list, i64 %107
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %.backedge.i.loopexit, %94
   %96 = phi i8 [ %92, %94 ], [ %109, %.backedge.i.loopexit ]
   %.050.be.i = phi ptr [ %91, %94 ], [ %95, %.backedge.i.loopexit ]
-  %.048.i = getelementptr inbounds i8, ptr %.04880.i, i64 1
+  %.048.i = getelementptr inbounds nuw i8, ptr %.04880.i, i64 1
   %exitcond.not.i = icmp eq ptr %.048.i, %.0.ptr.le
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph81.i
 
@@ -248,8 +248,8 @@ define internal i32 @ps_unicode_value(ptr noundef readonly %0) #1 {
 .lr.ph.preheader.i:                               ; preds = %97
   %.not61.i = icmp sgt i8 %92, -1
   %spec.select.i = select i1 %.not61.i, i64 1, i64 3
-  %98 = getelementptr inbounds i8, ptr %.05079.i, i64 %spec.select.i
-  %99 = getelementptr inbounds i8, ptr %98, i64 1
+  %98 = getelementptr inbounds nuw i8, ptr %.05079.i, i64 %spec.select.i
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 1
   %100 = zext nneg i8 %93 to i32
   br label %.lr.ph.i
 
@@ -259,11 +259,11 @@ define internal i32 @ps_unicode_value(ptr noundef readonly %0) #1 {
   %101 = load i8, ptr %.274.i, align 1
   %102 = zext i8 %101 to i64
   %103 = shl nuw nsw i64 %102, 8
-  %104 = getelementptr inbounds i8, ptr %.274.i, i64 1
+  %104 = getelementptr inbounds nuw i8, ptr %.274.i, i64 1
   %105 = load i8, ptr %104, align 1
   %106 = zext i8 %105 to i64
   %107 = or disjoint i64 %103, %106
-  %108 = getelementptr inbounds i8, ptr @ft_adobe_glyph_list, i64 %107
+  %108 = getelementptr inbounds nuw i8, ptr @ft_adobe_glyph_list, i64 %107
   %109 = load i8, ptr %108, align 1
   %110 = and i8 %109, 127
   %111 = icmp eq i8 %90, %110
@@ -271,7 +271,7 @@ define internal i32 @ps_unicode_value(ptr noundef readonly %0) #1 {
 
 112:                                              ; preds = %.lr.ph.i
   %113 = add nsw i32 %.04975.i, -1
-  %114 = getelementptr inbounds i8, ptr %.274.i, i64 2
+  %114 = getelementptr inbounds nuw i8, ptr %.274.i, i64 2
   %115 = icmp sgt i32 %.04975.i, 1
   br i1 %115, label %.lr.ph.i, label %ft_get_adobe_glyph_index.exit, !llvm.loop !9
 
@@ -293,12 +293,12 @@ define internal i32 @ps_unicodes_init(ptr noundef %0, ptr nocapture noundef init
   %8 = alloca [10 x i32], align 16
   %9 = alloca [10 x i32], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %8, i8 0, i64 40, i1 false)
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 0, ptr %10, align 8
   %11 = add i32 %2, 10
   %12 = zext i32 %11 to i64
   %13 = call ptr @ft_mem_qrealloc(ptr noundef %0, i64 noundef 8, i64 noundef 0, i64 noundef %12, ptr noundef null, ptr noundef nonnull %7) #10
-  %14 = getelementptr inbounds i8, ptr %1, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr %13, ptr %14, align 8
   %15 = load i32, ptr %7, align 4
   %.not = icmp eq i32 %15, 0
@@ -331,7 +331,7 @@ define internal i32 @ps_unicodes_init(ptr noundef %0, ptr nocapture noundef init
 
 .preheader66:                                     ; preds = %18, %20
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %20 ], [ 0, %18 ]
-  %21 = getelementptr inbounds [10 x i32], ptr @ft_extra_glyph_name_offsets, i64 0, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [10 x i32], ptr @ft_extra_glyph_name_offsets, i64 0, i64 %indvars.iv.i
   %22 = load i32, ptr %21, align 4
   %23 = sext i32 %22 to i64
   %24 = getelementptr inbounds i8, ptr @ft_extra_glyph_names, i64 %23
@@ -340,14 +340,14 @@ define internal i32 @ps_unicodes_init(ptr noundef %0, ptr nocapture noundef init
   br i1 %26, label %27, label %20
 
 27:                                               ; preds = %.preheader66
-  %28 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.i
   %29 = load i32, ptr %28, align 4
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %31, label %ps_check_extra_glyph_name.exit
 
 31:                                               ; preds = %27
   store i32 1, ptr %28, align 4
-  %32 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.i
   store i32 %.071, ptr %32, align 4
   br label %ps_check_extra_glyph_name.exit
 
@@ -364,21 +364,21 @@ ps_check_extra_glyph_name.exit:                   ; preds = %20, %27, %31
 
 .preheader65:                                     ; preds = %ps_check_extra_glyph_name.exit, %35
   %indvars.iv.i62 = phi i64 [ %indvars.iv.next.i63, %35 ], [ 0, %ps_check_extra_glyph_name.exit ]
-  %36 = getelementptr inbounds [10 x i32], ptr @ft_extra_glyph_unicodes, i64 0, i64 %indvars.iv.i62
+  %36 = getelementptr inbounds nuw [10 x i32], ptr @ft_extra_glyph_unicodes, i64 0, i64 %indvars.iv.i62
   %37 = load i32, ptr %36, align 4
   %38 = icmp eq i32 %33, %37
   br i1 %38, label %39, label %35
 
 39:                                               ; preds = %.preheader65
-  %40 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv.i62
+  %40 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.i62
   store i32 2, ptr %40, align 4
   br label %ps_check_extra_glyph_unicode.exit
 
 ps_check_extra_glyph_unicode.exit:                ; preds = %35, %39
   store i32 %33, ptr %.05170, align 4
-  %41 = getelementptr inbounds i8, ptr %.05170, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %.05170, i64 4
   store i32 %.071, ptr %41, align 4
-  %42 = getelementptr inbounds i8, ptr %.05170, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %.05170, i64 8
   br label %43
 
 43:                                               ; preds = %ps_check_extra_glyph_unicode.exit, %ps_check_extra_glyph_name.exit
@@ -402,20 +402,20 @@ ps_check_extra_glyph_unicode.exit:                ; preds = %35, %39
 .preheader:                                       ; preds = %.preheader.preheader, %57
   %indvars.iv = phi i64 [ %indvars.iv.next, %57 ], [ 0, %.preheader.preheader ]
   %.373 = phi ptr [ %.4, %57 ], [ %.373.ph, %.preheader.preheader ]
-  %47 = getelementptr inbounds [10 x i32], ptr %8, i64 0, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [10 x i32], ptr %8, i64 0, i64 %indvars.iv
   %48 = load i32, ptr %47, align 4
   %49 = icmp eq i32 %48, 1
   br i1 %49, label %50, label %57
 
 50:                                               ; preds = %.preheader
-  %51 = getelementptr inbounds [10 x i32], ptr @ft_extra_glyph_unicodes, i64 0, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [10 x i32], ptr @ft_extra_glyph_unicodes, i64 0, i64 %indvars.iv
   %52 = load i32, ptr %51, align 4
   store i32 %52, ptr %.373, align 4
-  %53 = getelementptr inbounds [10 x i32], ptr %9, i64 0, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [10 x i32], ptr %9, i64 0, i64 %indvars.iv
   %54 = load i32, ptr %53, align 4
-  %55 = getelementptr inbounds i8, ptr %.373, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %.373, i64 4
   store i32 %54, ptr %55, align 4
-  %56 = getelementptr inbounds i8, ptr %.373, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %.373, i64 8
   br label %57
 
 57:                                               ; preds = %.preheader, %50
@@ -472,18 +472,18 @@ ps_check_extra_glyph_unicode.exit:                ; preds = %35, %39
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define internal i32 @ps_unicodes_char_index(ptr nocapture noundef readonly %0, i32 noundef %1) #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   %.not51 = icmp eq i32 %4, 0
   br i1 %.not51, label %._crit_edge.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = zext i32 %4 to i64
   %8 = lshr i64 %7, 1
-  %9 = getelementptr inbounds %struct.PS_UniMap_, ptr %6, i64 %8
-  %10 = getelementptr inbounds %struct.PS_UniMap_, ptr %6, i64 %7
+  %9 = getelementptr inbounds nuw %struct.PS_UniMap_, ptr %6, i64 %8
+  %10 = getelementptr inbounds nuw %struct.PS_UniMap_, ptr %6, i64 %7
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %13
@@ -500,12 +500,12 @@ define internal i32 @ps_unicodes_char_index(ptr nocapture noundef readonly %0, i
   %15 = icmp eq i32 %14, %1
   %spec.select = select i1 %15, ptr %.03150, ptr %.03647
   %16 = icmp ult i32 %14, %1
-  %17 = getelementptr inbounds i8, ptr %.03150, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.03150, i64 8
   %.135 = select i1 %16, ptr %17, ptr %.03448
   %.133 = select i1 %16, ptr %.03249, ptr %.03150
   %18 = sub i32 %1, %14
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds %struct.PS_UniMap_, ptr %.03150, i64 %19
+  %20 = getelementptr inbounds nuw %struct.PS_UniMap_, ptr %.03150, i64 %19
   %.not = icmp uge ptr %20, %.133
   %21 = icmp ult ptr %20, %.135
   %or.cond = or i1 %.not, %21
@@ -524,7 +524,7 @@ define internal i32 @ps_unicodes_char_index(ptr nocapture noundef readonly %0, i
 
 .thread:                                          ; preds = %.lr.ph, %._crit_edge
   %.13744 = phi ptr [ %spec.select, %._crit_edge ], [ %.03150, %.lr.ph ]
-  %28 = getelementptr inbounds i8, ptr %.13744, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %.13744, i64 4
   %29 = load i32, ptr %28, align 4
   br label %._crit_edge.thread
 
@@ -537,14 +537,14 @@ define internal i32 @ps_unicodes_char_index(ptr nocapture noundef readonly %0, i
 define internal i32 @ps_unicodes_char_next(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #3 {
   %3 = load i32, ptr %1, align 4
   %4 = add i32 %3, 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8
   %.not58 = icmp eq i32 %6, 0
   br i1 %.not58, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %7 = lshr i32 %6, 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   br label %10
 
@@ -554,13 +554,13 @@ define internal i32 @ps_unicodes_char_next(ptr nocapture noundef readonly %0, pt
   %.04154 = phi i32 [ %6, %.lr.ph ], [ %.142, %24 ]
   %.04353 = phi i32 [ 0, %.lr.ph ], [ %.144, %24 ]
   %11 = zext i32 %.03955 to i64
-  %12 = getelementptr inbounds %struct.PS_UniMap_, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw %struct.PS_UniMap_, ptr %9, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, %4
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %12, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %17 = load i32, ptr %16, align 4
   br label %44
 
@@ -570,7 +570,7 @@ define internal i32 @ps_unicodes_char_next(ptr nocapture noundef readonly %0, pt
   br i1 %20, label %21, label %24
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %12, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %23 = load i32, ptr %22, align 4
   br label %24
 
@@ -602,11 +602,11 @@ define internal i32 @ps_unicodes_char_next(ptr nocapture noundef readonly %0, pt
   br i1 %34, label %35, label %44
 
 35:                                               ; preds = %._crit_edge.thread
-  %36 = getelementptr inbounds i8, ptr %0, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %37 = load ptr, ptr %36, align 8
   %38 = zext i32 %.043.lcssa63 to i64
-  %39 = getelementptr inbounds %struct.PS_UniMap_, ptr %37, i64 %38
-  %40 = getelementptr inbounds i8, ptr %39, i64 4
+  %39 = getelementptr inbounds nuw %struct.PS_UniMap_, ptr %37, i64 %38
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %41 = load i32, ptr %40, align 4
   %42 = load i32, ptr %39, align 4
   %43 = and i32 %42, 2147483647
@@ -624,7 +624,7 @@ define internal nonnull ptr @ps_get_macintosh_name(i32 noundef %0) #4 {
   %2 = icmp ugt i32 %0, 257
   %spec.store.select = select i1 %2, i32 0, i32 %0
   %3 = zext nneg i32 %spec.store.select to i64
-  %4 = getelementptr inbounds [258 x i16], ptr @ft_mac_names, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw [258 x i16], ptr @ft_mac_names, i64 0, i64 %3
   %5 = load i16, ptr %4, align 2
   %6 = sext i16 %5 to i64
   %7 = getelementptr inbounds i8, ptr @ft_standard_glyph_names, i64 %6
@@ -638,7 +638,7 @@ define internal ptr @ps_get_standard_strings(i32 noundef %0) #4 {
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds [391 x i16], ptr @ft_sid_names, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [391 x i16], ptr @ft_sid_names, i64 0, i64 %4
   %6 = load i16, ptr %5, align 2
   %7 = sext i16 %6 to i64
   %8 = getelementptr inbounds i8, ptr @ft_standard_glyph_names, i64 %7

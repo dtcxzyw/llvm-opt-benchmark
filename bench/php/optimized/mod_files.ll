@@ -51,9 +51,9 @@ define hidden range(i32 -1, 1) i32 @ps_open_files(ptr nocapture noundef %0, ptr 
   %13 = phi i1 [ true, %.preheader ], [ false, %10 ]
   %.089 = phi i32 [ 1, %.preheader ], [ 0, %10 ]
   %14 = zext nneg i32 %.089 to i64
-  %15 = getelementptr inbounds [3 x ptr], ptr %4, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw [3 x ptr], ptr %4, i64 0, i64 %14
   store ptr %.090, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %.092, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.092, i64 1
   %17 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %16, i32 noundef 59) #16
   %18 = icmp ne ptr %17, null
   %or.cond5 = select i1 %12, i1 %18, i1 false
@@ -62,7 +62,7 @@ define hidden range(i32 -1, 1) i32 @ps_open_files(ptr nocapture noundef %0, ptr 
 19:                                               ; preds = %.preheader
   %20 = add nuw nsw i32 %.089, 1
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds [3 x ptr], ptr %4, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw [3 x ptr], ptr %4, i64 0, i64 %21
   store ptr %16, ptr %22, align 8
   %23 = tail call ptr @__errno_location() #17
   store i32 0, ptr %23, align 4
@@ -81,7 +81,7 @@ define hidden range(i32 -1, 1) i32 @ps_open_files(ptr nocapture noundef %0, ptr 
 
 30:                                               ; preds = %29
   store i32 0, ptr %23, align 4
-  %31 = getelementptr inbounds i8, ptr %4, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = tail call i64 @strtoll(ptr nocapture noundef %32, ptr noundef null, i32 noundef 8) #15
   %34 = trunc i64 %33 to i32
@@ -100,28 +100,28 @@ define hidden range(i32 -1, 1) i32 @ps_open_files(ptr nocapture noundef %0, ptr 
   %.191101109 = phi ptr [ %16, %30 ], [ %16, %29 ], [ %.094, %10 ]
   %.0 = phi i32 [ %34, %30 ], [ 384, %29 ], [ 384, %10 ]
   %39 = tail call noalias dereferenceable_or_null(40) ptr @_ecalloc(i64 noundef 1, i64 noundef 40) #18
-  %40 = getelementptr inbounds i8, ptr %39, i64 36
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 36
   store i32 -1, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %39, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 16
   store i64 %.088110, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %39, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 32
   store i32 %.0, ptr %42, align 8
   %43 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.191101109) #16
   %44 = and i64 %43, -8
   %45 = add i64 %44, 32
   %46 = tail call noalias ptr @_emalloc(i64 noundef %45) #19
   store i32 1, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %46, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 4
   store i32 22, ptr %47, align 4
-  %48 = getelementptr inbounds i8, ptr %46, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store i64 0, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %46, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 16
   store i64 %43, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %46, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %46, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %50, ptr align 1 %.191101109, i64 %43, i1 false)
   %51 = getelementptr inbounds [1 x i8], ptr %50, i64 0, i64 %43
   store i8 0, ptr %51, align 1
-  %52 = getelementptr inbounds i8, ptr %39, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr %46, ptr %52, align 8
   %53 = load ptr, ptr %0, align 8
   %.not98 = icmp eq ptr %53, null
@@ -143,7 +143,7 @@ define hidden range(i32 -1, 1) i32 @ps_open_files(ptr nocapture noundef %0, ptr 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @ps_close_files(ptr nocapture noundef %0) #0 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 36
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %4 = load i32, ptr %3, align 4
   %.not.i = icmp eq i32 %4, -1
   br i1 %.not.i, label %ps_files_close.exit, label %5
@@ -159,7 +159,7 @@ ps_files_close.exit:                              ; preds = %1, %5
   br i1 %.not, label %19, label %8
 
 8:                                                ; preds = %ps_files_close.exit
-  %9 = getelementptr inbounds i8, ptr %7, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 64
   %.not23 = icmp eq i32 %11, 0
@@ -183,9 +183,9 @@ ps_files_close.exit:                              ; preds = %1, %5
   br label %19
 
 19:                                               ; preds = %18, %ps_files_close.exit
-  %20 = getelementptr inbounds i8, ptr %2, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %23 = load i32, ptr %22, align 4
   %24 = and i32 %23, 64
   %.not24 = icmp eq i32 %24, 0
@@ -216,7 +216,7 @@ define hidden range(i32 -1, 1) i32 @ps_read_files(ptr nocapture noundef readonly
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %5, i8 0, i64 144, i1 false)
   %6 = load ptr, ptr %0, align 8
   tail call fastcc void @ps_files_open(ptr noundef %6, ptr noundef %1)
-  %7 = getelementptr inbounds i8, ptr %6, i64 36
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 36
   %8 = load i32, ptr %7, align 4
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %56, label %10
@@ -227,9 +227,9 @@ define hidden range(i32 -1, 1) i32 @ps_read_files(ptr nocapture noundef readonly
   br i1 %.not, label %12, label %56
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %5, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 %14, ptr %15, align 8
   %16 = icmp eq i64 %14, 0
   br i1 %16, label %17, label %19
@@ -244,15 +244,15 @@ define hidden range(i32 -1, 1) i32 @ps_read_files(ptr nocapture noundef readonly
   %21 = add i64 %20, 32
   %22 = tail call noalias ptr @_emalloc(i64 noundef %21) #19
   store i32 1, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %22, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   store i32 22, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %22, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i64 0, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %22, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i64 %14, ptr %25, align 8
   store ptr %22, ptr %2, align 8
   %26 = load i32, ptr %7, align 4
-  %27 = getelementptr inbounds i8, ptr %22, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %28 = tail call i64 @pread(i32 noundef %26, ptr noundef nonnull %27, i64 noundef %14, i64 noundef 0) #15
   %.not75 = icmp eq i64 %28, %14
   br i1 %.not75, label %50, label %29
@@ -275,7 +275,7 @@ define hidden range(i32 -1, 1) i32 @ps_read_files(ptr nocapture noundef readonly
 
 37:                                               ; preds = %36, %31
   %38 = load ptr, ptr %2, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %40 = load i32, ptr %39, align 4
   %41 = and i32 %40, 64
   %.not76 = icmp eq i32 %41, 0
@@ -301,8 +301,8 @@ define hidden range(i32 -1, 1) i32 @ps_read_files(ptr nocapture noundef readonly
 
 50:                                               ; preds = %19
   %51 = load ptr, ptr %2, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 24
-  %53 = getelementptr inbounds i8, ptr %51, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %54 = load i64, ptr %53, align 8
   %55 = getelementptr inbounds [1 x i8], ptr %52, i64 0, i64 %54
   store i8 0, ptr %55, align 1
@@ -328,17 +328,17 @@ define hidden range(i32 -1, 1) i32 @ps_delete_files(ptr nocapture noundef readon
   br i1 %.not.i, label %ps_files_path_create.exit.thread, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %9 = load i64, ptr %8, align 8
   %.not40.i = icmp ugt i64 %7, %9
   br i1 %.not40.i, label %10, label %ps_files_path_create.exit.thread
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i64, ptr %13, align 8
   %15 = shl i64 %9, 1
   %16 = add i64 %7, -4086
@@ -348,8 +348,8 @@ define hidden range(i32 -1, 1) i32 @ps_delete_files(ptr nocapture noundef readon
   br i1 %19, label %ps_files_path_create.exit.thread, label %20
 
 20:                                               ; preds = %10
-  %21 = getelementptr inbounds i8, ptr %1, i64 24
-  %22 = getelementptr inbounds i8, ptr %12, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr nonnull align 8 %22, i64 %14, i1 false)
   %23 = getelementptr inbounds i8, ptr %3, i64 %14
   store i8 47, ptr %23, align 1
@@ -363,7 +363,7 @@ define hidden range(i32 -1, 1) i32 @ps_delete_files(ptr nocapture noundef readon
   %.0.in44.i = phi i64 [ %28, %.lr.ph.i ], [ %14, %20 ]
   %.03443.i = phi i32 [ %31, %.lr.ph.i ], [ 0, %20 ]
   %.03542.i = phi ptr [ %26, %.lr.ph.i ], [ %21, %20 ]
-  %26 = getelementptr inbounds i8, ptr %.03542.i, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %.03542.i, i64 1
   %27 = load i8, ptr %.03542.i, align 1
   %28 = add i64 %.0.in44.i, 2
   %29 = getelementptr inbounds i8, ptr %3, i64 %.045.i
@@ -385,7 +385,7 @@ define hidden range(i32 -1, 1) i32 @ps_delete_files(ptr nocapture noundef readon
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %34, ptr nonnull readonly align 8 %21, i64 %7, i1 false)
   %35 = getelementptr i8, ptr %34, i64 %7
   store i8 0, ptr %35, align 1
-  %36 = getelementptr inbounds i8, ptr %4, i64 36
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 36
   %37 = load i32, ptr %36, align 4
   %.not5 = icmp eq i32 %37, -1
   br i1 %.not5, label %43, label %ps_files_close.exit
@@ -416,19 +416,19 @@ define hidden range(i64 -2147483648, 2147483648) i64 @ps_gc_files(ptr nocapture 
   %5 = alloca [4096 x i8], align 16
   %6 = alloca i64, align 8
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i64, ptr %8, align 8
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %11, label %59
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %13 = load ptr, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %4, i8 0, i64 144, i1 false)
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = tail call ptr @opendir(ptr noundef nonnull %14)
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %16, label %21
@@ -443,7 +443,7 @@ define hidden range(i64 -2147483648, 2147483648) i64 @ps_gc_files(ptr nocapture 
 
 21:                                               ; preds = %11
   %22 = call i64 @time(ptr noundef nonnull %6) #15
-  %23 = getelementptr inbounds i8, ptr %13, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %24 = load i64, ptr %23, align 8
   %25 = icmp ugt i64 %24, 4095
   br i1 %25, label %26, label %28
@@ -455,21 +455,21 @@ define hidden range(i64 -2147483648, 2147483648) i64 @ps_gc_files(ptr nocapture 
 
 28:                                               ; preds = %21
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull align 8 %14, i64 %24, i1 false)
-  %29 = getelementptr inbounds [4096 x i8], ptr %5, i64 0, i64 %24
+  %29 = getelementptr inbounds nuw [4096 x i8], ptr %5, i64 0, i64 %24
   store i8 47, ptr %29, align 1
-  %invariant.gep.i = getelementptr inbounds i8, ptr %5, i64 1
+  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %5, i64 1
   %30 = call ptr @readdir(ptr noundef nonnull %15) #15
   %.not2729.i = icmp eq ptr %30, null
   br i1 %.not2729.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %28
-  %31 = getelementptr inbounds i8, ptr %4, i64 88
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 88
   br label %32
 
 32:                                               ; preds = %55, %.lr.ph.i
   %33 = phi ptr [ %30, %.lr.ph.i ], [ %56, %55 ]
   %.02330.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %55 ]
-  %34 = getelementptr inbounds i8, ptr %33, i64 19
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 19
   %35 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %34, ptr noundef nonnull dereferenceable(6) @.str.12, i64 noundef 5) #16
   %.not28.i = icmp eq i32 %35, 0
   br i1 %.not28.i, label %36, label %55
@@ -539,7 +539,7 @@ define hidden ptr @ps_create_sid_files(ptr nocapture noundef readonly %0) #0 {
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr %0, align 8
   store ptr %5, ptr %4, align 8
-  %invariant.gep = getelementptr inbounds i8, ptr %2, i64 6
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %2, i64 6
   br label %6
 
 6:                                                ; preds = %56, %1
@@ -562,17 +562,17 @@ define hidden ptr @ps_create_sid_files(ptr nocapture noundef readonly %0) #0 {
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, i8 0, i64 144, i1 false)
-  %14 = getelementptr inbounds i8, ptr %7, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %12, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %17 = load i64, ptr %16, align 8
   %.not40.i.i = icmp ugt i64 %15, %17
   br i1 %.not40.i.i, label %18, label %ps_files_key_exists.exit.thread
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %12, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load i64, ptr %21, align 8
   %23 = shl i64 %17, 1
   %24 = add i64 %15, -4086
@@ -582,8 +582,8 @@ define hidden ptr @ps_create_sid_files(ptr nocapture noundef readonly %0) #0 {
   br i1 %27, label %ps_files_key_exists.exit.thread, label %28
 
 28:                                               ; preds = %18
-  %29 = getelementptr inbounds i8, ptr %7, i64 24
-  %30 = getelementptr inbounds i8, ptr %20, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %20, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %2, ptr nonnull align 8 %30, i64 %22, i1 false)
   %31 = getelementptr inbounds i8, ptr %2, i64 %22
   store i8 47, ptr %31, align 1
@@ -597,7 +597,7 @@ define hidden ptr @ps_create_sid_files(ptr nocapture noundef readonly %0) #0 {
   %.0.in44.i.i = phi i64 [ %36, %.lr.ph.i.i ], [ %22, %28 ]
   %.03443.i.i = phi i32 [ %39, %.lr.ph.i.i ], [ 0, %28 ]
   %.03542.i.i = phi ptr [ %34, %.lr.ph.i.i ], [ %29, %28 ]
-  %34 = getelementptr inbounds i8, ptr %.03542.i.i, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %.03542.i.i, i64 1
   %35 = load i8, ptr %.03542.i.i, align 1
   %36 = add i64 %.0.in44.i.i, 2
   %37 = getelementptr inbounds i8, ptr %2, i64 %.045.i.i
@@ -630,7 +630,7 @@ ps_files_key_exists.exit:                         ; preds = %.lr.ph.i.i, %28
   br i1 %.not5.i.not, label %43, label %56
 
 43:                                               ; preds = %ps_files_key_exists.exit
-  %44 = getelementptr inbounds i8, ptr %7, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %45 = load i32, ptr %44, align 4
   %46 = and i32 %45, 64
   %.not24 = icmp eq i32 %46, 0
@@ -679,17 +679,17 @@ define hidden range(i32 -1, 1) i32 @ps_validate_sid_files(ptr nocapture noundef 
   br i1 %or.cond.i, label %ps_files_key_exists.exit, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %10 = load i64, ptr %9, align 8
   %.not40.i.i = icmp ugt i64 %8, %10
   br i1 %.not40.i.i, label %11, label %ps_files_key_exists.exit
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load i64, ptr %14, align 8
   %16 = shl i64 %10, 1
   %17 = add i64 %8, -4086
@@ -699,8 +699,8 @@ define hidden range(i32 -1, 1) i32 @ps_validate_sid_files(ptr nocapture noundef 
   br i1 %20, label %ps_files_key_exists.exit, label %21
 
 21:                                               ; preds = %11
-  %22 = getelementptr inbounds i8, ptr %1, i64 24
-  %23 = getelementptr inbounds i8, ptr %13, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr nonnull align 8 %23, i64 %15, i1 false)
   %24 = getelementptr inbounds i8, ptr %3, i64 %15
   store i8 47, ptr %24, align 1
@@ -714,7 +714,7 @@ define hidden range(i32 -1, 1) i32 @ps_validate_sid_files(ptr nocapture noundef 
   %.0.in44.i.i = phi i64 [ %29, %.lr.ph.i.i ], [ %15, %21 ]
   %.03443.i.i = phi i32 [ %32, %.lr.ph.i.i ], [ 0, %21 ]
   %.03542.i.i = phi ptr [ %27, %.lr.ph.i.i ], [ %22, %21 ]
-  %27 = getelementptr inbounds i8, ptr %.03542.i.i, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.03542.i.i, i64 1
   %28 = load i8, ptr %.03542.i.i, align 1
   %29 = add i64 %.0.in44.i.i, 2
   %30 = getelementptr inbounds i8, ptr %3, i64 %.045.i.i
@@ -756,17 +756,17 @@ define hidden range(i32 -1, 1) i32 @ps_update_timestamp_files(ptr nocapture noun
   br i1 %.not.i, label %ps_files_path_create.exit.thread, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load i64, ptr %10, align 8
   %.not40.i = icmp ugt i64 %9, %11
   br i1 %.not40.i, label %12, label %ps_files_path_create.exit.thread
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %6, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load i64, ptr %15, align 8
   %17 = shl i64 %11, 1
   %18 = add i64 %9, -4086
@@ -776,8 +776,8 @@ define hidden range(i32 -1, 1) i32 @ps_update_timestamp_files(ptr nocapture noun
   br i1 %21, label %ps_files_path_create.exit.thread, label %22
 
 22:                                               ; preds = %12
-  %23 = getelementptr inbounds i8, ptr %1, i64 24
-  %24 = getelementptr inbounds i8, ptr %14, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %14, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull align 8 %24, i64 %16, i1 false)
   %25 = getelementptr inbounds i8, ptr %5, i64 %16
   store i8 47, ptr %25, align 1
@@ -791,7 +791,7 @@ define hidden range(i32 -1, 1) i32 @ps_update_timestamp_files(ptr nocapture noun
   %.0.in44.i = phi i64 [ %30, %.lr.ph.i ], [ %16, %22 ]
   %.03443.i = phi i32 [ %33, %.lr.ph.i ], [ 0, %22 ]
   %.03542.i = phi ptr [ %28, %.lr.ph.i ], [ %23, %22 ]
-  %28 = getelementptr inbounds i8, ptr %.03542.i, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %.03542.i, i64 1
   %29 = load i8, ptr %.03542.i, align 1
   %30 = add i64 %.0.in44.i, 2
   %31 = getelementptr inbounds i8, ptr %5, i64 %.045.i
@@ -857,7 +857,7 @@ define internal fastcc void @ps_files_open(ptr nocapture noundef %0, ptr noundef
   %3 = alloca [4096 x i8], align 16
   %4 = alloca %struct.stat, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %4, i8 0, i64 144, i1 false)
-  %5 = getelementptr inbounds i8, ptr %0, i64 36
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %6 = load i32, ptr %5, align 4
   %7 = icmp slt i32 %6, 0
   %.pr.pre68 = load ptr, ptr %0, align 8
@@ -872,9 +872,9 @@ define internal fastcc void @ps_files_open(ptr nocapture noundef %0, ptr noundef
   br i1 %10, label %.critedge, label %11
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %1, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %.pr.pre68, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %.pr.pre68, i64 16
   %15 = load i64, ptr %14, align 8
   %16 = icmp eq i64 %13, %15
   br i1 %16, label %17, label %.critedge2.thread70
@@ -894,7 +894,7 @@ define internal fastcc void @ps_files_open(ptr nocapture noundef %0, ptr noundef
 
 .critedge2.thread70:                              ; preds = %11, %.critedge2
   %.pr73 = phi ptr [ %.pr, %.critedge2 ], [ %.pr.pre68, %11 ]
-  %19 = getelementptr inbounds i8, ptr %.pr73, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %.pr73, i64 4
   %20 = load i32, ptr %19, align 4
   %21 = and i32 %20, 64
   %.not52 = icmp eq i32 %21, 0
@@ -929,7 +929,7 @@ define internal fastcc void @ps_files_open(ptr nocapture noundef %0, ptr noundef
   br label %ps_files_close.exit
 
 ps_files_close.exit:                              ; preds = %.critedge2.thread, %.critedge2.thread.thread
-  %31 = getelementptr inbounds i8, ptr %1, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %32 = tail call i32 @php_session_valid_key(ptr noundef nonnull %31) #15
   %33 = icmp eq i32 %32, -1
   br i1 %33, label %34, label %35
@@ -939,17 +939,17 @@ ps_files_close.exit:                              ; preds = %.critedge2.thread, 
   br label %.critedge
 
 35:                                               ; preds = %ps_files_close.exit
-  %36 = getelementptr inbounds i8, ptr %1, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %37 = load i64, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %39 = load i64, ptr %38, align 8
   %.not40.i = icmp ugt i64 %37, %39
   br i1 %.not40.i, label %40, label %61
 
 40:                                               ; preds = %35
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load i64, ptr %43, align 8
   %45 = shl i64 %39, 1
   %46 = add i64 %37, -4086
@@ -959,7 +959,7 @@ ps_files_close.exit:                              ; preds = %.critedge2.thread, 
   br i1 %49, label %61, label %50
 
 50:                                               ; preds = %40
-  %51 = getelementptr inbounds i8, ptr %42, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %42, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr nonnull align 8 %51, i64 %44, i1 false)
   %52 = getelementptr inbounds i8, ptr %3, i64 %44
   store i8 47, ptr %52, align 1
@@ -973,7 +973,7 @@ ps_files_close.exit:                              ; preds = %.critedge2.thread, 
   %.0.in44.i = phi i64 [ %57, %.lr.ph.i ], [ %44, %50 ]
   %.03443.i = phi i32 [ %60, %.lr.ph.i ], [ 0, %50 ]
   %.03542.i = phi ptr [ %55, %.lr.ph.i ], [ %31, %50 ]
-  %55 = getelementptr inbounds i8, ptr %.03542.i, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %.03542.i, i64 1
   %56 = load i8, ptr %.03542.i, align 1
   %57 = add i64 %.0.in44.i, 2
   %58 = getelementptr inbounds i8, ptr %3, i64 %.045.i
@@ -999,7 +999,7 @@ ps_files_close.exit:                              ; preds = %.critedge2.thread, 
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %64, ptr nonnull readonly align 8 %31, i64 %37, i1 false)
   %65 = getelementptr i8, ptr %64, i64 %37
   store i8 0, ptr %65, align 1
-  %66 = getelementptr inbounds i8, ptr %1, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %67 = load i32, ptr %66, align 4
   %68 = and i32 %67, 64
   %.not54 = icmp eq i32 %68, 0
@@ -1013,7 +1013,7 @@ ps_files_close.exit:                              ; preds = %.critedge2.thread, 
 
 72:                                               ; preds = %69, %.loopexit
   store ptr %1, ptr %0, align 8
-  %73 = getelementptr inbounds i8, ptr %0, i64 32
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %74 = load i32, ptr %73, align 8
   %75 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %3, i32 noundef 131138, i32 noundef %74) #15
   store i32 %75, ptr %5, align 4
@@ -1026,7 +1026,7 @@ ps_files_close.exit:                              ; preds = %.critedge2.thread, 
   br i1 %.not56, label %78, label %87
 
 78:                                               ; preds = %76
-  %79 = getelementptr inbounds i8, ptr %4, i64 28
+  %79 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %80 = load i32, ptr %79, align 4
   %.not57 = icmp eq i32 %80, 0
   br i1 %.not57, label %.preheader, label %81
@@ -1109,15 +1109,15 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #10
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @ps_files_write(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   tail call fastcc void @ps_files_open(ptr noundef %0, ptr noundef %1)
-  %4 = getelementptr inbounds i8, ptr %0, i64 36
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %5 = load i32, ptr %4, align 4
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %29, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load i64, ptr %10, align 8
   %12 = icmp ult i64 %9, %11
   br i1 %12, label %13, label %15
@@ -1131,7 +1131,7 @@ define internal fastcc range(i32 -1, 1) i32 @ps_files_write(ptr nocapture nounde
 15:                                               ; preds = %13, %7
   %16 = phi i64 [ %.pre14, %13 ], [ %9, %7 ]
   %17 = phi i32 [ %.pre, %13 ], [ %5, %7 ]
-  %18 = getelementptr inbounds i8, ptr %2, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %19 = tail call i64 @pwrite(i32 noundef %17, ptr noundef nonnull %18, i64 noundef %16, i64 noundef 0) #15
   %20 = load i64, ptr %8, align 8
   %.not = icmp eq i64 %19, %20

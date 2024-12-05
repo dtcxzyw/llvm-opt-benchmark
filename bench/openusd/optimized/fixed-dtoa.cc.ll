@@ -315,14 +315,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12FillDigits32EjNS0
 .lr.ph.preheader.i:                               ; preds = %144
   %146 = zext nneg i32 %.pr.i to i64
   %indvars.iv.next.i120139 = add nsw i64 %146, -1
-  %147 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.next.i120139
+  %147 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.next.i120139
   %148 = load i8, ptr %147, align 1
   %149 = icmp eq i8 %148, 48
   br i1 %149, label %.lr.ph, label %.lr.ph30.preheader.i
 
 .lr.ph.i118:                                      ; preds = %.lr.ph
   %indvars.iv.next.i120 = add nsw i64 %indvars.iv.next.i120141, -1
-  %150 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.next.i120
+  %150 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.next.i120
   %151 = load i8, ptr %150, align 1
   %152 = icmp eq i8 %151, 48
   br i1 %152, label %.lr.ph, label %.critedge.i, !llvm.loop !8
@@ -347,7 +347,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12FillDigits32EjNS0
 
 .lr.ph30.i:                                       ; preds = %159, %.lr.ph30.preheader.i
   %indvars.iv39.i = phi i64 [ 0, %.lr.ph30.preheader.i ], [ %indvars.iv.next40.i, %159 ]
-  %156 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv39.i
+  %156 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv39.i
   %157 = load i8, ptr %156, align 1
   %158 = icmp eq i8 %157, 48
   br i1 %158, label %159, label %.critedge2.i
@@ -374,7 +374,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12FillDigits32EjNS0
 
 .lr.ph35.i:                                       ; preds = %.lr.ph35.i, %.lr.ph35.preheader.i
   %indvars.iv42.i = phi i64 [ %161, %.lr.ph35.preheader.i ], [ %indvars.iv.next43.i, %.lr.ph35.i ]
-  %162 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv42.i
+  %162 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv42.i
   %163 = load i8, ptr %162, align 1
   %164 = sub nuw nsw i64 %indvars.iv42.i, %161
   %165 = getelementptr inbounds i8, ptr %2, i64 %164
@@ -734,7 +734,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_c
 .lr.ph.i:                                         ; preds = %48, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %45, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %48 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %46 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.next.i
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.next.i
   %47 = load i8, ptr %46, align 1
   %.not.i = icmp eq i8 %47, 58
   br i1 %.not.i, label %48, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7RoundUpENS0_6VectorIcEEPiS3_.exit
@@ -889,7 +889,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion7UInt12814DivModPowe
 .lr.ph.i49:                                       ; preds = %120, %.lr.ph.preheader.i48
   %indvars.iv.i50 = phi i64 [ %117, %.lr.ph.preheader.i48 ], [ %indvars.iv.next.i51, %120 ]
   %indvars.iv.next.i51 = add nsw i64 %indvars.iv.i50, -1
-  %118 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.next.i51
+  %118 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.next.i51
   %119 = load i8, ptr %118, align 1
   %.not.i52 = icmp eq i8 %119, 58
   br i1 %.not.i52, label %120, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7RoundUpENS0_6VectorIcEEPiS3_.exit

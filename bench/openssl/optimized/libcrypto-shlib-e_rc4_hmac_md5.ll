@@ -25,13 +25,13 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @RC4_set_key(ptr noundef %call, i32 noundef %call1, ptr noundef %inkey) #5
-  %head = getelementptr inbounds i8, ptr %call, i64 1032
+  %head = getelementptr inbounds nuw i8, ptr %call, i64 1032
   %call2 = tail call i32 @MD5_Init(ptr noundef nonnull %head) #5
-  %tail = getelementptr inbounds i8, ptr %call, i64 1124
+  %tail = getelementptr inbounds nuw i8, ptr %call, i64 1124
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(92) %tail, ptr noundef nonnull align 8 dereferenceable(92) %head, i64 92, i1 false)
-  %md = getelementptr inbounds i8, ptr %call, i64 1216
+  %md = getelementptr inbounds nuw i8, ptr %call, i64 1216
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(92) %md, ptr noundef nonnull align 8 dereferenceable(92) %head, i64 92, i1 false)
-  %payload_length = getelementptr inbounds i8, ptr %call, i64 1312
+  %payload_length = getelementptr inbounds nuw i8, ptr %call, i64 1312
   store i64 -1, ptr %payload_length, align 8
   br label %return
 
@@ -49,12 +49,12 @@ entry:
   %and = and i32 %0, 31
   %sub = xor i32 %and, 31
   %conv = zext nneg i32 %sub to i64
-  %md = getelementptr inbounds i8, ptr %call, i64 1216
-  %num = getelementptr inbounds i8, ptr %call, i64 1304
+  %md = getelementptr inbounds nuw i8, ptr %call, i64 1216
+  %num = getelementptr inbounds nuw i8, ptr %call, i64 1304
   %1 = load i32, ptr %num, align 8
   %sub1 = sub i32 64, %1
   %conv2 = zext i32 %sub1 to i64
-  %payload_length = getelementptr inbounds i8, ptr %call, i64 1312
+  %payload_length = getelementptr inbounds nuw i8, ptr %call, i64 1312
   %2 = load i64, ptr %payload_length, align 8
   %cmp.not = icmp eq i64 %2, -1
   %add = add i64 %2, 16
@@ -90,20 +90,20 @@ land.lhs.true22:                                  ; preds = %land.lhs.true19
 if.then26:                                        ; preds = %land.lhs.true22
   %call28 = tail call i32 @MD5_Update(ptr noundef nonnull %md, ptr noundef %in, i64 noundef %md5_off.0) #5
   tail call void @RC4(ptr noundef nonnull %call, i64 noundef %conv, ptr noundef %in, ptr noundef %out) #5
-  %add.ptr = getelementptr inbounds i8, ptr %in, i64 %conv
-  %add.ptr31 = getelementptr inbounds i8, ptr %out, i64 %conv
-  %add.ptr33 = getelementptr inbounds i8, ptr %in, i64 %md5_off.0
+  %add.ptr = getelementptr inbounds nuw i8, ptr %in, i64 %conv
+  %add.ptr31 = getelementptr inbounds nuw i8, ptr %out, i64 %conv
+  %add.ptr33 = getelementptr inbounds nuw i8, ptr %in, i64 %md5_off.0
   tail call void @rc4_md5_enc(ptr noundef nonnull %call, ptr noundef %add.ptr, ptr noundef %add.ptr31, ptr noundef nonnull %md, ptr noundef %add.ptr33, i64 noundef %div141) #5
   %mul = and i64 %sub20, -64
   %add34 = or disjoint i64 %mul, %conv
   %add35 = add i64 %mul, %md5_off.0
   %shr = lshr i64 %sub20, 29
-  %Nh = getelementptr inbounds i8, ptr %call, i64 1236
+  %Nh = getelementptr inbounds nuw i8, ptr %call, i64 1236
   %4 = load i32, ptr %Nh, align 4
   %5 = trunc i64 %shr to i32
   %conv39 = add i32 %4, %5
   store i32 %conv39, ptr %Nh, align 4
-  %Nl = getelementptr inbounds i8, ptr %call, i64 1232
+  %Nl = getelementptr inbounds nuw i8, ptr %call, i64 1232
   %6 = load i32, ptr %Nl, align 8
   %mul.tr = trunc i64 %mul to i32
   %7 = shl i32 %mul.tr, 3
@@ -140,7 +140,7 @@ if.then63:                                        ; preds = %if.then60
 if.end67:                                         ; preds = %if.then63, %if.then60
   %add.ptr68 = getelementptr inbounds i8, ptr %out, i64 %spec.select
   %call70 = tail call i32 @MD5_Final(ptr noundef %add.ptr68, ptr noundef nonnull %md) #5
-  %tail = getelementptr inbounds i8, ptr %call, i64 1124
+  %tail = getelementptr inbounds nuw i8, ptr %call, i64 1124
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(92) %md, ptr noundef nonnull align 4 dereferenceable(92) %tail, i64 92, i1 false)
   %call74 = tail call i32 @MD5_Update(ptr noundef nonnull %md, ptr noundef %add.ptr68, i64 noundef 16) #5
   %call77 = tail call i32 @MD5_Final(ptr noundef %add.ptr68, ptr noundef nonnull %md) #5
@@ -178,26 +178,26 @@ land.lhs.true102:                                 ; preds = %land.lhs.true98
 if.then106:                                       ; preds = %land.lhs.true102
   tail call void @RC4(ptr noundef nonnull %call, i64 noundef %rc4_off.1, ptr noundef %in, ptr noundef %out) #5
   %call109 = tail call i32 @MD5_Update(ptr noundef nonnull %md, ptr noundef %out, i64 noundef %conv2) #5
-  %add.ptr111 = getelementptr inbounds i8, ptr %in, i64 %rc4_off.1
-  %add.ptr112 = getelementptr inbounds i8, ptr %out, i64 %rc4_off.1
-  %add.ptr114 = getelementptr inbounds i8, ptr %out, i64 %conv2
+  %add.ptr111 = getelementptr inbounds nuw i8, ptr %in, i64 %rc4_off.1
+  %add.ptr112 = getelementptr inbounds nuw i8, ptr %out, i64 %rc4_off.1
+  %add.ptr114 = getelementptr inbounds nuw i8, ptr %out, i64 %conv2
   tail call void @rc4_md5_enc(ptr noundef nonnull %call, ptr noundef nonnull %add.ptr111, ptr noundef nonnull %add.ptr112, ptr noundef nonnull %md, ptr noundef %add.ptr114, i64 noundef %div100140) #5
   %mul115 = and i64 %sub99, -64
   %add116 = add i64 %mul115, %rc4_off.1
   %add117 = add i64 %mul115, %conv2
-  %Nl119 = getelementptr inbounds i8, ptr %call, i64 1232
+  %Nl119 = getelementptr inbounds nuw i8, ptr %call, i64 1232
   %9 = load i32, ptr %Nl119, align 8
   %mul115.tr = trunc i64 %mul115 to i32
   %shl121.tr = shl i32 %mul115.tr, 3
   %add122.narrow = add i32 %9, %shl121.tr
   %cmp127 = icmp ult i32 %add122.narrow, %9
-  %Nh131 = getelementptr inbounds i8, ptr %call, i64 1236
+  %Nh131 = getelementptr inbounds nuw i8, ptr %call, i64 1236
   %10 = load i32, ptr %Nh131, align 4
   %inc132 = zext i1 %cmp127 to i32
   %11 = add i32 %10, %inc132
   store i32 %add122.narrow, ptr %Nl119, align 8
   %shr136 = lshr i64 %sub99, 29
-  %Nh138 = getelementptr inbounds i8, ptr %call, i64 1236
+  %Nh138 = getelementptr inbounds nuw i8, ptr %call, i64 1236
   %12 = trunc i64 %shr136 to i32
   %conv141 = add i32 %11, %12
   store i32 %conv141, ptr %Nh138, align 4
@@ -217,7 +217,7 @@ if.then150:                                       ; preds = %if.end143
   %sub153 = sub i64 %2, %md5_off.2
   %call154 = tail call i32 @MD5_Update(ptr noundef nonnull %md, ptr noundef %add.ptr173, i64 noundef %sub153) #5
   %call156 = call i32 @MD5_Final(ptr noundef nonnull %mac, ptr noundef nonnull %md) #5
-  %tail158 = getelementptr inbounds i8, ptr %call, i64 1124
+  %tail158 = getelementptr inbounds nuw i8, ptr %call, i64 1124
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(92) %md, ptr noundef nonnull align 4 dereferenceable(92) %tail158, i64 92, i1 false)
   %call161 = call i32 @MD5_Update(ptr noundef nonnull %md, ptr noundef nonnull %mac, i64 noundef 16) #5
   %call164 = call i32 @MD5_Final(ptr noundef nonnull %mac, ptr noundef nonnull %md) #5
@@ -256,7 +256,7 @@ sw.bb:                                            ; preds = %entry
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %sw.bb
-  %head = getelementptr inbounds i8, ptr %call, i64 1032
+  %head = getelementptr inbounds nuw i8, ptr %call, i64 1032
   %call1 = tail call i32 @MD5_Init(ptr noundef nonnull %head) #5
   %conv = zext nneg i32 %arg to i64
   %call3 = tail call i32 @MD5_Update(ptr noundef nonnull %head, ptr noundef %ptr, i64 noundef %conv) #5
@@ -273,7 +273,7 @@ for.body.preheader:                               ; preds = %if.else, %if.then
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.body.preheader ]
-  %arrayidx = getelementptr inbounds [64 x i8], ptr %hmac_key, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [64 x i8], ptr %hmac_key, i64 0, i64 %indvars.iv
   %0 = load i8, ptr %arrayidx, align 1
   %1 = xor i8 %0, 54
   store i8 %1, ptr %arrayidx, align 1
@@ -282,14 +282,14 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
 
 for.end:                                          ; preds = %for.body
-  %head14 = getelementptr inbounds i8, ptr %call, i64 1032
+  %head14 = getelementptr inbounds nuw i8, ptr %call, i64 1032
   %call15 = call i32 @MD5_Init(ptr noundef nonnull %head14) #5
   %call18 = call i32 @MD5_Update(ptr noundef nonnull %head14, ptr noundef nonnull %hmac_key, i64 noundef 64) #5
   br label %for.body23
 
 for.body23:                                       ; preds = %for.end, %for.body23
   %indvars.iv38 = phi i64 [ 0, %for.end ], [ %indvars.iv.next39, %for.body23 ]
-  %arrayidx25 = getelementptr inbounds [64 x i8], ptr %hmac_key, i64 0, i64 %indvars.iv38
+  %arrayidx25 = getelementptr inbounds nuw [64 x i8], ptr %hmac_key, i64 0, i64 %indvars.iv38
   %2 = load i8, ptr %arrayidx25, align 1
   %3 = xor i8 %2, 106
   store i8 %3, ptr %arrayidx25, align 1
@@ -298,7 +298,7 @@ for.body23:                                       ; preds = %for.end, %for.body2
   br i1 %exitcond41.not, label %for.end31, label %for.body23, !llvm.loop !6
 
 for.end31:                                        ; preds = %for.body23
-  %tail = getelementptr inbounds i8, ptr %call, i64 1124
+  %tail = getelementptr inbounds nuw i8, ptr %call, i64 1124
   %call32 = call i32 @MD5_Init(ptr noundef nonnull %tail) #5
   %call35 = call i32 @MD5_Update(ptr noundef nonnull %tail, ptr noundef nonnull %hmac_key, i64 noundef 64) #5
   call void @OPENSSL_cleanse(ptr noundef nonnull %hmac_key, i64 noundef 64) #5
@@ -309,11 +309,11 @@ sw.bb37:                                          ; preds = %entry
   br i1 %cmp38.not, label %if.end41, label %return
 
 if.end41:                                         ; preds = %sw.bb37
-  %arrayidx43 = getelementptr inbounds i8, ptr %ptr, i64 11
+  %arrayidx43 = getelementptr inbounds nuw i8, ptr %ptr, i64 11
   %4 = load i8, ptr %arrayidx43, align 1
   %conv44 = zext i8 %4 to i32
   %shl = shl nuw nsw i32 %conv44, 8
-  %arrayidx47 = getelementptr inbounds i8, ptr %ptr, i64 12
+  %arrayidx47 = getelementptr inbounds nuw i8, ptr %ptr, i64 12
   %5 = load i8, ptr %arrayidx47, align 1
   %conv48 = zext i8 %5 to i32
   %or = or disjoint i32 %shl, %conv48
@@ -337,10 +337,10 @@ if.end54:                                         ; preds = %if.then50
 if.end64:                                         ; preds = %if.end54, %if.end41
   %len.0 = phi i32 [ %or, %if.end41 ], [ %sub55, %if.end54 ]
   %conv65 = zext nneg i32 %len.0 to i64
-  %payload_length = getelementptr inbounds i8, ptr %call, i64 1312
+  %payload_length = getelementptr inbounds nuw i8, ptr %call, i64 1312
   store i64 %conv65, ptr %payload_length, align 8
-  %md = getelementptr inbounds i8, ptr %call, i64 1216
-  %head66 = getelementptr inbounds i8, ptr %call, i64 1032
+  %md = getelementptr inbounds nuw i8, ptr %call, i64 1216
+  %head66 = getelementptr inbounds nuw i8, ptr %call, i64 1032
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(92) %md, ptr noundef nonnull align 8 dereferenceable(92) %head66, i64 92, i1 false)
   %call69 = tail call i32 @MD5_Update(ptr noundef nonnull %md, ptr noundef nonnull %ptr, i64 noundef 13) #5
   br label %return

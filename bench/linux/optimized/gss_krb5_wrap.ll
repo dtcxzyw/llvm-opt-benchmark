@@ -22,7 +22,7 @@ define dso_local i32 @gss_krb5_wrap_v2(ptr noundef %0, i32 noundef %1, ptr nound
   store i8 5, ptr %10, align 1
   %12 = getelementptr i8, ptr %10, i64 2
   store i8 4, ptr %11, align 1
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i32, ptr %13, align 8
   %15 = trunc i32 %14 to i8
   %16 = and i8 %15, 5
@@ -35,13 +35,13 @@ define dso_local i32 @gss_krb5_wrap_v2(ptr noundef %0, i32 noundef %1, ptr nound
   store i16 0, ptr %19, align 2
   %21 = getelementptr i8, ptr %10, i64 8
   store i16 0, ptr %20, align 2
-  %22 = getelementptr inbounds i8, ptr %0, i64 176
-  %23 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %22, i64 1, ptr elementtype(i64) %22) #7, !srcloc !5
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %23 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %22, i64 1, ptr nonnull elementtype(i64) %22) #7, !srcloc !5
   %24 = tail call i64 @llvm.bswap.i64(i64 %23)
   store i64 %24, ptr %21, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 80
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 80
   %28 = load ptr, ptr %27, align 8
   %29 = tail call i32 %28(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #7
   %30 = icmp eq i32 %29, 0
@@ -49,7 +49,7 @@ define dso_local i32 @gss_krb5_wrap_v2(ptr noundef %0, i32 noundef %1, ptr nound
 
 31:                                               ; preds = %7
   %32 = tail call i64 @ktime_get_real_seconds() #7
-  %33 = getelementptr inbounds i8, ptr %0, i64 184
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %34 = load i64, ptr %33, align 8
   %35 = icmp slt i64 %34, %32
   %36 = select i1 %35, i32 786432, i32 0
@@ -132,11 +132,11 @@ define dso_local noundef range(i32 0, 851969) i32 @gss_krb5_unwrap_v2(ptr nounde
   %43 = add i32 %1, 16
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %9) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %9, i8 0, i64 72, i1 false), !annotation !6
-  %44 = getelementptr inbounds i8, ptr %3, i64 64
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %45 = load i32, ptr %44, align 8
   %46 = sub i32 %45, %43
   %47 = call i32 @xdr_buf_subsegment(ptr noundef %3, ptr noundef nonnull %9, i32 noundef %43, i32 noundef %46) #7
-  %48 = getelementptr inbounds i8, ptr %9, i64 64
+  %48 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %49 = load i32, ptr %48, align 8
   %50 = urem i32 %42, %49
   %51 = icmp eq i32 %50, 0
@@ -188,9 +188,9 @@ rotate_left.exit:                                 ; preds = %.loopexit.i, %40
   br label %74
 
 74:                                               ; preds = %rotate_left.exit, %33
-  %75 = getelementptr inbounds i8, ptr %0, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 88
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 88
   %78 = load ptr, ptr %77, align 8
   %79 = call i32 %78(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %10, ptr noundef nonnull %11) #7
   %80 = icmp eq i32 %79, 0
@@ -211,20 +211,20 @@ rotate_left.exit:                                 ; preds = %.loopexit.i, %40
 
 90:                                               ; preds = %87
   %91 = getelementptr i8, ptr %15, i64 8
-  %92 = getelementptr inbounds i8, ptr %12, i64 8
-  %93 = call i32 @bcmp(ptr noundef dereferenceable(8) %91, ptr noundef dereferenceable(8) %92, i64 8)
+  %92 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %93 = call i32 @bcmp(ptr noundef dereferenceable(8) %91, ptr noundef nonnull dereferenceable(8) %92, i64 8)
   %94 = icmp eq i32 %93, 0
   br i1 %94, label %95, label %135
 
 95:                                               ; preds = %90
   %96 = call i64 @ktime_get_real_seconds() #7
-  %97 = getelementptr inbounds i8, ptr %0, i64 184
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %98 = load i64, ptr %97, align 8
   %99 = icmp sgt i64 %96, %98
   br i1 %99, label %135, label %100
 
 100:                                              ; preds = %95
-  %101 = getelementptr inbounds i8, ptr %3, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %102 = load i64, ptr %101, align 8
   %103 = trunc i64 %102 to i32
   %104 = call i32 @llvm.umin.i32(i32 %103, i32 %2)
@@ -253,7 +253,7 @@ rotate_left.exit:                                 ; preds = %.loopexit.i, %40
   %120 = sub i64 %119, %118
   store i64 %120, ptr %101, align 8
   %121 = sub i32 %2, %117
-  %122 = getelementptr inbounds i8, ptr %3, i64 64
+  %122 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 %121, ptr %122, align 8
   %123 = zext i16 %36 to i32
   %124 = add nuw nsw i32 %123, 16

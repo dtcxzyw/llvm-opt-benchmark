@@ -229,7 +229,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %25, %23, %19, %15, 
   %59 = zext nneg i32 %58 to i64
   %60 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %59
   %61 = load i8, ptr %60, align 1, !tbaa !11, !noalias !12
-  %62 = getelementptr inbounds i8, ptr %35, i64 1
+  %62 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store i8 %61, ptr %62, align 1, !tbaa !11
   %63 = zext nneg i32 %57 to i64
   %64 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %63
@@ -423,21 +423,21 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit81: ; preds =
           to label %139 unwind label %177
 
 139:                                              ; preds = %138
-  %.sroa.5.0..sroa_idx3.i = getelementptr inbounds i8, ptr %8, i64 16
+  %.sroa.5.0..sroa_idx3.i = getelementptr inbounds nuw i8, ptr %8, i64 16
   %.sroa.5.0.copyload4.i = load i64, ptr %.sroa.5.0..sroa_idx3.i, align 8, !tbaa !25
   %switch.i.i = icmp ult i64 %.sroa.5.0.copyload4.i, 2
   %140 = and i64 %.sroa.5.0.copyload4.i, 1
   %141 = or disjoint i64 %140, ptrtoint (ptr @_ZZN5boost7process2v23ext3cmdEiRNS_6system10error_codeEE11loc__LINE__ to i64)
   %.sroa.5.0.i = select i1 %switch.i.i, i64 %.sroa.5.0.copyload4.i, i64 %141
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 16, i1 false)
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 16
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %.sroa.5.0.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #21
   %142 = invoke i32 @close(i32 noundef %107)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit81.thread unwind label %.loopexit.split-lp
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit81.thread: ; preds = %139
-  %143 = getelementptr inbounds i8, ptr %0, i64 16
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %143, i8 0, i64 48, i1 false)
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %144, ptr %0, align 8, !tbaa !3
@@ -749,7 +749,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_t
 
 265:                                              ; preds = %262
   %266 = load ptr, ptr @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, align 8, !tbaa !39
-  %267 = getelementptr inbounds i8, ptr %266, i64 48
+  %267 = getelementptr inbounds nuw i8, ptr %266, i64 48
   %268 = load ptr, ptr %267, align 8
   %269 = call noundef zeroext i1 %268(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, i32 noundef 22) #21
   %270 = zext i1 %269 to i64
@@ -758,7 +758,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_t
 .critedge:                                        ; preds = %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcET_SA_SA_RKT0_.exit
   %271 = getelementptr inbounds nuw ptr, ptr %213, i64 %220
   store ptr %.sroa.0114.0137, ptr %271, align 8, !tbaa !32
-  %272 = getelementptr inbounds i8, ptr %.sroa.08.0.in.sroa.speculated.i.i.i, i64 1
+  %272 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.in.sroa.speculated.i.i.i, i64 1
   %273 = add i32 %.040138, 1
   %274 = zext i32 %273 to i64
   %.not48 = icmp slt i64 %.0.lcssa.i.i85, %274
@@ -871,13 +871,13 @@ _ZNKSt14default_deleteIA_PcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   %.0.i.i.i = phi i64 [ %270, %265 ], [ 1, %262 ]
   %310 = or disjoint i64 %.0.i.i.i, ptrtoint (ptr @_ZZN5boost7process2v23ext3cmdEiRNS_6system10error_codeEE11loc__LINE___0 to i64)
   store i32 22, ptr %2, align 8
-  %.sroa.5.0..sroa_idx.i86 = getelementptr inbounds i8, ptr %2, i64 4
+  %.sroa.5.0..sroa_idx.i86 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %.sroa.5.0..sroa_idx.i86, align 4
-  %.sroa.53.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.53.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, ptr %.sroa.53.0..sroa_idx.i, align 8, !tbaa !11
-  %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 16
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %310, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !25
-  %311 = getelementptr inbounds i8, ptr %0, i64 16
+  %311 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %311, i8 0, i64 48, i1 false)
   %312 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %312, ptr %0, align 8, !tbaa !3
@@ -994,7 +994,7 @@ declare void @_ZN5boost7process2v25shellD1Ev(ptr noundef nonnull align 8 derefer
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK5boost6system14error_category10equivalentEiRKNS0_15error_conditionE(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #0 comdat align 2 {
   %4 = load ptr, ptr %0, align 8, !tbaa !39
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call { i32, ptr } %6(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef %1) #21
   %8 = extractvalue { i32, ptr } %7, 0

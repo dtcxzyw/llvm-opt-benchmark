@@ -70,7 +70,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
   br i1 %9, label %_ZN5alloc7raw_vec11finish_grow17h848e588694922202E.exit.thread, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h074df4280bcde916E.exit.thread.thread"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h074df4280bcde916E.exit.thread.thread": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25 = load ptr, ptr %10, align 8
   %11 = icmp ne ptr %.val25, null
   tail call void @llvm.assume(i1 %11)
@@ -79,7 +79,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread: ; preds = %7
   %12 = mul nuw nsw i64 %5, 104
   %.val54 = load i64, ptr %0, align 8, !noundef !4
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = icmp eq i64 %.val54, 0
   br i1 %14, label %19, label %15
 
@@ -138,7 +138,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
   br i1 %9, label %_ZN5alloc7raw_vec11finish_grow17h848e588694922202E.exit.thread, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hae5f3aa585a022dbE.exit.thread.thread"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hae5f3aa585a022dbE.exit.thread.thread": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25 = load ptr, ptr %10, align 8
   %11 = icmp ne ptr %.val25, null
   tail call void @llvm.assume(i1 %11)
@@ -147,7 +147,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread: ; preds = %7
   %12 = mul nuw nsw i64 %5, 40
   %.val54 = load i64, ptr %0, align 8, !noundef !4
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = icmp eq i64 %.val54, 0
   br i1 %14, label %19, label %15
 
@@ -206,7 +206,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
   br i1 %9, label %_ZN5alloc7raw_vec11finish_grow17h848e588694922202E.exit.thread, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h281b56e0a11d36a0E.exit.thread.thread"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h281b56e0a11d36a0E.exit.thread.thread": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25 = load ptr, ptr %10, align 8
   %11 = icmp ne ptr %.val25, null
   tail call void @llvm.assume(i1 %11)
@@ -215,7 +215,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread: ; preds = %7
   %12 = mul nuw nsw i64 %5, 40
   %.val54 = load i64, ptr %0, align 8, !noundef !4
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = icmp eq i64 %.val54, 0
   br i1 %14, label %19, label %15
 
@@ -274,7 +274,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
   br i1 %9, label %_ZN5alloc7raw_vec11finish_grow17h848e588694922202E.exit.thread, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hea089bc6b42f0c21E.exit.thread.thread"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hea089bc6b42f0c21E.exit.thread.thread": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25 = load ptr, ptr %10, align 8
   %11 = icmp ne ptr %.val25, null
   tail call void @llvm.assume(i1 %11)
@@ -283,7 +283,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread: ; preds = %7
   %12 = shl nuw nsw i64 %5, 6
   %.val54 = load i64, ptr %0, align 8, !noundef !4
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = icmp eq i64 %.val54, 0
   br i1 %14, label %19, label %15
 
@@ -342,7 +342,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
   br i1 %9, label %_ZN5alloc7raw_vec11finish_grow17h848e588694922202E.exit.thread, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h97385ff9154efdaeE.exit.thread.thread"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h97385ff9154efdaeE.exit.thread.thread": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25 = load ptr, ptr %10, align 8
   %11 = icmp ne ptr %.val25, null
   tail call void @llvm.assume(i1 %11)
@@ -351,7 +351,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread: ; preds = %7
   %12 = shl nuw nsw i64 %5, 3
   %.val54 = load i64, ptr %0, align 8, !noundef !4
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = icmp eq i64 %.val54, 0
   br i1 %14, label %19, label %15
 
@@ -410,7 +410,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
   br i1 %9, label %_ZN5alloc7raw_vec11finish_grow17h848e588694922202E.exit.thread, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hccfdd55d274bc4e7E.exit.thread.thread"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hccfdd55d274bc4e7E.exit.thread.thread": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25 = load ptr, ptr %10, align 8
   %11 = icmp ne ptr %.val25, null
   tail call void @llvm.assume(i1 %11)
@@ -419,7 +419,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread: ; preds = %7
   %12 = shl nuw nsw i64 %5, 6
   %.val54 = load i64, ptr %0, align 8, !noundef !4
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = icmp eq i64 %.val54, 0
   br i1 %14, label %19, label %15
 
@@ -478,7 +478,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
   br i1 %9, label %_ZN5alloc7raw_vec11finish_grow17h848e588694922202E.exit.thread, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he68468462d4c6f76E.exit.thread.thread"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he68468462d4c6f76E.exit.thread.thread": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25 = load ptr, ptr %10, align 8
   %11 = icmp ne ptr %.val25, null
   tail call void @llvm.assume(i1 %11)
@@ -487,7 +487,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread: ; preds = %7
   %12 = mul nuw nsw i64 %5, 24
   %.val54 = load i64, ptr %0, align 8, !noundef !4
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = icmp eq i64 %.val54, 0
   br i1 %14, label %19, label %15
 
@@ -546,7 +546,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
   br i1 %9, label %_ZN5alloc7raw_vec11finish_grow17h848e588694922202E.exit.thread, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h8f459bdeda3f8bbeE.exit.thread.thread"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h8f459bdeda3f8bbeE.exit.thread.thread": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25 = load ptr, ptr %10, align 8
   %11 = icmp ne ptr %.val25, null
   tail call void @llvm.assume(i1 %11)
@@ -555,7 +555,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread: ; preds = %7
   %12 = mul nuw nsw i64 %5, 24
   %.val54 = load i64, ptr %0, align 8, !noundef !4
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = icmp eq i64 %.val54, 0
   br i1 %14, label %19, label %15
 
@@ -614,7 +614,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
   br i1 %9, label %_ZN5alloc7raw_vec11finish_grow17h848e588694922202E.exit.thread, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h9e0f027fe3a1ee45E.exit.thread.thread"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h9e0f027fe3a1ee45E.exit.thread.thread": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25 = load ptr, ptr %10, align 8
   %11 = icmp ne ptr %.val25, null
   tail call void @llvm.assume(i1 %11)
@@ -623,7 +623,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread: ; preds = %7
   %12 = shl nuw nsw i64 %5, 6
   %.val54 = load i64, ptr %0, align 8, !noundef !4
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = icmp eq i64 %.val54, 0
   br i1 %14, label %19, label %15
 
@@ -682,7 +682,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
   br i1 %9, label %_ZN5alloc7raw_vec11finish_grow17h848e588694922202E.exit.thread, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h79fe33e54cc93114E.exit.thread.thread"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h79fe33e54cc93114E.exit.thread.thread": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25 = load ptr, ptr %10, align 8
   %11 = icmp ne ptr %.val25, null
   tail call void @llvm.assume(i1 %11)
@@ -691,7 +691,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread: ; preds = %7
   %12 = mul nuw nsw i64 %5, 112
   %.val54 = load i64, ptr %0, align 8, !noundef !4
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = icmp eq i64 %.val54, 0
   br i1 %14, label %19, label %15
 
@@ -750,7 +750,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
   br i1 %9, label %_ZN5alloc7raw_vec11finish_grow17h848e588694922202E.exit.thread, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h95541560d23c7dffE.exit.thread.thread"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h95541560d23c7dffE.exit.thread.thread": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25 = load ptr, ptr %10, align 8
   %11 = icmp ne ptr %.val25, null
   tail call void @llvm.assume(i1 %11)
@@ -759,7 +759,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread: ; preds = %7
   %12 = mul nuw nsw i64 %5, 168
   %.val54 = load i64, ptr %0, align 8, !noundef !4
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = icmp eq i64 %.val54, 0
   br i1 %14, label %19, label %15
 
@@ -818,7 +818,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
   br i1 %9, label %_ZN5alloc7raw_vec11finish_grow17h848e588694922202E.exit.thread, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h3136ebb61ecc1079E.exit.thread.thread"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h3136ebb61ecc1079E.exit.thread.thread": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25 = load ptr, ptr %10, align 8
   %11 = icmp ne ptr %.val25, null
   tail call void @llvm.assume(i1 %11)
@@ -827,7 +827,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread: ; preds = %7
   %12 = mul nuw nsw i64 %5, 40
   %.val54 = load i64, ptr %0, align 8, !noundef !4
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = icmp eq i64 %.val54, 0
   br i1 %14, label %19, label %15
 
@@ -886,7 +886,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
   br i1 %9, label %_ZN5alloc7raw_vec11finish_grow17h848e588694922202E.exit.thread, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf79ca5cfa67935bbE.exit.thread.thread"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf79ca5cfa67935bbE.exit.thread.thread": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25 = load ptr, ptr %10, align 8
   %11 = icmp ne ptr %.val25, null
   tail call void @llvm.assume(i1 %11)
@@ -895,7 +895,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread: ; preds = %7
   %12 = shl nuw nsw i64 %5, 4
   %.val54 = load i64, ptr %0, align 8, !noundef !4
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = icmp eq i64 %.val54, 0
   br i1 %14, label %19, label %15
 
@@ -954,7 +954,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
   br i1 %9, label %_ZN5alloc7raw_vec11finish_grow17h848e588694922202E.exit.thread, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd81f70f44dad4e0aE.exit.thread.thread"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd81f70f44dad4e0aE.exit.thread.thread": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25 = load ptr, ptr %10, align 8
   %11 = icmp ne ptr %.val25, null
   tail call void @llvm.assume(i1 %11)
@@ -963,7 +963,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread: ; preds = %7
   %12 = mul nuw nsw i64 %5, 88
   %.val54 = load i64, ptr %0, align 8, !noundef !4
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = icmp eq i64 %.val54, 0
   br i1 %14, label %19, label %15
 
@@ -1022,7 +1022,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
   br i1 %9, label %_ZN5alloc7raw_vec11finish_grow17h848e588694922202E.exit.thread, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7a1204d31003f62dE.exit.thread.thread"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7a1204d31003f62dE.exit.thread.thread": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25 = load ptr, ptr %10, align 8
   %11 = icmp ne ptr %.val25, null
   tail call void @llvm.assume(i1 %11)
@@ -1031,7 +1031,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread: ; preds = %7
   %12 = mul nuw nsw i64 %5, 48
   %.val54 = load i64, ptr %0, align 8, !noundef !4
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = icmp eq i64 %.val54, 0
   br i1 %14, label %19, label %15
 
@@ -1090,7 +1090,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
   br i1 %9, label %_ZN5alloc7raw_vec11finish_grow17h848e588694922202E.exit.thread, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h13a64733bb150d0eE.exit.thread.thread"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h13a64733bb150d0eE.exit.thread.thread": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25 = load ptr, ptr %10, align 8
   %11 = icmp ne ptr %.val25, null
   tail call void @llvm.assume(i1 %11)
@@ -1099,7 +1099,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread: ; preds = %7
   %12 = mul nuw nsw i64 %5, 112
   %.val54 = load i64, ptr %0, align 8, !noundef !4
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = icmp eq i64 %.val54, 0
   br i1 %14, label %19, label %15
 
@@ -1158,7 +1158,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
   br i1 %9, label %_ZN5alloc7raw_vec11finish_grow17h848e588694922202E.exit.thread, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h462d6fdbae63ea48E.exit.thread.thread"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h462d6fdbae63ea48E.exit.thread.thread": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25 = load ptr, ptr %10, align 8
   %11 = icmp ne ptr %.val25, null
   tail call void @llvm.assume(i1 %11)
@@ -1167,7 +1167,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread: ; preds = %7
   %12 = mul nuw nsw i64 %5, 104
   %.val54 = load i64, ptr %0, align 8, !noundef !4
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = icmp eq i64 %.val54, 0
   br i1 %14, label %19, label %15
 
@@ -1226,7 +1226,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
   br i1 %9, label %_ZN5alloc7raw_vec11finish_grow17h848e588694922202E.exit.thread, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf5e6fa6a3a48fa5bE.exit.thread.thread"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf5e6fa6a3a48fa5bE.exit.thread.thread": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25 = load ptr, ptr %10, align 8
   %11 = icmp ne ptr %.val25, null
   tail call void @llvm.assume(i1 %11)
@@ -1235,7 +1235,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread: ; preds = %7
   %12 = shl nuw nsw i64 %5, 5
   %.val54 = load i64, ptr %0, align 8, !noundef !4
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = icmp eq i64 %.val54, 0
   br i1 %14, label %19, label %15
 
@@ -1294,7 +1294,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
   br i1 %9, label %_ZN5alloc7raw_vec11finish_grow17h848e588694922202E.exit.thread, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17heb1a162e35bbbb95E.exit.thread.thread"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17heb1a162e35bbbb95E.exit.thread.thread": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25 = load ptr, ptr %10, align 8
   %11 = icmp ne ptr %.val25, null
   tail call void @llvm.assume(i1 %11)
@@ -1303,7 +1303,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread: ; preds = %7
   %12 = shl nuw nsw i64 %5, 6
   %.val54 = load i64, ptr %0, align 8, !noundef !4
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = icmp eq i64 %.val54, 0
   br i1 %14, label %19, label %15
 
@@ -1362,7 +1362,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
   br i1 %9, label %_ZN5alloc7raw_vec11finish_grow17h848e588694922202E.exit.thread, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he1da9c9db3ccbe12E.exit.thread.thread"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he1da9c9db3ccbe12E.exit.thread.thread": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25 = load ptr, ptr %10, align 8
   %11 = icmp ne ptr %.val25, null
   tail call void @llvm.assume(i1 %11)
@@ -1371,7 +1371,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread: ; preds = %7
   %12 = shl nuw nsw i64 %5, 5
   %.val54 = load i64, ptr %0, align 8, !noundef !4
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = icmp eq i64 %.val54, 0
   br i1 %14, label %19, label %15
 
@@ -1430,7 +1430,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
   br i1 %9, label %_ZN5alloc7raw_vec11finish_grow17h848e588694922202E.exit.thread, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h23ee6bc7451a72f8E.exit.thread.thread"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h23ee6bc7451a72f8E.exit.thread.thread": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25 = load ptr, ptr %10, align 8
   %11 = icmp ne ptr %.val25, null
   tail call void @llvm.assume(i1 %11)
@@ -1439,7 +1439,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread: ; preds = %7
   %12 = shl nuw nsw i64 %5, 6
   %.val54 = load i64, ptr %0, align 8, !noundef !4
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = icmp eq i64 %.val54, 0
   br i1 %14, label %19, label %15
 
@@ -3054,7 +3054,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
   br i1 %11, label %_ZN5alloc7raw_vec11finish_grow17h848e588694922202E.exit.thread, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2db71a5a66667f72E.exit.thread.thread"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2db71a5a66667f72E.exit.thread.thread": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25 = load ptr, ptr %12, align 8
   %13 = icmp ne ptr %.val25, null
   tail call void @llvm.assume(i1 %13)
@@ -3062,7 +3062,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread: ; preds = %7
   %14 = mul nuw nsw i64 %.0.sroa.speculated.i26, 40
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = icmp eq i64 %8, 0
   br i1 %16, label %21, label %17
 
@@ -3119,7 +3119,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
   br i1 %11, label %_ZN5alloc7raw_vec11finish_grow17h848e588694922202E.exit.thread, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hc415f91958cd5e18E.exit.thread.thread"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hc415f91958cd5e18E.exit.thread.thread": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25 = load ptr, ptr %12, align 8
   %13 = icmp ne ptr %.val25, null
   tail call void @llvm.assume(i1 %13)
@@ -3127,7 +3127,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread: ; preds = %7
   %14 = shl nuw nsw i64 %.0.sroa.speculated.i26, 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = icmp eq i64 %8, 0
   br i1 %16, label %21, label %17
 
@@ -3184,7 +3184,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
   br i1 %11, label %_ZN5alloc7raw_vec11finish_grow17h848e588694922202E.exit.thread, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h3cfe4399635e0b6fE.exit.thread.thread"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h3cfe4399635e0b6fE.exit.thread.thread": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25 = load ptr, ptr %12, align 8
   %13 = icmp ne ptr %.val25, null
   tail call void @llvm.assume(i1 %13)
@@ -3192,7 +3192,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread: ; preds = %7
   %14 = shl nuw nsw i64 %.0.sroa.speculated.i26, 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = icmp eq i64 %8, 0
   br i1 %16, label %21, label %17
 
@@ -3249,7 +3249,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
   br i1 %11, label %_ZN5alloc7raw_vec11finish_grow17h848e588694922202E.exit.thread, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hb2a8e5584583df4aE.exit.thread.thread"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hb2a8e5584583df4aE.exit.thread.thread": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25 = load ptr, ptr %12, align 8
   %13 = icmp ne ptr %.val25, null
   tail call void @llvm.assume(i1 %13)
@@ -3257,7 +3257,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread: ; preds = %7
   %14 = shl nuw nsw i64 %.0.sroa.speculated.i26, 5
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = icmp eq i64 %8, 0
   br i1 %16, label %21, label %17
 
@@ -3314,7 +3314,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
   br i1 %11, label %_ZN5alloc7raw_vec11finish_grow17h848e588694922202E.exit.thread, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdc16e2b00e8c12b0E.exit.thread.thread"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdc16e2b00e8c12b0E.exit.thread.thread": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25 = load ptr, ptr %12, align 8
   %13 = icmp ne ptr %.val25, null
   tail call void @llvm.assume(i1 %13)
@@ -3322,7 +3322,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread: ; preds = %7
   %14 = mul nuw nsw i64 %.0.sroa.speculated.i26, 56
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = icmp eq i64 %8, 0
   br i1 %16, label %21, label %17
 
@@ -3379,7 +3379,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
   br i1 %11, label %_ZN5alloc7raw_vec11finish_grow17h848e588694922202E.exit.thread, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hec595dcd5b57dce8E.exit.thread.thread"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hec595dcd5b57dce8E.exit.thread.thread": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25 = load ptr, ptr %12, align 8
   %13 = icmp ne ptr %.val25, null
   tail call void @llvm.assume(i1 %13)
@@ -3387,7 +3387,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread: ; preds = %7
   %14 = shl nuw nsw i64 %.0.sroa.speculated.i26, 2
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = icmp eq i64 %8, 0
   br i1 %16, label %21, label %17
 
@@ -3444,7 +3444,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
   br i1 %11, label %_ZN5alloc7raw_vec11finish_grow17h848e588694922202E.exit.thread, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h281b56e0a11d36a0E.exit.thread.thread"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h281b56e0a11d36a0E.exit.thread.thread": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25 = load ptr, ptr %12, align 8
   %13 = icmp ne ptr %.val25, null
   tail call void @llvm.assume(i1 %13)
@@ -3452,7 +3452,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread: ; preds = %7
   %14 = mul nuw nsw i64 %.0.sroa.speculated.i26, 40
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = icmp eq i64 %8, 0
   br i1 %16, label %21, label %17
 
@@ -3509,7 +3509,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
   br i1 %11, label %_ZN5alloc7raw_vec11finish_grow17h848e588694922202E.exit.thread, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd00e6986e92c8116E.exit.thread.thread"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd00e6986e92c8116E.exit.thread.thread": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25 = load ptr, ptr %12, align 8
   %13 = icmp ne ptr %.val25, null
   tail call void @llvm.assume(i1 %13)
@@ -3517,7 +3517,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread: ; preds = %7
   %14 = mul nuw nsw i64 %.0.sroa.speculated.i26, 48
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = icmp eq i64 %8, 0
   br i1 %16, label %21, label %17
 
@@ -3574,7 +3574,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
   br i1 %11, label %_ZN5alloc7raw_vec11finish_grow17h848e588694922202E.exit.thread, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h10529334c76668c6E.exit.thread.thread"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h10529334c76668c6E.exit.thread.thread": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25 = load ptr, ptr %12, align 8
   %13 = icmp ne ptr %.val25, null
   tail call void @llvm.assume(i1 %13)
@@ -3582,7 +3582,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread: ; preds = %7
   %14 = shl nuw nsw i64 %.0.sroa.speculated.i26, 2
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = icmp eq i64 %8, 0
   br i1 %16, label %21, label %17
 
@@ -3639,7 +3639,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
   br i1 %11, label %_ZN5alloc7raw_vec11finish_grow17h848e588694922202E.exit.thread, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf5e6fa6a3a48fa5bE.exit.thread.thread"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf5e6fa6a3a48fa5bE.exit.thread.thread": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25 = load ptr, ptr %12, align 8
   %13 = icmp ne ptr %.val25, null
   tail call void @llvm.assume(i1 %13)
@@ -3647,7 +3647,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread: ; preds = %7
   %14 = shl nuw nsw i64 %.0.sroa.speculated.i26, 5
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = icmp eq i64 %8, 0
   br i1 %16, label %21, label %17
 
@@ -3704,7 +3704,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
   br i1 %11, label %_ZN5alloc7raw_vec11finish_grow17h848e588694922202E.exit.thread, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h320cbe6329f35b5eE.exit.thread.thread"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h320cbe6329f35b5eE.exit.thread.thread": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25 = load ptr, ptr %12, align 8
   %13 = icmp ne ptr %.val25, null
   tail call void @llvm.assume(i1 %13)
@@ -3712,7 +3712,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread: ; preds = %7
   %14 = mul nuw nsw i64 %.0.sroa.speculated.i26, 56
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = icmp eq i64 %8, 0
   br i1 %16, label %21, label %17
 
@@ -3769,7 +3769,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
   br i1 %11, label %_ZN5alloc7raw_vec11finish_grow17h848e588694922202E.exit.thread, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h88bcfe5a42fef5d6E.exit.thread.thread"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h88bcfe5a42fef5d6E.exit.thread.thread": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25 = load ptr, ptr %12, align 8
   %13 = icmp ne ptr %.val25, null
   tail call void @llvm.assume(i1 %13)
@@ -3777,7 +3777,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread: ; preds = %7
   %14 = mul nuw nsw i64 %.0.sroa.speculated.i26, 12
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = icmp eq i64 %8, 0
   br i1 %16, label %21, label %17
 
@@ -3834,7 +3834,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
   br i1 %11, label %_ZN5alloc7raw_vec11finish_grow17h848e588694922202E.exit.thread, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha04740450f3b21ffE.exit.thread.thread"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha04740450f3b21ffE.exit.thread.thread": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25 = load ptr, ptr %12, align 8
   %13 = icmp ne ptr %.val25, null
   tail call void @llvm.assume(i1 %13)
@@ -3842,7 +3842,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread: ; preds = %7
   %14 = shl nuw nsw i64 %.0.sroa.speculated.i26, 3
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = icmp eq i64 %8, 0
   br i1 %16, label %21, label %17
 
@@ -3899,7 +3899,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
   br i1 %11, label %_ZN5alloc7raw_vec11finish_grow17h848e588694922202E.exit.thread, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h4d87996a7425dab9E.exit.thread.thread"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h4d87996a7425dab9E.exit.thread.thread": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25 = load ptr, ptr %12, align 8
   %13 = icmp ne ptr %.val25, null
   tail call void @llvm.assume(i1 %13)
@@ -3907,7 +3907,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread: ; preds = %7
   %14 = shl nuw nsw i64 %.0.sroa.speculated.i26, 2
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = icmp eq i64 %8, 0
   br i1 %16, label %21, label %17
 
@@ -3964,7 +3964,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
   br i1 %11, label %_ZN5alloc7raw_vec11finish_grow17h848e588694922202E.exit.thread, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h95541560d23c7dffE.exit.thread.thread"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h95541560d23c7dffE.exit.thread.thread": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25 = load ptr, ptr %12, align 8
   %13 = icmp ne ptr %.val25, null
   tail call void @llvm.assume(i1 %13)
@@ -3972,7 +3972,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread: ; preds = %7
   %14 = mul nuw nsw i64 %.0.sroa.speculated.i26, 168
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = icmp eq i64 %8, 0
   br i1 %16, label %21, label %17
 
@@ -4029,7 +4029,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
   br i1 %11, label %_ZN5alloc7raw_vec11finish_grow17h848e588694922202E.exit.thread, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he32999713f4345a7E.exit.thread.thread"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he32999713f4345a7E.exit.thread.thread": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25 = load ptr, ptr %12, align 8
   %13 = icmp ne ptr %.val25, null
   tail call void @llvm.assume(i1 %13)
@@ -4037,7 +4037,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread: ; preds = %7
   %14 = shl nuw nsw i64 %.0.sroa.speculated.i26, 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = icmp eq i64 %8, 0
   br i1 %16, label %21, label %17
 
@@ -4094,7 +4094,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
   br i1 %11, label %_ZN5alloc7raw_vec11finish_grow17h848e588694922202E.exit.thread, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h8b238c881290c816E.exit.thread.thread"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h8b238c881290c816E.exit.thread.thread": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25 = load ptr, ptr %12, align 8
   %13 = icmp ne ptr %.val25, null
   tail call void @llvm.assume(i1 %13)
@@ -4102,7 +4102,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread: ; preds = %7
   %14 = shl nuw nsw i64 %.0.sroa.speculated.i26, 2
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = icmp eq i64 %8, 0
   br i1 %16, label %21, label %17
 
@@ -4159,7 +4159,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
   br i1 %11, label %_ZN5alloc7raw_vec11finish_grow17h848e588694922202E.exit.thread, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h4c9114b8ed7666b9E.exit.thread.thread"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h4c9114b8ed7666b9E.exit.thread.thread": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25 = load ptr, ptr %12, align 8
   %13 = icmp ne ptr %.val25, null
   tail call void @llvm.assume(i1 %13)
@@ -4167,7 +4167,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread: ; preds = %7
   %14 = mul nuw nsw i64 %.0.sroa.speculated.i26, 40
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = icmp eq i64 %8, 0
   br i1 %16, label %21, label %17
 
@@ -4224,7 +4224,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
   br i1 %11, label %_ZN5alloc7raw_vec11finish_grow17h848e588694922202E.exit.thread, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he2b9cfcee6676866E.exit.thread.thread"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he2b9cfcee6676866E.exit.thread.thread": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25 = load ptr, ptr %12, align 8
   %13 = icmp ne ptr %.val25, null
   tail call void @llvm.assume(i1 %13)
@@ -4232,7 +4232,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread: ; preds = %7
   %14 = mul nuw nsw i64 %.0.sroa.speculated.i26, 20
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = icmp eq i64 %8, 0
   br i1 %16, label %21, label %17
 
@@ -4289,7 +4289,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
   br i1 %11, label %_ZN5alloc7raw_vec11finish_grow17h848e588694922202E.exit.thread, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h56e082444d6335c9E.exit.thread.thread"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h56e082444d6335c9E.exit.thread.thread": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25 = load ptr, ptr %12, align 8
   %13 = icmp ne ptr %.val25, null
   tail call void @llvm.assume(i1 %13)
@@ -4297,7 +4297,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread: ; preds = %7
   %14 = shl nuw nsw i64 %.0.sroa.speculated.i26, 5
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = icmp eq i64 %8, 0
   br i1 %16, label %21, label %17
 
@@ -4354,7 +4354,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
   br i1 %11, label %_ZN5alloc7raw_vec11finish_grow17h848e588694922202E.exit.thread, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf8bd8a4db4adc7d2E.exit.thread.thread"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf8bd8a4db4adc7d2E.exit.thread.thread": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25 = load ptr, ptr %12, align 8
   %13 = icmp ne ptr %.val25, null
   tail call void @llvm.assume(i1 %13)
@@ -4362,7 +4362,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread: ; preds = %7
   %14 = mul nuw nsw i64 %.0.sroa.speculated.i26, 24
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = icmp eq i64 %8, 0
   br i1 %16, label %21, label %17
 
@@ -4419,7 +4419,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
   br i1 %11, label %_ZN5alloc7raw_vec11finish_grow17h848e588694922202E.exit.thread, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h817d92a37f3afebbE.exit.thread.thread"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h817d92a37f3afebbE.exit.thread.thread": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25 = load ptr, ptr %12, align 8
   %13 = icmp ne ptr %.val25, null
   tail call void @llvm.assume(i1 %13)
@@ -4427,7 +4427,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread: ; preds = %7
   %14 = mul nuw nsw i64 %.0.sroa.speculated.i26, 24
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = icmp eq i64 %8, 0
   br i1 %16, label %21, label %17
 
@@ -4484,14 +4484,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
   br i1 %11, label %_ZN5alloc7raw_vec11finish_grow17h848e588694922202E.exit.thread, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hef593d674f7cb77fE.exit.thread.thread"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hef593d674f7cb77fE.exit.thread.thread": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25 = load ptr, ptr %12, align 8
   %13 = icmp ne ptr %.val25, null
   tail call void @llvm.assume(i1 %13)
   br label %_ZN5alloc7raw_vec11finish_grow17h848e588694922202E.exit.thread
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread: ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %8, 0
   br i1 %15, label %19, label %16
 
@@ -4547,7 +4547,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
   br i1 %11, label %_ZN5alloc7raw_vec11finish_grow17h848e588694922202E.exit.thread, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h57a63538d2d2dce4E.exit.thread.thread"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h57a63538d2d2dce4E.exit.thread.thread": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25 = load ptr, ptr %12, align 8
   %13 = icmp ne ptr %.val25, null
   tail call void @llvm.assume(i1 %13)
@@ -4555,7 +4555,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit: ; preds = %7
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread: ; preds = %7
   %14 = shl nuw nsw i64 %.0.sroa.speculated.i26, 5
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = icmp eq i64 %8, 0
   br i1 %16, label %21, label %17
 
@@ -4613,7 +4613,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd08ea8875b9f5df4E.llvm.10488432685746580710.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf8bd8a4db4adc7d2E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf8bd8a4db4adc7d2E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !185
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -4621,7 +4621,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 24
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -4678,7 +4678,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h24bb23f7d9d03ca5E.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h4667c4710293cd56E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h4667c4710293cd56E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !192
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -4686,7 +4686,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = shl nuw nsw i64 %.0.sroa.speculated.i26.i, 5
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -4743,7 +4743,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h9a628a5904749402E.llvm.10488432685746580710.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h95541560d23c7dffE.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h95541560d23c7dffE.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !199
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -4751,7 +4751,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 168
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -4808,7 +4808,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd0b6939ad1daca78E.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hcb3c50d120e87e66E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hcb3c50d120e87e66E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !206
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -4816,7 +4816,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = shl nuw nsw i64 %.0.sroa.speculated.i26.i, 3
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -4873,7 +4873,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h249ab376f13fddceE.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he1ed12c727a1a32bE.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he1ed12c727a1a32bE.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !213
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -4881,7 +4881,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = shl nuw nsw i64 %.0.sroa.speculated.i26.i, 2
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -4938,7 +4938,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hcbee41eb16176cf0E.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h860a3f5f368d2d33E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h860a3f5f368d2d33E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !220
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -4946,7 +4946,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = shl nuw nsw i64 %.0.sroa.speculated.i26.i, 3
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -5003,7 +5003,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h6db5326df2d98d06E.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7b793abfa1247cbaE.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7b793abfa1247cbaE.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !227
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -5011,7 +5011,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 24
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -5068,7 +5068,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h6c9d09fb99acd4bfE.llvm.10488432685746580710.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h320cbe6329f35b5eE.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h320cbe6329f35b5eE.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !234
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -5076,7 +5076,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 56
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -5133,7 +5133,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hc49f4ec915e6badcE.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h6bc4faed33582032E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h6bc4faed33582032E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !241
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -5141,7 +5141,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = shl nuw nsw i64 %.0.sroa.speculated.i26.i, 5
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -5198,7 +5198,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hc3c29e32d7273861E.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7a1204d31003f62dE.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7a1204d31003f62dE.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !248
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -5206,7 +5206,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 48
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -5263,7 +5263,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h0cadc35eec704f72E.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hc672e6a77df61100E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hc672e6a77df61100E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !255
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -5271,7 +5271,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = shl nuw nsw i64 %.0.sroa.speculated.i26.i, 5
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -5328,7 +5328,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h178c6544acba7a26E.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h750c03094e4dea76E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h750c03094e4dea76E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !262
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -5336,7 +5336,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 80
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -5393,7 +5393,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hab8244433e4c21d7E.llvm.10488432685746580710.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h8b238c881290c816E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h8b238c881290c816E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !269
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -5401,7 +5401,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = shl nuw nsw i64 %.0.sroa.speculated.i26.i, 2
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -5458,7 +5458,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h02e77518e236c218E.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h97385ff9154efdaeE.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h97385ff9154efdaeE.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !276
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -5466,7 +5466,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = shl nuw nsw i64 %.0.sroa.speculated.i26.i, 3
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -5523,7 +5523,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h8f8b134c670a6570E.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h23ee6bc7451a72f8E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h23ee6bc7451a72f8E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !283
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -5531,7 +5531,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = shl nuw nsw i64 %.0.sroa.speculated.i26.i, 6
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -5588,7 +5588,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h404ed6279973589eE.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h3136ebb61ecc1079E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h3136ebb61ecc1079E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !290
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -5596,7 +5596,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 40
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -5653,7 +5653,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hbf9ed5250e9422b9E.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h4df6717eff9efa3bE.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h4df6717eff9efa3bE.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !297
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -5661,7 +5661,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 248
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -5718,7 +5718,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h94e631beb26776daE.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7e24ee6ee06aa71eE.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7e24ee6ee06aa71eE.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !304
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -5726,7 +5726,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 40
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -5783,7 +5783,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h61534df6ed285428E.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1ff82816774f57a5E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1ff82816774f57a5E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !311
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -5791,7 +5791,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 24
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -5848,7 +5848,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17habf2429aa3f0a26eE.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf79ca5cfa67935bbE.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf79ca5cfa67935bbE.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !318
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -5856,7 +5856,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = shl nuw nsw i64 %.0.sroa.speculated.i26.i, 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -5913,7 +5913,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h17020e626e815a07E.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha292b4fae83eba6bE.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha292b4fae83eba6bE.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !325
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -5921,7 +5921,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 72
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -5978,7 +5978,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h6059fc1e321c85b0E.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hbebe881c39bc4c55E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hbebe881c39bc4c55E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !332
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -5986,7 +5986,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 72
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -6043,7 +6043,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h7bbf31230cd892eaE.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h9e56c4040f628397E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h9e56c4040f628397E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !339
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -6051,7 +6051,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = shl nuw nsw i64 %.0.sroa.speculated.i26.i, 5
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -6108,7 +6108,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h8cda69fdb229f385E.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h074df4280bcde916E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h074df4280bcde916E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !346
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -6116,7 +6116,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 104
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -6173,7 +6173,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd065e99e0e1d2f7cE.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hef0330b41f185d5bE.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hef0330b41f185d5bE.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !353
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -6181,7 +6181,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 80
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -6238,7 +6238,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hc10d536ded4f885fE.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h12d4819d71fc3eefE.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h12d4819d71fc3eefE.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !360
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -6246,7 +6246,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 48
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -6303,7 +6303,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h9651d8d3e46b9746E.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h9e0f027fe3a1ee45E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h9e0f027fe3a1ee45E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !367
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -6311,7 +6311,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = shl nuw nsw i64 %.0.sroa.speculated.i26.i, 6
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -6368,7 +6368,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hfc0b244aea3eebdeE.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he1da9c9db3ccbe12E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he1da9c9db3ccbe12E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !374
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -6376,7 +6376,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = shl nuw nsw i64 %.0.sroa.speculated.i26.i, 5
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -6433,7 +6433,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h387520de69914d4fE.llvm.10488432685746580710.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd00e6986e92c8116E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd00e6986e92c8116E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !381
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -6441,7 +6441,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 48
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -6498,7 +6498,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h9a1d408283dc50adE.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hfdbcfd6351631ae0E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hfdbcfd6351631ae0E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !388
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -6506,7 +6506,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 40
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -6563,7 +6563,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h3bf2b5af786e65ebE.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hfb37770e0ebc7bdbE.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hfb37770e0ebc7bdbE.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !395
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -6571,7 +6571,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = shl nuw nsw i64 %.0.sroa.speculated.i26.i, 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -6628,7 +6628,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hb5e32517f9b5a13cE.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h59916bd5459b329fE.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h59916bd5459b329fE.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !402
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -6636,7 +6636,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 12
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -6693,7 +6693,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hb95175b71bcb742dE.llvm.10488432685746580710.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he2b9cfcee6676866E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he2b9cfcee6676866E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !409
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -6701,7 +6701,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 20
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -6758,7 +6758,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h5aa037234fe7f97aE.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h627d1db73335c14bE.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h627d1db73335c14bE.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !416
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -6766,7 +6766,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 12
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -6823,7 +6823,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17ha32a407dc2dbaf6dE.llvm.10488432685746580710.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he32999713f4345a7E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he32999713f4345a7E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !423
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -6831,7 +6831,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = shl nuw nsw i64 %.0.sroa.speculated.i26.i, 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -6888,7 +6888,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h2e98f3a4a1e987fbE.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h747d60ea37a6f74bE.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h747d60ea37a6f74bE.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !430
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -6896,7 +6896,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 24
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -6953,7 +6953,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h330bd1c5e37e9b65E.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd0ad6a575b708213E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd0ad6a575b708213E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !437
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -6961,7 +6961,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = shl nuw nsw i64 %.0.sroa.speculated.i26.i, 5
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -7018,7 +7018,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h2f4ac5d11913dcf5E.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h294f22f1b76e5a0aE.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h294f22f1b76e5a0aE.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !444
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -7026,7 +7026,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 144
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -7083,7 +7083,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17haa4cedbd8e905574E.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h79fe33e54cc93114E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h79fe33e54cc93114E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !451
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -7091,7 +7091,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 112
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -7148,7 +7148,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hfbe3184a5f2809c0E.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd24440c89bd46c80E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd24440c89bd46c80E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !458
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -7156,7 +7156,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 48
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -7213,7 +7213,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h60e292d9fedcc893E.llvm.10488432685746580710.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf5e6fa6a3a48fa5bE.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf5e6fa6a3a48fa5bE.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !465
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -7221,7 +7221,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = shl nuw nsw i64 %.0.sroa.speculated.i26.i, 5
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -7278,7 +7278,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h8d0fb8731f37467dE.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h5fb89e2a8fac9b08E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h5fb89e2a8fac9b08E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !472
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -7286,7 +7286,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = shl nuw nsw i64 %.0.sroa.speculated.i26.i, 3
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -7343,7 +7343,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h9c71fbb764cd64d0E.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h114d39231c7dbda7E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h114d39231c7dbda7E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !479
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -7351,7 +7351,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 80
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -7408,7 +7408,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hc3b855132964afc2E.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hea089bc6b42f0c21E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hea089bc6b42f0c21E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !486
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -7416,7 +7416,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = shl nuw nsw i64 %.0.sroa.speculated.i26.i, 6
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -7473,7 +7473,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h524b700dad258fecE.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h583273e1cfd17cc8E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h583273e1cfd17cc8E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !493
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -7481,7 +7481,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = shl nuw nsw i64 %.0.sroa.speculated.i26.i, 5
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -7538,7 +7538,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17haec7fc66f6d7a640E.llvm.10488432685746580710.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h4c9114b8ed7666b9E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h4c9114b8ed7666b9E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !500
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -7546,7 +7546,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 40
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -7603,7 +7603,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hc7c0bc458080cb96E.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hffadc912d9b52181E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hffadc912d9b52181E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !507
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -7611,7 +7611,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 104
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -7668,7 +7668,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h5d14c0e49ba34c02E.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h46a56fb0a0c816b2E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h46a56fb0a0c816b2E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !514
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -7676,7 +7676,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = shl nuw nsw i64 %.0.sroa.speculated.i26.i, 3
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -7733,7 +7733,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hb20fa3360723d806E.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hedab8b0a5937682fE.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hedab8b0a5937682fE.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !521
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -7741,7 +7741,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 24
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -7798,7 +7798,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h472e729238b16a2fE.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7c91af6a90433530E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7c91af6a90433530E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !528
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -7806,7 +7806,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = shl nuw nsw i64 %.0.sroa.speculated.i26.i, 3
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -7863,7 +7863,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd5038aab0012c8eeE.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h01ba0516da6f2ab9E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h01ba0516da6f2ab9E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !535
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -7871,7 +7871,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 144
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -7928,7 +7928,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h423409324a44993bE.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hccfdd55d274bc4e7E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hccfdd55d274bc4e7E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !542
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -7936,7 +7936,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = shl nuw nsw i64 %.0.sroa.speculated.i26.i, 6
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -7993,7 +7993,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hb249dfb240ed33abE.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h9cc5f7525f91210dE.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h9cc5f7525f91210dE.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !549
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -8001,7 +8001,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = shl nuw nsw i64 %.0.sroa.speculated.i26.i, 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -8058,7 +8058,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h07dce7ababa50a15E.llvm.10488432685746580710.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2db71a5a66667f72E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2db71a5a66667f72E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !556
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -8066,7 +8066,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 40
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -8123,7 +8123,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h23f39132dc5d967aE.llvm.10488432685746580710.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hec595dcd5b57dce8E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hec595dcd5b57dce8E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !563
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -8131,7 +8131,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = shl nuw nsw i64 %.0.sroa.speculated.i26.i, 2
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -8199,7 +8199,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hbfbeba9f3ca1170fE.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he68468462d4c6f76E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he68468462d4c6f76E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !570
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -8207,7 +8207,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 24
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -8264,7 +8264,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hc793371d8d1ec42dE.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h4110cfb2a8a7ce38E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h4110cfb2a8a7ce38E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !577
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -8272,7 +8272,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = shl nuw nsw i64 %.0.sroa.speculated.i26.i, 5
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -8329,7 +8329,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h43e894256d243906E.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd47c8a95f891310dE.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd47c8a95f891310dE.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !584
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -8337,7 +8337,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 24
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -8394,7 +8394,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h715d2d72acf166c9E.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h697dd630e91c6140E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h697dd630e91c6140E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !591
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -8402,7 +8402,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 24
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -8459,7 +8459,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h0a4f14e2a89f6ef4E.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h4c04c5f4955bfe86E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h4c04c5f4955bfe86E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !598
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -8467,7 +8467,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = shl nuw nsw i64 %.0.sroa.speculated.i26.i, 3
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -8524,14 +8524,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hec7abf3784dc007eE.llvm.10488432685746580710.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hef593d674f7cb77fE.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hef593d674f7cb77fE.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !605
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hec7abf3784dc007eE.llvm.10488432685746580710.exit.thread"
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = icmp eq i64 %7, 0
   br i1 %14, label %18, label %15
 
@@ -8598,7 +8598,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h6fa0dc225a43dbb7E.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h454801277a71aeadE.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h454801277a71aeadE.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !612
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -8606,7 +8606,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 456
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -8663,7 +8663,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hfeb1f098efa83481E.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha040de8d55253934E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha040de8d55253934E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !619
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -8671,7 +8671,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 48
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -8728,7 +8728,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h58d8fdb04bb9b89aE.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h9a06461192154505E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h9a06461192154505E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !626
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -8736,7 +8736,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 24
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -8793,7 +8793,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hcf9ad92767eb2ef3E.llvm.10488432685746580710.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h56e082444d6335c9E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h56e082444d6335c9E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !633
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -8801,7 +8801,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = shl nuw nsw i64 %.0.sroa.speculated.i26.i, 5
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -8858,7 +8858,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h8b96901cb176a60bE.llvm.10488432685746580710.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h4d87996a7425dab9E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h4d87996a7425dab9E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !640
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -8866,7 +8866,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = shl nuw nsw i64 %.0.sroa.speculated.i26.i, 2
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -8923,7 +8923,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h7e2902a96835eb45E.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0146532d8e25bf7cE.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0146532d8e25bf7cE.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !647
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -8931,7 +8931,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 40
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -8988,7 +8988,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h1b74b384f4c86f8aE.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd81f70f44dad4e0aE.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd81f70f44dad4e0aE.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !654
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -8996,7 +8996,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 88
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -9053,7 +9053,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h24aa6efa0978e89bE.llvm.10488432685746580710.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h281b56e0a11d36a0E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h281b56e0a11d36a0E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !661
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -9061,7 +9061,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 40
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -9118,7 +9118,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h99d1509de8fb9878E.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h83433f21146534aeE.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h83433f21146534aeE.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !668
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -9126,7 +9126,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 68
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -9183,7 +9183,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h61bac911717d0242E.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf12b7057a0125610E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf12b7057a0125610E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !675
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -9191,7 +9191,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 40
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -9248,7 +9248,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hf643c2dfdf034eb1E.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h539e2e9cd6d5eda3E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h539e2e9cd6d5eda3E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !682
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -9256,7 +9256,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = shl nuw nsw i64 %.0.sroa.speculated.i26.i, 6
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -9313,7 +9313,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd3ea805db710c064E.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h5ae3ba7387a52498E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h5ae3ba7387a52498E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !689
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -9321,7 +9321,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 12
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -9378,7 +9378,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd74917fac8b8fc1dE.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2b0411649ad3b66bE.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2b0411649ad3b66bE.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !696
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -9386,7 +9386,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = shl nuw nsw i64 %.0.sroa.speculated.i26.i, 5
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -9443,7 +9443,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hf8f66d7413af066eE.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h030cc6c4b4c242f3E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h030cc6c4b4c242f3E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !703
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -9451,7 +9451,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 104
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -9508,7 +9508,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h97b94050ad26f042E.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h16287080de453c7cE.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h16287080de453c7cE.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !710
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -9516,7 +9516,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 80
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -9573,7 +9573,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h46fc8dba57f3e8c9E.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h44ef8cbd25e0d563E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h44ef8cbd25e0d563E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !717
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -9581,7 +9581,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = shl nuw nsw i64 %.0.sroa.speculated.i26.i, 5
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -9638,7 +9638,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h1c26c7eba3d69caaE.llvm.10488432685746580710.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdc16e2b00e8c12b0E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdc16e2b00e8c12b0E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !724
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -9646,7 +9646,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 56
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -9702,7 +9702,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h52006790793a2083E.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hcdcff05a6c3a2b0aE.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hcdcff05a6c3a2b0aE.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !731
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -9710,7 +9710,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = mul nuw nsw i64 %.0.sroa.speculated.i.i, 2088
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -9766,7 +9766,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h2b4504893819c299E.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2e6d8819c36f28b0E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2e6d8819c36f28b0E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !738
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -9774,7 +9774,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = mul nuw nsw i64 %.0.sroa.speculated.i.i, 2008
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -9831,7 +9831,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hf7a445465dd7683bE.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h462d6fdbae63ea48E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h462d6fdbae63ea48E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !745
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -9839,7 +9839,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 104
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -9896,7 +9896,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd2b75886b9d45e1dE.llvm.10488432685746580710.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h817d92a37f3afebbE.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h817d92a37f3afebbE.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !752
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -9904,7 +9904,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 24
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -9961,7 +9961,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h49bfe1225fe07924E.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha635687fceeddf55E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha635687fceeddf55E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !759
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -9969,7 +9969,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = shl nuw nsw i64 %.0.sroa.speculated.i26.i, 3
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -10026,7 +10026,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h6b44fe4025e1b511E.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h650ef552d5ef8ae7E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h650ef552d5ef8ae7E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !766
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -10034,7 +10034,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = shl nuw nsw i64 %.0.sroa.speculated.i26.i, 3
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -10091,7 +10091,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17he0a684817bcb426cE.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h500360ebad4b8e7aE.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h500360ebad4b8e7aE.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !773
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -10099,7 +10099,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 96
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -10156,7 +10156,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17ha941336abc98481cE.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17heb1a162e35bbbb95E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17heb1a162e35bbbb95E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !780
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -10164,7 +10164,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = shl nuw nsw i64 %.0.sroa.speculated.i26.i, 6
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -10221,7 +10221,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hc0333eb66222b519E.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h6776c0b23ae42698E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h6776c0b23ae42698E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !787
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -10229,7 +10229,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 144
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -10285,7 +10285,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h263637acf4e51993E.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hc85d77da4a46d116E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hc85d77da4a46d116E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !794
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -10293,7 +10293,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = mul nuw nsw i64 %.0.sroa.speculated.i.i, 3000
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -10350,7 +10350,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hccaa6206cc2310c3E.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h12fdbefb20c0e58dE.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h12fdbefb20c0e58dE.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !801
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -10358,7 +10358,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 48
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -10415,7 +10415,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hb40b22254053eb93E.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h67c323964996050cE.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h67c323964996050cE.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !808
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -10423,7 +10423,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = shl nuw nsw i64 %.0.sroa.speculated.i26.i, 5
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -10480,7 +10480,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h95351463db2d2401E.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h21f97ca623d8bea7E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h21f97ca623d8bea7E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !815
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -10488,7 +10488,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = shl nuw nsw i64 %.0.sroa.speculated.i26.i, 2
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -10545,7 +10545,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hb2f0fb1bd9afbb7fE.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h5fd03cc8a73f4df1E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h5fd03cc8a73f4df1E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !822
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -10553,7 +10553,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = shl nuw nsw i64 %.0.sroa.speculated.i26.i, 2
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -10610,7 +10610,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h759d8b71353856a4E.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h8f459bdeda3f8bbeE.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h8f459bdeda3f8bbeE.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !829
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -10618,7 +10618,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 24
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -10675,7 +10675,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h98bb4de5b15c1d8fE.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0ac06997a219da7fE.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0ac06997a219da7fE.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !836
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -10683,7 +10683,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = shl nuw nsw i64 %.0.sroa.speculated.i26.i, 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -10740,7 +10740,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hdd74243f4310350cE.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he10eddaa67161589E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he10eddaa67161589E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !843
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -10748,7 +10748,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = shl nuw nsw i64 %.0.sroa.speculated.i26.i, 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -10805,7 +10805,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h1c885c5e4dbc957aE.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h13a64733bb150d0eE.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h13a64733bb150d0eE.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !850
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -10813,7 +10813,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 112
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -10870,7 +10870,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd01d1f70200f3a85E.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h05823a1126547581E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h05823a1126547581E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !857
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -10878,7 +10878,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = shl nuw nsw i64 %.0.sroa.speculated.i26.i, 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -10935,7 +10935,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h313f498283c691fbE.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hae5f3aa585a022dbE.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hae5f3aa585a022dbE.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !864
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -10943,7 +10943,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 40
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -11000,7 +11000,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hf319e2fb56adbef6E.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0d1b9a3aaaf8f8eeE.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0d1b9a3aaaf8f8eeE.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !871
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -11008,7 +11008,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 40
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -11065,7 +11065,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hee54bd9ae5c414f9E.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h3c3cb03687b5e0c7E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h3c3cb03687b5e0c7E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !878
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -11073,7 +11073,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 44
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -11130,7 +11130,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h4c89bc6ee367854eE.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he9b0b0bb32a327a1E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he9b0b0bb32a327a1E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !885
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -11138,7 +11138,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = shl nuw nsw i64 %.0.sroa.speculated.i26.i, 3
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -11195,7 +11195,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %10, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h2c155202b77cf0d6E.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2dab54583027298dE.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2dab54583027298dE.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !892
   %12 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %12)
@@ -11203,7 +11203,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %5
   %13 = shl nuw nsw i64 %.0.sroa.speculated.i26.i, 5
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %7, 0
   br i1 %15, label %20, label %16
 
@@ -11262,14 +11262,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %13, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h16a1e3261cf76f58E.llvm.10488432685746580710.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hae5f3aa585a022dbE.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hae5f3aa585a022dbE.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %14, align 8, !alias.scope !899
   %15 = icmp ne ptr %.val25.i, null
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h16a1e3261cf76f58E.llvm.10488432685746580710.exit.thread.sink.split"
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %11
   %16 = mul nuw nsw i64 %9, 40
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = icmp eq i64 %4, 0
   br i1 %18, label %23, label %19
 
@@ -11346,14 +11346,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %13, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h920d7330dad98f65E.llvm.10488432685746580710.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd81f70f44dad4e0aE.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd81f70f44dad4e0aE.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %14, align 8, !alias.scope !906
   %15 = icmp ne ptr %.val25.i, null
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h920d7330dad98f65E.llvm.10488432685746580710.exit.thread.sink.split"
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %11
   %16 = mul nuw nsw i64 %9, 88
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = icmp eq i64 %4, 0
   br i1 %18, label %23, label %19
 
@@ -11430,14 +11430,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %13, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17he27f7f2a1bc13945E.llvm.10488432685746580710.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf5e6fa6a3a48fa5bE.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf5e6fa6a3a48fa5bE.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %14, align 8, !alias.scope !913
   %15 = icmp ne ptr %.val25.i, null
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17he27f7f2a1bc13945E.llvm.10488432685746580710.exit.thread.sink.split"
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %11
   %16 = shl nuw nsw i64 %9, 5
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = icmp eq i64 %4, 0
   br i1 %18, label %23, label %19
 
@@ -11514,14 +11514,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %13, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h5cf1a0c19d30b2b7E.llvm.10488432685746580710.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h9e0f027fe3a1ee45E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h9e0f027fe3a1ee45E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %14, align 8, !alias.scope !920
   %15 = icmp ne ptr %.val25.i, null
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h5cf1a0c19d30b2b7E.llvm.10488432685746580710.exit.thread.sink.split"
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %11
   %16 = shl nuw nsw i64 %9, 6
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = icmp eq i64 %4, 0
   br i1 %18, label %23, label %19
 
@@ -11598,14 +11598,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %13, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h9ebeee2c315fa6faE.llvm.10488432685746580710.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h13a64733bb150d0eE.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h13a64733bb150d0eE.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %14, align 8, !alias.scope !927
   %15 = icmp ne ptr %.val25.i, null
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h9ebeee2c315fa6faE.llvm.10488432685746580710.exit.thread.sink.split"
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %11
   %16 = mul nuw nsw i64 %9, 112
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = icmp eq i64 %4, 0
   br i1 %18, label %23, label %19
 
@@ -11682,14 +11682,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %13, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h34fe857f172b2a73E.llvm.10488432685746580710.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hccfdd55d274bc4e7E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hccfdd55d274bc4e7E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %14, align 8, !alias.scope !934
   %15 = icmp ne ptr %.val25.i, null
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h34fe857f172b2a73E.llvm.10488432685746580710.exit.thread.sink.split"
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %11
   %16 = shl nuw nsw i64 %9, 6
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = icmp eq i64 %4, 0
   br i1 %18, label %23, label %19
 
@@ -11766,14 +11766,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %13, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h4129eee218c1b029E.llvm.10488432685746580710.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h8f459bdeda3f8bbeE.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h8f459bdeda3f8bbeE.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %14, align 8, !alias.scope !941
   %15 = icmp ne ptr %.val25.i, null
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h4129eee218c1b029E.llvm.10488432685746580710.exit.thread.sink.split"
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %11
   %16 = mul nuw nsw i64 %9, 24
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = icmp eq i64 %4, 0
   br i1 %18, label %23, label %19
 
@@ -11850,14 +11850,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %13, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h8a910f183b567aa3E.llvm.10488432685746580710.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf79ca5cfa67935bbE.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf79ca5cfa67935bbE.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %14, align 8, !alias.scope !948
   %15 = icmp ne ptr %.val25.i, null
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h8a910f183b567aa3E.llvm.10488432685746580710.exit.thread.sink.split"
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %11
   %16 = shl nuw nsw i64 %9, 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = icmp eq i64 %4, 0
   br i1 %18, label %23, label %19
 
@@ -11934,14 +11934,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %13, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17hf1811fd207950611E.llvm.10488432685746580710.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h23ee6bc7451a72f8E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h23ee6bc7451a72f8E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %14, align 8, !alias.scope !955
   %15 = icmp ne ptr %.val25.i, null
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17hf1811fd207950611E.llvm.10488432685746580710.exit.thread.sink.split"
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %11
   %16 = shl nuw nsw i64 %9, 6
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = icmp eq i64 %4, 0
   br i1 %18, label %23, label %19
 
@@ -12018,14 +12018,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %13, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h25d4a8451cd4a065E.llvm.10488432685746580710.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h97385ff9154efdaeE.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h97385ff9154efdaeE.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %14, align 8, !alias.scope !962
   %15 = icmp ne ptr %.val25.i, null
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h25d4a8451cd4a065E.llvm.10488432685746580710.exit.thread.sink.split"
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %11
   %16 = shl nuw nsw i64 %9, 3
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = icmp eq i64 %4, 0
   br i1 %18, label %23, label %19
 
@@ -12102,14 +12102,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %13, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h3904e0ab02de694dE.llvm.10488432685746580710.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he68468462d4c6f76E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he68468462d4c6f76E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %14, align 8, !alias.scope !969
   %15 = icmp ne ptr %.val25.i, null
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h3904e0ab02de694dE.llvm.10488432685746580710.exit.thread.sink.split"
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %11
   %16 = mul nuw nsw i64 %9, 24
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = icmp eq i64 %4, 0
   br i1 %18, label %23, label %19
 
@@ -12186,14 +12186,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %13, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h745be136bfc6c0beE.llvm.10488432685746580710.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h3136ebb61ecc1079E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h3136ebb61ecc1079E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %14, align 8, !alias.scope !976
   %15 = icmp ne ptr %.val25.i, null
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h745be136bfc6c0beE.llvm.10488432685746580710.exit.thread.sink.split"
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %11
   %16 = mul nuw nsw i64 %9, 40
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = icmp eq i64 %4, 0
   br i1 %18, label %23, label %19
 
@@ -12270,14 +12270,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %13, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17he8f16620fda73a6fE.llvm.10488432685746580710.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17heb1a162e35bbbb95E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17heb1a162e35bbbb95E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %14, align 8, !alias.scope !983
   %15 = icmp ne ptr %.val25.i, null
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17he8f16620fda73a6fE.llvm.10488432685746580710.exit.thread.sink.split"
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %11
   %16 = shl nuw nsw i64 %9, 6
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = icmp eq i64 %4, 0
   br i1 %18, label %23, label %19
 
@@ -12354,14 +12354,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %13, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h9bc1d5515fa284d0E.llvm.10488432685746580710.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7a1204d31003f62dE.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7a1204d31003f62dE.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %14, align 8, !alias.scope !990
   %15 = icmp ne ptr %.val25.i, null
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h9bc1d5515fa284d0E.llvm.10488432685746580710.exit.thread.sink.split"
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %11
   %16 = mul nuw nsw i64 %9, 48
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = icmp eq i64 %4, 0
   br i1 %18, label %23, label %19
 
@@ -12438,14 +12438,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %13, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h5d160d28f57f3766E.llvm.10488432685746580710.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h79fe33e54cc93114E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h79fe33e54cc93114E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %14, align 8, !alias.scope !997
   %15 = icmp ne ptr %.val25.i, null
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h5d160d28f57f3766E.llvm.10488432685746580710.exit.thread.sink.split"
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %11
   %16 = mul nuw nsw i64 %9, 112
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = icmp eq i64 %4, 0
   br i1 %18, label %23, label %19
 
@@ -12522,14 +12522,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %13, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17hc78399b7d0ceca22E.llvm.10488432685746580710.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h462d6fdbae63ea48E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h462d6fdbae63ea48E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %14, align 8, !alias.scope !1004
   %15 = icmp ne ptr %.val25.i, null
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17hc78399b7d0ceca22E.llvm.10488432685746580710.exit.thread.sink.split"
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %11
   %16 = mul nuw nsw i64 %9, 104
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = icmp eq i64 %4, 0
   br i1 %18, label %23, label %19
 
@@ -12606,14 +12606,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %13, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h61f57d51eda3c647E.llvm.10488432685746580710.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h95541560d23c7dffE.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h95541560d23c7dffE.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %14, align 8, !alias.scope !1011
   %15 = icmp ne ptr %.val25.i, null
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h61f57d51eda3c647E.llvm.10488432685746580710.exit.thread.sink.split"
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %11
   %16 = mul nuw nsw i64 %9, 168
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = icmp eq i64 %4, 0
   br i1 %18, label %23, label %19
 
@@ -12690,14 +12690,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %13, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h1d278d5d48827889E.llvm.10488432685746580710.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h281b56e0a11d36a0E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h281b56e0a11d36a0E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %14, align 8, !alias.scope !1018
   %15 = icmp ne ptr %.val25.i, null
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h1d278d5d48827889E.llvm.10488432685746580710.exit.thread.sink.split"
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %11
   %16 = mul nuw nsw i64 %9, 40
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = icmp eq i64 %4, 0
   br i1 %18, label %23, label %19
 
@@ -12774,14 +12774,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %13, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17hef4321b84a39b242E.llvm.10488432685746580710.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he1da9c9db3ccbe12E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he1da9c9db3ccbe12E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %14, align 8, !alias.scope !1025
   %15 = icmp ne ptr %.val25.i, null
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17hef4321b84a39b242E.llvm.10488432685746580710.exit.thread.sink.split"
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %11
   %16 = shl nuw nsw i64 %9, 5
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = icmp eq i64 %4, 0
   br i1 %18, label %23, label %19
 
@@ -12858,14 +12858,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %13, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h21b72370bbea67aeE.llvm.10488432685746580710.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hea089bc6b42f0c21E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hea089bc6b42f0c21E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %14, align 8, !alias.scope !1032
   %15 = icmp ne ptr %.val25.i, null
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h21b72370bbea67aeE.llvm.10488432685746580710.exit.thread.sink.split"
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %11
   %16 = shl nuw nsw i64 %9, 6
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = icmp eq i64 %4, 0
   br i1 %18, label %23, label %19
 
@@ -12942,14 +12942,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %13, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h15a226eb7d87faefE.llvm.10488432685746580710.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h074df4280bcde916E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h074df4280bcde916E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %14, align 8, !alias.scope !1039
   %15 = icmp ne ptr %.val25.i, null
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h15a226eb7d87faefE.llvm.10488432685746580710.exit.thread.sink.split"
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %11
   %16 = mul nuw nsw i64 %9, 104
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = icmp eq i64 %4, 0
   br i1 %18, label %23, label %19
 
@@ -13013,19 +13013,19 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$6shrink17h14a
 5:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   store ptr @anon.b5eeefd552b664067690a77926c8c9ef.10, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr @anon.b5eeefd552b664067690a77926c8c9ef.0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %9, align 8
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b5eeefd552b664067690a77926c8c9ef.12) #16
   unreachable
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val20 = load ptr, ptr %11, align 8
   %12 = icmp eq i64 %4, 0
   br i1 %12, label %22, label %13
@@ -13075,19 +13075,19 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$6shrink17h166
 5:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   store ptr @anon.b5eeefd552b664067690a77926c8c9ef.10, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr @anon.b5eeefd552b664067690a77926c8c9ef.0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %9, align 8
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b5eeefd552b664067690a77926c8c9ef.12) #16
   unreachable
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val20 = load ptr, ptr %11, align 8
   %12 = icmp eq i64 %4, 0
   br i1 %12, label %21, label %13
@@ -13135,19 +13135,19 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$6shrink17h397
 5:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   store ptr @anon.b5eeefd552b664067690a77926c8c9ef.10, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr @anon.b5eeefd552b664067690a77926c8c9ef.0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %9, align 8
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b5eeefd552b664067690a77926c8c9ef.12) #16
   unreachable
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val20 = load ptr, ptr %11, align 8
   %12 = icmp eq i64 %4, 0
   br i1 %12, label %22, label %13
@@ -13197,19 +13197,19 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$6shrink17h73b
 5:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   store ptr @anon.b5eeefd552b664067690a77926c8c9ef.10, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr @anon.b5eeefd552b664067690a77926c8c9ef.0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %9, align 8
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b5eeefd552b664067690a77926c8c9ef.12) #16
   unreachable
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val20 = load ptr, ptr %11, align 8
   %12 = icmp eq i64 %4, 0
   br i1 %12, label %22, label %13
@@ -13259,19 +13259,19 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$6shrink17h753
 5:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   store ptr @anon.b5eeefd552b664067690a77926c8c9ef.10, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr @anon.b5eeefd552b664067690a77926c8c9ef.0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %9, align 8
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b5eeefd552b664067690a77926c8c9ef.12) #16
   unreachable
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val20 = load ptr, ptr %11, align 8
   %12 = icmp eq i64 %4, 0
   br i1 %12, label %22, label %13
@@ -13321,19 +13321,19 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$6shrink17hb93
 5:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   store ptr @anon.b5eeefd552b664067690a77926c8c9ef.10, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr @anon.b5eeefd552b664067690a77926c8c9ef.0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %9, align 8
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b5eeefd552b664067690a77926c8c9ef.12) #16
   unreachable
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val20 = load ptr, ptr %11, align 8
   %12 = icmp eq i64 %4, 0
   br i1 %12, label %19, label %13
@@ -13378,19 +13378,19 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$6shrink17hbfe
 5:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   store ptr @anon.b5eeefd552b664067690a77926c8c9ef.10, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr @anon.b5eeefd552b664067690a77926c8c9ef.0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %9, align 8
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b5eeefd552b664067690a77926c8c9ef.12) #16
   unreachable
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val20 = load ptr, ptr %11, align 8
   %12 = icmp eq i64 %4, 0
   br i1 %12, label %22, label %13
@@ -13440,19 +13440,19 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$6shrink17he26
 5:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   store ptr @anon.b5eeefd552b664067690a77926c8c9ef.10, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr @anon.b5eeefd552b664067690a77926c8c9ef.0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %9, align 8
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b5eeefd552b664067690a77926c8c9ef.12) #16
   unreachable
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val20 = load ptr, ptr %11, align 8
   %12 = icmp eq i64 %4, 0
   br i1 %12, label %22, label %13
@@ -13502,19 +13502,19 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$6shrink17he50
 5:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   store ptr @anon.b5eeefd552b664067690a77926c8c9ef.10, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr @anon.b5eeefd552b664067690a77926c8c9ef.0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %9, align 8
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b5eeefd552b664067690a77926c8c9ef.12) #16
   unreachable
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val20 = load ptr, ptr %11, align 8
   %12 = icmp eq i64 %4, 0
   br i1 %12, label %22, label %13
@@ -13575,7 +13575,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %11, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h6c9d09fb99acd4bfE.llvm.10488432685746580710.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h320cbe6329f35b5eE.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h320cbe6329f35b5eE.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %12, align 8, !alias.scope !1046
   %13 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %13)
@@ -13583,7 +13583,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %6
   %14 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 56
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = icmp eq i64 %8, 0
   br i1 %16, label %21, label %17
 
@@ -13640,7 +13640,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %11, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17haec7fc66f6d7a640E.llvm.10488432685746580710.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h4c9114b8ed7666b9E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h4c9114b8ed7666b9E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %12, align 8, !alias.scope !1053
   %13 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %13)
@@ -13648,7 +13648,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %6
   %14 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 40
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = icmp eq i64 %8, 0
   br i1 %16, label %21, label %17
 
@@ -13705,7 +13705,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %11, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h387520de69914d4fE.llvm.10488432685746580710.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd00e6986e92c8116E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd00e6986e92c8116E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %12, align 8, !alias.scope !1060
   %13 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %13)
@@ -13713,7 +13713,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %6
   %14 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 48
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = icmp eq i64 %8, 0
   br i1 %16, label %21, label %17
 
@@ -13770,7 +13770,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %11, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h1c26c7eba3d69caaE.llvm.10488432685746580710.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdc16e2b00e8c12b0E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdc16e2b00e8c12b0E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %12, align 8, !alias.scope !1067
   %13 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %13)
@@ -13778,7 +13778,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %6
   %14 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 56
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = icmp eq i64 %8, 0
   br i1 %16, label %21, label %17
 
@@ -13835,7 +13835,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %11, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h166d989081c13798E.llvm.10488432685746580710.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hb2a8e5584583df4aE.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hb2a8e5584583df4aE.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %12, align 8, !alias.scope !1074
   %13 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %13)
@@ -13843,7 +13843,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %6
   %14 = shl nuw nsw i64 %.0.sroa.speculated.i26.i, 5
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = icmp eq i64 %8, 0
   br i1 %16, label %21, label %17
 
@@ -13900,7 +13900,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %11, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h07dce7ababa50a15E.llvm.10488432685746580710.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2db71a5a66667f72E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2db71a5a66667f72E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %12, align 8, !alias.scope !1081
   %13 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %13)
@@ -13908,7 +13908,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %6
   %14 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 40
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = icmp eq i64 %8, 0
   br i1 %16, label %21, label %17
 
@@ -13965,7 +13965,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %11, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h23f39132dc5d967aE.llvm.10488432685746580710.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hec595dcd5b57dce8E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hec595dcd5b57dce8E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %12, align 8, !alias.scope !1088
   %13 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %13)
@@ -13973,7 +13973,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %6
   %14 = shl nuw nsw i64 %.0.sroa.speculated.i26.i, 2
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = icmp eq i64 %8, 0
   br i1 %16, label %21, label %17
 
@@ -14041,7 +14041,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %11, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd2b75886b9d45e1dE.llvm.10488432685746580710.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h817d92a37f3afebbE.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h817d92a37f3afebbE.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %12, align 8, !alias.scope !1095
   %13 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %13)
@@ -14049,7 +14049,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %6
   %14 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 24
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = icmp eq i64 %8, 0
   br i1 %16, label %21, label %17
 
@@ -14106,7 +14106,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %11, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h8067c522baaaf75dE.llvm.10488432685746580710.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h88bcfe5a42fef5d6E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h88bcfe5a42fef5d6E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %12, align 8, !alias.scope !1102
   %13 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %13)
@@ -14114,7 +14114,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %6
   %14 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 12
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = icmp eq i64 %8, 0
   br i1 %16, label %21, label %17
 
@@ -14171,7 +14171,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %11, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h0c2aa05400856be7E.llvm.10488432685746580710.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hc415f91958cd5e18E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hc415f91958cd5e18E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %12, align 8, !alias.scope !1109
   %13 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %13)
@@ -14179,7 +14179,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %6
   %14 = shl nuw nsw i64 %.0.sroa.speculated.i26.i, 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = icmp eq i64 %8, 0
   br i1 %16, label %21, label %17
 
@@ -14236,7 +14236,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %11, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd08ea8875b9f5df4E.llvm.10488432685746580710.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf8bd8a4db4adc7d2E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf8bd8a4db4adc7d2E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %12, align 8, !alias.scope !1116
   %13 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %13)
@@ -14244,7 +14244,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %6
   %14 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 24
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = icmp eq i64 %8, 0
   br i1 %16, label %21, label %17
 
@@ -14301,14 +14301,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %11, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hec7abf3784dc007eE.llvm.10488432685746580710.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hef593d674f7cb77fE.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hef593d674f7cb77fE.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %12, align 8, !alias.scope !1123
   %13 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %13)
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hec7abf3784dc007eE.llvm.10488432685746580710.exit.thread"
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq i64 %8, 0
   br i1 %15, label %19, label %16
 
@@ -14375,7 +14375,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %11, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h8b96901cb176a60bE.llvm.10488432685746580710.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h4d87996a7425dab9E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h4d87996a7425dab9E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %12, align 8, !alias.scope !1130
   %13 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %13)
@@ -14383,7 +14383,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %6
   %14 = shl nuw nsw i64 %.0.sroa.speculated.i26.i, 2
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = icmp eq i64 %8, 0
   br i1 %16, label %21, label %17
 
@@ -14440,7 +14440,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %11, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hedb96558dfb21f41E.llvm.10488432685746580710.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h57a63538d2d2dce4E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h57a63538d2d2dce4E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %12, align 8, !alias.scope !1137
   %13 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %13)
@@ -14448,7 +14448,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %6
   %14 = shl nuw nsw i64 %.0.sroa.speculated.i26.i, 5
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = icmp eq i64 %8, 0
   br i1 %16, label %21, label %17
 
@@ -14505,7 +14505,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %11, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h1014773375015a08E.llvm.10488432685746580710.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h3cfe4399635e0b6fE.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h3cfe4399635e0b6fE.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %12, align 8, !alias.scope !1144
   %13 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %13)
@@ -14513,7 +14513,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %6
   %14 = shl nuw nsw i64 %.0.sroa.speculated.i26.i, 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = icmp eq i64 %8, 0
   br i1 %16, label %21, label %17
 
@@ -14570,7 +14570,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %11, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h9a628a5904749402E.llvm.10488432685746580710.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h95541560d23c7dffE.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h95541560d23c7dffE.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %12, align 8, !alias.scope !1151
   %13 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %13)
@@ -14578,7 +14578,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %6
   %14 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 168
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = icmp eq i64 %8, 0
   br i1 %16, label %21, label %17
 
@@ -14635,7 +14635,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %11, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h24aa6efa0978e89bE.llvm.10488432685746580710.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h281b56e0a11d36a0E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h281b56e0a11d36a0E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %12, align 8, !alias.scope !1158
   %13 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %13)
@@ -14643,7 +14643,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %6
   %14 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 40
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = icmp eq i64 %8, 0
   br i1 %16, label %21, label %17
 
@@ -14700,7 +14700,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %11, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hb95175b71bcb742dE.llvm.10488432685746580710.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he2b9cfcee6676866E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he2b9cfcee6676866E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %12, align 8, !alias.scope !1165
   %13 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %13)
@@ -14708,7 +14708,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %6
   %14 = mul nuw nsw i64 %.0.sroa.speculated.i26.i, 20
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = icmp eq i64 %8, 0
   br i1 %16, label %21, label %17
 
@@ -14765,7 +14765,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %11, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h3c1e48f421e21648E.llvm.10488432685746580710.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h10529334c76668c6E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h10529334c76668c6E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %12, align 8, !alias.scope !1172
   %13 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %13)
@@ -14773,7 +14773,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %6
   %14 = shl nuw nsw i64 %.0.sroa.speculated.i26.i, 2
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = icmp eq i64 %8, 0
   br i1 %16, label %21, label %17
 
@@ -14830,7 +14830,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %11, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h60e292d9fedcc893E.llvm.10488432685746580710.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf5e6fa6a3a48fa5bE.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf5e6fa6a3a48fa5bE.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %12, align 8, !alias.scope !1179
   %13 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %13)
@@ -14838,7 +14838,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %6
   %14 = shl nuw nsw i64 %.0.sroa.speculated.i26.i, 5
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = icmp eq i64 %8, 0
   br i1 %16, label %21, label %17
 
@@ -14895,7 +14895,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %11, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17ha32a407dc2dbaf6dE.llvm.10488432685746580710.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he32999713f4345a7E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he32999713f4345a7E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %12, align 8, !alias.scope !1186
   %13 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %13)
@@ -14903,7 +14903,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %6
   %14 = shl nuw nsw i64 %.0.sroa.speculated.i26.i, 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = icmp eq i64 %8, 0
   br i1 %16, label %21, label %17
 
@@ -14960,7 +14960,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %11, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hab8244433e4c21d7E.llvm.10488432685746580710.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h8b238c881290c816E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h8b238c881290c816E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %12, align 8, !alias.scope !1193
   %13 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %13)
@@ -14968,7 +14968,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %6
   %14 = shl nuw nsw i64 %.0.sroa.speculated.i26.i, 2
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = icmp eq i64 %8, 0
   br i1 %16, label %21, label %17
 
@@ -15025,7 +15025,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %11, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hcf9ad92767eb2ef3E.llvm.10488432685746580710.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h56e082444d6335c9E.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h56e082444d6335c9E.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %12, align 8, !alias.scope !1200
   %13 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %13)
@@ -15033,7 +15033,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %6
   %14 = shl nuw nsw i64 %.0.sroa.speculated.i26.i, 5
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = icmp eq i64 %8, 0
   br i1 %16, label %21, label %17
 
@@ -15090,7 +15090,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
   br i1 %11, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h8673fe52a7422754E.llvm.10488432685746580710.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha04740450f3b21ffE.exit.thread.thread.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha04740450f3b21ffE.exit.thread.thread.i": ; preds = %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %12, align 8, !alias.scope !1207
   %13 = icmp ne ptr %.val25.i, null
   tail call void @llvm.assume(i1 %13)
@@ -15098,7 +15098,7 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.i: ; preds = %
 
 _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.exit.thread.i: ; preds = %6
   %14 = shl nuw nsw i64 %.0.sroa.speculated.i26.i, 3
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = icmp eq i64 %8, 0
   br i1 %16, label %21, label %17
 

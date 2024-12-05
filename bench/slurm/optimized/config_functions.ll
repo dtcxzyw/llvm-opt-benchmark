@@ -135,7 +135,7 @@ define dso_local noundef i32 @sacctmgr_list_config() local_unnamed_addr #0 {
 .lr.ph.i:                                         ; preds = %48, %.lr.ph.i
   %52 = phi ptr [ %57, %.lr.ph.i ], [ %51, %48 ]
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %52, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %55 = load ptr, ptr %54, align 8
   %56 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.34, ptr noundef %53, ptr noundef %55)
   %57 = call ptr @list_next(ptr noundef %50) #8
@@ -180,24 +180,24 @@ define dso_local i32 @sacctmgr_list_stats(i32 noundef %0, ptr noundef %1) local_
   br i1 %.not53, label %37, label %13
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %6, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %15 = load ptr, ptr %3, align 8
   store ptr %15, ptr %14, align 8
   store i32 463606195, ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 4
-  %17 = getelementptr inbounds i8, ptr %7, i64 8
-  %18 = getelementptr inbounds i8, ptr %7, i64 16
-  %19 = getelementptr inbounds i8, ptr %7, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 0, ptr %16, align 4
   %20 = load ptr, ptr @data_parser, align 8
   store ptr %20, ptr %19, align 8
   %21 = call ptr @data_parser_cli_meta(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %12, ptr noundef %20) #8
   store ptr %21, ptr %6, align 8
-  %22 = getelementptr inbounds i8, ptr %6, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %23 = call ptr @list_create(ptr noundef nonnull @free_openapi_resp_error) #8
   store ptr %23, ptr %22, align 8
   store ptr %23, ptr %17, align 8
-  %24 = getelementptr inbounds i8, ptr %6, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %25 = call ptr @list_create(ptr noundef nonnull @free_openapi_resp_warning) #8
   store ptr %25, ptr %24, align 8
   store ptr %25, ptr %18, align 8
@@ -238,20 +238,20 @@ define dso_local i32 @sacctmgr_list_stats(i32 noundef %0, ptr noundef %1) local_
   %41 = load i64, ptr %4, align 8
   %42 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %40, i64 noundef %41)
   %43 = load ptr, ptr %3, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %45 = call ptr @slurm_ctime2(ptr noundef nonnull %44) #8
   %46 = load ptr, ptr %3, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %48 = load i64, ptr %47, align 8
   %49 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, ptr noundef %45, i64 noundef %48)
   %puts54 = call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
   %puts55 = call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
-  %50 = getelementptr inbounds i8, ptr %39, i64 88
+  %50 = getelementptr inbounds nuw i8, ptr %39, i64 88
   br label %51
 
 51:                                               ; preds = %37, %58
   %indvars.iv = phi i64 [ 0, %37 ], [ %indvars.iv.next, %58 ]
-  %52 = getelementptr inbounds [3 x i64], ptr %50, i64 0, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [3 x i64], ptr %50, i64 0, i64 %indvars.iv
   %53 = load i64, ptr %52, align 8
   %54 = icmp eq i64 %53, 0
   br i1 %54, label %58, label %55
@@ -273,7 +273,7 @@ define dso_local i32 @sacctmgr_list_stats(i32 noundef %0, ptr noundef %1) local_
 
 59:                                               ; preds = %58
   %60 = load ptr, ptr %3, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = load ptr, ptr %61, align 8
   %.not56 = icmp eq ptr %62, null
   br i1 %.not56, label %87, label %63
@@ -285,7 +285,7 @@ define dso_local i32 @sacctmgr_list_stats(i32 noundef %0, ptr noundef %1) local_
 
 65:                                               ; preds = %63
   %66 = load ptr, ptr %3, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load ptr, ptr %67, align 8
   %69 = call ptr @list_iterator_create(ptr noundef %68) #8
   %70 = call ptr @list_next(ptr noundef %69) #8
@@ -299,13 +299,13 @@ define dso_local i32 @sacctmgr_list_stats(i32 noundef %0, ptr noundef %1) local_
 
 .preheader:                                       ; preds = %65, %.loopexit
   %72 = phi ptr [ %71, %.loopexit ], [ %70, %65 ]
-  %73 = getelementptr inbounds i8, ptr %72, i64 88
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 88
   br label %74
 
 74:                                               ; preds = %.preheader, %86
   %indvars.iv79 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next80, %86 ]
   %.076 = phi i1 [ true, %.preheader ], [ %.1, %86 ]
-  %75 = getelementptr inbounds [3 x i64], ptr %73, i64 0, i64 %indvars.iv79
+  %75 = getelementptr inbounds nuw [3 x i64], ptr %73, i64 0, i64 %indvars.iv79
   %76 = load i64, ptr %75, align 8
   %77 = icmp eq i64 %76, 0
   br i1 %77, label %86, label %78
@@ -355,23 +355,23 @@ define dso_local i32 @sacctmgr_list_stats(i32 noundef %0, ptr noundef %1) local_
 .thread72:                                        ; preds = %88, %87, %91
   %_sort_rpc_obj_by_time.sink86 = phi ptr [ %spec.select, %91 ], [ @_sort_rpc_obj_by_cnt, %87 ], [ @_sort_rpc_obj_by_ave_time, %88 ]
   %.pre84.sink = load ptr, ptr %3, align 8
-  %94 = getelementptr inbounds i8, ptr %.pre84.sink, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %.pre84.sink, i64 16
   %95 = load ptr, ptr %94, align 8
   call void @list_sort(ptr noundef %95, ptr noundef nonnull %_sort_rpc_obj_by_time.sink86) #8
   %96 = load ptr, ptr %3, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 32
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 32
   %98 = load ptr, ptr %97, align 8
   call void @list_sort(ptr noundef %98, ptr noundef nonnull %_sort_rpc_obj_by_time.sink86) #8
   %puts62 = call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
   store i32 0, ptr %5, align 4
   %99 = load ptr, ptr %3, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 16
   %101 = load ptr, ptr %100, align 8
   %102 = call i32 @list_for_each(ptr noundef %101, ptr noundef nonnull @_print_rpc_obj, ptr noundef nonnull %5) #8
   %puts63 = call i32 @puts(ptr nonnull dereferenceable(1) @str.5)
   store i32 1, ptr %5, align 4
   %103 = load ptr, ptr %3, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 32
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 32
   %105 = load ptr, ptr %104, align 8
   %106 = call i32 @list_for_each(ptr noundef %105, ptr noundef nonnull @_print_rpc_obj, ptr noundef nonnull %5) #8
   br label %.sink.split
@@ -423,16 +423,16 @@ define internal fastcc void @_print_rollup_stats(ptr noundef %0, i32 noundef ran
   br i1 %.not, label %35, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds [3 x i64], ptr %4, i64 0, i64 %5
   %7 = tail call ptr @slurm_ctime2(ptr noundef nonnull %6) #8
   %8 = load i64, ptr %6, align 8
   %9 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.35, ptr noundef %7, i64 noundef %8)
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %11 = getelementptr inbounds [3 x i64], ptr %10, i64 0, i64 %5
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = getelementptr inbounds [3 x i16], ptr %13, i64 0, i64 %5
   %15 = load i16, ptr %14, align 2
   %16 = icmp ugt i16 %15, 1
@@ -445,11 +445,11 @@ define internal fastcc void @_print_rollup_stats(ptr noundef %0, i32 noundef ran
 
 20:                                               ; preds = %17, %3
   %.0 = phi i64 [ %19, %17 ], [ %12, %3 ]
-  %21 = getelementptr inbounds i8, ptr %0, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = getelementptr inbounds [3 x i64], ptr %21, i64 0, i64 %5
   %23 = load i64, ptr %22, align 8
   %24 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.36, i64 noundef %23)
-  %25 = getelementptr inbounds i8, ptr %0, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %26 = getelementptr inbounds [3 x i64], ptr %25, i64 0, i64 %5
   %27 = load i64, ptr %26, align 8
   %28 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.37, i64 noundef %27)
@@ -483,9 +483,9 @@ declare void @list_sort(ptr noundef, ptr noundef) local_unnamed_addr #2
 define internal range(i32 -1, 2) i32 @_sort_rpc_obj_by_ave_time(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = icmp ugt i64 %6, %8
   %10 = ptrtoint ptr %3 to i64
@@ -513,9 +513,9 @@ define internal range(i32 -1, 2) i32 @_sort_rpc_obj_by_ave_time(ptr nocapture no
 define internal range(i32 -1, 2) i32 @_sort_rpc_obj_by_time(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = icmp ugt i64 %6, %8
   %10 = ptrtoint ptr %3 to i64
@@ -553,9 +553,9 @@ define internal range(i32 -1, 2) i32 @_sort_rpc_obj_by_cnt(ptr nocapture noundef
   br i1 %9, label %_sort_rpc_obj_by_time.exit, label %10
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %14 = load i64, ptr %13, align 8
   %15 = icmp ugt i64 %12, %14
   %16 = ptrtoint ptr %3 to i64
@@ -585,7 +585,7 @@ declare i32 @list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 define internal noundef i32 @_print_rpc_obj(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
   %3 = load i32, ptr %1, align 4
   %4 = icmp eq i32 %3, 0
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   br i1 %4, label %7, label %11
 
@@ -603,9 +603,9 @@ define internal noundef i32 @_print_rpc_obj(ptr nocapture noundef readonly %0, p
 
 15:                                               ; preds = %11, %7
   %16 = load i32, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load i64, ptr %19, align 8
   %21 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.43, i32 noundef %16, i64 noundef %18, i64 noundef %20)
   ret i32 0

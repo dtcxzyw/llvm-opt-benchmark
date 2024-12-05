@@ -37,7 +37,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @codegen_create_asm(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   tail call void @scratch_buffer_clear() #3
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 32), align 8
   switch i32 %4, label %93 [
@@ -47,10 +47,10 @@ define dso_local ptr @codegen_create_asm(ptr nocapture noundef readonly %0) loca
   ]
 
 5:                                                ; preds = %1, %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %7 = load i32, ptr %6, align 8
   tail call void @scratch_buffer_clear() #3
-  %8 = getelementptr inbounds i8, ptr %3, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %13, label %10
@@ -69,13 +69,13 @@ define dso_local ptr @codegen_create_asm(ptr nocapture noundef readonly %0) loca
   %.02636.i = phi i32 [ %18, %._crit_edge.i ], [ %7, %13 ]
   %14 = load ptr, ptr @ast_arena, align 8
   %15 = zext i32 %.02636.i to i64
-  %16 = getelementptr inbounds %struct.Ast_, ptr %14, i64 %15
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %16 = getelementptr inbounds nuw %struct.Ast_, ptr %14, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i32, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %16, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %20 = load ptr, ptr %19, align 8
   tail call void @scratch_buffer_append(ptr noundef %20) #3
-  %21 = getelementptr inbounds i8, ptr %16, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %22 = load ptr, ptr %21, align 8
   %.not30.i = icmp eq ptr %22, null
   br i1 %.not30.i, label %.thread.i, label %23
@@ -106,7 +106,7 @@ define dso_local ptr @codegen_create_asm(ptr nocapture noundef readonly %0) loca
 
 28:                                               ; preds = %27, %.lr.ph.i
   %29 = add nsw i64 %indvars.iv.i, -1
-  %30 = getelementptr inbounds ptr, ptr %22, i64 %29
+  %30 = getelementptr inbounds nuw ptr, ptr %22, i64 %29
   %31 = load ptr, ptr %30, align 8
   tail call fastcc void @codegen_create_x86att_arg(i32 noundef %.024.i, ptr noundef %31)
   %.not31.wide.i = icmp eq i64 %29, 0
@@ -118,10 +118,10 @@ define dso_local ptr @codegen_create_asm(ptr nocapture noundef readonly %0) loca
   br i1 %.not29.i, label %codegen_create_x86_att_asm.exit, label %.lr.ph38.i, !llvm.loop !9
 
 32:                                               ; preds = %1
-  %33 = getelementptr inbounds i8, ptr %3, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %34 = load i32, ptr %33, align 8
   tail call void @scratch_buffer_clear() #3
-  %35 = getelementptr inbounds i8, ptr %3, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %36 = load ptr, ptr %35, align 8
   %.not.i5 = icmp eq ptr %36, null
   br i1 %.not.i5, label %40, label %37
@@ -140,13 +140,13 @@ define dso_local ptr @codegen_create_asm(ptr nocapture noundef readonly %0) loca
   %.02533.i = phi i32 [ %45, %._crit_edge.i11 ], [ %34, %40 ]
   %41 = load ptr, ptr @ast_arena, align 8
   %42 = zext i32 %.02533.i to i64
-  %43 = getelementptr inbounds %struct.Ast_, ptr %41, i64 %42
-  %44 = getelementptr inbounds i8, ptr %43, i64 8
+  %43 = getelementptr inbounds nuw %struct.Ast_, ptr %41, i64 %42
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load i32, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %43, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %47 = load ptr, ptr %46, align 8
   tail call void @scratch_buffer_append(ptr noundef %47) #3
-  %48 = getelementptr inbounds i8, ptr %43, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %49 = load ptr, ptr %48, align 8
   %.not29.i6 = icmp eq ptr %49, null
   br i1 %.not29.i6, label %.thread.i12, label %50
@@ -176,9 +176,9 @@ define dso_local ptr @codegen_create_asm(ptr nocapture noundef readonly %0) loca
   br label %54
 
 54:                                               ; preds = %53, %.lr.ph.i8
-  %55 = getelementptr inbounds ptr, ptr %49, i64 %indvars.iv.i9
+  %55 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv.i9
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %58 = load i64, ptr %57, align 8
   %59 = trunc i64 %58 to i8
   switch i8 %59, label %92 [
@@ -192,16 +192,16 @@ define dso_local ptr @codegen_create_asm(ptr nocapture noundef readonly %0) loca
   ]
 
 60:                                               ; preds = %54
-  %61 = getelementptr inbounds i8, ptr %56, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %56, i64 32
   %62 = load i64, ptr %61, align 8
   tail call void @scratch_buffer_append_unsigned_int(i64 noundef %62) #3
   br label %codegen_create_aarch64_arg.exit.i
 
 63:                                               ; preds = %54
-  %64 = getelementptr inbounds i8, ptr %56, i64 32
+  %64 = getelementptr inbounds nuw i8, ptr %56, i64 32
   %65 = load ptr, ptr %64, align 8
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 1
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 1
   tail call void @scratch_buffer_append(ptr noundef nonnull %67) #3
   br label %codegen_create_aarch64_arg.exit.i
 
@@ -217,7 +217,7 @@ define dso_local ptr @codegen_create_asm(ptr nocapture noundef readonly %0) loca
 
 74:                                               ; preds = %54, %54
   tail call void @scratch_buffer_append_char(i8 noundef signext 36) #3
-  %75 = getelementptr inbounds i8, ptr %56, i64 40
+  %75 = getelementptr inbounds nuw i8, ptr %56, i64 40
   %76 = load i8, ptr %75, align 8
   %77 = and i8 %76, 4
   %.not.i.i = icmp eq i8 %77, 0
@@ -285,7 +285,7 @@ declare void @scratch_buffer_append_char(i8 noundef signext) local_unnamed_addr 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @codegen_create_x86att_arg(i32 noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = trunc i64 %4 to i8
   switch i8 %5, label %67 [
@@ -300,17 +300,17 @@ define internal fastcc void @codegen_create_x86att_arg(i32 noundef %0, ptr nocap
 
 6:                                                ; preds = %2
   tail call void @scratch_buffer_append(ptr noundef nonnull @.str.4) #3
-  %7 = getelementptr inbounds i8, ptr %1, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %8 = load i64, ptr %7, align 8
   tail call void @scratch_buffer_append_unsigned_int(i64 noundef %8) #3
   br label %68
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %1, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %11 = load ptr, ptr %10, align 8
   tail call void @scratch_buffer_append_char(i8 noundef signext 37) #3
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1
   tail call void @scratch_buffer_append(ptr noundef nonnull %13) #3
   br label %68
 
@@ -326,7 +326,7 @@ define internal fastcc void @codegen_create_x86att_arg(i32 noundef %0, ptr nocap
 
 20:                                               ; preds = %2, %2
   tail call void @scratch_buffer_append_char(i8 noundef signext 36) #3
-  %21 = getelementptr inbounds i8, ptr %1, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %22 = load i8, ptr %21, align 8
   %23 = and i8 %22, 4
   %.not26 = icmp eq i8 %23, 0
@@ -353,8 +353,8 @@ define internal fastcc void @codegen_create_x86att_arg(i32 noundef %0, ptr nocap
   br label %68
 
 36:                                               ; preds = %2
-  %37 = getelementptr inbounds i8, ptr %1, i64 32
-  %38 = getelementptr inbounds i8, ptr %1, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %39 = load i64, ptr %38, align 8
   %.not = icmp eq i64 %39, 0
   br i1 %.not, label %45, label %40
@@ -383,12 +383,12 @@ define internal fastcc void @codegen_create_x86att_arg(i32 noundef %0, ptr nocap
 47:                                               ; preds = %45
   %48 = load ptr, ptr @expr_arena, align 8
   %49 = zext i32 %46 to i64
-  %50 = getelementptr inbounds %struct.Expr_, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw %struct.Expr_, ptr %48, i64 %49
   tail call fastcc void @codegen_create_x86att_arg(i32 noundef %0, ptr noundef nonnull %50)
   br label %51
 
 51:                                               ; preds = %47, %45
-  %52 = getelementptr inbounds i8, ptr %1, i64 36
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %53 = load i32, ptr %52, align 4
   %.not25 = icmp eq i32 %53, 0
   br i1 %.not25, label %65, label %54
@@ -398,7 +398,7 @@ define internal fastcc void @codegen_create_x86att_arg(i32 noundef %0, ptr nocap
   %55 = load i32, ptr %52, align 4
   %56 = load ptr, ptr @expr_arena, align 8
   %57 = zext i32 %55 to i64
-  %58 = getelementptr inbounds %struct.Expr_, ptr %56, i64 %57
+  %58 = getelementptr inbounds nuw %struct.Expr_, ptr %56, i64 %57
   tail call fastcc void @codegen_create_x86att_arg(i32 noundef %0, ptr noundef %58)
   tail call void @scratch_buffer_append_char(i8 noundef signext 44) #3
   %59 = load i64, ptr %3, align 8

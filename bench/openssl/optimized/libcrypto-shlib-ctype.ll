@@ -13,7 +13,7 @@ entry:
 
 land.rhs:                                         ; preds = %entry
   %idxprom = zext nneg i32 %c to i64
-  %arrayidx = getelementptr inbounds [128 x i16], ptr @ctype_char_map, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [128 x i16], ptr @ctype_char_map, i64 0, i64 %idxprom
   %0 = load i16, ptr %arrayidx, align 2
   %conv = zext i16 %0 to i32
   %and = and i32 %mask, %conv

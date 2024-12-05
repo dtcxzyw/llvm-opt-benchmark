@@ -29,7 +29,7 @@ define void @freeNodelist(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %.not, label %5, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   %4 = load ptr, ptr %0, align 8
   tail call void @free(ptr noundef %4) #17
@@ -72,9 +72,9 @@ define void @appendNodelist(ptr nocapture noundef %0, i64 noundef %1, ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @nodelist_append(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %4, %6
   br i1 %7, label %8, label %._crit_edge.i
@@ -138,7 +138,7 @@ define void @realignNodelist(ptr nocapture noundef %0, i64 noundef %1) local_unn
 
 .lr.ph:                                           ; preds = %2
   %3 = getelementptr i8, ptr %0, i64 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %5
 
 5:                                                ; preds = %.lr.ph, %nodelist_resize.exit
@@ -154,7 +154,7 @@ define void @realignNodelist(ptr nocapture noundef %0, i64 noundef %1) local_unn
 
 9:                                                ; preds = %5
   %.val15 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %.val15, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.val15, i64 8
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.val15, ptr nonnull align 8 %10, i64 %8, i1 false)
   %.val.pre = load i64, ptr %3, align 8
   br label %11
@@ -271,7 +271,7 @@ define void @insertNodelist(ptr nocapture noundef %0, ptr noundef %1, ptr nounde
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   %.not.i = icmp eq i64 %7, 0
   br i1 %.not.i, label %nodelist_remove.exit.thread, label %.lr.ph.i
@@ -384,7 +384,7 @@ appendNodelist.exit:                              ; preds = %35, %39
 
 ; Function Attrs: nounwind uwtable
 define void @reverseAppend(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   %or.cond.i = icmp ugt i64 %4, 1
   br i1 %or.cond.i, label %.lr.ph.preheader.i, label %nodelist_reverse.exit

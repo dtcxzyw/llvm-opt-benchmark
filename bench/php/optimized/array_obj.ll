@@ -23,11 +23,11 @@ define hidden range(i32 0, 8) i32 @lexbor_array_obj_init(ptr noundef writeonly %
   br i1 %or.cond, label %16, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %2, ptr %11, align 8
   %12 = shl i64 %1, 3
   %13 = mul i64 %12, %2
@@ -50,7 +50,7 @@ define hidden void @lexbor_array_obj_clean(ptr noundef writeonly %0) local_unnam
   br i1 %.not, label %4, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %3, align 8
   br label %4
 
@@ -69,7 +69,7 @@ define hidden ptr @lexbor_array_obj_destroy(ptr noundef %0, i1 noundef zeroext %
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %8 = tail call ptr @lexbor_free(ptr noundef nonnull %5) #8
   store ptr %8, ptr %0, align 8
@@ -91,7 +91,7 @@ declare ptr @lexbor_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @lexbor_array_obj_expand(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = xor i64 %1, -1
   %6 = icmp ugt i64 %4, %5
@@ -100,7 +100,7 @@ define hidden ptr @lexbor_array_obj_expand(ptr nocapture noundef %0, i64 noundef
 7:                                                ; preds = %2
   %8 = add i64 %4, %1
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load i64, ptr %10, align 8
   %12 = shl i64 %8, 3
   %13 = mul i64 %12, %11
@@ -110,7 +110,7 @@ define hidden ptr @lexbor_array_obj_expand(ptr nocapture noundef %0, i64 noundef
 
 16:                                               ; preds = %7
   store ptr %14, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %8, ptr %17, align 8
   br label %18
 
@@ -123,9 +123,9 @@ declare ptr @lexbor_realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @lexbor_array_obj_push(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %.not = icmp ult i64 %3, %5
   br i1 %.not, label %._crit_edge, label %6
@@ -141,7 +141,7 @@ define hidden ptr @lexbor_array_obj_push(ptr nocapture noundef %0) local_unnamed
 8:                                                ; preds = %6
   %9 = add nuw i64 %3, 128
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i64, ptr %11, align 8
   %13 = shl i64 %9, 3
   %14 = mul i64 %13, %12
@@ -158,7 +158,7 @@ lexbor_array_obj_expand.exit:                     ; preds = %8
 17:                                               ; preds = %._crit_edge, %lexbor_array_obj_expand.exit
   %18 = phi i64 [ %3, %._crit_edge ], [ %.pre12, %lexbor_array_obj_expand.exit ]
   %19 = phi ptr [ %.pre, %._crit_edge ], [ %15, %lexbor_array_obj_expand.exit ]
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load i64, ptr %20, align 8
   %22 = mul i64 %21, %18
   %23 = getelementptr inbounds i8, ptr %19, i64 %22
@@ -177,9 +177,9 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @lexbor_array_obj_push_wo_cls(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %.not = icmp ult i64 %3, %5
   br i1 %.not, label %._crit_edge, label %6
@@ -195,7 +195,7 @@ define hidden ptr @lexbor_array_obj_push_wo_cls(ptr nocapture noundef %0) local_
 8:                                                ; preds = %6
   %9 = add nuw i64 %3, 128
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i64, ptr %11, align 8
   %13 = shl i64 %9, 3
   %14 = mul i64 %13, %12
@@ -212,7 +212,7 @@ lexbor_array_obj_expand.exit:                     ; preds = %8
 17:                                               ; preds = %._crit_edge, %lexbor_array_obj_expand.exit
   %18 = phi i64 [ %3, %._crit_edge ], [ %.pre10, %lexbor_array_obj_expand.exit ]
   %19 = phi ptr [ %.pre, %._crit_edge ], [ %15, %lexbor_array_obj_expand.exit ]
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load i64, ptr %20, align 8
   %22 = mul i64 %21, %18
   %23 = getelementptr inbounds i8, ptr %19, i64 %22
@@ -227,10 +227,10 @@ lexbor_array_obj_expand.exit.thread:              ; preds = %8, %6, %17
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @lexbor_array_obj_push_n(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = icmp ugt i64 %5, %7
   br i1 %8, label %9, label %._crit_edge
@@ -247,7 +247,7 @@ define hidden ptr @lexbor_array_obj_push_n(ptr nocapture noundef %0, i64 noundef
 12:                                               ; preds = %9
   %13 = add i64 %5, 128
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load i64, ptr %15, align 8
   %17 = shl i64 %13, 3
   %18 = mul i64 %17, %16
@@ -266,7 +266,7 @@ lexbor_array_obj_expand.exit:                     ; preds = %12
   %.pre-phi = phi i64 [ %5, %._crit_edge ], [ %.pre13, %lexbor_array_obj_expand.exit ]
   %22 = phi i64 [ %4, %._crit_edge ], [ %.pre12, %lexbor_array_obj_expand.exit ]
   %23 = phi ptr [ %.pre, %._crit_edge ], [ %19, %lexbor_array_obj_expand.exit ]
-  %24 = getelementptr inbounds i8, ptr %0, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = load i64, ptr %24, align 8
   %26 = mul i64 %25, %22
   %27 = getelementptr inbounds i8, ptr %23, i64 %26
@@ -280,7 +280,7 @@ lexbor_array_obj_expand.exit.thread:              ; preds = %12, %9, %21
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden ptr @lexbor_array_obj_pop(ptr nocapture noundef %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %12, label %5
@@ -289,7 +289,7 @@ define hidden ptr @lexbor_array_obj_pop(ptr nocapture noundef %0) local_unnamed_
   %6 = add i64 %3, -1
   store i64 %6, ptr %2, align 8
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i64, ptr %8, align 8
   %10 = mul i64 %9, %6
   %11 = getelementptr inbounds i8, ptr %7, i64 %10
@@ -302,7 +302,7 @@ define hidden ptr @lexbor_array_obj_pop(ptr nocapture noundef %0) local_unnamed_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @lexbor_array_obj_delete(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #5 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = icmp uge i64 %1, %5
   %7 = icmp eq i64 %2, 0
@@ -316,7 +316,7 @@ define hidden void @lexbor_array_obj_delete(ptr nocapture noundef %0, i64 nounde
 
 10:                                               ; preds = %8
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load i64, ptr %12, align 8
   %14 = mul i64 %13, %1
   %15 = getelementptr inbounds i8, ptr %11, i64 %14
@@ -350,14 +350,14 @@ define hidden void @lexbor_array_obj_erase_noi(ptr nocapture noundef writeonly i
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @lexbor_array_obj_get_noi(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #7 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %.not.i = icmp ult i64 %1, %4
   br i1 %.not.i, label %5, label %lexbor_array_obj_get.exit
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i64, ptr %7, align 8
   %9 = mul i64 %8, %1
   %10 = getelementptr inbounds i8, ptr %6, i64 %9
@@ -391,7 +391,7 @@ define hidden i64 @lexbor_array_obj_struct_size_noi(ptr nocapture noundef readon
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @lexbor_array_obj_last_noi(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %lexbor_array_obj_last.exit, label %5
@@ -399,7 +399,7 @@ define hidden ptr @lexbor_array_obj_last_noi(ptr nocapture noundef readonly %0) 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %0, align 8
   %7 = add i64 %3, -1
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i64, ptr %8, align 8
   %10 = mul i64 %9, %7
   %11 = getelementptr inbounds i8, ptr %6, i64 %10

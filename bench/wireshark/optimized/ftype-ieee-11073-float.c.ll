@@ -36,7 +36,7 @@ define hidden void @ftype_register_ieee_11073_float() local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @sfloat_ieee_11073_fvalue_new(ptr nocapture noundef writeonly initializes((8, 10)) %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 0, ptr %2, align 8
   ret void
 }
@@ -268,7 +268,7 @@ define internal noundef zeroext i1 @sfloat_ieee_11073_val_from_literal(ptr nocap
 
 .loopexit147.sink.split:                          ; preds = %21, %17, %15, %13, %10, %85
   %.sink = phi i16 [ %89, %85 ], [ 2050, %10 ], [ 2049, %13 ], [ 2048, %15 ], [ 2047, %17 ], [ 2046, %21 ]
-  %90 = getelementptr inbounds i8, ptr %0, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 %.sink, ptr %90, align 8
   br label %.loopexit147
 
@@ -299,7 +299,7 @@ define internal noundef zeroext i1 @sfloat_ieee_11073_val_from_double(ptr nocapt
 define internal noalias ptr @sfloat_ieee_11073_val_to_repr(ptr noundef %0, ptr nocapture noundef readonly %1, i32 %2, i32 %3) #0 {
   %5 = alloca [5 x i8], align 1
   %6 = alloca [13 x i8], align 1
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i16, ptr %7, align 8
   %9 = add i16 %8, -2046
   %or.cond = icmp ult i16 %9, 5
@@ -447,14 +447,14 @@ switch.lookup:                                    ; preds = %4
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @sfloat_ieee_11073_value_set(ptr nocapture noundef writeonly initializes((8, 10)) %0, i32 noundef %1) #1 {
   %3 = trunc i32 %1 to i16
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 %3, ptr %4, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 0, 65536) i32 @sfloat_ieee_11073_value_get(ptr nocapture noundef readonly %0) #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i16, ptr %2, align 8
   %4 = zext i16 %3 to i32
   ret i32 %4
@@ -516,7 +516,7 @@ define internal noundef i32 @sfloat_ieee_11073_cmp_order(ptr nocapture noundef r
 
 sfloat_to_normal_form.exit.i:                     ; preds = %._crit_edge.i.i, %3
   %.024.i.i = phi i16 [ %31, %._crit_edge.i.i ], [ %.val, %3 ]
-  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %33 = load i16, ptr %32, align 8
   %34 = add i16 %33, -2046
   %or.cond.i61.i = icmp ult i16 %34, 5
@@ -776,7 +776,7 @@ sfloat_ieee_11073_cmp_lt.exit.thread:             ; preds = %82, %78, %65, %63, 
 ; Function Attrs: nounwind uwtable
 define internal i32 @sfloat_ieee_11073_hash(ptr nocapture noundef readonly %0) #0 {
   %2 = alloca i64, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i16, ptr %3, align 8
   %5 = zext i16 %4 to i64
   store i64 %5, ptr %2, align 8
@@ -786,7 +786,7 @@ define internal i32 @sfloat_ieee_11073_hash(ptr nocapture noundef readonly %0) #
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @sfloat_ieee_11073_is_zero(ptr nocapture noundef readonly %0) #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i16, ptr %2, align 8
   %4 = icmp eq i16 %3, 0
   ret i1 %4
@@ -794,7 +794,7 @@ define internal zeroext i1 @sfloat_ieee_11073_is_zero(ptr nocapture noundef read
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @float_ieee_11073_fvalue_new(ptr nocapture noundef writeonly initializes((8, 12)) %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
   ret void
 }
@@ -1027,7 +1027,7 @@ define internal noundef zeroext i1 @float_ieee_11073_val_from_literal(ptr nocapt
 
 .loopexit148.sink.split:                          ; preds = %21, %17, %15, %13, %10, %85
   %.sink = phi i32 [ %89, %85 ], [ 8388610, %10 ], [ 8388609, %13 ], [ 8388608, %15 ], [ 8388607, %17 ], [ 8388606, %21 ]
-  %90 = getelementptr inbounds i8, ptr %0, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sink, ptr %90, align 8
   br label %.loopexit148
 
@@ -1058,7 +1058,7 @@ define internal noundef zeroext i1 @float_ieee_11073_val_from_double(ptr nocaptu
 define internal noalias ptr @float_ieee_11073_val_to_repr(ptr noundef %0, ptr nocapture noundef readonly %1, i32 %2, i32 %3) #0 {
   %5 = alloca [8 x i8], align 1
   %6 = alloca [136 x i8], align 16
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = add i32 %8, -8388606
   %or.cond = icmp ult i32 %9, 5
@@ -1201,14 +1201,14 @@ switch.lookup:                                    ; preds = %4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @float_ieee_11073_value_set(ptr nocapture noundef writeonly initializes((8, 12)) %0, i32 noundef %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @float_ieee_11073_value_get(ptr nocapture noundef readonly %0) #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
@@ -1262,7 +1262,7 @@ define internal noundef i32 @float_ieee_11073_cmp_order(ptr nocapture noundef re
 
 float_to_normal_form.exit.i:                      ; preds = %._crit_edge.i.i, %3
   %.019.i.i = phi i32 [ %24, %._crit_edge.i.i ], [ %.val, %3 ]
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = add i32 %26, -8388606
   %or.cond.i52.i = icmp ult i32 %27, 5
@@ -1497,7 +1497,7 @@ float_ieee_11073_cmp_lt.exit.thread:              ; preds = %51, %63, %._crit_ed
 ; Function Attrs: nounwind uwtable
 define internal i32 @float_ieee_11073_hash(ptr nocapture noundef readonly %0) #0 {
   %2 = alloca i64, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
   store i64 %5, ptr %2, align 8
@@ -1507,7 +1507,7 @@ define internal i32 @float_ieee_11073_hash(ptr nocapture noundef readonly %0) #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @float_ieee_11073_is_zero(ptr nocapture noundef readonly %0) #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
   ret i1 %4

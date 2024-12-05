@@ -12,17 +12,17 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @opal_thread_construct(ptr nocapture noundef writeonly initializes((16, 24), (32, 40)) %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 -1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -11, 1) i32 @opal_thread_start(ptr noundef %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @pthread_create(ptr noundef nonnull %2, ptr noundef null, ptr noundef %4, ptr noundef %0) #8
   %6 = icmp eq i32 %5, 0
@@ -35,7 +35,7 @@ declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) 
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -11, 1) i32 @opal_thread_join(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = tail call i32 @pthread_join(i64 noundef %4, ptr noundef %1) #8
   store i64 -1, ptr %3, align 8
@@ -49,7 +49,7 @@ declare i32 @pthread_join(i64 noundef, ptr noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
 define zeroext i1 @opal_thread_self_compare(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
   %2 = tail call i64 @pthread_self() #9
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %2, %4
   ret i1 %5
@@ -77,9 +77,9 @@ define noundef ptr @opal_thread_get_self() local_unnamed_addr #1 {
 
 7:                                                ; preds = %6
   store ptr @opal_thread_t_class, ptr %2, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store volatile i32 1, ptr %8, align 8
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_thread_t_class, i64 40), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_thread_t_class, i64 40), align 8
   %10 = load ptr, ptr %9, align 8
   %.not6.i.i = icmp eq ptr %10, null
   br i1 %.not6.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i
@@ -88,14 +88,14 @@ define noundef ptr @opal_thread_get_self() local_unnamed_addr #1 {
   %11 = phi ptr [ %13, %.lr.ph.i.i ], [ %10, %7 ]
   %.07.i.i = phi ptr [ %12, %.lr.ph.i.i ], [ %9, %7 ]
   tail call void %11(ptr noundef nonnull %2) #8
-  %12 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i, !llvm.loop !4
 
 opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %6, %7
   %14 = tail call i64 @pthread_self() #9
-  %15 = getelementptr inbounds i8, ptr %2, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i64 %14, ptr %15, align 8
   ret ptr %2
 }

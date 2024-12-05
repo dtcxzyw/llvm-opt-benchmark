@@ -22,14 +22,14 @@ define void @softfloat_sub256M(ptr nocapture noundef readonly %0, ptr nocapture 
   %.in = select i1 %.not, i1 %11, i1 %10
   %12 = zext i1 %.in to i8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %13 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv.next
+  %13 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv.next
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv.next
+  %15 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv.next
   %16 = load i64, ptr %15, align 8
   %.neg21 = sext i1 %.in to i64
   %.neg17 = add i64 %14, %.neg21
   %17 = sub i64 %.neg17, %16
-  %18 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv.next
+  %18 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv.next
   store i64 %17, ptr %18, align 8
   %19 = icmp eq i64 %indvars.iv.next, 3
   br i1 %19, label %20, label %7

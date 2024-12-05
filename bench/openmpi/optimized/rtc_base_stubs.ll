@@ -26,9 +26,9 @@ define void @prte_rtc_base_assign(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %1, %7
   %.09 = phi ptr [ %.0, %7 ], [ %.07, %1 ]
-  %2 = getelementptr inbounds i8, ptr %.09, i64 152
+  %2 = getelementptr inbounds nuw i8, ptr %.09, i64 152
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not6 = icmp eq ptr %5, null
   br i1 %.not6, label %7, label %6
@@ -38,7 +38,7 @@ define void @prte_rtc_base_assign(ptr noundef %0) local_unnamed_addr #0 {
   br label %7
 
 7:                                                ; preds = %.lr.ph, %6
-  %8 = getelementptr inbounds i8, ptr %.09, i64 120
+  %8 = getelementptr inbounds nuw i8, ptr %.09, i64 120
   %.0 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %.0, getelementptr inbounds (i8, ptr @prte_rtc_base, i64 120)
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
@@ -55,9 +55,9 @@ define void @prte_rtc_base_set(ptr noundef %0, i32 noundef %1) local_unnamed_add
 
 .lr.ph:                                           ; preds = %2, %8
   %.09 = phi ptr [ %.0, %8 ], [ %.07, %2 ]
-  %3 = getelementptr inbounds i8, ptr %.09, i64 152
+  %3 = getelementptr inbounds nuw i8, ptr %.09, i64 152
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not6 = icmp eq ptr %6, null
   br i1 %.not6, label %8, label %7
@@ -67,7 +67,7 @@ define void @prte_rtc_base_set(ptr noundef %0, i32 noundef %1) local_unnamed_add
   br label %8
 
 8:                                                ; preds = %.lr.ph, %7
-  %9 = getelementptr inbounds i8, ptr %.09, i64 120
+  %9 = getelementptr inbounds nuw i8, ptr %.09, i64 120
   %.0 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %.0, getelementptr inbounds (i8, ptr @prte_rtc_base, i64 120)
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
@@ -84,9 +84,9 @@ define void @prte_rtc_base_get_avail_vals(ptr noundef %0) local_unnamed_addr #0 
 
 .lr.ph:                                           ; preds = %1, %7
   %.09 = phi ptr [ %.0, %7 ], [ %.07, %1 ]
-  %2 = getelementptr inbounds i8, ptr %.09, i64 152
+  %2 = getelementptr inbounds nuw i8, ptr %.09, i64 152
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8
   %.not6 = icmp eq ptr %5, null
   br i1 %.not6, label %7, label %6
@@ -96,7 +96,7 @@ define void @prte_rtc_base_get_avail_vals(ptr noundef %0) local_unnamed_addr #0 
   br label %7
 
 7:                                                ; preds = %.lr.ph, %6
-  %8 = getelementptr inbounds i8, ptr %.09, i64 120
+  %8 = getelementptr inbounds nuw i8, ptr %.09, i64 120
   %.0 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %.0, getelementptr inbounds (i8, ptr @prte_rtc_base, i64 120)
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
@@ -110,7 +110,7 @@ define i32 @prte_rtc_base_send_warn_show_help(i32 noundef %0, ptr noundef %1, pt
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = alloca %struct.prte_odls_pipe_err_msg_t, align 4
   store i8 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 0, ptr %6, align 4
   call void @llvm.va_start.p0(ptr nonnull %4)
   %7 = call fastcc i32 @write_help_msg(i32 noundef %0, ptr noundef %5, ptr noundef %1, ptr noundef %2, ptr noundef %4)
@@ -129,7 +129,7 @@ define internal fastcc i32 @write_help_msg(i32 noundef %0, ptr noundef nonnull %
   %9 = tail call ptr @pmix_show_help_vstring(ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 1, ptr noundef nonnull %4) #7
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #8
   %11 = trunc i64 %10 to i32
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %11, ptr %12, align 4
   %13 = icmp sgt i32 %11, 511
   br i1 %13, label %14, label %16
@@ -142,7 +142,7 @@ define internal fastcc i32 @write_help_msg(i32 noundef %0, ptr noundef nonnull %
 16:                                               ; preds = %8
   %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #8
   %18 = trunc i64 %17 to i32
-  %19 = getelementptr inbounds i8, ptr %1, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 %18, ptr %19, align 4
   %20 = icmp sgt i32 %18, 511
   br i1 %20, label %21, label %23
@@ -155,7 +155,7 @@ define internal fastcc i32 @write_help_msg(i32 noundef %0, ptr noundef nonnull %
 23:                                               ; preds = %16
   %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #8
   %25 = trunc i64 %24 to i32
-  %26 = getelementptr inbounds i8, ptr %1, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 %25, ptr %26, align 4
   %27 = tail call i32 @pmix_fd_write(i32 noundef %0, i32 noundef 20, ptr noundef nonnull %1) #7
   %.not = icmp eq i32 %27, 0
@@ -205,7 +205,7 @@ define void @prte_rtc_base_send_error_show_help(i32 noundef %0, i32 noundef %1, 
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   %6 = alloca %struct.prte_odls_pipe_err_msg_t, align 4
   store i8 1, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %6, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %1, ptr %7, align 4
   call void @llvm.va_start.p0(ptr nonnull %5)
   %8 = call fastcc i32 @write_help_msg(i32 noundef %0, ptr noundef %6, ptr noundef %2, ptr noundef %3, ptr noundef %5)

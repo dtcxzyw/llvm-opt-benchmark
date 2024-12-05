@@ -73,7 +73,7 @@ define dso_local noundef range(i32 -22, 1) i32 @thermal_zone_create_device_group
 
 6:                                                ; preds = %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 16 dereferenceable(16) @thermal_zone_attribute_groups, i64 16, i1 false)
-  %7 = getelementptr inbounds i8, ptr %0, i64 872
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %144, label %10
@@ -86,7 +86,7 @@ define dso_local noundef range(i32 -22, 1) i32 @thermal_zone_create_device_group
   %13 = zext nneg i32 %8 to i64
   %14 = mul nuw nsw i64 %13, 56
   %15 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %14, i32 noundef 3520) #14
-  %16 = getelementptr inbounds i8, ptr %0, i64 832
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 832
   store ptr %15, ptr %16, align 8
   %17 = icmp eq ptr %15, null
   br i1 %17, label %136, label %18
@@ -99,14 +99,14 @@ define dso_local noundef range(i32 -22, 1) i32 @thermal_zone_create_device_group
   br i1 %22, label %.thread, label %24, !prof !5
 
 .thread:                                          ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %0, i64 824
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 824
   store ptr null, ptr %23, align 8
   br label %.sink.split
 
 24:                                               ; preds = %18
   %25 = extractvalue { i64, i1 } %21, 0
   %26 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %25, i32 noundef 3520) #14
-  %27 = getelementptr inbounds i8, ptr %0, i64 824
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 824
   store ptr %26, ptr %27, align 8
   %28 = icmp eq ptr %26, null
   br i1 %28, label %._crit_edge, label %29
@@ -123,14 +123,14 @@ define dso_local noundef range(i32 -22, 1) i32 @thermal_zone_create_device_group
   br i1 %33, label %.thread6, label %35, !prof !5
 
 .thread6:                                         ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %0, i64 840
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 840
   store ptr null, ptr %34, align 8
   br label %40
 
 35:                                               ; preds = %29
   %36 = extractvalue { i64, i1 } %32, 0
   %37 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %36, i32 noundef 3520) #14
-  %38 = getelementptr inbounds i8, ptr %0, i64 840
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 840
   store ptr %37, ptr %38, align 8
   %39 = icmp eq ptr %37, null
   br i1 %39, label %40, label %43
@@ -161,7 +161,7 @@ define dso_local noundef range(i32 -22, 1) i32 @thermal_zone_create_device_group
   br i1 %55, label %56, label %.loopexit
 
 56:                                               ; preds = %53
-  %57 = getelementptr inbounds i8, ptr %0, i64 928
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 928
   br label %61
 
 .thread7:                                         ; preds = %43, %48
@@ -180,7 +180,7 @@ define dso_local noundef range(i32 -22, 1) i32 @thermal_zone_create_device_group
   %66 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %64, i64 noundef 20, ptr noundef nonnull @.str.20, i32 noundef %65) #15
   %67 = load ptr, ptr %16, align 8
   %68 = getelementptr %struct.thermal_attr, ptr %67, i64 %62
-  %69 = getelementptr inbounds i8, ptr %68, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 32
   store ptr %69, ptr %68, align 8
   %70 = load ptr, ptr %16, align 8
   %71 = getelementptr %struct.thermal_attr, ptr %70, i64 %62, i32 0, i32 0, i32 1
@@ -197,7 +197,7 @@ define dso_local noundef range(i32 -22, 1) i32 @thermal_zone_create_device_group
   %79 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %78, i64 noundef 20, ptr noundef nonnull @.str.21, i32 noundef %65) #15
   %80 = load ptr, ptr %27, align 8
   %81 = getelementptr %struct.thermal_attr, ptr %80, i64 %62
-  %82 = getelementptr inbounds i8, ptr %81, i64 32
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 32
   store ptr %82, ptr %81, align 8
   %83 = load ptr, ptr %27, align 8
   %84 = getelementptr %struct.thermal_attr, ptr %83, i64 %62, i32 0, i32 0, i32 1
@@ -234,7 +234,7 @@ define dso_local noundef range(i32 -22, 1) i32 @thermal_zone_create_device_group
   %106 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %105, i64 noundef 20, ptr noundef nonnull @.str.22, i32 noundef %65) #15
   %107 = load ptr, ptr %38, align 8
   %108 = getelementptr %struct.thermal_attr, ptr %107, i64 %62
-  %109 = getelementptr inbounds i8, ptr %108, i64 32
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 32
   store ptr %109, ptr %108, align 8
   %110 = load ptr, ptr %38, align 8
   %111 = getelementptr %struct.thermal_attr, ptr %110, i64 %62, i32 0, i32 0, i32 1
@@ -243,7 +243,7 @@ define dso_local noundef range(i32 -22, 1) i32 @thermal_zone_create_device_group
   %113 = getelementptr %struct.thermal_attr, ptr %112, i64 %62, i32 0, i32 1
   store ptr @trip_point_hyst_show, ptr %113, align 8
   %114 = load ptr, ptr %57, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 48
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 48
   %116 = load ptr, ptr %115, align 8
   %117 = icmp eq ptr %116, null
   br i1 %117, label %125, label %118
@@ -289,15 +289,15 @@ define dso_local noundef range(i32 -22, 1) i32 @thermal_zone_create_device_group
   %139 = sext i32 %138 to i64
   %140 = getelementptr ptr, ptr %51, i64 %139
   store ptr null, ptr %140, align 8
-  %141 = getelementptr inbounds i8, ptr %0, i64 808
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 808
   store ptr %51, ptr %141, align 8
-  %142 = getelementptr inbounds i8, ptr %0, i64 784
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %143 = getelementptr i8, ptr %4, i64 16
   store ptr %142, ptr %143, align 8
   br label %144
 
 144:                                              ; preds = %.loopexit, %6
-  %145 = getelementptr inbounds i8, ptr %0, i64 704
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 704
   store ptr %4, ptr %145, align 8
   br label %146
 
@@ -321,28 +321,28 @@ define dso_local void @thermal_zone_destroy_device_groups(ptr noundef readonly %
   br i1 %2, label %19, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 872
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %16, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 832
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %9 = load ptr, ptr %8, align 8
   tail call void @kfree(ptr noundef %9) #15
-  %10 = getelementptr inbounds i8, ptr %0, i64 824
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 824
   %11 = load ptr, ptr %10, align 8
   tail call void @kfree(ptr noundef %11) #15
-  %12 = getelementptr inbounds i8, ptr %0, i64 840
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 840
   %13 = load ptr, ptr %12, align 8
   tail call void @kfree(ptr noundef %13) #15
-  %14 = getelementptr inbounds i8, ptr %0, i64 808
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %15 = load ptr, ptr %14, align 8
   tail call void @kfree(ptr noundef %15) #15
   br label %16
 
 16:                                               ; preds = %7, %3
-  %17 = getelementptr inbounds i8, ptr %0, i64 704
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %18 = load ptr, ptr %17, align 8
   tail call void @kfree(ptr noundef %18) #15
   br label %19
@@ -353,7 +353,7 @@ define dso_local void @thermal_zone_destroy_device_groups(ptr noundef readonly %
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
 define dso_local void @thermal_cooling_device_setup_sysfs(ptr nocapture noundef writeonly initializes((704, 712)) %0) local_unnamed_addr #3 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 704
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 704
   store ptr @cooling_device_attr_groups, ptr %2, align 8
   ret void
 }
@@ -411,16 +411,16 @@ define dso_local i64 @weight_store(ptr nocapture noundef readnone %0, ptr nocapt
 10:                                               ; preds = %4
   %11 = getelementptr i8, ptr %1, i64 -136
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 992
-  call void @mutex_lock(ptr noundef %13) #15
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 992
+  call void @mutex_lock(ptr noundef nonnull %13) #15
   %14 = load i32, ptr %5, align 4
   %15 = getelementptr i8, ptr %1, i64 64
   store i32 %14, ptr %15, align 8
   %16 = load ptr, ptr %11, align 8
   call void @thermal_governor_update_tz(ptr noundef %16, i32 noundef 11) #15
   %17 = load ptr, ptr %11, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 992
-  call void @mutex_unlock(ptr noundef %18) #15
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 992
+  call void @mutex_unlock(ptr noundef nonnull %18) #15
   br label %19
 
 19:                                               ; preds = %10, %8
@@ -535,7 +535,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @sustainable_powe
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %9 = load i32, ptr %8, align 4
   %10 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %9) #15
   %11 = sext i32 %10 to i64
@@ -564,7 +564,7 @@ define internal noundef i64 @sustainable_power_store(ptr nocapture noundef reado
 12:                                               ; preds = %9
   %13 = load i32, ptr %5, align 4
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i32 %13, ptr %15, align 4
   br label %16
 
@@ -585,7 +585,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @k_po_show(ptr no
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %9 = load i32, ptr %8, align 4
   %10 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %9) #15
   %11 = sext i32 %10 to i64
@@ -614,7 +614,7 @@ define internal noundef i64 @k_po_store(ptr nocapture noundef readonly %0, ptr n
 12:                                               ; preds = %9
   %13 = load i32, ptr %5, align 4
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 28
   store i32 %13, ptr %15, align 4
   br label %16
 
@@ -632,7 +632,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @k_pu_show(ptr no
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %9 = load i32, ptr %8, align 4
   %10 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %9) #15
   %11 = sext i32 %10 to i64
@@ -661,7 +661,7 @@ define internal noundef i64 @k_pu_store(ptr nocapture noundef readonly %0, ptr n
 12:                                               ; preds = %9
   %13 = load i32, ptr %5, align 4
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store i32 %13, ptr %15, align 4
   br label %16
 
@@ -679,7 +679,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @k_i_show(ptr noc
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 36
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 36
   %9 = load i32, ptr %8, align 4
   %10 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %9) #15
   %11 = sext i32 %10 to i64
@@ -708,7 +708,7 @@ define internal noundef i64 @k_i_store(ptr nocapture noundef readonly %0, ptr no
 12:                                               ; preds = %9
   %13 = load i32, ptr %5, align 4
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 36
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 36
   store i32 %13, ptr %15, align 4
   br label %16
 
@@ -726,7 +726,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @k_d_show(ptr noc
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %9 = load i32, ptr %8, align 4
   %10 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %9) #15
   %11 = sext i32 %10 to i64
@@ -755,7 +755,7 @@ define internal noundef i64 @k_d_store(ptr nocapture noundef readonly %0, ptr no
 12:                                               ; preds = %9
   %13 = load i32, ptr %5, align 4
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store i32 %13, ptr %15, align 4
   br label %16
 
@@ -773,7 +773,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @integral_cutoff_
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 44
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 44
   %9 = load i32, ptr %8, align 4
   %10 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %9) #15
   %11 = sext i32 %10 to i64
@@ -802,7 +802,7 @@ define internal noundef i64 @integral_cutoff_store(ptr nocapture noundef readonl
 12:                                               ; preds = %9
   %13 = load i32, ptr %5, align 4
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 44
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 44
   store i32 %13, ptr %15, align 4
   br label %16
 
@@ -820,7 +820,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @slope_show(ptr n
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %9 = load i32, ptr %8, align 4
   %10 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %9) #15
   %11 = sext i32 %10 to i64
@@ -849,7 +849,7 @@ define internal noundef i64 @slope_store(ptr nocapture noundef readonly %0, ptr 
 12:                                               ; preds = %9
   %13 = load i32, ptr %5, align 4
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
   store i32 %13, ptr %15, align 4
   br label %16
 
@@ -867,7 +867,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @offset_show(ptr 
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 52
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 52
   %9 = load i32, ptr %8, align 4
   %10 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %9) #15
   %11 = sext i32 %10 to i64
@@ -896,7 +896,7 @@ define internal noundef i64 @offset_store(ptr nocapture noundef readonly %0, ptr
 12:                                               ; preds = %9
   %13 = load i32, ptr %5, align 4
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 52
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 52
   store i32 %13, ptr %15, align 4
   br label %16
 
@@ -1077,7 +1077,7 @@ define internal i64 @trip_point_temp_store(ptr noundef %0, ptr nocapture noundef
 24:                                               ; preds = %14
   %25 = getelementptr i8, ptr %0, i64 904
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
   br i1 %29, label %33, label %30
@@ -1171,7 +1171,7 @@ define internal i64 @trip_point_hyst_store(ptr noundef %0, ptr nocapture noundef
   %22 = sext i32 %21 to i64
   %23 = getelementptr %struct.thermal_trip, ptr %20, i64 %22
   %24 = load i32, ptr %6, align 4
-  %25 = getelementptr inbounds i8, ptr %23, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %24, %26
   br i1 %27, label %41, label %28
@@ -1179,7 +1179,7 @@ define internal i64 @trip_point_hyst_store(ptr noundef %0, ptr nocapture noundef
 28:                                               ; preds = %17
   %29 = getelementptr i8, ptr %0, i64 904
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 48
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
   br i1 %33, label %37, label %34
@@ -1253,7 +1253,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @cur_state_show(ptr nound
   store i64 0, ptr %4, align 8, !annotation !9
   %6 = getelementptr i8, ptr %0, i64 752
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = call i32 %9(ptr noundef %5, ptr noundef nonnull %4) #15
   %11 = icmp eq i32 %10, 0
@@ -1297,7 +1297,7 @@ define internal i64 @cur_state_store(ptr noundef %0, ptr nocapture readnone %1, 
   call void @mutex_lock(ptr noundef %17) #15
   %18 = getelementptr i8, ptr %0, i64 752
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = load i64, ptr %5, align 8
   %23 = call i32 %21(ptr noundef %6, i64 noundef %22) #15

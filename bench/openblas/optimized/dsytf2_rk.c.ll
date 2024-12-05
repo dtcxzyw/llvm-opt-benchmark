@@ -501,7 +501,7 @@ define void @dsytf2_rk_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr n
   %.ph58 = phi i32 [ %71, %80 ], [ %186, %275 ], [ %186, %257 ]
   %.ph59 = phi i32 [ %48, %80 ], [ %185, %275 ], [ %185, %257 ]
   %.pn = zext nneg i32 %48 to i64
-  %.ph55 = getelementptr inbounds double, ptr %15, i64 %.pn
+  %.ph55 = getelementptr inbounds nuw double, ptr %15, i64 %.pn
   store double 0.000000e+00, ptr %.ph55, align 8, !tbaa !7
   br label %.thread53
 
@@ -510,7 +510,7 @@ define void @dsytf2_rk_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr n
   %337 = phi i32 [ %.ph58, %.thread60 ], [ %186, %250 ], [ %71, %80 ]
   %338 = phi i32 [ %.ph57, %.thread60 ], [ %187, %250 ], [ %47, %80 ]
   %339 = zext nneg i32 %48 to i64
-  %340 = getelementptr inbounds i32, ptr %16, i64 %339
+  %340 = getelementptr inbounds nuw i32, ptr %16, i64 %339
   store i32 %336, ptr %340, align 4, !tbaa !3
   br label %351
 
@@ -518,14 +518,14 @@ define void @dsytf2_rk_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr n
   %341 = getelementptr inbounds double, ptr %14, i64 %281
   %342 = load double, ptr %341, align 8, !tbaa !7
   %343 = zext nneg i32 %48 to i64
-  %344 = getelementptr inbounds double, ptr %15, i64 %343
+  %344 = getelementptr inbounds nuw double, ptr %15, i64 %343
   store double %342, ptr %344, align 8, !tbaa !7
   %345 = zext nneg i32 %279 to i64
-  %346 = getelementptr inbounds double, ptr %15, i64 %345
+  %346 = getelementptr inbounds nuw double, ptr %15, i64 %345
   store double 0.000000e+00, ptr %346, align 8, !tbaa !7
   store double 0.000000e+00, ptr %341, align 8, !tbaa !7
   %347 = sub nsw i32 0, %188
-  %348 = getelementptr inbounds i32, ptr %16, i64 %343
+  %348 = getelementptr inbounds nuw i32, ptr %16, i64 %343
   store i32 %347, ptr %348, align 4, !tbaa !3
   %349 = sub nsw i32 0, %185
   %350 = getelementptr i8, ptr %348, i64 -4
@@ -1012,7 +1012,7 @@ define void @dsytf2_rk_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr n
   %.ph77 = phi i32 [ %395, %404 ], [ %516, %616 ], [ %516, %591 ]
   %.ph78 = phi i32 [ %369, %404 ], [ %515, %616 ], [ %515, %591 ]
   %.pn80 = zext nneg i32 %369 to i64
-  %.ph74 = getelementptr inbounds double, ptr %15, i64 %.pn80
+  %.ph74 = getelementptr inbounds nuw double, ptr %15, i64 %.pn80
   store double 0.000000e+00, ptr %.ph74, align 8, !tbaa !7
   br label %.thread72
 
@@ -1021,7 +1021,7 @@ define void @dsytf2_rk_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr n
   %686 = phi i32 [ %.ph77, %.thread79 ], [ %516, %583 ], [ %395, %404 ]
   %687 = phi i32 [ %.ph76, %.thread79 ], [ %518, %583 ], [ %368, %404 ]
   %688 = zext nneg i32 %369 to i64
-  %689 = getelementptr inbounds i32, ptr %16, i64 %688
+  %689 = getelementptr inbounds nuw i32, ptr %16, i64 %688
   store i32 %685, ptr %689, align 4, !tbaa !3
   br label %700
 
@@ -1029,14 +1029,14 @@ define void @dsytf2_rk_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr n
   %690 = getelementptr inbounds double, ptr %14, i64 %629
   %691 = load double, ptr %690, align 8, !tbaa !7
   %692 = zext nneg i32 %369 to i64
-  %693 = getelementptr inbounds double, ptr %15, i64 %692
+  %693 = getelementptr inbounds nuw double, ptr %15, i64 %692
   store double %691, ptr %693, align 8, !tbaa !7
   %694 = zext nneg i32 %627 to i64
-  %695 = getelementptr inbounds double, ptr %15, i64 %694
+  %695 = getelementptr inbounds nuw double, ptr %15, i64 %694
   store double 0.000000e+00, ptr %695, align 8, !tbaa !7
   store double 0.000000e+00, ptr %690, align 8, !tbaa !7
   %696 = sub nsw i32 0, %519
-  %697 = getelementptr inbounds i32, ptr %16, i64 %692
+  %697 = getelementptr inbounds nuw i32, ptr %16, i64 %692
   store i32 %696, ptr %697, align 4, !tbaa !3
   %698 = sub nsw i32 0, %515
   %699 = getelementptr i8, ptr %697, i64 4

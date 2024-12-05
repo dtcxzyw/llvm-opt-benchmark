@@ -64,15 +64,15 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_pci_msi_prep
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
 define dso_local zeroext i1 @pci_dev_has_default_msi_parent_domain(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 720
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 720
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %10
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 816
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 816
   %9 = load ptr, ptr %8, align 8
   br label %10
 
@@ -99,11 +99,11 @@ define dso_local ptr @native_create_pci_msi_domain() local_unnamed_addr #2 secti
 
 3:                                                ; preds = %0
   %4 = load ptr, ptr @x86_vector_domain, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load i32, ptr %5, align 8
   %7 = or i32 %6, 256
   store i32 %7, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 136
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 136
   store ptr @x86_vector_msi_parent_ops, ptr %8, align 8
   br label %9
 
@@ -170,12 +170,12 @@ define dso_local i32 @dmar_alloc_hwirq(i32 noundef %0, i32 noundef %1, ptr nound
 18:                                               ; preds = %15
   call void @init_irq_alloc_info(ptr noundef nonnull %4, ptr noundef null) #8
   store i32 5, ptr %4, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %0, ptr %19, align 8
   %20 = sext i32 %0 to i64
-  %21 = getelementptr inbounds i8, ptr %4, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %20, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %4, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %2, ptr %22, align 8
   %23 = call i32 @__irq_domain_alloc_irqs(ptr noundef nonnull %16, i32 noundef -1, i32 noundef 1, i32 noundef %1, ptr noundef nonnull %4, i1 noundef zeroext false, ptr noundef null) #8
   br label %24
@@ -205,9 +205,9 @@ define dso_local noundef zeroext i1 @arch_restore_msi_irqs(ptr nocapture noundef
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef zeroext i1 @x86_init_dev_msi_info(ptr nocapture readnone %0, ptr noundef readnone %1, ptr noundef readonly %2, ptr nocapture noundef %3) #4 align 16 {
-  %5 = getelementptr inbounds i8, ptr %2, i64 136
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %8 = load i32, ptr %7, align 8
   switch i32 %8, label %16 [
     i32 0, label %9
@@ -226,9 +226,9 @@ define internal noundef zeroext i1 @x86_init_dev_msi_info(ptr nocapture readnone
   br label %44
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %3, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 80
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 80
   store ptr @msi_set_affinity, ptr %15, align 8
   br label %17
 
@@ -239,7 +239,7 @@ define internal noundef zeroext i1 @x86_init_dev_msi_info(ptr nocapture readnone
   br label %44
 
 17:                                               ; preds = %12, %4, %4
-  %18 = getelementptr inbounds i8, ptr %3, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %19 = load i32, ptr %18, align 4
   switch i32 %19, label %24 [
     i32 11, label %25
@@ -265,25 +265,25 @@ define internal noundef zeroext i1 @x86_init_dev_msi_info(ptr nocapture readnone
   %28 = and i32 %27, %26
   %29 = or i32 %28, 3
   store i32 %29, ptr %3, align 8
-  %30 = getelementptr inbounds i8, ptr %3, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   store ptr @x86_msi_prepare, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %3, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 40
   store ptr @irq_chip_ack_parent, ptr %35, align 8
   %36 = load ptr, ptr %33, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 88
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 88
   store ptr @irq_chip_retrigger_hierarchy, ptr %37, align 8
   %38 = load ptr, ptr %33, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 256
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 256
   %40 = load i64, ptr %39, align 8
   %41 = or i64 %40, 1040
   store i64 %41, ptr %39, align 8
-  %42 = getelementptr inbounds i8, ptr %3, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr @handle_edge_irq, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %3, i64 56
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store ptr @.str.1, ptr %43, align 8
   br label %44
 
@@ -301,11 +301,11 @@ define internal i32 @msi_set_affinity(ptr noundef %0, ptr noundef %1, i1 noundef
   %8 = alloca %struct.irq_cfg, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #8
   %9 = tail call ptr @irqd_cfg(ptr noundef %0) #8
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %15 = load i64, ptr %14, align 8
   %16 = icmp eq i64 %15, 0
   br i1 %16, label %20, label %17
@@ -319,9 +319,9 @@ define internal i32 @msi_set_affinity(ptr noundef %0, ptr noundef %1, i1 noundef
   %21 = phi i32 [ %19, %17 ], [ 64, %3 ]
   %22 = load i64, ptr %9, align 4
   store i64 %22, ptr %8, align 8
-  %23 = getelementptr inbounds i8, ptr %11, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 80
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 80
   %26 = load ptr, ptr %25, align 8
   %27 = tail call i32 %26(ptr noundef %11, ptr noundef %1, i1 noundef zeroext %2) #8
   %28 = icmp slt i32 %27, 0
@@ -340,9 +340,9 @@ define internal i32 @msi_set_affinity(ptr noundef %0, ptr noundef %1, i1 noundef
   br i1 %38, label %52, label %39
 
 39:                                               ; preds = %34
-  %40 = getelementptr inbounds i8, ptr %9, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %41 = load i32, ptr %40, align 4
-  %42 = getelementptr inbounds i8, ptr %8, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %43 = icmp ne i32 %41, %32
   %44 = icmp ne i64 %31, 239
   %45 = and i1 %43, %44
@@ -360,9 +360,9 @@ define internal i32 @msi_set_affinity(ptr noundef %0, ptr noundef %1, i1 noundef
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   call void @__irq_msi_compose_msg(ptr noundef %9, ptr noundef nonnull %7, i1 noundef zeroext false) #8
-  %53 = getelementptr inbounds i8, ptr %0, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 192
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 192
   %56 = load ptr, ptr %55, align 8
   call void %56(ptr noundef %0, ptr noundef nonnull %7) #8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #8
@@ -380,9 +380,9 @@ define internal i32 @msi_set_affinity(ptr noundef %0, ptr noundef %1, i1 noundef
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   call void @__irq_msi_compose_msg(ptr noundef %9, ptr noundef nonnull %6, i1 noundef zeroext false) #8
-  %61 = getelementptr inbounds i8, ptr %0, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 192
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 192
   %64 = load ptr, ptr %63, align 8
   call void %64(ptr noundef %0, ptr noundef nonnull %6) #8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #8
@@ -411,9 +411,9 @@ define internal i32 @msi_set_affinity(ptr noundef %0, ptr noundef %1, i1 noundef
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   call void @__irq_msi_compose_msg(ptr noundef nonnull %8, ptr noundef nonnull %5, i1 noundef zeroext false) #8
-  %78 = getelementptr inbounds i8, ptr %0, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 192
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 192
   %81 = load ptr, ptr %80, align 8
   call void %81(ptr noundef %0, ptr noundef nonnull %5) #8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #8
@@ -421,7 +421,7 @@ define internal i32 @msi_set_affinity(ptr noundef %0, ptr noundef %1, i1 noundef
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   call void @__irq_msi_compose_msg(ptr noundef %9, ptr noundef nonnull %4, i1 noundef zeroext false) #8
   %82 = load ptr, ptr %78, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 192
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 192
   %84 = load ptr, ptr %83, align 8
   call void %84(ptr noundef %0, ptr noundef nonnull %4) #8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #8
@@ -439,7 +439,7 @@ define internal i32 @msi_set_affinity(ptr noundef %0, ptr noundef %1, i1 noundef
 
 94:                                               ; preds = %76
   %95 = load ptr, ptr %78, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 88
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 88
   %97 = load ptr, ptr %96, align 8
   %98 = call i32 %97(ptr noundef %0) #8
   br label %99
@@ -451,10 +451,10 @@ define internal i32 @msi_set_affinity(ptr noundef %0, ptr noundef %1, i1 noundef
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 -22, 1) i32 @x86_msi_prepare(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i32 %2, ptr noundef %3) #4 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   tail call void @init_irq_alloc_info(ptr noundef %3, ptr noundef null) #8
-  %7 = getelementptr inbounds i8, ptr %6, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = load i32, ptr %7, align 4
   switch i32 %8, label %12 [
     i32 11, label %10
@@ -516,12 +516,12 @@ declare dso_local ptr @__irq_domain_alloc_fwnode(i32 noundef, i32 noundef, ptr n
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @dmar_msi_init(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i64 %3, ptr nocapture noundef readonly %4) #4 align 16 {
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %12 = load ptr, ptr %11, align 8
   tail call void @irq_domain_set_info(ptr noundef %0, i32 noundef %2, i64 noundef %8, ptr noundef %10, ptr noundef null, ptr noundef nonnull @handle_edge_irq, ptr noundef %12, ptr noundef nonnull @.str.1) #8
   ret i32 0
@@ -548,7 +548,7 @@ define internal void @dmar_msi_compose_msg(ptr noundef %0, ptr noundef %1) #4 al
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @dmar_msi_write_msg(ptr nocapture noundef readonly %0, ptr noundef %1) #4 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   tail call void @dmar_msi_write(i32 noundef %4, ptr noundef %1) #8
   ret void

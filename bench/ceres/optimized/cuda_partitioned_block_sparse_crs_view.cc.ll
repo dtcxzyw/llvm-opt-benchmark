@@ -74,10 +74,10 @@ define hidden void @_ZN5ceres8internal33CudaPartitionedBlockSparseCRSViewC2ERKNS
   %9 = alloca %"class.ceres::internal::CudaBuffer", align 8
   %10 = alloca %"struct.google::CheckOpString", align 8
   %11 = alloca %"class.google::LogMessageFatal", align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   store ptr %3, ptr %15, align 8
   %16 = invoke noundef ptr @_ZNK5ceres8internal17BlockSparseMatrix15block_structureEv(ptr noundef nonnull align 8 dereferenceable(56) %1)
@@ -104,15 +104,15 @@ _ZSt11make_uniqueIN5ceres8internal24CudaBlockSparseStructureEJRKNS1_27Compressed
   br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrIN5ceres8internal24CudaBlockSparseStructureESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN5ceres8internal24CudaBlockSparseStructureEEclEPS2_.exit.i.i.i.i
 
 _ZNKSt14default_deleteIN5ceres8internal24CudaBlockSparseStructureEEclEPS2_.exit.i.i.i.i: ; preds = %_ZSt11make_uniqueIN5ceres8internal24CudaBlockSparseStructureEJRKNS1_27CompressedRowBlockStructureERKiRPNS1_11ContextImplEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
-  %22 = getelementptr inbounds i8, ptr %21, i64 136
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 136
   tail call void @_ZN5ceres8internal10CudaBufferINS0_5BlockEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #15
-  %23 = getelementptr inbounds i8, ptr %21, i64 112
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 112
   tail call void @_ZN5ceres8internal10CudaBufferINS0_5BlockEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #15
-  %24 = getelementptr inbounds i8, ptr %21, i64 88
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 88
   tail call void @_ZN5ceres8internal10CudaBufferINS0_4CellEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #15
-  %25 = getelementptr inbounds i8, ptr %21, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 64
   tail call void @_ZN5ceres8internal10CudaBufferIiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #15
-  %26 = getelementptr inbounds i8, ptr %21, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 40
   tail call void @_ZN5ceres8internal10CudaBufferIiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #15
   tail call void @_ZdlPv(ptr noundef nonnull %21) #14
   %.pre = load ptr, ptr %14, align 8
@@ -120,15 +120,15 @@ _ZNKSt14default_deleteIN5ceres8internal24CudaBlockSparseStructureEEclEPS2_.exit.
 
 _ZNSt10unique_ptrIN5ceres8internal24CudaBlockSparseStructureESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN5ceres8internal24CudaBlockSparseStructureEEclEPS2_.exit.i.i.i.i, %_ZSt11make_uniqueIN5ceres8internal24CudaBlockSparseStructureEJRKNS1_27CompressedRowBlockStructureERKiRPNS1_11ContextImplEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
   %27 = phi ptr [ %.pre, %_ZNKSt14default_deleteIN5ceres8internal24CudaBlockSparseStructureEEclEPS2_.exit.i.i.i.i ], [ %18, %_ZSt11make_uniqueIN5ceres8internal24CudaBlockSparseStructureEJRKNS1_27CompressedRowBlockStructureERKiRPNS1_11ContextImplEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit ]
-  %28 = getelementptr inbounds i8, ptr %1, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %29 = load i32, ptr %28, align 4
-  %30 = getelementptr inbounds i8, ptr %27, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %31 = load i32, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 20
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %33 = load i32, ptr %32, align 4
   %34 = sub nsw i32 %33, %31
   %35 = sext i32 %2 to i64
-  %36 = getelementptr inbounds i8, ptr %16, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr %16, align 8
   %39 = ptrtoint ptr %37 to i64
@@ -137,13 +137,13 @@ _ZNSt10unique_ptrIN5ceres8internal24CudaBlockSparseStructureESt14default_deleteI
   %42 = ashr exact i64 %41, 3
   %43 = icmp ugt i64 %42, %35
   %44 = getelementptr inbounds %"struct.ceres::internal::Block", ptr %38, i64 %35, i32 1
-  %45 = getelementptr inbounds i8, ptr %1, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.in = select i1 %43, ptr %44, ptr %45
   %46 = load i32, ptr %.in, align 4
   %47 = load i32, ptr %45, align 8
   %48 = sub nsw i32 %47, %46
   %49 = add nsw i32 %29, 1
-  %50 = getelementptr inbounds i8, ptr %6, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 16, i1 false)
   store ptr %3, ptr %50, align 8
   %51 = sext i32 %49 to i64
@@ -151,7 +151,7 @@ _ZNSt10unique_ptrIN5ceres8internal24CudaBlockSparseStructureESt14default_deleteI
           to label %_ZN5ceres8internal10CudaBufferIiEC2EPNS0_11ContextImplEi.exit unwind label %93
 
 _ZN5ceres8internal10CudaBufferIiEC2EPNS0_11ContextImplEi.exit: ; preds = %_ZNSt10unique_ptrIN5ceres8internal24CudaBlockSparseStructureESt14default_deleteIS2_EED2Ev.exit
-  %52 = getelementptr inbounds i8, ptr %7, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %7, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 16, i1 false)
   store ptr %3, ptr %52, align 8
   %53 = sext i32 %31 to i64
@@ -159,14 +159,14 @@ _ZN5ceres8internal10CudaBufferIiEC2EPNS0_11ContextImplEi.exit: ; preds = %_ZNSt1
           to label %_ZN5ceres8internal10CudaBufferIiEC2EPNS0_11ContextImplEi.exit29 unwind label %95
 
 _ZN5ceres8internal10CudaBufferIiEC2EPNS0_11ContextImplEi.exit29: ; preds = %_ZN5ceres8internal10CudaBufferIiEC2EPNS0_11ContextImplEi.exit
-  %54 = getelementptr inbounds i8, ptr %8, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %8, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 16, i1 false)
   store ptr %3, ptr %54, align 8
   invoke void @_ZN5ceres8internal10CudaBufferIiE7ReserveEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %51)
           to label %_ZN5ceres8internal10CudaBufferIiEC2EPNS0_11ContextImplEi.exit31 unwind label %97
 
 _ZN5ceres8internal10CudaBufferIiEC2EPNS0_11ContextImplEi.exit31: ; preds = %_ZN5ceres8internal10CudaBufferIiEC2EPNS0_11ContextImplEi.exit29
-  %55 = getelementptr inbounds i8, ptr %9, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %9, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 16, i1 false)
   store ptr %3, ptr %55, align 8
   %56 = sext i32 %34 to i64
@@ -175,27 +175,27 @@ _ZN5ceres8internal10CudaBufferIiEC2EPNS0_11ContextImplEi.exit31: ; preds = %_ZN5
 
 57:                                               ; preds = %_ZN5ceres8internal10CudaBufferIiEC2EPNS0_11ContextImplEi.exit31
   %58 = load ptr, ptr %14, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 24
   %60 = load i32, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 36
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %60, ptr %61, align 4
-  %62 = getelementptr inbounds i8, ptr %58, i64 20
+  %62 = getelementptr inbounds nuw i8, ptr %58, i64 20
   %63 = load i32, ptr %62, align 4
-  %64 = getelementptr inbounds i8, ptr %58, i64 40
+  %64 = getelementptr inbounds nuw i8, ptr %58, i64 40
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %58, i64 88
+  %66 = getelementptr inbounds nuw i8, ptr %58, i64 88
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %58, i64 112
+  %68 = getelementptr inbounds nuw i8, ptr %58, i64 112
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %58, i64 136
+  %70 = getelementptr inbounds nuw i8, ptr %58, i64 136
   %71 = load ptr, ptr %70, align 8
   %72 = load ptr, ptr %6, align 8
   %73 = load ptr, ptr %7, align 8
   %74 = load ptr, ptr %8, align 8
   %75 = load ptr, ptr %9, align 8
-  %76 = getelementptr inbounds i8, ptr %3, i64 264
+  %76 = getelementptr inbounds nuw i8, ptr %3, i64 264
   %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %3, i64 1024
+  %78 = getelementptr inbounds nuw i8, ptr %3, i64 1024
   %79 = load i8, ptr %78, align 8
   %80 = trunc i8 %79 to i1
   invoke void @_ZN5ceres8internal27FillCRSStructurePartitionedEiiiiiPKiPKNS0_4CellEPKNS0_5BlockES8_PiS9_S9_S9_P11CUstream_stb(i32 noundef %63, i32 noundef %29, i32 noundef %60, i32 noundef %2, i32 noundef %31, ptr noundef %65, ptr noundef %67, ptr noundef %69, ptr noundef %71, ptr noundef %72, ptr noundef %73, ptr noundef %74, ptr noundef %75, ptr noundef %77, i1 noundef zeroext %80)
@@ -203,25 +203,25 @@ _ZN5ceres8internal10CudaBufferIiEC2EPNS0_11ContextImplEi.exit31: ; preds = %_ZN5
 
 81:                                               ; preds = %57
   %82 = load ptr, ptr %14, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 32
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 32
   %84 = load i8, ptr %83, align 8
   %85 = trunc i8 %84 to i1
-  %86 = getelementptr inbounds i8, ptr %0, i64 32
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %87 = and i8 %84, 1
   store i8 %87, ptr %86, align 8
   br i1 %85, label %_ZNSt10unique_ptrIN5ceres8internal24CudaBlockSparseStructureESt14default_deleteIS2_EEaSEDn.exit, label %103
 
 _ZNSt10unique_ptrIN5ceres8internal24CudaBlockSparseStructureESt14default_deleteIS2_EEaSEDn.exit: ; preds = %81
   store ptr null, ptr %14, align 8
-  %88 = getelementptr inbounds i8, ptr %82, i64 136
+  %88 = getelementptr inbounds nuw i8, ptr %82, i64 136
   call void @_ZN5ceres8internal10CudaBufferINS0_5BlockEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %88) #15
-  %89 = getelementptr inbounds i8, ptr %82, i64 112
+  %89 = getelementptr inbounds nuw i8, ptr %82, i64 112
   call void @_ZN5ceres8internal10CudaBufferINS0_5BlockEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %89) #15
-  %90 = getelementptr inbounds i8, ptr %82, i64 88
+  %90 = getelementptr inbounds nuw i8, ptr %82, i64 88
   call void @_ZN5ceres8internal10CudaBufferINS0_4CellEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %90) #15
-  %91 = getelementptr inbounds i8, ptr %82, i64 64
+  %91 = getelementptr inbounds nuw i8, ptr %82, i64 64
   call void @_ZN5ceres8internal10CudaBufferIiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %91) #15
-  %92 = getelementptr inbounds i8, ptr %82, i64 40
+  %92 = getelementptr inbounds nuw i8, ptr %82, i64 40
   call void @_ZN5ceres8internal10CudaBufferIiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %92) #15
   br label %_ZNSt10unique_ptrIN5ceres8internal18CudaStreamedBufferIdEESt14default_deleteIS3_EED2Ev.exit.sink.split
 
@@ -339,9 +339,9 @@ _ZNSt10unique_ptrIN5ceres8internal16CudaSparseMatrixESt14default_deleteIS2_EED2E
   %116 = phi ptr [ %.pre81, %_ZNKSt14default_deleteIN5ceres8internal16CudaSparseMatrixEEclEPS2_.exit.i.i.i.i49 ], [ %112, %_ZSt11make_uniqueIN5ceres8internal16CudaSparseMatrixEJRKiNS1_10CudaBufferIiEES6_RPNS1_11ContextImplEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit47 ]
   %117 = load i32, ptr %32, align 4
   %118 = load ptr, ptr %0, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
   %120 = load i32, ptr %119, align 8
-  %121 = getelementptr inbounds i8, ptr %116, i64 8
+  %121 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %122 = load i32, ptr %121, align 8
   %123 = add nsw i32 %122, %120
   %124 = icmp eq i32 %117, %123
@@ -450,15 +450,15 @@ define linkonce_odr hidden void @_ZNSt10unique_ptrIN5ceres8internal24CudaBlockSp
   br i1 %.not, label %8, label %_ZNKSt14default_deleteIN5ceres8internal24CudaBlockSparseStructureEEclEPS2_.exit
 
 _ZNKSt14default_deleteIN5ceres8internal24CudaBlockSparseStructureEEclEPS2_.exit: ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %2, i64 136
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 136
   tail call void @_ZN5ceres8internal10CudaBufferINS0_5BlockEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #15
-  %4 = getelementptr inbounds i8, ptr %2, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 112
   tail call void @_ZN5ceres8internal10CudaBufferINS0_5BlockEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #15
-  %5 = getelementptr inbounds i8, ptr %2, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 88
   tail call void @_ZN5ceres8internal10CudaBufferINS0_4CellEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #15
-  %6 = getelementptr inbounds i8, ptr %2, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 64
   tail call void @_ZN5ceres8internal10CudaBufferIiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #15
-  %7 = getelementptr inbounds i8, ptr %2, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @_ZN5ceres8internal10CudaBufferIiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #15
   tail call void @_ZdlPv(ptr noundef nonnull %2) #14
   br label %8
@@ -537,26 +537,26 @@ define hidden void @_ZN5ceres8internal33CudaPartitionedBlockSparseCRSView12Updat
   %26 = alloca %"class.google::LogMessageFatal", align 8
   %27 = alloca %"struct.google::CheckOpString", align 8
   %28 = alloca %"class.google::LogMessageFatal", align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %30 = load i8, ptr %29, align 8
   %31 = trunc i8 %30 to i1
-  %indvars.iv.i.sroa.gep27 = getelementptr inbounds i8, ptr %12, i64 8
-  %indvars.iv.i.sroa.gep30 = getelementptr inbounds i8, ptr %11, i64 8
+  %indvars.iv.i.sroa.gep27 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %indvars.iv.i.sroa.gep30 = getelementptr inbounds nuw i8, ptr %11, i64 8
   br i1 %31, label %32, label %95
 
 32:                                               ; preds = %2
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 72
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 72
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %33, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %39 = load i32, ptr %38, align 8
   %40 = sext i32 %39 to i64
   %41 = shl nsw i64 %40, 3
-  %42 = getelementptr inbounds i8, ptr %0, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 264
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 264
   %45 = load ptr, ptr %44, align 8
   %46 = tail call i32 @cudaMemcpyAsync(ptr noundef %35, ptr noundef %37, i64 noundef %41, i32 noundef 1, ptr noundef %45)
   %47 = icmp eq i32 %46, 0
@@ -615,22 +615,22 @@ _ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_tra
   unreachable
 
 _ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread: ; preds = %32, %_ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit
-  %62 = getelementptr inbounds i8, ptr %0, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 72
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 72
   %65 = load ptr, ptr %64, align 8
   %66 = load ptr, ptr %36, align 8
   %67 = load ptr, ptr %0, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %69 = load i32, ptr %68, align 8
   %70 = sext i32 %69 to i64
   %71 = getelementptr inbounds double, ptr %66, i64 %70
-  %72 = getelementptr inbounds i8, ptr %63, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %73 = load i32, ptr %72, align 8
   %74 = sext i32 %73 to i64
   %75 = shl nsw i64 %74, 3
   %76 = load ptr, ptr %42, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 264
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 264
   %78 = load ptr, ptr %77, align 8
   %79 = call i32 @cudaMemcpyAsync(ptr noundef %65, ptr noundef %71, i64 noundef %75, i32 noundef 1, ptr noundef %78)
   %80 = icmp eq i32 %79, 0
@@ -683,24 +683,24 @@ _ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_tra
   unreachable
 
 95:                                               ; preds = %2
-  %96 = getelementptr inbounds i8, ptr %0, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %1, i64 32
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %1, i64 20
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %101 = load i32, ptr %100, align 4
-  %102 = getelementptr inbounds i8, ptr %0, i64 24
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %103 = load ptr, ptr %102, align 8
   %104 = load ptr, ptr %0, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %106 = load i32, ptr %105, align 8
-  %107 = getelementptr inbounds i8, ptr %0, i64 36
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %108 = load i32, ptr %107, align 4
-  %109 = getelementptr inbounds i8, ptr %0, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 72
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 72
   %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds i8, ptr %110, i64 24
+  %113 = getelementptr inbounds nuw i8, ptr %110, i64 24
   %114 = load ptr, ptr %113, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %10)
@@ -714,9 +714,9 @@ _ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_tra
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %20)
-  %115 = getelementptr inbounds i8, ptr %97, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %116 = load ptr, ptr %115, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 264
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 264
   %118 = load ptr, ptr %117, align 8
   %119 = tail call i32 @cudaStreamSynchronize(ptr noundef %118)
   %120 = icmp eq i32 %119, 0
@@ -771,10 +771,10 @@ _ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_tra
 _ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread.i: ; preds = %_ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.i, %95
   %135 = call noundef zeroext i1 @_ZN5ceres8internal18CudaStreamedBufferIdE34MemoryTypeResultsInSynchronousCopyEPKv(ptr noundef %99)
   %136 = load ptr, ptr %115, align 8
-  %137 = getelementptr inbounds i8, ptr %97, i64 16
+  %137 = getelementptr inbounds nuw i8, ptr %97, i64 16
   %138 = load ptr, ptr %137, align 8
   %139 = load i32, ptr %97, align 8
-  %140 = getelementptr inbounds i8, ptr %97, i64 40
+  %140 = getelementptr inbounds nuw i8, ptr %97, i64 40
   %141 = load ptr, ptr %140, align 8
   %142 = sext i32 %139 to i64
   store ptr %138, ptr %11, align 16
@@ -783,18 +783,18 @@ _ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_tra
   store ptr %143, ptr %indvars.iv.i.sroa.gep30, align 8
   %144 = getelementptr inbounds double, ptr %141, i64 %142
   store ptr %144, ptr %indvars.iv.i.sroa.gep27, align 8
-  %145 = getelementptr inbounds i8, ptr %136, i64 264
+  %145 = getelementptr inbounds nuw i8, ptr %136, i64 264
   %146 = icmp sgt i32 %101, 0
   br i1 %146, label %.lr.ph.i, label %.preheader.i.preheader
 
 .lr.ph.i:                                         ; preds = %_ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread.i
-  %147 = getelementptr inbounds i8, ptr %97, i64 48
-  %148 = getelementptr inbounds i8, ptr %103, i64 20
-  %149 = getelementptr inbounds i8, ptr %103, i64 40
-  %150 = getelementptr inbounds i8, ptr %103, i64 64
-  %151 = getelementptr inbounds i8, ptr %103, i64 88
-  %152 = getelementptr inbounds i8, ptr %103, i64 112
-  %153 = getelementptr inbounds i8, ptr %103, i64 136
+  %147 = getelementptr inbounds nuw i8, ptr %97, i64 48
+  %148 = getelementptr inbounds nuw i8, ptr %103, i64 20
+  %149 = getelementptr inbounds nuw i8, ptr %103, i64 40
+  %150 = getelementptr inbounds nuw i8, ptr %103, i64 64
+  %151 = getelementptr inbounds nuw i8, ptr %103, i64 88
+  %152 = getelementptr inbounds nuw i8, ptr %103, i64 112
+  %153 = getelementptr inbounds nuw i8, ptr %103, i64 136
   br label %154
 
 154:                                              ; preds = %224, %.lr.ph.i
@@ -806,11 +806,11 @@ _ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_tra
   %157 = sext i32 %.04499.i to i64
   %158 = getelementptr inbounds double, ptr %99, i64 %157
   %159 = zext nneg i32 %.043100.i to i64
-  %160 = getelementptr inbounds [2 x ptr], ptr %11, i64 0, i64 %159
+  %160 = getelementptr inbounds nuw [2 x ptr], ptr %11, i64 0, i64 %159
   %161 = load ptr, ptr %160, align 8
-  %162 = getelementptr inbounds ptr, ptr %145, i64 %159
+  %162 = getelementptr inbounds nuw ptr, ptr %145, i64 %159
   %163 = load ptr, ptr %162, align 8
-  %164 = getelementptr inbounds [2 x ptr], ptr %147, i64 0, i64 %159
+  %164 = getelementptr inbounds nuw [2 x ptr], ptr %147, i64 0, i64 %159
   %165 = load ptr, ptr %164, align 8
   br i1 %135, label %166, label %_ZSt6copy_nIPKdiPdET1_T_T0_S3_.exit.i
 
@@ -870,7 +870,7 @@ _ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_tra
   unreachable
 
 183:                                              ; preds = %_ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit50.i, %_ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit50.thread.i
-  %184 = getelementptr inbounds [2 x ptr], ptr %12, i64 0, i64 %159
+  %184 = getelementptr inbounds nuw [2 x ptr], ptr %12, i64 0, i64 %159
   %185 = load ptr, ptr %184, align 8
   %186 = icmp slt i32 %.sroa.speculated.i, 1
   br i1 %186, label %_ZSt6copy_nIPKdiPdET1_T_T0_S3_.exit.i, label %_ZSt8__copy_nIPKdiPdET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i
@@ -1019,7 +1019,7 @@ _ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_tra
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %256
   %237 = phi i1 [ false, %256 ], [ true, %.preheader.i.preheader ]
   %indvars.iv103.i = phi i64 [ 1, %256 ], [ 0, %.preheader.i.preheader ]
-  %238 = getelementptr inbounds ptr, ptr %145, i64 %indvars.iv103.i
+  %238 = getelementptr inbounds nuw ptr, ptr %145, i64 %indvars.iv103.i
   %239 = load ptr, ptr %238, align 8
   %240 = call i32 @cudaStreamSynchronize(ptr noundef %239)
   %241 = icmp eq i32 %240, 0
@@ -1092,16 +1092,16 @@ _ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_tra
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %20)
   %257 = load ptr, ptr %0, align 8
-  %258 = getelementptr inbounds i8, ptr %257, i64 72
+  %258 = getelementptr inbounds nuw i8, ptr %257, i64 72
   %259 = load ptr, ptr %258, align 8
   %260 = load ptr, ptr %98, align 8
-  %261 = getelementptr inbounds i8, ptr %257, i64 8
+  %261 = getelementptr inbounds nuw i8, ptr %257, i64 8
   %262 = load i32, ptr %261, align 8
   %263 = sext i32 %262 to i64
   %264 = shl nsw i64 %263, 3
-  %265 = getelementptr inbounds i8, ptr %0, i64 40
+  %265 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %266 = load ptr, ptr %265, align 8
-  %267 = getelementptr inbounds i8, ptr %266, i64 264
+  %267 = getelementptr inbounds nuw i8, ptr %266, i64 264
   %268 = load ptr, ptr %267, align 8
   %269 = call i32 @cudaMemcpyAsync(ptr noundef %259, ptr noundef %260, i64 noundef %264, i32 noundef 1, ptr noundef %268)
   %270 = icmp eq i32 %269, 0
@@ -1424,7 +1424,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal18CudaStreamedBufferIdED2Ev(p
   %5 = alloca %"class.google::LogMessageFatal", align 8
   %6 = alloca %"struct.google::CheckOpString", align 8
   %7 = alloca %"class.google::LogMessageFatal", align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
   %10 = invoke i32 @cudaFreeHost(ptr noundef %9)
           to label %11 unwind label %.loopexit.split-lp
@@ -1489,7 +1489,7 @@ _ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_tra
 
 .preheader:                                       ; preds = %.preheader.preheader, %43
   %.0.idx27 = phi i64 [ %.0.add, %43 ], [ 48, %.preheader.preheader ]
-  %.0.ptr = getelementptr inbounds i8, ptr %0, i64 %.0.idx27
+  %.0.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.0.idx27
   %26 = load ptr, ptr %.0.ptr, align 8
   %27 = invoke i32 @cudaEventDestroy(ptr noundef %26)
           to label %28 unwind label %.loopexit
@@ -1555,7 +1555,7 @@ _ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_tra
   br i1 %.not, label %44, label %.preheader
 
 44:                                               ; preds = %43
-  %45 = getelementptr inbounds i8, ptr %0, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @_ZN5ceres8internal10CudaBufferIdED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %45) #15
   ret void
 
@@ -1686,7 +1686,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal10CudaBufferIiE7ReserveEm(ptr
   %6 = alloca %"class.google::LogMessageFatal", align 8
   %7 = alloca %"struct.google::CheckOpString", align 8
   %8 = alloca %"class.google::LogMessageFatal", align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = icmp ugt i64 %1, %10
   br i1 %11, label %12, label %54
@@ -1844,16 +1844,16 @@ define linkonce_odr hidden void @_ZN5ceres8internal18CudaStreamedBufferIdEC2EPNS
   %12 = alloca %"class.google::LogMessageFatal", align 8
   %13 = sdiv i32 %2, 2
   store i32 %13, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = shl nsw i32 %13, 1
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 16, i1 false)
   store ptr %1, ptr %17, align 8
   %18 = sext i32 %16 to i64
   tail call void @_ZN5ceres8internal10CudaBufferIdE7ReserveEm(ptr noundef nonnull align 8 dereferenceable(24) %15, i64 noundef %18)
-  %19 = getelementptr inbounds i8, ptr %0, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.not.i.i = icmp slt i32 %2, 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
   br i1 %.not.i.i, label %20, label %_ZN6google12Check_GEImplB5cxx11EiiPKc.exit.thread
@@ -2003,7 +2003,7 @@ _ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_tra
 
 .preheader:                                       ; preds = %.preheader.preheader, %74
   %.0.idx42 = phi i64 [ %.0.add, %74 ], [ 48, %.preheader.preheader ]
-  %.0.ptr = getelementptr inbounds i8, ptr %0, i64 %.0.idx42
+  %.0.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.0.idx42
   %56 = invoke i32 @cudaEventCreateWithFlags(ptr noundef nonnull %.0.ptr, i32 noundef 2)
           to label %57 unwind label %.loopexit
 
@@ -2087,7 +2087,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal10CudaBufferIdE7ReserveEm(ptr
   %6 = alloca %"class.google::LogMessageFatal", align 8
   %7 = alloca %"struct.google::CheckOpString", align 8
   %8 = alloca %"class.google::LogMessageFatal", align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = icmp ugt i64 %1, %10
   br i1 %11, label %12, label %54

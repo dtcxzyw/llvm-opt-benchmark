@@ -59,7 +59,7 @@ define internal zeroext i1 @Check_IPV4_Field(ptr noundef %0, ptr nocapture readn
   br i1 %.not19, label %._crit_edge, label %31
 
 31:                                               ; preds = %25
-  %32 = getelementptr inbounds i8, ptr %.125, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %.125, i64 1
   %33 = load i8, ptr %32, align 1
   %.not18 = icmp eq i8 %33, 0
   br i1 %.not18, label %._crit_edge, label %25, !llvm.loop !5

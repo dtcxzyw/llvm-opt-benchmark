@@ -64,7 +64,7 @@ define void @dgemv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 
 .lr.ph202:                                        ; preds = %42, %.lr.ph202
   %indvars.iv267 = phi i64 [ %indvars.iv.next268, %.lr.ph202 ], [ 0, %42 ]
-  %45 = getelementptr inbounds double, ptr %9, i64 %indvars.iv267
+  %45 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv267
   %46 = load double, ptr %45, align 8
   %47 = fmul double %18, %46
   store double %47, ptr %45, align 8

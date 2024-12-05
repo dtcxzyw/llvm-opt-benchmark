@@ -73,9 +73,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn19BinaryOp_x86_avx5127for
   %17 = alloca %"class.ncnn::Mat", align 8
   %18 = alloca %"class.ncnn::Mat", align 8
   %19 = load ptr, ptr %1, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 72
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 40
-  %22 = getelementptr inbounds i8, ptr %19, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 112
   %23 = load i32, ptr %21, align 4
   %24 = load i32, ptr %22, align 4
   %25 = tail call i32 @llvm.smax.i32(i32 %23, i32 %24)
@@ -132,41 +132,41 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn19BinaryOp_x86_avx5127for
   %59 = load ptr, ptr %20, align 8
   store ptr %59, ptr %6, align 8
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %61 = getelementptr inbounds i8, ptr %19, i64 80
+  %61 = getelementptr inbounds nuw i8, ptr %19, i64 80
   %62 = load ptr, ptr %61, align 8
   store ptr %62, ptr %60, align 8
   %63 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %64 = getelementptr inbounds i8, ptr %19, i64 88
+  %64 = getelementptr inbounds nuw i8, ptr %19, i64 88
   %65 = load i64, ptr %64, align 8
   store i64 %65, ptr %63, align 8
   %66 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %67 = getelementptr inbounds i8, ptr %19, i64 96
+  %67 = getelementptr inbounds nuw i8, ptr %19, i64 96
   %68 = load i32, ptr %67, align 8
   store i32 %68, ptr %66, align 8
   %69 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %70 = getelementptr inbounds i8, ptr %19, i64 104
+  %70 = getelementptr inbounds nuw i8, ptr %19, i64 104
   %71 = load ptr, ptr %70, align 8
   store ptr %71, ptr %69, align 8
   %72 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i32 %58, ptr %72, align 8
   %73 = getelementptr inbounds nuw i8, ptr %6, i64 44
-  %74 = getelementptr inbounds i8, ptr %19, i64 116
+  %74 = getelementptr inbounds nuw i8, ptr %19, i64 116
   %75 = load i32, ptr %74, align 4
   store i32 %75, ptr %73, align 4
   %76 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %77 = getelementptr inbounds i8, ptr %19, i64 120
+  %77 = getelementptr inbounds nuw i8, ptr %19, i64 120
   %78 = load i32, ptr %77, align 8
   store i32 %78, ptr %76, align 8
   %79 = getelementptr inbounds nuw i8, ptr %6, i64 52
-  %80 = getelementptr inbounds i8, ptr %19, i64 124
+  %80 = getelementptr inbounds nuw i8, ptr %19, i64 124
   %81 = load i32, ptr %80, align 4
   store i32 %81, ptr %79, align 4
   %82 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %83 = getelementptr inbounds i8, ptr %19, i64 128
+  %83 = getelementptr inbounds nuw i8, ptr %19, i64 128
   %84 = load i32, ptr %83, align 8
   store i32 %84, ptr %82, align 8
   %85 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %86 = getelementptr inbounds i8, ptr %19, i64 136
+  %86 = getelementptr inbounds nuw i8, ptr %19, i64 136
   %87 = load i64, ptr %86, align 8
   store i64 %87, ptr %85, align 8
   %.not753 = icmp eq ptr %62, null
@@ -232,7 +232,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn19BinaryOp_x86_avx5127for
 
 118:                                              ; preds = %115
   %119 = load ptr, ptr %116, align 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 24
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 24
   %121 = load ptr, ptr %120, align 8
   invoke void %121(ptr noundef nonnull align 8 dereferenceable(8) %116, ptr noundef %117)
           to label %124 unwind label %163
@@ -293,7 +293,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn19BinaryOp_x86_avx5127for
 
 151:                                              ; preds = %148
   %152 = load ptr, ptr %149, align 8
-  %153 = getelementptr inbounds i8, ptr %152, i64 24
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 24
   %154 = load ptr, ptr %153, align 8
   invoke void %154(ptr noundef nonnull align 8 dereferenceable(8) %149, ptr noundef %150)
           to label %157 unwind label %158
@@ -345,7 +345,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn19BinaryOp_x86_avx5127for
 
 173:                                              ; preds = %169
   %174 = load ptr, ptr %171, align 8
-  %175 = getelementptr inbounds i8, ptr %174, i64 24
+  %175 = getelementptr inbounds nuw i8, ptr %174, i64 24
   %176 = load ptr, ptr %175, align 8
   invoke void %176(ptr noundef nonnull align 8 dereferenceable(8) %171, ptr noundef %172)
           to label %179 unwind label %182
@@ -436,7 +436,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn19BinaryOp_x86_avx5127for
 
 219:                                              ; preds = %216
   %220 = load ptr, ptr %217, align 8
-  %221 = getelementptr inbounds i8, ptr %220, i64 24
+  %221 = getelementptr inbounds nuw i8, ptr %220, i64 24
   %222 = load ptr, ptr %221, align 8
   invoke void %222(ptr noundef nonnull align 8 dereferenceable(8) %217, ptr noundef %218)
           to label %225 unwind label %262
@@ -497,7 +497,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn19BinaryOp_x86_avx5127for
 
 252:                                              ; preds = %249
   %253 = load ptr, ptr %250, align 8
-  %254 = getelementptr inbounds i8, ptr %253, i64 24
+  %254 = getelementptr inbounds nuw i8, ptr %253, i64 24
   %255 = load ptr, ptr %254, align 8
   invoke void %255(ptr noundef nonnull align 8 dereferenceable(8) %250, ptr noundef %251)
           to label %258 unwind label %259
@@ -544,7 +544,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn19BinaryOp_x86_avx5127for
 
 272:                                              ; preds = %268
   %273 = load ptr, ptr %270, align 8
-  %274 = getelementptr inbounds i8, ptr %273, i64 24
+  %274 = getelementptr inbounds nuw i8, ptr %273, i64 24
   %275 = load ptr, ptr %274, align 8
   invoke void %275(ptr noundef nonnull align 8 dereferenceable(8) %270, ptr noundef %271)
           to label %278 unwind label %281
@@ -632,7 +632,7 @@ thread-pre-split:                                 ; preds = %258, %284
 
 313:                                              ; preds = %310
   %314 = load ptr, ptr %311, align 8
-  %315 = getelementptr inbounds i8, ptr %314, i64 24
+  %315 = getelementptr inbounds nuw i8, ptr %314, i64 24
   %316 = load ptr, ptr %315, align 8
   invoke void %316(ptr noundef nonnull align 8 dereferenceable(8) %311, ptr noundef %312)
           to label %319 unwind label %356
@@ -693,7 +693,7 @@ thread-pre-split:                                 ; preds = %258, %284
 
 346:                                              ; preds = %343
   %347 = load ptr, ptr %344, align 8
-  %348 = getelementptr inbounds i8, ptr %347, i64 24
+  %348 = getelementptr inbounds nuw i8, ptr %347, i64 24
   %349 = load ptr, ptr %348, align 8
   invoke void %349(ptr noundef nonnull align 8 dereferenceable(8) %344, ptr noundef %345)
           to label %352 unwind label %353
@@ -740,7 +740,7 @@ thread-pre-split:                                 ; preds = %258, %284
 
 366:                                              ; preds = %362
   %367 = load ptr, ptr %364, align 8
-  %368 = getelementptr inbounds i8, ptr %367, i64 24
+  %368 = getelementptr inbounds nuw i8, ptr %367, i64 24
   %369 = load ptr, ptr %368, align 8
   invoke void %369(ptr noundef nonnull align 8 dereferenceable(8) %364, ptr noundef %365)
           to label %372 unwind label %375
@@ -816,7 +816,7 @@ thread-pre-split:                                 ; preds = %258, %284
 
 404:                                              ; preds = %401
   %405 = load ptr, ptr %402, align 8
-  %406 = getelementptr inbounds i8, ptr %405, i64 24
+  %406 = getelementptr inbounds nuw i8, ptr %405, i64 24
   %407 = load ptr, ptr %406, align 8
   invoke void %407(ptr noundef nonnull align 8 dereferenceable(8) %402, ptr noundef %403)
           to label %410 unwind label %447
@@ -877,7 +877,7 @@ thread-pre-split:                                 ; preds = %258, %284
 
 437:                                              ; preds = %434
   %438 = load ptr, ptr %435, align 8
-  %439 = getelementptr inbounds i8, ptr %438, i64 24
+  %439 = getelementptr inbounds nuw i8, ptr %438, i64 24
   %440 = load ptr, ptr %439, align 8
   invoke void %440(ptr noundef nonnull align 8 dereferenceable(8) %435, ptr noundef %436)
           to label %443 unwind label %444
@@ -924,7 +924,7 @@ thread-pre-split:                                 ; preds = %258, %284
 
 457:                                              ; preds = %453
   %458 = load ptr, ptr %455, align 8
-  %459 = getelementptr inbounds i8, ptr %458, i64 24
+  %459 = getelementptr inbounds nuw i8, ptr %458, i64 24
   %460 = load ptr, ptr %459, align 8
   invoke void %460(ptr noundef nonnull align 8 dereferenceable(8) %455, ptr noundef %456)
           to label %463 unwind label %466
@@ -1012,7 +1012,7 @@ thread-pre-split905:                              ; preds = %443, %469
 
 498:                                              ; preds = %495
   %499 = load ptr, ptr %496, align 8
-  %500 = getelementptr inbounds i8, ptr %499, i64 24
+  %500 = getelementptr inbounds nuw i8, ptr %499, i64 24
   %501 = load ptr, ptr %500, align 8
   invoke void %501(ptr noundef nonnull align 8 dereferenceable(8) %496, ptr noundef %497)
           to label %504 unwind label %541
@@ -1073,7 +1073,7 @@ thread-pre-split905:                              ; preds = %443, %469
 
 531:                                              ; preds = %528
   %532 = load ptr, ptr %529, align 8
-  %533 = getelementptr inbounds i8, ptr %532, i64 24
+  %533 = getelementptr inbounds nuw i8, ptr %532, i64 24
   %534 = load ptr, ptr %533, align 8
   invoke void %534(ptr noundef nonnull align 8 dereferenceable(8) %529, ptr noundef %530)
           to label %537 unwind label %538
@@ -1121,7 +1121,7 @@ thread-pre-split905:                              ; preds = %443, %469
 
 551:                                              ; preds = %547
   %552 = load ptr, ptr %549, align 8
-  %553 = getelementptr inbounds i8, ptr %552, i64 24
+  %553 = getelementptr inbounds nuw i8, ptr %552, i64 24
   %554 = load ptr, ptr %553, align 8
   invoke void %554(ptr noundef nonnull align 8 dereferenceable(8) %549, ptr noundef %550)
           to label %557 unwind label %560
@@ -1191,7 +1191,7 @@ thread-pre-split905:                              ; preds = %443, %469
 
 584:                                              ; preds = %581
   %585 = load ptr, ptr %582, align 8
-  %586 = getelementptr inbounds i8, ptr %585, i64 24
+  %586 = getelementptr inbounds nuw i8, ptr %585, i64 24
   %587 = load ptr, ptr %586, align 8
   invoke void %587(ptr noundef nonnull align 8 dereferenceable(8) %582, ptr noundef %583)
           to label %590 unwind label %627
@@ -1252,7 +1252,7 @@ thread-pre-split905:                              ; preds = %443, %469
 
 617:                                              ; preds = %614
   %618 = load ptr, ptr %615, align 8
-  %619 = getelementptr inbounds i8, ptr %618, i64 24
+  %619 = getelementptr inbounds nuw i8, ptr %618, i64 24
   %620 = load ptr, ptr %619, align 8
   invoke void %620(ptr noundef nonnull align 8 dereferenceable(8) %615, ptr noundef %616)
           to label %623 unwind label %624
@@ -1299,7 +1299,7 @@ thread-pre-split905:                              ; preds = %443, %469
 
 637:                                              ; preds = %633
   %638 = load ptr, ptr %635, align 8
-  %639 = getelementptr inbounds i8, ptr %638, i64 24
+  %639 = getelementptr inbounds nuw i8, ptr %638, i64 24
   %640 = load ptr, ptr %639, align 8
   invoke void %640(ptr noundef nonnull align 8 dereferenceable(8) %635, ptr noundef %636)
           to label %643 unwind label %646
@@ -1383,7 +1383,7 @@ thread-pre-split905:                              ; preds = %443, %469
 
 676:                                              ; preds = %673
   %677 = load ptr, ptr %674, align 8
-  %678 = getelementptr inbounds i8, ptr %677, i64 24
+  %678 = getelementptr inbounds nuw i8, ptr %677, i64 24
   %679 = load ptr, ptr %678, align 8
   invoke void %679(ptr noundef nonnull align 8 dereferenceable(8) %674, ptr noundef %675)
           to label %682 unwind label %719
@@ -1444,7 +1444,7 @@ thread-pre-split905:                              ; preds = %443, %469
 
 709:                                              ; preds = %706
   %710 = load ptr, ptr %707, align 8
-  %711 = getelementptr inbounds i8, ptr %710, i64 24
+  %711 = getelementptr inbounds nuw i8, ptr %710, i64 24
   %712 = load ptr, ptr %711, align 8
   invoke void %712(ptr noundef nonnull align 8 dereferenceable(8) %707, ptr noundef %708)
           to label %715 unwind label %716
@@ -1491,7 +1491,7 @@ thread-pre-split905:                              ; preds = %443, %469
 
 729:                                              ; preds = %725
   %730 = load ptr, ptr %727, align 8
-  %731 = getelementptr inbounds i8, ptr %730, i64 24
+  %731 = getelementptr inbounds nuw i8, ptr %730, i64 24
   %732 = load ptr, ptr %731, align 8
   invoke void %732(ptr noundef nonnull align 8 dereferenceable(8) %727, ptr noundef %728)
           to label %735 unwind label %738
@@ -1579,7 +1579,7 @@ thread-pre-split905:                              ; preds = %443, %469
 
 772:                                              ; preds = %769
   %773 = load ptr, ptr %770, align 8
-  %774 = getelementptr inbounds i8, ptr %773, i64 24
+  %774 = getelementptr inbounds nuw i8, ptr %773, i64 24
   %775 = load ptr, ptr %774, align 8
   invoke void %775(ptr noundef nonnull align 8 dereferenceable(8) %770, ptr noundef %771)
           to label %778 unwind label %815
@@ -1640,7 +1640,7 @@ thread-pre-split905:                              ; preds = %443, %469
 
 805:                                              ; preds = %802
   %806 = load ptr, ptr %803, align 8
-  %807 = getelementptr inbounds i8, ptr %806, i64 24
+  %807 = getelementptr inbounds nuw i8, ptr %806, i64 24
   %808 = load ptr, ptr %807, align 8
   invoke void %808(ptr noundef nonnull align 8 dereferenceable(8) %803, ptr noundef %804)
           to label %811 unwind label %812
@@ -1688,7 +1688,7 @@ thread-pre-split905:                              ; preds = %443, %469
 
 825:                                              ; preds = %821
   %826 = load ptr, ptr %823, align 8
-  %827 = getelementptr inbounds i8, ptr %826, i64 24
+  %827 = getelementptr inbounds nuw i8, ptr %826, i64 24
   %828 = load ptr, ptr %827, align 8
   invoke void %828(ptr noundef nonnull align 8 dereferenceable(8) %823, ptr noundef %824)
           to label %831 unwind label %834
@@ -1769,7 +1769,7 @@ thread-pre-split909:                              ; preds = %811, %746
 
 861:                                              ; preds = %858
   %862 = load ptr, ptr %859, align 8
-  %863 = getelementptr inbounds i8, ptr %862, i64 24
+  %863 = getelementptr inbounds nuw i8, ptr %862, i64 24
   %864 = load ptr, ptr %863, align 8
   invoke void %864(ptr noundef nonnull align 8 dereferenceable(8) %859, ptr noundef %860)
           to label %867 unwind label %904
@@ -1830,7 +1830,7 @@ thread-pre-split909:                              ; preds = %811, %746
 
 894:                                              ; preds = %891
   %895 = load ptr, ptr %892, align 8
-  %896 = getelementptr inbounds i8, ptr %895, i64 24
+  %896 = getelementptr inbounds nuw i8, ptr %895, i64 24
   %897 = load ptr, ptr %896, align 8
   invoke void %897(ptr noundef nonnull align 8 dereferenceable(8) %892, ptr noundef %893)
           to label %900 unwind label %901
@@ -1877,7 +1877,7 @@ thread-pre-split909:                              ; preds = %811, %746
 
 914:                                              ; preds = %910
   %915 = load ptr, ptr %912, align 8
-  %916 = getelementptr inbounds i8, ptr %915, i64 24
+  %916 = getelementptr inbounds nuw i8, ptr %915, i64 24
   %917 = load ptr, ptr %916, align 8
   invoke void %917(ptr noundef nonnull align 8 dereferenceable(8) %912, ptr noundef %913)
           to label %920 unwind label %923
@@ -1953,7 +1953,7 @@ thread-pre-split909:                              ; preds = %811, %746
 
 952:                                              ; preds = %949
   %953 = load ptr, ptr %950, align 8
-  %954 = getelementptr inbounds i8, ptr %953, i64 24
+  %954 = getelementptr inbounds nuw i8, ptr %953, i64 24
   %955 = load ptr, ptr %954, align 8
   invoke void %955(ptr noundef nonnull align 8 dereferenceable(8) %950, ptr noundef %951)
           to label %958 unwind label %995
@@ -2014,7 +2014,7 @@ thread-pre-split909:                              ; preds = %811, %746
 
 985:                                              ; preds = %982
   %986 = load ptr, ptr %983, align 8
-  %987 = getelementptr inbounds i8, ptr %986, i64 24
+  %987 = getelementptr inbounds nuw i8, ptr %986, i64 24
   %988 = load ptr, ptr %987, align 8
   invoke void %988(ptr noundef nonnull align 8 dereferenceable(8) %983, ptr noundef %984)
           to label %991 unwind label %992
@@ -2062,7 +2062,7 @@ thread-pre-split909:                              ; preds = %811, %746
 
 1005:                                             ; preds = %1001
   %1006 = load ptr, ptr %1003, align 8
-  %1007 = getelementptr inbounds i8, ptr %1006, i64 24
+  %1007 = getelementptr inbounds nuw i8, ptr %1006, i64 24
   %1008 = load ptr, ptr %1007, align 8
   invoke void %1008(ptr noundef nonnull align 8 dereferenceable(8) %1003, ptr noundef %1004)
           to label %1011 unwind label %1014
@@ -2143,7 +2143,7 @@ thread-pre-split911:                              ; preds = %991, %926
 
 1041:                                             ; preds = %1038
   %1042 = load ptr, ptr %1039, align 8
-  %1043 = getelementptr inbounds i8, ptr %1042, i64 24
+  %1043 = getelementptr inbounds nuw i8, ptr %1042, i64 24
   %1044 = load ptr, ptr %1043, align 8
   invoke void %1044(ptr noundef nonnull align 8 dereferenceable(8) %1039, ptr noundef %1040)
           to label %1047 unwind label %1084
@@ -2204,7 +2204,7 @@ thread-pre-split911:                              ; preds = %991, %926
 
 1074:                                             ; preds = %1071
   %1075 = load ptr, ptr %1072, align 8
-  %1076 = getelementptr inbounds i8, ptr %1075, i64 24
+  %1076 = getelementptr inbounds nuw i8, ptr %1075, i64 24
   %1077 = load ptr, ptr %1076, align 8
   invoke void %1077(ptr noundef nonnull align 8 dereferenceable(8) %1072, ptr noundef %1073)
           to label %1080 unwind label %1081
@@ -2252,7 +2252,7 @@ thread-pre-split911:                              ; preds = %991, %926
 
 1094:                                             ; preds = %1090
   %1095 = load ptr, ptr %1092, align 8
-  %1096 = getelementptr inbounds i8, ptr %1095, i64 24
+  %1096 = getelementptr inbounds nuw i8, ptr %1095, i64 24
   %1097 = load ptr, ptr %1096, align 8
   invoke void %1097(ptr noundef nonnull align 8 dereferenceable(8) %1092, ptr noundef %1093)
           to label %1100 unwind label %1103
@@ -2322,7 +2322,7 @@ thread-pre-split911:                              ; preds = %991, %926
 
 1127:                                             ; preds = %1124
   %1128 = load ptr, ptr %1125, align 8
-  %1129 = getelementptr inbounds i8, ptr %1128, i64 24
+  %1129 = getelementptr inbounds nuw i8, ptr %1128, i64 24
   %1130 = load ptr, ptr %1129, align 8
   invoke void %1130(ptr noundef nonnull align 8 dereferenceable(8) %1125, ptr noundef %1126)
           to label %1133 unwind label %1170
@@ -2383,7 +2383,7 @@ thread-pre-split911:                              ; preds = %991, %926
 
 1160:                                             ; preds = %1157
   %1161 = load ptr, ptr %1158, align 8
-  %1162 = getelementptr inbounds i8, ptr %1161, i64 24
+  %1162 = getelementptr inbounds nuw i8, ptr %1161, i64 24
   %1163 = load ptr, ptr %1162, align 8
   invoke void %1163(ptr noundef nonnull align 8 dereferenceable(8) %1158, ptr noundef %1159)
           to label %1166 unwind label %1167
@@ -2430,7 +2430,7 @@ thread-pre-split911:                              ; preds = %991, %926
 
 1180:                                             ; preds = %1176
   %1181 = load ptr, ptr %1178, align 8
-  %1182 = getelementptr inbounds i8, ptr %1181, i64 24
+  %1182 = getelementptr inbounds nuw i8, ptr %1181, i64 24
   %1183 = load ptr, ptr %1182, align 8
   invoke void %1183(ptr noundef nonnull align 8 dereferenceable(8) %1178, ptr noundef %1179)
           to label %1186 unwind label %1189
@@ -2567,7 +2567,7 @@ switch.hole_check:                                ; preds = %1257
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %1261 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [11 x i32], ptr @switch.table._ZNK4ncnn19BinaryOp_x86_avx5127forwardERKSt6vectorINS_3MatESaIS2_EERS4_RKNS_6OptionE, i64 0, i64 %1261
+  %switch.gep = getelementptr inbounds nuw [11 x i32], ptr @switch.table._ZNK4ncnn19BinaryOp_x86_avx5127forwardERKSt6vectorINS_3MatESaIS2_EERS4_RKNS_6OptionE, i64 0, i64 %1261
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN4ncnnL19get_reverse_op_typeEi.exit
 
@@ -2601,7 +2601,7 @@ _ZN4ncnnL19get_reverse_op_typeEi.exit:            ; preds = %1257, %switch.hole_
 
 1272:                                             ; preds = %1269
   %1273 = load ptr, ptr %1270, align 8
-  %1274 = getelementptr inbounds i8, ptr %1273, i64 24
+  %1274 = getelementptr inbounds nuw i8, ptr %1273, i64 24
   %1275 = load ptr, ptr %1274, align 8
   invoke void %1275(ptr noundef nonnull align 8 dereferenceable(8) %1270, ptr noundef %1271)
           to label %1278 unwind label %1280
@@ -2642,7 +2642,7 @@ _ZN4ncnnL19get_reverse_op_typeEi.exit:            ; preds = %1257, %switch.hole_
 
 1289:                                             ; preds = %1286
   %1290 = load ptr, ptr %1287, align 8
-  %1291 = getelementptr inbounds i8, ptr %1290, i64 24
+  %1291 = getelementptr inbounds nuw i8, ptr %1290, i64 24
   %1292 = load ptr, ptr %1291, align 8
   invoke void %1292(ptr noundef nonnull align 8 dereferenceable(8) %1287, ptr noundef %1288)
           to label %1295 unwind label %1296
@@ -2684,7 +2684,7 @@ _ZN4ncnnL19get_reverse_op_typeEi.exit:            ; preds = %1257, %switch.hole_
 
 1307:                                             ; preds = %1304
   %1308 = load ptr, ptr %1305, align 8
-  %1309 = getelementptr inbounds i8, ptr %1308, i64 24
+  %1309 = getelementptr inbounds nuw i8, ptr %1308, i64 24
   %1310 = load ptr, ptr %1309, align 8
   invoke void %1310(ptr noundef nonnull align 8 dereferenceable(8) %1305, ptr noundef %1306)
           to label %1313 unwind label %1315
@@ -2725,7 +2725,7 @@ _ZN4ncnnL19get_reverse_op_typeEi.exit:            ; preds = %1257, %switch.hole_
 
 1324:                                             ; preds = %1321
   %1325 = load ptr, ptr %1322, align 8
-  %1326 = getelementptr inbounds i8, ptr %1325, i64 24
+  %1326 = getelementptr inbounds nuw i8, ptr %1325, i64 24
   %1327 = load ptr, ptr %1326, align 8
   invoke void %1327(ptr noundef nonnull align 8 dereferenceable(8) %1322, ptr noundef %1323)
           to label %1330 unwind label %1331
@@ -3372,9 +3372,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %20 = load <16 x float>, ptr %.06485.i.i, align 1
   %21 = fadd fast <16 x float> %20, %19
   store <16 x float> %21, ptr %.06884.i.i, align 1
-  %22 = getelementptr inbounds i8, ptr %.086.i.i, i64 64
-  %23 = getelementptr inbounds i8, ptr %.06485.i.i, i64 64
-  %24 = getelementptr inbounds i8, ptr %.06884.i.i, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %.086.i.i, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %.06485.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.06884.i.i, i64 64
   %25 = add nuw nsw i32 %.07283.i.i, 16
   %26 = or disjoint i32 %25, 15
   %27 = icmp slt i32 %26, %10
@@ -3398,9 +3398,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %31 = load <8 x float>, ptr %.16592.i.i, align 1
   %32 = fadd fast <8 x float> %31, %30
   store <8 x float> %32, ptr %.16991.i.i, align 1
-  %33 = getelementptr inbounds i8, ptr %.193.i.i, i64 32
-  %34 = getelementptr inbounds i8, ptr %.16592.i.i, i64 32
-  %35 = getelementptr inbounds i8, ptr %.16991.i.i, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %.193.i.i, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %.16592.i.i, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %.16991.i.i, i64 32
   %36 = add nuw nsw i32 %.17390.i.i, 8
   %37 = or disjoint i32 %36, 7
   %38 = icmp slt i32 %37, %10
@@ -3423,9 +3423,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %41 = load <4 x float>, ptr %.266101.i.i, align 1
   %42 = fadd fast <4 x float> %41, %40
   store <4 x float> %42, ptr %.270100.i.i, align 1
-  %43 = getelementptr inbounds i8, ptr %.2102.i.i, i64 16
-  %44 = getelementptr inbounds i8, ptr %.266101.i.i, i64 16
-  %45 = getelementptr inbounds i8, ptr %.270100.i.i, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.2102.i.i, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %.266101.i.i, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %.270100.i.i, i64 16
   %46 = add nuw nsw i32 %.27499.i.i, 4
   %47 = or disjoint i32 %46, 3
   %48 = icmp slt i32 %47, %10
@@ -3440,9 +3440,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %50 = load float, ptr %.367110.i.i, align 4
   %51 = fadd fast float %50, %49
   store float %51, ptr %.371109.i.i, align 4
-  %52 = getelementptr inbounds i8, ptr %.3111.i.i, i64 4
-  %53 = getelementptr inbounds i8, ptr %.367110.i.i, i64 4
-  %54 = getelementptr inbounds i8, ptr %.371109.i.i, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %.3111.i.i, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %.367110.i.i, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %.371109.i.i, i64 4
   %55 = add nuw nsw i32 %.375108.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %55, %10
   br i1 %exitcond.not.i.i, label %_ZN4ncnnL16binary_op_vectorINS_27BinaryOp_x86_avx512_functor13binary_op_addEEEvPKfS4_Pfiiii.exit, label %.lr.ph112.i.i, !llvm.loop !17
@@ -3512,8 +3512,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %85 = load <16 x float>, ptr %.094.i.i, align 1
   %86 = fadd fast <16 x float> %85, %80
   store <16 x float> %86, ptr %.07093.i.i, align 1
-  %87 = getelementptr inbounds i8, ptr %.094.i.i, i64 64
-  %88 = getelementptr inbounds i8, ptr %.07093.i.i, i64 64
+  %87 = getelementptr inbounds nuw i8, ptr %.094.i.i, i64 64
+  %88 = getelementptr inbounds nuw i8, ptr %.07093.i.i, i64 64
   %89 = add nuw nsw i32 %.07492.i.i, 16
   %90 = or disjoint i32 %89, 15
   %91 = icmp slt i32 %90, %10
@@ -3534,8 +3534,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %94 = load <8 x float>, ptr %.199.i.i, align 1
   %95 = fadd fast <8 x float> %94, %78
   store <8 x float> %95, ptr %.17198.i.i, align 1
-  %96 = getelementptr inbounds i8, ptr %.199.i.i, i64 32
-  %97 = getelementptr inbounds i8, ptr %.17198.i.i, i64 32
+  %96 = getelementptr inbounds nuw i8, ptr %.199.i.i, i64 32
+  %97 = getelementptr inbounds nuw i8, ptr %.17198.i.i, i64 32
   %98 = add nuw nsw i32 %.17597.i.i, 8
   %99 = or disjoint i32 %98, 7
   %100 = icmp slt i32 %99, %10
@@ -3555,8 +3555,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %102 = load <4 x float>, ptr %.2106.i.i, align 1
   %103 = fadd fast <4 x float> %102, %79
   store <4 x float> %103, ptr %.272105.i.i, align 1
-  %104 = getelementptr inbounds i8, ptr %.2106.i.i, i64 16
-  %105 = getelementptr inbounds i8, ptr %.272105.i.i, i64 16
+  %104 = getelementptr inbounds nuw i8, ptr %.2106.i.i, i64 16
+  %105 = getelementptr inbounds nuw i8, ptr %.272105.i.i, i64 16
   %106 = add nuw nsw i32 %.276104.i.i, 4
   %107 = or disjoint i32 %106, 3
   %108 = icmp slt i32 %107, %10
@@ -3569,8 +3569,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %109 = load float, ptr %.3113.i.i, align 4
   %110 = fadd fast float %109, %59
   store float %110, ptr %.373112.i.i, align 4
-  %111 = getelementptr inbounds i8, ptr %.3113.i.i, i64 4
-  %112 = getelementptr inbounds i8, ptr %.373112.i.i, i64 4
+  %111 = getelementptr inbounds nuw i8, ptr %.3113.i.i, i64 4
+  %112 = getelementptr inbounds nuw i8, ptr %.373112.i.i, i64 4
   %113 = add nuw nsw i32 %.377111.i.i, 1
   %exitcond.not.i38.i = icmp eq i32 %113, %10
   br i1 %exitcond.not.i38.i, label %_ZN4ncnnL16binary_op_vectorINS_27BinaryOp_x86_avx512_functor13binary_op_addEEEvPKfS4_Pfiiii.exit, label %.lr.ph114.i.i, !llvm.loop !21
@@ -3640,8 +3640,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %143 = load <16 x float>, ptr %.094.i68.i, align 1
   %144 = fadd fast <16 x float> %143, %138
   store <16 x float> %144, ptr %.07093.i69.i, align 1
-  %145 = getelementptr inbounds i8, ptr %.094.i68.i, i64 64
-  %146 = getelementptr inbounds i8, ptr %.07093.i69.i, i64 64
+  %145 = getelementptr inbounds nuw i8, ptr %.094.i68.i, i64 64
+  %146 = getelementptr inbounds nuw i8, ptr %.07093.i69.i, i64 64
   %147 = add nuw nsw i32 %.07492.i70.i, 16
   %148 = or disjoint i32 %147, 15
   %149 = icmp slt i32 %148, %10
@@ -3662,8 +3662,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %152 = load <8 x float>, ptr %.199.i63.i, align 1
   %153 = fadd fast <8 x float> %152, %136
   store <8 x float> %153, ptr %.17198.i64.i, align 1
-  %154 = getelementptr inbounds i8, ptr %.199.i63.i, i64 32
-  %155 = getelementptr inbounds i8, ptr %.17198.i64.i, i64 32
+  %154 = getelementptr inbounds nuw i8, ptr %.199.i63.i, i64 32
+  %155 = getelementptr inbounds nuw i8, ptr %.17198.i64.i, i64 32
   %156 = add nuw nsw i32 %.17597.i65.i, 8
   %157 = or disjoint i32 %156, 7
   %158 = icmp slt i32 %157, %10
@@ -3683,8 +3683,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %160 = load <4 x float>, ptr %.2106.i59.i, align 1
   %161 = fadd fast <4 x float> %160, %137
   store <4 x float> %161, ptr %.272105.i60.i, align 1
-  %162 = getelementptr inbounds i8, ptr %.2106.i59.i, i64 16
-  %163 = getelementptr inbounds i8, ptr %.272105.i60.i, i64 16
+  %162 = getelementptr inbounds nuw i8, ptr %.2106.i59.i, i64 16
+  %163 = getelementptr inbounds nuw i8, ptr %.272105.i60.i, i64 16
   %164 = add nuw nsw i32 %.276104.i61.i, 4
   %165 = or disjoint i32 %164, 3
   %166 = icmp slt i32 %165, %10
@@ -3697,8 +3697,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %167 = load float, ptr %.3113.i54.i, align 4
   %168 = fadd fast float %167, %117
   store float %168, ptr %.373112.i55.i, align 4
-  %169 = getelementptr inbounds i8, ptr %.3113.i54.i, i64 4
-  %170 = getelementptr inbounds i8, ptr %.373112.i55.i, i64 4
+  %169 = getelementptr inbounds nuw i8, ptr %.3113.i54.i, i64 4
+  %170 = getelementptr inbounds nuw i8, ptr %.373112.i55.i, i64 4
   %171 = add nuw nsw i32 %.377111.i56.i, 1
   %exitcond.not.i57.i = icmp eq i32 %171, %10
   br i1 %exitcond.not.i57.i, label %_ZN4ncnnL16binary_op_vectorINS_27BinaryOp_x86_avx512_functor13binary_op_addEEEvPKfS4_Pfiiii.exit, label %.lr.ph114.i53.i, !llvm.loop !25
@@ -3728,9 +3728,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %182 = shufflevector <16 x float> %181, <16 x float> poison, <16 x i32> zeroinitializer
   %183 = fadd fast <16 x float> %182, %179
   store <16 x float> %183, ptr %.1236268.i.i, align 1
-  %184 = getelementptr inbounds i8, ptr %.1270.i.i, i64 64
-  %185 = getelementptr inbounds i8, ptr %.1228269.i.i, i64 4
-  %186 = getelementptr inbounds i8, ptr %.1236268.i.i, i64 64
+  %184 = getelementptr inbounds nuw i8, ptr %.1270.i.i, i64 64
+  %185 = getelementptr inbounds nuw i8, ptr %.1228269.i.i, i64 4
+  %186 = getelementptr inbounds nuw i8, ptr %.1236268.i.i, i64 64
   %187 = add nuw nsw i32 %.0243267.i.i, 1
   %exitcond.not.i75.i = icmp eq i32 %187, %.sroa.speculated98.i
   br i1 %exitcond.not.i75.i, label %.loopexit266.i.i, label %.lr.ph.i74.i, !llvm.loop !26
@@ -3766,15 +3766,15 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %192 = load <16 x float>, ptr %.3276.i.i, align 1
   %193 = load float, ptr %.3230275.i.i, align 4
   %194 = insertelement <8 x float> poison, float %193, i64 0
-  %195 = getelementptr inbounds i8, ptr %.3230275.i.i, i64 4
+  %195 = getelementptr inbounds nuw i8, ptr %.3230275.i.i, i64 4
   %196 = load float, ptr %195, align 4
   %197 = insertelement <8 x float> poison, float %196, i64 0
   %198 = shufflevector <8 x float> %194, <8 x float> %197, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
   %199 = fadd fast <16 x float> %198, %192
   store <16 x float> %199, ptr %.3238274.i.i, align 1
-  %200 = getelementptr inbounds i8, ptr %.3276.i.i, i64 64
-  %201 = getelementptr inbounds i8, ptr %.3230275.i.i, i64 8
-  %202 = getelementptr inbounds i8, ptr %.3238274.i.i, i64 64
+  %200 = getelementptr inbounds nuw i8, ptr %.3276.i.i, i64 64
+  %201 = getelementptr inbounds nuw i8, ptr %.3230275.i.i, i64 8
+  %202 = getelementptr inbounds nuw i8, ptr %.3238274.i.i, i64 64
   %203 = add nuw nsw i32 %.0244273.i.i, 2
   %204 = or disjoint i32 %203, 1
   %205 = icmp slt i32 %204, %.sroa.speculated98.i
@@ -3791,9 +3791,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %209 = shufflevector <8 x float> %208, <8 x float> poison, <8 x i32> zeroinitializer
   %210 = fadd fast <8 x float> %209, %206
   store <8 x float> %210, ptr %.4239283.i.i, align 1
-  %211 = getelementptr inbounds i8, ptr %.4285.i.i, i64 32
-  %212 = getelementptr inbounds i8, ptr %.4231284.i.i, i64 4
-  %213 = getelementptr inbounds i8, ptr %.4239283.i.i, i64 32
+  %211 = getelementptr inbounds nuw i8, ptr %.4285.i.i, i64 32
+  %212 = getelementptr inbounds nuw i8, ptr %.4231284.i.i, i64 4
+  %213 = getelementptr inbounds nuw i8, ptr %.4239283.i.i, i64 32
   %214 = add nuw nsw i32 %.1245282.i.i, 1
   %exitcond330.not.i.i = icmp eq i32 %214, %.sroa.speculated98.i
   br i1 %exitcond330.not.i.i, label %.loopexit263.i.i, label %.lr.ph286.i.i, !llvm.loop !28
@@ -3830,13 +3830,13 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %220 = load <16 x float>, ptr %.5293.i.i, align 1
   %221 = load float, ptr %.5232292.i.i, align 4
   %222 = insertelement <4 x float> poison, float %221, i64 0
-  %223 = getelementptr inbounds i8, ptr %.5232292.i.i, i64 4
+  %223 = getelementptr inbounds nuw i8, ptr %.5232292.i.i, i64 4
   %224 = load float, ptr %223, align 4
   %225 = insertelement <4 x float> poison, float %224, i64 0
-  %226 = getelementptr inbounds i8, ptr %.5232292.i.i, i64 8
+  %226 = getelementptr inbounds nuw i8, ptr %.5232292.i.i, i64 8
   %227 = load float, ptr %226, align 4
   %228 = insertelement <4 x float> poison, float %227, i64 0
-  %229 = getelementptr inbounds i8, ptr %.5232292.i.i, i64 12
+  %229 = getelementptr inbounds nuw i8, ptr %.5232292.i.i, i64 12
   %230 = load float, ptr %229, align 4
   %231 = insertelement <4 x float> poison, float %230, i64 0
   %232 = shufflevector <4 x float> %222, <4 x float> %225, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 4, i32 4, i32 4, i32 4>
@@ -3844,9 +3844,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %234 = shufflevector <8 x float> %232, <8 x float> %233, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %235 = fadd fast <16 x float> %234, %220
   store <16 x float> %235, ptr %.5240291.i.i, align 1
-  %236 = getelementptr inbounds i8, ptr %.5293.i.i, i64 64
-  %237 = getelementptr inbounds i8, ptr %.5232292.i.i, i64 16
-  %238 = getelementptr inbounds i8, ptr %.5240291.i.i, i64 64
+  %236 = getelementptr inbounds nuw i8, ptr %.5293.i.i, i64 64
+  %237 = getelementptr inbounds nuw i8, ptr %.5232292.i.i, i64 16
+  %238 = getelementptr inbounds nuw i8, ptr %.5240291.i.i, i64 64
   %239 = add nuw nsw i32 %.0246290.i.i, 4
   %240 = or disjoint i32 %239, 3
   %241 = icmp slt i32 %240, %.sroa.speculated98.i
@@ -3868,15 +3868,15 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %243 = load <8 x float>, ptr %.6302.i.i, align 1
   %244 = load float, ptr %.6233301.i.i, align 4
   %245 = insertelement <4 x float> poison, float %244, i64 0
-  %246 = getelementptr inbounds i8, ptr %.6233301.i.i, i64 4
+  %246 = getelementptr inbounds nuw i8, ptr %.6233301.i.i, i64 4
   %247 = load float, ptr %246, align 4
   %248 = insertelement <4 x float> poison, float %247, i64 0
   %249 = shufflevector <4 x float> %245, <4 x float> %248, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 4, i32 4, i32 4, i32 4>
   %250 = fadd fast <8 x float> %249, %243
   store <8 x float> %250, ptr %.6241300.i.i, align 1
-  %251 = getelementptr inbounds i8, ptr %.6302.i.i, i64 32
-  %252 = getelementptr inbounds i8, ptr %.6233301.i.i, i64 8
-  %253 = getelementptr inbounds i8, ptr %.6241300.i.i, i64 32
+  %251 = getelementptr inbounds nuw i8, ptr %.6302.i.i, i64 32
+  %252 = getelementptr inbounds nuw i8, ptr %.6233301.i.i, i64 8
+  %253 = getelementptr inbounds nuw i8, ptr %.6241300.i.i, i64 32
   %254 = add nuw nsw i32 %.1247299.i.i, 2
   %255 = or disjoint i32 %254, 1
   %256 = icmp slt i32 %255, %.sroa.speculated98.i
@@ -3893,9 +3893,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %260 = shufflevector <4 x float> %259, <4 x float> poison, <4 x i32> zeroinitializer
   %261 = fadd fast <4 x float> %260, %257
   store <4 x float> %261, ptr %.7242309.i.i, align 1
-  %262 = getelementptr inbounds i8, ptr %.7311.i.i, i64 16
-  %263 = getelementptr inbounds i8, ptr %.7234310.i.i, i64 4
-  %264 = getelementptr inbounds i8, ptr %.7242309.i.i, i64 16
+  %262 = getelementptr inbounds nuw i8, ptr %.7311.i.i, i64 16
+  %263 = getelementptr inbounds nuw i8, ptr %.7234310.i.i, i64 4
+  %264 = getelementptr inbounds nuw i8, ptr %.7242309.i.i, i64 16
   %265 = add nuw nsw i32 %.2248308.i.i, 1
   %exitcond331.not.i.i = icmp eq i32 %265, %.sroa.speculated98.i
   br i1 %exitcond331.not.i.i, label %_ZN4ncnnL16binary_op_vectorINS_27BinaryOp_x86_avx512_functor13binary_op_addEEEvPKfS4_Pfiiii.exit, label %.lr.ph312.i.i, !llvm.loop !31
@@ -3918,8 +3918,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %273 = load <16 x float>, ptr %.0102.i.i, align 1
   %274 = fadd fast <16 x float> %273, %271
   store <16 x float> %274, ptr %.088101.i.i, align 1
-  %275 = getelementptr inbounds i8, ptr %.0102.i.i, i64 64
-  %276 = getelementptr inbounds i8, ptr %.088101.i.i, i64 64
+  %275 = getelementptr inbounds nuw i8, ptr %.0102.i.i, i64 64
+  %276 = getelementptr inbounds nuw i8, ptr %.088101.i.i, i64 64
   %277 = add nuw nsw i32 %.091100.i.i, 16
   %278 = or disjoint i32 %277, 15
   %279 = icmp slt i32 %278, %10
@@ -3948,8 +3948,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %286 = load <8 x float>, ptr %.1107.i.i, align 1
   %287 = fadd fast <8 x float> %286, %283
   store <8 x float> %287, ptr %.189106.i.i, align 1
-  %288 = getelementptr inbounds i8, ptr %.1107.i.i, i64 32
-  %289 = getelementptr inbounds i8, ptr %.189106.i.i, i64 32
+  %288 = getelementptr inbounds nuw i8, ptr %.1107.i.i, i64 32
+  %289 = getelementptr inbounds nuw i8, ptr %.189106.i.i, i64 32
   %290 = add nuw nsw i32 %.192105.i.i, 8
   %291 = or disjoint i32 %290, 7
   %292 = icmp slt i32 %291, %10
@@ -3977,8 +3977,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %298 = load <4 x float>, ptr %.2116.i.i, align 1
   %299 = fadd fast <4 x float> %298, %295
   store <4 x float> %299, ptr %.290115.i.i, align 1
-  %300 = getelementptr inbounds i8, ptr %.2116.i.i, i64 16
-  %301 = getelementptr inbounds i8, ptr %.290115.i.i, i64 16
+  %300 = getelementptr inbounds nuw i8, ptr %.2116.i.i, i64 16
+  %301 = getelementptr inbounds nuw i8, ptr %.290115.i.i, i64 16
   %302 = add nuw nsw i32 %.293114.i.i, 4
   %303 = or disjoint i32 %302, 3
   %304 = icmp slt i32 %303, %10
@@ -4005,8 +4005,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %313 = shufflevector <16 x float> %312, <16 x float> poison, <16 x i32> zeroinitializer
   %314 = fadd fast <16 x float> %313, %310
   store <16 x float> %314, ptr %.1219254.i.i, align 1
-  %315 = getelementptr inbounds i8, ptr %.1255.i.i, i64 4
-  %316 = getelementptr inbounds i8, ptr %.1219254.i.i, i64 64
+  %315 = getelementptr inbounds nuw i8, ptr %.1255.i.i, i64 4
+  %316 = getelementptr inbounds nuw i8, ptr %.1219254.i.i, i64 64
   %317 = add nuw nsw i32 %.0226253.i.i, 1
   %exitcond.not.i87.i = icmp eq i32 %317, %.sroa.speculated98.i
   br i1 %exitcond.not.i87.i, label %.loopexit252.i.i, label %.lr.ph.i86.i, !llvm.loop !35
@@ -4040,14 +4040,14 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %.0227257.i.i = phi i32 [ %334, %.lr.ph260.i.i ], [ 0, %319 ]
   %325 = load float, ptr %.3259.i.i, align 4
   %326 = insertelement <8 x float> poison, float %325, i64 0
-  %327 = getelementptr inbounds i8, ptr %.3259.i.i, i64 4
+  %327 = getelementptr inbounds nuw i8, ptr %.3259.i.i, i64 4
   %328 = load float, ptr %327, align 4
   %329 = insertelement <8 x float> poison, float %328, i64 0
   %330 = shufflevector <8 x float> %326, <8 x float> %329, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
   %331 = fadd fast <16 x float> %330, %321
   store <16 x float> %331, ptr %.3221258.i.i, align 1
-  %332 = getelementptr inbounds i8, ptr %.3259.i.i, i64 8
-  %333 = getelementptr inbounds i8, ptr %.3221258.i.i, i64 64
+  %332 = getelementptr inbounds nuw i8, ptr %.3259.i.i, i64 8
+  %333 = getelementptr inbounds nuw i8, ptr %.3221258.i.i, i64 64
   %334 = add nuw nsw i32 %.0227257.i.i, 2
   %335 = or disjoint i32 %334, 1
   %336 = icmp slt i32 %335, %.sroa.speculated98.i
@@ -4062,8 +4062,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %339 = shufflevector <8 x float> %338, <8 x float> poison, <8 x i32> zeroinitializer
   %340 = fadd fast <8 x float> %339, %320
   store <8 x float> %340, ptr %.4222265.i.i, align 1
-  %341 = getelementptr inbounds i8, ptr %.4266.i.i, i64 4
-  %342 = getelementptr inbounds i8, ptr %.4222265.i.i, i64 32
+  %341 = getelementptr inbounds nuw i8, ptr %.4266.i.i, i64 4
+  %342 = getelementptr inbounds nuw i8, ptr %.4222265.i.i, i64 32
   %343 = add nuw nsw i32 %.1228264.i.i, 1
   %exitcond300.not.i.i = icmp eq i32 %343, %.sroa.speculated98.i
   br i1 %exitcond300.not.i.i, label %.loopexit251.i.i, label %.lr.ph267.i.i, !llvm.loop !37
@@ -4099,13 +4099,13 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %.0229270.i.i = phi i32 [ %370, %.lr.ph273.i.i ], [ 0, %345 ]
   %353 = load float, ptr %.5272.i.i, align 4
   %354 = insertelement <4 x float> poison, float %353, i64 0
-  %355 = getelementptr inbounds i8, ptr %.5272.i.i, i64 4
+  %355 = getelementptr inbounds nuw i8, ptr %.5272.i.i, i64 4
   %356 = load float, ptr %355, align 4
   %357 = insertelement <4 x float> poison, float %356, i64 0
-  %358 = getelementptr inbounds i8, ptr %.5272.i.i, i64 8
+  %358 = getelementptr inbounds nuw i8, ptr %.5272.i.i, i64 8
   %359 = load float, ptr %358, align 4
   %360 = insertelement <4 x float> poison, float %359, i64 0
-  %361 = getelementptr inbounds i8, ptr %.5272.i.i, i64 12
+  %361 = getelementptr inbounds nuw i8, ptr %.5272.i.i, i64 12
   %362 = load float, ptr %361, align 4
   %363 = insertelement <4 x float> poison, float %362, i64 0
   %364 = shufflevector <4 x float> %354, <4 x float> %357, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 4, i32 4, i32 4, i32 4>
@@ -4113,8 +4113,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %366 = shufflevector <8 x float> %364, <8 x float> %365, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %367 = fadd fast <16 x float> %366, %348
   store <16 x float> %367, ptr %.5223271.i.i, align 1
-  %368 = getelementptr inbounds i8, ptr %.5272.i.i, i64 16
-  %369 = getelementptr inbounds i8, ptr %.5223271.i.i, i64 64
+  %368 = getelementptr inbounds nuw i8, ptr %.5272.i.i, i64 16
+  %369 = getelementptr inbounds nuw i8, ptr %.5223271.i.i, i64 64
   %370 = add nuw nsw i32 %.0229270.i.i, 4
   %371 = or disjoint i32 %370, 3
   %372 = icmp slt i32 %371, %.sroa.speculated98.i
@@ -4133,14 +4133,14 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %.1230277.i.i = phi i32 [ %383, %.lr.ph280.i.i ], [ %.0229.lcssa.i.i, %.preheader249.i.i ]
   %374 = load float, ptr %.6279.i.i, align 4
   %375 = insertelement <4 x float> poison, float %374, i64 0
-  %376 = getelementptr inbounds i8, ptr %.6279.i.i, i64 4
+  %376 = getelementptr inbounds nuw i8, ptr %.6279.i.i, i64 4
   %377 = load float, ptr %376, align 4
   %378 = insertelement <4 x float> poison, float %377, i64 0
   %379 = shufflevector <4 x float> %375, <4 x float> %378, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 4, i32 4, i32 4, i32 4>
   %380 = fadd fast <8 x float> %379, %347
   store <8 x float> %380, ptr %.6224278.i.i, align 1
-  %381 = getelementptr inbounds i8, ptr %.6279.i.i, i64 8
-  %382 = getelementptr inbounds i8, ptr %.6224278.i.i, i64 32
+  %381 = getelementptr inbounds nuw i8, ptr %.6279.i.i, i64 8
+  %382 = getelementptr inbounds nuw i8, ptr %.6224278.i.i, i64 32
   %383 = add nuw nsw i32 %.1230277.i.i, 2
   %384 = or disjoint i32 %383, 1
   %385 = icmp slt i32 %384, %.sroa.speculated98.i
@@ -4155,8 +4155,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %388 = shufflevector <4 x float> %387, <4 x float> poison, <4 x i32> zeroinitializer
   %389 = fadd fast <4 x float> %388, %346
   store <4 x float> %389, ptr %.7225285.i.i, align 1
-  %390 = getelementptr inbounds i8, ptr %.7286.i.i, i64 4
-  %391 = getelementptr inbounds i8, ptr %.7225285.i.i, i64 16
+  %390 = getelementptr inbounds nuw i8, ptr %.7286.i.i, i64 4
+  %391 = getelementptr inbounds nuw i8, ptr %.7225285.i.i, i64 16
   %392 = add nuw nsw i32 %.2231284.i.i, 1
   %exitcond301.not.i.i = icmp eq i32 %392, %.sroa.speculated98.i
   br i1 %exitcond301.not.i.i, label %_ZN4ncnnL16binary_op_vectorINS_27BinaryOp_x86_avx512_functor13binary_op_addEEEvPKfS4_Pfiiii.exit, label %.lr.ph287.i.i, !llvm.loop !40
@@ -4198,9 +4198,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %404 = load <16 x float>, ptr %.06485.i.i326, align 1
   %405 = fsub fast <16 x float> %403, %404
   store <16 x float> %405, ptr %.06884.i.i327, align 1
-  %406 = getelementptr inbounds i8, ptr %.086.i.i325, i64 64
-  %407 = getelementptr inbounds i8, ptr %.06485.i.i326, i64 64
-  %408 = getelementptr inbounds i8, ptr %.06884.i.i327, i64 64
+  %406 = getelementptr inbounds nuw i8, ptr %.086.i.i325, i64 64
+  %407 = getelementptr inbounds nuw i8, ptr %.06485.i.i326, i64 64
+  %408 = getelementptr inbounds nuw i8, ptr %.06884.i.i327, i64 64
   %409 = add nuw nsw i32 %.07283.i.i328, 16
   %410 = or disjoint i32 %409, 15
   %411 = icmp slt i32 %410, %394
@@ -4224,9 +4224,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %415 = load <8 x float>, ptr %.16592.i.i321, align 1
   %416 = fsub fast <8 x float> %414, %415
   store <8 x float> %416, ptr %.16991.i.i322, align 1
-  %417 = getelementptr inbounds i8, ptr %.193.i.i320, i64 32
-  %418 = getelementptr inbounds i8, ptr %.16592.i.i321, i64 32
-  %419 = getelementptr inbounds i8, ptr %.16991.i.i322, i64 32
+  %417 = getelementptr inbounds nuw i8, ptr %.193.i.i320, i64 32
+  %418 = getelementptr inbounds nuw i8, ptr %.16592.i.i321, i64 32
+  %419 = getelementptr inbounds nuw i8, ptr %.16991.i.i322, i64 32
   %420 = add nuw nsw i32 %.17390.i.i323, 8
   %421 = or disjoint i32 %420, 7
   %422 = icmp slt i32 %421, %394
@@ -4249,9 +4249,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %425 = load <4 x float>, ptr %.266101.i.i316, align 1
   %426 = fsub fast <4 x float> %424, %425
   store <4 x float> %426, ptr %.270100.i.i317, align 1
-  %427 = getelementptr inbounds i8, ptr %.2102.i.i315, i64 16
-  %428 = getelementptr inbounds i8, ptr %.266101.i.i316, i64 16
-  %429 = getelementptr inbounds i8, ptr %.270100.i.i317, i64 16
+  %427 = getelementptr inbounds nuw i8, ptr %.2102.i.i315, i64 16
+  %428 = getelementptr inbounds nuw i8, ptr %.266101.i.i316, i64 16
+  %429 = getelementptr inbounds nuw i8, ptr %.270100.i.i317, i64 16
   %430 = add nuw nsw i32 %.27499.i.i318, 4
   %431 = or disjoint i32 %430, 3
   %432 = icmp slt i32 %431, %394
@@ -4266,9 +4266,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %434 = load float, ptr %.367110.i.i310, align 4
   %435 = fsub fast float %433, %434
   store float %435, ptr %.371109.i.i311, align 4
-  %436 = getelementptr inbounds i8, ptr %.3111.i.i309, i64 4
-  %437 = getelementptr inbounds i8, ptr %.367110.i.i310, i64 4
-  %438 = getelementptr inbounds i8, ptr %.371109.i.i311, i64 4
+  %436 = getelementptr inbounds nuw i8, ptr %.3111.i.i309, i64 4
+  %437 = getelementptr inbounds nuw i8, ptr %.367110.i.i310, i64 4
+  %438 = getelementptr inbounds nuw i8, ptr %.371109.i.i311, i64 4
   %439 = add nuw nsw i32 %.375108.i.i312, 1
   %exitcond.not.i.i313 = icmp eq i32 %439, %394
   br i1 %exitcond.not.i.i313, label %_ZN4ncnnL16binary_op_vectorINS_27BinaryOp_x86_avx512_functor13binary_op_addEEEvPKfS4_Pfiiii.exit, label %.lr.ph112.i.i308, !llvm.loop !44
@@ -4338,8 +4338,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %469 = load <16 x float>, ptr %.094.i.i287, align 1
   %470 = fsub fast <16 x float> %469, %464
   store <16 x float> %470, ptr %.07093.i.i288, align 1
-  %471 = getelementptr inbounds i8, ptr %.094.i.i287, i64 64
-  %472 = getelementptr inbounds i8, ptr %.07093.i.i288, i64 64
+  %471 = getelementptr inbounds nuw i8, ptr %.094.i.i287, i64 64
+  %472 = getelementptr inbounds nuw i8, ptr %.07093.i.i288, i64 64
   %473 = add nuw nsw i32 %.07492.i.i289, 16
   %474 = or disjoint i32 %473, 15
   %475 = icmp slt i32 %474, %394
@@ -4360,8 +4360,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %478 = load <8 x float>, ptr %.199.i.i283, align 1
   %479 = fsub fast <8 x float> %478, %462
   store <8 x float> %479, ptr %.17198.i.i284, align 1
-  %480 = getelementptr inbounds i8, ptr %.199.i.i283, i64 32
-  %481 = getelementptr inbounds i8, ptr %.17198.i.i284, i64 32
+  %480 = getelementptr inbounds nuw i8, ptr %.199.i.i283, i64 32
+  %481 = getelementptr inbounds nuw i8, ptr %.17198.i.i284, i64 32
   %482 = add nuw nsw i32 %.17597.i.i285, 8
   %483 = or disjoint i32 %482, 7
   %484 = icmp slt i32 %483, %394
@@ -4381,8 +4381,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %486 = load <4 x float>, ptr %.2106.i.i279, align 1
   %487 = fsub fast <4 x float> %486, %463
   store <4 x float> %487, ptr %.272105.i.i280, align 1
-  %488 = getelementptr inbounds i8, ptr %.2106.i.i279, i64 16
-  %489 = getelementptr inbounds i8, ptr %.272105.i.i280, i64 16
+  %488 = getelementptr inbounds nuw i8, ptr %.2106.i.i279, i64 16
+  %489 = getelementptr inbounds nuw i8, ptr %.272105.i.i280, i64 16
   %490 = add nuw nsw i32 %.276104.i.i281, 4
   %491 = or disjoint i32 %490, 3
   %492 = icmp slt i32 %491, %394
@@ -4395,8 +4395,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %493 = load float, ptr %.3113.i.i274, align 4
   %494 = fsub fast float %493, %443
   store float %494, ptr %.373112.i.i275, align 4
-  %495 = getelementptr inbounds i8, ptr %.3113.i.i274, i64 4
-  %496 = getelementptr inbounds i8, ptr %.373112.i.i275, i64 4
+  %495 = getelementptr inbounds nuw i8, ptr %.3113.i.i274, i64 4
+  %496 = getelementptr inbounds nuw i8, ptr %.373112.i.i275, i64 4
   %497 = add nuw nsw i32 %.377111.i.i276, 1
   %exitcond.not.i38.i277 = icmp eq i32 %497, %394
   br i1 %exitcond.not.i38.i277, label %_ZN4ncnnL16binary_op_vectorINS_27BinaryOp_x86_avx512_functor13binary_op_addEEEvPKfS4_Pfiiii.exit, label %.lr.ph114.i.i273, !llvm.loop !48
@@ -4466,8 +4466,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %527 = load <16 x float>, ptr %.094.i68.i255, align 1
   %528 = fsub fast <16 x float> %522, %527
   store <16 x float> %528, ptr %.07093.i69.i256, align 1
-  %529 = getelementptr inbounds i8, ptr %.094.i68.i255, i64 64
-  %530 = getelementptr inbounds i8, ptr %.07093.i69.i256, i64 64
+  %529 = getelementptr inbounds nuw i8, ptr %.094.i68.i255, i64 64
+  %530 = getelementptr inbounds nuw i8, ptr %.07093.i69.i256, i64 64
   %531 = add nuw nsw i32 %.07492.i70.i257, 16
   %532 = or disjoint i32 %531, 15
   %533 = icmp slt i32 %532, %394
@@ -4488,8 +4488,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %536 = load <8 x float>, ptr %.199.i63.i251, align 1
   %537 = fsub fast <8 x float> %520, %536
   store <8 x float> %537, ptr %.17198.i64.i252, align 1
-  %538 = getelementptr inbounds i8, ptr %.199.i63.i251, i64 32
-  %539 = getelementptr inbounds i8, ptr %.17198.i64.i252, i64 32
+  %538 = getelementptr inbounds nuw i8, ptr %.199.i63.i251, i64 32
+  %539 = getelementptr inbounds nuw i8, ptr %.17198.i64.i252, i64 32
   %540 = add nuw nsw i32 %.17597.i65.i253, 8
   %541 = or disjoint i32 %540, 7
   %542 = icmp slt i32 %541, %394
@@ -4509,8 +4509,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %544 = load <4 x float>, ptr %.2106.i59.i247, align 1
   %545 = fsub fast <4 x float> %521, %544
   store <4 x float> %545, ptr %.272105.i60.i248, align 1
-  %546 = getelementptr inbounds i8, ptr %.2106.i59.i247, i64 16
-  %547 = getelementptr inbounds i8, ptr %.272105.i60.i248, i64 16
+  %546 = getelementptr inbounds nuw i8, ptr %.2106.i59.i247, i64 16
+  %547 = getelementptr inbounds nuw i8, ptr %.272105.i60.i248, i64 16
   %548 = add nuw nsw i32 %.276104.i61.i249, 4
   %549 = or disjoint i32 %548, 3
   %550 = icmp slt i32 %549, %394
@@ -4523,8 +4523,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %551 = load float, ptr %.3113.i54.i242, align 4
   %552 = fsub fast float %501, %551
   store float %552, ptr %.373112.i55.i243, align 4
-  %553 = getelementptr inbounds i8, ptr %.3113.i54.i242, i64 4
-  %554 = getelementptr inbounds i8, ptr %.373112.i55.i243, i64 4
+  %553 = getelementptr inbounds nuw i8, ptr %.3113.i54.i242, i64 4
+  %554 = getelementptr inbounds nuw i8, ptr %.373112.i55.i243, i64 4
   %555 = add nuw nsw i32 %.377111.i56.i244, 1
   %exitcond.not.i57.i245 = icmp eq i32 %555, %394
   br i1 %exitcond.not.i57.i245, label %_ZN4ncnnL16binary_op_vectorINS_27BinaryOp_x86_avx512_functor13binary_op_addEEEvPKfS4_Pfiiii.exit, label %.lr.ph114.i53.i241, !llvm.loop !52
@@ -4554,9 +4554,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %566 = shufflevector <16 x float> %565, <16 x float> poison, <16 x i32> zeroinitializer
   %567 = fsub fast <16 x float> %563, %566
   store <16 x float> %567, ptr %.1236268.i.i226, align 1
-  %568 = getelementptr inbounds i8, ptr %.1270.i.i224, i64 64
-  %569 = getelementptr inbounds i8, ptr %.1228269.i.i225, i64 4
-  %570 = getelementptr inbounds i8, ptr %.1236268.i.i226, i64 64
+  %568 = getelementptr inbounds nuw i8, ptr %.1270.i.i224, i64 64
+  %569 = getelementptr inbounds nuw i8, ptr %.1228269.i.i225, i64 4
+  %570 = getelementptr inbounds nuw i8, ptr %.1236268.i.i226, i64 64
   %571 = add nuw nsw i32 %.0243267.i.i227, 1
   %exitcond.not.i75.i228 = icmp eq i32 %571, %.sroa.speculated98.i95
   br i1 %exitcond.not.i75.i228, label %.loopexit266.i.i169, label %.lr.ph.i74.i223, !llvm.loop !53
@@ -4592,15 +4592,15 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %576 = load <16 x float>, ptr %.3276.i.i218, align 1
   %577 = load float, ptr %.3230275.i.i219, align 4
   %578 = insertelement <8 x float> poison, float %577, i64 0
-  %579 = getelementptr inbounds i8, ptr %.3230275.i.i219, i64 4
+  %579 = getelementptr inbounds nuw i8, ptr %.3230275.i.i219, i64 4
   %580 = load float, ptr %579, align 4
   %581 = insertelement <8 x float> poison, float %580, i64 0
   %582 = shufflevector <8 x float> %578, <8 x float> %581, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
   %583 = fsub fast <16 x float> %576, %582
   store <16 x float> %583, ptr %.3238274.i.i220, align 1
-  %584 = getelementptr inbounds i8, ptr %.3276.i.i218, i64 64
-  %585 = getelementptr inbounds i8, ptr %.3230275.i.i219, i64 8
-  %586 = getelementptr inbounds i8, ptr %.3238274.i.i220, i64 64
+  %584 = getelementptr inbounds nuw i8, ptr %.3276.i.i218, i64 64
+  %585 = getelementptr inbounds nuw i8, ptr %.3230275.i.i219, i64 8
+  %586 = getelementptr inbounds nuw i8, ptr %.3238274.i.i220, i64 64
   %587 = add nuw nsw i32 %.0244273.i.i221, 2
   %588 = or disjoint i32 %587, 1
   %589 = icmp slt i32 %588, %.sroa.speculated98.i95
@@ -4617,9 +4617,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %593 = shufflevector <8 x float> %592, <8 x float> poison, <8 x i32> zeroinitializer
   %594 = fsub fast <8 x float> %590, %593
   store <8 x float> %594, ptr %.4239283.i.i214, align 1
-  %595 = getelementptr inbounds i8, ptr %.4285.i.i212, i64 32
-  %596 = getelementptr inbounds i8, ptr %.4231284.i.i213, i64 4
-  %597 = getelementptr inbounds i8, ptr %.4239283.i.i214, i64 32
+  %595 = getelementptr inbounds nuw i8, ptr %.4285.i.i212, i64 32
+  %596 = getelementptr inbounds nuw i8, ptr %.4231284.i.i213, i64 4
+  %597 = getelementptr inbounds nuw i8, ptr %.4239283.i.i214, i64 32
   %598 = add nuw nsw i32 %.1245282.i.i215, 1
   %exitcond330.not.i.i216 = icmp eq i32 %598, %.sroa.speculated98.i95
   br i1 %exitcond330.not.i.i216, label %.loopexit263.i.i173, label %.lr.ph286.i.i211, !llvm.loop !55
@@ -4656,13 +4656,13 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %604 = load <16 x float>, ptr %.5293.i.i200, align 1
   %605 = load float, ptr %.5232292.i.i201, align 4
   %606 = insertelement <4 x float> poison, float %605, i64 0
-  %607 = getelementptr inbounds i8, ptr %.5232292.i.i201, i64 4
+  %607 = getelementptr inbounds nuw i8, ptr %.5232292.i.i201, i64 4
   %608 = load float, ptr %607, align 4
   %609 = insertelement <4 x float> poison, float %608, i64 0
-  %610 = getelementptr inbounds i8, ptr %.5232292.i.i201, i64 8
+  %610 = getelementptr inbounds nuw i8, ptr %.5232292.i.i201, i64 8
   %611 = load float, ptr %610, align 4
   %612 = insertelement <4 x float> poison, float %611, i64 0
-  %613 = getelementptr inbounds i8, ptr %.5232292.i.i201, i64 12
+  %613 = getelementptr inbounds nuw i8, ptr %.5232292.i.i201, i64 12
   %614 = load float, ptr %613, align 4
   %615 = insertelement <4 x float> poison, float %614, i64 0
   %616 = shufflevector <4 x float> %606, <4 x float> %609, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 4, i32 4, i32 4, i32 4>
@@ -4670,9 +4670,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %618 = shufflevector <8 x float> %616, <8 x float> %617, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %619 = fsub fast <16 x float> %604, %618
   store <16 x float> %619, ptr %.5240291.i.i202, align 1
-  %620 = getelementptr inbounds i8, ptr %.5293.i.i200, i64 64
-  %621 = getelementptr inbounds i8, ptr %.5232292.i.i201, i64 16
-  %622 = getelementptr inbounds i8, ptr %.5240291.i.i202, i64 64
+  %620 = getelementptr inbounds nuw i8, ptr %.5293.i.i200, i64 64
+  %621 = getelementptr inbounds nuw i8, ptr %.5232292.i.i201, i64 16
+  %622 = getelementptr inbounds nuw i8, ptr %.5240291.i.i202, i64 64
   %623 = add nuw nsw i32 %.0246290.i.i203, 4
   %624 = or disjoint i32 %623, 3
   %625 = icmp slt i32 %624, %.sroa.speculated98.i95
@@ -4694,15 +4694,15 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %627 = load <8 x float>, ptr %.6302.i.i195, align 1
   %628 = load float, ptr %.6233301.i.i196, align 4
   %629 = insertelement <4 x float> poison, float %628, i64 0
-  %630 = getelementptr inbounds i8, ptr %.6233301.i.i196, i64 4
+  %630 = getelementptr inbounds nuw i8, ptr %.6233301.i.i196, i64 4
   %631 = load float, ptr %630, align 4
   %632 = insertelement <4 x float> poison, float %631, i64 0
   %633 = shufflevector <4 x float> %629, <4 x float> %632, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 4, i32 4, i32 4, i32 4>
   %634 = fsub fast <8 x float> %627, %633
   store <8 x float> %634, ptr %.6241300.i.i197, align 1
-  %635 = getelementptr inbounds i8, ptr %.6302.i.i195, i64 32
-  %636 = getelementptr inbounds i8, ptr %.6233301.i.i196, i64 8
-  %637 = getelementptr inbounds i8, ptr %.6241300.i.i197, i64 32
+  %635 = getelementptr inbounds nuw i8, ptr %.6302.i.i195, i64 32
+  %636 = getelementptr inbounds nuw i8, ptr %.6233301.i.i196, i64 8
+  %637 = getelementptr inbounds nuw i8, ptr %.6241300.i.i197, i64 32
   %638 = add nuw nsw i32 %.1247299.i.i198, 2
   %639 = or disjoint i32 %638, 1
   %640 = icmp slt i32 %639, %.sroa.speculated98.i95
@@ -4719,9 +4719,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %644 = shufflevector <4 x float> %643, <4 x float> poison, <4 x i32> zeroinitializer
   %645 = fsub fast <4 x float> %641, %644
   store <4 x float> %645, ptr %.7242309.i.i191, align 1
-  %646 = getelementptr inbounds i8, ptr %.7311.i.i189, i64 16
-  %647 = getelementptr inbounds i8, ptr %.7234310.i.i190, i64 4
-  %648 = getelementptr inbounds i8, ptr %.7242309.i.i191, i64 16
+  %646 = getelementptr inbounds nuw i8, ptr %.7311.i.i189, i64 16
+  %647 = getelementptr inbounds nuw i8, ptr %.7234310.i.i190, i64 4
+  %648 = getelementptr inbounds nuw i8, ptr %.7242309.i.i191, i64 16
   %649 = add nuw nsw i32 %.2248308.i.i192, 1
   %exitcond331.not.i.i193 = icmp eq i32 %649, %.sroa.speculated98.i95
   br i1 %exitcond331.not.i.i193, label %_ZN4ncnnL16binary_op_vectorINS_27BinaryOp_x86_avx512_functor13binary_op_addEEEvPKfS4_Pfiiii.exit, label %.lr.ph312.i.i188, !llvm.loop !58
@@ -4744,8 +4744,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %657 = load <16 x float>, ptr %.0102.i.i163, align 1
   %658 = fsub fast <16 x float> %657, %655
   store <16 x float> %658, ptr %.088101.i.i164, align 1
-  %659 = getelementptr inbounds i8, ptr %.0102.i.i163, i64 64
-  %660 = getelementptr inbounds i8, ptr %.088101.i.i164, i64 64
+  %659 = getelementptr inbounds nuw i8, ptr %.0102.i.i163, i64 64
+  %660 = getelementptr inbounds nuw i8, ptr %.088101.i.i164, i64 64
   %661 = add nuw nsw i32 %.091100.i.i165, 16
   %662 = or disjoint i32 %661, 15
   %663 = icmp slt i32 %662, %394
@@ -4774,8 +4774,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %670 = load <8 x float>, ptr %.1107.i.i157, align 1
   %671 = fsub fast <8 x float> %670, %667
   store <8 x float> %671, ptr %.189106.i.i158, align 1
-  %672 = getelementptr inbounds i8, ptr %.1107.i.i157, i64 32
-  %673 = getelementptr inbounds i8, ptr %.189106.i.i158, i64 32
+  %672 = getelementptr inbounds nuw i8, ptr %.1107.i.i157, i64 32
+  %673 = getelementptr inbounds nuw i8, ptr %.189106.i.i158, i64 32
   %674 = add nuw nsw i32 %.192105.i.i159, 8
   %675 = or disjoint i32 %674, 7
   %676 = icmp slt i32 %675, %394
@@ -4803,8 +4803,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %682 = load <4 x float>, ptr %.2116.i.i153, align 1
   %683 = fsub fast <4 x float> %682, %679
   store <4 x float> %683, ptr %.290115.i.i154, align 1
-  %684 = getelementptr inbounds i8, ptr %.2116.i.i153, i64 16
-  %685 = getelementptr inbounds i8, ptr %.290115.i.i154, i64 16
+  %684 = getelementptr inbounds nuw i8, ptr %.2116.i.i153, i64 16
+  %685 = getelementptr inbounds nuw i8, ptr %.290115.i.i154, i64 16
   %686 = add nuw nsw i32 %.293114.i.i155, 4
   %687 = or disjoint i32 %686, 3
   %688 = icmp slt i32 %687, %394
@@ -4831,8 +4831,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %697 = shufflevector <16 x float> %696, <16 x float> poison, <16 x i32> zeroinitializer
   %698 = fsub fast <16 x float> %694, %697
   store <16 x float> %698, ptr %.1219254.i.i141, align 1
-  %699 = getelementptr inbounds i8, ptr %.1255.i.i140, i64 4
-  %700 = getelementptr inbounds i8, ptr %.1219254.i.i141, i64 64
+  %699 = getelementptr inbounds nuw i8, ptr %.1255.i.i140, i64 4
+  %700 = getelementptr inbounds nuw i8, ptr %.1219254.i.i141, i64 64
   %701 = add nuw nsw i32 %.0226253.i.i142, 1
   %exitcond.not.i87.i143 = icmp eq i32 %701, %.sroa.speculated98.i95
   br i1 %exitcond.not.i87.i143, label %.loopexit252.i.i97, label %.lr.ph.i86.i139, !llvm.loop !62
@@ -4866,14 +4866,14 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %.0227257.i.i137 = phi i32 [ %718, %.lr.ph260.i.i134 ], [ 0, %703 ]
   %709 = load float, ptr %.3259.i.i135, align 4
   %710 = insertelement <8 x float> poison, float %709, i64 0
-  %711 = getelementptr inbounds i8, ptr %.3259.i.i135, i64 4
+  %711 = getelementptr inbounds nuw i8, ptr %.3259.i.i135, i64 4
   %712 = load float, ptr %711, align 4
   %713 = insertelement <8 x float> poison, float %712, i64 0
   %714 = shufflevector <8 x float> %710, <8 x float> %713, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
   %715 = fsub fast <16 x float> %705, %714
   store <16 x float> %715, ptr %.3221258.i.i136, align 1
-  %716 = getelementptr inbounds i8, ptr %.3259.i.i135, i64 8
-  %717 = getelementptr inbounds i8, ptr %.3221258.i.i136, i64 64
+  %716 = getelementptr inbounds nuw i8, ptr %.3259.i.i135, i64 8
+  %717 = getelementptr inbounds nuw i8, ptr %.3221258.i.i136, i64 64
   %718 = add nuw nsw i32 %.0227257.i.i137, 2
   %719 = or disjoint i32 %718, 1
   %720 = icmp slt i32 %719, %.sroa.speculated98.i95
@@ -4888,8 +4888,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %723 = shufflevector <8 x float> %722, <8 x float> poison, <8 x i32> zeroinitializer
   %724 = fsub fast <8 x float> %704, %723
   store <8 x float> %724, ptr %.4222265.i.i131, align 1
-  %725 = getelementptr inbounds i8, ptr %.4266.i.i130, i64 4
-  %726 = getelementptr inbounds i8, ptr %.4222265.i.i131, i64 32
+  %725 = getelementptr inbounds nuw i8, ptr %.4266.i.i130, i64 4
+  %726 = getelementptr inbounds nuw i8, ptr %.4222265.i.i131, i64 32
   %727 = add nuw nsw i32 %.1228264.i.i132, 1
   %exitcond300.not.i.i133 = icmp eq i32 %727, %.sroa.speculated98.i95
   br i1 %exitcond300.not.i.i133, label %.loopexit251.i.i100, label %.lr.ph267.i.i129, !llvm.loop !64
@@ -4925,13 +4925,13 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %.0229270.i.i123 = phi i32 [ %754, %.lr.ph273.i.i120 ], [ 0, %729 ]
   %737 = load float, ptr %.5272.i.i121, align 4
   %738 = insertelement <4 x float> poison, float %737, i64 0
-  %739 = getelementptr inbounds i8, ptr %.5272.i.i121, i64 4
+  %739 = getelementptr inbounds nuw i8, ptr %.5272.i.i121, i64 4
   %740 = load float, ptr %739, align 4
   %741 = insertelement <4 x float> poison, float %740, i64 0
-  %742 = getelementptr inbounds i8, ptr %.5272.i.i121, i64 8
+  %742 = getelementptr inbounds nuw i8, ptr %.5272.i.i121, i64 8
   %743 = load float, ptr %742, align 4
   %744 = insertelement <4 x float> poison, float %743, i64 0
-  %745 = getelementptr inbounds i8, ptr %.5272.i.i121, i64 12
+  %745 = getelementptr inbounds nuw i8, ptr %.5272.i.i121, i64 12
   %746 = load float, ptr %745, align 4
   %747 = insertelement <4 x float> poison, float %746, i64 0
   %748 = shufflevector <4 x float> %738, <4 x float> %741, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 4, i32 4, i32 4, i32 4>
@@ -4939,8 +4939,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %750 = shufflevector <8 x float> %748, <8 x float> %749, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %751 = fsub fast <16 x float> %732, %750
   store <16 x float> %751, ptr %.5223271.i.i122, align 1
-  %752 = getelementptr inbounds i8, ptr %.5272.i.i121, i64 16
-  %753 = getelementptr inbounds i8, ptr %.5223271.i.i122, i64 64
+  %752 = getelementptr inbounds nuw i8, ptr %.5272.i.i121, i64 16
+  %753 = getelementptr inbounds nuw i8, ptr %.5223271.i.i122, i64 64
   %754 = add nuw nsw i32 %.0229270.i.i123, 4
   %755 = or disjoint i32 %754, 3
   %756 = icmp slt i32 %755, %.sroa.speculated98.i95
@@ -4959,14 +4959,14 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %.1230277.i.i119 = phi i32 [ %767, %.lr.ph280.i.i116 ], [ %.0229.lcssa.i.i104, %.preheader249.i.i103 ]
   %758 = load float, ptr %.6279.i.i117, align 4
   %759 = insertelement <4 x float> poison, float %758, i64 0
-  %760 = getelementptr inbounds i8, ptr %.6279.i.i117, i64 4
+  %760 = getelementptr inbounds nuw i8, ptr %.6279.i.i117, i64 4
   %761 = load float, ptr %760, align 4
   %762 = insertelement <4 x float> poison, float %761, i64 0
   %763 = shufflevector <4 x float> %759, <4 x float> %762, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 4, i32 4, i32 4, i32 4>
   %764 = fsub fast <8 x float> %731, %763
   store <8 x float> %764, ptr %.6224278.i.i118, align 1
-  %765 = getelementptr inbounds i8, ptr %.6279.i.i117, i64 8
-  %766 = getelementptr inbounds i8, ptr %.6224278.i.i118, i64 32
+  %765 = getelementptr inbounds nuw i8, ptr %.6279.i.i117, i64 8
+  %766 = getelementptr inbounds nuw i8, ptr %.6224278.i.i118, i64 32
   %767 = add nuw nsw i32 %.1230277.i.i119, 2
   %768 = or disjoint i32 %767, 1
   %769 = icmp slt i32 %768, %.sroa.speculated98.i95
@@ -4981,8 +4981,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %772 = shufflevector <4 x float> %771, <4 x float> poison, <4 x i32> zeroinitializer
   %773 = fsub fast <4 x float> %730, %772
   store <4 x float> %773, ptr %.7225285.i.i113, align 1
-  %774 = getelementptr inbounds i8, ptr %.7286.i.i112, i64 4
-  %775 = getelementptr inbounds i8, ptr %.7225285.i.i113, i64 16
+  %774 = getelementptr inbounds nuw i8, ptr %.7286.i.i112, i64 4
+  %775 = getelementptr inbounds nuw i8, ptr %.7225285.i.i113, i64 16
   %776 = add nuw nsw i32 %.2231284.i.i114, 1
   %exitcond301.not.i.i115 = icmp eq i32 %776, %.sroa.speculated98.i95
   br i1 %exitcond301.not.i.i115, label %_ZN4ncnnL16binary_op_vectorINS_27BinaryOp_x86_avx512_functor13binary_op_addEEEvPKfS4_Pfiiii.exit, label %.lr.ph287.i.i111, !llvm.loop !67
@@ -5024,9 +5024,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %788 = load <16 x float>, ptr %.06485.i.i561, align 1
   %789 = fmul fast <16 x float> %788, %787
   store <16 x float> %789, ptr %.06884.i.i562, align 1
-  %790 = getelementptr inbounds i8, ptr %.086.i.i560, i64 64
-  %791 = getelementptr inbounds i8, ptr %.06485.i.i561, i64 64
-  %792 = getelementptr inbounds i8, ptr %.06884.i.i562, i64 64
+  %790 = getelementptr inbounds nuw i8, ptr %.086.i.i560, i64 64
+  %791 = getelementptr inbounds nuw i8, ptr %.06485.i.i561, i64 64
+  %792 = getelementptr inbounds nuw i8, ptr %.06884.i.i562, i64 64
   %793 = add nuw nsw i32 %.07283.i.i563, 16
   %794 = or disjoint i32 %793, 15
   %795 = icmp slt i32 %794, %778
@@ -5050,9 +5050,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %799 = load <8 x float>, ptr %.16592.i.i556, align 1
   %800 = fmul fast <8 x float> %799, %798
   store <8 x float> %800, ptr %.16991.i.i557, align 1
-  %801 = getelementptr inbounds i8, ptr %.193.i.i555, i64 32
-  %802 = getelementptr inbounds i8, ptr %.16592.i.i556, i64 32
-  %803 = getelementptr inbounds i8, ptr %.16991.i.i557, i64 32
+  %801 = getelementptr inbounds nuw i8, ptr %.193.i.i555, i64 32
+  %802 = getelementptr inbounds nuw i8, ptr %.16592.i.i556, i64 32
+  %803 = getelementptr inbounds nuw i8, ptr %.16991.i.i557, i64 32
   %804 = add nuw nsw i32 %.17390.i.i558, 8
   %805 = or disjoint i32 %804, 7
   %806 = icmp slt i32 %805, %778
@@ -5075,9 +5075,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %809 = load <4 x float>, ptr %.266101.i.i551, align 1
   %810 = fmul fast <4 x float> %809, %808
   store <4 x float> %810, ptr %.270100.i.i552, align 1
-  %811 = getelementptr inbounds i8, ptr %.2102.i.i550, i64 16
-  %812 = getelementptr inbounds i8, ptr %.266101.i.i551, i64 16
-  %813 = getelementptr inbounds i8, ptr %.270100.i.i552, i64 16
+  %811 = getelementptr inbounds nuw i8, ptr %.2102.i.i550, i64 16
+  %812 = getelementptr inbounds nuw i8, ptr %.266101.i.i551, i64 16
+  %813 = getelementptr inbounds nuw i8, ptr %.270100.i.i552, i64 16
   %814 = add nuw nsw i32 %.27499.i.i553, 4
   %815 = or disjoint i32 %814, 3
   %816 = icmp slt i32 %815, %778
@@ -5092,9 +5092,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %818 = load float, ptr %.367110.i.i545, align 4
   %819 = fmul fast float %818, %817
   store float %819, ptr %.371109.i.i546, align 4
-  %820 = getelementptr inbounds i8, ptr %.3111.i.i544, i64 4
-  %821 = getelementptr inbounds i8, ptr %.367110.i.i545, i64 4
-  %822 = getelementptr inbounds i8, ptr %.371109.i.i546, i64 4
+  %820 = getelementptr inbounds nuw i8, ptr %.3111.i.i544, i64 4
+  %821 = getelementptr inbounds nuw i8, ptr %.367110.i.i545, i64 4
+  %822 = getelementptr inbounds nuw i8, ptr %.371109.i.i546, i64 4
   %823 = add nuw nsw i32 %.375108.i.i547, 1
   %exitcond.not.i.i548 = icmp eq i32 %823, %778
   br i1 %exitcond.not.i.i548, label %_ZN4ncnnL16binary_op_vectorINS_27BinaryOp_x86_avx512_functor13binary_op_addEEEvPKfS4_Pfiiii.exit, label %.lr.ph112.i.i543, !llvm.loop !71
@@ -5164,8 +5164,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %853 = load <16 x float>, ptr %.094.i.i522, align 1
   %854 = fmul fast <16 x float> %853, %848
   store <16 x float> %854, ptr %.07093.i.i523, align 1
-  %855 = getelementptr inbounds i8, ptr %.094.i.i522, i64 64
-  %856 = getelementptr inbounds i8, ptr %.07093.i.i523, i64 64
+  %855 = getelementptr inbounds nuw i8, ptr %.094.i.i522, i64 64
+  %856 = getelementptr inbounds nuw i8, ptr %.07093.i.i523, i64 64
   %857 = add nuw nsw i32 %.07492.i.i524, 16
   %858 = or disjoint i32 %857, 15
   %859 = icmp slt i32 %858, %778
@@ -5186,8 +5186,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %862 = load <8 x float>, ptr %.199.i.i518, align 1
   %863 = fmul fast <8 x float> %862, %846
   store <8 x float> %863, ptr %.17198.i.i519, align 1
-  %864 = getelementptr inbounds i8, ptr %.199.i.i518, i64 32
-  %865 = getelementptr inbounds i8, ptr %.17198.i.i519, i64 32
+  %864 = getelementptr inbounds nuw i8, ptr %.199.i.i518, i64 32
+  %865 = getelementptr inbounds nuw i8, ptr %.17198.i.i519, i64 32
   %866 = add nuw nsw i32 %.17597.i.i520, 8
   %867 = or disjoint i32 %866, 7
   %868 = icmp slt i32 %867, %778
@@ -5207,8 +5207,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %870 = load <4 x float>, ptr %.2106.i.i514, align 1
   %871 = fmul fast <4 x float> %870, %847
   store <4 x float> %871, ptr %.272105.i.i515, align 1
-  %872 = getelementptr inbounds i8, ptr %.2106.i.i514, i64 16
-  %873 = getelementptr inbounds i8, ptr %.272105.i.i515, i64 16
+  %872 = getelementptr inbounds nuw i8, ptr %.2106.i.i514, i64 16
+  %873 = getelementptr inbounds nuw i8, ptr %.272105.i.i515, i64 16
   %874 = add nuw nsw i32 %.276104.i.i516, 4
   %875 = or disjoint i32 %874, 3
   %876 = icmp slt i32 %875, %778
@@ -5221,8 +5221,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %877 = load float, ptr %.3113.i.i509, align 4
   %878 = fmul fast float %877, %827
   store float %878, ptr %.373112.i.i510, align 4
-  %879 = getelementptr inbounds i8, ptr %.3113.i.i509, i64 4
-  %880 = getelementptr inbounds i8, ptr %.373112.i.i510, i64 4
+  %879 = getelementptr inbounds nuw i8, ptr %.3113.i.i509, i64 4
+  %880 = getelementptr inbounds nuw i8, ptr %.373112.i.i510, i64 4
   %881 = add nuw nsw i32 %.377111.i.i511, 1
   %exitcond.not.i38.i512 = icmp eq i32 %881, %778
   br i1 %exitcond.not.i38.i512, label %_ZN4ncnnL16binary_op_vectorINS_27BinaryOp_x86_avx512_functor13binary_op_addEEEvPKfS4_Pfiiii.exit, label %.lr.ph114.i.i508, !llvm.loop !75
@@ -5292,8 +5292,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %911 = load <16 x float>, ptr %.094.i68.i490, align 1
   %912 = fmul fast <16 x float> %911, %906
   store <16 x float> %912, ptr %.07093.i69.i491, align 1
-  %913 = getelementptr inbounds i8, ptr %.094.i68.i490, i64 64
-  %914 = getelementptr inbounds i8, ptr %.07093.i69.i491, i64 64
+  %913 = getelementptr inbounds nuw i8, ptr %.094.i68.i490, i64 64
+  %914 = getelementptr inbounds nuw i8, ptr %.07093.i69.i491, i64 64
   %915 = add nuw nsw i32 %.07492.i70.i492, 16
   %916 = or disjoint i32 %915, 15
   %917 = icmp slt i32 %916, %778
@@ -5314,8 +5314,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %920 = load <8 x float>, ptr %.199.i63.i486, align 1
   %921 = fmul fast <8 x float> %920, %904
   store <8 x float> %921, ptr %.17198.i64.i487, align 1
-  %922 = getelementptr inbounds i8, ptr %.199.i63.i486, i64 32
-  %923 = getelementptr inbounds i8, ptr %.17198.i64.i487, i64 32
+  %922 = getelementptr inbounds nuw i8, ptr %.199.i63.i486, i64 32
+  %923 = getelementptr inbounds nuw i8, ptr %.17198.i64.i487, i64 32
   %924 = add nuw nsw i32 %.17597.i65.i488, 8
   %925 = or disjoint i32 %924, 7
   %926 = icmp slt i32 %925, %778
@@ -5335,8 +5335,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %928 = load <4 x float>, ptr %.2106.i59.i482, align 1
   %929 = fmul fast <4 x float> %928, %905
   store <4 x float> %929, ptr %.272105.i60.i483, align 1
-  %930 = getelementptr inbounds i8, ptr %.2106.i59.i482, i64 16
-  %931 = getelementptr inbounds i8, ptr %.272105.i60.i483, i64 16
+  %930 = getelementptr inbounds nuw i8, ptr %.2106.i59.i482, i64 16
+  %931 = getelementptr inbounds nuw i8, ptr %.272105.i60.i483, i64 16
   %932 = add nuw nsw i32 %.276104.i61.i484, 4
   %933 = or disjoint i32 %932, 3
   %934 = icmp slt i32 %933, %778
@@ -5349,8 +5349,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %935 = load float, ptr %.3113.i54.i477, align 4
   %936 = fmul fast float %935, %885
   store float %936, ptr %.373112.i55.i478, align 4
-  %937 = getelementptr inbounds i8, ptr %.3113.i54.i477, i64 4
-  %938 = getelementptr inbounds i8, ptr %.373112.i55.i478, i64 4
+  %937 = getelementptr inbounds nuw i8, ptr %.3113.i54.i477, i64 4
+  %938 = getelementptr inbounds nuw i8, ptr %.373112.i55.i478, i64 4
   %939 = add nuw nsw i32 %.377111.i56.i479, 1
   %exitcond.not.i57.i480 = icmp eq i32 %939, %778
   br i1 %exitcond.not.i57.i480, label %_ZN4ncnnL16binary_op_vectorINS_27BinaryOp_x86_avx512_functor13binary_op_addEEEvPKfS4_Pfiiii.exit, label %.lr.ph114.i53.i476, !llvm.loop !79
@@ -5380,9 +5380,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %950 = shufflevector <16 x float> %949, <16 x float> poison, <16 x i32> zeroinitializer
   %951 = fmul fast <16 x float> %950, %947
   store <16 x float> %951, ptr %.1236268.i.i461, align 1
-  %952 = getelementptr inbounds i8, ptr %.1270.i.i459, i64 64
-  %953 = getelementptr inbounds i8, ptr %.1228269.i.i460, i64 4
-  %954 = getelementptr inbounds i8, ptr %.1236268.i.i461, i64 64
+  %952 = getelementptr inbounds nuw i8, ptr %.1270.i.i459, i64 64
+  %953 = getelementptr inbounds nuw i8, ptr %.1228269.i.i460, i64 4
+  %954 = getelementptr inbounds nuw i8, ptr %.1236268.i.i461, i64 64
   %955 = add nuw nsw i32 %.0243267.i.i462, 1
   %exitcond.not.i75.i463 = icmp eq i32 %955, %.sroa.speculated98.i330
   br i1 %exitcond.not.i75.i463, label %.loopexit266.i.i404, label %.lr.ph.i74.i458, !llvm.loop !80
@@ -5418,15 +5418,15 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %960 = load <16 x float>, ptr %.3276.i.i453, align 1
   %961 = load float, ptr %.3230275.i.i454, align 4
   %962 = insertelement <8 x float> poison, float %961, i64 0
-  %963 = getelementptr inbounds i8, ptr %.3230275.i.i454, i64 4
+  %963 = getelementptr inbounds nuw i8, ptr %.3230275.i.i454, i64 4
   %964 = load float, ptr %963, align 4
   %965 = insertelement <8 x float> poison, float %964, i64 0
   %966 = shufflevector <8 x float> %962, <8 x float> %965, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
   %967 = fmul fast <16 x float> %966, %960
   store <16 x float> %967, ptr %.3238274.i.i455, align 1
-  %968 = getelementptr inbounds i8, ptr %.3276.i.i453, i64 64
-  %969 = getelementptr inbounds i8, ptr %.3230275.i.i454, i64 8
-  %970 = getelementptr inbounds i8, ptr %.3238274.i.i455, i64 64
+  %968 = getelementptr inbounds nuw i8, ptr %.3276.i.i453, i64 64
+  %969 = getelementptr inbounds nuw i8, ptr %.3230275.i.i454, i64 8
+  %970 = getelementptr inbounds nuw i8, ptr %.3238274.i.i455, i64 64
   %971 = add nuw nsw i32 %.0244273.i.i456, 2
   %972 = or disjoint i32 %971, 1
   %973 = icmp slt i32 %972, %.sroa.speculated98.i330
@@ -5443,9 +5443,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %977 = shufflevector <8 x float> %976, <8 x float> poison, <8 x i32> zeroinitializer
   %978 = fmul fast <8 x float> %977, %974
   store <8 x float> %978, ptr %.4239283.i.i449, align 1
-  %979 = getelementptr inbounds i8, ptr %.4285.i.i447, i64 32
-  %980 = getelementptr inbounds i8, ptr %.4231284.i.i448, i64 4
-  %981 = getelementptr inbounds i8, ptr %.4239283.i.i449, i64 32
+  %979 = getelementptr inbounds nuw i8, ptr %.4285.i.i447, i64 32
+  %980 = getelementptr inbounds nuw i8, ptr %.4231284.i.i448, i64 4
+  %981 = getelementptr inbounds nuw i8, ptr %.4239283.i.i449, i64 32
   %982 = add nuw nsw i32 %.1245282.i.i450, 1
   %exitcond330.not.i.i451 = icmp eq i32 %982, %.sroa.speculated98.i330
   br i1 %exitcond330.not.i.i451, label %.loopexit263.i.i408, label %.lr.ph286.i.i446, !llvm.loop !82
@@ -5482,13 +5482,13 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %988 = load <16 x float>, ptr %.5293.i.i435, align 1
   %989 = load float, ptr %.5232292.i.i436, align 4
   %990 = insertelement <4 x float> poison, float %989, i64 0
-  %991 = getelementptr inbounds i8, ptr %.5232292.i.i436, i64 4
+  %991 = getelementptr inbounds nuw i8, ptr %.5232292.i.i436, i64 4
   %992 = load float, ptr %991, align 4
   %993 = insertelement <4 x float> poison, float %992, i64 0
-  %994 = getelementptr inbounds i8, ptr %.5232292.i.i436, i64 8
+  %994 = getelementptr inbounds nuw i8, ptr %.5232292.i.i436, i64 8
   %995 = load float, ptr %994, align 4
   %996 = insertelement <4 x float> poison, float %995, i64 0
-  %997 = getelementptr inbounds i8, ptr %.5232292.i.i436, i64 12
+  %997 = getelementptr inbounds nuw i8, ptr %.5232292.i.i436, i64 12
   %998 = load float, ptr %997, align 4
   %999 = insertelement <4 x float> poison, float %998, i64 0
   %1000 = shufflevector <4 x float> %990, <4 x float> %993, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 4, i32 4, i32 4, i32 4>
@@ -5496,9 +5496,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1002 = shufflevector <8 x float> %1000, <8 x float> %1001, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %1003 = fmul fast <16 x float> %1002, %988
   store <16 x float> %1003, ptr %.5240291.i.i437, align 1
-  %1004 = getelementptr inbounds i8, ptr %.5293.i.i435, i64 64
-  %1005 = getelementptr inbounds i8, ptr %.5232292.i.i436, i64 16
-  %1006 = getelementptr inbounds i8, ptr %.5240291.i.i437, i64 64
+  %1004 = getelementptr inbounds nuw i8, ptr %.5293.i.i435, i64 64
+  %1005 = getelementptr inbounds nuw i8, ptr %.5232292.i.i436, i64 16
+  %1006 = getelementptr inbounds nuw i8, ptr %.5240291.i.i437, i64 64
   %1007 = add nuw nsw i32 %.0246290.i.i438, 4
   %1008 = or disjoint i32 %1007, 3
   %1009 = icmp slt i32 %1008, %.sroa.speculated98.i330
@@ -5520,15 +5520,15 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1011 = load <8 x float>, ptr %.6302.i.i430, align 1
   %1012 = load float, ptr %.6233301.i.i431, align 4
   %1013 = insertelement <4 x float> poison, float %1012, i64 0
-  %1014 = getelementptr inbounds i8, ptr %.6233301.i.i431, i64 4
+  %1014 = getelementptr inbounds nuw i8, ptr %.6233301.i.i431, i64 4
   %1015 = load float, ptr %1014, align 4
   %1016 = insertelement <4 x float> poison, float %1015, i64 0
   %1017 = shufflevector <4 x float> %1013, <4 x float> %1016, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 4, i32 4, i32 4, i32 4>
   %1018 = fmul fast <8 x float> %1017, %1011
   store <8 x float> %1018, ptr %.6241300.i.i432, align 1
-  %1019 = getelementptr inbounds i8, ptr %.6302.i.i430, i64 32
-  %1020 = getelementptr inbounds i8, ptr %.6233301.i.i431, i64 8
-  %1021 = getelementptr inbounds i8, ptr %.6241300.i.i432, i64 32
+  %1019 = getelementptr inbounds nuw i8, ptr %.6302.i.i430, i64 32
+  %1020 = getelementptr inbounds nuw i8, ptr %.6233301.i.i431, i64 8
+  %1021 = getelementptr inbounds nuw i8, ptr %.6241300.i.i432, i64 32
   %1022 = add nuw nsw i32 %.1247299.i.i433, 2
   %1023 = or disjoint i32 %1022, 1
   %1024 = icmp slt i32 %1023, %.sroa.speculated98.i330
@@ -5545,9 +5545,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1028 = shufflevector <4 x float> %1027, <4 x float> poison, <4 x i32> zeroinitializer
   %1029 = fmul fast <4 x float> %1028, %1025
   store <4 x float> %1029, ptr %.7242309.i.i426, align 1
-  %1030 = getelementptr inbounds i8, ptr %.7311.i.i424, i64 16
-  %1031 = getelementptr inbounds i8, ptr %.7234310.i.i425, i64 4
-  %1032 = getelementptr inbounds i8, ptr %.7242309.i.i426, i64 16
+  %1030 = getelementptr inbounds nuw i8, ptr %.7311.i.i424, i64 16
+  %1031 = getelementptr inbounds nuw i8, ptr %.7234310.i.i425, i64 4
+  %1032 = getelementptr inbounds nuw i8, ptr %.7242309.i.i426, i64 16
   %1033 = add nuw nsw i32 %.2248308.i.i427, 1
   %exitcond331.not.i.i428 = icmp eq i32 %1033, %.sroa.speculated98.i330
   br i1 %exitcond331.not.i.i428, label %_ZN4ncnnL16binary_op_vectorINS_27BinaryOp_x86_avx512_functor13binary_op_addEEEvPKfS4_Pfiiii.exit, label %.lr.ph312.i.i423, !llvm.loop !85
@@ -5570,8 +5570,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1041 = load <16 x float>, ptr %.0102.i.i398, align 1
   %1042 = fmul fast <16 x float> %1041, %1039
   store <16 x float> %1042, ptr %.088101.i.i399, align 1
-  %1043 = getelementptr inbounds i8, ptr %.0102.i.i398, i64 64
-  %1044 = getelementptr inbounds i8, ptr %.088101.i.i399, i64 64
+  %1043 = getelementptr inbounds nuw i8, ptr %.0102.i.i398, i64 64
+  %1044 = getelementptr inbounds nuw i8, ptr %.088101.i.i399, i64 64
   %1045 = add nuw nsw i32 %.091100.i.i400, 16
   %1046 = or disjoint i32 %1045, 15
   %1047 = icmp slt i32 %1046, %778
@@ -5600,8 +5600,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1054 = load <8 x float>, ptr %.1107.i.i392, align 1
   %1055 = fmul fast <8 x float> %1054, %1051
   store <8 x float> %1055, ptr %.189106.i.i393, align 1
-  %1056 = getelementptr inbounds i8, ptr %.1107.i.i392, i64 32
-  %1057 = getelementptr inbounds i8, ptr %.189106.i.i393, i64 32
+  %1056 = getelementptr inbounds nuw i8, ptr %.1107.i.i392, i64 32
+  %1057 = getelementptr inbounds nuw i8, ptr %.189106.i.i393, i64 32
   %1058 = add nuw nsw i32 %.192105.i.i394, 8
   %1059 = or disjoint i32 %1058, 7
   %1060 = icmp slt i32 %1059, %778
@@ -5629,8 +5629,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1066 = load <4 x float>, ptr %.2116.i.i388, align 1
   %1067 = fmul fast <4 x float> %1066, %1063
   store <4 x float> %1067, ptr %.290115.i.i389, align 1
-  %1068 = getelementptr inbounds i8, ptr %.2116.i.i388, i64 16
-  %1069 = getelementptr inbounds i8, ptr %.290115.i.i389, i64 16
+  %1068 = getelementptr inbounds nuw i8, ptr %.2116.i.i388, i64 16
+  %1069 = getelementptr inbounds nuw i8, ptr %.290115.i.i389, i64 16
   %1070 = add nuw nsw i32 %.293114.i.i390, 4
   %1071 = or disjoint i32 %1070, 3
   %1072 = icmp slt i32 %1071, %778
@@ -5657,8 +5657,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1081 = shufflevector <16 x float> %1080, <16 x float> poison, <16 x i32> zeroinitializer
   %1082 = fmul fast <16 x float> %1081, %1078
   store <16 x float> %1082, ptr %.1219254.i.i376, align 1
-  %1083 = getelementptr inbounds i8, ptr %.1255.i.i375, i64 4
-  %1084 = getelementptr inbounds i8, ptr %.1219254.i.i376, i64 64
+  %1083 = getelementptr inbounds nuw i8, ptr %.1255.i.i375, i64 4
+  %1084 = getelementptr inbounds nuw i8, ptr %.1219254.i.i376, i64 64
   %1085 = add nuw nsw i32 %.0226253.i.i377, 1
   %exitcond.not.i87.i378 = icmp eq i32 %1085, %.sroa.speculated98.i330
   br i1 %exitcond.not.i87.i378, label %.loopexit252.i.i332, label %.lr.ph.i86.i374, !llvm.loop !89
@@ -5692,14 +5692,14 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %.0227257.i.i372 = phi i32 [ %1102, %.lr.ph260.i.i369 ], [ 0, %1087 ]
   %1093 = load float, ptr %.3259.i.i370, align 4
   %1094 = insertelement <8 x float> poison, float %1093, i64 0
-  %1095 = getelementptr inbounds i8, ptr %.3259.i.i370, i64 4
+  %1095 = getelementptr inbounds nuw i8, ptr %.3259.i.i370, i64 4
   %1096 = load float, ptr %1095, align 4
   %1097 = insertelement <8 x float> poison, float %1096, i64 0
   %1098 = shufflevector <8 x float> %1094, <8 x float> %1097, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
   %1099 = fmul fast <16 x float> %1098, %1089
   store <16 x float> %1099, ptr %.3221258.i.i371, align 1
-  %1100 = getelementptr inbounds i8, ptr %.3259.i.i370, i64 8
-  %1101 = getelementptr inbounds i8, ptr %.3221258.i.i371, i64 64
+  %1100 = getelementptr inbounds nuw i8, ptr %.3259.i.i370, i64 8
+  %1101 = getelementptr inbounds nuw i8, ptr %.3221258.i.i371, i64 64
   %1102 = add nuw nsw i32 %.0227257.i.i372, 2
   %1103 = or disjoint i32 %1102, 1
   %1104 = icmp slt i32 %1103, %.sroa.speculated98.i330
@@ -5714,8 +5714,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1107 = shufflevector <8 x float> %1106, <8 x float> poison, <8 x i32> zeroinitializer
   %1108 = fmul fast <8 x float> %1107, %1088
   store <8 x float> %1108, ptr %.4222265.i.i366, align 1
-  %1109 = getelementptr inbounds i8, ptr %.4266.i.i365, i64 4
-  %1110 = getelementptr inbounds i8, ptr %.4222265.i.i366, i64 32
+  %1109 = getelementptr inbounds nuw i8, ptr %.4266.i.i365, i64 4
+  %1110 = getelementptr inbounds nuw i8, ptr %.4222265.i.i366, i64 32
   %1111 = add nuw nsw i32 %.1228264.i.i367, 1
   %exitcond300.not.i.i368 = icmp eq i32 %1111, %.sroa.speculated98.i330
   br i1 %exitcond300.not.i.i368, label %.loopexit251.i.i335, label %.lr.ph267.i.i364, !llvm.loop !91
@@ -5751,13 +5751,13 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %.0229270.i.i358 = phi i32 [ %1138, %.lr.ph273.i.i355 ], [ 0, %1113 ]
   %1121 = load float, ptr %.5272.i.i356, align 4
   %1122 = insertelement <4 x float> poison, float %1121, i64 0
-  %1123 = getelementptr inbounds i8, ptr %.5272.i.i356, i64 4
+  %1123 = getelementptr inbounds nuw i8, ptr %.5272.i.i356, i64 4
   %1124 = load float, ptr %1123, align 4
   %1125 = insertelement <4 x float> poison, float %1124, i64 0
-  %1126 = getelementptr inbounds i8, ptr %.5272.i.i356, i64 8
+  %1126 = getelementptr inbounds nuw i8, ptr %.5272.i.i356, i64 8
   %1127 = load float, ptr %1126, align 4
   %1128 = insertelement <4 x float> poison, float %1127, i64 0
-  %1129 = getelementptr inbounds i8, ptr %.5272.i.i356, i64 12
+  %1129 = getelementptr inbounds nuw i8, ptr %.5272.i.i356, i64 12
   %1130 = load float, ptr %1129, align 4
   %1131 = insertelement <4 x float> poison, float %1130, i64 0
   %1132 = shufflevector <4 x float> %1122, <4 x float> %1125, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 4, i32 4, i32 4, i32 4>
@@ -5765,8 +5765,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1134 = shufflevector <8 x float> %1132, <8 x float> %1133, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %1135 = fmul fast <16 x float> %1134, %1116
   store <16 x float> %1135, ptr %.5223271.i.i357, align 1
-  %1136 = getelementptr inbounds i8, ptr %.5272.i.i356, i64 16
-  %1137 = getelementptr inbounds i8, ptr %.5223271.i.i357, i64 64
+  %1136 = getelementptr inbounds nuw i8, ptr %.5272.i.i356, i64 16
+  %1137 = getelementptr inbounds nuw i8, ptr %.5223271.i.i357, i64 64
   %1138 = add nuw nsw i32 %.0229270.i.i358, 4
   %1139 = or disjoint i32 %1138, 3
   %1140 = icmp slt i32 %1139, %.sroa.speculated98.i330
@@ -5785,14 +5785,14 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %.1230277.i.i354 = phi i32 [ %1151, %.lr.ph280.i.i351 ], [ %.0229.lcssa.i.i339, %.preheader249.i.i338 ]
   %1142 = load float, ptr %.6279.i.i352, align 4
   %1143 = insertelement <4 x float> poison, float %1142, i64 0
-  %1144 = getelementptr inbounds i8, ptr %.6279.i.i352, i64 4
+  %1144 = getelementptr inbounds nuw i8, ptr %.6279.i.i352, i64 4
   %1145 = load float, ptr %1144, align 4
   %1146 = insertelement <4 x float> poison, float %1145, i64 0
   %1147 = shufflevector <4 x float> %1143, <4 x float> %1146, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 4, i32 4, i32 4, i32 4>
   %1148 = fmul fast <8 x float> %1147, %1115
   store <8 x float> %1148, ptr %.6224278.i.i353, align 1
-  %1149 = getelementptr inbounds i8, ptr %.6279.i.i352, i64 8
-  %1150 = getelementptr inbounds i8, ptr %.6224278.i.i353, i64 32
+  %1149 = getelementptr inbounds nuw i8, ptr %.6279.i.i352, i64 8
+  %1150 = getelementptr inbounds nuw i8, ptr %.6224278.i.i353, i64 32
   %1151 = add nuw nsw i32 %.1230277.i.i354, 2
   %1152 = or disjoint i32 %1151, 1
   %1153 = icmp slt i32 %1152, %.sroa.speculated98.i330
@@ -5807,8 +5807,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1156 = shufflevector <4 x float> %1155, <4 x float> poison, <4 x i32> zeroinitializer
   %1157 = fmul fast <4 x float> %1156, %1114
   store <4 x float> %1157, ptr %.7225285.i.i348, align 1
-  %1158 = getelementptr inbounds i8, ptr %.7286.i.i347, i64 4
-  %1159 = getelementptr inbounds i8, ptr %.7225285.i.i348, i64 16
+  %1158 = getelementptr inbounds nuw i8, ptr %.7286.i.i347, i64 4
+  %1159 = getelementptr inbounds nuw i8, ptr %.7225285.i.i348, i64 16
   %1160 = add nuw nsw i32 %.2231284.i.i349, 1
   %exitcond301.not.i.i350 = icmp eq i32 %1160, %.sroa.speculated98.i330
   br i1 %exitcond301.not.i.i350, label %_ZN4ncnnL16binary_op_vectorINS_27BinaryOp_x86_avx512_functor13binary_op_addEEEvPKfS4_Pfiiii.exit, label %.lr.ph287.i.i346, !llvm.loop !94
@@ -5850,9 +5850,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1172 = load <16 x float>, ptr %.06485.i.i796, align 1
   %1173 = fdiv fast <16 x float> %1171, %1172
   store <16 x float> %1173, ptr %.06884.i.i797, align 1
-  %1174 = getelementptr inbounds i8, ptr %.086.i.i795, i64 64
-  %1175 = getelementptr inbounds i8, ptr %.06485.i.i796, i64 64
-  %1176 = getelementptr inbounds i8, ptr %.06884.i.i797, i64 64
+  %1174 = getelementptr inbounds nuw i8, ptr %.086.i.i795, i64 64
+  %1175 = getelementptr inbounds nuw i8, ptr %.06485.i.i796, i64 64
+  %1176 = getelementptr inbounds nuw i8, ptr %.06884.i.i797, i64 64
   %1177 = add nuw nsw i32 %.07283.i.i798, 16
   %1178 = or disjoint i32 %1177, 15
   %1179 = icmp slt i32 %1178, %1162
@@ -5876,9 +5876,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1183 = load <8 x float>, ptr %.16592.i.i791, align 1
   %1184 = fdiv fast <8 x float> %1182, %1183
   store <8 x float> %1184, ptr %.16991.i.i792, align 1
-  %1185 = getelementptr inbounds i8, ptr %.193.i.i790, i64 32
-  %1186 = getelementptr inbounds i8, ptr %.16592.i.i791, i64 32
-  %1187 = getelementptr inbounds i8, ptr %.16991.i.i792, i64 32
+  %1185 = getelementptr inbounds nuw i8, ptr %.193.i.i790, i64 32
+  %1186 = getelementptr inbounds nuw i8, ptr %.16592.i.i791, i64 32
+  %1187 = getelementptr inbounds nuw i8, ptr %.16991.i.i792, i64 32
   %1188 = add nuw nsw i32 %.17390.i.i793, 8
   %1189 = or disjoint i32 %1188, 7
   %1190 = icmp slt i32 %1189, %1162
@@ -5901,9 +5901,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1193 = load <4 x float>, ptr %.266101.i.i786, align 1
   %1194 = fdiv fast <4 x float> %1192, %1193
   store <4 x float> %1194, ptr %.270100.i.i787, align 1
-  %1195 = getelementptr inbounds i8, ptr %.2102.i.i785, i64 16
-  %1196 = getelementptr inbounds i8, ptr %.266101.i.i786, i64 16
-  %1197 = getelementptr inbounds i8, ptr %.270100.i.i787, i64 16
+  %1195 = getelementptr inbounds nuw i8, ptr %.2102.i.i785, i64 16
+  %1196 = getelementptr inbounds nuw i8, ptr %.266101.i.i786, i64 16
+  %1197 = getelementptr inbounds nuw i8, ptr %.270100.i.i787, i64 16
   %1198 = add nuw nsw i32 %.27499.i.i788, 4
   %1199 = or disjoint i32 %1198, 3
   %1200 = icmp slt i32 %1199, %1162
@@ -5918,9 +5918,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1202 = load float, ptr %.367110.i.i780, align 4
   %1203 = fdiv fast float %1201, %1202
   store float %1203, ptr %.371109.i.i781, align 4
-  %1204 = getelementptr inbounds i8, ptr %.3111.i.i779, i64 4
-  %1205 = getelementptr inbounds i8, ptr %.367110.i.i780, i64 4
-  %1206 = getelementptr inbounds i8, ptr %.371109.i.i781, i64 4
+  %1204 = getelementptr inbounds nuw i8, ptr %.3111.i.i779, i64 4
+  %1205 = getelementptr inbounds nuw i8, ptr %.367110.i.i780, i64 4
+  %1206 = getelementptr inbounds nuw i8, ptr %.371109.i.i781, i64 4
   %1207 = add nuw nsw i32 %.375108.i.i782, 1
   %exitcond.not.i.i783 = icmp eq i32 %1207, %1162
   br i1 %exitcond.not.i.i783, label %_ZN4ncnnL16binary_op_vectorINS_27BinaryOp_x86_avx512_functor13binary_op_addEEEvPKfS4_Pfiiii.exit, label %.lr.ph112.i.i778, !llvm.loop !98
@@ -5998,8 +5998,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1239 = load <16 x float>, ptr %.094.i.i757, align 1
   %1240 = fmul fast <16 x float> %1239, %1234
   store <16 x float> %1240, ptr %.07093.i.i758, align 1
-  %1241 = getelementptr inbounds i8, ptr %.094.i.i757, i64 64
-  %1242 = getelementptr inbounds i8, ptr %.07093.i.i758, i64 64
+  %1241 = getelementptr inbounds nuw i8, ptr %.094.i.i757, i64 64
+  %1242 = getelementptr inbounds nuw i8, ptr %.07093.i.i758, i64 64
   %1243 = add nuw nsw i32 %.07492.i.i759, 16
   %1244 = or disjoint i32 %1243, 15
   %1245 = icmp slt i32 %1244, %1162
@@ -6024,8 +6024,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1249 = load <8 x float>, ptr %.199.i.i753, align 1
   %1250 = fmul fast <8 x float> %1249, %1238
   store <8 x float> %1250, ptr %.17198.i.i754, align 1
-  %1251 = getelementptr inbounds i8, ptr %.199.i.i753, i64 32
-  %1252 = getelementptr inbounds i8, ptr %.17198.i.i754, i64 32
+  %1251 = getelementptr inbounds nuw i8, ptr %.199.i.i753, i64 32
+  %1252 = getelementptr inbounds nuw i8, ptr %.17198.i.i754, i64 32
   %1253 = add nuw nsw i32 %.17597.i.i755, 8
   %1254 = or disjoint i32 %1253, 7
   %1255 = icmp slt i32 %1254, %1162
@@ -6049,8 +6049,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1258 = load <4 x float>, ptr %.2106.i.i749, align 1
   %1259 = fmul fast <4 x float> %1258, %1248
   store <4 x float> %1259, ptr %.272105.i.i750, align 1
-  %1260 = getelementptr inbounds i8, ptr %.2106.i.i749, i64 16
-  %1261 = getelementptr inbounds i8, ptr %.272105.i.i750, i64 16
+  %1260 = getelementptr inbounds nuw i8, ptr %.2106.i.i749, i64 16
+  %1261 = getelementptr inbounds nuw i8, ptr %.272105.i.i750, i64 16
   %1262 = add nuw nsw i32 %.276104.i.i751, 4
   %1263 = or disjoint i32 %1262, 3
   %1264 = icmp slt i32 %1263, %1162
@@ -6063,8 +6063,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1265 = load float, ptr %.3113.i.i744, align 4
   %1266 = fmul fast float %1265, %1257
   store float %1266, ptr %.373112.i.i745, align 4
-  %1267 = getelementptr inbounds i8, ptr %.3113.i.i744, i64 4
-  %1268 = getelementptr inbounds i8, ptr %.373112.i.i745, i64 4
+  %1267 = getelementptr inbounds nuw i8, ptr %.3113.i.i744, i64 4
+  %1268 = getelementptr inbounds nuw i8, ptr %.373112.i.i745, i64 4
   %1269 = add nuw nsw i32 %.377111.i.i746, 1
   %exitcond.not.i38.i747 = icmp eq i32 %1269, %1162
   br i1 %exitcond.not.i38.i747, label %_ZN4ncnnL16binary_op_vectorINS_27BinaryOp_x86_avx512_functor13binary_op_addEEEvPKfS4_Pfiiii.exit, label %.lr.ph114.i.i743, !llvm.loop !102
@@ -6134,8 +6134,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1299 = load <16 x float>, ptr %.094.i68.i725, align 1
   %1300 = fdiv fast <16 x float> %1294, %1299
   store <16 x float> %1300, ptr %.07093.i69.i726, align 1
-  %1301 = getelementptr inbounds i8, ptr %.094.i68.i725, i64 64
-  %1302 = getelementptr inbounds i8, ptr %.07093.i69.i726, i64 64
+  %1301 = getelementptr inbounds nuw i8, ptr %.094.i68.i725, i64 64
+  %1302 = getelementptr inbounds nuw i8, ptr %.07093.i69.i726, i64 64
   %1303 = add nuw nsw i32 %.07492.i70.i727, 16
   %1304 = or disjoint i32 %1303, 15
   %1305 = icmp slt i32 %1304, %1162
@@ -6156,8 +6156,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1308 = load <8 x float>, ptr %.199.i63.i721, align 1
   %1309 = fdiv fast <8 x float> %1292, %1308
   store <8 x float> %1309, ptr %.17198.i64.i722, align 1
-  %1310 = getelementptr inbounds i8, ptr %.199.i63.i721, i64 32
-  %1311 = getelementptr inbounds i8, ptr %.17198.i64.i722, i64 32
+  %1310 = getelementptr inbounds nuw i8, ptr %.199.i63.i721, i64 32
+  %1311 = getelementptr inbounds nuw i8, ptr %.17198.i64.i722, i64 32
   %1312 = add nuw nsw i32 %.17597.i65.i723, 8
   %1313 = or disjoint i32 %1312, 7
   %1314 = icmp slt i32 %1313, %1162
@@ -6177,8 +6177,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1316 = load <4 x float>, ptr %.2106.i59.i717, align 1
   %1317 = fdiv fast <4 x float> %1293, %1316
   store <4 x float> %1317, ptr %.272105.i60.i718, align 1
-  %1318 = getelementptr inbounds i8, ptr %.2106.i59.i717, i64 16
-  %1319 = getelementptr inbounds i8, ptr %.272105.i60.i718, i64 16
+  %1318 = getelementptr inbounds nuw i8, ptr %.2106.i59.i717, i64 16
+  %1319 = getelementptr inbounds nuw i8, ptr %.272105.i60.i718, i64 16
   %1320 = add nuw nsw i32 %.276104.i61.i719, 4
   %1321 = or disjoint i32 %1320, 3
   %1322 = icmp slt i32 %1321, %1162
@@ -6191,8 +6191,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1323 = load float, ptr %.3113.i54.i712, align 4
   %1324 = fdiv fast float %1273, %1323
   store float %1324, ptr %.373112.i55.i713, align 4
-  %1325 = getelementptr inbounds i8, ptr %.3113.i54.i712, i64 4
-  %1326 = getelementptr inbounds i8, ptr %.373112.i55.i713, i64 4
+  %1325 = getelementptr inbounds nuw i8, ptr %.3113.i54.i712, i64 4
+  %1326 = getelementptr inbounds nuw i8, ptr %.373112.i55.i713, i64 4
   %1327 = add nuw nsw i32 %.377111.i56.i714, 1
   %exitcond.not.i57.i715 = icmp eq i32 %1327, %1162
   br i1 %exitcond.not.i57.i715, label %_ZN4ncnnL16binary_op_vectorINS_27BinaryOp_x86_avx512_functor13binary_op_addEEEvPKfS4_Pfiiii.exit, label %.lr.ph114.i53.i711, !llvm.loop !106
@@ -6222,9 +6222,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1338 = shufflevector <16 x float> %1337, <16 x float> poison, <16 x i32> zeroinitializer
   %1339 = fdiv fast <16 x float> %1335, %1338
   store <16 x float> %1339, ptr %.1236268.i.i696, align 1
-  %1340 = getelementptr inbounds i8, ptr %.1270.i.i694, i64 64
-  %1341 = getelementptr inbounds i8, ptr %.1228269.i.i695, i64 4
-  %1342 = getelementptr inbounds i8, ptr %.1236268.i.i696, i64 64
+  %1340 = getelementptr inbounds nuw i8, ptr %.1270.i.i694, i64 64
+  %1341 = getelementptr inbounds nuw i8, ptr %.1228269.i.i695, i64 4
+  %1342 = getelementptr inbounds nuw i8, ptr %.1236268.i.i696, i64 64
   %1343 = add nuw nsw i32 %.0243267.i.i697, 1
   %exitcond.not.i75.i698 = icmp eq i32 %1343, %.sroa.speculated98.i565
   br i1 %exitcond.not.i75.i698, label %.loopexit266.i.i639, label %.lr.ph.i74.i693, !llvm.loop !107
@@ -6260,15 +6260,15 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1348 = load <16 x float>, ptr %.3276.i.i688, align 1
   %1349 = load float, ptr %.3230275.i.i689, align 4
   %1350 = insertelement <8 x float> poison, float %1349, i64 0
-  %1351 = getelementptr inbounds i8, ptr %.3230275.i.i689, i64 4
+  %1351 = getelementptr inbounds nuw i8, ptr %.3230275.i.i689, i64 4
   %1352 = load float, ptr %1351, align 4
   %1353 = insertelement <8 x float> poison, float %1352, i64 0
   %1354 = shufflevector <8 x float> %1350, <8 x float> %1353, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
   %1355 = fdiv fast <16 x float> %1348, %1354
   store <16 x float> %1355, ptr %.3238274.i.i690, align 1
-  %1356 = getelementptr inbounds i8, ptr %.3276.i.i688, i64 64
-  %1357 = getelementptr inbounds i8, ptr %.3230275.i.i689, i64 8
-  %1358 = getelementptr inbounds i8, ptr %.3238274.i.i690, i64 64
+  %1356 = getelementptr inbounds nuw i8, ptr %.3276.i.i688, i64 64
+  %1357 = getelementptr inbounds nuw i8, ptr %.3230275.i.i689, i64 8
+  %1358 = getelementptr inbounds nuw i8, ptr %.3238274.i.i690, i64 64
   %1359 = add nuw nsw i32 %.0244273.i.i691, 2
   %1360 = or disjoint i32 %1359, 1
   %1361 = icmp slt i32 %1360, %.sroa.speculated98.i565
@@ -6285,9 +6285,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1365 = shufflevector <8 x float> %1364, <8 x float> poison, <8 x i32> zeroinitializer
   %1366 = fdiv fast <8 x float> %1362, %1365
   store <8 x float> %1366, ptr %.4239283.i.i684, align 1
-  %1367 = getelementptr inbounds i8, ptr %.4285.i.i682, i64 32
-  %1368 = getelementptr inbounds i8, ptr %.4231284.i.i683, i64 4
-  %1369 = getelementptr inbounds i8, ptr %.4239283.i.i684, i64 32
+  %1367 = getelementptr inbounds nuw i8, ptr %.4285.i.i682, i64 32
+  %1368 = getelementptr inbounds nuw i8, ptr %.4231284.i.i683, i64 4
+  %1369 = getelementptr inbounds nuw i8, ptr %.4239283.i.i684, i64 32
   %1370 = add nuw nsw i32 %.1245282.i.i685, 1
   %exitcond330.not.i.i686 = icmp eq i32 %1370, %.sroa.speculated98.i565
   br i1 %exitcond330.not.i.i686, label %.loopexit263.i.i643, label %.lr.ph286.i.i681, !llvm.loop !109
@@ -6324,13 +6324,13 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1376 = load <16 x float>, ptr %.5293.i.i670, align 1
   %1377 = load float, ptr %.5232292.i.i671, align 4
   %1378 = insertelement <4 x float> poison, float %1377, i64 0
-  %1379 = getelementptr inbounds i8, ptr %.5232292.i.i671, i64 4
+  %1379 = getelementptr inbounds nuw i8, ptr %.5232292.i.i671, i64 4
   %1380 = load float, ptr %1379, align 4
   %1381 = insertelement <4 x float> poison, float %1380, i64 0
-  %1382 = getelementptr inbounds i8, ptr %.5232292.i.i671, i64 8
+  %1382 = getelementptr inbounds nuw i8, ptr %.5232292.i.i671, i64 8
   %1383 = load float, ptr %1382, align 4
   %1384 = insertelement <4 x float> poison, float %1383, i64 0
-  %1385 = getelementptr inbounds i8, ptr %.5232292.i.i671, i64 12
+  %1385 = getelementptr inbounds nuw i8, ptr %.5232292.i.i671, i64 12
   %1386 = load float, ptr %1385, align 4
   %1387 = insertelement <4 x float> poison, float %1386, i64 0
   %1388 = shufflevector <4 x float> %1378, <4 x float> %1381, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 4, i32 4, i32 4, i32 4>
@@ -6338,9 +6338,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1390 = shufflevector <8 x float> %1388, <8 x float> %1389, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %1391 = fdiv fast <16 x float> %1376, %1390
   store <16 x float> %1391, ptr %.5240291.i.i672, align 1
-  %1392 = getelementptr inbounds i8, ptr %.5293.i.i670, i64 64
-  %1393 = getelementptr inbounds i8, ptr %.5232292.i.i671, i64 16
-  %1394 = getelementptr inbounds i8, ptr %.5240291.i.i672, i64 64
+  %1392 = getelementptr inbounds nuw i8, ptr %.5293.i.i670, i64 64
+  %1393 = getelementptr inbounds nuw i8, ptr %.5232292.i.i671, i64 16
+  %1394 = getelementptr inbounds nuw i8, ptr %.5240291.i.i672, i64 64
   %1395 = add nuw nsw i32 %.0246290.i.i673, 4
   %1396 = or disjoint i32 %1395, 3
   %1397 = icmp slt i32 %1396, %.sroa.speculated98.i565
@@ -6362,15 +6362,15 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1399 = load <8 x float>, ptr %.6302.i.i665, align 1
   %1400 = load float, ptr %.6233301.i.i666, align 4
   %1401 = insertelement <4 x float> poison, float %1400, i64 0
-  %1402 = getelementptr inbounds i8, ptr %.6233301.i.i666, i64 4
+  %1402 = getelementptr inbounds nuw i8, ptr %.6233301.i.i666, i64 4
   %1403 = load float, ptr %1402, align 4
   %1404 = insertelement <4 x float> poison, float %1403, i64 0
   %1405 = shufflevector <4 x float> %1401, <4 x float> %1404, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 4, i32 4, i32 4, i32 4>
   %1406 = fdiv fast <8 x float> %1399, %1405
   store <8 x float> %1406, ptr %.6241300.i.i667, align 1
-  %1407 = getelementptr inbounds i8, ptr %.6302.i.i665, i64 32
-  %1408 = getelementptr inbounds i8, ptr %.6233301.i.i666, i64 8
-  %1409 = getelementptr inbounds i8, ptr %.6241300.i.i667, i64 32
+  %1407 = getelementptr inbounds nuw i8, ptr %.6302.i.i665, i64 32
+  %1408 = getelementptr inbounds nuw i8, ptr %.6233301.i.i666, i64 8
+  %1409 = getelementptr inbounds nuw i8, ptr %.6241300.i.i667, i64 32
   %1410 = add nuw nsw i32 %.1247299.i.i668, 2
   %1411 = or disjoint i32 %1410, 1
   %1412 = icmp slt i32 %1411, %.sroa.speculated98.i565
@@ -6387,9 +6387,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1416 = shufflevector <4 x float> %1415, <4 x float> poison, <4 x i32> zeroinitializer
   %1417 = fdiv fast <4 x float> %1413, %1416
   store <4 x float> %1417, ptr %.7242309.i.i661, align 1
-  %1418 = getelementptr inbounds i8, ptr %.7311.i.i659, i64 16
-  %1419 = getelementptr inbounds i8, ptr %.7234310.i.i660, i64 4
-  %1420 = getelementptr inbounds i8, ptr %.7242309.i.i661, i64 16
+  %1418 = getelementptr inbounds nuw i8, ptr %.7311.i.i659, i64 16
+  %1419 = getelementptr inbounds nuw i8, ptr %.7234310.i.i660, i64 4
+  %1420 = getelementptr inbounds nuw i8, ptr %.7242309.i.i661, i64 16
   %1421 = add nuw nsw i32 %.2248308.i.i662, 1
   %exitcond331.not.i.i663 = icmp eq i32 %1421, %.sroa.speculated98.i565
   br i1 %exitcond331.not.i.i663, label %_ZN4ncnnL16binary_op_vectorINS_27BinaryOp_x86_avx512_functor13binary_op_addEEEvPKfS4_Pfiiii.exit, label %.lr.ph312.i.i658, !llvm.loop !112
@@ -6413,8 +6413,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1430 = load <16 x float>, ptr %.0102.i.i633, align 1
   %1431 = fmul fast <16 x float> %1430, %1428
   store <16 x float> %1431, ptr %.088101.i.i634, align 1
-  %1432 = getelementptr inbounds i8, ptr %.0102.i.i633, i64 64
-  %1433 = getelementptr inbounds i8, ptr %.088101.i.i634, i64 64
+  %1432 = getelementptr inbounds nuw i8, ptr %.0102.i.i633, i64 64
+  %1433 = getelementptr inbounds nuw i8, ptr %.088101.i.i634, i64 64
   %1434 = add nuw nsw i32 %.091100.i.i635, 16
   %1435 = or disjoint i32 %1434, 15
   %1436 = icmp slt i32 %1435, %1162
@@ -6444,8 +6444,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1443 = load <8 x float>, ptr %.1107.i.i627, align 1
   %1444 = fmul fast <8 x float> %1443, %1440
   store <8 x float> %1444, ptr %.189106.i.i628, align 1
-  %1445 = getelementptr inbounds i8, ptr %.1107.i.i627, i64 32
-  %1446 = getelementptr inbounds i8, ptr %.189106.i.i628, i64 32
+  %1445 = getelementptr inbounds nuw i8, ptr %.1107.i.i627, i64 32
+  %1446 = getelementptr inbounds nuw i8, ptr %.189106.i.i628, i64 32
   %1447 = add nuw nsw i32 %.192105.i.i629, 8
   %1448 = or disjoint i32 %1447, 7
   %1449 = icmp slt i32 %1448, %1162
@@ -6474,8 +6474,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1454 = load <4 x float>, ptr %.2116.i.i623, align 1
   %1455 = fmul fast <4 x float> %1454, %1451
   store <4 x float> %1455, ptr %.290115.i.i624, align 1
-  %1456 = getelementptr inbounds i8, ptr %.2116.i.i623, i64 16
-  %1457 = getelementptr inbounds i8, ptr %.290115.i.i624, i64 16
+  %1456 = getelementptr inbounds nuw i8, ptr %.2116.i.i623, i64 16
+  %1457 = getelementptr inbounds nuw i8, ptr %.290115.i.i624, i64 16
   %1458 = add nuw nsw i32 %.293114.i.i625, 4
   %1459 = or disjoint i32 %1458, 3
   %1460 = icmp slt i32 %1459, %1162
@@ -6502,8 +6502,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1469 = shufflevector <16 x float> %1468, <16 x float> poison, <16 x i32> zeroinitializer
   %1470 = fdiv fast <16 x float> %1466, %1469
   store <16 x float> %1470, ptr %.1219254.i.i611, align 1
-  %1471 = getelementptr inbounds i8, ptr %.1255.i.i610, i64 4
-  %1472 = getelementptr inbounds i8, ptr %.1219254.i.i611, i64 64
+  %1471 = getelementptr inbounds nuw i8, ptr %.1255.i.i610, i64 4
+  %1472 = getelementptr inbounds nuw i8, ptr %.1219254.i.i611, i64 64
   %1473 = add nuw nsw i32 %.0226253.i.i612, 1
   %exitcond.not.i87.i613 = icmp eq i32 %1473, %.sroa.speculated98.i565
   br i1 %exitcond.not.i87.i613, label %.loopexit252.i.i567, label %.lr.ph.i86.i609, !llvm.loop !116
@@ -6537,14 +6537,14 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %.0227257.i.i607 = phi i32 [ %1490, %.lr.ph260.i.i604 ], [ 0, %1475 ]
   %1481 = load float, ptr %.3259.i.i605, align 4
   %1482 = insertelement <8 x float> poison, float %1481, i64 0
-  %1483 = getelementptr inbounds i8, ptr %.3259.i.i605, i64 4
+  %1483 = getelementptr inbounds nuw i8, ptr %.3259.i.i605, i64 4
   %1484 = load float, ptr %1483, align 4
   %1485 = insertelement <8 x float> poison, float %1484, i64 0
   %1486 = shufflevector <8 x float> %1482, <8 x float> %1485, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
   %1487 = fdiv fast <16 x float> %1477, %1486
   store <16 x float> %1487, ptr %.3221258.i.i606, align 1
-  %1488 = getelementptr inbounds i8, ptr %.3259.i.i605, i64 8
-  %1489 = getelementptr inbounds i8, ptr %.3221258.i.i606, i64 64
+  %1488 = getelementptr inbounds nuw i8, ptr %.3259.i.i605, i64 8
+  %1489 = getelementptr inbounds nuw i8, ptr %.3221258.i.i606, i64 64
   %1490 = add nuw nsw i32 %.0227257.i.i607, 2
   %1491 = or disjoint i32 %1490, 1
   %1492 = icmp slt i32 %1491, %.sroa.speculated98.i565
@@ -6559,8 +6559,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1495 = shufflevector <8 x float> %1494, <8 x float> poison, <8 x i32> zeroinitializer
   %1496 = fdiv fast <8 x float> %1476, %1495
   store <8 x float> %1496, ptr %.4222265.i.i601, align 1
-  %1497 = getelementptr inbounds i8, ptr %.4266.i.i600, i64 4
-  %1498 = getelementptr inbounds i8, ptr %.4222265.i.i601, i64 32
+  %1497 = getelementptr inbounds nuw i8, ptr %.4266.i.i600, i64 4
+  %1498 = getelementptr inbounds nuw i8, ptr %.4222265.i.i601, i64 32
   %1499 = add nuw nsw i32 %.1228264.i.i602, 1
   %exitcond300.not.i.i603 = icmp eq i32 %1499, %.sroa.speculated98.i565
   br i1 %exitcond300.not.i.i603, label %.loopexit251.i.i570, label %.lr.ph267.i.i599, !llvm.loop !118
@@ -6596,13 +6596,13 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %.0229270.i.i593 = phi i32 [ %1526, %.lr.ph273.i.i590 ], [ 0, %1501 ]
   %1509 = load float, ptr %.5272.i.i591, align 4
   %1510 = insertelement <4 x float> poison, float %1509, i64 0
-  %1511 = getelementptr inbounds i8, ptr %.5272.i.i591, i64 4
+  %1511 = getelementptr inbounds nuw i8, ptr %.5272.i.i591, i64 4
   %1512 = load float, ptr %1511, align 4
   %1513 = insertelement <4 x float> poison, float %1512, i64 0
-  %1514 = getelementptr inbounds i8, ptr %.5272.i.i591, i64 8
+  %1514 = getelementptr inbounds nuw i8, ptr %.5272.i.i591, i64 8
   %1515 = load float, ptr %1514, align 4
   %1516 = insertelement <4 x float> poison, float %1515, i64 0
-  %1517 = getelementptr inbounds i8, ptr %.5272.i.i591, i64 12
+  %1517 = getelementptr inbounds nuw i8, ptr %.5272.i.i591, i64 12
   %1518 = load float, ptr %1517, align 4
   %1519 = insertelement <4 x float> poison, float %1518, i64 0
   %1520 = shufflevector <4 x float> %1510, <4 x float> %1513, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 4, i32 4, i32 4, i32 4>
@@ -6610,8 +6610,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1522 = shufflevector <8 x float> %1520, <8 x float> %1521, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %1523 = fdiv fast <16 x float> %1504, %1522
   store <16 x float> %1523, ptr %.5223271.i.i592, align 1
-  %1524 = getelementptr inbounds i8, ptr %.5272.i.i591, i64 16
-  %1525 = getelementptr inbounds i8, ptr %.5223271.i.i592, i64 64
+  %1524 = getelementptr inbounds nuw i8, ptr %.5272.i.i591, i64 16
+  %1525 = getelementptr inbounds nuw i8, ptr %.5223271.i.i592, i64 64
   %1526 = add nuw nsw i32 %.0229270.i.i593, 4
   %1527 = or disjoint i32 %1526, 3
   %1528 = icmp slt i32 %1527, %.sroa.speculated98.i565
@@ -6630,14 +6630,14 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %.1230277.i.i589 = phi i32 [ %1539, %.lr.ph280.i.i586 ], [ %.0229.lcssa.i.i574, %.preheader249.i.i573 ]
   %1530 = load float, ptr %.6279.i.i587, align 4
   %1531 = insertelement <4 x float> poison, float %1530, i64 0
-  %1532 = getelementptr inbounds i8, ptr %.6279.i.i587, i64 4
+  %1532 = getelementptr inbounds nuw i8, ptr %.6279.i.i587, i64 4
   %1533 = load float, ptr %1532, align 4
   %1534 = insertelement <4 x float> poison, float %1533, i64 0
   %1535 = shufflevector <4 x float> %1531, <4 x float> %1534, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 4, i32 4, i32 4, i32 4>
   %1536 = fdiv fast <8 x float> %1503, %1535
   store <8 x float> %1536, ptr %.6224278.i.i588, align 1
-  %1537 = getelementptr inbounds i8, ptr %.6279.i.i587, i64 8
-  %1538 = getelementptr inbounds i8, ptr %.6224278.i.i588, i64 32
+  %1537 = getelementptr inbounds nuw i8, ptr %.6279.i.i587, i64 8
+  %1538 = getelementptr inbounds nuw i8, ptr %.6224278.i.i588, i64 32
   %1539 = add nuw nsw i32 %.1230277.i.i589, 2
   %1540 = or disjoint i32 %1539, 1
   %1541 = icmp slt i32 %1540, %.sroa.speculated98.i565
@@ -6652,8 +6652,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1544 = shufflevector <4 x float> %1543, <4 x float> poison, <4 x i32> zeroinitializer
   %1545 = fdiv fast <4 x float> %1502, %1544
   store <4 x float> %1545, ptr %.7225285.i.i583, align 1
-  %1546 = getelementptr inbounds i8, ptr %.7286.i.i582, i64 4
-  %1547 = getelementptr inbounds i8, ptr %.7225285.i.i583, i64 16
+  %1546 = getelementptr inbounds nuw i8, ptr %.7286.i.i582, i64 4
+  %1547 = getelementptr inbounds nuw i8, ptr %.7225285.i.i583, i64 16
   %1548 = add nuw nsw i32 %.2231284.i.i584, 1
   %exitcond301.not.i.i585 = icmp eq i32 %1548, %.sroa.speculated98.i565
   br i1 %exitcond301.not.i.i585, label %_ZN4ncnnL16binary_op_vectorINS_27BinaryOp_x86_avx512_functor13binary_op_addEEEvPKfS4_Pfiiii.exit, label %.lr.ph287.i.i581, !llvm.loop !121
@@ -6695,9 +6695,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1560 = load <16 x float>, ptr %.06485.i.i976, align 1
   %1561 = tail call fast noundef <16 x float> @llvm.x86.avx512.max.ps.512(<16 x float> %1559, <16 x float> %1560, i32 4)
   store <16 x float> %1561, ptr %.06884.i.i977, align 1
-  %1562 = getelementptr inbounds i8, ptr %.086.i.i975, i64 64
-  %1563 = getelementptr inbounds i8, ptr %.06485.i.i976, i64 64
-  %1564 = getelementptr inbounds i8, ptr %.06884.i.i977, i64 64
+  %1562 = getelementptr inbounds nuw i8, ptr %.086.i.i975, i64 64
+  %1563 = getelementptr inbounds nuw i8, ptr %.06485.i.i976, i64 64
+  %1564 = getelementptr inbounds nuw i8, ptr %.06884.i.i977, i64 64
   %1565 = add nuw nsw i32 %.07283.i.i978, 16
   %1566 = or disjoint i32 %1565, 15
   %1567 = icmp slt i32 %1566, %1550
@@ -6721,9 +6721,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1571 = load <8 x float>, ptr %.16592.i.i971, align 1
   %1572 = tail call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %1570, <8 x float> %1571)
   store <8 x float> %1572, ptr %.16991.i.i972, align 1
-  %1573 = getelementptr inbounds i8, ptr %.193.i.i970, i64 32
-  %1574 = getelementptr inbounds i8, ptr %.16592.i.i971, i64 32
-  %1575 = getelementptr inbounds i8, ptr %.16991.i.i972, i64 32
+  %1573 = getelementptr inbounds nuw i8, ptr %.193.i.i970, i64 32
+  %1574 = getelementptr inbounds nuw i8, ptr %.16592.i.i971, i64 32
+  %1575 = getelementptr inbounds nuw i8, ptr %.16991.i.i972, i64 32
   %1576 = add nuw nsw i32 %.17390.i.i973, 8
   %1577 = or disjoint i32 %1576, 7
   %1578 = icmp slt i32 %1577, %1550
@@ -6746,9 +6746,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1581 = load <4 x float>, ptr %.266101.i.i966, align 1
   %1582 = tail call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %1580, <4 x float> %1581)
   store <4 x float> %1582, ptr %.270100.i.i967, align 1
-  %1583 = getelementptr inbounds i8, ptr %.2102.i.i965, i64 16
-  %1584 = getelementptr inbounds i8, ptr %.266101.i.i966, i64 16
-  %1585 = getelementptr inbounds i8, ptr %.270100.i.i967, i64 16
+  %1583 = getelementptr inbounds nuw i8, ptr %.2102.i.i965, i64 16
+  %1584 = getelementptr inbounds nuw i8, ptr %.266101.i.i966, i64 16
+  %1585 = getelementptr inbounds nuw i8, ptr %.270100.i.i967, i64 16
   %1586 = add nuw nsw i32 %.27499.i.i968, 4
   %1587 = or disjoint i32 %1586, 3
   %1588 = icmp slt i32 %1587, %1550
@@ -6764,9 +6764,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1591 = fcmp fast olt float %1589, %1590
   %1592 = select i1 %1591, float %1590, float %1589
   store float %1592, ptr %.371109.i.i961, align 4
-  %1593 = getelementptr inbounds i8, ptr %.3111.i.i959, i64 4
-  %1594 = getelementptr inbounds i8, ptr %.367110.i.i960, i64 4
-  %1595 = getelementptr inbounds i8, ptr %.371109.i.i961, i64 4
+  %1593 = getelementptr inbounds nuw i8, ptr %.3111.i.i959, i64 4
+  %1594 = getelementptr inbounds nuw i8, ptr %.367110.i.i960, i64 4
+  %1595 = getelementptr inbounds nuw i8, ptr %.371109.i.i961, i64 4
   %1596 = add nuw nsw i32 %.375108.i.i962, 1
   %exitcond.not.i.i963 = icmp eq i32 %1596, %1550
   br i1 %exitcond.not.i.i963, label %_ZN4ncnnL16binary_op_vectorINS_27BinaryOp_x86_avx512_functor13binary_op_addEEEvPKfS4_Pfiiii.exit, label %.lr.ph112.i.i958, !llvm.loop !125
@@ -6836,8 +6836,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1626 = load <16 x float>, ptr %.093.i.i, align 1
   %1627 = tail call fast noundef <16 x float> @llvm.x86.avx512.max.ps.512(<16 x float> %1626, <16 x float> %1621, i32 4)
   store <16 x float> %1627, ptr %.07092.i.i, align 1
-  %1628 = getelementptr inbounds i8, ptr %.093.i.i, i64 64
-  %1629 = getelementptr inbounds i8, ptr %.07092.i.i, i64 64
+  %1628 = getelementptr inbounds nuw i8, ptr %.093.i.i, i64 64
+  %1629 = getelementptr inbounds nuw i8, ptr %.07092.i.i, i64 64
   %1630 = add nuw nsw i32 %.07491.i.i, 16
   %1631 = or disjoint i32 %1630, 15
   %1632 = icmp slt i32 %1631, %1550
@@ -6858,8 +6858,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1635 = load <8 x float>, ptr %.198.i.i, align 1
   %1636 = tail call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %1635, <8 x float> %1619)
   store <8 x float> %1636, ptr %.17197.i.i, align 1
-  %1637 = getelementptr inbounds i8, ptr %.198.i.i, i64 32
-  %1638 = getelementptr inbounds i8, ptr %.17197.i.i, i64 32
+  %1637 = getelementptr inbounds nuw i8, ptr %.198.i.i, i64 32
+  %1638 = getelementptr inbounds nuw i8, ptr %.17197.i.i, i64 32
   %1639 = add nuw nsw i32 %.17596.i.i, 8
   %1640 = or disjoint i32 %1639, 7
   %1641 = icmp slt i32 %1640, %1550
@@ -6879,8 +6879,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1643 = load <4 x float>, ptr %.2105.i.i, align 1
   %1644 = tail call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %1643, <4 x float> %1620)
   store <4 x float> %1644, ptr %.272104.i.i, align 1
-  %1645 = getelementptr inbounds i8, ptr %.2105.i.i, i64 16
-  %1646 = getelementptr inbounds i8, ptr %.272104.i.i, i64 16
+  %1645 = getelementptr inbounds nuw i8, ptr %.2105.i.i, i64 16
+  %1646 = getelementptr inbounds nuw i8, ptr %.272104.i.i, i64 16
   %1647 = add nuw nsw i32 %.276103.i.i, 4
   %1648 = or disjoint i32 %1647, 3
   %1649 = icmp slt i32 %1648, %1550
@@ -6894,8 +6894,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1651 = fcmp fast olt float %1650, %1600
   %.sroa.speculated.i.i = select i1 %1651, float %1600, float %1650
   store float %.sroa.speculated.i.i, ptr %.373111.i.i, align 4
-  %1652 = getelementptr inbounds i8, ptr %.3112.i.i, i64 4
-  %1653 = getelementptr inbounds i8, ptr %.373111.i.i, i64 4
+  %1652 = getelementptr inbounds nuw i8, ptr %.3112.i.i, i64 4
+  %1653 = getelementptr inbounds nuw i8, ptr %.373111.i.i, i64 4
   %1654 = add nuw nsw i32 %.377110.i.i, 1
   %exitcond.not.i38.i940 = icmp eq i32 %1654, %1550
   br i1 %exitcond.not.i38.i940, label %_ZN4ncnnL16binary_op_vectorINS_27BinaryOp_x86_avx512_functor13binary_op_addEEEvPKfS4_Pfiiii.exit, label %.lr.ph113.i.i, !llvm.loop !129
@@ -6965,8 +6965,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1684 = load <16 x float>, ptr %.093.i69.i, align 1
   %1685 = tail call fast noundef <16 x float> @llvm.x86.avx512.max.ps.512(<16 x float> %1679, <16 x float> %1684, i32 4)
   store <16 x float> %1685, ptr %.07092.i70.i, align 1
-  %1686 = getelementptr inbounds i8, ptr %.093.i69.i, i64 64
-  %1687 = getelementptr inbounds i8, ptr %.07092.i70.i, i64 64
+  %1686 = getelementptr inbounds nuw i8, ptr %.093.i69.i, i64 64
+  %1687 = getelementptr inbounds nuw i8, ptr %.07092.i70.i, i64 64
   %1688 = add nuw nsw i32 %.07491.i71.i, 16
   %1689 = or disjoint i32 %1688, 15
   %1690 = icmp slt i32 %1689, %1550
@@ -6987,8 +6987,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1693 = load <8 x float>, ptr %.198.i64.i, align 1
   %1694 = tail call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %1677, <8 x float> %1693)
   store <8 x float> %1694, ptr %.17197.i65.i, align 1
-  %1695 = getelementptr inbounds i8, ptr %.198.i64.i, i64 32
-  %1696 = getelementptr inbounds i8, ptr %.17197.i65.i, i64 32
+  %1695 = getelementptr inbounds nuw i8, ptr %.198.i64.i, i64 32
+  %1696 = getelementptr inbounds nuw i8, ptr %.17197.i65.i, i64 32
   %1697 = add nuw nsw i32 %.17596.i66.i, 8
   %1698 = or disjoint i32 %1697, 7
   %1699 = icmp slt i32 %1698, %1550
@@ -7008,8 +7008,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1701 = load <4 x float>, ptr %.2105.i60.i, align 1
   %1702 = tail call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %1678, <4 x float> %1701)
   store <4 x float> %1702, ptr %.272104.i61.i, align 1
-  %1703 = getelementptr inbounds i8, ptr %.2105.i60.i, i64 16
-  %1704 = getelementptr inbounds i8, ptr %.272104.i61.i, i64 16
+  %1703 = getelementptr inbounds nuw i8, ptr %.2105.i60.i, i64 16
+  %1704 = getelementptr inbounds nuw i8, ptr %.272104.i61.i, i64 16
   %1705 = add nuw nsw i32 %.276103.i62.i, 4
   %1706 = or disjoint i32 %1705, 3
   %1707 = icmp slt i32 %1706, %1550
@@ -7023,8 +7023,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1709 = fcmp fast olt float %1658, %1708
   %.sroa.speculated.i57.i = select i1 %1709, float %1708, float %1658
   store float %.sroa.speculated.i57.i, ptr %.373111.i55.i, align 4
-  %1710 = getelementptr inbounds i8, ptr %.3112.i54.i, i64 4
-  %1711 = getelementptr inbounds i8, ptr %.373111.i55.i, i64 4
+  %1710 = getelementptr inbounds nuw i8, ptr %.3112.i54.i, i64 4
+  %1711 = getelementptr inbounds nuw i8, ptr %.373111.i55.i, i64 4
   %1712 = add nuw nsw i32 %.377110.i56.i, 1
   %exitcond.not.i58.i = icmp eq i32 %1712, %1550
   br i1 %exitcond.not.i58.i, label %_ZN4ncnnL16binary_op_vectorINS_27BinaryOp_x86_avx512_functor13binary_op_addEEEvPKfS4_Pfiiii.exit, label %.lr.ph113.i53.i, !llvm.loop !133
@@ -7054,9 +7054,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1723 = shufflevector <16 x float> %1722, <16 x float> poison, <16 x i32> zeroinitializer
   %1724 = tail call fast noundef <16 x float> @llvm.x86.avx512.max.ps.512(<16 x float> %1720, <16 x float> %1723, i32 4)
   store <16 x float> %1724, ptr %.1236268.i.i917, align 1
-  %1725 = getelementptr inbounds i8, ptr %.1270.i.i915, i64 64
-  %1726 = getelementptr inbounds i8, ptr %.1228269.i.i916, i64 4
-  %1727 = getelementptr inbounds i8, ptr %.1236268.i.i917, i64 64
+  %1725 = getelementptr inbounds nuw i8, ptr %.1270.i.i915, i64 64
+  %1726 = getelementptr inbounds nuw i8, ptr %.1228269.i.i916, i64 4
+  %1727 = getelementptr inbounds nuw i8, ptr %.1236268.i.i917, i64 64
   %1728 = add nuw nsw i32 %.0243267.i.i918, 1
   %exitcond.not.i76.i = icmp eq i32 %1728, %.sroa.speculated99.i
   br i1 %exitcond.not.i76.i, label %.loopexit266.i.i862, label %.lr.ph.i75.i, !llvm.loop !134
@@ -7092,15 +7092,15 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1733 = load <16 x float>, ptr %.3276.i.i910, align 1
   %1734 = load float, ptr %.3230275.i.i911, align 4
   %1735 = insertelement <8 x float> poison, float %1734, i64 0
-  %1736 = getelementptr inbounds i8, ptr %.3230275.i.i911, i64 4
+  %1736 = getelementptr inbounds nuw i8, ptr %.3230275.i.i911, i64 4
   %1737 = load float, ptr %1736, align 4
   %1738 = insertelement <8 x float> poison, float %1737, i64 0
   %1739 = shufflevector <8 x float> %1735, <8 x float> %1738, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
   %1740 = tail call fast noundef <16 x float> @llvm.x86.avx512.max.ps.512(<16 x float> %1733, <16 x float> %1739, i32 4)
   store <16 x float> %1740, ptr %.3238274.i.i912, align 1
-  %1741 = getelementptr inbounds i8, ptr %.3276.i.i910, i64 64
-  %1742 = getelementptr inbounds i8, ptr %.3230275.i.i911, i64 8
-  %1743 = getelementptr inbounds i8, ptr %.3238274.i.i912, i64 64
+  %1741 = getelementptr inbounds nuw i8, ptr %.3276.i.i910, i64 64
+  %1742 = getelementptr inbounds nuw i8, ptr %.3230275.i.i911, i64 8
+  %1743 = getelementptr inbounds nuw i8, ptr %.3238274.i.i912, i64 64
   %1744 = add nuw nsw i32 %.0244273.i.i913, 2
   %1745 = or disjoint i32 %1744, 1
   %1746 = icmp slt i32 %1745, %.sroa.speculated99.i
@@ -7117,9 +7117,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1750 = shufflevector <8 x float> %1749, <8 x float> poison, <8 x i32> zeroinitializer
   %1751 = tail call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %1747, <8 x float> %1750)
   store <8 x float> %1751, ptr %.4239283.i.i906, align 1
-  %1752 = getelementptr inbounds i8, ptr %.4285.i.i904, i64 32
-  %1753 = getelementptr inbounds i8, ptr %.4231284.i.i905, i64 4
-  %1754 = getelementptr inbounds i8, ptr %.4239283.i.i906, i64 32
+  %1752 = getelementptr inbounds nuw i8, ptr %.4285.i.i904, i64 32
+  %1753 = getelementptr inbounds nuw i8, ptr %.4231284.i.i905, i64 4
+  %1754 = getelementptr inbounds nuw i8, ptr %.4239283.i.i906, i64 32
   %1755 = add nuw nsw i32 %.1245282.i.i907, 1
   %exitcond330.not.i.i908 = icmp eq i32 %1755, %.sroa.speculated99.i
   br i1 %exitcond330.not.i.i908, label %.loopexit263.i.i866, label %.lr.ph286.i.i903, !llvm.loop !136
@@ -7156,13 +7156,13 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1761 = load <16 x float>, ptr %.5293.i.i892, align 1
   %1762 = load float, ptr %.5232292.i.i893, align 4
   %1763 = insertelement <4 x float> poison, float %1762, i64 0
-  %1764 = getelementptr inbounds i8, ptr %.5232292.i.i893, i64 4
+  %1764 = getelementptr inbounds nuw i8, ptr %.5232292.i.i893, i64 4
   %1765 = load float, ptr %1764, align 4
   %1766 = insertelement <4 x float> poison, float %1765, i64 0
-  %1767 = getelementptr inbounds i8, ptr %.5232292.i.i893, i64 8
+  %1767 = getelementptr inbounds nuw i8, ptr %.5232292.i.i893, i64 8
   %1768 = load float, ptr %1767, align 4
   %1769 = insertelement <4 x float> poison, float %1768, i64 0
-  %1770 = getelementptr inbounds i8, ptr %.5232292.i.i893, i64 12
+  %1770 = getelementptr inbounds nuw i8, ptr %.5232292.i.i893, i64 12
   %1771 = load float, ptr %1770, align 4
   %1772 = insertelement <4 x float> poison, float %1771, i64 0
   %1773 = shufflevector <4 x float> %1763, <4 x float> %1766, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 4, i32 4, i32 4, i32 4>
@@ -7170,9 +7170,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1775 = shufflevector <8 x float> %1773, <8 x float> %1774, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %1776 = tail call fast noundef <16 x float> @llvm.x86.avx512.max.ps.512(<16 x float> %1761, <16 x float> %1775, i32 4)
   store <16 x float> %1776, ptr %.5240291.i.i894, align 1
-  %1777 = getelementptr inbounds i8, ptr %.5293.i.i892, i64 64
-  %1778 = getelementptr inbounds i8, ptr %.5232292.i.i893, i64 16
-  %1779 = getelementptr inbounds i8, ptr %.5240291.i.i894, i64 64
+  %1777 = getelementptr inbounds nuw i8, ptr %.5293.i.i892, i64 64
+  %1778 = getelementptr inbounds nuw i8, ptr %.5232292.i.i893, i64 16
+  %1779 = getelementptr inbounds nuw i8, ptr %.5240291.i.i894, i64 64
   %1780 = add nuw nsw i32 %.0246290.i.i895, 4
   %1781 = or disjoint i32 %1780, 3
   %1782 = icmp slt i32 %1781, %.sroa.speculated99.i
@@ -7194,15 +7194,15 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1784 = load <8 x float>, ptr %.6302.i.i887, align 1
   %1785 = load float, ptr %.6233301.i.i888, align 4
   %1786 = insertelement <4 x float> poison, float %1785, i64 0
-  %1787 = getelementptr inbounds i8, ptr %.6233301.i.i888, i64 4
+  %1787 = getelementptr inbounds nuw i8, ptr %.6233301.i.i888, i64 4
   %1788 = load float, ptr %1787, align 4
   %1789 = insertelement <4 x float> poison, float %1788, i64 0
   %1790 = shufflevector <4 x float> %1786, <4 x float> %1789, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 4, i32 4, i32 4, i32 4>
   %1791 = tail call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %1784, <8 x float> %1790)
   store <8 x float> %1791, ptr %.6241300.i.i889, align 1
-  %1792 = getelementptr inbounds i8, ptr %.6302.i.i887, i64 32
-  %1793 = getelementptr inbounds i8, ptr %.6233301.i.i888, i64 8
-  %1794 = getelementptr inbounds i8, ptr %.6241300.i.i889, i64 32
+  %1792 = getelementptr inbounds nuw i8, ptr %.6302.i.i887, i64 32
+  %1793 = getelementptr inbounds nuw i8, ptr %.6233301.i.i888, i64 8
+  %1794 = getelementptr inbounds nuw i8, ptr %.6241300.i.i889, i64 32
   %1795 = add nuw nsw i32 %.1247299.i.i890, 2
   %1796 = or disjoint i32 %1795, 1
   %1797 = icmp slt i32 %1796, %.sroa.speculated99.i
@@ -7219,9 +7219,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1801 = shufflevector <4 x float> %1800, <4 x float> poison, <4 x i32> zeroinitializer
   %1802 = tail call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %1798, <4 x float> %1801)
   store <4 x float> %1802, ptr %.7242309.i.i883, align 1
-  %1803 = getelementptr inbounds i8, ptr %.7311.i.i881, i64 16
-  %1804 = getelementptr inbounds i8, ptr %.7234310.i.i882, i64 4
-  %1805 = getelementptr inbounds i8, ptr %.7242309.i.i883, i64 16
+  %1803 = getelementptr inbounds nuw i8, ptr %.7311.i.i881, i64 16
+  %1804 = getelementptr inbounds nuw i8, ptr %.7234310.i.i882, i64 4
+  %1805 = getelementptr inbounds nuw i8, ptr %.7242309.i.i883, i64 16
   %1806 = add nuw nsw i32 %.2248308.i.i884, 1
   %exitcond331.not.i.i885 = icmp eq i32 %1806, %.sroa.speculated99.i
   br i1 %exitcond331.not.i.i885, label %_ZN4ncnnL16binary_op_vectorINS_27BinaryOp_x86_avx512_functor13binary_op_addEEEvPKfS4_Pfiiii.exit, label %.lr.ph312.i.i880, !llvm.loop !139
@@ -7244,8 +7244,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1814 = load <16 x float>, ptr %.0102.i.i856, align 1
   %1815 = tail call fast noundef <16 x float> @llvm.x86.avx512.max.ps.512(<16 x float> %1814, <16 x float> %1812, i32 4)
   store <16 x float> %1815, ptr %.088101.i.i857, align 1
-  %1816 = getelementptr inbounds i8, ptr %.0102.i.i856, i64 64
-  %1817 = getelementptr inbounds i8, ptr %.088101.i.i857, i64 64
+  %1816 = getelementptr inbounds nuw i8, ptr %.0102.i.i856, i64 64
+  %1817 = getelementptr inbounds nuw i8, ptr %.088101.i.i857, i64 64
   %1818 = add nuw nsw i32 %.091100.i.i858, 16
   %1819 = or disjoint i32 %1818, 15
   %1820 = icmp slt i32 %1819, %1550
@@ -7274,8 +7274,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1827 = load <8 x float>, ptr %.1107.i.i851, align 1
   %1828 = tail call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %1827, <8 x float> %1824)
   store <8 x float> %1828, ptr %.189106.i.i852, align 1
-  %1829 = getelementptr inbounds i8, ptr %.1107.i.i851, i64 32
-  %1830 = getelementptr inbounds i8, ptr %.189106.i.i852, i64 32
+  %1829 = getelementptr inbounds nuw i8, ptr %.1107.i.i851, i64 32
+  %1830 = getelementptr inbounds nuw i8, ptr %.189106.i.i852, i64 32
   %1831 = add nuw nsw i32 %.192105.i.i853, 8
   %1832 = or disjoint i32 %1831, 7
   %1833 = icmp slt i32 %1832, %1550
@@ -7303,8 +7303,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1839 = load <4 x float>, ptr %.2116.i.i847, align 1
   %1840 = tail call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %1839, <4 x float> %1836)
   store <4 x float> %1840, ptr %.290115.i.i848, align 1
-  %1841 = getelementptr inbounds i8, ptr %.2116.i.i847, i64 16
-  %1842 = getelementptr inbounds i8, ptr %.290115.i.i848, i64 16
+  %1841 = getelementptr inbounds nuw i8, ptr %.2116.i.i847, i64 16
+  %1842 = getelementptr inbounds nuw i8, ptr %.290115.i.i848, i64 16
   %1843 = add nuw nsw i32 %.293114.i.i849, 4
   %1844 = or disjoint i32 %1843, 3
   %1845 = icmp slt i32 %1844, %1550
@@ -7331,8 +7331,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1854 = shufflevector <16 x float> %1853, <16 x float> poison, <16 x i32> zeroinitializer
   %1855 = tail call fast noundef <16 x float> @llvm.x86.avx512.max.ps.512(<16 x float> %1851, <16 x float> %1854, i32 4)
   store <16 x float> %1855, ptr %.1219254.i.i838, align 1
-  %1856 = getelementptr inbounds i8, ptr %.1255.i.i837, i64 4
-  %1857 = getelementptr inbounds i8, ptr %.1219254.i.i838, i64 64
+  %1856 = getelementptr inbounds nuw i8, ptr %.1255.i.i837, i64 4
+  %1857 = getelementptr inbounds nuw i8, ptr %.1219254.i.i838, i64 64
   %1858 = add nuw nsw i32 %.0226253.i.i839, 1
   %exitcond.not.i88.i = icmp eq i32 %1858, %.sroa.speculated99.i
   br i1 %exitcond.not.i88.i, label %.loopexit252.i.i801, label %.lr.ph.i87.i, !llvm.loop !143
@@ -7366,14 +7366,14 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %.0227257.i.i835 = phi i32 [ %1875, %.lr.ph260.i.i832 ], [ 0, %1860 ]
   %1866 = load float, ptr %.3259.i.i833, align 4
   %1867 = insertelement <8 x float> poison, float %1866, i64 0
-  %1868 = getelementptr inbounds i8, ptr %.3259.i.i833, i64 4
+  %1868 = getelementptr inbounds nuw i8, ptr %.3259.i.i833, i64 4
   %1869 = load float, ptr %1868, align 4
   %1870 = insertelement <8 x float> poison, float %1869, i64 0
   %1871 = shufflevector <8 x float> %1867, <8 x float> %1870, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
   %1872 = tail call fast noundef <16 x float> @llvm.x86.avx512.max.ps.512(<16 x float> %1862, <16 x float> %1871, i32 4)
   store <16 x float> %1872, ptr %.3221258.i.i834, align 1
-  %1873 = getelementptr inbounds i8, ptr %.3259.i.i833, i64 8
-  %1874 = getelementptr inbounds i8, ptr %.3221258.i.i834, i64 64
+  %1873 = getelementptr inbounds nuw i8, ptr %.3259.i.i833, i64 8
+  %1874 = getelementptr inbounds nuw i8, ptr %.3221258.i.i834, i64 64
   %1875 = add nuw nsw i32 %.0227257.i.i835, 2
   %1876 = or disjoint i32 %1875, 1
   %1877 = icmp slt i32 %1876, %.sroa.speculated99.i
@@ -7388,8 +7388,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1880 = shufflevector <8 x float> %1879, <8 x float> poison, <8 x i32> zeroinitializer
   %1881 = tail call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %1861, <8 x float> %1880)
   store <8 x float> %1881, ptr %.4222265.i.i829, align 1
-  %1882 = getelementptr inbounds i8, ptr %.4266.i.i828, i64 4
-  %1883 = getelementptr inbounds i8, ptr %.4222265.i.i829, i64 32
+  %1882 = getelementptr inbounds nuw i8, ptr %.4266.i.i828, i64 4
+  %1883 = getelementptr inbounds nuw i8, ptr %.4222265.i.i829, i64 32
   %1884 = add nuw nsw i32 %.1228264.i.i830, 1
   %exitcond300.not.i.i831 = icmp eq i32 %1884, %.sroa.speculated99.i
   br i1 %exitcond300.not.i.i831, label %.loopexit251.i.i803, label %.lr.ph267.i.i827, !llvm.loop !145
@@ -7425,13 +7425,13 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %.0229270.i.i822 = phi i32 [ %1911, %.lr.ph273.i.i819 ], [ 0, %1886 ]
   %1894 = load float, ptr %.5272.i.i820, align 4
   %1895 = insertelement <4 x float> poison, float %1894, i64 0
-  %1896 = getelementptr inbounds i8, ptr %.5272.i.i820, i64 4
+  %1896 = getelementptr inbounds nuw i8, ptr %.5272.i.i820, i64 4
   %1897 = load float, ptr %1896, align 4
   %1898 = insertelement <4 x float> poison, float %1897, i64 0
-  %1899 = getelementptr inbounds i8, ptr %.5272.i.i820, i64 8
+  %1899 = getelementptr inbounds nuw i8, ptr %.5272.i.i820, i64 8
   %1900 = load float, ptr %1899, align 4
   %1901 = insertelement <4 x float> poison, float %1900, i64 0
-  %1902 = getelementptr inbounds i8, ptr %.5272.i.i820, i64 12
+  %1902 = getelementptr inbounds nuw i8, ptr %.5272.i.i820, i64 12
   %1903 = load float, ptr %1902, align 4
   %1904 = insertelement <4 x float> poison, float %1903, i64 0
   %1905 = shufflevector <4 x float> %1895, <4 x float> %1898, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 4, i32 4, i32 4, i32 4>
@@ -7439,8 +7439,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1907 = shufflevector <8 x float> %1905, <8 x float> %1906, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %1908 = tail call fast noundef <16 x float> @llvm.x86.avx512.max.ps.512(<16 x float> %1889, <16 x float> %1907, i32 4)
   store <16 x float> %1908, ptr %.5223271.i.i821, align 1
-  %1909 = getelementptr inbounds i8, ptr %.5272.i.i820, i64 16
-  %1910 = getelementptr inbounds i8, ptr %.5223271.i.i821, i64 64
+  %1909 = getelementptr inbounds nuw i8, ptr %.5272.i.i820, i64 16
+  %1910 = getelementptr inbounds nuw i8, ptr %.5223271.i.i821, i64 64
   %1911 = add nuw nsw i32 %.0229270.i.i822, 4
   %1912 = or disjoint i32 %1911, 3
   %1913 = icmp slt i32 %1912, %.sroa.speculated99.i
@@ -7459,14 +7459,14 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %.1230277.i.i818 = phi i32 [ %1924, %.lr.ph280.i.i815 ], [ %.0229.lcssa.i.i806, %.preheader249.i.i805 ]
   %1915 = load float, ptr %.6279.i.i816, align 4
   %1916 = insertelement <4 x float> poison, float %1915, i64 0
-  %1917 = getelementptr inbounds i8, ptr %.6279.i.i816, i64 4
+  %1917 = getelementptr inbounds nuw i8, ptr %.6279.i.i816, i64 4
   %1918 = load float, ptr %1917, align 4
   %1919 = insertelement <4 x float> poison, float %1918, i64 0
   %1920 = shufflevector <4 x float> %1916, <4 x float> %1919, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 4, i32 4, i32 4, i32 4>
   %1921 = tail call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %1888, <8 x float> %1920)
   store <8 x float> %1921, ptr %.6224278.i.i817, align 1
-  %1922 = getelementptr inbounds i8, ptr %.6279.i.i816, i64 8
-  %1923 = getelementptr inbounds i8, ptr %.6224278.i.i817, i64 32
+  %1922 = getelementptr inbounds nuw i8, ptr %.6279.i.i816, i64 8
+  %1923 = getelementptr inbounds nuw i8, ptr %.6224278.i.i817, i64 32
   %1924 = add nuw nsw i32 %.1230277.i.i818, 2
   %1925 = or disjoint i32 %1924, 1
   %1926 = icmp slt i32 %1925, %.sroa.speculated99.i
@@ -7481,8 +7481,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1929 = shufflevector <4 x float> %1928, <4 x float> poison, <4 x i32> zeroinitializer
   %1930 = tail call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %1887, <4 x float> %1929)
   store <4 x float> %1930, ptr %.7225285.i.i812, align 1
-  %1931 = getelementptr inbounds i8, ptr %.7286.i.i811, i64 4
-  %1932 = getelementptr inbounds i8, ptr %.7225285.i.i812, i64 16
+  %1931 = getelementptr inbounds nuw i8, ptr %.7286.i.i811, i64 4
+  %1932 = getelementptr inbounds nuw i8, ptr %.7225285.i.i812, i64 16
   %1933 = add nuw nsw i32 %.2231284.i.i813, 1
   %exitcond301.not.i.i814 = icmp eq i32 %1933, %.sroa.speculated99.i
   br i1 %exitcond301.not.i.i814, label %_ZN4ncnnL16binary_op_vectorINS_27BinaryOp_x86_avx512_functor13binary_op_addEEEvPKfS4_Pfiiii.exit, label %.lr.ph287.i.i810, !llvm.loop !148
@@ -7524,9 +7524,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1945 = load <16 x float>, ptr %.06485.i.i1213, align 1
   %1946 = tail call fast noundef <16 x float> @llvm.x86.avx512.min.ps.512(<16 x float> %1944, <16 x float> %1945, i32 4)
   store <16 x float> %1946, ptr %.06884.i.i1214, align 1
-  %1947 = getelementptr inbounds i8, ptr %.086.i.i1212, i64 64
-  %1948 = getelementptr inbounds i8, ptr %.06485.i.i1213, i64 64
-  %1949 = getelementptr inbounds i8, ptr %.06884.i.i1214, i64 64
+  %1947 = getelementptr inbounds nuw i8, ptr %.086.i.i1212, i64 64
+  %1948 = getelementptr inbounds nuw i8, ptr %.06485.i.i1213, i64 64
+  %1949 = getelementptr inbounds nuw i8, ptr %.06884.i.i1214, i64 64
   %1950 = add nuw nsw i32 %.07283.i.i1215, 16
   %1951 = or disjoint i32 %1950, 15
   %1952 = icmp slt i32 %1951, %1935
@@ -7550,9 +7550,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1956 = load <8 x float>, ptr %.16592.i.i1208, align 1
   %1957 = tail call fast noundef <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> %1955, <8 x float> %1956)
   store <8 x float> %1957, ptr %.16991.i.i1209, align 1
-  %1958 = getelementptr inbounds i8, ptr %.193.i.i1207, i64 32
-  %1959 = getelementptr inbounds i8, ptr %.16592.i.i1208, i64 32
-  %1960 = getelementptr inbounds i8, ptr %.16991.i.i1209, i64 32
+  %1958 = getelementptr inbounds nuw i8, ptr %.193.i.i1207, i64 32
+  %1959 = getelementptr inbounds nuw i8, ptr %.16592.i.i1208, i64 32
+  %1960 = getelementptr inbounds nuw i8, ptr %.16991.i.i1209, i64 32
   %1961 = add nuw nsw i32 %.17390.i.i1210, 8
   %1962 = or disjoint i32 %1961, 7
   %1963 = icmp slt i32 %1962, %1935
@@ -7575,9 +7575,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1966 = load <4 x float>, ptr %.266101.i.i1203, align 1
   %1967 = tail call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %1965, <4 x float> %1966)
   store <4 x float> %1967, ptr %.270100.i.i1204, align 1
-  %1968 = getelementptr inbounds i8, ptr %.2102.i.i1202, i64 16
-  %1969 = getelementptr inbounds i8, ptr %.266101.i.i1203, i64 16
-  %1970 = getelementptr inbounds i8, ptr %.270100.i.i1204, i64 16
+  %1968 = getelementptr inbounds nuw i8, ptr %.2102.i.i1202, i64 16
+  %1969 = getelementptr inbounds nuw i8, ptr %.266101.i.i1203, i64 16
+  %1970 = getelementptr inbounds nuw i8, ptr %.270100.i.i1204, i64 16
   %1971 = add nuw nsw i32 %.27499.i.i1205, 4
   %1972 = or disjoint i32 %1971, 3
   %1973 = icmp slt i32 %1972, %1935
@@ -7593,9 +7593,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %1976 = fcmp fast olt float %1974, %1975
   %1977 = select i1 %1976, float %1974, float %1975
   store float %1977, ptr %.371109.i.i1198, align 4
-  %1978 = getelementptr inbounds i8, ptr %.3111.i.i1196, i64 4
-  %1979 = getelementptr inbounds i8, ptr %.367110.i.i1197, i64 4
-  %1980 = getelementptr inbounds i8, ptr %.371109.i.i1198, i64 4
+  %1978 = getelementptr inbounds nuw i8, ptr %.3111.i.i1196, i64 4
+  %1979 = getelementptr inbounds nuw i8, ptr %.367110.i.i1197, i64 4
+  %1980 = getelementptr inbounds nuw i8, ptr %.371109.i.i1198, i64 4
   %1981 = add nuw nsw i32 %.375108.i.i1199, 1
   %exitcond.not.i.i1200 = icmp eq i32 %1981, %1935
   br i1 %exitcond.not.i.i1200, label %_ZN4ncnnL16binary_op_vectorINS_27BinaryOp_x86_avx512_functor13binary_op_addEEEvPKfS4_Pfiiii.exit, label %.lr.ph112.i.i1195, !llvm.loop !152
@@ -7665,8 +7665,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %2011 = load <16 x float>, ptr %.093.i.i1174, align 1
   %2012 = tail call fast noundef <16 x float> @llvm.x86.avx512.min.ps.512(<16 x float> %2011, <16 x float> %2006, i32 4)
   store <16 x float> %2012, ptr %.07092.i.i1175, align 1
-  %2013 = getelementptr inbounds i8, ptr %.093.i.i1174, i64 64
-  %2014 = getelementptr inbounds i8, ptr %.07092.i.i1175, i64 64
+  %2013 = getelementptr inbounds nuw i8, ptr %.093.i.i1174, i64 64
+  %2014 = getelementptr inbounds nuw i8, ptr %.07092.i.i1175, i64 64
   %2015 = add nuw nsw i32 %.07491.i.i1176, 16
   %2016 = or disjoint i32 %2015, 15
   %2017 = icmp slt i32 %2016, %1935
@@ -7687,8 +7687,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %2020 = load <8 x float>, ptr %.198.i.i1170, align 1
   %2021 = tail call fast noundef <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> %2020, <8 x float> %2004)
   store <8 x float> %2021, ptr %.17197.i.i1171, align 1
-  %2022 = getelementptr inbounds i8, ptr %.198.i.i1170, i64 32
-  %2023 = getelementptr inbounds i8, ptr %.17197.i.i1171, i64 32
+  %2022 = getelementptr inbounds nuw i8, ptr %.198.i.i1170, i64 32
+  %2023 = getelementptr inbounds nuw i8, ptr %.17197.i.i1171, i64 32
   %2024 = add nuw nsw i32 %.17596.i.i1172, 8
   %2025 = or disjoint i32 %2024, 7
   %2026 = icmp slt i32 %2025, %1935
@@ -7708,8 +7708,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %2028 = load <4 x float>, ptr %.2105.i.i1166, align 1
   %2029 = tail call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %2028, <4 x float> %2005)
   store <4 x float> %2029, ptr %.272104.i.i1167, align 1
-  %2030 = getelementptr inbounds i8, ptr %.2105.i.i1166, i64 16
-  %2031 = getelementptr inbounds i8, ptr %.272104.i.i1167, i64 16
+  %2030 = getelementptr inbounds nuw i8, ptr %.2105.i.i1166, i64 16
+  %2031 = getelementptr inbounds nuw i8, ptr %.272104.i.i1167, i64 16
   %2032 = add nuw nsw i32 %.276103.i.i1168, 4
   %2033 = or disjoint i32 %2032, 3
   %2034 = icmp slt i32 %2033, %1935
@@ -7723,8 +7723,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %2036 = fcmp fast olt float %1985, %2035
   %.sroa.speculated.i.i1163 = select i1 %2036, float %1985, float %2035
   store float %.sroa.speculated.i.i1163, ptr %.373111.i.i1161, align 4
-  %2037 = getelementptr inbounds i8, ptr %.3112.i.i1160, i64 4
-  %2038 = getelementptr inbounds i8, ptr %.373111.i.i1161, i64 4
+  %2037 = getelementptr inbounds nuw i8, ptr %.3112.i.i1160, i64 4
+  %2038 = getelementptr inbounds nuw i8, ptr %.373111.i.i1161, i64 4
   %2039 = add nuw nsw i32 %.377110.i.i1162, 1
   %exitcond.not.i38.i1164 = icmp eq i32 %2039, %1935
   br i1 %exitcond.not.i38.i1164, label %_ZN4ncnnL16binary_op_vectorINS_27BinaryOp_x86_avx512_functor13binary_op_addEEEvPKfS4_Pfiiii.exit, label %.lr.ph113.i.i1159, !llvm.loop !156
@@ -7794,8 +7794,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %2069 = load <16 x float>, ptr %.093.i69.i1141, align 1
   %2070 = tail call fast noundef <16 x float> @llvm.x86.avx512.min.ps.512(<16 x float> %2064, <16 x float> %2069, i32 4)
   store <16 x float> %2070, ptr %.07092.i70.i1142, align 1
-  %2071 = getelementptr inbounds i8, ptr %.093.i69.i1141, i64 64
-  %2072 = getelementptr inbounds i8, ptr %.07092.i70.i1142, i64 64
+  %2071 = getelementptr inbounds nuw i8, ptr %.093.i69.i1141, i64 64
+  %2072 = getelementptr inbounds nuw i8, ptr %.07092.i70.i1142, i64 64
   %2073 = add nuw nsw i32 %.07491.i71.i1143, 16
   %2074 = or disjoint i32 %2073, 15
   %2075 = icmp slt i32 %2074, %1935
@@ -7816,8 +7816,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %2078 = load <8 x float>, ptr %.198.i64.i1137, align 1
   %2079 = tail call fast noundef <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> %2062, <8 x float> %2078)
   store <8 x float> %2079, ptr %.17197.i65.i1138, align 1
-  %2080 = getelementptr inbounds i8, ptr %.198.i64.i1137, i64 32
-  %2081 = getelementptr inbounds i8, ptr %.17197.i65.i1138, i64 32
+  %2080 = getelementptr inbounds nuw i8, ptr %.198.i64.i1137, i64 32
+  %2081 = getelementptr inbounds nuw i8, ptr %.17197.i65.i1138, i64 32
   %2082 = add nuw nsw i32 %.17596.i66.i1139, 8
   %2083 = or disjoint i32 %2082, 7
   %2084 = icmp slt i32 %2083, %1935
@@ -7837,8 +7837,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %2086 = load <4 x float>, ptr %.2105.i60.i1133, align 1
   %2087 = tail call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %2063, <4 x float> %2086)
   store <4 x float> %2087, ptr %.272104.i61.i1134, align 1
-  %2088 = getelementptr inbounds i8, ptr %.2105.i60.i1133, i64 16
-  %2089 = getelementptr inbounds i8, ptr %.272104.i61.i1134, i64 16
+  %2088 = getelementptr inbounds nuw i8, ptr %.2105.i60.i1133, i64 16
+  %2089 = getelementptr inbounds nuw i8, ptr %.272104.i61.i1134, i64 16
   %2090 = add nuw nsw i32 %.276103.i62.i1135, 4
   %2091 = or disjoint i32 %2090, 3
   %2092 = icmp slt i32 %2091, %1935
@@ -7852,8 +7852,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %2094 = fcmp fast olt float %2093, %2043
   %.sroa.speculated.i57.i1130 = select i1 %2094, float %2093, float %2043
   store float %.sroa.speculated.i57.i1130, ptr %.373111.i55.i1128, align 4
-  %2095 = getelementptr inbounds i8, ptr %.3112.i54.i1127, i64 4
-  %2096 = getelementptr inbounds i8, ptr %.373111.i55.i1128, i64 4
+  %2095 = getelementptr inbounds nuw i8, ptr %.3112.i54.i1127, i64 4
+  %2096 = getelementptr inbounds nuw i8, ptr %.373111.i55.i1128, i64 4
   %2097 = add nuw nsw i32 %.377110.i56.i1129, 1
   %exitcond.not.i58.i1131 = icmp eq i32 %2097, %1935
   br i1 %exitcond.not.i58.i1131, label %_ZN4ncnnL16binary_op_vectorINS_27BinaryOp_x86_avx512_functor13binary_op_addEEEvPKfS4_Pfiiii.exit, label %.lr.ph113.i53.i1126, !llvm.loop !160
@@ -7883,9 +7883,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %2108 = shufflevector <16 x float> %2107, <16 x float> poison, <16 x i32> zeroinitializer
   %2109 = tail call fast noundef <16 x float> @llvm.x86.avx512.min.ps.512(<16 x float> %2105, <16 x float> %2108, i32 4)
   store <16 x float> %2109, ptr %.1236268.i.i1111, align 1
-  %2110 = getelementptr inbounds i8, ptr %.1270.i.i1109, i64 64
-  %2111 = getelementptr inbounds i8, ptr %.1228269.i.i1110, i64 4
-  %2112 = getelementptr inbounds i8, ptr %.1236268.i.i1111, i64 64
+  %2110 = getelementptr inbounds nuw i8, ptr %.1270.i.i1109, i64 64
+  %2111 = getelementptr inbounds nuw i8, ptr %.1228269.i.i1110, i64 4
+  %2112 = getelementptr inbounds nuw i8, ptr %.1236268.i.i1111, i64 64
   %2113 = add nuw nsw i32 %.0243267.i.i1112, 1
   %exitcond.not.i76.i1113 = icmp eq i32 %2113, %.sroa.speculated99.i980
   br i1 %exitcond.not.i76.i1113, label %.loopexit266.i.i1054, label %.lr.ph.i75.i1108, !llvm.loop !161
@@ -7921,15 +7921,15 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %2118 = load <16 x float>, ptr %.3276.i.i1103, align 1
   %2119 = load float, ptr %.3230275.i.i1104, align 4
   %2120 = insertelement <8 x float> poison, float %2119, i64 0
-  %2121 = getelementptr inbounds i8, ptr %.3230275.i.i1104, i64 4
+  %2121 = getelementptr inbounds nuw i8, ptr %.3230275.i.i1104, i64 4
   %2122 = load float, ptr %2121, align 4
   %2123 = insertelement <8 x float> poison, float %2122, i64 0
   %2124 = shufflevector <8 x float> %2120, <8 x float> %2123, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
   %2125 = tail call fast noundef <16 x float> @llvm.x86.avx512.min.ps.512(<16 x float> %2118, <16 x float> %2124, i32 4)
   store <16 x float> %2125, ptr %.3238274.i.i1105, align 1
-  %2126 = getelementptr inbounds i8, ptr %.3276.i.i1103, i64 64
-  %2127 = getelementptr inbounds i8, ptr %.3230275.i.i1104, i64 8
-  %2128 = getelementptr inbounds i8, ptr %.3238274.i.i1105, i64 64
+  %2126 = getelementptr inbounds nuw i8, ptr %.3276.i.i1103, i64 64
+  %2127 = getelementptr inbounds nuw i8, ptr %.3230275.i.i1104, i64 8
+  %2128 = getelementptr inbounds nuw i8, ptr %.3238274.i.i1105, i64 64
   %2129 = add nuw nsw i32 %.0244273.i.i1106, 2
   %2130 = or disjoint i32 %2129, 1
   %2131 = icmp slt i32 %2130, %.sroa.speculated99.i980
@@ -7946,9 +7946,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %2135 = shufflevector <8 x float> %2134, <8 x float> poison, <8 x i32> zeroinitializer
   %2136 = tail call fast noundef <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> %2132, <8 x float> %2135)
   store <8 x float> %2136, ptr %.4239283.i.i1099, align 1
-  %2137 = getelementptr inbounds i8, ptr %.4285.i.i1097, i64 32
-  %2138 = getelementptr inbounds i8, ptr %.4231284.i.i1098, i64 4
-  %2139 = getelementptr inbounds i8, ptr %.4239283.i.i1099, i64 32
+  %2137 = getelementptr inbounds nuw i8, ptr %.4285.i.i1097, i64 32
+  %2138 = getelementptr inbounds nuw i8, ptr %.4231284.i.i1098, i64 4
+  %2139 = getelementptr inbounds nuw i8, ptr %.4239283.i.i1099, i64 32
   %2140 = add nuw nsw i32 %.1245282.i.i1100, 1
   %exitcond330.not.i.i1101 = icmp eq i32 %2140, %.sroa.speculated99.i980
   br i1 %exitcond330.not.i.i1101, label %.loopexit263.i.i1058, label %.lr.ph286.i.i1096, !llvm.loop !163
@@ -7985,13 +7985,13 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %2146 = load <16 x float>, ptr %.5293.i.i1085, align 1
   %2147 = load float, ptr %.5232292.i.i1086, align 4
   %2148 = insertelement <4 x float> poison, float %2147, i64 0
-  %2149 = getelementptr inbounds i8, ptr %.5232292.i.i1086, i64 4
+  %2149 = getelementptr inbounds nuw i8, ptr %.5232292.i.i1086, i64 4
   %2150 = load float, ptr %2149, align 4
   %2151 = insertelement <4 x float> poison, float %2150, i64 0
-  %2152 = getelementptr inbounds i8, ptr %.5232292.i.i1086, i64 8
+  %2152 = getelementptr inbounds nuw i8, ptr %.5232292.i.i1086, i64 8
   %2153 = load float, ptr %2152, align 4
   %2154 = insertelement <4 x float> poison, float %2153, i64 0
-  %2155 = getelementptr inbounds i8, ptr %.5232292.i.i1086, i64 12
+  %2155 = getelementptr inbounds nuw i8, ptr %.5232292.i.i1086, i64 12
   %2156 = load float, ptr %2155, align 4
   %2157 = insertelement <4 x float> poison, float %2156, i64 0
   %2158 = shufflevector <4 x float> %2148, <4 x float> %2151, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 4, i32 4, i32 4, i32 4>
@@ -7999,9 +7999,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %2160 = shufflevector <8 x float> %2158, <8 x float> %2159, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %2161 = tail call fast noundef <16 x float> @llvm.x86.avx512.min.ps.512(<16 x float> %2146, <16 x float> %2160, i32 4)
   store <16 x float> %2161, ptr %.5240291.i.i1087, align 1
-  %2162 = getelementptr inbounds i8, ptr %.5293.i.i1085, i64 64
-  %2163 = getelementptr inbounds i8, ptr %.5232292.i.i1086, i64 16
-  %2164 = getelementptr inbounds i8, ptr %.5240291.i.i1087, i64 64
+  %2162 = getelementptr inbounds nuw i8, ptr %.5293.i.i1085, i64 64
+  %2163 = getelementptr inbounds nuw i8, ptr %.5232292.i.i1086, i64 16
+  %2164 = getelementptr inbounds nuw i8, ptr %.5240291.i.i1087, i64 64
   %2165 = add nuw nsw i32 %.0246290.i.i1088, 4
   %2166 = or disjoint i32 %2165, 3
   %2167 = icmp slt i32 %2166, %.sroa.speculated99.i980
@@ -8023,15 +8023,15 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %2169 = load <8 x float>, ptr %.6302.i.i1080, align 1
   %2170 = load float, ptr %.6233301.i.i1081, align 4
   %2171 = insertelement <4 x float> poison, float %2170, i64 0
-  %2172 = getelementptr inbounds i8, ptr %.6233301.i.i1081, i64 4
+  %2172 = getelementptr inbounds nuw i8, ptr %.6233301.i.i1081, i64 4
   %2173 = load float, ptr %2172, align 4
   %2174 = insertelement <4 x float> poison, float %2173, i64 0
   %2175 = shufflevector <4 x float> %2171, <4 x float> %2174, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 4, i32 4, i32 4, i32 4>
   %2176 = tail call fast noundef <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> %2169, <8 x float> %2175)
   store <8 x float> %2176, ptr %.6241300.i.i1082, align 1
-  %2177 = getelementptr inbounds i8, ptr %.6302.i.i1080, i64 32
-  %2178 = getelementptr inbounds i8, ptr %.6233301.i.i1081, i64 8
-  %2179 = getelementptr inbounds i8, ptr %.6241300.i.i1082, i64 32
+  %2177 = getelementptr inbounds nuw i8, ptr %.6302.i.i1080, i64 32
+  %2178 = getelementptr inbounds nuw i8, ptr %.6233301.i.i1081, i64 8
+  %2179 = getelementptr inbounds nuw i8, ptr %.6241300.i.i1082, i64 32
   %2180 = add nuw nsw i32 %.1247299.i.i1083, 2
   %2181 = or disjoint i32 %2180, 1
   %2182 = icmp slt i32 %2181, %.sroa.speculated99.i980
@@ -8048,9 +8048,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %2186 = shufflevector <4 x float> %2185, <4 x float> poison, <4 x i32> zeroinitializer
   %2187 = tail call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %2183, <4 x float> %2186)
   store <4 x float> %2187, ptr %.7242309.i.i1076, align 1
-  %2188 = getelementptr inbounds i8, ptr %.7311.i.i1074, i64 16
-  %2189 = getelementptr inbounds i8, ptr %.7234310.i.i1075, i64 4
-  %2190 = getelementptr inbounds i8, ptr %.7242309.i.i1076, i64 16
+  %2188 = getelementptr inbounds nuw i8, ptr %.7311.i.i1074, i64 16
+  %2189 = getelementptr inbounds nuw i8, ptr %.7234310.i.i1075, i64 4
+  %2190 = getelementptr inbounds nuw i8, ptr %.7242309.i.i1076, i64 16
   %2191 = add nuw nsw i32 %.2248308.i.i1077, 1
   %exitcond331.not.i.i1078 = icmp eq i32 %2191, %.sroa.speculated99.i980
   br i1 %exitcond331.not.i.i1078, label %_ZN4ncnnL16binary_op_vectorINS_27BinaryOp_x86_avx512_functor13binary_op_addEEEvPKfS4_Pfiiii.exit, label %.lr.ph312.i.i1073, !llvm.loop !166
@@ -8073,8 +8073,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %2199 = load <16 x float>, ptr %.0102.i.i1048, align 1
   %2200 = tail call fast noundef <16 x float> @llvm.x86.avx512.min.ps.512(<16 x float> %2199, <16 x float> %2197, i32 4)
   store <16 x float> %2200, ptr %.088101.i.i1049, align 1
-  %2201 = getelementptr inbounds i8, ptr %.0102.i.i1048, i64 64
-  %2202 = getelementptr inbounds i8, ptr %.088101.i.i1049, i64 64
+  %2201 = getelementptr inbounds nuw i8, ptr %.0102.i.i1048, i64 64
+  %2202 = getelementptr inbounds nuw i8, ptr %.088101.i.i1049, i64 64
   %2203 = add nuw nsw i32 %.091100.i.i1050, 16
   %2204 = or disjoint i32 %2203, 15
   %2205 = icmp slt i32 %2204, %1935
@@ -8103,8 +8103,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %2212 = load <8 x float>, ptr %.1107.i.i1042, align 1
   %2213 = tail call fast noundef <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> %2212, <8 x float> %2209)
   store <8 x float> %2213, ptr %.189106.i.i1043, align 1
-  %2214 = getelementptr inbounds i8, ptr %.1107.i.i1042, i64 32
-  %2215 = getelementptr inbounds i8, ptr %.189106.i.i1043, i64 32
+  %2214 = getelementptr inbounds nuw i8, ptr %.1107.i.i1042, i64 32
+  %2215 = getelementptr inbounds nuw i8, ptr %.189106.i.i1043, i64 32
   %2216 = add nuw nsw i32 %.192105.i.i1044, 8
   %2217 = or disjoint i32 %2216, 7
   %2218 = icmp slt i32 %2217, %1935
@@ -8132,8 +8132,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %2224 = load <4 x float>, ptr %.2116.i.i1038, align 1
   %2225 = tail call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %2224, <4 x float> %2221)
   store <4 x float> %2225, ptr %.290115.i.i1039, align 1
-  %2226 = getelementptr inbounds i8, ptr %.2116.i.i1038, i64 16
-  %2227 = getelementptr inbounds i8, ptr %.290115.i.i1039, i64 16
+  %2226 = getelementptr inbounds nuw i8, ptr %.2116.i.i1038, i64 16
+  %2227 = getelementptr inbounds nuw i8, ptr %.290115.i.i1039, i64 16
   %2228 = add nuw nsw i32 %.293114.i.i1040, 4
   %2229 = or disjoint i32 %2228, 3
   %2230 = icmp slt i32 %2229, %1935
@@ -8160,8 +8160,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %2239 = shufflevector <16 x float> %2238, <16 x float> poison, <16 x i32> zeroinitializer
   %2240 = tail call fast noundef <16 x float> @llvm.x86.avx512.min.ps.512(<16 x float> %2236, <16 x float> %2239, i32 4)
   store <16 x float> %2240, ptr %.1219254.i.i1026, align 1
-  %2241 = getelementptr inbounds i8, ptr %.1255.i.i1025, i64 4
-  %2242 = getelementptr inbounds i8, ptr %.1219254.i.i1026, i64 64
+  %2241 = getelementptr inbounds nuw i8, ptr %.1255.i.i1025, i64 4
+  %2242 = getelementptr inbounds nuw i8, ptr %.1219254.i.i1026, i64 64
   %2243 = add nuw nsw i32 %.0226253.i.i1027, 1
   %exitcond.not.i88.i1028 = icmp eq i32 %2243, %.sroa.speculated99.i980
   br i1 %exitcond.not.i88.i1028, label %.loopexit252.i.i982, label %.lr.ph.i87.i1024, !llvm.loop !170
@@ -8195,14 +8195,14 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %.0227257.i.i1022 = phi i32 [ %2260, %.lr.ph260.i.i1019 ], [ 0, %2245 ]
   %2251 = load float, ptr %.3259.i.i1020, align 4
   %2252 = insertelement <8 x float> poison, float %2251, i64 0
-  %2253 = getelementptr inbounds i8, ptr %.3259.i.i1020, i64 4
+  %2253 = getelementptr inbounds nuw i8, ptr %.3259.i.i1020, i64 4
   %2254 = load float, ptr %2253, align 4
   %2255 = insertelement <8 x float> poison, float %2254, i64 0
   %2256 = shufflevector <8 x float> %2252, <8 x float> %2255, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
   %2257 = tail call fast noundef <16 x float> @llvm.x86.avx512.min.ps.512(<16 x float> %2247, <16 x float> %2256, i32 4)
   store <16 x float> %2257, ptr %.3221258.i.i1021, align 1
-  %2258 = getelementptr inbounds i8, ptr %.3259.i.i1020, i64 8
-  %2259 = getelementptr inbounds i8, ptr %.3221258.i.i1021, i64 64
+  %2258 = getelementptr inbounds nuw i8, ptr %.3259.i.i1020, i64 8
+  %2259 = getelementptr inbounds nuw i8, ptr %.3221258.i.i1021, i64 64
   %2260 = add nuw nsw i32 %.0227257.i.i1022, 2
   %2261 = or disjoint i32 %2260, 1
   %2262 = icmp slt i32 %2261, %.sroa.speculated99.i980
@@ -8217,8 +8217,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %2265 = shufflevector <8 x float> %2264, <8 x float> poison, <8 x i32> zeroinitializer
   %2266 = tail call fast noundef <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> %2246, <8 x float> %2265)
   store <8 x float> %2266, ptr %.4222265.i.i1016, align 1
-  %2267 = getelementptr inbounds i8, ptr %.4266.i.i1015, i64 4
-  %2268 = getelementptr inbounds i8, ptr %.4222265.i.i1016, i64 32
+  %2267 = getelementptr inbounds nuw i8, ptr %.4266.i.i1015, i64 4
+  %2268 = getelementptr inbounds nuw i8, ptr %.4222265.i.i1016, i64 32
   %2269 = add nuw nsw i32 %.1228264.i.i1017, 1
   %exitcond300.not.i.i1018 = icmp eq i32 %2269, %.sroa.speculated99.i980
   br i1 %exitcond300.not.i.i1018, label %.loopexit251.i.i985, label %.lr.ph267.i.i1014, !llvm.loop !172
@@ -8254,13 +8254,13 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %.0229270.i.i1008 = phi i32 [ %2296, %.lr.ph273.i.i1005 ], [ 0, %2271 ]
   %2279 = load float, ptr %.5272.i.i1006, align 4
   %2280 = insertelement <4 x float> poison, float %2279, i64 0
-  %2281 = getelementptr inbounds i8, ptr %.5272.i.i1006, i64 4
+  %2281 = getelementptr inbounds nuw i8, ptr %.5272.i.i1006, i64 4
   %2282 = load float, ptr %2281, align 4
   %2283 = insertelement <4 x float> poison, float %2282, i64 0
-  %2284 = getelementptr inbounds i8, ptr %.5272.i.i1006, i64 8
+  %2284 = getelementptr inbounds nuw i8, ptr %.5272.i.i1006, i64 8
   %2285 = load float, ptr %2284, align 4
   %2286 = insertelement <4 x float> poison, float %2285, i64 0
-  %2287 = getelementptr inbounds i8, ptr %.5272.i.i1006, i64 12
+  %2287 = getelementptr inbounds nuw i8, ptr %.5272.i.i1006, i64 12
   %2288 = load float, ptr %2287, align 4
   %2289 = insertelement <4 x float> poison, float %2288, i64 0
   %2290 = shufflevector <4 x float> %2280, <4 x float> %2283, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 4, i32 4, i32 4, i32 4>
@@ -8268,8 +8268,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %2292 = shufflevector <8 x float> %2290, <8 x float> %2291, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %2293 = tail call fast noundef <16 x float> @llvm.x86.avx512.min.ps.512(<16 x float> %2274, <16 x float> %2292, i32 4)
   store <16 x float> %2293, ptr %.5223271.i.i1007, align 1
-  %2294 = getelementptr inbounds i8, ptr %.5272.i.i1006, i64 16
-  %2295 = getelementptr inbounds i8, ptr %.5223271.i.i1007, i64 64
+  %2294 = getelementptr inbounds nuw i8, ptr %.5272.i.i1006, i64 16
+  %2295 = getelementptr inbounds nuw i8, ptr %.5223271.i.i1007, i64 64
   %2296 = add nuw nsw i32 %.0229270.i.i1008, 4
   %2297 = or disjoint i32 %2296, 3
   %2298 = icmp slt i32 %2297, %.sroa.speculated99.i980
@@ -8288,14 +8288,14 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %.1230277.i.i1004 = phi i32 [ %2309, %.lr.ph280.i.i1001 ], [ %.0229.lcssa.i.i989, %.preheader249.i.i988 ]
   %2300 = load float, ptr %.6279.i.i1002, align 4
   %2301 = insertelement <4 x float> poison, float %2300, i64 0
-  %2302 = getelementptr inbounds i8, ptr %.6279.i.i1002, i64 4
+  %2302 = getelementptr inbounds nuw i8, ptr %.6279.i.i1002, i64 4
   %2303 = load float, ptr %2302, align 4
   %2304 = insertelement <4 x float> poison, float %2303, i64 0
   %2305 = shufflevector <4 x float> %2301, <4 x float> %2304, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 4, i32 4, i32 4, i32 4>
   %2306 = tail call fast noundef <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> %2273, <8 x float> %2305)
   store <8 x float> %2306, ptr %.6224278.i.i1003, align 1
-  %2307 = getelementptr inbounds i8, ptr %.6279.i.i1002, i64 8
-  %2308 = getelementptr inbounds i8, ptr %.6224278.i.i1003, i64 32
+  %2307 = getelementptr inbounds nuw i8, ptr %.6279.i.i1002, i64 8
+  %2308 = getelementptr inbounds nuw i8, ptr %.6224278.i.i1003, i64 32
   %2309 = add nuw nsw i32 %.1230277.i.i1004, 2
   %2310 = or disjoint i32 %2309, 1
   %2311 = icmp slt i32 %2310, %.sroa.speculated99.i980
@@ -8310,8 +8310,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %2314 = shufflevector <4 x float> %2313, <4 x float> poison, <4 x i32> zeroinitializer
   %2315 = tail call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %2272, <4 x float> %2314)
   store <4 x float> %2315, ptr %.7225285.i.i998, align 1
-  %2316 = getelementptr inbounds i8, ptr %.7286.i.i997, i64 4
-  %2317 = getelementptr inbounds i8, ptr %.7225285.i.i998, i64 16
+  %2316 = getelementptr inbounds nuw i8, ptr %.7286.i.i997, i64 4
+  %2317 = getelementptr inbounds nuw i8, ptr %.7225285.i.i998, i64 16
   %2318 = add nuw nsw i32 %.2231284.i.i999, 1
   %exitcond301.not.i.i1000 = icmp eq i32 %2318, %.sroa.speculated99.i980
   br i1 %exitcond301.not.i.i1000, label %_ZN4ncnnL16binary_op_vectorINS_27BinaryOp_x86_avx512_functor13binary_op_addEEEvPKfS4_Pfiiii.exit, label %.lr.ph287.i.i996, !llvm.loop !175
@@ -8441,9 +8441,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %2416 = bitcast <16 x i32> %2415 to <16 x float>
   %2417 = fmul fast <16 x float> %2412, %2416
   store <16 x float> %2417, ptr %.0691854.i.i, align 1
-  %2418 = getelementptr inbounds i8, ptr %.0856.i.i, i64 64
-  %2419 = getelementptr inbounds i8, ptr %.0687855.i.i, i64 64
-  %2420 = getelementptr inbounds i8, ptr %.0691854.i.i, i64 64
+  %2418 = getelementptr inbounds nuw i8, ptr %.0856.i.i, i64 64
+  %2419 = getelementptr inbounds nuw i8, ptr %.0687855.i.i, i64 64
+  %2420 = getelementptr inbounds nuw i8, ptr %.0691854.i.i, i64 64
   %2421 = add nuw nsw i32 %.0695853.i.i, 16
   %2422 = or disjoint i32 %2421, 15
   %2423 = icmp slt i32 %2422, %2320
@@ -8522,9 +8522,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %2482 = bitcast <8 x i32> %2481 to <8 x float>
   %2483 = fmul fast <8 x float> %2478, %2482
   store <8 x float> %2483, ptr %.1692861.i.i, align 1
-  %2484 = getelementptr inbounds i8, ptr %.1863.i.i, i64 32
-  %2485 = getelementptr inbounds i8, ptr %.1688862.i.i, i64 32
-  %2486 = getelementptr inbounds i8, ptr %.1692861.i.i, i64 32
+  %2484 = getelementptr inbounds nuw i8, ptr %.1863.i.i, i64 32
+  %2485 = getelementptr inbounds nuw i8, ptr %.1688862.i.i, i64 32
+  %2486 = getelementptr inbounds nuw i8, ptr %.1692861.i.i, i64 32
   %2487 = add nuw nsw i32 %.1696860.i.i, 8
   %2488 = or disjoint i32 %2487, 7
   %2489 = icmp slt i32 %2488, %2320
@@ -8604,9 +8604,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %2549 = bitcast <4 x i32> %2548 to <4 x float>
   %2550 = fmul fast <4 x float> %2545, %2549
   store <4 x float> %2550, ptr %.2693870.i.i, align 1
-  %2551 = getelementptr inbounds i8, ptr %.2872.i.i, i64 16
-  %2552 = getelementptr inbounds i8, ptr %.2689871.i.i, i64 16
-  %2553 = getelementptr inbounds i8, ptr %.2693870.i.i, i64 16
+  %2551 = getelementptr inbounds nuw i8, ptr %.2872.i.i, i64 16
+  %2552 = getelementptr inbounds nuw i8, ptr %.2689871.i.i, i64 16
+  %2553 = getelementptr inbounds nuw i8, ptr %.2693870.i.i, i64 16
   %2554 = add nuw nsw i32 %.2697869.i.i, 4
   %2555 = or disjoint i32 %2554, 3
   %2556 = icmp slt i32 %2555, %2320
@@ -8621,9 +8621,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %2558 = load float, ptr %.3690880.i.i, align 4
   %2559 = tail call fast noundef float @llvm.pow.f32(float %2557, float %2558)
   store float %2559, ptr %.3694879.i.i, align 4
-  %2560 = getelementptr inbounds i8, ptr %.3881.i.i, i64 4
-  %2561 = getelementptr inbounds i8, ptr %.3690880.i.i, i64 4
-  %2562 = getelementptr inbounds i8, ptr %.3694879.i.i, i64 4
+  %2560 = getelementptr inbounds nuw i8, ptr %.3881.i.i, i64 4
+  %2561 = getelementptr inbounds nuw i8, ptr %.3690880.i.i, i64 4
+  %2562 = getelementptr inbounds nuw i8, ptr %.3694879.i.i, i64 4
   %2563 = add nuw nsw i32 %.3698878.i.i, 1
   %exitcond.not.i.i1236 = icmp eq i32 %2563, %2320
   br i1 %exitcond.not.i.i1236, label %_ZN4ncnnL16binary_op_vectorINS_27BinaryOp_x86_avx512_functor13binary_op_addEEEvPKfS4_Pfiiii.exit, label %.lr.ph882.i.i, !llvm.loop !179
@@ -8781,8 +8781,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %2679 = bitcast <16 x i32> %2678 to <16 x float>
   %2680 = fmul fast <16 x float> %2675, %2679
   store <16 x float> %2680, ptr %.0693863.i.i, align 1
-  %2681 = getelementptr inbounds i8, ptr %.0864.i.i, i64 64
-  %2682 = getelementptr inbounds i8, ptr %.0693863.i.i, i64 64
+  %2681 = getelementptr inbounds nuw i8, ptr %.0864.i.i, i64 64
+  %2682 = getelementptr inbounds nuw i8, ptr %.0693863.i.i, i64 64
   %2683 = add nuw nsw i32 %.0697862.i.i, 16
   %2684 = or disjoint i32 %2683, 15
   %2685 = icmp slt i32 %2684, %2320
@@ -8858,8 +8858,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %2743 = bitcast <8 x i32> %2742 to <8 x float>
   %2744 = fmul fast <8 x float> %2739, %2743
   store <8 x float> %2744, ptr %.1694868.i.i, align 1
-  %2745 = getelementptr inbounds i8, ptr %.1869.i.i, i64 32
-  %2746 = getelementptr inbounds i8, ptr %.1694868.i.i, i64 32
+  %2745 = getelementptr inbounds nuw i8, ptr %.1869.i.i, i64 32
+  %2746 = getelementptr inbounds nuw i8, ptr %.1694868.i.i, i64 32
   %2747 = add nuw nsw i32 %.1698867.i.i, 8
   %2748 = or disjoint i32 %2747, 7
   %2749 = icmp slt i32 %2748, %2320
@@ -8936,8 +8936,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %2808 = bitcast <4 x i32> %2807 to <4 x float>
   %2809 = fmul fast <4 x float> %2804, %2808
   store <4 x float> %2809, ptr %.2695875.i.i, align 1
-  %2810 = getelementptr inbounds i8, ptr %.2876.i.i, i64 16
-  %2811 = getelementptr inbounds i8, ptr %.2695875.i.i, i64 16
+  %2810 = getelementptr inbounds nuw i8, ptr %.2876.i.i, i64 16
+  %2811 = getelementptr inbounds nuw i8, ptr %.2695875.i.i, i64 16
   %2812 = add nuw nsw i32 %.2699874.i.i, 4
   %2813 = or disjoint i32 %2812, 3
   %2814 = icmp slt i32 %2813, %2320
@@ -8950,8 +8950,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %2815 = load float, ptr %.3883.i.i, align 4
   %2816 = tail call fast noundef float @llvm.pow.f32(float %2815, float %2567)
   store float %2816, ptr %.3696882.i.i, align 4
-  %2817 = getelementptr inbounds i8, ptr %.3883.i.i, i64 4
-  %2818 = getelementptr inbounds i8, ptr %.3696882.i.i, i64 4
+  %2817 = getelementptr inbounds nuw i8, ptr %.3883.i.i, i64 4
+  %2818 = getelementptr inbounds nuw i8, ptr %.3696882.i.i, i64 4
   %2819 = add nuw nsw i32 %.3700881.i.i, 1
   %exitcond.not.i38.i1231 = icmp eq i32 %2819, %2320
   br i1 %exitcond.not.i38.i1231, label %_ZN4ncnnL16binary_op_vectorINS_27BinaryOp_x86_avx512_functor13binary_op_addEEEvPKfS4_Pfiiii.exit, label %.lr.ph884.i.i, !llvm.loop !183
@@ -9144,8 +9144,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %2967 = bitcast <16 x i32> %2966 to <16 x float>
   %2968 = fmul fast <16 x float> %2963, %2967
   store <16 x float> %2968, ptr %.0693863.i67.i, align 1
-  %2969 = getelementptr inbounds i8, ptr %.0864.i66.i, i64 64
-  %2970 = getelementptr inbounds i8, ptr %.0693863.i67.i, i64 64
+  %2969 = getelementptr inbounds nuw i8, ptr %.0864.i66.i, i64 64
+  %2970 = getelementptr inbounds nuw i8, ptr %.0693863.i67.i, i64 64
   %2971 = add nuw nsw i32 %.0697862.i68.i, 16
   %2972 = or disjoint i32 %2971, 15
   %2973 = icmp slt i32 %2972, %2320
@@ -9224,8 +9224,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %3032 = bitcast <8 x i32> %3031 to <8 x float>
   %3033 = fmul fast <8 x float> %3028, %3032
   store <8 x float> %3033, ptr %.1694868.i63.i, align 1
-  %3034 = getelementptr inbounds i8, ptr %.1869.i62.i, i64 32
-  %3035 = getelementptr inbounds i8, ptr %.1694868.i63.i, i64 32
+  %3034 = getelementptr inbounds nuw i8, ptr %.1869.i62.i, i64 32
+  %3035 = getelementptr inbounds nuw i8, ptr %.1694868.i63.i, i64 32
   %3036 = add nuw nsw i32 %.1698867.i64.i, 8
   %3037 = or disjoint i32 %3036, 7
   %3038 = icmp slt i32 %3037, %2320
@@ -9270,8 +9270,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %3066 = bitcast <4 x i32> %3065 to <4 x float>
   %3067 = fmul fast <4 x float> %3062, %3066
   store <4 x float> %3067, ptr %.2695875.i59.i, align 1
-  %3068 = getelementptr inbounds i8, ptr %.2876.i58.i, i64 16
-  %3069 = getelementptr inbounds i8, ptr %.2695875.i59.i, i64 16
+  %3068 = getelementptr inbounds nuw i8, ptr %.2876.i58.i, i64 16
+  %3069 = getelementptr inbounds nuw i8, ptr %.2695875.i59.i, i64 16
   %3070 = add nuw nsw i32 %.2699874.i60.i, 4
   %3071 = or disjoint i32 %3070, 3
   %3072 = icmp slt i32 %3071, %2320
@@ -9284,8 +9284,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %3073 = load float, ptr %.3883.i53.i, align 4
   %3074 = tail call fast noundef float @llvm.pow.f32(float %2823, float %3073)
   store float %3074, ptr %.3696882.i54.i, align 4
-  %3075 = getelementptr inbounds i8, ptr %.3883.i53.i, i64 4
-  %3076 = getelementptr inbounds i8, ptr %.3696882.i54.i, i64 4
+  %3075 = getelementptr inbounds nuw i8, ptr %.3883.i53.i, i64 4
+  %3076 = getelementptr inbounds nuw i8, ptr %.3696882.i54.i, i64 4
   %3077 = add nuw nsw i32 %.3700881.i55.i, 1
   %exitcond.not.i56.i = icmp eq i32 %3077, %2320
   br i1 %exitcond.not.i56.i, label %_ZN4ncnnL16binary_op_vectorINS_27BinaryOp_x86_avx512_functor13binary_op_addEEEvPKfS4_Pfiiii.exit, label %.lr.ph884.i52.i, !llvm.loop !187
@@ -9403,9 +9403,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %3174 = bitcast <16 x i32> %3173 to <16 x float>
   %3175 = fmul fast <16 x float> %3170, %3174
   store <16 x float> %3175, ptr %.114981750.i.i, align 1
-  %3176 = getelementptr inbounds i8, ptr %.11752.i.i, i64 64
-  %3177 = getelementptr inbounds i8, ptr %.114901751.i.i, i64 4
-  %3178 = getelementptr inbounds i8, ptr %.114981750.i.i, i64 64
+  %3176 = getelementptr inbounds nuw i8, ptr %.11752.i.i, i64 64
+  %3177 = getelementptr inbounds nuw i8, ptr %.114901751.i.i, i64 4
+  %3178 = getelementptr inbounds nuw i8, ptr %.114981750.i.i, i64 64
   %3179 = add nuw nsw i32 %.015051749.i.i, 1
   %exitcond.not.i73.i = icmp eq i32 %3179, %.sroa.speculated95.i
   br i1 %exitcond.not.i73.i, label %.loopexit1748.i.i, label %3117, !llvm.loop !188
@@ -9476,7 +9476,7 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %3217 = load <16 x float>, ptr %.31758.i.i, align 1
   %3218 = load float, ptr %.314921757.i.i, align 4
   %3219 = insertelement <8 x float> poison, float %3218, i64 0
-  %3220 = getelementptr inbounds i8, ptr %.314921757.i.i, i64 4
+  %3220 = getelementptr inbounds nuw i8, ptr %.314921757.i.i, i64 4
   %3221 = load float, ptr %3220, align 4
   %3222 = insertelement <8 x float> poison, float %3221, i64 0
   %3223 = shufflevector <8 x float> %3219, <8 x float> %3222, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
@@ -9535,9 +9535,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %3276 = bitcast <16 x i32> %3275 to <16 x float>
   %3277 = fmul fast <16 x float> %3272, %3276
   store <16 x float> %3277, ptr %.315001756.i.i, align 1
-  %3278 = getelementptr inbounds i8, ptr %.31758.i.i, i64 64
-  %3279 = getelementptr inbounds i8, ptr %.314921757.i.i, i64 8
-  %3280 = getelementptr inbounds i8, ptr %.315001756.i.i, i64 64
+  %3278 = getelementptr inbounds nuw i8, ptr %.31758.i.i, i64 64
+  %3279 = getelementptr inbounds nuw i8, ptr %.314921757.i.i, i64 8
+  %3280 = getelementptr inbounds nuw i8, ptr %.315001756.i.i, i64 64
   %3281 = add nuw nsw i32 %.015061755.i.i, 2
   %3282 = or disjoint i32 %3281, 1
   %3283 = icmp slt i32 %3282, %.sroa.speculated95.i
@@ -9609,9 +9609,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %3342 = bitcast <8 x i32> %3341 to <8 x float>
   %3343 = fmul fast <8 x float> %3338, %3342
   store <8 x float> %3343, ptr %.415011765.i.i, align 1
-  %3344 = getelementptr inbounds i8, ptr %.41767.i.i, i64 32
-  %3345 = getelementptr inbounds i8, ptr %.414931766.i.i, i64 4
-  %3346 = getelementptr inbounds i8, ptr %.415011765.i.i, i64 32
+  %3344 = getelementptr inbounds nuw i8, ptr %.41767.i.i, i64 32
+  %3345 = getelementptr inbounds nuw i8, ptr %.414931766.i.i, i64 4
+  %3346 = getelementptr inbounds nuw i8, ptr %.415011765.i.i, i64 32
   %3347 = add nuw nsw i32 %.115071764.i.i, 1
   %exitcond1812.not.i.i = icmp eq i32 %3347, %.sroa.speculated95.i
   br i1 %exitcond1812.not.i.i, label %.loopexit1745.i.i, label %.lr.ph1768.i.i, !llvm.loop !190
@@ -9683,13 +9683,13 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %3386 = load <16 x float>, ptr %.51775.i.i, align 1
   %3387 = load float, ptr %.514941774.i.i, align 4
   %3388 = insertelement <4 x float> poison, float %3387, i64 0
-  %3389 = getelementptr inbounds i8, ptr %.514941774.i.i, i64 4
+  %3389 = getelementptr inbounds nuw i8, ptr %.514941774.i.i, i64 4
   %3390 = load float, ptr %3389, align 4
   %3391 = insertelement <4 x float> poison, float %3390, i64 0
-  %3392 = getelementptr inbounds i8, ptr %.514941774.i.i, i64 8
+  %3392 = getelementptr inbounds nuw i8, ptr %.514941774.i.i, i64 8
   %3393 = load float, ptr %3392, align 4
   %3394 = insertelement <4 x float> poison, float %3393, i64 0
-  %3395 = getelementptr inbounds i8, ptr %.514941774.i.i, i64 12
+  %3395 = getelementptr inbounds nuw i8, ptr %.514941774.i.i, i64 12
   %3396 = load float, ptr %3395, align 4
   %3397 = insertelement <4 x float> poison, float %3396, i64 0
   %3398 = shufflevector <4 x float> %3388, <4 x float> %3391, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 4, i32 4, i32 4, i32 4>
@@ -9750,9 +9750,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %3453 = bitcast <16 x i32> %3452 to <16 x float>
   %3454 = fmul fast <16 x float> %3449, %3453
   store <16 x float> %3454, ptr %.515021773.i.i, align 1
-  %3455 = getelementptr inbounds i8, ptr %.51775.i.i, i64 64
-  %3456 = getelementptr inbounds i8, ptr %.514941774.i.i, i64 16
-  %3457 = getelementptr inbounds i8, ptr %.515021773.i.i, i64 64
+  %3455 = getelementptr inbounds nuw i8, ptr %.51775.i.i, i64 64
+  %3456 = getelementptr inbounds nuw i8, ptr %.514941774.i.i, i64 16
+  %3457 = getelementptr inbounds nuw i8, ptr %.515021773.i.i, i64 64
   %3458 = add nuw nsw i32 %.015081772.i.i, 4
   %3459 = or disjoint i32 %3458, 3
   %3460 = icmp slt i32 %3459, %.sroa.speculated95.i
@@ -9774,7 +9774,7 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %3462 = load <8 x float>, ptr %.61784.i.i, align 1
   %3463 = load float, ptr %.614951783.i.i, align 4
   %3464 = insertelement <4 x float> poison, float %3463, i64 0
-  %3465 = getelementptr inbounds i8, ptr %.614951783.i.i, i64 4
+  %3465 = getelementptr inbounds nuw i8, ptr %.614951783.i.i, i64 4
   %3466 = load float, ptr %3465, align 4
   %3467 = insertelement <4 x float> poison, float %3466, i64 0
   %3468 = shufflevector <4 x float> %3464, <4 x float> %3467, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 4, i32 4, i32 4, i32 4>
@@ -9835,9 +9835,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %3523 = bitcast <8 x i32> %3522 to <8 x float>
   %3524 = fmul fast <8 x float> %3519, %3523
   store <8 x float> %3524, ptr %.615031782.i.i, align 1
-  %3525 = getelementptr inbounds i8, ptr %.61784.i.i, i64 32
-  %3526 = getelementptr inbounds i8, ptr %.614951783.i.i, i64 8
-  %3527 = getelementptr inbounds i8, ptr %.615031782.i.i, i64 32
+  %3525 = getelementptr inbounds nuw i8, ptr %.61784.i.i, i64 32
+  %3526 = getelementptr inbounds nuw i8, ptr %.614951783.i.i, i64 8
+  %3527 = getelementptr inbounds nuw i8, ptr %.615031782.i.i, i64 32
   %3528 = add nuw nsw i32 %.115091781.i.i, 2
   %3529 = or disjoint i32 %3528, 1
   %3530 = icmp slt i32 %3529, %.sroa.speculated95.i
@@ -9911,9 +9911,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %3591 = bitcast <4 x i32> %3590 to <4 x float>
   %3592 = fmul fast <4 x float> %3587, %3591
   store <4 x float> %3592, ptr %.715041791.i.i, align 1
-  %3593 = getelementptr inbounds i8, ptr %.71793.i.i, i64 16
-  %3594 = getelementptr inbounds i8, ptr %.714961792.i.i, i64 4
-  %3595 = getelementptr inbounds i8, ptr %.715041791.i.i, i64 16
+  %3593 = getelementptr inbounds nuw i8, ptr %.71793.i.i, i64 16
+  %3594 = getelementptr inbounds nuw i8, ptr %.714961792.i.i, i64 4
+  %3595 = getelementptr inbounds nuw i8, ptr %.715041791.i.i, i64 16
   %3596 = add nuw nsw i32 %.215101790.i.i, 1
   %exitcond1813.not.i.i = icmp eq i32 %3596, %.sroa.speculated95.i
   br i1 %exitcond1813.not.i.i, label %_ZN4ncnnL16binary_op_vectorINS_27BinaryOp_x86_avx512_functor13binary_op_addEEEvPKfS4_Pfiiii.exit, label %.lr.ph1794.i.i, !llvm.loop !193
@@ -10024,8 +10024,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %3690 = bitcast <16 x i32> %3689 to <16 x float>
   %3691 = fmul fast <16 x float> %3686, %3690
   store <16 x float> %3691, ptr %.0711871.i.i, align 1
-  %3692 = getelementptr inbounds i8, ptr %.0872.i.i, i64 64
-  %3693 = getelementptr inbounds i8, ptr %.0711871.i.i, i64 64
+  %3692 = getelementptr inbounds nuw i8, ptr %.0872.i.i, i64 64
+  %3693 = getelementptr inbounds nuw i8, ptr %.0711871.i.i, i64 64
   %3694 = add nuw nsw i32 %.0714870.i.i, 16
   %3695 = or disjoint i32 %3694, 15
   %3696 = icmp slt i32 %3695, %2320
@@ -10109,8 +10109,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %3758 = bitcast <8 x i32> %3757 to <8 x float>
   %3759 = fmul fast <8 x float> %3754, %3758
   store <8 x float> %3759, ptr %.1712876.i.i, align 1
-  %3760 = getelementptr inbounds i8, ptr %.1877.i.i, i64 32
-  %3761 = getelementptr inbounds i8, ptr %.1712876.i.i, i64 32
+  %3760 = getelementptr inbounds nuw i8, ptr %.1877.i.i, i64 32
+  %3761 = getelementptr inbounds nuw i8, ptr %.1712876.i.i, i64 32
   %3762 = add nuw nsw i32 %.1715875.i.i, 8
   %3763 = or disjoint i32 %3762, 7
   %3764 = icmp slt i32 %3763, %2320
@@ -10195,8 +10195,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %3827 = bitcast <4 x i32> %3826 to <4 x float>
   %3828 = fmul fast <4 x float> %3823, %3827
   store <4 x float> %3828, ptr %.2713885.i.i, align 1
-  %3829 = getelementptr inbounds i8, ptr %.2886.i.i, i64 16
-  %3830 = getelementptr inbounds i8, ptr %.2713885.i.i, i64 16
+  %3829 = getelementptr inbounds nuw i8, ptr %.2886.i.i, i64 16
+  %3830 = getelementptr inbounds nuw i8, ptr %.2713885.i.i, i64 16
   %3831 = add nuw nsw i32 %.2716884.i.i, 4
   %3832 = or disjoint i32 %3831, 3
   %3833 = icmp slt i32 %3832, %2320
@@ -10308,8 +10308,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %3927 = bitcast <16 x i32> %3926 to <16 x float>
   %3928 = fmul fast <16 x float> %3923, %3927
   store <16 x float> %3928, ptr %.114811736.i.i, align 1
-  %3929 = getelementptr inbounds i8, ptr %.11737.i.i, i64 4
-  %3930 = getelementptr inbounds i8, ptr %.114811736.i.i, i64 64
+  %3929 = getelementptr inbounds nuw i8, ptr %.11737.i.i, i64 4
+  %3930 = getelementptr inbounds nuw i8, ptr %.114811736.i.i, i64 64
   %3931 = add nuw nsw i32 %.014881735.i.i, 1
   %exitcond.not.i84.i = icmp eq i32 %3931, %.sroa.speculated95.i
   br i1 %exitcond.not.i84.i, label %.loopexit1734.i.i, label %3902, !llvm.loop !197
@@ -10444,7 +10444,7 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %.014891739.i.i = phi i32 [ 0, %.lr.ph1742.i.i ], [ %4066, %4034 ]
   %4035 = load float, ptr %.31741.i.i, align 4
   %4036 = insertelement <8 x float> poison, float %4035, i64 0
-  %4037 = getelementptr inbounds i8, ptr %.31741.i.i, i64 4
+  %4037 = getelementptr inbounds nuw i8, ptr %.31741.i.i, i64 4
   %4038 = load float, ptr %4037, align 4
   %4039 = insertelement <8 x float> poison, float %4038, i64 0
   %4040 = shufflevector <8 x float> %4036, <8 x float> %4039, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
@@ -10472,8 +10472,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %4062 = bitcast <16 x i32> %4061 to <16 x float>
   %4063 = fmul fast <16 x float> %4058, %4062
   store <16 x float> %4063, ptr %.314831740.i.i, align 1
-  %4064 = getelementptr inbounds i8, ptr %.31741.i.i, i64 8
-  %4065 = getelementptr inbounds i8, ptr %.314831740.i.i, i64 64
+  %4064 = getelementptr inbounds nuw i8, ptr %.31741.i.i, i64 8
+  %4065 = getelementptr inbounds nuw i8, ptr %.314831740.i.i, i64 64
   %4066 = add nuw nsw i32 %.014891739.i.i, 2
   %4067 = or disjoint i32 %4066, 1
   %4068 = icmp slt i32 %4067, %.sroa.speculated95.i
@@ -10511,8 +10511,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %4095 = bitcast <8 x i32> %4094 to <8 x float>
   %4096 = fmul fast <8 x float> %4091, %4095
   store <8 x float> %4096, ptr %.414841747.i.i, align 1
-  %4097 = getelementptr inbounds i8, ptr %.41748.i.i, i64 4
-  %4098 = getelementptr inbounds i8, ptr %.414841747.i.i, i64 32
+  %4097 = getelementptr inbounds nuw i8, ptr %.41748.i.i, i64 4
+  %4098 = getelementptr inbounds nuw i8, ptr %.414841747.i.i, i64 32
   %4099 = add nuw nsw i32 %.114901746.i.i, 1
   %exitcond1782.not.i.i = icmp eq i32 %4099, %.sroa.speculated95.i
   br i1 %exitcond1782.not.i.i, label %.loopexit1733.i.i, label %4069, !llvm.loop !199
@@ -10649,13 +10649,13 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %.014911752.i.i = phi i32 [ 0, %.lr.ph1755.i.i ], [ %4244, %4204 ]
   %4205 = load float, ptr %.51754.i.i, align 4
   %4206 = insertelement <4 x float> poison, float %4205, i64 0
-  %4207 = getelementptr inbounds i8, ptr %.51754.i.i, i64 4
+  %4207 = getelementptr inbounds nuw i8, ptr %.51754.i.i, i64 4
   %4208 = load float, ptr %4207, align 4
   %4209 = insertelement <4 x float> poison, float %4208, i64 0
-  %4210 = getelementptr inbounds i8, ptr %.51754.i.i, i64 8
+  %4210 = getelementptr inbounds nuw i8, ptr %.51754.i.i, i64 8
   %4211 = load float, ptr %4210, align 4
   %4212 = insertelement <4 x float> poison, float %4211, i64 0
-  %4213 = getelementptr inbounds i8, ptr %.51754.i.i, i64 12
+  %4213 = getelementptr inbounds nuw i8, ptr %.51754.i.i, i64 12
   %4214 = load float, ptr %4213, align 4
   %4215 = insertelement <4 x float> poison, float %4214, i64 0
   %4216 = shufflevector <4 x float> %4206, <4 x float> %4209, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 4, i32 4, i32 4, i32 4>
@@ -10685,8 +10685,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %4240 = bitcast <16 x i32> %4239 to <16 x float>
   %4241 = fmul fast <16 x float> %4236, %4240
   store <16 x float> %4241, ptr %.514851753.i.i, align 1
-  %4242 = getelementptr inbounds i8, ptr %.51754.i.i, i64 16
-  %4243 = getelementptr inbounds i8, ptr %.514851753.i.i, i64 64
+  %4242 = getelementptr inbounds nuw i8, ptr %.51754.i.i, i64 16
+  %4243 = getelementptr inbounds nuw i8, ptr %.514851753.i.i, i64 64
   %4244 = add nuw nsw i32 %.014911752.i.i, 4
   %4245 = or disjoint i32 %4244, 3
   %4246 = icmp slt i32 %4245, %.sroa.speculated95.i
@@ -10740,7 +10740,7 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %.114921759.i.i = phi i32 [ %.01491.lcssa.i.i, %.lr.ph1762.i.i ], [ %4313, %4280 ]
   %4281 = load float, ptr %.61761.i.i, align 4
   %4282 = insertelement <4 x float> poison, float %4281, i64 0
-  %4283 = getelementptr inbounds i8, ptr %.61761.i.i, i64 4
+  %4283 = getelementptr inbounds nuw i8, ptr %.61761.i.i, i64 4
   %4284 = load float, ptr %4283, align 4
   %4285 = insertelement <4 x float> poison, float %4284, i64 0
   %4286 = shufflevector <4 x float> %4282, <4 x float> %4285, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 4, i32 4, i32 4, i32 4>
@@ -10769,8 +10769,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %4309 = bitcast <8 x i32> %4308 to <8 x float>
   %4310 = fmul fast <8 x float> %4305, %4309
   store <8 x float> %4310, ptr %.614861760.i.i, align 1
-  %4311 = getelementptr inbounds i8, ptr %.61761.i.i, i64 8
-  %4312 = getelementptr inbounds i8, ptr %.614861760.i.i, i64 32
+  %4311 = getelementptr inbounds nuw i8, ptr %.61761.i.i, i64 8
+  %4312 = getelementptr inbounds nuw i8, ptr %.614861760.i.i, i64 32
   %4313 = add nuw nsw i32 %.114921759.i.i, 2
   %4314 = or disjoint i32 %4313, 1
   %4315 = icmp slt i32 %4314, %.sroa.speculated95.i
@@ -10810,8 +10810,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %4344 = bitcast <4 x i32> %4343 to <4 x float>
   %4345 = fmul fast <4 x float> %4340, %4344
   store <4 x float> %4345, ptr %.714871767.i.i, align 1
-  %4346 = getelementptr inbounds i8, ptr %.71768.i.i, i64 4
-  %4347 = getelementptr inbounds i8, ptr %.714871767.i.i, i64 16
+  %4346 = getelementptr inbounds nuw i8, ptr %.71768.i.i, i64 4
+  %4347 = getelementptr inbounds nuw i8, ptr %.714871767.i.i, i64 16
   %4348 = add nuw nsw i32 %.214931766.i.i, 1
   %exitcond1783.not.i.i = icmp eq i32 %4348, %.sroa.speculated95.i
   br i1 %exitcond1783.not.i.i, label %_ZN4ncnnL16binary_op_vectorINS_27BinaryOp_x86_avx512_functor13binary_op_addEEEvPKfS4_Pfiiii.exit, label %4316, !llvm.loop !202
@@ -10853,9 +10853,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %4360 = load <16 x float>, ptr %.06485.i.i1469, align 1
   %4361 = fsub fast <16 x float> %4360, %4359
   store <16 x float> %4361, ptr %.06884.i.i1470, align 1
-  %4362 = getelementptr inbounds i8, ptr %.086.i.i1468, i64 64
-  %4363 = getelementptr inbounds i8, ptr %.06485.i.i1469, i64 64
-  %4364 = getelementptr inbounds i8, ptr %.06884.i.i1470, i64 64
+  %4362 = getelementptr inbounds nuw i8, ptr %.086.i.i1468, i64 64
+  %4363 = getelementptr inbounds nuw i8, ptr %.06485.i.i1469, i64 64
+  %4364 = getelementptr inbounds nuw i8, ptr %.06884.i.i1470, i64 64
   %4365 = add nuw nsw i32 %.07283.i.i1471, 16
   %4366 = or disjoint i32 %4365, 15
   %4367 = icmp slt i32 %4366, %4350
@@ -10879,9 +10879,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %4371 = load <8 x float>, ptr %.16592.i.i1464, align 1
   %4372 = fsub fast <8 x float> %4371, %4370
   store <8 x float> %4372, ptr %.16991.i.i1465, align 1
-  %4373 = getelementptr inbounds i8, ptr %.193.i.i1463, i64 32
-  %4374 = getelementptr inbounds i8, ptr %.16592.i.i1464, i64 32
-  %4375 = getelementptr inbounds i8, ptr %.16991.i.i1465, i64 32
+  %4373 = getelementptr inbounds nuw i8, ptr %.193.i.i1463, i64 32
+  %4374 = getelementptr inbounds nuw i8, ptr %.16592.i.i1464, i64 32
+  %4375 = getelementptr inbounds nuw i8, ptr %.16991.i.i1465, i64 32
   %4376 = add nuw nsw i32 %.17390.i.i1466, 8
   %4377 = or disjoint i32 %4376, 7
   %4378 = icmp slt i32 %4377, %4350
@@ -10904,9 +10904,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %4381 = load <4 x float>, ptr %.266101.i.i1459, align 1
   %4382 = fsub fast <4 x float> %4381, %4380
   store <4 x float> %4382, ptr %.270100.i.i1460, align 1
-  %4383 = getelementptr inbounds i8, ptr %.2102.i.i1458, i64 16
-  %4384 = getelementptr inbounds i8, ptr %.266101.i.i1459, i64 16
-  %4385 = getelementptr inbounds i8, ptr %.270100.i.i1460, i64 16
+  %4383 = getelementptr inbounds nuw i8, ptr %.2102.i.i1458, i64 16
+  %4384 = getelementptr inbounds nuw i8, ptr %.266101.i.i1459, i64 16
+  %4385 = getelementptr inbounds nuw i8, ptr %.270100.i.i1460, i64 16
   %4386 = add nuw nsw i32 %.27499.i.i1461, 4
   %4387 = or disjoint i32 %4386, 3
   %4388 = icmp slt i32 %4387, %4350
@@ -10921,9 +10921,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %4390 = load float, ptr %.3111.i.i1452, align 4
   %4391 = fsub fast float %4389, %4390
   store float %4391, ptr %.371109.i.i1454, align 4
-  %4392 = getelementptr inbounds i8, ptr %.3111.i.i1452, i64 4
-  %4393 = getelementptr inbounds i8, ptr %.367110.i.i1453, i64 4
-  %4394 = getelementptr inbounds i8, ptr %.371109.i.i1454, i64 4
+  %4392 = getelementptr inbounds nuw i8, ptr %.3111.i.i1452, i64 4
+  %4393 = getelementptr inbounds nuw i8, ptr %.367110.i.i1453, i64 4
+  %4394 = getelementptr inbounds nuw i8, ptr %.371109.i.i1454, i64 4
   %4395 = add nuw nsw i32 %.375108.i.i1455, 1
   %exitcond.not.i.i1456 = icmp eq i32 %4395, %4350
   br i1 %exitcond.not.i.i1456, label %_ZN4ncnnL16binary_op_vectorINS_27BinaryOp_x86_avx512_functor13binary_op_addEEEvPKfS4_Pfiiii.exit, label %.lr.ph112.i.i1451, !llvm.loop !206
@@ -10993,8 +10993,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %4425 = load <16 x float>, ptr %.094.i.i1430, align 1
   %4426 = fsub fast <16 x float> %4420, %4425
   store <16 x float> %4426, ptr %.07093.i.i1431, align 1
-  %4427 = getelementptr inbounds i8, ptr %.094.i.i1430, i64 64
-  %4428 = getelementptr inbounds i8, ptr %.07093.i.i1431, i64 64
+  %4427 = getelementptr inbounds nuw i8, ptr %.094.i.i1430, i64 64
+  %4428 = getelementptr inbounds nuw i8, ptr %.07093.i.i1431, i64 64
   %4429 = add nuw nsw i32 %.07492.i.i1432, 16
   %4430 = or disjoint i32 %4429, 15
   %4431 = icmp slt i32 %4430, %4350
@@ -11015,8 +11015,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %4434 = load <8 x float>, ptr %.199.i.i1426, align 1
   %4435 = fsub fast <8 x float> %4418, %4434
   store <8 x float> %4435, ptr %.17198.i.i1427, align 1
-  %4436 = getelementptr inbounds i8, ptr %.199.i.i1426, i64 32
-  %4437 = getelementptr inbounds i8, ptr %.17198.i.i1427, i64 32
+  %4436 = getelementptr inbounds nuw i8, ptr %.199.i.i1426, i64 32
+  %4437 = getelementptr inbounds nuw i8, ptr %.17198.i.i1427, i64 32
   %4438 = add nuw nsw i32 %.17597.i.i1428, 8
   %4439 = or disjoint i32 %4438, 7
   %4440 = icmp slt i32 %4439, %4350
@@ -11036,8 +11036,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %4442 = load <4 x float>, ptr %.2106.i.i1422, align 1
   %4443 = fsub fast <4 x float> %4419, %4442
   store <4 x float> %4443, ptr %.272105.i.i1423, align 1
-  %4444 = getelementptr inbounds i8, ptr %.2106.i.i1422, i64 16
-  %4445 = getelementptr inbounds i8, ptr %.272105.i.i1423, i64 16
+  %4444 = getelementptr inbounds nuw i8, ptr %.2106.i.i1422, i64 16
+  %4445 = getelementptr inbounds nuw i8, ptr %.272105.i.i1423, i64 16
   %4446 = add nuw nsw i32 %.276104.i.i1424, 4
   %4447 = or disjoint i32 %4446, 3
   %4448 = icmp slt i32 %4447, %4350
@@ -11050,8 +11050,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %4449 = load float, ptr %.3113.i.i1417, align 4
   %4450 = fsub fast float %4399, %4449
   store float %4450, ptr %.373112.i.i1418, align 4
-  %4451 = getelementptr inbounds i8, ptr %.3113.i.i1417, i64 4
-  %4452 = getelementptr inbounds i8, ptr %.373112.i.i1418, i64 4
+  %4451 = getelementptr inbounds nuw i8, ptr %.3113.i.i1417, i64 4
+  %4452 = getelementptr inbounds nuw i8, ptr %.373112.i.i1418, i64 4
   %4453 = add nuw nsw i32 %.377111.i.i1419, 1
   %exitcond.not.i38.i1420 = icmp eq i32 %4453, %4350
   br i1 %exitcond.not.i38.i1420, label %_ZN4ncnnL16binary_op_vectorINS_27BinaryOp_x86_avx512_functor13binary_op_addEEEvPKfS4_Pfiiii.exit, label %.lr.ph114.i.i1416, !llvm.loop !210
@@ -11121,8 +11121,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %4483 = load <16 x float>, ptr %.094.i68.i1398, align 1
   %4484 = fsub fast <16 x float> %4483, %4478
   store <16 x float> %4484, ptr %.07093.i69.i1399, align 1
-  %4485 = getelementptr inbounds i8, ptr %.094.i68.i1398, i64 64
-  %4486 = getelementptr inbounds i8, ptr %.07093.i69.i1399, i64 64
+  %4485 = getelementptr inbounds nuw i8, ptr %.094.i68.i1398, i64 64
+  %4486 = getelementptr inbounds nuw i8, ptr %.07093.i69.i1399, i64 64
   %4487 = add nuw nsw i32 %.07492.i70.i1400, 16
   %4488 = or disjoint i32 %4487, 15
   %4489 = icmp slt i32 %4488, %4350
@@ -11143,8 +11143,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %4492 = load <8 x float>, ptr %.199.i63.i1394, align 1
   %4493 = fsub fast <8 x float> %4492, %4476
   store <8 x float> %4493, ptr %.17198.i64.i1395, align 1
-  %4494 = getelementptr inbounds i8, ptr %.199.i63.i1394, i64 32
-  %4495 = getelementptr inbounds i8, ptr %.17198.i64.i1395, i64 32
+  %4494 = getelementptr inbounds nuw i8, ptr %.199.i63.i1394, i64 32
+  %4495 = getelementptr inbounds nuw i8, ptr %.17198.i64.i1395, i64 32
   %4496 = add nuw nsw i32 %.17597.i65.i1396, 8
   %4497 = or disjoint i32 %4496, 7
   %4498 = icmp slt i32 %4497, %4350
@@ -11164,8 +11164,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %4500 = load <4 x float>, ptr %.2106.i59.i1390, align 1
   %4501 = fsub fast <4 x float> %4500, %4477
   store <4 x float> %4501, ptr %.272105.i60.i1391, align 1
-  %4502 = getelementptr inbounds i8, ptr %.2106.i59.i1390, i64 16
-  %4503 = getelementptr inbounds i8, ptr %.272105.i60.i1391, i64 16
+  %4502 = getelementptr inbounds nuw i8, ptr %.2106.i59.i1390, i64 16
+  %4503 = getelementptr inbounds nuw i8, ptr %.272105.i60.i1391, i64 16
   %4504 = add nuw nsw i32 %.276104.i61.i1392, 4
   %4505 = or disjoint i32 %4504, 3
   %4506 = icmp slt i32 %4505, %4350
@@ -11178,8 +11178,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %4507 = load float, ptr %.3113.i54.i1385, align 4
   %4508 = fsub fast float %4507, %4457
   store float %4508, ptr %.373112.i55.i1386, align 4
-  %4509 = getelementptr inbounds i8, ptr %.3113.i54.i1385, i64 4
-  %4510 = getelementptr inbounds i8, ptr %.373112.i55.i1386, i64 4
+  %4509 = getelementptr inbounds nuw i8, ptr %.3113.i54.i1385, i64 4
+  %4510 = getelementptr inbounds nuw i8, ptr %.373112.i55.i1386, i64 4
   %4511 = add nuw nsw i32 %.377111.i56.i1387, 1
   %exitcond.not.i57.i1388 = icmp eq i32 %4511, %4350
   br i1 %exitcond.not.i57.i1388, label %_ZN4ncnnL16binary_op_vectorINS_27BinaryOp_x86_avx512_functor13binary_op_addEEEvPKfS4_Pfiiii.exit, label %.lr.ph114.i53.i1384, !llvm.loop !214
@@ -11209,9 +11209,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %4522 = shufflevector <16 x float> %4521, <16 x float> poison, <16 x i32> zeroinitializer
   %4523 = fsub fast <16 x float> %4522, %4519
   store <16 x float> %4523, ptr %.1236268.i.i1369, align 1
-  %4524 = getelementptr inbounds i8, ptr %.1270.i.i1367, i64 64
-  %4525 = getelementptr inbounds i8, ptr %.1228269.i.i1368, i64 4
-  %4526 = getelementptr inbounds i8, ptr %.1236268.i.i1369, i64 64
+  %4524 = getelementptr inbounds nuw i8, ptr %.1270.i.i1367, i64 64
+  %4525 = getelementptr inbounds nuw i8, ptr %.1228269.i.i1368, i64 4
+  %4526 = getelementptr inbounds nuw i8, ptr %.1236268.i.i1369, i64 64
   %4527 = add nuw nsw i32 %.0243267.i.i1370, 1
   %exitcond.not.i75.i1371 = icmp eq i32 %4527, %.sroa.speculated98.i1238
   br i1 %exitcond.not.i75.i1371, label %.loopexit266.i.i1312, label %.lr.ph.i74.i1366, !llvm.loop !215
@@ -11247,15 +11247,15 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %4532 = load <16 x float>, ptr %.3276.i.i1361, align 1
   %4533 = load float, ptr %.3230275.i.i1362, align 4
   %4534 = insertelement <8 x float> poison, float %4533, i64 0
-  %4535 = getelementptr inbounds i8, ptr %.3230275.i.i1362, i64 4
+  %4535 = getelementptr inbounds nuw i8, ptr %.3230275.i.i1362, i64 4
   %4536 = load float, ptr %4535, align 4
   %4537 = insertelement <8 x float> poison, float %4536, i64 0
   %4538 = shufflevector <8 x float> %4534, <8 x float> %4537, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
   %4539 = fsub fast <16 x float> %4538, %4532
   store <16 x float> %4539, ptr %.3238274.i.i1363, align 1
-  %4540 = getelementptr inbounds i8, ptr %.3276.i.i1361, i64 64
-  %4541 = getelementptr inbounds i8, ptr %.3230275.i.i1362, i64 8
-  %4542 = getelementptr inbounds i8, ptr %.3238274.i.i1363, i64 64
+  %4540 = getelementptr inbounds nuw i8, ptr %.3276.i.i1361, i64 64
+  %4541 = getelementptr inbounds nuw i8, ptr %.3230275.i.i1362, i64 8
+  %4542 = getelementptr inbounds nuw i8, ptr %.3238274.i.i1363, i64 64
   %4543 = add nuw nsw i32 %.0244273.i.i1364, 2
   %4544 = or disjoint i32 %4543, 1
   %4545 = icmp slt i32 %4544, %.sroa.speculated98.i1238
@@ -11272,9 +11272,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %4549 = shufflevector <8 x float> %4548, <8 x float> poison, <8 x i32> zeroinitializer
   %4550 = fsub fast <8 x float> %4549, %4546
   store <8 x float> %4550, ptr %.4239283.i.i1357, align 1
-  %4551 = getelementptr inbounds i8, ptr %.4285.i.i1355, i64 32
-  %4552 = getelementptr inbounds i8, ptr %.4231284.i.i1356, i64 4
-  %4553 = getelementptr inbounds i8, ptr %.4239283.i.i1357, i64 32
+  %4551 = getelementptr inbounds nuw i8, ptr %.4285.i.i1355, i64 32
+  %4552 = getelementptr inbounds nuw i8, ptr %.4231284.i.i1356, i64 4
+  %4553 = getelementptr inbounds nuw i8, ptr %.4239283.i.i1357, i64 32
   %4554 = add nuw nsw i32 %.1245282.i.i1358, 1
   %exitcond330.not.i.i1359 = icmp eq i32 %4554, %.sroa.speculated98.i1238
   br i1 %exitcond330.not.i.i1359, label %.loopexit263.i.i1316, label %.lr.ph286.i.i1354, !llvm.loop !217
@@ -11311,13 +11311,13 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %4560 = load <16 x float>, ptr %.5293.i.i1343, align 1
   %4561 = load float, ptr %.5232292.i.i1344, align 4
   %4562 = insertelement <4 x float> poison, float %4561, i64 0
-  %4563 = getelementptr inbounds i8, ptr %.5232292.i.i1344, i64 4
+  %4563 = getelementptr inbounds nuw i8, ptr %.5232292.i.i1344, i64 4
   %4564 = load float, ptr %4563, align 4
   %4565 = insertelement <4 x float> poison, float %4564, i64 0
-  %4566 = getelementptr inbounds i8, ptr %.5232292.i.i1344, i64 8
+  %4566 = getelementptr inbounds nuw i8, ptr %.5232292.i.i1344, i64 8
   %4567 = load float, ptr %4566, align 4
   %4568 = insertelement <4 x float> poison, float %4567, i64 0
-  %4569 = getelementptr inbounds i8, ptr %.5232292.i.i1344, i64 12
+  %4569 = getelementptr inbounds nuw i8, ptr %.5232292.i.i1344, i64 12
   %4570 = load float, ptr %4569, align 4
   %4571 = insertelement <4 x float> poison, float %4570, i64 0
   %4572 = shufflevector <4 x float> %4562, <4 x float> %4565, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 4, i32 4, i32 4, i32 4>
@@ -11325,9 +11325,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %4574 = shufflevector <8 x float> %4572, <8 x float> %4573, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %4575 = fsub fast <16 x float> %4574, %4560
   store <16 x float> %4575, ptr %.5240291.i.i1345, align 1
-  %4576 = getelementptr inbounds i8, ptr %.5293.i.i1343, i64 64
-  %4577 = getelementptr inbounds i8, ptr %.5232292.i.i1344, i64 16
-  %4578 = getelementptr inbounds i8, ptr %.5240291.i.i1345, i64 64
+  %4576 = getelementptr inbounds nuw i8, ptr %.5293.i.i1343, i64 64
+  %4577 = getelementptr inbounds nuw i8, ptr %.5232292.i.i1344, i64 16
+  %4578 = getelementptr inbounds nuw i8, ptr %.5240291.i.i1345, i64 64
   %4579 = add nuw nsw i32 %.0246290.i.i1346, 4
   %4580 = or disjoint i32 %4579, 3
   %4581 = icmp slt i32 %4580, %.sroa.speculated98.i1238
@@ -11349,15 +11349,15 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %4583 = load <8 x float>, ptr %.6302.i.i1338, align 1
   %4584 = load float, ptr %.6233301.i.i1339, align 4
   %4585 = insertelement <4 x float> poison, float %4584, i64 0
-  %4586 = getelementptr inbounds i8, ptr %.6233301.i.i1339, i64 4
+  %4586 = getelementptr inbounds nuw i8, ptr %.6233301.i.i1339, i64 4
   %4587 = load float, ptr %4586, align 4
   %4588 = insertelement <4 x float> poison, float %4587, i64 0
   %4589 = shufflevector <4 x float> %4585, <4 x float> %4588, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 4, i32 4, i32 4, i32 4>
   %4590 = fsub fast <8 x float> %4589, %4583
   store <8 x float> %4590, ptr %.6241300.i.i1340, align 1
-  %4591 = getelementptr inbounds i8, ptr %.6302.i.i1338, i64 32
-  %4592 = getelementptr inbounds i8, ptr %.6233301.i.i1339, i64 8
-  %4593 = getelementptr inbounds i8, ptr %.6241300.i.i1340, i64 32
+  %4591 = getelementptr inbounds nuw i8, ptr %.6302.i.i1338, i64 32
+  %4592 = getelementptr inbounds nuw i8, ptr %.6233301.i.i1339, i64 8
+  %4593 = getelementptr inbounds nuw i8, ptr %.6241300.i.i1340, i64 32
   %4594 = add nuw nsw i32 %.1247299.i.i1341, 2
   %4595 = or disjoint i32 %4594, 1
   %4596 = icmp slt i32 %4595, %.sroa.speculated98.i1238
@@ -11374,9 +11374,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %4600 = shufflevector <4 x float> %4599, <4 x float> poison, <4 x i32> zeroinitializer
   %4601 = fsub fast <4 x float> %4600, %4597
   store <4 x float> %4601, ptr %.7242309.i.i1334, align 1
-  %4602 = getelementptr inbounds i8, ptr %.7311.i.i1332, i64 16
-  %4603 = getelementptr inbounds i8, ptr %.7234310.i.i1333, i64 4
-  %4604 = getelementptr inbounds i8, ptr %.7242309.i.i1334, i64 16
+  %4602 = getelementptr inbounds nuw i8, ptr %.7311.i.i1332, i64 16
+  %4603 = getelementptr inbounds nuw i8, ptr %.7234310.i.i1333, i64 4
+  %4604 = getelementptr inbounds nuw i8, ptr %.7242309.i.i1334, i64 16
   %4605 = add nuw nsw i32 %.2248308.i.i1335, 1
   %exitcond331.not.i.i1336 = icmp eq i32 %4605, %.sroa.speculated98.i1238
   br i1 %exitcond331.not.i.i1336, label %_ZN4ncnnL16binary_op_vectorINS_27BinaryOp_x86_avx512_functor13binary_op_addEEEvPKfS4_Pfiiii.exit, label %.lr.ph312.i.i1331, !llvm.loop !220
@@ -11399,8 +11399,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %4613 = load <16 x float>, ptr %.0102.i.i1306, align 1
   %4614 = fsub fast <16 x float> %4611, %4613
   store <16 x float> %4614, ptr %.088101.i.i1307, align 1
-  %4615 = getelementptr inbounds i8, ptr %.0102.i.i1306, i64 64
-  %4616 = getelementptr inbounds i8, ptr %.088101.i.i1307, i64 64
+  %4615 = getelementptr inbounds nuw i8, ptr %.0102.i.i1306, i64 64
+  %4616 = getelementptr inbounds nuw i8, ptr %.088101.i.i1307, i64 64
   %4617 = add nuw nsw i32 %.091100.i.i1308, 16
   %4618 = or disjoint i32 %4617, 15
   %4619 = icmp slt i32 %4618, %4350
@@ -11429,8 +11429,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %4626 = load <8 x float>, ptr %.1107.i.i1300, align 1
   %4627 = fsub fast <8 x float> %4623, %4626
   store <8 x float> %4627, ptr %.189106.i.i1301, align 1
-  %4628 = getelementptr inbounds i8, ptr %.1107.i.i1300, i64 32
-  %4629 = getelementptr inbounds i8, ptr %.189106.i.i1301, i64 32
+  %4628 = getelementptr inbounds nuw i8, ptr %.1107.i.i1300, i64 32
+  %4629 = getelementptr inbounds nuw i8, ptr %.189106.i.i1301, i64 32
   %4630 = add nuw nsw i32 %.192105.i.i1302, 8
   %4631 = or disjoint i32 %4630, 7
   %4632 = icmp slt i32 %4631, %4350
@@ -11458,8 +11458,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %4638 = load <4 x float>, ptr %.2116.i.i1296, align 1
   %4639 = fsub fast <4 x float> %4635, %4638
   store <4 x float> %4639, ptr %.290115.i.i1297, align 1
-  %4640 = getelementptr inbounds i8, ptr %.2116.i.i1296, i64 16
-  %4641 = getelementptr inbounds i8, ptr %.290115.i.i1297, i64 16
+  %4640 = getelementptr inbounds nuw i8, ptr %.2116.i.i1296, i64 16
+  %4641 = getelementptr inbounds nuw i8, ptr %.290115.i.i1297, i64 16
   %4642 = add nuw nsw i32 %.293114.i.i1298, 4
   %4643 = or disjoint i32 %4642, 3
   %4644 = icmp slt i32 %4643, %4350
@@ -11486,8 +11486,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %4653 = shufflevector <16 x float> %4652, <16 x float> poison, <16 x i32> zeroinitializer
   %4654 = fsub fast <16 x float> %4653, %4650
   store <16 x float> %4654, ptr %.1219254.i.i1284, align 1
-  %4655 = getelementptr inbounds i8, ptr %.1255.i.i1283, i64 4
-  %4656 = getelementptr inbounds i8, ptr %.1219254.i.i1284, i64 64
+  %4655 = getelementptr inbounds nuw i8, ptr %.1255.i.i1283, i64 4
+  %4656 = getelementptr inbounds nuw i8, ptr %.1219254.i.i1284, i64 64
   %4657 = add nuw nsw i32 %.0226253.i.i1285, 1
   %exitcond.not.i87.i1286 = icmp eq i32 %4657, %.sroa.speculated98.i1238
   br i1 %exitcond.not.i87.i1286, label %.loopexit252.i.i1240, label %.lr.ph.i86.i1282, !llvm.loop !224
@@ -11521,14 +11521,14 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %.0227257.i.i1280 = phi i32 [ %4674, %.lr.ph260.i.i1277 ], [ 0, %4659 ]
   %4665 = load float, ptr %.3259.i.i1278, align 4
   %4666 = insertelement <8 x float> poison, float %4665, i64 0
-  %4667 = getelementptr inbounds i8, ptr %.3259.i.i1278, i64 4
+  %4667 = getelementptr inbounds nuw i8, ptr %.3259.i.i1278, i64 4
   %4668 = load float, ptr %4667, align 4
   %4669 = insertelement <8 x float> poison, float %4668, i64 0
   %4670 = shufflevector <8 x float> %4666, <8 x float> %4669, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
   %4671 = fsub fast <16 x float> %4670, %4661
   store <16 x float> %4671, ptr %.3221258.i.i1279, align 1
-  %4672 = getelementptr inbounds i8, ptr %.3259.i.i1278, i64 8
-  %4673 = getelementptr inbounds i8, ptr %.3221258.i.i1279, i64 64
+  %4672 = getelementptr inbounds nuw i8, ptr %.3259.i.i1278, i64 8
+  %4673 = getelementptr inbounds nuw i8, ptr %.3221258.i.i1279, i64 64
   %4674 = add nuw nsw i32 %.0227257.i.i1280, 2
   %4675 = or disjoint i32 %4674, 1
   %4676 = icmp slt i32 %4675, %.sroa.speculated98.i1238
@@ -11543,8 +11543,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %4679 = shufflevector <8 x float> %4678, <8 x float> poison, <8 x i32> zeroinitializer
   %4680 = fsub fast <8 x float> %4679, %4660
   store <8 x float> %4680, ptr %.4222265.i.i1274, align 1
-  %4681 = getelementptr inbounds i8, ptr %.4266.i.i1273, i64 4
-  %4682 = getelementptr inbounds i8, ptr %.4222265.i.i1274, i64 32
+  %4681 = getelementptr inbounds nuw i8, ptr %.4266.i.i1273, i64 4
+  %4682 = getelementptr inbounds nuw i8, ptr %.4222265.i.i1274, i64 32
   %4683 = add nuw nsw i32 %.1228264.i.i1275, 1
   %exitcond300.not.i.i1276 = icmp eq i32 %4683, %.sroa.speculated98.i1238
   br i1 %exitcond300.not.i.i1276, label %.loopexit251.i.i1243, label %.lr.ph267.i.i1272, !llvm.loop !226
@@ -11580,13 +11580,13 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %.0229270.i.i1266 = phi i32 [ %4710, %.lr.ph273.i.i1263 ], [ 0, %4685 ]
   %4693 = load float, ptr %.5272.i.i1264, align 4
   %4694 = insertelement <4 x float> poison, float %4693, i64 0
-  %4695 = getelementptr inbounds i8, ptr %.5272.i.i1264, i64 4
+  %4695 = getelementptr inbounds nuw i8, ptr %.5272.i.i1264, i64 4
   %4696 = load float, ptr %4695, align 4
   %4697 = insertelement <4 x float> poison, float %4696, i64 0
-  %4698 = getelementptr inbounds i8, ptr %.5272.i.i1264, i64 8
+  %4698 = getelementptr inbounds nuw i8, ptr %.5272.i.i1264, i64 8
   %4699 = load float, ptr %4698, align 4
   %4700 = insertelement <4 x float> poison, float %4699, i64 0
-  %4701 = getelementptr inbounds i8, ptr %.5272.i.i1264, i64 12
+  %4701 = getelementptr inbounds nuw i8, ptr %.5272.i.i1264, i64 12
   %4702 = load float, ptr %4701, align 4
   %4703 = insertelement <4 x float> poison, float %4702, i64 0
   %4704 = shufflevector <4 x float> %4694, <4 x float> %4697, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 4, i32 4, i32 4, i32 4>
@@ -11594,8 +11594,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %4706 = shufflevector <8 x float> %4704, <8 x float> %4705, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %4707 = fsub fast <16 x float> %4706, %4688
   store <16 x float> %4707, ptr %.5223271.i.i1265, align 1
-  %4708 = getelementptr inbounds i8, ptr %.5272.i.i1264, i64 16
-  %4709 = getelementptr inbounds i8, ptr %.5223271.i.i1265, i64 64
+  %4708 = getelementptr inbounds nuw i8, ptr %.5272.i.i1264, i64 16
+  %4709 = getelementptr inbounds nuw i8, ptr %.5223271.i.i1265, i64 64
   %4710 = add nuw nsw i32 %.0229270.i.i1266, 4
   %4711 = or disjoint i32 %4710, 3
   %4712 = icmp slt i32 %4711, %.sroa.speculated98.i1238
@@ -11614,14 +11614,14 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %.1230277.i.i1262 = phi i32 [ %4723, %.lr.ph280.i.i1259 ], [ %.0229.lcssa.i.i1247, %.preheader249.i.i1246 ]
   %4714 = load float, ptr %.6279.i.i1260, align 4
   %4715 = insertelement <4 x float> poison, float %4714, i64 0
-  %4716 = getelementptr inbounds i8, ptr %.6279.i.i1260, i64 4
+  %4716 = getelementptr inbounds nuw i8, ptr %.6279.i.i1260, i64 4
   %4717 = load float, ptr %4716, align 4
   %4718 = insertelement <4 x float> poison, float %4717, i64 0
   %4719 = shufflevector <4 x float> %4715, <4 x float> %4718, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 4, i32 4, i32 4, i32 4>
   %4720 = fsub fast <8 x float> %4719, %4687
   store <8 x float> %4720, ptr %.6224278.i.i1261, align 1
-  %4721 = getelementptr inbounds i8, ptr %.6279.i.i1260, i64 8
-  %4722 = getelementptr inbounds i8, ptr %.6224278.i.i1261, i64 32
+  %4721 = getelementptr inbounds nuw i8, ptr %.6279.i.i1260, i64 8
+  %4722 = getelementptr inbounds nuw i8, ptr %.6224278.i.i1261, i64 32
   %4723 = add nuw nsw i32 %.1230277.i.i1262, 2
   %4724 = or disjoint i32 %4723, 1
   %4725 = icmp slt i32 %4724, %.sroa.speculated98.i1238
@@ -11636,8 +11636,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %4728 = shufflevector <4 x float> %4727, <4 x float> poison, <4 x i32> zeroinitializer
   %4729 = fsub fast <4 x float> %4728, %4686
   store <4 x float> %4729, ptr %.7225285.i.i1256, align 1
-  %4730 = getelementptr inbounds i8, ptr %.7286.i.i1255, i64 4
-  %4731 = getelementptr inbounds i8, ptr %.7225285.i.i1256, i64 16
+  %4730 = getelementptr inbounds nuw i8, ptr %.7286.i.i1255, i64 4
+  %4731 = getelementptr inbounds nuw i8, ptr %.7225285.i.i1256, i64 16
   %4732 = add nuw nsw i32 %.2231284.i.i1257, 1
   %exitcond301.not.i.i1258 = icmp eq i32 %4732, %.sroa.speculated98.i1238
   br i1 %exitcond301.not.i.i1258, label %_ZN4ncnnL16binary_op_vectorINS_27BinaryOp_x86_avx512_functor13binary_op_addEEEvPKfS4_Pfiiii.exit, label %.lr.ph287.i.i1254, !llvm.loop !229
@@ -11679,9 +11679,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %4744 = load <16 x float>, ptr %.06485.i.i1704, align 1
   %4745 = fdiv fast <16 x float> %4744, %4743
   store <16 x float> %4745, ptr %.06884.i.i1705, align 1
-  %4746 = getelementptr inbounds i8, ptr %.086.i.i1703, i64 64
-  %4747 = getelementptr inbounds i8, ptr %.06485.i.i1704, i64 64
-  %4748 = getelementptr inbounds i8, ptr %.06884.i.i1705, i64 64
+  %4746 = getelementptr inbounds nuw i8, ptr %.086.i.i1703, i64 64
+  %4747 = getelementptr inbounds nuw i8, ptr %.06485.i.i1704, i64 64
+  %4748 = getelementptr inbounds nuw i8, ptr %.06884.i.i1705, i64 64
   %4749 = add nuw nsw i32 %.07283.i.i1706, 16
   %4750 = or disjoint i32 %4749, 15
   %4751 = icmp slt i32 %4750, %4734
@@ -11705,9 +11705,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %4755 = load <8 x float>, ptr %.16592.i.i1699, align 1
   %4756 = fdiv fast <8 x float> %4755, %4754
   store <8 x float> %4756, ptr %.16991.i.i1700, align 1
-  %4757 = getelementptr inbounds i8, ptr %.193.i.i1698, i64 32
-  %4758 = getelementptr inbounds i8, ptr %.16592.i.i1699, i64 32
-  %4759 = getelementptr inbounds i8, ptr %.16991.i.i1700, i64 32
+  %4757 = getelementptr inbounds nuw i8, ptr %.193.i.i1698, i64 32
+  %4758 = getelementptr inbounds nuw i8, ptr %.16592.i.i1699, i64 32
+  %4759 = getelementptr inbounds nuw i8, ptr %.16991.i.i1700, i64 32
   %4760 = add nuw nsw i32 %.17390.i.i1701, 8
   %4761 = or disjoint i32 %4760, 7
   %4762 = icmp slt i32 %4761, %4734
@@ -11730,9 +11730,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %4765 = load <4 x float>, ptr %.266101.i.i1694, align 1
   %4766 = fdiv fast <4 x float> %4765, %4764
   store <4 x float> %4766, ptr %.270100.i.i1695, align 1
-  %4767 = getelementptr inbounds i8, ptr %.2102.i.i1693, i64 16
-  %4768 = getelementptr inbounds i8, ptr %.266101.i.i1694, i64 16
-  %4769 = getelementptr inbounds i8, ptr %.270100.i.i1695, i64 16
+  %4767 = getelementptr inbounds nuw i8, ptr %.2102.i.i1693, i64 16
+  %4768 = getelementptr inbounds nuw i8, ptr %.266101.i.i1694, i64 16
+  %4769 = getelementptr inbounds nuw i8, ptr %.270100.i.i1695, i64 16
   %4770 = add nuw nsw i32 %.27499.i.i1696, 4
   %4771 = or disjoint i32 %4770, 3
   %4772 = icmp slt i32 %4771, %4734
@@ -11747,9 +11747,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %4774 = load float, ptr %.3111.i.i1687, align 4
   %4775 = fdiv fast float %4773, %4774
   store float %4775, ptr %.371109.i.i1689, align 4
-  %4776 = getelementptr inbounds i8, ptr %.3111.i.i1687, i64 4
-  %4777 = getelementptr inbounds i8, ptr %.367110.i.i1688, i64 4
-  %4778 = getelementptr inbounds i8, ptr %.371109.i.i1689, i64 4
+  %4776 = getelementptr inbounds nuw i8, ptr %.3111.i.i1687, i64 4
+  %4777 = getelementptr inbounds nuw i8, ptr %.367110.i.i1688, i64 4
+  %4778 = getelementptr inbounds nuw i8, ptr %.371109.i.i1689, i64 4
   %4779 = add nuw nsw i32 %.375108.i.i1690, 1
   %exitcond.not.i.i1691 = icmp eq i32 %4779, %4734
   br i1 %exitcond.not.i.i1691, label %_ZN4ncnnL16binary_op_vectorINS_27BinaryOp_x86_avx512_functor13binary_op_addEEEvPKfS4_Pfiiii.exit, label %.lr.ph112.i.i1686, !llvm.loop !233
@@ -11819,8 +11819,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %4809 = load <16 x float>, ptr %.094.i.i1665, align 1
   %4810 = fdiv fast <16 x float> %4804, %4809
   store <16 x float> %4810, ptr %.07093.i.i1666, align 1
-  %4811 = getelementptr inbounds i8, ptr %.094.i.i1665, i64 64
-  %4812 = getelementptr inbounds i8, ptr %.07093.i.i1666, i64 64
+  %4811 = getelementptr inbounds nuw i8, ptr %.094.i.i1665, i64 64
+  %4812 = getelementptr inbounds nuw i8, ptr %.07093.i.i1666, i64 64
   %4813 = add nuw nsw i32 %.07492.i.i1667, 16
   %4814 = or disjoint i32 %4813, 15
   %4815 = icmp slt i32 %4814, %4734
@@ -11841,8 +11841,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %4818 = load <8 x float>, ptr %.199.i.i1661, align 1
   %4819 = fdiv fast <8 x float> %4802, %4818
   store <8 x float> %4819, ptr %.17198.i.i1662, align 1
-  %4820 = getelementptr inbounds i8, ptr %.199.i.i1661, i64 32
-  %4821 = getelementptr inbounds i8, ptr %.17198.i.i1662, i64 32
+  %4820 = getelementptr inbounds nuw i8, ptr %.199.i.i1661, i64 32
+  %4821 = getelementptr inbounds nuw i8, ptr %.17198.i.i1662, i64 32
   %4822 = add nuw nsw i32 %.17597.i.i1663, 8
   %4823 = or disjoint i32 %4822, 7
   %4824 = icmp slt i32 %4823, %4734
@@ -11862,8 +11862,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %4826 = load <4 x float>, ptr %.2106.i.i1657, align 1
   %4827 = fdiv fast <4 x float> %4803, %4826
   store <4 x float> %4827, ptr %.272105.i.i1658, align 1
-  %4828 = getelementptr inbounds i8, ptr %.2106.i.i1657, i64 16
-  %4829 = getelementptr inbounds i8, ptr %.272105.i.i1658, i64 16
+  %4828 = getelementptr inbounds nuw i8, ptr %.2106.i.i1657, i64 16
+  %4829 = getelementptr inbounds nuw i8, ptr %.272105.i.i1658, i64 16
   %4830 = add nuw nsw i32 %.276104.i.i1659, 4
   %4831 = or disjoint i32 %4830, 3
   %4832 = icmp slt i32 %4831, %4734
@@ -11876,8 +11876,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %4833 = load float, ptr %.3113.i.i1652, align 4
   %4834 = fdiv fast float %4783, %4833
   store float %4834, ptr %.373112.i.i1653, align 4
-  %4835 = getelementptr inbounds i8, ptr %.3113.i.i1652, i64 4
-  %4836 = getelementptr inbounds i8, ptr %.373112.i.i1653, i64 4
+  %4835 = getelementptr inbounds nuw i8, ptr %.3113.i.i1652, i64 4
+  %4836 = getelementptr inbounds nuw i8, ptr %.373112.i.i1653, i64 4
   %4837 = add nuw nsw i32 %.377111.i.i1654, 1
   %exitcond.not.i38.i1655 = icmp eq i32 %4837, %4734
   br i1 %exitcond.not.i38.i1655, label %_ZN4ncnnL16binary_op_vectorINS_27BinaryOp_x86_avx512_functor13binary_op_addEEEvPKfS4_Pfiiii.exit, label %.lr.ph114.i.i1651, !llvm.loop !237
@@ -11955,8 +11955,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %4869 = load <16 x float>, ptr %.094.i68.i1633, align 1
   %4870 = fmul fast <16 x float> %4869, %4864
   store <16 x float> %4870, ptr %.07093.i69.i1634, align 1
-  %4871 = getelementptr inbounds i8, ptr %.094.i68.i1633, i64 64
-  %4872 = getelementptr inbounds i8, ptr %.07093.i69.i1634, i64 64
+  %4871 = getelementptr inbounds nuw i8, ptr %.094.i68.i1633, i64 64
+  %4872 = getelementptr inbounds nuw i8, ptr %.07093.i69.i1634, i64 64
   %4873 = add nuw nsw i32 %.07492.i70.i1635, 16
   %4874 = or disjoint i32 %4873, 15
   %4875 = icmp slt i32 %4874, %4734
@@ -11981,8 +11981,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %4879 = load <8 x float>, ptr %.199.i63.i1629, align 1
   %4880 = fmul fast <8 x float> %4879, %4868
   store <8 x float> %4880, ptr %.17198.i64.i1630, align 1
-  %4881 = getelementptr inbounds i8, ptr %.199.i63.i1629, i64 32
-  %4882 = getelementptr inbounds i8, ptr %.17198.i64.i1630, i64 32
+  %4881 = getelementptr inbounds nuw i8, ptr %.199.i63.i1629, i64 32
+  %4882 = getelementptr inbounds nuw i8, ptr %.17198.i64.i1630, i64 32
   %4883 = add nuw nsw i32 %.17597.i65.i1631, 8
   %4884 = or disjoint i32 %4883, 7
   %4885 = icmp slt i32 %4884, %4734
@@ -12006,8 +12006,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %4888 = load <4 x float>, ptr %.2106.i59.i1625, align 1
   %4889 = fmul fast <4 x float> %4888, %4878
   store <4 x float> %4889, ptr %.272105.i60.i1626, align 1
-  %4890 = getelementptr inbounds i8, ptr %.2106.i59.i1625, i64 16
-  %4891 = getelementptr inbounds i8, ptr %.272105.i60.i1626, i64 16
+  %4890 = getelementptr inbounds nuw i8, ptr %.2106.i59.i1625, i64 16
+  %4891 = getelementptr inbounds nuw i8, ptr %.272105.i60.i1626, i64 16
   %4892 = add nuw nsw i32 %.276104.i61.i1627, 4
   %4893 = or disjoint i32 %4892, 3
   %4894 = icmp slt i32 %4893, %4734
@@ -12020,8 +12020,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %4895 = load float, ptr %.3113.i54.i1620, align 4
   %4896 = fmul fast float %4895, %4887
   store float %4896, ptr %.373112.i55.i1621, align 4
-  %4897 = getelementptr inbounds i8, ptr %.3113.i54.i1620, i64 4
-  %4898 = getelementptr inbounds i8, ptr %.373112.i55.i1621, i64 4
+  %4897 = getelementptr inbounds nuw i8, ptr %.3113.i54.i1620, i64 4
+  %4898 = getelementptr inbounds nuw i8, ptr %.373112.i55.i1621, i64 4
   %4899 = add nuw nsw i32 %.377111.i56.i1622, 1
   %exitcond.not.i57.i1623 = icmp eq i32 %4899, %4734
   br i1 %exitcond.not.i57.i1623, label %_ZN4ncnnL16binary_op_vectorINS_27BinaryOp_x86_avx512_functor13binary_op_addEEEvPKfS4_Pfiiii.exit, label %.lr.ph114.i53.i1619, !llvm.loop !241
@@ -12051,9 +12051,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %4910 = shufflevector <16 x float> %4909, <16 x float> poison, <16 x i32> zeroinitializer
   %4911 = fdiv fast <16 x float> %4910, %4907
   store <16 x float> %4911, ptr %.1236268.i.i1604, align 1
-  %4912 = getelementptr inbounds i8, ptr %.1270.i.i1602, i64 64
-  %4913 = getelementptr inbounds i8, ptr %.1228269.i.i1603, i64 4
-  %4914 = getelementptr inbounds i8, ptr %.1236268.i.i1604, i64 64
+  %4912 = getelementptr inbounds nuw i8, ptr %.1270.i.i1602, i64 64
+  %4913 = getelementptr inbounds nuw i8, ptr %.1228269.i.i1603, i64 4
+  %4914 = getelementptr inbounds nuw i8, ptr %.1236268.i.i1604, i64 64
   %4915 = add nuw nsw i32 %.0243267.i.i1605, 1
   %exitcond.not.i75.i1606 = icmp eq i32 %4915, %.sroa.speculated99.i1473
   br i1 %exitcond.not.i75.i1606, label %.loopexit266.i.i1547, label %.lr.ph.i74.i1601, !llvm.loop !242
@@ -12089,15 +12089,15 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %4920 = load <16 x float>, ptr %.3276.i.i1596, align 1
   %4921 = load float, ptr %.3230275.i.i1597, align 4
   %4922 = insertelement <8 x float> poison, float %4921, i64 0
-  %4923 = getelementptr inbounds i8, ptr %.3230275.i.i1597, i64 4
+  %4923 = getelementptr inbounds nuw i8, ptr %.3230275.i.i1597, i64 4
   %4924 = load float, ptr %4923, align 4
   %4925 = insertelement <8 x float> poison, float %4924, i64 0
   %4926 = shufflevector <8 x float> %4922, <8 x float> %4925, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
   %4927 = fdiv fast <16 x float> %4926, %4920
   store <16 x float> %4927, ptr %.3238274.i.i1598, align 1
-  %4928 = getelementptr inbounds i8, ptr %.3276.i.i1596, i64 64
-  %4929 = getelementptr inbounds i8, ptr %.3230275.i.i1597, i64 8
-  %4930 = getelementptr inbounds i8, ptr %.3238274.i.i1598, i64 64
+  %4928 = getelementptr inbounds nuw i8, ptr %.3276.i.i1596, i64 64
+  %4929 = getelementptr inbounds nuw i8, ptr %.3230275.i.i1597, i64 8
+  %4930 = getelementptr inbounds nuw i8, ptr %.3238274.i.i1598, i64 64
   %4931 = add nuw nsw i32 %.0244273.i.i1599, 2
   %4932 = or disjoint i32 %4931, 1
   %4933 = icmp slt i32 %4932, %.sroa.speculated99.i1473
@@ -12114,9 +12114,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %4937 = shufflevector <8 x float> %4936, <8 x float> poison, <8 x i32> zeroinitializer
   %4938 = fdiv fast <8 x float> %4937, %4934
   store <8 x float> %4938, ptr %.4239283.i.i1592, align 1
-  %4939 = getelementptr inbounds i8, ptr %.4285.i.i1590, i64 32
-  %4940 = getelementptr inbounds i8, ptr %.4231284.i.i1591, i64 4
-  %4941 = getelementptr inbounds i8, ptr %.4239283.i.i1592, i64 32
+  %4939 = getelementptr inbounds nuw i8, ptr %.4285.i.i1590, i64 32
+  %4940 = getelementptr inbounds nuw i8, ptr %.4231284.i.i1591, i64 4
+  %4941 = getelementptr inbounds nuw i8, ptr %.4239283.i.i1592, i64 32
   %4942 = add nuw nsw i32 %.1245282.i.i1593, 1
   %exitcond330.not.i.i1594 = icmp eq i32 %4942, %.sroa.speculated99.i1473
   br i1 %exitcond330.not.i.i1594, label %.loopexit263.i.i1551, label %.lr.ph286.i.i1589, !llvm.loop !244
@@ -12153,13 +12153,13 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %4948 = load <16 x float>, ptr %.5293.i.i1578, align 1
   %4949 = load float, ptr %.5232292.i.i1579, align 4
   %4950 = insertelement <4 x float> poison, float %4949, i64 0
-  %4951 = getelementptr inbounds i8, ptr %.5232292.i.i1579, i64 4
+  %4951 = getelementptr inbounds nuw i8, ptr %.5232292.i.i1579, i64 4
   %4952 = load float, ptr %4951, align 4
   %4953 = insertelement <4 x float> poison, float %4952, i64 0
-  %4954 = getelementptr inbounds i8, ptr %.5232292.i.i1579, i64 8
+  %4954 = getelementptr inbounds nuw i8, ptr %.5232292.i.i1579, i64 8
   %4955 = load float, ptr %4954, align 4
   %4956 = insertelement <4 x float> poison, float %4955, i64 0
-  %4957 = getelementptr inbounds i8, ptr %.5232292.i.i1579, i64 12
+  %4957 = getelementptr inbounds nuw i8, ptr %.5232292.i.i1579, i64 12
   %4958 = load float, ptr %4957, align 4
   %4959 = insertelement <4 x float> poison, float %4958, i64 0
   %4960 = shufflevector <4 x float> %4950, <4 x float> %4953, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 4, i32 4, i32 4, i32 4>
@@ -12167,9 +12167,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %4962 = shufflevector <8 x float> %4960, <8 x float> %4961, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %4963 = fdiv fast <16 x float> %4962, %4948
   store <16 x float> %4963, ptr %.5240291.i.i1580, align 1
-  %4964 = getelementptr inbounds i8, ptr %.5293.i.i1578, i64 64
-  %4965 = getelementptr inbounds i8, ptr %.5232292.i.i1579, i64 16
-  %4966 = getelementptr inbounds i8, ptr %.5240291.i.i1580, i64 64
+  %4964 = getelementptr inbounds nuw i8, ptr %.5293.i.i1578, i64 64
+  %4965 = getelementptr inbounds nuw i8, ptr %.5232292.i.i1579, i64 16
+  %4966 = getelementptr inbounds nuw i8, ptr %.5240291.i.i1580, i64 64
   %4967 = add nuw nsw i32 %.0246290.i.i1581, 4
   %4968 = or disjoint i32 %4967, 3
   %4969 = icmp slt i32 %4968, %.sroa.speculated99.i1473
@@ -12191,15 +12191,15 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %4971 = load <8 x float>, ptr %.6302.i.i1573, align 1
   %4972 = load float, ptr %.6233301.i.i1574, align 4
   %4973 = insertelement <4 x float> poison, float %4972, i64 0
-  %4974 = getelementptr inbounds i8, ptr %.6233301.i.i1574, i64 4
+  %4974 = getelementptr inbounds nuw i8, ptr %.6233301.i.i1574, i64 4
   %4975 = load float, ptr %4974, align 4
   %4976 = insertelement <4 x float> poison, float %4975, i64 0
   %4977 = shufflevector <4 x float> %4973, <4 x float> %4976, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 4, i32 4, i32 4, i32 4>
   %4978 = fdiv fast <8 x float> %4977, %4971
   store <8 x float> %4978, ptr %.6241300.i.i1575, align 1
-  %4979 = getelementptr inbounds i8, ptr %.6302.i.i1573, i64 32
-  %4980 = getelementptr inbounds i8, ptr %.6233301.i.i1574, i64 8
-  %4981 = getelementptr inbounds i8, ptr %.6241300.i.i1575, i64 32
+  %4979 = getelementptr inbounds nuw i8, ptr %.6302.i.i1573, i64 32
+  %4980 = getelementptr inbounds nuw i8, ptr %.6233301.i.i1574, i64 8
+  %4981 = getelementptr inbounds nuw i8, ptr %.6241300.i.i1575, i64 32
   %4982 = add nuw nsw i32 %.1247299.i.i1576, 2
   %4983 = or disjoint i32 %4982, 1
   %4984 = icmp slt i32 %4983, %.sroa.speculated99.i1473
@@ -12216,9 +12216,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %4988 = shufflevector <4 x float> %4987, <4 x float> poison, <4 x i32> zeroinitializer
   %4989 = fdiv fast <4 x float> %4988, %4985
   store <4 x float> %4989, ptr %.7242309.i.i1569, align 1
-  %4990 = getelementptr inbounds i8, ptr %.7311.i.i1567, i64 16
-  %4991 = getelementptr inbounds i8, ptr %.7234310.i.i1568, i64 4
-  %4992 = getelementptr inbounds i8, ptr %.7242309.i.i1569, i64 16
+  %4990 = getelementptr inbounds nuw i8, ptr %.7311.i.i1567, i64 16
+  %4991 = getelementptr inbounds nuw i8, ptr %.7234310.i.i1568, i64 4
+  %4992 = getelementptr inbounds nuw i8, ptr %.7242309.i.i1569, i64 16
   %4993 = add nuw nsw i32 %.2248308.i.i1570, 1
   %exitcond331.not.i.i1571 = icmp eq i32 %4993, %.sroa.speculated99.i1473
   br i1 %exitcond331.not.i.i1571, label %_ZN4ncnnL16binary_op_vectorINS_27BinaryOp_x86_avx512_functor13binary_op_addEEEvPKfS4_Pfiiii.exit, label %.lr.ph312.i.i1566, !llvm.loop !247
@@ -12241,8 +12241,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %5001 = load <16 x float>, ptr %.0102.i.i1541, align 1
   %5002 = fdiv fast <16 x float> %4999, %5001
   store <16 x float> %5002, ptr %.088101.i.i1542, align 1
-  %5003 = getelementptr inbounds i8, ptr %.0102.i.i1541, i64 64
-  %5004 = getelementptr inbounds i8, ptr %.088101.i.i1542, i64 64
+  %5003 = getelementptr inbounds nuw i8, ptr %.0102.i.i1541, i64 64
+  %5004 = getelementptr inbounds nuw i8, ptr %.088101.i.i1542, i64 64
   %5005 = add nuw nsw i32 %.091100.i.i1543, 16
   %5006 = or disjoint i32 %5005, 15
   %5007 = icmp slt i32 %5006, %4734
@@ -12271,8 +12271,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %5014 = load <8 x float>, ptr %.1107.i.i1535, align 1
   %5015 = fdiv fast <8 x float> %5011, %5014
   store <8 x float> %5015, ptr %.189106.i.i1536, align 1
-  %5016 = getelementptr inbounds i8, ptr %.1107.i.i1535, i64 32
-  %5017 = getelementptr inbounds i8, ptr %.189106.i.i1536, i64 32
+  %5016 = getelementptr inbounds nuw i8, ptr %.1107.i.i1535, i64 32
+  %5017 = getelementptr inbounds nuw i8, ptr %.189106.i.i1536, i64 32
   %5018 = add nuw nsw i32 %.192105.i.i1537, 8
   %5019 = or disjoint i32 %5018, 7
   %5020 = icmp slt i32 %5019, %4734
@@ -12300,8 +12300,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %5026 = load <4 x float>, ptr %.2116.i.i1531, align 1
   %5027 = fdiv fast <4 x float> %5023, %5026
   store <4 x float> %5027, ptr %.290115.i.i1532, align 1
-  %5028 = getelementptr inbounds i8, ptr %.2116.i.i1531, i64 16
-  %5029 = getelementptr inbounds i8, ptr %.290115.i.i1532, i64 16
+  %5028 = getelementptr inbounds nuw i8, ptr %.2116.i.i1531, i64 16
+  %5029 = getelementptr inbounds nuw i8, ptr %.290115.i.i1532, i64 16
   %5030 = add nuw nsw i32 %.293114.i.i1533, 4
   %5031 = or disjoint i32 %5030, 3
   %5032 = icmp slt i32 %5031, %4734
@@ -12329,8 +12329,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %5041 = shufflevector <16 x float> %5040, <16 x float> poison, <16 x i32> zeroinitializer
   %5042 = fmul fast <16 x float> %5041, %5038
   store <16 x float> %5042, ptr %.1219254.i.i1519, align 1
-  %5043 = getelementptr inbounds i8, ptr %.1255.i.i1518, i64 4
-  %5044 = getelementptr inbounds i8, ptr %.1219254.i.i1519, i64 64
+  %5043 = getelementptr inbounds nuw i8, ptr %.1255.i.i1518, i64 4
+  %5044 = getelementptr inbounds nuw i8, ptr %.1219254.i.i1519, i64 64
   %5045 = add nuw nsw i32 %.0226253.i.i1520, 1
   %exitcond.not.i88.i1521 = icmp eq i32 %5045, %.sroa.speculated99.i1473
   br i1 %exitcond.not.i88.i1521, label %.loopexit252.i.i1475, label %.lr.ph.i87.i1517, !llvm.loop !251
@@ -12372,14 +12372,14 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %.0227257.i.i1515 = phi i32 [ %5064, %.lr.ph260.i.i1512 ], [ 0, %.lr.ph260.preheader.i.i ]
   %5055 = load float, ptr %.3259.i.i1513, align 4
   %5056 = insertelement <8 x float> poison, float %5055, i64 0
-  %5057 = getelementptr inbounds i8, ptr %.3259.i.i1513, i64 4
+  %5057 = getelementptr inbounds nuw i8, ptr %.3259.i.i1513, i64 4
   %5058 = load float, ptr %5057, align 4
   %5059 = insertelement <8 x float> poison, float %5058, i64 0
   %5060 = shufflevector <8 x float> %5056, <8 x float> %5059, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
   %5061 = fmul fast <16 x float> %5060, %5051
   store <16 x float> %5061, ptr %.3221258.i.i1514, align 1
-  %5062 = getelementptr inbounds i8, ptr %.3259.i.i1513, i64 8
-  %5063 = getelementptr inbounds i8, ptr %.3221258.i.i1514, i64 64
+  %5062 = getelementptr inbounds nuw i8, ptr %.3259.i.i1513, i64 8
+  %5063 = getelementptr inbounds nuw i8, ptr %.3221258.i.i1514, i64 64
   %5064 = add nuw nsw i32 %.0227257.i.i1515, 2
   %5065 = or disjoint i32 %5064, 1
   %5066 = icmp slt i32 %5065, %.sroa.speculated99.i1473
@@ -12394,8 +12394,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %5069 = shufflevector <8 x float> %5068, <8 x float> poison, <8 x i32> zeroinitializer
   %5070 = fmul fast <8 x float> %5069, %5054
   store <8 x float> %5070, ptr %.4222265.i.i1509, align 1
-  %5071 = getelementptr inbounds i8, ptr %.4266.i.i1508, i64 4
-  %5072 = getelementptr inbounds i8, ptr %.4222265.i.i1509, i64 32
+  %5071 = getelementptr inbounds nuw i8, ptr %.4266.i.i1508, i64 4
+  %5072 = getelementptr inbounds nuw i8, ptr %.4222265.i.i1509, i64 32
   %5073 = add nuw nsw i32 %.1228264.i.i1510, 1
   %exitcond300.not.i.i1511 = icmp eq i32 %5073, %.sroa.speculated99.i1473
   br i1 %exitcond300.not.i.i1511, label %.loopexit251.i.i1478, label %.lr.ph267.i.i1507, !llvm.loop !253
@@ -12439,13 +12439,13 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %.0229270.i.i1501 = phi i32 [ %5102, %.lr.ph273.i.i1498 ], [ 0, %.lr.ph273.preheader.i.i ]
   %5085 = load float, ptr %.5272.i.i1499, align 4
   %5086 = insertelement <4 x float> poison, float %5085, i64 0
-  %5087 = getelementptr inbounds i8, ptr %.5272.i.i1499, i64 4
+  %5087 = getelementptr inbounds nuw i8, ptr %.5272.i.i1499, i64 4
   %5088 = load float, ptr %5087, align 4
   %5089 = insertelement <4 x float> poison, float %5088, i64 0
-  %5090 = getelementptr inbounds i8, ptr %.5272.i.i1499, i64 8
+  %5090 = getelementptr inbounds nuw i8, ptr %.5272.i.i1499, i64 8
   %5091 = load float, ptr %5090, align 4
   %5092 = insertelement <4 x float> poison, float %5091, i64 0
-  %5093 = getelementptr inbounds i8, ptr %.5272.i.i1499, i64 12
+  %5093 = getelementptr inbounds nuw i8, ptr %.5272.i.i1499, i64 12
   %5094 = load float, ptr %5093, align 4
   %5095 = insertelement <4 x float> poison, float %5094, i64 0
   %5096 = shufflevector <4 x float> %5086, <4 x float> %5089, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 4, i32 4, i32 4, i32 4>
@@ -12453,8 +12453,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %5098 = shufflevector <8 x float> %5096, <8 x float> %5097, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %5099 = fmul fast <16 x float> %5098, %5080
   store <16 x float> %5099, ptr %.5223271.i.i1500, align 1
-  %5100 = getelementptr inbounds i8, ptr %.5272.i.i1499, i64 16
-  %5101 = getelementptr inbounds i8, ptr %.5223271.i.i1500, i64 64
+  %5100 = getelementptr inbounds nuw i8, ptr %.5272.i.i1499, i64 16
+  %5101 = getelementptr inbounds nuw i8, ptr %.5223271.i.i1500, i64 64
   %5102 = add nuw nsw i32 %.0229270.i.i1501, 4
   %5103 = or disjoint i32 %5102, 3
   %5104 = icmp slt i32 %5103, %.sroa.speculated99.i1473
@@ -12477,14 +12477,14 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %.1230277.i.i1497 = phi i32 [ %5116, %.lr.ph280.i.i1494 ], [ %.0229.lcssa.i.i1482, %.lr.ph280.i.i1494.preheader ]
   %5107 = load float, ptr %.6279.i.i1495, align 4
   %5108 = insertelement <4 x float> poison, float %5107, i64 0
-  %5109 = getelementptr inbounds i8, ptr %.6279.i.i1495, i64 4
+  %5109 = getelementptr inbounds nuw i8, ptr %.6279.i.i1495, i64 4
   %5110 = load float, ptr %5109, align 4
   %5111 = insertelement <4 x float> poison, float %5110, i64 0
   %5112 = shufflevector <4 x float> %5108, <4 x float> %5111, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 4, i32 4, i32 4, i32 4>
   %5113 = fmul fast <8 x float> %5112, %5084
   store <8 x float> %5113, ptr %.6224278.i.i1496, align 1
-  %5114 = getelementptr inbounds i8, ptr %.6279.i.i1495, i64 8
-  %5115 = getelementptr inbounds i8, ptr %.6224278.i.i1496, i64 32
+  %5114 = getelementptr inbounds nuw i8, ptr %.6279.i.i1495, i64 8
+  %5115 = getelementptr inbounds nuw i8, ptr %.6224278.i.i1496, i64 32
   %5116 = add nuw nsw i32 %.1230277.i.i1497, 2
   %5117 = or disjoint i32 %5116, 1
   %5118 = icmp slt i32 %5117, %.sroa.speculated99.i1473
@@ -12499,8 +12499,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %5121 = shufflevector <4 x float> %5120, <4 x float> poison, <4 x i32> zeroinitializer
   %5122 = fmul fast <4 x float> %5121, %5106
   store <4 x float> %5122, ptr %.7225285.i.i1491, align 1
-  %5123 = getelementptr inbounds i8, ptr %.7286.i.i1490, i64 4
-  %5124 = getelementptr inbounds i8, ptr %.7225285.i.i1491, i64 16
+  %5123 = getelementptr inbounds nuw i8, ptr %.7286.i.i1490, i64 4
+  %5124 = getelementptr inbounds nuw i8, ptr %.7225285.i.i1491, i64 16
   %5125 = add nuw nsw i32 %.2231284.i.i1492, 1
   %exitcond301.not.i.i1493 = icmp eq i32 %5125, %.sroa.speculated99.i1473
   br i1 %exitcond301.not.i.i1493, label %_ZN4ncnnL16binary_op_vectorINS_27BinaryOp_x86_avx512_functor13binary_op_addEEEvPKfS4_Pfiiii.exit, label %.lr.ph287.i.i1489, !llvm.loop !256
@@ -12630,9 +12630,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %5223 = bitcast <16 x i32> %5222 to <16 x float>
   %5224 = fmul fast <16 x float> %5219, %5223
   store <16 x float> %5224, ptr %.0691854.i.i1936, align 1
-  %5225 = getelementptr inbounds i8, ptr %.0856.i.i1934, i64 64
-  %5226 = getelementptr inbounds i8, ptr %.0687855.i.i1935, i64 64
-  %5227 = getelementptr inbounds i8, ptr %.0691854.i.i1936, i64 64
+  %5225 = getelementptr inbounds nuw i8, ptr %.0856.i.i1934, i64 64
+  %5226 = getelementptr inbounds nuw i8, ptr %.0687855.i.i1935, i64 64
+  %5227 = getelementptr inbounds nuw i8, ptr %.0691854.i.i1936, i64 64
   %5228 = add nuw nsw i32 %.0695853.i.i1937, 16
   %5229 = or disjoint i32 %5228, 15
   %5230 = icmp slt i32 %5229, %5127
@@ -12711,9 +12711,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %5289 = bitcast <8 x i32> %5288 to <8 x float>
   %5290 = fmul fast <8 x float> %5285, %5289
   store <8 x float> %5290, ptr %.1692861.i.i1931, align 1
-  %5291 = getelementptr inbounds i8, ptr %.1863.i.i1929, i64 32
-  %5292 = getelementptr inbounds i8, ptr %.1688862.i.i1930, i64 32
-  %5293 = getelementptr inbounds i8, ptr %.1692861.i.i1931, i64 32
+  %5291 = getelementptr inbounds nuw i8, ptr %.1863.i.i1929, i64 32
+  %5292 = getelementptr inbounds nuw i8, ptr %.1688862.i.i1930, i64 32
+  %5293 = getelementptr inbounds nuw i8, ptr %.1692861.i.i1931, i64 32
   %5294 = add nuw nsw i32 %.1696860.i.i1932, 8
   %5295 = or disjoint i32 %5294, 7
   %5296 = icmp slt i32 %5295, %5127
@@ -12793,9 +12793,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %5356 = bitcast <4 x i32> %5355 to <4 x float>
   %5357 = fmul fast <4 x float> %5352, %5356
   store <4 x float> %5357, ptr %.2693870.i.i1926, align 1
-  %5358 = getelementptr inbounds i8, ptr %.2872.i.i1924, i64 16
-  %5359 = getelementptr inbounds i8, ptr %.2689871.i.i1925, i64 16
-  %5360 = getelementptr inbounds i8, ptr %.2693870.i.i1926, i64 16
+  %5358 = getelementptr inbounds nuw i8, ptr %.2872.i.i1924, i64 16
+  %5359 = getelementptr inbounds nuw i8, ptr %.2689871.i.i1925, i64 16
+  %5360 = getelementptr inbounds nuw i8, ptr %.2693870.i.i1926, i64 16
   %5361 = add nuw nsw i32 %.2697869.i.i1927, 4
   %5362 = or disjoint i32 %5361, 3
   %5363 = icmp slt i32 %5362, %5127
@@ -12810,9 +12810,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %5365 = load float, ptr %.3881.i.i1918, align 4
   %5366 = tail call fast noundef float @llvm.pow.f32(float %5364, float %5365)
   store float %5366, ptr %.3694879.i.i1920, align 4
-  %5367 = getelementptr inbounds i8, ptr %.3881.i.i1918, i64 4
-  %5368 = getelementptr inbounds i8, ptr %.3690880.i.i1919, i64 4
-  %5369 = getelementptr inbounds i8, ptr %.3694879.i.i1920, i64 4
+  %5367 = getelementptr inbounds nuw i8, ptr %.3881.i.i1918, i64 4
+  %5368 = getelementptr inbounds nuw i8, ptr %.3690880.i.i1919, i64 4
+  %5369 = getelementptr inbounds nuw i8, ptr %.3694879.i.i1920, i64 4
   %5370 = add nuw nsw i32 %.3698878.i.i1921, 1
   %exitcond.not.i.i1922 = icmp eq i32 %5370, %5127
   br i1 %exitcond.not.i.i1922, label %_ZN4ncnnL16binary_op_vectorINS_27BinaryOp_x86_avx512_functor13binary_op_addEEEvPKfS4_Pfiiii.exit, label %.lr.ph882.i.i1917, !llvm.loop !260
@@ -13005,8 +13005,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %5518 = bitcast <16 x i32> %5517 to <16 x float>
   %5519 = fmul fast <16 x float> %5514, %5518
   store <16 x float> %5519, ptr %.0693863.i.i1897, align 1
-  %5520 = getelementptr inbounds i8, ptr %.0864.i.i1896, i64 64
-  %5521 = getelementptr inbounds i8, ptr %.0693863.i.i1897, i64 64
+  %5520 = getelementptr inbounds nuw i8, ptr %.0864.i.i1896, i64 64
+  %5521 = getelementptr inbounds nuw i8, ptr %.0693863.i.i1897, i64 64
   %5522 = add nuw nsw i32 %.0697862.i.i1898, 16
   %5523 = or disjoint i32 %5522, 15
   %5524 = icmp slt i32 %5523, %5127
@@ -13085,8 +13085,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %5583 = bitcast <8 x i32> %5582 to <8 x float>
   %5584 = fmul fast <8 x float> %5579, %5583
   store <8 x float> %5584, ptr %.1694868.i.i1893, align 1
-  %5585 = getelementptr inbounds i8, ptr %.1869.i.i1892, i64 32
-  %5586 = getelementptr inbounds i8, ptr %.1694868.i.i1893, i64 32
+  %5585 = getelementptr inbounds nuw i8, ptr %.1869.i.i1892, i64 32
+  %5586 = getelementptr inbounds nuw i8, ptr %.1694868.i.i1893, i64 32
   %5587 = add nuw nsw i32 %.1698867.i.i1894, 8
   %5588 = or disjoint i32 %5587, 7
   %5589 = icmp slt i32 %5588, %5127
@@ -13131,8 +13131,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %5617 = bitcast <4 x i32> %5616 to <4 x float>
   %5618 = fmul fast <4 x float> %5613, %5617
   store <4 x float> %5618, ptr %.2695875.i.i1889, align 1
-  %5619 = getelementptr inbounds i8, ptr %.2876.i.i1888, i64 16
-  %5620 = getelementptr inbounds i8, ptr %.2695875.i.i1889, i64 16
+  %5619 = getelementptr inbounds nuw i8, ptr %.2876.i.i1888, i64 16
+  %5620 = getelementptr inbounds nuw i8, ptr %.2695875.i.i1889, i64 16
   %5621 = add nuw nsw i32 %.2699874.i.i1890, 4
   %5622 = or disjoint i32 %5621, 3
   %5623 = icmp slt i32 %5622, %5127
@@ -13145,8 +13145,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %5624 = load float, ptr %.3883.i.i1883, align 4
   %5625 = tail call fast noundef float @llvm.pow.f32(float %5374, float %5624)
   store float %5625, ptr %.3696882.i.i1884, align 4
-  %5626 = getelementptr inbounds i8, ptr %.3883.i.i1883, i64 4
-  %5627 = getelementptr inbounds i8, ptr %.3696882.i.i1884, i64 4
+  %5626 = getelementptr inbounds nuw i8, ptr %.3883.i.i1883, i64 4
+  %5627 = getelementptr inbounds nuw i8, ptr %.3696882.i.i1884, i64 4
   %5628 = add nuw nsw i32 %.3700881.i.i1885, 1
   %exitcond.not.i38.i1886 = icmp eq i32 %5628, %5127
   br i1 %exitcond.not.i38.i1886, label %_ZN4ncnnL16binary_op_vectorINS_27BinaryOp_x86_avx512_functor13binary_op_addEEEvPKfS4_Pfiiii.exit, label %.lr.ph884.i.i1882, !llvm.loop !264
@@ -13304,8 +13304,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %5744 = bitcast <16 x i32> %5743 to <16 x float>
   %5745 = fmul fast <16 x float> %5740, %5744
   store <16 x float> %5745, ptr %.0693863.i67.i1865, align 1
-  %5746 = getelementptr inbounds i8, ptr %.0864.i66.i1864, i64 64
-  %5747 = getelementptr inbounds i8, ptr %.0693863.i67.i1865, i64 64
+  %5746 = getelementptr inbounds nuw i8, ptr %.0864.i66.i1864, i64 64
+  %5747 = getelementptr inbounds nuw i8, ptr %.0693863.i67.i1865, i64 64
   %5748 = add nuw nsw i32 %.0697862.i68.i1866, 16
   %5749 = or disjoint i32 %5748, 15
   %5750 = icmp slt i32 %5749, %5127
@@ -13381,8 +13381,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %5808 = bitcast <8 x i32> %5807 to <8 x float>
   %5809 = fmul fast <8 x float> %5804, %5808
   store <8 x float> %5809, ptr %.1694868.i63.i1861, align 1
-  %5810 = getelementptr inbounds i8, ptr %.1869.i62.i1860, i64 32
-  %5811 = getelementptr inbounds i8, ptr %.1694868.i63.i1861, i64 32
+  %5810 = getelementptr inbounds nuw i8, ptr %.1869.i62.i1860, i64 32
+  %5811 = getelementptr inbounds nuw i8, ptr %.1694868.i63.i1861, i64 32
   %5812 = add nuw nsw i32 %.1698867.i64.i1862, 8
   %5813 = or disjoint i32 %5812, 7
   %5814 = icmp slt i32 %5813, %5127
@@ -13459,8 +13459,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %5873 = bitcast <4 x i32> %5872 to <4 x float>
   %5874 = fmul fast <4 x float> %5869, %5873
   store <4 x float> %5874, ptr %.2695875.i59.i1857, align 1
-  %5875 = getelementptr inbounds i8, ptr %.2876.i58.i1856, i64 16
-  %5876 = getelementptr inbounds i8, ptr %.2695875.i59.i1857, i64 16
+  %5875 = getelementptr inbounds nuw i8, ptr %.2876.i58.i1856, i64 16
+  %5876 = getelementptr inbounds nuw i8, ptr %.2695875.i59.i1857, i64 16
   %5877 = add nuw nsw i32 %.2699874.i60.i1858, 4
   %5878 = or disjoint i32 %5877, 3
   %5879 = icmp slt i32 %5878, %5127
@@ -13473,8 +13473,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %5880 = load float, ptr %.3883.i53.i1851, align 4
   %5881 = tail call fast noundef float @llvm.pow.f32(float %5880, float %5632)
   store float %5881, ptr %.3696882.i54.i1852, align 4
-  %5882 = getelementptr inbounds i8, ptr %.3883.i53.i1851, i64 4
-  %5883 = getelementptr inbounds i8, ptr %.3696882.i54.i1852, i64 4
+  %5882 = getelementptr inbounds nuw i8, ptr %.3883.i53.i1851, i64 4
+  %5883 = getelementptr inbounds nuw i8, ptr %.3696882.i54.i1852, i64 4
   %5884 = add nuw nsw i32 %.3700881.i55.i1853, 1
   %exitcond.not.i56.i1854 = icmp eq i32 %5884, %5127
   br i1 %exitcond.not.i56.i1854, label %_ZN4ncnnL16binary_op_vectorINS_27BinaryOp_x86_avx512_functor13binary_op_addEEEvPKfS4_Pfiiii.exit, label %.lr.ph884.i52.i1850, !llvm.loop !268
@@ -13592,9 +13592,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %5981 = bitcast <16 x i32> %5980 to <16 x float>
   %5982 = fmul fast <16 x float> %5977, %5981
   store <16 x float> %5982, ptr %.114981750.i.i1835, align 1
-  %5983 = getelementptr inbounds i8, ptr %.11752.i.i1833, i64 64
-  %5984 = getelementptr inbounds i8, ptr %.114901751.i.i1834, i64 4
-  %5985 = getelementptr inbounds i8, ptr %.114981750.i.i1835, i64 64
+  %5983 = getelementptr inbounds nuw i8, ptr %.11752.i.i1833, i64 64
+  %5984 = getelementptr inbounds nuw i8, ptr %.114901751.i.i1834, i64 4
+  %5985 = getelementptr inbounds nuw i8, ptr %.114981750.i.i1835, i64 64
   %5986 = add nuw nsw i32 %.015051749.i.i1836, 1
   %exitcond.not.i73.i1837 = icmp eq i32 %5986, %.sroa.speculated95.i1708
   br i1 %exitcond.not.i73.i1837, label %.loopexit1748.i.i1778, label %5924, !llvm.loop !269
@@ -13665,7 +13665,7 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %6024 = load <16 x float>, ptr %.31758.i.i1827, align 1
   %6025 = load float, ptr %.314921757.i.i1828, align 4
   %6026 = insertelement <8 x float> poison, float %6025, i64 0
-  %6027 = getelementptr inbounds i8, ptr %.314921757.i.i1828, i64 4
+  %6027 = getelementptr inbounds nuw i8, ptr %.314921757.i.i1828, i64 4
   %6028 = load float, ptr %6027, align 4
   %6029 = insertelement <8 x float> poison, float %6028, i64 0
   %6030 = shufflevector <8 x float> %6026, <8 x float> %6029, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
@@ -13724,9 +13724,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %6083 = bitcast <16 x i32> %6082 to <16 x float>
   %6084 = fmul fast <16 x float> %6079, %6083
   store <16 x float> %6084, ptr %.315001756.i.i1829, align 1
-  %6085 = getelementptr inbounds i8, ptr %.31758.i.i1827, i64 64
-  %6086 = getelementptr inbounds i8, ptr %.314921757.i.i1828, i64 8
-  %6087 = getelementptr inbounds i8, ptr %.315001756.i.i1829, i64 64
+  %6085 = getelementptr inbounds nuw i8, ptr %.31758.i.i1827, i64 64
+  %6086 = getelementptr inbounds nuw i8, ptr %.314921757.i.i1828, i64 8
+  %6087 = getelementptr inbounds nuw i8, ptr %.315001756.i.i1829, i64 64
   %6088 = add nuw nsw i32 %.015061755.i.i1830, 2
   %6089 = or disjoint i32 %6088, 1
   %6090 = icmp slt i32 %6089, %.sroa.speculated95.i1708
@@ -13798,9 +13798,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %6149 = bitcast <8 x i32> %6148 to <8 x float>
   %6150 = fmul fast <8 x float> %6145, %6149
   store <8 x float> %6150, ptr %.415011765.i.i1823, align 1
-  %6151 = getelementptr inbounds i8, ptr %.41767.i.i1821, i64 32
-  %6152 = getelementptr inbounds i8, ptr %.414931766.i.i1822, i64 4
-  %6153 = getelementptr inbounds i8, ptr %.415011765.i.i1823, i64 32
+  %6151 = getelementptr inbounds nuw i8, ptr %.41767.i.i1821, i64 32
+  %6152 = getelementptr inbounds nuw i8, ptr %.414931766.i.i1822, i64 4
+  %6153 = getelementptr inbounds nuw i8, ptr %.415011765.i.i1823, i64 32
   %6154 = add nuw nsw i32 %.115071764.i.i1824, 1
   %exitcond1812.not.i.i1825 = icmp eq i32 %6154, %.sroa.speculated95.i1708
   br i1 %exitcond1812.not.i.i1825, label %.loopexit1745.i.i1782, label %.lr.ph1768.i.i1820, !llvm.loop !271
@@ -13872,13 +13872,13 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %6193 = load <16 x float>, ptr %.51775.i.i1809, align 1
   %6194 = load float, ptr %.514941774.i.i1810, align 4
   %6195 = insertelement <4 x float> poison, float %6194, i64 0
-  %6196 = getelementptr inbounds i8, ptr %.514941774.i.i1810, i64 4
+  %6196 = getelementptr inbounds nuw i8, ptr %.514941774.i.i1810, i64 4
   %6197 = load float, ptr %6196, align 4
   %6198 = insertelement <4 x float> poison, float %6197, i64 0
-  %6199 = getelementptr inbounds i8, ptr %.514941774.i.i1810, i64 8
+  %6199 = getelementptr inbounds nuw i8, ptr %.514941774.i.i1810, i64 8
   %6200 = load float, ptr %6199, align 4
   %6201 = insertelement <4 x float> poison, float %6200, i64 0
-  %6202 = getelementptr inbounds i8, ptr %.514941774.i.i1810, i64 12
+  %6202 = getelementptr inbounds nuw i8, ptr %.514941774.i.i1810, i64 12
   %6203 = load float, ptr %6202, align 4
   %6204 = insertelement <4 x float> poison, float %6203, i64 0
   %6205 = shufflevector <4 x float> %6195, <4 x float> %6198, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 4, i32 4, i32 4, i32 4>
@@ -13939,9 +13939,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %6260 = bitcast <16 x i32> %6259 to <16 x float>
   %6261 = fmul fast <16 x float> %6256, %6260
   store <16 x float> %6261, ptr %.515021773.i.i1811, align 1
-  %6262 = getelementptr inbounds i8, ptr %.51775.i.i1809, i64 64
-  %6263 = getelementptr inbounds i8, ptr %.514941774.i.i1810, i64 16
-  %6264 = getelementptr inbounds i8, ptr %.515021773.i.i1811, i64 64
+  %6262 = getelementptr inbounds nuw i8, ptr %.51775.i.i1809, i64 64
+  %6263 = getelementptr inbounds nuw i8, ptr %.514941774.i.i1810, i64 16
+  %6264 = getelementptr inbounds nuw i8, ptr %.515021773.i.i1811, i64 64
   %6265 = add nuw nsw i32 %.015081772.i.i1812, 4
   %6266 = or disjoint i32 %6265, 3
   %6267 = icmp slt i32 %6266, %.sroa.speculated95.i1708
@@ -13963,7 +13963,7 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %6269 = load <8 x float>, ptr %.61784.i.i1804, align 1
   %6270 = load float, ptr %.614951783.i.i1805, align 4
   %6271 = insertelement <4 x float> poison, float %6270, i64 0
-  %6272 = getelementptr inbounds i8, ptr %.614951783.i.i1805, i64 4
+  %6272 = getelementptr inbounds nuw i8, ptr %.614951783.i.i1805, i64 4
   %6273 = load float, ptr %6272, align 4
   %6274 = insertelement <4 x float> poison, float %6273, i64 0
   %6275 = shufflevector <4 x float> %6271, <4 x float> %6274, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 4, i32 4, i32 4, i32 4>
@@ -14024,9 +14024,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %6330 = bitcast <8 x i32> %6329 to <8 x float>
   %6331 = fmul fast <8 x float> %6326, %6330
   store <8 x float> %6331, ptr %.615031782.i.i1806, align 1
-  %6332 = getelementptr inbounds i8, ptr %.61784.i.i1804, i64 32
-  %6333 = getelementptr inbounds i8, ptr %.614951783.i.i1805, i64 8
-  %6334 = getelementptr inbounds i8, ptr %.615031782.i.i1806, i64 32
+  %6332 = getelementptr inbounds nuw i8, ptr %.61784.i.i1804, i64 32
+  %6333 = getelementptr inbounds nuw i8, ptr %.614951783.i.i1805, i64 8
+  %6334 = getelementptr inbounds nuw i8, ptr %.615031782.i.i1806, i64 32
   %6335 = add nuw nsw i32 %.115091781.i.i1807, 2
   %6336 = or disjoint i32 %6335, 1
   %6337 = icmp slt i32 %6336, %.sroa.speculated95.i1708
@@ -14100,9 +14100,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %6398 = bitcast <4 x i32> %6397 to <4 x float>
   %6399 = fmul fast <4 x float> %6394, %6398
   store <4 x float> %6399, ptr %.715041791.i.i1800, align 1
-  %6400 = getelementptr inbounds i8, ptr %.71793.i.i1798, i64 16
-  %6401 = getelementptr inbounds i8, ptr %.714961792.i.i1799, i64 4
-  %6402 = getelementptr inbounds i8, ptr %.715041791.i.i1800, i64 16
+  %6400 = getelementptr inbounds nuw i8, ptr %.71793.i.i1798, i64 16
+  %6401 = getelementptr inbounds nuw i8, ptr %.714961792.i.i1799, i64 4
+  %6402 = getelementptr inbounds nuw i8, ptr %.715041791.i.i1800, i64 16
   %6403 = add nuw nsw i32 %.215101790.i.i1801, 1
   %exitcond1813.not.i.i1802 = icmp eq i32 %6403, %.sroa.speculated95.i1708
   br i1 %exitcond1813.not.i.i1802, label %_ZN4ncnnL16binary_op_vectorINS_27BinaryOp_x86_avx512_functor13binary_op_addEEEvPKfS4_Pfiiii.exit, label %.lr.ph1794.i.i1797, !llvm.loop !274
@@ -14213,8 +14213,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %6497 = bitcast <16 x i32> %6496 to <16 x float>
   %6498 = fmul fast <16 x float> %6493, %6497
   store <16 x float> %6498, ptr %.0711871.i.i1775, align 1
-  %6499 = getelementptr inbounds i8, ptr %.0872.i.i1774, i64 64
-  %6500 = getelementptr inbounds i8, ptr %.0711871.i.i1775, i64 64
+  %6499 = getelementptr inbounds nuw i8, ptr %.0872.i.i1774, i64 64
+  %6500 = getelementptr inbounds nuw i8, ptr %.0711871.i.i1775, i64 64
   %6501 = add nuw nsw i32 %.0714870.i.i1776, 16
   %6502 = or disjoint i32 %6501, 15
   %6503 = icmp slt i32 %6502, %5127
@@ -14300,8 +14300,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %6566 = bitcast <8 x i32> %6565 to <8 x float>
   %6567 = fmul fast <8 x float> %6562, %6566
   store <8 x float> %6567, ptr %.1712876.i.i1771, align 1
-  %6568 = getelementptr inbounds i8, ptr %.1877.i.i1770, i64 32
-  %6569 = getelementptr inbounds i8, ptr %.1712876.i.i1771, i64 32
+  %6568 = getelementptr inbounds nuw i8, ptr %.1877.i.i1770, i64 32
+  %6569 = getelementptr inbounds nuw i8, ptr %.1712876.i.i1771, i64 32
   %6570 = add nuw nsw i32 %.1715875.i.i1772, 8
   %6571 = or disjoint i32 %6570, 7
   %6572 = icmp slt i32 %6571, %5127
@@ -14385,8 +14385,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %6636 = bitcast <4 x i32> %6635 to <4 x float>
   %6637 = fmul fast <4 x float> %6632, %6636
   store <4 x float> %6637, ptr %.2713885.i.i1767, align 1
-  %6638 = getelementptr inbounds i8, ptr %.2886.i.i1766, i64 16
-  %6639 = getelementptr inbounds i8, ptr %.2713885.i.i1767, i64 16
+  %6638 = getelementptr inbounds nuw i8, ptr %.2886.i.i1766, i64 16
+  %6639 = getelementptr inbounds nuw i8, ptr %.2713885.i.i1767, i64 16
   %6640 = add nuw nsw i32 %.2716884.i.i1768, 4
   %6641 = or disjoint i32 %6640, 3
   %6642 = icmp slt i32 %6641, %5127
@@ -14498,8 +14498,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %6736 = bitcast <16 x i32> %6735 to <16 x float>
   %6737 = fmul fast <16 x float> %6732, %6736
   store <16 x float> %6737, ptr %.114811736.i.i1754, align 1
-  %6738 = getelementptr inbounds i8, ptr %.11737.i.i1753, i64 4
-  %6739 = getelementptr inbounds i8, ptr %.114811736.i.i1754, i64 64
+  %6738 = getelementptr inbounds nuw i8, ptr %.11737.i.i1753, i64 4
+  %6739 = getelementptr inbounds nuw i8, ptr %.114811736.i.i1754, i64 64
   %6740 = add nuw nsw i32 %.014881735.i.i1755, 1
   %exitcond.not.i84.i1756 = icmp eq i32 %6740, %.sroa.speculated95.i1708
   br i1 %exitcond.not.i84.i1756, label %.loopexit1734.i.i1710, label %6680, !llvm.loop !278
@@ -14568,7 +14568,7 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %.014891739.i.i1750 = phi i32 [ 0, %.lr.ph1742.i.i1747 ], [ %6843, %6780 ]
   %6781 = load float, ptr %.31741.i.i1748, align 4
   %6782 = insertelement <8 x float> poison, float %6781, i64 0
-  %6783 = getelementptr inbounds i8, ptr %.31741.i.i1748, i64 4
+  %6783 = getelementptr inbounds nuw i8, ptr %.31741.i.i1748, i64 4
   %6784 = load float, ptr %6783, align 4
   %6785 = insertelement <8 x float> poison, float %6784, i64 0
   %6786 = shufflevector <8 x float> %6782, <8 x float> %6785, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
@@ -14627,8 +14627,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %6839 = bitcast <16 x i32> %6838 to <16 x float>
   %6840 = fmul fast <16 x float> %6835, %6839
   store <16 x float> %6840, ptr %.314831740.i.i1749, align 1
-  %6841 = getelementptr inbounds i8, ptr %.31741.i.i1748, i64 8
-  %6842 = getelementptr inbounds i8, ptr %.314831740.i.i1749, i64 64
+  %6841 = getelementptr inbounds nuw i8, ptr %.31741.i.i1748, i64 8
+  %6842 = getelementptr inbounds nuw i8, ptr %.314831740.i.i1749, i64 64
   %6843 = add nuw nsw i32 %.014891739.i.i1750, 2
   %6844 = or disjoint i32 %6843, 1
   %6845 = icmp slt i32 %6844, %.sroa.speculated95.i1708
@@ -14698,8 +14698,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %6903 = bitcast <8 x i32> %6902 to <8 x float>
   %6904 = fmul fast <8 x float> %6899, %6903
   store <8 x float> %6904, ptr %.414841747.i.i1744, align 1
-  %6905 = getelementptr inbounds i8, ptr %.41748.i.i1743, i64 4
-  %6906 = getelementptr inbounds i8, ptr %.414841747.i.i1744, i64 32
+  %6905 = getelementptr inbounds nuw i8, ptr %.41748.i.i1743, i64 4
+  %6906 = getelementptr inbounds nuw i8, ptr %.414841747.i.i1744, i64 32
   %6907 = add nuw nsw i32 %.114901746.i.i1745, 1
   %exitcond1782.not.i.i1746 = icmp eq i32 %6907, %.sroa.speculated95.i1708
   br i1 %exitcond1782.not.i.i1746, label %.loopexit1733.i.i1713, label %.lr.ph1749.i.i1742, !llvm.loop !280
@@ -14770,13 +14770,13 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %.014911752.i.i1736 = phi i32 [ 0, %.lr.ph1755.i.i1733 ], [ %7020, %6949 ]
   %6950 = load float, ptr %.51754.i.i1734, align 4
   %6951 = insertelement <4 x float> poison, float %6950, i64 0
-  %6952 = getelementptr inbounds i8, ptr %.51754.i.i1734, i64 4
+  %6952 = getelementptr inbounds nuw i8, ptr %.51754.i.i1734, i64 4
   %6953 = load float, ptr %6952, align 4
   %6954 = insertelement <4 x float> poison, float %6953, i64 0
-  %6955 = getelementptr inbounds i8, ptr %.51754.i.i1734, i64 8
+  %6955 = getelementptr inbounds nuw i8, ptr %.51754.i.i1734, i64 8
   %6956 = load float, ptr %6955, align 4
   %6957 = insertelement <4 x float> poison, float %6956, i64 0
-  %6958 = getelementptr inbounds i8, ptr %.51754.i.i1734, i64 12
+  %6958 = getelementptr inbounds nuw i8, ptr %.51754.i.i1734, i64 12
   %6959 = load float, ptr %6958, align 4
   %6960 = insertelement <4 x float> poison, float %6959, i64 0
   %6961 = shufflevector <4 x float> %6951, <4 x float> %6954, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 4, i32 4, i32 4, i32 4>
@@ -14837,8 +14837,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %7016 = bitcast <16 x i32> %7015 to <16 x float>
   %7017 = fmul fast <16 x float> %7012, %7016
   store <16 x float> %7017, ptr %.514851753.i.i1735, align 1
-  %7018 = getelementptr inbounds i8, ptr %.51754.i.i1734, i64 16
-  %7019 = getelementptr inbounds i8, ptr %.514851753.i.i1735, i64 64
+  %7018 = getelementptr inbounds nuw i8, ptr %.51754.i.i1734, i64 16
+  %7019 = getelementptr inbounds nuw i8, ptr %.514851753.i.i1735, i64 64
   %7020 = add nuw nsw i32 %.014911752.i.i1736, 4
   %7021 = or disjoint i32 %7020, 3
   %7022 = icmp slt i32 %7021, %.sroa.speculated95.i1708
@@ -14857,7 +14857,7 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %.114921759.i.i1732 = phi i32 [ %7088, %.lr.ph1762.i.i1729 ], [ %.01491.lcssa.i.i1717, %.preheader1731.i.i1716 ]
   %7024 = load float, ptr %.61761.i.i1730, align 4
   %7025 = insertelement <4 x float> poison, float %7024, i64 0
-  %7026 = getelementptr inbounds i8, ptr %.61761.i.i1730, i64 4
+  %7026 = getelementptr inbounds nuw i8, ptr %.61761.i.i1730, i64 4
   %7027 = load float, ptr %7026, align 4
   %7028 = insertelement <4 x float> poison, float %7027, i64 0
   %7029 = shufflevector <4 x float> %7025, <4 x float> %7028, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 4, i32 4, i32 4, i32 4>
@@ -14918,8 +14918,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %7084 = bitcast <8 x i32> %7083 to <8 x float>
   %7085 = fmul fast <8 x float> %7080, %7084
   store <8 x float> %7085, ptr %.614861760.i.i1731, align 1
-  %7086 = getelementptr inbounds i8, ptr %.61761.i.i1730, i64 8
-  %7087 = getelementptr inbounds i8, ptr %.614861760.i.i1731, i64 32
+  %7086 = getelementptr inbounds nuw i8, ptr %.61761.i.i1730, i64 8
+  %7087 = getelementptr inbounds nuw i8, ptr %.614861760.i.i1731, i64 32
   %7088 = add nuw nsw i32 %.114921759.i.i1732, 2
   %7089 = or disjoint i32 %7088, 1
   %7090 = icmp slt i32 %7089, %.sroa.speculated95.i1708
@@ -14991,8 +14991,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %7150 = bitcast <4 x i32> %7149 to <4 x float>
   %7151 = fmul fast <4 x float> %7146, %7150
   store <4 x float> %7151, ptr %.714871767.i.i1726, align 1
-  %7152 = getelementptr inbounds i8, ptr %.71768.i.i1725, i64 4
-  %7153 = getelementptr inbounds i8, ptr %.714871767.i.i1726, i64 16
+  %7152 = getelementptr inbounds nuw i8, ptr %.71768.i.i1725, i64 4
+  %7153 = getelementptr inbounds nuw i8, ptr %.714871767.i.i1726, i64 16
   %7154 = add nuw nsw i32 %.214931766.i.i1727, 1
   %exitcond1783.not.i.i1728 = icmp eq i32 %7154, %.sroa.speculated95.i1708
   br i1 %exitcond1783.not.i.i1728, label %_ZN4ncnnL16binary_op_vectorINS_27BinaryOp_x86_avx512_functor13binary_op_addEEEvPKfS4_Pfiiii.exit, label %.lr.ph1769.i.i1724, !llvm.loop !283
@@ -15070,9 +15070,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %7202 = select <16 x i1> %7167, <16 x float> %7197, <16 x float> %7201
   %7203 = select <16 x i1> %7168, <16 x float> %7202, <16 x float> %7200
   store <16 x float> %7203, ptr %.0807877.i.i, align 1
-  %7204 = getelementptr inbounds i8, ptr %.0879.i.i, i64 64
-  %7205 = getelementptr inbounds i8, ptr %.0803878.i.i, i64 64
-  %7206 = getelementptr inbounds i8, ptr %.0807877.i.i, i64 64
+  %7204 = getelementptr inbounds nuw i8, ptr %.0879.i.i, i64 64
+  %7205 = getelementptr inbounds nuw i8, ptr %.0803878.i.i, i64 64
+  %7206 = getelementptr inbounds nuw i8, ptr %.0807877.i.i, i64 64
   %7207 = add nuw nsw i32 %.0811876.i.i, 16
   %7208 = or disjoint i32 %7207, 15
   %7209 = icmp slt i32 %7208, %7156
@@ -15138,9 +15138,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %7253 = bitcast <8 x i32> %7252 to <8 x float>
   %7254 = select <8 x i1> %7216, <8 x float> %7247, <8 x float> %7253
   store <8 x float> %7254, ptr %.1808884.i.i, align 1
-  %7255 = getelementptr inbounds i8, ptr %.1886.i.i, i64 32
-  %7256 = getelementptr inbounds i8, ptr %.1804885.i.i, i64 32
-  %7257 = getelementptr inbounds i8, ptr %.1808884.i.i, i64 32
+  %7255 = getelementptr inbounds nuw i8, ptr %.1886.i.i, i64 32
+  %7256 = getelementptr inbounds nuw i8, ptr %.1804885.i.i, i64 32
+  %7257 = getelementptr inbounds nuw i8, ptr %.1808884.i.i, i64 32
   %7258 = add nuw nsw i32 %.1812883.i.i, 8
   %7259 = or disjoint i32 %7258, 7
   %7260 = icmp slt i32 %7259, %7156
@@ -15205,9 +15205,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %7303 = bitcast <4 x i32> %7302 to <4 x float>
   %7304 = select <4 x i1> %7266, <4 x float> %7297, <4 x float> %7303
   store <4 x float> %7304, ptr %.2809893.i.i, align 1
-  %7305 = getelementptr inbounds i8, ptr %.2895.i.i, i64 16
-  %7306 = getelementptr inbounds i8, ptr %.2805894.i.i, i64 16
-  %7307 = getelementptr inbounds i8, ptr %.2809893.i.i, i64 16
+  %7305 = getelementptr inbounds nuw i8, ptr %.2895.i.i, i64 16
+  %7306 = getelementptr inbounds nuw i8, ptr %.2805894.i.i, i64 16
+  %7307 = getelementptr inbounds nuw i8, ptr %.2809893.i.i, i64 16
   %7308 = add nuw nsw i32 %.2813892.i.i, 4
   %7309 = or disjoint i32 %7308, 3
   %7310 = icmp slt i32 %7309, %7156
@@ -15222,9 +15222,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %7312 = load float, ptr %.3806903.i.i, align 4
   %7313 = tail call fast noundef nofpclass(nan inf) float @atan2f(float noundef nofpclass(nan inf) %7311, float noundef nofpclass(nan inf) %7312) #19
   store float %7313, ptr %.3810902.i.i, align 4
-  %7314 = getelementptr inbounds i8, ptr %.3904.i.i, i64 4
-  %7315 = getelementptr inbounds i8, ptr %.3806903.i.i, i64 4
-  %7316 = getelementptr inbounds i8, ptr %.3810902.i.i, i64 4
+  %7314 = getelementptr inbounds nuw i8, ptr %.3904.i.i, i64 4
+  %7315 = getelementptr inbounds nuw i8, ptr %.3806903.i.i, i64 4
+  %7316 = getelementptr inbounds nuw i8, ptr %.3810902.i.i, i64 4
   %7317 = add nuw nsw i32 %.3814901.i.i, 1
   %exitcond.not.i.i1961 = icmp eq i32 %7317, %7156
   br i1 %exitcond.not.i.i1961, label %_ZN4ncnnL16binary_op_vectorINS_27BinaryOp_x86_avx512_functor13binary_op_addEEEvPKfS4_Pfiiii.exit, label %.lr.ph905.i.i, !llvm.loop !287
@@ -15342,8 +15342,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %7389 = select <16 x i1> %7344, <16 x float> %7387, <16 x float> %7388
   %7390 = select <16 x i1> %7359, <16 x float> %7389, <16 x float> %7348
   store <16 x float> %7390, ptr %.0809886.i.i, align 1
-  %7391 = getelementptr inbounds i8, ptr %.0887.i.i, i64 64
-  %7392 = getelementptr inbounds i8, ptr %.0809886.i.i, i64 64
+  %7391 = getelementptr inbounds nuw i8, ptr %.0887.i.i, i64 64
+  %7392 = getelementptr inbounds nuw i8, ptr %.0809886.i.i, i64 64
   %7393 = add nuw nsw i32 %.0813885.i.i, 16
   %7394 = or disjoint i32 %7393, 15
   %7395 = icmp slt i32 %7394, %7156
@@ -15410,8 +15410,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %7440 = bitcast <8 x i32> %7439 to <8 x float>
   %7441 = select <8 x i1> %7405, <8 x float> %7435, <8 x float> %7440
   store <8 x float> %7441, ptr %.1810891.i.i, align 1
-  %7442 = getelementptr inbounds i8, ptr %.1892.i.i, i64 32
-  %7443 = getelementptr inbounds i8, ptr %.1810891.i.i, i64 32
+  %7442 = getelementptr inbounds nuw i8, ptr %.1892.i.i, i64 32
+  %7443 = getelementptr inbounds nuw i8, ptr %.1810891.i.i, i64 32
   %7444 = add nuw nsw i32 %.1814890.i.i, 8
   %7445 = or disjoint i32 %7444, 7
   %7446 = icmp slt i32 %7445, %7156
@@ -15469,8 +15469,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %7486 = bitcast <4 x i32> %7485 to <4 x float>
   %7487 = select <4 x i1> %7451, <4 x float> %7481, <4 x float> %7486
   store <4 x float> %7487, ptr %.2811898.i.i, align 1
-  %7488 = getelementptr inbounds i8, ptr %.2899.i.i, i64 16
-  %7489 = getelementptr inbounds i8, ptr %.2811898.i.i, i64 16
+  %7488 = getelementptr inbounds nuw i8, ptr %.2899.i.i, i64 16
+  %7489 = getelementptr inbounds nuw i8, ptr %.2811898.i.i, i64 16
   %7490 = add nuw nsw i32 %.2815897.i.i, 4
   %7491 = or disjoint i32 %7490, 3
   %7492 = icmp slt i32 %7491, %7156
@@ -15483,8 +15483,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %7493 = load float, ptr %.3906.i.i, align 4
   %7494 = tail call fast noundef nofpclass(nan inf) float @atan2f(float noundef nofpclass(nan inf) %7493, float noundef nofpclass(nan inf) %7321) #19
   store float %7494, ptr %.3812905.i.i, align 4
-  %7495 = getelementptr inbounds i8, ptr %.3906.i.i, i64 4
-  %7496 = getelementptr inbounds i8, ptr %.3812905.i.i, i64 4
+  %7495 = getelementptr inbounds nuw i8, ptr %.3906.i.i, i64 4
+  %7496 = getelementptr inbounds nuw i8, ptr %.3812905.i.i, i64 4
   %7497 = add nuw nsw i32 %.3816904.i.i, 1
   %exitcond.not.i38.i1956 = icmp eq i32 %7497, %7156
   br i1 %exitcond.not.i38.i1956, label %_ZN4ncnnL16binary_op_vectorINS_27BinaryOp_x86_avx512_functor13binary_op_addEEEvPKfS4_Pfiiii.exit, label %.lr.ph907.i.i, !llvm.loop !291
@@ -15603,8 +15603,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %7571 = select <16 x i1> %7540, <16 x float> %7567, <16 x float> %7527
   %7572 = select <16 x i1> %7524, <16 x float> %7571, <16 x float> %7570
   store <16 x float> %7572, ptr %.0809886.i73.i, align 1
-  %7573 = getelementptr inbounds i8, ptr %.0887.i72.i, i64 64
-  %7574 = getelementptr inbounds i8, ptr %.0809886.i73.i, i64 64
+  %7573 = getelementptr inbounds nuw i8, ptr %.0887.i72.i, i64 64
+  %7574 = getelementptr inbounds nuw i8, ptr %.0809886.i73.i, i64 64
   %7575 = add nuw nsw i32 %.0813885.i74.i, 16
   %7576 = or disjoint i32 %7575, 15
   %7577 = icmp slt i32 %7576, %7156
@@ -15670,8 +15670,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %7621 = bitcast <8 x i32> %7620 to <8 x float>
   %7622 = select <8 x i1> %7590, <8 x float> %7617, <8 x float> %7621
   store <8 x float> %7622, ptr %.1810891.i67.i, align 1
-  %7623 = getelementptr inbounds i8, ptr %.1892.i66.i, i64 32
-  %7624 = getelementptr inbounds i8, ptr %.1810891.i67.i, i64 32
+  %7623 = getelementptr inbounds nuw i8, ptr %.1892.i66.i, i64 32
+  %7624 = getelementptr inbounds nuw i8, ptr %.1810891.i67.i, i64 32
   %7625 = add nuw nsw i32 %.1814890.i68.i, 8
   %7626 = or disjoint i32 %7625, 7
   %7627 = icmp slt i32 %7626, %7156
@@ -15726,8 +15726,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %7663 = bitcast <4 x i32> %7662 to <4 x float>
   %7664 = select <4 x i1> %7632, <4 x float> %7659, <4 x float> %7663
   store <4 x float> %7664, ptr %.2811898.i61.i, align 1
-  %7665 = getelementptr inbounds i8, ptr %.2899.i60.i, i64 16
-  %7666 = getelementptr inbounds i8, ptr %.2811898.i61.i, i64 16
+  %7665 = getelementptr inbounds nuw i8, ptr %.2899.i60.i, i64 16
+  %7666 = getelementptr inbounds nuw i8, ptr %.2811898.i61.i, i64 16
   %7667 = add nuw nsw i32 %.2815897.i62.i, 4
   %7668 = or disjoint i32 %7667, 3
   %7669 = icmp slt i32 %7668, %7156
@@ -15740,8 +15740,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %7670 = load float, ptr %.3906.i55.i, align 4
   %7671 = tail call fast noundef nofpclass(nan inf) float @atan2f(float noundef nofpclass(nan inf) %7501, float noundef nofpclass(nan inf) %7670) #19
   store float %7671, ptr %.3812905.i56.i, align 4
-  %7672 = getelementptr inbounds i8, ptr %.3906.i55.i, i64 4
-  %7673 = getelementptr inbounds i8, ptr %.3812905.i56.i, i64 4
+  %7672 = getelementptr inbounds nuw i8, ptr %.3906.i55.i, i64 4
+  %7673 = getelementptr inbounds nuw i8, ptr %.3812905.i56.i, i64 4
   %7674 = add nuw nsw i32 %.3816904.i57.i, 1
   %exitcond.not.i58.i1951 = icmp eq i32 %7674, %7156
   br i1 %exitcond.not.i58.i1951, label %_ZN4ncnnL16binary_op_vectorINS_27BinaryOp_x86_avx512_functor13binary_op_addEEEvPKfS4_Pfiiii.exit, label %.lr.ph907.i54.i, !llvm.loop !295
@@ -15807,9 +15807,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %7721 = select <16 x i1> %7686, <16 x float> %7716, <16 x float> %7720
   %7722 = select <16 x i1> %7687, <16 x float> %7721, <16 x float> %7719
   store <16 x float> %7722, ptr %.114291543.i.i, align 1
-  %7723 = getelementptr inbounds i8, ptr %.11545.i.i, i64 64
-  %7724 = getelementptr inbounds i8, ptr %.114211544.i.i, i64 4
-  %7725 = getelementptr inbounds i8, ptr %.114291543.i.i, i64 64
+  %7723 = getelementptr inbounds nuw i8, ptr %.11545.i.i, i64 64
+  %7724 = getelementptr inbounds nuw i8, ptr %.114211544.i.i, i64 4
+  %7725 = getelementptr inbounds nuw i8, ptr %.114291543.i.i, i64 64
   %7726 = add nuw nsw i32 %.014361542.i.i, 1
   %exitcond.not.i81.i = icmp eq i32 %7726, %.sroa.speculated107.i
   br i1 %exitcond.not.i81.i, label %.loopexit1541.i.i, label %.lr.ph.i80.i1950, !llvm.loop !296
@@ -15845,7 +15845,7 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %7731 = load <16 x float>, ptr %.31551.i.i, align 1
   %7732 = load float, ptr %.314231550.i.i, align 4
   %7733 = insertelement <8 x float> poison, float %7732, i64 0
-  %7734 = getelementptr inbounds i8, ptr %.314231550.i.i, i64 4
+  %7734 = getelementptr inbounds nuw i8, ptr %.314231550.i.i, i64 4
   %7735 = load float, ptr %7734, align 4
   %7736 = insertelement <8 x float> poison, float %7735, i64 0
   %7737 = shufflevector <8 x float> %7733, <8 x float> %7736, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
@@ -15887,9 +15887,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %7773 = select <16 x i1> %7738, <16 x float> %7768, <16 x float> %7772
   %7774 = select <16 x i1> %7739, <16 x float> %7773, <16 x float> %7771
   store <16 x float> %7774, ptr %.314311549.i.i, align 1
-  %7775 = getelementptr inbounds i8, ptr %.31551.i.i, i64 64
-  %7776 = getelementptr inbounds i8, ptr %.314231550.i.i, i64 8
-  %7777 = getelementptr inbounds i8, ptr %.314311549.i.i, i64 64
+  %7775 = getelementptr inbounds nuw i8, ptr %.31551.i.i, i64 64
+  %7776 = getelementptr inbounds nuw i8, ptr %.314231550.i.i, i64 8
+  %7777 = getelementptr inbounds nuw i8, ptr %.314311549.i.i, i64 64
   %7778 = add nuw nsw i32 %.014371548.i.i, 2
   %7779 = or disjoint i32 %7778, 1
   %7780 = icmp slt i32 %7779, %.sroa.speculated107.i
@@ -15948,9 +15948,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %7824 = bitcast <8 x i32> %7823 to <8 x float>
   %7825 = select <8 x i1> %7787, <8 x float> %7818, <8 x float> %7824
   store <8 x float> %7825, ptr %.414321558.i.i, align 1
-  %7826 = getelementptr inbounds i8, ptr %.41560.i.i, i64 32
-  %7827 = getelementptr inbounds i8, ptr %.414241559.i.i, i64 4
-  %7828 = getelementptr inbounds i8, ptr %.414321558.i.i, i64 32
+  %7826 = getelementptr inbounds nuw i8, ptr %.41560.i.i, i64 32
+  %7827 = getelementptr inbounds nuw i8, ptr %.414241559.i.i, i64 4
+  %7828 = getelementptr inbounds nuw i8, ptr %.414321558.i.i, i64 32
   %7829 = add nuw nsw i32 %.114381557.i.i, 1
   %exitcond1605.not.i.i = icmp eq i32 %7829, %.sroa.speculated107.i
   br i1 %exitcond1605.not.i.i, label %.loopexit1538.i.i, label %.lr.ph1561.i.i, !llvm.loop !298
@@ -15987,13 +15987,13 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %7835 = load <16 x float>, ptr %.51568.i.i, align 1
   %7836 = load float, ptr %.514251567.i.i, align 4
   %7837 = insertelement <4 x float> poison, float %7836, i64 0
-  %7838 = getelementptr inbounds i8, ptr %.514251567.i.i, i64 4
+  %7838 = getelementptr inbounds nuw i8, ptr %.514251567.i.i, i64 4
   %7839 = load float, ptr %7838, align 4
   %7840 = insertelement <4 x float> poison, float %7839, i64 0
-  %7841 = getelementptr inbounds i8, ptr %.514251567.i.i, i64 8
+  %7841 = getelementptr inbounds nuw i8, ptr %.514251567.i.i, i64 8
   %7842 = load float, ptr %7841, align 4
   %7843 = insertelement <4 x float> poison, float %7842, i64 0
-  %7844 = getelementptr inbounds i8, ptr %.514251567.i.i, i64 12
+  %7844 = getelementptr inbounds nuw i8, ptr %.514251567.i.i, i64 12
   %7845 = load float, ptr %7844, align 4
   %7846 = insertelement <4 x float> poison, float %7845, i64 0
   %7847 = shufflevector <4 x float> %7837, <4 x float> %7840, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 4, i32 4, i32 4, i32 4>
@@ -16037,9 +16037,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %7885 = select <16 x i1> %7850, <16 x float> %7880, <16 x float> %7884
   %7886 = select <16 x i1> %7851, <16 x float> %7885, <16 x float> %7883
   store <16 x float> %7886, ptr %.514331566.i.i, align 1
-  %7887 = getelementptr inbounds i8, ptr %.51568.i.i, i64 64
-  %7888 = getelementptr inbounds i8, ptr %.514251567.i.i, i64 16
-  %7889 = getelementptr inbounds i8, ptr %.514331566.i.i, i64 64
+  %7887 = getelementptr inbounds nuw i8, ptr %.51568.i.i, i64 64
+  %7888 = getelementptr inbounds nuw i8, ptr %.514251567.i.i, i64 16
+  %7889 = getelementptr inbounds nuw i8, ptr %.514331566.i.i, i64 64
   %7890 = add nuw nsw i32 %.014391565.i.i, 4
   %7891 = or disjoint i32 %7890, 3
   %7892 = icmp slt i32 %7891, %.sroa.speculated107.i
@@ -16061,7 +16061,7 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %7894 = load <8 x float>, ptr %.61577.i.i, align 1
   %7895 = load float, ptr %.614261576.i.i, align 4
   %7896 = insertelement <4 x float> poison, float %7895, i64 0
-  %7897 = getelementptr inbounds i8, ptr %.614261576.i.i, i64 4
+  %7897 = getelementptr inbounds nuw i8, ptr %.614261576.i.i, i64 4
   %7898 = load float, ptr %7897, align 4
   %7899 = insertelement <4 x float> poison, float %7898, i64 0
   %7900 = shufflevector <4 x float> %7896, <4 x float> %7899, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 4, i32 4, i32 4, i32 4>
@@ -16109,9 +16109,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %7940 = bitcast <8 x i32> %7939 to <8 x float>
   %7941 = select <8 x i1> %7903, <8 x float> %7934, <8 x float> %7940
   store <8 x float> %7941, ptr %.614341575.i.i, align 1
-  %7942 = getelementptr inbounds i8, ptr %.61577.i.i, i64 32
-  %7943 = getelementptr inbounds i8, ptr %.614261576.i.i, i64 8
-  %7944 = getelementptr inbounds i8, ptr %.614341575.i.i, i64 32
+  %7942 = getelementptr inbounds nuw i8, ptr %.61577.i.i, i64 32
+  %7943 = getelementptr inbounds nuw i8, ptr %.614261576.i.i, i64 8
+  %7944 = getelementptr inbounds nuw i8, ptr %.614341575.i.i, i64 32
   %7945 = add nuw nsw i32 %.114401574.i.i, 2
   %7946 = or disjoint i32 %7945, 1
   %7947 = icmp slt i32 %7946, %.sroa.speculated107.i
@@ -16170,9 +16170,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %7991 = bitcast <4 x i32> %7990 to <4 x float>
   %7992 = select <4 x i1> %7954, <4 x float> %7985, <4 x float> %7991
   store <4 x float> %7992, ptr %.714351584.i.i, align 1
-  %7993 = getelementptr inbounds i8, ptr %.71586.i.i, i64 16
-  %7994 = getelementptr inbounds i8, ptr %.714271585.i.i, i64 4
-  %7995 = getelementptr inbounds i8, ptr %.714351584.i.i, i64 16
+  %7993 = getelementptr inbounds nuw i8, ptr %.71586.i.i, i64 16
+  %7994 = getelementptr inbounds nuw i8, ptr %.714271585.i.i, i64 4
+  %7995 = getelementptr inbounds nuw i8, ptr %.714351584.i.i, i64 16
   %7996 = add nuw nsw i32 %.214411583.i.i, 1
   %exitcond1606.not.i.i = icmp eq i32 %7996, %.sroa.speculated107.i
   br i1 %exitcond1606.not.i.i, label %_ZN4ncnnL16binary_op_vectorINS_27BinaryOp_x86_avx512_functor13binary_op_addEEEvPKfS4_Pfiiii.exit, label %.lr.ph1587.i.i, !llvm.loop !301
@@ -16235,8 +16235,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %8042 = select <16 x i1> %8004, <16 x float> %8040, <16 x float> %8041
   %8043 = select <16 x i1> %8012, <16 x float> %8042, <16 x float> %8008
   store <16 x float> %8043, ptr %.0827894.i.i, align 1
-  %8044 = getelementptr inbounds i8, ptr %.0895.i.i, i64 64
-  %8045 = getelementptr inbounds i8, ptr %.0827894.i.i, i64 64
+  %8044 = getelementptr inbounds nuw i8, ptr %.0895.i.i, i64 64
+  %8045 = getelementptr inbounds nuw i8, ptr %.0827894.i.i, i64 64
   %8046 = add nuw nsw i32 %.0830893.i.i, 16
   %8047 = or disjoint i32 %8046, 15
   %8048 = icmp slt i32 %8047, %7156
@@ -16311,8 +16311,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %8097 = bitcast <8 x i32> %8096 to <8 x float>
   %8098 = select <8 x i1> %8062, <8 x float> %8092, <8 x float> %8097
   store <8 x float> %8098, ptr %.1828899.i.i, align 1
-  %8099 = getelementptr inbounds i8, ptr %.1900.i.i, i64 32
-  %8100 = getelementptr inbounds i8, ptr %.1828899.i.i, i64 32
+  %8099 = getelementptr inbounds nuw i8, ptr %.1900.i.i, i64 32
+  %8100 = getelementptr inbounds nuw i8, ptr %.1828899.i.i, i64 32
   %8101 = add nuw nsw i32 %.1831898.i.i, 8
   %8102 = or disjoint i32 %8101, 7
   %8103 = icmp slt i32 %8102, %7156
@@ -16386,8 +16386,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %8151 = bitcast <4 x i32> %8150 to <4 x float>
   %8152 = select <4 x i1> %8116, <4 x float> %8146, <4 x float> %8151
   store <4 x float> %8152, ptr %.2829908.i.i, align 1
-  %8153 = getelementptr inbounds i8, ptr %.2909.i.i, i64 16
-  %8154 = getelementptr inbounds i8, ptr %.2829908.i.i, i64 16
+  %8153 = getelementptr inbounds nuw i8, ptr %.2909.i.i, i64 16
+  %8154 = getelementptr inbounds nuw i8, ptr %.2829908.i.i, i64 16
   %8155 = add nuw nsw i32 %.2832907.i.i, 4
   %8156 = or disjoint i32 %8155, 3
   %8157 = icmp slt i32 %8156, %7156
@@ -16450,8 +16450,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %8202 = select <16 x i1> %8171, <16 x float> %8198, <16 x float> %8166
   %8203 = select <16 x i1> %8163, <16 x float> %8202, <16 x float> %8201
   store <16 x float> %8203, ptr %.114121529.i.i, align 1
-  %8204 = getelementptr inbounds i8, ptr %.11530.i.i, i64 4
-  %8205 = getelementptr inbounds i8, ptr %.114121529.i.i, i64 64
+  %8204 = getelementptr inbounds nuw i8, ptr %.11530.i.i, i64 4
+  %8205 = getelementptr inbounds nuw i8, ptr %.114121529.i.i, i64 64
   %8206 = add nuw nsw i32 %.014191528.i.i, 1
   %exitcond.not.i96.i = icmp eq i32 %8206, %.sroa.speculated107.i
   br i1 %exitcond.not.i96.i, label %.loopexit1527.i.i, label %8167, !llvm.loop !305
@@ -16502,7 +16502,7 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %.014201532.i.i = phi i32 [ 0, %.lr.ph1535.i.i ], [ %8267, %8225 ]
   %8226 = load float, ptr %.31534.i.i, align 4
   %8227 = insertelement <8 x float> poison, float %8226, i64 0
-  %8228 = getelementptr inbounds i8, ptr %.31534.i.i, i64 4
+  %8228 = getelementptr inbounds nuw i8, ptr %.31534.i.i, i64 4
   %8229 = load float, ptr %8228, align 4
   %8230 = insertelement <8 x float> poison, float %8229, i64 0
   %8231 = shufflevector <8 x float> %8227, <8 x float> %8230, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
@@ -16540,8 +16540,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %8263 = select <16 x i1> %8232, <16 x float> %8259, <16 x float> %8215
   %8264 = select <16 x i1> %8212, <16 x float> %8263, <16 x float> %8262
   store <16 x float> %8264, ptr %.314141533.i.i, align 1
-  %8265 = getelementptr inbounds i8, ptr %.31534.i.i, i64 8
-  %8266 = getelementptr inbounds i8, ptr %.314141533.i.i, i64 64
+  %8265 = getelementptr inbounds nuw i8, ptr %.31534.i.i, i64 8
+  %8266 = getelementptr inbounds nuw i8, ptr %.314141533.i.i, i64 64
   %8267 = add nuw nsw i32 %.014201532.i.i, 2
   %8268 = or disjoint i32 %8267, 1
   %8269 = icmp slt i32 %8268, %.sroa.speculated107.i
@@ -16591,8 +16591,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %8306 = bitcast <8 x i32> %8305 to <8 x float>
   %8307 = select <8 x i1> %8275, <8 x float> %8302, <8 x float> %8306
   store <8 x float> %8307, ptr %.414151540.i.i, align 1
-  %8308 = getelementptr inbounds i8, ptr %.41541.i.i, i64 4
-  %8309 = getelementptr inbounds i8, ptr %.414151540.i.i, i64 32
+  %8308 = getelementptr inbounds nuw i8, ptr %.41541.i.i, i64 4
+  %8309 = getelementptr inbounds nuw i8, ptr %.414151540.i.i, i64 32
   %8310 = add nuw nsw i32 %.114211539.i.i, 1
   %exitcond1575.not.i.i = icmp eq i32 %8310, %.sroa.speculated107.i
   br i1 %exitcond1575.not.i.i, label %.loopexit1526.i.i, label %8270, !llvm.loop !307
@@ -16645,13 +16645,13 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %.014221545.i.i = phi i32 [ 0, %.lr.ph1548.i.i ], [ %8381, %8331 ]
   %8332 = load float, ptr %.51547.i.i, align 4
   %8333 = insertelement <4 x float> poison, float %8332, i64 0
-  %8334 = getelementptr inbounds i8, ptr %.51547.i.i, i64 4
+  %8334 = getelementptr inbounds nuw i8, ptr %.51547.i.i, i64 4
   %8335 = load float, ptr %8334, align 4
   %8336 = insertelement <4 x float> poison, float %8335, i64 0
-  %8337 = getelementptr inbounds i8, ptr %.51547.i.i, i64 8
+  %8337 = getelementptr inbounds nuw i8, ptr %.51547.i.i, i64 8
   %8338 = load float, ptr %8337, align 4
   %8339 = insertelement <4 x float> poison, float %8338, i64 0
-  %8340 = getelementptr inbounds i8, ptr %.51547.i.i, i64 12
+  %8340 = getelementptr inbounds nuw i8, ptr %.51547.i.i, i64 12
   %8341 = load float, ptr %8340, align 4
   %8342 = insertelement <4 x float> poison, float %8341, i64 0
   %8343 = shufflevector <4 x float> %8333, <4 x float> %8336, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 4, i32 4, i32 4, i32 4>
@@ -16691,8 +16691,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %8377 = select <16 x i1> %8346, <16 x float> %8373, <16 x float> %8320
   %8378 = select <16 x i1> %8317, <16 x float> %8377, <16 x float> %8376
   store <16 x float> %8378, ptr %.514161546.i.i, align 1
-  %8379 = getelementptr inbounds i8, ptr %.51547.i.i, i64 16
-  %8380 = getelementptr inbounds i8, ptr %.514161546.i.i, i64 64
+  %8379 = getelementptr inbounds nuw i8, ptr %.51547.i.i, i64 16
+  %8380 = getelementptr inbounds nuw i8, ptr %.514161546.i.i, i64 64
   %8381 = add nuw nsw i32 %.014221545.i.i, 4
   %8382 = or disjoint i32 %8381, 3
   %8383 = icmp slt i32 %8382, %.sroa.speculated107.i
@@ -16721,7 +16721,7 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %.114231552.i.i = phi i32 [ %.01422.lcssa.i.i, %.lr.ph1555.i.i ], [ %8435, %8392 ]
   %8393 = load float, ptr %.61554.i.i, align 4
   %8394 = insertelement <4 x float> poison, float %8393, i64 0
-  %8395 = getelementptr inbounds i8, ptr %.61554.i.i, i64 4
+  %8395 = getelementptr inbounds nuw i8, ptr %.61554.i.i, i64 4
   %8396 = load float, ptr %8395, align 4
   %8397 = insertelement <4 x float> poison, float %8396, i64 0
   %8398 = shufflevector <4 x float> %8394, <4 x float> %8397, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 4, i32 4, i32 4, i32 4>
@@ -16762,8 +16762,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %8431 = bitcast <8 x i32> %8430 to <8 x float>
   %8432 = select <8 x i1> %8400, <8 x float> %8427, <8 x float> %8431
   store <8 x float> %8432, ptr %.614171553.i.i, align 1
-  %8433 = getelementptr inbounds i8, ptr %.61554.i.i, i64 8
-  %8434 = getelementptr inbounds i8, ptr %.614171553.i.i, i64 32
+  %8433 = getelementptr inbounds nuw i8, ptr %.61554.i.i, i64 8
+  %8434 = getelementptr inbounds nuw i8, ptr %.614171553.i.i, i64 32
   %8435 = add nuw nsw i32 %.114231552.i.i, 2
   %8436 = or disjoint i32 %8435, 1
   %8437 = icmp slt i32 %8436, %.sroa.speculated107.i
@@ -16813,8 +16813,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %8474 = bitcast <4 x i32> %8473 to <4 x float>
   %8475 = select <4 x i1> %8443, <4 x float> %8470, <4 x float> %8474
   store <4 x float> %8475, ptr %.714181560.i.i, align 1
-  %8476 = getelementptr inbounds i8, ptr %.71561.i.i, i64 4
-  %8477 = getelementptr inbounds i8, ptr %.714181560.i.i, i64 16
+  %8476 = getelementptr inbounds nuw i8, ptr %.71561.i.i, i64 4
+  %8477 = getelementptr inbounds nuw i8, ptr %.714181560.i.i, i64 16
   %8478 = add nuw nsw i32 %.214241559.i.i, 1
   %exitcond1576.not.i.i = icmp eq i32 %8478, %.sroa.speculated107.i
   br i1 %exitcond1576.not.i.i, label %_ZN4ncnnL16binary_op_vectorINS_27BinaryOp_x86_avx512_functor13binary_op_addEEEvPKfS4_Pfiiii.exit, label %8438, !llvm.loop !310
@@ -16892,9 +16892,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %8526 = select <16 x i1> %8491, <16 x float> %8521, <16 x float> %8525
   %8527 = select <16 x i1> %8492, <16 x float> %8526, <16 x float> %8524
   store <16 x float> %8527, ptr %.0807877.i.i2215, align 1
-  %8528 = getelementptr inbounds i8, ptr %.0879.i.i2213, i64 64
-  %8529 = getelementptr inbounds i8, ptr %.0803878.i.i2214, i64 64
-  %8530 = getelementptr inbounds i8, ptr %.0807877.i.i2215, i64 64
+  %8528 = getelementptr inbounds nuw i8, ptr %.0879.i.i2213, i64 64
+  %8529 = getelementptr inbounds nuw i8, ptr %.0803878.i.i2214, i64 64
+  %8530 = getelementptr inbounds nuw i8, ptr %.0807877.i.i2215, i64 64
   %8531 = add nuw nsw i32 %.0811876.i.i2216, 16
   %8532 = or disjoint i32 %8531, 15
   %8533 = icmp slt i32 %8532, %8480
@@ -16960,9 +16960,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %8577 = bitcast <8 x i32> %8576 to <8 x float>
   %8578 = select <8 x i1> %8540, <8 x float> %8571, <8 x float> %8577
   store <8 x float> %8578, ptr %.1808884.i.i2208, align 1
-  %8579 = getelementptr inbounds i8, ptr %.1886.i.i2206, i64 32
-  %8580 = getelementptr inbounds i8, ptr %.1804885.i.i2207, i64 32
-  %8581 = getelementptr inbounds i8, ptr %.1808884.i.i2208, i64 32
+  %8579 = getelementptr inbounds nuw i8, ptr %.1886.i.i2206, i64 32
+  %8580 = getelementptr inbounds nuw i8, ptr %.1804885.i.i2207, i64 32
+  %8581 = getelementptr inbounds nuw i8, ptr %.1808884.i.i2208, i64 32
   %8582 = add nuw nsw i32 %.1812883.i.i2209, 8
   %8583 = or disjoint i32 %8582, 7
   %8584 = icmp slt i32 %8583, %8480
@@ -17027,9 +17027,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %8627 = bitcast <4 x i32> %8626 to <4 x float>
   %8628 = select <4 x i1> %8590, <4 x float> %8621, <4 x float> %8627
   store <4 x float> %8628, ptr %.2809893.i.i2201, align 1
-  %8629 = getelementptr inbounds i8, ptr %.2895.i.i2199, i64 16
-  %8630 = getelementptr inbounds i8, ptr %.2805894.i.i2200, i64 16
-  %8631 = getelementptr inbounds i8, ptr %.2809893.i.i2201, i64 16
+  %8629 = getelementptr inbounds nuw i8, ptr %.2895.i.i2199, i64 16
+  %8630 = getelementptr inbounds nuw i8, ptr %.2805894.i.i2200, i64 16
+  %8631 = getelementptr inbounds nuw i8, ptr %.2809893.i.i2201, i64 16
   %8632 = add nuw nsw i32 %.2813892.i.i2202, 4
   %8633 = or disjoint i32 %8632, 3
   %8634 = icmp slt i32 %8633, %8480
@@ -17044,9 +17044,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %8636 = load float, ptr %.3904.i.i2193, align 4
   %8637 = tail call fast noundef nofpclass(nan inf) float @atan2f(float noundef nofpclass(nan inf) %8635, float noundef nofpclass(nan inf) %8636) #19
   store float %8637, ptr %.3810902.i.i2195, align 4
-  %8638 = getelementptr inbounds i8, ptr %.3904.i.i2193, i64 4
-  %8639 = getelementptr inbounds i8, ptr %.3806903.i.i2194, i64 4
-  %8640 = getelementptr inbounds i8, ptr %.3810902.i.i2195, i64 4
+  %8638 = getelementptr inbounds nuw i8, ptr %.3904.i.i2193, i64 4
+  %8639 = getelementptr inbounds nuw i8, ptr %.3806903.i.i2194, i64 4
+  %8640 = getelementptr inbounds nuw i8, ptr %.3810902.i.i2195, i64 4
   %8641 = add nuw nsw i32 %.3814901.i.i2196, 1
   %exitcond.not.i.i2197 = icmp eq i32 %8641, %8480
   br i1 %exitcond.not.i.i2197, label %_ZN4ncnnL16binary_op_vectorINS_27BinaryOp_x86_avx512_functor13binary_op_addEEEvPKfS4_Pfiiii.exit, label %.lr.ph905.i.i2192, !llvm.loop !314
@@ -17165,8 +17165,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %8715 = select <16 x i1> %8684, <16 x float> %8711, <16 x float> %8671
   %8716 = select <16 x i1> %8668, <16 x float> %8715, <16 x float> %8714
   store <16 x float> %8716, ptr %.0809886.i.i2172, align 1
-  %8717 = getelementptr inbounds i8, ptr %.0887.i.i2171, i64 64
-  %8718 = getelementptr inbounds i8, ptr %.0809886.i.i2172, i64 64
+  %8717 = getelementptr inbounds nuw i8, ptr %.0887.i.i2171, i64 64
+  %8718 = getelementptr inbounds nuw i8, ptr %.0809886.i.i2172, i64 64
   %8719 = add nuw nsw i32 %.0813885.i.i2173, 16
   %8720 = or disjoint i32 %8719, 15
   %8721 = icmp slt i32 %8720, %8480
@@ -17232,8 +17232,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %8765 = bitcast <8 x i32> %8764 to <8 x float>
   %8766 = select <8 x i1> %8734, <8 x float> %8761, <8 x float> %8765
   store <8 x float> %8766, ptr %.1810891.i.i2166, align 1
-  %8767 = getelementptr inbounds i8, ptr %.1892.i.i2165, i64 32
-  %8768 = getelementptr inbounds i8, ptr %.1810891.i.i2166, i64 32
+  %8767 = getelementptr inbounds nuw i8, ptr %.1892.i.i2165, i64 32
+  %8768 = getelementptr inbounds nuw i8, ptr %.1810891.i.i2166, i64 32
   %8769 = add nuw nsw i32 %.1814890.i.i2167, 8
   %8770 = or disjoint i32 %8769, 7
   %8771 = icmp slt i32 %8770, %8480
@@ -17288,8 +17288,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %8807 = bitcast <4 x i32> %8806 to <4 x float>
   %8808 = select <4 x i1> %8776, <4 x float> %8803, <4 x float> %8807
   store <4 x float> %8808, ptr %.2811898.i.i2160, align 1
-  %8809 = getelementptr inbounds i8, ptr %.2899.i.i2159, i64 16
-  %8810 = getelementptr inbounds i8, ptr %.2811898.i.i2160, i64 16
+  %8809 = getelementptr inbounds nuw i8, ptr %.2899.i.i2159, i64 16
+  %8810 = getelementptr inbounds nuw i8, ptr %.2811898.i.i2160, i64 16
   %8811 = add nuw nsw i32 %.2815897.i.i2161, 4
   %8812 = or disjoint i32 %8811, 3
   %8813 = icmp slt i32 %8812, %8480
@@ -17302,8 +17302,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %8814 = load float, ptr %.3906.i.i2154, align 4
   %8815 = tail call fast noundef nofpclass(nan inf) float @atan2f(float noundef nofpclass(nan inf) %8645, float noundef nofpclass(nan inf) %8814) #19
   store float %8815, ptr %.3812905.i.i2155, align 4
-  %8816 = getelementptr inbounds i8, ptr %.3906.i.i2154, i64 4
-  %8817 = getelementptr inbounds i8, ptr %.3812905.i.i2155, i64 4
+  %8816 = getelementptr inbounds nuw i8, ptr %.3906.i.i2154, i64 4
+  %8817 = getelementptr inbounds nuw i8, ptr %.3812905.i.i2155, i64 4
   %8818 = add nuw nsw i32 %.3816904.i.i2156, 1
   %exitcond.not.i38.i2157 = icmp eq i32 %8818, %8480
   br i1 %exitcond.not.i38.i2157, label %_ZN4ncnnL16binary_op_vectorINS_27BinaryOp_x86_avx512_functor13binary_op_addEEEvPKfS4_Pfiiii.exit, label %.lr.ph907.i.i2153, !llvm.loop !318
@@ -17421,8 +17421,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %8890 = select <16 x i1> %8845, <16 x float> %8888, <16 x float> %8889
   %8891 = select <16 x i1> %8860, <16 x float> %8890, <16 x float> %8849
   store <16 x float> %8891, ptr %.0809886.i73.i2136, align 1
-  %8892 = getelementptr inbounds i8, ptr %.0887.i72.i2135, i64 64
-  %8893 = getelementptr inbounds i8, ptr %.0809886.i73.i2136, i64 64
+  %8892 = getelementptr inbounds nuw i8, ptr %.0887.i72.i2135, i64 64
+  %8893 = getelementptr inbounds nuw i8, ptr %.0809886.i73.i2136, i64 64
   %8894 = add nuw nsw i32 %.0813885.i74.i2137, 16
   %8895 = or disjoint i32 %8894, 15
   %8896 = icmp slt i32 %8895, %8480
@@ -17489,8 +17489,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %8941 = bitcast <8 x i32> %8940 to <8 x float>
   %8942 = select <8 x i1> %8906, <8 x float> %8936, <8 x float> %8941
   store <8 x float> %8942, ptr %.1810891.i68.i, align 1
-  %8943 = getelementptr inbounds i8, ptr %.1892.i67.i, i64 32
-  %8944 = getelementptr inbounds i8, ptr %.1810891.i68.i, i64 32
+  %8943 = getelementptr inbounds nuw i8, ptr %.1892.i67.i, i64 32
+  %8944 = getelementptr inbounds nuw i8, ptr %.1810891.i68.i, i64 32
   %8945 = add nuw nsw i32 %.1814890.i69.i, 8
   %8946 = or disjoint i32 %8945, 7
   %8947 = icmp slt i32 %8946, %8480
@@ -17548,8 +17548,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %8987 = bitcast <4 x i32> %8986 to <4 x float>
   %8988 = select <4 x i1> %8952, <4 x float> %8982, <4 x float> %8987
   store <4 x float> %8988, ptr %.2811898.i62.i, align 1
-  %8989 = getelementptr inbounds i8, ptr %.2899.i61.i, i64 16
-  %8990 = getelementptr inbounds i8, ptr %.2811898.i62.i, i64 16
+  %8989 = getelementptr inbounds nuw i8, ptr %.2899.i61.i, i64 16
+  %8990 = getelementptr inbounds nuw i8, ptr %.2811898.i62.i, i64 16
   %8991 = add nuw nsw i32 %.2815897.i63.i, 4
   %8992 = or disjoint i32 %8991, 3
   %8993 = icmp slt i32 %8992, %8480
@@ -17562,8 +17562,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %8994 = load float, ptr %.3906.i55.i2126, align 4
   %8995 = tail call fast noundef nofpclass(nan inf) float @atan2f(float noundef nofpclass(nan inf) %8994, float noundef nofpclass(nan inf) %8822) #19
   store float %8995, ptr %.3812905.i56.i2127, align 4
-  %8996 = getelementptr inbounds i8, ptr %.3906.i55.i2126, i64 4
-  %8997 = getelementptr inbounds i8, ptr %.3812905.i56.i2127, i64 4
+  %8996 = getelementptr inbounds nuw i8, ptr %.3906.i55.i2126, i64 4
+  %8997 = getelementptr inbounds nuw i8, ptr %.3812905.i56.i2127, i64 4
   %8998 = add nuw nsw i32 %.3816904.i57.i2128, 1
   %exitcond.not.i58.i2129 = icmp eq i32 %8998, %8480
   br i1 %exitcond.not.i58.i2129, label %_ZN4ncnnL16binary_op_vectorINS_27BinaryOp_x86_avx512_functor13binary_op_addEEEvPKfS4_Pfiiii.exit, label %.lr.ph907.i54.i2125, !llvm.loop !322
@@ -17629,9 +17629,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %9045 = select <16 x i1> %9010, <16 x float> %9040, <16 x float> %9044
   %9046 = select <16 x i1> %9011, <16 x float> %9045, <16 x float> %9043
   store <16 x float> %9046, ptr %.114291543.i.i2110, align 1
-  %9047 = getelementptr inbounds i8, ptr %.11545.i.i2108, i64 64
-  %9048 = getelementptr inbounds i8, ptr %.114211544.i.i2109, i64 4
-  %9049 = getelementptr inbounds i8, ptr %.114291543.i.i2110, i64 64
+  %9047 = getelementptr inbounds nuw i8, ptr %.11545.i.i2108, i64 64
+  %9048 = getelementptr inbounds nuw i8, ptr %.114211544.i.i2109, i64 4
+  %9049 = getelementptr inbounds nuw i8, ptr %.114291543.i.i2110, i64 64
   %9050 = add nuw nsw i32 %.014361542.i.i2111, 1
   %exitcond.not.i81.i2112 = icmp eq i32 %9050, %.sroa.speculated107.i1963
   br i1 %exitcond.not.i81.i2112, label %.loopexit1541.i.i2047, label %.lr.ph.i80.i2107, !llvm.loop !323
@@ -17667,7 +17667,7 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %9055 = load <16 x float>, ptr %.31551.i.i2102, align 1
   %9056 = load float, ptr %.314231550.i.i2103, align 4
   %9057 = insertelement <8 x float> poison, float %9056, i64 0
-  %9058 = getelementptr inbounds i8, ptr %.314231550.i.i2103, i64 4
+  %9058 = getelementptr inbounds nuw i8, ptr %.314231550.i.i2103, i64 4
   %9059 = load float, ptr %9058, align 4
   %9060 = insertelement <8 x float> poison, float %9059, i64 0
   %9061 = shufflevector <8 x float> %9057, <8 x float> %9060, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
@@ -17709,9 +17709,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %9097 = select <16 x i1> %9062, <16 x float> %9092, <16 x float> %9096
   %9098 = select <16 x i1> %9063, <16 x float> %9097, <16 x float> %9095
   store <16 x float> %9098, ptr %.314311549.i.i2104, align 1
-  %9099 = getelementptr inbounds i8, ptr %.31551.i.i2102, i64 64
-  %9100 = getelementptr inbounds i8, ptr %.314231550.i.i2103, i64 8
-  %9101 = getelementptr inbounds i8, ptr %.314311549.i.i2104, i64 64
+  %9099 = getelementptr inbounds nuw i8, ptr %.31551.i.i2102, i64 64
+  %9100 = getelementptr inbounds nuw i8, ptr %.314231550.i.i2103, i64 8
+  %9101 = getelementptr inbounds nuw i8, ptr %.314311549.i.i2104, i64 64
   %9102 = add nuw nsw i32 %.014371548.i.i2105, 2
   %9103 = or disjoint i32 %9102, 1
   %9104 = icmp slt i32 %9103, %.sroa.speculated107.i1963
@@ -17770,9 +17770,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %9148 = bitcast <8 x i32> %9147 to <8 x float>
   %9149 = select <8 x i1> %9111, <8 x float> %9142, <8 x float> %9148
   store <8 x float> %9149, ptr %.414321558.i.i2096, align 1
-  %9150 = getelementptr inbounds i8, ptr %.41560.i.i2094, i64 32
-  %9151 = getelementptr inbounds i8, ptr %.414241559.i.i2095, i64 4
-  %9152 = getelementptr inbounds i8, ptr %.414321558.i.i2096, i64 32
+  %9150 = getelementptr inbounds nuw i8, ptr %.41560.i.i2094, i64 32
+  %9151 = getelementptr inbounds nuw i8, ptr %.414241559.i.i2095, i64 4
+  %9152 = getelementptr inbounds nuw i8, ptr %.414321558.i.i2096, i64 32
   %9153 = add nuw nsw i32 %.114381557.i.i2097, 1
   %exitcond1605.not.i.i2100 = icmp eq i32 %9153, %.sroa.speculated107.i1963
   br i1 %exitcond1605.not.i.i2100, label %.loopexit1538.i.i2051, label %.lr.ph1561.i.i2093, !llvm.loop !325
@@ -17809,13 +17809,13 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %9159 = load <16 x float>, ptr %.51568.i.i2082, align 1
   %9160 = load float, ptr %.514251567.i.i2083, align 4
   %9161 = insertelement <4 x float> poison, float %9160, i64 0
-  %9162 = getelementptr inbounds i8, ptr %.514251567.i.i2083, i64 4
+  %9162 = getelementptr inbounds nuw i8, ptr %.514251567.i.i2083, i64 4
   %9163 = load float, ptr %9162, align 4
   %9164 = insertelement <4 x float> poison, float %9163, i64 0
-  %9165 = getelementptr inbounds i8, ptr %.514251567.i.i2083, i64 8
+  %9165 = getelementptr inbounds nuw i8, ptr %.514251567.i.i2083, i64 8
   %9166 = load float, ptr %9165, align 4
   %9167 = insertelement <4 x float> poison, float %9166, i64 0
-  %9168 = getelementptr inbounds i8, ptr %.514251567.i.i2083, i64 12
+  %9168 = getelementptr inbounds nuw i8, ptr %.514251567.i.i2083, i64 12
   %9169 = load float, ptr %9168, align 4
   %9170 = insertelement <4 x float> poison, float %9169, i64 0
   %9171 = shufflevector <4 x float> %9161, <4 x float> %9164, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 4, i32 4, i32 4, i32 4>
@@ -17859,9 +17859,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %9209 = select <16 x i1> %9174, <16 x float> %9204, <16 x float> %9208
   %9210 = select <16 x i1> %9175, <16 x float> %9209, <16 x float> %9207
   store <16 x float> %9210, ptr %.514331566.i.i2084, align 1
-  %9211 = getelementptr inbounds i8, ptr %.51568.i.i2082, i64 64
-  %9212 = getelementptr inbounds i8, ptr %.514251567.i.i2083, i64 16
-  %9213 = getelementptr inbounds i8, ptr %.514331566.i.i2084, i64 64
+  %9211 = getelementptr inbounds nuw i8, ptr %.51568.i.i2082, i64 64
+  %9212 = getelementptr inbounds nuw i8, ptr %.514251567.i.i2083, i64 16
+  %9213 = getelementptr inbounds nuw i8, ptr %.514331566.i.i2084, i64 64
   %9214 = add nuw nsw i32 %.014391565.i.i2085, 4
   %9215 = or disjoint i32 %9214, 3
   %9216 = icmp slt i32 %9215, %.sroa.speculated107.i1963
@@ -17883,7 +17883,7 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %9218 = load <8 x float>, ptr %.61577.i.i2075, align 1
   %9219 = load float, ptr %.614261576.i.i2076, align 4
   %9220 = insertelement <4 x float> poison, float %9219, i64 0
-  %9221 = getelementptr inbounds i8, ptr %.614261576.i.i2076, i64 4
+  %9221 = getelementptr inbounds nuw i8, ptr %.614261576.i.i2076, i64 4
   %9222 = load float, ptr %9221, align 4
   %9223 = insertelement <4 x float> poison, float %9222, i64 0
   %9224 = shufflevector <4 x float> %9220, <4 x float> %9223, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 4, i32 4, i32 4, i32 4>
@@ -17931,9 +17931,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %9264 = bitcast <8 x i32> %9263 to <8 x float>
   %9265 = select <8 x i1> %9227, <8 x float> %9258, <8 x float> %9264
   store <8 x float> %9265, ptr %.614341575.i.i2077, align 1
-  %9266 = getelementptr inbounds i8, ptr %.61577.i.i2075, i64 32
-  %9267 = getelementptr inbounds i8, ptr %.614261576.i.i2076, i64 8
-  %9268 = getelementptr inbounds i8, ptr %.614341575.i.i2077, i64 32
+  %9266 = getelementptr inbounds nuw i8, ptr %.61577.i.i2075, i64 32
+  %9267 = getelementptr inbounds nuw i8, ptr %.614261576.i.i2076, i64 8
+  %9268 = getelementptr inbounds nuw i8, ptr %.614341575.i.i2077, i64 32
   %9269 = add nuw nsw i32 %.114401574.i.i2078, 2
   %9270 = or disjoint i32 %9269, 1
   %9271 = icmp slt i32 %9270, %.sroa.speculated107.i1963
@@ -17992,9 +17992,9 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %9315 = bitcast <4 x i32> %9314 to <4 x float>
   %9316 = select <4 x i1> %9278, <4 x float> %9309, <4 x float> %9315
   store <4 x float> %9316, ptr %.714351584.i.i2069, align 1
-  %9317 = getelementptr inbounds i8, ptr %.71586.i.i2067, i64 16
-  %9318 = getelementptr inbounds i8, ptr %.714271585.i.i2068, i64 4
-  %9319 = getelementptr inbounds i8, ptr %.714351584.i.i2069, i64 16
+  %9317 = getelementptr inbounds nuw i8, ptr %.71586.i.i2067, i64 16
+  %9318 = getelementptr inbounds nuw i8, ptr %.714271585.i.i2068, i64 4
+  %9319 = getelementptr inbounds nuw i8, ptr %.714351584.i.i2069, i64 16
   %9320 = add nuw nsw i32 %.214411583.i.i2070, 1
   %exitcond1606.not.i.i2073 = icmp eq i32 %9320, %.sroa.speculated107.i1963
   br i1 %exitcond1606.not.i.i2073, label %_ZN4ncnnL16binary_op_vectorINS_27BinaryOp_x86_avx512_functor13binary_op_addEEEvPKfS4_Pfiiii.exit, label %.lr.ph1587.i.i2066, !llvm.loop !328
@@ -18056,8 +18056,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %9365 = select <16 x i1> %9334, <16 x float> %9361, <16 x float> %9331
   %9366 = select <16 x i1> %9328, <16 x float> %9365, <16 x float> %9364
   store <16 x float> %9366, ptr %.0827894.i.i2042, align 1
-  %9367 = getelementptr inbounds i8, ptr %.0895.i.i2041, i64 64
-  %9368 = getelementptr inbounds i8, ptr %.0827894.i.i2042, i64 64
+  %9367 = getelementptr inbounds nuw i8, ptr %.0895.i.i2041, i64 64
+  %9368 = getelementptr inbounds nuw i8, ptr %.0827894.i.i2042, i64 64
   %9369 = add nuw nsw i32 %.0830893.i.i2043, 16
   %9370 = or disjoint i32 %9369, 15
   %9371 = icmp slt i32 %9370, %8480
@@ -18131,8 +18131,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %9419 = bitcast <8 x i32> %9418 to <8 x float>
   %9420 = select <8 x i1> %9388, <8 x float> %9415, <8 x float> %9419
   store <8 x float> %9420, ptr %.1828899.i.i2034, align 1
-  %9421 = getelementptr inbounds i8, ptr %.1900.i.i2033, i64 32
-  %9422 = getelementptr inbounds i8, ptr %.1828899.i.i2034, i64 32
+  %9421 = getelementptr inbounds nuw i8, ptr %.1900.i.i2033, i64 32
+  %9422 = getelementptr inbounds nuw i8, ptr %.1828899.i.i2034, i64 32
   %9423 = add nuw nsw i32 %.1831898.i.i2035, 8
   %9424 = or disjoint i32 %9423, 7
   %9425 = icmp slt i32 %9424, %8480
@@ -18205,8 +18205,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %9472 = bitcast <4 x i32> %9471 to <4 x float>
   %9473 = select <4 x i1> %9441, <4 x float> %9468, <4 x float> %9472
   store <4 x float> %9473, ptr %.2829908.i.i2028, align 1
-  %9474 = getelementptr inbounds i8, ptr %.2909.i.i2027, i64 16
-  %9475 = getelementptr inbounds i8, ptr %.2829908.i.i2028, i64 16
+  %9474 = getelementptr inbounds nuw i8, ptr %.2909.i.i2027, i64 16
+  %9475 = getelementptr inbounds nuw i8, ptr %.2829908.i.i2028, i64 16
   %9476 = add nuw nsw i32 %.2832907.i.i2029, 4
   %9477 = or disjoint i32 %9476, 3
   %9478 = icmp slt i32 %9477, %8480
@@ -18270,8 +18270,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %9524 = select <16 x i1> %9484, <16 x float> %9522, <16 x float> %9523
   %9525 = select <16 x i1> %9494, <16 x float> %9524, <16 x float> %9488
   store <16 x float> %9525, ptr %.114121529.i.i2015, align 1
-  %9526 = getelementptr inbounds i8, ptr %.11530.i.i2014, i64 4
-  %9527 = getelementptr inbounds i8, ptr %.114121529.i.i2015, i64 64
+  %9526 = getelementptr inbounds nuw i8, ptr %.11530.i.i2014, i64 4
+  %9527 = getelementptr inbounds nuw i8, ptr %.114121529.i.i2015, i64 64
   %9528 = add nuw nsw i32 %.014191528.i.i2016, 1
   %exitcond.not.i96.i2017 = icmp eq i32 %9528, %.sroa.speculated107.i1963
   br i1 %exitcond.not.i96.i2017, label %.loopexit1527.i.i1965, label %9490, !llvm.loop !332
@@ -18322,7 +18322,7 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %.014201532.i.i2011 = phi i32 [ 0, %.lr.ph1535.i.i2008 ], [ %9587, %9546 ]
   %9547 = load float, ptr %.31534.i.i2009, align 4
   %9548 = insertelement <8 x float> poison, float %9547, i64 0
-  %9549 = getelementptr inbounds i8, ptr %.31534.i.i2009, i64 4
+  %9549 = getelementptr inbounds nuw i8, ptr %.31534.i.i2009, i64 4
   %9550 = load float, ptr %9549, align 4
   %9551 = insertelement <8 x float> poison, float %9550, i64 0
   %9552 = shufflevector <8 x float> %9548, <8 x float> %9551, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
@@ -18359,8 +18359,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %9583 = select <16 x i1> %9534, <16 x float> %9581, <16 x float> %9582
   %9584 = select <16 x i1> %9553, <16 x float> %9583, <16 x float> %9538
   store <16 x float> %9584, ptr %.314141533.i.i2010, align 1
-  %9585 = getelementptr inbounds i8, ptr %.31534.i.i2009, i64 8
-  %9586 = getelementptr inbounds i8, ptr %.314141533.i.i2010, i64 64
+  %9585 = getelementptr inbounds nuw i8, ptr %.31534.i.i2009, i64 8
+  %9586 = getelementptr inbounds nuw i8, ptr %.314141533.i.i2010, i64 64
   %9587 = add nuw nsw i32 %.014201532.i.i2011, 2
   %9588 = or disjoint i32 %9587, 1
   %9589 = icmp slt i32 %9588, %.sroa.speculated107.i1963
@@ -18413,8 +18413,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %9630 = bitcast <8 x i32> %9629 to <8 x float>
   %9631 = select <8 x i1> %9595, <8 x float> %9625, <8 x float> %9630
   store <8 x float> %9631, ptr %.414151540.i.i2004, align 1
-  %9632 = getelementptr inbounds i8, ptr %.41541.i.i2003, i64 4
-  %9633 = getelementptr inbounds i8, ptr %.414151540.i.i2004, i64 32
+  %9632 = getelementptr inbounds nuw i8, ptr %.41541.i.i2003, i64 4
+  %9633 = getelementptr inbounds nuw i8, ptr %.414151540.i.i2004, i64 32
   %9634 = add nuw nsw i32 %.114211539.i.i2005, 1
   %exitcond1575.not.i.i2007 = icmp eq i32 %9634, %.sroa.speculated107.i1963
   br i1 %exitcond1575.not.i.i2007, label %.loopexit1526.i.i1968, label %9590, !llvm.loop !334
@@ -18467,13 +18467,13 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %.014221545.i.i1995 = phi i32 [ 0, %.lr.ph1548.i.i1992 ], [ %9703, %9654 ]
   %9655 = load float, ptr %.51547.i.i1993, align 4
   %9656 = insertelement <4 x float> poison, float %9655, i64 0
-  %9657 = getelementptr inbounds i8, ptr %.51547.i.i1993, i64 4
+  %9657 = getelementptr inbounds nuw i8, ptr %.51547.i.i1993, i64 4
   %9658 = load float, ptr %9657, align 4
   %9659 = insertelement <4 x float> poison, float %9658, i64 0
-  %9660 = getelementptr inbounds i8, ptr %.51547.i.i1993, i64 8
+  %9660 = getelementptr inbounds nuw i8, ptr %.51547.i.i1993, i64 8
   %9661 = load float, ptr %9660, align 4
   %9662 = insertelement <4 x float> poison, float %9661, i64 0
-  %9663 = getelementptr inbounds i8, ptr %.51547.i.i1993, i64 12
+  %9663 = getelementptr inbounds nuw i8, ptr %.51547.i.i1993, i64 12
   %9664 = load float, ptr %9663, align 4
   %9665 = insertelement <4 x float> poison, float %9664, i64 0
   %9666 = shufflevector <4 x float> %9656, <4 x float> %9659, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 4, i32 4, i32 4, i32 4>
@@ -18512,8 +18512,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %9699 = select <16 x i1> %9641, <16 x float> %9697, <16 x float> %9698
   %9700 = select <16 x i1> %9669, <16 x float> %9699, <16 x float> %9645
   store <16 x float> %9700, ptr %.514161546.i.i1994, align 1
-  %9701 = getelementptr inbounds i8, ptr %.51547.i.i1993, i64 16
-  %9702 = getelementptr inbounds i8, ptr %.514161546.i.i1994, i64 64
+  %9701 = getelementptr inbounds nuw i8, ptr %.51547.i.i1993, i64 16
+  %9702 = getelementptr inbounds nuw i8, ptr %.514161546.i.i1994, i64 64
   %9703 = add nuw nsw i32 %.014221545.i.i1995, 4
   %9704 = or disjoint i32 %9703, 3
   %9705 = icmp slt i32 %9704, %.sroa.speculated107.i1963
@@ -18540,7 +18540,7 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %.114231552.i.i1990 = phi i32 [ %.01422.lcssa.i.i1972, %.lr.ph1555.i.i1986 ], [ %9758, %9711 ]
   %9712 = load float, ptr %.61554.i.i1988, align 4
   %9713 = insertelement <4 x float> poison, float %9712, i64 0
-  %9714 = getelementptr inbounds i8, ptr %.61554.i.i1988, i64 4
+  %9714 = getelementptr inbounds nuw i8, ptr %.61554.i.i1988, i64 4
   %9715 = load float, ptr %9714, align 4
   %9716 = insertelement <4 x float> poison, float %9715, i64 0
   %9717 = shufflevector <4 x float> %9713, <4 x float> %9716, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 4, i32 4, i32 4, i32 4>
@@ -18584,8 +18584,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %9754 = bitcast <8 x i32> %9753 to <8 x float>
   %9755 = select <8 x i1> %9719, <8 x float> %9749, <8 x float> %9754
   store <8 x float> %9755, ptr %.614171553.i.i1989, align 1
-  %9756 = getelementptr inbounds i8, ptr %.61554.i.i1988, i64 8
-  %9757 = getelementptr inbounds i8, ptr %.614171553.i.i1989, i64 32
+  %9756 = getelementptr inbounds nuw i8, ptr %.61554.i.i1988, i64 8
+  %9757 = getelementptr inbounds nuw i8, ptr %.614171553.i.i1989, i64 32
   %9758 = add nuw nsw i32 %.114231552.i.i1990, 2
   %9759 = or disjoint i32 %9758, 1
   %9760 = icmp slt i32 %9759, %.sroa.speculated107.i1963
@@ -18638,8 +18638,8 @@ define internal fastcc void @_ZN4ncnnL16binary_op_vectorEPKfS1_Pfiiiii(ptr nound
   %9801 = bitcast <4 x i32> %9800 to <4 x float>
   %9802 = select <4 x i1> %9766, <4 x float> %9796, <4 x float> %9801
   store <4 x float> %9802, ptr %.714181560.i.i1982, align 1
-  %9803 = getelementptr inbounds i8, ptr %.71561.i.i1981, i64 4
-  %9804 = getelementptr inbounds i8, ptr %.714181560.i.i1982, i64 16
+  %9803 = getelementptr inbounds nuw i8, ptr %.71561.i.i1981, i64 4
+  %9804 = getelementptr inbounds nuw i8, ptr %.714181560.i.i1982, i64 16
   %9805 = add nuw nsw i32 %.214241559.i.i1983, 1
   %exitcond1576.not.i.i1985 = icmp eq i32 %9805, %.sroa.speculated107.i1963
   br i1 %exitcond1576.not.i.i1985, label %_ZN4ncnnL16binary_op_vectorINS_27BinaryOp_x86_avx512_functor13binary_op_addEEEvPKfS4_Pfiiii.exit, label %9761, !llvm.loop !337

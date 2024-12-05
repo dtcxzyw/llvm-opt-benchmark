@@ -751,13 +751,13 @@ define internal i32 @dissect_tns_pdu(ptr noundef %0, ptr noundef %1, ptr noundef
   %17 = alloca i32, align 4
   %18 = alloca i32, align 4
   %19 = alloca i32, align 4
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load ptr, ptr %20, align 8
   tail call void @col_set_str(ptr noundef %21, i32 noundef 34, ptr noundef nonnull @.str.214) #6
   %22 = load ptr, ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 292
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 292
   %24 = load i32, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %1, i64 288
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %26 = load i32, ptr %25, align 8
   %27 = icmp eq i32 %24, %26
   %28 = select i1 %27, ptr @.str.3, ptr @.str
@@ -777,13 +777,13 @@ define internal i32 @dissect_tns_pdu(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %38
 
 38:                                               ; preds = %4
-  %39 = getelementptr inbounds i8, ptr %37, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %40 = load ptr, ptr %39, align 8
   %.not5.i = icmp eq ptr %40, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %41
 
 41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %40, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 28
   %43 = load i32, ptr %42, align 4
   %44 = or i32 %43, 1
   store i32 %44, ptr %42, align 4
@@ -898,9 +898,9 @@ proto_item_set_hidden.exit:                       ; preds = %4, %38, %41
 
 116:                                              ; preds = %109
   %117 = call ptr @proto_tree_add_expert(ptr noundef %67, ptr noundef nonnull %1, ptr noundef nonnull @ei_tns_connect_data_next_packet, ptr noundef %0, i32 noundef 0, i32 noundef 0) #6
-  %118 = getelementptr inbounds i8, ptr %1, i64 80
+  %118 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %119 = load ptr, ptr %118, align 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 50
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 50
   %121 = load i16, ptr %120, align 2
   %122 = and i16 %121, 8
   %.not80.i = icmp eq i16 %122, 0
@@ -1086,9 +1086,9 @@ get_data_func_id.exit.i:                          ; preds = %235, %232
   br i1 %216, label %239, label %272
 
 239:                                              ; preds = %238
-  %240 = getelementptr inbounds i8, ptr %1, i64 80
+  %240 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %241 = load ptr, ptr %240, align 8
-  %242 = getelementptr inbounds i8, ptr %241, i64 50
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 50
   %243 = load i16, ptr %242, align 2
   %244 = and i16 %243, 8
   %.not.i103 = icmp eq i16 %244, 0

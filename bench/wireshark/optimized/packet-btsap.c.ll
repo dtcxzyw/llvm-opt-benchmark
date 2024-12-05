@@ -221,10 +221,10 @@ define internal i32 @dissect_btsap(ptr noundef %0, ptr noundef %1, ptr noundef %
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #2
   %7 = load i32, ptr @ett_btsap, align 4
   %8 = tail call ptr @proto_item_add_subtree(ptr noundef %6, i32 noundef %7) #2
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @col_set_str(ptr noundef %10, i32 noundef 34, ptr noundef nonnull @.str.113) #2
-  %11 = getelementptr inbounds i8, ptr %1, i64 348
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 348
   %12 = load i32, ptr %11, align 4
   %13 = load ptr, ptr %9, align 8
   %switch.selectcmp = icmp eq i32 %12, 1
@@ -245,7 +245,7 @@ define internal i32 @dissect_btsap(ptr noundef %0, ptr noundef %1, ptr noundef %
   %23 = zext i8 %22 to i32
   %24 = load i32, ptr @hf_btsap_header_reserved, align 4
   %25 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %24, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #2
-  %26 = getelementptr inbounds i8, ptr %1, i64 408
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %27 = load ptr, ptr %26, align 8
   %28 = zext i8 %22 to i64
   %29 = tail call noalias ptr @wmem_alloc(ptr noundef %27, i64 noundef %28) #2

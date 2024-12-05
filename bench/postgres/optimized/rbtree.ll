@@ -14,17 +14,17 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local noundef ptr @rbt_create(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = tail call ptr @palloc(i64 noundef 56) #7
   store ptr @sentinel, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %2, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %3, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr %4, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr %5, ptr %13, align 8
   ret ptr %7
 }
@@ -33,13 +33,13 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @rbt_find(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.01113 = load ptr, ptr %0, align 8
   %.not14 = icmp eq ptr %.01113, @sentinel
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %5
 
 5:                                                ; preds = %.lr.ph, %10
@@ -53,7 +53,7 @@ define dso_local noundef ptr @rbt_find(ptr nocapture noundef readonly %0, ptr no
 10:                                               ; preds = %5
   %11 = icmp slt i32 %8, 0
   %.1.in.v = select i1 %11, i64 8, i64 16
-  %.1.in = getelementptr inbounds i8, ptr %.01115, i64 %.1.in.v
+  %.1.in = getelementptr inbounds nuw i8, ptr %.01115, i64 %.1.in.v
   %.011 = load ptr, ptr %.1.in, align 8
   %.not = icmp eq ptr %.011, @sentinel
   br i1 %.not, label %._crit_edge, label %5, !llvm.loop !5
@@ -70,8 +70,8 @@ define dso_local ptr @rbt_find_great(ptr nocapture noundef readonly %0, ptr noun
   br i1 %.not19, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br i1 %2, label %.lr.ph.split, label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
@@ -82,7 +82,7 @@ define dso_local ptr @rbt_find_great(ptr nocapture noundef readonly %0, ptr noun
   %8 = tail call i32 %6(ptr noundef %1, ptr noundef %.01621.us, ptr noundef %7) #7
   %9 = icmp slt i32 %8, 0
   %.117.in.v.us = select i1 %9, i64 8, i64 16
-  %.117.in.us = getelementptr inbounds i8, ptr %.01621.us, i64 %.117.in.v.us
+  %.117.in.us = getelementptr inbounds nuw i8, ptr %.01621.us, i64 %.117.in.v.us
   %.1.us = select i1 %9, ptr %.01621.us, ptr %.01520.us
   %.016.us = load ptr, ptr %.117.in.us, align 8
   %.not.us = icmp eq ptr %.016.us, @sentinel
@@ -100,7 +100,7 @@ define dso_local ptr @rbt_find_great(ptr nocapture noundef readonly %0, ptr noun
 14:                                               ; preds = %.lr.ph.split
   %15 = icmp slt i32 %12, 0
   %.117.in.v = select i1 %15, i64 8, i64 16
-  %.117.in = getelementptr inbounds i8, ptr %.01621, i64 %.117.in.v
+  %.117.in = getelementptr inbounds nuw i8, ptr %.01621, i64 %.117.in.v
   %.1 = select i1 %15, ptr %.01621, ptr %.01520
   %.016 = load ptr, ptr %.117.in, align 8
   %.not = icmp eq ptr %.016, @sentinel
@@ -118,8 +118,8 @@ define dso_local ptr @rbt_find_less(ptr nocapture noundef readonly %0, ptr nound
   br i1 %.not19, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br i1 %2, label %.lr.ph.split, label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
@@ -130,7 +130,7 @@ define dso_local ptr @rbt_find_less(ptr nocapture noundef readonly %0, ptr nound
   %8 = tail call i32 %6(ptr noundef %1, ptr noundef %.01621.us, ptr noundef %7) #7
   %9 = icmp sgt i32 %8, 0
   %.117.in.v.us = select i1 %9, i64 16, i64 8
-  %.117.in.us = getelementptr inbounds i8, ptr %.01621.us, i64 %.117.in.v.us
+  %.117.in.us = getelementptr inbounds nuw i8, ptr %.01621.us, i64 %.117.in.v.us
   %.1.us = select i1 %9, ptr %.01621.us, ptr %.01520.us
   %.016.us = load ptr, ptr %.117.in.us, align 8
   %.not.us = icmp eq ptr %.016.us, @sentinel
@@ -148,7 +148,7 @@ define dso_local ptr @rbt_find_less(ptr nocapture noundef readonly %0, ptr nound
 14:                                               ; preds = %.lr.ph.split
   %15 = icmp sgt i32 %12, 0
   %.117.in.v = select i1 %15, i64 16, i64 8
-  %.117.in = getelementptr inbounds i8, ptr %.01621, i64 %.117.in.v
+  %.117.in = getelementptr inbounds nuw i8, ptr %.01621, i64 %.117.in.v
   %.1 = select i1 %15, ptr %.01621, ptr %.01520
   %.016 = load ptr, ptr %.117.in, align 8
   %.not = icmp eq ptr %.016, @sentinel
@@ -167,7 +167,7 @@ define dso_local ptr @rbt_leftmost(ptr nocapture noundef readonly %0) local_unna
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.0812 = phi ptr [ %4, %.lr.ph ], [ %2, %1 ]
-  %3 = getelementptr inbounds i8, ptr %.0812, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %.0812, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, @sentinel
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
@@ -186,8 +186,8 @@ define dso_local noundef ptr @rbt_insert(ptr nocapture noundef %0, ptr noundef %
   br i1 %.not48, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %6
 
 6:                                                ; preds = %.lr.ph, %15
@@ -199,7 +199,7 @@ define dso_local noundef ptr @rbt_insert(ptr nocapture noundef %0, ptr noundef %
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %5, align 8
   tail call void %13(ptr noundef %.04149, ptr noundef %1, ptr noundef %14) #7
@@ -209,7 +209,7 @@ define dso_local noundef ptr @rbt_insert(ptr nocapture noundef %0, ptr noundef %
 15:                                               ; preds = %6
   %16 = icmp slt i32 %9, 0
   %.in.v = select i1 %16, i64 8, i64 16
-  %.in = getelementptr inbounds i8, ptr %.04149, i64 %.in.v
+  %.in = getelementptr inbounds nuw i8, ptr %.04149, i64 %.in.v
   %.041 = load ptr, ptr %.in, align 8
   %.not = icmp eq ptr %.041, @sentinel
   br i1 %.not, label %._crit_edge.loopexit, label %6, !llvm.loop !10
@@ -222,17 +222,17 @@ define dso_local noundef ptr @rbt_insert(ptr nocapture noundef %0, ptr noundef %
   %.040.lcssa = phi ptr [ null, %3 ], [ %.04149, %._crit_edge.loopexit ]
   %.0.lcssa = phi i1 [ false, %3 ], [ %17, %._crit_edge.loopexit ]
   store i8 1, ptr %2, align 1
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %21 = load ptr, ptr %20, align 8
   %22 = tail call ptr %19(ptr noundef %21) #7
   store i8 1, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr @sentinel, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %22, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store ptr @sentinel, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %22, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store ptr %.040.lcssa, ptr %25, align 8
   %26 = getelementptr i8, ptr %0, i64 8
   %.val = load i64, ptr %26, align 8
@@ -247,12 +247,12 @@ define dso_local noundef ptr @rbt_insert(ptr nocapture noundef %0, ptr noundef %
   br i1 %.0.lcssa, label %31, label %33
 
 31:                                               ; preds = %30
-  %32 = getelementptr inbounds i8, ptr %.040.lcssa, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.040.lcssa, i64 8
   store ptr %22, ptr %32, align 8
   br label %36
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %.040.lcssa, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %.040.lcssa, i64 16
   store ptr %22, ptr %34, align 8
   br label %36
 
@@ -272,7 +272,7 @@ define dso_local noundef ptr @rbt_insert(ptr nocapture noundef %0, ptr noundef %
   br i1 %40, label %.lr.ph52, label %rbt_insert_fixup.exit
 
 .lr.ph.i:                                         ; preds = %rbt_rotate_right.exit.i
-  %41 = getelementptr inbounds i8, ptr %.2.i, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %.2.i, i64 24
   %42 = load ptr, ptr %41, align 8
   %43 = load i8, ptr %42, align 8
   %44 = icmp eq i8 %43, 1
@@ -282,15 +282,15 @@ define dso_local noundef ptr @rbt_insert(ptr nocapture noundef %0, ptr noundef %
   %45 = phi ptr [ %42, %.lr.ph.i ], [ %38, %.lr.ph.i.preheader ]
   %46 = phi ptr [ %41, %.lr.ph.i ], [ %25, %.lr.ph.i.preheader ]
   %.063.i51 = phi ptr [ %.2.i, %.lr.ph.i ], [ %22, %.lr.ph.i.preheader ]
-  %47 = getelementptr inbounds i8, ptr %45, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %45, %50
   br i1 %51, label %52, label %113
 
 52:                                               ; preds = %.lr.ph52
-  %53 = getelementptr inbounds i8, ptr %48, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %54 = load ptr, ptr %53, align 8
   %55 = load i8, ptr %54, align 8
   %56 = icmp eq i8 %55, 1
@@ -300,29 +300,29 @@ define dso_local noundef ptr @rbt_insert(ptr nocapture noundef %0, ptr noundef %
   store i8 0, ptr %45, align 8
   store i8 0, ptr %54, align 8
   %58 = load ptr, ptr %46, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 24
   %60 = load ptr, ptr %59, align 8
   store i8 1, ptr %60, align 8
   %61 = load ptr, ptr %46, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %63 = load ptr, ptr %62, align 8
   br label %rbt_rotate_right.exit.i
 
 64:                                               ; preds = %52
-  %65 = getelementptr inbounds i8, ptr %45, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %66 = load ptr, ptr %65, align 8
   %67 = icmp eq ptr %.063.i51, %66
   br i1 %67, label %68, label %rbt_rotate_left.exit.i
 
 68:                                               ; preds = %64
-  %69 = getelementptr inbounds i8, ptr %66, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %70 = load ptr, ptr %69, align 8
   store ptr %70, ptr %65, align 8
   %.not.i.i = icmp eq ptr %70, @sentinel
   br i1 %.not.i.i, label %73, label %71
 
 71:                                               ; preds = %68
-  %72 = getelementptr inbounds i8, ptr %70, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %70, i64 24
   store ptr %45, ptr %72, align 8
   %.pre.i.pre.i = load ptr, ptr %47, align 8
   br label %73
@@ -333,7 +333,7 @@ define dso_local noundef ptr @rbt_insert(ptr nocapture noundef %0, ptr noundef %
   br i1 %.not25.i.i, label %._crit_edge.i.i, label %74
 
 74:                                               ; preds = %73
-  %75 = getelementptr inbounds i8, ptr %66, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %66, i64 24
   store ptr %.pre.i.i, ptr %75, align 8
   br label %._crit_edge.i.i
 
@@ -342,7 +342,7 @@ define dso_local noundef ptr @rbt_insert(ptr nocapture noundef %0, ptr noundef %
   br i1 %.not26.i.i, label %83, label %76
 
 76:                                               ; preds = %._crit_edge.i.i
-  %77 = getelementptr inbounds i8, ptr %.pre.i.i, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 8
   %78 = load ptr, ptr %77, align 8
   %79 = icmp eq ptr %45, %78
   br i1 %79, label %80, label %81
@@ -352,7 +352,7 @@ define dso_local noundef ptr @rbt_insert(ptr nocapture noundef %0, ptr noundef %
   br label %84
 
 81:                                               ; preds = %76
-  %82 = getelementptr inbounds i8, ptr %.pre.i.i, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 16
   store ptr %66, ptr %82, align 8
   br label %84
 
@@ -366,7 +366,7 @@ define dso_local noundef ptr @rbt_insert(ptr nocapture noundef %0, ptr noundef %
   br i1 %.not27.i.i, label %.rbt_rotate_left.exit_crit_edge.i, label %85
 
 .rbt_rotate_left.exit_crit_edge.i:                ; preds = %84
-  %.pre68.i = load ptr, ptr getelementptr inbounds (i8, ptr @sentinel, i64 24), align 8
+  %.pre68.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sentinel, i64 24), align 8
   br label %rbt_rotate_left.exit.i
 
 85:                                               ; preds = %84
@@ -376,36 +376,36 @@ define dso_local noundef ptr @rbt_insert(ptr nocapture noundef %0, ptr noundef %
 rbt_rotate_left.exit.i:                           ; preds = %85, %.rbt_rotate_left.exit_crit_edge.i, %64
   %86 = phi ptr [ %45, %64 ], [ %.pre68.i, %.rbt_rotate_left.exit_crit_edge.i ], [ %66, %85 ]
   %.1.i = phi ptr [ %.063.i51, %64 ], [ @sentinel, %.rbt_rotate_left.exit_crit_edge.i ], [ %45, %85 ]
-  %87 = getelementptr inbounds i8, ptr %.1.i, i64 24
+  %87 = getelementptr inbounds nuw i8, ptr %.1.i, i64 24
   store i8 0, ptr %86, align 8
   %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 24
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 24
   %90 = load ptr, ptr %89, align 8
   store i8 1, ptr %90, align 8
   %91 = load ptr, ptr %87, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 24
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 24
   %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 16
   %97 = load ptr, ptr %96, align 8
   store ptr %97, ptr %94, align 8
   %.not.i39.i = icmp eq ptr %97, @sentinel
   br i1 %.not.i39.i, label %100, label %98
 
 98:                                               ; preds = %rbt_rotate_left.exit.i
-  %99 = getelementptr inbounds i8, ptr %97, i64 24
+  %99 = getelementptr inbounds nuw i8, ptr %97, i64 24
   store ptr %93, ptr %99, align 8
   br label %100
 
 100:                                              ; preds = %98, %rbt_rotate_left.exit.i
   %.not25.i40.i = icmp eq ptr %95, @sentinel
-  %.phi.trans.insert.i41.i = getelementptr inbounds i8, ptr %93, i64 24
+  %.phi.trans.insert.i41.i = getelementptr inbounds nuw i8, ptr %93, i64 24
   %.pre.i42.i = load ptr, ptr %.phi.trans.insert.i41.i, align 8
   br i1 %.not25.i40.i, label %._crit_edge.i43.i, label %101
 
 101:                                              ; preds = %100
-  %102 = getelementptr inbounds i8, ptr %95, i64 24
+  %102 = getelementptr inbounds nuw i8, ptr %95, i64 24
   store ptr %.pre.i42.i, ptr %102, align 8
   br label %._crit_edge.i43.i
 
@@ -414,7 +414,7 @@ rbt_rotate_left.exit.i:                           ; preds = %85, %.rbt_rotate_le
   br i1 %.not26.i44.i, label %110, label %103
 
 103:                                              ; preds = %._crit_edge.i43.i
-  %104 = getelementptr inbounds i8, ptr %.pre.i42.i, i64 16
+  %104 = getelementptr inbounds nuw i8, ptr %.pre.i42.i, i64 16
   %105 = load ptr, ptr %104, align 8
   %106 = icmp eq ptr %93, %105
   br i1 %106, label %107, label %108
@@ -424,7 +424,7 @@ rbt_rotate_left.exit.i:                           ; preds = %85, %.rbt_rotate_le
   br label %111
 
 108:                                              ; preds = %103
-  %109 = getelementptr inbounds i8, ptr %.pre.i42.i, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %.pre.i42.i, i64 8
   store ptr %95, ptr %109, align 8
   br label %111
 
@@ -450,29 +450,29 @@ rbt_rotate_left.exit.i:                           ; preds = %85, %.rbt_rotate_le
   store i8 0, ptr %45, align 8
   store i8 0, ptr %50, align 8
   %117 = load ptr, ptr %46, align 8
-  %118 = getelementptr inbounds i8, ptr %117, i64 24
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 24
   %119 = load ptr, ptr %118, align 8
   store i8 1, ptr %119, align 8
   %120 = load ptr, ptr %46, align 8
-  %121 = getelementptr inbounds i8, ptr %120, i64 24
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 24
   %122 = load ptr, ptr %121, align 8
   br label %rbt_rotate_right.exit.i
 
 123:                                              ; preds = %113
-  %124 = getelementptr inbounds i8, ptr %45, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %125 = load ptr, ptr %124, align 8
   %126 = icmp eq ptr %.063.i51, %125
   br i1 %126, label %127, label %rbt_rotate_right.exit53.i
 
 127:                                              ; preds = %123
-  %128 = getelementptr inbounds i8, ptr %125, i64 16
+  %128 = getelementptr inbounds nuw i8, ptr %125, i64 16
   %129 = load ptr, ptr %128, align 8
   store ptr %129, ptr %124, align 8
   %.not.i46.i = icmp eq ptr %129, @sentinel
   br i1 %.not.i46.i, label %132, label %130
 
 130:                                              ; preds = %127
-  %131 = getelementptr inbounds i8, ptr %129, i64 24
+  %131 = getelementptr inbounds nuw i8, ptr %129, i64 24
   store ptr %45, ptr %131, align 8
   %.pre.i49.pre.i = load ptr, ptr %47, align 8
   br label %132
@@ -483,7 +483,7 @@ rbt_rotate_left.exit.i:                           ; preds = %85, %.rbt_rotate_le
   br i1 %.not25.i47.i, label %._crit_edge.i50.i, label %133
 
 133:                                              ; preds = %132
-  %134 = getelementptr inbounds i8, ptr %125, i64 24
+  %134 = getelementptr inbounds nuw i8, ptr %125, i64 24
   store ptr %.pre.i49.i, ptr %134, align 8
   br label %._crit_edge.i50.i
 
@@ -492,7 +492,7 @@ rbt_rotate_left.exit.i:                           ; preds = %85, %.rbt_rotate_le
   br i1 %.not26.i51.i, label %142, label %135
 
 135:                                              ; preds = %._crit_edge.i50.i
-  %136 = getelementptr inbounds i8, ptr %.pre.i49.i, i64 16
+  %136 = getelementptr inbounds nuw i8, ptr %.pre.i49.i, i64 16
   %137 = load ptr, ptr %136, align 8
   %138 = icmp eq ptr %45, %137
   br i1 %138, label %139, label %140
@@ -502,7 +502,7 @@ rbt_rotate_left.exit.i:                           ; preds = %85, %.rbt_rotate_le
   br label %143
 
 140:                                              ; preds = %135
-  %141 = getelementptr inbounds i8, ptr %.pre.i49.i, i64 8
+  %141 = getelementptr inbounds nuw i8, ptr %.pre.i49.i, i64 8
   store ptr %125, ptr %141, align 8
   br label %143
 
@@ -516,7 +516,7 @@ rbt_rotate_left.exit.i:                           ; preds = %85, %.rbt_rotate_le
   br i1 %.not27.i52.i, label %.rbt_rotate_right.exit53_crit_edge.i, label %144
 
 .rbt_rotate_right.exit53_crit_edge.i:             ; preds = %143
-  %.pre.i = load ptr, ptr getelementptr inbounds (i8, ptr @sentinel, i64 24), align 8
+  %.pre.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sentinel, i64 24), align 8
   br label %rbt_rotate_right.exit53.i
 
 144:                                              ; preds = %143
@@ -526,36 +526,36 @@ rbt_rotate_left.exit.i:                           ; preds = %85, %.rbt_rotate_le
 rbt_rotate_right.exit53.i:                        ; preds = %144, %.rbt_rotate_right.exit53_crit_edge.i, %123
   %145 = phi ptr [ %45, %123 ], [ %.pre.i, %.rbt_rotate_right.exit53_crit_edge.i ], [ %125, %144 ]
   %.3.i = phi ptr [ %.063.i51, %123 ], [ @sentinel, %.rbt_rotate_right.exit53_crit_edge.i ], [ %45, %144 ]
-  %146 = getelementptr inbounds i8, ptr %.3.i, i64 24
+  %146 = getelementptr inbounds nuw i8, ptr %.3.i, i64 24
   store i8 0, ptr %145, align 8
   %147 = load ptr, ptr %146, align 8
-  %148 = getelementptr inbounds i8, ptr %147, i64 24
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 24
   %149 = load ptr, ptr %148, align 8
   store i8 1, ptr %149, align 8
   %150 = load ptr, ptr %146, align 8
-  %151 = getelementptr inbounds i8, ptr %150, i64 24
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 24
   %152 = load ptr, ptr %151, align 8
-  %153 = getelementptr inbounds i8, ptr %152, i64 16
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 16
   %154 = load ptr, ptr %153, align 8
-  %155 = getelementptr inbounds i8, ptr %154, i64 8
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
   %156 = load ptr, ptr %155, align 8
   store ptr %156, ptr %153, align 8
   %.not.i54.i = icmp eq ptr %156, @sentinel
   br i1 %.not.i54.i, label %159, label %157
 
 157:                                              ; preds = %rbt_rotate_right.exit53.i
-  %158 = getelementptr inbounds i8, ptr %156, i64 24
+  %158 = getelementptr inbounds nuw i8, ptr %156, i64 24
   store ptr %152, ptr %158, align 8
   br label %159
 
 159:                                              ; preds = %157, %rbt_rotate_right.exit53.i
   %.not25.i55.i = icmp eq ptr %154, @sentinel
-  %.phi.trans.insert.i56.i = getelementptr inbounds i8, ptr %152, i64 24
+  %.phi.trans.insert.i56.i = getelementptr inbounds nuw i8, ptr %152, i64 24
   %.pre.i57.i = load ptr, ptr %.phi.trans.insert.i56.i, align 8
   br i1 %.not25.i55.i, label %._crit_edge.i58.i, label %160
 
 160:                                              ; preds = %159
-  %161 = getelementptr inbounds i8, ptr %154, i64 24
+  %161 = getelementptr inbounds nuw i8, ptr %154, i64 24
   store ptr %.pre.i57.i, ptr %161, align 8
   br label %._crit_edge.i58.i
 
@@ -564,7 +564,7 @@ rbt_rotate_right.exit53.i:                        ; preds = %144, %.rbt_rotate_r
   br i1 %.not26.i59.i, label %169, label %162
 
 162:                                              ; preds = %._crit_edge.i58.i
-  %163 = getelementptr inbounds i8, ptr %.pre.i57.i, i64 8
+  %163 = getelementptr inbounds nuw i8, ptr %.pre.i57.i, i64 8
   %164 = load ptr, ptr %163, align 8
   %165 = icmp eq ptr %152, %164
   br i1 %165, label %166, label %167
@@ -574,7 +574,7 @@ rbt_rotate_right.exit53.i:                        ; preds = %144, %.rbt_rotate_r
   br label %170
 
 167:                                              ; preds = %162
-  %168 = getelementptr inbounds i8, ptr %.pre.i57.i, i64 16
+  %168 = getelementptr inbounds nuw i8, ptr %.pre.i57.i, i64 16
   store ptr %154, ptr %168, align 8
   br label %170
 
@@ -615,42 +615,42 @@ define dso_local void @rbt_delete(ptr nocapture noundef %0, ptr noundef %1) loca
   br i1 %or.cond.i, label %rbt_delete_node.exit, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, @sentinel
   br i1 %8, label %.loopexit50.i, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, @sentinel
   br i1 %12, label %.loopexit.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %9, %.preheader.i
   %.1.i = phi ptr [ %14, %.preheader.i ], [ %11, %9 ]
-  %13 = getelementptr inbounds i8, ptr %.1.i, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %14 = load ptr, ptr %13, align 8
   %.not.i = icmp eq ptr %14, @sentinel
   br i1 %.not.i, label %.loopexit50.i, label %.preheader.i, !llvm.loop !12
 
 .loopexit50.i:                                    ; preds = %.preheader.i, %5
   %.0.ph.i = phi ptr [ %1, %5 ], [ %.1.i, %.preheader.i ]
-  %15 = getelementptr inbounds i8, ptr %.0.ph.i, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %.0.ph.i, i64 16
   %16 = load ptr, ptr %15, align 8
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit50.i, %9
   %.048.i = phi ptr [ %.0.ph.i, %.loopexit50.i ], [ %1, %9 ]
   %.035.i = phi ptr [ %16, %.loopexit50.i ], [ %7, %9 ]
-  %17 = getelementptr inbounds i8, ptr %.048.i, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %.048.i, i64 24
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %.035.i, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %.035.i, i64 24
   store ptr %18, ptr %19, align 8
   %.not43.i = icmp eq ptr %18, null
   br i1 %.not43.i, label %27, label %20
 
 20:                                               ; preds = %.loopexit.i
-  %21 = getelementptr inbounds i8, ptr %18, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %.048.i, %22
   br i1 %23, label %24, label %25
@@ -660,7 +660,7 @@ define dso_local void @rbt_delete(ptr nocapture noundef %0, ptr noundef %1) loca
   br label %28
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %18, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr %.035.i, ptr %26, align 8
   br label %28
 
@@ -698,15 +698,15 @@ define dso_local void @rbt_delete(ptr nocapture noundef %0, ptr noundef %1) loca
   br i1 %40, label %41, label %rbt_delete_fixup.exit.i
 
 41:                                               ; preds = %.lr.ph.i.i
-  %42 = getelementptr inbounds i8, ptr %.05699.i.i, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %.05699.i.i, i64 24
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %.05699.i.i, %45
   br i1 %46, label %47, label %137
 
 47:                                               ; preds = %41
-  %48 = getelementptr inbounds i8, ptr %43, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %49 = load ptr, ptr %48, align 8
   %50 = load i8, ptr %49, align 8
   %51 = icmp eq i8 %50, 1
@@ -717,27 +717,27 @@ define dso_local void @rbt_delete(ptr nocapture noundef %0, ptr noundef %1) loca
   %53 = load ptr, ptr %42, align 8
   store i8 1, ptr %53, align 8
   %54 = load ptr, ptr %42, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load ptr, ptr %57, align 8
   store ptr %58, ptr %55, align 8
   %.not.i.i.i = icmp eq ptr %58, @sentinel
   br i1 %.not.i.i.i, label %61, label %59
 
 59:                                               ; preds = %52
-  %60 = getelementptr inbounds i8, ptr %58, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 24
   store ptr %54, ptr %60, align 8
   br label %61
 
 61:                                               ; preds = %59, %52
   %.not25.i.i.i = icmp eq ptr %56, @sentinel
-  %.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %54, i64 24
+  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %54, i64 24
   %.pre.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8
   br i1 %.not25.i.i.i, label %._crit_edge.i.i.i, label %62
 
 62:                                               ; preds = %61
-  %63 = getelementptr inbounds i8, ptr %56, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %56, i64 24
   store ptr %.pre.i.i.i, ptr %63, align 8
   br label %._crit_edge.i.i.i
 
@@ -746,7 +746,7 @@ define dso_local void @rbt_delete(ptr nocapture noundef %0, ptr noundef %1) loca
   br i1 %.not26.i.i.i, label %71, label %64
 
 64:                                               ; preds = %._crit_edge.i.i.i
-  %65 = getelementptr inbounds i8, ptr %.pre.i.i.i, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %.pre.i.i.i, i64 8
   %66 = load ptr, ptr %65, align 8
   %67 = icmp eq ptr %54, %66
   br i1 %67, label %68, label %69
@@ -756,7 +756,7 @@ define dso_local void @rbt_delete(ptr nocapture noundef %0, ptr noundef %1) loca
   br label %72
 
 69:                                               ; preds = %64
-  %70 = getelementptr inbounds i8, ptr %.pre.i.i.i, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %.pre.i.i.i, i64 16
   store ptr %56, ptr %70, align 8
   br label %72
 
@@ -775,18 +775,18 @@ define dso_local void @rbt_delete(ptr nocapture noundef %0, ptr noundef %1) loca
 
 rbt_rotate_left.exit.i.i:                         ; preds = %73, %72
   %74 = load ptr, ptr %42, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %76 = load ptr, ptr %75, align 8
   br label %77
 
 77:                                               ; preds = %rbt_rotate_left.exit.i.i, %47
   %78 = phi ptr [ %74, %rbt_rotate_left.exit.i.i ], [ %43, %47 ]
   %.054.i.i = phi ptr [ %76, %rbt_rotate_left.exit.i.i ], [ %49, %47 ]
-  %79 = getelementptr inbounds i8, ptr %.054.i.i, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %.054.i.i, i64 8
   %80 = load ptr, ptr %79, align 8
   %81 = load i8, ptr %80, align 8
   %82 = icmp eq i8 %81, 0
-  %83 = getelementptr inbounds i8, ptr %.054.i.i, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %.054.i.i, i64 16
   %84 = load ptr, ptr %83, align 8
   %85 = load i8, ptr %84, align 8
   %86 = icmp eq i8 %85, 0
@@ -806,25 +806,25 @@ rbt_rotate_left.exit.i.i:                         ; preds = %73, %72
   store i8 0, ptr %80, align 8
   store i8 1, ptr %.054.i.i, align 8
   %91 = load ptr, ptr %79, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 16
   %93 = load ptr, ptr %92, align 8
   store ptr %93, ptr %79, align 8
   %.not.i59.i.i = icmp eq ptr %93, @sentinel
   br i1 %.not.i59.i.i, label %96, label %94
 
 94:                                               ; preds = %90
-  %95 = getelementptr inbounds i8, ptr %93, i64 24
+  %95 = getelementptr inbounds nuw i8, ptr %93, i64 24
   store ptr %.054.i.i, ptr %95, align 8
   br label %96
 
 96:                                               ; preds = %94, %90
   %.not25.i60.i.i = icmp eq ptr %91, @sentinel
-  %.phi.trans.insert.i61.i.i = getelementptr inbounds i8, ptr %.054.i.i, i64 24
+  %.phi.trans.insert.i61.i.i = getelementptr inbounds nuw i8, ptr %.054.i.i, i64 24
   %.pre.i62.i.i = load ptr, ptr %.phi.trans.insert.i61.i.i, align 8
   br i1 %.not25.i60.i.i, label %._crit_edge.i63.i.i, label %97
 
 97:                                               ; preds = %96
-  %98 = getelementptr inbounds i8, ptr %91, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %91, i64 24
   store ptr %.pre.i62.i.i, ptr %98, align 8
   br label %._crit_edge.i63.i.i
 
@@ -833,7 +833,7 @@ rbt_rotate_left.exit.i.i:                         ; preds = %73, %72
   br i1 %.not26.i64.i.i, label %106, label %99
 
 99:                                               ; preds = %._crit_edge.i63.i.i
-  %100 = getelementptr inbounds i8, ptr %.pre.i62.i.i, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %.pre.i62.i.i, i64 16
   %101 = load ptr, ptr %100, align 8
   %102 = icmp eq ptr %.054.i.i, %101
   br i1 %102, label %103, label %104
@@ -843,7 +843,7 @@ rbt_rotate_left.exit.i.i:                         ; preds = %73, %72
   br label %107
 
 104:                                              ; preds = %99
-  %105 = getelementptr inbounds i8, ptr %.pre.i62.i.i, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %.pre.i62.i.i, i64 8
   store ptr %91, ptr %105, align 8
   br label %107
 
@@ -862,7 +862,7 @@ rbt_rotate_left.exit.i.i:                         ; preds = %73, %72
 
 rbt_rotate_right.exit.i.i:                        ; preds = %108, %107
   %109 = load ptr, ptr %42, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 16
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 16
   %111 = load ptr, ptr %110, align 8
   br label %.thread.i.i
 
@@ -873,31 +873,31 @@ rbt_rotate_right.exit.i.i:                        ; preds = %108, %107
   store i8 %113, ptr %.155.i.i, align 8
   %114 = load ptr, ptr %42, align 8
   store i8 0, ptr %114, align 8
-  %115 = getelementptr inbounds i8, ptr %.155.i.i, i64 16
+  %115 = getelementptr inbounds nuw i8, ptr %.155.i.i, i64 16
   %116 = load ptr, ptr %115, align 8
   store i8 0, ptr %116, align 8
   %117 = load ptr, ptr %42, align 8
-  %118 = getelementptr inbounds i8, ptr %117, i64 16
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 16
   %119 = load ptr, ptr %118, align 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 8
   %121 = load ptr, ptr %120, align 8
   store ptr %121, ptr %118, align 8
   %.not.i66.i.i = icmp eq ptr %121, @sentinel
   br i1 %.not.i66.i.i, label %124, label %122
 
 122:                                              ; preds = %.thread.i.i
-  %123 = getelementptr inbounds i8, ptr %121, i64 24
+  %123 = getelementptr inbounds nuw i8, ptr %121, i64 24
   store ptr %117, ptr %123, align 8
   br label %124
 
 124:                                              ; preds = %122, %.thread.i.i
   %.not25.i67.i.i = icmp eq ptr %119, @sentinel
-  %.phi.trans.insert.i68.i.i = getelementptr inbounds i8, ptr %117, i64 24
+  %.phi.trans.insert.i68.i.i = getelementptr inbounds nuw i8, ptr %117, i64 24
   %.pre.i69.i.i = load ptr, ptr %.phi.trans.insert.i68.i.i, align 8
   br i1 %.not25.i67.i.i, label %._crit_edge.i70.i.i, label %125
 
 125:                                              ; preds = %124
-  %126 = getelementptr inbounds i8, ptr %119, i64 24
+  %126 = getelementptr inbounds nuw i8, ptr %119, i64 24
   store ptr %.pre.i69.i.i, ptr %126, align 8
   br label %._crit_edge.i70.i.i
 
@@ -906,7 +906,7 @@ rbt_rotate_right.exit.i.i:                        ; preds = %108, %107
   br i1 %.not26.i71.i.i, label %134, label %127
 
 127:                                              ; preds = %._crit_edge.i70.i.i
-  %128 = getelementptr inbounds i8, ptr %.pre.i69.i.i, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %.pre.i69.i.i, i64 8
   %129 = load ptr, ptr %128, align 8
   %130 = icmp eq ptr %117, %129
   br i1 %130, label %131, label %132
@@ -916,7 +916,7 @@ rbt_rotate_right.exit.i.i:                        ; preds = %108, %107
   br label %135
 
 132:                                              ; preds = %127
-  %133 = getelementptr inbounds i8, ptr %.pre.i69.i.i, i64 16
+  %133 = getelementptr inbounds nuw i8, ptr %.pre.i69.i.i, i64 16
   store ptr %119, ptr %133, align 8
   br label %135
 
@@ -943,27 +943,27 @@ rbt_rotate_right.exit.i.i:                        ; preds = %108, %107
   %141 = load ptr, ptr %42, align 8
   store i8 1, ptr %141, align 8
   %142 = load ptr, ptr %42, align 8
-  %143 = getelementptr inbounds i8, ptr %142, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
   %144 = load ptr, ptr %143, align 8
-  %145 = getelementptr inbounds i8, ptr %144, i64 16
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 16
   %146 = load ptr, ptr %145, align 8
   store ptr %146, ptr %143, align 8
   %.not.i74.i.i = icmp eq ptr %146, @sentinel
   br i1 %.not.i74.i.i, label %149, label %147
 
 147:                                              ; preds = %140
-  %148 = getelementptr inbounds i8, ptr %146, i64 24
+  %148 = getelementptr inbounds nuw i8, ptr %146, i64 24
   store ptr %142, ptr %148, align 8
   br label %149
 
 149:                                              ; preds = %147, %140
   %.not25.i75.i.i = icmp eq ptr %144, @sentinel
-  %.phi.trans.insert.i76.i.i = getelementptr inbounds i8, ptr %142, i64 24
+  %.phi.trans.insert.i76.i.i = getelementptr inbounds nuw i8, ptr %142, i64 24
   %.pre.i77.i.i = load ptr, ptr %.phi.trans.insert.i76.i.i, align 8
   br i1 %.not25.i75.i.i, label %._crit_edge.i78.i.i, label %150
 
 150:                                              ; preds = %149
-  %151 = getelementptr inbounds i8, ptr %144, i64 24
+  %151 = getelementptr inbounds nuw i8, ptr %144, i64 24
   store ptr %.pre.i77.i.i, ptr %151, align 8
   br label %._crit_edge.i78.i.i
 
@@ -972,7 +972,7 @@ rbt_rotate_right.exit.i.i:                        ; preds = %108, %107
   br i1 %.not26.i79.i.i, label %159, label %152
 
 152:                                              ; preds = %._crit_edge.i78.i.i
-  %153 = getelementptr inbounds i8, ptr %.pre.i77.i.i, i64 16
+  %153 = getelementptr inbounds nuw i8, ptr %.pre.i77.i.i, i64 16
   %154 = load ptr, ptr %153, align 8
   %155 = icmp eq ptr %142, %154
   br i1 %155, label %156, label %157
@@ -982,7 +982,7 @@ rbt_rotate_right.exit.i.i:                        ; preds = %108, %107
   br label %160
 
 157:                                              ; preds = %152
-  %158 = getelementptr inbounds i8, ptr %.pre.i77.i.i, i64 8
+  %158 = getelementptr inbounds nuw i8, ptr %.pre.i77.i.i, i64 8
   store ptr %144, ptr %158, align 8
   br label %160
 
@@ -1001,18 +1001,18 @@ rbt_rotate_right.exit.i.i:                        ; preds = %108, %107
 
 rbt_rotate_right.exit81.i.i:                      ; preds = %161, %160
   %162 = load ptr, ptr %42, align 8
-  %163 = getelementptr inbounds i8, ptr %162, i64 8
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 8
   %164 = load ptr, ptr %163, align 8
   br label %165
 
 165:                                              ; preds = %rbt_rotate_right.exit81.i.i, %137
   %166 = phi ptr [ %162, %rbt_rotate_right.exit81.i.i ], [ %43, %137 ]
   %.0.i.i = phi ptr [ %164, %rbt_rotate_right.exit81.i.i ], [ %45, %137 ]
-  %167 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
+  %167 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   %168 = load ptr, ptr %167, align 8
   %169 = load i8, ptr %168, align 8
   %170 = icmp eq i8 %169, 0
-  %171 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
+  %171 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   %172 = load ptr, ptr %171, align 8
   %173 = load i8, ptr %172, align 8
   %174 = icmp eq i8 %173, 0
@@ -1032,25 +1032,25 @@ rbt_rotate_right.exit81.i.i:                      ; preds = %161, %160
   store i8 0, ptr %168, align 8
   store i8 1, ptr %.0.i.i, align 8
   %179 = load ptr, ptr %167, align 8
-  %180 = getelementptr inbounds i8, ptr %179, i64 8
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 8
   %181 = load ptr, ptr %180, align 8
   store ptr %181, ptr %167, align 8
   %.not.i82.i.i = icmp eq ptr %181, @sentinel
   br i1 %.not.i82.i.i, label %184, label %182
 
 182:                                              ; preds = %178
-  %183 = getelementptr inbounds i8, ptr %181, i64 24
+  %183 = getelementptr inbounds nuw i8, ptr %181, i64 24
   store ptr %.0.i.i, ptr %183, align 8
   br label %184
 
 184:                                              ; preds = %182, %178
   %.not25.i83.i.i = icmp eq ptr %179, @sentinel
-  %.phi.trans.insert.i84.i.i = getelementptr inbounds i8, ptr %.0.i.i, i64 24
+  %.phi.trans.insert.i84.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   %.pre.i85.i.i = load ptr, ptr %.phi.trans.insert.i84.i.i, align 8
   br i1 %.not25.i83.i.i, label %._crit_edge.i86.i.i, label %185
 
 185:                                              ; preds = %184
-  %186 = getelementptr inbounds i8, ptr %179, i64 24
+  %186 = getelementptr inbounds nuw i8, ptr %179, i64 24
   store ptr %.pre.i85.i.i, ptr %186, align 8
   br label %._crit_edge.i86.i.i
 
@@ -1059,7 +1059,7 @@ rbt_rotate_right.exit81.i.i:                      ; preds = %161, %160
   br i1 %.not26.i87.i.i, label %194, label %187
 
 187:                                              ; preds = %._crit_edge.i86.i.i
-  %188 = getelementptr inbounds i8, ptr %.pre.i85.i.i, i64 8
+  %188 = getelementptr inbounds nuw i8, ptr %.pre.i85.i.i, i64 8
   %189 = load ptr, ptr %188, align 8
   %190 = icmp eq ptr %.0.i.i, %189
   br i1 %190, label %191, label %192
@@ -1069,7 +1069,7 @@ rbt_rotate_right.exit81.i.i:                      ; preds = %161, %160
   br label %195
 
 192:                                              ; preds = %187
-  %193 = getelementptr inbounds i8, ptr %.pre.i85.i.i, i64 16
+  %193 = getelementptr inbounds nuw i8, ptr %.pre.i85.i.i, i64 16
   store ptr %179, ptr %193, align 8
   br label %195
 
@@ -1088,7 +1088,7 @@ rbt_rotate_right.exit81.i.i:                      ; preds = %161, %160
 
 rbt_rotate_left.exit89.i.i:                       ; preds = %196, %195
   %197 = load ptr, ptr %42, align 8
-  %198 = getelementptr inbounds i8, ptr %197, i64 8
+  %198 = getelementptr inbounds nuw i8, ptr %197, i64 8
   %199 = load ptr, ptr %198, align 8
   br label %.thread107.i.i
 
@@ -1099,31 +1099,31 @@ rbt_rotate_left.exit89.i.i:                       ; preds = %196, %195
   store i8 %201, ptr %.1.i.i, align 8
   %202 = load ptr, ptr %42, align 8
   store i8 0, ptr %202, align 8
-  %203 = getelementptr inbounds i8, ptr %.1.i.i, i64 8
+  %203 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
   %204 = load ptr, ptr %203, align 8
   store i8 0, ptr %204, align 8
   %205 = load ptr, ptr %42, align 8
-  %206 = getelementptr inbounds i8, ptr %205, i64 8
+  %206 = getelementptr inbounds nuw i8, ptr %205, i64 8
   %207 = load ptr, ptr %206, align 8
-  %208 = getelementptr inbounds i8, ptr %207, i64 16
+  %208 = getelementptr inbounds nuw i8, ptr %207, i64 16
   %209 = load ptr, ptr %208, align 8
   store ptr %209, ptr %206, align 8
   %.not.i90.i.i = icmp eq ptr %209, @sentinel
   br i1 %.not.i90.i.i, label %212, label %210
 
 210:                                              ; preds = %.thread107.i.i
-  %211 = getelementptr inbounds i8, ptr %209, i64 24
+  %211 = getelementptr inbounds nuw i8, ptr %209, i64 24
   store ptr %205, ptr %211, align 8
   br label %212
 
 212:                                              ; preds = %210, %.thread107.i.i
   %.not25.i91.i.i = icmp eq ptr %207, @sentinel
-  %.phi.trans.insert.i92.i.i = getelementptr inbounds i8, ptr %205, i64 24
+  %.phi.trans.insert.i92.i.i = getelementptr inbounds nuw i8, ptr %205, i64 24
   %.pre.i93.i.i = load ptr, ptr %.phi.trans.insert.i92.i.i, align 8
   br i1 %.not25.i91.i.i, label %._crit_edge.i94.i.i, label %213
 
 213:                                              ; preds = %212
-  %214 = getelementptr inbounds i8, ptr %207, i64 24
+  %214 = getelementptr inbounds nuw i8, ptr %207, i64 24
   store ptr %.pre.i93.i.i, ptr %214, align 8
   br label %._crit_edge.i94.i.i
 
@@ -1132,7 +1132,7 @@ rbt_rotate_left.exit89.i.i:                       ; preds = %196, %195
   br i1 %.not26.i95.i.i, label %222, label %215
 
 215:                                              ; preds = %._crit_edge.i94.i.i
-  %216 = getelementptr inbounds i8, ptr %.pre.i93.i.i, i64 16
+  %216 = getelementptr inbounds nuw i8, ptr %.pre.i93.i.i, i64 16
   %217 = load ptr, ptr %216, align 8
   %218 = icmp eq ptr %205, %217
   br i1 %218, label %219, label %220
@@ -1142,7 +1142,7 @@ rbt_rotate_left.exit89.i.i:                       ; preds = %196, %195
   br label %223
 
 220:                                              ; preds = %215
-  %221 = getelementptr inbounds i8, ptr %.pre.i93.i.i, i64 8
+  %221 = getelementptr inbounds nuw i8, ptr %.pre.i93.i.i, i64 8
   store ptr %207, ptr %221, align 8
   br label %223
 
@@ -1172,13 +1172,13 @@ rbt_delete_fixup.exit.i:                          ; preds = %rbt_rotate_left.exi
   br label %226
 
 226:                                              ; preds = %rbt_delete_fixup.exit.i, %34
-  %227 = getelementptr inbounds i8, ptr %0, i64 40
+  %227 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %228 = load ptr, ptr %227, align 8
   %.not45.i = icmp eq ptr %228, null
   br i1 %.not45.i, label %rbt_delete_node.exit, label %229
 
 229:                                              ; preds = %226
-  %230 = getelementptr inbounds i8, ptr %0, i64 48
+  %230 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %231 = load ptr, ptr %230, align 8
   tail call void %228(ptr noundef nonnull %.048.i, ptr noundef %231) #7
   br label %rbt_delete_node.exit
@@ -1190,11 +1190,11 @@ rbt_delete_node.exit:                             ; preds = %2, %226, %229
 ; Function Attrs: nounwind uwtable
 define dso_local void @rbt_begin_iterate(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 8), (16, 25)) %2) local_unnamed_addr #0 {
   store ptr %0, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr null, ptr %4, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = icmp eq ptr %5, @sentinel
-  %7 = getelementptr inbounds i8, ptr %2, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %8 = zext i1 %6 to i8
   store i8 %8, ptr %7, align 8
   switch i32 %1, label %10 [
@@ -1214,14 +1214,14 @@ define dso_local void @rbt_begin_iterate(ptr noundef %0, i32 noundef %1, ptr noc
 
 13:                                               ; preds = %3, %9
   %rbt_right_left_iterator.sink = phi ptr [ @rbt_right_left_iterator, %9 ], [ @rbt_left_right_iterator, %3 ]
-  %14 = getelementptr inbounds i8, ptr %2, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %rbt_right_left_iterator.sink, ptr %14, align 8
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal ptr @rbt_left_right_iterator(ptr nocapture noundef %0) #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %11
@@ -1234,13 +1234,13 @@ define internal ptr @rbt_left_right_iterator(ptr nocapture noundef %0) #3 {
 8:                                                ; preds = %8, %5
   %storemerge29 = phi ptr [ %7, %5 ], [ %10, %8 ]
   store ptr %storemerge29, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %storemerge29, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %storemerge29, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not30 = icmp eq ptr %10, @sentinel
   br i1 %.not30, label %.loopexit, label %8, !llvm.loop !14
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %3, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, @sentinel
   br i1 %.not, label %.preheader, label %.preheader32
@@ -1248,26 +1248,26 @@ define internal ptr @rbt_left_right_iterator(ptr nocapture noundef %0) #3 {
 .preheader32:                                     ; preds = %11, %.preheader32
   %storemerge = phi ptr [ %15, %.preheader32 ], [ %13, %11 ]
   store ptr %storemerge, ptr %2, align 8
-  %14 = getelementptr inbounds i8, ptr %storemerge, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %storemerge, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not28 = icmp eq ptr %15, @sentinel
   br i1 %.not28, label %.loopexit, label %.preheader32, !llvm.loop !15
 
 .preheader:                                       ; preds = %11, %22
   %16 = phi ptr [ %18, %22 ], [ %3, %11 ]
-  %17 = getelementptr inbounds i8, ptr %16, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load ptr, ptr %17, align 8
   store ptr %18, ptr %2, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %.preheader
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 1, ptr %21, align 8
   br label %.loopexit
 
 22:                                               ; preds = %.preheader
-  %23 = getelementptr inbounds i8, ptr %18, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, %16
   br i1 %25, label %.loopexit, label %.preheader
@@ -1279,7 +1279,7 @@ define internal ptr @rbt_left_right_iterator(ptr nocapture noundef %0) #3 {
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal ptr @rbt_right_left_iterator(ptr nocapture noundef %0) #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %11
@@ -1292,13 +1292,13 @@ define internal ptr @rbt_right_left_iterator(ptr nocapture noundef %0) #3 {
 8:                                                ; preds = %8, %5
   %storemerge29 = phi ptr [ %7, %5 ], [ %10, %8 ]
   store ptr %storemerge29, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %storemerge29, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %storemerge29, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not30 = icmp eq ptr %10, @sentinel
   br i1 %.not30, label %.loopexit, label %8, !llvm.loop !16
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %3, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, @sentinel
   br i1 %.not, label %.preheader, label %.preheader32
@@ -1306,26 +1306,26 @@ define internal ptr @rbt_right_left_iterator(ptr nocapture noundef %0) #3 {
 .preheader32:                                     ; preds = %11, %.preheader32
   %storemerge = phi ptr [ %15, %.preheader32 ], [ %13, %11 ]
   store ptr %storemerge, ptr %2, align 8
-  %14 = getelementptr inbounds i8, ptr %storemerge, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %storemerge, i64 16
   %15 = load ptr, ptr %14, align 8
   %.not28 = icmp eq ptr %15, @sentinel
   br i1 %.not28, label %.loopexit, label %.preheader32, !llvm.loop !17
 
 .preheader:                                       ; preds = %11, %22
   %16 = phi ptr [ %18, %22 ], [ %3, %11 ]
-  %17 = getelementptr inbounds i8, ptr %16, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load ptr, ptr %17, align 8
   store ptr %18, ptr %2, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %.preheader
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 1, ptr %21, align 8
   br label %.loopexit
 
 22:                                               ; preds = %.preheader
-  %23 = getelementptr inbounds i8, ptr %18, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, %16
   br i1 %25, label %.loopexit, label %.preheader
@@ -1344,13 +1344,13 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @rbt_iterate(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
   br i1 %4, label %9, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr %7(ptr noundef nonnull %0) #7
   br label %9

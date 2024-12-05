@@ -22,7 +22,7 @@ define void @"_ZN13logos_codegen9generator91_$LT$impl$u20$quote..to_tokens..ToTo
   %7 = load i8, ptr %0, align 1
   call void @_ZN13logos_codegen9generator14byte_to_tokens17hc68097ea47fa566cE(ptr nonnull sret([32 x i8]) align 8 %6, i8 %7)
   call void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..ext..TokenStreamExt$GT$10append_all17h93268cc83c5bec21E"(ptr align 8 %1, ptr nonnull align 8 %6)
-  %8 = getelementptr inbounds i8, ptr %0, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %9 = load i8, ptr %8, align 1
   %.not = icmp eq i8 %7, %9
   br i1 %.not, label %10, label %11
@@ -76,7 +76,7 @@ define zeroext i1 @"_ZN13logos_codegen5graph5impls5debug81_$LT$impl$u20$core..fm
   %16 = alloca [1 x i8], align 1
   %17 = load i8, ptr %0, align 1
   store i8 %17, ptr %16, align 1
-  %18 = getelementptr inbounds i8, ptr %0, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %19 = load i8, ptr %18, align 1
   store i8 %19, ptr %15, align 1
   %.not = icmp eq i8 %17, %19
@@ -98,47 +98,47 @@ define zeroext i1 @"_ZN13logos_codegen5graph5impls5debug81_$LT$impl$u20$core..fm
   %27 = zext i8 %17 to i32
   store i32 %27, ptr %12, align 4
   store ptr %12, ptr %13, align 8
-  %.sroa.222.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 8
+  %.sroa.222.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr @"_ZN43_$LT$char$u20$as$u20$core..fmt..Display$GT$3fmt17h568540cda8c5fc99E", ptr %.sroa.222.0..sroa_idx, align 8
   store ptr @anon.37a3b4148d053cfa9d2f87adc22d9941.1, ptr %14, align 8
-  %28 = getelementptr inbounds i8, ptr %14, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 1, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %14, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr null, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %14, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %13, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %14, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i64 1, ptr %31, align 8
   %32 = call zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17h61966806c14c8fbcE(ptr align 8 %1, ptr nonnull align 8 %14)
   br i1 %32, label %47, label %40
 
 33:                                               ; preds = %24
   store ptr %16, ptr %10, align 8
-  %.sroa.218.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
+  %.sroa.218.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr @"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$u8$GT$3fmt17h064d9aa35fb4156aE", ptr %.sroa.218.0..sroa_idx, align 8
   store i64 2, ptr %9, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 0, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 24
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 2, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 32
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i64 0, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 40
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 40
   store i32 32, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 44
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 44
   store i32 8, ptr %.sroa.7.0..sroa_idx, align 4
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 48
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 48
   store i8 3, ptr %.sroa.8.0..sroa_idx, align 8
   store ptr @anon.37a3b4148d053cfa9d2f87adc22d9941.1, ptr %11, align 8
-  %34 = getelementptr inbounds i8, ptr %11, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 1, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %11, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr %9, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %11, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %11, i64 40
   store i64 1, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %11, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %10, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %11, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i64 1, ptr %38, align 8
   %39 = call zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17h61966806c14c8fbcE(ptr align 8 %1, ptr nonnull align 8 %11)
   br i1 %39, label %47, label %._crit_edge
@@ -169,31 +169,31 @@ define zeroext i1 @"_ZN13logos_codegen5graph5impls5debug81_$LT$impl$u20$core..fm
 
 48:                                               ; preds = %44
   store ptr %15, ptr %4, align 8
-  %.sroa.228.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.228.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$u8$GT$3fmt17h064d9aa35fb4156aE", ptr %.sroa.228.0..sroa_idx, align 8
   store i64 2, ptr %3, align 8
-  %.sroa.37.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
+  %.sroa.37.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 0, ptr %.sroa.37.0..sroa_idx, align 8
-  %.sroa.48.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 24
+  %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 2, ptr %.sroa.48.0..sroa_idx, align 8
-  %.sroa.59.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 32
+  %.sroa.59.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i64 0, ptr %.sroa.59.0..sroa_idx, align 8
-  %.sroa.610.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 40
+  %.sroa.610.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i32 32, ptr %.sroa.610.0..sroa_idx, align 8
-  %.sroa.711.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 44
+  %.sroa.711.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 44
   store i32 8, ptr %.sroa.711.0..sroa_idx, align 4
-  %.sroa.812.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 48
+  %.sroa.812.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i8 3, ptr %.sroa.812.0..sroa_idx, align 8
   store ptr @anon.37a3b4148d053cfa9d2f87adc22d9941.7, ptr %5, align 8
-  %49 = getelementptr inbounds i8, ptr %5, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 2, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %5, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %3, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %5, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i64 1, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %5, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %4, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %5, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 1, ptr %53, align 8
   %54 = call zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17h61966806c14c8fbcE(ptr align 8 %1, ptr nonnull align 8 %5)
   br label %47
@@ -202,16 +202,16 @@ define zeroext i1 @"_ZN13logos_codegen5graph5impls5debug81_$LT$impl$u20$core..fm
   %56 = zext i8 %19 to i32
   store i32 %56, ptr %6, align 4
   store ptr %6, ptr %7, align 8
-  %.sroa.232.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.232.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @"_ZN43_$LT$char$u20$as$u20$core..fmt..Display$GT$3fmt17h568540cda8c5fc99E", ptr %.sroa.232.0..sroa_idx, align 8
   store ptr @anon.37a3b4148d053cfa9d2f87adc22d9941.7, ptr %8, align 8
-  %57 = getelementptr inbounds i8, ptr %8, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 2, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %8, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr null, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %8, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %7, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %8, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 1, ptr %60, align 8
   %61 = call zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17h61966806c14c8fbcE(ptr align 8 %1, ptr nonnull align 8 %8)
   br label %47
@@ -238,7 +238,7 @@ define { i8, i8 } @"_ZN13logos_codegen5graph5impls5debug134_$LT$impl$u20$core..c
 define { i8, i8 } @"_ZN13logos_codegen5graph5impls5debug136_$LT$impl$u20$core..convert..From$LT$core..ops..range..RangeInclusive$LT$char$GT$$GT$$u20$for$u20$logos_codegen..graph..range..Range$GT$4from17h87951bbef2c3b025E"(ptr nocapture readonly align 4 %0) unnamed_addr #2 {
   %2 = load i32, ptr %0, align 4
   %3 = trunc i32 %2 to i8
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = trunc i32 %5 to i8
   %7 = insertvalue { i8, i8 } poison, i8 %3, 0
@@ -249,7 +249,7 @@ define { i8, i8 } @"_ZN13logos_codegen5graph5impls5debug136_$LT$impl$u20$core..c
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { i1, i8 } @_ZN13logos_codegen5graph5range5Range7as_byte17h2eb203890a4f5f96E(ptr nocapture readonly align 1 %0) unnamed_addr #2 {
   %2 = load i8, ptr %0, align 1
-  %3 = getelementptr inbounds i8, ptr %0, i64 1
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %4 = load i8, ptr %3, align 1
   %5 = icmp eq i8 %2, %4
   %6 = insertvalue { i1, i8 } poison, i1 %5, 0
@@ -260,7 +260,7 @@ define hidden { i1, i8 } @_ZN13logos_codegen5graph5range5Range7as_byte17h2eb2038
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @_ZN13logos_codegen5graph5range5Range7is_byte17hff1f6e2dc8ae403eE(ptr nocapture readonly align 1 %0) unnamed_addr #2 {
   %2 = load i8, ptr %0, align 1
-  %3 = getelementptr inbounds i8, ptr %0, i64 1
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %4 = load i8, ptr %3, align 1
   %5 = icmp eq i8 %2, %4
   ret i1 %5
@@ -284,7 +284,7 @@ define { i8, i8 } @"_ZN88_$LT$logos_codegen..graph..range..Range$u20$as$u20$core
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define { i1, i8 } @"_ZN93_$LT$logos_codegen..graph..range..Range$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h06f4f6669fe50ce3E"(ptr nocapture align 1 %0) unnamed_addr #3 {
   %2 = load i8, ptr %0, align 1
-  %3 = getelementptr inbounds i8, ptr %0, i64 1
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %4 = load i8, ptr %3, align 1
   %5 = tail call i8 @llvm.ucmp.i8.i8(i8 %2, i8 %4)
   switch i8 %5, label %default.unreachable [
@@ -351,13 +351,13 @@ define { i8, i8 } @"_ZN118_$LT$logos_codegen..graph..range..Range$u20$as$u20$cor
 
 8:                                                ; preds = %5, %2
   store ptr @anon.37a3b4148d053cfa9d2f87adc22d9941.10, ptr %3, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr inttoptr (i64 8 to ptr), ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %12, align 8
   call void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %3, ptr nonnull align 8 @anon.37a3b4148d053cfa9d2f87adc22d9941.12) #12
   unreachable
@@ -380,7 +380,7 @@ define { i8, i8 } @"_ZN116_$LT$logos_codegen..graph..range..Range$u20$as$u20$cor
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { i8, i8 } @"_ZN73_$LT$logos_codegen..graph..range..Range$u20$as$u20$core..clone..Clone$GT$5clone17h7b8ab2a8d5e5732dE"(ptr nocapture readonly align 1 %0) unnamed_addr #4 {
   %2 = load i8, ptr %0, align 1
-  %3 = getelementptr inbounds i8, ptr %0, i64 1
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %4 = load i8, ptr %3, align 1
   %5 = insertvalue { i8, i8 } poison, i8 %2, 0
   %6 = insertvalue { i8, i8 } %5, i8 %4, 1
@@ -395,9 +395,9 @@ define hidden zeroext i1 @"_ZN75_$LT$logos_codegen..graph..range..Range$u20$as$u
   br i1 %5, label %6, label %12
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %8 = load i8, ptr %7, align 1
-  %9 = getelementptr inbounds i8, ptr %1, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %10 = load i8, ptr %9, align 1
   %11 = icmp eq i8 %8, %10
   br label %12

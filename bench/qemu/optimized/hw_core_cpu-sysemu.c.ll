@@ -19,9 +19,9 @@ define dso_local zeroext i1 @cpu_paging_enabled(ptr noundef %cpu) local_unnamed_
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %cpu) #3
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 64, ptr noundef nonnull @__func__.CPU_GET_CLASS) #3
-  %sysemu_ops = getelementptr inbounds i8, ptr %call1.i, i64 320
+  %sysemu_ops = getelementptr inbounds nuw i8, ptr %call1.i, i64 320
   %0 = load ptr, ptr %sysemu_ops, align 8
-  %get_paging_enabled = getelementptr inbounds i8, ptr %0, i64 8
+  %get_paging_enabled = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %get_paging_enabled, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %return, label %if.then
@@ -40,7 +40,7 @@ define dso_local zeroext i1 @cpu_get_memory_mapping(ptr noundef %cpu, ptr nounde
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %cpu) #3
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 64, ptr noundef nonnull @__func__.CPU_GET_CLASS) #3
-  %sysemu_ops = getelementptr inbounds i8, ptr %call1.i, i64 320
+  %sysemu_ops = getelementptr inbounds nuw i8, ptr %call1.i, i64 320
   %0 = load ptr, ptr %sysemu_ops, align 8
   %1 = load ptr, ptr %0, align 8
   %tobool.not = icmp eq ptr %1, null
@@ -66,9 +66,9 @@ define dso_local i64 @cpu_get_phys_page_attrs_debug(ptr noundef %cpu, i64 nounde
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %cpu) #3
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 64, ptr noundef nonnull @__func__.CPU_GET_CLASS) #3
-  %sysemu_ops = getelementptr inbounds i8, ptr %call1.i, i64 320
+  %sysemu_ops = getelementptr inbounds nuw i8, ptr %call1.i, i64 320
   %0 = load ptr, ptr %sysemu_ops, align 8
-  %get_phys_page_attrs_debug = getelementptr inbounds i8, ptr %0, i64 24
+  %get_phys_page_attrs_debug = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1 = load ptr, ptr %get_phys_page_attrs_debug, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -80,7 +80,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   store i32 1, ptr %attrs, align 4
   %2 = load ptr, ptr %sysemu_ops, align 8
-  %get_phys_page_debug = getelementptr inbounds i8, ptr %2, i64 16
+  %get_phys_page_debug = getelementptr inbounds nuw i8, ptr %2, i64 16
   %3 = load ptr, ptr %get_phys_page_debug, align 8
   %call32 = tail call i64 %3(ptr noundef %cpu, i64 noundef %addr) #3
   br label %return
@@ -97,9 +97,9 @@ entry:
   store i32 0, ptr %attrs, align 4
   %call.i.i = tail call ptr @object_get_class(ptr noundef %cpu) #3
   %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 64, ptr noundef nonnull @__func__.CPU_GET_CLASS) #3
-  %sysemu_ops.i = getelementptr inbounds i8, ptr %call1.i.i, i64 320
+  %sysemu_ops.i = getelementptr inbounds nuw i8, ptr %call1.i.i, i64 320
   %0 = load ptr, ptr %sysemu_ops.i, align 8
-  %get_phys_page_attrs_debug.i = getelementptr inbounds i8, ptr %0, i64 24
+  %get_phys_page_attrs_debug.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1 = load ptr, ptr %get_phys_page_attrs_debug.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
@@ -109,7 +109,7 @@ if.then.i:                                        ; preds = %entry
   br label %cpu_get_phys_page_attrs_debug.exit
 
 if.end.i:                                         ; preds = %entry
-  %get_phys_page_debug.i = getelementptr inbounds i8, ptr %0, i64 16
+  %get_phys_page_debug.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %2 = load ptr, ptr %get_phys_page_debug.i, align 8
   %call32.i = tail call i64 %2(ptr noundef %cpu, i64 noundef %addr) #3
   br label %cpu_get_phys_page_attrs_debug.exit
@@ -122,18 +122,18 @@ cpu_get_phys_page_attrs_debug.exit:               ; preds = %if.then.i, %if.end.
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local range(i32 0, 2147483647) i32 @cpu_asidx_from_attrs(ptr noundef %cpu, i32 %attrs.coerce) local_unnamed_addr #0 {
 entry:
-  %cc = getelementptr inbounds i8, ptr %cpu, i64 160
+  %cc = getelementptr inbounds nuw i8, ptr %cpu, i64 160
   %0 = load ptr, ptr %cc, align 16
-  %sysemu_ops = getelementptr inbounds i8, ptr %0, i64 320
+  %sysemu_ops = getelementptr inbounds nuw i8, ptr %0, i64 320
   %1 = load ptr, ptr %sysemu_ops, align 8
-  %asidx_from_attrs = getelementptr inbounds i8, ptr %1, i64 32
+  %asidx_from_attrs = getelementptr inbounds nuw i8, ptr %1, i64 32
   %2 = load ptr, ptr %asidx_from_attrs, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %if.end7, label %if.then
 
 if.then:                                          ; preds = %entry
   %call = tail call i32 %2(ptr noundef nonnull %cpu, i32 %attrs.coerce) #3
-  %num_ases = getelementptr inbounds i8, ptr %cpu, i64 520
+  %num_ases = getelementptr inbounds nuw i8, ptr %cpu, i64 520
   %3 = load i32, ptr %num_ases, align 8
   %cmp = icmp slt i32 %call, %3
   %cmp5 = icmp sgt i32 %call, -1
@@ -157,9 +157,9 @@ define dso_local i32 @cpu_write_elf32_qemunote(ptr noundef %f, ptr noundef %cpu,
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %cpu) #3
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 64, ptr noundef nonnull @__func__.CPU_GET_CLASS) #3
-  %sysemu_ops = getelementptr inbounds i8, ptr %call1.i, i64 320
+  %sysemu_ops = getelementptr inbounds nuw i8, ptr %call1.i, i64 320
   %0 = load ptr, ptr %sysemu_ops, align 8
-  %write_elf32_qemunote = getelementptr inbounds i8, ptr %0, i64 64
+  %write_elf32_qemunote = getelementptr inbounds nuw i8, ptr %0, i64 64
   %1 = load ptr, ptr %write_elf32_qemunote, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %return, label %if.end
@@ -178,9 +178,9 @@ define dso_local i32 @cpu_write_elf32_note(ptr noundef %f, ptr noundef %cpu, i32
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %cpu) #3
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 64, ptr noundef nonnull @__func__.CPU_GET_CLASS) #3
-  %sysemu_ops = getelementptr inbounds i8, ptr %call1.i, i64 320
+  %sysemu_ops = getelementptr inbounds nuw i8, ptr %call1.i, i64 320
   %0 = load ptr, ptr %sysemu_ops, align 8
-  %write_elf32_note = getelementptr inbounds i8, ptr %0, i64 48
+  %write_elf32_note = getelementptr inbounds nuw i8, ptr %0, i64 48
   %1 = load ptr, ptr %write_elf32_note, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %return, label %if.end
@@ -199,9 +199,9 @@ define dso_local i32 @cpu_write_elf64_qemunote(ptr noundef %f, ptr noundef %cpu,
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %cpu) #3
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 64, ptr noundef nonnull @__func__.CPU_GET_CLASS) #3
-  %sysemu_ops = getelementptr inbounds i8, ptr %call1.i, i64 320
+  %sysemu_ops = getelementptr inbounds nuw i8, ptr %call1.i, i64 320
   %0 = load ptr, ptr %sysemu_ops, align 8
-  %write_elf64_qemunote = getelementptr inbounds i8, ptr %0, i64 72
+  %write_elf64_qemunote = getelementptr inbounds nuw i8, ptr %0, i64 72
   %1 = load ptr, ptr %write_elf64_qemunote, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %return, label %if.end
@@ -220,9 +220,9 @@ define dso_local i32 @cpu_write_elf64_note(ptr noundef %f, ptr noundef %cpu, i32
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %cpu) #3
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 64, ptr noundef nonnull @__func__.CPU_GET_CLASS) #3
-  %sysemu_ops = getelementptr inbounds i8, ptr %call1.i, i64 320
+  %sysemu_ops = getelementptr inbounds nuw i8, ptr %call1.i, i64 320
   %0 = load ptr, ptr %sysemu_ops, align 8
-  %write_elf64_note = getelementptr inbounds i8, ptr %0, i64 56
+  %write_elf64_note = getelementptr inbounds nuw i8, ptr %0, i64 56
   %1 = load ptr, ptr %write_elf64_note, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %return, label %if.end
@@ -241,9 +241,9 @@ define dso_local zeroext i1 @cpu_virtio_is_big_endian(ptr noundef %cpu) local_un
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %cpu) #3
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 64, ptr noundef nonnull @__func__.CPU_GET_CLASS) #3
-  %sysemu_ops = getelementptr inbounds i8, ptr %call1.i, i64 320
+  %sysemu_ops = getelementptr inbounds nuw i8, ptr %call1.i, i64 320
   %0 = load ptr, ptr %sysemu_ops, align 8
-  %virtio_is_big_endian = getelementptr inbounds i8, ptr %0, i64 80
+  %virtio_is_big_endian = getelementptr inbounds nuw i8, ptr %0, i64 80
   %1 = load ptr, ptr %virtio_is_big_endian, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -268,9 +268,9 @@ define dso_local ptr @cpu_get_crash_info(ptr noundef %cpu) local_unnamed_addr #0
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %cpu) #3
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 64, ptr noundef nonnull @__func__.CPU_GET_CLASS) #3
-  %sysemu_ops = getelementptr inbounds i8, ptr %call1.i, i64 320
+  %sysemu_ops = getelementptr inbounds nuw i8, ptr %call1.i, i64 320
   %0 = load ptr, ptr %sysemu_ops, align 8
-  %get_crash_info = getelementptr inbounds i8, ptr %0, i64 40
+  %get_crash_info = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1 = load ptr, ptr %get_crash_info, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then

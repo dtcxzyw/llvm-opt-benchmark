@@ -21,18 +21,18 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @dispell_init(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = tail call ptr @palloc0(i64 noundef 152) #6
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   tail call void @NIStartBuild(ptr noundef nonnull %5) #6
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %6 = inttoptr i64 %3 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 4
-  %8 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %9 = load i32, ptr %7, align 4
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %.lr.ph88, label %._crit_edge
@@ -45,7 +45,7 @@ define dso_local i64 @dispell_init(ptr nocapture noundef readonly %0) local_unna
   %11 = load ptr, ptr %8, align 8
   %12 = getelementptr %union.ListCell, ptr %11, i64 %indvars.iv84
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(9) @.str) #7
   %17 = icmp eq i32 %16, 0
@@ -114,7 +114,7 @@ define dso_local i64 @dispell_init(ptr nocapture noundef readonly %0) local_unna
   br label %55
 
 49:                                               ; preds = %39
-  %50 = getelementptr inbounds i8, ptr %13, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %51 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   tail call void @llvm.assume(i1 %51)
   %52 = tail call i32 @errcode(i32 noundef 50856066) #6
@@ -206,7 +206,7 @@ declare void @NIFinishBuild(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @dispell_lexize(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr i8, ptr %0, i64 64
@@ -220,13 +220,13 @@ define dso_local i64 @dispell_lexize(ptr nocapture noundef readonly %0) local_un
   %11 = load i64, ptr %10, align 8
   %12 = inttoptr i64 %11 to ptr
   %13 = tail call ptr @lowerstr_with_len(ptr noundef %12, i32 noundef %7) #6
-  %14 = getelementptr inbounds i8, ptr %4, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %15 = tail call ptr @NINormalizeWord(ptr noundef nonnull %14, ptr noundef %13) #6
   %16 = icmp eq ptr %15, null
   br i1 %16, label %34, label %.preheader
 
 .preheader:                                       ; preds = %9
-  %17 = getelementptr inbounds i8, ptr %15, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not30 = icmp eq ptr %18, null
   br i1 %.not30, label %._crit_edge, label %.lr.ph
@@ -267,7 +267,7 @@ define dso_local i64 @dispell_lexize(ptr nocapture noundef readonly %0) local_un
 
 ._crit_edge:                                      ; preds = %28, %.preheader
   %.0.lcssa = phi ptr [ %15, %.preheader ], [ %.1, %28 ]
-  %32 = getelementptr inbounds i8, ptr %.0.lcssa, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 8
   store ptr null, ptr %32, align 8
   %33 = ptrtoint ptr %15 to i64
   br label %34

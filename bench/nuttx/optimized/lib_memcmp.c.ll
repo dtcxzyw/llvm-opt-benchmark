@@ -23,8 +23,8 @@ define range(i32 -1, 2) i32 @memcmp(ptr nocapture noundef readonly %0, ptr nocap
   br i1 %9, label %._crit_edge, label %10
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %.0915, i64 1
-  %12 = getelementptr inbounds i8, ptr %.016, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.0915, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.016, i64 1
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 

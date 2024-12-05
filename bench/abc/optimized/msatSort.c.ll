@@ -44,7 +44,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv29.i = phi i64 [ %indvars.iv.i, %.lr.ph.preheader.i ], [ %indvars.iv.next30.i, %.lr.ph.i ]
   %.024.i = phi i32 [ %6, %.lr.ph.preheader.i ], [ %.1.i, %.lr.ph.i ]
-  %7 = getelementptr inbounds ptr, ptr %.tr.lcssa, i64 %indvars.iv29.i
+  %7 = getelementptr inbounds nuw ptr, ptr %.tr.lcssa, i64 %indvars.iv29.i
   %8 = load ptr, ptr %7, align 8
   %9 = tail call float @Msat_ClauseReadActivity(ptr noundef %8) #2
   %10 = sext i32 %.024.i to i64
@@ -60,7 +60,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
-  %16 = getelementptr inbounds ptr, ptr %.tr.lcssa, i64 %indvars.iv32.i
+  %16 = getelementptr inbounds nuw ptr, ptr %.tr.lcssa, i64 %indvars.iv32.i
   %17 = load ptr, ptr %16, align 8
   %18 = sext i32 %.1.i to i64
   %19 = getelementptr inbounds ptr, ptr %.tr.lcssa, i64 %18
@@ -159,7 +159,7 @@ define void @Msat_SolverSortSelection(ptr nocapture noundef %0, i32 noundef %1) 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv29 = phi i64 [ %indvars.iv, %.lr.ph.preheader ], [ %indvars.iv.next30, %.lr.ph ]
   %.024 = phi i32 [ %5, %.lr.ph.preheader ], [ %.1, %.lr.ph ]
-  %6 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv29
+  %6 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv29
   %7 = load ptr, ptr %6, align 8
   %8 = tail call float @Msat_ClauseReadActivity(ptr noundef %7) #2
   %9 = sext i32 %.024 to i64
@@ -174,7 +174,7 @@ define void @Msat_SolverSortSelection(ptr nocapture noundef %0, i32 noundef %1) 
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %15 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv32
+  %15 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv32
   %16 = load ptr, ptr %15, align 8
   %17 = sext i32 %.1 to i64
   %18 = getelementptr inbounds ptr, ptr %0, i64 %17

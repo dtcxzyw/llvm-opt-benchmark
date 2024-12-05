@@ -76,24 +76,24 @@ define hidden void @_ZN2cv12cpu_baseline25bilateralFilterInvoker_8uERNS_3MatERKS
   %10 = alloca %"class.cv::Range", align 4
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv12cpu_baseline25bilateralFilterInvoker_8uERNS_3MatERKS1_iiPiPfS6_E25__cv_trace_location_fn554)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_126BilateralFilter_8u_InvokerE, i64 16), ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %9, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %9, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i32 %2, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %9, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 28
   store i32 %3, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %9, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr %4, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %9, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store ptr %5, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %9, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store ptr %6, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load i32, ptr %18, align 8
   store i32 0, ptr %10, align 4
-  %20 = getelementptr inbounds i8, ptr %10, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 %19, ptr %20, align 4
   %21 = invoke noundef i64 @_ZNK2cv3Mat5totalEv(ptr noundef nonnull align 8 dereferenceable(96) %0)
           to label %22 unwind label %32
@@ -106,7 +106,7 @@ define hidden void @_ZN2cv12cpu_baseline25bilateralFilterInvoker_8uERNS_3MatERKS
 
 25:                                               ; preds = %22
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #16
-  %26 = getelementptr inbounds i8, ptr %8, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %27 = load i32, ptr %26, align 8
   %.not.i = icmp eq i32 %27, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %28
@@ -149,7 +149,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_126BilateralFilter_8u_Inv
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %5, label %4
@@ -176,28 +176,28 @@ define hidden void @_ZN2cv12cpu_baseline26bilateralFilterInvoker_32fEiiiPiRKNS_3
   %12 = alloca %"class.cv::Range", align 4
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv12cpu_baseline26bilateralFilterInvoker_32fEiiiPiRKNS_3MatERS2_fPfS6_E26__cv_trace_location_fn1032)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_127BilateralFilter_32f_InvokerE, i64 16), ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %11, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 %0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 12
   store i32 %1, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %11, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i32 %2, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %11, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr %3, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %11, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr %4, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %11, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 40
   store ptr %5, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %11, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 48
   store float %6, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %11, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 56
   store ptr %7, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %11, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 64
   store ptr %8, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %5, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %23 = load i32, ptr %22, align 8
   store i32 0, ptr %12, align 4
-  %24 = getelementptr inbounds i8, ptr %12, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 %23, ptr %24, align 4
   %25 = invoke noundef i64 @_ZNK2cv3Mat5totalEv(ptr noundef nonnull align 8 dereferenceable(96) %5)
           to label %26 unwind label %36
@@ -210,7 +210,7 @@ define hidden void @_ZN2cv12cpu_baseline26bilateralFilterInvoker_32fEiiiPiRKNS_3
 
 29:                                               ; preds = %26
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #16
-  %30 = getelementptr inbounds i8, ptr %10, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %31 = load i32, ptr %30, align 8
   %.not.i = icmp eq i32 %31, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %32
@@ -332,7 +332,7 @@ define void @_ZN2cv15bilateralFilterERKNS_11_InputArrayERKNS_12_OutputArrayEiddi
   br i1 %52, label %53, label %56
 
 53:                                               ; preds = %.noexc
-  %54 = getelementptr inbounds i8, ptr %0, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %55 = load ptr, ptr %54, align 8, !noalias !4
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %29, ptr noundef nonnull align 8 dereferenceable(96) %55)
           to label %_ZNK2cv11_InputArray6getMatEi.exit unwind label %35
@@ -350,7 +350,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %53, %56
   br i1 %58, label %59, label %62
 
 59:                                               ; preds = %.noexc38
-  %60 = getelementptr inbounds i8, ptr %1, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %61 = load ptr, ptr %60, align 8, !noalias !7
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %30, ptr noundef nonnull align 8 dereferenceable(96) %61)
           to label %67 unwind label %63
@@ -370,8 +370,8 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %53, %56
   br label %.body
 
 67:                                               ; preds = %62, %59
-  %68 = getelementptr inbounds i8, ptr %29, i64 16
-  %69 = getelementptr inbounds i8, ptr %30, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %70 = load i32, ptr %29, align 8
   %71 = and i32 %70, 7
   switch i32 %71, label %329 [
@@ -463,15 +463,15 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %53, %56
   %105 = shl nuw nsw i32 %104, 1
   %106 = or disjoint i32 %105, 1
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %22) #16
-  %107 = getelementptr inbounds i8, ptr %23, i64 16
+  %107 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store i32 0, ptr %107, align 8
-  %108 = getelementptr inbounds i8, ptr %23, i64 20
+  %108 = getelementptr inbounds nuw i8, ptr %23, i64 20
   store i32 0, ptr %108, align 4
   store i32 16842752, ptr %23, align 8
-  %109 = getelementptr inbounds i8, ptr %23, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %29, ptr %109, align 8
-  %110 = getelementptr inbounds i8, ptr %24, i64 8
-  %111 = getelementptr inbounds i8, ptr %24, i64 16
+  %110 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store i64 0, ptr %111, align 8
   store i32 33619968, ptr %24, align 8
   store ptr %22, ptr %110, align 8
@@ -520,7 +520,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %53, %56
   %134 = fmul double %93, %133
   %135 = call double @exp(double noundef %134) #16
   %136 = fptrunc double %135 to float
-  %137 = getelementptr inbounds float, ptr %116, i64 %indvars.iv.i
+  %137 = getelementptr inbounds nuw float, ptr %116, i64 %indvars.iv.i
   store float %136, ptr %137, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -549,7 +549,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %53, %56
 .preheader.lr.ph.i:                               ; preds = %130
   %146 = sub nsw i32 0, %104
   %147 = uitofp nneg i32 %104 to double
-  %148 = getelementptr inbounds i8, ptr %22, i64 80
+  %148 = getelementptr inbounds nuw i8, ptr %22, i64 80
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %._crit_edge.i, %.preheader.lr.ph.i
@@ -606,7 +606,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit103.i:               ; preds = %._crit_edge129.i
   call void @_ZdlPv(ptr noundef nonnull %123) #20
   call void @_ZdlPv(ptr noundef nonnull %116) #20
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %22) #16
-  %172 = getelementptr inbounds i8, ptr %19, i64 8
+  %172 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %173 = load i32, ptr %172, align 8
   %.not.i.i = icmp eq i32 %173, 0
   br i1 %.not.i.i, label %_ZN2cvL18bilateralFilter_8uERKNS_3MatERS0_iddi.exit, label %174
@@ -757,12 +757,12 @@ _ZN2cvL18bilateralFilter_8uERKNS_3MatERS0_iddi.exit: ; preds = %_ZNSt6vectorIfSa
           to label %218 unwind label %210
 
 218:                                              ; preds = %214
-  %219 = getelementptr inbounds i8, ptr %12, i64 16
+  %219 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 0, ptr %219, align 8
-  %220 = getelementptr inbounds i8, ptr %12, i64 20
+  %220 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i32 0, ptr %220, align 4
   store i32 16842752, ptr %12, align 8
-  %221 = getelementptr inbounds i8, ptr %12, i64 8
+  %221 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %13, ptr %221, align 8
   %222 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv7noArrayEv()
           to label %223 unwind label %233
@@ -781,8 +781,8 @@ _ZN2cvL18bilateralFilter_8uERKNS_3MatERS0_iddi.exit: ; preds = %_ZNSt6vectorIfSa
   br i1 %229, label %230, label %237
 
 230:                                              ; preds = %224
-  %231 = getelementptr inbounds i8, ptr %14, i64 8
-  %232 = getelementptr inbounds i8, ptr %14, i64 16
+  %231 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %232 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i64 0, ptr %232, align 8
   store i32 33619968, ptr %14, align 8
   store ptr %30, ptr %231, align 8
@@ -802,15 +802,15 @@ _ZN2cvL18bilateralFilter_8uERKNS_3MatERS0_iddi.exit: ; preds = %_ZNSt6vectorIfSa
 
 237:                                              ; preds = %224
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %15) #16
-  %238 = getelementptr inbounds i8, ptr %16, i64 16
+  %238 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i32 0, ptr %238, align 8
-  %239 = getelementptr inbounds i8, ptr %16, i64 20
+  %239 = getelementptr inbounds nuw i8, ptr %16, i64 20
   store i32 0, ptr %239, align 4
   store i32 16842752, ptr %16, align 8
-  %240 = getelementptr inbounds i8, ptr %16, i64 8
+  %240 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %29, ptr %240, align 8
-  %241 = getelementptr inbounds i8, ptr %17, i64 8
-  %242 = getelementptr inbounds i8, ptr %17, i64 16
+  %241 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %242 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i64 0, ptr %242, align 8
   store i32 33619968, ptr %17, align 8
   store ptr %15, ptr %241, align 8
@@ -900,7 +900,7 @@ _ZN2cvL18bilateralFilter_8uERKNS_3MatERS0_iddi.exit: ; preds = %_ZNSt6vectorIfSa
 289:                                              ; preds = %272, %270
   %.sink.i = phi float [ %280, %272 ], [ 0.000000e+00, %270 ]
   %.1103.i = phi float [ %280, %272 ], [ %.0102151.i, %270 ]
-  %290 = getelementptr inbounds float, ptr %260, i64 %indvars.iv.i46
+  %290 = getelementptr inbounds nuw float, ptr %260, i64 %indvars.iv.i46
   store float %.sink.i, ptr %290, align 4
   %indvars.iv.next.i47 = add nuw nsw i64 %indvars.iv.i46, 1
   %exitcond.not.i48 = icmp eq i64 %indvars.iv.next.i47, %wide.trip.count.i45
@@ -909,7 +909,7 @@ _ZN2cvL18bilateralFilter_8uERKNS_3MatERS0_iddi.exit: ; preds = %_ZNSt6vectorIfSa
 .preheader.lr.ph.i49:                             ; preds = %289
   %291 = sub nsw i32 0, %215
   %292 = uitofp nneg i32 %215 to double
-  %293 = getelementptr inbounds i8, ptr %15, i64 80
+  %293 = getelementptr inbounds nuw i8, ptr %15, i64 80
   br label %.preheader.i50
 
 .preheader.i50:                                   ; preds = %._crit_edge.i53, %.preheader.lr.ph.i49
@@ -994,7 +994,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit138.i:               ; preds = %_ZNSt6vectorIiSaIiE
   br label %328
 
 321:                                              ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit132.i, %230
-  %322 = getelementptr inbounds i8, ptr %7, i64 8
+  %322 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %323 = load i32, ptr %322, align 8
   %.not.i.i54 = icmp eq i32 %323, 0
   br i1 %.not.i.i54, label %_ZN2cvL19bilateralFilter_32fERKNS_3MatERS0_iddi.exit, label %324
@@ -1061,7 +1061,7 @@ _ZN2cvL19bilateralFilter_32fERKNS_3MatERS0_iddi.exit: ; preds = %321, %324
 337:                                              ; preds = %_ZN2cvL19bilateralFilter_32fERKNS_3MatERS0_iddi.exit, %_ZN2cvL18bilateralFilter_8uERKNS_3MatERS0_iddi.exit
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %30) #16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %29) #16
-  %338 = getelementptr inbounds i8, ptr %26, i64 8
+  %338 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %339 = load i32, ptr %338, align 8
   %.not.i59 = icmp eq i32 %339, 0
   br i1 %.not.i59, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %340
@@ -1136,44 +1136,44 @@ define internal void @_ZNK2cv12cpu_baseline12_GLOBAL__N_126BilateralFilter_8u_In
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.cv::AutoBuffer", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(32) @_ZZNK2cv12cpu_baseline12_GLOBAL__N_126BilateralFilter_8u_InvokerclERKNS_5RangeEE24__cv_trace_location_fn78)
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr %9, align 8
   %11 = lshr i32 %10, 3
   %12 = and i32 %11, 511
   %13 = add nuw nsw i32 %12, 1
-  %14 = getelementptr inbounds i8, ptr %9, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = load i32, ptr %1, align 4
-  %19 = getelementptr inbounds i8, ptr %1, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %20 = load i32, ptr %19, align 4
   %21 = icmp slt i32 %18, %20
   br i1 %21, label %.lr.ph370, label %._crit_edge371
 
 .lr.ph370:                                        ; preds = %2
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = sext i32 %17 to i64
   %25 = add nsw i64 %24, 15
   %26 = and i64 %25, -16
   %27 = mul nsw i64 %26, 3
   %28 = add nsw i64 %25, %27
-  %29 = getelementptr inbounds i8, ptr %7, i64 16
-  %30 = getelementptr inbounds i8, ptr %7, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.not.i.i319 = icmp ugt i64 %28, 264
   %31 = icmp ugt i64 %28, 4611686018427387903
   %32 = shl nsw i64 %28, 2
   %33 = select i1 %31, i64 -1, i64 %32
-  %34 = getelementptr inbounds i8, ptr %0, i64 28
-  %35 = getelementptr inbounds i8, ptr %0, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %36 = icmp sgt i32 %17, 0
-  %37 = getelementptr inbounds i8, ptr %0, i64 40
-  %38 = getelementptr inbounds i8, ptr %0, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %39 = add nsw i64 %25, %26
-  %40 = getelementptr inbounds i8, ptr %4, i64 16
-  %41 = getelementptr inbounds i8, ptr %4, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.not.i.i = icmp ugt i64 %39, 264
   %42 = icmp ugt i64 %39, 4611686018427387903
   %43 = shl nsw i64 %39, 2
@@ -1203,9 +1203,9 @@ define internal void @_ZNK2cv12cpu_baseline12_GLOBAL__N_126BilateralFilter_8u_In
   %48 = load i32, ptr %23, align 8
   %49 = sext i32 %48 to i64
   %50 = add nsw i64 %indvars.iv420, %49
-  %51 = getelementptr inbounds i8, ptr %47, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %47, i64 72
+  %53 = getelementptr inbounds nuw i8, ptr %47, i64 72
   %54 = load ptr, ptr %53, align 8
   %55 = load i64, ptr %54, align 8
   %56 = mul i64 %55, %50
@@ -1214,9 +1214,9 @@ define internal void @_ZNK2cv12cpu_baseline12_GLOBAL__N_126BilateralFilter_8u_In
   %59 = sext i32 %58 to i64
   %60 = getelementptr inbounds i8, ptr %57, i64 %59
   %61 = load ptr, ptr %8, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %61, i64 72
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 72
   %65 = load ptr, ptr %64, align 8
   %66 = load i64, ptr %65, align 8
   %67 = mul i64 %66, %indvars.iv420
@@ -1249,22 +1249,22 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit.us:          ; preds = %.noexc.us, %.lr.ph3
   %78 = phi i32 [ %99, %._crit_edge354.us ], [ %77, %_ZN2cv10AutoBufferIfLm264EEC2Em.exit.us ]
   %indvars.iv404 = phi i64 [ %indvars.iv.next405, %._crit_edge354.us ], [ 0, %_ZN2cv10AutoBufferIfLm264EEC2Em.exit.us ]
   %79 = load ptr, ptr %35, align 8
-  %80 = getelementptr inbounds i32, ptr %79, i64 %indvars.iv404
+  %80 = getelementptr inbounds nuw i32, ptr %79, i64 %indvars.iv404
   %81 = load i32, ptr %80, align 4
   %82 = sext i32 %81 to i64
   %83 = getelementptr inbounds i8, ptr %60, i64 %82
   %84 = or disjoint i64 %indvars.iv404, 1
-  %85 = getelementptr inbounds i32, ptr %79, i64 %84
+  %85 = getelementptr inbounds nuw i32, ptr %79, i64 %84
   %86 = load i32, ptr %85, align 4
   %87 = sext i32 %86 to i64
   %88 = getelementptr inbounds i8, ptr %60, i64 %87
   %89 = or disjoint i64 %indvars.iv404, 2
-  %90 = getelementptr inbounds i32, ptr %79, i64 %89
+  %90 = getelementptr inbounds nuw i32, ptr %79, i64 %89
   %91 = load i32, ptr %90, align 4
   %92 = sext i32 %91 to i64
   %93 = getelementptr inbounds i8, ptr %60, i64 %92
   %94 = or disjoint i64 %indvars.iv404, 3
-  %95 = getelementptr inbounds i32, ptr %79, i64 %94
+  %95 = getelementptr inbounds nuw i32, ptr %79, i64 %94
   %96 = load i32, ptr %95, align 4
   %97 = sext i32 %96 to i64
   %98 = getelementptr inbounds i8, ptr %60, i64 %97
@@ -1284,42 +1284,42 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit.us:          ; preds = %.noexc.us, %.lr.ph3
 
 .lr.ph353.us:                                     ; preds = %.lr.ph357.us, %.lr.ph353.us
   %indvars.iv399 = phi i64 [ %indvars.iv.next400, %.lr.ph353.us ], [ 0, %.lr.ph357.us ]
-  %102 = getelementptr inbounds i8, ptr %60, i64 %indvars.iv399
+  %102 = getelementptr inbounds nuw i8, ptr %60, i64 %indvars.iv399
   %103 = load i8, ptr %102, align 1
   %104 = zext i8 %103 to i32
-  %105 = getelementptr inbounds i8, ptr %83, i64 %indvars.iv399
+  %105 = getelementptr inbounds nuw i8, ptr %83, i64 %indvars.iv399
   %106 = load i8, ptr %105, align 1
   %107 = zext i8 %106 to i32
   %108 = load ptr, ptr %37, align 8
-  %109 = getelementptr inbounds float, ptr %108, i64 %indvars.iv404
+  %109 = getelementptr inbounds nuw float, ptr %108, i64 %indvars.iv404
   %110 = load float, ptr %109, align 4
   %111 = load ptr, ptr %38, align 8
   %112 = sub nsw i32 %107, %104
   %113 = call i32 @llvm.abs.i32(i32 %112, i1 true)
   %114 = zext nneg i32 %113 to i64
-  %115 = getelementptr inbounds float, ptr %111, i64 %114
+  %115 = getelementptr inbounds nuw float, ptr %111, i64 %114
   %116 = load float, ptr %115, align 4
   %117 = fmul float %110, %116
-  %118 = getelementptr inbounds float, ptr %76, i64 %indvars.iv399
+  %118 = getelementptr inbounds nuw float, ptr %76, i64 %indvars.iv399
   %119 = load float, ptr %118, align 4
   %120 = fadd float %119, %117
   store float %120, ptr %118, align 4
   %121 = uitofp i8 %106 to float
-  %122 = getelementptr inbounds float, ptr %75, i64 %indvars.iv399
+  %122 = getelementptr inbounds nuw float, ptr %75, i64 %indvars.iv399
   %123 = load float, ptr %122, align 4
   %124 = call float @llvm.fmuladd.f32(float %121, float %117, float %123)
   store float %124, ptr %122, align 4
-  %125 = getelementptr inbounds i8, ptr %88, i64 %indvars.iv399
+  %125 = getelementptr inbounds nuw i8, ptr %88, i64 %indvars.iv399
   %126 = load i8, ptr %125, align 1
   %127 = zext i8 %126 to i32
   %128 = load ptr, ptr %37, align 8
-  %129 = getelementptr inbounds float, ptr %128, i64 %84
+  %129 = getelementptr inbounds nuw float, ptr %128, i64 %84
   %130 = load float, ptr %129, align 4
   %131 = load ptr, ptr %38, align 8
   %132 = sub nsw i32 %127, %104
   %133 = call i32 @llvm.abs.i32(i32 %132, i1 true)
   %134 = zext nneg i32 %133 to i64
-  %135 = getelementptr inbounds float, ptr %131, i64 %134
+  %135 = getelementptr inbounds nuw float, ptr %131, i64 %134
   %136 = load float, ptr %135, align 4
   %137 = fmul float %130, %136
   %138 = load float, ptr %118, align 4
@@ -1329,17 +1329,17 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit.us:          ; preds = %.noexc.us, %.lr.ph3
   %141 = load float, ptr %122, align 4
   %142 = call float @llvm.fmuladd.f32(float %140, float %137, float %141)
   store float %142, ptr %122, align 4
-  %143 = getelementptr inbounds i8, ptr %93, i64 %indvars.iv399
+  %143 = getelementptr inbounds nuw i8, ptr %93, i64 %indvars.iv399
   %144 = load i8, ptr %143, align 1
   %145 = zext i8 %144 to i32
   %146 = load ptr, ptr %37, align 8
-  %147 = getelementptr inbounds float, ptr %146, i64 %89
+  %147 = getelementptr inbounds nuw float, ptr %146, i64 %89
   %148 = load float, ptr %147, align 4
   %149 = load ptr, ptr %38, align 8
   %150 = sub nsw i32 %145, %104
   %151 = call i32 @llvm.abs.i32(i32 %150, i1 true)
   %152 = zext nneg i32 %151 to i64
-  %153 = getelementptr inbounds float, ptr %149, i64 %152
+  %153 = getelementptr inbounds nuw float, ptr %149, i64 %152
   %154 = load float, ptr %153, align 4
   %155 = fmul float %148, %154
   %156 = load float, ptr %118, align 4
@@ -1349,17 +1349,17 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit.us:          ; preds = %.noexc.us, %.lr.ph3
   %159 = load float, ptr %122, align 4
   %160 = call float @llvm.fmuladd.f32(float %158, float %155, float %159)
   store float %160, ptr %122, align 4
-  %161 = getelementptr inbounds i8, ptr %98, i64 %indvars.iv399
+  %161 = getelementptr inbounds nuw i8, ptr %98, i64 %indvars.iv399
   %162 = load i8, ptr %161, align 1
   %163 = zext i8 %162 to i32
   %164 = load ptr, ptr %37, align 8
-  %165 = getelementptr inbounds float, ptr %164, i64 %94
+  %165 = getelementptr inbounds nuw float, ptr %164, i64 %94
   %166 = load float, ptr %165, align 4
   %167 = load ptr, ptr %38, align 8
   %168 = sub nsw i32 %163, %104
   %169 = call i32 @llvm.abs.i32(i32 %168, i1 true)
   %170 = zext nneg i32 %169 to i64
-  %171 = getelementptr inbounds float, ptr %167, i64 %170
+  %171 = getelementptr inbounds nuw float, ptr %167, i64 %170
   %172 = load float, ptr %171, align 4
   %173 = fmul float %166, %172
   %174 = load float, ptr %118, align 4
@@ -1400,15 +1400,15 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit318.us:       ; preds = %183, %._crit_edge36
 
 .lr.ph366.us:                                     ; preds = %.preheader.us, %.lr.ph366.us
   %indvars.iv415 = phi i64 [ %indvars.iv.next416, %.lr.ph366.us ], [ 0, %.preheader.us ]
-  %187 = getelementptr inbounds float, ptr %75, i64 %indvars.iv415
+  %187 = getelementptr inbounds nuw float, ptr %75, i64 %indvars.iv415
   %188 = load float, ptr %187, align 4
-  %189 = getelementptr inbounds float, ptr %76, i64 %indvars.iv415
+  %189 = getelementptr inbounds nuw float, ptr %76, i64 %indvars.iv415
   %190 = load float, ptr %189, align 4
   %191 = fdiv float %188, %190
   %192 = insertelement <4 x float> poison, float %191, i64 0
   %193 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %192)
   %194 = trunc i32 %193 to i8
-  %195 = getelementptr inbounds i8, ptr %68, i64 %indvars.iv415
+  %195 = getelementptr inbounds nuw i8, ptr %68, i64 %indvars.iv415
   store i8 %194, ptr %195, align 1
   %indvars.iv.next416 = add nuw nsw i64 %indvars.iv415, 1
   %exitcond419.not = icmp eq i64 %indvars.iv.next416, %wide.trip.count418
@@ -1437,7 +1437,7 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit318.us:       ; preds = %183, %._crit_edge36
 .lr.ph361.us.us:                                  ; preds = %.lr.ph361.us.us.preheader, %._crit_edge362.us.us
   %indvars.iv412 = phi i64 [ %199, %.lr.ph361.us.us.preheader ], [ %indvars.iv.next413, %._crit_edge362.us.us ]
   %200 = load ptr, ptr %35, align 8
-  %201 = getelementptr inbounds i32, ptr %200, i64 %indvars.iv412
+  %201 = getelementptr inbounds nuw i32, ptr %200, i64 %indvars.iv412
   %202 = load i32, ptr %201, align 4
   %203 = sext i32 %202 to i64
   %204 = getelementptr inbounds i8, ptr %60, i64 %203
@@ -1445,28 +1445,28 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit318.us:       ; preds = %183, %._crit_edge36
 
 205:                                              ; preds = %205, %.lr.ph361.us.us
   %indvars.iv407 = phi i64 [ %indvars.iv.next408, %205 ], [ 0, %.lr.ph361.us.us ]
-  %206 = getelementptr inbounds i8, ptr %204, i64 %indvars.iv407
+  %206 = getelementptr inbounds nuw i8, ptr %204, i64 %indvars.iv407
   %207 = load i8, ptr %206, align 1
   %208 = zext i8 %207 to i32
   %209 = load ptr, ptr %37, align 8
-  %210 = getelementptr inbounds float, ptr %209, i64 %indvars.iv412
+  %210 = getelementptr inbounds nuw float, ptr %209, i64 %indvars.iv412
   %211 = load float, ptr %210, align 4
   %212 = load ptr, ptr %38, align 8
-  %213 = getelementptr inbounds i8, ptr %60, i64 %indvars.iv407
+  %213 = getelementptr inbounds nuw i8, ptr %60, i64 %indvars.iv407
   %214 = load i8, ptr %213, align 1
   %215 = zext i8 %214 to i32
   %216 = sub nsw i32 %208, %215
   %217 = call i32 @llvm.abs.i32(i32 %216, i1 true)
   %218 = zext nneg i32 %217 to i64
-  %219 = getelementptr inbounds float, ptr %212, i64 %218
+  %219 = getelementptr inbounds nuw float, ptr %212, i64 %218
   %220 = load float, ptr %219, align 4
   %221 = fmul float %211, %220
-  %222 = getelementptr inbounds float, ptr %76, i64 %indvars.iv407
+  %222 = getelementptr inbounds nuw float, ptr %76, i64 %indvars.iv407
   %223 = load float, ptr %222, align 4
   %224 = fadd float %223, %221
   store float %224, ptr %222, align 4
   %225 = uitofp i8 %207 to float
-  %226 = getelementptr inbounds float, ptr %75, i64 %indvars.iv407
+  %226 = getelementptr inbounds nuw float, ptr %75, i64 %indvars.iv407
   %227 = load float, ptr %226, align 4
   %228 = call float @llvm.fmuladd.f32(float %225, float %221, float %227)
   store float %228, ptr %226, align 4
@@ -1492,9 +1492,9 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit318.us:       ; preds = %183, %._crit_edge36
   %234 = load i32, ptr %23, align 8
   %235 = sext i32 %234 to i64
   %236 = add nsw i64 %indvars.iv396, %235
-  %237 = getelementptr inbounds i8, ptr %233, i64 16
+  %237 = getelementptr inbounds nuw i8, ptr %233, i64 16
   %238 = load ptr, ptr %237, align 8
-  %239 = getelementptr inbounds i8, ptr %233, i64 72
+  %239 = getelementptr inbounds nuw i8, ptr %233, i64 72
   %240 = load ptr, ptr %239, align 8
   %241 = load i64, ptr %240, align 8
   %242 = mul i64 %241, %236
@@ -1503,9 +1503,9 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit318.us:       ; preds = %183, %._crit_edge36
   %245 = sext i32 %244 to i64
   %246 = getelementptr inbounds i8, ptr %243, i64 %245
   %247 = load ptr, ptr %8, align 8
-  %248 = getelementptr inbounds i8, ptr %247, i64 16
+  %248 = getelementptr inbounds nuw i8, ptr %247, i64 16
   %249 = load ptr, ptr %248, align 8
-  %250 = getelementptr inbounds i8, ptr %247, i64 72
+  %250 = getelementptr inbounds nuw i8, ptr %247, i64 72
   %251 = load ptr, ptr %250, align 8
   %252 = load i64, ptr %251, align 8
   %253 = mul i64 %252, %indvars.iv396
@@ -1589,7 +1589,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit321:          ; preds = %.noexc320, %.lr.ph3
 .lr.ph343.us:                                     ; preds = %.lr.ph343.us.preheader, %._crit_edge344.us
   %indvars.iv388 = phi i64 [ %278, %.lr.ph343.us.preheader ], [ %indvars.iv.next389, %._crit_edge344.us ]
   %279 = load ptr, ptr %35, align 8
-  %280 = getelementptr inbounds i32, ptr %279, i64 %indvars.iv388
+  %280 = getelementptr inbounds nuw i32, ptr %279, i64 %indvars.iv388
   %281 = load i32, ptr %280, align 4
   %282 = sext i32 %281 to i64
   %283 = getelementptr inbounds i8, ptr %246, i64 %282
@@ -1601,58 +1601,58 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit321:          ; preds = %.noexc320, %.lr.ph3
   %.0299339.us = phi ptr [ %283, %.lr.ph343.us ], [ %332, %284 ]
   %285 = load i8, ptr %.0299339.us, align 1
   %286 = zext i8 %285 to i32
-  %287 = getelementptr inbounds i8, ptr %.0299339.us, i64 1
+  %287 = getelementptr inbounds nuw i8, ptr %.0299339.us, i64 1
   %288 = load i8, ptr %287, align 1
   %289 = zext i8 %288 to i32
-  %290 = getelementptr inbounds i8, ptr %.0299339.us, i64 2
+  %290 = getelementptr inbounds nuw i8, ptr %.0299339.us, i64 2
   %291 = load i8, ptr %290, align 1
   %292 = zext i8 %291 to i32
   %293 = load ptr, ptr %37, align 8
-  %294 = getelementptr inbounds float, ptr %293, i64 %indvars.iv388
+  %294 = getelementptr inbounds nuw float, ptr %293, i64 %indvars.iv388
   %295 = load float, ptr %294, align 4
   %296 = load ptr, ptr %38, align 8
   %297 = load i8, ptr %.0298340.us, align 1
   %298 = zext i8 %297 to i32
   %299 = sub nsw i32 %286, %298
   %300 = call i32 @llvm.abs.i32(i32 %299, i1 true)
-  %301 = getelementptr inbounds i8, ptr %.0298340.us, i64 1
+  %301 = getelementptr inbounds nuw i8, ptr %.0298340.us, i64 1
   %302 = load i8, ptr %301, align 1
   %303 = zext i8 %302 to i32
   %304 = sub nsw i32 %289, %303
   %305 = call i32 @llvm.abs.i32(i32 %304, i1 true)
   %306 = add nuw nsw i32 %305, %300
-  %307 = getelementptr inbounds i8, ptr %.0298340.us, i64 2
+  %307 = getelementptr inbounds nuw i8, ptr %.0298340.us, i64 2
   %308 = load i8, ptr %307, align 1
   %309 = zext i8 %308 to i32
   %310 = sub nsw i32 %292, %309
   %311 = call i32 @llvm.abs.i32(i32 %310, i1 true)
   %312 = add nuw nsw i32 %306, %311
   %313 = zext nneg i32 %312 to i64
-  %314 = getelementptr inbounds float, ptr %296, i64 %313
+  %314 = getelementptr inbounds nuw float, ptr %296, i64 %313
   %315 = load float, ptr %314, align 4
   %316 = fmul float %295, %315
-  %317 = getelementptr inbounds float, ptr %273, i64 %indvars.iv383
+  %317 = getelementptr inbounds nuw float, ptr %273, i64 %indvars.iv383
   %318 = load float, ptr %317, align 4
   %319 = fadd float %318, %316
   store float %319, ptr %317, align 4
   %320 = uitofp i8 %285 to float
-  %321 = getelementptr inbounds float, ptr %270, i64 %indvars.iv383
+  %321 = getelementptr inbounds nuw float, ptr %270, i64 %indvars.iv383
   %322 = load float, ptr %321, align 4
   %323 = call float @llvm.fmuladd.f32(float %320, float %316, float %322)
   store float %323, ptr %321, align 4
   %324 = uitofp i8 %288 to float
-  %325 = getelementptr inbounds float, ptr %271, i64 %indvars.iv383
+  %325 = getelementptr inbounds nuw float, ptr %271, i64 %indvars.iv383
   %326 = load float, ptr %325, align 4
   %327 = call float @llvm.fmuladd.f32(float %324, float %316, float %326)
   store float %327, ptr %325, align 4
   %328 = uitofp i8 %291 to float
-  %329 = getelementptr inbounds float, ptr %272, i64 %indvars.iv383
+  %329 = getelementptr inbounds nuw float, ptr %272, i64 %indvars.iv383
   %330 = load float, ptr %329, align 4
   %331 = call float @llvm.fmuladd.f32(float %328, float %316, float %330)
   store float %331, ptr %329, align 4
   %indvars.iv.next384 = add nuw nsw i64 %indvars.iv383, 1
-  %332 = getelementptr inbounds i8, ptr %.0299339.us, i64 3
-  %333 = getelementptr inbounds i8, ptr %.0298340.us, i64 3
+  %332 = getelementptr inbounds nuw i8, ptr %.0299339.us, i64 3
+  %333 = getelementptr inbounds nuw i8, ptr %.0298340.us, i64 3
   %exitcond387.not = icmp eq i64 %indvars.iv.next384, %wide.trip.count386
   br i1 %exitcond387.not, label %._crit_edge344.us, label %284, !llvm.loop !23
 
@@ -1673,19 +1673,19 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit321:          ; preds = %.noexc320, %.lr.ph3
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph338
   %341 = load ptr, ptr %35, align 8
-  %342 = getelementptr inbounds i32, ptr %341, i64 %340
+  %342 = getelementptr inbounds nuw i32, ptr %341, i64 %340
   %343 = load i32, ptr %342, align 4
   %344 = sext i32 %343 to i64
   %345 = getelementptr inbounds i8, ptr %246, i64 %344
-  %346 = getelementptr inbounds i32, ptr %341, i64 %339
+  %346 = getelementptr inbounds nuw i32, ptr %341, i64 %339
   %347 = load i32, ptr %346, align 4
   %348 = sext i32 %347 to i64
   %349 = getelementptr inbounds i8, ptr %246, i64 %348
-  %350 = getelementptr inbounds i32, ptr %341, i64 %338
+  %350 = getelementptr inbounds nuw i32, ptr %341, i64 %338
   %351 = load i32, ptr %350, align 4
   %352 = sext i32 %351 to i64
   %353 = getelementptr inbounds i8, ptr %246, i64 %352
-  %354 = getelementptr inbounds i32, ptr %341, i64 %indvars.iv380
+  %354 = getelementptr inbounds nuw i32, ptr %341, i64 %indvars.iv380
   %355 = load i32, ptr %354, align 4
   %356 = sext i32 %355 to i64
   %357 = getelementptr inbounds i8, ptr %246, i64 %356
@@ -1700,22 +1700,22 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit321:          ; preds = %.noexc320, %.lr.ph3
   %.0309330 = phi ptr [ %246, %.lr.ph.preheader ], [ %510, %.lr.ph ]
   %358 = load i8, ptr %.0309330, align 1
   %359 = zext i8 %358 to i32
-  %360 = getelementptr inbounds i8, ptr %.0309330, i64 1
+  %360 = getelementptr inbounds nuw i8, ptr %.0309330, i64 1
   %361 = load i8, ptr %360, align 1
   %362 = zext i8 %361 to i32
-  %363 = getelementptr inbounds i8, ptr %.0309330, i64 2
+  %363 = getelementptr inbounds nuw i8, ptr %.0309330, i64 2
   %364 = load i8, ptr %363, align 1
   %365 = zext i8 %364 to i32
   %366 = load i8, ptr %.0305334, align 1
   %367 = zext i8 %366 to i32
-  %368 = getelementptr inbounds i8, ptr %.0305334, i64 1
+  %368 = getelementptr inbounds nuw i8, ptr %.0305334, i64 1
   %369 = load i8, ptr %368, align 1
   %370 = zext i8 %369 to i32
-  %371 = getelementptr inbounds i8, ptr %.0305334, i64 2
+  %371 = getelementptr inbounds nuw i8, ptr %.0305334, i64 2
   %372 = load i8, ptr %371, align 1
   %373 = zext i8 %372 to i32
   %374 = load ptr, ptr %37, align 8
-  %375 = getelementptr inbounds float, ptr %374, i64 %indvars.iv380
+  %375 = getelementptr inbounds nuw float, ptr %374, i64 %indvars.iv380
   %376 = load float, ptr %375, align 4
   %377 = load ptr, ptr %38, align 8
   %378 = sub nsw i32 %367, %359
@@ -1727,38 +1727,38 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit321:          ; preds = %.noexc320, %.lr.ph3
   %384 = call i32 @llvm.abs.i32(i32 %383, i1 true)
   %385 = add nuw nsw i32 %382, %384
   %386 = zext nneg i32 %385 to i64
-  %387 = getelementptr inbounds float, ptr %377, i64 %386
+  %387 = getelementptr inbounds nuw float, ptr %377, i64 %386
   %388 = load float, ptr %387, align 4
   %389 = fmul float %376, %388
-  %390 = getelementptr inbounds float, ptr %273, i64 %indvars.iv
+  %390 = getelementptr inbounds nuw float, ptr %273, i64 %indvars.iv
   %391 = load float, ptr %390, align 4
   %392 = fadd float %391, %389
   store float %392, ptr %390, align 4
   %393 = uitofp i8 %366 to float
-  %394 = getelementptr inbounds float, ptr %270, i64 %indvars.iv
+  %394 = getelementptr inbounds nuw float, ptr %270, i64 %indvars.iv
   %395 = load float, ptr %394, align 4
   %396 = call float @llvm.fmuladd.f32(float %393, float %389, float %395)
   store float %396, ptr %394, align 4
   %397 = uitofp i8 %369 to float
-  %398 = getelementptr inbounds float, ptr %271, i64 %indvars.iv
+  %398 = getelementptr inbounds nuw float, ptr %271, i64 %indvars.iv
   %399 = load float, ptr %398, align 4
   %400 = call float @llvm.fmuladd.f32(float %397, float %389, float %399)
   store float %400, ptr %398, align 4
   %401 = uitofp i8 %372 to float
-  %402 = getelementptr inbounds float, ptr %272, i64 %indvars.iv
+  %402 = getelementptr inbounds nuw float, ptr %272, i64 %indvars.iv
   %403 = load float, ptr %402, align 4
   %404 = call float @llvm.fmuladd.f32(float %401, float %389, float %403)
   store float %404, ptr %402, align 4
   %405 = load i8, ptr %.0306333, align 1
   %406 = zext i8 %405 to i32
-  %407 = getelementptr inbounds i8, ptr %.0306333, i64 1
+  %407 = getelementptr inbounds nuw i8, ptr %.0306333, i64 1
   %408 = load i8, ptr %407, align 1
   %409 = zext i8 %408 to i32
-  %410 = getelementptr inbounds i8, ptr %.0306333, i64 2
+  %410 = getelementptr inbounds nuw i8, ptr %.0306333, i64 2
   %411 = load i8, ptr %410, align 1
   %412 = zext i8 %411 to i32
   %413 = load ptr, ptr %37, align 8
-  %414 = getelementptr inbounds float, ptr %413, i64 %338
+  %414 = getelementptr inbounds nuw float, ptr %413, i64 %338
   %415 = load float, ptr %414, align 4
   %416 = load ptr, ptr %38, align 8
   %417 = sub nsw i32 %406, %359
@@ -1770,7 +1770,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit321:          ; preds = %.noexc320, %.lr.ph3
   %423 = call i32 @llvm.abs.i32(i32 %422, i1 true)
   %424 = add nuw nsw i32 %421, %423
   %425 = zext nneg i32 %424 to i64
-  %426 = getelementptr inbounds float, ptr %416, i64 %425
+  %426 = getelementptr inbounds nuw float, ptr %416, i64 %425
   %427 = load float, ptr %426, align 4
   %428 = fmul float %415, %427
   %429 = load float, ptr %390, align 4
@@ -1790,14 +1790,14 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit321:          ; preds = %.noexc320, %.lr.ph3
   store float %439, ptr %402, align 4
   %440 = load i8, ptr %.0307332, align 1
   %441 = zext i8 %440 to i32
-  %442 = getelementptr inbounds i8, ptr %.0307332, i64 1
+  %442 = getelementptr inbounds nuw i8, ptr %.0307332, i64 1
   %443 = load i8, ptr %442, align 1
   %444 = zext i8 %443 to i32
-  %445 = getelementptr inbounds i8, ptr %.0307332, i64 2
+  %445 = getelementptr inbounds nuw i8, ptr %.0307332, i64 2
   %446 = load i8, ptr %445, align 1
   %447 = zext i8 %446 to i32
   %448 = load ptr, ptr %37, align 8
-  %449 = getelementptr inbounds float, ptr %448, i64 %339
+  %449 = getelementptr inbounds nuw float, ptr %448, i64 %339
   %450 = load float, ptr %449, align 4
   %451 = load ptr, ptr %38, align 8
   %452 = sub nsw i32 %441, %359
@@ -1809,7 +1809,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit321:          ; preds = %.noexc320, %.lr.ph3
   %458 = call i32 @llvm.abs.i32(i32 %457, i1 true)
   %459 = add nuw nsw i32 %456, %458
   %460 = zext nneg i32 %459 to i64
-  %461 = getelementptr inbounds float, ptr %451, i64 %460
+  %461 = getelementptr inbounds nuw float, ptr %451, i64 %460
   %462 = load float, ptr %461, align 4
   %463 = fmul float %450, %462
   %464 = load float, ptr %390, align 4
@@ -1829,14 +1829,14 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit321:          ; preds = %.noexc320, %.lr.ph3
   store float %474, ptr %402, align 4
   %475 = load i8, ptr %.0308331, align 1
   %476 = zext i8 %475 to i32
-  %477 = getelementptr inbounds i8, ptr %.0308331, i64 1
+  %477 = getelementptr inbounds nuw i8, ptr %.0308331, i64 1
   %478 = load i8, ptr %477, align 1
   %479 = zext i8 %478 to i32
-  %480 = getelementptr inbounds i8, ptr %.0308331, i64 2
+  %480 = getelementptr inbounds nuw i8, ptr %.0308331, i64 2
   %481 = load i8, ptr %480, align 1
   %482 = zext i8 %481 to i32
   %483 = load ptr, ptr %37, align 8
-  %484 = getelementptr inbounds float, ptr %483, i64 %340
+  %484 = getelementptr inbounds nuw float, ptr %483, i64 %340
   %485 = load float, ptr %484, align 4
   %486 = load ptr, ptr %38, align 8
   %487 = sub nsw i32 %476, %359
@@ -1848,7 +1848,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit321:          ; preds = %.noexc320, %.lr.ph3
   %493 = call i32 @llvm.abs.i32(i32 %492, i1 true)
   %494 = add nuw nsw i32 %491, %493
   %495 = zext nneg i32 %494 to i64
-  %496 = getelementptr inbounds float, ptr %486, i64 %495
+  %496 = getelementptr inbounds nuw float, ptr %486, i64 %495
   %497 = load float, ptr %496, align 4
   %498 = fmul float %485, %497
   %499 = load float, ptr %390, align 4
@@ -1867,11 +1867,11 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit321:          ; preds = %.noexc320, %.lr.ph3
   %509 = call float @llvm.fmuladd.f32(float %507, float %498, float %508)
   store float %509, ptr %402, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %510 = getelementptr inbounds i8, ptr %.0309330, i64 3
-  %511 = getelementptr inbounds i8, ptr %.0305334, i64 3
-  %512 = getelementptr inbounds i8, ptr %.0306333, i64 3
-  %513 = getelementptr inbounds i8, ptr %.0307332, i64 3
-  %514 = getelementptr inbounds i8, ptr %.0308331, i64 3
+  %510 = getelementptr inbounds nuw i8, ptr %.0309330, i64 3
+  %511 = getelementptr inbounds nuw i8, ptr %.0305334, i64 3
+  %512 = getelementptr inbounds nuw i8, ptr %.0306333, i64 3
+  %513 = getelementptr inbounds nuw i8, ptr %.0307332, i64 3
+  %514 = getelementptr inbounds nuw i8, ptr %.0308331, i64 3
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !25
 
@@ -1893,35 +1893,35 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit321:          ; preds = %.noexc320, %.lr.ph3
 .lr.ph349:                                        ; preds = %.preheader327, %.lr.ph349
   %indvars.iv391 = phi i64 [ %indvars.iv.next392, %.lr.ph349 ], [ 0, %.preheader327 ]
   %.0304347 = phi ptr [ %543, %.lr.ph349 ], [ %254, %.preheader327 ]
-  %518 = getelementptr inbounds float, ptr %273, i64 %indvars.iv391
+  %518 = getelementptr inbounds nuw float, ptr %273, i64 %indvars.iv391
   %519 = load float, ptr %518, align 4
   %520 = fdiv float 1.000000e+00, %519
   store float %520, ptr %518, align 4
-  %521 = getelementptr inbounds float, ptr %270, i64 %indvars.iv391
+  %521 = getelementptr inbounds nuw float, ptr %270, i64 %indvars.iv391
   %522 = load float, ptr %521, align 4
   %523 = fmul float %520, %522
   %524 = insertelement <4 x float> poison, float %523, i64 0
   %525 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %524)
   %526 = trunc i32 %525 to i8
   store i8 %526, ptr %.0304347, align 1
-  %527 = getelementptr inbounds float, ptr %271, i64 %indvars.iv391
+  %527 = getelementptr inbounds nuw float, ptr %271, i64 %indvars.iv391
   %528 = load float, ptr %527, align 4
   %529 = load float, ptr %518, align 4
   %530 = fmul float %528, %529
   %531 = insertelement <4 x float> poison, float %530, i64 0
   %532 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %531)
-  %533 = getelementptr inbounds i8, ptr %.0304347, i64 1
+  %533 = getelementptr inbounds nuw i8, ptr %.0304347, i64 1
   %534 = trunc i32 %532 to i8
   store i8 %534, ptr %533, align 1
-  %535 = getelementptr inbounds float, ptr %272, i64 %indvars.iv391
+  %535 = getelementptr inbounds nuw float, ptr %272, i64 %indvars.iv391
   %536 = load float, ptr %535, align 4
   %537 = load float, ptr %518, align 4
   %538 = fmul float %536, %537
   %539 = insertelement <4 x float> poison, float %538, i64 0
   %540 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %539)
-  %541 = getelementptr inbounds i8, ptr %.0304347, i64 2
+  %541 = getelementptr inbounds nuw i8, ptr %.0304347, i64 2
   %542 = trunc i32 %540 to i8
-  %543 = getelementptr inbounds i8, ptr %.0304347, i64 3
+  %543 = getelementptr inbounds nuw i8, ptr %.0304347, i64 3
   store i8 %542, ptr %541, align 1
   %indvars.iv.next392 = add nuw nsw i64 %indvars.iv391, 1
   %exitcond395.not = icmp eq i64 %indvars.iv.next392, %wide.trip.count394
@@ -1953,7 +1953,7 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit318:          ; preds = %548, %._crit_edge35
   br i1 %551, label %.lr.ph370.split.split, label %._crit_edge371, !llvm.loop !19
 
 ._crit_edge371:                                   ; preds = %_ZN2cv10AutoBufferIfLm264EED2Ev.exit318, %_ZN2cv10AutoBufferIfLm264EED2Ev.exit318.us, %2
-  %552 = getelementptr inbounds i8, ptr %3, i64 8
+  %552 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %553 = load i32, ptr %552, align 8
   %.not.i = icmp eq i32 %553, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %554
@@ -2031,42 +2031,42 @@ define internal void @_ZNK2cv12cpu_baseline12_GLOBAL__N_127BilateralFilter_32f_I
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.cv::AutoBuffer", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(32) @_ZZNK2cv12cpu_baseline12_GLOBAL__N_127BilateralFilter_32f_InvokerclERKNS_5RangeEE25__cv_trace_location_fn576)
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load i32, ptr %1, align 4
-  %10 = getelementptr inbounds i8, ptr %1, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = icmp slt i32 %9, %11
   br i1 %12, label %.lr.ph552, label %._crit_edge553
 
 .lr.ph552:                                        ; preds = %2
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
-  %19 = getelementptr inbounds i8, ptr %0, i64 12
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = sext i32 %17 to i64
   %22 = add nsw i64 %21, 15
   %23 = and i64 %22, -16
   %24 = mul nsw i64 %23, 3
   %25 = add nsw i64 %22, %24
-  %26 = getelementptr inbounds i8, ptr %7, i64 16
-  %27 = getelementptr inbounds i8, ptr %7, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.not.i.i495 = icmp ugt i64 %25, 264
   %28 = icmp ugt i64 %25, 4611686018427387903
   %29 = shl nsw i64 %25, 2
   %30 = select i1 %28, i64 -1, i64 %29
-  %31 = getelementptr inbounds i8, ptr %0, i64 16
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = icmp sgt i32 %17, 0
-  %34 = getelementptr inbounds i8, ptr %0, i64 48
-  %35 = getelementptr inbounds i8, ptr %0, i64 56
-  %36 = getelementptr inbounds i8, ptr %0, i64 64
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %37 = add nsw i64 %22, %23
-  %38 = getelementptr inbounds i8, ptr %4, i64 16
-  %39 = getelementptr inbounds i8, ptr %4, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.not.i.i = icmp ugt i64 %37, 264
   %40 = icmp ugt i64 %37, 4611686018427387903
   %41 = shl nsw i64 %37, 2
@@ -2086,9 +2086,9 @@ define internal void @_ZNK2cv12cpu_baseline12_GLOBAL__N_127BilateralFilter_32f_I
   %46 = load i32, ptr %19, align 4
   %47 = sext i32 %46 to i64
   %48 = add nsw i64 %indvars.iv595, %47
-  %49 = getelementptr inbounds i8, ptr %45, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %45, i64 72
+  %51 = getelementptr inbounds nuw i8, ptr %45, i64 72
   %52 = load ptr, ptr %51, align 8
   %53 = load i64, ptr %52, align 8
   %54 = mul i64 %53, %48
@@ -2098,9 +2098,9 @@ define internal void @_ZNK2cv12cpu_baseline12_GLOBAL__N_127BilateralFilter_32f_I
   %58 = sext i32 %57 to i64
   %59 = getelementptr inbounds float, ptr %55, i64 %58
   %60 = load ptr, ptr %8, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %60, i64 72
+  %63 = getelementptr inbounds nuw i8, ptr %60, i64 72
   %64 = load ptr, ptr %63, align 8
   %65 = load i64, ptr %64, align 8
   %66 = mul i64 %65, %indvars.iv595
@@ -2155,7 +2155,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %.noexc, %68
 .lr.ph543.us:                                     ; preds = %.lr.ph543.us.preheader, %._crit_edge544.us
   %indvars.iv587 = phi i64 [ %81, %.lr.ph543.us.preheader ], [ %indvars.iv.next588, %._crit_edge544.us ]
   %82 = load ptr, ptr %32, align 8
-  %83 = getelementptr inbounds i32, ptr %82, i64 %indvars.iv587
+  %83 = getelementptr inbounds nuw i32, ptr %82, i64 %indvars.iv587
   %84 = load i32, ptr %83, align 4
   %85 = sext i32 %84 to i64
   %86 = getelementptr inbounds float, ptr %59, i64 %85
@@ -2163,9 +2163,9 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %.noexc, %68
 
 87:                                               ; preds = %.lr.ph543.us, %124
   %indvars.iv582 = phi i64 [ 0, %.lr.ph543.us ], [ %indvars.iv.next583, %124 ]
-  %88 = getelementptr inbounds float, ptr %86, i64 %indvars.iv582
+  %88 = getelementptr inbounds nuw float, ptr %86, i64 %indvars.iv582
   %89 = load float, ptr %88, align 4
-  %90 = getelementptr inbounds float, ptr %59, i64 %indvars.iv582
+  %90 = getelementptr inbounds nuw float, ptr %59, i64 %indvars.iv582
   %91 = load float, ptr %90, align 4
   %92 = fsub float %89, %91
   %93 = call noundef float @llvm.fabs.f32(float %92)
@@ -2180,7 +2180,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %.noexc, %68
 
 101:                                              ; preds = %87
   %102 = load ptr, ptr %35, align 8
-  %103 = getelementptr inbounds float, ptr %102, i64 %indvars.iv587
+  %103 = getelementptr inbounds nuw float, ptr %102, i64 %indvars.iv587
   %104 = load float, ptr %103, align 4
   %105 = fcmp ord float %91, 0.000000e+00
   br i1 %105, label %106, label %115
@@ -2199,11 +2199,11 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %.noexc, %68
 115:                                              ; preds = %106, %101
   %116 = phi float [ %114, %106 ], [ 1.000000e+00, %101 ]
   %117 = fmul float %104, %116
-  %118 = getelementptr inbounds float, ptr %76, i64 %indvars.iv582
+  %118 = getelementptr inbounds nuw float, ptr %76, i64 %indvars.iv582
   %119 = load float, ptr %118, align 4
   %120 = fadd float %119, %117
   store float %120, ptr %118, align 4
-  %121 = getelementptr inbounds float, ptr %75, i64 %indvars.iv582
+  %121 = getelementptr inbounds nuw float, ptr %75, i64 %indvars.iv582
   %122 = load float, ptr %121, align 4
   %123 = call float @llvm.fmuladd.f32(float %89, float %117, float %122)
   store float %123, ptr %121, align 4
@@ -2225,22 +2225,22 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %.noexc, %68
   %128 = phi i32 [ %293, %._crit_edge536 ], [ %77, %_ZN2cv10AutoBufferIfLm264EEC2Em.exit ]
   %indvars.iv579 = phi i64 [ %indvars.iv.next580, %._crit_edge536 ], [ 0, %_ZN2cv10AutoBufferIfLm264EEC2Em.exit ]
   %129 = load ptr, ptr %32, align 8
-  %130 = getelementptr inbounds i32, ptr %129, i64 %indvars.iv579
+  %130 = getelementptr inbounds nuw i32, ptr %129, i64 %indvars.iv579
   %131 = load i32, ptr %130, align 4
   %132 = sext i32 %131 to i64
   %133 = getelementptr inbounds float, ptr %59, i64 %132
   %134 = or disjoint i64 %indvars.iv579, 1
-  %135 = getelementptr inbounds i32, ptr %129, i64 %134
+  %135 = getelementptr inbounds nuw i32, ptr %129, i64 %134
   %136 = load i32, ptr %135, align 4
   %137 = sext i32 %136 to i64
   %138 = getelementptr inbounds float, ptr %59, i64 %137
   %139 = or disjoint i64 %indvars.iv579, 2
-  %140 = getelementptr inbounds i32, ptr %129, i64 %139
+  %140 = getelementptr inbounds nuw i32, ptr %129, i64 %139
   %141 = load i32, ptr %140, align 4
   %142 = sext i32 %141 to i64
   %143 = getelementptr inbounds float, ptr %59, i64 %142
   %144 = or disjoint i64 %indvars.iv579, 3
-  %145 = getelementptr inbounds i32, ptr %129, i64 %144
+  %145 = getelementptr inbounds nuw i32, ptr %129, i64 %144
   %146 = load i32, ptr %145, align 4
   %147 = sext i32 %146 to i64
   %148 = getelementptr inbounds float, ptr %59, i64 %147
@@ -2248,9 +2248,9 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %.noexc, %68
 
 .lr.ph535:                                        ; preds = %.lr.ph539, %292
   %indvars.iv574 = phi i64 [ %indvars.iv.next575, %292 ], [ 0, %.lr.ph539 ]
-  %149 = getelementptr inbounds float, ptr %59, i64 %indvars.iv574
+  %149 = getelementptr inbounds nuw float, ptr %59, i64 %indvars.iv574
   %150 = load float, ptr %149, align 4
-  %151 = getelementptr inbounds float, ptr %133, i64 %indvars.iv574
+  %151 = getelementptr inbounds nuw float, ptr %133, i64 %indvars.iv574
   %152 = load float, ptr %151, align 4
   %153 = fsub float %152, %150
   %154 = call noundef float @llvm.fabs.f32(float %153)
@@ -2265,7 +2265,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %.noexc, %68
 
 162:                                              ; preds = %.lr.ph535
   %163 = load ptr, ptr %35, align 8
-  %164 = getelementptr inbounds float, ptr %163, i64 %indvars.iv579
+  %164 = getelementptr inbounds nuw float, ptr %163, i64 %indvars.iv579
   %165 = load float, ptr %164, align 4
   %166 = fcmp ord float %150, 0.000000e+00
   br i1 %166, label %167, label %176
@@ -2284,11 +2284,11 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %.noexc, %68
 176:                                              ; preds = %162, %167
   %177 = phi float [ %175, %167 ], [ 1.000000e+00, %162 ]
   %178 = fmul float %165, %177
-  %179 = getelementptr inbounds float, ptr %76, i64 %indvars.iv574
+  %179 = getelementptr inbounds nuw float, ptr %76, i64 %indvars.iv574
   %180 = load float, ptr %179, align 4
   %181 = fadd float %180, %178
   store float %181, ptr %179, align 4
-  %182 = getelementptr inbounds float, ptr %75, i64 %indvars.iv574
+  %182 = getelementptr inbounds nuw float, ptr %75, i64 %indvars.iv574
   %183 = load float, ptr %182, align 4
   %184 = call float @llvm.fmuladd.f32(float %152, float %178, float %183)
   store float %184, ptr %182, align 4
@@ -2302,7 +2302,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %.noexc, %68
 
 187:                                              ; preds = %176, %.lr.ph535
   %188 = phi float [ %.pre598, %176 ], [ %155, %.lr.ph535 ]
-  %189 = getelementptr inbounds float, ptr %138, i64 %indvars.iv574
+  %189 = getelementptr inbounds nuw float, ptr %138, i64 %indvars.iv574
   %190 = load float, ptr %189, align 4
   %191 = fsub float %190, %150
   %192 = call noundef float @llvm.fabs.f32(float %191)
@@ -2316,7 +2316,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %.noexc, %68
 
 199:                                              ; preds = %187
   %200 = load ptr, ptr %35, align 8
-  %201 = getelementptr inbounds float, ptr %200, i64 %134
+  %201 = getelementptr inbounds nuw float, ptr %200, i64 %134
   %202 = load float, ptr %201, align 4
   %203 = fcmp ord float %150, 0.000000e+00
   br i1 %203, label %204, label %213
@@ -2335,11 +2335,11 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %.noexc, %68
 213:                                              ; preds = %199, %204
   %214 = phi float [ %212, %204 ], [ 1.000000e+00, %199 ]
   %215 = fmul float %202, %214
-  %216 = getelementptr inbounds float, ptr %76, i64 %indvars.iv574
+  %216 = getelementptr inbounds nuw float, ptr %76, i64 %indvars.iv574
   %217 = load float, ptr %216, align 4
   %218 = fadd float %217, %215
   store float %218, ptr %216, align 4
-  %219 = getelementptr inbounds float, ptr %75, i64 %indvars.iv574
+  %219 = getelementptr inbounds nuw float, ptr %75, i64 %indvars.iv574
   %220 = load float, ptr %219, align 4
   %221 = call float @llvm.fmuladd.f32(float %190, float %215, float %220)
   store float %221, ptr %219, align 4
@@ -2348,7 +2348,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %.noexc, %68
 
 222:                                              ; preds = %213, %187
   %223 = phi float [ %.pre599, %213 ], [ %188, %187 ]
-  %224 = getelementptr inbounds float, ptr %143, i64 %indvars.iv574
+  %224 = getelementptr inbounds nuw float, ptr %143, i64 %indvars.iv574
   %225 = load float, ptr %224, align 4
   %226 = fsub float %225, %150
   %227 = call noundef float @llvm.fabs.f32(float %226)
@@ -2362,7 +2362,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %.noexc, %68
 
 234:                                              ; preds = %222
   %235 = load ptr, ptr %35, align 8
-  %236 = getelementptr inbounds float, ptr %235, i64 %139
+  %236 = getelementptr inbounds nuw float, ptr %235, i64 %139
   %237 = load float, ptr %236, align 4
   %238 = fcmp ord float %150, 0.000000e+00
   br i1 %238, label %239, label %248
@@ -2381,11 +2381,11 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %.noexc, %68
 248:                                              ; preds = %234, %239
   %249 = phi float [ %247, %239 ], [ 1.000000e+00, %234 ]
   %250 = fmul float %237, %249
-  %251 = getelementptr inbounds float, ptr %76, i64 %indvars.iv574
+  %251 = getelementptr inbounds nuw float, ptr %76, i64 %indvars.iv574
   %252 = load float, ptr %251, align 4
   %253 = fadd float %252, %250
   store float %253, ptr %251, align 4
-  %254 = getelementptr inbounds float, ptr %75, i64 %indvars.iv574
+  %254 = getelementptr inbounds nuw float, ptr %75, i64 %indvars.iv574
   %255 = load float, ptr %254, align 4
   %256 = call float @llvm.fmuladd.f32(float %225, float %250, float %255)
   store float %256, ptr %254, align 4
@@ -2394,7 +2394,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %.noexc, %68
 
 257:                                              ; preds = %248, %222
   %258 = phi float [ %.pre600, %248 ], [ %223, %222 ]
-  %259 = getelementptr inbounds float, ptr %148, i64 %indvars.iv574
+  %259 = getelementptr inbounds nuw float, ptr %148, i64 %indvars.iv574
   %260 = load float, ptr %259, align 4
   %261 = fsub float %260, %150
   %262 = call noundef float @llvm.fabs.f32(float %261)
@@ -2408,7 +2408,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %.noexc, %68
 
 269:                                              ; preds = %257
   %270 = load ptr, ptr %35, align 8
-  %271 = getelementptr inbounds float, ptr %270, i64 %144
+  %271 = getelementptr inbounds nuw float, ptr %270, i64 %144
   %272 = load float, ptr %271, align 4
   %273 = fcmp ord float %150, 0.000000e+00
   br i1 %273, label %274, label %283
@@ -2427,11 +2427,11 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %.noexc, %68
 283:                                              ; preds = %269, %274
   %284 = phi float [ %282, %274 ], [ 1.000000e+00, %269 ]
   %285 = fmul float %272, %284
-  %286 = getelementptr inbounds float, ptr %76, i64 %indvars.iv574
+  %286 = getelementptr inbounds nuw float, ptr %76, i64 %indvars.iv574
   %287 = load float, ptr %286, align 4
   %288 = fadd float %287, %285
   store float %288, ptr %286, align 4
-  %289 = getelementptr inbounds float, ptr %75, i64 %indvars.iv574
+  %289 = getelementptr inbounds nuw float, ptr %75, i64 %indvars.iv574
   %290 = load float, ptr %289, align 4
   %291 = call float @llvm.fmuladd.f32(float %260, float %285, float %290)
   store float %291, ptr %289, align 4
@@ -2459,22 +2459,22 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %.noexc, %68
 
 .lr.ph548:                                        ; preds = %.preheader, %311
   %indvars.iv590 = phi i64 [ %indvars.iv.next591, %311 ], [ 0, %.preheader ]
-  %296 = getelementptr inbounds float, ptr %59, i64 %indvars.iv590
+  %296 = getelementptr inbounds nuw float, ptr %59, i64 %indvars.iv590
   %297 = load float, ptr %296, align 4
   %298 = fcmp ord float %297, 0.000000e+00
-  %299 = getelementptr inbounds float, ptr %75, i64 %indvars.iv590
+  %299 = getelementptr inbounds nuw float, ptr %75, i64 %indvars.iv590
   %300 = load float, ptr %299, align 4
   br i1 %298, label %305, label %301
 
 301:                                              ; preds = %.lr.ph548
-  %302 = getelementptr inbounds float, ptr %76, i64 %indvars.iv590
+  %302 = getelementptr inbounds nuw float, ptr %76, i64 %indvars.iv590
   %303 = load float, ptr %302, align 4
   %304 = fdiv float %300, %303
   br label %311
 
 305:                                              ; preds = %.lr.ph548
   %306 = fadd float %297, %300
-  %307 = getelementptr inbounds float, ptr %76, i64 %indvars.iv590
+  %307 = getelementptr inbounds nuw float, ptr %76, i64 %indvars.iv590
   %308 = load float, ptr %307, align 4
   %309 = fadd float %308, 1.000000e+00
   %310 = fdiv float %306, %309
@@ -2482,7 +2482,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %.noexc, %68
 
 311:                                              ; preds = %305, %301
   %312 = phi float [ %304, %301 ], [ %310, %305 ]
-  %313 = getelementptr inbounds float, ptr %67, i64 %indvars.iv590
+  %313 = getelementptr inbounds nuw float, ptr %67, i64 %indvars.iv590
   store float %312, ptr %313, align 4
   %indvars.iv.next591 = add nuw nsw i64 %indvars.iv590, 1
   %exitcond594.not = icmp eq i64 %indvars.iv.next591, %wide.trip.count593
@@ -2581,7 +2581,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit497:          ; preds = %.noexc496, %327
 .lr.ph524.us:                                     ; preds = %.lr.ph524.us.preheader, %._crit_edge525.us
   %indvars.iv566 = phi i64 [ %342, %.lr.ph524.us.preheader ], [ %indvars.iv.next567, %._crit_edge525.us ]
   %343 = load ptr, ptr %32, align 8
-  %344 = getelementptr inbounds i32, ptr %343, i64 %indvars.iv566
+  %344 = getelementptr inbounds nuw i32, ptr %343, i64 %indvars.iv566
   %345 = load i32, ptr %344, align 4
   %346 = sext i32 %345 to i64
   %347 = getelementptr inbounds float, ptr %59, i64 %346
@@ -2592,9 +2592,9 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit497:          ; preds = %.noexc496, %327
   %.0455521.us = phi ptr [ %59, %.lr.ph524.us ], [ %415, %413 ]
   %.0456520.us = phi ptr [ %347, %.lr.ph524.us ], [ %414, %413 ]
   %349 = load float, ptr %.0456520.us, align 4
-  %350 = getelementptr inbounds i8, ptr %.0456520.us, i64 4
+  %350 = getelementptr inbounds nuw i8, ptr %.0456520.us, i64 4
   %351 = load float, ptr %350, align 4
-  %352 = getelementptr inbounds i8, ptr %.0456520.us, i64 8
+  %352 = getelementptr inbounds nuw i8, ptr %.0456520.us, i64 8
   %353 = load float, ptr %352, align 4
   %354 = fcmp ord float %349, 0.000000e+00
   br i1 %354, label %355, label %358
@@ -2608,9 +2608,9 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit497:          ; preds = %.noexc496, %327
 358:                                              ; preds = %355, %348
   %359 = phi i1 [ true, %348 ], [ %spec.select504.us, %355 ]
   %360 = load float, ptr %.0455521.us, align 4
-  %361 = getelementptr inbounds i8, ptr %.0455521.us, i64 4
+  %361 = getelementptr inbounds nuw i8, ptr %.0455521.us, i64 4
   %362 = load float, ptr %361, align 4
-  %363 = getelementptr inbounds i8, ptr %.0455521.us, i64 8
+  %363 = getelementptr inbounds nuw i8, ptr %.0455521.us, i64 8
   %364 = load float, ptr %363, align 4
   %365 = fcmp ord float %360, 0.000000e+00
   br i1 %365, label %366, label %369
@@ -2641,7 +2641,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit497:          ; preds = %.noexc496, %327
 
 385:                                              ; preds = %369
   %386 = load ptr, ptr %35, align 8
-  %387 = getelementptr inbounds float, ptr %386, i64 %indvars.iv566
+  %387 = getelementptr inbounds nuw float, ptr %386, i64 %indvars.iv566
   %388 = load float, ptr %387, align 4
   br i1 %370, label %398, label %389
 
@@ -2659,19 +2659,19 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit497:          ; preds = %.noexc496, %327
 398:                                              ; preds = %389, %385
   %399 = phi float [ %397, %389 ], [ 1.000000e+00, %385 ]
   %400 = fmul float %388, %399
-  %401 = getelementptr inbounds float, ptr %337, i64 %indvars.iv561
+  %401 = getelementptr inbounds nuw float, ptr %337, i64 %indvars.iv561
   %402 = load float, ptr %401, align 4
   %403 = fadd float %402, %400
   store float %403, ptr %401, align 4
-  %404 = getelementptr inbounds float, ptr %334, i64 %indvars.iv561
+  %404 = getelementptr inbounds nuw float, ptr %334, i64 %indvars.iv561
   %405 = load float, ptr %404, align 4
   %406 = call float @llvm.fmuladd.f32(float %349, float %400, float %405)
   store float %406, ptr %404, align 4
-  %407 = getelementptr inbounds float, ptr %335, i64 %indvars.iv561
+  %407 = getelementptr inbounds nuw float, ptr %335, i64 %indvars.iv561
   %408 = load float, ptr %407, align 4
   %409 = call float @llvm.fmuladd.f32(float %351, float %400, float %408)
   store float %409, ptr %407, align 4
-  %410 = getelementptr inbounds float, ptr %336, i64 %indvars.iv561
+  %410 = getelementptr inbounds nuw float, ptr %336, i64 %indvars.iv561
   %411 = load float, ptr %410, align 4
   %412 = call float @llvm.fmuladd.f32(float %353, float %400, float %411)
   store float %412, ptr %410, align 4
@@ -2679,8 +2679,8 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit497:          ; preds = %.noexc496, %327
 
 413:                                              ; preds = %398, %369
   %indvars.iv.next562 = add nuw nsw i64 %indvars.iv561, 1
-  %414 = getelementptr inbounds i8, ptr %.0456520.us, i64 12
-  %415 = getelementptr inbounds i8, ptr %.0455521.us, i64 12
+  %414 = getelementptr inbounds nuw i8, ptr %.0456520.us, i64 12
+  %415 = getelementptr inbounds nuw i8, ptr %.0455521.us, i64 12
   %exitcond565.not = icmp eq i64 %indvars.iv.next562, %wide.trip.count564
   br i1 %exitcond565.not, label %._crit_edge525.us, label %348, !llvm.loop !33
 
@@ -2701,19 +2701,19 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit497:          ; preds = %.noexc496, %327
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph519
   %423 = load ptr, ptr %32, align 8
-  %424 = getelementptr inbounds i32, ptr %423, i64 %422
+  %424 = getelementptr inbounds nuw i32, ptr %423, i64 %422
   %425 = load i32, ptr %424, align 4
   %426 = sext i32 %425 to i64
   %427 = getelementptr inbounds float, ptr %59, i64 %426
-  %428 = getelementptr inbounds i32, ptr %423, i64 %421
+  %428 = getelementptr inbounds nuw i32, ptr %423, i64 %421
   %429 = load i32, ptr %428, align 4
   %430 = sext i32 %429 to i64
   %431 = getelementptr inbounds float, ptr %59, i64 %430
-  %432 = getelementptr inbounds i32, ptr %423, i64 %420
+  %432 = getelementptr inbounds nuw i32, ptr %423, i64 %420
   %433 = load i32, ptr %432, align 4
   %434 = sext i32 %433 to i64
   %435 = getelementptr inbounds float, ptr %59, i64 %434
-  %436 = getelementptr inbounds i32, ptr %423, i64 %indvars.iv558
+  %436 = getelementptr inbounds nuw i32, ptr %423, i64 %indvars.iv558
   %437 = load i32, ptr %436, align 4
   %438 = sext i32 %437 to i64
   %439 = getelementptr inbounds float, ptr %59, i64 %438
@@ -2727,9 +2727,9 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit497:          ; preds = %.noexc496, %327
   %.0458512 = phi ptr [ %427, %.lr.ph.preheader ], [ %671, %666 ]
   %.0459511 = phi ptr [ %59, %.lr.ph.preheader ], [ %667, %666 ]
   %440 = load float, ptr %.0459511, align 4
-  %441 = getelementptr inbounds i8, ptr %.0459511, i64 4
+  %441 = getelementptr inbounds nuw i8, ptr %.0459511, i64 4
   %442 = load float, ptr %441, align 4
-  %443 = getelementptr inbounds i8, ptr %.0459511, i64 8
+  %443 = getelementptr inbounds nuw i8, ptr %.0459511, i64 8
   %444 = load float, ptr %443, align 4
   %445 = fcmp ord float %440, 0.000000e+00
   br i1 %445, label %446, label %449
@@ -2743,9 +2743,9 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit497:          ; preds = %.noexc496, %327
 449:                                              ; preds = %446, %.lr.ph
   %450 = phi i1 [ true, %.lr.ph ], [ %spec.select, %446 ]
   %451 = load float, ptr %.0453515, align 4
-  %452 = getelementptr inbounds i8, ptr %.0453515, i64 4
+  %452 = getelementptr inbounds nuw i8, ptr %.0453515, i64 4
   %453 = load float, ptr %452, align 4
-  %454 = getelementptr inbounds i8, ptr %.0453515, i64 8
+  %454 = getelementptr inbounds nuw i8, ptr %.0453515, i64 8
   %455 = load float, ptr %454, align 4
   %456 = fcmp ord float %451, 0.000000e+00
   br i1 %456, label %457, label %460
@@ -2776,7 +2776,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit497:          ; preds = %.noexc496, %327
 
 476:                                              ; preds = %460
   %477 = load ptr, ptr %35, align 8
-  %478 = getelementptr inbounds float, ptr %477, i64 %indvars.iv558
+  %478 = getelementptr inbounds nuw float, ptr %477, i64 %indvars.iv558
   %479 = load float, ptr %478, align 4
   br i1 %450, label %489, label %480
 
@@ -2794,19 +2794,19 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit497:          ; preds = %.noexc496, %327
 489:                                              ; preds = %476, %480
   %490 = phi float [ %488, %480 ], [ 1.000000e+00, %476 ]
   %491 = fmul float %479, %490
-  %492 = getelementptr inbounds float, ptr %337, i64 %indvars.iv
+  %492 = getelementptr inbounds nuw float, ptr %337, i64 %indvars.iv
   %493 = load float, ptr %492, align 4
   %494 = fadd float %493, %491
   store float %494, ptr %492, align 4
-  %495 = getelementptr inbounds float, ptr %334, i64 %indvars.iv
+  %495 = getelementptr inbounds nuw float, ptr %334, i64 %indvars.iv
   %496 = load float, ptr %495, align 4
   %497 = call float @llvm.fmuladd.f32(float %451, float %491, float %496)
   store float %497, ptr %495, align 4
-  %498 = getelementptr inbounds float, ptr %335, i64 %indvars.iv
+  %498 = getelementptr inbounds nuw float, ptr %335, i64 %indvars.iv
   %499 = load float, ptr %498, align 4
   %500 = call float @llvm.fmuladd.f32(float %453, float %491, float %499)
   store float %500, ptr %498, align 4
-  %501 = getelementptr inbounds float, ptr %336, i64 %indvars.iv
+  %501 = getelementptr inbounds nuw float, ptr %336, i64 %indvars.iv
   %502 = load float, ptr %501, align 4
   %503 = call float @llvm.fmuladd.f32(float %455, float %491, float %502)
   store float %503, ptr %501, align 4
@@ -2814,9 +2814,9 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit497:          ; preds = %.noexc496, %327
 
 504:                                              ; preds = %489, %460
   %505 = load float, ptr %.0454514, align 4
-  %506 = getelementptr inbounds i8, ptr %.0454514, i64 4
+  %506 = getelementptr inbounds nuw i8, ptr %.0454514, i64 4
   %507 = load float, ptr %506, align 4
-  %508 = getelementptr inbounds i8, ptr %.0454514, i64 8
+  %508 = getelementptr inbounds nuw i8, ptr %.0454514, i64 8
   %509 = load float, ptr %508, align 4
   %510 = fcmp ord float %505, 0.000000e+00
   br i1 %510, label %511, label %514
@@ -2847,7 +2847,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit497:          ; preds = %.noexc496, %327
 
 530:                                              ; preds = %514
   %531 = load ptr, ptr %35, align 8
-  %532 = getelementptr inbounds float, ptr %531, i64 %420
+  %532 = getelementptr inbounds nuw float, ptr %531, i64 %420
   %533 = load float, ptr %532, align 4
   br i1 %450, label %543, label %534
 
@@ -2865,19 +2865,19 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit497:          ; preds = %.noexc496, %327
 543:                                              ; preds = %530, %534
   %544 = phi float [ %542, %534 ], [ 1.000000e+00, %530 ]
   %545 = fmul float %533, %544
-  %546 = getelementptr inbounds float, ptr %337, i64 %indvars.iv
+  %546 = getelementptr inbounds nuw float, ptr %337, i64 %indvars.iv
   %547 = load float, ptr %546, align 4
   %548 = fadd float %547, %545
   store float %548, ptr %546, align 4
-  %549 = getelementptr inbounds float, ptr %334, i64 %indvars.iv
+  %549 = getelementptr inbounds nuw float, ptr %334, i64 %indvars.iv
   %550 = load float, ptr %549, align 4
   %551 = call float @llvm.fmuladd.f32(float %505, float %545, float %550)
   store float %551, ptr %549, align 4
-  %552 = getelementptr inbounds float, ptr %335, i64 %indvars.iv
+  %552 = getelementptr inbounds nuw float, ptr %335, i64 %indvars.iv
   %553 = load float, ptr %552, align 4
   %554 = call float @llvm.fmuladd.f32(float %507, float %545, float %553)
   store float %554, ptr %552, align 4
-  %555 = getelementptr inbounds float, ptr %336, i64 %indvars.iv
+  %555 = getelementptr inbounds nuw float, ptr %336, i64 %indvars.iv
   %556 = load float, ptr %555, align 4
   %557 = call float @llvm.fmuladd.f32(float %509, float %545, float %556)
   store float %557, ptr %555, align 4
@@ -2885,9 +2885,9 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit497:          ; preds = %.noexc496, %327
 
 558:                                              ; preds = %543, %514
   %559 = load float, ptr %.0457513, align 4
-  %560 = getelementptr inbounds i8, ptr %.0457513, i64 4
+  %560 = getelementptr inbounds nuw i8, ptr %.0457513, i64 4
   %561 = load float, ptr %560, align 4
-  %562 = getelementptr inbounds i8, ptr %.0457513, i64 8
+  %562 = getelementptr inbounds nuw i8, ptr %.0457513, i64 8
   %563 = load float, ptr %562, align 4
   %564 = fcmp ord float %559, 0.000000e+00
   br i1 %564, label %565, label %568
@@ -2918,7 +2918,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit497:          ; preds = %.noexc496, %327
 
 584:                                              ; preds = %568
   %585 = load ptr, ptr %35, align 8
-  %586 = getelementptr inbounds float, ptr %585, i64 %421
+  %586 = getelementptr inbounds nuw float, ptr %585, i64 %421
   %587 = load float, ptr %586, align 4
   br i1 %450, label %597, label %588
 
@@ -2936,19 +2936,19 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit497:          ; preds = %.noexc496, %327
 597:                                              ; preds = %584, %588
   %598 = phi float [ %596, %588 ], [ 1.000000e+00, %584 ]
   %599 = fmul float %587, %598
-  %600 = getelementptr inbounds float, ptr %337, i64 %indvars.iv
+  %600 = getelementptr inbounds nuw float, ptr %337, i64 %indvars.iv
   %601 = load float, ptr %600, align 4
   %602 = fadd float %601, %599
   store float %602, ptr %600, align 4
-  %603 = getelementptr inbounds float, ptr %334, i64 %indvars.iv
+  %603 = getelementptr inbounds nuw float, ptr %334, i64 %indvars.iv
   %604 = load float, ptr %603, align 4
   %605 = call float @llvm.fmuladd.f32(float %559, float %599, float %604)
   store float %605, ptr %603, align 4
-  %606 = getelementptr inbounds float, ptr %335, i64 %indvars.iv
+  %606 = getelementptr inbounds nuw float, ptr %335, i64 %indvars.iv
   %607 = load float, ptr %606, align 4
   %608 = call float @llvm.fmuladd.f32(float %561, float %599, float %607)
   store float %608, ptr %606, align 4
-  %609 = getelementptr inbounds float, ptr %336, i64 %indvars.iv
+  %609 = getelementptr inbounds nuw float, ptr %336, i64 %indvars.iv
   %610 = load float, ptr %609, align 4
   %611 = call float @llvm.fmuladd.f32(float %563, float %599, float %610)
   store float %611, ptr %609, align 4
@@ -2956,9 +2956,9 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit497:          ; preds = %.noexc496, %327
 
 612:                                              ; preds = %597, %568
   %613 = load float, ptr %.0458512, align 4
-  %614 = getelementptr inbounds i8, ptr %.0458512, i64 4
+  %614 = getelementptr inbounds nuw i8, ptr %.0458512, i64 4
   %615 = load float, ptr %614, align 4
-  %616 = getelementptr inbounds i8, ptr %.0458512, i64 8
+  %616 = getelementptr inbounds nuw i8, ptr %.0458512, i64 8
   %617 = load float, ptr %616, align 4
   %618 = fcmp ord float %613, 0.000000e+00
   br i1 %618, label %619, label %622
@@ -2989,7 +2989,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit497:          ; preds = %.noexc496, %327
 
 638:                                              ; preds = %622
   %639 = load ptr, ptr %35, align 8
-  %640 = getelementptr inbounds float, ptr %639, i64 %422
+  %640 = getelementptr inbounds nuw float, ptr %639, i64 %422
   %641 = load float, ptr %640, align 4
   br i1 %450, label %651, label %642
 
@@ -3007,19 +3007,19 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit497:          ; preds = %.noexc496, %327
 651:                                              ; preds = %638, %642
   %652 = phi float [ %650, %642 ], [ 1.000000e+00, %638 ]
   %653 = fmul float %641, %652
-  %654 = getelementptr inbounds float, ptr %337, i64 %indvars.iv
+  %654 = getelementptr inbounds nuw float, ptr %337, i64 %indvars.iv
   %655 = load float, ptr %654, align 4
   %656 = fadd float %655, %653
   store float %656, ptr %654, align 4
-  %657 = getelementptr inbounds float, ptr %334, i64 %indvars.iv
+  %657 = getelementptr inbounds nuw float, ptr %334, i64 %indvars.iv
   %658 = load float, ptr %657, align 4
   %659 = call float @llvm.fmuladd.f32(float %613, float %653, float %658)
   store float %659, ptr %657, align 4
-  %660 = getelementptr inbounds float, ptr %335, i64 %indvars.iv
+  %660 = getelementptr inbounds nuw float, ptr %335, i64 %indvars.iv
   %661 = load float, ptr %660, align 4
   %662 = call float @llvm.fmuladd.f32(float %615, float %653, float %661)
   store float %662, ptr %660, align 4
-  %663 = getelementptr inbounds float, ptr %336, i64 %indvars.iv
+  %663 = getelementptr inbounds nuw float, ptr %336, i64 %indvars.iv
   %664 = load float, ptr %663, align 4
   %665 = call float @llvm.fmuladd.f32(float %617, float %653, float %664)
   store float %665, ptr %663, align 4
@@ -3027,11 +3027,11 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit497:          ; preds = %.noexc496, %327
 
 666:                                              ; preds = %622, %651
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %667 = getelementptr inbounds i8, ptr %.0459511, i64 12
-  %668 = getelementptr inbounds i8, ptr %.0453515, i64 12
-  %669 = getelementptr inbounds i8, ptr %.0454514, i64 12
-  %670 = getelementptr inbounds i8, ptr %.0457513, i64 12
-  %671 = getelementptr inbounds i8, ptr %.0458512, i64 12
+  %667 = getelementptr inbounds nuw i8, ptr %.0459511, i64 12
+  %668 = getelementptr inbounds nuw i8, ptr %.0453515, i64 12
+  %669 = getelementptr inbounds nuw i8, ptr %.0454514, i64 12
+  %670 = getelementptr inbounds nuw i8, ptr %.0457513, i64 12
+  %671 = getelementptr inbounds nuw i8, ptr %.0458512, i64 12
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !35
 
@@ -3054,35 +3054,35 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit497:          ; preds = %.noexc496, %327
   %indvars.iv569 = phi i64 [ %indvars.iv.next570, %714 ], [ 0, %.preheader508 ]
   %.0450529 = phi ptr [ %679, %714 ], [ %59, %.preheader508 ]
   %.0451528 = phi ptr [ %.1452, %714 ], [ %67, %.preheader508 ]
-  %675 = getelementptr inbounds i8, ptr %.0450529, i64 4
+  %675 = getelementptr inbounds nuw i8, ptr %.0450529, i64 4
   %676 = load float, ptr %.0450529, align 4
-  %677 = getelementptr inbounds i8, ptr %.0450529, i64 8
+  %677 = getelementptr inbounds nuw i8, ptr %.0450529, i64 8
   %678 = load float, ptr %675, align 4
-  %679 = getelementptr inbounds i8, ptr %.0450529, i64 12
+  %679 = getelementptr inbounds nuw i8, ptr %.0450529, i64 12
   %680 = load float, ptr %677, align 4
   %681 = fcmp ord float %676, 0.000000e+00
   %682 = fcmp ord float %678, 0.000000e+00
   %or.cond = select i1 %681, i1 %682, i1 false
   %683 = fcmp ord float %680, 0.000000e+00
   %or.cond506 = select i1 %or.cond, i1 %683, i1 false
-  %684 = getelementptr inbounds float, ptr %337, i64 %indvars.iv569
+  %684 = getelementptr inbounds nuw float, ptr %337, i64 %indvars.iv569
   %685 = load float, ptr %684, align 4
   br i1 %or.cond506, label %698, label %686
 
 686:                                              ; preds = %.lr.ph531
   %687 = fdiv float 1.000000e+00, %685
   store float %687, ptr %684, align 4
-  %688 = getelementptr inbounds float, ptr %334, i64 %indvars.iv569
+  %688 = getelementptr inbounds nuw float, ptr %334, i64 %indvars.iv569
   %689 = load float, ptr %688, align 4
   %690 = fmul float %687, %689
-  %691 = getelementptr inbounds i8, ptr %.0451528, i64 4
+  %691 = getelementptr inbounds nuw i8, ptr %.0451528, i64 4
   store float %690, ptr %.0451528, align 4
-  %692 = getelementptr inbounds float, ptr %335, i64 %indvars.iv569
+  %692 = getelementptr inbounds nuw float, ptr %335, i64 %indvars.iv569
   %693 = load float, ptr %692, align 4
   %694 = load float, ptr %684, align 4
   %695 = fmul float %693, %694
   store float %695, ptr %691, align 4
-  %696 = getelementptr inbounds float, ptr %336, i64 %indvars.iv569
+  %696 = getelementptr inbounds nuw float, ptr %336, i64 %indvars.iv569
   %697 = load float, ptr %696, align 4
   br label %714
 
@@ -3090,19 +3090,19 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit497:          ; preds = %.noexc496, %327
   %699 = fadd float %685, 1.000000e+00
   %700 = fdiv float 1.000000e+00, %699
   store float %700, ptr %684, align 4
-  %701 = getelementptr inbounds float, ptr %334, i64 %indvars.iv569
+  %701 = getelementptr inbounds nuw float, ptr %334, i64 %indvars.iv569
   %702 = load float, ptr %701, align 4
   %703 = fadd float %676, %702
   %704 = fmul float %700, %703
-  %705 = getelementptr inbounds i8, ptr %.0451528, i64 4
+  %705 = getelementptr inbounds nuw i8, ptr %.0451528, i64 4
   store float %704, ptr %.0451528, align 4
-  %706 = getelementptr inbounds float, ptr %335, i64 %indvars.iv569
+  %706 = getelementptr inbounds nuw float, ptr %335, i64 %indvars.iv569
   %707 = load float, ptr %706, align 4
   %708 = fadd float %678, %707
   %709 = load float, ptr %684, align 4
   %710 = fmul float %708, %709
   store float %710, ptr %705, align 4
-  %711 = getelementptr inbounds float, ptr %336, i64 %indvars.iv569
+  %711 = getelementptr inbounds nuw float, ptr %336, i64 %indvars.iv569
   %712 = load float, ptr %711, align 4
   %713 = fadd float %680, %712
   br label %714
@@ -3111,9 +3111,9 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit497:          ; preds = %.noexc496, %327
   %.sink603 = phi float [ %697, %686 ], [ %713, %698 ]
   %715 = load float, ptr %684, align 4
   %716 = fmul float %.sink603, %715
-  %717 = getelementptr inbounds i8, ptr %.0451528, i64 8
+  %717 = getelementptr inbounds nuw i8, ptr %.0451528, i64 8
   store float %716, ptr %717, align 4
-  %.1452 = getelementptr inbounds i8, ptr %.0451528, i64 12
+  %.1452 = getelementptr inbounds nuw i8, ptr %.0451528, i64 12
   %indvars.iv.next570 = add nuw nsw i64 %indvars.iv569, 1
   %exitcond573.not = icmp eq i64 %indvars.iv.next570, %wide.trip.count572
   br i1 %exitcond573.not, label %._crit_edge532, label %.lr.ph531, !llvm.loop !37
@@ -3144,7 +3144,7 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit:             ; preds = %722, %._crit_edge53
   br i1 %725, label %44, label %._crit_edge553, !llvm.loop !38
 
 ._crit_edge553:                                   ; preds = %_ZN2cv10AutoBufferIfLm264EED2Ev.exit, %2
-  %726 = getelementptr inbounds i8, ptr %3, i64 8
+  %726 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %727 = load i32, ptr %726, align 8
   %.not.i = icmp eq i32 %727, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %728

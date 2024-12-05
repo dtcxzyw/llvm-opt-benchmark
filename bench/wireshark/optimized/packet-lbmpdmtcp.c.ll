@@ -131,13 +131,13 @@ define internal noundef ptr @lbmpdm_tcp_tag_copy_cb(ptr noundef returned writeon
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #4
   store ptr %5, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %10, ptr %11, align 4
   ret ptr %0
 }
@@ -187,7 +187,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_lbmpdm_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_add_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.5) #4
   %7 = load ptr, ptr %5, align 8
@@ -203,22 +203,22 @@ define internal i32 @dissect_lbmpdm_tcp(ptr noundef %0, ptr noundef %1, ptr noun
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
   %10 = load ptr, ptr @lbmpdm_tcp_tag_entry, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 284
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 288
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %wide.trip.count.i.i = zext i32 %9 to i64
   br label %14
 
 14:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
   %15 = getelementptr %struct.lbmpdm_tcp_tag_entry_t, ptr %10, i64 %indvars.iv.i.i
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i32, ptr %16, align 8
   %.not15.i.i = icmp ult i32 %12, %17
   br i1 %.not15.i.i, label %21, label %18
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %15, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 12
   %20 = load i32, ptr %19, align 4
   %.not16.i.i = icmp ugt i32 %12, %20
   br i1 %.not16.i.i, label %21, label %lbmpdm_tcp_tag_locate.exit.i
@@ -229,7 +229,7 @@ define internal i32 @dissect_lbmpdm_tcp(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not17.i.i, label %26, label %23
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %15, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %15, i64 12
   %25 = load i32, ptr %24, align 4
   %.not18.i.i = icmp ugt i32 %22, %25
   br i1 %.not18.i.i, label %26, label %lbmpdm_tcp_tag_locate.exit.i
@@ -272,19 +272,19 @@ define internal range(i32 0, 2) i32 @test_lbmpdm_tcp_packet(ptr noundef %0, ptr 
   %6 = alloca i32, align 4
   store i32 0, ptr %5, align 4
   store i32 0, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 280
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %8 = load i32, ptr %7, align 8
   %.not = icmp eq i32 %8, 2
   br i1 %.not, label %9, label %lbmpdm_tcp_tag_find.exit.thread
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %1, i64 232
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %11 = load i32, ptr %10, align 8
   %.not19 = icmp eq i32 %11, 2
   br i1 %.not19, label %12, label %lbmpdm_tcp_tag_find.exit.thread
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %1, i64 236
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 236
   %14 = load i32, ptr %13, align 4
   %.not20 = icmp eq i32 %14, 4
   br i1 %.not20, label %15, label %lbmpdm_tcp_tag_find.exit.thread
@@ -306,22 +306,22 @@ define internal range(i32 0, 2) i32 @test_lbmpdm_tcp_packet(ptr noundef %0, ptr 
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
   %20 = load ptr, ptr @lbmpdm_tcp_tag_entry, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 284
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %22 = load i32, ptr %21, align 4
-  %23 = getelementptr inbounds i8, ptr %1, i64 288
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %wide.trip.count.i.i = zext i32 %19 to i64
   br label %24
 
 24:                                               ; preds = %36, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %36 ]
   %25 = getelementptr %struct.lbmpdm_tcp_tag_entry_t, ptr %20, i64 %indvars.iv.i.i
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load i32, ptr %26, align 8
   %.not15.i.i = icmp ult i32 %22, %27
   br i1 %.not15.i.i, label %31, label %28
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %25, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 12
   %30 = load i32, ptr %29, align 4
   %.not16.i.i = icmp ugt i32 %22, %30
   br i1 %.not16.i.i, label %31, label %lbmpdm_tcp_tag_locate.exit.i
@@ -332,7 +332,7 @@ define internal range(i32 0, 2) i32 @test_lbmpdm_tcp_packet(ptr noundef %0, ptr 
   br i1 %.not17.i.i, label %36, label %33
 
 33:                                               ; preds = %31
-  %34 = getelementptr inbounds i8, ptr %25, i64 12
+  %34 = getelementptr inbounds nuw i8, ptr %25, i64 12
   %35 = load i32, ptr %34, align 4
   %.not18.i.i = icmp ugt i32 %32, %35
   br i1 %.not18.i.i, label %36, label %lbmpdm_tcp_tag_locate.exit.i
@@ -352,7 +352,7 @@ lbmpdm_tcp_tag_find.exit:                         ; preds = %lbmpdm_tcp_tag_loca
   br i1 %.not27, label %lbmpdm_tcp_tag_find.exit.thread, label %lbmpdm_tcp_tag_find.exit.thread.sink.split
 
 38:                                               ; preds = %17
-  %39 = getelementptr inbounds i8, ptr %1, i64 284
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %40 = load i32, ptr %39, align 4
   %41 = load i32, ptr @lbmpdm_tcp_port_low, align 4
   %.not23 = icmp ult i32 %40, %41
@@ -362,7 +362,7 @@ lbmpdm_tcp_tag_find.exit:                         ; preds = %lbmpdm_tcp_tag_loca
   br i1 %or.cond, label %43, label %lbmpdm_tcp_tag_find.exit.thread.sink.split
 
 43:                                               ; preds = %38
-  %44 = getelementptr inbounds i8, ptr %1, i64 288
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %45 = load i32, ptr %44, align 8
   %.not25 = icmp ult i32 %45, %41
   %.not26 = icmp ugt i32 %45, %42
@@ -429,7 +429,7 @@ declare zeroext i1 @uat_fld_chk_num_dec(ptr noundef, ptr noundef, i32 noundef, p
 define internal void @lbmpdm_tcp_tag_port_low_set_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = tail call zeroext i1 @ws_strtou32(ptr noundef %7, ptr noundef null, ptr noundef nonnull %8) #4
   tail call void @g_free(ptr noundef %7) #4
   ret void
@@ -437,7 +437,7 @@ define internal void @lbmpdm_tcp_tag_port_low_set_cb(ptr noundef %0, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal void @lbmpdm_tcp_tag_port_low_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.31, i32 noundef %7) #4
   store ptr %8, ptr %1, align 8
@@ -451,7 +451,7 @@ define internal void @lbmpdm_tcp_tag_port_low_tostr_cb(ptr nocapture noundef rea
 define internal void @lbmpdm_tcp_tag_port_high_set_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #4
-  %8 = getelementptr inbounds i8, ptr %0, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %9 = tail call zeroext i1 @ws_strtou32(ptr noundef %7, ptr noundef null, ptr noundef nonnull %8) #4
   tail call void @g_free(ptr noundef %7) #4
   ret void
@@ -459,7 +459,7 @@ define internal void @lbmpdm_tcp_tag_port_high_set_cb(ptr noundef %0, ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define internal void @lbmpdm_tcp_tag_port_high_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.31, i32 noundef %7) #4
   store ptr %8, ptr %1, align 8
@@ -515,22 +515,22 @@ define internal i32 @dissect_lbmpdm_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr 
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
   %7 = load ptr, ptr @lbmpdm_tcp_tag_entry, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 284
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %1, i64 288
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %wide.trip.count.i.i = zext i32 %6 to i64
   br label %11
 
 11:                                               ; preds = %23, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %23 ]
   %12 = getelementptr %struct.lbmpdm_tcp_tag_entry_t, ptr %7, i64 %indvars.iv.i.i
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i32, ptr %13, align 8
   %.not15.i.i = icmp ult i32 %9, %14
   br i1 %.not15.i.i, label %18, label %15
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %12, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %17 = load i32, ptr %16, align 4
   %.not16.i.i = icmp ugt i32 %9, %17
   br i1 %.not16.i.i, label %18, label %lbmpdm_tcp_tag_locate.exit.i
@@ -541,7 +541,7 @@ define internal i32 @dissect_lbmpdm_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not17.i.i, label %23, label %20
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %12, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %22 = load i32, ptr %21, align 4
   %.not18.i.i = icmp ugt i32 %19, %22
   br i1 %.not18.i.i, label %23, label %lbmpdm_tcp_tag_locate.exit.i
@@ -576,15 +576,15 @@ lbmpdm_tcp_tag_find.exit.thread:                  ; preds = %23, %.preheader.i.i
   %.0 = phi ptr [ %27, %25 ], [ %29, %lbmpdm_tcp_tag_find.exit.thread ]
   %31 = load i32, ptr @ett_lbmpdm_tcp, align 4
   %32 = tail call ptr @proto_item_add_subtree(ptr noundef %.0, i32 noundef %31) #4
-  %33 = getelementptr inbounds i8, ptr %1, i64 208
-  %34 = getelementptr inbounds i8, ptr %1, i64 284
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %35 = load i32, ptr %34, align 4
   %36 = trunc i32 %35 to i16
-  %37 = getelementptr inbounds i8, ptr %1, i64 232
-  %38 = getelementptr inbounds i8, ptr %1, i64 288
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %39 = load i32, ptr %38, align 8
   %40 = trunc i32 %39 to i16
-  %41 = getelementptr inbounds i8, ptr %1, i64 20
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %42 = load i32, ptr %41, align 4
   %43 = and i32 %35, 65535
   %44 = and i32 %39, 65535
@@ -608,9 +608,9 @@ lbmpdm_tcp_tag_find.exit.thread:                  ; preds = %23, %.preheader.i.i
   %54 = tail call noalias ptr @wmem_alloc(ptr noundef %53, i64 noundef 72) #4
   %55 = tail call ptr @wmem_file_scope() #4
   %56 = load i32, ptr %33, align 8
-  %57 = getelementptr inbounds i8, ptr %1, i64 212
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 212
   %58 = load i32, ptr %57, align 4
-  %59 = getelementptr inbounds i8, ptr %1, i64 216
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %60 = load ptr, ptr %59, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %54, i8 0, i64 24, i1 false)
   store i32 %56, ptr %54, align 8
@@ -620,24 +620,24 @@ lbmpdm_tcp_tag_find.exit.thread:                  ; preds = %23, %.preheader.i.i
 62:                                               ; preds = %52
   %63 = sext i32 %58 to i64
   %64 = tail call noalias ptr @wmem_memdup(ptr noundef %55, ptr noundef %60, i64 noundef %63) #4
-  %65 = getelementptr inbounds i8, ptr %54, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %54, i64 16
   store ptr %64, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %54, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store ptr %64, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %54, i64 4
+  %67 = getelementptr inbounds nuw i8, ptr %54, i64 4
   store i32 %58, ptr %67, align 4
   br label %copy_address_wmem.exit.i
 
 copy_address_wmem.exit.i:                         ; preds = %62, %52
   %68 = phi ptr [ null, %52 ], [ %64, %62 ]
-  %69 = getelementptr inbounds i8, ptr %54, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %54, i64 24
   store i16 %36, ptr %69, align 8
   %70 = tail call ptr @wmem_file_scope() #4
-  %71 = getelementptr inbounds i8, ptr %54, i64 32
+  %71 = getelementptr inbounds nuw i8, ptr %54, i64 32
   %72 = load i32, ptr %37, align 8
-  %73 = getelementptr inbounds i8, ptr %1, i64 236
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 236
   %74 = load i32, ptr %73, align 4
-  %75 = getelementptr inbounds i8, ptr %1, i64 240
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %76 = load ptr, ptr %75, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %71, i8 0, i64 24, i1 false)
   store i32 %72, ptr %71, align 8
@@ -647,17 +647,17 @@ copy_address_wmem.exit.i:                         ; preds = %62, %52
 78:                                               ; preds = %copy_address_wmem.exit.i
   %79 = sext i32 %74 to i64
   %80 = tail call noalias ptr @wmem_memdup(ptr noundef %70, ptr noundef %76, i64 noundef %79) #4
-  %81 = getelementptr inbounds i8, ptr %54, i64 48
+  %81 = getelementptr inbounds nuw i8, ptr %54, i64 48
   store ptr %80, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %54, i64 40
+  %82 = getelementptr inbounds nuw i8, ptr %54, i64 40
   store ptr %80, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %54, i64 36
+  %83 = getelementptr inbounds nuw i8, ptr %54, i64 36
   store i32 %74, ptr %83, align 4
   br label %copy_address_wmem.exit30.i
 
 copy_address_wmem.exit30.i:                       ; preds = %78, %copy_address_wmem.exit.i
   %84 = phi ptr [ null, %copy_address_wmem.exit.i ], [ %80, %78 ]
-  %85 = getelementptr inbounds i8, ptr %54, i64 56
+  %85 = getelementptr inbounds nuw i8, ptr %54, i64 56
   store i16 %40, ptr %85, align 8
   %86 = icmp sgt i32 %56, %72
   br i1 %86, label %.critedge17.i.i, label %87
@@ -695,13 +695,13 @@ cmp_address.exit.thread.thread24.i.i:             ; preds = %93
 
 .critedge17.i.i:                                  ; preds = %cmp_address.exit.thread.thread24.i.i, %cmp_address.exit.thread.i.i, %cmp_address.exit.i.i, %89, %copy_address_wmem.exit30.i
   store i32 %56, ptr %71, align 8
-  %98 = getelementptr inbounds i8, ptr %54, i64 36
+  %98 = getelementptr inbounds nuw i8, ptr %54, i64 36
   store i32 %58, ptr %98, align 4
-  %99 = getelementptr inbounds i8, ptr %54, i64 40
+  %99 = getelementptr inbounds nuw i8, ptr %54, i64 40
   store ptr %68, ptr %99, align 8
-  %100 = getelementptr inbounds i8, ptr %54, i64 48
+  %100 = getelementptr inbounds nuw i8, ptr %54, i64 48
   store ptr null, ptr %100, align 8
-  %101 = getelementptr inbounds i8, ptr %54, i64 16
+  %101 = getelementptr inbounds nuw i8, ptr %54, i64 16
   store ptr null, ptr %101, align 8
   store i16 %36, ptr %85, align 8
   store i16 %40, ptr %69, align 8
@@ -709,7 +709,7 @@ cmp_address.exit.thread.thread24.i.i:             ; preds = %93
 
 lbmtcp_order_key.exit.i:                          ; preds = %.critedge17.i.i, %cmp_address.exit.thread.thread24.i.i, %cmp_address.exit.thread.i.i, %91, %87
   %102 = tail call i64 @lbm_channel_assign(i8 noundef zeroext 32) #4
-  %103 = getelementptr inbounds i8, ptr %54, i64 64
+  %103 = getelementptr inbounds nuw i8, ptr %54, i64 64
   store i64 %102, ptr %103, align 8
   %104 = load i32, ptr @lbmpdm_tcp_protocol_handle, align 4
   tail call void @conversation_add_proto_data(ptr noundef nonnull %.0.i34, i32 noundef %104, ptr noundef nonnull %54) #4
@@ -717,7 +717,7 @@ lbmtcp_order_key.exit.i:                          ; preds = %.critedge17.i.i, %c
 
 105:                                              ; preds = %49, %lbmtcp_order_key.exit.i
   %.027.i = phi ptr [ %54, %lbmtcp_order_key.exit.i ], [ %51, %49 ]
-  %106 = getelementptr inbounds i8, ptr %.027.i, i64 64
+  %106 = getelementptr inbounds nuw i8, ptr %.027.i, i64 64
   %107 = load i64, ptr %106, align 8
   br i1 %.not3145, label %proto_item_set_generated.exit, label %108
 
@@ -728,13 +728,13 @@ lbmtcp_order_key.exit.i:                          ; preds = %.critedge17.i.i, %c
   br i1 %.not.i36, label %proto_item_set_generated.exit, label %111
 
 111:                                              ; preds = %108
-  %112 = getelementptr inbounds i8, ptr %110, i64 32
+  %112 = getelementptr inbounds nuw i8, ptr %110, i64 32
   %113 = load ptr, ptr %112, align 8
   %.not5.i37 = icmp eq ptr %113, null
   br i1 %.not5.i37, label %proto_item_set_generated.exit, label %114
 
 114:                                              ; preds = %111
-  %115 = getelementptr inbounds i8, ptr %113, i64 28
+  %115 = getelementptr inbounds nuw i8, ptr %113, i64 28
   %116 = load i32, ptr %115, align 4
   %117 = or i32 %116, 2
   store i32 %117, ptr %115, align 4
@@ -751,13 +751,13 @@ proto_item_set_generated.exit:                    ; preds = %114, %111, %108, %1
   br i1 %.not.i38, label %proto_item_set_generated.exit40, label %121
 
 121:                                              ; preds = %118
-  %122 = getelementptr inbounds i8, ptr %120, i64 32
+  %122 = getelementptr inbounds nuw i8, ptr %120, i64 32
   %123 = load ptr, ptr %122, align 8
   %.not5.i39 = icmp eq ptr %123, null
   br i1 %.not5.i39, label %proto_item_set_generated.exit40, label %124
 
 124:                                              ; preds = %121
-  %125 = getelementptr inbounds i8, ptr %123, i64 28
+  %125 = getelementptr inbounds nuw i8, ptr %123, i64 28
   %126 = load i32, ptr %125, align 4
   %127 = or i32 %126, 2
   store i32 %127, ptr %125, align 4

@@ -8,9 +8,9 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @lzma_sha256_init(ptr nocapture noundef writeonly initializes((64, 104)) %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 16 dereferenceable(32) @lzma_sha256_init.s, i64 32, i1 false)
-  %3 = getelementptr inbounds i8, ptr %0, i64 96
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i64 0, ptr %3, align 8
   ret void
 }
@@ -24,7 +24,7 @@ define dso_local void @lzma_sha256_update(ptr nocapture noundef readonly %0, i64
   br i1 %.not20, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %4 = getelementptr inbounds i8, ptr %2, i64 96
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 96
   br label %5
 
 5:                                                ; preds = %.lr.ph, %17
@@ -34,9 +34,9 @@ define dso_local void @lzma_sha256_update(ptr nocapture noundef readonly %0, i64
   %7 = and i64 %6, 63
   %8 = sub nuw nsw i64 64, %7
   %spec.select = tail call i64 @llvm.umin.i64(i64 %8, i64 %.01821)
-  %9 = getelementptr inbounds i8, ptr %2, i64 %7
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 %7
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr align 1 %.01722, i64 %spec.select, i1 false)
-  %10 = getelementptr inbounds i8, ptr %.01722, i64 %spec.select
+  %10 = getelementptr inbounds nuw i8, ptr %.01722, i64 %spec.select
   %11 = sub i64 %.01821, %spec.select
   %12 = load i64, ptr %4, align 8
   %13 = add i64 %spec.select, %12
@@ -59,21 +59,21 @@ define dso_local void @lzma_sha256_update(ptr nocapture noundef readonly %0, i64
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @process(ptr nocapture noundef %0) unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i = load i32, ptr %2, align 4
-  %.sroa.90.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 68
+  %.sroa.90.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 68
   %.sroa.90.0.copyload.i = load i32, ptr %.sroa.90.0..sroa_idx.i, align 4
-  %.sroa.179.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 72
+  %.sroa.179.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.sroa.179.0.copyload.i = load i32, ptr %.sroa.179.0..sroa_idx.i, align 4
-  %.sroa.268.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 76
+  %.sroa.268.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 76
   %.sroa.268.0.copyload.i = load i32, ptr %.sroa.268.0..sroa_idx.i, align 4
-  %.sroa.357.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 80
+  %.sroa.357.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.sroa.357.0.copyload.i = load i32, ptr %.sroa.357.0..sroa_idx.i, align 4
-  %.sroa.446.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 84
+  %.sroa.446.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 84
   %.sroa.446.0.copyload.i = load i32, ptr %.sroa.446.0..sroa_idx.i, align 4
-  %.sroa.535.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 88
+  %.sroa.535.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 88
   %.sroa.535.0.copyload.i = load i32, ptr %.sroa.535.0..sroa_idx.i, align 4
-  %.sroa.624.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 92
+  %.sroa.624.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 92
   %.sroa.624.0.copyload.i = load i32, ptr %.sroa.624.0..sroa_idx.i, align 4
   %3 = tail call i32 @llvm.fshl.i32(i32 %.sroa.357.0.copyload.i, i32 %.sroa.357.0.copyload.i, i32 18)
   %4 = xor i32 %3, %.sroa.357.0.copyload.i
@@ -109,7 +109,7 @@ define internal fastcc void @process(ptr nocapture noundef %0) unnamed_addr #2 {
   %34 = xor i32 %.sroa.446.0.copyload.i, %.sroa.357.0.copyload.i
   %35 = and i32 %17, %34
   %36 = xor i32 %35, %.sroa.446.0.copyload.i
-  %37 = getelementptr inbounds i8, ptr %0, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %38 = load i32, ptr %37, align 4
   %39 = tail call noundef i32 @llvm.bswap.i32(i32 %38)
   %40 = add i32 %.sroa.535.0.copyload.i, 1899447441
@@ -136,7 +136,7 @@ define internal fastcc void @process(ptr nocapture noundef %0) unnamed_addr #2 {
   %61 = xor i32 %17, %.sroa.357.0.copyload.i
   %62 = and i32 %44, %61
   %63 = xor i32 %62, %.sroa.357.0.copyload.i
-  %64 = getelementptr inbounds i8, ptr %0, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %65 = load i32, ptr %64, align 4
   %66 = tail call noundef i32 @llvm.bswap.i32(i32 %65)
   %67 = add i32 %.sroa.446.0.copyload.i, -1245643825
@@ -163,7 +163,7 @@ define internal fastcc void @process(ptr nocapture noundef %0) unnamed_addr #2 {
   %88 = xor i32 %44, %17
   %89 = and i32 %71, %88
   %90 = xor i32 %89, %17
-  %91 = getelementptr inbounds i8, ptr %0, i64 12
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %92 = load i32, ptr %91, align 4
   %93 = tail call noundef i32 @llvm.bswap.i32(i32 %92)
   %94 = add i32 %.sroa.357.0.copyload.i, -373957723
@@ -190,7 +190,7 @@ define internal fastcc void @process(ptr nocapture noundef %0) unnamed_addr #2 {
   %115 = xor i32 %71, %44
   %116 = and i32 %98, %115
   %117 = xor i32 %116, %44
-  %118 = getelementptr inbounds i8, ptr %0, i64 16
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %119 = load i32, ptr %118, align 4
   %120 = tail call noundef i32 @llvm.bswap.i32(i32 %119)
   %121 = add i32 %120, 961987163
@@ -217,7 +217,7 @@ define internal fastcc void @process(ptr nocapture noundef %0) unnamed_addr #2 {
   %142 = xor i32 %98, %71
   %143 = and i32 %125, %142
   %144 = xor i32 %143, %71
-  %145 = getelementptr inbounds i8, ptr %0, i64 20
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %146 = load i32, ptr %145, align 4
   %147 = tail call noundef i32 @llvm.bswap.i32(i32 %146)
   %148 = add i32 %147, 1508970993
@@ -244,7 +244,7 @@ define internal fastcc void @process(ptr nocapture noundef %0) unnamed_addr #2 {
   %169 = xor i32 %125, %98
   %170 = and i32 %152, %169
   %171 = xor i32 %170, %98
-  %172 = getelementptr inbounds i8, ptr %0, i64 24
+  %172 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %173 = load i32, ptr %172, align 4
   %174 = tail call noundef i32 @llvm.bswap.i32(i32 %173)
   %175 = add i32 %174, -1841331548
@@ -271,7 +271,7 @@ define internal fastcc void @process(ptr nocapture noundef %0) unnamed_addr #2 {
   %196 = xor i32 %152, %125
   %197 = and i32 %179, %196
   %198 = xor i32 %197, %125
-  %199 = getelementptr inbounds i8, ptr %0, i64 28
+  %199 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %200 = load i32, ptr %199, align 4
   %201 = tail call noundef i32 @llvm.bswap.i32(i32 %200)
   %202 = add i32 %201, -1424204075
@@ -298,7 +298,7 @@ define internal fastcc void @process(ptr nocapture noundef %0) unnamed_addr #2 {
   %223 = xor i32 %179, %152
   %224 = and i32 %206, %223
   %225 = xor i32 %224, %152
-  %226 = getelementptr inbounds i8, ptr %0, i64 32
+  %226 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %227 = load i32, ptr %226, align 4
   %228 = tail call noundef i32 @llvm.bswap.i32(i32 %227)
   %229 = add i32 %228, -670586216
@@ -325,7 +325,7 @@ define internal fastcc void @process(ptr nocapture noundef %0) unnamed_addr #2 {
   %250 = xor i32 %206, %179
   %251 = and i32 %233, %250
   %252 = xor i32 %251, %179
-  %253 = getelementptr inbounds i8, ptr %0, i64 36
+  %253 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %254 = load i32, ptr %253, align 4
   %255 = tail call noundef i32 @llvm.bswap.i32(i32 %254)
   %256 = add i32 %255, 310598401
@@ -352,7 +352,7 @@ define internal fastcc void @process(ptr nocapture noundef %0) unnamed_addr #2 {
   %277 = xor i32 %233, %206
   %278 = and i32 %260, %277
   %279 = xor i32 %278, %206
-  %280 = getelementptr inbounds i8, ptr %0, i64 40
+  %280 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %281 = load i32, ptr %280, align 4
   %282 = tail call noundef i32 @llvm.bswap.i32(i32 %281)
   %283 = add i32 %282, 607225278
@@ -379,7 +379,7 @@ define internal fastcc void @process(ptr nocapture noundef %0) unnamed_addr #2 {
   %304 = xor i32 %260, %233
   %305 = and i32 %287, %304
   %306 = xor i32 %305, %233
-  %307 = getelementptr inbounds i8, ptr %0, i64 44
+  %307 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %308 = load i32, ptr %307, align 4
   %309 = tail call noundef i32 @llvm.bswap.i32(i32 %308)
   %310 = add i32 %309, 1426881987
@@ -406,7 +406,7 @@ define internal fastcc void @process(ptr nocapture noundef %0) unnamed_addr #2 {
   %331 = xor i32 %287, %260
   %332 = and i32 %314, %331
   %333 = xor i32 %332, %260
-  %334 = getelementptr inbounds i8, ptr %0, i64 48
+  %334 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %335 = load i32, ptr %334, align 4
   %336 = tail call noundef i32 @llvm.bswap.i32(i32 %335)
   %337 = add i32 %336, 1925078388
@@ -433,7 +433,7 @@ define internal fastcc void @process(ptr nocapture noundef %0) unnamed_addr #2 {
   %358 = xor i32 %314, %287
   %359 = and i32 %341, %358
   %360 = xor i32 %359, %287
-  %361 = getelementptr inbounds i8, ptr %0, i64 52
+  %361 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %362 = load i32, ptr %361, align 4
   %363 = tail call noundef i32 @llvm.bswap.i32(i32 %362)
   %364 = add i32 %363, -2132889090
@@ -460,7 +460,7 @@ define internal fastcc void @process(ptr nocapture noundef %0) unnamed_addr #2 {
   %385 = xor i32 %341, %314
   %386 = and i32 %368, %385
   %387 = xor i32 %386, %314
-  %388 = getelementptr inbounds i8, ptr %0, i64 56
+  %388 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %389 = load i32, ptr %388, align 4
   %390 = tail call noundef i32 @llvm.bswap.i32(i32 %389)
   %391 = add i32 %390, -1680079193
@@ -487,7 +487,7 @@ define internal fastcc void @process(ptr nocapture noundef %0) unnamed_addr #2 {
   %412 = xor i32 %368, %341
   %413 = and i32 %395, %412
   %414 = xor i32 %413, %341
-  %415 = getelementptr inbounds i8, ptr %0, i64 60
+  %415 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %416 = load i32, ptr %415, align 4
   %417 = tail call noundef i32 @llvm.bswap.i32(i32 %416)
   %418 = add i32 %417, -1046744716
@@ -542,7 +542,7 @@ define internal fastcc void @process(ptr nocapture noundef %0) unnamed_addr #2 {
   %440 = xor i32 %.sroa.535.0781.i, %.sroa.446.0782.i
   %441 = and i32 %440, %.sroa.357.0783.i
   %442 = xor i32 %441, %.sroa.535.0781.i
-  %443 = getelementptr inbounds [64 x i32], ptr @SHA256_K, i64 0, i64 %indvars.iv.i
+  %443 = getelementptr inbounds nuw [64 x i32], ptr @SHA256_K, i64 0, i64 %indvars.iv.i
   %444 = load i32, ptr %443, align 16
   %445 = tail call i32 @llvm.fshl.i32(i32 %.sroa.140.0765.i, i32 %.sroa.140.0765.i, i32 30)
   %446 = xor i32 %445, %.sroa.140.0765.i
@@ -582,7 +582,7 @@ define internal fastcc void @process(ptr nocapture noundef %0) unnamed_addr #2 {
   %480 = and i32 %462, %479
   %481 = xor i32 %480, %.sroa.446.0782.i
   %482 = or disjoint i64 %indvars.iv.i, 1
-  %483 = getelementptr inbounds [64 x i32], ptr @SHA256_K, i64 0, i64 %482
+  %483 = getelementptr inbounds nuw [64 x i32], ptr @SHA256_K, i64 0, i64 %482
   %484 = load i32, ptr %483, align 4
   %485 = tail call i32 @llvm.fshl.i32(i32 %.sroa.150.0764.i, i32 %.sroa.150.0764.i, i32 30)
   %486 = xor i32 %485, %.sroa.150.0764.i
@@ -622,7 +622,7 @@ define internal fastcc void @process(ptr nocapture noundef %0) unnamed_addr #2 {
   %520 = and i32 %502, %519
   %521 = xor i32 %520, %.sroa.357.0783.i
   %522 = or disjoint i64 %indvars.iv.i, 2
-  %523 = getelementptr inbounds [64 x i32], ptr @SHA256_K, i64 0, i64 %522
+  %523 = getelementptr inbounds nuw [64 x i32], ptr @SHA256_K, i64 0, i64 %522
   %524 = load i32, ptr %523, align 8
   %525 = tail call i32 @llvm.fshl.i32(i32 %457, i32 %457, i32 30)
   %526 = xor i32 %525, %457
@@ -662,7 +662,7 @@ define internal fastcc void @process(ptr nocapture noundef %0) unnamed_addr #2 {
   %560 = and i32 %542, %559
   %561 = xor i32 %560, %462
   %562 = or disjoint i64 %indvars.iv.i, 3
-  %563 = getelementptr inbounds [64 x i32], ptr @SHA256_K, i64 0, i64 %562
+  %563 = getelementptr inbounds nuw [64 x i32], ptr @SHA256_K, i64 0, i64 %562
   %564 = load i32, ptr %563, align 4
   %565 = tail call i32 @llvm.fshl.i32(i32 %497, i32 %497, i32 30)
   %566 = xor i32 %565, %497
@@ -702,7 +702,7 @@ define internal fastcc void @process(ptr nocapture noundef %0) unnamed_addr #2 {
   %600 = and i32 %582, %599
   %601 = xor i32 %600, %502
   %602 = or disjoint i64 %indvars.iv.i, 4
-  %603 = getelementptr inbounds [64 x i32], ptr @SHA256_K, i64 0, i64 %602
+  %603 = getelementptr inbounds nuw [64 x i32], ptr @SHA256_K, i64 0, i64 %602
   %604 = load i32, ptr %603, align 16
   %605 = tail call i32 @llvm.fshl.i32(i32 %537, i32 %537, i32 30)
   %606 = xor i32 %605, %537
@@ -742,7 +742,7 @@ define internal fastcc void @process(ptr nocapture noundef %0) unnamed_addr #2 {
   %640 = and i32 %622, %639
   %641 = xor i32 %640, %542
   %642 = or disjoint i64 %indvars.iv.i, 5
-  %643 = getelementptr inbounds [64 x i32], ptr @SHA256_K, i64 0, i64 %642
+  %643 = getelementptr inbounds nuw [64 x i32], ptr @SHA256_K, i64 0, i64 %642
   %644 = load i32, ptr %643, align 4
   %645 = tail call i32 @llvm.fshl.i32(i32 %577, i32 %577, i32 30)
   %646 = xor i32 %645, %577
@@ -782,7 +782,7 @@ define internal fastcc void @process(ptr nocapture noundef %0) unnamed_addr #2 {
   %680 = and i32 %662, %679
   %681 = xor i32 %680, %582
   %682 = or disjoint i64 %indvars.iv.i, 6
-  %683 = getelementptr inbounds [64 x i32], ptr @SHA256_K, i64 0, i64 %682
+  %683 = getelementptr inbounds nuw [64 x i32], ptr @SHA256_K, i64 0, i64 %682
   %684 = load i32, ptr %683, align 8
   %685 = tail call i32 @llvm.fshl.i32(i32 %617, i32 %617, i32 30)
   %686 = xor i32 %685, %617
@@ -822,7 +822,7 @@ define internal fastcc void @process(ptr nocapture noundef %0) unnamed_addr #2 {
   %720 = and i32 %702, %719
   %721 = xor i32 %720, %622
   %722 = or disjoint i64 %indvars.iv.i, 7
-  %723 = getelementptr inbounds [64 x i32], ptr @SHA256_K, i64 0, i64 %722
+  %723 = getelementptr inbounds nuw [64 x i32], ptr @SHA256_K, i64 0, i64 %722
   %724 = load i32, ptr %723, align 4
   %725 = tail call i32 @llvm.fshl.i32(i32 %657, i32 %657, i32 30)
   %726 = xor i32 %725, %657
@@ -862,7 +862,7 @@ define internal fastcc void @process(ptr nocapture noundef %0) unnamed_addr #2 {
   %760 = and i32 %742, %759
   %761 = xor i32 %760, %662
   %762 = or disjoint i64 %indvars.iv.i, 8
-  %763 = getelementptr inbounds [64 x i32], ptr @SHA256_K, i64 0, i64 %762
+  %763 = getelementptr inbounds nuw [64 x i32], ptr @SHA256_K, i64 0, i64 %762
   %764 = load i32, ptr %763, align 16
   %765 = tail call i32 @llvm.fshl.i32(i32 %697, i32 %697, i32 30)
   %766 = xor i32 %765, %697
@@ -902,7 +902,7 @@ define internal fastcc void @process(ptr nocapture noundef %0) unnamed_addr #2 {
   %800 = and i32 %782, %799
   %801 = xor i32 %800, %702
   %802 = or disjoint i64 %indvars.iv.i, 9
-  %803 = getelementptr inbounds [64 x i32], ptr @SHA256_K, i64 0, i64 %802
+  %803 = getelementptr inbounds nuw [64 x i32], ptr @SHA256_K, i64 0, i64 %802
   %804 = load i32, ptr %803, align 4
   %805 = tail call i32 @llvm.fshl.i32(i32 %737, i32 %737, i32 30)
   %806 = xor i32 %805, %737
@@ -942,7 +942,7 @@ define internal fastcc void @process(ptr nocapture noundef %0) unnamed_addr #2 {
   %840 = and i32 %822, %839
   %841 = xor i32 %840, %742
   %842 = or disjoint i64 %indvars.iv.i, 10
-  %843 = getelementptr inbounds [64 x i32], ptr @SHA256_K, i64 0, i64 %842
+  %843 = getelementptr inbounds nuw [64 x i32], ptr @SHA256_K, i64 0, i64 %842
   %844 = load i32, ptr %843, align 8
   %845 = tail call i32 @llvm.fshl.i32(i32 %777, i32 %777, i32 30)
   %846 = xor i32 %845, %777
@@ -982,7 +982,7 @@ define internal fastcc void @process(ptr nocapture noundef %0) unnamed_addr #2 {
   %880 = and i32 %862, %879
   %881 = xor i32 %880, %782
   %882 = or disjoint i64 %indvars.iv.i, 11
-  %883 = getelementptr inbounds [64 x i32], ptr @SHA256_K, i64 0, i64 %882
+  %883 = getelementptr inbounds nuw [64 x i32], ptr @SHA256_K, i64 0, i64 %882
   %884 = load i32, ptr %883, align 4
   %885 = tail call i32 @llvm.fshl.i32(i32 %817, i32 %817, i32 30)
   %886 = xor i32 %885, %817
@@ -1022,7 +1022,7 @@ define internal fastcc void @process(ptr nocapture noundef %0) unnamed_addr #2 {
   %920 = and i32 %902, %919
   %921 = xor i32 %920, %822
   %922 = or disjoint i64 %indvars.iv.i, 12
-  %923 = getelementptr inbounds [64 x i32], ptr @SHA256_K, i64 0, i64 %922
+  %923 = getelementptr inbounds nuw [64 x i32], ptr @SHA256_K, i64 0, i64 %922
   %924 = load i32, ptr %923, align 16
   %925 = tail call i32 @llvm.fshl.i32(i32 %857, i32 %857, i32 30)
   %926 = xor i32 %925, %857
@@ -1062,7 +1062,7 @@ define internal fastcc void @process(ptr nocapture noundef %0) unnamed_addr #2 {
   %960 = and i32 %942, %959
   %961 = xor i32 %960, %862
   %962 = or disjoint i64 %indvars.iv.i, 13
-  %963 = getelementptr inbounds [64 x i32], ptr @SHA256_K, i64 0, i64 %962
+  %963 = getelementptr inbounds nuw [64 x i32], ptr @SHA256_K, i64 0, i64 %962
   %964 = load i32, ptr %963, align 4
   %965 = tail call i32 @llvm.fshl.i32(i32 %897, i32 %897, i32 30)
   %966 = xor i32 %965, %897
@@ -1102,7 +1102,7 @@ define internal fastcc void @process(ptr nocapture noundef %0) unnamed_addr #2 {
   %1000 = and i32 %982, %999
   %1001 = xor i32 %1000, %902
   %1002 = or disjoint i64 %indvars.iv.i, 14
-  %1003 = getelementptr inbounds [64 x i32], ptr @SHA256_K, i64 0, i64 %1002
+  %1003 = getelementptr inbounds nuw [64 x i32], ptr @SHA256_K, i64 0, i64 %1002
   %1004 = load i32, ptr %1003, align 8
   %1005 = tail call i32 @llvm.fshl.i32(i32 %937, i32 %937, i32 30)
   %1006 = xor i32 %1005, %937
@@ -1142,7 +1142,7 @@ define internal fastcc void @process(ptr nocapture noundef %0) unnamed_addr #2 {
   %1040 = and i32 %1022, %1039
   %1041 = xor i32 %1040, %942
   %1042 = or disjoint i64 %indvars.iv.i, 15
-  %1043 = getelementptr inbounds [64 x i32], ptr @SHA256_K, i64 0, i64 %1042
+  %1043 = getelementptr inbounds nuw [64 x i32], ptr @SHA256_K, i64 0, i64 %1042
   %1044 = load i32, ptr %1043, align 4
   %1045 = tail call i32 @llvm.fshl.i32(i32 %977, i32 %977, i32 30)
   %1046 = xor i32 %1045, %977
@@ -1199,7 +1199,7 @@ transform.exit:                                   ; preds = %434
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local void @lzma_sha256_finish(ptr nocapture noundef %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 96
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 63
   br label %5
@@ -1224,22 +1224,22 @@ define dso_local void @lzma_sha256_finish(ptr nocapture noundef %0) local_unname
   br label %.backedge
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load i64, ptr %2, align 8
   %11 = shl i64 %10, 3
   store i64 %11, ptr %2, align 8
   %12 = tail call noundef i64 @llvm.bswap.i64(i64 %11)
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %12, ptr %13, align 8
   tail call fastcc void @process(ptr noundef nonnull %0)
   br label %14
 
 14:                                               ; preds = %8, %14
   %.018 = phi i64 [ 0, %8 ], [ %19, %14 ]
-  %15 = getelementptr inbounds [8 x i32], ptr %9, i64 0, i64 %.018
+  %15 = getelementptr inbounds nuw [8 x i32], ptr %9, i64 0, i64 %.018
   %16 = load i32, ptr %15, align 4
   %17 = tail call noundef i32 @llvm.bswap.i32(i32 %16)
-  %18 = getelementptr inbounds [16 x i32], ptr %0, i64 0, i64 %.018
+  %18 = getelementptr inbounds nuw [16 x i32], ptr %0, i64 0, i64 %.018
   store i32 %17, ptr %18, align 4
   %19 = add nuw nsw i64 %.018, 1
   %exitcond.not = icmp eq i64 %19, 8

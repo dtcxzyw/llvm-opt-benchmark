@@ -85,11 +85,11 @@ define hidden i32 @mlib_ImageConvMxN_f(ptr noundef %0, ptr noundef %1, ptr nound
 
 32:                                               ; preds = %26
   %33 = load i32, ptr %15, align 16
-  %34 = getelementptr inbounds i8, ptr %15, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %35 = load i32, ptr %34, align 4
-  %36 = getelementptr inbounds i8, ptr %15, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %37 = load i32, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %15, i64 12
+  %38 = getelementptr inbounds nuw i8, ptr %15, i64 12
   %39 = load i32, ptr %38, align 4
   %40 = add nsw i32 %35, %33
   %41 = add nsw i32 %40, %37
@@ -100,10 +100,10 @@ define hidden i32 @mlib_ImageConvMxN_f(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not205, label %75, label %44
 
 44:                                               ; preds = %32
-  %45 = getelementptr inbounds i8, ptr %11, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.val211 = load i32, ptr %45, align 8
   %.not206 = icmp slt i32 %.val211, %3
-  %46 = getelementptr inbounds i8, ptr %11, i64 12
+  %46 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %.val213 = load i32, ptr %46, align 4
   %.not207 = icmp slt i32 %.val213, %4
   %or.cond215 = select i1 %.not206, i1 true, i1 %.not207
@@ -179,9 +179,9 @@ define hidden i32 @mlib_ImageConvMxN_f(ptr noundef %0, ptr noundef %1, ptr nound
 75:                                               ; preds = %32
   %76 = sub nsw i32 %33, %5
   %77 = sub nsw i32 %37, %6
-  %78 = getelementptr inbounds i8, ptr %14, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.val212 = load i32, ptr %78, align 8
-  %79 = getelementptr inbounds i8, ptr %14, i64 12
+  %79 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %.val214 = load i32, ptr %79, align 4
   %80 = call ptr @mlib_ImageSetSubimage(ptr noundef nonnull %14, ptr noundef nonnull %14, i32 noundef %76, i32 noundef %77, i32 noundef %.val212, i32 noundef %.val214) #2
   switch i32 %.val, label %103 [

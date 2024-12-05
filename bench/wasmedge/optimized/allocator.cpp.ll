@@ -11,7 +11,7 @@ define noundef ptr @_ZN8WasmEdge9Allocator8allocateEj(i32 noundef %0) local_unna
 
 4:                                                ; preds = %1
   %5 = icmp eq i32 %0, 0
-  %6 = getelementptr inbounds i8, ptr %2, i64 4294967296
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 4294967296
   br i1 %5, label %12, label %7
 
 7:                                                ; preds = %4
@@ -36,7 +36,7 @@ define noundef ptr @_ZN8WasmEdge9Allocator6resizeEPhjj(ptr noundef %0, i32 nound
   tail call void @llvm.assume(i1 %4)
   %5 = zext i32 %1 to i64
   %6 = shl nuw nsw i64 %5, 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %6
   %8 = sub i32 %2, %1
   %9 = zext i32 %8 to i64
   %10 = shl nuw nsw i64 %9, 16

@@ -91,17 +91,17 @@ define noalias noundef ptr @tvb_new(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8
   %3 = tail call noalias ptr @g_slice_alloc(i64 noundef %2) #15
   store ptr null, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i32 0, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %3, i64 32
-  %8 = getelementptr inbounds i8, ptr %3, i64 52
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 52
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %7, i8 0, i64 20, i1 false)
   store i32 -1, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %3, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr null, ptr %9, align 8
   ret ptr %3
 }
@@ -121,9 +121,9 @@ define void @tvb_free(ptr noundef %0) local_unnamed_addr #0 {
 .preheader.i:                                     ; preds = %1, %tvb_free_internal.exit.i
   %.07.i = phi ptr [ %3, %tvb_free_internal.exit.i ], [ %0, %1 ]
   %3 = load ptr, ptr %.07.i, align 8
-  %4 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i, label %tvb_free_internal.exit.i, label %8
@@ -156,9 +156,9 @@ define void @tvb_free_chain(ptr noundef %0) local_unnamed_addr #0 {
 .preheader:                                       ; preds = %1, %tvb_free_internal.exit
   %.07 = phi ptr [ %3, %tvb_free_internal.exit ], [ %0, %1 ]
   %3 = load ptr, ptr %.07, align 8
-  %4 = getelementptr inbounds i8, ptr %.07, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %.07, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %tvb_free_internal.exit, label %8
@@ -276,7 +276,7 @@ define ptr @tvb_new_octet_aligned(ptr noundef %0, i32 noundef %1, i32 noundef %2
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8
   %.not77 = icmp eq i32 %8, 0
   br i1 %.not77, label %9, label %10
@@ -294,7 +294,7 @@ define ptr @tvb_new_octet_aligned(ptr noundef %0, i32 noundef %1, i32 noundef %2
   br i1 %15, label %16, label %21
 
 16:                                               ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load i32, ptr %17, align 8
   %.not26.i.i.i = icmp ugt i32 %11, %18
   br i1 %.not26.i.i.i, label %_tvb_captured_length_remaining.exit.thread, label %19
@@ -329,7 +329,7 @@ _tvb_captured_length_remaining.exit.thread:       ; preds = %16
 30:                                               ; preds = %_tvb_captured_length_remaining.exit.thread, %_tvb_captured_length_remaining.exit
   %.07185 = phi i32 [ 0, %_tvb_captured_length_remaining.exit.thread ], [ %.071, %_tvb_captured_length_remaining.exit ]
   %31 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef nonnull %0, i32 noundef %11, i32 noundef %.07185, i32 noundef %.07185) #17
-  br label %100
+  br label %99
 
 32:                                               ; preds = %_tvb_captured_length_remaining.exit
   %33 = icmp sgt i32 %.071, 0
@@ -340,7 +340,7 @@ _tvb_captured_length_remaining.exit.thread:       ; preds = %16
   unreachable
 
 _tvb_captured_length_remaining.exit80:            ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %0, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %35 = load i32, ptr %34, align 8
   %spec.select = tail call i32 @llvm.usub.sat.i32(i32 %35, i32 %11)
   %36 = icmp sgt i32 %spec.select, %.071
@@ -446,33 +446,33 @@ ensure_contiguous.exit81:                         ; preds = %61
   br i1 %exitcond.not, label %._crit_edge, label %74, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %74, %ensure_contiguous.exit81
-  %.pre-phi = phi i64 [ 0, %ensure_contiguous.exit81 ], [ %wide.trip.count, %74 ]
-  %85 = getelementptr i8, ptr %62, i64 %.pre-phi
+  %.pre-phi102 = phi i64 [ 0, %ensure_contiguous.exit81 ], [ %wide.trip.count, %74 ]
+  %85 = getelementptr i8, ptr %62, i64 %.pre-phi102
   %86 = load i8, ptr %85, align 1
   %87 = zext i8 %86 to i32
   %88 = shl nuw nsw i32 %87, %12
   %89 = trunc i32 %88 to i8
-  %90 = getelementptr i8, ptr %71, i64 %.pre-phi
+  %90 = getelementptr i8, ptr %71, i64 %.pre-phi102
   store i8 %89, ptr %90, align 1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %50, %._crit_edge
+  %.pre-phi = phi i64 [ %70, %._crit_edge ], [ %47, %50 ]
   %.0 = phi ptr [ %71, %._crit_edge ], [ %48, %50 ]
   %91 = zext i8 %.068 to i64
   %92 = getelementptr [8 x i8], ptr @left_aligned_bitmask, i64 0, i64 %91
   %93 = load i8, ptr %92, align 1
-  %94 = add nsw i32 %.071, -1
-  %95 = zext nneg i32 %94 to i64
-  %96 = getelementptr i8, ptr %.0, i64 %95
-  %97 = load i8, ptr %96, align 1
-  %98 = and i8 %97, %93
-  store i8 %98, ptr %96, align 1
-  %99 = call ptr @tvb_new_child_real_data(ptr noundef nonnull %0, ptr noundef nonnull %.0, i32 noundef %.071, i32 noundef %.071) #17
-  call void @tvb_set_free_cb(ptr noundef %99, ptr noundef nonnull @g_free) #17
-  br label %100
+  %94 = getelementptr i8, ptr %.0, i64 %.pre-phi
+  %95 = getelementptr i8, ptr %94, i64 -1
+  %96 = load i8, ptr %95, align 1
+  %97 = and i8 %96, %93
+  store i8 %97, ptr %95, align 1
+  %98 = call ptr @tvb_new_child_real_data(ptr noundef nonnull %0, ptr noundef nonnull %.0, i32 noundef %.071, i32 noundef %.071) #17
+  call void @tvb_set_free_cb(ptr noundef %98, ptr noundef nonnull @g_free) #17
+  br label %99
 
-100:                                              ; preds = %.loopexit, %30
-  %.069 = phi ptr [ %31, %30 ], [ %99, %.loopexit ]
+99:                                               ; preds = %.loopexit, %30
+  %.069 = phi ptr [ %31, %30 ], [ %98, %.loopexit ]
   ret ptr %.069
 }
 
@@ -494,7 +494,7 @@ define ptr @tvb_new_octet_right_aligned(ptr noundef %0, i32 noundef %1, i32 noun
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8
   %.not70 = icmp eq i32 %7, 0
   br i1 %.not70, label %8, label %9
@@ -512,7 +512,7 @@ define ptr @tvb_new_octet_right_aligned(ptr noundef %0, i32 noundef %1, i32 noun
   br i1 %14, label %15, label %20
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load i32, ptr %16, align 8
   %.not26.i.i.i = icmp ugt i32 %10, %17
   br i1 %.not26.i.i.i, label %_tvb_captured_length_remaining.exit.thread, label %18
@@ -559,7 +559,7 @@ _tvb_captured_length_remaining.exit.thread:       ; preds = %15
   unreachable
 
 _tvb_captured_length_remaining.exit74:            ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %0, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %35 = load i32, ptr %34, align 8
   %spec.select = tail call i32 @llvm.usub.sat.i32(i32 %35, i32 %10)
   %36 = icmp sgt i32 %spec.select, %.065
@@ -666,9 +666,9 @@ ensure_contiguous.exit:                           ; preds = %_tvb_captured_lengt
 
 ; Function Attrs: nounwind uwtable
 define ptr @tvb_clone_offset_len(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %10, label %8
@@ -679,7 +679,7 @@ define ptr @tvb_clone_offset_len(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   br i1 %.not12, label %10, label %36
 
 10:                                               ; preds = %3, %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i32, ptr %11, align 8
   %.not9.i.i = icmp eq i32 %12, 0
   br i1 %.not9.i.i, label %13, label %14
@@ -697,14 +697,14 @@ define ptr @tvb_clone_offset_len(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %0, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %20 = load i32, ptr %19, align 8
   %.not26.i.i.i.i = icmp ugt i32 %1, %20
   br i1 %.not26.i.i.i.i, label %tvb_bytes_exist.exit.thread.i, label %27
 
 21:                                               ; preds = %16
   %22 = sub i32 0, %1
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %24 = load i32, ptr %23, align 8
   %.not.i.i.i.i = icmp ult i32 %24, %22
   br i1 %.not.i.i.i.i, label %tvb_bytes_exist.exit.thread.i, label %25
@@ -741,7 +741,7 @@ tvb_generic_clone_offset_len.exit:                ; preds = %27
 
 ; Function Attrs: nounwind uwtable
 define ptr @tvb_clone(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   %4 = tail call ptr @tvb_clone_offset_len(ptr noundef %0, i32 noundef 0, i32 noundef %3)
   ret ptr %4
@@ -753,7 +753,7 @@ define i32 @tvb_captured_length(ptr noundef readonly %0) local_unnamed_addr #0 {
   br i1 %.not, label %5, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %.not3 = icmp eq i32 %4, 0
   br i1 %.not3, label %5, label %6
@@ -763,7 +763,7 @@ define i32 @tvb_captured_length(ptr noundef readonly %0) local_unnamed_addr #0 {
   unreachable
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i32, ptr %7, align 8
   ret i32 %8
 }
@@ -774,7 +774,7 @@ define i32 @tvb_captured_length_remaining(ptr noundef readonly %0, i32 noundef %
   br i1 %.not, label %6, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %.not6 = icmp eq i32 %5, 0
   br i1 %.not6, label %6, label %7
@@ -788,14 +788,14 @@ define i32 @tvb_captured_length_remaining(ptr noundef readonly %0, i32 noundef %
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load i32, ptr %10, align 8
   %.not26.i.i = icmp ugt i32 %1, %11
   br i1 %.not26.i.i, label %compute_offset_and_remaining.exit.thread, label %18
 
 12:                                               ; preds = %7
   %13 = sub i32 0, %1
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load i32, ptr %14, align 8
   %.not.i.i = icmp ult i32 %15, %13
   br i1 %.not.i.i, label %compute_offset_and_remaining.exit.thread, label %16
@@ -821,7 +821,7 @@ define range(i32 1, 0) i32 @tvb_ensure_captured_length_remaining(ptr noundef rea
   br i1 %.not, label %6, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %.not11 = icmp eq i32 %5, 0
   br i1 %.not11, label %6, label %7
@@ -835,33 +835,33 @@ define range(i32 1, 0) i32 @tvb_ensure_captured_length_remaining(ptr noundef rea
   br i1 %8, label %9, label %22
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load i32, ptr %10, align 8
   %.not26.i.i = icmp ugt i32 %1, %11
   br i1 %.not26.i.i, label %12, label %39
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %14 = load i32, ptr %13, align 8
   %.not27.i.i = icmp ugt i32 %1, %14
   br i1 %.not27.i.i, label %15, label %38
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %0, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %17 = load i32, ptr %16, align 4
   %18 = and i32 %17, 1
   %.not28.i.i = icmp eq i32 %18, 0
   br i1 %.not28.i.i, label %19, label %38
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %0, i64 44
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %21 = load i32, ptr %20, align 4
   %.not29.i.i = icmp ugt i32 %1, %21
   br label %.sink.split
 
 22:                                               ; preds = %7
   %23 = sub i32 0, %1
-  %24 = getelementptr inbounds i8, ptr %0, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %25 = load i32, ptr %24, align 8
   %.not.i.i = icmp ult i32 %25, %23
   br i1 %.not.i.i, label %28, label %26
@@ -871,20 +871,20 @@ define range(i32 1, 0) i32 @tvb_ensure_captured_length_remaining(ptr noundef rea
   br label %39
 
 28:                                               ; preds = %22
-  %29 = getelementptr inbounds i8, ptr %0, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %30 = load i32, ptr %29, align 8
   %.not23.i.i = icmp ult i32 %30, %23
   br i1 %.not23.i.i, label %31, label %38
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %0, i64 20
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %33 = load i32, ptr %32, align 4
   %34 = and i32 %33, 1
   %.not24.i.i = icmp eq i32 %34, 0
   br i1 %.not24.i.i, label %35, label %38
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %0, i64 44
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %37 = load i32, ptr %36, align 4
   %.not25.i.i = icmp ult i32 %37, %23
   br label %.sink.split
@@ -906,7 +906,7 @@ define range(i32 1, 0) i32 @tvb_ensure_captured_length_remaining(ptr noundef rea
   br i1 %41, label %42, label %58
 
 42:                                               ; preds = %39
-  %43 = getelementptr inbounds i8, ptr %0, i64 48
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %44 = load i32, ptr %43, align 8
   %45 = icmp ult i32 %40, %44
   br i1 %45, label %46, label %47
@@ -916,7 +916,7 @@ define range(i32 1, 0) i32 @tvb_ensure_captured_length_remaining(ptr noundef rea
   unreachable
 
 47:                                               ; preds = %42
-  %48 = getelementptr inbounds i8, ptr %0, i64 20
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %49 = load i32, ptr %48, align 4
   %50 = and i32 %49, 1
   %.not13 = icmp eq i32 %50, 0
@@ -927,7 +927,7 @@ define range(i32 1, 0) i32 @tvb_ensure_captured_length_remaining(ptr noundef rea
   unreachable
 
 52:                                               ; preds = %47
-  %53 = getelementptr inbounds i8, ptr %0, i64 44
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %54 = load i32, ptr %53, align 4
   %55 = icmp ult i32 %40, %54
   br i1 %55, label %56, label %57
@@ -954,7 +954,7 @@ define range(i32 0, 2) i32 @tvb_bytes_exist(ptr noundef readonly %0, i32 noundef
   br i1 %.not, label %7, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
   %.not9 = icmp eq i32 %6, 0
   br i1 %.not9, label %7, label %8
@@ -972,14 +972,14 @@ define range(i32 0, 2) i32 @tvb_bytes_exist(ptr noundef readonly %0, i32 noundef
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load i32, ptr %13, align 8
   %.not26.i.i = icmp ugt i32 %1, %14
   br i1 %.not26.i.i, label %check_offset_length_no_exception.exit, label %21
 
 15:                                               ; preds = %10
   %16 = sub i32 0, %1
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load i32, ptr %17, align 8
   %.not.i.i = icmp ult i32 %18, %16
   br i1 %.not.i.i, label %check_offset_length_no_exception.exit, label %19
@@ -1027,26 +1027,26 @@ define internal fastcc range(i32 0, 5) i32 @check_offset_length_no_exception(ptr
   br i1 %10, label %11, label %24
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load i32, ptr %12, align 8
   %.not26.i = icmp ugt i32 %1, %13
   br i1 %.not26.i, label %14, label %40
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = load i32, ptr %15, align 8
   %.not27.i = icmp ugt i32 %1, %16
   br i1 %.not27.i, label %17, label %validate_offset.exit
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %0, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %19 = load i32, ptr %18, align 4
   %20 = and i32 %19, 1
   %.not28.i = icmp eq i32 %20, 0
   br i1 %.not28.i, label %21, label %validate_offset.exit
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %0, i64 44
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %23 = load i32, ptr %22, align 4
   %.not29.i = icmp ugt i32 %1, %23
   %..i = select i1 %.not29.i, i32 3, i32 2
@@ -1054,7 +1054,7 @@ define internal fastcc range(i32 0, 5) i32 @check_offset_length_no_exception(ptr
 
 24:                                               ; preds = %9
   %25 = sub i32 0, %1
-  %26 = getelementptr inbounds i8, ptr %0, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load i32, ptr %26, align 8
   %.not.i = icmp ult i32 %27, %25
   br i1 %.not.i, label %30, label %28
@@ -1064,20 +1064,20 @@ define internal fastcc range(i32 0, 5) i32 @check_offset_length_no_exception(ptr
   br label %40
 
 30:                                               ; preds = %24
-  %31 = getelementptr inbounds i8, ptr %0, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %32 = load i32, ptr %31, align 8
   %.not23.i = icmp ult i32 %32, %25
   br i1 %.not23.i, label %33, label %validate_offset.exit
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %0, i64 20
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %35 = load i32, ptr %34, align 4
   %36 = and i32 %35, 1
   %.not24.i = icmp eq i32 %36, 0
   br i1 %.not24.i, label %37, label %validate_offset.exit
 
 37:                                               ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %0, i64 44
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %39 = load i32, ptr %38, align 4
   %.not25.i = icmp ult i32 %39, %25
   %.30.i = select i1 %.not25.i, i32 3, i32 2
@@ -1094,7 +1094,7 @@ define internal fastcc range(i32 0, 5) i32 @check_offset_length_no_exception(ptr
   br i1 %44, label %45, label %49
 
 45:                                               ; preds = %43
-  %46 = getelementptr inbounds i8, ptr %0, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %47 = load i32, ptr %46, align 8
   %48 = sub i32 %47, %41
   br label %49
@@ -1108,26 +1108,26 @@ define internal fastcc range(i32 0, 5) i32 @check_offset_length_no_exception(ptr
   br i1 %52, label %validate_offset.exit, label %53
 
 53:                                               ; preds = %49
-  %54 = getelementptr inbounds i8, ptr %0, i64 40
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %55 = load i32, ptr %54, align 8
   %.not.i27 = icmp ugt i32 %51, %55
   br i1 %.not.i27, label %56, label %validate_offset.exit
 
 56:                                               ; preds = %53
-  %57 = getelementptr inbounds i8, ptr %0, i64 48
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %58 = load i32, ptr %57, align 8
   %.not8.i = icmp ugt i32 %51, %58
   br i1 %.not8.i, label %59, label %validate_offset.exit
 
 59:                                               ; preds = %56
-  %60 = getelementptr inbounds i8, ptr %0, i64 20
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %61 = load i32, ptr %60, align 4
   %62 = and i32 %61, 1
   %.not9.i = icmp eq i32 %62, 0
   br i1 %.not9.i, label %63, label %validate_offset.exit
 
 63:                                               ; preds = %59
-  %64 = getelementptr inbounds i8, ptr %0, i64 44
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %65 = load i32, ptr %64, align 4
   %.not10.i = icmp ugt i32 %51, %65
   %..i29 = select i1 %.not10.i, i32 3, i32 2
@@ -1159,7 +1159,7 @@ define void @tvb_ensure_bytes_exist(ptr noundef readonly %0, i32 noundef %1, i32
   br i1 %.not, label %7, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
   %.not37 = icmp eq i32 %6, 0
   br i1 %.not37, label %7, label %8
@@ -1181,13 +1181,13 @@ define void @tvb_ensure_bytes_exist(ptr noundef readonly %0, i32 noundef %1, i32
   br i1 %12, label %13, label %30
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load i32, ptr %14, align 8
   %.not42 = icmp ugt i32 %1, %15
   br i1 %.not42, label %16, label %50
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %0, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %18 = load i32, ptr %17, align 8
   %.not43 = icmp ugt i32 %1, %18
   br i1 %.not43, label %20, label %19
@@ -1197,7 +1197,7 @@ define void @tvb_ensure_bytes_exist(ptr noundef readonly %0, i32 noundef %1, i32
   unreachable
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %22 = load i32, ptr %21, align 4
   %23 = and i32 %22, 1
   %.not44 = icmp eq i32 %23, 0
@@ -1208,7 +1208,7 @@ define void @tvb_ensure_bytes_exist(ptr noundef readonly %0, i32 noundef %1, i32
   unreachable
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %0, i64 44
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %27 = load i32, ptr %26, align 4
   %.not45 = icmp ugt i32 %1, %27
   br i1 %.not45, label %29, label %28
@@ -1223,7 +1223,7 @@ define void @tvb_ensure_bytes_exist(ptr noundef readonly %0, i32 noundef %1, i32
 
 30:                                               ; preds = %11
   %31 = sub i32 0, %1
-  %32 = getelementptr inbounds i8, ptr %0, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %33 = load i32, ptr %32, align 8
   %.not38 = icmp ult i32 %33, %31
   br i1 %.not38, label %36, label %34
@@ -1233,7 +1233,7 @@ define void @tvb_ensure_bytes_exist(ptr noundef readonly %0, i32 noundef %1, i32
   br label %50
 
 36:                                               ; preds = %30
-  %37 = getelementptr inbounds i8, ptr %0, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %38 = load i32, ptr %37, align 8
   %.not39 = icmp ult i32 %38, %31
   br i1 %.not39, label %40, label %39
@@ -1243,7 +1243,7 @@ define void @tvb_ensure_bytes_exist(ptr noundef readonly %0, i32 noundef %1, i32
   unreachable
 
 40:                                               ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %0, i64 20
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %42 = load i32, ptr %41, align 4
   %43 = and i32 %42, 1
   %.not40 = icmp eq i32 %43, 0
@@ -1254,7 +1254,7 @@ define void @tvb_ensure_bytes_exist(ptr noundef readonly %0, i32 noundef %1, i32
   unreachable
 
 45:                                               ; preds = %40
-  %46 = getelementptr inbounds i8, ptr %0, i64 44
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %47 = load i32, ptr %46, align 4
   %.not41 = icmp ult i32 %47, %31
   br i1 %.not41, label %49, label %48
@@ -1286,7 +1286,7 @@ define void @tvb_ensure_bytes_exist(ptr noundef readonly %0, i32 noundef %1, i32
   ret void
 
 57:                                               ; preds = %55
-  %58 = getelementptr inbounds i8, ptr %0, i64 48
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %59 = load i32, ptr %58, align 8
   %.not47 = icmp ugt i32 %52, %59
   br i1 %.not47, label %61, label %60
@@ -1296,7 +1296,7 @@ define void @tvb_ensure_bytes_exist(ptr noundef readonly %0, i32 noundef %1, i32
   unreachable
 
 61:                                               ; preds = %57
-  %62 = getelementptr inbounds i8, ptr %0, i64 20
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %63 = load i32, ptr %62, align 4
   %64 = and i32 %63, 1
   %.not48 = icmp eq i32 %64, 0
@@ -1307,7 +1307,7 @@ define void @tvb_ensure_bytes_exist(ptr noundef readonly %0, i32 noundef %1, i32
   unreachable
 
 66:                                               ; preds = %61
-  %67 = getelementptr inbounds i8, ptr %0, i64 44
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %68 = load i32, ptr %67, align 4
   %.not49 = icmp ugt i32 %52, %68
   br i1 %.not49, label %70, label %69
@@ -1327,7 +1327,7 @@ define range(i32 0, 2) i32 @tvb_offset_exists(ptr noundef readonly %0, i32 nound
   br i1 %.not, label %6, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %.not7 = icmp eq i32 %5, 0
   br i1 %.not7, label %6, label %7
@@ -1341,14 +1341,14 @@ define range(i32 0, 2) i32 @tvb_offset_exists(ptr noundef readonly %0, i32 nound
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load i32, ptr %10, align 8
   %.not26.i = icmp ugt i32 %1, %11
   br i1 %.not26.i, label %compute_offset.exit.thread, label %compute_offset.exit
 
 12:                                               ; preds = %7
   %13 = sub i32 0, %1
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load i32, ptr %14, align 8
   %.not.i = icmp ult i32 %15, %13
   br i1 %.not.i, label %compute_offset.exit.thread, label %16
@@ -1375,7 +1375,7 @@ define i32 @tvb_reported_length(ptr noundef readonly %0) local_unnamed_addr #0 {
   br i1 %.not, label %5, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %.not3 = icmp eq i32 %4, 0
   br i1 %.not3, label %5, label %6
@@ -1385,7 +1385,7 @@ define i32 @tvb_reported_length(ptr noundef readonly %0) local_unnamed_addr #0 {
   unreachable
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4
   ret i32 %8
 }
@@ -1396,7 +1396,7 @@ define i32 @tvb_reported_length_remaining(ptr noundef readonly %0, i32 noundef %
   br i1 %.not, label %6, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %.not10 = icmp eq i32 %5, 0
   br i1 %.not10, label %6, label %7
@@ -1410,14 +1410,14 @@ define i32 @tvb_reported_length_remaining(ptr noundef readonly %0, i32 noundef %
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load i32, ptr %10, align 8
   %.not26.i = icmp ugt i32 %1, %11
   br i1 %.not26.i, label %compute_offset.exit.thread, label %compute_offset.exit
 
 12:                                               ; preds = %7
   %13 = sub i32 0, %1
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load i32, ptr %14, align 8
   %.not.i = icmp ult i32 %15, %13
   br i1 %.not.i, label %compute_offset.exit.thread, label %16
@@ -1428,7 +1428,7 @@ define i32 @tvb_reported_length_remaining(ptr noundef readonly %0, i32 noundef %
 
 compute_offset.exit:                              ; preds = %16, %9
   %.013 = phi i32 [ %17, %16 ], [ %1, %9 ]
-  %18 = getelementptr inbounds i8, ptr %0, i64 44
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %19 = load i32, ptr %18, align 4
   %spec.select = tail call i32 @llvm.usub.sat.i32(i32 %19, i32 %.013)
   br label %compute_offset.exit.thread
@@ -1444,7 +1444,7 @@ define i32 @tvb_ensure_reported_length_remaining(ptr noundef readonly %0, i32 no
   br i1 %.not, label %6, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %.not10 = icmp eq i32 %5, 0
   br i1 %.not10, label %6, label %7
@@ -1458,33 +1458,33 @@ define i32 @tvb_ensure_reported_length_remaining(ptr noundef readonly %0, i32 no
   br i1 %8, label %9, label %22
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load i32, ptr %10, align 8
   %.not26.i = icmp ugt i32 %1, %11
   br i1 %.not26.i, label %12, label %compute_offset.exit
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %14 = load i32, ptr %13, align 8
   %.not27.i = icmp ugt i32 %1, %14
   br i1 %.not27.i, label %15, label %38
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %0, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %17 = load i32, ptr %16, align 4
   %18 = and i32 %17, 1
   %.not28.i = icmp eq i32 %18, 0
   br i1 %.not28.i, label %19, label %38
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %0, i64 44
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %21 = load i32, ptr %20, align 4
   %.not29.i = icmp ugt i32 %1, %21
   br label %.sink.split
 
 22:                                               ; preds = %7
   %23 = sub i32 0, %1
-  %24 = getelementptr inbounds i8, ptr %0, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %25 = load i32, ptr %24, align 8
   %.not.i = icmp ult i32 %25, %23
   br i1 %.not.i, label %28, label %26
@@ -1494,20 +1494,20 @@ define i32 @tvb_ensure_reported_length_remaining(ptr noundef readonly %0, i32 no
   br label %compute_offset.exit
 
 28:                                               ; preds = %22
-  %29 = getelementptr inbounds i8, ptr %0, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %30 = load i32, ptr %29, align 8
   %.not23.i = icmp ult i32 %30, %23
   br i1 %.not23.i, label %31, label %38
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %0, i64 20
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %33 = load i32, ptr %32, align 4
   %34 = and i32 %33, 1
   %.not24.i = icmp eq i32 %34, 0
   br i1 %.not24.i, label %35, label %38
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %0, i64 44
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %37 = load i32, ptr %36, align 4
   %.not25.i = icmp ult i32 %37, %23
   br label %.sink.split
@@ -1524,7 +1524,7 @@ define i32 @tvb_ensure_reported_length_remaining(ptr noundef readonly %0, i32 no
 
 compute_offset.exit:                              ; preds = %26, %9
   %.0 = phi i32 [ %27, %26 ], [ %1, %9 ]
-  %39 = getelementptr inbounds i8, ptr %0, i64 44
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %40 = load i32, ptr %39, align 4
   %.not12 = icmp ult i32 %40, %.0
   br i1 %.not12, label %43, label %41
@@ -1544,7 +1544,7 @@ define void @tvb_set_reported_length(ptr noundef %0, i32 noundef %1) local_unnam
   br i1 %.not, label %6, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %.not14 = icmp eq i32 %5, 0
   br i1 %.not14, label %6, label %7
@@ -1554,7 +1554,7 @@ define void @tvb_set_reported_length(ptr noundef %0, i32 noundef %1) local_unnam
   unreachable
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 44
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %9 = load i32, ptr %8, align 4
   %10 = icmp ugt i32 %1, %9
   br i1 %10, label %11, label %12
@@ -1565,7 +1565,7 @@ define void @tvb_set_reported_length(ptr noundef %0, i32 noundef %1) local_unnam
 
 12:                                               ; preds = %7
   store i32 %1, ptr %8, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load i32, ptr %13, align 8
   %15 = icmp ult i32 %1, %14
   br i1 %15, label %16, label %17
@@ -1575,7 +1575,7 @@ define void @tvb_set_reported_length(ptr noundef %0, i32 noundef %1) local_unnam
   br label %17
 
 17:                                               ; preds = %16, %12
-  %18 = getelementptr inbounds i8, ptr %0, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %19 = load i32, ptr %18, align 8
   %20 = icmp ult i32 %1, %19
   br i1 %20, label %21, label %22
@@ -1594,7 +1594,7 @@ define void @tvb_fix_reported_length(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %5, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %.not12 = icmp eq i32 %4, 0
   br i1 %.not12, label %5, label %6
@@ -1604,9 +1604,9 @@ define void @tvb_fix_reported_length(ptr noundef %0) local_unnamed_addr #0 {
   unreachable
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load i32, ptr %9, align 8
   %11 = icmp ult i32 %8, %10
   br i1 %11, label %13, label %12
@@ -1617,7 +1617,7 @@ define void @tvb_fix_reported_length(ptr noundef %0) local_unnamed_addr #0 {
 
 13:                                               ; preds = %6
   store i32 %10, ptr %7, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load i32, ptr %14, align 8
   %16 = icmp ult i32 %15, %10
   br i1 %16, label %17, label %18
@@ -1632,9 +1632,9 @@ define void @tvb_fix_reported_length(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @tvb_offset_from_real_beginning_counter(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %9, label %7
@@ -1650,9 +1650,9 @@ define hidden i32 @tvb_offset_from_real_beginning_counter(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define i32 @tvb_offset_from_real_beginning(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %6, label %tvb_offset_from_real_beginning_counter.exit
@@ -1672,7 +1672,7 @@ define ptr @tvb_memcpy(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 nound
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8
   %.not21 = icmp eq i32 %7, 0
   br i1 %.not21, label %8, label %9
@@ -1695,33 +1695,33 @@ define ptr @tvb_memcpy(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 nound
   br i1 %14, label %15, label %28
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load i32, ptr %16, align 8
   %.not26.i.i = icmp ugt i32 %2, %17
   br i1 %.not26.i.i, label %18, label %44
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %20 = load i32, ptr %19, align 8
   %.not27.i.i = icmp ugt i32 %2, %20
   br i1 %.not27.i.i, label %21, label %60
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %0, i64 20
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %23 = load i32, ptr %22, align 4
   %24 = and i32 %23, 1
   %.not28.i.i = icmp eq i32 %24, 0
   br i1 %.not28.i.i, label %25, label %60
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %0, i64 44
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %27 = load i32, ptr %26, align 4
   %.not29.i.i = icmp ugt i32 %2, %27
   br label %.sink.split
 
 28:                                               ; preds = %12
   %29 = sub i32 0, %2
-  %30 = getelementptr inbounds i8, ptr %0, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %31 = load i32, ptr %30, align 8
   %.not.i.i = icmp ult i32 %31, %29
   br i1 %.not.i.i, label %34, label %32
@@ -1731,20 +1731,20 @@ define ptr @tvb_memcpy(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 nound
   br label %44
 
 34:                                               ; preds = %28
-  %35 = getelementptr inbounds i8, ptr %0, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %36 = load i32, ptr %35, align 8
   %.not23.i.i = icmp ult i32 %36, %29
   br i1 %.not23.i.i, label %37, label %60
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %0, i64 20
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %39 = load i32, ptr %38, align 4
   %40 = and i32 %39, 1
   %.not24.i.i = icmp eq i32 %40, 0
   br i1 %.not24.i.i, label %41, label %60
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %0, i64 44
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %43 = load i32, ptr %42, align 4
   %.not25.i.i = icmp ult i32 %43, %29
   br label %.sink.split
@@ -1761,20 +1761,20 @@ define ptr @tvb_memcpy(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 nound
   br i1 %.not.i27.i, label %50, label %check_offset_length.exit
 
 50:                                               ; preds = %49
-  %51 = getelementptr inbounds i8, ptr %0, i64 48
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %52 = load i32, ptr %51, align 8
   %.not8.i.i = icmp ugt i32 %47, %52
   br i1 %.not8.i.i, label %53, label %60
 
 53:                                               ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %0, i64 20
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %55 = load i32, ptr %54, align 4
   %56 = and i32 %55, 1
   %.not9.i.i = icmp eq i32 %56, 0
   br i1 %.not9.i.i, label %57, label %60
 
 57:                                               ; preds = %53
-  %58 = getelementptr inbounds i8, ptr %0, i64 44
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %59 = load i32, ptr %58, align 4
   %.not10.i.i = icmp ugt i32 %47, %59
   br label %.sink.split
@@ -1794,7 +1794,7 @@ check_offset_length.exit:                         ; preds = %49
   br i1 %.not22, label %.critedge, label %61
 
 61:                                               ; preds = %check_offset_length.exit
-  %62 = getelementptr inbounds i8, ptr %0, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %63 = load ptr, ptr %62, align 8
   %.not23 = icmp eq ptr %63, null
   br i1 %.not23, label %67, label %64
@@ -1806,9 +1806,9 @@ check_offset_length.exit:                         ; preds = %49
   br label %75
 
 67:                                               ; preds = %61
-  %68 = getelementptr inbounds i8, ptr %0, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 32
   %71 = load ptr, ptr %70, align 8
   %.not24 = icmp eq ptr %71, null
   br i1 %.not24, label %.critedge, label %72
@@ -1839,7 +1839,7 @@ define ptr @tvb_memdup(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 nound
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i32, ptr %6, align 8
   %.not10 = icmp eq i32 %7, 0
   br i1 %.not10, label %8, label %9
@@ -1854,33 +1854,33 @@ define ptr @tvb_memdup(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 nound
   br i1 %11, label %12, label %25
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %1, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %14 = load i32, ptr %13, align 8
   %.not26.i.i = icmp ugt i32 %2, %14
   br i1 %.not26.i.i, label %15, label %41
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %1, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %17 = load i32, ptr %16, align 8
   %.not27.i.i = icmp ugt i32 %2, %17
   br i1 %.not27.i.i, label %18, label %61
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %1, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %20 = load i32, ptr %19, align 4
   %21 = and i32 %20, 1
   %.not28.i.i = icmp eq i32 %21, 0
   br i1 %.not28.i.i, label %22, label %61
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %1, i64 44
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %24 = load i32, ptr %23, align 4
   %.not29.i.i = icmp ugt i32 %2, %24
   br label %.sink.split
 
 25:                                               ; preds = %9
   %26 = sub i32 0, %2
-  %27 = getelementptr inbounds i8, ptr %1, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %28 = load i32, ptr %27, align 8
   %.not.i.i = icmp ult i32 %28, %26
   br i1 %.not.i.i, label %31, label %29
@@ -1890,20 +1890,20 @@ define ptr @tvb_memdup(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 nound
   br label %41
 
 31:                                               ; preds = %25
-  %32 = getelementptr inbounds i8, ptr %1, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %33 = load i32, ptr %32, align 8
   %.not23.i.i = icmp ult i32 %33, %26
   br i1 %.not23.i.i, label %34, label %61
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %1, i64 20
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %36 = load i32, ptr %35, align 4
   %37 = and i32 %36, 1
   %.not24.i.i = icmp eq i32 %37, 0
   br i1 %.not24.i.i, label %38, label %61
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %1, i64 44
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %40 = load i32, ptr %39, align 4
   %.not25.i.i = icmp ult i32 %40, %26
   br label %.sink.split
@@ -1927,20 +1927,20 @@ define ptr @tvb_memdup(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 nound
   br i1 %.not.i27.i, label %51, label %check_offset_length.exit
 
 51:                                               ; preds = %50
-  %52 = getelementptr inbounds i8, ptr %1, i64 48
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %53 = load i32, ptr %52, align 8
   %.not8.i.i = icmp ugt i32 %48, %53
   br i1 %.not8.i.i, label %54, label %61
 
 54:                                               ; preds = %51
-  %55 = getelementptr inbounds i8, ptr %1, i64 20
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %56 = load i32, ptr %55, align 4
   %57 = and i32 %56, 1
   %.not9.i.i = icmp eq i32 %57, 0
   br i1 %.not9.i.i, label %58, label %61
 
 58:                                               ; preds = %54
-  %59 = getelementptr inbounds i8, ptr %1, i64 44
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %60 = load i32, ptr %59, align 4
   %.not10.i.i = icmp ugt i32 %48, %60
   br label %.sink.split
@@ -2016,7 +2016,7 @@ define internal fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8
   %.not25 = icmp eq i32 %7, 0
   br i1 %.not25, label %8, label %9
@@ -2030,7 +2030,7 @@ define internal fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %
   br i1 %10, label %14, label %11
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8
   %.not26 = icmp eq ptr %13, null
   br i1 %.not26, label %14, label %23
@@ -2062,7 +2062,7 @@ ensure_contiguous.exit:                           ; preds = %14
 
 23:                                               ; preds = %11
   %24 = add nuw i32 %2, %1
-  %25 = getelementptr inbounds i8, ptr %0, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load i32, ptr %25, align 8
   %.not27 = icmp ugt i32 %24, %26
   br i1 %.not27, label %30, label %27
@@ -2073,7 +2073,7 @@ ensure_contiguous.exit:                           ; preds = %14
   br label %44
 
 30:                                               ; preds = %23
-  %31 = getelementptr inbounds i8, ptr %0, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %32 = load i32, ptr %31, align 8
   %.not28 = icmp ugt i32 %24, %32
   br i1 %.not28, label %34, label %33
@@ -2083,7 +2083,7 @@ ensure_contiguous.exit:                           ; preds = %14
   unreachable
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %0, i64 20
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %36 = load i32, ptr %35, align 4
   %37 = and i32 %36, 1
   %.not29 = icmp eq i32 %37, 0
@@ -2094,7 +2094,7 @@ ensure_contiguous.exit:                           ; preds = %14
   unreachable
 
 39:                                               ; preds = %34
-  %40 = getelementptr inbounds i8, ptr %0, i64 44
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %41 = load i32, ptr %40, align 4
   %.not30 = icmp ugt i32 %24, %41
   br i1 %.not30, label %43, label %42
@@ -3580,7 +3580,7 @@ validate_single_byte_ascii_encoding.exit:         ; preds = %6
   br i1 %.not27, label %32, label %22
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %4, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %24 = load i32, ptr %23, align 8
   %.not28 = icmp eq i32 %24, 0
   %brmerge = or i1 %.not, %.not28
@@ -3625,7 +3625,7 @@ define internal fastcc noundef ptr @tvb_get_raw_string(ptr noundef %0, i32 nound
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = sub i32 %13, %1
   br label %15
@@ -3714,19 +3714,19 @@ validate_single_byte_ascii_encoding.exit:         ; preds = %6
 
 34:                                               ; preds = %30
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %8, i8 0, i64 56, i1 false)
-  %35 = getelementptr inbounds i8, ptr %8, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i32 -1, ptr %35, align 8
   store i64 0, ptr %4, align 8
-  %36 = getelementptr inbounds i8, ptr %4, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %36, align 8
   %37 = and i32 %3, 65536
   %.not101 = icmp eq i32 %37, 0
   br i1 %.not101, label %54, label %38
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %8, i64 20
-  %40 = getelementptr inbounds i8, ptr %8, i64 16
-  %41 = getelementptr inbounds i8, ptr %8, i64 12
+  %39 = getelementptr inbounds nuw i8, ptr %8, i64 20
+  %40 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %42 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.081, ptr noundef nonnull @.str.12, ptr noundef nonnull %39, ptr noundef nonnull %40, ptr noundef nonnull %41, ptr noundef nonnull %7) #17
   %43 = icmp sgt i32 %42, 2
   br i1 %43, label %44, label %parse_month_name.exit.thread
@@ -3753,8 +3753,8 @@ validate_single_byte_ascii_encoding.exit:         ; preds = %6
   br i1 %.not102, label %81, label %56
 
 56:                                               ; preds = %54
-  %57 = getelementptr inbounds i8, ptr %8, i64 8
-  %58 = getelementptr inbounds i8, ptr %8, i64 4
+  %57 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %59 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.081, ptr noundef nonnull @.str.13, ptr noundef nonnull %57, ptr noundef nonnull %58, ptr noundef nonnull %8, ptr noundef nonnull %7) #17
   %60 = icmp sgt i32 %59, 1
   br i1 %60, label %61, label %parse_month_name.exit.thread
@@ -3767,28 +3767,28 @@ validate_single_byte_ascii_encoding.exit:         ; preds = %6
   br i1 %.not110, label %73, label %64
 
 64:                                               ; preds = %61
-  %65 = getelementptr inbounds i8, ptr %63, i64 20
+  %65 = getelementptr inbounds nuw i8, ptr %63, i64 20
   %66 = load i32, ptr %65, align 4
-  %67 = getelementptr inbounds i8, ptr %8, i64 20
+  %67 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i32 %66, ptr %67, align 4
-  %68 = getelementptr inbounds i8, ptr %63, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %69 = load i32, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %8, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 %69, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %63, i64 12
+  %71 = getelementptr inbounds nuw i8, ptr %63, i64 12
   %72 = load i32, ptr %71, align 4
   br label %76
 
 73:                                               ; preds = %61
-  %74 = getelementptr inbounds i8, ptr %8, i64 20
+  %74 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i32 69, ptr %74, align 4
-  %75 = getelementptr inbounds i8, ptr %8, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 12, ptr %75, align 8
   br label %76
 
 76:                                               ; preds = %73, %64
   %.sink = phi i32 [ 31, %73 ], [ %72, %64 ]
-  %77 = getelementptr inbounds i8, ptr %8, i64 12
+  %77 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 %.sink, ptr %77, align 4
   %78 = load i32, ptr %7, align 4
   %79 = sext i32 %78 to i64
@@ -3841,13 +3841,13 @@ validate_single_byte_ascii_encoding.exit:         ; preds = %6
 108:                                              ; preds = %104, %97, %90, %83
   %.182 = phi ptr [ %.081, %97 ], [ %.081, %90 ], [ %.081, %83 ], [ %spec.select, %104 ]
   store i32 0, ptr %10, align 4
-  %109 = getelementptr inbounds i8, ptr %8, i64 12
+  %109 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %110 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.182, ptr noundef nonnull @.str.14, ptr noundef nonnull %109, ptr noundef nonnull %10, ptr noundef nonnull %7) #17
   %111 = icmp slt i32 %110, 2
   br i1 %111, label %parse_month_name.exit.thread, label %112
 
 112:                                              ; preds = %108
-  %113 = getelementptr inbounds i8, ptr %8, i64 16
+  %113 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %rhsv = load i32, ptr %10, align 4
   br label %114
 
@@ -3923,7 +3923,7 @@ validate_single_byte_ascii_encoding.exit:         ; preds = %6
 ._crit_edge:                                      ; preds = %._crit_edge.sink.split, %135
   %139 = phi i32 [ %.pre, %135 ], [ %138, %._crit_edge.sink.split ]
   %140 = add i32 %139, -1900
-  %141 = getelementptr inbounds i8, ptr %8, i64 20
+  %141 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i32 %140, ptr %141, align 4
   br label %142
 
@@ -3940,8 +3940,8 @@ validate_single_byte_ascii_encoding.exit:         ; preds = %6
   br label %142, !llvm.loop !14
 
 145:                                              ; preds = %142
-  %146 = getelementptr inbounds i8, ptr %8, i64 8
-  %147 = getelementptr inbounds i8, ptr %8, i64 4
+  %146 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %147 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %148 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.3, ptr noundef nonnull @.str.15, ptr noundef nonnull %146, ptr noundef nonnull %147, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %7) #17
   %149 = icmp slt i32 %148, 2
   br i1 %149, label %parse_month_name.exit.thread, label %150
@@ -4221,7 +4221,7 @@ ensure_contiguous.exit:                           ; preds = %3
   %33 = shl nuw i16 %32, 8
   %34 = zext i8 %.val11 to i16
   %35 = or disjoint i16 %33, %34
-  %36 = getelementptr inbounds i8, ptr %2, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i16 %35, ptr %36, align 4
   %37 = getelementptr i8, ptr %5, i64 6
   %.val = load i8, ptr %37, align 1
@@ -4231,9 +4231,9 @@ ensure_contiguous.exit:                           ; preds = %3
   %40 = shl nuw i16 %39, 8
   %41 = zext i8 %.val9 to i16
   %42 = or disjoint i16 %40, %41
-  %43 = getelementptr inbounds i8, ptr %2, i64 6
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 6
   store i16 %42, ptr %43, align 2
-  %44 = getelementptr inbounds i8, ptr %2, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %45 = getelementptr i8, ptr %5, i64 8
   %46 = load i64, ptr %45, align 1
   store i64 %46, ptr %44, align 4
@@ -4269,13 +4269,13 @@ ensure_contiguous.exit:                           ; preds = %3
   store i32 %13, ptr %2, align 4
   %14 = getelementptr i8, ptr %5, i64 4
   %.val10 = load i16, ptr %14, align 1
-  %15 = getelementptr inbounds i8, ptr %2, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i16 %.val10, ptr %15, align 4
   %16 = getelementptr i8, ptr %5, i64 6
   %.val = load i16, ptr %16, align 1
-  %17 = getelementptr inbounds i8, ptr %2, i64 6
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 6
   store i16 %.val, ptr %17, align 2
-  %18 = getelementptr inbounds i8, ptr %2, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %19 = getelementptr i8, ptr %5, i64 8
   %20 = load i64, ptr %19, align 1
   store i64 %20, ptr %18, align 4
@@ -4315,13 +4315,13 @@ tvb_get_letohguid.exit:                           ; preds = %6
   store i32 %15, ptr %2, align 4
   %16 = getelementptr i8, ptr %7, i64 4
   %.val10.i = load i16, ptr %16, align 1
-  %17 = getelementptr inbounds i8, ptr %2, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i16 %.val10.i, ptr %17, align 4
   %18 = getelementptr i8, ptr %7, i64 6
   %.val.i = load i16, ptr %18, align 1
-  %19 = getelementptr inbounds i8, ptr %2, i64 6
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 6
   store i16 %.val.i, ptr %19, align 2
-  %20 = getelementptr inbounds i8, ptr %2, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %21 = getelementptr i8, ptr %7, i64 8
   %22 = load i64, ptr %21, align 1
   store i64 %22, ptr %20, align 4
@@ -4355,7 +4355,7 @@ define ptr @tvb_get_bits_array(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
   br i1 %.not.i, label %16, label %13
 
 13:                                               ; preds = %12
-  %14 = getelementptr inbounds i8, ptr %.0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %15 = load i32, ptr %14, align 8
   %.not3.i = icmp eq i32 %15, 0
   br i1 %.not3.i, label %16, label %tvb_reported_length.exit
@@ -4365,7 +4365,7 @@ define ptr @tvb_get_bits_array(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
   unreachable
 
 tvb_reported_length.exit:                         ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %.0, i64 44
+  %17 = getelementptr inbounds nuw i8, ptr %.0, i64 44
   %18 = load i32, ptr %17, align 4
   %19 = zext i32 %18 to i64
   store i64 %19, ptr %4, align 8
@@ -4698,7 +4698,7 @@ define i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %1, i32 noundef %2, i8 n
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8
   %.not28 = icmp eq i32 %8, 0
   br i1 %.not28, label %9, label %10
@@ -4712,33 +4712,33 @@ define i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %1, i32 noundef %2, i8 n
   br i1 %11, label %12, label %25
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load i32, ptr %13, align 8
   %.not26.i.i = icmp ugt i32 %1, %14
   br i1 %.not26.i.i, label %15, label %42
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %0, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %17 = load i32, ptr %16, align 8
   %.not27.i.i = icmp ugt i32 %1, %17
   br i1 %.not27.i.i, label %18, label %41
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %20 = load i32, ptr %19, align 4
   %21 = and i32 %20, 1
   %.not28.i.i = icmp eq i32 %21, 0
   br i1 %.not28.i.i, label %22, label %41
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %0, i64 44
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %24 = load i32, ptr %23, align 4
   %.not29.i.i = icmp ugt i32 %1, %24
   br label %.sink.split
 
 25:                                               ; preds = %10
   %26 = sub i32 0, %1
-  %27 = getelementptr inbounds i8, ptr %0, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %28 = load i32, ptr %27, align 8
   %.not.i.i = icmp ult i32 %28, %26
   br i1 %.not.i.i, label %31, label %29
@@ -4748,20 +4748,20 @@ define i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %1, i32 noundef %2, i8 n
   br label %42
 
 31:                                               ; preds = %25
-  %32 = getelementptr inbounds i8, ptr %0, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %33 = load i32, ptr %32, align 8
   %.not23.i.i = icmp ult i32 %33, %26
   br i1 %.not23.i.i, label %34, label %41
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %0, i64 20
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %36 = load i32, ptr %35, align 4
   %37 = and i32 %36, 1
   %.not24.i.i = icmp eq i32 %37, 0
   br i1 %.not24.i.i, label %38, label %41
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %0, i64 44
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %40 = load i32, ptr %39, align 4
   %.not25.i.i = icmp ult i32 %40, %26
   br label %.sink.split
@@ -4783,7 +4783,7 @@ define i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %1, i32 noundef %2, i8 n
   %45 = tail call i32 @llvm.umin.i32(i32 %44, i32 %2)
   %46 = icmp slt i32 %2, 0
   %spec.select = select i1 %46, i32 %44, i32 %45
-  %47 = getelementptr inbounds i8, ptr %0, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %48 = load ptr, ptr %47, align 8
   %.not30 = icmp eq ptr %48, null
   br i1 %.not30, label %61, label %49
@@ -4805,9 +4805,9 @@ define i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %1, i32 noundef %2, i8 n
   br label %tvb_find_guint8_generic.exit
 
 61:                                               ; preds = %42
-  %62 = getelementptr inbounds i8, ptr %0, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 40
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 40
   %65 = load ptr, ptr %64, align 8
   %.not31 = icmp eq ptr %65, null
   br i1 %.not31, label %68, label %66
@@ -4872,33 +4872,33 @@ define i32 @tvb_find_guint16(ptr noundef %0, i32 noundef %1, i32 noundef %2, i16
   br i1 %5, label %6, label %19
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i32, ptr %7, align 8
   %.not26.i.i = icmp ugt i32 %1, %8
   br i1 %.not26.i.i, label %9, label %36
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load i32, ptr %10, align 8
   %.not27.i.i = icmp ugt i32 %1, %11
   br i1 %.not27.i.i, label %12, label %35
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load i32, ptr %13, align 4
   %15 = and i32 %14, 1
   %.not28.i.i = icmp eq i32 %15, 0
   br i1 %.not28.i.i, label %16, label %35
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %0, i64 44
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %18 = load i32, ptr %17, align 4
   %.not29.i.i = icmp ugt i32 %1, %18
   br label %.sink.split
 
 19:                                               ; preds = %4
   %20 = sub i32 0, %1
-  %21 = getelementptr inbounds i8, ptr %0, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = load i32, ptr %21, align 8
   %.not.i.i = icmp ult i32 %22, %20
   br i1 %.not.i.i, label %25, label %23
@@ -4908,20 +4908,20 @@ define i32 @tvb_find_guint16(ptr noundef %0, i32 noundef %1, i32 noundef %2, i16
   br label %36
 
 25:                                               ; preds = %19
-  %26 = getelementptr inbounds i8, ptr %0, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %27 = load i32, ptr %26, align 8
   %.not23.i.i = icmp ult i32 %27, %20
   br i1 %.not23.i.i, label %28, label %35
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %0, i64 20
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %30 = load i32, ptr %29, align 4
   %31 = and i32 %30, 1
   %.not24.i.i = icmp eq i32 %31, 0
   br i1 %.not24.i.i, label %32, label %35
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %0, i64 44
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %34 = load i32, ptr %33, align 4
   %.not25.i.i = icmp ult i32 %34, %20
   br label %.sink.split
@@ -4990,7 +4990,7 @@ define i32 @tvb_ws_mempbrk_pattern_guint8(ptr noundef %0, i32 noundef %1, i32 no
   br i1 %.not, label %10, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8
   %.not29 = icmp eq i32 %9, 0
   br i1 %.not29, label %10, label %11
@@ -5004,33 +5004,33 @@ define i32 @tvb_ws_mempbrk_pattern_guint8(ptr noundef %0, i32 noundef %1, i32 no
   br i1 %12, label %13, label %26
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load i32, ptr %14, align 8
   %.not26.i.i = icmp ugt i32 %1, %15
   br i1 %.not26.i.i, label %16, label %43
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %0, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %18 = load i32, ptr %17, align 8
   %.not27.i.i = icmp ugt i32 %1, %18
   br i1 %.not27.i.i, label %19, label %42
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %0, i64 20
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %21 = load i32, ptr %20, align 4
   %22 = and i32 %21, 1
   %.not28.i.i = icmp eq i32 %22, 0
   br i1 %.not28.i.i, label %23, label %42
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %0, i64 44
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %25 = load i32, ptr %24, align 4
   %.not29.i.i = icmp ugt i32 %1, %25
   br label %.sink.split
 
 26:                                               ; preds = %11
   %27 = sub i32 0, %1
-  %28 = getelementptr inbounds i8, ptr %0, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %29 = load i32, ptr %28, align 8
   %.not.i.i = icmp ult i32 %29, %27
   br i1 %.not.i.i, label %32, label %30
@@ -5040,20 +5040,20 @@ define i32 @tvb_ws_mempbrk_pattern_guint8(ptr noundef %0, i32 noundef %1, i32 no
   br label %43
 
 32:                                               ; preds = %26
-  %33 = getelementptr inbounds i8, ptr %0, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %34 = load i32, ptr %33, align 8
   %.not23.i.i = icmp ult i32 %34, %27
   br i1 %.not23.i.i, label %35, label %42
 
 35:                                               ; preds = %32
-  %36 = getelementptr inbounds i8, ptr %0, i64 20
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %37 = load i32, ptr %36, align 4
   %38 = and i32 %37, 1
   %.not24.i.i = icmp eq i32 %38, 0
   br i1 %.not24.i.i, label %39, label %42
 
 39:                                               ; preds = %35
-  %40 = getelementptr inbounds i8, ptr %0, i64 44
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %41 = load i32, ptr %40, align 4
   %.not25.i.i = icmp ult i32 %41, %27
   br label %.sink.split
@@ -5073,7 +5073,7 @@ define i32 @tvb_ws_mempbrk_pattern_guint8(ptr noundef %0, i32 noundef %1, i32 no
   %storemerge.i.i = phi i32 [ %31, %30 ], [ %1, %13 ]
   %45 = sub i32 %44, %storemerge.i.i
   %spec.select = tail call i32 @llvm.umin.i32(i32 %45, i32 %2)
-  %46 = getelementptr inbounds i8, ptr %0, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %47 = load ptr, ptr %46, align 8
   %.not31 = icmp eq ptr %47, null
   br i1 %.not31, label %60, label %48
@@ -5095,9 +5095,9 @@ define i32 @tvb_ws_mempbrk_pattern_guint8(ptr noundef %0, i32 noundef %1, i32 no
   br label %tvb_ws_mempbrk_guint8_generic.exit
 
 60:                                               ; preds = %43
-  %61 = getelementptr inbounds i8, ptr %0, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 48
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 48
   %64 = load ptr, ptr %63, align 8
   %.not32 = icmp eq ptr %64, null
   br i1 %.not32, label %67, label %65
@@ -5160,7 +5160,7 @@ define i32 @tvb_strsize(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br i1 %.not, label %6, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %.not13 = icmp eq i32 %5, 0
   br i1 %.not13, label %6, label %7
@@ -5174,33 +5174,33 @@ define i32 @tvb_strsize(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br i1 %8, label %9, label %22
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load i32, ptr %10, align 8
   %.not26.i.i = icmp ugt i32 %1, %11
   br i1 %.not26.i.i, label %12, label %38
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %14 = load i32, ptr %13, align 8
   %.not27.i.i = icmp ugt i32 %1, %14
   br i1 %.not27.i.i, label %15, label %52
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %0, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %17 = load i32, ptr %16, align 4
   %18 = and i32 %17, 1
   %.not28.i.i = icmp eq i32 %18, 0
   br i1 %.not28.i.i, label %19, label %52
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %0, i64 44
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %21 = load i32, ptr %20, align 4
   %.not29.i.i = icmp ugt i32 %1, %21
   br label %.sink.split
 
 22:                                               ; preds = %7
   %23 = sub i32 0, %1
-  %24 = getelementptr inbounds i8, ptr %0, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %25 = load i32, ptr %24, align 8
   %.not.i.i = icmp ult i32 %25, %23
   br i1 %.not.i.i, label %28, label %26
@@ -5210,20 +5210,20 @@ define i32 @tvb_strsize(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br label %38
 
 28:                                               ; preds = %22
-  %29 = getelementptr inbounds i8, ptr %0, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %30 = load i32, ptr %29, align 8
   %.not23.i.i = icmp ult i32 %30, %23
   br i1 %.not23.i.i, label %31, label %52
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %0, i64 20
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %33 = load i32, ptr %32, align 4
   %34 = and i32 %33, 1
   %.not24.i.i = icmp eq i32 %34, 0
   br i1 %.not24.i.i, label %35, label %52
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %0, i64 44
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %37 = load i32, ptr %36, align 4
   %.not25.i.i = icmp ult i32 %37, %23
   br label %.sink.split
@@ -5231,25 +5231,25 @@ define i32 @tvb_strsize(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 38:                                               ; preds = %26, %9
   %39 = phi i32 [ %25, %26 ], [ %11, %9 ]
   %40 = phi i32 [ %27, %26 ], [ %1, %9 ]
-  %41 = getelementptr inbounds i8, ptr %0, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.not.i27.i = icmp ugt i32 %40, %39
   br i1 %.not.i27.i, label %42, label %check_offset_length.exit
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %0, i64 48
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %44 = load i32, ptr %43, align 8
   %.not8.i.i = icmp ugt i32 %40, %44
   br i1 %.not8.i.i, label %45, label %52
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %0, i64 20
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %47 = load i32, ptr %46, align 4
   %48 = and i32 %47, 1
   %.not9.i.i = icmp eq i32 %48, 0
   br i1 %.not9.i.i, label %49, label %52
 
 49:                                               ; preds = %45
-  %50 = getelementptr inbounds i8, ptr %0, i64 44
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %51 = load i32, ptr %50, align 4
   %.not10.i.i = icmp ugt i32 %40, %51
   br label %.sink.split
@@ -5271,7 +5271,7 @@ check_offset_length.exit:                         ; preds = %38
 
 55:                                               ; preds = %check_offset_length.exit
   %56 = load i32, ptr %41, align 8
-  %57 = getelementptr inbounds i8, ptr %0, i64 48
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %58 = load i32, ptr %57, align 8
   %59 = icmp ult i32 %56, %58
   br i1 %59, label %60, label %61
@@ -5281,7 +5281,7 @@ check_offset_length.exit:                         ; preds = %38
   unreachable
 
 61:                                               ; preds = %55
-  %62 = getelementptr inbounds i8, ptr %0, i64 20
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %63 = load i32, ptr %62, align 4
   %64 = and i32 %63, 1
   %.not14 = icmp eq i32 %64, 0
@@ -5292,7 +5292,7 @@ check_offset_length.exit:                         ; preds = %38
   unreachable
 
 66:                                               ; preds = %61
-  %67 = getelementptr inbounds i8, ptr %0, i64 44
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %68 = load i32, ptr %67, align 4
   %69 = icmp ult i32 %56, %68
   br i1 %69, label %70, label %71
@@ -5317,7 +5317,7 @@ define i32 @tvb_unicode_strsize(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   br i1 %.not, label %6, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %.not8 = icmp eq i32 %5, 0
   br i1 %.not8, label %6, label %.preheader
@@ -5351,7 +5351,7 @@ define i32 @tvb_strnlen(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_un
   br i1 %.not, label %7, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
   %.not10 = icmp eq i32 %6, 0
   br i1 %.not10, label %7, label %8
@@ -5365,33 +5365,33 @@ define i32 @tvb_strnlen(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_un
   br i1 %9, label %10, label %23
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load i32, ptr %11, align 8
   %.not26.i.i = icmp ugt i32 %1, %12
   br i1 %.not26.i.i, label %13, label %39
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load i32, ptr %14, align 8
   %.not27.i.i = icmp ugt i32 %1, %15
   br i1 %.not27.i.i, label %16, label %52
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %0, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, 1
   %.not28.i.i = icmp eq i32 %19, 0
   br i1 %.not28.i.i, label %20, label %52
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 44
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %22 = load i32, ptr %21, align 4
   %.not29.i.i = icmp ugt i32 %1, %22
   br label %.sink.split
 
 23:                                               ; preds = %8
   %24 = sub i32 0, %1
-  %25 = getelementptr inbounds i8, ptr %0, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load i32, ptr %25, align 8
   %.not.i.i = icmp ult i32 %26, %24
   br i1 %.not.i.i, label %29, label %27
@@ -5401,20 +5401,20 @@ define i32 @tvb_strnlen(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_un
   br label %39
 
 29:                                               ; preds = %23
-  %30 = getelementptr inbounds i8, ptr %0, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %31 = load i32, ptr %30, align 8
   %.not23.i.i = icmp ult i32 %31, %24
   br i1 %.not23.i.i, label %32, label %52
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %0, i64 20
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %34 = load i32, ptr %33, align 4
   %35 = and i32 %34, 1
   %.not24.i.i = icmp eq i32 %35, 0
   br i1 %.not24.i.i, label %36, label %52
 
 36:                                               ; preds = %32
-  %37 = getelementptr inbounds i8, ptr %0, i64 44
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %38 = load i32, ptr %37, align 4
   %.not25.i.i = icmp ult i32 %38, %24
   br label %.sink.split
@@ -5426,20 +5426,20 @@ define i32 @tvb_strnlen(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_un
   br i1 %.not.i27.i, label %42, label %check_offset_length.exit
 
 42:                                               ; preds = %39
-  %43 = getelementptr inbounds i8, ptr %0, i64 48
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %44 = load i32, ptr %43, align 8
   %.not8.i.i = icmp ugt i32 %41, %44
   br i1 %.not8.i.i, label %45, label %52
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %0, i64 20
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %47 = load i32, ptr %46, align 4
   %48 = and i32 %47, 1
   %.not9.i.i = icmp eq i32 %48, 0
   br i1 %.not9.i.i, label %49, label %52
 
 49:                                               ; preds = %45
-  %50 = getelementptr inbounds i8, ptr %0, i64 44
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %51 = load i32, ptr %50, align 4
   %.not10.i.i = icmp ugt i32 %41, %51
   br label %.sink.split
@@ -5486,26 +5486,26 @@ define internal fastcc ptr @ensure_contiguous_no_exception(ptr noundef %0, i32 n
   br i1 %5, label %6, label %19
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i32, ptr %7, align 8
   %.not26.i.i = icmp ugt i32 %1, %8
   br i1 %.not26.i.i, label %9, label %35
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load i32, ptr %10, align 8
   %.not27.i.i = icmp ugt i32 %1, %11
   br i1 %.not27.i.i, label %12, label %55
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load i32, ptr %13, align 4
   %15 = and i32 %14, 1
   %.not28.i.i = icmp eq i32 %15, 0
   br i1 %.not28.i.i, label %16, label %55
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %0, i64 44
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %18 = load i32, ptr %17, align 4
   %.not29.i.i = icmp ugt i32 %1, %18
   %..i.i = select i1 %.not29.i.i, i32 3, i32 2
@@ -5513,7 +5513,7 @@ define internal fastcc ptr @ensure_contiguous_no_exception(ptr noundef %0, i32 n
 
 19:                                               ; preds = %4
   %20 = sub i32 0, %1
-  %21 = getelementptr inbounds i8, ptr %0, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = load i32, ptr %21, align 8
   %.not.i.i = icmp ult i32 %22, %20
   br i1 %.not.i.i, label %25, label %23
@@ -5523,20 +5523,20 @@ define internal fastcc ptr @ensure_contiguous_no_exception(ptr noundef %0, i32 n
   br label %35
 
 25:                                               ; preds = %19
-  %26 = getelementptr inbounds i8, ptr %0, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %27 = load i32, ptr %26, align 8
   %.not23.i.i = icmp ult i32 %27, %20
   br i1 %.not23.i.i, label %28, label %55
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %0, i64 20
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %30 = load i32, ptr %29, align 4
   %31 = and i32 %30, 1
   %.not24.i.i = icmp eq i32 %31, 0
   br i1 %.not24.i.i, label %32, label %55
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %0, i64 44
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %34 = load i32, ptr %33, align 4
   %.not25.i.i = icmp ult i32 %34, %20
   %.30.i.i = select i1 %.not25.i.i, i32 3, i32 2
@@ -5561,20 +5561,20 @@ define internal fastcc ptr @ensure_contiguous_no_exception(ptr noundef %0, i32 n
   br i1 %.not.i27.i, label %45, label %check_offset_length_no_exception.exit
 
 45:                                               ; preds = %44
-  %46 = getelementptr inbounds i8, ptr %0, i64 48
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %47 = load i32, ptr %46, align 8
   %.not8.i.i = icmp ugt i32 %42, %47
   br i1 %.not8.i.i, label %48, label %55
 
 48:                                               ; preds = %45
-  %49 = getelementptr inbounds i8, ptr %0, i64 20
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %50 = load i32, ptr %49, align 4
   %51 = and i32 %50, 1
   %.not9.i.i = icmp eq i32 %51, 0
   br i1 %.not9.i.i, label %52, label %55
 
 52:                                               ; preds = %48
-  %53 = getelementptr inbounds i8, ptr %0, i64 44
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %54 = load i32, ptr %53, align 4
   %.not10.i.i = icmp ugt i32 %42, %54
   %..i29.i = select i1 %.not10.i.i, i32 3, i32 2
@@ -5594,7 +5594,7 @@ check_offset_length_no_exception.exit:            ; preds = %44
   br i1 %57, label %72, label %58
 
 58:                                               ; preds = %check_offset_length_no_exception.exit
-  %59 = getelementptr inbounds i8, ptr %0, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %60 = load ptr, ptr %59, align 8
   %.not17 = icmp eq ptr %60, null
   br i1 %.not17, label %64, label %61
@@ -5605,9 +5605,9 @@ check_offset_length_no_exception.exit:            ; preds = %44
   br label %72
 
 64:                                               ; preds = %58
-  %65 = getelementptr inbounds i8, ptr %0, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 24
   %68 = load ptr, ptr %67, align 8
   %.not18 = icmp eq ptr %68, null
   br i1 %.not18, label %71, label %69
@@ -5849,7 +5849,7 @@ define ptr @tvb_get_ts_23_038_7bits_string_packed(ptr noundef %0, ptr noundef %1
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i32, ptr %7, align 8
   %.not11 = icmp eq i32 %8, 0
   br i1 %.not11, label %9, label %10
@@ -5902,7 +5902,7 @@ define ptr @tvb_get_ts_23_038_7bits_string_unpacked(ptr noundef %0, ptr noundef 
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i32, ptr %7, align 8
   %.not7 = icmp eq i32 %8, 0
   br i1 %.not7, label %9, label %10
@@ -5949,7 +5949,7 @@ define ptr @tvb_get_etsi_ts_102_221_annex_a_string(ptr noundef %0, ptr noundef %
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i32, ptr %7, align 8
   %.not7 = icmp eq i32 %8, 0
   br i1 %.not7, label %9, label %10
@@ -5996,7 +5996,7 @@ define ptr @tvb_get_ascii_7bits_string(ptr noundef %0, ptr noundef %1, i32 nound
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i32, ptr %7, align 8
   %.not11 = icmp eq i32 %8, 0
   br i1 %.not11, label %9, label %10
@@ -6084,7 +6084,7 @@ define ptr @tvb_get_string_enc(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
   br i1 %.not, label %45, label %42
 
 42:                                               ; preds = %5
-  %43 = getelementptr inbounds i8, ptr %1, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %44 = load i32, ptr %43, align 8
   %.not208 = icmp eq i32 %44, 0
   br i1 %.not208, label %45, label %46
@@ -7291,7 +7291,7 @@ define ptr @tvb_get_bcd_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
   br i1 %.not, label %13, label %10
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i32, ptr %11, align 8
   %.not53 = icmp eq i32 %12, 0
   br i1 %.not53, label %13, label %14
@@ -7305,7 +7305,7 @@ define ptr @tvb_get_bcd_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
   br i1 %15, label %16, label %22
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %1, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %18 = load i32, ptr %17, align 8
   %19 = icmp slt i32 %18, %2
   br i1 %19, label %131, label %20
@@ -7613,7 +7613,7 @@ define ptr @tvb_get_stringz_enc(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   br i1 %.not, label %44, label %41
 
 41:                                               ; preds = %5
-  %42 = getelementptr inbounds i8, ptr %1, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %43 = load i32, ptr %42, align 8
   %.not147 = icmp eq i32 %43, 0
   br i1 %.not147, label %44, label %45
@@ -9035,7 +9035,7 @@ define range(i32 0, -1) i32 @tvb_get_raw_bytes_as_stringz(ptr noundef %0, i32 no
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8
   %.not12 = icmp eq i32 %7, 0
   br i1 %.not12, label %8, label %9
@@ -9049,33 +9049,33 @@ define range(i32 0, -1) i32 @tvb_get_raw_bytes_as_stringz(ptr noundef %0, i32 no
   br i1 %10, label %11, label %24
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load i32, ptr %12, align 8
   %.not26.i.i.i = icmp ugt i32 %1, %13
   br i1 %.not26.i.i.i, label %14, label %40
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = load i32, ptr %15, align 8
   %.not27.i.i.i = icmp ugt i32 %1, %16
   br i1 %.not27.i.i.i, label %17, label %45
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %0, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %19 = load i32, ptr %18, align 4
   %20 = and i32 %19, 1
   %.not28.i.i.i = icmp eq i32 %20, 0
   br i1 %.not28.i.i.i, label %21, label %45
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %0, i64 44
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %23 = load i32, ptr %22, align 4
   %.not29.i.i.i = icmp ugt i32 %1, %23
   br label %.sink.split.i
 
 24:                                               ; preds = %9
   %25 = sub i32 0, %1
-  %26 = getelementptr inbounds i8, ptr %0, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load i32, ptr %26, align 8
   %.not.i.i.i = icmp ult i32 %27, %25
   br i1 %.not.i.i.i, label %30, label %28
@@ -9085,20 +9085,20 @@ define range(i32 0, -1) i32 @tvb_get_raw_bytes_as_stringz(ptr noundef %0, i32 no
   br label %40
 
 30:                                               ; preds = %24
-  %31 = getelementptr inbounds i8, ptr %0, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %32 = load i32, ptr %31, align 8
   %.not23.i.i.i = icmp ult i32 %32, %25
   br i1 %.not23.i.i.i, label %33, label %45
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %0, i64 20
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %35 = load i32, ptr %34, align 4
   %36 = and i32 %35, 1
   %.not24.i.i.i = icmp eq i32 %36, 0
   br i1 %.not24.i.i.i, label %37, label %45
 
 37:                                               ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %0, i64 44
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %39 = load i32, ptr %38, align 4
   %.not25.i.i.i = icmp ult i32 %39, %25
   br label %.sink.split.i
@@ -9201,7 +9201,7 @@ define range(i32 0, 2147483647) i32 @tvb_get_raw_bytes_as_string(ptr noundef %0,
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8
   %.not24 = icmp eq i32 %7, 0
   br i1 %.not24, label %8, label %9
@@ -9231,14 +9231,14 @@ define range(i32 0, 2147483647) i32 @tvb_get_raw_bytes_as_string(ptr noundef %0,
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load i32, ptr %17, align 8
   %.not26.i.i.i = icmp ugt i32 %1, %18
   br i1 %.not26.i.i.i, label %tvb_captured_length_remaining.exit.thread, label %tvb_captured_length_remaining.exit
 
 19:                                               ; preds = %14
   %20 = sub i32 0, %1
-  %21 = getelementptr inbounds i8, ptr %0, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = load i32, ptr %21, align 8
   %.not.i.i.i = icmp ult i32 %22, %20
   br i1 %.not.i.i.i, label %tvb_captured_length_remaining.exit.thread, label %23
@@ -9309,14 +9309,14 @@ tvb_get_ptr.exit:                                 ; preds = %3
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %0, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %19 = load i32, ptr %18, align 8
   %.not26.i.i = icmp ugt i32 %1, %19
   br i1 %.not26.i.i, label %.lr.ph, label %26
 
 20:                                               ; preds = %15
   %21 = sub i32 0, %1
-  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load i32, ptr %22, align 8
   %.not.i.i = icmp ult i32 %23, %21
   br i1 %.not.i.i, label %.lr.ph, label %24
@@ -9398,14 +9398,14 @@ tvb_get_ptr.exit:                                 ; preds = %3
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %0, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %19 = load i32, ptr %18, align 8
   %.not26.i.i = icmp ugt i32 %1, %19
   br i1 %.not26.i.i, label %compute_offset_and_remaining.exit, label %26
 
 20:                                               ; preds = %15
   %21 = sub i32 0, %1
-  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load i32, ptr %22, align 8
   %.not.i.i = icmp ult i32 %23, %21
   br i1 %.not.i.i, label %compute_offset_and_remaining.exit, label %24
@@ -9464,14 +9464,14 @@ tvb_get_ptr.exit:                                 ; preds = %3
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %0, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %19 = load i32, ptr %18, align 8
   %.not26.i.i = icmp ugt i32 %1, %19
   br i1 %.not26.i.i, label %.lr.ph, label %26
 
 20:                                               ; preds = %15
   %21 = sub i32 0, %1
-  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load i32, ptr %22, align 8
   %.not.i.i = icmp ult i32 %23, %21
   br i1 %.not.i.i, label %.lr.ph, label %24
@@ -9526,7 +9526,7 @@ define i32 @tvb_find_line_end(ptr noundef %0, i32 noundef %1, i32 noundef %2, pt
   br i1 %.not, label %10, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8
   %.not37 = icmp eq i32 %9, 0
   br i1 %.not37, label %10, label %11
@@ -9544,14 +9544,14 @@ define i32 @tvb_find_line_end(ptr noundef %0, i32 noundef %1, i32 noundef %2, pt
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load i32, ptr %16, align 8
   %.not26.i.i.i = icmp ugt i32 %1, %17
   br i1 %.not26.i.i.i, label %_tvb_captured_length_remaining.exit, label %24
 
 18:                                               ; preds = %13
   %19 = sub i32 0, %1
-  %20 = getelementptr inbounds i8, ptr %0, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %21 = load i32, ptr %20, align 8
   %.not.i.i.i = icmp ult i32 %21, %19
   br i1 %.not.i.i.i, label %_tvb_captured_length_remaining.exit, label %22
@@ -9642,7 +9642,7 @@ define i32 @tvb_find_line_end_unquoted(ptr noundef %0, i32 noundef %1, i32 nound
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8
   %.not53 = icmp eq i32 %8, 0
   br i1 %.not53, label %9, label %10
@@ -9660,14 +9660,14 @@ define i32 @tvb_find_line_end_unquoted(ptr noundef %0, i32 noundef %1, i32 nound
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load i32, ptr %15, align 8
   %.not26.i.i.i = icmp ugt i32 %1, %16
   br i1 %.not26.i.i.i, label %_tvb_captured_length_remaining.exit, label %23
 
 17:                                               ; preds = %12
   %18 = sub i32 0, %1
-  %19 = getelementptr inbounds i8, ptr %0, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %20 = load i32, ptr %19, align 8
   %.not.i.i.i = icmp ult i32 %20, %18
   br i1 %.not.i.i.i, label %_tvb_captured_length_remaining.exit, label %21
@@ -9775,7 +9775,7 @@ define i32 @tvb_skip_wsp(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_u
   br i1 %.not, label %7, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
   %.not31 = icmp eq i32 %6, 0
   br i1 %.not31, label %7, label %8
@@ -9785,7 +9785,7 @@ define i32 @tvb_skip_wsp(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_u
   unreachable
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load i32, ptr %9, align 8
   %11 = add i32 %2, %1
   %spec.select = tail call i32 @llvm.smin.i32(i32 %11, i32 %10)
@@ -9819,7 +9819,7 @@ define noundef i32 @tvb_skip_wsp_return(ptr noundef %0, i32 noundef %1) local_un
   br i1 %.not, label %7, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %.not22 = icmp eq i32 %5, 0
   br i1 %.not22, label %7, label %.preheader
@@ -9860,7 +9860,7 @@ define hidden i32 @tvb_skip_guint8(ptr noundef %0, i32 noundef %1, i32 noundef %
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8
   %.not19 = icmp eq i32 %7, 0
   br i1 %.not19, label %8, label %9
@@ -9870,7 +9870,7 @@ define hidden i32 @tvb_skip_guint8(ptr noundef %0, i32 noundef %1, i32 noundef %
   unreachable
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load i32, ptr %10, align 8
   %12 = add i32 %2, %1
   %spec.select = tail call i32 @llvm.smin.i32(i32 %12, i32 %11)
@@ -9902,7 +9902,7 @@ define i32 @tvb_get_token_len(ptr noundef %0, i32 noundef %1, i32 noundef %2, pt
   br i1 %.not, label %10, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8
   %.not29 = icmp eq i32 %9, 0
   br i1 %.not29, label %10, label %11
@@ -9920,14 +9920,14 @@ define i32 @tvb_get_token_len(ptr noundef %0, i32 noundef %1, i32 noundef %2, pt
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load i32, ptr %16, align 8
   %.not26.i.i.i = icmp ugt i32 %1, %17
   br i1 %.not26.i.i.i, label %_tvb_captured_length_remaining.exit, label %24
 
 18:                                               ; preds = %13
   %19 = sub i32 0, %1
-  %20 = getelementptr inbounds i8, ptr %0, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %21 = load i32, ptr %20, align 8
   %.not.i.i.i = icmp ult i32 %21, %19
   br i1 %.not.i.i.i, label %_tvb_captured_length_remaining.exit, label %22
@@ -10084,13 +10084,13 @@ declare ptr @bytes_to_str_maxlen(ptr noundef, ptr noundef, i64 noundef, i64 noun
 
 ; Function Attrs: nounwind uwtable
 define i32 @tvb_find_tvb(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8
   %.not18 = icmp eq i32 %8, 0
   br i1 %.not18, label %9, label %10
@@ -10100,7 +10100,7 @@ define i32 @tvb_find_tvb(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_u
   unreachable
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, 0
   %14 = icmp eq i32 %5, 0
@@ -10108,15 +10108,15 @@ define i32 @tvb_find_tvb(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_u
   br i1 %or.cond, label %83, label %15
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load ptr, ptr %16, align 8
   %.not17.i = icmp eq ptr %17, null
   br i1 %.not17.i, label %18, label %ensure_contiguous.exit
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load ptr, ptr %21, align 8
   %.not18.i = icmp eq ptr %22, null
   br i1 %.not18.i, label %23, label %ensure_contiguous_no_exception.exit
@@ -10141,15 +10141,15 @@ ensure_contiguous_no_exception.exit.ensure_contiguous.exit_crit_edge: ; preds = 
 ensure_contiguous.exit:                           ; preds = %ensure_contiguous_no_exception.exit.ensure_contiguous.exit_crit_edge, %15
   %27 = phi i32 [ %.pre, %ensure_contiguous_no_exception.exit.ensure_contiguous.exit_crit_edge ], [ %5, %15 ]
   %.0.i34 = phi ptr [ %24, %ensure_contiguous_no_exception.exit.ensure_contiguous.exit_crit_edge ], [ %17, %15 ]
-  %28 = getelementptr inbounds i8, ptr %1, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %29 = load ptr, ptr %28, align 8
   %.not17.i21 = icmp eq ptr %29, null
   br i1 %.not17.i21, label %30, label %ensure_contiguous.exit20
 
 30:                                               ; preds = %ensure_contiguous.exit
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   %.not18.i23 = icmp eq ptr %34, null
   br i1 %.not18.i23, label %35, label %ensure_contiguous_no_exception.exit24
@@ -10178,20 +10178,20 @@ ensure_contiguous.exit20:                         ; preds = %ensure_contiguous.e
   br i1 %.not26.i.i, label %42, label %67
 
 42:                                               ; preds = %40
-  %43 = getelementptr inbounds i8, ptr %0, i64 48
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %44 = load i32, ptr %43, align 8
   %.not27.i.i = icmp ugt i32 %2, %44
   br i1 %.not27.i.i, label %45, label %71
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %0, i64 20
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %47 = load i32, ptr %46, align 4
   %48 = and i32 %47, 1
   %.not28.i.i = icmp eq i32 %48, 0
   br i1 %.not28.i.i, label %49, label %71
 
 49:                                               ; preds = %45
-  %50 = getelementptr inbounds i8, ptr %0, i64 44
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %51 = load i32, ptr %50, align 4
   %.not29.i.i = icmp ugt i32 %2, %51
   br label %.sink.split
@@ -10207,20 +10207,20 @@ ensure_contiguous.exit20:                         ; preds = %ensure_contiguous.e
   br label %67
 
 57:                                               ; preds = %52
-  %58 = getelementptr inbounds i8, ptr %0, i64 48
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %59 = load i32, ptr %58, align 8
   %.not23.i.i = icmp ult i32 %59, %53
   br i1 %.not23.i.i, label %60, label %71
 
 60:                                               ; preds = %57
-  %61 = getelementptr inbounds i8, ptr %0, i64 20
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %62 = load i32, ptr %61, align 4
   %63 = and i32 %62, 1
   %.not24.i.i = icmp eq i32 %63, 0
   br i1 %.not24.i.i, label %64, label %71
 
 64:                                               ; preds = %60
-  %65 = getelementptr inbounds i8, ptr %0, i64 44
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %66 = load i32, ptr %65, align 4
   %.not25.i.i = icmp ult i32 %66, %53
   br label %.sink.split
@@ -10267,15 +10267,15 @@ declare ptr @ws_memmem(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local
 
 ; Function Attrs: nounwind uwtable
 define i32 @tvb_raw_offset(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 52
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, -1
   br i1 %4, label %5, label %12
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i, label %10, label %tvb_offset_from_real_beginning.exit
@@ -10296,7 +10296,7 @@ tvb_offset_from_real_beginning.exit:              ; preds = %5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @tvb_set_fragment(ptr nocapture noundef %0) local_unnamed_addr #10 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 20
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
   %4 = or i32 %3, 1
   store i32 %4, ptr %2, align 4
@@ -10305,7 +10305,7 @@ define void @tvb_set_fragment(ptr nocapture noundef %0) local_unnamed_addr #10 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @tvb_get_ds_tvb(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }

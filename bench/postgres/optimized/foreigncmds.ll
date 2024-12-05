@@ -80,8 +80,8 @@ define dso_local i64 @transformGenericOptions(i32 noundef %0, i64 noundef %1, pt
   br i1 %.not, label %._crit_edge, label %.lr.ph85
 
 .lr.ph85:                                         ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %2, i64 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load i32, ptr %6, align 4
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph124, label %._crit_edge
@@ -92,18 +92,18 @@ define dso_local i64 @transformGenericOptions(i32 noundef %0, i64 noundef %1, pt
   %10 = load ptr, ptr %7, align 8
   %11 = getelementptr %union.ListCell, ptr %10, i64 %indvars.iv95122
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %.03984123, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %.03984123, i64 16
   %.not46 = icmp eq ptr %.03984123, null
   br i1 %.not46, label %.thread54, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph124
-  %14 = getelementptr inbounds i8, ptr %.03984123, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.03984123, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = icmp sgt i32 %15, 0
   br i1 %16, label %.lr.ph81, label %.thread54
 
 .lr.ph81:                                         ; preds = %.lr.ph
-  %17 = getelementptr inbounds i8, ptr %12, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %18 = load ptr, ptr %13, align 8
   %19 = load ptr, ptr %17, align 8
   %20 = zext nneg i32 %15 to i64
@@ -118,7 +118,7 @@ define dso_local i64 @transformGenericOptions(i32 noundef %0, i64 noundef %1, pt
   %indvars.iv = phi i64 [ 0, %.lr.ph81 ], [ %indvars.iv.next, %21 ]
   %23 = getelementptr %union.ListCell, ptr %18, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
   %27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(1) %19) #9
   %28 = icmp eq i32 %27, 0
@@ -130,7 +130,7 @@ define dso_local i64 @transformGenericOptions(i32 noundef %0, i64 noundef %1, pt
 
 .thread54:                                        ; preds = %21, %.thread54.loopexit.split.loop.exit, %.lr.ph, %.lr.ph124
   %.04157 = phi ptr [ null, %.lr.ph124 ], [ null, %.lr.ph ], [ %29, %.thread54.loopexit.split.loop.exit ], [ null, %21 ]
-  %30 = getelementptr inbounds i8, ptr %12, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %31 = load i32, ptr %30, align 8
   switch i32 %31, label %58 [
     i32 3, label %32
@@ -147,7 +147,7 @@ define dso_local i64 @transformGenericOptions(i32 noundef %0, i64 noundef %1, pt
   %34 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   tail call void @llvm.assume(i1 %34)
   %35 = tail call i32 @errcode(i32 noundef 67137668) #8
-  %36 = getelementptr inbounds i8, ptr %12, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %37 = load ptr, ptr %36, align 8
   %38 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef %37) #8
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 149, ptr noundef nonnull @__func__.transformGenericOptions) #8
@@ -165,7 +165,7 @@ define dso_local i64 @transformGenericOptions(i32 noundef %0, i64 noundef %1, pt
   %43 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   tail call void @llvm.assume(i1 %43)
   %44 = tail call i32 @errcode(i32 noundef 67137668) #8
-  %45 = getelementptr inbounds i8, ptr %12, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %46 = load ptr, ptr %45, align 8
   %47 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef %46) #8
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 158, ptr noundef nonnull @__func__.transformGenericOptions) #8
@@ -183,7 +183,7 @@ define dso_local i64 @transformGenericOptions(i32 noundef %0, i64 noundef %1, pt
   %51 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   tail call void @llvm.assume(i1 %51)
   %52 = tail call i32 @errcode(i32 noundef 290948) #8
-  %53 = getelementptr inbounds i8, ptr %12, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %54 = load ptr, ptr %53, align 8
   %55 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef %54) #8
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 168, ptr noundef nonnull @__func__.transformGenericOptions) #8
@@ -194,11 +194,11 @@ define dso_local i64 @transformGenericOptions(i32 noundef %0, i64 noundef %1, pt
   br label %65
 
 58:                                               ; preds = %.thread54
-  %59 = getelementptr inbounds i8, ptr %12, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %60 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   tail call void @llvm.assume(i1 %60)
   %61 = load i32, ptr %59, align 8
-  %62 = getelementptr inbounds i8, ptr %12, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %63 = load ptr, ptr %62, align 8
   %64 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %61, ptr noundef %63) #8
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 174, ptr noundef nonnull @__func__.transformGenericOptions) #8
@@ -214,12 +214,12 @@ define dso_local i64 @transformGenericOptions(i32 noundef %0, i64 noundef %1, pt
 
 ._crit_edge:                                      ; preds = %65, %.lr.ph85, %4
   %.039.lcssa = phi ptr [ %5, %4 ], [ %5, %.lr.ph85 ], [ %.1, %65 ]
-  %69 = getelementptr inbounds i8, ptr %.039.lcssa, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %.039.lcssa, i64 4
   %.not.i = icmp eq ptr %.039.lcssa, null
   br i1 %.not.i, label %optionListToArray.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %._crit_edge
-  %70 = getelementptr inbounds i8, ptr %.039.lcssa, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %.039.lcssa, i64 16
   %71 = load i32, ptr %69, align 4
   %72 = icmp sgt i32 %71, 0
   br i1 %72, label %.lr.ph33.i, label %optionListToArray.exit
@@ -231,7 +231,7 @@ define dso_local i64 @transformGenericOptions(i32 noundef %0, i64 noundef %1, pt
   %74 = getelementptr %union.ListCell, ptr %73, i64 %indvars.iv.i
   %75 = load ptr, ptr %74, align 8
   %76 = tail call ptr @defGetString(ptr noundef %75) #8
-  %77 = getelementptr inbounds i8, ptr %75, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %78 = load ptr, ptr %77, align 8
   %79 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %78) #9
   %80 = add i64 %79, 5
@@ -242,7 +242,7 @@ define dso_local i64 @transformGenericOptions(i32 noundef %0, i64 noundef %1, pt
   %85 = trunc i64 %82 to i32
   %86 = shl i32 %85, 2
   store i32 %86, ptr %84, align 4
-  %87 = getelementptr inbounds i8, ptr %84, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %84, i64 4
   %88 = load ptr, ptr %77, align 8
   %89 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %87, ptr noundef nonnull @.str.28, ptr noundef %88, ptr noundef %76) #8
   %90 = ptrtoint ptr %84 to i64
@@ -330,9 +330,9 @@ define dso_local { i64, i32 } @AlterForeignDataWrapperOwner(ptr noundef %0, i32 
   unreachable
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 22
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 22
   %14 = load i8, ptr %13, align 2
   %15 = zext i8 %14 to i64
   %16 = getelementptr i8, ptr %12, i64 %15
@@ -358,9 +358,9 @@ define internal fastcc void @AlterForeignDataWrapperOwner_internal(ptr noundef %
   %5 = alloca [7 x i8], align 1
   %6 = alloca [7 x i8], align 1
   %7 = alloca i8, align 1
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 22
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 22
   %11 = load i8, ptr %10, align 2
   %12 = zext i8 %11 to i64
   %13 = getelementptr i8, ptr %9, i64 %12
@@ -371,7 +371,7 @@ define internal fastcc void @AlterForeignDataWrapperOwner_internal(ptr noundef %
   %16 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   tail call void @llvm.assume(i1 %16)
   %17 = tail call i32 @errcode(i32 noundef 16797828) #8
-  %18 = getelementptr inbounds i8, ptr %13, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %19 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.29, ptr noundef nonnull %18) #8
   %20 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.30) #8
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 223, ptr noundef nonnull @__func__.AlterForeignDataWrapperOwner_internal) #8
@@ -385,14 +385,14 @@ define internal fastcc void @AlterForeignDataWrapperOwner_internal(ptr noundef %
   %24 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   tail call void @llvm.assume(i1 %24)
   %25 = tail call i32 @errcode(i32 noundef 16797828) #8
-  %26 = getelementptr inbounds i8, ptr %13, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %27 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.29, ptr noundef nonnull %26) #8
   %28 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.31) #8
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 231, ptr noundef nonnull @__func__.AlterForeignDataWrapperOwner_internal) #8
   unreachable
 
 29:                                               ; preds = %21
-  %30 = getelementptr inbounds i8, ptr %13, i64 68
+  %30 = getelementptr inbounds nuw i8, ptr %13, i64 68
   %31 = load i32, ptr %30, align 4
   %.not = icmp eq i32 %31, %2
   br i1 %.not, label %54, label %32
@@ -400,12 +400,12 @@ define internal fastcc void @AlterForeignDataWrapperOwner_internal(ptr noundef %
 32:                                               ; preds = %29
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %5, i8 0, i64 7, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %6, i8 0, i64 7, i1 false)
-  %33 = getelementptr inbounds i8, ptr %6, i64 2
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 2
   store i8 1, ptr %33, align 1
   %34 = zext i32 %2 to i64
-  %35 = getelementptr inbounds i8, ptr %4, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %34, ptr %35, align 16
-  %36 = getelementptr inbounds i8, ptr %0, i64 64
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %37 = load ptr, ptr %36, align 8
   %38 = call fastcc i64 @heap_getattr(ptr noundef %1, i32 noundef 6, ptr noundef %37, ptr noundef %7)
   %39 = load i8, ptr %7, align 1
@@ -417,17 +417,17 @@ define internal fastcc void @AlterForeignDataWrapperOwner_internal(ptr noundef %
   %43 = call ptr @pg_detoast_datum(ptr noundef %42) #8
   %44 = load i32, ptr %30, align 4
   %45 = call ptr @aclnewowner(ptr noundef %43, i32 noundef %44, i32 noundef %2) #8
-  %46 = getelementptr inbounds i8, ptr %6, i64 5
+  %46 = getelementptr inbounds nuw i8, ptr %6, i64 5
   store i8 1, ptr %46, align 1
   %47 = ptrtoint ptr %45 to i64
-  %48 = getelementptr inbounds i8, ptr %4, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 %47, ptr %48, align 8
   br label %49
 
 49:                                               ; preds = %41, %32
   %50 = load ptr, ptr %36, align 8
   %51 = call ptr @heap_modify_tuple(ptr noundef nonnull %1, ptr noundef %50, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #8
-  %52 = getelementptr inbounds i8, ptr %51, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
   call void @CatalogTupleUpdate(ptr noundef nonnull %0, ptr noundef nonnull %52, ptr noundef %51) #8
   %53 = load i32, ptr %13, align 4
   call void @changeDependencyOnOwner(i32 noundef 2328, i32 noundef %53, i32 noundef %2) #8
@@ -491,9 +491,9 @@ define dso_local { i64, i32 } @AlterForeignServerOwner(ptr noundef %0, i32 nound
   unreachable
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 22
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 22
   %14 = load i8, ptr %13, align 2
   %15 = zext i8 %14 to i64
   %16 = getelementptr i8, ptr %12, i64 %15
@@ -515,13 +515,13 @@ define internal fastcc void @AlterForeignServerOwner_internal(ptr noundef %0, pt
   %5 = alloca [8 x i8], align 8
   %6 = alloca [8 x i8], align 8
   %7 = alloca i8, align 1
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 22
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 22
   %11 = load i8, ptr %10, align 2
   %12 = zext i8 %11 to i64
   %13 = getelementptr i8, ptr %9, i64 %12
-  %14 = getelementptr inbounds i8, ptr %13, i64 68
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 68
   %15 = load i32, ptr %14, align 4
   %.not = icmp eq i32 %15, %2
   br i1 %.not, label %55, label %16
@@ -537,14 +537,14 @@ define internal fastcc void @AlterForeignServerOwner_internal(ptr noundef %0, pt
   br i1 %21, label %24, label %22
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %13, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 4
   tail call void @aclcheck_error(i32 noundef 2, i32 noundef 17, ptr noundef nonnull %23) #8
   br label %24
 
 24:                                               ; preds = %22, %18
   %25 = tail call i32 @GetUserId() #8
   tail call void @check_can_set_role(i32 noundef %25, i32 noundef %2) #8
-  %26 = getelementptr inbounds i8, ptr %13, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %13, i64 72
   %27 = load i32, ptr %26, align 4
   %28 = tail call i32 @object_aclcheck(i32 noundef 2328, i32 noundef %27, i32 noundef %2, i64 noundef 256) #8
   %.not29 = icmp eq i32 %28, 0
@@ -553,7 +553,7 @@ define internal fastcc void @AlterForeignServerOwner_internal(ptr noundef %0, pt
 29:                                               ; preds = %24
   %30 = load i32, ptr %26, align 4
   %31 = tail call ptr @GetForeignDataWrapper(i32 noundef %30) #8
-  %32 = getelementptr inbounds i8, ptr %31, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8
   tail call void @aclcheck_error(i32 noundef %28, i32 noundef 16, ptr noundef %33) #8
   br label %34
@@ -562,9 +562,9 @@ define internal fastcc void @AlterForeignServerOwner_internal(ptr noundef %0, pt
   store i64 0, ptr %5, align 8
   store i64 65536, ptr %6, align 8
   %35 = zext i32 %2 to i64
-  %36 = getelementptr inbounds i8, ptr %4, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %35, ptr %36, align 16
-  %37 = getelementptr inbounds i8, ptr %0, i64 64
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %38 = load ptr, ptr %37, align 8
   %39 = call fastcc i64 @heap_getattr(ptr noundef %1, i32 noundef 7, ptr noundef %38, ptr noundef %7)
   %40 = load i8, ptr %7, align 1
@@ -576,17 +576,17 @@ define internal fastcc void @AlterForeignServerOwner_internal(ptr noundef %0, pt
   %44 = call ptr @pg_detoast_datum(ptr noundef %43) #8
   %45 = load i32, ptr %14, align 4
   %46 = call ptr @aclnewowner(ptr noundef %44, i32 noundef %45, i32 noundef %2) #8
-  %47 = getelementptr inbounds i8, ptr %6, i64 6
+  %47 = getelementptr inbounds nuw i8, ptr %6, i64 6
   store i8 1, ptr %47, align 2
   %48 = ptrtoint ptr %46 to i64
-  %49 = getelementptr inbounds i8, ptr %4, i64 48
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i64 %48, ptr %49, align 16
   br label %50
 
 50:                                               ; preds = %42, %34
   %51 = load ptr, ptr %37, align 8
   %52 = call ptr @heap_modify_tuple(ptr noundef nonnull %1, ptr noundef %51, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #8
-  %53 = getelementptr inbounds i8, ptr %52, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
   call void @CatalogTupleUpdate(ptr noundef nonnull %0, ptr noundef nonnull %53, ptr noundef %52) #8
   %54 = load i32, ptr %13, align 4
   call void @changeDependencyOnOwner(i32 noundef 1417, i32 noundef %54, i32 noundef %2) #8
@@ -647,7 +647,7 @@ define dso_local { i64, i32 } @CreateForeignDataWrapper(ptr noundef %0, ptr noca
   %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   tail call void @llvm.assume(i1 %14)
   %15 = tail call i32 @errcode(i32 noundef 16797828) #8
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, ptr noundef %17) #8
   %19 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.9) #8
@@ -656,7 +656,7 @@ define dso_local { i64, i32 } @CreateForeignDataWrapper(ptr noundef %0, ptr noca
 
 20:                                               ; preds = %2
   %21 = tail call i32 @GetUserId() #8
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr @GetForeignDataWrapperByName(ptr noundef %23, i1 noundef zeroext true) #8
   %.not = icmp eq ptr %24, null
@@ -672,7 +672,7 @@ define dso_local { i64, i32 } @CreateForeignDataWrapper(ptr noundef %0, ptr noca
   unreachable
 
 30:                                               ; preds = %20
-  %31 = getelementptr inbounds i8, ptr %4, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %31, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %5, i8 0, i64 7, i1 false)
   %32 = tail call i32 @GetNewOidWithIndex(ptr noundef %11, i32 noundef 112, i16 noundef signext 1) #8
@@ -681,59 +681,59 @@ define dso_local { i64, i32 } @CreateForeignDataWrapper(ptr noundef %0, ptr noca
   %34 = load ptr, ptr %22, align 8
   %35 = ptrtoint ptr %34 to i64
   %36 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @namein, i32 noundef 0, i64 noundef %35) #8
-  %37 = getelementptr inbounds i8, ptr %4, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %36, ptr %37, align 8
   %38 = zext i32 %21 to i64
-  %39 = getelementptr inbounds i8, ptr %4, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %38, ptr %39, align 16
-  %40 = getelementptr inbounds i8, ptr %1, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %41 = load ptr, ptr %40, align 8
   call fastcc void @parse_func_options(ptr noundef %0, ptr noundef %41, ptr noundef %6, ptr noundef %8, ptr noundef %7, ptr noundef %9)
   %42 = load i32, ptr %8, align 4
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds i8, ptr %4, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %43, ptr %44, align 8
   %45 = load i32, ptr %9, align 4
   %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds i8, ptr %4, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 %46, ptr %47, align 16
-  %48 = getelementptr inbounds i8, ptr %5, i64 5
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 5
   store i8 1, ptr %48, align 1
-  %49 = getelementptr inbounds i8, ptr %1, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %50 = load ptr, ptr %49, align 8
   %51 = tail call i64 @transformGenericOptions(i32 noundef 2328, i64 noundef 0, ptr noundef %50, i32 noundef %45)
   %.not20 = icmp eq i64 %51, 0
   br i1 %.not20, label %54, label %52
 
 52:                                               ; preds = %30
-  %53 = getelementptr inbounds i8, ptr %4, i64 48
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i64 %51, ptr %53, align 16
   br label %56
 
 54:                                               ; preds = %30
-  %55 = getelementptr inbounds i8, ptr %5, i64 6
+  %55 = getelementptr inbounds nuw i8, ptr %5, i64 6
   store i8 1, ptr %55, align 1
   br label %56
 
 56:                                               ; preds = %54, %52
-  %57 = getelementptr inbounds i8, ptr %11, i64 64
+  %57 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %58 = load ptr, ptr %57, align 8
   %59 = call ptr @heap_form_tuple(ptr noundef %58, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
   call void @CatalogTupleInsert(ptr noundef %11, ptr noundef %59) #8
   call void @heap_freetuple(ptr noundef %59) #8
   store i32 2328, ptr %3, align 8
-  %60 = getelementptr inbounds i8, ptr %3, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %32, ptr %60, align 4
-  %61 = getelementptr inbounds i8, ptr %3, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %61, align 8
   %.not21 = icmp eq i32 %42, 0
   br i1 %.not21, label %65, label %62
 
 62:                                               ; preds = %56
   store i32 1255, ptr %10, align 4
-  %63 = getelementptr inbounds i8, ptr %10, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 %42, ptr %63, align 4
-  %64 = getelementptr inbounds i8, ptr %10, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 0, ptr %64, align 4
   call void @recordDependencyOn(ptr noundef nonnull %3, ptr noundef nonnull %10, i32 noundef 110) #8
   br label %65
@@ -744,9 +744,9 @@ define dso_local { i64, i32 } @CreateForeignDataWrapper(ptr noundef %0, ptr noca
 
 66:                                               ; preds = %65
   store i32 1255, ptr %10, align 4
-  %67 = getelementptr inbounds i8, ptr %10, i64 4
+  %67 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 %45, ptr %67, align 4
-  %68 = getelementptr inbounds i8, ptr %10, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 0, ptr %68, align 4
   call void @recordDependencyOn(ptr noundef nonnull %3, ptr noundef nonnull %10, i32 noundef 110) #8
   br label %69
@@ -799,9 +799,9 @@ define internal fastcc void @parse_func_options(ptr noundef %0, ptr noundef read
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %1, i64 4
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
-  %10 = getelementptr inbounds i8, ptr %7, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %11 = load i32, ptr %8, align 4
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %.lr.ph60, label %._crit_edge
@@ -811,7 +811,7 @@ define internal fastcc void @parse_func_options(ptr noundef %0, ptr noundef read
   %13 = load ptr, ptr %9, align 8
   %14 = getelementptr %union.ListCell, ptr %13, i64 %indvars.iv59
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(8) @.str.34) #9
   %19 = icmp eq i32 %18, 0
@@ -828,7 +828,7 @@ define internal fastcc void @parse_func_options(ptr noundef %0, ptr noundef read
 
 24:                                               ; preds = %20
   store i8 1, ptr %2, align 1
-  %25 = getelementptr inbounds i8, ptr %15, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %lookup_fdw_handler_func.exit, label %28
@@ -840,7 +840,7 @@ define internal fastcc void @parse_func_options(ptr noundef %0, ptr noundef read
   br i1 %.not.i, label %lookup_fdw_handler_func.exit, label %31
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %15, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %33 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   call void @llvm.assume(i1 %33)
   %34 = call i32 @errcode(i32 noundef 151027844) #8
@@ -872,7 +872,7 @@ lookup_fdw_handler_func.exit:                     ; preds = %24, %28
 45:                                               ; preds = %41
   store i8 1, ptr %4, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %46 = getelementptr inbounds i8, ptr %15, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq ptr %47, null
   br i1 %48, label %lookup_fdw_validator_func.exit, label %49
@@ -890,7 +890,7 @@ lookup_fdw_validator_func.exit:                   ; preds = %45, %49
   br label %56
 
 51:                                               ; preds = %38
-  %52 = getelementptr inbounds i8, ptr %15, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %53 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   call void @llvm.assume(i1 %53)
   %54 = load ptr, ptr %52, align 8
@@ -941,7 +941,7 @@ define dso_local { i64, i32 } @AlterForeignDataWrapper(ptr noundef %0, ptr nocap
   %16 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   tail call void @llvm.assume(i1 %16)
   %17 = tail call i32 @errcode(i32 noundef 16797828) #8
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef %19) #8
   %21 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.12) #8
@@ -949,7 +949,7 @@ define dso_local { i64, i32 } @AlterForeignDataWrapper(ptr noundef %0, ptr nocap
   unreachable
 
 22:                                               ; preds = %2
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = ptrtoint ptr %24 to i64
   %26 = tail call ptr @SearchSysCacheCopy(i32 noundef 27, i64 noundef %25, i64 noundef 0, i64 noundef 0, i64 noundef 0) #8
@@ -966,9 +966,9 @@ define dso_local { i64, i32 } @AlterForeignDataWrapper(ptr noundef %0, ptr nocap
   unreachable
 
 32:                                               ; preds = %22
-  %33 = getelementptr inbounds i8, ptr %26, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 22
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 22
   %36 = load i8, ptr %35, align 2
   %37 = zext i8 %36 to i64
   %38 = getelementptr i8, ptr %34, i64 %37
@@ -976,7 +976,7 @@ define dso_local { i64, i32 } @AlterForeignDataWrapper(ptr noundef %0, ptr nocap
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %4, i8 0, i64 56, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %5, i8 0, i64 7, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %6, i8 0, i64 7, i1 false)
-  %40 = getelementptr inbounds i8, ptr %1, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %41 = load ptr, ptr %40, align 8
   call fastcc void @parse_func_options(ptr noundef %0, ptr noundef %41, ptr noundef %8, ptr noundef %10, ptr noundef %9, ptr noundef %11)
   %42 = load i8, ptr %8, align 1
@@ -986,9 +986,9 @@ define dso_local { i64, i32 } @AlterForeignDataWrapper(ptr noundef %0, ptr nocap
 44:                                               ; preds = %32
   %45 = load i32, ptr %10, align 4
   %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds i8, ptr %4, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %46, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %6, i64 3
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 3
   store i8 1, ptr %48, align 1
   %49 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #8
   br i1 %49, label %50, label %52
@@ -1006,9 +1006,9 @@ define dso_local { i64, i32 } @AlterForeignDataWrapper(ptr noundef %0, ptr nocap
 55:                                               ; preds = %52
   %56 = load i32, ptr %11, align 4
   %57 = zext i32 %56 to i64
-  %58 = getelementptr inbounds i8, ptr %4, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 %57, ptr %58, align 16
-  %59 = getelementptr inbounds i8, ptr %6, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i8 1, ptr %59, align 1
   %.not26 = icmp eq i32 %56, 0
   br i1 %.not26, label %67, label %60
@@ -1023,13 +1023,13 @@ define dso_local { i64, i32 } @AlterForeignDataWrapper(ptr noundef %0, ptr nocap
   br label %67
 
 64:                                               ; preds = %52
-  %65 = getelementptr inbounds i8, ptr %38, i64 76
+  %65 = getelementptr inbounds nuw i8, ptr %38, i64 76
   %66 = load i32, ptr %65, align 4
   br label %67
 
 67:                                               ; preds = %55, %60, %62, %64
   %68 = phi i32 [ 0, %55 ], [ %56, %60 ], [ %56, %62 ], [ %66, %64 ]
-  %69 = getelementptr inbounds i8, ptr %1, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %70 = load ptr, ptr %69, align 8
   %.not27 = icmp eq ptr %70, null
   br i1 %.not27, label %83, label %71
@@ -1045,31 +1045,31 @@ define dso_local { i64, i32 } @AlterForeignDataWrapper(ptr noundef %0, ptr nocap
   br i1 %.not28, label %79, label %77
 
 77:                                               ; preds = %71
-  %78 = getelementptr inbounds i8, ptr %4, i64 48
+  %78 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i64 %76, ptr %78, align 16
   br label %81
 
 79:                                               ; preds = %71
-  %80 = getelementptr inbounds i8, ptr %5, i64 6
+  %80 = getelementptr inbounds nuw i8, ptr %5, i64 6
   store i8 1, ptr %80, align 1
   br label %81
 
 81:                                               ; preds = %79, %77
-  %82 = getelementptr inbounds i8, ptr %6, i64 6
+  %82 = getelementptr inbounds nuw i8, ptr %6, i64 6
   store i8 1, ptr %82, align 1
   br label %83
 
 83:                                               ; preds = %81, %67
-  %84 = getelementptr inbounds i8, ptr %13, i64 64
+  %84 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %85 = load ptr, ptr %84, align 8
   %86 = call ptr @heap_modify_tuple(ptr noundef nonnull %26, ptr noundef %85, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #8
-  %87 = getelementptr inbounds i8, ptr %86, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 4
   call void @CatalogTupleUpdate(ptr noundef %13, ptr noundef nonnull %87, ptr noundef %86) #8
   call void @heap_freetuple(ptr noundef %86) #8
   store i32 2328, ptr %3, align 8
-  %88 = getelementptr inbounds i8, ptr %3, i64 4
+  %88 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %39, ptr %88, align 4
-  %89 = getelementptr inbounds i8, ptr %3, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %89, align 8
   %brmerge = or i1 %43, %54
   br i1 %brmerge, label %90, label %100
@@ -1082,9 +1082,9 @@ define dso_local { i64, i32 } @AlterForeignDataWrapper(ptr noundef %0, ptr nocap
 
 93:                                               ; preds = %90
   store i32 1255, ptr %12, align 4
-  %94 = getelementptr inbounds i8, ptr %12, i64 4
+  %94 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 %92, ptr %94, align 4
-  %95 = getelementptr inbounds i8, ptr %12, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 0, ptr %95, align 4
   call void @recordDependencyOn(ptr noundef nonnull %3, ptr noundef nonnull %12, i32 noundef 110) #8
   br label %96
@@ -1095,9 +1095,9 @@ define dso_local { i64, i32 } @AlterForeignDataWrapper(ptr noundef %0, ptr nocap
 
 97:                                               ; preds = %96
   store i32 1255, ptr %12, align 4
-  %98 = getelementptr inbounds i8, ptr %12, i64 4
+  %98 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 %68, ptr %98, align 4
-  %99 = getelementptr inbounds i8, ptr %12, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 0, ptr %99, align 4
   call void @recordDependencyOn(ptr noundef nonnull %3, ptr noundef nonnull %12, i32 noundef 110) #8
   br label %100
@@ -1138,23 +1138,23 @@ define dso_local { i64, i32 } @CreateForeignServer(ptr nocapture noundef readonl
   %5 = alloca %struct.ObjectAddress, align 4
   %6 = tail call ptr @table_open(i32 noundef 1417, i32 noundef 3) #8
   %7 = tail call i32 @GetUserId() #8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 @get_foreign_server_oid(ptr noundef %9, i1 noundef zeroext true) #8
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %29, label %11
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load i8, ptr %12, align 8
   %14 = trunc i8 %13 to i1
   br i1 %14, label %15, label %24
 
 15:                                               ; preds = %11
   store i32 1417, ptr %4, align 4
-  %16 = getelementptr inbounds i8, ptr %4, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %10, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %4, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %17, align 4
   call void @checkMembershipInCurrentExtension(ptr noundef nonnull %4) #8
   %18 = call zeroext i1 @errstart(i32 noundef 18, ptr noundef null) #8
@@ -1182,7 +1182,7 @@ define dso_local { i64, i32 } @CreateForeignServer(ptr nocapture noundef readonl
   unreachable
 
 29:                                               ; preds = %1
-  %30 = getelementptr inbounds i8, ptr %0, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %31 = load ptr, ptr %30, align 8
   %32 = tail call ptr @GetForeignDataWrapperByName(ptr noundef %31, i1 noundef zeroext false) #8
   %33 = load i32, ptr %32, align 8
@@ -1191,13 +1191,13 @@ define dso_local { i64, i32 } @CreateForeignServer(ptr nocapture noundef readonl
   br i1 %.not41, label %38, label %35
 
 35:                                               ; preds = %29
-  %36 = getelementptr inbounds i8, ptr %32, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %37 = load ptr, ptr %36, align 8
   tail call void @aclcheck_error(i32 noundef %34, i32 noundef 16, ptr noundef %37) #8
   br label %38
 
 38:                                               ; preds = %35, %29
-  %39 = getelementptr inbounds i8, ptr %2, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %39, i8 0, i64 32, i1 false)
   store i64 281474976710656, ptr %3, align 8
   %40 = tail call i32 @GetNewOidWithIndex(ptr noundef %6, i32 noundef 113, i16 noundef signext 1) #8
@@ -1206,16 +1206,16 @@ define dso_local { i64, i32 } @CreateForeignServer(ptr nocapture noundef readonl
   %42 = load ptr, ptr %8, align 8
   %43 = ptrtoint ptr %42 to i64
   %44 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @namein, i32 noundef 0, i64 noundef %43) #8
-  %45 = getelementptr inbounds i8, ptr %2, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %44, ptr %45, align 8
   %46 = zext i32 %7 to i64
-  %47 = getelementptr inbounds i8, ptr %2, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %46, ptr %47, align 16
   %48 = load i32, ptr %32, align 8
   %49 = zext i32 %48 to i64
-  %50 = getelementptr inbounds i8, ptr %2, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 %49, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %52 = load ptr, ptr %51, align 8
   %.not42 = icmp eq ptr %52, null
   br i1 %.not42, label %57, label %53
@@ -1223,17 +1223,17 @@ define dso_local { i64, i32 } @CreateForeignServer(ptr nocapture noundef readonl
 53:                                               ; preds = %38
   %54 = tail call ptr @cstring_to_text(ptr noundef nonnull %52) #8
   %55 = ptrtoint ptr %54 to i64
-  %56 = getelementptr inbounds i8, ptr %2, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i64 %55, ptr %56, align 16
   br label %59
 
 57:                                               ; preds = %38
-  %58 = getelementptr inbounds i8, ptr %3, i64 4
+  %58 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i8 1, ptr %58, align 4
   br label %59
 
 59:                                               ; preds = %57, %53
-  %60 = getelementptr inbounds i8, ptr %0, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %61 = load ptr, ptr %60, align 8
   %.not43 = icmp eq ptr %61, null
   br i1 %.not43, label %66, label %62
@@ -1241,50 +1241,50 @@ define dso_local { i64, i32 } @CreateForeignServer(ptr nocapture noundef readonl
 62:                                               ; preds = %59
   %63 = tail call ptr @cstring_to_text(ptr noundef nonnull %61) #8
   %64 = ptrtoint ptr %63 to i64
-  %65 = getelementptr inbounds i8, ptr %2, i64 40
+  %65 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i64 %64, ptr %65, align 8
   br label %68
 
 66:                                               ; preds = %59
-  %67 = getelementptr inbounds i8, ptr %3, i64 5
+  %67 = getelementptr inbounds nuw i8, ptr %3, i64 5
   store i8 1, ptr %67, align 1
   br label %68
 
 68:                                               ; preds = %66, %62
-  %69 = getelementptr inbounds i8, ptr %0, i64 48
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %32, i64 20
+  %71 = getelementptr inbounds nuw i8, ptr %32, i64 20
   %72 = load i32, ptr %71, align 4
   %73 = tail call i64 @transformGenericOptions(i32 noundef 1417, i64 noundef 0, ptr noundef %70, i32 noundef %72)
   %.not44 = icmp eq i64 %73, 0
   br i1 %.not44, label %76, label %74
 
 74:                                               ; preds = %68
-  %75 = getelementptr inbounds i8, ptr %2, i64 56
+  %75 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i64 %73, ptr %75, align 8
   br label %78
 
 76:                                               ; preds = %68
-  %77 = getelementptr inbounds i8, ptr %3, i64 7
+  %77 = getelementptr inbounds nuw i8, ptr %3, i64 7
   store i8 1, ptr %77, align 1
   br label %78
 
 78:                                               ; preds = %76, %74
-  %79 = getelementptr inbounds i8, ptr %6, i64 64
+  %79 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %80 = load ptr, ptr %79, align 8
   %81 = call ptr @heap_form_tuple(ptr noundef %80, ptr noundef nonnull %2, ptr noundef nonnull %3) #8
   call void @CatalogTupleInsert(ptr noundef %6, ptr noundef %81) #8
   call void @heap_freetuple(ptr noundef %81) #8
   store i32 1417, ptr %4, align 4
-  %82 = getelementptr inbounds i8, ptr %4, i64 4
+  %82 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %40, ptr %82, align 4
-  %83 = getelementptr inbounds i8, ptr %4, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %83, align 4
   store i32 2328, ptr %5, align 4
   %84 = load i32, ptr %32, align 8
-  %85 = getelementptr inbounds i8, ptr %5, i64 4
+  %85 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %84, ptr %85, align 4
-  %86 = getelementptr inbounds i8, ptr %5, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %86, align 4
   call void @recordDependencyOn(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 110) #8
   call void @recordDependencyOnOwner(i32 noundef 1417, i32 noundef %40, i32 noundef %7) #8
@@ -1328,7 +1328,7 @@ define dso_local { i64, i32 } @AlterForeignServer(ptr nocapture noundef readonly
   %4 = alloca [8 x i8], align 8
   %5 = alloca i8, align 1
   %6 = tail call ptr @table_open(i32 noundef 1417, i32 noundef 3) #8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = tail call ptr @SearchSysCacheCopy(i32 noundef 29, i64 noundef %9, i64 noundef 0, i64 noundef 0, i64 noundef 0) #8
@@ -1345,9 +1345,9 @@ define dso_local { i64, i32 } @AlterForeignServer(ptr nocapture noundef readonly
   unreachable
 
 16:                                               ; preds = %1
-  %17 = getelementptr inbounds i8, ptr %10, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 22
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 22
   %20 = load i8, ptr %19, align 2
   %21 = zext i8 %20 to i64
   %22 = getelementptr i8, ptr %18, i64 %21
@@ -1365,13 +1365,13 @@ define dso_local { i64, i32 } @AlterForeignServer(ptr nocapture noundef readonly
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %2, i8 0, i64 64, i1 false)
   store i64 0, ptr %3, align 8
   store i64 0, ptr %4, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %30 = load i8, ptr %29, align 8
   %31 = trunc i8 %30 to i1
   br i1 %31, label %32, label %43
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load ptr, ptr %33, align 8
   %.not31 = icmp eq ptr %34, null
   br i1 %.not31, label %39, label %35
@@ -1379,28 +1379,28 @@ define dso_local { i64, i32 } @AlterForeignServer(ptr nocapture noundef readonly
 35:                                               ; preds = %32
   %36 = tail call ptr @cstring_to_text(ptr noundef nonnull %34) #8
   %37 = ptrtoint ptr %36 to i64
-  %38 = getelementptr inbounds i8, ptr %2, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i64 %37, ptr %38, align 8
   br label %41
 
 39:                                               ; preds = %32
-  %40 = getelementptr inbounds i8, ptr %3, i64 5
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 5
   store i8 1, ptr %40, align 1
   br label %41
 
 41:                                               ; preds = %39, %35
-  %42 = getelementptr inbounds i8, ptr %4, i64 5
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 5
   store i8 1, ptr %42, align 1
   br label %43
 
 43:                                               ; preds = %41, %28
-  %44 = getelementptr inbounds i8, ptr %0, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %45 = load ptr, ptr %44, align 8
   %.not32 = icmp eq ptr %45, null
   br i1 %.not32, label %63, label %46
 
 46:                                               ; preds = %43
-  %47 = getelementptr inbounds i8, ptr %22, i64 72
+  %47 = getelementptr inbounds nuw i8, ptr %22, i64 72
   %48 = load i32, ptr %47, align 4
   %49 = tail call ptr @GetForeignDataWrapper(i32 noundef %48) #8
   %50 = call i64 @SysCacheGetAttr(i32 noundef 30, ptr noundef nonnull %10, i16 noundef signext 8, ptr noundef nonnull %5) #8
@@ -1408,32 +1408,32 @@ define dso_local { i64, i32 } @AlterForeignServer(ptr nocapture noundef readonly
   %52 = trunc i8 %51 to i1
   %spec.select = select i1 %52, i64 0, i64 %50
   %53 = load ptr, ptr %44, align 8
-  %54 = getelementptr inbounds i8, ptr %49, i64 20
+  %54 = getelementptr inbounds nuw i8, ptr %49, i64 20
   %55 = load i32, ptr %54, align 4
   %56 = call i64 @transformGenericOptions(i32 noundef 1417, i64 noundef %spec.select, ptr noundef %53, i32 noundef %55)
   %.not33 = icmp eq i64 %56, 0
   br i1 %.not33, label %59, label %57
 
 57:                                               ; preds = %46
-  %58 = getelementptr inbounds i8, ptr %2, i64 56
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i64 %56, ptr %58, align 8
   br label %61
 
 59:                                               ; preds = %46
-  %60 = getelementptr inbounds i8, ptr %3, i64 7
+  %60 = getelementptr inbounds nuw i8, ptr %3, i64 7
   store i8 1, ptr %60, align 1
   br label %61
 
 61:                                               ; preds = %59, %57
-  %62 = getelementptr inbounds i8, ptr %4, i64 7
+  %62 = getelementptr inbounds nuw i8, ptr %4, i64 7
   store i8 1, ptr %62, align 1
   br label %63
 
 63:                                               ; preds = %61, %43
-  %64 = getelementptr inbounds i8, ptr %6, i64 64
+  %64 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %65 = load ptr, ptr %64, align 8
   %66 = call ptr @heap_modify_tuple(ptr noundef nonnull %10, ptr noundef %65, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
-  %67 = getelementptr inbounds i8, ptr %66, i64 4
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
   call void @CatalogTupleUpdate(ptr noundef %6, ptr noundef nonnull %67, ptr noundef %66) #8
   %68 = load ptr, ptr @object_access_hook, align 8
   %.not34 = icmp eq ptr %68, null
@@ -1464,10 +1464,10 @@ define dso_local { i64, i32 } @CreateUserMapping(ptr nocapture noundef readonly 
   %3 = alloca [4 x i8], align 4
   %4 = alloca %struct.ObjectAddress, align 4
   %5 = alloca %struct.ObjectAddress, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @table_open(i32 noundef 1418, i32 noundef 3) #8
-  %9 = getelementptr inbounds i8, ptr %7, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 4
   br i1 %11, label %15, label %12
@@ -1479,7 +1479,7 @@ define dso_local { i64, i32 } @CreateUserMapping(ptr nocapture noundef readonly 
 
 15:                                               ; preds = %1, %12
   %.0 = phi i32 [ %14, %12 ], [ 0, %1 ]
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr @GetForeignServerByName(ptr noundef %17, i1 noundef zeroext false) #8
   %19 = load i32, ptr %18, align 8
@@ -1511,7 +1511,7 @@ user_mapping_ddl_aclcheck.exit:                   ; preds = %15, %25, %.sink.spl
   br i1 %.not, label %55, label %31
 
 31:                                               ; preds = %user_mapping_ddl_aclcheck.exit
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = load i8, ptr %32, align 8
   %34 = trunc i8 %33 to i1
   br i1 %34, label %35, label %46
@@ -1560,55 +1560,55 @@ user_mapping_ddl_aclcheck.exit:                   ; preds = %15, %25, %.sink.spl
   unreachable
 
 55:                                               ; preds = %user_mapping_ddl_aclcheck.exit
-  %56 = getelementptr inbounds i8, ptr %18, i64 4
+  %56 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %57 = load i32, ptr %56, align 4
   %58 = tail call ptr @GetForeignDataWrapper(i32 noundef %57) #8
-  %59 = getelementptr inbounds i8, ptr %2, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %59, i8 0, i64 16, i1 false)
   store i32 0, ptr %3, align 4
   %60 = tail call i32 @GetNewOidWithIndex(ptr noundef %8, i32 noundef 174, i16 noundef signext 1) #8
   %61 = zext i32 %60 to i64
   store i64 %61, ptr %2, align 16
-  %62 = getelementptr inbounds i8, ptr %2, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %27, ptr %62, align 8
   %63 = load i32, ptr %18, align 8
   %64 = zext i32 %63 to i64
-  %65 = getelementptr inbounds i8, ptr %2, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %64, ptr %65, align 16
-  %66 = getelementptr inbounds i8, ptr %0, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %58, i64 20
+  %68 = getelementptr inbounds nuw i8, ptr %58, i64 20
   %69 = load i32, ptr %68, align 4
   %70 = tail call i64 @transformGenericOptions(i32 noundef 1418, i64 noundef 0, ptr noundef %67, i32 noundef %69)
   %.not40 = icmp eq i64 %70, 0
   br i1 %.not40, label %73, label %71
 
 71:                                               ; preds = %55
-  %72 = getelementptr inbounds i8, ptr %2, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 %70, ptr %72, align 8
   br label %75
 
 73:                                               ; preds = %55
-  %74 = getelementptr inbounds i8, ptr %3, i64 3
+  %74 = getelementptr inbounds nuw i8, ptr %3, i64 3
   store i8 1, ptr %74, align 1
   br label %75
 
 75:                                               ; preds = %73, %71
-  %76 = getelementptr inbounds i8, ptr %8, i64 64
+  %76 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %77 = load ptr, ptr %76, align 8
   %78 = call ptr @heap_form_tuple(ptr noundef %77, ptr noundef nonnull %2, ptr noundef nonnull %3) #8
   call void @CatalogTupleInsert(ptr noundef %8, ptr noundef %78) #8
   call void @heap_freetuple(ptr noundef %78) #8
   store i32 1418, ptr %4, align 4
-  %79 = getelementptr inbounds i8, ptr %4, i64 4
+  %79 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %60, ptr %79, align 4
-  %80 = getelementptr inbounds i8, ptr %4, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %80, align 4
   store i32 1417, ptr %5, align 4
   %81 = load i32, ptr %18, align 8
-  %82 = getelementptr inbounds i8, ptr %5, i64 4
+  %82 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %81, ptr %82, align 4
-  %83 = getelementptr inbounds i8, ptr %5, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %83, align 4
   call void @recordDependencyOn(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 110) #8
   %.not41 = icmp eq i32 %.0, 0
@@ -1655,10 +1655,10 @@ define dso_local { i64, i32 } @AlterUserMapping(ptr nocapture noundef readonly %
   %3 = alloca [4 x i8], align 4
   %4 = alloca [4 x i8], align 4
   %5 = alloca i8, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @table_open(i32 noundef 1418, i32 noundef 3) #8
-  %9 = getelementptr inbounds i8, ptr %7, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 4
   br i1 %11, label %15, label %12
@@ -1670,7 +1670,7 @@ define dso_local { i64, i32 } @AlterUserMapping(ptr nocapture noundef readonly %
 
 15:                                               ; preds = %1, %12
   %.0 = phi i32 [ %14, %12 ], [ 0, %1 ]
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr @GetForeignServerByName(ptr noundef %17, i1 noundef zeroext false) #8
   %19 = zext i32 %.0 to i64
@@ -1736,13 +1736,13 @@ user_mapping_ddl_aclcheck.exit:                   ; preds = %32, %39, %.sink.spl
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   store i32 0, ptr %3, align 4
   store i32 0, ptr %4, align 4
-  %47 = getelementptr inbounds i8, ptr %0, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %48 = load ptr, ptr %47, align 8
   %.not39 = icmp eq ptr %48, null
   br i1 %.not39, label %66, label %49
 
 49:                                               ; preds = %46
-  %50 = getelementptr inbounds i8, ptr %18, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %51 = load i32, ptr %50, align 4
   %52 = tail call ptr @GetForeignDataWrapper(i32 noundef %51) #8
   %53 = call i64 @SysCacheGetAttr(i32 noundef 82, ptr noundef nonnull %42, i16 noundef signext 4, ptr noundef nonnull %5) #8
@@ -1750,32 +1750,32 @@ user_mapping_ddl_aclcheck.exit:                   ; preds = %32, %39, %.sink.spl
   %55 = trunc i8 %54 to i1
   %spec.select = select i1 %55, i64 0, i64 %53
   %56 = load ptr, ptr %47, align 8
-  %57 = getelementptr inbounds i8, ptr %52, i64 20
+  %57 = getelementptr inbounds nuw i8, ptr %52, i64 20
   %58 = load i32, ptr %57, align 4
   %59 = call i64 @transformGenericOptions(i32 noundef 1418, i64 noundef %spec.select, ptr noundef %56, i32 noundef %58)
   %.not40 = icmp eq i64 %59, 0
   br i1 %.not40, label %62, label %60
 
 60:                                               ; preds = %49
-  %61 = getelementptr inbounds i8, ptr %2, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 %59, ptr %61, align 8
   br label %64
 
 62:                                               ; preds = %49
-  %63 = getelementptr inbounds i8, ptr %3, i64 3
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 3
   store i8 1, ptr %63, align 1
   br label %64
 
 64:                                               ; preds = %62, %60
-  %65 = getelementptr inbounds i8, ptr %4, i64 3
+  %65 = getelementptr inbounds nuw i8, ptr %4, i64 3
   store i8 1, ptr %65, align 1
   br label %66
 
 66:                                               ; preds = %64, %46
-  %67 = getelementptr inbounds i8, ptr %8, i64 64
+  %67 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %68 = load ptr, ptr %67, align 8
   %69 = call ptr @heap_modify_tuple(ptr noundef nonnull %42, ptr noundef %68, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
-  %70 = getelementptr inbounds i8, ptr %69, i64 4
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
   call void @CatalogTupleUpdate(ptr noundef %8, ptr noundef nonnull %70, ptr noundef %69) #8
   %71 = load ptr, ptr @object_access_hook, align 8
   %.not41 = icmp eq ptr %71, null
@@ -1798,15 +1798,15 @@ user_mapping_ddl_aclcheck.exit:                   ; preds = %32, %39, %.sink.spl
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RemoveUserMapping(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.ObjectAddress, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 4
   br i1 %7, label %19, label %8
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i8, ptr %9, align 8
   %11 = trunc i8 %10 to i1
   %12 = tail call i32 @get_rolespec_oid(ptr noundef nonnull %4, i1 noundef zeroext %11) #8
@@ -1818,7 +1818,7 @@ define dso_local i32 @RemoveUserMapping(ptr nocapture noundef readonly %0) local
   br i1 %14, label %15, label %76
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %4, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.22, ptr noundef %17) #8
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1344, ptr noundef nonnull @__func__.RemoveUserMapping) #8
@@ -1826,14 +1826,14 @@ define dso_local i32 @RemoveUserMapping(ptr nocapture noundef readonly %0) local
 
 19:                                               ; preds = %1, %8
   %.026 = phi i32 [ %12, %8 ], [ 0, %1 ]
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = tail call ptr @GetForeignServerByName(ptr noundef %21, i1 noundef zeroext true) #8
   %.not30 = icmp eq ptr %22, null
   br i1 %.not30, label %23, label %37
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %0, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = load i8, ptr %24, align 8
   %26 = trunc i8 %25 to i1
   br i1 %26, label %32, label %27
@@ -1866,7 +1866,7 @@ define dso_local i32 @RemoveUserMapping(ptr nocapture noundef readonly %0) local
   br i1 %.not31, label %42, label %64
 
 42:                                               ; preds = %37
-  %43 = getelementptr inbounds i8, ptr %0, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %44 = load i8, ptr %43, align 8
   %45 = trunc i8 %44 to i1
   br i1 %45, label %55, label %46
@@ -1910,7 +1910,7 @@ define dso_local i32 @RemoveUserMapping(ptr nocapture noundef readonly %0) local
 
 64:                                               ; preds = %37
   %65 = load i32, ptr %22, align 8
-  %66 = getelementptr inbounds i8, ptr %22, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %67 = load ptr, ptr %66, align 8
   %68 = tail call i32 @GetUserId() #8
   %69 = tail call zeroext i1 @object_ownercheck(i32 noundef 1417, i32 noundef %65, i32 noundef %68) #8
@@ -1932,9 +1932,9 @@ define dso_local i32 @RemoveUserMapping(ptr nocapture noundef readonly %0) local
 
 user_mapping_ddl_aclcheck.exit:                   ; preds = %64, %72, %.sink.split.i
   store i32 1418, ptr %2, align 4
-  %74 = getelementptr inbounds i8, ptr %2, i64 4
+  %74 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %41, ptr %74, align 4
-  %75 = getelementptr inbounds i8, ptr %2, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %75, align 4
   call void @performDeletion(ptr noundef nonnull %2, i32 noundef 1, i32 noundef 0) #8
   br label %76
@@ -1955,7 +1955,7 @@ define dso_local void @CreateForeignTable(ptr nocapture noundef readonly %0, i32
   tail call void @CommandCounterIncrement() #8
   %7 = tail call ptr @table_open(i32 noundef 3118, i32 noundef 3) #8
   %8 = tail call i32 @GetUserId() #8
-  %9 = getelementptr inbounds i8, ptr %0, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr @GetForeignServerByName(ptr noundef %10, i1 noundef zeroext false) #8
   %12 = load i32, ptr %11, align 8
@@ -1964,58 +1964,58 @@ define dso_local void @CreateForeignTable(ptr nocapture noundef readonly %0, i32
   br i1 %.not, label %17, label %14
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %11, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %16 = load ptr, ptr %15, align 8
   tail call void @aclcheck_error(i32 noundef %13, i32 noundef 17, ptr noundef %16) #8
   br label %17
 
 17:                                               ; preds = %14, %2
-  %18 = getelementptr inbounds i8, ptr %11, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %19 = load i32, ptr %18, align 4
   %20 = tail call ptr @GetForeignDataWrapper(i32 noundef %19) #8
-  %21 = getelementptr inbounds i8, ptr %3, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 0, ptr %21, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %4, i8 0, i64 3, i1 false)
   %22 = zext i32 %1 to i64
   store i64 %22, ptr %3, align 16
   %23 = load i32, ptr %11, align 8
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds i8, ptr %3, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %24, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 120
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %20, i64 20
+  %28 = getelementptr inbounds nuw i8, ptr %20, i64 20
   %29 = load i32, ptr %28, align 4
   %30 = tail call i64 @transformGenericOptions(i32 noundef 3118, i64 noundef 0, ptr noundef %27, i32 noundef %29)
   %.not19 = icmp eq i64 %30, 0
   br i1 %.not19, label %33, label %31
 
 31:                                               ; preds = %17
-  %32 = getelementptr inbounds i8, ptr %3, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %30, ptr %32, align 16
   br label %35
 
 33:                                               ; preds = %17
-  %34 = getelementptr inbounds i8, ptr %4, i64 2
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i8 1, ptr %34, align 1
   br label %35
 
 35:                                               ; preds = %33, %31
-  %36 = getelementptr inbounds i8, ptr %7, i64 64
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %37 = load ptr, ptr %36, align 8
   %38 = call ptr @heap_form_tuple(ptr noundef %37, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
   call void @CatalogTupleInsert(ptr noundef %7, ptr noundef %38) #8
   call void @heap_freetuple(ptr noundef %38) #8
   store i32 1259, ptr %5, align 4
-  %39 = getelementptr inbounds i8, ptr %5, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %1, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %5, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %40, align 4
   store i32 1417, ptr %6, align 4
   %41 = load i32, ptr %11, align 8
-  %42 = getelementptr inbounds i8, ptr %6, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %41, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %6, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %43, align 4
   call void @recordDependencyOn(ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 110) #8
   call void @table_close(ptr noundef %7, i32 noundef 3) #8
@@ -2028,7 +2028,7 @@ declare void @CommandCounterIncrement() local_unnamed_addr #1
 define dso_local void @ImportForeignSchema(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.import_error_callback_arg, align 8
   %3 = alloca %struct.ErrorContextCallback, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @GetForeignServerByName(ptr noundef %5, i1 noundef zeroext false) #8
   %7 = load i32, ptr %6, align 8
@@ -2038,19 +2038,19 @@ define dso_local void @ImportForeignSchema(ptr noundef %0) local_unnamed_addr #0
   br i1 %.not, label %13, label %10
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %12 = load ptr, ptr %11, align 8
   tail call void @aclcheck_error(i32 noundef %9, i32 noundef 17, ptr noundef %12) #8
   br label %13
 
 13:                                               ; preds = %10, %1
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 @LookupCreationNamespace(ptr noundef %15) #8
-  %17 = getelementptr inbounds i8, ptr %6, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = tail call ptr @GetForeignDataWrapper(i32 noundef %18) #8
-  %20 = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load i32, ptr %20, align 8
   %.not55 = icmp eq i32 %21, 0
   br i1 %.not55, label %22, label %28
@@ -2059,7 +2059,7 @@ define dso_local void @ImportForeignSchema(ptr noundef %0) local_unnamed_addr #0
   %23 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   tail call void @llvm.assume(i1 %23)
   %24 = tail call i32 @errcode(i32 noundef 325) #8
-  %25 = getelementptr inbounds i8, ptr %19, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.25, ptr noundef %26) #8
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1508, ptr noundef nonnull @__func__.ImportForeignSchema) #8
@@ -2067,7 +2067,7 @@ define dso_local void @ImportForeignSchema(ptr noundef %0) local_unnamed_addr #0
 
 28:                                               ; preds = %13
   %29 = tail call ptr @GetFdwRoutine(i32 noundef %21) #8
-  %30 = getelementptr inbounds i8, ptr %29, i64 264
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 264
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %39
@@ -2076,7 +2076,7 @@ define dso_local void @ImportForeignSchema(ptr noundef %0) local_unnamed_addr #0
   %34 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   tail call void @llvm.assume(i1 %34)
   %35 = tail call i32 @errcode(i32 noundef 536873368) #8
-  %36 = getelementptr inbounds i8, ptr %19, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.26, ptr noundef %37) #8
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1514, ptr noundef nonnull @__func__.ImportForeignSchema) #8
@@ -2089,11 +2089,11 @@ define dso_local void @ImportForeignSchema(ptr noundef %0) local_unnamed_addr #0
   br i1 %.not56, label %._crit_edge73, label %.lr.ph72
 
 .lr.ph72:                                         ; preds = %39
-  %42 = getelementptr inbounds i8, ptr %41, i64 4
-  %43 = getelementptr inbounds i8, ptr %41, i64 16
-  %44 = getelementptr inbounds i8, ptr %2, i64 8
-  %45 = getelementptr inbounds i8, ptr %3, i64 8
-  %46 = getelementptr inbounds i8, ptr %3, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %47 = load i32, ptr %42, align 4
   %48 = icmp sgt i32 %47, 0
   br i1 %48, label %.lr.ph83, label %._crit_edge73
@@ -2115,8 +2115,8 @@ define dso_local void @ImportForeignSchema(ptr noundef %0) local_unnamed_addr #0
   br i1 %.not58, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph83
-  %54 = getelementptr inbounds i8, ptr %53, i64 4
-  %55 = getelementptr inbounds i8, ptr %53, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %56 = load i32, ptr %54, align 4
   %57 = icmp sgt i32 %56, 0
   br i1 %57, label %.lr.ph69, label %._crit_edge
@@ -2126,7 +2126,7 @@ define dso_local void @ImportForeignSchema(ptr noundef %0) local_unnamed_addr #0
   %58 = load ptr, ptr %55, align 8
   %59 = getelementptr %union.ListCell, ptr %58, i64 %indvars.iv
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = load ptr, ptr %61, align 8
   %63 = load i32, ptr %62, align 4
   %64 = icmp eq i32 %63, 157
@@ -2135,7 +2135,7 @@ define dso_local void @ImportForeignSchema(ptr noundef %0) local_unnamed_addr #0
 .split:                                           ; preds = %.lr.ph69
   %65 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   call void @llvm.assume(i1 %65)
-  %66 = getelementptr inbounds i8, ptr %19, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %67 = load ptr, ptr %66, align 8
   %68 = load i32, ptr %62, align 4
   %69 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.27, ptr noundef %67, i32 noundef %68) #8
@@ -2143,38 +2143,38 @@ define dso_local void @ImportForeignSchema(ptr noundef %0) local_unnamed_addr #0
   unreachable
 
 70:                                               ; preds = %.lr.ph69
-  %71 = getelementptr inbounds i8, ptr %62, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 24
   %74 = load ptr, ptr %73, align 8
   %75 = call zeroext i1 @IsImportableForeignTable(ptr noundef %74, ptr noundef %0) #8
   br i1 %75, label %76, label %95
 
 76:                                               ; preds = %70
   %77 = load ptr, ptr %71, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 24
   %79 = load ptr, ptr %78, align 8
   store ptr %79, ptr %2, align 8
   %80 = load ptr, ptr %14, align 8
   %81 = call ptr @pstrdup(ptr noundef %80) #8
   %82 = load ptr, ptr %71, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
   store ptr %81, ptr %83, align 8
   %84 = call noundef ptr @palloc0(i64 noundef 136) #8
   store i32 314, ptr %84, align 4
-  %85 = getelementptr inbounds i8, ptr %84, i64 4
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 4
   store i32 6, ptr %85, align 4
-  %86 = getelementptr inbounds i8, ptr %84, i64 18
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 18
   store i8 0, ptr %86, align 2
-  %87 = getelementptr inbounds i8, ptr %84, i64 120
+  %87 = getelementptr inbounds nuw i8, ptr %84, i64 120
   store ptr %62, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %60, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %89 = load i32, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %84, i64 128
+  %90 = getelementptr inbounds nuw i8, ptr %84, i64 128
   store i32 %89, ptr %90, align 8
-  %91 = getelementptr inbounds i8, ptr %60, i64 20
+  %91 = getelementptr inbounds nuw i8, ptr %60, i64 20
   %92 = load i32, ptr %91, align 4
-  %93 = getelementptr inbounds i8, ptr %84, i64 132
+  %93 = getelementptr inbounds nuw i8, ptr %84, i64 132
   store i32 %92, ptr %93, align 4
   %94 = load ptr, ptr @None_Receiver, align 8
   call void @ProcessUtility(ptr noundef nonnull %84, ptr noundef %51, i1 noundef zeroext false, i32 noundef 3, ptr noundef null, ptr noundef null, ptr noundef %94, ptr noundef null) #8
@@ -2215,7 +2215,7 @@ define internal void @import_error_callback(ptr nocapture noundef readonly %0) #
 4:                                                ; preds = %1
   %5 = tail call i32 @errposition(i32 noundef 0) #8
   %6 = tail call i32 @internalerrposition(i32 noundef %2) #8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 @internalerrquery(ptr noundef %8) #8
   br label %10
@@ -2260,9 +2260,9 @@ declare zeroext i1 @superuser_arg(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef range(i32 6, 8) %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 18
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 18
   %8 = load i16, ptr %7, align 2
   %9 = and i16 %8, 2047
   %10 = zext nneg i16 %9 to i32
@@ -2276,33 +2276,33 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef ran
 14:                                               ; preds = %4
   store i8 0, ptr %3, align 1
   %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 20
   %17 = load i16, ptr %16, align 4
   %18 = and i16 %17, 1
   %.not.i = icmp eq i16 %18, 0
   br i1 %.not.i, label %19, label %59
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %2, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %21 = add nsw i32 %1, -1
   %22 = zext nneg i32 %21 to i64
   %23 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %20, i64 0, i64 %22
-  %24 = getelementptr inbounds i8, ptr %23, i64 76
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 76
   %25 = load i32, ptr %24, align 4
   %26 = icmp sgt i32 %25, -1
   br i1 %26, label %27, label %57
 
 27:                                               ; preds = %19
-  %28 = getelementptr inbounds i8, ptr %15, i64 22
+  %28 = getelementptr inbounds nuw i8, ptr %15, i64 22
   %29 = load i8, ptr %28, align 2
   %30 = zext i8 %29 to i64
   %31 = getelementptr i8, ptr %15, i64 %30
   %32 = zext nneg i32 %25 to i64
   %33 = getelementptr i8, ptr %31, i64 %32
-  %34 = getelementptr inbounds i8, ptr %23, i64 86
+  %34 = getelementptr inbounds nuw i8, ptr %23, i64 86
   %35 = load i8, ptr %34, align 2
   %36 = trunc i8 %35 to i1
-  %37 = getelementptr inbounds i8, ptr %23, i64 72
+  %37 = getelementptr inbounds nuw i8, ptr %23, i64 72
   %38 = load i16, ptr %37, align 4
   br i1 %36, label %39, label %55
 
@@ -2351,7 +2351,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef ran
 
 59:                                               ; preds = %14
   %60 = add nsw i32 %1, -1
-  %61 = getelementptr inbounds i8, ptr %15, i64 23
+  %61 = getelementptr inbounds nuw i8, ptr %15, i64 23
   %.val.i = load i8, ptr %61, align 1
   %62 = zext i8 %.val.i to i32
   %63 = shl nuw nsw i32 1, %60

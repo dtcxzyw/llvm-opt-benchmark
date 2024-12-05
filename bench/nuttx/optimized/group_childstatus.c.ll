@@ -16,7 +16,7 @@ define void @task_initialize() local_unnamed_addr #0 {
 1:                                                ; preds = %0, %1
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %1 ]
   %.067 = phi ptr [ @g_child_pool, %0 ], [ %2, %1 ]
-  %2 = getelementptr inbounds [16 x %struct.child_status_s], ptr @g_child_pool, i64 0, i64 %indvars.iv
+  %2 = getelementptr inbounds nuw [16 x %struct.child_status_s], ptr @g_child_pool, i64 0, i64 %indvars.iv
   store ptr %2, ptr %.067, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -67,7 +67,7 @@ define void @group_free_child(ptr noundef %0) local_unnamed_addr #3 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @group_add_child(ptr nocapture noundef %0, ptr noundef initializes((0, 8)) %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %1, align 8
   store ptr %1, ptr %3, align 8
@@ -76,7 +76,7 @@ define void @group_add_child(ptr nocapture noundef %0, ptr noundef initializes((
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define ptr @group_find_child(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %4
 
 4:                                                ; preds = %5, %2
@@ -86,7 +86,7 @@ define ptr @group_find_child(ptr nocapture noundef readonly %0, i32 noundef %1) 
   br i1 %.not, label %9, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %.0, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %.0, i64 12
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, %1
   br i1 %8, label %9, label %4, !llvm.loop !8
@@ -97,7 +97,7 @@ define ptr @group_find_child(ptr nocapture noundef readonly %0, i32 noundef %1) 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define ptr @group_exit_child(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %3
 
 3:                                                ; preds = %4, %1
@@ -107,7 +107,7 @@ define ptr @group_exit_child(ptr nocapture noundef readonly %0) local_unnamed_ad
   br i1 %.not, label %8, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %.0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %6 = load i8, ptr %5, align 8
   %7 = and i8 %6, 4
   %.not7 = icmp eq i8 %7, 0
@@ -119,7 +119,7 @@ define ptr @group_exit_child(ptr nocapture noundef readonly %0) local_unnamed_ad
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define ptr @group_remove_child(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #6 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %4
 
 4:                                                ; preds = %5, %2
@@ -130,7 +130,7 @@ define ptr @group_remove_child(ptr nocapture noundef %0, i32 noundef %1) local_u
   br i1 %.not, label %.critedge, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %.013, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %.013, i64 12
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, %1
   br i1 %8, label %9, label %4, !llvm.loop !10
@@ -158,7 +158,7 @@ define ptr @group_remove_child(ptr nocapture noundef %0, i32 noundef %1) local_u
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @group_remove_children(ptr nocapture noundef %0) local_unnamed_addr #6 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not6 = icmp eq ptr %3, null
   br i1 %.not6, label %._crit_edge, label %group_free_child.exit.preheader

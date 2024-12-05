@@ -112,9 +112,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn14Dequantize_x867forwardE
   %indvars.iv2329 = phi i64 [ 0, %.lr.ph2110.preheader ], [ %indvars.iv.next2330, %.lr.ph2110 ]
   %41 = load ptr, ptr %1, align 8
   %42 = shl nsw i64 %indvars.iv2329, 2
-  %43 = getelementptr inbounds i32, ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw i32, ptr %41, i64 %42
   %44 = load ptr, ptr %2, align 8
-  %45 = getelementptr inbounds float, ptr %44, i64 %42
+  %45 = getelementptr inbounds nuw float, ptr %44, i64 %42
   %46 = load <4 x i32>, ptr %43, align 1
   %47 = sitofp <4 x i32> %46 to <4 x float>
   %48 = fmul fast <4 x float> %35, %47
@@ -141,9 +141,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn14Dequantize_x867forwardE
   %indvars.iv2323 = phi i64 [ 0, %.lr.ph2108.preheader ], [ %indvars.iv.next2324, %.lr.ph2108 ]
   %56 = load ptr, ptr %1, align 8
   %57 = shl nsw i64 %indvars.iv2323, 2
-  %58 = getelementptr inbounds i32, ptr %56, i64 %57
+  %58 = getelementptr inbounds nuw i32, ptr %56, i64 %57
   %59 = load ptr, ptr %2, align 8
-  %60 = getelementptr inbounds float, ptr %59, i64 %57
+  %60 = getelementptr inbounds nuw float, ptr %59, i64 %57
   %61 = load <4 x i32>, ptr %58, align 1
   %62 = sitofp <4 x i32> %61 to <4 x float>
   %63 = fmul fast <4 x float> %35, %62
@@ -157,11 +157,11 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn14Dequantize_x867forwardE
   %indvars.iv2335 = phi i64 [ 0, %.lr.ph2112 ], [ %indvars.iv.next2336, %65 ]
   %66 = load ptr, ptr %1, align 8
   %67 = shl nsw i64 %indvars.iv2335, 2
-  %68 = getelementptr inbounds i32, ptr %66, i64 %67
+  %68 = getelementptr inbounds nuw i32, ptr %66, i64 %67
   %69 = load ptr, ptr %2, align 8
-  %70 = getelementptr inbounds float, ptr %69, i64 %67
+  %70 = getelementptr inbounds nuw float, ptr %69, i64 %67
   %71 = load ptr, ptr %40, align 8
-  %72 = getelementptr inbounds float, ptr %71, i64 %67
+  %72 = getelementptr inbounds nuw float, ptr %71, i64 %67
   %73 = load <4 x float>, ptr %72, align 1
   %74 = load <4 x i32>, ptr %68, align 1
   %75 = sitofp <4 x i32> %74 to <4 x float>
@@ -205,11 +205,11 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn14Dequantize_x867forwardE
   %indvars.iv2311 = phi i64 [ 0, %.lr.ph2103 ], [ %indvars.iv.next2312, %86 ]
   %87 = load ptr, ptr %1, align 8
   %88 = shl nsw i64 %indvars.iv2311, 2
-  %89 = getelementptr inbounds i32, ptr %87, i64 %88
+  %89 = getelementptr inbounds nuw i32, ptr %87, i64 %88
   %90 = load ptr, ptr %2, align 8
-  %91 = getelementptr inbounds float, ptr %90, i64 %88
+  %91 = getelementptr inbounds nuw float, ptr %90, i64 %88
   %92 = load ptr, ptr %82, align 8
-  %93 = getelementptr inbounds float, ptr %92, i64 %88
+  %93 = getelementptr inbounds nuw float, ptr %92, i64 %88
   %94 = load <4 x float>, ptr %93, align 1
   %95 = load <4 x i32>, ptr %89, align 1
   %96 = sitofp <4 x i32> %95 to <4 x float>
@@ -238,11 +238,11 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn14Dequantize_x867forwardE
   %indvars.iv2306 = phi i64 [ 0, %.lr.ph2101 ], [ %indvars.iv.next2307, %106 ]
   %107 = load ptr, ptr %1, align 8
   %108 = shl nsw i64 %indvars.iv2306, 2
-  %109 = getelementptr inbounds i32, ptr %107, i64 %108
+  %109 = getelementptr inbounds nuw i32, ptr %107, i64 %108
   %110 = load ptr, ptr %2, align 8
-  %111 = getelementptr inbounds float, ptr %110, i64 %108
+  %111 = getelementptr inbounds nuw float, ptr %110, i64 %108
   %112 = load ptr, ptr %105, align 8
-  %113 = getelementptr inbounds float, ptr %112, i64 %108
+  %113 = getelementptr inbounds nuw float, ptr %112, i64 %108
   %114 = load <4 x float>, ptr %113, align 1
   %115 = load <4 x i32>, ptr %109, align 1
   %116 = sitofp <4 x i32> %115 to <4 x float>
@@ -257,14 +257,14 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn14Dequantize_x867forwardE
   %indvars.iv2317 = phi i64 [ 0, %.lr.ph2105 ], [ %indvars.iv.next2318, %119 ]
   %120 = load ptr, ptr %1, align 8
   %121 = shl nsw i64 %indvars.iv2317, 2
-  %122 = getelementptr inbounds i32, ptr %120, i64 %121
+  %122 = getelementptr inbounds nuw i32, ptr %120, i64 %121
   %123 = load ptr, ptr %2, align 8
-  %124 = getelementptr inbounds float, ptr %123, i64 %121
+  %124 = getelementptr inbounds nuw float, ptr %123, i64 %121
   %125 = load ptr, ptr %84, align 8
-  %126 = getelementptr inbounds float, ptr %125, i64 %121
+  %126 = getelementptr inbounds nuw float, ptr %125, i64 %121
   %127 = load <4 x float>, ptr %126, align 1
   %128 = load ptr, ptr %85, align 8
-  %129 = getelementptr inbounds float, ptr %128, i64 %121
+  %129 = getelementptr inbounds nuw float, ptr %128, i64 %121
   %130 = load <4 x float>, ptr %129, align 1
   %131 = load <4 x i32>, ptr %122, align 1
   %132 = sitofp <4 x i32> %131 to <4 x float>
@@ -365,9 +365,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn14Dequantize_x867forwardE
 
 197:                                              ; preds = %171
   %.idx2426 = shl nsw i64 %indvars.iv2348, 5
-  %198 = getelementptr inbounds i8, ptr %192, i64 %.idx2426
+  %198 = getelementptr inbounds nuw i8, ptr %192, i64 %.idx2426
   %199 = load <4 x float>, ptr %198, align 1
-  %200 = getelementptr inbounds i8, ptr %198, i64 16
+  %200 = getelementptr inbounds nuw i8, ptr %198, i64 16
   %201 = load <4 x float>, ptr %200, align 1
   br label %202
 
@@ -383,16 +383,16 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn14Dequantize_x867forwardE
   %.016082122 = phi i32 [ %215, %.lr.ph2127 ], [ 0, %202 ]
   %205 = load <4 x i32>, ptr %.016012125, align 1
   %206 = sitofp <4 x i32> %205 to <4 x float>
-  %207 = getelementptr inbounds i8, ptr %.016012125, i64 16
+  %207 = getelementptr inbounds nuw i8, ptr %.016012125, i64 16
   %208 = load <4 x i32>, ptr %207, align 1
   %209 = sitofp <4 x i32> %208 to <4 x float>
   %210 = fmul fast <4 x float> %203, %206
   %211 = fmul fast <4 x float> %204, %209
   store <4 x float> %210, ptr %.016052124, align 1
   store <4 x float> %211, ptr %.016072123, align 1
-  %212 = getelementptr inbounds i8, ptr %.016012125, i64 32
-  %213 = getelementptr inbounds i8, ptr %.016052124, i64 16
-  %214 = getelementptr inbounds i8, ptr %.016072123, i64 16
+  %212 = getelementptr inbounds nuw i8, ptr %.016012125, i64 32
+  %213 = getelementptr inbounds nuw i8, ptr %.016052124, i64 16
+  %214 = getelementptr inbounds nuw i8, ptr %.016072123, i64 16
   %215 = add nuw nsw i32 %.016082122, 1
   %exitcond2347.not = icmp eq i32 %215, %137
   br i1 %exitcond2347.not, label %._crit_edge2128, label %.lr.ph2127, !llvm.loop !11
@@ -435,9 +435,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn14Dequantize_x867forwardE
 
 242:                                              ; preds = %216
   %.idx2424 = shl nsw i64 %indvars.iv2342, 5
-  %243 = getelementptr inbounds i8, ptr %237, i64 %.idx2424
+  %243 = getelementptr inbounds nuw i8, ptr %237, i64 %.idx2424
   %244 = load <4 x float>, ptr %243, align 1
-  %245 = getelementptr inbounds i8, ptr %243, i64 16
+  %245 = getelementptr inbounds nuw i8, ptr %243, i64 16
   %246 = load <4 x float>, ptr %245, align 1
   br label %247
 
@@ -457,9 +457,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn14Dequantize_x867forwardE
 
 257:                                              ; preds = %247
   %.idx2425 = shl nsw i64 %indvars.iv2342, 5
-  %258 = getelementptr inbounds i8, ptr %252, i64 %.idx2425
+  %258 = getelementptr inbounds nuw i8, ptr %252, i64 %.idx2425
   %259 = load <4 x float>, ptr %258, align 1
-  %260 = getelementptr inbounds i8, ptr %258, i64 16
+  %260 = getelementptr inbounds nuw i8, ptr %258, i64 16
   %261 = load <4 x float>, ptr %260, align 1
   br label %262
 
@@ -475,7 +475,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn14Dequantize_x867forwardE
   %.016142113 = phi i32 [ %277, %.lr.ph2118 ], [ 0, %262 ]
   %265 = load <4 x i32>, ptr %.016102116, align 1
   %266 = sitofp <4 x i32> %265 to <4 x float>
-  %267 = getelementptr inbounds i8, ptr %.016102116, i64 16
+  %267 = getelementptr inbounds nuw i8, ptr %.016102116, i64 16
   %268 = load <4 x i32>, ptr %267, align 1
   %269 = sitofp <4 x i32> %268 to <4 x float>
   %270 = fmul fast <4 x float> %248, %266
@@ -484,9 +484,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn14Dequantize_x867forwardE
   %273 = fadd fast <4 x float> %272, %264
   store <4 x float> %271, ptr %.016112115, align 1
   store <4 x float> %273, ptr %.016132114, align 1
-  %274 = getelementptr inbounds i8, ptr %.016102116, i64 32
-  %275 = getelementptr inbounds i8, ptr %.016112115, i64 16
-  %276 = getelementptr inbounds i8, ptr %.016132114, i64 16
+  %274 = getelementptr inbounds nuw i8, ptr %.016102116, i64 32
+  %275 = getelementptr inbounds nuw i8, ptr %.016112115, i64 16
+  %276 = getelementptr inbounds nuw i8, ptr %.016132114, i64 16
   %277 = add nuw nsw i32 %.016142113, 1
   %exitcond2341.not = icmp eq i32 %277, %137
   br i1 %exitcond2341.not, label %._crit_edge2119, label %.lr.ph2118, !llvm.loop !13
@@ -591,9 +591,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn14Dequantize_x867forwardE
 
 342:                                              ; preds = %318
   %.idx2429 = shl nsw i64 %indvars.iv2360, 5
-  %343 = getelementptr inbounds i8, ptr %337, i64 %.idx2429
+  %343 = getelementptr inbounds nuw i8, ptr %337, i64 %.idx2429
   %344 = load <4 x float>, ptr %343, align 1
-  %345 = getelementptr inbounds i8, ptr %343, i64 16
+  %345 = getelementptr inbounds nuw i8, ptr %343, i64 16
   %346 = load <4 x float>, ptr %345, align 1
   br label %347
 
@@ -609,16 +609,16 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn14Dequantize_x867forwardE
   %.016262140 = phi i32 [ %360, %.lr.ph2145 ], [ 0, %347 ]
   %350 = load <4 x i32>, ptr %.016202143, align 1
   %351 = sitofp <4 x i32> %350 to <4 x float>
-  %352 = getelementptr inbounds i8, ptr %.016202143, i64 16
+  %352 = getelementptr inbounds nuw i8, ptr %.016202143, i64 16
   %353 = load <4 x i32>, ptr %352, align 1
   %354 = sitofp <4 x i32> %353 to <4 x float>
   %355 = fmul fast <4 x float> %348, %351
   %356 = fmul fast <4 x float> %349, %354
   store <4 x float> %355, ptr %.016242142, align 1
   store <4 x float> %356, ptr %.016252141, align 1
-  %357 = getelementptr inbounds i8, ptr %.016202143, i64 32
-  %358 = getelementptr inbounds i8, ptr %.016242142, i64 16
-  %359 = getelementptr inbounds i8, ptr %.016252141, i64 16
+  %357 = getelementptr inbounds nuw i8, ptr %.016202143, i64 32
+  %358 = getelementptr inbounds nuw i8, ptr %.016242142, i64 16
+  %359 = getelementptr inbounds nuw i8, ptr %.016252141, i64 16
   %360 = add nuw nsw i32 %.016262140, 1
   %exitcond2359.not = icmp eq i32 %360, %286
   br i1 %exitcond2359.not, label %._crit_edge2146, label %.lr.ph2145, !llvm.loop !15
@@ -659,9 +659,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn14Dequantize_x867forwardE
 
 385:                                              ; preds = %361
   %.idx2427 = shl nsw i64 %indvars.iv2354, 5
-  %386 = getelementptr inbounds i8, ptr %380, i64 %.idx2427
+  %386 = getelementptr inbounds nuw i8, ptr %380, i64 %.idx2427
   %387 = load <4 x float>, ptr %386, align 1
-  %388 = getelementptr inbounds i8, ptr %386, i64 16
+  %388 = getelementptr inbounds nuw i8, ptr %386, i64 16
   %389 = load <4 x float>, ptr %388, align 1
   br label %390
 
@@ -681,9 +681,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn14Dequantize_x867forwardE
 
 400:                                              ; preds = %390
   %.idx2428 = shl nsw i64 %indvars.iv2354, 5
-  %401 = getelementptr inbounds i8, ptr %395, i64 %.idx2428
+  %401 = getelementptr inbounds nuw i8, ptr %395, i64 %.idx2428
   %402 = load <4 x float>, ptr %401, align 1
-  %403 = getelementptr inbounds i8, ptr %401, i64 16
+  %403 = getelementptr inbounds nuw i8, ptr %401, i64 16
   %404 = load <4 x float>, ptr %403, align 1
   br label %405
 
@@ -699,7 +699,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn14Dequantize_x867forwardE
   %.016352131 = phi i32 [ %420, %.lr.ph2136 ], [ 0, %405 ]
   %408 = load <4 x i32>, ptr %.016282134, align 1
   %409 = sitofp <4 x i32> %408 to <4 x float>
-  %410 = getelementptr inbounds i8, ptr %.016282134, i64 16
+  %410 = getelementptr inbounds nuw i8, ptr %.016282134, i64 16
   %411 = load <4 x i32>, ptr %410, align 1
   %412 = sitofp <4 x i32> %411 to <4 x float>
   %413 = fmul fast <4 x float> %391, %409
@@ -708,9 +708,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn14Dequantize_x867forwardE
   %416 = fadd fast <4 x float> %415, %407
   store <4 x float> %414, ptr %.016302133, align 1
   store <4 x float> %416, ptr %.016312132, align 1
-  %417 = getelementptr inbounds i8, ptr %.016282134, i64 32
-  %418 = getelementptr inbounds i8, ptr %.016302133, i64 16
-  %419 = getelementptr inbounds i8, ptr %.016312132, i64 16
+  %417 = getelementptr inbounds nuw i8, ptr %.016282134, i64 32
+  %418 = getelementptr inbounds nuw i8, ptr %.016302133, i64 16
+  %419 = getelementptr inbounds nuw i8, ptr %.016312132, i64 16
   %420 = add nuw nsw i32 %.016352131, 1
   %exitcond2353.not = icmp eq i32 %420, %286
   br i1 %exitcond2353.not, label %._crit_edge2137, label %.lr.ph2136, !llvm.loop !17
@@ -787,9 +787,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn14Dequantize_x867forwardE
   %indvars.iv2272 = phi i64 [ 0, %.lr.ph2066.preheader ], [ %indvars.iv.next2273, %.lr.ph2066 ]
   %452 = load ptr, ptr %1, align 8
   %453 = shl nsw i64 %indvars.iv2272, 2
-  %454 = getelementptr inbounds i32, ptr %452, i64 %453
+  %454 = getelementptr inbounds nuw i32, ptr %452, i64 %453
   %455 = load ptr, ptr %2, align 8
-  %456 = getelementptr inbounds float, ptr %455, i64 %453
+  %456 = getelementptr inbounds nuw float, ptr %455, i64 %453
   %457 = load <4 x i32>, ptr %454, align 1
   %458 = sitofp <4 x i32> %457 to <4 x float>
   %459 = fmul fast <4 x float> %446, %458
@@ -815,9 +815,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn14Dequantize_x867forwardE
   %indvars.iv2267 = phi i64 [ 0, %.lr.ph2064.preheader ], [ %indvars.iv.next2268, %.lr.ph2064 ]
   %467 = load ptr, ptr %1, align 8
   %468 = shl nsw i64 %indvars.iv2267, 2
-  %469 = getelementptr inbounds i32, ptr %467, i64 %468
+  %469 = getelementptr inbounds nuw i32, ptr %467, i64 %468
   %470 = load ptr, ptr %2, align 8
-  %471 = getelementptr inbounds float, ptr %470, i64 %468
+  %471 = getelementptr inbounds nuw float, ptr %470, i64 %468
   %472 = load <4 x i32>, ptr %469, align 1
   %473 = sitofp <4 x i32> %472 to <4 x float>
   %474 = fmul fast <4 x float> %446, %473
@@ -831,11 +831,11 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn14Dequantize_x867forwardE
   %indvars.iv2277 = phi i64 [ 0, %.lr.ph2068 ], [ %indvars.iv.next2278, %476 ]
   %477 = load ptr, ptr %1, align 8
   %478 = shl nsw i64 %indvars.iv2277, 2
-  %479 = getelementptr inbounds i32, ptr %477, i64 %478
+  %479 = getelementptr inbounds nuw i32, ptr %477, i64 %478
   %480 = load ptr, ptr %2, align 8
-  %481 = getelementptr inbounds float, ptr %480, i64 %478
+  %481 = getelementptr inbounds nuw float, ptr %480, i64 %478
   %482 = load ptr, ptr %451, align 8
-  %483 = getelementptr inbounds float, ptr %482, i64 %478
+  %483 = getelementptr inbounds nuw float, ptr %482, i64 %478
   %484 = load <4 x float>, ptr %483, align 1
   %485 = load <4 x i32>, ptr %479, align 1
   %486 = sitofp <4 x i32> %485 to <4 x float>
@@ -877,11 +877,11 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn14Dequantize_x867forwardE
   %indvars.iv2257 = phi i64 [ 0, %.lr.ph2060 ], [ %indvars.iv.next2258, %497 ]
   %498 = load ptr, ptr %1, align 8
   %499 = shl nsw i64 %indvars.iv2257, 2
-  %500 = getelementptr inbounds i32, ptr %498, i64 %499
+  %500 = getelementptr inbounds nuw i32, ptr %498, i64 %499
   %501 = load ptr, ptr %2, align 8
-  %502 = getelementptr inbounds float, ptr %501, i64 %499
+  %502 = getelementptr inbounds nuw float, ptr %501, i64 %499
   %503 = load ptr, ptr %493, align 8
-  %504 = getelementptr inbounds float, ptr %503, i64 %499
+  %504 = getelementptr inbounds nuw float, ptr %503, i64 %499
   %505 = load <4 x float>, ptr %504, align 1
   %506 = load <4 x i32>, ptr %500, align 1
   %507 = sitofp <4 x i32> %506 to <4 x float>
@@ -909,11 +909,11 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn14Dequantize_x867forwardE
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %517 ]
   %518 = load ptr, ptr %1, align 8
   %519 = shl nsw i64 %indvars.iv, 2
-  %520 = getelementptr inbounds i32, ptr %518, i64 %519
+  %520 = getelementptr inbounds nuw i32, ptr %518, i64 %519
   %521 = load ptr, ptr %2, align 8
-  %522 = getelementptr inbounds float, ptr %521, i64 %519
+  %522 = getelementptr inbounds nuw float, ptr %521, i64 %519
   %523 = load ptr, ptr %516, align 8
-  %524 = getelementptr inbounds float, ptr %523, i64 %519
+  %524 = getelementptr inbounds nuw float, ptr %523, i64 %519
   %525 = load <4 x float>, ptr %524, align 1
   %526 = load <4 x i32>, ptr %520, align 1
   %527 = sitofp <4 x i32> %526 to <4 x float>
@@ -928,14 +928,14 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn14Dequantize_x867forwardE
   %indvars.iv2262 = phi i64 [ 0, %.lr.ph2062 ], [ %indvars.iv.next2263, %530 ]
   %531 = load ptr, ptr %1, align 8
   %532 = shl nsw i64 %indvars.iv2262, 2
-  %533 = getelementptr inbounds i32, ptr %531, i64 %532
+  %533 = getelementptr inbounds nuw i32, ptr %531, i64 %532
   %534 = load ptr, ptr %2, align 8
-  %535 = getelementptr inbounds float, ptr %534, i64 %532
+  %535 = getelementptr inbounds nuw float, ptr %534, i64 %532
   %536 = load ptr, ptr %495, align 8
-  %537 = getelementptr inbounds float, ptr %536, i64 %532
+  %537 = getelementptr inbounds nuw float, ptr %536, i64 %532
   %538 = load <4 x float>, ptr %537, align 1
   %539 = load ptr, ptr %496, align 8
-  %540 = getelementptr inbounds float, ptr %539, i64 %532
+  %540 = getelementptr inbounds nuw float, ptr %539, i64 %532
   %541 = load <4 x float>, ptr %540, align 1
   %542 = load <4 x i32>, ptr %533, align 1
   %543 = sitofp <4 x i32> %542 to <4 x float>
@@ -1031,7 +1031,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn14Dequantize_x867forwardE
 
 603:                                              ; preds = %581
   %.idx2420 = shl nsw i64 %indvars.iv2289, 4
-  %604 = getelementptr inbounds i8, ptr %598, i64 %.idx2420
+  %604 = getelementptr inbounds nuw i8, ptr %598, i64 %.idx2420
   %605 = load <4 x float>, ptr %604, align 1
   br label %606
 
@@ -1047,8 +1047,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn14Dequantize_x867forwardE
   %609 = sitofp <4 x i32> %608 to <4 x float>
   %610 = fmul fast <4 x float> %607, %609
   store <4 x float> %610, ptr %.016382076, align 1
-  %611 = getelementptr inbounds i8, ptr %.016392075, i64 16
-  %612 = getelementptr inbounds i8, ptr %.016382076, i64 16
+  %611 = getelementptr inbounds nuw i8, ptr %.016392075, i64 16
+  %612 = getelementptr inbounds nuw i8, ptr %.016382076, i64 16
   %613 = add nuw nsw i32 %.016362077, 1
   %exitcond2288.not = icmp eq i32 %613, %548
   br i1 %exitcond2288.not, label %._crit_edge2080, label %.lr.ph2079, !llvm.loop !25
@@ -1087,7 +1087,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn14Dequantize_x867forwardE
 
 636:                                              ; preds = %614
   %.idx = shl nsw i64 %indvars.iv2283, 4
-  %637 = getelementptr inbounds i8, ptr %631, i64 %.idx
+  %637 = getelementptr inbounds nuw i8, ptr %631, i64 %.idx
   %638 = load <4 x float>, ptr %637, align 1
   br label %639
 
@@ -1106,7 +1106,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn14Dequantize_x867forwardE
 
 648:                                              ; preds = %639
   %.idx2419 = shl nsw i64 %indvars.iv2283, 4
-  %649 = getelementptr inbounds i8, ptr %643, i64 %.idx2419
+  %649 = getelementptr inbounds nuw i8, ptr %643, i64 %.idx2419
   %650 = load <4 x float>, ptr %649, align 1
   br label %651
 
@@ -1123,8 +1123,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn14Dequantize_x867forwardE
   %655 = fmul fast <4 x float> %640, %654
   %656 = fadd fast <4 x float> %655, %652
   store <4 x float> %656, ptr %.016322070, align 1
-  %657 = getelementptr inbounds i8, ptr %.016332069, i64 16
-  %658 = getelementptr inbounds i8, ptr %.016322070, i64 16
+  %657 = getelementptr inbounds nuw i8, ptr %.016332069, i64 16
+  %658 = getelementptr inbounds nuw i8, ptr %.016322070, i64 16
   %659 = add nuw nsw i32 %.016292071, 1
   %exitcond2282.not = icmp eq i32 %659, %548
   br i1 %exitcond2282.not, label %._crit_edge, label %.lr.ph2072, !llvm.loop !27
@@ -1224,7 +1224,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn14Dequantize_x867forwardE
 
 719:                                              ; preds = %699
   %.idx2423 = shl nsw i64 %indvars.iv2301, 4
-  %720 = getelementptr inbounds i8, ptr %714, i64 %.idx2423
+  %720 = getelementptr inbounds nuw i8, ptr %714, i64 %.idx2423
   %721 = load <4 x float>, ptr %720, align 1
   br label %722
 
@@ -1240,8 +1240,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn14Dequantize_x867forwardE
   %725 = sitofp <4 x i32> %724 to <4 x float>
   %726 = fmul fast <4 x float> %723, %725
   store <4 x float> %726, ptr %.016212092, align 1
-  %727 = getelementptr inbounds i8, ptr %.016222091, i64 16
-  %728 = getelementptr inbounds i8, ptr %.016212092, i64 16
+  %727 = getelementptr inbounds nuw i8, ptr %.016222091, i64 16
+  %728 = getelementptr inbounds nuw i8, ptr %.016212092, i64 16
   %729 = add nuw nsw i32 %.016192093, 1
   %exitcond2300.not = icmp eq i32 %729, %668
   br i1 %exitcond2300.not, label %._crit_edge2096, label %.lr.ph2095, !llvm.loop !29
@@ -1278,7 +1278,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn14Dequantize_x867forwardE
 
 750:                                              ; preds = %730
   %.idx2421 = shl nsw i64 %indvars.iv2295, 4
-  %751 = getelementptr inbounds i8, ptr %745, i64 %.idx2421
+  %751 = getelementptr inbounds nuw i8, ptr %745, i64 %.idx2421
   %752 = load <4 x float>, ptr %751, align 1
   br label %753
 
@@ -1297,7 +1297,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn14Dequantize_x867forwardE
 
 762:                                              ; preds = %753
   %.idx2422 = shl nsw i64 %indvars.iv2295, 4
-  %763 = getelementptr inbounds i8, ptr %757, i64 %.idx2422
+  %763 = getelementptr inbounds nuw i8, ptr %757, i64 %.idx2422
   %764 = load <4 x float>, ptr %763, align 1
   br label %765
 
@@ -1314,8 +1314,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn14Dequantize_x867forwardE
   %769 = fmul fast <4 x float> %754, %768
   %770 = fadd fast <4 x float> %769, %766
   store <4 x float> %770, ptr %.016152084, align 1
-  %771 = getelementptr inbounds i8, ptr %.016162083, i64 16
-  %772 = getelementptr inbounds i8, ptr %.016152084, i64 16
+  %771 = getelementptr inbounds nuw i8, ptr %.016162083, i64 16
+  %772 = getelementptr inbounds nuw i8, ptr %.016152084, i64 16
   %773 = add nuw nsw i32 %.016122085, 1
   %exitcond2294.not = icmp eq i32 %773, %668
   br i1 %exitcond2294.not, label %._crit_edge2088, label %.lr.ph2087, !llvm.loop !31
@@ -1389,11 +1389,11 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn14Dequantize_x867forwardE
 
 .lr.ph2160:                                       ; preds = %.lr.ph2160.preheader, %.lr.ph2160
   %indvars.iv2385 = phi i64 [ 0, %.lr.ph2160.preheader ], [ %indvars.iv.next2386, %.lr.ph2160 ]
-  %804 = getelementptr inbounds i32, ptr %791, i64 %indvars.iv2385
+  %804 = getelementptr inbounds nuw i32, ptr %791, i64 %indvars.iv2385
   %805 = load i32, ptr %804, align 4
   %806 = sitofp i32 %805 to float
   %807 = fmul fast float %798, %806
-  %808 = getelementptr inbounds float, ptr %780, i64 %indvars.iv2385
+  %808 = getelementptr inbounds nuw float, ptr %780, i64 %indvars.iv2385
   store float %807, ptr %808, align 4
   %indvars.iv.next2386 = add nuw nsw i64 %indvars.iv2385, 1
   %exitcond2389.not = icmp eq i64 %indvars.iv.next2386, %wide.trip.count2388
@@ -1412,12 +1412,12 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn14Dequantize_x867forwardE
 
 .lr.ph2158:                                       ; preds = %.lr.ph2158.preheader, %.lr.ph2158
   %indvars.iv2380 = phi i64 [ 0, %.lr.ph2158.preheader ], [ %indvars.iv.next2381, %.lr.ph2158 ]
-  %814 = getelementptr inbounds i32, ptr %791, i64 %indvars.iv2380
+  %814 = getelementptr inbounds nuw i32, ptr %791, i64 %indvars.iv2380
   %815 = load i32, ptr %814, align 4
   %816 = sitofp i32 %815 to float
   %817 = fmul fast float %798, %816
   %818 = fadd fast float %817, %812
-  %819 = getelementptr inbounds float, ptr %780, i64 %indvars.iv2380
+  %819 = getelementptr inbounds nuw float, ptr %780, i64 %indvars.iv2380
   store float %818, ptr %819, align 4
   %indvars.iv.next2381 = add nuw nsw i64 %indvars.iv2380, 1
   %exitcond2384.not = icmp eq i64 %indvars.iv.next2381, %wide.trip.count2383
@@ -1425,15 +1425,15 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn14Dequantize_x867forwardE
 
 820:                                              ; preds = %.lr.ph2162, %820
   %indvars.iv2390 = phi i64 [ 0, %.lr.ph2162 ], [ %indvars.iv.next2391, %820 ]
-  %821 = getelementptr inbounds i32, ptr %791, i64 %indvars.iv2390
+  %821 = getelementptr inbounds nuw i32, ptr %791, i64 %indvars.iv2390
   %822 = load i32, ptr %821, align 4
   %823 = sitofp i32 %822 to float
   %824 = fmul fast float %798, %823
   %825 = load ptr, ptr %803, align 8
-  %826 = getelementptr inbounds float, ptr %825, i64 %indvars.iv2390
+  %826 = getelementptr inbounds nuw float, ptr %825, i64 %indvars.iv2390
   %827 = load float, ptr %826, align 4
   %828 = fadd fast float %824, %827
-  %829 = getelementptr inbounds float, ptr %780, i64 %indvars.iv2390
+  %829 = getelementptr inbounds nuw float, ptr %780, i64 %indvars.iv2390
   store float %828, ptr %829, align 4
   %indvars.iv.next2391 = add nuw nsw i64 %indvars.iv2390, 1
   %exitcond2394.not = icmp eq i64 %indvars.iv.next2391, %wide.trip.count2393
@@ -1468,14 +1468,14 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn14Dequantize_x867forwardE
 
 838:                                              ; preds = %.lr.ph2153, %838
   %indvars.iv2370 = phi i64 [ 0, %.lr.ph2153 ], [ %indvars.iv.next2371, %838 ]
-  %839 = getelementptr inbounds i32, ptr %791, i64 %indvars.iv2370
+  %839 = getelementptr inbounds nuw i32, ptr %791, i64 %indvars.iv2370
   %840 = load i32, ptr %839, align 4
   %841 = sitofp i32 %840 to float
   %842 = load ptr, ptr %834, align 8
-  %843 = getelementptr inbounds float, ptr %842, i64 %indvars.iv2370
+  %843 = getelementptr inbounds nuw float, ptr %842, i64 %indvars.iv2370
   %844 = load float, ptr %843, align 4
   %845 = fmul fast float %844, %841
-  %846 = getelementptr inbounds float, ptr %780, i64 %indvars.iv2370
+  %846 = getelementptr inbounds nuw float, ptr %780, i64 %indvars.iv2370
   store float %845, ptr %846, align 4
   %indvars.iv.next2371 = add nuw nsw i64 %indvars.iv2370, 1
   %exitcond2374.not = icmp eq i64 %indvars.iv.next2371, %wide.trip.count2373
@@ -1495,15 +1495,15 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn14Dequantize_x867forwardE
 
 853:                                              ; preds = %.lr.ph2151, %853
   %indvars.iv2365 = phi i64 [ 0, %.lr.ph2151 ], [ %indvars.iv.next2366, %853 ]
-  %854 = getelementptr inbounds i32, ptr %791, i64 %indvars.iv2365
+  %854 = getelementptr inbounds nuw i32, ptr %791, i64 %indvars.iv2365
   %855 = load i32, ptr %854, align 4
   %856 = sitofp i32 %855 to float
   %857 = load ptr, ptr %852, align 8
-  %858 = getelementptr inbounds float, ptr %857, i64 %indvars.iv2365
+  %858 = getelementptr inbounds nuw float, ptr %857, i64 %indvars.iv2365
   %859 = load float, ptr %858, align 4
   %860 = fmul fast float %859, %856
   %861 = fadd fast float %860, %850
-  %862 = getelementptr inbounds float, ptr %780, i64 %indvars.iv2365
+  %862 = getelementptr inbounds nuw float, ptr %780, i64 %indvars.iv2365
   store float %861, ptr %862, align 4
   %indvars.iv.next2366 = add nuw nsw i64 %indvars.iv2365, 1
   %exitcond2369.not = icmp eq i64 %indvars.iv.next2366, %wide.trip.count2368
@@ -1511,18 +1511,18 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn14Dequantize_x867forwardE
 
 863:                                              ; preds = %.lr.ph2155, %863
   %indvars.iv2375 = phi i64 [ 0, %.lr.ph2155 ], [ %indvars.iv.next2376, %863 ]
-  %864 = getelementptr inbounds i32, ptr %791, i64 %indvars.iv2375
+  %864 = getelementptr inbounds nuw i32, ptr %791, i64 %indvars.iv2375
   %865 = load i32, ptr %864, align 4
   %866 = sitofp i32 %865 to float
   %867 = load ptr, ptr %836, align 8
-  %868 = getelementptr inbounds float, ptr %867, i64 %indvars.iv2375
+  %868 = getelementptr inbounds nuw float, ptr %867, i64 %indvars.iv2375
   %869 = load float, ptr %868, align 4
   %870 = fmul fast float %869, %866
   %871 = load ptr, ptr %837, align 8
-  %872 = getelementptr inbounds float, ptr %871, i64 %indvars.iv2375
+  %872 = getelementptr inbounds nuw float, ptr %871, i64 %indvars.iv2375
   %873 = load float, ptr %872, align 4
   %874 = fadd fast float %873, %870
-  %875 = getelementptr inbounds float, ptr %780, i64 %indvars.iv2375
+  %875 = getelementptr inbounds nuw float, ptr %780, i64 %indvars.iv2375
   store float %874, ptr %875, align 4
   %indvars.iv.next2376 = add nuw nsw i64 %indvars.iv2375, 1
   %exitcond2379.not = icmp eq i64 %indvars.iv.next2376, %wide.trip.count2378
@@ -1606,7 +1606,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn14Dequantize_x867forwardE
   %929 = icmp eq i32 %928, 1
   %930 = load ptr, ptr %910, align 8
   %.in1997.idx = select i1 %929, i64 0, i64 %indvars.iv2402
-  %.in1997 = getelementptr inbounds float, ptr %930, i64 %.in1997.idx
+  %.in1997 = getelementptr inbounds nuw float, ptr %930, i64 %.in1997.idx
   %931 = load float, ptr %.in1997, align 4
   %932 = insertelement <4 x float> poison, float %931, i64 0
   %933 = shufflevector <4 x float> %932, <4 x float> poison, <4 x i32> zeroinitializer
@@ -1627,8 +1627,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn14Dequantize_x867forwardE
   %936 = sitofp <4 x i32> %935 to <4 x float>
   %937 = fmul fast <4 x float> %933, %936
   store <4 x float> %937, ptr %.015922178, align 1
-  %938 = getelementptr inbounds i8, ptr %.015942177, i64 16
-  %939 = getelementptr inbounds i8, ptr %.015922178, i64 16
+  %938 = getelementptr inbounds nuw i8, ptr %.015942177, i64 16
+  %939 = getelementptr inbounds nuw i8, ptr %.015922178, i64 16
   %940 = add nuw nsw i32 %.015892179, 4
   %941 = or disjoint i32 %940, 3
   %942 = icmp slt i32 %941, %878
@@ -1638,11 +1638,11 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn14Dequantize_x867forwardE
   %.115902187 = phi i32 [ %948, %.lr.ph2188 ], [ %.01589.lcssa, %.preheader2007 ]
   %.115932186 = phi ptr [ %947, %.lr.ph2188 ], [ %.01592.lcssa, %.preheader2007 ]
   %.115952185 = phi ptr [ %943, %.lr.ph2188 ], [ %.01594.lcssa, %.preheader2007 ]
-  %943 = getelementptr inbounds i8, ptr %.115952185, i64 4
+  %943 = getelementptr inbounds nuw i8, ptr %.115952185, i64 4
   %944 = load i32, ptr %.115952185, align 4
   %945 = sitofp i32 %944 to float
   %946 = fmul fast float %931, %945
-  %947 = getelementptr inbounds i8, ptr %.115932186, i64 4
+  %947 = getelementptr inbounds nuw i8, ptr %.115932186, i64 4
   store float %946, ptr %.115932186, align 4
   %948 = add nuw nsw i32 %.115902187, 1
   %exitcond2401.not = icmp eq i32 %948, %878
@@ -1673,13 +1673,13 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn14Dequantize_x867forwardE
   %965 = icmp eq i32 %964, 1
   %966 = load ptr, ptr %902, align 8
   %.in.idx = select i1 %965, i64 0, i64 %indvars.iv2396
-  %.in = getelementptr inbounds float, ptr %966, i64 %.in.idx
+  %.in = getelementptr inbounds nuw float, ptr %966, i64 %.in.idx
   %967 = load float, ptr %.in, align 4
   %968 = load i32, ptr %894, align 4
   %969 = icmp eq i32 %968, 1
   %970 = load ptr, ptr %903, align 8
   %.in1993.idx = select i1 %969, i64 0, i64 %indvars.iv2396
-  %.in1993 = getelementptr inbounds float, ptr %970, i64 %.in1993.idx
+  %.in1993 = getelementptr inbounds nuw float, ptr %970, i64 %.in1993.idx
   %971 = load float, ptr %.in1993, align 4
   %972 = insertelement <4 x float> poison, float %967, i64 0
   %973 = shufflevector <4 x float> %972, <4 x float> poison, <4 x i32> zeroinitializer
@@ -1703,8 +1703,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn14Dequantize_x867forwardE
   %979 = fmul fast <4 x float> %973, %978
   %980 = fadd fast <4 x float> %979, %975
   store <4 x float> %980, ptr %.015822164, align 1
-  %981 = getelementptr inbounds i8, ptr %.015842163, i64 16
-  %982 = getelementptr inbounds i8, ptr %.015822164, i64 16
+  %981 = getelementptr inbounds nuw i8, ptr %.015842163, i64 16
+  %982 = getelementptr inbounds nuw i8, ptr %.015822164, i64 16
   %983 = add nuw nsw i32 %.015782165, 4
   %984 = or disjoint i32 %983, 3
   %985 = icmp slt i32 %984, %878
@@ -1714,12 +1714,12 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn14Dequantize_x867forwardE
   %.115792172 = phi i32 [ %992, %.lr.ph2173 ], [ %.01578.lcssa, %.preheader2009 ]
   %.115832171 = phi ptr [ %991, %.lr.ph2173 ], [ %.01582.lcssa, %.preheader2009 ]
   %.115852170 = phi ptr [ %986, %.lr.ph2173 ], [ %.01584.lcssa, %.preheader2009 ]
-  %986 = getelementptr inbounds i8, ptr %.115852170, i64 4
+  %986 = getelementptr inbounds nuw i8, ptr %.115852170, i64 4
   %987 = load i32, ptr %.115852170, align 4
   %988 = sitofp i32 %987 to float
   %989 = fmul fast float %967, %988
   %990 = fadd fast float %989, %971
-  %991 = getelementptr inbounds i8, ptr %.115832171, i64 4
+  %991 = getelementptr inbounds nuw i8, ptr %.115832171, i64 4
   store float %990, ptr %.115832171, align 4
   %992 = add nuw nsw i32 %.115792172, 1
   %exitcond2395.not = icmp eq i32 %992, %878
@@ -1813,7 +1813,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn14Dequantize_x867forwardE
   %1048 = icmp eq i32 %1047, 1
   %1049 = load ptr, ptr %1031, align 8
   %.in1996.idx = select i1 %1048, i64 0, i64 %indvars.iv2414
-  %.in1996 = getelementptr inbounds float, ptr %1049, i64 %.in1996.idx
+  %.in1996 = getelementptr inbounds nuw float, ptr %1049, i64 %.in1996.idx
   %1050 = load float, ptr %.in1996, align 4
   %1051 = insertelement <4 x float> poison, float %1050, i64 0
   %1052 = shufflevector <4 x float> %1051, <4 x float> poison, <4 x i32> zeroinitializer
@@ -1834,8 +1834,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn14Dequantize_x867forwardE
   %1055 = sitofp <4 x i32> %1054 to <4 x float>
   %1056 = fmul fast <4 x float> %1052, %1055
   store <4 x float> %1056, ptr %.015722208, align 1
-  %1057 = getelementptr inbounds i8, ptr %.015742207, i64 16
-  %1058 = getelementptr inbounds i8, ptr %.015722208, i64 16
+  %1057 = getelementptr inbounds nuw i8, ptr %.015742207, i64 16
+  %1058 = getelementptr inbounds nuw i8, ptr %.015722208, i64 16
   %1059 = add nuw nsw i32 %.015702209, 4
   %1060 = or disjoint i32 %1059, 3
   %1061 = icmp slt i32 %1060, %1001
@@ -1845,11 +1845,11 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn14Dequantize_x867forwardE
   %.115712217 = phi i32 [ %1067, %.lr.ph2218 ], [ %.01570.lcssa, %.preheader ]
   %.115732216 = phi ptr [ %1066, %.lr.ph2218 ], [ %.01572.lcssa, %.preheader ]
   %.115752215 = phi ptr [ %1062, %.lr.ph2218 ], [ %.01574.lcssa, %.preheader ]
-  %1062 = getelementptr inbounds i8, ptr %.115752215, i64 4
+  %1062 = getelementptr inbounds nuw i8, ptr %.115752215, i64 4
   %1063 = load i32, ptr %.115752215, align 4
   %1064 = sitofp i32 %1063 to float
   %1065 = fmul fast float %1050, %1064
-  %1066 = getelementptr inbounds i8, ptr %.115732216, i64 4
+  %1066 = getelementptr inbounds nuw i8, ptr %.115732216, i64 4
   store float %1065, ptr %.115732216, align 4
   %1067 = add nuw nsw i32 %.115712217, 1
   %exitcond2413.not = icmp eq i32 %1067, %1001
@@ -1878,13 +1878,13 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn14Dequantize_x867forwardE
   %1082 = icmp eq i32 %1081, 1
   %1083 = load ptr, ptr %1023, align 8
   %.in1994.idx = select i1 %1082, i64 0, i64 %indvars.iv2408
-  %.in1994 = getelementptr inbounds float, ptr %1083, i64 %.in1994.idx
+  %.in1994 = getelementptr inbounds nuw float, ptr %1083, i64 %.in1994.idx
   %1084 = load float, ptr %.in1994, align 4
   %1085 = load i32, ptr %1015, align 4
   %1086 = icmp eq i32 %1085, 1
   %1087 = load ptr, ptr %1024, align 8
   %.in1995.idx = select i1 %1086, i64 0, i64 %indvars.iv2408
-  %.in1995 = getelementptr inbounds float, ptr %1087, i64 %.in1995.idx
+  %.in1995 = getelementptr inbounds nuw float, ptr %1087, i64 %.in1995.idx
   %1088 = load float, ptr %.in1995, align 4
   %1089 = insertelement <4 x float> poison, float %1084, i64 0
   %1090 = shufflevector <4 x float> %1089, <4 x float> poison, <4 x i32> zeroinitializer
@@ -1908,8 +1908,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn14Dequantize_x867forwardE
   %1096 = fmul fast <4 x float> %1090, %1095
   %1097 = fadd fast <4 x float> %1096, %1092
   store <4 x float> %1097, ptr %.015652193, align 1
-  %1098 = getelementptr inbounds i8, ptr %.015672192, i64 16
-  %1099 = getelementptr inbounds i8, ptr %.015652193, i64 16
+  %1098 = getelementptr inbounds nuw i8, ptr %.015672192, i64 16
+  %1099 = getelementptr inbounds nuw i8, ptr %.015652193, i64 16
   %1100 = add nuw nsw i32 %.02194, 4
   %1101 = or disjoint i32 %1100, 3
   %1102 = icmp slt i32 %1101, %1001
@@ -1919,12 +1919,12 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn14Dequantize_x867forwardE
   %.12202 = phi i32 [ %1109, %.lr.ph2203 ], [ %.0.lcssa, %.preheader2004 ]
   %.115662201 = phi ptr [ %1108, %.lr.ph2203 ], [ %.01565.lcssa, %.preheader2004 ]
   %.115682200 = phi ptr [ %1103, %.lr.ph2203 ], [ %.01567.lcssa, %.preheader2004 ]
-  %1103 = getelementptr inbounds i8, ptr %.115682200, i64 4
+  %1103 = getelementptr inbounds nuw i8, ptr %.115682200, i64 4
   %1104 = load i32, ptr %.115682200, align 4
   %1105 = sitofp i32 %1104 to float
   %1106 = fmul fast float %1084, %1105
   %1107 = fadd fast float %1106, %1088
-  %1108 = getelementptr inbounds i8, ptr %.115662201, i64 4
+  %1108 = getelementptr inbounds nuw i8, ptr %.115662201, i64 4
   store float %1107, ptr %.115662201, align 4
   %1109 = add nuw nsw i32 %.12202, 1
   %exitcond2407.not = icmp eq i32 %1109, %1001
@@ -2019,7 +2019,7 @@ define linkonce_odr hidden void @_ZN4ncnn10DequantizeD2Ev(ptr noundef nonnull al
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %10, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
   invoke void %15(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %11)
           to label %18 unwind label %24
@@ -2065,7 +2065,7 @@ define linkonce_odr hidden void @_ZN4ncnn10DequantizeD2Ev(ptr noundef nonnull al
 
 34:                                               ; preds = %30
   %35 = load ptr, ptr %32, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   invoke void %37(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef %33)
           to label %40 unwind label %43

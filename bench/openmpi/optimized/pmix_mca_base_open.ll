@@ -172,18 +172,18 @@ define i32 @pmix_mca_base_open(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not40.i, label %.critedge47.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %56
-  %58 = getelementptr inbounds i8, ptr %4, i64 120
-  %59 = getelementptr inbounds i8, ptr %4, i64 156
-  %60 = getelementptr inbounds i8, ptr %4, i64 157
-  %61 = getelementptr inbounds i8, ptr %4, i64 160
-  %62 = getelementptr inbounds i8, ptr %4, i64 155
-  %63 = getelementptr inbounds i8, ptr %4, i64 154
+  %58 = getelementptr inbounds nuw i8, ptr %4, i64 120
+  %59 = getelementptr inbounds nuw i8, ptr %4, i64 156
+  %60 = getelementptr inbounds nuw i8, ptr %4, i64 157
+  %61 = getelementptr inbounds nuw i8, ptr %4, i64 160
+  %62 = getelementptr inbounds nuw i8, ptr %4, i64 155
+  %63 = getelementptr inbounds nuw i8, ptr %4, i64 154
   %char0.i23 = load i8, ptr %57, align 1
   %.not38.i24 = icmp eq i8 %char0.i23, 0
   br i1 %.not38.i24, label %.critedge47.i, label %.lr.ph
 
 64:                                               ; preds = %115
-  %65 = getelementptr inbounds i8, ptr %66, i64 1
+  %65 = getelementptr inbounds nuw i8, ptr %66, i64 1
   %char0.i = load i8, ptr %65, align 1
   %.not38.i = icmp eq i8 %char0.i, 0
   br i1 %.not38.i, label %.critedge.i, label %.lr.ph
@@ -265,7 +265,7 @@ define i32 @pmix_mca_base_open(ptr noundef %0) local_unnamed_addr #0 {
 
 98:                                               ; preds = %95
   store i8 1, ptr %59, align 4
-  %99 = getelementptr inbounds i8, ptr %.03441.i26, i64 5
+  %99 = getelementptr inbounds nuw i8, ptr %.03441.i26, i64 5
   %100 = call noalias ptr @strdup(ptr noundef nonnull %99) #8
   store ptr %100, ptr %61, align 8
   br label %115
@@ -287,13 +287,13 @@ define i32 @pmix_mca_base_open(ptr noundef %0) local_unnamed_addr #0 {
 
 108:                                              ; preds = %105
   store i32 0, ptr %58, align 8
-  %109 = getelementptr inbounds i8, ptr %.03441.i26, i64 5
+  %109 = getelementptr inbounds nuw i8, ptr %.03441.i26, i64 5
   %110 = load i8, ptr %109, align 1
   %111 = icmp eq i8 %110, 58
   br i1 %111, label %112, label %115
 
 112:                                              ; preds = %108
-  %113 = getelementptr inbounds i8, ptr %.03441.i26, i64 6
+  %113 = getelementptr inbounds nuw i8, ptr %.03441.i26, i64 6
   %114 = call i32 @atoi(ptr nocapture noundef nonnull %113) #9
   store i32 %114, ptr %58, align 8
   br label %115
@@ -306,7 +306,7 @@ define i32 @pmix_mca_base_open(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.2.i, label %parse_verbose.exit, label %.critedge47.i
 
 .critedge47.i:                                    ; preds = %.lr.ph.i, %.critedge.i, %56
-  %116 = getelementptr inbounds i8, ptr %4, i64 155
+  %116 = getelementptr inbounds nuw i8, ptr %4, i64 155
   store i8 1, ptr %116, align 1
   br label %parse_verbose.exit
 
@@ -325,13 +325,13 @@ parse_verbose.exit:                               ; preds = %.critedge.i, %.crit
   br label %121
 
 121:                                              ; preds = %120, %117
-  %122 = getelementptr inbounds i8, ptr %4, i64 40
+  %122 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr @pmix_output_stream_t_class, ptr %122, align 8
-  %123 = getelementptr inbounds i8, ptr %4, i64 48
+  %123 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i32 1, ptr %123, align 8
-  %124 = getelementptr inbounds i8, ptr %4, i64 56
+  %124 = getelementptr inbounds nuw i8, ptr %4, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %124, i8 0, i64 64, i1 false)
-  %125 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_output_stream_t_class, i64 40), align 8
+  %125 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_output_stream_t_class, i64 40), align 8
   %126 = load ptr, ptr %125, align 8
   %.not6.i.i = icmp eq ptr %126, null
   br i1 %.not6.i.i, label %set_defaults.exit, label %.lr.ph.i.i
@@ -340,21 +340,21 @@ parse_verbose.exit:                               ; preds = %.critedge.i, %.crit
   %127 = phi ptr [ %129, %.lr.ph.i.i ], [ %126, %121 ]
   %.07.i.i = phi ptr [ %128, %.lr.ph.i.i ], [ %125, %121 ]
   call void %127(ptr noundef nonnull %4) #8
-  %128 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %129 = load ptr, ptr %128, align 8
   %.not.i.i = icmp eq ptr %129, null
   br i1 %.not.i.i, label %set_defaults.exit, label %.lr.ph.i.i, !llvm.loop !4
 
 set_defaults.exit:                                ; preds = %.lr.ph.i.i, %121
-  %130 = getelementptr inbounds i8, ptr %4, i64 128
+  %130 = getelementptr inbounds nuw i8, ptr %4, i64 128
   store ptr @.str.23, ptr %130, align 8
-  %131 = getelementptr inbounds i8, ptr %4, i64 155
+  %131 = getelementptr inbounds nuw i8, ptr %4, i64 155
   store i8 1, ptr %131, align 1
   br label %132
 
 132:                                              ; preds = %set_defaults.exit, %parse_verbose.exit
   %133 = call i32 @gethostname(ptr noundef nonnull %5, i64 noundef 64) #8
-  %134 = getelementptr inbounds i8, ptr %4, i64 136
+  %134 = getelementptr inbounds nuw i8, ptr %4, i64 136
   %135 = call i32 @getpid() #8
   %136 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %134, ptr noundef nonnull @.str.21, ptr noundef nonnull %5, i32 noundef %135) #8
   %137 = icmp slt i32 %136, 0

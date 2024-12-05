@@ -190,7 +190,7 @@ define dso_local range(i32 0, 4) i32 @linker_find_linker_type() local_unnamed_ad
 
 switch.lookup:                                    ; preds = %3
   %7 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds [36 x i32], ptr @switch.table.linker_find_linker_type, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw [36 x i32], ptr @switch.table.linker_find_linker_type, i64 0, i64 %7
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %8
 
@@ -238,7 +238,7 @@ define dso_local ptr @concat_string_parts(ptr noundef readonly %0) local_unnamed
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.03438 = phi i32 [ 0, %.lr.ph.preheader ], [ %10, %.lr.ph ]
-  %5 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #13
   %8 = trunc i64 %7 to i32
@@ -271,13 +271,13 @@ define dso_local ptr @concat_string_parts(ptr noundef readonly %0) local_unnamed
 .lr.ph42:                                         ; preds = %.lr.ph42.preheader, %.lr.ph42
   %indvars.iv49 = phi i64 [ 0, %.lr.ph42.preheader ], [ %indvars.iv.next50, %.lr.ph42 ]
   %.03339 = phi ptr [ %14, %.lr.ph42.preheader ], [ %22, %.lr.ph42 ]
-  %17 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv49
+  %17 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv49
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #13
   %20 = and i64 %19, 4294967295
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.03339, ptr align 1 %18, i64 %20, i1 false)
-  %21 = getelementptr inbounds i8, ptr %.03339, i64 %20
-  %22 = getelementptr inbounds i8, ptr %21, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %.03339, i64 %20
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
   store i8 32, ptr %21, align 1
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next50, %wide.trip.count52
@@ -320,16 +320,16 @@ define dso_local void @platform_linker(ptr noundef %0, ptr nocapture noundef rea
 
 14:                                               ; preds = %10, %9
   %15 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %16 = getelementptr inbounds i8, ptr %15, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store i32 8, ptr %16, align 4
   %17 = load i32, ptr %15, align 4
   %18 = icmp eq i32 %17, 8
   br i1 %18, label %19, label %29
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %15, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %21 = tail call ptr @calloc_arena(i64 noundef 136) #11
-  %22 = getelementptr inbounds i8, ptr %21, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store i32 16, ptr %22, align 4
   %23 = load i32, ptr %20, align 4
   %24 = zext i32 %23 to i64
@@ -347,13 +347,13 @@ define dso_local void @platform_linker(ptr noundef %0, ptr nocapture noundef rea
   %.1.i = phi ptr [ %21, %19 ], [ %15, %14 ]
   %31 = add i32 %30, 1
   store i32 %31, ptr %.1.i, align 4
-  %32 = getelementptr inbounds i8, ptr %.1.i, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   store ptr %32, ptr %4, align 8
   %33 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 320), align 8
   %34 = load i32, ptr %.1.i, align 4
   %35 = add i32 %34, -1
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds ptr, ptr %32, i64 %36
+  %37 = getelementptr inbounds nuw ptr, ptr %32, i64 %36
   store ptr %33, ptr %37, align 8
   %38 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 48), align 8
   %39 = icmp ult i32 %38, 8
@@ -370,16 +370,16 @@ define dso_local void @platform_linker(ptr noundef %0, ptr nocapture noundef rea
 
 44:                                               ; preds = %41, %40
   %45 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %46 = getelementptr inbounds i8, ptr %45, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
   store i32 8, ptr %46, align 4
   %47 = load i32, ptr %45, align 4
   %48 = icmp eq i32 %47, 8
   br i1 %48, label %49, label %59
 
 49:                                               ; preds = %44
-  %50 = getelementptr inbounds i8, ptr %45, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %51 = tail call ptr @calloc_arena(i64 noundef 136) #11
-  %52 = getelementptr inbounds i8, ptr %51, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
   store i32 16, ptr %52, align 4
   %53 = load i32, ptr %50, align 4
   %54 = zext i32 %53 to i64
@@ -397,7 +397,7 @@ define dso_local void @platform_linker(ptr noundef %0, ptr nocapture noundef rea
   %.1.i33 = phi ptr [ %51, %49 ], [ %45, %44 ]
   %61 = add i32 %60, 1
   store i32 %61, ptr %.1.i33, align 4
-  %62 = getelementptr inbounds i8, ptr %.1.i33, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %.1.i33, i64 8
   store ptr %62, ptr %4, align 8
   %63 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 272), align 8
   %.not = icmp eq ptr %63, null
@@ -405,7 +405,7 @@ define dso_local void @platform_linker(ptr noundef %0, ptr nocapture noundef rea
   %65 = load i32, ptr %.1.i33, align 4
   %66 = add i32 %65, -1
   %67 = zext i32 %66 to i64
-  %68 = getelementptr inbounds ptr, ptr %62, i64 %67
+  %68 = getelementptr inbounds nuw ptr, ptr %62, i64 %67
   store ptr %64, ptr %68, align 8
   %69 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 228), align 4
   call fastcc void @append_fpie_pic_options(i32 noundef %69, ptr noundef %4)
@@ -413,7 +413,7 @@ define dso_local void @platform_linker(ptr noundef %0, ptr nocapture noundef rea
 
 switch.lookup:                                    ; preds = %29
   %70 = zext nneg i32 %38 to i64
-  %switch.gep = getelementptr inbounds [8 x i32], ptr @switch.table.platform_linker, i64 0, i64 %70
+  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table.platform_linker, i64 0, i64 %70
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %71
 
@@ -437,7 +437,7 @@ switch.lookup:                                    ; preds = %29
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.03438.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %81, %.lr.ph.i ]
-  %76 = getelementptr inbounds ptr, ptr %72, i64 %indvars.iv.i
+  %76 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv.i
   %77 = load ptr, ptr %76, align 8
   %78 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %77) #13
   %79 = trunc i64 %78 to i32
@@ -469,13 +469,13 @@ switch.lookup:                                    ; preds = %29
 .lr.ph42.i:                                       ; preds = %.lr.ph42.i, %.lr.ph42.preheader.i
   %indvars.iv49.i = phi i64 [ 0, %.lr.ph42.preheader.i ], [ %indvars.iv.next50.i, %.lr.ph42.i ]
   %.03339.i = phi ptr [ %85, %.lr.ph42.preheader.i ], [ %92, %.lr.ph42.i ]
-  %87 = getelementptr inbounds ptr, ptr %72, i64 %indvars.iv49.i
+  %87 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv49.i
   %88 = load ptr, ptr %87, align 8
   %89 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %88) #13
   %90 = and i64 %89, 4294967295
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.03339.i, ptr align 1 %88, i64 %90, i1 false)
-  %91 = getelementptr inbounds i8, ptr %.03339.i, i64 %90
-  %92 = getelementptr inbounds i8, ptr %91, i64 1
+  %91 = getelementptr inbounds nuw i8, ptr %.03339.i, i64 %90
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 1
   store i8 32, ptr %91, align 1
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, %wide.trip.count52.i
@@ -565,7 +565,7 @@ define internal fastcc void @append_fpie_pic_options(i32 noundef %0, ptr nocaptu
 
 6:                                                ; preds = %4
   %7 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %8 = getelementptr inbounds i8, ptr %7, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 8, ptr %8, align 4
   br label %11
 
@@ -583,13 +583,13 @@ define internal fastcc void @append_fpie_pic_options(i32 noundef %0, ptr nocaptu
   br i1 %14, label %15, label %29
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   %17 = shl i32 %12, 1
   %18 = zext i32 %17 to i64
   %19 = shl nuw nsw i64 %18, 3
   %20 = or disjoint i64 %19, 8
   %21 = tail call ptr @calloc_arena(i64 noundef %20) #11
-  %22 = getelementptr inbounds i8, ptr %21, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store i32 %17, ptr %22, align 4
   %23 = load i32, ptr %16, align 4
   %24 = zext i32 %23 to i64
@@ -607,12 +607,12 @@ define internal fastcc void @append_fpie_pic_options(i32 noundef %0, ptr nocaptu
   %.1.i = phi ptr [ %21, %15 ], [ %.0.i, %11 ]
   %31 = add i32 %30, 1
   store i32 %31, ptr %.1.i, align 4
-  %32 = getelementptr inbounds i8, ptr %.1.i, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   store ptr %32, ptr %1, align 8
   %33 = load i32, ptr %.1.i, align 4
   %34 = add i32 %33, -1
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds ptr, ptr %32, i64 %35
+  %36 = getelementptr inbounds nuw ptr, ptr %32, i64 %35
   store ptr @.str.28, ptr %36, align 8
   %37 = load ptr, ptr %1, align 8
   %.not.i118 = icmp eq ptr %37, null
@@ -620,7 +620,7 @@ define internal fastcc void @append_fpie_pic_options(i32 noundef %0, ptr nocaptu
 
 38:                                               ; preds = %29
   %39 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %40 = getelementptr inbounds i8, ptr %39, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   store i32 8, ptr %40, align 4
   br label %43
 
@@ -638,13 +638,13 @@ define internal fastcc void @append_fpie_pic_options(i32 noundef %0, ptr nocaptu
   br i1 %46, label %47, label %61
 
 47:                                               ; preds = %43
-  %48 = getelementptr inbounds i8, ptr %.0.i121, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %.0.i121, i64 4
   %49 = shl i32 %44, 1
   %50 = zext i32 %49 to i64
   %51 = shl nuw nsw i64 %50, 3
   %52 = or disjoint i64 %51, 8
   %53 = tail call ptr @calloc_arena(i64 noundef %52) #11
-  %54 = getelementptr inbounds i8, ptr %53, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 4
   store i32 %49, ptr %54, align 4
   %55 = load i32, ptr %48, align 4
   %56 = zext i32 %55 to i64
@@ -662,12 +662,12 @@ define internal fastcc void @append_fpie_pic_options(i32 noundef %0, ptr nocaptu
   %.1.i122 = phi ptr [ %53, %47 ], [ %.0.i121, %43 ]
   %63 = add i32 %62, 1
   store i32 %63, ptr %.1.i122, align 4
-  %64 = getelementptr inbounds i8, ptr %.1.i122, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %.1.i122, i64 8
   store ptr %64, ptr %1, align 8
   %65 = load i32, ptr %.1.i122, align 4
   %66 = add i32 %65, -1
   %67 = zext i32 %66 to i64
-  %68 = getelementptr inbounds ptr, ptr %64, i64 %67
+  %68 = getelementptr inbounds nuw ptr, ptr %64, i64 %67
   store ptr @.str.18, ptr %68, align 8
   %69 = load ptr, ptr %1, align 8
   %.not.i125 = icmp eq ptr %69, null
@@ -675,7 +675,7 @@ define internal fastcc void @append_fpie_pic_options(i32 noundef %0, ptr nocaptu
 
 70:                                               ; preds = %61
   %71 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %72 = getelementptr inbounds i8, ptr %71, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 4
   store i32 8, ptr %72, align 4
   br label %75
 
@@ -693,13 +693,13 @@ define internal fastcc void @append_fpie_pic_options(i32 noundef %0, ptr nocaptu
   br i1 %78, label %79, label %93
 
 79:                                               ; preds = %75
-  %80 = getelementptr inbounds i8, ptr %.0.i128, i64 4
+  %80 = getelementptr inbounds nuw i8, ptr %.0.i128, i64 4
   %81 = shl i32 %76, 1
   %82 = zext i32 %81 to i64
   %83 = shl nuw nsw i64 %82, 3
   %84 = or disjoint i64 %83, 8
   %85 = tail call ptr @calloc_arena(i64 noundef %84) #11
-  %86 = getelementptr inbounds i8, ptr %85, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 4
   store i32 %81, ptr %86, align 4
   %87 = load i32, ptr %80, align 4
   %88 = zext i32 %87 to i64
@@ -717,12 +717,12 @@ define internal fastcc void @append_fpie_pic_options(i32 noundef %0, ptr nocaptu
   %.1.i129 = phi ptr [ %85, %79 ], [ %.0.i128, %75 ]
   %95 = add i32 %94, 1
   store i32 %95, ptr %.1.i129, align 4
-  %96 = getelementptr inbounds i8, ptr %.1.i129, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %.1.i129, i64 8
   store ptr %96, ptr %1, align 8
   %97 = load i32, ptr %.1.i129, align 4
   %98 = add i32 %97, -1
   %99 = zext i32 %98 to i64
-  %100 = getelementptr inbounds ptr, ptr %96, i64 %99
+  %100 = getelementptr inbounds nuw ptr, ptr %96, i64 %99
   store ptr @.str.29, ptr %100, align 8
   %101 = load ptr, ptr %1, align 8
   %.not.i132 = icmp eq ptr %101, null
@@ -730,7 +730,7 @@ define internal fastcc void @append_fpie_pic_options(i32 noundef %0, ptr nocaptu
 
 102:                                              ; preds = %93
   %103 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %104 = getelementptr inbounds i8, ptr %103, i64 4
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 4
   store i32 8, ptr %104, align 4
   br label %107
 
@@ -754,7 +754,7 @@ define internal fastcc void @append_fpie_pic_options(i32 noundef %0, ptr nocaptu
 
 113:                                              ; preds = %111
   %114 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %115 = getelementptr inbounds i8, ptr %114, i64 4
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 4
   store i32 8, ptr %115, align 4
   br label %118
 
@@ -778,7 +778,7 @@ define internal fastcc void @append_fpie_pic_options(i32 noundef %0, ptr nocaptu
 
 124:                                              ; preds = %122
   %125 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %126 = getelementptr inbounds i8, ptr %125, i64 4
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 4
   store i32 8, ptr %126, align 4
   br label %129
 
@@ -802,7 +802,7 @@ define internal fastcc void @append_fpie_pic_options(i32 noundef %0, ptr nocaptu
 
 135:                                              ; preds = %133
   %136 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %137 = getelementptr inbounds i8, ptr %136, i64 4
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 4
   store i32 8, ptr %137, align 4
   br label %140
 
@@ -820,13 +820,13 @@ define internal fastcc void @append_fpie_pic_options(i32 noundef %0, ptr nocaptu
   br i1 %143, label %144, label %158
 
 144:                                              ; preds = %140
-  %145 = getelementptr inbounds i8, ptr %.0.i156, i64 4
+  %145 = getelementptr inbounds nuw i8, ptr %.0.i156, i64 4
   %146 = shl i32 %141, 1
   %147 = zext i32 %146 to i64
   %148 = shl nuw nsw i64 %147, 3
   %149 = or disjoint i64 %148, 8
   %150 = tail call ptr @calloc_arena(i64 noundef %149) #11
-  %151 = getelementptr inbounds i8, ptr %150, i64 4
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 4
   store i32 %146, ptr %151, align 4
   %152 = load i32, ptr %145, align 4
   %153 = zext i32 %152 to i64
@@ -844,12 +844,12 @@ define internal fastcc void @append_fpie_pic_options(i32 noundef %0, ptr nocaptu
   %.1.i157 = phi ptr [ %150, %144 ], [ %.0.i156, %140 ]
   %160 = add i32 %159, 1
   store i32 %160, ptr %.1.i157, align 4
-  %161 = getelementptr inbounds i8, ptr %.1.i157, i64 8
+  %161 = getelementptr inbounds nuw i8, ptr %.1.i157, i64 8
   store ptr %161, ptr %1, align 8
   %162 = load i32, ptr %.1.i157, align 4
   %163 = add i32 %162, -1
   %164 = zext i32 %163 to i64
-  %165 = getelementptr inbounds ptr, ptr %161, i64 %164
+  %165 = getelementptr inbounds nuw ptr, ptr %161, i64 %164
   store ptr @.str.19, ptr %165, align 8
   %166 = load ptr, ptr %1, align 8
   %.not.i160 = icmp eq ptr %166, null
@@ -857,7 +857,7 @@ define internal fastcc void @append_fpie_pic_options(i32 noundef %0, ptr nocaptu
 
 167:                                              ; preds = %158
   %168 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %169 = getelementptr inbounds i8, ptr %168, i64 4
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 4
   store i32 8, ptr %169, align 4
   br label %172
 
@@ -881,7 +881,7 @@ define internal fastcc void @append_fpie_pic_options(i32 noundef %0, ptr nocaptu
 
 178:                                              ; preds = %176
   %179 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %180 = getelementptr inbounds i8, ptr %179, i64 4
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 4
   store i32 8, ptr %180, align 4
   br label %183
 
@@ -899,13 +899,13 @@ define internal fastcc void @append_fpie_pic_options(i32 noundef %0, ptr nocaptu
   br i1 %186, label %187, label %201
 
 187:                                              ; preds = %183
-  %188 = getelementptr inbounds i8, ptr %.0.i170, i64 4
+  %188 = getelementptr inbounds nuw i8, ptr %.0.i170, i64 4
   %189 = shl i32 %184, 1
   %190 = zext i32 %189 to i64
   %191 = shl nuw nsw i64 %190, 3
   %192 = or disjoint i64 %191, 8
   %193 = tail call ptr @calloc_arena(i64 noundef %192) #11
-  %194 = getelementptr inbounds i8, ptr %193, i64 4
+  %194 = getelementptr inbounds nuw i8, ptr %193, i64 4
   store i32 %189, ptr %194, align 4
   %195 = load i32, ptr %188, align 4
   %196 = zext i32 %195 to i64
@@ -923,12 +923,12 @@ define internal fastcc void @append_fpie_pic_options(i32 noundef %0, ptr nocaptu
   %.1.i171 = phi ptr [ %193, %187 ], [ %.0.i170, %183 ]
   %203 = add i32 %202, 1
   store i32 %203, ptr %.1.i171, align 4
-  %204 = getelementptr inbounds i8, ptr %.1.i171, i64 8
+  %204 = getelementptr inbounds nuw i8, ptr %.1.i171, i64 8
   store ptr %204, ptr %1, align 8
   %205 = load i32, ptr %.1.i171, align 4
   %206 = add i32 %205, -1
   %207 = zext i32 %206 to i64
-  %208 = getelementptr inbounds ptr, ptr %204, i64 %207
+  %208 = getelementptr inbounds nuw ptr, ptr %204, i64 %207
   store ptr @.str.20, ptr %208, align 8
   %209 = load ptr, ptr %1, align 8
   %.not.i174 = icmp eq ptr %209, null
@@ -936,7 +936,7 @@ define internal fastcc void @append_fpie_pic_options(i32 noundef %0, ptr nocaptu
 
 210:                                              ; preds = %201
   %211 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %212 = getelementptr inbounds i8, ptr %211, i64 4
+  %212 = getelementptr inbounds nuw i8, ptr %211, i64 4
   store i32 8, ptr %212, align 4
   br label %215
 
@@ -957,13 +957,13 @@ define internal fastcc void @append_fpie_pic_options(i32 noundef %0, ptr nocaptu
   %.0.i177.sink203 = phi ptr [ %.0.i135, %107 ], [ %.0.i142, %118 ], [ %.0.i149, %129 ], [ %.0.i163, %172 ], [ %.0.i177, %215 ]
   %.sink202 = phi i32 [ %108, %107 ], [ %119, %118 ], [ %130, %129 ], [ %173, %172 ], [ %216, %215 ]
   %.str.31.sink.ph = phi ptr [ @.str.17, %107 ], [ @.str.30, %118 ], [ @.str.31, %129 ], [ @.str.30, %172 ], [ @.str.31, %215 ]
-  %219 = getelementptr inbounds i8, ptr %.0.i177.sink203, i64 4
+  %219 = getelementptr inbounds nuw i8, ptr %.0.i177.sink203, i64 4
   %220 = shl i32 %.sink202, 1
   %221 = zext i32 %220 to i64
   %222 = shl nuw nsw i64 %221, 3
   %223 = or disjoint i64 %222, 8
   %224 = tail call ptr @calloc_arena(i64 noundef %223) #11
-  %225 = getelementptr inbounds i8, ptr %224, i64 4
+  %225 = getelementptr inbounds nuw i8, ptr %224, i64 4
   store i32 %220, ptr %225, align 4
   %226 = load i32, ptr %219, align 4
   %227 = zext i32 %226 to i64
@@ -982,12 +982,12 @@ define internal fastcc void @append_fpie_pic_options(i32 noundef %0, ptr nocaptu
   %.str.31.sink = phi ptr [ @.str.17, %107 ], [ @.str.30, %118 ], [ @.str.31, %129 ], [ @.str.30, %172 ], [ @.str.31, %215 ], [ %.str.31.sink.ph, %.sink.split.sink.split ]
   %232 = add i32 %.sink186, 1
   store i32 %232, ptr %.1.i178.sink185, align 4
-  %233 = getelementptr inbounds i8, ptr %.1.i178.sink185, i64 8
+  %233 = getelementptr inbounds nuw i8, ptr %.1.i178.sink185, i64 8
   store ptr %233, ptr %1, align 8
   %234 = load i32, ptr %.1.i178.sink185, align 4
   %235 = add i32 %234, -1
   %236 = zext i32 %235 to i64
-  %237 = getelementptr inbounds ptr, ptr %233, i64 %236
+  %237 = getelementptr inbounds nuw ptr, ptr %233, i64 %236
   store ptr %.str.31.sink, ptr %237, align 8
   br label %238
 
@@ -1011,7 +1011,7 @@ define internal fastcc void @linker_setup(ptr noundef nonnull %0, ptr nocapture 
 
 13:                                               ; preds = %12
   %14 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %15 = getelementptr inbounds i8, ptr %14, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 8, ptr %15, align 4
   br label %18
 
@@ -1029,13 +1029,13 @@ define internal fastcc void @linker_setup(ptr noundef nonnull %0, ptr nocapture 
   br i1 %21, label %22, label %36
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   %24 = shl i32 %19, 1
   %25 = zext i32 %24 to i64
   %26 = shl nuw nsw i64 %25, 3
   %27 = or disjoint i64 %26, 8
   %28 = tail call ptr @calloc_arena(i64 noundef %27) #11
-  %29 = getelementptr inbounds i8, ptr %28, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   store i32 %24, ptr %29, align 4
   %30 = load i32, ptr %23, align 4
   %31 = zext i32 %30 to i64
@@ -1053,12 +1053,12 @@ define internal fastcc void @linker_setup(ptr noundef nonnull %0, ptr nocapture 
   %.1.i = phi ptr [ %28, %22 ], [ %.0.i, %18 ]
   %38 = add i32 %37, 1
   store i32 %38, ptr %.1.i, align 4
-  %39 = getelementptr inbounds i8, ptr %.1.i, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   store ptr %39, ptr %0, align 8
   %40 = load i32, ptr %.1.i, align 4
   %41 = add i32 %40, -1
   %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds ptr, ptr %39, i64 %42
+  %43 = getelementptr inbounds nuw ptr, ptr %39, i64 %42
   store ptr @.str.22, ptr %43, align 8
   %44 = load ptr, ptr %0, align 8
   %.not.i225 = icmp eq ptr %44, null
@@ -1066,7 +1066,7 @@ define internal fastcc void @linker_setup(ptr noundef nonnull %0, ptr nocapture 
 
 45:                                               ; preds = %36
   %46 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %47 = getelementptr inbounds i8, ptr %46, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 4
   store i32 8, ptr %47, align 4
   br label %50
 
@@ -1084,13 +1084,13 @@ define internal fastcc void @linker_setup(ptr noundef nonnull %0, ptr nocapture 
   br i1 %53, label %54, label %68
 
 54:                                               ; preds = %50
-  %55 = getelementptr inbounds i8, ptr %.0.i228, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %.0.i228, i64 4
   %56 = shl i32 %51, 1
   %57 = zext i32 %56 to i64
   %58 = shl nuw nsw i64 %57, 3
   %59 = or disjoint i64 %58, 8
   %60 = tail call ptr @calloc_arena(i64 noundef %59) #11
-  %61 = getelementptr inbounds i8, ptr %60, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 4
   store i32 %56, ptr %61, align 4
   %62 = load i32, ptr %55, align 4
   %63 = zext i32 %62 to i64
@@ -1108,12 +1108,12 @@ define internal fastcc void @linker_setup(ptr noundef nonnull %0, ptr nocapture 
   %.1.i229 = phi ptr [ %60, %54 ], [ %.0.i228, %50 ]
   %70 = add i32 %69, 1
   store i32 %70, ptr %.1.i229, align 4
-  %71 = getelementptr inbounds i8, ptr %.1.i229, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %.1.i229, i64 8
   store ptr %71, ptr %0, align 8
   %72 = load i32, ptr %.1.i229, align 4
   %73 = add i32 %72, -1
   %74 = zext i32 %73 to i64
-  %75 = getelementptr inbounds ptr, ptr %71, i64 %74
+  %75 = getelementptr inbounds nuw ptr, ptr %71, i64 %74
   store ptr %3, ptr %75, align 8
   switch i32 %4, label %default.unreachable [
     i32 5, label %194
@@ -1138,7 +1138,7 @@ define internal fastcc void @linker_setup(ptr noundef nonnull %0, ptr nocapture 
 
 82:                                               ; preds = %80
   %83 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %84 = getelementptr inbounds i8, ptr %83, i64 4
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 4
   store i32 8, ptr %84, align 4
   br label %87
 
@@ -1165,7 +1165,7 @@ define internal fastcc void @linker_setup(ptr noundef nonnull %0, ptr nocapture 
 
 94:                                               ; preds = %92
   %95 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %96 = getelementptr inbounds i8, ptr %95, i64 4
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 4
   store i32 8, ptr %96, align 4
   br label %99
 
@@ -1192,7 +1192,7 @@ define internal fastcc void @linker_setup(ptr noundef nonnull %0, ptr nocapture 
 
 106:                                              ; preds = %104
   %107 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %108 = getelementptr inbounds i8, ptr %107, i64 4
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 4
   store i32 8, ptr %108, align 4
   br label %111
 
@@ -1214,7 +1214,7 @@ define internal fastcc void @linker_setup(ptr noundef nonnull %0, ptr nocapture 
 
 115:                                              ; preds = %.thread
   %116 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %117 = getelementptr inbounds i8, ptr %116, i64 4
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 4
   store i32 8, ptr %117, align 4
   br label %120
 
@@ -1232,13 +1232,13 @@ define internal fastcc void @linker_setup(ptr noundef nonnull %0, ptr nocapture 
   br i1 %123, label %124, label %expand_.exit259
 
 124:                                              ; preds = %120
-  %125 = getelementptr inbounds i8, ptr %.0.i256, i64 4
+  %125 = getelementptr inbounds nuw i8, ptr %.0.i256, i64 4
   %126 = shl i32 %121, 1
   %127 = zext i32 %126 to i64
   %128 = shl nuw nsw i64 %127, 3
   %129 = or disjoint i64 %128, 8
   %130 = tail call ptr @calloc_arena(i64 noundef %129) #11
-  %131 = getelementptr inbounds i8, ptr %130, i64 4
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 4
   store i32 %126, ptr %131, align 4
   %132 = load i32, ptr %125, align 4
   %133 = zext i32 %132 to i64
@@ -1256,7 +1256,7 @@ expand_.exit259:                                  ; preds = %120, %124
   %.1.i257 = phi ptr [ %130, %124 ], [ %.0.i256, %120 ]
   %139 = add i32 %138, 1
   store i32 %139, ptr %.1.i257, align 4
-  %140 = getelementptr inbounds i8, ptr %.1.i257, i64 8
+  %140 = getelementptr inbounds nuw i8, ptr %.1.i257, i64 8
   store ptr %140, ptr %0, align 8
   %141 = tail call ptr @str_cat(ptr noundef nonnull @.str.35, ptr noundef %3) #11
   %142 = load ptr, ptr %0, align 8
@@ -1272,7 +1272,7 @@ expand_.exit259:                                  ; preds = %120, %124
 
 148:                                              ; preds = %expand_.exit259, %143
   %.0179 = phi i64 [ %147, %143 ], [ 4294967295, %expand_.exit259 ]
-  %149 = getelementptr inbounds ptr, ptr %142, i64 %.0179
+  %149 = getelementptr inbounds nuw ptr, ptr %142, i64 %.0179
   store ptr %141, ptr %149, align 8
   br i1 %9, label %150, label %161
 
@@ -1283,7 +1283,7 @@ expand_.exit259:                                  ; preds = %120, %124
 
 152:                                              ; preds = %150
   %153 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %154 = getelementptr inbounds i8, ptr %153, i64 4
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 4
   store i32 8, ptr %154, align 4
   br label %157
 
@@ -1312,7 +1312,7 @@ expand_.exit259:                                  ; preds = %120, %124
 
 166:                                              ; preds = %164
   %167 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %168 = getelementptr inbounds i8, ptr %167, i64 4
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 4
   store i32 8, ptr %168, align 4
   br label %171
 
@@ -1337,13 +1337,13 @@ default.unreachable:                              ; preds = %68
   %.sink401 = phi i32 [ %88, %87 ], [ %100, %99 ], [ %112, %111 ], [ %158, %157 ], [ %172, %171 ]
   %.str.37.sink.ph = phi ptr [ @.str.32, %87 ], [ @.str.33, %99 ], [ @.str.34, %111 ], [ @.str.36, %157 ], [ @.str.37, %171 ]
   %.ph.ph = phi ptr [ @.str.39, %87 ], [ @.str.39, %99 ], [ @.str.39, %111 ], [ @.str.38, %157 ], [ @.str.38, %171 ]
-  %175 = getelementptr inbounds i8, ptr %.0.i270.sink402, i64 4
+  %175 = getelementptr inbounds nuw i8, ptr %.0.i270.sink402, i64 4
   %176 = shl i32 %.sink401, 1
   %177 = zext i32 %176 to i64
   %178 = shl nuw nsw i64 %177, 3
   %179 = or disjoint i64 %178, 8
   %180 = tail call ptr @calloc_arena(i64 noundef %179) #11
-  %181 = getelementptr inbounds i8, ptr %180, i64 4
+  %181 = getelementptr inbounds nuw i8, ptr %180, i64 4
   store i32 %176, ptr %181, align 4
   %182 = load i32, ptr %175, align 4
   %183 = zext i32 %182 to i64
@@ -1363,12 +1363,12 @@ default.unreachable:                              ; preds = %68
   %.ph = phi ptr [ @.str.39, %87 ], [ @.str.39, %99 ], [ @.str.39, %111 ], [ @.str.38, %157 ], [ @.str.38, %171 ], [ %.ph.ph, %.sink.split.sink.split ]
   %188 = add i32 %.sink385, 1
   store i32 %188, ptr %.1.i271.sink384, align 4
-  %189 = getelementptr inbounds i8, ptr %.1.i271.sink384, i64 8
+  %189 = getelementptr inbounds nuw i8, ptr %.1.i271.sink384, i64 8
   store ptr %189, ptr %0, align 8
   %190 = load i32, ptr %.1.i271.sink384, align 4
   %191 = add i32 %190, -1
   %192 = zext i32 %191 to i64
-  %193 = getelementptr inbounds ptr, ptr %189, i64 %192
+  %193 = getelementptr inbounds nuw ptr, ptr %189, i64 %192
   store ptr %.str.37.sink, ptr %193, align 8
   br label %194
 
@@ -1418,7 +1418,7 @@ default.unreachable:                              ; preds = %68
 
 200:                                              ; preds = %198
   %201 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %202 = getelementptr inbounds i8, ptr %201, i64 4
+  %202 = getelementptr inbounds nuw i8, ptr %201, i64 4
   store i32 8, ptr %202, align 4
   br label %205
 
@@ -1436,13 +1436,13 @@ default.unreachable:                              ; preds = %68
   br i1 %208, label %209, label %223
 
 209:                                              ; preds = %205
-  %210 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
+  %210 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   %211 = shl i32 %206, 1
   %212 = zext i32 %211 to i64
   %213 = shl nuw nsw i64 %212, 3
   %214 = or disjoint i64 %213, 8
   %215 = tail call ptr @calloc_arena(i64 noundef %214) #11
-  %216 = getelementptr inbounds i8, ptr %215, i64 4
+  %216 = getelementptr inbounds nuw i8, ptr %215, i64 4
   store i32 %211, ptr %216, align 4
   %217 = load i32, ptr %210, align 4
   %218 = zext i32 %217 to i64
@@ -1460,7 +1460,7 @@ default.unreachable:                              ; preds = %68
   %.1.i.i = phi ptr [ %215, %209 ], [ %.0.i.i, %205 ]
   %225 = add i32 %224, 1
   store i32 %225, ptr %.1.i.i, align 4
-  %226 = getelementptr inbounds i8, ptr %.1.i.i, i64 8
+  %226 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
   store ptr %226, ptr %0, align 8
   %227 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 396), align 4
   %228 = trunc i8 %227 to i1
@@ -1468,7 +1468,7 @@ default.unreachable:                              ; preds = %68
   %230 = load i32, ptr %.1.i.i, align 4
   %231 = add i32 %230, -1
   %232 = zext i32 %231 to i64
-  %233 = getelementptr inbounds ptr, ptr %226, i64 %232
+  %233 = getelementptr inbounds nuw ptr, ptr %226, i64 %232
   store ptr %229, ptr %233, align 8
   tail call void @global_context_add_link(ptr noundef nonnull @.str.43) #11
   %234 = icmp eq i32 %4, 4
@@ -1490,7 +1490,7 @@ default.unreachable:                              ; preds = %68
 
 239:                                              ; preds = %237
   %240 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %241 = getelementptr inbounds i8, ptr %240, i64 4
+  %241 = getelementptr inbounds nuw i8, ptr %240, i64 4
   store i32 8, ptr %241, align 4
   br label %244
 
@@ -1514,7 +1514,7 @@ default.unreachable:                              ; preds = %68
 
 250:                                              ; preds = %248
   %251 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %252 = getelementptr inbounds i8, ptr %251, i64 4
+  %252 = getelementptr inbounds nuw i8, ptr %251, i64 4
   store i32 8, ptr %252, align 4
   br label %255
 
@@ -1540,13 +1540,13 @@ default.unreachable:                              ; preds = %68
   %.sink201.i = phi i32 [ %245, %244 ], [ %256, %255 ]
   %.str.45.sink.ph.i = phi ptr [ @.str.44, %244 ], [ @.str.45, %255 ]
   %.099.ph.ph.i = phi i1 [ false, %244 ], [ true, %255 ]
-  %260 = getelementptr inbounds i8, ptr %.0.i134.sink202.i, i64 4
+  %260 = getelementptr inbounds nuw i8, ptr %.0.i134.sink202.i, i64 4
   %261 = shl i32 %.sink201.i, 1
   %262 = zext i32 %261 to i64
   %263 = shl nuw nsw i64 %262, 3
   %264 = or disjoint i64 %263, 8
   %265 = tail call ptr @calloc_arena(i64 noundef %264) #11
-  %266 = getelementptr inbounds i8, ptr %265, i64 4
+  %266 = getelementptr inbounds nuw i8, ptr %265, i64 4
   store i32 %261, ptr %266, align 4
   %267 = load i32, ptr %260, align 4
   %268 = zext i32 %267 to i64
@@ -1566,12 +1566,12 @@ default.unreachable:                              ; preds = %68
   %.099.ph.i = phi i1 [ false, %244 ], [ true, %255 ], [ %.099.ph.ph.i, %.sink.split.sink.split.i ]
   %273 = add i32 %.sink185.i, 1
   store i32 %273, ptr %.1.i135.sink184.i, align 4
-  %274 = getelementptr inbounds i8, ptr %.1.i135.sink184.i, i64 8
+  %274 = getelementptr inbounds nuw i8, ptr %.1.i135.sink184.i, i64 8
   store ptr %274, ptr %0, align 8
   %275 = load i32, ptr %.1.i135.sink184.i, align 4
   %276 = add i32 %275, -1
   %277 = zext i32 %276 to i64
-  %278 = getelementptr inbounds ptr, ptr %274, i64 %277
+  %278 = getelementptr inbounds nuw ptr, ptr %274, i64 %277
   store ptr %.str.45.sink.i, ptr %278, align 8
   br label %279
 
@@ -1637,7 +1637,7 @@ default.unreachable:                              ; preds = %68
 
 300:                                              ; preds = %298
   %301 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %302 = getelementptr inbounds i8, ptr %301, i64 4
+  %302 = getelementptr inbounds nuw i8, ptr %301, i64 4
   store i32 8, ptr %302, align 4
   br label %305
 
@@ -1655,13 +1655,13 @@ default.unreachable:                              ; preds = %68
   br i1 %308, label %309, label %expand_.exit144.i
 
 309:                                              ; preds = %305
-  %310 = getelementptr inbounds i8, ptr %.0.i141.i, i64 4
+  %310 = getelementptr inbounds nuw i8, ptr %.0.i141.i, i64 4
   %311 = shl i32 %306, 1
   %312 = zext i32 %311 to i64
   %313 = shl nuw nsw i64 %312, 3
   %314 = or disjoint i64 %313, 8
   %315 = tail call ptr @calloc_arena(i64 noundef %314) #11
-  %316 = getelementptr inbounds i8, ptr %315, i64 4
+  %316 = getelementptr inbounds nuw i8, ptr %315, i64 4
   store i32 %311, ptr %316, align 4
   %317 = load i32, ptr %310, align 4
   %318 = zext i32 %317 to i64
@@ -1679,7 +1679,7 @@ expand_.exit144.i:                                ; preds = %309, %305
   %.1.i142.i = phi ptr [ %315, %309 ], [ %.0.i141.i, %305 ]
   %324 = add i32 %323, 1
   store i32 %324, ptr %.1.i142.i, align 4
-  %325 = getelementptr inbounds i8, ptr %.1.i142.i, i64 8
+  %325 = getelementptr inbounds nuw i8, ptr %.1.i142.i, i64 8
   store ptr %325, ptr %0, align 8
   %326 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 384), align 8
   %327 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull @.str.50, ptr noundef %326) #11
@@ -1696,7 +1696,7 @@ expand_.exit144.i:                                ; preds = %309, %305
 
 334:                                              ; preds = %329, %expand_.exit144.i
   %.092.i = phi i64 [ %333, %329 ], [ 4294967295, %expand_.exit144.i ]
-  %335 = getelementptr inbounds ptr, ptr %328, i64 %.092.i
+  %335 = getelementptr inbounds nuw ptr, ptr %328, i64 %.092.i
   store ptr %327, ptr %335, align 8
   br label %336
 
@@ -1712,7 +1712,7 @@ expand_.exit144.i:                                ; preds = %309, %305
 
 340:                                              ; preds = %338
   %341 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %342 = getelementptr inbounds i8, ptr %341, i64 4
+  %342 = getelementptr inbounds nuw i8, ptr %341, i64 4
   store i32 8, ptr %342, align 4
   br label %345
 
@@ -1730,13 +1730,13 @@ expand_.exit144.i:                                ; preds = %309, %305
   br i1 %348, label %349, label %expand_.exit151.i
 
 349:                                              ; preds = %345
-  %350 = getelementptr inbounds i8, ptr %.0.i148.i, i64 4
+  %350 = getelementptr inbounds nuw i8, ptr %.0.i148.i, i64 4
   %351 = shl i32 %346, 1
   %352 = zext i32 %351 to i64
   %353 = shl nuw nsw i64 %352, 3
   %354 = or disjoint i64 %353, 8
   %355 = tail call ptr @calloc_arena(i64 noundef %354) #11
-  %356 = getelementptr inbounds i8, ptr %355, i64 4
+  %356 = getelementptr inbounds nuw i8, ptr %355, i64 4
   store i32 %351, ptr %356, align 4
   %357 = load i32, ptr %350, align 4
   %358 = zext i32 %357 to i64
@@ -1754,7 +1754,7 @@ expand_.exit151.i:                                ; preds = %349, %345
   %.1.i149.i = phi ptr [ %355, %349 ], [ %.0.i148.i, %345 ]
   %364 = add i32 %363, 1
   store i32 %364, ptr %.1.i149.i, align 4
-  %365 = getelementptr inbounds i8, ptr %.1.i149.i, i64 8
+  %365 = getelementptr inbounds nuw i8, ptr %.1.i149.i, i64 8
   store ptr %365, ptr %0, align 8
   %366 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 376), align 8
   %367 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull @.str.51, ptr noundef %366) #11
@@ -1771,7 +1771,7 @@ expand_.exit151.i:                                ; preds = %349, %345
 
 374:                                              ; preds = %369, %expand_.exit151.i
   %.093.i = phi i64 [ %373, %369 ], [ 4294967295, %expand_.exit151.i ]
-  %375 = getelementptr inbounds ptr, ptr %368, i64 %.093.i
+  %375 = getelementptr inbounds nuw ptr, ptr %368, i64 %.093.i
   store ptr %367, ptr %375, align 8
   br label %497
 
@@ -1785,7 +1785,7 @@ expand_.exit151.i:                                ; preds = %349, %345
   unreachable
 
 379:                                              ; preds = %376
-  %380 = getelementptr inbounds i8, ptr %377, i64 16
+  %380 = getelementptr inbounds nuw i8, ptr %377, i64 16
   %381 = load ptr, ptr %380, align 8
   %382 = tail call zeroext i1 @file_is_dir(ptr noundef %381) #11
   br i1 %382, label %384, label %383
@@ -1801,7 +1801,7 @@ expand_.exit151.i:                                ; preds = %349, %345
 
 386:                                              ; preds = %384
   %387 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %388 = getelementptr inbounds i8, ptr %387, i64 4
+  %388 = getelementptr inbounds nuw i8, ptr %387, i64 4
   store i32 8, ptr %388, align 4
   br label %391
 
@@ -1819,13 +1819,13 @@ expand_.exit151.i:                                ; preds = %349, %345
   br i1 %394, label %395, label %expand_.exit158.i
 
 395:                                              ; preds = %391
-  %396 = getelementptr inbounds i8, ptr %.0.i155.i, i64 4
+  %396 = getelementptr inbounds nuw i8, ptr %.0.i155.i, i64 4
   %397 = shl i32 %392, 1
   %398 = zext i32 %397 to i64
   %399 = shl nuw nsw i64 %398, 3
   %400 = or disjoint i64 %399, 8
   %401 = tail call ptr @calloc_arena(i64 noundef %400) #11
-  %402 = getelementptr inbounds i8, ptr %401, i64 4
+  %402 = getelementptr inbounds nuw i8, ptr %401, i64 4
   store i32 %397, ptr %402, align 4
   %403 = load i32, ptr %396, align 4
   %404 = zext i32 %403 to i64
@@ -1843,7 +1843,7 @@ expand_.exit158.i:                                ; preds = %395, %391
   %.1.i156.i = phi ptr [ %401, %395 ], [ %.0.i155.i, %391 ]
   %410 = add i32 %409, 1
   store i32 %410, ptr %.1.i156.i, align 4
-  %411 = getelementptr inbounds i8, ptr %.1.i156.i, i64 8
+  %411 = getelementptr inbounds nuw i8, ptr %.1.i156.i, i64 8
   store ptr %411, ptr %0, align 8
   %412 = load ptr, ptr %377, align 8
   %413 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull @.str.51, ptr noundef %412) #11
@@ -1860,7 +1860,7 @@ expand_.exit158.i:                                ; preds = %395, %391
 
 420:                                              ; preds = %415, %expand_.exit158.i
   %.094.i = phi i64 [ %419, %415 ], [ 4294967295, %expand_.exit158.i ]
-  %421 = getelementptr inbounds ptr, ptr %414, i64 %.094.i
+  %421 = getelementptr inbounds nuw ptr, ptr %414, i64 %.094.i
   store ptr %413, ptr %421, align 8
   %422 = load ptr, ptr %0, align 8
   %.not.i159.i = icmp eq ptr %422, null
@@ -1868,7 +1868,7 @@ expand_.exit158.i:                                ; preds = %395, %391
 
 423:                                              ; preds = %420
   %424 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %425 = getelementptr inbounds i8, ptr %424, i64 4
+  %425 = getelementptr inbounds nuw i8, ptr %424, i64 4
   store i32 8, ptr %425, align 4
   br label %428
 
@@ -1886,13 +1886,13 @@ expand_.exit158.i:                                ; preds = %395, %391
   br i1 %431, label %432, label %expand_.exit165.i
 
 432:                                              ; preds = %428
-  %433 = getelementptr inbounds i8, ptr %.0.i162.i, i64 4
+  %433 = getelementptr inbounds nuw i8, ptr %.0.i162.i, i64 4
   %434 = shl i32 %429, 1
   %435 = zext i32 %434 to i64
   %436 = shl nuw nsw i64 %435, 3
   %437 = or disjoint i64 %436, 8
   %438 = tail call ptr @calloc_arena(i64 noundef %437) #11
-  %439 = getelementptr inbounds i8, ptr %438, i64 4
+  %439 = getelementptr inbounds nuw i8, ptr %438, i64 4
   store i32 %434, ptr %439, align 4
   %440 = load i32, ptr %433, align 4
   %441 = zext i32 %440 to i64
@@ -1910,9 +1910,9 @@ expand_.exit165.i:                                ; preds = %432, %428
   %.1.i163.i = phi ptr [ %438, %432 ], [ %.0.i162.i, %428 ]
   %447 = add i32 %446, 1
   store i32 %447, ptr %.1.i163.i, align 4
-  %448 = getelementptr inbounds i8, ptr %.1.i163.i, i64 8
+  %448 = getelementptr inbounds nuw i8, ptr %.1.i163.i, i64 8
   store ptr %448, ptr %0, align 8
-  %449 = getelementptr inbounds i8, ptr %377, i64 8
+  %449 = getelementptr inbounds nuw i8, ptr %377, i64 8
   %450 = load ptr, ptr %449, align 8
   %451 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull @.str.51, ptr noundef %450) #11
   %452 = load ptr, ptr %0, align 8
@@ -1928,7 +1928,7 @@ expand_.exit165.i:                                ; preds = %432, %428
 
 458:                                              ; preds = %453, %expand_.exit165.i
   %.095.i = phi i64 [ %457, %453 ], [ 4294967295, %expand_.exit165.i ]
-  %459 = getelementptr inbounds ptr, ptr %452, i64 %.095.i
+  %459 = getelementptr inbounds nuw ptr, ptr %452, i64 %.095.i
   store ptr %451, ptr %459, align 8
   %460 = load ptr, ptr %0, align 8
   %.not.i166.i = icmp eq ptr %460, null
@@ -1936,7 +1936,7 @@ expand_.exit165.i:                                ; preds = %432, %428
 
 461:                                              ; preds = %458
   %462 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %463 = getelementptr inbounds i8, ptr %462, i64 4
+  %463 = getelementptr inbounds nuw i8, ptr %462, i64 4
   store i32 8, ptr %463, align 4
   br label %466
 
@@ -1954,13 +1954,13 @@ expand_.exit165.i:                                ; preds = %432, %428
   br i1 %469, label %470, label %expand_.exit172.i
 
 470:                                              ; preds = %466
-  %471 = getelementptr inbounds i8, ptr %.0.i169.i, i64 4
+  %471 = getelementptr inbounds nuw i8, ptr %.0.i169.i, i64 4
   %472 = shl i32 %467, 1
   %473 = zext i32 %472 to i64
   %474 = shl nuw nsw i64 %473, 3
   %475 = or disjoint i64 %474, 8
   %476 = tail call ptr @calloc_arena(i64 noundef %475) #11
-  %477 = getelementptr inbounds i8, ptr %476, i64 4
+  %477 = getelementptr inbounds nuw i8, ptr %476, i64 4
   store i32 %472, ptr %477, align 4
   %478 = load i32, ptr %471, align 4
   %479 = zext i32 %478 to i64
@@ -1978,7 +1978,7 @@ expand_.exit172.i:                                ; preds = %470, %466
   %.1.i170.i = phi ptr [ %476, %470 ], [ %.0.i169.i, %466 ]
   %485 = add i32 %484, 1
   store i32 %485, ptr %.1.i170.i, align 4
-  %486 = getelementptr inbounds i8, ptr %.1.i170.i, i64 8
+  %486 = getelementptr inbounds nuw i8, ptr %.1.i170.i, i64 8
   store ptr %486, ptr %0, align 8
   %487 = load ptr, ptr %380, align 8
   %488 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull @.str.51, ptr noundef %487) #11
@@ -1995,7 +1995,7 @@ expand_.exit172.i:                                ; preds = %470, %466
 
 495:                                              ; preds = %490, %expand_.exit172.i
   %.096.i = phi i64 [ %494, %490 ], [ 4294967295, %expand_.exit172.i ]
-  %496 = getelementptr inbounds ptr, ptr %489, i64 %.096.i
+  %496 = getelementptr inbounds nuw ptr, ptr %489, i64 %.096.i
   store ptr %488, ptr %496, align 8
   br label %497
 
@@ -2038,7 +2038,7 @@ expand_.exit172.i:                                ; preds = %470, %466
 
 506:                                              ; preds = %504
   %507 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %508 = getelementptr inbounds i8, ptr %507, i64 4
+  %508 = getelementptr inbounds nuw i8, ptr %507, i64 4
   store i32 8, ptr %508, align 4
   br label %511
 
@@ -2056,13 +2056,13 @@ expand_.exit172.i:                                ; preds = %470, %466
   br i1 %514, label %515, label %529
 
 515:                                              ; preds = %511
-  %516 = getelementptr inbounds i8, ptr %.0.i176.i, i64 4
+  %516 = getelementptr inbounds nuw i8, ptr %.0.i176.i, i64 4
   %517 = shl i32 %512, 1
   %518 = zext i32 %517 to i64
   %519 = shl nuw nsw i64 %518, 3
   %520 = or disjoint i64 %519, 8
   %521 = tail call ptr @calloc_arena(i64 noundef %520) #11
-  %522 = getelementptr inbounds i8, ptr %521, i64 4
+  %522 = getelementptr inbounds nuw i8, ptr %521, i64 4
   store i32 %517, ptr %522, align 4
   %523 = load i32, ptr %516, align 4
   %524 = zext i32 %523 to i64
@@ -2080,12 +2080,12 @@ expand_.exit172.i:                                ; preds = %470, %466
   %.1.i177.i = phi ptr [ %521, %515 ], [ %.0.i176.i, %511 ]
   %531 = add i32 %530, 1
   store i32 %531, ptr %.1.i177.i, align 4
-  %532 = getelementptr inbounds i8, ptr %.1.i177.i, i64 8
+  %532 = getelementptr inbounds nuw i8, ptr %.1.i177.i, i64 8
   store ptr %532, ptr %0, align 8
   %533 = load i32, ptr %.1.i177.i, align 4
   %534 = add i32 %533, -1
   %535 = zext i32 %534 to i64
-  %536 = getelementptr inbounds ptr, ptr %532, i64 %535
+  %536 = getelementptr inbounds nuw ptr, ptr %532, i64 %535
   store ptr @.str.77, ptr %536, align 8
   br label %linker_setup_windows.exit
 
@@ -2100,7 +2100,7 @@ expand_.exit172.i:                                ; preds = %470, %466
 
 541:                                              ; preds = %540
   %542 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %543 = getelementptr inbounds i8, ptr %542, i64 4
+  %543 = getelementptr inbounds nuw i8, ptr %542, i64 4
   store i32 8, ptr %543, align 4
   br label %546
 
@@ -2118,13 +2118,13 @@ expand_.exit172.i:                                ; preds = %470, %466
   br i1 %549, label %550, label %564
 
 550:                                              ; preds = %546
-  %551 = getelementptr inbounds i8, ptr %.0.i.i277, i64 4
+  %551 = getelementptr inbounds nuw i8, ptr %.0.i.i277, i64 4
   %552 = shl i32 %547, 1
   %553 = zext i32 %552 to i64
   %554 = shl nuw nsw i64 %553, 3
   %555 = or disjoint i64 %554, 8
   %556 = tail call ptr @calloc_arena(i64 noundef %555) #11
-  %557 = getelementptr inbounds i8, ptr %556, i64 4
+  %557 = getelementptr inbounds nuw i8, ptr %556, i64 4
   store i32 %552, ptr %557, align 4
   %558 = load i32, ptr %551, align 4
   %559 = zext i32 %558 to i64
@@ -2142,12 +2142,12 @@ expand_.exit172.i:                                ; preds = %470, %466
   %.1.i.i278 = phi ptr [ %556, %550 ], [ %.0.i.i277, %546 ]
   %566 = add i32 %565, 1
   store i32 %566, ptr %.1.i.i278, align 4
-  %567 = getelementptr inbounds i8, ptr %.1.i.i278, i64 8
+  %567 = getelementptr inbounds nuw i8, ptr %.1.i.i278, i64 8
   store ptr %567, ptr %0, align 8
   %568 = load i32, ptr %.1.i.i278, align 4
   %569 = add i32 %568, -1
   %570 = zext i32 %569 to i64
-  %571 = getelementptr inbounds ptr, ptr %567, i64 %570
+  %571 = getelementptr inbounds nuw ptr, ptr %567, i64 %570
   store ptr @.str.78, ptr %571, align 8
   %572 = load ptr, ptr %0, align 8
   %.not.i195.i = icmp eq ptr %572, null
@@ -2155,7 +2155,7 @@ expand_.exit172.i:                                ; preds = %470, %466
 
 573:                                              ; preds = %564
   %574 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %575 = getelementptr inbounds i8, ptr %574, i64 4
+  %575 = getelementptr inbounds nuw i8, ptr %574, i64 4
   store i32 8, ptr %575, align 4
   br label %578
 
@@ -2173,13 +2173,13 @@ expand_.exit172.i:                                ; preds = %470, %466
   br i1 %581, label %582, label %596
 
 582:                                              ; preds = %578
-  %583 = getelementptr inbounds i8, ptr %.0.i198.i, i64 4
+  %583 = getelementptr inbounds nuw i8, ptr %.0.i198.i, i64 4
   %584 = shl i32 %579, 1
   %585 = zext i32 %584 to i64
   %586 = shl nuw nsw i64 %585, 3
   %587 = or disjoint i64 %586, 8
   %588 = tail call ptr @calloc_arena(i64 noundef %587) #11
-  %589 = getelementptr inbounds i8, ptr %588, i64 4
+  %589 = getelementptr inbounds nuw i8, ptr %588, i64 4
   store i32 %584, ptr %589, align 4
   %590 = load i32, ptr %583, align 4
   %591 = zext i32 %590 to i64
@@ -2197,13 +2197,13 @@ expand_.exit172.i:                                ; preds = %470, %466
   %.1.i199.i = phi ptr [ %588, %582 ], [ %.0.i198.i, %578 ]
   %598 = add i32 %597, 1
   store i32 %598, ptr %.1.i199.i, align 4
-  %599 = getelementptr inbounds i8, ptr %.1.i199.i, i64 8
+  %599 = getelementptr inbounds nuw i8, ptr %.1.i199.i, i64 8
   store ptr %599, ptr %0, align 8
   %600 = load ptr, ptr @platform_target, align 8
   %601 = load i32, ptr %.1.i199.i, align 4
   %602 = add i32 %601, -1
   %603 = zext i32 %602 to i64
-  %604 = getelementptr inbounds ptr, ptr %599, i64 %603
+  %604 = getelementptr inbounds nuw ptr, ptr %599, i64 %603
   store ptr %600, ptr %604, align 8
   br label %linker_setup_windows.exit
 
@@ -2212,7 +2212,7 @@ expand_.exit172.i:                                ; preds = %470, %466
 
 606:                                              ; preds = %605
   %607 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %608 = getelementptr inbounds i8, ptr %607, i64 4
+  %608 = getelementptr inbounds nuw i8, ptr %607, i64 4
   store i32 8, ptr %608, align 4
   br label %611
 
@@ -2230,13 +2230,13 @@ expand_.exit172.i:                                ; preds = %470, %466
   br i1 %614, label %615, label %629
 
 615:                                              ; preds = %611
-  %616 = getelementptr inbounds i8, ptr %.0.i205.i, i64 4
+  %616 = getelementptr inbounds nuw i8, ptr %.0.i205.i, i64 4
   %617 = shl i32 %612, 1
   %618 = zext i32 %617 to i64
   %619 = shl nuw nsw i64 %618, 3
   %620 = or disjoint i64 %619, 8
   %621 = tail call ptr @calloc_arena(i64 noundef %620) #11
-  %622 = getelementptr inbounds i8, ptr %621, i64 4
+  %622 = getelementptr inbounds nuw i8, ptr %621, i64 4
   store i32 %617, ptr %622, align 4
   %623 = load i32, ptr %616, align 4
   %624 = zext i32 %623 to i64
@@ -2254,12 +2254,12 @@ expand_.exit172.i:                                ; preds = %470, %466
   %.1.i206.i = phi ptr [ %621, %615 ], [ %.0.i205.i, %611 ]
   %631 = add i32 %630, 1
   store i32 %631, ptr %.1.i206.i, align 4
-  %632 = getelementptr inbounds i8, ptr %.1.i206.i, i64 8
+  %632 = getelementptr inbounds nuw i8, ptr %.1.i206.i, i64 8
   store ptr %632, ptr %0, align 8
   %633 = load i32, ptr %.1.i206.i, align 4
   %634 = add i32 %633, -1
   %635 = zext i32 %634 to i64
-  %636 = getelementptr inbounds ptr, ptr %632, i64 %635
+  %636 = getelementptr inbounds nuw ptr, ptr %632, i64 %635
   store ptr @.str.79, ptr %636, align 8
   %637 = load ptr, ptr %0, align 8
   %.not.i209.i = icmp eq ptr %637, null
@@ -2267,7 +2267,7 @@ expand_.exit172.i:                                ; preds = %470, %466
 
 638:                                              ; preds = %629
   %639 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %640 = getelementptr inbounds i8, ptr %639, i64 4
+  %640 = getelementptr inbounds nuw i8, ptr %639, i64 4
   store i32 8, ptr %640, align 4
   br label %643
 
@@ -2285,13 +2285,13 @@ expand_.exit172.i:                                ; preds = %470, %466
   br i1 %646, label %647, label %expand_.exit215.i
 
 647:                                              ; preds = %643
-  %648 = getelementptr inbounds i8, ptr %.0.i212.i, i64 4
+  %648 = getelementptr inbounds nuw i8, ptr %.0.i212.i, i64 4
   %649 = shl i32 %644, 1
   %650 = zext i32 %649 to i64
   %651 = shl nuw nsw i64 %650, 3
   %652 = or disjoint i64 %651, 8
   %653 = tail call ptr @calloc_arena(i64 noundef %652) #11
-  %654 = getelementptr inbounds i8, ptr %653, i64 4
+  %654 = getelementptr inbounds nuw i8, ptr %653, i64 4
   store i32 %649, ptr %654, align 4
   %655 = load i32, ptr %648, align 4
   %656 = zext i32 %655 to i64
@@ -2309,7 +2309,7 @@ expand_.exit215.i:                                ; preds = %647, %643
   %.1.i213.i = phi ptr [ %653, %647 ], [ %.0.i212.i, %643 ]
   %662 = add i32 %661, 1
   store i32 %662, ptr %.1.i213.i, align 4
-  %663 = getelementptr inbounds i8, ptr %.1.i213.i, i64 8
+  %663 = getelementptr inbounds nuw i8, ptr %.1.i213.i, i64 8
   store ptr %663, ptr %0, align 8
   %664 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 32), align 8
   %665 = tail call ptr @arch_to_linker_arch(i32 noundef %664) #11
@@ -2326,7 +2326,7 @@ expand_.exit215.i:                                ; preds = %647, %643
 
 672:                                              ; preds = %667, %expand_.exit215.i
   %.0147.i = phi i64 [ %671, %667 ], [ 4294967295, %expand_.exit215.i ]
-  %673 = getelementptr inbounds ptr, ptr %666, i64 %.0147.i
+  %673 = getelementptr inbounds nuw ptr, ptr %666, i64 %.0147.i
   store ptr %665, ptr %673, align 8
   %674 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 212), align 4
   %675 = icmp ne i32 %674, 0
@@ -2342,7 +2342,7 @@ expand_.exit215.i:                                ; preds = %647, %643
 
 680:                                              ; preds = %678
   %681 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %682 = getelementptr inbounds i8, ptr %681, i64 4
+  %682 = getelementptr inbounds nuw i8, ptr %681, i64 4
   store i32 8, ptr %682, align 4
   br label %685
 
@@ -2360,13 +2360,13 @@ expand_.exit215.i:                                ; preds = %647, %643
   br i1 %688, label %689, label %703
 
 689:                                              ; preds = %685
-  %690 = getelementptr inbounds i8, ptr %.0.i219.i, i64 4
+  %690 = getelementptr inbounds nuw i8, ptr %.0.i219.i, i64 4
   %691 = shl i32 %686, 1
   %692 = zext i32 %691 to i64
   %693 = shl nuw nsw i64 %692, 3
   %694 = or disjoint i64 %693, 8
   %695 = tail call ptr @calloc_arena(i64 noundef %694) #11
-  %696 = getelementptr inbounds i8, ptr %695, i64 4
+  %696 = getelementptr inbounds nuw i8, ptr %695, i64 4
   store i32 %691, ptr %696, align 4
   %697 = load i32, ptr %690, align 4
   %698 = zext i32 %697 to i64
@@ -2384,12 +2384,12 @@ expand_.exit215.i:                                ; preds = %647, %643
   %.1.i220.i = phi ptr [ %695, %689 ], [ %.0.i219.i, %685 ]
   %705 = add i32 %704, 1
   store i32 %705, ptr %.1.i220.i, align 4
-  %706 = getelementptr inbounds i8, ptr %.1.i220.i, i64 8
+  %706 = getelementptr inbounds nuw i8, ptr %.1.i220.i, i64 8
   store ptr %706, ptr %0, align 8
   %707 = load i32, ptr %.1.i220.i, align 4
   %708 = add i32 %707, -1
   %709 = zext i32 %708 to i64
-  %710 = getelementptr inbounds ptr, ptr %706, i64 %709
+  %710 = getelementptr inbounds nuw ptr, ptr %706, i64 %709
   store ptr @.str.80, ptr %710, align 8
   %711 = load ptr, ptr %0, align 8
   %.not.i223.i = icmp eq ptr %711, null
@@ -2397,7 +2397,7 @@ expand_.exit215.i:                                ; preds = %647, %643
 
 712:                                              ; preds = %703
   %713 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %714 = getelementptr inbounds i8, ptr %713, i64 4
+  %714 = getelementptr inbounds nuw i8, ptr %713, i64 4
   store i32 8, ptr %714, align 4
   br label %717
 
@@ -2415,13 +2415,13 @@ expand_.exit215.i:                                ; preds = %647, %643
   br i1 %720, label %721, label %735
 
 721:                                              ; preds = %717
-  %722 = getelementptr inbounds i8, ptr %.0.i226.i, i64 4
+  %722 = getelementptr inbounds nuw i8, ptr %.0.i226.i, i64 4
   %723 = shl i32 %718, 1
   %724 = zext i32 %723 to i64
   %725 = shl nuw nsw i64 %724, 3
   %726 = or disjoint i64 %725, 8
   %727 = tail call ptr @calloc_arena(i64 noundef %726) #11
-  %728 = getelementptr inbounds i8, ptr %727, i64 4
+  %728 = getelementptr inbounds nuw i8, ptr %727, i64 4
   store i32 %723, ptr %728, align 4
   %729 = load i32, ptr %722, align 4
   %730 = zext i32 %729 to i64
@@ -2439,12 +2439,12 @@ expand_.exit215.i:                                ; preds = %647, %643
   %.1.i227.i = phi ptr [ %727, %721 ], [ %.0.i226.i, %717 ]
   %737 = add i32 %736, 1
   store i32 %737, ptr %.1.i227.i, align 4
-  %738 = getelementptr inbounds i8, ptr %.1.i227.i, i64 8
+  %738 = getelementptr inbounds nuw i8, ptr %.1.i227.i, i64 8
   store ptr %738, ptr %0, align 8
   %739 = load i32, ptr %.1.i227.i, align 4
   %740 = add i32 %739, -1
   %741 = zext i32 %740 to i64
-  %742 = getelementptr inbounds ptr, ptr %738, i64 %741
+  %742 = getelementptr inbounds nuw ptr, ptr %738, i64 %741
   store ptr @.str.81, ptr %742, align 8
   br label %743
 
@@ -2471,7 +2471,7 @@ expand_.exit215.i:                                ; preds = %647, %643
 
 750:                                              ; preds = %748
   %751 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %752 = getelementptr inbounds i8, ptr %751, i64 4
+  %752 = getelementptr inbounds nuw i8, ptr %751, i64 4
   store i32 8, ptr %752, align 4
   br label %755
 
@@ -2489,13 +2489,13 @@ expand_.exit215.i:                                ; preds = %647, %643
   br i1 %758, label %759, label %773
 
 759:                                              ; preds = %755
-  %760 = getelementptr inbounds i8, ptr %.0.i233.i, i64 4
+  %760 = getelementptr inbounds nuw i8, ptr %.0.i233.i, i64 4
   %761 = shl i32 %756, 1
   %762 = zext i32 %761 to i64
   %763 = shl nuw nsw i64 %762, 3
   %764 = or disjoint i64 %763, 8
   %765 = tail call ptr @calloc_arena(i64 noundef %764) #11
-  %766 = getelementptr inbounds i8, ptr %765, i64 4
+  %766 = getelementptr inbounds nuw i8, ptr %765, i64 4
   store i32 %761, ptr %766, align 4
   %767 = load i32, ptr %760, align 4
   %768 = zext i32 %767 to i64
@@ -2513,12 +2513,12 @@ expand_.exit215.i:                                ; preds = %647, %643
   %.1.i234.i = phi ptr [ %765, %759 ], [ %.0.i233.i, %755 ]
   %775 = add i32 %774, 1
   store i32 %775, ptr %.1.i234.i, align 4
-  %776 = getelementptr inbounds i8, ptr %.1.i234.i, i64 8
+  %776 = getelementptr inbounds nuw i8, ptr %.1.i234.i, i64 8
   store ptr %776, ptr %0, align 8
   %777 = load i32, ptr %.1.i234.i, align 4
   %778 = add i32 %777, -1
   %779 = zext i32 %778 to i64
-  %780 = getelementptr inbounds ptr, ptr %776, i64 %779
+  %780 = getelementptr inbounds nuw ptr, ptr %776, i64 %779
   store ptr @.str.85, ptr %780, align 8
   %781 = load ptr, ptr %0, align 8
   %.not.i237.i = icmp eq ptr %781, null
@@ -2526,7 +2526,7 @@ expand_.exit215.i:                                ; preds = %647, %643
 
 782:                                              ; preds = %773
   %783 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %784 = getelementptr inbounds i8, ptr %783, i64 4
+  %784 = getelementptr inbounds nuw i8, ptr %783, i64 4
   store i32 8, ptr %784, align 4
   br label %787
 
@@ -2544,13 +2544,13 @@ expand_.exit215.i:                                ; preds = %647, %643
   br i1 %790, label %791, label %805
 
 791:                                              ; preds = %787
-  %792 = getelementptr inbounds i8, ptr %.0.i240.i, i64 4
+  %792 = getelementptr inbounds nuw i8, ptr %.0.i240.i, i64 4
   %793 = shl i32 %788, 1
   %794 = zext i32 %793 to i64
   %795 = shl nuw nsw i64 %794, 3
   %796 = or disjoint i64 %795, 8
   %797 = tail call ptr @calloc_arena(i64 noundef %796) #11
-  %798 = getelementptr inbounds i8, ptr %797, i64 4
+  %798 = getelementptr inbounds nuw i8, ptr %797, i64 4
   store i32 %793, ptr %798, align 4
   %799 = load i32, ptr %792, align 4
   %800 = zext i32 %799 to i64
@@ -2568,13 +2568,13 @@ expand_.exit215.i:                                ; preds = %647, %643
   %.1.i241.i = phi ptr [ %797, %791 ], [ %.0.i240.i, %787 ]
   %807 = add i32 %806, 1
   store i32 %807, ptr %.1.i241.i, align 4
-  %808 = getelementptr inbounds i8, ptr %.1.i241.i, i64 8
+  %808 = getelementptr inbounds nuw i8, ptr %.1.i241.i, i64 8
   store ptr %808, ptr %0, align 8
   %809 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 344), align 8
   %810 = load i32, ptr %.1.i241.i, align 4
   %811 = add i32 %810, -1
   %812 = zext i32 %811 to i64
-  %813 = getelementptr inbounds ptr, ptr %808, i64 %812
+  %813 = getelementptr inbounds nuw ptr, ptr %808, i64 %812
   store ptr %809, ptr %813, align 8
   %814 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 228), align 4
   %815 = icmp eq i32 %814, 0
@@ -2587,7 +2587,7 @@ expand_.exit215.i:                                ; preds = %647, %643
 
 818:                                              ; preds = %816
   %819 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %820 = getelementptr inbounds i8, ptr %819, i64 4
+  %820 = getelementptr inbounds nuw i8, ptr %819, i64 4
   store i32 8, ptr %820, align 4
   br label %823
 
@@ -2605,13 +2605,13 @@ expand_.exit215.i:                                ; preds = %647, %643
   br i1 %826, label %827, label %841
 
 827:                                              ; preds = %823
-  %828 = getelementptr inbounds i8, ptr %.0.i247.i, i64 4
+  %828 = getelementptr inbounds nuw i8, ptr %.0.i247.i, i64 4
   %829 = shl i32 %824, 1
   %830 = zext i32 %829 to i64
   %831 = shl nuw nsw i64 %830, 3
   %832 = or disjoint i64 %831, 8
   %833 = tail call ptr @calloc_arena(i64 noundef %832) #11
-  %834 = getelementptr inbounds i8, ptr %833, i64 4
+  %834 = getelementptr inbounds nuw i8, ptr %833, i64 4
   store i32 %829, ptr %834, align 4
   %835 = load i32, ptr %828, align 4
   %836 = zext i32 %835 to i64
@@ -2629,12 +2629,12 @@ expand_.exit215.i:                                ; preds = %647, %643
   %.1.i248.i = phi ptr [ %833, %827 ], [ %.0.i247.i, %823 ]
   %843 = add i32 %842, 1
   store i32 %843, ptr %.1.i248.i, align 4
-  %844 = getelementptr inbounds i8, ptr %.1.i248.i, i64 8
+  %844 = getelementptr inbounds nuw i8, ptr %.1.i248.i, i64 8
   store ptr %844, ptr %0, align 8
   %845 = load i32, ptr %.1.i248.i, align 4
   %846 = add i32 %845, -1
   %847 = zext i32 %846 to i64
-  %848 = getelementptr inbounds ptr, ptr %844, i64 %847
+  %848 = getelementptr inbounds nuw ptr, ptr %844, i64 %847
   store ptr @.str.86, ptr %848, align 8
   %.pr.i = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 228), align 4
   br label %849
@@ -2651,7 +2651,7 @@ expand_.exit215.i:                                ; preds = %647, %643
 
 854:                                              ; preds = %852
   %855 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %856 = getelementptr inbounds i8, ptr %855, i64 4
+  %856 = getelementptr inbounds nuw i8, ptr %855, i64 4
   store i32 8, ptr %856, align 4
   br label %859
 
@@ -2669,13 +2669,13 @@ expand_.exit215.i:                                ; preds = %647, %643
   br i1 %862, label %863, label %877
 
 863:                                              ; preds = %859
-  %864 = getelementptr inbounds i8, ptr %.0.i254.i, i64 4
+  %864 = getelementptr inbounds nuw i8, ptr %.0.i254.i, i64 4
   %865 = shl i32 %860, 1
   %866 = zext i32 %865 to i64
   %867 = shl nuw nsw i64 %866, 3
   %868 = or disjoint i64 %867, 8
   %869 = tail call ptr @calloc_arena(i64 noundef %868) #11
-  %870 = getelementptr inbounds i8, ptr %869, i64 4
+  %870 = getelementptr inbounds nuw i8, ptr %869, i64 4
   store i32 %865, ptr %870, align 4
   %871 = load i32, ptr %864, align 4
   %872 = zext i32 %871 to i64
@@ -2693,12 +2693,12 @@ expand_.exit215.i:                                ; preds = %647, %643
   %.1.i255.i = phi ptr [ %869, %863 ], [ %.0.i254.i, %859 ]
   %879 = add i32 %878, 1
   store i32 %879, ptr %.1.i255.i, align 4
-  %880 = getelementptr inbounds i8, ptr %.1.i255.i, i64 8
+  %880 = getelementptr inbounds nuw i8, ptr %.1.i255.i, i64 8
   store ptr %880, ptr %0, align 8
   %881 = load i32, ptr %.1.i255.i, align 4
   %882 = add i32 %881, -1
   %883 = zext i32 %882 to i64
-  %884 = getelementptr inbounds ptr, ptr %880, i64 %883
+  %884 = getelementptr inbounds nuw ptr, ptr %880, i64 %883
   store ptr @.str.87, ptr %884, align 8
   br label %885
 
@@ -2709,7 +2709,7 @@ expand_.exit215.i:                                ; preds = %647, %643
 
 887:                                              ; preds = %885
   %888 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %889 = getelementptr inbounds i8, ptr %888, i64 4
+  %889 = getelementptr inbounds nuw i8, ptr %888, i64 4
   store i32 8, ptr %889, align 4
   br label %892
 
@@ -2727,13 +2727,13 @@ expand_.exit215.i:                                ; preds = %647, %643
   br i1 %895, label %896, label %910
 
 896:                                              ; preds = %892
-  %897 = getelementptr inbounds i8, ptr %.0.i261.i, i64 4
+  %897 = getelementptr inbounds nuw i8, ptr %.0.i261.i, i64 4
   %898 = shl i32 %893, 1
   %899 = zext i32 %898 to i64
   %900 = shl nuw nsw i64 %899, 3
   %901 = or disjoint i64 %900, 8
   %902 = tail call ptr @calloc_arena(i64 noundef %901) #11
-  %903 = getelementptr inbounds i8, ptr %902, i64 4
+  %903 = getelementptr inbounds nuw i8, ptr %902, i64 4
   store i32 %898, ptr %903, align 4
   %904 = load i32, ptr %897, align 4
   %905 = zext i32 %904 to i64
@@ -2751,12 +2751,12 @@ expand_.exit215.i:                                ; preds = %647, %643
   %.1.i262.i = phi ptr [ %902, %896 ], [ %.0.i261.i, %892 ]
   %912 = add i32 %911, 1
   store i32 %912, ptr %.1.i262.i, align 4
-  %913 = getelementptr inbounds i8, ptr %.1.i262.i, i64 8
+  %913 = getelementptr inbounds nuw i8, ptr %.1.i262.i, i64 8
   store ptr %913, ptr %0, align 8
   %914 = load i32, ptr %.1.i262.i, align 4
   %915 = add i32 %914, -1
   %916 = zext i32 %915 to i64
-  %917 = getelementptr inbounds ptr, ptr %913, i64 %916
+  %917 = getelementptr inbounds nuw ptr, ptr %913, i64 %916
   store ptr @.str.88, ptr %917, align 8
   %918 = load ptr, ptr %0, align 8
   %.not.i265.i = icmp eq ptr %918, null
@@ -2764,7 +2764,7 @@ expand_.exit215.i:                                ; preds = %647, %643
 
 919:                                              ; preds = %910
   %920 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %921 = getelementptr inbounds i8, ptr %920, i64 4
+  %921 = getelementptr inbounds nuw i8, ptr %920, i64 4
   store i32 8, ptr %921, align 4
   br label %924
 
@@ -2782,13 +2782,13 @@ expand_.exit215.i:                                ; preds = %647, %643
   br i1 %927, label %928, label %942
 
 928:                                              ; preds = %924
-  %929 = getelementptr inbounds i8, ptr %.0.i268.i, i64 4
+  %929 = getelementptr inbounds nuw i8, ptr %.0.i268.i, i64 4
   %930 = shl i32 %925, 1
   %931 = zext i32 %930 to i64
   %932 = shl nuw nsw i64 %931, 3
   %933 = or disjoint i64 %932, 8
   %934 = tail call ptr @calloc_arena(i64 noundef %933) #11
-  %935 = getelementptr inbounds i8, ptr %934, i64 4
+  %935 = getelementptr inbounds nuw i8, ptr %934, i64 4
   store i32 %930, ptr %935, align 4
   %936 = load i32, ptr %929, align 4
   %937 = zext i32 %936 to i64
@@ -2806,12 +2806,12 @@ expand_.exit215.i:                                ; preds = %647, %643
   %.1.i269.i = phi ptr [ %934, %928 ], [ %.0.i268.i, %924 ]
   %944 = add i32 %943, 1
   store i32 %944, ptr %.1.i269.i, align 4
-  %945 = getelementptr inbounds i8, ptr %.1.i269.i, i64 8
+  %945 = getelementptr inbounds nuw i8, ptr %.1.i269.i, i64 8
   store ptr %945, ptr %0, align 8
   %946 = load i32, ptr %.1.i269.i, align 4
   %947 = add i32 %946, -1
   %948 = zext i32 %947 to i64
-  %949 = getelementptr inbounds ptr, ptr %945, i64 %948
+  %949 = getelementptr inbounds nuw ptr, ptr %945, i64 %948
   store ptr @.str.89, ptr %949, align 8
   %950 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 352), align 8
   %.not187.i = icmp eq ptr %950, null
@@ -2824,7 +2824,7 @@ expand_.exit215.i:                                ; preds = %647, %643
 
 953:                                              ; preds = %952
   %954 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %955 = getelementptr inbounds i8, ptr %954, i64 4
+  %955 = getelementptr inbounds nuw i8, ptr %954, i64 4
   store i32 8, ptr %955, align 4
   br label %958
 
@@ -2842,13 +2842,13 @@ expand_.exit215.i:                                ; preds = %647, %643
   br i1 %961, label %962, label %976
 
 962:                                              ; preds = %958
-  %963 = getelementptr inbounds i8, ptr %.0.i275.i, i64 4
+  %963 = getelementptr inbounds nuw i8, ptr %.0.i275.i, i64 4
   %964 = shl i32 %959, 1
   %965 = zext i32 %964 to i64
   %966 = shl nuw nsw i64 %965, 3
   %967 = or disjoint i64 %966, 8
   %968 = tail call ptr @calloc_arena(i64 noundef %967) #11
-  %969 = getelementptr inbounds i8, ptr %968, i64 4
+  %969 = getelementptr inbounds nuw i8, ptr %968, i64 4
   store i32 %964, ptr %969, align 4
   %970 = load i32, ptr %963, align 4
   %971 = zext i32 %970 to i64
@@ -2866,13 +2866,13 @@ expand_.exit215.i:                                ; preds = %647, %643
   %.1.i276.i = phi ptr [ %968, %962 ], [ %.0.i275.i, %958 ]
   %978 = add i32 %977, 1
   store i32 %978, ptr %.1.i276.i, align 4
-  %979 = getelementptr inbounds i8, ptr %.1.i276.i, i64 8
+  %979 = getelementptr inbounds nuw i8, ptr %.1.i276.i, i64 8
   store ptr %979, ptr %0, align 8
   %980 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 352), align 8
   %981 = load i32, ptr %.1.i276.i, align 4
   %982 = add i32 %981, -1
   %983 = zext i32 %982 to i64
-  %984 = getelementptr inbounds ptr, ptr %979, i64 %983
+  %984 = getelementptr inbounds nuw ptr, ptr %979, i64 %983
   store ptr %980, ptr %984, align 8
   br label %1026
 
@@ -2881,7 +2881,7 @@ expand_.exit215.i:                                ; preds = %647, %643
 
 986:                                              ; preds = %985
   %987 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %988 = getelementptr inbounds i8, ptr %987, i64 4
+  %988 = getelementptr inbounds nuw i8, ptr %987, i64 4
   store i32 8, ptr %988, align 4
   br label %991
 
@@ -2899,13 +2899,13 @@ expand_.exit215.i:                                ; preds = %647, %643
   br i1 %994, label %995, label %expand_.exit285.i
 
 995:                                              ; preds = %991
-  %996 = getelementptr inbounds i8, ptr %.0.i282.i, i64 4
+  %996 = getelementptr inbounds nuw i8, ptr %.0.i282.i, i64 4
   %997 = shl i32 %992, 1
   %998 = zext i32 %997 to i64
   %999 = shl nuw nsw i64 %998, 3
   %1000 = or disjoint i64 %999, 8
   %1001 = tail call ptr @calloc_arena(i64 noundef %1000) #11
-  %1002 = getelementptr inbounds i8, ptr %1001, i64 4
+  %1002 = getelementptr inbounds nuw i8, ptr %1001, i64 4
   store i32 %997, ptr %1002, align 4
   %1003 = load i32, ptr %996, align 4
   %1004 = zext i32 %1003 to i64
@@ -2923,12 +2923,12 @@ expand_.exit285.i:                                ; preds = %995, %991
   %.1.i283.i = phi ptr [ %1001, %995 ], [ %.0.i282.i, %991 ]
   %1010 = add i32 %1009, 1
   store i32 %1010, ptr %.1.i283.i, align 4
-  %1011 = getelementptr inbounds i8, ptr %.1.i283.i, i64 8
+  %1011 = getelementptr inbounds nuw i8, ptr %.1.i283.i, i64 8
   store ptr %1011, ptr %0, align 8
   %1012 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 368), align 8
-  %1013 = getelementptr inbounds i8, ptr %1012, i64 8
+  %1013 = getelementptr inbounds nuw i8, ptr %1012, i64 8
   %1014 = load i32, ptr %1013, align 4
-  %1015 = getelementptr inbounds i8, ptr %1012, i64 12
+  %1015 = getelementptr inbounds nuw i8, ptr %1012, i64 12
   %1016 = load i32, ptr %1015, align 4
   %1017 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull @.str.90, i32 noundef %1014, i32 noundef %1016) #11
   %1018 = load ptr, ptr %0, align 8
@@ -2944,7 +2944,7 @@ expand_.exit285.i:                                ; preds = %995, %991
 
 1024:                                             ; preds = %1019, %expand_.exit285.i
   %.0157.i = phi i64 [ %1023, %1019 ], [ 4294967295, %expand_.exit285.i ]
-  %1025 = getelementptr inbounds ptr, ptr %1018, i64 %.0157.i
+  %1025 = getelementptr inbounds nuw ptr, ptr %1018, i64 %.0157.i
   store ptr %1017, ptr %1025, align 8
   br label %1026
 
@@ -2960,7 +2960,7 @@ expand_.exit285.i:                                ; preds = %995, %991
 
 1030:                                             ; preds = %1029
   %1031 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %1032 = getelementptr inbounds i8, ptr %1031, i64 4
+  %1032 = getelementptr inbounds nuw i8, ptr %1031, i64 4
   store i32 8, ptr %1032, align 4
   br label %1035
 
@@ -2978,13 +2978,13 @@ expand_.exit285.i:                                ; preds = %995, %991
   br i1 %1038, label %1039, label %1053
 
 1039:                                             ; preds = %1035
-  %1040 = getelementptr inbounds i8, ptr %.0.i289.i, i64 4
+  %1040 = getelementptr inbounds nuw i8, ptr %.0.i289.i, i64 4
   %1041 = shl i32 %1036, 1
   %1042 = zext i32 %1041 to i64
   %1043 = shl nuw nsw i64 %1042, 3
   %1044 = or disjoint i64 %1043, 8
   %1045 = tail call ptr @calloc_arena(i64 noundef %1044) #11
-  %1046 = getelementptr inbounds i8, ptr %1045, i64 4
+  %1046 = getelementptr inbounds nuw i8, ptr %1045, i64 4
   store i32 %1041, ptr %1046, align 4
   %1047 = load i32, ptr %1040, align 4
   %1048 = zext i32 %1047 to i64
@@ -3002,13 +3002,13 @@ expand_.exit285.i:                                ; preds = %995, %991
   %.1.i290.i = phi ptr [ %1045, %1039 ], [ %.0.i289.i, %1035 ]
   %1055 = add i32 %1054, 1
   store i32 %1055, ptr %.1.i290.i, align 4
-  %1056 = getelementptr inbounds i8, ptr %.1.i290.i, i64 8
+  %1056 = getelementptr inbounds nuw i8, ptr %.1.i290.i, i64 8
   store ptr %1056, ptr %0, align 8
   %1057 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 360), align 8
   %1058 = load i32, ptr %.1.i290.i, align 4
   %1059 = add i32 %1058, -1
   %1060 = zext i32 %1059 to i64
-  %1061 = getelementptr inbounds ptr, ptr %1056, i64 %1060
+  %1061 = getelementptr inbounds nuw ptr, ptr %1056, i64 %1060
   store ptr %1057, ptr %1061, align 8
   br label %linker_setup_windows.exit
 
@@ -3017,7 +3017,7 @@ expand_.exit285.i:                                ; preds = %995, %991
 
 1063:                                             ; preds = %1062
   %1064 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %1065 = getelementptr inbounds i8, ptr %1064, i64 4
+  %1065 = getelementptr inbounds nuw i8, ptr %1064, i64 4
   store i32 8, ptr %1065, align 4
   br label %1068
 
@@ -3035,13 +3035,13 @@ expand_.exit285.i:                                ; preds = %995, %991
   br i1 %1071, label %1072, label %expand_.exit299.i
 
 1072:                                             ; preds = %1068
-  %1073 = getelementptr inbounds i8, ptr %.0.i296.i, i64 4
+  %1073 = getelementptr inbounds nuw i8, ptr %.0.i296.i, i64 4
   %1074 = shl i32 %1069, 1
   %1075 = zext i32 %1074 to i64
   %1076 = shl nuw nsw i64 %1075, 3
   %1077 = or disjoint i64 %1076, 8
   %1078 = tail call ptr @calloc_arena(i64 noundef %1077) #11
-  %1079 = getelementptr inbounds i8, ptr %1078, i64 4
+  %1079 = getelementptr inbounds nuw i8, ptr %1078, i64 4
   store i32 %1074, ptr %1079, align 4
   %1080 = load i32, ptr %1073, align 4
   %1081 = zext i32 %1080 to i64
@@ -3059,11 +3059,11 @@ expand_.exit299.i:                                ; preds = %1072, %1068
   %.1.i297.i = phi ptr [ %1078, %1072 ], [ %.0.i296.i, %1068 ]
   %1087 = add i32 %1086, 1
   store i32 %1087, ptr %.1.i297.i, align 4
-  %1088 = getelementptr inbounds i8, ptr %.1.i297.i, i64 8
+  %1088 = getelementptr inbounds nuw i8, ptr %.1.i297.i, i64 8
   store ptr %1088, ptr %0, align 8
   %1089 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 368), align 8
   %1090 = load i32, ptr %1089, align 4
-  %1091 = getelementptr inbounds i8, ptr %1089, i64 4
+  %1091 = getelementptr inbounds nuw i8, ptr %1089, i64 4
   %1092 = load i32, ptr %1091, align 4
   %1093 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull @.str.91, i32 noundef %1090, i32 noundef %1092) #11
   %1094 = load ptr, ptr %0, align 8
@@ -3079,7 +3079,7 @@ expand_.exit299.i:                                ; preds = %1072, %1068
 
 1100:                                             ; preds = %1095, %expand_.exit299.i
   %.0159.i = phi i64 [ %1099, %1095 ], [ 4294967295, %expand_.exit299.i ]
-  %1101 = getelementptr inbounds ptr, ptr %1094, i64 %.0159.i
+  %1101 = getelementptr inbounds nuw ptr, ptr %1094, i64 %.0159.i
   store ptr %1093, ptr %1101, align 8
   br label %linker_setup_windows.exit
 
@@ -3099,7 +3099,7 @@ expand_.exit299.i:                                ; preds = %1072, %1068
 
 1109:                                             ; preds = %1107
   %1110 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %1111 = getelementptr inbounds i8, ptr %1110, i64 4
+  %1111 = getelementptr inbounds nuw i8, ptr %1110, i64 4
   store i32 8, ptr %1111, align 4
   br label %1114
 
@@ -3117,13 +3117,13 @@ expand_.exit299.i:                                ; preds = %1072, %1068
   br i1 %1117, label %1118, label %1132
 
 1118:                                             ; preds = %1114
-  %1119 = getelementptr inbounds i8, ptr %.0.i.i284, i64 4
+  %1119 = getelementptr inbounds nuw i8, ptr %.0.i.i284, i64 4
   %1120 = shl i32 %1115, 1
   %1121 = zext i32 %1120 to i64
   %1122 = shl nuw nsw i64 %1121, 3
   %1123 = or disjoint i64 %1122, 8
   %1124 = tail call ptr @calloc_arena(i64 noundef %1123) #11
-  %1125 = getelementptr inbounds i8, ptr %1124, i64 4
+  %1125 = getelementptr inbounds nuw i8, ptr %1124, i64 4
   store i32 %1120, ptr %1125, align 4
   %1126 = load i32, ptr %1119, align 4
   %1127 = zext i32 %1126 to i64
@@ -3141,12 +3141,12 @@ expand_.exit299.i:                                ; preds = %1072, %1068
   %.1.i.i285 = phi ptr [ %1124, %1118 ], [ %.0.i.i284, %1114 ]
   %1134 = add i32 %1133, 1
   store i32 %1134, ptr %.1.i.i285, align 4
-  %1135 = getelementptr inbounds i8, ptr %.1.i.i285, i64 8
+  %1135 = getelementptr inbounds nuw i8, ptr %.1.i.i285, i64 8
   store ptr %1135, ptr %0, align 8
   %1136 = load i32, ptr %.1.i.i285, align 4
   %1137 = add i32 %1136, -1
   %1138 = zext i32 %1137 to i64
-  %1139 = getelementptr inbounds ptr, ptr %1135, i64 %1138
+  %1139 = getelementptr inbounds nuw ptr, ptr %1135, i64 %1138
   store ptr @.str.92, ptr %1139, align 8
   %.pr.i286 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 228), align 4
   br label %1140
@@ -3163,7 +3163,7 @@ expand_.exit299.i:                                ; preds = %1072, %1068
 
 1145:                                             ; preds = %1143
   %1146 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %1147 = getelementptr inbounds i8, ptr %1146, i64 4
+  %1147 = getelementptr inbounds nuw i8, ptr %1146, i64 4
   store i32 8, ptr %1147, align 4
   br label %1150
 
@@ -3181,13 +3181,13 @@ expand_.exit299.i:                                ; preds = %1072, %1068
   br i1 %1153, label %1154, label %1168
 
 1154:                                             ; preds = %1150
-  %1155 = getelementptr inbounds i8, ptr %.0.i244.i, i64 4
+  %1155 = getelementptr inbounds nuw i8, ptr %.0.i244.i, i64 4
   %1156 = shl i32 %1151, 1
   %1157 = zext i32 %1156 to i64
   %1158 = shl nuw nsw i64 %1157, 3
   %1159 = or disjoint i64 %1158, 8
   %1160 = tail call ptr @calloc_arena(i64 noundef %1159) #11
-  %1161 = getelementptr inbounds i8, ptr %1160, i64 4
+  %1161 = getelementptr inbounds nuw i8, ptr %1160, i64 4
   store i32 %1156, ptr %1161, align 4
   %1162 = load i32, ptr %1155, align 4
   %1163 = zext i32 %1162 to i64
@@ -3205,12 +3205,12 @@ expand_.exit299.i:                                ; preds = %1072, %1068
   %.1.i245.i = phi ptr [ %1160, %1154 ], [ %.0.i244.i, %1150 ]
   %1170 = add i32 %1169, 1
   store i32 %1170, ptr %.1.i245.i, align 4
-  %1171 = getelementptr inbounds i8, ptr %.1.i245.i, i64 8
+  %1171 = getelementptr inbounds nuw i8, ptr %.1.i245.i, i64 8
   store ptr %1171, ptr %0, align 8
   %1172 = load i32, ptr %.1.i245.i, align 4
   %1173 = add i32 %1172, -1
   %1174 = zext i32 %1173 to i64
-  %1175 = getelementptr inbounds ptr, ptr %1171, i64 %1174
+  %1175 = getelementptr inbounds nuw ptr, ptr %1171, i64 %1174
   store ptr @.str.87, ptr %1175, align 8
   br label %1176
 
@@ -3226,7 +3226,7 @@ expand_.exit299.i:                                ; preds = %1072, %1068
 
 1181:                                             ; preds = %1179
   %1182 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %1183 = getelementptr inbounds i8, ptr %1182, i64 4
+  %1183 = getelementptr inbounds nuw i8, ptr %1182, i64 4
   store i32 8, ptr %1183, align 4
   br label %1186
 
@@ -3244,13 +3244,13 @@ expand_.exit299.i:                                ; preds = %1072, %1068
   br i1 %1189, label %1190, label %1204
 
 1190:                                             ; preds = %1186
-  %1191 = getelementptr inbounds i8, ptr %.0.i251.i, i64 4
+  %1191 = getelementptr inbounds nuw i8, ptr %.0.i251.i, i64 4
   %1192 = shl i32 %1187, 1
   %1193 = zext i32 %1192 to i64
   %1194 = shl nuw nsw i64 %1193, 3
   %1195 = or disjoint i64 %1194, 8
   %1196 = tail call ptr @calloc_arena(i64 noundef %1195) #11
-  %1197 = getelementptr inbounds i8, ptr %1196, i64 4
+  %1197 = getelementptr inbounds nuw i8, ptr %1196, i64 4
   store i32 %1192, ptr %1197, align 4
   %1198 = load i32, ptr %1191, align 4
   %1199 = zext i32 %1198 to i64
@@ -3268,12 +3268,12 @@ expand_.exit299.i:                                ; preds = %1072, %1068
   %.1.i252.i = phi ptr [ %1196, %1190 ], [ %.0.i251.i, %1186 ]
   %1206 = add i32 %1205, 1
   store i32 %1206, ptr %.1.i252.i, align 4
-  %1207 = getelementptr inbounds i8, ptr %.1.i252.i, i64 8
+  %1207 = getelementptr inbounds nuw i8, ptr %.1.i252.i, i64 8
   store ptr %1207, ptr %0, align 8
   %1208 = load i32, ptr %.1.i252.i, align 4
   %1209 = add i32 %1208, -1
   %1210 = zext i32 %1209 to i64
-  %1211 = getelementptr inbounds ptr, ptr %1207, i64 %1210
+  %1211 = getelementptr inbounds nuw ptr, ptr %1207, i64 %1210
   store ptr @.str.93, ptr %1211, align 8
   br label %1212
 
@@ -3305,7 +3305,7 @@ expand_.exit299.i:                                ; preds = %1072, %1068
 
 1224:                                             ; preds = %1222
   %1225 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %1226 = getelementptr inbounds i8, ptr %1225, i64 4
+  %1226 = getelementptr inbounds nuw i8, ptr %1225, i64 4
   store i32 8, ptr %1226, align 4
   br label %1229
 
@@ -3323,13 +3323,13 @@ expand_.exit299.i:                                ; preds = %1072, %1068
   br i1 %1232, label %1233, label %1247
 
 1233:                                             ; preds = %1229
-  %1234 = getelementptr inbounds i8, ptr %.0.i258.i, i64 4
+  %1234 = getelementptr inbounds nuw i8, ptr %.0.i258.i, i64 4
   %1235 = shl i32 %1230, 1
   %1236 = zext i32 %1235 to i64
   %1237 = shl nuw nsw i64 %1236, 3
   %1238 = or disjoint i64 %1237, 8
   %1239 = tail call ptr @calloc_arena(i64 noundef %1238) #11
-  %1240 = getelementptr inbounds i8, ptr %1239, i64 4
+  %1240 = getelementptr inbounds nuw i8, ptr %1239, i64 4
   store i32 %1235, ptr %1240, align 4
   %1241 = load i32, ptr %1234, align 4
   %1242 = zext i32 %1241 to i64
@@ -3347,12 +3347,12 @@ expand_.exit299.i:                                ; preds = %1072, %1068
   %.1.i259.i = phi ptr [ %1239, %1233 ], [ %.0.i258.i, %1229 ]
   %1249 = add i32 %1248, 1
   store i32 %1249, ptr %.1.i259.i, align 4
-  %1250 = getelementptr inbounds i8, ptr %.1.i259.i, i64 8
+  %1250 = getelementptr inbounds nuw i8, ptr %.1.i259.i, i64 8
   store ptr %1250, ptr %0, align 8
   %1251 = load i32, ptr %.1.i259.i, align 4
   %1252 = add i32 %1251, -1
   %1253 = zext i32 %1252 to i64
-  %1254 = getelementptr inbounds ptr, ptr %1250, i64 %1253
+  %1254 = getelementptr inbounds nuw ptr, ptr %1250, i64 %1253
   store ptr @.str.95, ptr %1254, align 8
   br label %1255
 
@@ -3378,7 +3378,7 @@ expand_.exit299.i:                                ; preds = %1072, %1068
 
 1260:                                             ; preds = %1258
   %1261 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %1262 = getelementptr inbounds i8, ptr %1261, i64 4
+  %1262 = getelementptr inbounds nuw i8, ptr %1261, i64 4
   store i32 8, ptr %1262, align 4
   br label %1265
 
@@ -3396,13 +3396,13 @@ expand_.exit299.i:                                ; preds = %1072, %1068
   br i1 %1268, label %1269, label %1283
 
 1269:                                             ; preds = %1265
-  %1270 = getelementptr inbounds i8, ptr %.0.i266.i, i64 4
+  %1270 = getelementptr inbounds nuw i8, ptr %.0.i266.i, i64 4
   %1271 = shl i32 %1266, 1
   %1272 = zext i32 %1271 to i64
   %1273 = shl nuw nsw i64 %1272, 3
   %1274 = or disjoint i64 %1273, 8
   %1275 = tail call ptr @calloc_arena(i64 noundef %1274) #11
-  %1276 = getelementptr inbounds i8, ptr %1275, i64 4
+  %1276 = getelementptr inbounds nuw i8, ptr %1275, i64 4
   store i32 %1271, ptr %1276, align 4
   %1277 = load i32, ptr %1270, align 4
   %1278 = zext i32 %1277 to i64
@@ -3420,12 +3420,12 @@ expand_.exit299.i:                                ; preds = %1072, %1068
   %.1.i267.i = phi ptr [ %1275, %1269 ], [ %.0.i266.i, %1265 ]
   %1285 = add i32 %1284, 1
   store i32 %1285, ptr %.1.i267.i, align 4
-  %1286 = getelementptr inbounds i8, ptr %.1.i267.i, i64 8
+  %1286 = getelementptr inbounds nuw i8, ptr %.1.i267.i, i64 8
   store ptr %1286, ptr %0, align 8
   %1287 = load i32, ptr %.1.i267.i, align 4
   %1288 = add i32 %1287, -1
   %1289 = zext i32 %1288 to i64
-  %1290 = getelementptr inbounds ptr, ptr %1286, i64 %1289
+  %1290 = getelementptr inbounds nuw ptr, ptr %1286, i64 %1289
   store ptr @.str.87, ptr %1290, align 8
   %1291 = load ptr, ptr %0, align 8
   %.not.i270.i = icmp eq ptr %1291, null
@@ -3433,7 +3433,7 @@ expand_.exit299.i:                                ; preds = %1072, %1068
 
 1292:                                             ; preds = %1283
   %1293 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %1294 = getelementptr inbounds i8, ptr %1293, i64 4
+  %1294 = getelementptr inbounds nuw i8, ptr %1293, i64 4
   store i32 8, ptr %1294, align 4
   br label %1297
 
@@ -3451,13 +3451,13 @@ expand_.exit299.i:                                ; preds = %1072, %1068
   br i1 %1300, label %1301, label %expand_.exit276.i
 
 1301:                                             ; preds = %1297
-  %1302 = getelementptr inbounds i8, ptr %.0.i273.i, i64 4
+  %1302 = getelementptr inbounds nuw i8, ptr %.0.i273.i, i64 4
   %1303 = shl i32 %1298, 1
   %1304 = zext i32 %1303 to i64
   %1305 = shl nuw nsw i64 %1304, 3
   %1306 = or disjoint i64 %1305, 8
   %1307 = tail call ptr @calloc_arena(i64 noundef %1306) #11
-  %1308 = getelementptr inbounds i8, ptr %1307, i64 4
+  %1308 = getelementptr inbounds nuw i8, ptr %1307, i64 4
   store i32 %1303, ptr %1308, align 4
   %1309 = load i32, ptr %1302, align 4
   %1310 = zext i32 %1309 to i64
@@ -3475,7 +3475,7 @@ expand_.exit276.i:                                ; preds = %1301, %1297
   %.1.i274.i = phi ptr [ %1307, %1301 ], [ %.0.i273.i, %1297 ]
   %1316 = add i32 %1315, 1
   store i32 %1316, ptr %.1.i274.i, align 4
-  %1317 = getelementptr inbounds i8, ptr %.1.i274.i, i64 8
+  %1317 = getelementptr inbounds nuw i8, ptr %.1.i274.i, i64 8
   store ptr %1317, ptr %0, align 8
   %1318 = tail call ptr @str_cat(ptr noundef nonnull @.str.111, ptr noundef nonnull @.str.96) #11
   %1319 = load ptr, ptr %0, align 8
@@ -3491,7 +3491,7 @@ expand_.exit276.i:                                ; preds = %1301, %1297
 
 1325:                                             ; preds = %1320, %expand_.exit276.i
   %.0187.i = phi i64 [ %1324, %1320 ], [ 4294967295, %expand_.exit276.i ]
-  %1326 = getelementptr inbounds ptr, ptr %1319, i64 %.0187.i
+  %1326 = getelementptr inbounds nuw ptr, ptr %1319, i64 %.0187.i
   store ptr %1318, ptr %1326, align 8
   %1327 = load ptr, ptr %0, align 8
   %.not.i277.i = icmp eq ptr %1327, null
@@ -3499,7 +3499,7 @@ expand_.exit276.i:                                ; preds = %1301, %1297
 
 1328:                                             ; preds = %1325
   %1329 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %1330 = getelementptr inbounds i8, ptr %1329, i64 4
+  %1330 = getelementptr inbounds nuw i8, ptr %1329, i64 4
   store i32 8, ptr %1330, align 4
   br label %1333
 
@@ -3517,13 +3517,13 @@ expand_.exit276.i:                                ; preds = %1301, %1297
   br i1 %1336, label %1337, label %expand_.exit283.i
 
 1337:                                             ; preds = %1333
-  %1338 = getelementptr inbounds i8, ptr %.0.i280.i, i64 4
+  %1338 = getelementptr inbounds nuw i8, ptr %.0.i280.i, i64 4
   %1339 = shl i32 %1334, 1
   %1340 = zext i32 %1339 to i64
   %1341 = shl nuw nsw i64 %1340, 3
   %1342 = or disjoint i64 %1341, 8
   %1343 = tail call ptr @calloc_arena(i64 noundef %1342) #11
-  %1344 = getelementptr inbounds i8, ptr %1343, i64 4
+  %1344 = getelementptr inbounds nuw i8, ptr %1343, i64 4
   store i32 %1339, ptr %1344, align 4
   %1345 = load i32, ptr %1338, align 4
   %1346 = zext i32 %1345 to i64
@@ -3541,7 +3541,7 @@ expand_.exit283.i:                                ; preds = %1337, %1333
   %.1.i281.i = phi ptr [ %1343, %1337 ], [ %.0.i280.i, %1333 ]
   %1352 = add i32 %1351, 1
   store i32 %1352, ptr %.1.i281.i, align 4
-  %1353 = getelementptr inbounds i8, ptr %.1.i281.i, i64 8
+  %1353 = getelementptr inbounds nuw i8, ptr %.1.i281.i, i64 8
   store ptr %1353, ptr %0, align 8
   %1354 = tail call ptr @str_cat(ptr noundef nonnull @.str.111, ptr noundef nonnull @.str.97) #11
   %1355 = load ptr, ptr %0, align 8
@@ -3557,7 +3557,7 @@ expand_.exit283.i:                                ; preds = %1337, %1333
 
 1361:                                             ; preds = %1356, %expand_.exit283.i
   %.0188.i = phi i64 [ %1360, %1356 ], [ 4294967295, %expand_.exit283.i ]
-  %1362 = getelementptr inbounds ptr, ptr %1355, i64 %.0188.i
+  %1362 = getelementptr inbounds nuw ptr, ptr %1355, i64 %.0188.i
   store ptr %1354, ptr %1362, align 8
   %1363 = load ptr, ptr %0, align 8
   %.not.i284.i = icmp eq ptr %1363, null
@@ -3565,7 +3565,7 @@ expand_.exit283.i:                                ; preds = %1337, %1333
 
 1364:                                             ; preds = %1361
   %1365 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %1366 = getelementptr inbounds i8, ptr %1365, i64 4
+  %1366 = getelementptr inbounds nuw i8, ptr %1365, i64 4
   store i32 8, ptr %1366, align 4
   br label %1369
 
@@ -3583,13 +3583,13 @@ expand_.exit283.i:                                ; preds = %1337, %1333
   br i1 %1372, label %1373, label %expand_.exit290.i
 
 1373:                                             ; preds = %1369
-  %1374 = getelementptr inbounds i8, ptr %.0.i287.i, i64 4
+  %1374 = getelementptr inbounds nuw i8, ptr %.0.i287.i, i64 4
   %1375 = shl i32 %1370, 1
   %1376 = zext i32 %1375 to i64
   %1377 = shl nuw nsw i64 %1376, 3
   %1378 = or disjoint i64 %1377, 8
   %1379 = tail call ptr @calloc_arena(i64 noundef %1378) #11
-  %1380 = getelementptr inbounds i8, ptr %1379, i64 4
+  %1380 = getelementptr inbounds nuw i8, ptr %1379, i64 4
   store i32 %1375, ptr %1380, align 4
   %1381 = load i32, ptr %1374, align 4
   %1382 = zext i32 %1381 to i64
@@ -3607,7 +3607,7 @@ expand_.exit290.i:                                ; preds = %1373, %1369
   %.1.i288.i = phi ptr [ %1379, %1373 ], [ %.0.i287.i, %1369 ]
   %1388 = add i32 %1387, 1
   store i32 %1388, ptr %.1.i288.i, align 4
-  %1389 = getelementptr inbounds i8, ptr %.1.i288.i, i64 8
+  %1389 = getelementptr inbounds nuw i8, ptr %.1.i288.i, i64 8
   store ptr %1389, ptr %0, align 8
   %1390 = tail call ptr @str_cat(ptr noundef nonnull @.str.111, ptr noundef nonnull @.str.98) #11
   %1391 = load ptr, ptr %0, align 8
@@ -3623,7 +3623,7 @@ expand_.exit290.i:                                ; preds = %1373, %1369
 
 1397:                                             ; preds = %1392, %expand_.exit290.i
   %.0189.i = phi i64 [ %1396, %1392 ], [ 4294967295, %expand_.exit290.i ]
-  %1398 = getelementptr inbounds ptr, ptr %1391, i64 %.0189.i
+  %1398 = getelementptr inbounds nuw ptr, ptr %1391, i64 %.0189.i
   store ptr %1390, ptr %1398, align 8
   %1399 = load ptr, ptr %0, align 8
   %.not.i291.i = icmp eq ptr %1399, null
@@ -3631,7 +3631,7 @@ expand_.exit290.i:                                ; preds = %1373, %1369
 
 1400:                                             ; preds = %1397
   %1401 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %1402 = getelementptr inbounds i8, ptr %1401, i64 4
+  %1402 = getelementptr inbounds nuw i8, ptr %1401, i64 4
   store i32 8, ptr %1402, align 4
   br label %1405
 
@@ -3649,13 +3649,13 @@ expand_.exit290.i:                                ; preds = %1373, %1369
   br i1 %1408, label %1409, label %expand_.exit297.i
 
 1409:                                             ; preds = %1405
-  %1410 = getelementptr inbounds i8, ptr %.0.i294.i, i64 4
+  %1410 = getelementptr inbounds nuw i8, ptr %.0.i294.i, i64 4
   %1411 = shl i32 %1406, 1
   %1412 = zext i32 %1411 to i64
   %1413 = shl nuw nsw i64 %1412, 3
   %1414 = or disjoint i64 %1413, 8
   %1415 = tail call ptr @calloc_arena(i64 noundef %1414) #11
-  %1416 = getelementptr inbounds i8, ptr %1415, i64 4
+  %1416 = getelementptr inbounds nuw i8, ptr %1415, i64 4
   store i32 %1411, ptr %1416, align 4
   %1417 = load i32, ptr %1410, align 4
   %1418 = zext i32 %1417 to i64
@@ -3673,7 +3673,7 @@ expand_.exit297.i:                                ; preds = %1409, %1405
   %.1.i295.i = phi ptr [ %1415, %1409 ], [ %.0.i294.i, %1405 ]
   %1424 = add i32 %1423, 1
   store i32 %1424, ptr %.1.i295.i, align 4
-  %1425 = getelementptr inbounds i8, ptr %.1.i295.i, i64 8
+  %1425 = getelementptr inbounds nuw i8, ptr %.1.i295.i, i64 8
   store ptr %1425, ptr %0, align 8
   %1426 = tail call ptr @str_cat(ptr noundef nonnull @.str.111, ptr noundef nonnull @.str.99) #11
   %1427 = load ptr, ptr %0, align 8
@@ -3689,7 +3689,7 @@ expand_.exit297.i:                                ; preds = %1409, %1405
 
 1433:                                             ; preds = %1428, %expand_.exit297.i
   %.0190.i = phi i64 [ %1432, %1428 ], [ 4294967295, %expand_.exit297.i ]
-  %1434 = getelementptr inbounds ptr, ptr %1427, i64 %.0190.i
+  %1434 = getelementptr inbounds nuw ptr, ptr %1427, i64 %.0190.i
   store ptr %1426, ptr %1434, align 8
   br label %1579
 
@@ -3700,7 +3700,7 @@ is_pie_pic.exit.i:                                ; preds = %1255, %1255
 
 1436:                                             ; preds = %is_pie_pic.exit.i
   %1437 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %1438 = getelementptr inbounds i8, ptr %1437, i64 4
+  %1438 = getelementptr inbounds nuw i8, ptr %1437, i64 4
   store i32 8, ptr %1438, align 4
   br label %1441
 
@@ -3718,13 +3718,13 @@ is_pie_pic.exit.i:                                ; preds = %1255, %1255
   br i1 %1444, label %1445, label %expand_.exit304.i
 
 1445:                                             ; preds = %1441
-  %1446 = getelementptr inbounds i8, ptr %.0.i301.i, i64 4
+  %1446 = getelementptr inbounds nuw i8, ptr %.0.i301.i, i64 4
   %1447 = shl i32 %1442, 1
   %1448 = zext i32 %1447 to i64
   %1449 = shl nuw nsw i64 %1448, 3
   %1450 = or disjoint i64 %1449, 8
   %1451 = tail call ptr @calloc_arena(i64 noundef %1450) #11
-  %1452 = getelementptr inbounds i8, ptr %1451, i64 4
+  %1452 = getelementptr inbounds nuw i8, ptr %1451, i64 4
   store i32 %1447, ptr %1452, align 4
   %1453 = load i32, ptr %1446, align 4
   %1454 = zext i32 %1453 to i64
@@ -3742,7 +3742,7 @@ expand_.exit304.i:                                ; preds = %1445, %1441
   %.1.i302.i = phi ptr [ %1451, %1445 ], [ %.0.i301.i, %1441 ]
   %1460 = add i32 %1459, 1
   store i32 %1460, ptr %.1.i302.i, align 4
-  %1461 = getelementptr inbounds i8, ptr %.1.i302.i, i64 8
+  %1461 = getelementptr inbounds nuw i8, ptr %.1.i302.i, i64 8
   store ptr %1461, ptr %0, align 8
   %1462 = tail call ptr @str_cat(ptr noundef nonnull @.str.111, ptr noundef nonnull @.str.100) #11
   %1463 = load ptr, ptr %0, align 8
@@ -3758,7 +3758,7 @@ expand_.exit304.i:                                ; preds = %1445, %1441
 
 1469:                                             ; preds = %1464, %expand_.exit304.i
   %.0191.i = phi i64 [ %1468, %1464 ], [ 4294967295, %expand_.exit304.i ]
-  %1470 = getelementptr inbounds ptr, ptr %1463, i64 %.0191.i
+  %1470 = getelementptr inbounds nuw ptr, ptr %1463, i64 %.0191.i
   store ptr %1462, ptr %1470, align 8
   %1471 = load ptr, ptr %0, align 8
   %.not.i305.i = icmp eq ptr %1471, null
@@ -3766,7 +3766,7 @@ expand_.exit304.i:                                ; preds = %1445, %1441
 
 1472:                                             ; preds = %1469
   %1473 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %1474 = getelementptr inbounds i8, ptr %1473, i64 4
+  %1474 = getelementptr inbounds nuw i8, ptr %1473, i64 4
   store i32 8, ptr %1474, align 4
   br label %1477
 
@@ -3784,13 +3784,13 @@ expand_.exit304.i:                                ; preds = %1445, %1441
   br i1 %1480, label %1481, label %expand_.exit311.i
 
 1481:                                             ; preds = %1477
-  %1482 = getelementptr inbounds i8, ptr %.0.i308.i, i64 4
+  %1482 = getelementptr inbounds nuw i8, ptr %.0.i308.i, i64 4
   %1483 = shl i32 %1478, 1
   %1484 = zext i32 %1483 to i64
   %1485 = shl nuw nsw i64 %1484, 3
   %1486 = or disjoint i64 %1485, 8
   %1487 = tail call ptr @calloc_arena(i64 noundef %1486) #11
-  %1488 = getelementptr inbounds i8, ptr %1487, i64 4
+  %1488 = getelementptr inbounds nuw i8, ptr %1487, i64 4
   store i32 %1483, ptr %1488, align 4
   %1489 = load i32, ptr %1482, align 4
   %1490 = zext i32 %1489 to i64
@@ -3808,7 +3808,7 @@ expand_.exit311.i:                                ; preds = %1481, %1477
   %.1.i309.i = phi ptr [ %1487, %1481 ], [ %.0.i308.i, %1477 ]
   %1496 = add i32 %1495, 1
   store i32 %1496, ptr %.1.i309.i, align 4
-  %1497 = getelementptr inbounds i8, ptr %.1.i309.i, i64 8
+  %1497 = getelementptr inbounds nuw i8, ptr %.1.i309.i, i64 8
   store ptr %1497, ptr %0, align 8
   %1498 = tail call ptr @str_cat(ptr noundef nonnull @.str.111, ptr noundef nonnull @.str.101) #11
   %1499 = load ptr, ptr %0, align 8
@@ -3824,7 +3824,7 @@ expand_.exit311.i:                                ; preds = %1481, %1477
 
 1505:                                             ; preds = %1500, %expand_.exit311.i
   %.0192.i = phi i64 [ %1504, %1500 ], [ 4294967295, %expand_.exit311.i ]
-  %1506 = getelementptr inbounds ptr, ptr %1499, i64 %.0192.i
+  %1506 = getelementptr inbounds nuw ptr, ptr %1499, i64 %.0192.i
   store ptr %1498, ptr %1506, align 8
   %1507 = load ptr, ptr %0, align 8
   %.not.i312.i = icmp eq ptr %1507, null
@@ -3832,7 +3832,7 @@ expand_.exit311.i:                                ; preds = %1481, %1477
 
 1508:                                             ; preds = %1505
   %1509 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %1510 = getelementptr inbounds i8, ptr %1509, i64 4
+  %1510 = getelementptr inbounds nuw i8, ptr %1509, i64 4
   store i32 8, ptr %1510, align 4
   br label %1513
 
@@ -3850,13 +3850,13 @@ expand_.exit311.i:                                ; preds = %1481, %1477
   br i1 %1516, label %1517, label %expand_.exit318.i
 
 1517:                                             ; preds = %1513
-  %1518 = getelementptr inbounds i8, ptr %.0.i315.i, i64 4
+  %1518 = getelementptr inbounds nuw i8, ptr %.0.i315.i, i64 4
   %1519 = shl i32 %1514, 1
   %1520 = zext i32 %1519 to i64
   %1521 = shl nuw nsw i64 %1520, 3
   %1522 = or disjoint i64 %1521, 8
   %1523 = tail call ptr @calloc_arena(i64 noundef %1522) #11
-  %1524 = getelementptr inbounds i8, ptr %1523, i64 4
+  %1524 = getelementptr inbounds nuw i8, ptr %1523, i64 4
   store i32 %1519, ptr %1524, align 4
   %1525 = load i32, ptr %1518, align 4
   %1526 = zext i32 %1525 to i64
@@ -3874,7 +3874,7 @@ expand_.exit318.i:                                ; preds = %1517, %1513
   %.1.i316.i = phi ptr [ %1523, %1517 ], [ %.0.i315.i, %1513 ]
   %1532 = add i32 %1531, 1
   store i32 %1532, ptr %.1.i316.i, align 4
-  %1533 = getelementptr inbounds i8, ptr %.1.i316.i, i64 8
+  %1533 = getelementptr inbounds nuw i8, ptr %.1.i316.i, i64 8
   store ptr %1533, ptr %0, align 8
   %1534 = tail call ptr @str_cat(ptr noundef nonnull @.str.111, ptr noundef nonnull @.str.98) #11
   %1535 = load ptr, ptr %0, align 8
@@ -3890,7 +3890,7 @@ expand_.exit318.i:                                ; preds = %1517, %1513
 
 1541:                                             ; preds = %1536, %expand_.exit318.i
   %.0193.i = phi i64 [ %1540, %1536 ], [ 4294967295, %expand_.exit318.i ]
-  %1542 = getelementptr inbounds ptr, ptr %1535, i64 %.0193.i
+  %1542 = getelementptr inbounds nuw ptr, ptr %1535, i64 %.0193.i
   store ptr %1534, ptr %1542, align 8
   %1543 = load ptr, ptr %0, align 8
   %.not.i319.i = icmp eq ptr %1543, null
@@ -3898,7 +3898,7 @@ expand_.exit318.i:                                ; preds = %1517, %1513
 
 1544:                                             ; preds = %1541
   %1545 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %1546 = getelementptr inbounds i8, ptr %1545, i64 4
+  %1546 = getelementptr inbounds nuw i8, ptr %1545, i64 4
   store i32 8, ptr %1546, align 4
   br label %1549
 
@@ -3916,13 +3916,13 @@ expand_.exit318.i:                                ; preds = %1517, %1513
   br i1 %1552, label %1553, label %expand_.exit325.i
 
 1553:                                             ; preds = %1549
-  %1554 = getelementptr inbounds i8, ptr %.0.i322.i, i64 4
+  %1554 = getelementptr inbounds nuw i8, ptr %.0.i322.i, i64 4
   %1555 = shl i32 %1550, 1
   %1556 = zext i32 %1555 to i64
   %1557 = shl nuw nsw i64 %1556, 3
   %1558 = or disjoint i64 %1557, 8
   %1559 = tail call ptr @calloc_arena(i64 noundef %1558) #11
-  %1560 = getelementptr inbounds i8, ptr %1559, i64 4
+  %1560 = getelementptr inbounds nuw i8, ptr %1559, i64 4
   store i32 %1555, ptr %1560, align 4
   %1561 = load i32, ptr %1554, align 4
   %1562 = zext i32 %1561 to i64
@@ -3940,7 +3940,7 @@ expand_.exit325.i:                                ; preds = %1553, %1549
   %.1.i323.i = phi ptr [ %1559, %1553 ], [ %.0.i322.i, %1549 ]
   %1568 = add i32 %1567, 1
   store i32 %1568, ptr %.1.i323.i, align 4
-  %1569 = getelementptr inbounds i8, ptr %.1.i323.i, i64 8
+  %1569 = getelementptr inbounds nuw i8, ptr %.1.i323.i, i64 8
   store ptr %1569, ptr %0, align 8
   %1570 = tail call ptr @str_cat(ptr noundef nonnull @.str.111, ptr noundef nonnull @.str.102) #11
   %1571 = load ptr, ptr %0, align 8
@@ -3956,7 +3956,7 @@ expand_.exit325.i:                                ; preds = %1553, %1549
 
 1577:                                             ; preds = %1572, %expand_.exit325.i
   %.0194.i = phi i64 [ %1576, %1572 ], [ 4294967295, %expand_.exit325.i ]
-  %1578 = getelementptr inbounds ptr, ptr %1571, i64 %.0194.i
+  %1578 = getelementptr inbounds nuw ptr, ptr %1571, i64 %.0194.i
   store ptr %1570, ptr %1578, align 8
   br label %1579
 
@@ -3967,7 +3967,7 @@ expand_.exit325.i:                                ; preds = %1553, %1549
 
 1581:                                             ; preds = %1579
   %1582 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %1583 = getelementptr inbounds i8, ptr %1582, i64 4
+  %1583 = getelementptr inbounds nuw i8, ptr %1582, i64 4
   store i32 8, ptr %1583, align 4
   br label %1586
 
@@ -3985,13 +3985,13 @@ expand_.exit325.i:                                ; preds = %1553, %1549
   br i1 %1589, label %1590, label %expand_.exit332.i
 
 1590:                                             ; preds = %1586
-  %1591 = getelementptr inbounds i8, ptr %.0.i329.i, i64 4
+  %1591 = getelementptr inbounds nuw i8, ptr %.0.i329.i, i64 4
   %1592 = shl i32 %1587, 1
   %1593 = zext i32 %1592 to i64
   %1594 = shl nuw nsw i64 %1593, 3
   %1595 = or disjoint i64 %1594, 8
   %1596 = tail call ptr @calloc_arena(i64 noundef %1595) #11
-  %1597 = getelementptr inbounds i8, ptr %1596, i64 4
+  %1597 = getelementptr inbounds nuw i8, ptr %1596, i64 4
   store i32 %1592, ptr %1597, align 4
   %1598 = load i32, ptr %1591, align 4
   %1599 = zext i32 %1598 to i64
@@ -4009,7 +4009,7 @@ expand_.exit332.i:                                ; preds = %1590, %1586
   %.1.i330.i = phi ptr [ %1596, %1590 ], [ %.0.i329.i, %1586 ]
   %1605 = add i32 %1604, 1
   store i32 %1605, ptr %.1.i330.i, align 4
-  %1606 = getelementptr inbounds i8, ptr %.1.i330.i, i64 8
+  %1606 = getelementptr inbounds nuw i8, ptr %.1.i330.i, i64 8
   store ptr %1606, ptr %0, align 8
   %1607 = tail call ptr @str_cat(ptr noundef nonnull @.str.111, ptr noundef nonnull @.str.103) #11
   %1608 = load ptr, ptr %0, align 8
@@ -4025,7 +4025,7 @@ expand_.exit332.i:                                ; preds = %1590, %1586
 
 1614:                                             ; preds = %1609, %expand_.exit332.i
   %.0195.i = phi i64 [ %1613, %1609 ], [ 4294967295, %expand_.exit332.i ]
-  %1615 = getelementptr inbounds ptr, ptr %1608, i64 %.0195.i
+  %1615 = getelementptr inbounds nuw ptr, ptr %1608, i64 %.0195.i
   store ptr %1607, ptr %1615, align 8
   %1616 = load ptr, ptr %0, align 8
   %.not.i333.i = icmp eq ptr %1616, null
@@ -4033,7 +4033,7 @@ expand_.exit332.i:                                ; preds = %1590, %1586
 
 1617:                                             ; preds = %1614
   %1618 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %1619 = getelementptr inbounds i8, ptr %1618, i64 4
+  %1619 = getelementptr inbounds nuw i8, ptr %1618, i64 4
   store i32 8, ptr %1619, align 4
   br label %1622
 
@@ -4051,13 +4051,13 @@ expand_.exit332.i:                                ; preds = %1590, %1586
   br i1 %1625, label %1626, label %expand_.exit339.i
 
 1626:                                             ; preds = %1622
-  %1627 = getelementptr inbounds i8, ptr %.0.i336.i, i64 4
+  %1627 = getelementptr inbounds nuw i8, ptr %.0.i336.i, i64 4
   %1628 = shl i32 %1623, 1
   %1629 = zext i32 %1628 to i64
   %1630 = shl nuw nsw i64 %1629, 3
   %1631 = or disjoint i64 %1630, 8
   %1632 = tail call ptr @calloc_arena(i64 noundef %1631) #11
-  %1633 = getelementptr inbounds i8, ptr %1632, i64 4
+  %1633 = getelementptr inbounds nuw i8, ptr %1632, i64 4
   store i32 %1628, ptr %1633, align 4
   %1634 = load i32, ptr %1627, align 4
   %1635 = zext i32 %1634 to i64
@@ -4075,7 +4075,7 @@ expand_.exit339.i:                                ; preds = %1626, %1622
   %.1.i337.i = phi ptr [ %1632, %1626 ], [ %.0.i336.i, %1622 ]
   %1641 = add i32 %1640, 1
   store i32 %1641, ptr %.1.i337.i, align 4
-  %1642 = getelementptr inbounds i8, ptr %.1.i337.i, i64 8
+  %1642 = getelementptr inbounds nuw i8, ptr %.1.i337.i, i64 8
   store ptr %1642, ptr %0, align 8
   %1643 = tail call ptr @str_cat(ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.111) #11
   %1644 = load ptr, ptr %0, align 8
@@ -4091,7 +4091,7 @@ expand_.exit339.i:                                ; preds = %1626, %1622
 
 1650:                                             ; preds = %1645, %expand_.exit339.i
   %.0196.i = phi i64 [ %1649, %1645 ], [ 4294967295, %expand_.exit339.i ]
-  %1651 = getelementptr inbounds ptr, ptr %1644, i64 %.0196.i
+  %1651 = getelementptr inbounds nuw ptr, ptr %1644, i64 %.0196.i
   store ptr %1643, ptr %1651, align 8
   %1652 = load ptr, ptr %0, align 8
   %.not.i340.i = icmp eq ptr %1652, null
@@ -4099,7 +4099,7 @@ expand_.exit339.i:                                ; preds = %1626, %1622
 
 1653:                                             ; preds = %1650
   %1654 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %1655 = getelementptr inbounds i8, ptr %1654, i64 4
+  %1655 = getelementptr inbounds nuw i8, ptr %1654, i64 4
   store i32 8, ptr %1655, align 4
   br label %1658
 
@@ -4117,13 +4117,13 @@ expand_.exit339.i:                                ; preds = %1626, %1622
   br i1 %1661, label %1662, label %1676
 
 1662:                                             ; preds = %1658
-  %1663 = getelementptr inbounds i8, ptr %.0.i343.i, i64 4
+  %1663 = getelementptr inbounds nuw i8, ptr %.0.i343.i, i64 4
   %1664 = shl i32 %1659, 1
   %1665 = zext i32 %1664 to i64
   %1666 = shl nuw nsw i64 %1665, 3
   %1667 = or disjoint i64 %1666, 8
   %1668 = tail call ptr @calloc_arena(i64 noundef %1667) #11
-  %1669 = getelementptr inbounds i8, ptr %1668, i64 4
+  %1669 = getelementptr inbounds nuw i8, ptr %1668, i64 4
   store i32 %1664, ptr %1669, align 4
   %1670 = load i32, ptr %1663, align 4
   %1671 = zext i32 %1670 to i64
@@ -4141,12 +4141,12 @@ expand_.exit339.i:                                ; preds = %1626, %1622
   %.1.i344.i = phi ptr [ %1668, %1662 ], [ %.0.i343.i, %1658 ]
   %1678 = add i32 %1677, 1
   store i32 %1678, ptr %.1.i344.i, align 4
-  %1679 = getelementptr inbounds i8, ptr %.1.i344.i, i64 8
+  %1679 = getelementptr inbounds nuw i8, ptr %.1.i344.i, i64 8
   store ptr %1679, ptr %0, align 8
   %1680 = load i32, ptr %.1.i344.i, align 4
   %1681 = add i32 %1680, -1
   %1682 = zext i32 %1681 to i64
-  %1683 = getelementptr inbounds ptr, ptr %1679, i64 %1682
+  %1683 = getelementptr inbounds nuw ptr, ptr %1679, i64 %1682
   store ptr @.str.104, ptr %1683, align 8
   tail call void @global_context_add_link(ptr noundef nonnull @.str.105) #11
   tail call void @global_context_add_link(ptr noundef nonnull @.str.84) #11
@@ -4158,7 +4158,7 @@ expand_.exit339.i:                                ; preds = %1626, %1622
 
 1685:                                             ; preds = %1676
   %1686 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %1687 = getelementptr inbounds i8, ptr %1686, i64 4
+  %1687 = getelementptr inbounds nuw i8, ptr %1686, i64 4
   store i32 8, ptr %1687, align 4
   br label %1690
 
@@ -4176,13 +4176,13 @@ expand_.exit339.i:                                ; preds = %1626, %1622
   br i1 %1693, label %1694, label %1708
 
 1694:                                             ; preds = %1690
-  %1695 = getelementptr inbounds i8, ptr %.0.i350.i, i64 4
+  %1695 = getelementptr inbounds nuw i8, ptr %.0.i350.i, i64 4
   %1696 = shl i32 %1691, 1
   %1697 = zext i32 %1696 to i64
   %1698 = shl nuw nsw i64 %1697, 3
   %1699 = or disjoint i64 %1698, 8
   %1700 = tail call ptr @calloc_arena(i64 noundef %1699) #11
-  %1701 = getelementptr inbounds i8, ptr %1700, i64 4
+  %1701 = getelementptr inbounds nuw i8, ptr %1700, i64 4
   store i32 %1696, ptr %1701, align 4
   %1702 = load i32, ptr %1695, align 4
   %1703 = zext i32 %1702 to i64
@@ -4200,12 +4200,12 @@ expand_.exit339.i:                                ; preds = %1626, %1622
   %.1.i351.i = phi ptr [ %1700, %1694 ], [ %.0.i350.i, %1690 ]
   %1710 = add i32 %1709, 1
   store i32 %1710, ptr %.1.i351.i, align 4
-  %1711 = getelementptr inbounds i8, ptr %.1.i351.i, i64 8
+  %1711 = getelementptr inbounds nuw i8, ptr %.1.i351.i, i64 8
   store ptr %1711, ptr %0, align 8
   %1712 = load i32, ptr %.1.i351.i, align 4
   %1713 = add i32 %1712, -1
   %1714 = zext i32 %1713 to i64
-  %1715 = getelementptr inbounds ptr, ptr %1711, i64 %1714
+  %1715 = getelementptr inbounds nuw ptr, ptr %1711, i64 %1714
   store ptr @.str.108, ptr %1715, align 8
   %1716 = load ptr, ptr %0, align 8
   %.not.i354.i = icmp eq ptr %1716, null
@@ -4213,7 +4213,7 @@ expand_.exit339.i:                                ; preds = %1626, %1622
 
 1717:                                             ; preds = %1708
   %1718 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %1719 = getelementptr inbounds i8, ptr %1718, i64 4
+  %1719 = getelementptr inbounds nuw i8, ptr %1718, i64 4
   store i32 8, ptr %1719, align 4
   br label %1722
 
@@ -4231,13 +4231,13 @@ expand_.exit339.i:                                ; preds = %1626, %1622
   br i1 %1725, label %1726, label %1740
 
 1726:                                             ; preds = %1722
-  %1727 = getelementptr inbounds i8, ptr %.0.i357.i, i64 4
+  %1727 = getelementptr inbounds nuw i8, ptr %.0.i357.i, i64 4
   %1728 = shl i32 %1723, 1
   %1729 = zext i32 %1728 to i64
   %1730 = shl nuw nsw i64 %1729, 3
   %1731 = or disjoint i64 %1730, 8
   %1732 = tail call ptr @calloc_arena(i64 noundef %1731) #11
-  %1733 = getelementptr inbounds i8, ptr %1732, i64 4
+  %1733 = getelementptr inbounds nuw i8, ptr %1732, i64 4
   store i32 %1728, ptr %1733, align 4
   %1734 = load i32, ptr %1727, align 4
   %1735 = zext i32 %1734 to i64
@@ -4255,12 +4255,12 @@ expand_.exit339.i:                                ; preds = %1626, %1622
   %.1.i358.i = phi ptr [ %1732, %1726 ], [ %.0.i357.i, %1722 ]
   %1742 = add i32 %1741, 1
   store i32 %1742, ptr %.1.i358.i, align 4
-  %1743 = getelementptr inbounds i8, ptr %.1.i358.i, i64 8
+  %1743 = getelementptr inbounds nuw i8, ptr %.1.i358.i, i64 8
   store ptr %1743, ptr %0, align 8
   %1744 = load i32, ptr %.1.i358.i, align 4
   %1745 = add i32 %1744, -1
   %1746 = zext i32 %1745 to i64
-  %1747 = getelementptr inbounds ptr, ptr %1743, i64 %1746
+  %1747 = getelementptr inbounds nuw ptr, ptr %1743, i64 %1746
   store ptr @.str.109, ptr %1747, align 8
   %1748 = load ptr, ptr %0, align 8
   %.not.i361.i = icmp eq ptr %1748, null
@@ -4268,7 +4268,7 @@ expand_.exit339.i:                                ; preds = %1626, %1622
 
 1749:                                             ; preds = %1740
   %1750 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %1751 = getelementptr inbounds i8, ptr %1750, i64 4
+  %1751 = getelementptr inbounds nuw i8, ptr %1750, i64 4
   store i32 8, ptr %1751, align 4
   br label %1754
 
@@ -4286,13 +4286,13 @@ expand_.exit339.i:                                ; preds = %1626, %1622
   br i1 %1757, label %1758, label %expand_.exit367.i
 
 1758:                                             ; preds = %1754
-  %1759 = getelementptr inbounds i8, ptr %.0.i364.i, i64 4
+  %1759 = getelementptr inbounds nuw i8, ptr %.0.i364.i, i64 4
   %1760 = shl i32 %1755, 1
   %1761 = zext i32 %1760 to i64
   %1762 = shl nuw nsw i64 %1761, 3
   %1763 = or disjoint i64 %1762, 8
   %1764 = tail call ptr @calloc_arena(i64 noundef %1763) #11
-  %1765 = getelementptr inbounds i8, ptr %1764, i64 4
+  %1765 = getelementptr inbounds nuw i8, ptr %1764, i64 4
   store i32 %1760, ptr %1765, align 4
   %1766 = load i32, ptr %1759, align 4
   %1767 = zext i32 %1766 to i64
@@ -4310,7 +4310,7 @@ expand_.exit367.i:                                ; preds = %1758, %1754
   %.1.i365.i = phi ptr [ %1764, %1758 ], [ %.0.i364.i, %1754 ]
   %1773 = add i32 %1772, 1
   store i32 %1773, ptr %.1.i365.i, align 4
-  %1774 = getelementptr inbounds i8, ptr %.1.i365.i, i64 8
+  %1774 = getelementptr inbounds nuw i8, ptr %.1.i365.i, i64 8
   store ptr %1774, ptr %0, align 8
   %1775 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 32), align 8
   switch i32 %1775, label %1780 [
@@ -4342,7 +4342,7 @@ expand_.exit367.i:                                ; preds = %1758, %1754
   %1782 = load i32, ptr %.1.i365.i, align 4
   %1783 = add i32 %1782, -1
   %1784 = zext i32 %1783 to i64
-  %1785 = getelementptr inbounds ptr, ptr %1774, i64 %1784
+  %1785 = getelementptr inbounds nuw ptr, ptr %1774, i64 %1784
   store ptr %.0.i368.i, ptr %1785, align 8
   br label %linker_setup_windows.exit
 
@@ -4363,7 +4363,7 @@ expand_.exit367.i:                                ; preds = %1758, %1754
 
 1792:                                             ; preds = %1790
   %1793 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %1794 = getelementptr inbounds i8, ptr %1793, i64 4
+  %1794 = getelementptr inbounds nuw i8, ptr %1793, i64 4
   store i32 8, ptr %1794, align 4
   br label %1797
 
@@ -4381,13 +4381,13 @@ expand_.exit367.i:                                ; preds = %1758, %1754
   br i1 %1800, label %1801, label %1815
 
 1801:                                             ; preds = %1797
-  %1802 = getelementptr inbounds i8, ptr %.0.i.i295, i64 4
+  %1802 = getelementptr inbounds nuw i8, ptr %.0.i.i295, i64 4
   %1803 = shl i32 %1798, 1
   %1804 = zext i32 %1803 to i64
   %1805 = shl nuw nsw i64 %1804, 3
   %1806 = or disjoint i64 %1805, 8
   %1807 = tail call ptr @calloc_arena(i64 noundef %1806) #11
-  %1808 = getelementptr inbounds i8, ptr %1807, i64 4
+  %1808 = getelementptr inbounds nuw i8, ptr %1807, i64 4
   store i32 %1803, ptr %1808, align 4
   %1809 = load i32, ptr %1802, align 4
   %1810 = zext i32 %1809 to i64
@@ -4405,7 +4405,7 @@ expand_.exit367.i:                                ; preds = %1758, %1754
   %.1.i.i296 = phi ptr [ %1807, %1801 ], [ %.0.i.i295, %1797 ]
   %1817 = add i32 %1816, 1
   store i32 %1817, ptr %.1.i.i296, align 4
-  %1818 = getelementptr inbounds i8, ptr %.1.i.i296, i64 8
+  %1818 = getelementptr inbounds nuw i8, ptr %.1.i.i296, i64 8
   store ptr %1818, ptr %0, align 8
   br label %.sink.split.i289
 
@@ -4422,7 +4422,7 @@ expand_.exit367.i:                                ; preds = %1758, %1754
 
 1824:                                             ; preds = %1822
   %1825 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %1826 = getelementptr inbounds i8, ptr %1825, i64 4
+  %1826 = getelementptr inbounds nuw i8, ptr %1825, i64 4
   store i32 8, ptr %1826, align 4
   br label %1829
 
@@ -4440,13 +4440,13 @@ expand_.exit367.i:                                ; preds = %1758, %1754
   br i1 %1832, label %1833, label %1847
 
 1833:                                             ; preds = %1829
-  %1834 = getelementptr inbounds i8, ptr %.0.i332.i, i64 4
+  %1834 = getelementptr inbounds nuw i8, ptr %.0.i332.i, i64 4
   %1835 = shl i32 %1830, 1
   %1836 = zext i32 %1835 to i64
   %1837 = shl nuw nsw i64 %1836, 3
   %1838 = or disjoint i64 %1837, 8
   %1839 = tail call ptr @calloc_arena(i64 noundef %1838) #11
-  %1840 = getelementptr inbounds i8, ptr %1839, i64 4
+  %1840 = getelementptr inbounds nuw i8, ptr %1839, i64 4
   store i32 %1835, ptr %1840, align 4
   %1841 = load i32, ptr %1834, align 4
   %1842 = zext i32 %1841 to i64
@@ -4464,12 +4464,12 @@ expand_.exit367.i:                                ; preds = %1758, %1754
   %.1.i333.i = phi ptr [ %1839, %1833 ], [ %.0.i332.i, %1829 ]
   %1849 = add i32 %1848, 1
   store i32 %1849, ptr %.1.i333.i, align 4
-  %1850 = getelementptr inbounds i8, ptr %.1.i333.i, i64 8
+  %1850 = getelementptr inbounds nuw i8, ptr %.1.i333.i, i64 8
   store ptr %1850, ptr %0, align 8
   %1851 = load i32, ptr %.1.i333.i, align 4
   %1852 = add i32 %1851, -1
   %1853 = zext i32 %1852 to i64
-  %1854 = getelementptr inbounds ptr, ptr %1850, i64 %1853
+  %1854 = getelementptr inbounds nuw ptr, ptr %1850, i64 %1853
   store ptr @.str.121, ptr %1854, align 8
   br label %1855
 
@@ -4480,7 +4480,7 @@ expand_.exit367.i:                                ; preds = %1758, %1754
 
 1857:                                             ; preds = %1855
   %1858 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %1859 = getelementptr inbounds i8, ptr %1858, i64 4
+  %1859 = getelementptr inbounds nuw i8, ptr %1858, i64 4
   store i32 8, ptr %1859, align 4
   br label %1862
 
@@ -4498,13 +4498,13 @@ expand_.exit367.i:                                ; preds = %1758, %1754
   br i1 %1865, label %1866, label %1880
 
 1866:                                             ; preds = %1862
-  %1867 = getelementptr inbounds i8, ptr %.0.i339.i, i64 4
+  %1867 = getelementptr inbounds nuw i8, ptr %.0.i339.i, i64 4
   %1868 = shl i32 %1863, 1
   %1869 = zext i32 %1868 to i64
   %1870 = shl nuw nsw i64 %1869, 3
   %1871 = or disjoint i64 %1870, 8
   %1872 = tail call ptr @calloc_arena(i64 noundef %1871) #11
-  %1873 = getelementptr inbounds i8, ptr %1872, i64 4
+  %1873 = getelementptr inbounds nuw i8, ptr %1872, i64 4
   store i32 %1868, ptr %1873, align 4
   %1874 = load i32, ptr %1867, align 4
   %1875 = zext i32 %1874 to i64
@@ -4522,7 +4522,7 @@ expand_.exit367.i:                                ; preds = %1758, %1754
   %.1.i340.i = phi ptr [ %1872, %1866 ], [ %.0.i339.i, %1862 ]
   %1882 = add i32 %1881, 1
   store i32 %1882, ptr %.1.i340.i, align 4
-  %1883 = getelementptr inbounds i8, ptr %.1.i340.i, i64 8
+  %1883 = getelementptr inbounds nuw i8, ptr %.1.i340.i, i64 8
   store ptr %1883, ptr %0, align 8
   br label %.sink.split.i289
 
@@ -4538,7 +4538,7 @@ expand_.exit367.i:                                ; preds = %1758, %1754
 
 1889:                                             ; preds = %1887
   %1890 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %1891 = getelementptr inbounds i8, ptr %1890, i64 4
+  %1891 = getelementptr inbounds nuw i8, ptr %1890, i64 4
   store i32 8, ptr %1891, align 4
   br label %1894
 
@@ -4556,13 +4556,13 @@ expand_.exit367.i:                                ; preds = %1758, %1754
   br i1 %1897, label %1898, label %1912
 
 1898:                                             ; preds = %1894
-  %1899 = getelementptr inbounds i8, ptr %.0.i346.i, i64 4
+  %1899 = getelementptr inbounds nuw i8, ptr %.0.i346.i, i64 4
   %1900 = shl i32 %1895, 1
   %1901 = zext i32 %1900 to i64
   %1902 = shl nuw nsw i64 %1901, 3
   %1903 = or disjoint i64 %1902, 8
   %1904 = tail call ptr @calloc_arena(i64 noundef %1903) #11
-  %1905 = getelementptr inbounds i8, ptr %1904, i64 4
+  %1905 = getelementptr inbounds nuw i8, ptr %1904, i64 4
   store i32 %1900, ptr %1905, align 4
   %1906 = load i32, ptr %1899, align 4
   %1907 = zext i32 %1906 to i64
@@ -4580,12 +4580,12 @@ expand_.exit367.i:                                ; preds = %1758, %1754
   %.1.i347.i = phi ptr [ %1904, %1898 ], [ %.0.i346.i, %1894 ]
   %1914 = add i32 %1913, 1
   store i32 %1914, ptr %.1.i347.i, align 4
-  %1915 = getelementptr inbounds i8, ptr %.1.i347.i, i64 8
+  %1915 = getelementptr inbounds nuw i8, ptr %.1.i347.i, i64 8
   store ptr %1915, ptr %0, align 8
   %1916 = load i32, ptr %.1.i347.i, align 4
   %1917 = add i32 %1916, -1
   %1918 = zext i32 %1917 to i64
-  %1919 = getelementptr inbounds ptr, ptr %1915, i64 %1918
+  %1919 = getelementptr inbounds nuw ptr, ptr %1915, i64 %1918
   store ptr @.str.123, ptr %1919, align 8
   br label %1920
 
@@ -4601,7 +4601,7 @@ expand_.exit367.i:                                ; preds = %1758, %1754
 
 1925:                                             ; preds = %1923
   %1926 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %1927 = getelementptr inbounds i8, ptr %1926, i64 4
+  %1927 = getelementptr inbounds nuw i8, ptr %1926, i64 4
   store i32 8, ptr %1927, align 4
   br label %1930
 
@@ -4619,13 +4619,13 @@ expand_.exit367.i:                                ; preds = %1758, %1754
   br i1 %1933, label %1934, label %1948
 
 1934:                                             ; preds = %1930
-  %1935 = getelementptr inbounds i8, ptr %.0.i353.i, i64 4
+  %1935 = getelementptr inbounds nuw i8, ptr %.0.i353.i, i64 4
   %1936 = shl i32 %1931, 1
   %1937 = zext i32 %1936 to i64
   %1938 = shl nuw nsw i64 %1937, 3
   %1939 = or disjoint i64 %1938, 8
   %1940 = tail call ptr @calloc_arena(i64 noundef %1939) #11
-  %1941 = getelementptr inbounds i8, ptr %1940, i64 4
+  %1941 = getelementptr inbounds nuw i8, ptr %1940, i64 4
   store i32 %1936, ptr %1941, align 4
   %1942 = load i32, ptr %1935, align 4
   %1943 = zext i32 %1942 to i64
@@ -4643,12 +4643,12 @@ expand_.exit367.i:                                ; preds = %1758, %1754
   %.1.i354.i = phi ptr [ %1940, %1934 ], [ %.0.i353.i, %1930 ]
   %1950 = add i32 %1949, 1
   store i32 %1950, ptr %.1.i354.i, align 4
-  %1951 = getelementptr inbounds i8, ptr %.1.i354.i, i64 8
+  %1951 = getelementptr inbounds nuw i8, ptr %.1.i354.i, i64 8
   store ptr %1951, ptr %0, align 8
   %1952 = load i32, ptr %.1.i354.i, align 4
   %1953 = add i32 %1952, -1
   %1954 = zext i32 %1953 to i64
-  %1955 = getelementptr inbounds ptr, ptr %1951, i64 %1954
+  %1955 = getelementptr inbounds nuw ptr, ptr %1951, i64 %1954
   store ptr @.str.92, ptr %1955, align 8
   %.pr.i291 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 228), align 4
   br label %1956
@@ -4665,7 +4665,7 @@ expand_.exit367.i:                                ; preds = %1758, %1754
 
 1961:                                             ; preds = %1959
   %1962 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %1963 = getelementptr inbounds i8, ptr %1962, i64 4
+  %1963 = getelementptr inbounds nuw i8, ptr %1962, i64 4
   store i32 8, ptr %1963, align 4
   br label %1966
 
@@ -4683,13 +4683,13 @@ expand_.exit367.i:                                ; preds = %1758, %1754
   br i1 %1969, label %1970, label %1984
 
 1970:                                             ; preds = %1966
-  %1971 = getelementptr inbounds i8, ptr %.0.i360.i, i64 4
+  %1971 = getelementptr inbounds nuw i8, ptr %.0.i360.i, i64 4
   %1972 = shl i32 %1967, 1
   %1973 = zext i32 %1972 to i64
   %1974 = shl nuw nsw i64 %1973, 3
   %1975 = or disjoint i64 %1974, 8
   %1976 = tail call ptr @calloc_arena(i64 noundef %1975) #11
-  %1977 = getelementptr inbounds i8, ptr %1976, i64 4
+  %1977 = getelementptr inbounds nuw i8, ptr %1976, i64 4
   store i32 %1972, ptr %1977, align 4
   %1978 = load i32, ptr %1971, align 4
   %1979 = zext i32 %1978 to i64
@@ -4707,12 +4707,12 @@ expand_.exit367.i:                                ; preds = %1758, %1754
   %.1.i361.i = phi ptr [ %1976, %1970 ], [ %.0.i360.i, %1966 ]
   %1986 = add i32 %1985, 1
   store i32 %1986, ptr %.1.i361.i, align 4
-  %1987 = getelementptr inbounds i8, ptr %.1.i361.i, i64 8
+  %1987 = getelementptr inbounds nuw i8, ptr %.1.i361.i, i64 8
   store ptr %1987, ptr %0, align 8
   %1988 = load i32, ptr %.1.i361.i, align 4
   %1989 = add i32 %1988, -1
   %1990 = zext i32 %1989 to i64
-  %1991 = getelementptr inbounds ptr, ptr %1987, i64 %1990
+  %1991 = getelementptr inbounds nuw ptr, ptr %1987, i64 %1990
   store ptr @.str.87, ptr %1991, align 8
   br label %1992
 
@@ -4728,7 +4728,7 @@ expand_.exit367.i:                                ; preds = %1758, %1754
 
 1997:                                             ; preds = %1995
   %1998 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %1999 = getelementptr inbounds i8, ptr %1998, i64 4
+  %1999 = getelementptr inbounds nuw i8, ptr %1998, i64 4
   store i32 8, ptr %1999, align 4
   br label %2002
 
@@ -4746,13 +4746,13 @@ expand_.exit367.i:                                ; preds = %1758, %1754
   br i1 %2005, label %2006, label %2020
 
 2006:                                             ; preds = %2002
-  %2007 = getelementptr inbounds i8, ptr %.0.i367.i, i64 4
+  %2007 = getelementptr inbounds nuw i8, ptr %.0.i367.i, i64 4
   %2008 = shl i32 %2003, 1
   %2009 = zext i32 %2008 to i64
   %2010 = shl nuw nsw i64 %2009, 3
   %2011 = or disjoint i64 %2010, 8
   %2012 = tail call ptr @calloc_arena(i64 noundef %2011) #11
-  %2013 = getelementptr inbounds i8, ptr %2012, i64 4
+  %2013 = getelementptr inbounds nuw i8, ptr %2012, i64 4
   store i32 %2008, ptr %2013, align 4
   %2014 = load i32, ptr %2007, align 4
   %2015 = zext i32 %2014 to i64
@@ -4770,12 +4770,12 @@ expand_.exit367.i:                                ; preds = %1758, %1754
   %.1.i368.i = phi ptr [ %2012, %2006 ], [ %.0.i367.i, %2002 ]
   %2022 = add i32 %2021, 1
   store i32 %2022, ptr %.1.i368.i, align 4
-  %2023 = getelementptr inbounds i8, ptr %.1.i368.i, i64 8
+  %2023 = getelementptr inbounds nuw i8, ptr %.1.i368.i, i64 8
   store ptr %2023, ptr %0, align 8
   %2024 = load i32, ptr %.1.i368.i, align 4
   %2025 = add i32 %2024, -1
   %2026 = zext i32 %2025 to i64
-  %2027 = getelementptr inbounds ptr, ptr %2023, i64 %2026
+  %2027 = getelementptr inbounds nuw ptr, ptr %2023, i64 %2026
   store ptr @.str.93, ptr %2027, align 8
   br label %2028
 
@@ -4799,7 +4799,7 @@ expand_.exit367.i:                                ; preds = %1758, %1754
   br i1 %or.cond.i.i, label %2037, label %2050
 
 2037:                                             ; preds = %2032
-  %2038 = getelementptr inbounds i8, ptr %7, i64 8
+  %2038 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %2039 = load ptr, ptr %2038, align 8
   %2040 = load ptr, ptr %2039, align 8
   %2041 = load i8, ptr @debug_log, align 1
@@ -4847,7 +4847,7 @@ find_linux_crt_begin.exit.i:                      ; preds = %2053, %2050, %2046,
   br i1 %or.cond.i375.i, label %2062, label %2075
 
 2062:                                             ; preds = %2057
-  %2063 = getelementptr inbounds i8, ptr %6, i64 8
+  %2063 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %2064 = load ptr, ptr %2063, align 8
   %2065 = load ptr, ptr %2064, align 8
   %2066 = load i8, ptr @debug_log, align 1
@@ -4895,7 +4895,7 @@ find_linux_crt.exit.i:                            ; preds = %2078, %2075, %2071,
 
 2087:                                             ; preds = %2085
   %2088 = call ptr @calloc_arena(i64 noundef 72) #11
-  %2089 = getelementptr inbounds i8, ptr %2088, i64 4
+  %2089 = getelementptr inbounds nuw i8, ptr %2088, i64 4
   store i32 8, ptr %2089, align 4
   br label %2092
 
@@ -4913,13 +4913,13 @@ find_linux_crt.exit.i:                            ; preds = %2078, %2075, %2071,
   br i1 %2095, label %2096, label %2110
 
 2096:                                             ; preds = %2092
-  %2097 = getelementptr inbounds i8, ptr %.0.i381.i, i64 4
+  %2097 = getelementptr inbounds nuw i8, ptr %.0.i381.i, i64 4
   %2098 = shl i32 %2093, 1
   %2099 = zext i32 %2098 to i64
   %2100 = shl nuw nsw i64 %2099, 3
   %2101 = or disjoint i64 %2100, 8
   %2102 = call ptr @calloc_arena(i64 noundef %2101) #11
-  %2103 = getelementptr inbounds i8, ptr %2102, i64 4
+  %2103 = getelementptr inbounds nuw i8, ptr %2102, i64 4
   store i32 %2098, ptr %2103, align 4
   %2104 = load i32, ptr %2097, align 4
   %2105 = zext i32 %2104 to i64
@@ -4937,12 +4937,12 @@ find_linux_crt.exit.i:                            ; preds = %2078, %2075, %2071,
   %.1.i382.i = phi ptr [ %2102, %2096 ], [ %.0.i381.i, %2092 ]
   %2112 = add i32 %2111, 1
   store i32 %2112, ptr %.1.i382.i, align 4
-  %2113 = getelementptr inbounds i8, ptr %.1.i382.i, i64 8
+  %2113 = getelementptr inbounds nuw i8, ptr %.1.i382.i, i64 8
   store ptr %2113, ptr %0, align 8
   %2114 = load i32, ptr %.1.i382.i, align 4
   %2115 = add i32 %2114, -1
   %2116 = zext i32 %2115 to i64
-  %2117 = getelementptr inbounds ptr, ptr %2113, i64 %2116
+  %2117 = getelementptr inbounds nuw ptr, ptr %2113, i64 %2116
   store ptr @.str.95, ptr %2117, align 8
   br label %2118
 
@@ -4978,7 +4978,7 @@ find_linux_crt.exit.i:                            ; preds = %2078, %2075, %2071,
 
 2127:                                             ; preds = %2125
   %2128 = call ptr @calloc_arena(i64 noundef 72) #11
-  %2129 = getelementptr inbounds i8, ptr %2128, i64 4
+  %2129 = getelementptr inbounds nuw i8, ptr %2128, i64 4
   store i32 8, ptr %2129, align 4
   br label %2132
 
@@ -4996,13 +4996,13 @@ find_linux_crt.exit.i:                            ; preds = %2078, %2075, %2071,
   br i1 %2135, label %2136, label %2150
 
 2136:                                             ; preds = %2132
-  %2137 = getelementptr inbounds i8, ptr %.0.i389.i, i64 4
+  %2137 = getelementptr inbounds nuw i8, ptr %.0.i389.i, i64 4
   %2138 = shl i32 %2133, 1
   %2139 = zext i32 %2138 to i64
   %2140 = shl nuw nsw i64 %2139, 3
   %2141 = or disjoint i64 %2140, 8
   %2142 = call ptr @calloc_arena(i64 noundef %2141) #11
-  %2143 = getelementptr inbounds i8, ptr %2142, i64 4
+  %2143 = getelementptr inbounds nuw i8, ptr %2142, i64 4
   store i32 %2138, ptr %2143, align 4
   %2144 = load i32, ptr %2137, align 4
   %2145 = zext i32 %2144 to i64
@@ -5020,12 +5020,12 @@ find_linux_crt.exit.i:                            ; preds = %2078, %2075, %2071,
   %.1.i390.i = phi ptr [ %2142, %2136 ], [ %.0.i389.i, %2132 ]
   %2152 = add i32 %2151, 1
   store i32 %2152, ptr %.1.i390.i, align 4
-  %2153 = getelementptr inbounds i8, ptr %.1.i390.i, i64 8
+  %2153 = getelementptr inbounds nuw i8, ptr %.1.i390.i, i64 8
   store ptr %2153, ptr %0, align 8
   %2154 = load i32, ptr %.1.i390.i, align 4
   %2155 = add i32 %2154, -1
   %2156 = zext i32 %2155 to i64
-  %2157 = getelementptr inbounds ptr, ptr %2153, i64 %2156
+  %2157 = getelementptr inbounds nuw ptr, ptr %2153, i64 %2156
   store ptr @.str.87, ptr %2157, align 8
   %2158 = load ptr, ptr %0, align 8
   %.not.i393.i = icmp eq ptr %2158, null
@@ -5033,7 +5033,7 @@ find_linux_crt.exit.i:                            ; preds = %2078, %2075, %2071,
 
 2159:                                             ; preds = %2150
   %2160 = call ptr @calloc_arena(i64 noundef 72) #11
-  %2161 = getelementptr inbounds i8, ptr %2160, i64 4
+  %2161 = getelementptr inbounds nuw i8, ptr %2160, i64 4
   store i32 8, ptr %2161, align 4
   br label %2164
 
@@ -5051,13 +5051,13 @@ find_linux_crt.exit.i:                            ; preds = %2078, %2075, %2071,
   br i1 %2167, label %2168, label %expand_.exit399.i
 
 2168:                                             ; preds = %2164
-  %2169 = getelementptr inbounds i8, ptr %.0.i396.i, i64 4
+  %2169 = getelementptr inbounds nuw i8, ptr %.0.i396.i, i64 4
   %2170 = shl i32 %2165, 1
   %2171 = zext i32 %2170 to i64
   %2172 = shl nuw nsw i64 %2171, 3
   %2173 = or disjoint i64 %2172, 8
   %2174 = call ptr @calloc_arena(i64 noundef %2173) #11
-  %2175 = getelementptr inbounds i8, ptr %2174, i64 4
+  %2175 = getelementptr inbounds nuw i8, ptr %2174, i64 4
   store i32 %2170, ptr %2175, align 4
   %2176 = load i32, ptr %2169, align 4
   %2177 = zext i32 %2176 to i64
@@ -5075,7 +5075,7 @@ expand_.exit399.i:                                ; preds = %2168, %2164
   %.1.i397.i = phi ptr [ %2174, %2168 ], [ %.0.i396.i, %2164 ]
   %2183 = add i32 %2182, 1
   store i32 %2183, ptr %.1.i397.i, align 4
-  %2184 = getelementptr inbounds i8, ptr %.1.i397.i, i64 8
+  %2184 = getelementptr inbounds nuw i8, ptr %.1.i397.i, i64 8
   store ptr %2184, ptr %0, align 8
   %2185 = call ptr @str_cat(ptr noundef nonnull %.0.i374.i, ptr noundef nonnull @.str.96) #11
   %2186 = load ptr, ptr %0, align 8
@@ -5091,7 +5091,7 @@ expand_.exit399.i:                                ; preds = %2168, %2164
 
 2192:                                             ; preds = %2187, %expand_.exit399.i
   %.0257.i = phi i64 [ %2191, %2187 ], [ 4294967295, %expand_.exit399.i ]
-  %2193 = getelementptr inbounds ptr, ptr %2186, i64 %.0257.i
+  %2193 = getelementptr inbounds nuw ptr, ptr %2186, i64 %.0257.i
   store ptr %2185, ptr %2193, align 8
   %2194 = load ptr, ptr %0, align 8
   %.not.i400.i = icmp eq ptr %2194, null
@@ -5099,7 +5099,7 @@ expand_.exit399.i:                                ; preds = %2168, %2164
 
 2195:                                             ; preds = %2192
   %2196 = call ptr @calloc_arena(i64 noundef 72) #11
-  %2197 = getelementptr inbounds i8, ptr %2196, i64 4
+  %2197 = getelementptr inbounds nuw i8, ptr %2196, i64 4
   store i32 8, ptr %2197, align 4
   br label %2200
 
@@ -5117,13 +5117,13 @@ expand_.exit399.i:                                ; preds = %2168, %2164
   br i1 %2203, label %2204, label %expand_.exit406.i
 
 2204:                                             ; preds = %2200
-  %2205 = getelementptr inbounds i8, ptr %.0.i403.i, i64 4
+  %2205 = getelementptr inbounds nuw i8, ptr %.0.i403.i, i64 4
   %2206 = shl i32 %2201, 1
   %2207 = zext i32 %2206 to i64
   %2208 = shl nuw nsw i64 %2207, 3
   %2209 = or disjoint i64 %2208, 8
   %2210 = call ptr @calloc_arena(i64 noundef %2209) #11
-  %2211 = getelementptr inbounds i8, ptr %2210, i64 4
+  %2211 = getelementptr inbounds nuw i8, ptr %2210, i64 4
   store i32 %2206, ptr %2211, align 4
   %2212 = load i32, ptr %2205, align 4
   %2213 = zext i32 %2212 to i64
@@ -5141,7 +5141,7 @@ expand_.exit406.i:                                ; preds = %2204, %2200
   %.1.i404.i = phi ptr [ %2210, %2204 ], [ %.0.i403.i, %2200 ]
   %2219 = add i32 %2218, 1
   store i32 %2219, ptr %.1.i404.i, align 4
-  %2220 = getelementptr inbounds i8, ptr %.1.i404.i, i64 8
+  %2220 = getelementptr inbounds nuw i8, ptr %.1.i404.i, i64 8
   store ptr %2220, ptr %0, align 8
   %2221 = call ptr @str_cat(ptr noundef nonnull %.0.i372.i, ptr noundef nonnull @.str.97) #11
   %2222 = load ptr, ptr %0, align 8
@@ -5157,7 +5157,7 @@ expand_.exit406.i:                                ; preds = %2204, %2200
 
 2228:                                             ; preds = %2223, %expand_.exit406.i
   %.0258.i = phi i64 [ %2227, %2223 ], [ 4294967295, %expand_.exit406.i ]
-  %2229 = getelementptr inbounds ptr, ptr %2222, i64 %.0258.i
+  %2229 = getelementptr inbounds nuw ptr, ptr %2222, i64 %.0258.i
   store ptr %2221, ptr %2229, align 8
   %2230 = load ptr, ptr %0, align 8
   %.not.i407.i = icmp eq ptr %2230, null
@@ -5165,7 +5165,7 @@ expand_.exit406.i:                                ; preds = %2204, %2200
 
 2231:                                             ; preds = %2228
   %2232 = call ptr @calloc_arena(i64 noundef 72) #11
-  %2233 = getelementptr inbounds i8, ptr %2232, i64 4
+  %2233 = getelementptr inbounds nuw i8, ptr %2232, i64 4
   store i32 8, ptr %2233, align 4
   br label %2236
 
@@ -5183,13 +5183,13 @@ expand_.exit406.i:                                ; preds = %2204, %2200
   br i1 %2239, label %2240, label %expand_.exit413.i
 
 2240:                                             ; preds = %2236
-  %2241 = getelementptr inbounds i8, ptr %.0.i410.i, i64 4
+  %2241 = getelementptr inbounds nuw i8, ptr %.0.i410.i, i64 4
   %2242 = shl i32 %2237, 1
   %2243 = zext i32 %2242 to i64
   %2244 = shl nuw nsw i64 %2243, 3
   %2245 = or disjoint i64 %2244, 8
   %2246 = call ptr @calloc_arena(i64 noundef %2245) #11
-  %2247 = getelementptr inbounds i8, ptr %2246, i64 4
+  %2247 = getelementptr inbounds nuw i8, ptr %2246, i64 4
   store i32 %2242, ptr %2247, align 4
   %2248 = load i32, ptr %2241, align 4
   %2249 = zext i32 %2248 to i64
@@ -5207,7 +5207,7 @@ expand_.exit413.i:                                ; preds = %2240, %2236
   %.1.i411.i = phi ptr [ %2246, %2240 ], [ %.0.i410.i, %2236 ]
   %2255 = add i32 %2254, 1
   store i32 %2255, ptr %.1.i411.i, align 4
-  %2256 = getelementptr inbounds i8, ptr %.1.i411.i, i64 8
+  %2256 = getelementptr inbounds nuw i8, ptr %.1.i411.i, i64 8
   store ptr %2256, ptr %0, align 8
   %2257 = call ptr @str_cat(ptr noundef nonnull %.0.i374.i, ptr noundef nonnull @.str.98) #11
   %2258 = load ptr, ptr %0, align 8
@@ -5223,7 +5223,7 @@ expand_.exit413.i:                                ; preds = %2240, %2236
 
 2264:                                             ; preds = %2259, %expand_.exit413.i
   %.0259.i = phi i64 [ %2263, %2259 ], [ 4294967295, %expand_.exit413.i ]
-  %2265 = getelementptr inbounds ptr, ptr %2258, i64 %.0259.i
+  %2265 = getelementptr inbounds nuw ptr, ptr %2258, i64 %.0259.i
   store ptr %2257, ptr %2265, align 8
   %2266 = load ptr, ptr %0, align 8
   %.not.i414.i = icmp eq ptr %2266, null
@@ -5231,7 +5231,7 @@ expand_.exit413.i:                                ; preds = %2240, %2236
 
 2267:                                             ; preds = %2264
   %2268 = call ptr @calloc_arena(i64 noundef 72) #11
-  %2269 = getelementptr inbounds i8, ptr %2268, i64 4
+  %2269 = getelementptr inbounds nuw i8, ptr %2268, i64 4
   store i32 8, ptr %2269, align 4
   br label %2272
 
@@ -5249,13 +5249,13 @@ expand_.exit413.i:                                ; preds = %2240, %2236
   br i1 %2275, label %2276, label %expand_.exit420.i
 
 2276:                                             ; preds = %2272
-  %2277 = getelementptr inbounds i8, ptr %.0.i417.i, i64 4
+  %2277 = getelementptr inbounds nuw i8, ptr %.0.i417.i, i64 4
   %2278 = shl i32 %2273, 1
   %2279 = zext i32 %2278 to i64
   %2280 = shl nuw nsw i64 %2279, 3
   %2281 = or disjoint i64 %2280, 8
   %2282 = call ptr @calloc_arena(i64 noundef %2281) #11
-  %2283 = getelementptr inbounds i8, ptr %2282, i64 4
+  %2283 = getelementptr inbounds nuw i8, ptr %2282, i64 4
   store i32 %2278, ptr %2283, align 4
   %2284 = load i32, ptr %2277, align 4
   %2285 = zext i32 %2284 to i64
@@ -5273,7 +5273,7 @@ expand_.exit420.i:                                ; preds = %2276, %2272
   %.1.i418.i = phi ptr [ %2282, %2276 ], [ %.0.i417.i, %2272 ]
   %2291 = add i32 %2290, 1
   store i32 %2291, ptr %.1.i418.i, align 4
-  %2292 = getelementptr inbounds i8, ptr %.1.i418.i, i64 8
+  %2292 = getelementptr inbounds nuw i8, ptr %.1.i418.i, i64 8
   store ptr %2292, ptr %0, align 8
   %2293 = call ptr @str_cat(ptr noundef nonnull %.0.i372.i, ptr noundef nonnull @.str.99) #11
   %2294 = load ptr, ptr %0, align 8
@@ -5289,7 +5289,7 @@ expand_.exit420.i:                                ; preds = %2276, %2272
 
 2300:                                             ; preds = %2295, %expand_.exit420.i
   %.0260.i = phi i64 [ %2299, %2295 ], [ 4294967295, %expand_.exit420.i ]
-  %2301 = getelementptr inbounds ptr, ptr %2294, i64 %.0260.i
+  %2301 = getelementptr inbounds nuw ptr, ptr %2294, i64 %.0260.i
   store ptr %2293, ptr %2301, align 8
   br label %2446
 
@@ -5300,7 +5300,7 @@ is_pie_pic.exit.i290:                             ; preds = %2122, %2122
 
 2303:                                             ; preds = %is_pie_pic.exit.i290
   %2304 = call ptr @calloc_arena(i64 noundef 72) #11
-  %2305 = getelementptr inbounds i8, ptr %2304, i64 4
+  %2305 = getelementptr inbounds nuw i8, ptr %2304, i64 4
   store i32 8, ptr %2305, align 4
   br label %2308
 
@@ -5318,13 +5318,13 @@ is_pie_pic.exit.i290:                             ; preds = %2122, %2122
   br i1 %2311, label %2312, label %expand_.exit427.i
 
 2312:                                             ; preds = %2308
-  %2313 = getelementptr inbounds i8, ptr %.0.i424.i, i64 4
+  %2313 = getelementptr inbounds nuw i8, ptr %.0.i424.i, i64 4
   %2314 = shl i32 %2309, 1
   %2315 = zext i32 %2314 to i64
   %2316 = shl nuw nsw i64 %2315, 3
   %2317 = or disjoint i64 %2316, 8
   %2318 = call ptr @calloc_arena(i64 noundef %2317) #11
-  %2319 = getelementptr inbounds i8, ptr %2318, i64 4
+  %2319 = getelementptr inbounds nuw i8, ptr %2318, i64 4
   store i32 %2314, ptr %2319, align 4
   %2320 = load i32, ptr %2313, align 4
   %2321 = zext i32 %2320 to i64
@@ -5342,7 +5342,7 @@ expand_.exit427.i:                                ; preds = %2312, %2308
   %.1.i425.i = phi ptr [ %2318, %2312 ], [ %.0.i424.i, %2308 ]
   %2327 = add i32 %2326, 1
   store i32 %2327, ptr %.1.i425.i, align 4
-  %2328 = getelementptr inbounds i8, ptr %.1.i425.i, i64 8
+  %2328 = getelementptr inbounds nuw i8, ptr %.1.i425.i, i64 8
   store ptr %2328, ptr %0, align 8
   %2329 = call ptr @str_cat(ptr noundef nonnull %.0.i374.i, ptr noundef nonnull @.str.100) #11
   %2330 = load ptr, ptr %0, align 8
@@ -5358,7 +5358,7 @@ expand_.exit427.i:                                ; preds = %2312, %2308
 
 2336:                                             ; preds = %2331, %expand_.exit427.i
   %.0261.i = phi i64 [ %2335, %2331 ], [ 4294967295, %expand_.exit427.i ]
-  %2337 = getelementptr inbounds ptr, ptr %2330, i64 %.0261.i
+  %2337 = getelementptr inbounds nuw ptr, ptr %2330, i64 %.0261.i
   store ptr %2329, ptr %2337, align 8
   %2338 = load ptr, ptr %0, align 8
   %.not.i428.i = icmp eq ptr %2338, null
@@ -5366,7 +5366,7 @@ expand_.exit427.i:                                ; preds = %2312, %2308
 
 2339:                                             ; preds = %2336
   %2340 = call ptr @calloc_arena(i64 noundef 72) #11
-  %2341 = getelementptr inbounds i8, ptr %2340, i64 4
+  %2341 = getelementptr inbounds nuw i8, ptr %2340, i64 4
   store i32 8, ptr %2341, align 4
   br label %2344
 
@@ -5384,13 +5384,13 @@ expand_.exit427.i:                                ; preds = %2312, %2308
   br i1 %2347, label %2348, label %expand_.exit434.i
 
 2348:                                             ; preds = %2344
-  %2349 = getelementptr inbounds i8, ptr %.0.i431.i, i64 4
+  %2349 = getelementptr inbounds nuw i8, ptr %.0.i431.i, i64 4
   %2350 = shl i32 %2345, 1
   %2351 = zext i32 %2350 to i64
   %2352 = shl nuw nsw i64 %2351, 3
   %2353 = or disjoint i64 %2352, 8
   %2354 = call ptr @calloc_arena(i64 noundef %2353) #11
-  %2355 = getelementptr inbounds i8, ptr %2354, i64 4
+  %2355 = getelementptr inbounds nuw i8, ptr %2354, i64 4
   store i32 %2350, ptr %2355, align 4
   %2356 = load i32, ptr %2349, align 4
   %2357 = zext i32 %2356 to i64
@@ -5408,7 +5408,7 @@ expand_.exit434.i:                                ; preds = %2348, %2344
   %.1.i432.i = phi ptr [ %2354, %2348 ], [ %.0.i431.i, %2344 ]
   %2363 = add i32 %2362, 1
   store i32 %2363, ptr %.1.i432.i, align 4
-  %2364 = getelementptr inbounds i8, ptr %.1.i432.i, i64 8
+  %2364 = getelementptr inbounds nuw i8, ptr %.1.i432.i, i64 8
   store ptr %2364, ptr %0, align 8
   %2365 = call ptr @str_cat(ptr noundef nonnull %.0.i372.i, ptr noundef nonnull @.str.101) #11
   %2366 = load ptr, ptr %0, align 8
@@ -5424,7 +5424,7 @@ expand_.exit434.i:                                ; preds = %2348, %2344
 
 2372:                                             ; preds = %2367, %expand_.exit434.i
   %.0262.i = phi i64 [ %2371, %2367 ], [ 4294967295, %expand_.exit434.i ]
-  %2373 = getelementptr inbounds ptr, ptr %2366, i64 %.0262.i
+  %2373 = getelementptr inbounds nuw ptr, ptr %2366, i64 %.0262.i
   store ptr %2365, ptr %2373, align 8
   %2374 = load ptr, ptr %0, align 8
   %.not.i435.i = icmp eq ptr %2374, null
@@ -5432,7 +5432,7 @@ expand_.exit434.i:                                ; preds = %2348, %2344
 
 2375:                                             ; preds = %2372
   %2376 = call ptr @calloc_arena(i64 noundef 72) #11
-  %2377 = getelementptr inbounds i8, ptr %2376, i64 4
+  %2377 = getelementptr inbounds nuw i8, ptr %2376, i64 4
   store i32 8, ptr %2377, align 4
   br label %2380
 
@@ -5450,13 +5450,13 @@ expand_.exit434.i:                                ; preds = %2348, %2344
   br i1 %2383, label %2384, label %expand_.exit441.i
 
 2384:                                             ; preds = %2380
-  %2385 = getelementptr inbounds i8, ptr %.0.i438.i, i64 4
+  %2385 = getelementptr inbounds nuw i8, ptr %.0.i438.i, i64 4
   %2386 = shl i32 %2381, 1
   %2387 = zext i32 %2386 to i64
   %2388 = shl nuw nsw i64 %2387, 3
   %2389 = or disjoint i64 %2388, 8
   %2390 = call ptr @calloc_arena(i64 noundef %2389) #11
-  %2391 = getelementptr inbounds i8, ptr %2390, i64 4
+  %2391 = getelementptr inbounds nuw i8, ptr %2390, i64 4
   store i32 %2386, ptr %2391, align 4
   %2392 = load i32, ptr %2385, align 4
   %2393 = zext i32 %2392 to i64
@@ -5474,7 +5474,7 @@ expand_.exit441.i:                                ; preds = %2384, %2380
   %.1.i439.i = phi ptr [ %2390, %2384 ], [ %.0.i438.i, %2380 ]
   %2399 = add i32 %2398, 1
   store i32 %2399, ptr %.1.i439.i, align 4
-  %2400 = getelementptr inbounds i8, ptr %.1.i439.i, i64 8
+  %2400 = getelementptr inbounds nuw i8, ptr %.1.i439.i, i64 8
   store ptr %2400, ptr %0, align 8
   %2401 = call ptr @str_cat(ptr noundef nonnull %.0.i374.i, ptr noundef nonnull @.str.98) #11
   %2402 = load ptr, ptr %0, align 8
@@ -5490,7 +5490,7 @@ expand_.exit441.i:                                ; preds = %2384, %2380
 
 2408:                                             ; preds = %2403, %expand_.exit441.i
   %.0263.i = phi i64 [ %2407, %2403 ], [ 4294967295, %expand_.exit441.i ]
-  %2409 = getelementptr inbounds ptr, ptr %2402, i64 %.0263.i
+  %2409 = getelementptr inbounds nuw ptr, ptr %2402, i64 %.0263.i
   store ptr %2401, ptr %2409, align 8
   %2410 = load ptr, ptr %0, align 8
   %.not.i442.i = icmp eq ptr %2410, null
@@ -5498,7 +5498,7 @@ expand_.exit441.i:                                ; preds = %2384, %2380
 
 2411:                                             ; preds = %2408
   %2412 = call ptr @calloc_arena(i64 noundef 72) #11
-  %2413 = getelementptr inbounds i8, ptr %2412, i64 4
+  %2413 = getelementptr inbounds nuw i8, ptr %2412, i64 4
   store i32 8, ptr %2413, align 4
   br label %2416
 
@@ -5516,13 +5516,13 @@ expand_.exit441.i:                                ; preds = %2384, %2380
   br i1 %2419, label %2420, label %expand_.exit448.i
 
 2420:                                             ; preds = %2416
-  %2421 = getelementptr inbounds i8, ptr %.0.i445.i, i64 4
+  %2421 = getelementptr inbounds nuw i8, ptr %.0.i445.i, i64 4
   %2422 = shl i32 %2417, 1
   %2423 = zext i32 %2422 to i64
   %2424 = shl nuw nsw i64 %2423, 3
   %2425 = or disjoint i64 %2424, 8
   %2426 = call ptr @calloc_arena(i64 noundef %2425) #11
-  %2427 = getelementptr inbounds i8, ptr %2426, i64 4
+  %2427 = getelementptr inbounds nuw i8, ptr %2426, i64 4
   store i32 %2422, ptr %2427, align 4
   %2428 = load i32, ptr %2421, align 4
   %2429 = zext i32 %2428 to i64
@@ -5540,7 +5540,7 @@ expand_.exit448.i:                                ; preds = %2420, %2416
   %.1.i446.i = phi ptr [ %2426, %2420 ], [ %.0.i445.i, %2416 ]
   %2435 = add i32 %2434, 1
   store i32 %2435, ptr %.1.i446.i, align 4
-  %2436 = getelementptr inbounds i8, ptr %.1.i446.i, i64 8
+  %2436 = getelementptr inbounds nuw i8, ptr %.1.i446.i, i64 8
   store ptr %2436, ptr %0, align 8
   %2437 = call ptr @str_cat(ptr noundef nonnull %.0.i372.i, ptr noundef nonnull @.str.102) #11
   %2438 = load ptr, ptr %0, align 8
@@ -5556,7 +5556,7 @@ expand_.exit448.i:                                ; preds = %2420, %2416
 
 2444:                                             ; preds = %2439, %expand_.exit448.i
   %.0264.i = phi i64 [ %2443, %2439 ], [ 4294967295, %expand_.exit448.i ]
-  %2445 = getelementptr inbounds ptr, ptr %2438, i64 %.0264.i
+  %2445 = getelementptr inbounds nuw ptr, ptr %2438, i64 %.0264.i
   store ptr %2437, ptr %2445, align 8
   br label %2446
 
@@ -5567,7 +5567,7 @@ expand_.exit448.i:                                ; preds = %2420, %2416
 
 2448:                                             ; preds = %2446
   %2449 = call ptr @calloc_arena(i64 noundef 72) #11
-  %2450 = getelementptr inbounds i8, ptr %2449, i64 4
+  %2450 = getelementptr inbounds nuw i8, ptr %2449, i64 4
   store i32 8, ptr %2450, align 4
   br label %2453
 
@@ -5585,13 +5585,13 @@ expand_.exit448.i:                                ; preds = %2420, %2416
   br i1 %2456, label %2457, label %expand_.exit455.i
 
 2457:                                             ; preds = %2453
-  %2458 = getelementptr inbounds i8, ptr %.0.i452.i, i64 4
+  %2458 = getelementptr inbounds nuw i8, ptr %.0.i452.i, i64 4
   %2459 = shl i32 %2454, 1
   %2460 = zext i32 %2459 to i64
   %2461 = shl nuw nsw i64 %2460, 3
   %2462 = or disjoint i64 %2461, 8
   %2463 = call ptr @calloc_arena(i64 noundef %2462) #11
-  %2464 = getelementptr inbounds i8, ptr %2463, i64 4
+  %2464 = getelementptr inbounds nuw i8, ptr %2463, i64 4
   store i32 %2459, ptr %2464, align 4
   %2465 = load i32, ptr %2458, align 4
   %2466 = zext i32 %2465 to i64
@@ -5609,7 +5609,7 @@ expand_.exit455.i:                                ; preds = %2457, %2453
   %.1.i453.i = phi ptr [ %2463, %2457 ], [ %.0.i452.i, %2453 ]
   %2472 = add i32 %2471, 1
   store i32 %2472, ptr %.1.i453.i, align 4
-  %2473 = getelementptr inbounds i8, ptr %.1.i453.i, i64 8
+  %2473 = getelementptr inbounds nuw i8, ptr %.1.i453.i, i64 8
   store ptr %2473, ptr %0, align 8
   %2474 = call ptr @str_cat(ptr noundef nonnull %.0.i374.i, ptr noundef nonnull @.str.103) #11
   %2475 = load ptr, ptr %0, align 8
@@ -5625,7 +5625,7 @@ expand_.exit455.i:                                ; preds = %2457, %2453
 
 2481:                                             ; preds = %2476, %expand_.exit455.i
   %.0265.i = phi i64 [ %2480, %2476 ], [ 4294967295, %expand_.exit455.i ]
-  %2482 = getelementptr inbounds ptr, ptr %2475, i64 %.0265.i
+  %2482 = getelementptr inbounds nuw ptr, ptr %2475, i64 %.0265.i
   store ptr %2474, ptr %2482, align 8
   %2483 = load ptr, ptr %0, align 8
   %.not.i456.i = icmp eq ptr %2483, null
@@ -5633,7 +5633,7 @@ expand_.exit455.i:                                ; preds = %2457, %2453
 
 2484:                                             ; preds = %2481
   %2485 = call ptr @calloc_arena(i64 noundef 72) #11
-  %2486 = getelementptr inbounds i8, ptr %2485, i64 4
+  %2486 = getelementptr inbounds nuw i8, ptr %2485, i64 4
   store i32 8, ptr %2486, align 4
   br label %2489
 
@@ -5651,13 +5651,13 @@ expand_.exit455.i:                                ; preds = %2457, %2453
   br i1 %2492, label %2493, label %expand_.exit462.i
 
 2493:                                             ; preds = %2489
-  %2494 = getelementptr inbounds i8, ptr %.0.i459.i, i64 4
+  %2494 = getelementptr inbounds nuw i8, ptr %.0.i459.i, i64 4
   %2495 = shl i32 %2490, 1
   %2496 = zext i32 %2495 to i64
   %2497 = shl nuw nsw i64 %2496, 3
   %2498 = or disjoint i64 %2497, 8
   %2499 = call ptr @calloc_arena(i64 noundef %2498) #11
-  %2500 = getelementptr inbounds i8, ptr %2499, i64 4
+  %2500 = getelementptr inbounds nuw i8, ptr %2499, i64 4
   store i32 %2495, ptr %2500, align 4
   %2501 = load i32, ptr %2494, align 4
   %2502 = zext i32 %2501 to i64
@@ -5675,7 +5675,7 @@ expand_.exit462.i:                                ; preds = %2493, %2489
   %.1.i460.i = phi ptr [ %2499, %2493 ], [ %.0.i459.i, %2489 ]
   %2508 = add i32 %2507, 1
   store i32 %2508, ptr %.1.i460.i, align 4
-  %2509 = getelementptr inbounds i8, ptr %.1.i460.i, i64 8
+  %2509 = getelementptr inbounds nuw i8, ptr %.1.i460.i, i64 8
   store ptr %2509, ptr %0, align 8
   %2510 = call ptr @str_cat(ptr noundef nonnull @.str.39, ptr noundef nonnull %.0.i374.i) #11
   %2511 = load ptr, ptr %0, align 8
@@ -5691,7 +5691,7 @@ expand_.exit462.i:                                ; preds = %2493, %2489
 
 2517:                                             ; preds = %2512, %expand_.exit462.i
   %.0266.i = phi i64 [ %2516, %2512 ], [ 4294967295, %expand_.exit462.i ]
-  %2518 = getelementptr inbounds ptr, ptr %2511, i64 %.0266.i
+  %2518 = getelementptr inbounds nuw ptr, ptr %2511, i64 %.0266.i
   store ptr %2510, ptr %2518, align 8
   %2519 = load ptr, ptr %0, align 8
   %.not.i463.i = icmp eq ptr %2519, null
@@ -5699,7 +5699,7 @@ expand_.exit462.i:                                ; preds = %2493, %2489
 
 2520:                                             ; preds = %2517
   %2521 = call ptr @calloc_arena(i64 noundef 72) #11
-  %2522 = getelementptr inbounds i8, ptr %2521, i64 4
+  %2522 = getelementptr inbounds nuw i8, ptr %2521, i64 4
   store i32 8, ptr %2522, align 4
   br label %2525
 
@@ -5717,13 +5717,13 @@ expand_.exit462.i:                                ; preds = %2493, %2489
   br i1 %2528, label %2529, label %2543
 
 2529:                                             ; preds = %2525
-  %2530 = getelementptr inbounds i8, ptr %.0.i466.i, i64 4
+  %2530 = getelementptr inbounds nuw i8, ptr %.0.i466.i, i64 4
   %2531 = shl i32 %2526, 1
   %2532 = zext i32 %2531 to i64
   %2533 = shl nuw nsw i64 %2532, 3
   %2534 = or disjoint i64 %2533, 8
   %2535 = call ptr @calloc_arena(i64 noundef %2534) #11
-  %2536 = getelementptr inbounds i8, ptr %2535, i64 4
+  %2536 = getelementptr inbounds nuw i8, ptr %2535, i64 4
   store i32 %2531, ptr %2536, align 4
   %2537 = load i32, ptr %2530, align 4
   %2538 = zext i32 %2537 to i64
@@ -5741,12 +5741,12 @@ expand_.exit462.i:                                ; preds = %2493, %2489
   %.1.i467.i = phi ptr [ %2535, %2529 ], [ %.0.i466.i, %2525 ]
   %2545 = add i32 %2544, 1
   store i32 %2545, ptr %.1.i467.i, align 4
-  %2546 = getelementptr inbounds i8, ptr %.1.i467.i, i64 8
+  %2546 = getelementptr inbounds nuw i8, ptr %.1.i467.i, i64 8
   store ptr %2546, ptr %0, align 8
   %2547 = load i32, ptr %.1.i467.i, align 4
   %2548 = add i32 %2547, -1
   %2549 = zext i32 %2548 to i64
-  %2550 = getelementptr inbounds ptr, ptr %2546, i64 %2549
+  %2550 = getelementptr inbounds nuw ptr, ptr %2546, i64 %2549
   store ptr @.str.39, ptr %2550, align 8
   %2551 = load ptr, ptr %0, align 8
   %.not.i470.i = icmp eq ptr %2551, null
@@ -5754,7 +5754,7 @@ expand_.exit462.i:                                ; preds = %2493, %2489
 
 2552:                                             ; preds = %2543
   %2553 = call ptr @calloc_arena(i64 noundef 72) #11
-  %2554 = getelementptr inbounds i8, ptr %2553, i64 4
+  %2554 = getelementptr inbounds nuw i8, ptr %2553, i64 4
   store i32 8, ptr %2554, align 4
   br label %2557
 
@@ -5772,13 +5772,13 @@ expand_.exit462.i:                                ; preds = %2493, %2489
   br i1 %2560, label %2561, label %2575
 
 2561:                                             ; preds = %2557
-  %2562 = getelementptr inbounds i8, ptr %.0.i473.i, i64 4
+  %2562 = getelementptr inbounds nuw i8, ptr %.0.i473.i, i64 4
   %2563 = shl i32 %2558, 1
   %2564 = zext i32 %2563 to i64
   %2565 = shl nuw nsw i64 %2564, 3
   %2566 = or disjoint i64 %2565, 8
   %2567 = call ptr @calloc_arena(i64 noundef %2566) #11
-  %2568 = getelementptr inbounds i8, ptr %2567, i64 4
+  %2568 = getelementptr inbounds nuw i8, ptr %2567, i64 4
   store i32 %2563, ptr %2568, align 4
   %2569 = load i32, ptr %2562, align 4
   %2570 = zext i32 %2569 to i64
@@ -5796,12 +5796,12 @@ expand_.exit462.i:                                ; preds = %2493, %2489
   %.1.i474.i = phi ptr [ %2567, %2561 ], [ %.0.i473.i, %2557 ]
   %2577 = add i32 %2576, 1
   store i32 %2577, ptr %.1.i474.i, align 4
-  %2578 = getelementptr inbounds i8, ptr %.1.i474.i, i64 8
+  %2578 = getelementptr inbounds nuw i8, ptr %.1.i474.i, i64 8
   store ptr %2578, ptr %0, align 8
   %2579 = load i32, ptr %.1.i474.i, align 4
   %2580 = add i32 %2579, -1
   %2581 = zext i32 %2580 to i64
-  %2582 = getelementptr inbounds ptr, ptr %2578, i64 %2581
+  %2582 = getelementptr inbounds nuw ptr, ptr %2578, i64 %2581
   store ptr @.str.124, ptr %2582, align 8
   %2583 = load ptr, ptr %0, align 8
   %.not.i477.i = icmp eq ptr %2583, null
@@ -5809,7 +5809,7 @@ expand_.exit462.i:                                ; preds = %2493, %2489
 
 2584:                                             ; preds = %2575
   %2585 = call ptr @calloc_arena(i64 noundef 72) #11
-  %2586 = getelementptr inbounds i8, ptr %2585, i64 4
+  %2586 = getelementptr inbounds nuw i8, ptr %2585, i64 4
   store i32 8, ptr %2586, align 4
   br label %2589
 
@@ -5827,13 +5827,13 @@ expand_.exit462.i:                                ; preds = %2493, %2489
   br i1 %2592, label %2593, label %2607
 
 2593:                                             ; preds = %2589
-  %2594 = getelementptr inbounds i8, ptr %.0.i480.i, i64 4
+  %2594 = getelementptr inbounds nuw i8, ptr %.0.i480.i, i64 4
   %2595 = shl i32 %2590, 1
   %2596 = zext i32 %2595 to i64
   %2597 = shl nuw nsw i64 %2596, 3
   %2598 = or disjoint i64 %2597, 8
   %2599 = call ptr @calloc_arena(i64 noundef %2598) #11
-  %2600 = getelementptr inbounds i8, ptr %2599, i64 4
+  %2600 = getelementptr inbounds nuw i8, ptr %2599, i64 4
   store i32 %2595, ptr %2600, align 4
   %2601 = load i32, ptr %2594, align 4
   %2602 = zext i32 %2601 to i64
@@ -5851,12 +5851,12 @@ expand_.exit462.i:                                ; preds = %2493, %2489
   %.1.i481.i = phi ptr [ %2599, %2593 ], [ %.0.i480.i, %2589 ]
   %2609 = add i32 %2608, 1
   store i32 %2609, ptr %.1.i481.i, align 4
-  %2610 = getelementptr inbounds i8, ptr %.1.i481.i, i64 8
+  %2610 = getelementptr inbounds nuw i8, ptr %.1.i481.i, i64 8
   store ptr %2610, ptr %0, align 8
   %2611 = load i32, ptr %.1.i481.i, align 4
   %2612 = add i32 %2611, -1
   %2613 = zext i32 %2612 to i64
-  %2614 = getelementptr inbounds ptr, ptr %2610, i64 %2613
+  %2614 = getelementptr inbounds nuw ptr, ptr %2610, i64 %2613
   store ptr @.str.125, ptr %2614, align 8
   call void @global_context_add_link(ptr noundef nonnull @.str.84) #11
   call void @global_context_add_link(ptr noundef nonnull @.str.126) #11
@@ -5867,7 +5867,7 @@ expand_.exit462.i:                                ; preds = %2493, %2489
 
 2616:                                             ; preds = %2607
   %2617 = call ptr @calloc_arena(i64 noundef 72) #11
-  %2618 = getelementptr inbounds i8, ptr %2617, i64 4
+  %2618 = getelementptr inbounds nuw i8, ptr %2617, i64 4
   store i32 8, ptr %2618, align 4
   br label %2621
 
@@ -5885,13 +5885,13 @@ expand_.exit462.i:                                ; preds = %2493, %2489
   br i1 %2624, label %2625, label %2639
 
 2625:                                             ; preds = %2621
-  %2626 = getelementptr inbounds i8, ptr %.0.i487.i, i64 4
+  %2626 = getelementptr inbounds nuw i8, ptr %.0.i487.i, i64 4
   %2627 = shl i32 %2622, 1
   %2628 = zext i32 %2627 to i64
   %2629 = shl nuw nsw i64 %2628, 3
   %2630 = or disjoint i64 %2629, 8
   %2631 = call ptr @calloc_arena(i64 noundef %2630) #11
-  %2632 = getelementptr inbounds i8, ptr %2631, i64 4
+  %2632 = getelementptr inbounds nuw i8, ptr %2631, i64 4
   store i32 %2627, ptr %2632, align 4
   %2633 = load i32, ptr %2626, align 4
   %2634 = zext i32 %2633 to i64
@@ -5909,12 +5909,12 @@ expand_.exit462.i:                                ; preds = %2493, %2489
   %.1.i488.i = phi ptr [ %2631, %2625 ], [ %.0.i487.i, %2621 ]
   %2641 = add i32 %2640, 1
   store i32 %2641, ptr %.1.i488.i, align 4
-  %2642 = getelementptr inbounds i8, ptr %.1.i488.i, i64 8
+  %2642 = getelementptr inbounds nuw i8, ptr %.1.i488.i, i64 8
   store ptr %2642, ptr %0, align 8
   %2643 = load i32, ptr %.1.i488.i, align 4
   %2644 = add i32 %2643, -1
   %2645 = zext i32 %2644 to i64
-  %2646 = getelementptr inbounds ptr, ptr %2642, i64 %2645
+  %2646 = getelementptr inbounds nuw ptr, ptr %2642, i64 %2645
   store ptr @.str.108, ptr %2646, align 8
   %2647 = load ptr, ptr %0, align 8
   %.not.i491.i = icmp eq ptr %2647, null
@@ -5922,7 +5922,7 @@ expand_.exit462.i:                                ; preds = %2493, %2489
 
 2648:                                             ; preds = %2639
   %2649 = call ptr @calloc_arena(i64 noundef 72) #11
-  %2650 = getelementptr inbounds i8, ptr %2649, i64 4
+  %2650 = getelementptr inbounds nuw i8, ptr %2649, i64 4
   store i32 8, ptr %2650, align 4
   br label %2653
 
@@ -5940,13 +5940,13 @@ expand_.exit462.i:                                ; preds = %2493, %2489
   br i1 %2656, label %2657, label %2671
 
 2657:                                             ; preds = %2653
-  %2658 = getelementptr inbounds i8, ptr %.0.i494.i, i64 4
+  %2658 = getelementptr inbounds nuw i8, ptr %.0.i494.i, i64 4
   %2659 = shl i32 %2654, 1
   %2660 = zext i32 %2659 to i64
   %2661 = shl nuw nsw i64 %2660, 3
   %2662 = or disjoint i64 %2661, 8
   %2663 = call ptr @calloc_arena(i64 noundef %2662) #11
-  %2664 = getelementptr inbounds i8, ptr %2663, i64 4
+  %2664 = getelementptr inbounds nuw i8, ptr %2663, i64 4
   store i32 %2659, ptr %2664, align 4
   %2665 = load i32, ptr %2658, align 4
   %2666 = zext i32 %2665 to i64
@@ -5964,12 +5964,12 @@ expand_.exit462.i:                                ; preds = %2493, %2489
   %.1.i495.i = phi ptr [ %2663, %2657 ], [ %.0.i494.i, %2653 ]
   %2673 = add i32 %2672, 1
   store i32 %2673, ptr %.1.i495.i, align 4
-  %2674 = getelementptr inbounds i8, ptr %.1.i495.i, i64 8
+  %2674 = getelementptr inbounds nuw i8, ptr %.1.i495.i, i64 8
   store ptr %2674, ptr %0, align 8
   %2675 = load i32, ptr %.1.i495.i, align 4
   %2676 = add i32 %2675, -1
   %2677 = zext i32 %2676 to i64
-  %2678 = getelementptr inbounds ptr, ptr %2674, i64 %2677
+  %2678 = getelementptr inbounds nuw ptr, ptr %2674, i64 %2677
   store ptr @.str.127, ptr %2678, align 8
   %2679 = load ptr, ptr %0, align 8
   %.not.i498.i = icmp eq ptr %2679, null
@@ -5977,7 +5977,7 @@ expand_.exit462.i:                                ; preds = %2493, %2489
 
 2680:                                             ; preds = %2671
   %2681 = call ptr @calloc_arena(i64 noundef 72) #11
-  %2682 = getelementptr inbounds i8, ptr %2681, i64 4
+  %2682 = getelementptr inbounds nuw i8, ptr %2681, i64 4
   store i32 8, ptr %2682, align 4
   br label %2685
 
@@ -5995,13 +5995,13 @@ expand_.exit462.i:                                ; preds = %2493, %2489
   br i1 %2688, label %2689, label %2703
 
 2689:                                             ; preds = %2685
-  %2690 = getelementptr inbounds i8, ptr %.0.i501.i, i64 4
+  %2690 = getelementptr inbounds nuw i8, ptr %.0.i501.i, i64 4
   %2691 = shl i32 %2686, 1
   %2692 = zext i32 %2691 to i64
   %2693 = shl nuw nsw i64 %2692, 3
   %2694 = or disjoint i64 %2693, 8
   %2695 = call ptr @calloc_arena(i64 noundef %2694) #11
-  %2696 = getelementptr inbounds i8, ptr %2695, i64 4
+  %2696 = getelementptr inbounds nuw i8, ptr %2695, i64 4
   store i32 %2691, ptr %2696, align 4
   %2697 = load i32, ptr %2690, align 4
   %2698 = zext i32 %2697 to i64
@@ -6019,12 +6019,12 @@ expand_.exit462.i:                                ; preds = %2493, %2489
   %.1.i502.i = phi ptr [ %2695, %2689 ], [ %.0.i501.i, %2685 ]
   %2705 = add i32 %2704, 1
   store i32 %2705, ptr %.1.i502.i, align 4
-  %2706 = getelementptr inbounds i8, ptr %.1.i502.i, i64 8
+  %2706 = getelementptr inbounds nuw i8, ptr %.1.i502.i, i64 8
   store ptr %2706, ptr %0, align 8
   %2707 = load i32, ptr %.1.i502.i, align 4
   %2708 = add i32 %2707, -1
   %2709 = zext i32 %2708 to i64
-  %2710 = getelementptr inbounds ptr, ptr %2706, i64 %2709
+  %2710 = getelementptr inbounds nuw ptr, ptr %2706, i64 %2709
   store ptr @.str.109, ptr %2710, align 8
   %2711 = load ptr, ptr %0, align 8
   %.not.i505.i = icmp eq ptr %2711, null
@@ -6032,7 +6032,7 @@ expand_.exit462.i:                                ; preds = %2493, %2489
 
 2712:                                             ; preds = %2703
   %2713 = call ptr @calloc_arena(i64 noundef 72) #11
-  %2714 = getelementptr inbounds i8, ptr %2713, i64 4
+  %2714 = getelementptr inbounds nuw i8, ptr %2713, i64 4
   store i32 8, ptr %2714, align 4
   br label %2717
 
@@ -6050,13 +6050,13 @@ expand_.exit462.i:                                ; preds = %2493, %2489
   br i1 %2720, label %2721, label %expand_.exit511.i
 
 2721:                                             ; preds = %2717
-  %2722 = getelementptr inbounds i8, ptr %.0.i508.i, i64 4
+  %2722 = getelementptr inbounds nuw i8, ptr %.0.i508.i, i64 4
   %2723 = shl i32 %2718, 1
   %2724 = zext i32 %2723 to i64
   %2725 = shl nuw nsw i64 %2724, 3
   %2726 = or disjoint i64 %2725, 8
   %2727 = call ptr @calloc_arena(i64 noundef %2726) #11
-  %2728 = getelementptr inbounds i8, ptr %2727, i64 4
+  %2728 = getelementptr inbounds nuw i8, ptr %2727, i64 4
   store i32 %2723, ptr %2728, align 4
   %2729 = load i32, ptr %2722, align 4
   %2730 = zext i32 %2729 to i64
@@ -6074,7 +6074,7 @@ expand_.exit511.i:                                ; preds = %2721, %2717
   %.1.i509.i = phi ptr [ %2727, %2721 ], [ %.0.i508.i, %2717 ]
   %2736 = add i32 %2735, 1
   store i32 %2736, ptr %.1.i509.i, align 4
-  %2737 = getelementptr inbounds i8, ptr %.1.i509.i, i64 8
+  %2737 = getelementptr inbounds nuw i8, ptr %.1.i509.i, i64 8
   store ptr %2737, ptr %0, align 8
   %2738 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 32), align 8
   switch i32 %2738, label %2743 [
@@ -6108,7 +6108,7 @@ expand_.exit511.i:                                ; preds = %2721, %2717
   %2744 = load i32, ptr %.1.i509.sink.i, align 4
   %2745 = add i32 %2744, -1
   %2746 = zext i32 %2745 to i64
-  %2747 = getelementptr inbounds ptr, ptr %.sink514.i, i64 %2746
+  %2747 = getelementptr inbounds nuw ptr, ptr %.sink514.i, i64 %2746
   store ptr %.0.i512.sink.i, ptr %2747, align 8
   br label %linker_setup_windows.exit
 
@@ -6137,7 +6137,7 @@ linker_setup_windows.exit:                        ; preds = %.sink.split.i289, %
 
 2752:                                             ; preds = %.lr.ph
   %2753 = call ptr @calloc_arena(i64 noundef 72) #11
-  %2754 = getelementptr inbounds i8, ptr %2753, i64 4
+  %2754 = getelementptr inbounds nuw i8, ptr %2753, i64 4
   store i32 8, ptr %2754, align 4
   br label %2757
 
@@ -6155,13 +6155,13 @@ linker_setup_windows.exit:                        ; preds = %.sink.split.i289, %
   br i1 %2760, label %2761, label %2775
 
 2761:                                             ; preds = %2757
-  %2762 = getelementptr inbounds i8, ptr %.0.i301, i64 4
+  %2762 = getelementptr inbounds nuw i8, ptr %.0.i301, i64 4
   %2763 = shl i32 %2758, 1
   %2764 = zext i32 %2763 to i64
   %2765 = shl nuw nsw i64 %2764, 3
   %2766 = or disjoint i64 %2765, 8
   %2767 = call ptr @calloc_arena(i64 noundef %2766) #11
-  %2768 = getelementptr inbounds i8, ptr %2767, i64 4
+  %2768 = getelementptr inbounds nuw i8, ptr %2767, i64 4
   store i32 %2763, ptr %2768, align 4
   %2769 = load i32, ptr %2762, align 4
   %2770 = zext i32 %2769 to i64
@@ -6179,14 +6179,14 @@ linker_setup_windows.exit:                        ; preds = %.sink.split.i289, %
   %.1.i302 = phi ptr [ %2767, %2761 ], [ %.0.i301, %2757 ]
   %2777 = add i32 %2776, 1
   store i32 %2777, ptr %.1.i302, align 4
-  %2778 = getelementptr inbounds i8, ptr %.1.i302, i64 8
+  %2778 = getelementptr inbounds nuw i8, ptr %.1.i302, i64 8
   store ptr %2778, ptr %0, align 8
-  %2779 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %2779 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %2780 = load ptr, ptr %2779, align 8
   %2781 = load i32, ptr %.1.i302, align 4
   %2782 = add i32 %2781, -1
   %2783 = zext i32 %2782 to i64
-  %2784 = getelementptr inbounds ptr, ptr %2778, i64 %2783
+  %2784 = getelementptr inbounds nuw ptr, ptr %2778, i64 %2783
   store ptr %2780, ptr %2784, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -6215,7 +6215,7 @@ linker_setup_windows.exit:                        ; preds = %.sink.split.i289, %
 
 2790:                                             ; preds = %.lr.ph329
   %2791 = call ptr @calloc_arena(i64 noundef 72) #11
-  %2792 = getelementptr inbounds i8, ptr %2791, i64 4
+  %2792 = getelementptr inbounds nuw i8, ptr %2791, i64 4
   store i32 8, ptr %2792, align 4
   br label %2795
 
@@ -6233,13 +6233,13 @@ linker_setup_windows.exit:                        ; preds = %.sink.split.i289, %
   br i1 %2798, label %2799, label %expand_.exit311
 
 2799:                                             ; preds = %2795
-  %2800 = getelementptr inbounds i8, ptr %.0.i308, i64 4
+  %2800 = getelementptr inbounds nuw i8, ptr %.0.i308, i64 4
   %2801 = shl i32 %2796, 1
   %2802 = zext i32 %2801 to i64
   %2803 = shl nuw nsw i64 %2802, 3
   %2804 = or disjoint i64 %2803, 8
   %2805 = call ptr @calloc_arena(i64 noundef %2804) #11
-  %2806 = getelementptr inbounds i8, ptr %2805, i64 4
+  %2806 = getelementptr inbounds nuw i8, ptr %2805, i64 4
   store i32 %2801, ptr %2806, align 4
   %2807 = load i32, ptr %2800, align 4
   %2808 = zext i32 %2807 to i64
@@ -6257,10 +6257,10 @@ expand_.exit311:                                  ; preds = %2795, %2799
   %.1.i309 = phi ptr [ %2805, %2799 ], [ %.0.i308, %2795 ]
   %2814 = add i32 %2813, 1
   store i32 %2814, ptr %.1.i309, align 4
-  %2815 = getelementptr inbounds i8, ptr %.1.i309, i64 8
+  %2815 = getelementptr inbounds nuw i8, ptr %.1.i309, i64 8
   store ptr %2815, ptr %0, align 8
   %2816 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 72), align 8
-  %2817 = getelementptr inbounds ptr, ptr %2816, i64 %indvars.iv348
+  %2817 = getelementptr inbounds nuw ptr, ptr %2816, i64 %indvars.iv348
   %2818 = load ptr, ptr %2817, align 8
   %2819 = call ptr @str_cat(ptr noundef nonnull %195, ptr noundef %2818) #11
   %2820 = load ptr, ptr %0, align 8
@@ -6276,7 +6276,7 @@ expand_.exit311:                                  ; preds = %2795, %2799
 
 2826:                                             ; preds = %expand_.exit311, %2821
   %.0187 = phi i64 [ %2825, %2821 ], [ 4294967295, %expand_.exit311 ]
-  %2827 = getelementptr inbounds ptr, ptr %2820, i64 %.0187
+  %2827 = getelementptr inbounds nuw ptr, ptr %2820, i64 %.0187
   store ptr %2819, ptr %2827, align 8
   %indvars.iv.next349 = add nuw nsw i64 %indvars.iv348, 1
   %exitcond352.not = icmp eq i64 %indvars.iv.next349, %wide.trip.count351
@@ -6305,7 +6305,7 @@ expand_.exit311:                                  ; preds = %2795, %2799
 
 2833:                                             ; preds = %.lr.ph333
   %2834 = call ptr @calloc_arena(i64 noundef 72) #11
-  %2835 = getelementptr inbounds i8, ptr %2834, i64 4
+  %2835 = getelementptr inbounds nuw i8, ptr %2834, i64 4
   store i32 8, ptr %2835, align 4
   br label %2838
 
@@ -6323,13 +6323,13 @@ expand_.exit311:                                  ; preds = %2795, %2799
   br i1 %2841, label %2842, label %2856
 
 2842:                                             ; preds = %2838
-  %2843 = getelementptr inbounds i8, ptr %.0.i315, i64 4
+  %2843 = getelementptr inbounds nuw i8, ptr %.0.i315, i64 4
   %2844 = shl i32 %2839, 1
   %2845 = zext i32 %2844 to i64
   %2846 = shl nuw nsw i64 %2845, 3
   %2847 = or disjoint i64 %2846, 8
   %2848 = call ptr @calloc_arena(i64 noundef %2847) #11
-  %2849 = getelementptr inbounds i8, ptr %2848, i64 4
+  %2849 = getelementptr inbounds nuw i8, ptr %2848, i64 4
   store i32 %2844, ptr %2849, align 4
   %2850 = load i32, ptr %2843, align 4
   %2851 = zext i32 %2850 to i64
@@ -6347,15 +6347,15 @@ expand_.exit311:                                  ; preds = %2795, %2799
   %.1.i316 = phi ptr [ %2848, %2842 ], [ %.0.i315, %2838 ]
   %2858 = add i32 %2857, 1
   store i32 %2858, ptr %.1.i316, align 4
-  %2859 = getelementptr inbounds i8, ptr %.1.i316, i64 8
+  %2859 = getelementptr inbounds nuw i8, ptr %.1.i316, i64 8
   store ptr %2859, ptr %0, align 8
   %2860 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 96), align 8
-  %2861 = getelementptr inbounds ptr, ptr %2860, i64 %indvars.iv353
+  %2861 = getelementptr inbounds nuw ptr, ptr %2860, i64 %indvars.iv353
   %2862 = load ptr, ptr %2861, align 8
   %2863 = load i32, ptr %.1.i316, align 4
   %2864 = add i32 %2863, -1
   %2865 = zext i32 %2864 to i64
-  %2866 = getelementptr inbounds ptr, ptr %2859, i64 %2865
+  %2866 = getelementptr inbounds nuw ptr, ptr %2859, i64 %2865
   store ptr %2862, ptr %2866, align 8
   %indvars.iv.next354 = add nuw nsw i64 %indvars.iv353, 1
   %exitcond357.not = icmp eq i64 %indvars.iv.next354, %wide.trip.count356
@@ -6381,11 +6381,11 @@ expand_.exit311:                                  ; preds = %2795, %2799
 .lr.ph341:                                        ; preds = %.lr.ph341.preheader, %._crit_edge338
   %indvars.iv363 = phi i64 [ 0, %.lr.ph341.preheader ], [ %indvars.iv.next364, %._crit_edge338 ]
   %2872 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 8), align 8
-  %2873 = getelementptr inbounds ptr, ptr %2872, i64 %indvars.iv363
+  %2873 = getelementptr inbounds nuw ptr, ptr %2872, i64 %indvars.iv363
   %2874 = load ptr, ptr %2873, align 8
-  %2875 = getelementptr inbounds i8, ptr %2874, i64 32
+  %2875 = getelementptr inbounds nuw i8, ptr %2874, i64 32
   %2876 = load ptr, ptr %2875, align 8
-  %2877 = getelementptr inbounds i8, ptr %2876, i64 16
+  %2877 = getelementptr inbounds nuw i8, ptr %2876, i64 16
   %2878 = load ptr, ptr %2877, align 8
   %.not220 = icmp eq ptr %2878, null
   br i1 %.not220, label %._crit_edge338, label %2879
@@ -6408,7 +6408,7 @@ expand_.exit311:                                  ; preds = %2795, %2799
 
 2883:                                             ; preds = %.lr.ph337
   %2884 = call ptr @calloc_arena(i64 noundef 72) #11
-  %2885 = getelementptr inbounds i8, ptr %2884, i64 4
+  %2885 = getelementptr inbounds nuw i8, ptr %2884, i64 4
   store i32 8, ptr %2885, align 4
   br label %2888
 
@@ -6426,13 +6426,13 @@ expand_.exit311:                                  ; preds = %2795, %2799
   br i1 %2891, label %2892, label %2906
 
 2892:                                             ; preds = %2888
-  %2893 = getelementptr inbounds i8, ptr %.0.i322, i64 4
+  %2893 = getelementptr inbounds nuw i8, ptr %.0.i322, i64 4
   %2894 = shl i32 %2889, 1
   %2895 = zext i32 %2894 to i64
   %2896 = shl nuw nsw i64 %2895, 3
   %2897 = or disjoint i64 %2896, 8
   %2898 = call ptr @calloc_arena(i64 noundef %2897) #11
-  %2899 = getelementptr inbounds i8, ptr %2898, i64 4
+  %2899 = getelementptr inbounds nuw i8, ptr %2898, i64 4
   store i32 %2894, ptr %2899, align 4
   %2900 = load i32, ptr %2893, align 4
   %2901 = zext i32 %2900 to i64
@@ -6450,22 +6450,22 @@ expand_.exit311:                                  ; preds = %2795, %2799
   %.1.i323 = phi ptr [ %2898, %2892 ], [ %.0.i322, %2888 ]
   %2908 = add i32 %2907, 1
   store i32 %2908, ptr %.1.i323, align 4
-  %2909 = getelementptr inbounds i8, ptr %.1.i323, i64 8
+  %2909 = getelementptr inbounds nuw i8, ptr %.1.i323, i64 8
   store ptr %2909, ptr %0, align 8
   %2910 = load ptr, ptr %2877, align 8
-  %2911 = getelementptr inbounds ptr, ptr %2910, i64 %indvars.iv358
+  %2911 = getelementptr inbounds nuw ptr, ptr %2910, i64 %indvars.iv358
   %2912 = load ptr, ptr %2911, align 8
   %2913 = load i32, ptr %.1.i323, align 4
   %2914 = add i32 %2913, -1
   %2915 = zext i32 %2914 to i64
-  %2916 = getelementptr inbounds ptr, ptr %2909, i64 %2915
+  %2916 = getelementptr inbounds nuw ptr, ptr %2909, i64 %2915
   store ptr %2912, ptr %2916, align 8
   %indvars.iv.next359 = add nuw nsw i64 %indvars.iv358, 1
   %exitcond362.not = icmp eq i64 %indvars.iv.next359, %wide.trip.count361
   br i1 %exitcond362.not, label %._crit_edge338, label %.lr.ph337, !llvm.loop !13
 
 ._crit_edge338:                                   ; preds = %2906, %.lr.ph341, %2879
-  %2917 = getelementptr inbounds i8, ptr %2876, i64 24
+  %2917 = getelementptr inbounds nuw i8, ptr %2876, i64 24
   %2918 = load ptr, ptr %2917, align 8
   call fastcc void @add_linked_libs(ptr noundef %0, ptr noundef %2918, i1 noundef zeroext %10)
   %indvars.iv.next364 = add nuw nsw i64 %indvars.iv363, 1
@@ -6559,7 +6559,7 @@ define dso_local ptr @platform_compiler(ptr noundef %0, ptr noundef %1) local_un
 31:                                               ; preds = %29, %27
   %32 = phi ptr [ %28, %27 ], [ %30, %29 ]
   %33 = call ptr @calloc_arena(i64 noundef 72) #11
-  %34 = getelementptr inbounds i8, ptr %33, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
   store i32 8, ptr %34, align 4
   %35 = load i32, ptr %33, align 4
   %36 = icmp eq i32 %35, 8
@@ -6567,7 +6567,7 @@ define dso_local ptr @platform_compiler(ptr noundef %0, ptr noundef %1) local_un
 
 37:                                               ; preds = %31
   %38 = call ptr @calloc_arena(i64 noundef 136) #11
-  %39 = getelementptr inbounds i8, ptr %38, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   store i32 16, ptr %39, align 4
   %40 = load i32, ptr %34, align 4
   %41 = zext i32 %40 to i64
@@ -6585,11 +6585,11 @@ define dso_local ptr @platform_compiler(ptr noundef %0, ptr noundef %1) local_un
   %.1.i = phi ptr [ %38, %37 ], [ %33, %31 ]
   %48 = add i32 %47, 1
   store i32 %48, ptr %.1.i, align 4
-  %49 = getelementptr inbounds i8, ptr %.1.i, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   store ptr %49, ptr %4, align 8
   %50 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 272), align 8
   %51 = zext i32 %47 to i64
-  %52 = getelementptr inbounds ptr, ptr %49, i64 %51
+  %52 = getelementptr inbounds nuw ptr, ptr %49, i64 %51
   store ptr %50, ptr %52, align 8
   %.not75 = icmp eq ptr %1, null
   br i1 %.not75, label %.critedge86, label %53
@@ -6623,7 +6623,7 @@ define dso_local ptr @platform_compiler(ptr noundef %0, ptr noundef %1) local_un
 
 62:                                               ; preds = %.critedge86
   %63 = call ptr @calloc_arena(i64 noundef 72) #11
-  %64 = getelementptr inbounds i8, ptr %63, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 4
   store i32 8, ptr %64, align 4
   br label %67
 
@@ -6642,13 +6642,13 @@ define dso_local ptr @platform_compiler(ptr noundef %0, ptr noundef %1) local_un
   br i1 %70, label %71, label %85
 
 71:                                               ; preds = %67
-  %72 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   %73 = shl i32 %68, 1
   %74 = zext i32 %73 to i64
   %75 = shl nuw nsw i64 %74, 3
   %76 = or disjoint i64 %75, 8
   %77 = call ptr @calloc_arena(i64 noundef %76) #11
-  %78 = getelementptr inbounds i8, ptr %77, i64 4
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 4
   store i32 %73, ptr %78, align 4
   %79 = load i32, ptr %72, align 4
   %80 = zext i32 %79 to i64
@@ -6666,12 +6666,12 @@ define dso_local ptr @platform_compiler(ptr noundef %0, ptr noundef %1) local_un
   %.1.i87 = phi ptr [ %77, %71 ], [ %.0.i, %67 ]
   %87 = add i32 %86, 1
   store i32 %87, ptr %.1.i87, align 4
-  %88 = getelementptr inbounds i8, ptr %.1.i87, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %.1.i87, i64 8
   store ptr %88, ptr %4, align 8
   %89 = load i32, ptr %.1.i87, align 4
   %90 = add i32 %89, -1
   %91 = zext i32 %90 to i64
-  %92 = getelementptr inbounds ptr, ptr %88, i64 %91
+  %92 = getelementptr inbounds nuw ptr, ptr %88, i64 %91
   store ptr @.str.21, ptr %92, align 8
   br i1 %.not75, label %126, label %93
 
@@ -6682,7 +6682,7 @@ define dso_local ptr @platform_compiler(ptr noundef %0, ptr noundef %1) local_un
 
 95:                                               ; preds = %93
   %96 = call ptr @calloc_arena(i64 noundef 72) #11
-  %97 = getelementptr inbounds i8, ptr %96, i64 4
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 4
   store i32 8, ptr %97, align 4
   br label %100
 
@@ -6700,13 +6700,13 @@ define dso_local ptr @platform_compiler(ptr noundef %0, ptr noundef %1) local_un
   br i1 %103, label %104, label %118
 
 104:                                              ; preds = %100
-  %105 = getelementptr inbounds i8, ptr %.0.i93, i64 4
+  %105 = getelementptr inbounds nuw i8, ptr %.0.i93, i64 4
   %106 = shl i32 %101, 1
   %107 = zext i32 %106 to i64
   %108 = shl nuw nsw i64 %107, 3
   %109 = or disjoint i64 %108, 8
   %110 = call ptr @calloc_arena(i64 noundef %109) #11
-  %111 = getelementptr inbounds i8, ptr %110, i64 4
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 4
   store i32 %106, ptr %111, align 4
   %112 = load i32, ptr %105, align 4
   %113 = zext i32 %112 to i64
@@ -6724,12 +6724,12 @@ define dso_local ptr @platform_compiler(ptr noundef %0, ptr noundef %1) local_un
   %.1.i94 = phi ptr [ %110, %104 ], [ %.0.i93, %100 ]
   %120 = add i32 %119, 1
   store i32 %120, ptr %.1.i94, align 4
-  %121 = getelementptr inbounds i8, ptr %.1.i94, i64 8
+  %121 = getelementptr inbounds nuw i8, ptr %.1.i94, i64 8
   store ptr %121, ptr %4, align 8
   %122 = load i32, ptr %.1.i94, align 4
   %123 = add i32 %122, -1
   %124 = zext i32 %123 to i64
-  %125 = getelementptr inbounds ptr, ptr %121, i64 %124
+  %125 = getelementptr inbounds nuw ptr, ptr %121, i64 %124
   store ptr %1, ptr %125, align 8
   br label %126
 
@@ -6740,7 +6740,7 @@ define dso_local ptr @platform_compiler(ptr noundef %0, ptr noundef %1) local_un
 
 128:                                              ; preds = %126
   %129 = call ptr @calloc_arena(i64 noundef 72) #11
-  %130 = getelementptr inbounds i8, ptr %129, i64 4
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 4
   store i32 8, ptr %130, align 4
   br label %133
 
@@ -6758,13 +6758,13 @@ define dso_local ptr @platform_compiler(ptr noundef %0, ptr noundef %1) local_un
   br i1 %136, label %137, label %151
 
 137:                                              ; preds = %133
-  %138 = getelementptr inbounds i8, ptr %.0.i100, i64 4
+  %138 = getelementptr inbounds nuw i8, ptr %.0.i100, i64 4
   %139 = shl i32 %134, 1
   %140 = zext i32 %139 to i64
   %141 = shl nuw nsw i64 %140, 3
   %142 = or disjoint i64 %141, 8
   %143 = call ptr @calloc_arena(i64 noundef %142) #11
-  %144 = getelementptr inbounds i8, ptr %143, i64 4
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 4
   store i32 %139, ptr %144, align 4
   %145 = load i32, ptr %138, align 4
   %146 = zext i32 %145 to i64
@@ -6782,12 +6782,12 @@ define dso_local ptr @platform_compiler(ptr noundef %0, ptr noundef %1) local_un
   %.1.i101 = phi ptr [ %143, %137 ], [ %.0.i100, %133 ]
   %153 = add i32 %152, 1
   store i32 %153, ptr %.1.i101, align 4
-  %154 = getelementptr inbounds i8, ptr %.1.i101, i64 8
+  %154 = getelementptr inbounds nuw i8, ptr %.1.i101, i64 8
   store ptr %154, ptr %4, align 8
   %155 = load i32, ptr %.1.i101, align 4
   %156 = add i32 %155, -1
   %157 = zext i32 %156 to i64
-  %158 = getelementptr inbounds ptr, ptr %154, i64 %157
+  %158 = getelementptr inbounds nuw ptr, ptr %154, i64 %157
   store ptr %0, ptr %158, align 8
   %159 = load ptr, ptr %4, align 8
   %.not.i104 = icmp eq ptr %159, null
@@ -6795,7 +6795,7 @@ define dso_local ptr @platform_compiler(ptr noundef %0, ptr noundef %1) local_un
 
 160:                                              ; preds = %151
   %161 = call ptr @calloc_arena(i64 noundef 72) #11
-  %162 = getelementptr inbounds i8, ptr %161, i64 4
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 4
   store i32 8, ptr %162, align 4
   br label %165
 
@@ -6813,13 +6813,13 @@ define dso_local ptr @platform_compiler(ptr noundef %0, ptr noundef %1) local_un
   br i1 %168, label %169, label %183
 
 169:                                              ; preds = %165
-  %170 = getelementptr inbounds i8, ptr %.0.i107, i64 4
+  %170 = getelementptr inbounds nuw i8, ptr %.0.i107, i64 4
   %171 = shl i32 %166, 1
   %172 = zext i32 %171 to i64
   %173 = shl nuw nsw i64 %172, 3
   %174 = or disjoint i64 %173, 8
   %175 = call ptr @calloc_arena(i64 noundef %174) #11
-  %176 = getelementptr inbounds i8, ptr %175, i64 4
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 4
   store i32 %171, ptr %176, align 4
   %177 = load i32, ptr %170, align 4
   %178 = zext i32 %177 to i64
@@ -6837,12 +6837,12 @@ define dso_local ptr @platform_compiler(ptr noundef %0, ptr noundef %1) local_un
   %.1.i108 = phi ptr [ %175, %169 ], [ %.0.i107, %165 ]
   %185 = add i32 %184, 1
   store i32 %185, ptr %.1.i108, align 4
-  %186 = getelementptr inbounds i8, ptr %.1.i108, i64 8
+  %186 = getelementptr inbounds nuw i8, ptr %.1.i108, i64 8
   store ptr %186, ptr %4, align 8
   %187 = load i32, ptr %.1.i108, align 4
   %188 = add i32 %187, -1
   %189 = zext i32 %188 to i64
-  %190 = getelementptr inbounds ptr, ptr %186, i64 %189
+  %190 = getelementptr inbounds nuw ptr, ptr %186, i64 %189
   store ptr @.str.22, ptr %190, align 8
   %191 = load ptr, ptr %4, align 8
   %.not.i111 = icmp eq ptr %191, null
@@ -6850,7 +6850,7 @@ define dso_local ptr @platform_compiler(ptr noundef %0, ptr noundef %1) local_un
 
 192:                                              ; preds = %183
   %193 = call ptr @calloc_arena(i64 noundef 72) #11
-  %194 = getelementptr inbounds i8, ptr %193, i64 4
+  %194 = getelementptr inbounds nuw i8, ptr %193, i64 4
   store i32 8, ptr %194, align 4
   br label %197
 
@@ -6868,13 +6868,13 @@ define dso_local ptr @platform_compiler(ptr noundef %0, ptr noundef %1) local_un
   br i1 %200, label %201, label %215
 
 201:                                              ; preds = %197
-  %202 = getelementptr inbounds i8, ptr %.0.i114, i64 4
+  %202 = getelementptr inbounds nuw i8, ptr %.0.i114, i64 4
   %203 = shl i32 %198, 1
   %204 = zext i32 %203 to i64
   %205 = shl nuw nsw i64 %204, 3
   %206 = or disjoint i64 %205, 8
   %207 = call ptr @calloc_arena(i64 noundef %206) #11
-  %208 = getelementptr inbounds i8, ptr %207, i64 4
+  %208 = getelementptr inbounds nuw i8, ptr %207, i64 4
   store i32 %203, ptr %208, align 4
   %209 = load i32, ptr %202, align 4
   %210 = zext i32 %209 to i64
@@ -6892,12 +6892,12 @@ define dso_local ptr @platform_compiler(ptr noundef %0, ptr noundef %1) local_un
   %.1.i115 = phi ptr [ %207, %201 ], [ %.0.i114, %197 ]
   %217 = add i32 %216, 1
   store i32 %217, ptr %.1.i115, align 4
-  %218 = getelementptr inbounds i8, ptr %.1.i115, i64 8
+  %218 = getelementptr inbounds nuw i8, ptr %.1.i115, i64 8
   store ptr %218, ptr %4, align 8
   %219 = load i32, ptr %.1.i115, align 4
   %220 = add i32 %219, -1
   %221 = zext i32 %220 to i64
-  %222 = getelementptr inbounds ptr, ptr %218, i64 %221
+  %222 = getelementptr inbounds nuw ptr, ptr %218, i64 %221
   store ptr %32, ptr %222, align 8
   %223 = load ptr, ptr %4, align 8
   %.not.i118 = icmp eq ptr %223, null
@@ -6916,7 +6916,7 @@ define dso_local ptr @platform_compiler(ptr noundef %0, ptr noundef %1) local_un
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.03438.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %232, %.lr.ph.i ]
-  %227 = getelementptr inbounds ptr, ptr %223, i64 %indvars.iv.i
+  %227 = getelementptr inbounds nuw ptr, ptr %223, i64 %indvars.iv.i
   %228 = load ptr, ptr %227, align 8
   %229 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %228) #13
   %230 = trunc i64 %229 to i32
@@ -6948,13 +6948,13 @@ define dso_local ptr @platform_compiler(ptr noundef %0, ptr noundef %1) local_un
 .lr.ph42.i:                                       ; preds = %.lr.ph42.i, %.lr.ph42.preheader.i
   %indvars.iv49.i = phi i64 [ 0, %.lr.ph42.preheader.i ], [ %indvars.iv.next50.i, %.lr.ph42.i ]
   %.03339.i = phi ptr [ %236, %.lr.ph42.preheader.i ], [ %243, %.lr.ph42.i ]
-  %238 = getelementptr inbounds ptr, ptr %223, i64 %indvars.iv49.i
+  %238 = getelementptr inbounds nuw ptr, ptr %223, i64 %indvars.iv49.i
   %239 = load ptr, ptr %238, align 8
   %240 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %239) #13
   %241 = and i64 %240, 4294967295
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.03339.i, ptr align 1 %239, i64 %241, i1 false)
-  %242 = getelementptr inbounds i8, ptr %.03339.i, i64 %241
-  %243 = getelementptr inbounds i8, ptr %242, i64 1
+  %242 = getelementptr inbounds nuw i8, ptr %.03339.i, i64 %241
+  %243 = getelementptr inbounds nuw i8, ptr %242, i64 1
   store i8 32, ptr %242, align 1
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, %wide.trip.count52.i
@@ -7008,7 +7008,7 @@ define dso_local noundef zeroext i1 @dynamic_lib_linker(ptr noundef %0, ptr noca
 
 14:                                               ; preds = %11
   %15 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %16 = getelementptr inbounds i8, ptr %15, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store i32 8, ptr %16, align 4
   %17 = load i32, ptr %15, align 4
   %18 = icmp eq i32 %17, 8
@@ -7016,7 +7016,7 @@ define dso_local noundef zeroext i1 @dynamic_lib_linker(ptr noundef %0, ptr noca
 
 19:                                               ; preds = %14
   %20 = tail call ptr @calloc_arena(i64 noundef 136) #11
-  %21 = getelementptr inbounds i8, ptr %20, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store i32 16, ptr %21, align 4
   %22 = load i32, ptr %16, align 4
   %23 = zext i32 %22 to i64
@@ -7034,13 +7034,13 @@ define dso_local noundef zeroext i1 @dynamic_lib_linker(ptr noundef %0, ptr noca
   %.1.i = phi ptr [ %20, %19 ], [ %15, %14 ]
   %30 = add i32 %29, 1
   store i32 %30, ptr %.1.i, align 4
-  %31 = getelementptr inbounds i8, ptr %.1.i, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   store ptr %31, ptr %4, align 8
   %32 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 320), align 8
   %33 = load i32, ptr %.1.i, align 4
   %34 = add i32 %33, -1
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds ptr, ptr %31, i64 %35
+  %36 = getelementptr inbounds nuw ptr, ptr %31, i64 %35
   store ptr %32, ptr %36, align 8
   br label %37
 
@@ -7064,7 +7064,7 @@ define dso_local noundef zeroext i1 @dynamic_lib_linker(ptr noundef %0, ptr noca
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.03438.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %48, %.lr.ph.i ]
-  %43 = getelementptr inbounds ptr, ptr %39, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv.i
   %44 = load ptr, ptr %43, align 8
   %45 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %44) #13
   %46 = trunc i64 %45 to i32
@@ -7096,13 +7096,13 @@ define dso_local noundef zeroext i1 @dynamic_lib_linker(ptr noundef %0, ptr noca
 .lr.ph42.i:                                       ; preds = %.lr.ph42.i, %.lr.ph42.preheader.i
   %indvars.iv49.i = phi i64 [ 0, %.lr.ph42.preheader.i ], [ %indvars.iv.next50.i, %.lr.ph42.i ]
   %.03339.i = phi ptr [ %52, %.lr.ph42.preheader.i ], [ %59, %.lr.ph42.i ]
-  %54 = getelementptr inbounds ptr, ptr %39, i64 %indvars.iv49.i
+  %54 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv49.i
   %55 = load ptr, ptr %54, align 8
   %56 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %55) #13
   %57 = and i64 %56, 4294967295
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.03339.i, ptr align 1 %55, i64 %57, i1 false)
-  %58 = getelementptr inbounds i8, ptr %.03339.i, i64 %57
-  %59 = getelementptr inbounds i8, ptr %58, i64 1
+  %58 = getelementptr inbounds nuw i8, ptr %.03339.i, i64 %57
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 1
   store i8 32, ptr %58, align 1
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, %wide.trip.count52.i
@@ -7309,7 +7309,7 @@ define dso_local noundef zeroext i1 @linker(ptr noundef %0, ptr nocapture nounde
   %.03350.i = phi ptr [ @.str.138, %.lr.ph.preheader.i ], [ %21, %.lr.ph.i ]
   %17 = call ptr @str_cat(ptr noundef %.03350.i, ptr noundef nonnull @.str.139) #11
   %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds ptr, ptr %18, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv.i
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @str_cat(ptr noundef %17, ptr noundef %20) #11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -7454,7 +7454,7 @@ define internal fastcc void @add_linked_libs(ptr nocapture noundef nonnull %0, p
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %184
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %184 ]
-  %7 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @str_remove_suffix(ptr noundef %8, ptr noundef nonnull @.str.134) #11
   %.not76 = icmp eq ptr %9, null
@@ -7467,7 +7467,7 @@ define internal fastcc void @add_linked_libs(ptr nocapture noundef nonnull %0, p
 
 12:                                               ; preds = %10
   %13 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %14 = getelementptr inbounds i8, ptr %13, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 8, ptr %14, align 4
   br label %17
 
@@ -7485,13 +7485,13 @@ define internal fastcc void @add_linked_libs(ptr nocapture noundef nonnull %0, p
   br i1 %20, label %21, label %35
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   %23 = shl i32 %18, 1
   %24 = zext i32 %23 to i64
   %25 = shl nuw nsw i64 %24, 3
   %26 = or disjoint i64 %25, 8
   %27 = tail call ptr @calloc_arena(i64 noundef %26) #11
-  %28 = getelementptr inbounds i8, ptr %27, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   store i32 %23, ptr %28, align 4
   %29 = load i32, ptr %22, align 4
   %30 = zext i32 %29 to i64
@@ -7509,12 +7509,12 @@ define internal fastcc void @add_linked_libs(ptr nocapture noundef nonnull %0, p
   %.1.i = phi ptr [ %27, %21 ], [ %.0.i, %17 ]
   %37 = add i32 %36, 1
   store i32 %37, ptr %.1.i, align 4
-  %38 = getelementptr inbounds i8, ptr %.1.i, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   store ptr %38, ptr %0, align 8
   %39 = load i32, ptr %.1.i, align 4
   %40 = add i32 %39, -1
   %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds ptr, ptr %38, i64 %41
+  %42 = getelementptr inbounds nuw ptr, ptr %38, i64 %41
   store ptr @.str.135, ptr %42, align 8
   %43 = load ptr, ptr %0, align 8
   %.not.i82 = icmp eq ptr %43, null
@@ -7522,7 +7522,7 @@ define internal fastcc void @add_linked_libs(ptr nocapture noundef nonnull %0, p
 
 44:                                               ; preds = %35
   %45 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %46 = getelementptr inbounds i8, ptr %45, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
   store i32 8, ptr %46, align 4
   br label %49
 
@@ -7540,13 +7540,13 @@ define internal fastcc void @add_linked_libs(ptr nocapture noundef nonnull %0, p
   br i1 %52, label %53, label %67
 
 53:                                               ; preds = %49
-  %54 = getelementptr inbounds i8, ptr %.0.i85, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i85, i64 4
   %55 = shl i32 %50, 1
   %56 = zext i32 %55 to i64
   %57 = shl nuw nsw i64 %56, 3
   %58 = or disjoint i64 %57, 8
   %59 = tail call ptr @calloc_arena(i64 noundef %58) #11
-  %60 = getelementptr inbounds i8, ptr %59, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 4
   store i32 %55, ptr %60, align 4
   %61 = load i32, ptr %54, align 4
   %62 = zext i32 %61 to i64
@@ -7564,12 +7564,12 @@ define internal fastcc void @add_linked_libs(ptr nocapture noundef nonnull %0, p
   %.1.i86 = phi ptr [ %59, %53 ], [ %.0.i85, %49 ]
   %69 = add i32 %68, 1
   store i32 %69, ptr %.1.i86, align 4
-  %70 = getelementptr inbounds i8, ptr %.1.i86, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %.1.i86, i64 8
   store ptr %70, ptr %0, align 8
   %71 = load i32, ptr %.1.i86, align 4
   %72 = add i32 %71, -1
   %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds ptr, ptr %70, i64 %73
+  %74 = getelementptr inbounds nuw ptr, ptr %70, i64 %73
   store ptr %9, ptr %74, align 8
   br label %184
 
@@ -7587,7 +7587,7 @@ define internal fastcc void @add_linked_libs(ptr nocapture noundef nonnull %0, p
 
 80:                                               ; preds = %79
   %81 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %82 = getelementptr inbounds i8, ptr %81, i64 4
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 4
   store i32 8, ptr %82, align 4
   br label %85
 
@@ -7605,13 +7605,13 @@ define internal fastcc void @add_linked_libs(ptr nocapture noundef nonnull %0, p
   br i1 %88, label %89, label %103
 
 89:                                               ; preds = %85
-  %90 = getelementptr inbounds i8, ptr %.0.i92, i64 4
+  %90 = getelementptr inbounds nuw i8, ptr %.0.i92, i64 4
   %91 = shl i32 %86, 1
   %92 = zext i32 %91 to i64
   %93 = shl nuw nsw i64 %92, 3
   %94 = or disjoint i64 %93, 8
   %95 = tail call ptr @calloc_arena(i64 noundef %94) #11
-  %96 = getelementptr inbounds i8, ptr %95, i64 4
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 4
   store i32 %91, ptr %96, align 4
   %97 = load i32, ptr %90, align 4
   %98 = zext i32 %97 to i64
@@ -7629,12 +7629,12 @@ define internal fastcc void @add_linked_libs(ptr nocapture noundef nonnull %0, p
   %.1.i93 = phi ptr [ %95, %89 ], [ %.0.i92, %85 ]
   %105 = add i32 %104, 1
   store i32 %105, ptr %.1.i93, align 4
-  %106 = getelementptr inbounds i8, ptr %.1.i93, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %.1.i93, i64 8
   store ptr %106, ptr %0, align 8
   %107 = load i32, ptr %.1.i93, align 4
   %108 = add i32 %107, -1
   %109 = zext i32 %108 to i64
-  %110 = getelementptr inbounds ptr, ptr %106, i64 %109
+  %110 = getelementptr inbounds nuw ptr, ptr %106, i64 %109
   store ptr %8, ptr %110, align 8
   br label %184
 
@@ -7643,7 +7643,7 @@ define internal fastcc void @add_linked_libs(ptr nocapture noundef nonnull %0, p
 
 112:                                              ; preds = %111
   %113 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %114 = getelementptr inbounds i8, ptr %113, i64 4
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 4
   store i32 8, ptr %114, align 4
   br label %117
 
@@ -7661,13 +7661,13 @@ define internal fastcc void @add_linked_libs(ptr nocapture noundef nonnull %0, p
   br i1 %120, label %121, label %expand_.exit102
 
 121:                                              ; preds = %117
-  %122 = getelementptr inbounds i8, ptr %.0.i99, i64 4
+  %122 = getelementptr inbounds nuw i8, ptr %.0.i99, i64 4
   %123 = shl i32 %118, 1
   %124 = zext i32 %123 to i64
   %125 = shl nuw nsw i64 %124, 3
   %126 = or disjoint i64 %125, 8
   %127 = tail call ptr @calloc_arena(i64 noundef %126) #11
-  %128 = getelementptr inbounds i8, ptr %127, i64 4
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 4
   store i32 %123, ptr %128, align 4
   %129 = load i32, ptr %122, align 4
   %130 = zext i32 %129 to i64
@@ -7685,7 +7685,7 @@ expand_.exit102:                                  ; preds = %117, %121
   %.1.i100 = phi ptr [ %127, %121 ], [ %.0.i99, %117 ]
   %136 = add i32 %135, 1
   store i32 %136, ptr %.1.i100, align 4
-  %137 = getelementptr inbounds i8, ptr %.1.i100, i64 8
+  %137 = getelementptr inbounds nuw i8, ptr %.1.i100, i64 8
   store ptr %137, ptr %0, align 8
   %138 = tail call ptr @str_cat(ptr noundef %8, ptr noundef nonnull @.str.136) #11
   %139 = load ptr, ptr %0, align 8
@@ -7701,7 +7701,7 @@ expand_.exit102:                                  ; preds = %117, %121
 
 145:                                              ; preds = %expand_.exit102, %140
   %.066 = phi i64 [ %144, %140 ], [ 4294967295, %expand_.exit102 ]
-  %146 = getelementptr inbounds ptr, ptr %139, i64 %.066
+  %146 = getelementptr inbounds nuw ptr, ptr %139, i64 %.066
   store ptr %138, ptr %146, align 8
   br label %184
 
@@ -7712,7 +7712,7 @@ expand_.exit102:                                  ; preds = %117, %121
 
 149:                                              ; preds = %147
   %150 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %151 = getelementptr inbounds i8, ptr %150, i64 4
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 4
   store i32 8, ptr %151, align 4
   br label %154
 
@@ -7730,13 +7730,13 @@ expand_.exit102:                                  ; preds = %117, %121
   br i1 %157, label %158, label %expand_.exit109
 
 158:                                              ; preds = %154
-  %159 = getelementptr inbounds i8, ptr %.0.i106, i64 4
+  %159 = getelementptr inbounds nuw i8, ptr %.0.i106, i64 4
   %160 = shl i32 %155, 1
   %161 = zext i32 %160 to i64
   %162 = shl nuw nsw i64 %161, 3
   %163 = or disjoint i64 %162, 8
   %164 = tail call ptr @calloc_arena(i64 noundef %163) #11
-  %165 = getelementptr inbounds i8, ptr %164, i64 4
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 4
   store i32 %160, ptr %165, align 4
   %166 = load i32, ptr %159, align 4
   %167 = zext i32 %166 to i64
@@ -7754,7 +7754,7 @@ expand_.exit109:                                  ; preds = %154, %158
   %.1.i107 = phi ptr [ %164, %158 ], [ %.0.i106, %154 ]
   %173 = add i32 %172, 1
   store i32 %173, ptr %.1.i107, align 4
-  %174 = getelementptr inbounds i8, ptr %.1.i107, i64 8
+  %174 = getelementptr inbounds nuw i8, ptr %.1.i107, i64 8
   store ptr %174, ptr %0, align 8
   %175 = tail call ptr @str_cat(ptr noundef nonnull @.str.137, ptr noundef %8) #11
   %176 = load ptr, ptr %0, align 8
@@ -7770,7 +7770,7 @@ expand_.exit109:                                  ; preds = %154, %158
 
 182:                                              ; preds = %expand_.exit109, %177
   %.067 = phi i64 [ %181, %177 ], [ 4294967295, %expand_.exit109 ]
-  %183 = getelementptr inbounds ptr, ptr %176, i64 %.067
+  %183 = getelementptr inbounds nuw ptr, ptr %176, i64 %.067
   store ptr %175, ptr %183, align 8
   br label %184
 

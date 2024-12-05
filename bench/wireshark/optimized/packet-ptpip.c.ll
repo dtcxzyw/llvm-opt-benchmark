@@ -469,7 +469,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden void @dissect_ptp_opCode_openSession(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 25, ptr noundef nonnull @.str) #5
   %7 = load i32, ptr @hf_ptp_opCode_param_sessionID, align 4
@@ -498,7 +498,7 @@ define hidden void @dissect_ptp_transactionID(ptr noundef %0, ptr nocapture noun
   %12 = load i16, ptr %3, align 2
   %13 = add i16 %12, 4
   store i16 %13, ptr %3, align 2
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %15, i32 noundef 25, ptr noundef nonnull @.str.1, i32 noundef %7) #5
   ret void
@@ -542,7 +542,7 @@ define internal range(i32 0, 65536) i32 @dissect_ptpIP(ptr noundef %0, ptr nocap
   br i1 %10, label %172, label %11
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void @col_set_str(ptr noundef %13, i32 noundef 34, ptr noundef nonnull @.str.29) #5
   %14 = load ptr, ptr %12, align 8
@@ -572,7 +572,7 @@ define internal range(i32 0, 65536) i32 @dissect_ptpIP(ptr noundef %0, ptr nocap
 24:                                               ; preds = %11
   %25 = load ptr, ptr %12, align 8
   tail call void @col_set_str(ptr noundef %25, i32 noundef 25, ptr noundef nonnull @.str.122) #5
-  %26 = getelementptr inbounds i8, ptr %1, i64 408
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %27 = load ptr, ptr %26, align 8
   %28 = tail call ptr @tvb_bytes_to_str(ptr noundef %27, ptr noundef %0, i32 noundef 8, i32 noundef 16) #5
   %29 = load i32, ptr @hf_ptpIP_guid, align 4
@@ -609,7 +609,7 @@ define internal range(i32 0, 65536) i32 @dissect_ptpIP(ptr noundef %0, ptr nocap
   %51 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %50, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef -2147483648) #5
   %52 = load ptr, ptr %12, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %52, i32 noundef 25, ptr noundef nonnull @.str.127, i32 noundef %49) #5
-  %53 = getelementptr inbounds i8, ptr %1, i64 408
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %54 = load ptr, ptr %53, align 8
   %55 = tail call ptr @tvb_bytes_to_str(ptr noundef %54, ptr noundef %0, i32 noundef 12, i32 noundef 16) #5
   %56 = load i32, ptr @hf_ptpIP_guid, align 4
@@ -766,7 +766,7 @@ dissect_ptpIP_operation_request.exit:             ; preds = %105, %106, %108, %1
 
 switch.lookup:                                    ; preds = %124
   %127 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table.dissect_ptpIP, i64 0, i64 %127
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.dissect_ptpIP, i64 0, i64 %127
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %128
 

@@ -519,17 +519,17 @@ define internal i32 @dissect_modbus(ptr noundef %0, ptr noundef %1, ptr noundef 
   %16 = and i8 %15, 127
   %17 = load i32, ptr @hf_modbus_functioncode, align 4
   %18 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %17, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #5
-  %19 = getelementptr inbounds i8, ptr %3, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %20 = load i16, ptr %19, align 4
   %21 = zext i16 %20 to i32
-  %22 = getelementptr inbounds i8, ptr %3, i64 6
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 6
   %23 = load i8, ptr %22, align 2
   %24 = zext i8 %23 to i32
   %25 = shl nuw nsw i32 %24, 16
   %26 = or disjoint i32 %25, %21
-  %27 = getelementptr inbounds i8, ptr %1, i64 80
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 50
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 50
   %30 = load i16, ptr %29, align 2
   %31 = and i16 %30, 8
   %.not = icmp eq i16 %31, 0
@@ -551,7 +551,7 @@ define internal i32 @dissect_modbus(ptr noundef %0, ptr noundef %1, ptr noundef 
   %43 = tail call noalias ptr @wmem_list_new(ptr noundef %42) #5
   store ptr %43, ptr %41, align 8
   %44 = load i32, ptr @global_mbus_register_format, align 4
-  %45 = getelementptr inbounds i8, ptr %41, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store i32 %44, ptr %45, align 8
   %46 = load i32, ptr @proto_modbus, align 4
   tail call void @conversation_add_proto_data(ptr noundef nonnull %33, i32 noundef %46, ptr noundef nonnull %41) #5
@@ -559,9 +559,9 @@ define internal i32 @dissect_modbus(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 47:                                               ; preds = %39, %32
   %.0115 = phi ptr [ %41, %39 ], [ %35, %32 ]
-  %48 = getelementptr inbounds i8, ptr %.0115, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %.0115, i64 8
   %49 = load i32, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %37, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %37, i64 4
   store i32 %49, ptr %50, align 4
   %51 = load i32, ptr %3, align 4
   switch i32 %51, label %.critedge [
@@ -573,40 +573,40 @@ define internal i32 @dissect_modbus(ptr noundef %0, ptr noundef %1, ptr noundef 
   %53 = tail call ptr @wmem_file_scope() #5
   %54 = tail call noalias ptr @wmem_alloc0(ptr noundef %53, i64 noundef 32) #5
   %55 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
-  %56 = getelementptr inbounds i8, ptr %1, i64 20
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %57 = load i32, ptr %56, align 4
   store i32 %57, ptr %54, align 8
-  %58 = getelementptr inbounds i8, ptr %54, i64 4
+  %58 = getelementptr inbounds nuw i8, ptr %54, i64 4
   store i8 %16, ptr %58, align 4
   %59 = load i16, ptr %19, align 4
-  %60 = getelementptr inbounds i8, ptr %54, i64 6
+  %60 = getelementptr inbounds nuw i8, ptr %54, i64 6
   store i16 %59, ptr %60, align 2
   %61 = load i8, ptr %22, align 2
-  %62 = getelementptr inbounds i8, ptr %54, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store i8 %61, ptr %62, align 8
   %63 = icmp sgt i32 %55, 2
   br i1 %63, label %64, label %73
 
 64:                                               ; preds = %52
   %65 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 1) #5
-  %66 = getelementptr inbounds i8, ptr %54, i64 10
+  %66 = getelementptr inbounds nuw i8, ptr %54, i64 10
   store i16 %65, ptr %66, align 2
-  %67 = getelementptr inbounds i8, ptr %37, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i16 %65, ptr %67, align 8
   %68 = icmp samesign ugt i32 %55, 4
   br i1 %68, label %69, label %73
 
 69:                                               ; preds = %64
   %70 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 3) #5
-  %71 = getelementptr inbounds i8, ptr %54, i64 12
+  %71 = getelementptr inbounds nuw i8, ptr %54, i64 12
   store i16 %70, ptr %71, align 4
-  %72 = getelementptr inbounds i8, ptr %37, i64 10
+  %72 = getelementptr inbounds nuw i8, ptr %37, i64 10
   store i16 %70, ptr %72, align 2
   br label %73
 
 73:                                               ; preds = %64, %69, %52
-  %74 = getelementptr inbounds i8, ptr %54, i64 16
-  %75 = getelementptr inbounds i8, ptr %1, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %54, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %74, ptr noundef nonnull align 8 dereferenceable(16) %75, i64 16, i1 false)
   %76 = load ptr, ptr %.0115, align 8
   tail call void @wmem_list_prepend(ptr noundef %76, ptr noundef nonnull %54) #5
@@ -615,16 +615,16 @@ define internal i32 @dissect_modbus(ptr noundef %0, ptr noundef %1, ptr noundef 
 77:                                               ; preds = %47
   %78 = load ptr, ptr %.0115, align 8
   %79 = tail call ptr @wmem_list_head(ptr noundef %78) #5
-  %80 = getelementptr inbounds i8, ptr %37, i64 32
+  %80 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %.not124140 = icmp eq ptr %79, null
   br i1 %.not124140, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %77
-  %81 = getelementptr inbounds i8, ptr %1, i64 20
-  %82 = getelementptr inbounds i8, ptr %37, i64 8
-  %83 = getelementptr inbounds i8, ptr %37, i64 10
-  %84 = getelementptr inbounds i8, ptr %37, i64 12
-  %85 = getelementptr inbounds i8, ptr %37, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %82 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %37, i64 10
+  %84 = getelementptr inbounds nuw i8, ptr %37, i64 12
+  %85 = getelementptr inbounds nuw i8, ptr %37, i64 16
   br label %86
 
 86:                                               ; preds = %.lr.ph, %113
@@ -636,16 +636,16 @@ define internal i32 @dissect_modbus(ptr noundef %0, ptr noundef %1, ptr noundef 
 88:                                               ; preds = %86
   %89 = tail call ptr @wmem_list_frame_data(ptr noundef nonnull %.0141) #5
   %90 = load i32, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %89, i64 6
+  %91 = getelementptr inbounds nuw i8, ptr %89, i64 6
   %92 = load i16, ptr %91, align 2
-  %93 = getelementptr inbounds i8, ptr %89, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %94 = load i8, ptr %93, align 8
   %95 = load i32, ptr %81, align 4
   %96 = icmp ugt i32 %95, %90
   br i1 %96, label %97, label %113
 
 97:                                               ; preds = %88
-  %98 = getelementptr inbounds i8, ptr %89, i64 4
+  %98 = getelementptr inbounds nuw i8, ptr %89, i64 4
   %99 = load i8, ptr %98, align 4
   %100 = icmp eq i8 %99, %16
   br i1 %100, label %101, label %113
@@ -661,15 +661,15 @@ define internal i32 @dissect_modbus(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %106, label %107, label %113
 
 107:                                              ; preds = %104
-  %108 = getelementptr inbounds i8, ptr %89, i64 10
+  %108 = getelementptr inbounds nuw i8, ptr %89, i64 10
   %109 = load i16, ptr %108, align 2
   store i16 %109, ptr %82, align 8
-  %110 = getelementptr inbounds i8, ptr %89, i64 12
+  %110 = getelementptr inbounds nuw i8, ptr %89, i64 12
   %111 = load i16, ptr %110, align 4
   store i16 %111, ptr %83, align 2
   store i32 1, ptr %80, align 8
   store i32 %90, ptr %84, align 4
-  %112 = getelementptr inbounds i8, ptr %89, i64 16
+  %112 = getelementptr inbounds nuw i8, ptr %89, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %85, ptr noundef nonnull align 8 dereferenceable(16) %112, i64 16, i1 false)
   br label %113
 
@@ -760,7 +760,7 @@ define internal i32 @dissect_modbus(ptr noundef %0, ptr noundef %1, ptr noundef 
 146:                                              ; preds = %135
   %147 = load i32, ptr @hf_modbus_reference, align 4
   %148 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %147, ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef 0) #5
-  %149 = getelementptr inbounds i8, ptr %.0114, i64 4
+  %149 = getelementptr inbounds nuw i8, ptr %.0114, i64 4
   %150 = load i32, ptr %149, align 4
   tail call fastcc void @dissect_modbus_data(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %14, i8 noundef zeroext 5, i32 noundef 3, i32 noundef 1, i32 noundef %150, i16 noundef zeroext 0, i16 noundef zeroext 0)
   %151 = load i32, ptr @hf_modbus_padding, align 4
@@ -771,7 +771,7 @@ define internal i32 @dissect_modbus(ptr noundef %0, ptr noundef %1, ptr noundef 
   %154 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 1) #5
   %155 = load i32, ptr @hf_modbus_reference, align 4
   %156 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %155, ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef 0) #5
-  %157 = getelementptr inbounds i8, ptr %.0114, i64 4
+  %157 = getelementptr inbounds nuw i8, ptr %.0114, i64 4
   %158 = load i32, ptr %157, align 4
   tail call fastcc void @dissect_modbus_data(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %14, i8 noundef zeroext 6, i32 noundef 3, i32 noundef 2, i32 noundef %158, i16 noundef zeroext %154, i16 noundef zeroext 0)
   br label %.loopexit.i
@@ -813,7 +813,7 @@ define internal i32 @dissect_modbus(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 178:                                              ; preds = %176
   %179 = add i32 %8, -3
-  %180 = getelementptr inbounds i8, ptr %.0114, i64 4
+  %180 = getelementptr inbounds nuw i8, ptr %.0114, i64 4
   %181 = load i32, ptr %180, align 4
   tail call fastcc void @dissect_modbus_data(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %14, i8 noundef zeroext 8, i32 noundef 3, i32 noundef %179, i32 noundef %181, i16 noundef zeroext 0, i16 noundef zeroext 0)
   br label %.loopexit.i
@@ -829,7 +829,7 @@ define internal i32 @dissect_modbus(ptr noundef %0, ptr noundef %1, ptr noundef 
   %190 = zext i8 %189 to i32
   %191 = load i32, ptr @hf_modbus_bytecnt, align 4
   %192 = tail call ptr @proto_tree_add_uint(ptr noundef %14, i32 noundef %191, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef %190) #5
-  %193 = getelementptr inbounds i8, ptr %.0114, i64 4
+  %193 = getelementptr inbounds nuw i8, ptr %.0114, i64 4
   %194 = load i32, ptr %193, align 4
   tail call fastcc void @dissect_modbus_data(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %14, i8 noundef zeroext 15, i32 noundef 6, i32 noundef %190, i32 noundef %194, i16 noundef zeroext %183, i16 noundef zeroext %184)
   br label %.loopexit.i
@@ -844,7 +844,7 @@ define internal i32 @dissect_modbus(ptr noundef %0, ptr noundef %1, ptr noundef 
   %202 = zext i8 %201 to i32
   %203 = load i32, ptr @hf_modbus_bytecnt, align 4
   %204 = tail call ptr @proto_tree_add_uint(ptr noundef %14, i32 noundef %203, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef %202) #5
-  %205 = getelementptr inbounds i8, ptr %.0114, i64 4
+  %205 = getelementptr inbounds nuw i8, ptr %.0114, i64 4
   %206 = load i32, ptr %205, align 4
   tail call fastcc void @dissect_modbus_data(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %14, i8 noundef zeroext 16, i32 noundef 6, i32 noundef %202, i32 noundef %206, i16 noundef zeroext %196, i16 noundef zeroext 0)
   br label %.loopexit.i
@@ -886,7 +886,7 @@ define internal i32 @dissect_modbus(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not259.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %225
-  %230 = getelementptr inbounds i8, ptr %.0114, i64 4
+  %230 = getelementptr inbounds nuw i8, ptr %.0114, i64 4
   br label %231
 
 231:                                              ; preds = %231, %.lr.ph.i
@@ -938,7 +938,7 @@ define internal i32 @dissect_modbus(ptr noundef %0, ptr noundef %1, ptr noundef 
   %269 = zext i8 %268 to i32
   %270 = load i32, ptr @hf_modbus_bytecnt, align 4
   %271 = tail call ptr @proto_tree_add_uint(ptr noundef %14, i32 noundef %270, ptr noundef %0, i32 noundef 9, i32 noundef 1, i32 noundef %269) #5
-  %272 = getelementptr inbounds i8, ptr %.0114, i64 4
+  %272 = getelementptr inbounds nuw i8, ptr %.0114, i64 4
   %273 = load i32, ptr %272, align 4
   tail call fastcc void @dissect_modbus_data(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %14, i8 noundef zeroext 23, i32 noundef 10, i32 noundef %269, i32 noundef %273, i16 noundef zeroext 0, i16 noundef zeroext 0)
   br label %.loopexit.i
@@ -968,7 +968,7 @@ define internal i32 @dissect_modbus(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 288:                                              ; preds = %286
   %289 = add i32 %8, -2
-  %290 = getelementptr inbounds i8, ptr %.0114, i64 4
+  %290 = getelementptr inbounds nuw i8, ptr %.0114, i64 4
   %291 = load i32, ptr %290, align 4
   tail call fastcc void @dissect_modbus_data(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %14, i8 noundef zeroext 43, i32 noundef 1, i32 noundef %289, i32 noundef %291, i16 noundef zeroext 0, i16 noundef zeroext 0)
   br label %.loopexit.i
@@ -978,7 +978,7 @@ define internal i32 @dissect_modbus(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %293, label %294, label %.loopexit.i
 
 294:                                              ; preds = %292
-  %295 = getelementptr inbounds i8, ptr %.0114, i64 4
+  %295 = getelementptr inbounds nuw i8, ptr %.0114, i64 4
   %296 = load i32, ptr %295, align 4
   tail call fastcc void @dissect_modbus_data(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %14, i8 noundef zeroext range(i8 0, -128) %16, i32 noundef 1, i32 noundef range(i32 0, -1) %132, i32 noundef %296, i16 noundef zeroext 0, i16 noundef zeroext 0)
   br label %.loopexit.i
@@ -993,37 +993,37 @@ define internal i32 @dissect_modbus(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not.i128, label %dissect_modbus_response.exit, label %299
 
 299:                                              ; preds = %298
-  %300 = getelementptr inbounds i8, ptr %.0114, i64 10
+  %300 = getelementptr inbounds nuw i8, ptr %.0114, i64 10
   %301 = load i16, ptr %300, align 2
-  %302 = getelementptr inbounds i8, ptr %.0114, i64 32
+  %302 = getelementptr inbounds nuw i8, ptr %.0114, i64 32
   %303 = load i32, ptr %302, align 8
   %304 = icmp eq i32 %303, 1
   br i1 %304, label %305, label %proto_item_set_generated.exit473.i
 
 305:                                              ; preds = %299
   %306 = load i32, ptr @hf_modbus_request_frame, align 4
-  %307 = getelementptr inbounds i8, ptr %.0114, i64 12
+  %307 = getelementptr inbounds nuw i8, ptr %.0114, i64 12
   %308 = load i32, ptr %307, align 4
   %309 = tail call ptr @proto_tree_add_uint(ptr noundef %14, i32 noundef %306, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %308) #5
   %.not.i.i = icmp eq ptr %309, null
   br i1 %.not.i.i, label %proto_item_set_generated.exit.i, label %310
 
 310:                                              ; preds = %305
-  %311 = getelementptr inbounds i8, ptr %309, i64 32
+  %311 = getelementptr inbounds nuw i8, ptr %309, i64 32
   %312 = load ptr, ptr %311, align 8
   %.not5.i.i = icmp eq ptr %312, null
   br i1 %.not5.i.i, label %proto_item_set_generated.exit.i, label %313
 
 313:                                              ; preds = %310
-  %314 = getelementptr inbounds i8, ptr %312, i64 28
+  %314 = getelementptr inbounds nuw i8, ptr %312, i64 28
   %315 = load i32, ptr %314, align 4
   %316 = or i32 %315, 2
   store i32 %316, ptr %314, align 4
   br label %proto_item_set_generated.exit.i
 
 proto_item_set_generated.exit.i:                  ; preds = %313, %310, %305
-  %317 = getelementptr inbounds i8, ptr %1, i64 24
-  %318 = getelementptr inbounds i8, ptr %.0114, i64 16
+  %317 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %318 = getelementptr inbounds nuw i8, ptr %.0114, i64 16
   call void @nstime_delta(ptr noundef nonnull %5, ptr noundef nonnull %317, ptr noundef nonnull %318) #5
   %319 = load i32, ptr @hf_modbus_response_time, align 4
   %320 = call ptr @proto_tree_add_time(ptr noundef %14, i32 noundef %319, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %5) #5
@@ -1031,13 +1031,13 @@ proto_item_set_generated.exit.i:                  ; preds = %313, %310, %305
   br i1 %.not.i471.i, label %proto_item_set_generated.exit473.i, label %321
 
 321:                                              ; preds = %proto_item_set_generated.exit.i
-  %322 = getelementptr inbounds i8, ptr %320, i64 32
+  %322 = getelementptr inbounds nuw i8, ptr %320, i64 32
   %323 = load ptr, ptr %322, align 8
   %.not5.i472.i = icmp eq ptr %323, null
   br i1 %.not5.i472.i, label %proto_item_set_generated.exit473.i, label %324
 
 324:                                              ; preds = %321
-  %325 = getelementptr inbounds i8, ptr %323, i64 28
+  %325 = getelementptr inbounds nuw i8, ptr %323, i64 28
   %326 = load i32, ptr %325, align 4
   %327 = or i32 %326, 2
   store i32 %327, ptr %325, align 4
@@ -1075,9 +1075,9 @@ proto_item_set_generated.exit473.i:               ; preds = %324, %321, %proto_i
   %.tr.i = zext i8 %329 to i16
   %334 = shl nuw nsw i16 %.tr.i, 3
   %.0450.i = select i1 %.not470.i, i16 %334, i16 %301
-  %335 = getelementptr inbounds i8, ptr %.0114, i64 4
+  %335 = getelementptr inbounds nuw i8, ptr %.0114, i64 4
   %336 = load i32, ptr %335, align 4
-  %337 = getelementptr inbounds i8, ptr %.0114, i64 8
+  %337 = getelementptr inbounds nuw i8, ptr %.0114, i64 8
   %338 = load i16, ptr %337, align 8
   call fastcc void @dissect_modbus_data(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %14, i8 noundef zeroext range(i8 0, -128) %16, i32 noundef 2, i32 noundef %330, i32 noundef %336, i16 noundef zeroext %338, i16 noundef zeroext %.0450.i)
   br label %.loopexit.i130
@@ -1087,9 +1087,9 @@ proto_item_set_generated.exit473.i:               ; preds = %324, %321, %proto_i
   %341 = zext i8 %340 to i32
   %342 = load i32, ptr @hf_modbus_bytecnt, align 4
   %343 = call ptr @proto_tree_add_uint(ptr noundef %14, i32 noundef %342, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %341) #5
-  %344 = getelementptr inbounds i8, ptr %.0114, i64 4
+  %344 = getelementptr inbounds nuw i8, ptr %.0114, i64 4
   %345 = load i32, ptr %344, align 4
-  %346 = getelementptr inbounds i8, ptr %.0114, i64 8
+  %346 = getelementptr inbounds nuw i8, ptr %.0114, i64 8
   %347 = load i16, ptr %346, align 8
   call fastcc void @dissect_modbus_data(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %14, i8 noundef zeroext range(i8 0, -128) %16, i32 noundef 2, i32 noundef %341, i32 noundef %345, i16 noundef zeroext %347, i16 noundef zeroext 0)
   br label %.loopexit.i130
@@ -1097,9 +1097,9 @@ proto_item_set_generated.exit473.i:               ; preds = %324, %321, %proto_i
 348:                                              ; preds = %proto_item_set_generated.exit473.i
   %349 = load i32, ptr @hf_modbus_reference, align 4
   %350 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %349, ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef 0) #5
-  %351 = getelementptr inbounds i8, ptr %.0114, i64 4
+  %351 = getelementptr inbounds nuw i8, ptr %.0114, i64 4
   %352 = load i32, ptr %351, align 4
-  %353 = getelementptr inbounds i8, ptr %.0114, i64 8
+  %353 = getelementptr inbounds nuw i8, ptr %.0114, i64 8
   %354 = load i16, ptr %353, align 8
   call fastcc void @dissect_modbus_data(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %14, i8 noundef zeroext 5, i32 noundef 3, i32 noundef 1, i32 noundef %352, i16 noundef zeroext %354, i16 noundef zeroext 0)
   %355 = load i32, ptr @hf_modbus_padding, align 4
@@ -1109,17 +1109,17 @@ proto_item_set_generated.exit473.i:               ; preds = %324, %321, %proto_i
 357:                                              ; preds = %proto_item_set_generated.exit473.i
   %358 = load i32, ptr @hf_modbus_reference, align 4
   %359 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %358, ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef 0) #5
-  %360 = getelementptr inbounds i8, ptr %.0114, i64 4
+  %360 = getelementptr inbounds nuw i8, ptr %.0114, i64 4
   %361 = load i32, ptr %360, align 4
-  %362 = getelementptr inbounds i8, ptr %.0114, i64 8
+  %362 = getelementptr inbounds nuw i8, ptr %.0114, i64 8
   %363 = load i16, ptr %362, align 8
   call fastcc void @dissect_modbus_data(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %14, i8 noundef zeroext 6, i32 noundef 3, i32 noundef 2, i32 noundef %361, i16 noundef zeroext %363, i16 noundef zeroext 0)
   br label %.loopexit.i130
 
 364:                                              ; preds = %proto_item_set_generated.exit473.i
-  %365 = getelementptr inbounds i8, ptr %.0114, i64 4
+  %365 = getelementptr inbounds nuw i8, ptr %.0114, i64 4
   %366 = load i32, ptr %365, align 4
-  %367 = getelementptr inbounds i8, ptr %.0114, i64 8
+  %367 = getelementptr inbounds nuw i8, ptr %.0114, i64 8
   %368 = load i16, ptr %367, align 8
   call fastcc void @dissect_modbus_data(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %14, i8 noundef zeroext 7, i32 noundef 1, i32 noundef 1, i32 noundef %366, i16 noundef zeroext %368, i16 noundef zeroext 0)
   br label %.loopexit.i130
@@ -1221,9 +1221,9 @@ proto_item_set_generated.exit473.i:               ; preds = %324, %321, %proto_i
 
 418:                                              ; preds = %416
   %419 = add i32 %8, -3
-  %420 = getelementptr inbounds i8, ptr %.0114, i64 4
+  %420 = getelementptr inbounds nuw i8, ptr %.0114, i64 4
   %421 = load i32, ptr %420, align 4
-  %422 = getelementptr inbounds i8, ptr %.0114, i64 8
+  %422 = getelementptr inbounds nuw i8, ptr %.0114, i64 8
   %423 = load i16, ptr %422, align 8
   call fastcc void @dissect_modbus_data(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %14, i8 noundef zeroext 8, i32 noundef 3, i32 noundef %419, i32 noundef %421, i16 noundef zeroext %423, i16 noundef zeroext 0)
   br label %.loopexit.i130
@@ -1349,8 +1349,8 @@ proto_item_set_generated.exit473.i:               ; preds = %324, %321, %proto_i
   br i1 %.not492.i, label %.loopexit.i130, label %.lr.ph486.i
 
 .lr.ph486.i:                                      ; preds = %499
-  %504 = getelementptr inbounds i8, ptr %.0114, i64 4
-  %505 = getelementptr inbounds i8, ptr %.0114, i64 8
+  %504 = getelementptr inbounds nuw i8, ptr %.0114, i64 4
+  %505 = getelementptr inbounds nuw i8, ptr %.0114, i64 8
   br label %506
 
 506:                                              ; preds = %506, %.lr.ph486.i
@@ -1387,8 +1387,8 @@ proto_item_set_generated.exit473.i:               ; preds = %324, %321, %proto_i
   br i1 %.not491.i, label %.loopexit.i130, label %.lr.ph482.i
 
 .lr.ph482.i:                                      ; preds = %525
-  %530 = getelementptr inbounds i8, ptr %.0114, i64 4
-  %531 = getelementptr inbounds i8, ptr %.0114, i64 8
+  %530 = getelementptr inbounds nuw i8, ptr %.0114, i64 4
+  %531 = getelementptr inbounds nuw i8, ptr %.0114, i64 8
   br label %532
 
 532:                                              ; preds = %532, %.lr.ph482.i
@@ -1433,9 +1433,9 @@ proto_item_set_generated.exit473.i:               ; preds = %324, %321, %proto_i
   %563 = zext i8 %562 to i32
   %564 = load i32, ptr @hf_modbus_bytecnt, align 4
   %565 = call ptr @proto_tree_add_uint(ptr noundef %14, i32 noundef %564, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %563) #5
-  %566 = getelementptr inbounds i8, ptr %.0114, i64 4
+  %566 = getelementptr inbounds nuw i8, ptr %.0114, i64 4
   %567 = load i32, ptr %566, align 4
-  %568 = getelementptr inbounds i8, ptr %.0114, i64 8
+  %568 = getelementptr inbounds nuw i8, ptr %.0114, i64 8
   %569 = load i16, ptr %568, align 8
   call fastcc void @dissect_modbus_data(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %14, i8 noundef zeroext 23, i32 noundef 2, i32 noundef %563, i32 noundef %567, i16 noundef zeroext %569, i16 noundef zeroext 0)
   br label %.loopexit.i130
@@ -1448,9 +1448,9 @@ proto_item_set_generated.exit473.i:               ; preds = %324, %321, %proto_i
   %575 = load i32, ptr @hf_modbus_wordcnt, align 4
   %576 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %575, ptr noundef %0, i32 noundef 3, i32 noundef 2, i32 noundef 0) #5
   %577 = add nsw i32 %572, -2
-  %578 = getelementptr inbounds i8, ptr %.0114, i64 4
+  %578 = getelementptr inbounds nuw i8, ptr %.0114, i64 4
   %579 = load i32, ptr %578, align 4
-  %580 = getelementptr inbounds i8, ptr %.0114, i64 8
+  %580 = getelementptr inbounds nuw i8, ptr %.0114, i64 8
   %581 = load i16, ptr %580, align 8
   call fastcc void @dissect_modbus_data(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %14, i8 noundef zeroext 24, i32 noundef 5, i32 noundef %577, i32 noundef %579, i16 noundef zeroext %581, i16 noundef zeroext 0)
   br label %.loopexit.i130
@@ -1522,9 +1522,9 @@ proto_item_set_generated.exit473.i:               ; preds = %324, %321, %proto_i
 
 624:                                              ; preds = %622
   %625 = add i32 %8, -2
-  %626 = getelementptr inbounds i8, ptr %.0114, i64 4
+  %626 = getelementptr inbounds nuw i8, ptr %.0114, i64 4
   %627 = load i32, ptr %626, align 4
-  %628 = getelementptr inbounds i8, ptr %.0114, i64 8
+  %628 = getelementptr inbounds nuw i8, ptr %.0114, i64 8
   %629 = load i16, ptr %628, align 8
   call fastcc void @dissect_modbus_data(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %14, i8 noundef zeroext 43, i32 noundef 1, i32 noundef %625, i32 noundef %627, i16 noundef zeroext %629, i16 noundef zeroext 0)
   br label %.loopexit.i130
@@ -1534,9 +1534,9 @@ proto_item_set_generated.exit473.i:               ; preds = %324, %321, %proto_i
   br i1 %631, label %632, label %.loopexit.i130
 
 632:                                              ; preds = %630
-  %633 = getelementptr inbounds i8, ptr %.0114, i64 4
+  %633 = getelementptr inbounds nuw i8, ptr %.0114, i64 4
   %634 = load i32, ptr %633, align 4
-  %635 = getelementptr inbounds i8, ptr %.0114, i64 8
+  %635 = getelementptr inbounds nuw i8, ptr %.0114, i64 8
   %636 = load i16, ptr %635, align 8
   call fastcc void @dissect_modbus_data(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %14, i8 noundef zeroext range(i8 0, -128) %16, i32 noundef 1, i32 noundef range(i32 0, -1) %132, i32 noundef %634, i16 noundef zeroext %636, i16 noundef zeroext 0)
   br label %.loopexit.i130
@@ -1651,7 +1651,7 @@ define internal i32 @dissect_mbudp(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %10, label %18, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void @col_set_str(ptr noundef %13, i32 noundef 34, ptr noundef nonnull @.str.156) #5
   %14 = load ptr, ptr %12, align 8
@@ -1909,13 +1909,13 @@ define internal fastcc void @dissect_modbus_data(ptr noundef %0, ptr noundef %1,
   br i1 %.not.i, label %proto_item_set_generated.exit, label %44
 
 44:                                               ; preds = %36
-  %45 = getelementptr inbounds i8, ptr %43, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %46 = load ptr, ptr %45, align 8
   %.not5.i = icmp eq ptr %46, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %47
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %46, i64 28
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 28
   %49 = load i32, ptr %48, align 4
   %50 = or i32 %49, 2
   store i32 %50, ptr %48, align 4
@@ -1967,13 +1967,13 @@ proto_item_set_generated.exit:                    ; preds = %36, %44, %47
   br i1 %.not.i196.us, label %proto_item_set_generated.exit198.us, label %69
 
 69:                                               ; preds = %.lr.ph.split.us
-  %70 = getelementptr inbounds i8, ptr %68, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %68, i64 32
   %71 = load ptr, ptr %70, align 8
   %.not5.i197.us = icmp eq ptr %71, null
   br i1 %.not5.i197.us, label %proto_item_set_generated.exit198.us, label %72
 
 72:                                               ; preds = %69
-  %73 = getelementptr inbounds i8, ptr %71, i64 28
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 28
   %74 = load i32, ptr %73, align 4
   %75 = or i32 %74, 2
   store i32 %75, ptr %73, align 4
@@ -2001,13 +2001,13 @@ proto_item_set_generated.exit198.us:              ; preds = %72, %69, %.lr.ph.sp
   br i1 %.not.i199.us, label %proto_item_set_generated.exit201.us, label %88
 
 88:                                               ; preds = %.lr.ph.split.us217
-  %89 = getelementptr inbounds i8, ptr %87, i64 32
+  %89 = getelementptr inbounds nuw i8, ptr %87, i64 32
   %90 = load ptr, ptr %89, align 8
   %.not5.i200.us = icmp eq ptr %90, null
   br i1 %.not5.i200.us, label %proto_item_set_generated.exit201.us, label %91
 
 91:                                               ; preds = %88
-  %92 = getelementptr inbounds i8, ptr %90, i64 28
+  %92 = getelementptr inbounds nuw i8, ptr %90, i64 28
   %93 = load i32, ptr %92, align 4
   %94 = or i32 %93, 2
   store i32 %94, ptr %92, align 4
@@ -2034,13 +2034,13 @@ proto_item_set_generated.exit201.us:              ; preds = %91, %88, %.lr.ph.sp
   br i1 %.not.i202.us, label %proto_item_set_generated.exit204.us, label %106
 
 106:                                              ; preds = %.lr.ph.split.us222
-  %107 = getelementptr inbounds i8, ptr %105, i64 32
+  %107 = getelementptr inbounds nuw i8, ptr %105, i64 32
   %108 = load ptr, ptr %107, align 8
   %.not5.i203.us = icmp eq ptr %108, null
   br i1 %.not5.i203.us, label %proto_item_set_generated.exit204.us, label %109
 
 109:                                              ; preds = %106
-  %110 = getelementptr inbounds i8, ptr %108, i64 28
+  %110 = getelementptr inbounds nuw i8, ptr %108, i64 28
   %111 = load i32, ptr %110, align 4
   %112 = or i32 %111, 2
   store i32 %112, ptr %110, align 4
@@ -2067,13 +2067,13 @@ proto_item_set_generated.exit204.us:              ; preds = %109, %106, %.lr.ph.
   br i1 %.not.i205.us, label %proto_item_set_generated.exit207.us, label %124
 
 124:                                              ; preds = %.lr.ph.split.us227
-  %125 = getelementptr inbounds i8, ptr %123, i64 32
+  %125 = getelementptr inbounds nuw i8, ptr %123, i64 32
   %126 = load ptr, ptr %125, align 8
   %.not5.i206.us = icmp eq ptr %126, null
   br i1 %.not5.i206.us, label %proto_item_set_generated.exit207.us, label %127
 
 127:                                              ; preds = %124
-  %128 = getelementptr inbounds i8, ptr %126, i64 28
+  %128 = getelementptr inbounds nuw i8, ptr %126, i64 28
   %129 = load i32, ptr %128, align 4
   %130 = or i32 %129, 2
   store i32 %130, ptr %128, align 4
@@ -2101,13 +2101,13 @@ proto_item_set_generated.exit207.us:              ; preds = %127, %124, %.lr.ph.
   br i1 %.not.i208.us, label %proto_item_set_generated.exit210.us, label %143
 
 143:                                              ; preds = %.lr.ph.split.us232
-  %144 = getelementptr inbounds i8, ptr %142, i64 32
+  %144 = getelementptr inbounds nuw i8, ptr %142, i64 32
   %145 = load ptr, ptr %144, align 8
   %.not5.i209.us = icmp eq ptr %145, null
   br i1 %.not5.i209.us, label %proto_item_set_generated.exit210.us, label %146
 
 146:                                              ; preds = %143
-  %147 = getelementptr inbounds i8, ptr %145, i64 28
+  %147 = getelementptr inbounds nuw i8, ptr %145, i64 28
   %148 = load i32, ptr %147, align 4
   %149 = or i32 %148, 2
   store i32 %149, ptr %147, align 4
@@ -2142,13 +2142,13 @@ proto_item_set_generated.exit210.us:              ; preds = %146, %143, %.lr.ph.
   br i1 %.not.i211.us, label %proto_item_set_generated.exit213.us, label %169
 
 169:                                              ; preds = %.lr.ph.split.us237
-  %170 = getelementptr inbounds i8, ptr %168, i64 32
+  %170 = getelementptr inbounds nuw i8, ptr %168, i64 32
   %171 = load ptr, ptr %170, align 8
   %.not5.i212.us = icmp eq ptr %171, null
   br i1 %.not5.i212.us, label %proto_item_set_generated.exit213.us, label %172
 
 172:                                              ; preds = %169
-  %173 = getelementptr inbounds i8, ptr %171, i64 28
+  %173 = getelementptr inbounds nuw i8, ptr %171, i64 28
   %174 = load i32, ptr %173, align 4
   %175 = or i32 %174, 2
   store i32 %175, ptr %173, align 4
@@ -2209,7 +2209,7 @@ declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_mbtcp_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.154) #5
   %7 = load ptr, ptr %5, align 8
@@ -2246,14 +2246,14 @@ define internal fastcc i32 @dissect_mbtcp_pdu_common(ptr noundef %0, ptr noundef
   %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 6) #5
   %11 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 7) #5
   %12 = and i8 %11, 127
-  %13 = getelementptr inbounds i8, ptr %1, i64 284
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %14 = load i32, ptr %13, align 4
   %15 = tail call i32 @value_is_in_range(ptr noundef %4, i32 noundef %14) #5
   %.not.i = icmp eq i32 %15, 0
   br i1 %.not.i, label %20, label %16
 
 16:                                               ; preds = %5
-  %17 = getelementptr inbounds i8, ptr %1, i64 288
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %18 = load i32, ptr %17, align 8
   %19 = tail call i32 @value_is_in_range(ptr noundef %4, i32 noundef %18) #5
   %.not8.i = icmp eq i32 %19, 0
@@ -2266,7 +2266,7 @@ define internal fastcc i32 @dissect_mbtcp_pdu_common(ptr noundef %0, ptr noundef
   br i1 %.not9.i, label %23, label %27
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %1, i64 288
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %25 = load i32, ptr %24, align 8
   %26 = tail call i32 @value_is_in_range(ptr noundef %4, i32 noundef %25) #5
   %.not10.i = icmp eq i32 %26, 0
@@ -2281,9 +2281,9 @@ define internal fastcc i32 @dissect_mbtcp_pdu_common(ptr noundef %0, ptr noundef
   %.093 = phi ptr [ @.str.271, %27 ], [ @.str.268, %23 ], [ @.str.268, %16 ]
   %.092 = phi ptr [ @.str.272, %27 ], [ @.str.269, %23 ], [ @.str.270, %16 ]
   store i32 %.sink, ptr %6, align 4
-  %30 = getelementptr inbounds i8, ptr %6, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i16 %7, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %6, i64 6
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 6
   store i8 %10, ptr %31, align 2
   %32 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 7) #5
   %.not = icmp sgt i8 %32, -1
@@ -2323,7 +2323,7 @@ define internal fastcc i32 @dissect_mbtcp_pdu_common(ptr noundef %0, ptr noundef
   %spec.select = select i1 %.090, ptr %.093, ptr @.str.274
   %char097 = load i8, ptr %spec.select, align 1
   %.not98 = icmp eq i8 %char097, 0
-  %51 = getelementptr inbounds i8, ptr %1, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %52 = load ptr, ptr %51, align 8
   %53 = zext i16 %7 to i32
   %54 = zext i8 %10 to i32
@@ -2342,7 +2342,7 @@ define internal fastcc i32 @dissect_mbtcp_pdu_common(ptr noundef %0, ptr noundef
   %spec.select103 = select i1 %.090, ptr %.093, ptr @.str.274
   %char0 = load i8, ptr %spec.select103, align 1
   %.not96 = icmp eq i8 %char0, 0
-  %58 = getelementptr inbounds i8, ptr %1, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %59 = load ptr, ptr %58, align 8
   %60 = zext i16 %7 to i32
   %61 = zext i8 %10 to i32
@@ -2406,7 +2406,7 @@ declare i32 @value_is_in_range(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_mbtls_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.279) #5
   %7 = load ptr, ptr %5, align 8
@@ -2495,14 +2495,14 @@ define internal i32 @dissect_mbrtu_pdu(ptr noundef %0, ptr noundef %1, ptr nound
 define internal fastcc range(i32 0, 3) i32 @classify_mbrtu_packet(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 1) #5
   %5 = tail call i32 @tvb_reported_length(ptr noundef %1) #5
-  %6 = getelementptr inbounds i8, ptr %0, i64 284
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %7 = load i32, ptr %6, align 4
   %8 = tail call i32 @value_is_in_range(ptr noundef %2, i32 noundef %7) #5
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 288
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %11 = load i32, ptr %10, align 8
   %12 = tail call i32 @value_is_in_range(ptr noundef %2, i32 noundef %11) #5
   %.not16 = icmp eq i32 %12, 0
@@ -2515,7 +2515,7 @@ define internal fastcc range(i32 0, 3) i32 @classify_mbrtu_packet(ptr nocapture 
   br i1 %.not17, label %16, label %20
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %0, i64 288
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %18 = load i32, ptr %17, align 8
   %19 = tail call i32 @value_is_in_range(ptr noundef %2, i32 noundef %18) #5
   %.not18 = icmp eq i32 %19, 0
@@ -2569,7 +2569,7 @@ declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 define internal fastcc i32 @dissect_mbrtu_pdu_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
 switch.lookup:
   %4 = alloca %struct.modbus_data_t, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.158) #5
   %7 = load ptr, ptr %5, align 8
@@ -2580,15 +2580,15 @@ switch.lookup:
   %11 = and i8 %10, 127
   %12 = tail call fastcc i32 @classify_mbrtu_packet(ptr noundef %1, ptr noundef %0, ptr noundef %3)
   store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %4, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i16 0, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %4, i64 6
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 6
   store i8 %9, ptr %14, align 2
   %15 = zext nneg i32 %12 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_mbrtu_pdu_common, i64 0, i64 %15
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.dissect_mbrtu_pdu_common, i64 0, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   %16 = zext nneg i32 %12 to i64
-  %switch.gep99 = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_mbrtu_pdu_common.1, i64 0, i64 %16
+  %switch.gep99 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.dissect_mbrtu_pdu_common.1, i64 0, i64 %16
   %switch.load100 = load ptr, ptr %switch.gep99, align 8
   %17 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #5
   %.not = icmp sgt i8 %17, -1

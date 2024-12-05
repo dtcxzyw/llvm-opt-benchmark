@@ -24,12 +24,12 @@ define internal noundef i32 @cipher_hw_aesni_xts_initkey(ptr noundef %ctx, ptr n
 entry:
   %div18 = lshr i64 %keylen, 1
   %mul = shl i64 %div18, 3
-  %enc = getelementptr inbounds i8, ptr %ctx, i64 108
+  %enc = getelementptr inbounds nuw i8, ptr %ctx, i64 108
   %bf.load = load i8, ptr %enc, align 4
   %0 = and i8 %bf.load, 2
   %tobool.not = icmp eq i8 %0, 0
   %conv1 = trunc i64 %mul to i32
-  %ks12 = getelementptr inbounds i8, ptr %ctx, i64 192
+  %ks12 = getelementptr inbounds nuw i8, ptr %ctx, i64 192
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -42,23 +42,23 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.else, %if.then
   %aesni_encrypt.sink = phi ptr [ @aesni_decrypt, %if.else ], [ @aesni_encrypt, %if.then ]
-  %1 = getelementptr inbounds i8, ptr %ctx, i64 704
+  %1 = getelementptr inbounds nuw i8, ptr %ctx, i64 704
   store ptr %aesni_encrypt.sink, ptr %1, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %key, i64 %div18
-  %ks2 = getelementptr inbounds i8, ptr %ctx, i64 440
+  %add.ptr = getelementptr inbounds nuw i8, ptr %key, i64 %div18
+  %ks2 = getelementptr inbounds nuw i8, ptr %ctx, i64 440
   %call7 = tail call i32 @aesni_set_encrypt_key(ptr noundef %add.ptr, i32 noundef %conv1, ptr noundef nonnull %ks2) #5
-  %xts8 = getelementptr inbounds i8, ptr %ctx, i64 688
-  %block2 = getelementptr inbounds i8, ptr %ctx, i64 712
+  %xts8 = getelementptr inbounds nuw i8, ptr %ctx, i64 688
+  %block2 = getelementptr inbounds nuw i8, ptr %ctx, i64 712
   store ptr @aesni_encrypt, ptr %block2, align 8
-  %ks19 = getelementptr inbounds i8, ptr %ctx, i64 192
+  %ks19 = getelementptr inbounds nuw i8, ptr %ctx, i64 192
   store ptr %ks19, ptr %xts8, align 8
-  %key2 = getelementptr inbounds i8, ptr %ctx, i64 696
+  %key2 = getelementptr inbounds nuw i8, ptr %ctx, i64 696
   store ptr %ks2, ptr %key2, align 8
   %bf.load14 = load i8, ptr %enc, align 4
   %2 = and i8 %bf.load14, 2
   %tobool18.not = icmp eq i8 %2, 0
   %cond = select i1 %tobool18.not, ptr @aesni_xts_decrypt, ptr @aesni_xts_encrypt
-  %stream = getelementptr inbounds i8, ptr %ctx, i64 720
+  %stream = getelementptr inbounds nuw i8, ptr %ctx, i64 720
   store ptr %cond, ptr %stream, align 8
   ret i32 1
 }
@@ -67,11 +67,11 @@ if.end:                                           ; preds = %if.else, %if.then
 define internal void @cipher_hw_aes_xts_copyctx(ptr noundef initializes((0, 728)) %dst, ptr nocapture noundef readonly %src) #2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(728) %dst, ptr noundef nonnull align 8 dereferenceable(728) %src, i64 728, i1 false)
-  %ks1 = getelementptr inbounds i8, ptr %dst, i64 192
-  %xts = getelementptr inbounds i8, ptr %dst, i64 688
+  %ks1 = getelementptr inbounds nuw i8, ptr %dst, i64 192
+  %xts = getelementptr inbounds nuw i8, ptr %dst, i64 688
   store ptr %ks1, ptr %xts, align 8
-  %ks2 = getelementptr inbounds i8, ptr %dst, i64 440
-  %key2 = getelementptr inbounds i8, ptr %dst, i64 696
+  %ks2 = getelementptr inbounds nuw i8, ptr %dst, i64 440
+  %key2 = getelementptr inbounds nuw i8, ptr %dst, i64 696
   store ptr %ks2, ptr %key2, align 8
   ret void
 }
@@ -97,12 +97,12 @@ entry:
   %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %div2940 = lshr i64 %keylen, 1
   %mul31 = shl i64 %div2940, 3
-  %enc32 = getelementptr inbounds i8, ptr %ctx, i64 108
+  %enc32 = getelementptr inbounds nuw i8, ptr %ctx, i64 108
   %bf.load33 = load i8, ptr %enc32, align 4
   %1 = and i8 %bf.load33, 2
   %tobool37.not = icmp eq i8 %1, 0
   %conv45 = trunc i64 %mul31 to i32
-  %ks146 = getelementptr inbounds i8, ptr %ctx, i64 192
+  %ks146 = getelementptr inbounds nuw i8, ptr %ctx, i64 192
   br i1 %tobool37.not, label %if.else44, label %if.then38
 
 if.then38:                                        ; preds = %entry
@@ -115,27 +115,27 @@ if.else44:                                        ; preds = %entry
 
 if.end50:                                         ; preds = %if.else44, %if.then38
   %AES_encrypt.sink = phi ptr [ @AES_decrypt, %if.else44 ], [ @AES_encrypt, %if.then38 ]
-  %2 = getelementptr inbounds i8, ptr %ctx, i64 704
+  %2 = getelementptr inbounds nuw i8, ptr %ctx, i64 704
   store ptr %AES_encrypt.sink, ptr %2, align 8
   %and = and i32 %0, 512
   %tobool.not = icmp eq i32 %and, 0
   %.ossl_bsaes_xts_encrypt = select i1 %tobool.not, ptr null, ptr @ossl_bsaes_xts_encrypt
   %.ossl_bsaes_xts_decrypt = select i1 %tobool.not, ptr null, ptr @ossl_bsaes_xts_decrypt
-  %add.ptr51 = getelementptr inbounds i8, ptr %key, i64 %div2940
-  %ks253 = getelementptr inbounds i8, ptr %ctx, i64 440
+  %add.ptr51 = getelementptr inbounds nuw i8, ptr %key, i64 %div2940
+  %ks253 = getelementptr inbounds nuw i8, ptr %ctx, i64 440
   %call54 = tail call i32 @AES_set_encrypt_key(ptr noundef %add.ptr51, i32 noundef %conv45, ptr noundef nonnull %ks253) #5
-  %xts55 = getelementptr inbounds i8, ptr %ctx, i64 688
-  %block256 = getelementptr inbounds i8, ptr %ctx, i64 712
+  %xts55 = getelementptr inbounds nuw i8, ptr %ctx, i64 688
+  %block256 = getelementptr inbounds nuw i8, ptr %ctx, i64 712
   store ptr @AES_encrypt, ptr %block256, align 8
-  %ks157 = getelementptr inbounds i8, ptr %ctx, i64 192
+  %ks157 = getelementptr inbounds nuw i8, ptr %ctx, i64 192
   store ptr %ks157, ptr %xts55, align 8
-  %key262 = getelementptr inbounds i8, ptr %ctx, i64 696
+  %key262 = getelementptr inbounds nuw i8, ptr %ctx, i64 696
   store ptr %ks253, ptr %key262, align 8
   %bf.load64 = load i8, ptr %enc32, align 4
   %3 = and i8 %bf.load64, 2
   %tobool68.not = icmp eq i8 %3, 0
   %cond72 = select i1 %tobool68.not, ptr %.ossl_bsaes_xts_decrypt, ptr %.ossl_bsaes_xts_encrypt
-  %stream73 = getelementptr inbounds i8, ptr %ctx, i64 720
+  %stream73 = getelementptr inbounds nuw i8, ptr %ctx, i64 720
   store ptr %cond72, ptr %stream73, align 8
   ret i32 1
 }

@@ -11,43 +11,43 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
 define dso_local void @inflate_fast(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr i8, ptr %5, i64 %7
   %9 = getelementptr i8, ptr %8, i64 -5
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = zext i32 %1 to i64
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load i64, ptr %13, align 8
   %15 = sub i64 %14, %12
   %16 = getelementptr i8, ptr %11, i64 %15
   %17 = getelementptr i8, ptr %11, i64 %14
   %18 = getelementptr i8, ptr %17, i64 -257
-  %19 = getelementptr inbounds i8, ptr %4, i64 44
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 44
   %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %4, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %22 = load i32, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %4, i64 52
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 52
   %24 = load i32, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %4, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %4, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %28 = load i64, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %4, i64 72
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %30 = load i32, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %4, i64 88
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %4, i64 96
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %4, i64 104
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %36 = load i32, ptr %35, align 8
   %37 = shl nsw i32 -1, %36
   %38 = xor i32 %37, -1
-  %39 = getelementptr inbounds i8, ptr %4, i64 108
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 108
   %40 = load i32, ptr %39, align 4
   %41 = shl nsw i32 -1, %40
   %42 = xor i32 %41, -1
@@ -89,9 +89,9 @@ define dso_local void @inflate_fast(ptr nocapture noundef %0, i32 noundef %1) lo
   %72 = phi i32 [ %68, %54 ], [ %52, %48 ]
   %73 = and i64 %71, %43
   %74 = getelementptr %struct.code, ptr %32, i64 %73
-  %75 = getelementptr inbounds i8, ptr %74, i64 2
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 2
   %76 = load i16, ptr %75, align 2
-  %77 = getelementptr inbounds i8, ptr %74, i64 1
+  %77 = getelementptr inbounds nuw i8, ptr %74, i64 1
   %78 = load i8, ptr %77, align 1
   %79 = load i8, ptr %74, align 2
   %80 = zext i8 %78 to i32
@@ -185,9 +185,9 @@ define dso_local void @inflate_fast(ptr nocapture noundef %0, i32 noundef %1) lo
   %147 = phi i32 [ %143, %129 ], [ %126, %123 ]
   %148 = and i64 %146, %44
   %149 = getelementptr %struct.code, ptr %34, i64 %148
-  %150 = getelementptr inbounds i8, ptr %149, i64 2
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 2
   %151 = load i16, ptr %150, align 2
-  %152 = getelementptr inbounds i8, ptr %149, i64 1
+  %152 = getelementptr inbounds nuw i8, ptr %149, i64 1
   %153 = load i8, ptr %152, align 1
   %154 = load i8, ptr %149, align 2
   %155 = zext i8 %153 to i32
@@ -497,9 +497,9 @@ define dso_local void @inflate_fast(ptr nocapture noundef %0, i32 noundef %1) lo
   %369 = and i64 %360, %368
   %370 = getelementptr %struct.code, ptr %34, i64 %369
   %371 = getelementptr %struct.code, ptr %370, i64 %365
-  %372 = getelementptr inbounds i8, ptr %371, i64 2
+  %372 = getelementptr inbounds nuw i8, ptr %371, i64 2
   %373 = load i16, ptr %372, align 2
-  %374 = getelementptr inbounds i8, ptr %371, i64 1
+  %374 = getelementptr inbounds nuw i8, ptr %371, i64 1
   %375 = load i8, ptr %374, align 1
   %376 = load i8, ptr %371, align 2
   %377 = zext i8 %375 to i32
@@ -524,9 +524,9 @@ define dso_local void @inflate_fast(ptr nocapture noundef %0, i32 noundef %1) lo
   %392 = and i64 %92, %391
   %393 = getelementptr %struct.code, ptr %32, i64 %392
   %394 = getelementptr %struct.code, ptr %393, i64 %388
-  %395 = getelementptr inbounds i8, ptr %394, i64 2
+  %395 = getelementptr inbounds nuw i8, ptr %394, i64 2
   %396 = load i16, ptr %395, align 2
-  %397 = getelementptr inbounds i8, ptr %394, i64 1
+  %397 = getelementptr inbounds nuw i8, ptr %394, i64 1
   %398 = load i8, ptr %397, align 1
   %399 = load i8, ptr %394, align 2
   %400 = zext i8 %398 to i32
@@ -556,7 +556,7 @@ define dso_local void @inflate_fast(ptr nocapture noundef %0, i32 noundef %1) lo
   %417 = phi ptr [ %70, %405 ], [ %145, %.preheader36 ], [ %187, %202 ]
   %418 = phi i64 [ %92, %405 ], [ %360, %.preheader36 ], [ %196, %202 ]
   %419 = phi i32 [ %91, %405 ], [ %359, %.preheader36 ], [ %197, %202 ]
-  %420 = getelementptr inbounds i8, ptr %0, i64 48
+  %420 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %416, ptr %420, align 8
   br label %421
 

@@ -11,14 +11,14 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @Curl_dynhds_init(ptr nocapture noundef writeonly initializes((0, 52)) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   store i64 %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %2, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 0, ptr %7, align 8
   ret void
 }
@@ -30,7 +30,7 @@ define dso_local void @Curl_dynhds_free(ptr nocapture noundef %0) local_unnamed_
   br i1 %.not, label %.loopexit, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %.not11 = icmp eq i64 %5, 0
   br i1 %.not11, label %.loopexit, label %.lr.ph
@@ -55,7 +55,7 @@ define dso_local void @Curl_dynhds_free(ptr nocapture noundef %0) local_unnamed_
   %13 = phi ptr [ %.pre, %.loopexit.loopexit ], [ null, %1 ], [ %2, %3 ]
   %14 = load ptr, ptr @Curl_cfree, align 8
   tail call void %14(ptr noundef %13) #9
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 0, ptr %15, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   ret void
@@ -63,7 +63,7 @@ define dso_local void @Curl_dynhds_free(ptr nocapture noundef %0) local_unnamed_
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @Curl_dynhds_reset(ptr nocapture noundef %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
@@ -84,7 +84,7 @@ define dso_local void @Curl_dynhds_reset(ptr nocapture noundef %0) local_unnamed
   br i1 %12, label %.lr.ph, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.lr.ph, %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 0, ptr %13, align 8
   store i64 0, ptr %2, align 8
   ret void
@@ -92,21 +92,21 @@ define dso_local void @Curl_dynhds_reset(ptr nocapture noundef %0) local_unnamed
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i64 @Curl_dynhds_count(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @Curl_dynhds_set_opts(ptr nocapture noundef writeonly initializes((48, 52)) %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local ptr @Curl_dynhds_getn(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp ult i64 %1, %4
   br i1 %5, label %6, label %10
@@ -124,7 +124,7 @@ define dso_local ptr @Curl_dynhds_getn(ptr nocapture noundef readonly %0, i64 no
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @Curl_dynhds_get(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %.not16 = icmp eq i64 %5, 0
   br i1 %.not16, label %.loopexit, label %.lr.ph
@@ -135,7 +135,7 @@ define dso_local ptr @Curl_dynhds_get(ptr nocapture noundef readonly %0, ptr nou
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds ptr, ptr %7, i64 %.015
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i64, ptr %10, align 8
   %12 = icmp eq i64 %11, %2
   br i1 %12, label %13, label %20
@@ -172,7 +172,7 @@ declare i32 @curl_strnequal(ptr noundef, ptr noundef, i64 noundef) local_unnamed
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @Curl_dynhds_cget(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #10
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %.not16.i = icmp eq i64 %5, 0
   br i1 %.not16.i, label %Curl_dynhds_get.exit, label %.lr.ph.i
@@ -183,7 +183,7 @@ define dso_local ptr @Curl_dynhds_cget(ptr nocapture noundef readonly %0, ptr no
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds ptr, ptr %7, i64 %.015.i
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i64, ptr %10, align 8
   %12 = icmp eq i64 %11, %3
   br i1 %12, label %13, label %20
@@ -220,29 +220,29 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 28) i32 @Curl_dynhds_add(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef readonly %3, i64 noundef %4) local_unnamed_addr #1 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i64, ptr %6, align 8
   %.not = icmp eq i64 %7, 0
   br i1 %.not, label %11, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %.not50 = icmp ult i64 %10, %7
   br i1 %.not50, label %11, label %entry_new.exit.thread58
 
 11:                                               ; preds = %8, %5
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load i64, ptr %12, align 8
   %14 = add i64 %4, %2
   %15 = add i64 %14, %13
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load i64, ptr %16, align 8
   %18 = icmp ugt i64 %15, %17
   br i1 %18, label %entry_new.exit.thread58, label %19
 
 19:                                               ; preds = %11
-  %20 = getelementptr inbounds i8, ptr %0, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8
   %22 = load ptr, ptr @Curl_ccalloc, align 8
   %23 = add i64 %14, 34
@@ -251,17 +251,17 @@ define dso_local range(i32 0, 28) i32 @Curl_dynhds_add(ptr nocapture noundef %0,
   br i1 %.not.i, label %entry_new.exit.thread58, label %25
 
 25:                                               ; preds = %19
-  %26 = getelementptr inbounds i8, ptr %24, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store ptr %26, ptr %24, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %26, ptr readonly align 1 %1, i64 %2, i1 false)
-  %27 = getelementptr inbounds i8, ptr %24, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store i64 %2, ptr %27, align 8
   %28 = getelementptr i8, ptr %26, i64 %2
   %29 = getelementptr i8, ptr %28, i64 1
-  %30 = getelementptr inbounds i8, ptr %24, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %29, ptr %30, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %29, ptr readonly align 1 %3, i64 %4, i1 false)
-  %31 = getelementptr inbounds i8, ptr %24, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store i64 %4, ptr %31, align 8
   %32 = and i32 %21, 1
   %.not24.i = icmp eq i32 %32, 0
@@ -274,10 +274,10 @@ define dso_local range(i32 0, 28) i32 @Curl_dynhds_add(ptr nocapture noundef %0,
   br label %36
 
 36:                                               ; preds = %25, %33
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load i64, ptr %37, align 8
   %39 = add i64 %38, 1
-  %40 = getelementptr inbounds i8, ptr %0, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %41 = load i64, ptr %40, align 8
   %.not52 = icmp ult i64 %39, %41
   br i1 %.not52, label %._crit_edge, label %42
@@ -366,7 +366,7 @@ define dso_local range(i32 0, 44) i32 @Curl_dynhds_h1_add_line(ptr nocapture nou
   ]
 
 8:                                                ; preds = %6, %6
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %.not69 = icmp eq i64 %10, 0
   br i1 %.not69, label %.critedge72, label %.preheader
@@ -381,7 +381,7 @@ define dso_local range(i32 0, 44) i32 @Curl_dynhds_h1_add_line(ptr nocapture nou
   ]
 
 .critedge3:                                       ; preds = %.preheader, %.preheader
-  %12 = getelementptr inbounds i8, ptr %.05476, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.05476, i64 1
   %13 = add i64 %.05775, -1
   %.not70 = icmp eq i64 %13, 0
   br i1 %.not70, label %.critedge72, label %.preheader, !llvm.loop !9
@@ -391,12 +391,12 @@ define dso_local range(i32 0, 44) i32 @Curl_dynhds_h1_add_line(ptr nocapture nou
   %15 = getelementptr ptr, ptr %14, i64 %10
   %16 = getelementptr i8, ptr %15, i64 -8
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %.05775, 1
   %21 = add i64 %20, %19
   %22 = load ptr, ptr @Curl_ccalloc, align 8
-  %23 = getelementptr inbounds i8, ptr %17, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %24 = load i64, ptr %23, align 8
   %25 = add i64 %21, 34
   %26 = add i64 %25, %24
@@ -405,28 +405,28 @@ define dso_local range(i32 0, 44) i32 @Curl_dynhds_h1_add_line(ptr nocapture nou
   br i1 %.not.i, label %.critedge72, label %28
 
 28:                                               ; preds = %.critedge
-  %29 = getelementptr inbounds i8, ptr %27, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 32
   store ptr %29, ptr %27, align 8
   %30 = load ptr, ptr %17, align 8
   %31 = load i64, ptr %23, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %29, ptr align 1 %30, i64 %31, i1 false)
   %32 = load i64, ptr %23, align 8
-  %33 = getelementptr inbounds i8, ptr %27, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store i64 %32, ptr %33, align 8
   %34 = getelementptr i8, ptr %29, i64 %32
   %35 = getelementptr i8, ptr %34, i64 1
-  %36 = getelementptr inbounds i8, ptr %27, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %35, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %17, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %38 = load ptr, ptr %37, align 8
   %39 = load i64, ptr %18, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %35, ptr align 1 %38, i64 %39, i1 false)
   %40 = load i64, ptr %18, align 8
   %41 = getelementptr inbounds i8, ptr %35, i64 %40
   store i8 32, ptr %41, align 1
-  %42 = getelementptr inbounds i8, ptr %41, i64 1
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %42, ptr noundef nonnull readonly align 1 dereferenceable(1) %.05476, i64 range(i64 1, 0) %.05775, i1 false)
-  %43 = getelementptr inbounds i8, ptr %27, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %27, i64 24
   store i64 %21, ptr %43, align 8
   %44 = load ptr, ptr %0, align 8
   %45 = load i64, ptr %9, align 8
@@ -446,7 +446,7 @@ define dso_local range(i32 0, 44) i32 @Curl_dynhds_h1_add_line(ptr nocapture nou
   %52 = ptrtoint ptr %50 to i64
   %53 = ptrtoint ptr %1 to i64
   %54 = sub i64 %52, %53
-  %.05877 = getelementptr inbounds i8, ptr %50, i64 1
+  %.05877 = getelementptr inbounds nuw i8, ptr %50, i64 1
   %.05578 = add i64 %54, 1
   %55 = icmp ult i64 %.05578, %2
   br i1 %55, label %.lr.ph, label %._crit_edge
@@ -461,7 +461,7 @@ define dso_local range(i32 0, 44) i32 @Curl_dynhds_h1_add_line(ptr nocapture nou
   ]
 
 57:                                               ; preds = %.lr.ph, %.lr.ph
-  %.058 = getelementptr inbounds i8, ptr %.05879, i64 1
+  %.058 = getelementptr inbounds nuw i8, ptr %.05879, i64 1
   %.055 = add nuw i64 %.05580, 1
   %58 = icmp ult i64 %.055, %2
   br i1 %58, label %.lr.ph, label %._crit_edge, !llvm.loop !10
@@ -513,7 +513,7 @@ define dso_local range(i32 0, 44) i32 @Curl_dynhds_h1_cadd_line(ptr nocapture no
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @Curl_dynhds_h1_dprint(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
@@ -529,14 +529,14 @@ define dso_local i32 @Curl_dynhds_h1_dprint(ptr nocapture noundef readonly %0, p
   %9 = load ptr, ptr %0, align 8
   %10 = getelementptr inbounds ptr, ptr %9, i64 %.021
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i64, ptr %12, align 8
   %14 = trunc i64 %13 to i32
   %15 = load ptr, ptr %11, align 8
-  %16 = getelementptr inbounds i8, ptr %11, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %17 = load i64, ptr %16, align 8
   %18 = trunc i64 %17 to i32
-  %19 = getelementptr inbounds i8, ptr %11, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i32 (ptr, ptr, ...) @Curl_dyn_addf(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef %14, ptr noundef %15, i32 noundef %18, ptr noundef %20) #9
   %.not20 = icmp eq i32 %21, 0
@@ -552,7 +552,7 @@ declare i32 @Curl_dyn_addf(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @Curl_dynhds_to_nva(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #1 {
   %3 = load ptr, ptr @Curl_ccalloc, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = mul i64 %5, 40
   %7 = tail call ptr %3(i64 noundef 1, i64 noundef %6) #9
@@ -573,19 +573,19 @@ define dso_local ptr @Curl_dynhds_to_nva(ptr nocapture noundef readonly %0, ptr 
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds %struct.nghttp2_nv, ptr %7, i64 %.02528
   store ptr %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %13, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 %15, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %11, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %13, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %11, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %21 = load i64, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %13, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i64 %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %13, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store i8 0, ptr %23, align 8
   %24 = add nuw i64 %.02528, 1
   %25 = load i64, ptr %4, align 8

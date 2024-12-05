@@ -24,14 +24,14 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @signalfd_cleanup(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load volatile ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, %2
   br i1 %4, label %7, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @__wake_up_pollfree(ptr noundef %6) #5
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @__wake_up_pollfree(ptr noundef nonnull %6) #5
   br label %7
 
 7:                                                ; preds = %5, %1
@@ -41,13 +41,13 @@ define dso_local void @signalfd_cleanup(ptr noundef %0) local_unnamed_addr #0 al
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_signalfd4(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.sigset_t, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load i64, ptr %9, align 8
   %11 = trunc i64 %4 to i32
   %12 = trunc i64 %10 to i32
@@ -76,14 +76,14 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_signalfd4(ptr
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_signalfd4(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.sigset_t, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, 4294967295
-  %10 = getelementptr inbounds i8, ptr %0, i64 104
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %11 = load i64, ptr %10, align 8
   %12 = trunc i64 %4 to i32
   %13 = trunc i64 %11 to i32
@@ -113,11 +113,11 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_signalfd4(pt
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_signalfd(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.sigset_t, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = load i64, ptr %7, align 8
   %9 = trunc i64 %4 to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
@@ -145,11 +145,11 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_signalfd(ptr 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_signalfd(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.sigset_t, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, 4294967295
   %10 = trunc i64 %4 to i32
@@ -179,14 +179,14 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_signalfd(ptr
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_compat_sys_signalfd4(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.sigset_t, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, 4294967295
-  %10 = getelementptr inbounds i8, ptr %0, i64 104
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %11 = load i64, ptr %10, align 8
   %12 = trunc i64 %4 to i32
   %13 = trunc i64 %11 to i32
@@ -216,11 +216,11 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_compat_sys_signa
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_compat_sys_signalfd(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.sigset_t, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, 4294967295
   %10 = trunc i64 %4 to i32
@@ -300,7 +300,7 @@ define internal fastcc i32 @do_signalfd4(i32 noundef %0, ptr nocapture noundef %
   br i1 %26, label %50, label %27
 
 27:                                               ; preds = %21
-  %28 = getelementptr inbounds i8, ptr %24, i64 176
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 176
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, @signalfd_fops
   br i1 %30, label %35, label %31
@@ -315,11 +315,11 @@ define internal fastcc i32 @do_signalfd4(i32 noundef %0, ptr nocapture noundef %
   br label %50
 
 35:                                               ; preds = %27
-  %36 = getelementptr inbounds i8, ptr %24, i64 200
+  %36 = getelementptr inbounds nuw i8, ptr %24, i64 200
   %37 = load ptr, ptr %36, align 8
   %38 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #7, !srcloc !6
   %39 = inttoptr i64 %38 to ptr
-  %40 = getelementptr inbounds i8, ptr %39, i64 1888
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 1888
   %41 = load ptr, ptr %40, align 32
   tail call void @_raw_spin_lock_irq(ptr noundef %41) #5
   %42 = load i64, ptr %1, align 8
@@ -327,8 +327,8 @@ define internal fastcc i32 @do_signalfd4(i32 noundef %0, ptr nocapture noundef %
   %43 = load ptr, ptr %40, align 32
   tail call void @_raw_spin_unlock_irq(ptr noundef %43) #5
   %44 = load ptr, ptr %40, align 32
-  %45 = getelementptr inbounds i8, ptr %44, i64 8
-  %46 = tail call i32 @__wake_up(ptr noundef %45, i32 noundef 3, i32 noundef 1, ptr noundef null) #5
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %46 = tail call i32 @__wake_up(ptr noundef nonnull %45, i32 noundef 3, i32 noundef 1, ptr noundef null) #5
   %47 = and i32 %25, 1
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %50, label %49
@@ -366,9 +366,9 @@ define internal i64 @signalfd_read(ptr nocapture noundef readonly %0, ptr nounde
   %6 = alloca i32, align 4
   %7 = alloca %struct.wait_queue_entry, align 8
   %8 = alloca %struct.kernel_siginfo, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 200
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %12 = load i32, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #5
   %13 = icmp ult i64 %2, 128
@@ -378,43 +378,43 @@ define internal i64 @signalfd_read(ptr nocapture noundef readonly %0, ptr nounde
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, i8 0, i64 48, i1 false), !annotation !5
   %15 = lshr i64 %2, 7
   %16 = and i32 %12, 2048
-  %17 = getelementptr inbounds i8, ptr %7, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %18 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #7, !srcloc !6
   %19 = inttoptr i64 %18 to ptr
-  %20 = getelementptr inbounds i8, ptr %7, i64 16
-  %21 = getelementptr inbounds i8, ptr %7, i64 24
-  %22 = getelementptr inbounds i8, ptr %19, i64 1888
-  %23 = getelementptr inbounds i8, ptr %19, i64 24
-  %24 = getelementptr inbounds i8, ptr %8, i64 4
-  %25 = getelementptr inbounds i8, ptr %5, i64 4
-  %26 = getelementptr inbounds i8, ptr %8, i64 8
-  %27 = getelementptr inbounds i8, ptr %5, i64 8
-  %28 = getelementptr inbounds i8, ptr %8, i64 16
-  %29 = getelementptr inbounds i8, ptr %5, i64 88
-  %30 = getelementptr inbounds i8, ptr %8, i64 24
-  %31 = getelementptr inbounds i8, ptr %5, i64 84
-  %32 = getelementptr inbounds i8, ptr %8, i64 28
-  %33 = getelementptr inbounds i8, ptr %5, i64 96
-  %34 = getelementptr inbounds i8, ptr %5, i64 12
-  %35 = getelementptr inbounds i8, ptr %8, i64 20
-  %36 = getelementptr inbounds i8, ptr %5, i64 16
-  %37 = getelementptr inbounds i8, ptr %5, i64 48
-  %38 = getelementptr inbounds i8, ptr %5, i64 44
-  %39 = getelementptr inbounds i8, ptr %5, i64 40
-  %40 = getelementptr inbounds i8, ptr %8, i64 32
-  %41 = getelementptr inbounds i8, ptr %5, i64 56
-  %42 = getelementptr inbounds i8, ptr %8, i64 40
-  %43 = getelementptr inbounds i8, ptr %5, i64 64
-  %44 = getelementptr inbounds i8, ptr %5, i64 72
-  %45 = getelementptr inbounds i8, ptr %5, i64 80
-  %46 = getelementptr inbounds i8, ptr %5, i64 36
-  %47 = getelementptr inbounds i8, ptr %5, i64 28
-  %48 = getelementptr inbounds i8, ptr %5, i64 20
-  %49 = getelementptr inbounds i8, ptr %5, i64 24
-  %50 = getelementptr inbounds i8, ptr %5, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 1888
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 88
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 84
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 28
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 96
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %35 = getelementptr inbounds nuw i8, ptr %8, i64 20
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 44
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %42 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 80
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 36
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 28
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 20
+  %49 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %51 = icmp ne i32 %16, 0
   %52 = and i64 %2, -128
-  %53 = getelementptr inbounds i8, ptr %5, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %54
 
 54:                                               ; preds = %144, %14
@@ -428,7 +428,7 @@ define internal i64 @signalfd_read(ptr nocapture noundef readonly %0, ptr nounde
   store i64 0, ptr %7, align 8
   store ptr %19, ptr %17, align 8
   store ptr @default_wake_function, ptr %20, align 8
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
   %59 = load ptr, ptr %22, align 32
   call void @_raw_spin_lock_irq(ptr noundef %59) #5
   %60 = call i32 @dequeue_signal(ptr noundef %19, ptr noundef %10, ptr noundef nonnull %8, ptr noundef nonnull %6) #5
@@ -445,9 +445,9 @@ define internal i64 @signalfd_read(ptr nocapture noundef readonly %0, ptr nounde
 
 67:                                               ; preds = %54
   %68 = load ptr, ptr %22, align 32
-  %69 = getelementptr inbounds i8, ptr %68, i64 8
-  call void @add_wait_queue(ptr noundef %69, ptr noundef nonnull %7) #5
-  %70 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %23, i32 1, ptr elementtype(i32) %23) #5, !srcloc !7
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  call void @add_wait_queue(ptr noundef nonnull %69, ptr noundef nonnull %7) #5
+  %70 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %23, i32 1, ptr nonnull elementtype(i32) %23) #5, !srcloc !7
   %71 = call i32 @dequeue_signal(ptr noundef %19, ptr noundef %10, ptr noundef nonnull %8, ptr noundef nonnull %6) #5
   %72 = icmp eq i32 %71, 0
   br i1 %72, label %.preheader, label %.loopexit
@@ -470,7 +470,7 @@ define internal i64 @signalfd_read(ptr nocapture noundef readonly %0, ptr nounde
   call void @schedule() #5
   %82 = load ptr, ptr %22, align 32
   call void @_raw_spin_lock_irq(ptr noundef %82) #5
-  %83 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %23, i32 1, ptr elementtype(i32) %23) #5, !srcloc !7
+  %83 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %23, i32 1, ptr nonnull elementtype(i32) %23) #5, !srcloc !7
   %84 = call i32 @dequeue_signal(ptr noundef %19, ptr noundef %10, ptr noundef nonnull %8, ptr noundef nonnull %6) #5
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %.preheader, label %.loopexit, !llvm.loop !9
@@ -485,8 +485,8 @@ define internal i64 @signalfd_read(ptr nocapture noundef readonly %0, ptr nounde
   %89 = load ptr, ptr %22, align 32
   call void @_raw_spin_unlock_irq(ptr noundef %89) #5
   %90 = load ptr, ptr %22, align 32
-  %91 = getelementptr inbounds i8, ptr %90, i64 8
-  call void @remove_wait_queue(ptr noundef %91, ptr noundef nonnull %7) #5
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
+  call void @remove_wait_queue(ptr noundef nonnull %91, ptr noundef nonnull %7) #5
   store volatile i32 0, ptr %23, align 8
   br label %92
 
@@ -634,57 +634,55 @@ define internal i64 @signalfd_read(ptr nocapture noundef readonly %0, ptr nounde
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 0, 2) i32 @signalfd_poll(ptr noundef %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 200
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #7, !srcloc !6
   %6 = inttoptr i64 %5 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 1888
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1888
   %8 = load ptr, ptr %7, align 32
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = icmp eq ptr %1, null
-  br i1 %10, label %17, label %11
+  br i1 %10, label %14, label %11
 
 11:                                               ; preds = %2
   %12 = load ptr, ptr %1, align 8
-  %13 = icmp ne ptr %12, null
-  %14 = icmp ne ptr %9, null
-  %15 = and i1 %14, %13
-  br i1 %15, label %16, label %17
+  %.not = icmp eq ptr %12, null
+  br i1 %.not, label %14, label %13
 
-16:                                               ; preds = %11
+13:                                               ; preds = %11
   tail call void %12(ptr noundef %0, ptr noundef nonnull %9, ptr noundef nonnull %1) #5
   %.pre = load ptr, ptr %7, align 32
-  br label %17
+  br label %14
 
-17:                                               ; preds = %16, %11, %2
-  %18 = phi ptr [ %.pre, %16 ], [ %8, %11 ], [ %8, %2 ]
-  tail call void @_raw_spin_lock_irq(ptr noundef %18) #5
-  %19 = getelementptr inbounds i8, ptr %6, i64 1920
-  %20 = tail call i32 @next_signal(ptr noundef %19, ptr noundef %4) #5
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %22, label %28
+14:                                               ; preds = %13, %11, %2
+  %15 = phi ptr [ %.pre, %13 ], [ %8, %11 ], [ %8, %2 ]
+  tail call void @_raw_spin_lock_irq(ptr noundef %15) #5
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 1920
+  %17 = tail call i32 @next_signal(ptr noundef nonnull %16, ptr noundef %4) #5
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %19, label %25
 
-22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %6, i64 1880
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 64
-  %26 = tail call i32 @next_signal(ptr noundef %25, ptr noundef %4) #5
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %29, label %28
+19:                                               ; preds = %14
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 1880
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 64
+  %23 = tail call i32 @next_signal(ptr noundef nonnull %22, ptr noundef %4) #5
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %26, label %25
 
-28:                                               ; preds = %22, %17
-  br label %29
+25:                                               ; preds = %19, %14
+  br label %26
 
-29:                                               ; preds = %28, %22
-  %30 = phi i32 [ 1, %28 ], [ 0, %22 ]
-  %31 = load ptr, ptr %7, align 32
-  tail call void @_raw_spin_unlock_irq(ptr noundef %31) #5
-  ret i32 %30
+26:                                               ; preds = %25, %19
+  %27 = phi i32 [ 1, %25 ], [ 0, %19 ]
+  %28 = load ptr, ptr %7, align 32
+  tail call void @_raw_spin_unlock_irq(ptr noundef %28) #5
+  ret i32 %27
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @signalfd_release(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 200
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %4 = load ptr, ptr %3, align 8
   tail call void @kfree(ptr noundef %4) #5
   ret i32 0
@@ -693,7 +691,7 @@ define internal noundef i32 @signalfd_release(ptr nocapture readnone %0, ptr noc
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @signalfd_show_fdinfo(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = alloca %struct.sigset_t, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 200
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %5 = load ptr, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
   %6 = load i64, ptr %5, align 8

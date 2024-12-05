@@ -18,13 +18,13 @@ define range(i32 -22, 1) i32 @nxsched_get_param(i32 noundef %0, ptr noundef writ
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %0, %9
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %7, %4
-  %12 = getelementptr inbounds i8, ptr %5, i64 28
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %13 = load i8, ptr %12, align 4
   %14 = zext i8 %13 to i32
   store i32 %14, ptr %1, align 4
@@ -37,7 +37,7 @@ define range(i32 -22, 1) i32 @nxsched_get_param(i32 noundef %0, ptr noundef writ
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %17, i64 28
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 28
   %20 = load i8, ptr %19, align 4
   %21 = zext i8 %20 to i32
   store i32 %21, ptr %1, align 4
@@ -70,13 +70,13 @@ define range(i32 -1, 1) i32 @sched_getparam(i32 noundef %0, ptr noundef writeonl
   br i1 %6, label %nxsched_get_param.exit.thread7, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %0, %9
   br i1 %10, label %nxsched_get_param.exit.thread7, label %14
 
 nxsched_get_param.exit.thread7:                   ; preds = %4, %7
-  %11 = getelementptr inbounds i8, ptr %5, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %12 = load i8, ptr %11, align 4
   %13 = zext i8 %12 to i32
   store i32 %13, ptr %1, align 4
@@ -93,7 +93,7 @@ nxsched_get_param.exit.thread9:                   ; preds = %14
   br label %nxsched_get_param.exit.thread
 
 nxsched_get_param.exit:                           ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %16, i64 28
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 28
   %19 = load i8, ptr %18, align 4
   %20 = zext i8 %19 to i32
   store i32 %20, ptr %1, align 4

@@ -43,15 +43,15 @@ define internal range(i32 -156, -31) i32 @mylog(ptr noundef %0, ptr noundef %1, 
 
 14:                                               ; preds = %13
   %15 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %9, ptr noundef null) #12
-  %16 = getelementptr inbounds i8, ptr %9, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store ptr @local_caddy_t_class, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %9, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store i32 1, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %9, i64 56
-  %19 = getelementptr inbounds i8, ptr %9, i64 96
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @local_caddy_t_class, i64 40), align 8
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @local_caddy_t_class, i64 40), align 8
   %21 = load ptr, ptr %20, align 8
   %.not6.i.i = icmp eq ptr %21, null
   br i1 %.not6.i.i, label %pmix_obj_new_tma.exit.thread16, label %.lr.ph.i.i
@@ -60,19 +60,19 @@ define internal range(i32 -156, -31) i32 @mylog(ptr noundef %0, ptr noundef %1, 
   %22 = phi ptr [ %24, %.lr.ph.i.i ], [ %21, %14 ]
   %.07.i.i = phi ptr [ %23, %.lr.ph.i.i ], [ %20, %14 ]
   tail call void %22(ptr noundef nonnull %9) #12
-  %23 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %24 = load ptr, ptr %23, align 8
   %.not.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i, label %pmix_obj_new_tma.exit.thread16, label %.lr.ph.i.i, !llvm.loop !4
 
 pmix_obj_new_tma.exit.thread16:                   ; preds = %.lr.ph.i.i, %14
-  %25 = getelementptr inbounds i8, ptr %9, i64 120
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 120
   store ptr %1, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %9, i64 128
+  %26 = getelementptr inbounds nuw i8, ptr %9, i64 128
   store i64 %2, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %9, i64 136
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 136
   store ptr %5, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %9, i64 144
+  %28 = getelementptr inbounds nuw i8, ptr %9, i64 144
   store ptr %6, ptr %28, align 8
   %29 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_host_server, i64 136), align 8
   tail call void %29(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef nonnull @localcbfn, ptr noundef nonnull %9) #12
@@ -85,13 +85,13 @@ pmix_obj_new_tma.exit.thread:                     ; preds = %13, %pmix_obj_new_t
 
 ; Function Attrs: nounwind uwtable
 define internal void @localcbfn(i32 noundef %0, ptr noundef %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 136
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 144
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %7 = load ptr, ptr %6, align 8
   tail call void %4(i32 noundef %0, ptr noundef %7) #12
   br label %8
@@ -109,7 +109,7 @@ define internal void @localcbfn(i32 noundef %0, ptr noundef %1) #1 {
   unreachable
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %1, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %15 = load i32, ptr %14, align 8
   %16 = add nsw i32 %15, -1
   store i32 %16, ptr %14, align 8
@@ -118,9 +118,9 @@ define internal void @localcbfn(i32 noundef %0, ptr noundef %1) #1 {
   br i1 %18, label %19, label %33
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %1, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %23, align 8
   %.not6.i = icmp eq ptr %24, null
@@ -130,19 +130,19 @@ define internal void @localcbfn(i32 noundef %0, ptr noundef %1) #1 {
   %25 = phi ptr [ %27, %.lr.ph.i ], [ %24, %19 ]
   %.07.i = phi ptr [ %26, %.lr.ph.i ], [ %23, %19 ]
   tail call void %25(ptr noundef %1) #12
-  %26 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %27 = load ptr, ptr %26, align 8
   %.not.i = icmp eq ptr %27, null
   br i1 %.not.i, label %pmix_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !6
 
 pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %19
-  %28 = getelementptr inbounds i8, ptr %1, i64 96
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %29 = load ptr, ptr %28, align 8
   %.not19 = icmp eq ptr %29, null
   br i1 %.not19, label %32, label %30
 
 30:                                               ; preds = %pmix_obj_run_destructors.exit
-  %31 = getelementptr inbounds i8, ptr %1, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 56
   tail call void %29(ptr noundef nonnull %31, ptr noundef nonnull %1) #12
   br label %33
 
@@ -164,7 +164,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @lcon(ptr nocapture noundef writeonly initializes((120, 136)) %0) #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   ret void
 }

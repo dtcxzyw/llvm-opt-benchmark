@@ -70,7 +70,7 @@ define noundef nonnull ptr @pg_finfo_dsnowball_lexize() local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define i64 @dsnowball_init(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = tail call ptr @palloc0(i64 noundef 48) #7
   %.not = icmp eq i64 %3, 0
@@ -78,11 +78,11 @@ define i64 @dsnowball_init(ptr nocapture noundef readonly %0) local_unnamed_addr
 
 .lr.ph:                                           ; preds = %1
   %5 = inttoptr i64 %3 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
-  %8 = getelementptr inbounds i8, ptr %4, i64 32
-  %9 = getelementptr inbounds i8, ptr %4, i64 24
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = load i32, ptr %6, align 4
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %.lr.ph60, label %._crit_edge
@@ -93,7 +93,7 @@ define i64 @dsnowball_init(ptr nocapture noundef readonly %0) local_unnamed_addr
   %13 = load ptr, ptr %7, align 8
   %14 = getelementptr %union.ListCell, ptr %13, i64 %indvars.iv58
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(10) @.str) #8
   %19 = icmp eq i32 %18, 0
@@ -140,7 +140,7 @@ define i64 @dsnowball_init(ptr nocapture noundef readonly %0) local_unnamed_addr
 38:                                               ; preds = %49, %36
   %39 = phi ptr [ @.str.8, %36 ], [ %51, %49 ]
   %.027.i = phi ptr [ @stemmer_modules, %36 ], [ %50, %49 ]
-  %40 = getelementptr inbounds i8, ptr %.027.i, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %.027.i, i64 8
   %41 = load i32, ptr %40, align 8
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %46, label %43
@@ -164,7 +164,7 @@ define i64 @dsnowball_init(ptr nocapture noundef readonly %0) local_unnamed_addr
 .preheader.i:                                     ; preds = %49, %59
   %52 = phi ptr [ %61, %59 ], [ @.str.8, %49 ]
   %.128.i = phi ptr [ %60, %59 ], [ @stemmer_modules, %49 ]
-  %53 = getelementptr inbounds i8, ptr %.128.i, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %.128.i, i64 8
   %54 = load i32, ptr %53, align 8
   %55 = icmp eq i32 %54, 6
   br i1 %55, label %56, label %59
@@ -192,10 +192,10 @@ define i64 @dsnowball_init(ptr nocapture noundef readonly %0) local_unnamed_addr
 locate_stem_module.exit:                          ; preds = %46, %56
   %.128.lcssa.sink40.i = phi ptr [ %.128.i, %56 ], [ %.027.i, %46 ]
   %.sink.i = phi i8 [ 1, %56 ], [ 0, %46 ]
-  %67 = getelementptr inbounds i8, ptr %.128.lcssa.sink40.i, i64 32
+  %67 = getelementptr inbounds nuw i8, ptr %.128.lcssa.sink40.i, i64 32
   %68 = load ptr, ptr %67, align 8
   store ptr %68, ptr %8, align 8
-  %69 = getelementptr inbounds i8, ptr %.128.lcssa.sink40.i, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %.128.lcssa.sink40.i, i64 16
   %70 = load ptr, ptr %69, align 8
   %71 = tail call ptr %70() #7
   store ptr %71, ptr %4, align 8
@@ -203,7 +203,7 @@ locate_stem_module.exit:                          ; preds = %46, %56
   br label %78
 
 72:                                               ; preds = %27
-  %73 = getelementptr inbounds i8, ptr %15, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %74 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %74)
   %75 = tail call i32 @errcode(i32 noundef 50856066) #7
@@ -221,7 +221,7 @@ locate_stem_module.exit:                          ; preds = %46, %56
   br i1 %81, label %.lr.ph60, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %78, %.lr.ph, %1
-  %82 = getelementptr inbounds i8, ptr %4, i64 32
+  %82 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %83 = load ptr, ptr %82, align 8
   %.not21 = icmp eq ptr %83, null
   br i1 %.not21, label %84, label %88
@@ -236,7 +236,7 @@ locate_stem_module.exit:                          ; preds = %46, %56
 
 88:                                               ; preds = %._crit_edge
   %89 = load ptr, ptr @CurrentMemoryContext, align 8
-  %90 = getelementptr inbounds i8, ptr %4, i64 40
+  %90 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %89, ptr %90, align 8
   %91 = ptrtoint ptr %4 to i64
   ret i64 %91
@@ -264,7 +264,7 @@ declare ptr @lowerstr(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define i64 @dsnowball_lexize(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr i8, ptr %0, i64 48
@@ -279,7 +279,7 @@ define i64 @dsnowball_lexize(ptr nocapture noundef readonly %0) local_unnamed_ad
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %1
-  %15 = getelementptr inbounds i8, ptr %12, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %11, ptr %15, align 8
   br label %73
 
@@ -289,7 +289,7 @@ define i64 @dsnowball_lexize(ptr nocapture noundef readonly %0) local_unnamed_ad
   br i1 %18, label %22, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %4, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %21 = tail call zeroext i1 @searchstoplist(ptr noundef nonnull %20, ptr noundef nonnull %11) #7
   br i1 %21, label %22, label %23
 
@@ -298,7 +298,7 @@ define i64 @dsnowball_lexize(ptr nocapture noundef readonly %0) local_unnamed_ad
   br label %73
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %4, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %25 = load i8, ptr %24, align 8
   %26 = trunc i8 %25 to i1
   br i1 %26, label %27, label %32
@@ -316,7 +316,7 @@ define i64 @dsnowball_lexize(ptr nocapture noundef readonly %0) local_unnamed_ad
 
 32:                                               ; preds = %27, %31, %23
   %.0 = phi ptr [ %30, %31 ], [ %11, %27 ], [ %11, %23 ]
-  %33 = getelementptr inbounds i8, ptr %4, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %34, ptr @CurrentMemoryContext, align 8
@@ -324,7 +324,7 @@ define i64 @dsnowball_lexize(ptr nocapture noundef readonly %0) local_unnamed_ad
   %37 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0) #8
   %38 = trunc i64 %37 to i32
   %39 = tail call i32 @SN_set_current(ptr noundef %36, i32 noundef %38, ptr noundef %.0) #7
-  %40 = getelementptr inbounds i8, ptr %4, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr %4, align 8
   %43 = tail call i32 %41(ptr noundef %42) #7
@@ -335,7 +335,7 @@ define i64 @dsnowball_lexize(ptr nocapture noundef readonly %0) local_unnamed_ad
   br i1 %.not49, label %63, label %46
 
 46:                                               ; preds = %32
-  %47 = getelementptr inbounds i8, ptr %44, i64 12
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 12
   %48 = load i32, ptr %47, align 4
   %.not50 = icmp eq i32 %48, 0
   br i1 %.not50, label %63, label %49
@@ -346,12 +346,12 @@ define i64 @dsnowball_lexize(ptr nocapture noundef readonly %0) local_unnamed_ad
   %52 = tail call ptr @repalloc(ptr noundef %.0, i64 noundef %51) #7
   %53 = load ptr, ptr %4, align 8
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %53, i64 12
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 12
   %56 = load i32, ptr %55, align 4
   %57 = sext i32 %56 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %52, ptr align 1 %54, i64 %57, i1 false)
   %58 = load ptr, ptr %4, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 12
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 12
   %60 = load i32, ptr %59, align 4
   %61 = sext i32 %60 to i64
   %62 = getelementptr i8, ptr %52, i64 %61
@@ -377,7 +377,7 @@ define i64 @dsnowball_lexize(ptr nocapture noundef readonly %0) local_unnamed_ad
 
 71:                                               ; preds = %66, %70, %63
   %.2 = phi ptr [ %69, %70 ], [ %.1, %66 ], [ %.1, %63 ]
-  %72 = getelementptr inbounds i8, ptr %12, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %.2, ptr %72, align 8
   br label %73
 

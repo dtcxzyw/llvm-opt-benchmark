@@ -321,11 +321,11 @@ define hidden noundef i32 @lnet_dissect_struct_nid(ptr noundef %0, ptr noundef %
 
 21:                                               ; preds = %4
   store i32 2, ptr %8, align 8
-  %22 = getelementptr inbounds i8, ptr %8, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 4, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %8, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %5, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %8, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr null, ptr %24, align 8
   %25 = call ptr @address_to_name(ptr noundef nonnull %8) #5
   %26 = load i32, ptr %7, align 4
@@ -487,7 +487,7 @@ define internal i32 @dissect_lnet_message(ptr noundef %0, ptr noundef %1, ptr no
   store i32 0, ptr %11, align 4
   %12 = ptrtoint ptr %3 to i64
   %13 = trunc i64 %12 to i32
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   tail call void @col_set_str(ptr noundef %15, i32 noundef 34, ptr noundef nonnull @.str.209) #5
   %16 = load ptr, ptr %14, align 8
@@ -775,11 +775,11 @@ dissect_ib_msg.exit:                              ; preds = %21, %36
 
 205:                                              ; preds = %202
   %206 = load i64, ptr %9, align 8
-  %207 = getelementptr inbounds i8, ptr %1, i64 20
+  %207 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %208 = load i32, ptr %207, align 4
-  %209 = getelementptr inbounds i8, ptr %1, i64 208
-  %210 = getelementptr inbounds i8, ptr %1, i64 232
-  %211 = getelementptr inbounds i8, ptr %1, i64 280
+  %209 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %210 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %211 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %212 = load i32, ptr %211, align 8
   %213 = call i32 @conversation_pt_to_conversation_type(i32 noundef %212) #5
   %214 = call ptr @find_conversation(i32 noundef %208, ptr noundef nonnull %209, ptr noundef nonnull %210, i32 noundef %213, i32 noundef 0, i32 noundef 0, i32 noundef 0) #5

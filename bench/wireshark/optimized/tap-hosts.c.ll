@@ -78,7 +78,7 @@ sub_0:                                            ; preds = %.lr.ph
   br i1 %.not21, label %sub_1, label %.tail
 
 sub_1:                                            ; preds = %sub_0
-  %15 = getelementptr inbounds i8, ptr %9, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 1
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i32
   %18 = sub nsw i32 112, %17
@@ -86,7 +86,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not22, label %sub_2, label %.tail
 
 sub_2:                                            ; preds = %sub_1
-  %19 = getelementptr inbounds i8, ptr %9, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 2
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i32
   %22 = sub nsw i32 0, %21
@@ -208,15 +208,15 @@ declare void @wmem_map_foreach(ptr noundef, ptr noundef, ptr noundef) local_unna
 
 ; Function Attrs: nofree nounwind uwtable
 define internal void @ipv4_hash_table_print_resolved(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2) #5 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i8, ptr %4, align 4
   %6 = and i8 %5, 2
   %.not = icmp eq i8 %6, 0
   br i1 %.not, label %11, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 5
-  %9 = getelementptr inbounds i8, ptr %1, i64 21
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 5
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 21
   %10 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, ptr noundef nonnull %8, ptr noundef nonnull %9)
   br label %11
 
@@ -228,15 +228,15 @@ declare ptr @get_ipv6_hash_table() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
 define internal void @ipv6_hash_table_print_resolved(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2) #5 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i8, ptr %4, align 1
   %6 = and i8 %5, 2
   %.not = icmp eq i8 %6, 0
   br i1 %.not, label %11, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 17
-  %9 = getelementptr inbounds i8, ptr %1, i64 63
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 17
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 63
   %10 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, ptr noundef nonnull %8, ptr noundef nonnull %9)
   br label %11
 

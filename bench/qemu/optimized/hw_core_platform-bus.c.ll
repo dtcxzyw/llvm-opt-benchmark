@@ -35,13 +35,13 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local i32 @platform_bus_get_irqn(ptr nocapture noundef readonly %pbus, ptr noundef %sbdev, i32 noundef %n) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @sysbus_get_connected_irq(ptr noundef %sbdev, i32 noundef %n) #9
-  %num_irqs = getelementptr inbounds i8, ptr %pbus, i64 1104
+  %num_irqs = getelementptr inbounds nuw i8, ptr %pbus, i64 1104
   %0 = load i32, ptr %num_irqs, align 16
   %cmp5.not = icmp eq i32 %0, 0
   br i1 %cmp5.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %irqs = getelementptr inbounds i8, ptr %pbus, i64 1112
+  %irqs = getelementptr inbounds nuw i8, ptr %pbus, i64 1112
   %1 = load ptr, ptr %irqs, align 8
   br label %for.body
 
@@ -73,7 +73,7 @@ entry:
   br i1 %call1, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %mmio = getelementptr inbounds i8, ptr %pbus, i64 832
+  %mmio = getelementptr inbounds nuw i8, ptr %pbus, i64 832
   %call2 = tail call ptr @object_property_get_link(ptr noundef %call, ptr noundef nonnull @.str, ptr noundef nonnull @error_abort) #9
   %cmp.not = icmp eq ptr %call2, %mmio
   br i1 %cmp.not, label %if.end4, label %return
@@ -103,9 +103,9 @@ entry:
   br i1 %call16, label %for.body.lr.ph, label %for.cond1.preheader
 
 for.body.lr.ph:                                   ; preds = %entry
-  %num_irqs.i = getelementptr inbounds i8, ptr %pbus, i64 1104
-  %used_irqs.i = getelementptr inbounds i8, ptr %pbus, i64 1120
-  %irqs.i = getelementptr inbounds i8, ptr %pbus, i64 1112
+  %num_irqs.i = getelementptr inbounds nuw i8, ptr %pbus, i64 1104
+  %used_irqs.i = getelementptr inbounds nuw i8, ptr %pbus, i64 1120
+  %irqs.i = getelementptr inbounds nuw i8, ptr %pbus, i64 1112
   br label %for.body
 
 for.cond1.preheader:                              ; preds = %platform_bus_map_irq.exit, %entry
@@ -113,9 +113,9 @@ for.cond1.preheader:                              ; preds = %platform_bus_map_ir
   br i1 %call218, label %for.body3.lr.ph, label %for.end6
 
 for.body3.lr.ph:                                  ; preds = %for.cond1.preheader
-  %mmio_size.i = getelementptr inbounds i8, ptr %pbus, i64 816
-  %mmio.i = getelementptr inbounds i8, ptr %pbus, i64 832
-  %mr.i = getelementptr inbounds i8, ptr %tmp.i, i64 16
+  %mmio_size.i = getelementptr inbounds nuw i8, ptr %pbus, i64 816
+  %mmio.i = getelementptr inbounds nuw i8, ptr %pbus, i64 832
+  %mr.i = getelementptr inbounds nuw i8, ptr %tmp.i, i64 16
   br label %for.body3
 
 for.body:                                         ; preds = %for.body.lr.ph, %platform_bus_map_irq.exit
@@ -256,7 +256,7 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @platform_bus_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #9
-  %realize = getelementptr inbounds i8, ptr %call.i, i64 144
+  %realize = getelementptr inbounds nuw i8, ptr %call.i, i64 144
   store ptr @platform_bus_realize, ptr %realize, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @platform_bus_properties) #9
   ret void
@@ -267,13 +267,13 @@ define internal void @platform_bus_realize(ptr noundef %dev, ptr nocapture readn
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.9, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #9
   %call.i15 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.10, i32 noundef 30, ptr noundef nonnull @__func__.PLATFORM_BUS_DEVICE) #9
-  %mmio = getelementptr inbounds i8, ptr %call.i15, i64 832
-  %mmio_size = getelementptr inbounds i8, ptr %call.i15, i64 816
+  %mmio = getelementptr inbounds nuw i8, ptr %call.i15, i64 832
+  %mmio_size = getelementptr inbounds nuw i8, ptr %call.i15, i64 816
   %0 = load i32, ptr %mmio_size, align 16
   %conv = zext i32 %0 to i64
   tail call void @memory_region_init(ptr noundef nonnull %mmio, ptr noundef %dev, ptr noundef nonnull @.str.8, i64 noundef %conv) #9
   tail call void @sysbus_init_mmio(ptr noundef %call.i, ptr noundef nonnull %mmio) #9
-  %num_irqs = getelementptr inbounds i8, ptr %call.i15, i64 1104
+  %num_irqs = getelementptr inbounds nuw i8, ptr %call.i15, i64 1104
   %1 = load i32, ptr %num_irqs, align 16
   %conv3 = zext i32 %1 to i64
   %sub.i.i = add nuw nsw i64 %conv3, 63
@@ -288,12 +288,12 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 bitmap_new.exit:                                  ; preds = %entry
-  %used_irqs = getelementptr inbounds i8, ptr %call.i15, i64 1120
+  %used_irqs = getelementptr inbounds nuw i8, ptr %call.i15, i64 1120
   store ptr %call.i.i, ptr %used_irqs, align 16
   %3 = load i32, ptr %num_irqs, align 16
   %conv6 = zext i32 %3 to i64
   %call7 = tail call noalias ptr @g_malloc0_n(i64 noundef %conv6, i64 noundef 8) #13
-  %irqs = getelementptr inbounds i8, ptr %call.i15, i64 1112
+  %irqs = getelementptr inbounds nuw i8, ptr %call.i15, i64 1112
   store ptr %call7, ptr %irqs, align 8
   %4 = load i32, ptr %num_irqs, align 16
   %cmp18.not = icmp eq i32 %4, 0
@@ -367,9 +367,9 @@ entry:
   br i1 %call11, label %if.end.lr.ph, label %for.end8
 
 if.end.lr.ph:                                     ; preds = %entry
-  %num_irqs = getelementptr inbounds i8, ptr %opaque, i64 1104
-  %irqs = getelementptr inbounds i8, ptr %opaque, i64 1112
-  %used_irqs = getelementptr inbounds i8, ptr %opaque, i64 1120
+  %num_irqs = getelementptr inbounds nuw i8, ptr %opaque, i64 1104
+  %irqs = getelementptr inbounds nuw i8, ptr %opaque, i64 1112
+  %used_irqs = getelementptr inbounds nuw i8, ptr %opaque, i64 1120
   br label %if.end
 
 if.end:                                           ; preds = %if.end.lr.ph, %for.inc6

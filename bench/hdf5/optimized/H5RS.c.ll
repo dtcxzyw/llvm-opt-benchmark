@@ -60,7 +60,7 @@ define noalias ptr @H5RS_create(ptr noundef readonly %0) local_unnamed_addr #0 {
   br i1 %13, label %12, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %2, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 %storemerge.i, ptr %16, align 8
   %17 = tail call noalias ptr @H5FL_blk_malloc(ptr noundef nonnull @H5_str_buf_blk_free_list, i64 noundef %storemerge.i) #10
   store ptr %17, ptr %2, align 8
@@ -77,10 +77,10 @@ define noalias ptr @H5RS_create(ptr noundef readonly %0) local_unnamed_addr #0 {
 
 H5RS__xstrdup.exit:                               ; preds = %19, %20
   %21 = getelementptr inbounds i8, ptr %17, i64 %10
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %21, ptr %22, align 8
   store i8 0, ptr %21, align 1
-  %23 = getelementptr inbounds i8, ptr %2, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %10, ptr %23, align 8
   br label %31
 
@@ -94,7 +94,7 @@ H5RS__xstrdup.exit:                               ; preds = %19, %20
   br label %33
 
 31:                                               ; preds = %H5RS__xstrdup.exit, %8
-  %32 = getelementptr inbounds i8, ptr %2, i64 36
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 36
   store i32 1, ptr %32, align 4
   br label %33
 
@@ -122,16 +122,16 @@ define noalias ptr @H5RS_wrap(ptr noundef %0) local_unnamed_addr #0 {
 8:                                                ; preds = %1
   store ptr %0, ptr %2, align 8
   %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #11
-  %10 = getelementptr inbounds i8, ptr %2, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %9, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 %9
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i8 1, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %2, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 36
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 36
   store i32 1, ptr %15, align 4
   br label %16
 
@@ -161,9 +161,9 @@ define range(i32 -1, 1) i32 @H5RS_asprintf_cat(ptr nocapture noundef %0, ptr noc
 11:                                               ; preds = %2
   call void @llvm.va_start.p0(ptr nonnull %3)
   call void @llvm.va_copy.p0(ptr nonnull %4, ptr nonnull %3)
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %12, align 8
   %16 = load i64, ptr %13, align 8
   %17 = load i64, ptr %14, align 8
@@ -248,7 +248,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5RS__prepare_for_append(ptr nocapt
   br i1 %3, label %4, label %15
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 256, ptr %5, align 8
   %6 = tail call noalias ptr @H5FL_blk_malloc(ptr noundef nonnull @H5_str_buf_blk_free_list, i64 noundef 256) #10
   store ptr %6, ptr %0, align 8
@@ -262,15 +262,15 @@ define internal fastcc range(i32 -1, 1) i32 @H5RS__prepare_for_append(ptr nocapt
   br label %42
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %6, ptr %13, align 8
   store i8 0, ptr %6, align 1
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %14, align 8
   br label %42
 
 15:                                               ; preds = %1
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load i8, ptr %16, align 8
   %18 = trunc i8 %17 to i1
   br i1 %18, label %19, label %42
@@ -287,7 +287,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5RS__prepare_for_append(ptr nocapt
   br i1 %23, label %22, label %25
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %0, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %storemerge.i, ptr %26, align 8
   %27 = tail call noalias ptr @H5FL_blk_malloc(ptr noundef nonnull @H5_str_buf_blk_free_list, i64 noundef %storemerge.i) #10
   store ptr %27, ptr %0, align 8
@@ -313,10 +313,10 @@ define internal fastcc range(i32 -1, 1) i32 @H5RS__prepare_for_append(ptr nocapt
 
 38:                                               ; preds = %30, %29
   %39 = getelementptr inbounds i8, ptr %27, i64 %20
-  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %39, ptr %40, align 8
   store i8 0, ptr %39, align 1
-  %41 = getelementptr inbounds i8, ptr %0, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %20, ptr %41, align 8
   store i8 0, ptr %16, align 8
   br label %42
@@ -357,10 +357,10 @@ define range(i32 -1, 1) i32 @H5RS_acat(ptr nocapture noundef %0, ptr nocapture n
   br label %43
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i64, ptr %13, align 8
   %15 = add i64 %14, %5
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load i64, ptr %16, align 8
   %.not18 = icmp ult i64 %15, %17
   %18 = sub i64 %17, %14
@@ -369,7 +369,7 @@ define range(i32 -1, 1) i32 @H5RS_acat(ptr nocapture noundef %0, ptr nocapture n
   br i1 %or.cond, label %.H5RS__resize_for_append.exit.thread_crit_edge, label %.lr.ph.i
 
 .H5RS__resize_for_append.exit.thread_crit_edge:   ; preds = %12
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %H5RS__resize_for_append.exit.thread
 
@@ -391,7 +391,7 @@ define range(i32 -1, 1) i32 @H5RS_acat(ptr nocapture noundef %0, ptr nocapture n
 26:                                               ; preds = %22
   %27 = load i64, ptr %13, align 8
   %28 = getelementptr inbounds i8, ptr %24, i64 %27
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %28, ptr %29, align 8
   br label %H5RS__resize_for_append.exit.thread
 
@@ -406,7 +406,7 @@ define range(i32 -1, 1) i32 @H5RS_acat(ptr nocapture noundef %0, ptr nocapture n
 
 H5RS__resize_for_append.exit.thread:              ; preds = %.H5RS__resize_for_append.exit.thread_crit_edge, %26
   %37 = phi ptr [ %.pre, %.H5RS__resize_for_append.exit.thread_crit_edge ], [ %28, %26 ]
-  %38 = getelementptr inbounds i8, ptr %0, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %37, ptr nonnull align 1 %1, i64 %5, i1 false)
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 %5
@@ -449,10 +449,10 @@ define range(i32 -1, 1) i32 @H5RS_ancat(ptr nocapture noundef %0, ptr nocapture 
   br label %46
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, %8
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load i64, ptr %19, align 8
   %.not25 = icmp ult i64 %18, %20
   %21 = sub i64 %20, %17
@@ -461,7 +461,7 @@ define range(i32 -1, 1) i32 @H5RS_ancat(ptr nocapture noundef %0, ptr nocapture 
   br i1 %or.cond, label %.H5RS__resize_for_append.exit.thread_crit_edge, label %.lr.ph.i
 
 .H5RS__resize_for_append.exit.thread_crit_edge:   ; preds = %15
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %H5RS__resize_for_append.exit.thread
 
@@ -483,7 +483,7 @@ define range(i32 -1, 1) i32 @H5RS_ancat(ptr nocapture noundef %0, ptr nocapture 
 29:                                               ; preds = %25
   %30 = load i64, ptr %16, align 8
   %31 = getelementptr inbounds i8, ptr %27, i64 %30
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %31, ptr %32, align 8
   br label %H5RS__resize_for_append.exit.thread
 
@@ -498,7 +498,7 @@ define range(i32 -1, 1) i32 @H5RS_ancat(ptr nocapture noundef %0, ptr nocapture 
 
 H5RS__resize_for_append.exit.thread:              ; preds = %.H5RS__resize_for_append.exit.thread_crit_edge, %29
   %40 = phi ptr [ %.pre, %.H5RS__resize_for_append.exit.thread_crit_edge ], [ %31, %29 ]
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %40, ptr nonnull align 1 %1, i64 %8, i1 false)
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 %8
@@ -527,10 +527,10 @@ define range(i32 -1, 1) i32 @H5RS_aputc(ptr nocapture noundef %0, i32 noundef %1
   br label %40
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i64, ptr %10, align 8
   %12 = add i64 %11, 1
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load i64, ptr %13, align 8
   %.not = icmp ult i64 %12, %14
   %15 = sub i64 %14, %11
@@ -539,7 +539,7 @@ define range(i32 -1, 1) i32 @H5RS_aputc(ptr nocapture noundef %0, i32 noundef %1
   br i1 %or.cond, label %.H5RS__resize_for_append.exit.thread_crit_edge, label %.lr.ph.i
 
 .H5RS__resize_for_append.exit.thread_crit_edge:   ; preds = %9
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %H5RS__resize_for_append.exit.thread
 
@@ -575,8 +575,8 @@ define range(i32 -1, 1) i32 @H5RS_aputc(ptr nocapture noundef %0, i32 noundef %1
 H5RS__resize_for_append.exit.thread:              ; preds = %.H5RS__resize_for_append.exit.thread_crit_edge, %23
   %33 = phi ptr [ %.pre, %.H5RS__resize_for_append.exit.thread_crit_edge ], [ %25, %23 ]
   %34 = trunc i32 %1 to i8
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
-  %36 = getelementptr inbounds i8, ptr %33, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 1
   store ptr %36, ptr %35, align 8
   store i8 %34, ptr %33, align 1
   %37 = load i64, ptr %10, align 8
@@ -593,7 +593,7 @@ H5RS__resize_for_append.exit.thread:              ; preds = %.H5RS__resize_for_a
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @H5RS_decr(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 36
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %3 = load i32, ptr %2, align 4
   %4 = add i32 %3, -1
   store i32 %4, ptr %2, align 4
@@ -601,7 +601,7 @@ define noundef i32 @H5RS_decr(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %5, label %6, label %15
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i8, ptr %7, align 8
   %9 = trunc i8 %8 to i1
   br i1 %9, label %13, label %10
@@ -626,7 +626,7 @@ declare ptr @H5FL_reg_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5RS_incr(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %31
@@ -648,7 +648,7 @@ define range(i32 -1, 1) i32 @H5RS_incr(ptr nocapture noundef %0) local_unnamed_a
   br i1 %11, label %10, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %storemerge.i, ptr %14, align 8
   %15 = tail call noalias ptr @H5FL_blk_malloc(ptr noundef nonnull @H5_str_buf_blk_free_list, i64 noundef %storemerge.i) #10
   store ptr %15, ptr %0, align 8
@@ -665,10 +665,10 @@ define range(i32 -1, 1) i32 @H5RS_incr(ptr nocapture noundef %0) local_unnamed_a
 
 19:                                               ; preds = %18, %17
   %20 = getelementptr inbounds i8, ptr %15, i64 %8
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %20, ptr %21, align 8
   store i8 0, ptr %20, align 1
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %8, ptr %22, align 8
   br label %30
 
@@ -686,7 +686,7 @@ define range(i32 -1, 1) i32 @H5RS_incr(ptr nocapture noundef %0) local_unnamed_a
   br label %31
 
 31:                                               ; preds = %30, %1
-  %32 = getelementptr inbounds i8, ptr %0, i64 36
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %33 = load i32, ptr %32, align 4
   %34 = add i32 %33, 1
   store i32 %34, ptr %32, align 4
@@ -703,7 +703,7 @@ define noundef ptr @H5RS_dup(ptr noundef returned %0) local_unnamed_addr #6 {
   br i1 %.not, label %6, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 36
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = load i32, ptr %3, align 4
   %5 = add i32 %4, 1
   store i32 %5, ptr %3, align 4
@@ -739,7 +739,7 @@ define ptr @H5RS_get_str(ptr nocapture noundef readonly %0) local_unnamed_addr #
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @H5RS_get_count(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 36
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }

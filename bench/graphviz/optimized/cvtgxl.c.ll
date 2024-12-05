@@ -39,7 +39,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %4 = load ptr, ptr %1, align 8
   %5 = tail call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %4, i32 noundef 47) #10
   %.not.i.i = icmp eq ptr %5, null
-  %6 = getelementptr inbounds i8, ptr %5, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %.0.i.i = select i1 %.not.i.i, ptr %4, ptr %6
   store ptr %.0.i.i, ptr @CmdName, align 8
   store i32 0, ptr @opterr, align 4
@@ -160,7 +160,7 @@ openFile.exit.i:                                  ; preds = %15
   ]
 
 57:                                               ; preds = %52
-  %58 = getelementptr inbounds i8, ptr %53, i64 1
+  %58 = getelementptr inbounds nuw i8, ptr %53, i64 1
   %59 = load i8, ptr %58, align 1
   %60 = sext i8 %59 to i32
   %61 = tail call i32 @tolower(i32 noundef %60) #10
@@ -180,19 +180,19 @@ openFile.exit.i:                                  ; preds = %15
   br i1 %.not.i.i.i, label %checkInput.exit.i.i, label %sub_0.i.i.i
 
 sub_0.i.i.i:                                      ; preds = %65
-  %68 = getelementptr inbounds i8, ptr %67, i64 1
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 1
   %69 = load i8, ptr %68, align 1
   %.not5.i.i.i = icmp eq i8 %69, 103
   br i1 %.not5.i.i.i, label %sub_1.i.i.i, label %.tail.thread.i.i.i
 
 sub_1.i.i.i:                                      ; preds = %sub_0.i.i.i
-  %70 = getelementptr inbounds i8, ptr %67, i64 2
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 2
   %71 = load i8, ptr %70, align 1
   %.not6.i.i.i = icmp eq i8 %71, 118
   br i1 %.not6.i.i.i, label %.tail.i.i.i, label %.tail.thread.i.i.i
 
 .tail.i.i.i:                                      ; preds = %sub_1.i.i.i
-  %72 = getelementptr inbounds i8, ptr %67, i64 3
+  %72 = getelementptr inbounds nuw i8, ptr %67, i64 3
   %73 = load i8, ptr %72, align 1
   %74 = icmp eq i8 %73, 0
   br i1 %74, label %setAction.exit.i, label %.tail.thread.i.i.i

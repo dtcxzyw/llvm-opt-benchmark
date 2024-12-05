@@ -52,14 +52,14 @@ define void @Gia_SatCollectCone_rec(ptr noundef %0, ptr noundef %1, ptr noundef 
   %28 = sub i64 %26, %27
   %29 = sdiv exact i64 %28, 12
   %30 = trunc i64 %29 to i32
-  %31 = getelementptr inbounds i8, ptr %2, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %32 = load i32, ptr %31, align 4
   %33 = load i32, ptr %2, align 8
   %34 = icmp eq i32 %32, %33
   br i1 %34, label %35, label %.Vec_IntGrow.exit10_crit_edge.i
 
 .Vec_IntGrow.exit10_crit_edge.i:                  ; preds = %22
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %Vec_IntPush.exit
 
@@ -68,7 +68,7 @@ define void @Gia_SatCollectCone_rec(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %36, label %37, label %45
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds i8, ptr %2, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %39 = load ptr, ptr %38, align 8
   %.not9.i.i = icmp eq ptr %39, null
   br i1 %.not9.i.i, label %42, label %40
@@ -89,7 +89,7 @@ Vec_IntGrow.exit.i:                               ; preds = %42, %40
 
 45:                                               ; preds = %35
   %46 = shl nuw nsw i32 %32, 1
-  %47 = getelementptr inbounds i8, ptr %2, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %48 = load ptr, ptr %47, align 8
   %.not9.i9.i = icmp eq ptr %48, null
   %49 = zext nneg i32 %46 to i64
@@ -126,7 +126,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 ; Function Attrs: nounwind uwtable
 define void @Gia_SatCollectCone(ptr noundef %0, ptr noundef %1, ptr noundef initializes((4, 8)) %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %4, align 4
   tail call void @Gia_SatCollectCone_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   ret void
@@ -138,7 +138,7 @@ define void @Gia_SatVerifyPattern(ptr noundef %0, ptr noundef %1, ptr nocapture 
   %6 = and i64 %5, 536870911
   %7 = sub nsw i64 0, %6
   %8 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %1, i64 %7
-  %9 = getelementptr inbounds i8, ptr %3, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %9, align 4
   tail call void @Gia_SatCollectCone_rec(ptr noundef %0, ptr noundef nonnull %8, ptr noundef %3)
   %10 = getelementptr i8, ptr %2, i64 4
@@ -165,7 +165,7 @@ define void @Gia_SatVerifyPattern(ptr noundef %0, ptr noundef %1, ptr nocapture 
 18:                                               ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
   %.val51 = load ptr, ptr %12, align 8
-  %19 = getelementptr inbounds i32, ptr %.val51, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i32, ptr %.val51, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4
   %21 = ashr i32 %20, 1
   %.val56 = load ptr, ptr %13, align 8
@@ -200,7 +200,7 @@ define void @Gia_SatVerifyPattern(ptr noundef %0, ptr noundef %1, ptr nocapture 
   %.val4985 = phi i32 [ %.val4971, %.lr.ph73 ], [ %.val49, %.critedge ]
   %indvars.iv79 = phi i64 [ 0, %.lr.ph73 ], [ %indvars.iv.next80, %.critedge ]
   %.val52 = load ptr, ptr %15, align 8
-  %43 = getelementptr inbounds i32, ptr %.val52, i64 %indvars.iv79
+  %43 = getelementptr inbounds nuw i32, ptr %.val52, i64 %indvars.iv79
   %44 = load i32, ptr %43, align 4
   %.val54 = load ptr, ptr %17, align 8
   %45 = sext i32 %44 to i64
@@ -316,7 +316,7 @@ define void @Gia_SatVerifyPattern(ptr noundef %0, ptr noundef %1, ptr nocapture 
 
 109:                                              ; preds = %.lr.ph76
   %.val53 = load ptr, ptr %15, align 8
-  %110 = getelementptr inbounds i32, ptr %.val53, i64 %indvars.iv82
+  %110 = getelementptr inbounds nuw i32, ptr %.val53, i64 %indvars.iv82
   %111 = load i32, ptr %110, align 4
   %112 = sext i32 %111 to i64
   %113 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val55, i64 %112

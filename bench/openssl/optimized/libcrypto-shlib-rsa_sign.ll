@@ -104,9 +104,9 @@ entry:
   %tmps = alloca ptr, align 8
   store i64 0, ptr %encoded_len, align 8
   store ptr null, ptr %tmps, align 8
-  %meth = getelementptr inbounds i8, ptr %rsa, i64 24
+  %meth = getelementptr inbounds nuw i8, ptr %rsa, i64 24
   %0 = load ptr, ptr %meth, align 8
-  %rsa_sign = getelementptr inbounds i8, ptr %0, i64 88
+  %rsa_sign = getelementptr inbounds nuw i8, ptr %0, i64 88
   %1 = load ptr, ptr %rsa_sign, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -269,7 +269,7 @@ if.end3:                                          ; preds = %entry, %sw.bb14.i, 
 
 if.end7:                                          ; preds = %if.end3
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %call4, ptr noundef nonnull align 1 dereferenceable(1) %retval.0.i.ph, i64 %di_prefix_len.0.ph, i1 false)
-  %add.ptr = getelementptr inbounds i8, ptr %call4, i64 %di_prefix_len.0.ph
+  %add.ptr = getelementptr inbounds nuw i8, ptr %call4, i64 %di_prefix_len.0.ph
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr align 1 %m, i64 %m_len, i1 false)
   store ptr %call4, ptr %out, align 8
   store i64 %add, ptr %out_len, align 8
@@ -372,7 +372,7 @@ land.lhs.true39:                                  ; preds = %if.else34
   br i1 %cmp41, label %land.lhs.true43, label %if.else64
 
 land.lhs.true43:                                  ; preds = %land.lhs.true39
-  %arrayidx44 = getelementptr inbounds i8, ptr %call2, i64 1
+  %arrayidx44 = getelementptr inbounds nuw i8, ptr %call2, i64 1
   %1 = load i8, ptr %arrayidx44, align 1
   %cmp46 = icmp eq i8 %1, 16
   br i1 %cmp46, label %if.then48, label %if.else64
@@ -382,7 +382,7 @@ if.then48:                                        ; preds = %land.lhs.true43
   br i1 %cmp49.not, label %if.else52, label %if.then51
 
 if.then51:                                        ; preds = %if.then48
-  %add.ptr = getelementptr inbounds i8, ptr %call2, i64 2
+  %add.ptr = getelementptr inbounds nuw i8, ptr %call2, i64 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %rm, ptr noundef nonnull align 1 dereferenceable(16) %add.ptr, i64 16, i1 false)
   store i64 16, ptr %prm_len, align 8
   br label %err
@@ -398,7 +398,7 @@ if.then55:                                        ; preds = %if.else52
   br label %err
 
 if.end56:                                         ; preds = %if.else52
-  %add.ptr57 = getelementptr inbounds i8, ptr %call2, i64 2
+  %add.ptr57 = getelementptr inbounds nuw i8, ptr %call2, i64 2
   %bcmp42 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %m, ptr noundef nonnull dereferenceable(16) %add.ptr57, i64 16)
   %cmp59.not = icmp eq i32 %bcmp42, 0
   br i1 %cmp59.not, label %err, label %if.then61
@@ -460,7 +460,7 @@ if.then76:                                        ; preds = %if.end72
 
 if.end77:                                         ; preds = %if.end72
   %conv73 = zext nneg i32 %retval.0.i.ph to i64
-  %add.ptr78 = getelementptr inbounds i8, ptr %call2, i64 %conv13
+  %add.ptr78 = getelementptr inbounds nuw i8, ptr %call2, i64 %conv13
   %idx.neg = sub nsw i64 0, %conv73
   %add.ptr79 = getelementptr inbounds i8, ptr %add.ptr78, i64 %idx.neg
   br label %if.end80
@@ -521,9 +521,9 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind uwtable
 define i32 @RSA_verify(i32 noundef %type, ptr noundef %m, i32 noundef %m_len, ptr noundef %sigbuf, i32 noundef %siglen, ptr noundef %rsa) local_unnamed_addr #1 {
 entry:
-  %meth = getelementptr inbounds i8, ptr %rsa, i64 24
+  %meth = getelementptr inbounds nuw i8, ptr %rsa, i64 24
   %0 = load ptr, ptr %meth, align 8
-  %rsa_verify = getelementptr inbounds i8, ptr %0, i64 96
+  %rsa_verify = getelementptr inbounds nuw i8, ptr %0, i64 96
   %1 = load ptr, ptr %rsa_verify, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.end, label %if.then

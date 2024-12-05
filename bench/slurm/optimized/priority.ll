@@ -32,9 +32,9 @@ target triple = "x86_64-pc-linux-gnu"
 define range(i32 -1, 2) i32 @priority_sort_part_tier(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 278
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 278
   %6 = load i16, ptr %5, align 2
-  %7 = getelementptr inbounds i8, ptr %4, i64 278
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 278
   %8 = load i16, ptr %7, align 2
   %.0 = tail call i32 @llvm.ucmp.i32.i16(i16 %8, i16 %6)
   ret i32 %.0

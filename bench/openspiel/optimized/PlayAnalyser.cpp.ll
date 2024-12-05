@@ -559,8 +559,8 @@ define i32 @AnalyseAllPlaysPBN(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
 
 12:                                               ; preds = %.lr.ph, %34
   %indvars.iv45 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next46, %34 ]
-  %13 = getelementptr inbounds [200 x %struct.deal], ptr %10, i64 0, i64 %indvars.iv45
-  %14 = getelementptr inbounds [200 x %struct.dealPBN], ptr %11, i64 0, i64 %indvars.iv45
+  %13 = getelementptr inbounds nuw [200 x %struct.deal], ptr %10, i64 0, i64 %indvars.iv45
+  %14 = getelementptr inbounds nuw [200 x %struct.dealPBN], ptr %11, i64 0, i64 %indvars.iv45
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %17 = call noundef i32 @_Z14ConvertFromPBNPKcPA4_j(ptr noundef nonnull %15, ptr noundef nonnull %16)
@@ -582,13 +582,13 @@ define i32 @AnalyseAllPlaysPBN(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
 
 27:                                               ; preds = %18, %27
   %indvars.iv = phi i64 [ 0, %18 ], [ %indvars.iv.next, %27 ]
-  %28 = getelementptr inbounds [3 x i32], ptr %23, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [3 x i32], ptr %23, i64 0, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4
-  %30 = getelementptr inbounds [3 x i32], ptr %24, i64 0, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [3 x i32], ptr %24, i64 0, i64 %indvars.iv
   store i32 %29, ptr %30, align 4
-  %31 = getelementptr inbounds [3 x i32], ptr %25, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [3 x i32], ptr %25, i64 0, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds [3 x i32], ptr %26, i64 0, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [3 x i32], ptr %26, i64 0, i64 %indvars.iv
   store i32 %32, ptr %33, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -621,8 +621,8 @@ define i32 @AnalyseAllPlaysPBN(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
 
 46:                                               ; preds = %.lr.ph41, %42
   %indvars.iv48 = phi i64 [ 0, %.lr.ph41 ], [ %indvars.iv.next49, %42 ]
-  %47 = getelementptr inbounds [200 x %struct.playTracePBN], ptr %40, i64 0, i64 %indvars.iv48
-  %48 = getelementptr inbounds [200 x %struct.playTraceBin], ptr %41, i64 0, i64 %indvars.iv48
+  %47 = getelementptr inbounds nuw [200 x %struct.playTracePBN], ptr %40, i64 0, i64 %indvars.iv48
+  %48 = getelementptr inbounds nuw [200 x %struct.playTraceBin], ptr %41, i64 0, i64 %indvars.iv48
   %49 = call noundef i32 @_Z18ConvertPlayFromPBNRK12playTracePBNR12playTraceBin(ptr noundef nonnull align 4 dereferenceable(112) %47, ptr noundef nonnull align 4 dereferenceable(420) %48)
   %.not = icmp eq i32 %49, 1
   br i1 %.not, label %42, label %AnalyseAllPlaysBin.exit
@@ -686,7 +686,7 @@ define void @_Z20DetectPlayDuplicatesRK6boardsRSt6vectorIiSaIiEES5_(ptr nocaptur
   br i1 %17, label %18, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i32, ptr %8, i64 %5
+  %19 = getelementptr inbounds nuw i32, ptr %8, i64 %5
   %.not.i.i = icmp eq ptr %7, %19
   br i1 %.not.i.i, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit, label %20
 
@@ -717,7 +717,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %14, %16, %18, %20
   br i1 %34, label %35, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit13
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds i32, ptr %25, i64 %22
+  %36 = getelementptr inbounds nuw i32, ptr %25, i64 %22
   %.not.i.i12 = icmp eq ptr %24, %36
   br i1 %.not.i.i12, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit13, label %37
 
@@ -735,10 +735,10 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit13:             ; preds = %31, %33, %35, %37
   %40 = phi ptr [ %48, %.lr.ph ], [ %39, %_ZNSt6vectorIiSaIiEE6resizeEm.exit13 ]
   %41 = phi i64 [ %46, %.lr.ph ], [ 0, %_ZNSt6vectorIiSaIiEE6resizeEm.exit13 ]
   %.014 = phi i32 [ %45, %.lr.ph ], [ 0, %_ZNSt6vectorIiSaIiEE6resizeEm.exit13 ]
-  %42 = getelementptr inbounds i32, ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw i32, ptr %40, i64 %41
   store i32 %.014, ptr %42, align 4
   %43 = load ptr, ptr %2, align 8
-  %44 = getelementptr inbounds i32, ptr %43, i64 %41
+  %44 = getelementptr inbounds nuw i32, ptr %43, i64 %41
   store i32 -1, ptr %44, align 4
   %45 = add i32 %.014, 1
   %46 = zext i32 %45 to i64
@@ -851,7 +851,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit35: ; preds = %_ZNSt6vectorIi
   store ptr %31, ptr %0, align 8
   %41 = getelementptr inbounds i32, ptr %32, i64 %1
   store ptr %41, ptr %4, align 8
-  %42 = getelementptr inbounds i32, ptr %31, i64 %29
+  %42 = getelementptr inbounds nuw i32, ptr %31, i64 %29
   store ptr %42, ptr %11, align 8
   br label %43
 

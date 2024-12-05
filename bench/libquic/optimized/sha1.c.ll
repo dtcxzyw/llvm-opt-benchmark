@@ -11,16 +11,16 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden noundef i32 @SHA1_Init(ptr nocapture noundef writeonly initializes((0, 96)) %sha) local_unnamed_addr #0 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %sha, i64 20
+  %0 = getelementptr inbounds nuw i8, ptr %sha, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %0, i8 0, i64 76, i1 false)
   store i32 1732584193, ptr %sha, align 4
-  %arrayidx1 = getelementptr inbounds i8, ptr %sha, i64 4
+  %arrayidx1 = getelementptr inbounds nuw i8, ptr %sha, i64 4
   store i32 -271733879, ptr %arrayidx1, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %sha, i64 8
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %sha, i64 8
   store i32 -1732584194, ptr %arrayidx2, align 4
-  %arrayidx3 = getelementptr inbounds i8, ptr %sha, i64 12
+  %arrayidx3 = getelementptr inbounds nuw i8, ptr %sha, i64 12
   store i32 271733878, ptr %arrayidx3, align 4
-  %arrayidx4 = getelementptr inbounds i8, ptr %sha, i64 16
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %sha, i64 16
   store i32 -1009589776, ptr %arrayidx4, align 4
   ret i32 1
 }
@@ -32,16 +32,16 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 define hidden noundef nonnull ptr @SHA1(ptr noundef %data, i64 noundef %len, ptr noundef writeonly %out) local_unnamed_addr #2 {
 entry:
   %ctx = alloca %struct.sha_state_st, align 4
-  %0 = getelementptr inbounds i8, ptr %ctx, i64 20
+  %0 = getelementptr inbounds nuw i8, ptr %ctx, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %0, i8 0, i64 76, i1 false)
   store i32 1732584193, ptr %ctx, align 4
-  %arrayidx1.i = getelementptr inbounds i8, ptr %ctx, i64 4
+  %arrayidx1.i = getelementptr inbounds nuw i8, ptr %ctx, i64 4
   store i32 -271733879, ptr %arrayidx1.i, align 4
-  %arrayidx2.i = getelementptr inbounds i8, ptr %ctx, i64 8
+  %arrayidx2.i = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   store i32 -1732584194, ptr %arrayidx2.i, align 4
-  %arrayidx3.i = getelementptr inbounds i8, ptr %ctx, i64 12
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %ctx, i64 12
   store i32 271733878, ptr %arrayidx3.i, align 4
-  %arrayidx4.i = getelementptr inbounds i8, ptr %ctx, i64 16
+  %arrayidx4.i = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   store i32 -1009589776, ptr %arrayidx4.i, align 4
   %cmp.i = icmp eq i64 %len, 0
   br i1 %cmp.i, label %SHA1_Update.exit, label %if.end37.i
@@ -49,12 +49,12 @@ entry:
 if.end37.i:                                       ; preds = %entry
   %conv.i = trunc i64 %len to i32
   %shl.i = shl i32 %conv.i, 3
-  %Nh.i = getelementptr inbounds i8, ptr %ctx, i64 24
+  %Nh.i = getelementptr inbounds nuw i8, ptr %ctx, i64 24
   %shr.i = lshr i64 %len, 29
   %conv6.i = trunc i64 %shr.i to i32
   store i32 %conv6.i, ptr %Nh.i, align 4
   store i32 %shl.i, ptr %0, align 4
-  %num.i = getelementptr inbounds i8, ptr %ctx, i64 92
+  %num.i = getelementptr inbounds nuw i8, ptr %ctx, i64 92
   %cmp38.not.i = icmp ult i64 %len, 64
   br i1 %cmp38.not.i, label %if.then47.i, label %if.end44.i
 
@@ -72,7 +72,7 @@ if.then47.i:                                      ; preds = %if.end37.i, %if.end
   %len.addr.1.i6 = phi i64 [ %sub43.i, %if.end44.i ], [ %len, %if.end37.i ]
   %conv48.i = trunc nuw i64 %len.addr.1.i6 to i32
   store i32 %conv48.i, ptr %num.i, align 4
-  %data50.i = getelementptr inbounds i8, ptr %ctx, i64 28
+  %data50.i = getelementptr inbounds nuw i8, ptr %ctx, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data50.i, ptr align 1 %data.1.i7, i64 %len.addr.1.i6, i1 false)
   br label %SHA1_Update.exit
 
@@ -91,23 +91,23 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %Nl = getelementptr inbounds i8, ptr %c, i64 20
+  %Nl = getelementptr inbounds nuw i8, ptr %c, i64 20
   %0 = load i32, ptr %Nl, align 4
   %conv = trunc i64 %len to i32
   %shl = shl i32 %conv, 3
   %add = add i32 %0, %shl
   %cmp2 = icmp ult i32 %add, %0
-  %Nh = getelementptr inbounds i8, ptr %c, i64 24
+  %Nh = getelementptr inbounds nuw i8, ptr %c, i64 24
   %1 = load i32, ptr %Nh, align 4
   %inc = zext i1 %cmp2 to i32
   %2 = add i32 %1, %inc
   %shr = lshr i64 %len, 29
   %conv6 = trunc i64 %shr to i32
-  %Nh7 = getelementptr inbounds i8, ptr %c, i64 24
+  %Nh7 = getelementptr inbounds nuw i8, ptr %c, i64 24
   %add8 = add i32 %2, %conv6
   store i32 %add8, ptr %Nh7, align 4
   store i32 %add, ptr %Nl, align 4
-  %num = getelementptr inbounds i8, ptr %c, i64 92
+  %num = getelementptr inbounds nuw i8, ptr %c, i64 92
   %3 = load i32, ptr %num, align 4
   %conv10 = zext i32 %3 to i64
   %cmp11.not = icmp eq i32 %3, 0
@@ -118,8 +118,8 @@ if.then13:                                        ; preds = %if.end
   %add16 = add nuw nsw i64 %len, %conv10
   %cmp17 = icmp ugt i64 %add16, 63
   %or.cond = select i1 %cmp14, i1 true, i1 %cmp17
-  %data20 = getelementptr inbounds i8, ptr %c, i64 28
-  %add.ptr = getelementptr inbounds i8, ptr %data20, i64 %conv10
+  %data20 = getelementptr inbounds nuw i8, ptr %c, i64 28
+  %add.ptr = getelementptr inbounds nuw i8, ptr %data20, i64 %conv10
   br i1 %or.cond, label %if.then19, label %if.else
 
 if.then19:                                        ; preds = %if.then13
@@ -161,7 +161,7 @@ if.end44:                                         ; preds = %if.then40, %if.end3
 if.then47:                                        ; preds = %if.end44
   %conv48 = trunc nuw i64 %len.addr.1 to i32
   store i32 %conv48, ptr %num, align 4
-  %data50 = getelementptr inbounds i8, ptr %c, i64 28
+  %data50 = getelementptr inbounds nuw i8, ptr %c, i64 28
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data50, ptr align 1 %data.1, i64 %len.addr.1, i1 false)
   br label %return
 
@@ -172,18 +172,18 @@ return:                                           ; preds = %if.end44, %if.then4
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @SHA1_Final(ptr nocapture noundef writeonly initializes((0, 20)) %md, ptr noundef %c) local_unnamed_addr #2 {
 entry:
-  %num = getelementptr inbounds i8, ptr %c, i64 92
+  %num = getelementptr inbounds nuw i8, ptr %c, i64 92
   %0 = load i32, ptr %num, align 4
   %conv = zext i32 %0 to i64
-  %data = getelementptr inbounds i8, ptr %c, i64 28
-  %arrayidx = getelementptr inbounds [64 x i8], ptr %data, i64 0, i64 %conv
+  %data = getelementptr inbounds nuw i8, ptr %c, i64 28
+  %arrayidx = getelementptr inbounds nuw [64 x i8], ptr %data, i64 0, i64 %conv
   store i8 -128, ptr %arrayidx, align 1
   %inc = add nuw nsw i64 %conv, 1
   %cmp = icmp ugt i32 %0, 55
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %add.ptr = getelementptr inbounds i8, ptr %data, i64 %inc
+  %add.ptr = getelementptr inbounds nuw i8, ptr %data, i64 %inc
   %sub = sub nsw i64 63, %conv
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr, i8 0, i64 %sub, i1 false)
   tail call void @sha1_block_data_order(ptr noundef nonnull %c, ptr noundef nonnull %data, i64 noundef 1) #5
@@ -194,37 +194,37 @@ if.end:                                           ; preds = %if.then, %entry
   %add.ptr8 = getelementptr inbounds i8, ptr %data, i64 %n.0
   %sub9 = sub nuw nsw i64 56, %n.0
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr8, i8 0, i64 %sub9, i1 false)
-  %add.ptr13 = getelementptr inbounds i8, ptr %c, i64 84
-  %Nh = getelementptr inbounds i8, ptr %c, i64 24
+  %add.ptr13 = getelementptr inbounds nuw i8, ptr %c, i64 84
+  %Nh = getelementptr inbounds nuw i8, ptr %c, i64 24
   %1 = load i32, ptr %Nh, align 4
   %shr = lshr i32 %1, 24
   %conv14 = trunc nuw i32 %shr to i8
-  %incdec.ptr = getelementptr inbounds i8, ptr %c, i64 85
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %c, i64 85
   store i8 %conv14, ptr %add.ptr13, align 1
   %shr16 = lshr i32 %1, 16
   %conv18 = trunc i32 %shr16 to i8
-  %incdec.ptr19 = getelementptr inbounds i8, ptr %c, i64 86
+  %incdec.ptr19 = getelementptr inbounds nuw i8, ptr %c, i64 86
   store i8 %conv18, ptr %incdec.ptr, align 1
   %shr21 = lshr i32 %1, 8
   %conv23 = trunc i32 %shr21 to i8
-  %incdec.ptr24 = getelementptr inbounds i8, ptr %c, i64 87
+  %incdec.ptr24 = getelementptr inbounds nuw i8, ptr %c, i64 87
   store i8 %conv23, ptr %incdec.ptr19, align 1
   %conv27 = trunc i32 %1 to i8
-  %incdec.ptr28 = getelementptr inbounds i8, ptr %c, i64 88
+  %incdec.ptr28 = getelementptr inbounds nuw i8, ptr %c, i64 88
   store i8 %conv27, ptr %incdec.ptr24, align 1
-  %Nl = getelementptr inbounds i8, ptr %c, i64 20
+  %Nl = getelementptr inbounds nuw i8, ptr %c, i64 20
   %2 = load i32, ptr %Nl, align 4
   %shr29 = lshr i32 %2, 24
   %conv31 = trunc nuw i32 %shr29 to i8
-  %incdec.ptr32 = getelementptr inbounds i8, ptr %c, i64 89
+  %incdec.ptr32 = getelementptr inbounds nuw i8, ptr %c, i64 89
   store i8 %conv31, ptr %incdec.ptr28, align 1
   %shr34 = lshr i32 %2, 16
   %conv36 = trunc i32 %shr34 to i8
-  %incdec.ptr37 = getelementptr inbounds i8, ptr %c, i64 90
+  %incdec.ptr37 = getelementptr inbounds nuw i8, ptr %c, i64 90
   store i8 %conv36, ptr %incdec.ptr32, align 1
   %shr39 = lshr i32 %2, 8
   %conv41 = trunc i32 %shr39 to i8
-  %incdec.ptr42 = getelementptr inbounds i8, ptr %c, i64 91
+  %incdec.ptr42 = getelementptr inbounds nuw i8, ptr %c, i64 91
   store i8 %conv41, ptr %incdec.ptr37, align 1
   %conv45 = trunc i32 %2 to i8
   store i8 %conv45, ptr %incdec.ptr42, align 1
@@ -233,83 +233,83 @@ if.end:                                           ; preds = %if.then, %entry
   %3 = load i32, ptr %c, align 4
   %shr54 = lshr i32 %3, 24
   %conv56 = trunc nuw i32 %shr54 to i8
-  %incdec.ptr57 = getelementptr inbounds i8, ptr %md, i64 1
+  %incdec.ptr57 = getelementptr inbounds nuw i8, ptr %md, i64 1
   store i8 %conv56, ptr %md, align 1
   %shr58 = lshr i32 %3, 16
   %conv60 = trunc i32 %shr58 to i8
-  %incdec.ptr61 = getelementptr inbounds i8, ptr %md, i64 2
+  %incdec.ptr61 = getelementptr inbounds nuw i8, ptr %md, i64 2
   store i8 %conv60, ptr %incdec.ptr57, align 1
   %shr62 = lshr i32 %3, 8
   %conv64 = trunc i32 %shr62 to i8
-  %incdec.ptr65 = getelementptr inbounds i8, ptr %md, i64 3
+  %incdec.ptr65 = getelementptr inbounds nuw i8, ptr %md, i64 3
   store i8 %conv64, ptr %incdec.ptr61, align 1
   %conv67 = trunc i32 %3 to i8
-  %incdec.ptr68 = getelementptr inbounds i8, ptr %md, i64 4
+  %incdec.ptr68 = getelementptr inbounds nuw i8, ptr %md, i64 4
   store i8 %conv67, ptr %incdec.ptr65, align 1
-  %arrayidx69 = getelementptr inbounds i8, ptr %c, i64 4
+  %arrayidx69 = getelementptr inbounds nuw i8, ptr %c, i64 4
   %4 = load i32, ptr %arrayidx69, align 4
   %shr70 = lshr i32 %4, 24
   %conv72 = trunc nuw i32 %shr70 to i8
-  %incdec.ptr73 = getelementptr inbounds i8, ptr %md, i64 5
+  %incdec.ptr73 = getelementptr inbounds nuw i8, ptr %md, i64 5
   store i8 %conv72, ptr %incdec.ptr68, align 1
   %shr74 = lshr i32 %4, 16
   %conv76 = trunc i32 %shr74 to i8
-  %incdec.ptr77 = getelementptr inbounds i8, ptr %md, i64 6
+  %incdec.ptr77 = getelementptr inbounds nuw i8, ptr %md, i64 6
   store i8 %conv76, ptr %incdec.ptr73, align 1
   %shr78 = lshr i32 %4, 8
   %conv80 = trunc i32 %shr78 to i8
-  %incdec.ptr81 = getelementptr inbounds i8, ptr %md, i64 7
+  %incdec.ptr81 = getelementptr inbounds nuw i8, ptr %md, i64 7
   store i8 %conv80, ptr %incdec.ptr77, align 1
   %conv83 = trunc i32 %4 to i8
-  %incdec.ptr84 = getelementptr inbounds i8, ptr %md, i64 8
+  %incdec.ptr84 = getelementptr inbounds nuw i8, ptr %md, i64 8
   store i8 %conv83, ptr %incdec.ptr81, align 1
-  %arrayidx85 = getelementptr inbounds i8, ptr %c, i64 8
+  %arrayidx85 = getelementptr inbounds nuw i8, ptr %c, i64 8
   %5 = load i32, ptr %arrayidx85, align 4
   %shr86 = lshr i32 %5, 24
   %conv88 = trunc nuw i32 %shr86 to i8
-  %incdec.ptr89 = getelementptr inbounds i8, ptr %md, i64 9
+  %incdec.ptr89 = getelementptr inbounds nuw i8, ptr %md, i64 9
   store i8 %conv88, ptr %incdec.ptr84, align 1
   %shr90 = lshr i32 %5, 16
   %conv92 = trunc i32 %shr90 to i8
-  %incdec.ptr93 = getelementptr inbounds i8, ptr %md, i64 10
+  %incdec.ptr93 = getelementptr inbounds nuw i8, ptr %md, i64 10
   store i8 %conv92, ptr %incdec.ptr89, align 1
   %shr94 = lshr i32 %5, 8
   %conv96 = trunc i32 %shr94 to i8
-  %incdec.ptr97 = getelementptr inbounds i8, ptr %md, i64 11
+  %incdec.ptr97 = getelementptr inbounds nuw i8, ptr %md, i64 11
   store i8 %conv96, ptr %incdec.ptr93, align 1
   %conv99 = trunc i32 %5 to i8
-  %incdec.ptr100 = getelementptr inbounds i8, ptr %md, i64 12
+  %incdec.ptr100 = getelementptr inbounds nuw i8, ptr %md, i64 12
   store i8 %conv99, ptr %incdec.ptr97, align 1
-  %arrayidx101 = getelementptr inbounds i8, ptr %c, i64 12
+  %arrayidx101 = getelementptr inbounds nuw i8, ptr %c, i64 12
   %6 = load i32, ptr %arrayidx101, align 4
   %shr102 = lshr i32 %6, 24
   %conv104 = trunc nuw i32 %shr102 to i8
-  %incdec.ptr105 = getelementptr inbounds i8, ptr %md, i64 13
+  %incdec.ptr105 = getelementptr inbounds nuw i8, ptr %md, i64 13
   store i8 %conv104, ptr %incdec.ptr100, align 1
   %shr106 = lshr i32 %6, 16
   %conv108 = trunc i32 %shr106 to i8
-  %incdec.ptr109 = getelementptr inbounds i8, ptr %md, i64 14
+  %incdec.ptr109 = getelementptr inbounds nuw i8, ptr %md, i64 14
   store i8 %conv108, ptr %incdec.ptr105, align 1
   %shr110 = lshr i32 %6, 8
   %conv112 = trunc i32 %shr110 to i8
-  %incdec.ptr113 = getelementptr inbounds i8, ptr %md, i64 15
+  %incdec.ptr113 = getelementptr inbounds nuw i8, ptr %md, i64 15
   store i8 %conv112, ptr %incdec.ptr109, align 1
   %conv115 = trunc i32 %6 to i8
-  %incdec.ptr116 = getelementptr inbounds i8, ptr %md, i64 16
+  %incdec.ptr116 = getelementptr inbounds nuw i8, ptr %md, i64 16
   store i8 %conv115, ptr %incdec.ptr113, align 1
-  %arrayidx117 = getelementptr inbounds i8, ptr %c, i64 16
+  %arrayidx117 = getelementptr inbounds nuw i8, ptr %c, i64 16
   %7 = load i32, ptr %arrayidx117, align 4
   %shr118 = lshr i32 %7, 24
   %conv120 = trunc nuw i32 %shr118 to i8
-  %incdec.ptr121 = getelementptr inbounds i8, ptr %md, i64 17
+  %incdec.ptr121 = getelementptr inbounds nuw i8, ptr %md, i64 17
   store i8 %conv120, ptr %incdec.ptr116, align 1
   %shr122 = lshr i32 %7, 16
   %conv124 = trunc i32 %shr122 to i8
-  %incdec.ptr125 = getelementptr inbounds i8, ptr %md, i64 18
+  %incdec.ptr125 = getelementptr inbounds nuw i8, ptr %md, i64 18
   store i8 %conv124, ptr %incdec.ptr121, align 1
   %shr126 = lshr i32 %7, 8
   %conv128 = trunc i32 %shr126 to i8
-  %incdec.ptr129 = getelementptr inbounds i8, ptr %md, i64 19
+  %incdec.ptr129 = getelementptr inbounds nuw i8, ptr %md, i64 19
   store i8 %conv128, ptr %incdec.ptr125, align 1
   %conv131 = trunc i32 %7 to i8
   store i8 %conv131, ptr %incdec.ptr129, align 1

@@ -47,7 +47,7 @@ define noundef i64 @Java_java_util_zip_Deflater_init(ptr noundef %0, ptr nocaptu
   br label %22
 
 16:                                               ; preds = %9
-  %17 = getelementptr inbounds i8, ptr %6, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %18 = load ptr, ptr %17, align 8
   %.not20 = icmp eq ptr %18, null
   %19 = icmp eq i32 %11, -6
@@ -79,7 +79,7 @@ declare void @JNU_ThrowInternalError(ptr noundef, ptr noundef) local_unnamed_add
 ; Function Attrs: nounwind uwtable
 define void @Java_java_util_zip_Deflater_setDictionary(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 1776
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1776
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr %9(ptr noundef nonnull %0, ptr noundef %3, ptr noundef null) #6
   %11 = icmp eq ptr %10, null
@@ -91,7 +91,7 @@ define void @Java_java_util_zip_Deflater_setDictionary(ptr noundef %0, ptr nocap
   %15 = getelementptr inbounds i8, ptr %10, i64 %14
   %16 = tail call i32 @deflateSetDictionary(ptr noundef %13, ptr noundef nonnull %15, i32 noundef %5) #6
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 1784
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 1784
   %19 = load ptr, ptr %18, align 8
   tail call void %19(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %10, i32 noundef 0) #6
   switch i32 %16, label %21 [
@@ -146,7 +146,7 @@ checkSetDictionaryResult.exit:                    ; preds = %5, %9, %10
 ; Function Attrs: nounwind uwtable
 define i64 @Java_java_util_zip_Deflater_deflateBytesBytes(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10) local_unnamed_addr #0 {
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 1776
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1776
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr %14(ptr noundef nonnull %0, ptr noundef %3, ptr noundef null) #6
   %16 = icmp eq ptr %15, null
@@ -158,7 +158,7 @@ define i64 @Java_java_util_zip_Deflater_deflateBytesBytes(ptr noundef %0, ptr no
 
 18:                                               ; preds = %17
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 120
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 120
   %21 = load ptr, ptr %20, align 8
   %22 = tail call ptr %21(ptr noundef nonnull %0) #6
   %23 = icmp eq ptr %22, null
@@ -170,7 +170,7 @@ define i64 @Java_java_util_zip_Deflater_deflateBytesBytes(ptr noundef %0, ptr no
 
 25:                                               ; preds = %11
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 1776
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 1776
   %28 = load ptr, ptr %27, align 8
   %29 = tail call ptr %28(ptr noundef nonnull %0, ptr noundef %6, ptr noundef null) #6
   %30 = icmp eq ptr %29, null
@@ -178,7 +178,7 @@ define i64 @Java_java_util_zip_Deflater_deflateBytesBytes(ptr noundef %0, ptr no
 
 31:                                               ; preds = %25
   %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 1784
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 1784
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %15, i32 noundef 0) #6
   %.not = icmp eq i32 %8, 0
@@ -186,7 +186,7 @@ define i64 @Java_java_util_zip_Deflater_deflateBytesBytes(ptr noundef %0, ptr no
 
 35:                                               ; preds = %31
   %36 = load ptr, ptr %0, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 120
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 120
   %38 = load ptr, ptr %37, align 8
   %39 = tail call ptr %38(ptr noundef nonnull %0) #6
   %40 = icmp eq ptr %39, null
@@ -204,11 +204,11 @@ define i64 @Java_java_util_zip_Deflater_deflateBytesBytes(ptr noundef %0, ptr no
   %47 = inttoptr i64 %2 to ptr
   %48 = and i32 %10, 1
   store ptr %44, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %47, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 24
   store ptr %46, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %47, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i32 %5, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %47, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 32
   store i32 %8, ptr %51, align 8
   %.not.i = icmp eq i32 %48, 0
   br i1 %.not.i, label %57, label %52
@@ -227,11 +227,11 @@ define i64 @Java_java_util_zip_Deflater_deflateBytesBytes(ptr noundef %0, ptr no
 doDeflate.exit:                                   ; preds = %52, %57
   %.0.i = phi i32 [ %56, %52 ], [ %58, %57 ]
   %59 = load ptr, ptr %0, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 1784
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 1784
   %61 = load ptr, ptr %60, align 8
   tail call void %61(ptr noundef nonnull %0, ptr noundef %6, ptr noundef nonnull %29, i32 noundef 0) #6
   %62 = load ptr, ptr %0, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 1784
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 1784
   %64 = load ptr, ptr %63, align 8
   tail call void %64(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %15, i32 noundef 0) #6
   br i1 %.not.i, label %69, label %65
@@ -292,7 +292,7 @@ checkDeflateStatus.exit:                          ; preds = %73, %71, %67, %31, 
 ; Function Attrs: nounwind uwtable
 define i64 @Java_java_util_zip_Deflater_deflateBytesBuffer(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i64 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 1776
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 1776
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr %13(ptr noundef nonnull %0, ptr noundef %3, ptr noundef null) #6
   %15 = icmp eq ptr %14, null
@@ -304,7 +304,7 @@ define i64 @Java_java_util_zip_Deflater_deflateBytesBuffer(ptr noundef %0, ptr n
 
 17:                                               ; preds = %16
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 120
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 120
   %20 = load ptr, ptr %19, align 8
   %21 = tail call ptr %20(ptr noundef nonnull %0) #6
   %22 = icmp eq ptr %21, null
@@ -321,11 +321,11 @@ define i64 @Java_java_util_zip_Deflater_deflateBytesBuffer(ptr noundef %0, ptr n
   %28 = inttoptr i64 %2 to ptr
   %29 = and i32 %9, 1
   store ptr %27, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %28, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 24
   store ptr %25, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %28, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i32 %5, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %28, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 32
   store i32 %7, ptr %32, align 8
   %.not.i = icmp eq i32 %29, 0
   br i1 %.not.i, label %44, label %33
@@ -336,7 +336,7 @@ define i64 @Java_java_util_zip_Deflater_deflateBytesBuffer(ptr noundef %0, ptr n
   %36 = ashr i32 %9, 3
   %37 = tail call i32 @deflateParams(ptr noundef nonnull %28, i32 noundef %36, i32 noundef %35) #6
   %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 1784
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 1784
   %40 = load ptr, ptr %39, align 8
   tail call void %40(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %14, i32 noundef 0) #6
   switch i32 %37, label %42 [
@@ -358,7 +358,7 @@ define i64 @Java_java_util_zip_Deflater_deflateBytesBuffer(ptr noundef %0, ptr n
 44:                                               ; preds = %24
   %45 = tail call i32 @deflate(ptr noundef nonnull %28, i32 noundef %8) #6
   %46 = load ptr, ptr %0, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 1784
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 1784
   %48 = load ptr, ptr %47, align 8
   tail call void %48(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %14, i32 noundef 0) #6
   switch i32 %45, label %50 [
@@ -399,7 +399,7 @@ checkDeflateStatus.exit:                          ; preds = %52, %50, %42, %16, 
 ; Function Attrs: nounwind uwtable
 define i64 @Java_java_util_zip_Deflater_deflateBufferBytes(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 1776
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 1776
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr %13(ptr noundef nonnull %0, ptr noundef %5, ptr noundef null) #6
   %15 = icmp eq ptr %14, null
@@ -411,7 +411,7 @@ define i64 @Java_java_util_zip_Deflater_deflateBufferBytes(ptr noundef %0, ptr n
 
 17:                                               ; preds = %16
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 120
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 120
   %20 = load ptr, ptr %19, align 8
   %21 = tail call ptr %20(ptr noundef nonnull %0) #6
   %22 = icmp eq ptr %21, null
@@ -428,11 +428,11 @@ define i64 @Java_java_util_zip_Deflater_deflateBufferBytes(ptr noundef %0, ptr n
   %28 = inttoptr i64 %2 to ptr
   %29 = and i32 %9, 1
   store ptr %25, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %28, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 24
   store ptr %27, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %28, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i32 %4, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %28, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 32
   store i32 %7, ptr %32, align 8
   %.not.i = icmp eq i32 %29, 0
   br i1 %.not.i, label %44, label %33
@@ -443,7 +443,7 @@ define i64 @Java_java_util_zip_Deflater_deflateBufferBytes(ptr noundef %0, ptr n
   %36 = ashr i32 %9, 3
   %37 = tail call i32 @deflateParams(ptr noundef nonnull %28, i32 noundef %36, i32 noundef %35) #6
   %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 1784
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 1784
   %40 = load ptr, ptr %39, align 8
   tail call void %40(ptr noundef nonnull %0, ptr noundef %5, ptr noundef nonnull %14, i32 noundef 0) #6
   switch i32 %37, label %42 [
@@ -465,7 +465,7 @@ define i64 @Java_java_util_zip_Deflater_deflateBufferBytes(ptr noundef %0, ptr n
 44:                                               ; preds = %24
   %45 = tail call i32 @deflate(ptr noundef nonnull %28, i32 noundef %8) #6
   %46 = load ptr, ptr %0, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 1784
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 1784
   %48 = load ptr, ptr %47, align 8
   tail call void %48(ptr noundef nonnull %0, ptr noundef %5, ptr noundef nonnull %14, i32 noundef 0) #6
   switch i32 %45, label %50 [
@@ -510,11 +510,11 @@ define i64 @Java_java_util_zip_Deflater_deflateBufferBuffer(ptr noundef %0, ptr 
   %12 = inttoptr i64 %2 to ptr
   %13 = and i32 %8, 1
   store ptr %10, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %12, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store ptr %11, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %12, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 %4, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %12, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store i32 %6, ptr %16, align 8
   %.not.i = icmp eq i32 %13, 0
   br i1 %.not.i, label %25, label %17
@@ -580,7 +580,7 @@ checkDeflateStatus.exit:                          ; preds = %23, %28, %30
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i32 @Java_java_util_zip_Deflater_getAdler(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #4 {
   %4 = inttoptr i64 %2 to ptr
-  %5 = getelementptr inbounds i8, ptr %4, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %6 = load i64, ptr %5, align 8
   %7 = trunc i64 %6 to i32
   ret i32 %7

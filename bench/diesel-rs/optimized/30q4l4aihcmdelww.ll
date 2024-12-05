@@ -37,42 +37,42 @@ define hidden void @_ZN13dsl_auto_type9auto_type4case4Case15ident_with_case17h93
   br label %27
 
 .invoke:                                          ; preds = %3, %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !3, !noundef !3
-  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %11 = load i64, ptr %10, align 8, !noundef !3
   invoke void @"_ZN59_$LT$str$u20$as$u20$heck..upper_camel..ToUpperCamelCase$GT$19to_upper_camel_case17h4b5d1cf377e28ff6E"(ptr nonnull sret({ { { i64, ptr }, i64 } }) align 8 %4, ptr nonnull align 1 %9, i64 %11)
           to label %27 unwind label %36
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %5, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load ptr, ptr %13, align 8, !nonnull !3, !noundef !3
-  %15 = getelementptr inbounds i8, ptr %5, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %16 = load i64, ptr %15, align 8, !noundef !3
   invoke void @"_ZN59_$LT$str$u20$as$u20$heck..lower_camel..ToLowerCamelCase$GT$19to_lower_camel_case17h9cbd1064b406c88dE"(ptr nonnull sret({ { { i64, ptr }, i64 } }) align 8 %4, ptr nonnull align 1 %14, i64 %16)
           to label %27 unwind label %36
 
 17:                                               ; preds = %3
-  %18 = getelementptr inbounds i8, ptr %5, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %19 = load ptr, ptr %18, align 8, !nonnull !3, !noundef !3
-  %20 = getelementptr inbounds i8, ptr %5, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %21 = load i64, ptr %20, align 8, !noundef !3
   invoke void @"_ZN48_$LT$str$u20$as$u20$heck..snake..ToSnakeCase$GT$13to_snake_case17hb005bcbcbda6684eE"(ptr nonnull sret({ { { i64, ptr }, i64 } }) align 8 %4, ptr nonnull align 1 %19, i64 %21)
           to label %27 unwind label %36
 
 22:                                               ; preds = %3
-  %23 = getelementptr inbounds i8, ptr %5, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %24 = load ptr, ptr %23, align 8, !nonnull !3, !noundef !3
-  %25 = getelementptr inbounds i8, ptr %5, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %26 = load i64, ptr %25, align 8, !noundef !3
   invoke void @"_ZN61_$LT$str$u20$as$u20$heck..shouty_snake..ToShoutySnakeCase$GT$20to_shouty_snake_case17hfb6abd9b998d16acE"(ptr nonnull sret({ { { i64, ptr }, i64 } }) align 8 %4, ptr nonnull align 1 %24, i64 %26)
           to label %27 unwind label %36
 
 27:                                               ; preds = %.invoke, %22, %17, %12, %7
   %.0 = phi i8 [ 1, %22 ], [ 1, %17 ], [ 1, %12 ], [ 0, %7 ], [ 1, %.invoke ]
-  %28 = getelementptr inbounds i8, ptr %4, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %29 = load ptr, ptr %28, align 8, !nonnull !3, !noundef !3
-  %30 = getelementptr inbounds i8, ptr %4, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %31 = load i64, ptr %30, align 8, !noundef !3
   %32 = load i64, ptr %2, align 8, !range !4, !noundef !3
   %33 = icmp eq i64 %32, -9223372036854775808
@@ -91,7 +91,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type4case4Case15ident_with_case17h93
   br label %34
 
 38:                                               ; preds = %27
-  %39 = getelementptr inbounds i8, ptr %2, i64 12
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %40 = load i32, ptr %39, align 4, !range !5, !noundef !3
   br label %41
 
@@ -168,10 +168,10 @@ define hidden void @_ZN13dsl_auto_type9auto_type4case4Case8from_str17hf3a2adfa32
 
 21:                                               ; preds = %19
   store ptr %1, ptr %8, align 8
-  %22 = getelementptr inbounds i8, ptr %8, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %2, ptr %22, align 8
   store ptr %8, ptr %5, align 8
-  %23 = getelementptr inbounds i8, ptr %5, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h13d7e2ad942dd707E", ptr %23, align 8
   call void @_ZN4core3fmt9Arguments6new_v117hebfa71efe0890124E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %6, ptr nonnull align 8 @anon.dd19c8fde667f98f0e6d950f111fec75.10, i64 2, ptr nonnull align 8 %5, i64 1)
   call void @_ZN3syn5error5Error3new17h30c01987840fc3d2E(ptr nonnull sret({ { { i64, ptr }, i64 } }) align 8 %7, i32 %3, ptr nonnull align 8 %6)
@@ -183,7 +183,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type4case4Case8from_str17hf3a2adfa32
 
 25:                                               ; preds = %19, %17, %15, %13, %11, %4
   %.0 = phi i8 [ 0, %4 ], [ 1, %11 ], [ 2, %13 ], [ 3, %15 ], [ 4, %17 ], [ 5, %19 ]
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.0, ptr %26, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %24

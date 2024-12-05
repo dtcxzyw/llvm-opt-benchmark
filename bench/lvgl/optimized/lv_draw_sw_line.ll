@@ -568,10 +568,10 @@ define internal fastcc void @draw_line_skew(ptr noundef %0, ptr noundef %1) unna
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #6
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #6
   store ptr %4, ptr %8, align 16, !tbaa !44
-  %54 = getelementptr inbounds i8, ptr %8, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %5, ptr %54, align 8, !tbaa !44
-  %55 = getelementptr inbounds i8, ptr %8, i64 16
-  %56 = getelementptr inbounds i8, ptr %8, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %8, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %55, i8 0, i64 24, i1 false)
   br i1 %53, label %57, label %68
 

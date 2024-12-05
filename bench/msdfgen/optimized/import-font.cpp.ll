@@ -72,7 +72,7 @@ define dso_local noalias noundef nonnull ptr @_ZN7msdfgen17adoptFreetypeFontEP11
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #16
   store ptr %ftFace, ptr %call, align 8
-  %ownership = getelementptr inbounds i8, ptr %call, i64 8
+  %ownership = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i8 0, ptr %ownership, align 8
   ret ptr %call
 }
@@ -83,7 +83,7 @@ entry:
   %context = alloca %"struct.msdfgen::FtContext", align 8
   %ftFunctions = alloca %struct.FT_Outline_Funcs_, align 8
   %0 = load ptr, ptr %output, align 8
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %output, i64 8
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %output, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %1, %0
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIN7msdfgen7ContourESaIS1_EE5clearEv.exit, label %for.body.i.i.i.i.i
@@ -91,7 +91,7 @@ entry:
 for.body.i.i.i.i.i:                               ; preds = %entry, %_ZSt8_DestroyIN7msdfgen7ContourEEvPT_.exit.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %_ZSt8_DestroyIN7msdfgen7ContourEEvPT_.exit.i.i.i.i.i ], [ %0, %entry ]
   %2 = load ptr, ptr %__first.addr.04.i.i.i.i.i, align 8
-  %_M_finish.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 8
+  %_M_finish.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i, i64 8
   %3 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i.i, align 8
   %cmp.not3.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %2, %3
   br i1 %cmp.not3.i.i.i.i.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i.i
@@ -99,7 +99,7 @@ for.body.i.i.i.i.i:                               ; preds = %entry, %_ZSt8_Destr
 for.body.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %for.body.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i.i ], [ %2, %for.body.i.i.i.i.i ]
   tail call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i) #18
-  %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i, i64 8
+  %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i, %3
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i, label %invoke.contthread-pre-split.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !5
 
@@ -117,7 +117,7 @@ if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %invoke.cont.i.i.i.i
   br label %_ZSt8_DestroyIN7msdfgen7ContourEEvPT_.exit.i.i.i.i.i
 
 _ZSt8_DestroyIN7msdfgen7ContourEEvPT_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i.i.i.i
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 24
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.i.i, !llvm.loop !7
 
@@ -126,21 +126,21 @@ invoke.cont.i.i:                                  ; preds = %_ZSt8_DestroyIN7msd
   br label %_ZNSt6vectorIN7msdfgen7ContourESaIS1_EE5clearEv.exit
 
 _ZNSt6vectorIN7msdfgen7ContourESaIS1_EE5clearEv.exit: ; preds = %entry, %invoke.cont.i.i
-  %inverseYAxis = getelementptr inbounds i8, ptr %output, i64 24
+  %inverseYAxis = getelementptr inbounds nuw i8, ptr %output, i64 24
   store i8 0, ptr %inverseYAxis, align 8
-  %shape = getelementptr inbounds i8, ptr %context, i64 16
+  %shape = getelementptr inbounds nuw i8, ptr %context, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %context, i8 0, i64 32, i1 false)
   store ptr %output, ptr %shape, align 8
   store ptr @_ZN7msdfgenL8ftMoveToEPK10FT_Vector_Pv, ptr %ftFunctions, align 8
-  %line_to = getelementptr inbounds i8, ptr %ftFunctions, i64 8
+  %line_to = getelementptr inbounds nuw i8, ptr %ftFunctions, i64 8
   store ptr @_ZN7msdfgenL8ftLineToEPK10FT_Vector_Pv, ptr %line_to, align 8
-  %conic_to = getelementptr inbounds i8, ptr %ftFunctions, i64 16
+  %conic_to = getelementptr inbounds nuw i8, ptr %ftFunctions, i64 16
   store ptr @_ZN7msdfgenL9ftConicToEPK10FT_Vector_S2_Pv, ptr %conic_to, align 8
-  %cubic_to = getelementptr inbounds i8, ptr %ftFunctions, i64 24
+  %cubic_to = getelementptr inbounds nuw i8, ptr %ftFunctions, i64 24
   store ptr @_ZN7msdfgenL9ftCubicToEPK10FT_Vector_S2_S2_Pv, ptr %cubic_to, align 8
-  %shift = getelementptr inbounds i8, ptr %ftFunctions, i64 32
+  %shift = getelementptr inbounds nuw i8, ptr %ftFunctions, i64 32
   store i32 0, ptr %shift, align 8
-  %delta = getelementptr inbounds i8, ptr %ftFunctions, i64 40
+  %delta = getelementptr inbounds nuw i8, ptr %ftFunctions, i64 40
   store i64 0, ptr %delta, align 8
   %call = call i32 @FT_Outline_Decompose(ptr noundef %outline, ptr noundef nonnull %ftFunctions, ptr noundef nonnull %context)
   %5 = load ptr, ptr %output, align 8
@@ -166,7 +166,7 @@ if.then:                                          ; preds = %land.lhs.true
 for.body.i.i.i.i.i.i.i.i:                         ; preds = %if.then, %for.body.i.i.i.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i ], [ %9, %if.then ]
   call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %__first.addr.04.i.i.i.i.i.i.i.i) #18
-  %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i, i64 8
+  %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i, %10
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %invoke.contthread-pre-split.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i, !llvm.loop !5
 
@@ -190,20 +190,20 @@ if.end:                                           ; preds = %if.then.i.i.i.i.i.i
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZN7msdfgenL8ftMoveToEPK10FT_Vector_Pv(ptr nocapture noundef readonly %to, ptr nocapture noundef initializes((0, 16)) %user) #2 {
 entry:
-  %contour = getelementptr inbounds i8, ptr %user, i64 24
+  %contour = getelementptr inbounds nuw i8, ptr %user, i64 24
   %0 = load ptr, ptr %contour, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %1 = load ptr, ptr %0, align 8
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %1, %2
   br i1 %cmp.i.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true, %entry
-  %shape = getelementptr inbounds i8, ptr %user, i64 16
+  %shape = getelementptr inbounds nuw i8, ptr %user, i64 16
   %3 = load ptr, ptr %shape, align 8
   %call2 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7msdfgen5Shape10addContourEv(ptr noundef nonnull align 8 dereferenceable(25) %3)
   store ptr %call2, ptr %contour, align 8
@@ -218,7 +218,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
   %conv1.i = sitofp i64 %to.val5 to double
   %mul2.i = fmul double %conv1.i, 1.562500e-02
   store double %mul.i, ptr %user, align 8
-  %ref.tmp.sroa.2.0.position.sroa_idx = getelementptr inbounds i8, ptr %user, i64 8
+  %ref.tmp.sroa.2.0.position.sroa_idx = getelementptr inbounds nuw i8, ptr %user, i64 8
   store double %mul2.i, ptr %ref.tmp.sroa.2.0.position.sroa_idx, align 8
   ret i32 0
 }
@@ -235,7 +235,7 @@ entry:
   %conv1.i = sitofp i64 %to.val4 to double
   %mul2.i = fmul double %conv1.i, 1.562500e-02
   %agg.tmp1.sroa.0.0.copyload = load double, ptr %user, align 8
-  %agg.tmp1.sroa.2.0.position.sroa_idx = getelementptr inbounds i8, ptr %user, i64 8
+  %agg.tmp1.sroa.2.0.position.sroa_idx = getelementptr inbounds nuw i8, ptr %user, i64 8
   %agg.tmp1.sroa.2.0.copyload = load double, ptr %agg.tmp1.sroa.2.0.position.sroa_idx, align 8
   %cmp.i = fcmp une double %mul.i, %agg.tmp1.sroa.0.0.copyload
   %cmp3.i = fcmp une double %mul2.i, %agg.tmp1.sroa.2.0.copyload
@@ -243,7 +243,7 @@ entry:
   br i1 %1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %contour = getelementptr inbounds i8, ptr %user, i64 24
+  %contour = getelementptr inbounds nuw i8, ptr %user, i64 24
   %2 = load ptr, ptr %contour, align 8
   %call.i = tail call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_NS_9EdgeColorE(double %agg.tmp1.sroa.0.0.copyload, double %agg.tmp1.sroa.2.0.copyload, double %mul.i, double %mul2.i, i32 noundef 7)
   store ptr %call.i, ptr %ref.tmp, align 8
@@ -278,7 +278,7 @@ entry:
   %conv1.i = sitofp i64 %to.val4 to double
   %mul2.i = fmul double %conv1.i, 1.562500e-02
   %agg.tmp1.sroa.0.0.copyload = load double, ptr %user, align 8
-  %agg.tmp1.sroa.2.0.position.sroa_idx = getelementptr inbounds i8, ptr %user, i64 8
+  %agg.tmp1.sroa.2.0.position.sroa_idx = getelementptr inbounds nuw i8, ptr %user, i64 8
   %agg.tmp1.sroa.2.0.copyload = load double, ptr %agg.tmp1.sroa.2.0.position.sroa_idx, align 8
   %cmp.i = fcmp une double %mul.i, %agg.tmp1.sroa.0.0.copyload
   %cmp3.i = fcmp une double %mul2.i, %agg.tmp1.sroa.2.0.copyload
@@ -286,7 +286,7 @@ entry:
   br i1 %1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %contour = getelementptr inbounds i8, ptr %user, i64 24
+  %contour = getelementptr inbounds nuw i8, ptr %user, i64 24
   %2 = load ptr, ptr %contour, align 8
   %control.val = load i64, ptr %control, align 8
   %3 = getelementptr i8, ptr %control, i64 8
@@ -328,7 +328,7 @@ entry:
   %conv1.i = sitofp i64 %to.val6 to double
   %mul2.i = fmul double %conv1.i, 1.562500e-02
   %agg.tmp1.sroa.0.0.copyload = load double, ptr %user, align 8
-  %agg.tmp1.sroa.2.0.position.sroa_idx = getelementptr inbounds i8, ptr %user, i64 8
+  %agg.tmp1.sroa.2.0.position.sroa_idx = getelementptr inbounds nuw i8, ptr %user, i64 8
   %agg.tmp1.sroa.2.0.copyload = load double, ptr %agg.tmp1.sroa.2.0.position.sroa_idx, align 8
   %cmp.i = fcmp une double %mul.i, %agg.tmp1.sroa.0.0.copyload
   %cmp3.i = fcmp une double %mul2.i, %agg.tmp1.sroa.2.0.copyload
@@ -379,7 +379,7 @@ if.then:                                          ; preds = %entry.if.then_crit_
   %mul.i38.pre-phi = phi double [ %.pre51, %entry.if.then_crit_edge ], [ %mul.i22, %lor.lhs.false ]
   %mul2.i34.pre-phi = phi double [ %.pre49, %entry.if.then_crit_edge ], [ %mul2.i16, %lor.lhs.false ]
   %mul.i32.pre-phi = phi double [ %.pre47, %entry.if.then_crit_edge ], [ %mul.i14, %lor.lhs.false ]
-  %contour = getelementptr inbounds i8, ptr %user, i64 24
+  %contour = getelementptr inbounds nuw i8, ptr %user, i64 24
   %5 = load ptr, ptr %contour, align 8
   %call.i = tail call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_S1_S1_NS_9EdgeColorE(double %agg.tmp1.sroa.0.0.copyload, double %agg.tmp1.sroa.2.0.copyload, double %mul.i32.pre-phi, double %mul2.i34.pre-phi, double %mul.i38.pre-phi, double %mul2.i40.pre-phi, double %mul.i, double %mul2.i, i32 noundef 7)
   store ptr %call.i, ptr %ref.tmp, align 8
@@ -422,7 +422,7 @@ delete.notnull:                                   ; preds = %if.end
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %ownership = getelementptr inbounds i8, ptr %call, i64 8
+  %ownership = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i8 1, ptr %ownership, align 8
   br label %return
 
@@ -452,7 +452,7 @@ delete.notnull:                                   ; preds = %if.end
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %ownership = getelementptr inbounds i8, ptr %call, i64 8
+  %ownership = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i8 1, ptr %ownership, align 8
   br label %return
 
@@ -466,7 +466,7 @@ declare i32 @FT_New_Memory_Face(ptr noundef, ptr noundef, i64 noundef, i64 nound
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN7msdfgen11destroyFontEPNS_10FontHandleE(ptr noundef %font) local_unnamed_addr #2 {
 entry:
-  %ownership = getelementptr inbounds i8, ptr %font, i64 8
+  %ownership = getelementptr inbounds nuw i8, ptr %font, i64 8
   %0 = load i8, ptr %ownership, align 8
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.then, label %delete.end
@@ -487,45 +487,45 @@ declare i32 @FT_Done_Face(ptr noundef) local_unnamed_addr #4
 define dso_local noundef zeroext i1 @_ZN7msdfgen14getFontMetricsERNS_11FontMetricsEPNS_10FontHandleE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %metrics, ptr nocapture noundef readonly %font) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr %font, align 8
-  %units_per_EM = getelementptr inbounds i8, ptr %0, i64 136
+  %units_per_EM = getelementptr inbounds nuw i8, ptr %0, i64 136
   %1 = load i16, ptr %units_per_EM, align 8
   %conv = uitofp i16 %1 to double
   %mul = fmul double %conv, 1.562500e-02
   store double %mul, ptr %metrics, align 8
   %2 = load ptr, ptr %font, align 8
-  %ascender = getelementptr inbounds i8, ptr %2, i64 138
+  %ascender = getelementptr inbounds nuw i8, ptr %2, i64 138
   %3 = load i16, ptr %ascender, align 2
   %conv2 = sitofp i16 %3 to double
   %mul3 = fmul double %conv2, 1.562500e-02
-  %ascenderY = getelementptr inbounds i8, ptr %metrics, i64 8
+  %ascenderY = getelementptr inbounds nuw i8, ptr %metrics, i64 8
   store double %mul3, ptr %ascenderY, align 8
   %4 = load ptr, ptr %font, align 8
-  %descender = getelementptr inbounds i8, ptr %4, i64 140
+  %descender = getelementptr inbounds nuw i8, ptr %4, i64 140
   %5 = load i16, ptr %descender, align 4
   %conv5 = sitofp i16 %5 to double
   %mul6 = fmul double %conv5, 1.562500e-02
-  %descenderY = getelementptr inbounds i8, ptr %metrics, i64 16
+  %descenderY = getelementptr inbounds nuw i8, ptr %metrics, i64 16
   store double %mul6, ptr %descenderY, align 8
   %6 = load ptr, ptr %font, align 8
-  %height = getelementptr inbounds i8, ptr %6, i64 142
+  %height = getelementptr inbounds nuw i8, ptr %6, i64 142
   %7 = load i16, ptr %height, align 2
   %conv8 = sitofp i16 %7 to double
   %mul9 = fmul double %conv8, 1.562500e-02
-  %lineHeight = getelementptr inbounds i8, ptr %metrics, i64 24
+  %lineHeight = getelementptr inbounds nuw i8, ptr %metrics, i64 24
   store double %mul9, ptr %lineHeight, align 8
   %8 = load ptr, ptr %font, align 8
-  %underline_position = getelementptr inbounds i8, ptr %8, i64 148
+  %underline_position = getelementptr inbounds nuw i8, ptr %8, i64 148
   %9 = load i16, ptr %underline_position, align 4
   %conv11 = sitofp i16 %9 to double
   %mul12 = fmul double %conv11, 1.562500e-02
-  %underlineY = getelementptr inbounds i8, ptr %metrics, i64 32
+  %underlineY = getelementptr inbounds nuw i8, ptr %metrics, i64 32
   store double %mul12, ptr %underlineY, align 8
   %10 = load ptr, ptr %font, align 8
-  %underline_thickness = getelementptr inbounds i8, ptr %10, i64 150
+  %underline_thickness = getelementptr inbounds nuw i8, ptr %10, i64 150
   %11 = load i16, ptr %underline_thickness, align 2
   %conv14 = sitofp i16 %11 to double
   %mul15 = fmul double %conv14, 1.562500e-02
-  %underlineThickness = getelementptr inbounds i8, ptr %metrics, i64 40
+  %underlineThickness = getelementptr inbounds nuw i8, ptr %metrics, i64 40
   store double %mul15, ptr %underlineThickness, align 8
   ret i1 true
 }
@@ -540,9 +540,9 @@ entry:
 
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %font, align 8
-  %glyph = getelementptr inbounds i8, ptr %1, i64 152
+  %glyph = getelementptr inbounds nuw i8, ptr %1, i64 152
   %2 = load ptr, ptr %glyph, align 8
-  %advance = getelementptr inbounds i8, ptr %2, i64 128
+  %advance = getelementptr inbounds nuw i8, ptr %2, i64 128
   %3 = load i64, ptr %advance, align 8
   %conv = sitofp i64 %3 to double
   %mul = fmul double %conv, 1.562500e-02
@@ -554,9 +554,9 @@ if.end:                                           ; preds = %entry
 
 if.end6:                                          ; preds = %if.end
   %5 = load ptr, ptr %font, align 8
-  %glyph8 = getelementptr inbounds i8, ptr %5, i64 152
+  %glyph8 = getelementptr inbounds nuw i8, ptr %5, i64 152
   %6 = load ptr, ptr %glyph8, align 8
-  %advance9 = getelementptr inbounds i8, ptr %6, i64 128
+  %advance9 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %7 = load i64, ptr %advance9, align 8
   %conv11 = sitofp i64 %7 to double
   %mul12 = fmul double %conv11, 1.562500e-02
@@ -604,9 +604,9 @@ if.end4:                                          ; preds = %if.end
 
 if.then6:                                         ; preds = %if.end4
   %1 = load ptr, ptr %font, align 8
-  %glyph = getelementptr inbounds i8, ptr %1, i64 152
+  %glyph = getelementptr inbounds nuw i8, ptr %1, i64 152
   %2 = load ptr, ptr %glyph, align 8
-  %advance8 = getelementptr inbounds i8, ptr %2, i64 128
+  %advance8 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %3 = load i64, ptr %advance8, align 8
   %conv = sitofp i64 %3 to double
   %mul = fmul double %conv, 1.562500e-02
@@ -615,9 +615,9 @@ if.then6:                                         ; preds = %if.end4
 
 if.end9:                                          ; preds = %if.then6, %if.end4
   %4 = load ptr, ptr %font, align 8
-  %glyph11 = getelementptr inbounds i8, ptr %4, i64 152
+  %glyph11 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %5 = load ptr, ptr %glyph11, align 8
-  %outline = getelementptr inbounds i8, ptr %5, i64 200
+  %outline = getelementptr inbounds nuw i8, ptr %5, i64 200
   %call12 = tail call noundef i32 @_ZN7msdfgen19readFreetypeOutlineERNS_5ShapeEP11FT_Outline_(ptr noundef nonnull align 8 dereferenceable(25) %output, ptr noundef nonnull %outline)
   %tobool13.not = icmp eq i32 %call12, 0
   br label %return
@@ -646,9 +646,9 @@ if.end4.i:                                        ; preds = %if.end.i
 
 if.then6.i:                                       ; preds = %if.end4.i
   %2 = load ptr, ptr %font, align 8
-  %glyph.i = getelementptr inbounds i8, ptr %2, i64 152
+  %glyph.i = getelementptr inbounds nuw i8, ptr %2, i64 152
   %3 = load ptr, ptr %glyph.i, align 8
-  %advance8.i = getelementptr inbounds i8, ptr %3, i64 128
+  %advance8.i = getelementptr inbounds nuw i8, ptr %3, i64 128
   %4 = load i64, ptr %advance8.i, align 8
   %conv.i = sitofp i64 %4 to double
   %mul.i = fmul double %conv.i, 1.562500e-02
@@ -657,9 +657,9 @@ if.then6.i:                                       ; preds = %if.end4.i
 
 if.end9.i:                                        ; preds = %if.then6.i, %if.end4.i
   %5 = load ptr, ptr %font, align 8
-  %glyph11.i = getelementptr inbounds i8, ptr %5, i64 152
+  %glyph11.i = getelementptr inbounds nuw i8, ptr %5, i64 152
   %6 = load ptr, ptr %glyph11.i, align 8
-  %outline.i = getelementptr inbounds i8, ptr %6, i64 200
+  %outline.i = getelementptr inbounds nuw i8, ptr %6, i64 200
   %call12.i = tail call noundef i32 @_ZN7msdfgen19readFreetypeOutlineERNS_5ShapeEP11FT_Outline_(ptr noundef nonnull align 8 dereferenceable(25) %output, ptr noundef nonnull %outline.i)
   %tobool13.not.i = icmp eq i32 %call12.i, 0
   br label %_ZN7msdfgen9loadGlyphERNS_5ShapeEPNS_10FontHandleENS_10GlyphIndexEPd.exit
@@ -714,7 +714,7 @@ define dso_local noundef zeroext i1 @_ZN7msdfgen20setFontVariationAxisEPNS_14Fre
 entry:
   %master = alloca ptr, align 8
   %0 = load ptr, ptr %font, align 8
-  %face_flags = getelementptr inbounds i8, ptr %0, i64 16
+  %face_flags = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load i64, ptr %face_flags, align 8
   %and = and i64 %1, 256
   %tobool.not = icmp eq i64 %and, 0
@@ -773,7 +773,7 @@ for.cond.preheader:                               ; preds = %invoke.cont13
   br i1 %cmp29.not, label %if.end26, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %axis = getelementptr inbounds i8, ptr %6, i64 16
+  %axis = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %axis, align 8
   %wide.trip.count = zext i32 %7 to i64
   br label %for.body
@@ -785,7 +785,7 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.cond ]
-  %arrayidx = getelementptr inbounds %struct.FT_Var_Axis_, ptr %8, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw %struct.FT_Var_Axis_, ptr %8, i64 %indvars.iv
   %9 = load ptr, ptr %arrayidx, align 8
   %call19 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) %9) #19
   %tobool20.not = icmp eq i32 %call19, 0
@@ -794,7 +794,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 if.then21:                                        ; preds = %for.body
   %mul = fmul double %coordinate, 6.553600e+04
   %conv22 = fptosi double %mul to i64
-  %add.ptr.i = getelementptr inbounds i64, ptr %call5.i.i.i.i2.i.i9, i64 %indvars.iv
+  %add.ptr.i = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i2.i.i9, i64 %indvars.iv
   store i64 %conv22, ptr %add.ptr.i, align 8
   br label %if.end26
 
@@ -847,7 +847,7 @@ define dso_local noundef zeroext i1 @_ZN7msdfgen21listFontVariationAxesERSt6vect
 entry:
   %master = alloca ptr, align 8
   %0 = load ptr, ptr %font, align 8
-  %face_flags = getelementptr inbounds i8, ptr %0, i64 16
+  %face_flags = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load i64, ptr %face_flags, align 8
   %and = and i64 %1, 256
   %tobool.not = icmp eq i64 %and, 0
@@ -863,7 +863,7 @@ if.end:                                           ; preds = %if.then
   %2 = load ptr, ptr %master, align 8
   %3 = load i32, ptr %2, align 8
   %conv = zext i32 %3 to i64
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %axes, i64 8
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %axes, i64 8
   %4 = load ptr, ptr %_M_finish.i.i, align 8
   %5 = load ptr, ptr %axes, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %4 to i64
@@ -884,7 +884,7 @@ if.else.i:                                        ; preds = %if.end
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIN7msdfgen17FontVariationAxisESaIS1_EE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i
-  %add.ptr.i = getelementptr inbounds %"struct.msdfgen::FontVariationAxis", ptr %5, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw %"struct.msdfgen::FontVariationAxis", ptr %5, i64 %conv
   %tobool.not.i.i = icmp eq ptr %4, %add.ptr.i
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIN7msdfgen17FontVariationAxisESaIS1_EE6resizeEm.exit, label %invoke.cont.i.i
 
@@ -902,36 +902,36 @@ for.body:                                         ; preds = %_ZNSt6vectorIN7msdf
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %_ZNSt6vectorIN7msdfgen17FontVariationAxisESaIS1_EE6resizeEm.exit ]
   %8 = phi ptr [ %20, %for.body ], [ %6, %_ZNSt6vectorIN7msdfgen17FontVariationAxisESaIS1_EE6resizeEm.exit ]
   %9 = load ptr, ptr %axes, align 8
-  %add.ptr.i12 = getelementptr inbounds %"struct.msdfgen::FontVariationAxis", ptr %9, i64 %indvars.iv
-  %axis7 = getelementptr inbounds i8, ptr %8, i64 16
+  %add.ptr.i12 = getelementptr inbounds nuw %"struct.msdfgen::FontVariationAxis", ptr %9, i64 %indvars.iv
+  %axis7 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %axis7, align 8
-  %arrayidx = getelementptr inbounds %struct.FT_Var_Axis_, ptr %10, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw %struct.FT_Var_Axis_, ptr %10, i64 %indvars.iv
   %11 = load ptr, ptr %arrayidx, align 8
   store ptr %11, ptr %add.ptr.i12, align 8
   %12 = load ptr, ptr %axis7, align 8
-  %minimum = getelementptr inbounds %struct.FT_Var_Axis_, ptr %12, i64 %indvars.iv, i32 1
+  %minimum = getelementptr inbounds nuw %struct.FT_Var_Axis_, ptr %12, i64 %indvars.iv, i32 1
   %13 = load i64, ptr %minimum, align 8
   %conv12 = sitofp i64 %13 to double
   %mul = fmul double %conv12, 0x3EF0000000000000
-  %minValue = getelementptr inbounds i8, ptr %add.ptr.i12, i64 8
+  %minValue = getelementptr inbounds nuw i8, ptr %add.ptr.i12, i64 8
   store double %mul, ptr %minValue, align 8
   %14 = load ptr, ptr %master, align 8
-  %axis13 = getelementptr inbounds i8, ptr %14, i64 16
+  %axis13 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %15 = load ptr, ptr %axis13, align 8
-  %maximum = getelementptr inbounds %struct.FT_Var_Axis_, ptr %15, i64 %indvars.iv, i32 3
+  %maximum = getelementptr inbounds nuw %struct.FT_Var_Axis_, ptr %15, i64 %indvars.iv, i32 3
   %16 = load i64, ptr %maximum, align 8
   %conv16 = sitofp i64 %16 to double
   %mul17 = fmul double %conv16, 0x3EF0000000000000
-  %maxValue = getelementptr inbounds i8, ptr %add.ptr.i12, i64 16
+  %maxValue = getelementptr inbounds nuw i8, ptr %add.ptr.i12, i64 16
   store double %mul17, ptr %maxValue, align 8
   %17 = load ptr, ptr %master, align 8
-  %axis18 = getelementptr inbounds i8, ptr %17, i64 16
+  %axis18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %18 = load ptr, ptr %axis18, align 8
-  %def = getelementptr inbounds %struct.FT_Var_Axis_, ptr %18, i64 %indvars.iv, i32 2
+  %def = getelementptr inbounds nuw %struct.FT_Var_Axis_, ptr %18, i64 %indvars.iv, i32 2
   %19 = load i64, ptr %def, align 8
   %conv21 = sitofp i64 %19 to double
   %mul22 = fmul double %conv21, 0x3EF0000000000000
-  %defaultValue = getelementptr inbounds i8, ptr %add.ptr.i12, i64 24
+  %defaultValue = getelementptr inbounds nuw i8, ptr %add.ptr.i12, i64 24
   store double %mul22, ptr %defaultValue, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = load ptr, ptr %master, align 8
@@ -977,14 +977,14 @@ entry:
   br i1 %cmp.not, label %if.end44, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 5
-  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %2 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.lhs.cast.i
@@ -999,7 +999,7 @@ if.then:                                          ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %0, i64 32
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %cmp.i.i.i.i.i = icmp eq i64 %__n, 1
   br i1 %cmp.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN7msdfgen17FontVariationAxisEmS1_ET_S3_T0_RSaIT1_E.exit, label %if.end.i.i.i.i.i
 
@@ -1010,7 +1010,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
 for.body.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.i.i, %if.end.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i, %if.end.i.i.i.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i, i64 32
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i, i64 32
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %add.ptr.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN7msdfgen17FontVariationAxisEmS1_ET_S3_T0_RSaIT1_E.exit, label %for.body.i.i.i.i.i.i.i, !llvm.loop !10
 
@@ -1039,14 +1039,14 @@ _ZNKSt6vectorIN7msdfgen17FontVariationAxisESaIS1_EE12_M_check_lenEmPKc.exit: ; p
   br i1 %cmp.i.i.i.i.i24, label %try.cont, label %if.end.i.i.i.i.i25
 
 if.end.i.i.i.i.i25:                               ; preds = %_ZNKSt6vectorIN7msdfgen17FontVariationAxisESaIS1_EE12_M_check_lenEmPKc.exit
-  %incdec.ptr.i.i.i23 = getelementptr inbounds i8, ptr %add.ptr, i64 32
+  %incdec.ptr.i.i.i23 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 32
   %add.ptr.i.i.i.i.i26 = getelementptr %"struct.msdfgen::FontVariationAxis", ptr %add.ptr, i64 %__n
   br label %for.body.i.i.i.i.i.i.i27
 
 for.body.i.i.i.i.i.i.i27:                         ; preds = %for.body.i.i.i.i.i.i.i27, %if.end.i.i.i.i.i25
   %__first.addr.04.i.i.i.i.i.i.i28 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i29, %for.body.i.i.i.i.i.i.i27 ], [ %incdec.ptr.i.i.i23, %if.end.i.i.i.i.i25 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i.i.i.i28, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr, i64 32, i1 false)
-  %incdec.ptr.i.i.i.i.i.i.i29 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i28, i64 32
+  %incdec.ptr.i.i.i.i.i.i.i29 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i28, i64 32
   %cmp.not.i.i.i.i.i.i.i30 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i29, %add.ptr.i.i.i.i.i26
   br i1 %cmp.not.i.i.i.i.i.i.i30, label %try.cont, label %for.body.i.i.i.i.i.i.i27, !llvm.loop !10
 
@@ -1070,7 +1070,7 @@ _ZNSt12_Vector_baseIN7msdfgen17FontVariationAxisESaIS1_EE13_M_deallocateEPS1_m.e
   store ptr %call5.i.i.i, ptr %this, align 8
   %add.ptr37 = getelementptr inbounds %"struct.msdfgen::FontVariationAxis", ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8
-  %add.ptr40 = getelementptr inbounds %"struct.msdfgen::FontVariationAxis", ptr %call5.i.i.i, i64 %3
+  %add.ptr40 = getelementptr inbounds nuw %"struct.msdfgen::FontVariationAxis", ptr %call5.i.i.i, i64 %3
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8
   br label %if.end44
 

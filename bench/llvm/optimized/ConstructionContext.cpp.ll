@@ -129,7 +129,7 @@ define dso_local noundef ptr @_ZN5clang24ConstructionContextLayer6createERNS_17B
   %22 = add i64 %21, 7
   %23 = and i64 %22, -8
   %24 = inttoptr i64 %23 to ptr
-  %25 = getelementptr inbounds i8, ptr %24, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   br label %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIN5clang24ConstructionContextLayerEEEPT_m.exit
 
 _ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIN5clang24ConstructionContextLayerEEEPT_m.exit: ; preds = %17, %.critedge.i.i.i.i
@@ -137,12 +137,12 @@ _ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm
   %.0.i.i.i.i = phi ptr [ %24, %.critedge.i.i.i.i ], [ %19, %17 ]
   store ptr %.sink, ptr %5, align 8
   %.sroa.0.0.copyload = load ptr, ptr %1, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   store ptr %2, ptr %.0.i.i.i.i, align 8
   %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
   store ptr %.sroa.0.0.copyload, ptr %26, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 16
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
   store i64 %.sroa.2.0.copyload, ptr %.sroa.2.0..sroa_idx.i, align 8
   ret ptr %.0.i.i.i.i
 }
@@ -211,9 +211,9 @@ define dso_local noundef ptr @_ZN5clang19ConstructionContext37createMaterialized
   %12 = inttoptr i64 %11 to ptr
   %13 = load ptr, ptr %12, align 16
   %14 = tail call noundef ptr @_ZNK5clang4Type18getAsCXXRecordDeclEv(ptr noundef nonnull align 16 dereferenceable(24) %13) #5
-  %15 = getelementptr inbounds i8, ptr %14, i64 104
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 104
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 96
   %18 = tail call noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull %16)
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 128
   %20 = load ptr, ptr %19, align 8
@@ -299,7 +299,7 @@ _ZNK5clang24MaterializeTemporaryExpr18getStorageDurationEv.exit30.thread: ; pred
   %63 = add i64 %62, 7
   %64 = and i64 %63, -8
   %65 = inttoptr i64 %64 to ptr
-  %66 = getelementptr inbounds i8, ptr %65, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 32
   br label %_ZN5clang19ConstructionContext6createINS_40SimpleTemporaryObjectConstructionContextEJPKNS_20CXXBindTemporaryExprEPKNS_24MaterializeTemporaryExprEEEEPT_RNS_17BumpVectorContextEDpT0_.exit
 
 _ZN5clang19ConstructionContext6createINS_40SimpleTemporaryObjectConstructionContextEJPKNS_20CXXBindTemporaryExprEPKNS_24MaterializeTemporaryExprEEEEPT_RNS_17BumpVectorContextEDpT0_.exit: ; preds = %58, %.critedge.i.i.i.i.i
@@ -342,7 +342,7 @@ _ZN5clang19ConstructionContext6createINS_40SimpleTemporaryObjectConstructionCont
   %84 = add i64 %83, 7
   %85 = and i64 %84, -8
   %86 = inttoptr i64 %85 to ptr
-  %87 = getelementptr inbounds i8, ptr %86, i64 48
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 48
   br label %_ZN5clang19ConstructionContext6createINS_40ElidedTemporaryObjectConstructionContextEJPKNS_20CXXBindTemporaryExprEPKNS_24MaterializeTemporaryExprEPKNS_16CXXConstructExprEPKS0_EEEPT_RNS_17BumpVectorContextEDpT0_.exit
 
 _ZN5clang19ConstructionContext6createINS_40ElidedTemporaryObjectConstructionContextEJPKNS_20CXXBindTemporaryExprEPKNS_24MaterializeTemporaryExprEPKNS_16CXXConstructExprEPKS0_EEEPT_RNS_17BumpVectorContextEDpT0_.exit: ; preds = %79, %.critedge.i.i.i.i.i38
@@ -395,7 +395,7 @@ _ZN5clang19ConstructionContext6createINS_40ElidedTemporaryObjectConstructionCont
   %112 = add i64 %111, 7
   %113 = and i64 %112, -8
   %114 = inttoptr i64 %113 to ptr
-  %115 = getelementptr inbounds i8, ptr %114, i64 32
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 32
   br label %_ZN5clang19ConstructionContext6createINS_40SimpleTemporaryObjectConstructionContextEJPKNS_20CXXBindTemporaryExprEPKNS_24MaterializeTemporaryExprEEEEPT_RNS_17BumpVectorContextEDpT0_.exit46
 
 _ZN5clang19ConstructionContext6createINS_40SimpleTemporaryObjectConstructionContextEJPKNS_20CXXBindTemporaryExprEPKNS_24MaterializeTemporaryExprEEEEPT_RNS_17BumpVectorContextEDpT0_.exit46: ; preds = %107, %.critedge.i.i.i.i.i45
@@ -468,7 +468,7 @@ define dso_local noundef ptr @_ZN5clang19ConstructionContext16createFromLayersER
   %26 = add i64 %25, 7
   %27 = and i64 %26, -8
   %28 = inttoptr i64 %27 to ptr
-  %29 = getelementptr inbounds i8, ptr %28, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
   br label %_ZN5clang19ConstructionContext6createINS_33SimpleVariableConstructionContextEJPKNS_8DeclStmtEEEEPT_RNS_17BumpVectorContextEDpT0_.exit
 
 _ZN5clang19ConstructionContext6createINS_33SimpleVariableConstructionContextEJPKNS_8DeclStmtEEEEPT_RNS_17BumpVectorContextEDpT0_.exit: ; preds = %21, %.critedge.i.i.i.i.i
@@ -515,7 +515,7 @@ _ZN5clang19ConstructionContext6createINS_33SimpleVariableConstructionContextEJPK
   %51 = add i64 %50, 7
   %52 = and i64 %51, -8
   %53 = inttoptr i64 %52 to ptr
-  %54 = getelementptr inbounds i8, ptr %53, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 24
   br label %_ZN5clang19ConstructionContext6createINS_37NewAllocatedObjectConstructionContextEJPKNS_10CXXNewExprEEEEPT_RNS_17BumpVectorContextEDpT0_.exit
 
 _ZN5clang19ConstructionContext6createINS_37NewAllocatedObjectConstructionContextEJPKNS_10CXXNewExprEEEEPT_RNS_17BumpVectorContextEDpT0_.exit: ; preds = %46, %.critedge.i.i.i.i.i37
@@ -562,7 +562,7 @@ _ZN5clang19ConstructionContext6createINS_37NewAllocatedObjectConstructionContext
   %76 = add i64 %75, 7
   %77 = and i64 %76, -8
   %78 = inttoptr i64 %77 to ptr
-  %79 = getelementptr inbounds i8, ptr %78, i64 24
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 24
   br label %_ZN5clang19ConstructionContext6createINS_38SimpleReturnedValueConstructionContextEJPKNS_10ReturnStmtEEEEPT_RNS_17BumpVectorContextEDpT0_.exit
 
 _ZN5clang19ConstructionContext6createINS_38SimpleReturnedValueConstructionContextEJPKNS_10ReturnStmtEEEEPT_RNS_17BumpVectorContextEDpT0_.exit: ; preds = %71, %.critedge.i.i.i.i.i44
@@ -621,7 +621,7 @@ _ZN5clang19ConstructionContext6createINS_38SimpleReturnedValueConstructionContex
   %109 = add i64 %108, 7
   %110 = and i64 %109, -8
   %111 = inttoptr i64 %110 to ptr
-  %112 = getelementptr inbounds i8, ptr %111, i64 32
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 32
   br label %_ZN5clang19ConstructionContext6createINS_32LambdaCaptureConstructionContextEJPKNS_10LambdaExprEjEEEPT_RNS_17BumpVectorContextEDpT0_.exit
 
 _ZN5clang19ConstructionContext6createINS_32LambdaCaptureConstructionContextEJPKNS_10LambdaExprEjEEEPT_RNS_17BumpVectorContextEDpT0_.exit: ; preds = %104, %.critedge.i.i.i.i.i51
@@ -670,7 +670,7 @@ _ZN5clang19ConstructionContext6createINS_32LambdaCaptureConstructionContextEJPKN
   %135 = add i64 %134, 7
   %136 = and i64 %135, -8
   %137 = inttoptr i64 %136 to ptr
-  %138 = getelementptr inbounds i8, ptr %137, i64 24
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 24
   br label %_ZN5clang19ConstructionContext6createINS_47SimpleConstructorInitializerConstructionContextEJPKNS_18CXXCtorInitializerEEEEPT_RNS_17BumpVectorContextEDpT0_.exit
 
 _ZN5clang19ConstructionContext6createINS_47SimpleConstructorInitializerConstructionContextEJPKNS_18CXXCtorInitializerEEEEPT_RNS_17BumpVectorContextEDpT0_.exit: ; preds = %130, %.critedge.i.i.i.i.i58
@@ -719,7 +719,7 @@ _ZN5clang19ConstructionContext6createINS_47SimpleConstructorInitializerConstruct
   %162 = add i64 %161, 7
   %163 = and i64 %162, -8
   %164 = inttoptr i64 %163 to ptr
-  %165 = getelementptr inbounds i8, ptr %164, i64 40
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 40
   br label %_ZN5clang19ConstructionContext6createINS_27ArgumentConstructionContextEJPKNS_4ExprEjDnEEEPT_RNS_17BumpVectorContextEDpT0_.exit
 
 _ZN5clang19ConstructionContext6createINS_27ArgumentConstructionContextEJPKNS_4ExprEjDnEEEPT_RNS_17BumpVectorContextEDpT0_.exit: ; preds = %157, %.critedge.i.i.i.i.i65
@@ -783,7 +783,7 @@ define dso_local noundef ptr @_ZN5clang19ConstructionContext30createBoundTempora
   %23 = add i64 %22, 7
   %24 = and i64 %23, -8
   %25 = inttoptr i64 %24 to ptr
-  %26 = getelementptr inbounds i8, ptr %25, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
   br label %_ZN5clang19ConstructionContext6createINS_40SimpleTemporaryObjectConstructionContextEJPKNS_20CXXBindTemporaryExprEDnEEEPT_RNS_17BumpVectorContextEDpT0_.exit
 
 _ZN5clang19ConstructionContext6createINS_40SimpleTemporaryObjectConstructionContextEJPKNS_20CXXBindTemporaryExprEDnEEEPT_RNS_17BumpVectorContextEDpT0_.exit: ; preds = %18, %.critedge.i.i.i.i.i
@@ -846,7 +846,7 @@ _ZN5clang19ConstructionContext6createINS_40SimpleTemporaryObjectConstructionCont
   %54 = add i64 %53, 7
   %55 = and i64 %54, -8
   %56 = inttoptr i64 %55 to ptr
-  %57 = getelementptr inbounds i8, ptr %56, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 32
   br label %_ZN5clang19ConstructionContext6createINS_42CXX17ElidedCopyVariableConstructionContextEJPKNS_8DeclStmtEPKNS_20CXXBindTemporaryExprEEEEPT_RNS_17BumpVectorContextEDpT0_.exit
 
 _ZN5clang19ConstructionContext6createINS_42CXX17ElidedCopyVariableConstructionContextEJPKNS_8DeclStmtEPKNS_20CXXBindTemporaryExprEEEEPT_RNS_17BumpVectorContextEDpT0_.exit: ; preds = %49, %.critedge.i.i.i.i.i39
@@ -895,7 +895,7 @@ _ZN5clang19ConstructionContext6createINS_42CXX17ElidedCopyVariableConstructionCo
   %80 = add i64 %79, 7
   %81 = and i64 %80, -8
   %82 = inttoptr i64 %81 to ptr
-  %83 = getelementptr inbounds i8, ptr %82, i64 32
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 32
   br label %_ZN5clang19ConstructionContext6createINS_47CXX17ElidedCopyReturnedValueConstructionContextEJPKNS_10ReturnStmtEPKNS_20CXXBindTemporaryExprEEEEPT_RNS_17BumpVectorContextEDpT0_.exit
 
 _ZN5clang19ConstructionContext6createINS_47CXX17ElidedCopyReturnedValueConstructionContextEJPKNS_10ReturnStmtEPKNS_20CXXBindTemporaryExprEEEEPT_RNS_17BumpVectorContextEDpT0_.exit: ; preds = %75, %.critedge.i.i.i.i.i46
@@ -951,7 +951,7 @@ _ZN5clang19ConstructionContext6createINS_47CXX17ElidedCopyReturnedValueConstruct
   %111 = add i64 %110, 7
   %112 = and i64 %111, -8
   %113 = inttoptr i64 %112 to ptr
-  %114 = getelementptr inbounds i8, ptr %113, i64 40
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 40
   br label %_ZN5clang19ConstructionContext6createINS_27ArgumentConstructionContextEJPKNS_4ExprEjPKNS_20CXXBindTemporaryExprEEEEPT_RNS_17BumpVectorContextEDpT0_.exit
 
 _ZN5clang19ConstructionContext6createINS_27ArgumentConstructionContextEJPKNS_4ExprEjPKNS_20CXXBindTemporaryExprEEEEPT_RNS_17BumpVectorContextEDpT0_.exit: ; preds = %106, %.critedge.i.i.i.i.i53
@@ -1002,7 +1002,7 @@ _ZN5clang19ConstructionContext6createINS_27ArgumentConstructionContextEJPKNS_4Ex
   %138 = add i64 %137, 7
   %139 = and i64 %138, -8
   %140 = inttoptr i64 %139 to ptr
-  %141 = getelementptr inbounds i8, ptr %140, i64 32
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 32
   br label %_ZN5clang19ConstructionContext6createINS_56CXX17ElidedCopyConstructorInitializerConstructionContextEJPKNS_18CXXCtorInitializerEPKNS_20CXXBindTemporaryExprEEEEPT_RNS_17BumpVectorContextEDpT0_.exit
 
 _ZN5clang19ConstructionContext6createINS_56CXX17ElidedCopyConstructorInitializerConstructionContextEJPKNS_18CXXCtorInitializerEPKNS_20CXXBindTemporaryExprEEEEPT_RNS_17BumpVectorContextEDpT0_.exit: ; preds = %133, %.critedge.i.i.i.i.i60
@@ -1053,7 +1053,7 @@ _ZN5clang19ConstructionContext6createINS_56CXX17ElidedCopyConstructorInitializer
   %166 = add i64 %165, 7
   %167 = and i64 %166, -8
   %168 = inttoptr i64 %167 to ptr
-  %169 = getelementptr inbounds i8, ptr %168, i64 32
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 32
   br label %_ZN5clang19ConstructionContext6createINS_32LambdaCaptureConstructionContextEJPKNS_10LambdaExprEjEEEPT_RNS_17BumpVectorContextEDpT0_.exit
 
 _ZN5clang19ConstructionContext6createINS_32LambdaCaptureConstructionContextEJPKNS_10LambdaExprEjEEEPT_RNS_17BumpVectorContextEDpT0_.exit: ; preds = %161, %.critedge.i.i.i.i.i67
@@ -1132,7 +1132,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8D
   %33 = add i64 %32, 7
   %34 = and i64 %33, -8
   %35 = inttoptr i64 %34 to ptr
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   br label %_ZnwmRKN5clang10ASTContextEm.exit.i.i
 
 _ZnwmRKN5clang10ASTContextEm.exit.i.i:            ; preds = %.critedge.i.i.i.i.i.i, %28
@@ -1213,7 +1213,7 @@ define linkonce_odr hidden void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAlloc
   br i1 %.not.i.i.i, label %12, label %_ZN4llvm23SmallVectorTemplateBaseIPvLb1EE9push_backES1_.exit
 
 12:                                               ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %13, i64 noundef %10, i64 noundef 8) #5
   br label %_ZN4llvm23SmallVectorTemplateBaseIPvLb1EE9push_backES1_.exit
 
@@ -1227,7 +1227,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPvLb1EE9push_backES1_.exit: ; preds = %1, %12
   %19 = add i64 %18, 1
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %19) #5
   store ptr %8, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %8, i64 %7
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 %7
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %20, ptr %21, align 8
   ret void
@@ -1350,11 +1350,11 @@ define linkonce_odr hidden void @_ZN5clang56CXX17ElidedCopyConstructorInitialize
 define linkonce_odr hidden noundef ptr @_ZNK5clang32LambdaCaptureConstructionContext16getArrayInitLoopEv(ptr noundef nonnull align 8 dereferenceable(28) %0) unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds ptr, ptr %4, i64 %7
+  %8 = getelementptr inbounds nuw ptr, ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8
   %.not.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullIN5clang17ArrayInitLoopExprEKNS1_4ExprEEEDaPT0_.exit, label %10

@@ -27,7 +27,7 @@ define ptr @slurmdb_report_user_top_usage(ptr noundef %0, ptr noundef %1, i1 nou
 
 10:                                               ; preds = %8, %3
   %.0114 = phi ptr [ %1, %3 ], [ %9, %8 ]
-  %11 = getelementptr inbounds i8, ptr %.0114, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.0114, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not136 = icmp eq ptr %12, null
   br i1 %.not136, label %13, label %15
@@ -39,7 +39,7 @@ define ptr @slurmdb_report_user_top_usage(ptr noundef %0, ptr noundef %1, i1 nou
 
 15:                                               ; preds = %13, %10
   %16 = phi ptr [ %14, %13 ], [ %12, %10 ]
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not137 = icmp eq ptr %18, null
   br i1 %.not137, label %19, label %23
@@ -47,37 +47,37 @@ define ptr @slurmdb_report_user_top_usage(ptr noundef %0, ptr noundef %1, i1 nou
 19:                                               ; preds = %15
   %20 = tail call ptr @list_create(ptr noundef nonnull @xfree_ptr) #5
   %21 = load ptr, ptr %11, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %20, ptr %22, align 8
   %.pre = load ptr, ptr %11, align 8
   br label %23
 
 23:                                               ; preds = %19, %15
   %24 = phi ptr [ %.pre, %19 ], [ %16, %15 ]
-  %25 = getelementptr inbounds i8, ptr %.0114, i64 36
+  %25 = getelementptr inbounds nuw i8, ptr %.0114, i64 36
   store i16 1, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %.0114, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %.0114, i64 32
   store i16 1, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %24, i64 96
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 96
   store i16 1, ptr %27, align 8
   %28 = load ptr, ptr %11, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 104
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 104
   store i16 1, ptr %29, align 8
   %30 = load ptr, ptr %11, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 80
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 80
   %32 = load i64, ptr %31, align 8
   store i64 %32, ptr %5, align 8
-  %33 = getelementptr inbounds i8, ptr %30, i64 72
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 72
   %34 = load i64, ptr %33, align 8
   store i64 %34, ptr %6, align 8
   %35 = call i32 @slurmdb_report_set_start_end_time(ptr noundef nonnull %5, ptr noundef nonnull %6) #5
   %36 = load i64, ptr %5, align 8
   %37 = load ptr, ptr %11, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 80
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 80
   store i64 %36, ptr %38, align 8
   %39 = load i64, ptr %6, align 8
   %40 = load ptr, ptr %11, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 72
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 72
   store i64 %39, ptr %41, align 8
   %42 = call ptr @acct_storage_g_get_users(ptr noundef %0, i32 noundef %7, ptr noundef nonnull %.0114) #5
   %.not138 = icmp eq ptr %42, null
@@ -90,24 +90,24 @@ define ptr @slurmdb_report_user_top_usage(ptr noundef %0, ptr noundef %1, i1 nou
 
 46:                                               ; preds = %23
   call void @slurmdb_init_cluster_cond(ptr noundef nonnull %4, i1 noundef zeroext false) #5
-  %47 = getelementptr inbounds i8, ptr %4, i64 66
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 66
   store i16 1, ptr %47, align 2
-  %48 = getelementptr inbounds i8, ptr %4, i64 64
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i16 1, ptr %48, align 8
   %49 = load ptr, ptr %11, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 72
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 72
   %51 = load i64, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %4, i64 48
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i64 %51, ptr %52, align 8
   %53 = load ptr, ptr %11, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 80
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 80
   %55 = load i64, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %4, i64 56
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i64 %55, ptr %56, align 8
   %57 = load ptr, ptr %11, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %4, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %59, ptr %60, align 8
   %61 = call ptr @acct_storage_g_get_clusters(ptr noundef %0, i32 noundef %7, ptr noundef nonnull %4) #5
   %.not139 = icmp eq ptr %61, null
@@ -145,7 +145,7 @@ define ptr @slurmdb_report_user_top_usage(ptr noundef %0, ptr noundef %1, i1 nou
   %75 = call ptr @slurmdb_cluster_rec_2_report(ptr noundef nonnull %69) #5
   call void @list_append(ptr noundef %66, ptr noundef %75) #5
   %76 = call ptr @list_create(ptr noundef nonnull @slurmdb_destroy_report_user_rec) #5
-  %77 = getelementptr inbounds i8, ptr %75, i64 32
+  %77 = getelementptr inbounds nuw i8, ptr %75, i64 32
   store ptr %76, ptr %77, align 8
   br label %.backedge171
 
@@ -160,7 +160,7 @@ define ptr @slurmdb_report_user_top_usage(ptr noundef %0, ptr noundef %1, i1 nou
 
 .lr.ph185:                                        ; preds = %._crit_edge, %.backedge170
   %81 = phi ptr [ %86, %.backedge170 ], [ %80, %._crit_edge ]
-  %82 = getelementptr inbounds i8, ptr %81, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %83 = load ptr, ptr %82, align 8
   %.not145 = icmp eq ptr %83, null
   br i1 %.not145, label %.backedge170, label %84
@@ -176,20 +176,20 @@ define ptr @slurmdb_report_user_top_usage(ptr noundef %0, ptr noundef %1, i1 nou
   br i1 %.not141, label %._crit_edge186, label %.lr.ph185, !llvm.loop !8
 
 87:                                               ; preds = %84
-  %88 = getelementptr inbounds i8, ptr %81, i64 56
+  %88 = getelementptr inbounds nuw i8, ptr %81, i64 56
   %89 = load ptr, ptr %88, align 8
   %90 = call ptr @getpwnam(ptr noundef %89)
   %.not147 = icmp eq ptr %90, null
   br i1 %.not147, label %94, label %91
 
 91:                                               ; preds = %87
-  %92 = getelementptr inbounds i8, ptr %90, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %93 = load i32, ptr %92, align 8
   br label %94
 
 94:                                               ; preds = %87, %91
   %.sink = phi i32 [ %93, %91 ], [ -2, %87 ]
-  %95 = getelementptr inbounds i8, ptr %81, i64 72
+  %95 = getelementptr inbounds nuw i8, ptr %81, i64 72
   store i32 %.sink, ptr %95, align 8
   %96 = load ptr, ptr %82, align 8
   %97 = call ptr @list_iterator_create(ptr noundef %96) #5
@@ -209,7 +209,7 @@ define ptr @slurmdb_report_user_top_usage(ptr noundef %0, ptr noundef %1, i1 nou
   br i1 %.not150, label %.backedge, label %.preheader
 
 .preheader:                                       ; preds = %101
-  %103 = getelementptr inbounds i8, ptr %99, i64 40
+  %103 = getelementptr inbounds nuw i8, ptr %99, i64 40
   br label %105
 
 .backedge:                                        ; preds = %.lr.ph181, %101, %177
@@ -223,7 +223,7 @@ define ptr @slurmdb_report_user_top_usage(ptr noundef %0, ptr noundef %1, i1 nou
   br i1 %.not151, label %.thread166, label %107
 
 107:                                              ; preds = %105
-  %108 = getelementptr inbounds i8, ptr %106, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %106, i64 16
   %109 = load ptr, ptr %108, align 8
   %110 = load ptr, ptr %103, align 8
   %111 = call i32 @xstrcmp(ptr noundef %109, ptr noundef %110) #5
@@ -234,7 +234,7 @@ define ptr @slurmdb_report_user_top_usage(ptr noundef %0, ptr noundef %1, i1 nou
   br i1 %2, label %113, label %.thread168
 
 113:                                              ; preds = %112
-  %114 = getelementptr inbounds i8, ptr %106, i64 32
+  %114 = getelementptr inbounds nuw i8, ptr %106, i64 32
   %115 = load ptr, ptr %114, align 8
   %116 = call ptr @list_iterator_create(ptr noundef %115) #5
   %117 = call ptr @list_next(ptr noundef %116) #5
@@ -243,7 +243,7 @@ define ptr @slurmdb_report_user_top_usage(ptr noundef %0, ptr noundef %1, i1 nou
 
 .lr.ph177:                                        ; preds = %113, %130
   %118 = phi ptr [ %131, %130 ], [ %117, %113 ]
-  %119 = getelementptr inbounds i8, ptr %118, i64 40
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 40
   %120 = load i32, ptr %119, align 8
   %.not154 = icmp eq i32 %120, -2
   br i1 %.not154, label %124, label %121
@@ -254,7 +254,7 @@ define ptr @slurmdb_report_user_top_usage(ptr noundef %0, ptr noundef %1, i1 nou
   br i1 %123, label %143, label %130
 
 124:                                              ; preds = %.lr.ph177
-  %125 = getelementptr inbounds i8, ptr %118, i64 24
+  %125 = getelementptr inbounds nuw i8, ptr %118, i64 24
   %126 = load ptr, ptr %125, align 8
   %.not155 = icmp eq ptr %126, null
   br i1 %.not155, label %130, label %127
@@ -276,18 +276,18 @@ define ptr @slurmdb_report_user_top_usage(ptr noundef %0, ptr noundef %1, i1 nou
 
 .thread168:                                       ; preds = %._crit_edge178, %112
   %132 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 48, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 199, ptr noundef nonnull @__func__.slurmdb_report_user_top_usage) #5
-  %133 = getelementptr inbounds i8, ptr %99, i64 320
+  %133 = getelementptr inbounds nuw i8, ptr %99, i64 320
   %134 = load ptr, ptr %133, align 8
   %135 = call ptr @xstrdup(ptr noundef %134) #5
-  %136 = getelementptr inbounds i8, ptr %132, i64 24
+  %136 = getelementptr inbounds nuw i8, ptr %132, i64 24
   store ptr %135, ptr %136, align 8
   %137 = load i32, ptr %95, align 8
-  %138 = getelementptr inbounds i8, ptr %132, i64 40
+  %138 = getelementptr inbounds nuw i8, ptr %132, i64 40
   store i32 %137, ptr %138, align 8
   %139 = call ptr @list_create(ptr noundef nonnull @xfree_ptr) #5
-  %140 = getelementptr inbounds i8, ptr %132, i64 8
+  %140 = getelementptr inbounds nuw i8, ptr %132, i64 8
   store ptr %139, ptr %140, align 8
-  %141 = getelementptr inbounds i8, ptr %106, i64 32
+  %141 = getelementptr inbounds nuw i8, ptr %106, i64 32
   %142 = load ptr, ptr %141, align 8
   call void @list_append(ptr noundef %142, ptr noundef %132) #5
   br label %162
@@ -303,22 +303,22 @@ define ptr @slurmdb_report_user_top_usage(ptr noundef %0, ptr noundef %1, i1 nou
   call void @list_append(ptr noundef %66, ptr noundef %146) #5
   %147 = load ptr, ptr %103, align 8
   %148 = call ptr @xstrdup(ptr noundef %147) #5
-  %149 = getelementptr inbounds i8, ptr %146, i64 16
+  %149 = getelementptr inbounds nuw i8, ptr %146, i64 16
   store ptr %148, ptr %149, align 8
   %150 = call ptr @list_create(ptr noundef nonnull @slurmdb_destroy_report_user_rec) #5
-  %151 = getelementptr inbounds i8, ptr %146, i64 32
+  %151 = getelementptr inbounds nuw i8, ptr %146, i64 32
   store ptr %150, ptr %151, align 8
   %152 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 48, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 225, ptr noundef nonnull @__func__.slurmdb_report_user_top_usage) #5
-  %153 = getelementptr inbounds i8, ptr %99, i64 320
+  %153 = getelementptr inbounds nuw i8, ptr %99, i64 320
   %154 = load ptr, ptr %153, align 8
   %155 = call ptr @xstrdup(ptr noundef %154) #5
-  %156 = getelementptr inbounds i8, ptr %152, i64 24
+  %156 = getelementptr inbounds nuw i8, ptr %152, i64 24
   store ptr %155, ptr %156, align 8
   %157 = load i32, ptr %95, align 8
-  %158 = getelementptr inbounds i8, ptr %152, i64 40
+  %158 = getelementptr inbounds nuw i8, ptr %152, i64 40
   store i32 %157, ptr %158, align 8
   %159 = call ptr @list_create(ptr noundef nonnull @xfree_ptr) #5
-  %160 = getelementptr inbounds i8, ptr %152, i64 8
+  %160 = getelementptr inbounds nuw i8, ptr %152, i64 8
   store ptr %159, ptr %160, align 8
   %161 = load ptr, ptr %151, align 8
   call void @list_append(ptr noundef %161, ptr noundef %152) #5
@@ -327,10 +327,10 @@ define ptr @slurmdb_report_user_top_usage(ptr noundef %0, ptr noundef %1, i1 nou
 162:                                              ; preds = %143, %.thread168, %.thread166
   %.4 = phi ptr [ %118, %143 ], [ %152, %.thread166 ], [ %132, %.thread168 ]
   call void @list_iterator_reset(ptr noundef %79) #5
-  %163 = getelementptr inbounds i8, ptr %.4, i64 8
+  %163 = getelementptr inbounds nuw i8, ptr %.4, i64 8
   %164 = load ptr, ptr %163, align 8
   %165 = call ptr @list_iterator_create(ptr noundef %164) #5
-  %166 = getelementptr inbounds i8, ptr %99, i64 8
+  %166 = getelementptr inbounds nuw i8, ptr %99, i64 8
   br label %167
 
 167:                                              ; preds = %169, %162
@@ -358,7 +358,7 @@ define ptr @slurmdb_report_user_top_usage(ptr noundef %0, ptr noundef %1, i1 nou
 
 177:                                              ; preds = %172, %173
   %178 = load ptr, ptr %99, align 8
-  %179 = getelementptr inbounds i8, ptr %.4, i64 32
+  %179 = getelementptr inbounds nuw i8, ptr %.4, i64 32
   call void @slurmdb_transfer_acct_list_2_tres(ptr noundef %178, ptr noundef nonnull %179) #5
   br label %.backedge
 
@@ -378,7 +378,7 @@ define ptr @slurmdb_report_user_top_usage(ptr noundef %0, ptr noundef %1, i1 nou
 
 181:                                              ; preds = %180
   %182 = load ptr, ptr %11, align 8
-  %183 = getelementptr inbounds i8, ptr %182, i64 8
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 8
   %184 = load ptr, ptr %183, align 8
   %.not142 = icmp eq ptr %184, null
   br i1 %.not142, label %186, label %185
@@ -390,10 +390,10 @@ define ptr @slurmdb_report_user_top_usage(ptr noundef %0, ptr noundef %1, i1 nou
 
 186:                                              ; preds = %185, %181
   %187 = phi ptr [ %.pre189, %185 ], [ %182, %181 ]
-  %188 = getelementptr inbounds i8, ptr %187, i64 8
+  %188 = getelementptr inbounds nuw i8, ptr %187, i64 8
   store ptr null, ptr %188, align 8
   %189 = load ptr, ptr %11, align 8
-  %190 = getelementptr inbounds i8, ptr %189, i64 8
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 8
   store ptr null, ptr %190, align 8
   br label %191
 

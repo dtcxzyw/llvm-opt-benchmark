@@ -13,10 +13,10 @@ define dso_local ptr @cm_utf8_decode_character(ptr noundef readonly %0, ptr noun
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %7 = load i8, ptr %0, align 1
   %8 = zext i8 %7 to i64
-  %9 = getelementptr inbounds [256 x i8], ptr @cm_utf8_ones, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw [256 x i8], ptr @cm_utf8_ones, i64 0, i64 %8
   %10 = load i8, ptr %9, align 1
   switch i8 %10, label %13 [
     i8 0, label %11
@@ -37,7 +37,7 @@ define dso_local ptr @cm_utf8_decode_character(ptr noundef readonly %0, ptr noun
 .lr.ph.preheader:                                 ; preds = %13
   %15 = zext i8 %10 to i32
   %.039 = add nsw i32 %15, -1
-  %16 = getelementptr inbounds [7 x i8], ptr @cm_utf8_mask, i64 0, i64 %14
+  %16 = getelementptr inbounds nuw [7 x i8], ptr @cm_utf8_mask, i64 0, i64 %14
   %17 = load i8, ptr %16, align 1
   %18 = and i8 %17, %7
   %19 = zext i8 %18 to i32
@@ -52,7 +52,7 @@ define dso_local ptr @cm_utf8_decode_character(ptr noundef readonly %0, ptr noun
   br i1 %.not, label %21, label %.loopexit
 
 21:                                               ; preds = %.lr.ph
-  %22 = getelementptr inbounds i8, ptr %.03140, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %.03140, i64 1
   %23 = shl i32 %.02941, 6
   %24 = and i8 %20, 63
   %25 = zext nneg i8 %24 to i32
@@ -68,7 +68,7 @@ define dso_local ptr @cm_utf8_decode_character(ptr noundef readonly %0, ptr noun
   br i1 %30, label %.loopexit, label %31
 
 31:                                               ; preds = %._crit_edge
-  %32 = getelementptr inbounds [7 x i32], ptr @cm_utf8_min, i64 0, i64 %14
+  %32 = getelementptr inbounds nuw [7 x i32], ptr @cm_utf8_min, i64 0, i64 %14
   %33 = load i32, ptr %32, align 4
   %34 = icmp ult i32 %26, %33
   %35 = and i32 %.02941, 67108832
@@ -102,10 +102,10 @@ define dso_local range(i32 0, 2) i32 @cm_utf8_is_valid(ptr noundef readonly %0) 
 
 .lr.ph:                                           ; preds = %2, %cm_utf8_decode_character.exit
   %.025 = phi ptr [ %.030.ph.i, %cm_utf8_decode_character.exit ], [ %0, %2 ]
-  %5 = getelementptr inbounds i8, ptr %.025, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %.025, i64 1
   %6 = load i8, ptr %.025, align 1
   %7 = zext i8 %6 to i64
-  %8 = getelementptr inbounds [256 x i8], ptr @cm_utf8_ones, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [256 x i8], ptr @cm_utf8_ones, i64 0, i64 %7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %10 [
     i8 0, label %cm_utf8_decode_character.exit
@@ -122,7 +122,7 @@ define dso_local range(i32 0, 2) i32 @cm_utf8_is_valid(ptr noundef readonly %0) 
 .lr.ph.i.preheader:                               ; preds = %10
   %12 = zext i8 %9 to i32
   %.039.i = add nsw i32 %12, -1
-  %13 = getelementptr inbounds [7 x i8], ptr @cm_utf8_mask, i64 0, i64 %11
+  %13 = getelementptr inbounds nuw [7 x i8], ptr @cm_utf8_mask, i64 0, i64 %11
   %14 = load i8, ptr %13, align 1
   %15 = and i8 %14, %6
   %16 = zext i8 %15 to i32
@@ -137,7 +137,7 @@ define dso_local range(i32 0, 2) i32 @cm_utf8_is_valid(ptr noundef readonly %0) 
   br i1 %.not.i, label %18, label %.critedge
 
 18:                                               ; preds = %.lr.ph.i
-  %19 = getelementptr inbounds i8, ptr %.03140.i, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %.03140.i, i64 1
   %20 = shl i32 %.02941.i, 6
   %21 = and i8 %17, 63
   %22 = zext nneg i8 %21 to i32
@@ -153,7 +153,7 @@ define dso_local range(i32 0, 2) i32 @cm_utf8_is_valid(ptr noundef readonly %0) 
   br i1 %27, label %.critedge, label %28
 
 28:                                               ; preds = %._crit_edge.i
-  %29 = getelementptr inbounds [7 x i32], ptr @cm_utf8_min, i64 0, i64 %11
+  %29 = getelementptr inbounds nuw [7 x i32], ptr @cm_utf8_min, i64 0, i64 %11
   %30 = load i32, ptr %29, align 4
   %31 = icmp ult i32 %23, %30
   %32 = and i32 %.02941.i, 67108832

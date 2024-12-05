@@ -20,7 +20,7 @@ define ptr @_yr_arena_new_page(i64 noundef %0) local_unnamed_addr #0 {
 
 4:                                                ; preds = %1
   %5 = tail call ptr @cli_max_malloc(i64 noundef %0) #11
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %5, ptr %6, align 8
   %7 = icmp eq ptr %5, null
   br i1 %7, label %8, label %9
@@ -30,9 +30,9 @@ define ptr @_yr_arena_new_page(i64 noundef %0) local_unnamed_addr #0 {
   br label %12
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %2, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, i8 0, i64 40, i1 false)
   br label %12
 
@@ -48,46 +48,46 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define ptr @_yr_arena_page_for_address(ptr nocapture noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %13, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not23 = icmp ult ptr %1, %7
   br i1 %.not23, label %13, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %4, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %10 = load i64, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %7, i64 %10
   %12 = icmp ult ptr %1, %11
   br i1 %12, label %.loopexit, label %13
 
 13:                                               ; preds = %8, %5, %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.026 = load ptr, ptr %14, align 8
   %.not2427 = icmp eq ptr %.026, null
   br i1 %.not2427, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13, %22
   %.028 = phi ptr [ %.0, %22 ], [ %.026, %13 ]
-  %15 = getelementptr inbounds i8, ptr %.028, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.028, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not25 = icmp ult ptr %1, %16
   br i1 %.not25, label %22, label %17
 
 17:                                               ; preds = %.lr.ph
-  %18 = getelementptr inbounds i8, ptr %.028, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %.028, i64 24
   %19 = load i64, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %16, i64 %19
   %21 = icmp ult ptr %1, %20
   br i1 %21, label %.loopexit, label %22
 
 22:                                               ; preds = %17, %.lr.ph
-  %23 = getelementptr inbounds i8, ptr %.028, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %.028, i64 48
   %.0 = load ptr, ptr %23, align 8
   %.not24 = icmp eq ptr %.0, null
   br i1 %.not24, label %.loopexit, label %.lr.ph
@@ -99,46 +99,46 @@ define ptr @_yr_arena_page_for_address(ptr nocapture noundef readonly %0, ptr no
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @_yr_arena_make_relocatable(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %14, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not23.i = icmp ult ptr %1, %8
   br i1 %.not23.i, label %14, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %5, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %11 = load i64, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %8, i64 %11
   %13 = icmp ult ptr %1, %12
   br i1 %13, label %_yr_arena_page_for_address.exit, label %14
 
 14:                                               ; preds = %9, %6, %3
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.026.i = load ptr, ptr %15, align 8
   %.not2427.i = icmp eq ptr %.026.i, null
   br i1 %.not2427.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %14, %23
   %.028.i = phi ptr [ %.0.i, %23 ], [ %.026.i, %14 ]
-  %16 = getelementptr inbounds i8, ptr %.028.i, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.028.i, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not25.i = icmp ult ptr %1, %17
   br i1 %.not25.i, label %23, label %18
 
 18:                                               ; preds = %.lr.ph.i
-  %19 = getelementptr inbounds i8, ptr %.028.i, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %.028.i, i64 24
   %20 = load i64, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %20
   %22 = icmp ult ptr %1, %21
   br i1 %22, label %_yr_arena_page_for_address.exit, label %23
 
 23:                                               ; preds = %18, %.lr.ph.i
-  %24 = getelementptr inbounds i8, ptr %.028.i, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %.028.i, i64 48
   %.0.i = load ptr, ptr %24, align 8
   %.not24.i = icmp eq ptr %.0.i, null
   br i1 %.not24.i, label %.loopexit, label %.lr.ph.i
@@ -158,7 +158,7 @@ _yr_arena_page_for_address.exit:                  ; preds = %18, %9
   br i1 %30, label %31, label %37
 
 31:                                               ; preds = %_yr_arena_page_for_address.exit
-  %32 = getelementptr inbounds i8, ptr %2, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %33 = load ptr, ptr %32, align 8
   %34 = zext nneg i32 %29 to i64
   %35 = getelementptr i8, ptr %33, i64 %34
@@ -167,7 +167,7 @@ _yr_arena_page_for_address.exit:                  ; preds = %18, %9
   br label %41
 
 37:                                               ; preds = %_yr_arena_page_for_address.exit
-  %38 = getelementptr inbounds i8, ptr %2, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr i8, ptr %39, i64 8
   store ptr %40, ptr %38, align 8
@@ -180,11 +180,11 @@ _yr_arena_page_for_address.exit:                  ; preds = %18, %9
   br i1 %.not3239, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %41
-  %43 = getelementptr inbounds i8, ptr %.018.i, i64 24
-  %44 = getelementptr inbounds i8, ptr %.018.i, i64 32
-  %45 = getelementptr inbounds i8, ptr %.018.i, i64 40
-  %46 = getelementptr inbounds i8, ptr %2, i64 8
-  %47 = getelementptr inbounds i8, ptr %2, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.018.i, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %.018.i, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %.018.i, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %48
 
 48:                                               ; preds = %.lr.ph, %77
@@ -207,7 +207,7 @@ _yr_arena_page_for_address.exit:                  ; preds = %18, %9
 56:                                               ; preds = %53
   %57 = trunc i64 %49 to i32
   store i32 %57, ptr %54, align 8
-  %58 = getelementptr inbounds i8, ptr %54, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store ptr null, ptr %58, align 8
   %59 = load ptr, ptr %44, align 8
   %60 = icmp eq ptr %59, null
@@ -223,7 +223,7 @@ _yr_arena_page_for_address.exit:                  ; preds = %18, %9
   br i1 %.not34, label %66, label %64
 
 64:                                               ; preds = %62
-  %65 = getelementptr inbounds i8, ptr %63, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store ptr %54, ptr %65, align 8
   br label %66
 
@@ -275,7 +275,7 @@ define range(i32 0, 2) i32 @yr_arena_create(i64 noundef %0, i32 noundef %1, ptr 
 
 9:                                                ; preds = %6
   %10 = tail call ptr @cli_max_malloc(i64 noundef %0) #11
-  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %10, ptr %11, align 8
   %12 = icmp eq ptr %10, null
   br i1 %12, label %13, label %15
@@ -289,13 +289,13 @@ define range(i32 0, 2) i32 @yr_arena_create(i64 noundef %0, i32 noundef %1, ptr 
   br label %21
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %7, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 %0, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %17, i8 0, i64 40, i1 false)
-  %18 = getelementptr inbounds i8, ptr %4, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %7, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %7, ptr %19, align 8
   %20 = or i32 %1, 2
   store i32 %20, ptr %4, align 8
@@ -309,30 +309,30 @@ define range(i32 0, 2) i32 @yr_arena_create(i64 noundef %0, i32 noundef %1, ptr 
 
 ; Function Attrs: nounwind uwtable
 define void @yr_arena_destroy(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not16 = icmp eq ptr %3, null
   br i1 %.not16, label %._crit_edge20, label %.lr.ph19
 
 .lr.ph19:                                         ; preds = %1, %._crit_edge
   %.01217 = phi ptr [ %5, %._crit_edge ], [ %3, %1 ]
-  %4 = getelementptr inbounds i8, ptr %.01217, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %.01217, i64 48
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %.01217, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %.01217, i64 32
   %7 = load ptr, ptr %6, align 8
   %.not1314 = icmp eq ptr %7, null
   br i1 %.not1314, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph19, %.lr.ph
   %.015 = phi ptr [ %9, %.lr.ph ], [ %7, %.lr.ph19 ]
-  %8 = getelementptr inbounds i8, ptr %.015, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.015, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @free(ptr noundef nonnull %.015) #11
   %.not13 = icmp eq ptr %9, null
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph19
-  %10 = getelementptr inbounds i8, ptr %.01217, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.01217, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @free(ptr noundef %11) #11
   tail call void @free(ptr noundef %.01217) #11
@@ -346,55 +346,55 @@ define void @yr_arena_destroy(ptr nocapture noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define ptr @yr_arena_base_address(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   ret ptr %5
 }
 
 ; Function Attrs: nounwind uwtable
 define ptr @yr_arena_next_address(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %14, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not23.i = icmp ult ptr %1, %8
   br i1 %.not23.i, label %14, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %5, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %11 = load i64, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %8, i64 %11
   %13 = icmp ult ptr %1, %12
   br i1 %13, label %_yr_arena_page_for_address.exit, label %14
 
 14:                                               ; preds = %9, %6, %3
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.026.i = load ptr, ptr %15, align 8
   %.not2427.i = icmp eq ptr %.026.i, null
   br i1 %.not2427.i, label %.loopexit58, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %14, %23
   %.028.i = phi ptr [ %.0.i, %23 ], [ %.026.i, %14 ]
-  %16 = getelementptr inbounds i8, ptr %.028.i, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.028.i, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not25.i = icmp ult ptr %1, %17
   br i1 %.not25.i, label %23, label %18
 
 18:                                               ; preds = %.lr.ph.i
-  %19 = getelementptr inbounds i8, ptr %.028.i, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %.028.i, i64 24
   %20 = load i64, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %20
   %22 = icmp ult ptr %1, %21
   br i1 %22, label %_yr_arena_page_for_address.exit, label %23
 
 23:                                               ; preds = %18, %.lr.ph.i
-  %24 = getelementptr inbounds i8, ptr %.028.i, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %.028.i, i64 48
   %.0.i = load ptr, ptr %24, align 8
   %.not24.i = icmp eq ptr %.0.i, null
   br i1 %.not24.i, label %.loopexit58, label %.lr.ph.i
@@ -419,7 +419,7 @@ _yr_arena_page_for_address.exit:                  ; preds = %18, %9
   br i1 %.not50, label %45, label %31
 
 31:                                               ; preds = %30
-  %.0.in64 = getelementptr inbounds i8, ptr %.018.i, i64 48
+  %.0.in64 = getelementptr inbounds nuw i8, ptr %.018.i, i64 48
   %.065 = load ptr, ptr %.0.in64, align 8
   %.not5266 = icmp eq ptr %.065, null
   br i1 %.not5266, label %.loopexit, label %.lr.ph.preheader
@@ -435,26 +435,26 @@ _yr_arena_page_for_address.exit:                  ; preds = %18, %9
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %43
   %.068 = phi ptr [ %.0, %43 ], [ %.065, %.lr.ph.preheader ]
   %.03867 = phi i64 [ %44, %43 ], [ %35, %.lr.ph.preheader ]
-  %36 = getelementptr inbounds i8, ptr %.068, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %.068, i64 24
   %37 = load i64, ptr %36, align 8
   %38 = icmp ult i64 %.03867, %37
   br i1 %38, label %39, label %43
 
 39:                                               ; preds = %.lr.ph
-  %40 = getelementptr inbounds i8, ptr %.068, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %.068, i64 8
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 %.03867
   br label %.loopexit
 
 43:                                               ; preds = %.lr.ph
   %44 = sub nuw i64 %.03867, %37
-  %.0.in = getelementptr inbounds i8, ptr %.068, i64 48
+  %.0.in = getelementptr inbounds nuw i8, ptr %.068, i64 48
   %.0 = load ptr, ptr %.0.in, align 8
   %.not52 = icmp eq ptr %.0, null
   br i1 %.not52, label %.loopexit, label %.lr.ph
 
 45:                                               ; preds = %30
-  %.1.in69 = getelementptr inbounds i8, ptr %.018.i, i64 56
+  %.1.in69 = getelementptr inbounds nuw i8, ptr %.018.i, i64 56
   %.170 = load ptr, ptr %.1.in69, align 8
   %.not5171 = icmp eq ptr %.170, null
   br i1 %.not5171, label %.loopexit, label %.lr.ph74
@@ -462,13 +462,13 @@ _yr_arena_page_for_address.exit:                  ; preds = %18, %9
 .lr.ph74:                                         ; preds = %45, %54
   %.173 = phi ptr [ %.1, %54 ], [ %.170, %45 ]
   %.13972 = phi i64 [ %55, %54 ], [ %25, %45 ]
-  %46 = getelementptr inbounds i8, ptr %.173, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %.173, i64 24
   %47 = load i64, ptr %46, align 8
   %48 = icmp ult i64 %.13972, %47
   br i1 %48, label %49, label %54
 
 49:                                               ; preds = %.lr.ph74
-  %50 = getelementptr inbounds i8, ptr %.173, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %.173, i64 8
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 %47
   %53 = getelementptr inbounds i8, ptr %52, i64 %.13972
@@ -476,7 +476,7 @@ _yr_arena_page_for_address.exit:                  ; preds = %18, %9
 
 54:                                               ; preds = %.lr.ph74
   %55 = add i64 %47, %.13972
-  %.1.in = getelementptr inbounds i8, ptr %.173, i64 56
+  %.1.in = getelementptr inbounds nuw i8, ptr %.173, i64 56
   %.1 = load ptr, ptr %.1.in, align 8
   %.not51 = icmp eq ptr %.1, null
   br i1 %.not51, label %.loopexit, label %.lr.ph74
@@ -488,7 +488,7 @@ _yr_arena_page_for_address.exit:                  ; preds = %18, %9
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @yr_arena_coalesce(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.05880 = load ptr, ptr %2, align 8
   %.not81 = icmp eq ptr %.05880, null
   br i1 %.not81, label %._crit_edge, label %.lr.ph
@@ -496,11 +496,11 @@ define range(i32 0, 2) i32 @yr_arena_coalesce(ptr nocapture noundef %0) local_un
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.05883 = phi ptr [ %.058, %.lr.ph ], [ %.05880, %1 ]
   %.082 = phi i32 [ %6, %.lr.ph ], [ 0, %1 ]
-  %3 = getelementptr inbounds i8, ptr %.05883, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %.05883, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = trunc i64 %4 to i32
   %6 = add i32 %.082, %5
-  %7 = getelementptr inbounds i8, ptr %.05883, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %.05883, i64 48
   %.058 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %.058, null
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
@@ -517,7 +517,7 @@ define range(i32 0, 2) i32 @yr_arena_coalesce(ptr nocapture noundef %0) local_un
 
 11:                                               ; preds = %._crit_edge
   %12 = tail call ptr @cli_max_malloc(i64 noundef %.0.lcssa) #11
-  %13 = getelementptr inbounds i8, ptr %9, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %12, ptr %13, align 8
   %14 = icmp eq ptr %12, null
   br i1 %14, label %15, label %_yr_arena_new_page.exit
@@ -527,17 +527,17 @@ define range(i32 0, 2) i32 @yr_arena_coalesce(ptr nocapture noundef %0) local_un
   br label %_yr_arena_new_page.exit.thread
 
 _yr_arena_new_page.exit:                          ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %9, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 %.0.lcssa, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %9, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %17, i8 0, i64 40, i1 false)
   %.190 = load ptr, ptr %2, align 8
   %.not6691 = icmp eq ptr %.190, null
   br i1 %.not6691, label %._crit_edge105, label %.lr.ph93
 
 .lr.ph93:                                         ; preds = %_yr_arena_new_page.exit
-  %18 = getelementptr inbounds i8, ptr %9, i64 32
-  %19 = getelementptr inbounds i8, ptr %9, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 40
   br label %20
 
 20:                                               ; preds = %.lr.ph93, %47
@@ -546,12 +546,12 @@ _yr_arena_new_page.exit:                          ; preds = %11
   %22 = load ptr, ptr %13, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 %21
   store ptr %23, ptr %.192, align 8
-  %24 = getelementptr inbounds i8, ptr %.192, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.192, i64 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %.192, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %.192, i64 24
   %27 = load i64, ptr %26, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %23, ptr align 1 %25, i64 %27, i1 false)
-  %28 = getelementptr inbounds i8, ptr %.192, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.192, i64 32
   %.05984 = load ptr, ptr %28, align 8
   %.not7185 = icmp eq ptr %.05984, null
   br i1 %.not7185, label %._crit_edge89, label %.lr.ph88
@@ -563,7 +563,7 @@ _yr_arena_new_page.exit:                          ; preds = %11
   %31 = trunc i64 %29 to i32
   %32 = add i32 %30, %31
   store i32 %32, ptr %.05986, align 8
-  %33 = getelementptr inbounds i8, ptr %.05986, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %.05986, i64 8
   %.059 = load ptr, ptr %33, align 8
   %.not71 = icmp eq ptr %.059, null
   br i1 %.not71, label %._crit_edge89, label %.lr.ph88
@@ -585,12 +585,12 @@ _yr_arena_new_page.exit:                          ; preds = %11
 
 40:                                               ; preds = %38
   %41 = load ptr, ptr %28, align 8
-  %42 = getelementptr inbounds i8, ptr %39, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr %41, ptr %42, align 8
   br label %43
 
 43:                                               ; preds = %40, %38
-  %44 = getelementptr inbounds i8, ptr %.192, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %.192, i64 40
   %45 = load ptr, ptr %44, align 8
   %.not73 = icmp eq ptr %45, null
   br i1 %.not73, label %47, label %46
@@ -604,7 +604,7 @@ _yr_arena_new_page.exit:                          ; preds = %11
   %49 = load i64, ptr %17, align 8
   %50 = add i64 %49, %48
   store i64 %50, ptr %17, align 8
-  %51 = getelementptr inbounds i8, ptr %.192, i64 48
+  %51 = getelementptr inbounds nuw i8, ptr %.192, i64 48
   %.1 = load ptr, ptr %51, align 8
   %.not66 = icmp eq ptr %.1, null
   br i1 %.not66, label %._crit_edge94, label %20
@@ -615,7 +615,7 @@ _yr_arena_new_page.exit:                          ; preds = %11
   br i1 %.not6796, label %._crit_edge100, label %.lr.ph99
 
 .lr.ph99:                                         ; preds = %._crit_edge94
-  %52 = getelementptr inbounds i8, ptr %0, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %53
 
 53:                                               ; preds = %.lr.ph99, %85
@@ -634,13 +634,13 @@ _yr_arena_new_page.exit:                          ; preds = %11
   br i1 %.not.i, label %69, label %61
 
 61:                                               ; preds = %59
-  %62 = getelementptr inbounds i8, ptr %60, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %63 = load ptr, ptr %62, align 8
   %.not23.i = icmp ult ptr %58, %63
   br i1 %.not23.i, label %69, label %64
 
 64:                                               ; preds = %61
-  %65 = getelementptr inbounds i8, ptr %60, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %66 = load i64, ptr %65, align 8
   %67 = getelementptr inbounds i8, ptr %63, i64 %66
   %68 = icmp ult ptr %58, %67
@@ -653,20 +653,20 @@ _yr_arena_new_page.exit:                          ; preds = %11
 
 .lr.ph.i:                                         ; preds = %69, %77
   %.028.i = phi ptr [ %.0.i74, %77 ], [ %.026.i, %69 ]
-  %70 = getelementptr inbounds i8, ptr %.028.i, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %.028.i, i64 8
   %71 = load ptr, ptr %70, align 8
   %.not25.i = icmp ult ptr %58, %71
   br i1 %.not25.i, label %77, label %72
 
 72:                                               ; preds = %.lr.ph.i
-  %73 = getelementptr inbounds i8, ptr %.028.i, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %.028.i, i64 24
   %74 = load i64, ptr %73, align 8
   %75 = getelementptr inbounds i8, ptr %71, i64 %74
   %76 = icmp ult ptr %58, %75
   br i1 %76, label %_yr_arena_page_for_address.exit, label %77
 
 77:                                               ; preds = %72, %.lr.ph.i
-  %78 = getelementptr inbounds i8, ptr %.028.i, i64 48
+  %78 = getelementptr inbounds nuw i8, ptr %.028.i, i64 48
   %.0.i74 = load ptr, ptr %78, align 8
   %.not24.i = icmp eq ptr %.0.i74, null
   br i1 %.not24.i, label %.loopexit, label %.lr.ph.i
@@ -687,7 +687,7 @@ _yr_arena_page_for_address.exit:                  ; preds = %72, %64
   br label %85
 
 85:                                               ; preds = %_yr_arena_page_for_address.exit, %53
-  %86 = getelementptr inbounds i8, ptr %.16097, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %.16097, i64 8
   %.160 = load ptr, ptr %86, align 8
   %.not67 = icmp eq ptr %.160, null
   br i1 %.not67, label %._crit_edge100, label %53
@@ -699,9 +699,9 @@ _yr_arena_page_for_address.exit:                  ; preds = %72, %64
 
 .lr.ph104:                                        ; preds = %._crit_edge100, %.lr.ph104
   %.2102 = phi ptr [ %88, %.lr.ph104 ], [ %.pr, %._crit_edge100 ]
-  %87 = getelementptr inbounds i8, ptr %.2102, i64 48
+  %87 = getelementptr inbounds nuw i8, ptr %.2102, i64 48
   %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %.2102, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %.2102, i64 8
   %90 = load ptr, ptr %89, align 8
   tail call void @free(ptr noundef %90) #11
   tail call void @free(ptr noundef nonnull %.2102) #11
@@ -710,7 +710,7 @@ _yr_arena_page_for_address.exit:                  ; preds = %72, %64
 
 ._crit_edge105:                                   ; preds = %.lr.ph104, %_yr_arena_new_page.exit, %._crit_edge100
   store ptr %9, ptr %2, align 8
-  %91 = getelementptr inbounds i8, ptr %0, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %9, ptr %91, align 8
   %92 = load i32, ptr %0, align 8
   %93 = or i32 %92, 2
@@ -727,11 +727,11 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @yr_arena_reserve_memory(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %8 = load i64, ptr %7, align 8
   %9 = sub i64 %6, %8
   %10 = icmp ugt i64 %1, %9
@@ -754,7 +754,7 @@ define range(i32 0, 2) i32 @yr_arena_reserve_memory(ptr nocapture noundef %0, i6
   br i1 %16, label %17, label %27
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %4, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = tail call ptr @cli_max_realloc(ptr noundef %19, i64 noundef %.025) #11
   %21 = icmp eq ptr %20, null
@@ -762,10 +762,10 @@ define range(i32 0, 2) i32 @yr_arena_reserve_memory(ptr nocapture noundef %0, i6
 
 22:                                               ; preds = %17
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %20, ptr %24, align 8
   %25 = load ptr, ptr %3, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store i64 %.025, ptr %26, align 8
   br label %_yr_arena_new_page.exit.thread
 
@@ -776,7 +776,7 @@ define range(i32 0, 2) i32 @yr_arena_reserve_memory(ptr nocapture noundef %0, i6
 
 30:                                               ; preds = %27
   %31 = tail call ptr @cli_max_malloc(i64 noundef %.025) #11
-  %32 = getelementptr inbounds i8, ptr %28, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr %31, ptr %32, align 8
   %33 = icmp eq ptr %31, null
   br i1 %33, label %34, label %35
@@ -786,14 +786,14 @@ define range(i32 0, 2) i32 @yr_arena_reserve_memory(ptr nocapture noundef %0, i6
   br label %_yr_arena_new_page.exit.thread
 
 35:                                               ; preds = %30
-  %36 = getelementptr inbounds i8, ptr %28, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store i64 %.025, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %28, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %28, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %37, i8 0, i64 40, i1 false)
   %38 = load ptr, ptr %3, align 8
-  %39 = getelementptr inbounds i8, ptr %28, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %28, i64 56
   store ptr %38, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %38, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 48
   store ptr %28, ptr %40, align 8
   store ptr %28, ptr %3, align 8
   %41 = load i32, ptr %0, align 8
@@ -815,16 +815,16 @@ define range(i32 0, 2) i32 @yr_arena_allocate_memory(ptr nocapture noundef %0, i
   br i1 %.not, label %5, label %17
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %11 = load i64, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %9, i64 %11
   store ptr %12, ptr %2, align 8
   %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, %1
   store i64 %16, ptr %14, align 8
@@ -844,16 +844,16 @@ define range(i32 0, 2) i32 @yr_arena_allocate_struct(ptr nocapture noundef %0, i
   br i1 %.not.i, label %6, label %yr_arena_allocate_memory.exit
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %12 = load i64, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %10, i64 %12
   store ptr %13, ptr %2, align 8
   %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %16, %1
   store i64 %17, ptr %15, align 8
@@ -889,11 +889,11 @@ define range(i32 0, 2) i32 @yr_arena_make_relocatable(ptr nocapture noundef read
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @yr_arena_write_data(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %10 = load i64, ptr %9, align 8
   %11 = sub i64 %8, %10
   %12 = icmp ugt i64 %2, %11
@@ -906,9 +906,9 @@ define range(i32 0, 2) i32 @yr_arena_write_data(ptr nocapture noundef %0, ptr no
 
 yr_arena_allocate_memory.exit.thread:             ; preds = %13
   %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %15, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %19 = load i64, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %17, i64 %19
   %21 = add i64 %19, %2
@@ -916,7 +916,7 @@ yr_arena_allocate_memory.exit.thread:             ; preds = %13
   br label %27
 
 22:                                               ; preds = %4
-  %23 = getelementptr inbounds i8, ptr %6, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 %10
   %26 = add i64 %10, %2
@@ -942,11 +942,11 @@ yr_arena_allocate_memory.exit:                    ; preds = %13, %27, %28
 define range(i32 0, 2) i32 @yr_arena_write_string(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
   %5 = add i64 %4, 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %11 = load i64, ptr %10, align 8
   %12 = sub i64 %9, %11
   %13 = icmp ugt i64 %5, %12
@@ -959,9 +959,9 @@ define range(i32 0, 2) i32 @yr_arena_write_string(ptr nocapture noundef %0, ptr 
 
 yr_arena_allocate_memory.exit.thread.i:           ; preds = %14
   %16 = load ptr, ptr %6, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %16, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %20 = load i64, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %18, i64 %20
   %22 = add i64 %20, %5
@@ -969,7 +969,7 @@ yr_arena_allocate_memory.exit.thread.i:           ; preds = %14
   br label %28
 
 23:                                               ; preds = %3
-  %24 = getelementptr inbounds i8, ptr %7, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 %11
   %27 = add i64 %11, %5
@@ -996,16 +996,16 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define noundef i32 @yr_arena_append(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #10 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr %4, ptr %7, align 8
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store ptr %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %5, align 8
   tail call void @free(ptr noundef %1) #11

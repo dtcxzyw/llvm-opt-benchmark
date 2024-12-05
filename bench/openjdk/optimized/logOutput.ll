@@ -31,15 +31,15 @@ $_ZN9LogOutput12force_rotateEv = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9LogOutput8describeEP12outputStream(ptr noundef nonnull align 8 dereferenceable(156) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(156) %0) #12
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str, ptr noundef %6) #12
-  %7 = getelementptr inbounds i8, ptr %0, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #13
   tail call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef %8, i64 noundef %9) #12
-  %10 = getelementptr inbounds i8, ptr %0, i64 152
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 152
   br label %.outer
 
 .outer:                                           ; preds = %.thread, %2
@@ -63,7 +63,7 @@ define hidden void @_ZN9LogOutput8describeEP12outputStream(ptr noundef nonnull a
   br i1 %exitcond.not, label %21, label %12, !llvm.loop !6
 
 .thread:                                          ; preds = %12
-  %18 = getelementptr inbounds [0 x [2 x ptr]], ptr @_ZN13LogDecorators5_nameE, i64 0, i64 %.01115
+  %18 = getelementptr inbounds nuw [0 x [2 x ptr]], ptr @_ZN13LogDecorators5_nameE, i64 0, i64 %.01115
   %19 = load ptr, ptr %18, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.4, i32 noundef %.01214.ph, ptr noundef %19) #12
   %20 = add nuw nsw i64 %.01115, 1
@@ -85,7 +85,7 @@ declare void @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferen
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9LogOutput17set_config_stringEPKc(ptr noundef nonnull align 8 dereferenceable(156) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN12stringStream5resetEv(ptr noundef nonnull align 8 dereferenceable(129) %3) #12
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
   tail call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef %1, i64 noundef %4) #12
@@ -96,8 +96,8 @@ declare void @_ZN12stringStream5resetEv(ptr noundef nonnull align 8 dereferencea
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9LogOutput20add_to_config_stringERK12LogSelection(ptr noundef nonnull align 8 dereferenceable(156) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load i64, ptr %4, align 8
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %7, label %6
@@ -126,7 +126,7 @@ define hidden void @_ZN9LogOutput20update_config_stringEPKm(ptr noundef nonnull 
   %indvars.iv = phi i64 [ 1, %2 ], [ %indvars.iv.next, %8 ]
   %.0109149 = phi i32 [ 0, %2 ], [ %spec.select129, %8 ]
   %.0111148 = phi i64 [ %7, %2 ], [ %spec.select, %8 ]
-  %9 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   %10 = load i64, ptr %9, align 8
   %11 = icmp ugt i64 %10, %.0111148
   %spec.select = tail call i64 @llvm.umax.i64(i64 %10, i64 %.0111148)
@@ -138,10 +138,10 @@ define hidden void @_ZN9LogOutput20update_config_stringEPKm(ptr noundef nonnull 
 
 13:                                               ; preds = %8
   %14 = zext nneg i32 %spec.select129 to i64
-  %15 = getelementptr inbounds [0 x ptr], ptr @_ZN8LogLevel5_nameE, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN8LogLevel5_nameE, i64 0, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %3, i64 noundef 64, ptr noundef nonnull @.str.7, ptr noundef %16) #12
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @_ZN12stringStream5resetEv(ptr noundef nonnull align 8 dereferenceable(129) %18) #12
   %19 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #13
   call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %18, ptr noundef nonnull %3, i64 noundef %19) #12
@@ -164,13 +164,13 @@ define hidden void @_ZN9LogOutput20update_config_stringEPKm(ptr noundef nonnull 
 .lr.ph:                                           ; preds = %22, %37
   %.0113153 = phi ptr [ %.0113, %37 ], [ %.0113150, %22 ]
   %.0115152 = phi i64 [ %.1116, %37 ], [ 0, %22 ]
-  %27 = getelementptr inbounds i8, ptr %.0113153, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %.0113153, i64 40
   %28 = call noundef ptr @_ZNK13LogOutputList4findEPK9LogOutput(ptr noundef nonnull align 8 dereferenceable(52) %27, ptr noundef nonnull %0) #12
   %29 = icmp eq ptr %28, null
   br i1 %29, label %_ZNK9LogTagSet9level_forEPK9LogOutput.exit, label %30
 
 30:                                               ; preds = %.lr.ph
-  %31 = getelementptr inbounds i8, ptr %28, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %32 = load i32, ptr %31, align 8
   br label %_ZNK9LogTagSet9level_forEPK9LogOutput.exit
 
@@ -198,7 +198,7 @@ _ZNK9LogTagSet9level_forEPK9LogOutput.exit:       ; preds = %.lr.ph, %30
 
 thread-pre-split:                                 ; preds = %._crit_edge
   %.pr = load i64, ptr %4, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 80
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %39
 
 39:                                               ; preds = %thread-pre-split, %._crit_edge190
@@ -235,13 +235,13 @@ thread-pre-split:                                 ; preds = %._crit_edge
 
 50:                                               ; preds = %46
   %51 = load ptr, ptr %47, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 40
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 40
   %53 = call noundef ptr @_ZNK13LogOutputList4findEPK9LogOutput(ptr noundef nonnull align 8 dereferenceable(52) %52, ptr noundef nonnull %0) #12
   %54 = icmp eq ptr %53, null
   br i1 %54, label %_ZNK9LogTagSet9level_forEPK9LogOutput.exit133, label %55
 
 55:                                               ; preds = %50
-  %56 = getelementptr inbounds i8, ptr %53, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %57 = load i32, ptr %56, align 8
   br label %_ZNK9LogTagSet9level_forEPK9LogOutput.exit133
 
@@ -280,13 +280,13 @@ _ZNK9LogTagSet9level_forEPK9LogOutput.exit133:    ; preds = %50, %55
   br i1 %67, label %68, label %77
 
 68:                                               ; preds = %66
-  %69 = getelementptr inbounds i8, ptr %.0101162, i64 40
+  %69 = getelementptr inbounds nuw i8, ptr %.0101162, i64 40
   %70 = call noundef ptr @_ZNK13LogOutputList4findEPK9LogOutput(ptr noundef nonnull align 8 dereferenceable(52) %69, ptr noundef nonnull %0) #12
   %71 = icmp eq ptr %70, null
   br i1 %71, label %_ZNK9LogTagSet9level_forEPK9LogOutput.exit135, label %72
 
 72:                                               ; preds = %68
-  %73 = getelementptr inbounds i8, ptr %70, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %74 = load i32, ptr %73, align 8
   br label %_ZNK9LogTagSet9level_forEPK9LogOutput.exit135
 
@@ -362,13 +362,13 @@ _ZN9LogOutput20add_to_config_stringERK12LogSelection.exit: ; preds = %._crit_edg
   %.0100171 = phi i64 [ %.0100.ph176, %.lr.ph172 ], [ %115, %114 ]
   %97 = getelementptr inbounds ptr, ptr %26, i64 %.0100171
   %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 40
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 40
   %100 = call noundef ptr @_ZNK13LogOutputList4findEPK9LogOutput(ptr noundef nonnull align 8 dereferenceable(52) %99, ptr noundef nonnull %0) #12
   %101 = icmp eq ptr %100, null
   br i1 %101, label %_ZNK9LogTagSet9level_forEPK9LogOutput.exit137, label %102
 
 102:                                              ; preds = %96
-  %103 = getelementptr inbounds i8, ptr %100, i64 16
+  %103 = getelementptr inbounds nuw i8, ptr %100, i64 16
   %104 = load i32, ptr %103, align 8
   br label %_ZNK9LogTagSet9level_forEPK9LogOutput.exit137
 
@@ -399,13 +399,13 @@ _ZNK9LogTagSet9level_forEPK9LogOutput.exit137:    ; preds = %96, %102
 .lr.ph184:                                        ; preds = %.preheader144, %.loopexit
   %.099183 = phi ptr [ %.099, %.loopexit ], [ %.099180, %.preheader144 ]
   %.4182 = phi i64 [ %.5, %.loopexit ], [ %.3118.ph.lcssa, %.preheader144 ]
-  %117 = getelementptr inbounds i8, ptr %.099183, i64 40
+  %117 = getelementptr inbounds nuw i8, ptr %.099183, i64 40
   %118 = call noundef ptr @_ZNK13LogOutputList4findEPK9LogOutput(ptr noundef nonnull align 8 dereferenceable(52) %117, ptr noundef nonnull %0) #12
   %119 = icmp eq ptr %118, null
   br i1 %119, label %_ZNK9LogTagSet9level_forEPK9LogOutput.exit139, label %120
 
 120:                                              ; preds = %.lr.ph184
-  %121 = getelementptr inbounds i8, ptr %118, i64 16
+  %121 = getelementptr inbounds nuw i8, ptr %118, i64 16
   %122 = load i32, ptr %121, align 8
   br label %_ZNK9LogTagSet9level_forEPK9LogOutput.exit139
 
@@ -457,13 +457,13 @@ _ZNK9LogTagSet9level_forEPK9LogOutput.exit139:    ; preds = %.lr.ph184, %120
   %.0187 = phi i64 [ %142, %_ZNK9LogTagSet9level_forEPK9LogOutput.exit141 ], [ 0, %._crit_edge185 ]
   %134 = getelementptr inbounds ptr, ptr %26, i64 %.0187
   %135 = load ptr, ptr %134, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 40
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 40
   %137 = call noundef ptr @_ZNK13LogOutputList4findEPK9LogOutput(ptr noundef nonnull align 8 dereferenceable(52) %136, ptr noundef nonnull %0) #12
   %138 = icmp eq ptr %137, null
   br i1 %138, label %_ZNK9LogTagSet9level_forEPK9LogOutput.exit141, label %139
 
 139:                                              ; preds = %.lr.ph189
-  %140 = getelementptr inbounds i8, ptr %137, i64 16
+  %140 = getelementptr inbounds nuw i8, ptr %137, i64 16
   %141 = load i32, ptr %140, align 8
   br label %_ZNK9LogTagSet9level_forEPK9LogOutput.exit141
 
@@ -503,13 +503,13 @@ define internal fastcc void @_ZL14add_selectionsPP12LogSelectionPmS2_RK9LogTagSe
   %9 = alloca %class.LogSelection, align 8
   %10 = alloca %class.LogSelection, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %6, i8 0, i64 20, i1 false)
-  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %12 = load i64, ptr %11, align 8
   %.not72 = icmp eq i64 %12, 0
   br i1 %.not72, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %3, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %14 = shl nuw i64 %12, 2
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr nonnull align 8 %13, i64 %14, i1 false)
   br label %._crit_edge
@@ -669,8 +669,8 @@ define hidden noundef zeroext i1 @_ZN9LogOutput13parse_optionsEPKcP12outputStrea
 
 7:                                                ; preds = %5
   %8 = tail call noundef ptr @_ZN2os16strdup_check_oomEPKc8MEMFLAGS(ptr noundef nonnull %1, i8 noundef zeroext 17) #12
-  %9 = getelementptr inbounds i8, ptr %2, i64 24
-  %10 = getelementptr inbounds i8, ptr %2, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %11
 
 11:                                               ; preds = %33, %7
@@ -689,12 +689,12 @@ define hidden noundef zeroext i1 @_ZN9LogOutput13parse_optionsEPKcP12outputStrea
   br i1 %16, label %.loopexit.sink.split, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %15, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 1
   store i8 0, ptr %15, align 1
   %19 = load i64, ptr %9, align 8
   %20 = load i32, ptr %10, align 8
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(156) %0, ptr noundef %.029, ptr noundef nonnull %18, ptr noundef nonnull %2) #12
   br i1 %24, label %33, label %25
@@ -710,12 +710,12 @@ define hidden noundef zeroext i1 @_ZN9LogOutput13parse_optionsEPKcP12outputStrea
   br i1 %32, label %.loopexit.sink.split, label %.loopexit
 
 33:                                               ; preds = %17
-  %34 = getelementptr inbounds i8, ptr %12, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %12, i64 1
   br i1 %.not, label %.loopexit, label %11, !llvm.loop !22
 
 .loopexit.sink.split:                             ; preds = %14, %25
   %35 = load ptr, ptr %0, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %37 = load ptr, ptr %36, align 8
   %38 = tail call noundef ptr %37(ptr noundef nonnull align 8 dereferenceable(156) %0) #12
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.11, ptr noundef %.029, ptr noundef %38) #12
@@ -746,7 +746,7 @@ declare void @_ZN2os4freeEPv(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN9LogOutputD2Ev(ptr noundef nonnull align 8 dereferenceable(156) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV9LogOutput, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %2) #12
   ret void
 }
@@ -781,7 +781,7 @@ define internal fastcc void @_ZL23generate_all_subsets_ofPA5_N6LogTag4typeEPmPKS
 .lr.ph:                                           ; preds = %6, %tailrecurse
   %.tr3740 = phi i64 [ %18, %tailrecurse ], [ %5, %6 ]
   %.tr3639 = phi i64 [ %21, %tailrecurse ], [ %4, %6 ]
-  %9 = getelementptr inbounds i32, ptr %2, i64 %.tr3740
+  %9 = getelementptr inbounds nuw i32, ptr %2, i64 %.tr3740
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %._crit_edge, label %tailrecurse

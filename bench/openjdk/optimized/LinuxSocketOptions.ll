@@ -163,7 +163,7 @@ define i64 @Java_jdk_net_LinuxSocketOptions_getSoPeerCred0(ptr noundef %0, ptr n
   br label %handleError.exit
 
 14:                                               ; preds = %3
-  %15 = getelementptr inbounds i8, ptr %4, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, -1
   br i1 %17, label %18, label %handleError.exit
@@ -183,17 +183,17 @@ define i64 @Java_jdk_net_LinuxSocketOptions_getSoPeerCred0(ptr noundef %0, ptr n
   br label %handleError.exit3
 
 handleError.exit3:                                ; preds = %22, %23
-  %24 = getelementptr inbounds i8, ptr %4, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 -1, ptr %24, align 4
   store i32 -1, ptr %15, align 4
   br label %handleError.exit
 
 handleError.exit:                                 ; preds = %13, %12, %14, %handleError.exit3
-  %25 = getelementptr inbounds i8, ptr %4, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %26 = load i32, ptr %25, align 4
   %27 = zext i32 %26 to i64
   %28 = shl nuw i64 %27, 32
-  %29 = getelementptr inbounds i8, ptr %4, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %30 = load i32, ptr %29, align 4
   %31 = zext i32 %30 to i64
   %32 = or disjoint i64 %28, %31

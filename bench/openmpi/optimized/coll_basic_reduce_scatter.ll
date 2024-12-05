@@ -38,11 +38,11 @@ define i32 @mca_coll_basic_reduce_scatter_intra(ptr noundef %0, ptr noundef %1, 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %19 = phi i32 [ 0, %.lr.ph.preheader ], [ %22, %.lr.ph ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %20 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4
   %22 = add nsw i32 %21, %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %23 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv.next
+  %23 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.next
   store i32 %22, ptr %23, align 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
@@ -68,15 +68,15 @@ define i32 @mca_coll_basic_reduce_scatter_intra(ptr noundef %0, ptr noundef %1, 
   %.val329 = load i64, ptr %34, align 8
   %35 = sub nsw i64 %.val329, %.val328
   %36 = sext i32 %29 to i64
-  %37 = getelementptr inbounds i8, ptr %3, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %38 = load i64, ptr %37, align 8
   %39 = icmp eq i64 %38, 0
   br i1 %39, label %opal_datatype_span.exit, label %40
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %3, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %42 = load i64, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %3, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %44 = load i64, ptr %43, align 8
   %45 = add nsw i64 %36, -1
   %46 = mul i64 %35, %45
@@ -89,7 +89,7 @@ opal_datatype_span.exit:                          ; preds = %32, %40
   %.0.i = phi i64 [ %48, %40 ], [ 0, %32 ]
   %49 = icmp eq ptr %0, inttoptr (i64 1 to ptr)
   %spec.select = select i1 %49, ptr %1, ptr %0
-  %50 = getelementptr inbounds i8, ptr %4, i64 84
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 84
   %51 = load i32, ptr %50, align 4
   %52 = and i32 %51, 64
   %53 = icmp ne i32 %52, 0
@@ -194,9 +194,9 @@ opal_datatype_span.exit:                          ; preds = %32, %40
 101:                                              ; preds = %.lr.ph369
   %102 = shl nuw nsw i64 %indvars.iv408, 1
   %103 = or disjoint i64 %102, 1
-  %104 = getelementptr inbounds i32, ptr %2, i64 %103
+  %104 = getelementptr inbounds nuw i32, ptr %2, i64 %103
   %105 = load i32, ptr %104, align 4
-  %106 = getelementptr inbounds i32, ptr %2, i64 %102
+  %106 = getelementptr inbounds nuw i32, ptr %2, i64 %102
   %107 = load i32, ptr %106, align 4
   %108 = add nsw i32 %107, %105
   br label %111
@@ -208,7 +208,7 @@ opal_datatype_span.exit:                          ; preds = %32, %40
 
 111:                                              ; preds = %101, %109
   %.sink = phi i32 [ %108, %101 ], [ %110, %109 ]
-  %112 = getelementptr inbounds i32, ptr %92, i64 %indvars.iv408
+  %112 = getelementptr inbounds nuw i32, ptr %92, i64 %indvars.iv408
   store i32 %.sink, ptr %112, align 4
   %indvars.iv.next409 = add nuw nsw i64 %indvars.iv408, 1
   %exitcond412.not = icmp eq i64 %indvars.iv.next409, %wide.trip.count411
@@ -227,11 +227,11 @@ opal_datatype_span.exit:                          ; preds = %32, %40
 .lr.ph373:                                        ; preds = %.lr.ph373.preheader, %.lr.ph373
   %114 = phi i32 [ 0, %.lr.ph373.preheader ], [ %117, %.lr.ph373 ]
   %indvars.iv413 = phi i64 [ 0, %.lr.ph373.preheader ], [ %indvars.iv.next414, %.lr.ph373 ]
-  %115 = getelementptr inbounds i32, ptr %92, i64 %indvars.iv413
+  %115 = getelementptr inbounds nuw i32, ptr %92, i64 %indvars.iv413
   %116 = load i32, ptr %115, align 4
   %117 = add nsw i32 %116, %114
   %indvars.iv.next414 = add nuw nsw i64 %indvars.iv413, 1
-  %118 = getelementptr inbounds i32, ptr %95, i64 %indvars.iv.next414
+  %118 = getelementptr inbounds nuw i32, ptr %95, i64 %indvars.iv.next414
   store i32 %117, ptr %118, align 4
   %exitcond417.not = icmp eq i64 %indvars.iv.next414, %wide.trip.count416
   br i1 %exitcond417.not, label %._crit_edge374, label %.lr.ph373, !llvm.loop !7
@@ -272,7 +272,7 @@ opal_datatype_span.exit:                          ; preds = %32, %40
 .lr.ph387:                                        ; preds = %.lr.ph387.preheader, %.lr.ph387
   %indvars.iv424 = phi i64 [ %131, %.lr.ph387.preheader ], [ %indvars.iv.next425, %.lr.ph387 ]
   %.0251385 = phi i32 [ 0, %.lr.ph387.preheader ], [ %136, %.lr.ph387 ]
-  %134 = getelementptr inbounds i32, ptr %92, i64 %indvars.iv424
+  %134 = getelementptr inbounds nuw i32, ptr %92, i64 %indvars.iv424
   %135 = load i32, ptr %134, align 4
   %136 = add nsw i32 %135, %.0251385
   %indvars.iv.next425 = add nuw nsw i64 %indvars.iv424, 1
@@ -316,7 +316,7 @@ opal_datatype_span.exit:                          ; preds = %32, %40
 .lr.ph382:                                        ; preds = %.lr.ph382.preheader, %.lr.ph382
   %indvars.iv421 = phi i64 [ %146, %.lr.ph382.preheader ], [ %indvars.iv.next422, %.lr.ph382 ]
   %.2381 = phi i32 [ 0, %.lr.ph382.preheader ], [ %153, %.lr.ph382 ]
-  %151 = getelementptr inbounds i32, ptr %92, i64 %indvars.iv421
+  %151 = getelementptr inbounds nuw i32, ptr %92, i64 %indvars.iv421
   %152 = load i32, ptr %151, align 4
   %153 = add nsw i32 %152, %.2381
   %indvars.iv.next422 = add nuw nsw i64 %indvars.iv421, 1
@@ -335,7 +335,7 @@ opal_datatype_span.exit:                          ; preds = %32, %40
 157:                                              ; preds = %.loopexit
   %158 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 64), align 8
   %159 = zext nneg i32 %.1258 to i64
-  %160 = getelementptr inbounds i32, ptr %95, i64 %159
+  %160 = getelementptr inbounds nuw i32, ptr %95, i64 %159
   %161 = load i32, ptr %160, align 4
   %162 = sext i32 %161 to i64
   %163 = mul nsw i64 %35, %162
@@ -362,7 +362,7 @@ opal_datatype_span.exit:                          ; preds = %32, %40
 170:                                              ; preds = %.loopexit.thread
   %171 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 96), align 8
   %172 = zext nneg i32 %.1260434 to i64
-  %173 = getelementptr inbounds i32, ptr %95, i64 %172
+  %173 = getelementptr inbounds nuw i32, ptr %95, i64 %172
   %174 = load i32, ptr %173, align 4
   %175 = sext i32 %174 to i64
   %176 = mul nsw i64 %35, %175
@@ -393,7 +393,7 @@ opal_datatype_span.exit:                          ; preds = %32, %40
 
 186:                                              ; preds = %182
   %187 = zext nneg i32 %.1258435 to i64
-  %188 = getelementptr inbounds i32, ptr %95, i64 %187
+  %188 = getelementptr inbounds nuw i32, ptr %95, i64 %187
   %189 = load i32, ptr %188, align 4
   %190 = sext i32 %189 to i64
   %191 = mul nsw i64 %35, %190
@@ -491,11 +491,11 @@ opal_datatype_span.exit:                          ; preds = %32, %40
 241:                                              ; preds = %236, %234
   %.0266 = phi ptr [ %239, %236 ], [ null, %234 ]
   %.1265 = phi ptr [ %237, %236 ], [ null, %234 ]
-  %242 = getelementptr inbounds i8, ptr %5, i64 328
+  %242 = getelementptr inbounds nuw i8, ptr %5, i64 328
   %243 = load ptr, ptr %242, align 8
-  %244 = getelementptr inbounds i8, ptr %243, i64 176
+  %244 = getelementptr inbounds nuw i8, ptr %243, i64 176
   %245 = load ptr, ptr %244, align 8
-  %246 = getelementptr inbounds i8, ptr %243, i64 184
+  %246 = getelementptr inbounds nuw i8, ptr %243, i64 184
   %247 = load ptr, ptr %246, align 8
   %248 = tail call i32 %245(ptr noundef %spec.select, ptr noundef %.0266, i32 noundef %29, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 0, ptr noundef %5, ptr noundef %247) #6
   %249 = icmp eq i32 %248, 0
@@ -503,12 +503,12 @@ opal_datatype_span.exit:                          ; preds = %32, %40
 
 250:                                              ; preds = %241
   %251 = load ptr, ptr %242, align 8
-  %252 = getelementptr inbounds i8, ptr %251, i64 256
+  %252 = getelementptr inbounds nuw i8, ptr %251, i64 256
   %253 = load ptr, ptr %252, align 8
   %254 = sext i32 %.val to i64
   %255 = getelementptr inbounds i32, ptr %2, i64 %254
   %256 = load i32, ptr %255, align 4
-  %257 = getelementptr inbounds i8, ptr %251, i64 264
+  %257 = getelementptr inbounds nuw i8, ptr %251, i64 264
   %258 = load ptr, ptr %257, align 8
   %259 = tail call i32 %253(ptr noundef %.0266, ptr noundef nonnull %2, ptr noundef nonnull %14, ptr noundef nonnull %3, ptr noundef %1, i32 noundef %256, ptr noundef nonnull %3, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %258) #6
   br label %260
@@ -573,9 +573,9 @@ define internal fastcc void @ompi_op_reduce(ptr nocapture noundef readonly %0, p
   br i1 %11, label %12, label %28
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %4, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %16 = load i64, ptr %15, align 8
   %17 = sub nsw i64 %16, %14
   br label %18
@@ -597,7 +597,7 @@ define internal fastcc void @ompi_op_reduce(ptr nocapture noundef readonly %0, p
   br i1 %27, label %18, label %.loopexit, !llvm.loop !13
 
 28:                                               ; preds = %5
-  %29 = getelementptr inbounds i8, ptr %0, i64 84
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %30 = load i32, ptr %29, align 4
   %31 = and i32 %30, 1
   %.not = icmp eq i32 %31, 0
@@ -616,16 +616,16 @@ define internal fastcc void @ompi_op_reduce(ptr nocapture noundef readonly %0, p
 
 37:                                               ; preds = %32, %35
   %.pn44 = phi ptr [ %36, %35 ], [ %4, %32 ]
-  %.pn.in.in = getelementptr inbounds i8, ptr %.pn44, i64 200
+  %.pn.in.in = getelementptr inbounds nuw i8, ptr %.pn44, i64 200
   %.pn.in = load i32, ptr %.pn.in.in, align 8
   %.pn = sext i32 %.pn.in to i64
   %.038.in = getelementptr inbounds [52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 %.pn
   %.038 = load i32, ptr %.038.in, align 4
-  %38 = getelementptr inbounds i8, ptr %0, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %39 = sext i32 %.038 to i64
   %40 = getelementptr inbounds [43 x ptr], ptr %38, i64 0, i64 %39
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 440
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %43 = getelementptr inbounds [43 x ptr], ptr %42, i64 0, i64 %39
   %44 = load ptr, ptr %43, align 8
   call void %41(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %9, ptr noundef nonnull %6, ptr noundef %44) #6
@@ -637,11 +637,11 @@ define internal fastcc void @ompi_op_reduce(ptr nocapture noundef readonly %0, p
   br i1 %.not41, label %52, label %47
 
 47:                                               ; preds = %45
-  %48 = getelementptr inbounds i8, ptr %4, i64 204
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 204
   %49 = load i32, ptr %48, align 4
   store i32 %49, ptr %7, align 4
   store i32 %10, ptr %8, align 4
-  %50 = getelementptr inbounds i8, ptr %0, i64 96
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %51 = load ptr, ptr %50, align 8
   call void %51(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8, ptr noundef nonnull %7) #6
   br label %.loopexit
@@ -649,16 +649,16 @@ define internal fastcc void @ompi_op_reduce(ptr nocapture noundef readonly %0, p
 52:                                               ; preds = %45
   %53 = and i32 %30, 8
   %.not42 = icmp eq i32 %53, 0
-  %54 = getelementptr inbounds i8, ptr %0, i64 96
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %55 = load ptr, ptr %54, align 8
   br i1 %.not42, label %63, label %56
 
 56:                                               ; preds = %52
-  %57 = getelementptr inbounds i8, ptr %0, i64 120
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %58 = load i32, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 104
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 112
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %62 = load ptr, ptr %61, align 8
   call void %55(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %9, ptr noundef nonnull %6, i32 noundef %58, ptr noundef %60, ptr noundef %62) #6
   br label %.loopexit
@@ -676,16 +676,16 @@ define i32 @mca_coll_basic_reduce_scatter_inter(ptr noundef %0, ptr noundef %1, 
   %8 = alloca ptr, align 8
   %9 = getelementptr i8, ptr %5, i64 220
   %.val = load i32, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %5, i64 224
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 224
   %11 = load i32, ptr %10, align 8
   %12 = and i32 %11, 1
   %.not.i = icmp eq i32 %12, 0
   br i1 %.not.i, label %ompi_comm_remote_size.exit, label %13
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %5, i64 256
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 256
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load i32, ptr %16, align 8
   br label %ompi_comm_remote_size.exit
 
@@ -705,7 +705,7 @@ ompi_comm_remote_size.exit:                       ; preds = %7, %13
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.093146 = phi i32 [ 0, %.lr.ph.preheader ], [ %24, %.lr.ph ]
-  %22 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4
   %24 = add nsw i32 %23, %.093146
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -719,7 +719,7 @@ ompi_comm_remote_size.exit:                       ; preds = %7, %13
 
 26:                                               ; preds = %._crit_edge
   %27 = sext i32 %.093.lcssa to i64
-  %28 = getelementptr inbounds i8, ptr %3, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %29 = load i64, ptr %28, align 8
   %30 = icmp eq i64 %29, 0
   %31 = icmp eq i32 %.093.lcssa, 0
@@ -727,14 +727,14 @@ ompi_comm_remote_size.exit:                       ; preds = %7, %13
   br i1 %or.cond.i, label %opal_datatype_span.exit, label %32
 
 32:                                               ; preds = %26
-  %33 = getelementptr inbounds i8, ptr %3, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %34 = load i64, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %3, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %36 = load i64, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %3, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %38 = load i64, ptr %37, align 8
   %39 = sub nsw i64 %36, %38
-  %40 = getelementptr inbounds i8, ptr %3, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %41 = load i64, ptr %40, align 8
   %42 = sub i64 %41, %34
   %43 = add nsw i64 %27, -1
@@ -764,11 +764,11 @@ opal_datatype_span.exit:                          ; preds = %26, %32
 .lr.ph149:                                        ; preds = %.lr.ph149.preheader, %.lr.ph149
   %53 = phi i32 [ 0, %.lr.ph149.preheader ], [ %56, %.lr.ph149 ]
   %indvars.iv160 = phi i64 [ 0, %.lr.ph149.preheader ], [ %indvars.iv.next161, %.lr.ph149 ]
-  %54 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv160
+  %54 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv160
   %55 = load i32, ptr %54, align 4
   %56 = add nsw i32 %55, %53
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
-  %57 = getelementptr inbounds i32, ptr %48, i64 %indvars.iv.next161
+  %57 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv.next161
   store i32 %56, ptr %57, align 4
   %exitcond164.not = icmp eq i64 %indvars.iv.next161, %wide.trip.count163
   br i1 %exitcond164.not, label %._crit_edge150, label %.lr.ph149, !llvm.loop !15
@@ -833,16 +833,16 @@ opal_datatype_span.exit:                          ; preds = %26, %32
   %.190 = phi ptr [ null, %79 ], [ %59, %.preheader ], [ %59, %77 ]
   %.188 = phi ptr [ null, %79 ], [ %64, %.preheader ], [ %.086153, %77 ]
   %.1 = phi ptr [ null, %79 ], [ %48, %.preheader ], [ %48, %77 ]
-  %83 = getelementptr inbounds i8, ptr %5, i64 264
+  %83 = getelementptr inbounds nuw i8, ptr %5, i64 264
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 328
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 328
   %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 256
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 256
   %88 = load ptr, ptr %87, align 8
   %89 = sext i32 %.val to i64
   %90 = getelementptr inbounds i32, ptr %2, i64 %89
   %91 = load i32, ptr %90, align 4
-  %92 = getelementptr inbounds i8, ptr %86, i64 264
+  %92 = getelementptr inbounds nuw i8, ptr %86, i64 264
   %93 = load ptr, ptr %92, align 8
   %94 = call i32 %88(ptr noundef %.188, ptr noundef %2, ptr noundef %.1, ptr noundef %3, ptr noundef %1, i32 noundef %91, ptr noundef %3, i32 noundef 0, ptr noundef %84, ptr noundef %93) #6
   br label %.loopexit143

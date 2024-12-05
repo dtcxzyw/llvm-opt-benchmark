@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define void @_Z10pj_pr_listP8PJconsts(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = tail call i32 @putchar(i32 noundef 35)
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load i8, ptr %4, align 1
   %.not9 = icmp eq i8 %5, 0
@@ -31,7 +31,7 @@ define void @_Z10pj_pr_listP8PJconsts(ptr nocapture noundef readonly %0) local_u
   br label %13
 
 13:                                               ; preds = %.lr.ph, %11
-  %14 = getelementptr inbounds i8, ptr %.010, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.010, i64 1
   %15 = load i8, ptr %14, align 1
   %.not = icmp eq i8 %15, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
@@ -58,7 +58,7 @@ declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef range(i32 0, 2) i32 @_ZL7pr_listP8PJconstsi(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   %3 = tail call i32 @putchar(i32 noundef 35)
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.01722 = load ptr, ptr %4, align 8
   %.not23 = icmp eq ptr %.01722, null
   br i1 %.not23, label %._crit_edge.thread, label %.lr.ph
@@ -71,13 +71,13 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL7pr_listP8PJconstsi(ptr n
   %.01726.us = phi ptr [ %.017.us, %26 ], [ %.01722, %.lr.ph ]
   %.025.us = phi i32 [ %.1.us, %26 ], [ 0, %.lr.ph ]
   %.01524.us = phi i32 [ %.2.us, %26 ], [ 1, %.lr.ph ]
-  %5 = getelementptr inbounds i8, ptr %.01726.us, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %.01726.us, i64 8
   %6 = load i8, ptr %5, align 8
   %.not19.us = icmp eq i8 %6, 0
   br i1 %.not19.us, label %26, label %7
 
 7:                                                ; preds = %.lr.ph.split.us
-  %8 = getelementptr inbounds i8, ptr %.01726.us, i64 9
+  %8 = getelementptr inbounds nuw i8, ptr %.01726.us, i64 9
   %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #9
   %10 = trunc i64 %9 to i32
   %11 = add nsw i32 %10, 1
@@ -118,13 +118,13 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL7pr_listP8PJconstsi(ptr n
   %.01726 = phi ptr [ %.017, %48 ], [ %.01722, %.lr.ph ]
   %.025 = phi i32 [ %.1, %48 ], [ 0, %.lr.ph ]
   %.01524 = phi i32 [ %.2, %48 ], [ 1, %.lr.ph ]
-  %27 = getelementptr inbounds i8, ptr %.01726, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.01726, i64 8
   %28 = load i8, ptr %27, align 8
   %.not20 = icmp eq i8 %28, 0
   br i1 %.not20, label %29, label %48
 
 29:                                               ; preds = %.critedge
-  %30 = getelementptr inbounds i8, ptr %.01726, i64 9
+  %30 = getelementptr inbounds nuw i8, ptr %.01726, i64 9
   %31 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %30) #9
   %32 = trunc i64 %31 to i32
   %33 = add nsw i32 %32, 1
@@ -187,7 +187,7 @@ define hidden noundef ptr @_Z10pj_get_defPK8PJconstsi(ptr nocapture noundef read
 
 4:                                                ; preds = %2
   store i8 0, ptr %3, align 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.02835 = load ptr, ptr %5, align 8
   %.not3136 = icmp eq ptr %.02835, null
   br i1 %.not3136, label %.loopexit, label %.lr.ph
@@ -196,13 +196,13 @@ define hidden noundef ptr @_Z10pj_get_defPK8PJconstsi(ptr nocapture noundef read
   %.02839 = phi ptr [ %.028, %27 ], [ %.02835, %4 ]
   %.02438 = phi i64 [ %.1, %27 ], [ 10, %4 ]
   %.02537 = phi ptr [ %.126, %27 ], [ %3, %4 ]
-  %6 = getelementptr inbounds i8, ptr %.02839, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %.02839, i64 8
   %7 = load i8, ptr %6, align 8
   %.not32 = icmp eq i8 %7, 0
   br i1 %.not32, label %27, label %8
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds i8, ptr %.02839, i64 9
+  %9 = getelementptr inbounds nuw i8, ptr %.02839, i64 9
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #9
   %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.02537) #9
   %12 = shl i64 %10, 32

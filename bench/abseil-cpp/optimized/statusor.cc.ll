@@ -66,11 +66,11 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define dso_local void @_ZN4absl17BadStatusOrAccessC2ENS_6StatusE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 20)) %this, i64 %status.coerce) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZN4absl6StatusD2Ev.exit:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl17BadStatusOrAccessE, i64 16), ptr %this, align 8
-  %status_ = getelementptr inbounds i8, ptr %this, i64 8
+  %status_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 %status.coerce, ptr %status_, align 8
-  %init_what_ = getelementptr inbounds i8, ptr %this, i64 16
+  %init_what_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 0, ptr %init_what_, align 8
-  %what_ = getelementptr inbounds i8, ptr %this, i64 24
+  %what_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %what_) #16
   ret void
 }
@@ -111,8 +111,8 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 define dso_local void @_ZN4absl17BadStatusOrAccessC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 20)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %other) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl17BadStatusOrAccessE, i64 16), ptr %this, align 8
-  %status_ = getelementptr inbounds i8, ptr %this, i64 8
-  %status_2 = getelementptr inbounds i8, ptr %other, i64 8
+  %status_ = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %status_2 = getelementptr inbounds nuw i8, ptr %other, i64 8
   %0 = load i64, ptr %status_2, align 8
   store i64 %0, ptr %status_, align 8
   %and.i.i.i = and i64 %0, 1
@@ -125,9 +125,9 @@ if.then.i.i:                                      ; preds = %entry
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then.i.i, %entry
-  %init_what_ = getelementptr inbounds i8, ptr %this, i64 16
+  %init_what_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 0, ptr %init_what_, align 8
-  %what_ = getelementptr inbounds i8, ptr %this, i64 24
+  %what_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %what_) #16
   ret void
 }
@@ -136,8 +136,8 @@ invoke.cont:                                      ; preds = %if.then.i.i, %entry
 define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN4absl17BadStatusOrAccessaSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(56) %other) local_unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZNK4absl17BadStatusOrAccess8InitWhatEv(ptr noundef nonnull align 8 dereferenceable(56) %other)
-  %status_ = getelementptr inbounds i8, ptr %other, i64 8
-  %status_2 = getelementptr inbounds i8, ptr %this, i64 8
+  %status_ = getelementptr inbounds nuw i8, ptr %other, i64 8
+  %status_2 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %status_2, align 8
   %1 = load i64, ptr %status_, align 8
   %cmp.not.i = icmp eq i64 %1, %0
@@ -167,8 +167,8 @@ if.then.i7.i:                                     ; preds = %_ZN4absl6Status3Ref
   br label %_ZN4absl6StatusaSERKS0_.exit
 
 _ZN4absl6StatusaSERKS0_.exit:                     ; preds = %entry, %_ZN4absl6Status3RefEm.exit.i, %if.then.i7.i
-  %what_ = getelementptr inbounds i8, ptr %other, i64 24
-  %what_3 = getelementptr inbounds i8, ptr %this, i64 24
+  %what_ = getelementptr inbounds nuw i8, ptr %other, i64 24
+  %what_3 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %call4 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %what_3, ptr noundef nonnull align 8 dereferenceable(32) %what_)
   ret ptr %this
 }
@@ -180,7 +180,7 @@ entry:
   %ref.tmp2.i.i.i.i.i.i = alloca %"class.absl::AlphaNum", align 8
   %ref.tmp3.i.i.i.i.i.i = alloca %"class.absl::AlphaNum", align 8
   %ref.tmp4.i.i.i.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
-  %init_what_ = getelementptr inbounds i8, ptr %this, i64 16
+  %init_what_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load atomic i32, ptr %init_what_ acquire, align 8
   %cmp.not.i = icmp eq i32 %0, 221
   br i1 %cmp.not.i, label %"_ZN4absl9call_onceIZNKS_17BadStatusOrAccess8InitWhatEvE3$_0JEEEvRNS_9once_flagEOT_DpOT0_.exit", label %if.then.i
@@ -201,14 +201,14 @@ if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, 
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp3.i.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp4.i.i.i.i.i.i)
   store i64 21, ptr %ref.tmp2.i.i.i.i.i.i, align 8
-  %3 = getelementptr inbounds i8, ptr %ref.tmp2.i.i.i.i.i.i, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %ref.tmp2.i.i.i.i.i.i, i64 8
   store ptr @.str.5, ptr %3, align 8
-  %status_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %status_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   call void @_ZNK4absl6Status8ToStringB5cxx11ENS_18StatusToStringModeE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp4.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %status_.i.i.i.i.i.i, i32 noundef 1)
   %call.i.i.i.i.i.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i.i.i.i.i) #16
   %4 = extractvalue { i64, ptr } %call.i.i.i.i.i.i.i, 0
   store i64 %4, ptr %ref.tmp3.i.i.i.i.i.i, align 8
-  %5 = getelementptr inbounds i8, ptr %ref.tmp3.i.i.i.i.i.i, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %ref.tmp3.i.i.i.i.i.i, i64 8
   %6 = extractvalue { i64, ptr } %call.i.i.i.i.i.i.i, 1
   store ptr %6, ptr %5, align 8
   invoke void @_ZN4absl6StrCatB5cxx11ERKNS_8AlphaNumES2_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp2.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp3.i.i.i.i.i.i)
@@ -221,7 +221,7 @@ lpad.i.i.i.i.i.i:                                 ; preds = %if.then.i.i
   resume { ptr, i32 } %7
 
 release.i.i.i:                                    ; preds = %if.then.i.i
-  %what_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %what_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %call.i.i.i.i.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %what_.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i.i.i) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i.i.i) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i.i.i.i.i) #16
@@ -247,8 +247,8 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN4absl17BadStatusOrAccessaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(56) %other) local_unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZNK4absl17BadStatusOrAccess8InitWhatEv(ptr noundef nonnull align 8 dereferenceable(56) %other)
-  %status_ = getelementptr inbounds i8, ptr %other, i64 8
-  %status_2 = getelementptr inbounds i8, ptr %this, i64 8
+  %status_ = getelementptr inbounds nuw i8, ptr %other, i64 8
+  %status_2 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %status_2, align 8
   %1 = load i64, ptr %status_, align 8
   %cmp.not.i = icmp eq i64 %1, %0
@@ -267,8 +267,8 @@ if.then.i.i:                                      ; preds = %if.then.i
   br label %_ZN4absl6StatusaSEOS0_.exit
 
 _ZN4absl6StatusaSEOS0_.exit:                      ; preds = %entry, %if.then.i, %if.then.i.i
-  %what_ = getelementptr inbounds i8, ptr %other, i64 24
-  %what_3 = getelementptr inbounds i8, ptr %this, i64 24
+  %what_ = getelementptr inbounds nuw i8, ptr %other, i64 24
+  %what_3 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %call4 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %what_3, ptr noundef nonnull align 8 dereferenceable(32) %what_) #16
   ret ptr %this
 }
@@ -280,14 +280,14 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 define dso_local void @_ZN4absl17BadStatusOrAccessC2EOS0_(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 20)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(56) %other) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl17BadStatusOrAccessE, i64 16), ptr %this, align 8
-  %status_ = getelementptr inbounds i8, ptr %this, i64 8
-  %status_2 = getelementptr inbounds i8, ptr %other, i64 8
+  %status_ = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %status_2 = getelementptr inbounds nuw i8, ptr %other, i64 8
   %0 = load i64, ptr %status_2, align 8
   store i64 %0, ptr %status_, align 8
   store i64 55, ptr %status_2, align 8
-  %init_what_ = getelementptr inbounds i8, ptr %this, i64 16
+  %init_what_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 0, ptr %init_what_, align 8
-  %what_ = getelementptr inbounds i8, ptr %this, i64 24
+  %what_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %what_) #16
   ret void
 }
@@ -299,7 +299,7 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  %what_ = getelementptr inbounds i8, ptr %this, i64 24
+  %what_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %what_) #16
   ret ptr %call
 
@@ -329,7 +329,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4absl17BadStatusOrAccess6statusEv(ptr noundef nonnull readnone align 8 dereferenceable(56) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %status_ = getelementptr inbounds i8, ptr %this, i64 8
+  %status_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %status_
 }
 
@@ -471,13 +471,13 @@ entry:
   %ref.tmp4 = alloca %"class.absl::AlphaNum", align 8
   %ref.tmp5 = alloca %"class.std::__cxx11::basic_string", align 8
   store i64 52, ptr %ref.tmp3, align 8
-  %0 = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %ref.tmp3, i64 8
   store ptr @.str.2, ptr %0, align 8
   call void @_ZNK4absl6Status8ToStringB5cxx11ENS_18StatusToStringModeE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(8) %status, i32 noundef 1)
   %call.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5) #16
   %1 = extractvalue { i64, ptr } %call.i, 0
   store i64 %1, ptr %ref.tmp4, align 8
-  %2 = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %ref.tmp4, i64 8
   %3 = extractvalue { i64, ptr } %call.i, 1
   store ptr %3, ptr %2, align 8
   invoke void @_ZN4absl6StrCatB5cxx11ERKNS_8AlphaNumES2_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp4)
@@ -570,11 +570,11 @@ define dso_local void @_ZN4absl17internal_statusor22ThrowBadStatusOrAccessENS_6S
 invoke.cont:
   %exception = tail call ptr @__cxa_allocate_exception(i64 56) #16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl17BadStatusOrAccessE, i64 16), ptr %exception, align 8
-  %status_.i = getelementptr inbounds i8, ptr %exception, i64 8
+  %status_.i = getelementptr inbounds nuw i8, ptr %exception, i64 8
   store i64 %status.coerce, ptr %status_.i, align 8
-  %init_what_.i = getelementptr inbounds i8, ptr %exception, i64 16
+  %init_what_.i = getelementptr inbounds nuw i8, ptr %exception, i64 16
   store i32 0, ptr %init_what_.i, align 4
-  %what_.i = getelementptr inbounds i8, ptr %exception, i64 24
+  %what_.i = getelementptr inbounds nuw i8, ptr %exception, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %what_.i) #16
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN4absl17BadStatusOrAccessE, ptr nonnull @_ZN4absl17BadStatusOrAccessD2Ev) #18
   unreachable
@@ -586,9 +586,9 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 define linkonce_odr dso_local void @_ZN4absl17BadStatusOrAccessD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl17BadStatusOrAccessE, i64 16), ptr %this, align 8
-  %what_ = getelementptr inbounds i8, ptr %this, i64 24
+  %what_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %what_) #16
-  %status_ = getelementptr inbounds i8, ptr %this, i64 8
+  %status_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %status_, align 8
   %and.i.i.i = and i64 %0, 1
   %cmp.i.not.i.i = icmp eq i64 %and.i.i.i, 0
@@ -618,9 +618,9 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #10
 define linkonce_odr dso_local void @_ZN4absl17BadStatusOrAccessD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl17BadStatusOrAccessE, i64 16), ptr %this, align 8
-  %what_.i = getelementptr inbounds i8, ptr %this, i64 24
+  %what_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %what_.i) #16
-  %status_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %status_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %status_.i, align 8
   %and.i.i.i.i = and i64 %0, 1
   %cmp.i.not.i.i.i = icmp eq i64 %and.i.i.i.i, 0

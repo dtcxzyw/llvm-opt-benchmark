@@ -142,20 +142,20 @@ define dso_local void @e1000e_check_options(ptr noundef initializes((1204, 1208)
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 1464
-  %8 = getelementptr inbounds i8, ptr %0, i64 704
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1464
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %9 = load i32, ptr %8, align 64
   %10 = icmp sgt i32 %9, 31
   br i1 %10, label %11, label %17
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %0, i64 1456
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1456
   %13 = load ptr, ptr %12, align 16
-  %14 = getelementptr inbounds i8, ptr %13, i64 184
-  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef %14, ptr noundef nonnull @.str, i32 noundef %9) #4
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 184
+  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef nonnull %14, ptr noundef nonnull @.str, i32 noundef %9) #4
   %15 = load ptr, ptr %12, align 16
-  %16 = getelementptr inbounds i8, ptr %15, i64 184
-  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef %16, ptr noundef nonnull @.str.1) #4
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 184
+  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef nonnull %16, ptr noundef nonnull @.str.1) #4
   br label %17
 
 17:                                               ; preds = %11, %1
@@ -167,13 +167,13 @@ define dso_local void @e1000e_check_options(ptr noundef initializes((1204, 1208)
   %21 = sext i32 %9 to i64
   %22 = getelementptr [33 x i32], ptr @TxIntDelay, i64 0, i64 %21
   %23 = load i32, ptr %22, align 4
-  %24 = getelementptr inbounds i8, ptr %0, i64 1204
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 1204
   store i32 %23, ptr %24, align 4
-  %25 = tail call fastcc i32 @e1000_validate_option(ptr noundef %24, ptr noundef nonnull @e1000e_check_options.opt, ptr noundef %0), !range !5
+  %25 = tail call fastcc i32 @e1000_validate_option(ptr noundef nonnull %24, ptr noundef nonnull @e1000e_check_options.opt, ptr noundef %0), !range !5
   br label %28
 
 26:                                               ; preds = %17
-  %27 = getelementptr inbounds i8, ptr %0, i64 1204
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 1204
   store i32 8, ptr %27, align 4
   br label %28
 
@@ -186,18 +186,18 @@ define dso_local void @e1000e_check_options(ptr noundef initializes((1204, 1208)
   %32 = sext i32 %9 to i64
   %33 = getelementptr [33 x i32], ptr @TxAbsIntDelay, i64 0, i64 %32
   %34 = load i32, ptr %33, align 4
-  %35 = getelementptr inbounds i8, ptr %0, i64 1208
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 1208
   store i32 %34, ptr %35, align 8
-  %36 = tail call fastcc i32 @e1000_validate_option(ptr noundef %35, ptr noundef nonnull @e1000e_check_options.opt.4, ptr noundef %0), !range !5
+  %36 = tail call fastcc i32 @e1000_validate_option(ptr noundef nonnull %35, ptr noundef nonnull @e1000e_check_options.opt.4, ptr noundef %0), !range !5
   br label %39
 
 37:                                               ; preds = %28
-  %38 = getelementptr inbounds i8, ptr %0, i64 1208
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 1208
   store i32 32, ptr %38, align 8
   br label %39
 
 39:                                               ; preds = %37, %31
-  %40 = getelementptr inbounds i8, ptr %0, i64 11920
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 11920
   %41 = load i32, ptr %40, align 16
   %42 = and i32 %41, 64
   %43 = icmp eq i32 %42, 0
@@ -216,16 +216,16 @@ define dso_local void @e1000e_check_options(ptr noundef initializes((1204, 1208)
   %49 = sext i32 %9 to i64
   %50 = getelementptr [33 x i32], ptr @RxIntDelay, i64 0, i64 %49
   %51 = load i32, ptr %50, align 4
-  %52 = getelementptr inbounds i8, ptr %0, i64 1368
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 1368
   store i32 %51, ptr %52, align 8
-  %53 = tail call fastcc i32 @e1000_validate_option(ptr noundef %52, ptr noundef nonnull @e1000e_check_options.opt.7, ptr noundef %0), !range !5
+  %53 = tail call fastcc i32 @e1000_validate_option(ptr noundef nonnull %52, ptr noundef nonnull @e1000e_check_options.opt.7, ptr noundef %0), !range !5
   %.pre = load i32, ptr %40, align 16
   %.pre3 = and i32 %.pre, 64
   br label %57
 
 54:                                               ; preds = %45
   %55 = load i32, ptr getelementptr inbounds (i8, ptr @e1000e_check_options.opt.7, i64 24), align 8
-  %56 = getelementptr inbounds i8, ptr %0, i64 1368
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 1368
   store i32 %55, ptr %56, align 8
   br label %57
 
@@ -247,14 +247,14 @@ define dso_local void @e1000e_check_options(ptr noundef initializes((1204, 1208)
   %64 = sext i32 %9 to i64
   %65 = getelementptr [33 x i32], ptr @RxAbsIntDelay, i64 0, i64 %64
   %66 = load i32, ptr %65, align 4
-  %67 = getelementptr inbounds i8, ptr %0, i64 1372
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 1372
   store i32 %66, ptr %67, align 4
-  %68 = tail call fastcc i32 @e1000_validate_option(ptr noundef %67, ptr noundef nonnull @e1000e_check_options.opt.10, ptr noundef %0), !range !5
+  %68 = tail call fastcc i32 @e1000_validate_option(ptr noundef nonnull %67, ptr noundef nonnull @e1000e_check_options.opt.10, ptr noundef %0), !range !5
   br label %72
 
 69:                                               ; preds = %60
   %70 = load i32, ptr getelementptr inbounds (i8, ptr @e1000e_check_options.opt.10, i64 24), align 8
-  %71 = getelementptr inbounds i8, ptr %0, i64 1372
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 1372
   store i32 %70, ptr %71, align 4
   br label %72
 
@@ -267,13 +267,13 @@ define dso_local void @e1000e_check_options(ptr noundef initializes((1204, 1208)
   %76 = sext i32 %9 to i64
   %77 = getelementptr [33 x i32], ptr @InterruptThrottleRate, i64 0, i64 %76
   %78 = load i32, ptr %77, align 4
-  %79 = getelementptr inbounds i8, ptr %0, i64 728
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 728
   store i32 %78, ptr %79, align 8
   %80 = icmp ugt i32 %78, 4
   br i1 %80, label %81, label %89
 
 81:                                               ; preds = %75
-  %82 = tail call fastcc i32 @e1000_validate_option(ptr noundef %79, ptr noundef nonnull @e1000e_check_options.opt.12, ptr noundef %0), !range !5
+  %82 = tail call fastcc i32 @e1000_validate_option(ptr noundef nonnull %79, ptr noundef nonnull @e1000e_check_options.opt.12, ptr noundef %0), !range !5
   %83 = icmp eq i32 %82, 0
   br i1 %83, label %._crit_edge, label %.thread
 
@@ -282,21 +282,21 @@ define dso_local void @e1000e_check_options(ptr noundef initializes((1204, 1208)
   br label %89
 
 84:                                               ; preds = %72
-  %85 = getelementptr inbounds i8, ptr %0, i64 728
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 728
   br label %.thread
 
 .thread:                                          ; preds = %81, %84
   %86 = phi ptr [ %85, %84 ], [ %79, %81 ]
   store i32 3, ptr %86, align 8
-  %87 = getelementptr inbounds i8, ptr %0, i64 728
-  %88 = getelementptr inbounds i8, ptr %0, i64 732
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 728
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 732
   store i32 3, ptr %88, align 4
   br label %105
 
 89:                                               ; preds = %._crit_edge, %75
   %90 = phi i32 [ %.pre1, %._crit_edge ], [ %78, %75 ]
-  %91 = getelementptr inbounds i8, ptr %0, i64 728
-  %92 = getelementptr inbounds i8, ptr %0, i64 732
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 728
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 732
   store i32 %90, ptr %92, align 4
   switch i32 %90, label %114 [
     i32 0, label %93
@@ -307,42 +307,42 @@ define dso_local void @e1000e_check_options(ptr noundef initializes((1204, 1208)
   ]
 
 93:                                               ; preds = %89
-  %94 = getelementptr inbounds i8, ptr %0, i64 1456
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 1456
   %95 = load ptr, ptr %94, align 16
-  %96 = getelementptr inbounds i8, ptr %95, i64 184
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %96, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.13) #4
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 184
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %96, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.13) #4
   br label %116
 
 97:                                               ; preds = %89
-  %98 = getelementptr inbounds i8, ptr %0, i64 1456
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 1456
   %99 = load ptr, ptr %98, align 16
-  %100 = getelementptr inbounds i8, ptr %99, i64 184
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %100, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.13) #4
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 184
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %100, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.13) #4
   store i32 20000, ptr %91, align 8
   br label %116
 
 101:                                              ; preds = %89
-  %102 = getelementptr inbounds i8, ptr %0, i64 1456
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 1456
   %103 = load ptr, ptr %102, align 16
-  %104 = getelementptr inbounds i8, ptr %103, i64 184
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %104, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.13) #4
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 184
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %104, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.13) #4
   store i32 3, ptr %92, align 4
   br label %105
 
 105:                                              ; preds = %.thread, %101, %89
   %106 = phi ptr [ %87, %.thread ], [ %91, %101 ], [ %91, %89 ]
-  %107 = getelementptr inbounds i8, ptr %0, i64 1456
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 1456
   %108 = load ptr, ptr %107, align 16
-  %109 = getelementptr inbounds i8, ptr %108, i64 184
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %109, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.13) #4
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 184
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %109, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.13) #4
   store i32 20000, ptr %106, align 8
   br label %116
 
 110:                                              ; preds = %89
-  %111 = getelementptr inbounds i8, ptr %0, i64 1456
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 1456
   %112 = load ptr, ptr %111, align 16
-  %113 = getelementptr inbounds i8, ptr %112, i64 184
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %113, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.13) #4
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 184
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %113, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.13) #4
   br label %116
 
 114:                                              ; preds = %89
@@ -351,7 +351,7 @@ define dso_local void @e1000e_check_options(ptr noundef initializes((1204, 1208)
   br label %116
 
 116:                                              ; preds = %114, %110, %105, %97, %93
-  %117 = getelementptr inbounds i8, ptr %0, i64 11916
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 11916
   %118 = load i32, ptr %117, align 4
   %119 = and i32 %118, 1024
   %120 = icmp eq i32 %119, 0
@@ -365,10 +365,10 @@ define dso_local void @e1000e_check_options(ptr noundef initializes((1204, 1208)
   br i1 %124, label %125, label %129
 
 125:                                              ; preds = %116
-  %126 = getelementptr inbounds i8, ptr %0, i64 1456
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 1456
   %127 = load ptr, ptr %126, align 16
-  %128 = getelementptr inbounds i8, ptr %127, i64 184
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %128, ptr noundef nonnull @.str.25) #4
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 184
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %128, ptr noundef nonnull @.str.25) #4
   br label %210
 
 129:                                              ; preds = %116
@@ -391,7 +391,7 @@ define dso_local void @e1000e_check_options(ptr noundef initializes((1204, 1208)
 138:                                              ; preds = %129, %132
   %139 = phi ptr [ %.pre2, %132 ], [ %123, %129 ]
   %.sink = phi i32 [ %137, %132 ], [ %122, %129 ]
-  %140 = getelementptr inbounds i8, ptr %0, i64 11888
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 11888
   store i32 %.sink, ptr %140, align 16
   tail call void @kfree(ptr noundef %139) #5
   %141 = load i32, ptr @num_SmartPowerDownEnable, align 4
@@ -473,13 +473,13 @@ define dso_local void @e1000e_check_options(ptr noundef initializes((1204, 1208)
 
 184:                                              ; preds = %177, %174
   %185 = phi i1 [ %183, %177 ], [ true, %174 ]
-  %186 = getelementptr inbounds i8, ptr %0, i64 1684
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 1684
   %187 = load i32, ptr %186, align 4
   %188 = icmp eq i32 %187, 6
   br i1 %188, label %189, label %190
 
 189:                                              ; preds = %184
-  tail call void @e1000e_set_kmrn_lock_loss_workaround_ich8lan(ptr noundef %7, i1 noundef zeroext %185) #5
+  tail call void @e1000e_set_kmrn_lock_loss_workaround_ich8lan(ptr noundef nonnull %7, i1 noundef zeroext %185) #5
   br label %190
 
 190:                                              ; preds = %189, %184
@@ -536,7 +536,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @e1000_validate_option(ptr n
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load i32, ptr %7, align 8
   store i32 %8, ptr %0, align 4
   br label %79
@@ -550,13 +550,13 @@ define internal fastcc noundef range(i32 -1, 1) i32 @e1000_validate_option(ptr n
   ]
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %1, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %13 = load i32, ptr %12, align 8
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %15, label %.loopexit
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %1, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr %17, align 8
   %19 = icmp eq i32 %4, %18
@@ -573,42 +573,42 @@ define internal fastcc noundef range(i32 -1, 1) i32 @e1000_validate_option(ptr n
   ]
 
 22:                                               ; preds = %21
-  %23 = getelementptr inbounds i8, ptr %2, i64 1456
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 1456
   %24 = load ptr, ptr %23, align 16
-  %25 = getelementptr inbounds i8, ptr %24, i64 184
-  %26 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 184
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %27 = load ptr, ptr %26, align 8
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %25, ptr noundef nonnull @.str.36, ptr noundef %27) #4
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %25, ptr noundef nonnull @.str.36, ptr noundef %27) #4
   br label %79
 
 28:                                               ; preds = %21
-  %29 = getelementptr inbounds i8, ptr %2, i64 1456
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 1456
   %30 = load ptr, ptr %29, align 16
-  %31 = getelementptr inbounds i8, ptr %30, i64 184
-  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 184
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %33 = load ptr, ptr %32, align 8
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %31, ptr noundef nonnull @.str.37, ptr noundef %33) #4
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %31, ptr noundef nonnull @.str.37, ptr noundef %33) #4
   br label %79
 
 34:                                               ; preds = %9
-  %35 = getelementptr inbounds i8, ptr %1, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %36 = load i32, ptr %35, align 8
   %37 = icmp ult i32 %4, %36
   br i1 %37, label %.loopexit, label %38
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %1, i64 36
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %40 = load i32, ptr %39, align 4
   %41 = icmp ugt i32 %4, %40
   br i1 %41, label %.loopexit, label %42
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %2, i64 1456
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 1456
   %44 = load ptr, ptr %43, align 16
-  %45 = getelementptr inbounds i8, ptr %44, i64 184
-  %46 = getelementptr inbounds i8, ptr %1, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 184
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %47 = load ptr, ptr %46, align 8
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %45, ptr noundef nonnull @.str.38, ptr noundef %47, i32 noundef %4) #4
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %45, ptr noundef nonnull @.str.38, ptr noundef %47, i32 noundef %4) #4
   br label %79
 
 .preheader:                                       ; preds = %.preheader.preheader, %49
@@ -631,17 +631,17 @@ define internal fastcc noundef range(i32 -1, 1) i32 @e1000_validate_option(ptr n
 56:                                               ; preds = %53, %15
   %57 = phi i1 [ %55, %53 ], [ true, %15 ]
   %58 = phi ptr [ %50, %53 ], [ %17, %15 ]
-  %59 = getelementptr inbounds i8, ptr %58, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = load ptr, ptr %59, align 8
   %61 = load i8, ptr %60, align 1
   %62 = icmp eq i8 %61, 0
   br i1 %62, label %67, label %63
 
 63:                                               ; preds = %56
-  %64 = getelementptr inbounds i8, ptr %2, i64 1456
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 1456
   %65 = load ptr, ptr %64, align 16
-  %66 = getelementptr inbounds i8, ptr %65, i64 184
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %66, ptr noundef nonnull @.str.39, ptr noundef %60) #4
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 184
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %66, ptr noundef nonnull @.str.39, ptr noundef %60) #4
   br label %67
 
 67:                                               ; preds = %63, %56
@@ -658,15 +658,15 @@ define internal fastcc noundef range(i32 -1, 1) i32 @e1000_validate_option(ptr n
 
 .loopexit:                                        ; preds = %.preheader, %..loopexit_crit_edge, %38, %34, %21, %11
   %69 = phi i32 [ %.pre, %..loopexit_crit_edge ], [ %4, %38 ], [ %4, %34 ], [ %4, %21 ], [ %4, %11 ], [ %4, %.preheader ]
-  %70 = getelementptr inbounds i8, ptr %2, i64 1456
+  %70 = getelementptr inbounds nuw i8, ptr %2, i64 1456
   %71 = load ptr, ptr %70, align 16
-  %72 = getelementptr inbounds i8, ptr %71, i64 184
-  %73 = getelementptr inbounds i8, ptr %1, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 184
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %1, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %76 = load ptr, ptr %75, align 8
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %72, ptr noundef nonnull @.str.41, ptr noundef %74, i32 noundef %69, ptr noundef %76) #4
-  %77 = getelementptr inbounds i8, ptr %1, i64 24
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %72, ptr noundef nonnull @.str.41, ptr noundef %74, i32 noundef %69, ptr noundef %76) #4
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %78 = load i32, ptr %77, align 8
   store i32 %78, ptr %0, align 4
   br label %79

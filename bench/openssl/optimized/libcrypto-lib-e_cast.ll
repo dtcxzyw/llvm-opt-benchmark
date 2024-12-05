@@ -59,7 +59,7 @@ entry:
   br i1 %cmp13, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %iv = getelementptr inbounds i8, ptr %ctx, i64 40
+  %iv = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -70,8 +70,8 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %call1 = tail call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %ctx) #4
   tail call void @CAST_cbc_encrypt(ptr noundef %in.addr.015, ptr noundef %out.addr.014, i64 noundef 1073741824, ptr noundef %call, ptr noundef nonnull %iv, i32 noundef %call1) #4
   %sub = add i64 %inl.addr.016, -1073741824
-  %add.ptr = getelementptr inbounds i8, ptr %in.addr.015, i64 1073741824
-  %add.ptr2 = getelementptr inbounds i8, ptr %out.addr.014, i64 1073741824
+  %add.ptr = getelementptr inbounds nuw i8, ptr %in.addr.015, i64 1073741824
+  %add.ptr2 = getelementptr inbounds nuw i8, ptr %out.addr.014, i64 1073741824
   %cmp = icmp ugt i64 %sub, 1073741823
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !4
 
@@ -84,7 +84,7 @@ while.end:                                        ; preds = %while.body, %entry
 
 if.then:                                          ; preds = %while.end
   %call3 = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #4
-  %iv5 = getelementptr inbounds i8, ptr %ctx, i64 40
+  %iv5 = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   %call7 = tail call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %ctx) #4
   tail call void @CAST_cbc_encrypt(ptr noundef %in.addr.0.lcssa, ptr noundef %out.addr.0.lcssa, i64 noundef %inl.addr.0.lcssa, ptr noundef %call3, ptr noundef nonnull %iv5, i32 noundef %call7) #4
   br label %if.end
@@ -116,7 +116,7 @@ entry:
 
 while.body.lr.ph:                                 ; preds = %entry
   %spec.select = tail call i64 @llvm.umin.i64(i64 %inl, i64 1073741824)
-  %iv = getelementptr inbounds i8, ptr %ctx, i64 40
+  %iv = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -157,7 +157,7 @@ entry:
   br i1 %cmp15, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %iv = getelementptr inbounds i8, ptr %ctx, i64 40
+  %iv = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -171,8 +171,8 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %0 = load i32, ptr %num, align 4
   %call2 = call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %ctx, i32 noundef %0) #4
   %sub = add i64 %inl.addr.018, -1073741824
-  %add.ptr = getelementptr inbounds i8, ptr %in.addr.017, i64 1073741824
-  %add.ptr3 = getelementptr inbounds i8, ptr %out.addr.016, i64 1073741824
+  %add.ptr = getelementptr inbounds nuw i8, ptr %in.addr.017, i64 1073741824
+  %add.ptr3 = getelementptr inbounds nuw i8, ptr %out.addr.016, i64 1073741824
   %cmp = icmp ugt i64 %sub, 1073741823
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !7
 
@@ -187,7 +187,7 @@ if.then:                                          ; preds = %while.end
   %call5 = call i32 @EVP_CIPHER_CTX_get_num(ptr noundef %ctx) #4
   store i32 %call5, ptr %num4, align 4
   %call6 = call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #4
-  %iv8 = getelementptr inbounds i8, ptr %ctx, i64 40
+  %iv8 = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   call void @CAST_ofb64_encrypt(ptr noundef %in.addr.0.lcssa, ptr noundef %out.addr.0.lcssa, i64 noundef %inl.addr.0.lcssa, ptr noundef %call6, ptr noundef nonnull %iv8, ptr noundef nonnull %num4) #4
   %1 = load i32, ptr %num4, align 4
   %call10 = call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %ctx, i32 noundef %1) #4
@@ -203,7 +203,7 @@ declare void @CAST_ofb64_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr noun
 define internal noundef i32 @cast5_ecb_cipher(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %inl) #1 {
 entry:
   %call = tail call ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef %ctx) #4
-  %block_size = getelementptr inbounds i8, ptr %call, i64 4
+  %block_size = getelementptr inbounds nuw i8, ptr %call, i64 4
   %0 = load i32, ptr %block_size, align 4
   %conv = sext i32 %0 to i64
   %cmp = icmp ult i64 %inl, %conv

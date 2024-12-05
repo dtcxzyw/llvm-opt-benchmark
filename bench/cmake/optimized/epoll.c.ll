@@ -35,12 +35,12 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv__epoll_init(ptr noc
 
 11:                                               ; preds = %9, %1
   %.0 = phi i32 [ %8, %9 ], [ %2, %1 ]
-  %12 = getelementptr inbounds i8, ptr %0, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %.0, ptr %12, align 8
   br label %17
 
 13:                                               ; preds = %7, %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 -1, ptr %14, align 8
   %15 = load i32, ptr %5, align 4
   %16 = sub nsw i32 0, %15
@@ -65,16 +65,16 @@ declare i32 @uv__cloexec(i32 noundef, i32 noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define dso_local void @uv__platform_invalidate_fd(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.epoll_event, align 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 112
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds ptr, ptr %5, i64 %8
+  %9 = getelementptr inbounds nuw ptr, ptr %5, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = add i32 %7, 1
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds ptr, ptr %5, i64 %12
+  %13 = getelementptr inbounds nuw ptr, ptr %5, i64 %12
   %14 = load ptr, ptr %13, align 8
   %.not = icmp ne ptr %10, null
   %15 = icmp ne ptr %14, null
@@ -103,7 +103,7 @@ define dso_local void @uv__platform_invalidate_fd(ptr nocapture noundef readonly
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !5
 
 .loopexit:                                        ; preds = %21, %2
-  %23 = getelementptr inbounds i8, ptr %0, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %24 = load i32, ptr %23, align 8
   %25 = icmp sgt i32 %24, -1
   br i1 %25, label %26, label %28
@@ -126,12 +126,12 @@ declare i32 @epoll_ctl(i32 noundef, i32 noundef, i32 noundef, ptr noundef) local
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -2147483647, -2147483648) i32 @uv__io_check_fd(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.epoll_event, align 4
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %4, align 4
   store i32 1, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %3, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 -1, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load i32, ptr %6, align 8
   %8 = call i32 @epoll_ctl(i32 noundef %7, i32 noundef 1, i32 noundef %1, ptr noundef nonnull %3) #7
   %.not = icmp eq i32 %8, 0
@@ -169,41 +169,41 @@ define dso_local void @uv__io_poll(ptr noundef %0, i32 noundef %1) local_unnamed
   %3 = alloca [1024 x %struct.epoll_event], align 16
   %4 = alloca %struct.epoll_event, align 4
   %5 = alloca %struct.__sigset_t, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 116
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %.loopexit, label %9
 
 9:                                                ; preds = %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, i8 0, i64 12, i1 false)
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %11 = load ptr, ptr %10, align 8
   %.not207 = icmp eq ptr %10, %11
   br i1 %.not207, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %4, i64 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br label %14
 
 14:                                               ; preds = %.lr.ph, %39
   %15 = phi ptr [ %11, %.lr.ph ], [ %41, %39 ]
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %15, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %18 = load ptr, ptr %17, align 8
   store ptr %16, ptr %18, align 8
   %19 = load ptr, ptr %17, align 8
-  %20 = getelementptr inbounds i8, ptr %16, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %19, ptr %20, align 8
   store ptr %15, ptr %15, align 8
   store ptr %15, ptr %17, align 8
-  %21 = getelementptr inbounds i8, ptr %15, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %22 = load i32, ptr %21, align 8
   store i32 %22, ptr %4, align 4
-  %23 = getelementptr inbounds i8, ptr %15, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %24 = load i32, ptr %23, align 8
   store i32 %24, ptr %12, align 4
-  %25 = getelementptr inbounds i8, ptr %15, i64 20
+  %25 = getelementptr inbounds nuw i8, ptr %15, i64 20
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %26, 0
   %. = select i1 %27, i32 1, i32 3
@@ -241,7 +241,7 @@ define dso_local void @uv__io_poll(ptr noundef %0, i32 noundef %1) local_unnamed
   br i1 %.not, label %._crit_edge, label %14, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %39, %9
-  %42 = getelementptr inbounds i8, ptr %0, i64 56
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %43 = load i64, ptr %42, align 8
   %44 = and i64 %43, 1
   %.not146 = icmp ne i64 %44, 0
@@ -253,9 +253,9 @@ define dso_local void @uv__io_poll(ptr noundef %0, i32 noundef %1) local_unnamed
   br label %48
 
 48:                                               ; preds = %45, %._crit_edge
-  %49 = getelementptr inbounds i8, ptr %0, i64 544
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %50 = load i64, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %52 = load ptr, ptr %51, align 8
   %53 = load i32, ptr %52, align 8
   %54 = and i32 %53, 1
@@ -265,10 +265,10 @@ define dso_local void @uv__io_poll(ptr noundef %0, i32 noundef %1) local_unnamed
   %.b145 = load i1, ptr @uv__io_poll.no_epoll_wait_cached, align 4
   %56 = zext i1 %.b145 to i32
   %spec.select172 = select i1 %.not147.not, i32 %1, i32 0
-  %57 = getelementptr inbounds i8, ptr %0, i64 64
-  %58 = getelementptr inbounds i8, ptr %0, i64 104
-  %59 = getelementptr inbounds i8, ptr %0, i64 112
-  %60 = getelementptr inbounds i8, ptr %0, i64 560
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 560
   br label %select.unfold.outer
 
 select.unfold.outer:                              ; preds = %48, %159
@@ -412,7 +412,7 @@ select.unfold.outer179.backedge:                  ; preds = %94, %97, %158
   %99 = load ptr, ptr %58, align 8
   %100 = load i32, ptr %59, align 8
   %101 = zext i32 %100 to i64
-  %102 = getelementptr inbounds ptr, ptr %99, i64 %101
+  %102 = getelementptr inbounds nuw ptr, ptr %99, i64 %101
   store ptr %3, ptr %102, align 8
   %103 = sext i32 %.0126 to i64
   %104 = inttoptr i64 %103 to ptr
@@ -420,7 +420,7 @@ select.unfold.outer179.backedge:                  ; preds = %94, %97, %158
   %106 = load i32, ptr %59, align 8
   %107 = add i32 %106, 1
   %108 = zext i32 %107 to i64
-  %109 = getelementptr inbounds ptr, ptr %105, i64 %108
+  %109 = getelementptr inbounds nuw ptr, ptr %105, i64 %108
   store ptr %104, ptr %109, align 8
   %110 = icmp sgt i32 %.0126, 0
   br i1 %110, label %.lr.ph212.preheader, label %._crit_edge213.thread
@@ -433,8 +433,8 @@ select.unfold.outer179.backedge:                  ; preds = %94, %97, %158
   %indvars.iv = phi i64 [ 0, %.lr.ph212.preheader ], [ %indvars.iv.next, %140 ]
   %.0128209 = phi i32 [ 0, %.lr.ph212.preheader ], [ %.1129, %140 ]
   %.0130208 = phi i32 [ 0, %.lr.ph212.preheader ], [ %.1131, %140 ]
-  %111 = getelementptr inbounds %struct.epoll_event, ptr %3, i64 %indvars.iv
-  %112 = getelementptr inbounds i8, ptr %111, i64 4
+  %111 = getelementptr inbounds nuw %struct.epoll_event, ptr %3, i64 %indvars.iv
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 4
   %113 = load i32, ptr %112, align 4
   %114 = icmp eq i32 %113, -1
   br i1 %114, label %140, label %115
@@ -453,7 +453,7 @@ select.unfold.outer179.backedge:                  ; preds = %94, %97, %158
   br label %140
 
 124:                                              ; preds = %115
-  %125 = getelementptr inbounds i8, ptr %119, i64 40
+  %125 = getelementptr inbounds nuw i8, ptr %119, i64 40
   %126 = load i32, ptr %125, align 8
   %127 = or i32 %126, 24
   %128 = load i32, ptr %111, align 4
@@ -512,13 +512,13 @@ select.unfold.outer179.backedge:                  ; preds = %94, %97, %158
   %145 = load ptr, ptr %58, align 8
   %146 = load i32, ptr %59, align 8
   %147 = zext i32 %146 to i64
-  %148 = getelementptr inbounds ptr, ptr %145, i64 %147
+  %148 = getelementptr inbounds nuw ptr, ptr %145, i64 %147
   store ptr null, ptr %148, align 8
   %149 = load ptr, ptr %58, align 8
   %150 = load i32, ptr %59, align 8
   %151 = add i32 %150, 1
   %152 = zext i32 %151 to i64
-  %153 = getelementptr inbounds ptr, ptr %149, i64 %152
+  %153 = getelementptr inbounds nuw ptr, ptr %149, i64 %152
   store ptr null, ptr %153, align 8
   br i1 %.0130.lcssa245, label %154, label %.loopexit
 

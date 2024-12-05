@@ -17,9 +17,9 @@ define noundef ptr @memmove(ptr noundef returned writeonly %0, ptr noundef reado
   %.01427 = phi ptr [ %7, %.lr.ph ], [ %0, %.preheader ]
   %.01626 = phi i64 [ %4, %.lr.ph ], [ %2, %.preheader ]
   %4 = add i64 %.01626, -1
-  %5 = getelementptr inbounds i8, ptr %.028, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %.028, i64 1
   %6 = load i8, ptr %.028, align 1
-  %7 = getelementptr inbounds i8, ptr %.01427, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %.01427, i64 1
   store i8 %6, ptr %.01427, align 1
   %.not23 = icmp eq i64 %4, 0
   br i1 %.not23, label %.loopexit, label %.lr.ph, !llvm.loop !6

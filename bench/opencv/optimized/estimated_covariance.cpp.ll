@@ -56,18 +56,18 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN2cv8ximgproc18EstimateCovarianceC2Eii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((8, 40)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #3 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %2, ptr %6, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN2cv8ximgproc18EstimateCovarianceD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN2cv8ximgproc18EstimateCovariance11CombinationESaIS3_EED2Ev.exit, label %4
@@ -82,18 +82,18 @@ _ZNSt6vectorIN2cv8ximgproc18EstimateCovariance11CombinationESaIS3_EED2Ev.exit: ;
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv8ximgproc18EstimateCovariance26initInternalDataStructuresEv(ptr noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = mul nsw i32 %5, %3
   %7 = add nsw i32 %3, -1
   %8 = add nsw i32 %5, -1
   %9 = mul nsw i32 %8, %7
   %10 = add nsw i32 %9, %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = sext i32 %10 to i64
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %11, align 8
   %16 = ptrtoint ptr %14 to i64
@@ -155,15 +155,15 @@ _ZNSt6vectorIN2cv8ximgproc18EstimateCovariance11CombinationESaIS3_EE6resizeEm.ex
   %38 = load ptr, ptr %11, align 8
   %39 = getelementptr inbounds %"struct.cv::ximgproc::EstimateCovariance::Combination", ptr %38, i64 %indvars.iv.i
   store i32 0, ptr %39, align 4
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %39, i64 4
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %39, i64 4
   store i32 0, ptr %.sroa.4.0..sroa_idx.i, align 4
-  %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %39, i64 8
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i32 %.02933.i, ptr %.sroa.6.0..sroa_idx.i, align 4
-  %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %39, i64 12
+  %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %39, i64 12
   store i32 %.02735.i, ptr %.sroa.8.0..sroa_idx.i, align 4
-  %.sroa.10.0..sroa_idx.i = getelementptr inbounds i8, ptr %39, i64 16
+  %.sroa.10.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %39, i64 16
   store i32 0, ptr %.sroa.10.0..sroa_idx.i, align 4
-  %.sroa.12.0..sroa_idx.i = getelementptr inbounds i8, ptr %39, i64 20
+  %.sroa.12.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %39, i64 20
   %40 = trunc nsw i64 %indvars.iv.i to i32
   store i32 %40, ptr %.sroa.12.0..sroa_idx.i, align 4
   %41 = add nuw nsw i32 %.02933.i, 1
@@ -203,15 +203,15 @@ _ZNSt6vectorIN2cv8ximgproc18EstimateCovariance11CombinationESaIS3_EE6resizeEm.ex
   %53 = load ptr, ptr %11, align 8
   %54 = getelementptr inbounds %"struct.cv::ximgproc::EstimateCovariance::Combination", ptr %53, i64 %indvars.iv50.i
   store i32 %.13043.i, ptr %54, align 4
-  %.sroa.4.0..sroa_idx2.i = getelementptr inbounds i8, ptr %54, i64 4
+  %.sroa.4.0..sroa_idx2.i = getelementptr inbounds nuw i8, ptr %54, i64 4
   store i32 0, ptr %.sroa.4.0..sroa_idx2.i, align 4
-  %.sroa.6.0..sroa_idx4.i = getelementptr inbounds i8, ptr %54, i64 8
+  %.sroa.6.0..sroa_idx4.i = getelementptr inbounds nuw i8, ptr %54, i64 8
   store i32 0, ptr %.sroa.6.0..sroa_idx4.i, align 4
-  %.sroa.8.0..sroa_idx6.i = getelementptr inbounds i8, ptr %54, i64 12
+  %.sroa.8.0..sroa_idx6.i = getelementptr inbounds nuw i8, ptr %54, i64 12
   store i32 %.12838.i, ptr %.sroa.8.0..sroa_idx6.i, align 4
-  %.sroa.10.0..sroa_idx8.i = getelementptr inbounds i8, ptr %54, i64 16
+  %.sroa.10.0..sroa_idx8.i = getelementptr inbounds nuw i8, ptr %54, i64 16
   store i32 1, ptr %.sroa.10.0..sroa_idx8.i, align 4
-  %.sroa.12.0..sroa_idx10.i = getelementptr inbounds i8, ptr %54, i64 20
+  %.sroa.12.0..sroa_idx10.i = getelementptr inbounds nuw i8, ptr %54, i64 20
   %55 = trunc nsw i64 %indvars.iv50.i to i32
   store i32 %55, ptr %.sroa.12.0..sroa_idx10.i, align 4
   %56 = add nuw nsw i32 %.12838.i, 1
@@ -238,9 +238,9 @@ _ZN2cv8ximgproc18EstimateCovariance22buildCombinationsTableEv.exit: ; preds = %.
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i32 @_ZN2cv8ximgproc18EstimateCovariance16combinationCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #6 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = mul nsw i32 %5, %3
   %7 = add nsw i32 %3, -1
@@ -252,10 +252,10 @@ define hidden noundef i32 @_ZN2cv8ximgproc18EstimateCovariance16combinationCount
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN2cv8ximgproc18EstimateCovariance22buildCombinationsTableEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #7 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 12
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 0
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %4, label %.preheader32.lr.ph, label %..preheader31_crit_edge
 
 ..preheader31_crit_edge:                          ; preds = %1
@@ -263,7 +263,7 @@ define hidden void @_ZN2cv8ximgproc18EstimateCovariance22buildCombinationsTableE
   br label %.preheader31
 
 .preheader32.lr.ph:                               ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %5, align 8
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.preheader32, label %._crit_edge45
@@ -284,12 +284,12 @@ define hidden void @_ZN2cv8ximgproc18EstimateCovariance22buildCombinationsTableE
   %13 = phi i32 [ %3, %..preheader31_crit_edge ], [ %26, %._crit_edge ]
   %14 = phi i32 [ %.pre53, %..preheader31_crit_edge ], [ %27, %._crit_edge ]
   %.0.lcssa = phi i32 [ 0, %..preheader31_crit_edge ], [ %.1.lcssa, %._crit_edge ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = icmp sgt i32 %14, 1
   br i1 %16, label %.preheader.lr.ph, label %._crit_edge45
 
 .preheader.lr.ph:                                 ; preds = %.preheader31
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = icmp sgt i32 %13, 1
   br i1 %18, label %.preheader, label %._crit_edge45
 
@@ -300,15 +300,15 @@ define hidden void @_ZN2cv8ximgproc18EstimateCovariance22buildCombinationsTableE
   %19 = load ptr, ptr %6, align 8
   %20 = getelementptr inbounds %"struct.cv::ximgproc::EstimateCovariance::Combination", ptr %19, i64 %indvars.iv
   store i32 0, ptr %20, align 4
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %20, i64 4
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 4
   store i32 0, ptr %.sroa.4.0..sroa_idx, align 4
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %20, i64 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i32 %.02933, ptr %.sroa.6.0..sroa_idx, align 4
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %20, i64 12
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 12
   store i32 %.02735, ptr %.sroa.8.0..sroa_idx, align 4
-  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %20, i64 16
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i32 0, ptr %.sroa.10.0..sroa_idx, align 4
-  %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %20, i64 20
+  %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 20
   %21 = trunc nsw i64 %indvars.iv to i32
   store i32 %21, ptr %.sroa.12.0..sroa_idx, align 4
   %22 = add nuw nsw i32 %.02933, 1
@@ -348,15 +348,15 @@ define hidden void @_ZN2cv8ximgproc18EstimateCovariance22buildCombinationsTableE
   %34 = load ptr, ptr %17, align 8
   %35 = getelementptr inbounds %"struct.cv::ximgproc::EstimateCovariance::Combination", ptr %34, i64 %indvars.iv50
   store i32 %.13043, ptr %35, align 4
-  %.sroa.4.0..sroa_idx2 = getelementptr inbounds i8, ptr %35, i64 4
+  %.sroa.4.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %35, i64 4
   store i32 0, ptr %.sroa.4.0..sroa_idx2, align 4
-  %.sroa.6.0..sroa_idx4 = getelementptr inbounds i8, ptr %35, i64 8
+  %.sroa.6.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i32 0, ptr %.sroa.6.0..sroa_idx4, align 4
-  %.sroa.8.0..sroa_idx6 = getelementptr inbounds i8, ptr %35, i64 12
+  %.sroa.8.0..sroa_idx6 = getelementptr inbounds nuw i8, ptr %35, i64 12
   store i32 %.12838, ptr %.sroa.8.0..sroa_idx6, align 4
-  %.sroa.10.0..sroa_idx8 = getelementptr inbounds i8, ptr %35, i64 16
+  %.sroa.10.0..sroa_idx8 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store i32 1, ptr %.sroa.10.0..sroa_idx8, align 4
-  %.sroa.12.0..sroa_idx10 = getelementptr inbounds i8, ptr %35, i64 20
+  %.sroa.12.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %35, i64 20
   %36 = trunc nsw i64 %indvars.iv50 to i32
   store i32 %36, ptr %.sroa.12.0..sroa_idx10, align 4
   %37 = add nuw nsw i32 %.12838, 1
@@ -389,12 +389,12 @@ define hidden void @_ZN2cv8ximgproc18EstimateCovariance25computeEstimateCovarian
   %4 = alloca %"class.cv::Mat", align 8
   %5 = alloca %"class.cv::Mat", align 8
   tail call void @_ZN2cv8ximgproc18EstimateCovariance26initInternalDataStructuresEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 8
   store i32 %7, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %9, ptr %10, align 4
   call void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull align 8 dereferenceable(96) %1)
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 8 dereferenceable(96) %2)
@@ -436,9 +436,9 @@ define hidden void @_ZN2cv8ximgproc18EstimateCovariance19iterateCombinationsENS_
   %9 = alloca %"class.cv::Mat", align 8
   %10 = alloca %"class.std::vector.0", align 8
   %11 = alloca %"class.std::vector.0", align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = mul nsw i32 %15, %13
   call void @_ZN2cv3MatC1Eiii(ptr noundef nonnull align 8 dereferenceable(96) %4, i32 noundef %16, i32 noundef 1, i32 noundef 13)
@@ -471,9 +471,9 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %3
           to label %.noexc40 unwind label %_ZNSt6vectorIiSaIiEED2Ev.exit64.thread
 
 .noexc40:                                         ; preds = %.noexc31
-  %27 = getelementptr inbounds i32, ptr %25, i64 %20
+  %27 = getelementptr inbounds nuw i32, ptr %25, i64 %20
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %26, i8 0, i64 %24, i1 false)
-  %28 = getelementptr inbounds i32, ptr %26, i64 %20
+  %28 = getelementptr inbounds nuw i32, ptr %26, i64 %20
   br label %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit41
 
 _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit41:          ; preds = %.noexc40, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
@@ -486,11 +486,11 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit41:          ; preds = %.noexc40, %_ZNSt6ve
   %31 = mul nsw i32 %30, %29
   %32 = add nsw i32 %31, %19
   %33 = icmp sgt i32 %32, 0
-  br i1 %33, label %.lr.ph114, label %._crit_edge115
+  br i1 %33, label %.lr.ph116, label %._crit_edge117
 
-.lr.ph114:                                        ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit41
-  %34 = getelementptr inbounds i8, ptr %5, i64 16
-  %35 = getelementptr inbounds i8, ptr %5, i64 8
+.lr.ph116:                                        ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit41
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %36 = ptrtoint ptr %.0.i.i.i.i.i.i.i96 to i64
   %37 = ptrtoint ptr %.sroa.078.094 to i64
   %38 = sub i64 %36, %37
@@ -500,19 +500,19 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit41:          ; preds = %.noexc40, %_ZNSt6ve
   %41 = ptrtoint ptr %.sroa.0.0 to i64
   %42 = sub i64 %40, %41
   %43 = ashr exact i64 %42, 2
-  %.not116 = icmp eq ptr %.0.i.i.i.i.i.i.i37, %.sroa.0.0
-  %44 = icmp ugt i64 %39, 2305843009213693951
-  %45 = getelementptr inbounds i8, ptr %10, i64 8
-  %46 = getelementptr inbounds i8, ptr %10, i64 16
+  %.not118 = icmp eq ptr %.0.i.i.i.i.i.i.i37, %.sroa.0.0
+  %44 = icmp ugt i64 %38, 9223372036854775804
+  %45 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %47 = getelementptr inbounds i8, ptr null, i64 %38
-  %48 = getelementptr inbounds i8, ptr %11, i64 8
-  %49 = getelementptr inbounds i8, ptr %11, i64 16
-  %50 = getelementptr inbounds i8, ptr null, i64 %42
+  %48 = icmp ugt i64 %42, 9223372036854775804
+  %49 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %51 = getelementptr inbounds i8, ptr null, i64 %42
   br label %52
 
-52:                                               ; preds = %.lr.ph114, %_ZNSt6vectorIiSaIiEED2Ev.exit54
-  %.013113 = phi i32 [ 0, %.lr.ph114 ], [ %88, %_ZNSt6vectorIiSaIiEED2Ev.exit54 ]
+52:                                               ; preds = %.lr.ph116, %_ZNSt6vectorIiSaIiEED2Ev.exit54
+  %.013115 = phi i32 [ 0, %.lr.ph116 ], [ %88, %_ZNSt6vectorIiSaIiEED2Ev.exit54 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
   store i32 -1056833530, ptr %5, align 8
   store ptr %6, ptr %35, align 8
@@ -528,14 +528,14 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit41:          ; preds = %.noexc40, %_ZNSt6ve
   br i1 %.not, label %.preheader, label %.lr.ph
 
 .preheader:                                       ; preds = %.lr.ph, %.preheader104
-  br i1 %.not116, label %._crit_edge, label %.lr.ph111
+  br i1 %.not118, label %._crit_edge, label %.lr.ph113
 
 .lr.ph:                                           ; preds = %.preheader104, %.lr.ph
   %56 = phi i64 [ %59, %.lr.ph ], [ 0, %.preheader104 ]
-  %.012108 = phi i32 [ %58, %.lr.ph ], [ 0, %.preheader104 ]
-  %57 = getelementptr inbounds i32, ptr %.sroa.078.094, i64 %56
+  %.012111 = phi i32 [ %58, %.lr.ph ], [ 0, %.preheader104 ]
+  %57 = getelementptr inbounds nuw i32, ptr %.sroa.078.094, i64 %56
   store i32 0, ptr %57, align 4
-  %58 = add i32 %.012108, 1
+  %58 = add i32 %.012111, 1
   %59 = zext i32 %58 to i64
   %60 = icmp ugt i64 %39, %59
   br i1 %60, label %.lr.ph, label %.preheader, !llvm.loop !10
@@ -548,29 +548,29 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit41:          ; preds = %.noexc40, %_ZNSt6ve
 _ZNSt6vectorIiSaIiEED2Ev.exit64.thread:           ; preds = %.noexc31
   %63 = landingpad { ptr, i32 }
           cleanup
-  br label %102
+  br label %101
 
 64:                                               ; preds = %._crit_edge
   %65 = landingpad { ptr, i32 }
           cleanup
-  br label %100
+  br label %99
 
 66:                                               ; preds = %54, %52
   %67 = landingpad { ptr, i32 }
           cleanup
-  br label %100
+  br label %99
 
-.lr.ph111:                                        ; preds = %.preheader, %.lr.ph111
-  %68 = phi i64 [ %71, %.lr.ph111 ], [ 0, %.preheader ]
-  %.0110 = phi i32 [ %70, %.lr.ph111 ], [ 0, %.preheader ]
-  %69 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %68
+.lr.ph113:                                        ; preds = %.preheader, %.lr.ph113
+  %68 = phi i64 [ %71, %.lr.ph113 ], [ 0, %.preheader ]
+  %.0112 = phi i32 [ %70, %.lr.ph113 ], [ 0, %.preheader ]
+  %69 = getelementptr inbounds nuw i32, ptr %.sroa.0.0, i64 %68
   store i32 0, ptr %69, align 4
-  %70 = add i32 %.0110, 1
+  %70 = add i32 %.0112, 1
   %71 = zext i32 %70 to i64
   %72 = icmp ugt i64 %43, %71
-  br i1 %72, label %.lr.ph111, label %._crit_edge, !llvm.loop !11
+  br i1 %72, label %.lr.ph113, label %._crit_edge, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %.lr.ph111, %.preheader
+._crit_edge:                                      ; preds = %.lr.ph113, %.preheader
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(96) %1)
           to label %73 unwind label %64
 
@@ -607,65 +607,74 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i: ; preds = %76
 
 78:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i
   store ptr %77, ptr %10, align 8
-  %79 = getelementptr inbounds i8, ptr %77, i64 %38
+  %79 = getelementptr inbounds nuw i8, ptr %77, i64 %38
   store ptr %79, ptr %46, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %77, ptr align 4 %.sroa.078.094, i64 %38, i1 false)
   br label %80
 
 80:                                               ; preds = %78, %.noexc45.thread
-  %81 = phi ptr [ null, %.noexc45.thread ], [ %77, %78 ]
-  %82 = getelementptr inbounds i8, ptr %81, i64 %38
-  store ptr %82, ptr %45, align 8
+  %81 = phi ptr [ %47, %.noexc45.thread ], [ %79, %78 ]
+  %82 = phi ptr [ null, %.noexc45.thread ], [ %77, %78 ]
+  store ptr %81, ptr %45, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
-  br i1 %.not116, label %.thread, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i47
+  br i1 %.not118, label %.thread, label %83
 
 .thread:                                          ; preds = %80
   store i64 0, ptr %11, align 8
-  store ptr %50, ptr %49, align 8
-  store ptr %51, ptr %48, align 8
-  call void @_ZN2cv8ximgproc18EstimateCovariance21computeOneCombinationEiNS_3MatES2_S2_St6vectorIiSaIiEES5_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %.013113, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11)
+  store ptr %51, ptr %50, align 8
+  store ptr %51, ptr %49, align 8
+  call void @_ZN2cv8ximgproc18EstimateCovariance21computeOneCombinationEiNS_3MatES2_S2_St6vectorIiSaIiEES5_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %.013115, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11)
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
-_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i47: ; preds = %80
-  %83 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %42) #21
-          to label %84 unwind label %_ZNSt6vectorIiSaIiEED2Ev.exit56
+83:                                               ; preds = %80
+  br i1 %48, label %.noexc.i.i49, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i47
 
-84:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i47
-  store ptr %83, ptr %11, align 8
-  %85 = getelementptr inbounds i8, ptr %83, i64 %42
-  store ptr %85, ptr %49, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %83, ptr align 4 %.sroa.0.0, i64 %42, i1 false)
-  %86 = getelementptr inbounds i8, ptr %83, i64 %42
-  store ptr %86, ptr %48, align 8
-  call void @_ZN2cv8ximgproc18EstimateCovariance21computeOneCombinationEiNS_3MatES2_S2_St6vectorIiSaIiEES5_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %.013113, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11)
-  call void @_ZdlPv(ptr noundef nonnull %83) #18
+.noexc.i.i49:                                     ; preds = %83
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #20
+          to label %.noexc50 unwind label %_ZNSt6vectorIiSaIiEED2Ev.exit56.loopexit.split-lp
+
+.noexc50:                                         ; preds = %.noexc.i.i49
+  unreachable
+
+_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i47: ; preds = %83
+  %84 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %42) #21
+          to label %85 unwind label %_ZNSt6vectorIiSaIiEED2Ev.exit56.loopexit
+
+85:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i47
+  store ptr %84, ptr %11, align 8
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 %42
+  store ptr %86, ptr %50, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %84, ptr align 4 %.sroa.0.0, i64 %42, i1 false)
+  store ptr %86, ptr %49, align 8
+  call void @_ZN2cv8ximgproc18EstimateCovariance21computeOneCombinationEiNS_3MatES2_S2_St6vectorIiSaIiEES5_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %.013115, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11)
+  call void @_ZdlPv(ptr noundef nonnull %84) #18
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
-_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.thread, %84
-  %.not.i.i.i53 = icmp eq ptr %81, null
+_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.thread, %85
+  %.not.i.i.i53 = icmp eq ptr %82, null
   br i1 %.not.i.i.i53, label %_ZNSt6vectorIiSaIiEED2Ev.exit54, label %87
 
 87:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %81) #18
+  call void @_ZdlPv(ptr noundef nonnull %82) #18
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit54
 
 _ZNSt6vectorIiSaIiEED2Ev.exit54:                  ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %87
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #19
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #19
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #19
-  %88 = add nuw nsw i32 %.013113, 2
+  %88 = add nuw nsw i32 %.013115, 2
   %89 = icmp slt i32 %88, %32
-  br i1 %89, label %52, label %._crit_edge115, !llvm.loop !12
+  br i1 %89, label %52, label %._crit_edge117, !llvm.loop !12
 
 90:                                               ; preds = %73
   %91 = landingpad { ptr, i32 }
           cleanup
-  br label %97
+  br label %96
 
 92:                                               ; preds = %74
   %93 = landingpad { ptr, i32 }
           cleanup
-  br label %96
+  br label %95
 
 .loopexit:                                        ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -677,72 +686,81 @@ _ZNSt6vectorIiSaIiEED2Ev.exit54:                  ; preds = %_ZNSt6vectorIiSaIiE
           cleanup
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit58
 
-_ZNSt6vectorIiSaIiEED2Ev.exit56:                  ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i47
-  %94 = landingpad { ptr, i32 }
+_ZNSt6vectorIiSaIiEED2Ev.exit56.loopexit:         ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i47
+  %lpad.loopexit105 = landingpad { ptr, i32 }
           cleanup
-  %.not.i.i.i57 = icmp eq ptr %81, null
-  br i1 %.not.i.i.i57, label %_ZNSt6vectorIiSaIiEED2Ev.exit58, label %95
+  br label %_ZNSt6vectorIiSaIiEED2Ev.exit56
 
-95:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit56
-  call void @_ZdlPv(ptr noundef nonnull %81) #18
+_ZNSt6vectorIiSaIiEED2Ev.exit56.loopexit.split-lp: ; preds = %.noexc.i.i49
+  %lpad.loopexit.split-lp106 = landingpad { ptr, i32 }
+          cleanup
+  br label %_ZNSt6vectorIiSaIiEED2Ev.exit56
+
+_ZNSt6vectorIiSaIiEED2Ev.exit56:                  ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit56.loopexit.split-lp, %_ZNSt6vectorIiSaIiEED2Ev.exit56.loopexit
+  %lpad.phi107 = phi { ptr, i32 } [ %lpad.loopexit105, %_ZNSt6vectorIiSaIiEED2Ev.exit56.loopexit ], [ %lpad.loopexit.split-lp106, %_ZNSt6vectorIiSaIiEED2Ev.exit56.loopexit.split-lp ]
+  %.not.i.i.i57 = icmp eq ptr %82, null
+  br i1 %.not.i.i.i57, label %_ZNSt6vectorIiSaIiEED2Ev.exit58, label %94
+
+94:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit56
+  call void @_ZdlPv(ptr noundef nonnull %82) #18
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit58
 
-_ZNSt6vectorIiSaIiEED2Ev.exit58:                  ; preds = %.loopexit, %.loopexit.split-lp, %95, %_ZNSt6vectorIiSaIiEED2Ev.exit56
-  %.pn.pn = phi { ptr, i32 } [ %94, %_ZNSt6vectorIiSaIiEED2Ev.exit56 ], [ %94, %95 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+_ZNSt6vectorIiSaIiEED2Ev.exit58:                  ; preds = %.loopexit, %.loopexit.split-lp, %94, %_ZNSt6vectorIiSaIiEED2Ev.exit56
+  %.pn.pn = phi { ptr, i32 } [ %lpad.phi107, %_ZNSt6vectorIiSaIiEED2Ev.exit56 ], [ %lpad.phi107, %94 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #19
-  br label %96
+  br label %95
 
-96:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit58, %92
+95:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit58, %92
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit58 ], [ %93, %92 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #19
-  br label %97
+  br label %96
 
-97:                                               ; preds = %96, %90
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %96 ], [ %91, %90 ]
+96:                                               ; preds = %95, %90
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %95 ], [ %91, %90 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #19
-  br label %100
+  br label %99
 
-._crit_edge115:                                   ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit54, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit41
+._crit_edge117:                                   ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit54, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit41
   %.not.i.i.i59 = icmp eq ptr %.sroa.0.0, null
-  br i1 %.not.i.i.i59, label %_ZNSt6vectorIiSaIiEED2Ev.exit60, label %98
+  br i1 %.not.i.i.i59, label %_ZNSt6vectorIiSaIiEED2Ev.exit60, label %97
 
-98:                                               ; preds = %._crit_edge115
+97:                                               ; preds = %._crit_edge117
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0) #18
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit60
 
-_ZNSt6vectorIiSaIiEED2Ev.exit60:                  ; preds = %._crit_edge115, %98
+_ZNSt6vectorIiSaIiEED2Ev.exit60:                  ; preds = %._crit_edge117, %97
   %.not.i.i.i61 = icmp eq ptr %.sroa.078.094, null
-  br i1 %.not.i.i.i61, label %_ZNSt6vectorIiSaIiEED2Ev.exit62, label %99
+  br i1 %.not.i.i.i61, label %_ZNSt6vectorIiSaIiEED2Ev.exit62, label %98
 
-99:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit60
+98:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit60
   call void @_ZdlPv(ptr noundef nonnull %.sroa.078.094) #18
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit62
 
-_ZNSt6vectorIiSaIiEED2Ev.exit62:                  ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit60, %99
+_ZNSt6vectorIiSaIiEED2Ev.exit62:                  ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit60, %98
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #19
   ret void
 
-100:                                              ; preds = %97, %66, %64
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %97 ], [ %65, %64 ], [ %67, %66 ]
+99:                                               ; preds = %96, %66, %64
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %96 ], [ %65, %64 ], [ %67, %66 ]
   %.not.i.i.i63 = icmp eq ptr %.sroa.0.0, null
-  br i1 %.not.i.i.i63, label %_ZNSt6vectorIiSaIiEED2Ev.exit64, label %101
+  br i1 %.not.i.i.i63, label %_ZNSt6vectorIiSaIiEED2Ev.exit64, label %100
 
-101:                                              ; preds = %100
+100:                                              ; preds = %99
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0) #18
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit64
 
-_ZNSt6vectorIiSaIiEED2Ev.exit64:                  ; preds = %101, %100
+_ZNSt6vectorIiSaIiEED2Ev.exit64:                  ; preds = %100, %99
   %.not.i.i.i65 = icmp eq ptr %.sroa.078.094, null
-  br i1 %.not.i.i.i65, label %_ZNSt6vectorIiSaIiEED2Ev.exit66, label %102
+  br i1 %.not.i.i.i65, label %_ZNSt6vectorIiSaIiEED2Ev.exit66, label %101
 
-102:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit64.thread, %_ZNSt6vectorIiSaIiEED2Ev.exit64
+101:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit64.thread, %_ZNSt6vectorIiSaIiEED2Ev.exit64
   %.pn.pn.pn.pn.pn.pn102 = phi { ptr, i32 } [ %63, %_ZNSt6vectorIiSaIiEED2Ev.exit64.thread ], [ %.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit64 ]
   %.sroa.078.093101 = phi ptr [ %25, %_ZNSt6vectorIiSaIiEED2Ev.exit64.thread ], [ %.sroa.078.094, %_ZNSt6vectorIiSaIiEED2Ev.exit64 ]
   call void @_ZdlPv(ptr noundef nonnull %.sroa.078.093101) #18
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit66
 
-_ZNSt6vectorIiSaIiEED2Ev.exit66:                  ; preds = %102, %_ZNSt6vectorIiSaIiEED2Ev.exit64, %61
-  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %62, %61 ], [ %.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit64 ], [ %.pn.pn.pn.pn.pn.pn102, %102 ]
+_ZNSt6vectorIiSaIiEED2Ev.exit66:                  ; preds = %101, %_ZNSt6vectorIiSaIiEED2Ev.exit64, %61
+  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %62, %61 ], [ %.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit64 ], [ %.pn.pn.pn.pn.pn.pn102, %101 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #19
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn
 }
@@ -762,32 +780,32 @@ declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv7noArrayEv() loca
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN2cv8ximgproc18EstimateCovariance21computeOneCombinationEiNS_3MatES2_S2_St6vectorIiSaIiEES5_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6) local_unnamed_addr #9 align 2 {
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = sext i32 %1 to i64
   %10 = load ptr, ptr %8, align 8
   %11 = getelementptr inbounds %"struct.cv::ximgproc::EstimateCovariance::Combination", ptr %10, i64 %9
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i32, ptr %12, align 4
   %14 = load i32, ptr %11, align 4
-  %15 = getelementptr inbounds i8, ptr %11, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %16 = load i32, ptr %15, align 4
   %17 = sub nsw i32 %14, %16
   %18 = tail call i32 @llvm.abs.i32(i32 %17, i1 true)
-  %19 = getelementptr inbounds i8, ptr %11, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %11, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %22 = load i32, ptr %21, align 4
   %23 = sub nsw i32 %20, %22
   %24 = tail call i32 @llvm.abs.i32(i32 %23, i1 true)
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = sub nsw i32 %26, %18
-  %28 = getelementptr inbounds i8, ptr %0, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %29 = load i32, ptr %28, align 4
   %30 = sub nsw i32 %29, %24
   %31 = load i32, ptr %0, align 8
   %32 = sub nsw i32 %31, %26
-  %33 = getelementptr inbounds i8, ptr %0, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %34 = load i32, ptr %33, align 4
   %35 = sub nsw i32 %34, %29
   %.not = icmp eq i32 %13, 0
@@ -799,8 +817,8 @@ define hidden void @_ZN2cv8ximgproc18EstimateCovariance21computeOneCombinationEi
 
 .lr.ph422:                                        ; preds = %.preheader411
   %.not232413 = icmp slt i32 %35, 0
-  %36 = getelementptr inbounds i8, ptr %2, i64 16
-  %37 = getelementptr inbounds i8, ptr %2, i64 72
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 72
   br i1 %.not232413, label %.loopexit410.thread645, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph422
@@ -819,8 +837,8 @@ define hidden void @_ZN2cv8ximgproc18EstimateCovariance21computeOneCombinationEi
 
 .lr.ph439:                                        ; preds = %.preheader409
   %.not226426 = icmp slt i32 %35, 0
-  %44 = getelementptr inbounds i8, ptr %2, i64 16
-  %45 = getelementptr inbounds i8, ptr %2, i64 72
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 72
   br i1 %.not226426, label %.loopexit410.thread, label %.lr.ph431.preheader
 
 .lr.ph431.preheader:                              ; preds = %.lr.ph439
@@ -850,14 +868,14 @@ define hidden void @_ZN2cv8ximgproc18EstimateCovariance21computeOneCombinationEi
   %56 = load i64, ptr %55, align 8
   %57 = mul i64 %56, %indvars.iv544
   %58 = getelementptr inbounds i8, ptr %54, i64 %57
-  %59 = getelementptr inbounds %"class.std::complex", ptr %58, i64 %indvars.iv539
+  %59 = getelementptr inbounds nuw %"class.std::complex", ptr %58, i64 %indvars.iv539
   %60 = mul i64 %56, %52
   %61 = getelementptr inbounds i8, ptr %54, i64 %60
-  %62 = getelementptr inbounds %"class.std::complex", ptr %61, i64 %indvars.iv539
-  %63 = getelementptr inbounds %"class.std::complex", ptr %62, i64 %46
+  %62 = getelementptr inbounds nuw %"class.std::complex", ptr %61, i64 %indvars.iv539
+  %63 = getelementptr inbounds nuw %"class.std::complex", ptr %62, i64 %46
   %64 = load <2 x float>, ptr %59, align 4
   %65 = load float, ptr %63, align 4
-  %66 = getelementptr inbounds i8, ptr %63, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %63, i64 4
   %67 = load float, ptr %66, align 4
   %.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %64, i64 0
   %.sroa.0.4.vec.extract.i.i = extractelement <2 x float> %64, i64 1
@@ -910,14 +928,14 @@ _ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.e
   %87 = load i64, ptr %86, align 8
   %88 = mul i64 %87, %83
   %89 = getelementptr inbounds i8, ptr %85, i64 %88
-  %90 = getelementptr inbounds %"class.std::complex", ptr %89, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw %"class.std::complex", ptr %89, i64 %indvars.iv
   %91 = mul i64 %87, %indvars.iv534
   %92 = getelementptr inbounds i8, ptr %85, i64 %91
-  %93 = getelementptr inbounds %"class.std::complex", ptr %92, i64 %indvars.iv
-  %94 = getelementptr inbounds %"class.std::complex", ptr %93, i64 %38
+  %93 = getelementptr inbounds nuw %"class.std::complex", ptr %92, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw %"class.std::complex", ptr %93, i64 %38
   %95 = load <2 x float>, ptr %90, align 4
   %96 = load float, ptr %94, align 4
-  %97 = getelementptr inbounds i8, ptr %94, i64 4
+  %97 = getelementptr inbounds nuw i8, ptr %94, i64 4
   %98 = load float, ptr %97, align 4
   %.sroa.0.0.vec.extract.i.i233 = extractelement <2 x float> %95, i64 0
   %.sroa.0.4.vec.extract.i.i234 = extractelement <2 x float> %95, i64 1
@@ -955,31 +973,31 @@ _ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.e
   br i1 %exitcond538.not, label %.loopexit410, label %.lr.ph, !llvm.loop !17
 
 .loopexit410.thread:                              ; preds = %.lr.ph439, %.preheader409
-  %114 = getelementptr inbounds i8, ptr %4, i64 16
+  %114 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %4, i64 72
+  %116 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store float 0.000000e+00, ptr %115, align 4
-  %.sroa_idx396643 = getelementptr inbounds i8, ptr %115, i64 4
+  %.sroa_idx396643 = getelementptr inbounds nuw i8, ptr %115, i64 4
   store float 0.000000e+00, ptr %.sroa_idx396643, align 4
   br label %123
 
 .loopexit410.thread645:                           ; preds = %.lr.ph422, %.preheader411
-  %117 = getelementptr inbounds i8, ptr %4, i64 16
+  %117 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds i8, ptr %4, i64 72
+  %119 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store float 0.000000e+00, ptr %118, align 4
-  %.sroa_idx396648 = getelementptr inbounds i8, ptr %118, i64 4
+  %.sroa_idx396648 = getelementptr inbounds nuw i8, ptr %118, i64 4
   store float 0.000000e+00, ptr %.sroa_idx396648, align 4
   br label %130
 
 .loopexit410:                                     ; preds = %._crit_edge, %._crit_edge432
   %.sroa.6399.2 = phi float [ %82, %._crit_edge432 ], [ %113, %._crit_edge ]
   %.sroa.0397.2 = phi float [ %81, %._crit_edge432 ], [ %112, %._crit_edge ]
-  %120 = getelementptr inbounds i8, ptr %4, i64 16
+  %120 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %4, i64 72
+  %122 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store float %.sroa.0397.2, ptr %121, align 4
-  %.sroa_idx396 = getelementptr inbounds i8, ptr %121, i64 4
+  %.sroa_idx396 = getelementptr inbounds nuw i8, ptr %121, i64 4
   store float %.sroa.6399.2, ptr %.sroa_idx396, align 4
   br i1 %.not, label %123, label %130
 
@@ -1015,8 +1033,8 @@ _ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.e
 
 .lr.ph469:                                        ; preds = %136
   %.not231444 = icmp slt i32 %35, 0
-  %143 = getelementptr inbounds i8, ptr %2, i64 16
-  %144 = getelementptr inbounds i8, ptr %2, i64 72
+  %143 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %144 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %145 = zext nneg i32 %24 to i64
   %146 = add i32 %34, 1
   %147 = sub i32 %146, %29
@@ -1036,8 +1054,8 @@ _ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.e
 
 .lr.ph503:                                        ; preds = %.preheader404
   %.not229471 = icmp slt i32 %32, 0
-  %151 = getelementptr inbounds i8, ptr %2, i64 16
-  %152 = getelementptr inbounds i8, ptr %2, i64 72
+  %151 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %152 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %153 = icmp sgt i32 %27, 1
   %154 = zext nneg i32 %18 to i64
   %155 = add i32 %31, 1
@@ -1087,13 +1105,13 @@ _ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.e
   %175 = load i64, ptr %174, align 8
   %176 = mul i64 %175, %169
   %177 = getelementptr inbounds i8, ptr %173, i64 %176
-  %178 = getelementptr inbounds %"class.std::complex", ptr %177, i64 %indvars.iv554
+  %178 = getelementptr inbounds nuw %"class.std::complex", ptr %177, i64 %indvars.iv554
   %179 = mul i64 %175, %170
   %180 = getelementptr inbounds i8, ptr %173, i64 %179
-  %181 = getelementptr inbounds %"class.std::complex", ptr %180, i64 %172
+  %181 = getelementptr inbounds nuw %"class.std::complex", ptr %180, i64 %172
   %182 = load <2 x float>, ptr %178, align 4
   %183 = load float, ptr %181, align 4
-  %184 = getelementptr inbounds i8, ptr %181, i64 4
+  %184 = getelementptr inbounds nuw i8, ptr %181, i64 4
   %185 = load float, ptr %184, align 4
   %.sroa.0.0.vec.extract.i.i238 = extractelement <2 x float> %182, i64 0
   %.sroa.0.4.vec.extract.i.i239 = extractelement <2 x float> %182, i64 1
@@ -1128,13 +1146,13 @@ _ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.e
   %202 = fadd float %.sroa.6393.0456, %200
   %203 = mul i64 %197, %162
   %204 = getelementptr inbounds i8, ptr %198, i64 %203
-  %205 = getelementptr inbounds %"class.std::complex", ptr %204, i64 %indvars.iv554
+  %205 = getelementptr inbounds nuw %"class.std::complex", ptr %204, i64 %indvars.iv554
   %206 = mul i64 %197, %166
   %207 = getelementptr inbounds i8, ptr %198, i64 %206
-  %208 = getelementptr inbounds %"class.std::complex", ptr %207, i64 %172
+  %208 = getelementptr inbounds nuw %"class.std::complex", ptr %207, i64 %172
   %209 = load <2 x float>, ptr %205, align 4
   %210 = load float, ptr %208, align 4
-  %211 = getelementptr inbounds i8, ptr %208, i64 4
+  %211 = getelementptr inbounds nuw i8, ptr %208, i64 4
   %212 = load float, ptr %211, align 4
   %.sroa.0.0.vec.extract.i.i243 = extractelement <2 x float> %209, i64 0
   %.sroa.0.4.vec.extract.i.i244 = extractelement <2 x float> %209, i64 1
@@ -1178,13 +1196,13 @@ _ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.e
   %232 = load i64, ptr %231, align 8
   %233 = mul i64 %232, %167
   %234 = getelementptr inbounds i8, ptr %230, i64 %233
-  %235 = getelementptr inbounds %"class.std::complex", ptr %234, i64 %indvars.iv549
+  %235 = getelementptr inbounds nuw %"class.std::complex", ptr %234, i64 %indvars.iv549
   %236 = mul i64 %232, %168
   %237 = getelementptr inbounds i8, ptr %230, i64 %236
-  %238 = getelementptr inbounds %"class.std::complex", ptr %237, i64 %229
+  %238 = getelementptr inbounds nuw %"class.std::complex", ptr %237, i64 %229
   %239 = load <2 x float>, ptr %235, align 4
   %240 = load float, ptr %238, align 4
-  %241 = getelementptr inbounds i8, ptr %238, i64 4
+  %241 = getelementptr inbounds nuw i8, ptr %238, i64 4
   %242 = load float, ptr %241, align 4
   %.sroa.0.0.vec.extract.i.i248 = extractelement <2 x float> %239, i64 0
   %.sroa.0.4.vec.extract.i.i249 = extractelement <2 x float> %239, i64 1
@@ -1219,13 +1237,13 @@ _ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.e
   %259 = fadd float %.sroa.6393.2445, %257
   %260 = mul i64 %254, %166
   %261 = getelementptr inbounds i8, ptr %255, i64 %260
-  %262 = getelementptr inbounds %"class.std::complex", ptr %261, i64 %indvars.iv549
+  %262 = getelementptr inbounds nuw %"class.std::complex", ptr %261, i64 %indvars.iv549
   %263 = mul i64 %254, %162
   %264 = getelementptr inbounds i8, ptr %255, i64 %263
-  %265 = getelementptr inbounds %"class.std::complex", ptr %264, i64 %229
+  %265 = getelementptr inbounds nuw %"class.std::complex", ptr %264, i64 %229
   %266 = load <2 x float>, ptr %262, align 4
   %267 = load float, ptr %265, align 4
-  %268 = getelementptr inbounds i8, ptr %265, i64 4
+  %268 = getelementptr inbounds nuw i8, ptr %265, i64 4
   %269 = load float, ptr %268, align 4
   %.sroa.0.0.vec.extract.i.i253 = extractelement <2 x float> %266, i64 0
   %.sroa.0.4.vec.extract.i.i254 = extractelement <2 x float> %266, i64 1
@@ -1274,10 +1292,10 @@ _ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.e
   %294 = mul i64 %291, %indvars.iv559
   %295 = getelementptr inbounds i8, ptr %289, i64 %294
   %296 = load float, ptr %293, align 4
-  %297 = getelementptr inbounds i8, ptr %293, i64 4
+  %297 = getelementptr inbounds nuw i8, ptr %293, i64 4
   %298 = load float, ptr %297, align 4
   %299 = load float, ptr %295, align 4
-  %300 = getelementptr inbounds i8, ptr %295, i64 4
+  %300 = getelementptr inbounds nuw i8, ptr %295, i64 4
   %301 = load float, ptr %300, align 4
   %302 = fadd float %296, %299
   %303 = fadd float %298, %301
@@ -1289,7 +1307,7 @@ _ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.e
   %307 = mul i64 %306, %indvars.iv559
   %308 = getelementptr inbounds i8, ptr %304, i64 %307
   %309 = load float, ptr %308, align 4
-  %310 = getelementptr inbounds i8, ptr %308, i64 4
+  %310 = getelementptr inbounds nuw i8, ptr %308, i64 4
   %311 = load float, ptr %310, align 4
   %312 = fadd float %287, %309
   %313 = fadd float %288, %311
@@ -1299,13 +1317,13 @@ _ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.e
   %315 = getelementptr inbounds i32, ptr %314, i64 %162
   %316 = load i32, ptr %315, align 4
   %317 = add nsw i32 %316, 1
-  %318 = getelementptr inbounds i32, ptr %314, i64 %indvars.iv559
+  %318 = getelementptr inbounds nuw i32, ptr %314, i64 %indvars.iv559
   store i32 %317, ptr %318, align 4
   %319 = load ptr, ptr %6, align 8
   %320 = getelementptr inbounds i32, ptr %319, i64 %162
   %321 = load i32, ptr %320, align 4
   %322 = add nsw i32 %321, 1
-  %323 = getelementptr inbounds i32, ptr %319, i64 %indvars.iv559
+  %323 = getelementptr inbounds nuw i32, ptr %319, i64 %indvars.iv559
   store i32 %322, ptr %323, align 4
   %indvars.iv.next560 = add nuw nsw i64 %indvars.iv559, 1
   %324 = load i32, ptr %25, align 8
@@ -1320,8 +1338,8 @@ _ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.e
   br i1 %329, label %.lr.ph505, label %._crit_edge506
 
 .lr.ph505:                                        ; preds = %.preheader
-  %330 = getelementptr inbounds i8, ptr %3, i64 16
-  %331 = getelementptr inbounds i8, ptr %3, i64 72
+  %330 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %331 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %wide.trip.count587 = zext nneg i32 %328 to i64
   br label %756
 
@@ -1369,7 +1387,7 @@ _ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.e
   %352 = getelementptr inbounds %"class.std::complex", ptr %351, i64 %341
   %353 = load <2 x float>, ptr %349, align 4
   %354 = load float, ptr %352, align 4
-  %355 = getelementptr inbounds i8, ptr %352, i64 4
+  %355 = getelementptr inbounds nuw i8, ptr %352, i64 4
   %356 = load float, ptr %355, align 4
   %.sroa.0.0.vec.extract.i.i258 = extractelement <2 x float> %353, i64 0
   %.sroa.0.4.vec.extract.i.i259 = extractelement <2 x float> %353, i64 1
@@ -1411,7 +1429,7 @@ _ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.e
   %376 = getelementptr inbounds %"class.std::complex", ptr %375, i64 %336
   %377 = load <2 x float>, ptr %374, align 4
   %378 = load float, ptr %376, align 4
-  %379 = getelementptr inbounds i8, ptr %376, i64 4
+  %379 = getelementptr inbounds nuw i8, ptr %376, i64 4
   %380 = load float, ptr %379, align 4
   %.sroa.0.0.vec.extract.i.i263 = extractelement <2 x float> %377, i64 0
   %.sroa.0.4.vec.extract.i.i264 = extractelement <2 x float> %377, i64 1
@@ -1461,7 +1479,7 @@ _ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.e
   %406 = getelementptr inbounds %"class.std::complex", ptr %405, i64 %339
   %407 = load <2 x float>, ptr %403, align 4
   %408 = load float, ptr %406, align 4
-  %409 = getelementptr inbounds i8, ptr %406, i64 4
+  %409 = getelementptr inbounds nuw i8, ptr %406, i64 4
   %410 = load float, ptr %409, align 4
   %.sroa.0.0.vec.extract.i.i268 = extractelement <2 x float> %407, i64 0
   %.sroa.0.4.vec.extract.i.i269 = extractelement <2 x float> %407, i64 1
@@ -1503,7 +1521,7 @@ _ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.e
   %430 = getelementptr inbounds %"class.std::complex", ptr %429, i64 %336
   %431 = load <2 x float>, ptr %428, align 4
   %432 = load float, ptr %430, align 4
-  %433 = getelementptr inbounds i8, ptr %430, i64 4
+  %433 = getelementptr inbounds nuw i8, ptr %430, i64 4
   %434 = load float, ptr %433, align 4
   %.sroa.0.0.vec.extract.i.i273 = extractelement <2 x float> %431, i64 0
   %.sroa.0.4.vec.extract.i.i274 = extractelement <2 x float> %431, i64 1
@@ -1554,10 +1572,10 @@ _ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.e
   %461 = mul i64 %457, %460
   %462 = getelementptr inbounds i8, ptr %455, i64 %461
   %463 = load float, ptr %459, align 4
-  %464 = getelementptr inbounds i8, ptr %459, i64 4
+  %464 = getelementptr inbounds nuw i8, ptr %459, i64 4
   %465 = load float, ptr %464, align 4
   %466 = load float, ptr %462, align 4
-  %467 = getelementptr inbounds i8, ptr %462, i64 4
+  %467 = getelementptr inbounds nuw i8, ptr %462, i64 4
   %468 = load float, ptr %467, align 4
   %469 = fadd float %463, %466
   %470 = fadd float %465, %468
@@ -1569,7 +1587,7 @@ _ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.e
   %474 = mul i64 %473, %460
   %475 = getelementptr inbounds i8, ptr %471, i64 %474
   %476 = load float, ptr %475, align 4
-  %477 = getelementptr inbounds i8, ptr %475, i64 4
+  %477 = getelementptr inbounds nuw i8, ptr %475, i64 4
   %478 = load float, ptr %477, align 4
   %479 = fadd float %452, %476
   %480 = fadd float %453, %478
@@ -1624,7 +1642,7 @@ _ZN2cv8ximgproc18EstimateCovariance20complexConjMulAndAddERSt7complexIfES4_S4_.e
   %514 = getelementptr inbounds %"class.std::complex", ptr %513, i64 %336
   %515 = load <2 x float>, ptr %511, align 4
   %516 = load float, ptr %514, align 4
-  %517 = getelementptr inbounds i8, ptr %514, i64 4
+  %517 = getelementptr inbounds nuw i8, ptr %514, i64 4
   %518 = load float, ptr %517, align 4
   %.sroa.0.0.vec.extract.i.i278 = extractelement <2 x float> %515, i64 0
   %.sroa.0.4.vec.extract.i.i279 = extractelement <2 x float> %515, i64 1
@@ -1667,7 +1685,7 @@ _ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit: ;
   %537 = getelementptr inbounds %"class.std::complex", ptr %536, i64 %497
   %538 = load <2 x float>, ptr %535, align 4
   %539 = load float, ptr %537, align 4
-  %540 = getelementptr inbounds i8, ptr %537, i64 4
+  %540 = getelementptr inbounds nuw i8, ptr %537, i64 4
   %541 = load float, ptr %540, align 4
   %.sroa.0.0.vec.extract.i.i282 = extractelement <2 x float> %538, i64 0
   %.sroa.0.4.vec.extract.i.i283 = extractelement <2 x float> %538, i64 1
@@ -1710,7 +1728,7 @@ _ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit288
   %564 = getelementptr inbounds %"class.std::complex", ptr %563, i64 %336
   %565 = load <2 x float>, ptr %560, align 4
   %566 = load float, ptr %564, align 4
-  %567 = getelementptr inbounds i8, ptr %564, i64 4
+  %567 = getelementptr inbounds nuw i8, ptr %564, i64 4
   %568 = load float, ptr %567, align 4
   %.sroa.0.0.vec.extract.i.i289 = extractelement <2 x float> %565, i64 0
   %.sroa.0.4.vec.extract.i.i290 = extractelement <2 x float> %565, i64 1
@@ -1752,7 +1770,7 @@ _ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit295
   %586 = getelementptr inbounds %"class.std::complex", ptr %585, i64 %497
   %587 = load <2 x float>, ptr %584, align 4
   %588 = load float, ptr %586, align 4
-  %589 = getelementptr inbounds i8, ptr %586, i64 4
+  %589 = getelementptr inbounds nuw i8, ptr %586, i64 4
   %590 = load float, ptr %589, align 4
   %.sroa.0.0.vec.extract.i.i296 = extractelement <2 x float> %587, i64 0
   %.sroa.0.4.vec.extract.i.i297 = extractelement <2 x float> %587, i64 1
@@ -1784,7 +1802,7 @@ _ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit295
   %608 = getelementptr inbounds %"class.std::complex", ptr %607, i64 %336
   %609 = load <2 x float>, ptr %605, align 4
   %610 = load float, ptr %608, align 4
-  %611 = getelementptr inbounds i8, ptr %608, i64 4
+  %611 = getelementptr inbounds nuw i8, ptr %608, i64 4
   %612 = load float, ptr %611, align 4
   %.sroa.0.0.vec.extract.i.i303 = extractelement <2 x float> %609, i64 0
   %.sroa.0.4.vec.extract.i.i304 = extractelement <2 x float> %609, i64 1
@@ -1827,7 +1845,7 @@ _ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit309
   %631 = getelementptr inbounds %"class.std::complex", ptr %630, i64 %497
   %632 = load <2 x float>, ptr %629, align 4
   %633 = load float, ptr %631, align 4
-  %634 = getelementptr inbounds i8, ptr %631, i64 4
+  %634 = getelementptr inbounds nuw i8, ptr %631, i64 4
   %635 = load float, ptr %634, align 4
   %.sroa.0.0.vec.extract.i.i310 = extractelement <2 x float> %632, i64 0
   %.sroa.0.4.vec.extract.i.i311 = extractelement <2 x float> %632, i64 1
@@ -1870,7 +1888,7 @@ _ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit316
   %658 = getelementptr inbounds %"class.std::complex", ptr %657, i64 %336
   %659 = load <2 x float>, ptr %654, align 4
   %660 = load float, ptr %658, align 4
-  %661 = getelementptr inbounds i8, ptr %658, i64 4
+  %661 = getelementptr inbounds nuw i8, ptr %658, i64 4
   %662 = load float, ptr %661, align 4
   %.sroa.0.0.vec.extract.i.i317 = extractelement <2 x float> %659, i64 0
   %.sroa.0.4.vec.extract.i.i318 = extractelement <2 x float> %659, i64 1
@@ -1912,7 +1930,7 @@ _ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit323
   %680 = getelementptr inbounds %"class.std::complex", ptr %679, i64 %497
   %681 = load <2 x float>, ptr %678, align 4
   %682 = load float, ptr %680, align 4
-  %683 = getelementptr inbounds i8, ptr %680, i64 4
+  %683 = getelementptr inbounds nuw i8, ptr %680, i64 4
   %684 = load float, ptr %683, align 4
   %.sroa.0.0.vec.extract.i.i324 = extractelement <2 x float> %681, i64 0
   %.sroa.0.4.vec.extract.i.i325 = extractelement <2 x float> %681, i64 1
@@ -1962,7 +1980,7 @@ _ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit302
   %708 = mul i64 %707, %704
   %709 = getelementptr inbounds i8, ptr %705, i64 %708
   %710 = load float, ptr %709, align 4
-  %711 = getelementptr inbounds i8, ptr %709, i64 4
+  %711 = getelementptr inbounds nuw i8, ptr %709, i64 4
   %712 = load float, ptr %711, align 4
   %713 = fadd float %710, 0.000000e+00
   %714 = fadd float %712, 0.000000e+00
@@ -1970,7 +1988,7 @@ _ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit302
   %716 = mul i64 %707, %715
   %717 = getelementptr inbounds i8, ptr %705, i64 %716
   %718 = load float, ptr %717, align 4
-  %719 = getelementptr inbounds i8, ptr %717, i64 4
+  %719 = getelementptr inbounds nuw i8, ptr %717, i64 4
   %720 = load float, ptr %719, align 4
   %721 = fsub float %713, %718
   %722 = fsub float %714, %720
@@ -1980,7 +1998,7 @@ _ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit302
   %726 = mul i64 %707, %725
   %727 = getelementptr inbounds i8, ptr %705, i64 %726
   %728 = load float, ptr %727, align 4
-  %729 = getelementptr inbounds i8, ptr %727, i64 4
+  %729 = getelementptr inbounds nuw i8, ptr %727, i64 4
   %730 = load float, ptr %729, align 4
   %731 = fadd float %728, %723
   %732 = fadd float %730, %724
@@ -1988,7 +2006,7 @@ _ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit302
   %734 = mul i64 %707, %733
   %735 = getelementptr inbounds i8, ptr %705, i64 %734
   %736 = load float, ptr %735, align 4
-  %737 = getelementptr inbounds i8, ptr %735, i64 4
+  %737 = getelementptr inbounds nuw i8, ptr %735, i64 4
   %738 = load float, ptr %737, align 4
   %739 = fadd float %731, %736
   %740 = fadd float %732, %738
@@ -2031,10 +2049,10 @@ _ZN2cv8ximgproc18EstimateCovariance14complexConjMulERSt7complexIfES4_S4_.exit302
   %760 = mul i64 %759, %indvars.iv584
   %761 = getelementptr inbounds i8, ptr %757, i64 %760
   %762 = load ptr, ptr %5, align 8
-  %763 = getelementptr inbounds i32, ptr %762, i64 %indvars.iv584
+  %763 = getelementptr inbounds nuw i32, ptr %762, i64 %indvars.iv584
   %764 = load i32, ptr %763, align 4
   %765 = load ptr, ptr %6, align 8
-  %766 = getelementptr inbounds i32, ptr %765, i64 %indvars.iv584
+  %766 = getelementptr inbounds nuw i32, ptr %765, i64 %indvars.iv584
   %767 = load i32, ptr %766, align 4
   %768 = load ptr, ptr %330, align 8
   %769 = load ptr, ptr %331, align 8
@@ -2115,7 +2133,7 @@ define void @_ZN2cv8ximgproc20covarianceEstimationERKNS_11_InputArrayERKNS_12_Ou
   br i1 %31, label %32, label %35
 
 32:                                               ; preds = %.noexc
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8, !noalias !26
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %8, ptr noundef nonnull align 8 dereferenceable(96) %34)
           to label %_ZNK2cv11_InputArray6getMatEi.exit unwind label %70
@@ -2131,8 +2149,8 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %32, %35
   br i1 %38, label %39, label %84
 
 39:                                               ; preds = %_ZNK2cv11_InputArray6getMatEi.exit
-  %40 = getelementptr inbounds i8, ptr %9, i64 8
-  %41 = getelementptr inbounds i8, ptr %9, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 0, ptr %41, align 8
   store i32 33619968, ptr %9, align 8
   store ptr %8, ptr %40, align 8
@@ -2140,9 +2158,9 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %32, %35
           to label %42 unwind label %74
 
 42:                                               ; preds = %39
-  %43 = getelementptr inbounds i8, ptr %8, i64 64
+  %43 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %46 = load i32, ptr %45, align 4
   %47 = load i32, ptr %44, align 4
   %.sroa.2.0.insert.ext.i = zext i32 %47 to i64
@@ -2156,7 +2174,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %32, %35
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #19
   %49 = load ptr, ptr %11, align 8, !noalias !29
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %52 = load ptr, ptr %51, align 8
   invoke void %52(ptr noundef nonnull align 8 dereferenceable(8) %49, ptr noundef nonnull align 8 dereferenceable(352) %11, ptr noundef nonnull align 8 dereferenceable(96) %10, i32 noundef -1)
           to label %_ZNK2cv7MatExprcvNS_3MatEEv.exit unwind label %.body
@@ -2169,11 +2187,11 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %32, %35
   br label %_ZN2cv8ximgproc18EstimateCovarianceD2Ev.exit40
 
 _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %48
-  %54 = getelementptr inbounds i8, ptr %11, i64 208
+  %54 = getelementptr inbounds nuw i8, ptr %11, i64 208
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %54) #19
-  %55 = getelementptr inbounds i8, ptr %11, i64 112
+  %55 = getelementptr inbounds nuw i8, ptr %11, i64 112
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %55) #19
-  %56 = getelementptr inbounds i8, ptr %11, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %11, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %56) #19
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %12, ptr noundef nonnull align 8 dereferenceable(96) %8)
           to label %58 unwind label %.thread
@@ -2184,13 +2202,13 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %48
   br label %.loopexit
 
 58:                                               ; preds = %_ZNK2cv7MatExprcvNS_3MatEEv.exit
-  %59 = getelementptr inbounds i8, ptr %12, i64 96
+  %59 = getelementptr inbounds nuw i8, ptr %12, i64 96
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %59, ptr noundef nonnull align 8 dereferenceable(96) %10)
           to label %60 unwind label %.loopexit.loopexit43
 
 60:                                               ; preds = %58
-  %61 = getelementptr inbounds i8, ptr %13, i64 8
-  %62 = getelementptr inbounds i8, ptr %13, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 0, ptr %62, align 8
   store i32 33619968, ptr %13, align 8
   store ptr %7, ptr %61, align 8
@@ -2198,7 +2216,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %48
           to label %63 unwind label %77
 
 63:                                               ; preds = %60
-  %64 = getelementptr inbounds i8, ptr %12, i64 192
+  %64 = getelementptr inbounds nuw i8, ptr %12, i64 192
   br label %65
 
 65:                                               ; preds = %65, %63
@@ -2236,7 +2254,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %48
 77:                                               ; preds = %60
   %78 = landingpad { ptr, i32 }
           cleanup
-  %79 = getelementptr inbounds i8, ptr %12, i64 192
+  %79 = getelementptr inbounds nuw i8, ptr %12, i64 192
   br label %80
 
 80:                                               ; preds = %80, %77
@@ -2252,8 +2270,8 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %48
   br label %_ZN2cv8ximgproc18EstimateCovarianceD2Ev.exit40
 
 84:                                               ; preds = %_ZNK2cv11_InputArray6getMatEi.exit
-  %85 = getelementptr inbounds i8, ptr %14, i64 8
-  %86 = getelementptr inbounds i8, ptr %14, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i64 0, ptr %86, align 8
   store i32 33619968, ptr %14, align 8
   store ptr %7, ptr %85, align 8
@@ -2266,11 +2284,11 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %48
   br label %_ZN2cv8ximgproc18EstimateCovarianceD2Ev.exit40
 
 89:                                               ; preds = %84, %69
-  %90 = getelementptr inbounds i8, ptr %15, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %15, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %90, i8 0, i64 24, i1 false)
-  %91 = getelementptr inbounds i8, ptr %15, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i32 %2, ptr %91, align 8
-  %92 = getelementptr inbounds i8, ptr %15, i64 12
+  %92 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i32 %3, ptr %92, align 4
   %93 = mul nsw i32 %3, %2
   invoke void @_ZNK2cv12_OutputArray6createEiiiibNS0_9DepthMaskE(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %93, i32 noundef %93, i32 noundef 13, i32 noundef -1, i1 noundef zeroext false, i32 noundef 0)
@@ -2285,7 +2303,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %48
   br i1 %96, label %97, label %100
 
 97:                                               ; preds = %.noexc35
-  %98 = getelementptr inbounds i8, ptr %1, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %99 = load ptr, ptr %98, align 8, !noalias !32
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %16, ptr noundef nonnull align 8 dereferenceable(96) %99)
           to label %_ZNK2cv11_InputArray6getMatEi.exit38 unwind label %.thread44
@@ -2400,11 +2418,11 @@ declare void @_ZN2cv3Mat5zerosENS_5Size_IiEEi(ptr dead_on_unwind writable sret(%
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %0) unnamed_addr #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 208
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #19
-  %3 = getelementptr inbounds i8, ptr %0, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #19
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #19
   ret void
 }
@@ -2428,14 +2446,14 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv8ximgproc18EstimateCovariance1
   br i1 %.not, label %43, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = sdiv exact i64 %9, 24
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = sub i64 %13, %7
@@ -2450,7 +2468,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv8ximgproc18EstimateCovariance1
 
 19:                                               ; preds = %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  %20 = getelementptr inbounds i8, ptr %5, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %21 = icmp eq i64 %1, 1
   br i1 %21, label %_ZSt27__uninitialized_default_n_aIPN2cv8ximgproc18EstimateCovariance11CombinationEmS3_ET_S5_T0_RSaIT1_E.exit, label %22
 
@@ -2461,7 +2479,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv8ximgproc18EstimateCovariance1
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %22
   %.06.i.i.i.i.i.i.i = phi ptr [ %24, %.lr.ph.i.i.i.i.i.i.i ], [ %20, %22 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.06.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(24) %5, i64 24, i1 false)
-  %24 = getelementptr inbounds i8, ptr %.06.i.i.i.i.i.i.i, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i.i.i = icmp eq ptr %24, %23
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN2cv8ximgproc18EstimateCovariance11CombinationEmS3_ET_S5_T0_RSaIT1_E.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !35
 
@@ -2490,14 +2508,14 @@ _ZNKSt6vectorIN2cv8ximgproc18EstimateCovariance11CombinationESaIS3_EE12_M_check_
   br i1 %33, label %_ZSt27__uninitialized_default_n_aIPN2cv8ximgproc18EstimateCovariance11CombinationEmS3_ET_S5_T0_RSaIT1_E.exit34, label %34
 
 34:                                               ; preds = %_ZNKSt6vectorIN2cv8ximgproc18EstimateCovariance11CombinationESaIS3_EE12_M_check_lenEmPKc.exit
-  %35 = getelementptr inbounds i8, ptr %32, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %36 = getelementptr %"struct.cv::ximgproc::EstimateCovariance::Combination", ptr %32, i64 %1
   br label %.lr.ph.i.i.i.i.i.i.i30
 
 .lr.ph.i.i.i.i.i.i.i30:                           ; preds = %.lr.ph.i.i.i.i.i.i.i30, %34
   %.06.i.i.i.i.i.i.i31 = phi ptr [ %37, %.lr.ph.i.i.i.i.i.i.i30 ], [ %35, %34 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.06.i.i.i.i.i.i.i31, ptr noundef nonnull align 4 dereferenceable(24) %32, i64 24, i1 false)
-  %37 = getelementptr inbounds i8, ptr %.06.i.i.i.i.i.i.i31, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i31, i64 24
   %.not.i.i.i.i.i.i.i32 = icmp eq ptr %37, %36
   br i1 %.not.i.i.i.i.i.i.i32, label %_ZSt27__uninitialized_default_n_aIPN2cv8ximgproc18EstimateCovariance11CombinationEmS3_ET_S5_T0_RSaIT1_E.exit34, label %.lr.ph.i.i.i.i.i.i.i30, !llvm.loop !35
 
@@ -2521,7 +2539,7 @@ _ZNSt12_Vector_baseIN2cv8ximgproc18EstimateCovariance11CombinationESaIS3_EE13_M_
   store ptr %31, ptr %0, align 8
   %41 = getelementptr inbounds %"struct.cv::ximgproc::EstimateCovariance::Combination", ptr %32, i64 %1
   store ptr %41, ptr %4, align 8
-  %42 = getelementptr inbounds %"struct.cv::ximgproc::EstimateCovariance::Combination", ptr %31, i64 %29
+  %42 = getelementptr inbounds nuw %"struct.cv::ximgproc::EstimateCovariance::Combination", ptr %31, i64 %29
   store ptr %42, ptr %11, align 8
   br label %43
 

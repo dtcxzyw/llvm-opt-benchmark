@@ -17,7 +17,7 @@ define range(i32 -22, 1) i32 @nxsig_action(i32 noundef %0, ptr noundef readonly 
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
   %10 = load ptr, ptr @g_readytorun, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 16
   %13 = icmp ult i32 %0, 64
   br i1 %13, label %14, label %nxsig_release_action.exit
@@ -47,33 +47,33 @@ define range(i32 -22, 1) i32 @nxsig_action(i32 noundef %0, ptr noundef readonly 
 
 23:                                               ; preds = %21
   store ptr inttoptr (i64 1 to ptr), ptr %2, align 8
-  %24 = getelementptr inbounds i8, ptr %2, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 2, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = tail call i32 @sigemptyset(ptr noundef nonnull %25) #4
   br label %40
 
 27:                                               ; preds = %21
   %.not93 = icmp eq ptr %20, null
-  %28 = getelementptr inbounds i8, ptr %2, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br i1 %.not93, label %37, label %29
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %20, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %31 = load ptr, ptr %30, align 8
   store ptr %31, ptr %2, align 8
-  %32 = getelementptr inbounds i8, ptr %20, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %33 = load i64, ptr %32, align 8
   store i64 %33, ptr %28, align 8
-  %34 = getelementptr inbounds i8, ptr %20, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %35 = load i32, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %2, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %35, ptr %36, align 8
   br label %40
 
 37:                                               ; preds = %27
   store ptr null, ptr %2, align 8
-  %38 = getelementptr inbounds i8, ptr %2, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 0, ptr %38, align 8
   %39 = tail call i32 @sigemptyset(ptr noundef nonnull %28) #4
   br label %40
@@ -86,7 +86,7 @@ define range(i32 -22, 1) i32 @nxsig_action(i32 noundef %0, ptr noundef readonly 
   br i1 %42, label %43, label %up_irq_restore.exit
 
 43:                                               ; preds = %41
-  %44 = getelementptr inbounds i8, ptr %1, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %45 = load i32, ptr %44, align 8
   %46 = and i32 %45, 4
   %.not94 = icmp eq i32 %46, 0
@@ -99,7 +99,7 @@ define range(i32 -22, 1) i32 @nxsig_action(i32 noundef %0, ptr noundef readonly 
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !7
   %49 = load ptr, ptr %11, align 16
-  %50 = getelementptr inbounds i8, ptr %49, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %51 = load i8, ptr %50, align 8
   %52 = or i8 %51, 1
   store i8 %52, ptr %50, align 8
@@ -136,7 +136,7 @@ up_irq_restore.exit:                              ; preds = %55, %47, %43, %41
   br i1 %.not97, label %nxsig_release_action.exit, label %65
 
 65:                                               ; preds = %64
-  %66 = getelementptr inbounds i8, ptr %12, i64 864
+  %66 = getelementptr inbounds nuw i8, ptr %12, i64 864
   %67 = load ptr, ptr %66, align 8
   %.not98 = icmp eq ptr %67, null
   br i1 %.not98, label %.loopexit, label %68
@@ -148,7 +148,7 @@ up_irq_restore.exit:                              ; preds = %55, %47, %43, %41
 70:                                               ; preds = %68
   %71 = load ptr, ptr %20, align 8
   store ptr %71, ptr %66, align 8
-  %72 = getelementptr inbounds i8, ptr %12, i64 872
+  %72 = getelementptr inbounds nuw i8, ptr %12, i64 872
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %20, %73
   br i1 %74, label %75, label %.loopexit
@@ -234,7 +234,7 @@ up_irq_restore.exit.i:                            ; preds = %92, %88
   %97 = phi ptr [ %.pre14.i.i, %94 ], [ %103, %102 ]
   %.013.i.i = phi ptr [ %93, %94 ], [ %98, %102 ]
   %.0912.i.i = phi i32 [ 0, %94 ], [ %104, %102 ]
-  %98 = getelementptr inbounds i8, ptr %.013.i.i, i64 48
+  %98 = getelementptr inbounds nuw i8, ptr %.013.i.i, i64 48
   store ptr null, ptr %.013.i.i, align 8
   %.not11.i.i = icmp eq ptr %97, null
   br i1 %.not11.i.i, label %99, label %100
@@ -287,22 +287,22 @@ up_irq_restore.exit5.i:                           ; preds = %111, %nxsig_alloc_a
 nxsig_alloc_action.exit:                          ; preds = %up_irq_restore.exit5.i, %up_irq_restore.exit.i
   %.0.lcssa.i = phi ptr [ %90, %up_irq_restore.exit.i ], [ %109, %up_irq_restore.exit5.i ]
   %112 = trunc nuw nsw i32 %0 to i8
-  %113 = getelementptr inbounds i8, ptr %.0.lcssa.i, i64 40
+  %113 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 40
   store i8 %112, ptr %113, align 8
   store ptr null, ptr %.0.lcssa.i, align 8
-  %114 = getelementptr inbounds i8, ptr %12, i64 864
+  %114 = getelementptr inbounds nuw i8, ptr %12, i64 864
   %115 = load ptr, ptr %114, align 8
   %.not96 = icmp eq ptr %115, null
   br i1 %.not96, label %116, label %118
 
 116:                                              ; preds = %nxsig_alloc_action.exit
   store ptr %.0.lcssa.i, ptr %114, align 8
-  %117 = getelementptr inbounds i8, ptr %12, i64 872
+  %117 = getelementptr inbounds nuw i8, ptr %12, i64 872
   store ptr %.0.lcssa.i, ptr %117, align 8
   br label %121
 
 118:                                              ; preds = %nxsig_alloc_action.exit
-  %119 = getelementptr inbounds i8, ptr %12, i64 872
+  %119 = getelementptr inbounds nuw i8, ptr %12, i64 872
   %120 = load ptr, ptr %119, align 8
   store ptr %.0.lcssa.i, ptr %120, align 8
   store ptr %.0.lcssa.i, ptr %119, align 8
@@ -310,19 +310,19 @@ nxsig_alloc_action.exit:                          ; preds = %up_irq_restore.exit
 
 121:                                              ; preds = %118, %116, %87
   %.081 = phi ptr [ %.0.lcssa.i, %118 ], [ %.0.lcssa.i, %116 ], [ %20, %87 ]
-  %122 = getelementptr inbounds i8, ptr %.081, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %.081, i64 8
   store ptr %.082, ptr %122, align 8
-  %123 = getelementptr inbounds i8, ptr %.081, i64 16
-  %124 = getelementptr inbounds i8, ptr %1, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %.081, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %125 = load i64, ptr %124, align 8
   store i64 %125, ptr %123, align 8
-  %126 = getelementptr inbounds i8, ptr %1, i64 16
+  %126 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %127 = load i32, ptr %126, align 8
-  %128 = getelementptr inbounds i8, ptr %.081, i64 24
+  %128 = getelementptr inbounds nuw i8, ptr %.081, i64 24
   store i32 %127, ptr %128, align 8
-  %129 = getelementptr inbounds i8, ptr %1, i64 24
+  %129 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %130 = load ptr, ptr %129, align 8
-  %131 = getelementptr inbounds i8, ptr %.081, i64 32
+  %131 = getelementptr inbounds nuw i8, ptr %.081, i64 32
   store ptr %130, ptr %131, align 8
   br label %nxsig_release_action.exit
 

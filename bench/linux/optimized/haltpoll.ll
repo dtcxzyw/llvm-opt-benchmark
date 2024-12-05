@@ -79,17 +79,17 @@ declare dso_local i32 @cpuidle_register_governor(ptr noundef) local_unnamed_addr
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
 define internal noundef i32 @haltpoll_enable_device(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((32, 40)) %1) #2 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i64 0, ptr %3, align 8
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 0, 2) i32 @haltpoll_select(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #3 align 16 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = tail call i64 @cpuidle_governor_latency_req(i32 noundef %5) #8
-  %7 = getelementptr inbounds i8, ptr %0, i64 1064
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0
   %10 = icmp eq i64 %6, 0
@@ -97,13 +97,13 @@ define internal noundef range(i32 0, 2) i32 @haltpoll_select(ptr nocapture nound
   br i1 %11, label %24, label %12
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %1, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %14 = load i64, ptr %13, align 8
   %15 = icmp eq i64 %14, 0
   br i1 %15, label %25, label %16
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %1, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = load i32, ptr %17, align 8
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %24
@@ -125,15 +125,15 @@ define internal noundef range(i32 0, 2) i32 @haltpoll_select(ptr nocapture nound
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @haltpoll_reflect(ptr nocapture noundef initializes((16, 20)) %0, i32 noundef %1) #3 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %1, ptr %3, align 8
   %4 = icmp eq i32 %1, 0
   br i1 %4, label %79, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load i64, ptr %8, align 8
   %10 = icmp uge i64 %9, %7
   %11 = load i32, ptr @guest_halt_poll_ns, align 4
@@ -169,7 +169,7 @@ define internal void @haltpoll_reflect(ptr nocapture noundef initializes((16, 20
   br i1 %30, label %35, label %31
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %29, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = tail call i32 @__SCT__tp_func_guest_halt_poll_ns(ptr noundef %33, i1 noundef zeroext true, i32 noundef %21, i32 noundef %17) #8
   br label %35
@@ -226,7 +226,7 @@ define internal void @haltpoll_reflect(ptr nocapture noundef initializes((16, 20
   br i1 %61, label %66, label %62
 
 62:                                               ; preds = %59
-  %63 = getelementptr inbounds i8, ptr %60, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %64 = load ptr, ptr %63, align 8
   %65 = tail call i32 @__SCT__tp_func_guest_halt_poll_ns(ptr noundef %64, i1 noundef zeroext false, i32 noundef %52, i32 noundef %.pre) #8
   br label %66

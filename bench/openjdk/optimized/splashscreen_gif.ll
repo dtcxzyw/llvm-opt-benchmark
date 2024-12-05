@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @SplashStreamGifInputFunc(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 %6(ptr noundef nonnull %5, ptr noundef %1, i32 noundef %2) #8
@@ -40,8 +40,8 @@ define hidden range(i32 0, 2) i32 @SplashDecodeGif(ptr noundef %0, ptr noundef %
   br i1 %12, label %13, label %248
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 9320
-  %15 = getelementptr inbounds i8, ptr %0, i64 9352
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 9320
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 9352
   %16 = load i32, ptr %15, align 8
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %18, label %248
@@ -53,7 +53,7 @@ define hidden range(i32 0, 2) i32 @SplashDecodeGif(ptr noundef %0, ptr noundef %
 
 21:                                               ; preds = %18
   %22 = mul nuw nsw i32 %16, %11
-  %23 = getelementptr inbounds i8, ptr %0, i64 10432
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 10432
   %24 = load i32, ptr %23, align 8
   %25 = icmp sgt i32 %24, 1
   %26 = add nsw i32 %22, -1
@@ -61,7 +61,7 @@ define hidden range(i32 0, 2) i32 @SplashDecodeGif(ptr noundef %0, ptr noundef %
   %28 = sub nsw i32 0, %24
   %29 = and i32 %27, %28
   %.0211 = select i1 %25, i32 %29, i32 %22
-  %30 = getelementptr inbounds i8, ptr %1, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = icmp sgt i32 %31, 0
   %33 = icmp sgt i32 %.0211, 0
@@ -74,7 +74,7 @@ define hidden range(i32 0, 2) i32 @SplashDecodeGif(ptr noundef %0, ptr noundef %
   br i1 %36, label %37, label %248
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %1, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %39 = load i32, ptr %38, align 8
   %40 = add i32 %39, -1
   %or.cond261 = icmp ult i32 %40, 477218588
@@ -98,19 +98,19 @@ define hidden range(i32 0, 2) i32 @SplashDecodeGif(ptr noundef %0, ptr noundef %
 
 48:                                               ; preds = %45
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %44, i8 0, i64 %43, i1 false)
-  %49 = getelementptr inbounds i8, ptr %0, i64 10440
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 10440
   store i32 %11, ptr %49, align 8
   %50 = load i32, ptr %30, align 4
-  %51 = getelementptr inbounds i8, ptr %0, i64 10444
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 10444
   store i32 %50, ptr %51, align 4
   %52 = load i32, ptr %38, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 10448
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 10448
   store i32 %52, ptr %53, align 8
   %54 = icmp sgt i32 %52, -1
   br i1 %54, label %56, label %.thread
 
 .thread:                                          ; preds = %48
-  %55 = getelementptr inbounds i8, ptr %0, i64 10456
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 10456
   store ptr null, ptr %55, align 8
   br label %61
 
@@ -118,7 +118,7 @@ define hidden range(i32 0, 2) i32 @SplashDecodeGif(ptr noundef %0, ptr noundef %
   %57 = zext nneg i32 %52 to i64
   %58 = shl nuw nsw i64 %57, 5
   %59 = tail call noalias ptr @malloc(i64 noundef %58) #9
-  %60 = getelementptr inbounds i8, ptr %0, i64 10456
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 10456
   store ptr %59, ptr %60, align 8
   %.not254 = icmp eq ptr %59, null
   br i1 %.not254, label %61, label %62
@@ -133,30 +133,30 @@ define hidden range(i32 0, 2) i32 @SplashDecodeGif(ptr noundef %0, ptr noundef %
   %64 = sext i32 %63 to i64
   %65 = shl nsw i64 %64, 5
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %59, i8 0, i64 %65, i1 false)
-  %66 = getelementptr inbounds i8, ptr %0, i64 10632
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 10632
   store i32 1, ptr %66, align 8
   %67 = load i32, ptr %38, align 8
   %68 = icmp sgt i32 %67, 0
   br i1 %68, label %.lr.ph282, label %._crit_edge283
 
 .lr.ph282:                                        ; preds = %62
-  %69 = getelementptr inbounds i8, ptr %1, i64 72
-  %70 = getelementptr inbounds i8, ptr %1, i64 24
-  %71 = getelementptr inbounds i8, ptr %4, i64 48
-  %72 = getelementptr inbounds i8, ptr %4, i64 32
-  %73 = getelementptr inbounds i8, ptr %4, i64 36
-  %74 = getelementptr inbounds i8, ptr %4, i64 56
-  %75 = getelementptr inbounds i8, ptr %4, i64 40
-  %76 = getelementptr inbounds i8, ptr %4, i64 60
-  %77 = getelementptr inbounds i8, ptr %1, i64 12
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %72 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %73 = getelementptr inbounds nuw i8, ptr %4, i64 36
+  %74 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  %75 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %76 = getelementptr inbounds nuw i8, ptr %4, i64 60
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %78 = zext nneg i32 %.0211 to i64
   br label %79
 
 79:                                               ; preds = %.lr.ph282, %.loopexit
   %indvars.iv289 = phi i64 [ 0, %.lr.ph282 ], [ %indvars.iv.next290, %.loopexit ]
   %80 = load ptr, ptr %69, align 8
-  %81 = getelementptr inbounds %struct.SavedImage, ptr %80, i64 %indvars.iv289
-  %82 = getelementptr inbounds i8, ptr %81, i64 24
+  %81 = getelementptr inbounds nuw %struct.SavedImage, ptr %80, i64 %indvars.iv289
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 24
   %83 = load ptr, ptr %82, align 8
   %.not255 = icmp eq ptr %83, null
   br i1 %.not255, label %84, label %86
@@ -178,20 +178,20 @@ define hidden range(i32 0, 2) i32 @SplashDecodeGif(ptr noundef %0, ptr noundef %
 
 92:                                               ; preds = %90, %86
   %93 = phi i32 [ 0, %86 ], [ %., %90 ]
-  %94 = getelementptr inbounds i8, ptr %81, i64 4
+  %94 = getelementptr inbounds nuw i8, ptr %81, i64 4
   %95 = load i32, ptr %94, align 4
   %96 = icmp slt i32 %95, 0
   %.pre = load i32, ptr %30, align 4
   %.262 = call i32 @llvm.smin.i32(i32 %95, i32 %.pre)
   %97 = select i1 %96, i32 0, i32 %.262
-  %98 = getelementptr inbounds i8, ptr %81, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %99 = load i32, ptr %98, align 8
   %100 = add nsw i32 %99, %88
   %101 = load i32, ptr %1, align 8
   %102 = icmp sgt i32 %100, %101
   %103 = sub nsw i32 %101, %88
   %104 = select i1 %102, i32 %103, i32 %99
-  %105 = getelementptr inbounds i8, ptr %81, i64 12
+  %105 = getelementptr inbounds nuw i8, ptr %81, i64 12
   %106 = load i32, ptr %105, align 4
   %107 = add nsw i32 %106, %95
   %108 = icmp sgt i32 %107, %.pre
@@ -207,13 +207,13 @@ define hidden range(i32 0, 2) i32 @SplashDecodeGif(ptr noundef %0, ptr noundef %
 
 113:                                              ; preds = %111, %92
   %.0226 = phi i32 [ 0, %92 ], [ %.263, %111 ]
-  %114 = getelementptr inbounds i8, ptr %81, i64 40
+  %114 = getelementptr inbounds nuw i8, ptr %81, i64 40
   %115 = load i32, ptr %114, align 8
   %116 = icmp sgt i32 %115, 0
   br i1 %116, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %113
-  %117 = getelementptr inbounds i8, ptr %81, i64 48
+  %117 = getelementptr inbounds nuw i8, ptr %81, i64 48
   br label %118
 
 118:                                              ; preds = %.lr.ph, %163
@@ -225,9 +225,9 @@ define hidden range(i32 0, 2) i32 @SplashDecodeGif(ptr noundef %0, ptr noundef %
   %120 = load ptr, ptr %117, align 8
   %121 = sext i32 %.0213270 to i64
   %122 = getelementptr inbounds %struct.ExtensionBlock, ptr %120, i64 %121
-  %123 = getelementptr inbounds i8, ptr %122, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
   %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds i8, ptr %122, i64 16
+  %125 = getelementptr inbounds nuw i8, ptr %122, i64 16
   %126 = load i32, ptr %125, align 8
   switch i32 %126, label %163 [
     i32 249, label %127
@@ -246,7 +246,7 @@ define hidden range(i32 0, 2) i32 @SplashDecodeGif(ptr noundef %0, ptr noundef %
   br i1 %.not260, label %138, label %134
 
 134:                                              ; preds = %127
-  %135 = getelementptr inbounds i8, ptr %124, i64 3
+  %135 = getelementptr inbounds nuw i8, ptr %124, i64 3
   %136 = load i8, ptr %135, align 1
   %137 = zext i8 %136 to i32
   br label %138
@@ -275,7 +275,7 @@ define hidden range(i32 0, 2) i32 @SplashDecodeGif(ptr noundef %0, ptr noundef %
 148:                                              ; preds = %146
   %149 = sext i32 %147 to i64
   %150 = getelementptr inbounds %struct.ExtensionBlock, ptr %120, i64 %149
-  %151 = getelementptr inbounds i8, ptr %150, i64 8
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 8
   %152 = load ptr, ptr %151, align 8
   %153 = load i32, ptr %150, align 8
   %.not259 = icmp eq i32 %153, 3
@@ -288,7 +288,7 @@ define hidden range(i32 0, 2) i32 @SplashDecodeGif(ptr noundef %0, ptr noundef %
   br i1 %157, label %158, label %163
 
 158:                                              ; preds = %154
-  %159 = getelementptr inbounds i8, ptr %152, i64 1
+  %159 = getelementptr inbounds nuw i8, ptr %152, i64 1
   %160 = load i16, ptr %159, align 1
   %161 = zext i16 %160 to i32
   %162 = add nsw i32 %161, -1
@@ -319,35 +319,35 @@ define hidden range(i32 0, 2) i32 @SplashDecodeGif(ptr noundef %0, ptr noundef %
   br i1 %or.cond284, label %.lr.ph274, label %.loopexit266
 
 .lr.ph274:                                        ; preds = %._crit_edge
-  %169 = getelementptr inbounds i8, ptr %87, i64 16
+  %169 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %wide.trip.count = zext nneg i32 %.0226 to i64
   br label %170
 
 170:                                              ; preds = %.lr.ph274, %170
   %indvars.iv = phi i64 [ 0, %.lr.ph274 ], [ %indvars.iv.next, %170 ]
   %171 = load ptr, ptr %169, align 8
-  %172 = getelementptr inbounds %struct.GifColorType, ptr %171, i64 %indvars.iv
+  %172 = getelementptr inbounds nuw %struct.GifColorType, ptr %171, i64 %indvars.iv
   %173 = load i8, ptr %172, align 1
   %174 = zext i8 %173 to i32
   %175 = shl nuw nsw i32 %174, 16
-  %176 = getelementptr inbounds i8, ptr %172, i64 1
+  %176 = getelementptr inbounds nuw i8, ptr %172, i64 1
   %177 = load i8, ptr %176, align 1
   %178 = zext i8 %177 to i32
   %179 = shl nuw nsw i32 %178, 8
-  %180 = getelementptr inbounds i8, ptr %172, i64 2
+  %180 = getelementptr inbounds nuw i8, ptr %172, i64 2
   %181 = load i8, ptr %180, align 1
   %182 = zext i8 %181 to i32
   %183 = or disjoint i32 %175, %179
   %184 = or disjoint i32 %183, %182
   %185 = or disjoint i32 %184, -16777216
-  %186 = getelementptr inbounds [256 x i32], ptr %3, i64 0, i64 %indvars.iv
+  %186 = getelementptr inbounds nuw [256 x i32], ptr %3, i64 0, i64 %indvars.iv
   store i32 %185, ptr %186, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit266, label %170, !llvm.loop !8
 
 .loopexit266:                                     ; preds = %170, %._crit_edge
-  %187 = getelementptr inbounds i8, ptr %81, i64 32
+  %187 = getelementptr inbounds nuw i8, ptr %81, i64 32
   %188 = load ptr, ptr %187, align 8
   store ptr %3, ptr %71, align 8
   store i32 1, ptr %72, align 8
@@ -368,10 +368,10 @@ define hidden range(i32 0, 2) i32 @SplashDecodeGif(ptr noundef %0, ptr noundef %
 193:                                              ; preds = %191, %.loopexit266
   %194 = call noalias ptr @malloc(i64 noundef %43) #9
   %195 = load ptr, ptr %60, align 8
-  %196 = getelementptr inbounds %struct.SplashImage, ptr %195, i64 %indvars.iv289
+  %196 = getelementptr inbounds nuw %struct.SplashImage, ptr %195, i64 %indvars.iv289
   store ptr %194, ptr %196, align 8
   %197 = load ptr, ptr %60, align 8
-  %198 = getelementptr inbounds %struct.SplashImage, ptr %197, i64 %indvars.iv289
+  %198 = getelementptr inbounds nuw %struct.SplashImage, ptr %197, i64 %indvars.iv289
   %199 = load ptr, ptr %198, align 8
   %.not257 = icmp eq ptr %199, null
   br i1 %.not257, label %200, label %201
@@ -386,7 +386,7 @@ define hidden range(i32 0, 2) i32 @SplashDecodeGif(ptr noundef %0, ptr noundef %
   %202 = trunc nuw nsw i64 %indvars.iv289 to i32
   call void @SplashInitFrameShape(ptr noundef nonnull %0, i32 noundef %202) #8
   %203 = load ptr, ptr %60, align 8
-  %204 = getelementptr inbounds %struct.SplashImage, ptr %203, i64 %indvars.iv289, i32 1
+  %204 = getelementptr inbounds nuw %struct.SplashImage, ptr %203, i64 %indvars.iv289, i32 1
   store i32 %.0219.lcssa, ptr %204, align 8
   switch i32 %.0224.lcssa, label %.loopexit [
     i32 1, label %205
@@ -403,7 +403,7 @@ define hidden range(i32 0, 2) i32 @SplashDecodeGif(ptr noundef %0, ptr noundef %
   br i1 %207, label %208, label %227
 
 208:                                              ; preds = %206
-  %209 = getelementptr inbounds i8, ptr %87, i64 16
+  %209 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %210 = load ptr, ptr %209, align 8
   %211 = load i32, ptr %77, align 4
   %212 = sext i32 %211 to i64
@@ -411,11 +411,11 @@ define hidden range(i32 0, 2) i32 @SplashDecodeGif(ptr noundef %0, ptr noundef %
   %214 = load i8, ptr %213, align 1
   %215 = zext i8 %214 to i32
   %216 = shl nuw nsw i32 %215, 16
-  %217 = getelementptr inbounds i8, ptr %213, i64 1
+  %217 = getelementptr inbounds nuw i8, ptr %213, i64 1
   %218 = load i8, ptr %217, align 1
   %219 = zext i8 %218 to i32
   %220 = shl nuw nsw i32 %219, 8
-  %221 = getelementptr inbounds i8, ptr %213, i64 2
+  %221 = getelementptr inbounds nuw i8, ptr %213, i64 2
   %222 = load i8, ptr %221, align 1
   %223 = zext i8 %222 to i32
   %224 = or disjoint i32 %216, %220

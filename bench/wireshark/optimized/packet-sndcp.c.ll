@@ -181,7 +181,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_sndcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.56) #2
   %7 = load ptr, ptr %5, align 8
@@ -304,7 +304,7 @@ define internal i32 @dissect_sndcp(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %105
 
 72:                                               ; preds = %.thread
-  %73 = getelementptr inbounds i8, ptr %1, i64 272
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %74 = load i32, ptr %73, align 8
   %75 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.1) #2
   %76 = icmp slt i32 %75, 1
@@ -330,9 +330,9 @@ define internal i32 @dissect_sndcp(ptr noundef %0, ptr noundef %1, ptr noundef %
 84:                                               ; preds = %.thread181, %79
   %85 = phi ptr [ %83, %.thread181 ], [ %81, %79 ]
   %.0145184 = phi ptr [ %82, %.thread181 ], [ %80, %79 ]
-  %86 = getelementptr inbounds i8, ptr %.0145184, i64 40
+  %86 = getelementptr inbounds nuw i8, ptr %.0145184, i64 40
   %87 = load i32, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %1, i64 20
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %89 = load i32, ptr %88, align 4
   %90 = icmp eq i32 %89, %87
   br i1 %90, label %91, label %94

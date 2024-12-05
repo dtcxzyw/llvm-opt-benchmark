@@ -83,15 +83,15 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define dso_local void @_ZN4node11ConnectWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS_9AsyncWrap12ProviderTypeE(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef %env, ptr %req_wrap_obj.coerce, i32 noundef %provider) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN4node9AsyncWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS0_12ProviderTypeEd(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef %env, ptr %req_wrap_obj.coerce, i32 noundef %provider, double noundef -1.000000e+00) #9
-  %0 = getelementptr inbounds i8, ptr %this, i64 56
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node11ReqWrapBaseE, i64 16), ptr %0, align 8
-  %req_wrap_queue_.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %req_wrap_queue_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr %req_wrap_queue_.i.i, ptr %req_wrap_queue_.i.i, align 8
-  %next_.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
+  %next_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   store ptr %req_wrap_queue_.i.i, ptr %next_.i.i.i, align 8
-  %principal_realm_.i.i.i = getelementptr inbounds i8, ptr %env, i64 2728
+  %principal_realm_.i.i.i = getelementptr inbounds nuw i8, ptr %env, i64 2728
   %1 = load ptr, ptr %principal_realm_.i.i.i, align 8
-  %has_run_bootstrapping_code_.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 684
+  %has_run_bootstrapping_code_.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 684
   %2 = load i8, ptr %has_run_bootstrapping_code_.i.i.i.i, align 4
   %tobool.i.i.i.i = trunc i8 %2 to i1
   br i1 %tobool.i.i.i.i, label %_ZN4node7ReqWrapI12uv_connect_sEC2EPNS_11EnvironmentEN2v85LocalINS5_6ObjectEEENS_9AsyncWrap12ProviderTypeE.exit, label %do.body4.i.i
@@ -102,9 +102,9 @@ do.body4.i.i:                                     ; preds = %entry
   unreachable
 
 _ZN4node7ReqWrapI12uv_connect_sEC2EPNS_11EnvironmentEN2v85LocalINS5_6ObjectEEENS_9AsyncWrap12ProviderTypeE.exit: ; preds = %entry
-  %req_wrap_queue_.i.i.i = getelementptr inbounds i8, ptr %env, i64 2192
+  %req_wrap_queue_.i.i.i = getelementptr inbounds nuw i8, ptr %env, i64 2192
   %3 = load ptr, ptr %req_wrap_queue_.i.i.i, align 8
-  %next_.i2.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %next_.i2.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %req_wrap_queue_.i.i, ptr %next_.i2.i.i, align 8
   %4 = load ptr, ptr %req_wrap_queue_.i.i.i, align 8
   store ptr %4, ptr %req_wrap_queue_.i.i, align 8
@@ -112,7 +112,7 @@ _ZN4node7ReqWrapI12uv_connect_sEC2EPNS_11EnvironmentEN2v85LocalINS5_6ObjectEEENS
   store ptr %req_wrap_queue_.i.i, ptr %req_wrap_queue_.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node7ReqWrapI12uv_connect_sEE, i64 16), ptr %this, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node7ReqWrapI12uv_connect_sEE, i64 192), ptr %0, align 8
-  %original_callback_.i = getelementptr inbounds i8, ptr %this, i64 80
+  %original_callback_.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   store ptr null, ptr %original_callback_.i, align 8
   tail call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(184) %this) #9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %original_callback_.i, i8 0, i64 16, i1 false)
@@ -124,13 +124,13 @@ _ZN4node7ReqWrapI12uv_connect_sEC2EPNS_11EnvironmentEN2v85LocalINS5_6ObjectEEENS
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node11ConnectWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 56
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node11ReqWrapBaseE, i64 16), ptr %0, align 8
-  %req_wrap_queue_.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  %next_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
+  %req_wrap_queue_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
+  %next_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %1 = load ptr, ptr %next_.i.i.i.i, align 8
   %2 = load ptr, ptr %req_wrap_queue_.i.i, align 8
-  %next_2.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %next_2.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %1, ptr %next_2.i.i.i.i, align 8
   %3 = load ptr, ptr %req_wrap_queue_.i.i, align 8
   store ptr %3, ptr %1, align 8
@@ -143,13 +143,13 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node11ConnectWrapD0Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 56
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node11ReqWrapBaseE, i64 16), ptr %0, align 8
-  %req_wrap_queue_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  %next_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
+  %req_wrap_queue_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
+  %next_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %1 = load ptr, ptr %next_.i.i.i.i.i, align 8
   %2 = load ptr, ptr %req_wrap_queue_.i.i.i, align 8
-  %next_2.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %next_2.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %1, ptr %next_2.i.i.i.i.i, align 8
   %3 = load ptr, ptr %req_wrap_queue_.i.i.i, align 8
   store ptr %3, ptr %1, align 8
@@ -185,33 +185,33 @@ declare noundef zeroext i1 @_ZNK4node10BaseObject10IsRootNodeEv(ptr noundef nonn
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i8 @_ZNK4node10BaseObject15GetDetachednessEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %persistent_handle_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %persistent_handle_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %persistent_handle_.i, align 8
   %cmp.i9.i = icmp eq ptr %0, null
   br i1 %cmp.i9.i, label %if.end.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %0, i64 11
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %0, i64 11
   %1 = load i8, ptr %add.ptr.i.i, align 1
   %2 = and i8 %1, 3
   %cmp.i.i = icmp eq i8 %2, 2
   br i1 %cmp.i.i, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end.i.i, %entry
-  %pointer_data_.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %pointer_data_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load ptr, ptr %pointer_data_.i.i, align 8
   %cmp.i2.not.i = icmp eq ptr %3, null
   br i1 %cmp.i2.not.i, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread3, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i
   %call5.i = tail call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #9
-  %wants_weak_jsobj.i = getelementptr inbounds i8, ptr %call5.i, i64 8
+  %wants_weak_jsobj.i = getelementptr inbounds nuw i8, ptr %call5.i, i64 8
   %4 = load i8, ptr %wants_weak_jsobj.i, align 8
   %tobool.i = trunc i8 %4 to i1
   br i1 %tobool.i, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit
 
 _ZNK4node10BaseObject16IsWeakOrDetachedEv.exit:   ; preds = %if.end4.i
-  %is_detached.i = getelementptr inbounds i8, ptr %call5.i, i64 9
+  %is_detached.i = getelementptr inbounds nuw i8, ptr %call5.i, i64 9
   %5 = load i8, ptr %is_detached.i, align 1
   %.fr = freeze i8 %5
   %tobool6.i = trunc i8 %.fr to i1
@@ -243,7 +243,7 @@ declare noundef zeroext i1 @_ZNK4node10BaseObject33IsNotIndicativeOfMemoryLeakAt
 define linkonce_odr dso_local void @_ZN4node10BaseObject11OnGCCollectEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 comdat align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 8
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(32) %this) #9
   ret void
@@ -260,7 +260,7 @@ declare void @_ZNK4node9AsyncWrap15diagnostic_nameB5cxx11Ev(ptr sret(%"class.std
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node7ReqWrapI12uv_connect_sE6CancelEv(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %req_ = getelementptr inbounds i8, ptr %this, i64 88
+  %req_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load ptr, ptr %req_, align 8
   %cmp = icmp eq ptr %0, %this
   br i1 %cmp, label %if.then, label %if.end
@@ -284,11 +284,11 @@ define linkonce_odr dso_local void @_ZThn56_N4node11ConnectWrapD1Ev(ptr noundef 
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node11ReqWrapBaseE, i64 16), ptr %this, align 8
-  %req_wrap_queue_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %next_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %req_wrap_queue_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %next_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %next_.i.i.i.i.i, align 8
   %2 = load ptr, ptr %req_wrap_queue_.i.i.i, align 8
-  %next_2.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %next_2.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %1, ptr %next_2.i.i.i.i.i, align 8
   %3 = load ptr, ptr %req_wrap_queue_.i.i.i, align 8
   store ptr %3, ptr %1, align 8
@@ -303,11 +303,11 @@ define linkonce_odr dso_local void @_ZThn56_N4node11ConnectWrapD0Ev(ptr noundef 
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node11ReqWrapBaseE, i64 16), ptr %this, align 8
-  %req_wrap_queue_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %next_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %req_wrap_queue_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %next_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %next_.i.i.i.i.i.i, align 8
   %2 = load ptr, ptr %req_wrap_queue_.i.i.i.i, align 8
-  %next_2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %next_2.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %1, ptr %next_2.i.i.i.i.i.i, align 8
   %3 = load ptr, ptr %req_wrap_queue_.i.i.i.i, align 8
   store ptr %3, ptr %1, align 8
@@ -322,7 +322,7 @@ entry:
 define linkonce_odr dso_local void @_ZThn56_N4node7ReqWrapI12uv_connect_sE6CancelEv(ptr noundef %this) unnamed_addr #4 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
-  %req_.i = getelementptr inbounds i8, ptr %this, i64 32
+  %req_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load ptr, ptr %req_.i, align 8
   %cmp.i = icmp eq ptr %1, %0
   br i1 %cmp.i, label %if.then.i, label %_ZN4node7ReqWrapI12uv_connect_sE6CancelEv.exit
@@ -349,13 +349,13 @@ declare void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 derefe
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node7ReqWrapI12uv_connect_sED2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 56
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node11ReqWrapBaseE, i64 16), ptr %0, align 8
-  %req_wrap_queue_.i = getelementptr inbounds i8, ptr %this, i64 64
-  %next_.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
+  %req_wrap_queue_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
+  %next_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %1 = load ptr, ptr %next_.i.i.i, align 8
   %2 = load ptr, ptr %req_wrap_queue_.i, align 8
-  %next_2.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %next_2.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %1, ptr %next_2.i.i.i, align 8
   %3 = load ptr, ptr %req_wrap_queue_.i, align 8
   store ptr %3, ptr %1, align 8
@@ -381,11 +381,11 @@ define linkonce_odr dso_local void @_ZThn56_N4node7ReqWrapI12uv_connect_sED1Ev(p
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node11ReqWrapBaseE, i64 16), ptr %this, align 8
-  %req_wrap_queue_.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %next_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %req_wrap_queue_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %next_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %next_.i.i.i.i, align 8
   %2 = load ptr, ptr %req_wrap_queue_.i.i, align 8
-  %next_2.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %next_2.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %1, ptr %next_2.i.i.i.i, align 8
   %3 = load ptr, ptr %req_wrap_queue_.i.i, align 8
   store ptr %3, ptr %1, align 8
@@ -411,11 +411,11 @@ declare void @abort() local_unnamed_addr #5
 define linkonce_odr dso_local void @_ZN4node11ReqWrapBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node11ReqWrapBaseE, i64 16), ptr %this, align 8
-  %req_wrap_queue_ = getelementptr inbounds i8, ptr %this, i64 8
-  %next_.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %req_wrap_queue_ = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %next_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %next_.i.i, align 8
   %1 = load ptr, ptr %req_wrap_queue_, align 8
-  %next_2.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %next_2.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %0, ptr %next_2.i.i, align 8
   %2 = load ptr, ptr %req_wrap_queue_, align 8
   store ptr %2, ptr %0, align 8

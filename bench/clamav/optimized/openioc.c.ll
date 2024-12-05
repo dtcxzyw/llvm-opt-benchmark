@@ -108,13 +108,13 @@ define range(i32 0, 21) i32 @openioc_parse(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %.not121, label %.outer._crit_edge.thread, label %35
 
 35:                                               ; preds = %._crit_edge
-  %36 = getelementptr inbounds i8, ptr %2, i64 104
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
   br i1 %38, label %39, label %.lr.ph140.lr.ph
 
 39:                                               ; preds = %35
-  %40 = getelementptr inbounds i8, ptr %2, i64 256
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 256
   %41 = load ptr, ptr %40, align 8
   %42 = tail call ptr @mpool_calloc(ptr noundef %41, i64 noundef 1, i64 noundef 416) #6
   store ptr %42, ptr %36, align 8
@@ -128,7 +128,7 @@ define range(i32 0, 21) i32 @openioc_parse(ptr noundef %0, i32 noundef %1, ptr n
 
 46:                                               ; preds = %39
   %47 = load ptr, ptr %40, align 8
-  %48 = getelementptr inbounds i8, ptr %42, i64 408
+  %48 = getelementptr inbounds nuw i8, ptr %42, i64 408
   store ptr %47, ptr %48, align 8
   br label %.lr.ph140.lr.ph
 
@@ -137,9 +137,9 @@ define range(i32 0, 21) i32 @openioc_parse(ptr noundef %0, i32 noundef %1, ptr n
   %50 = and i32 %34, 65535
   %51 = add nuw nsw i32 %50, 2
   %.not170 = icmp eq i32 %50, 0
-  %52 = getelementptr inbounds i8, ptr %2, i64 256
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 256
   %53 = and i32 %3, 64
-  %54 = getelementptr inbounds i8, ptr %2, i64 104
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 104
   br label %.lr.ph140
 
 .lr.ph140:                                        ; preds = %.lr.ph140.lr.ph, %.outer
@@ -149,7 +149,7 @@ define range(i32 0, 21) i32 @openioc_parse(ptr noundef %0, i32 noundef %1, ptr n
 
 55:                                               ; preds = %.lr.ph140, %72
   %56 = phi ptr [ %.promoted167, %.lr.ph140 ], [ %58, %72 ]
-  %57 = getelementptr inbounds i8, ptr %56, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load ptr, ptr %57, align 8
   %59 = load ptr, ptr %56, align 8
   %60 = load ptr, ptr %49, align 8
@@ -163,7 +163,7 @@ define range(i32 0, 21) i32 @openioc_parse(ptr noundef %0, i32 noundef %1, ptr n
   %65 = load i16, ptr %64, align 2
   %66 = and i16 %65, 8192
   %.not123 = icmp eq i16 %66, 0
-  %67 = getelementptr inbounds i8, ptr %.0102, i64 1
+  %67 = getelementptr inbounds nuw i8, ptr %.0102, i64 1
   br i1 %.not123, label %68, label %61
 
 68:                                               ; preds = %61
@@ -261,8 +261,8 @@ define range(i32 0, 21) i32 @openioc_parse(ptr noundef %0, i32 noundef %1, ptr n
   %.sink = phi i8 [ 95, %.lr.ph155 ], [ 95, %.lr.ph155 ], [ 95, %.lr.ph155 ], [ 95, %.lr.ph155 ], [ 95, %.lr.ph155 ], [ 95, %.lr.ph155 ], [ 95, %.lr.ph155 ], [ 95, %.lr.ph155 ], [ 95, %.lr.ph155 ], [ 95, %.lr.ph155 ], [ %., %102 ]
   store i8 %.sink, ptr %.1101153, align 1
   %109 = add nuw nsw i32 %.099154, 1
-  %110 = getelementptr inbounds i8, ptr %.0103152, i64 1
-  %111 = getelementptr inbounds i8, ptr %.1101153, i64 1
+  %110 = getelementptr inbounds nuw i8, ptr %.0103152, i64 1
+  %111 = getelementptr inbounds nuw i8, ptr %.1101153, i64 1
   %exitcond.not = icmp eq i32 %109, %50
   br i1 %exitcond.not, label %._crit_edge156, label %.lr.ph155
 
@@ -273,7 +273,7 @@ define range(i32 0, 21) i32 @openioc_parse(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %112, label %.lr.ph162.preheader, label %._crit_edge163
 
 .lr.ph162.preheader:                              ; preds = %._crit_edge156
-  %113 = getelementptr inbounds i8, ptr %.1101.lcssa, i64 1
+  %113 = getelementptr inbounds nuw i8, ptr %.1101.lcssa, i64 1
   br label %.lr.ph162
 
 .lr.ph162:                                        ; preds = %.lr.ph162.preheader, %122
@@ -290,14 +290,14 @@ define range(i32 0, 21) i32 @openioc_parse(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %.not126, label %122, label %120
 
 120:                                              ; preds = %.lr.ph162
-  %121 = getelementptr inbounds i8, ptr %.2159, i64 1
+  %121 = getelementptr inbounds nuw i8, ptr %.2159, i64 1
   store i8 %115, ptr %.2159, align 1
   br label %122
 
 122:                                              ; preds = %.lr.ph162, %120
   %.3 = phi ptr [ %121, %120 ], [ %.2159, %.lr.ph162 ]
   %123 = add nuw nsw i32 %.1160, 1
-  %124 = getelementptr inbounds i8, ptr %.1104158, i64 1
+  %124 = getelementptr inbounds nuw i8, ptr %.1104158, i64 1
   %exitcond190.not = icmp eq i32 %123, %.0.lcssa
   br i1 %exitcond190.not, label %._crit_edge163, label %.lr.ph162
 
@@ -562,7 +562,7 @@ define internal fastcc range(i32 0, 21) i32 @openioc_parse_indicator(ptr noundef
   %83 = tail call ptr @xmlStrdup(ptr noundef nonnull %78) #6
   store ptr %83, ptr %80, align 8
   %84 = load ptr, ptr %1, align 8
-  %85 = getelementptr inbounds i8, ptr %80, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %80, i64 8
   store ptr %84, ptr %85, align 8
   store ptr %80, ptr %1, align 8
   br label %openioc_is_context_hash.exit.i

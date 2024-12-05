@@ -94,7 +94,7 @@ define dso_local i32 @allocate_test() local_unnamed_addr #0 {
   br i1 %10, label %_allocate_test.exit.thread, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %7, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %13 = load ptr, ptr %12, align 8
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %_allocate_test.exit, label %14
@@ -105,7 +105,7 @@ define dso_local i32 @allocate_test() local_unnamed_addr #0 {
   br i1 %.not10.i, label %_allocate_test.exit, label %16
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %7, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %18 = load ptr, ptr %17, align 8
   call void @print_db_notok(ptr noundef %18, i1 noundef zeroext false) #9
   br label %_allocate_test.exit.thread
@@ -114,7 +114,7 @@ _allocate_test.exit:                              ; preds = %11, %14
   %19 = call i32 @slurm_job_will_run(ptr noundef nonnull %9) #9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr %9, ptr %2, align 8
-  %20 = getelementptr inbounds i8, ptr %9, i64 544
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 544
   call void @slurm_xfree(ptr noundef nonnull %20) #9
   call void @slurm_xfree(ptr noundef nonnull %2) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
@@ -132,7 +132,7 @@ _allocate_test.exit.thread:                       ; preds = %8, %_allocate_test.
   br i1 %23, label %_allocate_test.exit13, label %24
 
 24:                                               ; preds = %21
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @opt, i64 96), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 96), align 8
   %.not.i9 = icmp eq ptr %25, null
   br i1 %.not.i9, label %job_desc_msg_destroy.exit.i12, label %26
 
@@ -142,7 +142,7 @@ _allocate_test.exit.thread:                       ; preds = %8, %_allocate_test.
   br i1 %.not10.i10, label %job_desc_msg_destroy.exit.i12, label %28
 
 28:                                               ; preds = %26
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @opt, i64 96), align 8
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 96), align 8
   tail call void @print_db_notok(ptr noundef %29, i1 noundef zeroext false) #9
   br label %_allocate_test.exit13
 
@@ -150,7 +150,7 @@ job_desc_msg_destroy.exit.i12:                    ; preds = %26, %24
   %30 = tail call i32 @slurm_job_will_run(ptr noundef nonnull %22) #9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
   store ptr %22, ptr %1, align 8
-  %31 = getelementptr inbounds i8, ptr %22, i64 544
+  %31 = getelementptr inbounds nuw i8, ptr %22, i64 544
   tail call void @slurm_xfree(ptr noundef nonnull %31) #9
   call void @slurm_xfree(ptr noundef nonnull %1) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
@@ -171,9 +171,9 @@ declare void @list_iterator_destroy(ptr noundef) local_unnamed_addr #1
 define dso_local ptr @allocate_nodes(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca %struct.slurm_allocation_callbacks_t, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 188
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 188
   %7 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %7, -2
   br i1 %.not, label %9, label %8
@@ -188,7 +188,7 @@ define dso_local ptr @allocate_nodes(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %11, label %94, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %14 = load ptr, ptr %13, align 8
   %.not51 = icmp eq ptr %14, null
   br i1 %.not51, label %19, label %15
@@ -206,18 +206,18 @@ define dso_local ptr @allocate_nodes(ptr noundef %0) local_unnamed_addr #0 {
 19:                                               ; preds = %15, %12
   %20 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
   %21 = tail call ptr @xstrdup(ptr noundef %20) #9
-  %22 = getelementptr inbounds i8, ptr %10, i64 464
+  %22 = getelementptr inbounds nuw i8, ptr %10, i64 464
   store ptr %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %3, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @_timeout_handler, ptr %23, align 8
   store ptr @_job_complete_handler, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %3, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %3, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr @_user_msg_handler, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %3, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr @_node_fail_handler, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %10, i64 472
+  %27 = getelementptr inbounds nuw i8, ptr %10, i64 472
   %28 = call ptr @slurm_allocation_msg_thr_create(ptr noundef nonnull %27, ptr noundef nonnull %3) #9
   store ptr %28, ptr @msg_thr, align 8
   %29 = call i32 @xsignal_unblock(ptr noundef nonnull @sig_array) #9
@@ -226,7 +226,7 @@ define dso_local ptr @allocate_nodes(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not53104, label %.preheader, label %.lr.ph
 
 .preheader:                                       ; preds = %.lr.ph, %19
-  %31 = getelementptr inbounds i8, ptr %0, i64 312
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 312
   br label %36
 
 .lr.ph:                                           ; preds = %19, %.lr.ph
@@ -234,7 +234,7 @@ define dso_local ptr @allocate_nodes(ptr noundef %0) local_unnamed_addr #0 {
   %32 = phi i32 [ %35, %.lr.ph ], [ %30, %19 ]
   %33 = call ptr @xsignal(i32 noundef %32, ptr noundef nonnull @_signal_while_allocating) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %34 = getelementptr inbounds [0 x i32], ptr @sig_array, i64 0, i64 %indvars.iv.next
+  %34 = getelementptr inbounds nuw [0 x i32], ptr @sig_array, i64 0, i64 %indvars.iv.next
   %35 = load i32, ptr %34, align 4
   %.not53 = icmp eq i32 %35, 0
   br i1 %.not53, label %.preheader, label %.lr.ph, !llvm.loop !9
@@ -280,7 +280,7 @@ define dso_local ptr @allocate_nodes(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not100, label %83, label %.thread92
 
 .thread71:                                        ; preds = %48, %51
-  %53 = getelementptr inbounds i8, ptr %39, i64 96
+  %53 = getelementptr inbounds nuw i8, ptr %39, i64 96
   %54 = load ptr, ptr %53, align 8
   call void @print_multi_line_string(ptr noundef %54, i32 noundef -1, i32 noundef 3) #9
   %55 = load i32, ptr @destroy_job, align 4
@@ -288,14 +288,14 @@ define dso_local ptr @allocate_nodes(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not99, label %56, label %.thread88.thread
 
 56:                                               ; preds = %.thread71
-  %57 = getelementptr inbounds i8, ptr %39, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %58 = load i32, ptr %57, align 8
   store i32 %58, ptr @pending_job_id, align 4
-  %59 = getelementptr inbounds i8, ptr %0, i64 448
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 448
   store i64 -2, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %0, i64 432
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 432
   store i64 -2, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %39, i64 152
+  %61 = getelementptr inbounds nuw i8, ptr %39, i64 152
   %62 = load i64, ptr %61, align 8
   %.not59 = icmp eq i64 %62, -2
   br i1 %.not59, label %67, label %63
@@ -314,19 +314,19 @@ define dso_local ptr @allocate_nodes(ptr noundef %0) local_unnamed_addr #0 {
   br label %67
 
 67:                                               ; preds = %64, %66, %56
-  %68 = getelementptr inbounds i8, ptr %39, i64 112
+  %68 = getelementptr inbounds nuw i8, ptr %39, i64 112
   %69 = load i32, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %0, i64 136
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 %69, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %0, i64 140
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 140
   store i32 %69, ptr %71, align 4
-  %72 = getelementptr inbounds i8, ptr %0, i64 488
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 488
   call void @slurm_xfree(ptr noundef nonnull %72) #9
-  %73 = getelementptr inbounds i8, ptr %39, i64 176
+  %73 = getelementptr inbounds nuw i8, ptr %39, i64 176
   %74 = load ptr, ptr %73, align 8
   %75 = call ptr @xstrdup(ptr noundef %74) #9
   store ptr %75, ptr %72, align 8
-  %76 = getelementptr inbounds i8, ptr %39, i64 200
+  %76 = getelementptr inbounds nuw i8, ptr %39, i64 200
   %77 = load ptr, ptr %76, align 8
   %.not61 = icmp eq ptr %77, null
   br i1 %.not61, label %79, label %78
@@ -354,7 +354,7 @@ job_desc_msg_destroy.exit:                        ; preds = %83, %79
   %84 = call i32 @xsignal_block(ptr noundef nonnull @sig_array) #9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr %10, ptr %2, align 8
-  %85 = getelementptr inbounds i8, ptr %10, i64 544
+  %85 = getelementptr inbounds nuw i8, ptr %10, i64 544
   call void @slurm_xfree(ptr noundef nonnull %85) #9
   call void @slurm_xfree(ptr noundef nonnull %2) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
@@ -371,7 +371,7 @@ job_desc_msg_destroy.exit:                        ; preds = %83, %79
   br i1 %.b66, label %.thread88.thread, label %92
 
 .thread88.thread:                                 ; preds = %.thread71, %81, %88, %.thread88
-  %89 = getelementptr inbounds i8, ptr %39, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %90 = load i32, ptr %89, align 8
   %91 = call i32 @slurm_complete_job(i32 noundef %90, i32 noundef 1) #9
   br label %92
@@ -395,76 +395,76 @@ declare void @fatal(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_job_desc_msg_create_from_opts(ptr noundef %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @slurm_opt_create_job_desc(ptr noundef %0, i1 noundef zeroext true) #9
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %56, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %4, i64 432
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 432
   %7 = load ptr, ptr %6, align 8
   %.not32 = icmp eq ptr %7, null
   br i1 %.not32, label %8, label %12
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %3, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr @xstrdup(ptr noundef %10) #9
   store ptr %11, ptr %6, align 8
   br label %12
 
 12:                                               ; preds = %8, %5
-  %13 = getelementptr inbounds i8, ptr %0, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = load i32, ptr %13, align 8
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %16, label %21
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %4, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 %14, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %4, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr %19, ptr %20, align 8
   br label %21
 
 21:                                               ; preds = %16, %12
-  %22 = getelementptr inbounds i8, ptr %0, i64 496
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr @xstrdup(ptr noundef %23) #9
-  %25 = getelementptr inbounds i8, ptr %4, i64 136
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 136
   store ptr %24, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 504
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %27 = load ptr, ptr %26, align 8
   %28 = tail call ptr @xstrdup(ptr noundef %27) #9
-  %29 = getelementptr inbounds i8, ptr %4, i64 144
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 144
   store ptr %28, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %3, i64 56
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %31 = load ptr, ptr %30, align 8
   %.not33 = icmp eq ptr %31, null
   br i1 %.not33, label %35, label %32
 
 32:                                               ; preds = %21
   %33 = tail call ptr @xstrdup(ptr noundef nonnull %31) #9
-  %34 = getelementptr inbounds i8, ptr %4, i64 160
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %33, ptr %34, align 8
   br label %35
 
 35:                                               ; preds = %32, %21
-  %36 = getelementptr inbounds i8, ptr %3, i64 64
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %37 = load i32, ptr %36, align 8
   %.not34 = icmp eq i32 %37, 0
   br i1 %.not34, label %41, label %38
 
 38:                                               ; preds = %35
   %39 = trunc i32 %37 to i16
-  %40 = getelementptr inbounds i8, ptr %4, i64 168
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 168
   store i16 %39, ptr %40, align 8
   br label %41
 
 41:                                               ; preds = %38, %35
-  %42 = getelementptr inbounds i8, ptr %4, i64 872
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 872
   %43 = load i16, ptr %42, align 8
   %.not35 = icmp ne i16 %43, 0
   %44 = load i16, ptr getelementptr inbounds (i8, ptr @opt, i64 728), align 8
@@ -475,19 +475,19 @@ define internal fastcc ptr @_job_desc_msg_create_from_opts(ptr noundef %0) unnam
 45:                                               ; preds = %41
   %46 = load ptr, ptr getelementptr inbounds (i8, ptr @opt, i64 736), align 8
   %47 = tail call ptr @xstrdup(ptr noundef %46) #9
-  %48 = getelementptr inbounds i8, ptr %4, i64 880
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 880
   store ptr %47, ptr %48, align 8
   %49 = load ptr, ptr getelementptr inbounds (i8, ptr @opt, i64 744), align 8
   %50 = tail call ptr @xstrdup(ptr noundef %49) #9
-  %51 = getelementptr inbounds i8, ptr %4, i64 888
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 888
   store ptr %50, ptr %51, align 8
   %52 = load i16, ptr getelementptr inbounds (i8, ptr @opt, i64 752), align 8
-  %53 = getelementptr inbounds i8, ptr %4, i64 896
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 896
   store i16 %52, ptr %53, align 8
   br label %54
 
 54:                                               ; preds = %45, %41
-  %55 = getelementptr inbounds i8, ptr %4, i64 716
+  %55 = getelementptr inbounds nuw i8, ptr %4, i64 716
   store i16 1, ptr %55, align 4
   br label %56
 
@@ -503,7 +503,7 @@ declare ptr @xstrdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @_timeout_handler(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
   %4 = load i64, ptr @_timeout_handler.last_timeout, align 8
   %.not = icmp eq i64 %3, %4
@@ -570,7 +570,7 @@ define internal void @_user_msg_handler(ptr nocapture noundef readonly %0) #0 {
   br i1 %3, label %4, label %7
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.13, ptr noundef %6) #9
   br label %7
@@ -798,7 +798,7 @@ declare void @slurm_setup_remote_working_cluster(ptr noundef) local_unnamed_addr
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @_wait_nodes_ready(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   store i32 %3, ptr @pending_job_id, align 4
   br label %.backedge
@@ -893,7 +893,7 @@ define internal fastcc range(i32 0, 2) i32 @_wait_nodes_ready(ptr nocapture noun
   br i1 %41, label %42, label %52
 
 42:                                               ; preds = %39
-  %43 = getelementptr inbounds i8, ptr %0, i64 120
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %44 = load ptr, ptr %43, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.31, ptr noundef %44) #9
   br label %52
@@ -909,7 +909,7 @@ define internal fastcc range(i32 0, 2) i32 @_wait_nodes_ready(ptr nocapture noun
   br label %52
 
 .thread48:                                        ; preds = %32, %45
-  %49 = getelementptr inbounds i8, ptr %0, i64 120
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %50 = load ptr, ptr %49, align 8
   %51 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.32, ptr noundef %50) #9
   br label %52
@@ -932,7 +932,7 @@ define dso_local void @job_desc_msg_destroy(ptr noundef %0) local_unnamed_addr #
   br i1 %.not, label %5, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 544
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 544
   tail call void @slurm_xfree(ptr noundef nonnull %4) #9
   call void @slurm_xfree(ptr noundef nonnull %2) #9
   br label %5
@@ -968,11 +968,11 @@ define dso_local ptr @allocate_het_job_nodes() local_unnamed_addr #0 {
   %7 = phi ptr [ %22, %18 ], [ %5, %0 ]
   %.084139 = phi ptr [ %spec.select, %18 ], [ null, %0 ]
   %.086138 = phi ptr [ %spec.select125, %18 ], [ null, %0 ]
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
   %.not121 = icmp eq ptr %.084139, null
   %spec.select = select i1 %.not121, ptr %7, ptr %.084139
-  %10 = getelementptr inbounds i8, ptr %9, i64 188
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 188
   %11 = load i32, ptr %10, align 4
   %.not122 = icmp eq i32 %11, -2
   br i1 %.not122, label %13, label %12
@@ -999,7 +999,7 @@ define dso_local ptr @allocate_het_job_nodes() local_unnamed_addr #0 {
   %spec.select125 = select i1 %.not123, ptr %14, ptr %.086138
   %19 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
   %20 = tail call ptr @xstrdup(ptr noundef %19) #9
-  %21 = getelementptr inbounds i8, ptr %14, i64 464
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 464
   store ptr %20, ptr %21, align 8
   tail call void @list_append(ptr noundef %2, ptr noundef nonnull %14) #9
   %22 = tail call ptr @list_next(ptr noundef %4) #9
@@ -1008,7 +1008,7 @@ define dso_local ptr @allocate_het_job_nodes() local_unnamed_addr #0 {
 
 ._crit_edge:                                      ; preds = %18
   tail call void @list_iterator_destroy(ptr noundef %4) #9
-  %23 = getelementptr inbounds i8, ptr %spec.select, i64 96
+  %23 = getelementptr inbounds nuw i8, ptr %spec.select, i64 96
   %24 = load ptr, ptr %23, align 8
   %.not103 = icmp eq ptr %24, null
   br i1 %.not103, label %31, label %26
@@ -1033,16 +1033,16 @@ define dso_local ptr @allocate_het_job_nodes() local_unnamed_addr #0 {
   br label %139
 
 31:                                               ; preds = %26, %._crit_edge
-  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @_timeout_handler, ptr %32, align 8
   store ptr @_job_complete_handler, ptr %1, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr null, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr @_user_msg_handler, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr @_node_fail_handler, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %spec.select125, i64 472
+  %36 = getelementptr inbounds nuw i8, ptr %spec.select125, i64 472
   %37 = call ptr @slurm_allocation_msg_thr_create(ptr noundef nonnull %36, ptr noundef nonnull %1) #9
   store ptr %37, ptr @msg_thr, align 8
   %38 = call i32 @list_for_each(ptr noundef %2, ptr noundef nonnull @_copy_other_port, ptr noundef nonnull %36) #9
@@ -1056,14 +1056,14 @@ define dso_local ptr @allocate_het_job_nodes() local_unnamed_addr #0 {
   %41 = phi i32 [ %44, %.lr.ph144 ], [ %40, %31 ]
   %42 = call ptr @xsignal(i32 noundef %41, ptr noundef nonnull @_signal_while_allocating) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %43 = getelementptr inbounds [0 x i32], ptr @sig_array, i64 0, i64 %indvars.iv.next
+  %43 = getelementptr inbounds nuw [0 x i32], ptr @sig_array, i64 0, i64 %indvars.iv.next
   %44 = load i32, ptr %43, align 4
   %.not105 = icmp eq i32 %44, 0
   br i1 %.not105, label %._crit_edge145, label %.lr.ph144, !llvm.loop !11
 
 ._crit_edge145:                                   ; preds = %.lr.ph144, %31
   store i1 true, ptr @is_het_job, align 1
-  %45 = getelementptr inbounds i8, ptr %spec.select, i64 312
+  %45 = getelementptr inbounds nuw i8, ptr %spec.select, i64 312
   br label %46
 
 46:                                               ; preds = %58, %._crit_edge145
@@ -1136,7 +1136,7 @@ define dso_local ptr @allocate_het_job_nodes() local_unnamed_addr #0 {
   br i1 %75, label %76, label %79
 
 76:                                               ; preds = %73
-  %77 = getelementptr inbounds i8, ptr %72, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %78 = load i32, ptr %77, align 8
   store i32 %78, ptr @pending_job_id, align 4
   br label %79
@@ -1146,7 +1146,7 @@ define dso_local ptr @allocate_het_job_nodes() local_unnamed_addr #0 {
   br i1 %80, label %81, label %89
 
 81:                                               ; preds = %79
-  %82 = getelementptr inbounds i8, ptr %72, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %83 = load i32, ptr %82, align 8
   %84 = load ptr, ptr @opt_list, align 8
   %85 = call i32 @list_count(ptr noundef %84) #9
@@ -1160,45 +1160,45 @@ define dso_local ptr @allocate_het_job_nodes() local_unnamed_addr #0 {
 
 89:                                               ; preds = %81, %79
   %.1 = phi i32 [ %83, %81 ], [ %.081, %79 ]
-  %90 = getelementptr inbounds i8, ptr %70, i64 448
+  %90 = getelementptr inbounds nuw i8, ptr %70, i64 448
   %91 = load i64, ptr %90, align 8
   %.not114 = icmp eq i64 %91, -2
   br i1 %.not114, label %96, label %92
 
 92:                                               ; preds = %89
-  %93 = getelementptr inbounds i8, ptr %72, i64 152
+  %93 = getelementptr inbounds nuw i8, ptr %72, i64 152
   %94 = load i64, ptr %93, align 8
   %95 = and i64 %94, 9223372036854775807
   store i64 %95, ptr %90, align 8
   br label %103
 
 96:                                               ; preds = %89
-  %97 = getelementptr inbounds i8, ptr %70, i64 432
+  %97 = getelementptr inbounds nuw i8, ptr %70, i64 432
   %98 = load i64, ptr %97, align 8
   %.not115 = icmp eq i64 %98, -2
   br i1 %.not115, label %103, label %99
 
 99:                                               ; preds = %96
-  %100 = getelementptr inbounds i8, ptr %72, i64 152
+  %100 = getelementptr inbounds nuw i8, ptr %72, i64 152
   %101 = load i64, ptr %100, align 8
   %102 = and i64 %101, 9223372036854775807
   store i64 %102, ptr %97, align 8
   br label %103
 
 103:                                              ; preds = %96, %99, %92
-  %104 = getelementptr inbounds i8, ptr %72, i64 112
+  %104 = getelementptr inbounds nuw i8, ptr %72, i64 112
   %105 = load i32, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %70, i64 136
+  %106 = getelementptr inbounds nuw i8, ptr %70, i64 136
   store i32 %105, ptr %106, align 8
-  %107 = getelementptr inbounds i8, ptr %70, i64 140
+  %107 = getelementptr inbounds nuw i8, ptr %70, i64 140
   store i32 %105, ptr %107, align 4
-  %108 = getelementptr inbounds i8, ptr %70, i64 488
+  %108 = getelementptr inbounds nuw i8, ptr %70, i64 488
   call void @slurm_xfree(ptr noundef nonnull %108) #9
-  %109 = getelementptr inbounds i8, ptr %72, i64 176
+  %109 = getelementptr inbounds nuw i8, ptr %72, i64 176
   %110 = load ptr, ptr %109, align 8
   %111 = call ptr @xstrdup(ptr noundef %110) #9
   store ptr %111, ptr %108, align 8
-  %112 = getelementptr inbounds i8, ptr %72, i64 200
+  %112 = getelementptr inbounds nuw i8, ptr %72, i64 200
   %113 = load ptr, ptr %112, align 8
   %.not116 = icmp eq ptr %113, null
   br i1 %.not116, label %115, label %114
@@ -1243,7 +1243,7 @@ define dso_local ptr @allocate_het_job_nodes() local_unnamed_addr #0 {
 
 .thread128:                                       ; preds = %.thread, %125
   %127 = call ptr @list_peek(ptr noundef nonnull %.183) #9
-  %128 = getelementptr inbounds i8, ptr %127, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %129 = load i32, ptr %128, align 8
   br label %130
 
@@ -1286,7 +1286,7 @@ declare i32 @list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef i32 @_copy_other_port(ptr nocapture noundef writeonly initializes((472, 474)) %0, ptr nocapture noundef readonly %1) #4 {
   %3 = load i16, ptr %1, align 2
-  %4 = getelementptr inbounds i8, ptr %0, i64 472
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 472
   store i16 %3, ptr %4, align 8
   ret i32 0
 }
@@ -1348,9 +1348,9 @@ define dso_local ptr @existing_allocation() local_unnamed_addr #0 {
 
 16:                                               ; preds = %11
   %17 = load ptr, ptr @working_cluster_rec, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 272
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 272
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %17, i64 152
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 152
   %21 = load ptr, ptr %20, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.6, i32 noundef %.pre5, ptr noundef %19, ptr noundef %21) #9
   %.pre = load i32, ptr getelementptr inbounds (i8, ptr @sropt, i64 84), align 4

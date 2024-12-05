@@ -40,7 +40,7 @@ define noundef i32 @JNI_OnLoad(ptr noundef %0, ptr nocapture noundef readnone %1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @sun_jpeg_init_source(ptr nocapture noundef readonly %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   ret void
@@ -48,29 +48,29 @@ define hidden void @sun_jpeg_init_source(ptr nocapture noundef readonly %0) #1 {
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @sun_jpeg_fill_input_buffer(ptr noundef %0) #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr @the_jvm, align 8
   %5 = tail call ptr @JNU_GetEnv(ptr noundef %4, i32 noundef 65538) #13
-  %6 = getelementptr inbounds i8, ptr %3, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %7 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %110
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %3, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %10 = load i64, ptr %9, align 8
   %.not37 = icmp eq i64 %10, 0
   br i1 %.not37, label %14, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %3, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull %0, i64 noundef 0) #13
   br label %14
 
 14:                                               ; preds = %11, %8
-  %15 = getelementptr inbounds i8, ptr %3, i64 80
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %16 = load ptr, ptr %15, align 8
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %29, label %17
@@ -82,28 +82,28 @@ define hidden range(i32 0, 2) i32 @sun_jpeg_fill_input_buffer(ptr noundef %0) #2
   %21 = ptrtoint ptr %16 to i64
   %22 = sub i64 %20, %21
   %.sink.i = select i1 %19, i64 -1, i64 %22
-  %23 = getelementptr inbounds i8, ptr %3, i64 96
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 96
   store i64 %.sink.i, ptr %23, align 8
   %24 = load ptr, ptr %5, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 1784
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 1784
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %3, i64 88
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %28 = load ptr, ptr %27, align 8
   tail call void %26(ptr noundef nonnull %5, ptr noundef %28, ptr noundef nonnull %16, i32 noundef 0) #13
   store ptr null, ptr %15, align 8
   br label %29
 
 29:                                               ; preds = %17, %14
-  %30 = getelementptr inbounds i8, ptr %3, i64 104
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %31 = load ptr, ptr %30, align 8
   %.not19.i = icmp eq ptr %31, null
   br i1 %.not19.i, label %RELEASE_ARRAYS.exit, label %32
 
 32:                                               ; preds = %29
   %33 = load ptr, ptr %5, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 1784
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 1784
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %3, i64 120
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %37 = load ptr, ptr %36, align 8
   tail call void %35(ptr noundef nonnull %5, ptr noundef %37, ptr noundef nonnull %31, i32 noundef 0) #13
   store ptr null, ptr %30, align 8
@@ -111,43 +111,43 @@ define hidden range(i32 0, 2) i32 @sun_jpeg_fill_input_buffer(ptr noundef %0) #2
 
 RELEASE_ARRAYS.exit:                              ; preds = %29, %32
   %38 = load ptr, ptr %5, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 1368
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 1368
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %3, i64 88
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %42 = load ptr, ptr %41, align 8
   %43 = tail call i32 %40(ptr noundef nonnull %5, ptr noundef %42) #13
   %44 = load ptr, ptr %5, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 392
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 392
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %3, i64 56
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %48 = load ptr, ptr %47, align 8
   %49 = load ptr, ptr @InputStream_readID, align 8
   %50 = load ptr, ptr %41, align 8
   %51 = tail call i32 (ptr, ptr, ptr, ...) %46(ptr noundef nonnull %5, ptr noundef %48, ptr noundef %49, ptr noundef %50, i32 noundef 0, i32 noundef %43) #13
   %spec.select = tail call i32 @llvm.smin.i32(i32 %51, i32 %43)
   %52 = load ptr, ptr %5, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 120
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 120
   %54 = load ptr, ptr %53, align 8
   %55 = tail call ptr %54(ptr noundef nonnull %5) #13
   %.not38 = icmp eq ptr %55, null
   br i1 %.not38, label %56, label %GET_ARRAYS.exit.thread
 
 56:                                               ; preds = %RELEASE_ARRAYS.exit
-  %57 = getelementptr inbounds i8, ptr %3, i64 120
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %58 = load ptr, ptr %57, align 8
   %.not.i40 = icmp eq ptr %58, null
   br i1 %.not.i40, label %72, label %59
 
 59:                                               ; preds = %56
   %60 = load ptr, ptr %5, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 1368
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 1368
   %62 = load ptr, ptr %61, align 8
   %63 = tail call i32 %62(ptr noundef nonnull %5, ptr noundef nonnull %58) #13
   %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds i8, ptr %3, i64 112
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 112
   store i64 %64, ptr %65, align 8
   %66 = load ptr, ptr %5, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 1776
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 1776
   %68 = load ptr, ptr %67, align 8
   %69 = load ptr, ptr %57, align 8
   %70 = tail call ptr %68(ptr noundef nonnull %5, ptr noundef %69, ptr noundef null) #13
@@ -162,7 +162,7 @@ RELEASE_ARRAYS.exit:                              ; preds = %29, %32
 
 74:                                               ; preds = %72
   %75 = load ptr, ptr %5, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 1776
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 1776
   %77 = load ptr, ptr %76, align 8
   %78 = tail call ptr %77(ptr noundef nonnull %5, ptr noundef nonnull %73, ptr noundef null) #13
   store ptr %78, ptr %15, align 8
@@ -176,7 +176,7 @@ RELEASE_ARRAYS.exit:                              ; preds = %29, %32
 
 82:                                               ; preds = %80
   %83 = load ptr, ptr %5, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 1784
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 1784
   %85 = load ptr, ptr %84, align 8
   %86 = load ptr, ptr %57, align 8
   tail call void %85(ptr noundef nonnull %5, ptr noundef %86, ptr noundef nonnull %81, i32 noundef 0) #13
@@ -184,7 +184,7 @@ RELEASE_ARRAYS.exit:                              ; preds = %29, %32
   br label %GET_ARRAYS.exit.thread
 
 87:                                               ; preds = %74
-  %88 = getelementptr inbounds i8, ptr %3, i64 96
+  %88 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %89 = load i64, ptr %88, align 8
   %90 = and i64 %89, 2147483648
   %91 = icmp eq i64 %90, 0
@@ -207,16 +207,16 @@ GET_ARRAYS.exit:                                  ; preds = %92, %87, %72, %GET_
 
 97:                                               ; preds = %GET_ARRAYS.exit
   %98 = load ptr, ptr %0, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 40
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 40
   store i32 120, ptr %99, align 8
   %100 = load ptr, ptr %0, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
   %102 = load ptr, ptr %101, align 8
   tail call void %102(ptr noundef nonnull %0, i32 noundef -1) #13
   %103 = load ptr, ptr %15, align 8
   store i8 -1, ptr %103, align 1
   %104 = load ptr, ptr %15, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 1
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 1
   store i8 -39, ptr %105, align 1
   br label %106
 
@@ -225,7 +225,7 @@ GET_ARRAYS.exit:                                  ; preds = %92, %87, %72, %GET_
   %107 = load ptr, ptr %15, align 8
   store ptr %107, ptr %3, align 8
   %108 = zext nneg i32 %.1 to i64
-  %109 = getelementptr inbounds i8, ptr %3, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %108, ptr %109, align 8
   br label %110
 
@@ -238,7 +238,7 @@ declare ptr @JNU_GetEnv(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @RELEASE_ARRAYS(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %17, label %5
@@ -250,28 +250,28 @@ define internal fastcc void @RELEASE_ARRAYS(ptr noundef %0, ptr nocapture nounde
   %9 = ptrtoint ptr %4 to i64
   %10 = sub i64 %8, %9
   %.sink = select i1 %7, i64 -1, i64 %10
-  %11 = getelementptr inbounds i8, ptr %1, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 96
   store i64 %.sink, ptr %11, align 8
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 1784
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1784
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 88
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %16 = load ptr, ptr %15, align 8
   tail call void %14(ptr noundef nonnull %0, ptr noundef %16, ptr noundef nonnull %4, i32 noundef 0) #13
   store ptr null, ptr %3, align 8
   br label %17
 
 17:                                               ; preds = %5, %2
-  %18 = getelementptr inbounds i8, ptr %1, i64 104
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %19 = load ptr, ptr %18, align 8
   %.not19 = icmp eq ptr %19, null
   br i1 %.not19, label %26, label %20
 
 20:                                               ; preds = %17
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 1784
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 1784
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 120
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %25 = load ptr, ptr %24, align 8
   tail call void %23(ptr noundef nonnull %0, ptr noundef %25, ptr noundef nonnull %19, i32 noundef 0) #13
   store ptr null, ptr %18, align 8
@@ -283,11 +283,11 @@ define internal fastcc void @RELEASE_ARRAYS(ptr noundef %0, ptr nocapture nounde
 
 ; Function Attrs: nounwind uwtable
 define hidden void @sun_jpeg_fill_suspended_buffer(ptr noundef %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr @the_jvm, align 8
   %5 = tail call ptr @JNU_GetEnv(ptr noundef %4, i32 noundef 65538) #13
-  %6 = getelementptr inbounds i8, ptr %3, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %7 = load ptr, ptr %6, align 8
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %20, label %8
@@ -299,28 +299,28 @@ define hidden void @sun_jpeg_fill_suspended_buffer(ptr noundef %0) local_unnamed
   %12 = ptrtoint ptr %7 to i64
   %13 = sub i64 %11, %12
   %.sink.i = select i1 %10, i64 -1, i64 %13
-  %14 = getelementptr inbounds i8, ptr %3, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 96
   store i64 %.sink.i, ptr %14, align 8
   %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 1784
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1784
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %3, i64 88
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %19 = load ptr, ptr %18, align 8
   tail call void %17(ptr noundef nonnull %5, ptr noundef %19, ptr noundef nonnull %7, i32 noundef 0) #13
   store ptr null, ptr %6, align 8
   br label %20
 
 20:                                               ; preds = %8, %1
-  %21 = getelementptr inbounds i8, ptr %3, i64 104
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %22 = load ptr, ptr %21, align 8
   %.not19.i = icmp eq ptr %22, null
   br i1 %.not19.i, label %RELEASE_ARRAYS.exit, label %23
 
 23:                                               ; preds = %20
   %24 = load ptr, ptr %5, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 1784
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 1784
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %3, i64 120
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %28 = load ptr, ptr %27, align 8
   tail call void %26(ptr noundef nonnull %5, ptr noundef %28, ptr noundef nonnull %22, i32 noundef 0) #13
   store ptr null, ptr %21, align 8
@@ -328,35 +328,35 @@ define hidden void @sun_jpeg_fill_suspended_buffer(ptr noundef %0) local_unnamed
 
 RELEASE_ARRAYS.exit:                              ; preds = %20, %23
   %29 = load ptr, ptr %5, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 392
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 392
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %3, i64 56
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr @InputStream_availableID, align 8
   %35 = tail call i32 (ptr, ptr, ptr, ...) %31(ptr noundef nonnull %5, ptr noundef %33, ptr noundef %34) #13
   %36 = load ptr, ptr %5, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 120
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 120
   %38 = load ptr, ptr %37, align 8
   %39 = tail call ptr %38(ptr noundef nonnull %5) #13
   %.not = icmp eq ptr %39, null
   br i1 %.not, label %40, label %GET_ARRAYS.exit.thread
 
 40:                                               ; preds = %RELEASE_ARRAYS.exit
-  %41 = getelementptr inbounds i8, ptr %3, i64 120
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %42 = load ptr, ptr %41, align 8
   %.not.i77 = icmp eq ptr %42, null
   br i1 %.not.i77, label %56, label %43
 
 43:                                               ; preds = %40
   %44 = load ptr, ptr %5, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 1368
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 1368
   %46 = load ptr, ptr %45, align 8
   %47 = tail call i32 %46(ptr noundef nonnull %5, ptr noundef nonnull %42) #13
   %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds i8, ptr %3, i64 112
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 112
   store i64 %48, ptr %49, align 8
   %50 = load ptr, ptr %5, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 1776
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 1776
   %52 = load ptr, ptr %51, align 8
   %53 = load ptr, ptr %41, align 8
   %54 = tail call ptr %52(ptr noundef nonnull %5, ptr noundef %53, ptr noundef null) #13
@@ -365,14 +365,14 @@ RELEASE_ARRAYS.exit:                              ; preds = %20, %23
   br i1 %55, label %GET_ARRAYS.exit.thread, label %56
 
 56:                                               ; preds = %43, %40
-  %57 = getelementptr inbounds i8, ptr %3, i64 88
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %58 = load ptr, ptr %57, align 8
   %.not25.i = icmp eq ptr %58, null
   br i1 %.not25.i, label %GET_ARRAYS.exit, label %59
 
 59:                                               ; preds = %56
   %60 = load ptr, ptr %5, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 1776
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 1776
   %62 = load ptr, ptr %61, align 8
   %63 = tail call ptr %62(ptr noundef nonnull %5, ptr noundef nonnull %58, ptr noundef null) #13
   store ptr %63, ptr %6, align 8
@@ -386,7 +386,7 @@ RELEASE_ARRAYS.exit:                              ; preds = %20, %23
 
 67:                                               ; preds = %65
   %68 = load ptr, ptr %5, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 1784
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 1784
   %70 = load ptr, ptr %69, align 8
   %71 = load ptr, ptr %41, align 8
   tail call void %70(ptr noundef nonnull %5, ptr noundef %71, ptr noundef nonnull %66, i32 noundef 0) #13
@@ -394,7 +394,7 @@ RELEASE_ARRAYS.exit:                              ; preds = %20, %23
   br label %GET_ARRAYS.exit.thread
 
 72:                                               ; preds = %59
-  %73 = getelementptr inbounds i8, ptr %3, i64 96
+  %73 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %74 = load i64, ptr %73, align 8
   %75 = and i64 %74, 2147483648
   %76 = icmp eq i64 %75, 0
@@ -417,7 +417,7 @@ GET_ARRAYS.exit:                                  ; preds = %77, %72, %56, %GET_
 
 82:                                               ; preds = %GET_ARRAYS.exit
   %83 = zext nneg i32 %35 to i64
-  %84 = getelementptr inbounds i8, ptr %3, i64 72
+  %84 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %85 = load i64, ptr %84, align 8
   %.not71 = icmp ult i64 %85, %83
   br i1 %.not71, label %86, label %GET_ARRAYS.exit86
@@ -427,13 +427,13 @@ GET_ARRAYS.exit:                                  ; preds = %77, %72, %56, %GET_
   br i1 %.not72, label %90, label %87
 
 87:                                               ; preds = %86
-  %88 = getelementptr inbounds i8, ptr %3, i64 32
+  %88 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %89 = load ptr, ptr %88, align 8
   tail call void %89(ptr noundef nonnull %0, i64 noundef 0) #13
   br label %90
 
 90:                                               ; preds = %87, %86
-  %91 = getelementptr inbounds i8, ptr %3, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %92 = load i64, ptr %91, align 8
   %93 = load ptr, ptr %3, align 8
   %94 = load ptr, ptr %6, align 8
@@ -457,12 +457,12 @@ GET_ARRAYS.exit:                                  ; preds = %77, %72, %56, %GET_
   %103 = ptrtoint ptr %98 to i64
   %104 = sub i64 %102, %103
   %.sink.i79 = select i1 %101, i64 -1, i64 %104
-  %105 = getelementptr inbounds i8, ptr %3, i64 96
+  %105 = getelementptr inbounds nuw i8, ptr %3, i64 96
   store i64 %.sink.i79, ptr %105, align 8
   %106 = load ptr, ptr %5, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 1784
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 1784
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %3, i64 88
+  %109 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %110 = load ptr, ptr %109, align 8
   tail call void %108(ptr noundef nonnull %5, ptr noundef %110, ptr noundef nonnull %98, i32 noundef 0) #13
   store ptr null, ptr %6, align 8
@@ -475,9 +475,9 @@ GET_ARRAYS.exit:                                  ; preds = %77, %72, %56, %GET_
 
 113:                                              ; preds = %111
   %114 = load ptr, ptr %5, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 1784
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 1784
   %116 = load ptr, ptr %115, align 8
-  %117 = getelementptr inbounds i8, ptr %3, i64 120
+  %117 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %118 = load ptr, ptr %117, align 8
   tail call void %116(ptr noundef nonnull %5, ptr noundef %118, ptr noundef nonnull %112, i32 noundef 0) #13
   store ptr null, ptr %21, align 8
@@ -485,9 +485,9 @@ GET_ARRAYS.exit:                                  ; preds = %77, %72, %56, %GET_
 
 RELEASE_ARRAYS.exit81:                            ; preds = %111, %113
   %119 = load ptr, ptr %5, align 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 1368
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 1368
   %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %3, i64 88
+  %122 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %123 = load ptr, ptr %122, align 8
   %124 = tail call i32 %121(ptr noundef nonnull %5, ptr noundef %123) #13
   %125 = sext i32 %124 to i64
@@ -495,21 +495,21 @@ RELEASE_ARRAYS.exit81:                            ; preds = %111, %113
   br i1 %126, label %127, label %168
 
 127:                                              ; preds = %RELEASE_ARRAYS.exit81
-  %128 = getelementptr inbounds i8, ptr %3, i64 120
+  %128 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %129 = load ptr, ptr %128, align 8
   %.not.i82 = icmp eq ptr %129, null
   br i1 %.not.i82, label %143, label %130
 
 130:                                              ; preds = %127
   %131 = load ptr, ptr %5, align 8
-  %132 = getelementptr inbounds i8, ptr %131, i64 1368
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 1368
   %133 = load ptr, ptr %132, align 8
   %134 = tail call i32 %133(ptr noundef nonnull %5, ptr noundef nonnull %129) #13
   %135 = sext i32 %134 to i64
-  %136 = getelementptr inbounds i8, ptr %3, i64 112
+  %136 = getelementptr inbounds nuw i8, ptr %3, i64 112
   store i64 %135, ptr %136, align 8
   %137 = load ptr, ptr %5, align 8
-  %138 = getelementptr inbounds i8, ptr %137, i64 1776
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 1776
   %139 = load ptr, ptr %138, align 8
   %140 = load ptr, ptr %128, align 8
   %141 = tail call ptr %139(ptr noundef nonnull %5, ptr noundef %140, ptr noundef null) #13
@@ -524,7 +524,7 @@ RELEASE_ARRAYS.exit81:                            ; preds = %111, %113
 
 145:                                              ; preds = %143
   %146 = load ptr, ptr %5, align 8
-  %147 = getelementptr inbounds i8, ptr %146, i64 1776
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 1776
   %148 = load ptr, ptr %147, align 8
   %149 = tail call ptr %148(ptr noundef nonnull %5, ptr noundef nonnull %144, ptr noundef null) #13
   store ptr %149, ptr %6, align 8
@@ -538,7 +538,7 @@ RELEASE_ARRAYS.exit81:                            ; preds = %111, %113
 
 153:                                              ; preds = %151
   %154 = load ptr, ptr %5, align 8
-  %155 = getelementptr inbounds i8, ptr %154, i64 1784
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 1784
   %156 = load ptr, ptr %155, align 8
   %157 = load ptr, ptr %128, align 8
   tail call void %156(ptr noundef nonnull %5, ptr noundef %157, ptr noundef nonnull %152, i32 noundef 0) #13
@@ -546,7 +546,7 @@ RELEASE_ARRAYS.exit81:                            ; preds = %111, %113
   br label %165
 
 158:                                              ; preds = %145
-  %159 = getelementptr inbounds i8, ptr %3, i64 96
+  %159 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %160 = load i64, ptr %159, align 8
   %161 = and i64 %160, 2147483648
   %162 = icmp eq i64 %161, 0
@@ -566,7 +566,7 @@ RELEASE_ARRAYS.exit81:                            ; preds = %111, %113
 168:                                              ; preds = %RELEASE_ARRAYS.exit81
   %169 = sub i64 %125, %92
   %170 = load ptr, ptr %5, align 8
-  %171 = getelementptr inbounds i8, ptr %170, i64 392
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 392
   %172 = load ptr, ptr %171, align 8
   %173 = load ptr, ptr %32, align 8
   %174 = load ptr, ptr @InputStream_readID, align 8
@@ -579,28 +579,28 @@ RELEASE_ARRAYS.exit81:                            ; preds = %111, %113
   %180 = trunc nuw nsw i64 %169 to i32
   %.0 = select i1 %or.cond, i32 %180, i32 %176
   %181 = load ptr, ptr %5, align 8
-  %182 = getelementptr inbounds i8, ptr %181, i64 120
+  %182 = getelementptr inbounds nuw i8, ptr %181, i64 120
   %183 = load ptr, ptr %182, align 8
   %184 = tail call ptr %183(ptr noundef nonnull %5) #13
   %.not73 = icmp eq ptr %184, null
   br i1 %.not73, label %185, label %GET_ARRAYS.exit91.thread
 
 185:                                              ; preds = %168
-  %186 = getelementptr inbounds i8, ptr %3, i64 120
+  %186 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %187 = load ptr, ptr %186, align 8
   %.not.i87 = icmp eq ptr %187, null
   br i1 %.not.i87, label %201, label %188
 
 188:                                              ; preds = %185
   %189 = load ptr, ptr %5, align 8
-  %190 = getelementptr inbounds i8, ptr %189, i64 1368
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 1368
   %191 = load ptr, ptr %190, align 8
   %192 = tail call i32 %191(ptr noundef nonnull %5, ptr noundef nonnull %187) #13
   %193 = sext i32 %192 to i64
-  %194 = getelementptr inbounds i8, ptr %3, i64 112
+  %194 = getelementptr inbounds nuw i8, ptr %3, i64 112
   store i64 %193, ptr %194, align 8
   %195 = load ptr, ptr %5, align 8
-  %196 = getelementptr inbounds i8, ptr %195, i64 1776
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 1776
   %197 = load ptr, ptr %196, align 8
   %198 = load ptr, ptr %186, align 8
   %199 = tail call ptr %197(ptr noundef nonnull %5, ptr noundef %198, ptr noundef null) #13
@@ -615,7 +615,7 @@ RELEASE_ARRAYS.exit81:                            ; preds = %111, %113
 
 203:                                              ; preds = %201
   %204 = load ptr, ptr %5, align 8
-  %205 = getelementptr inbounds i8, ptr %204, i64 1776
+  %205 = getelementptr inbounds nuw i8, ptr %204, i64 1776
   %206 = load ptr, ptr %205, align 8
   %207 = tail call ptr %206(ptr noundef nonnull %5, ptr noundef nonnull %202, ptr noundef null) #13
   store ptr %207, ptr %6, align 8
@@ -629,7 +629,7 @@ RELEASE_ARRAYS.exit81:                            ; preds = %111, %113
 
 211:                                              ; preds = %209
   %212 = load ptr, ptr %5, align 8
-  %213 = getelementptr inbounds i8, ptr %212, i64 1784
+  %213 = getelementptr inbounds nuw i8, ptr %212, i64 1784
   %214 = load ptr, ptr %213, align 8
   %215 = load ptr, ptr %186, align 8
   tail call void %214(ptr noundef nonnull %5, ptr noundef %215, ptr noundef nonnull %210, i32 noundef 0) #13
@@ -637,7 +637,7 @@ RELEASE_ARRAYS.exit81:                            ; preds = %111, %113
   br label %GET_ARRAYS.exit91.thread
 
 216:                                              ; preds = %203
-  %217 = getelementptr inbounds i8, ptr %3, i64 96
+  %217 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %218 = load i64, ptr %217, align 8
   %219 = and i64 %218, 2147483648
   %220 = icmp eq i64 %219, 0
@@ -660,10 +660,10 @@ GET_ARRAYS.exit91:                                ; preds = %221, %216, %201, %G
 
 226:                                              ; preds = %GET_ARRAYS.exit91
   %227 = load ptr, ptr %0, align 8
-  %228 = getelementptr inbounds i8, ptr %227, i64 40
+  %228 = getelementptr inbounds nuw i8, ptr %227, i64 40
   store i32 120, ptr %228, align 8
   %229 = load ptr, ptr %0, align 8
-  %230 = getelementptr inbounds i8, ptr %229, i64 8
+  %230 = getelementptr inbounds nuw i8, ptr %229, i64 8
   %231 = load ptr, ptr %230, align 8
   tail call void %231(ptr noundef nonnull %0, i32 noundef -1) #13
   %232 = load ptr, ptr %6, align 8
@@ -693,7 +693,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 
 ; Function Attrs: nounwind uwtable
 define hidden void @sun_jpeg_skip_input_data(ptr noundef %0, i64 noundef %1) #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr @the_jvm, align 8
   %6 = tail call ptr @JNU_GetEnv(ptr noundef %5, i32 noundef 65538) #13
@@ -701,7 +701,7 @@ define hidden void @sun_jpeg_skip_input_data(ptr noundef %0, i64 noundef %1) #2 
   br i1 %7, label %138, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load i64, ptr %9, align 8
   %11 = add i64 %10, %1
   %12 = icmp slt i64 %11, 0
@@ -709,7 +709,7 @@ define hidden void @sun_jpeg_skip_input_data(ptr noundef %0, i64 noundef %1) #2 
 
 13:                                               ; preds = %8
   store i64 0, ptr %9, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
   %sext = shl i64 %15, 32
@@ -719,7 +719,7 @@ define hidden void @sun_jpeg_skip_input_data(ptr noundef %0, i64 noundef %1) #2 
 
 18:                                               ; preds = %13
   %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 %11
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 %11
   store ptr %20, ptr %4, align 8
   %21 = sub i64 %15, %11
   store i64 %21, ptr %14, align 8
@@ -727,7 +727,7 @@ define hidden void @sun_jpeg_skip_input_data(ptr noundef %0, i64 noundef %1) #2 
 
 22:                                               ; preds = %13
   %23 = sub nsw i64 %11, %17
-  %24 = getelementptr inbounds i8, ptr %4, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %25 = load i32, ptr %24, align 8
   %.not66 = icmp eq i32 %25, 0
   br i1 %.not66, label %29, label %26
@@ -735,13 +735,13 @@ define hidden void @sun_jpeg_skip_input_data(ptr noundef %0, i64 noundef %1) #2 
 26:                                               ; preds = %22
   store i64 %23, ptr %9, align 8
   store i64 0, ptr %14, align 8
-  %27 = getelementptr inbounds i8, ptr %4, i64 80
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %4, align 8
   br label %138
 
 29:                                               ; preds = %22
-  %30 = getelementptr inbounds i8, ptr %4, i64 80
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %31 = load ptr, ptr %30, align 8
   %.not.i = icmp eq ptr %31, null
   br i1 %.not.i, label %44, label %32
@@ -753,28 +753,28 @@ define hidden void @sun_jpeg_skip_input_data(ptr noundef %0, i64 noundef %1) #2 
   %36 = ptrtoint ptr %31 to i64
   %37 = sub i64 %35, %36
   %.sink.i = select i1 %34, i64 -1, i64 %37
-  %38 = getelementptr inbounds i8, ptr %4, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 96
   store i64 %.sink.i, ptr %38, align 8
   %39 = load ptr, ptr %6, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 1784
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 1784
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %4, i64 88
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %43 = load ptr, ptr %42, align 8
   tail call void %41(ptr noundef nonnull %6, ptr noundef %43, ptr noundef nonnull %31, i32 noundef 0) #13
   store ptr null, ptr %30, align 8
   br label %44
 
 44:                                               ; preds = %32, %29
-  %45 = getelementptr inbounds i8, ptr %4, i64 104
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %46 = load ptr, ptr %45, align 8
   %.not19.i = icmp eq ptr %46, null
   br i1 %.not19.i, label %RELEASE_ARRAYS.exit, label %47
 
 47:                                               ; preds = %44
   %48 = load ptr, ptr %6, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 1784
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 1784
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %4, i64 120
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 120
   %52 = load ptr, ptr %51, align 8
   tail call void %50(ptr noundef nonnull %6, ptr noundef %52, ptr noundef nonnull %46, i32 noundef 0) #13
   store ptr null, ptr %45, align 8
@@ -782,22 +782,22 @@ define hidden void @sun_jpeg_skip_input_data(ptr noundef %0, i64 noundef %1) #2 
 
 RELEASE_ARRAYS.exit:                              ; preds = %44, %47
   %53 = load ptr, ptr %6, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 1368
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 1368
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %4, i64 88
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %57 = load ptr, ptr %56, align 8
   %58 = tail call i32 %55(ptr noundef nonnull %6, ptr noundef %57) #13
   %59 = icmp sgt i64 %23, 0
   br i1 %59, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %RELEASE_ARRAYS.exit
-  %60 = getelementptr inbounds i8, ptr %4, i64 56
+  %60 = getelementptr inbounds nuw i8, ptr %4, i64 56
   br label %61
 
 61:                                               ; preds = %.lr.ph, %78
   %.072 = phi i64 [ %23, %.lr.ph ], [ %80, %78 ]
   %62 = load ptr, ptr %6, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 392
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 392
   %64 = load ptr, ptr %63, align 8
   %65 = load ptr, ptr %60, align 8
   %66 = load ptr, ptr @InputStream_readID, align 8
@@ -805,7 +805,7 @@ RELEASE_ARRAYS.exit:                              ; preds = %44, %47
   %68 = tail call i32 (ptr, ptr, ptr, ...) %64(ptr noundef nonnull %6, ptr noundef %65, ptr noundef %66, ptr noundef %67, i32 noundef 0, i32 noundef %58) #13
   %spec.select = tail call i32 @llvm.smin.i32(i32 %68, i32 %58)
   %69 = load ptr, ptr %6, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 120
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 120
   %71 = load ptr, ptr %70, align 8
   %72 = tail call ptr %71(ptr noundef nonnull %6) #13
   %.not67 = icmp eq ptr %72, null
@@ -831,21 +831,21 @@ RELEASE_ARRAYS.exit:                              ; preds = %44, %47
   %.0.lcssa = phi i64 [ %23, %RELEASE_ARRAYS.exit ], [ %.072, %76 ], [ %80, %78 ]
   %.lcssa = phi i1 [ false, %RELEASE_ARRAYS.exit ], [ %77, %76 ], [ %77, %78 ]
   %.1 = phi i32 [ %16, %RELEASE_ARRAYS.exit ], [ %spec.select, %76 ], [ %spec.select, %78 ]
-  %82 = getelementptr inbounds i8, ptr %4, i64 120
+  %82 = getelementptr inbounds nuw i8, ptr %4, i64 120
   %83 = load ptr, ptr %82, align 8
   %.not.i69 = icmp eq ptr %83, null
   br i1 %.not.i69, label %97, label %84
 
 84:                                               ; preds = %._crit_edge
   %85 = load ptr, ptr %6, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 1368
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 1368
   %87 = load ptr, ptr %86, align 8
   %88 = tail call i32 %87(ptr noundef nonnull %6, ptr noundef nonnull %83) #13
   %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds i8, ptr %4, i64 112
+  %90 = getelementptr inbounds nuw i8, ptr %4, i64 112
   store i64 %89, ptr %90, align 8
   %91 = load ptr, ptr %6, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 1776
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 1776
   %93 = load ptr, ptr %92, align 8
   %94 = load ptr, ptr %82, align 8
   %95 = tail call ptr %93(ptr noundef nonnull %6, ptr noundef %94, ptr noundef null) #13
@@ -860,7 +860,7 @@ RELEASE_ARRAYS.exit:                              ; preds = %44, %47
 
 99:                                               ; preds = %97
   %100 = load ptr, ptr %6, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 1776
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 1776
   %102 = load ptr, ptr %101, align 8
   %103 = tail call ptr %102(ptr noundef nonnull %6, ptr noundef nonnull %98, ptr noundef null) #13
   store ptr %103, ptr %30, align 8
@@ -874,7 +874,7 @@ RELEASE_ARRAYS.exit:                              ; preds = %44, %47
 
 107:                                              ; preds = %105
   %108 = load ptr, ptr %6, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 1784
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 1784
   %110 = load ptr, ptr %109, align 8
   %111 = load ptr, ptr %82, align 8
   tail call void %110(ptr noundef nonnull %6, ptr noundef %111, ptr noundef nonnull %106, i32 noundef 0) #13
@@ -882,7 +882,7 @@ RELEASE_ARRAYS.exit:                              ; preds = %44, %47
   br label %119
 
 112:                                              ; preds = %99
-  %113 = getelementptr inbounds i8, ptr %4, i64 96
+  %113 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %114 = load i64, ptr %113, align 8
   %115 = and i64 %114, 2147483648
   %116 = icmp eq i64 %115, 0
@@ -904,16 +904,16 @@ GET_ARRAYS.exit:                                  ; preds = %117, %112, %97, %11
 
 122:                                              ; preds = %GET_ARRAYS.exit
   %123 = load ptr, ptr %0, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 40
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 40
   store i32 120, ptr %124, align 8
   %125 = load ptr, ptr %0, align 8
-  %126 = getelementptr inbounds i8, ptr %125, i64 8
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
   %127 = load ptr, ptr %126, align 8
   tail call void %127(ptr noundef nonnull %0, i32 noundef -1) #13
   %128 = load ptr, ptr %30, align 8
   store i8 -1, ptr %128, align 1
   %129 = load ptr, ptr %30, align 8
-  %130 = getelementptr inbounds i8, ptr %129, i64 1
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 1
   store i8 -39, ptr %130, align 1
   store i64 2, ptr %14, align 8
   %131 = load ptr, ptr %30, align 8
@@ -942,7 +942,7 @@ define hidden void @sun_jpeg_term_source(ptr nocapture readnone %0) #5 {
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_awt_image_JPEGImageDecoder_initIDs(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 264
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 264
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr %6(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #13
   store ptr %7, ptr @sendHeaderInfoID, align 8
@@ -951,7 +951,7 @@ define void @Java_sun_awt_image_JPEGImageDecoder_initIDs(ptr noundef %0, ptr nou
 
 9:                                                ; preds = %3
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 264
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 264
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr %12(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #13
   store ptr %13, ptr @sendPixelsByteID, align 8
@@ -960,7 +960,7 @@ define void @Java_sun_awt_image_JPEGImageDecoder_initIDs(ptr noundef %0, ptr nou
 
 15:                                               ; preds = %9
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 264
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 264
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr %18(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.4) #13
   store ptr %19, ptr @sendPixelsIntID, align 8
@@ -969,7 +969,7 @@ define void @Java_sun_awt_image_JPEGImageDecoder_initIDs(ptr noundef %0, ptr nou
 
 21:                                               ; preds = %15
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 264
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 264
   %24 = load ptr, ptr %23, align 8
   %25 = tail call ptr %24(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6) #13
   store ptr %25, ptr @InputStream_readID, align 8
@@ -978,7 +978,7 @@ define void @Java_sun_awt_image_JPEGImageDecoder_initIDs(ptr noundef %0, ptr nou
 
 27:                                               ; preds = %21
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 264
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 264
   %30 = load ptr, ptr %29, align 8
   %31 = tail call ptr %30(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8) #13
   store ptr %31, ptr @InputStream_availableID, align 8
@@ -1004,16 +1004,16 @@ define void @Java_sun_awt_image_JPEGImageDecoder_readImage(ptr noundef %0, ptr n
   br label %304
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %7, i64 104
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 104
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %7, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 80
   store ptr null, ptr %14, align 8
   %15 = call ptr @jStdError(ptr noundef nonnull %6) #13
   store ptr %15, ptr %5, align 8
   store ptr @sun_jpeg_error_exit, ptr %6, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr @sun_jpeg_output_message, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %6, i64 168
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 168
   %18 = call i32 @_setjmp(ptr noundef nonnull %17) #14
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %49, label %19
@@ -1031,12 +1031,12 @@ define void @Java_sun_awt_image_JPEGImageDecoder_readImage(ptr noundef %0, ptr n
   %25 = ptrtoint ptr %20 to i64
   %26 = sub i64 %24, %25
   %.sink.i = select i1 %23, i64 -1, i64 %26
-  %27 = getelementptr inbounds i8, ptr %7, i64 96
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 96
   store i64 %.sink.i, ptr %27, align 8
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 1784
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 1784
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %7, i64 88
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %32 = load ptr, ptr %31, align 8
   call void %30(ptr noundef nonnull %0, ptr noundef %32, ptr noundef nonnull %20, i32 noundef 0) #13
   store ptr null, ptr %14, align 8
@@ -1049,9 +1049,9 @@ define void @Java_sun_awt_image_JPEGImageDecoder_readImage(ptr noundef %0, ptr n
 
 35:                                               ; preds = %33
   %36 = load ptr, ptr %0, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 1784
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 1784
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %7, i64 120
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %40 = load ptr, ptr %39, align 8
   call void %38(ptr noundef nonnull %0, ptr noundef %40, ptr noundef nonnull %34, i32 noundef 0) #13
   store ptr null, ptr %13, align 8
@@ -1059,7 +1059,7 @@ define void @Java_sun_awt_image_JPEGImageDecoder_readImage(ptr noundef %0, ptr n
 
 RELEASE_ARRAYS.exit:                              ; preds = %33, %35
   %41 = load ptr, ptr %0, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 120
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 120
   %43 = load ptr, ptr %42, align 8
   %44 = call ptr %43(ptr noundef nonnull %0) #13
   %.not93 = icmp eq ptr %44, null
@@ -1067,7 +1067,7 @@ RELEASE_ARRAYS.exit:                              ; preds = %33, %35
 
 45:                                               ; preds = %RELEASE_ARRAYS.exit
   %46 = load ptr, ptr %5, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %48 = load ptr, ptr %47, align 8
   call void %48(ptr noundef nonnull %5, ptr noundef nonnull %8) #13
   call void @JNU_ThrowByName(ptr noundef nonnull %0, ptr noundef nonnull @.str.9, ptr noundef nonnull %8) #13
@@ -1075,32 +1075,32 @@ RELEASE_ARRAYS.exit:                              ; preds = %33, %35
 
 49:                                               ; preds = %12
   call void @jCreaDecompress(ptr noundef nonnull %5, i32 noundef 62, i64 noundef 632) #13
-  %50 = getelementptr inbounds i8, ptr %5, i64 40
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %7, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %7, i64 56
+  %51 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store ptr %2, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %7, i64 88
+  %52 = getelementptr inbounds nuw i8, ptr %7, i64 88
   store ptr %3, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %7, i64 120
+  %53 = getelementptr inbounds nuw i8, ptr %7, i64 120
   store ptr null, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %7, i64 64
+  %54 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i32 0, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %7, i64 72
+  %55 = getelementptr inbounds nuw i8, ptr %7, i64 72
   store i64 0, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %7, i64 96
+  %56 = getelementptr inbounds nuw i8, ptr %7, i64 96
   store i64 -1, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %7, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr @sun_jpeg_init_source, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %7, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr @sun_jpeg_fill_input_buffer, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %7, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr @sun_jpeg_skip_input_data, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %7, i64 40
+  %60 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr @jResyncRestart, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %7, i64 48
+  %61 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr @sun_jpeg_term_source, ptr %61, align 8
   %62 = load ptr, ptr %0, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 1776
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 1776
   %64 = load ptr, ptr %63, align 8
   %65 = call ptr %64(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef null) #13
   store ptr %65, ptr %14, align 8
@@ -1114,7 +1114,7 @@ RELEASE_ARRAYS.exit:                              ; preds = %33, %35
 
 69:                                               ; preds = %67
   %70 = load ptr, ptr %0, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 1784
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 1784
   %72 = load ptr, ptr %71, align 8
   %73 = load ptr, ptr %53, align 8
   call void %72(ptr noundef nonnull %0, ptr noundef %73, ptr noundef nonnull %68, i32 noundef 0) #13
@@ -1139,9 +1139,9 @@ GET_ARRAYS.exit:                                  ; preds = %69, %67
 80:                                               ; preds = %74, %78
   %81 = call i32 @jReadHeader(ptr noundef nonnull %5, i32 noundef 1) #13
   %82 = call i32 @jHasMultScn(ptr noundef nonnull %5) #13
-  %83 = getelementptr inbounds i8, ptr %5, i64 88
+  %83 = getelementptr inbounds nuw i8, ptr %5, i64 88
   store i32 %82, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %5, i64 64
+  %84 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %85 = load i32, ptr %84, align 8
   %86 = icmp eq i32 %85, 1
   %87 = zext i1 %86 to i32
@@ -1158,7 +1158,7 @@ GET_ARRAYS.exit:                                  ; preds = %69, %67
   %.sink.i96 = select i1 %91, i64 -1, i64 %94
   store i64 %.sink.i96, ptr %56, align 8
   %95 = load ptr, ptr %0, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 1784
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 1784
   %97 = load ptr, ptr %96, align 8
   %98 = load ptr, ptr %52, align 8
   call void %97(ptr noundef nonnull %0, ptr noundef %98, ptr noundef nonnull %88, i32 noundef 0) #13
@@ -1172,7 +1172,7 @@ GET_ARRAYS.exit:                                  ; preds = %69, %67
 
 101:                                              ; preds = %99
   %102 = load ptr, ptr %0, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 1784
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 1784
   %104 = load ptr, ptr %103, align 8
   %105 = load ptr, ptr %53, align 8
   call void %104(ptr noundef nonnull %0, ptr noundef %105, ptr noundef nonnull %100, i32 noundef 0) #13
@@ -1181,16 +1181,16 @@ GET_ARRAYS.exit:                                  ; preds = %69, %67
 
 RELEASE_ARRAYS.exit98:                            ; preds = %99, %101
   %106 = load ptr, ptr %0, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 296
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 296
   %108 = load ptr, ptr %107, align 8
   %109 = load ptr, ptr @sendHeaderInfoID, align 8
-  %110 = getelementptr inbounds i8, ptr %5, i64 48
+  %110 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %111 = load i32, ptr %110, align 8
-  %112 = getelementptr inbounds i8, ptr %5, i64 52
+  %112 = getelementptr inbounds nuw i8, ptr %5, i64 52
   %113 = load i32, ptr %112, align 4
   %114 = call zeroext i8 (ptr, ptr, ptr, ...) %108(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %109, i32 noundef %111, i32 noundef %113, i32 noundef %87, i32 noundef 0, i32 noundef %82) #13
   %115 = load ptr, ptr %0, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 120
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 120
   %117 = load ptr, ptr %116, align 8
   %118 = call ptr %117(ptr noundef nonnull %0) #13
   %119 = icmp eq ptr %118, null
@@ -1206,7 +1206,7 @@ RELEASE_ARRAYS.exit98:                            ; preds = %99, %101
   %123 = load ptr, ptr %0, align 8
   %124 = load i32, ptr %110, align 8
   %. = select i1 %86, i64 1408, i64 1432
-  %125 = getelementptr inbounds i8, ptr %123, i64 %.
+  %125 = getelementptr inbounds nuw i8, ptr %123, i64 %.
   %126 = load ptr, ptr %125, align 8
   %127 = call ptr %126(ptr noundef nonnull %0, i32 noundef %124) #13
   store ptr %127, ptr %53, align 8
@@ -1215,14 +1215,14 @@ RELEASE_ARRAYS.exit98:                            ; preds = %99, %101
 
 129:                                              ; preds = %122
   %130 = load ptr, ptr %0, align 8
-  %131 = getelementptr inbounds i8, ptr %130, i64 1368
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 1368
   %132 = load ptr, ptr %131, align 8
   %133 = call i32 %132(ptr noundef nonnull %0, ptr noundef nonnull %127) #13
   %134 = sext i32 %133 to i64
-  %135 = getelementptr inbounds i8, ptr %7, i64 112
+  %135 = getelementptr inbounds nuw i8, ptr %7, i64 112
   store i64 %134, ptr %135, align 8
   %136 = load ptr, ptr %0, align 8
-  %137 = getelementptr inbounds i8, ptr %136, i64 1776
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 1776
   %138 = load ptr, ptr %137, align 8
   %139 = load ptr, ptr %53, align 8
   %140 = call ptr %138(ptr noundef nonnull %0, ptr noundef %139, ptr noundef null) #13
@@ -1237,7 +1237,7 @@ RELEASE_ARRAYS.exit98:                            ; preds = %99, %101
 
 144:                                              ; preds = %142
   %145 = load ptr, ptr %0, align 8
-  %146 = getelementptr inbounds i8, ptr %145, i64 1776
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 1776
   %147 = load ptr, ptr %146, align 8
   %148 = call ptr %147(ptr noundef nonnull %0, ptr noundef nonnull %143, ptr noundef null) #13
   store ptr %148, ptr %14, align 8
@@ -1251,7 +1251,7 @@ RELEASE_ARRAYS.exit98:                            ; preds = %99, %101
 
 152:                                              ; preds = %150
   %153 = load ptr, ptr %0, align 8
-  %154 = getelementptr inbounds i8, ptr %153, i64 1784
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 1784
   %155 = load ptr, ptr %154, align 8
   %156 = load ptr, ptr %53, align 8
   call void %155(ptr noundef nonnull %0, ptr noundef %156, ptr noundef nonnull %151, i32 noundef 0) #13
@@ -1286,16 +1286,16 @@ GET_ARRAYS.exit103:                               ; preds = %161, %157, %142
   br i1 %.not87, label %168, label %166
 
 166:                                              ; preds = %164
-  %167 = getelementptr inbounds i8, ptr %5, i64 96
+  %167 = getelementptr inbounds nuw i8, ptr %5, i64 96
   store i32 1, ptr %167, align 8
   br label %168
 
 168:                                              ; preds = %164, %166
   %.0 = phi i32 [ 0, %166 ], [ 1, %164 ]
-  %169 = getelementptr inbounds i8, ptr %5, i64 96
-  %170 = getelementptr inbounds i8, ptr %5, i64 172
-  %171 = getelementptr inbounds i8, ptr %5, i64 168
-  %172 = getelementptr inbounds i8, ptr %5, i64 140
+  %169 = getelementptr inbounds nuw i8, ptr %5, i64 96
+  %170 = getelementptr inbounds nuw i8, ptr %5, i64 172
+  %171 = getelementptr inbounds nuw i8, ptr %5, i64 168
+  %172 = getelementptr inbounds nuw i8, ptr %5, i64 140
   br label %173
 
 173:                                              ; preds = %301, %168
@@ -1370,7 +1370,7 @@ GET_ARRAYS.exit103:                               ; preds = %161, %157, %142
   %.sink.i105 = select i1 %197, i64 -1, i64 %200
   store i64 %.sink.i105, ptr %56, align 8
   %201 = load ptr, ptr %0, align 8
-  %202 = getelementptr inbounds i8, ptr %201, i64 1784
+  %202 = getelementptr inbounds nuw i8, ptr %201, i64 1784
   %203 = load ptr, ptr %202, align 8
   %204 = load ptr, ptr %52, align 8
   call void %203(ptr noundef nonnull %0, ptr noundef %204, ptr noundef nonnull %194, i32 noundef 0) #13
@@ -1391,7 +1391,7 @@ GET_ARRAYS.exit103:                               ; preds = %161, %157, %142
 .lr.ph.preheader:                                 ; preds = %207
   %211 = mul i64 %209, 3
   %212 = getelementptr inbounds i8, ptr %208, i64 %211
-  %213 = getelementptr inbounds i32, ptr %208, i64 %209
+  %213 = getelementptr inbounds nuw i32, ptr %208, i64 %209
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -1431,7 +1431,7 @@ GET_ARRAYS.exit103:                               ; preds = %161, %157, %142
   %.sink.i109 = select i1 %233, i64 -1, i64 %236
   store i64 %.sink.i109, ptr %56, align 8
   %237 = load ptr, ptr %0, align 8
-  %238 = getelementptr inbounds i8, ptr %237, i64 1784
+  %238 = getelementptr inbounds nuw i8, ptr %237, i64 1784
   %239 = load ptr, ptr %238, align 8
   %240 = load ptr, ptr %52, align 8
   call void %239(ptr noundef nonnull %0, ptr noundef %240, ptr noundef nonnull %230, i32 noundef 0) #13
@@ -1448,7 +1448,7 @@ RELEASE_ARRAYS.exit107.sink.split:                ; preds = %241, %205
   %.sink145 = phi ptr [ %206, %205 ], [ %242, %241 ]
   %sendPixelsIntID.sink.ph = phi ptr [ @sendPixelsByteID, %205 ], [ @sendPixelsIntID, %241 ]
   %243 = load ptr, ptr %0, align 8
-  %244 = getelementptr inbounds i8, ptr %243, i64 1784
+  %244 = getelementptr inbounds nuw i8, ptr %243, i64 1784
   %245 = load ptr, ptr %244, align 8
   %246 = load ptr, ptr %53, align 8
   call void %245(ptr noundef nonnull %0, ptr noundef %246, ptr noundef nonnull %.sink145, i32 noundef 0) #13
@@ -1458,7 +1458,7 @@ RELEASE_ARRAYS.exit107.sink.split:                ; preds = %241, %205
 RELEASE_ARRAYS.exit107:                           ; preds = %RELEASE_ARRAYS.exit107.sink.split, %241, %205
   %sendPixelsIntID.sink = phi ptr [ @sendPixelsByteID, %205 ], [ @sendPixelsIntID, %241 ], [ %sendPixelsIntID.sink.ph, %RELEASE_ARRAYS.exit107.sink.split ]
   %247 = load ptr, ptr %0, align 8
-  %248 = getelementptr inbounds i8, ptr %247, i64 296
+  %248 = getelementptr inbounds nuw i8, ptr %247, i64 296
   %249 = load ptr, ptr %248, align 8
   %250 = load ptr, ptr %sendPixelsIntID.sink, align 8
   %251 = load ptr, ptr %53, align 8
@@ -1466,7 +1466,7 @@ RELEASE_ARRAYS.exit107:                           ; preds = %RELEASE_ARRAYS.exit
   %253 = add i32 %252, -1
   %254 = call zeroext i8 (ptr, ptr, ptr, ...) %249(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %250, ptr noundef %251, i32 noundef %253) #13
   %255 = load ptr, ptr %0, align 8
-  %256 = getelementptr inbounds i8, ptr %255, i64 120
+  %256 = getelementptr inbounds nuw i8, ptr %255, i64 120
   %257 = load ptr, ptr %256, align 8
   %258 = call ptr %257(ptr noundef nonnull %0) #13
   %259 = icmp eq ptr %258, null
@@ -1481,13 +1481,13 @@ RELEASE_ARRAYS.exit107:                           ; preds = %RELEASE_ARRAYS.exit
 
 263:                                              ; preds = %261
   %264 = load ptr, ptr %0, align 8
-  %265 = getelementptr inbounds i8, ptr %264, i64 1368
+  %265 = getelementptr inbounds nuw i8, ptr %264, i64 1368
   %266 = load ptr, ptr %265, align 8
   %267 = call i32 %266(ptr noundef nonnull %0, ptr noundef nonnull %262) #13
   %268 = sext i32 %267 to i64
   store i64 %268, ptr %135, align 8
   %269 = load ptr, ptr %0, align 8
-  %270 = getelementptr inbounds i8, ptr %269, i64 1776
+  %270 = getelementptr inbounds nuw i8, ptr %269, i64 1776
   %271 = load ptr, ptr %270, align 8
   %272 = load ptr, ptr %53, align 8
   %273 = call ptr %271(ptr noundef nonnull %0, ptr noundef %272, ptr noundef null) #13
@@ -1502,7 +1502,7 @@ RELEASE_ARRAYS.exit107:                           ; preds = %RELEASE_ARRAYS.exit
 
 277:                                              ; preds = %275
   %278 = load ptr, ptr %0, align 8
-  %279 = getelementptr inbounds i8, ptr %278, i64 1776
+  %279 = getelementptr inbounds nuw i8, ptr %278, i64 1776
   %280 = load ptr, ptr %279, align 8
   %281 = call ptr %280(ptr noundef nonnull %0, ptr noundef nonnull %276, ptr noundef null) #13
   store ptr %281, ptr %14, align 8
@@ -1516,7 +1516,7 @@ RELEASE_ARRAYS.exit107:                           ; preds = %RELEASE_ARRAYS.exit
 
 285:                                              ; preds = %283
   %286 = load ptr, ptr %0, align 8
-  %287 = getelementptr inbounds i8, ptr %286, i64 1784
+  %287 = getelementptr inbounds nuw i8, ptr %286, i64 1784
   %288 = load ptr, ptr %287, align 8
   %289 = load ptr, ptr %53, align 8
   call void %288(ptr noundef nonnull %0, ptr noundef %289, ptr noundef nonnull %284, i32 noundef 0) #13
@@ -1572,7 +1572,7 @@ declare ptr @jStdError(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: noreturn nounwind uwtable
 define internal void @sun_jpeg_error_exit(ptr nocapture noundef readonly %0) #6 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 168
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 168
   tail call void @longjmp(ptr noundef nonnull %3, i32 noundef 1) #15
   unreachable
 }
@@ -1581,7 +1581,7 @@ define internal void @sun_jpeg_error_exit(ptr nocapture noundef readonly %0) #6 
 define internal void @sun_jpeg_output_message(ptr noundef %0) #7 {
   %2 = alloca [200 x i8], align 16
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
   call void %5(ptr noundef nonnull %0, ptr noundef nonnull %2) #13
   %6 = load ptr, ptr @stderr, align 8

@@ -195,7 +195,7 @@ declare i32 @udp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_shicp(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 288
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %6 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %6, 3250
   br i1 %.not, label %7, label %16
@@ -238,12 +238,12 @@ define internal i32 @dissect_shicp(ptr noundef %0, ptr noundef %1, ptr noundef %
   store i32 0, ptr %6, align 4
   store i32 0, ptr %7, align 4
   store i64 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %10, ptr noundef nonnull @.str.76) #3
   %12 = load ptr, ptr %9, align 8
   %13 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %12, ptr noundef nonnull @.str.76) #3
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   tail call void @col_set_str(ptr noundef %15, i32 noundef 34, ptr noundef nonnull @.str.63) #3
   %16 = load ptr, ptr %14, align 8
@@ -253,10 +253,10 @@ define internal i32 @dissect_shicp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %19 = load i32, ptr @ett_shicp, align 4
   %20 = tail call ptr @proto_item_add_subtree(ptr noundef %18, i32 noundef %19) #3
   %21 = load ptr, ptr %9, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %23 = tail call ptr @address_with_resolution_to_str(ptr noundef %21, ptr noundef nonnull %22) #3
   %24 = load ptr, ptr %9, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 136
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %26 = tail call ptr @address_with_resolution_to_str(ptr noundef %24, ptr noundef nonnull %25) #3
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %18, ptr noundef nonnull @.str.77, ptr noundef %23, ptr noundef %26) #3
   %27 = load i32, ptr @hf_shicp_header, align 4
@@ -495,10 +495,10 @@ define internal i32 @dissect_shicp(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 switch.lookup:                                    ; preds = %.lr.ph
   %159 = zext nneg i8 %153 to i64
-  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table.dissect_shicp, i64 0, i64 %159
+  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.dissect_shicp, i64 0, i64 %159
   %switch.load = load ptr, ptr %switch.gep, align 8
   %160 = zext nneg i8 %153 to i64
-  %switch.gep240 = getelementptr inbounds [8 x i32], ptr @switch.table.dissect_shicp.1, i64 0, i64 %160
+  %switch.gep240 = getelementptr inbounds nuw [8 x i32], ptr @switch.table.dissect_shicp.1, i64 0, i64 %160
   %switch.load241 = load i32, ptr %switch.gep240, align 4
   %161 = load i32, ptr %switch.load, align 4
   %162 = call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %161, ptr noundef %0, i32 noundef %157, i32 noundef %156, i32 noundef %switch.load241) #3

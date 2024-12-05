@@ -45,9 +45,9 @@ define hidden void @"_ZN63_$LT$u8$u20$as$u20$alloc..vec..spec_from_elem..SpecFro
   %.sink = phi ptr [ %7, %5 ], [ %10, %8 ]
   %.sink1 = extractvalue { i64, ptr } %.pn, 0
   store i64 %.sink1, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %2, ptr %14, align 8
   ret void
 }
@@ -67,17 +67,17 @@ _ZN5alloc3fmt6format17hf6ddbaba453730d3E.exit:
   store i64 %0, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   store ptr %4, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17he756d3674ca19dc2E", ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %1), !noalias !4
   store ptr @anon.063a6eda66e372215699932fa5a1275a.17, ptr %1, align 8, !noalias !15
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 2, ptr %.sroa.5.0..sroa_idx, align 8, !noalias !15
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %2, ptr %.sroa.7.0..sroa_idx, align 8, !noalias !15
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 1, ptr %.sroa.8.0..sroa_idx, align 8, !noalias !15
-  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 32
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr null, ptr %.sroa.10.0..sroa_idx, align 8, !noalias !15
   call void @_ZN5alloc3fmt6format12format_inner17h8acc7e10788d82b9E(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %1), !noalias !16
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %1), !noalias !4
@@ -100,12 +100,12 @@ define noundef zeroext i1 @_ZN13grep_searcher11line_buffer15BinaryDetection7is_q
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @"_ZN77_$LT$grep_searcher..line_buffer..Config$u20$as$u20$core..default..Default$GT$7default17h91fcd1434033ca11E"(ptr noalias nocapture noundef writeonly sret({ { i64, [1 x i64] }, i64, { i8, [1 x i8] }, i8, [5 x i8] }) align 8 dereferenceable(32) initializes((0, 8), (16, 25), (26, 27)) %0) unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 65536, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 26
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 26
   store i8 10, ptr %3, align 2
   store i64 0, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 0, ptr %4, align 8
   ret void
 }
@@ -113,37 +113,37 @@ define void @"_ZN77_$LT$grep_searcher..line_buffer..Config$u20$as$u20$core..defa
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN13grep_searcher11line_buffer17LineBufferBuilder3new17hd392f9d663029bf5E(ptr noalias nocapture noundef writeonly sret({ { { i64, [1 x i64] }, i64, { i8, [1 x i8] }, i8, [5 x i8] } }) align 8 dereferenceable(32) initializes((0, 8), (16, 25), (26, 27)) %0) unnamed_addr #4 {
   store i64 0, ptr %0, align 8
-  %.sroa.41.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.41.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 65536, ptr %.sroa.41.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 0, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.62.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 26
+  %.sroa.62.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 26
   store i8 10, ptr %.sroa.62.0..sroa_idx, align 2
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN13grep_searcher11line_buffer17LineBufferBuilder5build17hedde0cfe37f466e8E(ptr noalias nocapture noundef writeonly sret({ { { i64, [1 x i64] }, i64, { i8, [1 x i8] }, i8, [5 x i8] }, { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, i64, i64, i64, i64 }) align 8 dereferenceable(104) initializes((0, 40), (48, 104)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #2 {
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
   %3 = load i64, ptr %.sroa.3.0..sroa_idx, align 8
   %4 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17ha43889fc6207b940E"(i64 noundef %.sroa.2.0.copyload, i1 noundef zeroext true), !noalias !19
   %5 = extractvalue { i64, ptr } %4, 1
   %.sink1.i = extractvalue { i64, ptr } %4, 0
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
-  %.sroa.2.0..sroa_idx1 = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.2.0..sroa_idx1 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.2.0.copyload, ptr %.sroa.2.0..sroa_idx1, align 8
-  %.sroa.3.0..sroa_idx3 = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.3.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %3, ptr %.sroa.3.0..sroa_idx3, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %.sink1.i, ptr %6, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %5, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 64
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 %.sroa.2.0.copyload, ptr %.sroa.5.0..sroa_idx, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 72
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 0, ptr %8, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   ret void
@@ -151,14 +151,14 @@ define hidden void @_ZN13grep_searcher11line_buffer17LineBufferBuilder5build17he
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN13grep_searcher11line_buffer17LineBufferBuilder8capacity17hc66f3f1180d28d37E(ptr noalias noundef returned writeonly align 8 dereferenceable(32) initializes((16, 24)) %0, i64 noundef %1) unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %1, ptr %3, align 8
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN13grep_searcher11line_buffer17LineBufferBuilder15line_terminator17h7a039f5f53169ab2E(ptr noalias noundef returned writeonly align 8 dereferenceable(32) initializes((26, 27)) %0, i8 noundef %1) unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 26
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 26
   store i8 %1, ptr %3, align 2
   ret ptr %0
 }
@@ -166,33 +166,33 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN13grep_searche
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN13grep_searcher11line_buffer17LineBufferBuilder12buffer_alloc17hf6e5b81829f6618fE(ptr noalias noundef returned writeonly align 8 dereferenceable(32) initializes((0, 16)) %0, i64 noundef %1, i64 %2) unnamed_addr #4 {
   store i64 %1, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %4, align 8
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN13grep_searcher11line_buffer17LineBufferBuilder16binary_detection17h937825dbfcb82d06E(ptr noalias noundef returned writeonly align 8 dereferenceable(32) initializes((24, 26)) %0, i8 noundef %1, i8 %2) unnamed_addr #4 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 25
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 25
   store i8 %2, ptr %5, align 1
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN13grep_searcher11line_buffer10LineBuffer20set_binary_detection17h10ee8bd070153260E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(104) initializes((24, 26)) %0, i8 noundef %1, i8 %2) unnamed_addr #4 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 25
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 25
   store i8 %2, ptr %5, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN13grep_searcher11line_buffer10LineBuffer5clear17hdcd75cda4a4db88fE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(104) initializes((32, 40), (72, 104)) %0) unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 0, ptr %3, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   ret void
@@ -200,16 +200,16 @@ define void @_ZN13grep_searcher11line_buffer10LineBuffer5clear17hdcd75cda4a4db88
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef i64 @_ZN13grep_searcher11line_buffer10LineBuffer20absolute_byte_offset17h94561b415042146dE(ptr noalias nocapture noundef readonly align 8 dereferenceable(104) %0) unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 96
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load i64, ptr %2, align 8, !noundef !18
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { i64, i64 } @_ZN13grep_searcher11line_buffer10LineBuffer18binary_byte_offset17h8f46e2de16ef997aE(ptr noalias nocapture noundef readonly align 8 dereferenceable(104) %0) unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8, !range !22, !noundef !18
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i64, ptr %4, align 8
   %6 = insertvalue { i64, i64 } poison, i64 %3, 0
   %7 = insertvalue { i64, i64 } %6, i64 %5, 1
@@ -218,13 +218,13 @@ define { i64, i64 } @_ZN13grep_searcher11line_buffer10LineBuffer18binary_byte_of
 
 ; Function Attrs: nonlazybind uwtable
 define { ptr, i64 } @_ZN13grep_searcher11line_buffer10LineBuffer6buffer17h8f688a4f9537719fE(ptr noalias nocapture noundef readonly align 8 dereferenceable(104) %0) unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load i64, ptr %2, align 8, !noundef !18
-  %4 = getelementptr inbounds i8, ptr %0, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load i64, ptr %4, align 8, !noundef !18
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8, !nonnull !18, !noundef !18
-  %8 = getelementptr inbounds i8, ptr %0, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load i64, ptr %8, align 8, !noundef !18
   %10 = icmp ugt i64 %3, %5
   br i1 %10, label %13, label %11
@@ -251,15 +251,15 @@ define { ptr, i64 } @_ZN13grep_searcher11line_buffer10LineBuffer6buffer17h8f688a
 
 ; Function Attrs: nonlazybind uwtable
 define { ptr, i64 } @_ZN13grep_searcher11line_buffer10LineBuffer11free_buffer17h3180c133324235abE(ptr noalias nocapture noundef readonly align 8 dereferenceable(104) %0) unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 88
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load i64, ptr %2, align 8, !noundef !18
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load i64, ptr %4, align 8, !noundef !18
   %6 = icmp ugt i64 %3, %5
   br i1 %6, label %14, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load ptr, ptr %8, align 8, !nonnull !18, !noundef !18
   %10 = sub nuw i64 %5, %3
   %11 = getelementptr inbounds i8, ptr %9, i64 %3
@@ -275,11 +275,11 @@ define { ptr, i64 } @_ZN13grep_searcher11line_buffer10LineBuffer11free_buffer17h
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN13grep_searcher11line_buffer10LineBuffer7consume17h1d9f088ff06f557aE(ptr noalias nocapture noundef align 8 dereferenceable(104) %0, i64 noundef %1) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26)
-  %3 = getelementptr inbounds i8, ptr %0, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load i64, ptr %3, align 8, !alias.scope !26, !noundef !18
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load i64, ptr %5, align 8, !alias.scope !26, !noundef !18
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load i64, ptr %7, align 8, !alias.scope !26, !noundef !18
   %9 = icmp ugt i64 %4, %6
   br i1 %9, label %12, label %10
@@ -308,7 +308,7 @@ _ZN13grep_searcher11line_buffer10LineBuffer6buffer17h8f688a4f9537719fE.exit: ; p
 16:                                               ; preds = %_ZN13grep_searcher11line_buffer10LineBuffer6buffer17h8f688a4f9537719fE.exit
   %17 = add i64 %4, %1
   store i64 %17, ptr %3, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 96
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %19 = load i64, ptr %18, align 8, !noundef !18
   %20 = add i64 %19, %1
   store i64 %20, ptr %18, align 8
@@ -317,18 +317,18 @@ _ZN13grep_searcher11line_buffer10LineBuffer6buffer17h8f688a4f9537719fE.exit: ; p
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN13grep_searcher11line_buffer10LineBuffer4roll17h6a404be292265d0eE(ptr noalias nocapture noundef align 8 dereferenceable(104) initializes((80, 88)) %0) unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load i64, ptr %2, align 8, !noundef !18
-  %4 = getelementptr inbounds i8, ptr %0, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load i64, ptr %4, align 8, !noundef !18
   %6 = icmp eq i64 %3, %5
   br i1 %6, label %18, label %7
 
 7:                                                ; preds = %1
   %8 = sub i64 %5, %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load ptr, ptr %9, align 8, !nonnull !18, !noundef !18
-  %11 = getelementptr inbounds i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = load i64, ptr %11, align 8, !noundef !18
   tail call void @llvm.experimental.noalias.scope.decl(metadata !32)
   %13 = tail call { i64, i64 } @_ZN4core5slice5index5range17h3311f9a1b53f674fE(i64 noundef %3, i64 noundef %5, i64 noundef %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.063a6eda66e372215699932fa5a1275a.24), !noalias !32
@@ -342,7 +342,7 @@ define void @_ZN13grep_searcher11line_buffer10LineBuffer4roll17h6a404be292265d0e
 18:                                               ; preds = %1, %7
   %.sink = phi i64 [ %8, %7 ], [ 0, %1 ]
   store i64 0, ptr %2, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 80
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 %.sink, ptr %19, align 8
   store i64 %.sink, ptr %4, align 8
   ret void
@@ -355,9 +355,9 @@ define noundef ptr @_ZN13grep_searcher11line_buffer10LineBuffer15ensure_capacity
   %4 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %5 = alloca i64, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
-  %6 = getelementptr inbounds i8, ptr %0, i64 88
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %7 = load i64, ptr %6, align 8, !alias.scope !37, !noundef !18
-  %8 = getelementptr inbounds i8, ptr %0, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load i64, ptr %8, align 8, !alias.scope !37, !noundef !18
   %10 = icmp ugt i64 %7, %9
   br i1 %10, label %11, label %_ZN13grep_searcher11line_buffer10LineBuffer11free_buffer17h3180c133324235abE.exit
@@ -371,16 +371,16 @@ _ZN13grep_searcher11line_buffer10LineBuffer11free_buffer17h3180c133324235abE.exi
   br i1 %12, label %13, label %30
 
 13:                                               ; preds = %_ZN13grep_searcher11line_buffer10LineBuffer11free_buffer17h3180c133324235abE.exit
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.0.sroa.speculated.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %7, i64 1)
   %15 = load i64, ptr %0, align 8, !range !22, !noundef !18
   %trunc = trunc nuw i64 %15 to i1
   br i1 %trunc, label %16, label %24
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load i64, ptr %17, align 8, !noundef !18
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load i64, ptr %19, align 8, !noundef !18
   %21 = shl i64 %.0.sroa.speculated.i, 1
   %.neg = sub i64 %18, %7
@@ -401,17 +401,17 @@ _ZN13grep_searcher11line_buffer10LineBuffer11free_buffer17h3180c133324235abE.exi
   store i64 %27, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   store ptr %5, ptr %3, align 8
-  %28 = getelementptr inbounds i8, ptr %3, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17he756d3674ca19dc2E", ptr %28, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2), !noalias !40
   store ptr @anon.063a6eda66e372215699932fa5a1275a.17, ptr %2, align 8, !noalias !51
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 2, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !51
-  %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 16
+  %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %3, ptr %.sroa.7.0..sroa_idx.i, align 8, !noalias !51
-  %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 24
+  %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 1, ptr %.sroa.8.0..sroa_idx.i, align 8, !noalias !51
-  %.sroa.10.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 32
+  %.sroa.10.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr null, ptr %.sroa.10.0..sroa_idx.i, align 8, !noalias !51
   call void @_ZN5alloc3fmt6format12format_inner17h8acc7e10788d82b9E(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2), !noalias !52
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2), !noalias !40
@@ -490,7 +490,7 @@ define { i64, i64 } @_ZN13grep_searcher11line_buffer13replace_bytes17h216e63b278
   br i1 %18, label %19, label %28, !prof !64
 
 19:                                               ; preds = %12
-  %20 = getelementptr inbounds [0 x i8], ptr %0, i64 0, i64 %16
+  %20 = getelementptr inbounds nuw [0 x i8], ptr %0, i64 0, i64 %16
   store i8 %3, ptr %20, align 1
   %21 = add nuw i64 %16, 1
   %22 = getelementptr inbounds i8, ptr %0, i64 %21
@@ -523,7 +523,7 @@ define { i64, i64 } @_ZN13grep_searcher11line_buffer13replace_bytes17h216e63b278
   br i1 %35, label %36, label %41, !prof !64
 
 36:                                               ; preds = %.lr.ph88
-  %37 = getelementptr inbounds [0 x i8], ptr %.sroa.0.087, i64 0, i64 %33
+  %37 = getelementptr inbounds nuw [0 x i8], ptr %.sroa.0.087, i64 0, i64 %33
   store i8 %3, ptr %37, align 1
   %38 = add nuw i64 %33, 1
   %39 = sub nuw i64 %.sroa.13.086, %38
@@ -556,7 +556,7 @@ define { i64, i64 } @_ZN13grep_searcher11line_buffer13replace_bytes17h216e63b278
 49:                                               ; preds = %.lr.ph
   store i8 %3, ptr %.sroa.0.180, align 1
   %50 = add i64 %.sroa.13.179, -1
-  %51 = getelementptr inbounds i8, ptr %.sroa.0.180, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %.sroa.0.180, i64 1
   %.not = icmp eq i64 %50, 0
   br i1 %.not, label %.critedge, label %.lr.ph
 

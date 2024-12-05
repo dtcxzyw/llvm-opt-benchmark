@@ -23,18 +23,18 @@ if.then1:                                         ; preds = %if.end
   %0 = load i8, ptr %call, align 1
   %cmp2 = icmp eq i8 %0, 126
   %idx.ext = zext i1 %cmp2 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %call, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw i8, ptr %call, i64 %idx.ext
   %1 = load i8, ptr %add.ptr, align 1
   %cmp.i = icmp eq i8 %1, 48
   br i1 %cmp.i, label %if.then.i, label %if.end7.i
 
 if.then.i:                                        ; preds = %if.then1
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %add.ptr, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 1
   %2 = load i8, ptr %incdec.ptr.i, align 1
   %conv2.i = sext i8 %2 to i32
   %call.i = tail call i32 @ossl_tolower(i32 noundef %conv2.i) #3
   %cmp3.i = icmp eq i32 %call.i, 120
-  %incdec.ptr6.i = getelementptr inbounds i8, ptr %add.ptr, i64 2
+  %incdec.ptr6.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 2
   %spec.select.i = select i1 %cmp3.i, ptr %incdec.ptr6.i, ptr %incdec.ptr.i
   %spec.select7.i = select i1 %cmp3.i, i32 16, i32 8
   br label %if.end7.i
@@ -74,7 +74,7 @@ todigit.exit.i:                                   ; preds = %if.then5.i.i, %if.t
   br i1 %cmp10.i, label %while.body.i, label %ossl_strtouint64.exit
 
 while.body.i:                                     ; preds = %todigit.exit.i
-  %incdec.ptr8.i = getelementptr inbounds i8, ptr %str.addr.1.i, i64 1
+  %incdec.ptr8.i = getelementptr inbounds nuw i8, ptr %str.addr.1.i, i64 1
   %mul.i = mul i64 %ret.0.i, %conv12.i
   %conv13.i = zext nneg i32 %retval.0.i.i to i64
   %add.i = add i64 %mul.i, %conv13.i
@@ -115,26 +115,26 @@ while.cond.i17:                                   ; preds = %if.end.i, %if.end20
   ]
 
 if.end.i:                                         ; preds = %while.cond.i17
-  %incdec.ptr.i19 = getelementptr inbounds i8, ptr %str.addr.0.i18, i64 1
+  %incdec.ptr.i19 = getelementptr inbounds nuw i8, ptr %str.addr.0.i18, i64 1
   br label %while.cond.i17, !llvm.loop !6
 
 if.then24:                                        ; preds = %while.cond.i17
-  %incdec.ptr = getelementptr inbounds i8, ptr %str.addr.0.i18, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %str.addr.0.i18, i64 1
   %6 = load i8, ptr %incdec.ptr, align 1
   %cmp27 = icmp eq i8 %6, 126
   %idx.ext30 = zext i1 %cmp27 to i64
-  %add.ptr31 = getelementptr inbounds i8, ptr %incdec.ptr, i64 %idx.ext30
+  %add.ptr31 = getelementptr inbounds nuw i8, ptr %incdec.ptr, i64 %idx.ext30
   %7 = load i8, ptr %add.ptr31, align 1
   %cmp.i20 = icmp eq i8 %7, 48
   br i1 %cmp.i20, label %if.then.i47, label %if.end7.i21
 
 if.then.i47:                                      ; preds = %if.then24
-  %incdec.ptr.i48 = getelementptr inbounds i8, ptr %add.ptr31, i64 1
+  %incdec.ptr.i48 = getelementptr inbounds nuw i8, ptr %add.ptr31, i64 1
   %8 = load i8, ptr %incdec.ptr.i48, align 1
   %conv2.i49 = sext i8 %8 to i32
   %call.i50 = tail call i32 @ossl_tolower(i32 noundef %conv2.i49) #3
   %cmp3.i51 = icmp eq i32 %call.i50, 120
-  %incdec.ptr6.i52 = getelementptr inbounds i8, ptr %add.ptr31, i64 2
+  %incdec.ptr6.i52 = getelementptr inbounds nuw i8, ptr %add.ptr31, i64 2
   %spec.select.i53 = select i1 %cmp3.i51, ptr %incdec.ptr6.i52, ptr %incdec.ptr.i48
   %spec.select7.i54 = select i1 %cmp3.i51, i32 16, i32 8
   br label %if.end7.i21
@@ -174,7 +174,7 @@ todigit.exit.i33:                                 ; preds = %if.then5.i.i44, %if
   br i1 %cmp10.i35, label %while.body.i36, label %ossl_strtouint64.exit55
 
 while.body.i36:                                   ; preds = %todigit.exit.i33
-  %incdec.ptr8.i37 = getelementptr inbounds i8, ptr %str.addr.1.i27, i64 1
+  %incdec.ptr8.i37 = getelementptr inbounds nuw i8, ptr %str.addr.1.i27, i64 1
   %mul.i38 = mul i64 %ret.0.i26, %conv12.i24
   %conv13.i39 = zext nneg i32 %retval.0.i.i34 to i64
   %add.i40 = add i64 %mul.i38, %conv13.i39

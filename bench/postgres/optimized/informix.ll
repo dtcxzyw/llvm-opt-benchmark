@@ -429,7 +429,7 @@ define range(i32 -1211, 1) i32 @dectoasc(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %13, label %17, label %14
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %7, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %16 = load i32, ptr %15, align 4
   br label %17
 
@@ -600,7 +600,7 @@ define range(i32 -1212, 1) i32 @rstrdate(ptr noundef %0, ptr noundef %1) local_u
 
 switch.lookup:                                    ; preds = %6
   %9 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table.rdefmtdate, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.rdefmtdate, i64 0, i64 %9
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %rdefmtdate.exit
 
@@ -625,7 +625,7 @@ define range(i32 -1212, 1) i32 @rdefmtdate(ptr noundef %0, ptr noundef %1, ptr n
 
 switch.lookup:                                    ; preds = %7
   %10 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table.rdefmtdate, i64 0, i64 %10
+  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.rdefmtdate, i64 0, i64 %10
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %11
 
@@ -649,12 +649,12 @@ define noundef i32 @rjulmdy(i64 noundef %0, ptr nocapture noundef writeonly init
   %4 = load i32, ptr %3, align 4
   %5 = trunc i32 %4 to i16
   store i16 %5, ptr %1, align 2
-  %6 = getelementptr inbounds i8, ptr %3, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = trunc i32 %7 to i16
   %9 = getelementptr i8, ptr %1, i64 2
   store i16 %8, ptr %9, align 2
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %11 = load i32, ptr %10, align 4
   %12 = trunc i32 %11 to i16
   %13 = getelementptr i8, ptr %1, i64 4
@@ -696,12 +696,12 @@ define noundef i32 @rmdyjul(ptr nocapture noundef readonly %0, ptr noundef %1) l
   %6 = getelementptr i8, ptr %0, i64 2
   %7 = load i16, ptr %6, align 2
   %8 = sext i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %3, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %8, ptr %9, align 4
   %10 = getelementptr i8, ptr %0, i64 4
   %11 = load i16, ptr %10, align 2
   %12 = sext i16 %11 to i32
-  %13 = getelementptr inbounds i8, ptr %3, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %12, ptr %13, align 4
   call void @PGTYPESdate_mdyjul(ptr noundef nonnull %3, ptr noundef %1) #16
   ret i32 0

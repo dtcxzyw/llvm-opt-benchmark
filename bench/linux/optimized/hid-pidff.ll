@@ -57,9 +57,9 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 7168
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 7168
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %0, i64 2160
   %7 = load volatile ptr, ptr %6, align 8
@@ -74,20 +74,20 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 
 13:                                               ; preds = %9
   store ptr %0, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 7164
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 7164
   %15 = load i8, ptr %14, align 4, !range !5, !noundef !6
   %16 = icmp eq i8 %15, 0
   br i1 %16, label %19, label %17
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %0, i64 6352
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %18, ptr noundef nonnull @.str.3) #8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 6352
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %18, ptr noundef nonnull @.str.3) #8
   br label %21
 
 19:                                               ; preds = %13
   store i8 1, ptr %14, align 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 6328
-  tail call void @up(ptr noundef %20) #9
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 6328
+  tail call void @up(ptr noundef nonnull %20) #9
   br label %21
 
 21:                                               ; preds = %19, %17
@@ -96,21 +96,21 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   br i1 %23, label %.loopexit175, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %11, i64 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %27
 
 27:                                               ; preds = %.thread120, %24
   %28 = phi ptr [ %22, %24 ], [ %88, %.thread120 ]
-  %29 = getelementptr inbounds i8, ptr %28, i64 2120
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 2120
   %30 = load i32, ptr %29, align 8
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %.thread120, label %32
 
 32:                                               ; preds = %27
-  %33 = getelementptr inbounds i8, ptr %28, i64 64
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 64
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %36 = load i32, ptr %35, align 4
   br label %37
 
@@ -140,9 +140,9 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   br label %86
 
 .thread:                                          ; preds = %44, %47
-  %53 = getelementptr inbounds i8, ptr %34, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %56 = load i32, ptr %55, align 4
   %57 = icmp slt i32 %56, 1
   br i1 %57, label %.thread120, label %58
@@ -205,21 +205,21 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   br i1 %92, label %.loopexit174, label %93
 
 93:                                               ; preds = %.loopexit175
-  %94 = getelementptr inbounds i8, ptr %11, i64 8
-  %95 = getelementptr inbounds i8, ptr %0, i64 32
+  %94 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %96
 
 96:                                               ; preds = %.thread122, %93
   %97 = phi ptr [ %91, %93 ], [ %157, %.thread122 ]
-  %98 = getelementptr inbounds i8, ptr %97, i64 2120
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 2120
   %99 = load i32, ptr %98, align 8
   %100 = icmp eq i32 %99, 0
   br i1 %100, label %.thread122, label %101
 
 101:                                              ; preds = %96
-  %102 = getelementptr inbounds i8, ptr %97, i64 64
+  %102 = getelementptr inbounds nuw i8, ptr %97, i64 64
   %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 4
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 4
   %105 = load i32, ptr %104, align 4
   br label %106
 
@@ -249,9 +249,9 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   br label %155
 
 .thread121:                                       ; preds = %113, %116
-  %122 = getelementptr inbounds i8, ptr %103, i64 16
+  %122 = getelementptr inbounds nuw i8, ptr %103, i64 16
   %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 4
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 4
   %125 = load i32, ptr %124, align 4
   %126 = icmp slt i32 %125, 1
   br i1 %126, label %.thread122, label %127
@@ -308,7 +308,7 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   br i1 %158, label %.loopexit174, label %96, !llvm.loop !10
 
 .loopexit174:                                     ; preds = %.thread122, %.loopexit175
-  %159 = getelementptr inbounds i8, ptr %11, i64 8
+  %159 = getelementptr inbounds nuw i8, ptr %11, i64 8
   br label %160
 
 160:                                              ; preds = %160, %.loopexit174
@@ -325,10 +325,10 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   br i1 %164, label %.critedge119.thread, label %169
 
 169:                                              ; preds = %168
-  %170 = getelementptr inbounds i8, ptr %11, i64 112
+  %170 = getelementptr inbounds nuw i8, ptr %11, i64 112
   %171 = load ptr, ptr %159, align 8
-  %172 = getelementptr inbounds i8, ptr %171, i64 2120
-  %173 = getelementptr inbounds i8, ptr %171, i64 64
+  %172 = getelementptr inbounds nuw i8, ptr %171, i64 2120
+  %173 = getelementptr inbounds nuw i8, ptr %171, i64 64
   br label %174
 
 174:                                              ; preds = %.loopexit173, %169
@@ -347,9 +347,9 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   %183 = sext i32 %182 to i64
   %184 = getelementptr [256 x ptr], ptr %173, i64 0, i64 %183
   %185 = load ptr, ptr %184, align 8
-  %186 = getelementptr inbounds i8, ptr %185, i64 24
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 24
   %187 = load i32, ptr %186, align 8
-  %188 = getelementptr inbounds i8, ptr %185, i64 40
+  %188 = getelementptr inbounds nuw i8, ptr %185, i64 40
   %189 = load i32, ptr %188, align 8
   %190 = icmp eq i32 %187, %189
   %191 = icmp ne i32 %187, 0
@@ -357,7 +357,7 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   br i1 %192, label %193, label %.loopexit172
 
 193:                                              ; preds = %180
-  %194 = getelementptr inbounds i8, ptr %185, i64 16
+  %194 = getelementptr inbounds nuw i8, ptr %185, i64 16
   %195 = load ptr, ptr %194, align 8
   %196 = load i8, ptr %179, align 1
   %197 = zext i8 %196 to i32
@@ -382,10 +382,10 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   %210 = getelementptr %struct.pidff_usage, ptr %170, i64 %175
   store ptr %185, ptr %210, align 8
   %211 = load ptr, ptr %209, align 8
-  %212 = getelementptr inbounds i8, ptr %211, i64 48
+  %212 = getelementptr inbounds nuw i8, ptr %211, i64 48
   %213 = load ptr, ptr %212, align 8
   %214 = getelementptr i32, ptr %213, i64 %204
-  %215 = getelementptr inbounds i8, ptr %210, i64 8
+  %215 = getelementptr inbounds nuw i8, ptr %210, i64 8
   store ptr %214, ptr %215, align 8
   br label %.loopexit173
 
@@ -407,16 +407,16 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 
 .thread124:                                       ; preds = %174, %223
   %224 = load ptr, ptr %11, align 8
-  %225 = getelementptr inbounds i8, ptr %224, i64 6352
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %225, ptr noundef nonnull @.str.4) #8
+  %225 = getelementptr inbounds nuw i8, ptr %224, i64 6352
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %225, ptr noundef nonnull @.str.4) #8
   br label %.critedge119.thread
 
 226:                                              ; preds = %223
-  %227 = getelementptr inbounds i8, ptr %11, i64 608
+  %227 = getelementptr inbounds nuw i8, ptr %11, i64 608
   %228 = getelementptr i8, ptr %11, i64 40
   %229 = load ptr, ptr %228, align 8
-  %230 = getelementptr inbounds i8, ptr %229, i64 2120
-  %231 = getelementptr inbounds i8, ptr %229, i64 64
+  %230 = getelementptr inbounds nuw i8, ptr %229, i64 2120
+  %231 = getelementptr inbounds nuw i8, ptr %229, i64 64
   br label %232
 
 232:                                              ; preds = %.loopexit171, %226
@@ -435,9 +435,9 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   %241 = sext i32 %240 to i64
   %242 = getelementptr [256 x ptr], ptr %231, i64 0, i64 %241
   %243 = load ptr, ptr %242, align 8
-  %244 = getelementptr inbounds i8, ptr %243, i64 24
+  %244 = getelementptr inbounds nuw i8, ptr %243, i64 24
   %245 = load i32, ptr %244, align 8
-  %246 = getelementptr inbounds i8, ptr %243, i64 40
+  %246 = getelementptr inbounds nuw i8, ptr %243, i64 40
   %247 = load i32, ptr %246, align 8
   %248 = icmp eq i32 %245, %247
   %249 = icmp ne i32 %245, 0
@@ -445,7 +445,7 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   br i1 %250, label %251, label %.loopexit170
 
 251:                                              ; preds = %239
-  %252 = getelementptr inbounds i8, ptr %243, i64 16
+  %252 = getelementptr inbounds nuw i8, ptr %243, i64 16
   %253 = load ptr, ptr %252, align 8
   %254 = load i8, ptr %238, align 1
   %255 = zext i8 %254 to i32
@@ -470,10 +470,10 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   %268 = getelementptr %struct.pidff_usage, ptr %227, i64 %234
   store ptr %243, ptr %268, align 8
   %269 = load ptr, ptr %267, align 8
-  %270 = getelementptr inbounds i8, ptr %269, i64 48
+  %270 = getelementptr inbounds nuw i8, ptr %269, i64 48
   %271 = load ptr, ptr %270, align 8
   %272 = getelementptr i32, ptr %271, i64 %262
-  %273 = getelementptr inbounds i8, ptr %268, i64 8
+  %273 = getelementptr inbounds nuw i8, ptr %268, i64 8
   store ptr %272, ptr %273, align 8
   br label %.loopexit171
 
@@ -486,23 +486,23 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   br i1 %233, label %276, label %232, !llvm.loop !14
 
 276:                                              ; preds = %.loopexit171
-  %277 = getelementptr inbounds i8, ptr %11, i64 616
+  %277 = getelementptr inbounds nuw i8, ptr %11, i64 616
   %278 = load ptr, ptr %277, align 8
   %279 = icmp eq ptr %278, null
   br i1 %279, label %280, label %283
 
 280:                                              ; preds = %276
   %281 = load ptr, ptr %11, align 8
-  %282 = getelementptr inbounds i8, ptr %281, i64 6352
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %282, ptr noundef nonnull @.str.5) #8
+  %282 = getelementptr inbounds nuw i8, ptr %281, i64 6352
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %282, ptr noundef nonnull @.str.5) #8
   br label %.critedge119.thread
 
 283:                                              ; preds = %276
-  %284 = getelementptr inbounds i8, ptr %11, i64 688
+  %284 = getelementptr inbounds nuw i8, ptr %11, i64 688
   %285 = getelementptr i8, ptr %11, i64 16
   %286 = load ptr, ptr %285, align 8
-  %287 = getelementptr inbounds i8, ptr %286, i64 2120
-  %288 = getelementptr inbounds i8, ptr %286, i64 64
+  %287 = getelementptr inbounds nuw i8, ptr %286, i64 2120
+  %288 = getelementptr inbounds nuw i8, ptr %286, i64 64
   br label %289
 
 289:                                              ; preds = %.loopexit169, %283
@@ -522,9 +522,9 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   %299 = sext i32 %298 to i64
   %300 = getelementptr [256 x ptr], ptr %288, i64 0, i64 %299
   %301 = load ptr, ptr %300, align 8
-  %302 = getelementptr inbounds i8, ptr %301, i64 24
+  %302 = getelementptr inbounds nuw i8, ptr %301, i64 24
   %303 = load i32, ptr %302, align 8
-  %304 = getelementptr inbounds i8, ptr %301, i64 40
+  %304 = getelementptr inbounds nuw i8, ptr %301, i64 40
   %305 = load i32, ptr %304, align 8
   %306 = icmp eq i32 %303, %305
   %307 = icmp ne i32 %303, 0
@@ -532,7 +532,7 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   br i1 %308, label %309, label %.loopexit168
 
 309:                                              ; preds = %296
-  %310 = getelementptr inbounds i8, ptr %301, i64 16
+  %310 = getelementptr inbounds nuw i8, ptr %301, i64 16
   %311 = load ptr, ptr %310, align 8
   %312 = load i8, ptr %295, align 1
   %313 = zext i8 %312 to i32
@@ -557,10 +557,10 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   %326 = getelementptr %struct.pidff_usage, ptr %284, i64 %291
   store ptr %301, ptr %326, align 8
   %327 = load ptr, ptr %325, align 8
-  %328 = getelementptr inbounds i8, ptr %327, i64 48
+  %328 = getelementptr inbounds nuw i8, ptr %327, i64 48
   %329 = load ptr, ptr %328, align 8
   %330 = getelementptr i32, ptr %329, i64 %320
-  %331 = getelementptr inbounds i8, ptr %326, i64 8
+  %331 = getelementptr inbounds nuw i8, ptr %326, i64 8
   store ptr %330, ptr %331, align 8
   br label %.loopexit169
 
@@ -580,16 +580,16 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 
 .thread126:                                       ; preds = %289, %337
   %338 = load ptr, ptr %11, align 8
-  %339 = getelementptr inbounds i8, ptr %338, i64 6352
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %339, ptr noundef nonnull @.str.6) #8
+  %339 = getelementptr inbounds nuw i8, ptr %338, i64 6352
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %339, ptr noundef nonnull @.str.6) #8
   br label %.critedge119.thread
 
 340:                                              ; preds = %337
-  %341 = getelementptr inbounds i8, ptr %11, i64 720
+  %341 = getelementptr inbounds nuw i8, ptr %11, i64 720
   %342 = getelementptr i8, ptr %11, i64 48
   %343 = load ptr, ptr %342, align 8
-  %344 = getelementptr inbounds i8, ptr %343, i64 64
-  %345 = getelementptr inbounds i8, ptr %343, i64 2120
+  %344 = getelementptr inbounds nuw i8, ptr %343, i64 64
+  %345 = getelementptr inbounds nuw i8, ptr %343, i64 2120
   %346 = load i32, ptr %345, align 8
   %347 = icmp eq i32 %346, 0
   br i1 %347, label %.critedge, label %.preheader167
@@ -600,9 +600,9 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   %350 = sext i32 %349 to i64
   %351 = getelementptr [256 x ptr], ptr %344, i64 0, i64 %350
   %352 = load ptr, ptr %351, align 8
-  %353 = getelementptr inbounds i8, ptr %352, i64 24
+  %353 = getelementptr inbounds nuw i8, ptr %352, i64 24
   %354 = load i32, ptr %353, align 8
-  %355 = getelementptr inbounds i8, ptr %352, i64 40
+  %355 = getelementptr inbounds nuw i8, ptr %352, i64 40
   %356 = load i32, ptr %355, align 8
   %357 = icmp eq i32 %354, %356
   %358 = icmp ne i32 %354, 0
@@ -610,7 +610,7 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   br i1 %359, label %360, label %.loopexit166
 
 360:                                              ; preds = %.preheader167
-  %361 = getelementptr inbounds i8, ptr %352, i64 16
+  %361 = getelementptr inbounds nuw i8, ptr %352, i64 16
   %362 = load ptr, ptr %361, align 8
   br label %366
 
@@ -631,10 +631,10 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   %373 = getelementptr [256 x ptr], ptr %344, i64 0, i64 %350
   store ptr %352, ptr %341, align 8
   %374 = load ptr, ptr %373, align 8
-  %375 = getelementptr inbounds i8, ptr %374, i64 48
+  %375 = getelementptr inbounds nuw i8, ptr %374, i64 48
   %376 = load ptr, ptr %375, align 8
   %377 = getelementptr i32, ptr %376, i64 %368
-  %378 = getelementptr inbounds i8, ptr %11, i64 728
+  %378 = getelementptr inbounds nuw i8, ptr %11, i64 728
   store ptr %377, ptr %378, align 8
   br i1 %348, label %.critedge, label %384
 
@@ -646,16 +646,16 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 
 .critedge:                                        ; preds = %.loopexit166, %372, %340
   %382 = load ptr, ptr %11, align 8
-  %383 = getelementptr inbounds i8, ptr %382, i64 6352
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %383, ptr noundef nonnull @.str.7) #8
+  %383 = getelementptr inbounds nuw i8, ptr %382, i64 6352
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %383, ptr noundef nonnull @.str.7) #8
   br label %.critedge119.thread
 
 384:                                              ; preds = %372
-  %385 = getelementptr inbounds i8, ptr %11, i64 224
+  %385 = getelementptr inbounds nuw i8, ptr %11, i64 224
   %386 = getelementptr i8, ptr %11, i64 72
   %387 = load ptr, ptr %386, align 8
-  %388 = getelementptr inbounds i8, ptr %387, i64 2120
-  %389 = getelementptr inbounds i8, ptr %387, i64 64
+  %388 = getelementptr inbounds nuw i8, ptr %387, i64 2120
+  %389 = getelementptr inbounds nuw i8, ptr %387, i64 64
   br label %390
 
 390:                                              ; preds = %.loopexit165, %384
@@ -674,9 +674,9 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   %399 = sext i32 %398 to i64
   %400 = getelementptr [256 x ptr], ptr %389, i64 0, i64 %399
   %401 = load ptr, ptr %400, align 8
-  %402 = getelementptr inbounds i8, ptr %401, i64 24
+  %402 = getelementptr inbounds nuw i8, ptr %401, i64 24
   %403 = load i32, ptr %402, align 8
-  %404 = getelementptr inbounds i8, ptr %401, i64 40
+  %404 = getelementptr inbounds nuw i8, ptr %401, i64 40
   %405 = load i32, ptr %404, align 8
   %406 = icmp eq i32 %403, %405
   %407 = icmp ne i32 %403, 0
@@ -684,7 +684,7 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   br i1 %408, label %409, label %.loopexit164
 
 409:                                              ; preds = %396
-  %410 = getelementptr inbounds i8, ptr %401, i64 16
+  %410 = getelementptr inbounds nuw i8, ptr %401, i64 16
   %411 = load ptr, ptr %410, align 8
   %412 = load i8, ptr %395, align 1
   %413 = zext i8 %412 to i32
@@ -709,10 +709,10 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   %426 = getelementptr %struct.pidff_usage, ptr %385, i64 %391
   store ptr %401, ptr %426, align 8
   %427 = load ptr, ptr %425, align 8
-  %428 = getelementptr inbounds i8, ptr %427, i64 48
+  %428 = getelementptr inbounds nuw i8, ptr %427, i64 48
   %429 = load ptr, ptr %428, align 8
   %430 = getelementptr i32, ptr %429, i64 %420
-  %431 = getelementptr inbounds i8, ptr %426, i64 8
+  %431 = getelementptr inbounds nuw i8, ptr %426, i64 8
   store ptr %430, ptr %431, align 8
   br label %.loopexit165
 
@@ -733,13 +733,13 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   %439 = phi i1 [ %435, %.loopexit165 ], [ true, %390 ]
   %440 = getelementptr i8, ptr %11, i64 64
   %441 = load ptr, ptr %440, align 8
-  %442 = getelementptr inbounds i8, ptr %441, i64 2120
+  %442 = getelementptr inbounds nuw i8, ptr %441, i64 2120
   %443 = load i32, ptr %442, align 8
   %444 = icmp eq i32 %443, 0
   br i1 %444, label %.loopexit163, label %445
 
 445:                                              ; preds = %.thread127
-  %446 = getelementptr inbounds i8, ptr %441, i64 64
+  %446 = getelementptr inbounds nuw i8, ptr %441, i64 64
   br label %447
 
 447:                                              ; preds = %465, %445
@@ -747,19 +747,19 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   %449 = sext i32 %448 to i64
   %450 = getelementptr [256 x ptr], ptr %446, i64 0, i64 %449
   %451 = load ptr, ptr %450, align 8
-  %452 = getelementptr inbounds i8, ptr %451, i64 4
+  %452 = getelementptr inbounds nuw i8, ptr %451, i64 4
   %453 = load i32, ptr %452, align 4
   %454 = icmp eq i32 %453, 983077
   br i1 %454, label %455, label %465
 
 455:                                              ; preds = %447
-  %456 = getelementptr inbounds i8, ptr %451, i64 40
+  %456 = getelementptr inbounds nuw i8, ptr %451, i64 40
   %457 = load i32, ptr %456, align 8
   %458 = icmp eq i32 %457, 0
   br i1 %458, label %465, label %459
 
 459:                                              ; preds = %455
-  %460 = getelementptr inbounds i8, ptr %451, i64 72
+  %460 = getelementptr inbounds nuw i8, ptr %451, i64 72
   %461 = load i32, ptr %460, align 8
   %462 = icmp eq i32 %461, 1
   br i1 %462, label %.loopexit163, label %463
@@ -775,16 +775,16 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 
 .loopexit163:                                     ; preds = %465, %463, %459, %.thread127
   %468 = phi ptr [ null, %463 ], [ %451, %459 ], [ null, %.thread127 ], [ null, %465 ]
-  %469 = getelementptr inbounds i8, ptr %11, i64 736
+  %469 = getelementptr inbounds nuw i8, ptr %11, i64 736
   store ptr %468, ptr %469, align 8
   %470 = load ptr, ptr %159, align 8
-  %471 = getelementptr inbounds i8, ptr %470, i64 2120
+  %471 = getelementptr inbounds nuw i8, ptr %470, i64 2120
   %472 = load i32, ptr %471, align 8
   %473 = icmp eq i32 %472, 0
   br i1 %473, label %.loopexit162, label %474
 
 474:                                              ; preds = %.loopexit163
-  %475 = getelementptr inbounds i8, ptr %470, i64 64
+  %475 = getelementptr inbounds nuw i8, ptr %470, i64 64
   br label %476
 
 476:                                              ; preds = %494, %474
@@ -792,19 +792,19 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   %478 = sext i32 %477 to i64
   %479 = getelementptr [256 x ptr], ptr %475, i64 0, i64 %478
   %480 = load ptr, ptr %479, align 8
-  %481 = getelementptr inbounds i8, ptr %480, i64 4
+  %481 = getelementptr inbounds nuw i8, ptr %480, i64 4
   %482 = load i32, ptr %481, align 4
   %483 = icmp eq i32 %482, 983077
   br i1 %483, label %484, label %494
 
 484:                                              ; preds = %476
-  %485 = getelementptr inbounds i8, ptr %480, i64 40
+  %485 = getelementptr inbounds nuw i8, ptr %480, i64 40
   %486 = load i32, ptr %485, align 8
   %487 = icmp eq i32 %486, 0
   br i1 %487, label %494, label %488
 
 488:                                              ; preds = %484
-  %489 = getelementptr inbounds i8, ptr %480, i64 72
+  %489 = getelementptr inbounds nuw i8, ptr %480, i64 72
   %490 = load i32, ptr %489, align 8
   %491 = icmp eq i32 %490, 1
   br i1 %491, label %.loopexit162, label %492
@@ -822,15 +822,15 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 .loopexit162:                                     ; preds = %494, %492, %488, %.loopexit163
   %497 = phi ptr [ %.pre, %492 ], [ %470, %488 ], [ %470, %.loopexit163 ], [ %470, %494 ]
   %498 = phi ptr [ null, %492 ], [ %480, %488 ], [ null, %.loopexit163 ], [ null, %494 ]
-  %499 = getelementptr inbounds i8, ptr %11, i64 744
+  %499 = getelementptr inbounds nuw i8, ptr %11, i64 744
   store ptr %498, ptr %499, align 8
-  %500 = getelementptr inbounds i8, ptr %497, i64 2120
+  %500 = getelementptr inbounds nuw i8, ptr %497, i64 2120
   %501 = load i32, ptr %500, align 8
   %502 = icmp eq i32 %501, 0
   br i1 %502, label %.loopexit161, label %503
 
 503:                                              ; preds = %.loopexit162
-  %504 = getelementptr inbounds i8, ptr %497, i64 64
+  %504 = getelementptr inbounds nuw i8, ptr %497, i64 64
   br label %505
 
 505:                                              ; preds = %517, %503
@@ -838,13 +838,13 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   %507 = sext i32 %506 to i64
   %508 = getelementptr [256 x ptr], ptr %504, i64 0, i64 %507
   %509 = load ptr, ptr %508, align 8
-  %510 = getelementptr inbounds i8, ptr %509, i64 4
+  %510 = getelementptr inbounds nuw i8, ptr %509, i64 4
   %511 = load i32, ptr %510, align 4
   %512 = icmp eq i32 %511, 983127
   br i1 %512, label %513, label %517
 
 513:                                              ; preds = %505
-  %514 = getelementptr inbounds i8, ptr %509, i64 40
+  %514 = getelementptr inbounds nuw i8, ptr %509, i64 40
   %515 = load i32, ptr %514, align 8
   %516 = icmp eq i32 %515, 0
   br i1 %516, label %517, label %.loopexit161
@@ -856,17 +856,17 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 
 .loopexit161:                                     ; preds = %517, %513, %.loopexit162
   %520 = phi ptr [ null, %.loopexit162 ], [ %509, %513 ], [ null, %517 ]
-  %521 = getelementptr inbounds i8, ptr %11, i64 752
+  %521 = getelementptr inbounds nuw i8, ptr %11, i64 752
   store ptr %520, ptr %521, align 8
   %522 = getelementptr i8, ptr %11, i64 56
   %523 = load ptr, ptr %522, align 8
-  %524 = getelementptr inbounds i8, ptr %523, i64 2120
+  %524 = getelementptr inbounds nuw i8, ptr %523, i64 2120
   %525 = load i32, ptr %524, align 8
   %526 = icmp eq i32 %525, 0
   br i1 %526, label %.loopexit160, label %527
 
 527:                                              ; preds = %.loopexit161
-  %528 = getelementptr inbounds i8, ptr %523, i64 64
+  %528 = getelementptr inbounds nuw i8, ptr %523, i64 64
   br label %529
 
 529:                                              ; preds = %547, %527
@@ -874,19 +874,19 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   %531 = sext i32 %530 to i64
   %532 = getelementptr [256 x ptr], ptr %528, i64 0, i64 %531
   %533 = load ptr, ptr %532, align 8
-  %534 = getelementptr inbounds i8, ptr %533, i64 4
+  %534 = getelementptr inbounds nuw i8, ptr %533, i64 4
   %535 = load i32, ptr %534, align 4
   %536 = icmp eq i32 %535, 983190
   br i1 %536, label %537, label %547
 
 537:                                              ; preds = %529
-  %538 = getelementptr inbounds i8, ptr %533, i64 40
+  %538 = getelementptr inbounds nuw i8, ptr %533, i64 40
   %539 = load i32, ptr %538, align 8
   %540 = icmp eq i32 %539, 0
   br i1 %540, label %547, label %541
 
 541:                                              ; preds = %537
-  %542 = getelementptr inbounds i8, ptr %533, i64 72
+  %542 = getelementptr inbounds nuw i8, ptr %533, i64 72
   %543 = load i32, ptr %542, align 8
   %544 = icmp eq i32 %543, 1
   br i1 %544, label %.loopexit160, label %545
@@ -902,16 +902,16 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 
 .loopexit160:                                     ; preds = %547, %545, %541, %.loopexit161
   %550 = phi ptr [ null, %545 ], [ %533, %541 ], [ null, %.loopexit161 ], [ null, %547 ]
-  %551 = getelementptr inbounds i8, ptr %11, i64 760
+  %551 = getelementptr inbounds nuw i8, ptr %11, i64 760
   store ptr %550, ptr %551, align 8
   %552 = load ptr, ptr %228, align 8
-  %553 = getelementptr inbounds i8, ptr %552, i64 2120
+  %553 = getelementptr inbounds nuw i8, ptr %552, i64 2120
   %554 = load i32, ptr %553, align 8
   %555 = icmp eq i32 %554, 0
   br i1 %555, label %.loopexit159, label %556
 
 556:                                              ; preds = %.loopexit160
-  %557 = getelementptr inbounds i8, ptr %552, i64 64
+  %557 = getelementptr inbounds nuw i8, ptr %552, i64 64
   br label %558
 
 558:                                              ; preds = %576, %556
@@ -919,19 +919,19 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   %560 = sext i32 %559 to i64
   %561 = getelementptr [256 x ptr], ptr %557, i64 0, i64 %560
   %562 = load ptr, ptr %561, align 8
-  %563 = getelementptr inbounds i8, ptr %562, i64 4
+  %563 = getelementptr inbounds nuw i8, ptr %562, i64 4
   %564 = load i32, ptr %563, align 4
   %565 = icmp eq i32 %564, 983179
   br i1 %565, label %566, label %576
 
 566:                                              ; preds = %558
-  %567 = getelementptr inbounds i8, ptr %562, i64 40
+  %567 = getelementptr inbounds nuw i8, ptr %562, i64 40
   %568 = load i32, ptr %567, align 8
   %569 = icmp eq i32 %568, 0
   br i1 %569, label %576, label %570
 
 570:                                              ; preds = %566
-  %571 = getelementptr inbounds i8, ptr %562, i64 72
+  %571 = getelementptr inbounds nuw i8, ptr %562, i64 72
   %572 = load i32, ptr %571, align 8
   %573 = icmp eq i32 %572, 1
   br i1 %573, label %.loopexit159, label %574
@@ -947,16 +947,16 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 
 .loopexit159:                                     ; preds = %576, %574, %570, %.loopexit160
   %579 = phi ptr [ null, %574 ], [ %562, %570 ], [ null, %.loopexit160 ], [ null, %576 ]
-  %580 = getelementptr inbounds i8, ptr %11, i64 768
+  %580 = getelementptr inbounds nuw i8, ptr %11, i64 768
   store ptr %579, ptr %580, align 8
   %581 = load ptr, ptr %285, align 8
-  %582 = getelementptr inbounds i8, ptr %581, i64 2120
+  %582 = getelementptr inbounds nuw i8, ptr %581, i64 2120
   %583 = load i32, ptr %582, align 8
   %584 = icmp eq i32 %583, 0
   br i1 %584, label %.loopexit158, label %585
 
 585:                                              ; preds = %.loopexit159
-  %586 = getelementptr inbounds i8, ptr %581, i64 64
+  %586 = getelementptr inbounds nuw i8, ptr %581, i64 64
   br label %587
 
 587:                                              ; preds = %605, %585
@@ -964,19 +964,19 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   %589 = sext i32 %588 to i64
   %590 = getelementptr [256 x ptr], ptr %586, i64 0, i64 %589
   %591 = load ptr, ptr %590, align 8
-  %592 = getelementptr inbounds i8, ptr %591, i64 4
+  %592 = getelementptr inbounds nuw i8, ptr %591, i64 4
   %593 = load i32, ptr %592, align 4
   %594 = icmp eq i32 %593, 983160
   br i1 %594, label %595, label %605
 
 595:                                              ; preds = %587
-  %596 = getelementptr inbounds i8, ptr %591, i64 40
+  %596 = getelementptr inbounds nuw i8, ptr %591, i64 40
   %597 = load i32, ptr %596, align 8
   %598 = icmp eq i32 %597, 0
   br i1 %598, label %605, label %599
 
 599:                                              ; preds = %595
-  %600 = getelementptr inbounds i8, ptr %591, i64 72
+  %600 = getelementptr inbounds nuw i8, ptr %591, i64 72
   %601 = load i32, ptr %600, align 8
   %602 = icmp eq i32 %601, 1
   br i1 %602, label %.loopexit158, label %603
@@ -992,7 +992,7 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 
 .loopexit158:                                     ; preds = %605, %603, %599, %.loopexit159
   %608 = phi ptr [ null, %603 ], [ %591, %599 ], [ null, %.loopexit159 ], [ null, %605 ]
-  %609 = getelementptr inbounds i8, ptr %11, i64 776
+  %609 = getelementptr inbounds nuw i8, ptr %11, i64 776
   store ptr %608, ptr %609, align 8
   %610 = load ptr, ptr %469, align 8
   %611 = icmp eq ptr %610, null
@@ -1005,8 +1005,8 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 
 615:                                              ; preds = %612, %.loopexit158
   %616 = load ptr, ptr %11, align 8
-  %617 = getelementptr inbounds i8, ptr %616, i64 6352
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %617, ptr noundef nonnull @.str.15) #8
+  %617 = getelementptr inbounds nuw i8, ptr %616, i64 6352
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %617, ptr noundef nonnull @.str.15) #8
   br label %.critedge119.thread
 
 618:                                              ; preds = %612
@@ -1016,8 +1016,8 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 
 621:                                              ; preds = %618
   %622 = load ptr, ptr %11, align 8
-  %623 = getelementptr inbounds i8, ptr %622, i64 6352
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %623, ptr noundef nonnull @.str.16) #8
+  %623 = getelementptr inbounds nuw i8, ptr %622, i64 6352
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %623, ptr noundef nonnull @.str.16) #8
   br label %.critedge119.thread
 
 624:                                              ; preds = %618
@@ -1027,8 +1027,8 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 
 627:                                              ; preds = %624
   %628 = load ptr, ptr %11, align 8
-  %629 = getelementptr inbounds i8, ptr %628, i64 6352
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %629, ptr noundef nonnull @.str.17) #8
+  %629 = getelementptr inbounds nuw i8, ptr %628, i64 6352
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %629, ptr noundef nonnull @.str.17) #8
   br label %.critedge119.thread
 
 630:                                              ; preds = %624
@@ -1038,8 +1038,8 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 
 633:                                              ; preds = %630
   %634 = load ptr, ptr %11, align 8
-  %635 = getelementptr inbounds i8, ptr %634, i64 6352
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %635, ptr noundef nonnull @.str.18) #8
+  %635 = getelementptr inbounds nuw i8, ptr %634, i64 6352
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %635, ptr noundef nonnull @.str.18) #8
   br label %.critedge119.thread
 
 636:                                              ; preds = %630
@@ -1048,14 +1048,14 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 
 638:                                              ; preds = %636
   %639 = load ptr, ptr %11, align 8
-  %640 = getelementptr inbounds i8, ptr %639, i64 6352
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %640, ptr noundef nonnull @.str.19) #8
+  %640 = getelementptr inbounds nuw i8, ptr %639, i64 6352
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %640, ptr noundef nonnull @.str.19) #8
   br label %.critedge119.thread
 
 641:                                              ; preds = %636
-  %642 = getelementptr inbounds i8, ptr %11, i64 784
-  %643 = getelementptr inbounds i8, ptr %625, i64 24
-  %644 = getelementptr inbounds i8, ptr %625, i64 16
+  %642 = getelementptr inbounds nuw i8, ptr %11, i64 784
+  %643 = getelementptr inbounds nuw i8, ptr %625, i64 24
+  %644 = getelementptr inbounds nuw i8, ptr %625, i64 16
   br label %645
 
 645:                                              ; preds = %.loopexit157, %641
@@ -1131,9 +1131,9 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   br i1 %667, label %688, label %.preheader591, !llvm.loop !17
 
 688:                                              ; preds = %.loopexit156
-  %689 = getelementptr inbounds i8, ptr %11, i64 792
-  %690 = getelementptr inbounds i8, ptr %610, i64 24
-  %691 = getelementptr inbounds i8, ptr %610, i64 16
+  %689 = getelementptr inbounds nuw i8, ptr %11, i64 792
+  %690 = getelementptr inbounds nuw i8, ptr %610, i64 24
+  %691 = getelementptr inbounds nuw i8, ptr %610, i64 16
   br label %692
 
 692:                                              ; preds = %.loopexit155, %688
@@ -1182,15 +1182,15 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 
 720:                                              ; preds = %718
   %721 = load ptr, ptr %11, align 8
-  %722 = getelementptr inbounds i8, ptr %721, i64 6352
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %722, ptr noundef nonnull @.str.20) #8
+  %722 = getelementptr inbounds nuw i8, ptr %721, i64 6352
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %722, ptr noundef nonnull @.str.20) #8
   br label %.critedge119.thread
 
 723:                                              ; preds = %718
-  %724 = getelementptr inbounds i8, ptr %11, i64 836
+  %724 = getelementptr inbounds nuw i8, ptr %11, i64 836
   %725 = load ptr, ptr %580, align 8
-  %726 = getelementptr inbounds i8, ptr %725, i64 24
-  %727 = getelementptr inbounds i8, ptr %725, i64 16
+  %726 = getelementptr inbounds nuw i8, ptr %725, i64 24
+  %727 = getelementptr inbounds nuw i8, ptr %725, i64 16
   br label %728
 
 728:                                              ; preds = %.loopexit154, %723
@@ -1238,15 +1238,15 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 
 755:                                              ; preds = %753
   %756 = load ptr, ptr %11, align 8
-  %757 = getelementptr inbounds i8, ptr %756, i64 6352
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %757, ptr noundef nonnull @.str.21) #8
+  %757 = getelementptr inbounds nuw i8, ptr %756, i64 6352
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %757, ptr noundef nonnull @.str.21) #8
   br label %.critedge119.thread
 
 758:                                              ; preds = %753
-  %759 = getelementptr inbounds i8, ptr %11, i64 844
+  %759 = getelementptr inbounds nuw i8, ptr %11, i64 844
   %760 = load ptr, ptr %609, align 8
-  %761 = getelementptr inbounds i8, ptr %760, i64 24
-  %762 = getelementptr inbounds i8, ptr %760, i64 16
+  %761 = getelementptr inbounds nuw i8, ptr %760, i64 24
+  %762 = getelementptr inbounds nuw i8, ptr %760, i64 16
   br label %763
 
 763:                                              ; preds = %.loopexit153, %758
@@ -1294,16 +1294,16 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 
 790:                                              ; preds = %788
   %791 = load ptr, ptr %11, align 8
-  %792 = getelementptr inbounds i8, ptr %791, i64 6352
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %792, ptr noundef nonnull @.str.22) #8
+  %792 = getelementptr inbounds nuw i8, ptr %791, i64 6352
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %792, ptr noundef nonnull @.str.22) #8
   br label %.critedge119.thread
 
 793:                                              ; preds = %788
   %794 = load ptr, ptr %499, align 8
-  %795 = getelementptr inbounds i8, ptr %794, i64 16
+  %795 = getelementptr inbounds nuw i8, ptr %794, i64 16
   %796 = load ptr, ptr %795, align 8
   %797 = load ptr, ptr %469, align 8
-  %798 = getelementptr inbounds i8, ptr %797, i64 16
+  %798 = getelementptr inbounds nuw i8, ptr %797, i64 16
   %799 = load ptr, ptr %798, align 8
   br label %800
 
@@ -1457,16 +1457,16 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 883:                                              ; preds = %800
   %884 = trunc i64 %801 to i32
   %885 = load ptr, ptr %11, align 8
-  %886 = getelementptr inbounds i8, ptr %885, i64 6352
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %886, ptr noundef nonnull @.str.24, i32 noundef %884) #8
+  %886 = getelementptr inbounds nuw i8, ptr %885, i64 6352
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %886, ptr noundef nonnull @.str.24, i32 noundef %884) #8
   br label %.critedge119.thread
 
 887:                                              ; preds = %881, %877
   br i1 %439, label %888, label %910
 
 888:                                              ; preds = %887
-  %889 = getelementptr inbounds i8, ptr %5, i64 184
-  %890 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %889, i64 82, ptr elementtype(i64) %889) #9, !srcloc !20
+  %889 = getelementptr inbounds nuw i8, ptr %5, i64 184
+  %890 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %889, i64 82, ptr nonnull elementtype(i64) %889) #9, !srcloc !20
   %891 = icmp ult i8 %890, 2
   tail call void @llvm.assume(i1 %891)
   %892 = icmp eq i8 %890, 0
@@ -1474,12 +1474,12 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 
 893:                                              ; preds = %888
   %894 = load ptr, ptr %11, align 8
-  %895 = getelementptr inbounds i8, ptr %894, i64 6352
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %895, ptr noundef nonnull @.str.8) #8
+  %895 = getelementptr inbounds nuw i8, ptr %894, i64 6352
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %895, ptr noundef nonnull @.str.8) #8
   br label %896
 
 896:                                              ; preds = %893, %888
-  %897 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %889, i64 87, ptr elementtype(i64) %889) #9, !srcloc !20
+  %897 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %889, i64 87, ptr nonnull elementtype(i64) %889) #9, !srcloc !20
   %898 = icmp ult i8 %897, 2
   tail call void @llvm.assume(i1 %898)
   %899 = icmp eq i8 %897, 0
@@ -1487,12 +1487,12 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 
 900:                                              ; preds = %896
   %901 = load ptr, ptr %11, align 8
-  %902 = getelementptr inbounds i8, ptr %901, i64 6352
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %902, ptr noundef nonnull @.str.9) #8
+  %902 = getelementptr inbounds nuw i8, ptr %901, i64 6352
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %902, ptr noundef nonnull @.str.9) #8
   br label %903
 
 903:                                              ; preds = %900, %896
-  %904 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %889, i64 81, ptr elementtype(i64) %889) #9, !srcloc !20
+  %904 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %889, i64 81, ptr nonnull elementtype(i64) %889) #9, !srcloc !20
   %905 = icmp ult i8 %904, 2
   tail call void @llvm.assume(i1 %905)
   %906 = icmp eq i8 %904, 0
@@ -1500,8 +1500,8 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 
 907:                                              ; preds = %903
   %908 = load ptr, ptr %11, align 8
-  %909 = getelementptr inbounds i8, ptr %908, i64 6352
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %909, ptr noundef nonnull @.str.10) #8
+  %909 = getelementptr inbounds nuw i8, ptr %908, i64 6352
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %909, ptr noundef nonnull @.str.10) #8
   br label %910
 
 910:                                              ; preds = %907, %903, %887
@@ -1512,11 +1512,11 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   br i1 %914, label %973, label %915
 
 915:                                              ; preds = %910
-  %916 = getelementptr inbounds i8, ptr %11, i64 512
+  %916 = getelementptr inbounds nuw i8, ptr %11, i64 512
   %917 = getelementptr i8, ptr %11, i64 96
   %918 = load ptr, ptr %917, align 8
-  %919 = getelementptr inbounds i8, ptr %918, i64 2120
-  %920 = getelementptr inbounds i8, ptr %918, i64 64
+  %919 = getelementptr inbounds nuw i8, ptr %918, i64 2120
+  %920 = getelementptr inbounds nuw i8, ptr %918, i64 64
   br label %921
 
 921:                                              ; preds = %.loopexit152, %915
@@ -1536,9 +1536,9 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   %931 = sext i32 %930 to i64
   %932 = getelementptr [256 x ptr], ptr %920, i64 0, i64 %931
   %933 = load ptr, ptr %932, align 8
-  %934 = getelementptr inbounds i8, ptr %933, i64 24
+  %934 = getelementptr inbounds nuw i8, ptr %933, i64 24
   %935 = load i32, ptr %934, align 8
-  %936 = getelementptr inbounds i8, ptr %933, i64 40
+  %936 = getelementptr inbounds nuw i8, ptr %933, i64 40
   %937 = load i32, ptr %936, align 8
   %938 = icmp eq i32 %935, %937
   %939 = icmp ne i32 %935, 0
@@ -1546,7 +1546,7 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   br i1 %940, label %941, label %.loopexit151
 
 941:                                              ; preds = %928
-  %942 = getelementptr inbounds i8, ptr %933, i64 16
+  %942 = getelementptr inbounds nuw i8, ptr %933, i64 16
   %943 = load ptr, ptr %942, align 8
   %944 = load i8, ptr %927, align 1
   %945 = zext i8 %944 to i32
@@ -1571,10 +1571,10 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   %958 = getelementptr %struct.pidff_usage, ptr %916, i64 %923
   store ptr %933, ptr %958, align 8
   %959 = load ptr, ptr %957, align 8
-  %960 = getelementptr inbounds i8, ptr %959, i64 48
+  %960 = getelementptr inbounds nuw i8, ptr %959, i64 48
   %961 = load ptr, ptr %960, align 8
   %962 = getelementptr i32, ptr %961, i64 %952
-  %963 = getelementptr inbounds i8, ptr %958, i64 8
+  %963 = getelementptr inbounds nuw i8, ptr %958, i64 8
   store ptr %962, ptr %963, align 8
   br label %.loopexit152
 
@@ -1594,8 +1594,8 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 
 .thread130:                                       ; preds = %921, %969
   %970 = load ptr, ptr %11, align 8
-  %971 = getelementptr inbounds i8, ptr %970, i64 6352
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %971, ptr noundef nonnull @.str.11) #8
+  %971 = getelementptr inbounds nuw i8, ptr %970, i64 6352
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %971, ptr noundef nonnull @.str.11) #8
   %972 = getelementptr i8, ptr %5, i64 194
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %972, i32 -5, ptr elementtype(i8) %972) #9, !srcloc !21
   br label %973
@@ -1607,11 +1607,11 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   br i1 %976, label %1036, label %977
 
 977:                                              ; preds = %973
-  %978 = getelementptr inbounds i8, ptr %11, i64 544
+  %978 = getelementptr inbounds nuw i8, ptr %11, i64 544
   %979 = getelementptr i8, ptr %11, i64 104
   %980 = load ptr, ptr %979, align 8
-  %981 = getelementptr inbounds i8, ptr %980, i64 2120
-  %982 = getelementptr inbounds i8, ptr %980, i64 64
+  %981 = getelementptr inbounds nuw i8, ptr %980, i64 2120
+  %982 = getelementptr inbounds nuw i8, ptr %980, i64 64
   br label %983
 
 983:                                              ; preds = %.loopexit150, %977
@@ -1630,9 +1630,9 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   %992 = sext i32 %991 to i64
   %993 = getelementptr [256 x ptr], ptr %982, i64 0, i64 %992
   %994 = load ptr, ptr %993, align 8
-  %995 = getelementptr inbounds i8, ptr %994, i64 24
+  %995 = getelementptr inbounds nuw i8, ptr %994, i64 24
   %996 = load i32, ptr %995, align 8
-  %997 = getelementptr inbounds i8, ptr %994, i64 40
+  %997 = getelementptr inbounds nuw i8, ptr %994, i64 40
   %998 = load i32, ptr %997, align 8
   %999 = icmp eq i32 %996, %998
   %1000 = icmp ne i32 %996, 0
@@ -1640,7 +1640,7 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   br i1 %1001, label %1002, label %.loopexit149
 
 1002:                                             ; preds = %989
-  %1003 = getelementptr inbounds i8, ptr %994, i64 16
+  %1003 = getelementptr inbounds nuw i8, ptr %994, i64 16
   %1004 = load ptr, ptr %1003, align 8
   %1005 = load i8, ptr %988, align 1
   %1006 = zext i8 %1005 to i32
@@ -1665,10 +1665,10 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   %1019 = getelementptr %struct.pidff_usage, ptr %978, i64 %984
   store ptr %994, ptr %1019, align 8
   %1020 = load ptr, ptr %1018, align 8
-  %1021 = getelementptr inbounds i8, ptr %1020, i64 48
+  %1021 = getelementptr inbounds nuw i8, ptr %1020, i64 48
   %1022 = load ptr, ptr %1021, align 8
   %1023 = getelementptr i32, ptr %1022, i64 %1013
-  %1024 = getelementptr inbounds i8, ptr %1019, i64 8
+  %1024 = getelementptr inbounds nuw i8, ptr %1019, i64 8
   store ptr %1023, ptr %1024, align 8
   br label %.loopexit150
 
@@ -1690,8 +1690,8 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 
 .thread132:                                       ; preds = %983, %1032
   %1033 = load ptr, ptr %11, align 8
-  %1034 = getelementptr inbounds i8, ptr %1033, i64 6352
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %1034, ptr noundef nonnull @.str.12) #8
+  %1034 = getelementptr inbounds nuw i8, ptr %1033, i64 6352
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %1034, ptr noundef nonnull @.str.12) #8
   %1035 = getelementptr i8, ptr %5, i64 194
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %1035, i32 -129, ptr elementtype(i8) %1035) #9, !srcloc !21
   br label %1036
@@ -1721,11 +1721,11 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   br i1 %1051, label %1111, label %1052
 
 1052:                                             ; preds = %1048, %1044, %1040, %1036
-  %1053 = getelementptr inbounds i8, ptr %11, i64 304
+  %1053 = getelementptr inbounds nuw i8, ptr %11, i64 304
   %1054 = getelementptr i8, ptr %11, i64 80
   %1055 = load ptr, ptr %1054, align 8
-  %1056 = getelementptr inbounds i8, ptr %1055, i64 2120
-  %1057 = getelementptr inbounds i8, ptr %1055, i64 64
+  %1056 = getelementptr inbounds nuw i8, ptr %1055, i64 2120
+  %1057 = getelementptr inbounds nuw i8, ptr %1055, i64 64
   br label %1058
 
 1058:                                             ; preds = %.loopexit148, %1052
@@ -1744,9 +1744,9 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   %1067 = sext i32 %1066 to i64
   %1068 = getelementptr [256 x ptr], ptr %1057, i64 0, i64 %1067
   %1069 = load ptr, ptr %1068, align 8
-  %1070 = getelementptr inbounds i8, ptr %1069, i64 24
+  %1070 = getelementptr inbounds nuw i8, ptr %1069, i64 24
   %1071 = load i32, ptr %1070, align 8
-  %1072 = getelementptr inbounds i8, ptr %1069, i64 40
+  %1072 = getelementptr inbounds nuw i8, ptr %1069, i64 40
   %1073 = load i32, ptr %1072, align 8
   %1074 = icmp eq i32 %1071, %1073
   %1075 = icmp ne i32 %1071, 0
@@ -1754,7 +1754,7 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   br i1 %1076, label %1077, label %.loopexit147
 
 1077:                                             ; preds = %1064
-  %1078 = getelementptr inbounds i8, ptr %1069, i64 16
+  %1078 = getelementptr inbounds nuw i8, ptr %1069, i64 16
   %1079 = load ptr, ptr %1078, align 8
   %1080 = load i8, ptr %1063, align 1
   %1081 = zext i8 %1080 to i32
@@ -1779,10 +1779,10 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   %1094 = getelementptr %struct.pidff_usage, ptr %1053, i64 %1059
   store ptr %1069, ptr %1094, align 8
   %1095 = load ptr, ptr %1093, align 8
-  %1096 = getelementptr inbounds i8, ptr %1095, i64 48
+  %1096 = getelementptr inbounds nuw i8, ptr %1095, i64 48
   %1097 = load ptr, ptr %1096, align 8
   %1098 = getelementptr i32, ptr %1097, i64 %1088
-  %1099 = getelementptr inbounds i8, ptr %1094, i64 8
+  %1099 = getelementptr inbounds nuw i8, ptr %1094, i64 8
   store ptr %1098, ptr %1099, align 8
   br label %.loopexit148
 
@@ -1804,8 +1804,8 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 
 .thread134:                                       ; preds = %1058, %1107
   %1108 = load ptr, ptr %11, align 8
-  %1109 = getelementptr inbounds i8, ptr %1108, i64 6352
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %1109, ptr noundef nonnull @.str.13) #8
+  %1109 = getelementptr inbounds nuw i8, ptr %1108, i64 6352
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %1109, ptr noundef nonnull @.str.13) #8
   %1110 = getelementptr i8, ptr %5, i64 194
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %1110, i32 -9, ptr elementtype(i8) %1110) #9, !srcloc !21
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %1110, i32 -33, ptr elementtype(i8) %1110) #9, !srcloc !21
@@ -1820,11 +1820,11 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   br i1 %1114, label %1174, label %1115
 
 1115:                                             ; preds = %1111
-  %1116 = getelementptr inbounds i8, ptr %11, i64 432
+  %1116 = getelementptr inbounds nuw i8, ptr %11, i64 432
   %1117 = getelementptr i8, ptr %11, i64 88
   %1118 = load ptr, ptr %1117, align 8
-  %1119 = getelementptr inbounds i8, ptr %1118, i64 2120
-  %1120 = getelementptr inbounds i8, ptr %1118, i64 64
+  %1119 = getelementptr inbounds nuw i8, ptr %1118, i64 2120
+  %1120 = getelementptr inbounds nuw i8, ptr %1118, i64 64
   br label %1121
 
 1121:                                             ; preds = %.loopexit146, %1115
@@ -1843,9 +1843,9 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   %1130 = sext i32 %1129 to i64
   %1131 = getelementptr [256 x ptr], ptr %1120, i64 0, i64 %1130
   %1132 = load ptr, ptr %1131, align 8
-  %1133 = getelementptr inbounds i8, ptr %1132, i64 24
+  %1133 = getelementptr inbounds nuw i8, ptr %1132, i64 24
   %1134 = load i32, ptr %1133, align 8
-  %1135 = getelementptr inbounds i8, ptr %1132, i64 40
+  %1135 = getelementptr inbounds nuw i8, ptr %1132, i64 40
   %1136 = load i32, ptr %1135, align 8
   %1137 = icmp eq i32 %1134, %1136
   %1138 = icmp ne i32 %1134, 0
@@ -1853,7 +1853,7 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   br i1 %1139, label %1140, label %.loopexit145
 
 1140:                                             ; preds = %1127
-  %1141 = getelementptr inbounds i8, ptr %1132, i64 16
+  %1141 = getelementptr inbounds nuw i8, ptr %1132, i64 16
   %1142 = load ptr, ptr %1141, align 8
   %1143 = load i8, ptr %1126, align 1
   %1144 = zext i8 %1143 to i32
@@ -1878,10 +1878,10 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   %1157 = getelementptr %struct.pidff_usage, ptr %1116, i64 %1122
   store ptr %1132, ptr %1157, align 8
   %1158 = load ptr, ptr %1156, align 8
-  %1159 = getelementptr inbounds i8, ptr %1158, i64 48
+  %1159 = getelementptr inbounds nuw i8, ptr %1158, i64 48
   %1160 = load ptr, ptr %1159, align 8
   %1161 = getelementptr i32, ptr %1160, i64 %1151
-  %1162 = getelementptr inbounds i8, ptr %1157, i64 8
+  %1162 = getelementptr inbounds nuw i8, ptr %1157, i64 8
   store ptr %1161, ptr %1162, align 8
   br label %.loopexit146
 
@@ -1903,18 +1903,18 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 
 .thread136:                                       ; preds = %1121, %1170
   %1171 = load ptr, ptr %11, align 8
-  %1172 = getelementptr inbounds i8, ptr %1171, i64 6352
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %1172, ptr noundef nonnull @.str.14) #8
+  %1172 = getelementptr inbounds nuw i8, ptr %1171, i64 6352
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %1172, ptr noundef nonnull @.str.14) #8
   %1173 = getelementptr i8, ptr %5, i64 194
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %1173, i32 -3, ptr elementtype(i8) %1173) #9, !srcloc !21
   br label %1174
 
 1174:                                             ; preds = %.thread136, %1170, %1111
-  %1175 = getelementptr inbounds i8, ptr %11, i64 640
+  %1175 = getelementptr inbounds nuw i8, ptr %11, i64 640
   %1176 = getelementptr i8, ptr %11, i64 32
   %1177 = load ptr, ptr %1176, align 8
-  %1178 = getelementptr inbounds i8, ptr %1177, i64 2120
-  %1179 = getelementptr inbounds i8, ptr %1177, i64 64
+  %1178 = getelementptr inbounds nuw i8, ptr %1177, i64 2120
+  %1179 = getelementptr inbounds nuw i8, ptr %1177, i64 64
   br label %1180
 
 1180:                                             ; preds = %.loopexit144, %1174
@@ -1932,9 +1932,9 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   %1188 = sext i32 %1187 to i64
   %1189 = getelementptr [256 x ptr], ptr %1179, i64 0, i64 %1188
   %1190 = load ptr, ptr %1189, align 8
-  %1191 = getelementptr inbounds i8, ptr %1190, i64 24
+  %1191 = getelementptr inbounds nuw i8, ptr %1190, i64 24
   %1192 = load i32, ptr %1191, align 8
-  %1193 = getelementptr inbounds i8, ptr %1190, i64 40
+  %1193 = getelementptr inbounds nuw i8, ptr %1190, i64 40
   %1194 = load i32, ptr %1193, align 8
   %1195 = icmp eq i32 %1192, %1194
   %1196 = icmp ne i32 %1192, 0
@@ -1942,7 +1942,7 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   br i1 %1197, label %1198, label %.loopexit143
 
 1198:                                             ; preds = %1186
-  %1199 = getelementptr inbounds i8, ptr %1190, i64 16
+  %1199 = getelementptr inbounds nuw i8, ptr %1190, i64 16
   %1200 = load ptr, ptr %1199, align 8
   %1201 = load i8, ptr %1185, align 1
   %1202 = zext i8 %1201 to i32
@@ -1967,10 +1967,10 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   %1215 = getelementptr %struct.pidff_usage, ptr %1175, i64 %1181
   store ptr %1190, ptr %1215, align 8
   %1216 = load ptr, ptr %1214, align 8
-  %1217 = getelementptr inbounds i8, ptr %1216, i64 48
+  %1217 = getelementptr inbounds nuw i8, ptr %1216, i64 48
   %1218 = load ptr, ptr %1217, align 8
   %1219 = getelementptr i32, ptr %1218, i64 %1209
-  %1220 = getelementptr inbounds i8, ptr %1215, i64 8
+  %1220 = getelementptr inbounds nuw i8, ptr %1215, i64 8
   store ptr %1219, ptr %1220, align 8
   br label %.loopexit144
 
@@ -1985,11 +1985,11 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   br i1 %1224, label %1225, label %1180, !llvm.loop !14
 
 1225:                                             ; preds = %.loopexit144
-  %1226 = getelementptr inbounds i8, ptr %11, i64 592
+  %1226 = getelementptr inbounds nuw i8, ptr %11, i64 592
   %1227 = getelementptr i8, ptr %11, i64 24
   %1228 = load ptr, ptr %1227, align 8
-  %1229 = getelementptr inbounds i8, ptr %1228, i64 64
-  %1230 = getelementptr inbounds i8, ptr %1228, i64 2120
+  %1229 = getelementptr inbounds nuw i8, ptr %1228, i64 64
+  %1230 = getelementptr inbounds nuw i8, ptr %1228, i64 2120
   %1231 = load i32, ptr %1230, align 8
   %1232 = icmp eq i32 %1231, 0
   br i1 %1232, label %.critedge119, label %.preheader142
@@ -2000,9 +2000,9 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   %1235 = sext i32 %1234 to i64
   %1236 = getelementptr [256 x ptr], ptr %1229, i64 0, i64 %1235
   %1237 = load ptr, ptr %1236, align 8
-  %1238 = getelementptr inbounds i8, ptr %1237, i64 24
+  %1238 = getelementptr inbounds nuw i8, ptr %1237, i64 24
   %1239 = load i32, ptr %1238, align 8
-  %1240 = getelementptr inbounds i8, ptr %1237, i64 40
+  %1240 = getelementptr inbounds nuw i8, ptr %1237, i64 40
   %1241 = load i32, ptr %1240, align 8
   %1242 = icmp eq i32 %1239, %1241
   %1243 = icmp ne i32 %1239, 0
@@ -2010,7 +2010,7 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   br i1 %1244, label %1245, label %.loopexit141
 
 1245:                                             ; preds = %.preheader142
-  %1246 = getelementptr inbounds i8, ptr %1237, i64 16
+  %1246 = getelementptr inbounds nuw i8, ptr %1237, i64 16
   %1247 = load ptr, ptr %1246, align 8
   br label %1251
 
@@ -2031,10 +2031,10 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   %1258 = getelementptr [256 x ptr], ptr %1229, i64 0, i64 %1235
   store ptr %1237, ptr %1226, align 8
   %1259 = load ptr, ptr %1258, align 8
-  %1260 = getelementptr inbounds i8, ptr %1259, i64 48
+  %1260 = getelementptr inbounds nuw i8, ptr %1259, i64 48
   %1261 = load ptr, ptr %1260, align 8
   %1262 = getelementptr i32, ptr %1261, i64 %1253
-  %1263 = getelementptr inbounds i8, ptr %11, i64 600
+  %1263 = getelementptr inbounds nuw i8, ptr %11, i64 600
   store ptr %1262, ptr %1263, align 8
   br i1 %1233, label %.critedge119, label %1267
 
@@ -2054,14 +2054,14 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   %1270 = getelementptr i8, ptr %11, i64 788
   %1271 = load i32, ptr %1270, align 4
   %1272 = load ptr, ptr %551, align 8
-  %1273 = getelementptr inbounds i8, ptr %1272, i64 48
+  %1273 = getelementptr inbounds nuw i8, ptr %1272, i64 48
   %1274 = load ptr, ptr %1273, align 8
   store i32 %1271, ptr %1274, align 4
   %1275 = load ptr, ptr %522, align 8
   tail call void @hid_hw_request(ptr noundef %1269, ptr noundef %1275, i32 noundef 9) #9
-  %1276 = getelementptr inbounds i8, ptr %1269, i64 7096
+  %1276 = getelementptr inbounds nuw i8, ptr %1269, i64 7096
   %1277 = load ptr, ptr %1276, align 8
-  %1278 = getelementptr inbounds i8, ptr %1277, i64 56
+  %1278 = getelementptr inbounds nuw i8, ptr %1277, i64 56
   %1279 = load ptr, ptr %1278, align 8
   %1280 = icmp eq ptr %1279, null
   br i1 %1280, label %1283, label %1281
@@ -2074,7 +2074,7 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   %1284 = load ptr, ptr %522, align 8
   tail call void @hid_hw_request(ptr noundef %1269, ptr noundef %1284, i32 noundef 9) #9
   %1285 = load ptr, ptr %1276, align 8
-  %1286 = getelementptr inbounds i8, ptr %1285, i64 56
+  %1286 = getelementptr inbounds nuw i8, ptr %1285, i64 56
   %1287 = load ptr, ptr %1286, align 8
   %1288 = icmp eq ptr %1287, null
   br i1 %1288, label %1291, label %1289
@@ -2086,13 +2086,13 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 1291:                                             ; preds = %1289, %1283
   %1292 = load i32, ptr %642, align 8
   %1293 = load ptr, ptr %551, align 8
-  %1294 = getelementptr inbounds i8, ptr %1293, i64 48
+  %1294 = getelementptr inbounds nuw i8, ptr %1293, i64 48
   %1295 = load ptr, ptr %1294, align 8
   store i32 %1292, ptr %1295, align 4
   %1296 = load ptr, ptr %522, align 8
   tail call void @hid_hw_request(ptr noundef %1269, ptr noundef %1296, i32 noundef 9) #9
   %1297 = load ptr, ptr %1276, align 8
-  %1298 = getelementptr inbounds i8, ptr %1297, i64 56
+  %1298 = getelementptr inbounds nuw i8, ptr %1297, i64 56
   %1299 = load ptr, ptr %1298, align 8
   %1300 = icmp eq ptr %1299, null
   br i1 %1300, label %1303, label %1301
@@ -2105,7 +2105,7 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   %1304 = load ptr, ptr %1176, align 8
   tail call void @hid_hw_request(ptr noundef %1269, ptr noundef %1304, i32 noundef 1) #9
   %1305 = load ptr, ptr %1276, align 8
-  %1306 = getelementptr inbounds i8, ptr %1305, i64 56
+  %1306 = getelementptr inbounds nuw i8, ptr %1305, i64 56
   %1307 = load ptr, ptr %1306, align 8
   %1308 = icmp eq ptr %1307, null
   br i1 %1308, label %1311, label %1309
@@ -2131,8 +2131,8 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 
 1320:                                             ; preds = %1318
   %1321 = load ptr, ptr %11, align 8
-  %1322 = getelementptr inbounds i8, ptr %1321, i64 6352
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %1322, ptr noundef nonnull @.str.25, i32 noundef %1334) #8
+  %1322 = getelementptr inbounds nuw i8, ptr %1321, i64 6352
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %1322, ptr noundef nonnull @.str.25, i32 noundef %1334) #8
   br label %.loopexit
 
 .preheader:                                       ; preds = %1315, %1318
@@ -2141,7 +2141,7 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   %1325 = load ptr, ptr %1176, align 8
   tail call void @hid_hw_request(ptr noundef %1269, ptr noundef %1325, i32 noundef 1) #9
   %1326 = load ptr, ptr %1276, align 8
-  %1327 = getelementptr inbounds i8, ptr %1326, i64 56
+  %1327 = getelementptr inbounds nuw i8, ptr %1326, i64 56
   %1328 = load ptr, ptr %1327, align 8
   %1329 = icmp eq ptr %1328, null
   br i1 %1329, label %1332, label %1330
@@ -2164,15 +2164,15 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 
 1339:                                             ; preds = %.loopexit
   %1340 = load ptr, ptr %1226, align 8
-  %1341 = getelementptr inbounds i8, ptr %1340, i64 76
+  %1341 = getelementptr inbounds nuw i8, ptr %1340, i64 76
   %1342 = load i32, ptr %1341, align 4
-  %1343 = getelementptr inbounds i8, ptr %1340, i64 72
+  %1343 = getelementptr inbounds nuw i8, ptr %1340, i64 72
   %1344 = load i32, ptr %1343, align 8
   %1345 = sub i32 %1342, %1344
   %1346 = mul i32 %1345, 65535
   %1347 = sdiv i32 %1346, 65535
   %1348 = add i32 %1347, %1344
-  %1349 = getelementptr inbounds i8, ptr %11, i64 600
+  %1349 = getelementptr inbounds nuw i8, ptr %11, i64 600
   %1350 = load ptr, ptr %1349, align 8
   store i32 %1348, ptr %1350, align 4
   %1351 = load ptr, ptr %1227, align 8
@@ -2188,19 +2188,19 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   %1356 = load ptr, ptr %277, align 8
   %1357 = load i32, ptr %1356, align 4
   %1358 = load ptr, ptr %227, align 8
-  %1359 = getelementptr inbounds i8, ptr %1358, i64 72
+  %1359 = getelementptr inbounds nuw i8, ptr %1358, i64 72
   %1360 = load i32, ptr %1359, align 8
   %1361 = add i32 %1360, 1
   %1362 = icmp eq i32 %1357, %1361
   br i1 %1362, label %1363, label %1408
 
 1363:                                             ; preds = %1355
-  %1364 = getelementptr inbounds i8, ptr %11, i64 696
+  %1364 = getelementptr inbounds nuw i8, ptr %11, i64 696
   %1365 = load ptr, ptr %1364, align 8
   store i32 %1360, ptr %1365, align 4
   %1366 = load i32, ptr %759, align 4
   %1367 = load ptr, ptr %609, align 8
-  %1368 = getelementptr inbounds i8, ptr %1367, i64 48
+  %1368 = getelementptr inbounds nuw i8, ptr %1367, i64 48
   %1369 = load ptr, ptr %1368, align 8
   store i32 %1366, ptr %1369, align 4
   %1370 = getelementptr i8, ptr %11, i64 712
@@ -2210,14 +2210,14 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   %1373 = load ptr, ptr %285, align 8
   tail call void @hid_hw_request(ptr noundef %1372, ptr noundef %1373, i32 noundef 9) #9
   %1374 = load ptr, ptr %227, align 8
-  %1375 = getelementptr inbounds i8, ptr %1374, i64 72
+  %1375 = getelementptr inbounds nuw i8, ptr %1374, i64 72
   %1376 = load i32, ptr %1375, align 8
-  %1377 = getelementptr inbounds i8, ptr %11, i64 120
+  %1377 = getelementptr inbounds nuw i8, ptr %11, i64 120
   %1378 = load ptr, ptr %1377, align 8
   store i32 %1376, ptr %1378, align 4
   %1379 = load i32, ptr %860, align 4
   %1380 = load ptr, ptr %499, align 8
-  %1381 = getelementptr inbounds i8, ptr %1380, i64 48
+  %1381 = getelementptr inbounds nuw i8, ptr %1380, i64 48
   %1382 = load ptr, ptr %1381, align 8
   store i32 %1379, ptr %1382, align 4
   %1383 = getelementptr i8, ptr %11, i64 136
@@ -2231,9 +2231,9 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   store i32 0, ptr %1388, align 4
   %1389 = getelementptr i8, ptr %11, i64 144
   %1390 = load ptr, ptr %1389, align 8
-  %1391 = getelementptr inbounds i8, ptr %1390, i64 76
+  %1391 = getelementptr inbounds nuw i8, ptr %1390, i64 76
   %1392 = load i32, ptr %1391, align 4
-  %1393 = getelementptr inbounds i8, ptr %1390, i64 72
+  %1393 = getelementptr inbounds nuw i8, ptr %1390, i64 72
   %1394 = load i32, ptr %1393, align 8
   %1395 = sub i32 %1392, %1394
   %1396 = mul i32 %1395, 65535
@@ -2257,14 +2257,14 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 
 1408:                                             ; preds = %1355
   %1409 = load ptr, ptr %11, align 8
-  %1410 = getelementptr inbounds i8, ptr %1409, i64 6352
-  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef %1410, ptr noundef nonnull @.str.27) #8
+  %1410 = getelementptr inbounds nuw i8, ptr %1409, i64 6352
+  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef nonnull %1410, ptr noundef nonnull @.str.27) #8
   br label %1414
 
 1411:                                             ; preds = %1352
   %1412 = load ptr, ptr %11, align 8
-  %1413 = getelementptr inbounds i8, ptr %1412, i64 6352
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %1413, ptr noundef nonnull @.str.26) #8
+  %1413 = getelementptr inbounds nuw i8, ptr %1412, i64 6352
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %1413, ptr noundef nonnull @.str.26) #8
   br label %.critedge119.thread
 
 1414:                                             ; preds = %1363, %1408
@@ -2276,9 +2276,9 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   %1419 = load ptr, ptr %342, align 8
   tail call void @hid_hw_request(ptr noundef %1418, ptr noundef %1419, i32 noundef 9) #9
   %1420 = load ptr, ptr %227, align 8
-  %1421 = getelementptr inbounds i8, ptr %1420, i64 76
+  %1421 = getelementptr inbounds nuw i8, ptr %1420, i64 76
   %1422 = load i32, ptr %1421, align 4
-  %1423 = getelementptr inbounds i8, ptr %1420, i64 72
+  %1423 = getelementptr inbounds nuw i8, ptr %1420, i64 72
   %1424 = load i32, ptr %1423, align 8
   %1425 = add i32 %1422, 1
   %1426 = sub i32 %1425, %1424
@@ -2294,8 +2294,8 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   br i1 %1433, label %1434, label %1436
 
 1434:                                             ; preds = %1431
-  %1435 = getelementptr inbounds i8, ptr %0, i64 6352
-  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef %1435, ptr noundef nonnull @.str) #8
+  %1435 = getelementptr inbounds nuw i8, ptr %0, i64 6352
+  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef nonnull %1435, ptr noundef nonnull @.str) #8
   br label %.critedge119.thread
 
 1436:                                             ; preds = %1431, %1414
@@ -2304,21 +2304,21 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   br i1 %1438, label %1439, label %.critedge119.thread
 
 1439:                                             ; preds = %1436
-  %1440 = getelementptr inbounds i8, ptr %5, i64 248
+  %1440 = getelementptr inbounds nuw i8, ptr %5, i64 248
   %1441 = load ptr, ptr %1440, align 8
-  %1442 = getelementptr inbounds i8, ptr %1441, i64 48
+  %1442 = getelementptr inbounds nuw i8, ptr %1441, i64 48
   store ptr %11, ptr %1442, align 8
   store ptr @pidff_upload_effect, ptr %1441, align 8
-  %1443 = getelementptr inbounds i8, ptr %1441, i64 8
+  %1443 = getelementptr inbounds nuw i8, ptr %1441, i64 8
   store ptr @pidff_erase_effect, ptr %1443, align 8
-  %1444 = getelementptr inbounds i8, ptr %1441, i64 24
+  %1444 = getelementptr inbounds nuw i8, ptr %1441, i64 24
   store ptr @pidff_set_gain, ptr %1444, align 8
-  %1445 = getelementptr inbounds i8, ptr %1441, i64 32
+  %1445 = getelementptr inbounds nuw i8, ptr %1441, i64 32
   store ptr @pidff_set_autocenter, ptr %1445, align 8
-  %1446 = getelementptr inbounds i8, ptr %1441, i64 16
+  %1446 = getelementptr inbounds nuw i8, ptr %1441, i64 16
   store ptr @pidff_playback, ptr %1446, align 8
-  %1447 = getelementptr inbounds i8, ptr %5, i64 544
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %1447, ptr noundef nonnull @.str.1) #8
+  %1447 = getelementptr inbounds nuw i8, ptr %5, i64 544
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %1447, ptr noundef nonnull @.str.1) #8
   tail call fastcc void @hid_device_io_stop(ptr noundef %0)
   br label %1456
 
@@ -2329,14 +2329,14 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   br i1 %1450, label %1451, label %1453
 
 1451:                                             ; preds = %.critedge119.thread
-  %1452 = getelementptr inbounds i8, ptr %0, i64 6352
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %1452, ptr noundef nonnull @.str.31) #8
+  %1452 = getelementptr inbounds nuw i8, ptr %0, i64 6352
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %1452, ptr noundef nonnull @.str.31) #8
   br label %1455
 
 1453:                                             ; preds = %.critedge119.thread
   store i8 0, ptr %14, align 4
-  %1454 = getelementptr inbounds i8, ptr %0, i64 6328
-  tail call void @down(ptr noundef %1454) #9
+  %1454 = getelementptr inbounds nuw i8, ptr %0, i64 6328
+  tail call void @down(ptr noundef nonnull %1454) #9
   br label %1455
 
 1455:                                             ; preds = %1453, %1451
@@ -2359,19 +2359,19 @@ declare dso_local i32 @input_ff_create(ptr noundef, i32 noundef) local_unnamed_a
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 248
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 616
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 616
   %9 = load ptr, ptr %8, align 8
   store i32 0, ptr %9, align 4
   %10 = icmp eq ptr %2, null
   br i1 %10, label %19, label %11
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %7, i64 852
-  %13 = getelementptr inbounds i8, ptr %1, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 852
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %14 = load i16, ptr %13, align 2
   %15 = sext i16 %14 to i64
   %16 = getelementptr [64 x i32], ptr %12, i64 0, i64 %15
@@ -2396,48 +2396,48 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
   br i1 %10, label %22, label %27
 
 22:                                               ; preds = %21
-  %23 = getelementptr inbounds i8, ptr %7, i64 792
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 792
   %24 = load i32, ptr %23, align 8
   %25 = tail call fastcc i32 @pidff_request_effect_upload(ptr noundef %7, i32 noundef %24), !range !23
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %57, label %.thread39
 
 27:                                               ; preds = %21
-  %28 = getelementptr inbounds i8, ptr %1, i64 10
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %29 = load i16, ptr %28, align 2
-  %30 = getelementptr inbounds i8, ptr %2, i64 10
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 10
   %31 = load i16, ptr %30, align 2
   %32 = icmp eq i16 %29, %31
   br i1 %32, label %33, label %57
 
 33:                                               ; preds = %27
-  %34 = getelementptr inbounds i8, ptr %1, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %35 = load i16, ptr %34, align 2
-  %36 = getelementptr inbounds i8, ptr %2, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %37 = load i16, ptr %36, align 2
   %38 = icmp eq i16 %35, %37
   br i1 %38, label %39, label %57
 
 39:                                               ; preds = %33
-  %40 = getelementptr inbounds i8, ptr %2, i64 6
-  %41 = getelementptr inbounds i8, ptr %1, i64 6
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 6
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %42 = load i16, ptr %41, align 2
   %43 = load i16, ptr %40, align 2
   %44 = icmp eq i16 %42, %43
   br i1 %44, label %45, label %57
 
 45:                                               ; preds = %39
-  %46 = getelementptr inbounds i8, ptr %1, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %47 = load i16, ptr %46, align 4
-  %48 = getelementptr inbounds i8, ptr %2, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %49 = load i16, ptr %48, align 4
   %50 = icmp eq i16 %47, %49
   br i1 %50, label %51, label %57
 
 51:                                               ; preds = %45
-  %52 = getelementptr inbounds i8, ptr %1, i64 12
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %53 = load i16, ptr %52, align 2
-  %54 = getelementptr inbounds i8, ptr %2, i64 12
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %55 = load i16, ptr %54, align 2
   %56 = icmp eq i16 %53, %55
   br i1 %56, label %.thread, label %57
@@ -2445,32 +2445,32 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
 57:                                               ; preds = %22, %27, %33, %39, %45, %51
   %58 = load ptr, ptr %8, align 8
   %59 = load i32, ptr %58, align 4
-  %60 = getelementptr inbounds i8, ptr %7, i64 120
+  %60 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %61 = load ptr, ptr %60, align 8
   store i32 %59, ptr %61, align 4
-  %62 = getelementptr inbounds i8, ptr %7, i64 736
+  %62 = getelementptr inbounds nuw i8, ptr %7, i64 736
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 48
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 48
   %65 = load ptr, ptr %64, align 8
   %66 = load i32, ptr %65, align 4
-  %67 = getelementptr inbounds i8, ptr %7, i64 744
+  %67 = getelementptr inbounds nuw i8, ptr %7, i64 744
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 48
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 48
   %70 = load ptr, ptr %69, align 8
   store i32 %66, ptr %70, align 4
-  %71 = getelementptr inbounds i8, ptr %1, i64 10
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %72 = load i16, ptr %71, align 2
   %73 = zext i16 %72 to i32
   %74 = getelementptr i8, ptr %7, i64 136
   %75 = load ptr, ptr %74, align 8
   store i32 %73, ptr %75, align 4
-  %76 = getelementptr inbounds i8, ptr %1, i64 6
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %77 = load i16, ptr %76, align 2
   %78 = zext i16 %77 to i32
   %79 = getelementptr i8, ptr %7, i64 168
   %80 = load ptr, ptr %79, align 8
   store i32 %78, ptr %80, align 4
-  %81 = getelementptr inbounds i8, ptr %1, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %82 = load i16, ptr %81, align 2
   %83 = zext i16 %82 to i32
   %84 = getelementptr i8, ptr %7, i64 184
@@ -2478,7 +2478,7 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
   store i32 %83, ptr %85, align 4
   %86 = getelementptr i8, ptr %7, i64 144
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 76
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 76
   %89 = load i32, ptr %88, align 4
   %90 = getelementptr i8, ptr %7, i64 152
   %91 = load ptr, ptr %90, align 8
@@ -2486,38 +2486,38 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
   %92 = getelementptr i8, ptr %7, i64 200
   %93 = load ptr, ptr %92, align 8
   store i32 1, ptr %93, align 4
-  %94 = getelementptr inbounds i8, ptr %1, i64 4
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %95 = load i16, ptr %94, align 4
   %96 = zext i16 %95 to i32
-  %97 = getelementptr inbounds i8, ptr %7, i64 752
+  %97 = getelementptr inbounds nuw i8, ptr %7, i64 752
   %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 76
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 76
   %100 = load i32, ptr %99, align 4
-  %101 = getelementptr inbounds i8, ptr %98, i64 72
+  %101 = getelementptr inbounds nuw i8, ptr %98, i64 72
   %102 = load i32, ptr %101, align 8
   %103 = sub i32 %100, %102
   %104 = mul i32 %103, %96
   %105 = sdiv i32 %104, 65535
   %106 = add i32 %105, %102
-  %107 = getelementptr inbounds i8, ptr %98, i64 48
+  %107 = getelementptr inbounds nuw i8, ptr %98, i64 48
   %108 = load ptr, ptr %107, align 8
   store i32 %106, ptr %108, align 4
-  %109 = getelementptr inbounds i8, ptr %1, i64 12
+  %109 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %110 = load i16, ptr %109, align 2
   %111 = zext i16 %110 to i32
   %112 = getelementptr i8, ptr %7, i64 216
   %113 = load ptr, ptr %112, align 8
   store i32 %111, ptr %113, align 4
   %114 = load ptr, ptr %7, align 8
-  %115 = getelementptr inbounds i8, ptr %7, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %116 = load ptr, ptr %115, align 8
   tail call void @hid_hw_request(ptr noundef %114, ptr noundef %116, i32 noundef 9) #9
   br i1 %10, label %122, label %.thread
 
 .thread:                                          ; preds = %51, %57
-  %117 = getelementptr inbounds i8, ptr %1, i64 16
+  %117 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %118 = load i16, ptr %117, align 8
-  %119 = getelementptr inbounds i8, ptr %2, i64 16
+  %119 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %120 = load i16, ptr %119, align 8
   %121 = icmp eq i16 %118, %120
   br i1 %121, label %.thread30, label %122
@@ -2525,14 +2525,14 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
 122:                                              ; preds = %.thread, %57
   %123 = load ptr, ptr %8, align 8
   %124 = load i32, ptr %123, align 4
-  %125 = getelementptr inbounds i8, ptr %7, i64 520
+  %125 = getelementptr inbounds nuw i8, ptr %7, i64 520
   %126 = load ptr, ptr %125, align 8
   store i32 %124, ptr %126, align 4
   %127 = getelementptr i8, ptr %7, i64 528
-  %128 = getelementptr inbounds i8, ptr %1, i64 16
+  %128 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %129 = load i16, ptr %128, align 8
   %130 = load ptr, ptr %127, align 8
-  %131 = getelementptr inbounds i8, ptr %130, i64 72
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 72
   %132 = load i32, ptr %131, align 8
   %133 = icmp slt i32 %132, 0
   %134 = sext i16 %129 to i32
@@ -2547,7 +2547,7 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
   br i1 %138, label %139, label %144
 
 139:                                              ; preds = %137
-  %140 = getelementptr inbounds i8, ptr %130, i64 76
+  %140 = getelementptr inbounds nuw i8, ptr %130, i64 76
   %141 = load i32, ptr %140, align 4
   %142 = mul i32 %141, %134
   %143 = sdiv i32 %142, 32767
@@ -2567,7 +2567,7 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
 
 151:                                              ; preds = %122
   %152 = icmp slt i16 %129, 0
-  %153 = getelementptr inbounds i8, ptr %130, i64 76
+  %153 = getelementptr inbounds nuw i8, ptr %130, i64 76
   %154 = load i32, ptr %153, align 4
   %155 = getelementptr i8, ptr %7, i64 536
   %156 = load ptr, ptr %155, align 8
@@ -2597,19 +2597,19 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
   br i1 %10, label %194, label %.thread30
 
 .thread30:                                        ; preds = %.thread, %167
-  %171 = getelementptr inbounds i8, ptr %1, i64 18
-  %172 = getelementptr inbounds i8, ptr %2, i64 18
-  %173 = getelementptr inbounds i8, ptr %1, i64 20
+  %171 = getelementptr inbounds nuw i8, ptr %1, i64 18
+  %172 = getelementptr inbounds nuw i8, ptr %2, i64 18
+  %173 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %174 = load i16, ptr %173, align 2
-  %175 = getelementptr inbounds i8, ptr %2, i64 20
+  %175 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %176 = load i16, ptr %175, align 2
   %177 = icmp eq i16 %174, %176
   br i1 %177, label %178, label %194
 
 178:                                              ; preds = %.thread30
-  %179 = getelementptr inbounds i8, ptr %1, i64 24
+  %179 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %180 = load i16, ptr %179, align 2
-  %181 = getelementptr inbounds i8, ptr %2, i64 24
+  %181 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %182 = load i16, ptr %181, align 2
   %183 = icmp eq i16 %180, %182
   br i1 %183, label %184, label %194
@@ -2621,29 +2621,29 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
   br i1 %187, label %188, label %194
 
 188:                                              ; preds = %184
-  %189 = getelementptr inbounds i8, ptr %1, i64 22
+  %189 = getelementptr inbounds nuw i8, ptr %1, i64 22
   %190 = load i16, ptr %189, align 2
-  %191 = getelementptr inbounds i8, ptr %2, i64 22
+  %191 = getelementptr inbounds nuw i8, ptr %2, i64 22
   %192 = load i16, ptr %191, align 2
   %193 = icmp eq i16 %190, %192
   br i1 %193, label %.thread39, label %194
 
 194:                                              ; preds = %188, %184, %178, %.thread30, %167
-  %195 = getelementptr inbounds i8, ptr %1, i64 18
+  %195 = getelementptr inbounds nuw i8, ptr %1, i64 18
   %196 = load ptr, ptr %8, align 8
   %197 = load i32, ptr %196, align 4
-  %198 = getelementptr inbounds i8, ptr %7, i64 232
+  %198 = getelementptr inbounds nuw i8, ptr %7, i64 232
   %199 = load ptr, ptr %198, align 8
   store i32 %197, ptr %199, align 4
-  %200 = getelementptr inbounds i8, ptr %1, i64 20
+  %200 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %201 = load i16, ptr %200, align 2
   %202 = tail call i16 @llvm.umin.i16(i16 %201, i16 32767)
   %203 = zext nneg i16 %202 to i32
   %204 = getelementptr i8, ptr %7, i64 240
   %205 = load ptr, ptr %204, align 8
-  %206 = getelementptr inbounds i8, ptr %205, i64 76
+  %206 = getelementptr inbounds nuw i8, ptr %205, i64 76
   %207 = load i32, ptr %206, align 4
-  %208 = getelementptr inbounds i8, ptr %205, i64 72
+  %208 = getelementptr inbounds nuw i8, ptr %205, i64 72
   %209 = load i32, ptr %208, align 8
   %210 = sub i32 %207, %209
   %211 = mul i32 %210, %203
@@ -2652,15 +2652,15 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
   %214 = getelementptr i8, ptr %7, i64 248
   %215 = load ptr, ptr %214, align 8
   store i32 %213, ptr %215, align 4
-  %216 = getelementptr inbounds i8, ptr %1, i64 24
+  %216 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %217 = load i16, ptr %216, align 2
   %218 = tail call i16 @llvm.umin.i16(i16 %217, i16 32767)
   %219 = zext nneg i16 %218 to i32
   %220 = getelementptr i8, ptr %7, i64 272
   %221 = load ptr, ptr %220, align 8
-  %222 = getelementptr inbounds i8, ptr %221, i64 76
+  %222 = getelementptr inbounds nuw i8, ptr %221, i64 76
   %223 = load i32, ptr %222, align 4
-  %224 = getelementptr inbounds i8, ptr %221, i64 72
+  %224 = getelementptr inbounds nuw i8, ptr %221, i64 72
   %225 = load i32, ptr %224, align 8
   %226 = sub i32 %223, %225
   %227 = mul i32 %226, %219
@@ -2674,7 +2674,7 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
   %234 = getelementptr i8, ptr %7, i64 264
   %235 = load ptr, ptr %234, align 8
   store i32 %233, ptr %235, align 4
-  %236 = getelementptr inbounds i8, ptr %1, i64 22
+  %236 = getelementptr inbounds nuw i8, ptr %1, i64 22
   %237 = load i16, ptr %236, align 2
   %238 = zext i16 %237 to i32
   %239 = getelementptr i8, ptr %7, i64 296
@@ -2690,7 +2690,7 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
   br i1 %10, label %245, label %262
 
 245:                                              ; preds = %244
-  %246 = getelementptr inbounds i8, ptr %1, i64 16
+  %246 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %247 = load i16, ptr %246, align 8
   switch i16 %247, label %252 [
     i16 88, label %255
@@ -2714,13 +2714,13 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
 
 252:                                              ; preds = %245
   %253 = load ptr, ptr %7, align 8
-  %254 = getelementptr inbounds i8, ptr %253, i64 6352
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %254, ptr noundef nonnull @.str.29) #8
+  %254 = getelementptr inbounds nuw i8, ptr %253, i64 6352
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %254, ptr noundef nonnull @.str.29) #8
   br label %.thread39
 
 255:                                              ; preds = %251, %250, %249, %248, %245
   %256 = phi i64 [ 6, %251 ], [ 5, %250 ], [ 3, %249 ], [ 4, %248 ], [ 2, %245 ]
-  %257 = getelementptr inbounds i8, ptr %7, i64 792
+  %257 = getelementptr inbounds nuw i8, ptr %7, i64 792
   %258 = getelementptr [11 x i32], ptr %257, i64 0, i64 %256
   %259 = load i32, ptr %258, align 4
   %260 = tail call fastcc i32 @pidff_request_effect_upload(ptr noundef %7, i32 noundef %259), !range !23
@@ -2728,41 +2728,41 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
   br i1 %261, label %291, label %.thread39
 
 262:                                              ; preds = %244
-  %263 = getelementptr inbounds i8, ptr %1, i64 10
+  %263 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %264 = load i16, ptr %263, align 2
-  %265 = getelementptr inbounds i8, ptr %2, i64 10
+  %265 = getelementptr inbounds nuw i8, ptr %2, i64 10
   %266 = load i16, ptr %265, align 2
   %267 = icmp eq i16 %264, %266
   br i1 %267, label %268, label %291
 
 268:                                              ; preds = %262
-  %269 = getelementptr inbounds i8, ptr %1, i64 8
+  %269 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %270 = load i16, ptr %269, align 2
-  %271 = getelementptr inbounds i8, ptr %2, i64 8
+  %271 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %272 = load i16, ptr %271, align 2
   %273 = icmp eq i16 %270, %272
   br i1 %273, label %274, label %291
 
 274:                                              ; preds = %268
-  %275 = getelementptr inbounds i8, ptr %2, i64 6
-  %276 = getelementptr inbounds i8, ptr %1, i64 6
+  %275 = getelementptr inbounds nuw i8, ptr %2, i64 6
+  %276 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %277 = load i16, ptr %276, align 2
   %278 = load i16, ptr %275, align 2
   %279 = icmp eq i16 %277, %278
   br i1 %279, label %280, label %291
 
 280:                                              ; preds = %274
-  %281 = getelementptr inbounds i8, ptr %1, i64 4
+  %281 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %282 = load i16, ptr %281, align 4
-  %283 = getelementptr inbounds i8, ptr %2, i64 4
+  %283 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %284 = load i16, ptr %283, align 4
   %285 = icmp eq i16 %282, %284
   br i1 %285, label %286, label %291
 
 286:                                              ; preds = %280
-  %287 = getelementptr inbounds i8, ptr %1, i64 12
+  %287 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %288 = load i16, ptr %287, align 2
-  %289 = getelementptr inbounds i8, ptr %2, i64 12
+  %289 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %290 = load i16, ptr %289, align 2
   %.not27 = icmp eq i16 %288, %290
   br i1 %.not27, label %.thread31, label %291
@@ -2770,32 +2770,32 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
 291:                                              ; preds = %255, %286, %262, %268, %274, %280
   %292 = load ptr, ptr %8, align 8
   %293 = load i32, ptr %292, align 4
-  %294 = getelementptr inbounds i8, ptr %7, i64 120
+  %294 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %295 = load ptr, ptr %294, align 8
   store i32 %293, ptr %295, align 4
-  %296 = getelementptr inbounds i8, ptr %7, i64 736
+  %296 = getelementptr inbounds nuw i8, ptr %7, i64 736
   %297 = load ptr, ptr %296, align 8
-  %298 = getelementptr inbounds i8, ptr %297, i64 48
+  %298 = getelementptr inbounds nuw i8, ptr %297, i64 48
   %299 = load ptr, ptr %298, align 8
   %300 = load i32, ptr %299, align 4
-  %301 = getelementptr inbounds i8, ptr %7, i64 744
+  %301 = getelementptr inbounds nuw i8, ptr %7, i64 744
   %302 = load ptr, ptr %301, align 8
-  %303 = getelementptr inbounds i8, ptr %302, i64 48
+  %303 = getelementptr inbounds nuw i8, ptr %302, i64 48
   %304 = load ptr, ptr %303, align 8
   store i32 %300, ptr %304, align 4
-  %305 = getelementptr inbounds i8, ptr %1, i64 10
+  %305 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %306 = load i16, ptr %305, align 2
   %307 = zext i16 %306 to i32
   %308 = getelementptr i8, ptr %7, i64 136
   %309 = load ptr, ptr %308, align 8
   store i32 %307, ptr %309, align 4
-  %310 = getelementptr inbounds i8, ptr %1, i64 6
+  %310 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %311 = load i16, ptr %310, align 2
   %312 = zext i16 %311 to i32
   %313 = getelementptr i8, ptr %7, i64 168
   %314 = load ptr, ptr %313, align 8
   store i32 %312, ptr %314, align 4
-  %315 = getelementptr inbounds i8, ptr %1, i64 8
+  %315 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %316 = load i16, ptr %315, align 2
   %317 = zext i16 %316 to i32
   %318 = getelementptr i8, ptr %7, i64 184
@@ -2803,7 +2803,7 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
   store i32 %317, ptr %319, align 4
   %320 = getelementptr i8, ptr %7, i64 144
   %321 = load ptr, ptr %320, align 8
-  %322 = getelementptr inbounds i8, ptr %321, i64 76
+  %322 = getelementptr inbounds nuw i8, ptr %321, i64 76
   %323 = load i32, ptr %322, align 4
   %324 = getelementptr i8, ptr %7, i64 152
   %325 = load ptr, ptr %324, align 8
@@ -2811,62 +2811,62 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
   %326 = getelementptr i8, ptr %7, i64 200
   %327 = load ptr, ptr %326, align 8
   store i32 1, ptr %327, align 4
-  %328 = getelementptr inbounds i8, ptr %1, i64 4
+  %328 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %329 = load i16, ptr %328, align 4
   %330 = zext i16 %329 to i32
-  %331 = getelementptr inbounds i8, ptr %7, i64 752
+  %331 = getelementptr inbounds nuw i8, ptr %7, i64 752
   %332 = load ptr, ptr %331, align 8
-  %333 = getelementptr inbounds i8, ptr %332, i64 76
+  %333 = getelementptr inbounds nuw i8, ptr %332, i64 76
   %334 = load i32, ptr %333, align 4
-  %335 = getelementptr inbounds i8, ptr %332, i64 72
+  %335 = getelementptr inbounds nuw i8, ptr %332, i64 72
   %336 = load i32, ptr %335, align 8
   %337 = sub i32 %334, %336
   %338 = mul i32 %337, %330
   %339 = sdiv i32 %338, 65535
   %340 = add i32 %339, %336
-  %341 = getelementptr inbounds i8, ptr %332, i64 48
+  %341 = getelementptr inbounds nuw i8, ptr %332, i64 48
   %342 = load ptr, ptr %341, align 8
   store i32 %340, ptr %342, align 4
-  %343 = getelementptr inbounds i8, ptr %1, i64 12
+  %343 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %344 = load i16, ptr %343, align 2
   %345 = zext i16 %344 to i32
   %346 = getelementptr i8, ptr %7, i64 216
   %347 = load ptr, ptr %346, align 8
   store i32 %345, ptr %347, align 4
   %348 = load ptr, ptr %7, align 8
-  %349 = getelementptr inbounds i8, ptr %7, i64 8
+  %349 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %350 = load ptr, ptr %349, align 8
   tail call void @hid_hw_request(ptr noundef %348, ptr noundef %350, i32 noundef 9) #9
   br i1 %10, label %374, label %.thread31
 
 .thread31:                                        ; preds = %286, %291
-  %351 = getelementptr inbounds i8, ptr %1, i64 20
+  %351 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %352 = load i16, ptr %351, align 4
-  %353 = getelementptr inbounds i8, ptr %2, i64 20
+  %353 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %354 = load i16, ptr %353, align 4
   %355 = icmp eq i16 %352, %354
   br i1 %355, label %356, label %374
 
 356:                                              ; preds = %.thread31
-  %357 = getelementptr inbounds i8, ptr %1, i64 22
+  %357 = getelementptr inbounds nuw i8, ptr %1, i64 22
   %358 = load i16, ptr %357, align 2
-  %359 = getelementptr inbounds i8, ptr %2, i64 22
+  %359 = getelementptr inbounds nuw i8, ptr %2, i64 22
   %360 = load i16, ptr %359, align 2
   %361 = icmp eq i16 %358, %360
   br i1 %361, label %362, label %374
 
 362:                                              ; preds = %356
-  %363 = getelementptr inbounds i8, ptr %1, i64 24
+  %363 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %364 = load i16, ptr %363, align 8
-  %365 = getelementptr inbounds i8, ptr %2, i64 24
+  %365 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %366 = load i16, ptr %365, align 8
   %367 = icmp eq i16 %364, %366
   br i1 %367, label %368, label %374
 
 368:                                              ; preds = %362
-  %369 = getelementptr inbounds i8, ptr %1, i64 18
+  %369 = getelementptr inbounds nuw i8, ptr %1, i64 18
   %370 = load i16, ptr %369, align 2
-  %371 = getelementptr inbounds i8, ptr %2, i64 18
+  %371 = getelementptr inbounds nuw i8, ptr %2, i64 18
   %372 = load i16, ptr %371, align 2
   %373 = icmp eq i16 %370, %372
   br i1 %373, label %.thread32, label %374
@@ -2874,14 +2874,14 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
 374:                                              ; preds = %368, %362, %356, %.thread31, %291
   %375 = load ptr, ptr %8, align 8
   %376 = load i32, ptr %375, align 4
-  %377 = getelementptr inbounds i8, ptr %7, i64 440
+  %377 = getelementptr inbounds nuw i8, ptr %7, i64 440
   %378 = load ptr, ptr %377, align 8
   store i32 %376, ptr %378, align 4
   %379 = getelementptr i8, ptr %7, i64 448
-  %380 = getelementptr inbounds i8, ptr %1, i64 20
+  %380 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %381 = load i16, ptr %380, align 4
   %382 = load ptr, ptr %379, align 8
-  %383 = getelementptr inbounds i8, ptr %382, i64 72
+  %383 = getelementptr inbounds nuw i8, ptr %382, i64 72
   %384 = load i32, ptr %383, align 8
   %385 = icmp slt i32 %384, 0
   %386 = sext i16 %381 to i32
@@ -2896,7 +2896,7 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
   br i1 %390, label %391, label %396
 
 391:                                              ; preds = %389
-  %392 = getelementptr inbounds i8, ptr %382, i64 76
+  %392 = getelementptr inbounds nuw i8, ptr %382, i64 76
   %393 = load i32, ptr %392, align 4
   %394 = mul i32 %393, %386
   %395 = sdiv i32 %394, 32767
@@ -2916,7 +2916,7 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
 
 403:                                              ; preds = %374
   %404 = icmp slt i16 %381, 0
-  %405 = getelementptr inbounds i8, ptr %382, i64 76
+  %405 = getelementptr inbounds nuw i8, ptr %382, i64 76
   %406 = load i32, ptr %405, align 4
   %407 = getelementptr i8, ptr %7, i64 456
   %408 = load ptr, ptr %407, align 8
@@ -2940,10 +2940,10 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
 
 419:                                              ; preds = %414, %409, %399
   %420 = getelementptr i8, ptr %7, i64 464
-  %421 = getelementptr inbounds i8, ptr %1, i64 22
+  %421 = getelementptr inbounds nuw i8, ptr %1, i64 22
   %422 = load i16, ptr %421, align 2
   %423 = load ptr, ptr %420, align 8
-  %424 = getelementptr inbounds i8, ptr %423, i64 72
+  %424 = getelementptr inbounds nuw i8, ptr %423, i64 72
   %425 = load i32, ptr %424, align 8
   %426 = icmp slt i32 %425, 0
   %427 = sext i16 %422 to i32
@@ -2958,7 +2958,7 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
   br i1 %431, label %432, label %437
 
 432:                                              ; preds = %430
-  %433 = getelementptr inbounds i8, ptr %423, i64 76
+  %433 = getelementptr inbounds nuw i8, ptr %423, i64 76
   %434 = load i32, ptr %433, align 4
   %435 = mul i32 %434, %427
   %436 = sdiv i32 %435, 32767
@@ -2978,7 +2978,7 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
 
 444:                                              ; preds = %419
   %445 = icmp slt i16 %422, 0
-  %446 = getelementptr inbounds i8, ptr %423, i64 76
+  %446 = getelementptr inbounds nuw i8, ptr %423, i64 76
   %447 = load i32, ptr %446, align 4
   %448 = getelementptr i8, ptr %7, i64 472
   %449 = load ptr, ptr %448, align 8
@@ -3002,13 +3002,13 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
 
 460:                                              ; preds = %440, %450, %455
   %461 = getelementptr i8, ptr %7, i64 480
-  %462 = getelementptr inbounds i8, ptr %1, i64 24
+  %462 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %463 = load i16, ptr %462, align 8
   %464 = zext i16 %463 to i32
   %465 = load ptr, ptr %461, align 8
-  %466 = getelementptr inbounds i8, ptr %465, i64 76
+  %466 = getelementptr inbounds nuw i8, ptr %465, i64 76
   %467 = load i32, ptr %466, align 4
-  %468 = getelementptr inbounds i8, ptr %465, i64 72
+  %468 = getelementptr inbounds nuw i8, ptr %465, i64 72
   %469 = load i32, ptr %468, align 8
   %470 = sub i32 %467, %469
   %471 = mul i32 %470, %464
@@ -3017,7 +3017,7 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
   %474 = getelementptr i8, ptr %7, i64 488
   %475 = load ptr, ptr %474, align 8
   store i32 %473, ptr %475, align 4
-  %476 = getelementptr inbounds i8, ptr %1, i64 18
+  %476 = getelementptr inbounds nuw i8, ptr %1, i64 18
   %477 = load i16, ptr %476, align 2
   %478 = zext i16 %477 to i32
   %479 = getelementptr i8, ptr %7, i64 504
@@ -3030,19 +3030,19 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
   br i1 %10, label %507, label %.thread32
 
 .thread32:                                        ; preds = %368, %460
-  %484 = getelementptr inbounds i8, ptr %1, i64 26
-  %485 = getelementptr inbounds i8, ptr %2, i64 26
-  %486 = getelementptr inbounds i8, ptr %1, i64 28
+  %484 = getelementptr inbounds nuw i8, ptr %1, i64 26
+  %485 = getelementptr inbounds nuw i8, ptr %2, i64 26
+  %486 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %487 = load i16, ptr %486, align 2
-  %488 = getelementptr inbounds i8, ptr %2, i64 28
+  %488 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %489 = load i16, ptr %488, align 2
   %490 = icmp eq i16 %487, %489
   br i1 %490, label %491, label %507
 
 491:                                              ; preds = %.thread32
-  %492 = getelementptr inbounds i8, ptr %1, i64 32
+  %492 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %493 = load i16, ptr %492, align 2
-  %494 = getelementptr inbounds i8, ptr %2, i64 32
+  %494 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %495 = load i16, ptr %494, align 2
   %496 = icmp eq i16 %493, %495
   br i1 %496, label %497, label %507
@@ -3054,29 +3054,29 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
   br i1 %500, label %501, label %507
 
 501:                                              ; preds = %497
-  %502 = getelementptr inbounds i8, ptr %1, i64 30
+  %502 = getelementptr inbounds nuw i8, ptr %1, i64 30
   %503 = load i16, ptr %502, align 2
-  %504 = getelementptr inbounds i8, ptr %2, i64 30
+  %504 = getelementptr inbounds nuw i8, ptr %2, i64 30
   %505 = load i16, ptr %504, align 2
   %506 = icmp eq i16 %503, %505
   br i1 %506, label %.thread39, label %507
 
 507:                                              ; preds = %501, %497, %491, %.thread32, %460
-  %508 = getelementptr inbounds i8, ptr %1, i64 26
+  %508 = getelementptr inbounds nuw i8, ptr %1, i64 26
   %509 = load ptr, ptr %8, align 8
   %510 = load i32, ptr %509, align 4
-  %511 = getelementptr inbounds i8, ptr %7, i64 232
+  %511 = getelementptr inbounds nuw i8, ptr %7, i64 232
   %512 = load ptr, ptr %511, align 8
   store i32 %510, ptr %512, align 4
-  %513 = getelementptr inbounds i8, ptr %1, i64 28
+  %513 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %514 = load i16, ptr %513, align 2
   %515 = tail call i16 @llvm.umin.i16(i16 %514, i16 32767)
   %516 = zext nneg i16 %515 to i32
   %517 = getelementptr i8, ptr %7, i64 240
   %518 = load ptr, ptr %517, align 8
-  %519 = getelementptr inbounds i8, ptr %518, i64 76
+  %519 = getelementptr inbounds nuw i8, ptr %518, i64 76
   %520 = load i32, ptr %519, align 4
-  %521 = getelementptr inbounds i8, ptr %518, i64 72
+  %521 = getelementptr inbounds nuw i8, ptr %518, i64 72
   %522 = load i32, ptr %521, align 8
   %523 = sub i32 %520, %522
   %524 = mul i32 %523, %516
@@ -3085,15 +3085,15 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
   %527 = getelementptr i8, ptr %7, i64 248
   %528 = load ptr, ptr %527, align 8
   store i32 %526, ptr %528, align 4
-  %529 = getelementptr inbounds i8, ptr %1, i64 32
+  %529 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %530 = load i16, ptr %529, align 2
   %531 = tail call i16 @llvm.umin.i16(i16 %530, i16 32767)
   %532 = zext nneg i16 %531 to i32
   %533 = getelementptr i8, ptr %7, i64 272
   %534 = load ptr, ptr %533, align 8
-  %535 = getelementptr inbounds i8, ptr %534, i64 76
+  %535 = getelementptr inbounds nuw i8, ptr %534, i64 76
   %536 = load i32, ptr %535, align 4
-  %537 = getelementptr inbounds i8, ptr %534, i64 72
+  %537 = getelementptr inbounds nuw i8, ptr %534, i64 72
   %538 = load i32, ptr %537, align 8
   %539 = sub i32 %536, %538
   %540 = mul i32 %539, %532
@@ -3107,7 +3107,7 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
   %547 = getelementptr i8, ptr %7, i64 264
   %548 = load ptr, ptr %547, align 8
   store i32 %546, ptr %548, align 4
-  %549 = getelementptr inbounds i8, ptr %1, i64 30
+  %549 = getelementptr inbounds nuw i8, ptr %1, i64 30
   %550 = load i16, ptr %549, align 2
   %551 = zext i16 %550 to i32
   %552 = getelementptr i8, ptr %7, i64 296
@@ -3130,41 +3130,41 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
   br i1 %562, label %592, label %.thread39
 
 563:                                              ; preds = %557
-  %564 = getelementptr inbounds i8, ptr %1, i64 10
+  %564 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %565 = load i16, ptr %564, align 2
-  %566 = getelementptr inbounds i8, ptr %2, i64 10
+  %566 = getelementptr inbounds nuw i8, ptr %2, i64 10
   %567 = load i16, ptr %566, align 2
   %568 = icmp eq i16 %565, %567
   br i1 %568, label %569, label %592
 
 569:                                              ; preds = %563
-  %570 = getelementptr inbounds i8, ptr %1, i64 8
+  %570 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %571 = load i16, ptr %570, align 2
-  %572 = getelementptr inbounds i8, ptr %2, i64 8
+  %572 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %573 = load i16, ptr %572, align 2
   %574 = icmp eq i16 %571, %573
   br i1 %574, label %575, label %592
 
 575:                                              ; preds = %569
-  %576 = getelementptr inbounds i8, ptr %2, i64 6
-  %577 = getelementptr inbounds i8, ptr %1, i64 6
+  %576 = getelementptr inbounds nuw i8, ptr %2, i64 6
+  %577 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %578 = load i16, ptr %577, align 2
   %579 = load i16, ptr %576, align 2
   %580 = icmp eq i16 %578, %579
   br i1 %580, label %581, label %592
 
 581:                                              ; preds = %575
-  %582 = getelementptr inbounds i8, ptr %1, i64 4
+  %582 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %583 = load i16, ptr %582, align 4
-  %584 = getelementptr inbounds i8, ptr %2, i64 4
+  %584 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %585 = load i16, ptr %584, align 4
   %586 = icmp eq i16 %583, %585
   br i1 %586, label %587, label %592
 
 587:                                              ; preds = %581
-  %588 = getelementptr inbounds i8, ptr %1, i64 12
+  %588 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %589 = load i16, ptr %588, align 2
-  %590 = getelementptr inbounds i8, ptr %2, i64 12
+  %590 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %591 = load i16, ptr %590, align 2
   %.not = icmp eq i16 %589, %591
   br i1 %.not, label %.thread33, label %592
@@ -3172,32 +3172,32 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
 592:                                              ; preds = %558, %587, %563, %569, %575, %581
   %593 = load ptr, ptr %8, align 8
   %594 = load i32, ptr %593, align 4
-  %595 = getelementptr inbounds i8, ptr %7, i64 120
+  %595 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %596 = load ptr, ptr %595, align 8
   store i32 %594, ptr %596, align 4
-  %597 = getelementptr inbounds i8, ptr %7, i64 736
+  %597 = getelementptr inbounds nuw i8, ptr %7, i64 736
   %598 = load ptr, ptr %597, align 8
-  %599 = getelementptr inbounds i8, ptr %598, i64 48
+  %599 = getelementptr inbounds nuw i8, ptr %598, i64 48
   %600 = load ptr, ptr %599, align 8
   %601 = load i32, ptr %600, align 4
-  %602 = getelementptr inbounds i8, ptr %7, i64 744
+  %602 = getelementptr inbounds nuw i8, ptr %7, i64 744
   %603 = load ptr, ptr %602, align 8
-  %604 = getelementptr inbounds i8, ptr %603, i64 48
+  %604 = getelementptr inbounds nuw i8, ptr %603, i64 48
   %605 = load ptr, ptr %604, align 8
   store i32 %601, ptr %605, align 4
-  %606 = getelementptr inbounds i8, ptr %1, i64 10
+  %606 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %607 = load i16, ptr %606, align 2
   %608 = zext i16 %607 to i32
   %609 = getelementptr i8, ptr %7, i64 136
   %610 = load ptr, ptr %609, align 8
   store i32 %608, ptr %610, align 4
-  %611 = getelementptr inbounds i8, ptr %1, i64 6
+  %611 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %612 = load i16, ptr %611, align 2
   %613 = zext i16 %612 to i32
   %614 = getelementptr i8, ptr %7, i64 168
   %615 = load ptr, ptr %614, align 8
   store i32 %613, ptr %615, align 4
-  %616 = getelementptr inbounds i8, ptr %1, i64 8
+  %616 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %617 = load i16, ptr %616, align 2
   %618 = zext i16 %617 to i32
   %619 = getelementptr i8, ptr %7, i64 184
@@ -3205,7 +3205,7 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
   store i32 %618, ptr %620, align 4
   %621 = getelementptr i8, ptr %7, i64 144
   %622 = load ptr, ptr %621, align 8
-  %623 = getelementptr inbounds i8, ptr %622, i64 76
+  %623 = getelementptr inbounds nuw i8, ptr %622, i64 76
   %624 = load i32, ptr %623, align 4
   %625 = getelementptr i8, ptr %7, i64 152
   %626 = load ptr, ptr %625, align 8
@@ -3213,46 +3213,46 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
   %627 = getelementptr i8, ptr %7, i64 200
   %628 = load ptr, ptr %627, align 8
   store i32 1, ptr %628, align 4
-  %629 = getelementptr inbounds i8, ptr %1, i64 4
+  %629 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %630 = load i16, ptr %629, align 4
   %631 = zext i16 %630 to i32
-  %632 = getelementptr inbounds i8, ptr %7, i64 752
+  %632 = getelementptr inbounds nuw i8, ptr %7, i64 752
   %633 = load ptr, ptr %632, align 8
-  %634 = getelementptr inbounds i8, ptr %633, i64 76
+  %634 = getelementptr inbounds nuw i8, ptr %633, i64 76
   %635 = load i32, ptr %634, align 4
-  %636 = getelementptr inbounds i8, ptr %633, i64 72
+  %636 = getelementptr inbounds nuw i8, ptr %633, i64 72
   %637 = load i32, ptr %636, align 8
   %638 = sub i32 %635, %637
   %639 = mul i32 %638, %631
   %640 = sdiv i32 %639, 65535
   %641 = add i32 %640, %637
-  %642 = getelementptr inbounds i8, ptr %633, i64 48
+  %642 = getelementptr inbounds nuw i8, ptr %633, i64 48
   %643 = load ptr, ptr %642, align 8
   store i32 %641, ptr %643, align 4
-  %644 = getelementptr inbounds i8, ptr %1, i64 12
+  %644 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %645 = load i16, ptr %644, align 2
   %646 = zext i16 %645 to i32
   %647 = getelementptr i8, ptr %7, i64 216
   %648 = load ptr, ptr %647, align 8
   store i32 %646, ptr %648, align 4
   %649 = load ptr, ptr %7, align 8
-  %650 = getelementptr inbounds i8, ptr %7, i64 8
+  %650 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %651 = load ptr, ptr %650, align 8
   tail call void @hid_hw_request(ptr noundef %649, ptr noundef %651, i32 noundef 9) #9
   br i1 %10, label %663, label %.thread33
 
 .thread33:                                        ; preds = %587, %592
-  %652 = getelementptr inbounds i8, ptr %1, i64 16
+  %652 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %653 = load i16, ptr %652, align 8
-  %654 = getelementptr inbounds i8, ptr %2, i64 16
+  %654 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %655 = load i16, ptr %654, align 8
   %656 = icmp eq i16 %653, %655
   br i1 %656, label %657, label %663
 
 657:                                              ; preds = %.thread33
-  %658 = getelementptr inbounds i8, ptr %1, i64 18
+  %658 = getelementptr inbounds nuw i8, ptr %1, i64 18
   %659 = load i16, ptr %658, align 2
-  %660 = getelementptr inbounds i8, ptr %2, i64 18
+  %660 = getelementptr inbounds nuw i8, ptr %2, i64 18
   %661 = load i16, ptr %660, align 2
   %662 = icmp eq i16 %659, %661
   br i1 %662, label %.thread34, label %663
@@ -3260,14 +3260,14 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
 663:                                              ; preds = %657, %.thread33, %592
   %664 = load ptr, ptr %8, align 8
   %665 = load i32, ptr %664, align 4
-  %666 = getelementptr inbounds i8, ptr %7, i64 552
+  %666 = getelementptr inbounds nuw i8, ptr %7, i64 552
   %667 = load ptr, ptr %666, align 8
   store i32 %665, ptr %667, align 4
   %668 = getelementptr i8, ptr %7, i64 560
-  %669 = getelementptr inbounds i8, ptr %1, i64 16
+  %669 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %670 = load i16, ptr %669, align 8
   %671 = load ptr, ptr %668, align 8
-  %672 = getelementptr inbounds i8, ptr %671, i64 72
+  %672 = getelementptr inbounds nuw i8, ptr %671, i64 72
   %673 = load i32, ptr %672, align 8
   %674 = icmp slt i32 %673, 0
   %675 = sext i16 %670 to i32
@@ -3282,7 +3282,7 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
   br i1 %679, label %680, label %685
 
 680:                                              ; preds = %678
-  %681 = getelementptr inbounds i8, ptr %671, i64 76
+  %681 = getelementptr inbounds nuw i8, ptr %671, i64 76
   %682 = load i32, ptr %681, align 4
   %683 = mul i32 %682, %675
   %684 = sdiv i32 %683, 32767
@@ -3302,7 +3302,7 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
 
 692:                                              ; preds = %663
   %693 = icmp slt i16 %670, 0
-  %694 = getelementptr inbounds i8, ptr %671, i64 76
+  %694 = getelementptr inbounds nuw i8, ptr %671, i64 76
   %695 = load i32, ptr %694, align 4
   %696 = getelementptr i8, ptr %7, i64 568
   %697 = load ptr, ptr %696, align 8
@@ -3326,10 +3326,10 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
 
 708:                                              ; preds = %703, %698, %688
   %709 = getelementptr i8, ptr %7, i64 576
-  %710 = getelementptr inbounds i8, ptr %1, i64 18
+  %710 = getelementptr inbounds nuw i8, ptr %1, i64 18
   %711 = load i16, ptr %710, align 2
   %712 = load ptr, ptr %709, align 8
-  %713 = getelementptr inbounds i8, ptr %712, i64 72
+  %713 = getelementptr inbounds nuw i8, ptr %712, i64 72
   %714 = load i32, ptr %713, align 8
   %715 = icmp slt i32 %714, 0
   %716 = sext i16 %711 to i32
@@ -3344,7 +3344,7 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
   br i1 %720, label %721, label %726
 
 721:                                              ; preds = %719
-  %722 = getelementptr inbounds i8, ptr %712, i64 76
+  %722 = getelementptr inbounds nuw i8, ptr %712, i64 76
   %723 = load i32, ptr %722, align 4
   %724 = mul i32 %723, %716
   %725 = sdiv i32 %724, 32767
@@ -3364,7 +3364,7 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
 
 733:                                              ; preds = %708
   %734 = icmp slt i16 %711, 0
-  %735 = getelementptr inbounds i8, ptr %712, i64 76
+  %735 = getelementptr inbounds nuw i8, ptr %712, i64 76
   %736 = load i32, ptr %735, align 4
   %737 = getelementptr i8, ptr %7, i64 584
   %738 = load ptr, ptr %737, align 8
@@ -3394,19 +3394,19 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
   br i1 %10, label %776, label %.thread34
 
 .thread34:                                        ; preds = %657, %749
-  %753 = getelementptr inbounds i8, ptr %1, i64 20
-  %754 = getelementptr inbounds i8, ptr %2, i64 20
-  %755 = getelementptr inbounds i8, ptr %1, i64 22
+  %753 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %754 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %755 = getelementptr inbounds nuw i8, ptr %1, i64 22
   %756 = load i16, ptr %755, align 2
-  %757 = getelementptr inbounds i8, ptr %2, i64 22
+  %757 = getelementptr inbounds nuw i8, ptr %2, i64 22
   %758 = load i16, ptr %757, align 2
   %759 = icmp eq i16 %756, %758
   br i1 %759, label %760, label %776
 
 760:                                              ; preds = %.thread34
-  %761 = getelementptr inbounds i8, ptr %1, i64 26
+  %761 = getelementptr inbounds nuw i8, ptr %1, i64 26
   %762 = load i16, ptr %761, align 2
-  %763 = getelementptr inbounds i8, ptr %2, i64 26
+  %763 = getelementptr inbounds nuw i8, ptr %2, i64 26
   %764 = load i16, ptr %763, align 2
   %765 = icmp eq i16 %762, %764
   br i1 %765, label %766, label %776
@@ -3418,29 +3418,29 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
   br i1 %769, label %770, label %776
 
 770:                                              ; preds = %766
-  %771 = getelementptr inbounds i8, ptr %1, i64 24
+  %771 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %772 = load i16, ptr %771, align 2
-  %773 = getelementptr inbounds i8, ptr %2, i64 24
+  %773 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %774 = load i16, ptr %773, align 2
   %775 = icmp eq i16 %772, %774
   br i1 %775, label %.thread39, label %776
 
 776:                                              ; preds = %770, %766, %760, %.thread34, %749
-  %777 = getelementptr inbounds i8, ptr %1, i64 20
+  %777 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %778 = load ptr, ptr %8, align 8
   %779 = load i32, ptr %778, align 4
-  %780 = getelementptr inbounds i8, ptr %7, i64 232
+  %780 = getelementptr inbounds nuw i8, ptr %7, i64 232
   %781 = load ptr, ptr %780, align 8
   store i32 %779, ptr %781, align 4
-  %782 = getelementptr inbounds i8, ptr %1, i64 22
+  %782 = getelementptr inbounds nuw i8, ptr %1, i64 22
   %783 = load i16, ptr %782, align 2
   %784 = tail call i16 @llvm.umin.i16(i16 %783, i16 32767)
   %785 = zext nneg i16 %784 to i32
   %786 = getelementptr i8, ptr %7, i64 240
   %787 = load ptr, ptr %786, align 8
-  %788 = getelementptr inbounds i8, ptr %787, i64 76
+  %788 = getelementptr inbounds nuw i8, ptr %787, i64 76
   %789 = load i32, ptr %788, align 4
-  %790 = getelementptr inbounds i8, ptr %787, i64 72
+  %790 = getelementptr inbounds nuw i8, ptr %787, i64 72
   %791 = load i32, ptr %790, align 8
   %792 = sub i32 %789, %791
   %793 = mul i32 %792, %785
@@ -3449,15 +3449,15 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
   %796 = getelementptr i8, ptr %7, i64 248
   %797 = load ptr, ptr %796, align 8
   store i32 %795, ptr %797, align 4
-  %798 = getelementptr inbounds i8, ptr %1, i64 26
+  %798 = getelementptr inbounds nuw i8, ptr %1, i64 26
   %799 = load i16, ptr %798, align 2
   %800 = tail call i16 @llvm.umin.i16(i16 %799, i16 32767)
   %801 = zext nneg i16 %800 to i32
   %802 = getelementptr i8, ptr %7, i64 272
   %803 = load ptr, ptr %802, align 8
-  %804 = getelementptr inbounds i8, ptr %803, i64 76
+  %804 = getelementptr inbounds nuw i8, ptr %803, i64 76
   %805 = load i32, ptr %804, align 4
-  %806 = getelementptr inbounds i8, ptr %803, i64 72
+  %806 = getelementptr inbounds nuw i8, ptr %803, i64 72
   %807 = load i32, ptr %806, align 8
   %808 = sub i32 %805, %807
   %809 = mul i32 %808, %801
@@ -3471,7 +3471,7 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
   %816 = getelementptr i8, ptr %7, i64 264
   %817 = load ptr, ptr %816, align 8
   store i32 %815, ptr %817, align 4
-  %818 = getelementptr inbounds i8, ptr %1, i64 24
+  %818 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %819 = load i16, ptr %818, align 2
   %820 = zext i16 %819 to i32
   %821 = getelementptr i8, ptr %7, i64 296
@@ -3494,41 +3494,41 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
   br i1 %831, label %862, label %.thread39
 
 832:                                              ; preds = %826
-  %833 = getelementptr inbounds i8, ptr %1, i64 10
+  %833 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %834 = load i16, ptr %833, align 2
-  %835 = getelementptr inbounds i8, ptr %2, i64 10
+  %835 = getelementptr inbounds nuw i8, ptr %2, i64 10
   %836 = load i16, ptr %835, align 2
   %837 = icmp eq i16 %834, %836
   br i1 %837, label %838, label %862
 
 838:                                              ; preds = %832
-  %839 = getelementptr inbounds i8, ptr %1, i64 8
+  %839 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %840 = load i16, ptr %839, align 2
-  %841 = getelementptr inbounds i8, ptr %2, i64 8
+  %841 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %842 = load i16, ptr %841, align 2
   %843 = icmp eq i16 %840, %842
   br i1 %843, label %844, label %862
 
 844:                                              ; preds = %838
-  %845 = getelementptr inbounds i8, ptr %2, i64 6
-  %846 = getelementptr inbounds i8, ptr %1, i64 6
+  %845 = getelementptr inbounds nuw i8, ptr %2, i64 6
+  %846 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %847 = load i16, ptr %846, align 2
   %848 = load i16, ptr %845, align 2
   %849 = icmp eq i16 %847, %848
   br i1 %849, label %850, label %862
 
 850:                                              ; preds = %844
-  %851 = getelementptr inbounds i8, ptr %1, i64 4
+  %851 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %852 = load i16, ptr %851, align 4
-  %853 = getelementptr inbounds i8, ptr %2, i64 4
+  %853 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %854 = load i16, ptr %853, align 4
   %855 = icmp eq i16 %852, %854
   br i1 %855, label %856, label %862
 
 856:                                              ; preds = %850
-  %857 = getelementptr inbounds i8, ptr %1, i64 12
+  %857 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %858 = load i16, ptr %857, align 2
-  %859 = getelementptr inbounds i8, ptr %2, i64 12
+  %859 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %860 = load i16, ptr %859, align 2
   %861 = icmp eq i16 %858, %860
   br i1 %861, label %.thread35, label %862
@@ -3536,32 +3536,32 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
 862:                                              ; preds = %827, %832, %838, %844, %850, %856
   %863 = load ptr, ptr %8, align 8
   %864 = load i32, ptr %863, align 4
-  %865 = getelementptr inbounds i8, ptr %7, i64 120
+  %865 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %866 = load ptr, ptr %865, align 8
   store i32 %864, ptr %866, align 4
-  %867 = getelementptr inbounds i8, ptr %7, i64 736
+  %867 = getelementptr inbounds nuw i8, ptr %7, i64 736
   %868 = load ptr, ptr %867, align 8
-  %869 = getelementptr inbounds i8, ptr %868, i64 48
+  %869 = getelementptr inbounds nuw i8, ptr %868, i64 48
   %870 = load ptr, ptr %869, align 8
   %871 = load i32, ptr %870, align 4
-  %872 = getelementptr inbounds i8, ptr %7, i64 744
+  %872 = getelementptr inbounds nuw i8, ptr %7, i64 744
   %873 = load ptr, ptr %872, align 8
-  %874 = getelementptr inbounds i8, ptr %873, i64 48
+  %874 = getelementptr inbounds nuw i8, ptr %873, i64 48
   %875 = load ptr, ptr %874, align 8
   store i32 %871, ptr %875, align 4
-  %876 = getelementptr inbounds i8, ptr %1, i64 10
+  %876 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %877 = load i16, ptr %876, align 2
   %878 = zext i16 %877 to i32
   %879 = getelementptr i8, ptr %7, i64 136
   %880 = load ptr, ptr %879, align 8
   store i32 %878, ptr %880, align 4
-  %881 = getelementptr inbounds i8, ptr %1, i64 6
+  %881 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %882 = load i16, ptr %881, align 2
   %883 = zext i16 %882 to i32
   %884 = getelementptr i8, ptr %7, i64 168
   %885 = load ptr, ptr %884, align 8
   store i32 %883, ptr %885, align 4
-  %886 = getelementptr inbounds i8, ptr %1, i64 8
+  %886 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %887 = load i16, ptr %886, align 2
   %888 = zext i16 %887 to i32
   %889 = getelementptr i8, ptr %7, i64 184
@@ -3569,7 +3569,7 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
   store i32 %888, ptr %890, align 4
   %891 = getelementptr i8, ptr %7, i64 144
   %892 = load ptr, ptr %891, align 8
-  %893 = getelementptr inbounds i8, ptr %892, i64 76
+  %893 = getelementptr inbounds nuw i8, ptr %892, i64 76
   %894 = load i32, ptr %893, align 4
   %895 = getelementptr i8, ptr %7, i64 152
   %896 = load ptr, ptr %895, align 8
@@ -3577,37 +3577,37 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
   %897 = getelementptr i8, ptr %7, i64 200
   %898 = load ptr, ptr %897, align 8
   store i32 1, ptr %898, align 4
-  %899 = getelementptr inbounds i8, ptr %1, i64 4
+  %899 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %900 = load i16, ptr %899, align 4
   %901 = zext i16 %900 to i32
-  %902 = getelementptr inbounds i8, ptr %7, i64 752
+  %902 = getelementptr inbounds nuw i8, ptr %7, i64 752
   %903 = load ptr, ptr %902, align 8
-  %904 = getelementptr inbounds i8, ptr %903, i64 76
+  %904 = getelementptr inbounds nuw i8, ptr %903, i64 76
   %905 = load i32, ptr %904, align 4
-  %906 = getelementptr inbounds i8, ptr %903, i64 72
+  %906 = getelementptr inbounds nuw i8, ptr %903, i64 72
   %907 = load i32, ptr %906, align 8
   %908 = sub i32 %905, %907
   %909 = mul i32 %908, %901
   %910 = sdiv i32 %909, 65535
   %911 = add i32 %910, %907
-  %912 = getelementptr inbounds i8, ptr %903, i64 48
+  %912 = getelementptr inbounds nuw i8, ptr %903, i64 48
   %913 = load ptr, ptr %912, align 8
   store i32 %911, ptr %913, align 4
-  %914 = getelementptr inbounds i8, ptr %1, i64 12
+  %914 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %915 = load i16, ptr %914, align 2
   %916 = zext i16 %915 to i32
   %917 = getelementptr i8, ptr %7, i64 216
   %918 = load ptr, ptr %917, align 8
   store i32 %916, ptr %918, align 4
   %919 = load ptr, ptr %7, align 8
-  %920 = getelementptr inbounds i8, ptr %7, i64 8
+  %920 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %921 = load ptr, ptr %920, align 8
   tail call void @hid_hw_request(ptr noundef %919, ptr noundef %921, i32 noundef 9) #9
   br i1 %10, label %969, label %.thread35
 
 .thread35:                                        ; preds = %856, %862
-  %922 = getelementptr inbounds i8, ptr %1, i64 16
-  %923 = getelementptr inbounds i8, ptr %2, i64 16
+  %922 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %923 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %924
 
 924:                                              ; preds = %964, %.thread35
@@ -3616,25 +3616,25 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
   %927 = phi i32 [ 0, %.thread35 ], [ %966, %964 ]
   %928 = getelementptr [2 x %struct.ff_condition_effect], ptr %922, i64 0, i64 %926
   %929 = getelementptr [2 x %struct.ff_condition_effect], ptr %923, i64 0, i64 %926
-  %930 = getelementptr inbounds i8, ptr %928, i64 10
+  %930 = getelementptr inbounds nuw i8, ptr %928, i64 10
   %931 = load i16, ptr %930, align 2
-  %932 = getelementptr inbounds i8, ptr %929, i64 10
+  %932 = getelementptr inbounds nuw i8, ptr %929, i64 10
   %933 = load i16, ptr %932, align 2
   %934 = icmp eq i16 %931, %933
   br i1 %934, label %935, label %964
 
 935:                                              ; preds = %924
-  %936 = getelementptr inbounds i8, ptr %928, i64 4
+  %936 = getelementptr inbounds nuw i8, ptr %928, i64 4
   %937 = load i16, ptr %936, align 2
-  %938 = getelementptr inbounds i8, ptr %929, i64 4
+  %938 = getelementptr inbounds nuw i8, ptr %929, i64 4
   %939 = load i16, ptr %938, align 2
   %940 = icmp eq i16 %937, %939
   br i1 %940, label %941, label %964
 
 941:                                              ; preds = %935
-  %942 = getelementptr inbounds i8, ptr %928, i64 6
+  %942 = getelementptr inbounds nuw i8, ptr %928, i64 6
   %943 = load i16, ptr %942, align 2
-  %944 = getelementptr inbounds i8, ptr %929, i64 6
+  %944 = getelementptr inbounds nuw i8, ptr %929, i64 6
   %945 = load i16, ptr %944, align 2
   %946 = icmp eq i16 %943, %945
   br i1 %946, label %947, label %964
@@ -3646,17 +3646,17 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
   br i1 %950, label %951, label %964
 
 951:                                              ; preds = %947
-  %952 = getelementptr inbounds i8, ptr %928, i64 2
+  %952 = getelementptr inbounds nuw i8, ptr %928, i64 2
   %953 = load i16, ptr %952, align 2
-  %954 = getelementptr inbounds i8, ptr %929, i64 2
+  %954 = getelementptr inbounds nuw i8, ptr %929, i64 2
   %955 = load i16, ptr %954, align 2
   %956 = icmp eq i16 %953, %955
   br i1 %956, label %957, label %964
 
 957:                                              ; preds = %951
-  %958 = getelementptr inbounds i8, ptr %928, i64 8
+  %958 = getelementptr inbounds nuw i8, ptr %928, i64 8
   %959 = load i16, ptr %958, align 2
-  %960 = getelementptr inbounds i8, ptr %929, i64 8
+  %960 = getelementptr inbounds nuw i8, ptr %929, i64 8
   %961 = load i16, ptr %960, align 2
   %962 = icmp ne i16 %959, %961
   %963 = zext i1 %962 to i32
@@ -3686,41 +3686,41 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
   br i1 %975, label %1006, label %.thread39
 
 976:                                              ; preds = %970
-  %977 = getelementptr inbounds i8, ptr %1, i64 10
+  %977 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %978 = load i16, ptr %977, align 2
-  %979 = getelementptr inbounds i8, ptr %2, i64 10
+  %979 = getelementptr inbounds nuw i8, ptr %2, i64 10
   %980 = load i16, ptr %979, align 2
   %981 = icmp eq i16 %978, %980
   br i1 %981, label %982, label %1006
 
 982:                                              ; preds = %976
-  %983 = getelementptr inbounds i8, ptr %1, i64 8
+  %983 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %984 = load i16, ptr %983, align 2
-  %985 = getelementptr inbounds i8, ptr %2, i64 8
+  %985 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %986 = load i16, ptr %985, align 2
   %987 = icmp eq i16 %984, %986
   br i1 %987, label %988, label %1006
 
 988:                                              ; preds = %982
-  %989 = getelementptr inbounds i8, ptr %2, i64 6
-  %990 = getelementptr inbounds i8, ptr %1, i64 6
+  %989 = getelementptr inbounds nuw i8, ptr %2, i64 6
+  %990 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %991 = load i16, ptr %990, align 2
   %992 = load i16, ptr %989, align 2
   %993 = icmp eq i16 %991, %992
   br i1 %993, label %994, label %1006
 
 994:                                              ; preds = %988
-  %995 = getelementptr inbounds i8, ptr %1, i64 4
+  %995 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %996 = load i16, ptr %995, align 4
-  %997 = getelementptr inbounds i8, ptr %2, i64 4
+  %997 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %998 = load i16, ptr %997, align 4
   %999 = icmp eq i16 %996, %998
   br i1 %999, label %1000, label %1006
 
 1000:                                             ; preds = %994
-  %1001 = getelementptr inbounds i8, ptr %1, i64 12
+  %1001 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %1002 = load i16, ptr %1001, align 2
-  %1003 = getelementptr inbounds i8, ptr %2, i64 12
+  %1003 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %1004 = load i16, ptr %1003, align 2
   %1005 = icmp eq i16 %1002, %1004
   br i1 %1005, label %.thread36, label %1006
@@ -3728,32 +3728,32 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
 1006:                                             ; preds = %971, %976, %982, %988, %994, %1000
   %1007 = load ptr, ptr %8, align 8
   %1008 = load i32, ptr %1007, align 4
-  %1009 = getelementptr inbounds i8, ptr %7, i64 120
+  %1009 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %1010 = load ptr, ptr %1009, align 8
   store i32 %1008, ptr %1010, align 4
-  %1011 = getelementptr inbounds i8, ptr %7, i64 736
+  %1011 = getelementptr inbounds nuw i8, ptr %7, i64 736
   %1012 = load ptr, ptr %1011, align 8
-  %1013 = getelementptr inbounds i8, ptr %1012, i64 48
+  %1013 = getelementptr inbounds nuw i8, ptr %1012, i64 48
   %1014 = load ptr, ptr %1013, align 8
   %1015 = load i32, ptr %1014, align 4
-  %1016 = getelementptr inbounds i8, ptr %7, i64 744
+  %1016 = getelementptr inbounds nuw i8, ptr %7, i64 744
   %1017 = load ptr, ptr %1016, align 8
-  %1018 = getelementptr inbounds i8, ptr %1017, i64 48
+  %1018 = getelementptr inbounds nuw i8, ptr %1017, i64 48
   %1019 = load ptr, ptr %1018, align 8
   store i32 %1015, ptr %1019, align 4
-  %1020 = getelementptr inbounds i8, ptr %1, i64 10
+  %1020 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %1021 = load i16, ptr %1020, align 2
   %1022 = zext i16 %1021 to i32
   %1023 = getelementptr i8, ptr %7, i64 136
   %1024 = load ptr, ptr %1023, align 8
   store i32 %1022, ptr %1024, align 4
-  %1025 = getelementptr inbounds i8, ptr %1, i64 6
+  %1025 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %1026 = load i16, ptr %1025, align 2
   %1027 = zext i16 %1026 to i32
   %1028 = getelementptr i8, ptr %7, i64 168
   %1029 = load ptr, ptr %1028, align 8
   store i32 %1027, ptr %1029, align 4
-  %1030 = getelementptr inbounds i8, ptr %1, i64 8
+  %1030 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %1031 = load i16, ptr %1030, align 2
   %1032 = zext i16 %1031 to i32
   %1033 = getelementptr i8, ptr %7, i64 184
@@ -3761,7 +3761,7 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
   store i32 %1032, ptr %1034, align 4
   %1035 = getelementptr i8, ptr %7, i64 144
   %1036 = load ptr, ptr %1035, align 8
-  %1037 = getelementptr inbounds i8, ptr %1036, i64 76
+  %1037 = getelementptr inbounds nuw i8, ptr %1036, i64 76
   %1038 = load i32, ptr %1037, align 4
   %1039 = getelementptr i8, ptr %7, i64 152
   %1040 = load ptr, ptr %1039, align 8
@@ -3769,37 +3769,37 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
   %1041 = getelementptr i8, ptr %7, i64 200
   %1042 = load ptr, ptr %1041, align 8
   store i32 1, ptr %1042, align 4
-  %1043 = getelementptr inbounds i8, ptr %1, i64 4
+  %1043 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %1044 = load i16, ptr %1043, align 4
   %1045 = zext i16 %1044 to i32
-  %1046 = getelementptr inbounds i8, ptr %7, i64 752
+  %1046 = getelementptr inbounds nuw i8, ptr %7, i64 752
   %1047 = load ptr, ptr %1046, align 8
-  %1048 = getelementptr inbounds i8, ptr %1047, i64 76
+  %1048 = getelementptr inbounds nuw i8, ptr %1047, i64 76
   %1049 = load i32, ptr %1048, align 4
-  %1050 = getelementptr inbounds i8, ptr %1047, i64 72
+  %1050 = getelementptr inbounds nuw i8, ptr %1047, i64 72
   %1051 = load i32, ptr %1050, align 8
   %1052 = sub i32 %1049, %1051
   %1053 = mul i32 %1052, %1045
   %1054 = sdiv i32 %1053, 65535
   %1055 = add i32 %1054, %1051
-  %1056 = getelementptr inbounds i8, ptr %1047, i64 48
+  %1056 = getelementptr inbounds nuw i8, ptr %1047, i64 48
   %1057 = load ptr, ptr %1056, align 8
   store i32 %1055, ptr %1057, align 4
-  %1058 = getelementptr inbounds i8, ptr %1, i64 12
+  %1058 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %1059 = load i16, ptr %1058, align 2
   %1060 = zext i16 %1059 to i32
   %1061 = getelementptr i8, ptr %7, i64 216
   %1062 = load ptr, ptr %1061, align 8
   store i32 %1060, ptr %1062, align 4
   %1063 = load ptr, ptr %7, align 8
-  %1064 = getelementptr inbounds i8, ptr %7, i64 8
+  %1064 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %1065 = load ptr, ptr %1064, align 8
   tail call void @hid_hw_request(ptr noundef %1063, ptr noundef %1065, i32 noundef 9) #9
   br i1 %10, label %1113, label %.thread36
 
 .thread36:                                        ; preds = %1000, %1006
-  %1066 = getelementptr inbounds i8, ptr %1, i64 16
-  %1067 = getelementptr inbounds i8, ptr %2, i64 16
+  %1066 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1067 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %1068
 
 1068:                                             ; preds = %1108, %.thread36
@@ -3808,25 +3808,25 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
   %1071 = phi i32 [ 0, %.thread36 ], [ %1110, %1108 ]
   %1072 = getelementptr [2 x %struct.ff_condition_effect], ptr %1066, i64 0, i64 %1070
   %1073 = getelementptr [2 x %struct.ff_condition_effect], ptr %1067, i64 0, i64 %1070
-  %1074 = getelementptr inbounds i8, ptr %1072, i64 10
+  %1074 = getelementptr inbounds nuw i8, ptr %1072, i64 10
   %1075 = load i16, ptr %1074, align 2
-  %1076 = getelementptr inbounds i8, ptr %1073, i64 10
+  %1076 = getelementptr inbounds nuw i8, ptr %1073, i64 10
   %1077 = load i16, ptr %1076, align 2
   %1078 = icmp eq i16 %1075, %1077
   br i1 %1078, label %1079, label %1108
 
 1079:                                             ; preds = %1068
-  %1080 = getelementptr inbounds i8, ptr %1072, i64 4
+  %1080 = getelementptr inbounds nuw i8, ptr %1072, i64 4
   %1081 = load i16, ptr %1080, align 2
-  %1082 = getelementptr inbounds i8, ptr %1073, i64 4
+  %1082 = getelementptr inbounds nuw i8, ptr %1073, i64 4
   %1083 = load i16, ptr %1082, align 2
   %1084 = icmp eq i16 %1081, %1083
   br i1 %1084, label %1085, label %1108
 
 1085:                                             ; preds = %1079
-  %1086 = getelementptr inbounds i8, ptr %1072, i64 6
+  %1086 = getelementptr inbounds nuw i8, ptr %1072, i64 6
   %1087 = load i16, ptr %1086, align 2
-  %1088 = getelementptr inbounds i8, ptr %1073, i64 6
+  %1088 = getelementptr inbounds nuw i8, ptr %1073, i64 6
   %1089 = load i16, ptr %1088, align 2
   %1090 = icmp eq i16 %1087, %1089
   br i1 %1090, label %1091, label %1108
@@ -3838,17 +3838,17 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
   br i1 %1094, label %1095, label %1108
 
 1095:                                             ; preds = %1091
-  %1096 = getelementptr inbounds i8, ptr %1072, i64 2
+  %1096 = getelementptr inbounds nuw i8, ptr %1072, i64 2
   %1097 = load i16, ptr %1096, align 2
-  %1098 = getelementptr inbounds i8, ptr %1073, i64 2
+  %1098 = getelementptr inbounds nuw i8, ptr %1073, i64 2
   %1099 = load i16, ptr %1098, align 2
   %1100 = icmp eq i16 %1097, %1099
   br i1 %1100, label %1101, label %1108
 
 1101:                                             ; preds = %1095
-  %1102 = getelementptr inbounds i8, ptr %1072, i64 8
+  %1102 = getelementptr inbounds nuw i8, ptr %1072, i64 8
   %1103 = load i16, ptr %1102, align 2
-  %1104 = getelementptr inbounds i8, ptr %1073, i64 8
+  %1104 = getelementptr inbounds nuw i8, ptr %1073, i64 8
   %1105 = load i16, ptr %1104, align 2
   %1106 = icmp ne i16 %1103, %1105
   %1107 = zext i1 %1106 to i32
@@ -3878,41 +3878,41 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
   br i1 %1119, label %1150, label %.thread39
 
 1120:                                             ; preds = %1114
-  %1121 = getelementptr inbounds i8, ptr %1, i64 10
+  %1121 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %1122 = load i16, ptr %1121, align 2
-  %1123 = getelementptr inbounds i8, ptr %2, i64 10
+  %1123 = getelementptr inbounds nuw i8, ptr %2, i64 10
   %1124 = load i16, ptr %1123, align 2
   %1125 = icmp eq i16 %1122, %1124
   br i1 %1125, label %1126, label %1150
 
 1126:                                             ; preds = %1120
-  %1127 = getelementptr inbounds i8, ptr %1, i64 8
+  %1127 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %1128 = load i16, ptr %1127, align 2
-  %1129 = getelementptr inbounds i8, ptr %2, i64 8
+  %1129 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %1130 = load i16, ptr %1129, align 2
   %1131 = icmp eq i16 %1128, %1130
   br i1 %1131, label %1132, label %1150
 
 1132:                                             ; preds = %1126
-  %1133 = getelementptr inbounds i8, ptr %2, i64 6
-  %1134 = getelementptr inbounds i8, ptr %1, i64 6
+  %1133 = getelementptr inbounds nuw i8, ptr %2, i64 6
+  %1134 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %1135 = load i16, ptr %1134, align 2
   %1136 = load i16, ptr %1133, align 2
   %1137 = icmp eq i16 %1135, %1136
   br i1 %1137, label %1138, label %1150
 
 1138:                                             ; preds = %1132
-  %1139 = getelementptr inbounds i8, ptr %1, i64 4
+  %1139 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %1140 = load i16, ptr %1139, align 4
-  %1141 = getelementptr inbounds i8, ptr %2, i64 4
+  %1141 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %1142 = load i16, ptr %1141, align 4
   %1143 = icmp eq i16 %1140, %1142
   br i1 %1143, label %1144, label %1150
 
 1144:                                             ; preds = %1138
-  %1145 = getelementptr inbounds i8, ptr %1, i64 12
+  %1145 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %1146 = load i16, ptr %1145, align 2
-  %1147 = getelementptr inbounds i8, ptr %2, i64 12
+  %1147 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %1148 = load i16, ptr %1147, align 2
   %1149 = icmp eq i16 %1146, %1148
   br i1 %1149, label %.thread37, label %1150
@@ -3920,32 +3920,32 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
 1150:                                             ; preds = %1115, %1120, %1126, %1132, %1138, %1144
   %1151 = load ptr, ptr %8, align 8
   %1152 = load i32, ptr %1151, align 4
-  %1153 = getelementptr inbounds i8, ptr %7, i64 120
+  %1153 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %1154 = load ptr, ptr %1153, align 8
   store i32 %1152, ptr %1154, align 4
-  %1155 = getelementptr inbounds i8, ptr %7, i64 736
+  %1155 = getelementptr inbounds nuw i8, ptr %7, i64 736
   %1156 = load ptr, ptr %1155, align 8
-  %1157 = getelementptr inbounds i8, ptr %1156, i64 48
+  %1157 = getelementptr inbounds nuw i8, ptr %1156, i64 48
   %1158 = load ptr, ptr %1157, align 8
   %1159 = load i32, ptr %1158, align 4
-  %1160 = getelementptr inbounds i8, ptr %7, i64 744
+  %1160 = getelementptr inbounds nuw i8, ptr %7, i64 744
   %1161 = load ptr, ptr %1160, align 8
-  %1162 = getelementptr inbounds i8, ptr %1161, i64 48
+  %1162 = getelementptr inbounds nuw i8, ptr %1161, i64 48
   %1163 = load ptr, ptr %1162, align 8
   store i32 %1159, ptr %1163, align 4
-  %1164 = getelementptr inbounds i8, ptr %1, i64 10
+  %1164 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %1165 = load i16, ptr %1164, align 2
   %1166 = zext i16 %1165 to i32
   %1167 = getelementptr i8, ptr %7, i64 136
   %1168 = load ptr, ptr %1167, align 8
   store i32 %1166, ptr %1168, align 4
-  %1169 = getelementptr inbounds i8, ptr %1, i64 6
+  %1169 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %1170 = load i16, ptr %1169, align 2
   %1171 = zext i16 %1170 to i32
   %1172 = getelementptr i8, ptr %7, i64 168
   %1173 = load ptr, ptr %1172, align 8
   store i32 %1171, ptr %1173, align 4
-  %1174 = getelementptr inbounds i8, ptr %1, i64 8
+  %1174 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %1175 = load i16, ptr %1174, align 2
   %1176 = zext i16 %1175 to i32
   %1177 = getelementptr i8, ptr %7, i64 184
@@ -3953,7 +3953,7 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
   store i32 %1176, ptr %1178, align 4
   %1179 = getelementptr i8, ptr %7, i64 144
   %1180 = load ptr, ptr %1179, align 8
-  %1181 = getelementptr inbounds i8, ptr %1180, i64 76
+  %1181 = getelementptr inbounds nuw i8, ptr %1180, i64 76
   %1182 = load i32, ptr %1181, align 4
   %1183 = getelementptr i8, ptr %7, i64 152
   %1184 = load ptr, ptr %1183, align 8
@@ -3961,37 +3961,37 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
   %1185 = getelementptr i8, ptr %7, i64 200
   %1186 = load ptr, ptr %1185, align 8
   store i32 1, ptr %1186, align 4
-  %1187 = getelementptr inbounds i8, ptr %1, i64 4
+  %1187 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %1188 = load i16, ptr %1187, align 4
   %1189 = zext i16 %1188 to i32
-  %1190 = getelementptr inbounds i8, ptr %7, i64 752
+  %1190 = getelementptr inbounds nuw i8, ptr %7, i64 752
   %1191 = load ptr, ptr %1190, align 8
-  %1192 = getelementptr inbounds i8, ptr %1191, i64 76
+  %1192 = getelementptr inbounds nuw i8, ptr %1191, i64 76
   %1193 = load i32, ptr %1192, align 4
-  %1194 = getelementptr inbounds i8, ptr %1191, i64 72
+  %1194 = getelementptr inbounds nuw i8, ptr %1191, i64 72
   %1195 = load i32, ptr %1194, align 8
   %1196 = sub i32 %1193, %1195
   %1197 = mul i32 %1196, %1189
   %1198 = sdiv i32 %1197, 65535
   %1199 = add i32 %1198, %1195
-  %1200 = getelementptr inbounds i8, ptr %1191, i64 48
+  %1200 = getelementptr inbounds nuw i8, ptr %1191, i64 48
   %1201 = load ptr, ptr %1200, align 8
   store i32 %1199, ptr %1201, align 4
-  %1202 = getelementptr inbounds i8, ptr %1, i64 12
+  %1202 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %1203 = load i16, ptr %1202, align 2
   %1204 = zext i16 %1203 to i32
   %1205 = getelementptr i8, ptr %7, i64 216
   %1206 = load ptr, ptr %1205, align 8
   store i32 %1204, ptr %1206, align 4
   %1207 = load ptr, ptr %7, align 8
-  %1208 = getelementptr inbounds i8, ptr %7, i64 8
+  %1208 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %1209 = load ptr, ptr %1208, align 8
   tail call void @hid_hw_request(ptr noundef %1207, ptr noundef %1209, i32 noundef 9) #9
   br i1 %10, label %1257, label %.thread37
 
 .thread37:                                        ; preds = %1144, %1150
-  %1210 = getelementptr inbounds i8, ptr %1, i64 16
-  %1211 = getelementptr inbounds i8, ptr %2, i64 16
+  %1210 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1211 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %1212
 
 1212:                                             ; preds = %1252, %.thread37
@@ -4000,25 +4000,25 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
   %1215 = phi i32 [ 0, %.thread37 ], [ %1254, %1252 ]
   %1216 = getelementptr [2 x %struct.ff_condition_effect], ptr %1210, i64 0, i64 %1214
   %1217 = getelementptr [2 x %struct.ff_condition_effect], ptr %1211, i64 0, i64 %1214
-  %1218 = getelementptr inbounds i8, ptr %1216, i64 10
+  %1218 = getelementptr inbounds nuw i8, ptr %1216, i64 10
   %1219 = load i16, ptr %1218, align 2
-  %1220 = getelementptr inbounds i8, ptr %1217, i64 10
+  %1220 = getelementptr inbounds nuw i8, ptr %1217, i64 10
   %1221 = load i16, ptr %1220, align 2
   %1222 = icmp eq i16 %1219, %1221
   br i1 %1222, label %1223, label %1252
 
 1223:                                             ; preds = %1212
-  %1224 = getelementptr inbounds i8, ptr %1216, i64 4
+  %1224 = getelementptr inbounds nuw i8, ptr %1216, i64 4
   %1225 = load i16, ptr %1224, align 2
-  %1226 = getelementptr inbounds i8, ptr %1217, i64 4
+  %1226 = getelementptr inbounds nuw i8, ptr %1217, i64 4
   %1227 = load i16, ptr %1226, align 2
   %1228 = icmp eq i16 %1225, %1227
   br i1 %1228, label %1229, label %1252
 
 1229:                                             ; preds = %1223
-  %1230 = getelementptr inbounds i8, ptr %1216, i64 6
+  %1230 = getelementptr inbounds nuw i8, ptr %1216, i64 6
   %1231 = load i16, ptr %1230, align 2
-  %1232 = getelementptr inbounds i8, ptr %1217, i64 6
+  %1232 = getelementptr inbounds nuw i8, ptr %1217, i64 6
   %1233 = load i16, ptr %1232, align 2
   %1234 = icmp eq i16 %1231, %1233
   br i1 %1234, label %1235, label %1252
@@ -4030,17 +4030,17 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
   br i1 %1238, label %1239, label %1252
 
 1239:                                             ; preds = %1235
-  %1240 = getelementptr inbounds i8, ptr %1216, i64 2
+  %1240 = getelementptr inbounds nuw i8, ptr %1216, i64 2
   %1241 = load i16, ptr %1240, align 2
-  %1242 = getelementptr inbounds i8, ptr %1217, i64 2
+  %1242 = getelementptr inbounds nuw i8, ptr %1217, i64 2
   %1243 = load i16, ptr %1242, align 2
   %1244 = icmp eq i16 %1241, %1243
   br i1 %1244, label %1245, label %1252
 
 1245:                                             ; preds = %1239
-  %1246 = getelementptr inbounds i8, ptr %1216, i64 8
+  %1246 = getelementptr inbounds nuw i8, ptr %1216, i64 8
   %1247 = load i16, ptr %1246, align 2
-  %1248 = getelementptr inbounds i8, ptr %1217, i64 8
+  %1248 = getelementptr inbounds nuw i8, ptr %1217, i64 8
   %1249 = load i16, ptr %1248, align 2
   %1250 = icmp ne i16 %1247, %1249
   %1251 = zext i1 %1250 to i32
@@ -4070,41 +4070,41 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
   br i1 %1263, label %1294, label %.thread39
 
 1264:                                             ; preds = %1258
-  %1265 = getelementptr inbounds i8, ptr %1, i64 10
+  %1265 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %1266 = load i16, ptr %1265, align 2
-  %1267 = getelementptr inbounds i8, ptr %2, i64 10
+  %1267 = getelementptr inbounds nuw i8, ptr %2, i64 10
   %1268 = load i16, ptr %1267, align 2
   %1269 = icmp eq i16 %1266, %1268
   br i1 %1269, label %1270, label %1294
 
 1270:                                             ; preds = %1264
-  %1271 = getelementptr inbounds i8, ptr %1, i64 8
+  %1271 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %1272 = load i16, ptr %1271, align 2
-  %1273 = getelementptr inbounds i8, ptr %2, i64 8
+  %1273 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %1274 = load i16, ptr %1273, align 2
   %1275 = icmp eq i16 %1272, %1274
   br i1 %1275, label %1276, label %1294
 
 1276:                                             ; preds = %1270
-  %1277 = getelementptr inbounds i8, ptr %2, i64 6
-  %1278 = getelementptr inbounds i8, ptr %1, i64 6
+  %1277 = getelementptr inbounds nuw i8, ptr %2, i64 6
+  %1278 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %1279 = load i16, ptr %1278, align 2
   %1280 = load i16, ptr %1277, align 2
   %1281 = icmp eq i16 %1279, %1280
   br i1 %1281, label %1282, label %1294
 
 1282:                                             ; preds = %1276
-  %1283 = getelementptr inbounds i8, ptr %1, i64 4
+  %1283 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %1284 = load i16, ptr %1283, align 4
-  %1285 = getelementptr inbounds i8, ptr %2, i64 4
+  %1285 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %1286 = load i16, ptr %1285, align 4
   %1287 = icmp eq i16 %1284, %1286
   br i1 %1287, label %1288, label %1294
 
 1288:                                             ; preds = %1282
-  %1289 = getelementptr inbounds i8, ptr %1, i64 12
+  %1289 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %1290 = load i16, ptr %1289, align 2
-  %1291 = getelementptr inbounds i8, ptr %2, i64 12
+  %1291 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %1292 = load i16, ptr %1291, align 2
   %1293 = icmp eq i16 %1290, %1292
   br i1 %1293, label %.thread38, label %1294
@@ -4112,32 +4112,32 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
 1294:                                             ; preds = %1259, %1264, %1270, %1276, %1282, %1288
   %1295 = load ptr, ptr %8, align 8
   %1296 = load i32, ptr %1295, align 4
-  %1297 = getelementptr inbounds i8, ptr %7, i64 120
+  %1297 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %1298 = load ptr, ptr %1297, align 8
   store i32 %1296, ptr %1298, align 4
-  %1299 = getelementptr inbounds i8, ptr %7, i64 736
+  %1299 = getelementptr inbounds nuw i8, ptr %7, i64 736
   %1300 = load ptr, ptr %1299, align 8
-  %1301 = getelementptr inbounds i8, ptr %1300, i64 48
+  %1301 = getelementptr inbounds nuw i8, ptr %1300, i64 48
   %1302 = load ptr, ptr %1301, align 8
   %1303 = load i32, ptr %1302, align 4
-  %1304 = getelementptr inbounds i8, ptr %7, i64 744
+  %1304 = getelementptr inbounds nuw i8, ptr %7, i64 744
   %1305 = load ptr, ptr %1304, align 8
-  %1306 = getelementptr inbounds i8, ptr %1305, i64 48
+  %1306 = getelementptr inbounds nuw i8, ptr %1305, i64 48
   %1307 = load ptr, ptr %1306, align 8
   store i32 %1303, ptr %1307, align 4
-  %1308 = getelementptr inbounds i8, ptr %1, i64 10
+  %1308 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %1309 = load i16, ptr %1308, align 2
   %1310 = zext i16 %1309 to i32
   %1311 = getelementptr i8, ptr %7, i64 136
   %1312 = load ptr, ptr %1311, align 8
   store i32 %1310, ptr %1312, align 4
-  %1313 = getelementptr inbounds i8, ptr %1, i64 6
+  %1313 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %1314 = load i16, ptr %1313, align 2
   %1315 = zext i16 %1314 to i32
   %1316 = getelementptr i8, ptr %7, i64 168
   %1317 = load ptr, ptr %1316, align 8
   store i32 %1315, ptr %1317, align 4
-  %1318 = getelementptr inbounds i8, ptr %1, i64 8
+  %1318 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %1319 = load i16, ptr %1318, align 2
   %1320 = zext i16 %1319 to i32
   %1321 = getelementptr i8, ptr %7, i64 184
@@ -4145,7 +4145,7 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
   store i32 %1320, ptr %1322, align 4
   %1323 = getelementptr i8, ptr %7, i64 144
   %1324 = load ptr, ptr %1323, align 8
-  %1325 = getelementptr inbounds i8, ptr %1324, i64 76
+  %1325 = getelementptr inbounds nuw i8, ptr %1324, i64 76
   %1326 = load i32, ptr %1325, align 4
   %1327 = getelementptr i8, ptr %7, i64 152
   %1328 = load ptr, ptr %1327, align 8
@@ -4153,37 +4153,37 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
   %1329 = getelementptr i8, ptr %7, i64 200
   %1330 = load ptr, ptr %1329, align 8
   store i32 1, ptr %1330, align 4
-  %1331 = getelementptr inbounds i8, ptr %1, i64 4
+  %1331 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %1332 = load i16, ptr %1331, align 4
   %1333 = zext i16 %1332 to i32
-  %1334 = getelementptr inbounds i8, ptr %7, i64 752
+  %1334 = getelementptr inbounds nuw i8, ptr %7, i64 752
   %1335 = load ptr, ptr %1334, align 8
-  %1336 = getelementptr inbounds i8, ptr %1335, i64 76
+  %1336 = getelementptr inbounds nuw i8, ptr %1335, i64 76
   %1337 = load i32, ptr %1336, align 4
-  %1338 = getelementptr inbounds i8, ptr %1335, i64 72
+  %1338 = getelementptr inbounds nuw i8, ptr %1335, i64 72
   %1339 = load i32, ptr %1338, align 8
   %1340 = sub i32 %1337, %1339
   %1341 = mul i32 %1340, %1333
   %1342 = sdiv i32 %1341, 65535
   %1343 = add i32 %1342, %1339
-  %1344 = getelementptr inbounds i8, ptr %1335, i64 48
+  %1344 = getelementptr inbounds nuw i8, ptr %1335, i64 48
   %1345 = load ptr, ptr %1344, align 8
   store i32 %1343, ptr %1345, align 4
-  %1346 = getelementptr inbounds i8, ptr %1, i64 12
+  %1346 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %1347 = load i16, ptr %1346, align 2
   %1348 = zext i16 %1347 to i32
   %1349 = getelementptr i8, ptr %7, i64 216
   %1350 = load ptr, ptr %1349, align 8
   store i32 %1348, ptr %1350, align 4
   %1351 = load ptr, ptr %7, align 8
-  %1352 = getelementptr inbounds i8, ptr %7, i64 8
+  %1352 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %1353 = load ptr, ptr %1352, align 8
   tail call void @hid_hw_request(ptr noundef %1351, ptr noundef %1353, i32 noundef 9) #9
   br i1 %10, label %1401, label %.thread38
 
 .thread38:                                        ; preds = %1288, %1294
-  %1354 = getelementptr inbounds i8, ptr %1, i64 16
-  %1355 = getelementptr inbounds i8, ptr %2, i64 16
+  %1354 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1355 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %1356
 
 1356:                                             ; preds = %1396, %.thread38
@@ -4192,25 +4192,25 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
   %1359 = phi i32 [ 0, %.thread38 ], [ %1398, %1396 ]
   %1360 = getelementptr [2 x %struct.ff_condition_effect], ptr %1354, i64 0, i64 %1358
   %1361 = getelementptr [2 x %struct.ff_condition_effect], ptr %1355, i64 0, i64 %1358
-  %1362 = getelementptr inbounds i8, ptr %1360, i64 10
+  %1362 = getelementptr inbounds nuw i8, ptr %1360, i64 10
   %1363 = load i16, ptr %1362, align 2
-  %1364 = getelementptr inbounds i8, ptr %1361, i64 10
+  %1364 = getelementptr inbounds nuw i8, ptr %1361, i64 10
   %1365 = load i16, ptr %1364, align 2
   %1366 = icmp eq i16 %1363, %1365
   br i1 %1366, label %1367, label %1396
 
 1367:                                             ; preds = %1356
-  %1368 = getelementptr inbounds i8, ptr %1360, i64 4
+  %1368 = getelementptr inbounds nuw i8, ptr %1360, i64 4
   %1369 = load i16, ptr %1368, align 2
-  %1370 = getelementptr inbounds i8, ptr %1361, i64 4
+  %1370 = getelementptr inbounds nuw i8, ptr %1361, i64 4
   %1371 = load i16, ptr %1370, align 2
   %1372 = icmp eq i16 %1369, %1371
   br i1 %1372, label %1373, label %1396
 
 1373:                                             ; preds = %1367
-  %1374 = getelementptr inbounds i8, ptr %1360, i64 6
+  %1374 = getelementptr inbounds nuw i8, ptr %1360, i64 6
   %1375 = load i16, ptr %1374, align 2
-  %1376 = getelementptr inbounds i8, ptr %1361, i64 6
+  %1376 = getelementptr inbounds nuw i8, ptr %1361, i64 6
   %1377 = load i16, ptr %1376, align 2
   %1378 = icmp eq i16 %1375, %1377
   br i1 %1378, label %1379, label %1396
@@ -4222,17 +4222,17 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
   br i1 %1382, label %1383, label %1396
 
 1383:                                             ; preds = %1379
-  %1384 = getelementptr inbounds i8, ptr %1360, i64 2
+  %1384 = getelementptr inbounds nuw i8, ptr %1360, i64 2
   %1385 = load i16, ptr %1384, align 2
-  %1386 = getelementptr inbounds i8, ptr %1361, i64 2
+  %1386 = getelementptr inbounds nuw i8, ptr %1361, i64 2
   %1387 = load i16, ptr %1386, align 2
   %1388 = icmp eq i16 %1385, %1387
   br i1 %1388, label %1389, label %1396
 
 1389:                                             ; preds = %1383
-  %1390 = getelementptr inbounds i8, ptr %1360, i64 8
+  %1390 = getelementptr inbounds nuw i8, ptr %1360, i64 8
   %1391 = load i16, ptr %1390, align 2
-  %1392 = getelementptr inbounds i8, ptr %1361, i64 8
+  %1392 = getelementptr inbounds nuw i8, ptr %1361, i64 8
   %1393 = load i16, ptr %1392, align 2
   %1394 = icmp ne i16 %1391, %1393
   %1395 = zext i1 %1394 to i32
@@ -4253,8 +4253,8 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
 
 1402:                                             ; preds = %19
   %1403 = load ptr, ptr %7, align 8
-  %1404 = getelementptr inbounds i8, ptr %1403, i64 6352
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %1404, ptr noundef nonnull @.str.30) #8
+  %1404 = getelementptr inbounds nuw i8, ptr %1403, i64 6352
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %1404, ptr noundef nonnull @.str.30) #8
   br label %.thread39
 
 1405:                                             ; preds = %1401, %1399, %1257, %1255, %1113, %1111, %969, %967, %776, %507, %194
@@ -4263,8 +4263,8 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
 1406:                                             ; preds = %1405
   %1407 = load ptr, ptr %8, align 8
   %1408 = load i32, ptr %1407, align 4
-  %1409 = getelementptr inbounds i8, ptr %7, i64 852
-  %1410 = getelementptr inbounds i8, ptr %1, i64 2
+  %1409 = getelementptr inbounds nuw i8, ptr %7, i64 852
+  %1410 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %1411 = load i16, ptr %1410, align 2
   %1412 = sext i16 %1411 to i64
   %1413 = getelementptr [64 x i32], ptr %1409, i64 0, i64 %1412
@@ -4278,18 +4278,18 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr nocapture
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @pidff_erase_effect(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 248
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 852
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 852
   %8 = sext i32 %1 to i64
   %9 = getelementptr [64 x i32], ptr %7, i64 0, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 7096
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 7096
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %19, label %17
@@ -4299,21 +4299,21 @@ define internal noundef i32 @pidff_erase_effect(ptr nocapture noundef readonly %
   br label %19
 
 19:                                               ; preds = %17, %2
-  %20 = getelementptr inbounds i8, ptr %6, i64 696
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 696
   %21 = load ptr, ptr %20, align 8
   store i32 %10, ptr %21, align 4
   %22 = getelementptr i8, ptr %6, i64 848
   %23 = load i32, ptr %22, align 4
-  %24 = getelementptr inbounds i8, ptr %6, i64 776
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 776
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 48
   %27 = load ptr, ptr %26, align 8
   store i32 %23, ptr %27, align 4
   %28 = load ptr, ptr %6, align 8
   %29 = getelementptr i8, ptr %6, i64 16
   %30 = load ptr, ptr %29, align 8
   tail call void @hid_hw_request(ptr noundef %28, ptr noundef %30, i32 noundef 9) #9
-  %31 = getelementptr inbounds i8, ptr %6, i64 728
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 728
   %32 = load ptr, ptr %31, align 8
   store i32 %10, ptr %32, align 4
   %33 = load ptr, ptr %6, align 8
@@ -4325,22 +4325,22 @@ define internal noundef i32 @pidff_erase_effect(ptr nocapture noundef readonly %
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @pidff_set_gain(ptr nocapture noundef readonly %0, i16 noundef zeroext %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 248
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 592
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 592
   %8 = zext i16 %1 to i32
   %9 = load ptr, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 76
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 76
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %9, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %13 = load i32, ptr %12, align 8
   %14 = sub i32 %11, %13
   %15 = mul i32 %14, %8
   %16 = sdiv i32 %15, 65535
   %17 = add i32 %16, %13
-  %18 = getelementptr inbounds i8, ptr %6, i64 600
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 600
   %19 = load ptr, ptr %18, align 8
   store i32 %17, ptr %19, align 4
   %20 = load ptr, ptr %6, align 8
@@ -4352,21 +4352,21 @@ define internal void @pidff_set_gain(ptr nocapture noundef readonly %0, i16 noun
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @pidff_set_autocenter(ptr nocapture noundef readonly %0, i16 noundef zeroext %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 248
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 608
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 608
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq i16 %1, 0
-  %10 = getelementptr inbounds i8, ptr %8, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 696
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 696
   %13 = load ptr, ptr %12, align 8
   store i32 %11, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %6, i64 776
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 776
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %17 = load ptr, ptr %16, align 8
   br i1 %9, label %18, label %21
 
@@ -4377,7 +4377,7 @@ define internal void @pidff_set_autocenter(ptr nocapture noundef readonly %0, i1
   br label %63
 
 21:                                               ; preds = %2
-  %22 = getelementptr inbounds i8, ptr %6, i64 844
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 844
   %23 = load i32, ptr %22, align 4
   store i32 %23, ptr %17, align 4
   %24 = getelementptr i8, ptr %6, i64 712
@@ -4388,16 +4388,16 @@ define internal void @pidff_set_autocenter(ptr nocapture noundef readonly %0, i1
   %28 = load ptr, ptr %27, align 8
   tail call void @hid_hw_request(ptr noundef %26, ptr noundef %28, i32 noundef 9) #9
   %29 = load ptr, ptr %7, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 72
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 72
   %31 = load i32, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %6, i64 120
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 120
   %33 = load ptr, ptr %32, align 8
   store i32 %31, ptr %33, align 4
   %34 = getelementptr i8, ptr %6, i64 820
   %35 = load i32, ptr %34, align 4
-  %36 = getelementptr inbounds i8, ptr %6, i64 744
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 744
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 48
   %39 = load ptr, ptr %38, align 8
   store i32 %35, ptr %39, align 4
   %40 = getelementptr i8, ptr %6, i64 136
@@ -4412,9 +4412,9 @@ define internal void @pidff_set_autocenter(ptr nocapture noundef readonly %0, i1
   %46 = getelementptr i8, ptr %6, i64 144
   %47 = zext i16 %1 to i32
   %48 = load ptr, ptr %46, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 76
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 76
   %50 = load i32, ptr %49, align 4
-  %51 = getelementptr inbounds i8, ptr %48, i64 72
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 72
   %52 = load i32, ptr %51, align 8
   %53 = sub i32 %50, %52
   %54 = mul i32 %53, %47
@@ -4442,21 +4442,21 @@ define internal void @pidff_set_autocenter(ptr nocapture noundef readonly %0, i1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @pidff_playback(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 248
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 852
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 852
   %9 = sext i32 %1 to i64
   %10 = getelementptr [64 x i32], ptr %8, i64 0, i64 %9
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %7, i64 696
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 696
   %13 = load ptr, ptr %12, align 8
   store i32 %11, ptr %13, align 4
   %14 = icmp eq i32 %2, 0
-  %15 = getelementptr inbounds i8, ptr %7, i64 776
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 776
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %18 = load ptr, ptr %17, align 8
   br i1 %14, label %19, label %22
 
@@ -4467,7 +4467,7 @@ define internal noundef i32 @pidff_playback(ptr nocapture noundef readonly %0, i
   br label %27
 
 22:                                               ; preds = %3
-  %23 = getelementptr inbounds i8, ptr %7, i64 844
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 844
   %24 = load i32, ptr %23, align 4
   store i32 %24, ptr %18, align 4
   %25 = getelementptr i8, ptr %7, i64 712
@@ -4488,20 +4488,20 @@ declare dso_local void @_dev_info(ptr noundef, ptr noundef, ...) local_unnamed_a
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
 define internal fastcc void @hid_device_io_stop(ptr noundef %0) unnamed_addr #3 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 7164
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 7164
   %3 = load i8, ptr %2, align 4, !range !5, !noundef !6
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 6352
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %6, ptr noundef nonnull @.str.31) #8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 6352
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %6, ptr noundef nonnull @.str.31) #8
   br label %9
 
 7:                                                ; preds = %1
   store i8 0, ptr %2, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 6328
-  tail call void @down(ptr noundef %8) #9
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 6328
+  tail call void @down(ptr noundef nonnull %8) #9
   br label %9
 
 9:                                                ; preds = %7, %5
@@ -4531,27 +4531,27 @@ declare void @llvm.assume(i1 noundef) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef range(i32 -28, 1) i32 @pidff_request_effect_upload(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 736
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8
   store i32 %1, ptr %6, align 4
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr i8, ptr %0, i64 64
   %9 = load ptr, ptr %8, align 8
   tail call void @hid_hw_request(ptr noundef %7, ptr noundef %9, i32 noundef 9) #9
-  %10 = getelementptr inbounds i8, ptr %0, i64 616
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %11 = load ptr, ptr %10, align 8
   store i32 0, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 768
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %15 = load ptr, ptr %14, align 8
   store i32 0, ptr %15, align 4
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 7096
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 7096
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 56
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %24, label %22
@@ -4562,7 +4562,7 @@ define internal fastcc noundef range(i32 -28, 1) i32 @pidff_request_effect_uploa
 
 24:                                               ; preds = %22, %2
   %25 = getelementptr i8, ptr %0, i64 40
-  %26 = getelementptr inbounds i8, ptr %0, i64 836
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 836
   %27 = getelementptr i8, ptr %0, i64 840
   br label %31
 
@@ -4577,9 +4577,9 @@ define internal fastcc noundef range(i32 -28, 1) i32 @pidff_request_effect_uploa
   %34 = load ptr, ptr %25, align 8
   tail call void @hid_hw_request(ptr noundef %33, ptr noundef %34, i32 noundef 1) #9
   %35 = load ptr, ptr %0, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 7096
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 7096
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 56
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, null
   br i1 %40, label %43, label %41
@@ -4590,7 +4590,7 @@ define internal fastcc noundef range(i32 -28, 1) i32 @pidff_request_effect_uploa
 
 43:                                               ; preds = %41, %31
   %44 = load ptr, ptr %12, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 48
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 48
   %46 = load ptr, ptr %45, align 8
   %47 = load i32, ptr %46, align 4
   %48 = load i32, ptr %26, align 4
@@ -4604,8 +4604,8 @@ define internal fastcc noundef range(i32 -28, 1) i32 @pidff_request_effect_uploa
 
 53:                                               ; preds = %28
   %54 = load ptr, ptr %0, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 6352
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %55, ptr noundef nonnull @.str.28) #8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 6352
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %55, ptr noundef nonnull @.str.28) #8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %50, %43, %53
@@ -4615,15 +4615,15 @@ define internal fastcc noundef range(i32 -28, 1) i32 @pidff_request_effect_uploa
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @pidff_set_condition_report(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 616
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 312
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %7 = load ptr, ptr %6, align 8
   store i32 %5, ptr %7, align 4
   %8 = getelementptr i8, ptr %0, i64 328
   %9 = getelementptr i8, ptr %0, i64 336
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = getelementptr i8, ptr %0, i64 352
   %12 = getelementptr i8, ptr %0, i64 368
   %13 = getelementptr i8, ptr %0, i64 384
@@ -4645,10 +4645,10 @@ define internal fastcc void @pidff_set_condition_report(ptr nocapture noundef re
   %27 = trunc nuw nsw i64 %25 to i32
   store i32 %27, ptr %26, align 4
   %28 = getelementptr [2 x %struct.ff_condition_effect], ptr %10, i64 0, i64 %25
-  %29 = getelementptr inbounds i8, ptr %28, i64 10
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 10
   %30 = load i16, ptr %29, align 2
   %31 = load ptr, ptr %9, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 72
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 72
   %33 = load i32, ptr %32, align 8
   %34 = icmp slt i32 %33, 0
   %35 = sext i16 %30 to i32
@@ -4663,7 +4663,7 @@ define internal fastcc void @pidff_set_condition_report(ptr nocapture noundef re
   br i1 %39, label %40, label %45
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds i8, ptr %31, i64 76
+  %41 = getelementptr inbounds nuw i8, ptr %31, i64 76
   %42 = load i32, ptr %41, align 4
   %43 = mul i32 %42, %35
   %44 = sdiv i32 %43, 32767
@@ -4676,7 +4676,7 @@ define internal fastcc void @pidff_set_condition_report(ptr nocapture noundef re
 
 48:                                               ; preds = %23
   %49 = icmp slt i16 %30, 0
-  %50 = getelementptr inbounds i8, ptr %31, i64 76
+  %50 = getelementptr inbounds nuw i8, ptr %31, i64 76
   %51 = load i32, ptr %50, align 4
   br i1 %49, label %52, label %57
 
@@ -4698,10 +4698,10 @@ define internal fastcc void @pidff_set_condition_report(ptr nocapture noundef re
   %63 = phi i32 [ %56, %52 ], [ %61, %57 ], [ 0, %36 ], [ %44, %40 ], [ %47, %45 ]
   %64 = load ptr, ptr %20, align 8
   store i32 %63, ptr %64, align 4
-  %65 = getelementptr inbounds i8, ptr %28, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %66 = load i16, ptr %65, align 4
   %67 = load ptr, ptr %11, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 72
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 72
   %69 = load i32, ptr %68, align 8
   %70 = icmp slt i32 %69, 0
   %71 = sext i16 %66 to i32
@@ -4716,7 +4716,7 @@ define internal fastcc void @pidff_set_condition_report(ptr nocapture noundef re
   br i1 %75, label %76, label %81
 
 76:                                               ; preds = %74
-  %77 = getelementptr inbounds i8, ptr %67, i64 76
+  %77 = getelementptr inbounds nuw i8, ptr %67, i64 76
   %78 = load i32, ptr %77, align 4
   %79 = mul i32 %78, %71
   %80 = sdiv i32 %79, 32767
@@ -4729,7 +4729,7 @@ define internal fastcc void @pidff_set_condition_report(ptr nocapture noundef re
 
 84:                                               ; preds = %62
   %85 = icmp slt i16 %66, 0
-  %86 = getelementptr inbounds i8, ptr %67, i64 76
+  %86 = getelementptr inbounds nuw i8, ptr %67, i64 76
   %87 = load i32, ptr %86, align 4
   br i1 %85, label %88, label %93
 
@@ -4751,10 +4751,10 @@ define internal fastcc void @pidff_set_condition_report(ptr nocapture noundef re
   %99 = phi i32 [ %92, %88 ], [ %97, %93 ], [ 0, %72 ], [ %80, %76 ], [ %83, %81 ]
   %100 = load ptr, ptr %21, align 8
   store i32 %99, ptr %100, align 4
-  %101 = getelementptr inbounds i8, ptr %28, i64 6
+  %101 = getelementptr inbounds nuw i8, ptr %28, i64 6
   %102 = load i16, ptr %101, align 2
   %103 = load ptr, ptr %12, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 72
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 72
   %105 = load i32, ptr %104, align 8
   %106 = icmp slt i32 %105, 0
   %107 = sext i16 %102 to i32
@@ -4769,7 +4769,7 @@ define internal fastcc void @pidff_set_condition_report(ptr nocapture noundef re
   br i1 %111, label %112, label %117
 
 112:                                              ; preds = %110
-  %113 = getelementptr inbounds i8, ptr %103, i64 76
+  %113 = getelementptr inbounds nuw i8, ptr %103, i64 76
   %114 = load i32, ptr %113, align 4
   %115 = mul i32 %114, %107
   %116 = sdiv i32 %115, 32767
@@ -4782,7 +4782,7 @@ define internal fastcc void @pidff_set_condition_report(ptr nocapture noundef re
 
 120:                                              ; preds = %98
   %121 = icmp slt i16 %102, 0
-  %122 = getelementptr inbounds i8, ptr %103, i64 76
+  %122 = getelementptr inbounds nuw i8, ptr %103, i64 76
   %123 = load i32, ptr %122, align 4
   br i1 %121, label %124, label %129
 
@@ -4807,9 +4807,9 @@ define internal fastcc void @pidff_set_condition_report(ptr nocapture noundef re
   %137 = load i16, ptr %28, align 4
   %138 = zext i16 %137 to i32
   %139 = load ptr, ptr %13, align 8
-  %140 = getelementptr inbounds i8, ptr %139, i64 76
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 76
   %141 = load i32, ptr %140, align 4
-  %142 = getelementptr inbounds i8, ptr %139, i64 72
+  %142 = getelementptr inbounds nuw i8, ptr %139, i64 72
   %143 = load i32, ptr %142, align 8
   %144 = sub i32 %141, %143
   %145 = mul i32 %144, %138
@@ -4817,13 +4817,13 @@ define internal fastcc void @pidff_set_condition_report(ptr nocapture noundef re
   %147 = add i32 %146, %143
   %148 = load ptr, ptr %14, align 8
   store i32 %147, ptr %148, align 4
-  %149 = getelementptr inbounds i8, ptr %28, i64 2
+  %149 = getelementptr inbounds nuw i8, ptr %28, i64 2
   %150 = load i16, ptr %149, align 2
   %151 = zext i16 %150 to i32
   %152 = load ptr, ptr %15, align 8
-  %153 = getelementptr inbounds i8, ptr %152, i64 76
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 76
   %154 = load i32, ptr %153, align 4
-  %155 = getelementptr inbounds i8, ptr %152, i64 72
+  %155 = getelementptr inbounds nuw i8, ptr %152, i64 72
   %156 = load i32, ptr %155, align 8
   %157 = sub i32 %154, %156
   %158 = mul i32 %157, %151
@@ -4831,13 +4831,13 @@ define internal fastcc void @pidff_set_condition_report(ptr nocapture noundef re
   %160 = add i32 %159, %156
   %161 = load ptr, ptr %16, align 8
   store i32 %160, ptr %161, align 4
-  %162 = getelementptr inbounds i8, ptr %28, i64 8
+  %162 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %163 = load i16, ptr %162, align 4
   %164 = zext i16 %163 to i32
   %165 = load ptr, ptr %17, align 8
-  %166 = getelementptr inbounds i8, ptr %165, i64 76
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 76
   %167 = load i32, ptr %166, align 4
-  %168 = getelementptr inbounds i8, ptr %165, i64 72
+  %168 = getelementptr inbounds nuw i8, ptr %165, i64 72
   %169 = load i32, ptr %168, align 8
   %170 = sub i32 %167, %169
   %171 = mul i32 %170, %164

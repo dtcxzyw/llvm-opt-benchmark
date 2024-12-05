@@ -105,7 +105,7 @@ define void @dorbdb2_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
 
 76:                                               ; preds = %74
   %77 = add i32 %24, 1
-  %78 = getelementptr inbounds i8, ptr %12, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %79 = sext i32 %28 to i64
   %80 = sext i32 %24 to i64
   %81 = getelementptr i8, ptr %31, i64 -8
@@ -154,7 +154,7 @@ define void @dorbdb2_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   %108 = mul nsw i32 %24, %107
   %109 = sext i32 %108 to i64
   %110 = getelementptr double, ptr %104, i64 %109
-  %111 = getelementptr inbounds double, ptr %36, i64 %85
+  %111 = getelementptr inbounds nuw double, ptr %36, i64 %85
   call void @dlarfgp_(ptr noundef nonnull %17, ptr noundef %105, ptr noundef %110, ptr noundef nonnull %4, ptr noundef nonnull %111) #6
   %112 = load double, ptr %105, align 8, !tbaa !7
   store double %112, ptr %20, align 8, !tbaa !7
@@ -197,7 +197,7 @@ define void @dorbdb2_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   store double %sqrt, ptr %21, align 8, !tbaa !7
   %139 = load double, ptr %20, align 8, !tbaa !7
   %140 = call double @atan2(double noundef %sqrt, double noundef %139) #6
-  %141 = getelementptr inbounds double, ptr %32, i64 %85
+  %141 = getelementptr inbounds nuw double, ptr %32, i64 %85
   store double %140, ptr %141, align 8, !tbaa !7
   %142 = load i32, ptr %1, align 4, !tbaa !3
   %143 = sub nsw i32 %142, %87
@@ -225,7 +225,7 @@ define void @dorbdb2_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   store i32 %158, ptr %17, align 4, !tbaa !3
   %159 = getelementptr double, ptr %31, i64 %106
   %160 = getelementptr double, ptr %159, i64 %.pre-phi26
-  %161 = getelementptr inbounds double, ptr %35, i64 %85
+  %161 = getelementptr inbounds nuw double, ptr %35, i64 %85
   call void @dlarfgp_(ptr noundef nonnull %17, ptr noundef %128, ptr noundef %160, ptr noundef nonnull @c__1, ptr noundef nonnull %161) #6
   %162 = load i32, ptr %1, align 4, !tbaa !3
   %163 = sext i32 %162 to i64
@@ -237,12 +237,12 @@ define void @dorbdb2_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   store i32 %166, ptr %17, align 4, !tbaa !3
   %167 = getelementptr double, ptr %82, i64 %85
   %168 = getelementptr double, ptr %167, i64 %101
-  %169 = getelementptr inbounds double, ptr %34, i64 %85
+  %169 = getelementptr inbounds nuw double, ptr %34, i64 %85
   call void @dlarfgp_(ptr noundef nonnull %17, ptr noundef %118, ptr noundef %168, ptr noundef nonnull @c__1, ptr noundef nonnull %169) #6
   %170 = load double, ptr %118, align 8, !tbaa !7
   %171 = load double, ptr %128, align 8, !tbaa !7
   %172 = call double @atan2(double noundef %170, double noundef %171) #6
-  %173 = getelementptr inbounds double, ptr %33, i64 %85
+  %173 = getelementptr inbounds nuw double, ptr %33, i64 %85
   store double %172, ptr %173, align 8, !tbaa !7
   %174 = call double @cos(double noundef %172) #6
   store double %174, ptr %20, align 8, !tbaa !7
@@ -287,7 +287,7 @@ define void @dorbdb2_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   br i1 %192, label %193, label %.loopexit
 
 193:                                              ; preds = %.loopexit18
-  %194 = getelementptr inbounds i8, ptr %12, i64 8
+  %194 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %195 = sext i32 %190 to i64
   %196 = add nsw i64 %195, 1
   %197 = sext i32 %28 to i64

@@ -136,7 +136,7 @@ sw.bb12:                                          ; preds = %entry
   %2 = load i32, ptr %v2, align 4
   store i32 %2, ptr %temp, align 4
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %v1, align 8
-  %agg.tmp.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %v1, i64 8
+  %agg.tmp.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %v1, i64 8
   %agg.tmp.sroa.2.0.copyload = load ptr, ptr %agg.tmp.sroa.2.0..sroa_idx, align 8
   %call.i.i = call noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPiPNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %agg.tmp.sroa.0.0.copyload, ptr %agg.tmp.sroa.2.0.copyload, ptr noundef nonnull %temp, ptr noundef %v3)
   br i1 %call.i.i, label %if.end, label %return
@@ -208,7 +208,7 @@ sw.bb11:                                          ; preds = %entry
 sw.bb13:                                          ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %temp, ptr noundef nonnull align 8 dereferenceable(32) %v2)
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %v1, align 8
-  %agg.tmp.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %v1, i64 8
+  %agg.tmp.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %v1, i64 8
   %agg.tmp.sroa.2.0.copyload = load ptr, ptr %agg.tmp.sroa.2.0..sroa_idx, align 8
   %call.i.i15 = invoke noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEES9_(i64 %agg.tmp.sroa.0.0.copyload, ptr %agg.tmp.sroa.2.0.copyload, ptr noundef nonnull %temp, ptr noundef %v3)
           to label %invoke.cont15 unwind label %lpad14
@@ -343,7 +343,7 @@ sw.bb14:                                          ; preds = %entry
   %frombool16 = and i8 %2, 1
   store i8 %frombool16, ptr %temp, align 1
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %v1, align 8
-  %agg.tmp.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %v1, i64 8
+  %agg.tmp.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %v1, i64 8
   %agg.tmp.sroa.2.0.copyload = load ptr, ptr %agg.tmp.sroa.2.0..sroa_idx, align 8
   %call.i.i = call noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPbPNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %agg.tmp.sroa.0.0.copyload, ptr %agg.tmp.sroa.2.0.copyload, ptr noundef nonnull %temp, ptr noundef %v3)
   br i1 %call.i.i, label %if.end, label %return
@@ -458,7 +458,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZN3$_08__invokeEv"() #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_stderrthreshold, i64 80) acquire, align 8
+  %0 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @FLAGS_stderrthreshold, i64 80) acquire, align 8
   %cmp.i.not.i.i.i.i = icmp eq i64 %0, 0
   br i1 %cmp.i.not.i.i.i.i, label %if.then.i.i.i.i, label %"_ZNK3$_0clEv.exit"
 
@@ -494,7 +494,7 @@ declare noundef i64 @_ZNK4absl14flags_internal8FlagImpl11ReadOneWordEv(ptr nound
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZN3$_18__invokeEv"() #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_minloglevel, i64 80) acquire, align 8
+  %0 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @FLAGS_minloglevel, i64 80) acquire, align 8
   %cmp.i.not.i.i.i.i = icmp eq i64 %0, 0
   br i1 %cmp.i.not.i.i.i.i, label %if.then.i.i.i.i, label %"_ZNK3$_1clEv.exit"
 
@@ -726,7 +726,7 @@ declare noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto32_baseESt17ba
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZN3$_38__invokeEv"() #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_log_prefix, i64 80) acquire, align 8
+  %0 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @FLAGS_log_prefix, i64 80) acquire, align 8
   %cmp.i.not.i.i.i.i = icmp eq i64 %0, 0
   br i1 %cmp.i.not.i.i.i.i, label %if.then.i.i.i.i, label %invoke.cont.thread.i.i.i.i
 
@@ -751,7 +751,7 @@ declare noundef zeroext i1 @_ZNK4absl14flags_internal8FlagImpl11ReadOneBoolEv(pt
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZN3$_48__invokeEv"() #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_v, i64 80) acquire, align 8
+  %0 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @FLAGS_v, i64 80) acquire, align 8
   %cmp.i.not.i.i.i.i = icmp eq i64 %0, 0
   br i1 %cmp.i.not.i.i.i.i, label %if.then.i.i.i.i, label %"_ZNK3$_4clEv.exit"
 

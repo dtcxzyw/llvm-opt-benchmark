@@ -76,7 +76,7 @@ define internal zeroext i1 @pango_textlayout(ptr nocapture noundef %0, ptr nound
 18:                                               ; preds = %9, %2
   %19 = load ptr, ptr @pango_textlayout.fontname, align 8
   %.not66 = icmp eq ptr %19, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not66, label %._crit_edge, label %20
 
@@ -88,14 +88,14 @@ define internal zeroext i1 @pango_textlayout(ptr nocapture noundef %0, ptr nound
 
 23:                                               ; preds = %20
   %24 = load double, ptr @pango_textlayout.fontsize, align 8
-  %25 = getelementptr inbounds i8, ptr %.pre, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %.pre, i64 24
   %26 = load double, ptr %25, align 8
   %27 = fcmp une double %24, %26
   br i1 %27, label %._crit_edge, label %98
 
 ._crit_edge:                                      ; preds = %18, %23, %20
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
-  %29 = getelementptr inbounds i8, ptr %.pre, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.pre, i64 24
   %30 = load double, ptr %29, align 8
   %31 = fcmp ogt double %30, 0x413FFFFF00000000
   br i1 %31, label %341, label %32
@@ -118,20 +118,20 @@ define internal zeroext i1 @pango_textlayout(ptr nocapture noundef %0, ptr nound
 
 gv_strdup.exit:                                   ; preds = %32
   store ptr %35, ptr @pango_textlayout.fontname, align 8
-  %42 = getelementptr inbounds i8, ptr %33, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %43 = load double, ptr %42, align 8
   store double %43, ptr @pango_textlayout.fontsize, align 8
   %44 = load ptr, ptr @pango_textlayout.desc, align 8
   tail call void @pango_font_description_free(ptr noundef %44) #14
   %45 = load ptr, ptr %28, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load ptr, ptr %46, align 8
   %.not68 = icmp eq ptr %47, null
   br i1 %.not68, label %76, label %48
 
 48:                                               ; preds = %gv_strdup.exit
   %49 = load ptr, ptr @pango_textlayout.gv_fmap, align 8
-  %50 = getelementptr inbounds i8, ptr %47, i64 40
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 40
   %51 = load i32, ptr %50, align 8
   %52 = sext i32 %51 to i64
   %53 = getelementptr inbounds %struct.gv_font_map, ptr %49, i64 %52, i32 1
@@ -140,13 +140,13 @@ gv_strdup.exit:                                   ; preds = %32
   br i1 %.not69, label %55, label %pango_psfontResolve.exit
 
 55:                                               ; preds = %48
-  %56 = getelementptr inbounds i8, ptr %47, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %57 = load ptr, ptr %56, align 8
   %58 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) @pango_psfontResolve.buf, ptr noundef nonnull dereferenceable(1) %57) #14
   %strlen.i = tail call i64 @strlen(ptr nonnull dereferenceable(1) @pango_psfontResolve.buf)
   %endptr.i = getelementptr inbounds i8, ptr @pango_psfontResolve.buf, i64 %strlen.i
   store i16 44, ptr %endptr.i, align 1
-  %59 = getelementptr inbounds i8, ptr %47, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %60 = load ptr, ptr %59, align 8
   %.not.i = icmp eq ptr %60, null
   br i1 %.not.i, label %64, label %61
@@ -160,7 +160,7 @@ gv_strdup.exit:                                   ; preds = %32
   br label %64
 
 64:                                               ; preds = %61, %55
-  %65 = getelementptr inbounds i8, ptr %47, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %66 = load ptr, ptr %65, align 8
   %.not9.i = icmp eq ptr %66, null
   br i1 %.not9.i, label %70, label %67
@@ -174,7 +174,7 @@ gv_strdup.exit:                                   ; preds = %32
   br label %70
 
 70:                                               ; preds = %67, %64
-  %71 = getelementptr inbounds i8, ptr %47, i64 32
+  %71 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %72 = load ptr, ptr %71, align 8
   %.not12.i = icmp eq ptr %72, null
   br i1 %.not12.i, label %pango_psfontResolve.exit, label %73
@@ -251,23 +251,23 @@ pango_psfontResolve.exit:                         ; preds = %73, %70, %48, %76
   br label %98
 
 98:                                               ; preds = %pango_psfontResolve.exit, %82, %93, %23
-  %99 = getelementptr inbounds i8, ptr %0, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %100 = load ptr, ptr %99, align 8
   %.not83 = icmp eq ptr %100, null
   br i1 %.not83, label %304, label %101
 
 101:                                              ; preds = %98
-  %102 = getelementptr inbounds i8, ptr %100, i64 32
+  %102 = getelementptr inbounds nuw i8, ptr %100, i64 32
   %103 = load i32, ptr %102, align 8
   %104 = and i32 %103, 127
   %.not84 = icmp eq i32 %104, 0
   br i1 %.not84, label %304, label %agxbput.exit
 
 agxbput.exit:                                     ; preds = %101
-  %105 = getelementptr inbounds i8, ptr %7, i64 31
-  %106 = getelementptr inbounds i8, ptr %7, i64 16
-  %107 = getelementptr inbounds i8, ptr %7, i64 8
-  %108 = getelementptr inbounds i8, ptr %7, i64 5
+  %105 = getelementptr inbounds nuw i8, ptr %7, i64 31
+  %106 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %107 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %7, i64 5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(26) %108, i8 0, i64 26, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %7, ptr noundef nonnull readonly align 1 dereferenceable(5) @.str.6, i64 5, i1 false)
   store i8 5, ptr %105, align 1
@@ -276,7 +276,7 @@ agxbput.exit:                                     ; preds = %101
   br i1 %.not85, label %agxbput.exit104, label %agxblen.exit.i.i98
 
 agxblen.exit.i.i98:                               ; preds = %agxbput.exit
-  %110 = getelementptr inbounds i8, ptr %7, i64 5
+  %110 = getelementptr inbounds nuw i8, ptr %7, i64 5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %110, ptr noundef nonnull readonly align 1 dereferenceable(14) @.str.7, i64 14, i1 false)
   %111 = load i8, ptr %105, align 1
   %112 = add i8 %111, 14
@@ -313,7 +313,7 @@ agxblen.exit.i.i108:                              ; preds = %agxbput.exit104
 
 120:                                              ; preds = %119
   %121 = zext i8 %.val.i25.i.i111 to i64
-  %122 = getelementptr inbounds [31 x i8], ptr %7, i64 0, i64 %121
+  %122 = getelementptr inbounds nuw [31 x i8], ptr %7, i64 0, i64 %121
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %122, ptr noundef nonnull readonly align 1 dereferenceable(15) @.str.8, i64 15, i1 false)
   %123 = load i8, ptr %105, align 1
   %124 = add i8 %123, 15
@@ -359,7 +359,7 @@ agxblen.exit.i.i118:                              ; preds = %agxbput.exit114
 
 137:                                              ; preds = %136
   %138 = zext i8 %.val.i25.i.i121 to i64
-  %139 = getelementptr inbounds [31 x i8], ptr %7, i64 0, i64 %138
+  %139 = getelementptr inbounds nuw [31 x i8], ptr %7, i64 0, i64 %138
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %139, ptr noundef nonnull readonly align 1 dereferenceable(19) @.str.9, i64 19, i1 false)
   %140 = load i8, ptr %105, align 1
   %141 = add i8 %140, 19
@@ -405,7 +405,7 @@ agxblen.exit.i.i128:                              ; preds = %agxbput.exit124
 
 154:                                              ; preds = %153
   %155 = zext i8 %.val.i25.i.i131 to i64
-  %156 = getelementptr inbounds [31 x i8], ptr %7, i64 0, i64 %155
+  %156 = getelementptr inbounds nuw [31 x i8], ptr %7, i64 0, i64 %155
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %156, ptr noundef nonnull readonly align 1 dereferenceable(21) @.str.10, i64 21, i1 false)
   %157 = load i8, ptr %105, align 1
   %158 = add i8 %157, 21
@@ -445,7 +445,7 @@ agxblen.exit.i.i138:                              ; preds = %agxbput.exit124, %1
 
 170:                                              ; preds = %169
   %171 = zext i8 %.val.i25.i.i141 to i64
-  %172 = getelementptr inbounds [31 x i8], ptr %7, i64 0, i64 %171
+  %172 = getelementptr inbounds nuw [31 x i8], ptr %7, i64 0, i64 %171
   store i8 62, ptr %172, align 1
   %173 = load i8, ptr %105, align 1
   %174 = add i8 %173, 1
@@ -491,7 +491,7 @@ agxblen.exit.i.i148:                              ; preds = %agxbput.exit144
 
 189:                                              ; preds = %188
   %190 = zext i8 %.val.i25.i.i151 to i64
-  %191 = getelementptr inbounds [31 x i8], ptr %7, i64 0, i64 %190
+  %191 = getelementptr inbounds nuw [31 x i8], ptr %7, i64 0, i64 %190
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %191, ptr noundef nonnull readonly align 1 dereferenceable(5) @.str.12, i64 5, i1 false)
   %192 = load i8, ptr %105, align 1
   %193 = add i8 %192, 5
@@ -536,7 +536,7 @@ agxblen.exit.i.i158:                              ; preds = %agxbput.exit154
 
 207:                                              ; preds = %206
   %208 = zext i8 %.val.i25.i.i161 to i64
-  %209 = getelementptr inbounds [31 x i8], ptr %7, i64 0, i64 %208
+  %209 = getelementptr inbounds nuw [31 x i8], ptr %7, i64 0, i64 %208
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %209, ptr noundef nonnull readonly align 1 dereferenceable(5) @.str.13, i64 5, i1 false)
   %210 = load i8, ptr %105, align 1
   %211 = add i8 %210, 5
@@ -578,7 +578,7 @@ agxbput.exit164:                                  ; preds = %207, %212
 
 226:                                              ; preds = %225
   %227 = zext i8 %.val.i25.i.i171 to i64
-  %228 = getelementptr inbounds [31 x i8], ptr %7, i64 0, i64 %227
+  %228 = getelementptr inbounds nuw [31 x i8], ptr %7, i64 0, i64 %227
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %228, ptr noundef nonnull readonly align 1 dereferenceable(6) @.str.14, i64 6, i1 false)
   %229 = load i8, ptr %105, align 1
   %230 = add i8 %229, 6
@@ -627,7 +627,7 @@ agxblen.exit.i.i178:                              ; preds = %agxbput.exit174
 
 245:                                              ; preds = %244
   %246 = zext i8 %.val.i25.i.i181 to i64
-  %247 = getelementptr inbounds [31 x i8], ptr %7, i64 0, i64 %246
+  %247 = getelementptr inbounds nuw [31 x i8], ptr %7, i64 0, i64 %246
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %247, ptr noundef nonnull readonly align 1 dereferenceable(6) @.str.15, i64 6, i1 false)
   %248 = load i8, ptr %105, align 1
   %249 = add i8 %248, 6
@@ -670,7 +670,7 @@ agxblen.exit.i.i188:                              ; preds = %agxbput.exit174, %2
 
 263:                                              ; preds = %262
   %264 = zext i8 %.val.i25.i.i191 to i64
-  %265 = getelementptr inbounds [31 x i8], ptr %7, i64 0, i64 %264
+  %265 = getelementptr inbounds nuw [31 x i8], ptr %7, i64 0, i64 %264
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %265, ptr noundef nonnull readonly align 1 dereferenceable(7) @.str.16, i64 7, i1 false)
   %266 = load i8, ptr %105, align 1
   %267 = add i8 %266, 7
@@ -712,7 +712,7 @@ agxbput.exit194:                                  ; preds = %263, %268
 
 279:                                              ; preds = %278
   %280 = zext i8 %.val.i15.i.i to i64
-  %281 = getelementptr inbounds [31 x i8], ptr %7, i64 0, i64 %280
+  %281 = getelementptr inbounds nuw [31 x i8], ptr %7, i64 0, i64 %280
   store i8 0, ptr %281, align 1
   %282 = load i8, ptr %105, align 1
   %283 = add i8 %282, 1
@@ -753,7 +753,7 @@ agxbuse.exit:                                     ; preds = %agxbclear.exit.thre
 294:                                              ; preds = %agxbuse.exit
   %295 = load ptr, ptr @stderr, align 8
   %296 = load ptr, ptr %5, align 8
-  %297 = getelementptr inbounds i8, ptr %296, i64 8
+  %297 = getelementptr inbounds nuw i8, ptr %296, i64 8
   %298 = load ptr, ptr %297, align 8
   %299 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %295, ptr noundef nonnull @.str.17, ptr noundef %298) #16
   %300 = load ptr, ptr %0, align 8
@@ -780,9 +780,9 @@ agxbuse.exit:                                     ; preds = %agxbclear.exit.thre
 agxbfree.exit:                                    ; preds = %303, %301, %304
   %306 = load ptr, ptr @pango_textlayout.context, align 8
   %307 = call ptr @pango_layout_new(ptr noundef %306) #14
-  %308 = getelementptr inbounds i8, ptr %0, i64 16
+  %308 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %307, ptr %308, align 8
-  %309 = getelementptr inbounds i8, ptr %0, i64 24
+  %309 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr @pango_free_layout, ptr %309, align 8
   %310 = load ptr, ptr %6, align 8
   call void @pango_layout_set_text(ptr noundef %307, ptr noundef %310, i32 noundef -1) #14
@@ -798,10 +798,10 @@ agxbfree.exit:                                    ; preds = %303, %301, %304
 
 314:                                              ; preds = %313, %agxbfree.exit
   call void @pango_layout_get_extents(ptr noundef %307, ptr noundef null, ptr noundef nonnull %3) #14
-  %315 = getelementptr inbounds i8, ptr %3, i64 8
+  %315 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %316 = load i32, ptr %315, align 4
   %317 = icmp eq i32 %316, 0
-  %318 = getelementptr inbounds i8, ptr %3, i64 12
+  %318 = getelementptr inbounds nuw i8, ptr %3, i64 12
   br i1 %317, label %321, label %._crit_edge212
 
 ._crit_edge212:                                   ; preds = %314
@@ -818,20 +818,20 @@ agxbfree.exit:                                    ; preds = %303, %301, %304
   %323 = phi double [ %320, %._crit_edge212 ], [ 0.000000e+00, %321 ]
   %324 = sitofp i32 %316 to double
   %325 = fmul double %324, 0x3F48000000000000
-  %326 = getelementptr inbounds i8, ptr %0, i64 48
+  %326 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store double %325, ptr %326, align 8
-  %327 = getelementptr inbounds i8, ptr %0, i64 56
+  %327 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store double %323, ptr %327, align 8
   %328 = call i32 @pango_layout_get_baseline(ptr noundef %307) #14
   %329 = sitofp i32 %328 to double
   %330 = fmul double %329, 0x3F48000000000000
-  %331 = getelementptr inbounds i8, ptr %0, i64 32
+  %331 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store double %330, ptr %331, align 8
   %332 = load ptr, ptr %99, align 8
-  %333 = getelementptr inbounds i8, ptr %332, i64 24
+  %333 = getelementptr inbounds nuw i8, ptr %332, i64 24
   %334 = load double, ptr %333, align 8
   %335 = fmul double %334, 5.000000e-02
-  %336 = getelementptr inbounds i8, ptr %0, i64 40
+  %336 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store double %335, ptr %336, align 8
   %337 = load i32, ptr %315, align 4
   %.not93 = icmp eq i32 %337, 0
@@ -922,9 +922,9 @@ agxbsizeof.exit.i.i:                              ; preds = %5
   br label %agxblen.exit.i.i
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8
   br label %agxblen.exit.i.i
 
@@ -947,7 +947,7 @@ agxblen.exit.i.i:                                 ; preds = %8, %agxbsizeof.exit
 
 17:                                               ; preds = %16
   %18 = zext i8 %.val.i25.i.i to i64
-  %19 = getelementptr inbounds [31 x i8], ptr %0, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw [31 x i8], ptr %0, i64 0, i64 %18
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %19, ptr readonly align 1 %1, i64 %3, i1 false)
   %20 = trunc i64 %3 to i8
   %21 = load i8, ptr %6, align 1
@@ -956,7 +956,7 @@ agxblen.exit.i.i:                                 ; preds = %8, %agxbsizeof.exit
   br label %agxbput.exit
 
 23:                                               ; preds = %16
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load i64, ptr %24, align 8
   %26 = load ptr, ptr %0, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 %25
@@ -1020,7 +1020,7 @@ define internal fastcc void @agxbmore(ptr nocapture noundef %0, i64 noundef rang
   br i1 %.not.i, label %agxbsizeof.exit, label %23
 
 agxbsizeof.exit:                                  ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %.fr = freeze i64 %5
   %6 = icmp eq i64 %.fr, 0
@@ -1073,7 +1073,7 @@ agxbsizeof.exit:                                  ; preds = %2
 gv_calloc.exit:                                   ; preds = %23
   %30 = zext i8 %.val.i to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %25, ptr nonnull align 8 %0, i64 %30, i1 false)
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %30, ptr %31, align 8
   br label %gv_recalloc.exit
 
@@ -1081,7 +1081,7 @@ gv_recalloc.exit:                                 ; preds = %20, %18, %11, %gv_c
   %spec.select3641 = phi i64 [ %spec.select, %gv_calloc.exit ], [ 0, %11 ], [ %spec.select33, %18 ], [ %spec.select33, %20 ]
   %.0 = phi ptr [ %25, %gv_calloc.exit ], [ null, %11 ], [ %13, %18 ], [ %13, %20 ]
   store ptr %.0, ptr %0, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %spec.select3641, ptr %32, align 8
   store i8 -1, ptr %3, align 1
   ret void

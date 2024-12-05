@@ -1244,7 +1244,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_dect_nwk(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_append_str(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.827) #5
   %8 = load i32, ptr @proto_dect_nwk, align 4
@@ -2108,10 +2108,10 @@ dissect_dect_nwk_s_ie_iwu_to_iwu.exit:            ; preds = %210, %223, %234
 
 switch.lookup:                                    ; preds = %.preheader2.i
   %437 = zext nneg i32 %.2129.i to i64
-  %switch.gep = getelementptr inbounds [10 x ptr], ptr @switch.table.dissect_dect_nwk_s_ie, i64 0, i64 %437
+  %switch.gep = getelementptr inbounds nuw [10 x ptr], ptr @switch.table.dissect_dect_nwk_s_ie, i64 0, i64 %437
   %switch.load = load ptr, ptr %switch.gep, align 8
   %438 = zext nneg i32 %.2129.i to i64
-  %switch.gep21 = getelementptr inbounds [10 x ptr], ptr @switch.table.dissect_dect_nwk_s_ie.23, i64 0, i64 %438
+  %switch.gep21 = getelementptr inbounds nuw [10 x ptr], ptr @switch.table.dissect_dect_nwk_s_ie.23, i64 0, i64 %438
   %switch.load22 = load ptr, ptr %switch.gep21, align 8
   %439 = load i32, ptr %switch.load, align 4
   %440 = load i32, ptr @ett_dect_nwk_s_ie_element, align 4
@@ -2290,7 +2290,7 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @add_dect_nwk_dect_charset_tree_item(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef range(i32 0, 256) %5) unnamed_addr #0 {
-  %7 = getelementptr inbounds i8, ptr %1, i64 408
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @tvb_get_string_enc(ptr noundef %8, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef 86) #5
   %10 = load ptr, ptr %7, align 8

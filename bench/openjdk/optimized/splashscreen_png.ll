@@ -128,9 +128,9 @@ define hidden range(i32 0, 2) i32 @SplashDecodePng(ptr noundef %0, ptr noundef %
   %.0..0..0..0. = load volatile ptr, ptr %6, align 8
   %48 = mul i64 %indvars.iv, %29
   %49 = and i64 %48, 4294967295
-  %50 = getelementptr inbounds i8, ptr %.0..0..0..0., i64 %49
+  %50 = getelementptr inbounds nuw i8, ptr %.0..0..0..0., i64 %49
   %.0..0..0..0.8 = load volatile ptr, ptr %5, align 8
-  %51 = getelementptr inbounds ptr, ptr %.0..0..0..0.8, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw ptr, ptr %.0..0..0..0.8, i64 %indvars.iv
   store ptr %50, ptr %51, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -141,17 +141,17 @@ define hidden range(i32 0, 2) i32 @SplashDecodePng(ptr noundef %0, ptr noundef %
   call void @png_read_image(ptr noundef nonnull %16, ptr noundef %.0..0..0..0.9) #7
   call void @SplashCleanup(ptr noundef %0) #7
   %53 = load i32, ptr %10, align 4
-  %54 = getelementptr inbounds i8, ptr %0, i64 10440
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 10440
   store i32 %53, ptr %54, align 8
   %55 = load i32, ptr %11, align 4
-  %56 = getelementptr inbounds i8, ptr %0, i64 10444
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 10444
   store i32 %55, ptr %56, align 4
   %57 = icmp sgt i32 %53, 0
   br i1 %57, label %58, label %94
 
 58:                                               ; preds = %52
-  %59 = getelementptr inbounds i8, ptr %0, i64 9320
-  %60 = getelementptr inbounds i8, ptr %0, i64 9352
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 9320
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 9352
   %61 = load i32, ptr %60, align 8
   %62 = icmp sgt i32 %61, 0
   br i1 %62, label %63, label %94
@@ -172,16 +172,16 @@ define hidden range(i32 0, 2) i32 @SplashDecodePng(ptr noundef %0, ptr noundef %
   br i1 %71, label %72, label %94
 
 72:                                               ; preds = %69
-  %73 = getelementptr inbounds i8, ptr %0, i64 10448
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 10448
   store i32 1, ptr %73, align 8
   %74 = call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #10
-  %75 = getelementptr inbounds i8, ptr %0, i64 10456
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 10456
   store ptr %74, ptr %75, align 8
   %76 = icmp eq ptr %74, null
   br i1 %76, label %94, label %77
 
 77:                                               ; preds = %72
-  %78 = getelementptr inbounds i8, ptr %0, i64 10632
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 10632
   store i32 1, ptr %78, align 8
   %79 = mul nuw nsw i32 %67, %55
   %80 = zext nneg i32 %79 to i64
@@ -195,10 +195,10 @@ define hidden range(i32 0, 2) i32 @SplashDecodePng(ptr noundef %0, ptr noundef %
   br label %94
 
 84:                                               ; preds = %77
-  %85 = getelementptr inbounds i8, ptr %74, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %74, i64 8
   store i32 0, ptr %85, align 8
   call void @initFormat(ptr noundef nonnull %4, i32 noundef -16777216, i32 noundef 16711680, i32 noundef 65280, i32 noundef 255) #7
-  %86 = getelementptr inbounds i8, ptr %4, i64 36
+  %86 = getelementptr inbounds nuw i8, ptr %4, i64 36
   store i32 1, ptr %86, align 4
   %87 = load i32, ptr %10, align 4
   %88 = load i32, ptr %11, align 4

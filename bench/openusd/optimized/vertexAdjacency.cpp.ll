@@ -251,7 +251,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %indvars.iv140 = phi i64 [ 0, %.lr.ph122.preheader ], [ %indvars.iv.next141, %._crit_edge ]
   %.0121 = phi i64 [ %51, %.lr.ph122.preheader ], [ %79, %._crit_edge ]
   %.066120 = phi i32 [ 0, %.lr.ph122.preheader ], [ %.1.lcssa, %._crit_edge ]
-  %53 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv140
+  %53 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv140
   %54 = load i32, ptr %53, align 4
   %55 = icmp sgt i32 %54, 0
   br i1 %55, label %.lr.ph.preheader, label %._crit_edge
@@ -317,7 +317,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
 70:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %71 = zext nneg i32 %58 to i64
-  %72 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %71
+  %72 = getelementptr inbounds nuw i32, ptr %.sroa.0.0, i64 %71
   %73 = load i32, ptr %72, align 4
   %74 = add nsw i32 %73, 1
   store i32 %74, ptr %72, align 4
@@ -479,7 +479,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_28HdPerfTokens_StaticTok
 
 128:                                              ; preds = %.lr.ph128
   store i32 %.071125, ptr %127, align 4
-  %129 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %indvars.iv144
+  %129 = getelementptr inbounds nuw i32, ptr %.sroa.0.0, i64 %indvars.iv144
   %130 = load i32, ptr %129, align 4
   %131 = shl nsw i32 %130, 1
   %132 = add nsw i32 %131, %.071125
@@ -492,7 +492,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_28HdPerfTokens_StaticTok
 .lr.ph135:                                        ; preds = %.lr.ph135.preheader, %._crit_edge132
   %indvars.iv152 = phi i64 [ 0, %.lr.ph135.preheader ], [ %indvars.iv.next153, %._crit_edge132 ]
   %.2134 = phi i32 [ 0, %.lr.ph135.preheader ], [ %177, %._crit_edge132 ]
-  %136 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv152
+  %136 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv152
   %137 = load i32, ptr %136, align 4
   %138 = icmp sgt i32 %137, 0
   br i1 %138, label %.lr.ph131, label %._crit_edge132

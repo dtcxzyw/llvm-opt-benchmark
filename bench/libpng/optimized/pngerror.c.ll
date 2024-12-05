@@ -24,7 +24,7 @@ define void @png_error(ptr noalias noundef %0, ptr noundef %1) local_unnamed_add
   br i1 %.not, label %7, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 224
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %5 = load ptr, ptr %4, align 8
   %.not8 = icmp eq ptr %5, null
   br i1 %.not8, label %7, label %6
@@ -73,7 +73,7 @@ define i64 @png_safecat(ptr noundef writeonly %0, i64 noundef %1, i64 noundef %2
   %12 = phi i8 [ %16, %.lr.ph ], [ %8, %.preheader ]
   %.020 = phi ptr [ %13, %.lr.ph ], [ %3, %.preheader ]
   %.219 = phi i64 [ %14, %.lr.ph ], [ %2, %.preheader ]
-  %13 = getelementptr inbounds i8, ptr %.020, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.020, i64 1
   %14 = add nuw i64 %.219, 1
   %15 = getelementptr inbounds i8, ptr %0, i64 %.219
   store i8 %12, ptr %15, align 1
@@ -131,7 +131,7 @@ define nonnull ptr @png_format_number(ptr noundef readnone %0, ptr noundef write
 13:                                               ; preds = %12, %11
   %.230.us = phi i32 [ %.02855.us, %11 ], [ 2, %12 ]
   %14 = and i64 %.03253.us, 15
-  %15 = getelementptr inbounds [17 x i8], ptr @png_format_number.digits, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw [17 x i8], ptr @png_format_number.digits, i64 0, i64 %14
   %16 = load i8, ptr %15, align 1
   %17 = getelementptr inbounds i8, ptr %.03452.us, i64 -1
   store i8 %16, ptr %17, align 1
@@ -144,7 +144,7 @@ define nonnull ptr @png_format_number(ptr noundef readnone %0, ptr noundef write
 20:                                               ; preds = %19, %11
   %.129.us = phi i32 [ %.02855.us, %11 ], [ 2, %19 ]
   %21 = urem i64 %.03253.us, 10
-  %22 = getelementptr inbounds [17 x i8], ptr @png_format_number.digits, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw [17 x i8], ptr @png_format_number.digits, i64 0, i64 %21
   %23 = load i8, ptr %22, align 1
   %24 = getelementptr inbounds i8, ptr %.03452.us, i64 -1
   store i8 %23, ptr %24, align 1
@@ -160,7 +160,7 @@ define nonnull ptr @png_format_number(ptr noundef readnone %0, ptr noundef write
   br i1 %or.cond41.us, label %.thread.us, label %29
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds [17 x i8], ptr @png_format_number.digits, i64 0, i64 %27
+  %30 = getelementptr inbounds nuw [17 x i8], ptr @png_format_number.digits, i64 0, i64 %27
   %31 = load i8, ptr %30, align 1
   %32 = getelementptr inbounds i8, ptr %.03452.us, i64 -1
   store i8 %31, ptr %32, align 1
@@ -203,7 +203,7 @@ define nonnull ptr @png_format_number(ptr noundef readnone %0, ptr noundef write
   br i1 %or.cond42, label %52, label %55
 
 .thread:                                          ; preds = %38
-  %46 = getelementptr inbounds [17 x i8], ptr @png_format_number.digits, i64 0, i64 %39
+  %46 = getelementptr inbounds nuw [17 x i8], ptr @png_format_number.digits, i64 0, i64 %39
   %47 = load i8, ptr %46, align 1
   %48 = getelementptr inbounds i8, ptr %.03452, i64 -1
   store i8 %47, ptr %48, align 1
@@ -251,7 +251,7 @@ define void @png_warning(ptr noalias noundef %0, ptr noundef %1) local_unnamed_a
 
 .preheader:                                       ; preds = %3, %9
   %indvars.iv = phi i64 [ %indvars.iv.next, %9 ], [ 1, %3 ]
-  %6 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1
   %8 = icmp eq i8 %7, 32
   br i1 %8, label %.thread20.loopexit, label %9
@@ -272,10 +272,10 @@ define void @png_warning(ptr noalias noundef %0, ptr noundef %1) local_unnamed_a
 
 .thread20:                                        ; preds = %.thread20.loopexit, %3
   %.022 = phi i64 [ 0, %3 ], [ %10, %.thread20.loopexit ]
-  %11 = getelementptr inbounds i8, ptr %0, i64 232
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %12 = load ptr, ptr %11, align 8
   %.not17 = icmp eq ptr %12, null
-  %13 = getelementptr inbounds i8, ptr %1, i64 %.022
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 %.022
   br i1 %.not17, label %.split14, label %14
 
 .split14:                                         ; preds = %.thread20
@@ -325,9 +325,9 @@ define void @png_warning_parameter(ptr noundef writeonly %0, i32 noundef %1, ptr
   %11 = phi i8 [ %15, %.lr.ph.i ], [ %10, %.preheader.i ]
   %.020.i = phi ptr [ %12, %.lr.ph.i ], [ %2, %.preheader.i ]
   %.219.i = phi i64 [ %13, %.lr.ph.i ], [ 0, %.preheader.i ]
-  %12 = getelementptr inbounds i8, ptr %.020.i, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.020.i, i64 1
   %13 = add nuw nsw i64 %.219.i, 1
-  %14 = getelementptr inbounds i8, ptr %8, i64 %.219.i
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 %.219.i
   store i8 %11, ptr %14, align 1
   %15 = load i8, ptr %12, align 1
   %16 = icmp ne i8 %15, 0
@@ -349,7 +349,7 @@ png_safecat.exit:                                 ; preds = %.loopexit.i, %5, %3
 define void @png_warning_parameter_unsigned(ptr noundef writeonly %0, i32 noundef %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #6 {
   %5 = alloca [24 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = call ptr @png_format_number(ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef %2, i64 noundef %3)
   %8 = add i32 %1, -1
   %or.cond.i = icmp ult i32 %8, 8
@@ -371,9 +371,9 @@ define void @png_warning_parameter_unsigned(ptr noundef writeonly %0, i32 nounde
   %15 = phi i8 [ %19, %.lr.ph.i.i ], [ %14, %13 ]
   %.020.i.i = phi ptr [ %16, %.lr.ph.i.i ], [ %7, %13 ]
   %.219.i.i = phi i64 [ %17, %.lr.ph.i.i ], [ 0, %13 ]
-  %16 = getelementptr inbounds i8, ptr %.020.i.i, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.020.i.i, i64 1
   %17 = add nuw nsw i64 %.219.i.i, 1
-  %18 = getelementptr inbounds i8, ptr %12, i64 %.219.i.i
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 %.219.i.i
   store i8 %15, ptr %18, align 1
   %19 = load i8, ptr %16, align 1
   %20 = icmp ne i8 %19, 0
@@ -401,7 +401,7 @@ define void @png_warning_parameter_signed(ptr noundef writeonly %0, i32 noundef 
   %6 = icmp slt i32 %3, 0
   %7 = tail call i32 @llvm.abs.i32(i32 %3, i1 false)
   %spec.select = zext i32 %7 to i64
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %9 = call ptr @png_format_number(ptr noundef nonnull %5, ptr noundef nonnull %8, i32 noundef %2, i64 noundef %spec.select)
   %10 = icmp ugt ptr %9, %5
   %or.cond = select i1 %6, i1 %10, i1 false
@@ -434,9 +434,9 @@ define void @png_warning_parameter_signed(ptr noundef writeonly %0, i32 noundef 
   %21 = phi i8 [ %25, %.lr.ph.i.i ], [ %20, %19 ]
   %.020.i.i = phi ptr [ %22, %.lr.ph.i.i ], [ %.0, %19 ]
   %.219.i.i = phi i64 [ %23, %.lr.ph.i.i ], [ 0, %19 ]
-  %22 = getelementptr inbounds i8, ptr %.020.i.i, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %.020.i.i, i64 1
   %23 = add nuw nsw i64 %.219.i.i, 1
-  %24 = getelementptr inbounds i8, ptr %18, i64 %.219.i.i
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 %.219.i.i
   store i8 %21, ptr %24, align 1
   %25 = load i8, ptr %22, align 1
   %26 = icmp ne i8 %25, 0
@@ -468,9 +468,9 @@ define void @png_formatted_warning(ptr noalias noundef %0, ptr noundef readonly 
   br i1 %.not.us, label %.critedge, label %.backedge.us
 
 .backedge.us:                                     ; preds = %.split.us
-  %6 = getelementptr inbounds i8, ptr %.049.us, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %.049.us, i64 1
   %7 = add nuw nsw i64 %.03148.us, 1
-  %8 = getelementptr inbounds [192 x i8], ptr %4, i64 0, i64 %.03148.us
+  %8 = getelementptr inbounds nuw [192 x i8], ptr %4, i64 0, i64 %.03148.us
   store i8 %5, ptr %8, align 1
   %exitcond53.not = icmp eq i64 %7, 191
   br i1 %exitcond53.not, label %.critedge, label %.split.us, !llvm.loop !8
@@ -485,14 +485,14 @@ define void @png_formatted_warning(ptr noalias noundef %0, ptr noundef readonly 
   ]
 
 10:                                               ; preds = %.split
-  %11 = getelementptr inbounds i8, ptr %.049, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.049, i64 1
   %12 = load i8, ptr %11, align 1
   %.not38 = icmp eq i8 %12, 0
   br i1 %.not38, label %.critedge2._crit_edge, label %.preheader
 
 .preheader:                                       ; preds = %10, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %10 ]
-  %13 = getelementptr inbounds [10 x i8], ptr @png_formatted_warning.valid_parameters, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [10 x i8], ptr @png_formatted_warning.valid_parameters, i64 0, i64 %indvars.iv
   %14 = load i8, ptr %13, align 1
   %.not39 = icmp eq i8 %14, %12
   %.not40 = icmp eq i64 %indvars.iv, 9
@@ -505,7 +505,7 @@ define void @png_formatted_warning(ptr noalias noundef %0, ptr noundef readonly 
   br i1 %15, label %16, label %.critedge2._crit_edge
 
 16:                                               ; preds = %.critedge2
-  %17 = getelementptr inbounds [32 x i8], ptr %1, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv
   %18 = icmp samesign ult i64 %.03148, 191
   br i1 %18, label %.lr.ph.preheader, label %.critedge4
 
@@ -516,7 +516,7 @@ define void @png_formatted_warning(ptr noalias noundef %0, ptr noundef readonly 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %22
   %.029.idx45 = phi i64 [ %.029.add, %22 ], [ 0, %.lr.ph.preheader ]
   %.13244 = phi i64 [ %23, %22 ], [ %.03148, %.lr.ph.preheader ]
-  %.029.ptr = getelementptr inbounds i8, ptr %17, i64 %.029.idx45
+  %.029.ptr = getelementptr inbounds nuw i8, ptr %17, i64 %.029.idx45
   %20 = load i8, ptr %.029.ptr, align 1
   %.not41 = icmp ne i8 %20, 0
   %21 = icmp samesign ult i64 %.029.idx45, 32
@@ -526,14 +526,14 @@ define void @png_formatted_warning(ptr noalias noundef %0, ptr noundef readonly 
 22:                                               ; preds = %.lr.ph
   %.029.add = add nuw nsw i64 %.029.idx45, 1
   %23 = add nuw nsw i64 %.13244, 1
-  %24 = getelementptr inbounds [192 x i8], ptr %4, i64 0, i64 %.13244
+  %24 = getelementptr inbounds nuw [192 x i8], ptr %4, i64 0, i64 %.13244
   store i8 %20, ptr %24, align 1
   %exitcond.not = icmp eq i64 %.029.add, %19
   br i1 %exitcond.not, label %.critedge4, label %.lr.ph, !llvm.loop !10
 
 .critedge4:                                       ; preds = %22, %.lr.ph, %16
   %.132.lcssa = phi i64 [ %.03148, %16 ], [ %.13244, %.lr.ph ], [ 191, %22 ]
-  %25 = getelementptr inbounds i8, ptr %.049, i64 2
+  %25 = getelementptr inbounds nuw i8, ptr %.049, i64 2
   br label %.backedge
 
 .backedge:                                        ; preds = %.critedge4, %.critedge2._crit_edge
@@ -545,9 +545,9 @@ define void @png_formatted_warning(ptr noalias noundef %0, ptr noundef readonly 
 .critedge2._crit_edge:                            ; preds = %.critedge2, %.split, %10
   %27 = phi i8 [ 64, %10 ], [ %9, %.split ], [ %12, %.critedge2 ]
   %.1 = phi ptr [ %.049, %10 ], [ %.049, %.split ], [ %11, %.critedge2 ]
-  %28 = getelementptr inbounds i8, ptr %.1, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %29 = add nuw nsw i64 %.03148, 1
-  %30 = getelementptr inbounds [192 x i8], ptr %4, i64 0, i64 %.03148
+  %30 = getelementptr inbounds nuw [192 x i8], ptr %4, i64 0, i64 %.03148
   store i8 %27, ptr %30, align 1
   br label %.backedge
 
@@ -566,7 +566,7 @@ define void @png_formatted_warning(ptr noalias noundef %0, ptr noundef readonly 
 
 .preheader.i:                                     ; preds = %32, %38
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %38 ], [ 1, %32 ]
-  %35 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i
   %36 = load i8, ptr %35, align 1, !noalias !11
   %37 = icmp eq i8 %36, 32
   br i1 %37, label %.thread20.loopexit.i, label %38
@@ -587,10 +587,10 @@ define void @png_formatted_warning(ptr noalias noundef %0, ptr noundef readonly 
 
 .thread20.i:                                      ; preds = %.thread20.loopexit.i, %32
   %.022.i = phi i64 [ 0, %32 ], [ %39, %.thread20.loopexit.i ]
-  %40 = getelementptr inbounds i8, ptr %0, i64 232
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %41 = load ptr, ptr %40, align 8, !alias.scope !11
   %.not17.i = icmp eq ptr %41, null
-  %42 = getelementptr inbounds i8, ptr %4, i64 %.022.i
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 %.022.i
   br i1 %.not17.i, label %.split14.i, label %43
 
 .split14.i:                                       ; preds = %.thread20.i
@@ -607,11 +607,11 @@ png_warning.exit:                                 ; preds = %.split.i, %.split14
 
 ; Function Attrs: nounwind uwtable
 define void @png_benign_error(ptr noalias noundef %0, ptr noundef %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 304
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 1048576
   %.not = icmp eq i32 %5, 0
-  %6 = getelementptr inbounds i8, ptr %0, i64 300
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 300
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, 32768
   %.not13 = icmp eq i32 %8, 0
@@ -621,7 +621,7 @@ define void @png_benign_error(ptr noalias noundef %0, ptr noundef %1) local_unna
   br i1 %.not13, label %14, label %10
 
 10:                                               ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 536
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %12 = load i32, ptr %11, align 8
   %.not16 = icmp eq i32 %12, 0
   br i1 %.not16, label %14, label %13
@@ -638,7 +638,7 @@ define void @png_benign_error(ptr noalias noundef %0, ptr noundef %1) local_unna
 
 .preheader.i:                                     ; preds = %14, %20
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %20 ], [ 1, %14 ]
-  %17 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
   %18 = load i8, ptr %17, align 1, !noalias !14
   %19 = icmp eq i8 %18, 32
   br i1 %19, label %.thread20.loopexit.i, label %20
@@ -655,10 +655,10 @@ define void @png_benign_error(ptr noalias noundef %0, ptr noundef %1) local_unna
 
 .thread20.i:                                      ; preds = %.thread20.loopexit.i, %14
   %.022.i = phi i64 [ 0, %14 ], [ %21, %.thread20.loopexit.i ]
-  %22 = getelementptr inbounds i8, ptr %0, i64 232
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %23 = load ptr, ptr %22, align 8, !alias.scope !14
   %.not17.i = icmp eq ptr %23, null
-  %24 = getelementptr inbounds i8, ptr %1, i64 %.022.i
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 %.022.i
   br i1 %.not17.i, label %.split14.i, label %25
 
 .split14.i:                                       ; preds = %.thread20.i
@@ -673,7 +673,7 @@ define void @png_benign_error(ptr noalias noundef %0, ptr noundef %1) local_unna
   br i1 %.not13, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %0, i64 536
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %29 = load i32, ptr %28, align 8
   %.not14 = icmp eq i32 %29, 0
   br i1 %.not14, label %31, label %30
@@ -725,13 +725,13 @@ define void @png_chunk_warning(ptr noalias noundef %0, ptr noundef %1) local_unn
   %19 = lshr i32 %9, 4
   %20 = and i32 %19, 15
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds [16 x i8], ptr @png_digit, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw [16 x i8], ptr @png_digit, i64 0, i64 %21
   %23 = load i8, ptr %22, align 1
   %24 = getelementptr i8, ptr %18, i64 1
   store i8 %23, ptr %24, align 1
   %25 = and i32 %9, 15
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds [16 x i8], ptr @png_digit, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw [16 x i8], ptr @png_digit, i64 0, i64 %26
   %28 = load i8, ptr %27, align 1
   %29 = getelementptr i8, ptr %18, i64 2
   store i8 %28, ptr %29, align 1
@@ -775,7 +775,7 @@ define void @png_chunk_warning(ptr noalias noundef %0, ptr noundef %1) local_unn
 48:                                               ; preds = %51, %43
   %indvars.iv5.i = phi i64 [ %46, %43 ], [ %indvars.iv.next6.i, %51 ]
   %indvars.iv.i = phi i64 [ 0, %43 ], [ %indvars.iv.next.i, %51 ]
-  %49 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
   %50 = load i8, ptr %49, align 1
   %.not.i = icmp eq i8 %50, 0
   br i1 %.not.i, label %.critedge.split.loop.exit12.i, label %51
@@ -807,7 +807,7 @@ define void @png_chunk_warning(ptr noalias noundef %0, ptr noundef %1) local_unn
 
 .preheader.i:                                     ; preds = %56, %62
   %indvars.iv.i7 = phi i64 [ %indvars.iv.next.i8, %62 ], [ 1, %56 ]
-  %59 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.i7
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i7
   %60 = load i8, ptr %59, align 1, !noalias !19
   %61 = icmp eq i8 %60, 32
   br i1 %61, label %.thread20.loopexit.i, label %62
@@ -824,10 +824,10 @@ define void @png_chunk_warning(ptr noalias noundef %0, ptr noundef %1) local_unn
 
 .thread20.i:                                      ; preds = %.thread20.loopexit.i, %56
   %.022.i = phi i64 [ 0, %56 ], [ %63, %.thread20.loopexit.i ]
-  %64 = getelementptr inbounds i8, ptr %0, i64 232
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %65 = load ptr, ptr %64, align 8, !alias.scope !19
   %.not17.i = icmp eq ptr %65, null
-  %66 = getelementptr inbounds i8, ptr %3, i64 %.022.i
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 %.022.i
   br i1 %.not17.i, label %.split14.i, label %67
 
 .split14.i:                                       ; preds = %.thread20.i
@@ -862,7 +862,7 @@ define void @png_chunk_error(ptr noalias noundef %0, ptr noundef %1) local_unnam
 
 ; Function Attrs: nounwind uwtable
 define void @png_app_warning(ptr noalias noundef %0, ptr noundef %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 304
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 2097152
   %.not = icmp eq i32 %5, 0
@@ -876,7 +876,7 @@ define void @png_app_warning(ptr noalias noundef %0, ptr noundef %1) local_unnam
 
 .preheader.i:                                     ; preds = %6, %12
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %12 ], [ 1, %6 ]
-  %9 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
   %10 = load i8, ptr %9, align 1, !noalias !22
   %11 = icmp eq i8 %10, 32
   br i1 %11, label %.thread20.loopexit.i, label %12
@@ -893,10 +893,10 @@ define void @png_app_warning(ptr noalias noundef %0, ptr noundef %1) local_unnam
 
 .thread20.i:                                      ; preds = %.thread20.loopexit.i, %6
   %.022.i = phi i64 [ 0, %6 ], [ %13, %.thread20.loopexit.i ]
-  %14 = getelementptr inbounds i8, ptr %0, i64 232
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %15 = load ptr, ptr %14, align 8, !alias.scope !22
   %.not17.i = icmp eq ptr %15, null
-  %16 = getelementptr inbounds i8, ptr %1, i64 %.022.i
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 %.022.i
   br i1 %.not17.i, label %.split14.i, label %17
 
 .split14.i:                                       ; preds = %.thread20.i
@@ -917,7 +917,7 @@ png_warning.exit:                                 ; preds = %.split14.i, %17
 
 ; Function Attrs: nounwind uwtable
 define void @png_app_error(ptr noalias noundef %0, ptr noundef %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 304
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 4194304
   %.not = icmp eq i32 %5, 0
@@ -931,7 +931,7 @@ define void @png_app_error(ptr noalias noundef %0, ptr noundef %1) local_unnamed
 
 .preheader.i:                                     ; preds = %6, %12
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %12 ], [ 1, %6 ]
-  %9 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
   %10 = load i8, ptr %9, align 1, !noalias !25
   %11 = icmp eq i8 %10, 32
   br i1 %11, label %.thread20.loopexit.i, label %12
@@ -948,10 +948,10 @@ define void @png_app_error(ptr noalias noundef %0, ptr noundef %1) local_unnamed
 
 .thread20.i:                                      ; preds = %.thread20.loopexit.i, %6
   %.022.i = phi i64 [ 0, %6 ], [ %13, %.thread20.loopexit.i ]
-  %14 = getelementptr inbounds i8, ptr %0, i64 232
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %15 = load ptr, ptr %14, align 8, !alias.scope !25
   %.not17.i = icmp eq ptr %15, null
-  %16 = getelementptr inbounds i8, ptr %1, i64 %.022.i
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 %.022.i
   br i1 %.not17.i, label %.split14.i, label %17
 
 .split14.i:                                       ; preds = %.thread20.i
@@ -994,13 +994,13 @@ define internal fastcc void @png_format_buffer(i32 %.536.val, ptr nocapture noun
   %14 = lshr i32 %4, 4
   %15 = and i32 %14, 15
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds [16 x i8], ptr @png_digit, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr @png_digit, i64 0, i64 %16
   %18 = load i8, ptr %17, align 1
   %19 = getelementptr i8, ptr %13, i64 1
   store i8 %18, ptr %19, align 1
   %20 = and i32 %4, 15
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds [16 x i8], ptr @png_digit, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw [16 x i8], ptr @png_digit, i64 0, i64 %21
   %23 = load i8, ptr %22, align 1
   %24 = getelementptr i8, ptr %13, i64 2
   store i8 %23, ptr %24, align 1
@@ -1044,7 +1044,7 @@ define internal fastcc void @png_format_buffer(i32 %.536.val, ptr nocapture noun
 43:                                               ; preds = %38, %46
   %indvars.iv5 = phi i64 [ %41, %38 ], [ %indvars.iv.next6, %46 ]
   %indvars.iv = phi i64 [ 0, %38 ], [ %indvars.iv.next, %46 ]
-  %44 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %45 = load i8, ptr %44, align 1
   %.not = icmp eq i8 %45, 0
   br i1 %.not, label %.critedge.split.loop.exit12, label %46
@@ -1074,7 +1074,7 @@ define internal fastcc void @png_format_buffer(i32 %.536.val, ptr nocapture noun
 
 ; Function Attrs: nounwind uwtable
 define void @png_chunk_benign_error(ptr noalias noundef %0, ptr noundef %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 304
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 1048576
   %.not = icmp eq i32 %5, 0
@@ -1091,7 +1091,7 @@ define void @png_chunk_benign_error(ptr noalias noundef %0, ptr noundef %1) loca
 
 ; Function Attrs: nounwind uwtable
 define void @png_chunk_report(ptr noalias noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 300
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 300
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 32768
   %.not = icmp eq i32 %6, 0
@@ -1106,7 +1106,7 @@ define void @png_chunk_report(ptr noalias noundef %0, ptr noundef %1, i32 nounde
   br label %png_app_warning.exit
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 304
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %12 = load i32, ptr %11, align 8, !alias.scope !28
   %13 = and i32 %12, 1048576
   %.not.i = icmp eq i32 %13, 0
@@ -1122,7 +1122,7 @@ png_chunk_benign_error.exit:                      ; preds = %10
 
 15:                                               ; preds = %3
   %16 = icmp slt i32 %2, 1
-  %17 = getelementptr inbounds i8, ptr %0, i64 304
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 304
   br i1 %16, label %18, label %34
 
 18:                                               ; preds = %15
@@ -1140,7 +1140,7 @@ png_chunk_benign_error.exit:                      ; preds = %10
 
 .preheader.i.i:                                   ; preds = %21, %27
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %27 ], [ 1, %21 ]
-  %24 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i.i
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i
   %25 = load i8, ptr %24, align 1, !noalias !37
   %26 = icmp eq i8 %25, 32
   br i1 %26, label %.thread20.loopexit.i.i, label %27
@@ -1157,10 +1157,10 @@ png_chunk_benign_error.exit:                      ; preds = %10
 
 .thread20.i.i:                                    ; preds = %.thread20.loopexit.i.i, %21
   %.022.i.i = phi i64 [ 0, %21 ], [ %28, %.thread20.loopexit.i.i ]
-  %29 = getelementptr inbounds i8, ptr %0, i64 232
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %30 = load ptr, ptr %29, align 8, !alias.scope !37
   %.not17.i.i = icmp eq ptr %30, null
-  %31 = getelementptr inbounds i8, ptr %1, i64 %.022.i.i
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 %.022.i.i
   br i1 %.not17.i.i, label %.split14.i.i, label %32
 
 .split14.i.i:                                     ; preds = %.thread20.i.i
@@ -1190,7 +1190,7 @@ png_chunk_benign_error.exit:                      ; preds = %10
 
 .preheader.i.i17:                                 ; preds = %37, %43
   %indvars.iv.i.i18 = phi i64 [ %indvars.iv.next.i.i19, %43 ], [ 1, %37 ]
-  %40 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i.i18
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i18
   %41 = load i8, ptr %40, align 1, !noalias !44
   %42 = icmp eq i8 %41, 32
   br i1 %42, label %.thread20.loopexit.i.i21, label %43
@@ -1207,10 +1207,10 @@ png_chunk_benign_error.exit:                      ; preds = %10
 
 .thread20.i.i13:                                  ; preds = %.thread20.loopexit.i.i21, %37
   %.022.i.i14 = phi i64 [ 0, %37 ], [ %44, %.thread20.loopexit.i.i21 ]
-  %45 = getelementptr inbounds i8, ptr %0, i64 232
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %46 = load ptr, ptr %45, align 8, !alias.scope !44
   %.not17.i.i15 = icmp eq ptr %46, null
-  %47 = getelementptr inbounds i8, ptr %1, i64 %.022.i.i14
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 %.022.i.i14
   br i1 %.not17.i.i15, label %.split14.i.i16, label %48
 
 .split14.i.i16:                                   ; preds = %.thread20.i.i13
@@ -1238,14 +1238,14 @@ define void @png_fixed_error(ptr noalias noundef %0, ptr noundef readonly %1) lo
 
 .preheader:                                       ; preds = %2, %6
   %indvars.iv = phi i64 [ %indvars.iv.next, %6 ], [ 0, %2 ]
-  %4 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %5 = load i8, ptr %4, align 1
   %.not13 = icmp eq i8 %5, 0
   br i1 %.not13, label %.critedge.loopexit, label %6
 
 6:                                                ; preds = %.preheader
   %7 = add nuw nsw i64 %indvars.iv, 24
-  %8 = getelementptr inbounds [220 x i8], ptr %3, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [220 x i8], ptr %3, i64 0, i64 %7
   store i8 %5, ptr %8, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 195
@@ -1259,7 +1259,7 @@ define void @png_fixed_error(ptr noalias noundef %0, ptr noundef readonly %1) lo
 
 .critedge:                                        ; preds = %.critedge.loopexit, %2
   %.0 = phi i64 [ 24, %2 ], [ %10, %.critedge.loopexit ]
-  %11 = getelementptr inbounds [220 x i8], ptr %3, i64 0, i64 %.0
+  %11 = getelementptr inbounds nuw [220 x i8], ptr %3, i64 0, i64 %.0
   store i8 0, ptr %11, align 1
   call void @png_error(ptr noundef %0, ptr noundef nonnull %3) #21
   unreachable
@@ -1274,10 +1274,10 @@ define ptr @png_set_longjmp_fn(ptr noalias noundef %0, ptr noundef %1, i64 nound
   br i1 %4, label %png_warning.exit, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 208
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
-  %9 = getelementptr inbounds i8, ptr %0, i64 216
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 216
   br i1 %8, label %10, label %17
 
 10:                                               ; preds = %5
@@ -1318,7 +1318,7 @@ define ptr @png_set_longjmp_fn(ptr noalias noundef %0, ptr noundef %1, i64 nound
   br i1 %.not28, label %27, label %23
 
 23:                                               ; preds = %22
-  %24 = getelementptr inbounds i8, ptr %0, i64 232
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %25 = load ptr, ptr %24, align 8, !alias.scope !45
   %.not17.i = icmp eq ptr %25, null
   br i1 %.not17.i, label %.split14.i, label %26
@@ -1333,7 +1333,7 @@ define ptr @png_set_longjmp_fn(ptr noalias noundef %0, ptr noundef %1, i64 nound
 
 27:                                               ; preds = %22, %12, %16
   %28 = phi ptr [ %7, %22 ], [ %0, %12 ], [ %14, %16 ]
-  %29 = getelementptr inbounds i8, ptr %0, i64 200
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store ptr %1, ptr %29, align 8
   br label %png_warning.exit
 
@@ -1351,13 +1351,13 @@ define void @png_free_jmpbuf(ptr noalias noundef %0) local_unnamed_addr #4 {
   br i1 %.not, label %15, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 208
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %5 = load ptr, ptr %4, align 8
   %.not15 = icmp eq ptr %5, null
   br i1 %.not15, label %13, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 216
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %8 = load i64, ptr %7, align 8
   %.not16 = icmp eq i64 %8, 0
   %.not17 = icmp eq ptr %5, %0
@@ -1372,13 +1372,13 @@ define void @png_free_jmpbuf(ptr noalias noundef %0) local_unnamed_addr #4 {
 11:                                               ; preds = %9
   store ptr %2, ptr %4, align 8
   store i64 0, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 200
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store ptr @longjmp, ptr %12, align 8
   call void @png_free(ptr noundef nonnull %0, ptr noundef nonnull %5) #20
   br label %13
 
 13:                                               ; preds = %11, %9, %6, %3
-  %14 = getelementptr inbounds i8, ptr %0, i64 200
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 200
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   br label %15
 
@@ -1400,13 +1400,13 @@ define void @png_longjmp(ptr noalias noundef readonly %0, i32 noundef %1) local_
   br i1 %.not, label %10, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 200
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %5 = load ptr, ptr %4, align 8
   %.not7 = icmp eq ptr %5, null
   br i1 %.not7, label %10, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 208
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %8 = load ptr, ptr %7, align 8
   %.not8 = icmp eq ptr %8, null
   br i1 %.not8, label %10, label %9
@@ -1429,11 +1429,11 @@ define void @png_set_error_fn(ptr noalias noundef writeonly %0, ptr noundef %1, 
   br i1 %5, label %10, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 240
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store ptr %1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 224
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store ptr %2, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 232
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store ptr %3, ptr %9, align 8
   br label %10
 
@@ -1447,7 +1447,7 @@ define ptr @png_get_error_ptr(ptr noalias noundef readonly %0) local_unnamed_add
   br i1 %2, label %6, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 240
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %5 = load ptr, ptr %4, align 8
   br label %6
 
@@ -1458,13 +1458,13 @@ define ptr @png_get_error_ptr(ptr noalias noundef readonly %0) local_unnamed_add
 
 ; Function Attrs: noreturn nounwind uwtable
 define void @png_safe_error(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 240
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %42, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %4, i64 36
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 36
   %.not18.i = icmp eq ptr %1, null
   br i1 %.not18.i, label %png_safecat.exit, label %.preheader.i
 
@@ -1477,9 +1477,9 @@ define void @png_safe_error(ptr nocapture noundef readonly %0, ptr noundef reado
   %8 = phi i8 [ %12, %.lr.ph.i ], [ %7, %.preheader.i ]
   %.020.i = phi ptr [ %9, %.lr.ph.i ], [ %1, %.preheader.i ]
   %.219.i = phi i64 [ %10, %.lr.ph.i ], [ 0, %.preheader.i ]
-  %9 = getelementptr inbounds i8, ptr %.020.i, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %.020.i, i64 1
   %10 = add nuw nsw i64 %.219.i, 1
-  %11 = getelementptr inbounds i8, ptr %6, i64 %.219.i
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 %.219.i
   store i8 %8, ptr %11, align 1
   %12 = load i8, ptr %9, align 1
   %13 = icmp ne i8 %12, 0
@@ -1491,7 +1491,7 @@ png_safecat.exit:                                 ; preds = %.lr.ph.i, %5, %.pre
   %.1.i = phi i64 [ 0, %5 ], [ 0, %.preheader.i ], [ %10, %.lr.ph.i ]
   %16 = getelementptr inbounds i8, ptr %6, i64 %.1.i
   store i8 0, ptr %16, align 1
-  %17 = getelementptr inbounds i8, ptr %4, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %18 = load i32, ptr %17, align 8
   %19 = or i32 %18, 2
   store i32 %19, ptr %17, align 8
@@ -1503,7 +1503,7 @@ png_safecat.exit:                                 ; preds = %.lr.ph.i, %5, %.pre
   br label %.lr.ph.i17
 
 21:                                               ; preds = %png_safecat.exit
-  %22 = getelementptr inbounds i8, ptr %20, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %23 = load ptr, ptr %22, align 8
   %.not15 = icmp eq ptr %23, null
   br i1 %.not15, label %.lr.ph.i17.preheader, label %24
@@ -1516,16 +1516,16 @@ png_safecat.exit:                                 ; preds = %.lr.ph.i, %5, %.pre
   %25 = phi i8 [ %29, %.lr.ph.i17 ], [ 98, %.lr.ph.i17.preheader ]
   %.020.i18 = phi ptr [ %26, %.lr.ph.i17 ], [ @.str.3, %.lr.ph.i17.preheader ]
   %.219.i19 = phi i64 [ %27, %.lr.ph.i17 ], [ 0, %.lr.ph.i17.preheader ]
-  %26 = getelementptr inbounds i8, ptr %.020.i18, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %.020.i18, i64 1
   %27 = add nuw nsw i64 %.219.i19, 1
-  %28 = getelementptr inbounds i8, ptr %6, i64 %.219.i19
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 %.219.i19
   store i8 %25, ptr %28, align 1
   %29 = load i8, ptr %26, align 1
   %exitcond.not = icmp eq i64 %27, 13
   br i1 %exitcond.not, label %30, label %.lr.ph.i17, !llvm.loop !4
 
 30:                                               ; preds = %.lr.ph.i17
-  %31 = getelementptr inbounds i8, ptr %4, i64 49
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 49
   store i8 0, ptr %31, align 1
   br i1 %.not18.i, label %png_safecat.exit28, label %.preheader.i23
 
@@ -1538,9 +1538,9 @@ png_safecat.exit:                                 ; preds = %.lr.ph.i, %5, %.pre
   %33 = phi i8 [ %37, %.lr.ph.i25 ], [ %32, %.preheader.i23 ]
   %.020.i26 = phi ptr [ %34, %.lr.ph.i25 ], [ %1, %.preheader.i23 ]
   %.219.i27 = phi i64 [ %35, %.lr.ph.i25 ], [ 13, %.preheader.i23 ]
-  %34 = getelementptr inbounds i8, ptr %.020.i26, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %.020.i26, i64 1
   %35 = add nuw nsw i64 %.219.i27, 1
-  %36 = getelementptr inbounds i8, ptr %6, i64 %.219.i27
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 %.219.i27
   store i8 %33, ptr %36, align 1
   %37 = load i8, ptr %34, align 1
   %38 = icmp ne i8 %37, 0
@@ -1561,15 +1561,15 @@ png_safecat.exit28:                               ; preds = %.lr.ph.i25, %30, %.
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @png_safe_warning(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #8 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 240
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %22
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %4, i64 36
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 36
   %.not18.i = icmp eq ptr %1, null
   br i1 %.not18.i, label %png_safecat.exit, label %.preheader.i
 
@@ -1582,9 +1582,9 @@ define void @png_safe_warning(ptr nocapture noundef readonly %0, ptr noundef rea
   %11 = phi i8 [ %15, %.lr.ph.i ], [ %10, %.preheader.i ]
   %.020.i = phi ptr [ %12, %.lr.ph.i ], [ %1, %.preheader.i ]
   %.219.i = phi i64 [ %13, %.lr.ph.i ], [ 0, %.preheader.i ]
-  %12 = getelementptr inbounds i8, ptr %.020.i, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.020.i, i64 1
   %13 = add nuw nsw i64 %.219.i, 1
-  %14 = getelementptr inbounds i8, ptr %9, i64 %.219.i
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 %.219.i
   store i8 %11, ptr %14, align 1
   %15 = load i8, ptr %12, align 1
   %16 = icmp ne i8 %15, 0
@@ -1609,19 +1609,19 @@ png_safecat.exit:                                 ; preds = %.lr.ph.i, %8, %.pre
 define i32 @png_safe_execute(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = alloca [1 x %struct.__jmp_buf_tag], align 16
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = call i32 @_setjmp(ptr noundef nonnull %4) #23
   %9 = icmp eq i32 %8, 0
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   br i1 %9, label %12, label %16
 
 12:                                               ; preds = %3
   store ptr %4, ptr %11, align 8
   %13 = call i32 %1(ptr noundef %2) #20
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %7, ptr %15, align 8
   br label %17
 

@@ -3398,28 +3398,28 @@ define hidden ptr @btmesh_network_find_key_and_decrypt(ptr noundef %0, ptr nocap
 
 .lr.ph:                                           ; preds = %5
   %15 = getelementptr i8, ptr %1, i64 408
-  %16 = getelementptr inbounds i8, ptr %6, i64 5
-  %17 = getelementptr inbounds i8, ptr %6, i64 9
-  %18 = getelementptr inbounds i8, ptr %4, i64 17
-  %19 = getelementptr inbounds i8, ptr %9, i64 1
-  %20 = getelementptr inbounds i8, ptr %9, i64 7
-  %21 = getelementptr inbounds i8, ptr %9, i64 8
-  %22 = getelementptr inbounds i8, ptr %9, i64 9
-  %23 = getelementptr inbounds i8, ptr %11, i64 8
-  %24 = getelementptr inbounds i8, ptr %11, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 5
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 9
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 17
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 7
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 9
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 16
   br label %25
 
 25:                                               ; preds = %.lr.ph, %132
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %132 ]
   %26 = load ptr, ptr @uat_btmesh_records, align 8
   %27 = getelementptr %struct.uat_btmesh_record_t, ptr %26, i64 %indvars.iv
-  %28 = getelementptr inbounds i8, ptr %27, i64 93
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 93
   %29 = load i8, ptr %28, align 1
   %30 = icmp eq i8 %29, 4
   br i1 %30, label %31, label %132
 
 31:                                               ; preds = %25
-  %32 = getelementptr inbounds i8, ptr %27, i64 64
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 64
   %33 = load i8, ptr %32, align 8
   %34 = icmp eq i8 %13, %33
   br i1 %34, label %35, label %132
@@ -3436,7 +3436,7 @@ define hidden ptr @btmesh_network_find_key_and_decrypt(ptr noundef %0, ptr nocap
 
 38:                                               ; preds = %35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(5) %6, i8 0, i64 5, i1 false)
-  %39 = getelementptr inbounds i8, ptr %27, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %27, i64 40
   %40 = load ptr, ptr %39, align 8
   %41 = load i32, ptr %40, align 1
   store i32 %41, ptr %16, align 1
@@ -3447,7 +3447,7 @@ define hidden ptr @btmesh_network_find_key_and_decrypt(ptr noundef %0, ptr nocap
 
 44:                                               ; preds = %38
   %45 = load ptr, ptr %7, align 8
-  %46 = getelementptr inbounds i8, ptr %27, i64 48
+  %46 = getelementptr inbounds nuw i8, ptr %27, i64 48
   %47 = load ptr, ptr %46, align 8
   %48 = call i32 @gcry_cipher_setkey(ptr noundef %45, ptr noundef %47, i64 noundef 16) #16
   %.not17.i = icmp eq i32 %48, 0
@@ -3525,7 +3525,7 @@ btmesh_deobfuscate.exit:                          ; preds = %.preheader
 
 79:                                               ; preds = %75
   %80 = load ptr, ptr %10, align 8
-  %81 = getelementptr inbounds i8, ptr %27, i64 56
+  %81 = getelementptr inbounds nuw i8, ptr %27, i64 56
   %82 = load ptr, ptr %81, align 8
   %83 = call i32 @gcry_cipher_setkey(ptr noundef %80, ptr noundef %82, i64 noundef 16) #16
   %.not58 = icmp eq i32 %83, 0
@@ -3603,11 +3603,11 @@ btmesh_deobfuscate.exit:                          ; preds = %.preheader
 122:                                              ; preds = %118
   %123 = load ptr, ptr %10, align 8
   call void @gcry_cipher_close(ptr noundef %123) #16
-  %124 = getelementptr inbounds i8, ptr %27, i64 96
+  %124 = getelementptr inbounds nuw i8, ptr %27, i64 96
   %125 = load i32, ptr %124, align 8
-  %126 = getelementptr inbounds i8, ptr %4, i64 20
+  %126 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 %125, ptr %126, align 4
-  %127 = getelementptr inbounds i8, ptr %4, i64 13
+  %127 = getelementptr inbounds nuw i8, ptr %4, i64 13
   %128 = load ptr, ptr %39, align 8
   %129 = load i32, ptr %128, align 1
   store i32 %129, ptr %127, align 1
@@ -4061,13 +4061,13 @@ define internal void @format_tai_to_utc_date(ptr nocapture noundef writeonly %0,
 
 6:                                                ; preds = %2
   store i64 189388800, ptr %3, align 16
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 284083200, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 394416000, ptr %8, align 16
-  %9 = getelementptr inbounds i8, ptr %3, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 489024000, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i64 536544000, ptr %10, align 16
   br label %11
 
@@ -4993,7 +4993,7 @@ define internal void @uat_btmesh_records_network_key_string_tostr_cb(ptr nocaptu
 define internal void @uat_btmesh_records_application_key_string_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #16
-  %8 = getelementptr inbounds i8, ptr %0, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = load ptr, ptr %8, align 8
   tail call void @g_free(ptr noundef %9) #16
   store ptr %7, ptr %8, align 8
@@ -5002,7 +5002,7 @@ define internal void @uat_btmesh_records_application_key_string_set_cb(ptr nocap
 
 ; Function Attrs: nounwind uwtable
 define internal void @uat_btmesh_records_application_key_string_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %13, label %8
@@ -5030,7 +5030,7 @@ define internal void @uat_btmesh_records_application_key_string_tostr_cb(ptr noc
 define internal void @uat_btmesh_records_ivindex_string_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #16
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   tail call void @g_free(ptr noundef %9) #16
   store ptr %7, ptr %8, align 8
@@ -5039,7 +5039,7 @@ define internal void @uat_btmesh_records_ivindex_string_set_cb(ptr nocapture nou
 
 ; Function Attrs: nounwind uwtable
 define internal void @uat_btmesh_records_ivindex_string_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %13, label %8
@@ -5102,7 +5102,7 @@ define internal void @uat_btmesh_dev_key_records_device_key_string_tostr_cb(ptr 
 define internal void @uat_btmesh_dev_key_records_src_string_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #16
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   tail call void @g_free(ptr noundef %9) #16
   store ptr %7, ptr %8, align 8
@@ -5111,7 +5111,7 @@ define internal void @uat_btmesh_dev_key_records_src_string_set_cb(ptr nocapture
 
 ; Function Attrs: nounwind uwtable
 define internal void @uat_btmesh_dev_key_records_src_string_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %13, label %8
@@ -5193,15 +5193,15 @@ define internal noundef ptr @uat_btmesh_record_copy_cb(ptr noundef returned init
   %5 = load ptr, ptr %1, align 8
   %6 = tail call noalias ptr @g_strdup(ptr noundef %5) #16
   store ptr %6, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noalias ptr @g_strdup(ptr noundef %8) #16
-  %10 = getelementptr inbounds i8, ptr %0, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noalias ptr @g_strdup(ptr noundef %12) #16
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %13, ptr %14, align 8
   store ptr null, ptr %4, align 8
   %15 = call zeroext i1 @uat_btmesh_record_update_cb(ptr noundef nonnull %0, ptr noundef nonnull %4)
@@ -5235,27 +5235,27 @@ define internal zeroext i1 @uat_btmesh_record_update_cb(ptr nocapture noundef in
   %16 = alloca [26 x i8], align 16
   %17 = alloca [26 x i8], align 16
   %18 = alloca i64, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 93
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 93
   store i8 0, ptr %19, align 1
   %20 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %105, label %21
 
 21:                                               ; preds = %2
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8
   tail call void @g_free(ptr noundef %23) #16
   %24 = load ptr, ptr %0, align 8
   %25 = tail call fastcc i32 @compute_ascii_key(ptr noundef nonnull %22, ptr noundef %24, ptr noundef nonnull @.str.1357, i32 noundef 16, ptr noundef %1)
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %28 = load ptr, ptr %27, align 8
   tail call void @g_free(ptr noundef %28) #16
   %29 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 16, i64 noundef 1) #18
   store ptr %29, ptr %27, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %29, i8 0, i64 16, i1 false)
-  %30 = getelementptr inbounds i8, ptr %0, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %31 = load ptr, ptr %30, align 8
   tail call void @g_free(ptr noundef %31) #16
   %32 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 16, i64 noundef 1) #18
@@ -5313,7 +5313,7 @@ define internal zeroext i1 @uat_btmesh_record_update_cb(ptr nocapture noundef in
 
 53:                                               ; preds = %50
   store i8 0, ptr %15, align 1
-  %54 = getelementptr inbounds i8, ptr %15, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %15, i64 1
   store i8 1, ptr %54, align 1
   %55 = call i32 @gcry_mac_open(ptr noundef nonnull %10, i32 noundef 201, i32 noundef 0, ptr noundef null) #16
   %.not41.i.i = icmp eq i32 %55, 0
@@ -5342,17 +5342,17 @@ define internal zeroext i1 @uat_btmesh_record_update_cb(ptr nocapture noundef in
   br label %create_master_security_keys.exit.thread.sink.split
 
 67:                                               ; preds = %63
-  %68 = getelementptr inbounds i8, ptr %14, i64 15
+  %68 = getelementptr inbounds nuw i8, ptr %14, i64 15
   %69 = load i8, ptr %68, align 1
   %70 = and i8 %69, 127
-  %71 = getelementptr inbounds i8, ptr %0, i64 64
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i8 %70, ptr %71, align 8
   %72 = load ptr, ptr %10, align 8
   call void @gcry_mac_close(ptr noundef %72) #16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %16, ptr noundef nonnull align 16 dereferenceable(16) %14, i64 16, i1 false)
-  %73 = getelementptr inbounds i8, ptr %16, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i8 0, ptr %73, align 16
-  %74 = getelementptr inbounds i8, ptr %16, i64 17
+  %74 = getelementptr inbounds nuw i8, ptr %16, i64 17
   store i8 2, ptr %74, align 1
   %75 = call i32 @gcry_mac_open(ptr noundef nonnull %10, i32 noundef 201, i32 noundef 0, ptr noundef null) #16
   %.not45.i.i = icmp eq i32 %75, 0
@@ -5382,9 +5382,9 @@ define internal zeroext i1 @uat_btmesh_record_update_cb(ptr nocapture noundef in
 87:                                               ; preds = %83
   %88 = load ptr, ptr %27, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %17, ptr noundef nonnull align 1 dereferenceable(16) %88, i64 16, i1 false)
-  %89 = getelementptr inbounds i8, ptr %17, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i8 0, ptr %89, align 16
-  %90 = getelementptr inbounds i8, ptr %17, i64 17
+  %90 = getelementptr inbounds nuw i8, ptr %17, i64 17
   store i8 3, ptr %90, align 1
   %91 = call i32 @gcry_mac_open(ptr noundef nonnull %10, i32 noundef 201, i32 noundef 0, ptr noundef null) #16
   %.not49.i.i = icmp eq i32 %91, 0
@@ -5444,9 +5444,9 @@ create_master_security_keys.exit:                 ; preds = %96
   br label %108
 
 105:                                              ; preds = %2
-  %106 = getelementptr inbounds i8, ptr %0, i64 16
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %106, align 8
-  %107 = getelementptr inbounds i8, ptr %0, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %107, align 8
   br label %108
 
@@ -5456,18 +5456,18 @@ create_master_security_keys.exit:                 ; preds = %96
   br i1 %109, label %110, label %.thread
 
 110:                                              ; preds = %108
-  %111 = getelementptr inbounds i8, ptr %0, i64 72
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %112 = load ptr, ptr %111, align 8
   %.not51 = icmp eq ptr %112, null
   br i1 %.not51, label %.thread, label %113
 
 113:                                              ; preds = %110
-  %114 = getelementptr inbounds i8, ptr %0, i64 80
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %115 = load ptr, ptr %114, align 8
   call void @g_free(ptr noundef %115) #16
   %116 = load ptr, ptr %111, align 8
   %117 = call fastcc i32 @compute_ascii_key(ptr noundef nonnull %114, ptr noundef %116, ptr noundef nonnull @.str.1359, i32 noundef 16, ptr noundef nonnull %1)
-  %118 = getelementptr inbounds i8, ptr %0, i64 88
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 %117, ptr %118, align 8
   %119 = load ptr, ptr %1, align 8
   %120 = icmp eq ptr %119, null
@@ -5568,10 +5568,10 @@ k4.exit.thread59:                                 ; preds = %149, %127, %131, %1
   br label %161
 
 151:                                              ; preds = %147
-  %152 = getelementptr inbounds i8, ptr %8, i64 15
+  %152 = getelementptr inbounds nuw i8, ptr %8, i64 15
   %153 = load i8, ptr %152, align 1
   %154 = and i8 %153, 63
-  %155 = getelementptr inbounds i8, ptr %0, i64 92
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i8 %154, ptr %155, align 4
   %156 = load ptr, ptr %3, align 8
   call void @gcry_mac_close(ptr noundef %156) #16
@@ -5588,9 +5588,9 @@ k4.exit.thread59:                                 ; preds = %149, %127, %131, %1
   br label %161
 
 .thread:                                          ; preds = %21, %110, %108
-  %159 = getelementptr inbounds i8, ptr %0, i64 88
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 0, ptr %159, align 8
-  %160 = getelementptr inbounds i8, ptr %0, i64 80
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr null, ptr %160, align 8
   br label %161
 
@@ -5600,18 +5600,18 @@ k4.exit.thread59:                                 ; preds = %149, %127, %131, %1
   br i1 %162, label %163, label %thread-pre-split66
 
 163:                                              ; preds = %161
-  %164 = getelementptr inbounds i8, ptr %0, i64 24
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %165 = load ptr, ptr %164, align 8
   %.not53 = icmp eq ptr %165, null
   br i1 %.not53, label %thread-pre-split66, label %166
 
 166:                                              ; preds = %163
-  %167 = getelementptr inbounds i8, ptr %0, i64 40
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %168 = load ptr, ptr %167, align 8
   call void @g_free(ptr noundef %168) #16
   %169 = load ptr, ptr %164, align 8
   %170 = call fastcc i32 @compute_ascii_key(ptr noundef nonnull %167, ptr noundef %169, ptr noundef nonnull @.str.1361, i32 noundef 4, ptr noundef nonnull %1)
-  %171 = getelementptr inbounds i8, ptr %0, i64 32
+  %171 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %170, ptr %171, align 8
   %172 = load ptr, ptr %1, align 8
   %173 = icmp eq ptr %172, null
@@ -5634,16 +5634,16 @@ thread-pre-split66:                               ; preds = %113, %161, %163, %1
 
 180:                                              ; preds = %177
   %181 = call noalias dereferenceable_or_null(20) ptr @g_malloc(i64 noundef 20) #19
-  %182 = getelementptr inbounds i8, ptr %0, i64 56
+  %182 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %183 = load ptr, ptr %182, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %181, ptr noundef nonnull align 1 dereferenceable(16) %183, i64 16, i1 false)
   %184 = getelementptr i8, ptr %181, i64 16
-  %185 = getelementptr inbounds i8, ptr %0, i64 40
+  %185 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %186 = load ptr, ptr %185, align 8
   %187 = load i32, ptr %186, align 1
   store i32 %187, ptr %184, align 1
   %188 = call i32 @wmem_strong_hash(ptr noundef %181, i64 noundef 20) #16
-  %189 = getelementptr inbounds i8, ptr %0, i64 96
+  %189 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 %188, ptr %189, align 8
   call void @g_free(ptr noundef %181) #16
   %190 = load i8, ptr %19, align 1
@@ -5661,25 +5661,25 @@ thread-pre-split66:                               ; preds = %113, %161, %163, %1
 define internal void @uat_btmesh_record_free_cb(ptr nocapture noundef readonly %0) #0 {
   %2 = load ptr, ptr %0, align 8
   tail call void @g_free(ptr noundef %2) #16
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @g_free(ptr noundef %4) #16
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8
   tail call void @g_free(ptr noundef %6) #16
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %8 = load ptr, ptr %7, align 8
   tail call void @g_free(ptr noundef %8) #16
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void @g_free(ptr noundef %10) #16
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load ptr, ptr %11, align 8
   tail call void @g_free(ptr noundef %12) #16
-  %13 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %14 = load ptr, ptr %13, align 8
   tail call void @g_free(ptr noundef %14) #16
-  %15 = getelementptr inbounds i8, ptr %0, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %16 = load ptr, ptr %15, align 8
   tail call void @g_free(ptr noundef %16) #16
   ret void
@@ -5694,10 +5694,10 @@ define internal noundef ptr @uat_btmesh_dev_key_record_copy_cb(ptr noundef retur
   %5 = load ptr, ptr %1, align 8
   %6 = tail call noalias ptr @g_strdup(ptr noundef %5) #16
   store ptr %6, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noalias ptr @g_strdup(ptr noundef %8) #16
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %9, ptr %10, align 8
   store ptr null, ptr %4, align 8
   %11 = call zeroext i1 @uat_btmesh_dev_key_record_update_cb(ptr noundef nonnull %0, ptr noundef nonnull %4)
@@ -5715,19 +5715,19 @@ define internal noundef ptr @uat_btmesh_dev_key_record_copy_cb(ptr noundef retur
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @uat_btmesh_dev_key_record_update_cb(ptr nocapture noundef initializes((48, 49)) %0, ptr nocapture noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 0, ptr %3, align 8
   %4 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %15, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @g_free(ptr noundef %7) #16
   %8 = load ptr, ptr %0, align 8
   %9 = tail call fastcc i32 @compute_ascii_key(ptr noundef nonnull %6, ptr noundef %8, ptr noundef nonnull @.str.1363, i32 noundef 16, ptr noundef %1)
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %9, ptr %10, align 8
   %11 = load ptr, ptr %1, align 8
   %12 = icmp eq ptr %11, null
@@ -5740,9 +5740,9 @@ define internal zeroext i1 @uat_btmesh_dev_key_record_update_cb(ptr nocapture no
   br label %18
 
 15:                                               ; preds = %2
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %17, align 8
   br label %18
 
@@ -5753,18 +5753,18 @@ define internal zeroext i1 @uat_btmesh_dev_key_record_update_cb(ptr nocapture no
   br i1 %19, label %20, label %.thread
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load ptr, ptr %21, align 8
   %.not24 = icmp eq ptr %22, null
   br i1 %.not24, label %.thread, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %0, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %25 = load ptr, ptr %24, align 8
   tail call void @g_free(ptr noundef %25) #16
   %26 = load ptr, ptr %21, align 8
   %27 = tail call fastcc i32 @compute_ascii_key(ptr noundef nonnull %24, ptr noundef %26, ptr noundef nonnull @.str.1365, i32 noundef 2, ptr noundef nonnull %1)
-  %28 = getelementptr inbounds i8, ptr %0, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %27, ptr %28, align 8
   %29 = load ptr, ptr %1, align 8
   %30 = icmp eq ptr %29, null
@@ -5778,9 +5778,9 @@ define internal zeroext i1 @uat_btmesh_dev_key_record_update_cb(ptr nocapture no
 
 .thread:                                          ; preds = %5, %20, %18
   %.pre = phi i8 [ %.pre.pre, %5 ], [ %.pre27, %20 ], [ %.pre27, %18 ]
-  %33 = getelementptr inbounds i8, ptr %0, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr null, ptr %34, align 8
   br label %35
 
@@ -5794,13 +5794,13 @@ define internal zeroext i1 @uat_btmesh_dev_key_record_update_cb(ptr nocapture no
 define internal void @uat_btmesh_dev_key_record_free_cb(ptr nocapture noundef readonly %0) #0 {
   %2 = load ptr, ptr %0, align 8
   tail call void @g_free(ptr noundef %2) #16
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @g_free(ptr noundef %4) #16
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   tail call void @g_free(ptr noundef %6) #16
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
   tail call void @g_free(ptr noundef %8) #16
   ret void
@@ -5834,19 +5834,19 @@ define internal zeroext i1 @uat_btmesh_label_uuid_record_update_cb(ptr nocapture
   %5 = alloca [16 x i8], align 16
   %6 = alloca [16 x i8], align 16
   %7 = alloca i64, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 22
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 22
   store i8 0, ptr %8, align 2
   %9 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %51, label %10
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void @g_free(ptr noundef %12) #16
   %13 = load ptr, ptr %0, align 8
   %14 = tail call fastcc i32 @compute_ascii_key(ptr noundef nonnull %11, ptr noundef %13, ptr noundef nonnull @.str.1367, i32 noundef 16, ptr noundef %1)
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %14, ptr %15, align 8
   %16 = load ptr, ptr %1, align 8
   %17 = icmp eq ptr %16, null
@@ -5915,17 +5915,17 @@ label_uuid_hash.exit.thread18:                    ; preds = %34, %24, %28
   br label %54
 
 36:                                               ; preds = %32
-  %37 = getelementptr inbounds i8, ptr %6, i64 15
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 15
   %38 = load i8, ptr %37, align 1
   %39 = zext i8 %38 to i16
-  %40 = getelementptr inbounds i8, ptr %6, i64 14
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 14
   %41 = load i8, ptr %40, align 2
   %42 = and i8 %41, 63
   %43 = zext nneg i8 %42 to i16
   %44 = shl nuw nsw i16 %43, 8
   %45 = or disjoint i16 %44, %39
   %46 = or disjoint i16 %45, -32768
-  %47 = getelementptr inbounds i8, ptr %0, i64 20
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i16 %46, ptr %47, align 4
   %48 = load ptr, ptr %3, align 8
   call void @gcry_mac_close(ptr noundef %48) #16
@@ -5940,9 +5940,9 @@ label_uuid_hash.exit.thread18:                    ; preds = %34, %24, %28
   br label %54
 
 51:                                               ; preds = %2
-  %52 = getelementptr inbounds i8, ptr %0, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %53, align 8
   br label %54
 
@@ -5956,7 +5956,7 @@ label_uuid_hash.exit.thread18:                    ; preds = %34, %24, %28
 define internal void @uat_btmesh_label_uuid_record_free_cb(ptr nocapture noundef readonly %0) #0 {
   %2 = load ptr, ptr %0, align 8
   tail call void @g_free(ptr noundef %2) #16
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @g_free(ptr noundef %4) #16
   ret void
@@ -5988,7 +5988,7 @@ define internal i32 @dissect_btmesh_msg(ptr noundef %0, ptr noundef %1, ptr noun
   %22 = alloca ptr, align 8
   store i32 0, ptr %21, align 4
   store ptr null, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8
   tail call void @col_set_str(ptr noundef %24, i32 noundef 34, ptr noundef nonnull @.str.1369) #16
   %25 = load i32, ptr @proto_btmesh, align 4
@@ -6001,10 +6001,10 @@ define internal i32 @dissect_btmesh_msg(ptr noundef %0, ptr noundef %1, ptr noun
   %32 = tail call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %31, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #16
   %33 = load i32, ptr @hf_btmesh_nid, align 4
   %34 = tail call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %33, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #16
-  %35 = getelementptr inbounds i8, ptr %1, i64 408
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %36 = load ptr, ptr %35, align 8
   %37 = tail call noalias ptr @wmem_alloc(ptr noundef %36, i64 noundef 52) #16
-  %38 = getelementptr inbounds i8, ptr %37, i64 17
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 17
   store i8 0, ptr %38, align 1
   %39 = call ptr @btmesh_network_find_key_and_decrypt(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %22, ptr noundef nonnull %21, ptr noundef %37)
   %.not = icmp eq ptr %39, null
@@ -6046,14 +6046,14 @@ define internal i32 @dissect_btmesh_msg(ptr noundef %0, ptr noundef %1, ptr noun
   %67 = load i32, ptr %19, align 4
   store i32 %67, ptr %37, align 4
   %68 = load i32, ptr %18, align 4
-  %69 = getelementptr inbounds i8, ptr %37, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %37, i64 4
   store i32 %68, ptr %69, align 4
   %70 = load i32, ptr %20, align 4
-  %71 = getelementptr inbounds i8, ptr %37, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %37, i64 24
   store i32 %70, ptr %71, align 4
-  %72 = getelementptr inbounds i8, ptr %37, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %73 = call ptr @tvb_memcpy(ptr noundef nonnull %39, ptr noundef nonnull %72, i32 noundef 1, i64 noundef 5) #16
-  %74 = getelementptr inbounds i8, ptr %37, i64 28
+  %74 = getelementptr inbounds nuw i8, ptr %37, i64 28
   %75 = call ptr @tvb_memcpy(ptr noundef nonnull %54, ptr noundef nonnull %74, i32 noundef 0, i64 noundef 2) #16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
@@ -6093,7 +6093,7 @@ define internal i32 @dissect_btmesh_msg(ptr noundef %0, ptr noundef %1, ptr noun
   %93 = load i32, ptr @hf_btmesh_segment, align 4
   %94 = call ptr @proto_tree_add_item(ptr noundef %77, i32 noundef %93, ptr noundef nonnull %54, i32 noundef 6, i32 noundef -1, i32 noundef 0) #16
   %95 = load i32, ptr %69, align 4
-  %96 = getelementptr inbounds i8, ptr %37, i64 44
+  %96 = getelementptr inbounds nuw i8, ptr %37, i64 44
   %97 = and i32 %95, 8191
   %98 = load i32, ptr %9, align 4
   %99 = icmp ult i32 %97, %98
@@ -6115,19 +6115,19 @@ define internal i32 @dissect_btmesh_msg(ptr noundef %0, ptr noundef %1, ptr noun
   %108 = load i32, ptr %37, align 4
   %109 = trunc i32 %108 to i16
   store i16 %109, ptr %12, align 4
-  %110 = getelementptr inbounds i8, ptr %37, i64 20
+  %110 = getelementptr inbounds nuw i8, ptr %37, i64 20
   %111 = load i32, ptr %110, align 4
-  %112 = getelementptr inbounds i8, ptr %12, i64 12
+  %112 = getelementptr inbounds nuw i8, ptr %12, i64 12
   store i32 %111, ptr %112, align 4
-  %113 = getelementptr inbounds i8, ptr %12, i64 8
-  %114 = getelementptr inbounds i8, ptr %37, i64 13
+  %113 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %37, i64 13
   %115 = load i32, ptr %114, align 1
   store i32 %115, ptr %113, align 4
-  %116 = getelementptr inbounds i8, ptr %12, i64 4
+  %116 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 %102, ptr %116, align 4
-  %117 = getelementptr inbounds i8, ptr %1, i64 80
+  %117 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 50
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 50
   %120 = load i16, ptr %119, align 2
   %121 = and i16 %120, 8
   %.not202.i = icmp eq i16 %121, 0
@@ -6178,7 +6178,7 @@ define internal i32 @dissect_btmesh_msg(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not203.i, label %dissect_btmesh_transport_pdu.exit, label %146
 
 146:                                              ; preds = %144
-  %147 = getelementptr inbounds i8, ptr %145, i64 48
+  %147 = getelementptr inbounds nuw i8, ptr %145, i64 48
   %148 = load i32, ptr %147, align 8
   %149 = and i32 %148, 1
   %.not204.i = icmp eq i32 %149, 0
@@ -6238,16 +6238,16 @@ define internal i32 @dissect_btmesh_msg(ptr noundef %0, ptr noundef %1, ptr noun
   %181 = load i32, ptr @hf_btmesh_acc_aid, align 4
   %182 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %77, i32 noundef %181, ptr noundef nonnull %54, i32 noundef 2, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %14) #16
   %183 = load i32, ptr %6, align 4
-  %184 = getelementptr inbounds i8, ptr %37, i64 36
+  %184 = getelementptr inbounds nuw i8, ptr %37, i64 36
   store i32 %183, ptr %184, align 4
   %185 = load i32, ptr %14, align 4
   %186 = trunc i32 %185 to i8
-  %187 = getelementptr inbounds i8, ptr %37, i64 40
+  %187 = getelementptr inbounds nuw i8, ptr %37, i64 40
   store i8 %186, ptr %187, align 4
   %188 = load i32, ptr %13, align 4
   %.not194.i = icmp eq i32 %188, 0
   %189 = select i1 %.not194.i, i8 2, i8 1
-  %190 = getelementptr inbounds i8, ptr %37, i64 41
+  %190 = getelementptr inbounds nuw i8, ptr %37, i64 41
   store i8 %189, ptr %190, align 1
   %.not195.i = icmp eq i32 %183, 0
   br i1 %.not195.i, label %269, label %191
@@ -6264,7 +6264,7 @@ define internal i32 @dissect_btmesh_msg(ptr noundef %0, ptr noundef %1, ptr noun
   %200 = load i32, ptr @hf_btmesh_segment, align 4
   %201 = call ptr @proto_tree_add_item(ptr noundef %77, i32 noundef %200, ptr noundef nonnull %54, i32 noundef 6, i32 noundef -1, i32 noundef 0) #16
   %202 = load i32, ptr %69, align 4
-  %203 = getelementptr inbounds i8, ptr %37, i64 44
+  %203 = getelementptr inbounds nuw i8, ptr %37, i64 44
   %204 = and i32 %202, 8191
   %205 = load i32, ptr %9, align 4
   %206 = icmp ult i32 %204, %205
@@ -6280,7 +6280,7 @@ define internal i32 @dissect_btmesh_msg(ptr noundef %0, ptr noundef %1, ptr noun
 212:                                              ; preds = %191
   %213 = load ptr, ptr %5, align 8
   call void @proto_item_set_len(ptr noundef %213, i32 noundef 1) #16
-  %214 = getelementptr inbounds i8, ptr %37, i64 48
+  %214 = getelementptr inbounds nuw i8, ptr %37, i64 48
   store i32 4, ptr %214, align 4
   call fastcc void @dissect_btmesh_transport_access_message(ptr noundef nonnull %54, ptr noundef nonnull %1, ptr noundef %28, i32 noundef 6, ptr noundef nonnull %37)
   br label %dissect_btmesh_transport_pdu.exit
@@ -6289,19 +6289,19 @@ define internal i32 @dissect_btmesh_msg(ptr noundef %0, ptr noundef %1, ptr noun
   %216 = load i32, ptr %37, align 4
   %217 = trunc i32 %216 to i16
   store i16 %217, ptr %16, align 4
-  %218 = getelementptr inbounds i8, ptr %37, i64 20
+  %218 = getelementptr inbounds nuw i8, ptr %37, i64 20
   %219 = load i32, ptr %218, align 4
-  %220 = getelementptr inbounds i8, ptr %16, i64 12
+  %220 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 %219, ptr %220, align 4
-  %221 = getelementptr inbounds i8, ptr %16, i64 8
-  %222 = getelementptr inbounds i8, ptr %37, i64 13
+  %221 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %222 = getelementptr inbounds nuw i8, ptr %37, i64 13
   %223 = load i32, ptr %222, align 1
   store i32 %223, ptr %221, align 4
-  %224 = getelementptr inbounds i8, ptr %16, i64 4
+  %224 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store i32 %209, ptr %224, align 4
-  %225 = getelementptr inbounds i8, ptr %1, i64 80
+  %225 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %226 = load ptr, ptr %225, align 8
-  %227 = getelementptr inbounds i8, ptr %226, i64 50
+  %227 = getelementptr inbounds nuw i8, ptr %226, i64 50
   %228 = load i16, ptr %227, align 2
   %229 = and i16 %228, 8
   %.not196.i = icmp eq i16 %229, 0
@@ -6352,7 +6352,7 @@ define internal i32 @dissect_btmesh_msg(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not197.i, label %dissect_btmesh_transport_pdu.exit, label %254
 
 254:                                              ; preds = %252
-  %255 = getelementptr inbounds i8, ptr %253, i64 48
+  %255 = getelementptr inbounds nuw i8, ptr %253, i64 48
   %256 = load i32, ptr %255, align 8
   %257 = and i32 %256, 1
   %.not198.i = icmp eq i32 %257, 0
@@ -6367,7 +6367,7 @@ define internal i32 @dissect_btmesh_msg(ptr noundef %0, ptr noundef %1, ptr noun
   %261 = load i32, ptr %15, align 4
   %.not200.i = icmp eq i32 %261, 0
   %262 = select i1 %.not200.i, i32 4, i32 8
-  %263 = getelementptr inbounds i8, ptr %37, i64 48
+  %263 = getelementptr inbounds nuw i8, ptr %37, i64 48
   store i32 %262, ptr %263, align 4
   call fastcc void @dissect_btmesh_transport_access_message(ptr noundef %259, ptr noundef nonnull %1, ptr noundef %28, i32 noundef 0, ptr noundef nonnull %37)
   %264 = load ptr, ptr %23, align 8
@@ -6385,7 +6385,7 @@ define internal i32 @dissect_btmesh_msg(ptr noundef %0, ptr noundef %1, ptr noun
 269:                                              ; preds = %176
   %270 = load ptr, ptr %5, align 8
   call void @proto_item_set_len(ptr noundef %270, i32 noundef 1) #16
-  %271 = getelementptr inbounds i8, ptr %37, i64 48
+  %271 = getelementptr inbounds nuw i8, ptr %37, i64 48
   store i32 4, ptr %271, align 4
   call fastcc void @dissect_btmesh_transport_access_message(ptr noundef nonnull %54, ptr noundef nonnull %1, ptr noundef %28, i32 noundef 3, ptr noundef nonnull %37)
   br label %dissect_btmesh_transport_pdu.exit
@@ -6694,7 +6694,7 @@ declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef,
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_btmesh_transport_control_message(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 7) %3, i32 noundef %4) unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @val_to_str_const(i32 noundef %4, ptr noundef nonnull @btmesh_ctrl_opcode_vals, ptr noundef nonnull @.str.2185) #16
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.1929, ptr noundef %8) #16
@@ -6868,20 +6868,20 @@ define internal fastcc void @dissect_btmesh_transport_access_message(ptr noundef
   %7 = load i32, ptr @ett_btmesh_upper_transp_acc_pdu, align 4
   %8 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef null, ptr noundef nonnull @.str.2190) #16
   %9 = tail call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef range(i32 0, 7) %3) #16
-  %10 = getelementptr inbounds i8, ptr %4, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %11 = load i32, ptr %10, align 4
   %12 = sub i32 %9, %11
-  %13 = getelementptr inbounds i8, ptr %1, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = sext i32 %12 to i64
   %16 = tail call noalias ptr @wmem_alloc(ptr noundef %14, i64 noundef %15) #16
-  %17 = getelementptr inbounds i8, ptr %4, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i32 -1, ptr %17, align 4
   %18 = icmp slt i32 %12, 1
   br i1 %18, label %btmesh_access_find_key_and_decrypt.exit, label %19
 
 19:                                               ; preds = %5
-  %20 = getelementptr inbounds i8, ptr %4, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %21 = load i32, ptr %20, align 4
   %22 = and i32 %21, 32768
   %.not.i.i = icmp eq i32 %22, 0
@@ -6901,7 +6901,7 @@ define internal fastcc void @dissect_btmesh_transport_access_message(ptr noundef
 check_address_type.exit.i:                        ; preds = %25, %23
   %.0.i.i = phi i32 [ %..i.i, %23 ], [ %.6.i.i, %25 ]
   %.0.i.fr.i = freeze i32 %.0.i.i
-  %26 = getelementptr inbounds i8, ptr %4, i64 41
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 41
   %27 = load i8, ptr %26, align 1
   %28 = icmp eq i8 %27, 1
   br i1 %28, label %.preheader110.i, label %102
@@ -6912,8 +6912,8 @@ check_address_type.exit.i:                        ; preds = %25, %23
   br i1 %.not127.i, label %thread-pre-split.i, label %.lr.ph113.i
 
 .lr.ph113.i:                                      ; preds = %.preheader110.i
-  %30 = getelementptr inbounds i8, ptr %4, i64 20
-  %31 = getelementptr inbounds i8, ptr %4, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %32 = icmp eq i32 %.0.i.fr.i, 2
   br i1 %32, label %.lr.ph113.split.us.i, label %.lr.ph113.split.preheader.i
 
@@ -6926,21 +6926,21 @@ check_address_type.exit.i:                        ; preds = %25, %23
   %indvars.iv135.i = phi i64 [ %indvars.iv.next136.i, %.loopexit109.us.i ], [ 0, %.lr.ph113.i ]
   %34 = load ptr, ptr @uat_btmesh_records, align 8
   %35 = getelementptr %struct.uat_btmesh_record_t, ptr %34, i64 %indvars.iv135.i
-  %36 = getelementptr inbounds i8, ptr %35, i64 93
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 93
   %37 = load i8, ptr %36, align 1
   %38 = icmp eq i8 %37, 4
   br i1 %38, label %39, label %.loopexit109.us.i
 
 39:                                               ; preds = %.lr.ph113.split.us.i
   %40 = load i32, ptr %30, align 4
-  %41 = getelementptr inbounds i8, ptr %35, i64 96
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 96
   %42 = load i32, ptr %41, align 8
   %43 = icmp eq i32 %40, %42
   br i1 %43, label %44, label %.loopexit109.us.i
 
 44:                                               ; preds = %39
   %45 = load i8, ptr %31, align 4
-  %46 = getelementptr inbounds i8, ptr %35, i64 92
+  %46 = getelementptr inbounds nuw i8, ptr %35, i64 92
   %47 = load i8, ptr %46, align 4
   %48 = icmp eq i8 %45, %47
   %49 = load i32, ptr @num_btmesh_label_uuid_uat, align 4
@@ -6964,13 +6964,13 @@ check_address_type.exit.i:                        ; preds = %25, %23
   %56 = phi ptr [ %.pre150.i, %.lr.ph.us.i ], [ %73, %71 ]
   %indvars.iv132.i = phi i64 [ 0, %.lr.ph.us.i ], [ %indvars.iv.next133.i, %71 ]
   %57 = getelementptr %struct.uat_btmesh_label_uuid_record_t, ptr %56, i64 %indvars.iv132.i
-  %58 = getelementptr inbounds i8, ptr %57, i64 22
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 22
   %59 = load i8, ptr %58, align 2
   %60 = icmp eq i8 %59, 1
   br i1 %60, label %61, label %71
 
 61:                                               ; preds = %54
-  %62 = getelementptr inbounds i8, ptr %57, i64 20
+  %62 = getelementptr inbounds nuw i8, ptr %57, i64 20
   %63 = load i16, ptr %62, align 4
   %64 = zext i16 %63 to i32
   %65 = load i32, ptr %20, align 4
@@ -6999,7 +6999,7 @@ check_address_type.exit.i:                        ; preds = %25, %23
   br i1 %75, label %54, label %.loopexit109.us.loopexit.i, !llvm.loop !12
 
 .lr.ph.us.i:                                      ; preds = %44
-  %76 = getelementptr inbounds i8, ptr %35, i64 80
+  %76 = getelementptr inbounds nuw i8, ptr %35, i64 80
   %.pre150.i = load ptr, ptr @uat_btmesh_label_uuid_records, align 8
   br label %54
 
@@ -7008,27 +7008,27 @@ check_address_type.exit.i:                        ; preds = %25, %23
   %78 = phi ptr [ %.pre147.i, %.lr.ph113.split.preheader.i ], [ %99, %97 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph113.split.preheader.i ], [ %indvars.iv.next.i, %97 ]
   %79 = getelementptr %struct.uat_btmesh_record_t, ptr %78, i64 %indvars.iv.i
-  %80 = getelementptr inbounds i8, ptr %79, i64 93
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 93
   %81 = load i8, ptr %80, align 1
   %82 = icmp eq i8 %81, 4
   br i1 %82, label %83, label %97
 
 83:                                               ; preds = %.lr.ph113.split.i
   %84 = load i32, ptr %30, align 4
-  %85 = getelementptr inbounds i8, ptr %79, i64 96
+  %85 = getelementptr inbounds nuw i8, ptr %79, i64 96
   %86 = load i32, ptr %85, align 8
   %87 = icmp eq i32 %84, %86
   br i1 %87, label %88, label %97
 
 88:                                               ; preds = %83
   %89 = load i8, ptr %31, align 4
-  %90 = getelementptr inbounds i8, ptr %79, i64 92
+  %90 = getelementptr inbounds nuw i8, ptr %79, i64 92
   %91 = load i8, ptr %90, align 4
   %92 = icmp eq i8 %89, %91
   br i1 %92, label %93, label %97
 
 93:                                               ; preds = %88
-  %94 = getelementptr inbounds i8, ptr %79, i64 80
+  %94 = getelementptr inbounds nuw i8, ptr %79, i64 80
   %95 = load ptr, ptr %94, align 8
   %96 = tail call fastcc i32 @try_access_decrypt(ptr noundef nonnull %0, i32 noundef range(i32 0, 7) %3, ptr noundef %16, i32 noundef %12, ptr noundef %95, ptr noundef nonnull %4)
   %.not104.i = icmp eq i32 %96, 0
@@ -7063,7 +7063,7 @@ thread-pre-split.i:                               ; preds = %97, %.loopexit109.u
   %107 = getelementptr i8, ptr %4, i64 11
   %108 = icmp eq i32 %.0.i.fr.i, 2
   %109 = icmp eq i32 %.0.i.fr.i, 1
-  %110 = getelementptr inbounds i8, ptr %4, i64 28
+  %110 = getelementptr inbounds nuw i8, ptr %4, i64 28
   br i1 %108, label %.lr.ph116.split.us.i, label %.lr.ph116.split.i
 
 .lr.ph116.split.us.i:                             ; preds = %.lr.ph116.i, %.loopexit.us.i
@@ -7071,13 +7071,13 @@ thread-pre-split.i:                               ; preds = %97, %.loopexit109.u
   %indvars.iv144.i = phi i64 [ %indvars.iv.next145.i, %.loopexit.us.i ], [ 0, %.lr.ph116.i ]
   %112 = load ptr, ptr @uat_btmesh_dev_key_records, align 8
   %113 = getelementptr %struct.uat_btmesh_dev_key_record_t, ptr %112, i64 %indvars.iv144.i
-  %114 = getelementptr inbounds i8, ptr %113, i64 48
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 48
   %115 = load i8, ptr %114, align 8
   %116 = icmp eq i8 %115, 2
   br i1 %116, label %117, label %.loopexit.us.i
 
 117:                                              ; preds = %.lr.ph116.split.us.i
-  %118 = getelementptr inbounds i8, ptr %113, i64 40
+  %118 = getelementptr inbounds nuw i8, ptr %113, i64 40
   %119 = load ptr, ptr %118, align 8
   %bcmp.us.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %119, ptr noundef nonnull dereferenceable(2) %107, i64 2)
   %.not.us.i = icmp eq i32 %bcmp.us.i, 0
@@ -7102,13 +7102,13 @@ thread-pre-split.i:                               ; preds = %97, %.loopexit109.u
   %127 = phi ptr [ %.pre155.i, %.lr.ph.us117.i ], [ %144, %142 ]
   %indvars.iv141.i = phi i64 [ 0, %.lr.ph.us117.i ], [ %indvars.iv.next142.i, %142 ]
   %128 = getelementptr %struct.uat_btmesh_label_uuid_record_t, ptr %127, i64 %indvars.iv141.i
-  %129 = getelementptr inbounds i8, ptr %128, i64 22
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 22
   %130 = load i8, ptr %129, align 2
   %131 = icmp eq i8 %130, 1
   br i1 %131, label %132, label %142
 
 132:                                              ; preds = %125
-  %133 = getelementptr inbounds i8, ptr %128, i64 20
+  %133 = getelementptr inbounds nuw i8, ptr %128, i64 20
   %134 = load i16, ptr %133, align 4
   %135 = zext i16 %134 to i32
   %136 = load i32, ptr %20, align 4
@@ -7137,7 +7137,7 @@ thread-pre-split.i:                               ; preds = %97, %.loopexit109.u
   br i1 %146, label %125, label %.loopexit.us.i.loopexit, !llvm.loop !14
 
 .lr.ph.us117.i:                                   ; preds = %117
-  %147 = getelementptr inbounds i8, ptr %113, i64 8
+  %147 = getelementptr inbounds nuw i8, ptr %113, i64 8
   %.pre155.i = load ptr, ptr @uat_btmesh_label_uuid_records, align 8
   br label %125
 
@@ -7145,20 +7145,20 @@ thread-pre-split.i:                               ; preds = %97, %.loopexit109.u
   %indvars.iv138.i = phi i64 [ %indvars.iv.next139.i, %167 ], [ 0, %.lr.ph116.i ]
   %148 = load ptr, ptr @uat_btmesh_dev_key_records, align 8
   %149 = getelementptr %struct.uat_btmesh_dev_key_record_t, ptr %148, i64 %indvars.iv138.i
-  %150 = getelementptr inbounds i8, ptr %149, i64 48
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 48
   %151 = load i8, ptr %150, align 8
   %152 = icmp eq i8 %151, 2
   br i1 %152, label %153, label %167
 
 153:                                              ; preds = %.lr.ph116.split.i
-  %154 = getelementptr inbounds i8, ptr %149, i64 40
+  %154 = getelementptr inbounds nuw i8, ptr %149, i64 40
   %155 = load ptr, ptr %154, align 8
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %155, ptr noundef nonnull dereferenceable(2) %107, i64 2)
   %.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not.i, label %156, label %160
 
 156:                                              ; preds = %153
-  %157 = getelementptr inbounds i8, ptr %149, i64 8
+  %157 = getelementptr inbounds nuw i8, ptr %149, i64 8
   %158 = load ptr, ptr %157, align 8
   %159 = tail call fastcc i32 @try_access_decrypt(ptr noundef nonnull %0, i32 noundef range(i32 0, 7) %3, ptr noundef %16, i32 noundef %12, ptr noundef %158, ptr noundef %4)
   %.not99.i = icmp eq i32 %159, 0
@@ -7174,7 +7174,7 @@ thread-pre-split.i:                               ; preds = %97, %.loopexit109.u
   br i1 %.not102.i, label %163, label %167
 
 163:                                              ; preds = %161
-  %164 = getelementptr inbounds i8, ptr %149, i64 8
+  %164 = getelementptr inbounds nuw i8, ptr %149, i64 8
   %165 = load ptr, ptr %164, align 8
   %166 = tail call fastcc i32 @try_access_decrypt(ptr noundef nonnull %0, i32 noundef range(i32 0, 7) %3, ptr noundef %16, i32 noundef %12, ptr noundef %165, ptr noundef %4)
   %.not103.i = icmp eq i32 %166, 0
@@ -7229,45 +7229,45 @@ define internal fastcc range(i32 0, 2) i32 @try_access_decrypt(ptr noundef nonnu
   %7 = alloca [13 x i8], align 1
   %8 = alloca ptr, align 8
   %9 = alloca [3 x i64], align 16
-  %10 = getelementptr inbounds i8, ptr %5, i64 41
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 41
   %11 = load i8, ptr %10, align 1
   store i8 %11, ptr %7, align 1
-  %12 = getelementptr inbounds i8, ptr %5, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, 4
   %15 = select i1 %14, i8 0, i8 -128
-  %16 = getelementptr inbounds i8, ptr %7, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store i8 %15, ptr %16, align 1
-  %17 = getelementptr inbounds i8, ptr %7, i64 2
-  %18 = getelementptr inbounds i8, ptr %5, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %17, ptr noundef nonnull align 4 dereferenceable(5) %18, i64 5, i1 false)
-  %19 = getelementptr inbounds i8, ptr %5, i64 36
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 36
   %20 = load i32, ptr %19, align 4
   %.not = icmp eq i32 %20, 0
   br i1 %.not, label %31, label %21
 
 21:                                               ; preds = %6
-  %22 = getelementptr inbounds i8, ptr %5, i64 44
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 44
   %23 = load i32, ptr %22, align 4
   %24 = lshr i32 %23, 16
   %25 = trunc i32 %24 to i8
   store i8 %25, ptr %17, align 1
   %26 = lshr i32 %23, 8
   %27 = trunc i32 %26 to i8
-  %28 = getelementptr inbounds i8, ptr %7, i64 3
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 3
   store i8 %27, ptr %28, align 1
   %29 = trunc i32 %23 to i8
-  %30 = getelementptr inbounds i8, ptr %7, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i8 %29, ptr %30, align 1
   br label %31
 
 31:                                               ; preds = %21, %6
-  %32 = getelementptr inbounds i8, ptr %7, i64 7
-  %33 = getelementptr inbounds i8, ptr %5, i64 28
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 7
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %34 = load i16, ptr %33, align 4
   store i16 %34, ptr %32, align 1
-  %35 = getelementptr inbounds i8, ptr %7, i64 9
-  %36 = getelementptr inbounds i8, ptr %5, i64 13
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 9
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 13
   %37 = load i32, ptr %36, align 1
   store i32 %37, ptr %35, align 1
   %38 = call i32 @gcry_cipher_open(ptr noundef nonnull %8, i32 noundef 7, i32 noundef 8, i32 noundef 0) #16
@@ -7298,15 +7298,15 @@ define internal fastcc range(i32 0, 2) i32 @try_access_decrypt(ptr noundef nonnu
 48:                                               ; preds = %44
   %49 = zext nneg i32 %3 to i64
   store i64 %49, ptr %9, align 16
-  %50 = getelementptr inbounds i8, ptr %5, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %51 = load i32, ptr %50, align 4
   %52 = icmp eq i32 %51, -1
   %53 = select i1 %52, i64 0, i64 16
-  %54 = getelementptr inbounds i8, ptr %9, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %53, ptr %54, align 8
   %55 = load i32, ptr %12, align 4
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds i8, ptr %9, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 %56, ptr %57, align 16
   %58 = load ptr, ptr %8, align 8
   %59 = call i32 @gcry_cipher_ctl(ptr noundef %58, i32 noundef 69, ptr noundef nonnull %9, i64 noundef 24) #16
@@ -7411,7 +7411,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
   %19 = load i32, ptr @hf_btmesh_model_layer_vendor, align 4
   %20 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %19, ptr noundef nonnull %0, i32 noundef 1, i32 noundef 2, i32 noundef -2147483648) #16
   %21 = tail call ptr @tvb_new_subset_remaining(ptr noundef nonnull %0, i32 noundef 0) #16
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8
   tail call void @col_set_str(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.2194) #16
   %24 = load ptr, ptr @btmesh_model_vendor_dissector_table, align 8
@@ -7424,7 +7424,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
 29:                                               ; preds = %13
   %30 = load i32, ptr @hf_btmesh_model_layer_opcode, align 4
   %31 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %10, i32 noundef %30, ptr noundef nonnull %0, i32 noundef 0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %4) #16
-  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = load i32, ptr %4, align 4
   %35 = call ptr @val_to_str_const(i32 noundef %34, ptr noundef nonnull @btmesh_models_opcode_vals, ptr noundef nonnull @.str.2195) #16
@@ -7435,7 +7435,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %0, 
 36:                                               ; preds = %3
   %37 = load i32, ptr @hf_btmesh_model_layer_opcode, align 4
   %38 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %37, ptr noundef nonnull %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #16
-  %39 = getelementptr inbounds i8, ptr %1, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = tail call ptr @val_to_str_const(i32 noundef %12, ptr noundef nonnull @btmesh_models_opcode_vals, ptr noundef nonnull @.str.2195) #16
   tail call void @col_set_str(ptr noundef %40, i32 noundef 25, ptr noundef %41) #16
@@ -11923,7 +11923,7 @@ define internal fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %0, i32 
   %12 = add i32 %.067.i11.i, 1
   %13 = sext i32 %12 to i64
   %14 = getelementptr [180 x %struct.btmesh_property_t], ptr @btmesh_properties, i64 0, i64 %13
-  %15 = getelementptr inbounds i8, ptr %14, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 2
   %16 = load i16, ptr %15, align 2
   %.not.i.i = icmp eq i16 %16, 0
   br i1 %.not.i.i, label %find_btmesh_property_characteristic_idx.exit.thread, label %17, !llvm.loop !35
@@ -11996,7 +11996,7 @@ define internal fastcc range(i32 -2, 262144) i32 @dissect_sensor_cadence(ptr nou
   %10 = add i32 %.067.i12.i, 1
   %11 = sext i32 %10 to i64
   %12 = getelementptr [180 x %struct.btmesh_property_t], ptr @btmesh_properties, i64 0, i64 %11
-  %13 = getelementptr inbounds i8, ptr %12, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 2
   %14 = load i16, ptr %13, align 2
   %.not.i.i = icmp eq i16 %14, 0
   br i1 %.not.i.i, label %find_btmesh_property_length.exit.thread, label %15, !llvm.loop !35
@@ -12041,7 +12041,7 @@ find_btmesh_property_length.exit:                 ; preds = %find_characteristic
   %30 = add i32 %.067.i12.i90, 1
   %31 = sext i32 %30 to i64
   %32 = getelementptr [180 x %struct.btmesh_property_t], ptr @btmesh_properties, i64 0, i64 %31
-  %33 = getelementptr inbounds i8, ptr %32, i64 2
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 2
   %34 = load i16, ptr %33, align 2
   %.not.i.i91 = icmp eq i16 %34, 0
   br i1 %.not.i.i91, label %find_btmesh_property_length.exit101.thread, label %35, !llvm.loop !35
@@ -12101,7 +12101,7 @@ find_btmesh_property_length.exit.thread:          ; preds = %.lr.ph.i, %20, %fin
   %. = phi i16 [ %3, %find_btmesh_property_length.exit.thread ], [ -1, %find_btmesh_property_length.exit101.thread ], [ %3, %find_btmesh_property_length.exit ], [ -1, %find_btmesh_property_length.exit101 ]
   %.0108 = phi i32 [ %spec.select, %find_btmesh_property_length.exit.thread ], [ %spec.select88, %find_btmesh_property_length.exit101.thread ], [ %26, %find_btmesh_property_length.exit ], [ %46, %find_btmesh_property_length.exit101 ]
   %.1107 = phi i32 [ %spec.select, %find_btmesh_property_length.exit.thread ], [ 2, %find_btmesh_property_length.exit101.thread ], [ %26, %find_btmesh_property_length.exit ], [ 2, %find_btmesh_property_length.exit101 ]
-  %59 = getelementptr inbounds i8, ptr %5, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %60 = load ptr, ptr %59, align 8
   %61 = load i32, ptr %60, align 4
   %62 = tail call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %0, i32 noundef %61, ptr noundef %1, i32 noundef %2, i16 noundef zeroext %., i32 noundef %.1107)
@@ -12112,7 +12112,7 @@ find_btmesh_property_length.exit.thread:          ; preds = %.lr.ph.i, %20, %fin
   %67 = tail call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %0, i32 noundef %66, ptr noundef %1, i32 noundef %64, i16 noundef zeroext %., i32 noundef %.1107)
   %68 = zext i16 %67 to i32
   %69 = add nuw nsw i32 %64, %68
-  %70 = getelementptr inbounds i8, ptr %5, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %71 = load ptr, ptr %70, align 8
   %72 = load i32, ptr %71, align 4
   %73 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %72, ptr noundef nonnull %1, i32 noundef %69, i32 noundef 1, i32 noundef -2147483648) #16
@@ -12121,20 +12121,20 @@ find_btmesh_property_length.exit.thread:          ; preds = %.lr.ph.i, %20, %fin
   br i1 %.not86, label %86, label %75
 
 75:                                               ; preds = %.thread
-  %76 = getelementptr inbounds i8, ptr %5, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %77 = load ptr, ptr %76, align 8
   %78 = load i32, ptr %77, align 4
   %79 = tail call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %0, i32 noundef %78, ptr noundef %1, i32 noundef %74, i16 noundef zeroext %3, i32 noundef %.0108)
   %80 = zext i16 %79 to i32
   %81 = add nuw nsw i32 %74, %80
-  %82 = getelementptr inbounds i8, ptr %5, i64 32
+  %82 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %83 = load ptr, ptr %82, align 8
   %84 = load i32, ptr %83, align 4
   %85 = tail call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %0, i32 noundef %84, ptr noundef %1, i32 noundef %81, i16 noundef zeroext %3, i32 noundef %.0108)
   br label %98
 
 86:                                               ; preds = %.thread
-  %87 = getelementptr inbounds i8, ptr %5, i64 40
+  %87 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %88 = load ptr, ptr %87, align 8
   %89 = load i32, ptr %88, align 4
   %90 = tail call i32 @tvb_reported_length_remaining(ptr noundef nonnull %1, i32 noundef %74) #16
@@ -12142,7 +12142,7 @@ find_btmesh_property_length.exit.thread:          ; preds = %.lr.ph.i, %20, %fin
   br label %98
 
 92:                                               ; preds = %find_btmesh_property_length.exit.thread
-  %93 = getelementptr inbounds i8, ptr %5, i64 40
+  %93 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %94 = load ptr, ptr %93, align 8
   %95 = load i32, ptr %94, align 4
   %96 = tail call i32 @tvb_reported_length_remaining(ptr noundef nonnull %1, i32 noundef %2) #16
@@ -12168,7 +12168,7 @@ define internal fastcc i32 @dissect_columns_raw_value(ptr noundef %0, ptr nounde
   %6 = add i32 %.067.i11.i, 1
   %7 = sext i32 %6 to i64
   %8 = getelementptr [180 x %struct.btmesh_property_t], ptr @btmesh_properties, i64 0, i64 %7
-  %9 = getelementptr inbounds i8, ptr %8, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %10 = load i16, ptr %9, align 2
   %.not.i.i = icmp eq i16 %10, 0
   br i1 %.not.i.i, label %find_btmesh_property_characteristic_idx.exit, label %11, !llvm.loop !35
@@ -12275,20 +12275,20 @@ find_characteristic_idx.exit:                     ; preds = %51
   %sext10 = shl i64 %indvars.iv.i88, 32
   %58 = ashr exact i64 %sext10, 32
   %59 = getelementptr [90 x %struct.bt_gatt_characteristic_t], ptr @bt_gatt_characteristics, i64 0, i64 %58
-  %60 = getelementptr inbounds i8, ptr %59, i64 2
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 2
   %61 = load i16, ptr %60, align 2
   %62 = zext i16 %61 to i32
   %.not82 = icmp eq i16 %61, 0
   br i1 %.not82, label %find_column_properties_idx.exit.thread, label %63
 
 63:                                               ; preds = %find_characteristic_idx.exit
-  %64 = getelementptr inbounds i8, ptr %59, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %65 = load ptr, ptr %64, align 8
   %.not83 = icmp eq ptr %65, null
   br i1 %.not83, label %find_column_properties_idx.exit.thread, label %66
 
 66:                                               ; preds = %63
-  %67 = getelementptr inbounds i8, ptr %59, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %68 = load i8, ptr %67, align 8
   %69 = icmp eq i8 %68, 0
   br i1 %69, label %70, label %find_column_properties_idx.exit.thread
@@ -12338,7 +12338,7 @@ define internal fastcc i32 @dissect_property_raw_value_entry(ptr noundef %0, ptr
   %7 = add i32 %.067.i11.i, 1
   %8 = sext i32 %7 to i64
   %9 = getelementptr [180 x %struct.btmesh_property_t], ptr @btmesh_properties, i64 0, i64 %8
-  %10 = getelementptr inbounds i8, ptr %9, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 2
   %11 = load i16, ptr %10, align 2
   %.not.i.i = icmp eq i16 %11, 0
   br i1 %.not.i.i, label %find_btmesh_property_characteristic_idx.exit.thread, label %12, !llvm.loop !35
@@ -12408,7 +12408,7 @@ find_column_properties_idx.exit:                  ; preds = %35
   %sext116 = shl i64 %indvars.iv.i, 32
   %41 = ashr exact i64 %sext116, 32
   %42 = getelementptr [7 x %struct.btmesh_column_property_t], ptr @btmesh_column_properties, i64 0, i64 %41
-  %43 = getelementptr inbounds i8, ptr %42, i64 2
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 2
   %44 = load i16, ptr %43, align 2
   br label %45
 
@@ -12430,20 +12430,20 @@ find_characteristic_idx.exit:                     ; preds = %45
   %sext117 = shl i64 %indvars.iv.i92, 32
   %52 = ashr exact i64 %sext117, 32
   %53 = getelementptr [90 x %struct.bt_gatt_characteristic_t], ptr @bt_gatt_characteristics, i64 0, i64 %52
-  %54 = getelementptr inbounds i8, ptr %53, i64 2
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 2
   %55 = load i16, ptr %54, align 2
   %56 = zext i16 %55 to i32
   %.not86 = icmp eq i16 %55, 0
   br i1 %.not86, label %find_column_properties_idx.exit.thread, label %57
 
 57:                                               ; preds = %find_characteristic_idx.exit
-  %58 = getelementptr inbounds i8, ptr %53, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %59 = load ptr, ptr %58, align 8
   %.not87 = icmp eq ptr %59, null
   br i1 %.not87, label %find_column_properties_idx.exit.thread, label %60
 
 60:                                               ; preds = %57
-  %61 = getelementptr inbounds i8, ptr %53, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %62 = load i8, ptr %61, align 8
   %63 = icmp eq i8 %62, 0
   br i1 %63, label %64, label %find_column_properties_idx.exit.thread
@@ -12454,13 +12454,13 @@ find_characteristic_idx.exit:                     ; preds = %45
   %67 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %66, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %56, i32 noundef 0) #16
   tail call fastcc void @dissect_btmesh_property_idx(ptr noundef %1, ptr noundef %0, i32 noundef %2, i32 noundef %51)
   %68 = add i32 %2, %56
-  %69 = getelementptr inbounds i8, ptr %4, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %70 = load ptr, ptr %69, align 8
   %71 = load i32, ptr %70, align 4
   %72 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %71, ptr noundef nonnull %1, i32 noundef %68, i32 noundef %56, i32 noundef 0) #16
   tail call fastcc void @dissect_btmesh_property_idx(ptr noundef %1, ptr noundef %0, i32 noundef %68, i32 noundef %51)
   %73 = add i32 %68, %56
-  %74 = getelementptr inbounds i8, ptr %42, i64 4
+  %74 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %75 = load i16, ptr %74, align 2
   br label %76
 
@@ -12482,26 +12482,26 @@ find_characteristic_idx.exit102:                  ; preds = %76
   %sext118 = shl i64 %indvars.iv.i97, 32
   %83 = ashr exact i64 %sext118, 32
   %84 = getelementptr [90 x %struct.bt_gatt_characteristic_t], ptr @bt_gatt_characteristics, i64 0, i64 %83
-  %85 = getelementptr inbounds i8, ptr %84, i64 2
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 2
   %86 = load i16, ptr %85, align 2
   %87 = zext i16 %86 to i32
   %.not89 = icmp eq i16 %86, 0
   br i1 %.not89, label %find_characteristic_idx.exit102.thread, label %88
 
 88:                                               ; preds = %find_characteristic_idx.exit102
-  %89 = getelementptr inbounds i8, ptr %84, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %90 = load ptr, ptr %89, align 8
   %.not90 = icmp eq ptr %90, null
   br i1 %.not90, label %find_characteristic_idx.exit102.thread, label %91
 
 91:                                               ; preds = %88
-  %92 = getelementptr inbounds i8, ptr %84, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %93 = load i8, ptr %92, align 8
   %94 = icmp eq i8 %93, 0
   br i1 %94, label %95, label %find_characteristic_idx.exit102.thread
 
 95:                                               ; preds = %91
-  %96 = getelementptr inbounds i8, ptr %4, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %97 = load ptr, ptr %96, align 8
   %98 = load i32, ptr %97, align 4
   %99 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %98, ptr noundef nonnull %1, i32 noundef %73, i32 noundef %87, i32 noundef 0) #16
@@ -12510,7 +12510,7 @@ find_characteristic_idx.exit102:                  ; preds = %76
   br label %112
 
 find_characteristic_idx.exit102.thread:           ; preds = %79, %91, %88, %find_characteristic_idx.exit102
-  %101 = getelementptr inbounds i8, ptr %4, i64 16
+  %101 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %102 = load ptr, ptr %101, align 8
   %103 = load i32, ptr %102, align 4
   %104 = tail call i32 @tvb_reported_length_remaining(ptr noundef nonnull %1, i32 noundef %73) #16
@@ -12541,20 +12541,20 @@ define internal fastcc void @dissect_btmesh_property_idx(ptr noundef nonnull %0,
 6:                                                ; preds = %4
   %7 = zext nneg i32 %3 to i64
   %8 = getelementptr [90 x %struct.bt_gatt_characteristic_t], ptr @bt_gatt_characteristics, i64 0, i64 %7
-  %9 = getelementptr inbounds i8, ptr %8, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %10 = load i16, ptr %9, align 2
   %11 = zext i16 %10 to i32
   %12 = icmp eq i16 %10, 0
   br i1 %12, label %proto_item_set_generated.exit, label %13
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %15 = load i8, ptr %14, align 8
   %16 = icmp eq i8 %15, 0
   br i1 %16, label %17, label %27
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %8, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %proto_item_set_generated.exit, label %21
@@ -12566,7 +12566,7 @@ define internal fastcc void @dissect_btmesh_property_idx(ptr noundef nonnull %0,
   br i1 %.not.i, label %proto_item_set_generated.exit, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %23, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %26 = load ptr, ptr %25, align 8
   %.not5.i = icmp eq ptr %26, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %proto_item_set_generated.exit.sink.split
@@ -12592,7 +12592,7 @@ find_column_properties_idx.exit:                  ; preds = %29
   %sext = shl i64 %indvars.iv.i, 32
   %35 = ashr exact i64 %sext, 32
   %36 = getelementptr [7 x %struct.btmesh_column_property_t], ptr @btmesh_column_properties, i64 0, i64 %35
-  %37 = getelementptr inbounds i8, ptr %36, i64 2
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 2
   %38 = load i16, ptr %37, align 2
   br label %39
 
@@ -12613,25 +12613,25 @@ find_characteristic_idx.exit:                     ; preds = %39
   %sext83 = shl i64 %indvars.iv.i60, 32
   %45 = ashr exact i64 %sext83, 32
   %46 = getelementptr [90 x %struct.bt_gatt_characteristic_t], ptr @bt_gatt_characteristics, i64 0, i64 %45
-  %47 = getelementptr inbounds i8, ptr %46, i64 2
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 2
   %48 = load i16, ptr %47, align 2
   %49 = icmp eq i16 %48, 0
   br i1 %49, label %proto_item_set_generated.exit, label %50
 
 50:                                               ; preds = %find_characteristic_idx.exit
-  %51 = getelementptr inbounds i8, ptr %46, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %52, null
   br i1 %53, label %proto_item_set_generated.exit, label %54
 
 54:                                               ; preds = %50
-  %55 = getelementptr inbounds i8, ptr %46, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %56 = load i8, ptr %55, align 8
   %.not58 = icmp eq i8 %56, 0
   br i1 %.not58, label %57, label %proto_item_set_generated.exit
 
 57:                                               ; preds = %54
-  %58 = getelementptr inbounds i8, ptr %36, i64 4
+  %58 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %59 = load i16, ptr %58, align 2
   br label %60
 
@@ -12652,19 +12652,19 @@ find_characteristic_idx.exit69:                   ; preds = %60
   %sext84 = shl i64 %indvars.iv.i64, 32
   %66 = ashr exact i64 %sext84, 32
   %67 = getelementptr [90 x %struct.bt_gatt_characteristic_t], ptr @bt_gatt_characteristics, i64 0, i64 %66
-  %68 = getelementptr inbounds i8, ptr %67, i64 2
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 2
   %69 = load i16, ptr %68, align 2
   %70 = icmp eq i16 %69, 0
   br i1 %70, label %proto_item_set_generated.exit, label %71
 
 71:                                               ; preds = %find_characteristic_idx.exit69
-  %72 = getelementptr inbounds i8, ptr %67, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %73, null
   br i1 %74, label %proto_item_set_generated.exit, label %75
 
 75:                                               ; preds = %71
-  %76 = getelementptr inbounds i8, ptr %67, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %77 = load i8, ptr %76, align 8
   %.not59 = icmp eq i8 %77, 0
   br i1 %.not59, label %78, label %proto_item_set_generated.exit
@@ -12677,13 +12677,13 @@ find_characteristic_idx.exit69:                   ; preds = %60
   br i1 %.not.i70, label %proto_item_set_generated.exit72, label %82
 
 82:                                               ; preds = %78
-  %83 = getelementptr inbounds i8, ptr %81, i64 32
+  %83 = getelementptr inbounds nuw i8, ptr %81, i64 32
   %84 = load ptr, ptr %83, align 8
   %.not5.i71 = icmp eq ptr %84, null
   br i1 %.not5.i71, label %proto_item_set_generated.exit72, label %85
 
 85:                                               ; preds = %82
-  %86 = getelementptr inbounds i8, ptr %84, i64 28
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 28
   %87 = load i32, ptr %86, align 4
   %88 = or i32 %87, 2
   store i32 %88, ptr %86, align 4
@@ -12697,13 +12697,13 @@ proto_item_set_generated.exit72:                  ; preds = %78, %82, %85
   br i1 %.not.i73, label %proto_item_set_generated.exit75, label %92
 
 92:                                               ; preds = %proto_item_set_generated.exit72
-  %93 = getelementptr inbounds i8, ptr %91, i64 32
+  %93 = getelementptr inbounds nuw i8, ptr %91, i64 32
   %94 = load ptr, ptr %93, align 8
   %.not5.i74 = icmp eq ptr %94, null
   br i1 %.not5.i74, label %proto_item_set_generated.exit75, label %95
 
 95:                                               ; preds = %92
-  %96 = getelementptr inbounds i8, ptr %94, i64 28
+  %96 = getelementptr inbounds nuw i8, ptr %94, i64 28
   %97 = load i32, ptr %96, align 4
   %98 = or i32 %97, 2
   store i32 %98, ptr %96, align 4
@@ -12720,14 +12720,14 @@ proto_item_set_generated.exit75:                  ; preds = %proto_item_set_gene
   br i1 %.not.i76, label %proto_item_set_generated.exit, label %105
 
 105:                                              ; preds = %proto_item_set_generated.exit75
-  %106 = getelementptr inbounds i8, ptr %104, i64 32
+  %106 = getelementptr inbounds nuw i8, ptr %104, i64 32
   %107 = load ptr, ptr %106, align 8
   %.not5.i77 = icmp eq ptr %107, null
   br i1 %.not5.i77, label %proto_item_set_generated.exit, label %proto_item_set_generated.exit.sink.split
 
 proto_item_set_generated.exit.sink.split:         ; preds = %105, %24
   %.sink8 = phi ptr [ %26, %24 ], [ %107, %105 ]
-  %108 = getelementptr inbounds i8, ptr %.sink8, i64 28
+  %108 = getelementptr inbounds nuw i8, ptr %.sink8, i64 28
   %109 = load i32, ptr %108, align 4
   %110 = or i32 %109, 2
   store i32 %110, ptr %108, align 4
@@ -12746,15 +12746,15 @@ define internal i32 @upper_transport_fragment_hash(ptr nocapture noundef readonl
   %4 = load i16, ptr %0, align 4
   store i16 %4, ptr %3, align 1
   %5 = getelementptr i8, ptr %3, i64 2
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   store i32 %7, ptr %5, align 1
   %8 = getelementptr i8, ptr %3, i64 6
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 4
   store i32 %10, ptr %8, align 1
   %11 = getelementptr i8, ptr %3, i64 10
-  %12 = getelementptr inbounds i8, ptr %0, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %13 = load i32, ptr %12, align 4
   store i32 %13, ptr %11, align 1
   %14 = tail call i32 @wmem_strong_hash(ptr noundef nonnull %3, i64 noundef 14) #16
@@ -12769,25 +12769,25 @@ define internal range(i32 0, 2) i32 @upper_transport_fragment_equal(ptr nocaptur
   br i1 %5, label %6, label %25
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %1, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %8, %10
   br i1 %11, label %12, label %25
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %14, %16
   br i1 %17, label %18, label %25
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %0, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %1, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %22 = load i32, ptr %21, align 4
   %23 = icmp eq i32 %20, %22
   %24 = zext i1 %23 to i32
@@ -12803,17 +12803,17 @@ define internal noalias noundef ptr @upper_transport_fragment_temporary_key(ptr 
   %4 = tail call noalias dereferenceable_or_null(16) ptr @g_slice_alloc(i64 noundef 16) #19
   %5 = load i16, ptr %2, align 4
   store i16 %5, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %2, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %7, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %10, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %2, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %4, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %13, ptr %14, align 4
   ret ptr %4
 }
@@ -12823,17 +12823,17 @@ define internal noalias noundef ptr @upper_transport_fragment_persistent_key(ptr
   %4 = tail call noalias dereferenceable_or_null(16) ptr @g_slice_alloc(i64 noundef 16) #19
   %5 = load i16, ptr %2, align 4
   store i16 %5, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %2, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %7, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %10, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %2, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %4, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %13, ptr %14, align 4
   ret ptr %4
 }

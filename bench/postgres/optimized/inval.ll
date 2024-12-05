@@ -63,9 +63,9 @@ define dso_local void @InvalidateSystemCachesExtended(i1 noundef zeroext %0) loc
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
   %6 = getelementptr %struct.SYSCACHECALLBACK, ptr @syscache_callback_list, i64 %indvars.iv
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = load i64, ptr %9, align 8
   %11 = load i16, ptr %6, align 8
   %12 = sext i16 %11 to i32
@@ -80,7 +80,7 @@ define dso_local void @InvalidateSystemCachesExtended(i1 noundef zeroext %0) loc
   %indvars.iv15 = phi i64 [ %indvars.iv.next16, %.lr.ph13 ], [ 0, %.preheader ]
   %16 = getelementptr %struct.RELCACHECALLBACK, ptr @relcache_callback_list, i64 %indvars.iv15
   %17 = load ptr, ptr %16, align 16
-  %18 = getelementptr inbounds i8, ptr %16, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load i64, ptr %18, align 8
   tail call void %17(i64 noundef %19, i32 noundef 0) #5
   %indvars.iv.next16 = add nuw nsw i64 %indvars.iv15, 1
@@ -106,7 +106,7 @@ define dso_local void @LocalExecuteInvalidationMessage(ptr nocapture noundef rea
   br i1 %3, label %4, label %33
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = load i32, ptr @MyDatabaseId, align 4
   %8 = icmp eq i32 %6, %7
@@ -118,7 +118,7 @@ define dso_local void @LocalExecuteInvalidationMessage(ptr nocapture noundef rea
   tail call void @InvalidateCatalogSnapshot() #5
   %11 = load i8, ptr %0, align 4
   %12 = sext i8 %11 to i32
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i32, ptr %13, align 4
   tail call void @SysCacheInvalidate(i32 noundef %12, i32 noundef %14) #5
   %15 = load i8, ptr %0, align 4
@@ -147,12 +147,12 @@ define dso_local void @LocalExecuteInvalidationMessage(ptr nocapture noundef rea
   %.0.i = add nuw nsw i64 %.0.in.i, 4294967295
   %25 = and i64 %.0.i, 4294967295
   %26 = getelementptr %struct.SYSCACHECALLBACK, ptr @syscache_callback_list, i64 %25
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %26, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i64, ptr %29, align 8
   tail call void %28(i64 noundef %30, i32 noundef %16, i32 noundef %17) #5
-  %31 = getelementptr inbounds i8, ptr %26, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 2
   %.0.in.in.i = load i16, ptr %31, align 2
   %32 = icmp sgt i16 %.0.in.in.i, 0
   br i1 %32, label %.lr.ph.i, label %CallSyscacheCallbacks.exit, !llvm.loop !8
@@ -167,7 +167,7 @@ define dso_local void @LocalExecuteInvalidationMessage(ptr nocapture noundef rea
   ]
 
 34:                                               ; preds = %33
-  %35 = getelementptr inbounds i8, ptr %0, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %36 = load i32, ptr %35, align 4
   %37 = load i32, ptr @MyDatabaseId, align 4
   %38 = icmp eq i32 %36, %37
@@ -177,13 +177,13 @@ define dso_local void @LocalExecuteInvalidationMessage(ptr nocapture noundef rea
 
 40:                                               ; preds = %34
   tail call void @InvalidateCatalogSnapshot() #5
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %42 = load i32, ptr %41, align 4
   tail call void @CatalogCacheFlushCatalog(i32 noundef %42) #5
   br label %CallSyscacheCallbacks.exit
 
 43:                                               ; preds = %33
-  %44 = getelementptr inbounds i8, ptr %0, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %45 = load i32, ptr %44, align 4
   %46 = load i32, ptr @MyDatabaseId, align 4
   %47 = icmp eq i32 %45, %46
@@ -192,7 +192,7 @@ define dso_local void @LocalExecuteInvalidationMessage(ptr nocapture noundef rea
   br i1 %or.cond40, label %49, label %CallSyscacheCallbacks.exit
 
 49:                                               ; preds = %43
-  %50 = getelementptr inbounds i8, ptr %0, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %51 = load i32, ptr %50, align 4
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %53, label %54
@@ -214,7 +214,7 @@ define dso_local void @LocalExecuteInvalidationMessage(ptr nocapture noundef rea
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %55 ]
   %58 = getelementptr %struct.RELCACHECALLBACK, ptr @relcache_callback_list, i64 %indvars.iv
   %59 = load ptr, ptr %58, align 16
-  %60 = getelementptr inbounds i8, ptr %58, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %61 = load i64, ptr %60, align 8
   %62 = load i32, ptr %50, align 4
   tail call void %59(i64 noundef %61, i32 noundef %62) #5
@@ -225,16 +225,16 @@ define dso_local void @LocalExecuteInvalidationMessage(ptr nocapture noundef rea
   br i1 %65, label %.lr.ph, label %CallSyscacheCallbacks.exit, !llvm.loop !9
 
 66:                                               ; preds = %33
-  %67 = getelementptr inbounds i8, ptr %0, i64 4
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.sroa.0.0.copyload = load i64, ptr %67, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 12
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 4
   %.sroa.2.0.insert.ext = zext i32 %.sroa.2.0.copyload to i64
-  %68 = getelementptr inbounds i8, ptr %0, i64 1
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %69 = load i8, ptr %68, align 1
   %70 = sext i8 %69 to i64
   %71 = shl nsw i64 %70, 16
-  %72 = getelementptr inbounds i8, ptr %0, i64 2
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %73 = load i16, ptr %72, align 2
   %74 = zext i16 %73 to i64
   %.masked = and i64 %71, 4294901760
@@ -245,7 +245,7 @@ define dso_local void @LocalExecuteInvalidationMessage(ptr nocapture noundef rea
   br label %CallSyscacheCallbacks.exit
 
 75:                                               ; preds = %33
-  %76 = getelementptr inbounds i8, ptr %0, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %77 = load i32, ptr %76, align 4
   %78 = icmp eq i32 %77, 0
   br i1 %78, label %79, label %80
@@ -264,7 +264,7 @@ define dso_local void @LocalExecuteInvalidationMessage(ptr nocapture noundef rea
   br label %CallSyscacheCallbacks.exit
 
 84:                                               ; preds = %33
-  %85 = getelementptr inbounds i8, ptr %0, i64 4
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %86 = load i32, ptr %85, align 4
   %87 = icmp eq i32 %86, 0
   br i1 %87, label %88, label %89
@@ -322,12 +322,12 @@ define dso_local void @CallSyscacheCallbacks(i32 noundef %0, i32 noundef %1) loc
   %.0 = add nuw nsw i64 %.0.in, 4294967295
   %10 = and i64 %.0, 4294967295
   %11 = getelementptr %struct.SYSCACHECALLBACK, ptr @syscache_callback_list, i64 %10
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = load i64, ptr %14, align 8
   tail call void %13(i64 noundef %15, i32 noundef %0, i32 noundef %1) #5
-  %16 = getelementptr inbounds i8, ptr %11, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 2
   %.0.in.in = load i16, ptr %16, align 2
   %17 = icmp sgt i16 %.0.in.in, 0
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !8
@@ -373,9 +373,9 @@ define dso_local void @InvalidateSystemCaches() #0 {
 .lr.ph.i:                                         ; preds = %0, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %0 ]
   %5 = getelementptr %struct.SYSCACHECALLBACK, ptr @syscache_callback_list, i64 %indvars.iv.i
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load i64, ptr %8, align 8
   %10 = load i16, ptr %5, align 8
   %11 = sext i16 %10 to i32
@@ -390,7 +390,7 @@ define dso_local void @InvalidateSystemCaches() #0 {
   %indvars.iv15.i = phi i64 [ %indvars.iv.next16.i, %.lr.ph13.i ], [ 0, %.preheader.i ]
   %15 = getelementptr %struct.RELCACHECALLBACK, ptr @relcache_callback_list, i64 %indvars.iv15.i
   %16 = load ptr, ptr %15, align 16
-  %17 = getelementptr inbounds i8, ptr %15, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %18 = load i64, ptr %17, align 8
   tail call void %16(i64 noundef %18, i32 noundef 0) #5
   %indvars.iv.next16.i = add nuw nsw i64 %indvars.iv15.i, 1
@@ -418,9 +418,9 @@ define dso_local void @PostPrepare_Inval() local_unnamed_addr #0 {
   br i1 %2, label %AtEOXact_Inval.exit, label %3
 
 3:                                                ; preds = %0
-  %4 = getelementptr inbounds i8, ptr %1, i64 28
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 36
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %7 = load i32, ptr %6, align 4
   %8 = icmp slt i32 %5, %7
   br i1 %8, label %.lr.ph.preheader.i.i, label %._crit_edge.i.i
@@ -479,7 +479,7 @@ define dso_local void @AtEOXact_Inval(i1 noundef zeroext %0) local_unnamed_addr 
   br i1 %0, label %5, label %43
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %2, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 44
   %7 = load i8, ptr %6, align 4
   %8 = trunc i8 %7 to i1
   br i1 %8, label %9, label %10
@@ -491,11 +491,11 @@ define dso_local void @AtEOXact_Inval(i1 noundef zeroext %0) local_unnamed_addr 
 
 10:                                               ; preds = %9, %5
   %11 = phi ptr [ %.pre, %9 ], [ %2, %5 ]
-  %12 = getelementptr inbounds i8, ptr %11, i64 28
-  %13 = getelementptr inbounds i8, ptr %11, i64 12
-  %14 = getelementptr inbounds i8, ptr %11, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 28
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %11, i64 36
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 36
   store i32 %15, ptr %16, align 4
   store i32 %15, ptr %13, align 4
   %17 = getelementptr i8, ptr %11, i64 24
@@ -534,7 +534,7 @@ define dso_local void @AtEOXact_Inval(i1 noundef zeroext %0) local_unnamed_addr 
 
 ProcessInvalidationMessagesMulti.exit:            ; preds = %28, %34
   %38 = load ptr, ptr @transInvalInfo, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 44
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 44
   %40 = load i8, ptr %39, align 4
   %41 = trunc i8 %40 to i1
   br i1 %41, label %42, label %ProcessInvalidationMessages.exit
@@ -544,9 +544,9 @@ ProcessInvalidationMessagesMulti.exit:            ; preds = %28, %34
   br label %ProcessInvalidationMessages.exit
 
 43:                                               ; preds = %4
-  %44 = getelementptr inbounds i8, ptr %2, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %45 = load i32, ptr %44, align 4
-  %46 = getelementptr inbounds i8, ptr %2, i64 36
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %47 = load i32, ptr %46, align 4
   %48 = icmp slt i32 %45, %47
   br i1 %48, label %.lr.ph.preheader.i, label %._crit_edge.i
@@ -607,20 +607,20 @@ define dso_local i32 @xactGetCommittedInvalidationMessages(ptr nocapture noundef
   br label %98
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %3, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 44
   %8 = load i8, ptr %7, align 4
   %9 = and i8 %8, 1
   store i8 %9, ptr %1, align 1
-  %10 = getelementptr inbounds i8, ptr %3, i64 28
-  %11 = getelementptr inbounds i8, ptr %3, i64 36
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 36
   %12 = load i32, ptr %11, align 4
   %13 = load i32, ptr %10, align 4
   %14 = getelementptr i8, ptr %3, i64 40
   %15 = load i32, ptr %14, align 4
   %16 = getelementptr i8, ptr %3, i64 32
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %3, i64 12
-  %19 = getelementptr inbounds i8, ptr %3, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %20 = load i32, ptr %19, align 4
   %21 = load i32, ptr %18, align 4
   %22 = getelementptr i8, ptr %3, i64 24
@@ -640,8 +640,8 @@ define dso_local i32 @xactGetCommittedInvalidationMessages(ptr nocapture noundef
   %36 = tail call ptr @MemoryContextAlloc(ptr noundef %33, i64 noundef %35) #5
   store ptr %36, ptr %0, align 8
   %37 = load ptr, ptr @transInvalInfo, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 28
-  %39 = getelementptr inbounds i8, ptr %37, i64 36
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 28
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 36
   %40 = load i32, ptr %39, align 4
   %41 = load i32, ptr %38, align 4
   %42 = sub i32 %40, %41
@@ -659,8 +659,8 @@ define dso_local i32 @xactGetCommittedInvalidationMessages(ptr nocapture noundef
 
 50:                                               ; preds = %44, %6
   %.034 = phi i32 [ %42, %44 ], [ 0, %6 ]
-  %51 = getelementptr inbounds i8, ptr %37, i64 12
-  %52 = getelementptr inbounds i8, ptr %37, i64 20
+  %51 = getelementptr inbounds nuw i8, ptr %37, i64 12
+  %52 = getelementptr inbounds nuw i8, ptr %37, i64 20
   %53 = load i32, ptr %52, align 4
   %54 = load i32, ptr %51, align 4
   %55 = sub i32 %53, %54
@@ -805,7 +805,7 @@ define dso_local void @AtEOSubXact_Inval(i1 noundef zeroext %0) local_unnamed_ad
 
 4:                                                ; preds = %1
   %5 = tail call i32 @GetCurrentTransactionNestLevel() #5
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %7, %5
   br i1 %.not, label %8, label %99
@@ -819,9 +819,9 @@ define dso_local void @AtEOSubXact_Inval(i1 noundef zeroext %0) local_unnamed_ad
   br i1 %11, label %CommandEndInvalidationMessages.exit, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %10, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %10, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %16 = load i32, ptr %15, align 4
   %17 = icmp slt i32 %14, %16
   br i1 %17, label %.lr.ph.preheader.i.i, label %._crit_edge.i.i
@@ -873,10 +873,10 @@ ProcessInvalidationMessages.exit.i:               ; preds = %.lr.ph4.i.i, %._cri
 
 32:                                               ; preds = %31, %ProcessInvalidationMessages.exit.i
   %33 = load ptr, ptr @transInvalInfo, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 12
-  %35 = getelementptr inbounds i8, ptr %33, i64 20
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 12
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 20
   %36 = load i32, ptr %35, align 4
-  %37 = getelementptr inbounds i8, ptr %33, i64 36
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 36
   store i32 %36, ptr %37, align 4
   store i32 %36, ptr %34, align 4
   %38 = getelementptr i8, ptr %33, i64 24
@@ -893,7 +893,7 @@ CommandEndInvalidationMessages.exit:              ; preds = %9, %32
   br i1 %43, label %49, label %44
 
 44:                                               ; preds = %CommandEndInvalidationMessages.exit
-  %45 = getelementptr inbounds i8, ptr %42, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %46 = load i32, ptr %45, align 8
   %47 = add i32 %5, -1
   %48 = icmp slt i32 %46, %47
@@ -906,10 +906,10 @@ CommandEndInvalidationMessages.exit:              ; preds = %9, %32
   br label %99
 
 52:                                               ; preds = %44
-  %53 = getelementptr inbounds i8, ptr %2, i64 28
-  %54 = getelementptr inbounds i8, ptr %2, i64 36
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %55 = load i32, ptr %54, align 4
-  %56 = getelementptr inbounds i8, ptr %42, i64 36
+  %56 = getelementptr inbounds nuw i8, ptr %42, i64 36
   store i32 %55, ptr %56, align 4
   store i32 %55, ptr %54, align 4
   store i32 %55, ptr %53, align 4
@@ -921,12 +921,12 @@ CommandEndInvalidationMessages.exit:              ; preds = %9, %32
   %60 = getelementptr i8, ptr %2, i64 32
   store i32 %58, ptr %60, align 4
   %61 = load ptr, ptr %2, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 36
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 36
   %63 = load i32, ptr %62, align 4
-  %64 = getelementptr inbounds i8, ptr %61, i64 20
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 20
   store i32 %63, ptr %64, align 4
   %65 = load ptr, ptr %2, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 12
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 12
   store i32 %63, ptr %66, align 4
   %67 = load ptr, ptr %2, align 8
   %68 = getelementptr i8, ptr %67, i64 40
@@ -936,14 +936,14 @@ CommandEndInvalidationMessages.exit:              ; preds = %9, %32
   %71 = load ptr, ptr %2, align 8
   %72 = getelementptr i8, ptr %71, i64 16
   store i32 %69, ptr %72, align 4
-  %73 = getelementptr inbounds i8, ptr %2, i64 44
+  %73 = getelementptr inbounds nuw i8, ptr %2, i64 44
   %74 = load i8, ptr %73, align 4
   %75 = trunc i8 %74 to i1
   br i1 %75, label %76, label %79
 
 76:                                               ; preds = %52
   %77 = load ptr, ptr %2, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 44
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 44
   store i8 1, ptr %78, align 4
   br label %79
 
@@ -954,9 +954,9 @@ CommandEndInvalidationMessages.exit:              ; preds = %9, %32
   br label %99
 
 81:                                               ; preds = %8
-  %82 = getelementptr inbounds i8, ptr %2, i64 28
+  %82 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %83 = load i32, ptr %82, align 4
-  %84 = getelementptr inbounds i8, ptr %2, i64 36
+  %84 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %85 = load i32, ptr %84, align 4
   %86 = icmp slt i32 %83, %85
   br i1 %86, label %.lr.ph.preheader.i, label %._crit_edge.i
@@ -1016,9 +1016,9 @@ define dso_local void @CommandEndInvalidationMessages() local_unnamed_addr #0 {
   br i1 %2, label %33, label %3
 
 3:                                                ; preds = %0
-  %4 = getelementptr inbounds i8, ptr %1, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %7 = load i32, ptr %6, align 4
   %8 = icmp slt i32 %5, %7
   br i1 %8, label %.lr.ph.preheader.i, label %._crit_edge.i
@@ -1070,10 +1070,10 @@ ProcessInvalidationMessages.exit:                 ; preds = %.lr.ph4.i, %._crit_
 
 23:                                               ; preds = %22, %ProcessInvalidationMessages.exit
   %24 = load ptr, ptr @transInvalInfo, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 12
-  %26 = getelementptr inbounds i8, ptr %24, i64 20
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 20
   %27 = load i32, ptr %26, align 4
-  %28 = getelementptr inbounds i8, ptr %24, i64 36
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 36
   store i32 %27, ptr %28, align 4
   store i32 %27, ptr %25, align 4
   %29 = getelementptr i8, ptr %24, i64 24
@@ -1096,8 +1096,8 @@ define dso_local void @LogLogicalInvalidations() local_unnamed_addr #0 {
   br i1 %3, label %39, label %4
 
 4:                                                ; preds = %0
-  %5 = getelementptr inbounds i8, ptr %2, i64 12
-  %6 = getelementptr inbounds i8, ptr %2, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %7 = load i32, ptr %6, align 4
   %8 = load i32, ptr %5, align 4
   %9 = sub i32 %7, %8
@@ -1167,7 +1167,7 @@ define dso_local void @CacheInvalidateHeapTuple(ptr noundef %0, ptr noundef %1, 
 
 10:                                               ; preds = %8
   tail call fastcc void @PrepareInvalidationState()
-  %11 = getelementptr inbounds i8, ptr %0, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %12 = load i32, ptr %11, align 8
   %13 = tail call zeroext i1 @RelationInvalidatesSnapshotsOnly(i32 noundef %12) #5
   br i1 %13, label %14, label %51
@@ -1197,7 +1197,7 @@ define dso_local void @CacheInvalidateHeapTuple(ptr noundef %0, ptr noundef %1, 
   br i1 %29, label %30, label %34
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %27, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %32 = load i32, ptr %31, align 4
   %33 = icmp eq i32 %32, %12
   br i1 %33, label %RegisterSnapshotInvalidation.exit, label %34
@@ -1241,9 +1241,9 @@ AddInvalidationMessage.exit.i.i:                  ; preds = %.sink.split.i.i.i, 
   %47 = sext i32 %22 to i64
   %48 = getelementptr %union.SharedInvalidationMessage, ptr %46, i64 %47
   store i8 -5, ptr %48, align 4
-  %.sroa.211.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %48, i64 4
+  %.sroa.211.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %48, i64 4
   store i32 %17, ptr %.sroa.211.0..sroa_idx.i.i, align 4
-  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %48, i64 8
+  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %48, i64 8
   store i32 %12, ptr %.sroa.3.0..sroa_idx.i.i, align 4
   %49 = load i32, ptr %21, align 4
   %50 = add i32 %49, 1
@@ -1263,14 +1263,14 @@ RegisterSnapshotInvalidation.exit:                ; preds = %30, %AddInvalidatio
   ]
 
 52:                                               ; preds = %RegisterSnapshotInvalidation.exit
-  %53 = getelementptr inbounds i8, ptr %1, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 22
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 22
   %56 = load i8, ptr %55, align 2
   %57 = zext i8 %56 to i64
   %58 = getelementptr i8, ptr %54, i64 %57
   %59 = load i32, ptr %58, align 4
-  %60 = getelementptr inbounds i8, ptr %58, i64 113
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 113
   %61 = load i8, ptr %60, align 1
   %62 = trunc i8 %61 to i1
   %63 = load i32, ptr @MyDatabaseId, align 4
@@ -1278,9 +1278,9 @@ RegisterSnapshotInvalidation.exit:                ; preds = %30, %AddInvalidatio
   br label %97
 
 64:                                               ; preds = %RegisterSnapshotInvalidation.exit
-  %65 = getelementptr inbounds i8, ptr %1, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 22
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 22
   %68 = load i8, ptr %67, align 2
   %69 = zext i8 %68 to i64
   %70 = getelementptr i8, ptr %66, i64 %69
@@ -1289,9 +1289,9 @@ RegisterSnapshotInvalidation.exit:                ; preds = %30, %AddInvalidatio
   br label %97
 
 73:                                               ; preds = %RegisterSnapshotInvalidation.exit
-  %74 = getelementptr inbounds i8, ptr %1, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 22
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 22
   %77 = load i8, ptr %76, align 2
   %78 = zext i8 %77 to i64
   %79 = getelementptr i8, ptr %75, i64 %78
@@ -1300,19 +1300,19 @@ RegisterSnapshotInvalidation.exit:                ; preds = %30, %AddInvalidatio
   br label %97
 
 82:                                               ; preds = %RegisterSnapshotInvalidation.exit
-  %83 = getelementptr inbounds i8, ptr %1, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 22
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 22
   %86 = load i8, ptr %85, align 2
   %87 = zext i8 %86 to i64
   %88 = getelementptr i8, ptr %84, i64 %87
-  %89 = getelementptr inbounds i8, ptr %88, i64 72
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 72
   %90 = load i8, ptr %89, align 4
   %91 = icmp eq i8 %90, 102
   br i1 %91, label %92, label %98
 
 92:                                               ; preds = %82
-  %93 = getelementptr inbounds i8, ptr %88, i64 76
+  %93 = getelementptr inbounds nuw i8, ptr %88, i64 76
   %94 = load i32, ptr %93, align 4
   %.not = icmp eq i32 %94, 0
   br i1 %.not, label %98, label %95
@@ -1342,7 +1342,7 @@ define internal fastcc void @PrepareInvalidationState() unnamed_addr #0 {
   br i1 %.not, label %7, label %2
 
 2:                                                ; preds = %0
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = tail call i32 @GetCurrentTransactionNestLevel() #5
   %6 = icmp eq i32 %4, %5
@@ -1354,15 +1354,15 @@ define internal fastcc void @PrepareInvalidationState() unnamed_addr #0 {
   %10 = load ptr, ptr @transInvalInfo, align 8
   store ptr %10, ptr %9, align 8
   %11 = tail call i32 @GetCurrentTransactionNestLevel() #5
-  %12 = getelementptr inbounds i8, ptr %9, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %11, ptr %12, align 8
   %13 = load ptr, ptr @transInvalInfo, align 8
   %.not14 = icmp eq ptr %13, null
   br i1 %.not14, label %37, label %14
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %13, i64 12
-  %16 = getelementptr inbounds i8, ptr %13, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 20
   %17 = load i32, ptr %16, align 4
   %18 = load i32, ptr %15, align 4
   %19 = sub i32 %17, %18
@@ -1382,8 +1382,8 @@ define internal fastcc void @PrepareInvalidationState() unnamed_addr #0 {
   unreachable
 
 27:                                               ; preds = %14
-  %28 = getelementptr inbounds i8, ptr %9, i64 28
-  %29 = getelementptr inbounds i8, ptr %9, i64 36
+  %28 = getelementptr inbounds nuw i8, ptr %9, i64 28
+  %29 = getelementptr inbounds nuw i8, ptr %9, i64 36
   store i32 %17, ptr %29, align 4
   store i32 %17, ptr %28, align 4
   %30 = load i32, ptr %20, align 4
@@ -1391,8 +1391,8 @@ define internal fastcc void @PrepareInvalidationState() unnamed_addr #0 {
   store i32 %30, ptr %31, align 4
   %32 = getelementptr i8, ptr %9, i64 32
   store i32 %30, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %9, i64 12
-  %34 = getelementptr inbounds i8, ptr %9, i64 20
+  %33 = getelementptr inbounds nuw i8, ptr %9, i64 12
+  %34 = getelementptr inbounds nuw i8, ptr %9, i64 20
   store i32 %17, ptr %34, align 4
   store i32 %17, ptr %33, align 4
   %35 = getelementptr i8, ptr %9, i64 24
@@ -1425,7 +1425,7 @@ declare void @PrepareToInvalidateCacheTuple(ptr noundef, ptr noundef, ptr nounde
 ; Function Attrs: nounwind uwtable
 define internal void @RegisterCatcacheInvalidation(i32 noundef %0, i32 noundef %1, i32 noundef %2) #0 {
   %4 = load ptr, ptr @transInvalInfo, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = load i32, ptr @InvalMessageArrays.1, align 8
   %.not.i.i = icmp slt i32 %6, %7
@@ -1461,9 +1461,9 @@ AddCatcacheInvalidationMessage.exit:              ; preds = %3, %.sink.split.i.i
   %20 = sext i32 %6 to i64
   %21 = getelementptr %union.SharedInvalidationMessage, ptr %18, i64 %20
   store i8 %19, ptr %21, align 4
-  %.sroa.23.0..sroa_idx.i = getelementptr inbounds i8, ptr %21, i64 4
+  %.sroa.23.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %21, i64 4
   store i32 %2, ptr %.sroa.23.0..sroa_idx.i, align 4
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %21, i64 8
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i32 %1, ptr %.sroa.3.0..sroa_idx.i, align 4
   %22 = load i32, ptr %5, align 4
   %23 = add i32 %22, 1
@@ -1494,7 +1494,7 @@ define internal fastcc void @RegisterRelcacheInvalidation(i32 noundef %0, i32 no
   br i1 %14, label %15, label %20
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %12, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %17, %1
   %19 = icmp eq i32 %17, 0
@@ -1540,9 +1540,9 @@ AddInvalidationMessage.exit.i:                    ; preds = %.sink.split.i.i, %.
   %33 = sext i32 %7 to i64
   %34 = getelementptr %union.SharedInvalidationMessage, ptr %32, i64 %33
   store i8 -2, ptr %34, align 4
-  %.sroa.213.0..sroa_idx.i = getelementptr inbounds i8, ptr %34, i64 4
+  %.sroa.213.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %34, i64 4
   store i32 %0, ptr %.sroa.213.0..sroa_idx.i, align 4
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %34, i64 8
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i32 %1, ptr %.sroa.3.0..sroa_idx.i, align 4
   %35 = load i32, ptr %6, align 4
   %36 = add i32 %35, 1
@@ -1560,7 +1560,7 @@ AddRelcacheInvalidationMessage.exit:              ; preds = %15, %AddInvalidatio
 
 41:                                               ; preds = %39, %AddRelcacheInvalidationMessage.exit
   %42 = load ptr, ptr @transInvalInfo, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 44
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 44
   store i8 1, ptr %43, align 4
   br label %44
 
@@ -1574,7 +1574,7 @@ define dso_local void @CacheInvalidateCatalog(i32 noundef %0) local_unnamed_addr
   %2 = tail call zeroext i1 @IsSharedRelation(i32 noundef %0) #5
   %3 = load i32, ptr @MyDatabaseId, align 4
   %4 = load ptr, ptr @transInvalInfo, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = load i32, ptr @InvalMessageArrays.1, align 8
   %.not.i.i.i = icmp slt i32 %6, %7
@@ -1610,9 +1610,9 @@ RegisterCatalogInvalidation.exit:                 ; preds = %1, %.sink.split.i.i
   %19 = sext i32 %6 to i64
   %20 = getelementptr %union.SharedInvalidationMessage, ptr %18, i64 %19
   store i8 -1, ptr %20, align 4
-  %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %20, i64 4
+  %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %20, i64 4
   store i32 %.0, ptr %.sroa.22.0..sroa_idx.i.i, align 4
-  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %20, i64 8
+  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i32 %0, ptr %.sroa.3.0..sroa_idx.i.i, align 4
   %21 = load i32, ptr %5, align 4
   %22 = add i32 %21, 1
@@ -1623,11 +1623,11 @@ RegisterCatalogInvalidation.exit:                 ; preds = %1, %.sink.split.i.i
 ; Function Attrs: nounwind uwtable
 define dso_local void @CacheInvalidateRelcache(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   tail call fastcc void @PrepareInvalidationState()
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 113
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 113
   %7 = load i8, ptr %6, align 1
   %8 = trunc i8 %7 to i1
   %9 = load i32, ptr @MyDatabaseId, align 4
@@ -1645,15 +1645,15 @@ define dso_local void @CacheInvalidateRelcacheAll() local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @CacheInvalidateRelcacheByTuple(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 22
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 22
   %5 = load i8, ptr %4, align 2
   %6 = zext i8 %5 to i64
   %7 = getelementptr i8, ptr %3, i64 %6
   tail call fastcc void @PrepareInvalidationState()
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %7, i64 113
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 113
   %10 = load i8, ptr %9, align 1
   %11 = trunc i8 %10 to i1
   %12 = load i32, ptr @MyDatabaseId, align 4
@@ -1678,15 +1678,15 @@ define dso_local void @CacheInvalidateRelcacheByRelid(i32 noundef %0) local_unna
   unreachable
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 22
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 22
   %11 = load i8, ptr %10, align 2
   %12 = zext i8 %11 to i64
   %13 = getelementptr i8, ptr %9, i64 %12
   tail call fastcc void @PrepareInvalidationState()
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %13, i64 113
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 113
   %16 = load i8, ptr %15, align 1
   %17 = trunc i8 %16 to i1
   %18 = load i32, ptr @MyDatabaseId, align 4
@@ -1708,13 +1708,13 @@ define dso_local void @CacheInvalidateSmgr(i64 %0, i64 %1) local_unnamed_addr #0
   %.sroa.2.12.extract.trunc = trunc i64 %.sroa.2.12.extract.shift to i16
   %4 = lshr i64 %1, 48
   %5 = trunc i64 %4 to i8
-  %6 = getelementptr inbounds i8, ptr %3, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %5, ptr %6, align 1
-  %7 = getelementptr inbounds i8, ptr %3, i64 2
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i16 %.sroa.2.12.extract.trunc, ptr %7, align 2
-  %8 = getelementptr inbounds i8, ptr %3, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i64 %0, ptr %8, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 12
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 12
   %.sroa.2.0.extract.trunc = trunc i64 %1 to i32
   store i32 %.sroa.2.0.extract.trunc, ptr %.sroa.2.0..sroa_idx, align 4
   call void @SendSharedInvalidMessages(ptr noundef nonnull %3, i32 noundef 1) #5
@@ -1725,7 +1725,7 @@ define dso_local void @CacheInvalidateSmgr(i64 %0, i64 %1) local_unnamed_addr #0
 define dso_local void @CacheInvalidateRelmap(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca %union.SharedInvalidationMessage, align 4
   store i8 -4, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %2, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %0, ptr %3, align 4
   call void @SendSharedInvalidMessages(ptr noundef nonnull %2, i32 noundef 1) #5
   ret void

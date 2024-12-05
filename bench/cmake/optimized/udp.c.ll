@@ -27,11 +27,11 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @uv__udp_close(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 128
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   tail call void @uv__io_close(ptr noundef %3, ptr noundef nonnull %4) #9
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 4
   %8 = icmp eq i32 %7, 0
@@ -46,14 +46,14 @@ define dso_local void @uv__udp_close(ptr noundef %0) local_unnamed_addr #0 {
 
 12:                                               ; preds = %9
   %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = add i32 %15, -1
   store i32 %16, ptr %14, align 8
   br label %17
 
 17:                                               ; preds = %9, %12, %1
-  %18 = getelementptr inbounds i8, ptr %0, i64 176
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %19 = load i32, ptr %18, align 8
   %.not9 = icmp eq i32 %19, -1
   br i1 %.not9, label %22, label %20
@@ -73,26 +73,26 @@ declare i32 @uv__close(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @uv__udp_finish_close(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 184
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %.not20 = icmp eq ptr %2, %3
   br i1 %.not20, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 200
-  %5 = getelementptr inbounds i8, ptr %0, i64 208
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 208
   br label %6
 
 6:                                                ; preds = %.lr.ph, %6
   %7 = phi ptr [ %3, %.lr.ph ], [ %15, %6 ]
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = load ptr, ptr %9, align 8
   store ptr %8, ptr %10, align 8
   %11 = load ptr, ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 160
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 160
   store i64 -125, ptr %13, align 8
   store ptr %4, ptr %7, align 8
   %14 = load ptr, ptr %5, align 8
@@ -105,46 +105,46 @@ define dso_local void @uv__udp_finish_close(ptr noundef %0) local_unnamed_addr #
 
 ._crit_edge:                                      ; preds = %6, %1
   tail call fastcc void @uv__udp_run_completed(ptr noundef nonnull %0)
-  %16 = getelementptr inbounds i8, ptr %0, i64 112
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @uv__udp_run_completed(ptr noundef %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 88
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load i32, ptr %2, align 8
   %4 = or i32 %3, 16777216
   store i32 %4, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 200
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %6 = load ptr, ptr %5, align 8
   %.not40 = icmp eq ptr %5, %6
   br i1 %.not40, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 96
-  %9 = getelementptr inbounds i8, ptr %0, i64 104
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
   br label %10
 
 10:                                               ; preds = %.lr.ph, %.backedge
   %11 = phi ptr [ %6, %.lr.ph ], [ %42, %.backedge ]
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %11, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %14 = load ptr, ptr %13, align 8
   store ptr %12, ptr %14, align 8
   %15 = load ptr, ptr %13, align 8
-  %16 = getelementptr inbounds i8, ptr %12, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %15, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %11, i64 -80
   %18 = load ptr, ptr %7, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %20 = load i32, ptr %19, align 8
   %21 = add i32 %20, -1
   store i32 %21, ptr %19, align 8
-  %22 = getelementptr inbounds i8, ptr %11, i64 152
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 152
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %11, i64 144
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 144
   %25 = load i32, ptr %24, align 8
   %26 = tail call i64 @uv__count_bufs(ptr noundef %23, i32 noundef %25) #9
   %27 = load i64, ptr %8, align 8
@@ -154,7 +154,7 @@ define internal fastcc void @uv__udp_run_completed(ptr noundef %0) unnamed_addr 
   %30 = add i64 %29, -1
   store i64 %30, ptr %9, align 8
   %31 = load ptr, ptr %22, align 8
-  %32 = getelementptr inbounds i8, ptr %11, i64 176
+  %32 = getelementptr inbounds nuw i8, ptr %11, i64 176
   %.not39 = icmp eq ptr %31, %32
   br i1 %.not39, label %34, label %33
 
@@ -164,13 +164,13 @@ define internal fastcc void @uv__udp_run_completed(ptr noundef %0) unnamed_addr 
 
 34:                                               ; preds = %33, %10
   store ptr null, ptr %22, align 8
-  %35 = getelementptr inbounds i8, ptr %11, i64 168
+  %35 = getelementptr inbounds nuw i8, ptr %11, i64 168
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
   br i1 %37, label %.backedge, label %.backedge.sink.split
 
 .backedge.sink.split:                             ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %11, i64 160
+  %38 = getelementptr inbounds nuw i8, ptr %11, i64 160
   %39 = load i64, ptr %38, align 8
   %40 = icmp sgt i64 %39, -1
   %41 = trunc i64 %39 to i32
@@ -184,15 +184,15 @@ define internal fastcc void @uv__udp_run_completed(ptr noundef %0) unnamed_addr 
   br i1 %.not, label %._crit_edge, label %10, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.backedge, %1
-  %43 = getelementptr inbounds i8, ptr %0, i64 184
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %43, %44
   br i1 %45, label %46, label %63
 
 46:                                               ; preds = %._crit_edge
-  %47 = getelementptr inbounds i8, ptr %0, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 128
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 128
   tail call void @uv__io_stop(ptr noundef %48, ptr noundef nonnull %49, i32 noundef 4) #9
   %50 = tail call i32 @uv__io_active(ptr noundef nonnull %49, i32 noundef 1) #9
   %.not37 = icmp eq i32 %50, 0
@@ -213,7 +213,7 @@ define internal fastcc void @uv__udp_run_completed(ptr noundef %0) unnamed_addr 
 
 58:                                               ; preds = %55
   %59 = load ptr, ptr %47, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load i32, ptr %60, align 8
   %62 = add i32 %61, -1
   store i32 %62, ptr %60, align 8
@@ -246,7 +246,7 @@ define dso_local i32 @uv__udp_bind(ptr nocapture noundef %0, ptr noundef %1, i32
   br i1 %.not36, label %13, label %63
 
 13:                                               ; preds = %11, %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 176
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, -1
   br i1 %16, label %17, label %23
@@ -353,11 +353,11 @@ uv__set_reuse.exit:                               ; preds = %35
 ._crit_edge:                                      ; preds = %48
   %55 = load i16, ptr %1, align 2
   %56 = icmp eq i16 %55, 10
-  %57 = getelementptr inbounds i8, ptr %0, i64 88
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %58 = load i32, ptr %57, align 8
   %59 = or i32 %58, 4194304
   %60 = select i1 %56, i32 %59, i32 %58
-  %61 = getelementptr inbounds i8, ptr %0, i64 88
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %62 = or i32 %60, 8192
   store i32 %62, ptr %61, align 8
   br label %63
@@ -383,7 +383,7 @@ define dso_local i32 @uv__udp_connect(ptr nocapture noundef %0, ptr noundef %1, 
   %4 = alloca %union.uv__sockaddr, align 4
   %5 = load i16, ptr %1, align 2
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4)
-  %6 = getelementptr inbounds i8, ptr %0, i64 176
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %7 = load i32, ptr %6, align 8
   %.not.i = icmp eq i32 %7, -1
   br i1 %.not.i, label %8, label %uv__udp_maybe_deferred_bind.exit.thread16
@@ -402,7 +402,7 @@ define dso_local i32 @uv__udp_connect(ptr nocapture noundef %0, ptr noundef %1, 
 .split.i:                                         ; preds = %8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %4, i8 0, i64 28, i1 false)
   store i16 10, ptr %4, align 4
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %9, ptr noundef nonnull align 4 dereferenceable(16) @in6addr_any, i64 16, i1 false)
   br label %.sink.split.i
 
@@ -432,7 +432,7 @@ define dso_local i32 @uv__udp_connect(ptr nocapture noundef %0, ptr noundef %1, 
 ._crit_edge.i:                                    ; preds = %14
   %20 = load i16, ptr %4, align 4
   %21 = icmp eq i16 %20, 10
-  %22 = getelementptr inbounds i8, ptr %0, i64 88
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %23 = load i32, ptr %22, align 8
   %24 = or i32 %23, 4194304
   %25 = select i1 %21, i32 %24, i32 %23
@@ -483,7 +483,7 @@ uv__udp_maybe_deferred_bind.exit:                 ; preds = %16
   br label %41
 
 37:                                               ; preds = %29
-  %38 = getelementptr inbounds i8, ptr %0, i64 88
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %39 = load i32, ptr %38, align 8
   %40 = or i32 %39, 33554432
   store i32 %40, ptr %38, align 8
@@ -500,7 +500,7 @@ declare i32 @connect(i32 noundef, ptr, i32 noundef) local_unnamed_addr #1
 define dso_local range(i32 -2147483647, -2147483648) i32 @uv__udp_disconnect(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.sockaddr, align 2
   %3 = tail call ptr @__errno_location() #10
-  %4 = getelementptr inbounds i8, ptr %0, i64 176
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   br label %5
 
@@ -521,7 +521,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv__udp_disconnect(ptr
   br label %16
 
 .critedge4:                                       ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %0, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, -33554433
   store i32 %15, ptr %13, align 8
@@ -544,7 +544,7 @@ define dso_local i32 @uv__udp_send(ptr noundef %0, ptr noundef %1, ptr nocapture
 9:                                                ; preds = %7
   %10 = load i16, ptr %4, align 2
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %8)
-  %11 = getelementptr inbounds i8, ptr %1, i64 176
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %12 = load i32, ptr %11, align 8
   %.not.i = icmp eq i32 %12, -1
   br i1 %.not.i, label %13, label %uv__udp_maybe_deferred_bind.exit.thread
@@ -563,7 +563,7 @@ define dso_local i32 @uv__udp_send(ptr noundef %0, ptr noundef %1, ptr nocapture
 .split.i:                                         ; preds = %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %8, i8 0, i64 28, i1 false)
   store i16 10, ptr %8, align 4
-  %14 = getelementptr inbounds i8, ptr %8, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %14, ptr noundef nonnull align 4 dereferenceable(16) @in6addr_any, i64 16, i1 false)
   br label %.sink.split.i
 
@@ -593,7 +593,7 @@ define dso_local i32 @uv__udp_send(ptr noundef %0, ptr noundef %1, ptr nocapture
 ._crit_edge.i:                                    ; preds = %19
   %25 = load i16, ptr %8, align 4
   %26 = icmp eq i16 %25, 10
-  %27 = getelementptr inbounds i8, ptr %1, i64 88
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %28 = load i32, ptr %27, align 8
   %29 = or i32 %28, 4194304
   %30 = select i1 %26, i32 %29, i32 %28
@@ -617,18 +617,18 @@ uv__udp_maybe_deferred_bind.exit:                 ; preds = %21
   br i1 %.not58, label %33, label %102
 
 33:                                               ; preds = %uv__udp_maybe_deferred_bind.exit.thread, %uv__udp_maybe_deferred_bind.exit, %7
-  %34 = getelementptr inbounds i8, ptr %1, i64 104
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %35 = load i64, ptr %34, align 8
   %36 = icmp eq i64 %35, 0
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 5, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %1, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
   %41 = load i32, ptr %40, align 8
   %42 = add i32 %41, 1
   store i32 %42, ptr %40, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 96
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 96
   br i1 %.not, label %44, label %45
 
 44:                                               ; preds = %33
@@ -641,14 +641,14 @@ uv__udp_maybe_deferred_bind.exit:                 ; preds = %21
   br label %47
 
 47:                                               ; preds = %45, %44
-  %48 = getelementptr inbounds i8, ptr %0, i64 248
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store ptr %6, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 64
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 224
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store i32 %3, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 256
-  %52 = getelementptr inbounds i8, ptr %0, i64 232
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store ptr %51, ptr %52, align 8
   %53 = zext i32 %3 to i64
   %54 = icmp ugt i32 %3, 4
@@ -663,7 +663,7 @@ uv__udp_maybe_deferred_bind.exit:                 ; preds = %21
 
 59:                                               ; preds = %56
   %60 = load ptr, ptr %38, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %62 = load i32, ptr %61, align 8
   %63 = add i32 %62, -1
   store i32 %63, ptr %61, align 8
@@ -675,23 +675,23 @@ uv__udp_maybe_deferred_bind.exit:                 ; preds = %21
   %65 = load ptr, ptr %52, align 8
   %66 = load i32, ptr %50, align 8
   %67 = call i64 @uv__count_bufs(ptr noundef %65, i32 noundef %66) #9
-  %68 = getelementptr inbounds i8, ptr %1, i64 96
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %69 = load i64, ptr %68, align 8
   %70 = add i64 %69, %67
   store i64 %70, ptr %68, align 8
   %71 = load i64, ptr %34, align 8
   %72 = add i64 %71, 1
   store i64 %72, ptr %34, align 8
-  %73 = getelementptr inbounds i8, ptr %1, i64 184
-  %74 = getelementptr inbounds i8, ptr %0, i64 80
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 184
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %73, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %1, i64 192
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %0, i64 88
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %76, ptr %77, align 8
   store ptr %74, ptr %76, align 8
   store ptr %74, ptr %75, align 8
-  %78 = getelementptr inbounds i8, ptr %1, i64 88
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %79 = load i32, ptr %78, align 8
   %80 = and i32 %79, 4
   %.not59 = icmp eq i32 %80, 0
@@ -706,7 +706,7 @@ uv__udp_maybe_deferred_bind.exit:                 ; preds = %21
 
 84:                                               ; preds = %81
   %85 = load ptr, ptr %38, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %87 = load i32, ptr %86, align 8
   %88 = add i32 %87, 1
   store i32 %88, ptr %86, align 8
@@ -729,13 +729,13 @@ uv__udp_maybe_deferred_bind.exit:                 ; preds = %21
 
 96:                                               ; preds = %93
   %97 = load ptr, ptr %38, align 8
-  %98 = getelementptr inbounds i8, ptr %1, i64 128
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 128
   call void @uv__io_start(ptr noundef %97, ptr noundef nonnull %98, i32 noundef 4) #9
   br label %102
 
 99:                                               ; preds = %90, %89
   %100 = load ptr, ptr %38, align 8
-  %101 = getelementptr inbounds i8, ptr %1, i64 128
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 128
   call void @uv__io_start(ptr noundef %100, ptr noundef nonnull %101, i32 noundef 4) #9
   br label %102
 
@@ -760,33 +760,33 @@ define internal fastcc void @uv__udp_sendmsg(ptr noundef %0) unnamed_addr #0 {
   br i1 %.b, label %14, label %.preheader
 
 .preheader:                                       ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 184
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %5 = load ptr, ptr %4, align 8
   %.not52 = icmp eq ptr %4, %5
   br i1 %.not52, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
-  %8 = getelementptr inbounds i8, ptr %3, i64 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 176
-  %10 = getelementptr inbounds i8, ptr %0, i64 200
-  %11 = getelementptr inbounds i8, ptr %0, i64 208
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %91
 
 14:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 1280, ptr nonnull %2)
-  %15 = getelementptr inbounds i8, ptr %0, i64 184
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %15, %16
   br i1 %17, label %uv__udp_sendmmsg.exit, label %.preheader88.i
 
 .preheader88.i:                                   ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %0, i64 176
-  %19 = getelementptr inbounds i8, ptr %0, i64 200
-  %20 = getelementptr inbounds i8, ptr %0, i64 208
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 208
   br label %21
 
 21:                                               ; preds = %._crit_edge.i, %.preheader88.i
@@ -802,9 +802,9 @@ define internal fastcc void @uv__udp_sendmsg(ptr noundef %0) unnamed_addr #0 {
 .lr.ph.i:                                         ; preds = %21, %33
   %.079102.i = phi ptr [ %.079.i, %33 ], [ %.079100.i, %21 ]
   %.078101.i = phi i64 [ %41, %33 ], [ 0, %21 ]
-  %23 = getelementptr inbounds [20 x %struct.uv__mmsghdr], ptr %2, i64 0, i64 %.078101.i
+  %23 = getelementptr inbounds nuw [20 x %struct.uv__mmsghdr], ptr %2, i64 0, i64 %.078101.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %23, i8 0, i64 64, i1 false)
-  %24 = getelementptr inbounds i8, ptr %.079102.i, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %.079102.i, i64 16
   %25 = load i16, ptr %24, align 8
   %26 = icmp eq i16 %25, 0
   br i1 %26, label %33, label %27
@@ -830,19 +830,19 @@ define internal fastcc void @uv__udp_sendmsg(ptr noundef %0) unnamed_addr #0 {
 
 .sink.split.i:                                    ; preds = %30, %29, %27
   %.sink.i = phi i32 [ 110, %30 ], [ 16, %29 ], [ 28, %27 ]
-  %32 = getelementptr inbounds i8, ptr %23, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i32 %.sink.i, ptr %32, align 8
   br label %33
 
 33:                                               ; preds = %.sink.split.i, %.lr.ph.i
-  %34 = getelementptr inbounds i8, ptr %.079102.i, i64 152
+  %34 = getelementptr inbounds nuw i8, ptr %.079102.i, i64 152
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %23, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store ptr %35, ptr %36, align 16
-  %37 = getelementptr inbounds i8, ptr %.079102.i, i64 144
+  %37 = getelementptr inbounds nuw i8, ptr %.079102.i, i64 144
   %38 = load i32, ptr %37, align 8
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds i8, ptr %23, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %23, i64 24
   store i64 %39, ptr %40, align 8
   %41 = add nuw nsw i64 %.078101.i, 1
   %.079.i = load ptr, ptr %.079102.i, align 8
@@ -899,14 +899,14 @@ define internal fastcc void @uv__udp_sendmsg(ptr noundef %0) unnamed_addr #0 {
   %59 = load i32, ptr %.pre-phi.i, align 4
   %60 = sub nsw i32 0, %59
   %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds i8, ptr %.180111.i, i64 160
+  %62 = getelementptr inbounds nuw i8, ptr %.180111.i, i64 160
   store i64 %61, ptr %62, align 8
   %63 = load ptr, ptr %.180111.i, align 8
-  %64 = getelementptr inbounds i8, ptr %.180111.i, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %.180111.i, i64 8
   %65 = load ptr, ptr %64, align 8
   store ptr %63, ptr %65, align 8
   %66 = load ptr, ptr %64, align 8
-  %67 = getelementptr inbounds i8, ptr %63, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store ptr %66, ptr %67, align 8
   store ptr %19, ptr %.180111.i, align 8
   %68 = load ptr, ptr %20, align 8
@@ -923,18 +923,18 @@ define internal fastcc void @uv__udp_sendmsg(ptr noundef %0) unnamed_addr #0 {
 .lr.ph107.i:                                      ; preds = %.preheader86.i, %.lr.ph107.i
   %.2106.i = phi ptr [ %.2.i, %.lr.ph107.i ], [ %.2104.i, %.preheader86.i ]
   %.1105.i = phi i64 [ %84, %.lr.ph107.i ], [ 0, %.preheader86.i ]
-  %73 = getelementptr inbounds i8, ptr %.2106.i, i64 152
+  %73 = getelementptr inbounds nuw i8, ptr %.2106.i, i64 152
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %76 = load i64, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %.2106.i, i64 160
+  %77 = getelementptr inbounds nuw i8, ptr %.2106.i, i64 160
   store i64 %76, ptr %77, align 8
   %78 = load ptr, ptr %.2106.i, align 8
-  %79 = getelementptr inbounds i8, ptr %.2106.i, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %.2106.i, i64 8
   %80 = load ptr, ptr %79, align 8
   store ptr %78, ptr %80, align 8
   %81 = load ptr, ptr %79, align 8
-  %82 = getelementptr inbounds i8, ptr %78, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %78, i64 8
   store ptr %81, ptr %82, align 8
   store ptr %19, ptr %.2106.i, align 8
   %83 = load ptr, ptr %20, align 8
@@ -953,8 +953,8 @@ define internal fastcc void @uv__udp_sendmsg(ptr noundef %0) unnamed_addr #0 {
   br i1 %88, label %.sink.split133.i, label %21
 
 .sink.split133.i:                                 ; preds = %.preheader86.i, %._crit_edge.i, %.lr.ph112.i, %.preheader.i
-  %.sink135.i = getelementptr inbounds i8, ptr %0, i64 128
-  %89 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sink135.i = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %90 = load ptr, ptr %89, align 8
   call void @uv__io_feed(ptr noundef %90, ptr noundef nonnull %.sink135.i) #9
   br label %uv__udp_sendmmsg.exit
@@ -966,7 +966,7 @@ uv__udp_sendmmsg.exit:                            ; preds = %14, %.critedge.thre
 91:                                               ; preds = %.lr.ph, %.critedge34
   %92 = phi ptr [ %5, %.lr.ph ], [ %124, %.critedge34 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
-  %93 = getelementptr inbounds i8, ptr %92, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 16
   %94 = load i16, ptr %93, align 8
   %95 = icmp eq i16 %94, 0
   br i1 %95, label %100, label %96
@@ -995,10 +995,10 @@ uv__udp_sendmmsg.exit:                            ; preds = %14, %.critedge.thre
   br label %100
 
 100:                                              ; preds = %.sink.split, %91
-  %101 = getelementptr inbounds i8, ptr %92, i64 152
+  %101 = getelementptr inbounds nuw i8, ptr %92, i64 152
   %102 = load ptr, ptr %101, align 8
   store ptr %102, ptr %7, align 8
-  %103 = getelementptr inbounds i8, ptr %92, i64 144
+  %103 = getelementptr inbounds nuw i8, ptr %92, i64 144
   %104 = load i32, ptr %103, align 8
   %105 = zext i32 %104 to i64
   store i64 %105, ptr %8, align 8
@@ -1026,14 +1026,14 @@ uv__udp_sendmmsg.exit:                            ; preds = %14, %.critedge.thre
 
 .critedge34:                                      ; preds = %106, %.critedge33
   %115 = phi i64 [ %114, %.critedge33 ], [ %108, %106 ]
-  %116 = getelementptr inbounds i8, ptr %92, i64 160
+  %116 = getelementptr inbounds nuw i8, ptr %92, i64 160
   store i64 %115, ptr %116, align 8
   %117 = load ptr, ptr %92, align 8
-  %118 = getelementptr inbounds i8, ptr %92, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %119 = load ptr, ptr %118, align 8
   store ptr %117, ptr %119, align 8
   %120 = load ptr, ptr %118, align 8
-  %121 = getelementptr inbounds i8, ptr %117, i64 8
+  %121 = getelementptr inbounds nuw i8, ptr %117, i64 8
   store ptr %120, ptr %121, align 8
   store ptr %10, ptr %92, align 8
   %122 = load ptr, ptr %11, align 8
@@ -1056,7 +1056,7 @@ declare void @uv__io_start(ptr noundef, ptr noundef, i32 noundef) local_unnamed_
 define dso_local i32 @uv__udp_try_send(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %union.uv__sockaddr, align 4
   %7 = alloca %struct.msghdr, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i64, ptr %8, align 8
   %.not = icmp eq i64 %9, 0
   br i1 %.not, label %10, label %.loopexit
@@ -1068,7 +1068,7 @@ define dso_local i32 @uv__udp_try_send(ptr nocapture noundef %0, ptr noundef %1,
 11:                                               ; preds = %10
   %12 = load i16, ptr %3, align 2
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %6)
-  %13 = getelementptr inbounds i8, ptr %0, i64 176
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %14 = load i32, ptr %13, align 8
   %.not.i = icmp eq i32 %14, -1
   br i1 %.not.i, label %15, label %uv__udp_maybe_deferred_bind.exit.thread
@@ -1087,7 +1087,7 @@ define dso_local i32 @uv__udp_try_send(ptr nocapture noundef %0, ptr noundef %1,
 .split.i:                                         ; preds = %15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %6, i8 0, i64 28, i1 false)
   store i16 10, ptr %6, align 4
-  %16 = getelementptr inbounds i8, ptr %6, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %16, ptr noundef nonnull align 4 dereferenceable(16) @in6addr_any, i64 16, i1 false)
   br label %.sink.split.i
 
@@ -1117,7 +1117,7 @@ define dso_local i32 @uv__udp_try_send(ptr nocapture noundef %0, ptr noundef %1,
 ._crit_edge.i:                                    ; preds = %21
   %27 = load i16, ptr %6, align 4
   %28 = icmp eq i16 %27, 10
-  %29 = getelementptr inbounds i8, ptr %0, i64 88
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %30 = load i32, ptr %29, align 8
   %31 = or i32 %30, 4194304
   %32 = select i1 %28, i32 %31, i32 %30
@@ -1141,17 +1141,17 @@ uv__udp_maybe_deferred_bind.exit:                 ; preds = %23
   br i1 %.not19, label %35, label %.loopexit
 
 35:                                               ; preds = %uv__udp_maybe_deferred_bind.exit.thread, %10, %uv__udp_maybe_deferred_bind.exit
-  %36 = getelementptr inbounds i8, ptr %7, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %36, i8 0, i64 48, i1 false)
   store ptr %3, ptr %7, align 8
-  %37 = getelementptr inbounds i8, ptr %7, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %4, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %7, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %1, ptr %38, align 8
   %39 = zext i32 %2 to i64
-  %40 = getelementptr inbounds i8, ptr %7, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 %39, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 176
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 176
   br label %42
 
 42:                                               ; preds = %46, %35
@@ -1196,34 +1196,34 @@ define dso_local range(i32 -2147483648, 1) i32 @uv__udp_init_ex(ptr noundef %0, 
 
 8:                                                ; preds = %4, %5
   %.0 = phi i32 [ %6, %5 ], [ -1, %4 ]
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 15, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 88
   store i32 8, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
-  %13 = getelementptr inbounds i8, ptr %1, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store ptr %15, ptr %16, align 8
   store ptr %13, ptr %15, align 8
   store ptr %13, ptr %14, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr null, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 96
-  %19 = getelementptr inbounds i8, ptr %1, i64 128
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, i8 0, i64 32, i1 false)
   tail call void @uv__io_init(ptr noundef nonnull %19, ptr noundef nonnull @uv__udp_io, i32 noundef %.0) #9
-  %20 = getelementptr inbounds i8, ptr %1, i64 184
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 184
   store ptr %20, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 192
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 192
   store ptr %20, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 200
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 200
   store ptr %22, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 208
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 208
   store ptr %22, ptr %23, align 8
   br label %24
 
@@ -1252,16 +1252,16 @@ define internal void @uv__udp_io(ptr nocapture readnone %0, ptr noundef %1, i32 
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %10, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   %14 = getelementptr inbounds i8, ptr %1, i64 -16
   %15 = getelementptr inbounds i8, ptr %1, i64 -40
-  %16 = getelementptr inbounds i8, ptr %1, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %17 = getelementptr inbounds i8, ptr %1, i64 -8
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %7, i64 8
-  %18 = getelementptr inbounds i8, ptr %9, i64 8
-  %19 = getelementptr inbounds i8, ptr %9, i64 16
-  %20 = getelementptr inbounds i8, ptr %9, i64 24
-  %21 = getelementptr inbounds i8, ptr %9, i64 48
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 48
   br label %22
 
 22:                                               ; preds = %119, %13
@@ -1319,21 +1319,21 @@ uv_udp_using_recvmmsg.exit.i:                     ; preds = %33
   %.04960.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %52, %41 ]
   %42 = shl nuw i64 %.04960.i.i, 16
   %43 = getelementptr inbounds i8, ptr %39, i64 %42
-  %44 = getelementptr inbounds [20 x %struct.iovec], ptr %5, i64 0, i64 %.04960.i.i
+  %44 = getelementptr inbounds nuw [20 x %struct.iovec], ptr %5, i64 0, i64 %.04960.i.i
   store ptr %43, ptr %44, align 16
-  %45 = getelementptr inbounds i8, ptr %44, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i64 65536, ptr %45, align 8
-  %46 = getelementptr inbounds [20 x %struct.uv__mmsghdr], ptr %6, i64 0, i64 %.04960.i.i
+  %46 = getelementptr inbounds nuw [20 x %struct.uv__mmsghdr], ptr %6, i64 0, i64 %.04960.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %46, i8 0, i64 56, i1 false)
-  %47 = getelementptr inbounds i8, ptr %46, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   store ptr %44, ptr %47, align 16
-  %48 = getelementptr inbounds i8, ptr %46, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 24
   store i64 1, ptr %48, align 8
-  %49 = getelementptr inbounds %struct.sockaddr_in6, ptr %4, i64 %.04960.i.i
+  %49 = getelementptr inbounds nuw %struct.sockaddr_in6, ptr %4, i64 %.04960.i.i
   store ptr %49, ptr %46, align 16
-  %50 = getelementptr inbounds i8, ptr %46, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store i32 28, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %46, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %52 = add nuw nsw i64 %.04960.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %52, %spec.store.select.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %51, i8 0, i64 20, i1 false)
@@ -1389,15 +1389,15 @@ uv_udp_using_recvmmsg.exit.i:                     ; preds = %33
   br i1 %.not.i42.i, label %uv__udp_recvmmsg.exit.i, label %74
 
 74:                                               ; preds = %.lr.ph63.i.i
-  %75 = getelementptr inbounds [20 x %struct.uv__mmsghdr], ptr %6, i64 0, i64 %.162.i.i
-  %76 = getelementptr inbounds i8, ptr %75, i64 48
+  %75 = getelementptr inbounds nuw [20 x %struct.uv__mmsghdr], ptr %6, i64 0, i64 %.162.i.i
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 48
   %77 = load i32, ptr %76, align 16
   %78 = and i32 %77, 32
   %.not55.i.i = icmp eq i32 %78, 0
   %spec.select.i.i = select i1 %.not55.i.i, i32 8, i32 10
-  %79 = getelementptr inbounds [20 x %struct.iovec], ptr %5, i64 0, i64 %.162.i.i
+  %79 = getelementptr inbounds nuw [20 x %struct.iovec], ptr %5, i64 0, i64 %.162.i.i
   %80 = load ptr, ptr %79, align 16
-  %81 = getelementptr inbounds i8, ptr %79, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %82 = load i64, ptr %81, align 8
   %83 = trunc i64 %82 to i32
   %84 = call { ptr, i64 } @uv_buf_init(ptr noundef %80, i32 noundef %83) #9
@@ -1406,7 +1406,7 @@ uv_udp_using_recvmmsg.exit.i:                     ; preds = %33
   store ptr %85, ptr %7, align 8
   store i64 %86, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %87 = load ptr, ptr %17, align 8
-  %88 = getelementptr inbounds i8, ptr %75, i64 56
+  %88 = getelementptr inbounds nuw i8, ptr %75, i64 56
   %89 = load i32, ptr %88, align 8
   %90 = zext i32 %89 to i64
   %91 = load ptr, ptr %75, align 16
@@ -1521,7 +1521,7 @@ uv__udp_recvmsg.exit:                             ; preds = %114, %117, %119, %3
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @uv_udp_using_recvmmsg(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 88
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 67108864
   %.not = icmp eq i32 %4, 0
@@ -1586,13 +1586,13 @@ define internal void @uv__udp_mmsg_init() #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @uv_udp_open(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 176
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, -1
   br i1 %.not, label %6, label %23
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 @uv__fd_exists(ptr noundef %8, i32 noundef %1) #9
   %.not15 = icmp eq i32 %9, 0
@@ -1629,7 +1629,7 @@ uv__set_reuse.exit:                               ; preds = %12
   br i1 %.not18, label %23, label %19
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %0, i64 88
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %21 = load i32, ptr %20, align 8
   %22 = or i32 %21, 33554432
   store i32 %22, ptr %20, align 8
@@ -1661,7 +1661,7 @@ define dso_local i32 @uv_udp_set_membership(ptr nocapture noundef %0, ptr nounde
 
 14:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %9)
-  %15 = getelementptr inbounds i8, ptr %0, i64 176
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %16 = load i32, ptr %15, align 8
   %.not.i = icmp eq i32 %16, -1
   br i1 %.not.i, label %uv__udp_maybe_deferred_bind.exit, label %uv__udp_maybe_deferred_bind.exit.thread
@@ -1685,19 +1685,19 @@ uv__udp_maybe_deferred_bind.exit:                 ; preds = %14
   br i1 %.not.i17, label %22, label %19
 
 19:                                               ; preds = %18
-  %20 = getelementptr inbounds i8, ptr %8, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %21 = call i32 @uv_inet_pton(i32 noundef 2, ptr noundef nonnull %2, ptr noundef nonnull %20) #9
   %.not11.i = icmp eq i32 %21, 0
   br i1 %.not11.i, label %25, label %uv__udp_set_membership4.exit
 
 22:                                               ; preds = %18
   %23 = call i32 @htonl(i32 noundef 0) #10
-  %24 = getelementptr inbounds i8, ptr %8, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %23, ptr %24, align 4
   br label %25
 
 25:                                               ; preds = %22, %19
-  %26 = getelementptr inbounds i8, ptr %10, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %27 = load i32, ptr %26, align 4
   store i32 %27, ptr %8, align 8
   switch i32 %3, label %uv__udp_set_membership4.exit [
@@ -1733,7 +1733,7 @@ uv__udp_set_membership4.exit:                     ; preds = %19, %25, %29, %32
 
 39:                                               ; preds = %36
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %7)
-  %40 = getelementptr inbounds i8, ptr %0, i64 176
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %41 = load i32, ptr %40, align 8
   %.not.i19 = icmp eq i32 %41, -1
   br i1 %.not.i19, label %uv__udp_maybe_deferred_bind.exit21, label %uv__udp_maybe_deferred_bind.exit21.thread
@@ -1745,7 +1745,7 @@ uv__udp_maybe_deferred_bind.exit21.thread:        ; preds = %39
 uv__udp_maybe_deferred_bind.exit21:               ; preds = %39
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %7, i8 0, i64 28, i1 false)
   store i16 10, ptr %7, align 4
-  %42 = getelementptr inbounds i8, ptr %7, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %42, ptr noundef nonnull align 4 dereferenceable(16) @in6addr_any, i64 16, i1 false)
   %43 = call i32 @uv__udp_bind(ptr noundef nonnull %0, ptr noundef nonnull %7, i32 noundef 28, i32 noundef 4)
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %7)
@@ -1755,7 +1755,7 @@ uv__udp_maybe_deferred_bind.exit21:               ; preds = %39
 44:                                               ; preds = %uv__udp_maybe_deferred_bind.exit21.thread, %uv__udp_maybe_deferred_bind.exit21
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %6)
-  %45 = getelementptr inbounds i8, ptr %5, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 0, ptr %45, align 4
   %.not.i22 = icmp eq ptr %2, null
   br i1 %.not.i22, label %51, label %46
@@ -1766,13 +1766,13 @@ uv__udp_maybe_deferred_bind.exit21:               ; preds = %39
   br i1 %.not8.i, label %48, label %uv__udp_set_membership6.exit
 
 48:                                               ; preds = %46
-  %49 = getelementptr inbounds i8, ptr %6, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %50 = load i32, ptr %49, align 4
   store i32 %50, ptr %45, align 4
   br label %51
 
 51:                                               ; preds = %48, %44
-  %52 = getelementptr inbounds i8, ptr %11, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %11, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull readonly align 4 dereferenceable(16) %52, i64 16, i1 false)
   switch i32 %3, label %uv__udp_set_membership6.exit [
     i32 1, label %54
@@ -1837,7 +1837,7 @@ define dso_local i32 @uv_udp_set_source_membership(ptr nocapture noundef %0, ptr
   call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %8)
-  %19 = getelementptr inbounds i8, ptr %0, i64 176
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %20 = load i32, ptr %19, align 8
   %.not.i.i = icmp eq i32 %20, -1
   br i1 %.not.i.i, label %uv__udp_maybe_deferred_bind.exit.i, label %uv__udp_maybe_deferred_bind.exit.thread.i
@@ -1849,7 +1849,7 @@ uv__udp_maybe_deferred_bind.exit.thread.i:        ; preds = %18
 uv__udp_maybe_deferred_bind.exit.i:               ; preds = %18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %8, i8 0, i64 28, i1 false)
   store i16 10, ptr %8, align 4
-  %21 = getelementptr inbounds i8, ptr %8, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) @in6addr_any, i64 16, i1 false)
   %22 = call i32 @uv__udp_bind(ptr noundef nonnull %0, ptr noundef nonnull %8, i32 noundef 28, i32 noundef 4)
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %8)
@@ -1867,16 +1867,16 @@ uv__udp_maybe_deferred_bind.exit.i:               ; preds = %18
   br i1 %.not19.i, label %26, label %uv__udp_set_source_membership6.exit
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %10, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %28 = load i32, ptr %27, align 4
   br label %29
 
 29:                                               ; preds = %26, %23
   %storemerge.i = phi i32 [ %28, %26 ], [ 0, %23 ]
   store i32 %storemerge.i, ptr %9, align 8
-  %30 = getelementptr inbounds i8, ptr %9, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %9, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %30, ptr noundef nonnull readonly align 4 dereferenceable(28) %11, i64 28, i1 false)
-  %31 = getelementptr inbounds i8, ptr %9, i64 136
+  %31 = getelementptr inbounds nuw i8, ptr %9, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %31, ptr noundef nonnull readonly align 4 dereferenceable(28) %12, i64 28, i1 false)
   switch i32 %4, label %uv__udp_set_source_membership6.exit [
     i32 1, label %33
@@ -1913,7 +1913,7 @@ uv__udp_set_source_membership6.exit:              ; preds = %uv__udp_maybe_defer
 42:                                               ; preds = %40
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %6)
-  %43 = getelementptr inbounds i8, ptr %0, i64 176
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %44 = load i32, ptr %43, align 8
   %.not.i.i23 = icmp eq i32 %44, -1
   br i1 %.not.i.i23, label %uv__udp_maybe_deferred_bind.exit.i30, label %uv__udp_maybe_deferred_bind.exit.thread.i24
@@ -1936,24 +1936,24 @@ uv__udp_maybe_deferred_bind.exit.i30:             ; preds = %42
   br i1 %.not18.i25, label %50, label %47
 
 47:                                               ; preds = %46
-  %48 = getelementptr inbounds i8, ptr %7, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %49 = call i32 @uv_inet_pton(i32 noundef 2, ptr noundef nonnull %2, ptr noundef nonnull %48) #9
   %.not19.i26 = icmp eq i32 %49, 0
   br i1 %.not19.i26, label %53, label %uv__udp_set_source_membership4.exit
 
 50:                                               ; preds = %46
   %51 = call i32 @htonl(i32 noundef 0) #10
-  %52 = getelementptr inbounds i8, ptr %7, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %51, ptr %52, align 4
   br label %53
 
 53:                                               ; preds = %50, %47
-  %54 = getelementptr inbounds i8, ptr %11, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %55 = load i32, ptr %54, align 4
   store i32 %55, ptr %7, align 4
-  %56 = getelementptr inbounds i8, ptr %12, i64 4
+  %56 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %57 = load i32, ptr %56, align 4
-  %58 = getelementptr inbounds i8, ptr %7, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %57, ptr %58, align 4
   switch i32 %4, label %uv__udp_set_source_membership4.exit [
     i32 1, label %60
@@ -1990,7 +1990,7 @@ uv__udp_set_source_membership4.exit:              ; preds = %uv__udp_maybe_defer
 define dso_local range(i32 -2147483647, -2147483648) i32 @uv_udp_set_broadcast(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   store i32 %1, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 176
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %5 = load i32, ptr %4, align 8
   %6 = call i32 @setsockopt(i32 noundef %5, i32 noundef 1, i32 noundef 6, ptr noundef nonnull %3, i32 noundef 4) #9
   %.not = icmp eq i32 %6, 0
@@ -2017,11 +2017,11 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_udp_set_ttl(ptr noc
 5:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store i32 %1, ptr %3, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 88
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 4194304
   %.not.i.i = icmp eq i32 %8, 0
-  %9 = getelementptr inbounds i8, ptr %0, i64 176
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %10 = load i32, ptr %9, align 8
   br i1 %.not.i.i, label %13, label %11
 
@@ -2063,11 +2063,11 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_udp_set_multicast_t
   br i1 %or.cond.i, label %uv__setsockopt_maybe_char.exit, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 4194304
   %.not.i.i = icmp eq i32 %7, 0
-  %8 = getelementptr inbounds i8, ptr %0, i64 176
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %9 = load i32, ptr %8, align 8
   br i1 %.not.i.i, label %12, label %10
 
@@ -2105,11 +2105,11 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_udp_set_multicast_l
   br i1 %or.cond.i, label %uv__setsockopt_maybe_char.exit, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 4194304
   %.not.i.i = icmp eq i32 %7, 0
-  %8 = getelementptr inbounds i8, ptr %0, i64 176
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %9 = load i32, ptr %8, align 8
   br i1 %.not.i.i, label %12, label %10
 
@@ -2146,7 +2146,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_udp_set_multicast_i
 
 4:                                                ; preds = %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %3, i8 0, i64 128, i1 false)
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 4194304
   %.not14 = icmp eq i32 %7, 0
@@ -2159,7 +2159,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_udp_set_multicast_i
 .thread:                                          ; preds = %4
   store i16 2, ptr %3, align 8
   %8 = tail call i32 @htonl(i32 noundef 0) #10
-  %9 = getelementptr inbounds i8, ptr %3, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %8, ptr %9, align 4
   br label %17
 
@@ -2181,17 +2181,17 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_udp_set_multicast_i
   ]
 
 17:                                               ; preds = %.thread, %16
-  %18 = getelementptr inbounds i8, ptr %0, i64 176
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %19 = load i32, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %3, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %21 = call i32 @setsockopt(i32 noundef %19, i32 noundef 0, i32 noundef 32, ptr noundef nonnull %20, i32 noundef 4) #9
   %22 = icmp eq i32 %21, -1
   br i1 %22, label %.sink.split, label %33
 
 23:                                               ; preds = %.thread15, %16
-  %24 = getelementptr inbounds i8, ptr %0, i64 176
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %25 = load i32, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %3, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %27 = call i32 @setsockopt(i32 noundef %25, i32 noundef 41, i32 noundef 17, ptr noundef nonnull %26, i32 noundef 4) #9
   %28 = icmp eq i32 %27, -1
   br i1 %28, label %.sink.split, label %33
@@ -2246,14 +2246,14 @@ define dso_local i32 @uv__udp_recv_start(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %or.cond, label %46, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 128
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %9 = tail call i32 @uv__io_active(ptr noundef nonnull %8, i32 noundef 1) #9
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %46
 
 10:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4)
-  %11 = getelementptr inbounds i8, ptr %0, i64 176
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %12 = load i32, ptr %11, align 8
   %.not.i = icmp eq i32 %12, -1
   br i1 %.not.i, label %13, label %uv__udp_maybe_deferred_bind.exit.thread
@@ -2280,7 +2280,7 @@ define dso_local i32 @uv__udp_recv_start(ptr noundef %0, ptr noundef %1, ptr nou
 ._crit_edge.i:                                    ; preds = %16
   %22 = load i16, ptr %4, align 4
   %23 = icmp eq i16 %22, 10
-  %24 = getelementptr inbounds i8, ptr %0, i64 88
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %25 = load i32, ptr %24, align 8
   %26 = or i32 %25, 4194304
   %27 = select i1 %23, i32 %26, i32 %25
@@ -2304,14 +2304,14 @@ uv__udp_maybe_deferred_bind.exit:                 ; preds = %18
   br i1 %.not20, label %30, label %46
 
 30:                                               ; preds = %uv__udp_maybe_deferred_bind.exit.thread, %uv__udp_maybe_deferred_bind.exit
-  %31 = getelementptr inbounds i8, ptr %0, i64 112
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %1, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 120
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %2, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8
   call void @uv__io_start(ptr noundef %34, ptr noundef nonnull %8, i32 noundef 1) #9
-  %35 = getelementptr inbounds i8, ptr %0, i64 88
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %36 = load i32, ptr %35, align 8
   %37 = and i32 %36, 4
   %.not21 = icmp eq i32 %37, 0
@@ -2326,7 +2326,7 @@ uv__udp_maybe_deferred_bind.exit:                 ; preds = %18
 
 41:                                               ; preds = %38
   %42 = load ptr, ptr %33, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load i32, ptr %43, align 8
   %45 = add i32 %44, 1
   store i32 %45, ptr %43, align 8
@@ -2341,16 +2341,16 @@ declare i32 @uv__io_active(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @uv__udp_recv_stop(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 128
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   tail call void @uv__io_stop(ptr noundef %3, ptr noundef nonnull %4, i32 noundef 1) #9
   %5 = tail call i32 @uv__io_active(ptr noundef nonnull %4, i32 noundef 4) #9
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %19
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 4
   %10 = icmp eq i32 %9, 0
@@ -2365,14 +2365,14 @@ define dso_local noundef i32 @uv__udp_recv_stop(ptr noundef %0) local_unnamed_ad
 
 14:                                               ; preds = %11
   %15 = load ptr, ptr %2, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 8
   br label %19
 
 19:                                               ; preds = %6, %14, %11, %1
-  %20 = getelementptr inbounds i8, ptr %0, i64 112
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
   ret i32 0
 }

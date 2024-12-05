@@ -227,7 +227,7 @@ define internal i32 @dissect_greb(ptr noundef %0, ptr nocapture noundef readonly
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #4
   %7 = lshr i8 %6, 4
   %8 = zext nneg i8 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @col_set_str(ptr noundef %10, i32 noundef 34, ptr noundef nonnull @.str.45) #4
   %11 = load i32, ptr @proto_greb, align 4

@@ -13,8 +13,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @pmix_list_item_construct(ptr nocapture noundef writeonly initializes((120, 140)) %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 120
-  %3 = getelementptr inbounds i8, ptr %0, i64 136
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   store i32 1, ptr %3, align 8
   ret void
@@ -27,31 +27,31 @@ define internal void @pmix_list_item_destruct(ptr nocapture readnone %0) #1 {
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @pmix_list_construct(ptr noundef %0) #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 120
-  %3 = getelementptr inbounds i8, ptr %0, i64 240
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store ptr %2, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 248
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store ptr %2, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 264
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 264
   store volatile i64 0, ptr %5, align 8
   ret void
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @pmix_list_destruct(ptr noundef %0) #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 120
-  %3 = getelementptr inbounds i8, ptr %0, i64 240
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store ptr %2, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 248
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store ptr %2, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 264
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 264
   store volatile i64 0, ptr %5, align 8
   ret void
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
 define noundef zeroext i1 @pmix_list_insert(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #3 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 264
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %5 = load volatile i64, ptr %4, align 8
   %.not = icmp slt i64 %2, %5
   br i1 %.not, label %6, label %30
@@ -61,21 +61,21 @@ define noundef zeroext i1 @pmix_list_insert(ptr noundef %0, ptr noundef %1, i64 
   br i1 %7, label %8, label %16
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %0, i64 120
-  %10 = getelementptr inbounds i8, ptr %0, i64 240
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 120
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store ptr %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store ptr %9, ptr %13, align 8
   %14 = load ptr, ptr %10, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 128
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 128
   store volatile ptr %1, ptr %15, align 8
   store ptr %1, ptr %10, align 8
   br label %.sink.split
 
 16:                                               ; preds = %6
-  %17 = getelementptr inbounds i8, ptr %0, i64 240
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %18 = load ptr, ptr %17, align 8
   %19 = icmp sgt i64 %2, 1
   br i1 %19, label %.lr.ph.preheader, label %._crit_edge
@@ -87,7 +87,7 @@ define noundef zeroext i1 @pmix_list_insert(ptr noundef %0, ptr noundef %1, i64 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.02024 = phi ptr [ %18, %.lr.ph.preheader ], [ %22, %.lr.ph ]
-  %21 = getelementptr inbounds i8, ptr %.02024, i64 120
+  %21 = getelementptr inbounds nuw i8, ptr %.02024, i64 120
   %22 = load volatile ptr, ptr %21, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv, %20
@@ -95,13 +95,13 @@ define noundef zeroext i1 @pmix_list_insert(ptr noundef %0, ptr noundef %1, i64 
 
 ._crit_edge:                                      ; preds = %.lr.ph, %16
   %.020.lcssa = phi ptr [ %18, %16 ], [ %22, %.lr.ph ]
-  %23 = getelementptr inbounds i8, ptr %.020.lcssa, i64 120
+  %23 = getelementptr inbounds nuw i8, ptr %.020.lcssa, i64 120
   %24 = load volatile ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 120
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store ptr %24, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 128
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store ptr %.020.lcssa, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %24, i64 128
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 128
   store volatile ptr %1, ptr %27, align 8
   store volatile ptr %1, ptr %23, align 8
   br label %.sink.split
@@ -118,30 +118,30 @@ define noundef zeroext i1 @pmix_list_insert(ptr noundef %0, ptr noundef %1, i64 
 
 ; Function Attrs: nofree norecurse nounwind uwtable
 define void @pmix_list_join(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 264
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 264
   %5 = load volatile i64, ptr %4, align 8
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %26, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %2, i64 120
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %.not.i = icmp eq ptr %1, %7
   br i1 %.not.i, label %pmix_list_transfer.exit, label %8
 
 8:                                                ; preds = %6
   %9 = getelementptr i8, ptr %2, i64 240
   %.val = load ptr, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 248
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 248
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 120
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 120
   store volatile ptr %1, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %.val, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %.val, i64 128
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 120
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 120
   store volatile ptr %7, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 128
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 120
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 120
   store volatile ptr %.val, ptr %18, align 8
   %19 = load ptr, ptr %16, align 8
   %20 = load ptr, ptr %10, align 8
@@ -153,7 +153,7 @@ define void @pmix_list_join(ptr noundef %0, ptr noundef %1, ptr noundef %2) loca
 
 pmix_list_transfer.exit:                          ; preds = %6, %8
   %22 = load volatile i64, ptr %4, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 264
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %24 = load volatile i64, ptr %23, align 8
   %25 = add i64 %24, %22
   store volatile i64 %25, ptr %23, align 8
@@ -177,7 +177,7 @@ define void @pmix_list_splice(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   br i1 %.not18, label %10, label %7
 
 7:                                                ; preds = %.preheader
-  %8 = getelementptr inbounds i8, ptr %.020, i64 120
+  %8 = getelementptr inbounds nuw i8, ptr %.020, i64 120
   %9 = load ptr, ptr %8, align 8
   br label %10
 
@@ -191,17 +191,17 @@ define void @pmix_list_splice(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   br i1 %.not.i, label %pmix_list_transfer.exit, label %13
 
 13:                                               ; preds = %12
-  %14 = getelementptr inbounds i8, ptr %4, i64 128
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 120
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 120
   store volatile ptr %1, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %3, i64 128
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 120
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 120
   store volatile ptr %4, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 128
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 120
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 120
   store volatile ptr %3, ptr %22, align 8
   %23 = load ptr, ptr %20, align 8
   %24 = load ptr, ptr %14, align 8
@@ -212,11 +212,11 @@ define void @pmix_list_splice(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   br label %pmix_list_transfer.exit
 
 pmix_list_transfer.exit:                          ; preds = %12, %13
-  %26 = getelementptr inbounds i8, ptr %0, i64 264
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %27 = load volatile i64, ptr %26, align 8
   %28 = add i64 %27, %6
   store volatile i64 %28, ptr %26, align 8
-  %29 = getelementptr inbounds i8, ptr %2, i64 264
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 264
   %30 = load volatile i64, ptr %29, align 8
   %31 = sub i64 %30, %6
   store volatile i64 %31, ptr %29, align 8
@@ -228,7 +228,7 @@ pmix_list_transfer.exit:                          ; preds = %12, %13
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -29, 1) i32 @pmix_list_sort(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 264
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %4 = load volatile i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %40, label %6
@@ -250,7 +250,7 @@ define range(i32 -29, 1) i32 @pmix_list_sort(ptr noundef %0, ptr nocapture nound
   br label %._crit_edge26
 
 .lr.ph:                                           ; preds = %.preheader
-  %13 = getelementptr inbounds i8, ptr %0, i64 240
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 240
   br label %14
 
 14:                                               ; preds = %.lr.ph, %14
@@ -259,11 +259,11 @@ define range(i32 -29, 1) i32 @pmix_list_sort(ptr noundef %0, ptr nocapture nound
   %16 = add i64 %15, -1
   store volatile i64 %16, ptr %3, align 8
   %17 = load ptr, ptr %13, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 128
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 128
   %19 = load volatile ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %17, i64 120
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 120
   %21 = load volatile ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 128
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 128
   store volatile ptr %19, ptr %22, align 8
   %23 = load volatile ptr, ptr %20, align 8
   store ptr %23, ptr %13, align 8
@@ -280,8 +280,8 @@ define range(i32 -29, 1) i32 @pmix_list_sort(ptr noundef %0, ptr nocapture nound
   br i1 %.not, label %._crit_edge26, label %.lr.ph25
 
 .lr.ph25:                                         ; preds = %._crit_edge
-  %28 = getelementptr inbounds i8, ptr %0, i64 120
-  %29 = getelementptr inbounds i8, ptr %0, i64 248
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %.pre = load ptr, ptr %29, align 8
   br label %30
 
@@ -290,11 +290,11 @@ define range(i32 -29, 1) i32 @pmix_list_sort(ptr noundef %0, ptr nocapture nound
   %.01723 = phi i64 [ 0, %.lr.ph25 ], [ %39, %30 ]
   %32 = getelementptr inbounds ptr, ptr %9, i64 %.01723
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 128
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 128
   store ptr %31, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %31, i64 120
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 120
   store volatile ptr %33, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %33, i64 120
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 120
   store ptr %28, ptr %36, align 8
   store ptr %33, ptr %29, align 8
   %37 = load volatile i64, ptr %3, align 8

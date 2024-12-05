@@ -65,10 +65,10 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_finger(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = alloca %struct.nstime_t, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.16) #3
-  %8 = getelementptr inbounds i8, ptr %1, i64 288
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %9 = load i32, ptr %8, align 8
   %.not82.not.not = icmp eq i32 %9, 79
   %10 = load ptr, ptr %6, align 8
@@ -90,16 +90,16 @@ define internal i32 @dissect_finger(ptr noundef %0, ptr noundef %1, ptr noundef 
 19:                                               ; preds = %15, %4
   %.074 = phi ptr [ %17, %15 ], [ %13, %4 ]
   %20 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
-  %21 = getelementptr inbounds i8, ptr %1, i64 80
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 50
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 50
   %24 = load i16, ptr %23, align 2
   %25 = and i16 %24, 8
   %.not = icmp eq i16 %25, 0
   br i1 %.not, label %26, label %54
 
 26:                                               ; preds = %19
-  %27 = getelementptr inbounds i8, ptr %1, i64 328
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %28 = load i16, ptr %27, align 8
   %.not80 = icmp eq i16 %28, 0
   br i1 %.not80, label %63, label %29
@@ -118,18 +118,18 @@ define internal i32 @dissect_finger(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not86, label %38, label %35
 
 35:                                               ; preds = %32, %30
-  %36 = getelementptr inbounds i8, ptr %1, i64 336
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 268435455, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %1, i64 332
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 0, ptr %37, align 4
   br label %128
 
 38:                                               ; preds = %32
-  %39 = getelementptr inbounds i8, ptr %1, i64 20
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %40 = load i32, ptr %39, align 4
   store i32 %40, ptr %.074, align 8
-  %41 = getelementptr inbounds i8, ptr %.074, i64 8
-  %42 = getelementptr inbounds i8, ptr %1, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %.074, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull align 8 dereferenceable(16) %42, i64 16, i1 false)
   br label %.thread
 
@@ -138,22 +138,22 @@ define internal i32 @dissect_finger(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not83, label %51, label %44
 
 44:                                               ; preds = %43
-  %45 = getelementptr inbounds i8, ptr %3, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %46 = load i16, ptr %45, align 4
   %47 = and i16 %46, 1
   %.not84 = icmp eq i16 %47, 0
   br i1 %.not84, label %48, label %.critedge
 
 48:                                               ; preds = %44
-  %49 = getelementptr inbounds i8, ptr %3, i64 12
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %50 = load i32, ptr %49, align 4
   %.not85 = icmp eq i32 %50, 0
   br i1 %.not85, label %51, label %.critedge
 
 51:                                               ; preds = %48, %43
-  %52 = getelementptr inbounds i8, ptr %1, i64 336
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 268435454, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %1, i64 332
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 0, ptr %53, align 4
   br label %128
 
@@ -166,11 +166,11 @@ define internal i32 @dissect_finger(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %57, label %58, label %.thread
 
 58:                                               ; preds = %55
-  %59 = getelementptr inbounds i8, ptr %1, i64 20
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %60 = load i32, ptr %59, align 4
   store i32 %60, ptr %.074, align 8
-  %61 = getelementptr inbounds i8, ptr %.074, i64 8
-  %62 = getelementptr inbounds i8, ptr %1, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %.074, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
   br label %.thread
 
@@ -178,13 +178,13 @@ define internal i32 @dissect_finger(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not82.not.not, label %.thread, label %.critedge
 
 .critedge:                                        ; preds = %48, %44, %54, %63
-  %64 = getelementptr inbounds i8, ptr %.074, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %.074, i64 4
   %65 = load i32, ptr %64, align 4
   %66 = icmp eq i32 %65, 0
   br i1 %66, label %67, label %.thread
 
 67:                                               ; preds = %.critedge
-  %68 = getelementptr inbounds i8, ptr %1, i64 20
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %69 = load i32, ptr %68, align 4
   store i32 %69, ptr %64, align 4
   br label %.thread
@@ -218,7 +218,7 @@ define internal i32 @dissect_finger(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not93, label %proto_item_set_generated.exit, label %85
 
 85:                                               ; preds = %84
-  %86 = getelementptr inbounds i8, ptr %.074, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %.074, i64 4
   %87 = load i32, ptr %86, align 4
   %.not94 = icmp eq i32 %87, 0
   br i1 %.not94, label %proto_item_set_generated.exit, label %88
@@ -230,7 +230,7 @@ define internal i32 @dissect_finger(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not.i, label %proto_item_set_generated.exit, label %91
 
 91:                                               ; preds = %88
-  %92 = getelementptr inbounds i8, ptr %90, i64 32
+  %92 = getelementptr inbounds nuw i8, ptr %90, i64 32
   %93 = load ptr, ptr %92, align 8
   %.not5.i = icmp eq ptr %93, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %proto_item_set_generated.exit.sink.split
@@ -240,7 +240,7 @@ define internal i32 @dissect_finger(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not89, label %proto_item_set_generated.exit, label %95
 
 95:                                               ; preds = %94
-  %96 = getelementptr inbounds i8, ptr %.074, i64 4
+  %96 = getelementptr inbounds nuw i8, ptr %.074, i64 4
   %97 = load i32, ptr %96, align 4
   %.not90 = icmp eq i32 %97, 0
   br i1 %.not90, label %proto_item_set_generated.exit, label %98
@@ -259,28 +259,28 @@ define internal i32 @dissect_finger(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not.i95, label %proto_item_set_generated.exit97, label %105
 
 105:                                              ; preds = %102
-  %106 = getelementptr inbounds i8, ptr %104, i64 32
+  %106 = getelementptr inbounds nuw i8, ptr %104, i64 32
   %107 = load ptr, ptr %106, align 8
   %.not5.i96 = icmp eq ptr %107, null
   br i1 %.not5.i96, label %proto_item_set_generated.exit97, label %108
 
 108:                                              ; preds = %105
-  %109 = getelementptr inbounds i8, ptr %107, i64 28
+  %109 = getelementptr inbounds nuw i8, ptr %107, i64 28
   %110 = load i32, ptr %109, align 4
   %111 = or i32 %110, 2
   store i32 %111, ptr %109, align 4
   br label %proto_item_set_generated.exit97
 
 proto_item_set_generated.exit97:                  ; preds = %102, %105, %108
-  %112 = getelementptr inbounds i8, ptr %1, i64 20
+  %112 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %113 = load i32, ptr %112, align 4
   %114 = load i32, ptr %96, align 4
   %115 = icmp eq i32 %113, %114
   br i1 %115, label %116, label %proto_item_set_generated.exit
 
 116:                                              ; preds = %proto_item_set_generated.exit97
-  %117 = getelementptr inbounds i8, ptr %1, i64 24
-  %118 = getelementptr inbounds i8, ptr %.074, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %118 = getelementptr inbounds nuw i8, ptr %.074, i64 8
   call void @nstime_delta(ptr noundef nonnull %5, ptr noundef nonnull %117, ptr noundef nonnull %118) #3
   %119 = load i32, ptr @hf_finger_response_time, align 4
   %120 = call ptr @proto_tree_add_time(ptr noundef %74, i32 noundef %119, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %5) #3
@@ -288,14 +288,14 @@ proto_item_set_generated.exit97:                  ; preds = %102, %105, %108
   br i1 %.not.i98, label %proto_item_set_generated.exit, label %121
 
 121:                                              ; preds = %116
-  %122 = getelementptr inbounds i8, ptr %120, i64 32
+  %122 = getelementptr inbounds nuw i8, ptr %120, i64 32
   %123 = load ptr, ptr %122, align 8
   %.not5.i99 = icmp eq ptr %123, null
   br i1 %.not5.i99, label %proto_item_set_generated.exit, label %proto_item_set_generated.exit.sink.split
 
 proto_item_set_generated.exit.sink.split:         ; preds = %121, %91
   %.sink105 = phi ptr [ %93, %91 ], [ %123, %121 ]
-  %124 = getelementptr inbounds i8, ptr %.sink105, i64 28
+  %124 = getelementptr inbounds nuw i8, ptr %.sink105, i64 28
   %125 = load i32, ptr %124, align 4
   %126 = or i32 %125, 2
   store i32 %126, ptr %124, align 4

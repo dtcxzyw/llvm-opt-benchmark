@@ -14,7 +14,7 @@ define hidden ptr @allocate(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 360
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 360
   %6 = load ptr, ptr %5, align 8
   %7 = call i32 %6(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %3) #2
   %8 = icmp eq i32 %7, 0
@@ -30,7 +30,7 @@ declare void @JPLISAssertCondition(i8 noundef zeroext, ptr noundef, ptr noundef,
 ; Function Attrs: nounwind uwtable
 define hidden void @deallocate(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 368
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 368
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 %5(ptr noundef nonnull %0, ptr noundef %1) #2
   %7 = icmp eq i32 %6, 0
@@ -46,7 +46,7 @@ define hidden zeroext i8 @isInstanceofClassName(ptr noundef %0, ptr noundef %1, 
   %4 = tail call zeroext i8 @isSafeForJNICalls(ptr noundef %0) #2
   tail call void @JPLISAssertCondition(i8 noundef zeroext %4, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 87) #2
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr %7(ptr noundef nonnull %0, ptr noundef %2) #2
   %9 = tail call zeroext i8 @checkForAndClearThrowable(ptr noundef nonnull %0) #2
@@ -57,7 +57,7 @@ define hidden zeroext i8 @isInstanceofClassName(ptr noundef %0, ptr noundef %1, 
 
 11:                                               ; preds = %3
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 256
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 256
   %14 = load ptr, ptr %13, align 8
   %15 = tail call zeroext i8 %14(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %8) #2
   %16 = tail call zeroext i8 @checkForAndClearThrowable(ptr noundef nonnull %0) #2
@@ -80,7 +80,7 @@ declare zeroext i8 @checkForAndClearThrowable(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden void @abortJVM(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 144
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 144
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr noundef nonnull %0, ptr noundef %1) #2
   ret void

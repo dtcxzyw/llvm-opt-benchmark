@@ -864,7 +864,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_SA_.exi
 
 invoke.cont:                                      ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_SA_.exit
   %1 = load ptr, ptr %agg.tmp, align 8
-  %2 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
   %3 = load i64, ptr %2, align 8
   invoke void @_ZN4base8FilePathC1ENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr %1, i64 %3)
           to label %invoke.cont4 unwind label %lpad
@@ -899,8 +899,8 @@ cleanup.action17:                                 ; preds = %lpad, %lpad6
 
 if.end:                                           ; preds = %cleanup.action, %cleanup.done15
   call void @_ZN4base8FilePathC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %new_path)
-  %6 = getelementptr inbounds i8, ptr %agg.tmp20, i64 8
-  %7 = getelementptr inbounds i8, ptr %agg.tmp38, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %agg.tmp20, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %agg.tmp38, i64 8
   br i1 %call, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %if.end, %for.inc.us

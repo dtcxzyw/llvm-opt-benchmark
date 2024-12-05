@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @be_ssl_enable(ptr noundef %bev, i16 noundef signext %events) #0 {
 entry:
-  %be_ops.i = getelementptr inbounds i8, ptr %bev, i64 8
+  %be_ops.i = getelementptr inbounds nuw i8, ptr %bev, i64 8
   %0 = load ptr, ptr %be_ops.i, align 8
   %1 = load ptr, ptr %0, align 8
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %1, ptr noundef nonnull dereferenceable(3) @.str, i64 3)
@@ -26,7 +26,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %underlying.i = getelementptr inbounds i8, ptr %bev..i, i64 520
+  %underlying.i = getelementptr inbounds nuw i8, ptr %bev..i, i64 520
   %3 = load ptr, ptr %underlying.i, align 8
   %tobool.not.i18 = icmp eq ptr %3, null
   br i1 %tobool.not.i18, label %if.else.i, label %if.then.i
@@ -36,22 +36,22 @@ if.then.i:                                        ; preds = %if.then
   br label %start_reading.exit
 
 if.else.i:                                        ; preds = %if.then
-  %ev_read.i = getelementptr inbounds i8, ptr %bev..i, i64 16
-  %timeout_read.i = getelementptr inbounds i8, ptr %bev..i, i64 336
+  %ev_read.i = getelementptr inbounds nuw i8, ptr %bev..i, i64 16
+  %timeout_read.i = getelementptr inbounds nuw i8, ptr %bev..i, i64 336
   %call.i = tail call i32 @bufferevent_add_event_(ptr noundef nonnull %ev_read.i, ptr noundef nonnull %timeout_read.i) #7
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %land.lhs.true.i, label %start_reading.exit
 
 land.lhs.true.i:                                  ; preds = %if.else.i
-  %read_blocked_on_write.i = getelementptr inbounds i8, ptr %bev..i, i64 588
+  %read_blocked_on_write.i = getelementptr inbounds nuw i8, ptr %bev..i, i64 588
   %bf.load.i = load i8, ptr %read_blocked_on_write.i, align 4
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool4.not.i = icmp eq i8 %bf.clear.i, 0
   br i1 %tobool4.not.i, label %start_reading.exit, label %if.then5.i
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  %ev_write.i = getelementptr inbounds i8, ptr %bev..i, i64 136
-  %timeout_write.i = getelementptr inbounds i8, ptr %bev..i, i64 352
+  %ev_write.i = getelementptr inbounds nuw i8, ptr %bev..i, i64 136
+  %timeout_write.i = getelementptr inbounds nuw i8, ptr %bev..i, i64 352
   %call6.i = tail call i32 @bufferevent_add_event_(ptr noundef nonnull %ev_write.i, ptr noundef nonnull %timeout_write.i) #7
   br label %start_reading.exit
 
@@ -67,13 +67,13 @@ if.end:                                           ; preds = %start_reading.exit,
   br i1 %tobool4.not, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  %underlying.i19 = getelementptr inbounds i8, ptr %bev..i, i64 520
+  %underlying.i19 = getelementptr inbounds nuw i8, ptr %bev..i, i64 520
   %6 = load ptr, ptr %underlying.i19, align 8
   %tobool.not.i20 = icmp eq ptr %6, null
   br i1 %tobool.not.i20, label %if.else.i23, label %if.then.i21
 
 if.then.i21:                                      ; preds = %if.then5
-  %write_blocked_on_read.i = getelementptr inbounds i8, ptr %bev..i, i64 588
+  %write_blocked_on_read.i = getelementptr inbounds nuw i8, ptr %bev..i, i64 588
   %bf.load.i22 = load i8, ptr %write_blocked_on_read.i, align 4
   %7 = and i8 %bf.load.i22, 2
   %tobool1.not.i = icmp eq i8 %7, 0
@@ -84,22 +84,22 @@ if.then2.i:                                       ; preds = %if.then.i21
   br label %start_writing.exit
 
 if.else.i23:                                      ; preds = %if.then5
-  %ev_write.i24 = getelementptr inbounds i8, ptr %bev..i, i64 136
-  %timeout_write.i25 = getelementptr inbounds i8, ptr %bev..i, i64 352
+  %ev_write.i24 = getelementptr inbounds nuw i8, ptr %bev..i, i64 136
+  %timeout_write.i25 = getelementptr inbounds nuw i8, ptr %bev..i, i64 352
   %call.i26 = tail call i32 @bufferevent_add_event_(ptr noundef nonnull %ev_write.i24, ptr noundef nonnull %timeout_write.i25) #7
   %tobool6.not.i = icmp eq i32 %call.i26, 0
   br i1 %tobool6.not.i, label %land.lhs.true.i27, label %start_writing.exit
 
 land.lhs.true.i27:                                ; preds = %if.else.i23
-  %write_blocked_on_read7.i = getelementptr inbounds i8, ptr %bev..i, i64 588
+  %write_blocked_on_read7.i = getelementptr inbounds nuw i8, ptr %bev..i, i64 588
   %bf.load8.i = load i8, ptr %write_blocked_on_read7.i, align 4
   %8 = and i8 %bf.load8.i, 2
   %tobool12.not.i = icmp eq i8 %8, 0
   br i1 %tobool12.not.i, label %start_writing.exit, label %if.then13.i
 
 if.then13.i:                                      ; preds = %land.lhs.true.i27
-  %ev_read.i28 = getelementptr inbounds i8, ptr %bev..i, i64 16
-  %timeout_read.i29 = getelementptr inbounds i8, ptr %bev..i, i64 336
+  %ev_read.i28 = getelementptr inbounds nuw i8, ptr %bev..i, i64 16
+  %timeout_read.i29 = getelementptr inbounds nuw i8, ptr %bev..i, i64 336
   %call14.i = tail call i32 @bufferevent_add_event_(ptr noundef nonnull %ev_read.i28, ptr noundef nonnull %timeout_read.i29) #7
   br label %start_writing.exit
 
@@ -110,7 +110,7 @@ start_writing.exit:                               ; preds = %if.then.i21, %if.th
 
 if.end7:                                          ; preds = %start_writing.exit, %if.end
   %r2.0 = phi i1 [ %9, %start_writing.exit ], [ false, %if.end ]
-  %underlying = getelementptr inbounds i8, ptr %bev..i, i64 520
+  %underlying = getelementptr inbounds nuw i8, ptr %bev..i, i64 520
   %10 = load ptr, ptr %underlying, align 8
   %tobool8.not = icmp eq ptr %10, null
   br i1 %tobool8.not, label %if.end49, label %if.then9
@@ -119,19 +119,19 @@ if.then9:                                         ; preds = %if.end7
   br i1 %tobool.not, label %if.end21, label %do.body
 
 do.body:                                          ; preds = %if.then9
-  %timeout_read = getelementptr inbounds i8, ptr %bev, i64 336
+  %timeout_read = getelementptr inbounds nuw i8, ptr %bev, i64 336
   %11 = load i64, ptr %timeout_read, align 8
   %tobool14.not = icmp eq i64 %11, 0
   br i1 %tobool14.not, label %lor.lhs.false, label %if.then17
 
 lor.lhs.false:                                    ; preds = %do.body
-  %tv_usec = getelementptr inbounds i8, ptr %bev, i64 344
+  %tv_usec = getelementptr inbounds nuw i8, ptr %bev, i64 344
   %12 = load i64, ptr %tv_usec, align 8
   %tobool16.not = icmp eq i64 %12, 0
   br i1 %tobool16.not, label %if.end21, label %if.then17
 
 if.then17:                                        ; preds = %lor.lhs.false, %do.body
-  %ev_read = getelementptr inbounds i8, ptr %bev, i64 16
+  %ev_read = getelementptr inbounds nuw i8, ptr %bev, i64 16
   %call19 = tail call i32 @event_add(ptr noundef nonnull %ev_read, ptr noundef nonnull %timeout_read) #7
   br label %if.end21
 
@@ -139,19 +139,19 @@ if.end21:                                         ; preds = %if.then17, %lor.lhs
   br i1 %tobool4.not, label %if.end38, label %do.body26
 
 do.body26:                                        ; preds = %if.end21
-  %timeout_write = getelementptr inbounds i8, ptr %bev, i64 352
+  %timeout_write = getelementptr inbounds nuw i8, ptr %bev, i64 352
   %13 = load i64, ptr %timeout_write, align 8
   %tobool28.not = icmp eq i64 %13, 0
   br i1 %tobool28.not, label %lor.lhs.false29, label %if.then33
 
 lor.lhs.false29:                                  ; preds = %do.body26
-  %tv_usec31 = getelementptr inbounds i8, ptr %bev, i64 360
+  %tv_usec31 = getelementptr inbounds nuw i8, ptr %bev, i64 360
   %14 = load i64, ptr %tv_usec31, align 8
   %tobool32.not = icmp eq i64 %14, 0
   br i1 %tobool32.not, label %if.end38, label %if.then33
 
 if.then33:                                        ; preds = %lor.lhs.false29, %do.body26
-  %ev_write = getelementptr inbounds i8, ptr %bev, i64 136
+  %ev_write = getelementptr inbounds nuw i8, ptr %bev, i64 136
   %call35 = tail call i32 @event_add(ptr noundef nonnull %ev_write, ptr noundef nonnull %timeout_write) #7
   br label %if.end38
 
@@ -178,7 +178,7 @@ if.end49:                                         ; preds = %if.end43, %if.then4
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @be_ssl_disable(ptr noundef %bev, i16 noundef signext %events) #0 {
 entry:
-  %be_ops.i = getelementptr inbounds i8, ptr %bev, i64 8
+  %be_ops.i = getelementptr inbounds nuw i8, ptr %bev, i64 8
   %0 = load ptr, ptr %be_ops.i, align 8
   %1 = load ptr, ptr %0, align 8
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %1, ptr noundef nonnull dereferenceable(3) @.str, i64 3)
@@ -189,14 +189,14 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %write_blocked_on_read.i = getelementptr inbounds i8, ptr %bev..i, i64 588
+  %write_blocked_on_read.i = getelementptr inbounds nuw i8, ptr %bev..i, i64 588
   %bf.load.i = load i8, ptr %write_blocked_on_read.i, align 4
   %3 = and i8 %bf.load.i, 2
   %tobool.not.i8 = icmp eq i8 %3, 0
   br i1 %tobool.not.i8, label %if.end.i, label %if.end
 
 if.end.i:                                         ; preds = %if.then
-  %underlying.i = getelementptr inbounds i8, ptr %bev..i, i64 520
+  %underlying.i = getelementptr inbounds nuw i8, ptr %bev..i, i64 520
   %4 = load ptr, ptr %underlying.i, align 8
   %tobool1.not.i = icmp eq ptr %4, null
   br i1 %tobool1.not.i, label %if.else.i, label %if.then2.i
@@ -206,7 +206,7 @@ if.then2.i:                                       ; preds = %if.end.i
   br label %if.end
 
 if.else.i:                                        ; preds = %if.end.i
-  %ev_read.i = getelementptr inbounds i8, ptr %bev..i, i64 16
+  %ev_read.i = getelementptr inbounds nuw i8, ptr %bev..i, i64 16
   %call.i = tail call i32 @event_del(ptr noundef nonnull %ev_read.i) #7
   br label %if.end
 
@@ -216,14 +216,14 @@ if.end:                                           ; preds = %if.else.i, %if.then
   br i1 %tobool3.not, label %if.end5, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %read_blocked_on_write.i = getelementptr inbounds i8, ptr %bev..i, i64 588
+  %read_blocked_on_write.i = getelementptr inbounds nuw i8, ptr %bev..i, i64 588
   %bf.load.i9 = load i8, ptr %read_blocked_on_write.i, align 4
   %bf.clear.i = and i8 %bf.load.i9, 1
   %tobool.not.i10 = icmp eq i8 %bf.clear.i, 0
   br i1 %tobool.not.i10, label %if.end.i11, label %if.end5
 
 if.end.i11:                                       ; preds = %if.then4
-  %underlying.i12 = getelementptr inbounds i8, ptr %bev..i, i64 520
+  %underlying.i12 = getelementptr inbounds nuw i8, ptr %bev..i, i64 520
   %6 = load ptr, ptr %underlying.i12, align 8
   %tobool1.not.i13 = icmp eq ptr %6, null
   br i1 %tobool1.not.i13, label %if.else.i15, label %if.then2.i14
@@ -233,12 +233,12 @@ if.then2.i14:                                     ; preds = %if.end.i11
   br label %if.end5
 
 if.else.i15:                                      ; preds = %if.end.i11
-  %ev_write.i = getelementptr inbounds i8, ptr %bev..i, i64 136
+  %ev_write.i = getelementptr inbounds nuw i8, ptr %bev..i, i64 136
   %call.i16 = tail call i32 @event_del(ptr noundef nonnull %ev_write.i) #7
   br label %if.end5
 
 if.end5:                                          ; preds = %if.else.i15, %if.then2.i14, %if.then4, %if.end
-  %underlying = getelementptr inbounds i8, ptr %bev..i, i64 520
+  %underlying = getelementptr inbounds nuw i8, ptr %bev..i, i64 520
   %7 = load ptr, ptr %underlying, align 8
   %tobool6.not = icmp eq ptr %7, null
   br i1 %tobool6.not, label %if.end20, label %if.then7
@@ -247,7 +247,7 @@ if.then7:                                         ; preds = %if.end5
   br i1 %tobool.not, label %if.end13, label %if.then11
 
 if.then11:                                        ; preds = %if.then7
-  %ev_read = getelementptr inbounds i8, ptr %bev, i64 16
+  %ev_read = getelementptr inbounds nuw i8, ptr %bev, i64 16
   %call12 = tail call i32 @event_del(ptr noundef nonnull %ev_read) #7
   br label %if.end13
 
@@ -255,7 +255,7 @@ if.end13:                                         ; preds = %if.then11, %if.then
   br i1 %tobool3.not, label %if.end20, label %if.then17
 
 if.then17:                                        ; preds = %if.end13
-  %ev_write = getelementptr inbounds i8, ptr %bev, i64 136
+  %ev_write = getelementptr inbounds nuw i8, ptr %bev, i64 136
   %call18 = tail call i32 @event_del(ptr noundef nonnull %ev_write) #7
   br label %if.end20
 
@@ -266,17 +266,17 @@ if.end20:                                         ; preds = %if.end13, %if.then1
 ; Function Attrs: nounwind uwtable
 define internal void @be_ssl_unlink(ptr nocapture noundef readonly %bev) #0 {
 entry:
-  %be_ops.i = getelementptr inbounds i8, ptr %bev, i64 8
+  %be_ops.i = getelementptr inbounds nuw i8, ptr %bev, i64 8
   %0 = load ptr, ptr %be_ops.i, align 8
   %1 = load ptr, ptr %0, align 8
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %1, ptr noundef nonnull dereferenceable(3) @.str, i64 3)
   %tobool.not.i = icmp eq i32 %bcmp.i, 0
   %bev..i = select i1 %tobool.not.i, ptr %bev, ptr null
-  %options = getelementptr inbounds i8, ptr %bev..i, i64 440
+  %options = getelementptr inbounds nuw i8, ptr %bev..i, i64 440
   %2 = load i32, ptr %options, align 8
   %and = and i32 %2, 1
   %tobool.not = icmp eq i32 %and, 0
-  %underlying9 = getelementptr inbounds i8, ptr %bev..i, i64 520
+  %underlying9 = getelementptr inbounds nuw i8, ptr %bev..i, i64 520
   %3 = load ptr, ptr %underlying9, align 8
   %tobool10.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %if.else8, label %if.then
@@ -285,7 +285,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool10.not, label %if.end19, label %if.then3
 
 if.then3:                                         ; preds = %if.then
-  %refcnt = getelementptr inbounds i8, ptr %3, i64 444
+  %refcnt = getelementptr inbounds nuw i8, ptr %3, i64 444
   %4 = load i32, ptr %refcnt, align 4
   %cmp = icmp slt i32 %4, 2
   br i1 %cmp, label %if.then5, label %if.else
@@ -302,7 +302,7 @@ if.else8:                                         ; preds = %entry
   br i1 %tobool10.not, label %if.end19, label %if.then11
 
 if.then11:                                        ; preds = %if.else8
-  %errorcb = getelementptr inbounds i8, ptr %3, i64 320
+  %errorcb = getelementptr inbounds nuw i8, ptr %3, i64 320
   %5 = load ptr, ptr %errorcb, align 8
   %cmp13 = icmp eq ptr %5, @be_ssl_eventcb
   br i1 %cmp13, label %if.then14, label %if.end16
@@ -324,28 +324,28 @@ if.end19:                                         ; preds = %if.else8, %if.end16
 ; Function Attrs: nounwind uwtable
 define internal void @be_ssl_destruct(ptr noundef %bev) #0 {
 entry:
-  %be_ops.i = getelementptr inbounds i8, ptr %bev, i64 8
+  %be_ops.i = getelementptr inbounds nuw i8, ptr %bev, i64 8
   %0 = load ptr, ptr %be_ops.i, align 8
   %1 = load ptr, ptr %0, align 8
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %1, ptr noundef nonnull dereferenceable(3) @.str, i64 3)
   %tobool.not.i = icmp eq i32 %bcmp.i, 0
   %bev..i = select i1 %tobool.not.i, ptr %bev, ptr null
-  %options = getelementptr inbounds i8, ptr %bev..i, i64 440
+  %options = getelementptr inbounds nuw i8, ptr %bev..i, i64 440
   %2 = load i32, ptr %options, align 8
   %and = and i32 %2, 1
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.end8, label %if.then
 
 if.then:                                          ; preds = %entry
-  %underlying = getelementptr inbounds i8, ptr %bev..i, i64 520
+  %underlying = getelementptr inbounds nuw i8, ptr %bev..i, i64 520
   %3 = load ptr, ptr %underlying, align 8
   %tobool2.not = icmp eq ptr %3, null
   br i1 %tobool2.not, label %if.then3, label %if.end8
 
 if.then3:                                         ; preds = %if.then
-  %ssl_ops = getelementptr inbounds i8, ptr %bev..i, i64 536
+  %ssl_ops = getelementptr inbounds nuw i8, ptr %bev..i, i64 536
   %4 = load ptr, ptr %ssl_ops, align 8
-  %get_fd = getelementptr inbounds i8, ptr %4, i64 128
+  %get_fd = getelementptr inbounds nuw i8, ptr %4, i64 128
   %5 = load ptr, ptr %get_fd, align 8
   %call4 = tail call i32 %5(ptr noundef nonnull %bev..i) #7
   %cmp = icmp sgt i32 %call4, -1
@@ -356,11 +356,11 @@ if.then5:                                         ; preds = %if.then3
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then, %if.then5, %if.then3, %entry
-  %ssl_ops9 = getelementptr inbounds i8, ptr %bev..i, i64 536
+  %ssl_ops9 = getelementptr inbounds nuw i8, ptr %bev..i, i64 536
   %6 = load ptr, ptr %ssl_ops9, align 8
-  %free = getelementptr inbounds i8, ptr %6, i64 8
+  %free = getelementptr inbounds nuw i8, ptr %6, i64 8
   %7 = load ptr, ptr %free, align 8
-  %ssl = getelementptr inbounds i8, ptr %bev..i, i64 528
+  %ssl = getelementptr inbounds nuw i8, ptr %bev..i, i64 528
   %8 = load ptr, ptr %ssl, align 8
   %9 = load i32, ptr %options, align 8
   tail call void %7(ptr noundef %8, i32 noundef %9) #7
@@ -370,13 +370,13 @@ if.end8:                                          ; preds = %if.then, %if.then5,
 ; Function Attrs: nounwind uwtable
 define internal i32 @be_ssl_adj_timeouts(ptr noundef %bev) #0 {
 entry:
-  %be_ops.i = getelementptr inbounds i8, ptr %bev, i64 8
+  %be_ops.i = getelementptr inbounds nuw i8, ptr %bev, i64 8
   %0 = load ptr, ptr %be_ops.i, align 8
   %1 = load ptr, ptr %0, align 8
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %1, ptr noundef nonnull dereferenceable(3) @.str, i64 3)
   %tobool.not.i = icmp eq i32 %bcmp.i, 0
   %bev..i = select i1 %tobool.not.i, ptr %bev, ptr null
-  %underlying = getelementptr inbounds i8, ptr %bev..i, i64 520
+  %underlying = getelementptr inbounds nuw i8, ptr %bev..i, i64 520
   %2 = load ptr, ptr %underlying, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %if.else, label %if.then
@@ -403,7 +403,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @be_ssl_ctrl(ptr noundef %bev, i32 noundef %op, ptr nocapture noundef %data) #0 {
 entry:
-  %be_ops.i = getelementptr inbounds i8, ptr %bev, i64 8
+  %be_ops.i = getelementptr inbounds nuw i8, ptr %bev, i64 8
   %0 = load ptr, ptr %be_ops.i, align 8
   %1 = load ptr, ptr %0, align 8
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %1, ptr noundef nonnull dereferenceable(3) @.str, i64 3)
@@ -416,9 +416,9 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %ssl_ops = getelementptr inbounds i8, ptr %bev..i, i64 536
+  %ssl_ops = getelementptr inbounds nuw i8, ptr %bev..i, i64 536
   %2 = load ptr, ptr %ssl_ops, align 8
-  %bio_set_fd = getelementptr inbounds i8, ptr %2, i64 136
+  %bio_set_fd = getelementptr inbounds nuw i8, ptr %2, i64 136
   %3 = load ptr, ptr %bio_set_fd, align 8
   %4 = load i32, ptr %data, align 8
   %call1 = tail call i32 %3(ptr noundef %bev..i, i32 noundef %4) #7
@@ -426,7 +426,7 @@ sw.bb:                                            ; preds = %entry
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %sw.bb
-  %old_state = getelementptr inbounds i8, ptr %bev..i, i64 588
+  %old_state = getelementptr inbounds nuw i8, ptr %bev..i, i64 588
   %bf.load = load i8, ptr %old_state, align 4
   %bf.lshr = lshr i8 %bf.load, 6
   %bf.cast = zext nneg i8 %bf.lshr to i32
@@ -435,17 +435,17 @@ if.end:                                           ; preds = %sw.bb
   br label %return
 
 sw.bb3:                                           ; preds = %entry
-  %underlying = getelementptr inbounds i8, ptr %bev..i, i64 520
+  %underlying = getelementptr inbounds nuw i8, ptr %bev..i, i64 520
   %6 = load ptr, ptr %underlying, align 8
   %tobool.not = icmp eq ptr %6, null
   %bev. = select i1 %tobool.not, ptr %bev, ptr %6
-  %ev_read7 = getelementptr inbounds i8, ptr %bev., i64 16
+  %ev_read7 = getelementptr inbounds nuw i8, ptr %bev., i64 16
   %call8 = tail call i32 @event_get_fd(ptr noundef nonnull %ev_read7) #7
   store i32 %call8, ptr %data, align 8
   br label %return
 
 sw.bb10:                                          ; preds = %entry
-  %underlying11 = getelementptr inbounds i8, ptr %bev..i, i64 520
+  %underlying11 = getelementptr inbounds nuw i8, ptr %bev..i, i64 520
   %7 = load ptr, ptr %underlying11, align 8
   store ptr %7, ptr %data, align 8
   br label %return
@@ -458,7 +458,7 @@ return:                                           ; preds = %entry, %sw.bb, %sw.
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local ptr @bufferevent_ssl_upcast(ptr noundef readonly %bev) local_unnamed_addr #2 {
 entry:
-  %be_ops = getelementptr inbounds i8, ptr %bev, i64 8
+  %be_ops = getelementptr inbounds nuw i8, ptr %bev, i64 8
   %0 = load ptr, ptr %be_ops, align 8
   %1 = load ptr, ptr %0, align 8
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %1, ptr noundef nonnull dereferenceable(3) @.str, i64 3)
@@ -470,7 +470,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @bufferevent_ssl_put_error(ptr nocapture noundef %bev_ssl, i64 noundef %err) local_unnamed_addr #3 {
 entry:
-  %n_errors = getelementptr inbounds i8, ptr %bev_ssl, i64 588
+  %n_errors = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 588
   %bf.load = load i8, ptr %n_errors, align 4
   %bf.lshr = lshr i8 %bf.load, 2
   %bf.clear = and i8 %bf.lshr, 3
@@ -479,14 +479,14 @@ entry:
 
 if.end:                                           ; preds = %entry
   %conv = trunc i64 %err to i32
-  %errors = getelementptr inbounds i8, ptr %bev_ssl, i64 576
+  %errors = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 576
   %bf.value = add i8 %bf.load, 4
   %bf.shl = and i8 %bf.value, 12
   %bf.clear7 = and i8 %bf.load, -13
   %bf.set = or disjoint i8 %bf.shl, %bf.clear7
   store i8 %bf.set, ptr %n_errors, align 4
   %idxprom = zext nneg i8 %bf.clear to i64
-  %arrayidx = getelementptr inbounds [3 x i32], ptr %errors, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [3 x i32], ptr %errors, i64 0, i64 %idxprom
   store i32 %conv, ptr %arrayidx, align 4
   br label %return
 
@@ -497,14 +497,14 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define dso_local void @bufferevent_ssl_stop_reading(ptr noundef %bev_ssl) local_unnamed_addr #0 {
 entry:
-  %write_blocked_on_read = getelementptr inbounds i8, ptr %bev_ssl, i64 588
+  %write_blocked_on_read = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 588
   %bf.load = load i8, ptr %write_blocked_on_read, align 4
   %0 = and i8 %bf.load, 2
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.end, label %if.end6
 
 if.end:                                           ; preds = %entry
-  %underlying = getelementptr inbounds i8, ptr %bev_ssl, i64 520
+  %underlying = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 520
   %1 = load ptr, ptr %underlying, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %if.else, label %if.then2
@@ -514,7 +514,7 @@ if.then2:                                         ; preds = %if.end
   br label %if.end6
 
 if.else:                                          ; preds = %if.end
-  %ev_read = getelementptr inbounds i8, ptr %bev_ssl, i64 16
+  %ev_read = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 16
   %call = tail call i32 @event_del(ptr noundef nonnull %ev_read) #7
   br label %if.end6
 
@@ -529,14 +529,14 @@ declare i32 @event_del(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define dso_local void @bufferevent_ssl_stop_writing(ptr noundef %bev_ssl) local_unnamed_addr #0 {
 entry:
-  %read_blocked_on_write = getelementptr inbounds i8, ptr %bev_ssl, i64 588
+  %read_blocked_on_write = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 588
   %bf.load = load i8, ptr %read_blocked_on_write, align 4
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
   br i1 %tobool.not, label %if.end, label %if.end6
 
 if.end:                                           ; preds = %entry
-  %underlying = getelementptr inbounds i8, ptr %bev_ssl, i64 520
+  %underlying = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 520
   %0 = load ptr, ptr %underlying, align 8
   %tobool1.not = icmp eq ptr %0, null
   br i1 %tobool1.not, label %if.else, label %if.then2
@@ -546,7 +546,7 @@ if.then2:                                         ; preds = %if.end
   br label %if.end6
 
 if.else:                                          ; preds = %if.end
-  %ev_write = getelementptr inbounds i8, ptr %bev_ssl, i64 136
+  %ev_write = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 136
   %call = tail call i32 @event_del(ptr noundef nonnull %ev_write) #7
   br label %if.end6
 
@@ -559,7 +559,7 @@ declare void @bufferevent_unsuspend_read_(ptr noundef, i16 noundef zeroext) loca
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @bufferevent_ssl_renegotiate_impl(ptr noundef %bev) local_unnamed_addr #0 {
 entry:
-  %be_ops.i = getelementptr inbounds i8, ptr %bev, i64 8
+  %be_ops.i = getelementptr inbounds nuw i8, ptr %bev, i64 8
   %0 = load ptr, ptr %be_ops.i, align 8
   %1 = load ptr, ptr %0, align 8
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %1, ptr noundef nonnull dereferenceable(3) @.str, i64 3)
@@ -569,29 +569,29 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %ssl_ops = getelementptr inbounds i8, ptr %bev, i64 536
+  %ssl_ops = getelementptr inbounds nuw i8, ptr %bev, i64 536
   %2 = load ptr, ptr %ssl_ops, align 8
-  %renegotiate = getelementptr inbounds i8, ptr %2, i64 24
+  %renegotiate = getelementptr inbounds nuw i8, ptr %2, i64 24
   %3 = load ptr, ptr %renegotiate, align 8
-  %ssl = getelementptr inbounds i8, ptr %bev, i64 528
+  %ssl = getelementptr inbounds nuw i8, ptr %bev, i64 528
   %4 = load ptr, ptr %ssl, align 8
   %call1 = tail call i32 %3(ptr noundef %4) #7
   %cmp = icmp slt i32 %call1, 0
   br i1 %cmp, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %state = getelementptr inbounds i8, ptr %bev, i64 588
+  %state = getelementptr inbounds nuw i8, ptr %bev, i64 588
   %bf.load = load i8, ptr %state, align 4
   %bf.clear = and i8 %bf.load, -49
   %bf.set = or disjoint i8 %bf.clear, 16
   store i8 %bf.set, ptr %state, align 4
-  %underlying.i = getelementptr inbounds i8, ptr %bev, i64 520
+  %underlying.i = getelementptr inbounds nuw i8, ptr %bev, i64 520
   %5 = load ptr, ptr %underlying.i, align 8
   %tobool.not.i8 = icmp eq ptr %5, null
   br i1 %tobool.not.i8, label %if.then.i, label %be_ssl_auto_fd.exit
 
 if.then.i:                                        ; preds = %if.end3
-  %ev_read.i = getelementptr inbounds i8, ptr %bev, i64 16
+  %ev_read.i = getelementptr inbounds nuw i8, ptr %bev, i64 16
   %call.i = tail call i32 @event_initialized(ptr noundef nonnull %ev_read.i) #7
   %tobool3.i.not = icmp eq i32 %call.i, 0
   br i1 %tobool3.i.not, label %be_ssl_auto_fd.exit, label %if.then4.i
@@ -623,7 +623,7 @@ return:                                           ; preds = %if.end8, %be_ssl_au
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @set_handshake_callbacks(ptr noundef %bev_ssl, i32 noundef %fd) unnamed_addr #0 {
 entry:
-  %underlying = getelementptr inbounds i8, ptr %bev_ssl, i64 520
+  %underlying = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 520
   %0 = load ptr, ptr %underlying, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %if.then
@@ -644,28 +644,28 @@ if.end6:                                          ; preds = %if.end
   br label %return
 
 if.else:                                          ; preds = %entry
-  %ev_read = getelementptr inbounds i8, ptr %bev_ssl, i64 16
+  %ev_read = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 16
   %call10 = tail call i32 @event_initialized(ptr noundef nonnull %ev_read) #7
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %if.end16, label %if.then12
 
 if.then12:                                        ; preds = %if.else
   %call14 = tail call i32 @event_del(ptr noundef nonnull %ev_read) #7
-  %ev_write = getelementptr inbounds i8, ptr %bev_ssl, i64 136
+  %ev_write = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 136
   %call15 = tail call i32 @event_del(ptr noundef nonnull %ev_write) #7
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then12, %if.else
   %2 = load ptr, ptr %bev_ssl, align 8
   %call18 = tail call i32 @event_assign(ptr noundef nonnull %ev_read, ptr noundef %2, i32 noundef %fd, i16 noundef signext 82, ptr noundef nonnull @be_ssl_handshakeeventcb, ptr noundef nonnull %bev_ssl) #7
-  %ev_write19 = getelementptr inbounds i8, ptr %bev_ssl, i64 136
+  %ev_write19 = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 136
   %3 = load ptr, ptr %bev_ssl, align 8
   %call21 = tail call i32 @event_assign(ptr noundef nonnull %ev_write19, ptr noundef %3, i32 noundef %fd, i16 noundef signext 84, ptr noundef nonnull @be_ssl_handshakeeventcb, ptr noundef nonnull %bev_ssl) #7
   %cmp22 = icmp sgt i32 %fd, -1
   br i1 %cmp22, label %if.then23, label %return
 
 if.then23:                                        ; preds = %if.end16
-  %enabled = getelementptr inbounds i8, ptr %bev_ssl, i64 368
+  %enabled = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 368
   %4 = load i16, ptr %enabled, align 8
   %call24 = tail call i32 @bufferevent_enable(ptr noundef nonnull %bev_ssl, i16 noundef signext %4) #7
   br label %return
@@ -678,7 +678,7 @@ return:                                           ; preds = %if.end16, %if.then2
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @do_handshake(ptr noundef %bev_ssl) unnamed_addr #0 {
 entry:
-  %state = getelementptr inbounds i8, ptr %bev_ssl, i64 588
+  %state = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 588
   %bf.load = load i8, ptr %state, align 4
   %bf.lshr = lshr i8 %bf.load, 4
   %bf.clear = and i8 %bf.lshr, 3
@@ -687,36 +687,36 @@ entry:
   br i1 %switch, label %sw.bb1, label %return
 
 sw.bb1:                                           ; preds = %entry
-  %ssl_ops = getelementptr inbounds i8, ptr %bev_ssl, i64 536
+  %ssl_ops = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 536
   %0 = load ptr, ptr %ssl_ops, align 8
-  %clear_error = getelementptr inbounds i8, ptr %0, i64 72
+  %clear_error = getelementptr inbounds nuw i8, ptr %0, i64 72
   %1 = load ptr, ptr %clear_error, align 8
   tail call void %1() #7
   %2 = load ptr, ptr %ssl_ops, align 8
-  %handshake = getelementptr inbounds i8, ptr %2, i64 56
+  %handshake = getelementptr inbounds nuw i8, ptr %2, i64 56
   %3 = load ptr, ptr %handshake, align 8
-  %ssl = getelementptr inbounds i8, ptr %bev_ssl, i64 528
+  %ssl = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 528
   %4 = load ptr, ptr %ssl, align 8
   %call = tail call i32 %3(ptr noundef %4) #7
   %5 = load ptr, ptr %ssl_ops, align 8
-  %decrement_buckets = getelementptr inbounds i8, ptr %5, i64 152
+  %decrement_buckets = getelementptr inbounds nuw i8, ptr %5, i64 152
   %6 = load ptr, ptr %decrement_buckets, align 8
   tail call void %6(ptr noundef nonnull %bev_ssl) #7
   %7 = load ptr, ptr %ssl_ops, align 8
-  %handshake_is_ok = getelementptr inbounds i8, ptr %7, i64 104
+  %handshake_is_ok = getelementptr inbounds nuw i8, ptr %7, i64 104
   %8 = load ptr, ptr %handshake_is_ok, align 8
   %call5 = tail call i32 %8(i32 noundef %call) #7
   %tobool.not = icmp eq i32 %call5, 0
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %sw.bb1
-  %ev_read = getelementptr inbounds i8, ptr %bev_ssl, i64 16
+  %ev_read = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 16
   %call7 = tail call i32 @event_get_fd(ptr noundef nonnull %ev_read) #7
   %bf.load9 = load i8, ptr %state, align 4
   %bf.clear10 = and i8 %bf.load9, -49
   store i8 %bf.clear10, ptr %state, align 4
   %call11 = tail call fastcc i32 @set_open_callbacks(ptr noundef nonnull %bev_ssl, i32 noundef %call7)
-  %enabled = getelementptr inbounds i8, ptr %bev_ssl, i64 368
+  %enabled = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 368
   %9 = load i16, ptr %enabled, align 8
   %call16 = tail call i32 @bufferevent_enable(ptr noundef nonnull %bev_ssl, i16 noundef signext %9) #7
   tail call void @bufferevent_run_eventcb_(ptr noundef nonnull %bev_ssl, i16 noundef signext 128, i32 noundef 0) #7
@@ -724,16 +724,16 @@ if.then:                                          ; preds = %sw.bb1
 
 if.else:                                          ; preds = %sw.bb1
   %10 = load ptr, ptr %ssl_ops, align 8
-  %get_error = getelementptr inbounds i8, ptr %10, i64 64
+  %get_error = getelementptr inbounds nuw i8, ptr %10, i64 64
   %11 = load ptr, ptr %get_error, align 8
   %12 = load ptr, ptr %ssl, align 8
   %call21 = tail call i32 %11(ptr noundef %12, i32 noundef %call) #7
   %13 = load ptr, ptr %ssl_ops, align 8
-  %print_err = getelementptr inbounds i8, ptr %13, i64 168
+  %print_err = getelementptr inbounds nuw i8, ptr %13, i64 168
   %14 = load ptr, ptr %print_err, align 8
   tail call void %14(i32 noundef %call21) #7
   %15 = load ptr, ptr %ssl_ops, align 8
-  %err_is_want_write = getelementptr inbounds i8, ptr %15, i64 120
+  %err_is_want_write = getelementptr inbounds nuw i8, ptr %15, i64 120
   %16 = load ptr, ptr %err_is_want_write, align 8
   %call24 = tail call i32 %16(i32 noundef %call21) #7
   %tobool25.not = icmp eq i32 %call24, 0
@@ -746,7 +746,7 @@ if.then26:                                        ; preds = %if.else
   br i1 %tobool.not.i, label %if.end.i, label %bufferevent_ssl_stop_reading.exit
 
 if.end.i:                                         ; preds = %if.then26
-  %underlying.i = getelementptr inbounds i8, ptr %bev_ssl, i64 520
+  %underlying.i = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 520
   %18 = load ptr, ptr %underlying.i, align 8
   %tobool1.not.i = icmp eq ptr %18, null
   br i1 %tobool1.not.i, label %if.else.i, label %if.then2.i
@@ -756,12 +756,12 @@ if.then2.i:                                       ; preds = %if.end.i
   br label %bufferevent_ssl_stop_reading.exit
 
 if.else.i:                                        ; preds = %if.end.i
-  %ev_read.i = getelementptr inbounds i8, ptr %bev_ssl, i64 16
+  %ev_read.i = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 16
   %call.i = tail call i32 @event_del(ptr noundef nonnull %ev_read.i) #7
   br label %bufferevent_ssl_stop_reading.exit
 
 bufferevent_ssl_stop_reading.exit:                ; preds = %if.then26, %if.then2.i, %if.else.i
-  %underlying.i29 = getelementptr inbounds i8, ptr %bev_ssl, i64 520
+  %underlying.i29 = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 520
   %19 = load ptr, ptr %underlying.i29, align 8
   %tobool.not.i30 = icmp eq ptr %19, null
   br i1 %tobool.not.i30, label %if.else.i35, label %if.then.i
@@ -777,8 +777,8 @@ if.then2.i34:                                     ; preds = %if.then.i
   br label %return
 
 if.else.i35:                                      ; preds = %bufferevent_ssl_stop_reading.exit
-  %ev_write.i = getelementptr inbounds i8, ptr %bev_ssl, i64 136
-  %timeout_write.i = getelementptr inbounds i8, ptr %bev_ssl, i64 352
+  %ev_write.i = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 136
+  %timeout_write.i = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 352
   %call.i36 = tail call i32 @bufferevent_add_event_(ptr noundef nonnull %ev_write.i, ptr noundef nonnull %timeout_write.i) #7
   %tobool6.not.i = icmp eq i32 %call.i36, 0
   br i1 %tobool6.not.i, label %land.lhs.true.i, label %return
@@ -790,14 +790,14 @@ land.lhs.true.i:                                  ; preds = %if.else.i35
   br i1 %tobool12.not.i, label %return, label %if.then13.i
 
 if.then13.i:                                      ; preds = %land.lhs.true.i
-  %ev_read.i37 = getelementptr inbounds i8, ptr %bev_ssl, i64 16
-  %timeout_read.i = getelementptr inbounds i8, ptr %bev_ssl, i64 336
+  %ev_read.i37 = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 16
+  %timeout_read.i = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 336
   %call14.i = tail call i32 @bufferevent_add_event_(ptr noundef nonnull %ev_read.i37, ptr noundef nonnull %timeout_read.i) #7
   br label %return
 
 if.else28:                                        ; preds = %if.else
   %22 = load ptr, ptr %ssl_ops, align 8
-  %err_is_want_read = getelementptr inbounds i8, ptr %22, i64 112
+  %err_is_want_read = getelementptr inbounds nuw i8, ptr %22, i64 112
   %23 = load ptr, ptr %err_is_want_read, align 8
   %call30 = tail call i32 %23(i32 noundef %call21) #7
   %tobool31.not = icmp eq i32 %call30, 0
@@ -810,7 +810,7 @@ if.then32:                                        ; preds = %if.else28
   br i1 %tobool.not.i39, label %if.end.i40, label %bufferevent_ssl_stop_writing.exit
 
 if.end.i40:                                       ; preds = %if.then32
-  %underlying.i41 = getelementptr inbounds i8, ptr %bev_ssl, i64 520
+  %underlying.i41 = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 520
   %24 = load ptr, ptr %underlying.i41, align 8
   %tobool1.not.i42 = icmp eq ptr %24, null
   br i1 %tobool1.not.i42, label %if.else.i44, label %if.then2.i43
@@ -820,12 +820,12 @@ if.then2.i43:                                     ; preds = %if.end.i40
   br label %bufferevent_ssl_stop_writing.exit
 
 if.else.i44:                                      ; preds = %if.end.i40
-  %ev_write.i45 = getelementptr inbounds i8, ptr %bev_ssl, i64 136
+  %ev_write.i45 = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 136
   %call.i46 = tail call i32 @event_del(ptr noundef nonnull %ev_write.i45) #7
   br label %bufferevent_ssl_stop_writing.exit
 
 bufferevent_ssl_stop_writing.exit:                ; preds = %if.then32, %if.then2.i43, %if.else.i44
-  %underlying.i47 = getelementptr inbounds i8, ptr %bev_ssl, i64 520
+  %underlying.i47 = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 520
   %25 = load ptr, ptr %underlying.i47, align 8
   %tobool.not.i48 = icmp eq ptr %25, null
   br i1 %tobool.not.i48, label %if.else.i50, label %if.then.i49
@@ -835,8 +835,8 @@ if.then.i49:                                      ; preds = %bufferevent_ssl_sto
   br label %return
 
 if.else.i50:                                      ; preds = %bufferevent_ssl_stop_writing.exit
-  %ev_read.i51 = getelementptr inbounds i8, ptr %bev_ssl, i64 16
-  %timeout_read.i52 = getelementptr inbounds i8, ptr %bev_ssl, i64 336
+  %ev_read.i51 = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 16
+  %timeout_read.i52 = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 336
   %call.i53 = tail call i32 @bufferevent_add_event_(ptr noundef nonnull %ev_read.i51, ptr noundef nonnull %timeout_read.i52) #7
   %cmp.i = icmp eq i32 %call.i53, 0
   br i1 %cmp.i, label %land.lhs.true.i54, label %return
@@ -848,14 +848,14 @@ land.lhs.true.i54:                                ; preds = %if.else.i50
   br i1 %tobool4.not.i, label %return, label %if.then5.i
 
 if.then5.i:                                       ; preds = %land.lhs.true.i54
-  %ev_write.i58 = getelementptr inbounds i8, ptr %bev_ssl, i64 136
-  %timeout_write.i59 = getelementptr inbounds i8, ptr %bev_ssl, i64 352
+  %ev_write.i58 = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 136
+  %timeout_write.i59 = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 352
   %call6.i = tail call i32 @bufferevent_add_event_(ptr noundef nonnull %ev_write.i58, ptr noundef nonnull %timeout_write.i59) #7
   br label %return
 
 if.else34:                                        ; preds = %if.else28
   %26 = load ptr, ptr %ssl_ops, align 8
-  %conn_closed = getelementptr inbounds i8, ptr %26, i64 160
+  %conn_closed = getelementptr inbounds nuw i8, ptr %26, i64 160
   %27 = load ptr, ptr %conn_closed, align 8
   tail call void %27(ptr noundef nonnull %bev_ssl, i32 noundef 1, i32 noundef %call21, i32 noundef %call) #7
   br label %return
@@ -885,18 +885,18 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp5, label %if.then43, label %if.end7
 
 if.end7:                                          ; preds = %if.end3
-  %ssl_ops8 = getelementptr inbounds i8, ptr %call, i64 536
+  %ssl_ops8 = getelementptr inbounds nuw i8, ptr %call, i64 536
   store ptr %ssl_ops, ptr %ssl_ops8, align 8
   %0 = load ptr, ptr %ssl_ops, align 8
   %call10 = tail call ptr %0(ptr noundef %ssl) #7
-  %ssl11 = getelementptr inbounds i8, ptr %call, i64 528
+  %ssl11 = getelementptr inbounds nuw i8, ptr %call, i64 528
   store ptr %call10, ptr %ssl11, align 8
-  %underlying12 = getelementptr inbounds i8, ptr %call, i64 520
+  %underlying12 = getelementptr inbounds nuw i8, ptr %call, i64 520
   store ptr %underlying, ptr %underlying12, align 8
-  %output = getelementptr inbounds i8, ptr %call, i64 264
+  %output = getelementptr inbounds nuw i8, ptr %call, i64 264
   %1 = load ptr, ptr %output, align 8
   %call14 = tail call ptr @evbuffer_add_cb(ptr noundef %1, ptr noundef nonnull @be_ssl_outbuf_cb, ptr noundef nonnull %call) #7
-  %outbuf_cb = getelementptr inbounds i8, ptr %call, i64 544
+  %outbuf_cb = getelementptr inbounds nuw i8, ptr %call, i64 544
   store ptr %call14, ptr %outbuf_cb, align 8
   %and15 = and i32 %options, 2
   %tobool16.not = icmp eq i32 %and15, 0
@@ -915,17 +915,17 @@ if.then23:                                        ; preds = %if.end21
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then23, %if.end21
-  %old_state = getelementptr inbounds i8, ptr %call, i64 588
+  %old_state = getelementptr inbounds nuw i8, ptr %call, i64 588
   %2 = trunc i32 %state to i8
   %bf.load = load i8, ptr %old_state, align 4
   %bf.value = shl i8 %2, 6
   %bf.clear = and i8 %bf.load, 63
   %bf.set = or disjoint i8 %bf.clear, %bf.value
   store i8 %bf.set, ptr %old_state, align 4
-  %last_write = getelementptr inbounds i8, ptr %call, i64 568
+  %last_write = getelementptr inbounds nuw i8, ptr %call, i64 568
   store i64 -1, ptr %last_write, align 8
   %3 = load ptr, ptr %ssl_ops8, align 8
-  %init_bio_counts = getelementptr inbounds i8, ptr %3, i64 144
+  %init_bio_counts = getelementptr inbounds nuw i8, ptr %3, i64 144
   %4 = load ptr, ptr %init_bio_counts, align 8
   tail call void %4(ptr noundef nonnull %call) #7
   %5 = load ptr, ptr %underlying12, align 8
@@ -933,7 +933,7 @@ if.end26:                                         ; preds = %if.then23, %if.end2
   br i1 %tobool.not.i, label %if.then.i, label %be_ssl_auto_fd.exit
 
 if.then.i:                                        ; preds = %if.end26
-  %ev_read.i = getelementptr inbounds i8, ptr %call, i64 16
+  %ev_read.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   %call.i = tail call i32 @event_initialized(ptr noundef nonnull %ev_read.i) #7
   %tobool3.i = icmp ne i32 %call.i, 0
   %cmp.i = icmp slt i32 %fd, 0
@@ -964,7 +964,7 @@ if.then37:                                        ; preds = %if.then34
   br label %return
 
 if.then43:                                        ; preds = %if.end3, %be_ssl_auto_fd.exit
-  %ssl44 = getelementptr inbounds i8, ptr %call, i64 528
+  %ssl44 = getelementptr inbounds nuw i8, ptr %call, i64 528
   %6 = load ptr, ptr %ssl44, align 8
   %tobool45.not = icmp eq ptr %6, null
   %and47 = and i32 %options, 1
@@ -973,9 +973,9 @@ if.then43:                                        ; preds = %if.end3, %be_ssl_au
   br i1 %or.cond41, label %if.end52, label %if.then49
 
 if.then49:                                        ; preds = %if.then43
-  %ssl_ops50 = getelementptr inbounds i8, ptr %call, i64 536
+  %ssl_ops50 = getelementptr inbounds nuw i8, ptr %call, i64 536
   %7 = load ptr, ptr %ssl_ops50, align 8
-  %free = getelementptr inbounds i8, ptr %7, i64 8
+  %free = getelementptr inbounds nuw i8, ptr %7, i64 8
   %8 = load ptr, ptr %free, align 8
   tail call void %8(ptr noundef nonnull %6, i32 noundef %options) #7
   br label %if.end52
@@ -994,7 +994,7 @@ if.else:                                          ; preds = %entry, %if.end
 
 if.then60:                                        ; preds = %if.else
   %9 = load ptr, ptr inttoptr (i64 536 to ptr), align 8
-  %free_raw = getelementptr inbounds i8, ptr %9, i64 16
+  %free_raw = getelementptr inbounds nuw i8, ptr %9, i64 16
   %10 = load ptr, ptr %free_raw, align 8
   %11 = load ptr, ptr inttoptr (i64 528 to ptr), align 16
   tail call void %10(ptr noundef %11) #7
@@ -1014,13 +1014,13 @@ declare ptr @evbuffer_add_cb(ptr noundef, ptr noundef, ptr noundef) local_unname
 ; Function Attrs: nounwind uwtable
 define internal void @be_ssl_outbuf_cb(ptr nocapture readnone %buf, ptr nocapture noundef readonly %cbinfo, ptr noundef %arg) #0 {
 entry:
-  %n_added = getelementptr inbounds i8, ptr %cbinfo, i64 8
+  %n_added = getelementptr inbounds nuw i8, ptr %cbinfo, i64 8
   %0 = load i64, ptr %n_added, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %if.end9, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %state = getelementptr inbounds i8, ptr %arg, i64 588
+  %state = getelementptr inbounds nuw i8, ptr %arg, i64 588
   %bf.load = load i8, ptr %state, align 4
   %1 = and i8 %bf.load, 48
   %cmp = icmp eq i8 %1, 0
@@ -1032,13 +1032,13 @@ if.then:                                          ; preds = %land.lhs.true
   br i1 %cmp1, label %if.then2, label %if.end
 
 if.then2:                                         ; preds = %if.then
-  %ev_write = getelementptr inbounds i8, ptr %arg, i64 136
-  %timeout_write = getelementptr inbounds i8, ptr %arg, i64 352
+  %ev_write = getelementptr inbounds nuw i8, ptr %arg, i64 136
+  %timeout_write = getelementptr inbounds nuw i8, ptr %arg, i64 352
   %call = tail call i32 @bufferevent_add_event_(ptr noundef nonnull %ev_write, ptr noundef nonnull %timeout_write) #7
   br label %if.end
 
 if.end:                                           ; preds = %if.then2, %if.then
-  %underlying = getelementptr inbounds i8, ptr %arg, i64 520
+  %underlying = getelementptr inbounds nuw i8, ptr %arg, i64 520
   %3 = load ptr, ptr %underlying, align 8
   %tobool6.not = icmp eq ptr %3, null
   br i1 %tobool6.not, label %if.end9, label %if.then7
@@ -1060,7 +1060,7 @@ declare void @bufferevent_incref(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @be_ssl_set_fd(ptr noundef %bev_ssl, i32 noundef %state, i32 noundef %fd) unnamed_addr #0 {
 entry:
-  %state1 = getelementptr inbounds i8, ptr %bev_ssl, i64 588
+  %state1 = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 588
   %0 = trunc i32 %state to i8
   %bf.load = load i8, ptr %state1, align 4
   %bf.value = shl i8 %0, 4
@@ -1075,11 +1075,11 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %ssl_ops = getelementptr inbounds i8, ptr %bev_ssl, i64 536
+  %ssl_ops = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 536
   %1 = load ptr, ptr %ssl_ops, align 8
-  %clear = getelementptr inbounds i8, ptr %1, i64 80
+  %clear = getelementptr inbounds nuw i8, ptr %1, i64 80
   %2 = load ptr, ptr %clear, align 8
-  %ssl = getelementptr inbounds i8, ptr %bev_ssl, i64 528
+  %ssl = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 528
   %3 = load ptr, ptr %ssl, align 8
   %call = tail call i32 %2(ptr noundef %3) #7
   %tobool.not = icmp eq i32 %call, 0
@@ -1087,7 +1087,7 @@ sw.bb:                                            ; preds = %entry
 
 if.end:                                           ; preds = %sw.bb
   %4 = load ptr, ptr %ssl_ops, align 8
-  %set_accept_state = getelementptr inbounds i8, ptr %4, i64 96
+  %set_accept_state = getelementptr inbounds nuw i8, ptr %4, i64 96
   %5 = load ptr, ptr %set_accept_state, align 8
   %6 = load ptr, ptr %ssl, align 8
   tail call void %5(ptr noundef %6) #7
@@ -1096,11 +1096,11 @@ if.end:                                           ; preds = %sw.bb
   br i1 %cmp, label %return, label %sw.epilog
 
 sw.bb7:                                           ; preds = %entry
-  %ssl_ops8 = getelementptr inbounds i8, ptr %bev_ssl, i64 536
+  %ssl_ops8 = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 536
   %7 = load ptr, ptr %ssl_ops8, align 8
-  %clear9 = getelementptr inbounds i8, ptr %7, i64 80
+  %clear9 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %8 = load ptr, ptr %clear9, align 8
-  %ssl10 = getelementptr inbounds i8, ptr %bev_ssl, i64 528
+  %ssl10 = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 528
   %9 = load ptr, ptr %ssl10, align 8
   %call11 = tail call i32 %8(ptr noundef %9) #7
   %tobool12.not = icmp eq i32 %call11, 0
@@ -1108,7 +1108,7 @@ sw.bb7:                                           ; preds = %entry
 
 if.end14:                                         ; preds = %sw.bb7
   %10 = load ptr, ptr %ssl_ops8, align 8
-  %set_connect_state = getelementptr inbounds i8, ptr %10, i64 88
+  %set_connect_state = getelementptr inbounds nuw i8, ptr %10, i64 88
   %11 = load ptr, ptr %set_connect_state, align 8
   %12 = load ptr, ptr %ssl10, align 8
   tail call void %11(ptr noundef %12) #7
@@ -1138,7 +1138,7 @@ declare void @bufferevent_free(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 4294967296) i64 @bufferevent_get_ssl_error(ptr nocapture noundef %bev) local_unnamed_addr #0 {
 entry:
-  %lock = getelementptr inbounds i8, ptr %bev, i64 448
+  %lock = getelementptr inbounds nuw i8, ptr %bev, i64 448
   %0 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end3, label %if.then
@@ -1149,7 +1149,7 @@ if.then:                                          ; preds = %entry
   br label %do.end3
 
 do.end3:                                          ; preds = %if.then, %entry
-  %be_ops.i = getelementptr inbounds i8, ptr %bev, i64 8
+  %be_ops.i = getelementptr inbounds nuw i8, ptr %bev, i64 8
   %2 = load ptr, ptr %be_ops.i, align 8
   %3 = load ptr, ptr %2, align 8
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %3, ptr noundef nonnull dereferenceable(3) @.str, i64 3)
@@ -1157,7 +1157,7 @@ do.end3:                                          ; preds = %if.then, %entry
   br i1 %tobool.not.i.not, label %land.lhs.true, label %do.body16
 
 land.lhs.true:                                    ; preds = %do.end3
-  %n_errors = getelementptr inbounds i8, ptr %bev, i64 588
+  %n_errors = getelementptr inbounds nuw i8, ptr %bev, i64 588
   %bf.load = load i8, ptr %n_errors, align 4
   %4 = and i8 %bf.load, 12
   %tobool6.not = icmp eq i8 %4, 0
@@ -1165,7 +1165,7 @@ land.lhs.true:                                    ; preds = %do.end3
 
 if.then7:                                         ; preds = %land.lhs.true
   %bf.lshr = lshr i8 %bf.load, 2
-  %errors = getelementptr inbounds i8, ptr %bev, i64 576
+  %errors = getelementptr inbounds nuw i8, ptr %bev, i64 576
   %dec = add nuw nsw i8 %bf.lshr, 3
   %bf.value = and i8 %dec, 3
   %bf.shl = shl nuw nsw i8 %bf.value, 2
@@ -1173,7 +1173,7 @@ if.then7:                                         ; preds = %land.lhs.true
   %bf.set = or disjoint i8 %bf.shl, %bf.clear14
   store i8 %bf.set, ptr %n_errors, align 4
   %idxprom = zext nneg i8 %bf.value to i64
-  %arrayidx = getelementptr inbounds [3 x i32], ptr %errors, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [3 x i32], ptr %errors, i64 0, i64 %idxprom
   %5 = load i32, ptr %arrayidx, align 4
   %conv = zext i32 %5 to i64
   br label %do.body16
@@ -1196,7 +1196,7 @@ do.end27:                                         ; preds = %if.then22, %do.body
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @bufferevent_ssl_get_flags(ptr nocapture noundef readonly %bev) local_unnamed_addr #0 {
 entry:
-  %lock = getelementptr inbounds i8, ptr %bev, i64 448
+  %lock = getelementptr inbounds nuw i8, ptr %bev, i64 448
   %0 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end3, label %if.then
@@ -1207,7 +1207,7 @@ if.then:                                          ; preds = %entry
   br label %do.end3
 
 do.end3:                                          ; preds = %if.then, %entry
-  %be_ops.i = getelementptr inbounds i8, ptr %bev, i64 8
+  %be_ops.i = getelementptr inbounds nuw i8, ptr %bev, i64 8
   %2 = load ptr, ptr %be_ops.i, align 8
   %3 = load ptr, ptr %2, align 8
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %3, ptr noundef nonnull dereferenceable(3) @.str, i64 3)
@@ -1215,7 +1215,7 @@ do.end3:                                          ; preds = %if.then, %entry
   br i1 %tobool.not.i.not, label %if.then6, label %do.body9
 
 if.then6:                                         ; preds = %do.end3
-  %flags7 = getelementptr inbounds i8, ptr %bev, i64 592
+  %flags7 = getelementptr inbounds nuw i8, ptr %bev, i64 592
   %4 = load i64, ptr %flags7, align 8
   br label %do.body9
 
@@ -1242,7 +1242,7 @@ entry:
   br i1 %tobool.not, label %return, label %do.body
 
 do.body:                                          ; preds = %entry
-  %lock = getelementptr inbounds i8, ptr %bev, i64 448
+  %lock = getelementptr inbounds nuw i8, ptr %bev, i64 448
   %0 = load ptr, ptr %lock, align 8
   %tobool2.not = icmp eq ptr %0, null
   br i1 %tobool2.not, label %do.end6, label %if.then3
@@ -1253,7 +1253,7 @@ if.then3:                                         ; preds = %do.body
   br label %do.end6
 
 do.end6:                                          ; preds = %if.then3, %do.body
-  %be_ops.i = getelementptr inbounds i8, ptr %bev, i64 8
+  %be_ops.i = getelementptr inbounds nuw i8, ptr %bev, i64 8
   %2 = load ptr, ptr %be_ops.i, align 8
   %3 = load ptr, ptr %2, align 8
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %3, ptr noundef nonnull dereferenceable(3) @.str, i64 3)
@@ -1261,7 +1261,7 @@ do.end6:                                          ; preds = %if.then3, %do.body
   br i1 %tobool.not.i.not, label %if.then9, label %do.body13
 
 if.then9:                                         ; preds = %do.end6
-  %flags10 = getelementptr inbounds i8, ptr %bev, i64 592
+  %flags10 = getelementptr inbounds nuw i8, ptr %bev, i64 592
   %4 = load i64, ptr %flags10, align 8
   %or = or i64 %4, %and
   store i64 %or, ptr %flags10, align 8
@@ -1291,7 +1291,7 @@ entry:
   br i1 %tobool.not, label %return, label %do.body
 
 do.body:                                          ; preds = %entry
-  %lock = getelementptr inbounds i8, ptr %bev, i64 448
+  %lock = getelementptr inbounds nuw i8, ptr %bev, i64 448
   %0 = load ptr, ptr %lock, align 8
   %tobool2.not = icmp eq ptr %0, null
   br i1 %tobool2.not, label %do.end6, label %if.then3
@@ -1302,7 +1302,7 @@ if.then3:                                         ; preds = %do.body
   br label %do.end6
 
 do.end6:                                          ; preds = %if.then3, %do.body
-  %be_ops.i = getelementptr inbounds i8, ptr %bev, i64 8
+  %be_ops.i = getelementptr inbounds nuw i8, ptr %bev, i64 8
   %2 = load ptr, ptr %be_ops.i, align 8
   %3 = load ptr, ptr %2, align 8
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %3, ptr noundef nonnull dereferenceable(3) @.str, i64 3)
@@ -1310,7 +1310,7 @@ do.end6:                                          ; preds = %if.then3, %do.body
   br i1 %tobool.not.i.not, label %if.then9, label %do.body14
 
 if.then9:                                         ; preds = %do.end6
-  %flags10 = getelementptr inbounds i8, ptr %bev, i64 592
+  %flags10 = getelementptr inbounds nuw i8, ptr %bev, i64 592
   %4 = load i64, ptr %flags10, align 8
   %not = xor i64 %and, -1
   %and12 = and i64 %4, %not
@@ -1336,7 +1336,7 @@ return:                                           ; preds = %do.body14, %if.then
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 2) i32 @bufferevent_ssl_get_allow_dirty_shutdown(ptr nocapture noundef readonly %bev) local_unnamed_addr #0 {
 entry:
-  %lock.i = getelementptr inbounds i8, ptr %bev, i64 448
+  %lock.i = getelementptr inbounds nuw i8, ptr %bev, i64 448
   %0 = load ptr, ptr %lock.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %do.end3.i, label %if.then.i
@@ -1347,7 +1347,7 @@ if.then.i:                                        ; preds = %entry
   br label %do.end3.i
 
 do.end3.i:                                        ; preds = %if.then.i, %entry
-  %be_ops.i.i = getelementptr inbounds i8, ptr %bev, i64 8
+  %be_ops.i.i = getelementptr inbounds nuw i8, ptr %bev, i64 8
   %2 = load ptr, ptr %be_ops.i.i, align 8
   %3 = load ptr, ptr %2, align 8
   %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %3, ptr noundef nonnull dereferenceable(3) @.str, i64 3)
@@ -1355,7 +1355,7 @@ do.end3.i:                                        ; preds = %if.then.i, %entry
   br i1 %tobool.not.i.not.i, label %if.then6.i, label %do.body9.i
 
 if.then6.i:                                       ; preds = %do.end3.i
-  %flags7.i = getelementptr inbounds i8, ptr %bev, i64 592
+  %flags7.i = getelementptr inbounds nuw i8, ptr %bev, i64 592
   %4 = load i64, ptr %flags7.i, align 8
   br label %do.body9.i
 
@@ -1381,7 +1381,7 @@ bufferevent_ssl_get_flags.exit:                   ; preds = %do.body9.i, %if.the
 ; Function Attrs: nounwind uwtable
 define dso_local void @bufferevent_ssl_set_allow_dirty_shutdown(ptr nocapture noundef %bev, i32 noundef %allow_dirty_shutdown) local_unnamed_addr #0 {
 entry:
-  %lock = getelementptr inbounds i8, ptr %bev, i64 448
+  %lock = getelementptr inbounds nuw i8, ptr %bev, i64 448
   %0 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end3, label %if.then
@@ -1406,7 +1406,7 @@ if.then3.i:                                       ; preds = %if.then5
   br label %do.end6.i
 
 do.end6.i:                                        ; preds = %if.then3.i, %if.then5
-  %be_ops.i.i = getelementptr inbounds i8, ptr %bev, i64 8
+  %be_ops.i.i = getelementptr inbounds nuw i8, ptr %bev, i64 8
   %4 = load ptr, ptr %be_ops.i.i, align 8
   %5 = load ptr, ptr %4, align 8
   %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %5, ptr noundef nonnull dereferenceable(3) @.str, i64 3)
@@ -1414,7 +1414,7 @@ do.end6.i:                                        ; preds = %if.then3.i, %if.the
   br i1 %tobool.not.i.not.i, label %if.then9.i, label %do.body13.i
 
 if.then9.i:                                       ; preds = %do.end6.i
-  %flags10.i = getelementptr inbounds i8, ptr %bev, i64 592
+  %flags10.i = getelementptr inbounds nuw i8, ptr %bev, i64 592
   %6 = load i64, ptr %flags10.i, align 8
   %or.i = or i64 %6, 1
   store i64 %or.i, ptr %flags10.i, align 8
@@ -1434,7 +1434,7 @@ if.then3.i9:                                      ; preds = %if.else
   br label %do.end6.i11
 
 do.end6.i11:                                      ; preds = %if.then3.i9, %if.else
-  %be_ops.i.i12 = getelementptr inbounds i8, ptr %bev, i64 8
+  %be_ops.i.i12 = getelementptr inbounds nuw i8, ptr %bev, i64 8
   %9 = load ptr, ptr %be_ops.i.i12, align 8
   %10 = load ptr, ptr %9, align 8
   %bcmp.i.i13 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %10, ptr noundef nonnull dereferenceable(3) @.str, i64 3)
@@ -1442,7 +1442,7 @@ do.end6.i11:                                      ; preds = %if.then3.i9, %if.el
   br i1 %tobool.not.i.not.i14, label %if.then9.i16, label %do.body14.i
 
 if.then9.i16:                                     ; preds = %do.end6.i11
-  %flags10.i17 = getelementptr inbounds i8, ptr %bev, i64 592
+  %flags10.i17 = getelementptr inbounds nuw i8, ptr %bev, i64 592
   %11 = load i64, ptr %flags10.i17, align 8
   %and12.i = and i64 %11, -2
   store i64 %and12.i, ptr %flags10.i17, align 8
@@ -1487,7 +1487,7 @@ entry:
   br i1 %tobool.not, label %if.else4, label %if.end24.thread10
 
 if.end24.thread10:                                ; preds = %entry
-  %flags = getelementptr inbounds i8, ptr %ctx, i64 592
+  %flags = getelementptr inbounds nuw i8, ptr %ctx, i64 592
   %1 = load i64, ptr %flags, align 8
   %and1 = and i64 %1, 1
   %tobool2.not = icmp eq i64 %and1, 0
@@ -1557,7 +1557,7 @@ declare i32 @event_get_fd(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @set_open_callbacks(ptr noundef %bev_ssl, i32 noundef %fd) unnamed_addr #0 {
 entry:
-  %underlying = getelementptr inbounds i8, ptr %bev_ssl, i64 520
+  %underlying = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 520
   %0 = load ptr, ptr %underlying, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %if.then
@@ -1567,14 +1567,14 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  %ev_read = getelementptr inbounds i8, ptr %bev_ssl, i64 16
+  %ev_read = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 16
   %call = tail call i32 @event_initialized(ptr noundef nonnull %ev_read) #7
   %tobool4.not = icmp eq i32 %call, 0
   br i1 %tobool4.not, label %if.end, label %if.then5
 
 if.then5:                                         ; preds = %if.else
   %call7 = tail call i32 @event_pending(ptr noundef nonnull %ev_read, i16 noundef signext 2, ptr noundef null) #7
-  %ev_write = getelementptr inbounds i8, ptr %bev_ssl, i64 136
+  %ev_write = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 136
   %call8 = tail call i32 @event_pending(ptr noundef nonnull %ev_write, i16 noundef signext 4, ptr noundef null) #7
   %call10 = tail call i32 @event_del(ptr noundef nonnull %ev_read) #7
   %call12 = tail call i32 @event_del(ptr noundef nonnull %ev_write) #7
@@ -1587,13 +1587,13 @@ if.end:                                           ; preds = %if.then5, %if.else
   %wpending.0 = phi i1 [ %2, %if.then5 ], [ true, %if.else ]
   %3 = load ptr, ptr %bev_ssl, align 8
   %call14 = tail call i32 @event_assign(ptr noundef nonnull %ev_read, ptr noundef %3, i32 noundef %fd, i16 noundef signext 82, ptr noundef nonnull @be_ssl_readeventcb, ptr noundef nonnull %bev_ssl) #7
-  %ev_write15 = getelementptr inbounds i8, ptr %bev_ssl, i64 136
+  %ev_write15 = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 136
   %4 = load ptr, ptr %bev_ssl, align 8
   %call17 = tail call i32 @event_assign(ptr noundef nonnull %ev_write15, ptr noundef %4, i32 noundef %fd, i16 noundef signext 84, ptr noundef nonnull @be_ssl_writeeventcb, ptr noundef nonnull %bev_ssl) #7
   br i1 %rpending.0, label %if.end22, label %if.then19
 
 if.then19:                                        ; preds = %if.end
-  %timeout_read = getelementptr inbounds i8, ptr %bev_ssl, i64 336
+  %timeout_read = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 336
   %call21 = tail call i32 @bufferevent_add_event_(ptr noundef nonnull %ev_read, ptr noundef nonnull %timeout_read) #7
   %5 = icmp slt i32 %call21, 0
   br label %if.end22
@@ -1603,7 +1603,7 @@ if.end22:                                         ; preds = %if.then19, %if.end
   br i1 %wpending.0, label %if.end27, label %if.then24
 
 if.then24:                                        ; preds = %if.end22
-  %timeout_write = getelementptr inbounds i8, ptr %bev_ssl, i64 352
+  %timeout_write = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 352
   %call26 = tail call i32 @bufferevent_add_event_(ptr noundef nonnull %ev_write15, ptr noundef nonnull %timeout_write) #7
   %6 = icmp slt i32 %call26, 0
   br label %if.end27
@@ -1680,7 +1680,7 @@ declare i32 @bufferevent_add_event_(ptr noundef, ptr noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @consider_reading(ptr noundef %bev_ssl) unnamed_addr #0 {
 entry:
-  %write_blocked_on_read = getelementptr inbounds i8, ptr %bev_ssl, i64 588
+  %write_blocked_on_read = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 588
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %entry
@@ -1705,22 +1705,22 @@ while.end:                                        ; preds = %while.cond, %while.
   br i1 %tobool7.not, label %if.end.i, label %if.end53
 
 if.end.i:                                         ; preds = %while.end
-  %input3.i = getelementptr inbounds i8, ptr %bev_ssl, i64 256
+  %input3.i = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 256
   %2 = load ptr, ptr %input3.i, align 8
-  %enabled.i = getelementptr inbounds i8, ptr %bev_ssl, i64 368
+  %enabled.i = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 368
   %3 = load i16, ptr %enabled.i, align 8
   %4 = and i16 %3, 2
   %tobool8.not.i = icmp eq i16 %4, 0
   br i1 %tobool8.not.i, label %bytes_to_read.exit.thread, label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.end.i
-  %read_suspended.i = getelementptr inbounds i8, ptr %bev_ssl, i64 388
+  %read_suspended.i = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 388
   %5 = load i16, ptr %read_suspended.i, align 4
   %tobool12.not.i = icmp eq i16 %5, 0
   br i1 %tobool12.not.i, label %if.end14.i, label %bytes_to_read.exit.thread
 
 if.end14.i:                                       ; preds = %if.end10.i
-  %high.i = getelementptr inbounds i8, ptr %bev_ssl, i64 280
+  %high.i = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 280
   %6 = load i64, ptr %high.i, align 8
   %tobool15.not.i = icmp eq i64 %6, 0
   br i1 %tobool15.not.i, label %bytes_to_read.exit, label %if.then16.i
@@ -1738,7 +1738,7 @@ if.end20.i:                                       ; preds = %if.then16.i
   br label %bytes_to_read.exit
 
 bytes_to_read.exit.thread:                        ; preds = %if.end.i, %if.end10.i, %if.then16.i
-  %read_suspended61 = getelementptr inbounds i8, ptr %bev_ssl, i64 388
+  %read_suspended61 = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 388
   br label %if.end35
 
 bytes_to_read.exit:                               ; preds = %if.end14.i, %if.end20.i
@@ -1750,15 +1750,15 @@ bytes_to_read.exit:                               ; preds = %if.end14.i, %if.end
   %or.cond.i = select i1 %cmp27.i, i1 true, i1 %cmp30.i
   %conv33.i = trunc i64 %call26.i to i32
   %result.1.i = select i1 %or.cond.i, i32 %conv33.i, i32 %result.0.i
-  %read_suspended = getelementptr inbounds i8, ptr %bev_ssl, i64 388
+  %read_suspended = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 388
   %tobool12.not54 = icmp eq i32 %result.1.i, 0
   br i1 %tobool12.not54, label %if.end35, label %while.body13.lr.ph
 
 while.body13.lr.ph:                               ; preds = %bytes_to_read.exit
-  %ssl_ops = getelementptr inbounds i8, ptr %bev_ssl, i64 536
-  %ssl = getelementptr inbounds i8, ptr %bev_ssl, i64 528
-  %underlying = getelementptr inbounds i8, ptr %bev_ssl, i64 520
-  %high.i32 = getelementptr inbounds i8, ptr %bev_ssl, i64 280
+  %ssl_ops = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 536
+  %ssl = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 528
+  %underlying = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 520
+  %high.i32 = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 280
   br label %while.body13
 
 while.body13:                                     ; preds = %while.body13.lr.ph, %if.end27
@@ -1776,7 +1776,7 @@ if.end18:                                         ; preds = %while.body13
 
 if.end21:                                         ; preds = %if.end18
   %9 = load ptr, ptr %ssl_ops, align 8
-  %pending = getelementptr inbounds i8, ptr %9, i64 48
+  %pending = getelementptr inbounds nuw i8, ptr %9, i64 48
   %10 = load ptr, ptr %pending, align 8
   %11 = load ptr, ptr %ssl, align 8
   %call22 = tail call i64 %10(ptr noundef %11) #7
@@ -1848,7 +1848,7 @@ while.end28:                                      ; preds = %if.then16.i34, %if.
 if.then31:                                        ; preds = %while.end28
   %22 = load ptr, ptr %input3.i, align 8
   %call.i51 = tail call i64 @evbuffer_get_length(ptr noundef %22) #7
-  %wm_read.i = getelementptr inbounds i8, ptr %bev_ssl, i64 272
+  %wm_read.i = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 272
   %23 = load i64, ptr %wm_read.i, align 8
   %cmp.not.i52 = icmp ult i64 %call.i51, %23
   br i1 %cmp.not.i52, label %if.end35, label %if.then.i
@@ -1859,7 +1859,7 @@ if.then.i:                                        ; preds = %if.then31
 
 if.end35:                                         ; preds = %bytes_to_read.exit.thread, %bytes_to_read.exit, %if.then.i, %if.then31, %while.end28
   %read_suspended6368 = phi ptr [ %read_suspended, %if.then.i ], [ %read_suspended, %if.then31 ], [ %read_suspended, %while.end28 ], [ %read_suspended61, %bytes_to_read.exit.thread ], [ %read_suspended, %bytes_to_read.exit ]
-  %underlying36 = getelementptr inbounds i8, ptr %bev_ssl, i64 520
+  %underlying36 = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 520
   %24 = load ptr, ptr %underlying36, align 8
   %tobool37.not = icmp eq ptr %24, null
   br i1 %tobool37.not, label %if.then38, label %if.end53
@@ -1876,7 +1876,7 @@ lor.lhs.false:                                    ; preds = %if.then38
   br i1 %tobool47.not, label %if.then48, label %if.end53
 
 if.then48:                                        ; preds = %lor.lhs.false, %if.then38
-  %ev_read = getelementptr inbounds i8, ptr %bev_ssl, i64 16
+  %ev_read = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 16
   %call51 = tail call i32 @event_del(ptr noundef nonnull %ev_read) #7
   br label %if.end53
 
@@ -1888,9 +1888,9 @@ if.end53:                                         ; preds = %lor.lhs.false, %if.
 define internal fastcc range(i32 0, 8) i32 @do_write(ptr noundef %bev_ssl) unnamed_addr #0 {
 entry:
   %space = alloca [8 x %struct.iovec], align 16
-  %output3 = getelementptr inbounds i8, ptr %bev_ssl, i64 264
+  %output3 = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 264
   %0 = load ptr, ptr %output3, align 8
-  %last_write = getelementptr inbounds i8, ptr %bev_ssl, i64 568
+  %last_write = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 568
   %1 = load i64, ptr %last_write, align 8
   %cmp = icmp sgt i64 %1, 0
   br i1 %cmp, label %if.end, label %if.else
@@ -1901,7 +1901,7 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry, %if.else
   %atmost.addr.0.in = phi i64 [ %call, %if.else ], [ %1, %entry ]
-  %flags = getelementptr inbounds i8, ptr %bev_ssl, i64 592
+  %flags = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 592
   %2 = load i64, ptr %flags, align 8
   %and = and i64 %2, 2
   %tobool.not = icmp eq i64 %and, 0
@@ -1924,10 +1924,10 @@ if.end15:                                         ; preds = %if.end9
   br i1 %cmp207885.not, label %return, label %for.body.lr.ph.lr.ph
 
 for.body.lr.ph.lr.ph:                             ; preds = %if.end15
-  %write_suspended = getelementptr inbounds i8, ptr %bev_ssl, i64 390
-  %ssl_ops = getelementptr inbounds i8, ptr %bev_ssl, i64 536
-  %ssl = getelementptr inbounds i8, ptr %bev_ssl, i64 528
-  %write_blocked_on_read = getelementptr inbounds i8, ptr %bev_ssl, i64 588
+  %write_suspended = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 390
+  %ssl_ops = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 536
+  %ssl = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 528
+  %write_blocked_on_read = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 588
   %4 = zext nneg i32 %3 to i64
   br label %for.body.lr.ph
 
@@ -1946,7 +1946,7 @@ for.body.preheader:                               ; preds = %for.body.lr.ph
 for.body:                                         ; preds = %for.body.preheader, %if.then28
   %indvars.iv = phi i64 [ %6, %for.body.preheader ], [ %indvars.iv.next, %if.then28 ]
   %arrayidx = getelementptr inbounds [8 x %struct.iovec], ptr %space, i64 0, i64 %indvars.iv
-  %iov_len = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %iov_len = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %7 = load i64, ptr %iov_len, align 8
   %cmp26 = icmp eq i64 %7, 0
   br i1 %cmp26, label %if.then28, label %if.end29
@@ -1957,14 +1957,14 @@ if.then28:                                        ; preds = %for.body
   br i1 %cmp20, label %for.body, label %for.end, !llvm.loop !8
 
 if.end29:                                         ; preds = %for.body
-  %iov_len.le = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %iov_len.le = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %8 = trunc nsw i64 %indvars.iv to i32
   %9 = load ptr, ptr %ssl_ops, align 8
-  %clear_error = getelementptr inbounds i8, ptr %9, i64 72
+  %clear_error = getelementptr inbounds nuw i8, ptr %9, i64 72
   %10 = load ptr, ptr %clear_error, align 8
   call void %10() #7
   %11 = load ptr, ptr %ssl_ops, align 8
-  %write = getelementptr inbounds i8, ptr %11, i64 32
+  %write = getelementptr inbounds nuw i8, ptr %11, i64 32
   %12 = load ptr, ptr %write, align 8
   %13 = load ptr, ptr %ssl, align 8
   %14 = load ptr, ptr %arrayidx, align 16
@@ -1988,12 +1988,12 @@ if.end49:                                         ; preds = %if.then42, %if.then
   %add = add nuw nsw i32 %call36, %n_written.0.ph86
   store i64 -1, ptr %last_write, align 8
   %17 = load ptr, ptr %ssl_ops, align 8
-  %decrement_buckets = getelementptr inbounds i8, ptr %17, i64 152
+  %decrement_buckets = getelementptr inbounds nuw i8, ptr %17, i64 152
   %18 = load ptr, ptr %decrement_buckets, align 8
   call void %18(ptr noundef nonnull %bev_ssl) #7
   %19 = load ptr, ptr %arrayidx, align 16
   %idx.ext = zext nneg i32 %call36 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %19, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw i8, ptr %19, i64 %idx.ext
   store ptr %add.ptr, ptr %arrayidx, align 16
   %20 = load i64, ptr %iov_len.le, align 8
   %sub = sub i64 %20, %idx.ext
@@ -2006,16 +2006,16 @@ if.end49:                                         ; preds = %if.then42, %if.then
 
 if.else70:                                        ; preds = %if.end29
   %21 = load ptr, ptr %ssl_ops, align 8
-  %get_error = getelementptr inbounds i8, ptr %21, i64 64
+  %get_error = getelementptr inbounds nuw i8, ptr %21, i64 64
   %22 = load ptr, ptr %get_error, align 8
   %23 = load ptr, ptr %ssl, align 8
   %call73 = call i32 %22(ptr noundef %23, i32 noundef %call36) #7
   %24 = load ptr, ptr %ssl_ops, align 8
-  %print_err = getelementptr inbounds i8, ptr %24, i64 168
+  %print_err = getelementptr inbounds nuw i8, ptr %24, i64 168
   %25 = load ptr, ptr %print_err, align 8
   call void %25(i32 noundef %call73) #7
   %26 = load ptr, ptr %ssl_ops, align 8
-  %err_is_want_write = getelementptr inbounds i8, ptr %26, i64 120
+  %err_is_want_write = getelementptr inbounds nuw i8, ptr %26, i64 120
   %27 = load ptr, ptr %err_is_want_write, align 8
   %call76 = call i32 %27(i32 noundef %call73) #7
   %tobool77.not = icmp eq i32 %call76, 0
@@ -2042,7 +2042,7 @@ if.end92:                                         ; preds = %if.then85, %if.then
 
 if.else97:                                        ; preds = %if.else70
   %30 = load ptr, ptr %ssl_ops, align 8
-  %err_is_want_read = getelementptr inbounds i8, ptr %30, i64 112
+  %err_is_want_read = getelementptr inbounds nuw i8, ptr %30, i64 112
   %31 = load ptr, ptr %err_is_want_read, align 8
   %call99 = call i32 %31(i32 noundef %call73) #7
   %tobool100.not = icmp eq i32 %call99, 0
@@ -2069,7 +2069,7 @@ if.end115:                                        ; preds = %if.then108, %if.the
 
 if.else120:                                       ; preds = %if.else97
   %34 = load ptr, ptr %ssl_ops, align 8
-  %conn_closed = getelementptr inbounds i8, ptr %34, i64 160
+  %conn_closed = getelementptr inbounds nuw i8, ptr %34, i64 160
   %35 = load ptr, ptr %conn_closed, align 8
   call void %35(ptr noundef nonnull %bev_ssl, i32 noundef 2, i32 noundef %call73, i32 noundef %call36) #7
   br label %if.end124
@@ -2098,32 +2098,32 @@ if.then132:                                       ; preds = %if.then128
   br label %return
 
 if.end134:                                        ; preds = %if.then128
-  %underlying = getelementptr inbounds i8, ptr %bev_ssl, i64 520
+  %underlying = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 520
   %36 = load ptr, ptr %underlying, align 8
   %tobool135.not = icmp eq ptr %36, null
   br i1 %tobool135.not, label %if.end144, label %do.body
 
 do.body:                                          ; preds = %if.end134
-  %timeout_write = getelementptr inbounds i8, ptr %bev_ssl, i64 352
+  %timeout_write = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 352
   %37 = load i64, ptr %timeout_write, align 8
   %tobool137.not = icmp eq i64 %37, 0
   br i1 %tobool137.not, label %lor.lhs.false, label %if.then140
 
 lor.lhs.false:                                    ; preds = %do.body
-  %tv_usec = getelementptr inbounds i8, ptr %bev_ssl, i64 360
+  %tv_usec = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 360
   %38 = load i64, ptr %tv_usec, align 8
   %tobool139.not = icmp eq i64 %38, 0
   br i1 %tobool139.not, label %if.end144, label %if.then140
 
 if.then140:                                       ; preds = %lor.lhs.false, %do.body
-  %ev_write = getelementptr inbounds i8, ptr %bev_ssl, i64 136
+  %ev_write = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 136
   %call142 = call i32 @event_add(ptr noundef nonnull %ev_write, ptr noundef nonnull %timeout_write) #7
   br label %if.end144
 
 if.end144:                                        ; preds = %if.then140, %lor.lhs.false, %if.end134
   %39 = load ptr, ptr %output3, align 8
   %call11.i = call i64 @evbuffer_get_length(ptr noundef %39) #7
-  %wm_write.i = getelementptr inbounds i8, ptr %bev_ssl, i64 288
+  %wm_write.i = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 288
   %40 = load i64, ptr %wm_write.i, align 8
   %cmp13.not.i = icmp ugt i64 %call11.i, %40
   br i1 %cmp13.not.i, label %return, label %if.then15.i
@@ -2141,9 +2141,9 @@ return:                                           ; preds = %if.then42, %if.end1
 define internal fastcc range(i32 0, 6) i32 @do_read(ptr noundef %bev_ssl, i32 noundef range(i32 1, 0) %n_to_read) unnamed_addr #0 {
 entry:
   %space = alloca [2 x %struct.iovec], align 16
-  %input3 = getelementptr inbounds i8, ptr %bev_ssl, i64 256
+  %input3 = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 256
   %0 = load ptr, ptr %input3, align 8
-  %read_suspended = getelementptr inbounds i8, ptr %bev_ssl, i64 388
+  %read_suspended = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 388
   %1 = load i16, ptr %read_suspended, align 4
   %tobool.not = icmp eq i16 %1, 0
   br i1 %tobool.not, label %if.end, label %return
@@ -2158,9 +2158,9 @@ if.end:                                           ; preds = %entry
   br i1 %cmp11, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end
-  %ssl_ops = getelementptr inbounds i8, ptr %bev_ssl, i64 536
-  %ssl = getelementptr inbounds i8, ptr %bev_ssl, i64 528
-  %read_blocked_on_write = getelementptr inbounds i8, ptr %bev_ssl, i64 588
+  %ssl_ops = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 536
+  %ssl = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 528
+  %read_blocked_on_write = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 588
   %cmp1595.not = icmp eq i32 %call10, 0
   br i1 %cmp1595.not, label %return, label %for.cond.outer.split.us.preheader
 
@@ -2173,7 +2173,7 @@ for.cond.outer.split.us:                          ; preds = %for.cond.outer.spli
   %arrayidx100 = phi ptr [ %space, %for.cond.outer.split.us.preheader ], [ %arrayidx, %if.else.split.us ]
   %result.0.ph99 = phi i32 [ 0, %for.cond.outer.split.us.preheader ], [ 1, %if.else.split.us ]
   %tobool56.not.ph98 = phi i1 [ true, %for.cond.outer.split.us.preheader ], [ false, %if.else.split.us ]
-  %iov_len101 = getelementptr inbounds i8, ptr %arrayidx100, i64 8
+  %iov_len101 = getelementptr inbounds nuw i8, ptr %arrayidx100, i64 8
   br label %for.cond.us
 
 for.cond.us:                                      ; preds = %if.end37.us, %for.cond.outer.split.us
@@ -2186,11 +2186,11 @@ for.cond.us:                                      ; preds = %if.end37.us, %for.c
 
 if.end21.us:                                      ; preds = %for.cond.us
   %3 = load ptr, ptr %ssl_ops, align 8
-  %clear_error.us = getelementptr inbounds i8, ptr %3, i64 72
+  %clear_error.us = getelementptr inbounds nuw i8, ptr %3, i64 72
   %4 = load ptr, ptr %clear_error.us, align 8
   call void %4() #7
   %5 = load ptr, ptr %ssl_ops, align 8
-  %read.us = getelementptr inbounds i8, ptr %5, i64 40
+  %read.us = getelementptr inbounds nuw i8, ptr %5, i64 40
   %6 = load ptr, ptr %read.us, align 8
   %7 = load ptr, ptr %ssl, align 8
   %8 = load ptr, ptr %arrayidx100, align 16
@@ -2214,7 +2214,7 @@ if.then30.us:                                     ; preds = %if.then28.us
 
 if.end37.us:                                      ; preds = %if.then30.us, %if.then28.us
   %10 = load ptr, ptr %ssl_ops, align 8
-  %decrement_buckets.us = getelementptr inbounds i8, ptr %10, i64 152
+  %decrement_buckets.us = getelementptr inbounds nuw i8, ptr %10, i64 152
   %11 = load ptr, ptr %decrement_buckets.us, align 8
   call void %11(ptr noundef nonnull %bev_ssl) #7
   %conv39.us = zext nneg i32 %call25.us to i64
@@ -2225,25 +2225,25 @@ if.end37.us:                                      ; preds = %if.then30.us, %if.t
 
 if.else.split.us:                                 ; preds = %if.end37.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx = getelementptr inbounds [2 x %struct.iovec], ptr %space, i64 0, i64 %indvars.iv.next
+  %arrayidx = getelementptr inbounds nuw [2 x %struct.iovec], ptr %space, i64 0, i64 %indvars.iv.next
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %if.end108, label %for.cond.outer.split.us, !llvm.loop !9
 
 if.else51:                                        ; preds = %if.end21.us
   %13 = load ptr, ptr %ssl_ops, align 8
-  %get_error = getelementptr inbounds i8, ptr %13, i64 64
+  %get_error = getelementptr inbounds nuw i8, ptr %13, i64 64
   %14 = load ptr, ptr %get_error, align 8
   %15 = load ptr, ptr %ssl, align 8
   %call54 = call i32 %14(ptr noundef %15, i32 noundef %call25.us) #7
   %16 = load ptr, ptr %ssl_ops, align 8
-  %print_err = getelementptr inbounds i8, ptr %16, i64 168
+  %print_err = getelementptr inbounds nuw i8, ptr %16, i64 168
   %17 = load ptr, ptr %print_err, align 8
   call void %17(i32 noundef %call54) #7
   br i1 %tobool56.not.us, label %if.else58, label %for.end
 
 if.else58:                                        ; preds = %if.else51
   %18 = load ptr, ptr %ssl_ops, align 8
-  %err_is_want_read = getelementptr inbounds i8, ptr %18, i64 112
+  %err_is_want_read = getelementptr inbounds nuw i8, ptr %18, i64 112
   %19 = load ptr, ptr %err_is_want_read, align 8
   %call60 = call i32 %19(i32 noundef %call54) #7
   %tobool61.not = icmp eq i32 %call60, 0
@@ -2266,7 +2266,7 @@ if.then72:                                        ; preds = %if.then68
 
 if.else76:                                        ; preds = %if.else58
   %20 = load ptr, ptr %ssl_ops, align 8
-  %err_is_want_write = getelementptr inbounds i8, ptr %20, i64 120
+  %err_is_want_write = getelementptr inbounds nuw i8, ptr %20, i64 120
   %21 = load ptr, ptr %err_is_want_write, align 8
   %call78 = call i32 %21(i32 noundef %call54) #7
   %tobool79.not = icmp eq i32 %call78, 0
@@ -2289,7 +2289,7 @@ if.then90:                                        ; preds = %if.then86
 
 if.else94:                                        ; preds = %if.else76
   %22 = load ptr, ptr %ssl_ops, align 8
-  %conn_closed = getelementptr inbounds i8, ptr %22, i64 160
+  %conn_closed = getelementptr inbounds nuw i8, ptr %22, i64 160
   %23 = load ptr, ptr %conn_closed, align 8
   call void %23(ptr noundef nonnull %bev_ssl, i32 noundef 1, i32 noundef %call54, i32 noundef %call25.us) #7
   br label %if.end98
@@ -2320,25 +2320,25 @@ if.end108:                                        ; preds = %if.else.split.us, %
 
 if.then110:                                       ; preds = %if.end108
   %call112 = call i32 @evbuffer_commit_space(ptr noundef %0, ptr noundef nonnull %space, i32 noundef %i.1) #7
-  %underlying = getelementptr inbounds i8, ptr %bev_ssl, i64 520
+  %underlying = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 520
   %24 = load ptr, ptr %underlying, align 8
   %tobool113.not = icmp eq ptr %24, null
   br i1 %tobool113.not, label %return, label %do.body
 
 do.body:                                          ; preds = %if.then110
-  %timeout_read = getelementptr inbounds i8, ptr %bev_ssl, i64 336
+  %timeout_read = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 336
   %25 = load i64, ptr %timeout_read, align 8
   %tobool115.not = icmp eq i64 %25, 0
   br i1 %tobool115.not, label %lor.lhs.false, label %if.then118
 
 lor.lhs.false:                                    ; preds = %do.body
-  %tv_usec = getelementptr inbounds i8, ptr %bev_ssl, i64 344
+  %tv_usec = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 344
   %26 = load i64, ptr %tv_usec, align 8
   %tobool117.not = icmp eq i64 %26, 0
   br i1 %tobool117.not, label %return, label %if.then118
 
 if.then118:                                       ; preds = %lor.lhs.false, %do.body
-  %ev_read = getelementptr inbounds i8, ptr %bev_ssl, i64 16
+  %ev_read = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 16
   %call120 = call i32 @event_add(ptr noundef nonnull %ev_read, ptr noundef nonnull %timeout_read) #7
   br label %return
 
@@ -2356,18 +2356,18 @@ declare i32 @evbuffer_peek(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @clear_wbor(ptr noundef %bev_ssl) unnamed_addr #0 {
 entry:
-  %write_blocked_on_read = getelementptr inbounds i8, ptr %bev_ssl, i64 588
+  %write_blocked_on_read = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 588
   %bf.load = load i8, ptr %write_blocked_on_read, align 4
   %bf.clear = and i8 %bf.load, -3
   store i8 %bf.clear, ptr %write_blocked_on_read, align 4
-  %enabled = getelementptr inbounds i8, ptr %bev_ssl, i64 368
+  %enabled = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 368
   %0 = load i16, ptr %enabled, align 8
   %1 = and i16 %0, 2
   %tobool.not = icmp eq i16 %1, 0
   br i1 %tobool.not, label %if.end.i, label %if.end
 
 if.end.i:                                         ; preds = %entry
-  %underlying.i = getelementptr inbounds i8, ptr %bev_ssl, i64 520
+  %underlying.i = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 520
   %2 = load ptr, ptr %underlying.i, align 8
   %tobool1.not.i = icmp eq ptr %2, null
   br i1 %tobool1.not.i, label %if.else.i, label %if.then2.i
@@ -2377,7 +2377,7 @@ if.then2.i:                                       ; preds = %if.end.i
   br label %if.end
 
 if.else.i:                                        ; preds = %if.end.i
-  %ev_read.i = getelementptr inbounds i8, ptr %bev_ssl, i64 16
+  %ev_read.i = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 16
   %call.i = tail call i32 @event_del(ptr noundef nonnull %ev_read.i) #7
   br label %if.end
 
@@ -2388,7 +2388,7 @@ if.end:                                           ; preds = %if.else.i, %if.then
   br i1 %tobool6.not, label %if.end8, label %if.then7
 
 if.then7:                                         ; preds = %if.end
-  %underlying.i5 = getelementptr inbounds i8, ptr %bev_ssl, i64 520
+  %underlying.i5 = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 520
   %5 = load ptr, ptr %underlying.i5, align 8
   %tobool.not.i6 = icmp eq ptr %5, null
   br i1 %tobool.not.i6, label %if.else.i11, label %if.then.i
@@ -2404,8 +2404,8 @@ if.then2.i10:                                     ; preds = %if.then.i
   br label %if.end8
 
 if.else.i11:                                      ; preds = %if.then7
-  %ev_write.i = getelementptr inbounds i8, ptr %bev_ssl, i64 136
-  %timeout_write.i = getelementptr inbounds i8, ptr %bev_ssl, i64 352
+  %ev_write.i = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 136
+  %timeout_write.i = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 352
   %call.i12 = tail call i32 @bufferevent_add_event_(ptr noundef nonnull %ev_write.i, ptr noundef nonnull %timeout_write.i) #7
   %tobool6.not.i = icmp eq i32 %call.i12, 0
   br i1 %tobool6.not.i, label %land.lhs.true.i, label %if.end8
@@ -2417,8 +2417,8 @@ land.lhs.true.i:                                  ; preds = %if.else.i11
   br i1 %tobool12.not.i, label %if.end8, label %if.then13.i
 
 if.then13.i:                                      ; preds = %land.lhs.true.i
-  %ev_read.i13 = getelementptr inbounds i8, ptr %bev_ssl, i64 16
-  %timeout_read.i = getelementptr inbounds i8, ptr %bev_ssl, i64 336
+  %ev_read.i13 = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 16
+  %timeout_read.i = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 336
   %call14.i = tail call i32 @bufferevent_add_event_(ptr noundef nonnull %ev_read.i13, ptr noundef nonnull %timeout_read.i) #7
   br label %if.end8
 
@@ -2430,10 +2430,10 @@ if.end8:                                          ; preds = %if.then13.i, %land.
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @set_wbor(ptr noundef %bev_ssl) unnamed_addr #0 {
 entry:
-  %underlying = getelementptr inbounds i8, ptr %bev_ssl, i64 520
+  %underlying = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 520
   %0 = load ptr, ptr %underlying, align 8
   %tobool.not = icmp eq ptr %0, null
-  %read_blocked_on_write.i = getelementptr inbounds i8, ptr %bev_ssl, i64 588
+  %read_blocked_on_write.i = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 588
   %bf.load.i = load i8, ptr %read_blocked_on_write.i, align 4
   br i1 %tobool.not, label %if.then, label %if.end.thread
 
@@ -2453,7 +2453,7 @@ if.end.thread18:                                  ; preds = %if.then
   br label %if.else.i6
 
 if.end:                                           ; preds = %if.then
-  %ev_write.i = getelementptr inbounds i8, ptr %bev_ssl, i64 136
+  %ev_write.i = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 136
   %call.i = tail call i32 @event_del(ptr noundef nonnull %ev_write.i) #7
   %.pr.pre = load ptr, ptr %underlying, align 8
   %bf.load.pre = load i8, ptr %read_blocked_on_write.i, align 4
@@ -2468,8 +2468,8 @@ if.then.i:                                        ; preds = %if.end.thread, %if.
   br label %start_reading.exit
 
 if.else.i6:                                       ; preds = %if.end.thread18, %if.end
-  %ev_read.i = getelementptr inbounds i8, ptr %bev_ssl, i64 16
-  %timeout_read.i = getelementptr inbounds i8, ptr %bev_ssl, i64 336
+  %ev_read.i = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 16
+  %timeout_read.i = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 336
   %call.i7 = tail call i32 @bufferevent_add_event_(ptr noundef nonnull %ev_read.i, ptr noundef nonnull %timeout_read.i) #7
   %cmp.i = icmp eq i32 %call.i7, 0
   br i1 %cmp.i, label %land.lhs.true.i, label %start_reading.exit
@@ -2481,8 +2481,8 @@ land.lhs.true.i:                                  ; preds = %if.else.i6
   br i1 %tobool4.not.i, label %start_reading.exit, label %if.then5.i
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  %ev_write.i11 = getelementptr inbounds i8, ptr %bev_ssl, i64 136
-  %timeout_write.i = getelementptr inbounds i8, ptr %bev_ssl, i64 352
+  %ev_write.i11 = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 136
+  %timeout_write.i = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 352
   %call6.i = tail call i32 @bufferevent_add_event_(ptr noundef nonnull %ev_write.i11, ptr noundef nonnull %timeout_write.i) #7
   br label %start_reading.exit
 
@@ -2504,18 +2504,18 @@ declare i32 @evbuffer_reserve_space(ptr noundef, i64 noundef, ptr noundef, i32 n
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @clear_rbow(ptr noundef %bev_ssl) unnamed_addr #0 {
 entry:
-  %read_blocked_on_write = getelementptr inbounds i8, ptr %bev_ssl, i64 588
+  %read_blocked_on_write = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 588
   %bf.load = load i8, ptr %read_blocked_on_write, align 4
   %bf.clear = and i8 %bf.load, -2
   store i8 %bf.clear, ptr %read_blocked_on_write, align 4
-  %enabled = getelementptr inbounds i8, ptr %bev_ssl, i64 368
+  %enabled = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 368
   %0 = load i16, ptr %enabled, align 8
   %1 = and i16 %0, 4
   %tobool.not = icmp eq i16 %1, 0
   br i1 %tobool.not, label %if.end.i, label %if.end
 
 if.end.i:                                         ; preds = %entry
-  %underlying.i = getelementptr inbounds i8, ptr %bev_ssl, i64 520
+  %underlying.i = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 520
   %2 = load ptr, ptr %underlying.i, align 8
   %tobool1.not.i = icmp eq ptr %2, null
   br i1 %tobool1.not.i, label %if.else.i, label %if.then2.i
@@ -2525,7 +2525,7 @@ if.then2.i:                                       ; preds = %if.end.i
   br label %if.end
 
 if.else.i:                                        ; preds = %if.end.i
-  %ev_write.i = getelementptr inbounds i8, ptr %bev_ssl, i64 136
+  %ev_write.i = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 136
   %call.i = tail call i32 @event_del(ptr noundef nonnull %ev_write.i) #7
   br label %if.end
 
@@ -2536,7 +2536,7 @@ if.end:                                           ; preds = %if.else.i, %if.then
   br i1 %tobool6.not, label %if.end8, label %if.then7
 
 if.then7:                                         ; preds = %if.end
-  %underlying.i5 = getelementptr inbounds i8, ptr %bev_ssl, i64 520
+  %underlying.i5 = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 520
   %5 = load ptr, ptr %underlying.i5, align 8
   %tobool.not.i6 = icmp eq ptr %5, null
   br i1 %tobool.not.i6, label %if.else.i7, label %if.then.i
@@ -2546,8 +2546,8 @@ if.then.i:                                        ; preds = %if.then7
   br label %if.end8
 
 if.else.i7:                                       ; preds = %if.then7
-  %ev_read.i = getelementptr inbounds i8, ptr %bev_ssl, i64 16
-  %timeout_read.i = getelementptr inbounds i8, ptr %bev_ssl, i64 336
+  %ev_read.i = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 16
+  %timeout_read.i = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 336
   %call.i8 = tail call i32 @bufferevent_add_event_(ptr noundef nonnull %ev_read.i, ptr noundef nonnull %timeout_read.i) #7
   %cmp.i = icmp eq i32 %call.i8, 0
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end8
@@ -2559,8 +2559,8 @@ land.lhs.true.i:                                  ; preds = %if.else.i7
   br i1 %tobool4.not.i, label %if.end8, label %if.then5.i
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  %ev_write.i12 = getelementptr inbounds i8, ptr %bev_ssl, i64 136
-  %timeout_write.i = getelementptr inbounds i8, ptr %bev_ssl, i64 352
+  %ev_write.i12 = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 136
+  %timeout_write.i = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 352
   %call6.i = tail call i32 @bufferevent_add_event_(ptr noundef nonnull %ev_write.i12, ptr noundef nonnull %timeout_write.i) #7
   br label %if.end8
 
@@ -2572,10 +2572,10 @@ if.end8:                                          ; preds = %if.then5.i, %land.l
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @set_rbow(ptr noundef %bev_ssl) unnamed_addr #0 {
 entry:
-  %underlying = getelementptr inbounds i8, ptr %bev_ssl, i64 520
+  %underlying = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 520
   %0 = load ptr, ptr %underlying, align 8
   %tobool.not = icmp eq ptr %0, null
-  %write_blocked_on_read.i = getelementptr inbounds i8, ptr %bev_ssl, i64 588
+  %write_blocked_on_read.i = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 588
   %bf.load.i = load i8, ptr %write_blocked_on_read.i, align 4
   br i1 %tobool.not, label %if.then, label %if.end.thread
 
@@ -2595,7 +2595,7 @@ if.end.thread20:                                  ; preds = %if.then
   br label %if.else.i10
 
 if.end:                                           ; preds = %if.then
-  %ev_read.i = getelementptr inbounds i8, ptr %bev_ssl, i64 16
+  %ev_read.i = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 16
   %call.i = tail call i32 @event_del(ptr noundef nonnull %ev_read.i) #7
   %.pr.pre = load ptr, ptr %underlying, align 8
   %bf.load.pre = load i8, ptr %write_blocked_on_read.i, align 4
@@ -2616,8 +2616,8 @@ if.then2.i9:                                      ; preds = %if.then.i
   br label %start_writing.exit
 
 if.else.i10:                                      ; preds = %if.end.thread20, %if.end
-  %ev_write.i = getelementptr inbounds i8, ptr %bev_ssl, i64 136
-  %timeout_write.i = getelementptr inbounds i8, ptr %bev_ssl, i64 352
+  %ev_write.i = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 136
+  %timeout_write.i = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 352
   %call.i11 = tail call i32 @bufferevent_add_event_(ptr noundef nonnull %ev_write.i, ptr noundef nonnull %timeout_write.i) #7
   %tobool6.not.i = icmp eq i32 %call.i11, 0
   br i1 %tobool6.not.i, label %land.lhs.true.i, label %start_writing.exit
@@ -2629,8 +2629,8 @@ land.lhs.true.i:                                  ; preds = %if.else.i10
   br i1 %tobool12.not.i, label %start_writing.exit, label %if.then13.i
 
 if.then13.i:                                      ; preds = %land.lhs.true.i
-  %ev_read.i12 = getelementptr inbounds i8, ptr %bev_ssl, i64 16
-  %timeout_read.i = getelementptr inbounds i8, ptr %bev_ssl, i64 336
+  %ev_read.i12 = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 16
+  %timeout_read.i = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 336
   %call14.i = tail call i32 @bufferevent_add_event_(ptr noundef nonnull %ev_read.i12, ptr noundef nonnull %timeout_read.i) #7
   br label %start_writing.exit
 
@@ -2648,11 +2648,11 @@ declare void @bufferevent_run_writecb_(ptr noundef, i32 noundef) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @consider_writing(ptr noundef %bev_ssl) unnamed_addr #0 {
 entry:
-  %output2 = getelementptr inbounds i8, ptr %bev_ssl, i64 264
+  %output2 = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 264
   %0 = load ptr, ptr %output2, align 8
-  %read_blocked_on_write = getelementptr inbounds i8, ptr %bev_ssl, i64 588
-  %input.i = getelementptr inbounds i8, ptr %bev_ssl, i64 256
-  %wm_read.i = getelementptr inbounds i8, ptr %bev_ssl, i64 272
+  %read_blocked_on_write = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 588
+  %input.i = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 256
+  %wm_read.i = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 272
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end, %entry
@@ -2693,23 +2693,23 @@ while.end:                                        ; preds = %while.cond, %if.end
   br i1 %tobool15.not, label %if.end17, label %if.end85
 
 if.end17:                                         ; preds = %while.end
-  %underlying = getelementptr inbounds i8, ptr %bev_ssl, i64 520
+  %underlying = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 520
   %3 = load ptr, ptr %underlying, align 8
   %.fr = freeze ptr %3
   %tobool18.not = icmp eq ptr %.fr, null
   br i1 %tobool18.not, label %if.end23.split.us.thread, label %if.end23
 
 if.end23.split.us.thread:                         ; preds = %if.end17
-  %write_suspended32 = getelementptr inbounds i8, ptr %bev_ssl, i64 390
-  %enabled33 = getelementptr inbounds i8, ptr %bev_ssl, i64 368
+  %write_suspended32 = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 390
+  %enabled33 = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 368
   br label %while.cond24.us.us.preheader
 
 if.end23:                                         ; preds = %if.end17
-  %output21 = getelementptr inbounds i8, ptr %.fr, i64 264
+  %output21 = getelementptr inbounds nuw i8, ptr %.fr, i64 264
   %4 = load ptr, ptr %output21, align 8
   %5 = freeze ptr %4
-  %write_suspended = getelementptr inbounds i8, ptr %bev_ssl, i64 390
-  %enabled = getelementptr inbounds i8, ptr %bev_ssl, i64 368
+  %write_suspended = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 390
+  %enabled = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 368
   %tobool34.not = icmp eq ptr %5, null
   %high = getelementptr i8, ptr %.fr, i64 296
   br i1 %tobool34.not, label %if.end23.split.us, label %while.cond24
@@ -2835,7 +2835,7 @@ lor.lhs.false:                                    ; preds = %if.else67
   br i1 %tobool77.not, label %if.end85.sink.split, label %if.end85
 
 if.end85.sink.split:                              ; preds = %if.else67, %lor.lhs.false, %if.then59
-  %ev_write = getelementptr inbounds i8, ptr %bev_ssl, i64 136
+  %ev_write = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 136
   %call66 = tail call i32 @event_del(ptr noundef nonnull %ev_write) #7
   br label %if.end85
 

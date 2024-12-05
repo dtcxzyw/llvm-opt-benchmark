@@ -23,13 +23,13 @@ define noundef ptr @_Z16global_stat_initPK10t_inputrec(ptr nocapture noundef rea
   %2 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 73, i64 noundef 1, i64 noundef 24)
   %3 = tail call noundef ptr @_Z6mk_binv()
   store ptr %3, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 720
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 720
   %6 = load i32, ptr %5, align 8
   %7 = sext i32 %6 to i64
   %8 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 76, i64 noundef range(i64 -2147483648, 2147483648) %7, i64 noundef 4)
   store ptr %8, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load i32, ptr %5, align 8
   %11 = sext i32 %10 to i64
   %12 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 77, i64 noundef range(i64 -2147483648, 2147483648) %11, i64 noundef 4)
@@ -45,10 +45,10 @@ declare noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef, ptr noundef, i32 noun
 define void @_Z19global_stat_destroyP15gmx_global_stat(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   tail call void @_Z11destroy_binP5t_bin(ptr noundef %2)
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 85, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 86, ptr noundef %6)
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 87, ptr noundef nonnull %0)
@@ -63,7 +63,7 @@ declare void @_Z9save_freePKcS0_iPv(ptr noundef, ptr noundef, i32 noundef, ptr n
 define void @_Z11global_statRK15gmx_global_statPK9t_commrecP14gmx_enerdata_tPA3_fS8_RK10t_inputrecP14gmx_ekindata_tP5t_vcmN3gmx8ArrayRefIfEEbilPNSG_18ObservablesReducerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(856) %5, ptr noundef %6, ptr noundef readonly %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef") align 8 %8, i1 noundef zeroext %9, i32 noundef %10, i64 noundef %11, ptr noundef %12) local_unnamed_addr #0 {
   %14 = alloca %"struct.std::array", align 4
   %15 = alloca %"struct.gmx::EnumerationArray.84", align 4
-  %16 = getelementptr inbounds i8, ptr %5, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %17 = load i32, ptr %16, align 4
   %.not335 = icmp eq i32 %17, 10
   %18 = add i32 %17, -12
@@ -88,9 +88,9 @@ define void @_Z11global_statRK15gmx_global_statPK9t_commrecP14gmx_enerdata_tPA3_
   %27 = and i32 %10, 1024
   %.not258 = icmp ne i32 %27, 0
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load ptr, ptr %31, align 8
   tail call void @_Z9reset_binP5t_bin(ptr noundef %28)
   br i1 %22, label %.split.i, label %.split.us.i
@@ -116,7 +116,7 @@ define void @_Z11global_statRK15gmx_global_statPK9t_commrecP14gmx_enerdata_tPA3_
   br i1 %.not337, label %41, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %35, %34, %.split.us.i, %.split.us.i
-  %36 = getelementptr inbounds float, ptr %2, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
   %37 = load float, ptr %36, align 4
   %38 = add nsw i32 %.02126.us.i, 1
   %39 = sext i32 %.02126.us.i to i64
@@ -148,7 +148,7 @@ define void @_Z11global_statRK15gmx_global_statPK9t_commrecP14gmx_enerdata_tPA3_
   ]
 
 .sink.split94.i:                                  ; preds = %.split.split.us.split.us.i
-  %43 = getelementptr inbounds float, ptr %2, i64 %indvars.iv363
+  %43 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv363
   %44 = load float, ptr %43, align 4
   %45 = add nsw i32 %.02126.us31.us.i, 1
   %46 = sext i32 %.02126.us31.us.i to i64
@@ -173,7 +173,7 @@ define void @_Z11global_statRK15gmx_global_statPK9t_commrecP14gmx_enerdata_tPA3_
   ]
 
 50:                                               ; preds = %.split.split.us.split.split.us.i, %.split.split.us.split.split.us.i, %.split.split.us.split.split.us.i
-  %51 = getelementptr inbounds float, ptr %2, i64 %indvars.iv80.i
+  %51 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv80.i
   %52 = load float, ptr %51, align 4
   %53 = add nsw i32 %.02126.us31.us57.i, 1
   %54 = sext i32 %.02126.us31.us57.i to i64
@@ -205,7 +205,7 @@ define void @_Z11global_statRK15gmx_global_statPK9t_commrecP14gmx_enerdata_tPA3_
   ]
 
 58:                                               ; preds = %.split.split.split.us.split.us.i
-  %59 = getelementptr inbounds float, ptr %2, i64 %indvars.iv72.i
+  %59 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv72.i
   %60 = load float, ptr %59, align 4
   %61 = add nsw i32 %.02126.us40.us.i, 1
   %62 = sext i32 %.02126.us40.us.i to i64
@@ -241,13 +241,13 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %41, %48, %56, %64, 
   br i1 %.old1.not, label %123, label %71
 
 71:                                               ; preds = %68, %70
-  %72 = getelementptr inbounds i8, ptr %5, i64 720
+  %72 = getelementptr inbounds nuw i8, ptr %5, i64 720
   %73 = load i32, ptr %72, align 8
   %74 = icmp sgt i32 %73, 0
   br i1 %74, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %71
-  %75 = getelementptr inbounds i8, ptr %6, i64 32
+  %75 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %brmerge = or i1 %.not258, %.not268
   br label %76
 
@@ -257,9 +257,9 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %41, %48, %56, %64, 
 
 77:                                               ; preds = %76
   %78 = load ptr, ptr %75, align 8
-  %79 = getelementptr inbounds %struct.t_grp_tcstat, ptr %78, i64 %indvars.iv366, i32 3
+  %79 = getelementptr inbounds nuw %struct.t_grp_tcstat, ptr %78, i64 %indvars.iv366, i32 3
   %80 = tail call noundef i32 @_Z8add_binrP5t_biniPKf(ptr noundef %28, i32 noundef 9, ptr noundef nonnull %79)
-  %81 = getelementptr inbounds i32, ptr %30, i64 %indvars.iv366
+  %81 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv366
   store i32 %80, ptr %81, align 4
   br label %82
 
@@ -268,7 +268,7 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %41, %48, %56, %64, 
 
 83:                                               ; preds = %82
   %84 = load ptr, ptr %75, align 8
-  %85 = getelementptr inbounds %struct.t_grp_tcstat, ptr %84, i64 %indvars.iv366, i32 4
+  %85 = getelementptr inbounds nuw %struct.t_grp_tcstat, ptr %84, i64 %indvars.iv366, i32 4
   br label %.sink.split
 
 86:                                               ; preds = %82
@@ -276,13 +276,13 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %41, %48, %56, %64, 
 
 87:                                               ; preds = %86
   %88 = load ptr, ptr %75, align 8
-  %89 = getelementptr inbounds %struct.t_grp_tcstat, ptr %88, i64 %indvars.iv366, i32 2
+  %89 = getelementptr inbounds nuw %struct.t_grp_tcstat, ptr %88, i64 %indvars.iv366, i32 2
   br label %.sink.split
 
 .sink.split:                                      ; preds = %87, %83
   %.sink390 = phi ptr [ %85, %83 ], [ %89, %87 ]
   %90 = tail call noundef i32 @_Z8add_binrP5t_biniPKf(ptr noundef %28, i32 noundef 9, ptr noundef nonnull %.sink390)
-  %91 = getelementptr inbounds i32, ptr %32, i64 %indvars.iv366
+  %91 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv366
   store i32 %90, ptr %91, align 4
   br label %92
 
@@ -294,30 +294,30 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %41, %48, %56, %64, 
   br i1 %95, label %76, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %92, %71
-  %96 = getelementptr inbounds i8, ptr %6, i64 152
+  %96 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %97 = tail call noundef i32 @_Z8add_binrP5t_biniPKf(ptr noundef %28, i32 noundef 1, ptr noundef nonnull %96)
   br i1 %9, label %98, label %101
 
 98:                                               ; preds = %._crit_edge
-  %99 = getelementptr inbounds i8, ptr %6, i64 156
+  %99 = getelementptr inbounds nuw i8, ptr %6, i64 156
   %100 = tail call noundef i32 @_Z8add_binrP5t_biniPKf(ptr noundef %28, i32 noundef 1, ptr noundef nonnull %99)
   br label %101
 
 101:                                              ; preds = %98, %._crit_edge
   %.1 = phi i32 [ %100, %98 ], [ 0, %._crit_edge ]
-  %102 = getelementptr inbounds i8, ptr %6, i64 192
+  %102 = getelementptr inbounds nuw i8, ptr %6, i64 192
   %103 = load float, ptr %102, align 8
   %104 = fcmp une float %103, 0.000000e+00
   br i1 %104, label %105, label %108
 
 105:                                              ; preds = %101
-  %106 = getelementptr inbounds i8, ptr %6, i64 196
+  %106 = getelementptr inbounds nuw i8, ptr %6, i64 196
   %107 = tail call noundef i32 @_Z8add_binrP5t_biniPKf(ptr noundef %28, i32 noundef 1, ptr noundef nonnull %106)
   br label %108
 
 108:                                              ; preds = %105, %101
   %.1243 = phi i32 [ %107, %105 ], [ 0, %101 ]
-  %109 = getelementptr inbounds i8, ptr %6, i64 160
+  %109 = getelementptr inbounds nuw i8, ptr %6, i64 160
   %110 = load ptr, ptr %109, align 8
   %.not338 = icmp eq ptr %110, null
   br i1 %.not338, label %123, label %111
@@ -326,7 +326,7 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %41, %48, %56, %64, 
   br i1 %9, label %112, label %115
 
 112:                                              ; preds = %111
-  %113 = getelementptr inbounds i8, ptr %110, i64 32
+  %113 = getelementptr inbounds nuw i8, ptr %110, i64 32
   %114 = tail call noundef i32 @_Z8add_bindP5t_biniPKd(ptr noundef %28, i32 noundef 4, ptr noundef nonnull %113)
   br label %115
 
@@ -337,7 +337,7 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %41, %48, %56, %64, 
 
 116:                                              ; preds = %115
   %117 = load ptr, ptr %109, align 8
-  %118 = getelementptr inbounds i8, ptr %117, i64 64
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 64
   br label %.sink.split391
 
 119:                                              ; preds = %115
@@ -370,42 +370,42 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %41, %48, %56, %64, 
 
 127:                                              ; preds = %126
   %128 = call noundef i32 @_Z8add_binrP5t_biniPKf(ptr noundef %28, i32 noundef %.us-phi.i, ptr noundef nonnull %14)
-  %129 = getelementptr inbounds i8, ptr %2, i64 376
-  %130 = getelementptr inbounds i8, ptr %2, i64 384
+  %129 = getelementptr inbounds nuw i8, ptr %2, i64 376
+  %130 = getelementptr inbounds nuw i8, ptr %2, i64 384
   br label %131
 
 131:                                              ; preds = %127, %131
   %indvars.iv369 = phi i64 [ 0, %127 ], [ %indvars.iv.next370, %131 ]
   %132 = load i32, ptr %129, align 8
-  %133 = getelementptr inbounds [5 x %"class.std::vector.50"], ptr %130, i64 0, i64 %indvars.iv369
+  %133 = getelementptr inbounds nuw [5 x %"class.std::vector.50"], ptr %130, i64 0, i64 %indvars.iv369
   %134 = load ptr, ptr %133, align 8
   %135 = call noundef i32 @_Z8add_binrP5t_biniPKf(ptr noundef %28, i32 noundef %132, ptr noundef %134)
-  %136 = getelementptr inbounds [5 x i32], ptr %15, i64 0, i64 %indvars.iv369
+  %136 = getelementptr inbounds nuw [5 x i32], ptr %15, i64 0, i64 %indvars.iv369
   store i32 %135, ptr %136, align 4
   %indvars.iv.next370 = add nuw nsw i64 %indvars.iv369, 1
   %.not342 = icmp eq i64 %indvars.iv.next370, 5
   br i1 %.not342, label %137, label %131
 
 137:                                              ; preds = %131
-  %138 = getelementptr inbounds i8, ptr %5, i64 396
+  %138 = getelementptr inbounds nuw i8, ptr %5, i64 396
   %139 = load i32, ptr %138, align 4
   %.not = icmp eq i32 %139, 0
   br i1 %.not, label %159, label %140
 
 140:                                              ; preds = %137
-  %141 = getelementptr inbounds i8, ptr %2, i64 504
-  %142 = getelementptr inbounds i8, ptr %2, i64 560
+  %141 = getelementptr inbounds nuw i8, ptr %2, i64 504
+  %142 = getelementptr inbounds nuw i8, ptr %2, i64 560
   %143 = call noundef i32 @_Z8add_bindP5t_binN3gmx8ArrayRefIKdEE(ptr noundef %28, ptr nonnull %141, ptr nonnull %142)
-  %144 = getelementptr inbounds i8, ptr %2, i64 616
+  %144 = getelementptr inbounds nuw i8, ptr %2, i64 616
   %145 = call noundef i32 @_Z8add_bindP5t_binN3gmx8ArrayRefIKdEE(ptr noundef %28, ptr nonnull %142, ptr nonnull %144)
   %146 = load i32, ptr %144, align 8
   %147 = icmp sgt i32 %146, 0
   br i1 %147, label %148, label %159
 
 148:                                              ; preds = %140
-  %149 = getelementptr inbounds i8, ptr %2, i64 632
+  %149 = getelementptr inbounds nuw i8, ptr %2, i64 632
   %150 = load ptr, ptr %149, align 8
-  %151 = getelementptr inbounds i8, ptr %2, i64 640
+  %151 = getelementptr inbounds nuw i8, ptr %2, i64 640
   %152 = load ptr, ptr %151, align 8
   %153 = ptrtoint ptr %152 to i64
   %154 = ptrtoint ptr %150 to i64
@@ -426,14 +426,14 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %41, %48, %56, %64, 
 160:                                              ; preds = %159
   %161 = load i32, ptr %7, align 8
   %162 = mul nsw i32 %161, 3
-  %163 = getelementptr inbounds i8, ptr %7, i64 72
+  %163 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %164 = load ptr, ptr %163, align 8
   %165 = call noundef i32 @_Z8add_binrP5t_biniPKf(ptr noundef %28, i32 noundef %162, ptr noundef nonnull %164)
   %166 = load i32, ptr %7, align 8
-  %167 = getelementptr inbounds i8, ptr %7, i64 48
+  %167 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %168 = load ptr, ptr %167, align 8
   %169 = call noundef i32 @_Z8add_binrP5t_biniPKf(ptr noundef %28, i32 noundef %166, ptr noundef %168)
-  %170 = getelementptr inbounds i8, ptr %7, i64 12
+  %170 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %171 = load i32, ptr %170, align 4
   %172 = icmp eq i32 %171, 1
   br i1 %172, label %173, label %189
@@ -441,17 +441,17 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %41, %48, %56, %64, 
 173:                                              ; preds = %160
   %174 = load i32, ptr %7, align 8
   %175 = mul nsw i32 %174, 3
-  %176 = getelementptr inbounds i8, ptr %7, i64 144
+  %176 = getelementptr inbounds nuw i8, ptr %7, i64 144
   %177 = load ptr, ptr %176, align 8
   %178 = call noundef i32 @_Z8add_binrP5t_biniPKf(ptr noundef %28, i32 noundef %175, ptr noundef nonnull %177)
   %179 = load i32, ptr %7, align 8
   %180 = mul nsw i32 %179, 3
-  %181 = getelementptr inbounds i8, ptr %7, i64 120
+  %181 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %182 = load ptr, ptr %181, align 8
   %183 = call noundef i32 @_Z8add_binrP5t_biniPKf(ptr noundef %28, i32 noundef %180, ptr noundef nonnull %182)
   %184 = load i32, ptr %7, align 8
   %185 = mul nsw i32 %184, 9
-  %186 = getelementptr inbounds i8, ptr %7, i64 192
+  %186 = getelementptr inbounds nuw i8, ptr %7, i64 192
   %187 = load ptr, ptr %186, align 8
   %188 = call noundef i32 @_Z8add_binrP5t_biniPKf(ptr noundef %28, i32 noundef %185, ptr noundef %187)
   br label %189
@@ -463,7 +463,7 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %41, %48, %56, %64, 
   %.0241 = phi i32 [ %169, %173 ], [ %169, %160 ], [ 0, %159 ]
   %.0240 = phi i32 [ %165, %173 ], [ %165, %160 ], [ 0, %159 ]
   %.sroa.01.0.copyload.i = load ptr, ptr %8, align 8
-  %190 = getelementptr inbounds i8, ptr %8, i64 8
+  %190 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.0.0.copyload.i273 = load ptr, ptr %190, align 8
   %191 = icmp eq ptr %.sroa.01.0.copyload.i, %.sroa.0.0.copyload.i273
   br i1 %191, label %198, label %192
@@ -515,13 +515,13 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %41, %48, %56, %64, 
   br i1 %.old4.not, label %265, label %216
 
 216:                                              ; preds = %213, %215
-  %217 = getelementptr inbounds i8, ptr %5, i64 720
+  %217 = getelementptr inbounds nuw i8, ptr %5, i64 720
   %218 = load i32, ptr %217, align 8
   %219 = icmp sgt i32 %218, 0
   br i1 %219, label %.lr.ph354, label %._crit_edge355
 
 .lr.ph354:                                        ; preds = %216
-  %220 = getelementptr inbounds i8, ptr %6, i64 32
+  %220 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %brmerge267 = or i1 %.not258, %.not268
   br label %221
 
@@ -530,10 +530,10 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %41, %48, %56, %64, 
   br i1 %9, label %222, label %227
 
 222:                                              ; preds = %221
-  %223 = getelementptr inbounds i32, ptr %30, i64 %indvars.iv372
+  %223 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv372
   %224 = load i32, ptr %223, align 4
   %225 = load ptr, ptr %220, align 8
-  %226 = getelementptr inbounds %struct.t_grp_tcstat, ptr %225, i64 %indvars.iv372, i32 3
+  %226 = getelementptr inbounds nuw %struct.t_grp_tcstat, ptr %225, i64 %indvars.iv372, i32 3
   call void @_Z12extract_binrP5t_biniiPf(ptr noundef %28, i32 noundef %224, i32 noundef 9, ptr noundef nonnull %226)
   br label %227
 
@@ -541,10 +541,10 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %41, %48, %56, %64, 
   br i1 %brmerge267, label %233, label %228
 
 228:                                              ; preds = %227
-  %229 = getelementptr inbounds i32, ptr %32, i64 %indvars.iv372
+  %229 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv372
   %230 = load i32, ptr %229, align 4
   %231 = load ptr, ptr %220, align 8
-  %232 = getelementptr inbounds %struct.t_grp_tcstat, ptr %231, i64 %indvars.iv372, i32 4
+  %232 = getelementptr inbounds nuw %struct.t_grp_tcstat, ptr %231, i64 %indvars.iv372, i32 4
   call void @_Z12extract_binrP5t_biniiPf(ptr noundef %28, i32 noundef %230, i32 noundef 9, ptr noundef nonnull %232)
   br label %239
 
@@ -552,10 +552,10 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %41, %48, %56, %64, 
   br i1 %.not258, label %239, label %234
 
 234:                                              ; preds = %233
-  %235 = getelementptr inbounds i32, ptr %32, i64 %indvars.iv372
+  %235 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv372
   %236 = load i32, ptr %235, align 4
   %237 = load ptr, ptr %220, align 8
-  %238 = getelementptr inbounds %struct.t_grp_tcstat, ptr %237, i64 %indvars.iv372, i32 2
+  %238 = getelementptr inbounds nuw %struct.t_grp_tcstat, ptr %237, i64 %indvars.iv372, i32 2
   call void @_Z12extract_binrP5t_biniiPf(ptr noundef %28, i32 noundef %236, i32 noundef 9, ptr noundef nonnull %238)
   br label %239
 
@@ -567,28 +567,28 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %41, %48, %56, %64, 
   br i1 %242, label %221, label %._crit_edge355, !llvm.loop !8
 
 ._crit_edge355:                                   ; preds = %239, %216
-  %243 = getelementptr inbounds i8, ptr %6, i64 152
+  %243 = getelementptr inbounds nuw i8, ptr %6, i64 152
   call void @_Z12extract_binrP5t_biniiPf(ptr noundef %28, i32 noundef %.0233, i32 noundef 1, ptr noundef nonnull %243)
   br i1 %9, label %244, label %246
 
 244:                                              ; preds = %._crit_edge355
-  %245 = getelementptr inbounds i8, ptr %6, i64 156
+  %245 = getelementptr inbounds nuw i8, ptr %6, i64 156
   call void @_Z12extract_binrP5t_biniiPf(ptr noundef %28, i32 noundef %.0234, i32 noundef 1, ptr noundef nonnull %245)
   br label %246
 
 246:                                              ; preds = %244, %._crit_edge355
-  %247 = getelementptr inbounds i8, ptr %6, i64 192
+  %247 = getelementptr inbounds nuw i8, ptr %6, i64 192
   %248 = load float, ptr %247, align 8
   %249 = fcmp une float %248, 0.000000e+00
   br i1 %249, label %250, label %252
 
 250:                                              ; preds = %246
-  %251 = getelementptr inbounds i8, ptr %6, i64 196
+  %251 = getelementptr inbounds nuw i8, ptr %6, i64 196
   call void @_Z12extract_binrP5t_biniiPf(ptr noundef %28, i32 noundef %.0242, i32 noundef 1, ptr noundef nonnull %251)
   br label %252
 
 252:                                              ; preds = %250, %246
-  %253 = getelementptr inbounds i8, ptr %6, i64 160
+  %253 = getelementptr inbounds nuw i8, ptr %6, i64 160
   %254 = load ptr, ptr %253, align 8
   %.not343 = icmp eq ptr %254, null
   br i1 %.not343, label %265, label %255
@@ -597,7 +597,7 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %41, %48, %56, %64, 
   br i1 %9, label %256, label %258
 
 256:                                              ; preds = %255
-  %257 = getelementptr inbounds i8, ptr %254, i64 32
+  %257 = getelementptr inbounds nuw i8, ptr %254, i64 32
   call void @_Z12extract_bindP5t_biniiPd(ptr noundef %28, i32 noundef %.0244, i32 noundef 4, ptr noundef nonnull %257)
   br label %258
 
@@ -607,7 +607,7 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %41, %48, %56, %64, 
 
 259:                                              ; preds = %258
   %260 = load ptr, ptr %253, align 8
-  %261 = getelementptr inbounds i8, ptr %260, i64 64
+  %261 = getelementptr inbounds nuw i8, ptr %260, i64 64
   br label %.sink.split392
 
 262:                                              ; preds = %258
@@ -634,16 +634,16 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %41, %48, %56, %64, 
 
 268:                                              ; preds = %267
   call void @_Z12extract_binrP5t_biniiPf(ptr noundef %28, i32 noundef %.0, i32 noundef %.us-phi.i, ptr noundef nonnull %14)
-  %269 = getelementptr inbounds i8, ptr %2, i64 376
-  %270 = getelementptr inbounds i8, ptr %2, i64 384
+  %269 = getelementptr inbounds nuw i8, ptr %2, i64 376
+  %270 = getelementptr inbounds nuw i8, ptr %2, i64 384
   br label %271
 
 271:                                              ; preds = %268, %271
   %indvars.iv375 = phi i64 [ 0, %268 ], [ %indvars.iv.next376, %271 ]
-  %272 = getelementptr inbounds [5 x i32], ptr %15, i64 0, i64 %indvars.iv375
+  %272 = getelementptr inbounds nuw [5 x i32], ptr %15, i64 0, i64 %indvars.iv375
   %273 = load i32, ptr %272, align 4
   %274 = load i32, ptr %269, align 8
-  %275 = getelementptr inbounds [5 x %"class.std::vector.50"], ptr %270, i64 0, i64 %indvars.iv375
+  %275 = getelementptr inbounds nuw [5 x %"class.std::vector.50"], ptr %270, i64 0, i64 %indvars.iv375
   %276 = load ptr, ptr %275, align 8
   call void @_Z12extract_binrP5t_biniiPf(ptr noundef %28, i32 noundef %273, i32 noundef %274, ptr noundef %276)
   %indvars.iv.next376 = add nuw nsw i64 %indvars.iv375, 1
@@ -651,25 +651,25 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %41, %48, %56, %64, 
   br i1 %.not344, label %277, label %271
 
 277:                                              ; preds = %271
-  %278 = getelementptr inbounds i8, ptr %5, i64 396
+  %278 = getelementptr inbounds nuw i8, ptr %5, i64 396
   %279 = load i32, ptr %278, align 4
   %.not260 = icmp eq i32 %279, 0
   br i1 %.not260, label %296, label %280
 
 280:                                              ; preds = %277
-  %281 = getelementptr inbounds i8, ptr %2, i64 504
-  %282 = getelementptr inbounds i8, ptr %2, i64 560
+  %281 = getelementptr inbounds nuw i8, ptr %2, i64 504
+  %282 = getelementptr inbounds nuw i8, ptr %2, i64 560
   call void @_Z12extract_bindP5t_biniN3gmx8ArrayRefIdEE(ptr noundef %28, i32 noundef %.0235, ptr nonnull %281, ptr nonnull %282)
-  %283 = getelementptr inbounds i8, ptr %2, i64 616
+  %283 = getelementptr inbounds nuw i8, ptr %2, i64 616
   call void @_Z12extract_bindP5t_biniN3gmx8ArrayRefIdEE(ptr noundef %28, i32 noundef %.0238, ptr nonnull %282, ptr nonnull %283)
   %284 = load i32, ptr %283, align 8
   %285 = icmp sgt i32 %284, 0
   br i1 %285, label %286, label %296
 
 286:                                              ; preds = %280
-  %287 = getelementptr inbounds i8, ptr %2, i64 632
+  %287 = getelementptr inbounds nuw i8, ptr %2, i64 632
   %288 = load ptr, ptr %287, align 8
-  %289 = getelementptr inbounds i8, ptr %2, i64 640
+  %289 = getelementptr inbounds nuw i8, ptr %2, i64 640
   %290 = load ptr, ptr %289, align 8
   %291 = ptrtoint ptr %290 to i64
   %292 = ptrtoint ptr %288 to i64
@@ -702,7 +702,7 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %41, %48, %56, %64, 
   %300 = sext i32 %.027.us.i295 to i64
   %301 = getelementptr inbounds float, ptr %14, i64 %300
   %302 = load float, ptr %301, align 4
-  %303 = getelementptr inbounds float, ptr %2, i64 %indvars.iv378
+  %303 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv378
   store float %302, ptr %303, align 4
   br label %304
 
@@ -731,7 +731,7 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %41, %48, %56, %64, 
   %307 = sext i32 %.027.us30.us.i287 to i64
   %308 = getelementptr inbounds float, ptr %14, i64 %307
   %309 = load float, ptr %308, align 4
-  %310 = getelementptr inbounds float, ptr %2, i64 %indvars.iv381
+  %310 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv381
   store float %309, ptr %310, align 4
   br label %311
 
@@ -760,7 +760,7 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %41, %48, %56, %64, 
   %314 = sext i32 %.027.us39.i to i64
   %315 = getelementptr inbounds float, ptr %14, i64 %314
   %316 = load float, ptr %315, align 4
-  %317 = getelementptr inbounds float, ptr %2, i64 %indvars.iv.i
+  %317 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv.i
   store float %316, ptr %317, align 4
   br label %318
 
@@ -776,14 +776,14 @@ _ZL16filter_enerdtermPKfbPfbbb.exit302:           ; preds = %304, %311, %318, %2
 319:                                              ; preds = %_ZL16filter_enerdtermPKfbPfbbb.exit302
   %320 = load i32, ptr %7, align 8
   %321 = mul nsw i32 %320, 3
-  %322 = getelementptr inbounds i8, ptr %7, i64 72
+  %322 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %323 = load ptr, ptr %322, align 8
   call void @_Z12extract_binrP5t_biniiPf(ptr noundef %28, i32 noundef %.0240, i32 noundef %321, ptr noundef nonnull %323)
   %324 = load i32, ptr %7, align 8
-  %325 = getelementptr inbounds i8, ptr %7, i64 48
+  %325 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %326 = load ptr, ptr %325, align 8
   call void @_Z12extract_binrP5t_biniiPf(ptr noundef %28, i32 noundef %.0241, i32 noundef %324, ptr noundef %326)
-  %327 = getelementptr inbounds i8, ptr %7, i64 12
+  %327 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %328 = load i32, ptr %327, align 4
   %329 = icmp eq i32 %328, 1
   br i1 %329, label %330, label %343
@@ -791,17 +791,17 @@ _ZL16filter_enerdtermPKfbPfbbb.exit302:           ; preds = %304, %311, %318, %2
 330:                                              ; preds = %319
   %331 = load i32, ptr %7, align 8
   %332 = mul nsw i32 %331, 3
-  %333 = getelementptr inbounds i8, ptr %7, i64 144
+  %333 = getelementptr inbounds nuw i8, ptr %7, i64 144
   %334 = load ptr, ptr %333, align 8
   call void @_Z12extract_binrP5t_biniiPf(ptr noundef %28, i32 noundef %.0249, i32 noundef %332, ptr noundef nonnull %334)
   %335 = load i32, ptr %7, align 8
   %336 = mul nsw i32 %335, 3
-  %337 = getelementptr inbounds i8, ptr %7, i64 120
+  %337 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %338 = load ptr, ptr %337, align 8
   call void @_Z12extract_binrP5t_biniiPf(ptr noundef %28, i32 noundef %.0251, i32 noundef %336, ptr noundef nonnull %338)
   %339 = load i32, ptr %7, align 8
   %340 = mul nsw i32 %339, 9
-  %341 = getelementptr inbounds i8, ptr %7, i64 192
+  %341 = getelementptr inbounds nuw i8, ptr %7, i64 192
   %342 = load ptr, ptr %341, align 8
   call void @_Z12extract_binrP5t_biniiPf(ptr noundef %28, i32 noundef %.0250, i32 noundef %340, ptr noundef %342)
   br label %343

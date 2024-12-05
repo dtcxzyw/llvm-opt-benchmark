@@ -202,7 +202,7 @@ declare i64 @_mi_heap_random_next(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define hidden void @_mi_os_free_ex(ptr noundef %addr, i64 noundef %size, i1 noundef zeroext %still_committed, ptr nocapture noundef readonly byval(%struct.mi_memid_s) align 8 %memid, ptr nocapture readnone %tld_stats) local_unnamed_addr #1 {
 entry:
-  %memkind = getelementptr inbounds i8, ptr %memid, i64 20
+  %memkind = getelementptr inbounds nuw i8, ptr %memid, i64 20
   %0 = load i32, ptr %memkind, align 4
   %1 = add i32 %0, -3
   %2 = icmp ult i32 %1, 3
@@ -286,7 +286,7 @@ mi_os_prim_free.exit.i:                           ; preds = %if.then3.i.i, %if.e
   tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds (i8, ptr @_mi_stats_main, i64 96), i64 noundef 1073741824) #7
   tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds (i8, ptr @_mi_stats_main, i64 64), i64 noundef 1073741824) #7
   %sub.i7 = add i64 %size.addr.02.i, -1073741824
-  %add.ptr.i = getelementptr inbounds i8, ptr %base.03.i, i64 1073741824
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %base.03.i, i64 1073741824
   %cmp2.i = icmp ugt i64 %sub.i7, 1073741823
   br i1 %cmp2.i, label %if.end.i.i, label %if.end13, !llvm.loop !4
 
@@ -464,15 +464,15 @@ if.then3:                                         ; preds = %mi_os_prim_alloc.ex
   %frombool1.i = and i8 %4, 1
   %frombool2.i = and i8 %5, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %memid, i8 0, i64 16, i1 false)
-  %tmp4.sroa.2.0.memid.sroa_idx = getelementptr inbounds i8, ptr %memid, i64 16
+  %tmp4.sroa.2.0.memid.sroa_idx = getelementptr inbounds nuw i8, ptr %memid, i64 16
   store i8 %frombool2.i, ptr %tmp4.sroa.2.0.memid.sroa_idx, align 8
-  %tmp4.sroa.3.0.memid.sroa_idx = getelementptr inbounds i8, ptr %memid, i64 17
+  %tmp4.sroa.3.0.memid.sroa_idx = getelementptr inbounds nuw i8, ptr %memid, i64 17
   store i8 1, ptr %tmp4.sroa.3.0.memid.sroa_idx, align 1
-  %tmp4.sroa.4.0.memid.sroa_idx = getelementptr inbounds i8, ptr %memid, i64 18
+  %tmp4.sroa.4.0.memid.sroa_idx = getelementptr inbounds nuw i8, ptr %memid, i64 18
   store i8 %frombool1.i, ptr %tmp4.sroa.4.0.memid.sroa_idx, align 2
-  %tmp4.sroa.5.0.memid.sroa_idx = getelementptr inbounds i8, ptr %memid, i64 19
+  %tmp4.sroa.5.0.memid.sroa_idx = getelementptr inbounds nuw i8, ptr %memid, i64 19
   store i8 0, ptr %tmp4.sroa.5.0.memid.sroa_idx, align 1
-  %tmp4.sroa.57.0.memid.sroa_idx = getelementptr inbounds i8, ptr %memid, i64 20
+  %tmp4.sroa.57.0.memid.sroa_idx = getelementptr inbounds nuw i8, ptr %memid, i64 20
   store i32 3, ptr %tmp4.sroa.57.0.memid.sroa_idx, align 4
   br label %return
 
@@ -813,18 +813,18 @@ if.then7:                                         ; preds = %if.end12.i21, %mi_o
   %frombool.i = zext i1 %commit to i8
   %frombool1.i = and i8 %22, 1
   %frombool2.i = and i8 %23, 1
-  %tmp8.sroa.2.0.memid.sroa_idx = getelementptr inbounds i8, ptr %memid, i64 16
+  %tmp8.sroa.2.0.memid.sroa_idx = getelementptr inbounds nuw i8, ptr %memid, i64 16
   store i8 %frombool2.i, ptr %tmp8.sroa.2.0.memid.sroa_idx, align 8
-  %tmp8.sroa.3.0.memid.sroa_idx = getelementptr inbounds i8, ptr %memid, i64 17
+  %tmp8.sroa.3.0.memid.sroa_idx = getelementptr inbounds nuw i8, ptr %memid, i64 17
   store i8 %frombool.i, ptr %tmp8.sroa.3.0.memid.sroa_idx, align 1
-  %tmp8.sroa.4.0.memid.sroa_idx = getelementptr inbounds i8, ptr %memid, i64 18
+  %tmp8.sroa.4.0.memid.sroa_idx = getelementptr inbounds nuw i8, ptr %memid, i64 18
   store i8 %frombool1.i, ptr %tmp8.sroa.4.0.memid.sroa_idx, align 2
-  %tmp8.sroa.5.0.memid.sroa_idx = getelementptr inbounds i8, ptr %memid, i64 19
+  %tmp8.sroa.5.0.memid.sroa_idx = getelementptr inbounds nuw i8, ptr %memid, i64 19
   store i8 0, ptr %tmp8.sroa.5.0.memid.sroa_idx, align 1
-  %tmp8.sroa.526.0.memid.sroa_idx = getelementptr inbounds i8, ptr %memid, i64 20
+  %tmp8.sroa.526.0.memid.sroa_idx = getelementptr inbounds nuw i8, ptr %memid, i64 20
   store i32 3, ptr %tmp8.sroa.526.0.memid.sroa_idx, align 4
   store ptr %os_base.034, ptr %memid, align 8
-  %alignment13 = getelementptr inbounds i8, ptr %memid, i64 8
+  %alignment13 = getelementptr inbounds nuw i8, ptr %memid, i64 8
   store i64 %retval.0.i13, ptr %alignment13, align 8
   br label %return
 
@@ -1115,9 +1115,9 @@ cond.end16.i.i:                                   ; preds = %if.else.i.i21.i.i, 
 
 if.end:                                           ; preds = %cond.end16.i.i
   %cond39.i.i = inttoptr i64 %cond39.in.i.i to ptr
-  %reset = getelementptr inbounds i8, ptr %stats, i64 128
+  %reset = getelementptr inbounds nuw i8, ptr %stats, i64 128
   tail call void @_mi_stat_increase(ptr noundef nonnull %reset, i64 noundef %sub.ptr.sub.i.i) #7
-  %reset_calls = getelementptr inbounds i8, ptr %stats, i64 528
+  %reset_calls = getelementptr inbounds nuw i8, ptr %stats, i64 528
   tail call void @_mi_stat_counter_increase(ptr noundef nonnull %reset_calls, i64 noundef 1) #7
   %call1 = tail call i32 @_mi_prim_reset(ptr noundef %cond39.i.i, i64 noundef %sub.ptr.sub.i.i) #7
   %cmp2.not = icmp eq i32 %call1, 0
@@ -1143,9 +1143,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %purge_calls = getelementptr inbounds i8, ptr %stats, i64 544
+  %purge_calls = getelementptr inbounds nuw i8, ptr %stats, i64 544
   tail call void @_mi_stat_counter_increase(ptr noundef nonnull %purge_calls, i64 noundef 1) #7
-  %purged = getelementptr inbounds i8, ptr %stats, i64 160
+  %purged = getelementptr inbounds nuw i8, ptr %stats, i64 160
   tail call void @_mi_stat_increase(ptr noundef nonnull %purged, i64 noundef %size) #7
   %call1 = tail call zeroext i1 @mi_option_is_enabled(i32 noundef 5) #7
   br i1 %call1, label %land.lhs.true, label %if.else
@@ -1251,9 +1251,9 @@ cond.end16.i.i.i18:                               ; preds = %if.else.i.i21.i.i.i
 
 if.end.i23:                                       ; preds = %cond.end16.i.i.i18
   %cond39.i.i.i24 = inttoptr i64 %cond39.in.i.i.i19 to ptr
-  %reset.i = getelementptr inbounds i8, ptr %stats, i64 128
+  %reset.i = getelementptr inbounds nuw i8, ptr %stats, i64 128
   tail call void @_mi_stat_increase(ptr noundef nonnull %reset.i, i64 noundef %sub.ptr.sub.i.i.i21) #7
-  %reset_calls.i = getelementptr inbounds i8, ptr %stats, i64 528
+  %reset_calls.i = getelementptr inbounds nuw i8, ptr %stats, i64 528
   tail call void @_mi_stat_counter_increase(ptr noundef nonnull %reset_calls.i, i64 noundef 1) #7
   %call1.i25 = tail call i32 @_mi_prim_reset(ptr noundef %cond39.i.i.i24, i64 noundef %sub.ptr.sub.i.i.i21) #7
   %cmp2.not.i26 = icmp eq i32 %call1.i25, 0
@@ -1572,15 +1572,15 @@ if.end43:                                         ; preds = %if.then41, %if.end3
 if.then45:                                        ; preds = %if.end43
   %frombool1.i = and i8 %all_zero.1, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %memid, i8 0, i64 16, i1 false)
-  %tmp46.sroa.2.0.memid.sroa_idx = getelementptr inbounds i8, ptr %memid, i64 16
+  %tmp46.sroa.2.0.memid.sroa_idx = getelementptr inbounds nuw i8, ptr %memid, i64 16
   store i8 1, ptr %tmp46.sroa.2.0.memid.sroa_idx, align 8
-  %tmp46.sroa.3.0.memid.sroa_idx = getelementptr inbounds i8, ptr %memid, i64 17
+  %tmp46.sroa.3.0.memid.sroa_idx = getelementptr inbounds nuw i8, ptr %memid, i64 17
   store i8 1, ptr %tmp46.sroa.3.0.memid.sroa_idx, align 1
-  %tmp46.sroa.4.0.memid.sroa_idx = getelementptr inbounds i8, ptr %memid, i64 18
+  %tmp46.sroa.4.0.memid.sroa_idx = getelementptr inbounds nuw i8, ptr %memid, i64 18
   store i8 %frombool1.i, ptr %tmp46.sroa.4.0.memid.sroa_idx, align 2
-  %tmp46.sroa.5.0.memid.sroa_idx = getelementptr inbounds i8, ptr %memid, i64 19
+  %tmp46.sroa.5.0.memid.sroa_idx = getelementptr inbounds nuw i8, ptr %memid, i64 19
   store i8 0, ptr %tmp46.sroa.5.0.memid.sroa_idx, align 1
-  %tmp46.sroa.533.0.memid.sroa_idx = getelementptr inbounds i8, ptr %memid, i64 20
+  %tmp46.sroa.533.0.memid.sroa_idx = getelementptr inbounds nuw i8, ptr %memid, i64 20
   store i32 4, ptr %tmp46.sroa.533.0.memid.sroa_idx, align 4
   br label %return
 

@@ -277,11 +277,11 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -2147483648, 2) i32 @yiddish_UTF_8_stem(ptr noundef initializes((20, 24)) %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 20
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
-  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   br label %.outer
 
 .outer:                                           ; preds = %1, %46
@@ -411,7 +411,7 @@ define hidden range(i32 -2147483648, 2) i32 @yiddish_UTF_8_stem(ptr noundef init
 57:                                               ; preds = %52
   store i32 %3, ptr %2, align 8
   %58 = load i32, ptr %6, align 4
-  %59 = getelementptr inbounds i8, ptr %0, i64 40
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr i8, ptr %60, i64 4
   store i32 %58, ptr %61, align 4
@@ -611,7 +611,7 @@ define hidden range(i32 -2147483648, 2) i32 @yiddish_UTF_8_stem(ptr noundef init
   br label %146
 
 146:                                              ; preds = %128, %102, %132, %136, %145
-  %147 = getelementptr inbounds i8, ptr %0, i64 16
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %3, ptr %147, align 8
   %148 = load i32, ptr %6, align 4
   store i32 %148, ptr %2, align 8

@@ -53,13 +53,13 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @check_for_data_types_usage(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.PQExpBufferData, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 128
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph55, label %._crit_edge56.thread
 
 .lr.ph55:                                         ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 120
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 120
   br label %9
 
 9:                                                ; preds = %.lr.ph55, %._crit_edge
@@ -246,13 +246,13 @@ define dso_local void @old_9_6_check_for_unknown_data_type_usage(ptr noundef %0)
 define dso_local void @old_9_6_invalidate_hash_indexes(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca %struct.PQExpBufferData, align 8
   tail call void (ptr, ...) @prep_status(ptr noundef nonnull @.str.21) #6
-  %4 = getelementptr inbounds i8, ptr %0, i64 128
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph61, label %._crit_edge62.thread.thread
 
 .lr.ph61:                                         ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 120
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
   br i1 %1, label %.lr.ph61.split.us, label %.lr.ph61.split
 
 .lr.ph61.split.us:                                ; preds = %.lr.ph61, %.lr.ph61.split.us
@@ -429,13 +429,13 @@ define dso_local void @old_11_check_for_sql_identifier_data_type_usage(ptr nound
 define dso_local void @report_extension_updates(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.PQExpBufferData, align 8
   tail call void (ptr, ...) @prep_status(ptr noundef nonnull @.str.33) #6
-  %3 = getelementptr inbounds i8, ptr %0, i64 128
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph40, label %._crit_edge41.thread
 
 .lr.ph40:                                         ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 120
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
   br label %7
 
 7:                                                ; preds = %.lr.ph40, %._crit_edge

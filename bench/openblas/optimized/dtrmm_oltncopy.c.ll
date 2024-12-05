@@ -61,48 +61,48 @@ define noundef i32 @dtrmm_oltncopy(i64 noundef %0, i64 noundef %1, ptr nocapture
 42:                                               ; preds = %.preheader.us
   %43 = icmp slt i64 %38, %24
   %44 = load double, ptr %39, align 8, !tbaa !3
-  %45 = getelementptr inbounds i8, ptr %39, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %46 = load double, ptr %45, align 8, !tbaa !3
   br i1 %43, label %55, label %47
 
 47:                                               ; preds = %42
-  %48 = getelementptr inbounds i8, ptr %40, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %49 = load double, ptr %48, align 8, !tbaa !3
   store double %44, ptr %36, align 8, !tbaa !3
-  %50 = getelementptr inbounds i8, ptr %36, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store double %46, ptr %50, align 8, !tbaa !3
-  %51 = getelementptr inbounds i8, ptr %36, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store double 0.000000e+00, ptr %51, align 8, !tbaa !3
-  %52 = getelementptr inbounds i8, ptr %36, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %36, i64 24
   store double %49, ptr %52, align 8, !tbaa !3
-  %53 = getelementptr inbounds i8, ptr %39, i64 16
-  %54 = getelementptr inbounds i8, ptr %40, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %39, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %40, i64 16
   br label %67
 
 55:                                               ; preds = %42
   %56 = load double, ptr %40, align 8, !tbaa !3
-  %57 = getelementptr inbounds i8, ptr %40, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %58 = load double, ptr %57, align 8, !tbaa !3
   store double %44, ptr %36, align 8, !tbaa !3
-  %59 = getelementptr inbounds i8, ptr %36, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store double %46, ptr %59, align 8, !tbaa !3
-  %60 = getelementptr inbounds i8, ptr %36, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store double %56, ptr %60, align 8, !tbaa !3
-  %61 = getelementptr inbounds i8, ptr %36, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %36, i64 24
   store double %58, ptr %61, align 8, !tbaa !3
   %62 = getelementptr inbounds double, ptr %39, i64 %19
   %63 = getelementptr inbounds double, ptr %40, i64 %19
   br label %67
 
 64:                                               ; preds = %.preheader.us
-  %65 = getelementptr inbounds i8, ptr %39, i64 16
-  %66 = getelementptr inbounds i8, ptr %40, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %39, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %40, i64 16
   br label %67
 
 67:                                               ; preds = %64, %55, %47
   %68 = phi ptr [ %65, %64 ], [ %62, %55 ], [ %53, %47 ]
   %69 = phi ptr [ %66, %64 ], [ %63, %55 ], [ %54, %47 ]
-  %70 = getelementptr inbounds i8, ptr %36, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %71 = add nsw i64 %38, 2
   %72 = add nsw i64 %37, -1
   %73 = icmp sgt i64 %37, 1
@@ -114,16 +114,16 @@ define noundef i32 @dtrmm_oltncopy(i64 noundef %0, i64 noundef %1, ptr nocapture
 
 76:                                               ; preds = %74
   %77 = load double, ptr %68, align 8, !tbaa !3
-  %78 = getelementptr inbounds i8, ptr %68, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %79 = load double, ptr %78, align 8, !tbaa !3
   store double %77, ptr %70, align 8, !tbaa !3
-  %80 = getelementptr inbounds i8, ptr %36, i64 40
+  %80 = getelementptr inbounds nuw i8, ptr %36, i64 40
   store double %79, ptr %80, align 8, !tbaa !3
-  %81 = getelementptr inbounds i8, ptr %36, i64 48
+  %81 = getelementptr inbounds nuw i8, ptr %36, i64 48
   br label %84
 
 82:                                               ; preds = %74
-  %83 = getelementptr inbounds i8, ptr %36, i64 48
+  %83 = getelementptr inbounds nuw i8, ptr %36, i64 48
   br label %84
 
 84:                                               ; preds = %82, %76, %.loopexit7.us
@@ -155,15 +155,15 @@ define noundef i32 @dtrmm_oltncopy(i64 noundef %0, i64 noundef %1, ptr nocapture
 95:                                               ; preds = %.split.split
   %gep = getelementptr double, ptr %invariant.gep, i64 %93
   %96 = load double, ptr %gep, align 8, !tbaa !3
-  %97 = getelementptr inbounds i8, ptr %gep, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %gep, i64 8
   %98 = load double, ptr %97, align 8, !tbaa !3
   store double %96, ptr %91, align 8, !tbaa !3
-  %99 = getelementptr inbounds i8, ptr %91, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %91, i64 8
   store double %98, ptr %99, align 8, !tbaa !3
   br label %100
 
 100:                                              ; preds = %.split.split, %95
-  %101 = getelementptr inbounds i8, ptr %91, i64 16
+  %101 = getelementptr inbounds nuw i8, ptr %91, i64 16
   %102 = add nsw i64 %93, 2
   %103 = add nsw i64 %92, -1
   %104 = icmp sgt i64 %92, 1
@@ -198,7 +198,7 @@ define noundef i32 @dtrmm_oltncopy(i64 noundef %0, i64 noundef %1, ptr nocapture
   br i1 %125, label %126, label %128
 
 126:                                              ; preds = %120
-  %127 = getelementptr inbounds i8, ptr %124, i64 8
+  %127 = getelementptr inbounds nuw i8, ptr %124, i64 8
   br label %135
 
 128:                                              ; preds = %120
@@ -212,12 +212,12 @@ define noundef i32 @dtrmm_oltncopy(i64 noundef %0, i64 noundef %1, ptr nocapture
   br label %135
 
 133:                                              ; preds = %128
-  %134 = getelementptr inbounds i8, ptr %124, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %124, i64 8
   br label %135
 
 135:                                              ; preds = %133, %131, %126
   %136 = phi ptr [ %127, %126 ], [ %132, %131 ], [ %134, %133 ]
-  %137 = getelementptr inbounds i8, ptr %121, i64 8
+  %137 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %138 = add nsw i64 %123, 1
   %139 = add nsw i64 %122, -1
   %140 = icmp sgt i64 %122, 1

@@ -213,9 +213,9 @@ define internal noundef i32 @_ZL29hb_font_get_nominal_glyph_nilP9hb_font_tPvjPjS
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL34hb_font_get_nominal_glyphs_defaultP9hb_font_tPvjPKjjPjjS1_(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr nocapture readnone %7) #1 {
-  %9 = getelementptr inbounds i8, ptr %0, i64 144
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL22_hb_font_funcs_default, i64 48), align 8
   %.not24 = icmp eq ptr %12, %13
@@ -226,7 +226,7 @@ define internal noundef i32 @_ZL34hb_font_get_nominal_glyphs_defaultP9hb_font_tP
   br i1 %.not29, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %14 = getelementptr inbounds i8, ptr %0, i64 152
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %15 = zext i32 %4 to i64
   %16 = zext i32 %6 to i64
   br label %17
@@ -238,16 +238,16 @@ define internal noundef i32 @_ZL34hb_font_get_nominal_glyphs_defaultP9hb_font_tP
   %18 = load i32, ptr %.02026, align 4
   store i32 0, ptr %.02125, align 4
   %19 = load ptr, ptr %9, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %14, align 8
-  %23 = getelementptr inbounds i8, ptr %19, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %24 = load ptr, ptr %23, align 8
   %.not.i = icmp eq ptr %24, null
   br i1 %.not.i, label %_ZN9hb_font_t17get_nominal_glyphEjPjj.exit, label %25
 
 25:                                               ; preds = %17
-  %26 = getelementptr inbounds i8, ptr %24, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %27 = load ptr, ptr %26, align 8
   br label %_ZN9hb_font_t17get_nominal_glyphEjPjj.exit
 
@@ -258,28 +258,28 @@ _ZN9hb_font_t17get_nominal_glyphEjPjj.exit:       ; preds = %17, %25
   br i1 %.not, label %.loopexit, label %30
 
 30:                                               ; preds = %_ZN9hb_font_t17get_nominal_glyphEjPjj.exit
-  %31 = getelementptr inbounds i8, ptr %.02026, i64 %15
-  %32 = getelementptr inbounds i8, ptr %.02125, i64 %16
+  %31 = getelementptr inbounds nuw i8, ptr %.02026, i64 %15
+  %32 = getelementptr inbounds nuw i8, ptr %.02125, i64 %16
   %33 = add nuw i32 %.027, 1
   %exitcond.not = icmp eq i32 %33, %2
   br i1 %exitcond.not, label %.loopexit, label %17, !llvm.loop !6
 
 34:                                               ; preds = %8
-  %35 = getelementptr inbounds i8, ptr %0, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 144
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 144
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 56
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %36, i64 152
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 152
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %38, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %44 = load ptr, ptr %43, align 8
   %.not.i23 = icmp eq ptr %44, null
   br i1 %.not.i23, label %_ZN9hb_font_t18get_nominal_glyphsEjPKjjPjj.exit, label %45
 
 45:                                               ; preds = %34
-  %46 = getelementptr inbounds i8, ptr %44, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %47 = load ptr, ptr %46, align 8
   br label %_ZN9hb_font_t18get_nominal_glyphsEjPKjjPjj.exit
 
@@ -301,23 +301,23 @@ define internal noundef i32 @_ZL31hb_font_get_variation_glyph_nilP9hb_font_tPvjj
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal noundef i32 @_ZL31hb_font_get_glyph_h_advance_nilP9hb_font_tPvjS1_(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i32 %2, ptr nocapture readnone %3) #2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load i32, ptr %5, align 8
   ret i32 %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal noundef i32 @_ZL31hb_font_get_glyph_v_advance_nilP9hb_font_tPvjS1_(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i32 %2, ptr nocapture readnone %3) #2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   ret i32 %6
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL36hb_font_get_glyph_h_advances_defaultP9hb_font_tPvjPKjjPijS1_(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr nocapture readnone %7) #1 {
-  %9 = getelementptr inbounds i8, ptr %0, i64 144
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL22_hb_font_funcs_default, i64 72), align 8
   %.not = icmp eq ptr %12, %13
@@ -328,7 +328,7 @@ define internal void @_ZL36hb_font_get_glyph_h_advances_defaultP9hb_font_tPvjPKj
   br i1 %.not36, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %14 = getelementptr inbounds i8, ptr %0, i64 152
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %15 = zext i32 %4 to i64
   %16 = zext i32 %6 to i64
   br label %17
@@ -339,16 +339,16 @@ define internal void @_ZL36hb_font_get_glyph_h_advances_defaultP9hb_font_tPvjPKj
   %.02630 = phi ptr [ %5, %.lr.ph ], [ %31, %_ZN9hb_font_t19get_glyph_h_advanceEj.exit ]
   %18 = load i32, ptr %.02531, align 4
   %19 = load ptr, ptr %9, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 72
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %14, align 8
-  %23 = getelementptr inbounds i8, ptr %19, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %24 = load ptr, ptr %23, align 8
   %.not.i = icmp eq ptr %24, null
   br i1 %.not.i, label %_ZN9hb_font_t19get_glyph_h_advanceEj.exit, label %25
 
 25:                                               ; preds = %17
-  %26 = getelementptr inbounds i8, ptr %24, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %27 = load ptr, ptr %26, align 8
   br label %_ZN9hb_font_t19get_glyph_h_advanceEj.exit
 
@@ -356,28 +356,28 @@ _ZN9hb_font_t19get_glyph_h_advanceEj.exit:        ; preds = %17, %25
   %28 = phi ptr [ %27, %25 ], [ null, %17 ]
   %29 = tail call noundef i32 %21(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %22, i32 noundef %18, ptr noundef %28)
   store i32 %29, ptr %.02630, align 4
-  %30 = getelementptr inbounds i8, ptr %.02531, i64 %15
-  %31 = getelementptr inbounds i8, ptr %.02630, i64 %16
+  %30 = getelementptr inbounds nuw i8, ptr %.02531, i64 %15
+  %31 = getelementptr inbounds nuw i8, ptr %.02630, i64 %16
   %32 = add nuw i32 %.02432, 1
   %exitcond.not = icmp eq i32 %32, %2
   br i1 %exitcond.not, label %.loopexit, label %17, !llvm.loop !8
 
 33:                                               ; preds = %8
-  %34 = getelementptr inbounds i8, ptr %0, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 144
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 144
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 88
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 88
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %35, i64 152
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 152
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %37, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %43 = load ptr, ptr %42, align 8
   %.not.i27 = icmp eq ptr %43, null
   br i1 %.not.i27, label %_ZN9hb_font_t20get_glyph_h_advancesEjPKjjPij.exit, label %44
 
 44:                                               ; preds = %33
-  %45 = getelementptr inbounds i8, ptr %43, i64 56
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 56
   %46 = load ptr, ptr %45, align 8
   br label %_ZN9hb_font_t20get_glyph_h_advancesEjPKjjPij.exit
 
@@ -388,7 +388,7 @@ _ZN9hb_font_t20get_glyph_h_advancesEjPKjjPij.exit: ; preds = %33, %44
   br i1 %.not37, label %.loopexit, label %.lr.ph35
 
 .lr.ph35:                                         ; preds = %_ZN9hb_font_t20get_glyph_h_advancesEjPKjjPij.exit
-  %48 = getelementptr inbounds i8, ptr %0, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %49 = zext i32 %6 to i64
   br label %50
 
@@ -401,7 +401,7 @@ _ZN9hb_font_t20get_glyph_h_advancesEjPKjjPij.exit: ; preds = %33, %44
   br i1 %.not.i28, label %_ZN9hb_font_t23parent_scale_x_distanceEi.exit, label %53
 
 53:                                               ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %52, i64 40
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 40
   %55 = load i32, ptr %54, align 8
   %56 = load i32, ptr %48, align 8
   %.not6.i = icmp eq i32 %55, %56
@@ -419,7 +419,7 @@ _ZN9hb_font_t20get_glyph_h_advancesEjPKjjPij.exit: ; preds = %33, %44
 _ZN9hb_font_t23parent_scale_x_distanceEi.exit:    ; preds = %50, %53, %57
   %.0.i = phi i32 [ %63, %57 ], [ %51, %53 ], [ %51, %50 ]
   store i32 %.0.i, ptr %.133, align 4
-  %64 = getelementptr inbounds i8, ptr %.133, i64 %49
+  %64 = getelementptr inbounds nuw i8, ptr %.133, i64 %49
   %65 = add nuw i32 %.034, 1
   %exitcond39.not = icmp eq i32 %65, %2
   br i1 %exitcond39.not, label %.loopexit, label %50, !llvm.loop !9
@@ -430,9 +430,9 @@ _ZN9hb_font_t23parent_scale_x_distanceEi.exit:    ; preds = %50, %53, %57
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL36hb_font_get_glyph_v_advances_defaultP9hb_font_tPvjPKjjPijS1_(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr nocapture readnone %7) #1 {
-  %9 = getelementptr inbounds i8, ptr %0, i64 144
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL22_hb_font_funcs_default, i64 80), align 8
   %.not = icmp eq ptr %12, %13
@@ -443,7 +443,7 @@ define internal void @_ZL36hb_font_get_glyph_v_advances_defaultP9hb_font_tPvjPKj
   br i1 %.not36, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %14 = getelementptr inbounds i8, ptr %0, i64 152
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %15 = zext i32 %4 to i64
   %16 = zext i32 %6 to i64
   br label %17
@@ -454,16 +454,16 @@ define internal void @_ZL36hb_font_get_glyph_v_advances_defaultP9hb_font_tPvjPKj
   %.02630 = phi ptr [ %5, %.lr.ph ], [ %31, %_ZN9hb_font_t19get_glyph_v_advanceEj.exit ]
   %18 = load i32, ptr %.02531, align 4
   %19 = load ptr, ptr %9, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 80
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 80
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %14, align 8
-  %23 = getelementptr inbounds i8, ptr %19, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %24 = load ptr, ptr %23, align 8
   %.not.i = icmp eq ptr %24, null
   br i1 %.not.i, label %_ZN9hb_font_t19get_glyph_v_advanceEj.exit, label %25
 
 25:                                               ; preds = %17
-  %26 = getelementptr inbounds i8, ptr %24, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 48
   %27 = load ptr, ptr %26, align 8
   br label %_ZN9hb_font_t19get_glyph_v_advanceEj.exit
 
@@ -471,28 +471,28 @@ _ZN9hb_font_t19get_glyph_v_advanceEj.exit:        ; preds = %17, %25
   %28 = phi ptr [ %27, %25 ], [ null, %17 ]
   %29 = tail call noundef i32 %21(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %22, i32 noundef %18, ptr noundef %28)
   store i32 %29, ptr %.02630, align 4
-  %30 = getelementptr inbounds i8, ptr %.02531, i64 %15
-  %31 = getelementptr inbounds i8, ptr %.02630, i64 %16
+  %30 = getelementptr inbounds nuw i8, ptr %.02531, i64 %15
+  %31 = getelementptr inbounds nuw i8, ptr %.02630, i64 %16
   %32 = add nuw i32 %.02432, 1
   %exitcond.not = icmp eq i32 %32, %2
   br i1 %exitcond.not, label %.loopexit, label %17, !llvm.loop !10
 
 33:                                               ; preds = %8
-  %34 = getelementptr inbounds i8, ptr %0, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 144
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 144
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %35, i64 152
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 152
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %37, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %43 = load ptr, ptr %42, align 8
   %.not.i27 = icmp eq ptr %43, null
   br i1 %.not.i27, label %_ZN9hb_font_t20get_glyph_v_advancesEjPKjjPij.exit, label %44
 
 44:                                               ; preds = %33
-  %45 = getelementptr inbounds i8, ptr %43, i64 64
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 64
   %46 = load ptr, ptr %45, align 8
   br label %_ZN9hb_font_t20get_glyph_v_advancesEjPKjjPij.exit
 
@@ -503,7 +503,7 @@ _ZN9hb_font_t20get_glyph_v_advancesEjPKjjPij.exit: ; preds = %33, %44
   br i1 %.not37, label %.loopexit, label %.lr.ph35
 
 .lr.ph35:                                         ; preds = %_ZN9hb_font_t20get_glyph_v_advancesEjPKjjPij.exit
-  %48 = getelementptr inbounds i8, ptr %0, i64 44
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %49 = zext i32 %6 to i64
   br label %50
 
@@ -516,7 +516,7 @@ _ZN9hb_font_t20get_glyph_v_advancesEjPKjjPij.exit: ; preds = %33, %44
   br i1 %.not.i28, label %_ZN9hb_font_t23parent_scale_y_distanceEi.exit, label %53
 
 53:                                               ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %52, i64 44
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 44
   %55 = load i32, ptr %54, align 4
   %56 = load i32, ptr %48, align 4
   %.not6.i = icmp eq i32 %55, %56
@@ -534,7 +534,7 @@ _ZN9hb_font_t20get_glyph_v_advancesEjPKjjPij.exit: ; preds = %33, %44
 _ZN9hb_font_t23parent_scale_y_distanceEi.exit:    ; preds = %50, %53, %57
   %.0.i = phi i32 [ %63, %57 ], [ %51, %53 ], [ %51, %50 ]
   store i32 %.0.i, ptr %.133, align 4
-  %64 = getelementptr inbounds i8, ptr %.133, i64 %49
+  %64 = getelementptr inbounds nuw i8, ptr %.133, i64 %49
   %65 = add nuw i32 %.034, 1
   %exitcond39.not = icmp eq i32 %65, %2
   br i1 %exitcond39.not, label %.loopexit, label %50, !llvm.loop !11
@@ -617,12 +617,12 @@ define hidden noundef ptr @hb_font_funcs_create() local_unnamed_addr #4 {
 
 2:                                                ; preds = %0
   store atomic i32 1, ptr %1 monotonic, align 4
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store atomic i32 1, ptr %3 monotonic, align 4
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store atomic i64 0, ptr %4 monotonic, align 8
   %5 = load atomic i32, ptr %1 monotonic, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %6, ptr noundef nonnull align 8 dereferenceable(152) getelementptr inbounds (i8, ptr @_ZL22_hb_font_funcs_default, i64 32), i64 152, i1 false)
   br label %7
 
@@ -676,14 +676,14 @@ define hidden void @hb_font_funcs_destroy(ptr noundef %0) local_unnamed_addr #1 
 
 7:                                                ; preds = %5
   store atomic i32 -57005, ptr %0 monotonic, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load atomic i64, ptr %8 acquire, align 8
   %.not.i9.i = icmp eq i64 %9, 0
   br i1 %.not.i9.i, label %_ZL17hb_object_destroyI15hb_font_funcs_tEbPT_.exit, label %10
 
 10:                                               ; preds = %7
   %11 = inttoptr i64 %9 to ptr
-  %12 = getelementptr inbounds i8, ptr %11, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 40
   tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(56) %11)
   %13 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(56) %11) #25
   tail call void @free(ptr noundef nonnull %11) #25
@@ -691,7 +691,7 @@ define hidden void @hb_font_funcs_destroy(ptr noundef %0) local_unnamed_addr #1 
   br label %_ZL17hb_object_destroyI15hb_font_funcs_tEbPT_.exit
 
 _ZL17hb_object_destroyI15hb_font_funcs_tEbPT_.exit: ; preds = %10, %7
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %241, label %16
@@ -702,7 +702,7 @@ _ZL17hb_object_destroyI15hb_font_funcs_tEbPT_.exit: ; preds = %10, %7
   br i1 %.not119, label %25, label %18
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8
   %.not120 = icmp eq ptr %20, null
   br i1 %.not120, label %23, label %21
@@ -719,19 +719,19 @@ _ZL17hb_object_destroyI15hb_font_funcs_tEbPT_.exit: ; preds = %10, %7
 
 25:                                               ; preds = %23, %16
   %26 = phi ptr [ %.pre, %23 ], [ %15, %16 ]
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
   %.not121 = icmp eq ptr %28, null
   br i1 %.not121, label %37, label %29
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %31 = load ptr, ptr %30, align 8
   %.not122 = icmp eq ptr %31, null
   br i1 %.not122, label %35, label %32
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %31, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %34 = load ptr, ptr %33, align 8
   br label %35
 
@@ -743,19 +743,19 @@ _ZL17hb_object_destroyI15hb_font_funcs_tEbPT_.exit: ; preds = %10, %7
 
 37:                                               ; preds = %35, %25
   %38 = phi ptr [ %.pre158, %35 ], [ %26, %25 ]
-  %39 = getelementptr inbounds i8, ptr %38, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load ptr, ptr %39, align 8
   %.not123 = icmp eq ptr %40, null
   br i1 %.not123, label %49, label %41
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %0, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %43 = load ptr, ptr %42, align 8
   %.not124 = icmp eq ptr %43, null
   br i1 %.not124, label %47, label %44
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %43, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %46 = load ptr, ptr %45, align 8
   br label %47
 
@@ -767,19 +767,19 @@ _ZL17hb_object_destroyI15hb_font_funcs_tEbPT_.exit: ; preds = %10, %7
 
 49:                                               ; preds = %47, %37
   %50 = phi ptr [ %.pre159, %47 ], [ %38, %37 ]
-  %51 = getelementptr inbounds i8, ptr %50, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %52 = load ptr, ptr %51, align 8
   %.not125 = icmp eq ptr %52, null
   br i1 %.not125, label %61, label %53
 
 53:                                               ; preds = %49
-  %54 = getelementptr inbounds i8, ptr %0, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %55 = load ptr, ptr %54, align 8
   %.not126 = icmp eq ptr %55, null
   br i1 %.not126, label %59, label %56
 
 56:                                               ; preds = %53
-  %57 = getelementptr inbounds i8, ptr %55, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %58 = load ptr, ptr %57, align 8
   br label %59
 
@@ -791,19 +791,19 @@ _ZL17hb_object_destroyI15hb_font_funcs_tEbPT_.exit: ; preds = %10, %7
 
 61:                                               ; preds = %59, %49
   %62 = phi ptr [ %.pre160, %59 ], [ %50, %49 ]
-  %63 = getelementptr inbounds i8, ptr %62, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 32
   %64 = load ptr, ptr %63, align 8
   %.not127 = icmp eq ptr %64, null
   br i1 %.not127, label %73, label %65
 
 65:                                               ; preds = %61
-  %66 = getelementptr inbounds i8, ptr %0, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %67 = load ptr, ptr %66, align 8
   %.not128 = icmp eq ptr %67, null
   br i1 %.not128, label %71, label %68
 
 68:                                               ; preds = %65
-  %69 = getelementptr inbounds i8, ptr %67, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 32
   %70 = load ptr, ptr %69, align 8
   br label %71
 
@@ -815,19 +815,19 @@ _ZL17hb_object_destroyI15hb_font_funcs_tEbPT_.exit: ; preds = %10, %7
 
 73:                                               ; preds = %71, %61
   %74 = phi ptr [ %.pre161, %71 ], [ %62, %61 ]
-  %75 = getelementptr inbounds i8, ptr %74, i64 40
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 40
   %76 = load ptr, ptr %75, align 8
   %.not129 = icmp eq ptr %76, null
   br i1 %.not129, label %85, label %77
 
 77:                                               ; preds = %73
-  %78 = getelementptr inbounds i8, ptr %0, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %79 = load ptr, ptr %78, align 8
   %.not130 = icmp eq ptr %79, null
   br i1 %.not130, label %83, label %80
 
 80:                                               ; preds = %77
-  %81 = getelementptr inbounds i8, ptr %79, i64 40
+  %81 = getelementptr inbounds nuw i8, ptr %79, i64 40
   %82 = load ptr, ptr %81, align 8
   br label %83
 
@@ -839,19 +839,19 @@ _ZL17hb_object_destroyI15hb_font_funcs_tEbPT_.exit: ; preds = %10, %7
 
 85:                                               ; preds = %83, %73
   %86 = phi ptr [ %.pre162, %83 ], [ %74, %73 ]
-  %87 = getelementptr inbounds i8, ptr %86, i64 48
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 48
   %88 = load ptr, ptr %87, align 8
   %.not131 = icmp eq ptr %88, null
   br i1 %.not131, label %97, label %89
 
 89:                                               ; preds = %85
-  %90 = getelementptr inbounds i8, ptr %0, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %91 = load ptr, ptr %90, align 8
   %.not132 = icmp eq ptr %91, null
   br i1 %.not132, label %95, label %92
 
 92:                                               ; preds = %89
-  %93 = getelementptr inbounds i8, ptr %91, i64 48
+  %93 = getelementptr inbounds nuw i8, ptr %91, i64 48
   %94 = load ptr, ptr %93, align 8
   br label %95
 
@@ -863,19 +863,19 @@ _ZL17hb_object_destroyI15hb_font_funcs_tEbPT_.exit: ; preds = %10, %7
 
 97:                                               ; preds = %95, %85
   %98 = phi ptr [ %.pre163, %95 ], [ %86, %85 ]
-  %99 = getelementptr inbounds i8, ptr %98, i64 56
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 56
   %100 = load ptr, ptr %99, align 8
   %.not133 = icmp eq ptr %100, null
   br i1 %.not133, label %109, label %101
 
 101:                                              ; preds = %97
-  %102 = getelementptr inbounds i8, ptr %0, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %103 = load ptr, ptr %102, align 8
   %.not134 = icmp eq ptr %103, null
   br i1 %.not134, label %107, label %104
 
 104:                                              ; preds = %101
-  %105 = getelementptr inbounds i8, ptr %103, i64 56
+  %105 = getelementptr inbounds nuw i8, ptr %103, i64 56
   %106 = load ptr, ptr %105, align 8
   br label %107
 
@@ -887,19 +887,19 @@ _ZL17hb_object_destroyI15hb_font_funcs_tEbPT_.exit: ; preds = %10, %7
 
 109:                                              ; preds = %107, %97
   %110 = phi ptr [ %.pre164, %107 ], [ %98, %97 ]
-  %111 = getelementptr inbounds i8, ptr %110, i64 64
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 64
   %112 = load ptr, ptr %111, align 8
   %.not135 = icmp eq ptr %112, null
   br i1 %.not135, label %121, label %113
 
 113:                                              ; preds = %109
-  %114 = getelementptr inbounds i8, ptr %0, i64 16
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %115 = load ptr, ptr %114, align 8
   %.not136 = icmp eq ptr %115, null
   br i1 %.not136, label %119, label %116
 
 116:                                              ; preds = %113
-  %117 = getelementptr inbounds i8, ptr %115, i64 64
+  %117 = getelementptr inbounds nuw i8, ptr %115, i64 64
   %118 = load ptr, ptr %117, align 8
   br label %119
 
@@ -911,19 +911,19 @@ _ZL17hb_object_destroyI15hb_font_funcs_tEbPT_.exit: ; preds = %10, %7
 
 121:                                              ; preds = %119, %109
   %122 = phi ptr [ %.pre165, %119 ], [ %110, %109 ]
-  %123 = getelementptr inbounds i8, ptr %122, i64 72
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 72
   %124 = load ptr, ptr %123, align 8
   %.not137 = icmp eq ptr %124, null
   br i1 %.not137, label %133, label %125
 
 125:                                              ; preds = %121
-  %126 = getelementptr inbounds i8, ptr %0, i64 16
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %127 = load ptr, ptr %126, align 8
   %.not138 = icmp eq ptr %127, null
   br i1 %.not138, label %131, label %128
 
 128:                                              ; preds = %125
-  %129 = getelementptr inbounds i8, ptr %127, i64 72
+  %129 = getelementptr inbounds nuw i8, ptr %127, i64 72
   %130 = load ptr, ptr %129, align 8
   br label %131
 
@@ -935,19 +935,19 @@ _ZL17hb_object_destroyI15hb_font_funcs_tEbPT_.exit: ; preds = %10, %7
 
 133:                                              ; preds = %131, %121
   %134 = phi ptr [ %.pre166, %131 ], [ %122, %121 ]
-  %135 = getelementptr inbounds i8, ptr %134, i64 80
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 80
   %136 = load ptr, ptr %135, align 8
   %.not139 = icmp eq ptr %136, null
   br i1 %.not139, label %145, label %137
 
 137:                                              ; preds = %133
-  %138 = getelementptr inbounds i8, ptr %0, i64 16
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %139 = load ptr, ptr %138, align 8
   %.not140 = icmp eq ptr %139, null
   br i1 %.not140, label %143, label %140
 
 140:                                              ; preds = %137
-  %141 = getelementptr inbounds i8, ptr %139, i64 80
+  %141 = getelementptr inbounds nuw i8, ptr %139, i64 80
   %142 = load ptr, ptr %141, align 8
   br label %143
 
@@ -959,19 +959,19 @@ _ZL17hb_object_destroyI15hb_font_funcs_tEbPT_.exit: ; preds = %10, %7
 
 145:                                              ; preds = %143, %133
   %146 = phi ptr [ %.pre167, %143 ], [ %134, %133 ]
-  %147 = getelementptr inbounds i8, ptr %146, i64 88
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 88
   %148 = load ptr, ptr %147, align 8
   %.not141 = icmp eq ptr %148, null
   br i1 %.not141, label %157, label %149
 
 149:                                              ; preds = %145
-  %150 = getelementptr inbounds i8, ptr %0, i64 16
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %151 = load ptr, ptr %150, align 8
   %.not142 = icmp eq ptr %151, null
   br i1 %.not142, label %155, label %152
 
 152:                                              ; preds = %149
-  %153 = getelementptr inbounds i8, ptr %151, i64 88
+  %153 = getelementptr inbounds nuw i8, ptr %151, i64 88
   %154 = load ptr, ptr %153, align 8
   br label %155
 
@@ -983,19 +983,19 @@ _ZL17hb_object_destroyI15hb_font_funcs_tEbPT_.exit: ; preds = %10, %7
 
 157:                                              ; preds = %155, %145
   %158 = phi ptr [ %.pre168, %155 ], [ %146, %145 ]
-  %159 = getelementptr inbounds i8, ptr %158, i64 96
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 96
   %160 = load ptr, ptr %159, align 8
   %.not143 = icmp eq ptr %160, null
   br i1 %.not143, label %169, label %161
 
 161:                                              ; preds = %157
-  %162 = getelementptr inbounds i8, ptr %0, i64 16
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %163 = load ptr, ptr %162, align 8
   %.not144 = icmp eq ptr %163, null
   br i1 %.not144, label %167, label %164
 
 164:                                              ; preds = %161
-  %165 = getelementptr inbounds i8, ptr %163, i64 96
+  %165 = getelementptr inbounds nuw i8, ptr %163, i64 96
   %166 = load ptr, ptr %165, align 8
   br label %167
 
@@ -1007,19 +1007,19 @@ _ZL17hb_object_destroyI15hb_font_funcs_tEbPT_.exit: ; preds = %10, %7
 
 169:                                              ; preds = %167, %157
   %170 = phi ptr [ %.pre169, %167 ], [ %158, %157 ]
-  %171 = getelementptr inbounds i8, ptr %170, i64 104
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 104
   %172 = load ptr, ptr %171, align 8
   %.not145 = icmp eq ptr %172, null
   br i1 %.not145, label %181, label %173
 
 173:                                              ; preds = %169
-  %174 = getelementptr inbounds i8, ptr %0, i64 16
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %175 = load ptr, ptr %174, align 8
   %.not146 = icmp eq ptr %175, null
   br i1 %.not146, label %179, label %176
 
 176:                                              ; preds = %173
-  %177 = getelementptr inbounds i8, ptr %175, i64 104
+  %177 = getelementptr inbounds nuw i8, ptr %175, i64 104
   %178 = load ptr, ptr %177, align 8
   br label %179
 
@@ -1031,19 +1031,19 @@ _ZL17hb_object_destroyI15hb_font_funcs_tEbPT_.exit: ; preds = %10, %7
 
 181:                                              ; preds = %179, %169
   %182 = phi ptr [ %.pre170, %179 ], [ %170, %169 ]
-  %183 = getelementptr inbounds i8, ptr %182, i64 112
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 112
   %184 = load ptr, ptr %183, align 8
   %.not147 = icmp eq ptr %184, null
   br i1 %.not147, label %193, label %185
 
 185:                                              ; preds = %181
-  %186 = getelementptr inbounds i8, ptr %0, i64 16
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %187 = load ptr, ptr %186, align 8
   %.not148 = icmp eq ptr %187, null
   br i1 %.not148, label %191, label %188
 
 188:                                              ; preds = %185
-  %189 = getelementptr inbounds i8, ptr %187, i64 112
+  %189 = getelementptr inbounds nuw i8, ptr %187, i64 112
   %190 = load ptr, ptr %189, align 8
   br label %191
 
@@ -1055,19 +1055,19 @@ _ZL17hb_object_destroyI15hb_font_funcs_tEbPT_.exit: ; preds = %10, %7
 
 193:                                              ; preds = %191, %181
   %194 = phi ptr [ %.pre171, %191 ], [ %182, %181 ]
-  %195 = getelementptr inbounds i8, ptr %194, i64 120
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 120
   %196 = load ptr, ptr %195, align 8
   %.not149 = icmp eq ptr %196, null
   br i1 %.not149, label %205, label %197
 
 197:                                              ; preds = %193
-  %198 = getelementptr inbounds i8, ptr %0, i64 16
+  %198 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %199 = load ptr, ptr %198, align 8
   %.not150 = icmp eq ptr %199, null
   br i1 %.not150, label %203, label %200
 
 200:                                              ; preds = %197
-  %201 = getelementptr inbounds i8, ptr %199, i64 120
+  %201 = getelementptr inbounds nuw i8, ptr %199, i64 120
   %202 = load ptr, ptr %201, align 8
   br label %203
 
@@ -1079,19 +1079,19 @@ _ZL17hb_object_destroyI15hb_font_funcs_tEbPT_.exit: ; preds = %10, %7
 
 205:                                              ; preds = %203, %193
   %206 = phi ptr [ %.pre172, %203 ], [ %194, %193 ]
-  %207 = getelementptr inbounds i8, ptr %206, i64 128
+  %207 = getelementptr inbounds nuw i8, ptr %206, i64 128
   %208 = load ptr, ptr %207, align 8
   %.not151 = icmp eq ptr %208, null
   br i1 %.not151, label %217, label %209
 
 209:                                              ; preds = %205
-  %210 = getelementptr inbounds i8, ptr %0, i64 16
+  %210 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %211 = load ptr, ptr %210, align 8
   %.not152 = icmp eq ptr %211, null
   br i1 %.not152, label %215, label %212
 
 212:                                              ; preds = %209
-  %213 = getelementptr inbounds i8, ptr %211, i64 128
+  %213 = getelementptr inbounds nuw i8, ptr %211, i64 128
   %214 = load ptr, ptr %213, align 8
   br label %215
 
@@ -1103,19 +1103,19 @@ _ZL17hb_object_destroyI15hb_font_funcs_tEbPT_.exit: ; preds = %10, %7
 
 217:                                              ; preds = %215, %205
   %218 = phi ptr [ %.pre173, %215 ], [ %206, %205 ]
-  %219 = getelementptr inbounds i8, ptr %218, i64 136
+  %219 = getelementptr inbounds nuw i8, ptr %218, i64 136
   %220 = load ptr, ptr %219, align 8
   %.not153 = icmp eq ptr %220, null
   br i1 %.not153, label %229, label %221
 
 221:                                              ; preds = %217
-  %222 = getelementptr inbounds i8, ptr %0, i64 16
+  %222 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %223 = load ptr, ptr %222, align 8
   %.not154 = icmp eq ptr %223, null
   br i1 %.not154, label %227, label %224
 
 224:                                              ; preds = %221
-  %225 = getelementptr inbounds i8, ptr %223, i64 136
+  %225 = getelementptr inbounds nuw i8, ptr %223, i64 136
   %226 = load ptr, ptr %225, align 8
   br label %227
 
@@ -1127,19 +1127,19 @@ _ZL17hb_object_destroyI15hb_font_funcs_tEbPT_.exit: ; preds = %10, %7
 
 229:                                              ; preds = %227, %217
   %230 = phi ptr [ %.pre174, %227 ], [ %218, %217 ]
-  %231 = getelementptr inbounds i8, ptr %230, i64 144
+  %231 = getelementptr inbounds nuw i8, ptr %230, i64 144
   %232 = load ptr, ptr %231, align 8
   %.not155 = icmp eq ptr %232, null
   br i1 %.not155, label %241, label %233
 
 233:                                              ; preds = %229
-  %234 = getelementptr inbounds i8, ptr %0, i64 16
+  %234 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %235 = load ptr, ptr %234, align 8
   %.not156 = icmp eq ptr %235, null
   br i1 %.not156, label %239, label %236
 
 236:                                              ; preds = %233
-  %237 = getelementptr inbounds i8, ptr %235, i64 144
+  %237 = getelementptr inbounds nuw i8, ptr %235, i64 144
   %238 = load ptr, ptr %237, align 8
   br label %239
 
@@ -1152,7 +1152,7 @@ _ZL17hb_object_destroyI15hb_font_funcs_tEbPT_.exit: ; preds = %10, %7
 241:                                              ; preds = %229, %239, %_ZL17hb_object_destroyI15hb_font_funcs_tEbPT_.exit
   %242 = phi ptr [ %230, %229 ], [ %.pre175, %239 ], [ null, %_ZL17hb_object_destroyI15hb_font_funcs_tEbPT_.exit ]
   tail call void @free(ptr noundef %242) #25
-  %243 = getelementptr inbounds i8, ptr %0, i64 16
+  %243 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %244 = load ptr, ptr %243, align 8
   tail call void @free(ptr noundef %244) #25
   tail call void @free(ptr noundef nonnull %0) #25
@@ -1176,7 +1176,7 @@ define hidden range(i32 0, 2) i32 @hb_font_funcs_set_user_data(ptr noundef %0, p
   br i1 %.not.i.i, label %_ZL23hb_object_set_user_dataI15hb_font_funcs_tEbPT_P18hb_user_data_key_tPvPFvS5_Ei.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load atomic i64, ptr %8 acquire, align 8
   %.not1923.i = icmp eq i64 %9, 0
   br i1 %.not1923.i, label %.lr.ph.i, label %.split.loop.exit21.i
@@ -1188,7 +1188,7 @@ define hidden range(i32 0, 2) i32 @hb_font_funcs_set_user_data(ptr noundef %0, p
 
 11:                                               ; preds = %.lr.ph.i
   %12 = tail call i32 @pthread_mutex_init(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef null) #25
-  %13 = getelementptr inbounds i8, ptr %10, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   %14 = ptrtoint ptr %10 to i64
   %15 = cmpxchg weak ptr %8, i64 0, i64 %14 acq_rel monotonic, align 8
@@ -1230,7 +1230,7 @@ define hidden ptr @hb_font_funcs_get_user_data(ptr noundef readonly %0, ptr noun
   br i1 %.not.i.i, label %_ZL23hb_object_get_user_dataIK15hb_font_funcs_tEPvPT_P18hb_user_data_key_t.exit, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load atomic i64, ptr %6 acquire, align 8
   %8 = inttoptr i64 %7 to ptr
   %.not9.i = icmp eq i64 %7, 0
@@ -1238,9 +1238,9 @@ define hidden ptr @hb_font_funcs_get_user_data(ptr noundef readonly %0, ptr noun
 
 9:                                                ; preds = %5
   %10 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(56) %8) #25
-  %11 = getelementptr inbounds i8, ptr %8, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 44
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 44
   %14 = load i32, ptr %13, align 4
   %.sroa.2.8.insert.ext.i.i.i.i.i.i = zext i32 %14 to i64
   %.not24.i.i.i.i.i.i = icmp eq i32 %14, 0
@@ -1248,7 +1248,7 @@ define hidden ptr @hb_font_funcs_get_user_data(ptr noundef readonly %0, ptr noun
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %9, %17
   %indvars.iv.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i, %17 ], [ 0, %9 ]
-  %15 = getelementptr inbounds %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %12, i64 %indvars.iv.i.i.i.i.i.i
+  %15 = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %12, i64 %indvars.iv.i.i.i.i.i.i
   %.val17.i.i.i.i.i.i = load ptr, ptr %15, align 8
   %16 = icmp eq ptr %.val17.i.i.i.i.i.i, %1
   br i1 %16, label %18, label %17
@@ -1260,7 +1260,7 @@ define hidden ptr @hb_font_funcs_get_user_data(ptr noundef readonly %0, ptr noun
 
 18:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %19 = and i64 %indvars.iv.i.i.i.i.i.i, 4294967295
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %12, i64 %19, i32 1
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %12, i64 %19, i32 1
   %.sroa.2.0.copyload.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   br label %_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i
 
@@ -1276,7 +1276,7 @@ _ZL23hb_object_get_user_dataIK15hb_font_funcs_tEPvPT_P18hb_user_data_key_t.exit:
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @hb_font_funcs_make_immutable(ptr nocapture noundef %0) local_unnamed_addr #6 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load atomic i32, ptr %2 monotonic, align 4
   %.not.i = icmp eq i32 %3, 0
   br i1 %.not.i, label %5, label %4
@@ -1291,7 +1291,7 @@ define hidden void @hb_font_funcs_make_immutable(ptr nocapture noundef %0) local
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden range(i32 0, 2) i32 @hb_font_funcs_is_immutable(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load atomic i32, ptr %2 monotonic, align 4
   %.not.i = icmp eq i32 %3, 0
   %4 = zext i1 %.not.i to i32
@@ -1301,7 +1301,7 @@ define hidden range(i32 0, 2) i32 @hb_font_funcs_is_immutable(ptr nocapture noun
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_font_funcs_set_font_h_extents_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
   %.not.i.i.not = icmp eq i32 %6, 0
   br i1 %.not.i.i.not, label %7, label %9
@@ -1328,7 +1328,7 @@ define hidden void @hb_font_funcs_set_font_h_extents_func(ptr nocapture noundef 
 12:                                               ; preds = %10, %11, %9
   %.034.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %2, %9 ]
   %.0.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %3, %9 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
   %.not21 = icmp eq ptr %14, null
   br i1 %.not21, label %24, label %15
@@ -1339,7 +1339,7 @@ define hidden void @hb_font_funcs_set_font_h_extents_func(ptr nocapture noundef 
   br i1 %.not22, label %24, label %17
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8
   %.not23 = icmp eq ptr %19, null
   br i1 %.not23, label %22, label %20
@@ -1358,7 +1358,7 @@ define hidden void @hb_font_funcs_set_font_h_extents_func(ptr nocapture noundef 
   br i1 %.not.i26, label %30, label %25
 
 25:                                               ; preds = %24
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = load ptr, ptr %26, align 8
   %.not13.i = icmp eq ptr %27, null
   br i1 %.not13.i, label %28, label %30
@@ -1394,9 +1394,9 @@ define hidden void @hb_font_funcs_set_font_h_extents_func(ptr nocapture noundef 
 
 36:                                               ; preds = %33, %31, %30
   %spec.select = select i1 %.not, ptr @_ZL34hb_font_get_font_h_extents_defaultP9hb_font_tPvP17hb_font_extents_tS1_, ptr %1
-  %37 = getelementptr inbounds i8, ptr %0, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %spec.select, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %39 = load ptr, ptr %38, align 8
   %.not24 = icmp eq ptr %39, null
   br i1 %.not24, label %41, label %40
@@ -1420,16 +1420,16 @@ _ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit: ; preds = %
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL34hb_font_get_font_h_extents_defaultP9hb_font_tPvP17hb_font_extents_tS1_(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef initializes((0, 48)) %2, ptr nocapture readnone %3) #1 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %2, i8 0, i64 48, i1 false)
-  %7 = getelementptr inbounds i8, ptr %6, i64 144
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 144
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 152
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %14 = load ptr, ptr %13, align 8
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %_ZN9hb_font_t18get_font_h_extentsEP17hb_font_extents_t.exit, label %15
@@ -1451,9 +1451,9 @@ _ZN9hb_font_t18get_font_h_extentsEP17hb_font_extents_t.exit: ; preds = %4, %15
   br i1 %.not.i12, label %_ZN9hb_font_t23parent_scale_y_distanceEi.exit, label %22
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %21, i64 44
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 44
   %24 = load i32, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %0, i64 44
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %26 = load i32, ptr %25, align 4
   %.not6.i = icmp eq i32 %24, %26
   br i1 %.not6.i, label %_ZN9hb_font_t23parent_scale_y_distanceEi.exit, label %27
@@ -1470,16 +1470,16 @@ _ZN9hb_font_t18get_font_h_extentsEP17hb_font_extents_t.exit: ; preds = %4, %15
 _ZN9hb_font_t23parent_scale_y_distanceEi.exit:    ; preds = %19, %22, %27
   %.0.i = phi i32 [ %33, %27 ], [ %20, %22 ], [ %20, %19 ]
   store i32 %.0.i, ptr %2, align 4
-  %34 = getelementptr inbounds i8, ptr %2, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %35 = load i32, ptr %34, align 4
   %36 = load ptr, ptr %5, align 8
   %.not.i13 = icmp eq ptr %36, null
   br i1 %.not.i13, label %_ZN9hb_font_t23parent_scale_y_distanceEi.exit16, label %37
 
 37:                                               ; preds = %_ZN9hb_font_t23parent_scale_y_distanceEi.exit
-  %38 = getelementptr inbounds i8, ptr %36, i64 44
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 44
   %39 = load i32, ptr %38, align 4
-  %40 = getelementptr inbounds i8, ptr %0, i64 44
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %41 = load i32, ptr %40, align 4
   %.not6.i14 = icmp eq i32 %39, %41
   br i1 %.not6.i14, label %_ZN9hb_font_t23parent_scale_y_distanceEi.exit16, label %42
@@ -1496,16 +1496,16 @@ _ZN9hb_font_t23parent_scale_y_distanceEi.exit:    ; preds = %19, %22, %27
 _ZN9hb_font_t23parent_scale_y_distanceEi.exit16:  ; preds = %_ZN9hb_font_t23parent_scale_y_distanceEi.exit, %37, %42
   %.0.i15 = phi i32 [ %48, %42 ], [ %35, %37 ], [ %35, %_ZN9hb_font_t23parent_scale_y_distanceEi.exit ]
   store i32 %.0.i15, ptr %34, align 4
-  %49 = getelementptr inbounds i8, ptr %2, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %50 = load i32, ptr %49, align 4
   %51 = load ptr, ptr %5, align 8
   %.not.i17 = icmp eq ptr %51, null
   br i1 %.not.i17, label %_ZN9hb_font_t23parent_scale_y_distanceEi.exit20, label %52
 
 52:                                               ; preds = %_ZN9hb_font_t23parent_scale_y_distanceEi.exit16
-  %53 = getelementptr inbounds i8, ptr %51, i64 44
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 44
   %54 = load i32, ptr %53, align 4
-  %55 = getelementptr inbounds i8, ptr %0, i64 44
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %56 = load i32, ptr %55, align 4
   %.not6.i18 = icmp eq i32 %54, %56
   br i1 %.not6.i18, label %_ZN9hb_font_t23parent_scale_y_distanceEi.exit20, label %57
@@ -1531,7 +1531,7 @@ _ZN9hb_font_t23parent_scale_y_distanceEi.exit20:  ; preds = %_ZN9hb_font_t23pare
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_font_funcs_set_font_v_extents_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
   %.not.i.i.not = icmp eq i32 %6, 0
   br i1 %.not.i.i.not, label %7, label %9
@@ -1558,25 +1558,25 @@ define hidden void @hb_font_funcs_set_font_v_extents_func(ptr nocapture noundef 
 12:                                               ; preds = %10, %11, %9
   %.034.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %2, %9 ]
   %.0.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %3, %9 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
   %.not21 = icmp eq ptr %14, null
   br i1 %.not21, label %26, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %14, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not22 = icmp eq ptr %17, null
   br i1 %.not22, label %26, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8
   %.not23 = icmp eq ptr %20, null
   br i1 %.not23, label %24, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %20, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %23 = load ptr, ptr %22, align 8
   br label %24
 
@@ -1590,7 +1590,7 @@ define hidden void @hb_font_funcs_set_font_v_extents_func(ptr nocapture noundef 
   br i1 %.not.i26, label %32, label %27
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load ptr, ptr %28, align 8
   %.not13.i = icmp eq ptr %29, null
   br i1 %.not13.i, label %30, label %32
@@ -1626,15 +1626,15 @@ define hidden void @hb_font_funcs_set_font_v_extents_func(ptr nocapture noundef 
 
 38:                                               ; preds = %35, %33, %32
   %spec.select = select i1 %.not, ptr @_ZL34hb_font_get_font_v_extents_defaultP9hb_font_tPvP17hb_font_extents_tS1_, ptr %1
-  %39 = getelementptr inbounds i8, ptr %0, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %spec.select, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %41 = load ptr, ptr %40, align 8
   %.not24 = icmp eq ptr %41, null
   br i1 %.not24, label %44, label %42
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %41, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store ptr %.034.ph, ptr %43, align 8
   br label %44
 
@@ -1644,7 +1644,7 @@ define hidden void @hb_font_funcs_set_font_v_extents_func(ptr nocapture noundef 
   br i1 %.not25, label %_ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit, label %46
 
 46:                                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %45, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store ptr %.0.ph, ptr %47, align 8
   br label %_ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit
 
@@ -1654,22 +1654,22 @@ _ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit: ; preds = %
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL34hb_font_get_font_v_extents_defaultP9hb_font_tPvP17hb_font_extents_tS1_(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef initializes((0, 48)) %2, ptr nocapture readnone %3) #1 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %2, i8 0, i64 48, i1 false)
-  %7 = getelementptr inbounds i8, ptr %6, i64 144
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 144
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 152
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %14 = load ptr, ptr %13, align 8
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %_ZN9hb_font_t18get_font_v_extentsEP17hb_font_extents_t.exit, label %15
 
 15:                                               ; preds = %4
-  %16 = getelementptr inbounds i8, ptr %14, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %17 = load ptr, ptr %16, align 8
   br label %_ZN9hb_font_t18get_font_v_extentsEP17hb_font_extents_t.exit
 
@@ -1686,9 +1686,9 @@ _ZN9hb_font_t18get_font_v_extentsEP17hb_font_extents_t.exit: ; preds = %4, %15
   br i1 %.not.i12, label %_ZN9hb_font_t23parent_scale_x_distanceEi.exit, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %22, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %25 = load i32, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load i32, ptr %26, align 8
   %.not6.i = icmp eq i32 %25, %27
   br i1 %.not6.i, label %_ZN9hb_font_t23parent_scale_x_distanceEi.exit, label %28
@@ -1705,16 +1705,16 @@ _ZN9hb_font_t18get_font_v_extentsEP17hb_font_extents_t.exit: ; preds = %4, %15
 _ZN9hb_font_t23parent_scale_x_distanceEi.exit:    ; preds = %20, %23, %28
   %.0.i = phi i32 [ %34, %28 ], [ %21, %23 ], [ %21, %20 ]
   store i32 %.0.i, ptr %2, align 4
-  %35 = getelementptr inbounds i8, ptr %2, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %36 = load i32, ptr %35, align 4
   %37 = load ptr, ptr %5, align 8
   %.not.i13 = icmp eq ptr %37, null
   br i1 %.not.i13, label %_ZN9hb_font_t23parent_scale_x_distanceEi.exit16, label %38
 
 38:                                               ; preds = %_ZN9hb_font_t23parent_scale_x_distanceEi.exit
-  %39 = getelementptr inbounds i8, ptr %37, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 40
   %40 = load i32, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %42 = load i32, ptr %41, align 8
   %.not6.i14 = icmp eq i32 %40, %42
   br i1 %.not6.i14, label %_ZN9hb_font_t23parent_scale_x_distanceEi.exit16, label %43
@@ -1731,16 +1731,16 @@ _ZN9hb_font_t23parent_scale_x_distanceEi.exit:    ; preds = %20, %23, %28
 _ZN9hb_font_t23parent_scale_x_distanceEi.exit16:  ; preds = %_ZN9hb_font_t23parent_scale_x_distanceEi.exit, %38, %43
   %.0.i15 = phi i32 [ %49, %43 ], [ %36, %38 ], [ %36, %_ZN9hb_font_t23parent_scale_x_distanceEi.exit ]
   store i32 %.0.i15, ptr %35, align 4
-  %50 = getelementptr inbounds i8, ptr %2, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %51 = load i32, ptr %50, align 4
   %52 = load ptr, ptr %5, align 8
   %.not.i17 = icmp eq ptr %52, null
   br i1 %.not.i17, label %_ZN9hb_font_t23parent_scale_x_distanceEi.exit20, label %53
 
 53:                                               ; preds = %_ZN9hb_font_t23parent_scale_x_distanceEi.exit16
-  %54 = getelementptr inbounds i8, ptr %52, i64 40
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 40
   %55 = load i32, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %0, i64 40
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %57 = load i32, ptr %56, align 8
   %.not6.i18 = icmp eq i32 %55, %57
   br i1 %.not6.i18, label %_ZN9hb_font_t23parent_scale_x_distanceEi.exit20, label %58
@@ -1766,7 +1766,7 @@ _ZN9hb_font_t23parent_scale_x_distanceEi.exit20:  ; preds = %_ZN9hb_font_t23pare
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_font_funcs_set_nominal_glyph_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
   %.not.i.i.not = icmp eq i32 %6, 0
   br i1 %.not.i.i.not, label %7, label %9
@@ -1793,25 +1793,25 @@ define hidden void @hb_font_funcs_set_nominal_glyph_func(ptr nocapture noundef %
 12:                                               ; preds = %10, %11, %9
   %.034.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %2, %9 ]
   %.0.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %3, %9 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
   %.not21 = icmp eq ptr %14, null
   br i1 %.not21, label %26, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %14, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %17 = load ptr, ptr %16, align 8
   %.not22 = icmp eq ptr %17, null
   br i1 %.not22, label %26, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8
   %.not23 = icmp eq ptr %20, null
   br i1 %.not23, label %24, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %20, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %23 = load ptr, ptr %22, align 8
   br label %24
 
@@ -1825,7 +1825,7 @@ define hidden void @hb_font_funcs_set_nominal_glyph_func(ptr nocapture noundef %
   br i1 %.not.i26, label %32, label %27
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load ptr, ptr %28, align 8
   %.not13.i = icmp eq ptr %29, null
   br i1 %.not13.i, label %30, label %32
@@ -1861,15 +1861,15 @@ define hidden void @hb_font_funcs_set_nominal_glyph_func(ptr nocapture noundef %
 
 38:                                               ; preds = %35, %33, %32
   %spec.select = select i1 %.not, ptr @_ZL33hb_font_get_nominal_glyph_defaultP9hb_font_tPvjPjS1_, ptr %1
-  %39 = getelementptr inbounds i8, ptr %0, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %spec.select, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %41 = load ptr, ptr %40, align 8
   %.not24 = icmp eq ptr %41, null
   br i1 %.not24, label %44, label %42
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %41, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store ptr %.034.ph, ptr %43, align 8
   br label %44
 
@@ -1879,7 +1879,7 @@ define hidden void @hb_font_funcs_set_nominal_glyph_func(ptr nocapture noundef %
   br i1 %.not25, label %_ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit, label %46
 
 46:                                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %45, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 16
   store ptr %.0.ph, ptr %47, align 8
   br label %_ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit
 
@@ -1891,24 +1891,24 @@ _ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit: ; preds = %
 define internal noundef i32 @_ZL33hb_font_get_nominal_glyph_defaultP9hb_font_tPvjPjS1_(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
   %6 = alloca i32, align 4
   store i32 %2, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 144
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL22_hb_font_funcs_default, i64 56), align 8
   %.not = icmp eq ptr %10, %11
   br i1 %.not, label %22, label %12
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %0, i64 152
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %8, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %16 = load ptr, ptr %15, align 8
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %_ZN9hb_font_t18get_nominal_glyphsEjPKjjPjj.exit, label %17
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %16, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %19 = load ptr, ptr %18, align 8
   br label %_ZN9hb_font_t18get_nominal_glyphsEjPKjjPjj.exit
 
@@ -1918,22 +1918,22 @@ _ZN9hb_font_t18get_nominal_glyphsEjPKjjPjj.exit:  ; preds = %12, %17
   br label %38
 
 22:                                               ; preds = %5
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8
   store i32 0, ptr %3, align 4
-  %25 = getelementptr inbounds i8, ptr %24, i64 144
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 144
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 48
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %24, i64 152
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 152
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %26, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %32 = load ptr, ptr %31, align 8
   %.not.i5 = icmp eq ptr %32, null
   br i1 %.not.i5, label %_ZN9hb_font_t17get_nominal_glyphEjPjj.exit, label %33
 
 33:                                               ; preds = %22
-  %34 = getelementptr inbounds i8, ptr %32, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %35 = load ptr, ptr %34, align 8
   br label %_ZN9hb_font_t17get_nominal_glyphEjPjj.exit
 
@@ -1950,7 +1950,7 @@ _ZN9hb_font_t17get_nominal_glyphEjPjj.exit:       ; preds = %22, %33
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_font_funcs_set_nominal_glyphs_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
   %.not.i.i.not = icmp eq i32 %6, 0
   br i1 %.not.i.i.not, label %7, label %9
@@ -1977,25 +1977,25 @@ define hidden void @hb_font_funcs_set_nominal_glyphs_func(ptr nocapture noundef 
 12:                                               ; preds = %10, %11, %9
   %.034.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %2, %9 ]
   %.0.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %3, %9 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
   %.not21 = icmp eq ptr %14, null
   br i1 %.not21, label %26, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %14, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %17 = load ptr, ptr %16, align 8
   %.not22 = icmp eq ptr %17, null
   br i1 %.not22, label %26, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8
   %.not23 = icmp eq ptr %20, null
   br i1 %.not23, label %24, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %20, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %23 = load ptr, ptr %22, align 8
   br label %24
 
@@ -2009,7 +2009,7 @@ define hidden void @hb_font_funcs_set_nominal_glyphs_func(ptr nocapture noundef 
   br i1 %.not.i26, label %32, label %27
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load ptr, ptr %28, align 8
   %.not13.i = icmp eq ptr %29, null
   br i1 %.not13.i, label %30, label %32
@@ -2045,15 +2045,15 @@ define hidden void @hb_font_funcs_set_nominal_glyphs_func(ptr nocapture noundef 
 
 38:                                               ; preds = %35, %33, %32
   %spec.select = select i1 %.not, ptr @_ZL34hb_font_get_nominal_glyphs_defaultP9hb_font_tPvjPKjjPjjS1_, ptr %1
-  %39 = getelementptr inbounds i8, ptr %0, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %spec.select, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %41 = load ptr, ptr %40, align 8
   %.not24 = icmp eq ptr %41, null
   br i1 %.not24, label %44, label %42
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %41, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 24
   store ptr %.034.ph, ptr %43, align 8
   br label %44
 
@@ -2063,7 +2063,7 @@ define hidden void @hb_font_funcs_set_nominal_glyphs_func(ptr nocapture noundef 
   br i1 %.not25, label %_ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit, label %46
 
 46:                                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %45, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 24
   store ptr %.0.ph, ptr %47, align 8
   br label %_ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit
 
@@ -2074,7 +2074,7 @@ _ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit: ; preds = %
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_font_funcs_set_variation_glyph_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
   %.not.i.i.not = icmp eq i32 %6, 0
   br i1 %.not.i.i.not, label %7, label %9
@@ -2101,25 +2101,25 @@ define hidden void @hb_font_funcs_set_variation_glyph_func(ptr nocapture noundef
 12:                                               ; preds = %10, %11, %9
   %.034.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %2, %9 ]
   %.0.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %3, %9 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
   %.not21 = icmp eq ptr %14, null
   br i1 %.not21, label %26, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %14, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %17 = load ptr, ptr %16, align 8
   %.not22 = icmp eq ptr %17, null
   br i1 %.not22, label %26, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8
   %.not23 = icmp eq ptr %20, null
   br i1 %.not23, label %24, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %20, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %23 = load ptr, ptr %22, align 8
   br label %24
 
@@ -2133,7 +2133,7 @@ define hidden void @hb_font_funcs_set_variation_glyph_func(ptr nocapture noundef
   br i1 %.not.i26, label %32, label %27
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load ptr, ptr %28, align 8
   %.not13.i = icmp eq ptr %29, null
   br i1 %.not13.i, label %30, label %32
@@ -2169,15 +2169,15 @@ define hidden void @hb_font_funcs_set_variation_glyph_func(ptr nocapture noundef
 
 38:                                               ; preds = %35, %33, %32
   %spec.select = select i1 %.not, ptr @_ZL35hb_font_get_variation_glyph_defaultP9hb_font_tPvjjPjS1_, ptr %1
-  %39 = getelementptr inbounds i8, ptr %0, i64 64
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %spec.select, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %41 = load ptr, ptr %40, align 8
   %.not24 = icmp eq ptr %41, null
   br i1 %.not24, label %44, label %42
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %41, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 32
   store ptr %.034.ph, ptr %43, align 8
   br label %44
 
@@ -2187,7 +2187,7 @@ define hidden void @hb_font_funcs_set_variation_glyph_func(ptr nocapture noundef
   br i1 %.not25, label %_ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit, label %46
 
 46:                                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %45, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 32
   store ptr %.0.ph, ptr %47, align 8
   br label %_ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit
 
@@ -2197,22 +2197,22 @@ _ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit: ; preds = %
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL35hb_font_get_variation_glyph_defaultP9hb_font_tPvjjPjS1_(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i32 noundef %2, i32 noundef %3, ptr noundef initializes((0, 4)) %4, ptr nocapture readnone %5) #1 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   store i32 0, ptr %4, align 4
-  %9 = getelementptr inbounds i8, ptr %8, i64 144
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 144
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 152
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 152
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %10, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %16 = load ptr, ptr %15, align 8
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %_ZN9hb_font_t19get_variation_glyphEjjPjj.exit, label %17
 
 17:                                               ; preds = %6
-  %18 = getelementptr inbounds i8, ptr %16, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %19 = load ptr, ptr %18, align 8
   br label %_ZN9hb_font_t19get_variation_glyphEjjPjj.exit
 
@@ -2225,7 +2225,7 @@ _ZN9hb_font_t19get_variation_glyphEjjPjj.exit:    ; preds = %6, %17
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_font_funcs_set_glyph_h_advance_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
   %.not.i.i.not = icmp eq i32 %6, 0
   br i1 %.not.i.i.not, label %7, label %9
@@ -2252,25 +2252,25 @@ define hidden void @hb_font_funcs_set_glyph_h_advance_func(ptr nocapture noundef
 12:                                               ; preds = %10, %11, %9
   %.034.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %2, %9 ]
   %.0.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %3, %9 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
   %.not21 = icmp eq ptr %14, null
   br i1 %.not21, label %26, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %14, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %17 = load ptr, ptr %16, align 8
   %.not22 = icmp eq ptr %17, null
   br i1 %.not22, label %26, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8
   %.not23 = icmp eq ptr %20, null
   br i1 %.not23, label %24, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %20, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %23 = load ptr, ptr %22, align 8
   br label %24
 
@@ -2284,7 +2284,7 @@ define hidden void @hb_font_funcs_set_glyph_h_advance_func(ptr nocapture noundef
   br i1 %.not.i26, label %32, label %27
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load ptr, ptr %28, align 8
   %.not13.i = icmp eq ptr %29, null
   br i1 %.not13.i, label %30, label %32
@@ -2320,15 +2320,15 @@ define hidden void @hb_font_funcs_set_glyph_h_advance_func(ptr nocapture noundef
 
 38:                                               ; preds = %35, %33, %32
   %spec.select = select i1 %.not, ptr @_ZL35hb_font_get_glyph_h_advance_defaultP9hb_font_tPvjS1_, ptr %1
-  %39 = getelementptr inbounds i8, ptr %0, i64 72
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %spec.select, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %41 = load ptr, ptr %40, align 8
   %.not24 = icmp eq ptr %41, null
   br i1 %.not24, label %44, label %42
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %41, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 40
   store ptr %.034.ph, ptr %43, align 8
   br label %44
 
@@ -2338,7 +2338,7 @@ define hidden void @hb_font_funcs_set_glyph_h_advance_func(ptr nocapture noundef
   br i1 %.not25, label %_ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit, label %46
 
 46:                                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %45, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 40
   store ptr %.0.ph, ptr %47, align 8
   br label %_ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit
 
@@ -2351,24 +2351,24 @@ define internal noundef i32 @_ZL35hb_font_get_glyph_h_advance_defaultP9hb_font_t
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   store i32 %2, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 144
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 88
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL22_hb_font_funcs_default, i64 88), align 8
   %.not = icmp eq ptr %10, %11
   br i1 %.not, label %22, label %12
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %0, i64 152
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %8, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %16 = load ptr, ptr %15, align 8
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %_ZN9hb_font_t20get_glyph_h_advancesEjPKjjPij.exit, label %17
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %16, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %19 = load ptr, ptr %18, align 8
   br label %_ZN9hb_font_t20get_glyph_h_advancesEjPKjjPij.exit
 
@@ -2379,21 +2379,21 @@ _ZN9hb_font_t20get_glyph_h_advancesEjPKjjPij.exit: ; preds = %12, %17
   br label %_ZN9hb_font_t23parent_scale_x_distanceEi.exit
 
 22:                                               ; preds = %4
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 144
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 144
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 72
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 72
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %24, i64 152
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 152
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %26, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %32 = load ptr, ptr %31, align 8
   %.not.i4 = icmp eq ptr %32, null
   br i1 %.not.i4, label %_ZN9hb_font_t19get_glyph_h_advanceEj.exit, label %33
 
 33:                                               ; preds = %22
-  %34 = getelementptr inbounds i8, ptr %32, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 40
   %35 = load ptr, ptr %34, align 8
   br label %_ZN9hb_font_t19get_glyph_h_advanceEj.exit
 
@@ -2405,9 +2405,9 @@ _ZN9hb_font_t19get_glyph_h_advanceEj.exit:        ; preds = %22, %33
   br i1 %.not.i5, label %_ZN9hb_font_t23parent_scale_x_distanceEi.exit, label %39
 
 39:                                               ; preds = %_ZN9hb_font_t19get_glyph_h_advanceEj.exit
-  %40 = getelementptr inbounds i8, ptr %38, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 40
   %41 = load i32, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %43 = load i32, ptr %42, align 8
   %.not6.i = icmp eq i32 %41, %43
   br i1 %.not6.i, label %_ZN9hb_font_t23parent_scale_x_distanceEi.exit, label %44
@@ -2429,7 +2429,7 @@ _ZN9hb_font_t23parent_scale_x_distanceEi.exit:    ; preds = %44, %39, %_ZN9hb_fo
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_font_funcs_set_glyph_v_advance_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
   %.not.i.i.not = icmp eq i32 %6, 0
   br i1 %.not.i.i.not, label %7, label %9
@@ -2456,25 +2456,25 @@ define hidden void @hb_font_funcs_set_glyph_v_advance_func(ptr nocapture noundef
 12:                                               ; preds = %10, %11, %9
   %.034.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %2, %9 ]
   %.0.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %3, %9 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
   %.not21 = icmp eq ptr %14, null
   br i1 %.not21, label %26, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %14, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %17 = load ptr, ptr %16, align 8
   %.not22 = icmp eq ptr %17, null
   br i1 %.not22, label %26, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8
   %.not23 = icmp eq ptr %20, null
   br i1 %.not23, label %24, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %20, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 48
   %23 = load ptr, ptr %22, align 8
   br label %24
 
@@ -2488,7 +2488,7 @@ define hidden void @hb_font_funcs_set_glyph_v_advance_func(ptr nocapture noundef
   br i1 %.not.i26, label %32, label %27
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load ptr, ptr %28, align 8
   %.not13.i = icmp eq ptr %29, null
   br i1 %.not13.i, label %30, label %32
@@ -2524,15 +2524,15 @@ define hidden void @hb_font_funcs_set_glyph_v_advance_func(ptr nocapture noundef
 
 38:                                               ; preds = %35, %33, %32
   %spec.select = select i1 %.not, ptr @_ZL35hb_font_get_glyph_v_advance_defaultP9hb_font_tPvjS1_, ptr %1
-  %39 = getelementptr inbounds i8, ptr %0, i64 80
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %spec.select, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %41 = load ptr, ptr %40, align 8
   %.not24 = icmp eq ptr %41, null
   br i1 %.not24, label %44, label %42
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %41, i64 48
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 48
   store ptr %.034.ph, ptr %43, align 8
   br label %44
 
@@ -2542,7 +2542,7 @@ define hidden void @hb_font_funcs_set_glyph_v_advance_func(ptr nocapture noundef
   br i1 %.not25, label %_ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit, label %46
 
 46:                                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %45, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 48
   store ptr %.0.ph, ptr %47, align 8
   br label %_ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit
 
@@ -2555,24 +2555,24 @@ define internal noundef i32 @_ZL35hb_font_get_glyph_v_advance_defaultP9hb_font_t
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   store i32 %2, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 144
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 96
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL22_hb_font_funcs_default, i64 96), align 8
   %.not = icmp eq ptr %10, %11
   br i1 %.not, label %22, label %12
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %0, i64 152
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %8, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %16 = load ptr, ptr %15, align 8
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %_ZN9hb_font_t20get_glyph_v_advancesEjPKjjPij.exit, label %17
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %16, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 64
   %19 = load ptr, ptr %18, align 8
   br label %_ZN9hb_font_t20get_glyph_v_advancesEjPKjjPij.exit
 
@@ -2583,21 +2583,21 @@ _ZN9hb_font_t20get_glyph_v_advancesEjPKjjPij.exit: ; preds = %12, %17
   br label %_ZN9hb_font_t23parent_scale_y_distanceEi.exit
 
 22:                                               ; preds = %4
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 144
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 144
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 80
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 80
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %24, i64 152
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 152
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %26, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %32 = load ptr, ptr %31, align 8
   %.not.i4 = icmp eq ptr %32, null
   br i1 %.not.i4, label %_ZN9hb_font_t19get_glyph_v_advanceEj.exit, label %33
 
 33:                                               ; preds = %22
-  %34 = getelementptr inbounds i8, ptr %32, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 48
   %35 = load ptr, ptr %34, align 8
   br label %_ZN9hb_font_t19get_glyph_v_advanceEj.exit
 
@@ -2609,9 +2609,9 @@ _ZN9hb_font_t19get_glyph_v_advanceEj.exit:        ; preds = %22, %33
   br i1 %.not.i5, label %_ZN9hb_font_t23parent_scale_y_distanceEi.exit, label %39
 
 39:                                               ; preds = %_ZN9hb_font_t19get_glyph_v_advanceEj.exit
-  %40 = getelementptr inbounds i8, ptr %38, i64 44
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 44
   %41 = load i32, ptr %40, align 4
-  %42 = getelementptr inbounds i8, ptr %0, i64 44
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %43 = load i32, ptr %42, align 4
   %.not6.i = icmp eq i32 %41, %43
   br i1 %.not6.i, label %_ZN9hb_font_t23parent_scale_y_distanceEi.exit, label %44
@@ -2633,7 +2633,7 @@ _ZN9hb_font_t23parent_scale_y_distanceEi.exit:    ; preds = %44, %39, %_ZN9hb_fo
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_font_funcs_set_glyph_h_advances_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
   %.not.i.i.not = icmp eq i32 %6, 0
   br i1 %.not.i.i.not, label %7, label %9
@@ -2660,25 +2660,25 @@ define hidden void @hb_font_funcs_set_glyph_h_advances_func(ptr nocapture nounde
 12:                                               ; preds = %10, %11, %9
   %.034.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %2, %9 ]
   %.0.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %3, %9 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
   %.not21 = icmp eq ptr %14, null
   br i1 %.not21, label %26, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %14, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %17 = load ptr, ptr %16, align 8
   %.not22 = icmp eq ptr %17, null
   br i1 %.not22, label %26, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8
   %.not23 = icmp eq ptr %20, null
   br i1 %.not23, label %24, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %20, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
   %23 = load ptr, ptr %22, align 8
   br label %24
 
@@ -2692,7 +2692,7 @@ define hidden void @hb_font_funcs_set_glyph_h_advances_func(ptr nocapture nounde
   br i1 %.not.i26, label %32, label %27
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load ptr, ptr %28, align 8
   %.not13.i = icmp eq ptr %29, null
   br i1 %.not13.i, label %30, label %32
@@ -2728,15 +2728,15 @@ define hidden void @hb_font_funcs_set_glyph_h_advances_func(ptr nocapture nounde
 
 38:                                               ; preds = %35, %33, %32
   %spec.select = select i1 %.not, ptr @_ZL36hb_font_get_glyph_h_advances_defaultP9hb_font_tPvjPKjjPijS1_, ptr %1
-  %39 = getelementptr inbounds i8, ptr %0, i64 88
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %spec.select, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %41 = load ptr, ptr %40, align 8
   %.not24 = icmp eq ptr %41, null
   br i1 %.not24, label %44, label %42
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %41, i64 56
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 56
   store ptr %.034.ph, ptr %43, align 8
   br label %44
 
@@ -2746,7 +2746,7 @@ define hidden void @hb_font_funcs_set_glyph_h_advances_func(ptr nocapture nounde
   br i1 %.not25, label %_ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit, label %46
 
 46:                                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %45, i64 56
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 56
   store ptr %.0.ph, ptr %47, align 8
   br label %_ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit
 
@@ -2757,7 +2757,7 @@ _ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit: ; preds = %
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_font_funcs_set_glyph_v_advances_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
   %.not.i.i.not = icmp eq i32 %6, 0
   br i1 %.not.i.i.not, label %7, label %9
@@ -2784,25 +2784,25 @@ define hidden void @hb_font_funcs_set_glyph_v_advances_func(ptr nocapture nounde
 12:                                               ; preds = %10, %11, %9
   %.034.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %2, %9 ]
   %.0.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %3, %9 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
   %.not21 = icmp eq ptr %14, null
   br i1 %.not21, label %26, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %14, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %17 = load ptr, ptr %16, align 8
   %.not22 = icmp eq ptr %17, null
   br i1 %.not22, label %26, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8
   %.not23 = icmp eq ptr %20, null
   br i1 %.not23, label %24, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %20, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 64
   %23 = load ptr, ptr %22, align 8
   br label %24
 
@@ -2816,7 +2816,7 @@ define hidden void @hb_font_funcs_set_glyph_v_advances_func(ptr nocapture nounde
   br i1 %.not.i26, label %32, label %27
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load ptr, ptr %28, align 8
   %.not13.i = icmp eq ptr %29, null
   br i1 %.not13.i, label %30, label %32
@@ -2852,15 +2852,15 @@ define hidden void @hb_font_funcs_set_glyph_v_advances_func(ptr nocapture nounde
 
 38:                                               ; preds = %35, %33, %32
   %spec.select = select i1 %.not, ptr @_ZL36hb_font_get_glyph_v_advances_defaultP9hb_font_tPvjPKjjPijS1_, ptr %1
-  %39 = getelementptr inbounds i8, ptr %0, i64 96
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %spec.select, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %41 = load ptr, ptr %40, align 8
   %.not24 = icmp eq ptr %41, null
   br i1 %.not24, label %44, label %42
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %41, i64 64
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 64
   store ptr %.034.ph, ptr %43, align 8
   br label %44
 
@@ -2870,7 +2870,7 @@ define hidden void @hb_font_funcs_set_glyph_v_advances_func(ptr nocapture nounde
   br i1 %.not25, label %_ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit, label %46
 
 46:                                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %45, i64 64
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 64
   store ptr %.0.ph, ptr %47, align 8
   br label %_ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit
 
@@ -2881,7 +2881,7 @@ _ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit: ; preds = %
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_font_funcs_set_glyph_h_origin_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
   %.not.i.i.not = icmp eq i32 %6, 0
   br i1 %.not.i.i.not, label %7, label %9
@@ -2908,25 +2908,25 @@ define hidden void @hb_font_funcs_set_glyph_h_origin_func(ptr nocapture noundef 
 12:                                               ; preds = %10, %11, %9
   %.034.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %2, %9 ]
   %.0.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %3, %9 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
   %.not21 = icmp eq ptr %14, null
   br i1 %.not21, label %26, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %14, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 72
   %17 = load ptr, ptr %16, align 8
   %.not22 = icmp eq ptr %17, null
   br i1 %.not22, label %26, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8
   %.not23 = icmp eq ptr %20, null
   br i1 %.not23, label %24, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %20, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 72
   %23 = load ptr, ptr %22, align 8
   br label %24
 
@@ -2940,7 +2940,7 @@ define hidden void @hb_font_funcs_set_glyph_h_origin_func(ptr nocapture noundef 
   br i1 %.not.i26, label %32, label %27
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load ptr, ptr %28, align 8
   %.not13.i = icmp eq ptr %29, null
   br i1 %.not13.i, label %30, label %32
@@ -2976,15 +2976,15 @@ define hidden void @hb_font_funcs_set_glyph_h_origin_func(ptr nocapture noundef 
 
 38:                                               ; preds = %35, %33, %32
   %spec.select = select i1 %.not, ptr @_ZL34hb_font_get_glyph_h_origin_defaultP9hb_font_tPvjPiS2_S1_, ptr %1
-  %39 = getelementptr inbounds i8, ptr %0, i64 104
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %spec.select, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %41 = load ptr, ptr %40, align 8
   %.not24 = icmp eq ptr %41, null
   br i1 %.not24, label %44, label %42
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %41, i64 72
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 72
   store ptr %.034.ph, ptr %43, align 8
   br label %44
 
@@ -2994,7 +2994,7 @@ define hidden void @hb_font_funcs_set_glyph_h_origin_func(ptr nocapture noundef 
   br i1 %.not25, label %_ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit, label %46
 
 46:                                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %45, i64 72
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 72
   store ptr %.0.ph, ptr %47, align 8
   br label %_ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit
 
@@ -3004,23 +3004,23 @@ _ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit: ; preds = %
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL34hb_font_get_glyph_h_origin_defaultP9hb_font_tPvjPiS2_S1_(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i32 noundef %2, ptr noundef initializes((0, 4)) %3, ptr noundef initializes((0, 4)) %4, ptr nocapture readnone %5) #1 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   store i32 0, ptr %4, align 4
   store i32 0, ptr %3, align 4
-  %9 = getelementptr inbounds i8, ptr %8, i64 144
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 144
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 104
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 152
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 152
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %10, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %16 = load ptr, ptr %15, align 8
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %_ZN9hb_font_t18get_glyph_h_originEjPiS0_.exit, label %17
 
 17:                                               ; preds = %6
-  %18 = getelementptr inbounds i8, ptr %16, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 72
   %19 = load ptr, ptr %18, align 8
   br label %_ZN9hb_font_t18get_glyph_h_originEjPiS0_.exit
 
@@ -3037,9 +3037,9 @@ _ZN9hb_font_t18get_glyph_h_originEjPiS0_.exit:    ; preds = %6, %17
   br i1 %.not.i.i.i, label %_ZN9hb_font_t23parent_scale_x_positionEi.exit.i, label %25
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %24, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %27 = load i32, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %29 = load i32, ptr %28, align 8
   %.not6.i.i.i = icmp eq i32 %27, %29
   br i1 %.not6.i.i.i, label %_ZN9hb_font_t23parent_scale_x_positionEi.exit.i, label %30
@@ -3062,9 +3062,9 @@ _ZN9hb_font_t23parent_scale_x_positionEi.exit.i:  ; preds = %30, %25, %22
   br i1 %.not.i.i5.i, label %_ZN9hb_font_t21parent_scale_positionEPiS0_.exit, label %39
 
 39:                                               ; preds = %_ZN9hb_font_t23parent_scale_x_positionEi.exit.i
-  %40 = getelementptr inbounds i8, ptr %38, i64 44
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 44
   %41 = load i32, ptr %40, align 4
-  %42 = getelementptr inbounds i8, ptr %0, i64 44
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %43 = load i32, ptr %42, align 4
   %.not6.i.i6.i = icmp eq i32 %41, %43
   br i1 %.not6.i.i6.i, label %_ZN9hb_font_t21parent_scale_positionEPiS0_.exit, label %44
@@ -3090,7 +3090,7 @@ _ZN9hb_font_t21parent_scale_positionEPiS0_.exit:  ; preds = %_ZN9hb_font_t23pare
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_font_funcs_set_glyph_v_origin_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
   %.not.i.i.not = icmp eq i32 %6, 0
   br i1 %.not.i.i.not, label %7, label %9
@@ -3117,25 +3117,25 @@ define hidden void @hb_font_funcs_set_glyph_v_origin_func(ptr nocapture noundef 
 12:                                               ; preds = %10, %11, %9
   %.034.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %2, %9 ]
   %.0.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %3, %9 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
   %.not21 = icmp eq ptr %14, null
   br i1 %.not21, label %26, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %14, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 80
   %17 = load ptr, ptr %16, align 8
   %.not22 = icmp eq ptr %17, null
   br i1 %.not22, label %26, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8
   %.not23 = icmp eq ptr %20, null
   br i1 %.not23, label %24, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %20, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 80
   %23 = load ptr, ptr %22, align 8
   br label %24
 
@@ -3149,7 +3149,7 @@ define hidden void @hb_font_funcs_set_glyph_v_origin_func(ptr nocapture noundef 
   br i1 %.not.i26, label %32, label %27
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load ptr, ptr %28, align 8
   %.not13.i = icmp eq ptr %29, null
   br i1 %.not13.i, label %30, label %32
@@ -3185,15 +3185,15 @@ define hidden void @hb_font_funcs_set_glyph_v_origin_func(ptr nocapture noundef 
 
 38:                                               ; preds = %35, %33, %32
   %spec.select = select i1 %.not, ptr @_ZL34hb_font_get_glyph_v_origin_defaultP9hb_font_tPvjPiS2_S1_, ptr %1
-  %39 = getelementptr inbounds i8, ptr %0, i64 112
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %spec.select, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %41 = load ptr, ptr %40, align 8
   %.not24 = icmp eq ptr %41, null
   br i1 %.not24, label %44, label %42
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %41, i64 80
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 80
   store ptr %.034.ph, ptr %43, align 8
   br label %44
 
@@ -3203,7 +3203,7 @@ define hidden void @hb_font_funcs_set_glyph_v_origin_func(ptr nocapture noundef 
   br i1 %.not25, label %_ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit, label %46
 
 46:                                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %45, i64 80
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 80
   store ptr %.0.ph, ptr %47, align 8
   br label %_ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit
 
@@ -3213,23 +3213,23 @@ _ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit: ; preds = %
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL34hb_font_get_glyph_v_origin_defaultP9hb_font_tPvjPiS2_S1_(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i32 noundef %2, ptr noundef initializes((0, 4)) %3, ptr noundef initializes((0, 4)) %4, ptr nocapture readnone %5) #1 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   store i32 0, ptr %4, align 4
   store i32 0, ptr %3, align 4
-  %9 = getelementptr inbounds i8, ptr %8, i64 144
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 144
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 112
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 112
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 152
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 152
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %10, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %16 = load ptr, ptr %15, align 8
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %_ZN9hb_font_t18get_glyph_v_originEjPiS0_.exit, label %17
 
 17:                                               ; preds = %6
-  %18 = getelementptr inbounds i8, ptr %16, i64 80
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 80
   %19 = load ptr, ptr %18, align 8
   br label %_ZN9hb_font_t18get_glyph_v_originEjPiS0_.exit
 
@@ -3246,9 +3246,9 @@ _ZN9hb_font_t18get_glyph_v_originEjPiS0_.exit:    ; preds = %6, %17
   br i1 %.not.i.i.i, label %_ZN9hb_font_t23parent_scale_x_positionEi.exit.i, label %25
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %24, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %27 = load i32, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %29 = load i32, ptr %28, align 8
   %.not6.i.i.i = icmp eq i32 %27, %29
   br i1 %.not6.i.i.i, label %_ZN9hb_font_t23parent_scale_x_positionEi.exit.i, label %30
@@ -3271,9 +3271,9 @@ _ZN9hb_font_t23parent_scale_x_positionEi.exit.i:  ; preds = %30, %25, %22
   br i1 %.not.i.i5.i, label %_ZN9hb_font_t21parent_scale_positionEPiS0_.exit, label %39
 
 39:                                               ; preds = %_ZN9hb_font_t23parent_scale_x_positionEi.exit.i
-  %40 = getelementptr inbounds i8, ptr %38, i64 44
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 44
   %41 = load i32, ptr %40, align 4
-  %42 = getelementptr inbounds i8, ptr %0, i64 44
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %43 = load i32, ptr %42, align 4
   %.not6.i.i6.i = icmp eq i32 %41, %43
   br i1 %.not6.i.i6.i, label %_ZN9hb_font_t21parent_scale_positionEPiS0_.exit, label %44
@@ -3299,7 +3299,7 @@ _ZN9hb_font_t21parent_scale_positionEPiS0_.exit:  ; preds = %_ZN9hb_font_t23pare
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_font_funcs_set_glyph_h_kerning_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
   %.not.i.i.not = icmp eq i32 %6, 0
   br i1 %.not.i.i.not, label %7, label %9
@@ -3326,25 +3326,25 @@ define hidden void @hb_font_funcs_set_glyph_h_kerning_func(ptr nocapture noundef
 12:                                               ; preds = %10, %11, %9
   %.034.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %2, %9 ]
   %.0.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %3, %9 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
   %.not21 = icmp eq ptr %14, null
   br i1 %.not21, label %26, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %14, i64 88
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 88
   %17 = load ptr, ptr %16, align 8
   %.not22 = icmp eq ptr %17, null
   br i1 %.not22, label %26, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8
   %.not23 = icmp eq ptr %20, null
   br i1 %.not23, label %24, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %20, i64 88
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 88
   %23 = load ptr, ptr %22, align 8
   br label %24
 
@@ -3358,7 +3358,7 @@ define hidden void @hb_font_funcs_set_glyph_h_kerning_func(ptr nocapture noundef
   br i1 %.not.i26, label %32, label %27
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load ptr, ptr %28, align 8
   %.not13.i = icmp eq ptr %29, null
   br i1 %.not13.i, label %30, label %32
@@ -3394,15 +3394,15 @@ define hidden void @hb_font_funcs_set_glyph_h_kerning_func(ptr nocapture noundef
 
 38:                                               ; preds = %35, %33, %32
   %spec.select = select i1 %.not, ptr @_ZL35hb_font_get_glyph_h_kerning_defaultP9hb_font_tPvjjS1_, ptr %1
-  %39 = getelementptr inbounds i8, ptr %0, i64 120
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %spec.select, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %41 = load ptr, ptr %40, align 8
   %.not24 = icmp eq ptr %41, null
   br i1 %.not24, label %44, label %42
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %41, i64 88
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 88
   store ptr %.034.ph, ptr %43, align 8
   br label %44
 
@@ -3412,7 +3412,7 @@ define hidden void @hb_font_funcs_set_glyph_h_kerning_func(ptr nocapture noundef
   br i1 %.not25, label %_ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit, label %46
 
 46:                                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %45, i64 88
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 88
   store ptr %.0.ph, ptr %47, align 8
   br label %_ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit
 
@@ -3422,21 +3422,21 @@ _ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit: ; preds = %
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL35hb_font_get_glyph_h_kerning_defaultP9hb_font_tPvjjS1_(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i32 noundef %2, i32 noundef %3, ptr nocapture readnone %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 144
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 144
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 120
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 120
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 152
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %9, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %15 = load ptr, ptr %14, align 8
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %_ZN9hb_font_t19get_glyph_h_kerningEjj.exit, label %16
 
 16:                                               ; preds = %5
-  %17 = getelementptr inbounds i8, ptr %15, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 88
   %18 = load ptr, ptr %17, align 8
   br label %_ZN9hb_font_t19get_glyph_h_kerningEjj.exit
 
@@ -3448,9 +3448,9 @@ _ZN9hb_font_t19get_glyph_h_kerningEjj.exit:       ; preds = %5, %16
   br i1 %.not.i3, label %_ZN9hb_font_t23parent_scale_x_distanceEi.exit, label %22
 
 22:                                               ; preds = %_ZN9hb_font_t19get_glyph_h_kerningEjj.exit
-  %23 = getelementptr inbounds i8, ptr %21, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %24 = load i32, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load i32, ptr %25, align 8
   %.not6.i = icmp eq i32 %24, %26
   br i1 %.not6.i, label %_ZN9hb_font_t23parent_scale_x_distanceEi.exit, label %27
@@ -3472,7 +3472,7 @@ _ZN9hb_font_t23parent_scale_x_distanceEi.exit:    ; preds = %_ZN9hb_font_t19get_
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_font_funcs_set_glyph_v_kerning_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
   %.not.i.i.not = icmp eq i32 %6, 0
   br i1 %.not.i.i.not, label %7, label %9
@@ -3499,25 +3499,25 @@ define hidden void @hb_font_funcs_set_glyph_v_kerning_func(ptr nocapture noundef
 12:                                               ; preds = %10, %11, %9
   %.034.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %2, %9 ]
   %.0.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %3, %9 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
   %.not21 = icmp eq ptr %14, null
   br i1 %.not21, label %26, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %14, i64 96
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 96
   %17 = load ptr, ptr %16, align 8
   %.not22 = icmp eq ptr %17, null
   br i1 %.not22, label %26, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8
   %.not23 = icmp eq ptr %20, null
   br i1 %.not23, label %24, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %20, i64 96
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 96
   %23 = load ptr, ptr %22, align 8
   br label %24
 
@@ -3531,7 +3531,7 @@ define hidden void @hb_font_funcs_set_glyph_v_kerning_func(ptr nocapture noundef
   br i1 %.not.i26, label %32, label %27
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load ptr, ptr %28, align 8
   %.not13.i = icmp eq ptr %29, null
   br i1 %.not13.i, label %30, label %32
@@ -3567,15 +3567,15 @@ define hidden void @hb_font_funcs_set_glyph_v_kerning_func(ptr nocapture noundef
 
 38:                                               ; preds = %35, %33, %32
   %spec.select = select i1 %.not, ptr @_ZL35hb_font_get_glyph_v_kerning_defaultP9hb_font_tPvjjS1_, ptr %1
-  %39 = getelementptr inbounds i8, ptr %0, i64 128
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr %spec.select, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %41 = load ptr, ptr %40, align 8
   %.not24 = icmp eq ptr %41, null
   br i1 %.not24, label %44, label %42
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %41, i64 96
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 96
   store ptr %.034.ph, ptr %43, align 8
   br label %44
 
@@ -3585,7 +3585,7 @@ define hidden void @hb_font_funcs_set_glyph_v_kerning_func(ptr nocapture noundef
   br i1 %.not25, label %_ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit, label %46
 
 46:                                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %45, i64 96
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 96
   store ptr %.0.ph, ptr %47, align 8
   br label %_ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit
 
@@ -3595,21 +3595,21 @@ _ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit: ; preds = %
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL35hb_font_get_glyph_v_kerning_defaultP9hb_font_tPvjjS1_(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i32 noundef %2, i32 noundef %3, ptr nocapture readnone %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 144
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 144
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 128
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 152
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %9, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %15 = load ptr, ptr %14, align 8
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %_ZN9hb_font_t19get_glyph_v_kerningEjj.exit, label %16
 
 16:                                               ; preds = %5
-  %17 = getelementptr inbounds i8, ptr %15, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 96
   %18 = load ptr, ptr %17, align 8
   br label %_ZN9hb_font_t19get_glyph_v_kerningEjj.exit
 
@@ -3621,9 +3621,9 @@ _ZN9hb_font_t19get_glyph_v_kerningEjj.exit:       ; preds = %5, %16
   br i1 %.not.i3, label %_ZN9hb_font_t23parent_scale_y_distanceEi.exit, label %22
 
 22:                                               ; preds = %_ZN9hb_font_t19get_glyph_v_kerningEjj.exit
-  %23 = getelementptr inbounds i8, ptr %21, i64 44
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 44
   %24 = load i32, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %0, i64 44
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %26 = load i32, ptr %25, align 4
   %.not6.i = icmp eq i32 %24, %26
   br i1 %.not6.i, label %_ZN9hb_font_t23parent_scale_y_distanceEi.exit, label %27
@@ -3645,7 +3645,7 @@ _ZN9hb_font_t23parent_scale_y_distanceEi.exit:    ; preds = %_ZN9hb_font_t19get_
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_font_funcs_set_glyph_extents_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
   %.not.i.i.not = icmp eq i32 %6, 0
   br i1 %.not.i.i.not, label %7, label %9
@@ -3672,25 +3672,25 @@ define hidden void @hb_font_funcs_set_glyph_extents_func(ptr nocapture noundef %
 12:                                               ; preds = %10, %11, %9
   %.034.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %2, %9 ]
   %.0.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %3, %9 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
   %.not21 = icmp eq ptr %14, null
   br i1 %.not21, label %26, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %14, i64 104
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 104
   %17 = load ptr, ptr %16, align 8
   %.not22 = icmp eq ptr %17, null
   br i1 %.not22, label %26, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8
   %.not23 = icmp eq ptr %20, null
   br i1 %.not23, label %24, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %20, i64 104
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 104
   %23 = load ptr, ptr %22, align 8
   br label %24
 
@@ -3704,7 +3704,7 @@ define hidden void @hb_font_funcs_set_glyph_extents_func(ptr nocapture noundef %
   br i1 %.not.i26, label %32, label %27
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load ptr, ptr %28, align 8
   %.not13.i = icmp eq ptr %29, null
   br i1 %.not13.i, label %30, label %32
@@ -3740,15 +3740,15 @@ define hidden void @hb_font_funcs_set_glyph_extents_func(ptr nocapture noundef %
 
 38:                                               ; preds = %35, %33, %32
   %spec.select = select i1 %.not, ptr @_ZL33hb_font_get_glyph_extents_defaultP9hb_font_tPvjP18hb_glyph_extents_tS1_, ptr %1
-  %39 = getelementptr inbounds i8, ptr %0, i64 136
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr %spec.select, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %41 = load ptr, ptr %40, align 8
   %.not24 = icmp eq ptr %41, null
   br i1 %.not24, label %44, label %42
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %41, i64 104
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 104
   store ptr %.034.ph, ptr %43, align 8
   br label %44
 
@@ -3758,7 +3758,7 @@ define hidden void @hb_font_funcs_set_glyph_extents_func(ptr nocapture noundef %
   br i1 %.not25, label %_ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit, label %46
 
 46:                                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %45, i64 104
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 104
   store ptr %.0.ph, ptr %47, align 8
   br label %_ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit
 
@@ -3768,22 +3768,22 @@ _ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit: ; preds = %
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL33hb_font_get_glyph_extents_defaultP9hb_font_tPvjP18hb_glyph_extents_tS1_(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i32 noundef %2, ptr noundef initializes((0, 16)) %3, ptr nocapture readnone %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  %8 = getelementptr inbounds i8, ptr %7, i64 144
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 144
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 136
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 136
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 152
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %9, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %15 = load ptr, ptr %14, align 8
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %_ZN9hb_font_t17get_glyph_extentsEjP18hb_glyph_extents_t.exit, label %16
 
 16:                                               ; preds = %5
-  %17 = getelementptr inbounds i8, ptr %15, i64 104
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 104
   %18 = load ptr, ptr %17, align 8
   br label %_ZN9hb_font_t17get_glyph_extentsEjP18hb_glyph_extents_t.exit
 
@@ -3794,16 +3794,16 @@ _ZN9hb_font_t17get_glyph_extentsEjP18hb_glyph_extents_t.exit: ; preds = %5, %16
   br i1 %.not, label %81, label %21
 
 21:                                               ; preds = %_ZN9hb_font_t17get_glyph_extentsEjP18hb_glyph_extents_t.exit
-  %22 = getelementptr inbounds i8, ptr %3, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %23 = load i32, ptr %3, align 4
   %24 = load ptr, ptr %6, align 8
   %.not.i.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i.i, label %_ZN9hb_font_t23parent_scale_x_positionEi.exit.i, label %25
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %24, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %27 = load i32, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %29 = load i32, ptr %28, align 8
   %.not6.i.i.i = icmp eq i32 %27, %29
   br i1 %.not6.i.i.i, label %_ZN9hb_font_t23parent_scale_x_positionEi.exit.i, label %30
@@ -3826,9 +3826,9 @@ _ZN9hb_font_t23parent_scale_x_positionEi.exit.i:  ; preds = %30, %25, %21
   br i1 %.not.i.i5.i, label %_ZN9hb_font_t21parent_scale_positionEPiS0_.exit, label %39
 
 39:                                               ; preds = %_ZN9hb_font_t23parent_scale_x_positionEi.exit.i
-  %40 = getelementptr inbounds i8, ptr %38, i64 44
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 44
   %41 = load i32, ptr %40, align 4
-  %42 = getelementptr inbounds i8, ptr %0, i64 44
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %43 = load i32, ptr %42, align 4
   %.not6.i.i6.i = icmp eq i32 %41, %43
   br i1 %.not6.i.i6.i, label %_ZN9hb_font_t21parent_scale_positionEPiS0_.exit, label %44
@@ -3845,17 +3845,17 @@ _ZN9hb_font_t23parent_scale_x_positionEi.exit.i:  ; preds = %30, %25, %21
 _ZN9hb_font_t21parent_scale_positionEPiS0_.exit:  ; preds = %_ZN9hb_font_t23parent_scale_x_positionEi.exit.i, %39, %44
   %.0.i.i7.i = phi i32 [ %50, %44 ], [ %37, %39 ], [ %37, %_ZN9hb_font_t23parent_scale_x_positionEi.exit.i ]
   store i32 %.0.i.i7.i, ptr %22, align 4
-  %51 = getelementptr inbounds i8, ptr %3, i64 8
-  %52 = getelementptr inbounds i8, ptr %3, i64 12
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %53 = load i32, ptr %51, align 4
   %54 = load ptr, ptr %6, align 8
   %.not.i.i = icmp eq ptr %54, null
   br i1 %.not.i.i, label %_ZN9hb_font_t23parent_scale_x_distanceEi.exit.i, label %55
 
 55:                                               ; preds = %_ZN9hb_font_t21parent_scale_positionEPiS0_.exit
-  %56 = getelementptr inbounds i8, ptr %54, i64 40
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 40
   %57 = load i32, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 40
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %59 = load i32, ptr %58, align 8
   %.not6.i.i = icmp eq i32 %57, %59
   br i1 %.not6.i.i, label %_ZN9hb_font_t23parent_scale_x_distanceEi.exit.i, label %60
@@ -3878,9 +3878,9 @@ _ZN9hb_font_t23parent_scale_x_distanceEi.exit.i:  ; preds = %60, %55, %_ZN9hb_fo
   br i1 %.not.i5.i, label %_ZN9hb_font_t21parent_scale_distanceEPiS0_.exit, label %69
 
 69:                                               ; preds = %_ZN9hb_font_t23parent_scale_x_distanceEi.exit.i
-  %70 = getelementptr inbounds i8, ptr %68, i64 44
+  %70 = getelementptr inbounds nuw i8, ptr %68, i64 44
   %71 = load i32, ptr %70, align 4
-  %72 = getelementptr inbounds i8, ptr %0, i64 44
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %73 = load i32, ptr %72, align 4
   %.not6.i6.i = icmp eq i32 %71, %73
   br i1 %.not6.i6.i, label %_ZN9hb_font_t21parent_scale_distanceEPiS0_.exit, label %74
@@ -3906,7 +3906,7 @@ _ZN9hb_font_t21parent_scale_distanceEPiS0_.exit:  ; preds = %_ZN9hb_font_t23pare
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_font_funcs_set_glyph_contour_point_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
   %.not.i.i.not = icmp eq i32 %6, 0
   br i1 %.not.i.i.not, label %7, label %9
@@ -3933,25 +3933,25 @@ define hidden void @hb_font_funcs_set_glyph_contour_point_func(ptr nocapture nou
 12:                                               ; preds = %10, %11, %9
   %.034.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %2, %9 ]
   %.0.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %3, %9 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
   %.not21 = icmp eq ptr %14, null
   br i1 %.not21, label %26, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %14, i64 112
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 112
   %17 = load ptr, ptr %16, align 8
   %.not22 = icmp eq ptr %17, null
   br i1 %.not22, label %26, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8
   %.not23 = icmp eq ptr %20, null
   br i1 %.not23, label %24, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %20, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 112
   %23 = load ptr, ptr %22, align 8
   br label %24
 
@@ -3965,7 +3965,7 @@ define hidden void @hb_font_funcs_set_glyph_contour_point_func(ptr nocapture nou
   br i1 %.not.i26, label %32, label %27
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load ptr, ptr %28, align 8
   %.not13.i = icmp eq ptr %29, null
   br i1 %.not13.i, label %30, label %32
@@ -4001,15 +4001,15 @@ define hidden void @hb_font_funcs_set_glyph_contour_point_func(ptr nocapture nou
 
 38:                                               ; preds = %35, %33, %32
   %spec.select = select i1 %.not, ptr @_ZL39hb_font_get_glyph_contour_point_defaultP9hb_font_tPvjjPiS2_S1_, ptr %1
-  %39 = getelementptr inbounds i8, ptr %0, i64 144
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %spec.select, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %41 = load ptr, ptr %40, align 8
   %.not24 = icmp eq ptr %41, null
   br i1 %.not24, label %44, label %42
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %41, i64 112
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 112
   store ptr %.034.ph, ptr %43, align 8
   br label %44
 
@@ -4019,7 +4019,7 @@ define hidden void @hb_font_funcs_set_glyph_contour_point_func(ptr nocapture nou
   br i1 %.not25, label %_ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit, label %46
 
 46:                                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %45, i64 112
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 112
   store ptr %.0.ph, ptr %47, align 8
   br label %_ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit
 
@@ -4029,23 +4029,23 @@ _ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit: ; preds = %
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL39hb_font_get_glyph_contour_point_defaultP9hb_font_tPvjjPiS2_S1_(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i32 noundef %2, i32 noundef %3, ptr noundef initializes((0, 4)) %4, ptr noundef initializes((0, 4)) %5, ptr nocapture readnone %6) #1 {
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   store i32 0, ptr %5, align 4
   store i32 0, ptr %4, align 4
-  %10 = getelementptr inbounds i8, ptr %9, i64 144
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 144
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 144
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 144
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %9, i64 152
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 152
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %11, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %17 = load ptr, ptr %16, align 8
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %_ZN9hb_font_t23get_glyph_contour_pointEjjPiS0_.exit, label %18
 
 18:                                               ; preds = %7
-  %19 = getelementptr inbounds i8, ptr %17, i64 112
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 112
   %20 = load ptr, ptr %19, align 8
   br label %_ZN9hb_font_t23get_glyph_contour_pointEjjPiS0_.exit
 
@@ -4062,9 +4062,9 @@ _ZN9hb_font_t23get_glyph_contour_pointEjjPiS0_.exit: ; preds = %7, %18
   br i1 %.not.i.i.i, label %_ZN9hb_font_t23parent_scale_x_positionEi.exit.i, label %26
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %25, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %28 = load i32, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load i32, ptr %29, align 8
   %.not6.i.i.i = icmp eq i32 %28, %30
   br i1 %.not6.i.i.i, label %_ZN9hb_font_t23parent_scale_x_positionEi.exit.i, label %31
@@ -4087,9 +4087,9 @@ _ZN9hb_font_t23parent_scale_x_positionEi.exit.i:  ; preds = %31, %26, %23
   br i1 %.not.i.i5.i, label %_ZN9hb_font_t21parent_scale_positionEPiS0_.exit, label %40
 
 40:                                               ; preds = %_ZN9hb_font_t23parent_scale_x_positionEi.exit.i
-  %41 = getelementptr inbounds i8, ptr %39, i64 44
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 44
   %42 = load i32, ptr %41, align 4
-  %43 = getelementptr inbounds i8, ptr %0, i64 44
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %44 = load i32, ptr %43, align 4
   %.not6.i.i6.i = icmp eq i32 %42, %44
   br i1 %.not6.i.i6.i, label %_ZN9hb_font_t21parent_scale_positionEPiS0_.exit, label %45
@@ -4115,7 +4115,7 @@ _ZN9hb_font_t21parent_scale_positionEPiS0_.exit:  ; preds = %_ZN9hb_font_t23pare
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_font_funcs_set_glyph_name_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
   %.not.i.i.not = icmp eq i32 %6, 0
   br i1 %.not.i.i.not, label %7, label %9
@@ -4142,25 +4142,25 @@ define hidden void @hb_font_funcs_set_glyph_name_func(ptr nocapture noundef %0, 
 12:                                               ; preds = %10, %11, %9
   %.034.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %2, %9 ]
   %.0.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %3, %9 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
   %.not21 = icmp eq ptr %14, null
   br i1 %.not21, label %26, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %14, i64 120
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 120
   %17 = load ptr, ptr %16, align 8
   %.not22 = icmp eq ptr %17, null
   br i1 %.not22, label %26, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8
   %.not23 = icmp eq ptr %20, null
   br i1 %.not23, label %24, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %20, i64 120
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 120
   %23 = load ptr, ptr %22, align 8
   br label %24
 
@@ -4174,7 +4174,7 @@ define hidden void @hb_font_funcs_set_glyph_name_func(ptr nocapture noundef %0, 
   br i1 %.not.i26, label %32, label %27
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load ptr, ptr %28, align 8
   %.not13.i = icmp eq ptr %29, null
   br i1 %.not13.i, label %30, label %32
@@ -4210,15 +4210,15 @@ define hidden void @hb_font_funcs_set_glyph_name_func(ptr nocapture noundef %0, 
 
 38:                                               ; preds = %35, %33, %32
   %spec.select = select i1 %.not, ptr @_ZL30hb_font_get_glyph_name_defaultP9hb_font_tPvjPcjS1_, ptr %1
-  %39 = getelementptr inbounds i8, ptr %0, i64 152
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %spec.select, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %41 = load ptr, ptr %40, align 8
   %.not24 = icmp eq ptr %41, null
   br i1 %.not24, label %44, label %42
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %41, i64 120
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 120
   store ptr %.034.ph, ptr %43, align 8
   br label %44
 
@@ -4228,7 +4228,7 @@ define hidden void @hb_font_funcs_set_glyph_name_func(ptr nocapture noundef %0, 
   br i1 %.not25, label %_ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit, label %46
 
 46:                                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %45, i64 120
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 120
   store ptr %.0.ph, ptr %47, align 8
   br label %_ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit
 
@@ -4238,7 +4238,7 @@ _ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit: ; preds = %
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL30hb_font_get_glyph_name_defaultP9hb_font_tPvjPcjS1_(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture readnone %5) #1 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq i32 %4, 0
   br i1 %.not.i, label %10, label %9
@@ -4248,19 +4248,19 @@ define internal noundef i32 @_ZL30hb_font_get_glyph_name_defaultP9hb_font_tPvjPc
   br label %10
 
 10:                                               ; preds = %9, %6
-  %11 = getelementptr inbounds i8, ptr %8, i64 144
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 144
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 152
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %8, i64 152
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 152
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %12, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %18 = load ptr, ptr %17, align 8
   %.not5.i = icmp eq ptr %18, null
   br i1 %.not5.i, label %_ZN9hb_font_t14get_glyph_nameEjPcj.exit, label %19
 
 19:                                               ; preds = %10
-  %20 = getelementptr inbounds i8, ptr %18, i64 120
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 120
   %21 = load ptr, ptr %20, align 8
   br label %_ZN9hb_font_t14get_glyph_nameEjPcj.exit
 
@@ -4273,7 +4273,7 @@ _ZN9hb_font_t14get_glyph_nameEjPcj.exit:          ; preds = %10, %19
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_font_funcs_set_glyph_from_name_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
   %.not.i.i.not = icmp eq i32 %6, 0
   br i1 %.not.i.i.not, label %7, label %9
@@ -4300,25 +4300,25 @@ define hidden void @hb_font_funcs_set_glyph_from_name_func(ptr nocapture noundef
 12:                                               ; preds = %10, %11, %9
   %.034.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %2, %9 ]
   %.0.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %3, %9 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
   %.not21 = icmp eq ptr %14, null
   br i1 %.not21, label %26, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %14, i64 128
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 128
   %17 = load ptr, ptr %16, align 8
   %.not22 = icmp eq ptr %17, null
   br i1 %.not22, label %26, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8
   %.not23 = icmp eq ptr %20, null
   br i1 %.not23, label %24, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %20, i64 128
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 128
   %23 = load ptr, ptr %22, align 8
   br label %24
 
@@ -4332,7 +4332,7 @@ define hidden void @hb_font_funcs_set_glyph_from_name_func(ptr nocapture noundef
   br i1 %.not.i26, label %32, label %27
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load ptr, ptr %28, align 8
   %.not13.i = icmp eq ptr %29, null
   br i1 %.not13.i, label %30, label %32
@@ -4368,15 +4368,15 @@ define hidden void @hb_font_funcs_set_glyph_from_name_func(ptr nocapture noundef
 
 38:                                               ; preds = %35, %33, %32
   %spec.select = select i1 %.not, ptr @_ZL35hb_font_get_glyph_from_name_defaultP9hb_font_tPvPKciPjS1_, ptr %1
-  %39 = getelementptr inbounds i8, ptr %0, i64 160
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store ptr %spec.select, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %41 = load ptr, ptr %40, align 8
   %.not24 = icmp eq ptr %41, null
   br i1 %.not24, label %44, label %42
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %41, i64 128
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 128
   store ptr %.034.ph, ptr %43, align 8
   br label %44
 
@@ -4386,7 +4386,7 @@ define hidden void @hb_font_funcs_set_glyph_from_name_func(ptr nocapture noundef
   br i1 %.not25, label %_ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit, label %46
 
 46:                                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %45, i64 128
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 128
   store ptr %.0.ph, ptr %47, align 8
   br label %_ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit
 
@@ -4396,7 +4396,7 @@ _ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit: ; preds = %
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL35hb_font_get_glyph_from_name_defaultP9hb_font_tPvPKciPjS1_(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr noundef initializes((0, 4)) %4, ptr nocapture readnone %5) #1 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   store i32 0, ptr %4, align 4
   %9 = icmp eq i32 %3, -1
@@ -4409,19 +4409,19 @@ define internal noundef i32 @_ZL35hb_font_get_glyph_from_name_defaultP9hb_font_t
 
 13:                                               ; preds = %10, %6
   %.0.i = phi i32 [ %12, %10 ], [ %3, %6 ]
-  %14 = getelementptr inbounds i8, ptr %8, i64 144
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 144
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 160
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 160
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %8, i64 152
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 152
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %15, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %21 = load ptr, ptr %20, align 8
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %_ZN9hb_font_t19get_glyph_from_nameEPKciPj.exit, label %22
 
 22:                                               ; preds = %13
-  %23 = getelementptr inbounds i8, ptr %21, i64 128
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 128
   %24 = load ptr, ptr %23, align 8
   br label %_ZN9hb_font_t19get_glyph_from_nameEPKciPj.exit
 
@@ -4434,7 +4434,7 @@ _ZN9hb_font_t19get_glyph_from_nameEPKciPj.exit:   ; preds = %13, %22
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_font_funcs_set_draw_glyph_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
   %.not.i.i.not = icmp eq i32 %6, 0
   br i1 %.not.i.i.not, label %7, label %9
@@ -4461,25 +4461,25 @@ define hidden void @hb_font_funcs_set_draw_glyph_func(ptr nocapture noundef %0, 
 12:                                               ; preds = %10, %11, %9
   %.034.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %2, %9 ]
   %.0.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %3, %9 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
   %.not21 = icmp eq ptr %14, null
   br i1 %.not21, label %26, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %14, i64 136
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 136
   %17 = load ptr, ptr %16, align 8
   %.not22 = icmp eq ptr %17, null
   br i1 %.not22, label %26, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8
   %.not23 = icmp eq ptr %20, null
   br i1 %.not23, label %24, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %20, i64 136
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 136
   %23 = load ptr, ptr %22, align 8
   br label %24
 
@@ -4493,7 +4493,7 @@ define hidden void @hb_font_funcs_set_draw_glyph_func(ptr nocapture noundef %0, 
   br i1 %.not.i26, label %32, label %27
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load ptr, ptr %28, align 8
   %.not13.i = icmp eq ptr %29, null
   br i1 %.not13.i, label %30, label %32
@@ -4529,15 +4529,15 @@ define hidden void @hb_font_funcs_set_draw_glyph_func(ptr nocapture noundef %0, 
 
 38:                                               ; preds = %35, %33, %32
   %spec.select = select i1 %.not, ptr @_ZL26hb_font_draw_glyph_defaultP9hb_font_tPvjP15hb_draw_funcs_tS1_S1_, ptr %1
-  %39 = getelementptr inbounds i8, ptr %0, i64 168
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store ptr %spec.select, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %41 = load ptr, ptr %40, align 8
   %.not24 = icmp eq ptr %41, null
   br i1 %.not24, label %44, label %42
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %41, i64 136
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 136
   store ptr %.034.ph, ptr %43, align 8
   br label %44
 
@@ -4547,7 +4547,7 @@ define hidden void @hb_font_funcs_set_draw_glyph_func(ptr nocapture noundef %0, 
   br i1 %.not25, label %_ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit, label %46
 
 46:                                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %45, i64 136
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 136
   store ptr %.0.ph, ptr %47, align 8
   br label %_ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit
 
@@ -4559,18 +4559,18 @@ _ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit: ; preds = %
 define internal void @_ZL26hb_font_draw_glyph_defaultP9hb_font_tPvjP15hb_draw_funcs_tS1_S1_(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture readnone %5) #1 {
   %7 = alloca %struct.hb_font_draw_glyph_default_adaptor_t, align 8
   store ptr %3, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %4, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 16
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %13 = load i32, ptr %12, align 8
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %20, label %14
 
 14:                                               ; preds = %6
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load i32, ptr %15, align 8
   %17 = sitofp i32 %16 to float
   %18 = sitofp i32 %13 to float
@@ -4580,24 +4580,24 @@ define internal void @_ZL26hb_font_draw_glyph_defaultP9hb_font_tPvjP15hb_draw_fu
 20:                                               ; preds = %6, %14
   %21 = phi float [ %19, %14 ], [ 0.000000e+00, %6 ]
   store float %21, ptr %9, align 8
-  %22 = getelementptr inbounds i8, ptr %7, i64 20
-  %23 = getelementptr inbounds i8, ptr %11, i64 44
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 44
   %24 = load i32, ptr %23, align 4
   %.not16 = icmp eq i32 %24, 0
   br i1 %.not16, label %.thread, label %25
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %0, i64 44
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %27 = load i32, ptr %26, align 4
   %28 = sitofp i32 %27 to float
   %29 = sitofp i32 %24 to float
   %30 = fdiv float %28, %29
-  %31 = getelementptr inbounds i8, ptr %0, i64 68
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %32 = load float, ptr %31, align 4
-  %33 = getelementptr inbounds i8, ptr %11, i64 68
+  %33 = getelementptr inbounds nuw i8, ptr %11, i64 68
   %34 = load float, ptr %33, align 4
   %35 = fsub float %32, %34
-  %36 = getelementptr inbounds i8, ptr %0, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %37 = load i32, ptr %36, align 8
   %38 = sitofp i32 %37 to float
   %39 = fmul float %35, %38
@@ -4608,21 +4608,21 @@ define internal void @_ZL26hb_font_draw_glyph_defaultP9hb_font_tPvjP15hb_draw_fu
   %.sink = phi float [ %30, %25 ], [ 0.000000e+00, %20 ]
   %41 = phi float [ %40, %25 ], [ 0.000000e+00, %20 ]
   store float %.sink, ptr %22, align 4
-  %42 = getelementptr inbounds i8, ptr %7, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store float %41, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %11, i64 144
+  %43 = getelementptr inbounds nuw i8, ptr %11, i64 144
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 168
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 168
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %11, i64 152
+  %47 = getelementptr inbounds nuw i8, ptr %11, i64 152
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %44, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %50 = load ptr, ptr %49, align 8
   %.not.i = icmp eq ptr %50, null
   br i1 %.not.i, label %_ZN9hb_font_t10draw_glyphEjP15hb_draw_funcs_tPv.exit, label %51
 
 51:                                               ; preds = %.thread
-  %52 = getelementptr inbounds i8, ptr %50, i64 136
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 136
   %53 = load ptr, ptr %52, align 8
   br label %_ZN9hb_font_t10draw_glyphEjP15hb_draw_funcs_tPv.exit
 
@@ -4635,7 +4635,7 @@ _ZN9hb_font_t10draw_glyphEjP15hb_draw_funcs_tPv.exit: ; preds = %.thread, %51
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_font_funcs_set_paint_glyph_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
   %.not.i.i.not = icmp eq i32 %6, 0
   br i1 %.not.i.i.not, label %7, label %9
@@ -4662,25 +4662,25 @@ define hidden void @hb_font_funcs_set_paint_glyph_func(ptr nocapture noundef %0,
 12:                                               ; preds = %10, %11, %9
   %.034.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %2, %9 ]
   %.0.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %3, %9 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
   %.not21 = icmp eq ptr %14, null
   br i1 %.not21, label %26, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %14, i64 144
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 144
   %17 = load ptr, ptr %16, align 8
   %.not22 = icmp eq ptr %17, null
   br i1 %.not22, label %26, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8
   %.not23 = icmp eq ptr %20, null
   br i1 %.not23, label %24, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %20, i64 144
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 144
   %23 = load ptr, ptr %22, align 8
   br label %24
 
@@ -4694,7 +4694,7 @@ define hidden void @hb_font_funcs_set_paint_glyph_func(ptr nocapture noundef %0,
   br i1 %.not.i26, label %32, label %27
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load ptr, ptr %28, align 8
   %.not13.i = icmp eq ptr %29, null
   br i1 %.not13.i, label %30, label %32
@@ -4730,15 +4730,15 @@ define hidden void @hb_font_funcs_set_paint_glyph_func(ptr nocapture noundef %0,
 
 38:                                               ; preds = %35, %33, %32
   %spec.select = select i1 %.not, ptr @_ZL27hb_font_paint_glyph_defaultP9hb_font_tPvjP16hb_paint_funcs_tS1_jjS1_, ptr %1
-  %39 = getelementptr inbounds i8, ptr %0, i64 176
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store ptr %spec.select, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %41 = load ptr, ptr %40, align 8
   %.not24 = icmp eq ptr %41, null
   br i1 %.not24, label %44, label %42
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %41, i64 144
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 144
   store ptr %.034.ph, ptr %43, align 8
   br label %44
 
@@ -4748,7 +4748,7 @@ define hidden void @hb_font_funcs_set_paint_glyph_func(ptr nocapture noundef %0,
   br i1 %.not25, label %_ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit, label %46
 
 46:                                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %45, i64 144
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 144
   store ptr %.0.ph, ptr %47, align 8
   br label %_ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit
 
@@ -4758,15 +4758,15 @@ _ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit: ; preds = %
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL27hb_font_paint_glyph_defaultP9hb_font_tPvjP16hb_paint_funcs_tS1_jjS1_(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture readnone %7) #1 {
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %12 = load i32, ptr %11, align 8
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %19, label %13
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load i32, ptr %14, align 8
   %16 = sitofp i32 %15 to float
   %17 = sitofp i32 %12 to float
@@ -4775,24 +4775,24 @@ define internal void @_ZL27hb_font_paint_glyph_defaultP9hb_font_tPvjP16hb_paint_
 
 19:                                               ; preds = %8, %13
   %20 = phi float [ %18, %13 ], [ 0.000000e+00, %8 ]
-  %21 = getelementptr inbounds i8, ptr %10, i64 44
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 44
   %22 = load i32, ptr %21, align 4
   %.not22 = icmp eq i32 %22, 0
   br i1 %.not22, label %.thread, label %23
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %0, i64 68
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %25 = load float, ptr %24, align 4
-  %26 = getelementptr inbounds i8, ptr %10, i64 68
+  %26 = getelementptr inbounds nuw i8, ptr %10, i64 68
   %27 = load float, ptr %26, align 4
   %28 = fsub float %25, %27
-  %29 = getelementptr inbounds i8, ptr %0, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load i32, ptr %29, align 8
   %31 = sitofp i32 %30 to float
   %32 = fmul float %28, %31
   %33 = sitofp i32 %22 to float
   %34 = fdiv float %32, %33
-  %35 = getelementptr inbounds i8, ptr %0, i64 44
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %36 = load i32, ptr %35, align 4
   %37 = sitofp i32 %36 to float
   %38 = fdiv float %37, %33
@@ -4801,9 +4801,9 @@ define internal void @_ZL27hb_font_paint_glyph_defaultP9hb_font_tPvjP16hb_paint_
 .thread:                                          ; preds = %19, %23
   %39 = phi float [ %34, %23 ], [ 0.000000e+00, %19 ]
   %40 = phi float [ %38, %23 ], [ 0.000000e+00, %19 ]
-  %41 = getelementptr inbounds i8, ptr %3, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %3, i64 128
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %44 = load ptr, ptr %43, align 8
   %.not.i = icmp eq ptr %44, null
   br i1 %.not.i, label %_ZN16hb_paint_funcs_t14push_transformEPvffffff.exit, label %45
@@ -4816,33 +4816,33 @@ _ZN16hb_paint_funcs_t14push_transformEPvffffff.exit: ; preds = %.thread, %45
   %47 = phi ptr [ %46, %45 ], [ null, %.thread ]
   tail call void %42(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef %4, float noundef %20, float noundef %39, float noundef 0.000000e+00, float noundef %40, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef %47)
   %48 = load ptr, ptr %9, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 144
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 144
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 176
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 176
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %48, i64 152
+  %53 = getelementptr inbounds nuw i8, ptr %48, i64 152
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %50, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %56 = load ptr, ptr %55, align 8
   %.not.i24 = icmp eq ptr %56, null
   br i1 %.not.i24, label %_ZN9hb_font_t11paint_glyphEjP16hb_paint_funcs_tPvjj.exit, label %57
 
 57:                                               ; preds = %_ZN16hb_paint_funcs_t14push_transformEPvffffff.exit
-  %58 = getelementptr inbounds i8, ptr %56, i64 144
+  %58 = getelementptr inbounds nuw i8, ptr %56, i64 144
   %59 = load ptr, ptr %58, align 8
   br label %_ZN9hb_font_t11paint_glyphEjP16hb_paint_funcs_tPvjj.exit
 
 _ZN9hb_font_t11paint_glyphEjP16hb_paint_funcs_tPvjj.exit: ; preds = %_ZN16hb_paint_funcs_t14push_transformEPvffffff.exit, %57
   %60 = phi ptr [ %59, %57 ], [ null, %_ZN16hb_paint_funcs_t14push_transformEPvffffff.exit ]
   tail call void %52(ptr noundef nonnull align 8 dereferenceable(192) %48, ptr noundef %54, i32 noundef %2, ptr noundef nonnull %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %60)
-  %61 = getelementptr inbounds i8, ptr %3, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %62 = load ptr, ptr %61, align 8
   %63 = load ptr, ptr %43, align 8
   %.not.i25 = icmp eq ptr %63, null
   br i1 %.not.i25, label %_ZN16hb_paint_funcs_t13pop_transformEPv.exit, label %64
 
 64:                                               ; preds = %_ZN9hb_font_t11paint_glyphEjP16hb_paint_funcs_tPvjj.exit
-  %65 = getelementptr inbounds i8, ptr %63, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %66 = load ptr, ptr %65, align 8
   br label %_ZN16hb_paint_funcs_t13pop_transformEPv.exit
 
@@ -4854,13 +4854,13 @@ _ZN16hb_paint_funcs_t13pop_transformEPv.exit:     ; preds = %_ZN9hb_font_t11pain
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZN9hb_font_t12has_func_setEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds [19 x ptr], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [19 x ptr], ptr %5, i64 0, i64 %6
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds [19 x ptr], ptr getelementptr inbounds (i8, ptr @_ZL22_hb_font_funcs_default, i64 32), i64 0, i64 %6
+  %9 = getelementptr inbounds nuw [19 x ptr], ptr getelementptr inbounds (i8, ptr @_ZL22_hb_font_funcs_default, i64 32), i64 0, i64 %6
   %10 = load ptr, ptr %9, align 8
   %11 = icmp ne ptr %8, %10
   ret i1 %11
@@ -4869,22 +4869,22 @@ define hidden noundef zeroext i1 @_ZN9hb_font_t12has_func_setEj(ptr nocapture no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZN9hb_font_t8has_funcEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
   %3 = zext i32 %1 to i64
-  %4 = getelementptr inbounds [19 x ptr], ptr getelementptr inbounds (i8, ptr @_ZL22_hb_font_funcs_default, i64 32), i64 0, i64 %3
+  %4 = getelementptr inbounds nuw [19 x ptr], ptr getelementptr inbounds (i8, ptr @_ZL22_hb_font_funcs_default, i64 32), i64 0, i64 %3
   %5 = load ptr, ptr %4, align 8
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %11, %2
   %.tr = phi ptr [ %0, %2 ], [ %13, %11 ]
-  %6 = getelementptr inbounds i8, ptr %.tr, i64 144
+  %6 = getelementptr inbounds nuw i8, ptr %.tr, i64 144
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 32
-  %9 = getelementptr inbounds [19 x ptr], ptr %8, i64 0, i64 %3
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %9 = getelementptr inbounds nuw [19 x ptr], ptr %8, i64 0, i64 %3
   %10 = load ptr, ptr %9, align 8
   %.not3.not.not.not.not = icmp ne ptr %10, %5
   br i1 %.not3.not.not.not.not, label %14, label %11
 
 11:                                               ; preds = %tailrecurse
-  %12 = getelementptr inbounds i8, ptr %.tr, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
   %.not2 = icmp eq ptr %13, @_hb_Null_hb_font_t
@@ -4898,13 +4898,13 @@ tailrecurse:                                      ; preds = %11, %2
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @hb_font_get_h_extents(ptr noundef %0, ptr noundef initializes((0, 48)) %1) local_unnamed_addr #1 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %1, i8 0, i64 48, i1 false)
-  %3 = getelementptr inbounds i8, ptr %0, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 152
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %_ZN9hb_font_t18get_font_h_extentsEP17hb_font_extents_t.exit, label %11
@@ -4922,19 +4922,19 @@ _ZN9hb_font_t18get_font_h_extentsEP17hb_font_extents_t.exit: ; preds = %2, %11
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @hb_font_get_v_extents(ptr noundef %0, ptr noundef initializes((0, 48)) %1) local_unnamed_addr #1 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %1, i8 0, i64 48, i1 false)
-  %3 = getelementptr inbounds i8, ptr %0, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 152
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %_ZN9hb_font_t18get_font_v_extentsEP17hb_font_extents_t.exit, label %11
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %10, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %13 = load ptr, ptr %12, align 8
   br label %_ZN9hb_font_t18get_font_v_extentsEP17hb_font_extents_t.exit
 
@@ -4948,22 +4948,22 @@ _ZN9hb_font_t18get_font_v_extentsEP17hb_font_extents_t.exit: ; preds = %2, %11
 define hidden noundef i32 @hb_font_get_glyph(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef initializes((0, 4)) %3) local_unnamed_addr #1 {
   %.not = icmp eq i32 %2, 0
   store i32 0, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 144
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 152
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not.i9 = icmp eq ptr %10, null
   br i1 %.not, label %19, label %11
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %6, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %13 = load ptr, ptr %12, align 8
   br i1 %.not.i9, label %_ZN9hb_font_t19get_variation_glyphEjjPjj.exit, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %10, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %16 = load ptr, ptr %15, align 8
   br label %_ZN9hb_font_t19get_variation_glyphEjjPjj.exit
 
@@ -4973,12 +4973,12 @@ _ZN9hb_font_t19get_variation_glyphEjjPjj.exit:    ; preds = %11, %14
   br label %27
 
 19:                                               ; preds = %4
-  %20 = getelementptr inbounds i8, ptr %6, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %21 = load ptr, ptr %20, align 8
   br i1 %.not.i9, label %_ZN9hb_font_t17get_nominal_glyphEjPjj.exit, label %22
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %10, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %24 = load ptr, ptr %23, align 8
   br label %_ZN9hb_font_t17get_nominal_glyphEjPjj.exit
 
@@ -4995,19 +4995,19 @@ _ZN9hb_font_t17get_nominal_glyphEjPjj.exit:       ; preds = %19, %22
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @hb_font_get_nominal_glyph(ptr noundef %0, i32 noundef %1, ptr noundef initializes((0, 4)) %2) local_unnamed_addr #1 {
   store i32 0, ptr %2, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 144
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 152
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %11 = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %_ZN9hb_font_t17get_nominal_glyphEjPjj.exit, label %12
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %11, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %14 = load ptr, ptr %13, align 8
   br label %_ZN9hb_font_t17get_nominal_glyphEjPjj.exit
 
@@ -5019,19 +5019,19 @@ _ZN9hb_font_t17get_nominal_glyphEjPjj.exit:       ; preds = %3, %12
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @hb_font_get_nominal_glyphs(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #1 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 144
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 152
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %14 = load ptr, ptr %13, align 8
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %_ZN9hb_font_t18get_nominal_glyphsEjPKjjPjj.exit, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %14, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %17 = load ptr, ptr %16, align 8
   br label %_ZN9hb_font_t18get_nominal_glyphsEjPKjjPjj.exit
 
@@ -5044,19 +5044,19 @@ _ZN9hb_font_t18get_nominal_glyphsEjPKjjPjj.exit:  ; preds = %6, %15
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @hb_font_get_variation_glyph(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef initializes((0, 4)) %3) local_unnamed_addr #1 {
   store i32 0, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 144
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 152
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %12 = load ptr, ptr %11, align 8
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %_ZN9hb_font_t19get_variation_glyphEjjPjj.exit, label %13
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %12, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %15 = load ptr, ptr %14, align 8
   br label %_ZN9hb_font_t19get_variation_glyphEjjPjj.exit
 
@@ -5068,19 +5068,19 @@ _ZN9hb_font_t19get_variation_glyphEjjPjj.exit:    ; preds = %4, %13
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @hb_font_get_glyph_h_advance(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 152
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %_ZN9hb_font_t19get_glyph_h_advanceEj.exit, label %11
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %10, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %13 = load ptr, ptr %12, align 8
   br label %_ZN9hb_font_t19get_glyph_h_advanceEj.exit
 
@@ -5092,19 +5092,19 @@ _ZN9hb_font_t19get_glyph_h_advanceEj.exit:        ; preds = %2, %11
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @hb_font_get_glyph_v_advance(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 152
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %_ZN9hb_font_t19get_glyph_v_advanceEj.exit, label %11
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %10, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %13 = load ptr, ptr %12, align 8
   br label %_ZN9hb_font_t19get_glyph_v_advanceEj.exit
 
@@ -5116,19 +5116,19 @@ _ZN9hb_font_t19get_glyph_v_advanceEj.exit:        ; preds = %2, %11
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_font_get_glyph_h_advances(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #1 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 144
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 88
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 152
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %14 = load ptr, ptr %13, align 8
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %_ZN9hb_font_t20get_glyph_h_advancesEjPKjjPij.exit, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %14, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %17 = load ptr, ptr %16, align 8
   br label %_ZN9hb_font_t20get_glyph_h_advancesEjPKjjPij.exit
 
@@ -5140,19 +5140,19 @@ _ZN9hb_font_t20get_glyph_h_advancesEjPKjjPij.exit: ; preds = %6, %15
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_font_get_glyph_v_advances(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #1 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 144
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 96
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 152
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %14 = load ptr, ptr %13, align 8
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %_ZN9hb_font_t20get_glyph_v_advancesEjPKjjPij.exit, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %14, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %17 = load ptr, ptr %16, align 8
   br label %_ZN9hb_font_t20get_glyph_v_advancesEjPKjjPij.exit
 
@@ -5166,19 +5166,19 @@ _ZN9hb_font_t20get_glyph_v_advancesEjPKjjPij.exit: ; preds = %6, %15
 define hidden noundef i32 @hb_font_get_glyph_h_origin(ptr noundef %0, i32 noundef %1, ptr noundef initializes((0, 4)) %2, ptr noundef initializes((0, 4)) %3) local_unnamed_addr #1 {
   store i32 0, ptr %3, align 4
   store i32 0, ptr %2, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 144
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 104
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 152
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %12 = load ptr, ptr %11, align 8
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %_ZN9hb_font_t18get_glyph_h_originEjPiS0_.exit, label %13
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %12, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 72
   %15 = load ptr, ptr %14, align 8
   br label %_ZN9hb_font_t18get_glyph_h_originEjPiS0_.exit
 
@@ -5192,19 +5192,19 @@ _ZN9hb_font_t18get_glyph_h_originEjPiS0_.exit:    ; preds = %4, %13
 define hidden noundef i32 @hb_font_get_glyph_v_origin(ptr noundef %0, i32 noundef %1, ptr noundef initializes((0, 4)) %2, ptr noundef initializes((0, 4)) %3) local_unnamed_addr #1 {
   store i32 0, ptr %3, align 4
   store i32 0, ptr %2, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 144
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 112
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 112
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 152
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %12 = load ptr, ptr %11, align 8
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %_ZN9hb_font_t18get_glyph_v_originEjPiS0_.exit, label %13
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %12, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 80
   %15 = load ptr, ptr %14, align 8
   br label %_ZN9hb_font_t18get_glyph_v_originEjPiS0_.exit
 
@@ -5216,19 +5216,19 @@ _ZN9hb_font_t18get_glyph_v_originEjPiS0_.exit:    ; preds = %4, %13
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @hb_font_get_glyph_h_kerning(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 144
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 120
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 120
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 152
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %11 = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %_ZN9hb_font_t19get_glyph_h_kerningEjj.exit, label %12
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %11, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 88
   %14 = load ptr, ptr %13, align 8
   br label %_ZN9hb_font_t19get_glyph_h_kerningEjj.exit
 
@@ -5240,19 +5240,19 @@ _ZN9hb_font_t19get_glyph_h_kerningEjj.exit:       ; preds = %3, %12
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @hb_font_get_glyph_v_kerning(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 144
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 152
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %11 = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %_ZN9hb_font_t19get_glyph_v_kerningEjj.exit, label %12
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %11, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %14 = load ptr, ptr %13, align 8
   br label %_ZN9hb_font_t19get_glyph_v_kerningEjj.exit
 
@@ -5265,19 +5265,19 @@ _ZN9hb_font_t19get_glyph_v_kerningEjj.exit:       ; preds = %3, %12
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @hb_font_get_glyph_extents(ptr noundef %0, i32 noundef %1, ptr noundef initializes((0, 16)) %2) local_unnamed_addr #1 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %2, i8 0, i64 16, i1 false)
-  %4 = getelementptr inbounds i8, ptr %0, i64 144
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 136
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 136
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 152
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %11 = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %_ZN9hb_font_t17get_glyph_extentsEjP18hb_glyph_extents_t.exit, label %12
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %11, i64 104
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 104
   %14 = load ptr, ptr %13, align 8
   br label %_ZN9hb_font_t17get_glyph_extentsEjP18hb_glyph_extents_t.exit
 
@@ -5291,19 +5291,19 @@ _ZN9hb_font_t17get_glyph_extentsEjP18hb_glyph_extents_t.exit: ; preds = %3, %12
 define hidden noundef i32 @hb_font_get_glyph_contour_point(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef initializes((0, 4)) %3, ptr noundef initializes((0, 4)) %4) local_unnamed_addr #1 {
   store i32 0, ptr %4, align 4
   store i32 0, ptr %3, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 144
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 144
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 144
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 152
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %13 = load ptr, ptr %12, align 8
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %_ZN9hb_font_t23get_glyph_contour_pointEjjPiS0_.exit, label %14
 
 14:                                               ; preds = %5
-  %15 = getelementptr inbounds i8, ptr %13, i64 112
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 112
   %16 = load ptr, ptr %15, align 8
   br label %_ZN9hb_font_t23get_glyph_contour_pointEjjPiS0_.exit
 
@@ -5323,19 +5323,19 @@ define hidden noundef i32 @hb_font_get_glyph_name(ptr noundef %0, i32 noundef %1
   br label %6
 
 6:                                                ; preds = %5, %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 144
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 152
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 152
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 152
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %14 = load ptr, ptr %13, align 8
   %.not5.i = icmp eq ptr %14, null
   br i1 %.not5.i, label %_ZN9hb_font_t14get_glyph_nameEjPcj.exit, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %14, i64 120
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 120
   %17 = load ptr, ptr %16, align 8
   br label %_ZN9hb_font_t14get_glyph_nameEjPcj.exit
 
@@ -5358,19 +5358,19 @@ define hidden noundef i32 @hb_font_get_glyph_from_name(ptr noundef %0, ptr nound
 
 9:                                                ; preds = %6, %4
   %.0.i = phi i32 [ %8, %6 ], [ %2, %4 ]
-  %10 = getelementptr inbounds i8, ptr %0, i64 144
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 160
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 160
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 152
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %11, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %17 = load ptr, ptr %16, align 8
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %_ZN9hb_font_t19get_glyph_from_nameEPKciPj.exit, label %18
 
 18:                                               ; preds = %9
-  %19 = getelementptr inbounds i8, ptr %17, i64 128
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 128
   %20 = load ptr, ptr %19, align 8
   br label %_ZN9hb_font_t19get_glyph_from_nameEPKciPj.exit
 
@@ -5382,19 +5382,19 @@ _ZN9hb_font_t19get_glyph_from_nameEPKciPj.exit:   ; preds = %9, %18
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_font_get_glyph_shape(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 144
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 168
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 168
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 152
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %12 = load ptr, ptr %11, align 8
   %.not.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i, label %hb_font_draw_glyph.exit, label %13
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %12, i64 136
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 136
   %15 = load ptr, ptr %14, align 8
   br label %hb_font_draw_glyph.exit
 
@@ -5406,19 +5406,19 @@ hb_font_draw_glyph.exit:                          ; preds = %4, %13
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_font_draw_glyph(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 144
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 168
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 168
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 152
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %12 = load ptr, ptr %11, align 8
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %_ZN9hb_font_t10draw_glyphEjP15hb_draw_funcs_tPv.exit, label %13
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %12, i64 136
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 136
   %15 = load ptr, ptr %14, align 8
   br label %_ZN9hb_font_t10draw_glyphEjP15hb_draw_funcs_tPv.exit
 
@@ -5430,19 +5430,19 @@ _ZN9hb_font_t10draw_glyphEjP15hb_draw_funcs_tPv.exit: ; preds = %4, %13
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_font_paint_glyph(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 144
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 176
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 176
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 152
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %14 = load ptr, ptr %13, align 8
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %_ZN9hb_font_t11paint_glyphEjP16hb_paint_funcs_tPvjj.exit, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %14, i64 144
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 144
   %17 = load ptr, ptr %16, align 8
   br label %_ZN9hb_font_t11paint_glyphEjP16hb_paint_funcs_tPvjj.exit
 
@@ -5457,17 +5457,17 @@ define hidden void @hb_font_get_extents_for_direction(ptr noundef %0, i32 nounde
   %4 = and i32 %1, -2
   %5 = icmp eq i32 %4, 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %2, i8 0, i64 48, i1 false)
-  %6 = getelementptr inbounds i8, ptr %0, i64 144
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 152
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %11 = load ptr, ptr %10, align 8
   %.not.i.i.i = icmp eq ptr %11, null
   br i1 %5, label %12, label %27
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %7, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %14 = load ptr, ptr %13, align 8
   br i1 %.not.i.i.i, label %_ZN9hb_font_t18get_font_h_extentsEP17hb_font_extents_t.exit.i.i, label %15
 
@@ -5482,7 +5482,7 @@ _ZN9hb_font_t18get_font_h_extentsEP17hb_font_extents_t.exit.i.i: ; preds = %15, 
   br i1 %.not.i.i, label %19, label %_ZN9hb_font_t25get_extents_for_directionE14hb_direction_tP17hb_font_extents_t.exit
 
 19:                                               ; preds = %_ZN9hb_font_t18get_font_h_extentsEP17hb_font_extents_t.exit.i.i
-  %20 = getelementptr inbounds i8, ptr %0, i64 44
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %21 = load i32, ptr %20, align 4
   %22 = sitofp i32 %21 to double
   %23 = fmul double %22, 8.000000e-01
@@ -5493,12 +5493,12 @@ _ZN9hb_font_t18get_font_h_extentsEP17hb_font_extents_t.exit.i.i: ; preds = %15, 
   br label %_ZN9hb_font_t27get_h_extents_with_fallbackEP17hb_font_extents_t.exit.sink.split.i
 
 27:                                               ; preds = %3
-  %28 = getelementptr inbounds i8, ptr %7, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %29 = load ptr, ptr %28, align 8
   br i1 %.not.i.i.i, label %_ZN9hb_font_t18get_font_v_extentsEP17hb_font_extents_t.exit.i.i, label %30
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %11, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %32 = load ptr, ptr %31, align 8
   br label %_ZN9hb_font_t18get_font_v_extentsEP17hb_font_extents_t.exit.i.i
 
@@ -5509,7 +5509,7 @@ _ZN9hb_font_t18get_font_v_extentsEP17hb_font_extents_t.exit.i.i: ; preds = %30, 
   br i1 %.not.i4.i, label %35, label %_ZN9hb_font_t25get_extents_for_directionE14hb_direction_tP17hb_font_extents_t.exit
 
 35:                                               ; preds = %_ZN9hb_font_t18get_font_v_extentsEP17hb_font_extents_t.exit.i.i
-  %36 = getelementptr inbounds i8, ptr %0, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %37 = load i32, ptr %36, align 8
   %38 = sdiv i32 %37, 2
   store i32 %38, ptr %2, align 4
@@ -5519,9 +5519,9 @@ _ZN9hb_font_t18get_font_v_extentsEP17hb_font_extents_t.exit.i.i: ; preds = %30, 
 
 _ZN9hb_font_t27get_h_extents_with_fallbackEP17hb_font_extents_t.exit.sink.split.i: ; preds = %35, %19
   %.sink.i = phi i32 [ %40, %35 ], [ %26, %19 ]
-  %41 = getelementptr inbounds i8, ptr %2, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %.sink.i, ptr %41, align 4
-  %42 = getelementptr inbounds i8, ptr %2, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %42, align 4
   br label %_ZN9hb_font_t25get_extents_for_directionE14hb_direction_tP17hb_font_extents_t.exit
 
@@ -5535,22 +5535,22 @@ define hidden void @hb_font_get_glyph_advance_for_direction(ptr noundef %0, i32 
   store i32 0, ptr %3, align 4
   %6 = and i32 %2, -2
   %7 = icmp eq i32 %6, 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 144
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 152
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %13 = load ptr, ptr %12, align 8
   %.not.i.i = icmp eq ptr %13, null
   br i1 %7, label %14, label %22
 
 14:                                               ; preds = %5
-  %15 = getelementptr inbounds i8, ptr %9, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %16 = load ptr, ptr %15, align 8
   br i1 %.not.i.i, label %_ZN9hb_font_t19get_glyph_h_advanceEj.exit.i, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %13, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %19 = load ptr, ptr %18, align 8
   br label %_ZN9hb_font_t19get_glyph_h_advanceEj.exit.i
 
@@ -5561,12 +5561,12 @@ _ZN9hb_font_t19get_glyph_h_advanceEj.exit.i:      ; preds = %17, %14
   br label %_ZN9hb_font_t31get_glyph_advance_for_directionEj14hb_direction_tPiS1_.exit
 
 22:                                               ; preds = %5
-  %23 = getelementptr inbounds i8, ptr %9, i64 80
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 80
   %24 = load ptr, ptr %23, align 8
   br i1 %.not.i.i, label %_ZN9hb_font_t19get_glyph_v_advanceEj.exit.i, label %25
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %13, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %27 = load ptr, ptr %26, align 8
   br label %_ZN9hb_font_t19get_glyph_v_advanceEj.exit.i
 
@@ -5584,22 +5584,22 @@ _ZN9hb_font_t31get_glyph_advance_for_directionEj14hb_direction_tPiS1_.exit: ; pr
 define hidden void @hb_font_get_glyph_advances_for_direction(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #1 {
   %8 = and i32 %1, -2
   %9 = icmp eq i32 %8, 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 144
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 152
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = load ptr, ptr %14, align 8
   %.not.i.i = icmp eq ptr %15, null
   br i1 %9, label %16, label %23
 
 16:                                               ; preds = %7
-  %17 = getelementptr inbounds i8, ptr %11, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 88
   %18 = load ptr, ptr %17, align 8
   br i1 %.not.i.i, label %_ZN9hb_font_t20get_glyph_h_advancesEjPKjjPij.exit.i, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %15, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 56
   %21 = load ptr, ptr %20, align 8
   br label %_ZN9hb_font_t20get_glyph_h_advancesEjPKjjPij.exit.i
 
@@ -5609,12 +5609,12 @@ _ZN9hb_font_t20get_glyph_h_advancesEjPKjjPij.exit.i: ; preds = %19, %16
   br label %_ZN9hb_font_t32get_glyph_advances_for_directionE14hb_direction_tjPKjjPij.exit
 
 23:                                               ; preds = %7
-  %24 = getelementptr inbounds i8, ptr %11, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %25 = load ptr, ptr %24, align 8
   br i1 %.not.i.i, label %_ZN9hb_font_t20get_glyph_v_advancesEjPKjjPij.exit.i, label %26
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %15, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %28 = load ptr, ptr %27, align 8
   br label %_ZN9hb_font_t20get_glyph_v_advancesEjPKjjPij.exit.i
 
@@ -5713,23 +5713,23 @@ _ZN9hb_font_t35subtract_glyph_origin_for_directionEj14hb_direction_tPiS1_.exit: 
 define hidden void @hb_font_get_glyph_kerning_for_direction(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, ptr nocapture noundef writeonly initializes((0, 4)) %5) local_unnamed_addr #1 {
   %7 = and i32 %3, -2
   %8 = icmp eq i32 %7, 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 144
-  %10 = getelementptr inbounds i8, ptr %0, i64 152
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 152
   br i1 %8, label %11, label %23
 
 11:                                               ; preds = %6
   store i32 0, ptr %5, align 4
   %12 = load ptr, ptr %9, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 120
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 120
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %10, align 8
-  %16 = getelementptr inbounds i8, ptr %12, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %17 = load ptr, ptr %16, align 8
   %.not.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i, label %_ZN9hb_font_t19get_glyph_h_kerningEjj.exit.i, label %18
 
 18:                                               ; preds = %11
-  %19 = getelementptr inbounds i8, ptr %17, i64 88
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 88
   %20 = load ptr, ptr %19, align 8
   br label %_ZN9hb_font_t19get_glyph_h_kerningEjj.exit.i
 
@@ -5742,16 +5742,16 @@ _ZN9hb_font_t19get_glyph_h_kerningEjj.exit.i:     ; preds = %18, %11
 23:                                               ; preds = %6
   store i32 0, ptr %4, align 4
   %24 = load ptr, ptr %9, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 128
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 128
   %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr %10, align 8
-  %28 = getelementptr inbounds i8, ptr %24, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %29 = load ptr, ptr %28, align 8
   %.not.i9.i = icmp eq ptr %29, null
   br i1 %.not.i9.i, label %_ZN9hb_font_t19get_glyph_v_kerningEjj.exit.i, label %30
 
 30:                                               ; preds = %23
-  %31 = getelementptr inbounds i8, ptr %29, i64 96
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 96
   %32 = load ptr, ptr %31, align 8
   br label %_ZN9hb_font_t19get_glyph_v_kerningEjj.exit.i
 
@@ -5770,19 +5770,19 @@ define hidden noundef i32 @hb_font_get_glyph_extents_for_origin(ptr noundef %0, 
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  %7 = getelementptr inbounds i8, ptr %0, i64 144
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 136
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 136
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 152
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %14 = load ptr, ptr %13, align 8
   %.not.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i, label %_ZN9hb_font_t17get_glyph_extentsEjP18hb_glyph_extents_t.exit.i, label %15
 
 15:                                               ; preds = %4
-  %16 = getelementptr inbounds i8, ptr %14, i64 104
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 104
   %17 = load ptr, ptr %16, align 8
   br label %_ZN9hb_font_t17get_glyph_extentsEjP18hb_glyph_extents_t.exit.i
 
@@ -5793,7 +5793,7 @@ _ZN9hb_font_t17get_glyph_extentsEjP18hb_glyph_extents_t.exit.i: ; preds = %15, %
   br i1 %.not.i, label %_ZN9hb_font_t28get_glyph_extents_for_originEj14hb_direction_tP18hb_glyph_extents_t.exit, label %20
 
 20:                                               ; preds = %_ZN9hb_font_t17get_glyph_extentsEjP18hb_glyph_extents_t.exit.i
-  %21 = getelementptr inbounds i8, ptr %3, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   %22 = and i32 %2, -2
@@ -5831,19 +5831,19 @@ define hidden noundef i32 @hb_font_get_glyph_contour_point_for_origin(ptr nounde
   %8 = alloca i32, align 4
   store i32 0, ptr %5, align 4
   store i32 0, ptr %4, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 144
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 144
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 144
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 152
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %10, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %16 = load ptr, ptr %15, align 8
   %.not.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i, label %_ZN9hb_font_t23get_glyph_contour_pointEjjPiS0_.exit.i, label %17
 
 17:                                               ; preds = %6
-  %18 = getelementptr inbounds i8, ptr %16, i64 112
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 112
   %19 = load ptr, ptr %18, align 8
   br label %_ZN9hb_font_t23get_glyph_contour_pointEjjPiS0_.exit.i
 
@@ -5895,19 +5895,19 @@ define hidden void @hb_font_glyph_to_string(ptr noundef %0, i32 noundef %1, ptr 
   br label %6
 
 6:                                                ; preds = %5, %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 144
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 152
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 152
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 152
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %14 = load ptr, ptr %13, align 8
   %.not5.i.i = icmp eq ptr %14, null
   br i1 %.not5.i.i, label %_ZN9hb_font_t14get_glyph_nameEjPcj.exit.i, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %14, i64 120
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 120
   %17 = load ptr, ptr %16, align 8
   br label %_ZN9hb_font_t14get_glyph_nameEjPcj.exit.i
 
@@ -5958,19 +5958,19 @@ define linkonce_odr hidden noundef i32 @_ZN9hb_font_t17glyph_from_stringEPKciPj(
 
 15:                                               ; preds = %12, %4
   %.0.i = phi i32 [ %14, %12 ], [ %2, %4 ]
-  %16 = getelementptr inbounds i8, ptr %0, i64 144
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 160
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 160
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 152
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %17, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %23 = load ptr, ptr %22, align 8
   %.not.i = icmp eq ptr %23, null
   br i1 %.not.i, label %_ZN9hb_font_t19get_glyph_from_nameEPKciPj.exit, label %24
 
 24:                                               ; preds = %15
-  %25 = getelementptr inbounds i8, ptr %23, i64 128
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 128
   %26 = load ptr, ptr %25, align 8
   br label %_ZN9hb_font_t19get_glyph_from_nameEPKciPj.exit
 
@@ -5994,7 +5994,7 @@ _ZN9hb_font_t19get_glyph_from_nameEPKciPj.exit:   ; preds = %15, %24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   store ptr %1, ptr %10, align 8
   %34 = zext i32 %.018 to i64
-  %35 = getelementptr inbounds i8, ptr %1, i64 %34
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 %34
   %36 = call noundef zeroext i1 @_Z13hb_parse_uintPPKcS0_Pjbi(ptr noundef nonnull %10, ptr noundef %35, ptr noundef nonnull %9, i1 noundef zeroext true, i32 noundef 10)
   br i1 %36, label %_ZL18hb_codepoint_parsePKcjiPj.exit, label %38
 
@@ -6017,19 +6017,19 @@ sub_0:                                            ; preds = %38
   br i1 %.not43, label %sub_1, label %sub_039
 
 sub_1:                                            ; preds = %sub_0
-  %41 = getelementptr inbounds i8, ptr %1, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %42 = load i8, ptr %41, align 1
   %.not44 = icmp eq i8 %42, 105
   br i1 %.not44, label %.tail, label %.tail38.thread
 
 .tail:                                            ; preds = %sub_1
-  %43 = getelementptr inbounds i8, ptr %1, i64 2
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %44 = load i8, ptr %43, align 1
   %45 = icmp eq i8 %44, 100
   br i1 %45, label %46, label %.tail38.thread
 
 46:                                               ; preds = %.tail
-  %47 = getelementptr inbounds i8, ptr %1, i64 3
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   store ptr %47, ptr %8, align 8
@@ -6057,19 +6057,19 @@ sub_039:                                          ; preds = %sub_0, %_ZL18hb_cod
   br i1 %.not45, label %sub_140, label %.tail38.thread
 
 sub_140:                                          ; preds = %sub_039
-  %53 = getelementptr inbounds i8, ptr %1, i64 1
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %54 = load i8, ptr %53, align 1
   %.not46 = icmp eq i8 %54, 110
   br i1 %.not46, label %.tail38, label %.tail38.thread
 
 .tail38:                                          ; preds = %sub_140
-  %55 = getelementptr inbounds i8, ptr %1, i64 2
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %56 = load i8, ptr %55, align 1
   %57 = icmp eq i8 %56, 105
   br i1 %57, label %58, label %.tail38.thread
 
 58:                                               ; preds = %.tail38
-  %59 = getelementptr inbounds i8, ptr %1, i64 3
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %59, ptr %6, align 8
@@ -6089,16 +6089,16 @@ _ZL18hb_codepoint_parsePKcjiPj.exit28.thread:     ; preds = %58
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   store i32 0, ptr %3, align 4
   %65 = load ptr, ptr %16, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 48
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 48
   %67 = load ptr, ptr %66, align 8
   %68 = load ptr, ptr %20, align 8
-  %69 = getelementptr inbounds i8, ptr %65, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %70 = load ptr, ptr %69, align 8
   %.not.i29 = icmp eq ptr %70, null
   br i1 %.not.i29, label %_ZN9hb_font_t17get_nominal_glyphEjPjj.exit, label %71
 
 71:                                               ; preds = %63
-  %72 = getelementptr inbounds i8, ptr %70, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %73 = load ptr, ptr %72, align 8
   br label %_ZN9hb_font_t17get_nominal_glyphEjPjj.exit
 
@@ -6124,7 +6124,7 @@ define hidden noundef nonnull ptr @hb_font_create(ptr noundef %0) local_unnamed_
   br i1 %.not, label %hb_font_set_var_named_instance.exit, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
   %.not8 = icmp ult i32 %5, 65536
   br i1 %.not8, label %hb_font_set_var_named_instance.exit, label %6
@@ -6132,23 +6132,23 @@ define hidden noundef nonnull ptr @hb_font_create(ptr noundef %0) local_unnamed_
 6:                                                ; preds = %3
   %7 = lshr i32 %5, 16
   %8 = add nsw i32 %7, -1
-  %9 = getelementptr inbounds i8, ptr %2, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %10 = load atomic i32, ptr %9 monotonic, align 4
   %.not.i.i = icmp eq i32 %10, 0
   br i1 %.not.i.i, label %hb_font_set_var_named_instance.exit, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %2, i64 116
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 116
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, %8
   br i1 %14, label %hb_font_set_var_named_instance.exit, label %15
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %2, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %17 = load i32, ptr %16, align 8
   %18 = add i32 %17, 1
   store i32 %18, ptr %16, align 8
-  %19 = getelementptr inbounds i8, ptr %2, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 %18, ptr %19, align 4
   store i32 %8, ptr %12, align 4
   tail call void @hb_font_set_variations(ptr noundef nonnull %2, ptr noundef null, i32 noundef 0)
@@ -6175,22 +6175,22 @@ define internal fastcc noundef nonnull ptr @_ZL15_hb_font_createP9hb_face_t(ptr 
 
 6:                                                ; preds = %4
   store atomic i32 1, ptr %5 monotonic, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store atomic i32 1, ptr %7 monotonic, align 4
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store atomic i64 0, ptr %8 monotonic, align 8
   %9 = load atomic i32, ptr %5 monotonic, align 4
   tail call void @hb_face_make_immutable(ptr noundef %.019)
-  %10 = getelementptr inbounds i8, ptr %5, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr @_hb_Null_hb_font_t, ptr %10, align 8
   %11 = tail call ptr @hb_face_reference(ptr noundef %.019)
-  %12 = getelementptr inbounds i8, ptr %5, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 144
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 144
   store ptr @_ZL22_hb_font_funcs_default, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %5, i64 168
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 168
   store ptr %5, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %.019, i64 44
+  %15 = getelementptr inbounds nuw i8, ptr %.019, i64 44
   %16 = load atomic i32, ptr %15 monotonic, align 4
   %.not.i23 = icmp eq i32 %16, 0
   br i1 %.not.i23, label %17, label %_ZNK9hb_face_t8get_upemEv.exit
@@ -6201,21 +6201,21 @@ define internal fastcc noundef nonnull ptr @_ZL15_hb_font_createP9hb_face_t(ptr 
 
 _ZNK9hb_face_t8get_upemEv.exit:                   ; preds = %6, %17
   %.0.i = phi i32 [ %18, %17 ], [ %16, %6 ]
-  %19 = getelementptr inbounds i8, ptr %5, i64 44
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 44
   store i32 %.0.i, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %5, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i32 %.0.i, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %5, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store i8 1, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %5, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 80
   store float 1.000000e+00, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %5, i64 76
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 76
   store float 1.000000e+00, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %5, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 96
   store i64 65536, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %5, i64 88
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 88
   store i64 65536, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %5, i64 116
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 116
   store i32 -1, ptr %26, align 4
   br label %27
 
@@ -6228,23 +6228,23 @@ declare void @hb_ot_font_set_funcs(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_font_set_var_named_instance(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load atomic i32, ptr %3 monotonic, align 4
   %.not.i = icmp eq i32 %4, 0
   br i1 %.not.i, label %14, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 116
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, %1
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i32, ptr %10, align 8
   %12 = add i32 %11, 1
   store i32 %12, ptr %10, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %12, ptr %13, align 4
   store i32 %1, ptr %6, align 4
   tail call void @hb_font_set_variations(ptr noundef nonnull %0, ptr noundef null, i32 noundef 0)
@@ -6258,10 +6258,10 @@ define hidden void @hb_font_set_var_named_instance(ptr noundef %0, i32 noundef %
 define hidden noundef nonnull ptr @hb_font_create_sub_font(ptr noundef %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   %spec.select = select i1 %.not, ptr @_hb_Null_hb_font_t, ptr %0
-  %2 = getelementptr inbounds i8, ptr %spec.select, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %spec.select, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = tail call fastcc noundef ptr @_ZL15_hb_font_createP9hb_face_t(ptr noundef %3)
-  %5 = getelementptr inbounds i8, ptr %4, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %62, label %7
@@ -6277,46 +6277,46 @@ define hidden noundef nonnull ptr @hb_font_create_sub_font(ptr noundef %0) local
   br label %hb_font_reference.exit
 
 hb_font_reference.exit:                           ; preds = %7, %10
-  %12 = getelementptr inbounds i8, ptr %4, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %spec.select, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %spec.select, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %spec.select, i64 40
   %14 = load i32, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %spec.select, i64 44
+  %16 = getelementptr inbounds nuw i8, ptr %spec.select, i64 44
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %4, i64 44
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 44
   store i32 %17, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %spec.select, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %spec.select, i64 48
   %20 = load float, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %4, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store float %20, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %spec.select, i64 52
+  %22 = getelementptr inbounds nuw i8, ptr %spec.select, i64 52
   %23 = load float, ptr %22, align 4
-  %24 = getelementptr inbounds i8, ptr %4, i64 52
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 52
   store float %23, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %spec.select, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %spec.select, i64 56
   %26 = load i8, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %4, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %28 = and i8 %26, 1
   store i8 %28, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %spec.select, i64 68
+  %29 = getelementptr inbounds nuw i8, ptr %spec.select, i64 68
   %30 = load float, ptr %29, align 4
-  %31 = getelementptr inbounds i8, ptr %4, i64 68
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 68
   store float %30, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %spec.select, i64 104
+  %32 = getelementptr inbounds nuw i8, ptr %spec.select, i64 104
   %33 = load i32, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %4, i64 104
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 104
   store i32 %33, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %spec.select, i64 108
+  %35 = getelementptr inbounds nuw i8, ptr %spec.select, i64 108
   %36 = load i32, ptr %35, align 4
-  %37 = getelementptr inbounds i8, ptr %4, i64 108
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 108
   store i32 %36, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %spec.select, i64 112
+  %38 = getelementptr inbounds nuw i8, ptr %spec.select, i64 112
   %39 = load float, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %4, i64 112
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 112
   store float %39, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %spec.select, i64 120
+  %41 = getelementptr inbounds nuw i8, ptr %spec.select, i64 120
   %42 = load i32, ptr %41, align 8
   %.not49 = icmp eq i32 %42, 0
   br i1 %.not49, label %61, label %43
@@ -6331,22 +6331,22 @@ hb_font_reference.exit:                           ; preds = %7, %10
   br i1 %or.cond, label %49, label %60
 
 49:                                               ; preds = %43
-  %50 = getelementptr inbounds i8, ptr %spec.select, i64 128
+  %50 = getelementptr inbounds nuw i8, ptr %spec.select, i64 128
   %51 = load ptr, ptr %50, align 8
   %52 = shl nuw nsw i64 %44, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %45, ptr noundef nonnull readonly align 1 dereferenceable(1) %51, i64 range(i64 4, 17179869181) %52, i1 false), !alias.scope !13
-  %53 = getelementptr inbounds i8, ptr %spec.select, i64 136
+  %53 = getelementptr inbounds nuw i8, ptr %spec.select, i64 136
   %54 = load ptr, ptr %53, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %46, ptr noundef nonnull readonly align 1 dereferenceable(1) %54, i64 range(i64 4, 17179869181) %52, i1 false), !alias.scope !17
-  %55 = getelementptr inbounds i8, ptr %4, i64 128
+  %55 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %56 = load ptr, ptr %55, align 8
   tail call void @free(ptr noundef %56) #25
-  %57 = getelementptr inbounds i8, ptr %4, i64 136
+  %57 = getelementptr inbounds nuw i8, ptr %4, i64 136
   %58 = load ptr, ptr %57, align 8
   tail call void @free(ptr noundef %58) #25
   store ptr %45, ptr %55, align 8
   store ptr %46, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %4, i64 120
+  %59 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i32 %42, ptr %59, align 8
   tail call void @_ZN9hb_font_t13mults_changedEv(ptr noundef nonnull align 8 dereferenceable(192) %4)
   br label %61
@@ -6393,9 +6393,9 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN9hb_font_t13mults_changedEv(ptr noundef nonnull align 8 dereferenceable(192) %0) local_unnamed_addr #1 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 44
   %5 = load atomic i32, ptr %4 monotonic, align 4
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %6, label %_ZNK9hb_face_t8get_upemEv.exit
@@ -6407,17 +6407,17 @@ define linkonce_odr hidden void @_ZN9hb_font_t13mults_changedEv(ptr noundef nonn
 _ZNK9hb_face_t8get_upemEv.exit:                   ; preds = %1, %6
   %.0.i = phi i32 [ %7, %6 ], [ %5, %1 ]
   %8 = uitofp i32 %.0.i to float
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load i32, ptr %9, align 8
   %11 = sitofp i32 %10 to float
   %12 = fdiv float %11, %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 76
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store float %12, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 44
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %15 = load i32, ptr %14, align 4
   %16 = sitofp i32 %15 to float
   %17 = fdiv float %16, %8
-  %18 = getelementptr inbounds i8, ptr %0, i64 80
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store float %17, ptr %18, align 8
   %19 = icmp slt i32 %10, 0
   %20 = sub nsw i32 0, %10
@@ -6429,7 +6429,7 @@ _ZNK9hb_face_t8get_upemEv.exit:                   ; preds = %1, %6
   %25 = sitofp i64 %24 to float
   %26 = fdiv float %25, %8
   %27 = fptosi float %26 to i64
-  %28 = getelementptr inbounds i8, ptr %0, i64 88
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i64 %27, ptr %28, align 8
   %29 = icmp slt i32 %15, 0
   %30 = sub nsw i32 0, %15
@@ -6441,35 +6441,35 @@ _ZNK9hb_face_t8get_upemEv.exit:                   ; preds = %1, %6
   %35 = sitofp i64 %34 to float
   %36 = fdiv float %35, %8
   %37 = fptosi float %36 to i64
-  %38 = getelementptr inbounds i8, ptr %0, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i64 %37, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %40 = load float, ptr %39, align 8
   %41 = fmul float %40, %11
   %42 = fadd float %41, 5.000000e-01
   %43 = tail call noundef float @llvm.floor.f32(float %42)
   %44 = tail call float @llvm.fabs.f32(float %43)
   %45 = fptosi float %44 to i32
-  %46 = getelementptr inbounds i8, ptr %0, i64 60
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 %45, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %0, i64 52
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %48 = load float, ptr %47, align 4
   %49 = fmul float %48, %16
   %50 = fadd float %49, 5.000000e-01
   %51 = tail call noundef float @llvm.floor.f32(float %50)
   %52 = tail call float @llvm.fabs.f32(float %51)
   %53 = fptosi float %52 to i32
-  %54 = getelementptr inbounds i8, ptr %0, i64 64
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %53, ptr %54, align 8
   %.not = icmp eq i32 %15, 0
-  %55 = getelementptr inbounds i8, ptr %0, i64 68
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %56 = load float, ptr %55, align 4
   %57 = fmul float %56, %11
   %58 = fdiv float %57, %16
   %59 = select i1 %.not, float 0.000000e+00, float %58
-  %60 = getelementptr inbounds i8, ptr %0, i64 72
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store float %59, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 176
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %62 = load atomic i64, ptr %61 acquire, align 8
   %.not.i.i.i = icmp eq i64 %62, 0
   br i1 %.not.i.i.i, label %_ZN16hb_lazy_loader_tI17hb_ot_font_data_t23hb_shaper_lazy_loader_tI9hb_font_tLj1ES0_ES2_Lj1ES0_E4finiEv.exit.i, label %63
@@ -6481,7 +6481,7 @@ _ZNK9hb_face_t8get_upemEv.exit:                   ; preds = %1, %6
 
 _ZN16hb_lazy_loader_tI17hb_ot_font_data_t23hb_shaper_lazy_loader_tI9hb_font_tLj1ES0_ES2_Lj1ES0_E4finiEv.exit.i: ; preds = %63, %_ZNK9hb_face_t8get_upemEv.exit
   store atomic i64 0, ptr %61 monotonic, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 184
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %66 = load atomic i64, ptr %65 acquire, align 8
   %.not.i.i1.i = icmp eq i64 %66, 0
   br i1 %.not.i.i1.i, label %_ZN26hb_shaper_object_dataset_tI9hb_font_tE4finiEv.exit, label %67
@@ -6514,14 +6514,14 @@ define hidden void @hb_font_destroy(ptr noundef %0) local_unnamed_addr #1 {
 
 7:                                                ; preds = %5
   store atomic i32 -57005, ptr %0 monotonic, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load atomic i64, ptr %8 acquire, align 8
   %.not.i9.i = icmp eq i64 %9, 0
   br i1 %.not.i9.i, label %_ZL17hb_object_destroyI9hb_font_tEbPT_.exit, label %10
 
 10:                                               ; preds = %7
   %11 = inttoptr i64 %9 to ptr
-  %12 = getelementptr inbounds i8, ptr %11, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 40
   tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(56) %11)
   %13 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(56) %11) #25
   tail call void @free(ptr noundef nonnull %11) #25
@@ -6529,7 +6529,7 @@ define hidden void @hb_font_destroy(ptr noundef %0) local_unnamed_addr #1 {
   br label %_ZL17hb_object_destroyI9hb_font_tEbPT_.exit
 
 _ZL17hb_object_destroyI9hb_font_tEbPT_.exit:      ; preds = %10, %7
-  %14 = getelementptr inbounds i8, ptr %0, i64 176
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %15 = load atomic i64, ptr %14 acquire, align 8
   %.not.i.i.i = icmp eq i64 %15, 0
   br i1 %.not.i.i.i, label %_ZN16hb_lazy_loader_tI17hb_ot_font_data_t23hb_shaper_lazy_loader_tI9hb_font_tLj1ES0_ES2_Lj1ES0_E4finiEv.exit.i, label %16
@@ -6541,7 +6541,7 @@ _ZL17hb_object_destroyI9hb_font_tEbPT_.exit:      ; preds = %10, %7
 
 _ZN16hb_lazy_loader_tI17hb_ot_font_data_t23hb_shaper_lazy_loader_tI9hb_font_tLj1ES0_ES2_Lj1ES0_E4finiEv.exit.i: ; preds = %16, %_ZL17hb_object_destroyI9hb_font_tEbPT_.exit
   store atomic i64 0, ptr %14 monotonic, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 184
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %19 = load atomic i64, ptr %18 acquire, align 8
   %.not.i.i1.i = icmp eq i64 %19, 0
   br i1 %.not.i.i1.i, label %_ZN26hb_shaper_object_dataset_tI9hb_font_tE4finiEv.exit, label %20
@@ -6553,13 +6553,13 @@ _ZN16hb_lazy_loader_tI17hb_ot_font_data_t23hb_shaper_lazy_loader_tI9hb_font_tLj1
 
 _ZN26hb_shaper_object_dataset_tI9hb_font_tE4finiEv.exit: ; preds = %_ZN16hb_lazy_loader_tI17hb_ot_font_data_t23hb_shaper_lazy_loader_tI9hb_font_tLj1ES0_ES2_Lj1ES0_E4finiEv.exit.i, %20
   store atomic i64 0, ptr %18 monotonic, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 160
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %23 = load ptr, ptr %22, align 8
   %.not = icmp eq ptr %23, null
   br i1 %.not, label %27, label %24
 
 24:                                               ; preds = %_ZN26hb_shaper_object_dataset_tI9hb_font_tE4finiEv.exit
-  %25 = getelementptr inbounds i8, ptr %0, i64 152
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %26 = load ptr, ptr %25, align 8
   tail call void %23(ptr noundef %26)
   br label %27
@@ -6568,19 +6568,19 @@ common.ret12:                                     ; preds = %1, %5, %2, %27
   ret void
 
 27:                                               ; preds = %24, %_ZN26hb_shaper_object_dataset_tI9hb_font_tE4finiEv.exit
-  %28 = getelementptr inbounds i8, ptr %0, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %29 = load ptr, ptr %28, align 8
   tail call void @hb_font_destroy(ptr noundef %29)
-  %30 = getelementptr inbounds i8, ptr %0, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %31 = load ptr, ptr %30, align 8
   tail call void @hb_face_destroy(ptr noundef %31)
-  %32 = getelementptr inbounds i8, ptr %0, i64 144
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %33 = load ptr, ptr %32, align 8
   tail call void @hb_font_funcs_destroy(ptr noundef %33)
-  %34 = getelementptr inbounds i8, ptr %0, i64 128
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %35 = load ptr, ptr %34, align 8
   tail call void @free(ptr noundef %35) #25
-  %36 = getelementptr inbounds i8, ptr %0, i64 136
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %37 = load ptr, ptr %36, align 8
   tail call void @free(ptr noundef %37) #25
   tail call void @free(ptr noundef nonnull %0) #25
@@ -6591,13 +6591,13 @@ declare void @hb_face_destroy(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define hidden range(i32 0, 2) i32 @hb_font_set_user_data(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #1 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load atomic i32, ptr %6 monotonic, align 4
   %.not.i = icmp eq i32 %7, 0
   br i1 %.not.i, label %12, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8
   %11 = add i32 %10, 1
   store i32 %11, ptr %9, align 8
@@ -6609,7 +6609,7 @@ define hidden range(i32 0, 2) i32 @hb_font_set_user_data(ptr nocapture noundef %
   br i1 %.not.i.i, label %_ZL23hb_object_set_user_dataI9hb_font_tEbPT_P18hb_user_data_key_tPvPFvS5_Ei.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %12
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load atomic i64, ptr %14 acquire, align 8
   %.not1923.i = icmp eq i64 %15, 0
   br i1 %.not1923.i, label %.lr.ph.i, label %.split.loop.exit21.i
@@ -6621,7 +6621,7 @@ define hidden range(i32 0, 2) i32 @hb_font_set_user_data(ptr nocapture noundef %
 
 17:                                               ; preds = %.lr.ph.i
   %18 = tail call i32 @pthread_mutex_init(ptr noundef nonnull align 8 dereferenceable(56) %16, ptr noundef null) #25
-  %19 = getelementptr inbounds i8, ptr %16, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   %20 = ptrtoint ptr %16 to i64
   %21 = cmpxchg weak ptr %14, i64 0, i64 %20 acq_rel monotonic, align 8
@@ -6663,7 +6663,7 @@ define hidden ptr @hb_font_get_user_data(ptr noundef readonly %0, ptr noundef re
   br i1 %.not.i.i, label %_ZL23hb_object_get_user_dataIK9hb_font_tEPvPT_P18hb_user_data_key_t.exit, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load atomic i64, ptr %6 acquire, align 8
   %8 = inttoptr i64 %7 to ptr
   %.not9.i = icmp eq i64 %7, 0
@@ -6671,9 +6671,9 @@ define hidden ptr @hb_font_get_user_data(ptr noundef readonly %0, ptr noundef re
 
 9:                                                ; preds = %5
   %10 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(56) %8) #25
-  %11 = getelementptr inbounds i8, ptr %8, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 44
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 44
   %14 = load i32, ptr %13, align 4
   %.sroa.2.8.insert.ext.i.i.i.i.i.i = zext i32 %14 to i64
   %.not24.i.i.i.i.i.i = icmp eq i32 %14, 0
@@ -6681,7 +6681,7 @@ define hidden ptr @hb_font_get_user_data(ptr noundef readonly %0, ptr noundef re
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %9, %17
   %indvars.iv.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i, %17 ], [ 0, %9 ]
-  %15 = getelementptr inbounds %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %12, i64 %indvars.iv.i.i.i.i.i.i
+  %15 = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %12, i64 %indvars.iv.i.i.i.i.i.i
   %.val17.i.i.i.i.i.i = load ptr, ptr %15, align 8
   %16 = icmp eq ptr %.val17.i.i.i.i.i.i, %1
   br i1 %16, label %18, label %17
@@ -6693,7 +6693,7 @@ define hidden ptr @hb_font_get_user_data(ptr noundef readonly %0, ptr noundef re
 
 18:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %19 = and i64 %indvars.iv.i.i.i.i.i.i, 4294967295
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %12, i64 %19, i32 1
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %12, i64 %19, i32 1
   %.sroa.2.0.copyload.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   br label %_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i
 
@@ -6709,13 +6709,13 @@ _ZL23hb_object_get_user_dataIK9hb_font_tEPvPT_P18hb_user_data_key_t.exit: ; pred
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @hb_font_make_immutable(ptr nocapture noundef %0) local_unnamed_addr #12 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load atomic i32, ptr %2 monotonic, align 4
   %.not.i = icmp eq i32 %3, 0
   br i1 %.not.i, label %9, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %8, label %7
@@ -6734,7 +6734,7 @@ define hidden void @hb_font_make_immutable(ptr nocapture noundef %0) local_unnam
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden range(i32 0, 2) i32 @hb_font_is_immutable(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load atomic i32, ptr %2 monotonic, align 4
   %.not.i = icmp eq i32 %3, 0
   %4 = zext i1 %.not.i to i32
@@ -6743,20 +6743,20 @@ define hidden range(i32 0, 2) i32 @hb_font_is_immutable(ptr nocapture noundef re
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i32 @hb_font_get_serial(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_font_changed(ptr noundef %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load atomic i32, ptr %2 monotonic, align 4
   %.not.i = icmp eq i32 %3, 0
   br i1 %.not.i, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = add i32 %6, 1
   store i32 %7, ptr %5, align 8
@@ -6769,19 +6769,19 @@ define hidden void @hb_font_changed(ptr noundef %0) local_unnamed_addr #1 {
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_font_set_parent(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load atomic i32, ptr %3 monotonic, align 4
   %.not.i = icmp eq i32 %4, 0
   br i1 %.not.i, label %17, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %1, %7
   br i1 %8, label %17, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i32, ptr %10, align 8
   %12 = add i32 %11, 1
   store i32 %12, ptr %10, align 8
@@ -6807,26 +6807,26 @@ hb_font_reference.exit:                           ; preds = %9, %15
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hb_font_get_parent(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_font_set_face(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load atomic i32, ptr %3 monotonic, align 4
   %.not.i = icmp eq i32 %4, 0
   br i1 %.not.i, label %18, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %1, %7
   br i1 %8, label %18, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i32, ptr %10, align 8
   %12 = add i32 %11, 1
   store i32 %12, ptr %10, align 8
@@ -6860,14 +6860,14 @@ declare ptr @hb_face_reference(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hb_font_get_face(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_font_set_funcs(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %7, label %9
@@ -6881,17 +6881,17 @@ define hidden void @hb_font_set_funcs(ptr nocapture noundef %0, ptr noundef %1, 
   br label %26
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i32, ptr %10, align 8
   %12 = add i32 %11, 1
   store i32 %12, ptr %10, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 160
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %14 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %18, label %15
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %0, i64 152
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %17 = load ptr, ptr %16, align 8
   tail call void %14(ptr noundef %17)
   br label %18
@@ -6909,11 +6909,11 @@ define hidden void @hb_font_set_funcs(ptr nocapture noundef %0, ptr noundef %1, 
   br label %hb_font_funcs_reference.exit
 
 hb_font_funcs_reference.exit:                     ; preds = %18, %21
-  %23 = getelementptr inbounds i8, ptr %0, i64 144
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %24 = load ptr, ptr %23, align 8
   tail call void @hb_font_funcs_destroy(ptr noundef %24)
   store ptr %spec.select, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 152
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %2, ptr %25, align 8
   store ptr %3, ptr %13, align 8
   br label %26
@@ -6924,7 +6924,7 @@ hb_font_funcs_reference.exit:                     ; preds = %18, %21
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_font_set_funcs_data(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load atomic i32, ptr %4 monotonic, align 4
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %6, label %8
@@ -6938,23 +6938,23 @@ define hidden void @hb_font_set_funcs_data(ptr nocapture noundef %0, ptr noundef
   br label %19
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8
   %11 = add i32 %10, 1
   store i32 %11, ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 160
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %17, label %14
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 152
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %16 = load ptr, ptr %15, align 8
   tail call void %13(ptr noundef %16)
   br label %17
 
 17:                                               ; preds = %14, %8
-  %18 = getelementptr inbounds i8, ptr %0, i64 152
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %1, ptr %18, align 8
   store ptr %2, ptr %12, align 8
   br label %19
@@ -6965,30 +6965,30 @@ define hidden void @hb_font_set_funcs_data(ptr nocapture noundef %0, ptr noundef
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_font_set_scale(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load atomic i32, ptr %4 monotonic, align 4
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %19, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, %1
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 44
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, %2
   br i1 %13, label %19, label %14
 
 14:                                               ; preds = %10, %6
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i32, ptr %15, align 8
   %17 = add i32 %16, 1
   store i32 %17, ptr %15, align 8
   store i32 %1, ptr %7, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 44
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %2, ptr %18, align 4
   tail call void @_ZN9hb_font_t13mults_changedEv(ptr noundef nonnull align 8 dereferenceable(192) %0)
   br label %19
@@ -7003,7 +7003,7 @@ define hidden void @hb_font_get_scale(ptr nocapture noundef readonly %0, ptr nou
   br i1 %.not, label %7, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load i32, ptr %5, align 8
   store i32 %6, ptr %1, align 4
   br label %7
@@ -7013,7 +7013,7 @@ define hidden void @hb_font_get_scale(ptr nocapture noundef readonly %0, ptr nou
   br i1 %.not7, label %11, label %8
 
 8:                                                ; preds = %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 44
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %10 = load i32, ptr %9, align 4
   store i32 %10, ptr %2, align 4
   br label %11
@@ -7024,30 +7024,30 @@ define hidden void @hb_font_get_scale(ptr nocapture noundef readonly %0, ptr nou
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @hb_font_set_ppem(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load atomic i32, ptr %4 monotonic, align 4
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %19, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 104
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, %1
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 108
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, %2
   br i1 %13, label %19, label %14
 
 14:                                               ; preds = %10, %6
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i32, ptr %15, align 8
   %17 = add i32 %16, 1
   store i32 %17, ptr %15, align 8
   store i32 %1, ptr %7, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 108
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i32 %2, ptr %18, align 4
   br label %19
 
@@ -7061,7 +7061,7 @@ define hidden void @hb_font_get_ppem(ptr nocapture noundef readonly %0, ptr noun
   br i1 %.not, label %7, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load i32, ptr %5, align 8
   store i32 %6, ptr %1, align 4
   br label %7
@@ -7071,7 +7071,7 @@ define hidden void @hb_font_get_ppem(ptr nocapture noundef readonly %0, ptr noun
   br i1 %.not7, label %11, label %8
 
 8:                                                ; preds = %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 108
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %10 = load i32, ptr %9, align 4
   store i32 %10, ptr %2, align 4
   br label %11
@@ -7082,19 +7082,19 @@ define hidden void @hb_font_get_ppem(ptr nocapture noundef readonly %0, ptr noun
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @hb_font_set_ptem(ptr nocapture noundef %0, float noundef %1) local_unnamed_addr #6 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load atomic i32, ptr %3 monotonic, align 4
   %.not.i = icmp eq i32 %4, 0
   br i1 %.not.i, label %13, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 112
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %7 = load float, ptr %6, align 8
   %8 = fcmp oeq float %7, %1
   br i1 %8, label %13, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i32, ptr %10, align 8
   %12 = add i32 %11, 1
   store i32 %12, ptr %10, align 8
@@ -7107,32 +7107,32 @@ define hidden void @hb_font_set_ptem(ptr nocapture noundef %0, float noundef %1)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden float @hb_font_get_ptem(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 112
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load float, ptr %2, align 8
   ret float %3
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_font_set_synthetic_bold(ptr noundef %0, float noundef %1, float noundef %2, i32 noundef %3) local_unnamed_addr #1 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %29, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load float, ptr %8, align 8
   %10 = fcmp oeq float %9, %1
   br i1 %10, label %11, label %21
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 52
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %13 = load float, ptr %12, align 4
   %14 = fcmp oeq float %13, %2
   br i1 %14, label %15, label %21
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %0, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %17 = load i8, ptr %16, align 8
   %18 = trunc i8 %17 to i1
   %19 = icmp eq i32 %3, 0
@@ -7140,15 +7140,15 @@ define hidden void @hb_font_set_synthetic_bold(ptr noundef %0, float noundef %1,
   br i1 %20, label %29, label %21
 
 21:                                               ; preds = %15, %11, %7
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load i32, ptr %22, align 8
   %24 = add i32 %23, 1
   store i32 %24, ptr %22, align 8
   store float %1, ptr %8, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 52
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store float %2, ptr %25, align 4
   %26 = icmp ne i32 %3, 0
-  %27 = getelementptr inbounds i8, ptr %0, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %28 = zext i1 %26 to i8
   store i8 %28, ptr %27, align 8
   tail call void @_ZN9hb_font_t13mults_changedEv(ptr noundef nonnull align 8 dereferenceable(192) %0)
@@ -7164,7 +7164,7 @@ define hidden void @hb_font_get_synthetic_bold(ptr nocapture noundef readonly %0
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load float, ptr %6, align 8
   store float %7, ptr %1, align 4
   br label %8
@@ -7174,7 +7174,7 @@ define hidden void @hb_font_get_synthetic_bold(ptr nocapture noundef readonly %0
   br i1 %.not11, label %12, label %9
 
 9:                                                ; preds = %8
-  %10 = getelementptr inbounds i8, ptr %0, i64 52
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %11 = load float, ptr %10, align 4
   store float %11, ptr %2, align 4
   br label %12
@@ -7184,7 +7184,7 @@ define hidden void @hb_font_get_synthetic_bold(ptr nocapture noundef readonly %0
   br i1 %.not12, label %18, label %13
 
 13:                                               ; preds = %12
-  %14 = getelementptr inbounds i8, ptr %0, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %15 = load i8, ptr %14, align 8
   %16 = and i8 %15, 1
   %17 = zext nneg i8 %16 to i32
@@ -7197,19 +7197,19 @@ define hidden void @hb_font_get_synthetic_bold(ptr nocapture noundef readonly %0
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_font_set_synthetic_slant(ptr noundef %0, float noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load atomic i32, ptr %3 monotonic, align 4
   %.not.i = icmp eq i32 %4, 0
   br i1 %.not.i, label %13, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 68
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %7 = load float, ptr %6, align 4
   %8 = fcmp oeq float %7, %1
   br i1 %8, label %13, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i32, ptr %10, align 8
   %12 = add i32 %11, 1
   store i32 %12, ptr %10, align 8
@@ -7223,7 +7223,7 @@ define hidden void @hb_font_set_synthetic_slant(ptr noundef %0, float noundef %1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden float @hb_font_get_synthetic_slant(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 68
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load float, ptr %2, align 4
   ret float %3
 }
@@ -7231,23 +7231,23 @@ define hidden float @hb_font_get_synthetic_slant(ptr nocapture noundef readonly 
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_font_set_variations(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = alloca i32, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %hb_font_set_var_coords_normalized.exit, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = add i32 %9, 1
   store i32 %10, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %10, ptr %11, align 4
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %12, label %29
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 116
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, -1
   br i1 %15, label %16, label %29
@@ -7261,50 +7261,50 @@ define hidden void @hb_font_set_variations(ptr noundef %0, ptr nocapture noundef
   %19 = add i32 %9, 2
   store i32 %19, ptr %8, align 8
   store i32 %19, ptr %11, align 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 232
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 232
   %23 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4avarE22hb_table_lazy_loader_tIS1_Lj19ELb1EE9hb_face_tLj19E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %22)
-  %24 = getelementptr inbounds i8, ptr %0, i64 128
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %25 = load ptr, ptr %24, align 8
   tail call void @free(ptr noundef %25) #25
-  %26 = getelementptr inbounds i8, ptr %0, i64 136
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %27 = load ptr, ptr %26, align 8
   tail call void @free(ptr noundef %27) #25
-  %28 = getelementptr inbounds i8, ptr %0, i64 120
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 0, ptr %28, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
   tail call void @_ZN9hb_font_t13mults_changedEv(ptr noundef nonnull align 8 dereferenceable(192) %0)
   br label %hb_font_set_var_coords_normalized.exit
 
 29:                                               ; preds = %12, %7
-  %30 = getelementptr inbounds i8, ptr %0, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 224
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 224
   %33 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4fvarE22hb_table_lazy_loader_tIS1_Lj18ELb1EE9hb_face_tLj18E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %32)
-  %34 = getelementptr inbounds i8, ptr %33, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %33, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %37 = load i32, ptr %36, align 8
   %38 = icmp ult i32 %37, 16
   %spec.select.i.i.i.i.i = select i1 %38, ptr @_hb_NullPool, ptr %35
-  %39 = getelementptr inbounds i8, ptr %spec.select.i.i.i.i.i, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i, i64 4
   %40 = load i8, ptr %39, align 1
   %41 = zext i8 %40 to i32
   %42 = shl nuw nsw i32 %41, 8
-  %43 = getelementptr inbounds i8, ptr %spec.select.i.i.i.i.i, i64 5
+  %43 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i, i64 5
   %44 = load i8, ptr %43, align 1
   %45 = zext i8 %44 to i32
   %46 = or disjoint i32 %42, %45
   %47 = icmp eq i32 %46, 0
   %48 = zext nneg i32 %46 to i64
-  %49 = getelementptr inbounds i8, ptr %spec.select.i.i.i.i.i, i64 %48
+  %49 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i, i64 %48
   %.0.i.i.i = select i1 %47, ptr @_hb_NullPool, ptr %49
-  %50 = getelementptr inbounds i8, ptr %spec.select.i.i.i.i.i, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i, i64 8
   %51 = load i8, ptr %50, align 1
   %52 = zext i8 %51 to i32
   %53 = shl nuw nsw i32 %52, 8
-  %54 = getelementptr inbounds i8, ptr %spec.select.i.i.i.i.i, i64 9
+  %54 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i, i64 9
   %55 = load i8, ptr %54, align 1
   %56 = zext i8 %55 to i32
   %.sroa.2.8.insert.ext.i.i = or disjoint i32 %53, %56
@@ -7331,28 +7331,28 @@ define hidden void @hb_font_set_variations(ptr noundef %0, ptr nocapture noundef
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %64 = getelementptr inbounds %"struct.OT::AxisRecord", ptr %.0.i.i.i, i64 %indvars.iv
-  %65 = getelementptr inbounds i8, ptr %64, i64 8
+  %64 = getelementptr inbounds nuw %"struct.OT::AxisRecord", ptr %.0.i.i.i, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %66 = load i8, ptr %65, align 1
   %67 = zext i8 %66 to i32
   %68 = shl nuw i32 %67, 24
-  %69 = getelementptr inbounds i8, ptr %64, i64 9
+  %69 = getelementptr inbounds nuw i8, ptr %64, i64 9
   %70 = load i8, ptr %69, align 1
   %71 = zext i8 %70 to i32
   %72 = shl nuw nsw i32 %71, 16
   %73 = or disjoint i32 %72, %68
-  %74 = getelementptr inbounds i8, ptr %64, i64 10
+  %74 = getelementptr inbounds nuw i8, ptr %64, i64 10
   %75 = load i8, ptr %74, align 1
   %76 = zext i8 %75 to i32
   %77 = shl nuw nsw i32 %76, 8
   %78 = or disjoint i32 %73, %77
-  %79 = getelementptr inbounds i8, ptr %64, i64 11
+  %79 = getelementptr inbounds nuw i8, ptr %64, i64 11
   %80 = load i8, ptr %79, align 1
   %81 = zext i8 %80 to i32
   %82 = or disjoint i32 %78, %81
   %83 = sitofp i32 %82 to float
   %84 = fmul float %83, 0x3EF0000000000000
-  %85 = getelementptr inbounds float, ptr %60, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw float, ptr %60, i64 %indvars.iv
   store float %84, ptr %85, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -7361,7 +7361,7 @@ define hidden void @hb_font_set_variations(ptr noundef %0, ptr nocapture noundef
 ._crit_edge:                                      ; preds = %.lr.ph, %29
   %86 = phi ptr [ null, %29 ], [ %59, %.lr.ph ]
   %87 = phi ptr [ null, %29 ], [ %60, %.lr.ph ]
-  %88 = getelementptr inbounds i8, ptr %0, i64 116
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %89 = load i32, ptr %88, align 4
   %.not55 = icmp eq i32 %89, -1
   br i1 %.not55, label %93, label %90
@@ -7383,29 +7383,29 @@ define hidden void @hb_font_set_variations(ptr noundef %0, ptr nocapture noundef
 
 .lr.ph66.us:                                      ; preds = %.lr.ph66.us.preheader, %._crit_edge67.us
   %indvars.iv82 = phi i64 [ 0, %.lr.ph66.us.preheader ], [ %indvars.iv.next83, %._crit_edge67.us ]
-  %94 = getelementptr inbounds %struct.hb_variation_t, ptr %1, i64 %indvars.iv82
+  %94 = getelementptr inbounds nuw %struct.hb_variation_t, ptr %1, i64 %indvars.iv82
   %95 = load i32, ptr %94, align 4
-  %96 = getelementptr inbounds i8, ptr %94, i64 4
+  %96 = getelementptr inbounds nuw i8, ptr %94, i64 4
   %97 = load float, ptr %96, align 4
   br label %98
 
 98:                                               ; preds = %.lr.ph66.us, %120
   %indvars.iv77 = phi i64 [ 0, %.lr.ph66.us ], [ %indvars.iv.next78, %120 ]
-  %99 = getelementptr inbounds %"struct.OT::AxisRecord", ptr %.0.i.i.i, i64 %indvars.iv77
+  %99 = getelementptr inbounds nuw %"struct.OT::AxisRecord", ptr %.0.i.i.i, i64 %indvars.iv77
   %100 = load i8, ptr %99, align 1
   %101 = zext i8 %100 to i32
   %102 = shl nuw i32 %101, 24
-  %103 = getelementptr inbounds i8, ptr %99, i64 1
+  %103 = getelementptr inbounds nuw i8, ptr %99, i64 1
   %104 = load i8, ptr %103, align 1
   %105 = zext i8 %104 to i32
   %106 = shl nuw nsw i32 %105, 16
   %107 = or disjoint i32 %106, %102
-  %108 = getelementptr inbounds i8, ptr %99, i64 2
+  %108 = getelementptr inbounds nuw i8, ptr %99, i64 2
   %109 = load i8, ptr %108, align 1
   %110 = zext i8 %109 to i32
   %111 = shl nuw nsw i32 %110, 8
   %112 = or disjoint i32 %107, %111
-  %113 = getelementptr inbounds i8, ptr %99, i64 3
+  %113 = getelementptr inbounds nuw i8, ptr %99, i64 3
   %114 = load i8, ptr %113, align 1
   %115 = zext i8 %114 to i32
   %116 = or disjoint i32 %112, %115
@@ -7413,7 +7413,7 @@ define hidden void @hb_font_set_variations(ptr noundef %0, ptr nocapture noundef
   br i1 %117, label %118, label %120
 
 118:                                              ; preds = %98
-  %119 = getelementptr inbounds float, ptr %87, i64 %indvars.iv77
+  %119 = getelementptr inbounds nuw float, ptr %87, i64 %indvars.iv77
   store float %97, ptr %119, align 4
   br label %120
 
@@ -7430,15 +7430,15 @@ define hidden void @hb_font_set_variations(ptr noundef %0, ptr nocapture noundef
 ._crit_edge71:                                    ; preds = %._crit_edge67.us, %93
   %121 = load ptr, ptr %30, align 8
   call void @hb_ot_var_normalize_coords(ptr noundef %121, i32 noundef %.sroa.2.8.insert.ext.i.i, ptr noundef %87, ptr noundef %86)
-  %122 = getelementptr inbounds i8, ptr %0, i64 128
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %123 = load ptr, ptr %122, align 8
   call void @free(ptr noundef %123) #25
-  %124 = getelementptr inbounds i8, ptr %0, i64 136
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %125 = load ptr, ptr %124, align 8
   call void @free(ptr noundef %125) #25
   store ptr %86, ptr %122, align 8
   store ptr %87, ptr %124, align 8
-  %126 = getelementptr inbounds i8, ptr %0, i64 120
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 %.sroa.2.8.insert.ext.i.i, ptr %126, align 8
   call void @_ZN9hb_font_t13mults_changedEv(ptr noundef nonnull align 8 dereferenceable(192) %0)
   br label %hb_font_set_var_coords_normalized.exit
@@ -7449,17 +7449,17 @@ hb_font_set_var_coords_normalized.exit:           ; preds = %18, %16, %3, %._cri
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_font_set_var_coords_normalized(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load atomic i32, ptr %4 monotonic, align 4
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %75, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = add i32 %8, 1
   store i32 %9, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 20
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %9, ptr %10, align 4
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %_ZNK2OT4avar12unmap_coordsEPij.exit.thread, label %11
@@ -7483,9 +7483,9 @@ define hidden void @hb_font_set_var_coords_normalized(ptr noundef %0, ptr nocapt
   br label %75
 
 _ZNK2OT4avar12unmap_coordsEPij.exit.thread:       ; preds = %6
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 232
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 232
   %23 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4avarE22hb_table_lazy_loader_tIS1_Lj19ELb1EE9hb_face_tLj19E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %22)
   br label %._crit_edge
 
@@ -7493,19 +7493,19 @@ _ZNK2OT4avar12unmap_coordsEPij.exit.thread:       ; preds = %6
   %24 = shl nuw nsw i64 %12, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull readonly align 1 dereferenceable(1) %1, i64 range(i64 4, 17179869181) %24, i1 false), !alias.scope !24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull readonly align 1 dereferenceable(1) %1, i64 range(i64 4, 17179869181) %24, i1 false), !alias.scope !28
-  %25 = getelementptr inbounds i8, ptr %0, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 232
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 232
   %28 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4avarE22hb_table_lazy_loader_tIS1_Lj19ELb1EE9hb_face_tLj19E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %27)
-  %29 = getelementptr inbounds i8, ptr %28, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %28, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %32 = load i32, ptr %31, align 8
   %33 = icmp ult i32 %32, 8
   %spec.select.i.i.i.i.i46 = select i1 %33, ptr @_hb_NullPool, ptr %30
-  %34 = getelementptr inbounds i8, ptr %spec.select.i.i.i.i.i46, i64 6
+  %34 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i46, i64 6
   %.val10.i47 = load i8, ptr %34, align 1
-  %35 = getelementptr inbounds i8, ptr %spec.select.i.i.i.i.i46, i64 7
+  %35 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i46, i64 7
   %.val11.i48 = load i8, ptr %35, align 1
   %36 = zext i8 %.val10.i47 to i32
   %37 = shl nuw nsw i32 %36, 8
@@ -7516,27 +7516,27 @@ _ZNK2OT4avar12unmap_coordsEPij.exit.thread:       ; preds = %6
 
 .lr.ph.preheader.i:                               ; preds = %.split43
   %spec.select.i.i = tail call noundef range(i32 0, 65536) i32 @llvm.umin.i32(i32 %2, i32 %39)
-  %40 = getelementptr inbounds i8, ptr %spec.select.i.i.i.i.i46, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i46, i64 8
   %wide.trip.count.i = zext nneg i32 %spec.select.i.i to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.0912.i = phi ptr [ %40, %.lr.ph.preheader.i ], [ %53, %.lr.ph.i ]
-  %41 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i
   %42 = load i32, ptr %41, align 4
   %43 = tail call noundef i32 @_ZNK2OT11SegmentMaps3mapEijj(ptr noundef nonnull align 1 dereferenceable(6) %.0912.i, i32 noundef %42, i32 noundef 1, i32 noundef 0)
   store i32 %43, ptr %41, align 4
   %44 = load i8, ptr %.0912.i, align 1
   %45 = zext i8 %44 to i64
-  %46 = getelementptr inbounds i8, ptr %.0912.i, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %.0912.i, i64 1
   %47 = load i8, ptr %46, align 1
   %48 = zext i8 %47 to i64
   %49 = shl nuw nsw i64 %45, 10
   %50 = shl nuw nsw i64 %48, 2
   %51 = or disjoint i64 %49, %50
   %52 = or disjoint i64 %51, 2
-  %53 = getelementptr inbounds i8, ptr %.0912.i, i64 %52
+  %53 = getelementptr inbounds nuw i8, ptr %.0912.i, i64 %52
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.lr.ph.preheader, label %.lr.ph.i, !llvm.loop !32
@@ -7548,19 +7548,19 @@ _ZNK2OT4avar12unmap_coordsEPij.exit.thread:       ; preds = %6
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %54 = load ptr, ptr %25, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 224
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 224
   %56 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4fvarE22hb_table_lazy_loader_tIS1_Lj18ELb1EE9hb_face_tLj18E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %55)
-  %57 = getelementptr inbounds i8, ptr %56, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %56, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %60 = load i32, ptr %59, align 8
   %61 = icmp ult i32 %60, 16
   %spec.select.i.i.i.i.i50 = select i1 %61, ptr @_hb_NullPool, ptr %58
-  %62 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
   %63 = load i32, ptr %62, align 4
   %64 = trunc nuw i64 %indvars.iv to i32
   %65 = tail call noundef float @_ZNK2OT4fvar22unnormalize_axis_valueEji(ptr noundef nonnull align 1 dereferenceable(16) %spec.select.i.i.i.i.i50, i32 noundef %64, i32 noundef %63)
-  %66 = getelementptr inbounds float, ptr %15, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv
   store float %65, ptr %66, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -7571,15 +7571,15 @@ _ZNK2OT4avar12unmap_coordsEPij.exit.thread:       ; preds = %6
   %68 = phi ptr [ null, %_ZNK2OT4avar12unmap_coordsEPij.exit.thread ], [ %14, %.lr.ph ]
   %69 = phi ptr [ null, %_ZNK2OT4avar12unmap_coordsEPij.exit.thread ], [ %15, %.lr.ph ]
   tail call void @free(ptr noundef %68) #25
-  %70 = getelementptr inbounds i8, ptr %0, i64 128
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %71 = load ptr, ptr %70, align 8
   tail call void @free(ptr noundef %71) #25
-  %72 = getelementptr inbounds i8, ptr %0, i64 136
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %73 = load ptr, ptr %72, align 8
   tail call void @free(ptr noundef %73) #25
   store ptr %67, ptr %70, align 8
   store ptr %69, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %0, i64 120
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 %2, ptr %74, align 8
   tail call void @_ZN9hb_font_t13mults_changedEv(ptr noundef nonnull align 8 dereferenceable(192) %0)
   br label %75
@@ -7595,45 +7595,45 @@ declare void @hb_ot_var_normalize_coords(ptr noundef, i32 noundef, ptr noundef, 
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_font_set_variation(ptr noundef %0, i32 noundef %1, float noundef %2) local_unnamed_addr #1 {
   %4 = alloca i32, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %113, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = add i32 %9, 1
   store i32 %10, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %10, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 224
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 224
   %15 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4fvarE22hb_table_lazy_loader_tIS1_Lj18ELb1EE9hb_face_tLj18E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %14)
-  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %15, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %19 = load i32, ptr %18, align 8
   %20 = icmp ult i32 %19, 16
   %spec.select.i.i.i.i.i = select i1 %20, ptr @_hb_NullPool, ptr %17
-  %21 = getelementptr inbounds i8, ptr %spec.select.i.i.i.i.i, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i, i64 4
   %22 = load i8, ptr %21, align 1
   %23 = zext i8 %22 to i32
   %24 = shl nuw nsw i32 %23, 8
-  %25 = getelementptr inbounds i8, ptr %spec.select.i.i.i.i.i, i64 5
+  %25 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i, i64 5
   %26 = load i8, ptr %25, align 1
   %27 = zext i8 %26 to i32
   %28 = or disjoint i32 %24, %27
   %29 = icmp eq i32 %28, 0
   %30 = zext nneg i32 %28 to i64
-  %31 = getelementptr inbounds i8, ptr %spec.select.i.i.i.i.i, i64 %30
+  %31 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i, i64 %30
   %.0.i.i.i = select i1 %29, ptr @_hb_NullPool, ptr %31
-  %32 = getelementptr inbounds i8, ptr %spec.select.i.i.i.i.i, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i, i64 8
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i32
   %35 = shl nuw nsw i32 %34, 8
-  %36 = getelementptr inbounds i8, ptr %spec.select.i.i.i.i.i, i64 9
+  %36 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i, i64 9
   %37 = load i8, ptr %36, align 1
   %38 = zext i8 %37 to i32
   %.sroa.2.8.insert.ext.i.i = or disjoint i32 %35, %38
@@ -7655,13 +7655,13 @@ define hidden void @hb_font_set_variation(ptr noundef %0, i32 noundef %1, float 
   br label %113
 
 .thread59:                                        ; preds = %7
-  %46 = getelementptr inbounds i8, ptr %0, i64 136
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %47 = load ptr, ptr %46, align 8
   %.not52 = icmp eq ptr %47, null
   br i1 %.not52, label %._crit_edge, label %.loopexit
 
 .thread59.thread:                                 ; preds = %39
-  %48 = getelementptr inbounds i8, ptr %0, i64 136
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %49 = load ptr, ptr %48, align 8
   %.not5282 = icmp eq ptr %49, null
   %wide.trip.count75 = zext nneg i32 %.sroa.2.8.insert.ext.i.i to i64
@@ -7669,9 +7669,9 @@ define hidden void @hb_font_set_variation(ptr noundef %0, i32 noundef %1, float 
 
 .lr.ph:                                           ; preds = %.thread59.thread, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.thread59.thread ]
-  %50 = getelementptr inbounds float, ptr %49, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw float, ptr %49, i64 %indvars.iv
   %51 = load float, ptr %50, align 4
-  %52 = getelementptr inbounds float, ptr %42, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw float, ptr %42, i64 %indvars.iv
   store float %51, ptr %52, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count75
@@ -7679,28 +7679,28 @@ define hidden void @hb_font_set_variation(ptr noundef %0, i32 noundef %1, float 
 
 .lr.ph63:                                         ; preds = %.thread59.thread, %.lr.ph63
   %indvars.iv72 = phi i64 [ %indvars.iv.next73, %.lr.ph63 ], [ 0, %.thread59.thread ]
-  %53 = getelementptr inbounds %"struct.OT::AxisRecord", ptr %.0.i.i.i, i64 %indvars.iv72
-  %54 = getelementptr inbounds i8, ptr %53, i64 8
+  %53 = getelementptr inbounds nuw %"struct.OT::AxisRecord", ptr %.0.i.i.i, i64 %indvars.iv72
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load i8, ptr %54, align 1
   %56 = zext i8 %55 to i32
   %57 = shl nuw i32 %56, 24
-  %58 = getelementptr inbounds i8, ptr %53, i64 9
+  %58 = getelementptr inbounds nuw i8, ptr %53, i64 9
   %59 = load i8, ptr %58, align 1
   %60 = zext i8 %59 to i32
   %61 = shl nuw nsw i32 %60, 16
   %62 = or disjoint i32 %61, %57
-  %63 = getelementptr inbounds i8, ptr %53, i64 10
+  %63 = getelementptr inbounds nuw i8, ptr %53, i64 10
   %64 = load i8, ptr %63, align 1
   %65 = zext i8 %64 to i32
   %66 = shl nuw nsw i32 %65, 8
   %67 = or disjoint i32 %62, %66
-  %68 = getelementptr inbounds i8, ptr %53, i64 11
+  %68 = getelementptr inbounds nuw i8, ptr %53, i64 11
   %69 = load i8, ptr %68, align 1
   %70 = zext i8 %69 to i32
   %71 = or disjoint i32 %67, %70
   %72 = sitofp i32 %71 to float
   %73 = fmul float %72, 0x3EF0000000000000
-  %74 = getelementptr inbounds float, ptr %42, i64 %indvars.iv72
+  %74 = getelementptr inbounds nuw float, ptr %42, i64 %indvars.iv72
   store float %73, ptr %74, align 4
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %exitcond76.not = icmp eq i64 %indvars.iv.next73, %wide.trip.count75
@@ -7710,7 +7710,7 @@ define hidden void @hb_font_set_variation(ptr noundef %0, i32 noundef %1, float 
   %75 = phi ptr [ null, %.thread59 ], [ %42, %.lr.ph63 ]
   %76 = phi ptr [ null, %.thread59 ], [ %41, %.lr.ph63 ]
   %77 = phi ptr [ %46, %.thread59 ], [ %48, %.lr.ph63 ]
-  %78 = getelementptr inbounds i8, ptr %0, i64 116
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %79 = load i32, ptr %78, align 4
   %.not53 = icmp eq i32 %79, -1
   br i1 %.not53, label %.loopexit, label %80
@@ -7733,21 +7733,21 @@ define hidden void @hb_font_set_variation(ptr noundef %0, i32 noundef %1, float 
 
 .lr.ph66:                                         ; preds = %.lr.ph66.preheader, %107
   %indvars.iv77 = phi i64 [ 0, %.lr.ph66.preheader ], [ %indvars.iv.next78, %107 ]
-  %86 = getelementptr inbounds %"struct.OT::AxisRecord", ptr %.0.i.i.i, i64 %indvars.iv77
+  %86 = getelementptr inbounds nuw %"struct.OT::AxisRecord", ptr %.0.i.i.i, i64 %indvars.iv77
   %87 = load i8, ptr %86, align 1
   %88 = zext i8 %87 to i32
   %89 = shl nuw i32 %88, 24
-  %90 = getelementptr inbounds i8, ptr %86, i64 1
+  %90 = getelementptr inbounds nuw i8, ptr %86, i64 1
   %91 = load i8, ptr %90, align 1
   %92 = zext i8 %91 to i32
   %93 = shl nuw nsw i32 %92, 16
   %94 = or disjoint i32 %93, %89
-  %95 = getelementptr inbounds i8, ptr %86, i64 2
+  %95 = getelementptr inbounds nuw i8, ptr %86, i64 2
   %96 = load i8, ptr %95, align 1
   %97 = zext i8 %96 to i32
   %98 = shl nuw nsw i32 %97, 8
   %99 = or disjoint i32 %94, %98
-  %100 = getelementptr inbounds i8, ptr %86, i64 3
+  %100 = getelementptr inbounds nuw i8, ptr %86, i64 3
   %101 = load i8, ptr %100, align 1
   %102 = zext i8 %101 to i32
   %103 = or disjoint i32 %99, %102
@@ -7755,7 +7755,7 @@ define hidden void @hb_font_set_variation(ptr noundef %0, i32 noundef %1, float 
   br i1 %104, label %105, label %107
 
 105:                                              ; preds = %.lr.ph66
-  %106 = getelementptr inbounds float, ptr %85, i64 %indvars.iv77
+  %106 = getelementptr inbounds nuw float, ptr %85, i64 %indvars.iv77
   store float %2, ptr %106, align 4
   br label %107
 
@@ -7767,14 +7767,14 @@ define hidden void @hb_font_set_variation(ptr noundef %0, i32 noundef %1, float 
 ._crit_edge67:                                    ; preds = %107, %.loopexit
   %108 = load ptr, ptr %12, align 8
   call void @hb_ot_var_normalize_coords(ptr noundef %108, i32 noundef %.sroa.2.8.insert.ext.i.i, ptr noundef %85, ptr noundef %84)
-  %109 = getelementptr inbounds i8, ptr %0, i64 128
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %110 = load ptr, ptr %109, align 8
   call void @free(ptr noundef %110) #25
   %111 = load ptr, ptr %83, align 8
   call void @free(ptr noundef %111) #25
   store ptr %84, ptr %109, align 8
   store ptr %85, ptr %83, align 8
-  %112 = getelementptr inbounds i8, ptr %0, i64 120
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 %.sroa.2.8.insert.ext.i.i, ptr %112, align 8
   call void @_ZN9hb_font_t13mults_changedEv(ptr noundef nonnull align 8 dereferenceable(192) %0)
   br label %113
@@ -7785,17 +7785,17 @@ define hidden void @hb_font_set_variation(ptr noundef %0, i32 noundef %1, float 
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_font_set_var_coords_design(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load atomic i32, ptr %4 monotonic, align 4
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %29, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = add i32 %8, 1
   store i32 %9, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 20
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %9, ptr %10, align 4
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %.critedge, label %11
@@ -7822,18 +7822,18 @@ define hidden void @hb_font_set_var_coords_design(ptr noundef %0, ptr noundef %1
 .critedge:                                        ; preds = %6, %18
   %20 = phi ptr [ %14, %18 ], [ null, %6 ]
   %21 = phi ptr [ %13, %18 ], [ null, %6 ]
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = load ptr, ptr %22, align 8
   tail call void @hb_ot_var_normalize_coords(ptr noundef %23, i32 noundef %2, ptr noundef %1, ptr noundef %21)
-  %24 = getelementptr inbounds i8, ptr %0, i64 128
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %25 = load ptr, ptr %24, align 8
   tail call void @free(ptr noundef %25) #25
-  %26 = getelementptr inbounds i8, ptr %0, i64 136
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %27 = load ptr, ptr %26, align 8
   tail call void @free(ptr noundef %27) #25
   store ptr %21, ptr %24, align 8
   store ptr %20, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 120
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 %2, ptr %28, align 8
   tail call void @_ZN9hb_font_t13mults_changedEv(ptr noundef nonnull align 8 dereferenceable(192) %0)
   br label %29
@@ -7844,72 +7844,72 @@ define hidden void @hb_font_set_var_coords_design(ptr noundef %0, ptr noundef %1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i32 @hb_font_get_var_named_instance(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 116
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef float @_ZNK2OT4fvar22unnormalize_axis_valueEji(ptr noundef nonnull align 1 dereferenceable(16) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i8, ptr %4, align 1
   %6 = zext i8 %5 to i32
   %7 = shl nuw nsw i32 %6, 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 5
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
   %11 = or disjoint i32 %7, %10
   %12 = icmp eq i32 %11, 0
   %13 = zext nneg i32 %11 to i64
-  %14 = getelementptr inbounds i8, ptr %0, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 %13
   %.0.i.i.i = select i1 %12, ptr @_hb_NullPool, ptr %14
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i32
   %18 = shl nuw nsw i32 %17, 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 9
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i32
   %.sroa.2.8.insert.ext.i.i = or disjoint i32 %18, %21
   %.not.i.i = icmp ult i32 %1, %.sroa.2.8.insert.ext.i.i
   %22 = zext i32 %1 to i64
-  %23 = getelementptr inbounds %"struct.OT::AxisRecord", ptr %.0.i.i.i, i64 %22
+  %23 = getelementptr inbounds nuw %"struct.OT::AxisRecord", ptr %.0.i.i.i, i64 %22
   %.0.i.i = select i1 %.not.i.i, ptr %23, ptr @_hb_NullPool
-  %24 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
   %27 = shl nuw i32 %26, 24
-  %28 = getelementptr inbounds i8, ptr %.0.i.i, i64 9
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 9
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i32
   %31 = shl nuw nsw i32 %30, 16
   %32 = or disjoint i32 %31, %27
-  %33 = getelementptr inbounds i8, ptr %.0.i.i, i64 10
+  %33 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 10
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i32
   %36 = shl nuw nsw i32 %35, 8
   %37 = or disjoint i32 %32, %36
-  %38 = getelementptr inbounds i8, ptr %.0.i.i, i64 11
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 11
   %39 = load i8, ptr %38, align 1
   %40 = zext i8 %39 to i32
   %41 = or disjoint i32 %37, %40
   %42 = sitofp i32 %41 to float
   %43 = fmul float %42, 0x3EF0000000000000
-  %44 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   %45 = load i8, ptr %44, align 1
   %46 = zext i8 %45 to i32
   %47 = shl nuw i32 %46, 24
-  %48 = getelementptr inbounds i8, ptr %.0.i.i, i64 5
+  %48 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 5
   %49 = load i8, ptr %48, align 1
   %50 = zext i8 %49 to i32
   %51 = shl nuw nsw i32 %50, 16
   %52 = or disjoint i32 %51, %47
-  %53 = getelementptr inbounds i8, ptr %.0.i.i, i64 6
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 6
   %54 = load i8, ptr %53, align 1
   %55 = zext i8 %54 to i32
   %56 = shl nuw nsw i32 %55, 8
   %57 = or disjoint i32 %52, %56
-  %58 = getelementptr inbounds i8, ptr %.0.i.i, i64 7
+  %58 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 7
   %59 = load i8, ptr %58, align 1
   %60 = zext i8 %59 to i32
   %61 = or disjoint i32 %57, %60
@@ -7917,21 +7917,21 @@ define linkonce_odr hidden noundef float @_ZNK2OT4fvar22unnormalize_axis_valueEj
   %63 = fmul float %62, 0x3EF0000000000000
   %64 = fcmp ole float %43, %63
   %.sroa.speculated7.i.i = select i1 %64, float %43, float %63
-  %65 = getelementptr inbounds i8, ptr %.0.i.i, i64 12
+  %65 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
   %66 = load i8, ptr %65, align 1
   %67 = zext i8 %66 to i32
   %68 = shl nuw i32 %67, 24
-  %69 = getelementptr inbounds i8, ptr %.0.i.i, i64 13
+  %69 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 13
   %70 = load i8, ptr %69, align 1
   %71 = zext i8 %70 to i32
   %72 = shl nuw nsw i32 %71, 16
   %73 = or disjoint i32 %72, %68
-  %74 = getelementptr inbounds i8, ptr %.0.i.i, i64 14
+  %74 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 14
   %75 = load i8, ptr %74, align 1
   %76 = zext i8 %75 to i32
   %77 = shl nuw nsw i32 %76, 8
   %78 = or disjoint i32 %73, %77
-  %79 = getelementptr inbounds i8, ptr %.0.i.i, i64 15
+  %79 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 15
   %80 = load i8, ptr %79, align 1
   %81 = zext i8 %80 to i32
   %82 = or disjoint i32 %78, %81
@@ -7973,13 +7973,13 @@ define hidden ptr @hb_font_get_var_coords_normalized(ptr nocapture noundef reado
   br i1 %.not, label %6, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 120
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = load i32, ptr %4, align 8
   store i32 %5, ptr %1, align 4
   br label %6
 
 6:                                                ; preds = %3, %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 128
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
 }
@@ -7990,20 +7990,20 @@ define hidden ptr @hb_font_get_var_coords_design(ptr nocapture noundef readonly 
   br i1 %.not, label %6, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 120
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = load i32, ptr %4, align 8
   store i32 %5, ptr %1, align 4
   br label %6
 
 6:                                                ; preds = %3, %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 136
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_font_funcs_set_glyph_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %7, label %9
@@ -8031,10 +8031,10 @@ define hidden void @hb_font_funcs_set_glyph_func(ptr nocapture noundef %0, ptr n
 
 13:                                               ; preds = %9
   store ptr %2, ptr %10, align 8
-  %14 = getelementptr inbounds i8, ptr %10, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %3, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %10, i64 16
-  %16 = getelementptr inbounds i8, ptr %10, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %1, ptr %16, align 8
   store i32 2, ptr %15, align 8
   %17 = load atomic i32, ptr %5 monotonic, align 4
@@ -8046,25 +8046,25 @@ define hidden void @hb_font_funcs_set_glyph_func(ptr nocapture noundef %0, ptr n
   br label %hb_font_funcs_set_nominal_glyph_func.exit
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load ptr, ptr %20, align 8
   %.not21.i = icmp eq ptr %21, null
   br i1 %.not21.i, label %33, label %22
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %21, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %24 = load ptr, ptr %23, align 8
   %.not22.i = icmp eq ptr %24, null
   br i1 %.not22.i, label %33, label %25
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = load ptr, ptr %26, align 8
   %.not23.i = icmp eq ptr %27, null
   br i1 %.not23.i, label %31, label %28
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %27, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %30 = load ptr, ptr %29, align 8
   br label %31
 
@@ -8074,7 +8074,7 @@ define hidden void @hb_font_funcs_set_glyph_func(ptr nocapture noundef %0, ptr n
   br label %33
 
 33:                                               ; preds = %19, %22, %31
-  %34 = getelementptr inbounds i8, ptr %0, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %35 = load ptr, ptr %34, align 8
   %.not13.i.i = icmp eq ptr %35, null
   br i1 %.not13.i.i, label %36, label %38
@@ -8119,16 +8119,16 @@ define hidden void @hb_font_funcs_set_glyph_func(ptr nocapture noundef %0, ptr n
   br label %hb_font_funcs_set_nominal_glyph_func.exit
 
 50:                                               ; preds = %41, %38
-  %51 = getelementptr inbounds i8, ptr %0, i64 48
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr @_ZL36hb_font_get_nominal_glyph_trampolineP9hb_font_tPvjPjS1_, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %39, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %39, i64 16
   store ptr %10, ptr %52, align 8
   %.pre = load ptr, ptr %20, align 8
   %.not25.i = icmp eq ptr %.pre, null
   br i1 %.not25.i, label %hb_font_funcs_set_nominal_glyph_func.exit, label %53
 
 53:                                               ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %.pre, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   store ptr @_ZL18trampoline_destroyPv, ptr %54, align 8
   br label %hb_font_funcs_set_nominal_glyph_func.exit
 
@@ -8159,25 +8159,25 @@ hb_font_funcs_set_nominal_glyph_func.exit:        ; preds = %18, %49, %.thread.i
   br label %hb_font_funcs_set_variation_glyph_func.exit
 
 64:                                               ; preds = %hb_font_funcs_set_nominal_glyph_func.exit
-  %65 = getelementptr inbounds i8, ptr %0, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %66 = load ptr, ptr %65, align 8
   %.not21.i21 = icmp eq ptr %66, null
   br i1 %.not21.i21, label %78, label %67
 
 67:                                               ; preds = %64
-  %68 = getelementptr inbounds i8, ptr %66, i64 32
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 32
   %69 = load ptr, ptr %68, align 8
   %.not22.i22 = icmp eq ptr %69, null
   br i1 %.not22.i22, label %78, label %70
 
 70:                                               ; preds = %67
-  %71 = getelementptr inbounds i8, ptr %0, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %72 = load ptr, ptr %71, align 8
   %.not23.i23 = icmp eq ptr %72, null
   br i1 %.not23.i23, label %76, label %73
 
 73:                                               ; preds = %70
-  %74 = getelementptr inbounds i8, ptr %72, i64 32
+  %74 = getelementptr inbounds nuw i8, ptr %72, i64 32
   %75 = load ptr, ptr %74, align 8
   br label %76
 
@@ -8187,7 +8187,7 @@ hb_font_funcs_set_nominal_glyph_func.exit:        ; preds = %18, %49, %.thread.i
   br label %78
 
 78:                                               ; preds = %64, %67, %76
-  %79 = getelementptr inbounds i8, ptr %0, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %80 = load ptr, ptr %79, align 8
   %.not13.i.i25 = icmp eq ptr %80, null
   br i1 %.not13.i.i25, label %81, label %83
@@ -8232,16 +8232,16 @@ hb_font_funcs_set_nominal_glyph_func.exit:        ; preds = %18, %49, %.thread.i
   br label %hb_font_funcs_set_variation_glyph_func.exit
 
 95:                                               ; preds = %86, %83
-  %96 = getelementptr inbounds i8, ptr %0, i64 64
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr @_ZL38hb_font_get_variation_glyph_trampolineP9hb_font_tPvjjPjS1_, ptr %96, align 8
-  %97 = getelementptr inbounds i8, ptr %84, i64 32
+  %97 = getelementptr inbounds nuw i8, ptr %84, i64 32
   store ptr %10, ptr %97, align 8
   %.pre43 = load ptr, ptr %65, align 8
   %.not25.i28 = icmp eq ptr %.pre43, null
   br i1 %.not25.i28, label %hb_font_funcs_set_variation_glyph_func.exit, label %98
 
 98:                                               ; preds = %95
-  %99 = getelementptr inbounds i8, ptr %.pre43, i64 32
+  %99 = getelementptr inbounds nuw i8, ptr %.pre43, i64 32
   store ptr @_ZL18trampoline_destroyPv, ptr %99, align 8
   br label %hb_font_funcs_set_variation_glyph_func.exit
 
@@ -8251,7 +8251,7 @@ hb_font_funcs_set_variation_glyph_func.exit:      ; preds = %98, %95, %56, %63, 
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL36hb_font_get_nominal_glyph_trampolineP9hb_font_tPvjPjS1_(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %4, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %4, align 8
   %9 = tail call noundef i32 %7(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef 0, ptr noundef %3, ptr noundef %8)
@@ -8260,7 +8260,7 @@ define internal noundef i32 @_ZL36hb_font_get_nominal_glyph_trampolineP9hb_font_
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL18trampoline_destroyPv(ptr nocapture noundef %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = add i32 %3, -1
   store i32 %4, ptr %2, align 8
@@ -8268,7 +8268,7 @@ define internal void @_ZL18trampoline_destroyPv(ptr nocapture noundef %0) #1 {
   br i1 %.not, label %5, label %11
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not6 = icmp eq ptr %7, null
   br i1 %.not6, label %10, label %8
@@ -8288,7 +8288,7 @@ define internal void @_ZL18trampoline_destroyPv(ptr nocapture noundef %0) #1 {
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL38hb_font_get_variation_glyph_trampolineP9hb_font_tPvjjPjS1_(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5) #1 {
-  %7 = getelementptr inbounds i8, ptr %5, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %5, align 8
   %10 = tail call noundef i32 %8(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %9)
@@ -8306,18 +8306,18 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL23hb_draw_move_to_defaultP15hb_draw_funcs_tPvP15hb_draw_state_tffS1_(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, float noundef %3, float noundef %4, ptr nocapture readnone %5) #1 {
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load float, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %10 = load float, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load float, ptr %11, align 8
   %13 = load ptr, ptr %1, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %13, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %13, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %19 = load ptr, ptr %18, align 8
   %.not.i = icmp eq ptr %19, null
   br i1 %.not.i, label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit, label %20
@@ -8337,15 +8337,15 @@ _ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit: ; preds = %6, %2
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL23hb_draw_line_to_defaultP15hb_draw_funcs_tPvP15hb_draw_state_tffS1_(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, float noundef %3, float noundef %4, ptr nocapture readnone %5) #1 {
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load float, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %10 = load float, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load float, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %14 = load float, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load float, ptr %15, align 4
   %17 = fmul float %12, %16
   %18 = tail call float @llvm.fmuladd.f32(float %14, float %8, float %17)
@@ -8353,17 +8353,17 @@ define internal void @_ZL23hb_draw_line_to_defaultP15hb_draw_funcs_tPvP15hb_draw
   %19 = fmul float %10, %16
   store float %19, ptr %15, align 4
   %20 = load ptr, ptr %1, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %20, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %20, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 56
   %26 = load ptr, ptr %25, align 8
   %.not.i = icmp eq ptr %26, null
   br i1 %.not.i, label %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit, label %27
 
 27:                                               ; preds = %6
-  %28 = getelementptr inbounds i8, ptr %26, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %29 = load ptr, ptr %28, align 8
   br label %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit
 
@@ -8378,15 +8378,15 @@ _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit: ; preds = %6, %2
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL28hb_draw_quadratic_to_defaultP15hb_draw_funcs_tPvP15hb_draw_state_tffffS1_(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, ptr nocapture readnone %7) #1 {
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load float, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %12 = load float, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %14 = load float, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %16 = load float, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %2, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %18 = load float, ptr %17, align 4
   %19 = fmul float %14, %18
   %20 = tail call float @llvm.fmuladd.f32(float %16, float %10, float %19)
@@ -8394,17 +8394,17 @@ define internal void @_ZL28hb_draw_quadratic_to_defaultP15hb_draw_funcs_tPvP15hb
   %21 = fmul float %12, %18
   store float %21, ptr %17, align 4
   %22 = load ptr, ptr %1, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %22, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %22, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 56
   %28 = load ptr, ptr %27, align 8
   %.not.i = icmp eq ptr %28, null
   br i1 %.not.i, label %_ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit, label %29
 
 29:                                               ; preds = %8
-  %30 = getelementptr inbounds i8, ptr %28, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %31 = load ptr, ptr %30, align 8
   br label %_ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit
 
@@ -8422,15 +8422,15 @@ _ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit: ; preds =
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL24hb_draw_cubic_to_defaultP15hb_draw_funcs_tPvP15hb_draw_state_tffffffS1_(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, ptr nocapture readnone %9) #1 {
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load float, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %14 = load float, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %1, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %16 = load float, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %18 = load float, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %2, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %20 = load float, ptr %19, align 4
   %21 = fmul float %16, %20
   %22 = tail call float @llvm.fmuladd.f32(float %18, float %12, float %21)
@@ -8438,17 +8438,17 @@ define internal void @_ZL24hb_draw_cubic_to_defaultP15hb_draw_funcs_tPvP15hb_dra
   %23 = fmul float %14, %20
   store float %23, ptr %19, align 4
   %24 = load ptr, ptr %1, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %24, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %24, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 56
   %30 = load ptr, ptr %29, align 8
   %.not.i = icmp eq ptr %30, null
   br i1 %.not.i, label %_ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit, label %31
 
 31:                                               ; preds = %10
-  %32 = getelementptr inbounds i8, ptr %30, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %33 = load ptr, ptr %32, align 8
   br label %_ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit
 
@@ -8470,17 +8470,17 @@ _ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit: ; preds = %
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL26hb_draw_close_path_defaultP15hb_draw_funcs_tPvP15hb_draw_state_tS1_(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
   %5 = load ptr, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %11 = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit, label %12
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %11, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %14 = load ptr, ptr %13, align 8
   br label %_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit
 
@@ -8501,19 +8501,19 @@ define linkonce_odr hidden void @_ZN9hb_font_t32get_glyph_h_origin_with_fallback
   %5 = alloca %struct.hb_font_extents_t, align 4
   store i32 0, ptr %3, align 4
   store i32 0, ptr %2, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 144
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 152
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %13 = load ptr, ptr %12, align 8
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %_ZN9hb_font_t18get_glyph_h_originEjPiS0_.exit, label %14
 
 14:                                               ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %13, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 72
   %16 = load ptr, ptr %15, align 8
   br label %_ZN9hb_font_t18get_glyph_h_originEjPiS0_.exit
 
@@ -8527,16 +8527,16 @@ _ZN9hb_font_t18get_glyph_h_originEjPiS0_.exit:    ; preds = %4, %14
   store i32 0, ptr %3, align 4
   store i32 0, ptr %2, align 4
   %20 = load ptr, ptr %6, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 112
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 112
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %10, align 8
-  %24 = getelementptr inbounds i8, ptr %20, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %25 = load ptr, ptr %24, align 8
   %.not.i10 = icmp eq ptr %25, null
   br i1 %.not.i10, label %_ZN9hb_font_t18get_glyph_v_originEjPiS0_.exit, label %26
 
 26:                                               ; preds = %19
-  %27 = getelementptr inbounds i8, ptr %25, i64 80
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 80
   %28 = load ptr, ptr %27, align 8
   br label %_ZN9hb_font_t18get_glyph_v_originEjPiS0_.exit
 
@@ -8549,16 +8549,16 @@ _ZN9hb_font_t18get_glyph_v_originEjPiS0_.exit:    ; preds = %19, %26
 31:                                               ; preds = %_ZN9hb_font_t18get_glyph_v_originEjPiS0_.exit
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
   %32 = load ptr, ptr %6, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 72
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 72
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr %10, align 8
-  %36 = getelementptr inbounds i8, ptr %32, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %37 = load ptr, ptr %36, align 8
   %.not.i.i = icmp eq ptr %37, null
   br i1 %.not.i.i, label %_ZN9hb_font_t19get_glyph_h_advanceEj.exit.i, label %38
 
 38:                                               ; preds = %31
-  %39 = getelementptr inbounds i8, ptr %37, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 40
   %40 = load ptr, ptr %39, align 8
   br label %_ZN9hb_font_t19get_glyph_h_advanceEj.exit.i
 
@@ -8568,10 +8568,10 @@ _ZN9hb_font_t19get_glyph_h_advanceEj.exit.i:      ; preds = %38, %31
   %.neg = sdiv i32 %42, -2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %5, i8 0, i64 48, i1 false)
   %43 = load ptr, ptr %6, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %45 = load ptr, ptr %44, align 8
   %46 = load ptr, ptr %10, align 8
-  %47 = getelementptr inbounds i8, ptr %43, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %48 = load ptr, ptr %47, align 8
   %.not.i.i.i = icmp eq ptr %48, null
   br i1 %.not.i.i.i, label %_ZN9hb_font_t18get_font_h_extentsEP17hb_font_extents_t.exit.i.i, label %49
@@ -8591,7 +8591,7 @@ _ZN9hb_font_t18get_font_h_extentsEP17hb_font_extents_t.exit.i._ZN9hb_font_t27get
   br label %_ZN9hb_font_t29guess_v_origin_minus_h_originEjPiS0_.exit
 
 53:                                               ; preds = %_ZN9hb_font_t18get_font_h_extentsEP17hb_font_extents_t.exit.i.i
-  %54 = getelementptr inbounds i8, ptr %0, i64 44
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %55 = load i32, ptr %54, align 4
   %56 = sitofp i32 %55 to double
   %57 = fmul double %56, 8.000000e-01
@@ -8618,19 +8618,19 @@ define linkonce_odr hidden void @_ZN9hb_font_t32get_glyph_v_origin_with_fallback
   %5 = alloca %struct.hb_font_extents_t, align 4
   store i32 0, ptr %3, align 4
   store i32 0, ptr %2, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 144
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 112
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 152
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %13 = load ptr, ptr %12, align 8
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %_ZN9hb_font_t18get_glyph_v_originEjPiS0_.exit, label %14
 
 14:                                               ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %13, i64 80
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 80
   %16 = load ptr, ptr %15, align 8
   br label %_ZN9hb_font_t18get_glyph_v_originEjPiS0_.exit
 
@@ -8644,16 +8644,16 @@ _ZN9hb_font_t18get_glyph_v_originEjPiS0_.exit:    ; preds = %4, %14
   store i32 0, ptr %3, align 4
   store i32 0, ptr %2, align 4
   %20 = load ptr, ptr %6, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 104
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 104
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %10, align 8
-  %24 = getelementptr inbounds i8, ptr %20, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %25 = load ptr, ptr %24, align 8
   %.not.i10 = icmp eq ptr %25, null
   br i1 %.not.i10, label %_ZN9hb_font_t18get_glyph_h_originEjPiS0_.exit, label %26
 
 26:                                               ; preds = %19
-  %27 = getelementptr inbounds i8, ptr %25, i64 72
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 72
   %28 = load ptr, ptr %27, align 8
   br label %_ZN9hb_font_t18get_glyph_h_originEjPiS0_.exit
 
@@ -8666,16 +8666,16 @@ _ZN9hb_font_t18get_glyph_h_originEjPiS0_.exit:    ; preds = %19, %26
 31:                                               ; preds = %_ZN9hb_font_t18get_glyph_h_originEjPiS0_.exit
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
   %32 = load ptr, ptr %6, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 72
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 72
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr %10, align 8
-  %36 = getelementptr inbounds i8, ptr %32, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %37 = load ptr, ptr %36, align 8
   %.not.i.i = icmp eq ptr %37, null
   br i1 %.not.i.i, label %_ZN9hb_font_t19get_glyph_h_advanceEj.exit.i, label %38
 
 38:                                               ; preds = %31
-  %39 = getelementptr inbounds i8, ptr %37, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 40
   %40 = load ptr, ptr %39, align 8
   br label %_ZN9hb_font_t19get_glyph_h_advanceEj.exit.i
 
@@ -8685,10 +8685,10 @@ _ZN9hb_font_t19get_glyph_h_advanceEj.exit.i:      ; preds = %38, %31
   %43 = sdiv i32 %42, 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %5, i8 0, i64 48, i1 false)
   %44 = load ptr, ptr %6, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %46 = load ptr, ptr %45, align 8
   %47 = load ptr, ptr %10, align 8
-  %48 = getelementptr inbounds i8, ptr %44, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %49 = load ptr, ptr %48, align 8
   %.not.i.i.i = icmp eq ptr %49, null
   br i1 %.not.i.i.i, label %_ZN9hb_font_t18get_font_h_extentsEP17hb_font_extents_t.exit.i.i, label %50
@@ -8708,7 +8708,7 @@ _ZN9hb_font_t18get_font_h_extentsEP17hb_font_extents_t.exit.i._ZN9hb_font_t27get
   br label %_ZN9hb_font_t29guess_v_origin_minus_h_originEjPiS0_.exit
 
 54:                                               ; preds = %_ZN9hb_font_t18get_font_h_extentsEP17hb_font_extents_t.exit.i.i
-  %55 = getelementptr inbounds i8, ptr %0, i64 44
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %56 = load i32, ptr %55, align 4
   %57 = sitofp i32 %56 to double
   %58 = fmul double %57, 8.000000e-01
@@ -8748,7 +8748,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT11SegmentMaps3mapEijj(ptr noundef
   %5 = load i8, ptr %0, align 1
   %6 = zext i8 %5 to i32
   %7 = shl nuw nsw i32 %6, 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
   %11 = or disjoint i32 %7, %10
@@ -8760,24 +8760,24 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT11SegmentMaps3mapEijj(ptr noundef
   br i1 %.not47, label %159, label %14
 
 14:                                               ; preds = %13
-  %15 = getelementptr inbounds i8, ptr %0, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %16 = zext i32 %2 to i64
-  %17 = getelementptr inbounds [2 x %"struct.OT::HBFixed.153"], ptr %15, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [2 x %"struct.OT::HBFixed.153"], ptr %15, i64 0, i64 %16
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i16
   %20 = shl nuw i16 %19, 8
-  %21 = getelementptr inbounds i8, ptr %17, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 1
   %22 = load i8, ptr %21, align 1
   %23 = zext i8 %22 to i16
   %24 = or disjoint i16 %20, %23
   %25 = sext i16 %24 to i32
   %26 = sub i32 %1, %25
   %27 = zext i32 %3 to i64
-  %28 = getelementptr inbounds [2 x %"struct.OT::HBFixed.153"], ptr %15, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw [2 x %"struct.OT::HBFixed.153"], ptr %15, i64 0, i64 %27
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i16
   %31 = shl nuw i16 %30, 8
-  %32 = getelementptr inbounds i8, ptr %28, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 1
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i16
   %35 = or disjoint i16 %31, %34
@@ -8786,13 +8786,13 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT11SegmentMaps3mapEijj(ptr noundef
   br label %159
 
 38:                                               ; preds = %4
-  %39 = getelementptr inbounds i8, ptr %0, i64 2
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %40 = zext i32 %2 to i64
-  %41 = getelementptr inbounds [2 x %"struct.OT::HBFixed.153"], ptr %39, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw [2 x %"struct.OT::HBFixed.153"], ptr %39, i64 0, i64 %40
   %42 = load i8, ptr %41, align 1
   %43 = zext i8 %42 to i16
   %44 = shl nuw i16 %43, 8
-  %45 = getelementptr inbounds i8, ptr %41, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %41, i64 1
   %46 = load i8, ptr %45, align 1
   %47 = zext i8 %46 to i16
   %48 = or disjoint i16 %44, %47
@@ -8803,11 +8803,11 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT11SegmentMaps3mapEijj(ptr noundef
 50:                                               ; preds = %38
   %51 = sub i32 %1, %49
   %52 = zext i32 %3 to i64
-  %53 = getelementptr inbounds [2 x %"struct.OT::HBFixed.153"], ptr %39, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw [2 x %"struct.OT::HBFixed.153"], ptr %39, i64 0, i64 %52
   %54 = load i8, ptr %53, align 1
   %55 = zext i8 %54 to i16
   %56 = shl nuw i16 %55, 8
-  %57 = getelementptr inbounds i8, ptr %53, i64 1
+  %57 = getelementptr inbounds nuw i8, ptr %53, i64 1
   %58 = load i8, ptr %57, align 1
   %59 = zext i8 %58 to i16
   %60 = or disjoint i16 %56, %59
@@ -8826,11 +8826,11 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT11SegmentMaps3mapEijj(ptr noundef
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %75
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %75 ]
-  %gep = getelementptr inbounds [1 x %"struct.OT::AxisValueMap"], ptr %41, i64 0, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [1 x %"struct.OT::AxisValueMap"], ptr %41, i64 0, i64 %indvars.iv
   %66 = load i8, ptr %gep, align 1
   %67 = zext i8 %66 to i16
   %68 = shl nuw i16 %67, 8
-  %69 = getelementptr inbounds i8, ptr %gep, i64 1
+  %69 = getelementptr inbounds nuw i8, ptr %gep, i64 1
   %70 = load i8, ptr %69, align 1
   %71 = zext i8 %70 to i16
   %72 = or disjoint i16 %68, %71
@@ -8850,12 +8850,12 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT11SegmentMaps3mapEijj(ptr noundef
 .critedge:                                        ; preds = %75, %.critedge.loopexit.split.loop.exit54, %63
   %.044.lcssa = phi i32 [ 1, %63 ], [ %76, %.critedge.loopexit.split.loop.exit54 ], [ %64, %75 ]
   %77 = zext i32 %.044.lcssa to i64
-  %78 = getelementptr inbounds [1 x %"struct.OT::AxisValueMap"], ptr %39, i64 0, i64 %77
-  %79 = getelementptr inbounds [2 x %"struct.OT::HBFixed.153"], ptr %78, i64 0, i64 %40
+  %78 = getelementptr inbounds nuw [1 x %"struct.OT::AxisValueMap"], ptr %39, i64 0, i64 %77
+  %79 = getelementptr inbounds nuw [2 x %"struct.OT::HBFixed.153"], ptr %78, i64 0, i64 %40
   %80 = load i8, ptr %79, align 1
   %81 = zext i8 %80 to i16
   %82 = shl nuw i16 %81, 8
-  %83 = getelementptr inbounds i8, ptr %79, i64 1
+  %83 = getelementptr inbounds nuw i8, ptr %79, i64 1
   %84 = load i8, ptr %83, align 1
   %85 = zext i8 %84 to i16
   %86 = or disjoint i16 %82, %85
@@ -8866,11 +8866,11 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT11SegmentMaps3mapEijj(ptr noundef
 88:                                               ; preds = %.critedge
   %89 = sub i32 %1, %87
   %90 = zext i32 %3 to i64
-  %91 = getelementptr inbounds [2 x %"struct.OT::HBFixed.153"], ptr %78, i64 0, i64 %90
+  %91 = getelementptr inbounds nuw [2 x %"struct.OT::HBFixed.153"], ptr %78, i64 0, i64 %90
   %92 = load i8, ptr %91, align 1
   %93 = zext i8 %92 to i16
   %94 = shl nuw i16 %93, 8
-  %95 = getelementptr inbounds i8, ptr %91, i64 1
+  %95 = getelementptr inbounds nuw i8, ptr %91, i64 1
   %96 = load i8, ptr %95, align 1
   %97 = zext i8 %96 to i16
   %98 = or disjoint i16 %94, %97
@@ -8881,12 +8881,12 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT11SegmentMaps3mapEijj(ptr noundef
 101:                                              ; preds = %.critedge
   %102 = add i32 %.044.lcssa, -1
   %103 = zext i32 %102 to i64
-  %104 = getelementptr inbounds [1 x %"struct.OT::AxisValueMap"], ptr %39, i64 0, i64 %103
-  %105 = getelementptr inbounds [2 x %"struct.OT::HBFixed.153"], ptr %104, i64 0, i64 %40
+  %104 = getelementptr inbounds nuw [1 x %"struct.OT::AxisValueMap"], ptr %39, i64 0, i64 %103
+  %105 = getelementptr inbounds nuw [2 x %"struct.OT::HBFixed.153"], ptr %104, i64 0, i64 %40
   %106 = load i8, ptr %105, align 1
   %107 = zext i8 %106 to i16
   %108 = shl nuw i16 %107, 8
-  %109 = getelementptr inbounds i8, ptr %105, i64 1
+  %109 = getelementptr inbounds nuw i8, ptr %105, i64 1
   %110 = load i8, ptr %109, align 1
   %111 = zext i8 %110 to i16
   %112 = or disjoint i16 %108, %111
@@ -8895,11 +8895,11 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT11SegmentMaps3mapEijj(ptr noundef
 
 114:                                              ; preds = %101
   %115 = zext i32 %3 to i64
-  %116 = getelementptr inbounds [2 x %"struct.OT::HBFixed.153"], ptr %104, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw [2 x %"struct.OT::HBFixed.153"], ptr %104, i64 0, i64 %115
   %117 = load i8, ptr %116, align 1
   %118 = zext i8 %117 to i16
   %119 = shl nuw i16 %118, 8
-  %120 = getelementptr inbounds i8, ptr %116, i64 1
+  %120 = getelementptr inbounds nuw i8, ptr %116, i64 1
   %121 = load i8, ptr %120, align 1
   %122 = zext i8 %121 to i16
   %123 = or disjoint i16 %119, %122
@@ -8910,20 +8910,20 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT11SegmentMaps3mapEijj(ptr noundef
   %126 = sext i16 %112 to i32
   %127 = sub nsw i32 %87, %126
   %128 = zext i32 %3 to i64
-  %129 = getelementptr inbounds [2 x %"struct.OT::HBFixed.153"], ptr %104, i64 0, i64 %128
+  %129 = getelementptr inbounds nuw [2 x %"struct.OT::HBFixed.153"], ptr %104, i64 0, i64 %128
   %130 = load i8, ptr %129, align 1
   %131 = zext i8 %130 to i16
   %132 = shl nuw i16 %131, 8
-  %133 = getelementptr inbounds i8, ptr %129, i64 1
+  %133 = getelementptr inbounds nuw i8, ptr %129, i64 1
   %134 = load i8, ptr %133, align 1
   %135 = zext i8 %134 to i16
   %136 = or disjoint i16 %132, %135
   %137 = sitofp i16 %136 to float
-  %138 = getelementptr inbounds [2 x %"struct.OT::HBFixed.153"], ptr %78, i64 0, i64 %128
+  %138 = getelementptr inbounds nuw [2 x %"struct.OT::HBFixed.153"], ptr %78, i64 0, i64 %128
   %139 = load i8, ptr %138, align 1
   %140 = zext i8 %139 to i16
   %141 = shl nuw i16 %140, 8
-  %142 = getelementptr inbounds i8, ptr %138, i64 1
+  %142 = getelementptr inbounds nuw i8, ptr %138, i64 1
   %143 = load i8, ptr %142, align 1
   %144 = zext i8 %143 to i16
   %145 = or disjoint i16 %141, %144
@@ -8953,7 +8953,7 @@ declare void @_hb_fallback_shaper_font_data_destroy(ptr noundef) local_unnamed_a
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #1 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %10
@@ -8965,7 +8965,7 @@ define linkonce_odr hidden void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t1
 
 7:                                                ; preds = %5
   store i32 0, ptr %3, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @free(ptr noundef %9) #25
   br label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit
@@ -8981,7 +8981,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit:
   br i1 %.not510, label %._crit_edge, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4tailEv.exit.lr.ph
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4tailEv.exit.lr.ph: ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit: ; preds = %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4tailEv.exit.lr.ph, %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit
@@ -8989,10 +8989,10 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit: 
   %15 = add i32 %14, -1
   %16 = load ptr, ptr %13, align 8
   %17 = zext i32 %15 to i64
-  %18 = getelementptr inbounds %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %16, i64 %17
-  %.sroa.1.0..0.i.i.sroa_idx = getelementptr inbounds i8, ptr %18, i64 8
+  %18 = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %16, i64 %17
+  %.sroa.1.0..0.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8
   %.sroa.1.0.copyload = load ptr, ptr %.sroa.1.0..0.i.i.sroa_idx, align 8
-  %.sroa.2.0..0.i.i.sroa_idx = getelementptr inbounds i8, ptr %18, i64 16
+  %.sroa.2.0..0.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 16
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..0.i.i.sroa_idx, align 8
   store i32 %15, ptr %3, align 4, !noalias !42
   %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %1) #25
@@ -9016,7 +9016,7 @@ _ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit: ; preds = %_ZN11hb_v
 
 24:                                               ; preds = %._crit_edge
   store i32 0, ptr %3, align 4
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load ptr, ptr %25, align 8
   tail call void @free(ptr noundef %26) #25
   br label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit9
@@ -9057,9 +9057,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN20hb_user_data_array_t3setEP18
 
 12:                                               ; preds = %9
   %13 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #25
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 44
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %17 = load i32, ptr %16, align 4
   %.sroa.2.8.insert.ext.i.i.i.i = zext i32 %17 to i64
   %.not24.i.i.i.i = icmp eq i32 %17, 0
@@ -9067,7 +9067,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN20hb_user_data_array_t3setEP18
 
 .lr.ph.i.i.i.i:                                   ; preds = %12, %20
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %20 ], [ 0, %12 ]
-  %18 = getelementptr inbounds %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %15, i64 %indvars.iv.i.i.i.i
+  %18 = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %15, i64 %indvars.iv.i.i.i.i
   %.val17.i.i.i.i = load ptr, ptr %18, align 8
   %19 = icmp eq ptr %.val17.i.i.i.i, %1
   br i1 %19, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4tailEv.exit.i, label %20
@@ -9079,14 +9079,14 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN20hb_user_data_array_t3setEP18
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4tailEv.exit.i: ; preds = %.lr.ph.i.i.i.i
   %21 = and i64 %indvars.iv.i.i.i.i, 4294967295
-  %22 = getelementptr inbounds %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %15, i64 %21
-  %.sroa.1.0..sroa_idx.i = getelementptr inbounds i8, ptr %22, i64 8
+  %22 = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %15, i64 %21
+  %.sroa.1.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.sroa.1.0.copyload.i = load ptr, ptr %.sroa.1.0..sroa_idx.i, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %22, i64 16
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 16
   %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8
   %23 = add i32 %17, -1
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %15, i64 %24
+  %25 = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %15, i64 %24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %25, i64 24, i1 false)
   %26 = load i32, ptr %16, align 4, !noalias !46
   %.not.i.i = icmp eq i32 %26, 0
@@ -9111,11 +9111,11 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE7lsearchIP18h
   br label %_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE6removeIP18hb_user_data_key_tEEvT_RS2_.exit
 
 32:                                               ; preds = %9, %7
-  %33 = getelementptr inbounds i8, ptr %0, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %1, ptr %6, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %2, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %3, ptr %.sroa.3.0..sroa_idx, align 8
   %34 = tail call noundef ptr @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE17replace_or_insertIS1_EEPS1_T_RS2_b(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull byval(%"struct.hb_user_data_array_t::hb_user_data_item_t") align 8 %6, ptr noundef nonnull align 8 dereferenceable(40) %0, i1 noundef zeroext %8)
   %35 = icmp ne ptr %34, null
@@ -9132,9 +9132,9 @@ declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #18
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE17replace_or_insertIS1_EEPS1_T_RS2_b(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef byval(%"struct.hb_user_data_array_t::hb_user_data_item_t") align 8 %1, ptr noundef nonnull align 8 dereferenceable(40) %2, i1 noundef zeroext %3) local_unnamed_addr #1 comdat align 2 {
   %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %2) #25
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4
   %.sroa.2.8.insert.ext.i.i.i = zext i32 %9 to i64
   %.not24.i.i.i = icmp eq i32 %9, 0
@@ -9146,7 +9146,7 @@ define linkonce_odr hidden noundef ptr @_ZN17hb_lockable_set_tIN20hb_user_data_a
 
 10:                                               ; preds = %13, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %13 ]
-  %11 = getelementptr inbounds %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %7, i64 %indvars.iv.i.i.i
+  %11 = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %7, i64 %indvars.iv.i.i.i
   %.val17.i.i.i = load ptr, ptr %11, align 8
   %12 = icmp eq ptr %.val.i.i.i, %.val17.i.i.i
   br i1 %12, label %14, label %13
@@ -9158,13 +9158,13 @@ define linkonce_odr hidden noundef ptr @_ZN17hb_lockable_set_tIN20hb_user_data_a
 
 14:                                               ; preds = %10
   %15 = and i64 %indvars.iv.i.i.i, 4294967295
-  %16 = getelementptr inbounds %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %7, i64 %15
+  %16 = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %7, i64 %15
   br i1 %3, label %17, label %20
 
 17:                                               ; preds = %14
-  %.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 8
+  %.sroa.1.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
   %.sroa.1.0.copyload = load ptr, ptr %.sroa.1.0..sroa_idx, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 16
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 16
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %18 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %2) #25
@@ -9242,7 +9242,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE5allocEjb.exi
   %39 = add i32 %38, 1
   store i32 %39, ptr %8, align 4
   %40 = zext i32 %38 to i64
-  %41 = getelementptr inbounds %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %37, i64 %40
+  %41 = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %37, i64 %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   br label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4pushIJRS1_EEEPS1_DpOT_.exit
 
@@ -9274,11 +9274,11 @@ define linkonce_odr hidden noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4fvarE22hb_ta
 
 .lr.ph:                                           ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 -144
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 44
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
-  %8 = getelementptr inbounds i8, ptr %2, i64 60
-  %9 = getelementptr inbounds i8, ptr %2, i64 61
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 60
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 61
   br label %10
 
 10:                                               ; preds = %.lr.ph, %_ZN16hb_lazy_loader_tIN2OT4fvarE22hb_table_lazy_loader_tIS1_Lj18ELb1EE9hb_face_tLj18E9hb_blob_tE10do_destroyEPS5_.exit
@@ -9376,7 +9376,7 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN21hb_sanitize_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(62) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4
@@ -9386,7 +9386,7 @@ define linkonce_odr hidden void @_ZN21hb_sanitize_context_tD2Ev(ptr noundef nonn
           to label %_ZN21hb_sanitize_context_t14end_processingEv.exit unwind label %7
 
 _ZN21hb_sanitize_context_t14end_processingEv.exit: ; preds = %4
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %5, i8 0, i64 20, i1 false)
   br label %6
@@ -9405,29 +9405,29 @@ _ZN21hb_sanitize_context_t14end_processingEv.exit: ; preds = %4
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN21hb_sanitize_context_t13sanitize_blobIN2OT4fvarEEEP9hb_blob_tS4_(ptr noundef nonnull align 8 dereferenceable(62) %0, ptr noundef %1) local_unnamed_addr #1 comdat align 2 {
   %3 = tail call ptr @hb_blob_reference(ptr noundef %1)
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %3, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 28
-  %10 = getelementptr inbounds i8, ptr %0, i64 44
-  %11 = getelementptr inbounds i8, ptr %0, i64 36
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %13
 
 13:                                               ; preds = %37, %2
   %storemerge = phi i8 [ 0, %2 ], [ 1, %37 ]
   store i8 %storemerge, ptr %5, align 8
   %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   store ptr %16, ptr %6, align 8
-  %17 = getelementptr inbounds i8, ptr %14, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %18 = load i32, ptr %17, align 8
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds i8, ptr %16, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 %19
   store ptr %20, ptr %7, align 8
   store i32 %18, ptr %8, align 8
   %21 = icmp ugt i32 %18, 67108863
@@ -9488,7 +9488,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   store ptr %38, ptr %6, align 8
   %39 = load i32, ptr %12, align 8
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds i8, ptr %38, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 %40
   store ptr %41, ptr %7, align 8
   %.not18 = icmp eq ptr %38, null
   br i1 %.not18, label %.critedge24, label %13
@@ -9525,13 +9525,13 @@ declare ptr @hb_face_reference_table(ptr noundef, i32 noundef) local_unnamed_add
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT4fvar8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #1 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %3 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
   %.not22 = icmp ugt i64 %8, %11
@@ -9541,7 +9541,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT4fvar8sanitizeEP21hb_sanit
   %13 = load i8, ptr %0, align 1
   %14 = zext i8 %13 to i32
   %15 = shl nuw nsw i32 %14, 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i32
   %19 = or disjoint i32 %15, %18
@@ -9549,19 +9549,19 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT4fvar8sanitizeEP21hb_sanit
   br i1 %20, label %21, label %_ZNK10hb_array_tIKN2OT10AxisRecordEE8sanitizeI21hb_sanitize_context_tEEbPT_.exit.thread
 
 21:                                               ; preds = %12
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = ptrtoint ptr %22 to i64
   %24 = sub i64 %23, %7
   %.not = icmp ugt i64 %24, %11
-  %25 = getelementptr inbounds i8, ptr %1, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br i1 %.not, label %_ZNK10hb_array_tIKN2OT10AxisRecordEE8sanitizeI21hb_sanitize_context_tEEbPT_.exit.thread, label %26
 
 26:                                               ; preds = %21
-  %27 = getelementptr inbounds i8, ptr %0, i64 10
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %28 = load i8, ptr %27, align 1
   %29 = zext i8 %28 to i32
   %30 = shl nuw nsw i32 %29, 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 11
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 11
   %32 = load i8, ptr %31, align 1
   %33 = zext i8 %32 to i32
   %34 = or disjoint i32 %30, %33
@@ -9569,18 +9569,18 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT4fvar8sanitizeEP21hb_sanit
   br i1 %35, label %36, label %_ZNK10hb_array_tIKN2OT10AxisRecordEE8sanitizeI21hb_sanitize_context_tEEbPT_.exit.thread
 
 36:                                               ; preds = %26
-  %37 = getelementptr inbounds i8, ptr %0, i64 14
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %38 = load i8, ptr %37, align 1
   %39 = zext i8 %38 to i32
   %40 = shl nuw nsw i32 %39, 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 15
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 15
   %42 = load i8, ptr %41, align 1
   %43 = zext i8 %42 to i32
   %44 = or disjoint i32 %40, %43
-  %45 = getelementptr inbounds i8, ptr %0, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %46 = load i8, ptr %45, align 1
   %47 = zext i8 %46 to i32
-  %48 = getelementptr inbounds i8, ptr %0, i64 9
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %49 = load i8, ptr %48, align 1
   %50 = zext i8 %49 to i32
   %51 = shl nuw nsw i32 %47, 10
@@ -9591,7 +9591,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT4fvar8sanitizeEP21hb_sanit
   br i1 %.not13, label %_ZNK10hb_array_tIKN2OT10AxisRecordEE8sanitizeI21hb_sanitize_context_tEEbPT_.exit.thread, label %55
 
 55:                                               ; preds = %36
-  %56 = getelementptr inbounds i8, ptr %0, i64 5
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %57 = shl nuw nsw i32 %47, 8
   %.sroa.2.8.insert.ext.i.i = or disjoint i32 %57, %50
   %58 = mul nuw nsw i32 %.sroa.2.8.insert.ext.i.i, 20
@@ -9603,7 +9603,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT4fvar8sanitizeEP21hb_sanit
   %64 = or disjoint i32 %61, %63
   %65 = icmp eq i32 %64, 0
   %66 = zext nneg i32 %64 to i64
-  %67 = getelementptr inbounds i8, ptr %0, i64 %66
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 %66
   %68 = ptrtoint ptr %67 to i64
   %69 = select i1 %65, i64 ptrtoint (ptr @_hb_NullPool to i64), i64 %68
   %70 = sub i64 %69, %7
@@ -9619,7 +9619,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT4fvar8sanitizeEP21hb_sanit
   br i1 %.not16.i.i.i, label %_ZNK10hb_array_tIKN2OT10AxisRecordEE8sanitizeI21hb_sanitize_context_tEEbPT_.exit.thread, label %_ZNK10hb_array_tIKN2OT10AxisRecordEE8sanitizeI21hb_sanitize_context_tEEbPT_.exit
 
 _ZNK10hb_array_tIKN2OT10AxisRecordEE8sanitizeI21hb_sanitize_context_tEEbPT_.exit: ; preds = %71
-  %76 = getelementptr inbounds i8, ptr %1, i64 28
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %77 = load i32, ptr %76, align 4
   %78 = sub i32 %77, %58
   store i32 %78, ptr %76, align 4
@@ -9627,11 +9627,11 @@ _ZNK10hb_array_tIKN2OT10AxisRecordEE8sanitizeI21hb_sanitize_context_tEEbPT_.exit
   br i1 %79, label %80, label %_ZNK10hb_array_tIKN2OT10AxisRecordEE8sanitizeI21hb_sanitize_context_tEEbPT_.exit.thread
 
 80:                                               ; preds = %_ZNK10hb_array_tIKN2OT10AxisRecordEE8sanitizeI21hb_sanitize_context_tEEbPT_.exit
-  %81 = getelementptr inbounds i8, ptr %0, i64 12
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %82 = load i8, ptr %81, align 1
   %83 = zext i8 %82 to i32
   %84 = shl nuw nsw i32 %83, 8
-  %85 = getelementptr inbounds i8, ptr %0, i64 13
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 13
   %86 = load i8, ptr %85, align 1
   %87 = zext i8 %86 to i32
   %88 = or disjoint i32 %84, %87
@@ -9650,7 +9650,7 @@ _ZNK10hb_array_tIKN2OT10AxisRecordEE8sanitizeI21hb_sanitize_context_tEEbPT_.exit
   %101 = or disjoint i32 %98, %100
   %102 = icmp eq i32 %101, 0
   %103 = zext nneg i32 %101 to i64
-  %104 = getelementptr inbounds i8, ptr %0, i64 %103
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 %103
   %.0.i.i.i15 = select i1 %102, ptr @_hb_NullPool, ptr %104
   %105 = load i8, ptr %45, align 1
   %106 = zext i8 %105 to i64
@@ -9659,7 +9659,7 @@ _ZNK10hb_array_tIKN2OT10AxisRecordEE8sanitizeI21hb_sanitize_context_tEEbPT_.exit
   %109 = zext i8 %108 to i64
   %.sroa.2.8.insert.ext.i.i16 = or disjoint i64 %107, %109
   %110 = mul nuw nsw i64 %.sroa.2.8.insert.ext.i.i16, 20
-  %111 = getelementptr inbounds i8, ptr %.0.i.i.i15, i64 %110
+  %111 = getelementptr inbounds nuw i8, ptr %.0.i.i.i15, i64 %110
   %112 = ptrtoint ptr %111 to i64
   %113 = sub i64 %112, %7
   %.not.i = icmp ugt i64 %113, %11
@@ -9709,11 +9709,11 @@ define linkonce_odr hidden noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4avarE22hb_ta
 
 .lr.ph:                                           ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 -152
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 44
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
-  %8 = getelementptr inbounds i8, ptr %2, i64 60
-  %9 = getelementptr inbounds i8, ptr %2, i64 61
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 60
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 61
   br label %10
 
 10:                                               ; preds = %.lr.ph, %_ZN16hb_lazy_loader_tIN2OT4avarE22hb_table_lazy_loader_tIS1_Lj19ELb1EE9hb_face_tLj19E9hb_blob_tE10do_destroyEPS5_.exit
@@ -9808,29 +9808,29 @@ _ZN16hb_lazy_loader_tIN2OT4avarE22hb_table_lazy_loader_tIS1_Lj19ELb1EE9hb_face_t
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN21hb_sanitize_context_t13sanitize_blobIN2OT4avarEEEP9hb_blob_tS4_(ptr noundef nonnull align 8 dereferenceable(62) %0, ptr noundef %1) local_unnamed_addr #1 comdat align 2 {
   %3 = tail call ptr @hb_blob_reference(ptr noundef %1)
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %3, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 28
-  %10 = getelementptr inbounds i8, ptr %0, i64 44
-  %11 = getelementptr inbounds i8, ptr %0, i64 36
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %13
 
 13:                                               ; preds = %37, %2
   %storemerge = phi i8 [ 0, %2 ], [ 1, %37 ]
   store i8 %storemerge, ptr %5, align 8
   %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   store ptr %16, ptr %6, align 8
-  %17 = getelementptr inbounds i8, ptr %14, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %18 = load i32, ptr %17, align 8
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds i8, ptr %16, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 %19
   store ptr %20, ptr %7, align 8
   store i32 %18, ptr %8, align 8
   %21 = icmp ugt i32 %18, 67108863
@@ -9891,7 +9891,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   store ptr %38, ptr %6, align 8
   %39 = load i32, ptr %12, align 8
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds i8, ptr %38, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 %40
   store ptr %41, ptr %7, align 8
   %.not18 = icmp eq ptr %38, null
   br i1 %.not18, label %.critedge24, label %13
@@ -9926,13 +9926,13 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT4avar8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(14) %0, ptr noundef %1) local_unnamed_addr #1 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %3 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
   %.not34 = icmp ugt i64 %8, %11
@@ -9942,7 +9942,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT4avar8sanitizeEP21hb_sanit
   %13 = load i8, ptr %0, align 1
   %14 = zext i8 %13 to i32
   %15 = shl nuw nsw i32 %14, 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i32
   %19 = or disjoint i32 %15, %18
@@ -9951,19 +9951,19 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT4avar8sanitizeEP21hb_sanit
   br i1 %switch, label %20, label %_ZNK2OT7ArrayOfINS_12AxisValueMapENS_7IntTypeItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.thread
 
 20:                                               ; preds = %12
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = ptrtoint ptr %21 to i64
   %23 = sub i64 %22, %7
   %.not = icmp ugt i64 %23, %11
-  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br i1 %.not, label %_ZNK2OT7ArrayOfINS_12AxisValueMapENS_7IntTypeItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.thread, label %25
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %0, i64 6
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %27 = load i8, ptr %26, align 1
   %28 = zext i8 %27 to i32
   %29 = shl nuw nsw i32 %28, 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 7
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 7
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i32
   %33 = or disjoint i32 %29, %32
@@ -9971,13 +9971,13 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT4avar8sanitizeEP21hb_sanit
   br i1 %.not38, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %25
-  %34 = getelementptr inbounds i8, ptr %1, i64 28
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 28
   br label %35
 
 35:                                               ; preds = %.lr.ph, %55
   %.02437 = phi i32 [ 0, %.lr.ph ], [ %65, %55 ]
   %.02636 = phi ptr [ %21, %.lr.ph ], [ %64, %55 ]
-  %36 = getelementptr inbounds i8, ptr %.02636, i64 2
+  %36 = getelementptr inbounds nuw i8, ptr %.02636, i64 2
   %37 = ptrtoint ptr %36 to i64
   %38 = sub i64 %37, %7
   %.not.i = icmp ugt i64 %38, %11
@@ -9986,7 +9986,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT4avar8sanitizeEP21hb_sanit
 39:                                               ; preds = %35
   %40 = load i8, ptr %.02636, align 1
   %41 = zext i8 %40 to i32
-  %42 = getelementptr inbounds i8, ptr %.02636, i64 1
+  %42 = getelementptr inbounds nuw i8, ptr %.02636, i64 1
   %43 = load i8, ptr %42, align 1
   %44 = zext i8 %43 to i32
   %45 = shl nuw nsw i32 %41, 10
@@ -10015,7 +10015,7 @@ _ZNK2OT7ArrayOfINS_12AxisValueMapENS_7IntTypeItLj2EEEE16sanitize_shallowEP21hb_s
   %61 = shl nuw nsw i64 %59, 2
   %62 = or disjoint i64 %60, %61
   %63 = or disjoint i64 %62, 2
-  %64 = getelementptr inbounds i8, ptr %.02636, i64 %63
+  %64 = getelementptr inbounds nuw i8, ptr %.02636, i64 %63
   %65 = add nuw nsw i32 %.02437, 1
   %exitcond.not = icmp eq i32 %65, %33
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %35, !llvm.loop !51
@@ -10046,13 +10046,13 @@ _ZNK2OT7ArrayOfINS_12AxisValueMapENS_7IntTypeItLj2EEEE16sanitize_shallowEP21hb_s
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT10avarV2Tail8sanitizeEP21hb_sanitize_context_tPKv(ptr noundef nonnull align 1 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %4 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i32, ptr %10, align 8
   %12 = zext i32 %11 to i64
   %.not.i.not = icmp ugt i64 %9, %12
@@ -10062,17 +10062,17 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT10avarV2Tail8sanitizeEP21h
   %14 = load i8, ptr %0, align 1
   %15 = zext i8 %14 to i32
   %16 = shl nuw i32 %15, 24
-  %17 = getelementptr inbounds i8, ptr %0, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i32
   %20 = shl nuw nsw i32 %19, 16
   %21 = or disjoint i32 %20, %16
-  %22 = getelementptr inbounds i8, ptr %0, i64 2
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i32
   %25 = shl nuw nsw i32 %24, 8
   %26 = or disjoint i32 %21, %25
-  %27 = getelementptr inbounds i8, ptr %0, i64 3
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %28 = load i8, ptr %27, align 1
   %29 = zext i8 %28 to i32
   %30 = or disjoint i32 %26, %29
@@ -10081,8 +10081,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT10avarV2Tail8sanitizeEP21h
 
 32:                                               ; preds = %13
   %33 = zext i32 %30 to i64
-  %34 = getelementptr inbounds i8, ptr %2, i64 %33
-  %35 = getelementptr inbounds i8, ptr %34, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 %33
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 1
   %36 = ptrtoint ptr %35 to i64
   %37 = sub i64 %36, %8
   %.not.i.i.i = icmp ugt i64 %37, %12
@@ -10096,19 +10096,19 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT10avarV2Tail8sanitizeEP21h
   ]
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds i8, ptr %34, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %42 = ptrtoint ptr %41 to i64
   %43 = sub i64 %42, %8
   %.not.i.i.i.i = icmp ugt i64 %43, %12
   br i1 %.not.i.i.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT16DeltaSetIndexMapEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, label %44
 
 44:                                               ; preds = %40
-  %45 = getelementptr inbounds i8, ptr %1, i64 16
-  %46 = getelementptr inbounds i8, ptr %34, i64 2
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %34, i64 2
   %47 = load i8, ptr %46, align 1
   %48 = zext i8 %47 to i32
   %49 = shl nuw nsw i32 %48, 8
-  %50 = getelementptr inbounds i8, ptr %34, i64 3
+  %50 = getelementptr inbounds nuw i8, ptr %34, i64 3
   %51 = load i8, ptr %50, align 1
   %52 = zext i8 %51 to i32
   %53 = or disjoint i32 %49, %52
@@ -10126,29 +10126,29 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT10avarV2Tail8sanitizeEP21h
   br i1 %.not16.i.i.i.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT16DeltaSetIndexMapEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, label %_ZN21hb_sanitize_context_t8dispatchIN2OT16DeltaSetIndexMapEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit
 
 63:                                               ; preds = %38
-  %64 = getelementptr inbounds i8, ptr %34, i64 6
+  %64 = getelementptr inbounds nuw i8, ptr %34, i64 6
   %65 = ptrtoint ptr %64 to i64
   %66 = sub i64 %65, %8
   %.not.i5.i.i.i = icmp ugt i64 %66, %12
-  %67 = getelementptr inbounds i8, ptr %1, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br i1 %.not.i5.i.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT16DeltaSetIndexMapEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, label %68
 
 68:                                               ; preds = %63
-  %69 = getelementptr inbounds i8, ptr %34, i64 2
+  %69 = getelementptr inbounds nuw i8, ptr %34, i64 2
   %70 = load i8, ptr %69, align 1
   %71 = zext i8 %70 to i32
   %72 = shl nuw i32 %71, 24
-  %73 = getelementptr inbounds i8, ptr %34, i64 3
+  %73 = getelementptr inbounds nuw i8, ptr %34, i64 3
   %74 = load i8, ptr %73, align 1
   %75 = zext i8 %74 to i32
   %76 = shl nuw nsw i32 %75, 16
   %77 = or disjoint i32 %76, %72
-  %78 = getelementptr inbounds i8, ptr %34, i64 4
+  %78 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %79 = load i8, ptr %78, align 1
   %80 = zext i8 %79 to i32
   %81 = shl nuw nsw i32 %80, 8
   %82 = or disjoint i32 %77, %81
-  %83 = getelementptr inbounds i8, ptr %34, i64 5
+  %83 = getelementptr inbounds nuw i8, ptr %34, i64 5
   %84 = load i8, ptr %83, align 1
   %85 = zext i8 %84 to i32
   %86 = or disjoint i32 %82, %85
@@ -10172,7 +10172,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT10avarV2Tail8sanitizeEP21h
 
 _ZN21hb_sanitize_context_t8dispatchIN2OT16DeltaSetIndexMapEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit: ; preds = %44, %93
   %.sink14.i.i.i = phi i32 [ %58, %44 ], [ %94, %93 ]
-  %99 = getelementptr inbounds i8, ptr %1, i64 28
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %100 = load i32, ptr %99, align 4
   %101 = sub i32 %100, %.sink14.i.i.i
   store i32 %101, ptr %99, align 4
@@ -10180,7 +10180,7 @@ _ZN21hb_sanitize_context_t8dispatchIN2OT16DeltaSetIndexMapEJEEEDTcl9_dispatchfp_
   br i1 %102, label %.thread, label %_ZN21hb_sanitize_context_t8dispatchIN2OT16DeltaSetIndexMapEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread
 
 _ZN21hb_sanitize_context_t8dispatchIN2OT16DeltaSetIndexMapEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread: ; preds = %93, %68, %63, %44, %40, %32, %_ZN21hb_sanitize_context_t8dispatchIN2OT16DeltaSetIndexMapEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit
-  %103 = getelementptr inbounds i8, ptr %1, i64 44
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %104 = load i32, ptr %103, align 4
   %105 = icmp ugt i32 %104, 31
   br i1 %105, label %.thread25, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
@@ -10188,7 +10188,7 @@ _ZN21hb_sanitize_context_t8dispatchIN2OT16DeltaSetIndexMapEJEEEDTcl9_dispatchfp_
 _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i: ; preds = %_ZN21hb_sanitize_context_t8dispatchIN2OT16DeltaSetIndexMapEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread
   %106 = add nuw nsw i32 %104, 1
   store i32 %106, ptr %103, align 4
-  %107 = getelementptr inbounds i8, ptr %1, i64 40
+  %107 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %108 = load i8, ptr %107, align 8
   %109 = trunc i8 %108 to i1
   br i1 %109, label %110, label %.thread25
@@ -10204,7 +10204,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i: ; preds = %_ZN21hb_sanitize_c
 .thread:                                          ; preds = %38, %13, %_ZN21hb_sanitize_context_t8dispatchIN2OT16DeltaSetIndexMapEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit, %110
   %.pre-phi32 = phi i64 [ %12, %38 ], [ %12, %13 ], [ %12, %_ZN21hb_sanitize_context_t8dispatchIN2OT16DeltaSetIndexMapEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit ], [ %.pre31, %110 ]
   %.pre-phi = phi i64 [ %8, %38 ], [ %8, %13 ], [ %8, %_ZN21hb_sanitize_context_t8dispatchIN2OT16DeltaSetIndexMapEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit ], [ %.pre30, %110 ]
-  %111 = getelementptr inbounds i8, ptr %0, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %112 = ptrtoint ptr %111 to i64
   %113 = sub i64 %112, %.pre-phi
   %.not.i17.not = icmp ugt i64 %113, %.pre-phi32
@@ -10214,17 +10214,17 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i: ; preds = %_ZN21hb_sanitize_c
   %115 = load i8, ptr %4, align 1
   %116 = zext i8 %115 to i32
   %117 = shl nuw i32 %116, 24
-  %118 = getelementptr inbounds i8, ptr %0, i64 5
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %119 = load i8, ptr %118, align 1
   %120 = zext i8 %119 to i32
   %121 = shl nuw nsw i32 %120, 16
   %122 = or disjoint i32 %121, %117
-  %123 = getelementptr inbounds i8, ptr %0, i64 6
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %124 = load i8, ptr %123, align 1
   %125 = zext i8 %124 to i32
   %126 = shl nuw nsw i32 %125, 8
   %127 = or disjoint i32 %122, %126
-  %128 = getelementptr inbounds i8, ptr %0, i64 7
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 7
   %129 = load i8, ptr %128, align 1
   %130 = zext i8 %129 to i32
   %131 = or disjoint i32 %127, %130
@@ -10233,12 +10233,12 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i: ; preds = %_ZN21hb_sanitize_c
 
 133:                                              ; preds = %114
   %134 = zext i32 %131 to i64
-  %135 = getelementptr inbounds i8, ptr %2, i64 %134
+  %135 = getelementptr inbounds nuw i8, ptr %2, i64 %134
   %136 = tail call noundef zeroext i1 @_ZNK2OT14VariationStore8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(12) %135, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br i1 %136, label %.thread25, label %137
 
 137:                                              ; preds = %133
-  %138 = getelementptr inbounds i8, ptr %1, i64 44
+  %138 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %139 = load i32, ptr %138, align 4
   %140 = icmp ugt i32 %139, 31
   br i1 %140, label %.thread25, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i18
@@ -10246,7 +10246,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i: ; preds = %_ZN21hb_sanitize_c
 _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i18: ; preds = %137
   %141 = add nuw nsw i32 %139, 1
   store i32 %141, ptr %138, align 4
-  %142 = getelementptr inbounds i8, ptr %1, i64 40
+  %142 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %143 = load i8, ptr %142, align 8
   %144 = trunc i8 %143 to i1
   br i1 %144, label %145, label %.thread25
@@ -10263,24 +10263,24 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i18: ; preds = %137
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT14VariationStore8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(12) %0, ptr noundef %1) local_unnamed_addr #1 comdat align 2 {
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %4 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i32, ptr %10, align 8
   %12 = zext i32 %11 to i64
   %.not = icmp ugt i64 %9, %12
-  %13 = getelementptr inbounds i8, ptr %1, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br i1 %.not, label %.thread33, label %14
 
 14:                                               ; preds = %2
   %15 = load i8, ptr %0, align 1
   %16 = zext i8 %15 to i32
   %17 = shl nuw nsw i32 %16, 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
   %21 = or disjoint i32 %17, %20
@@ -10288,8 +10288,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT14VariationStore8sanitizeE
   br i1 %22, label %23, label %.thread33
 
 23:                                               ; preds = %14
-  %24 = getelementptr inbounds i8, ptr %0, i64 2
-  %25 = getelementptr inbounds i8, ptr %0, i64 6
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %26 = ptrtoint ptr %25 to i64
   %27 = sub i64 %26, %8
   %.not.i.not = icmp ugt i64 %27, %12
@@ -10299,17 +10299,17 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT14VariationStore8sanitizeE
   %29 = load i8, ptr %24, align 1
   %30 = zext i8 %29 to i32
   %31 = shl nuw i32 %30, 24
-  %32 = getelementptr inbounds i8, ptr %0, i64 3
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i32
   %35 = shl nuw nsw i32 %34, 16
   %36 = or disjoint i32 %35, %31
-  %37 = getelementptr inbounds i8, ptr %0, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %38 = load i8, ptr %37, align 1
   %39 = zext i8 %38 to i32
   %40 = shl nuw nsw i32 %39, 8
   %41 = or disjoint i32 %36, %40
-  %42 = getelementptr inbounds i8, ptr %0, i64 5
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %43 = load i8, ptr %42, align 1
   %44 = zext i8 %43 to i32
   %45 = or disjoint i32 %41, %44
@@ -10318,8 +10318,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT14VariationStore8sanitizeE
 
 47:                                               ; preds = %28
   %48 = zext i32 %45 to i64
-  %49 = getelementptr inbounds i8, ptr %0, i64 %48
-  %50 = getelementptr inbounds i8, ptr %49, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 %48
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %51 = ptrtoint ptr %50 to i64
   %52 = sub i64 %51, %8
   %.not.i.i.i = icmp ugt i64 %52, %12
@@ -10329,15 +10329,15 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT14VariationStore8sanitizeE
   %54 = load i8, ptr %49, align 1
   %55 = zext i8 %54 to i32
   %56 = shl nuw nsw i32 %55, 8
-  %57 = getelementptr inbounds i8, ptr %49, i64 1
+  %57 = getelementptr inbounds nuw i8, ptr %49, i64 1
   %58 = load i8, ptr %57, align 1
   %59 = zext i8 %58 to i32
   %60 = or disjoint i32 %56, %59
-  %61 = getelementptr inbounds i8, ptr %49, i64 2
+  %61 = getelementptr inbounds nuw i8, ptr %49, i64 2
   %62 = load i8, ptr %61, align 1
   %63 = zext i8 %62 to i32
   %64 = shl nuw nsw i32 %63, 8
-  %65 = getelementptr inbounds i8, ptr %49, i64 3
+  %65 = getelementptr inbounds nuw i8, ptr %49, i64 3
   %66 = load i8, ptr %65, align 1
   %67 = zext i8 %66 to i32
   %68 = or disjoint i32 %64, %67
@@ -10356,7 +10356,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT14VariationStore8sanitizeE
   br i1 %.not16.i.i.i.i.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, label %_ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit
 
 _ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit: ; preds = %73
-  %78 = getelementptr inbounds i8, ptr %1, i64 28
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %79 = load i32, ptr %78, align 4
   %80 = sub i32 %79, %71
   store i32 %80, ptr %78, align 4
@@ -10364,7 +10364,7 @@ _ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv1
   br i1 %81, label %.thread, label %_ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread
 
 _ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread: ; preds = %73, %53, %47, %_ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit
-  %82 = getelementptr inbounds i8, ptr %1, i64 44
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %83 = load i32, ptr %82, align 4
   %84 = icmp ugt i32 %83, 31
   br i1 %84, label %.thread33, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
@@ -10372,7 +10372,7 @@ _ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv1
 _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i: ; preds = %_ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread
   %85 = add nuw nsw i32 %83, 1
   store i32 %85, ptr %82, align 4
-  %86 = getelementptr inbounds i8, ptr %1, i64 40
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %87 = load i8, ptr %86, align 8
   %88 = trunc i8 %87 to i1
   br i1 %88, label %89, label %.thread33
@@ -10396,7 +10396,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i: ; preds = %_ZN21hb_sanitize_c
 90:                                               ; preds = %.thread
   %91 = load i8, ptr %25, align 1
   %92 = zext i8 %91 to i32
-  %93 = getelementptr inbounds i8, ptr %0, i64 7
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 7
   %94 = load i8, ptr %93, align 1
   %95 = zext i8 %94 to i32
   %96 = shl nuw nsw i32 %92, 10
@@ -10410,7 +10410,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i: ; preds = %_ZN21hb_sanitize_c
   br i1 %.not20.i, label %.thread33, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit
 
 _ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit: ; preds = %90
-  %103 = getelementptr inbounds i8, ptr %1, i64 28
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %104 = load i32, ptr %103, align 4
   %105 = sub i32 %104, %98
   store i32 %105, ptr %103, align 4
@@ -10433,7 +10433,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEE1
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %114 = getelementptr inbounds [1 x %"struct.OT::OffsetTo.197"], ptr %4, i64 0, i64 %indvars.iv
+  %114 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.197"], ptr %4, i64 0, i64 %indvars.iv
   %115 = call noundef zeroext i1 @_ZN21hb_sanitize_context_t9_dispatchIN2OT8OffsetToINS1_7VarDataENS1_7IntTypeIjLj4EEELb1EEEJPKNS1_14VariationStoreEEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOSA_(ptr noundef nonnull align 8 dereferenceable(62) %1, ptr noundef nonnull align 1 dereferenceable(4) %114, ptr noundef nonnull align 8 dereferenceable(8) %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
@@ -10448,13 +10448,13 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEE1
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN21hb_sanitize_context_t9_dispatchIN2OT8OffsetToINS1_7VarDataENS1_7IntTypeIjLj4EEELb1EEEJPKNS1_14VariationStoreEEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOSA_(ptr noundef nonnull align 8 dereferenceable(62) %0, ptr noundef nonnull align 1 dereferenceable(4) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #1 comdat align 2 {
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = ptrtoint ptr %5 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i32, ptr %11, align 8
   %13 = zext i32 %12 to i64
   %.not.i.not = icmp ugt i64 %10, %13
@@ -10464,17 +10464,17 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN21hb_sanitize_context_t9_dispa
   %15 = load i8, ptr %1, align 1
   %16 = zext i8 %15 to i32
   %17 = shl nuw i32 %16, 24
-  %18 = getelementptr inbounds i8, ptr %1, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
   %21 = shl nuw nsw i32 %20, 16
   %22 = or disjoint i32 %21, %17
-  %23 = getelementptr inbounds i8, ptr %1, i64 2
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i32
   %26 = shl nuw nsw i32 %25, 8
   %27 = or disjoint i32 %22, %26
-  %28 = getelementptr inbounds i8, ptr %1, i64 3
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i32
   %31 = or disjoint i32 %27, %30
@@ -10483,19 +10483,19 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN21hb_sanitize_context_t9_dispa
 
 33:                                               ; preds = %14
   %34 = zext i32 %31 to i64
-  %35 = getelementptr inbounds i8, ptr %4, i64 %34
-  %36 = getelementptr inbounds i8, ptr %35, i64 6
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 %34
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 6
   %37 = ptrtoint ptr %36 to i64
   %38 = sub i64 %37, %9
   %.not.i.i.i = icmp ugt i64 %38, %13
   br i1 %.not.i.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, label %39
 
 39:                                               ; preds = %33
-  %40 = getelementptr inbounds i8, ptr %0, i64 16
-  %41 = getelementptr inbounds i8, ptr %35, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %42 = load i8, ptr %41, align 1
   %43 = zext i8 %42 to i32
-  %44 = getelementptr inbounds i8, ptr %35, i64 5
+  %44 = getelementptr inbounds nuw i8, ptr %35, i64 5
   %45 = load i8, ptr %44, align 1
   %46 = zext i8 %45 to i32
   %47 = shl nuw nsw i32 %43, 9
@@ -10509,7 +10509,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN21hb_sanitize_context_t9_dispa
   br i1 %.not20.i.i.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, label %_ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_E16sanitize_shallowEP21hb_sanitize_context_t.exit.i.i.i
 
 _ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_E16sanitize_shallowEP21hb_sanitize_context_t.exit.i.i.i: ; preds = %39
-  %54 = getelementptr inbounds i8, ptr %0, i64 28
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %55 = load i32, ptr %54, align 4
   %56 = sub i32 %55, %49
   store i32 %56, ptr %54, align 4
@@ -10517,11 +10517,11 @@ _ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_E16sanitize_shallowEP21hb_sanitize_context
   br i1 %57, label %58, label %_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread
 
 58:                                               ; preds = %_ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_E16sanitize_shallowEP21hb_sanitize_context_t.exit.i.i.i
-  %59 = getelementptr inbounds i8, ptr %35, i64 2
+  %59 = getelementptr inbounds nuw i8, ptr %35, i64 2
   %60 = load i8, ptr %59, align 1
   %61 = zext i8 %60 to i32
   %62 = shl nuw nsw i32 %61, 8
-  %63 = getelementptr inbounds i8, ptr %35, i64 3
+  %63 = getelementptr inbounds nuw i8, ptr %35, i64 3
   %64 = load i8, ptr %63, align 1
   %65 = zext i8 %64 to i32
   %.masked.i.i.i.i = and i32 %62, 32512
@@ -10539,7 +10539,7 @@ _ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_E16sanitize_shallowEP21hb_sanitize_context
   %74 = load i8, ptr %35, align 1
   %75 = zext i8 %74 to i32
   %76 = shl nuw nsw i32 %75, 8
-  %77 = getelementptr inbounds i8, ptr %35, i64 1
+  %77 = getelementptr inbounds nuw i8, ptr %35, i64 1
   %78 = load i8, ptr %77, align 1
   %79 = zext i8 %78 to i32
   %80 = or disjoint i32 %76, %79
@@ -10558,8 +10558,8 @@ _ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_E16sanitize_shallowEP21hb_sanitize_context
   %90 = zext i8 %67 to i64
   %91 = shl nuw nsw i64 %90, 9
   %92 = or disjoint i64 %89, %91
-  %93 = getelementptr inbounds i8, ptr %41, i64 %92
-  %94 = getelementptr inbounds i8, ptr %93, i64 2
+  %93 = getelementptr inbounds nuw i8, ptr %41, i64 %92
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 2
   %95 = ptrtoint ptr %94 to i64
   %96 = sub i64 %95, %9
   %.not.i16.i.i.i = icmp ugt i64 %96, %13
@@ -10576,7 +10576,7 @@ _ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_pri
   br i1 %100, label %_ZNK2OT8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EE6neuterEP21hb_sanitize_context_t.exit, label %_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread
 
 _ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread: ; preds = %87, %73, %39, %_ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_E16sanitize_shallowEP21hb_sanitize_context_t.exit.i.i.i, %33, %58, %_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit
-  %101 = getelementptr inbounds i8, ptr %0, i64 44
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %102 = load i32, ptr %101, align 4
   %103 = icmp ugt i32 %102, 31
   br i1 %103, label %_ZNK2OT8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EE6neuterEP21hb_sanitize_context_t.exit, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
@@ -10584,7 +10584,7 @@ _ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_pri
 _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i: ; preds = %_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread
   %104 = add nuw nsw i32 %102, 1
   store i32 %104, ptr %101, align 4
-  %105 = getelementptr inbounds i8, ptr %0, i64 40
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %106 = load i8, ptr %105, align 8
   %107 = trunc i8 %106 to i1
   br i1 %107, label %108, label %_ZNK2OT8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EE6neuterEP21hb_sanitize_context_t.exit

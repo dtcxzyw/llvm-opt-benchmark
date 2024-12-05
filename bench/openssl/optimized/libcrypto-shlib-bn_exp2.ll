@@ -93,7 +93,7 @@ cond.false50:                                     ; preds = %cond.false47
 
 cond.end60:                                       ; preds = %cond.false50, %cond.false47, %cond.end43
   %cond61 = phi i32 [ 6, %cond.end43 ], [ %cond57, %cond.false50 ], [ 5, %cond.false47 ]
-  %neg = getelementptr inbounds i8, ptr %a1, i64 16
+  %neg = getelementptr inbounds nuw i8, ptr %a1, i64 16
   %0 = load i32, ptr %neg, align 8
   %tobool62.not = icmp eq i32 %0, 0
   br i1 %tobool62.not, label %lor.lhs.false, label %if.then65
@@ -146,7 +146,7 @@ for.cond:                                         ; preds = %lor.lhs.false95
 for.body:                                         ; preds = %for.body.preheader, %for.cond
   %indvars.iv = phi i64 [ 1, %for.body.preheader ], [ %indvars.iv.next, %for.cond ]
   %call92 = tail call ptr @BN_CTX_get(ptr noundef %ctx) #3
-  %arrayidx93 = getelementptr inbounds [32 x ptr], ptr %val1, i64 0, i64 %indvars.iv
+  %arrayidx93 = getelementptr inbounds nuw [32 x ptr], ptr %val1, i64 0, i64 %indvars.iv
   store ptr %call92, ptr %arrayidx93, align 8
   %cmp94 = icmp eq ptr %call92, null
   br i1 %cmp94, label %err, label %lor.lhs.false95
@@ -160,7 +160,7 @@ lor.lhs.false95:                                  ; preds = %for.body
   br i1 %tobool102.not, label %err, label %for.cond
 
 if.end105:                                        ; preds = %for.cond, %if.end82
-  %neg106 = getelementptr inbounds i8, ptr %a2, i64 16
+  %neg106 = getelementptr inbounds nuw i8, ptr %a2, i64 16
   %4 = load i32, ptr %neg106, align 8
   %tobool107.not = icmp eq i32 %4, 0
   br i1 %tobool107.not, label %lor.lhs.false108, label %if.then111
@@ -213,7 +213,7 @@ for.cond139:                                      ; preds = %lor.lhs.false146
 for.body141:                                      ; preds = %for.body141.preheader, %for.cond139
   %indvars.iv164 = phi i64 [ 1, %for.body141.preheader ], [ %indvars.iv.next165, %for.cond139 ]
   %call142 = tail call ptr @BN_CTX_get(ptr noundef %ctx) #3
-  %arrayidx144 = getelementptr inbounds [32 x ptr], ptr %val2, i64 0, i64 %indvars.iv164
+  %arrayidx144 = getelementptr inbounds nuw [32 x ptr], ptr %val2, i64 0, i64 %indvars.iv164
   store ptr %call142, ptr %arrayidx144, align 8
   %cmp145 = icmp eq ptr %call142, null
   br i1 %cmp145, label %err, label %lor.lhs.false146

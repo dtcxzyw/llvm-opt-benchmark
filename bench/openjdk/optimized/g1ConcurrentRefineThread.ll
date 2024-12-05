@@ -106,19 +106,19 @@ define hidden void @_ZN24G1ConcurrentRefineThreadC2EP18G1ConcurrentRefinej(ptr n
   %4 = alloca %class.FormatBuffer, align 8
   tail call void @_ZN18ConcurrentGCThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(918) %0) #9
   store ptr getelementptr inbounds inrange(-16, 272) (i8, ptr @_ZTV24G1ConcurrentRefineThread, i64 16), ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 920
-  %6 = getelementptr inbounds i8, ptr %0, i64 936
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 920
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 936
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   call void (ptr, ptr, ...) @_ZN12FormatBufferILm256EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(264) %4, ptr noundef nonnull @.str, i32 noundef %2)
   %7 = load ptr, ptr %4, align 8
   call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) %6, i32 noundef 21, ptr noundef %7, i1 noundef zeroext true) #9
-  %8 = getelementptr inbounds i8, ptr %0, i64 1040
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   store i8 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 1048
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   call void @_ZN23G1ConcurrentRefineStatsC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %9) #9
-  %10 = getelementptr inbounds i8, ptr %0, i64 1088
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   store i32 %2, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 1096
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   store ptr %1, ptr %11, align 8
   call void (ptr, ptr, ...) @_ZN11NamedThread8set_nameEPKcz(ptr noundef nonnull align 8 dereferenceable(916) %0, ptr noundef nonnull @.str, i32 noundef %2) #9
   ret void
@@ -129,7 +129,7 @@ declare void @_ZN18ConcurrentGCThreadC2Ev(ptr noundef nonnull align 8 dereferenc
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN12FormatBufferILm256EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(264) %0, ptr noundef %1, ...) unnamed_addr #0 comdat align 2 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %4, ptr %0, align 8
   call void @llvm.va_start.p0(ptr nonnull %3)
   %5 = load ptr, ptr %0, align 8
@@ -150,32 +150,32 @@ define hidden void @_ZN24G1ConcurrentRefineThread11run_serviceEv(ptr noundef non
   %5 = alloca %class.G1ConcurrentRefineStats, align 8
   %6 = alloca %class.G1ConcurrentRefineStats, align 8
   %7 = tail call noundef double @_ZN2os12elapsedVTimeEv() #9
-  %8 = getelementptr inbounds i8, ptr %0, i64 920
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store double %7, ptr %8, align 8
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 240
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 240
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(1104) %0) #9
   br i1 %12, label %.lr.ph, label %._crit_edge9
 
 .lr.ph:                                           ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 1048
-  %14 = getelementptr inbounds i8, ptr %0, i64 1088
-  %15 = getelementptr inbounds i8, ptr %5, i64 16
-  %16 = getelementptr inbounds i8, ptr %6, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1048
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1088
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
   br label %17
 
 17:                                               ; preds = %.lr.ph, %_ZN26SuspendibleThreadSetJoinerD2Ev.exit
   call void @_ZN20SuspendibleThreadSet4joinEv() #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %13, i64 40, i1 false)
-  %18 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_127ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %18 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_127ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %_ZNK24G1ConcurrentRefineThread13report_activeEPKc.exit, label %19
 
 19:                                               ; preds = %17
   %20 = load i32, ptr %14, align 8
   %21 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 1664
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 1664
   %23 = call noundef i64 @_ZNK19G1DirtyCardQueueSet9num_cardsEv(ptr noundef nonnull align 8 dereferenceable(928) %22) #9
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_127ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.4, i32 noundef %20, i64 noundef %23)
   br label %_ZNK24G1ConcurrentRefineThread13report_activeEPKc.exit
@@ -195,14 +195,14 @@ _ZN26SuspendibleThreadSetJoiner12should_yieldEv.exit: ; preds = %_ZNK24G1Concurr
   %28 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN23G1ConcurrentRefineStatsmIERKS_(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %4) #9, !noalias !6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %28, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  %29 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_127ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %29 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_127ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not.i1 = icmp eq ptr %29, null
   br i1 %.not.i1, label %_ZNK24G1ConcurrentRefineThread15report_inactiveEPKcRK23G1ConcurrentRefineStats.exit, label %30
 
 30:                                               ; preds = %27
   %31 = load i32, ptr %14, align 8
   %32 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 1664
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 1664
   %34 = call noundef i64 @_ZNK19G1DirtyCardQueueSet9num_cardsEv(ptr noundef nonnull align 8 dereferenceable(928) %33) #9
   %35 = load i64, ptr %15, align 8
   %36 = call noundef double @_ZNK23G1ConcurrentRefineStats18refinement_rate_msEv(ptr noundef nonnull align 8 dereferenceable(40) %5) #9
@@ -220,28 +220,28 @@ _ZNK24G1ConcurrentRefineThread15report_inactiveEPKcRK23G1ConcurrentRefineStats.e
 
 _ZN26SuspendibleThreadSetJoiner5yieldEv.exit:     ; preds = %_ZNK24G1ConcurrentRefineThread15report_inactiveEPKcRK23G1ConcurrentRefineStats.exit, %39
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %13, i64 40, i1 false)
-  %40 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_127ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %40 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_127ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not.i2 = icmp eq ptr %40, null
   br i1 %.not.i2, label %_ZNK24G1ConcurrentRefineThread13report_activeEPKc.exit3, label %41
 
 41:                                               ; preds = %_ZN26SuspendibleThreadSetJoiner5yieldEv.exit
   %42 = load i32, ptr %14, align 8
   %43 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 1664
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 1664
   %45 = call noundef i64 @_ZNK19G1DirtyCardQueueSet9num_cardsEv(ptr noundef nonnull align 8 dereferenceable(928) %44) #9
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_127ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.6, i32 noundef %42, i64 noundef %45)
   br label %_ZNK24G1ConcurrentRefineThread13report_activeEPKc.exit3
 
 46:                                               ; preds = %_ZN26SuspendibleThreadSetJoiner12should_yieldEv.exit
   %47 = load ptr, ptr %0, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 248
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 248
   %49 = load ptr, ptr %48, align 8
   %50 = call noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(1104) %0) #9
   br i1 %50, label %._crit_edge, label %51
 
 51:                                               ; preds = %46
   %52 = load ptr, ptr %0, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 256
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 256
   %54 = load ptr, ptr %53, align 8
   call void %54(ptr noundef nonnull align 8 dereferenceable(1104) %0) #9
   br label %_ZNK24G1ConcurrentRefineThread13report_activeEPKc.exit3
@@ -256,14 +256,14 @@ _ZNK24G1ConcurrentRefineThread13report_activeEPKc.exit3: ; preds = %41, %_ZN26Su
   %56 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN23G1ConcurrentRefineStatsmIERKS_(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %4) #9, !noalias !11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %56, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
-  %57 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_127ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %57 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_127ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not.i4 = icmp eq ptr %57, null
   br i1 %.not.i4, label %_ZN26SuspendibleThreadSetJoinerD2Ev.exit, label %58
 
 58:                                               ; preds = %._crit_edge
   %59 = load i32, ptr %14, align 8
   %60 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 1664
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 1664
   %62 = call noundef i64 @_ZNK19G1DirtyCardQueueSet9num_cardsEv(ptr noundef nonnull align 8 dereferenceable(928) %61) #9
   %63 = load i64, ptr %16, align 8
   %64 = call noundef double @_ZNK23G1ConcurrentRefineStats18refinement_rate_msEv(ptr noundef nonnull align 8 dereferenceable(40) %6) #9
@@ -272,23 +272,23 @@ _ZNK24G1ConcurrentRefineThread13report_activeEPKc.exit3: ; preds = %41, %_ZN26Su
 
 _ZN26SuspendibleThreadSetJoinerD2Ev.exit:         ; preds = %._crit_edge, %58
   %65 = load ptr, ptr %0, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 264
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 264
   %67 = load ptr, ptr %66, align 8
   call void %67(ptr noundef nonnull align 8 dereferenceable(1104) %0) #9
   call void @_ZN20SuspendibleThreadSet5leaveEv() #9
   %68 = load ptr, ptr %0, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 240
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 240
   %70 = load ptr, ptr %69, align 8
   %71 = call noundef zeroext i1 %70(ptr noundef nonnull align 8 dereferenceable(1104) %0) #9
   br i1 %71, label %17, label %._crit_edge9, !llvm.loop !14
 
 ._crit_edge9:                                     ; preds = %_ZN26SuspendibleThreadSetJoinerD2Ev.exit, %1
-  %72 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_127ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %72 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_127ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %72, null
   br i1 %.not, label %76, label %73
 
 73:                                               ; preds = %._crit_edge9
-  %74 = getelementptr inbounds i8, ptr %0, i64 1088
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   %75 = load i32, ptr %74, align 8
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_127ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.8, i32 noundef %75)
   br label %76
@@ -304,15 +304,15 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK24G1ConcurrentRefineThread13report_activeEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1104) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_127ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_127ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %10, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 1088
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   %6 = load i32, ptr %5, align 8
   %7 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 1664
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1664
   %9 = tail call noundef i64 @_ZNK19G1DirtyCardQueueSet9num_cardsEv(ptr noundef nonnull align 8 dereferenceable(928) %8) #9
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_127ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.9, ptr noundef %1, i32 noundef %6, i64 noundef %9)
   br label %10
@@ -325,17 +325,17 @@ declare noundef zeroext i1 @_ZNK18ConcurrentGCThread16should_terminateEv(ptr nou
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK24G1ConcurrentRefineThread15report_inactiveEPKcRK23G1ConcurrentRefineStats(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1104) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %2) local_unnamed_addr #0 align 2 {
-  %4 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_127ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_127ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %14, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 1088
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   %7 = load i32, ptr %6, align 8
   %8 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 1664
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1664
   %10 = tail call noundef i64 @_ZNK19G1DirtyCardQueueSet9num_cardsEv(ptr noundef nonnull align 8 dereferenceable(928) %9) #9
-  %11 = getelementptr inbounds i8, ptr %2, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %12 = load i64, ptr %11, align 8
   %13 = tail call noundef double @_ZNK23G1ConcurrentRefineStats18refinement_rate_msEv(ptr noundef nonnull align 8 dereferenceable(40) %2) #9
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_127ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.10, ptr noundef %1, i32 noundef %7, i64 noundef %10, i64 noundef %12, double noundef %13)
@@ -369,9 +369,9 @@ declare noundef double @_ZNK23G1ConcurrentRefineStats18refinement_rate_msEv(ptr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN24G1ConcurrentRefineThread8activateEv(ptr noundef nonnull align 8 dereferenceable(1104) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 936
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 936
   tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %2) #9
-  %3 = getelementptr inbounds i8, ptr %0, i64 1040
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %8
@@ -392,17 +392,17 @@ _ZN13MonitorLockerD2Ev.exit:                      ; preds = %8, %6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN24G1ConcurrentRefineThread16maybe_deactivateEv(ptr noundef nonnull align 8 dereferenceable(1104) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1096
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 1088
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   %5 = load i32, ptr %4, align 8
   %6 = tail call noundef zeroext i1 @_ZNK18G1ConcurrentRefine16is_thread_wantedEj(ptr noundef nonnull align 8 dereferenceable(136) %3, i32 noundef %5) #9
   br i1 %6, label %12, label %_ZN11MutexLockerD2Ev.exit
 
 _ZN11MutexLockerD2Ev.exit:                        ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 936
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 936
   tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %7) #9
-  %8 = getelementptr inbounds i8, ptr %0, i64 1040
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   %9 = load i8, ptr %8, align 8
   %10 = trunc i8 %9 to i1
   store i8 0, ptr %8, align 8
@@ -419,11 +419,11 @@ declare noundef zeroext i1 @_ZNK18G1ConcurrentRefine16is_thread_wantedEj(ptr nou
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN24G1ConcurrentRefineThread19try_refinement_stepEm(ptr noundef nonnull align 8 dereferenceable(1104) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1096
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 1088
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 1048
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   %8 = tail call noundef zeroext i1 @_ZN18G1ConcurrentRefine19try_refinement_stepEjmP23G1ConcurrentRefineStats(ptr noundef nonnull align 8 dereferenceable(136) %4, i32 noundef %6, i64 noundef %1, ptr noundef nonnull %7) #9
   ret i1 %8
 }
@@ -432,9 +432,9 @@ declare noundef zeroext i1 @_ZN18G1ConcurrentRefine19try_refinement_stepEjmP23G1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN24G1ConcurrentRefineThread12stop_serviceEv(ptr noundef nonnull align 8 dereferenceable(1104) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 936
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 936
   tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %2) #9
-  %3 = getelementptr inbounds i8, ptr %0, i64 1040
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %8
@@ -455,9 +455,9 @@ _ZN24G1ConcurrentRefineThread8activateEv.exit:    ; preds = %6, %8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN31G1PrimaryConcurrentRefineThread26wait_for_completed_buffersEv(ptr noundef nonnull align 8 dereferenceable(1104) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 936
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 936
   tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %2) #9
-  %3 = getelementptr inbounds i8, ptr %0, i64 1040
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %_ZN13MonitorLockerD2Ev.exit, label %6
@@ -467,14 +467,14 @@ define hidden noundef zeroext i1 @_ZN31G1PrimaryConcurrentRefineThread26wait_for
   br i1 %7, label %_ZN13MonitorLockerD2Ev.exit, label %_ZN13MonitorLocker4waitEl.exit
 
 _ZN13MonitorLocker4waitEl.exit:                   ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 1096
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef i64 @_ZNK18G1ConcurrentRefine22adjust_threads_wait_msEv(ptr noundef nonnull align 8 dereferenceable(136) %9) #9
   %11 = tail call noundef zeroext i1 @_ZN7Monitor28wait_without_safepoint_checkEm(ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %10) #9
   br label %_ZN13MonitorLockerD2Ev.exit
 
 _ZN13MonitorLockerD2Ev.exit:                      ; preds = %_ZN13MonitorLocker4waitEl.exit, %6, %1
-  %12 = getelementptr inbounds i8, ptr %0, i64 1096
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %13 = load ptr, ptr %12, align 8
   tail call void @_ZN18G1ConcurrentRefine31record_thread_adjustment_neededEv(ptr noundef nonnull align 8 dereferenceable(136) %13) #9
   %14 = tail call noundef zeroext i1 @_ZNK18ConcurrentGCThread16should_terminateEv(ptr noundef nonnull align 8 dereferenceable(918) %0) #9
@@ -489,22 +489,22 @@ declare void @_ZN18G1ConcurrentRefine31record_thread_adjustment_neededEv(ptr nou
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN31G1PrimaryConcurrentRefineThread16maybe_deactivateEv(ptr noundef nonnull align 8 dereferenceable(1104) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1096
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef zeroext i1 @_ZNK18G1ConcurrentRefine27is_thread_adjustment_neededEv(ptr noundef nonnull align 8 dereferenceable(136) %3) #9
   br i1 %4, label %_ZN24G1ConcurrentRefineThread16maybe_deactivateEv.exit, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 1088
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   %8 = load i32, ptr %7, align 8
   %9 = tail call noundef zeroext i1 @_ZNK18G1ConcurrentRefine16is_thread_wantedEj(ptr noundef nonnull align 8 dereferenceable(136) %6, i32 noundef %8) #9
   br i1 %9, label %_ZN24G1ConcurrentRefineThread16maybe_deactivateEv.exit, label %_ZN11MutexLockerD2Ev.exit.i
 
 _ZN11MutexLockerD2Ev.exit.i:                      ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 936
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 936
   tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %10) #9
-  %11 = getelementptr inbounds i8, ptr %0, i64 1040
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   %12 = load i8, ptr %11, align 8
   %13 = trunc i8 %12 to i1
   store i8 0, ptr %11, align 8
@@ -521,18 +521,18 @@ declare noundef zeroext i1 @_ZNK18G1ConcurrentRefine27is_thread_adjustment_neede
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN31G1PrimaryConcurrentRefineThread18do_refinement_stepEv(ptr noundef nonnull align 8 dereferenceable(1104) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1096
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef zeroext i1 @_ZN18G1ConcurrentRefine27adjust_threads_periodicallyEv(ptr noundef nonnull align 8 dereferenceable(136) %3) #9
   br i1 %4, label %15, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 1088
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 1048
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   %12 = tail call noundef zeroext i1 @_ZN18G1ConcurrentRefine19try_refinement_stepEjmP23G1ConcurrentRefineStats(ptr noundef nonnull align 8 dereferenceable(136) %6, i32 noundef %10, i64 noundef %8, ptr noundef nonnull %11) #9
   br i1 %12, label %15, label %13
 
@@ -557,14 +557,14 @@ define hidden void @_ZN31G1PrimaryConcurrentRefineThread11track_usageEv(ptr noca
 
 4:                                                ; preds = %1
   %5 = tail call noundef double @_ZN2os12elapsedVTimeEv() #9
-  %6 = getelementptr inbounds i8, ptr %0, i64 920
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %7 = load double, ptr %6, align 8
   %8 = fsub double %5, %7
   br label %_ZN24G1ConcurrentRefineThread11track_usageEv.exit
 
 _ZN24G1ConcurrentRefineThread11track_usageEv.exit: ; preds = %1, %4
   %.sink.i = phi double [ %8, %4 ], [ 0.000000e+00, %1 ]
-  %9 = getelementptr inbounds i8, ptr %0, i64 928
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 928
   store double %.sink.i, ptr %9, align 8
   %10 = load i8, ptr @UsePerfData, align 1
   %11 = trunc i8 %10 to i1
@@ -576,11 +576,11 @@ _ZN24G1ConcurrentRefineThread11track_usageEv.exit: ; preds = %1, %4
 
 14:                                               ; preds = %12
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV25ThreadTotalCPUTimeClosure, i64 16), ptr %2, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %2, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 3, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 1096
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %18 = load ptr, ptr %17, align 8
   call void @_ZN18G1ConcurrentRefine10threads_doEP13ThreadClosure(ptr noundef nonnull align 8 dereferenceable(136) %18, ptr noundef nonnull %2) #9
   call void @_ZN25ThreadTotalCPUTimeClosureD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %2) #9
@@ -597,14 +597,14 @@ define linkonce_odr hidden void @_ZN24G1ConcurrentRefineThread11track_usageEv(pt
 
 3:                                                ; preds = %1
   %4 = tail call noundef double @_ZN2os12elapsedVTimeEv() #9
-  %5 = getelementptr inbounds i8, ptr %0, i64 920
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %6 = load double, ptr %5, align 8
   %7 = fsub double %4, %6
   br label %8
 
 8:                                                ; preds = %1, %3
   %.sink = phi double [ %7, %3 ], [ 0.000000e+00, %1 ]
-  %9 = getelementptr inbounds i8, ptr %0, i64 928
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 928
   store double %.sink, ptr %9, align 8
   ret void
 }
@@ -618,9 +618,9 @@ declare void @_ZN25ThreadTotalCPUTimeClosureD1Ev(ptr noundef nonnull align 8 der
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN33G1SecondaryConcurrentRefineThread26wait_for_completed_buffersEv(ptr noundef nonnull align 8 dereferenceable(1104) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 936
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 936
   tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %2) #9
-  %3 = getelementptr inbounds i8, ptr %0, i64 1040
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %_ZN13MonitorLockerD2Ev.exit, label %.lr.ph
@@ -644,11 +644,11 @@ _ZN13MonitorLockerD2Ev.exit:                      ; preds = %.lr.ph, %_ZN13Monit
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN33G1SecondaryConcurrentRefineThread18do_refinement_stepEv(ptr noundef nonnull align 8 dereferenceable(1104) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1096
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 1088
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 1048
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   %7 = tail call noundef zeroext i1 @_ZN18G1ConcurrentRefine19try_refinement_stepEjmP23G1ConcurrentRefineStats(ptr noundef nonnull align 8 dereferenceable(136) %3, i32 noundef %5, i64 noundef 0, ptr noundef nonnull %6) #9
   ret void
 }
@@ -669,19 +669,19 @@ define hidden noundef ptr @_ZN24G1ConcurrentRefineThread6createEP18G1ConcurrentR
   call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %4)
   tail call void @_ZN18ConcurrentGCThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(1104) %6) #9
   store ptr getelementptr inbounds inrange(-16, 272) (i8, ptr @_ZTV24G1ConcurrentRefineThread, i64 16), ptr %6, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 920
-  %11 = getelementptr inbounds i8, ptr %6, i64 936
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 920
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 936
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   call void (ptr, ptr, ...) @_ZN12FormatBufferILm256EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(264) %4, ptr noundef nonnull @.str, i32 noundef 0)
   %12 = load ptr, ptr %4, align 8
   call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) %11, i32 noundef 21, ptr noundef %12, i1 noundef zeroext true) #9
-  %13 = getelementptr inbounds i8, ptr %6, i64 1040
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 1040
   store i8 0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 1048
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 1048
   call void @_ZN23G1ConcurrentRefineStatsC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %14) #9
-  %15 = getelementptr inbounds i8, ptr %6, i64 1088
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 1088
   store i32 0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 1096
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 1096
   store ptr %0, ptr %16, align 8
   call void (ptr, ptr, ...) @_ZN11NamedThread8set_nameEPKcz(ptr noundef nonnull align 8 dereferenceable(1104) %6, ptr noundef nonnull @.str, i32 noundef 0) #9
   call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %4)
@@ -694,19 +694,19 @@ define hidden noundef ptr @_ZN24G1ConcurrentRefineThread6createEP18G1ConcurrentR
   call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %3)
   tail call void @_ZN18ConcurrentGCThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(1104) %6) #9
   store ptr getelementptr inbounds inrange(-16, 272) (i8, ptr @_ZTV24G1ConcurrentRefineThread, i64 16), ptr %6, align 8
-  %19 = getelementptr inbounds i8, ptr %6, i64 920
-  %20 = getelementptr inbounds i8, ptr %6, i64 936
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 920
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 936
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   call void (ptr, ptr, ...) @_ZN12FormatBufferILm256EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(264) %3, ptr noundef nonnull @.str, i32 noundef %1)
   %21 = load ptr, ptr %3, align 8
   call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) %20, i32 noundef 21, ptr noundef %21, i1 noundef zeroext true) #9
-  %22 = getelementptr inbounds i8, ptr %6, i64 1040
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 1040
   store i8 0, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %6, i64 1048
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 1048
   call void @_ZN23G1ConcurrentRefineStatsC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %23) #9
-  %24 = getelementptr inbounds i8, ptr %6, i64 1088
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 1088
   store i32 %1, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %6, i64 1096
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 1096
   store ptr %0, ptr %25, align 8
   call void (ptr, ptr, ...) @_ZN11NamedThread8set_nameEPKcz(ptr noundef nonnull align 8 dereferenceable(1104) %6, ptr noundef nonnull @.str, i32 noundef %1) #9
   call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %3)
@@ -733,7 +733,7 @@ define linkonce_odr hidden void @_ZN12ThreadShadow22unused_initial_virtualEv(ptr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN24G1ConcurrentRefineThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(1104) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 272) (i8, ptr @_ZTV24G1ConcurrentRefineThread, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 936
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 936
   tail call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #9
   tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(918) %0) #9
   ret void
@@ -828,7 +828,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK6Thread21is_active_Java_threa
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK11NamedThread4nameEv(ptr noundef nonnull align 8 dereferenceable(916) %0) unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 896
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 896
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   %spec.select = select i1 %4, ptr @.str.12, ptr %3
@@ -858,7 +858,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN31G1PrimaryConcurrentRefineThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(1104) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 272) (i8, ptr @_ZTV24G1ConcurrentRefineThread, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 936
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 936
   tail call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #9
   tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(1104) %0) #9
   ret void
@@ -867,7 +867,7 @@ define linkonce_odr hidden void @_ZN31G1PrimaryConcurrentRefineThreadD2Ev(ptr no
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN31G1PrimaryConcurrentRefineThreadD0Ev(ptr noundef nonnull align 8 dereferenceable(1104) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 272) (i8, ptr @_ZTV24G1ConcurrentRefineThread, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 936
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 936
   tail call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #9
   tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(1104) %0) #9
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %0) #9
@@ -877,7 +877,7 @@ define linkonce_odr hidden void @_ZN31G1PrimaryConcurrentRefineThreadD0Ev(ptr no
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN33G1SecondaryConcurrentRefineThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(1104) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 272) (i8, ptr @_ZTV24G1ConcurrentRefineThread, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 936
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 936
   tail call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #9
   tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(1104) %0) #9
   ret void
@@ -886,7 +886,7 @@ define linkonce_odr hidden void @_ZN33G1SecondaryConcurrentRefineThreadD2Ev(ptr 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN33G1SecondaryConcurrentRefineThreadD0Ev(ptr noundef nonnull align 8 dereferenceable(1104) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 272) (i8, ptr @_ZTV24G1ConcurrentRefineThread, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 936
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 936
   tail call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #9
   tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(1104) %0) #9
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %0) #9

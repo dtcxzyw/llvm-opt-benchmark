@@ -94,43 +94,43 @@ define noundef zeroext i1 @_Z19duDumpPolyMeshToObjR10rcPolyMeshP8duFileIO(ptr no
 
 3:                                                ; preds = %2
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(8) %1)
   br i1 %7, label %8, label %.loopexit.sink.split
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 52
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %12 = load float, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 84
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %14 = load float, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void (ptr, ptr, ...) @_ZL8ioprintfP8duFileIOPKcz(ptr noundef %1, ptr noundef nonnull @.str.2)
   tail call void (ptr, ptr, ...) @_ZL8ioprintfP8duFileIOPKcz(ptr noundef %1, ptr noundef nonnull @.str.3)
   tail call void (ptr, ptr, ...) @_ZL8ioprintfP8duFileIOPKcz(ptr noundef %1, ptr noundef nonnull @.str.4)
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load i32, ptr %16, align 8
   %18 = icmp sgt i32 %17, 0
   br i1 %18, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %8
-  %19 = getelementptr inbounds i8, ptr %0, i64 60
-  %20 = getelementptr inbounds i8, ptr %0, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br label %21
 
 21:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
   %22 = load ptr, ptr %0, align 8
-  %.idx = mul i64 %indvars.iv, 6
-  %23 = getelementptr inbounds i8, ptr %22, i64 %.idx
+  %.idx = mul nuw i64 %indvars.iv, 6
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx
   %24 = load float, ptr %15, align 8
   %25 = load i16, ptr %23, align 2
   %26 = uitofp i16 %25 to float
   %27 = tail call float @llvm.fmuladd.f32(float %26, float %12, float %24)
   %28 = load float, ptr %19, align 4
-  %29 = getelementptr inbounds i8, ptr %23, i64 2
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 2
   %30 = load i16, ptr %29, align 2
   %31 = zext i16 %30 to i32
   %32 = add nuw nsw i32 %31, 1
@@ -138,7 +138,7 @@ define noundef zeroext i1 @_Z19duDumpPolyMeshToObjR10rcPolyMeshP8duFileIO(ptr no
   %34 = tail call float @llvm.fmuladd.f32(float %33, float %14, float %28)
   %35 = fadd float %34, 0x3FB99999A0000000
   %36 = load float, ptr %20, align 8
-  %37 = getelementptr inbounds i8, ptr %23, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %38 = load i16, ptr %37, align 2
   %39 = uitofp i16 %38 to float
   %40 = tail call float @llvm.fmuladd.f32(float %39, float %12, float %36)
@@ -154,13 +154,13 @@ define noundef zeroext i1 @_Z19duDumpPolyMeshToObjR10rcPolyMeshP8duFileIO(ptr no
 
 ._crit_edge:                                      ; preds = %21, %8
   tail call void (ptr, ptr, ...) @_ZL8ioprintfP8duFileIOPKcz(ptr noundef %1, ptr noundef nonnull @.str.4)
-  %47 = getelementptr inbounds i8, ptr %0, i64 44
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %48 = load i32, ptr %47, align 4
   %49 = icmp sgt i32 %48, 0
   br i1 %49, label %.lr.ph59, label %.loopexit
 
 .lr.ph59:                                         ; preds = %._crit_edge
-  %50 = getelementptr inbounds i8, ptr %0, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %51 = shl i32 %10, 1
   %52 = icmp sgt i32 %10, 2
   br i1 %52, label %.lr.ph54.us.preheader, label %.loopexit
@@ -180,7 +180,7 @@ define noundef zeroext i1 @_Z19duDumpPolyMeshToObjR10rcPolyMeshP8duFileIO(ptr no
 
 58:                                               ; preds = %.lr.ph54.us, %62
   %indvars.iv62 = phi i64 [ 2, %.lr.ph54.us ], [ %indvars.iv.next63, %62 ]
-  %59 = getelementptr inbounds i16, ptr %57, i64 %indvars.iv62
+  %59 = getelementptr inbounds nuw i16, ptr %57, i64 %indvars.iv62
   %60 = load i16, ptr %59, align 2
   %61 = icmp eq i16 %60, -1
   br i1 %61, label %._crit_edge55.us, label %62
@@ -233,7 +233,7 @@ define internal void @_ZL8ioprintfP8duFileIOPKcz(ptr noundef nonnull %0, ptr noc
 7:                                                ; preds = %2
   %8 = zext nneg i32 %5 to i64
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = load ptr, ptr %10, align 8
   %12 = call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %3, i64 noundef %8)
   br label %13
@@ -252,7 +252,7 @@ define noundef zeroext i1 @_Z25duDumpPolyMeshDetailToObjR16rcPolyMeshDetailP8duF
 
 3:                                                ; preds = %2
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(8) %1)
   br i1 %7, label %8, label %.loopexit.sink.split
@@ -261,26 +261,26 @@ define noundef zeroext i1 @_Z25duDumpPolyMeshDetailToObjR16rcPolyMeshDetailP8duF
   tail call void (ptr, ptr, ...) @_ZL8ioprintfP8duFileIOPKcz(ptr noundef %1, ptr noundef nonnull @.str.2)
   tail call void (ptr, ptr, ...) @_ZL8ioprintfP8duFileIOPKcz(ptr noundef %1, ptr noundef nonnull @.str.3)
   tail call void (ptr, ptr, ...) @_ZL8ioprintfP8duFileIOPKcz(ptr noundef %1, ptr noundef nonnull @.str.4)
-  %9 = getelementptr inbounds i8, ptr %0, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %10 = load i32, ptr %9, align 4
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %13
 
 13:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
   %14 = load ptr, ptr %12, align 8
-  %.idx = mul i64 %indvars.iv, 12
-  %15 = getelementptr inbounds i8, ptr %14, i64 %.idx
+  %.idx = mul nuw i64 %indvars.iv, 12
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx
   %16 = load float, ptr %15, align 4
   %17 = fpext float %16 to double
-  %18 = getelementptr inbounds i8, ptr %15, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %19 = load float, ptr %18, align 4
   %20 = fpext float %19 to double
-  %21 = getelementptr inbounds i8, ptr %15, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %22 = load float, ptr %21, align 4
   %23 = fpext float %22 to double
   tail call void (ptr, ptr, ...) @_ZL8ioprintfP8duFileIOPKcz(ptr noundef %1, ptr noundef nonnull @.str.5, double noundef %17, double noundef %20, double noundef %23)
@@ -292,13 +292,13 @@ define noundef zeroext i1 @_Z25duDumpPolyMeshDetailToObjR16rcPolyMeshDetailP8duF
 
 ._crit_edge:                                      ; preds = %13, %8
   tail call void (ptr, ptr, ...) @_ZL8ioprintfP8duFileIOPKcz(ptr noundef %1, ptr noundef nonnull @.str.4)
-  %27 = getelementptr inbounds i8, ptr %0, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %28 = load i32, ptr %27, align 8
   %29 = icmp sgt i32 %28, 0
   br i1 %29, label %.lr.ph50, label %.loopexit
 
 .lr.ph50:                                         ; preds = %._crit_edge
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %31
 
 31:                                               ; preds = %.lr.ph50, %._crit_edge47
@@ -306,15 +306,15 @@ define noundef zeroext i1 @_Z25duDumpPolyMeshDetailToObjR16rcPolyMeshDetailP8duF
   %indvars.iv56 = phi i64 [ 0, %.lr.ph50 ], [ %indvars.iv.next57, %._crit_edge47 ]
   %33 = load ptr, ptr %0, align 8
   %.idx59 = shl nsw i64 %indvars.iv56, 4
-  %34 = getelementptr inbounds i8, ptr %33, i64 %.idx59
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx59
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load i32, ptr %35, align 4
-  %37 = getelementptr inbounds i8, ptr %34, i64 12
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 12
   %38 = load i32, ptr %37, align 4
   %39 = load ptr, ptr %30, align 8
   %40 = shl i32 %36, 2
   %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds i8, ptr %39, i64 %41
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 %41
   %.not51 = icmp eq i32 %38, 0
   br i1 %.not51, label %._crit_edge47, label %.lr.ph46
 
@@ -329,19 +329,19 @@ define noundef zeroext i1 @_Z25duDumpPolyMeshDetailToObjR16rcPolyMeshDetailP8duF
   %46 = trunc nuw i64 %indvars.iv53 to i32
   %47 = shl i32 %46, 2
   %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds i8, ptr %42, i64 %48
+  %49 = getelementptr inbounds nuw i8, ptr %42, i64 %48
   %50 = load i8, ptr %49, align 1
   %51 = zext i8 %50 to i32
   %52 = add i32 %44, %51
   %53 = or disjoint i32 %47, 1
   %54 = zext i32 %53 to i64
-  %55 = getelementptr inbounds i8, ptr %42, i64 %54
+  %55 = getelementptr inbounds nuw i8, ptr %42, i64 %54
   %56 = load i8, ptr %55, align 1
   %57 = zext i8 %56 to i32
   %58 = add i32 %44, %57
   %59 = or disjoint i32 %47, 2
   %60 = zext i32 %59 to i64
-  %61 = getelementptr inbounds i8, ptr %42, i64 %60
+  %61 = getelementptr inbounds nuw i8, ptr %42, i64 %60
   %62 = load i8, ptr %61, align 1
   %63 = zext i8 %62 to i32
   %64 = add i32 %44, %63
@@ -378,58 +378,58 @@ define noundef zeroext i1 @_Z16duDumpContourSetR12rcContourSetP8duFileIO(ptr nou
 
 3:                                                ; preds = %2
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(8) %1)
   br i1 %7, label %8, label %.loopexit.sink.split
 
 8:                                                ; preds = %3
   %9 = load ptr, ptr %1, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @_ZL10CSET_MAGIC, i64 noundef 4)
   %13 = load ptr, ptr %1, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @_ZL12CSET_VERSION, i64 noundef 4)
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %1, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %20 = load ptr, ptr %19, align 8
   %21 = tail call noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %17, i64 noundef 4)
-  %22 = getelementptr inbounds i8, ptr %0, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %23 = load ptr, ptr %1, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %25 = load ptr, ptr %24, align 8
   %26 = tail call noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %22, i64 noundef 12)
-  %27 = getelementptr inbounds i8, ptr %0, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %28 = load ptr, ptr %1, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %30 = load ptr, ptr %29, align 8
   %31 = tail call noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %27, i64 noundef 12)
-  %32 = getelementptr inbounds i8, ptr %0, i64 36
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %33 = load ptr, ptr %1, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %35 = load ptr, ptr %34, align 8
   %36 = tail call noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %32, i64 noundef 4)
-  %37 = getelementptr inbounds i8, ptr %0, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %38 = load ptr, ptr %1, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
   %40 = load ptr, ptr %39, align 8
   %41 = tail call noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %37, i64 noundef 4)
-  %42 = getelementptr inbounds i8, ptr %0, i64 44
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %43 = load ptr, ptr %1, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %45 = load ptr, ptr %44, align 8
   %46 = tail call noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %42, i64 noundef 4)
-  %47 = getelementptr inbounds i8, ptr %0, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %48 = load ptr, ptr %1, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 32
   %50 = load ptr, ptr %49, align 8
   %51 = tail call noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %47, i64 noundef 4)
-  %52 = getelementptr inbounds i8, ptr %0, i64 52
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %53 = load ptr, ptr %1, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 32
   %55 = load ptr, ptr %54, align 8
   %56 = tail call noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %52, i64 noundef 4)
   %57 = load i32, ptr %17, align 8
@@ -439,25 +439,25 @@ define noundef zeroext i1 @_Z16duDumpContourSetR12rcContourSetP8duFileIO(ptr nou
 .lr.ph:                                           ; preds = %8, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %8 ]
   %59 = load ptr, ptr %0, align 8
-  %60 = getelementptr inbounds %struct.rcContour, ptr %59, i64 %indvars.iv
-  %61 = getelementptr inbounds i8, ptr %60, i64 8
+  %60 = getelementptr inbounds nuw %struct.rcContour, ptr %59, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = load ptr, ptr %1, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 32
   %64 = load ptr, ptr %63, align 8
   %65 = tail call noundef zeroext i1 %64(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %61, i64 noundef 4)
-  %66 = getelementptr inbounds i8, ptr %60, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %67 = load ptr, ptr %1, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 32
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 32
   %69 = load ptr, ptr %68, align 8
   %70 = tail call noundef zeroext i1 %69(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %66, i64 noundef 4)
-  %71 = getelementptr inbounds i8, ptr %60, i64 28
+  %71 = getelementptr inbounds nuw i8, ptr %60, i64 28
   %72 = load ptr, ptr %1, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 32
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 32
   %74 = load ptr, ptr %73, align 8
   %75 = tail call noundef zeroext i1 %74(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %71, i64 noundef 2)
-  %76 = getelementptr inbounds i8, ptr %60, i64 30
+  %76 = getelementptr inbounds nuw i8, ptr %60, i64 30
   %77 = load ptr, ptr %1, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 32
   %79 = load ptr, ptr %78, align 8
   %80 = tail call noundef zeroext i1 %79(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %76, i64 noundef 1)
   %81 = load ptr, ptr %60, align 8
@@ -465,16 +465,16 @@ define noundef zeroext i1 @_Z16duDumpContourSetR12rcContourSetP8duFileIO(ptr nou
   %83 = sext i32 %82 to i64
   %84 = shl nsw i64 %83, 4
   %85 = load ptr, ptr %1, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 32
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 32
   %87 = load ptr, ptr %86, align 8
   %88 = tail call noundef zeroext i1 %87(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %81, i64 noundef %84)
-  %89 = getelementptr inbounds i8, ptr %60, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %90 = load ptr, ptr %89, align 8
   %91 = load i32, ptr %66, align 8
   %92 = sext i32 %91 to i64
   %93 = shl nsw i64 %92, 4
   %94 = load ptr, ptr %1, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 32
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 32
   %96 = load ptr, ptr %95, align 8
   %97 = tail call noundef zeroext i1 %96(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %90, i64 noundef %93)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -506,7 +506,7 @@ define noundef zeroext i1 @_Z16duReadContourSetR12rcContourSetP8duFileIO(ptr nou
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(8) %1)
   br i1 %10, label %12, label %11
@@ -519,11 +519,11 @@ define noundef zeroext i1 @_Z16duReadContourSetR12rcContourSetP8duFileIO(ptr nou
   store i32 0, ptr %3, align 4
   store i32 0, ptr %4, align 4
   %13 = load ptr, ptr %1, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %15 = load ptr, ptr %14, align 8
   %16 = call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %3, i64 noundef 4)
   %17 = load ptr, ptr %1, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %19 = load ptr, ptr %18, align 8
   %20 = call noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %4, i64 noundef 4)
   %21 = load i32, ptr %3, align 4
@@ -544,9 +544,9 @@ define noundef zeroext i1 @_Z16duReadContourSetR12rcContourSetP8duFileIO(ptr nou
   br label %.loopexit
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load ptr, ptr %1, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 40
   %30 = load ptr, ptr %29, align 8
   %31 = call noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %27, i64 noundef 4)
   %32 = load i32, ptr %27, align 8
@@ -566,39 +566,39 @@ define noundef zeroext i1 @_Z16duReadContourSetR12rcContourSetP8duFileIO(ptr nou
   %40 = sext i32 %36 to i64
   %41 = shl nsw i64 %40, 5
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %35, i8 0, i64 %41, i1 false)
-  %42 = getelementptr inbounds i8, ptr %0, i64 12
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %43 = load ptr, ptr %1, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 40
   %45 = load ptr, ptr %44, align 8
   %46 = call noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %42, i64 noundef 12)
-  %47 = getelementptr inbounds i8, ptr %0, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %48 = load ptr, ptr %1, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 40
   %50 = load ptr, ptr %49, align 8
   %51 = call noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %47, i64 noundef 12)
-  %52 = getelementptr inbounds i8, ptr %0, i64 36
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %53 = load ptr, ptr %1, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 40
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %55 = load ptr, ptr %54, align 8
   %56 = call noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %52, i64 noundef 4)
-  %57 = getelementptr inbounds i8, ptr %0, i64 40
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %58 = load ptr, ptr %1, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 40
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 40
   %60 = load ptr, ptr %59, align 8
   %61 = call noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %57, i64 noundef 4)
-  %62 = getelementptr inbounds i8, ptr %0, i64 44
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %63 = load ptr, ptr %1, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 40
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 40
   %65 = load ptr, ptr %64, align 8
   %66 = call noundef zeroext i1 %65(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %62, i64 noundef 4)
-  %67 = getelementptr inbounds i8, ptr %0, i64 48
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %68 = load ptr, ptr %1, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 40
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 40
   %70 = load ptr, ptr %69, align 8
   %71 = call noundef zeroext i1 %70(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %67, i64 noundef 4)
-  %72 = getelementptr inbounds i8, ptr %0, i64 52
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %73 = load ptr, ptr %1, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 40
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 40
   %75 = load ptr, ptr %74, align 8
   %76 = call noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %72, i64 noundef 4)
   %77 = load i32, ptr %27, align 8
@@ -608,25 +608,25 @@ define noundef zeroext i1 @_Z16duReadContourSetR12rcContourSetP8duFileIO(ptr nou
 .lr.ph:                                           ; preds = %39, %117
   %indvars.iv = phi i64 [ %indvars.iv.next, %117 ], [ 0, %39 ]
   %79 = load ptr, ptr %0, align 8
-  %80 = getelementptr inbounds %struct.rcContour, ptr %79, i64 %indvars.iv
-  %81 = getelementptr inbounds i8, ptr %80, i64 8
+  %80 = getelementptr inbounds nuw %struct.rcContour, ptr %79, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %82 = load ptr, ptr %1, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 40
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 40
   %84 = load ptr, ptr %83, align 8
   %85 = call noundef zeroext i1 %84(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %81, i64 noundef 4)
-  %86 = getelementptr inbounds i8, ptr %80, i64 24
+  %86 = getelementptr inbounds nuw i8, ptr %80, i64 24
   %87 = load ptr, ptr %1, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 40
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 40
   %89 = load ptr, ptr %88, align 8
   %90 = call noundef zeroext i1 %89(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %86, i64 noundef 4)
-  %91 = getelementptr inbounds i8, ptr %80, i64 28
+  %91 = getelementptr inbounds nuw i8, ptr %80, i64 28
   %92 = load ptr, ptr %1, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 40
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 40
   %94 = load ptr, ptr %93, align 8
   %95 = call noundef zeroext i1 %94(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %91, i64 noundef 2)
-  %96 = getelementptr inbounds i8, ptr %80, i64 30
+  %96 = getelementptr inbounds nuw i8, ptr %80, i64 30
   %97 = load ptr, ptr %1, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 40
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 40
   %99 = load ptr, ptr %98, align 8
   %100 = call noundef zeroext i1 %99(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %96, i64 noundef 1)
   %101 = load i32, ptr %81, align 8
@@ -647,7 +647,7 @@ define noundef zeroext i1 @_Z16duReadContourSetR12rcContourSetP8duFileIO(ptr nou
   %110 = sext i32 %109 to i64
   %111 = shl nsw i64 %110, 4
   %112 = call noundef ptr @_Z7rcAllocm11rcAllocHint(i64 noundef %111, i32 noundef 0)
-  %113 = getelementptr inbounds i8, ptr %80, i64 16
+  %113 = getelementptr inbounds nuw i8, ptr %80, i64 16
   store ptr %112, ptr %113, align 8
   %.not61 = icmp eq ptr %112, null
   br i1 %.not61, label %114, label %117
@@ -663,7 +663,7 @@ define noundef zeroext i1 @_Z16duReadContourSetR12rcContourSetP8duFileIO(ptr nou
   %120 = sext i32 %119 to i64
   %121 = shl nsw i64 %120, 4
   %122 = load ptr, ptr %1, align 8
-  %123 = getelementptr inbounds i8, ptr %122, i64 40
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 40
   %124 = load ptr, ptr %123, align 8
   %125 = call noundef zeroext i1 %124(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %118, i64 noundef %121)
   %126 = load ptr, ptr %113, align 8
@@ -671,7 +671,7 @@ define noundef zeroext i1 @_Z16duReadContourSetR12rcContourSetP8duFileIO(ptr nou
   %128 = sext i32 %127 to i64
   %129 = shl nsw i64 %128, 4
   %130 = load ptr, ptr %1, align 8
-  %131 = getelementptr inbounds i8, ptr %130, i64 40
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 40
   %132 = load ptr, ptr %131, align 8
   %133 = call noundef zeroext i1 %132(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %126, i64 noundef %129)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -702,7 +702,7 @@ define noundef zeroext i1 @_Z24duDumpCompactHeightfieldR20rcCompactHeightfieldP8
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(8) %1)
   br i1 %9, label %11, label %10
@@ -713,78 +713,78 @@ define noundef zeroext i1 @_Z24duDumpCompactHeightfieldR20rcCompactHeightfieldP8
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @_ZL9CHF_MAGIC, i64 noundef 4)
   %16 = load ptr, ptr %1, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @_ZL11CHF_VERSION, i64 noundef 4)
   %20 = load ptr, ptr %1, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %0, i64 noundef 4)
-  %24 = getelementptr inbounds i8, ptr %0, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %25 = load ptr, ptr %1, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %24, i64 noundef 4)
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load ptr, ptr %1, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %32 = load ptr, ptr %31, align 8
   %33 = tail call noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %29, i64 noundef 4)
-  %34 = getelementptr inbounds i8, ptr %0, i64 12
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %35 = load ptr, ptr %1, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %37 = load ptr, ptr %36, align 8
   %38 = tail call noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %34, i64 noundef 4)
-  %39 = getelementptr inbounds i8, ptr %0, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %40 = load ptr, ptr %1, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %42 = load ptr, ptr %41, align 8
   %43 = tail call noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %39, i64 noundef 4)
-  %44 = getelementptr inbounds i8, ptr %0, i64 20
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %45 = load ptr, ptr %1, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %47 = load ptr, ptr %46, align 8
   %48 = tail call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %44, i64 noundef 4)
-  %49 = getelementptr inbounds i8, ptr %0, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %50 = load ptr, ptr %1, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 32
   %52 = load ptr, ptr %51, align 8
   %53 = tail call noundef zeroext i1 %52(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %49, i64 noundef 2)
-  %54 = getelementptr inbounds i8, ptr %0, i64 26
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %55 = load ptr, ptr %1, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 32
   %57 = load ptr, ptr %56, align 8
   %58 = tail call noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %54, i64 noundef 2)
-  %59 = getelementptr inbounds i8, ptr %0, i64 28
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %60 = load ptr, ptr %1, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %62 = load ptr, ptr %61, align 8
   %63 = tail call noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %59, i64 noundef 12)
-  %64 = getelementptr inbounds i8, ptr %0, i64 40
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %65 = load ptr, ptr %1, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 32
   %67 = load ptr, ptr %66, align 8
   %68 = tail call noundef zeroext i1 %67(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %64, i64 noundef 12)
-  %69 = getelementptr inbounds i8, ptr %0, i64 52
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %70 = load ptr, ptr %1, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 32
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 32
   %72 = load ptr, ptr %71, align 8
   %73 = tail call noundef zeroext i1 %72(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %69, i64 noundef 4)
-  %74 = getelementptr inbounds i8, ptr %0, i64 56
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %75 = load ptr, ptr %1, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 32
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 32
   %77 = load ptr, ptr %76, align 8
   %78 = tail call noundef zeroext i1 %77(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %74, i64 noundef 4)
-  %79 = getelementptr inbounds i8, ptr %0, i64 64
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %80 = load ptr, ptr %79, align 8
   %.not57 = icmp ne ptr %80, null
   %spec.store.select = zext i1 %.not57 to i32
   store i32 %spec.store.select, ptr %3, align 4
-  %81 = getelementptr inbounds i8, ptr %0, i64 72
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %82 = load ptr, ptr %81, align 8
   %.not58 = icmp eq ptr %82, null
   br i1 %.not58, label %85, label %83
@@ -796,7 +796,7 @@ define noundef zeroext i1 @_Z24duDumpCompactHeightfieldR20rcCompactHeightfieldP8
 
 85:                                               ; preds = %83, %11
   %86 = phi i32 [ %84, %83 ], [ %spec.store.select, %11 ]
-  %87 = getelementptr inbounds i8, ptr %0, i64 80
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %88 = load ptr, ptr %87, align 8
   %.not59 = icmp eq ptr %88, null
   br i1 %.not59, label %91, label %89
@@ -808,7 +808,7 @@ define noundef zeroext i1 @_Z24duDumpCompactHeightfieldR20rcCompactHeightfieldP8
 
 91:                                               ; preds = %89, %85
   %92 = phi i32 [ %90, %89 ], [ %86, %85 ]
-  %93 = getelementptr inbounds i8, ptr %0, i64 88
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %94 = load ptr, ptr %93, align 8
   %.not60 = icmp eq ptr %94, null
   br i1 %.not60, label %97, label %95
@@ -820,7 +820,7 @@ define noundef zeroext i1 @_Z24duDumpCompactHeightfieldR20rcCompactHeightfieldP8
 
 97:                                               ; preds = %95, %91
   %98 = load ptr, ptr %1, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 32
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 32
   %100 = load ptr, ptr %99, align 8
   %101 = call noundef zeroext i1 %100(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %3, i64 noundef 4)
   %102 = load ptr, ptr %79, align 8
@@ -835,7 +835,7 @@ define noundef zeroext i1 @_Z24duDumpCompactHeightfieldR20rcCompactHeightfieldP8
   %108 = sext i32 %107 to i64
   %109 = mul i64 %106, %108
   %110 = load ptr, ptr %1, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 32
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 32
   %112 = load ptr, ptr %111, align 8
   %113 = call noundef zeroext i1 %112(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %102, i64 noundef %109)
   br label %114
@@ -850,7 +850,7 @@ define noundef zeroext i1 @_Z24duDumpCompactHeightfieldR20rcCompactHeightfieldP8
   %118 = sext i32 %117 to i64
   %119 = shl nsw i64 %118, 3
   %120 = load ptr, ptr %1, align 8
-  %121 = getelementptr inbounds i8, ptr %120, i64 32
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 32
   %122 = load ptr, ptr %121, align 8
   %123 = call noundef zeroext i1 %122(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %115, i64 noundef %119)
   br label %124
@@ -865,7 +865,7 @@ define noundef zeroext i1 @_Z24duDumpCompactHeightfieldR20rcCompactHeightfieldP8
   %128 = sext i32 %127 to i64
   %129 = shl nsw i64 %128, 1
   %130 = load ptr, ptr %1, align 8
-  %131 = getelementptr inbounds i8, ptr %130, i64 32
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 32
   %132 = load ptr, ptr %131, align 8
   %133 = call noundef zeroext i1 %132(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %125, i64 noundef %129)
   br label %134
@@ -879,7 +879,7 @@ define noundef zeroext i1 @_Z24duDumpCompactHeightfieldR20rcCompactHeightfieldP8
   %137 = load i32, ptr %29, align 8
   %138 = sext i32 %137 to i64
   %139 = load ptr, ptr %1, align 8
-  %140 = getelementptr inbounds i8, ptr %139, i64 32
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 32
   %141 = load ptr, ptr %140, align 8
   %142 = call noundef zeroext i1 %141(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %135, i64 noundef %138)
   br label %143
@@ -903,7 +903,7 @@ define noundef zeroext i1 @_Z24duReadCompactHeightfieldR20rcCompactHeightfieldP8
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %1, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(8) %1)
   br i1 %11, label %13, label %12
@@ -916,11 +916,11 @@ define noundef zeroext i1 @_Z24duReadCompactHeightfieldR20rcCompactHeightfieldP8
   store i32 0, ptr %3, align 4
   store i32 0, ptr %4, align 4
   %14 = load ptr, ptr %1, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %16 = load ptr, ptr %15, align 8
   %17 = call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %3, i64 noundef 4)
   %18 = load ptr, ptr %1, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %20 = load ptr, ptr %19, align 8
   %21 = call noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %4, i64 noundef 4)
   %22 = load i32, ptr %3, align 4
@@ -942,67 +942,67 @@ define noundef zeroext i1 @_Z24duReadCompactHeightfieldR20rcCompactHeightfieldP8
 
 27:                                               ; preds = %24
   %28 = load ptr, ptr %1, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 40
   %30 = load ptr, ptr %29, align 8
   %31 = call noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %0, i64 noundef 4)
-  %32 = getelementptr inbounds i8, ptr %0, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %33 = load ptr, ptr %1, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 40
   %35 = load ptr, ptr %34, align 8
   %36 = call noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %32, i64 noundef 4)
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load ptr, ptr %1, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 40
   %40 = load ptr, ptr %39, align 8
   %41 = call noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %37, i64 noundef 4)
-  %42 = getelementptr inbounds i8, ptr %0, i64 12
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %43 = load ptr, ptr %1, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 40
   %45 = load ptr, ptr %44, align 8
   %46 = call noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %42, i64 noundef 4)
-  %47 = getelementptr inbounds i8, ptr %0, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %48 = load ptr, ptr %1, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 40
   %50 = load ptr, ptr %49, align 8
   %51 = call noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %47, i64 noundef 4)
-  %52 = getelementptr inbounds i8, ptr %0, i64 20
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %53 = load ptr, ptr %1, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 40
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %55 = load ptr, ptr %54, align 8
   %56 = call noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %52, i64 noundef 4)
-  %57 = getelementptr inbounds i8, ptr %0, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %58 = load ptr, ptr %1, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 40
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 40
   %60 = load ptr, ptr %59, align 8
   %61 = call noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %57, i64 noundef 2)
-  %62 = getelementptr inbounds i8, ptr %0, i64 26
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %63 = load ptr, ptr %1, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 40
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 40
   %65 = load ptr, ptr %64, align 8
   %66 = call noundef zeroext i1 %65(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %62, i64 noundef 2)
-  %67 = getelementptr inbounds i8, ptr %0, i64 28
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %68 = load ptr, ptr %1, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 40
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 40
   %70 = load ptr, ptr %69, align 8
   %71 = call noundef zeroext i1 %70(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %67, i64 noundef 12)
-  %72 = getelementptr inbounds i8, ptr %0, i64 40
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %73 = load ptr, ptr %1, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 40
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 40
   %75 = load ptr, ptr %74, align 8
   %76 = call noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %72, i64 noundef 12)
-  %77 = getelementptr inbounds i8, ptr %0, i64 52
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %78 = load ptr, ptr %1, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 40
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 40
   %80 = load ptr, ptr %79, align 8
   %81 = call noundef zeroext i1 %80(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %77, i64 noundef 4)
-  %82 = getelementptr inbounds i8, ptr %0, i64 56
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %83 = load ptr, ptr %1, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 40
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 40
   %85 = load ptr, ptr %84, align 8
   %86 = call noundef zeroext i1 %85(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %82, i64 noundef 4)
   store i32 0, ptr %5, align 4
   %87 = load ptr, ptr %1, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 40
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 40
   %89 = load ptr, ptr %88, align 8
   %90 = call noundef zeroext i1 %89(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %5, i64 noundef 4)
   %91 = load i32, ptr %5, align 4
@@ -1018,7 +1018,7 @@ define noundef zeroext i1 @_Z24duReadCompactHeightfieldR20rcCompactHeightfieldP8
   %98 = sext i32 %97 to i64
   %99 = mul i64 %96, %98
   %100 = call noundef ptr @_Z7rcAllocm11rcAllocHint(i64 noundef %99, i32 noundef 0)
-  %101 = getelementptr inbounds i8, ptr %0, i64 64
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %100, ptr %101, align 8
   %.not70 = icmp eq ptr %100, null
   %102 = load i32, ptr %0, align 8
@@ -1037,7 +1037,7 @@ define noundef zeroext i1 @_Z24duReadCompactHeightfieldR20rcCompactHeightfieldP8
   %111 = sext i32 %110 to i64
   %112 = mul i64 %109, %111
   %113 = load ptr, ptr %1, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 40
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 40
   %115 = load ptr, ptr %114, align 8
   %116 = call noundef zeroext i1 %115(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %100, i64 noundef %112)
   %.pre = load i32, ptr %5, align 4
@@ -1054,7 +1054,7 @@ define noundef zeroext i1 @_Z24duReadCompactHeightfieldR20rcCompactHeightfieldP8
   %122 = sext i32 %121 to i64
   %123 = shl nsw i64 %122, 3
   %124 = call noundef ptr @_Z7rcAllocm11rcAllocHint(i64 noundef %123, i32 noundef 0)
-  %125 = getelementptr inbounds i8, ptr %0, i64 72
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %124, ptr %125, align 8
   %.not72 = icmp eq ptr %124, null
   %126 = load i32, ptr %37, align 8
@@ -1068,7 +1068,7 @@ define noundef zeroext i1 @_Z24duReadCompactHeightfieldR20rcCompactHeightfieldP8
   %130 = sext i32 %126 to i64
   %131 = shl nsw i64 %130, 3
   %132 = load ptr, ptr %1, align 8
-  %133 = getelementptr inbounds i8, ptr %132, i64 40
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 40
   %134 = load ptr, ptr %133, align 8
   %135 = call noundef zeroext i1 %134(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %124, i64 noundef %131)
   %.pre79 = load i32, ptr %5, align 4
@@ -1085,7 +1085,7 @@ define noundef zeroext i1 @_Z24duReadCompactHeightfieldR20rcCompactHeightfieldP8
   %141 = sext i32 %140 to i64
   %142 = shl nsw i64 %141, 1
   %143 = call noundef ptr @_Z7rcAllocm11rcAllocHint(i64 noundef %142, i32 noundef 0)
-  %144 = getelementptr inbounds i8, ptr %0, i64 80
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %143, ptr %144, align 8
   %.not74 = icmp eq ptr %143, null
   %145 = load i32, ptr %37, align 8
@@ -1099,7 +1099,7 @@ define noundef zeroext i1 @_Z24duReadCompactHeightfieldR20rcCompactHeightfieldP8
   %149 = sext i32 %145 to i64
   %150 = shl nsw i64 %149, 1
   %151 = load ptr, ptr %1, align 8
-  %152 = getelementptr inbounds i8, ptr %151, i64 40
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 40
   %153 = load ptr, ptr %152, align 8
   %154 = call noundef zeroext i1 %153(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %143, i64 noundef %150)
   %.pre80 = load i32, ptr %5, align 4
@@ -1115,7 +1115,7 @@ define noundef zeroext i1 @_Z24duReadCompactHeightfieldR20rcCompactHeightfieldP8
   %159 = load i32, ptr %37, align 8
   %160 = sext i32 %159 to i64
   %161 = call noundef ptr @_Z7rcAllocm11rcAllocHint(i64 noundef %160, i32 noundef 0)
-  %162 = getelementptr inbounds i8, ptr %0, i64 88
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %161, ptr %162, align 8
   %.not76 = icmp eq ptr %161, null
   %163 = load i32, ptr %37, align 8
@@ -1128,7 +1128,7 @@ define noundef zeroext i1 @_Z24duReadCompactHeightfieldR20rcCompactHeightfieldP8
 166:                                              ; preds = %158
   %167 = sext i32 %163 to i64
   %168 = load ptr, ptr %1, align 8
-  %169 = getelementptr inbounds i8, ptr %168, i64 40
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 40
   %170 = load ptr, ptr %169, align 8
   %171 = call noundef zeroext i1 %170(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %161, i64 noundef %167)
   br label %172
@@ -1143,14 +1143,14 @@ define void @_Z15duLogBuildTimesR9rcContexti(ptr noundef nonnull align 8 derefer
   %3 = sitofp i32 %1 to float
   %4 = fdiv float 1.000000e+02, %3
   tail call void (ptr, i32, ptr, ...) @_ZN9rcContext3logE13rcLogCategoryPKcz(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 1, ptr noundef nonnull @.str.28)
-  %5 = getelementptr inbounds i8, ptr %0, i64 9
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %6 = load i8, ptr %5, align 1
   %7 = trunc i8 %6 to i1
   br i1 %7, label %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit
 
 _ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i: ; preds = %2
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef i32 %10(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 2)
   %12 = icmp slt i32 %11, 0
@@ -1172,7 +1172,7 @@ _ZL7logLineR9rcContext12rcTimerLabelPKcf.exit:    ; preds = %2, %_ZNK9rcContext1
 
 _ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i53: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef i32 %23(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 3)
   %25 = icmp slt i32 %24, 0
@@ -1194,7 +1194,7 @@ _ZL7logLineR9rcContext12rcTimerLabelPKcf.exit54:  ; preds = %_ZL7logLineR9rcCont
 
 _ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i55: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit54
   %34 = load ptr, ptr %0, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 56
   %36 = load ptr, ptr %35, align 8
   %37 = tail call noundef i32 %36(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 7)
   %38 = icmp slt i32 %37, 0
@@ -1216,7 +1216,7 @@ _ZL7logLineR9rcContext12rcTimerLabelPKcf.exit56:  ; preds = %_ZL7logLineR9rcCont
 
 _ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i57: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit56
   %47 = load ptr, ptr %0, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 56
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 56
   %49 = load ptr, ptr %48, align 8
   %50 = tail call noundef i32 %49(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 8)
   %51 = icmp slt i32 %50, 0
@@ -1238,7 +1238,7 @@ _ZL7logLineR9rcContext12rcTimerLabelPKcf.exit58:  ; preds = %_ZL7logLineR9rcCont
 
 _ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i59: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit58
   %60 = load ptr, ptr %0, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 56
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 56
   %62 = load ptr, ptr %61, align 8
   %63 = tail call noundef i32 %62(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 13)
   %64 = icmp slt i32 %63, 0
@@ -1260,7 +1260,7 @@ _ZL7logLineR9rcContext12rcTimerLabelPKcf.exit60:  ; preds = %_ZL7logLineR9rcCont
 
 _ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i61: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit60
   %73 = load ptr, ptr %0, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 56
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 56
   %75 = load ptr, ptr %74, align 8
   %76 = tail call noundef i32 %75(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 9)
   %77 = icmp slt i32 %76, 0
@@ -1282,7 +1282,7 @@ _ZL7logLineR9rcContext12rcTimerLabelPKcf.exit62:  ; preds = %_ZL7logLineR9rcCont
 
 _ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i63: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit62
   %86 = load ptr, ptr %0, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 56
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 56
   %88 = load ptr, ptr %87, align 8
   %89 = tail call noundef i32 %88(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 14)
   %90 = icmp slt i32 %89, 0
@@ -1304,7 +1304,7 @@ _ZL7logLineR9rcContext12rcTimerLabelPKcf.exit64:  ; preds = %_ZL7logLineR9rcCont
 
 _ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i65: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit64
   %99 = load ptr, ptr %0, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 56
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 56
   %101 = load ptr, ptr %100, align 8
   %102 = tail call noundef i32 %101(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 16)
   %103 = icmp slt i32 %102, 0
@@ -1326,7 +1326,7 @@ _ZL7logLineR9rcContext12rcTimerLabelPKcf.exit66:  ; preds = %_ZL7logLineR9rcCont
 
 _ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i67: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit66
   %112 = load ptr, ptr %0, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 56
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 56
   %114 = load ptr, ptr %113, align 8
   %115 = tail call noundef i32 %114(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 15)
   %116 = icmp slt i32 %115, 0
@@ -1348,7 +1348,7 @@ _ZL7logLineR9rcContext12rcTimerLabelPKcf.exit68:  ; preds = %_ZL7logLineR9rcCont
 
 _ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i69: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit68
   %125 = load ptr, ptr %0, align 8
-  %126 = getelementptr inbounds i8, ptr %125, i64 56
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 56
   %127 = load ptr, ptr %126, align 8
   %128 = tail call noundef i32 %127(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 17)
   %129 = icmp slt i32 %128, 0
@@ -1370,7 +1370,7 @@ _ZL7logLineR9rcContext12rcTimerLabelPKcf.exit70:  ; preds = %_ZL7logLineR9rcCont
 
 _ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i71: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit70
   %138 = load ptr, ptr %0, align 8
-  %139 = getelementptr inbounds i8, ptr %138, i64 56
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 56
   %140 = load ptr, ptr %139, align 8
   %141 = tail call noundef i32 %140(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 18)
   %142 = icmp slt i32 %141, 0
@@ -1392,7 +1392,7 @@ _ZL7logLineR9rcContext12rcTimerLabelPKcf.exit72:  ; preds = %_ZL7logLineR9rcCont
 
 _ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i73: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit72
   %151 = load ptr, ptr %0, align 8
-  %152 = getelementptr inbounds i8, ptr %151, i64 56
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 56
   %153 = load ptr, ptr %152, align 8
   %154 = tail call noundef i32 %153(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 19)
   %155 = icmp slt i32 %154, 0
@@ -1414,7 +1414,7 @@ _ZL7logLineR9rcContext12rcTimerLabelPKcf.exit74:  ; preds = %_ZL7logLineR9rcCont
 
 _ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i75: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit74
   %164 = load ptr, ptr %0, align 8
-  %165 = getelementptr inbounds i8, ptr %164, i64 56
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 56
   %166 = load ptr, ptr %165, align 8
   %167 = tail call noundef i32 %166(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 20)
   %168 = icmp slt i32 %167, 0
@@ -1436,7 +1436,7 @@ _ZL7logLineR9rcContext12rcTimerLabelPKcf.exit76:  ; preds = %_ZL7logLineR9rcCont
 
 _ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i77: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit76
   %177 = load ptr, ptr %0, align 8
-  %178 = getelementptr inbounds i8, ptr %177, i64 56
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 56
   %179 = load ptr, ptr %178, align 8
   %180 = tail call noundef i32 %179(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 21)
   %181 = icmp slt i32 %180, 0
@@ -1458,7 +1458,7 @@ _ZL7logLineR9rcContext12rcTimerLabelPKcf.exit78:  ; preds = %_ZL7logLineR9rcCont
 
 _ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i79: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit78
   %190 = load ptr, ptr %0, align 8
-  %191 = getelementptr inbounds i8, ptr %190, i64 56
+  %191 = getelementptr inbounds nuw i8, ptr %190, i64 56
   %192 = load ptr, ptr %191, align 8
   %193 = tail call noundef i32 %192(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 22)
   %194 = icmp slt i32 %193, 0
@@ -1480,7 +1480,7 @@ _ZL7logLineR9rcContext12rcTimerLabelPKcf.exit80:  ; preds = %_ZL7logLineR9rcCont
 
 _ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i81: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit80
   %203 = load ptr, ptr %0, align 8
-  %204 = getelementptr inbounds i8, ptr %203, i64 56
+  %204 = getelementptr inbounds nuw i8, ptr %203, i64 56
   %205 = load ptr, ptr %204, align 8
   %206 = tail call noundef i32 %205(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 23)
   %207 = icmp slt i32 %206, 0
@@ -1502,7 +1502,7 @@ _ZL7logLineR9rcContext12rcTimerLabelPKcf.exit82:  ; preds = %_ZL7logLineR9rcCont
 
 _ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i83: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit82
   %216 = load ptr, ptr %0, align 8
-  %217 = getelementptr inbounds i8, ptr %216, i64 56
+  %217 = getelementptr inbounds nuw i8, ptr %216, i64 56
   %218 = load ptr, ptr %217, align 8
   %219 = tail call noundef i32 %218(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 24)
   %220 = icmp slt i32 %219, 0
@@ -1524,7 +1524,7 @@ _ZL7logLineR9rcContext12rcTimerLabelPKcf.exit84:  ; preds = %_ZL7logLineR9rcCont
 
 _ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i85: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit84
   %229 = load ptr, ptr %0, align 8
-  %230 = getelementptr inbounds i8, ptr %229, i64 56
+  %230 = getelementptr inbounds nuw i8, ptr %229, i64 56
   %231 = load ptr, ptr %230, align 8
   %232 = tail call noundef i32 %231(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 25)
   %233 = icmp slt i32 %232, 0
@@ -1546,7 +1546,7 @@ _ZL7logLineR9rcContext12rcTimerLabelPKcf.exit86:  ; preds = %_ZL7logLineR9rcCont
 
 _ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i87: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit86
   %242 = load ptr, ptr %0, align 8
-  %243 = getelementptr inbounds i8, ptr %242, i64 56
+  %243 = getelementptr inbounds nuw i8, ptr %242, i64 56
   %244 = load ptr, ptr %243, align 8
   %245 = tail call noundef i32 %244(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 4)
   %246 = icmp slt i32 %245, 0
@@ -1568,7 +1568,7 @@ _ZL7logLineR9rcContext12rcTimerLabelPKcf.exit88:  ; preds = %_ZL7logLineR9rcCont
 
 _ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i89: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit88
   %255 = load ptr, ptr %0, align 8
-  %256 = getelementptr inbounds i8, ptr %255, i64 56
+  %256 = getelementptr inbounds nuw i8, ptr %255, i64 56
   %257 = load ptr, ptr %256, align 8
   %258 = tail call noundef i32 %257(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 5)
   %259 = icmp slt i32 %258, 0
@@ -1590,7 +1590,7 @@ _ZL7logLineR9rcContext12rcTimerLabelPKcf.exit90:  ; preds = %_ZL7logLineR9rcCont
 
 _ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i91: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit90
   %268 = load ptr, ptr %0, align 8
-  %269 = getelementptr inbounds i8, ptr %268, i64 56
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 56
   %270 = load ptr, ptr %269, align 8
   %271 = tail call noundef i32 %270(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 6)
   %272 = icmp slt i32 %271, 0
@@ -1612,7 +1612,7 @@ _ZL7logLineR9rcContext12rcTimerLabelPKcf.exit92:  ; preds = %_ZL7logLineR9rcCont
 
 _ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i93: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit92
   %281 = load ptr, ptr %0, align 8
-  %282 = getelementptr inbounds i8, ptr %281, i64 56
+  %282 = getelementptr inbounds nuw i8, ptr %281, i64 56
   %283 = load ptr, ptr %282, align 8
   %284 = tail call noundef i32 %283(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 11)
   %285 = icmp slt i32 %284, 0
@@ -1634,7 +1634,7 @@ _ZL7logLineR9rcContext12rcTimerLabelPKcf.exit94:  ; preds = %_ZL7logLineR9rcCont
 
 _ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i95: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit94
   %294 = load ptr, ptr %0, align 8
-  %295 = getelementptr inbounds i8, ptr %294, i64 56
+  %295 = getelementptr inbounds nuw i8, ptr %294, i64 56
   %296 = load ptr, ptr %295, align 8
   %297 = tail call noundef i32 %296(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 26)
   %298 = icmp slt i32 %297, 0
@@ -1656,7 +1656,7 @@ _ZL7logLineR9rcContext12rcTimerLabelPKcf.exit96:  ; preds = %_ZL7logLineR9rcCont
 
 _ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i97: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit96
   %307 = load ptr, ptr %0, align 8
-  %308 = getelementptr inbounds i8, ptr %307, i64 56
+  %308 = getelementptr inbounds nuw i8, ptr %307, i64 56
   %309 = load ptr, ptr %308, align 8
   %310 = tail call noundef i32 %309(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 12)
   %311 = icmp slt i32 %310, 0
@@ -1678,7 +1678,7 @@ _ZL7logLineR9rcContext12rcTimerLabelPKcf.exit98:  ; preds = %_ZL7logLineR9rcCont
 
 _ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i99: ; preds = %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit98
   %320 = load ptr, ptr %0, align 8
-  %321 = getelementptr inbounds i8, ptr %320, i64 56
+  %321 = getelementptr inbounds nuw i8, ptr %320, i64 56
   %322 = load ptr, ptr %321, align 8
   %323 = tail call noundef i32 %322(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 27)
   %324 = icmp slt i32 %323, 0

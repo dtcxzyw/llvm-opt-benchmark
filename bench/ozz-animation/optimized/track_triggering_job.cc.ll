@@ -12,21 +12,21 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN3ozz9animation18TrackTriggeringJobC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 12), (16, 32)) %0) unnamed_addr #0 align 2 {
   store float 0.000000e+00, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store float 0.000000e+00, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store float 0.000000e+00, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK3ozz9animation18TrackTriggeringJob8ValidateEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp ne ptr %3, null
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = icmp ne ptr %6, null
   %8 = and i1 %4, %7
@@ -36,10 +36,10 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation18TrackTriggeringJob8Vali
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK3ozz9animation18TrackTriggeringJob3RunEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #2 align 2 {
   %2 = alloca %"class.ozz::animation::TrackTriggeringJob::Iterator", align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = icmp ne ptr %4, null
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = icmp ne ptr %7, null
   %9 = and i1 %5, %8
@@ -47,36 +47,36 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation18TrackTriggeringJob3RunE
 
 10:                                               ; preds = %1
   %11 = load float, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %13 = load float, ptr %12, align 4
   %14 = fcmp oeq float %11, %13
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %10
   store ptr %0, ptr %7, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store float 0.000000e+00, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.32.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
+  %.sroa.32.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 -2, ptr %.sroa.32.0..sroa_idx, align 8
   br label %27
 
 16:                                               ; preds = %10
   store ptr %0, ptr %2, align 8
   %17 = tail call float @llvm.floor.f32(float %11)
-  %18 = getelementptr inbounds i8, ptr %2, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store float %17, ptr %18, align 8
   %19 = fcmp olt float %11, %13
   br i1 %19, label %_ZN3ozz9animation18TrackTriggeringJob8IteratorC2EPKS1_.exit, label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %4, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, -1
   br label %_ZN3ozz9animation18TrackTriggeringJob8IteratorC2EPKS1_.exit
 
 _ZN3ozz9animation18TrackTriggeringJob8IteratorC2EPKS1_.exit: ; preds = %16, %20
   %24 = phi i64 [ %23, %20 ], [ 0, %16 ]
-  %25 = getelementptr inbounds i8, ptr %2, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %24, ptr %25, align 8
   %26 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN3ozz9animation18TrackTriggeringJob8IteratorppEv(ptr noundef nonnull align 8 dereferenceable(32) %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
@@ -94,25 +94,25 @@ define dso_local void @_ZN3ozz9animation18TrackTriggeringJob8IteratorC2EPKS1_(pt
   store ptr %1, ptr %0, align 8
   %3 = load float, ptr %1, align 8
   %4 = tail call float @llvm.floor.f32(float %3)
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store float %4, ptr %5, align 8
   %6 = load float, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load float, ptr %7, align 4
   %9 = fcmp olt float %6, %8
   br i1 %9, label %16, label %10
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i64, ptr %13, align 8
   %15 = add i64 %14, -1
   br label %16
 
 16:                                               ; preds = %2, %10
   %17 = phi i64 [ %15, %10 ], [ 0, %2 ]
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %17, ptr %18, align 8
   %19 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN3ozz9animation18TrackTriggeringJob8IteratorppEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
   ret void
@@ -124,16 +124,16 @@ declare float @llvm.floor.f32(float) #5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN3ozz9animation18TrackTriggeringJob8IteratorppEv(ptr noundef nonnull returned align 8 dereferenceable(32) %0) local_unnamed_addr #4 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %9 = load float, ptr %8, align 4
   %10 = load float, ptr %2, align 8
   %11 = fcmp ogt float %9, %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load float, ptr %12, align 8
   br i1 %11, label %.preheader34, label %.preheader36
 
@@ -143,10 +143,10 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN3ozz9animat
   br i1 %15, label %.preheader35.lr.ph, label %.loopexit
 
 .preheader35.lr.ph:                               ; preds = %.preheader36
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
-  %18 = getelementptr inbounds i8, ptr %2, i64 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %20 = add i64 %7, -1
   %.pre = load i64, ptr %16, align 8
   br label %.preheader35
@@ -156,10 +156,10 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN3ozz9animat
   br i1 %21, label %.preheader.lr.ph, label %.loopexit
 
 .preheader.lr.ph:                                 ; preds = %.preheader34
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
-  %24 = getelementptr inbounds i8, ptr %2, i64 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 28
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %.pre54 = load i64, ptr %22, align 8
   br label %.preheader
 
@@ -176,7 +176,7 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN3ozz9animat
   %. = select i1 %31, i64 %7, i64 %30
   %32 = add nsw i64 %., -1
   %33 = load ptr, ptr %3, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds float, ptr %35, i64 %32
   %37 = load float, ptr %36, align 4
@@ -199,7 +199,7 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN3ozz9animat
   store i8 %storemerge57, ptr %25, align 4
   %47 = load ptr, ptr %3, align 8
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %47, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %50 = load ptr, ptr %49, align 8
   %51 = sdiv i64 %32, 8
   %52 = getelementptr inbounds i8, ptr %50, i64 %51
@@ -286,11 +286,11 @@ _ZN3ozz9animation12_GLOBAL__N_110DetectEdgeEllbRKNS0_18TrackTriggeringJobEPNS2_4
   %.17 = select i1 %96, i64 %7, i64 %95
   %97 = add nsw i64 %.17, -1
   %98 = load ptr, ptr %3, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 16
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 16
   %100 = load ptr, ptr %99, align 8
   %101 = getelementptr inbounds float, ptr %100, i64 %97
   %102 = load float, ptr %101, align 4
-  %103 = getelementptr inbounds float, ptr %100, i64 %95
+  %103 = getelementptr inbounds nuw float, ptr %100, i64 %95
   %104 = load float, ptr %103, align 4
   %105 = load float, ptr %18, align 8
   %106 = fcmp ole float %102, %105
@@ -313,7 +313,7 @@ _ZN3ozz9animation12_GLOBAL__N_110DetectEdgeEllbRKNS0_18TrackTriggeringJobEPNS2_4
   store i8 %storemerge, ptr %19, align 4
   %112 = load ptr, ptr %3, align 8
   %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds i8, ptr %112, i64 32
+  %114 = getelementptr inbounds nuw i8, ptr %112, i64 32
   %115 = load ptr, ptr %114, align 8
   %116 = sdiv i64 %97, 8
   %117 = getelementptr inbounds i8, ptr %115, i64 %116
@@ -327,7 +327,7 @@ _ZN3ozz9animation12_GLOBAL__N_110DetectEdgeEllbRKNS0_18TrackTriggeringJobEPNS2_4
   br i1 %.not.i20, label %127, label %124
 
 124:                                              ; preds = %111
-  %125 = getelementptr inbounds float, ptr %113, i64 %95
+  %125 = getelementptr inbounds nuw float, ptr %113, i64 %95
   %126 = load float, ptr %125, align 4
   br label %139
 
@@ -341,7 +341,7 @@ _ZN3ozz9animation12_GLOBAL__N_110DetectEdgeEllbRKNS0_18TrackTriggeringJobEPNS2_4
   %132 = fdiv float %130, %131
   %133 = getelementptr inbounds float, ptr %113, i64 %97
   %134 = load float, ptr %133, align 4
-  %135 = getelementptr inbounds float, ptr %113, i64 %95
+  %135 = getelementptr inbounds nuw float, ptr %113, i64 %95
   %136 = load float, ptr %135, align 4
   %137 = fsub float %136, %134
   %138 = tail call noundef float @llvm.fmuladd.f32(float %137, float %132, float %134)
@@ -369,7 +369,7 @@ _ZN3ozz9animation12_GLOBAL__N_110DetectEdgeEllbRKNS0_18TrackTriggeringJobEPNS2_4
 
 _ZN3ozz9animation12_GLOBAL__N_110DetectEdgeEllbRKNS0_18TrackTriggeringJobEPNS2_4EdgeE.exit24: ; preds = %._ZN3ozz9animation12_GLOBAL__N_110DetectEdgeEllbRKNS0_18TrackTriggeringJobEPNS2_4EdgeE.exit24_crit_edge, %143, %139
   %149 = phi float [ %.pre53, %._ZN3ozz9animation12_GLOBAL__N_110DetectEdgeEllbRKNS0_18TrackTriggeringJobEPNS2_4EdgeE.exit24_crit_edge ], [ %141, %143 ], [ %141, %139 ]
-  %150 = getelementptr inbounds float, ptr %5, i64 %95
+  %150 = getelementptr inbounds nuw float, ptr %5, i64 %95
   %151 = load float, ptr %150, align 4
   %152 = fadd float %93, %151
   %153 = fcmp ugt float %152, %149
@@ -391,9 +391,9 @@ _ZN3ozz9animation12_GLOBAL__N_110DetectEdgeEllbRKNS0_18TrackTriggeringJobEPNS2_4
   br i1 %160, label %.preheader35, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %_ZN3ozz9animation12_GLOBAL__N_110DetectEdgeEllbRKNS0_18TrackTriggeringJobEPNS2_4EdgeE.exit24._crit_edge, %._crit_edge46, %.preheader36, %.preheader34
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store float 0.000000e+00, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.325.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 -2, ptr %.sroa.325.0..sroa_idx, align 8
   br label %161
 

@@ -26,10 +26,10 @@ define dso_local range(i32 -1, 2) i32 @cm_zlib_inflate_table(i32 noundef %0, ptr
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %8 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
   %9 = load i16, ptr %8, align 2
   %10 = zext i16 %9 to i64
-  %11 = getelementptr inbounds [16 x i16], ptr %6, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw [16 x i16], ptr %6, i64 0, i64 %10
   %12 = load i16, ptr %11, align 2
   %13 = add i16 %12, 1
   store i16 %13, ptr %11, align 2
@@ -44,7 +44,7 @@ define dso_local range(i32 -1, 2) i32 @cm_zlib_inflate_table(i32 noundef %0, ptr
 15:                                               ; preds = %._crit_edge, %19
   %.0198246 = phi i32 [ 15, %._crit_edge ], [ %20, %19 ]
   %16 = zext i32 %.0198246 to i64
-  %17 = getelementptr inbounds [16 x i16], ptr %6, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i16], ptr %6, i64 0, i64 %16
   %18 = load i16, ptr %17, align 2
   %.not213 = icmp eq i16 %18, 0
   br i1 %.not213, label %19, label %21
@@ -61,26 +61,26 @@ define dso_local range(i32 -1, 2) i32 @cm_zlib_inflate_table(i32 noundef %0, ptr
 
 23:                                               ; preds = %19
   %24 = load ptr, ptr %3, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   store ptr %25, ptr %3, align 8
   store i8 64, ptr %24, align 2
-  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %24, i64 1
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 1
   store i8 1, ptr %.sroa.9.0..sroa_idx, align 1
-  %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %24, i64 2
+  %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 2
   store i16 0, ptr %.sroa.12.0..sroa_idx, align 2
   %26 = load ptr, ptr %3, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
   store ptr %27, ptr %3, align 8
   store i8 64, ptr %26, align 2
-  %.sroa.9.0..sroa_idx21 = getelementptr inbounds i8, ptr %26, i64 1
+  %.sroa.9.0..sroa_idx21 = getelementptr inbounds nuw i8, ptr %26, i64 1
   store i8 1, ptr %.sroa.9.0..sroa_idx21, align 1
-  %.sroa.12.0..sroa_idx27 = getelementptr inbounds i8, ptr %26, i64 2
+  %.sroa.12.0..sroa_idx27 = getelementptr inbounds nuw i8, ptr %26, i64 2
   store i16 0, ptr %.sroa.12.0..sroa_idx27, align 2
   br label %.loopexit.sink.split
 
 .lr.ph249:                                        ; preds = %21, %30
   %indvars.iv280 = phi i64 [ %indvars.iv.next281, %30 ], [ 1, %21 ]
-  %28 = getelementptr inbounds [16 x i16], ptr %6, i64 0, i64 %indvars.iv280
+  %28 = getelementptr inbounds nuw [16 x i16], ptr %6, i64 0, i64 %indvars.iv280
   %29 = load i16, ptr %28, align 2
   %.not214 = icmp eq i16 %29, 0
   br i1 %.not214, label %30, label %._crit_edge250.loopexit.split.loop.exit
@@ -108,7 +108,7 @@ define dso_local range(i32 -1, 2) i32 @cm_zlib_inflate_table(i32 noundef %0, ptr
   %indvars.iv287 = phi i64 [ 1, %._crit_edge250 ], [ %indvars.iv.next288, %32 ]
   %.0189254 = phi i32 [ 1, %._crit_edge250 ], [ %38, %32 ]
   %34 = shl i32 %.0189254, 1
-  %35 = getelementptr inbounds [16 x i16], ptr %6, i64 0, i64 %indvars.iv287
+  %35 = getelementptr inbounds nuw [16 x i16], ptr %6, i64 0, i64 %indvars.iv287
   %36 = load i16, ptr %35, align 2
   %37 = zext i16 %36 to i32
   %38 = sub nsw i32 %34, %37
@@ -126,7 +126,7 @@ define dso_local range(i32 -1, 2) i32 @cm_zlib_inflate_table(i32 noundef %0, ptr
   br i1 %or.cond, label %.loopexit, label %44
 
 44:                                               ; preds = %41, %40
-  %45 = getelementptr inbounds i8, ptr %7, i64 2
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 2
   store i16 0, ptr %45, align 2
   br label %46
 
@@ -140,18 +140,18 @@ define dso_local range(i32 -1, 2) i32 @cm_zlib_inflate_table(i32 noundef %0, ptr
 46:                                               ; preds = %44, %46
   %47 = phi i16 [ 0, %44 ], [ %50, %46 ]
   %indvars.iv291 = phi i64 [ 1, %44 ], [ %indvars.iv.next292, %46 ]
-  %48 = getelementptr inbounds [16 x i16], ptr %6, i64 0, i64 %indvars.iv291
+  %48 = getelementptr inbounds nuw [16 x i16], ptr %6, i64 0, i64 %indvars.iv291
   %49 = load i16, ptr %48, align 2
   %50 = add i16 %49, %47
   %indvars.iv.next292 = add nuw nsw i64 %indvars.iv291, 1
-  %51 = getelementptr inbounds [16 x i16], ptr %7, i64 0, i64 %indvars.iv.next292
+  %51 = getelementptr inbounds nuw [16 x i16], ptr %7, i64 0, i64 %indvars.iv.next292
   store i16 %50, ptr %51, align 2
   %exitcond294.not = icmp eq i64 %indvars.iv.next292, 15
   br i1 %exitcond294.not, label %.preheader235, label %46, !llvm.loop !10
 
 .lr.ph257:                                        ; preds = %.lr.ph257.preheader, %62
   %indvars.iv295 = phi i64 [ 0, %.lr.ph257.preheader ], [ %indvars.iv.next296, %62 ]
-  %52 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv295
+  %52 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv295
   %53 = load i16, ptr %52, align 2
   %.not221 = icmp eq i16 %53, 0
   br i1 %.not221, label %62, label %54
@@ -159,12 +159,12 @@ define dso_local range(i32 -1, 2) i32 @cm_zlib_inflate_table(i32 noundef %0, ptr
 54:                                               ; preds = %.lr.ph257
   %55 = trunc i64 %indvars.iv295 to i16
   %56 = zext i16 %53 to i64
-  %57 = getelementptr inbounds [16 x i16], ptr %7, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw [16 x i16], ptr %7, i64 0, i64 %56
   %58 = load i16, ptr %57, align 2
   %59 = add i16 %58, 1
   store i16 %59, ptr %57, align 2
   %60 = zext i16 %58 to i64
-  %61 = getelementptr inbounds i16, ptr %5, i64 %60
+  %61 = getelementptr inbounds nuw i16, ptr %5, i64 %60
   store i16 %55, ptr %61, align 2
   br label %62
 
@@ -220,7 +220,7 @@ define dso_local range(i32 -1, 2) i32 @cm_zlib_inflate_table(i32 noundef %0, ptr
   %76 = sub i32 %.3, %.0191.ph
   %77 = trunc i32 %76 to i8
   %78 = zext i32 %.2202 to i64
-  %79 = getelementptr inbounds i16, ptr %5, i64 %78
+  %79 = getelementptr inbounds nuw i16, ptr %5, i64 %78
   %80 = load i16, ptr %79, align 2
   %81 = zext i16 %80 to i32
   %82 = add nuw nsw i32 %81, 1
@@ -234,10 +234,10 @@ define dso_local range(i32 -1, 2) i32 @cm_zlib_inflate_table(i32 noundef %0, ptr
 85:                                               ; preds = %84
   %86 = sub nuw nsw i32 %81, %.0233306
   %87 = zext nneg i32 %86 to i64
-  %88 = getelementptr inbounds i16, ptr %.0177232307, i64 %87
+  %88 = getelementptr inbounds nuw i16, ptr %.0177232307, i64 %87
   %89 = load i16, ptr %88, align 2
   %90 = trunc i16 %89 to i8
-  %91 = getelementptr inbounds i16, ptr %.0178231308, i64 %87
+  %91 = getelementptr inbounds nuw i16, ptr %.0178231308, i64 %87
   %92 = load i16, ptr %91, align 2
   br label %93
 
@@ -253,11 +253,11 @@ define dso_local range(i32 -1, 2) i32 @cm_zlib_inflate_table(i32 noundef %0, ptr
   %96 = add i32 %.0183, %.neg
   %97 = add i32 %96, %94
   %98 = zext i32 %97 to i64
-  %99 = getelementptr inbounds %struct.code, ptr %.0179.ph, i64 %98
+  %99 = getelementptr inbounds nuw %struct.code, ptr %.0179.ph, i64 %98
   store i8 %.sroa.0.0, ptr %99, align 2
-  %.sroa.9.0..sroa_idx23 = getelementptr inbounds i8, ptr %99, i64 1
+  %.sroa.9.0..sroa_idx23 = getelementptr inbounds nuw i8, ptr %99, i64 1
   store i8 %77, ptr %.sroa.9.0..sroa_idx23, align 1
-  %.sroa.12.0..sroa_idx29 = getelementptr inbounds i8, ptr %99, i64 2
+  %.sroa.12.0..sroa_idx29 = getelementptr inbounds nuw i8, ptr %99, i64 2
   store i16 %.sroa.12.0, ptr %.sroa.12.0..sroa_idx29, align 2
   %.not216 = icmp eq i32 %96, 0
   br i1 %.not216, label %100, label %95, !llvm.loop !12
@@ -282,7 +282,7 @@ define dso_local range(i32 -1, 2) i32 @cm_zlib_inflate_table(i32 noundef %0, ptr
   %.1186 = select i1 %.not218, i32 0, i32 %109
   %110 = add i32 %.2202, 1
   %111 = zext i32 %.3 to i64
-  %112 = getelementptr inbounds [16 x i16], ptr %6, i64 0, i64 %111
+  %112 = getelementptr inbounds nuw [16 x i16], ptr %6, i64 0, i64 %111
   %113 = load i16, ptr %112, align 2
   %114 = add i16 %113, -1
   store i16 %114, ptr %112, align 2
@@ -295,10 +295,10 @@ define dso_local range(i32 -1, 2) i32 @cm_zlib_inflate_table(i32 noundef %0, ptr
 
 118:                                              ; preds = %116
   %119 = zext i32 %110 to i64
-  %120 = getelementptr inbounds i16, ptr %5, i64 %119
+  %120 = getelementptr inbounds nuw i16, ptr %5, i64 %119
   %121 = load i16, ptr %120, align 2
   %122 = zext i16 %121 to i64
-  %123 = getelementptr inbounds i16, ptr %1, i64 %122
+  %123 = getelementptr inbounds nuw i16, ptr %1, i64 %122
   %124 = load i16, ptr %123, align 2
   %125 = zext i16 %124 to i32
   br label %126
@@ -320,7 +320,7 @@ define dso_local range(i32 -1, 2) i32 @cm_zlib_inflate_table(i32 noundef %0, ptr
   %131 = icmp eq i32 %.0191.ph, 0
   %spec.select223 = select i1 %131, i32 %spec.select222, i32 %.0191.ph
   %132 = zext i32 %74 to i64
-  %133 = getelementptr inbounds %struct.code, ptr %.0179.ph, i64 %132
+  %133 = getelementptr inbounds nuw %struct.code, ptr %.0179.ph, i64 %132
   %134 = sub i32 %.4, %spec.select223
   %135 = shl nuw i32 1, %134
   %136 = icmp ult i32 %.4, %.0198246
@@ -336,7 +336,7 @@ define dso_local range(i32 -1, 2) i32 @cm_zlib_inflate_table(i32 noundef %0, ptr
   %.1190260 = phi i32 [ %147, %145 ], [ %135, %.lr.ph262.preheader ]
   %.2195259 = phi i32 [ %146, %145 ], [ %134, %.lr.ph262.preheader ]
   %139 = zext i32 %138 to i64
-  %140 = getelementptr inbounds [16 x i16], ptr %6, i64 0, i64 %139
+  %140 = getelementptr inbounds nuw [16 x i16], ptr %6, i64 0, i64 %139
   %141 = load i16, ptr %140, align 2
   %142 = zext i16 %141 to i32
   %143 = sub nsw i32 %.1190260, %142
@@ -370,10 +370,10 @@ define dso_local range(i32 -1, 2) i32 @cm_zlib_inflate_table(i32 noundef %0, ptr
   %153 = trunc i32 %.2195.lcssa to i8
   %154 = load ptr, ptr %3, align 8
   %155 = zext nneg i32 %129 to i64
-  %156 = getelementptr inbounds %struct.code, ptr %154, i64 %155
+  %156 = getelementptr inbounds nuw %struct.code, ptr %154, i64 %155
   store i8 %153, ptr %156, align 2
   %157 = load ptr, ptr %3, align 8
-  %158 = getelementptr inbounds %struct.code, ptr %157, i64 %155, i32 1
+  %158 = getelementptr inbounds nuw %struct.code, ptr %157, i64 %155, i32 1
   store i8 %73, ptr %158, align 1
   %159 = load ptr, ptr %3, align 8
   %160 = ptrtoint ptr %133 to i64
@@ -381,7 +381,7 @@ define dso_local range(i32 -1, 2) i32 @cm_zlib_inflate_table(i32 noundef %0, ptr
   %162 = sub i64 %160, %161
   %163 = lshr exact i64 %162, 2
   %164 = trunc i64 %163 to i16
-  %165 = getelementptr inbounds %struct.code, ptr %159, i64 %155, i32 2
+  %165 = getelementptr inbounds nuw %struct.code, ptr %159, i64 %155, i32 2
   store i16 %164, ptr %165, align 2
   br label %.outer
 
@@ -391,18 +391,18 @@ define dso_local range(i32 -1, 2) i32 @cm_zlib_inflate_table(i32 noundef %0, ptr
 
 167:                                              ; preds = %166
   %168 = zext i32 %.1186 to i64
-  %169 = getelementptr inbounds %struct.code, ptr %.0179.ph, i64 %168
+  %169 = getelementptr inbounds nuw %struct.code, ptr %.0179.ph, i64 %168
   store i8 64, ptr %169, align 2
-  %.sroa.9.0..sroa_idx25 = getelementptr inbounds i8, ptr %169, i64 1
+  %.sroa.9.0..sroa_idx25 = getelementptr inbounds nuw i8, ptr %169, i64 1
   store i8 %77, ptr %.sroa.9.0..sroa_idx25, align 1
-  %.sroa.12.0..sroa_idx31 = getelementptr inbounds i8, ptr %169, i64 2
+  %.sroa.12.0..sroa_idx31 = getelementptr inbounds nuw i8, ptr %169, i64 2
   store i16 0, ptr %.sroa.12.0..sroa_idx31, align 2
   br label %170
 
 170:                                              ; preds = %167, %166
   %171 = load ptr, ptr %3, align 8
   %172 = zext i32 %.0187.ph to i64
-  %173 = getelementptr inbounds %struct.code, ptr %171, i64 %172
+  %173 = getelementptr inbounds nuw %struct.code, ptr %171, i64 %172
   store ptr %173, ptr %3, align 8
   br label %.loopexit.sink.split
 

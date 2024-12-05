@@ -10,11 +10,11 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @copy_int1_heterogeneous(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
 datatype_check.exit:
-  %9 = getelementptr inbounds i8, ptr %0, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 65536
   %.not = icmp eq i32 %11, 0
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.028.in = select i1 %.not, ptr %12, ptr @opal_local_arch
   %.0.in = select i1 %.not, ptr @opal_local_arch, ptr %12
   %.0 = load i32, ptr %.0.in, align 4
@@ -57,8 +57,8 @@ datatype_check.exit.split:                        ; preds = %datatype_check.exit
   %.036.i.us = phi ptr [ %23, %.lr.ph.i.us ], [ %.031.us41, %.preheader.us ]
   %.02535.i.us = phi ptr [ %22, %.lr.ph.i.us ], [ %.032.us40, %.preheader.us ]
   %.02934.i.us = phi i64 [ %25, %.lr.ph.i.us ], [ %spec.select, %.preheader.us ]
-  %22 = getelementptr inbounds i8, ptr %.02535.i.us, i64 1
-  %23 = getelementptr inbounds i8, ptr %.036.i.us, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %.02535.i.us, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %.036.i.us, i64 1
   %24 = load i8, ptr %23, align 1
   store i8 %24, ptr %22, align 1
   %25 = add i64 %.02934.i.us, -1
@@ -94,11 +94,11 @@ opal_dt_swap_bytes.exit.loopexit.us:              ; preds = %.lr.ph.i.us
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @copy_int2_heterogeneous(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
 datatype_check.exit:
-  %9 = getelementptr inbounds i8, ptr %0, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 65536
   %.not = icmp eq i32 %11, 0
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.028.in = select i1 %.not, ptr %12, ptr @opal_local_arch
   %.0.in = select i1 %.not, ptr @opal_local_arch, ptr %12
   %.0 = load i32, ptr %.0.in, align 4
@@ -142,7 +142,7 @@ datatype_check.exit.split:                        ; preds = %datatype_check.exit
 25:                                               ; preds = %25, %.preheader.us
   %.02631.i.us = phi i64 [ %30, %25 ], [ 1, %.preheader.us ]
   %.02730.i.us = phi i64 [ %29, %25 ], [ 0, %.preheader.us ]
-  %26 = getelementptr inbounds i8, ptr %.031.us41, i64 %.02730.i.us
+  %26 = getelementptr inbounds nuw i8, ptr %.031.us41, i64 %.02730.i.us
   %27 = load i8, ptr %26, align 1
   %28 = getelementptr inbounds i8, ptr %.032.us40, i64 %.02631.i.us
   store i8 %27, ptr %28, align 1
@@ -155,14 +155,14 @@ datatype_check.exit.split:                        ; preds = %datatype_check.exit
   %.036.i.us = phi ptr [ %32, %.loopexit.i.us ], [ %.031.us41, %25 ]
   %.02535.i.us = phi ptr [ %31, %.loopexit.i.us ], [ %.032.us40, %25 ]
   %.02934.i.us = phi i64 [ %39, %.loopexit.i.us ], [ %spec.select, %25 ]
-  %31 = getelementptr inbounds i8, ptr %.02535.i.us, i64 2
-  %32 = getelementptr inbounds i8, ptr %.036.i.us, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %.02535.i.us, i64 2
+  %32 = getelementptr inbounds nuw i8, ptr %.036.i.us, i64 2
   br label %33
 
 33:                                               ; preds = %33, %.lr.ph.i.us
   %.133.i.us = phi i64 [ 1, %.lr.ph.i.us ], [ %38, %33 ]
   %.12832.i.us = phi i64 [ 0, %.lr.ph.i.us ], [ %37, %33 ]
-  %34 = getelementptr inbounds i8, ptr %32, i64 %.12832.i.us
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 %.12832.i.us
   %35 = load i8, ptr %34, align 1
   %36 = getelementptr inbounds i8, ptr %31, i64 %.133.i.us
   store i8 %35, ptr %36, align 1
@@ -199,7 +199,7 @@ opal_dt_swap_bytes.exit.loopexit.us:              ; preds = %.loopexit.i.us
 47:                                               ; preds = %.preheader, %47
   %.02631.i = phi i64 [ %52, %47 ], [ 1, %.preheader ]
   %.02730.i = phi i64 [ %51, %47 ], [ 0, %.preheader ]
-  %48 = getelementptr inbounds i8, ptr %.031, i64 %.02730.i
+  %48 = getelementptr inbounds nuw i8, ptr %.031, i64 %.02730.i
   %49 = load i8, ptr %48, align 1
   %50 = getelementptr inbounds i8, ptr %.032, i64 %.02631.i
   store i8 %49, ptr %50, align 1
@@ -218,11 +218,11 @@ opal_dt_swap_bytes.exit.loopexit.us:              ; preds = %.loopexit.i.us
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @copy_int4_heterogeneous(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
 datatype_check.exit:
-  %9 = getelementptr inbounds i8, ptr %0, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 65536
   %.not = icmp eq i32 %11, 0
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.028.in = select i1 %.not, ptr %12, ptr @opal_local_arch
   %.0.in = select i1 %.not, ptr @opal_local_arch, ptr %12
   %.0 = load i32, ptr %.0.in, align 4
@@ -266,7 +266,7 @@ datatype_check.exit.split:                        ; preds = %datatype_check.exit
 25:                                               ; preds = %25, %.preheader.us
   %.02631.i.us = phi i64 [ %30, %25 ], [ 3, %.preheader.us ]
   %.02730.i.us = phi i64 [ %29, %25 ], [ 0, %.preheader.us ]
-  %26 = getelementptr inbounds i8, ptr %.031.us41, i64 %.02730.i.us
+  %26 = getelementptr inbounds nuw i8, ptr %.031.us41, i64 %.02730.i.us
   %27 = load i8, ptr %26, align 1
   %28 = getelementptr inbounds i8, ptr %.032.us40, i64 %.02631.i.us
   store i8 %27, ptr %28, align 1
@@ -279,14 +279,14 @@ datatype_check.exit.split:                        ; preds = %datatype_check.exit
   %.036.i.us = phi ptr [ %32, %.loopexit.i.us ], [ %.031.us41, %25 ]
   %.02535.i.us = phi ptr [ %31, %.loopexit.i.us ], [ %.032.us40, %25 ]
   %.02934.i.us = phi i64 [ %39, %.loopexit.i.us ], [ %spec.select, %25 ]
-  %31 = getelementptr inbounds i8, ptr %.02535.i.us, i64 4
-  %32 = getelementptr inbounds i8, ptr %.036.i.us, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %.02535.i.us, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %.036.i.us, i64 4
   br label %33
 
 33:                                               ; preds = %33, %.lr.ph.i.us
   %.133.i.us = phi i64 [ 3, %.lr.ph.i.us ], [ %38, %33 ]
   %.12832.i.us = phi i64 [ 0, %.lr.ph.i.us ], [ %37, %33 ]
-  %34 = getelementptr inbounds i8, ptr %32, i64 %.12832.i.us
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 %.12832.i.us
   %35 = load i8, ptr %34, align 1
   %36 = getelementptr inbounds i8, ptr %31, i64 %.133.i.us
   store i8 %35, ptr %36, align 1
@@ -323,7 +323,7 @@ opal_dt_swap_bytes.exit.loopexit.us:              ; preds = %.loopexit.i.us
 47:                                               ; preds = %.preheader, %47
   %.02631.i = phi i64 [ %52, %47 ], [ 3, %.preheader ]
   %.02730.i = phi i64 [ %51, %47 ], [ 0, %.preheader ]
-  %48 = getelementptr inbounds i8, ptr %.031, i64 %.02730.i
+  %48 = getelementptr inbounds nuw i8, ptr %.031, i64 %.02730.i
   %49 = load i8, ptr %48, align 1
   %50 = getelementptr inbounds i8, ptr %.032, i64 %.02631.i
   store i8 %49, ptr %50, align 1
@@ -342,11 +342,11 @@ opal_dt_swap_bytes.exit.loopexit.us:              ; preds = %.loopexit.i.us
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @copy_int8_heterogeneous(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
 datatype_check.exit:
-  %9 = getelementptr inbounds i8, ptr %0, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 65536
   %.not = icmp eq i32 %11, 0
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.028.in = select i1 %.not, ptr %12, ptr @opal_local_arch
   %.0.in = select i1 %.not, ptr @opal_local_arch, ptr %12
   %.0 = load i32, ptr %.0.in, align 4
@@ -390,7 +390,7 @@ datatype_check.exit.split:                        ; preds = %datatype_check.exit
 25:                                               ; preds = %25, %.preheader.us
   %.02631.i.us = phi i64 [ %30, %25 ], [ 7, %.preheader.us ]
   %.02730.i.us = phi i64 [ %29, %25 ], [ 0, %.preheader.us ]
-  %26 = getelementptr inbounds i8, ptr %.031.us41, i64 %.02730.i.us
+  %26 = getelementptr inbounds nuw i8, ptr %.031.us41, i64 %.02730.i.us
   %27 = load i8, ptr %26, align 1
   %28 = getelementptr inbounds i8, ptr %.032.us40, i64 %.02631.i.us
   store i8 %27, ptr %28, align 1
@@ -403,14 +403,14 @@ datatype_check.exit.split:                        ; preds = %datatype_check.exit
   %.036.i.us = phi ptr [ %32, %.loopexit.i.us ], [ %.031.us41, %25 ]
   %.02535.i.us = phi ptr [ %31, %.loopexit.i.us ], [ %.032.us40, %25 ]
   %.02934.i.us = phi i64 [ %39, %.loopexit.i.us ], [ %spec.select, %25 ]
-  %31 = getelementptr inbounds i8, ptr %.02535.i.us, i64 8
-  %32 = getelementptr inbounds i8, ptr %.036.i.us, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %.02535.i.us, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.036.i.us, i64 8
   br label %33
 
 33:                                               ; preds = %33, %.lr.ph.i.us
   %.133.i.us = phi i64 [ 7, %.lr.ph.i.us ], [ %38, %33 ]
   %.12832.i.us = phi i64 [ 0, %.lr.ph.i.us ], [ %37, %33 ]
-  %34 = getelementptr inbounds i8, ptr %32, i64 %.12832.i.us
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 %.12832.i.us
   %35 = load i8, ptr %34, align 1
   %36 = getelementptr inbounds i8, ptr %31, i64 %.133.i.us
   store i8 %35, ptr %36, align 1
@@ -447,7 +447,7 @@ opal_dt_swap_bytes.exit.loopexit.us:              ; preds = %.loopexit.i.us
 47:                                               ; preds = %.preheader, %47
   %.02631.i = phi i64 [ %52, %47 ], [ 7, %.preheader ]
   %.02730.i = phi i64 [ %51, %47 ], [ 0, %.preheader ]
-  %48 = getelementptr inbounds i8, ptr %.031, i64 %.02730.i
+  %48 = getelementptr inbounds nuw i8, ptr %.031, i64 %.02730.i
   %49 = load i8, ptr %48, align 1
   %50 = getelementptr inbounds i8, ptr %.032, i64 %.02631.i
   store i8 %49, ptr %50, align 1
@@ -466,11 +466,11 @@ opal_dt_swap_bytes.exit.loopexit.us:              ; preds = %.loopexit.i.us
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @copy_float2_heterogeneous(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
 datatype_check.exit:
-  %9 = getelementptr inbounds i8, ptr %0, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 65536
   %.not = icmp eq i32 %11, 0
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.028.in = select i1 %.not, ptr %12, ptr @opal_local_arch
   %.0.in = select i1 %.not, ptr @opal_local_arch, ptr %12
   %.0 = load i32, ptr %.0.in, align 4
@@ -514,7 +514,7 @@ datatype_check.exit.split:                        ; preds = %datatype_check.exit
 25:                                               ; preds = %25, %.preheader.us
   %.02631.i.us = phi i64 [ %30, %25 ], [ 1, %.preheader.us ]
   %.02730.i.us = phi i64 [ %29, %25 ], [ 0, %.preheader.us ]
-  %26 = getelementptr inbounds i8, ptr %.031.us41, i64 %.02730.i.us
+  %26 = getelementptr inbounds nuw i8, ptr %.031.us41, i64 %.02730.i.us
   %27 = load i8, ptr %26, align 1
   %28 = getelementptr inbounds i8, ptr %.032.us40, i64 %.02631.i.us
   store i8 %27, ptr %28, align 1
@@ -527,14 +527,14 @@ datatype_check.exit.split:                        ; preds = %datatype_check.exit
   %.036.i.us = phi ptr [ %32, %.loopexit.i.us ], [ %.031.us41, %25 ]
   %.02535.i.us = phi ptr [ %31, %.loopexit.i.us ], [ %.032.us40, %25 ]
   %.02934.i.us = phi i64 [ %39, %.loopexit.i.us ], [ %spec.select, %25 ]
-  %31 = getelementptr inbounds i8, ptr %.02535.i.us, i64 2
-  %32 = getelementptr inbounds i8, ptr %.036.i.us, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %.02535.i.us, i64 2
+  %32 = getelementptr inbounds nuw i8, ptr %.036.i.us, i64 2
   br label %33
 
 33:                                               ; preds = %33, %.lr.ph.i.us
   %.133.i.us = phi i64 [ 1, %.lr.ph.i.us ], [ %38, %33 ]
   %.12832.i.us = phi i64 [ 0, %.lr.ph.i.us ], [ %37, %33 ]
-  %34 = getelementptr inbounds i8, ptr %32, i64 %.12832.i.us
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 %.12832.i.us
   %35 = load i8, ptr %34, align 1
   %36 = getelementptr inbounds i8, ptr %31, i64 %.133.i.us
   store i8 %35, ptr %36, align 1
@@ -571,7 +571,7 @@ opal_dt_swap_bytes.exit.loopexit.us:              ; preds = %.loopexit.i.us
 47:                                               ; preds = %.preheader, %47
   %.02631.i = phi i64 [ %52, %47 ], [ 1, %.preheader ]
   %.02730.i = phi i64 [ %51, %47 ], [ 0, %.preheader ]
-  %48 = getelementptr inbounds i8, ptr %.031, i64 %.02730.i
+  %48 = getelementptr inbounds nuw i8, ptr %.031, i64 %.02730.i
   %49 = load i8, ptr %48, align 1
   %50 = getelementptr inbounds i8, ptr %.032, i64 %.02631.i
   store i8 %49, ptr %50, align 1
@@ -590,11 +590,11 @@ opal_dt_swap_bytes.exit.loopexit.us:              ; preds = %.loopexit.i.us
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @copy_float4_heterogeneous(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
 datatype_check.exit:
-  %9 = getelementptr inbounds i8, ptr %0, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 65536
   %.not = icmp eq i32 %11, 0
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.028.in = select i1 %.not, ptr %12, ptr @opal_local_arch
   %.0.in = select i1 %.not, ptr @opal_local_arch, ptr %12
   %.0 = load i32, ptr %.0.in, align 4
@@ -638,7 +638,7 @@ datatype_check.exit.split:                        ; preds = %datatype_check.exit
 25:                                               ; preds = %25, %.preheader.us
   %.02631.i.us = phi i64 [ %30, %25 ], [ 3, %.preheader.us ]
   %.02730.i.us = phi i64 [ %29, %25 ], [ 0, %.preheader.us ]
-  %26 = getelementptr inbounds i8, ptr %.031.us41, i64 %.02730.i.us
+  %26 = getelementptr inbounds nuw i8, ptr %.031.us41, i64 %.02730.i.us
   %27 = load i8, ptr %26, align 1
   %28 = getelementptr inbounds i8, ptr %.032.us40, i64 %.02631.i.us
   store i8 %27, ptr %28, align 1
@@ -651,14 +651,14 @@ datatype_check.exit.split:                        ; preds = %datatype_check.exit
   %.036.i.us = phi ptr [ %32, %.loopexit.i.us ], [ %.031.us41, %25 ]
   %.02535.i.us = phi ptr [ %31, %.loopexit.i.us ], [ %.032.us40, %25 ]
   %.02934.i.us = phi i64 [ %39, %.loopexit.i.us ], [ %spec.select, %25 ]
-  %31 = getelementptr inbounds i8, ptr %.02535.i.us, i64 4
-  %32 = getelementptr inbounds i8, ptr %.036.i.us, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %.02535.i.us, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %.036.i.us, i64 4
   br label %33
 
 33:                                               ; preds = %33, %.lr.ph.i.us
   %.133.i.us = phi i64 [ 3, %.lr.ph.i.us ], [ %38, %33 ]
   %.12832.i.us = phi i64 [ 0, %.lr.ph.i.us ], [ %37, %33 ]
-  %34 = getelementptr inbounds i8, ptr %32, i64 %.12832.i.us
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 %.12832.i.us
   %35 = load i8, ptr %34, align 1
   %36 = getelementptr inbounds i8, ptr %31, i64 %.133.i.us
   store i8 %35, ptr %36, align 1
@@ -695,7 +695,7 @@ opal_dt_swap_bytes.exit.loopexit.us:              ; preds = %.loopexit.i.us
 47:                                               ; preds = %.preheader, %47
   %.02631.i = phi i64 [ %52, %47 ], [ 3, %.preheader ]
   %.02730.i = phi i64 [ %51, %47 ], [ 0, %.preheader ]
-  %48 = getelementptr inbounds i8, ptr %.031, i64 %.02730.i
+  %48 = getelementptr inbounds nuw i8, ptr %.031, i64 %.02730.i
   %49 = load i8, ptr %48, align 1
   %50 = getelementptr inbounds i8, ptr %.032, i64 %.02631.i
   store i8 %49, ptr %50, align 1
@@ -714,11 +714,11 @@ opal_dt_swap_bytes.exit.loopexit.us:              ; preds = %.loopexit.i.us
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @copy_float8_heterogeneous(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
 datatype_check.exit:
-  %9 = getelementptr inbounds i8, ptr %0, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 65536
   %.not = icmp eq i32 %11, 0
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.028.in = select i1 %.not, ptr %12, ptr @opal_local_arch
   %.0.in = select i1 %.not, ptr @opal_local_arch, ptr %12
   %.0 = load i32, ptr %.0.in, align 4
@@ -762,7 +762,7 @@ datatype_check.exit.split:                        ; preds = %datatype_check.exit
 25:                                               ; preds = %25, %.preheader.us
   %.02631.i.us = phi i64 [ %30, %25 ], [ 7, %.preheader.us ]
   %.02730.i.us = phi i64 [ %29, %25 ], [ 0, %.preheader.us ]
-  %26 = getelementptr inbounds i8, ptr %.031.us41, i64 %.02730.i.us
+  %26 = getelementptr inbounds nuw i8, ptr %.031.us41, i64 %.02730.i.us
   %27 = load i8, ptr %26, align 1
   %28 = getelementptr inbounds i8, ptr %.032.us40, i64 %.02631.i.us
   store i8 %27, ptr %28, align 1
@@ -775,14 +775,14 @@ datatype_check.exit.split:                        ; preds = %datatype_check.exit
   %.036.i.us = phi ptr [ %32, %.loopexit.i.us ], [ %.031.us41, %25 ]
   %.02535.i.us = phi ptr [ %31, %.loopexit.i.us ], [ %.032.us40, %25 ]
   %.02934.i.us = phi i64 [ %39, %.loopexit.i.us ], [ %spec.select, %25 ]
-  %31 = getelementptr inbounds i8, ptr %.02535.i.us, i64 8
-  %32 = getelementptr inbounds i8, ptr %.036.i.us, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %.02535.i.us, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.036.i.us, i64 8
   br label %33
 
 33:                                               ; preds = %33, %.lr.ph.i.us
   %.133.i.us = phi i64 [ 7, %.lr.ph.i.us ], [ %38, %33 ]
   %.12832.i.us = phi i64 [ 0, %.lr.ph.i.us ], [ %37, %33 ]
-  %34 = getelementptr inbounds i8, ptr %32, i64 %.12832.i.us
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 %.12832.i.us
   %35 = load i8, ptr %34, align 1
   %36 = getelementptr inbounds i8, ptr %31, i64 %.133.i.us
   store i8 %35, ptr %36, align 1
@@ -819,7 +819,7 @@ opal_dt_swap_bytes.exit.loopexit.us:              ; preds = %.loopexit.i.us
 47:                                               ; preds = %.preheader, %47
   %.02631.i = phi i64 [ %52, %47 ], [ 7, %.preheader ]
   %.02730.i = phi i64 [ %51, %47 ], [ 0, %.preheader ]
-  %48 = getelementptr inbounds i8, ptr %.031, i64 %.02730.i
+  %48 = getelementptr inbounds nuw i8, ptr %.031, i64 %.02730.i
   %49 = load i8, ptr %48, align 1
   %50 = getelementptr inbounds i8, ptr %.032, i64 %.02631.i
   store i8 %49, ptr %50, align 1
@@ -839,11 +839,11 @@ opal_dt_swap_bytes.exit.loopexit.us:              ; preds = %.loopexit.i.us
 define internal noundef i32 @copy_float16_heterogeneous(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #1 {
 datatype_check.exit:
   %9 = alloca [32 x i8], align 16
-  %10 = getelementptr inbounds i8, ptr %0, i64 20
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %11 = load i32, ptr %10, align 4
   %12 = and i32 %11, 65536
   %.not = icmp eq i32 %12, 0
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.061.in = select i1 %.not, ptr %13, ptr @opal_local_arch
   %.060.in = select i1 %.not, ptr @opal_local_arch, ptr %13
   %.060 = load i32, ptr %.060.in, align 4
@@ -902,7 +902,7 @@ datatype_check.exit.split.us.split:               ; preds = %datatype_check.exit
 31:                                               ; preds = %31, %.preheader.us.us
   %.02631.i.us.us = phi i64 [ %36, %31 ], [ 15, %.preheader.us.us ]
   %.02730.i.us.us = phi i64 [ %35, %31 ], [ 0, %.preheader.us.us ]
-  %32 = getelementptr inbounds i8, ptr %.065.us.us128, i64 %.02730.i.us.us
+  %32 = getelementptr inbounds nuw i8, ptr %.065.us.us128, i64 %.02730.i.us.us
   %33 = load i8, ptr %32, align 1
   %34 = getelementptr inbounds i8, ptr %.066.us.us127, i64 %.02631.i.us.us
   store i8 %33, ptr %34, align 1
@@ -915,14 +915,14 @@ datatype_check.exit.split.us.split:               ; preds = %datatype_check.exit
   %.036.i.us.us = phi ptr [ %38, %.loopexit.i.us.us ], [ %.065.us.us128, %31 ]
   %.02535.i.us.us = phi ptr [ %37, %.loopexit.i.us.us ], [ %.066.us.us127, %31 ]
   %.02934.i.us.us = phi i64 [ %45, %.loopexit.i.us.us ], [ %spec.select, %31 ]
-  %37 = getelementptr inbounds i8, ptr %.02535.i.us.us, i64 16
-  %38 = getelementptr inbounds i8, ptr %.036.i.us.us, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %.02535.i.us.us, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.036.i.us.us, i64 16
   br label %39
 
 39:                                               ; preds = %39, %.lr.ph.i.us.us
   %.133.i.us.us = phi i64 [ 15, %.lr.ph.i.us.us ], [ %44, %39 ]
   %.12832.i.us.us = phi i64 [ 0, %.lr.ph.i.us.us ], [ %43, %39 ]
-  %40 = getelementptr inbounds i8, ptr %38, i64 %.12832.i.us.us
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 %.12832.i.us.us
   %41 = load i8, ptr %40, align 1
   %42 = getelementptr inbounds i8, ptr %37, i64 %.133.i.us.us
   store i8 %41, ptr %42, align 1
@@ -952,7 +952,7 @@ opal_dt_swap_bytes.exit.loopexit.us.us:           ; preds = %.loopexit.i.us.us
 50:                                               ; preds = %.preheader.us, %50
   %.02631.i.us = phi i64 [ %55, %50 ], [ 15, %.preheader.us ]
   %.02730.i.us = phi i64 [ %54, %50 ], [ 0, %.preheader.us ]
-  %51 = getelementptr inbounds i8, ptr %.065.us, i64 %.02730.i.us
+  %51 = getelementptr inbounds nuw i8, ptr %.065.us, i64 %.02730.i.us
   %52 = load i8, ptr %51, align 1
   %53 = getelementptr inbounds i8, ptr %.066.us, i64 %.02631.i.us
   store i8 %52, ptr %53, align 1
@@ -985,7 +985,7 @@ datatype_check.exit.split:                        ; preds = %datatype_check.exit
 .preheader126:                                    ; preds = %datatype_check.exit.split, %.preheader126
   %.02631.i76 = phi i64 [ %67, %.preheader126 ], [ 15, %datatype_check.exit.split ]
   %.02730.i77 = phi i64 [ %66, %.preheader126 ], [ 0, %datatype_check.exit.split ]
-  %63 = getelementptr inbounds i8, ptr %.065, i64 %.02730.i77
+  %63 = getelementptr inbounds nuw i8, ptr %.065, i64 %.02730.i77
   %64 = load i8, ptr %63, align 1
   %65 = getelementptr inbounds i8, ptr %.066, i64 %.02631.i76
   store i8 %64, ptr %65, align 1
@@ -1003,14 +1003,14 @@ datatype_check.exit.split:                        ; preds = %datatype_check.exit
   %.036.i81 = phi ptr [ %71, %.loopexit.i87 ], [ %.065, %.preheader.i79 ]
   %.02535.i82 = phi ptr [ %70, %.loopexit.i87 ], [ %.066, %.preheader.i79 ]
   %.02934.i83 = phi i64 [ %68, %.loopexit.i87 ], [ %spec.select, %.preheader.i79 ]
-  %70 = getelementptr inbounds i8, ptr %.02535.i82, i64 16
-  %71 = getelementptr inbounds i8, ptr %.036.i81, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %.02535.i82, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %.036.i81, i64 16
   br label %72
 
 72:                                               ; preds = %72, %.lr.ph.i80
   %.133.i84 = phi i64 [ 15, %.lr.ph.i80 ], [ %77, %72 ]
   %.12832.i85 = phi i64 [ 0, %.lr.ph.i80 ], [ %76, %72 ]
-  %73 = getelementptr inbounds i8, ptr %71, i64 %.12832.i85
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 %.12832.i85
   %74 = load i8, ptr %73, align 1
   %75 = getelementptr inbounds i8, ptr %70, i64 %.133.i84
   store i8 %74, ptr %75, align 1
@@ -1053,7 +1053,7 @@ alignment_of_long_double.exit.split.us.i:         ; preds = %alignment_of_long_d
   %90 = fpext x86_fp80 %89 to fp128
   store fp128 %90, ptr %.0.us.i, align 16
   %91 = getelementptr inbounds i8, ptr %.018.us.i, i64 %4
-  %92 = getelementptr inbounds i8, ptr %.0.us.i, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %.0.us.i, i64 16
   %93 = add nsw i64 %.019.us.i, -1
   %94 = icmp sgt i64 %.019.us.i, 1
   br i1 %94, label %alignment_of_long_double.exit.split.us.i, label %ldbl_to_f128.exit, !llvm.loop !16
@@ -1066,7 +1066,7 @@ alignment_of_long_double.exit.split.i:            ; preds = %alignment_of_long_d
   %95 = fpext x86_fp80 %.0.copyload.i to fp128
   store fp128 %95, ptr %.0.i, align 1
   %96 = getelementptr inbounds i8, ptr %.018.i, i64 %4
-  %97 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %97 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %98 = add nsw i64 %.019.i, -1
   %99 = icmp sgt i64 %.019.i, 1
   br i1 %99, label %alignment_of_long_double.exit.split.i, label %ldbl_to_f128.exit, !llvm.loop !16
@@ -1106,7 +1106,7 @@ alignment_of_long_double.exit.split.us.i96:       ; preds = %alignment_of_long_d
   %113 = fptrunc fp128 %112 to x86_fp80
   store x86_fp80 %113, ptr %.0.us.i99, align 16
   %114 = getelementptr inbounds i8, ptr %.0.us.i99, i64 %7
-  %115 = getelementptr inbounds i8, ptr %.018.us.i98, i64 16
+  %115 = getelementptr inbounds nuw i8, ptr %.018.us.i98, i64 16
   %116 = add nsw i64 %.019.us.i97, -1
   %117 = icmp sgt i64 %.019.us.i97, 1
   br i1 %117, label %alignment_of_long_double.exit.split.us.i96, label %f128_to_ldbl.exit, !llvm.loop !17
@@ -1119,7 +1119,7 @@ alignment_of_long_double.exit.split.i92:          ; preds = %alignment_of_long_d
   %118 = fptrunc fp128 %.0.copyload2.i to x86_fp80
   store x86_fp80 %118, ptr %.0.i95, align 1
   %119 = getelementptr inbounds i8, ptr %.0.i95, i64 %7
-  %120 = getelementptr inbounds i8, ptr %.018.i94, i64 16
+  %120 = getelementptr inbounds nuw i8, ptr %.018.i94, i64 16
   %121 = add nsw i64 %.019.i93, -1
   %122 = icmp sgt i64 %.019.i93, 1
   br i1 %122, label %alignment_of_long_double.exit.split.i92, label %f128_to_ldbl.exit, !llvm.loop !17
@@ -1143,7 +1143,7 @@ f128_to_ldbl.exit:                                ; preds = %alignment_of_long_d
 .preheader123:                                    ; preds = %127, %.preheader123
   %.02631.i101 = phi i64 [ %133, %.preheader123 ], [ 15, %127 ]
   %.02730.i102 = phi i64 [ %132, %.preheader123 ], [ 0, %127 ]
-  %129 = getelementptr inbounds i8, ptr %.065, i64 %.02730.i102
+  %129 = getelementptr inbounds nuw i8, ptr %.065, i64 %.02730.i102
   %130 = load i8, ptr %129, align 1
   %131 = getelementptr inbounds i8, ptr %.066, i64 %.02631.i101
   store i8 %130, ptr %131, align 1
@@ -1161,14 +1161,14 @@ f128_to_ldbl.exit:                                ; preds = %alignment_of_long_d
   %.036.i106 = phi ptr [ %137, %.loopexit.i112 ], [ %.065, %.preheader.i104 ]
   %.02535.i107 = phi ptr [ %136, %.loopexit.i112 ], [ %.066, %.preheader.i104 ]
   %.02934.i108 = phi i64 [ %134, %.loopexit.i112 ], [ %spec.select, %.preheader.i104 ]
-  %136 = getelementptr inbounds i8, ptr %.02535.i107, i64 16
-  %137 = getelementptr inbounds i8, ptr %.036.i106, i64 16
+  %136 = getelementptr inbounds nuw i8, ptr %.02535.i107, i64 16
+  %137 = getelementptr inbounds nuw i8, ptr %.036.i106, i64 16
   br label %138
 
 138:                                              ; preds = %138, %.lr.ph.i105
   %.133.i109 = phi i64 [ 15, %.lr.ph.i105 ], [ %143, %138 ]
   %.12832.i110 = phi i64 [ 0, %.lr.ph.i105 ], [ %142, %138 ]
-  %139 = getelementptr inbounds i8, ptr %137, i64 %.12832.i110
+  %139 = getelementptr inbounds nuw i8, ptr %137, i64 %.12832.i110
   %140 = load i8, ptr %139, align 1
   %141 = getelementptr inbounds i8, ptr %136, i64 %.133.i109
   store i8 %140, ptr %141, align 1
@@ -1192,7 +1192,7 @@ f128_to_ldbl.exit:                                ; preds = %alignment_of_long_d
 .preheader38.i:                                   ; preds = %.preheader38.i, %144
   %.03241.i = phi i64 [ %149, %.preheader38.i ], [ 15, %144 ]
   %.13440.i = phi i64 [ %148, %.preheader38.i ], [ 0, %144 ]
-  %145 = getelementptr inbounds [32 x i8], ptr %9, i64 0, i64 %.13440.i
+  %145 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 0, i64 %.13440.i
   %146 = load i8, ptr %145, align 1
   %147 = getelementptr inbounds i8, ptr %.066, i64 %.03241.i
   store i8 %146, ptr %147, align 1
@@ -1211,14 +1211,14 @@ f128_to_ldbl.exit:                                ; preds = %alignment_of_long_d
   %.046.i = phi ptr [ %.066, %.lr.ph.preheader.i ], [ %151, %.loopexit.i117 ]
   %150 = shl i64 %indvar.i, 4
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %150
-  %151 = getelementptr inbounds i8, ptr %.046.i, i64 16
+  %151 = getelementptr inbounds nuw i8, ptr %.046.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %9, ptr noundef nonnull align 1 dereferenceable(16) %gep.i, i64 16, i1 false)
   br label %.preheader.i116
 
 .preheader.i116:                                  ; preds = %.preheader.i116, %.lr.ph.i115
   %.144.i = phi i64 [ %156, %.preheader.i116 ], [ 15, %.lr.ph.i115 ]
   %.343.i = phi i64 [ %155, %.preheader.i116 ], [ 0, %.lr.ph.i115 ]
-  %152 = getelementptr inbounds [32 x i8], ptr %9, i64 0, i64 %.343.i
+  %152 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 0, i64 %.343.i
   %153 = load i8, ptr %152, align 1
   %154 = getelementptr inbounds i8, ptr %151, i64 %.144.i
   store i8 %153, ptr %154, align 1
@@ -1248,11 +1248,11 @@ opal_dt_swap_bytes.exit:                          ; preds = %.loopexit.i112, %.p
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @copy_short_float_complex_heterogeneous(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
 datatype_check.exit:
-  %9 = getelementptr inbounds i8, ptr %0, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 65536
   %.not = icmp eq i32 %11, 0
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.028.in = select i1 %.not, ptr %12, ptr @opal_local_arch
   %.0.in = select i1 %.not, ptr @opal_local_arch, ptr %12
   %.0 = load i32, ptr %.0.in, align 4
@@ -1297,7 +1297,7 @@ datatype_check.exit.split:                        ; preds = %datatype_check.exit
 25:                                               ; preds = %25, %.preheader.us
   %.02631.i.us = phi i64 [ %30, %25 ], [ 3, %.preheader.us ]
   %.02730.i.us = phi i64 [ %29, %25 ], [ 0, %.preheader.us ]
-  %26 = getelementptr inbounds i8, ptr %.031.us42, i64 %.02730.i.us
+  %26 = getelementptr inbounds nuw i8, ptr %.031.us42, i64 %.02730.i.us
   %27 = load i8, ptr %26, align 1
   %28 = getelementptr inbounds i8, ptr %.032.us41, i64 %.02631.i.us
   store i8 %27, ptr %28, align 1
@@ -1322,7 +1322,7 @@ datatype_check.exit.split:                        ; preds = %datatype_check.exit
 34:                                               ; preds = %.preheader, %34
   %.02631.i = phi i64 [ %39, %34 ], [ 3, %.preheader ]
   %.02730.i = phi i64 [ %38, %34 ], [ 0, %.preheader ]
-  %35 = getelementptr inbounds i8, ptr %.031, i64 %.02730.i
+  %35 = getelementptr inbounds nuw i8, ptr %.031, i64 %.02730.i
   %36 = load i8, ptr %35, align 1
   %37 = getelementptr inbounds i8, ptr %.032, i64 %.02631.i
   store i8 %36, ptr %37, align 1
@@ -1340,14 +1340,14 @@ datatype_check.exit.split:                        ; preds = %datatype_check.exit
   %.036.i = phi ptr [ %43, %.loopexit.i ], [ %.031, %34 ]
   %.02535.i = phi ptr [ %42, %.loopexit.i ], [ %.032, %34 ]
   %.02934.i = phi i64 [ %40, %.loopexit.i ], [ %.030, %34 ]
-  %42 = getelementptr inbounds i8, ptr %.02535.i, i64 4
-  %43 = getelementptr inbounds i8, ptr %.036.i, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %.02535.i, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %.036.i, i64 4
   br label %44
 
 44:                                               ; preds = %44, %.lr.ph.i
   %.133.i = phi i64 [ 3, %.lr.ph.i ], [ %49, %44 ]
   %.12832.i = phi i64 [ 0, %.lr.ph.i ], [ %48, %44 ]
-  %45 = getelementptr inbounds i8, ptr %43, i64 %.12832.i
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 %.12832.i
   %46 = load i8, ptr %45, align 1
   %47 = getelementptr inbounds i8, ptr %42, i64 %.133.i
   store i8 %46, ptr %47, align 1
@@ -1373,11 +1373,11 @@ opal_dt_swap_bytes.exit.loopexit:                 ; preds = %.loopexit.i
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @copy_float_complex_heterogeneous(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
 datatype_check.exit:
-  %9 = getelementptr inbounds i8, ptr %0, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 65536
   %.not = icmp eq i32 %11, 0
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.028.in = select i1 %.not, ptr %12, ptr @opal_local_arch
   %.0.in = select i1 %.not, ptr @opal_local_arch, ptr %12
   %.0 = load i32, ptr %.0.in, align 4
@@ -1422,7 +1422,7 @@ datatype_check.exit.split:                        ; preds = %datatype_check.exit
 25:                                               ; preds = %25, %.preheader.us
   %.02631.i.us = phi i64 [ %30, %25 ], [ 3, %.preheader.us ]
   %.02730.i.us = phi i64 [ %29, %25 ], [ 0, %.preheader.us ]
-  %26 = getelementptr inbounds i8, ptr %.031.us42, i64 %.02730.i.us
+  %26 = getelementptr inbounds nuw i8, ptr %.031.us42, i64 %.02730.i.us
   %27 = load i8, ptr %26, align 1
   %28 = getelementptr inbounds i8, ptr %.032.us41, i64 %.02631.i.us
   store i8 %27, ptr %28, align 1
@@ -1447,7 +1447,7 @@ datatype_check.exit.split:                        ; preds = %datatype_check.exit
 34:                                               ; preds = %.preheader, %34
   %.02631.i = phi i64 [ %39, %34 ], [ 3, %.preheader ]
   %.02730.i = phi i64 [ %38, %34 ], [ 0, %.preheader ]
-  %35 = getelementptr inbounds i8, ptr %.031, i64 %.02730.i
+  %35 = getelementptr inbounds nuw i8, ptr %.031, i64 %.02730.i
   %36 = load i8, ptr %35, align 1
   %37 = getelementptr inbounds i8, ptr %.032, i64 %.02631.i
   store i8 %36, ptr %37, align 1
@@ -1465,14 +1465,14 @@ datatype_check.exit.split:                        ; preds = %datatype_check.exit
   %.036.i = phi ptr [ %43, %.loopexit.i ], [ %.031, %34 ]
   %.02535.i = phi ptr [ %42, %.loopexit.i ], [ %.032, %34 ]
   %.02934.i = phi i64 [ %40, %.loopexit.i ], [ %.030, %34 ]
-  %42 = getelementptr inbounds i8, ptr %.02535.i, i64 4
-  %43 = getelementptr inbounds i8, ptr %.036.i, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %.02535.i, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %.036.i, i64 4
   br label %44
 
 44:                                               ; preds = %44, %.lr.ph.i
   %.133.i = phi i64 [ 3, %.lr.ph.i ], [ %49, %44 ]
   %.12832.i = phi i64 [ 0, %.lr.ph.i ], [ %48, %44 ]
-  %45 = getelementptr inbounds i8, ptr %43, i64 %.12832.i
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 %.12832.i
   %46 = load i8, ptr %45, align 1
   %47 = getelementptr inbounds i8, ptr %42, i64 %.133.i
   store i8 %46, ptr %47, align 1
@@ -1498,11 +1498,11 @@ opal_dt_swap_bytes.exit.loopexit:                 ; preds = %.loopexit.i
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @copy_double_complex_heterogeneous(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
 datatype_check.exit:
-  %9 = getelementptr inbounds i8, ptr %0, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 65536
   %.not = icmp eq i32 %11, 0
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.028.in = select i1 %.not, ptr %12, ptr @opal_local_arch
   %.0.in = select i1 %.not, ptr @opal_local_arch, ptr %12
   %.0 = load i32, ptr %.0.in, align 4
@@ -1547,7 +1547,7 @@ datatype_check.exit.split:                        ; preds = %datatype_check.exit
 25:                                               ; preds = %25, %.preheader.us
   %.02631.i.us = phi i64 [ %30, %25 ], [ 7, %.preheader.us ]
   %.02730.i.us = phi i64 [ %29, %25 ], [ 0, %.preheader.us ]
-  %26 = getelementptr inbounds i8, ptr %.031.us42, i64 %.02730.i.us
+  %26 = getelementptr inbounds nuw i8, ptr %.031.us42, i64 %.02730.i.us
   %27 = load i8, ptr %26, align 1
   %28 = getelementptr inbounds i8, ptr %.032.us41, i64 %.02631.i.us
   store i8 %27, ptr %28, align 1
@@ -1572,7 +1572,7 @@ datatype_check.exit.split:                        ; preds = %datatype_check.exit
 34:                                               ; preds = %.preheader, %34
   %.02631.i = phi i64 [ %39, %34 ], [ 7, %.preheader ]
   %.02730.i = phi i64 [ %38, %34 ], [ 0, %.preheader ]
-  %35 = getelementptr inbounds i8, ptr %.031, i64 %.02730.i
+  %35 = getelementptr inbounds nuw i8, ptr %.031, i64 %.02730.i
   %36 = load i8, ptr %35, align 1
   %37 = getelementptr inbounds i8, ptr %.032, i64 %.02631.i
   store i8 %36, ptr %37, align 1
@@ -1590,14 +1590,14 @@ datatype_check.exit.split:                        ; preds = %datatype_check.exit
   %.036.i = phi ptr [ %43, %.loopexit.i ], [ %.031, %34 ]
   %.02535.i = phi ptr [ %42, %.loopexit.i ], [ %.032, %34 ]
   %.02934.i = phi i64 [ %40, %.loopexit.i ], [ %.030, %34 ]
-  %42 = getelementptr inbounds i8, ptr %.02535.i, i64 8
-  %43 = getelementptr inbounds i8, ptr %.036.i, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %.02535.i, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %.036.i, i64 8
   br label %44
 
 44:                                               ; preds = %44, %.lr.ph.i
   %.133.i = phi i64 [ 7, %.lr.ph.i ], [ %49, %44 ]
   %.12832.i = phi i64 [ 0, %.lr.ph.i ], [ %48, %44 ]
-  %45 = getelementptr inbounds i8, ptr %43, i64 %.12832.i
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 %.12832.i
   %46 = load i8, ptr %45, align 1
   %47 = getelementptr inbounds i8, ptr %42, i64 %.133.i
   store i8 %46, ptr %47, align 1
@@ -1624,11 +1624,11 @@ opal_dt_swap_bytes.exit.loopexit:                 ; preds = %.loopexit.i
 define internal noundef i32 @copy_long_double_complex_heterogeneous(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #1 {
 datatype_check.exit:
   %9 = alloca [32 x i8], align 16
-  %10 = getelementptr inbounds i8, ptr %0, i64 20
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %11 = load i32, ptr %10, align 4
   %12 = and i32 %11, 65536
   %.not = icmp eq i32 %12, 0
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.061.in = select i1 %.not, ptr %13, ptr @opal_local_arch
   %.060.in = select i1 %.not, ptr @opal_local_arch, ptr %13
   %.060 = load i32, ptr %.060.in, align 4
@@ -1690,7 +1690,7 @@ datatype_check.exit.split.us.split:               ; preds = %datatype_check.exit
 33:                                               ; preds = %33, %.preheader.us.us
   %.02631.i.us.us = phi i64 [ %38, %33 ], [ 15, %.preheader.us.us ]
   %.02730.i.us.us = phi i64 [ %37, %33 ], [ 0, %.preheader.us.us ]
-  %34 = getelementptr inbounds i8, ptr %.065.us.us132, i64 %.02730.i.us.us
+  %34 = getelementptr inbounds nuw i8, ptr %.065.us.us132, i64 %.02730.i.us.us
   %35 = load i8, ptr %34, align 1
   %36 = getelementptr inbounds i8, ptr %.066.us.us131, i64 %.02631.i.us.us
   store i8 %35, ptr %36, align 1
@@ -1715,7 +1715,7 @@ datatype_check.exit.split.us.split:               ; preds = %datatype_check.exit
 42:                                               ; preds = %.preheader.us, %42
   %.02631.i.us = phi i64 [ %47, %42 ], [ 15, %.preheader.us ]
   %.02730.i.us = phi i64 [ %46, %42 ], [ 0, %.preheader.us ]
-  %43 = getelementptr inbounds i8, ptr %.065.us, i64 %.02730.i.us
+  %43 = getelementptr inbounds nuw i8, ptr %.065.us, i64 %.02730.i.us
   %44 = load i8, ptr %43, align 1
   %45 = getelementptr inbounds i8, ptr %.066.us, i64 %.02631.i.us
   store i8 %44, ptr %45, align 1
@@ -1728,14 +1728,14 @@ datatype_check.exit.split.us.split:               ; preds = %datatype_check.exit
   %.036.i.us = phi ptr [ %49, %.loopexit.i.us ], [ %.065.us, %42 ]
   %.02535.i.us = phi ptr [ %48, %.loopexit.i.us ], [ %.066.us, %42 ]
   %.02934.i.us = phi i64 [ %56, %.loopexit.i.us ], [ %.064, %42 ]
-  %48 = getelementptr inbounds i8, ptr %.02535.i.us, i64 16
-  %49 = getelementptr inbounds i8, ptr %.036.i.us, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %.02535.i.us, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %.036.i.us, i64 16
   br label %50
 
 50:                                               ; preds = %50, %.lr.ph.i.us
   %.133.i.us = phi i64 [ 15, %.lr.ph.i.us ], [ %55, %50 ]
   %.12832.i.us = phi i64 [ 0, %.lr.ph.i.us ], [ %54, %50 ]
-  %51 = getelementptr inbounds i8, ptr %49, i64 %.12832.i.us
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 %.12832.i.us
   %52 = load i8, ptr %51, align 1
   %53 = getelementptr inbounds i8, ptr %48, i64 %.133.i.us
   store i8 %52, ptr %53, align 1
@@ -1773,7 +1773,7 @@ datatype_check.exit.split:                        ; preds = %datatype_check.exit
 .preheader130:                                    ; preds = %datatype_check.exit.split, %.preheader130
   %.02631.i76 = phi i64 [ %69, %.preheader130 ], [ 15, %datatype_check.exit.split ]
   %.02730.i77 = phi i64 [ %68, %.preheader130 ], [ 0, %datatype_check.exit.split ]
-  %65 = getelementptr inbounds i8, ptr %.065, i64 %.02730.i77
+  %65 = getelementptr inbounds nuw i8, ptr %.065, i64 %.02730.i77
   %66 = load i8, ptr %65, align 1
   %67 = getelementptr inbounds i8, ptr %.066, i64 %.02631.i76
   store i8 %66, ptr %67, align 1
@@ -1791,14 +1791,14 @@ datatype_check.exit.split:                        ; preds = %datatype_check.exit
   %.036.i81 = phi ptr [ %73, %.loopexit.i87 ], [ %.065, %.preheader.i79 ]
   %.02535.i82 = phi ptr [ %72, %.loopexit.i87 ], [ %.066, %.preheader.i79 ]
   %.02934.i83 = phi i64 [ %70, %.loopexit.i87 ], [ %.064, %.preheader.i79 ]
-  %72 = getelementptr inbounds i8, ptr %.02535.i82, i64 16
-  %73 = getelementptr inbounds i8, ptr %.036.i81, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %.02535.i82, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %.036.i81, i64 16
   br label %74
 
 74:                                               ; preds = %74, %.lr.ph.i80
   %.133.i84 = phi i64 [ 15, %.lr.ph.i80 ], [ %79, %74 ]
   %.12832.i85 = phi i64 [ 0, %.lr.ph.i80 ], [ %78, %74 ]
-  %75 = getelementptr inbounds i8, ptr %73, i64 %.12832.i85
+  %75 = getelementptr inbounds nuw i8, ptr %73, i64 %.12832.i85
   %76 = load i8, ptr %75, align 1
   %77 = getelementptr inbounds i8, ptr %72, i64 %.133.i84
   store i8 %76, ptr %77, align 1
@@ -1841,7 +1841,7 @@ alignment_of_long_double.exit.split.us.i:         ; preds = %alignment_of_long_d
   %92 = fpext x86_fp80 %91 to fp128
   store fp128 %92, ptr %.0.us.i, align 16
   %93 = getelementptr inbounds i8, ptr %.018.us.i, i64 %24
-  %94 = getelementptr inbounds i8, ptr %.0.us.i, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %.0.us.i, i64 16
   %95 = add nsw i64 %.019.us.i, -1
   %96 = icmp sgt i64 %.019.us.i, 1
   br i1 %96, label %alignment_of_long_double.exit.split.us.i, label %ldbl_to_f128.exit, !llvm.loop !16
@@ -1854,7 +1854,7 @@ alignment_of_long_double.exit.split.i:            ; preds = %alignment_of_long_d
   %97 = fpext x86_fp80 %.0.copyload.i to fp128
   store fp128 %97, ptr %.0.i, align 1
   %98 = getelementptr inbounds i8, ptr %.018.i, i64 %24
-  %99 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %99 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %100 = add nsw i64 %.019.i, -1
   %101 = icmp sgt i64 %.019.i, 1
   br i1 %101, label %alignment_of_long_double.exit.split.i, label %ldbl_to_f128.exit, !llvm.loop !16
@@ -1894,7 +1894,7 @@ alignment_of_long_double.exit.split.us.i96:       ; preds = %alignment_of_long_d
   %115 = fptrunc fp128 %114 to x86_fp80
   store x86_fp80 %115, ptr %.0.us.i99, align 16
   %116 = getelementptr inbounds i8, ptr %.0.us.i99, i64 %26
-  %117 = getelementptr inbounds i8, ptr %.018.us.i98, i64 16
+  %117 = getelementptr inbounds nuw i8, ptr %.018.us.i98, i64 16
   %118 = add nsw i64 %.019.us.i97, -1
   %119 = icmp sgt i64 %.019.us.i97, 1
   br i1 %119, label %alignment_of_long_double.exit.split.us.i96, label %f128_to_ldbl.exit, !llvm.loop !17
@@ -1907,7 +1907,7 @@ alignment_of_long_double.exit.split.i92:          ; preds = %alignment_of_long_d
   %120 = fptrunc fp128 %.0.copyload2.i to x86_fp80
   store x86_fp80 %120, ptr %.0.i95, align 1
   %121 = getelementptr inbounds i8, ptr %.0.i95, i64 %26
-  %122 = getelementptr inbounds i8, ptr %.018.i94, i64 16
+  %122 = getelementptr inbounds nuw i8, ptr %.018.i94, i64 16
   %123 = add nsw i64 %.019.i93, -1
   %124 = icmp sgt i64 %.019.i93, 1
   br i1 %124, label %alignment_of_long_double.exit.split.i92, label %f128_to_ldbl.exit, !llvm.loop !17
@@ -1931,7 +1931,7 @@ f128_to_ldbl.exit:                                ; preds = %alignment_of_long_d
 .preheader127:                                    ; preds = %129, %.preheader127
   %.02631.i101 = phi i64 [ %135, %.preheader127 ], [ 15, %129 ]
   %.02730.i102 = phi i64 [ %134, %.preheader127 ], [ 0, %129 ]
-  %131 = getelementptr inbounds i8, ptr %.065, i64 %.02730.i102
+  %131 = getelementptr inbounds nuw i8, ptr %.065, i64 %.02730.i102
   %132 = load i8, ptr %131, align 1
   %133 = getelementptr inbounds i8, ptr %.066, i64 %.02631.i101
   store i8 %132, ptr %133, align 1
@@ -1949,14 +1949,14 @@ f128_to_ldbl.exit:                                ; preds = %alignment_of_long_d
   %.036.i106 = phi ptr [ %139, %.loopexit.i112 ], [ %.065, %.preheader.i104 ]
   %.02535.i107 = phi ptr [ %138, %.loopexit.i112 ], [ %.066, %.preheader.i104 ]
   %.02934.i108 = phi i64 [ %136, %.loopexit.i112 ], [ %.064, %.preheader.i104 ]
-  %138 = getelementptr inbounds i8, ptr %.02535.i107, i64 16
-  %139 = getelementptr inbounds i8, ptr %.036.i106, i64 16
+  %138 = getelementptr inbounds nuw i8, ptr %.02535.i107, i64 16
+  %139 = getelementptr inbounds nuw i8, ptr %.036.i106, i64 16
   br label %140
 
 140:                                              ; preds = %140, %.lr.ph.i105
   %.133.i109 = phi i64 [ 15, %.lr.ph.i105 ], [ %145, %140 ]
   %.12832.i110 = phi i64 [ 0, %.lr.ph.i105 ], [ %144, %140 ]
-  %141 = getelementptr inbounds i8, ptr %139, i64 %.12832.i110
+  %141 = getelementptr inbounds nuw i8, ptr %139, i64 %.12832.i110
   %142 = load i8, ptr %141, align 1
   %143 = getelementptr inbounds i8, ptr %138, i64 %.133.i109
   store i8 %142, ptr %143, align 1
@@ -1980,7 +1980,7 @@ f128_to_ldbl.exit:                                ; preds = %alignment_of_long_d
 .preheader38.i:                                   ; preds = %.preheader38.i, %146
   %.03241.i = phi i64 [ %151, %.preheader38.i ], [ 15, %146 ]
   %.13440.i = phi i64 [ %150, %.preheader38.i ], [ 0, %146 ]
-  %147 = getelementptr inbounds [32 x i8], ptr %9, i64 0, i64 %.13440.i
+  %147 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 0, i64 %.13440.i
   %148 = load i8, ptr %147, align 1
   %149 = getelementptr inbounds i8, ptr %.066, i64 %.03241.i
   store i8 %148, ptr %149, align 1
@@ -1999,14 +1999,14 @@ f128_to_ldbl.exit:                                ; preds = %alignment_of_long_d
   %.046.i = phi ptr [ %.066, %.lr.ph.preheader.i ], [ %153, %.loopexit.i117 ]
   %152 = shl i64 %indvar.i, 4
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %152
-  %153 = getelementptr inbounds i8, ptr %.046.i, i64 16
+  %153 = getelementptr inbounds nuw i8, ptr %.046.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %9, ptr noundef nonnull align 1 dereferenceable(16) %gep.i, i64 16, i1 false)
   br label %.preheader.i116
 
 .preheader.i116:                                  ; preds = %.preheader.i116, %.lr.ph.i115
   %.144.i = phi i64 [ %158, %.preheader.i116 ], [ 15, %.lr.ph.i115 ]
   %.343.i = phi i64 [ %157, %.preheader.i116 ], [ 0, %.lr.ph.i115 ]
-  %154 = getelementptr inbounds [32 x i8], ptr %9, i64 0, i64 %.343.i
+  %154 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 0, i64 %.343.i
   %155 = load i8, ptr %154, align 1
   %156 = getelementptr inbounds i8, ptr %153, i64 %.144.i
   store i8 %155, ptr %156, align 1
@@ -2035,7 +2035,7 @@ opal_dt_swap_bytes.exit:                          ; preds = %.loopexit.i112, %.p
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @copy_cxx_bool_heterogeneous(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i32, ptr %10, align 8
   %12 = and i32 %11, 3072
   %13 = load i32, ptr @opal_local_arch, align 4
@@ -2162,11 +2162,11 @@ datatype_check.exit:                              ; preds = %17, %15, %9
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @copy_wchar_heterogeneous(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
 datatype_check.exit:
-  %9 = getelementptr inbounds i8, ptr %0, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 65536
   %.not = icmp eq i32 %11, 0
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.028.in = select i1 %.not, ptr %12, ptr @opal_local_arch
   %.0.in = select i1 %.not, ptr @opal_local_arch, ptr %12
   %.0 = load i32, ptr %.0.in, align 4
@@ -2210,7 +2210,7 @@ datatype_check.exit.split:                        ; preds = %datatype_check.exit
 25:                                               ; preds = %25, %.preheader.us
   %.02631.i.us = phi i64 [ %30, %25 ], [ 3, %.preheader.us ]
   %.02730.i.us = phi i64 [ %29, %25 ], [ 0, %.preheader.us ]
-  %26 = getelementptr inbounds i8, ptr %.031.us41, i64 %.02730.i.us
+  %26 = getelementptr inbounds nuw i8, ptr %.031.us41, i64 %.02730.i.us
   %27 = load i8, ptr %26, align 1
   %28 = getelementptr inbounds i8, ptr %.032.us40, i64 %.02631.i.us
   store i8 %27, ptr %28, align 1
@@ -2223,14 +2223,14 @@ datatype_check.exit.split:                        ; preds = %datatype_check.exit
   %.036.i.us = phi ptr [ %32, %.loopexit.i.us ], [ %.031.us41, %25 ]
   %.02535.i.us = phi ptr [ %31, %.loopexit.i.us ], [ %.032.us40, %25 ]
   %.02934.i.us = phi i64 [ %39, %.loopexit.i.us ], [ %spec.select, %25 ]
-  %31 = getelementptr inbounds i8, ptr %.02535.i.us, i64 4
-  %32 = getelementptr inbounds i8, ptr %.036.i.us, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %.02535.i.us, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %.036.i.us, i64 4
   br label %33
 
 33:                                               ; preds = %33, %.lr.ph.i.us
   %.133.i.us = phi i64 [ 3, %.lr.ph.i.us ], [ %38, %33 ]
   %.12832.i.us = phi i64 [ 0, %.lr.ph.i.us ], [ %37, %33 ]
-  %34 = getelementptr inbounds i8, ptr %32, i64 %.12832.i.us
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 %.12832.i.us
   %35 = load i8, ptr %34, align 1
   %36 = getelementptr inbounds i8, ptr %31, i64 %.133.i.us
   store i8 %35, ptr %36, align 1
@@ -2267,7 +2267,7 @@ opal_dt_swap_bytes.exit.loopexit.us:              ; preds = %.loopexit.i.us
 47:                                               ; preds = %.preheader, %47
   %.02631.i = phi i64 [ %52, %47 ], [ 3, %.preheader ]
   %.02730.i = phi i64 [ %51, %47 ], [ 0, %.preheader ]
-  %48 = getelementptr inbounds i8, ptr %.031, i64 %.02730.i
+  %48 = getelementptr inbounds nuw i8, ptr %.031, i64 %.02730.i
   %49 = load i8, ptr %48, align 1
   %50 = getelementptr inbounds i8, ptr %.032, i64 %.02631.i
   store i8 %49, ptr %50, align 1
@@ -2289,9 +2289,9 @@ define internal i32 @copy_long_heterogeneous(ptr nocapture noundef readonly %0, 
   %11 = alloca i64, align 8
   %12 = alloca i32, align 4
   %13 = alloca i64, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 224
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 224
   %17 = load i64, ptr %16, align 8
   %18 = mul i64 %17, %1
   %19 = icmp ugt i64 %18, %3
@@ -2303,7 +2303,7 @@ define internal i32 @copy_long_heterogeneous(ptr nocapture noundef readonly %0, 
 
 datatype_check.exit:                              ; preds = %9, %20
   %.0154 = phi i64 [ %21, %20 ], [ %1, %9 ]
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load i32, ptr %22, align 8
   %24 = load i32, ptr @opal_local_arch, align 4
   %25 = xor i32 %24, %23
@@ -2332,7 +2332,7 @@ datatype_check.exit:                              ; preds = %9, %20
 29:                                               ; preds = %.preheader155, %29
   %.02631.i = phi i64 [ %34, %29 ], [ 7, %.preheader155 ]
   %.02730.i = phi i64 [ %33, %29 ], [ 0, %.preheader155 ]
-  %30 = getelementptr inbounds i8, ptr %.0207, i64 %.02730.i
+  %30 = getelementptr inbounds nuw i8, ptr %.0207, i64 %.02730.i
   %31 = load i8, ptr %30, align 1
   %32 = getelementptr inbounds i8, ptr %.099206, i64 %.02631.i
   store i8 %31, ptr %32, align 1
@@ -2361,7 +2361,7 @@ opal_dt_swap_bytes.exit:                          ; preds = %29
   br i1 %exitcond239.not, label %.loopexit, label %.lr.ph211, !llvm.loop !30
 
 42:                                               ; preds = %datatype_check.exit
-  %43 = getelementptr inbounds i8, ptr %0, i64 20
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %44 = load i32, ptr %43, align 4
   %45 = and i32 %44, 262144
   %.not120 = icmp eq i32 %45, 0
@@ -2396,7 +2396,7 @@ opal_dt_swap_bytes.exit:                          ; preds = %29
 52:                                               ; preds = %52, %.lr.ph
   %.02631.i127 = phi i64 [ 3, %.lr.ph ], [ %57, %52 ]
   %.02730.i128 = phi i64 [ 0, %.lr.ph ], [ %56, %52 ]
-  %53 = getelementptr inbounds i8, ptr %10, i64 %.02730.i128
+  %53 = getelementptr inbounds nuw i8, ptr %10, i64 %.02730.i128
   %54 = load i8, ptr %53, align 1
   %55 = getelementptr inbounds i8, ptr %.2101177, i64 %.02631.i127
   store i8 %54, ptr %55, align 1
@@ -2424,7 +2424,7 @@ opal_dt_swap_bytes.exit130:                       ; preds = %52
 63:                                               ; preds = %63, %.lr.ph182
   %.02631.i131 = phi i64 [ 7, %.lr.ph182 ], [ %68, %63 ]
   %.02730.i132 = phi i64 [ 0, %.lr.ph182 ], [ %67, %63 ]
-  %64 = getelementptr inbounds i8, ptr %11, i64 %.02730.i132
+  %64 = getelementptr inbounds nuw i8, ptr %11, i64 %.02730.i132
   %65 = load i8, ptr %64, align 1
   %66 = getelementptr inbounds i8, ptr %.3102180, i64 %.02631.i131
   store i8 %65, ptr %66, align 1
@@ -2495,7 +2495,7 @@ opal_dt_swap_bytes.exit134:                       ; preds = %63
 84:                                               ; preds = %.preheader165, %84
   %.02631.i135 = phi i64 [ %89, %84 ], [ 3, %.preheader165 ]
   %.02730.i136 = phi i64 [ %88, %84 ], [ 0, %.preheader165 ]
-  %85 = getelementptr inbounds i8, ptr %.6193, i64 %.02730.i136
+  %85 = getelementptr inbounds nuw i8, ptr %.6193, i64 %.02730.i136
   %86 = load i8, ptr %85, align 1
   %87 = getelementptr inbounds i8, ptr %12, i64 %.02631.i135
   store i8 %86, ptr %87, align 1
@@ -2523,7 +2523,7 @@ opal_dt_swap_bytes.exit138:                       ; preds = %84
 95:                                               ; preds = %.preheader162, %95
   %.02631.i139 = phi i64 [ %100, %95 ], [ 7, %.preheader162 ]
   %.02730.i140 = phi i64 [ %99, %95 ], [ 0, %.preheader162 ]
-  %96 = getelementptr inbounds i8, ptr %.7196, i64 %.02730.i140
+  %96 = getelementptr inbounds nuw i8, ptr %.7196, i64 %.02730.i140
   %97 = load i8, ptr %96, align 1
   %98 = getelementptr inbounds i8, ptr %13, i64 %.02631.i139
   store i8 %97, ptr %98, align 1
@@ -2588,9 +2588,9 @@ define internal i32 @copy_unsigned_long_heterogeneous(ptr nocapture noundef read
   %11 = alloca i64, align 8
   %12 = alloca i32, align 4
   %13 = alloca i64, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 232
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 232
   %17 = load i64, ptr %16, align 8
   %18 = mul i64 %17, %1
   %19 = icmp ugt i64 %18, %3
@@ -2602,7 +2602,7 @@ define internal i32 @copy_unsigned_long_heterogeneous(ptr nocapture noundef read
 
 datatype_check.exit:                              ; preds = %9, %20
   %.0154 = phi i64 [ %21, %20 ], [ %1, %9 ]
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load i32, ptr %22, align 8
   %24 = load i32, ptr @opal_local_arch, align 4
   %25 = xor i32 %24, %23
@@ -2631,7 +2631,7 @@ datatype_check.exit:                              ; preds = %9, %20
 29:                                               ; preds = %.preheader155, %29
   %.02631.i = phi i64 [ %34, %29 ], [ 7, %.preheader155 ]
   %.02730.i = phi i64 [ %33, %29 ], [ 0, %.preheader155 ]
-  %30 = getelementptr inbounds i8, ptr %.0207, i64 %.02730.i
+  %30 = getelementptr inbounds nuw i8, ptr %.0207, i64 %.02730.i
   %31 = load i8, ptr %30, align 1
   %32 = getelementptr inbounds i8, ptr %.099206, i64 %.02631.i
   store i8 %31, ptr %32, align 1
@@ -2660,7 +2660,7 @@ opal_dt_swap_bytes.exit:                          ; preds = %29
   br i1 %exitcond239.not, label %.loopexit, label %.lr.ph211, !llvm.loop !40
 
 42:                                               ; preds = %datatype_check.exit
-  %43 = getelementptr inbounds i8, ptr %0, i64 20
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %44 = load i32, ptr %43, align 4
   %45 = and i32 %44, 262144
   %.not120 = icmp eq i32 %45, 0
@@ -2695,7 +2695,7 @@ opal_dt_swap_bytes.exit:                          ; preds = %29
 52:                                               ; preds = %52, %.lr.ph
   %.02631.i127 = phi i64 [ 3, %.lr.ph ], [ %57, %52 ]
   %.02730.i128 = phi i64 [ 0, %.lr.ph ], [ %56, %52 ]
-  %53 = getelementptr inbounds i8, ptr %10, i64 %.02730.i128
+  %53 = getelementptr inbounds nuw i8, ptr %10, i64 %.02730.i128
   %54 = load i8, ptr %53, align 1
   %55 = getelementptr inbounds i8, ptr %.2101177, i64 %.02631.i127
   store i8 %54, ptr %55, align 1
@@ -2723,7 +2723,7 @@ opal_dt_swap_bytes.exit130:                       ; preds = %52
 63:                                               ; preds = %63, %.lr.ph182
   %.02631.i131 = phi i64 [ 7, %.lr.ph182 ], [ %68, %63 ]
   %.02730.i132 = phi i64 [ 0, %.lr.ph182 ], [ %67, %63 ]
-  %64 = getelementptr inbounds i8, ptr %11, i64 %.02730.i132
+  %64 = getelementptr inbounds nuw i8, ptr %11, i64 %.02730.i132
   %65 = load i8, ptr %64, align 1
   %66 = getelementptr inbounds i8, ptr %.3102180, i64 %.02631.i131
   store i8 %65, ptr %66, align 1
@@ -2794,7 +2794,7 @@ opal_dt_swap_bytes.exit134:                       ; preds = %63
 84:                                               ; preds = %.preheader165, %84
   %.02631.i135 = phi i64 [ %89, %84 ], [ 3, %.preheader165 ]
   %.02730.i136 = phi i64 [ %88, %84 ], [ 0, %.preheader165 ]
-  %85 = getelementptr inbounds i8, ptr %.6193, i64 %.02730.i136
+  %85 = getelementptr inbounds nuw i8, ptr %.6193, i64 %.02730.i136
   %86 = load i8, ptr %85, align 1
   %87 = getelementptr inbounds i8, ptr %12, i64 %.02631.i135
   store i8 %86, ptr %87, align 1
@@ -2822,7 +2822,7 @@ opal_dt_swap_bytes.exit138:                       ; preds = %84
 95:                                               ; preds = %.preheader162, %95
   %.02631.i139 = phi i64 [ %100, %95 ], [ 7, %.preheader162 ]
   %.02730.i140 = phi i64 [ %99, %95 ], [ 0, %.preheader162 ]
-  %96 = getelementptr inbounds i8, ptr %.7196, i64 %.02730.i140
+  %96 = getelementptr inbounds nuw i8, ptr %.7196, i64 %.02730.i140
   %97 = load i8, ptr %96, align 1
   %98 = getelementptr inbounds i8, ptr %13, i64 %.02631.i139
   store i8 %97, ptr %98, align 1

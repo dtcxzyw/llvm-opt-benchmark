@@ -430,7 +430,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %11 = alloca %struct._zval_struct, align 8
   store i64 0, ptr %1, align 8
   store i64 128, ptr %5, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   br label %15
 
 13:                                               ; preds = %2427, %2368, %83
@@ -440,7 +440,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %.11569 = phi i32 [ 3, %2427 ], [ %.01568, %2368 ], [ %spec.select, %83 ]
   %.11565 = phi i32 [ %2428, %2427 ], [ %2369, %2368 ], [ %77, %83 ]
   %.1 = phi i32 [ %.7, %2427 ], [ %.9, %2368 ], [ -2, %83 ]
-  %14 = getelementptr inbounds i8, ptr %.11579, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %.11579, i64 2
   br label %15
 
 15:                                               ; preds = %13, %0
@@ -542,7 +542,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
 
 62:                                               ; preds = %60
   %63 = zext nneg i32 %.5 to i64
-  %64 = getelementptr inbounds [407 x i8], ptr @yytranslate, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw [407 x i8], ptr @yytranslate, i64 0, i64 %63
   %65 = load i8, ptr %64, align 1
   %66 = zext i8 %65 to i32
   br label %67
@@ -556,14 +556,14 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
 
 69:                                               ; preds = %67
   %70 = zext nneg i32 %68 to i64
-  %71 = getelementptr inbounds [9777 x i16], ptr @yycheck, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw [9777 x i16], ptr @yycheck, i64 0, i64 %70
   %72 = load i16, ptr %71, align 2
   %73 = sext i16 %72 to i32
   %.not1639 = icmp eq i32 %.01605, %73
   br i1 %.not1639, label %74, label %86
 
 74:                                               ; preds = %69
-  %75 = getelementptr inbounds [9777 x i16], ptr @yytable, i64 0, i64 %70
+  %75 = getelementptr inbounds nuw [9777 x i16], ptr @yytable, i64 0, i64 %70
   %76 = load i16, ptr %75, align 2
   %77 = sext i16 %76 to i32
   %78 = icmp slt i16 %76, 1
@@ -579,7 +579,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
 
 83:                                               ; preds = %74
   %spec.select = call i32 @llvm.usub.sat.i32(i32 %.01568, i32 1)
-  %84 = getelementptr inbounds i8, ptr %.21591, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %.21591, i64 8
   %85 = load i64, ptr %1, align 8
   store i64 %85, ptr %84, align 8
   br label %13
@@ -1173,25 +1173,25 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
 
 128:                                              ; preds = %91
   %129 = load ptr, ptr %.21591, align 8
-  %130 = getelementptr inbounds i8, ptr %129, i64 2
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 2
   store i16 1, ptr %130, align 2
   br label %2343
 
 131:                                              ; preds = %91
   %132 = load ptr, ptr %.21591, align 8
-  %133 = getelementptr inbounds i8, ptr %132, i64 2
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 2
   store i16 1, ptr %133, align 2
   br label %2343
 
 134:                                              ; preds = %91
   %135 = load ptr, ptr %.21591, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 2
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 2
   store i16 0, ptr %136, align 2
   br label %2343
 
 137:                                              ; preds = %91
   %138 = load ptr, ptr %.21591, align 8
-  %139 = getelementptr inbounds i8, ptr %138, i64 2
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 2
   store i16 2, ptr %139, align 2
   br label %2343
 
@@ -1287,7 +1287,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   br i1 %.not1665, label %2343, label %195
 
 195:                                              ; preds = %190
-  %196 = getelementptr inbounds i8, ptr %194, i64 4
+  %196 = getelementptr inbounds nuw i8, ptr %194, i64 4
   %197 = load i32, ptr %196, align 4
   %198 = and i32 %197, 64
   %.not1666 = icmp eq i32 %198, 0
@@ -1316,7 +1316,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   br i1 %.not1663, label %2343, label %208
 
 208:                                              ; preds = %206
-  %209 = getelementptr inbounds i8, ptr %207, i64 4
+  %209 = getelementptr inbounds nuw i8, ptr %207, i64 4
   %210 = load i32, ptr %209, align 4
   %211 = and i32 %210, 64
   %.not1664 = icmp eq i32 %211, 0
@@ -1353,7 +1353,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   br i1 %.not1661, label %2343, label %227
 
 227:                                              ; preds = %225
-  %228 = getelementptr inbounds i8, ptr %226, i64 4
+  %228 = getelementptr inbounds nuw i8, ptr %226, i64 4
   %229 = load i32, ptr %228, align 4
   %230 = and i32 %229, 64
   %.not1662 = icmp eq i32 %230, 0
@@ -1393,14 +1393,14 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %248 = getelementptr inbounds i8, ptr %.21591, i64 -16
   %249 = load i64, ptr %248, align 8
   %250 = trunc i64 %249 to i16
-  %251 = getelementptr inbounds i8, ptr %247, i64 2
+  %251 = getelementptr inbounds nuw i8, ptr %247, i64 2
   store i16 %250, ptr %251, align 2
   br label %2343
 
 252:                                              ; preds = %91
   %253 = getelementptr inbounds i8, ptr %.21591, i64 -8
   %254 = load ptr, ptr %253, align 8
-  %255 = getelementptr inbounds i8, ptr %254, i64 2
+  %255 = getelementptr inbounds nuw i8, ptr %254, i64 2
   store i16 1, ptr %255, align 2
   br label %2343
 
@@ -1410,7 +1410,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %259 = getelementptr inbounds i8, ptr %.21591, i64 -16
   %260 = load i64, ptr %259, align 8
   %261 = trunc i64 %260 to i16
-  %262 = getelementptr inbounds i8, ptr %258, i64 2
+  %262 = getelementptr inbounds nuw i8, ptr %258, i64 2
   store i16 %261, ptr %262, align 2
   br label %2343
 
@@ -1479,7 +1479,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
 
 304:                                              ; preds = %91
   %305 = load ptr, ptr %.21591, align 8
-  %306 = getelementptr inbounds i8, ptr %305, i64 2
+  %306 = getelementptr inbounds nuw i8, ptr %305, i64 2
   store i16 1, ptr %306, align 2
   br label %2343
 
@@ -1488,7 +1488,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %309 = getelementptr inbounds i8, ptr %.21591, i64 -8
   %310 = load i64, ptr %309, align 8
   %311 = trunc i64 %310 to i16
-  %312 = getelementptr inbounds i8, ptr %308, i64 2
+  %312 = getelementptr inbounds nuw i8, ptr %308, i64 2
   store i16 %311, ptr %312, align 2
   br label %2343
 
@@ -1795,7 +1795,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %517 = load i16, ptr %516, align 8
   %518 = icmp eq i16 %517, 64
   call void @llvm.assume(i1 %518)
-  %519 = getelementptr inbounds i8, ptr %516, i64 8
+  %519 = getelementptr inbounds nuw i8, ptr %516, i64 8
   %520 = load ptr, ptr %519, align 8
   %521 = getelementptr inbounds i8, ptr %.21591, i64 -56
   %522 = load ptr, ptr %521, align 8
@@ -1836,7 +1836,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %548 = load i16, ptr %547, align 8
   %549 = icmp eq i16 %548, 64
   call void @llvm.assume(i1 %549)
-  %550 = getelementptr inbounds i8, ptr %547, i64 8
+  %550 = getelementptr inbounds nuw i8, ptr %547, i64 8
   %551 = load ptr, ptr %550, align 8
   %552 = getelementptr inbounds i8, ptr %.21591, i64 -40
   %553 = load ptr, ptr %552, align 8
@@ -1864,7 +1864,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %571 = load i16, ptr %570, align 8
   %572 = icmp eq i16 %571, 64
   call void @llvm.assume(i1 %572)
-  %573 = getelementptr inbounds i8, ptr %570, i64 8
+  %573 = getelementptr inbounds nuw i8, ptr %570, i64 8
   %574 = load ptr, ptr %573, align 8
   %575 = getelementptr inbounds i8, ptr %.21591, i64 -40
   %576 = load ptr, ptr %575, align 8
@@ -1944,7 +1944,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %627 = load i16, ptr %626, align 8
   %628 = icmp eq i16 %627, 64
   call void @llvm.assume(i1 %628)
-  %629 = getelementptr inbounds i8, ptr %626, i64 8
+  %629 = getelementptr inbounds nuw i8, ptr %626, i64 8
   %630 = load ptr, ptr %629, align 8
   %631 = getelementptr inbounds i8, ptr %.21591, i64 -8
   %632 = load ptr, ptr %631, align 8
@@ -1968,7 +1968,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %646 = load i16, ptr %645, align 8
   %647 = icmp eq i16 %646, 64
   call void @llvm.assume(i1 %647)
-  %648 = getelementptr inbounds i8, ptr %645, i64 8
+  %648 = getelementptr inbounds nuw i8, ptr %645, i64 8
   %649 = load ptr, ptr %648, align 8
   %650 = getelementptr inbounds i8, ptr %.21591, i64 -32
   %651 = load ptr, ptr %650, align 8
@@ -1994,7 +1994,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %667 = load i16, ptr %666, align 8
   %668 = icmp eq i16 %667, 64
   call void @llvm.assume(i1 %668)
-  %669 = getelementptr inbounds i8, ptr %666, i64 8
+  %669 = getelementptr inbounds nuw i8, ptr %666, i64 8
   %670 = load ptr, ptr %669, align 8
   %671 = getelementptr inbounds i8, ptr %.21591, i64 -32
   %672 = load ptr, ptr %671, align 8
@@ -2056,14 +2056,14 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
 705:                                              ; preds = %91
   %706 = getelementptr inbounds i8, ptr %.21591, i64 -8
   %707 = load ptr, ptr %706, align 8
-  %708 = getelementptr inbounds i8, ptr %707, i64 2
+  %708 = getelementptr inbounds nuw i8, ptr %707, i64 2
   store i16 1, ptr %708, align 2
   br label %2343
 
 709:                                              ; preds = %91
   %710 = getelementptr inbounds i8, ptr %.21591, i64 -8
   %711 = load ptr, ptr %710, align 8
-  %712 = getelementptr inbounds i8, ptr %711, i64 2
+  %712 = getelementptr inbounds nuw i8, ptr %711, i64 2
   store i16 3, ptr %712, align 2
   br label %2343
 
@@ -2325,7 +2325,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
 884:                                              ; preds = %867, %882
   %885 = phi ptr [ %883, %882 ], [ null, %867 ]
   %886 = call ptr @zend_ast_create_5(i16 noundef zeroext 1280, ptr noundef %878, ptr noundef %880, ptr noundef null, ptr noundef null, ptr noundef %885) #12
-  %887 = getelementptr inbounds i8, ptr %886, i64 2
+  %887 = getelementptr inbounds nuw i8, ptr %886, i64 2
   store i16 %876, ptr %887, align 2
   br label %2343
 
@@ -2356,7 +2356,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
 907:                                              ; preds = %888, %905
   %908 = phi ptr [ %906, %905 ], [ null, %888 ]
   %909 = call ptr @zend_ast_create_5(i16 noundef zeroext 1280, ptr noundef %899, ptr noundef %901, ptr noundef %902, ptr noundef null, ptr noundef %908) #12
-  %910 = getelementptr inbounds i8, ptr %909, i64 2
+  %910 = getelementptr inbounds nuw i8, ptr %909, i64 2
   store i16 %897, ptr %910, align 2
   br label %2343
 
@@ -2370,7 +2370,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
 
 915:                                              ; preds = %91
   %916 = load ptr, ptr %.21591, align 8
-  %917 = getelementptr inbounds i8, ptr %916, i64 2
+  %917 = getelementptr inbounds nuw i8, ptr %916, i64 2
   %918 = load i16, ptr %917, align 2
   %919 = or i16 %918, 256
   store i16 %919, ptr %917, align 2
@@ -2390,7 +2390,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
 
 926:                                              ; preds = %91
   %927 = call ptr @zend_ast_create_0(i16 noundef zeroext 1) #12
-  %928 = getelementptr inbounds i8, ptr %927, i64 2
+  %928 = getelementptr inbounds nuw i8, ptr %927, i64 2
   store i16 15, ptr %928, align 2
   br label %2343
 
@@ -2437,7 +2437,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
 
 956:                                              ; preds = %91
   %957 = load ptr, ptr %.21591, align 8
-  %958 = getelementptr inbounds i8, ptr %957, i64 2
+  %958 = getelementptr inbounds nuw i8, ptr %957, i64 2
   %959 = load i16, ptr %958, align 2
   %960 = or i16 %959, 256
   store i16 %960, ptr %958, align 2
@@ -2453,13 +2453,13 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
 
 965:                                              ; preds = %91
   %966 = call ptr @zend_ast_create_0(i16 noundef zeroext 1) #12
-  %967 = getelementptr inbounds i8, ptr %966, i64 2
+  %967 = getelementptr inbounds nuw i8, ptr %966, i64 2
   store i16 7, ptr %967, align 2
   br label %2343
 
 968:                                              ; preds = %91
   %969 = call ptr @zend_ast_create_0(i16 noundef zeroext 1) #12
-  %970 = getelementptr inbounds i8, ptr %969, i64 2
+  %970 = getelementptr inbounds nuw i8, ptr %969, i64 2
   store i16 12, ptr %970, align 2
   br label %2343
 
@@ -2611,7 +2611,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %1066 = getelementptr inbounds i8, ptr %.21591, i64 -24
   %1067 = load i64, ptr %1066, align 8
   %1068 = trunc i64 %1067 to i16
-  %1069 = getelementptr inbounds i8, ptr %1065, i64 2
+  %1069 = getelementptr inbounds nuw i8, ptr %1065, i64 2
   store i16 %1068, ptr %1069, align 2
   br label %2343
 
@@ -2622,7 +2622,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %1074 = getelementptr inbounds i8, ptr %.21591, i64 -24
   %1075 = load i64, ptr %1074, align 8
   %1076 = trunc i64 %1075 to i16
-  %1077 = getelementptr inbounds i8, ptr %1073, i64 2
+  %1077 = getelementptr inbounds nuw i8, ptr %1073, i64 2
   store i16 %1076, ptr %1077, align 2
   br label %2343
 
@@ -2635,7 +2635,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %1084 = getelementptr inbounds i8, ptr %.21591, i64 -32
   %1085 = load i64, ptr %1084, align 8
   %1086 = trunc i64 %1085 to i16
-  %1087 = getelementptr inbounds i8, ptr %1083, i64 2
+  %1087 = getelementptr inbounds nuw i8, ptr %1083, i64 2
   store i16 %1086, ptr %1087, align 2
   br label %2343
 
@@ -2658,7 +2658,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %1104 = load i16, ptr %1103, align 8
   %1105 = icmp eq i16 %1104, 64
   call void @llvm.assume(i1 %1105)
-  %1106 = getelementptr inbounds i8, ptr %1103, i64 8
+  %1106 = getelementptr inbounds nuw i8, ptr %1103, i64 8
   %1107 = load ptr, ptr %1106, align 8
   %1108 = getelementptr inbounds i8, ptr %.21591, i64 -40
   %1109 = load ptr, ptr %1108, align 8
@@ -2771,7 +2771,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %1183 = load ptr, ptr %1182, align 8
   %1184 = load ptr, ptr %.21591, align 8
   %1185 = call ptr @zend_ast_create_2(i16 noundef zeroext 544, ptr noundef %1183, ptr noundef %1184) #12
-  %1186 = getelementptr inbounds i8, ptr %1185, i64 2
+  %1186 = getelementptr inbounds nuw i8, ptr %1185, i64 2
   store i16 %1181, ptr %1186, align 2
   %.not1653 = icmp eq i32 %1180, 0
   br i1 %.not1653, label %1187, label %2343
@@ -2788,7 +2788,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %1193 = getelementptr inbounds i8, ptr %.21591, i64 -16
   %1194 = load ptr, ptr %1193, align 8
   %1195 = call ptr @zend_ast_create_2(i16 noundef zeroext 544, ptr noundef %1194, ptr noundef null) #12
-  %1196 = getelementptr inbounds i8, ptr %1195, i64 2
+  %1196 = getelementptr inbounds nuw i8, ptr %1195, i64 2
   store i16 %1192, ptr %1196, align 2
   %.not1652 = icmp eq i32 %1191, 0
   br i1 %.not1652, label %1197, label %2343
@@ -3092,7 +3092,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
 
 1379:                                             ; preds = %91
   %1380 = load ptr, ptr %.21591, align 8
-  %1381 = getelementptr inbounds i8, ptr %1380, i64 8
+  %1381 = getelementptr inbounds nuw i8, ptr %1380, i64 8
   %1382 = load ptr, ptr %1381, align 8
   %1383 = getelementptr inbounds i8, ptr %.21591, i64 -8
   %1384 = load ptr, ptr %1383, align 8
@@ -3107,7 +3107,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
 1389:                                             ; preds = %91
   %1390 = getelementptr inbounds i8, ptr %.21591, i64 -24
   %1391 = load ptr, ptr %1390, align 8
-  %1392 = getelementptr inbounds i8, ptr %1391, i64 2
+  %1392 = getelementptr inbounds nuw i8, ptr %1391, i64 2
   store i16 1, ptr %1392, align 2
   %1393 = load ptr, ptr %1390, align 8
   %1394 = load ptr, ptr %.21591, align 8
@@ -3117,7 +3117,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
 1396:                                             ; preds = %91
   %1397 = getelementptr inbounds i8, ptr %.21591, i64 -24
   %1398 = load ptr, ptr %1397, align 8
-  %1399 = getelementptr inbounds i8, ptr %1398, i64 2
+  %1399 = getelementptr inbounds nuw i8, ptr %1398, i64 2
   store i16 3, ptr %1399, align 2
   %1400 = load ptr, ptr %1397, align 8
   %1401 = load ptr, ptr %.21591, align 8
@@ -3148,7 +3148,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %1418 = load ptr, ptr %1417, align 8
   %1419 = load ptr, ptr %.21591, align 8
   %1420 = call ptr @zend_ast_create_2(i16 noundef zeroext 520, ptr noundef %1418, ptr noundef %1419) #12
-  %1421 = getelementptr inbounds i8, ptr %1420, i64 2
+  %1421 = getelementptr inbounds nuw i8, ptr %1420, i64 2
   store i16 1, ptr %1421, align 2
   br label %2343
 
@@ -3157,7 +3157,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %1424 = load ptr, ptr %1423, align 8
   %1425 = load ptr, ptr %.21591, align 8
   %1426 = call ptr @zend_ast_create_2(i16 noundef zeroext 520, ptr noundef %1424, ptr noundef %1425) #12
-  %1427 = getelementptr inbounds i8, ptr %1426, i64 2
+  %1427 = getelementptr inbounds nuw i8, ptr %1426, i64 2
   store i16 2, ptr %1427, align 2
   br label %2343
 
@@ -3166,7 +3166,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %1430 = load ptr, ptr %1429, align 8
   %1431 = load ptr, ptr %.21591, align 8
   %1432 = call ptr @zend_ast_create_2(i16 noundef zeroext 520, ptr noundef %1430, ptr noundef %1431) #12
-  %1433 = getelementptr inbounds i8, ptr %1432, i64 2
+  %1433 = getelementptr inbounds nuw i8, ptr %1432, i64 2
   store i16 3, ptr %1433, align 2
   br label %2343
 
@@ -3175,7 +3175,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %1436 = load ptr, ptr %1435, align 8
   %1437 = load ptr, ptr %.21591, align 8
   %1438 = call ptr @zend_ast_create_2(i16 noundef zeroext 520, ptr noundef %1436, ptr noundef %1437) #12
-  %1439 = getelementptr inbounds i8, ptr %1438, i64 2
+  %1439 = getelementptr inbounds nuw i8, ptr %1438, i64 2
   store i16 12, ptr %1439, align 2
   br label %2343
 
@@ -3184,7 +3184,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %1442 = load ptr, ptr %1441, align 8
   %1443 = load ptr, ptr %.21591, align 8
   %1444 = call ptr @zend_ast_create_2(i16 noundef zeroext 520, ptr noundef %1442, ptr noundef %1443) #12
-  %1445 = getelementptr inbounds i8, ptr %1444, i64 2
+  %1445 = getelementptr inbounds nuw i8, ptr %1444, i64 2
   store i16 4, ptr %1445, align 2
   br label %2343
 
@@ -3193,7 +3193,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %1448 = load ptr, ptr %1447, align 8
   %1449 = load ptr, ptr %.21591, align 8
   %1450 = call ptr @zend_ast_create_2(i16 noundef zeroext 520, ptr noundef %1448, ptr noundef %1449) #12
-  %1451 = getelementptr inbounds i8, ptr %1450, i64 2
+  %1451 = getelementptr inbounds nuw i8, ptr %1450, i64 2
   store i16 8, ptr %1451, align 2
   br label %2343
 
@@ -3202,7 +3202,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %1454 = load ptr, ptr %1453, align 8
   %1455 = load ptr, ptr %.21591, align 8
   %1456 = call ptr @zend_ast_create_2(i16 noundef zeroext 520, ptr noundef %1454, ptr noundef %1455) #12
-  %1457 = getelementptr inbounds i8, ptr %1456, i64 2
+  %1457 = getelementptr inbounds nuw i8, ptr %1456, i64 2
   store i16 5, ptr %1457, align 2
   br label %2343
 
@@ -3211,7 +3211,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %1460 = load ptr, ptr %1459, align 8
   %1461 = load ptr, ptr %.21591, align 8
   %1462 = call ptr @zend_ast_create_2(i16 noundef zeroext 520, ptr noundef %1460, ptr noundef %1461) #12
-  %1463 = getelementptr inbounds i8, ptr %1462, i64 2
+  %1463 = getelementptr inbounds nuw i8, ptr %1462, i64 2
   store i16 10, ptr %1463, align 2
   br label %2343
 
@@ -3220,7 +3220,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %1466 = load ptr, ptr %1465, align 8
   %1467 = load ptr, ptr %.21591, align 8
   %1468 = call ptr @zend_ast_create_2(i16 noundef zeroext 520, ptr noundef %1466, ptr noundef %1467) #12
-  %1469 = getelementptr inbounds i8, ptr %1468, i64 2
+  %1469 = getelementptr inbounds nuw i8, ptr %1468, i64 2
   store i16 9, ptr %1469, align 2
   br label %2343
 
@@ -3229,7 +3229,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %1472 = load ptr, ptr %1471, align 8
   %1473 = load ptr, ptr %.21591, align 8
   %1474 = call ptr @zend_ast_create_2(i16 noundef zeroext 520, ptr noundef %1472, ptr noundef %1473) #12
-  %1475 = getelementptr inbounds i8, ptr %1474, i64 2
+  %1475 = getelementptr inbounds nuw i8, ptr %1474, i64 2
   store i16 11, ptr %1475, align 2
   br label %2343
 
@@ -3238,7 +3238,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %1478 = load ptr, ptr %1477, align 8
   %1479 = load ptr, ptr %.21591, align 8
   %1480 = call ptr @zend_ast_create_2(i16 noundef zeroext 520, ptr noundef %1478, ptr noundef %1479) #12
-  %1481 = getelementptr inbounds i8, ptr %1480, i64 2
+  %1481 = getelementptr inbounds nuw i8, ptr %1480, i64 2
   store i16 6, ptr %1481, align 2
   br label %2343
 
@@ -3247,7 +3247,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %1484 = load ptr, ptr %1483, align 8
   %1485 = load ptr, ptr %.21591, align 8
   %1486 = call ptr @zend_ast_create_2(i16 noundef zeroext 520, ptr noundef %1484, ptr noundef %1485) #12
-  %1487 = getelementptr inbounds i8, ptr %1486, i64 2
+  %1487 = getelementptr inbounds nuw i8, ptr %1486, i64 2
   store i16 7, ptr %1487, align 2
   br label %2343
 
@@ -3313,7 +3313,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %1529 = load ptr, ptr %1528, align 8
   %1530 = load ptr, ptr %.21591, align 8
   %1531 = call ptr @zend_ast_create_2(i16 noundef zeroext 521, ptr noundef %1529, ptr noundef %1530) #12
-  %1532 = getelementptr inbounds i8, ptr %1531, i64 2
+  %1532 = getelementptr inbounds nuw i8, ptr %1531, i64 2
   store i16 15, ptr %1532, align 2
   br label %2343
 
@@ -3322,7 +3322,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %1535 = load ptr, ptr %1534, align 8
   %1536 = load ptr, ptr %.21591, align 8
   %1537 = call ptr @zend_ast_create_2(i16 noundef zeroext 521, ptr noundef %1535, ptr noundef %1536) #12
-  %1538 = getelementptr inbounds i8, ptr %1537, i64 2
+  %1538 = getelementptr inbounds nuw i8, ptr %1537, i64 2
   store i16 9, ptr %1538, align 2
   br label %2343
 
@@ -3331,7 +3331,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %1541 = load ptr, ptr %1540, align 8
   %1542 = load ptr, ptr %.21591, align 8
   %1543 = call ptr @zend_ast_create_2(i16 noundef zeroext 521, ptr noundef %1541, ptr noundef %1542) #12
-  %1544 = getelementptr inbounds i8, ptr %1543, i64 2
+  %1544 = getelementptr inbounds nuw i8, ptr %1543, i64 2
   store i16 10, ptr %1544, align 2
   br label %2343
 
@@ -3340,7 +3340,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %1547 = load ptr, ptr %1546, align 8
   %1548 = load ptr, ptr %.21591, align 8
   %1549 = call ptr @zend_ast_create_2(i16 noundef zeroext 521, ptr noundef %1547, ptr noundef %1548) #12
-  %1550 = getelementptr inbounds i8, ptr %1549, i64 2
+  %1550 = getelementptr inbounds nuw i8, ptr %1549, i64 2
   store i16 10, ptr %1550, align 2
   br label %2343
 
@@ -3349,7 +3349,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %1553 = load ptr, ptr %1552, align 8
   %1554 = load ptr, ptr %.21591, align 8
   %1555 = call ptr @zend_ast_create_2(i16 noundef zeroext 521, ptr noundef %1553, ptr noundef %1554) #12
-  %1556 = getelementptr inbounds i8, ptr %1555, i64 2
+  %1556 = getelementptr inbounds nuw i8, ptr %1555, i64 2
   store i16 11, ptr %1556, align 2
   br label %2343
 
@@ -3365,7 +3365,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %1564 = load ptr, ptr %1563, align 8
   %1565 = load ptr, ptr %.21591, align 8
   %1566 = call ptr @zend_ast_create_2(i16 noundef zeroext 521, ptr noundef %1564, ptr noundef %1565) #12
-  %1567 = getelementptr inbounds i8, ptr %1566, i64 2
+  %1567 = getelementptr inbounds nuw i8, ptr %1566, i64 2
   store i16 1, ptr %1567, align 2
   br label %2343
 
@@ -3374,7 +3374,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %1570 = load ptr, ptr %1569, align 8
   %1571 = load ptr, ptr %.21591, align 8
   %1572 = call ptr @zend_ast_create_2(i16 noundef zeroext 521, ptr noundef %1570, ptr noundef %1571) #12
-  %1573 = getelementptr inbounds i8, ptr %1572, i64 2
+  %1573 = getelementptr inbounds nuw i8, ptr %1572, i64 2
   store i16 2, ptr %1573, align 2
   br label %2343
 
@@ -3383,7 +3383,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %1576 = load ptr, ptr %1575, align 8
   %1577 = load ptr, ptr %.21591, align 8
   %1578 = call ptr @zend_ast_create_2(i16 noundef zeroext 521, ptr noundef %1576, ptr noundef %1577) #12
-  %1579 = getelementptr inbounds i8, ptr %1578, i64 2
+  %1579 = getelementptr inbounds nuw i8, ptr %1578, i64 2
   store i16 3, ptr %1579, align 2
   br label %2343
 
@@ -3392,7 +3392,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %1582 = load ptr, ptr %1581, align 8
   %1583 = load ptr, ptr %.21591, align 8
   %1584 = call ptr @zend_ast_create_2(i16 noundef zeroext 521, ptr noundef %1582, ptr noundef %1583) #12
-  %1585 = getelementptr inbounds i8, ptr %1584, i64 2
+  %1585 = getelementptr inbounds nuw i8, ptr %1584, i64 2
   store i16 12, ptr %1585, align 2
   br label %2343
 
@@ -3401,7 +3401,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %1588 = load ptr, ptr %1587, align 8
   %1589 = load ptr, ptr %.21591, align 8
   %1590 = call ptr @zend_ast_create_2(i16 noundef zeroext 521, ptr noundef %1588, ptr noundef %1589) #12
-  %1591 = getelementptr inbounds i8, ptr %1590, i64 2
+  %1591 = getelementptr inbounds nuw i8, ptr %1590, i64 2
   store i16 4, ptr %1591, align 2
   br label %2343
 
@@ -3410,7 +3410,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %1594 = load ptr, ptr %1593, align 8
   %1595 = load ptr, ptr %.21591, align 8
   %1596 = call ptr @zend_ast_create_2(i16 noundef zeroext 521, ptr noundef %1594, ptr noundef %1595) #12
-  %1597 = getelementptr inbounds i8, ptr %1596, i64 2
+  %1597 = getelementptr inbounds nuw i8, ptr %1596, i64 2
   store i16 5, ptr %1597, align 2
   br label %2343
 
@@ -3419,7 +3419,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %1600 = load ptr, ptr %1599, align 8
   %1601 = load ptr, ptr %.21591, align 8
   %1602 = call ptr @zend_ast_create_2(i16 noundef zeroext 521, ptr noundef %1600, ptr noundef %1601) #12
-  %1603 = getelementptr inbounds i8, ptr %1602, i64 2
+  %1603 = getelementptr inbounds nuw i8, ptr %1602, i64 2
   store i16 6, ptr %1603, align 2
   br label %2343
 
@@ -3428,7 +3428,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %1606 = load ptr, ptr %1605, align 8
   %1607 = load ptr, ptr %.21591, align 8
   %1608 = call ptr @zend_ast_create_2(i16 noundef zeroext 521, ptr noundef %1606, ptr noundef %1607) #12
-  %1609 = getelementptr inbounds i8, ptr %1608, i64 2
+  %1609 = getelementptr inbounds nuw i8, ptr %1608, i64 2
   store i16 7, ptr %1609, align 2
   br label %2343
 
@@ -3445,14 +3445,14 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
 1616:                                             ; preds = %91
   %1617 = load ptr, ptr %.21591, align 8
   %1618 = call ptr @zend_ast_create_1(i16 noundef zeroext 270, ptr noundef %1617) #12
-  %1619 = getelementptr inbounds i8, ptr %1618, i64 2
+  %1619 = getelementptr inbounds nuw i8, ptr %1618, i64 2
   store i16 14, ptr %1619, align 2
   br label %2343
 
 1620:                                             ; preds = %91
   %1621 = load ptr, ptr %.21591, align 8
   %1622 = call ptr @zend_ast_create_1(i16 noundef zeroext 270, ptr noundef %1621) #12
-  %1623 = getelementptr inbounds i8, ptr %1622, i64 2
+  %1623 = getelementptr inbounds nuw i8, ptr %1622, i64 2
   store i16 13, ptr %1623, align 2
   br label %2343
 
@@ -3461,7 +3461,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %1626 = load ptr, ptr %1625, align 8
   %1627 = load ptr, ptr %.21591, align 8
   %1628 = call ptr @zend_ast_create_2(i16 noundef zeroext 521, ptr noundef %1626, ptr noundef %1627) #12
-  %1629 = getelementptr inbounds i8, ptr %1628, i64 2
+  %1629 = getelementptr inbounds nuw i8, ptr %1628, i64 2
   store i16 16, ptr %1629, align 2
   br label %2343
 
@@ -3470,7 +3470,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %1632 = load ptr, ptr %1631, align 8
   %1633 = load ptr, ptr %.21591, align 8
   %1634 = call ptr @zend_ast_create_2(i16 noundef zeroext 521, ptr noundef %1632, ptr noundef %1633) #12
-  %1635 = getelementptr inbounds i8, ptr %1634, i64 2
+  %1635 = getelementptr inbounds nuw i8, ptr %1634, i64 2
   store i16 17, ptr %1635, align 2
   br label %2343
 
@@ -3479,7 +3479,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %1638 = load ptr, ptr %1637, align 8
   %1639 = load ptr, ptr %.21591, align 8
   %1640 = call ptr @zend_ast_create_2(i16 noundef zeroext 521, ptr noundef %1638, ptr noundef %1639) #12
-  %1641 = getelementptr inbounds i8, ptr %1640, i64 2
+  %1641 = getelementptr inbounds nuw i8, ptr %1640, i64 2
   store i16 18, ptr %1641, align 2
   br label %2343
 
@@ -3488,7 +3488,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %1644 = load ptr, ptr %1643, align 8
   %1645 = load ptr, ptr %.21591, align 8
   %1646 = call ptr @zend_ast_create_2(i16 noundef zeroext 521, ptr noundef %1644, ptr noundef %1645) #12
-  %1647 = getelementptr inbounds i8, ptr %1646, i64 2
+  %1647 = getelementptr inbounds nuw i8, ptr %1646, i64 2
   store i16 19, ptr %1647, align 2
   br label %2343
 
@@ -3497,7 +3497,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %1650 = load ptr, ptr %1649, align 8
   %1651 = load ptr, ptr %.21591, align 8
   %1652 = call ptr @zend_ast_create_2(i16 noundef zeroext 521, ptr noundef %1650, ptr noundef %1651) #12
-  %1653 = getelementptr inbounds i8, ptr %1652, i64 2
+  %1653 = getelementptr inbounds nuw i8, ptr %1652, i64 2
   store i16 20, ptr %1653, align 2
   br label %2343
 
@@ -3506,7 +3506,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %1656 = load ptr, ptr %1655, align 8
   %1657 = load ptr, ptr %.21591, align 8
   %1658 = call ptr @zend_ast_create_2(i16 noundef zeroext 521, ptr noundef %1656, ptr noundef %1657) #12
-  %1659 = getelementptr inbounds i8, ptr %1658, i64 2
+  %1659 = getelementptr inbounds nuw i8, ptr %1658, i64 2
   store i16 21, ptr %1659, align 2
   br label %2343
 
@@ -3529,7 +3529,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %1672 = load ptr, ptr %1671, align 8
   %1673 = load ptr, ptr %.21591, align 8
   %1674 = call ptr @zend_ast_create_2(i16 noundef zeroext 521, ptr noundef %1672, ptr noundef %1673) #12
-  %1675 = getelementptr inbounds i8, ptr %1674, i64 2
+  %1675 = getelementptr inbounds nuw i8, ptr %1674, i64 2
   store i16 170, ptr %1675, align 2
   br label %2343
 
@@ -3548,7 +3548,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   br i1 %1685, label %1686, label %2343
 
 1686:                                             ; preds = %1681
-  %1687 = getelementptr inbounds i8, ptr %1683, i64 2
+  %1687 = getelementptr inbounds nuw i8, ptr %1683, i64 2
   store i16 1, ptr %1687, align 2
   br label %2343
 
@@ -3586,49 +3586,49 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
 1709:                                             ; preds = %91
   %1710 = load ptr, ptr %.21591, align 8
   %1711 = call ptr @zend_ast_create_1(i16 noundef zeroext 261, ptr noundef %1710) #12
-  %1712 = getelementptr inbounds i8, ptr %1711, i64 2
+  %1712 = getelementptr inbounds nuw i8, ptr %1711, i64 2
   store i16 4, ptr %1712, align 2
   br label %2343
 
 1713:                                             ; preds = %91
   %1714 = load ptr, ptr %.21591, align 8
   %1715 = call ptr @zend_ast_create_1(i16 noundef zeroext 261, ptr noundef %1714) #12
-  %1716 = getelementptr inbounds i8, ptr %1715, i64 2
+  %1716 = getelementptr inbounds nuw i8, ptr %1715, i64 2
   store i16 5, ptr %1716, align 2
   br label %2343
 
 1717:                                             ; preds = %91
   %1718 = load ptr, ptr %.21591, align 8
   %1719 = call ptr @zend_ast_create_1(i16 noundef zeroext 261, ptr noundef %1718) #12
-  %1720 = getelementptr inbounds i8, ptr %1719, i64 2
+  %1720 = getelementptr inbounds nuw i8, ptr %1719, i64 2
   store i16 6, ptr %1720, align 2
   br label %2343
 
 1721:                                             ; preds = %91
   %1722 = load ptr, ptr %.21591, align 8
   %1723 = call ptr @zend_ast_create_1(i16 noundef zeroext 261, ptr noundef %1722) #12
-  %1724 = getelementptr inbounds i8, ptr %1723, i64 2
+  %1724 = getelementptr inbounds nuw i8, ptr %1723, i64 2
   store i16 7, ptr %1724, align 2
   br label %2343
 
 1725:                                             ; preds = %91
   %1726 = load ptr, ptr %.21591, align 8
   %1727 = call ptr @zend_ast_create_1(i16 noundef zeroext 261, ptr noundef %1726) #12
-  %1728 = getelementptr inbounds i8, ptr %1727, i64 2
+  %1728 = getelementptr inbounds nuw i8, ptr %1727, i64 2
   store i16 8, ptr %1728, align 2
   br label %2343
 
 1729:                                             ; preds = %91
   %1730 = load ptr, ptr %.21591, align 8
   %1731 = call ptr @zend_ast_create_1(i16 noundef zeroext 261, ptr noundef %1730) #12
-  %1732 = getelementptr inbounds i8, ptr %1731, i64 2
+  %1732 = getelementptr inbounds nuw i8, ptr %1731, i64 2
   store i16 18, ptr %1732, align 2
   br label %2343
 
 1733:                                             ; preds = %91
   %1734 = load ptr, ptr %.21591, align 8
   %1735 = call ptr @zend_ast_create_1(i16 noundef zeroext 261, ptr noundef %1734) #12
-  %1736 = getelementptr inbounds i8, ptr %1735, i64 2
+  %1736 = getelementptr inbounds nuw i8, ptr %1735, i64 2
   store i16 1, ptr %1736, align 2
   br label %2343
 
@@ -3708,7 +3708,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
 
 1783:                                             ; preds = %91
   %1784 = load ptr, ptr %.21591, align 8
-  %1785 = getelementptr inbounds i8, ptr %1784, i64 12
+  %1785 = getelementptr inbounds nuw i8, ptr %1784, i64 12
   %1786 = load i32, ptr %1785, align 4
   %1787 = or i32 %1786, 16
   store i32 %1787, ptr %1785, align 4
@@ -3719,7 +3719,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %1790 = getelementptr inbounds i8, ptr %.21591, i64 -16
   %1791 = load ptr, ptr %1790, align 8
   %1792 = call ptr @zend_ast_with_attributes(ptr noundef %1789, ptr noundef %1791) #12
-  %1793 = getelementptr inbounds i8, ptr %1792, i64 12
+  %1793 = getelementptr inbounds nuw i8, ptr %1792, i64 12
   %1794 = load i32, ptr %1793, align 4
   %1795 = or i32 %1794, 16
   store i32 %1795, ptr %1793, align 4
@@ -3742,15 +3742,15 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %1808 = load ptr, ptr %1807, align 8
   %1809 = call noalias ptr @_emalloc_40() #12
   store i32 1, ptr %1809, align 4
-  %1810 = getelementptr inbounds i8, ptr %1809, i64 4
+  %1810 = getelementptr inbounds nuw i8, ptr %1809, i64 4
   store i32 22, ptr %1810, align 4
-  %1811 = getelementptr inbounds i8, ptr %1809, i64 8
+  %1811 = getelementptr inbounds nuw i8, ptr %1809, i64 8
   store i64 0, ptr %1811, align 8
-  %1812 = getelementptr inbounds i8, ptr %1809, i64 16
+  %1812 = getelementptr inbounds nuw i8, ptr %1809, i64 16
   store i64 9, ptr %1812, align 8
-  %1813 = getelementptr inbounds i8, ptr %1809, i64 24
+  %1813 = getelementptr inbounds nuw i8, ptr %1809, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %1813, ptr noundef nonnull align 1 dereferenceable(9) @.str.1, i64 9, i1 false)
-  %1814 = getelementptr inbounds i8, ptr %1809, i64 33
+  %1814 = getelementptr inbounds nuw i8, ptr %1809, i64 33
   store i8 0, ptr %1814, align 1
   %1815 = getelementptr inbounds i8, ptr %.21591, i64 -64
   %1816 = load ptr, ptr %1815, align 8
@@ -3780,15 +3780,15 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %1837 = load ptr, ptr %1836, align 8
   %1838 = call noalias ptr @_emalloc_40() #12
   store i32 1, ptr %1838, align 4
-  %1839 = getelementptr inbounds i8, ptr %1838, i64 4
+  %1839 = getelementptr inbounds nuw i8, ptr %1838, i64 4
   store i32 22, ptr %1839, align 4
-  %1840 = getelementptr inbounds i8, ptr %1838, i64 8
+  %1840 = getelementptr inbounds nuw i8, ptr %1838, i64 8
   store i64 0, ptr %1840, align 8
-  %1841 = getelementptr inbounds i8, ptr %1838, i64 16
+  %1841 = getelementptr inbounds nuw i8, ptr %1838, i64 16
   store i64 9, ptr %1841, align 8
-  %1842 = getelementptr inbounds i8, ptr %1838, i64 24
+  %1842 = getelementptr inbounds nuw i8, ptr %1838, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %1842, ptr noundef nonnull align 1 dereferenceable(9) @.str.1, i64 9, i1 false)
-  %1843 = getelementptr inbounds i8, ptr %1838, i64 33
+  %1843 = getelementptr inbounds nuw i8, ptr %1838, i64 33
   store i8 0, ptr %1843, align 1
   %1844 = getelementptr inbounds i8, ptr %.21591, i64 -56
   %1845 = load ptr, ptr %1844, align 8
@@ -3857,7 +3857,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
 
 1884:                                             ; preds = %91
   %1885 = load ptr, ptr %.21591, align 8
-  %1886 = getelementptr inbounds i8, ptr %1885, i64 2
+  %1886 = getelementptr inbounds nuw i8, ptr %1885, i64 2
   store i16 1, ptr %1886, align 2
   br label %2343
 
@@ -3913,13 +3913,13 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %1924 = getelementptr inbounds i8, ptr %.21591, i64 -8
   %1925 = load i64, ptr %1924, align 8
   %1926 = trunc i64 %1925 to i32
-  %1927 = getelementptr inbounds i8, ptr %1923, i64 4
+  %1927 = getelementptr inbounds nuw i8, ptr %1923, i64 4
   store i32 %1926, ptr %1927, align 4
   br label %2343
 
 1928:                                             ; preds = %91
   %1929 = load ptr, ptr @zend_known_strings, align 8
-  %1930 = getelementptr inbounds i8, ptr %1929, i64 144
+  %1930 = getelementptr inbounds nuw i8, ptr %1929, i64 144
   %1931 = load ptr, ptr %1930, align 8
   store ptr %1931, ptr %11, align 8
   store i32 6, ptr %12, align 8
@@ -3972,14 +3972,14 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
 1956:                                             ; preds = %91
   %1957 = getelementptr inbounds i8, ptr %.21591, i64 -8
   %1958 = load ptr, ptr %1957, align 8
-  %1959 = getelementptr inbounds i8, ptr %1958, i64 2
+  %1959 = getelementptr inbounds nuw i8, ptr %1958, i64 2
   store i16 2, ptr %1959, align 2
   br label %2343
 
 1960:                                             ; preds = %91
   %1961 = getelementptr inbounds i8, ptr %.21591, i64 -8
   %1962 = load ptr, ptr %1961, align 8
-  %1963 = getelementptr inbounds i8, ptr %1962, i64 2
+  %1963 = getelementptr inbounds nuw i8, ptr %1962, i64 2
   store i16 3, ptr %1963, align 2
   br label %2343
 
@@ -4034,49 +4034,49 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
 
 1991:                                             ; preds = %91
   %1992 = call ptr @zend_ast_create_0(i16 noundef zeroext 0) #12
-  %1993 = getelementptr inbounds i8, ptr %1992, i64 2
+  %1993 = getelementptr inbounds nuw i8, ptr %1992, i64 2
   store i16 343, ptr %1993, align 2
   br label %2343
 
 1994:                                             ; preds = %91
   %1995 = call ptr @zend_ast_create_0(i16 noundef zeroext 0) #12
-  %1996 = getelementptr inbounds i8, ptr %1995, i64 2
+  %1996 = getelementptr inbounds nuw i8, ptr %1995, i64 2
   store i16 344, ptr %1996, align 2
   br label %2343
 
 1997:                                             ; preds = %91
   %1998 = call ptr @zend_ast_create_0(i16 noundef zeroext 0) #12
-  %1999 = getelementptr inbounds i8, ptr %1998, i64 2
+  %1999 = getelementptr inbounds nuw i8, ptr %1998, i64 2
   store i16 345, ptr %1999, align 2
   br label %2343
 
 2000:                                             ; preds = %91
   %2001 = call ptr @zend_ast_create_0(i16 noundef zeroext 0) #12
-  %2002 = getelementptr inbounds i8, ptr %2001, i64 2
+  %2002 = getelementptr inbounds nuw i8, ptr %2001, i64 2
   store i16 347, ptr %2002, align 2
   br label %2343
 
 2003:                                             ; preds = %91
   %2004 = call ptr @zend_ast_create_0(i16 noundef zeroext 0) #12
-  %2005 = getelementptr inbounds i8, ptr %2004, i64 2
+  %2005 = getelementptr inbounds nuw i8, ptr %2004, i64 2
   store i16 348, ptr %2005, align 2
   br label %2343
 
 2006:                                             ; preds = %91
   %2007 = call ptr @zend_ast_create_0(i16 noundef zeroext 0) #12
-  %2008 = getelementptr inbounds i8, ptr %2007, i64 2
+  %2008 = getelementptr inbounds nuw i8, ptr %2007, i64 2
   store i16 349, ptr %2008, align 2
   br label %2343
 
 2009:                                             ; preds = %91
   %2010 = call ptr @zend_ast_create_0(i16 noundef zeroext 0) #12
-  %2011 = getelementptr inbounds i8, ptr %2010, i64 2
+  %2011 = getelementptr inbounds nuw i8, ptr %2010, i64 2
   store i16 350, ptr %2011, align 2
   br label %2343
 
 2012:                                             ; preds = %91
   %2013 = call ptr @zend_ast_create_0(i16 noundef zeroext 0) #12
-  %2014 = getelementptr inbounds i8, ptr %2013, i64 2
+  %2014 = getelementptr inbounds nuw i8, ptr %2013, i64 2
   store i16 346, ptr %2014, align 2
   br label %2343
 
@@ -4175,7 +4175,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %2073 = getelementptr inbounds i8, ptr %.21591, i64 -8
   %2074 = load ptr, ptr %2073, align 8
   %2075 = call ptr @zend_ast_create_2(i16 noundef zeroext 512, ptr noundef %2072, ptr noundef %2074) #12
-  %2076 = getelementptr inbounds i8, ptr %2075, i64 2
+  %2076 = getelementptr inbounds nuw i8, ptr %2075, i64 2
   store i16 2, ptr %2076, align 2
   br label %2343
 
@@ -4270,7 +4270,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %2137 = getelementptr inbounds i8, ptr %.21591, i64 -8
   %2138 = load ptr, ptr %2137, align 8
   %2139 = call ptr @zend_ast_create_2(i16 noundef zeroext 512, ptr noundef %2136, ptr noundef %2138) #12
-  %2140 = getelementptr inbounds i8, ptr %2139, i64 2
+  %2140 = getelementptr inbounds nuw i8, ptr %2139, i64 2
   store i16 2, ptr %2140, align 2
   br label %2343
 
@@ -4332,16 +4332,16 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
 
 2177:                                             ; preds = %91
   %2178 = load ptr, ptr %.21591, align 8
-  %2179 = getelementptr inbounds i8, ptr %2178, i64 8
+  %2179 = getelementptr inbounds nuw i8, ptr %2178, i64 8
   %2180 = load i32, ptr %2179, align 8
   %.not1641 = icmp eq i32 %2180, 0
   br i1 %.not1641, label %2343, label %2181
 
 2181:                                             ; preds = %2177
-  %2182 = getelementptr inbounds i8, ptr %2178, i64 16
+  %2182 = getelementptr inbounds nuw i8, ptr %2178, i64 16
   %2183 = add i32 %2180, -1
   %2184 = zext i32 %2183 to i64
-  %2185 = getelementptr inbounds [1 x ptr], ptr %2182, i64 0, i64 %2184
+  %2185 = getelementptr inbounds nuw [1 x ptr], ptr %2182, i64 0, i64 %2184
   %2186 = load ptr, ptr %2185, align 8
   %2187 = icmp eq ptr %2186, null
   br i1 %2187, label %2188, label %2343
@@ -4383,14 +4383,14 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %2209 = getelementptr inbounds i8, ptr %.21591, i64 -24
   %2210 = load ptr, ptr %2209, align 8
   %2211 = call ptr @zend_ast_create_2(i16 noundef zeroext 526, ptr noundef %2208, ptr noundef %2210) #12
-  %2212 = getelementptr inbounds i8, ptr %2211, i64 2
+  %2212 = getelementptr inbounds nuw i8, ptr %2211, i64 2
   store i16 1, ptr %2212, align 2
   br label %2343
 
 2213:                                             ; preds = %91
   %2214 = load ptr, ptr %.21591, align 8
   %2215 = call ptr @zend_ast_create_2(i16 noundef zeroext 526, ptr noundef %2214, ptr noundef null) #12
-  %2216 = getelementptr inbounds i8, ptr %2215, i64 2
+  %2216 = getelementptr inbounds nuw i8, ptr %2215, i64 2
   store i16 1, ptr %2216, align 2
   br label %2343
 
@@ -4402,7 +4402,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
 2220:                                             ; preds = %91
   %2221 = getelementptr inbounds i8, ptr %.21591, i64 -8
   %2222 = load ptr, ptr %2221, align 8
-  %2223 = getelementptr inbounds i8, ptr %2222, i64 2
+  %2223 = getelementptr inbounds nuw i8, ptr %2222, i64 2
   store i16 1, ptr %2223, align 2
   %2224 = load ptr, ptr %2221, align 8
   %2225 = getelementptr inbounds i8, ptr %.21591, i64 -40
@@ -4413,7 +4413,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
 2228:                                             ; preds = %91
   %2229 = getelementptr inbounds i8, ptr %.21591, i64 -8
   %2230 = load ptr, ptr %2229, align 8
-  %2231 = getelementptr inbounds i8, ptr %2230, i64 2
+  %2231 = getelementptr inbounds nuw i8, ptr %2230, i64 2
   store i16 1, ptr %2231, align 2
   %2232 = load ptr, ptr %2229, align 8
   %2233 = call ptr @zend_ast_create_2(i16 noundef zeroext 526, ptr noundef %2232, ptr noundef null) #12
@@ -4479,7 +4479,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %2275 = getelementptr inbounds i8, ptr %.21591, i64 -8
   %2276 = load ptr, ptr %2275, align 8
   %2277 = call ptr @zend_ast_create_1(i16 noundef zeroext 256, ptr noundef %2276) #12
-  %2278 = getelementptr inbounds i8, ptr %2277, i64 2
+  %2278 = getelementptr inbounds nuw i8, ptr %2277, i64 2
   store i16 2, ptr %2278, align 2
   br label %2343
 
@@ -4487,7 +4487,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %2280 = getelementptr inbounds i8, ptr %.21591, i64 -8
   %2281 = load ptr, ptr %2280, align 8
   %2282 = call ptr @zend_ast_create_1(i16 noundef zeroext 256, ptr noundef %2281) #12
-  %2283 = getelementptr inbounds i8, ptr %2282, i64 2
+  %2283 = getelementptr inbounds nuw i8, ptr %2282, i64 2
   store i16 1, ptr %2283, align 2
   br label %2343
 
@@ -4498,7 +4498,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %2288 = getelementptr inbounds i8, ptr %.21591, i64 -16
   %2289 = load ptr, ptr %2288, align 8
   %2290 = call ptr @zend_ast_create_2(i16 noundef zeroext 512, ptr noundef %2287, ptr noundef %2289) #12
-  %2291 = getelementptr inbounds i8, ptr %2290, i64 2
+  %2291 = getelementptr inbounds nuw i8, ptr %2290, i64 2
   store i16 1, ptr %2291, align 2
   br label %2343
 
@@ -4539,14 +4539,14 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
 2312:                                             ; preds = %91
   %2313 = load ptr, ptr %.21591, align 8
   %2314 = call ptr @zend_ast_create_1(i16 noundef zeroext 269, ptr noundef %2313) #12
-  %2315 = getelementptr inbounds i8, ptr %2314, i64 2
+  %2315 = getelementptr inbounds nuw i8, ptr %2314, i64 2
   store i16 2, ptr %2315, align 2
   br label %2343
 
 2316:                                             ; preds = %91
   %2317 = load ptr, ptr %.21591, align 8
   %2318 = call ptr @zend_ast_create_1(i16 noundef zeroext 269, ptr noundef %2317) #12
-  %2319 = getelementptr inbounds i8, ptr %2318, i64 2
+  %2319 = getelementptr inbounds nuw i8, ptr %2318, i64 2
   store i16 4, ptr %2319, align 2
   br label %2343
 
@@ -4554,21 +4554,21 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %2321 = getelementptr inbounds i8, ptr %.21591, i64 -8
   %2322 = load ptr, ptr %2321, align 8
   %2323 = call ptr @zend_ast_create_1(i16 noundef zeroext 269, ptr noundef %2322) #12
-  %2324 = getelementptr inbounds i8, ptr %2323, i64 2
+  %2324 = getelementptr inbounds nuw i8, ptr %2323, i64 2
   store i16 1, ptr %2324, align 2
   br label %2343
 
 2325:                                             ; preds = %91
   %2326 = load ptr, ptr %.21591, align 8
   %2327 = call ptr @zend_ast_create_1(i16 noundef zeroext 269, ptr noundef %2326) #12
-  %2328 = getelementptr inbounds i8, ptr %2327, i64 2
+  %2328 = getelementptr inbounds nuw i8, ptr %2327, i64 2
   store i16 8, ptr %2328, align 2
   br label %2343
 
 2329:                                             ; preds = %91
   %2330 = load ptr, ptr %.21591, align 8
   %2331 = call ptr @zend_ast_create_1(i16 noundef zeroext 269, ptr noundef %2330) #12
-  %2332 = getelementptr inbounds i8, ptr %2331, i64 2
+  %2332 = getelementptr inbounds nuw i8, ptr %2331, i64 2
   store i16 16, ptr %2332, align 2
   br label %2343
 
@@ -4594,7 +4594,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %2345 = sub nsw i64 0, %2344
   %2346 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %.21591, i64 %2345
   %2347 = getelementptr inbounds i16, ptr %.21580, i64 %2345
-  %2348 = getelementptr inbounds i8, ptr %2346, i64 8
+  %2348 = getelementptr inbounds nuw i8, ptr %2346, i64 8
   store ptr %.sroa.0.0, ptr %2348, align 8
   %2349 = getelementptr inbounds [597 x i16], ptr @yyr1, i64 0, i64 %92
   %2350 = load i16, ptr %2349, align 2
@@ -4611,13 +4611,13 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
 
 2359:                                             ; preds = %2343
   %2360 = zext nneg i32 %2358 to i64
-  %2361 = getelementptr inbounds [9777 x i16], ptr @yycheck, i64 0, i64 %2360
+  %2361 = getelementptr inbounds nuw [9777 x i16], ptr @yycheck, i64 0, i64 %2360
   %2362 = load i16, ptr %2361, align 2
   %2363 = icmp eq i16 %2362, %2356
   br i1 %2363, label %2364, label %2366
 
 2364:                                             ; preds = %2359
-  %2365 = getelementptr inbounds [9777 x i16], ptr @yytable, i64 0, i64 %2360
+  %2365 = getelementptr inbounds nuw [9777 x i16], ptr @yytable, i64 0, i64 %2360
   br label %2368
 
 2366:                                             ; preds = %2359, %2343
@@ -4641,7 +4641,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
 
 2372:                                             ; preds = %.thread
   %2373 = zext nneg i32 %.81692 to i64
-  %2374 = getelementptr inbounds [407 x i8], ptr @yytranslate, i64 0, i64 %2373
+  %2374 = getelementptr inbounds nuw [407 x i8], ptr @yytranslate, i64 0, i64 %2373
   %2375 = load i8, ptr %2374, align 1
   %2376 = zext i8 %2375 to i32
   br label %2377
@@ -4737,13 +4737,13 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
 2407:                                             ; preds = %2402
   %2408 = sext i16 %2405 to i64
   %2409 = add nsw i64 %2408, 1
-  %2410 = getelementptr inbounds [9777 x i16], ptr @yycheck, i64 0, i64 %2409
+  %2410 = getelementptr inbounds nuw [9777 x i16], ptr @yycheck, i64 0, i64 %2409
   %2411 = load i16, ptr %2410, align 2
   %2412 = icmp eq i16 %2411, 1
   br i1 %2412, label %2413, label %2417
 
 2413:                                             ; preds = %2407
-  %2414 = getelementptr inbounds [9777 x i16], ptr @yytable, i64 0, i64 %2409
+  %2414 = getelementptr inbounds nuw [9777 x i16], ptr @yytable, i64 0, i64 %2409
   %2415 = load i16, ptr %2414, align 2
   %2416 = icmp sgt i16 %2415, 0
   br i1 %2416, label %2427, label %2417
@@ -4765,7 +4765,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
 
 2427:                                             ; preds = %2413
   %2428 = zext nneg i16 %2415 to i32
-  %2429 = getelementptr inbounds i8, ptr %.61595, i64 8
+  %2429 = getelementptr inbounds nuw i8, ptr %.61595, i64 8
   %2430 = load i64, ptr %1, align 8
   store i64 %2430, ptr %2429, align 8
   br label %13
@@ -4805,7 +4805,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
 
 2433:                                             ; preds = %2432
   %2434 = zext nneg i32 %.10 to i64
-  %2435 = getelementptr inbounds [407 x i8], ptr @yytranslate, i64 0, i64 %2434
+  %2435 = getelementptr inbounds nuw [407 x i8], ptr @yytranslate, i64 0, i64 %2434
   %2436 = load i8, ptr %2435, align 1
   %2437 = zext i8 %2436 to i32
   br label %2438
@@ -4934,7 +4934,7 @@ define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr nocapture nounde
 
 3:                                                ; preds = %1
   store i32 %.8.val, ptr %2, align 16
-  %4 = getelementptr inbounds i8, ptr %2, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %.val.val.i = load i16, ptr %.0.val1, align 2
   %5 = sext i16 %.val.val.i to i64
   %6 = getelementptr inbounds [1131 x i16], ptr @yypact, i64 0, i64 %5
@@ -5049,7 +5049,7 @@ yy_syntax_error_arguments.exit.thread6:           ; preds = %31, %.thread.i.i, %
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %48
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %48 ]
   %.04212 = phi i64 [ %46, %.lr.ph.preheader ], [ %55, %48 ]
-  %49 = getelementptr inbounds [5 x i32], ptr %2, i64 0, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [5 x i32], ptr %2, i64 0, i64 %indvars.iv
   %50 = load i32, ptr %49, align 4
   %51 = sext i32 %50 to i64
   %52 = getelementptr inbounds [357 x ptr], ptr @yytname, i64 0, i64 %51
@@ -5084,7 +5084,7 @@ yy_syntax_error_arguments.exit.thread6:           ; preds = %31, %.thread.i.i, %
   ]
 
 61:                                               ; preds = %.preheader
-  %62 = getelementptr inbounds i8, ptr %.141, i64 1
+  %62 = getelementptr inbounds nuw i8, ptr %.141, i64 1
   %63 = load i8, ptr %62, align 1
   %64 = icmp eq i8 %63, 115
   %65 = icmp slt i32 %.0, %.0.i5
@@ -5107,7 +5107,7 @@ yy_syntax_error_arguments.exit.thread6:           ; preds = %31, %.thread.i.i, %
   %.sink = phi i64 [ 2, %66 ], [ 1, %.preheader ], [ 1, %61 ]
   %.1 = phi i32 [ %67, %66 ], [ %.0, %.preheader ], [ %.0, %61 ]
   %76 = getelementptr inbounds i8, ptr %.036, i64 %.sink19
-  %77 = getelementptr inbounds i8, ptr %.141, i64 %.sink
+  %77 = getelementptr inbounds nuw i8, ptr %.141, i64 %.sink
   br label %.preheader
 
 yy_syntax_error_arguments.exit.thread8:           ; preds = %.lr.ph, %.preheader, %._crit_edge.i.i, %58, %yy_syntax_error_arguments.exit
@@ -5878,7 +5878,7 @@ define internal fastcc void @yydestruct(i32 noundef range(i32 -32768, 32768) %0,
   br i1 %.not, label %323, label %243
 
 243:                                              ; preds = %241
-  %244 = getelementptr inbounds i8, ptr %242, i64 4
+  %244 = getelementptr inbounds nuw i8, ptr %242, i64 4
   %245 = load i32, ptr %244, align 4
   %246 = and i32 %245, 64
   %.not165 = icmp eq i32 %246, 0
@@ -6101,7 +6101,7 @@ define internal fastcc i64 @zend_yytnamerr(ptr noundef %0, ptr noundef %1) unnam
 7:                                                ; preds = %2
   %8 = and i8 %5, 1
   %9 = icmp eq i8 %8, 0
-  br i1 %9, label %.thread173, label %96
+  br i1 %9, label %.thread173, label %97
 
 .thread173:                                       ; preds = %2, %7
   %10 = phi i8 [ %5, %7 ], [ 2, %2 ]
@@ -6121,11 +6121,11 @@ define internal fastcc i64 @zend_yytnamerr(ptr noundef %0, ptr noundef %1) unnam
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %17
-  br i1 %.not, label %21, label %116
+  br i1 %.not, label %21, label %117
 
 21:                                               ; preds = %20
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %0, ptr noundef nonnull align 1 dereferenceable(12) @.str.14, i64 12, i1 false)
-  br label %116
+  br label %117
 
 22:                                               ; preds = %17, %.thread173
   %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.15) #13
@@ -6133,11 +6133,11 @@ define internal fastcc i64 @zend_yytnamerr(ptr noundef %0, ptr noundef %1) unnam
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %22
-  br i1 %.not, label %26, label %116
+  br i1 %.not, label %26, label %117
 
 26:                                               ; preds = %25
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %0, ptr noundef nonnull align 1 dereferenceable(10) @.str.16, i64 10, i1 false)
-  br label %116
+  br label %117
 
 27:                                               ; preds = %22
   %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(6) @.str.17) #13
@@ -6145,11 +6145,11 @@ define internal fastcc i64 @zend_yytnamerr(ptr noundef %0, ptr noundef %1) unnam
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %27
-  br i1 %.not, label %31, label %116
+  br i1 %.not, label %31, label %117
 
 31:                                               ; preds = %30
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %0, ptr noundef nonnull align 1 dereferenceable(10) @.str.18, i64 10, i1 false)
-  br label %116
+  br label %117
 
 32:                                               ; preds = %27
   %33 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(4) @.str.19) #13
@@ -6157,11 +6157,11 @@ define internal fastcc i64 @zend_yytnamerr(ptr noundef %0, ptr noundef %1) unnam
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %32
-  br i1 %.not, label %36, label %116
+  br i1 %.not, label %36, label %117
 
 36:                                               ; preds = %35
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %0, ptr noundef nonnull align 1 dereferenceable(18) @.str.20, i64 18, i1 false)
-  br label %116
+  br label %117
 
 37:                                               ; preds = %32
   %38 = icmp ugt i64 %4, 1
@@ -6173,7 +6173,7 @@ define internal fastcc i64 @zend_yytnamerr(ptr noundef %0, ptr noundef %1) unnam
   br i1 %41, label %42, label %.thread
 
 42:                                               ; preds = %39
-  %43 = getelementptr inbounds i8, ptr %1, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %44 = add i64 %4, -2
   br label %45
 
@@ -6200,14 +6200,14 @@ thread-pre-split:                                 ; preds = %45
 49:                                               ; preds = %48
   %50 = trunc i64 %.091127 to i32
   %51 = add nsw i32 %50, -2
-  %52 = getelementptr inbounds i8, ptr %.094125, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %.094125, i64 1
   %53 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 120, ptr noundef nonnull @.str.21, i32 noundef %51, ptr noundef nonnull %52) #12
   %strcpy114 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %3)
   br label %54
 
 54:                                               ; preds = %49, %48
   %55 = add i64 %.091127, 6
-  br label %116
+  br label %117
 
 56:                                               ; preds = %.thread, %45
   %.091128 = phi i64 [ %.091127, %.thread ], [ 0, %45 ]
@@ -6221,13 +6221,13 @@ thread-pre-split:                                 ; preds = %45
   br i1 %60, label %61, label %65
 
 61:                                               ; preds = %58
-  br i1 %.not, label %62, label %116
+  br i1 %.not, label %62, label %117
 
 62:                                               ; preds = %61
   %63 = zext i8 %13 to i32
   %64 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 120, ptr noundef nonnull @.str.23, i32 noundef %63) #12
   %strcpy113 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %3)
-  br label %116
+  br label %117
 
 65:                                               ; preds = %58, %56
   %66 = tail call ptr @memchr(ptr noundef nonnull %12, i32 noundef 10, i64 noundef %57) #13
@@ -6262,7 +6262,7 @@ thread-pre-split:                                 ; preds = %45
 .thread137:                                       ; preds = %.fold.split, %.fold.split, %73, %74
   %.192.ph141 = phi i64 [ 20, %73 ], [ 20, %74 ], [ %.091128, %.fold.split ], [ %.091128, %.fold.split ]
   %.195.ph140 = phi ptr [ @.str.25, %73 ], [ @.str.26, %74 ], [ %.094126, %.fold.split ], [ %.094126, %.fold.split ]
-  %75 = getelementptr inbounds i8, ptr %12, i64 1
+  %75 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %76 = add i64 %.088, -1
   %.not111 = icmp eq i64 %76, 0
   br i1 %.not111, label %.thread162, label %.thread151
@@ -6272,108 +6272,109 @@ thread-pre-split:                                 ; preds = %45
   %.090159 = phi ptr [ %75, %.thread137 ], [ %12, %.fold.split ], [ %12, %73 ]
   %.195133158 = phi ptr [ %.195.ph140, %.thread137 ], [ %.094126, %.fold.split ], [ %.094126, %73 ]
   %.192135157 = phi i64 [ %.192.ph141, %.thread137 ], [ %.091128, %.fold.split ], [ %.091128, %73 ]
-  %77 = add i64 %.1160, -1
-  %78 = getelementptr inbounds i8, ptr %.090159, i64 %77
+  %77 = getelementptr i8, ptr %.090159, i64 %.1160
+  %78 = getelementptr i8, ptr %77, i64 -1
   %79 = load i8, ptr %78, align 1
-  switch i8 %79, label %81 [
+  switch i8 %79, label %82 [
     i8 39, label %80
     i8 34, label %80
   ]
 
 80:                                               ; preds = %.thread151, %.thread151
-  br label %81
+  %81 = add i64 %.1160, -1
+  br label %82
 
-81:                                               ; preds = %.thread151, %80
-  %.2 = phi i64 [ %77, %80 ], [ %.1160, %.thread151 ]
-  %82 = icmp ugt i64 %.2, 33
-  br i1 %82, label %83, label %.thread162
+82:                                               ; preds = %.thread151, %80
+  %.2 = phi i64 [ %81, %80 ], [ %.1160, %.thread151 ]
+  %83 = icmp ugt i64 %.2, 33
+  br i1 %83, label %84, label %.thread162
 
-83:                                               ; preds = %81
-  br i1 %.not, label %84, label %87
+84:                                               ; preds = %82
+  br i1 %.not, label %85, label %88
 
-84:                                               ; preds = %83
-  %85 = trunc i64 %.192135157 to i32
-  %86 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 120, ptr noundef nonnull @.str.27, i32 noundef %85, ptr noundef %.195133158, i32 noundef 30, ptr noundef nonnull %.090159) #12
+85:                                               ; preds = %84
+  %86 = trunc i64 %.192135157 to i32
+  %87 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 120, ptr noundef nonnull @.str.27, i32 noundef %86, ptr noundef %.195133158, i32 noundef 30, ptr noundef nonnull %.090159) #12
   %strcpy112 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %3)
-  br label %87
+  br label %88
 
-87:                                               ; preds = %84, %83
-  %88 = add i64 %.192135157, 36
-  br label %116
+88:                                               ; preds = %85, %84
+  %89 = add i64 %.192135157, 36
+  br label %117
 
-.thread162:                                       ; preds = %65, %.thread137, %81
-  %.2170 = phi i64 [ %.2, %81 ], [ 0, %.thread137 ], [ 0, %65 ]
-  %.192135148169 = phi i64 [ %.192135157, %81 ], [ %.192.ph141, %.thread137 ], [ %.091128, %65 ]
-  %.195133149168 = phi ptr [ %.195133158, %81 ], [ %.195.ph140, %.thread137 ], [ %.094126, %65 ]
-  %.090150167 = phi ptr [ %.090159, %81 ], [ %75, %.thread137 ], [ %12, %65 ]
-  br i1 %.not, label %89, label %93
+.thread162:                                       ; preds = %65, %.thread137, %82
+  %.2170 = phi i64 [ %.2, %82 ], [ 0, %.thread137 ], [ 0, %65 ]
+  %.192135148169 = phi i64 [ %.192135157, %82 ], [ %.192.ph141, %.thread137 ], [ %.091128, %65 ]
+  %.195133149168 = phi ptr [ %.195133158, %82 ], [ %.195.ph140, %.thread137 ], [ %.094126, %65 ]
+  %.090150167 = phi ptr [ %.090159, %82 ], [ %75, %.thread137 ], [ %12, %65 ]
+  br i1 %.not, label %90, label %94
 
-89:                                               ; preds = %.thread162
-  %90 = trunc i64 %.192135148169 to i32
-  %91 = trunc nuw nsw i64 %.2170 to i32
-  %92 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 120, ptr noundef nonnull @.str.28, i32 noundef %90, ptr noundef %.195133149168, i32 noundef %91, ptr noundef nonnull %.090150167) #12
+90:                                               ; preds = %.thread162
+  %91 = trunc i64 %.192135148169 to i32
+  %92 = trunc nuw nsw i64 %.2170 to i32
+  %93 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 120, ptr noundef nonnull @.str.28, i32 noundef %91, ptr noundef %.195133149168, i32 noundef %92, ptr noundef nonnull %.090150167) #12
   %strcpy = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %3)
-  br label %93
+  br label %94
 
-93:                                               ; preds = %89, %.thread162
-  %94 = add nuw nsw i64 %.2170, 3
-  %95 = add i64 %94, %.192135148169
-  br label %116
+94:                                               ; preds = %90, %.thread162
+  %95 = add nuw nsw i64 %.2170, 3
+  %96 = add i64 %95, %.192135148169
+  br label %117
 
-96:                                               ; preds = %7
-  %97 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.15) #13
-  %98 = icmp eq i32 %97, 0
-  br i1 %98, label %99, label %101
+97:                                               ; preds = %7
+  %98 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.15) #13
+  %99 = icmp eq i32 %98, 0
+  br i1 %99, label %100, label %102
 
-99:                                               ; preds = %96
-  br i1 %.not, label %100, label %116
+100:                                              ; preds = %97
+  br i1 %.not, label %101, label %117
 
-100:                                              ; preds = %99
+101:                                              ; preds = %100
   store i32 2251810, ptr %0, align 1
-  br label %116
+  br label %117
 
-101:                                              ; preds = %96
-  %102 = icmp ugt i64 %4, 1
-  br i1 %102, label %103, label %109
+102:                                              ; preds = %97
+  %103 = icmp ugt i64 %4, 1
+  br i1 %103, label %104, label %110
 
-103:                                              ; preds = %101
-  %104 = load i8, ptr %1, align 1
-  %105 = icmp eq i8 %104, 34
-  br i1 %105, label %106, label %109
+104:                                              ; preds = %102
+  %105 = load i8, ptr %1, align 1
+  %106 = icmp eq i8 %105, 34
+  br i1 %106, label %107, label %110
 
-106:                                              ; preds = %103
-  %107 = getelementptr inbounds i8, ptr %1, i64 1
-  %108 = add i64 %4, -2
-  br label %109
+107:                                              ; preds = %104
+  %108 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %109 = add i64 %4, -2
+  br label %110
 
-109:                                              ; preds = %106, %103, %101
-  %.296 = phi ptr [ %107, %106 ], [ %1, %103 ], [ %1, %101 ]
-  %.293 = phi i64 [ %108, %106 ], [ %4, %103 ], [ %4, %101 ]
-  br i1 %.not, label %.preheader, label %116
+110:                                              ; preds = %107, %104, %102
+  %.296 = phi ptr [ %108, %107 ], [ %1, %104 ], [ %1, %102 ]
+  %.293 = phi i64 [ %109, %107 ], [ %4, %104 ], [ %4, %102 ]
+  br i1 %.not, label %.preheader, label %117
 
-.preheader:                                       ; preds = %109
+.preheader:                                       ; preds = %110
   %.not172 = icmp eq i64 %.293, 0
   br i1 %.not172, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.0171 = phi i64 [ %114, %.lr.ph ], [ 0, %.preheader ]
-  %110 = getelementptr inbounds i8, ptr %.296, i64 %.0171
-  %111 = load i8, ptr %110, align 1
-  %112 = icmp eq i8 %111, 39
-  %spec.select = select i1 %112, i8 34, i8 %111
-  %113 = getelementptr inbounds i8, ptr %0, i64 %.0171
-  store i8 %spec.select, ptr %113, align 1
-  %114 = add nuw i64 %.0171, 1
-  %exitcond.not = icmp eq i64 %114, %.293
+  %.0171 = phi i64 [ %115, %.lr.ph ], [ 0, %.preheader ]
+  %111 = getelementptr inbounds i8, ptr %.296, i64 %.0171
+  %112 = load i8, ptr %111, align 1
+  %113 = icmp eq i8 %112, 39
+  %spec.select = select i1 %113, i8 34, i8 %112
+  %114 = getelementptr inbounds i8, ptr %0, i64 %.0171
+  store i8 %spec.select, ptr %114, align 1
+  %115 = add nuw i64 %.0171, 1
+  %exitcond.not = icmp eq i64 %115, %.293
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %115 = getelementptr inbounds i8, ptr %0, i64 %.293
-  store i8 0, ptr %115, align 1
-  br label %116
+  %116 = getelementptr inbounds i8, ptr %0, i64 %.293
+  store i8 0, ptr %116, align 1
+  br label %117
 
-116:                                              ; preds = %109, %._crit_edge, %99, %100, %61, %62, %35, %36, %30, %31, %25, %26, %20, %21, %93, %87, %54
-  %.089 = phi i64 [ %55, %54 ], [ %88, %87 ], [ %95, %93 ], [ 11, %21 ], [ 11, %20 ], [ 9, %26 ], [ 9, %25 ], [ 9, %31 ], [ 9, %30 ], [ 17, %36 ], [ 17, %35 ], [ 14, %62 ], [ 14, %61 ], [ 3, %100 ], [ 3, %99 ], [ %.293, %._crit_edge ], [ %.293, %109 ]
+117:                                              ; preds = %110, %._crit_edge, %100, %101, %61, %62, %35, %36, %30, %31, %25, %26, %20, %21, %94, %88, %54
+  %.089 = phi i64 [ %55, %54 ], [ %89, %88 ], [ %96, %94 ], [ 11, %21 ], [ 11, %20 ], [ 9, %26 ], [ 9, %25 ], [ 9, %31 ], [ 9, %30 ], [ 17, %36 ], [ 17, %35 ], [ 14, %62 ], [ 14, %61 ], [ 3, %101 ], [ 3, %100 ], [ %.293, %._crit_edge ], [ %.293, %110 ]
   ret i64 %.089
 }
 

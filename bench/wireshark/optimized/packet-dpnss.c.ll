@@ -876,7 +876,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_dpnss(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.63) #2
   %7 = load i32, ptr @proto_dpnss, align 4
@@ -1211,7 +1211,7 @@ define internal fastcc range(i32 2, 4) i32 @dissect_dpnss_sic(ptr noundef %0, pt
 
 switch.lookup:                                    ; preds = %2
   %11 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_dpnss_sic, i64 0, i64 %11
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.dissect_dpnss_sic, i64 0, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   %12 = load i32, ptr %switch.load, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %12, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
@@ -1269,7 +1269,7 @@ define internal fastcc void @dissect_dpnss_sup_info_str(ptr noundef %0, ptr noca
   br i1 %7, label %.lr.ph100, label %._crit_edge
 
 .lr.ph100:                                        ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %9
 
 9:                                                ; preds = %.lr.ph100, %.loopexit
@@ -1411,7 +1411,7 @@ define internal fastcc void @dissect_dpnns_sup_str_par(ptr noundef %0, ptr nocap
   br label %25
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %1, i64 408
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %20 = load ptr, ptr %19, align 8
   %21 = tail call ptr @tvb_format_text(ptr noundef %20, ptr noundef %0, i32 noundef %4, i32 noundef %7) #2
   %22 = load i32, ptr @hf_dpnss_parameter, align 4

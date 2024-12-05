@@ -187,7 +187,7 @@ entry:
   br i1 %cmp, label %sw.epilog81, label %if.end
 
 if.end:                                           ; preds = %entry
-  %h_proto = getelementptr inbounds i8, ptr %data, i64 12
+  %h_proto = getelementptr inbounds nuw i8, ptr %data, i64 12
   %h_proto.val = load i16, ptr %h_proto, align 1
   %0 = tail call i16 @llvm.bswap.i16(i16 %h_proto.val)
   switch i16 %0, label %sw.default [
@@ -225,7 +225,7 @@ if.end19:                                         ; preds = %if.end13
   br i1 %tobool.not, label %if.end27, label %if.then21
 
 if.then21:                                        ; preds = %if.end19
-  %ip_sum = getelementptr inbounds i8, ptr %add.ptr14, i64 10
+  %ip_sum = getelementptr inbounds nuw i8, ptr %add.ptr14, i64 10
   store i16 0, ptr %ip_sum, align 1
   %conv.i = zext nneg i8 %1 to i32
   %and24 = shl nuw nsw i32 %conv.i, 2
@@ -298,14 +298,14 @@ net_raw_checksum.exit:                            ; preds = %while.body.i.i, %ne
   br label %if.end27
 
 if.end27:                                         ; preds = %net_raw_checksum.exit, %if.end19
-  %ip_off = getelementptr inbounds i8, ptr %add.ptr14, i64 6
+  %ip_off = getelementptr inbounds nuw i8, ptr %add.ptr14, i64 6
   %10 = load i16, ptr %ip_off, align 2
   %11 = and i16 %10, -193
   %cmp31.not = icmp eq i16 %11, 0
   br i1 %cmp31.not, label %if.end34, label %sw.epilog81
 
 if.end34:                                         ; preds = %if.end27
-  %ip_len35 = getelementptr inbounds i8, ptr %add.ptr14, i64 2
+  %ip_len35 = getelementptr inbounds nuw i8, ptr %add.ptr14, i64 2
   %ip_len35.val = load i16, ptr %ip_len35, align 1
   %12 = tail call i16 @llvm.bswap.i16(i16 %ip_len35.val)
   %conv1.i37 = zext i16 %12 to i32
@@ -317,7 +317,7 @@ if.end40:                                         ; preds = %if.end34
   %and43 = shl nuw nsw i32 %conv.i38, 2
   %shl44 = and i32 %and43, 60
   %sub45 = sub nsw i32 %conv1.i37, %shl44
-  %ip_p = getelementptr inbounds i8, ptr %add.ptr14, i64 9
+  %ip_p = getelementptr inbounds nuw i8, ptr %add.ptr14, i64 9
   %13 = load i8, ptr %ip_p, align 1
   switch i8 %13, label %sw.epilog81 [
     i8 6, label %sw.bb47
@@ -345,7 +345,7 @@ sw.epilog81.sink.split:                           ; preds = %sw.bb63, %sw.bb47
   %uh_sum = getelementptr i8, ptr %add.ptr14, i64 %.sink40
   store i16 0, ptr %uh_sum, align 1
   %conv74 = trunc i32 %sub45 to i16
-  %ip_src77 = getelementptr inbounds i8, ptr %add.ptr14, i64 12
+  %ip_src77 = getelementptr inbounds nuw i8, ptr %add.ptr14, i64 12
   %call78 = tail call zeroext i16 @net_checksum_tcpudp(i16 noundef zeroext %conv74, i16 noundef zeroext %.sink, ptr noundef nonnull %ip_src77, ptr noundef %add.ptr68)
   %14 = tail call i16 @llvm.bswap.i16(i16 %call78)
   store i16 %14, ptr %uh_sum, align 1
@@ -376,7 +376,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %res.026 = phi i32 [ 0, %for.body.preheader ], [ %res.1, %if.end ]
   %conv = zext i32 %iov_off.addr.031 to i64
   %arrayidx = getelementptr %struct.iovec, ptr %iov, i64 %indvars.iv
-  %iov_len = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %iov_len = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %2 = load i64, ptr %iov_len, align 8
   %add = add i64 %2, %iovec_off.028
   %cmp1 = icmp ugt i64 %add, %conv

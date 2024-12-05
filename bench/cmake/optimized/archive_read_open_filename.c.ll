@@ -26,7 +26,7 @@ define dso_local i32 @archive_read_open_file(ptr noundef %0, ptr noundef %1, i64
   %4 = alloca [2 x ptr], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   store ptr %1, ptr %4, align 16
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %5, align 8
   %6 = call i32 @archive_read_open_filenames(ptr noundef %0, ptr noundef nonnull %4, i64 noundef %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
@@ -37,7 +37,7 @@ define dso_local i32 @archive_read_open_file(ptr noundef %0, ptr noundef %1, i64
 define dso_local i32 @archive_read_open_filename(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [2 x ptr], align 16
   store ptr %1, ptr %4, align 16
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %5, align 8
   %6 = call i32 @archive_read_open_filenames(ptr noundef %0, ptr noundef nonnull %4, i64 noundef %2)
   ret i32 %6
@@ -49,7 +49,7 @@ define dso_local i32 @archive_read_open_filenames(ptr noundef %0, ptr noundef re
   br i1 %.not, label %7, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %1, align 8
   br label %7
 
@@ -71,21 +71,21 @@ define dso_local i32 @archive_read_open_filenames(ptr noundef %0, ptr noundef re
   br i1 %13, label %39, label %14
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %12, i64 36
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 36
   %16 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %spec.store.select) #14
-  %17 = getelementptr inbounds i8, ptr %12, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 %2, ptr %17, align 8
   store i32 -1, ptr %12, align 8
-  %18 = getelementptr inbounds i8, ptr %12, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr null, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %12, i64 28
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 28
   store i8 0, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %12, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store i32 0, ptr %20, align 8
   %21 = load i8, ptr %spec.store.select, align 1
   %22 = icmp ne i8 %21, 0
   %spec.select = zext i1 %22 to i32
-  %23 = getelementptr inbounds i8, ptr %12, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store i32 %spec.select, ptr %23, align 8
   %24 = tail call i32 @archive_read_append_callback_data(ptr noundef %0, ptr noundef nonnull %12) #14
   %.not39 = icmp eq i32 %24, 0
@@ -101,7 +101,7 @@ define dso_local i32 @archive_read_open_filenames(ptr noundef %0, ptr noundef re
   br i1 %.not40, label %.critedge, label %29
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %.134, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %.134, i64 8
   %31 = load i8, ptr %28, align 1
   %.not41 = icmp eq i8 %31, 0
   br i1 %.not41, label %.critedge, label %8, !llvm.loop !5
@@ -144,7 +144,7 @@ declare i32 @archive_read_set_open_callback(ptr noundef, ptr noundef) local_unna
 define internal range(i32 -30, 1) i32 @file_open(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca %struct.stat, align 8
   tail call void @archive_clear_error(ptr noundef %0) #14
-  %4 = getelementptr inbounds i8, ptr %1, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %.thread52 [
     i32 0, label %13
@@ -152,7 +152,7 @@ define internal range(i32 -30, 1) i32 @file_open(ptr noundef %0, ptr noundef %1)
   ]
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 36
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %8 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull %7, i32 noundef 524288) #14
   tail call void @__archive_ensure_cloexec_flag(i32 noundef %8) #14
   %9 = icmp slt i32 %8, 0
@@ -182,7 +182,7 @@ define internal range(i32 -30, 1) i32 @file_open(ptr noundef %0, ptr noundef %1)
   br label %53
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %3, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %20 = load i32, ptr %19, align 8
   %21 = trunc i32 %20 to i16
   %trunc = and i16 %21, -4096
@@ -193,7 +193,7 @@ define internal range(i32 -30, 1) i32 @file_open(ptr noundef %0, ptr noundef %1)
 
 22:                                               ; preds = %18
   %23 = load i64, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %3, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %25 = load i64, ptr %24, align 8
   tail call void @archive_read_extract_set_skip_file(ptr noundef %0, i64 noundef %23, i64 noundef %25) #14
   br label %.preheader
@@ -219,7 +219,7 @@ define internal range(i32 -30, 1) i32 @file_open(ptr noundef %0, ptr noundef %1)
   br i1 %.not55, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %35, %22
-  %37 = getelementptr inbounds i8, ptr %1, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %38 = load i64, ptr %37, align 8
   %invariant.umin = tail call i64 @llvm.umin.i64(i64 %38, i64 67108864)
   br label %39
@@ -236,7 +236,7 @@ define internal range(i32 -30, 1) i32 @file_open(ptr noundef %0, ptr noundef %1)
 
 .thread:                                          ; preds = %18, %26, %29, %32, %42, %35
   %.not4850 = phi i1 [ false, %42 ], [ true, %35 ], [ true, %32 ], [ true, %29 ], [ true, %26 ], [ true, %18 ]
-  %43 = getelementptr inbounds i8, ptr %1, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %44 = load i64, ptr %43, align 8
   %45 = tail call noalias ptr @malloc(i64 noundef %44) #18
   %46 = icmp eq ptr %45, null
@@ -247,15 +247,15 @@ define internal range(i32 -30, 1) i32 @file_open(ptr noundef %0, ptr noundef %1)
   br label %53
 
 48:                                               ; preds = %.thread
-  %49 = getelementptr inbounds i8, ptr %1, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %45, ptr %49, align 8
   store i32 %.041, ptr %1, align 8
-  %50 = getelementptr inbounds i8, ptr %1, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 %20, ptr %50, align 8
   br i1 %.not4850, label %57, label %51
 
 51:                                               ; preds = %48
-  %52 = getelementptr inbounds i8, ptr %1, i64 28
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i8 1, ptr %52, align 4
   br label %57
 
@@ -277,10 +277,10 @@ declare i32 @archive_read_set_read_callback(ptr noundef, ptr noundef) local_unna
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i64 @file_read(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %7
 
 7:                                                ; preds = %13, %3
@@ -298,7 +298,7 @@ define internal noundef i64 @file_read(ptr noundef %0, ptr noundef %1, ptr nocap
   br i1 %16, label %7, label %17
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %1, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %19 = load i32, ptr %18, align 8
   switch i32 %19, label %23 [
     i32 0, label %20
@@ -310,12 +310,12 @@ define internal noundef i64 @file_read(ptr noundef %0, ptr noundef %1, ptr nocap
   br label %.loopexit
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %1, i64 36
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 36
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef %15, ptr noundef nonnull @.str.8, ptr noundef nonnull %22) #14
   br label %.loopexit
 
 23:                                               ; preds = %17
-  %24 = getelementptr inbounds i8, ptr %1, i64 36
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 36
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef %15, ptr noundef nonnull @.str.9, ptr noundef nonnull %24) #14
   br label %.loopexit
 
@@ -327,7 +327,7 @@ declare i32 @archive_read_set_skip_callback(ptr noundef, ptr noundef) local_unna
 
 ; Function Attrs: nounwind uwtable
 define internal range(i64 -9223372036854775807, -9223372036854775808) i64 @file_skip(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 28
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %5 = load i8, ptr %4, align 4
   %.not = icmp eq i8 %5, 0
   br i1 %.not, label %file_skip_lseek.exit, label %6
@@ -356,7 +356,7 @@ define internal range(i64 -9223372036854775807, -9223372036854775808) i64 @file_
   br i1 %19, label %file_skip_lseek.exit, label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %1, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %22 = load i32, ptr %21, align 8
   switch i32 %22, label %26 [
     i32 0, label %23
@@ -368,12 +368,12 @@ define internal range(i64 -9223372036854775807, -9223372036854775808) i64 @file_
   br label %file_skip_lseek.exit
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %1, i64 36
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 36
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef %18, ptr noundef nonnull @.str.11, ptr noundef nonnull %25) #14
   br label %file_skip_lseek.exit
 
 26:                                               ; preds = %20
-  %27 = getelementptr inbounds i8, ptr %1, i64 36
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 36
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef %18, ptr noundef nonnull @.str.12, ptr noundef nonnull %27) #14
   br label %file_skip_lseek.exit
 
@@ -391,7 +391,7 @@ define internal noundef i32 @file_close(ptr nocapture readnone %0, ptr nocapture
   br i1 %4, label %5, label %file_close2.exit
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = trunc i32 %7 to i16
   %trunc.i = and i16 %8, -4096
@@ -402,8 +402,8 @@ define internal noundef i32 @file_close(ptr nocapture readnone %0, ptr nocapture
   ]
 
 .preheader.i:                                     ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %11
 
 11:                                               ; preds = %11, %.preheader.i
@@ -415,7 +415,7 @@ define internal noundef i32 @file_close(ptr nocapture readnone %0, ptr nocapture
   br i1 %16, label %11, label %.loopexit.i, !llvm.loop !8
 
 .loopexit.i:                                      ; preds = %11, %5, %5, %5
-  %17 = getelementptr inbounds i8, ptr %1, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load i32, ptr %17, align 8
   %.not.i = icmp eq i32 %18, 0
   br i1 %.not.i, label %file_close2.exit, label %19
@@ -426,7 +426,7 @@ define internal noundef i32 @file_close(ptr nocapture readnone %0, ptr nocapture
   br label %file_close2.exit
 
 file_close2.exit:                                 ; preds = %2, %.loopexit.i, %19
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load ptr, ptr %22, align 8
   tail call void @free(ptr noundef %23) #14
   tail call void @free(ptr noundef nonnull %1) #14
@@ -442,7 +442,7 @@ define internal range(i32 -30, 1) i32 @file_switch(ptr noundef %0, ptr nocapture
   br i1 %5, label %6, label %file_close2.exit
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load i32, ptr %7, align 8
   %9 = trunc i32 %8 to i16
   %trunc.i = and i16 %9, -4096
@@ -453,8 +453,8 @@ define internal range(i32 -30, 1) i32 @file_switch(ptr noundef %0, ptr nocapture
   ]
 
 .preheader.i:                                     ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %12
 
 12:                                               ; preds = %12, %.preheader.i
@@ -466,7 +466,7 @@ define internal range(i32 -30, 1) i32 @file_switch(ptr noundef %0, ptr nocapture
   br i1 %17, label %12, label %.loopexit.i, !llvm.loop !8
 
 .loopexit.i:                                      ; preds = %12, %6, %6, %6
-  %18 = getelementptr inbounds i8, ptr %1, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %19 = load i32, ptr %18, align 8
   %.not.i = icmp eq i32 %19, 0
   br i1 %.not.i, label %file_close2.exit, label %20
@@ -477,7 +477,7 @@ define internal range(i32 -30, 1) i32 @file_switch(ptr noundef %0, ptr nocapture
   br label %file_close2.exit
 
 file_close2.exit:                                 ; preds = %3, %.loopexit.i, %20
-  %23 = getelementptr inbounds i8, ptr %1, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %24 = load ptr, ptr %23, align 8
   tail call void @free(ptr noundef %24) #14
   store ptr null, ptr %23, align 8
@@ -496,7 +496,7 @@ define internal range(i64 -30, -9223372036854775808) i64 @file_seek(ptr noundef 
   br i1 %7, label %18, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load i32, ptr %9, align 8
   %11 = tail call ptr @__errno_location() #17
   %12 = load i32, ptr %11, align 4
@@ -510,12 +510,12 @@ define internal range(i64 -30, -9223372036854775808) i64 @file_seek(ptr noundef 
   br label %18
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %1, i64 36
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 36
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef %12, ptr noundef nonnull @.str.11, ptr noundef nonnull %15) #14
   br label %18
 
 16:                                               ; preds = %8
-  %17 = getelementptr inbounds i8, ptr %1, i64 36
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 36
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef %12, ptr noundef nonnull @.str.12, ptr noundef nonnull %17) #14
   br label %18
 
@@ -544,7 +544,7 @@ define dso_local i32 @archive_read_open_filename_w(ptr noundef %0, ptr noundef %
 
 10:                                               ; preds = %3
   store i32 -1, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %2, ptr %11, align 8
   %12 = icmp eq ptr %1, null
   br i1 %12, label %30, label %13
@@ -580,9 +580,9 @@ define dso_local i32 @archive_read_open_filename_w(ptr noundef %0, ptr noundef %
   br label %40
 
 25:                                               ; preds = %16
-  %26 = getelementptr inbounds i8, ptr %8, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i32 1, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %8, i64 36
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 36
   %28 = load ptr, ptr %4, align 8
   %29 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(1) %28) #14
   call void @archive_string_free(ptr noundef nonnull %4) #14

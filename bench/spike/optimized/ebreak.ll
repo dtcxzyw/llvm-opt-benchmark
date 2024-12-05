@@ -77,16 +77,16 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i64 @_Z17fast_rv32i_ebreakP11processor_t6insn_tm(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 2248
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 2248
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
   br i1 %6, label %.thread26, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 962
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 962
   %9 = load i8, ptr %8, align 2
   %10 = trunc i8 %9 to i1
-  %11 = getelementptr inbounds i8, ptr %0, i64 944
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %12 = load i64, ptr %11, align 8
   br i1 %10, label %32, label %13
 
@@ -98,25 +98,25 @@ define noundef i64 @_Z17fast_rv32i_ebreakP11processor_t6insn_tm(ptr nocapture no
   ]
 
 14:                                               ; preds = %13
-  %15 = getelementptr inbounds i8, ptr %0, i64 2152
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 39
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 39
   %18 = load i8, ptr %17, align 1
   %19 = trunc i8 %18 to i1
   br i1 %19, label %45, label %.thread26
 
 20:                                               ; preds = %13
-  %21 = getelementptr inbounds i8, ptr %0, i64 2152
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %24 = load i8, ptr %23, align 8
   %25 = trunc i8 %24 to i1
   br i1 %25, label %45, label %.thread26
 
 26:                                               ; preds = %13
-  %27 = getelementptr inbounds i8, ptr %0, i64 2152
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 41
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 41
   %30 = load i8, ptr %29, align 1
   %31 = trunc i8 %30 to i1
   br i1 %31, label %45, label %.thread26
@@ -128,17 +128,17 @@ define noundef i64 @_Z17fast_rv32i_ebreakP11processor_t6insn_tm(ptr nocapture no
   ]
 
 33:                                               ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %0, i64 2152
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 42
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 42
   %37 = load i8, ptr %36, align 2
   %38 = trunc i8 %37 to i1
   br i1 %38, label %45, label %.thread26
 
 39:                                               ; preds = %32
-  %40 = getelementptr inbounds i8, ptr %0, i64 2152
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 43
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 43
   %43 = load i8, ptr %42, align 1
   %44 = trunc i8 %43 to i1
   br i1 %44, label %45, label %.thread26
@@ -150,14 +150,14 @@ define noundef i64 @_Z17fast_rv32i_ebreakP11processor_t6insn_tm(ptr nocapture no
 
 .thread26:                                        ; preds = %32, %13, %33, %14, %20, %3, %39, %26
   %47 = tail call ptr @__cxa_allocate_exception(i64 32) #13
-  %48 = getelementptr inbounds i8, ptr %0, i64 962
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 962
   %49 = load i8, ptr %48, align 2
   %50 = and i8 %49, 1
-  %51 = getelementptr inbounds i8, ptr %47, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i64 3, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %47, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %47, i64 16
   store i8 %50, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %47, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %47, i64 24
   store i64 %2, ptr %53, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV15trap_breakpoint, i64 16), ptr %47, align 8
   tail call void @__cxa_throw(ptr nonnull %47, ptr nonnull @_ZTI15trap_breakpoint, ptr nonnull @_ZN15trap_breakpointD2Ev) #14
@@ -178,16 +178,16 @@ define linkonce_odr void @_ZN15trap_breakpointD2Ev(ptr noundef nonnull align 8 d
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i64 @_Z17fast_rv64i_ebreakP11processor_t6insn_tm(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 2248
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 2248
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
   br i1 %6, label %.thread26, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 962
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 962
   %9 = load i8, ptr %8, align 2
   %10 = trunc i8 %9 to i1
-  %11 = getelementptr inbounds i8, ptr %0, i64 944
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %12 = load i64, ptr %11, align 8
   br i1 %10, label %32, label %13
 
@@ -199,25 +199,25 @@ define noundef i64 @_Z17fast_rv64i_ebreakP11processor_t6insn_tm(ptr nocapture no
   ]
 
 14:                                               ; preds = %13
-  %15 = getelementptr inbounds i8, ptr %0, i64 2152
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 39
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 39
   %18 = load i8, ptr %17, align 1
   %19 = trunc i8 %18 to i1
   br i1 %19, label %45, label %.thread26
 
 20:                                               ; preds = %13
-  %21 = getelementptr inbounds i8, ptr %0, i64 2152
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %24 = load i8, ptr %23, align 8
   %25 = trunc i8 %24 to i1
   br i1 %25, label %45, label %.thread26
 
 26:                                               ; preds = %13
-  %27 = getelementptr inbounds i8, ptr %0, i64 2152
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 41
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 41
   %30 = load i8, ptr %29, align 1
   %31 = trunc i8 %30 to i1
   br i1 %31, label %45, label %.thread26
@@ -229,17 +229,17 @@ define noundef i64 @_Z17fast_rv64i_ebreakP11processor_t6insn_tm(ptr nocapture no
   ]
 
 33:                                               ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %0, i64 2152
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 42
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 42
   %37 = load i8, ptr %36, align 2
   %38 = trunc i8 %37 to i1
   br i1 %38, label %45, label %.thread26
 
 39:                                               ; preds = %32
-  %40 = getelementptr inbounds i8, ptr %0, i64 2152
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 43
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 43
   %43 = load i8, ptr %42, align 1
   %44 = trunc i8 %43 to i1
   br i1 %44, label %45, label %.thread26
@@ -251,14 +251,14 @@ define noundef i64 @_Z17fast_rv64i_ebreakP11processor_t6insn_tm(ptr nocapture no
 
 .thread26:                                        ; preds = %32, %13, %33, %14, %20, %3, %39, %26
   %47 = tail call ptr @__cxa_allocate_exception(i64 32) #13
-  %48 = getelementptr inbounds i8, ptr %0, i64 962
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 962
   %49 = load i8, ptr %48, align 2
   %50 = and i8 %49, 1
-  %51 = getelementptr inbounds i8, ptr %47, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i64 3, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %47, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %47, i64 16
   store i8 %50, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %47, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %47, i64 24
   store i64 %2, ptr %53, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV15trap_breakpoint, i64 16), ptr %47, align 8
   tail call void @__cxa_throw(ptr nonnull %47, ptr nonnull @_ZTI15trap_breakpoint, ptr nonnull @_ZN15trap_breakpointD2Ev) #14
@@ -267,16 +267,16 @@ define noundef i64 @_Z17fast_rv64i_ebreakP11processor_t6insn_tm(ptr nocapture no
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i64 @_Z19logged_rv32i_ebreakP11processor_t6insn_tm(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 2248
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 2248
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
   br i1 %6, label %.thread26, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 962
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 962
   %9 = load i8, ptr %8, align 2
   %10 = trunc i8 %9 to i1
-  %11 = getelementptr inbounds i8, ptr %0, i64 944
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %12 = load i64, ptr %11, align 8
   br i1 %10, label %32, label %13
 
@@ -288,25 +288,25 @@ define noundef i64 @_Z19logged_rv32i_ebreakP11processor_t6insn_tm(ptr nocapture 
   ]
 
 14:                                               ; preds = %13
-  %15 = getelementptr inbounds i8, ptr %0, i64 2152
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 39
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 39
   %18 = load i8, ptr %17, align 1
   %19 = trunc i8 %18 to i1
   br i1 %19, label %45, label %.thread26
 
 20:                                               ; preds = %13
-  %21 = getelementptr inbounds i8, ptr %0, i64 2152
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %24 = load i8, ptr %23, align 8
   %25 = trunc i8 %24 to i1
   br i1 %25, label %45, label %.thread26
 
 26:                                               ; preds = %13
-  %27 = getelementptr inbounds i8, ptr %0, i64 2152
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 41
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 41
   %30 = load i8, ptr %29, align 1
   %31 = trunc i8 %30 to i1
   br i1 %31, label %45, label %.thread26
@@ -318,17 +318,17 @@ define noundef i64 @_Z19logged_rv32i_ebreakP11processor_t6insn_tm(ptr nocapture 
   ]
 
 33:                                               ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %0, i64 2152
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 42
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 42
   %37 = load i8, ptr %36, align 2
   %38 = trunc i8 %37 to i1
   br i1 %38, label %45, label %.thread26
 
 39:                                               ; preds = %32
-  %40 = getelementptr inbounds i8, ptr %0, i64 2152
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 43
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 43
   %43 = load i8, ptr %42, align 1
   %44 = trunc i8 %43 to i1
   br i1 %44, label %45, label %.thread26
@@ -340,14 +340,14 @@ define noundef i64 @_Z19logged_rv32i_ebreakP11processor_t6insn_tm(ptr nocapture 
 
 .thread26:                                        ; preds = %32, %13, %33, %14, %20, %3, %39, %26
   %47 = tail call ptr @__cxa_allocate_exception(i64 32) #13
-  %48 = getelementptr inbounds i8, ptr %0, i64 962
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 962
   %49 = load i8, ptr %48, align 2
   %50 = and i8 %49, 1
-  %51 = getelementptr inbounds i8, ptr %47, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i64 3, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %47, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %47, i64 16
   store i8 %50, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %47, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %47, i64 24
   store i64 %2, ptr %53, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV15trap_breakpoint, i64 16), ptr %47, align 8
   tail call void @__cxa_throw(ptr nonnull %47, ptr nonnull @_ZTI15trap_breakpoint, ptr nonnull @_ZN15trap_breakpointD2Ev) #14
@@ -356,16 +356,16 @@ define noundef i64 @_Z19logged_rv32i_ebreakP11processor_t6insn_tm(ptr nocapture 
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i64 @_Z19logged_rv64i_ebreakP11processor_t6insn_tm(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 2248
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 2248
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
   br i1 %6, label %.thread26, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 962
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 962
   %9 = load i8, ptr %8, align 2
   %10 = trunc i8 %9 to i1
-  %11 = getelementptr inbounds i8, ptr %0, i64 944
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %12 = load i64, ptr %11, align 8
   br i1 %10, label %32, label %13
 
@@ -377,25 +377,25 @@ define noundef i64 @_Z19logged_rv64i_ebreakP11processor_t6insn_tm(ptr nocapture 
   ]
 
 14:                                               ; preds = %13
-  %15 = getelementptr inbounds i8, ptr %0, i64 2152
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 39
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 39
   %18 = load i8, ptr %17, align 1
   %19 = trunc i8 %18 to i1
   br i1 %19, label %45, label %.thread26
 
 20:                                               ; preds = %13
-  %21 = getelementptr inbounds i8, ptr %0, i64 2152
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %24 = load i8, ptr %23, align 8
   %25 = trunc i8 %24 to i1
   br i1 %25, label %45, label %.thread26
 
 26:                                               ; preds = %13
-  %27 = getelementptr inbounds i8, ptr %0, i64 2152
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 41
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 41
   %30 = load i8, ptr %29, align 1
   %31 = trunc i8 %30 to i1
   br i1 %31, label %45, label %.thread26
@@ -407,17 +407,17 @@ define noundef i64 @_Z19logged_rv64i_ebreakP11processor_t6insn_tm(ptr nocapture 
   ]
 
 33:                                               ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %0, i64 2152
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 42
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 42
   %37 = load i8, ptr %36, align 2
   %38 = trunc i8 %37 to i1
   br i1 %38, label %45, label %.thread26
 
 39:                                               ; preds = %32
-  %40 = getelementptr inbounds i8, ptr %0, i64 2152
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 43
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 43
   %43 = load i8, ptr %42, align 1
   %44 = trunc i8 %43 to i1
   br i1 %44, label %45, label %.thread26
@@ -429,14 +429,14 @@ define noundef i64 @_Z19logged_rv64i_ebreakP11processor_t6insn_tm(ptr nocapture 
 
 .thread26:                                        ; preds = %32, %13, %33, %14, %20, %3, %39, %26
   %47 = tail call ptr @__cxa_allocate_exception(i64 32) #13
-  %48 = getelementptr inbounds i8, ptr %0, i64 962
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 962
   %49 = load i8, ptr %48, align 2
   %50 = and i8 %49, 1
-  %51 = getelementptr inbounds i8, ptr %47, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i64 3, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %47, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %47, i64 16
   store i8 %50, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %47, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %47, i64 24
   store i64 %2, ptr %53, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV15trap_breakpoint, i64 16), ptr %47, align 8
   tail call void @__cxa_throw(ptr nonnull %47, ptr nonnull @_ZTI15trap_breakpoint, ptr nonnull @_ZN15trap_breakpointD2Ev) #14
@@ -445,16 +445,16 @@ define noundef i64 @_Z19logged_rv64i_ebreakP11processor_t6insn_tm(ptr nocapture 
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i64 @_Z17fast_rv32e_ebreakP11processor_t6insn_tm(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 2248
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 2248
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
   br i1 %6, label %.thread26, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 962
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 962
   %9 = load i8, ptr %8, align 2
   %10 = trunc i8 %9 to i1
-  %11 = getelementptr inbounds i8, ptr %0, i64 944
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %12 = load i64, ptr %11, align 8
   br i1 %10, label %32, label %13
 
@@ -466,25 +466,25 @@ define noundef i64 @_Z17fast_rv32e_ebreakP11processor_t6insn_tm(ptr nocapture no
   ]
 
 14:                                               ; preds = %13
-  %15 = getelementptr inbounds i8, ptr %0, i64 2152
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 39
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 39
   %18 = load i8, ptr %17, align 1
   %19 = trunc i8 %18 to i1
   br i1 %19, label %45, label %.thread26
 
 20:                                               ; preds = %13
-  %21 = getelementptr inbounds i8, ptr %0, i64 2152
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %24 = load i8, ptr %23, align 8
   %25 = trunc i8 %24 to i1
   br i1 %25, label %45, label %.thread26
 
 26:                                               ; preds = %13
-  %27 = getelementptr inbounds i8, ptr %0, i64 2152
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 41
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 41
   %30 = load i8, ptr %29, align 1
   %31 = trunc i8 %30 to i1
   br i1 %31, label %45, label %.thread26
@@ -496,17 +496,17 @@ define noundef i64 @_Z17fast_rv32e_ebreakP11processor_t6insn_tm(ptr nocapture no
   ]
 
 33:                                               ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %0, i64 2152
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 42
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 42
   %37 = load i8, ptr %36, align 2
   %38 = trunc i8 %37 to i1
   br i1 %38, label %45, label %.thread26
 
 39:                                               ; preds = %32
-  %40 = getelementptr inbounds i8, ptr %0, i64 2152
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 43
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 43
   %43 = load i8, ptr %42, align 1
   %44 = trunc i8 %43 to i1
   br i1 %44, label %45, label %.thread26
@@ -518,14 +518,14 @@ define noundef i64 @_Z17fast_rv32e_ebreakP11processor_t6insn_tm(ptr nocapture no
 
 .thread26:                                        ; preds = %32, %13, %33, %14, %20, %3, %39, %26
   %47 = tail call ptr @__cxa_allocate_exception(i64 32) #13
-  %48 = getelementptr inbounds i8, ptr %0, i64 962
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 962
   %49 = load i8, ptr %48, align 2
   %50 = and i8 %49, 1
-  %51 = getelementptr inbounds i8, ptr %47, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i64 3, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %47, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %47, i64 16
   store i8 %50, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %47, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %47, i64 24
   store i64 %2, ptr %53, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV15trap_breakpoint, i64 16), ptr %47, align 8
   tail call void @__cxa_throw(ptr nonnull %47, ptr nonnull @_ZTI15trap_breakpoint, ptr nonnull @_ZN15trap_breakpointD2Ev) #14
@@ -534,16 +534,16 @@ define noundef i64 @_Z17fast_rv32e_ebreakP11processor_t6insn_tm(ptr nocapture no
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i64 @_Z17fast_rv64e_ebreakP11processor_t6insn_tm(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 2248
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 2248
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
   br i1 %6, label %.thread26, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 962
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 962
   %9 = load i8, ptr %8, align 2
   %10 = trunc i8 %9 to i1
-  %11 = getelementptr inbounds i8, ptr %0, i64 944
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %12 = load i64, ptr %11, align 8
   br i1 %10, label %32, label %13
 
@@ -555,25 +555,25 @@ define noundef i64 @_Z17fast_rv64e_ebreakP11processor_t6insn_tm(ptr nocapture no
   ]
 
 14:                                               ; preds = %13
-  %15 = getelementptr inbounds i8, ptr %0, i64 2152
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 39
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 39
   %18 = load i8, ptr %17, align 1
   %19 = trunc i8 %18 to i1
   br i1 %19, label %45, label %.thread26
 
 20:                                               ; preds = %13
-  %21 = getelementptr inbounds i8, ptr %0, i64 2152
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %24 = load i8, ptr %23, align 8
   %25 = trunc i8 %24 to i1
   br i1 %25, label %45, label %.thread26
 
 26:                                               ; preds = %13
-  %27 = getelementptr inbounds i8, ptr %0, i64 2152
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 41
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 41
   %30 = load i8, ptr %29, align 1
   %31 = trunc i8 %30 to i1
   br i1 %31, label %45, label %.thread26
@@ -585,17 +585,17 @@ define noundef i64 @_Z17fast_rv64e_ebreakP11processor_t6insn_tm(ptr nocapture no
   ]
 
 33:                                               ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %0, i64 2152
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 42
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 42
   %37 = load i8, ptr %36, align 2
   %38 = trunc i8 %37 to i1
   br i1 %38, label %45, label %.thread26
 
 39:                                               ; preds = %32
-  %40 = getelementptr inbounds i8, ptr %0, i64 2152
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 43
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 43
   %43 = load i8, ptr %42, align 1
   %44 = trunc i8 %43 to i1
   br i1 %44, label %45, label %.thread26
@@ -607,14 +607,14 @@ define noundef i64 @_Z17fast_rv64e_ebreakP11processor_t6insn_tm(ptr nocapture no
 
 .thread26:                                        ; preds = %32, %13, %33, %14, %20, %3, %39, %26
   %47 = tail call ptr @__cxa_allocate_exception(i64 32) #13
-  %48 = getelementptr inbounds i8, ptr %0, i64 962
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 962
   %49 = load i8, ptr %48, align 2
   %50 = and i8 %49, 1
-  %51 = getelementptr inbounds i8, ptr %47, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i64 3, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %47, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %47, i64 16
   store i8 %50, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %47, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %47, i64 24
   store i64 %2, ptr %53, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV15trap_breakpoint, i64 16), ptr %47, align 8
   tail call void @__cxa_throw(ptr nonnull %47, ptr nonnull @_ZTI15trap_breakpoint, ptr nonnull @_ZN15trap_breakpointD2Ev) #14
@@ -623,16 +623,16 @@ define noundef i64 @_Z17fast_rv64e_ebreakP11processor_t6insn_tm(ptr nocapture no
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i64 @_Z19logged_rv32e_ebreakP11processor_t6insn_tm(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 2248
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 2248
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
   br i1 %6, label %.thread26, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 962
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 962
   %9 = load i8, ptr %8, align 2
   %10 = trunc i8 %9 to i1
-  %11 = getelementptr inbounds i8, ptr %0, i64 944
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %12 = load i64, ptr %11, align 8
   br i1 %10, label %32, label %13
 
@@ -644,25 +644,25 @@ define noundef i64 @_Z19logged_rv32e_ebreakP11processor_t6insn_tm(ptr nocapture 
   ]
 
 14:                                               ; preds = %13
-  %15 = getelementptr inbounds i8, ptr %0, i64 2152
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 39
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 39
   %18 = load i8, ptr %17, align 1
   %19 = trunc i8 %18 to i1
   br i1 %19, label %45, label %.thread26
 
 20:                                               ; preds = %13
-  %21 = getelementptr inbounds i8, ptr %0, i64 2152
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %24 = load i8, ptr %23, align 8
   %25 = trunc i8 %24 to i1
   br i1 %25, label %45, label %.thread26
 
 26:                                               ; preds = %13
-  %27 = getelementptr inbounds i8, ptr %0, i64 2152
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 41
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 41
   %30 = load i8, ptr %29, align 1
   %31 = trunc i8 %30 to i1
   br i1 %31, label %45, label %.thread26
@@ -674,17 +674,17 @@ define noundef i64 @_Z19logged_rv32e_ebreakP11processor_t6insn_tm(ptr nocapture 
   ]
 
 33:                                               ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %0, i64 2152
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 42
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 42
   %37 = load i8, ptr %36, align 2
   %38 = trunc i8 %37 to i1
   br i1 %38, label %45, label %.thread26
 
 39:                                               ; preds = %32
-  %40 = getelementptr inbounds i8, ptr %0, i64 2152
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 43
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 43
   %43 = load i8, ptr %42, align 1
   %44 = trunc i8 %43 to i1
   br i1 %44, label %45, label %.thread26
@@ -696,14 +696,14 @@ define noundef i64 @_Z19logged_rv32e_ebreakP11processor_t6insn_tm(ptr nocapture 
 
 .thread26:                                        ; preds = %32, %13, %33, %14, %20, %3, %39, %26
   %47 = tail call ptr @__cxa_allocate_exception(i64 32) #13
-  %48 = getelementptr inbounds i8, ptr %0, i64 962
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 962
   %49 = load i8, ptr %48, align 2
   %50 = and i8 %49, 1
-  %51 = getelementptr inbounds i8, ptr %47, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i64 3, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %47, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %47, i64 16
   store i8 %50, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %47, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %47, i64 24
   store i64 %2, ptr %53, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV15trap_breakpoint, i64 16), ptr %47, align 8
   tail call void @__cxa_throw(ptr nonnull %47, ptr nonnull @_ZTI15trap_breakpoint, ptr nonnull @_ZN15trap_breakpointD2Ev) #14
@@ -712,16 +712,16 @@ define noundef i64 @_Z19logged_rv32e_ebreakP11processor_t6insn_tm(ptr nocapture 
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i64 @_Z19logged_rv64e_ebreakP11processor_t6insn_tm(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 2248
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 2248
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
   br i1 %6, label %.thread26, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 962
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 962
   %9 = load i8, ptr %8, align 2
   %10 = trunc i8 %9 to i1
-  %11 = getelementptr inbounds i8, ptr %0, i64 944
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %12 = load i64, ptr %11, align 8
   br i1 %10, label %32, label %13
 
@@ -733,25 +733,25 @@ define noundef i64 @_Z19logged_rv64e_ebreakP11processor_t6insn_tm(ptr nocapture 
   ]
 
 14:                                               ; preds = %13
-  %15 = getelementptr inbounds i8, ptr %0, i64 2152
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 39
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 39
   %18 = load i8, ptr %17, align 1
   %19 = trunc i8 %18 to i1
   br i1 %19, label %45, label %.thread26
 
 20:                                               ; preds = %13
-  %21 = getelementptr inbounds i8, ptr %0, i64 2152
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %24 = load i8, ptr %23, align 8
   %25 = trunc i8 %24 to i1
   br i1 %25, label %45, label %.thread26
 
 26:                                               ; preds = %13
-  %27 = getelementptr inbounds i8, ptr %0, i64 2152
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 41
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 41
   %30 = load i8, ptr %29, align 1
   %31 = trunc i8 %30 to i1
   br i1 %31, label %45, label %.thread26
@@ -763,17 +763,17 @@ define noundef i64 @_Z19logged_rv64e_ebreakP11processor_t6insn_tm(ptr nocapture 
   ]
 
 33:                                               ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %0, i64 2152
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 42
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 42
   %37 = load i8, ptr %36, align 2
   %38 = trunc i8 %37 to i1
   br i1 %38, label %45, label %.thread26
 
 39:                                               ; preds = %32
-  %40 = getelementptr inbounds i8, ptr %0, i64 2152
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 43
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 43
   %43 = load i8, ptr %42, align 1
   %44 = trunc i8 %43 to i1
   br i1 %44, label %45, label %.thread26
@@ -785,14 +785,14 @@ define noundef i64 @_Z19logged_rv64e_ebreakP11processor_t6insn_tm(ptr nocapture 
 
 .thread26:                                        ; preds = %32, %13, %33, %14, %20, %3, %39, %26
   %47 = tail call ptr @__cxa_allocate_exception(i64 32) #13
-  %48 = getelementptr inbounds i8, ptr %0, i64 962
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 962
   %49 = load i8, ptr %48, align 2
   %50 = and i8 %49, 1
-  %51 = getelementptr inbounds i8, ptr %47, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i64 3, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %47, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %47, i64 16
   store i8 %50, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %47, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %47, i64 24
   store i64 %2, ptr %53, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV15trap_breakpoint, i64 16), ptr %47, align 8
   tail call void @__cxa_throw(ptr nonnull %47, ptr nonnull @_ZTI15trap_breakpoint, ptr nonnull @_ZN15trap_breakpointD2Ev) #14
@@ -801,7 +801,7 @@ define noundef i64 @_Z19logged_rv64e_ebreakP11processor_t6insn_tm(ptr nocapture 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZN11insn_trap_t7has_gvaEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
   ret i1 %4
@@ -814,7 +814,7 @@ define linkonce_odr noundef zeroext i1 @_ZN11insn_trap_t8has_tvalEv(ptr noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i64 @_ZN11insn_trap_t8get_tvalEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
@@ -895,7 +895,7 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(1) %2) #13
   store ptr %4, ptr %0, align 8
   %5 = icmp eq ptr %1, null
@@ -968,7 +968,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i: ; pr
   br label %25
 
 25:                                               ; preds = %24, %22, %._crit_edge.i
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %11, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %21, i64 %11
   store i8 0, ptr %27, align 1

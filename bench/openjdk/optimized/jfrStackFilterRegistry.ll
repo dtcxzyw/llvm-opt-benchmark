@@ -74,7 +74,7 @@ define hidden noundef i64 @_ZN22JfrStackFilterRegistry3addEP13_jobjectArrayS1_P1
   br i1 %26, label %27, label %30
 
 27:                                               ; preds = %24
-  %28 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
+  %28 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
   %.not.i = icmp eq ptr %28, null
   br i1 %.not.i, label %_ZN22JfrStackFilterRegistry3addEPK14JfrStackFilter.exit, label %29
 
@@ -126,7 +126,7 @@ define hidden noundef i64 @_ZN22JfrStackFilterRegistry3addEPK14JfrStackFilter(pt
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %9
-  %13 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
+  %13 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %18, label %14
 
@@ -161,7 +161,7 @@ define hidden noundef ptr @_ZN22JfrStackFilterRegistry6lookupEl(i64 noundef %0) 
   br i1 %2, label %6, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds [4096 x ptr], ptr @_ZL9_elements, i64 0, i64 %0
+  %4 = getelementptr inbounds nuw [4096 x ptr], ptr @_ZL9_elements, i64 0, i64 %0
   %5 = load ptr, ptr %4, align 8
   br label %6
 

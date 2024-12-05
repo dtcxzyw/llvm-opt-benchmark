@@ -77,11 +77,11 @@ define dso_local ptr @EventCacheLookup(i32 noundef %0) local_unnamed_addr #0 {
   %22 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %21, ptr @CurrentMemoryContext, align 8
   store i32 1, ptr @EventTriggerCacheState, align 4
-  %23 = getelementptr inbounds i8, ptr %4, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 4, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %4, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 16, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %4, i64 80
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr %21, ptr %25, align 8
   %26 = call ptr @hash_create(ptr noundef nonnull @.str.1, i64 noundef 32, ptr noundef nonnull %4, i32 noundef 1064) #6
   %27 = call ptr @relation_open(i32 noundef 3466, i32 noundef 1) #6
@@ -92,24 +92,24 @@ define dso_local ptr @EventCacheLookup(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %.not3234.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %20
-  %31 = getelementptr inbounds i8, ptr %27, i64 64
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 64
   br label %32
 
 32:                                               ; preds = %.backedge.i, %.lr.ph.i
   %33 = phi ptr [ %30, %.lr.ph.i ], [ %161, %.backedge.i ]
-  %34 = getelementptr inbounds i8, ptr %33, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 22
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 22
   %37 = load i8, ptr %36, align 2
   %38 = zext i8 %37 to i64
   %39 = getelementptr i8, ptr %35, i64 %38
-  %40 = getelementptr inbounds i8, ptr %39, i64 140
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 140
   %41 = load i8, ptr %40, align 4
   %42 = icmp eq i8 %41, 68
   br i1 %42, label %.backedge.i, label %43
 
 43:                                               ; preds = %32
-  %44 = getelementptr inbounds i8, ptr %39, i64 68
+  %44 = getelementptr inbounds nuw i8, ptr %39, i64 68
   %45 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull dereferenceable(18) @.str.2) #7
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %59, label %47
@@ -138,15 +138,15 @@ define dso_local ptr @EventCacheLookup(i32 noundef %0) local_unnamed_addr #0 {
   %.sink.i = phi i32 [ 0, %43 ], [ 1, %47 ], [ 2, %50 ], [ 3, %53 ], [ 4, %56 ]
   store i32 %.sink.i, ptr %5, align 4
   %60 = call ptr @palloc0(i64 noundef 16) #6
-  %61 = getelementptr inbounds i8, ptr %39, i64 136
+  %61 = getelementptr inbounds nuw i8, ptr %39, i64 136
   %62 = load i32, ptr %61, align 4
   store i32 %62, ptr %60, align 8
   %63 = load i8, ptr %40, align 4
-  %64 = getelementptr inbounds i8, ptr %60, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %60, i64 4
   store i8 %63, ptr %64, align 4
   %65 = load ptr, ptr %31, align 8
   %66 = load ptr, ptr %34, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 18
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 18
   %68 = load i16, ptr %67, align 2
   %69 = and i16 %68, 2047
   %70 = icmp samesign ult i16 %69, 7
@@ -158,7 +158,7 @@ define dso_local ptr @EventCacheLookup(i32 noundef %0) local_unnamed_addr #0 {
 
 73:                                               ; preds = %59
   store i8 0, ptr %6, align 1
-  %74 = getelementptr inbounds i8, ptr %66, i64 20
+  %74 = getelementptr inbounds nuw i8, ptr %66, i64 20
   %75 = load i16, ptr %74, align 4
   %76 = and i16 %75, 1
   %.not.i.i.i = icmp eq i16 %76, 0
@@ -171,7 +171,7 @@ define dso_local ptr @EventCacheLookup(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %80, label %81, label %111
 
 81:                                               ; preds = %77
-  %82 = getelementptr inbounds i8, ptr %66, i64 22
+  %82 = getelementptr inbounds nuw i8, ptr %66, i64 22
   %83 = load i8, ptr %82, align 2
   %84 = zext i8 %83 to i64
   %85 = getelementptr i8, ptr %66, i64 %84
@@ -228,7 +228,7 @@ define dso_local ptr @EventCacheLookup(i32 noundef %0) local_unnamed_addr #0 {
   br label %heap_getattr.exit.i
 
 113:                                              ; preds = %73
-  %114 = getelementptr inbounds i8, ptr %66, i64 23
+  %114 = getelementptr inbounds nuw i8, ptr %66, i64 23
   %.val.i.i.i = load i8, ptr %114, align 1
   %115 = and i8 %.val.i.i.i, 64
   %.not.i.i.i.i = icmp eq i8 %115, 0
@@ -253,19 +253,19 @@ heap_getattr.exit.i:                              ; preds = %117, %116, %111, %1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   %122 = inttoptr i64 %.0.i.i to ptr
   %123 = call ptr @pg_detoast_datum(ptr noundef %122) #6
-  %124 = getelementptr inbounds i8, ptr %123, i64 4
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 4
   %125 = load i32, ptr %124, align 4
   %.not.i.i = icmp eq i32 %125, 1
   br i1 %.not.i.i, label %126, label %132
 
 126:                                              ; preds = %121
-  %127 = getelementptr inbounds i8, ptr %123, i64 8
+  %127 = getelementptr inbounds nuw i8, ptr %123, i64 8
   %128 = load i32, ptr %127, align 4
   %.not12.i.i = icmp eq i32 %128, 0
   br i1 %.not12.i.i, label %129, label %132
 
 129:                                              ; preds = %126
-  %130 = getelementptr inbounds i8, ptr %123, i64 12
+  %130 = getelementptr inbounds nuw i8, ptr %123, i64 12
   %131 = load i32, ptr %130, align 4
   %.not13.i.i = icmp eq i32 %131, 25
   br i1 %.not13.i.i, label %135, label %132
@@ -306,7 +306,7 @@ DecodeTextArrayToBitmapset.exit.i:                ; preds = %.lr.ph.i.i, %135
   call void @pfree(ptr noundef %148) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  %149 = getelementptr inbounds i8, ptr %60, i64 8
+  %149 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store ptr %.0.lcssa.i.i, ptr %149, align 8
   br label %150
 
@@ -317,7 +317,7 @@ DecodeTextArrayToBitmapset.exit.i:                ; preds = %.lr.ph.i.i, %135
   br i1 %153, label %154, label %158
 
 154:                                              ; preds = %150
-  %155 = getelementptr inbounds i8, ptr %151, i64 8
+  %155 = getelementptr inbounds nuw i8, ptr %151, i64 8
   %156 = load ptr, ptr %155, align 8
   %157 = call ptr @lappend(ptr noundef %156, ptr noundef nonnull %60) #6
   store ptr %157, ptr %155, align 8
@@ -325,7 +325,7 @@ DecodeTextArrayToBitmapset.exit.i:                ; preds = %.lr.ph.i.i, %135
 
 158:                                              ; preds = %150
   %159 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %60) #6
-  %160 = getelementptr inbounds i8, ptr %151, i64 8
+  %160 = getelementptr inbounds nuw i8, ptr %151, i64 8
   store ptr %159, ptr %160, align 8
   br label %.backedge.i
 
@@ -362,7 +362,7 @@ BuildEventTriggerCache.exit:                      ; preds = %._crit_edge.i, %164
   br i1 %.not2, label %171, label %168
 
 168:                                              ; preds = %165
-  %169 = getelementptr inbounds i8, ptr %167, i64 8
+  %169 = getelementptr inbounds nuw i8, ptr %167, i64 8
   %170 = load ptr, ptr %169, align 8
   br label %171
 

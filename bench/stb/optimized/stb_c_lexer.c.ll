@@ -7,13 +7,13 @@ target triple = "x86_64-unknown-linux-gnu"
 define void @stb_c_lexer_init(ptr nocapture noundef writeonly initializes((0, 36)) %lexer, ptr noundef %input_stream, ptr noundef %input_stream_end, ptr noundef %string_store, i32 noundef %store_length) local_unnamed_addr #0 {
 entry:
   store ptr %input_stream, ptr %lexer, align 8
-  %eof = getelementptr inbounds i8, ptr %lexer, i64 8
+  %eof = getelementptr inbounds nuw i8, ptr %lexer, i64 8
   store ptr %input_stream_end, ptr %eof, align 8
-  %parse_point = getelementptr inbounds i8, ptr %lexer, i64 16
+  %parse_point = getelementptr inbounds nuw i8, ptr %lexer, i64 16
   store ptr %input_stream, ptr %parse_point, align 8
-  %string_storage = getelementptr inbounds i8, ptr %lexer, i64 24
+  %string_storage = getelementptr inbounds nuw i8, ptr %lexer, i64 24
   store ptr %string_store, ptr %string_storage, align 8
-  %string_storage_len = getelementptr inbounds i8, ptr %lexer, i64 32
+  %string_storage_len = getelementptr inbounds nuw i8, ptr %lexer, i64 32
   store i32 %store_length, ptr %string_storage_len, align 8
   ret void
 }
@@ -40,18 +40,18 @@ while.body:                                       ; preds = %entry, %if.end
 
 if.then:                                          ; preds = %while.body, %while.body
   %conv8 = zext nneg i8 %3 to i32
-  %arrayidx9 = getelementptr inbounds i8, ptr %p.013, i64 1
+  %arrayidx9 = getelementptr inbounds nuw i8, ptr %p.013, i64 1
   %4 = load i8, ptr %arrayidx9, align 1
   %conv10 = sext i8 %4 to i32
   %add = add nsw i32 %conv10, %conv8
   %cmp11 = icmp eq i32 %add, 23
   %cond = select i1 %cmp11, i64 2, i64 1
-  %add.ptr = getelementptr inbounds i8, ptr %p.013, i64 %cond
+  %add.ptr = getelementptr inbounds nuw i8, ptr %p.013, i64 %cond
   %add13 = add nsw i32 %line_number.014, 1
   br label %if.end
 
 if.else:                                          ; preds = %while.body
-  %incdec.ptr = getelementptr inbounds i8, ptr %p.013, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %p.013, i64 1
   %inc = add nsw i32 %char_offset.015, 1
   br label %if.end
 
@@ -69,7 +69,7 @@ while.end:                                        ; preds = %if.end, %entry
   %line_number.0.lcssa = phi i32 [ 1, %entry ], [ %line_number.1, %if.end ]
   %char_offset.0.lcssa = phi i32 [ 0, %entry ], [ %char_offset.1, %if.end ]
   store i32 %line_number.0.lcssa, ptr %loc, align 4
-  %line_offset = getelementptr inbounds i8, ptr %loc, i64 4
+  %line_offset = getelementptr inbounds nuw i8, ptr %loc, i64 4
   store i32 %char_offset.0.lcssa, ptr %line_offset, align 4
   ret void
 }
@@ -78,14 +78,14 @@ while.end:                                        ; preds = %if.end, %entry
 define noundef i32 @stb__clex_token(ptr nocapture noundef writeonly initializes((16, 24), (40, 64)) %lexer, i32 noundef %token, ptr noundef %start, ptr noundef %end) local_unnamed_addr #0 {
 entry:
   %conv = sext i32 %token to i64
-  %token1 = getelementptr inbounds i8, ptr %lexer, i64 56
+  %token1 = getelementptr inbounds nuw i8, ptr %lexer, i64 56
   store i64 %conv, ptr %token1, align 8
-  %where_firstchar = getelementptr inbounds i8, ptr %lexer, i64 40
+  %where_firstchar = getelementptr inbounds nuw i8, ptr %lexer, i64 40
   store ptr %start, ptr %where_firstchar, align 8
-  %where_lastchar = getelementptr inbounds i8, ptr %lexer, i64 48
+  %where_lastchar = getelementptr inbounds nuw i8, ptr %lexer, i64 48
   store ptr %end, ptr %where_lastchar, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %end, i64 1
-  %parse_point = getelementptr inbounds i8, ptr %lexer, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %end, i64 1
+  %parse_point = getelementptr inbounds nuw i8, ptr %lexer, i64 16
   store ptr %add.ptr, ptr %parse_point, align 8
   ret i32 1
 }
@@ -93,7 +93,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef i32 @stb__clex_eof(ptr nocapture noundef writeonly initializes((56, 64)) %lexer) local_unnamed_addr #0 {
 entry:
-  %token = getelementptr inbounds i8, ptr %lexer, i64 56
+  %token = getelementptr inbounds nuw i8, ptr %lexer, i64 56
   store i64 256, ptr %token, align 8
   ret i32 0
 }
@@ -133,7 +133,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %cmp, label %return, label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %incdec.ptr = getelementptr inbounds i8, ptr %str.addr.05, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %str.addr.05, i64 1
   %2 = load i8, ptr %incdec.ptr, align 1
   %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %return, label %for.body, !llvm.loop !6
@@ -149,13 +149,13 @@ entry:
   %add.ptr = getelementptr inbounds i8, ptr %cur, i64 -1
   %sext = shl i64 %tokenid, 32
   %conv.i = ashr exact i64 %sext, 32
-  %token1.i = getelementptr inbounds i8, ptr %lexer, i64 56
+  %token1.i = getelementptr inbounds nuw i8, ptr %lexer, i64 56
   store i64 %conv.i, ptr %token1.i, align 8
-  %where_firstchar.i = getelementptr inbounds i8, ptr %lexer, i64 40
+  %where_firstchar.i = getelementptr inbounds nuw i8, ptr %lexer, i64 40
   store ptr %start, ptr %where_firstchar.i, align 8
-  %where_lastchar.i = getelementptr inbounds i8, ptr %lexer, i64 48
+  %where_lastchar.i = getelementptr inbounds nuw i8, ptr %lexer, i64 48
   store ptr %add.ptr, ptr %where_lastchar.i, align 8
-  %parse_point.i = getelementptr inbounds i8, ptr %lexer, i64 16
+  %parse_point.i = getelementptr inbounds nuw i8, ptr %lexer, i64 16
   store ptr %cur, ptr %parse_point.i, align 8
   ret i32 1
 }
@@ -168,9 +168,9 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %add.ptr = getelementptr inbounds i8, ptr %p, i64 2
+  %add.ptr = getelementptr inbounds nuw i8, ptr %p, i64 2
   store ptr %add.ptr, ptr %q, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %p, i64 1
+  %arrayidx = getelementptr inbounds nuw i8, ptr %p, i64 1
   %1 = load i8, ptr %arrayidx, align 1
   switch i8 %1, label %if.end [
     i8 92, label %return
@@ -214,7 +214,7 @@ sw.bb11:                                          ; preds = %if.then
   br label %return
 
 if.end:                                           ; preds = %if.then, %entry
-  %add.ptr12 = getelementptr inbounds i8, ptr %p, i64 1
+  %add.ptr12 = getelementptr inbounds nuw i8, ptr %p, i64 1
   store ptr %add.ptr12, ptr %q, align 8
   %2 = load i8, ptr %p, align 1
   %conv13 = zext i8 %2 to i32
@@ -229,11 +229,11 @@ return:                                           ; preds = %if.then, %if.end, %
 define noundef i32 @stb__clex_parse_string(ptr nocapture noundef %lexer, ptr noundef %p, i32 noundef %type) local_unnamed_addr #5 {
 entry:
   %q = alloca ptr, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %p, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %p, i64 1
   %0 = load i8, ptr %p, align 1
-  %string_storage = getelementptr inbounds i8, ptr %lexer, i64 24
+  %string_storage = getelementptr inbounds nuw i8, ptr %lexer, i64 24
   %1 = load ptr, ptr %string_storage, align 8
-  %string_storage_len = getelementptr inbounds i8, ptr %lexer, i64 32
+  %string_storage_len = getelementptr inbounds nuw i8, ptr %lexer, i64 32
   %2 = load i32, ptr %string_storage_len, align 8
   %idx.ext = sext i32 %2 to i64
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %idx.ext
@@ -259,13 +259,13 @@ if.end:                                           ; preds = %if.then
   br label %if.end13
 
 if.else:                                          ; preds = %while.body
-  %incdec.ptr11 = getelementptr inbounds i8, ptr %p.addr.038, i64 1
+  %incdec.ptr11 = getelementptr inbounds nuw i8, ptr %p.addr.038, i64 1
   br label %if.end13
 
 if.end13:                                         ; preds = %if.else, %if.end
   %p.addr.1 = phi ptr [ %5, %if.end ], [ %incdec.ptr11, %if.else ]
   %n.0 = phi i8 [ %6, %if.end ], [ %4, %if.else ]
-  %add.ptr14 = getelementptr inbounds i8, ptr %out.039, i64 1
+  %add.ptr14 = getelementptr inbounds nuw i8, ptr %out.039, i64 1
   %cmp15 = icmp ugt ptr %add.ptr14, %add.ptr
   br i1 %cmp15, label %return, label %if.end19
 
@@ -280,13 +280,13 @@ while.end:                                        ; preds = %if.end19, %entry
   %out.0.lcssa = phi ptr [ %1, %entry ], [ %add.ptr14, %if.end19 ]
   store i8 0, ptr %out.0.lcssa, align 1
   %8 = load ptr, ptr %string_storage, align 8
-  %string = getelementptr inbounds i8, ptr %lexer, i64 80
+  %string = getelementptr inbounds nuw i8, ptr %lexer, i64 80
   store ptr %8, ptr %string, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %out.0.lcssa to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %8 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv24 = trunc i64 %sub.ptr.sub to i32
-  %string_len = getelementptr inbounds i8, ptr %lexer, i64 88
+  %string_len = getelementptr inbounds nuw i8, ptr %lexer, i64 88
   store i32 %conv24, ptr %string_len, align 8
   %conv.i = sext i32 %type to i64
   br label %return
@@ -294,14 +294,14 @@ while.end:                                        ; preds = %if.end19, %entry
 return:                                           ; preds = %if.end13, %if.then, %while.end
   %conv.i.sink = phi i64 [ %conv.i, %while.end ], [ 257, %if.then ], [ 257, %if.end13 ]
   %p.addr.0.lcssa.sink45 = phi ptr [ %p.addr.0.lcssa, %while.end ], [ %p.addr.1, %if.end13 ], [ %5, %if.then ]
-  %token1.i28 = getelementptr inbounds i8, ptr %lexer, i64 56
+  %token1.i28 = getelementptr inbounds nuw i8, ptr %lexer, i64 56
   store i64 %conv.i.sink, ptr %token1.i28, align 8
-  %where_firstchar.i29 = getelementptr inbounds i8, ptr %lexer, i64 40
+  %where_firstchar.i29 = getelementptr inbounds nuw i8, ptr %lexer, i64 40
   store ptr %p, ptr %where_firstchar.i29, align 8
-  %where_lastchar.i30 = getelementptr inbounds i8, ptr %lexer, i64 48
+  %where_lastchar.i30 = getelementptr inbounds nuw i8, ptr %lexer, i64 48
   store ptr %p.addr.0.lcssa.sink45, ptr %where_lastchar.i30, align 8
-  %add.ptr.i31 = getelementptr inbounds i8, ptr %p.addr.0.lcssa.sink45, i64 1
-  %parse_point.i32 = getelementptr inbounds i8, ptr %lexer, i64 16
+  %add.ptr.i31 = getelementptr inbounds nuw i8, ptr %p.addr.0.lcssa.sink45, i64 1
+  %parse_point.i32 = getelementptr inbounds nuw i8, ptr %lexer, i64 16
   store ptr %add.ptr.i31, ptr %parse_point.i32, align 8
   ret i32 1
 }
@@ -315,10 +315,10 @@ entry:
   %q513 = alloca ptr, align 8
   %q556 = alloca ptr, align 8
   %q561 = alloca ptr, align 8
-  %parse_point = getelementptr inbounds i8, ptr %lexer, i64 16
+  %parse_point = getelementptr inbounds nuw i8, ptr %lexer, i64 16
   %0 = load ptr, ptr %parse_point, align 8
   store ptr %0, ptr %p, align 8
-  %eof = getelementptr inbounds i8, ptr %lexer, i64 8
+  %eof = getelementptr inbounds nuw i8, ptr %lexer, i64 8
   %1 = load ptr, ptr %eof, align 8
   %2 = ptrtoint ptr %1 to i64
   %cmp.not292320 = icmp eq ptr %0, %1
@@ -344,7 +344,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %wh
   ]
 
 while.body:                                       ; preds = %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs
-  %incdec.ptr = getelementptr inbounds i8, ptr %incdec.ptr290293, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %incdec.ptr290293, i64 1
   %cmp.not = icmp eq ptr %incdec.ptr, %1
   br i1 %cmp.not, label %if.then97, label %land.rhs, !llvm.loop !8
 
@@ -380,7 +380,7 @@ land.lhs.true:                                    ; preds = %land.rhs
   ]
 
 land.lhs.true7:                                   ; preds = %land.lhs.true
-  %arrayidx8 = getelementptr inbounds i8, ptr %incdec.ptr290293, i64 1
+  %arrayidx8 = getelementptr inbounds nuw i8, ptr %incdec.ptr290293, i64 1
   %6 = load i8, ptr %arrayidx8, align 1
   switch i8 %6, label %sw.bb372 [
     i8 47, label %while.cond12.preheader
@@ -400,7 +400,7 @@ land.lhs.true16:                                  ; preds = %while.cond12.prehea
   ]
 
 while.body25:                                     ; preds = %land.lhs.true16
-  %incdec.ptr26 = getelementptr inbounds i8, ptr %incdec.ptr26310312, i64 1
+  %incdec.ptr26 = getelementptr inbounds nuw i8, ptr %incdec.ptr26310312, i64 1
   %cmp14.not = icmp eq ptr %incdec.ptr26, %1
   br i1 %cmp14.not, label %for.cond.backedge, label %land.lhs.true16, !llvm.loop !9
 
@@ -411,7 +411,7 @@ for.cond.backedge:                                ; preds = %land.lhs.true81, %l
   br i1 %cmp.not292, label %if.then97, label %land.rhs.lr.ph
 
 if.then41:                                        ; preds = %land.lhs.true7
-  %add.ptr = getelementptr inbounds i8, ptr %incdec.ptr290293, i64 2
+  %add.ptr = getelementptr inbounds nuw i8, ptr %incdec.ptr290293, i64 2
   store ptr %add.ptr, ptr %p, align 8
   %cmp44.not303 = icmp eq ptr %add.ptr, %1
   br i1 %cmp44.not303, label %if.then62, label %land.rhs46
@@ -423,13 +423,13 @@ land.rhs46:                                       ; preds = %if.then41, %while.b
   br i1 %cmp49.not, label %lor.rhs, label %while.body56
 
 lor.rhs:                                          ; preds = %land.rhs46
-  %arrayidx51 = getelementptr inbounds i8, ptr %storemerge107304, i64 1
+  %arrayidx51 = getelementptr inbounds nuw i8, ptr %storemerge107304, i64 1
   %9 = load i8, ptr %arrayidx51, align 1
   %cmp53.not = icmp eq i8 %9, 47
   br i1 %cmp53.not, label %if.end65, label %while.body56
 
 while.body56:                                     ; preds = %land.rhs46, %lor.rhs
-  %incdec.ptr57 = getelementptr inbounds i8, ptr %storemerge107304, i64 1
+  %incdec.ptr57 = getelementptr inbounds nuw i8, ptr %storemerge107304, i64 1
   store ptr %incdec.ptr57, ptr %p, align 8
   %cmp44.not = icmp eq ptr %incdec.ptr57, %1
   br i1 %cmp44.not, label %if.then62, label %land.rhs46, !llvm.loop !10
@@ -437,17 +437,17 @@ while.body56:                                     ; preds = %land.rhs46, %lor.rh
 if.then62:                                        ; preds = %if.then41, %while.body56
   %storemerge107.lcssa = phi ptr [ %incdec.ptr57, %while.body56 ], [ %add.ptr, %if.then41 ]
   %add.ptr63 = getelementptr inbounds i8, ptr %storemerge107.lcssa, i64 -1
-  %token1.i = getelementptr inbounds i8, ptr %lexer, i64 56
+  %token1.i = getelementptr inbounds nuw i8, ptr %lexer, i64 56
   store i64 257, ptr %token1.i, align 8
-  %where_firstchar.i = getelementptr inbounds i8, ptr %lexer, i64 40
+  %where_firstchar.i = getelementptr inbounds nuw i8, ptr %lexer, i64 40
   store ptr %incdec.ptr290293, ptr %where_firstchar.i, align 8
-  %where_lastchar.i = getelementptr inbounds i8, ptr %lexer, i64 48
+  %where_lastchar.i = getelementptr inbounds nuw i8, ptr %lexer, i64 48
   store ptr %add.ptr63, ptr %where_lastchar.i, align 8
   store ptr %storemerge107.lcssa, ptr %parse_point, align 8
   br label %return
 
 if.end65:                                         ; preds = %lor.rhs
-  %add.ptr66 = getelementptr inbounds i8, ptr %storemerge107304, i64 2
+  %add.ptr66 = getelementptr inbounds nuw i8, ptr %storemerge107304, i64 2
   br label %for.cond.backedge
 
 while.cond77.preheader:                           ; preds = %land.lhs.true
@@ -463,12 +463,12 @@ land.lhs.true81:                                  ; preds = %while.cond77.prehea
   ]
 
 while.body90:                                     ; preds = %land.lhs.true81
-  %incdec.ptr91 = getelementptr inbounds i8, ptr %incdec.ptr91296298, i64 1
+  %incdec.ptr91 = getelementptr inbounds nuw i8, ptr %incdec.ptr91296298, i64 1
   %cmp79.not = icmp eq ptr %incdec.ptr91, %1
   br i1 %cmp79.not, label %for.cond.backedge, label %land.lhs.true81, !llvm.loop !11
 
 if.then97:                                        ; preds = %for.cond.backedge, %while.body, %entry
-  %token.i = getelementptr inbounds i8, ptr %lexer, i64 56
+  %token.i = getelementptr inbounds nuw i8, ptr %lexer, i64 56
   store i64 256, ptr %token.i, align 8
   br label %return
 
@@ -491,13 +491,13 @@ switch.early.test:                                ; preds = %lor.lhs.false
   ]
 
 if.then127:                                       ; preds = %switch.early.test, %switch.early.test, %lor.lhs.false, %sw.default
-  %string_storage = getelementptr inbounds i8, ptr %lexer, i64 24
+  %string_storage = getelementptr inbounds nuw i8, ptr %lexer, i64 24
   %13 = load ptr, ptr %string_storage, align 8
-  %string = getelementptr inbounds i8, ptr %lexer, i64 80
+  %string = getelementptr inbounds nuw i8, ptr %lexer, i64 80
   store ptr %13, ptr %string, align 8
-  %string_len = getelementptr inbounds i8, ptr %lexer, i64 88
+  %string_len = getelementptr inbounds nuw i8, ptr %lexer, i64 88
   store i32 0, ptr %string_len, align 8
-  %string_storage_len = getelementptr inbounds i8, ptr %lexer, i64 32
+  %string_storage_len = getelementptr inbounds nuw i8, ptr %lexer, i64 32
   %14 = load i32, ptr %string_storage_len, align 8
   %cmp128.not326 = icmp sgt i32 %14, 1
   br i1 %cmp128.not326, label %if.end133, label %if.then130
@@ -508,26 +508,26 @@ if.then130.loopexit:                              ; preds = %do.body.backedge
 
 if.then130:                                       ; preds = %if.then130.loopexit, %if.then127
   %n.0.lcssa = phi i64 [ 0, %if.then127 ], [ %15, %if.then130.loopexit ]
-  %add.ptr131 = getelementptr inbounds i8, ptr %incdec.ptr290293, i64 %n.0.lcssa
-  %token1.i116 = getelementptr inbounds i8, ptr %lexer, i64 56
+  %add.ptr131 = getelementptr inbounds nuw i8, ptr %incdec.ptr290293, i64 %n.0.lcssa
+  %token1.i116 = getelementptr inbounds nuw i8, ptr %lexer, i64 56
   store i64 257, ptr %token1.i116, align 8
-  %where_firstchar.i117 = getelementptr inbounds i8, ptr %lexer, i64 40
+  %where_firstchar.i117 = getelementptr inbounds nuw i8, ptr %lexer, i64 40
   store ptr %incdec.ptr290293, ptr %where_firstchar.i117, align 8
-  %where_lastchar.i118 = getelementptr inbounds i8, ptr %lexer, i64 48
+  %where_lastchar.i118 = getelementptr inbounds nuw i8, ptr %lexer, i64 48
   store ptr %add.ptr131, ptr %where_lastchar.i118, align 8
-  %add.ptr.i119 = getelementptr inbounds i8, ptr %add.ptr131, i64 1
+  %add.ptr.i119 = getelementptr inbounds nuw i8, ptr %add.ptr131, i64 1
   store ptr %add.ptr.i119, ptr %parse_point, align 8
   br label %return
 
 if.end133:                                        ; preds = %if.then127, %do.body.backedge
   %indvars.iv351 = phi i64 [ %indvars.iv.next352, %do.body.backedge ], [ 0, %if.then127 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %do.body.backedge ], [ 1, %if.then127 ]
-  %arrayidx134 = getelementptr inbounds i8, ptr %incdec.ptr290293, i64 %indvars.iv351
+  %arrayidx134 = getelementptr inbounds nuw i8, ptr %incdec.ptr290293, i64 %indvars.iv351
   %16 = load i8, ptr %arrayidx134, align 1
   %17 = load ptr, ptr %string, align 8
-  %arrayidx137 = getelementptr inbounds i8, ptr %17, i64 %indvars.iv351
+  %arrayidx137 = getelementptr inbounds nuw i8, ptr %17, i64 %indvars.iv351
   store i8 %16, ptr %arrayidx137, align 1
-  %arrayidx139 = getelementptr inbounds i8, ptr %incdec.ptr290293, i64 %indvars.iv
+  %arrayidx139 = getelementptr inbounds nuw i8, ptr %incdec.ptr290293, i64 %indvars.iv
   %18 = load i8, ptr %arrayidx139, align 1
   %.fr = freeze i8 %18
   %19 = and i8 %.fr, -33
@@ -555,34 +555,34 @@ do.body.backedge:                                 ; preds = %switch.early.test33
   br i1 %cmp128.not, label %if.end133, label %if.then130.loopexit, !llvm.loop !12
 
 do.end:                                           ; preds = %switch.early.test331
-  %arrayidx139.le = getelementptr inbounds i8, ptr %incdec.ptr290293, i64 %indvars.iv
+  %arrayidx139.le = getelementptr inbounds nuw i8, ptr %incdec.ptr290293, i64 %indvars.iv
   %24 = load ptr, ptr %string, align 8
-  %arrayidx194 = getelementptr inbounds i8, ptr %24, i64 %indvars.iv
+  %arrayidx194 = getelementptr inbounds nuw i8, ptr %24, i64 %indvars.iv
   store i8 0, ptr %arrayidx194, align 1
   %add.ptr197 = getelementptr inbounds i8, ptr %arrayidx139.le, i64 -1
-  %token1.i121 = getelementptr inbounds i8, ptr %lexer, i64 56
+  %token1.i121 = getelementptr inbounds nuw i8, ptr %lexer, i64 56
   store i64 260, ptr %token1.i121, align 8
-  %where_firstchar.i122 = getelementptr inbounds i8, ptr %lexer, i64 40
+  %where_firstchar.i122 = getelementptr inbounds nuw i8, ptr %lexer, i64 40
   store ptr %incdec.ptr290293, ptr %where_firstchar.i122, align 8
-  %where_lastchar.i123 = getelementptr inbounds i8, ptr %lexer, i64 48
+  %where_lastchar.i123 = getelementptr inbounds nuw i8, ptr %lexer, i64 48
   store ptr %add.ptr197, ptr %where_lastchar.i123, align 8
   store ptr %arrayidx139.le, ptr %parse_point, align 8
   br label %return
 
 single_char:                                      ; preds = %switch.early.test, %if.then427, %if.then391, %if.then283, %if.then260, %if.then229, %if.then206, %sw.bb422, %sw.bb386, %sw.bb372, %land.lhs.true377, %sw.bb358, %land.lhs.true363, %sw.bb344, %land.lhs.true349, %sw.bb330, %land.lhs.true335, %sw.bb316, %land.lhs.true321, %sw.bb301, %if.then306, %sw.bb278, %sw.bb255, %sw.bb224, %sw.bb
   %conv.i = zext nneg i8 %5 to i64
-  %token1.i126 = getelementptr inbounds i8, ptr %lexer, i64 56
+  %token1.i126 = getelementptr inbounds nuw i8, ptr %lexer, i64 56
   store i64 %conv.i, ptr %token1.i126, align 8
-  %where_firstchar.i127 = getelementptr inbounds i8, ptr %lexer, i64 40
+  %where_firstchar.i127 = getelementptr inbounds nuw i8, ptr %lexer, i64 40
   store ptr %incdec.ptr290293, ptr %where_firstchar.i127, align 8
-  %where_lastchar.i128 = getelementptr inbounds i8, ptr %lexer, i64 48
+  %where_lastchar.i128 = getelementptr inbounds nuw i8, ptr %lexer, i64 48
   store ptr %incdec.ptr290293, ptr %where_lastchar.i128, align 8
-  %add.ptr.i129 = getelementptr inbounds i8, ptr %incdec.ptr290293, i64 1
+  %add.ptr.i129 = getelementptr inbounds nuw i8, ptr %incdec.ptr290293, i64 1
   store ptr %add.ptr.i129, ptr %parse_point, align 8
   br label %return
 
 sw.bb:                                            ; preds = %land.lhs.true
-  %add.ptr202 = getelementptr inbounds i8, ptr %incdec.ptr290293, i64 1
+  %add.ptr202 = getelementptr inbounds nuw i8, ptr %incdec.ptr290293, i64 1
   %cmp204.not = icmp eq ptr %add.ptr202, %1
   br i1 %cmp204.not, label %single_char, label %if.then206
 
@@ -594,29 +594,29 @@ if.then206:                                       ; preds = %sw.bb
   ]
 
 if.then211:                                       ; preds = %if.then206
-  %token1.i131 = getelementptr inbounds i8, ptr %lexer, i64 56
+  %token1.i131 = getelementptr inbounds nuw i8, ptr %lexer, i64 56
   store i64 272, ptr %token1.i131, align 8
-  %where_firstchar.i132 = getelementptr inbounds i8, ptr %lexer, i64 40
+  %where_firstchar.i132 = getelementptr inbounds nuw i8, ptr %lexer, i64 40
   store ptr %incdec.ptr290293, ptr %where_firstchar.i132, align 8
-  %where_lastchar.i133 = getelementptr inbounds i8, ptr %lexer, i64 48
+  %where_lastchar.i133 = getelementptr inbounds nuw i8, ptr %lexer, i64 48
   store ptr %add.ptr202, ptr %where_lastchar.i133, align 8
-  %add.ptr.i134 = getelementptr inbounds i8, ptr %incdec.ptr290293, i64 2
+  %add.ptr.i134 = getelementptr inbounds nuw i8, ptr %incdec.ptr290293, i64 2
   store ptr %add.ptr.i134, ptr %parse_point, align 8
   br label %return
 
 if.then219:                                       ; preds = %if.then206
-  %token1.i136 = getelementptr inbounds i8, ptr %lexer, i64 56
+  %token1.i136 = getelementptr inbounds nuw i8, ptr %lexer, i64 56
   store i64 274, ptr %token1.i136, align 8
-  %where_firstchar.i137 = getelementptr inbounds i8, ptr %lexer, i64 40
+  %where_firstchar.i137 = getelementptr inbounds nuw i8, ptr %lexer, i64 40
   store ptr %incdec.ptr290293, ptr %where_firstchar.i137, align 8
-  %where_lastchar.i138 = getelementptr inbounds i8, ptr %lexer, i64 48
+  %where_lastchar.i138 = getelementptr inbounds nuw i8, ptr %lexer, i64 48
   store ptr %add.ptr202, ptr %where_lastchar.i138, align 8
-  %add.ptr.i139 = getelementptr inbounds i8, ptr %incdec.ptr290293, i64 2
+  %add.ptr.i139 = getelementptr inbounds nuw i8, ptr %incdec.ptr290293, i64 2
   store ptr %add.ptr.i139, ptr %parse_point, align 8
   br label %return
 
 sw.bb224:                                         ; preds = %land.lhs.true
-  %add.ptr225 = getelementptr inbounds i8, ptr %incdec.ptr290293, i64 1
+  %add.ptr225 = getelementptr inbounds nuw i8, ptr %incdec.ptr290293, i64 1
   %cmp227.not = icmp eq ptr %add.ptr225, %1
   br i1 %cmp227.not, label %single_char, label %if.then229
 
@@ -629,40 +629,40 @@ if.then229:                                       ; preds = %sw.bb224
   ]
 
 if.then234:                                       ; preds = %if.then229
-  %token1.i141 = getelementptr inbounds i8, ptr %lexer, i64 56
+  %token1.i141 = getelementptr inbounds nuw i8, ptr %lexer, i64 56
   store i64 273, ptr %token1.i141, align 8
-  %where_firstchar.i142 = getelementptr inbounds i8, ptr %lexer, i64 40
+  %where_firstchar.i142 = getelementptr inbounds nuw i8, ptr %lexer, i64 40
   store ptr %incdec.ptr290293, ptr %where_firstchar.i142, align 8
-  %where_lastchar.i143 = getelementptr inbounds i8, ptr %lexer, i64 48
+  %where_lastchar.i143 = getelementptr inbounds nuw i8, ptr %lexer, i64 48
   store ptr %add.ptr225, ptr %where_lastchar.i143, align 8
-  %add.ptr.i144 = getelementptr inbounds i8, ptr %incdec.ptr290293, i64 2
+  %add.ptr.i144 = getelementptr inbounds nuw i8, ptr %incdec.ptr290293, i64 2
   store ptr %add.ptr.i144, ptr %parse_point, align 8
   br label %return
 
 if.then242:                                       ; preds = %if.then229
-  %token1.i146 = getelementptr inbounds i8, ptr %lexer, i64 56
+  %token1.i146 = getelementptr inbounds nuw i8, ptr %lexer, i64 56
   store i64 275, ptr %token1.i146, align 8
-  %where_firstchar.i147 = getelementptr inbounds i8, ptr %lexer, i64 40
+  %where_firstchar.i147 = getelementptr inbounds nuw i8, ptr %lexer, i64 40
   store ptr %incdec.ptr290293, ptr %where_firstchar.i147, align 8
-  %where_lastchar.i148 = getelementptr inbounds i8, ptr %lexer, i64 48
+  %where_lastchar.i148 = getelementptr inbounds nuw i8, ptr %lexer, i64 48
   store ptr %add.ptr225, ptr %where_lastchar.i148, align 8
-  %add.ptr.i149 = getelementptr inbounds i8, ptr %incdec.ptr290293, i64 2
+  %add.ptr.i149 = getelementptr inbounds nuw i8, ptr %incdec.ptr290293, i64 2
   store ptr %add.ptr.i149, ptr %parse_point, align 8
   br label %return
 
 if.then250:                                       ; preds = %if.then229
-  %token1.i151 = getelementptr inbounds i8, ptr %lexer, i64 56
+  %token1.i151 = getelementptr inbounds nuw i8, ptr %lexer, i64 56
   store i64 282, ptr %token1.i151, align 8
-  %where_firstchar.i152 = getelementptr inbounds i8, ptr %lexer, i64 40
+  %where_firstchar.i152 = getelementptr inbounds nuw i8, ptr %lexer, i64 40
   store ptr %incdec.ptr290293, ptr %where_firstchar.i152, align 8
-  %where_lastchar.i153 = getelementptr inbounds i8, ptr %lexer, i64 48
+  %where_lastchar.i153 = getelementptr inbounds nuw i8, ptr %lexer, i64 48
   store ptr %add.ptr225, ptr %where_lastchar.i153, align 8
-  %add.ptr.i154 = getelementptr inbounds i8, ptr %incdec.ptr290293, i64 2
+  %add.ptr.i154 = getelementptr inbounds nuw i8, ptr %incdec.ptr290293, i64 2
   store ptr %add.ptr.i154, ptr %parse_point, align 8
   br label %return
 
 sw.bb255:                                         ; preds = %land.lhs.true
-  %add.ptr256 = getelementptr inbounds i8, ptr %incdec.ptr290293, i64 1
+  %add.ptr256 = getelementptr inbounds nuw i8, ptr %incdec.ptr290293, i64 1
   %cmp258.not = icmp eq ptr %add.ptr256, %1
   br i1 %cmp258.not, label %single_char, label %if.then260
 
@@ -674,29 +674,29 @@ if.then260:                                       ; preds = %sw.bb255
   ]
 
 if.then265:                                       ; preds = %if.then260
-  %token1.i156 = getelementptr inbounds i8, ptr %lexer, i64 56
+  %token1.i156 = getelementptr inbounds nuw i8, ptr %lexer, i64 56
   store i64 268, ptr %token1.i156, align 8
-  %where_firstchar.i157 = getelementptr inbounds i8, ptr %lexer, i64 40
+  %where_firstchar.i157 = getelementptr inbounds nuw i8, ptr %lexer, i64 40
   store ptr %incdec.ptr290293, ptr %where_firstchar.i157, align 8
-  %where_lastchar.i158 = getelementptr inbounds i8, ptr %lexer, i64 48
+  %where_lastchar.i158 = getelementptr inbounds nuw i8, ptr %lexer, i64 48
   store ptr %add.ptr256, ptr %where_lastchar.i158, align 8
-  %add.ptr.i159 = getelementptr inbounds i8, ptr %incdec.ptr290293, i64 2
+  %add.ptr.i159 = getelementptr inbounds nuw i8, ptr %incdec.ptr290293, i64 2
   store ptr %add.ptr.i159, ptr %parse_point, align 8
   br label %return
 
 if.then273:                                       ; preds = %if.then260
-  %token1.i161 = getelementptr inbounds i8, ptr %lexer, i64 56
+  %token1.i161 = getelementptr inbounds nuw i8, ptr %lexer, i64 56
   store i64 279, ptr %token1.i161, align 8
-  %where_firstchar.i162 = getelementptr inbounds i8, ptr %lexer, i64 40
+  %where_firstchar.i162 = getelementptr inbounds nuw i8, ptr %lexer, i64 40
   store ptr %incdec.ptr290293, ptr %where_firstchar.i162, align 8
-  %where_lastchar.i163 = getelementptr inbounds i8, ptr %lexer, i64 48
+  %where_lastchar.i163 = getelementptr inbounds nuw i8, ptr %lexer, i64 48
   store ptr %add.ptr256, ptr %where_lastchar.i163, align 8
-  %add.ptr.i164 = getelementptr inbounds i8, ptr %incdec.ptr290293, i64 2
+  %add.ptr.i164 = getelementptr inbounds nuw i8, ptr %incdec.ptr290293, i64 2
   store ptr %add.ptr.i164, ptr %parse_point, align 8
   br label %return
 
 sw.bb278:                                         ; preds = %land.lhs.true
-  %add.ptr279 = getelementptr inbounds i8, ptr %incdec.ptr290293, i64 1
+  %add.ptr279 = getelementptr inbounds nuw i8, ptr %incdec.ptr290293, i64 1
   %cmp281.not = icmp eq ptr %add.ptr279, %1
   br i1 %cmp281.not, label %single_char, label %if.then283
 
@@ -708,29 +708,29 @@ if.then283:                                       ; preds = %sw.bb278
   ]
 
 if.then288:                                       ; preds = %if.then283
-  %token1.i166 = getelementptr inbounds i8, ptr %lexer, i64 56
+  %token1.i166 = getelementptr inbounds nuw i8, ptr %lexer, i64 56
   store i64 269, ptr %token1.i166, align 8
-  %where_firstchar.i167 = getelementptr inbounds i8, ptr %lexer, i64 40
+  %where_firstchar.i167 = getelementptr inbounds nuw i8, ptr %lexer, i64 40
   store ptr %incdec.ptr290293, ptr %where_firstchar.i167, align 8
-  %where_lastchar.i168 = getelementptr inbounds i8, ptr %lexer, i64 48
+  %where_lastchar.i168 = getelementptr inbounds nuw i8, ptr %lexer, i64 48
   store ptr %add.ptr279, ptr %where_lastchar.i168, align 8
-  %add.ptr.i169 = getelementptr inbounds i8, ptr %incdec.ptr290293, i64 2
+  %add.ptr.i169 = getelementptr inbounds nuw i8, ptr %incdec.ptr290293, i64 2
   store ptr %add.ptr.i169, ptr %parse_point, align 8
   br label %return
 
 if.then296:                                       ; preds = %if.then283
-  %token1.i171 = getelementptr inbounds i8, ptr %lexer, i64 56
+  %token1.i171 = getelementptr inbounds nuw i8, ptr %lexer, i64 56
   store i64 280, ptr %token1.i171, align 8
-  %where_firstchar.i172 = getelementptr inbounds i8, ptr %lexer, i64 40
+  %where_firstchar.i172 = getelementptr inbounds nuw i8, ptr %lexer, i64 40
   store ptr %incdec.ptr290293, ptr %where_firstchar.i172, align 8
-  %where_lastchar.i173 = getelementptr inbounds i8, ptr %lexer, i64 48
+  %where_lastchar.i173 = getelementptr inbounds nuw i8, ptr %lexer, i64 48
   store ptr %add.ptr279, ptr %where_lastchar.i173, align 8
-  %add.ptr.i174 = getelementptr inbounds i8, ptr %incdec.ptr290293, i64 2
+  %add.ptr.i174 = getelementptr inbounds nuw i8, ptr %incdec.ptr290293, i64 2
   store ptr %add.ptr.i174, ptr %parse_point, align 8
   br label %return
 
 sw.bb301:                                         ; preds = %land.lhs.true
-  %add.ptr302 = getelementptr inbounds i8, ptr %incdec.ptr290293, i64 1
+  %add.ptr302 = getelementptr inbounds nuw i8, ptr %incdec.ptr290293, i64 1
   %cmp304.not = icmp eq ptr %add.ptr302, %1
   br i1 %cmp304.not, label %single_char, label %if.then306
 
@@ -740,18 +740,18 @@ if.then306:                                       ; preds = %sw.bb301
   br i1 %cmp309, label %if.then311, label %single_char
 
 if.then311:                                       ; preds = %if.then306
-  %token1.i176 = getelementptr inbounds i8, ptr %lexer, i64 56
+  %token1.i176 = getelementptr inbounds nuw i8, ptr %lexer, i64 56
   store i64 264, ptr %token1.i176, align 8
-  %where_firstchar.i177 = getelementptr inbounds i8, ptr %lexer, i64 40
+  %where_firstchar.i177 = getelementptr inbounds nuw i8, ptr %lexer, i64 40
   store ptr %incdec.ptr290293, ptr %where_firstchar.i177, align 8
-  %where_lastchar.i178 = getelementptr inbounds i8, ptr %lexer, i64 48
+  %where_lastchar.i178 = getelementptr inbounds nuw i8, ptr %lexer, i64 48
   store ptr %add.ptr302, ptr %where_lastchar.i178, align 8
-  %add.ptr.i179 = getelementptr inbounds i8, ptr %incdec.ptr290293, i64 2
+  %add.ptr.i179 = getelementptr inbounds nuw i8, ptr %incdec.ptr290293, i64 2
   store ptr %add.ptr.i179, ptr %parse_point, align 8
   br label %return
 
 sw.bb316:                                         ; preds = %land.lhs.true
-  %add.ptr317 = getelementptr inbounds i8, ptr %incdec.ptr290293, i64 1
+  %add.ptr317 = getelementptr inbounds nuw i8, ptr %incdec.ptr290293, i64 1
   %cmp319.not = icmp eq ptr %add.ptr317, %1
   br i1 %cmp319.not, label %single_char, label %land.lhs.true321
 
@@ -761,18 +761,18 @@ land.lhs.true321:                                 ; preds = %sw.bb316
   br i1 %cmp324, label %if.then326, label %single_char
 
 if.then326:                                       ; preds = %land.lhs.true321
-  %token1.i181 = getelementptr inbounds i8, ptr %lexer, i64 56
+  %token1.i181 = getelementptr inbounds nuw i8, ptr %lexer, i64 56
   store i64 265, ptr %token1.i181, align 8
-  %where_firstchar.i182 = getelementptr inbounds i8, ptr %lexer, i64 40
+  %where_firstchar.i182 = getelementptr inbounds nuw i8, ptr %lexer, i64 40
   store ptr %incdec.ptr290293, ptr %where_firstchar.i182, align 8
-  %where_lastchar.i183 = getelementptr inbounds i8, ptr %lexer, i64 48
+  %where_lastchar.i183 = getelementptr inbounds nuw i8, ptr %lexer, i64 48
   store ptr %add.ptr317, ptr %where_lastchar.i183, align 8
-  %add.ptr.i184 = getelementptr inbounds i8, ptr %incdec.ptr290293, i64 2
+  %add.ptr.i184 = getelementptr inbounds nuw i8, ptr %incdec.ptr290293, i64 2
   store ptr %add.ptr.i184, ptr %parse_point, align 8
   br label %return
 
 sw.bb330:                                         ; preds = %land.lhs.true
-  %add.ptr331 = getelementptr inbounds i8, ptr %incdec.ptr290293, i64 1
+  %add.ptr331 = getelementptr inbounds nuw i8, ptr %incdec.ptr290293, i64 1
   %cmp333.not = icmp eq ptr %add.ptr331, %1
   br i1 %cmp333.not, label %single_char, label %land.lhs.true335
 
@@ -782,18 +782,18 @@ land.lhs.true335:                                 ; preds = %sw.bb330
   br i1 %cmp338, label %if.then340, label %single_char
 
 if.then340:                                       ; preds = %land.lhs.true335
-  %token1.i186 = getelementptr inbounds i8, ptr %lexer, i64 56
+  %token1.i186 = getelementptr inbounds nuw i8, ptr %lexer, i64 56
   store i64 281, ptr %token1.i186, align 8
-  %where_firstchar.i187 = getelementptr inbounds i8, ptr %lexer, i64 40
+  %where_firstchar.i187 = getelementptr inbounds nuw i8, ptr %lexer, i64 40
   store ptr %incdec.ptr290293, ptr %where_firstchar.i187, align 8
-  %where_lastchar.i188 = getelementptr inbounds i8, ptr %lexer, i64 48
+  %where_lastchar.i188 = getelementptr inbounds nuw i8, ptr %lexer, i64 48
   store ptr %add.ptr331, ptr %where_lastchar.i188, align 8
-  %add.ptr.i189 = getelementptr inbounds i8, ptr %incdec.ptr290293, i64 2
+  %add.ptr.i189 = getelementptr inbounds nuw i8, ptr %incdec.ptr290293, i64 2
   store ptr %add.ptr.i189, ptr %parse_point, align 8
   br label %return
 
 sw.bb344:                                         ; preds = %land.lhs.true
-  %add.ptr345 = getelementptr inbounds i8, ptr %incdec.ptr290293, i64 1
+  %add.ptr345 = getelementptr inbounds nuw i8, ptr %incdec.ptr290293, i64 1
   %cmp347.not = icmp eq ptr %add.ptr345, %1
   br i1 %cmp347.not, label %single_char, label %land.lhs.true349
 
@@ -803,18 +803,18 @@ land.lhs.true349:                                 ; preds = %sw.bb344
   br i1 %cmp352, label %if.then354, label %single_char
 
 if.then354:                                       ; preds = %land.lhs.true349
-  %token1.i191 = getelementptr inbounds i8, ptr %lexer, i64 56
+  %token1.i191 = getelementptr inbounds nuw i8, ptr %lexer, i64 56
   store i64 278, ptr %token1.i191, align 8
-  %where_firstchar.i192 = getelementptr inbounds i8, ptr %lexer, i64 40
+  %where_firstchar.i192 = getelementptr inbounds nuw i8, ptr %lexer, i64 40
   store ptr %incdec.ptr290293, ptr %where_firstchar.i192, align 8
-  %where_lastchar.i193 = getelementptr inbounds i8, ptr %lexer, i64 48
+  %where_lastchar.i193 = getelementptr inbounds nuw i8, ptr %lexer, i64 48
   store ptr %add.ptr345, ptr %where_lastchar.i193, align 8
-  %add.ptr.i194 = getelementptr inbounds i8, ptr %incdec.ptr290293, i64 2
+  %add.ptr.i194 = getelementptr inbounds nuw i8, ptr %incdec.ptr290293, i64 2
   store ptr %add.ptr.i194, ptr %parse_point, align 8
   br label %return
 
 sw.bb358:                                         ; preds = %land.lhs.true
-  %add.ptr359 = getelementptr inbounds i8, ptr %incdec.ptr290293, i64 1
+  %add.ptr359 = getelementptr inbounds nuw i8, ptr %incdec.ptr290293, i64 1
   %cmp361.not = icmp eq ptr %add.ptr359, %1
   br i1 %cmp361.not, label %single_char, label %land.lhs.true363
 
@@ -824,18 +824,18 @@ land.lhs.true363:                                 ; preds = %sw.bb358
   br i1 %cmp366, label %if.then368, label %single_char
 
 if.then368:                                       ; preds = %land.lhs.true363
-  %token1.i196 = getelementptr inbounds i8, ptr %lexer, i64 56
+  %token1.i196 = getelementptr inbounds nuw i8, ptr %lexer, i64 56
   store i64 276, ptr %token1.i196, align 8
-  %where_firstchar.i197 = getelementptr inbounds i8, ptr %lexer, i64 40
+  %where_firstchar.i197 = getelementptr inbounds nuw i8, ptr %lexer, i64 40
   store ptr %incdec.ptr290293, ptr %where_firstchar.i197, align 8
-  %where_lastchar.i198 = getelementptr inbounds i8, ptr %lexer, i64 48
+  %where_lastchar.i198 = getelementptr inbounds nuw i8, ptr %lexer, i64 48
   store ptr %add.ptr359, ptr %where_lastchar.i198, align 8
-  %add.ptr.i199 = getelementptr inbounds i8, ptr %incdec.ptr290293, i64 2
+  %add.ptr.i199 = getelementptr inbounds nuw i8, ptr %incdec.ptr290293, i64 2
   store ptr %add.ptr.i199, ptr %parse_point, align 8
   br label %return
 
 sw.bb372:                                         ; preds = %land.lhs.true7
-  %add.ptr373 = getelementptr inbounds i8, ptr %incdec.ptr290293, i64 1
+  %add.ptr373 = getelementptr inbounds nuw i8, ptr %incdec.ptr290293, i64 1
   %cmp375.not = icmp eq ptr %add.ptr373, %1
   br i1 %cmp375.not, label %single_char, label %land.lhs.true377
 
@@ -845,18 +845,18 @@ land.lhs.true377:                                 ; preds = %sw.bb372
   br i1 %cmp380, label %if.then382, label %single_char
 
 if.then382:                                       ; preds = %land.lhs.true377
-  %token1.i201 = getelementptr inbounds i8, ptr %lexer, i64 56
+  %token1.i201 = getelementptr inbounds nuw i8, ptr %lexer, i64 56
   store i64 277, ptr %token1.i201, align 8
-  %where_firstchar.i202 = getelementptr inbounds i8, ptr %lexer, i64 40
+  %where_firstchar.i202 = getelementptr inbounds nuw i8, ptr %lexer, i64 40
   store ptr %incdec.ptr290293, ptr %where_firstchar.i202, align 8
-  %where_lastchar.i203 = getelementptr inbounds i8, ptr %lexer, i64 48
+  %where_lastchar.i203 = getelementptr inbounds nuw i8, ptr %lexer, i64 48
   store ptr %add.ptr373, ptr %where_lastchar.i203, align 8
-  %add.ptr.i204 = getelementptr inbounds i8, ptr %incdec.ptr290293, i64 2
+  %add.ptr.i204 = getelementptr inbounds nuw i8, ptr %incdec.ptr290293, i64 2
   store ptr %add.ptr.i204, ptr %parse_point, align 8
   br label %return
 
 sw.bb386:                                         ; preds = %land.lhs.true
-  %add.ptr387 = getelementptr inbounds i8, ptr %incdec.ptr290293, i64 1
+  %add.ptr387 = getelementptr inbounds nuw i8, ptr %incdec.ptr290293, i64 1
   %cmp389.not = icmp eq ptr %add.ptr387, %1
   br i1 %cmp389.not, label %single_char, label %if.then391
 
@@ -868,18 +868,18 @@ if.then391:                                       ; preds = %sw.bb386
   ]
 
 if.then396:                                       ; preds = %if.then391
-  %token1.i206 = getelementptr inbounds i8, ptr %lexer, i64 56
+  %token1.i206 = getelementptr inbounds nuw i8, ptr %lexer, i64 56
   store i64 266, ptr %token1.i206, align 8
-  %where_firstchar.i207 = getelementptr inbounds i8, ptr %lexer, i64 40
+  %where_firstchar.i207 = getelementptr inbounds nuw i8, ptr %lexer, i64 40
   store ptr %incdec.ptr290293, ptr %where_firstchar.i207, align 8
-  %where_lastchar.i208 = getelementptr inbounds i8, ptr %lexer, i64 48
+  %where_lastchar.i208 = getelementptr inbounds nuw i8, ptr %lexer, i64 48
   store ptr %add.ptr387, ptr %where_lastchar.i208, align 8
-  %add.ptr.i209 = getelementptr inbounds i8, ptr %incdec.ptr290293, i64 2
+  %add.ptr.i209 = getelementptr inbounds nuw i8, ptr %incdec.ptr290293, i64 2
   store ptr %add.ptr.i209, ptr %parse_point, align 8
   br label %return
 
 if.then404:                                       ; preds = %if.then391
-  %add.ptr405 = getelementptr inbounds i8, ptr %incdec.ptr290293, i64 2
+  %add.ptr405 = getelementptr inbounds nuw i8, ptr %incdec.ptr290293, i64 2
   %cmp407.not = icmp eq ptr %add.ptr405, %1
   br i1 %cmp407.not, label %if.end417, label %land.lhs.true409
 
@@ -889,28 +889,28 @@ land.lhs.true409:                                 ; preds = %if.then404
   br i1 %cmp412, label %if.then414, label %if.end417
 
 if.then414:                                       ; preds = %land.lhs.true409
-  %token1.i211 = getelementptr inbounds i8, ptr %lexer, i64 56
+  %token1.i211 = getelementptr inbounds nuw i8, ptr %lexer, i64 56
   store i64 284, ptr %token1.i211, align 8
-  %where_firstchar.i212 = getelementptr inbounds i8, ptr %lexer, i64 40
+  %where_firstchar.i212 = getelementptr inbounds nuw i8, ptr %lexer, i64 40
   store ptr %incdec.ptr290293, ptr %where_firstchar.i212, align 8
-  %where_lastchar.i213 = getelementptr inbounds i8, ptr %lexer, i64 48
+  %where_lastchar.i213 = getelementptr inbounds nuw i8, ptr %lexer, i64 48
   store ptr %add.ptr405, ptr %where_lastchar.i213, align 8
-  %add.ptr.i214 = getelementptr inbounds i8, ptr %incdec.ptr290293, i64 3
+  %add.ptr.i214 = getelementptr inbounds nuw i8, ptr %incdec.ptr290293, i64 3
   store ptr %add.ptr.i214, ptr %parse_point, align 8
   br label %return
 
 if.end417:                                        ; preds = %land.lhs.true409, %if.then404
-  %token1.i216 = getelementptr inbounds i8, ptr %lexer, i64 56
+  %token1.i216 = getelementptr inbounds nuw i8, ptr %lexer, i64 56
   store i64 270, ptr %token1.i216, align 8
-  %where_firstchar.i217 = getelementptr inbounds i8, ptr %lexer, i64 40
+  %where_firstchar.i217 = getelementptr inbounds nuw i8, ptr %lexer, i64 40
   store ptr %incdec.ptr290293, ptr %where_firstchar.i217, align 8
-  %where_lastchar.i218 = getelementptr inbounds i8, ptr %lexer, i64 48
+  %where_lastchar.i218 = getelementptr inbounds nuw i8, ptr %lexer, i64 48
   store ptr %add.ptr387, ptr %where_lastchar.i218, align 8
   store ptr %add.ptr405, ptr %parse_point, align 8
   br label %return
 
 sw.bb422:                                         ; preds = %land.lhs.true
-  %add.ptr423 = getelementptr inbounds i8, ptr %incdec.ptr290293, i64 1
+  %add.ptr423 = getelementptr inbounds nuw i8, ptr %incdec.ptr290293, i64 1
   %cmp425.not = icmp eq ptr %add.ptr423, %1
   br i1 %cmp425.not, label %single_char, label %if.then427
 
@@ -922,18 +922,18 @@ if.then427:                                       ; preds = %sw.bb422
   ]
 
 if.then432:                                       ; preds = %if.then427
-  %token1.i221 = getelementptr inbounds i8, ptr %lexer, i64 56
+  %token1.i221 = getelementptr inbounds nuw i8, ptr %lexer, i64 56
   store i64 267, ptr %token1.i221, align 8
-  %where_firstchar.i222 = getelementptr inbounds i8, ptr %lexer, i64 40
+  %where_firstchar.i222 = getelementptr inbounds nuw i8, ptr %lexer, i64 40
   store ptr %incdec.ptr290293, ptr %where_firstchar.i222, align 8
-  %where_lastchar.i223 = getelementptr inbounds i8, ptr %lexer, i64 48
+  %where_lastchar.i223 = getelementptr inbounds nuw i8, ptr %lexer, i64 48
   store ptr %add.ptr423, ptr %where_lastchar.i223, align 8
-  %add.ptr.i224 = getelementptr inbounds i8, ptr %incdec.ptr290293, i64 2
+  %add.ptr.i224 = getelementptr inbounds nuw i8, ptr %incdec.ptr290293, i64 2
   store ptr %add.ptr.i224, ptr %parse_point, align 8
   br label %return
 
 if.then440:                                       ; preds = %if.then427
-  %add.ptr441 = getelementptr inbounds i8, ptr %incdec.ptr290293, i64 2
+  %add.ptr441 = getelementptr inbounds nuw i8, ptr %incdec.ptr290293, i64 2
   %cmp443.not = icmp eq ptr %add.ptr441, %1
   br i1 %cmp443.not, label %if.end453, label %land.lhs.true445
 
@@ -943,32 +943,32 @@ land.lhs.true445:                                 ; preds = %if.then440
   br i1 %cmp448, label %if.then450, label %if.end453
 
 if.then450:                                       ; preds = %land.lhs.true445
-  %token1.i226 = getelementptr inbounds i8, ptr %lexer, i64 56
+  %token1.i226 = getelementptr inbounds nuw i8, ptr %lexer, i64 56
   store i64 285, ptr %token1.i226, align 8
-  %where_firstchar.i227 = getelementptr inbounds i8, ptr %lexer, i64 40
+  %where_firstchar.i227 = getelementptr inbounds nuw i8, ptr %lexer, i64 40
   store ptr %incdec.ptr290293, ptr %where_firstchar.i227, align 8
-  %where_lastchar.i228 = getelementptr inbounds i8, ptr %lexer, i64 48
+  %where_lastchar.i228 = getelementptr inbounds nuw i8, ptr %lexer, i64 48
   store ptr %add.ptr441, ptr %where_lastchar.i228, align 8
-  %add.ptr.i229 = getelementptr inbounds i8, ptr %incdec.ptr290293, i64 3
+  %add.ptr.i229 = getelementptr inbounds nuw i8, ptr %incdec.ptr290293, i64 3
   store ptr %add.ptr.i229, ptr %parse_point, align 8
   br label %return
 
 if.end453:                                        ; preds = %land.lhs.true445, %if.then440
-  %token1.i231 = getelementptr inbounds i8, ptr %lexer, i64 56
+  %token1.i231 = getelementptr inbounds nuw i8, ptr %lexer, i64 56
   store i64 271, ptr %token1.i231, align 8
-  %where_firstchar.i232 = getelementptr inbounds i8, ptr %lexer, i64 40
+  %where_firstchar.i232 = getelementptr inbounds nuw i8, ptr %lexer, i64 40
   store ptr %incdec.ptr290293, ptr %where_firstchar.i232, align 8
-  %where_lastchar.i233 = getelementptr inbounds i8, ptr %lexer, i64 48
+  %where_lastchar.i233 = getelementptr inbounds nuw i8, ptr %lexer, i64 48
   store ptr %add.ptr423, ptr %where_lastchar.i233, align 8
   store ptr %add.ptr441, ptr %parse_point, align 8
   br label %return
 
 sw.bb458:                                         ; preds = %land.lhs.true
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %q.i)
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %incdec.ptr290293, i64 1
-  %string_storage.i = getelementptr inbounds i8, ptr %lexer, i64 24
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %incdec.ptr290293, i64 1
+  %string_storage.i = getelementptr inbounds nuw i8, ptr %lexer, i64 24
   %39 = load ptr, ptr %string_storage.i, align 8
-  %string_storage_len.i = getelementptr inbounds i8, ptr %lexer, i64 32
+  %string_storage_len.i = getelementptr inbounds nuw i8, ptr %lexer, i64 32
   %40 = load i32, ptr %string_storage_len.i, align 8
   %idx.ext.i = sext i32 %40 to i64
   %add.ptr.i236 = getelementptr inbounds i8, ptr %39, i64 %idx.ext.i
@@ -994,13 +994,13 @@ if.end.i:                                         ; preds = %if.then.i
   br label %if.end13.i
 
 if.else.i:                                        ; preds = %while.body.i
-  %incdec.ptr11.i = getelementptr inbounds i8, ptr %p.addr.038.i, i64 1
+  %incdec.ptr11.i = getelementptr inbounds nuw i8, ptr %p.addr.038.i, i64 1
   br label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.else.i, %if.end.i
   %p.addr.1.i = phi ptr [ %43, %if.end.i ], [ %incdec.ptr11.i, %if.else.i ]
   %n.0.i = phi i8 [ %44, %if.end.i ], [ %42, %if.else.i ]
-  %add.ptr14.i = getelementptr inbounds i8, ptr %out.039.i, i64 1
+  %add.ptr14.i = getelementptr inbounds nuw i8, ptr %out.039.i, i64 1
   %cmp15.i = icmp ugt ptr %add.ptr14.i, %add.ptr.i236
   br i1 %cmp15.i, label %stb__clex_parse_string.exit, label %if.end19.i
 
@@ -1015,45 +1015,45 @@ while.end.i:                                      ; preds = %if.end19.i, %sw.bb4
   %out.0.lcssa.i = phi ptr [ %39, %sw.bb458 ], [ %add.ptr14.i, %if.end19.i ]
   store i8 0, ptr %out.0.lcssa.i, align 1
   %46 = load ptr, ptr %string_storage.i, align 8
-  %string.i = getelementptr inbounds i8, ptr %lexer, i64 80
+  %string.i = getelementptr inbounds nuw i8, ptr %lexer, i64 80
   store ptr %46, ptr %string.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %out.0.lcssa.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %46 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %conv24.i = trunc i64 %sub.ptr.sub.i to i32
-  %string_len.i = getelementptr inbounds i8, ptr %lexer, i64 88
+  %string_len.i = getelementptr inbounds nuw i8, ptr %lexer, i64 88
   store i32 %conv24.i, ptr %string_len.i, align 8
   br label %stb__clex_parse_string.exit
 
 stb__clex_parse_string.exit:                      ; preds = %if.then.i, %if.end13.i, %while.end.i
   %conv.i.sink.i = phi i64 [ 261, %while.end.i ], [ 257, %if.end13.i ], [ 257, %if.then.i ]
   %p.addr.0.lcssa.sink45.i = phi ptr [ %p.addr.0.lcssa.i, %while.end.i ], [ %43, %if.then.i ], [ %p.addr.1.i, %if.end13.i ]
-  %token1.i28.i = getelementptr inbounds i8, ptr %lexer, i64 56
+  %token1.i28.i = getelementptr inbounds nuw i8, ptr %lexer, i64 56
   store i64 %conv.i.sink.i, ptr %token1.i28.i, align 8
-  %where_firstchar.i29.i = getelementptr inbounds i8, ptr %lexer, i64 40
+  %where_firstchar.i29.i = getelementptr inbounds nuw i8, ptr %lexer, i64 40
   store ptr %incdec.ptr290293, ptr %where_firstchar.i29.i, align 8
-  %where_lastchar.i30.i = getelementptr inbounds i8, ptr %lexer, i64 48
+  %where_lastchar.i30.i = getelementptr inbounds nuw i8, ptr %lexer, i64 48
   store ptr %p.addr.0.lcssa.sink45.i, ptr %where_lastchar.i30.i, align 8
-  %add.ptr.i31.i = getelementptr inbounds i8, ptr %p.addr.0.lcssa.sink45.i, i64 1
+  %add.ptr.i31.i = getelementptr inbounds nuw i8, ptr %p.addr.0.lcssa.sink45.i, i64 1
   store ptr %add.ptr.i31.i, ptr %parse_point, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %q.i)
   br label %return
 
 sw.bb460:                                         ; preds = %land.lhs.true
-  %add.ptr462 = getelementptr inbounds i8, ptr %incdec.ptr290293, i64 1
+  %add.ptr462 = getelementptr inbounds nuw i8, ptr %incdec.ptr290293, i64 1
   %call463 = call i32 @stb__clex_parse_char(ptr noundef nonnull %add.ptr462, ptr noundef nonnull %p)
   %conv464 = sext i32 %call463 to i64
-  %int_number = getelementptr inbounds i8, ptr %lexer, i64 72
+  %int_number = getelementptr inbounds nuw i8, ptr %lexer, i64 72
   store i64 %conv464, ptr %int_number, align 8
   %cmp466 = icmp slt i32 %call463, 0
   br i1 %cmp466, label %if.then468, label %if.end470
 
 if.then468:                                       ; preds = %sw.bb460
-  %token1.i237 = getelementptr inbounds i8, ptr %lexer, i64 56
+  %token1.i237 = getelementptr inbounds nuw i8, ptr %lexer, i64 56
   store i64 257, ptr %token1.i237, align 8
-  %where_firstchar.i238 = getelementptr inbounds i8, ptr %lexer, i64 40
+  %where_firstchar.i238 = getelementptr inbounds nuw i8, ptr %lexer, i64 40
   store ptr %incdec.ptr290293, ptr %where_firstchar.i238, align 8
-  %where_lastchar.i239 = getelementptr inbounds i8, ptr %lexer, i64 48
+  %where_lastchar.i239 = getelementptr inbounds nuw i8, ptr %lexer, i64 48
   store ptr %incdec.ptr290293, ptr %where_lastchar.i239, align 8
   store ptr %add.ptr462, ptr %parse_point, align 8
   br label %return
@@ -1070,30 +1070,30 @@ lor.lhs.false474:                                 ; preds = %if.end470
   br i1 %cmp476.not, label %if.end480, label %if.then478
 
 if.then478:                                       ; preds = %lor.lhs.false474, %if.end470
-  %token1.i242 = getelementptr inbounds i8, ptr %lexer, i64 56
+  %token1.i242 = getelementptr inbounds nuw i8, ptr %lexer, i64 56
   store i64 257, ptr %token1.i242, align 8
-  %where_firstchar.i243 = getelementptr inbounds i8, ptr %lexer, i64 40
+  %where_firstchar.i243 = getelementptr inbounds nuw i8, ptr %lexer, i64 40
   store ptr %incdec.ptr290293, ptr %where_firstchar.i243, align 8
-  %where_lastchar.i244 = getelementptr inbounds i8, ptr %lexer, i64 48
+  %where_lastchar.i244 = getelementptr inbounds nuw i8, ptr %lexer, i64 48
   store ptr %47, ptr %where_lastchar.i244, align 8
-  %add.ptr.i245 = getelementptr inbounds i8, ptr %47, i64 1
+  %add.ptr.i245 = getelementptr inbounds nuw i8, ptr %47, i64 1
   store ptr %add.ptr.i245, ptr %parse_point, align 8
   br label %return
 
 if.end480:                                        ; preds = %lor.lhs.false474
-  %add.ptr481 = getelementptr inbounds i8, ptr %47, i64 1
-  %token1.i247 = getelementptr inbounds i8, ptr %lexer, i64 56
+  %add.ptr481 = getelementptr inbounds nuw i8, ptr %47, i64 1
+  %token1.i247 = getelementptr inbounds nuw i8, ptr %lexer, i64 56
   store i64 263, ptr %token1.i247, align 8
-  %where_firstchar.i248 = getelementptr inbounds i8, ptr %lexer, i64 40
+  %where_firstchar.i248 = getelementptr inbounds nuw i8, ptr %lexer, i64 40
   store ptr %incdec.ptr290293, ptr %where_firstchar.i248, align 8
-  %where_lastchar.i249 = getelementptr inbounds i8, ptr %lexer, i64 48
+  %where_lastchar.i249 = getelementptr inbounds nuw i8, ptr %lexer, i64 48
   store ptr %add.ptr481, ptr %where_lastchar.i249, align 8
-  %add.ptr.i250 = getelementptr inbounds i8, ptr %47, i64 2
+  %add.ptr.i250 = getelementptr inbounds nuw i8, ptr %47, i64 2
   store ptr %add.ptr.i250, ptr %parse_point, align 8
   br label %return
 
 sw.bb483:                                         ; preds = %land.lhs.true
-  %add.ptr484 = getelementptr inbounds i8, ptr %incdec.ptr290293, i64 1
+  %add.ptr484 = getelementptr inbounds nuw i8, ptr %incdec.ptr290293, i64 1
   %cmp486.not = icmp eq ptr %add.ptr484, %1
   br i1 %cmp486.not, label %sw.bb512, label %if.then488
 
@@ -1106,32 +1106,32 @@ if.then488:                                       ; preds = %sw.bb483
 
 if.then498:                                       ; preds = %if.then488, %if.then488
   %call499 = call i64 @strtol(ptr noundef nonnull %incdec.ptr290293, ptr noundef nonnull %q, i32 noundef 16) #9
-  %int_number500 = getelementptr inbounds i8, ptr %lexer, i64 72
+  %int_number500 = getelementptr inbounds nuw i8, ptr %lexer, i64 72
   store i64 %call499, ptr %int_number500, align 8
   %51 = load ptr, ptr %q, align 8
-  %add.ptr501 = getelementptr inbounds i8, ptr %incdec.ptr290293, i64 2
+  %add.ptr501 = getelementptr inbounds nuw i8, ptr %incdec.ptr290293, i64 2
   %cmp502 = icmp eq ptr %51, %add.ptr501
   br i1 %cmp502, label %if.then504, label %if.end508
 
 if.then504:                                       ; preds = %if.then498
   %add.ptr505 = getelementptr inbounds i8, ptr %incdec.ptr290293, i64 -2
   %add.ptr506 = getelementptr inbounds i8, ptr %incdec.ptr290293, i64 -1
-  %token1.i252 = getelementptr inbounds i8, ptr %lexer, i64 56
+  %token1.i252 = getelementptr inbounds nuw i8, ptr %lexer, i64 56
   store i64 257, ptr %token1.i252, align 8
-  %where_firstchar.i253 = getelementptr inbounds i8, ptr %lexer, i64 40
+  %where_firstchar.i253 = getelementptr inbounds nuw i8, ptr %lexer, i64 40
   store ptr %add.ptr505, ptr %where_firstchar.i253, align 8
-  %where_lastchar.i254 = getelementptr inbounds i8, ptr %lexer, i64 48
+  %where_lastchar.i254 = getelementptr inbounds nuw i8, ptr %lexer, i64 48
   store ptr %add.ptr506, ptr %where_lastchar.i254, align 8
   store ptr %incdec.ptr290293, ptr %parse_point, align 8
   br label %return
 
 if.end508:                                        ; preds = %if.then498
   %add.ptr.i257 = getelementptr inbounds i8, ptr %51, i64 -1
-  %token1.i.i = getelementptr inbounds i8, ptr %lexer, i64 56
+  %token1.i.i = getelementptr inbounds nuw i8, ptr %lexer, i64 56
   store i64 258, ptr %token1.i.i, align 8
-  %where_firstchar.i.i = getelementptr inbounds i8, ptr %lexer, i64 40
+  %where_firstchar.i.i = getelementptr inbounds nuw i8, ptr %lexer, i64 40
   store ptr %incdec.ptr290293, ptr %where_firstchar.i.i, align 8
-  %where_lastchar.i.i = getelementptr inbounds i8, ptr %lexer, i64 48
+  %where_lastchar.i.i = getelementptr inbounds nuw i8, ptr %lexer, i64 48
   store ptr %add.ptr.i257, ptr %where_lastchar.i.i, align 8
   store ptr %51, ptr %parse_point, align 8
   br label %return
@@ -1149,7 +1149,7 @@ land.rhs518:                                      ; preds = %sw.bb512, %while.bo
   br i1 %or.cond115, label %while.body528, label %if.then534
 
 while.body528:                                    ; preds = %land.rhs518
-  %incdec.ptr529 = getelementptr inbounds i8, ptr %storemerge324, i64 1
+  %incdec.ptr529 = getelementptr inbounds nuw i8, ptr %storemerge324, i64 1
   store ptr %incdec.ptr529, ptr %q513, align 8
   %cmp516.not = icmp eq ptr %incdec.ptr529, %1
   br i1 %cmp516.not, label %if.end550, label %land.rhs518, !llvm.loop !13
@@ -1163,25 +1163,25 @@ if.then534:                                       ; preds = %land.rhs518
 
 if.then546:                                       ; preds = %if.then534, %if.then534, %if.then534
   %call547 = call double @strtod(ptr noundef nonnull %incdec.ptr290293, ptr noundef nonnull %q513) #9
-  %real_number = getelementptr inbounds i8, ptr %lexer, i64 64
+  %real_number = getelementptr inbounds nuw i8, ptr %lexer, i64 64
   store double %call547, ptr %real_number, align 8
   %54 = load ptr, ptr %q513, align 8
   %add.ptr.i258 = getelementptr inbounds i8, ptr %54, i64 -1
-  %token1.i.i259 = getelementptr inbounds i8, ptr %lexer, i64 56
+  %token1.i.i259 = getelementptr inbounds nuw i8, ptr %lexer, i64 56
   store i64 259, ptr %token1.i.i259, align 8
-  %where_firstchar.i.i260 = getelementptr inbounds i8, ptr %lexer, i64 40
+  %where_firstchar.i.i260 = getelementptr inbounds nuw i8, ptr %lexer, i64 40
   store ptr %incdec.ptr290293, ptr %where_firstchar.i.i260, align 8
-  %where_lastchar.i.i261 = getelementptr inbounds i8, ptr %lexer, i64 48
+  %where_lastchar.i.i261 = getelementptr inbounds nuw i8, ptr %lexer, i64 48
   store ptr %add.ptr.i258, ptr %where_lastchar.i.i261, align 8
   store ptr %54, ptr %parse_point, align 8
   br label %return
 
 if.end550:                                        ; preds = %while.body528, %sw.bb512, %if.then534
   %cmp553 = icmp eq i8 %5, 48
-  %int_number558 = getelementptr inbounds i8, ptr %lexer, i64 72
-  %token1.i.i264 = getelementptr inbounds i8, ptr %lexer, i64 56
-  %where_firstchar.i.i265 = getelementptr inbounds i8, ptr %lexer, i64 40
-  %where_lastchar.i.i266 = getelementptr inbounds i8, ptr %lexer, i64 48
+  %int_number558 = getelementptr inbounds nuw i8, ptr %lexer, i64 72
+  %token1.i.i264 = getelementptr inbounds nuw i8, ptr %lexer, i64 56
+  %where_firstchar.i.i265 = getelementptr inbounds nuw i8, ptr %lexer, i64 40
+  %where_lastchar.i.i266 = getelementptr inbounds nuw i8, ptr %lexer, i64 48
   br i1 %cmp553, label %if.then555, label %if.end560
 
 if.then555:                                       ; preds = %if.end550

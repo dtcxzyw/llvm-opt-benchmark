@@ -239,7 +239,7 @@ define internal i32 @dissect_clnp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   store i32 1, ptr %6, align 4
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_set_str(ptr noundef %11, i32 noundef 34, ptr noundef nonnull @.str.74) #2
   %12 = load ptr, ptr %10, align 8
@@ -439,7 +439,7 @@ define internal i32 @dissect_clnp(ptr noundef %0, ptr noundef %1, ptr noundef %2
 135:                                              ; preds = %129
   %136 = add nuw nsw i32 %.pre-phi, 9
   %137 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %136) #2
-  %138 = getelementptr inbounds i8, ptr %1, i64 184
+  %138 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %139 = call i32 @get_osi_address_type() #2
   %.not.i = icmp eq i8 %124, 0
   br i1 %.not.i, label %set_address_tvb.exit, label %.split.i
@@ -451,22 +451,22 @@ define internal i32 @dissect_clnp(ptr noundef %0, ptr noundef %1, ptr noundef %2
 set_address_tvb.exit:                             ; preds = %135, %.split.i
   %.sink.i = phi ptr [ %140, %.split.i ], [ null, %135 ]
   store i32 %139, ptr %138, align 8
-  %141 = getelementptr inbounds i8, ptr %1, i64 188
+  %141 = getelementptr inbounds nuw i8, ptr %1, i64 188
   store i32 %.pre-phi, ptr %141, align 4
-  %142 = getelementptr inbounds i8, ptr %1, i64 192
+  %142 = getelementptr inbounds nuw i8, ptr %1, i64 192
   store ptr %.sink.i, ptr %142, align 8
-  %143 = getelementptr inbounds i8, ptr %1, i64 200
+  %143 = getelementptr inbounds nuw i8, ptr %1, i64 200
   store ptr null, ptr %143, align 8
-  %144 = getelementptr inbounds i8, ptr %1, i64 232
+  %144 = getelementptr inbounds nuw i8, ptr %1, i64 232
   store i32 %139, ptr %144, align 8
-  %145 = getelementptr inbounds i8, ptr %1, i64 236
+  %145 = getelementptr inbounds nuw i8, ptr %1, i64 236
   store i32 %.pre-phi, ptr %145, align 4
-  %146 = getelementptr inbounds i8, ptr %1, i64 240
+  %146 = getelementptr inbounds nuw i8, ptr %1, i64 240
   store ptr %.sink.i, ptr %146, align 8
-  %147 = getelementptr inbounds i8, ptr %1, i64 248
+  %147 = getelementptr inbounds nuw i8, ptr %1, i64 248
   store ptr null, ptr %147, align 8
   %148 = load i32, ptr @hf_clnp_dest, align 4
-  %149 = getelementptr inbounds i8, ptr %1, i64 408
+  %149 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %150 = load ptr, ptr %149, align 8
   %151 = call ptr @print_nsap_net(ptr noundef %150, ptr noundef %0, i32 noundef 10, i32 noundef %.pre-phi) #2
   %152 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef %39, i32 noundef %148, ptr noundef %0, i32 noundef 10, i32 noundef %.pre-phi, ptr noundef null, ptr noundef nonnull @.str.108, ptr noundef %151) #2
@@ -506,7 +506,7 @@ set_address_tvb.exit:                             ; preds = %135, %.split.i
   br label %291
 
 171:                                              ; preds = %163
-  %172 = getelementptr inbounds i8, ptr %1, i64 160
+  %172 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %173 = call i32 @get_osi_address_type() #2
   %.not.i347 = icmp eq i8 %158, 0
   br i1 %.not.i347, label %set_address_tvb.exit350, label %.split.i348
@@ -518,19 +518,19 @@ set_address_tvb.exit:                             ; preds = %135, %.split.i
 set_address_tvb.exit350:                          ; preds = %171, %.split.i348
   %.sink.i349 = phi ptr [ %174, %.split.i348 ], [ null, %171 ]
   store i32 %173, ptr %172, align 8
-  %175 = getelementptr inbounds i8, ptr %1, i64 164
+  %175 = getelementptr inbounds nuw i8, ptr %1, i64 164
   store i32 %.pre-phi355, ptr %175, align 4
-  %176 = getelementptr inbounds i8, ptr %1, i64 168
+  %176 = getelementptr inbounds nuw i8, ptr %1, i64 168
   store ptr %.sink.i349, ptr %176, align 8
-  %177 = getelementptr inbounds i8, ptr %1, i64 176
+  %177 = getelementptr inbounds nuw i8, ptr %1, i64 176
   store ptr null, ptr %177, align 8
-  %178 = getelementptr inbounds i8, ptr %1, i64 208
+  %178 = getelementptr inbounds nuw i8, ptr %1, i64 208
   store i32 %173, ptr %178, align 8
-  %179 = getelementptr inbounds i8, ptr %1, i64 212
+  %179 = getelementptr inbounds nuw i8, ptr %1, i64 212
   store i32 %.pre-phi355, ptr %179, align 4
-  %180 = getelementptr inbounds i8, ptr %1, i64 216
+  %180 = getelementptr inbounds nuw i8, ptr %1, i64 216
   store ptr %.sink.i349, ptr %180, align 8
-  %181 = getelementptr inbounds i8, ptr %1, i64 224
+  %181 = getelementptr inbounds nuw i8, ptr %1, i64 224
   store ptr null, ptr %181, align 8
   %182 = load i32, ptr @hf_clnp_src, align 4
   %183 = load ptr, ptr %149, align 8
@@ -583,7 +583,7 @@ set_address_tvb.exit350:                          ; preds = %171, %.split.i348
   call void @dissect_osi_options(i8 noundef zeroext %.0314, ptr noundef %0, i32 noundef %.0317, ptr noundef %39, ptr noundef nonnull %1) #2
   %213 = zext i8 %.0314 to i32
   %214 = add nuw nsw i32 %.0317, %213
-  %215 = getelementptr inbounds i8, ptr %1, i64 272
+  %215 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %216 = load i32, ptr %215, align 8
   %217 = load i32, ptr @clnp_reassemble, align 4
   %.not337 = icmp ne i32 %217, 0
@@ -714,7 +714,7 @@ set_address_tvb.exit350:                          ; preds = %171, %.split.i348
 273:                                              ; preds = %270
   %274 = load i32, ptr @ett_clnp_disc_pdu, align 4
   %275 = call ptr @proto_tree_add_subtree(ptr noundef %39, ptr noundef %0, i32 noundef %214, i32 noundef %272, i32 noundef %274, ptr noundef null, ptr noundef nonnull @.str.112) #2
-  %276 = getelementptr inbounds i8, ptr %1, i64 276
+  %276 = getelementptr inbounds nuw i8, ptr %1, i64 276
   %277 = load i8, ptr %276, align 4
   %278 = and i8 %277, 1
   %279 = or i8 %277, 1

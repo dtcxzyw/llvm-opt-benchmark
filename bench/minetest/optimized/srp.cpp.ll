@@ -120,7 +120,7 @@ if.end13:                                         ; preds = %if.end.i61, %if.the
 cleanup:                                          ; preds = %if.end13
   %5 = load i32, ptr @_ZL10g_rand_idx, align 4, !tbaa !8
   %idxprom = zext i32 %5 to i64
-  %arrayidx = getelementptr inbounds [128 x i8], ptr @_ZL11g_rand_buff, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [128 x i8], ptr @_ZL11g_rand_buff, i64 0, i64 %idxprom
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %call14, ptr noundef nonnull align 1 dereferenceable(16) %arrayidx, i64 16, i1 false)
   %add = add i32 %5, 16
   store i32 %add, ptr @_ZL10g_rand_idx, align 4, !tbaa !8
@@ -135,7 +135,7 @@ if.end20:                                         ; preds = %cleanup, %if.end4
   br i1 %tobool23.not, label %if.then.i, label %if.end25
 
 if.end25:                                         ; preds = %if.end20
-  %g = getelementptr inbounds i8, ptr %call, i64 16
+  %g = getelementptr inbounds nuw i8, ptr %call, i64 16
   call void @__gmpz_powm(ptr noundef nonnull %v, ptr noundef nonnull %g, ptr noundef nonnull %x, ptr noundef nonnull %call)
   %call.i63 = call i64 @__gmpz_sizeinbase(ptr noundef nonnull %v, i32 noundef 2) #18
   %add.i = shl i64 %call.i63, 29
@@ -155,7 +155,7 @@ if.end36:                                         ; preds = %if.end25
 if.then.i:                                        ; preds = %if.end36, %if.end25, %if.end20, %if.end13, %if.end.i61, %if.then8, %_ZL11init_randomv.exit, %_ZL11init_randomv.exit.thread69
   %ret.0.ph = phi i32 [ 0, %_ZL11init_randomv.exit.thread69 ], [ 0, %_ZL11init_randomv.exit ], [ 0, %if.end20 ], [ 0, %if.end25 ], [ 1, %if.end36 ], [ 0, %if.end13 ], [ 0, %if.then8 ], [ 0, %if.end.i61 ]
   call void @__gmpz_clear(ptr noundef nonnull %call)
-  %g.i = getelementptr inbounds i8, ptr %call, i64 16
+  %g.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   call void @__gmpz_clear(ptr noundef nonnull %g.i)
   %10 = load ptr, ptr @srp_free, align 8, !tbaa !4
   call void %10(ptr noundef nonnull %call)
@@ -186,16 +186,16 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @__gmpz_init(ptr noundef nonnull %call) #17
-  %g = getelementptr inbounds i8, ptr %call, i64 16
+  %g = getelementptr inbounds nuw i8, ptr %call, i64 16
   tail call void @__gmpz_init(ptr noundef nonnull %g) #17
   %cmp.not = icmp eq i32 %ng_type, 4
   br i1 %cmp.not, label %if.end7, label %if.then2
 
 if.then2:                                         ; preds = %if.end
   %idxprom = zext i32 %ng_type to i64
-  %arrayidx = getelementptr inbounds [5 x %struct.NGHex], ptr @_ZL19global_Ng_constants, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [5 x %struct.NGHex], ptr @_ZL19global_Ng_constants, i64 0, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 16, !tbaa !13
-  %g_hex6 = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %g_hex6 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %2 = load ptr, ptr %g_hex6, align 8, !tbaa !15
   br label %if.end7
 
@@ -368,10 +368,10 @@ if.then18:                                        ; preds = %_ZL11init_randomv.e
 if.end19:                                         ; preds = %_ZL11init_randomv.exit, %if.end16
   %3 = load ptr, ptr @srp_alloc, align 8, !tbaa !4
   %call20 = call noundef ptr %3(i64 noundef %add)
-  %username21 = getelementptr inbounds i8, ptr %call13, i64 16
+  %username21 = getelementptr inbounds nuw i8, ptr %call13, i64 16
   store ptr %call20, ptr %username21, align 8, !tbaa !16
   store i32 %alg, ptr %call13, align 8, !tbaa !19
-  %ng22 = getelementptr inbounds i8, ptr %call13, i64 8
+  %ng22 = getelementptr inbounds nuw i8, ptr %call13, i64 8
   store ptr %call12, ptr %ng22, align 8, !tbaa !20
   %tobool24.not = icmp eq ptr %call20, null
   br i1 %tobool24.not, label %if.then25, label %if.end26
@@ -383,10 +383,10 @@ if.then25:                                        ; preds = %if.end19
 
 if.end26:                                         ; preds = %if.end19
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call20, ptr align 1 %username, i64 %add, i1 false)
-  %authenticated = getelementptr inbounds i8, ptr %call13, i64 32
+  %authenticated = getelementptr inbounds nuw i8, ptr %call13, i64 32
   store i32 0, ptr %authenticated, align 8, !tbaa !21
   call void @__gmpz_mod(ptr noundef nonnull %tmp1, ptr noundef nonnull %A, ptr noundef nonnull %call12)
-  %_mp_size = getelementptr inbounds i8, ptr %tmp1, i64 4
+  %_mp_size = getelementptr inbounds nuw i8, ptr %tmp1, i64 4
   %5 = load i32, ptr %_mp_size, align 4
   %cmp36.not = icmp eq i32 %5, 0
   br i1 %cmp36.not, label %if.else134, label %if.then37
@@ -426,7 +426,7 @@ if.end.i.if.end3_crit_edge.i:                     ; preds = %if.end.i.i200
 _ZL15mpz_fill_randomP12__mpz_struct.exit:         ; preds = %if.end.i.if.end3_crit_edge.i, %if.else
   %8 = phi i32 [ %.pre.i, %if.end.i.if.end3_crit_edge.i ], [ %6, %if.else ]
   %idxprom.i = zext i32 %8 to i64
-  %arrayidx.i = getelementptr inbounds [128 x i8], ptr @_ZL11g_rand_buff, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [128 x i8], ptr @_ZL11g_rand_buff, i64 0, i64 %idxprom.i
   call void @__gmpz_import(ptr noundef nonnull %b, i64 noundef 32, i32 noundef 1, i64 noundef 1, i32 noundef 1, i64 noundef 0, ptr noundef nonnull %arrayidx.i)
   %9 = load i32, ptr @_ZL10g_rand_idx, align 4, !tbaa !8
   %add.i = add i32 %9, 32
@@ -434,7 +434,7 @@ _ZL15mpz_fill_randomP12__mpz_struct.exit:         ; preds = %if.end.i.if.end3_cr
   br label %if.end46
 
 if.end46:                                         ; preds = %_ZL15mpz_fill_randomP12__mpz_struct.exit, %if.then39
-  %g = getelementptr inbounds i8, ptr %call12, i64 16
+  %g = getelementptr inbounds nuw i8, ptr %call12, i64 16
   %call53 = call fastcc noundef i32 @_ZL4H_nnP12__mpz_struct17SRP_HashAlgorithmPKS_S3_S3_(ptr noundef nonnull %k, i32 noundef %alg, ptr noundef nonnull %call12, ptr noundef nonnull %call12, ptr noundef nonnull %g), !range !12
   %tobool54.not = icmp eq i32 %call53, 0
   br i1 %tobool54.not, label %ver_cleanup_and_exit, label %if.end56
@@ -454,7 +454,7 @@ if.end83:                                         ; preds = %if.end56
   call void @__gmpz_mul(ptr noundef nonnull %tmp3, ptr noundef nonnull %A, ptr noundef nonnull %tmp1)
   call void @__gmpz_mod(ptr noundef nonnull %tmp2, ptr noundef nonnull %tmp3, ptr noundef nonnull %call12)
   call void @__gmpz_powm(ptr noundef nonnull %S, ptr noundef nonnull %tmp2, ptr noundef nonnull %b, ptr noundef nonnull %call12)
-  %session_key = getelementptr inbounds i8, ptr %call13, i64 100
+  %session_key = getelementptr inbounds nuw i8, ptr %call13, i64 100
   %call.i.i204 = call i64 @__gmpz_sizeinbase(ptr noundef nonnull %S, i32 noundef 2) #18
   %10 = load ptr, ptr @srp_alloc, align 8, !tbaa !4
   %add.i.i = shl i64 %call.i.i204, 29
@@ -477,13 +477,13 @@ if.end105:                                        ; preds = %if.end.i206, %sw.bb
   %alg.sink = phi i32 [ 0, %sw.bb.i.i ], [ %alg, %if.end.i206 ]
   %12 = load ptr, ptr @srp_free, align 8, !tbaa !4
   call void %12(ptr noundef nonnull %call1.i)
-  %M1 = getelementptr inbounds i8, ptr %call13, i64 36
+  %M1 = getelementptr inbounds nuw i8, ptr %call13, i64 36
   %call1112 = call fastcc noundef i32 @_ZL11calculate_M17SRP_HashAlgorithmP10NGConstantPhPKcPKhmPK12__mpz_structS9_S6_(i32 noundef %alg.sink, ptr noundef nonnull %call12, ptr noundef nonnull %M1, ptr noundef %username, ptr noundef %bytes_s, i64 noundef %len_s, ptr noundef nonnull %A, ptr noundef nonnull %B, ptr noundef nonnull %session_key), !range !12
   %tobool112.not = icmp eq i32 %call1112, 0
   br i1 %tobool112.not, label %ver_cleanup_and_exit, label %if.end114
 
 if.end114:                                        ; preds = %if.end105
-  %H_AMK = getelementptr inbounds i8, ptr %call13, i64 68
+  %H_AMK = getelementptr inbounds nuw i8, ptr %call13, i64 68
   %call121 = call fastcc noundef i32 @_ZL15calculate_H_AMK17SRP_HashAlgorithmPhPK12__mpz_structPKhS5_(i32 noundef %alg, ptr noundef nonnull %H_AMK, ptr noundef nonnull %A, ptr noundef nonnull %M1, ptr noundef nonnull %session_key), !range !12
   %tobool122.not = icmp eq i32 %call121, 0
   br i1 %tobool122.not, label %ver_cleanup_and_exit, label %if.end124
@@ -507,7 +507,7 @@ if.then130:                                       ; preds = %if.end124
 if.end131:                                        ; preds = %if.end124
   %call.i210 = call ptr @__gmpz_export(ptr noundef nonnull %call128, ptr noundef null, i32 noundef 1, i64 noundef 1, i32 noundef 1, i64 noundef 0, ptr noundef nonnull %B)
   %15 = load ptr, ptr %bytes_B, align 8, !tbaa !4
-  %bytes_B133 = getelementptr inbounds i8, ptr %call13, i64 24
+  %bytes_B133 = getelementptr inbounds nuw i8, ptr %call13, i64 24
   store ptr %15, ptr %bytes_B133, align 8, !tbaa !22
   br label %cleanup_and_exit
 
@@ -656,7 +656,7 @@ sw.bb.i.i:                                        ; preds = %if.end.i
 if.end:                                           ; preds = %sw.bb.i.i, %if.end.i
   %2 = load ptr, ptr @srp_free, align 8, !tbaa !4
   call void %2(ptr noundef nonnull %call1.i)
-  %g = getelementptr inbounds i8, ptr %ng, i64 16
+  %g = getelementptr inbounds nuw i8, ptr %ng, i64 16
   %call.i.i59 = call i64 @__gmpz_sizeinbase(ptr noundef nonnull %g, i32 noundef 2) #18
   %3 = load ptr, ptr @srp_alloc, align 8, !tbaa !4
   %add.i.i60 = shl i64 %call.i.i59, 29
@@ -685,9 +685,9 @@ sw.bb.i89:                                        ; preds = %if.end.i64
   %8 = load <16 x i8>, ptr %H_g, align 16, !tbaa !23
   %9 = xor <16 x i8> %8, %7
   store <16 x i8> %9, ptr %H_xor, align 16, !tbaa !23
-  %arrayidx.16 = getelementptr inbounds i8, ptr %H_N, i64 16
-  %arrayidx12.16 = getelementptr inbounds i8, ptr %H_g, i64 16
-  %arrayidx15.16 = getelementptr inbounds i8, ptr %H_xor, i64 16
+  %arrayidx.16 = getelementptr inbounds nuw i8, ptr %H_N, i64 16
+  %arrayidx12.16 = getelementptr inbounds nuw i8, ptr %H_g, i64 16
+  %arrayidx15.16 = getelementptr inbounds nuw i8, ptr %H_xor, i64 16
   %10 = load <16 x i8>, ptr %arrayidx.16, align 16, !tbaa !23
   %11 = load <16 x i8>, ptr %arrayidx12.16, align 16, !tbaa !23
   %12 = xor <16 x i8> %11, %10
@@ -808,14 +808,14 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %ng = getelementptr inbounds i8, ptr %ver, i64 8
+  %ng = getelementptr inbounds nuw i8, ptr %ver, i64 8
   %0 = load ptr, ptr %ng, align 8, !tbaa !20
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %_ZL9delete_ngP10NGConstant.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
   tail call void @__gmpz_clear(ptr noundef nonnull %0)
-  %g.i = getelementptr inbounds i8, ptr %0, i64 16
+  %g.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @__gmpz_clear(ptr noundef nonnull %g.i)
   %1 = load ptr, ptr @srp_free, align 8, !tbaa !4
   tail call void %1(ptr noundef nonnull %0)
@@ -823,11 +823,11 @@ if.then.i:                                        ; preds = %if.then
 
 _ZL9delete_ngP10NGConstant.exit:                  ; preds = %if.then.i, %if.then
   %2 = load ptr, ptr @srp_free, align 8, !tbaa !4
-  %username = getelementptr inbounds i8, ptr %ver, i64 16
+  %username = getelementptr inbounds nuw i8, ptr %ver, i64 16
   %3 = load ptr, ptr %username, align 8, !tbaa !16
   tail call void %2(ptr noundef %3)
   %4 = load ptr, ptr @srp_free, align 8, !tbaa !4
-  %bytes_B = getelementptr inbounds i8, ptr %ver, i64 24
+  %bytes_B = getelementptr inbounds nuw i8, ptr %ver, i64 24
   %5 = load ptr, ptr %bytes_B, align 8, !tbaa !22
   tail call void %4(ptr noundef %5)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %ver, i8 0, i64 136, i1 false)
@@ -845,7 +845,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i32 @_Z29srp_verifier_is_authenticatedP11SRPVerifier(ptr nocapture noundef readonly %ver) local_unnamed_addr #11 {
 entry:
-  %authenticated = getelementptr inbounds i8, ptr %ver, i64 32
+  %authenticated = getelementptr inbounds nuw i8, ptr %ver, i64 32
   %0 = load i32, ptr %authenticated, align 8, !tbaa !21
   ret i32 %0
 }
@@ -853,7 +853,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef ptr @_Z25srp_verifier_get_usernameP11SRPVerifier(ptr nocapture noundef readonly %ver) local_unnamed_addr #11 {
 entry:
-  %username = getelementptr inbounds i8, ptr %ver, i64 16
+  %username = getelementptr inbounds nuw i8, ptr %ver, i64 16
   %0 = load ptr, ptr %username, align 8, !tbaa !16
   ret ptr %0
 }
@@ -872,7 +872,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %session_key = getelementptr inbounds i8, ptr %ver, i64 100
+  %session_key = getelementptr inbounds nuw i8, ptr %ver, i64 100
   ret ptr %session_key
 }
 
@@ -888,7 +888,7 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_Z27srp_verifier_verify_sessionP11SRPVerifierPKhPPh(ptr noundef %ver, ptr nocapture noundef readonly %user_M, ptr nocapture noundef writeonly initializes((0, 8)) %bytes_HAMK) local_unnamed_addr #13 {
 entry:
-  %M = getelementptr inbounds i8, ptr %ver, i64 36
+  %M = getelementptr inbounds nuw i8, ptr %ver, i64 36
   %0 = load i32, ptr %ver, align 8, !tbaa !19
   %cond.i = icmp eq i32 %0, 0
   %..i = select i1 %cond.i, i64 32, i64 0
@@ -897,9 +897,9 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %authenticated = getelementptr inbounds i8, ptr %ver, i64 32
+  %authenticated = getelementptr inbounds nuw i8, ptr %ver, i64 32
   store i32 1, ptr %authenticated, align 8, !tbaa !21
-  %H_AMK = getelementptr inbounds i8, ptr %ver, i64 68
+  %H_AMK = getelementptr inbounds nuw i8, ptr %ver, i64 68
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -950,13 +950,13 @@ _ZL11init_randomv.exit:                           ; preds = %if.end.i.i
 if.end6:                                          ; preds = %_ZL11init_randomv.exit, %if.end
   store i32 %alg, ptr %call, align 8, !tbaa !24
   %call7 = tail call fastcc noundef ptr @_ZL6new_ng10SRP_NGTypePKcS1_(i32 noundef %ng_type, ptr noundef %n_hex, ptr noundef %g_hex)
-  %ng = getelementptr inbounds i8, ptr %call, i64 8
+  %ng = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %call7, ptr %ng, align 8, !tbaa !26
-  %a = getelementptr inbounds i8, ptr %call, i64 16
+  %a = getelementptr inbounds nuw i8, ptr %call, i64 16
   tail call void @__gmpz_init(ptr noundef nonnull %a) #17
-  %A = getelementptr inbounds i8, ptr %call, i64 32
+  %A = getelementptr inbounds nuw i8, ptr %call, i64 32
   tail call void @__gmpz_init(ptr noundef nonnull %A) #17
-  %S = getelementptr inbounds i8, ptr %call, i64 48
+  %S = getelementptr inbounds nuw i8, ptr %call, i64 48
   tail call void @__gmpz_init(ptr noundef nonnull %S) #17
   %2 = load ptr, ptr %ng, align 8, !tbaa !26
   %tobool11.not = icmp eq ptr %2, null
@@ -965,17 +965,17 @@ if.end6:                                          ; preds = %_ZL11init_randomv.e
 if.end13:                                         ; preds = %if.end6
   %3 = load ptr, ptr @srp_alloc, align 8, !tbaa !4
   %call14 = tail call noundef ptr %3(i64 noundef %add)
-  %username15 = getelementptr inbounds i8, ptr %call, i64 80
+  %username15 = getelementptr inbounds nuw i8, ptr %call, i64 80
   store ptr %call14, ptr %username15, align 8, !tbaa !27
   %4 = load ptr, ptr @srp_alloc, align 8, !tbaa !4
   %call16 = tail call noundef ptr %4(i64 noundef %add3)
-  %username_verifier = getelementptr inbounds i8, ptr %call, i64 88
+  %username_verifier = getelementptr inbounds nuw i8, ptr %call, i64 88
   store ptr %call16, ptr %username_verifier, align 8, !tbaa !28
   %5 = load ptr, ptr @srp_alloc, align 8, !tbaa !4
   %call17 = tail call noundef ptr %5(i64 noundef %len_password)
-  %password = getelementptr inbounds i8, ptr %call, i64 96
+  %password = getelementptr inbounds nuw i8, ptr %call, i64 96
   store ptr %call17, ptr %password, align 8, !tbaa !29
-  %password_len = getelementptr inbounds i8, ptr %call, i64 104
+  %password_len = getelementptr inbounds nuw i8, ptr %call, i64 104
   store i64 %len_password, ptr %password_len, align 8, !tbaa !30
   %6 = load ptr, ptr %username15, align 8, !tbaa !27
   %tobool19.not = icmp eq ptr %6, null
@@ -994,27 +994,27 @@ if.end26:                                         ; preds = %lor.lhs.false22
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %8, ptr align 1 %username_for_verifier, i64 %add3, i1 false)
   %9 = load ptr, ptr %password, align 8, !tbaa !29
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr align 1 %bytes_password, i64 %len_password, i1 false)
-  %authenticated = getelementptr inbounds i8, ptr %call, i64 72
+  %authenticated = getelementptr inbounds nuw i8, ptr %call, i64 72
   store i32 0, ptr %authenticated, align 8, !tbaa !31
-  %bytes_A = getelementptr inbounds i8, ptr %call, i64 64
+  %bytes_A = getelementptr inbounds nuw i8, ptr %call, i64 64
   store ptr null, ptr %bytes_A, align 8, !tbaa !32
   br label %cleanup
 
 if.then31:                                        ; preds = %lor.lhs.false22, %if.end13, %if.end6, %_ZL11init_randomv.exit, %_ZL11init_randomv.exit.thread93
-  %a32 = getelementptr inbounds i8, ptr %call, i64 16
+  %a32 = getelementptr inbounds nuw i8, ptr %call, i64 16
   tail call void @__gmpz_clear(ptr noundef nonnull %a32)
-  %A34 = getelementptr inbounds i8, ptr %call, i64 32
+  %A34 = getelementptr inbounds nuw i8, ptr %call, i64 32
   tail call void @__gmpz_clear(ptr noundef nonnull %A34)
-  %S36 = getelementptr inbounds i8, ptr %call, i64 48
+  %S36 = getelementptr inbounds nuw i8, ptr %call, i64 48
   tail call void @__gmpz_clear(ptr noundef nonnull %S36)
-  %ng38 = getelementptr inbounds i8, ptr %call, i64 8
+  %ng38 = getelementptr inbounds nuw i8, ptr %call, i64 8
   %10 = load ptr, ptr %ng38, align 8, !tbaa !26
   %tobool.not.i89 = icmp eq ptr %10, null
   br i1 %tobool.not.i89, label %_ZL9delete_ngP10NGConstant.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then31
   tail call void @__gmpz_clear(ptr noundef nonnull %10)
-  %g.i = getelementptr inbounds i8, ptr %10, i64 16
+  %g.i = getelementptr inbounds nuw i8, ptr %10, i64 16
   tail call void @__gmpz_clear(ptr noundef nonnull %g.i)
   %11 = load ptr, ptr @srp_free, align 8, !tbaa !4
   tail call void %11(ptr noundef nonnull %10)
@@ -1022,20 +1022,20 @@ if.then.i:                                        ; preds = %if.then31
 
 _ZL9delete_ngP10NGConstant.exit:                  ; preds = %if.then.i, %if.then31
   %12 = load ptr, ptr @srp_free, align 8, !tbaa !4
-  %username39 = getelementptr inbounds i8, ptr %call, i64 80
+  %username39 = getelementptr inbounds nuw i8, ptr %call, i64 80
   %13 = load ptr, ptr %username39, align 8, !tbaa !27
   tail call void %12(ptr noundef %13)
   %14 = load ptr, ptr @srp_free, align 8, !tbaa !4
-  %username_verifier40 = getelementptr inbounds i8, ptr %call, i64 88
+  %username_verifier40 = getelementptr inbounds nuw i8, ptr %call, i64 88
   %15 = load ptr, ptr %username_verifier40, align 8, !tbaa !28
   tail call void %14(ptr noundef %15)
-  %password41 = getelementptr inbounds i8, ptr %call, i64 96
+  %password41 = getelementptr inbounds nuw i8, ptr %call, i64 96
   %16 = load ptr, ptr %password41, align 8, !tbaa !29
   %tobool42.not = icmp eq ptr %16, null
   br i1 %tobool42.not, label %if.end47, label %if.then43
 
 if.then43:                                        ; preds = %_ZL9delete_ngP10NGConstant.exit
-  %password_len45 = getelementptr inbounds i8, ptr %call, i64 104
+  %password_len45 = getelementptr inbounds nuw i8, ptr %call, i64 104
   %17 = load i64, ptr %password_len45, align 8, !tbaa !30
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %16, i8 0, i64 %17, i1 false)
   %18 = load ptr, ptr @srp_free, align 8, !tbaa !4
@@ -1060,43 +1060,43 @@ entry:
   br i1 %tobool.not, label %if.end7, label %if.then
 
 if.then:                                          ; preds = %entry
-  %a = getelementptr inbounds i8, ptr %usr, i64 16
+  %a = getelementptr inbounds nuw i8, ptr %usr, i64 16
   tail call void @__gmpz_clear(ptr noundef nonnull %a)
-  %A = getelementptr inbounds i8, ptr %usr, i64 32
+  %A = getelementptr inbounds nuw i8, ptr %usr, i64 32
   tail call void @__gmpz_clear(ptr noundef nonnull %A)
-  %S = getelementptr inbounds i8, ptr %usr, i64 48
+  %S = getelementptr inbounds nuw i8, ptr %usr, i64 48
   tail call void @__gmpz_clear(ptr noundef nonnull %S)
-  %ng = getelementptr inbounds i8, ptr %usr, i64 8
+  %ng = getelementptr inbounds nuw i8, ptr %usr, i64 8
   %0 = load ptr, ptr %ng, align 8, !tbaa !26
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %_ZL9delete_ngP10NGConstant.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
   tail call void @__gmpz_clear(ptr noundef nonnull %0)
-  %g.i = getelementptr inbounds i8, ptr %0, i64 16
+  %g.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @__gmpz_clear(ptr noundef nonnull %g.i)
   %1 = load ptr, ptr @srp_free, align 8, !tbaa !4
   tail call void %1(ptr noundef nonnull %0)
   br label %_ZL9delete_ngP10NGConstant.exit
 
 _ZL9delete_ngP10NGConstant.exit:                  ; preds = %if.then.i, %if.then
-  %password = getelementptr inbounds i8, ptr %usr, i64 96
+  %password = getelementptr inbounds nuw i8, ptr %usr, i64 96
   %2 = load ptr, ptr %password, align 8, !tbaa !29
-  %password_len = getelementptr inbounds i8, ptr %usr, i64 104
+  %password_len = getelementptr inbounds nuw i8, ptr %usr, i64 104
   %3 = load i64, ptr %password_len, align 8, !tbaa !30
   tail call void @llvm.memset.p0.i64(ptr align 1 %2, i8 0, i64 %3, i1 false)
   %4 = load ptr, ptr @srp_free, align 8, !tbaa !4
-  %username = getelementptr inbounds i8, ptr %usr, i64 80
+  %username = getelementptr inbounds nuw i8, ptr %usr, i64 80
   %5 = load ptr, ptr %username, align 8, !tbaa !27
   tail call void %4(ptr noundef %5)
   %6 = load ptr, ptr @srp_free, align 8, !tbaa !4
-  %username_verifier = getelementptr inbounds i8, ptr %usr, i64 88
+  %username_verifier = getelementptr inbounds nuw i8, ptr %usr, i64 88
   %7 = load ptr, ptr %username_verifier, align 8, !tbaa !28
   tail call void %6(ptr noundef %7)
   %8 = load ptr, ptr @srp_free, align 8, !tbaa !4
   %9 = load ptr, ptr %password, align 8, !tbaa !29
   tail call void %8(ptr noundef %9)
-  %bytes_A = getelementptr inbounds i8, ptr %usr, i64 64
+  %bytes_A = getelementptr inbounds nuw i8, ptr %usr, i64 64
   %10 = load ptr, ptr %bytes_A, align 8, !tbaa !32
   %tobool4.not = icmp eq ptr %10, null
   br i1 %tobool4.not, label %if.end, label %if.then5
@@ -1119,7 +1119,7 @@ if.end7:                                          ; preds = %if.end, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i32 @_Z25srp_user_is_authenticatedP7SRPUser(ptr nocapture noundef readonly %usr) local_unnamed_addr #11 {
 entry:
-  %authenticated = getelementptr inbounds i8, ptr %usr, i64 72
+  %authenticated = getelementptr inbounds nuw i8, ptr %usr, i64 72
   %0 = load i32, ptr %authenticated, align 8, !tbaa !31
   ret i32 %0
 }
@@ -1127,7 +1127,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef ptr @_Z21srp_user_get_usernameP7SRPUser(ptr nocapture noundef readonly %usr) local_unnamed_addr #11 {
 entry:
-  %username = getelementptr inbounds i8, ptr %usr, i64 80
+  %username = getelementptr inbounds nuw i8, ptr %usr, i64 80
   %0 = load ptr, ptr %username, align 8, !tbaa !27
   ret ptr %0
 }
@@ -1146,7 +1146,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %session_key = getelementptr inbounds i8, ptr %usr, i64 176
+  %session_key = getelementptr inbounds nuw i8, ptr %usr, i64 176
   ret ptr %session_key
 }
 
@@ -1163,7 +1163,7 @@ entry:
 define dso_local noundef range(i32 0, 2) i32 @_Z29srp_user_start_authenticationP7SRPUserPPcPKhmPPhPm(ptr noundef %usr, ptr noundef writeonly %username, ptr noundef %bytes_a, i64 noundef %len_a, ptr nocapture noundef initializes((0, 8)) %bytes_A, ptr nocapture noundef writeonly initializes((0, 8)) %len_A) local_unnamed_addr #4 {
 entry:
   %tobool.not = icmp eq ptr %bytes_a, null
-  %a1 = getelementptr inbounds i8, ptr %usr, i64 16
+  %a1 = getelementptr inbounds nuw i8, ptr %usr, i64 16
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -1197,7 +1197,7 @@ if.end.i.if.end3_crit_edge.i:                     ; preds = %if.end.i.i
 _ZL15mpz_fill_randomP12__mpz_struct.exit:         ; preds = %if.end.i.if.end3_crit_edge.i, %if.else
   %2 = phi i32 [ %.pre.i, %if.end.i.if.end3_crit_edge.i ], [ %0, %if.else ]
   %idxprom.i = zext i32 %2 to i64
-  %arrayidx.i = getelementptr inbounds [128 x i8], ptr @_ZL11g_rand_buff, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [128 x i8], ptr @_ZL11g_rand_buff, i64 0, i64 %idxprom.i
   tail call void @__gmpz_import(ptr noundef nonnull %a1, i64 noundef 32, i32 noundef 1, i64 noundef 1, i32 noundef 1, i64 noundef 0, ptr noundef nonnull %arrayidx.i)
   %3 = load i32, ptr @_ZL10g_rand_idx, align 4, !tbaa !8
   %add.i = add i32 %3, 32
@@ -1205,10 +1205,10 @@ _ZL15mpz_fill_randomP12__mpz_struct.exit:         ; preds = %if.end.i.if.end3_cr
   br label %if.end5
 
 if.end5:                                          ; preds = %_ZL15mpz_fill_randomP12__mpz_struct.exit, %if.then
-  %A = getelementptr inbounds i8, ptr %usr, i64 32
-  %ng = getelementptr inbounds i8, ptr %usr, i64 8
+  %A = getelementptr inbounds nuw i8, ptr %usr, i64 32
+  %ng = getelementptr inbounds nuw i8, ptr %usr, i64 8
   %4 = load ptr, ptr %ng, align 8, !tbaa !26
-  %g = getelementptr inbounds i8, ptr %4, i64 16
+  %g = getelementptr inbounds nuw i8, ptr %4, i64 16
   tail call void @__gmpz_powm(ptr noundef nonnull %A, ptr noundef nonnull %g, ptr noundef nonnull %a1, ptr noundef %4)
   %call.i = tail call i64 @__gmpz_sizeinbase(ptr noundef nonnull %A, i32 noundef 2) #18
   %add.i44 = shl i64 %call.i, 29
@@ -1224,13 +1224,13 @@ if.end5:                                          ; preds = %_ZL15mpz_fill_rando
 if.end18:                                         ; preds = %if.end5
   %call.i45 = tail call ptr @__gmpz_export(ptr noundef nonnull %call15, ptr noundef null, i32 noundef 1, i64 noundef 1, i32 noundef 1, i64 noundef 0, ptr noundef nonnull %A)
   %7 = load ptr, ptr %bytes_A, align 8, !tbaa !4
-  %bytes_A21 = getelementptr inbounds i8, ptr %usr, i64 64
+  %bytes_A21 = getelementptr inbounds nuw i8, ptr %usr, i64 64
   store ptr %7, ptr %bytes_A21, align 8, !tbaa !32
   %tobool22.not = icmp eq ptr %username, null
   br i1 %tobool22.not, label %return, label %if.then23
 
 if.then23:                                        ; preds = %if.end18
-  %username24 = getelementptr inbounds i8, ptr %usr, i64 80
+  %username24 = getelementptr inbounds nuw i8, ptr %usr, i64 80
   %8 = load ptr, ptr %username24, align 8, !tbaa !27
   br label %return.sink.split
 
@@ -1284,20 +1284,20 @@ entry:
   store i64 0, ptr %len_M, align 8, !tbaa !10
   store ptr null, ptr %bytes_M, align 8, !tbaa !4
   %0 = load i32, ptr %usr, align 8, !tbaa !24
-  %ng = getelementptr inbounds i8, ptr %usr, i64 8
+  %ng = getelementptr inbounds nuw i8, ptr %usr, i64 8
   %1 = load ptr, ptr %ng, align 8, !tbaa !26
-  %A = getelementptr inbounds i8, ptr %usr, i64 32
+  %A = getelementptr inbounds nuw i8, ptr %usr, i64 32
   %call = call fastcc noundef i32 @_ZL4H_nnP12__mpz_struct17SRP_HashAlgorithmPKS_S3_S3_(ptr noundef nonnull %u, i32 noundef %0, ptr noundef %1, ptr noundef nonnull %A, ptr noundef nonnull %B), !range !12
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %cleanup_and_exit, label %if.end
 
 if.end:                                           ; preds = %entry
   %2 = load i32, ptr %usr, align 8, !tbaa !24
-  %username_verifier = getelementptr inbounds i8, ptr %usr, i64 88
+  %username_verifier = getelementptr inbounds nuw i8, ptr %usr, i64 88
   %3 = load ptr, ptr %username_verifier, align 8, !tbaa !28
-  %password = getelementptr inbounds i8, ptr %usr, i64 96
+  %password = getelementptr inbounds nuw i8, ptr %usr, i64 96
   %4 = load ptr, ptr %password, align 8, !tbaa !29
-  %password_len = getelementptr inbounds i8, ptr %usr, i64 104
+  %password_len = getelementptr inbounds nuw i8, ptr %usr, i64 104
   %5 = load i64, ptr %password_len, align 8, !tbaa !30
   %call16 = call fastcc noundef i32 @_ZL11calculate_xP12__mpz_struct17SRP_HashAlgorithmPKhmPKcS3_m(ptr noundef nonnull %x, i32 noundef %2, ptr noundef %bytes_s, i64 noundef %len_s, ptr noundef %3, ptr noundef %4, i64 noundef %5), !range !12
   %tobool17.not = icmp eq i32 %call16, 0
@@ -1306,16 +1306,16 @@ if.end:                                           ; preds = %entry
 if.end19:                                         ; preds = %if.end
   %6 = load i32, ptr %usr, align 8, !tbaa !24
   %7 = load ptr, ptr %ng, align 8, !tbaa !26
-  %g = getelementptr inbounds i8, ptr %7, i64 16
+  %g = getelementptr inbounds nuw i8, ptr %7, i64 16
   %call30 = call fastcc noundef i32 @_ZL4H_nnP12__mpz_struct17SRP_HashAlgorithmPKS_S3_S3_(ptr noundef nonnull %k, i32 noundef %6, ptr noundef %7, ptr noundef %7, ptr noundef nonnull %g), !range !12
   %tobool31.not = icmp eq i32 %call30, 0
   br i1 %tobool31.not, label %cleanup_and_exit, label %if.end33
 
 if.end33:                                         ; preds = %if.end19
-  %_mp_size = getelementptr inbounds i8, ptr %B, i64 4
+  %_mp_size = getelementptr inbounds nuw i8, ptr %B, i64 4
   %8 = load i32, ptr %_mp_size, align 4
   %cmp38.not = icmp eq i32 %8, 0
-  %_mp_size40 = getelementptr inbounds i8, ptr %u, i64 4
+  %_mp_size40 = getelementptr inbounds nuw i8, ptr %u, i64 4
   %9 = load i32, ptr %_mp_size40, align 4
   %cmp50.not = icmp eq i32 %9, 0
   %or.cond = select i1 %cmp38.not, i1 true, i1 %cmp50.not
@@ -1323,13 +1323,13 @@ if.end33:                                         ; preds = %if.end19
 
 if.then51:                                        ; preds = %if.end33
   %10 = load ptr, ptr %ng, align 8, !tbaa !26
-  %g54 = getelementptr inbounds i8, ptr %10, i64 16
+  %g54 = getelementptr inbounds nuw i8, ptr %10, i64 16
   call void @__gmpz_powm(ptr noundef nonnull %v, ptr noundef nonnull %g54, ptr noundef nonnull %x, ptr noundef %10)
   call void @__gmpz_mul(ptr noundef nonnull %tmp1, ptr noundef nonnull %u, ptr noundef nonnull %x)
-  %a = getelementptr inbounds i8, ptr %usr, i64 16
+  %a = getelementptr inbounds nuw i8, ptr %usr, i64 16
   call void @__gmpz_add(ptr noundef nonnull %tmp2, ptr noundef nonnull %a, ptr noundef nonnull %tmp1)
   %11 = load ptr, ptr %ng, align 8, !tbaa !26
-  %g68 = getelementptr inbounds i8, ptr %11, i64 16
+  %g68 = getelementptr inbounds nuw i8, ptr %11, i64 16
   call void @__gmpz_powm(ptr noundef nonnull %tmp1, ptr noundef nonnull %g68, ptr noundef nonnull %x, ptr noundef %11)
   %12 = load ptr, ptr %ng, align 8, !tbaa !26
   call void @__gmpz_mul(ptr noundef nonnull %tmp4, ptr noundef nonnull %k, ptr noundef nonnull %tmp1)
@@ -1337,11 +1337,11 @@ if.then51:                                        ; preds = %if.end33
   %13 = load ptr, ptr %ng, align 8, !tbaa !26
   call void @__gmpz_sub(ptr noundef nonnull %tmp4, ptr noundef nonnull %B, ptr noundef nonnull %tmp3)
   call void @__gmpz_mod(ptr noundef nonnull %tmp1, ptr noundef nonnull %tmp4, ptr noundef %13)
-  %S = getelementptr inbounds i8, ptr %usr, i64 48
+  %S = getelementptr inbounds nuw i8, ptr %usr, i64 48
   %14 = load ptr, ptr %ng, align 8, !tbaa !26
   call void @__gmpz_powm(ptr noundef nonnull %S, ptr noundef nonnull %tmp1, ptr noundef nonnull %tmp2, ptr noundef %14)
   %15 = load i32, ptr %usr, align 8, !tbaa !24
-  %session_key = getelementptr inbounds i8, ptr %usr, i64 176
+  %session_key = getelementptr inbounds nuw i8, ptr %usr, i64 176
   %call.i.i = call i64 @__gmpz_sizeinbase(ptr noundef nonnull %S, i32 noundef 2) #18
   %16 = load ptr, ptr @srp_alloc, align 8, !tbaa !4
   %add.i.i = shl i64 %call.i.i, 29
@@ -1365,8 +1365,8 @@ if.end101:                                        ; preds = %sw.bb.i.i, %if.end.
   call void %18(ptr noundef nonnull %call1.i)
   %19 = load i32, ptr %usr, align 8, !tbaa !24
   %20 = load ptr, ptr %ng, align 8, !tbaa !26
-  %M = getelementptr inbounds i8, ptr %usr, i64 112
-  %username = getelementptr inbounds i8, ptr %usr, i64 80
+  %M = getelementptr inbounds nuw i8, ptr %usr, i64 112
+  %username = getelementptr inbounds nuw i8, ptr %usr, i64 80
   %21 = load ptr, ptr %username, align 8, !tbaa !27
   %call110 = call fastcc noundef i32 @_ZL11calculate_M17SRP_HashAlgorithmP10NGConstantPhPKcPKhmPK12__mpz_structS9_S6_(i32 noundef %19, ptr noundef %20, ptr noundef nonnull %M, ptr noundef %21, ptr noundef %bytes_s, i64 noundef %len_s, ptr noundef nonnull %A, ptr noundef nonnull %B, ptr noundef nonnull %session_key), !range !12
   %tobool111.not = icmp eq i32 %call110, 0
@@ -1374,7 +1374,7 @@ if.end101:                                        ; preds = %sw.bb.i.i, %if.end.
 
 if.end113:                                        ; preds = %if.end101
   %22 = load i32, ptr %usr, align 8, !tbaa !24
-  %H_AMK = getelementptr inbounds i8, ptr %usr, i64 144
+  %H_AMK = getelementptr inbounds nuw i8, ptr %usr, i64 144
   %call122 = call fastcc noundef i32 @_ZL15calculate_H_AMK17SRP_HashAlgorithmPhPK12__mpz_structPKhS5_(i32 noundef %22, ptr noundef nonnull %H_AMK, ptr noundef nonnull %A, ptr noundef nonnull %M, ptr noundef nonnull %session_key), !range !12
   %tobool123.not = icmp eq i32 %call122, 0
   br i1 %tobool123.not, label %cleanup_and_exit, label %if.end125
@@ -1424,7 +1424,7 @@ declare void @__gmpz_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_ad
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_Z23srp_user_verify_sessionP7SRPUserPKh(ptr nocapture noundef %usr, ptr nocapture noundef readonly %bytes_HAMK) local_unnamed_addr #13 {
 entry:
-  %H_AMK = getelementptr inbounds i8, ptr %usr, i64 144
+  %H_AMK = getelementptr inbounds nuw i8, ptr %usr, i64 144
   %0 = load i32, ptr %usr, align 8, !tbaa !24
   %cond.i = icmp eq i32 %0, 0
   %..i = select i1 %cond.i, i64 32, i64 0
@@ -1433,7 +1433,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %authenticated = getelementptr inbounds i8, ptr %usr, i64 72
+  %authenticated = getelementptr inbounds nuw i8, ptr %usr, i64 72
   store i32 1, ptr %authenticated, align 8, !tbaa !31
   br label %if.end
 

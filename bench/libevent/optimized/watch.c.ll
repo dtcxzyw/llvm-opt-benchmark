@@ -15,15 +15,15 @@ entry:
   br i1 %tobool.not.i, label %evwatch_new.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %base1.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %base1.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store ptr %base, ptr %base1.i, align 8
-  %type2.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %type2.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store i32 0, ptr %type2.i, align 8
-  %callback3.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %callback3.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   store ptr %callback, ptr %callback3.i, align 8
-  %arg4.i = getelementptr inbounds i8, ptr %call.i, i64 40
+  %arg4.i = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   store ptr %arg, ptr %arg4.i, align 8
-  %th_base_lock.i = getelementptr inbounds i8, ptr %base, i64 952
+  %th_base_lock.i = getelementptr inbounds nuw i8, ptr %base, i64 952
   %0 = load ptr, ptr %th_base_lock.i, align 8
   %tobool6.not.i = icmp eq ptr %0, null
   br i1 %tobool6.not.i, label %do.body12.i, label %if.then7.i
@@ -35,9 +35,9 @@ if.then7.i:                                       ; preds = %if.end.i
 
 do.body12.i:                                      ; preds = %if.then7.i, %if.end.i
   store ptr null, ptr %call.i, align 8
-  %tqh_last.i = getelementptr inbounds i8, ptr %base, i64 1184
+  %tqh_last.i = getelementptr inbounds nuw i8, ptr %base, i64 1184
   %2 = load ptr, ptr %tqh_last.i, align 8
-  %tqe_prev.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %tqe_prev.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store ptr %2, ptr %tqe_prev.i, align 8
   store ptr %call.i, ptr %2, align 8
   store ptr %call.i, ptr %tqh_last.i, align 8
@@ -62,15 +62,15 @@ entry:
   br i1 %tobool.not.i, label %evwatch_new.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %base1.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %base1.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store ptr %base, ptr %base1.i, align 8
-  %type2.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %type2.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store i32 1, ptr %type2.i, align 8
-  %callback3.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %callback3.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   store ptr %callback, ptr %callback3.i, align 8
-  %arg4.i = getelementptr inbounds i8, ptr %call.i, i64 40
+  %arg4.i = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   store ptr %arg, ptr %arg4.i, align 8
-  %th_base_lock.i = getelementptr inbounds i8, ptr %base, i64 952
+  %th_base_lock.i = getelementptr inbounds nuw i8, ptr %base, i64 952
   %0 = load ptr, ptr %th_base_lock.i, align 8
   %tobool6.not.i = icmp eq ptr %0, null
   br i1 %tobool6.not.i, label %do.body12.i, label %if.then7.i
@@ -82,9 +82,9 @@ if.then7.i:                                       ; preds = %if.end.i
 
 do.body12.i:                                      ; preds = %if.then7.i, %if.end.i
   store ptr null, ptr %call.i, align 8
-  %tqh_last.i = getelementptr inbounds i8, ptr %base, i64 1200
+  %tqh_last.i = getelementptr inbounds nuw i8, ptr %base, i64 1200
   %2 = load ptr, ptr %tqh_last.i, align 8
-  %tqe_prev.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %tqe_prev.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store ptr %2, ptr %tqe_prev.i, align 8
   store ptr %call.i, ptr %2, align 8
   store ptr %call.i, ptr %tqh_last.i, align 8
@@ -104,7 +104,7 @@ evwatch_new.exit:                                 ; preds = %entry, %do.body12.i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local ptr @evwatch_base(ptr nocapture noundef readonly %watcher) local_unnamed_addr #1 {
 entry:
-  %base = getelementptr inbounds i8, ptr %watcher, i64 16
+  %base = getelementptr inbounds nuw i8, ptr %watcher, i64 16
   %0 = load ptr, ptr %base, align 8
   ret ptr %0
 }
@@ -112,9 +112,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local void @evwatch_free(ptr noundef %watcher) local_unnamed_addr #0 {
 entry:
-  %base = getelementptr inbounds i8, ptr %watcher, i64 16
+  %base = getelementptr inbounds nuw i8, ptr %watcher, i64 16
   %0 = load ptr, ptr %base, align 8
-  %th_base_lock = getelementptr inbounds i8, ptr %0, i64 952
+  %th_base_lock = getelementptr inbounds nuw i8, ptr %0, i64 952
   %1 = load ptr, ptr %th_base_lock, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %do.body5, label %if.then
@@ -127,18 +127,18 @@ if.then:                                          ; preds = %entry
 do.body5:                                         ; preds = %entry, %if.then
   %3 = load ptr, ptr %watcher, align 8
   %cmp.not = icmp eq ptr %3, null
-  %tqe_prev13 = getelementptr inbounds i8, ptr %watcher, i64 8
+  %tqe_prev13 = getelementptr inbounds nuw i8, ptr %watcher, i64 8
   %4 = load ptr, ptr %tqe_prev13, align 8
   br i1 %cmp.not, label %if.else, label %if.then6
 
 if.then6:                                         ; preds = %do.body5
-  %tqe_prev11 = getelementptr inbounds i8, ptr %3, i64 8
+  %tqe_prev11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %4, ptr %tqe_prev11, align 8
   br label %if.end15
 
 if.else:                                          ; preds = %do.body5
   %5 = load ptr, ptr %base, align 8
-  %type = getelementptr inbounds i8, ptr %watcher, i64 24
+  %type = getelementptr inbounds nuw i8, ptr %watcher, i64 24
   %6 = load i32, ptr %type, align 8
   %idxprom = zext i32 %6 to i64
   %tqh_last.idx = shl nuw nsw i64 %idxprom, 4
@@ -151,7 +151,7 @@ if.end15:                                         ; preds = %if.else, %if.then6
   %8 = load ptr, ptr %watcher, align 8
   store ptr %8, ptr %4, align 8
   %9 = load ptr, ptr %base, align 8
-  %th_base_lock24 = getelementptr inbounds i8, ptr %9, i64 952
+  %th_base_lock24 = getelementptr inbounds nuw i8, ptr %9, i64 952
   %10 = load ptr, ptr %th_base_lock24, align 8
   %tobool25.not = icmp eq ptr %10, null
   br i1 %tobool25.not, label %do.end32, label %if.then26

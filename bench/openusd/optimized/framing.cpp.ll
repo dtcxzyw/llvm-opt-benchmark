@@ -18,20 +18,20 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN32pxrInternal_v0_24__pxrReserved__17CameraUtilFramingC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(36) initializes((0, 36)) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store float 0x47EFFFFFE0000000, ptr %2, align 4
   store float 0x47EFFFFFE0000000, ptr %0, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store float 0xC7EFFFFFE0000000, ptr %4, align 4
   store float 0xC7EFFFFFE0000000, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 0, ptr %6, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 -1, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 -1, ptr %8, align 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store float 1.000000e+00, ptr %9, align 4
@@ -55,23 +55,23 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define void @_ZN32pxrInternal_v0_24__pxrReserved__17CameraUtilFramingC2ERKNS_8GfRect2iE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(36) initializes((0, 36)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1) unnamed_addr #1 align 2 {
   %3 = load i32, ptr %1, align 4
   %4 = sitofp i32 %3 to float
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = sitofp i32 %6 to float
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i32, ptr %8, align 4
   %10 = add nsw i32 %9, 1
   %11 = sitofp i32 %10 to float
-  %12 = getelementptr inbounds i8, ptr %1, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %13 = load i32, ptr %12, align 4
   %14 = add nsw i32 %13, 1
   %15 = sitofp i32 %14 to float
   store float %4, ptr %0, align 4
-  %.sroa.211.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
+  %.sroa.211.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store float %7, ptr %.sroa.211.0..sroa_idx, align 4
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store float %11, ptr %.sroa.3.0..sroa_idx, align 4
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 12
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store float %15, ptr %.sroa.4.0..sroa_idx, align 4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %16, ptr noundef nonnull readonly align 4 dereferenceable(16) %1, i64 16, i1 false)
@@ -92,9 +92,9 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17CameraUtilFra
   br i1 %8, label %_ZNK32pxrInternal_v0_24__pxrReserved__8GfRect2i7IsEmptyEv.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__8GfRect2i7IsEmptyEv.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__8GfRect2i7IsEmptyEv.exit: ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %12 = load i32, ptr %11, align 4
   %13 = add i32 %10, 1
   %14 = sub i32 %13, %12
@@ -106,9 +106,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8GfRect2i7IsEmptyEv.exit: ; preds = %1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load float, ptr %18, align 4
   %20 = fcmp ogt float %17, %19
-  %21 = getelementptr inbounds i8, ptr %0, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %22 = load float, ptr %21, align 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %24 = load float, ptr %23, align 4
   %25 = fcmp ogt float %22, %24
   %26 = select i1 %20, i1 true, i1 %25
@@ -130,9 +130,9 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17CameraUtilFra
   %3 = load float, ptr %0, align 4
   %4 = load float, ptr %1, align 4
   %5 = fcmp oeq float %3, %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load float, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = load float, ptr %8, align 4
   %10 = fcmp oeq float %7, %9
   %11 = select i1 %5, i1 %10, i1 false
@@ -144,9 +144,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2feqERKS0_.exit: ; preds = %2
   %14 = load float, ptr %12, align 4
   %15 = load float, ptr %13, align 4
   %16 = fcmp oeq float %14, %15
-  %17 = getelementptr inbounds i8, ptr %0, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %18 = load float, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %1, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %20 = load float, ptr %19, align 4
   %21 = fcmp oeq float %18, %20
   %22 = select i1 %16, i1 %21, i1 false
@@ -158,9 +158,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2feqERKS0_.exit: ; preds = %2
   %26 = load i32, ptr %24, align 4
   %27 = load i32, ptr %25, align 4
   %28 = icmp eq i32 %26, %27
-  %29 = getelementptr inbounds i8, ptr %0, i64 20
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %30 = load i32, ptr %29, align 4
-  %31 = getelementptr inbounds i8, ptr %1, i64 20
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %32 = load i32, ptr %31, align 4
   %33 = icmp eq i32 %30, %32
   %34 = select i1 %28, i1 %33, i1 false
@@ -172,9 +172,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_8GfRect2iES2_.exit: ; preds = %23
   %37 = load i32, ptr %35, align 4
   %38 = load i32, ptr %36, align 4
   %39 = icmp eq i32 %37, %38
-  %40 = getelementptr inbounds i8, ptr %0, i64 28
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %41 = load i32, ptr %40, align 4
-  %42 = getelementptr inbounds i8, ptr %1, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %43 = load i32, ptr %42, align 4
   %44 = icmp eq i32 %41, %43
   %45 = select i1 %39, i1 %44, i1 false
@@ -198,9 +198,9 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17CameraUtilFra
   %3 = load float, ptr %0, align 4
   %4 = load float, ptr %1, align 4
   %5 = fcmp oeq float %3, %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load float, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = load float, ptr %8, align 4
   %10 = fcmp oeq float %7, %9
   %11 = select i1 %5, i1 %10, i1 false
@@ -212,9 +212,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2feqERKS0_.exit.i: ; preds = %2
   %14 = load float, ptr %12, align 4
   %15 = load float, ptr %13, align 4
   %16 = fcmp oeq float %14, %15
-  %17 = getelementptr inbounds i8, ptr %0, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %18 = load float, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %1, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %20 = load float, ptr %19, align 4
   %21 = fcmp oeq float %18, %20
   %22 = select i1 %16, i1 %21, i1 false
@@ -226,9 +226,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2feqERKS0_.exit.i: ; preds = %2
   %26 = load i32, ptr %24, align 4
   %27 = load i32, ptr %25, align 4
   %28 = icmp eq i32 %26, %27
-  %29 = getelementptr inbounds i8, ptr %0, i64 20
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %30 = load i32, ptr %29, align 4
-  %31 = getelementptr inbounds i8, ptr %1, i64 20
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %32 = load i32, ptr %31, align 4
   %33 = icmp eq i32 %30, %32
   %34 = select i1 %28, i1 %33, i1 false
@@ -240,9 +240,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_8GfRect2iES2_.exit.i: ; preds = %23
   %37 = load i32, ptr %35, align 4
   %38 = load i32, ptr %36, align 4
   %39 = icmp eq i32 %37, %38
-  %40 = getelementptr inbounds i8, ptr %0, i64 28
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %41 = load i32, ptr %40, align 4
-  %42 = getelementptr inbounds i8, ptr %1, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %43 = load i32, ptr %42, align 4
   %44 = icmp eq i32 %41, %43
   %45 = select i1 %39, i1 %44, i1 false
@@ -277,7 +277,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__17CameraUtilFraming23ApplyToP
   %16 = load float, ptr %1, align 4
   %.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %15, i64 0
   %17 = fsub float %.sroa.0.0.vec.extract.i.i, %16
-  %18 = getelementptr inbounds i8, ptr %1, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %19 = load float, ptr %18, align 4
   %.sroa.0.4.vec.extract.i.i = extractelement <2 x float> %15, i64 1
   %20 = fsub float %.sroa.0.4.vec.extract.i.i, %19
@@ -287,9 +287,9 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__17CameraUtilFraming23ApplyToP
   %24 = load i32, ptr %21, align 4
   %25 = add i32 %23, 1
   %26 = sub i32 %25, %24
-  %27 = getelementptr inbounds i8, ptr %1, i64 28
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %28 = load i32, ptr %27, align 4
-  %29 = getelementptr inbounds i8, ptr %1, i64 20
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %30 = load i32, ptr %29, align 4
   %31 = add i32 %28, 1
   %32 = sub i32 %31, %30
@@ -325,11 +325,11 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__17CameraUtilFraming23ApplyToP
   %61 = fmul float %59, 2.000000e+00
   call void @_ZN32pxrInternal_v0_24__pxrReserved__25CameraUtilConformedWindowERKNS_10GfMatrix4dENS_29CameraUtilConformWindowPolicyEd(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d") align 8 %7, ptr noundef nonnull align 8 dereferenceable(128) %2, i32 noundef %3, double noundef %42)
   store double %38, ptr %9, align 8
-  %62 = getelementptr inbounds i8, ptr %9, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store double %39, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %9, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store double 1.000000e+00, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %9, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store double 1.000000e+00, ptr %64, align 8
   %65 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d11SetDiagonalERKNS_7GfVec4dE(ptr noundef nonnull align 8 dereferenceable(128) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %6, ptr noundef nonnull align 8 dereferenceable(128) %7, i64 128, i1 false)
@@ -339,9 +339,9 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__17CameraUtilFraming23ApplyToP
   %68 = fmul float %60, -2.000000e+00
   %69 = fpext float %68 to double
   store double %67, ptr %11, align 8
-  %70 = getelementptr inbounds i8, ptr %11, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store double %69, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %11, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store double 0.000000e+00, ptr %71, align 8
   %72 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d12SetTranslateERKNS_7GfVec3dE(ptr noundef nonnull align 8 dereferenceable(128) %10, ptr noundef nonnull align 8 dereferenceable(24) %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %5, ptr noundef nonnull align 8 dereferenceable(128) %6, i64 128, i1 false)
@@ -351,11 +351,11 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__17CameraUtilFraming23ApplyToP
   %76 = fpext float %34 to double
   %77 = fdiv double 1.000000e+00, %76
   store double %75, ptr %13, align 8
-  %78 = getelementptr inbounds i8, ptr %13, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store double %77, ptr %78, align 8
-  %79 = getelementptr inbounds i8, ptr %13, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store double 1.000000e+00, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %13, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store double 1.000000e+00, ptr %80, align 8
   %81 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d11SetDiagonalERKNS_7GfVec4dE(ptr noundef nonnull align 8 dereferenceable(128) %12, ptr noundef nonnull align 8 dereferenceable(32) %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(128) %5, i64 128, i1 false)
@@ -400,7 +400,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L13_InvertPolicyENS_29CameraUtilConformWind
   call void @_ZN32pxrInternal_v0_24__pxrReserved__9GfRange2fC1ERKNS_9GfRange2dE(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(32) %5)
   %.fca.0.load = load <2 x float>, ptr %4, align 8
   %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.fca.0.load, 0
-  %.fca.1.gep = getelementptr inbounds i8, ptr %4, i64 8
+  %.fca.1.gep = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.fca.1.load = load <2 x float>, ptr %.fca.1.gep, align 8
   %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %.fca.1.load, 1
   ret { <2 x float>, <2 x float> } %.fca.1.insert

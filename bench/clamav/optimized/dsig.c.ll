@@ -47,7 +47,7 @@ define noalias ptr @cli_getdsig(ptr noundef %0, ptr noundef %1, ptr nocapture no
   %9 = alloca %struct.sockaddr_in, align 4
   %10 = alloca %struct.termios, align 4
   %11 = alloca %struct.termios, align 4
-  %12 = getelementptr inbounds i8, ptr %9, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 0, ptr %12, align 4
   %13 = tail call ptr @getenv(ptr noundef nonnull @.str) #14
   %.not = icmp eq ptr %13, null
@@ -55,7 +55,7 @@ define noalias ptr @cli_getdsig(ptr noundef %0, ptr noundef %1, ptr nocapture no
 
 14:                                               ; preds = %5
   %15 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %13, i64 noundef 31) #14
-  %16 = getelementptr inbounds i8, ptr %8, i64 30
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 30
   store i8 0, ptr %16, align 2
   br label %35
 
@@ -71,7 +71,7 @@ define noalias ptr @cli_getdsig(ptr noundef %0, ptr noundef %1, ptr nocapture no
 
 20:                                               ; preds = %17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %11, ptr noundef nonnull align 4 dereferenceable(60) %10, i64 60, i1 false)
-  %21 = getelementptr inbounds i8, ptr %11, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %22 = load i32, ptr %21, align 4
   %23 = and i32 %22, -9
   store i32 %23, ptr %21, align 4
@@ -119,10 +119,10 @@ define noalias ptr @cli_getdsig(ptr noundef %0, ptr noundef %1, ptr nocapture no
 39:                                               ; preds = %35
   store i16 2, ptr %9, align 4
   %40 = call i32 @inet_addr(ptr noundef %0) #14
-  %41 = getelementptr inbounds i8, ptr %9, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %40, ptr %41, align 4
   %42 = call zeroext i16 @htons(i16 noundef zeroext -32435) #16
-  %43 = getelementptr inbounds i8, ptr %9, i64 2
+  %43 = getelementptr inbounds nuw i8, ptr %9, i64 2
   store i16 %42, ptr %43, align 2
   %44 = call i32 @connect(i32 noundef %36, ptr nonnull %9, i32 noundef 16) #14
   %45 = icmp slt i32 %44, 0
@@ -171,7 +171,7 @@ define noalias ptr @cli_getdsig(ptr noundef %0, ptr noundef %1, ptr nocapture no
 
 66:                                               ; preds = %62
   %67 = and i64 %63, 2147483647
-  %68 = getelementptr inbounds [512 x i8], ptr %6, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw [512 x i8], ptr %6, i64 0, i64 %67
   store i8 0, ptr %68, align 1
   %69 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) @.str.15) #17
   %.not36 = icmp eq ptr %69, null
@@ -188,7 +188,7 @@ define noalias ptr @cli_getdsig(ptr noundef %0, ptr noundef %1, ptr nocapture no
   %74 = add i64 %73, -10
   call void (ptr, ptr, ...) @cli_infomsg(ptr noundef null, ptr noundef nonnull @.str.18, i64 noundef %74) #14
   %75 = call i32 @close(i32 noundef %36) #14
-  %76 = getelementptr inbounds i8, ptr %6, i64 10
+  %76 = getelementptr inbounds nuw i8, ptr %6, i64 10
   %77 = call noalias ptr @strdup(ptr noundef nonnull %76) #14
   br label %80
 
@@ -386,14 +386,14 @@ define internal fastcc ptr @cli_decodesig(ptr nocapture noundef readonly %0, i32
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %16 ]
-  %17 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i32
   br label %20
 
 20:                                               ; preds = %25, %.lr.ph
   %indvars.iv.i = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.i, %25 ]
-  %21 = getelementptr inbounds [64 x i8], ptr @__const.cli_ndecode.ncodec, i64 0, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [64 x i8], ptr @__const.cli_ndecode.ncodec, i64 0, i64 %indvars.iv.i
   %22 = load i8, ptr %21, align 1
   %23 = sext i8 %22 to i32
   %24 = icmp eq i32 %23, %19
@@ -528,7 +528,7 @@ define range(i32 0, 21) i32 @cli_versig2(ptr nocapture noundef readonly %0, ptr 
   br i1 %.not45, label %71, label %26
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %25, i64 255
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 255
   %28 = load i8, ptr %27, align 1
   %.not46 = icmp eq i8 %28, -68
   br i1 %.not46, label %29, label %71
@@ -541,14 +541,14 @@ define range(i32 0, 21) i32 @cli_versig2(ptr nocapture noundef readonly %0, ptr 
   store ptr null, ptr %12, align 8
   store ptr null, ptr %13, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(223) %8, ptr noundef nonnull align 1 dereferenceable(223) %25, i64 223, i1 false)
-  %32 = getelementptr inbounds i8, ptr %25, i64 223
+  %32 = getelementptr inbounds nuw i8, ptr %25, i64 223
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %6, ptr noundef nonnull align 1 dereferenceable(32) %32, i64 32, i1 false)
   call void @free(ptr noundef nonnull %25) #14
-  %33 = getelementptr inbounds i8, ptr %11, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store i8 0, ptr %33, align 1
   store i8 0, ptr %11, align 1
-  %34 = getelementptr inbounds i8, ptr %11, i64 2
-  %35 = getelementptr inbounds i8, ptr %11, i64 3
+  %34 = getelementptr inbounds nuw i8, ptr %11, i64 2
+  %35 = getelementptr inbounds nuw i8, ptr %11, i64 3
   store i8 0, ptr %34, align 1
   store i8 0, ptr %35, align 1
   %36 = call ptr @cl_hash_init(ptr noundef nonnull @.str.26) #14
@@ -564,7 +564,7 @@ define range(i32 0, 21) i32 @cli_versig2(ptr nocapture noundef readonly %0, ptr 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv63, 1
   %41 = icmp eq i64 %indvars.iv.next, 7
   %42 = shl nuw nsw i64 %indvars.iv63, 5
-  %43 = getelementptr inbounds [223 x i8], ptr %9, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw [223 x i8], ptr %9, i64 0, i64 %42
   br i1 %41, label %.preheader.preheader, label %44
 
 44:                                               ; preds = %.lr.ph
@@ -583,9 +583,9 @@ define range(i32 0, 21) i32 @cli_versig2(ptr nocapture noundef readonly %0, ptr 
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv55 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next56, %.preheader ]
-  %48 = getelementptr inbounds [223 x i8], ptr %8, i64 0, i64 %indvars.iv55
+  %48 = getelementptr inbounds nuw [223 x i8], ptr %8, i64 0, i64 %indvars.iv55
   %49 = load i8, ptr %48, align 1
-  %50 = getelementptr inbounds [223 x i8], ptr %9, i64 0, i64 %indvars.iv55
+  %50 = getelementptr inbounds nuw [223 x i8], ptr %9, i64 0, i64 %indvars.iv55
   %51 = load i8, ptr %50, align 1
   %52 = xor i8 %51, %49
   store i8 %52, ptr %50, align 1
@@ -602,8 +602,8 @@ define range(i32 0, 21) i32 @cli_versig2(ptr nocapture noundef readonly %0, ptr 
   br i1 %.not47, label %.loopexit, label %57
 
 57:                                               ; preds = %53
-  %58 = getelementptr inbounds i8, ptr %56, i64 1
-  %59 = getelementptr inbounds i8, ptr %9, i64 223
+  %58 = getelementptr inbounds nuw i8, ptr %56, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %9, i64 223
   %60 = ptrtoint ptr %59 to i64
   %61 = ptrtoint ptr %58 to i64
   %62 = sub i64 %60, %61
@@ -612,9 +612,9 @@ define range(i32 0, 21) i32 @cli_versig2(ptr nocapture noundef readonly %0, ptr 
 
 63:                                               ; preds = %57
   store i64 0, ptr %10, align 16
-  %64 = getelementptr inbounds i8, ptr %10, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %64, ptr noundef nonnull align 1 dereferenceable(32) %0, i64 32, i1 false)
-  %65 = getelementptr inbounds i8, ptr %10, i64 40
+  %65 = getelementptr inbounds nuw i8, ptr %10, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %65, ptr noundef nonnull align 1 dereferenceable(32) %58, i64 32, i1 false)
   %66 = call ptr @cl_hash_init(ptr noundef nonnull @.str.26) #14
   %.not49 = icmp eq ptr %66, null

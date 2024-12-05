@@ -57,11 +57,11 @@ declare void @rb_define_alloc_func(i64 noundef, ptr noundef) local_unnamed_addr 
 define internal i64 @monitor_alloc(i64 noundef %0) #0 {
   %2 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %0, i64 noundef 24, ptr noundef nonnull @monitor_data_type) #5
   %3 = inttoptr i64 %2 to ptr
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 2
   %.not.i = icmp eq i64 %6, 0
-  %7 = getelementptr inbounds i8, ptr %3, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
   br i1 %.not.i, label %8, label %RTYPEDDATA_GET_DATA.exit
 
 8:                                                ; preds = %1
@@ -70,7 +70,7 @@ define internal i64 @monitor_alloc(i64 noundef %0) #0 {
 
 RTYPEDDATA_GET_DATA.exit:                         ; preds = %1, %8
   %10 = phi ptr [ %9, %8 ], [ %7, %1 ]
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = tail call i64 @rb_mutex_new() #5
   store i64 %12, ptr %11, align 8
   %13 = and i64 %12, 7
@@ -84,7 +84,7 @@ RTYPEDDATA_GET_DATA.exit:                         ; preds = %1, %8
   br label %rb_obj_write.exit
 
 rb_obj_write.exit:                                ; preds = %RTYPEDDATA_GET_DATA.exit, %17
-  %18 = getelementptr inbounds i8, ptr %10, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 4, ptr %18, align 8
   store i64 0, ptr %10, align 8
   ret i64 %2
@@ -107,7 +107,7 @@ define internal range(i64 0, 21) i64 @monitor_try_enter(i64 noundef %0) #0 {
   br label %rb_obj_write.exit
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = tail call i64 @rb_mutex_trylock(i64 noundef %8) #5
   %.not7 = icmp eq i64 %9, 0
@@ -151,7 +151,7 @@ define internal noundef i64 @monitor_enter(i64 noundef %0) #0 {
   br label %rb_obj_write.exit
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = tail call i64 @rb_mutex_lock(i64 noundef %8) #5
   %10 = tail call i64 @rb_fiber_current() #5
@@ -204,9 +204,9 @@ monitor_check_owner.exit:                         ; preds = %1
   br i1 %14, label %15, label %20
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %7, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 4, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %18 = load i64, ptr %17, align 8
   %19 = tail call i64 @rb_mutex_unlock(i64 noundef %18) #5
   br label %20
@@ -230,7 +230,7 @@ define internal i64 @monitor_synchronize(i64 noundef %0) #0 {
   br label %monitor_enter.exit
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = tail call i64 @rb_mutex_lock(i64 noundef %8) #5
   %10 = tail call i64 @rb_fiber_current() #5
@@ -255,7 +255,7 @@ monitor_enter.exit:                               ; preds = %._crit_edge.i, %6, 
 ; Function Attrs: nounwind uwtable
 define internal i64 @monitor_locked_p(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @monitor_data_type) #5
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = tail call i64 @rb_mutex_locked_p(i64 noundef %4) #5
   ret i64 %5
@@ -282,7 +282,7 @@ define internal noundef i64 @monitor_check_owner(i64 noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal range(i64 0, 21) i64 @monitor_owned_p(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @monitor_data_type) #5
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = tail call i64 @rb_mutex_locked_p(i64 noundef %4) #5
   %.not = icmp eq i64 %5, 0
@@ -306,7 +306,7 @@ define internal i64 @monitor_wait_for_cond(i64 noundef %0, i64 noundef %1, i64 n
   %4 = alloca %struct.wait_for_cond_data, align 8
   %5 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @monitor_data_type) #5
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 4, ptr %7, align 8
   store i64 0, ptr %5, align 8
   %8 = add i64 %6, 4611686018427387904
@@ -325,11 +325,11 @@ define internal i64 @monitor_wait_for_cond(i64 noundef %0, i64 noundef %1, i64 n
 monitor_exit_for_cond.exit:                       ; preds = %9, %12
   %.0.i.i = phi i64 [ %11, %9 ], [ %13, %12 ]
   store i64 %0, ptr %4, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %1, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %2, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %.0.i.i, ptr %16, align 8
   %17 = ptrtoint ptr %4 to i64
   %18 = call i64 @rb_ensure(ptr noundef nonnull @monitor_wait_for_cond_body, i64 noundef %17, ptr noundef nonnull @monitor_enter_for_cond, i64 noundef %17) #5
@@ -342,10 +342,10 @@ declare i64 @rb_mutex_new() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @monitor_mark(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   tail call void @rb_gc_mark(i64 noundef %3) #5
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   tail call void @rb_gc_mark(i64 noundef %5) #5
   ret void
@@ -399,7 +399,7 @@ define internal range(i64 0, 21) i64 @monitor_wait_for_cond_body(i64 noundef %0)
   %2 = inttoptr i64 %0 to ptr
   %3 = load i64, ptr %2, align 8
   %4 = tail call ptr @rb_check_typeddata(i64 noundef %3, ptr noundef nonnull @monitor_data_type) #5
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load i64, ptr %5, align 8
   %.pr.i = load i64, ptr @monitor_wait_for_cond_body.rbimpl_id, align 8
   %.not1.i = icmp eq i64 %.pr.i, 0
@@ -413,9 +413,9 @@ define internal range(i64 0, 21) i64 @monitor_wait_for_cond_body(i64 noundef %0)
 
 rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %1
   %.lcssa.i = phi i64 [ %.pr.i, %1 ], [ %7, %.lr.ph.i ]
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %11 = load i64, ptr %10, align 8
   %12 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %6, i64 noundef %.lcssa.i, i32 noundef 2, i64 noundef %9, i64 noundef %11) #5
   %13 = and i64 %12, -5
@@ -430,7 +430,7 @@ define internal noundef i64 @monitor_enter_for_cond(i64 noundef %0) #0 {
   %3 = load i64, ptr %2, align 8
   %4 = tail call ptr @rb_check_typeddata(i64 noundef %3, ptr noundef nonnull @monitor_data_type) #5
   %5 = load i64, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = tail call i64 @rb_fiber_current() #5
   store i64 %7, ptr %6, align 8
   %8 = and i64 %7, 7
@@ -444,7 +444,7 @@ define internal noundef i64 @monitor_enter_for_cond(i64 noundef %0) #0 {
   br label %rb_obj_write.exit
 
 rb_obj_write.exit:                                ; preds = %1, %12
-  %13 = getelementptr inbounds i8, ptr %2, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %14 = load i64, ptr %13, align 8
   %15 = and i64 %14, 1
   %.not.i = icmp eq i64 %15, 0

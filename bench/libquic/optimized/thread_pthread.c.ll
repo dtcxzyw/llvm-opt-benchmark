@@ -184,7 +184,7 @@ if.end:                                           ; preds = %CRYPTO_once.exit
 
 if.end2:                                          ; preds = %if.end
   %idxprom = zext i32 %index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %call, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %call, i64 %idxprom
   %2 = load ptr, ptr %arrayidx, align 8
   br label %return
 
@@ -264,10 +264,10 @@ if.then13:                                        ; preds = %if.end10
 
 if.end14:                                         ; preds = %if.end10
   %idxprom = zext i32 %index to i64
-  %arrayidx = getelementptr inbounds [4 x ptr], ptr @g_destructors, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [4 x ptr], ptr @g_destructors, i64 0, i64 %idxprom
   store ptr %destructor, ptr %arrayidx, align 8
   %call15 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_destructors_lock) #7
-  %arrayidx17 = getelementptr inbounds ptr, ptr %pointers.0, i64 %idxprom
+  %arrayidx17 = getelementptr inbounds nuw ptr, ptr %pointers.0, i64 %idxprom
   store ptr %value, ptr %arrayidx17, align 8
   br label %return
 
@@ -310,13 +310,13 @@ if.end3:                                          ; preds = %if.end
 
 for.body:                                         ; preds = %if.end3, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end3 ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [4 x ptr], ptr %destructors, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x ptr], ptr %destructors, i64 0, i64 %indvars.iv
   %0 = load ptr, ptr %arrayidx, align 8
   %cmp6.not = icmp eq ptr %0, null
   br i1 %cmp6.not, label %for.inc, label %if.then7
 
 if.then7:                                         ; preds = %for.body
-  %arrayidx11 = getelementptr inbounds ptr, ptr %arg, i64 %indvars.iv
+  %arrayidx11 = getelementptr inbounds nuw ptr, ptr %arg, i64 %indvars.iv
   %1 = load ptr, ptr %arrayidx11, align 8
   tail call void %0(ptr noundef %1) #7
   br label %for.inc

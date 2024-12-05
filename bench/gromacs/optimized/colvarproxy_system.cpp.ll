@@ -52,14 +52,14 @@ define noundef i32 @_ZN18colvarproxy_system15set_unit_systemERKNSt7__cxx1112basi
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef i32 @_ZN18colvarproxy_system22set_target_temperatureEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(256) initializes((72, 80)) %0, double noundef %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store double %1, ptr %3, align 8
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef i32 @_ZN18colvarproxy_system24set_integration_timestepEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(256) initializes((80, 88)) %0, double noundef %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store double %1, ptr %3, align 8
   ret i32 0
 }
@@ -78,7 +78,7 @@ define void @_ZN18colvarproxy_system10add_energyEd(ptr nocapture nonnull readnon
 define void @_ZNK18colvarproxy_system17position_distanceERKN12colvarmodule7rvectorES3_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.colvarmodule::rvector") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
-  %7 = getelementptr inbounds i8, ptr %1, i64 108
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 108
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 3
   br i1 %9, label %10, label %20
@@ -134,93 +134,93 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %22 = load double, ptr %3, align 8, !noalias !5
   %23 = load double, ptr %2, align 8, !noalias !5
   %24 = fsub double %22, %23
-  %25 = getelementptr inbounds i8, ptr %3, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %26 = load double, ptr %25, align 8, !noalias !5
-  %27 = getelementptr inbounds i8, ptr %2, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %28 = load double, ptr %27, align 8, !noalias !5
   %29 = fsub double %26, %28
-  %30 = getelementptr inbounds i8, ptr %3, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %31 = load double, ptr %30, align 8, !noalias !5
-  %32 = getelementptr inbounds i8, ptr %2, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %33 = load double, ptr %32, align 8, !noalias !5
   %34 = fsub double %31, %33
   store double %24, ptr %0, align 8, !alias.scope !5
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %29, ptr %35, align 8, !alias.scope !5
-  %36 = getelementptr inbounds i8, ptr %0, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %34, ptr %36, align 8, !alias.scope !5
   %37 = icmp eq i32 %21, 0
   br i1 %37, label %108, label %38
 
 38:                                               ; preds = %20
-  %39 = getelementptr inbounds i8, ptr %1, i64 184
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %40 = load double, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 192
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %42 = load double, ptr %41, align 8
   %43 = fmul double %29, %42
   %44 = call double @llvm.fmuladd.f64(double %40, double %24, double %43)
-  %45 = getelementptr inbounds i8, ptr %1, i64 200
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %46 = load double, ptr %45, align 8
   %47 = call noundef double @llvm.fmuladd.f64(double %46, double %34, double %44)
   %48 = fadd double %47, 5.000000e-01
   %49 = call noundef double @llvm.floor.f64(double %48)
   %50 = fptosi double %49 to i32
   %51 = sitofp i32 %50 to double
-  %52 = getelementptr inbounds i8, ptr %1, i64 208
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %53 = load double, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %1, i64 216
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %55 = load double, ptr %54, align 8
   %56 = fmul double %29, %55
   %57 = call double @llvm.fmuladd.f64(double %53, double %24, double %56)
-  %58 = getelementptr inbounds i8, ptr %1, i64 224
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %59 = load double, ptr %58, align 8
   %60 = call noundef double @llvm.fmuladd.f64(double %59, double %34, double %57)
   %61 = fadd double %60, 5.000000e-01
   %62 = call noundef double @llvm.floor.f64(double %61)
   %63 = fptosi double %62 to i32
   %64 = sitofp i32 %63 to double
-  %65 = getelementptr inbounds i8, ptr %1, i64 232
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %66 = load double, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %1, i64 240
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %68 = load double, ptr %67, align 8
   %69 = fmul double %29, %68
   %70 = call double @llvm.fmuladd.f64(double %66, double %24, double %69)
-  %71 = getelementptr inbounds i8, ptr %1, i64 248
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %72 = load double, ptr %71, align 8
   %73 = call noundef double @llvm.fmuladd.f64(double %72, double %34, double %70)
   %74 = fadd double %73, 5.000000e-01
   %75 = call noundef double @llvm.floor.f64(double %74)
   %76 = fptosi double %75 to i32
   %77 = sitofp i32 %76 to double
-  %78 = getelementptr inbounds i8, ptr %1, i64 112
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %79 = load double, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %1, i64 136
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %81 = load double, ptr %80, align 8
   %82 = fmul double %81, %64
   %83 = call double @llvm.fmuladd.f64(double %51, double %79, double %82)
-  %84 = getelementptr inbounds i8, ptr %1, i64 160
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %85 = load double, ptr %84, align 8
   %86 = call double @llvm.fmuladd.f64(double %77, double %85, double %83)
   %87 = fsub double %24, %86
   store double %87, ptr %0, align 8
-  %88 = getelementptr inbounds i8, ptr %1, i64 120
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %89 = load double, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %1, i64 144
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %91 = load double, ptr %90, align 8
   %92 = fmul double %91, %64
   %93 = call double @llvm.fmuladd.f64(double %51, double %89, double %92)
-  %94 = getelementptr inbounds i8, ptr %1, i64 168
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %95 = load double, ptr %94, align 8
   %96 = call double @llvm.fmuladd.f64(double %77, double %95, double %93)
   %97 = fsub double %29, %96
   store double %97, ptr %35, align 8
-  %98 = getelementptr inbounds i8, ptr %1, i64 128
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %99 = load double, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %1, i64 152
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %101 = load double, ptr %100, align 8
   %102 = fmul double %101, %64
   %103 = call double @llvm.fmuladd.f64(double %51, double %99, double %102)
-  %104 = getelementptr inbounds i8, ptr %1, i64 176
+  %104 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %105 = load double, ptr %104, align 8
   %106 = call double @llvm.fmuladd.f64(double %77, double %105, double %103)
   %107 = fsub double %34, %106
@@ -639,26 +639,26 @@ define linkonce_odr noundef zeroext i1 @_ZNK18colvarproxy_system15accelMD_enable
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN18colvarproxy_systemC2Ev(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV18colvarproxy_system, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #12
-  %3 = getelementptr inbounds i8, ptr %0, i64 112
-  %4 = getelementptr inbounds i8, ptr %0, i64 88
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   store double 1.000000e+00, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store double 0.000000e+00, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store double 0x3F6047710B639402, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 108
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i32 3, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 104
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i8 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store double 0.000000e+00, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store double -1.000000e+00, ptr %12, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, i8 0, i64 144, i1 false)
   ret void
@@ -671,7 +671,7 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN18colvarproxy_system17reset_pbc_latticeEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(256) initializes((112, 256)) %0) local_unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 112
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 0, i64 144, i1 false)
   ret void
 }
@@ -682,7 +682,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN18colvarproxy_systemD2Ev(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV18colvarproxy_system, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #12
   ret void
 }
@@ -808,7 +808,7 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 define void @_ZN18colvarproxy_system18update_pbc_latticeEv(ptr nocapture noundef nonnull align 8 dereferenceable(256) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 108
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %5 = load i32, ptr %4, align 4
   switch i32 %5, label %16 [
     i32 3, label %6
@@ -860,15 +860,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   resume { ptr, i32 } %.pn
 
 16:                                               ; preds = %1
-  %17 = getelementptr inbounds i8, ptr %0, i64 136
-  %18 = getelementptr inbounds i8, ptr %0, i64 160
-  %19 = getelementptr inbounds i8, ptr %0, i64 144
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %20 = load double, ptr %19, align 8, !noalias !8
-  %21 = getelementptr inbounds i8, ptr %0, i64 176
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %22 = load double, ptr %21, align 8, !noalias !8
-  %23 = getelementptr inbounds i8, ptr %0, i64 168
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %24 = load double, ptr %23, align 8, !noalias !8
-  %25 = getelementptr inbounds i8, ptr %0, i64 152
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %26 = load double, ptr %25, align 8, !noalias !8
   %27 = fneg double %26
   %28 = fmul double %24, %27
@@ -881,23 +881,23 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %35 = fneg double %20
   %36 = fmul double %32, %35
   %37 = tail call double @llvm.fmuladd.f64(double %30, double %24, double %36)
-  %38 = getelementptr inbounds i8, ptr %0, i64 112
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %39 = load double, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 120
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %41 = load double, ptr %40, align 8
   %42 = fmul double %34, %41
   %43 = tail call double @llvm.fmuladd.f64(double %29, double %39, double %42)
-  %44 = getelementptr inbounds i8, ptr %0, i64 128
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %45 = load double, ptr %44, align 8
   %46 = tail call noundef double @llvm.fmuladd.f64(double %37, double %45, double %43)
   %47 = fdiv double %29, %46
   %48 = fdiv double %34, %46
   %49 = fdiv double %37, %46
-  %50 = getelementptr inbounds i8, ptr %0, i64 184
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store double %47, ptr %50, align 8
-  %.sroa.221.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 192
+  %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 192
   store double %48, ptr %.sroa.221.0..sroa_idx, align 8
-  %.sroa.322.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 200
+  %.sroa.322.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 200
   store double %49, ptr %.sroa.322.0..sroa_idx, align 8
   %51 = fneg double %22
   %52 = fmul double %41, %51
@@ -914,11 +914,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %63 = fdiv double %53, %62
   %64 = fdiv double %56, %62
   %65 = fdiv double %59, %62
-  %66 = getelementptr inbounds i8, ptr %0, i64 208
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store double %63, ptr %66, align 8
-  %.sroa.212.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 216
+  %.sroa.212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 216
   store double %64, ptr %.sroa.212.0..sroa_idx, align 8
-  %.sroa.313.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 224
+  %.sroa.313.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 224
   store double %65, ptr %.sroa.313.0..sroa_idx, align 8
   %67 = fneg double %45
   %68 = fmul double %20, %67
@@ -935,11 +935,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %79 = fdiv double %69, %78
   %80 = fdiv double %72, %78
   %81 = fdiv double %75, %78
-  %82 = getelementptr inbounds i8, ptr %0, i64 232
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store double %79, ptr %82, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 240
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 240
   store double %80, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 248
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 248
   store double %81, ptr %.sroa.3.0..sroa_idx, align 8
   br label %83
 
@@ -955,9 +955,9 @@ declare double @llvm.floor.f64(double) #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN18colvarproxy_system15set_alch_lambdaEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(256) initializes((48, 57)) %0, double noundef %1) local_unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store double %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 1, ptr %4, align 8
   ret void
 }

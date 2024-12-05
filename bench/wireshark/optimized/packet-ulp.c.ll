@@ -3336,13 +3336,13 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_ULP_PDU_PDU(ptr no
   %8 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #7
   %9 = load i32, ptr @ett_ulp, align 4
   %10 = call ptr @proto_item_add_subtree(ptr noundef %8, i32 noundef %9) #7
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   call void @col_set_str(ptr noundef %14, i32 noundef 34, ptr noundef nonnull @.str.1437) #7
   %15 = load ptr, ptr %11, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   call void @col_clear(ptr noundef %17, i32 noundef 25) #7
   %18 = load i32, ptr @ett_ulp_ULP_PDU, align 4
@@ -3444,9 +3444,9 @@ define internal i32 @dissect_ulp_UlpMessage(ptr noundef %0, i32 noundef %1, ptr 
   %6 = alloca i32, align 4
   %7 = load i32, ptr @ett_ulp_UlpMessage, align 4
   %8 = call i32 @dissect_per_choice(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %7, ptr noundef nonnull @UlpMessage_choice, ptr noundef nonnull %6) #7
-  %9 = getelementptr inbounds i8, ptr %2, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %6, align 4
   %14 = call ptr @val_to_str_const(i32 noundef %13, ptr noundef nonnull @ulp_UlpMessage_vals, ptr noundef nonnull @.str.1645) #7
@@ -3494,7 +3494,7 @@ define internal i32 @dissect_ulp_T_msisdn(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %.not, label %16, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_ulp_setid, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #7
@@ -3515,7 +3515,7 @@ define internal i32 @dissect_ulp_T_mdn(ptr noundef %0, i32 noundef %1, ptr nound
   br i1 %.not, label %17, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_ulp_setid, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #7
@@ -3543,12 +3543,12 @@ define internal i32 @dissect_ulp_T_imsi(ptr noundef %0, i32 noundef %1, ptr noun
   br i1 %.not, label %18, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_ulp_setid, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #7
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = call ptr @dissect_e212_imsi(ptr noundef %14, ptr noundef %16, ptr noundef %13, i32 noundef 0, i32 noundef 8, i32 noundef 0) #7
   br label %18
@@ -3730,15 +3730,15 @@ define internal i32 @dissect_ulp_PosMethod(ptr noundef %0, i32 noundef %1, ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ulp_Notification(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %ulp_get_private_data.exit
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noalias ptr @wmem_alloc0(ptr noundef %13, i64 noundef 2) #7
   store ptr %14, ptr %6, align 8
@@ -3797,15 +3797,15 @@ define internal i32 @dissect_ulp_NotificationType(ptr noundef %0, i32 noundef %1
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ulp_EncodingType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca i32, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %ulp_get_private_data.exit
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %2, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noalias ptr @wmem_alloc0(ptr noundef %14, i64 noundef 2) #7
   store ptr %15, ptr %7, align 8
@@ -3829,15 +3829,15 @@ define internal i32 @dissect_ulp_T_requestorId(ptr noundef %0, i32 noundef %1, p
   br i1 %.not, label %39, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %ulp_get_private_data.exit
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %2, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 408
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 408
   %17 = load ptr, ptr %16, align 8
   %18 = call noalias ptr @wmem_alloc0(ptr noundef %17, i64 noundef 2) #7
   store ptr %18, ptr %10, align 8
@@ -3867,9 +3867,9 @@ ulp_get_private_data.exit:                        ; preds = %9, %13
   br label %.sink.split
 
 29:                                               ; preds = %ulp_get_private_data.exit
-  %30 = getelementptr inbounds i8, ptr %2, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 408
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 408
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %6, align 8
   %35 = call i32 @tvb_reported_length(ptr noundef %34) #7
@@ -3879,7 +3879,7 @@ ulp_get_private_data.exit:                        ; preds = %9, %13
 
 .sink.split:                                      ; preds = %29, %27, %25, %23
   %.sink = phi ptr [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %37, %29 ]
-  %38 = getelementptr inbounds i8, ptr %2, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %.sink, ptr %38, align 8
   br label %39
 
@@ -3902,15 +3902,15 @@ define internal i32 @dissect_ulp_T_clientName(ptr noundef %0, i32 noundef %1, pt
   br i1 %.not, label %39, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %ulp_get_private_data.exit
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %2, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 408
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 408
   %17 = load ptr, ptr %16, align 8
   %18 = call noalias ptr @wmem_alloc0(ptr noundef %17, i64 noundef 2) #7
   store ptr %18, ptr %10, align 8
@@ -3940,9 +3940,9 @@ ulp_get_private_data.exit:                        ; preds = %9, %13
   br label %.sink.split
 
 29:                                               ; preds = %ulp_get_private_data.exit
-  %30 = getelementptr inbounds i8, ptr %2, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 408
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 408
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %6, align 8
   %35 = call i32 @tvb_reported_length(ptr noundef %34) #7
@@ -3952,7 +3952,7 @@ ulp_get_private_data.exit:                        ; preds = %9, %13
 
 .sink.split:                                      ; preds = %29, %27, %25, %23
   %.sink = phi ptr [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %37, %29 ]
-  %38 = getelementptr inbounds i8, ptr %2, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %.sink, ptr %38, align 8
   br label %39
 
@@ -5002,7 +5002,7 @@ define internal i32 @dissect_ulp_T_apSSID(ptr noundef %0, i32 noundef %1, ptr no
 
 9:                                                ; preds = %5
   %10 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %4, ptr noundef nonnull %8, i32 noundef 0, i32 noundef -1, i32 noundef 0) #7
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %10, ptr %11, align 8
   br label %12
 
@@ -5264,7 +5264,7 @@ define internal i32 @dissect_ulp_T_msisdn_01(ptr noundef %0, i32 noundef %1, ptr
   br i1 %.not, label %16, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_ulp_thirdPartyId, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #7
@@ -5297,15 +5297,15 @@ define internal i32 @dissect_ulp_T_mdn_01(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %.not, label %22, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_ulp_thirdPartyId, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #7
   %14 = load i32, ptr @hf_ulp_mobile_directory_number, align 4
   %15 = load ptr, ptr %6, align 8
-  %16 = getelementptr inbounds i8, ptr %2, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 408
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 408
   %19 = load ptr, ptr %18, align 8
   %20 = call ptr @tvb_bcd_dig_to_str(ptr noundef %19, ptr noundef %15, i32 noundef 0, i32 noundef 8, ptr noundef null, i32 noundef 0) #7
   %21 = call ptr @proto_tree_add_string(ptr noundef %13, i32 noundef %14, ptr noundef %15, i32 noundef 0, i32 noundef 8, ptr noundef %20) #7
@@ -5445,7 +5445,7 @@ define internal i32 @dissect_ulp_T_bearing(ptr noundef %0, i32 noundef %1, ptr n
 
 9:                                                ; preds = %5
   %10 = call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %4, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 9, i32 noundef 0) #7
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %10, ptr %11, align 8
   br label %12
 
@@ -5463,7 +5463,7 @@ define internal i32 @dissect_ulp_T_horspeed(ptr noundef %0, i32 noundef %1, ptr 
 
 9:                                                ; preds = %5
   %10 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %4, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 2, i32 noundef 0) #7
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %10, ptr %11, align 8
   br label %12
 
@@ -5481,7 +5481,7 @@ define internal i32 @dissect_ulp_T_verdirect(ptr noundef %0, i32 noundef %1, ptr
 
 9:                                                ; preds = %5
   %10 = call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %4, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 1, i32 noundef 0) #7
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %10, ptr %11, align 8
   br label %12
 
@@ -5499,7 +5499,7 @@ define internal i32 @dissect_ulp_T_bearing_01(ptr noundef %0, i32 noundef %1, pt
 
 9:                                                ; preds = %5
   %10 = call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %4, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 9, i32 noundef 0) #7
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %10, ptr %11, align 8
   br label %12
 
@@ -5517,7 +5517,7 @@ define internal i32 @dissect_ulp_T_horspeed_01(ptr noundef %0, i32 noundef %1, p
 
 9:                                                ; preds = %5
   %10 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %4, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 2, i32 noundef 0) #7
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %10, ptr %11, align 8
   br label %12
 
@@ -5535,7 +5535,7 @@ define internal i32 @dissect_ulp_T_verspeed(ptr noundef %0, i32 noundef %1, ptr 
 
 9:                                                ; preds = %5
   %10 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %4, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 1, i32 noundef 0) #7
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %10, ptr %11, align 8
   br label %12
 
@@ -5553,7 +5553,7 @@ define internal i32 @dissect_ulp_T_bearing_02(ptr noundef %0, i32 noundef %1, pt
 
 9:                                                ; preds = %5
   %10 = call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %4, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 9, i32 noundef 0) #7
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %10, ptr %11, align 8
   br label %12
 
@@ -5571,7 +5571,7 @@ define internal i32 @dissect_ulp_T_horspeed_02(ptr noundef %0, i32 noundef %1, p
 
 9:                                                ; preds = %5
   %10 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %4, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 2, i32 noundef 0) #7
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %10, ptr %11, align 8
   br label %12
 
@@ -5589,7 +5589,7 @@ define internal i32 @dissect_ulp_T_uncertspeed(ptr noundef %0, i32 noundef %1, p
 
 9:                                                ; preds = %5
   %10 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %4, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 1, i32 noundef 0) #7
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %10, ptr %11, align 8
   br label %12
 
@@ -5607,7 +5607,7 @@ define internal i32 @dissect_ulp_T_verdirect_01(ptr noundef %0, i32 noundef %1, 
 
 9:                                                ; preds = %5
   %10 = call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %4, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 1, i32 noundef 0) #7
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %10, ptr %11, align 8
   br label %12
 
@@ -5625,7 +5625,7 @@ define internal i32 @dissect_ulp_T_bearing_03(ptr noundef %0, i32 noundef %1, pt
 
 9:                                                ; preds = %5
   %10 = call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %4, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 9, i32 noundef 0) #7
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %10, ptr %11, align 8
   br label %12
 
@@ -5643,7 +5643,7 @@ define internal i32 @dissect_ulp_T_horspeed_03(ptr noundef %0, i32 noundef %1, p
 
 9:                                                ; preds = %5
   %10 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %4, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 2, i32 noundef 0) #7
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %10, ptr %11, align 8
   br label %12
 
@@ -5661,7 +5661,7 @@ define internal i32 @dissect_ulp_T_verspeed_01(ptr noundef %0, i32 noundef %1, p
 
 9:                                                ; preds = %5
   %10 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %4, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 1, i32 noundef 0) #7
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %10, ptr %11, align 8
   br label %12
 
@@ -5679,7 +5679,7 @@ define internal i32 @dissect_ulp_T_horuncertspeed(ptr noundef %0, i32 noundef %1
 
 9:                                                ; preds = %5
   %10 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %4, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 1, i32 noundef 0) #7
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %10, ptr %11, align 8
   br label %12
 
@@ -5697,7 +5697,7 @@ define internal i32 @dissect_ulp_T_veruncertspeed(ptr noundef %0, i32 noundef %1
 
 9:                                                ; preds = %5
   %10 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %4, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 1, i32 noundef 0) #7
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %10, ptr %11, align 8
   br label %12
 
@@ -5854,15 +5854,15 @@ define internal i32 @dissect_ulp_GanssReqGenericData(ptr noundef %0, i32 noundef
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ulp_T_ganssId(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca i32, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %ulp_get_private_data.exit
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %2, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noalias ptr @wmem_alloc0(ptr noundef %14, i64 noundef 2) #7
   store ptr %15, ptr %7, align 8
@@ -5873,7 +5873,7 @@ ulp_get_private_data.exit:                        ; preds = %5, %10
   %17 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 15, ptr noundef nonnull %6, i32 noundef 0) #7
   %18 = load i32, ptr %6, align 4
   %19 = trunc i32 %18 to i8
-  %20 = getelementptr inbounds i8, ptr %16, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 1
   store i8 %19, ptr %20, align 1
   ret i32 %17
 }
@@ -5916,7 +5916,7 @@ define internal i32 @dissect_ulp_T_ganssTimeModels(ptr noundef %0, i32 noundef %
   br i1 %.not, label %32, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_ulp_ganssTimeModels, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #7
@@ -5973,15 +5973,15 @@ define internal i32 @dissect_ulp_BDS_Sig_Id_Req(ptr noundef %0, i32 noundef %1, 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ulp_T_ganssWeek(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %ulp_get_private_data.exit
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noalias ptr @wmem_alloc0(ptr noundef %13, i64 noundef 2) #7
   store ptr %14, ptr %6, align 8
@@ -5990,10 +5990,10 @@ define internal i32 @dissect_ulp_T_ganssWeek(ptr noundef %0, i32 noundef %1, ptr
 ulp_get_private_data.exit:                        ; preds = %5, %9
   %15 = phi ptr [ %14, %9 ], [ %7, %5 ]
   %16 = tail call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 4095, ptr noundef null, i32 noundef 0) #7
-  %17 = getelementptr inbounds i8, ptr %15, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 1
   %18 = load i8, ptr %17, align 1
   %.not = icmp eq i8 %18, 4
-  %19 = getelementptr inbounds i8, ptr %2, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %20 = load ptr, ptr %19, align 8
   %.str.1649..str.1648 = select i1 %.not, ptr @.str.1649, ptr @.str.1648
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %20, ptr noundef nonnull %.str.1649..str.1648) #7
@@ -6003,15 +6003,15 @@ ulp_get_private_data.exit:                        ; preds = %5, %9
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ulp_T_ganssToe(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca i32, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %ulp_get_private_data.exit
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %2, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noalias ptr @wmem_alloc0(ptr noundef %14, i64 noundef 2) #7
   store ptr %15, ptr %7, align 8
@@ -6020,10 +6020,10 @@ define internal i32 @dissect_ulp_T_ganssToe(ptr noundef %0, i32 noundef %1, ptr 
 ulp_get_private_data.exit:                        ; preds = %5, %10
   %16 = phi ptr [ %15, %10 ], [ %8, %5 ]
   %17 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 167, ptr noundef nonnull %6, i32 noundef 0) #7
-  %18 = getelementptr inbounds i8, ptr %16, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 1
   %19 = load i8, ptr %18, align 1
   %.not = icmp eq i8 %19, 4
-  %20 = getelementptr inbounds i8, ptr %2, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %21 = load ptr, ptr %20, align 8
   br i1 %.not, label %23, label %22
 
@@ -6044,15 +6044,15 @@ ulp_get_private_data.exit:                        ; preds = %5, %10
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ulp_T_t_toeLimit(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca i32, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %ulp_get_private_data.exit
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %2, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noalias ptr @wmem_alloc0(ptr noundef %14, i64 noundef 2) #7
   store ptr %15, ptr %7, align 8
@@ -6061,10 +6061,10 @@ define internal i32 @dissect_ulp_T_t_toeLimit(ptr noundef %0, i32 noundef %1, pt
 ulp_get_private_data.exit:                        ; preds = %5, %10
   %16 = phi ptr [ %15, %10 ], [ %8, %5 ]
   %17 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 15, ptr noundef nonnull %6, i32 noundef 0) #7
-  %18 = getelementptr inbounds i8, ptr %16, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 1
   %19 = load i8, ptr %18, align 1
   %.not = icmp eq i8 %19, 4
-  %20 = getelementptr inbounds i8, ptr %2, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %21 = load ptr, ptr %20, align 8
   br i1 %.not, label %23, label %22
 
@@ -6273,7 +6273,7 @@ define internal i32 @dissect_ulp_T_rrlpPayload(ptr noundef %0, i32 noundef %1, p
   br i1 %or.cond, label %12, label %16
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %2, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = call i32 @call_dissector(ptr noundef nonnull %10, ptr noundef nonnull %8, ptr noundef %14, ptr noundef %3) #7
   br label %16
@@ -6317,7 +6317,7 @@ define internal i32 @dissect_ulp_T_lPPPayload_item(ptr noundef %0, i32 noundef %
   br i1 %or.cond, label %12, label %16
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %2, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = call i32 @call_dissector(ptr noundef nonnull %10, ptr noundef nonnull %8, ptr noundef %14, ptr noundef %3) #7
   br label %16

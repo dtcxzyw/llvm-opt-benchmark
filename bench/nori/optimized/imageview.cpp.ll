@@ -76,8 +76,8 @@ _ZN7nanogui5ArrayIfLm2EEC2Ef.exit.critedge:
   %18 = alloca [2 x i64], align 8
   tail call void @_ZN7nanogui6CanvasC2EPNS_6WidgetEhbbb(ptr noundef nonnull align 8 dereferenceable(173) %0, ptr noundef %1, i8 noundef zeroext 1, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui9ImageViewE, i64 16), ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 176
-  %20 = getelementptr inbounds i8, ptr %0, i64 184
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 184
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %19, i8 0, i64 28, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
@@ -86,7 +86,7 @@ _ZN7nanogui5ArrayIfLm2EEC2Ef.exit.critedge:
 
 21:                                               ; preds = %21, %_ZN7nanogui5ArrayIfLm2EEC2Ef.exit.critedge
   %.04.i.i.i = phi i64 [ 0, %_ZN7nanogui5ArrayIfLm2EEC2Ef.exit.critedge ], [ %23, %21 ]
-  %22 = getelementptr inbounds [4 x float], ptr %7, i64 0, i64 %.04.i.i.i
+  %22 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %.04.i.i.i
   store float 2.550000e+02, ptr %22, align 4
   %23 = add nuw nsw i64 %.04.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %23, 4
@@ -98,25 +98,25 @@ _ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i:            ; preds = %21
 
 24:                                               ; preds = %24, %_ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i
   %.06.i.i.i = phi i64 [ 0, %_ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i ], [ %31, %24 ]
-  %25 = getelementptr inbounds [4 x float], ptr %6, i64 0, i64 %.06.i.i.i
+  %25 = getelementptr inbounds nuw [4 x float], ptr %6, i64 0, i64 %.06.i.i.i
   %26 = load float, ptr %25, align 4
-  %27 = getelementptr inbounds [4 x float], ptr %7, i64 0, i64 %.06.i.i.i
+  %27 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %.06.i.i.i
   %28 = load float, ptr %27, align 4
   %29 = fdiv float %26, %28
-  %30 = getelementptr inbounds [4 x float], ptr %5, i64 0, i64 %.06.i.i.i
+  %30 = getelementptr inbounds nuw [4 x float], ptr %5, i64 0, i64 %.06.i.i.i
   store float %29, ptr %30, align 4
   %31 = add nuw nsw i64 %.06.i.i.i, 1
   %exitcond.not.i4.i.i = icmp eq i64 %31, 4
   br i1 %exitcond.not.i4.i.i, label %32, label %24, !llvm.loop !7
 
 32:                                               ; preds = %24
-  %33 = getelementptr inbounds i8, ptr %0, i64 208
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %.fca.0.load.i.i.i = load <2 x float>, ptr %5, align 8
-  %.fca.1.gep.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %.fca.1.gep.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.fca.1.load.i.i.i = load <2 x float>, ptr %.fca.1.gep.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   store <2 x float> %.fca.0.load.i.i.i, ptr %33, align 8
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 216
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 216
   store <2 x float> %.fca.1.load.i.i.i, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
@@ -127,7 +127,7 @@ _ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i:            ; preds = %21
 
 34:                                               ; preds = %34, %32
   %.04.i.i.i20 = phi i64 [ 0, %32 ], [ %36, %34 ]
-  %35 = getelementptr inbounds [4 x float], ptr %4, i64 0, i64 %.04.i.i.i20
+  %35 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %.04.i.i.i20
   store float 2.550000e+02, ptr %35, align 4
   %36 = add nuw nsw i64 %.04.i.i.i20, 1
   %exitcond.not.i.i.i21 = icmp eq i64 %36, 4
@@ -139,38 +139,38 @@ _ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i22:          ; preds = %34
 
 37:                                               ; preds = %37, %_ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i22
   %.06.i.i.i23 = phi i64 [ 0, %_ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i22 ], [ %44, %37 ]
-  %38 = getelementptr inbounds [4 x float], ptr %3, i64 0, i64 %.06.i.i.i23
+  %38 = getelementptr inbounds nuw [4 x float], ptr %3, i64 0, i64 %.06.i.i.i23
   %39 = load float, ptr %38, align 4
-  %40 = getelementptr inbounds [4 x float], ptr %4, i64 0, i64 %.06.i.i.i23
+  %40 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %.06.i.i.i23
   %41 = load float, ptr %40, align 4
   %42 = fdiv float %39, %41
-  %43 = getelementptr inbounds [4 x float], ptr %2, i64 0, i64 %.06.i.i.i23
+  %43 = getelementptr inbounds nuw [4 x float], ptr %2, i64 0, i64 %.06.i.i.i23
   store float %42, ptr %43, align 4
   %44 = add nuw nsw i64 %.06.i.i.i23, 1
   %exitcond.not.i4.i.i24 = icmp eq i64 %44, 4
   br i1 %exitcond.not.i4.i.i24, label %45, label %37, !llvm.loop !7
 
 45:                                               ; preds = %37
-  %46 = getelementptr inbounds i8, ptr %0, i64 224
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %.fca.0.load.i.i.i25 = load <2 x float>, ptr %2, align 8
-  %.fca.1.gep.i.i.i26 = getelementptr inbounds i8, ptr %2, i64 8
+  %.fca.1.gep.i.i.i26 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.fca.1.load.i.i.i27 = load <2 x float>, ptr %.fca.1.gep.i.i.i26, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   store <2 x float> %.fca.0.load.i.i.i25, ptr %46, align 8
-  %.sroa.2.0..sroa_idx.i.i28 = getelementptr inbounds i8, ptr %0, i64 232
+  %.sroa.2.0..sroa_idx.i.i28 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store <2 x float> %.fca.1.load.i.i.i27, ptr %.sroa.2.0..sroa_idx.i.i28, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %47 = getelementptr inbounds i8, ptr %0, i64 240
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 240
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %47, i8 0, i64 32, i1 false)
-  %48 = getelementptr inbounds i8, ptr %0, i64 144
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %49 = load ptr, ptr %48, align 8
   store float 0x3FD3333340000000, ptr %8, align 4
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %8, i64 4
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 4
   store float 0x3FD3333340000000, ptr %.sroa.2.0..sroa_idx.i, align 4
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %8, i64 8
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   store float 0x3FD47AE140000000, ptr %.sroa.3.0..sroa_idx.i, align 4
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %8, i64 12
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 12
   store float 1.000000e+00, ptr %.sroa.4.0..sroa_idx.i, align 4
   invoke void @_ZN7nanogui10RenderPass15set_clear_colorEmRKNS_5ColorE(ptr noundef nonnull align 8 dereferenceable(173) %49, i64 noundef 0, ptr noundef nonnull align 4 dereferenceable(16) %8)
           to label %50 unwind label %96
@@ -202,7 +202,7 @@ _ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i22:          ; preds = %34
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc30
   %57 = load i32, ptr @imageview_vertex_gl_size, align 4
   %58 = zext i32 %57 to i64
-  %59 = getelementptr inbounds i8, ptr @imageview_vertex_gl, i64 %58
+  %59 = getelementptr inbounds nuw i8, ptr @imageview_vertex_gl, i64 %58
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #20
   %60 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %.noexc31 unwind label %100
@@ -212,7 +212,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %.noexc32 unwind label %100
 
 .noexc32:                                         ; preds = %.noexc31
-  %61 = getelementptr inbounds i8, ptr %11, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 0, ptr %61, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKhEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @imageview_vertex_gl, ptr noundef nonnull %59)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IPKhvEET_S8_RKS3_.exit unwind label %62
@@ -226,7 +226,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IPKhvEET_S8_RKS3_.exit: ; preds = %.noexc32
   %64 = load i32, ptr @imageview_fragment_gl_size, align 4
   %65 = zext i32 %64 to i64
-  %66 = getelementptr inbounds i8, ptr @imageview_fragment_gl, i64 %65
+  %66 = getelementptr inbounds nuw i8, ptr @imageview_fragment_gl, i64 %65
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #20
   %67 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %13)
           to label %.noexc35 unwind label %102
@@ -236,7 +236,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IPKhvEET_S8_RKS3_.exit: ;
           to label %.noexc36 unwind label %102
 
 .noexc36:                                         ; preds = %.noexc35
-  %68 = getelementptr inbounds i8, ptr %13, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 0, ptr %68, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKhEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @imageview_fragment_gl, ptr noundef nonnull %66)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IPKhvEET_S8_RKS3_.exit39 unwind label %69
@@ -288,17 +288,17 @@ _ZN7nanogui3refINS_6ShaderEEaSEPS1_.exit:         ; preds = %71, %75
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %15, i8 0, i64 48, i1 false)
-  %79 = getelementptr inbounds i8, ptr %15, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store float 1.000000e+00, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %15, i64 20
+  %80 = getelementptr inbounds nuw i8, ptr %15, i64 20
   store float 1.000000e+00, ptr %80, align 4
-  %81 = getelementptr inbounds i8, ptr %15, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store float 1.000000e+00, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %15, i64 32
+  %82 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store float 1.000000e+00, ptr %82, align 16
-  %83 = getelementptr inbounds i8, ptr %15, i64 36
+  %83 = getelementptr inbounds nuw i8, ptr %15, i64 36
   store float 1.000000e+00, ptr %83, align 4
-  %84 = getelementptr inbounds i8, ptr %15, i64 44
+  %84 = getelementptr inbounds nuw i8, ptr %15, i64 44
   store float 1.000000e+00, ptr %84, align 4
   %85 = load ptr, ptr %19, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #20
@@ -321,7 +321,7 @@ _ZN7nanogui3refINS_6ShaderEEaSEPS1_.exit:         ; preds = %71, %75
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit44: ; preds = %.noexc41
   store i64 6, ptr %18, align 8
-  %89 = getelementptr inbounds i8, ptr %18, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 2, ptr %89, align 8
   invoke void @_ZN7nanogui6Shader10set_bufferERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12VariableTypeEmPKmPKv(ptr noundef nonnull align 8 dereferenceable(125) %85, ptr noundef nonnull align 8 dereferenceable(32) %16, i32 noundef 10, i64 noundef 2, ptr noundef nonnull %18, ptr noundef nonnull %15)
           to label %_ZN7nanogui6Shader10set_bufferERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12VariableTypeESt16initializer_listImEPKv.exit unwind label %108
@@ -334,11 +334,11 @@ _ZN7nanogui6Shader10set_bufferERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
           to label %91 unwind label %96
 
 91:                                               ; preds = %_ZN7nanogui6Shader10set_bufferERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12VariableTypeESt16initializer_listImEPKv.exit
-  %92 = getelementptr inbounds i8, ptr %0, i64 24
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 120
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 120
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull align 8 dereferenceable(16) %94, i64 16, i1 false)
-  %95 = getelementptr inbounds i8, ptr %0, i64 204
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 204
   store i8 1, ptr %95, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, i8 0, i64 16, i1 false)
   ret void
@@ -405,7 +405,7 @@ _ZN7nanogui6Shader10set_bufferERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 
 110:                                              ; preds = %.body, %.body42, %96
   %.pn17 = phi { ptr, i32 } [ %97, %96 ], [ %.pn15, %.body42 ], [ %.pn.pn.pn, %.body ]
-  %111 = getelementptr inbounds i8, ptr %0, i64 256
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %112 = load ptr, ptr %111, align 8
   %.not.i.i = icmp eq ptr %112, null
   br i1 %.not.i.i, label %_ZNSt8functionIFvRKN7nanogui5ArrayIiLm2EEEPPcmEED2Ev.exit, label %113
@@ -478,7 +478,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7nanogui6CanvasD2Ev(ptr noundef nonnull align 8 dereferenceable(173) %0) unnamed_addr #7 comdat align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui6CanvasE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 144
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZN7nanogui3refINS_10RenderPassEED2Ev.exit, label %4
@@ -496,7 +496,7 @@ _ZN7nanogui3refINS_10RenderPassEED2Ev.exit:       ; preds = %1, %4
 define hidden void @_ZN7nanogui9ImageView9set_imageEPNS_7TextureE(ptr nocapture noundef nonnull align 8 dereferenceable(272) %0, ptr noundef %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.1", align 1
-  %5 = getelementptr inbounds i8, ptr %1, i64 15
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 15
   %6 = load i8, ptr %5, align 1
   %.not = icmp eq i8 %6, 0
   br i1 %.not, label %12, label %7
@@ -517,7 +517,7 @@ define hidden void @_ZN7nanogui9ImageView9set_imageEPNS_7TextureE(ptr nocapture 
   br label %32
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 176
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %14 = load ptr, ptr %13, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #20
   %15 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
@@ -544,7 +544,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 18:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #20
-  %19 = getelementptr inbounds i8, ptr %0, i64 184
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %20 = load ptr, ptr %19, align 8
   %.not.i = icmp eq ptr %20, %1
   br i1 %.not.i, label %_ZN7nanogui3refINS_7TextureEEaSEPS1_.exit, label %21
@@ -613,7 +613,7 @@ declare void @_ZN7nanogui6Shader11set_textureERKNSt7__cxx1112basic_stringIcSt11c
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef float @_ZNK7nanogui9ImageView5scaleEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(272) %0) local_unnamed_addr #8 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 192
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load float, ptr %2, align 8
   %4 = fdiv float %3, 5.000000e+00
   %exp2f = tail call float @exp2f(float %4)
@@ -624,38 +624,38 @@ define hidden noundef float @_ZNK7nanogui9ImageView5scaleEv(ptr nocapture nounde
 define hidden void @_ZN7nanogui9ImageView9set_scaleEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(272) initializes((192, 196)) %0, float noundef %1) local_unnamed_addr #10 align 2 {
   %3 = tail call noundef float @log2f(float noundef %1) #20
   %4 = fmul float %3, 5.000000e+00
-  %5 = getelementptr inbounds i8, ptr %0, i64 192
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store float %4, ptr %5, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN7nanogui9ImageView6centerEv(ptr noundef nonnull align 8 dereferenceable(272) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 184
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %36, label %_ZN7nanogui5ArrayIfLm2EEC2Ef.exit.critedge
 
 _ZN7nanogui5ArrayIfLm2EEC2Ef.exit.critedge:       ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i32, ptr %4, align 8
   %6 = sitofp i32 %5 to float
-  %7 = getelementptr inbounds i8, ptr %0, i64 52
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %8 = load i32, ptr %7, align 4
   %9 = sitofp i32 %8 to float
   %10 = tail call noundef ptr @_ZN7nanogui6Widget6screenEv(ptr noundef nonnull align 8 dereferenceable(140) %0)
-  %11 = getelementptr inbounds i8, ptr %10, i64 248
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 248
   %12 = load float, ptr %11, align 8
   %13 = fmul float %12, %6
   %14 = fmul float %12, %9
   %15 = load ptr, ptr %2, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 20
   %17 = load i32, ptr %16, align 4
   %18 = sitofp i32 %17 to float
-  %19 = getelementptr inbounds i8, ptr %15, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %20 = load i32, ptr %19, align 4
   %21 = sitofp i32 %20 to float
-  %22 = getelementptr inbounds i8, ptr %0, i64 192
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %23 = load float, ptr %22, align 8
   %24 = fdiv float %23, 5.000000e+00
   %exp2f.i = tail call noundef float @exp2f(float %24)
@@ -669,9 +669,9 @@ _ZN7nanogui5ArrayIfLm2EEC2Ef.exit.critedge:       ; preds = %1
   %32 = fptosi float %30 to i32
   %33 = sitofp i32 %31 to float
   %34 = sitofp i32 %32 to float
-  %35 = getelementptr inbounds i8, ptr %0, i64 196
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 196
   store float %33, ptr %35, align 4
-  %.sroa_idx50 = getelementptr inbounds i8, ptr %0, i64 200
+  %.sroa_idx50 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store float %34, ptr %.sroa_idx50, align 8
   br label %36
 
@@ -683,30 +683,30 @@ declare noundef ptr @_ZN7nanogui6Widget6screenEv(ptr noundef nonnull align 8 der
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN7nanogui9ImageView5resetEv(ptr noundef nonnull align 8 dereferenceable(272) initializes((192, 196)) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 192
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store float 0.000000e+00, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 184
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %_ZN7nanogui9ImageView6centerEv.exit, label %_ZN7nanogui5ArrayIfLm2EEC2Ef.exit.critedge.i
 
 _ZN7nanogui5ArrayIfLm2EEC2Ef.exit.critedge.i:     ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i32, ptr %5, align 8
   %7 = sitofp i32 %6 to float
-  %8 = getelementptr inbounds i8, ptr %0, i64 52
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %9 = load i32, ptr %8, align 4
   %10 = sitofp i32 %9 to float
   %11 = tail call noundef ptr @_ZN7nanogui6Widget6screenEv(ptr noundef nonnull align 8 dereferenceable(272) %0)
-  %12 = getelementptr inbounds i8, ptr %11, i64 248
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 248
   %13 = load float, ptr %12, align 8
   %14 = fmul float %13, %7
   %15 = fmul float %13, %10
   %16 = load ptr, ptr %3, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 20
   %18 = load i32, ptr %17, align 4
   %19 = sitofp i32 %18 to float
-  %20 = getelementptr inbounds i8, ptr %16, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %21 = load i32, ptr %20, align 4
   %22 = sitofp i32 %21 to float
   %23 = load float, ptr %2, align 8
@@ -722,9 +722,9 @@ _ZN7nanogui5ArrayIfLm2EEC2Ef.exit.critedge.i:     ; preds = %1
   %32 = fptosi float %30 to i32
   %33 = sitofp i32 %31 to float
   %34 = sitofp i32 %32 to float
-  %35 = getelementptr inbounds i8, ptr %0, i64 196
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 196
   store float %33, ptr %35, align 4
-  %.sroa_idx50.i = getelementptr inbounds i8, ptr %0, i64 200
+  %.sroa_idx50.i = getelementptr inbounds nuw i8, ptr %0, i64 200
   store float %34, ptr %.sroa_idx50.i, align 8
   br label %_ZN7nanogui9ImageView6centerEv.exit
 
@@ -736,9 +736,9 @@ _ZN7nanogui9ImageView6centerEv.exit:              ; preds = %1, %_ZN7nanogui5Arr
 define hidden <2 x float> @_ZNK7nanogui9ImageView12pos_to_pixelERKNS_5ArrayIfLm2EEE(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
 _ZN7nanogui5ArrayIfLm2EEmIERKS1_.exit:
   %2 = load float, ptr %1, align 4
-  %.sroa_idx = getelementptr inbounds i8, ptr %1, i64 4
+  %.sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 4
   %3 = load float, ptr %.sroa_idx, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 152
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
   %7 = fadd float %2, -1.000000e+00
@@ -746,17 +746,17 @@ _ZN7nanogui5ArrayIfLm2EEmIERKS1_.exit:
   %.sroa.028.0 = select i1 %6, float %7, float %2
   %.sroa.3.0 = select i1 %6, float %8, float %3
   %9 = tail call noundef ptr @_ZNK7nanogui6Widget6screenEv(ptr noundef nonnull align 8 dereferenceable(140) %0)
-  %10 = getelementptr inbounds i8, ptr %9, i64 248
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 248
   %11 = load float, ptr %10, align 8
   %12 = fmul float %11, %.sroa.028.0
   %13 = fmul float %11, %.sroa.3.0
-  %14 = getelementptr inbounds i8, ptr %0, i64 196
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %15 = load float, ptr %14, align 4
   %16 = fsub float %12, %15
-  %17 = getelementptr inbounds i8, ptr %0, i64 200
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %18 = load float, ptr %17, align 8
   %19 = fsub float %13, %18
-  %20 = getelementptr inbounds i8, ptr %0, i64 192
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %21 = load float, ptr %20, align 8
   %22 = fdiv float %21, 5.000000e+00
   %exp2f.i = tail call noundef float @exp2f(float %22)
@@ -772,29 +772,29 @@ declare noundef ptr @_ZNK7nanogui6Widget6screenEv(ptr noundef nonnull align 8 de
 ; Function Attrs: mustprogress uwtable
 define hidden <2 x float> @_ZNK7nanogui9ImageView12pixel_to_posERKNS_5ArrayIfLm2EEE(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
 _ZN7nanogui5ArrayIfLm2EEC2Ef.exit.critedge:
-  %2 = getelementptr inbounds i8, ptr %0, i64 192
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load float, ptr %2, align 8
   %4 = fdiv float %3, 5.000000e+00
   %exp2f.i = tail call noundef float @exp2f(float %4)
   %5 = load float, ptr %1, align 4
   %6 = fmul float %exp2f.i, %5
-  %7 = getelementptr inbounds i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load float, ptr %7, align 4
   %9 = fmul float %8, %exp2f.i
-  %10 = getelementptr inbounds i8, ptr %0, i64 196
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %11 = load float, ptr %10, align 4
   %12 = fadd float %6, %11
-  %13 = getelementptr inbounds i8, ptr %0, i64 200
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %14 = load float, ptr %13, align 8
   %15 = fadd float %9, %14
   %16 = tail call noundef ptr @_ZNK7nanogui6Widget6screenEv(ptr noundef nonnull align 8 dereferenceable(140) %0)
-  %17 = getelementptr inbounds i8, ptr %16, i64 248
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 248
   %18 = load float, ptr %17, align 8
   %19 = fdiv float %12, %18
   %20 = fdiv float %15, %18
   %21 = fptosi float %19 to i32
   %22 = fptosi float %20 to i32
-  %23 = getelementptr inbounds i8, ptr %0, i64 152
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %24 = load i8, ptr %23, align 8
   %.mask = and i8 %24, 1
   %25 = zext nneg i8 %.mask to i32
@@ -811,13 +811,13 @@ _ZN7nanogui5ArrayIfLm2EEC2Ef.exit.critedge:
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN7nanogui9ImageView14keyboard_eventEiiii(ptr noundef nonnull align 8 dereferenceable(272) %0, i32 noundef %1, i32 %2, i32 noundef %3, i32 %4) unnamed_addr #0 align 2 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 89
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 89
   %7 = load i8, ptr %6, align 1
   %8 = trunc i8 %7 to i1
   br i1 %8, label %9, label %47
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 184
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %47, label %12
@@ -829,24 +829,24 @@ define hidden noundef zeroext i1 @_ZN7nanogui9ImageView14keyboard_eventEiiii(ptr
   br i1 %or.cond, label %_ZN7nanogui9ImageView5resetEv.exit, label %47
 
 _ZN7nanogui9ImageView5resetEv.exit:               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %0, i64 192
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store float 0.000000e+00, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %17 = load i32, ptr %16, align 8
   %18 = sitofp i32 %17 to float
-  %19 = getelementptr inbounds i8, ptr %0, i64 52
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %20 = load i32, ptr %19, align 4
   %21 = sitofp i32 %20 to float
   %22 = tail call noundef ptr @_ZN7nanogui6Widget6screenEv(ptr noundef nonnull align 8 dereferenceable(272) %0)
-  %23 = getelementptr inbounds i8, ptr %22, i64 248
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 248
   %24 = load float, ptr %23, align 8
   %25 = fmul float %24, %18
   %26 = fmul float %24, %21
   %27 = load ptr, ptr %10, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 20
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 20
   %29 = load i32, ptr %28, align 4
   %30 = sitofp i32 %29 to float
-  %31 = getelementptr inbounds i8, ptr %27, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %32 = load i32, ptr %31, align 4
   %33 = sitofp i32 %32 to float
   %34 = load float, ptr %15, align 8
@@ -862,9 +862,9 @@ _ZN7nanogui9ImageView5resetEv.exit:               ; preds = %12
   %43 = fptosi float %41 to i32
   %44 = sitofp i32 %42 to float
   %45 = sitofp i32 %43 to float
-  %46 = getelementptr inbounds i8, ptr %0, i64 196
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 196
   store float %44, ptr %46, align 4
-  %.sroa_idx50.i.i = getelementptr inbounds i8, ptr %0, i64 200
+  %.sroa_idx50.i.i = getelementptr inbounds nuw i8, ptr %0, i64 200
   store float %45, ptr %.sroa_idx50.i.i, align 8
   br label %47
 
@@ -875,10 +875,10 @@ _ZN7nanogui9ImageView5resetEv.exit:               ; preds = %12
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN7nanogui9ImageView16mouse_drag_eventERKNS_5ArrayIiLm2EEES4_ii(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr nocapture nonnull readnone align 4 %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %2, i32 %3, i32 %4) unnamed_addr #8 align 2 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 89
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 89
   %7 = load i8, ptr %6, align 1
   %8 = trunc i8 %7 to i1
-  %9 = getelementptr inbounds i8, ptr %0, i64 184
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %10 = load ptr, ptr %9, align 8
   %.not = icmp ne ptr %10, null
   %or.cond.not = select i1 %8, i1 %.not, i1 false
@@ -886,21 +886,21 @@ define hidden noundef zeroext i1 @_ZN7nanogui9ImageView16mouse_drag_eventERKNS_5
 
 _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:       ; preds = %5
   %11 = tail call noundef ptr @_ZN7nanogui6Widget6screenEv(ptr noundef nonnull align 8 dereferenceable(140) %0)
-  %12 = getelementptr inbounds i8, ptr %11, i64 248
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 248
   %13 = load float, ptr %12, align 8
   %14 = fptosi float %13 to i32
   %15 = load i32, ptr %2, align 4
   %16 = mul nsw i32 %15, %14
-  %17 = getelementptr inbounds i8, ptr %2, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = mul nsw i32 %18, %14
   %20 = sitofp i32 %16 to float
   %21 = sitofp i32 %19 to float
-  %22 = getelementptr inbounds i8, ptr %0, i64 196
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %23 = load float, ptr %22, align 4
   %24 = fadd float %23, %20
   store float %24, ptr %22, align 4
-  %25 = getelementptr inbounds i8, ptr %0, i64 200
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %26 = load float, ptr %25, align 8
   %27 = fadd float %26, %21
   store float %27, ptr %25, align 8
@@ -912,30 +912,30 @@ _ZN7nanogui5ArrayIfLm2EEpLERKS1_.exit:            ; preds = %_ZN7nanogui5ArrayIi
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN7nanogui9ImageView12scroll_eventERKNS_5ArrayIiLm2EEERKNS1_IfLm2EEE(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %2) unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 89
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 89
   %5 = load i8, ptr %4, align 1
   %6 = trunc i8 %5 to i1
   br i1 %6, label %7, label %_ZN7nanogui5ArrayIfLm2EEpLERKS1_.exit
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 184
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %_ZN7nanogui5ArrayIfLm2EEpLERKS1_.exit, label %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge
 
 _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge: ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load i32, ptr %1, align 4
   %12 = load i32, ptr %10, align 8
   %13 = sub nsw i32 %11, %12
-  %14 = getelementptr inbounds i8, ptr %1, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 44
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %17 = load i32, ptr %16, align 4
   %18 = sub nsw i32 %15, %17
   %19 = sitofp i32 %13 to float
   %20 = sitofp i32 %18 to float
-  %21 = getelementptr inbounds i8, ptr %0, i64 152
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %22 = load i8, ptr %21, align 8
   %23 = trunc i8 %22 to i1
   %24 = fadd float %19, -1.000000e+00
@@ -943,30 +943,30 @@ _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge: ; preds = %7
   %.sroa.028.0.i = select i1 %23, float %24, float %19
   %.sroa.3.0.i = select i1 %23, float %25, float %20
   %26 = tail call noundef ptr @_ZNK7nanogui6Widget6screenEv(ptr noundef nonnull align 8 dereferenceable(272) %0)
-  %27 = getelementptr inbounds i8, ptr %26, i64 248
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 248
   %28 = load float, ptr %27, align 8
   %29 = fmul float %28, %.sroa.028.0.i
   %30 = fmul float %28, %.sroa.3.0.i
-  %31 = getelementptr inbounds i8, ptr %0, i64 196
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %32 = load float, ptr %31, align 4
   %33 = fsub float %29, %32
-  %34 = getelementptr inbounds i8, ptr %0, i64 200
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %35 = load float, ptr %34, align 8
   %36 = fsub float %30, %35
-  %37 = getelementptr inbounds i8, ptr %0, i64 192
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %38 = load float, ptr %37, align 8
   %39 = fdiv float %38, 5.000000e+00
   %exp2f.i.i = tail call noundef float @exp2f(float %39)
   %40 = fdiv float %33, %exp2f.i.i
   %41 = fdiv float %36, %exp2f.i.i
-  %42 = getelementptr inbounds i8, ptr %2, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %43 = load float, ptr %42, align 4
   %44 = load float, ptr %37, align 8
   %45 = fadd float %43, %44
   store float %45, ptr %37, align 8
   %46 = load ptr, ptr %8, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 20
-  %48 = getelementptr inbounds i8, ptr %46, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 20
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %49 = load i32, ptr %47, align 4
   %50 = load i32, ptr %48, align 4
   %51 = tail call i32 @llvm.smax.i32(i32 %49, i32 %50)
@@ -997,7 +997,7 @@ _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge: ; preds = %7
   %.sroa.028.0.i13 = select i1 %71, float %72, float %68
   %.sroa.3.0.i14 = select i1 %71, float %73, float %69
   %74 = tail call noundef ptr @_ZNK7nanogui6Widget6screenEv(ptr noundef nonnull align 8 dereferenceable(272) %0)
-  %75 = getelementptr inbounds i8, ptr %74, i64 248
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 248
   %76 = load float, ptr %75, align 8
   %77 = fmul float %76, %.sroa.028.0.i13
   %78 = fmul float %76, %.sroa.3.0.i14
@@ -1038,36 +1038,36 @@ define hidden void @_ZN7nanogui9ImageView4drawEP10NVGcontext(ptr noundef nonnull
   %6 = alloca [4 x ptr], align 16
   %7 = alloca %"struct.nanogui::Array", align 4
   %8 = alloca %"class.nanogui::Color", align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 89
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 89
   %10 = load i8, ptr %9, align 1
   %11 = trunc i8 %10 to i1
   br i1 %11, label %12, label %232
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 184
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %14 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %232, label %_ZN7nanogui5ArrayIiLm2EEC2IfEERKNS0_IT_Lm2EEE.exit.critedge
 
 _ZN7nanogui5ArrayIiLm2EEC2IfEERKNS0_IT_Lm2EEE.exit.critedge: ; preds = %12
   tail call void @_ZN7nanogui6Canvas4drawEP10NVGcontext(ptr noundef nonnull align 8 dereferenceable(173) %0, ptr noundef %1)
-  %15 = getelementptr inbounds i8, ptr %0, i64 192
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %16 = load float, ptr %15, align 8
   %17 = fdiv float %16, 5.000000e+00
   %exp2f.i.i = tail call noundef float @exp2f(float %17)
-  %18 = getelementptr inbounds i8, ptr %0, i64 196
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %19 = load float, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 200
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %21 = load float, ptr %20, align 8
   %22 = tail call noundef ptr @_ZNK7nanogui6Widget6screenEv(ptr noundef nonnull align 8 dereferenceable(272) %0)
-  %23 = getelementptr inbounds i8, ptr %22, i64 248
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 248
   %24 = load float, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 152
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %26 = load i8, ptr %25, align 8
   %27 = load ptr, ptr %13, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 20
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 20
   %29 = load i32, ptr %28, align 4
-  %30 = getelementptr inbounds i8, ptr %27, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %31 = load i32, ptr %30, align 4
   %32 = load float, ptr %15, align 8
   %33 = fdiv float %32, 5.000000e+00
@@ -1075,7 +1075,7 @@ _ZN7nanogui5ArrayIiLm2EEC2IfEERKNS0_IT_Lm2EEE.exit.critedge: ; preds = %12
   %34 = load float, ptr %18, align 4
   %35 = load float, ptr %20, align 8
   %36 = tail call noundef ptr @_ZNK7nanogui6Widget6screenEv(ptr noundef nonnull align 8 dereferenceable(272) %0)
-  %37 = getelementptr inbounds i8, ptr %0, i64 204
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 204
   %38 = load i8, ptr %37, align 4
   %39 = trunc i8 %38 to i1
   br i1 %39, label %40, label %90
@@ -1087,7 +1087,7 @@ _ZN7nanogui5ArrayIiLm2EEC2IfEERKNS0_IT_Lm2EEE.exit.critedge: ; preds = %12
   %43 = sitofp i32 %31 to float
   %44 = fmul float %exp2f.i.i50, %43
   %45 = fadd float %44, %35
-  %46 = getelementptr inbounds i8, ptr %36, i64 248
+  %46 = getelementptr inbounds nuw i8, ptr %36, i64 248
   %47 = load float, ptr %46, align 8
   %48 = fdiv float %45, %47
   %49 = fptosi float %48 to i32
@@ -1123,17 +1123,17 @@ _ZN7nanogui5ArrayIiLm2EEC2IfEERKNS0_IT_Lm2EEE.exit.critedge: ; preds = %12
   %74 = fptosi float %73 to i32
   tail call void @nvgBeginPath(ptr noundef %1)
   tail call void @nvgStrokeWidth(ptr noundef %1, float noundef 1.000000e+00)
-  %75 = getelementptr inbounds i8, ptr %0, i64 208
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %.sroa.024.0.copyload = load <2 x float>, ptr %75, align 8
-  %.sroa.225.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 216
+  %.sroa.225.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 216
   %.sroa.225.0.copyload = load <2 x float>, ptr %.sroa.225.0..sroa_idx, align 8
   tail call void @nvgStrokeColor(ptr noundef %1, <2 x float> %.sroa.024.0.copyload, <2 x float> %.sroa.225.0.copyload)
-  %76 = getelementptr inbounds i8, ptr %0, i64 40
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %77 = load i32, ptr %76, align 8
   %78 = sitofp i32 %77 to float
   %79 = fadd float %78, -5.000000e-01
   %80 = fadd float %79, %72
-  %81 = getelementptr inbounds i8, ptr %0, i64 44
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %82 = load i32, ptr %81, align 4
   %83 = sitofp i32 %82 to float
   %84 = fadd float %83, -5.000000e-01
@@ -1148,16 +1148,16 @@ _ZN7nanogui5ArrayIiLm2EEC2IfEERKNS0_IT_Lm2EEE.exit.critedge: ; preds = %12
 
 90:                                               ; preds = %40, %_ZN7nanogui5ArrayIiLm2EEC2IfEERKNS0_IT_Lm2EEE.exit.critedge
   tail call void @nvgSave(ptr noundef %1)
-  %91 = getelementptr inbounds i8, ptr %0, i64 40
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %92 = load i32, ptr %91, align 8
   %93 = sitofp i32 %92 to float
-  %94 = getelementptr inbounds i8, ptr %0, i64 44
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %95 = load i32, ptr %94, align 4
   %96 = sitofp i32 %95 to float
-  %97 = getelementptr inbounds i8, ptr %0, i64 48
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %98 = load i32, ptr %97, align 8
   %99 = sitofp i32 %98 to float
-  %100 = getelementptr inbounds i8, ptr %0, i64 52
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %101 = load i32, ptr %100, align 4
   %102 = sitofp i32 %101 to float
   tail call void @nvgIntersectScissor(ptr noundef %1, float noundef %93, float noundef %96, float noundef %99, float noundef %102)
@@ -1168,8 +1168,8 @@ _ZN7nanogui5ArrayIiLm2EEC2IfEERKNS0_IT_Lm2EEE.exit.critedge: ; preds = %12
   br i1 %105, label %106, label %.loopexit
 
 106:                                              ; preds = %90
-  %107 = getelementptr inbounds i8, ptr %0, i64 240
-  %108 = getelementptr inbounds i8, ptr %0, i64 256
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %109 = load ptr, ptr %108, align 8
   %.not.i.i.not = icmp eq ptr %109, null
   br i1 %.not.i.i.not, label %.loopexit, label %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge
@@ -1193,7 +1193,7 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:       ; preds = %106
   %119 = trunc i8 %118 to i1
   %.sroa.028.0.i = select i1 %119, float -1.000000e+00, float 0.000000e+00
   %120 = tail call noundef ptr @_ZNK7nanogui6Widget6screenEv(ptr noundef nonnull align 8 dereferenceable(272) %0)
-  %121 = getelementptr inbounds i8, ptr %120, i64 248
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 248
   %122 = load float, ptr %121, align 8
   %123 = fmul float %122, %.sroa.028.0.i
   %124 = load float, ptr %18, align 4
@@ -1222,7 +1222,7 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:       ; preds = %106
   %.sroa.028.0.i72 = select i1 %143, float %144, float %139
   %.sroa.3.0.i73 = select i1 %143, float %145, float %141
   %146 = tail call noundef ptr @_ZNK7nanogui6Widget6screenEv(ptr noundef nonnull align 8 dereferenceable(272) %0)
-  %147 = getelementptr inbounds i8, ptr %146, i64 248
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 248
   %148 = load float, ptr %147, align 8
   %149 = fmul float %148, %.sroa.028.0.i72
   %150 = fmul float %148, %.sroa.3.0.i73
@@ -1240,34 +1240,34 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:       ; preds = %106
   %161 = add i32 %159, 1
   %162 = add nsw i32 %160, 1
   %163 = load ptr, ptr %13, align 8
-  %164 = getelementptr inbounds i8, ptr %163, i64 20
+  %164 = getelementptr inbounds nuw i8, ptr %163, i64 20
   %165 = load i32, ptr %164, align 4
   %166 = add i32 %165, -1
-  %167 = getelementptr inbounds i8, ptr %163, i64 24
+  %167 = getelementptr inbounds nuw i8, ptr %163, i64 24
   %168 = load i32, ptr %167, align 4
   %169 = add nsw i32 %168, -1
   %170 = tail call i32 @llvm.smin.i32(i32 %166, i32 %161)
   %171 = tail call i32 @llvm.smin.i32(i32 %169, i32 %162)
   store ptr %5, ptr %6, align 16
-  %172 = getelementptr inbounds i8, ptr %6, i64 8
-  %173 = getelementptr inbounds i8, ptr %5, i64 20
+  %172 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %173 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store ptr %173, ptr %172, align 8
-  %174 = getelementptr inbounds i8, ptr %6, i64 16
-  %175 = getelementptr inbounds i8, ptr %5, i64 40
+  %174 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %175 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %175, ptr %174, align 16
-  %176 = getelementptr inbounds i8, ptr %6, i64 24
-  %177 = getelementptr inbounds i8, ptr %5, i64 60
+  %176 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %177 = getelementptr inbounds nuw i8, ptr %5, i64 60
   store ptr %177, ptr %176, align 8
   %.not47225 = icmp sgt i32 %137, %171
   br i1 %.not47225, label %.loopexit, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge
   %.not48216 = icmp sgt i32 %135, %170
-  %178 = getelementptr inbounds i8, ptr %7, i64 4
-  %179 = getelementptr inbounds i8, ptr %0, i64 264
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %8, i64 4
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %8, i64 8
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %8, i64 12
+  %178 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 12
   br i1 %.not48216, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
@@ -1290,7 +1290,7 @@ _ZN7nanogui5ArrayIiLm2EEC2IfEERKNS0_IT_Lm2EEE.exit94.critedge: ; preds = %.prehe
   %190 = load float, ptr %20, align 8
   %191 = fadd float %187, %190
   %192 = call noundef ptr @_ZNK7nanogui6Widget6screenEv(ptr noundef nonnull align 8 dereferenceable(272) %0)
-  %193 = getelementptr inbounds i8, ptr %192, i64 248
+  %193 = getelementptr inbounds nuw i8, ptr %192, i64 248
   %194 = load float, ptr %193, align 8
   %195 = fdiv float %189, %194
   %196 = fdiv float %191, %194
@@ -1346,7 +1346,7 @@ _ZNKSt8functionIFvRKN7nanogui5ArrayIiLm2EEEPPcmEEclES4_S6_m.exit: ; preds = %_ZN
   %216 = uitofp nneg i32 %215 to float
   %217 = fadd float %216, -1.500000e+00
   %218 = call float @llvm.fmuladd.f32(float %217, float %112, float %214)
-  %219 = getelementptr inbounds [4 x ptr], ptr %6, i64 0, i64 %indvars.iv
+  %219 = getelementptr inbounds nuw [4 x ptr], ptr %6, i64 0, i64 %indvars.iv
   %220 = load ptr, ptr %219, align 8
   %221 = call float @nvgText(ptr noundef %1, float noundef %211, float noundef %218, ptr noundef %220, ptr noundef null)
   store float 0x3FD3333340000000, ptr %8, align 8
@@ -1363,7 +1363,7 @@ _ZNKSt8functionIFvRKN7nanogui5ArrayIiLm2EEEPPcmEEclES4_S6_m.exit: ; preds = %_ZN
   br label %226
 
 224:                                              ; preds = %208
-  %225 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv
+  %225 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv
   store float 1.000000e+00, ptr %225, align 4
   br label %226
 
@@ -1451,19 +1451,19 @@ define hidden void @_ZN7nanogui9ImageView13draw_contentsEv(ptr noundef nonnull a
   %19 = alloca %"struct.nanogui::Matrix", align 4
   %20 = alloca %"class.std::__cxx11::basic_string", align 8
   %21 = alloca %"class.std::allocator.1", align 1
-  %22 = getelementptr inbounds i8, ptr %0, i64 184
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %23 = load ptr, ptr %22, align 8
   %.not = icmp eq ptr %23, null
   br i1 %.not, label %193, label %_ZN7nanogui5ArrayIfLm2EEC2Ef.exit.critedge
 
 _ZN7nanogui5ArrayIfLm2EEC2Ef.exit.critedge:       ; preds = %1
   %24 = tail call noundef ptr @_ZN7nanogui6Widget6screenEv(ptr noundef nonnull align 8 dereferenceable(140) %0)
-  %25 = getelementptr inbounds i8, ptr %24, i64 248
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 248
   %26 = load float, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 196
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %28 = load float, ptr %27, align 4
   %29 = fdiv float %28, %26
-  %30 = getelementptr inbounds i8, ptr %0, i64 200
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %31 = load float, ptr %30, align 8
   %32 = fdiv float %31, %26
   %33 = fptosi float %29 to i32
@@ -1475,24 +1475,24 @@ _ZN7nanogui5ArrayIfLm2EEC2Ef.exit.critedge:       ; preds = %1
   %38 = fmul float %26, %36
   %.sroa.0134.4.vec.insert = insertelement <2 x float> %.sroa.0134.0.vec.insert, float %38, i64 1
   store <2 x float> %.sroa.0134.4.vec.insert, ptr %27, align 4
-  %39 = getelementptr inbounds i8, ptr %0, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %40 = load i32, ptr %39, align 8
   %41 = sitofp i32 %40 to float
-  %42 = getelementptr inbounds i8, ptr %0, i64 52
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %43 = load i32, ptr %42, align 4
   %44 = sitofp i32 %43 to float
   %45 = fmul float %26, %41
   %46 = fmul float %26, %44
   %47 = load ptr, ptr %22, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 20
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 20
   %49 = load i32, ptr %48, align 4
   %50 = sitofp i32 %49 to float
-  %51 = getelementptr inbounds i8, ptr %47, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %52 = load i32, ptr %51, align 4
   %53 = sitofp i32 %52 to float
   %54 = fneg float %50
   %55 = fneg float %53
-  %56 = getelementptr inbounds i8, ptr %0, i64 192
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %57 = load float, ptr %56, align 8
   %58 = fdiv float %57, 5.000000e+00
   %exp2f.i = tail call noundef float @exp2f(float %58)
@@ -1528,29 +1528,29 @@ _ZN7nanogui5ArrayIfLm2EEC2Ef.exit.critedge:       ; preds = %1
   br label %78
 
 78:                                               ; preds = %73, %69
-  %79 = getelementptr inbounds i8, ptr %0, i64 144
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 88
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 88
   %82 = load i64, ptr %81, align 4
   %.sroa.2.0.extract.shift = lshr i64 %82, 32
   %83 = load float, ptr %56, align 8
   %84 = fdiv float %83, 5.000000e+00
   %exp2f = tail call float @exp2f(float %84)
   %85 = load ptr, ptr %22, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 20
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 20
   %87 = load i32, ptr %86, align 4
   %88 = sitofp i32 %87 to float
   %89 = fmul float %exp2f, %88
   %90 = fdiv float %89, 2.000000e+01
-  %91 = getelementptr inbounds i8, ptr %85, i64 24
+  %91 = getelementptr inbounds nuw i8, ptr %85, i64 24
   %92 = load i32, ptr %91, align 4
   %93 = sitofp i32 %92 to float
   %94 = fmul float %exp2f, %93
   %95 = fdiv float %94, 2.000000e+01
   store float %90, ptr %6, align 4
-  %96 = getelementptr inbounds i8, ptr %6, i64 4
+  %96 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store float %95, ptr %96, align 4
-  %97 = getelementptr inbounds i8, ptr %6, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store float 1.000000e+00, ptr %97, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %5, i8 0, i64 60, i1 false), !alias.scope !11
@@ -1558,9 +1558,9 @@ _ZN7nanogui5ArrayIfLm2EEC2Ef.exit.critedge:       ; preds = %1
 
 98:                                               ; preds = %78, %98
   %.06.i42150 = phi i64 [ 0, %78 ], [ %102, %98 ]
-  %99 = getelementptr inbounds [3 x float], ptr %6, i64 0, i64 %.06.i42150
+  %99 = getelementptr inbounds nuw [3 x float], ptr %6, i64 0, i64 %.06.i42150
   %100 = load float, ptr %99, align 4, !noalias !11
-  %101 = getelementptr inbounds [4 x [4 x float]], ptr %5, i64 0, i64 %.06.i42150, i64 %.06.i42150
+  %101 = getelementptr inbounds nuw [4 x [4 x float]], ptr %5, i64 0, i64 %.06.i42150, i64 %.06.i42150
   store float %100, ptr %101, align 4, !alias.scope !11
   %102 = add nuw nsw i64 %.06.i42150, 1
   %.not.i = icmp eq i64 %102, 3
@@ -1568,16 +1568,16 @@ _ZN7nanogui5ArrayIfLm2EEC2Ef.exit.critedge:       ; preds = %1
 
 _ZN7nanogui6MatrixIfLm4EE5scaleERKNS_5ArrayIfLm3EEE.exit: ; preds = %98
   %.sroa.0.0.extract.trunc = trunc i64 %82 to i32
-  %103 = getelementptr inbounds i8, ptr %5, i64 60
+  %103 = getelementptr inbounds nuw i8, ptr %5, i64 60
   store float 1.000000e+00, ptr %103, align 4, !alias.scope !11
   %104 = sitofp i32 %.sroa.0.0.extract.trunc to float
-  %105 = getelementptr inbounds i8, ptr %9, i64 4
+  %105 = getelementptr inbounds nuw i8, ptr %9, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %105, i8 0, i64 44, i1 false), !alias.scope !14
   br label %106
 
 106:                                              ; preds = %106, %_ZN7nanogui6MatrixIfLm4EE5scaleERKNS_5ArrayIfLm3EEE.exit
   %.05.i.i = phi i64 [ 0, %_ZN7nanogui6MatrixIfLm4EE5scaleERKNS_5ArrayIfLm3EEE.exit ], [ %108, %106 ]
-  %107 = getelementptr inbounds [4 x [4 x float]], ptr %9, i64 0, i64 %.05.i.i, i64 %.05.i.i
+  %107 = getelementptr inbounds nuw [4 x [4 x float]], ptr %9, i64 0, i64 %.05.i.i, i64 %.05.i.i
   store float 0.000000e+00, ptr %107, align 4, !alias.scope !14
   %108 = add nuw nsw i64 %.05.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %108, 4
@@ -1592,46 +1592,46 @@ _ZN7nanogui6MatrixIfLm4EE5orthoILm4ETnNSt9enable_ifIXeqT_Li4EEiE4typeELi0EEES1_f
   %113 = fmul float %112, 2.000000e+00
   store float %113, ptr %9, align 4, !alias.scope !14
   %114 = fmul float %111, 2.000000e+00
-  %115 = getelementptr inbounds i8, ptr %9, i64 20
+  %115 = getelementptr inbounds nuw i8, ptr %9, i64 20
   store float %114, ptr %115, align 4, !alias.scope !14
-  %116 = getelementptr inbounds i8, ptr %9, i64 40
+  %116 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store float -1.000000e+00, ptr %116, align 4, !alias.scope !14
-  %117 = getelementptr inbounds i8, ptr %9, i64 48
-  %118 = getelementptr inbounds i8, ptr %9, i64 60
+  %117 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  %118 = getelementptr inbounds nuw i8, ptr %9, i64 60
   store float 1.000000e+00, ptr %118, align 4, !alias.scope !14
   %119 = fneg float %104
   %120 = fmul float %112, %119
   store float %120, ptr %117, align 4, !alias.scope !14
   %121 = fneg float %109
   %122 = fmul float %111, %121
-  %123 = getelementptr inbounds i8, ptr %9, i64 52
+  %123 = getelementptr inbounds nuw i8, ptr %9, i64 52
   store float %122, ptr %123, align 4, !alias.scope !14
-  %124 = getelementptr inbounds i8, ptr %9, i64 56
+  %124 = getelementptr inbounds nuw i8, ptr %9, i64 56
   store float -0.000000e+00, ptr %124, align 4, !alias.scope !14
   %125 = load float, ptr %27, align 4
   %126 = load float, ptr %30, align 8
   %127 = fptosi float %126 to i32
   %128 = sitofp i32 %127 to float
   store float %125, ptr %11, align 4
-  %129 = getelementptr inbounds i8, ptr %11, i64 4
+  %129 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store float %128, ptr %129, align 4
-  %130 = getelementptr inbounds i8, ptr %11, i64 8
+  %130 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store float 0.000000e+00, ptr %130, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
-  %131 = getelementptr inbounds i8, ptr %10, i64 4
+  %131 = getelementptr inbounds nuw i8, ptr %10, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %131, i8 0, i64 60, i1 false), !alias.scope !18
-  %132 = getelementptr inbounds i8, ptr %10, i64 48
+  %132 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store float 1.000000e+00, ptr %10, align 4, !alias.scope !18
   br label %133
 
 133:                                              ; preds = %_ZN7nanogui6MatrixIfLm4EE5orthoILm4ETnNSt9enable_ifIXeqT_Li4EEiE4typeELi0EEES1_ffffff.exit, %133
   %.07.i151 = phi i64 [ 0, %_ZN7nanogui6MatrixIfLm4EE5orthoILm4ETnNSt9enable_ifIXeqT_Li4EEiE4typeELi0EEES1_ffffff.exit ], [ %137, %133 ]
-  %134 = getelementptr inbounds [3 x float], ptr %11, i64 0, i64 %.07.i151
+  %134 = getelementptr inbounds nuw [3 x float], ptr %11, i64 0, i64 %.07.i151
   %135 = load float, ptr %134, align 4, !noalias !18
-  %136 = getelementptr inbounds [4 x float], ptr %132, i64 0, i64 %.07.i151
+  %136 = getelementptr inbounds nuw [4 x float], ptr %132, i64 0, i64 %.07.i151
   store float %135, ptr %136, align 4, !alias.scope !18
   %137 = add nuw nsw i64 %.07.i151, 1
-  %138 = getelementptr inbounds [4 x [4 x float]], ptr %10, i64 0, i64 %137, i64 %137
+  %138 = getelementptr inbounds nuw [4 x [4 x float]], ptr %10, i64 0, i64 %137, i64 %137
   store float 1.000000e+00, ptr %138, align 4, !alias.scope !18
   %.not.i43 = icmp eq i64 %137, 3
   br i1 %.not.i43, label %_ZN7nanogui6MatrixIfLm4EE9translateERKNS_5ArrayIfLm3EEE.exit, label %133
@@ -1651,9 +1651,9 @@ _ZN7nanogui6MatrixIfLm4EE9translateERKNS_5ArrayIfLm3EEE.exit: ; preds = %133
 139:                                              ; preds = %139, %.preheader.i
   %.020.i = phi i64 [ 0, %.preheader.i ], [ %145, %139 ]
   %.01519.i = phi float [ 0.000000e+00, %.preheader.i ], [ %144, %139 ]
-  %140 = getelementptr inbounds [4 x [4 x float]], ptr %9, i64 0, i64 %.020.i, i64 %.01722.i
+  %140 = getelementptr inbounds nuw [4 x [4 x float]], ptr %9, i64 0, i64 %.020.i, i64 %.01722.i
   %141 = load float, ptr %140, align 4, !noalias !21
-  %142 = getelementptr inbounds [4 x [4 x float]], ptr %10, i64 0, i64 %.01621.i, i64 %.020.i
+  %142 = getelementptr inbounds nuw [4 x [4 x float]], ptr %10, i64 0, i64 %.01621.i, i64 %.020.i
   %143 = load float, ptr %142, align 4, !noalias !21
   %144 = tail call float @llvm.fmuladd.f32(float %141, float %143, float %.01519.i)
   %145 = add nuw nsw i64 %.020.i, 1
@@ -1661,7 +1661,7 @@ _ZN7nanogui6MatrixIfLm4EE9translateERKNS_5ArrayIfLm3EEE.exit: ; preds = %133
   br i1 %exitcond.not.i, label %146, label %139, !llvm.loop !24
 
 146:                                              ; preds = %139
-  %147 = getelementptr inbounds [4 x [4 x float]], ptr %8, i64 0, i64 %.01621.i, i64 %.01722.i
+  %147 = getelementptr inbounds nuw [4 x [4 x float]], ptr %8, i64 0, i64 %.01621.i, i64 %.01722.i
   store float %144, ptr %147, align 4, !alias.scope !21
   %148 = add nuw nsw i64 %.01621.i, 1
   %exitcond23.not.i = icmp eq i64 %148, 4
@@ -1674,9 +1674,9 @@ _ZN7nanogui6MatrixIfLm4EE9translateERKNS_5ArrayIfLm3EEE.exit: ; preds = %133
 
 _ZN7nanoguimlERKNS_6MatrixIfLm4EEES3_.exit:       ; preds = %149
   store float %89, ptr %13, align 4
-  %151 = getelementptr inbounds i8, ptr %13, i64 4
+  %151 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store float %94, ptr %151, align 4
-  %152 = getelementptr inbounds i8, ptr %13, i64 8
+  %152 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store float 1.000000e+00, ptr %152, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %12, i8 0, i64 60, i1 false), !alias.scope !27
@@ -1684,16 +1684,16 @@ _ZN7nanoguimlERKNS_6MatrixIfLm4EEES3_.exit:       ; preds = %149
 
 153:                                              ; preds = %_ZN7nanoguimlERKNS_6MatrixIfLm4EEES3_.exit, %153
   %.06.i44152 = phi i64 [ 0, %_ZN7nanoguimlERKNS_6MatrixIfLm4EEES3_.exit ], [ %157, %153 ]
-  %154 = getelementptr inbounds [3 x float], ptr %13, i64 0, i64 %.06.i44152
+  %154 = getelementptr inbounds nuw [3 x float], ptr %13, i64 0, i64 %.06.i44152
   %155 = load float, ptr %154, align 4, !noalias !27
-  %156 = getelementptr inbounds [4 x [4 x float]], ptr %12, i64 0, i64 %.06.i44152, i64 %.06.i44152
+  %156 = getelementptr inbounds nuw [4 x [4 x float]], ptr %12, i64 0, i64 %.06.i44152, i64 %.06.i44152
   store float %155, ptr %156, align 4, !alias.scope !27
   %157 = add nuw nsw i64 %.06.i44152, 1
   %.not.i45 = icmp eq i64 %157, 3
   br i1 %.not.i45, label %_ZN7nanogui6MatrixIfLm4EE5scaleERKNS_5ArrayIfLm3EEE.exit46, label %153
 
 _ZN7nanogui6MatrixIfLm4EE5scaleERKNS_5ArrayIfLm3EEE.exit46: ; preds = %153
-  %158 = getelementptr inbounds i8, ptr %12, i64 60
+  %158 = getelementptr inbounds nuw i8, ptr %12, i64 60
   store float 1.000000e+00, ptr %158, align 4, !alias.scope !27
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
   br label %.preheader18.i47
@@ -1709,9 +1709,9 @@ _ZN7nanogui6MatrixIfLm4EE5scaleERKNS_5ArrayIfLm3EEE.exit46: ; preds = %153
 159:                                              ; preds = %159, %.preheader.i49
   %.020.i51 = phi i64 [ 0, %.preheader.i49 ], [ %165, %159 ]
   %.01519.i52 = phi float [ 0.000000e+00, %.preheader.i49 ], [ %164, %159 ]
-  %160 = getelementptr inbounds [4 x [4 x float]], ptr %8, i64 0, i64 %.020.i51, i64 %.01722.i48
+  %160 = getelementptr inbounds nuw [4 x [4 x float]], ptr %8, i64 0, i64 %.020.i51, i64 %.01722.i48
   %161 = load float, ptr %160, align 4, !noalias !30
-  %162 = getelementptr inbounds [4 x [4 x float]], ptr %12, i64 0, i64 %.01621.i50, i64 %.020.i51
+  %162 = getelementptr inbounds nuw [4 x [4 x float]], ptr %12, i64 0, i64 %.01621.i50, i64 %.020.i51
   %163 = load float, ptr %162, align 4, !noalias !30
   %164 = tail call float @llvm.fmuladd.f32(float %161, float %163, float %.01519.i52)
   %165 = add nuw nsw i64 %.020.i51, 1
@@ -1719,7 +1719,7 @@ _ZN7nanogui6MatrixIfLm4EE5scaleERKNS_5ArrayIfLm3EEE.exit46: ; preds = %153
   br i1 %exitcond.not.i53, label %166, label %159, !llvm.loop !24
 
 166:                                              ; preds = %159
-  %167 = getelementptr inbounds [4 x [4 x float]], ptr %7, i64 0, i64 %.01621.i50, i64 %.01722.i48
+  %167 = getelementptr inbounds nuw [4 x [4 x float]], ptr %7, i64 0, i64 %.01621.i50, i64 %.01722.i48
   store float %164, ptr %167, align 4, !alias.scope !30
   %168 = add nuw nsw i64 %.01621.i50, 1
   %exitcond23.not.i54 = icmp eq i64 %168, 4
@@ -1731,7 +1731,7 @@ _ZN7nanogui6MatrixIfLm4EE5scaleERKNS_5ArrayIfLm3EEE.exit46: ; preds = %153
   br i1 %exitcond24.not.i55, label %_ZN7nanoguimlERKNS_6MatrixIfLm4EEES3_.exit56, label %.preheader18.i47, !llvm.loop !26
 
 _ZN7nanoguimlERKNS_6MatrixIfLm4EEES3_.exit56:     ; preds = %169
-  %171 = getelementptr inbounds i8, ptr %0, i64 176
+  %171 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %172 = load ptr, ptr %171, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #20
   %173 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %14)
@@ -1756,7 +1756,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, ptr noundef nonnull align 16 dereferenceable(24) @__const._ZN7nanogui6Shader11set_uniformINS_5ColorEEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.shape, i64 24, i1 false)
   store i64 4, ptr %4, align 16
-  %176 = getelementptr inbounds i8, ptr %4, i64 8
+  %176 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 4, ptr %176, align 8
   invoke void @_ZN7nanogui6Shader10set_bufferERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12VariableTypeEmPKmPKv(ptr noundef nonnull align 8 dereferenceable(125) %172, ptr noundef nonnull align 8 dereferenceable(32) %14, i32 noundef 10, i64 noundef 2, ptr noundef nonnull %4, ptr noundef nonnull align 4 dereferenceable(64) %16)
           to label %177 unwind label %196
@@ -1789,7 +1789,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit63: ; 
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %3, ptr noundef nonnull align 16 dereferenceable(24) @__const._ZN7nanogui6Shader11set_uniformINS_5ColorEEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.shape, i64 24, i1 false)
   store i64 4, ptr %3, align 16
-  %182 = getelementptr inbounds i8, ptr %3, i64 8
+  %182 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 4, ptr %182, align 8
   invoke void @_ZN7nanogui6Shader10set_bufferERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12VariableTypeEmPKmPKv(ptr noundef nonnull align 8 dereferenceable(125) %178, ptr noundef nonnull align 8 dereferenceable(32) %17, i32 noundef 10, i64 noundef 2, ptr noundef nonnull %3, ptr noundef nonnull align 4 dereferenceable(64) %19)
           to label %183 unwind label %200
@@ -1818,7 +1818,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit63: ; 
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit70: ; preds = %.noexc67
-  %188 = getelementptr inbounds i8, ptr %0, i64 224
+  %188 = getelementptr inbounds nuw i8, ptr %0, i64 224
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %2, ptr noundef nonnull align 16 dereferenceable(24) @__const._ZN7nanogui6Shader11set_uniformINS_5ColorEEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.shape, i64 24, i1 false)
   store i64 4, ptr %2, align 16
@@ -1889,13 +1889,13 @@ declare void @_ZN7nanogui6Shader3endEv(ptr noundef nonnull align 8 dereferenceab
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7nanogui9ImageViewD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui9ImageViewE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 256
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNSt8functionIFvRKN7nanogui5ArrayIiLm2EEEPPcmEED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 240
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvRKN7nanogui5ArrayIiLm2EEEPPcmEED2Ev.exit unwind label %7
 
@@ -1907,7 +1907,7 @@ define linkonce_odr hidden void @_ZN7nanogui9ImageViewD2Ev(ptr noundef nonnull a
   unreachable
 
 _ZNSt8functionIFvRKN7nanogui5ArrayIiLm2EEEPPcmEED2Ev.exit: ; preds = %1, %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 184
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %11 = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %_ZN7nanogui3refINS_7TextureEED2Ev.exit, label %12
@@ -1917,7 +1917,7 @@ _ZNSt8functionIFvRKN7nanogui5ArrayIiLm2EEEPPcmEED2Ev.exit: ; preds = %1, %4
   br label %_ZN7nanogui3refINS_7TextureEED2Ev.exit
 
 _ZN7nanogui3refINS_7TextureEED2Ev.exit:           ; preds = %_ZNSt8functionIFvRKN7nanogui5ArrayIiLm2EEEPPcmEED2Ev.exit, %12
-  %13 = getelementptr inbounds i8, ptr %0, i64 176
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %14 = load ptr, ptr %13, align 8
   %.not.i1 = icmp eq ptr %14, null
   br i1 %.not.i1, label %_ZN7nanogui3refINS_6ShaderEED2Ev.exit, label %15
@@ -1928,7 +1928,7 @@ _ZN7nanogui3refINS_7TextureEED2Ev.exit:           ; preds = %_ZNSt8functionIFvRK
 
 _ZN7nanogui3refINS_6ShaderEED2Ev.exit:            ; preds = %_ZN7nanogui3refINS_7TextureEED2Ev.exit, %15
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui6CanvasE, i64 16), ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 144
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %17 = load ptr, ptr %16, align 8
   %.not.i.i2 = icmp eq ptr %17, null
   br i1 %.not.i.i2, label %_ZN7nanogui6CanvasD2Ev.exit, label %18
@@ -2037,8 +2037,8 @@ define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traits
   %.068.i = phi ptr [ %22, %.lr.ph.i ], [ %1, %20 ]
   %21 = load i8, ptr %.068.i, align 1
   store i8 %21, ptr %.09.i, align 1
-  %22 = getelementptr inbounds i8, ptr %.068.i, i64 1
-  %23 = getelementptr inbounds i8, ptr %.09.i, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %.068.i, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %.09.i, i64 1
   %.not.i = icmp eq ptr %22, %2
   br i1 %.not.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsIPKhEEvPcT_S9_.exit, label %.lr.ph.i, !llvm.loop !33
 

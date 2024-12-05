@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @make_attrmap(i32 noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @palloc0(i64 noundef 16) #5
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %0, ptr %3, align 8
   %4 = sext i32 %0 to i64
   %5 = shl nsw i64 %4, 1
@@ -44,7 +44,7 @@ declare void @pfree(ptr noundef) local_unnamed_addr #1
 define dso_local ptr @build_attrmap_by_position(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load i32, ptr %1, align 8
   %5 = tail call ptr @palloc0(i64 noundef 16) #5
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %4, ptr %6, align 8
   %7 = sext i32 %4 to i64
   %8 = shl nsw i64 %7, 1
@@ -54,8 +54,8 @@ define dso_local ptr @build_attrmap_by_position(ptr nocapture noundef readonly %
   br i1 %10, label %.lr.ph84, label %.preheader
 
 .lr.ph84:                                         ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %18
 
@@ -84,16 +84,16 @@ define dso_local ptr @build_attrmap_by_position(ptr nocapture noundef readonly %
   %.05681 = phi i32 [ 0, %.lr.ph84 ], [ %.157, %68 ]
   %.06279 = phi i32 [ 0, %.lr.ph84 ], [ %.163, %68 ]
   %21 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %11, i64 0, i64 %indvars.iv104
-  %22 = getelementptr inbounds i8, ptr %21, i64 95
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 95
   %23 = load i8, ptr %22, align 1
   %24 = trunc i8 %23 to i1
   br i1 %24, label %68, label %25
 
 25:                                               ; preds = %18
   %26 = add i32 %.06279, 1
-  %27 = getelementptr inbounds i8, ptr %21, i64 68
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 68
   %28 = load i32, ptr %27, align 4
-  %29 = getelementptr inbounds i8, ptr %21, i64 80
+  %29 = getelementptr inbounds nuw i8, ptr %21, i64 80
   %30 = load i32, ptr %29, align 4
   %31 = load i32, ptr %0, align 8
   %32 = icmp slt i32 %.05681, %31
@@ -106,7 +106,7 @@ define dso_local ptr @build_attrmap_by_position(ptr nocapture noundef readonly %
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %63
   %indvars.iv = phi i64 [ %33, %.lr.ph.preheader ], [ %indvars.iv.next, %63 ]
   %34 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %12, i64 0, i64 %indvars.iv
-  %35 = getelementptr inbounds i8, ptr %34, i64 95
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 95
   %36 = load i8, ptr %35, align 1
   %37 = trunc i8 %36 to i1
   br i1 %37, label %63, label %38
@@ -114,13 +114,13 @@ define dso_local ptr @build_attrmap_by_position(ptr nocapture noundef readonly %
 38:                                               ; preds = %.lr.ph
   %39 = trunc nsw i64 %indvars.iv to i32
   %40 = add i32 %.05183, 1
-  %41 = getelementptr inbounds i8, ptr %34, i64 68
+  %41 = getelementptr inbounds nuw i8, ptr %34, i64 68
   %42 = load i32, ptr %41, align 4
   %.not = icmp eq i32 %28, %42
   br i1 %.not, label %43, label %48
 
 43:                                               ; preds = %38
-  %44 = getelementptr inbounds i8, ptr %34, i64 80
+  %44 = getelementptr inbounds nuw i8, ptr %34, i64 80
   %45 = load i32, ptr %44, align 4
   %46 = icmp ne i32 %30, %45
   %47 = icmp sgt i32 %30, -1
@@ -128,13 +128,13 @@ define dso_local ptr @build_attrmap_by_position(ptr nocapture noundef readonly %
   br i1 %or.cond, label %48, label %59
 
 48:                                               ; preds = %43, %38
-  %49 = getelementptr inbounds i8, ptr %34, i64 68
+  %49 = getelementptr inbounds nuw i8, ptr %34, i64 68
   %50 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   tail call void @llvm.assume(i1 %50)
   %51 = tail call i32 @errcode(i32 noundef 67141764) #5
   %52 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, ptr noundef %2) #5
   %53 = load i32, ptr %49, align 4
-  %54 = getelementptr inbounds i8, ptr %34, i64 80
+  %54 = getelementptr inbounds nuw i8, ptr %34, i64 80
   %55 = load i32, ptr %54, align 4
   %56 = tail call ptr @format_type_with_typemod(i32 noundef %53, i32 noundef %55) #5
   %57 = tail call ptr @format_type_with_typemod(i32 noundef %28, i32 noundef %30) #5
@@ -213,13 +213,13 @@ define dso_local ptr @build_attrmap_by_position(ptr nocapture noundef readonly %
   br i1 %.not.i, label %.preheader.i, label %check_attrmap_match.exit.thread
 
 .preheader.i:                                     ; preds = %81
-  %83 = getelementptr inbounds i8, ptr %0, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %84 = load i32, ptr %6, align 8
   %85 = icmp sgt i32 %84, 0
   br i1 %85, label %.lr.ph.i, label %check_attrmap_match.exit
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %86 = getelementptr inbounds i8, ptr %1, i64 24
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %wide.trip.count.i = zext nneg i32 %84 to i64
   br label %87
 
@@ -227,7 +227,7 @@ define dso_local ptr @build_attrmap_by_position(ptr nocapture noundef readonly %
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %117 ]
   %88 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %83, i64 0, i64 %indvars.iv.i
   %89 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %86, i64 0, i64 %indvars.iv.i
-  %90 = getelementptr inbounds i8, ptr %88, i64 92
+  %90 = getelementptr inbounds nuw i8, ptr %88, i64 92
   %91 = load i8, ptr %90, align 4
   %92 = trunc i8 %91 to i1
   br i1 %92, label %check_attrmap_match.exit.thread, label %93
@@ -246,23 +246,23 @@ define dso_local ptr @build_attrmap_by_position(ptr nocapture noundef readonly %
   br i1 %100, label %101, label %check_attrmap_match.exit.thread
 
 101:                                              ; preds = %99
-  %102 = getelementptr inbounds i8, ptr %88, i64 95
+  %102 = getelementptr inbounds nuw i8, ptr %88, i64 95
   %103 = load i8, ptr %102, align 1
   %104 = trunc i8 %103 to i1
   br i1 %104, label %105, label %check_attrmap_match.exit.thread
 
 105:                                              ; preds = %101
-  %106 = getelementptr inbounds i8, ptr %88, i64 72
+  %106 = getelementptr inbounds nuw i8, ptr %88, i64 72
   %107 = load i16, ptr %106, align 4
-  %108 = getelementptr inbounds i8, ptr %89, i64 72
+  %108 = getelementptr inbounds nuw i8, ptr %89, i64 72
   %109 = load i16, ptr %108, align 4
   %110 = icmp eq i16 %107, %109
   br i1 %110, label %111, label %check_attrmap_match.exit.thread
 
 111:                                              ; preds = %105
-  %112 = getelementptr inbounds i8, ptr %88, i64 87
+  %112 = getelementptr inbounds nuw i8, ptr %88, i64 87
   %113 = load i8, ptr %112, align 1
-  %114 = getelementptr inbounds i8, ptr %89, i64 87
+  %114 = getelementptr inbounds nuw i8, ptr %89, i64 87
   %115 = load i8, ptr %114, align 1
   %116 = icmp eq i8 %113, %115
   br i1 %116, label %117, label %check_attrmap_match.exit.thread
@@ -300,7 +300,7 @@ define dso_local ptr @build_attrmap_by_name(ptr nocapture noundef readonly %0, p
   %5 = load i32, ptr %0, align 8
   %.fr59 = freeze i32 %5
   %6 = tail call ptr @palloc0(i64 noundef 16) #5
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %4, ptr %7, align 8
   %8 = sext i32 %4 to i64
   %9 = shl nsw i64 %8, 1
@@ -310,9 +310,9 @@ define dso_local ptr @build_attrmap_by_name(ptr nocapture noundef readonly %0, p
   br i1 %11, label %.lr.ph52, label %._crit_edge
 
 .lr.ph52:                                         ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = icmp sgt i32 %.fr59, 0
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br i1 %13, label %.lr.ph52.split.us, label %.lr.ph52.split
 
 .lr.ph52.split.us:                                ; preds = %.lr.ph52
@@ -323,16 +323,16 @@ define dso_local ptr @build_attrmap_by_name(ptr nocapture noundef readonly %0, p
   %indvars.iv84 = phi i64 [ %indvars.iv.next85, %..loopexit_crit_edge.us.us ], [ 0, %.lr.ph52.split.us ]
   %.04050.us.us = phi i32 [ %.1.us.us, %..loopexit_crit_edge.us.us ], [ -1, %.lr.ph52.split.us ]
   %15 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %12, i64 0, i64 %indvars.iv84
-  %16 = getelementptr inbounds i8, ptr %15, i64 95
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 95
   %17 = load i8, ptr %16, align 1
   %18 = trunc i8 %17 to i1
   br i1 %18, label %..loopexit_crit_edge.us.us, label %.lr.ph.us.us
 
 .lr.ph.us.us:                                     ; preds = %.lr.ph52.split.us.split.us
-  %19 = getelementptr inbounds i8, ptr %15, i64 4
-  %20 = getelementptr inbounds i8, ptr %15, i64 68
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 68
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %15, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 80
   %23 = load i32, ptr %22, align 4
   br label %24
 
@@ -344,31 +344,31 @@ define dso_local ptr @build_attrmap_by_name(ptr nocapture noundef readonly %0, p
   %spec.store.select.us.us = select i1 %.not.us.us, i32 %25, i32 0
   %26 = sext i32 %spec.store.select.us.us to i64
   %27 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %14, i64 0, i64 %26
-  %28 = getelementptr inbounds i8, ptr %27, i64 95
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 95
   %29 = load i8, ptr %28, align 1
   %30 = trunc i8 %29 to i1
   br i1 %30, label %46, label %31
 
 31:                                               ; preds = %24
-  %32 = getelementptr inbounds i8, ptr %27, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %33 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %32) #7
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %35, label %46
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %27, i64 68
+  %36 = getelementptr inbounds nuw i8, ptr %27, i64 68
   %37 = load i32, ptr %36, align 4
   %.not42.us.us = icmp eq i32 %21, %37
   br i1 %.not42.us.us, label %38, label %.split.us
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %27, i64 80
+  %39 = getelementptr inbounds nuw i8, ptr %27, i64 80
   %40 = load i32, ptr %39, align 4
   %.not43.us.us = icmp eq i32 %23, %40
   br i1 %.not43.us.us, label %41, label %.split.us
 
 41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %27, i64 74
+  %42 = getelementptr inbounds nuw i8, ptr %27, i64 74
   %43 = load i16, ptr %42, align 2
   %44 = load ptr, ptr %6, align 8
   %45 = getelementptr i16, ptr %44, i64 %indvars.iv84
@@ -392,16 +392,16 @@ define dso_local ptr @build_attrmap_by_name(ptr nocapture noundef readonly %0, p
   %indvars.iv78 = phi i64 [ %indvars.iv.next79, %85 ], [ 0, %.lr.ph52.split.us ]
   %.04050.us = phi i32 [ %.1.us, %85 ], [ -1, %.lr.ph52.split.us ]
   %50 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %12, i64 0, i64 %indvars.iv78
-  %51 = getelementptr inbounds i8, ptr %50, i64 95
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 95
   %52 = load i8, ptr %51, align 1
   %53 = trunc i8 %52 to i1
   br i1 %53, label %85, label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph52.split.us.split
-  %54 = getelementptr inbounds i8, ptr %50, i64 4
-  %55 = getelementptr inbounds i8, ptr %50, i64 68
+  %54 = getelementptr inbounds nuw i8, ptr %50, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %50, i64 68
   %56 = load i32, ptr %55, align 4
-  %57 = getelementptr inbounds i8, ptr %50, i64 80
+  %57 = getelementptr inbounds nuw i8, ptr %50, i64 80
   %58 = load i32, ptr %57, align 4
   br label %59
 
@@ -413,31 +413,31 @@ define dso_local ptr @build_attrmap_by_name(ptr nocapture noundef readonly %0, p
   %spec.store.select.us = select i1 %.not.us, i32 %60, i32 0
   %61 = sext i32 %spec.store.select.us to i64
   %62 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %14, i64 0, i64 %61
-  %63 = getelementptr inbounds i8, ptr %62, i64 95
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 95
   %64 = load i8, ptr %63, align 1
   %65 = trunc i8 %64 to i1
   br i1 %65, label %83, label %66
 
 66:                                               ; preds = %59
-  %67 = getelementptr inbounds i8, ptr %62, i64 4
+  %67 = getelementptr inbounds nuw i8, ptr %62, i64 4
   %68 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %54, ptr noundef nonnull dereferenceable(1) %67) #7
   %69 = icmp eq i32 %68, 0
   br i1 %69, label %70, label %83
 
 70:                                               ; preds = %66
-  %71 = getelementptr inbounds i8, ptr %62, i64 68
+  %71 = getelementptr inbounds nuw i8, ptr %62, i64 68
   %72 = load i32, ptr %71, align 4
   %.not42.us = icmp eq i32 %56, %72
   br i1 %.not42.us, label %73, label %.split.us
 
 73:                                               ; preds = %70
-  %74 = getelementptr inbounds i8, ptr %62, i64 80
+  %74 = getelementptr inbounds nuw i8, ptr %62, i64 80
   %75 = load i32, ptr %74, align 4
   %.not43.us = icmp eq i32 %58, %75
   br i1 %.not43.us, label %76, label %.split.us
 
 76:                                               ; preds = %73
-  %77 = getelementptr inbounds i8, ptr %62, i64 74
+  %77 = getelementptr inbounds nuw i8, ptr %62, i64 74
   %78 = load i16, ptr %77, align 2
   %79 = getelementptr i16, ptr %49, i64 %indvars.iv78
   store i16 %78, ptr %79, align 2
@@ -474,7 +474,7 @@ define dso_local ptr @build_attrmap_by_name(ptr nocapture noundef readonly %0, p
 .lr.ph52.split.split:                             ; preds = %.lr.ph52.split.split.preheader, %115
   %indvars.iv = phi i64 [ 0, %.lr.ph52.split.split.preheader ], [ %indvars.iv.next, %115 ]
   %88 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %12, i64 0, i64 %indvars.iv
-  %89 = getelementptr inbounds i8, ptr %88, i64 95
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 95
   %90 = load i8, ptr %89, align 1
   %91 = trunc i8 %90 to i1
   br i1 %91, label %115, label %.loopexit
@@ -491,10 +491,10 @@ define dso_local ptr @build_attrmap_by_name(ptr nocapture noundef readonly %0, p
   tail call void @llvm.assume(i1 %94)
   %95 = tail call i32 @errcode(i32 noundef 67141764) #5
   %96 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #5
-  %97 = getelementptr inbounds i8, ptr %1, i64 4
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %98 = load i32, ptr %97, align 4
   %99 = tail call ptr @format_type_be(i32 noundef %98) #5
-  %100 = getelementptr inbounds i8, ptr %0, i64 4
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %101 = load i32, ptr %100, align 4
   %102 = tail call ptr @format_type_be(i32 noundef %101) #5
   %103 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.5, ptr noundef nonnull %.us-phi, ptr noundef %99, ptr noundef %102) #5
@@ -502,7 +502,7 @@ define dso_local ptr @build_attrmap_by_name(ptr nocapture noundef readonly %0, p
   unreachable
 
 .split54:                                         ; preds = %.loopexit
-  %104 = getelementptr inbounds i8, ptr %88, i64 4
+  %104 = getelementptr inbounds nuw i8, ptr %88, i64 4
   br label %.split54.us
 
 .split54.us:                                      ; preds = %..loopexit_crit_edge.us, %.split54
@@ -511,10 +511,10 @@ define dso_local ptr @build_attrmap_by_name(ptr nocapture noundef readonly %0, p
   tail call void @llvm.assume(i1 %105)
   %106 = tail call i32 @errcode(i32 noundef 67141764) #5
   %107 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #5
-  %108 = getelementptr inbounds i8, ptr %1, i64 4
+  %108 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %109 = load i32, ptr %108, align 4
   %110 = tail call ptr @format_type_be(i32 noundef %109) #5
-  %111 = getelementptr inbounds i8, ptr %0, i64 4
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %112 = load i32, ptr %111, align 4
   %113 = tail call ptr @format_type_be(i32 noundef %112) #5
   %114 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.6, ptr noundef nonnull %.us-phi55, ptr noundef %110, ptr noundef %113) #5
@@ -546,8 +546,8 @@ define dso_local ptr @build_attrmap_by_name_if_req(ptr nocapture noundef readonl
   br i1 %.not.i, label %.preheader.i, label %check_attrmap_match.exit.thread
 
 .preheader.i:                                     ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %.lr.ph.i, label %.preheader.i.check_attrmap_match.exit_crit_edge
@@ -557,7 +557,7 @@ define dso_local ptr @build_attrmap_by_name_if_req(ptr nocapture noundef readonl
   br label %check_attrmap_match.exit
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %wide.trip.count.i = zext nneg i32 %9 to i64
   br label %12
 
@@ -565,7 +565,7 @@ define dso_local ptr @build_attrmap_by_name_if_req(ptr nocapture noundef readonl
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %43 ]
   %13 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %7, i64 0, i64 %indvars.iv.i
   %14 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %11, i64 0, i64 %indvars.iv.i
-  %15 = getelementptr inbounds i8, ptr %13, i64 92
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 92
   %16 = load i8, ptr %15, align 4
   %17 = trunc i8 %16 to i1
   br i1 %17, label %check_attrmap_match.exit.thread, label %18
@@ -585,23 +585,23 @@ define dso_local ptr @build_attrmap_by_name_if_req(ptr nocapture noundef readonl
   br i1 %26, label %27, label %check_attrmap_match.exit.thread
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %13, i64 95
+  %28 = getelementptr inbounds nuw i8, ptr %13, i64 95
   %29 = load i8, ptr %28, align 1
   %30 = trunc i8 %29 to i1
   br i1 %30, label %31, label %check_attrmap_match.exit.thread
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %13, i64 72
+  %32 = getelementptr inbounds nuw i8, ptr %13, i64 72
   %33 = load i16, ptr %32, align 4
-  %34 = getelementptr inbounds i8, ptr %14, i64 72
+  %34 = getelementptr inbounds nuw i8, ptr %14, i64 72
   %35 = load i16, ptr %34, align 4
   %36 = icmp eq i16 %33, %35
   br i1 %36, label %37, label %check_attrmap_match.exit.thread
 
 37:                                               ; preds = %31
-  %38 = getelementptr inbounds i8, ptr %13, i64 87
+  %38 = getelementptr inbounds nuw i8, ptr %13, i64 87
   %39 = load i8, ptr %38, align 1
-  %40 = getelementptr inbounds i8, ptr %14, i64 87
+  %40 = getelementptr inbounds nuw i8, ptr %14, i64 87
   %41 = load i8, ptr %40, align 1
   %42 = icmp eq i8 %39, %41
   br i1 %42, label %43, label %check_attrmap_match.exit.thread

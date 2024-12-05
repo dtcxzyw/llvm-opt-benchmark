@@ -71,7 +71,7 @@ declare void @_ZN4cvc58internal6theory12ModelManagerC2ERNS0_3EnvERNS0_12TheoryEn
 define hidden void @_ZN4cvc58internal6theory23ModelManagerDistributedD2Ev(ptr noundef nonnull align 8 dereferenceable(122) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory23ModelManagerDistributedE, i64 16), ptr %this, align 8
-  %d_modelEeContext = getelementptr inbounds i8, ptr %this, i64 32
+  %d_modelEeContext = getelementptr inbounds nuw i8, ptr %this, i64 32
   invoke void @_ZN4cvc57context7Context3popEv(ptr noundef nonnull align 8 dereferenceable(48) %d_modelEeContext)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -110,7 +110,7 @@ declare void @_ZN4cvc58internal6theory12ModelManagerD2Ev(ptr noundef nonnull ali
 define hidden void @_ZN4cvc58internal6theory23ModelManagerDistributedD0Ev(ptr noundef nonnull align 8 dereferenceable(122) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory23ModelManagerDistributedE, i64 16), ptr %this, align 8
-  %d_modelEeContext.i = getelementptr inbounds i8, ptr %this, i64 32
+  %d_modelEeContext.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   invoke void @_ZN4cvc57context7Context3popEv(ptr noundef nonnull align 8 dereferenceable(48) %d_modelEeContext.i)
           to label %_ZN4cvc58internal6theory23ModelManagerDistributedD2Ev.exit unwind label %terminate.lpad.i
 
@@ -136,14 +136,14 @@ entry:
   %esim = alloca %"struct.cvc5::internal::theory::EeSetupInfo", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr null, ptr %esim, align 8
-  %d_name.i = getelementptr inbounds i8, ptr %esim, i64 8
+  %d_name.i = getelementptr inbounds nuw i8, ptr %esim, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_name.i) #10
-  %d_constantsAreTriggers.i = getelementptr inbounds i8, ptr %esim, i64 40
+  %d_constantsAreTriggers.i = getelementptr inbounds nuw i8, ptr %esim, i64 40
   store i8 1, ptr %d_constantsAreTriggers.i, align 8
-  %d_notifyNewClass.i = getelementptr inbounds i8, ptr %esim, i64 41
+  %d_notifyNewClass.i = getelementptr inbounds nuw i8, ptr %esim, i64 41
   store i32 0, ptr %d_notifyNewClass.i, align 1
   store ptr %notify, ptr %esim, align 8
-  %d_model = getelementptr inbounds i8, ptr %this, i64 96
+  %d_model = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load ptr, ptr %d_model, align 8
   %call2 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc58internal6theory11TheoryModel7getNameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(904) %0)
           to label %invoke.cont unwind label %lpad
@@ -166,14 +166,14 @@ invoke.cont3:                                     ; preds = %.noexc
   %call4 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %d_name.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #10
   store i8 0, ptr %d_constantsAreTriggers.i, align 8
-  %d_eem = getelementptr inbounds i8, ptr %this, i64 24
+  %d_eem = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load ptr, ptr %d_eem, align 8
-  %d_modelEeContext = getelementptr inbounds i8, ptr %this, i64 32
+  %d_modelEeContext = getelementptr inbounds nuw i8, ptr %this, i64 32
   %call6 = invoke noundef ptr @_ZN4cvc58internal6theory15EqEngineManager22allocateEqualityEngineERNS1_11EeSetupInfoEPNS_7context7ContextE(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull align 8 dereferenceable(45) %esim, ptr noundef nonnull %d_modelEeContext)
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %invoke.cont3
-  %d_modelEqualityEngineAlloc = getelementptr inbounds i8, ptr %this, i64 88
+  %d_modelEqualityEngineAlloc = getelementptr inbounds nuw i8, ptr %this, i64 88
   %3 = load ptr, ptr %d_modelEqualityEngineAlloc, align 8
   store ptr %call6, ptr %d_modelEqualityEngineAlloc, align 8
   %tobool.not.i.i = icmp eq ptr %3, null
@@ -181,7 +181,7 @@ invoke.cont5:                                     ; preds = %invoke.cont3
 
 _ZNKSt14default_deleteIN4cvc58internal6theory2eq14EqualityEngineEEclEPS4_.exit.i.i: ; preds = %invoke.cont5
   %vtable.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
   %4 = load ptr, ptr %vfn.i.i.i, align 8
   call void %4(ptr noundef nonnull align 8 dereferenceable(1784) %3) #10
   %.pre = load ptr, ptr %d_modelEqualityEngineAlloc, align 8
@@ -189,7 +189,7 @@ _ZNKSt14default_deleteIN4cvc58internal6theory2eq14EqualityEngineEEclEPS4_.exit.i
 
 _ZNSt10unique_ptrIN4cvc58internal6theory2eq14EqualityEngineESt14default_deleteIS4_EE5resetEPS4_.exit: ; preds = %invoke.cont5, %_ZNKSt14default_deleteIN4cvc58internal6theory2eq14EqualityEngineEEclEPS4_.exit.i.i
   %5 = phi ptr [ %call6, %invoke.cont5 ], [ %.pre, %_ZNKSt14default_deleteIN4cvc58internal6theory2eq14EqualityEngineEEclEPS4_.exit.i.i ]
-  %d_modelEqualityEngine = getelementptr inbounds i8, ptr %this, i64 80
+  %d_modelEqualityEngine = getelementptr inbounds nuw i8, ptr %this, i64 80
   store ptr %5, ptr %d_modelEqualityEngine, align 8
   %6 = load ptr, ptr %d_model, align 8
   invoke void @_ZN4cvc58internal6theory11TheoryModel10finishInitEPNS1_2eq14EqualityEngineE(ptr noundef nonnull align 8 dereferenceable(904) %6, ptr noundef %5)
@@ -233,20 +233,20 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory23ModelManagerDistribu
 cond.end15:
   %theoryId = alloca i32, align 4
   %termSet = alloca %"class.std::set.463", align 8
-  %d_modelEeContext = getelementptr inbounds i8, ptr %this, i64 32
+  %d_modelEeContext = getelementptr inbounds nuw i8, ptr %this, i64 32
   tail call void @_ZN4cvc57context7Context3popEv(ptr noundef nonnull align 8 dereferenceable(48) %d_modelEeContext)
   tail call void @_ZN4cvc57context7Context4pushEv(ptr noundef nonnull align 8 dereferenceable(48) %d_modelEeContext)
-  %d_env = getelementptr inbounds i8, ptr %this, i64 8
+  %d_env = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %d_env, align 8
   %call16 = tail call noundef nonnull align 8 dereferenceable(88) ptr @_ZNK4cvc58internal3Env12getLogicInfoEv(ptr noundef nonnull align 8 dereferenceable(576) %0)
   store i32 0, ptr %theoryId, align 4
-  %d_te = getelementptr inbounds i8, ptr %this, i64 16
-  %1 = getelementptr inbounds i8, ptr %termSet, i64 8
-  %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %termSet, i64 16
-  %_M_left.i.i.i.i.i = getelementptr inbounds i8, ptr %termSet, i64 24
-  %_M_right.i.i.i.i.i = getelementptr inbounds i8, ptr %termSet, i64 32
-  %_M_node_count.i.i.i.i.i = getelementptr inbounds i8, ptr %termSet, i64 40
-  %d_model = getelementptr inbounds i8, ptr %this, i64 96
+  %d_te = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %1 = getelementptr inbounds nuw i8, ptr %termSet, i64 8
+  %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %termSet, i64 16
+  %_M_left.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %termSet, i64 24
+  %_M_right.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %termSet, i64 32
+  %_M_node_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %termSet, i64 40
+  %d_model = getelementptr inbounds nuw i8, ptr %this, i64 96
   br label %for.body
 
 for.body:                                         ; preds = %cond.end15, %for.inc
@@ -257,9 +257,9 @@ for.body:                                         ; preds = %cond.end15, %for.in
 if.end:                                           ; preds = %for.body
   %3 = load ptr, ptr %d_te, align 8
   %4 = load i32, ptr %theoryId, align 4
-  %d_theoryTable.i = getelementptr inbounds i8, ptr %3, i64 24
+  %d_theoryTable.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   %idxprom.i = zext i32 %4 to i64
-  %arrayidx.i = getelementptr inbounds [14 x ptr], ptr %d_theoryTable.i, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [14 x ptr], ptr %d_theoryTable.i, i64 0, i64 %idxprom.i
   %5 = load ptr, ptr %arrayidx.i, align 8
   %or.cond = icmp ult i32 %4, 2
   br i1 %or.cond, label %for.inc, label %cond.end45
@@ -275,7 +275,7 @@ cond.end45:                                       ; preds = %if.end
 
 invoke.cont:                                      ; preds = %cond.end45
   %vtable = load ptr, ptr %5, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 176
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 176
   %6 = load ptr, ptr %vfn, align 8
   invoke void %6(ptr noundef nonnull align 8 dereferenceable(408) %5, ptr noundef nonnull align 8 dereferenceable(48) %termSet)
           to label %invoke.cont46 unwind label %lpad
@@ -283,7 +283,7 @@ invoke.cont:                                      ; preds = %cond.end45
 invoke.cont46:                                    ; preds = %invoke.cont
   %7 = load ptr, ptr %d_model, align 8
   %vtable48 = load ptr, ptr %5, align 8
-  %vfn49 = getelementptr inbounds i8, ptr %vtable48, i64 168
+  %vfn49 = getelementptr inbounds nuw i8, ptr %vtable48, i64 168
   %8 = load ptr, ptr %vfn49, align 8
   %call51 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(408) %5, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(48) %termSet)
           to label %invoke.cont50 unwind label %lpad
@@ -333,7 +333,7 @@ declare void @_ZNK4cvc58internal6theory6Theory28collectAssertedTermsForModelERSt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt3setIN4cvc58internal12NodeTemplateILb1EEESt4lessIS3_ESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_parent.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_parent.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_parent.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
           to label %_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EED2Ev.exit unwind label %terminate.lpad.i
@@ -356,9 +356,9 @@ declare noundef zeroext i1 @_ZN4cvc58internal6theory12ModelManager28collectModel
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory23ModelManagerDistributed16finishBuildModelEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(122) %this) unnamed_addr #3 align 2 {
 entry:
-  %d_modelBuilder = getelementptr inbounds i8, ptr %this, i64 104
+  %d_modelBuilder = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load ptr, ptr %d_modelBuilder, align 8
-  %d_model = getelementptr inbounds i8, ptr %this, i64 96
+  %d_model = getelementptr inbounds nuw i8, ptr %this, i64 96
   %1 = load ptr, ptr %d_model, align 8
   %call2 = tail call noundef zeroext i1 @_ZN4cvc58internal6theory24TheoryEngineModelBuilder10buildModelEPNS1_11TheoryModelE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef %1)
   ret i1 %call2
@@ -390,9 +390,9 @@ init.i:                                           ; preds = %init.check.i
 
 invoke.cont.i:                                    ; preds = %init.i
   store i64 1152920405095219200, ptr %call.i, align 8
-  %d_kind.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %d_kind.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i16 0, ptr %d_kind.i.i, align 8
-  %d_nchildren.i.i = getelementptr inbounds i8, ptr %call.i, i64 12
+  %d_nchildren.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 12
   store i32 0, ptr %d_nchildren.i.i, align 4
   store ptr %call.i, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #10
@@ -484,12 +484,12 @@ entry:
 
 while.body:                                       ; preds = %entry, %_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS3_E.exit
   %__x.addr.05 = phi ptr [ %1, %_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS3_E.exit ], [ %__x, %entry ]
-  %_M_right.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 24
+  %_M_right.i = getelementptr inbounds nuw i8, ptr %__x.addr.05, i64 24
   %0 = load ptr, ptr %_M_right.i, align 8
   tail call void @_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-  %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
+  %_M_left.i = getelementptr inbounds nuw i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
-  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 32
+  %_M_storage.i.i.i = getelementptr inbounds nuw i8, ptr %__x.addr.05, i64 32
   %2 = load ptr, ptr %_M_storage.i.i.i, align 8
   %bf.load.i.i.i.i.i.i = load i64, ptr %2, align 8
   %3 = and i64 %bf.load.i.i.i.i.i.i, 1152920405095219200

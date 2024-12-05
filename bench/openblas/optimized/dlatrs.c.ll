@@ -145,7 +145,7 @@ define void @dlatrs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %85 = mul nsw i64 %82, %79
   %86 = getelementptr double, ptr %76, i64 %85
   %87 = call double @dasum_(ptr noundef nonnull %13, ptr noundef %86, ptr noundef nonnull @c__1) #6
-  %88 = getelementptr inbounds double, ptr %23, i64 %82
+  %88 = getelementptr inbounds nuw double, ptr %23, i64 %82
   store double %87, ptr %88, align 8, !tbaa !7
   %89 = add nuw nsw i64 %82, 1
   %90 = icmp samesign ult i64 %82, %80
@@ -173,7 +173,7 @@ define void @dlatrs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %104 = getelementptr double, ptr %21, i64 %102
   %105 = getelementptr double, ptr %104, i64 %103
   %106 = call double @dasum_(ptr noundef nonnull %13, ptr noundef %105, ptr noundef nonnull @c__1) #6
-  %107 = getelementptr inbounds double, ptr %23, i64 %98
+  %107 = getelementptr inbounds nuw double, ptr %23, i64 %98
   store double %106, ptr %107, align 8, !tbaa !7
   %108 = icmp slt i64 %98, %96
   br i1 %108, label %97, label %.loopexit53.loopexit, !llvm.loop !12
@@ -827,7 +827,7 @@ thread-pre-split42:                               ; preds = %471, %477
   %527 = getelementptr double, ptr %523, i64 %525
   %528 = load double, ptr %527, align 8, !tbaa !7
   %529 = fmul double %493, %528
-  %530 = getelementptr inbounds double, ptr %22, i64 %525
+  %530 = getelementptr inbounds nuw double, ptr %22, i64 %525
   %531 = load double, ptr %530, align 8, !tbaa !7
   %532 = call double @llvm.fmuladd.f64(double %529, double %531, double %526)
   %533 = add nuw nsw i64 %525, 1

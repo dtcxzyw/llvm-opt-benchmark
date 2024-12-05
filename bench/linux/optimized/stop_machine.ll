@@ -68,7 +68,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_stop_core_cp
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @print_stop_info(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 20
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %4 = load volatile i32, ptr %3, align 4
   %5 = zext i32 %4 to i64
   %6 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %5
@@ -80,9 +80,9 @@ define dso_local void @print_stop_info(ptr noundef %0, ptr noundef %1) local_unn
   br i1 %11, label %12, label %19
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %9, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 88
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %9, i64 80
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 80
   %16 = load i64, ptr %15, align 8
   %17 = inttoptr i64 %16 to ptr
   %18 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, ptr noundef %0, ptr noundef %14, ptr noundef %17) #12
@@ -107,30 +107,30 @@ define dso_local i32 @stop_one_cpu(i32 noundef %0, ptr noundef %1, ptr noundef %
   %5 = alloca %struct.cpu_stop_work, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #13
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #13
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 16, i1 false)
   store ptr %1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %8 = tail call ptr @llvm.returnaddress(i32 0)
   %9 = ptrtoint ptr %8 to i64
   store i64 %9, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %2, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %4, ptr %11, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store volatile i32 1, ptr %4, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @__init_swait_queue_head(ptr noundef %13, ptr noundef nonnull @.str.2, ptr noundef nonnull @init_completion.__key) #13
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  call void @__init_swait_queue_head(ptr noundef nonnull %13, ptr noundef nonnull @.str.2, ptr noundef nonnull @init_completion.__key) #13
   %14 = call fastcc zeroext i1 @cpu_stop_queue_work(i32 noundef %0, ptr noundef nonnull %5)
   br i1 %14, label %15, label %19
 
 15:                                               ; preds = %3
   %16 = call i32 @__SCT__cond_resched() #13
-  call void @wait_for_completion(ptr noundef %12) #13
-  %17 = getelementptr inbounds i8, ptr %4, i64 4
+  call void @wait_for_completion(ptr noundef nonnull %12) #13
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %18 = load i32, ptr %17, align 4
   br label %19
 
@@ -157,24 +157,24 @@ define internal fastcc noundef zeroext i1 @cpu_stop_queue_work(i32 noundef %0, p
   %8 = inttoptr i64 %7 to ptr
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #13
   store ptr inttoptr (i64 1 to ptr), ptr %3, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %3, ptr %9, align 8
   call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #13, !srcloc !6
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !7
-  %10 = getelementptr inbounds i8, ptr %8, i64 8
-  %11 = call i64 @_raw_spin_lock_irqsave(ptr noundef %10) #13
-  %12 = getelementptr inbounds i8, ptr %8, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %11 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %10) #13
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %13 = load i8, ptr %12, align 4, !range !8, !noundef !9
   %14 = icmp ne i8 %13, 0
   br i1 %14, label %15, label %21
 
 15:                                               ; preds = %2
-  %16 = getelementptr inbounds i8, ptr %8, i64 16
-  %17 = getelementptr inbounds i8, ptr %8, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %18 = load ptr, ptr %17, align 8
   store ptr %1, ptr %17, align 8
   store ptr %16, ptr %1, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %18, ptr %19, align 8
   store volatile ptr %1, ptr %18, align 8
   %20 = load ptr, ptr %8, align 8
@@ -182,7 +182,7 @@ define internal fastcc noundef zeroext i1 @cpu_stop_queue_work(i32 noundef %0, p
   br label %31
 
 21:                                               ; preds = %2
-  %22 = getelementptr inbounds i8, ptr %1, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %31, label %25
@@ -195,12 +195,12 @@ define internal fastcc noundef zeroext i1 @cpu_stop_queue_work(i32 noundef %0, p
   br i1 %28, label %31, label %29
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %23, i64 8
-  call void @complete(ptr noundef %30) #13
+  %30 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  call void @complete(ptr noundef nonnull %30) #13
   br label %31
 
 31:                                               ; preds = %29, %25, %21, %15
-  call void @_raw_spin_unlock_irqrestore(ptr noundef %10, i64 noundef %11) #13
+  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %10, i64 noundef %11) #13
   call void @wake_up_q(ptr noundef nonnull %3) #13
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !11
   %32 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #13, !srcloc !12
@@ -240,7 +240,7 @@ define dso_local i32 @stop_two_cpus(i32 noundef %0, i32 noundef %1, ptr noundef 
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #13
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #13
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #13
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 0, ptr %10, align 8, !annotation !16
   %11 = and i32 %0, 63
   %12 = add nuw nsw i32 %11, 1
@@ -251,34 +251,34 @@ define dso_local i32 @stop_two_cpus(i32 noundef %0, i32 noundef %1, ptr noundef 
   %17 = sub nsw i64 0, %16
   %18 = getelementptr i64, ptr %14, i64 %17
   store ptr %2, ptr %9, align 8
-  %19 = getelementptr inbounds i8, ptr %9, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %3, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %9, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 2, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %9, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr %18, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %9, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i32 0, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %9, i64 36
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 36
   store i32 0, ptr %23, align 4
   %24 = tail call ptr @llvm.returnaddress(i32 0)
   %25 = ptrtoint ptr %24 to i64
-  %26 = getelementptr inbounds i8, ptr %8, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, i8 0, i64 16, i1 false)
   store ptr @multi_cpu_stop, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %8, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 %25, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %8, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %9, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %8, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store ptr %6, ptr %29, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %8, i64 48, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 40, i1 false)
   store volatile i32 2, ptr %6, align 8
-  %30 = getelementptr inbounds i8, ptr %6, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %6, i64 16
-  call void @__init_swait_queue_head(ptr noundef %31, ptr noundef nonnull @.str.2, ptr noundef nonnull @init_completion.__key) #13
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  call void @__init_swait_queue_head(ptr noundef nonnull %31, ptr noundef nonnull @.str.2, ptr noundef nonnull @init_completion.__key) #13
   %32 = load i32, ptr %20, align 8
   store volatile i32 %32, ptr %23, align 4
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
@@ -297,25 +297,25 @@ define dso_local i32 @stop_two_cpus(i32 noundef %0, i32 noundef %1, ptr noundef 
   %44 = inttoptr i64 %43 to ptr
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #13
   store ptr inttoptr (i64 1 to ptr), ptr %5, align 8
-  %45 = getelementptr inbounds i8, ptr %5, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %5, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %39, i64 8
-  %47 = getelementptr inbounds i8, ptr %44, i64 8
-  %48 = getelementptr inbounds i8, ptr %39, i64 12
-  %49 = getelementptr inbounds i8, ptr %44, i64 12
-  %50 = getelementptr inbounds i8, ptr %39, i64 16
-  %51 = getelementptr inbounds i8, ptr %39, i64 24
-  %52 = getelementptr inbounds i8, ptr %7, i64 8
-  %53 = getelementptr inbounds i8, ptr %44, i64 16
-  %54 = getelementptr inbounds i8, ptr %44, i64 24
-  %55 = getelementptr inbounds i8, ptr %8, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %39, i64 12
+  %49 = getelementptr inbounds nuw i8, ptr %44, i64 12
+  %50 = getelementptr inbounds nuw i8, ptr %39, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %39, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %44, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %8, i64 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.backedge, %4
   call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #13, !srcloc !6
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !18
-  call void @_raw_spin_lock_irq(ptr noundef %46) #13
-  call void @_raw_spin_lock(ptr noundef %47) #13
+  call void @_raw_spin_lock_irq(ptr noundef nonnull %46) #13
+  call void @_raw_spin_lock(ptr noundef nonnull %47) #13
   %56 = load i8, ptr %48, align 4, !range !8, !noundef !9
   %57 = icmp eq i8 %56, 0
   br i1 %57, label %68, label %58
@@ -349,8 +349,8 @@ define dso_local i32 @stop_two_cpus(i32 noundef %0, i32 noundef %1, ptr noundef 
 68:                                               ; preds = %63, %61, %58, %.loopexit
   %69 = phi i1 [ false, %63 ], [ false, %58 ], [ false, %.loopexit ], [ true, %61 ]
   %70 = phi i1 [ true, %63 ], [ false, %58 ], [ false, %.loopexit ], [ false, %61 ]
-  call void @_raw_spin_unlock(ptr noundef %47) #13
-  call void @_raw_spin_unlock_irq(ptr noundef %46) #13
+  call void @_raw_spin_unlock(ptr noundef nonnull %47) #13
+  call void @_raw_spin_unlock_irq(ptr noundef nonnull %46) #13
   br i1 %69, label %71, label %81, !prof !19
 
 71:                                               ; preds = %68
@@ -399,8 +399,8 @@ define dso_local i32 @stop_two_cpus(i32 noundef %0, i32 noundef %1, ptr noundef 
   br i1 %70, label %89, label %92
 
 89:                                               ; preds = %88
-  call void @wait_for_completion(ptr noundef %30) #13
-  %90 = getelementptr inbounds i8, ptr %6, i64 4
+  call void @wait_for_completion(ptr noundef nonnull %30) #13
+  %90 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %91 = load i32, ptr %90, align 4
   br label %92
 
@@ -425,7 +425,7 @@ define internal i32 @multi_cpu_stop(ptr noundef %0) #0 align 16 {
   call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2) #13, !srcloc !28
   %4 = load i64, ptr %2, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #13
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %20
@@ -443,9 +443,9 @@ define internal i32 @multi_cpu_stop(ptr noundef %0) #0 align 16 {
 14:                                               ; preds = %11, %8
   %15 = phi i32 [ %13, %11 ], [ 64, %8 ]
   %16 = icmp eq i32 %3, %15
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
-  %18 = getelementptr inbounds i8, ptr %0, i64 36
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.fr8 = freeze i1 %16
   br i1 %.fr8, label %.split.us.preheader, label %.split.preheader
 
@@ -456,9 +456,9 @@ define internal i32 @multi_cpu_stop(ptr noundef %0) #0 align 16 {
   %23 = icmp ult i8 %.fr10, 2
   call void @llvm.assume(i1 %23)
   %.not = icmp eq i8 %.fr10, 0
-  %24 = getelementptr inbounds i8, ptr %0, i64 32
-  %25 = getelementptr inbounds i8, ptr %0, i64 36
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br i1 %.not, label %.split.preheader, label %.split.us.preheader
 
 .split.preheader:                                 ; preds = %14, %20
@@ -473,7 +473,7 @@ define internal i32 @multi_cpu_stop(ptr noundef %0) #0 align 16 {
   %32 = phi ptr [ %18, %14 ], [ %25, %20 ]
   %33 = phi ptr [ %17, %14 ], [ %24, %20 ]
   %34 = phi ptr [ @__cpu_online_mask, %14 ], [ %6, %20 ]
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %.split.us
 
 .split.us:                                        ; preds = %.split.us.preheader, %55
@@ -502,7 +502,7 @@ define internal i32 @multi_cpu_stop(ptr noundef %0) #0 align 16 {
 
 46:                                               ; preds = %45, %41, %40
   %47 = phi i32 [ %36, %40 ], [ %44, %41 ], [ %36, %45 ]
-  %48 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %32, ptr elementtype(i32) %32) #13, !srcloc !10
+  %48 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %32, ptr nonnull elementtype(i32) %32) #13, !srcloc !10
   %49 = icmp ult i8 %48, 2
   call void @llvm.assume(i1 %49)
   %50 = icmp eq i8 %48, 0
@@ -540,7 +540,7 @@ define internal i32 @multi_cpu_stop(ptr noundef %0) #0 align 16 {
   br label %64
 
 64:                                               ; preds = %62, %63
-  %65 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %28, ptr elementtype(i32) %28) #13, !srcloc !10
+  %65 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %28, ptr nonnull elementtype(i32) %28) #13, !srcloc !10
   %66 = icmp ult i8 %65, 2
   call void @llvm.assume(i1 %66)
   %67 = icmp eq i8 %65, 0
@@ -580,13 +580,13 @@ define dso_local noundef zeroext i1 @stop_one_cpu_nowait(i32 noundef %0, ptr nou
   %5 = tail call ptr @llvm.returnaddress(i32 0)
   %6 = ptrtoint ptr %5 to i64
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %6, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %2, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr null, ptr %10, align 8
   %11 = tail call fastcc zeroext i1 @cpu_stop_queue_work(i32 noundef %0, ptr noundef %3)
   ret i1 %11
@@ -599,7 +599,7 @@ define dso_local void @stop_machine_park(i32 noundef %0) local_unnamed_addr #0 a
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @cpu_stopper to i64)
   %6 = inttoptr i64 %5 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i8 0, ptr %7, align 4
   %8 = load ptr, ptr %6, align 8
   %9 = tail call i32 @kthread_park(ptr noundef %8) #13
@@ -616,7 +616,7 @@ define dso_local void @stop_machine_unpark(i32 noundef %0) local_unnamed_addr #0
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @cpu_stopper to i64)
   %6 = inttoptr i64 %5 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i8 1, ptr %7, align 4
   %8 = load ptr, ptr %6, align 8
   tail call void @kthread_unpark(ptr noundef %8) #13
@@ -650,11 +650,11 @@ define internal noundef i32 @cpu_stop_init() #7 section ".init.text" align 16 {
   %14 = load i64, ptr %13, align 8
   %15 = add i64 %14, ptrtoint (ptr @cpu_stopper to i64)
   %16 = inttoptr i64 %15 to ptr
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i32 0, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %16, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store volatile ptr %18, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %16, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store volatile ptr %18, ptr %19, align 8
   %20 = add nuw nsw i64 %8, 1
   %21 = and i64 %20, 127
@@ -678,7 +678,7 @@ define internal noundef i32 @cpu_stop_init() #7 section ".init.text" align 16 {
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %30, ptrtoint (ptr @cpu_stopper to i64)
   %32 = inttoptr i64 %31 to ptr
-  %33 = getelementptr inbounds i8, ptr %32, i64 12
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 12
   store i8 1, ptr %33, align 4
   %34 = load ptr, ptr %32, align 8
   tail call void @kthread_unpark(ptr noundef %34) #13
@@ -691,15 +691,15 @@ define dso_local i32 @stop_machine_cpuslocked(ptr noundef %0, ptr noundef %1, pt
   %4 = alloca i64, align 8
   %5 = alloca %struct.multi_stop_data, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #13
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %6, align 8, !annotation !16
   store ptr %0, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load volatile i32, ptr @__num_online_cpus, align 4
   store i32 %9, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %2, ptr %10, align 8
   tail call void @lockdep_assert_cpus_held() #13
   %11 = load i1, ptr @stop_machine_initialized, align 1
@@ -732,8 +732,8 @@ define dso_local i32 @stop_machine_cpuslocked(ptr noundef %0, ptr noundef %1, pt
   br label %25
 
 21:                                               ; preds = %3
-  %22 = getelementptr inbounds i8, ptr %5, i64 36
-  %23 = getelementptr inbounds i8, ptr %5, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 36
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store volatile i32 %9, ptr %22, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
   store volatile i32 1, ptr %23, align 8
@@ -759,10 +759,10 @@ define internal fastcc i32 @stop_cpus(ptr nocapture noundef readonly %0, ptr nou
   %6 = trunc i64 %5 to i32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false)
   store volatile i32 %6, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @__init_swait_queue_head(ptr noundef %8, ptr noundef nonnull @.str.2, ptr noundef nonnull @init_completion.__key) #13
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  call void @__init_swait_queue_head(ptr noundef nonnull %8, ptr noundef nonnull @.str.2, ptr noundef nonnull @init_completion.__key) #13
   call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #13, !srcloc !6
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !43
   store i1 true, ptr @stop_cpus_in_progress, align 1
@@ -790,15 +790,15 @@ define internal fastcc i32 @stop_cpus(ptr nocapture noundef readonly %0, ptr nou
   %23 = load i64, ptr %22, align 8
   %24 = add i64 %23, ptrtoint (ptr getelementptr inbounds (i8, ptr @cpu_stopper, i64 32) to i64)
   %25 = inttoptr i64 %24 to ptr
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store ptr @multi_cpu_stop, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %25, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 32
   store ptr %1, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %25, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 40
   store ptr %3, ptr %28, align 8
   %29 = call ptr @llvm.returnaddress(i32 0)
   %30 = ptrtoint ptr %29 to i64
-  %31 = getelementptr inbounds i8, ptr %25, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store i64 %30, ptr %31, align 8
   %32 = call fastcc zeroext i1 @cpu_stop_queue_work(i32 noundef %18, ptr noundef %25)
   %33 = select i1 %32, i8 1, i8 %11
@@ -829,8 +829,8 @@ define internal fastcc i32 @stop_cpus(ptr nocapture noundef readonly %0, ptr nou
   br i1 %44, label %48, label %45
 
 45:                                               ; preds = %43
-  call void @wait_for_completion(ptr noundef %7) #13
-  %46 = getelementptr inbounds i8, ptr %3, i64 4
+  call void @wait_for_completion(ptr noundef nonnull %7) #13
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %47 = load i32, ptr %46, align 4
   br label %48
 
@@ -847,14 +847,14 @@ define dso_local i32 @stop_machine(ptr noundef %0, ptr noundef %1, ptr noundef %
   %5 = alloca %struct.multi_stop_data, align 8
   tail call void @cpus_read_lock() #13
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #13
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %6, align 8, !annotation !16
   store ptr %0, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %1, ptr %7, align 8
   %8 = load volatile i32, ptr @__num_online_cpus, align 4
   store i32 %8, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %2, ptr %9, align 8
   tail call void @lockdep_assert_cpus_held() #13
   %10 = load i1, ptr @stop_machine_initialized, align 1
@@ -887,8 +887,8 @@ define dso_local i32 @stop_machine(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %stop_machine_cpuslocked.exit
 
 20:                                               ; preds = %3
-  %21 = getelementptr inbounds i8, ptr %5, i64 36
-  %22 = getelementptr inbounds i8, ptr %5, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 36
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store volatile i32 %8, ptr %21, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
   store volatile i32 1, ptr %22, align 8
@@ -917,20 +917,20 @@ define dso_local i32 @stop_core_cpuslocked(i32 noundef %0, ptr noundef %1, ptr n
   %8 = add i64 %7, ptrtoint (ptr @cpu_sibling_map to i64)
   %9 = inttoptr i64 %8 to ptr
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #13
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %10, align 8, !annotation !16
   store ptr %1, ptr %4, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %2, ptr %11, align 8
   %12 = load i64, ptr %9, align 8
   %13 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %12) #15, !srcloc !42
-  %14 = getelementptr inbounds i8, ptr %4, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %15 = trunc i64 %13 to i32
   store i32 %15, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %9, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %4, i64 32
-  %18 = getelementptr inbounds i8, ptr %4, i64 36
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 36
   tail call void @lockdep_assert_cpus_held() #13
   store volatile i32 %15, ptr %18, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
@@ -946,12 +946,12 @@ define dso_local i32 @stop_machine_from_inactive_cpu(ptr noundef %0, ptr noundef
   %5 = alloca %struct.cpu_stop_done, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #13
   store ptr %0, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %2, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 32
-  %9 = getelementptr inbounds i8, ptr %4, i64 36
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 36
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #13
   %10 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !49
   %11 = zext i32 %10 to i64
@@ -967,8 +967,8 @@ define dso_local i32 @stop_machine_from_inactive_cpu(ptr noundef %0, ptr noundef
   unreachable
 
 16:                                               ; preds = %3
-  %17 = getelementptr inbounds i8, ptr %4, i64 16
-  %18 = getelementptr inbounds i8, ptr %4, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %18, align 8, !annotation !16
   %19 = load i64, ptr @__cpu_active_mask, align 8
   %20 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %19) #15, !srcloc !42
@@ -994,10 +994,10 @@ define dso_local i32 @stop_machine_from_inactive_cpu(ptr noundef %0, ptr noundef
   %29 = trunc i64 %28 to i32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   store volatile i32 %29, ptr %5, align 8
-  %30 = getelementptr inbounds i8, ptr %5, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %5, i64 16
-  call void @__init_swait_queue_head(ptr noundef %31, ptr noundef nonnull @.str.2, ptr noundef nonnull @init_completion.__key) #13
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  call void @__init_swait_queue_head(ptr noundef nonnull %31, ptr noundef nonnull @.str.2, ptr noundef nonnull @init_completion.__key) #13
   call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #13, !srcloc !6
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !43
   store i1 true, ptr @stop_cpus_in_progress, align 1
@@ -1024,15 +1024,15 @@ define dso_local i32 @stop_machine_from_inactive_cpu(ptr noundef %0, ptr noundef
   %45 = load i64, ptr %44, align 8
   %46 = add i64 %45, ptrtoint (ptr getelementptr inbounds (i8, ptr @cpu_stopper, i64 32) to i64)
   %47 = inttoptr i64 %46 to ptr
-  %48 = getelementptr inbounds i8, ptr %47, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   store ptr @multi_cpu_stop, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %47, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 32
   store ptr %4, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %47, i64 40
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 40
   store ptr %5, ptr %50, align 8
   %51 = call ptr @llvm.returnaddress(i32 0)
   %52 = ptrtoint ptr %51 to i64
-  %53 = getelementptr inbounds i8, ptr %47, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %47, i64 24
   store i64 %52, ptr %53, align 8
   %54 = call fastcc zeroext i1 @cpu_stop_queue_work(i32 noundef %40, ptr noundef %47)
   %55 = add nuw nsw i64 %39, 1
@@ -1058,18 +1058,18 @@ define dso_local i32 @stop_machine_from_inactive_cpu(ptr noundef %0, ptr noundef
 
 64:                                               ; preds = %61, %.thread
   %65 = call i32 @multi_cpu_stop(ptr noundef nonnull %4)
-  %66 = call zeroext i1 @completion_done(ptr noundef %30) #13
+  %66 = call zeroext i1 @completion_done(ptr noundef nonnull %30) #13
   br i1 %66, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %64, %.preheader
   call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
-  %67 = call zeroext i1 @completion_done(ptr noundef %30) #13
+  %67 = call zeroext i1 @completion_done(ptr noundef nonnull %30) #13
   br i1 %67, label %.loopexit, label %.preheader, !llvm.loop !53
 
 .loopexit:                                        ; preds = %.preheader, %64
   call void @mutex_unlock(ptr noundef nonnull @stop_cpus_mutex) #13
   %68 = icmp eq i32 %65, 0
-  %69 = getelementptr inbounds i8, ptr %5, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %70 = load i32, ptr %69, align 4
   %71 = select i1 %68, i32 %70, i32 %65
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #13
@@ -1141,13 +1141,13 @@ define internal range(i32 0, 2) i32 @cpu_stop_should_run(i32 noundef %0) #0 alig
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @cpu_stopper to i64)
   %6 = inttoptr i64 %5 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
-  %8 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %7) #13
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %8 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %7) #13
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = load volatile ptr, ptr %9, align 8
   %11 = icmp ne ptr %10, %9
   %12 = zext i1 %11 to i32
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %7, i64 noundef %8) #13
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %7, i64 noundef %8) #13
   ret i32 %12
 }
 
@@ -1158,41 +1158,41 @@ define internal void @cpu_stopper_thread(i32 noundef %0) #0 align 16 {
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @cpu_stopper to i64)
   %6 = inttoptr i64 %5 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 16
-  %9 = getelementptr inbounds i8, ptr %6, i64 80
-  %10 = getelementptr inbounds i8, ptr %6, i64 88
-  tail call void @_raw_spin_lock_irq(ptr noundef %7) #13
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 88
+  tail call void @_raw_spin_lock_irq(ptr noundef nonnull %7) #13
   %11 = load volatile ptr, ptr %8, align 8
   %12 = icmp eq ptr %11, %8
   br i1 %12, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %46, %1
-  tail call void @_raw_spin_unlock_irq(ptr noundef %7) #13
+  tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %7) #13
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %1, %46
   %13 = phi ptr [ %47, %46 ], [ %11, %1 ]
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %13, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %15, ptr %17, align 8
   store volatile ptr %16, ptr %15, align 8
   store volatile ptr %13, ptr %13, align 8
   store volatile ptr %13, ptr %14, align 8
-  tail call void @_raw_spin_unlock_irq(ptr noundef %7) #13
+  tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %7) #13
   %18 = icmp eq ptr %13, null
   br i1 %18, label %.loopexit, label %19
 
 19:                                               ; preds = %.lr.ph
-  %20 = getelementptr inbounds i8, ptr %13, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %13, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %13, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %13, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %27 = load i64, ptr %26, align 8
   store i64 %27, ptr %9, align 8
   store ptr %21, ptr %10, align 8
@@ -1206,7 +1206,7 @@ define internal void @cpu_stopper_thread(i32 noundef %0) #0 align 16 {
   br i1 %31, label %34, label %32
 
 32:                                               ; preds = %30
-  %33 = getelementptr inbounds i8, ptr %25, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %25, i64 4
   store i32 %28, ptr %33, align 4
   br label %34
 
@@ -1218,13 +1218,13 @@ define internal void @cpu_stopper_thread(i32 noundef %0) #0 align 16 {
   br i1 %37, label %40, label %38
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %25, i64 8
-  tail call void @complete(ptr noundef %39) #13
+  %39 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  tail call void @complete(ptr noundef nonnull %39) #13
   br label %40
 
 40:                                               ; preds = %38, %34, %19
   tail call void asm "decl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #13, !srcloc !54
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %41 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #14, !srcloc !55
   %42 = and i32 %41, 2147483647
   %43 = icmp eq i32 %42, 0
@@ -1233,7 +1233,7 @@ define internal void @cpu_stopper_thread(i32 noundef %0) #0 align 16 {
   br i1 %45, label %46, label %49, !prof !13
 
 46:                                               ; preds = %49, %40
-  tail call void @_raw_spin_lock_irq(ptr noundef %7) #13
+  tail call void @_raw_spin_lock_irq(ptr noundef nonnull %7) #13
   %47 = load volatile ptr, ptr %8, align 8
   %48 = icmp eq ptr %47, %8
   br i1 %48, label %.thread, label %.lr.ph
@@ -1271,7 +1271,7 @@ define internal void @cpu_stop_park(i32 noundef %0) #0 align 16 {
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @cpu_stopper to i64)
   %6 = inttoptr i64 %5 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load volatile ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, %7
   br i1 %9, label %11, label %10, !prof !13

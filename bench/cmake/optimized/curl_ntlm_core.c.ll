@@ -25,126 +25,126 @@ define dso_local void @Curl_ntlm_core_lm_resp(ptr nocapture noundef readonly %0,
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %8 = load i8, ptr %0, align 1
   store i8 %8, ptr %6, align 1
-  %9 = getelementptr inbounds i8, ptr %0, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %10 = load i8, ptr %9, align 1
   %11 = tail call i8 @llvm.fshl.i8(i8 %8, i8 %10, i8 7)
-  %12 = getelementptr inbounds i8, ptr %6, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 %11, ptr %12, align 1
-  %13 = getelementptr inbounds i8, ptr %0, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %14 = load i8, ptr %13, align 1
   %15 = tail call i8 @llvm.fshl.i8(i8 %10, i8 %14, i8 6)
-  %16 = getelementptr inbounds i8, ptr %6, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 2
   store i8 %15, ptr %16, align 1
-  %17 = getelementptr inbounds i8, ptr %0, i64 3
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %18 = load i8, ptr %17, align 1
   %19 = tail call i8 @llvm.fshl.i8(i8 %14, i8 %18, i8 5)
-  %20 = getelementptr inbounds i8, ptr %6, i64 3
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 3
   store i8 %19, ptr %20, align 1
-  %21 = getelementptr inbounds i8, ptr %0, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %22 = load i8, ptr %21, align 1
   %23 = tail call i8 @llvm.fshl.i8(i8 %18, i8 %22, i8 4)
-  %24 = getelementptr inbounds i8, ptr %6, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i8 %23, ptr %24, align 1
-  %25 = getelementptr inbounds i8, ptr %0, i64 5
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %26 = load i8, ptr %25, align 1
   %27 = tail call i8 @llvm.fshl.i8(i8 %22, i8 %26, i8 3)
-  %28 = getelementptr inbounds i8, ptr %6, i64 5
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 5
   store i8 %27, ptr %28, align 1
-  %29 = getelementptr inbounds i8, ptr %0, i64 6
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %30 = load i8, ptr %29, align 1
   %31 = tail call i8 @llvm.fshl.i8(i8 %26, i8 %30, i8 2)
-  %32 = getelementptr inbounds i8, ptr %6, i64 6
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 6
   store i8 %31, ptr %32, align 1
   %33 = shl i8 %30, 1
-  %34 = getelementptr inbounds i8, ptr %6, i64 7
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 7
   store i8 %33, ptr %34, align 1
   call void @DES_set_odd_parity(ptr noundef nonnull %6) #8
   call void @DES_set_key_unchecked(ptr noundef nonnull %6, ptr noundef nonnull %7) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @DES_ecb_encrypt(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7, i32 noundef 1) #8
-  %35 = getelementptr inbounds i8, ptr %0, i64 7
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %36 = load i8, ptr %35, align 1
   store i8 %36, ptr %5, align 1
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load i8, ptr %37, align 1
   %39 = call i8 @llvm.fshl.i8(i8 %36, i8 %38, i8 7)
-  %40 = getelementptr inbounds i8, ptr %5, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 %39, ptr %40, align 1
-  %41 = getelementptr inbounds i8, ptr %0, i64 9
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %42 = load i8, ptr %41, align 1
   %43 = call i8 @llvm.fshl.i8(i8 %38, i8 %42, i8 6)
-  %44 = getelementptr inbounds i8, ptr %5, i64 2
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i8 %43, ptr %44, align 1
-  %45 = getelementptr inbounds i8, ptr %0, i64 10
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %46 = load i8, ptr %45, align 1
   %47 = call i8 @llvm.fshl.i8(i8 %42, i8 %46, i8 5)
-  %48 = getelementptr inbounds i8, ptr %5, i64 3
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 3
   store i8 %47, ptr %48, align 1
-  %49 = getelementptr inbounds i8, ptr %0, i64 11
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 11
   %50 = load i8, ptr %49, align 1
   %51 = call i8 @llvm.fshl.i8(i8 %46, i8 %50, i8 4)
-  %52 = getelementptr inbounds i8, ptr %5, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i8 %51, ptr %52, align 1
-  %53 = getelementptr inbounds i8, ptr %0, i64 12
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %54 = load i8, ptr %53, align 1
   %55 = call i8 @llvm.fshl.i8(i8 %50, i8 %54, i8 3)
-  %56 = getelementptr inbounds i8, ptr %5, i64 5
+  %56 = getelementptr inbounds nuw i8, ptr %5, i64 5
   store i8 %55, ptr %56, align 1
-  %57 = getelementptr inbounds i8, ptr %0, i64 13
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 13
   %58 = load i8, ptr %57, align 1
   %59 = call i8 @llvm.fshl.i8(i8 %54, i8 %58, i8 2)
-  %60 = getelementptr inbounds i8, ptr %5, i64 6
+  %60 = getelementptr inbounds nuw i8, ptr %5, i64 6
   store i8 %59, ptr %60, align 1
   %61 = shl i8 %58, 1
-  %62 = getelementptr inbounds i8, ptr %5, i64 7
+  %62 = getelementptr inbounds nuw i8, ptr %5, i64 7
   store i8 %61, ptr %62, align 1
   call void @DES_set_odd_parity(ptr noundef nonnull %5) #8
   call void @DES_set_key_unchecked(ptr noundef nonnull %5, ptr noundef nonnull %7) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %63 = getelementptr inbounds i8, ptr %2, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @DES_ecb_encrypt(ptr noundef %1, ptr noundef nonnull %63, ptr noundef nonnull %7, i32 noundef 1) #8
-  %64 = getelementptr inbounds i8, ptr %0, i64 14
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %65 = load i8, ptr %64, align 1
   store i8 %65, ptr %4, align 1
-  %66 = getelementptr inbounds i8, ptr %0, i64 15
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 15
   %67 = load i8, ptr %66, align 1
   %68 = call i8 @llvm.fshl.i8(i8 %65, i8 %67, i8 7)
-  %69 = getelementptr inbounds i8, ptr %4, i64 1
+  %69 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 %68, ptr %69, align 1
-  %70 = getelementptr inbounds i8, ptr %0, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %71 = load i8, ptr %70, align 1
   %72 = call i8 @llvm.fshl.i8(i8 %67, i8 %71, i8 6)
-  %73 = getelementptr inbounds i8, ptr %4, i64 2
+  %73 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i8 %72, ptr %73, align 1
-  %74 = getelementptr inbounds i8, ptr %0, i64 17
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %75 = load i8, ptr %74, align 1
   %76 = call i8 @llvm.fshl.i8(i8 %71, i8 %75, i8 5)
-  %77 = getelementptr inbounds i8, ptr %4, i64 3
+  %77 = getelementptr inbounds nuw i8, ptr %4, i64 3
   store i8 %76, ptr %77, align 1
-  %78 = getelementptr inbounds i8, ptr %0, i64 18
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %79 = load i8, ptr %78, align 1
   %80 = call i8 @llvm.fshl.i8(i8 %75, i8 %79, i8 4)
-  %81 = getelementptr inbounds i8, ptr %4, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 %80, ptr %81, align 1
-  %82 = getelementptr inbounds i8, ptr %0, i64 19
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 19
   %83 = load i8, ptr %82, align 1
   %84 = call i8 @llvm.fshl.i8(i8 %79, i8 %83, i8 3)
-  %85 = getelementptr inbounds i8, ptr %4, i64 5
+  %85 = getelementptr inbounds nuw i8, ptr %4, i64 5
   store i8 %84, ptr %85, align 1
-  %86 = getelementptr inbounds i8, ptr %0, i64 20
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %87 = load i8, ptr %86, align 1
   %88 = call i8 @llvm.fshl.i8(i8 %83, i8 %87, i8 2)
-  %89 = getelementptr inbounds i8, ptr %4, i64 6
+  %89 = getelementptr inbounds nuw i8, ptr %4, i64 6
   store i8 %88, ptr %89, align 1
   %90 = shl i8 %87, 1
-  %91 = getelementptr inbounds i8, ptr %4, i64 7
+  %91 = getelementptr inbounds nuw i8, ptr %4, i64 7
   store i8 %90, ptr %91, align 1
   call void @DES_set_odd_parity(ptr noundef nonnull %4) #8
   call void @DES_set_key_unchecked(ptr noundef nonnull %4, ptr noundef nonnull %7) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %92 = getelementptr inbounds i8, ptr %2, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @DES_ecb_encrypt(ptr noundef %1, ptr noundef nonnull %92, ptr noundef nonnull %7, i32 noundef 1) #8
   ret void
 }
@@ -160,92 +160,92 @@ define dso_local noundef i32 @Curl_ntlm_core_mk_lm_hash(ptr noundef %0, ptr noun
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #9
   %spec.select = tail call i64 @llvm.umin.i64(i64 %7, i64 14)
   call void @Curl_strntoupper(ptr noundef nonnull %5, ptr noundef %0, i64 noundef %spec.select) #8
-  %8 = getelementptr inbounds [14 x i8], ptr %5, i64 0, i64 %spec.select
+  %8 = getelementptr inbounds nuw [14 x i8], ptr %5, i64 0, i64 %spec.select
   %9 = sub nuw nsw i64 14, %spec.select
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %8, i8 0, i64 %9, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %10 = load i8, ptr %5, align 1
   store i8 %10, ptr %4, align 1
-  %11 = getelementptr inbounds i8, ptr %5, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %12 = load i8, ptr %11, align 1
   %13 = call i8 @llvm.fshl.i8(i8 %10, i8 %12, i8 7)
-  %14 = getelementptr inbounds i8, ptr %4, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 %13, ptr %14, align 1
-  %15 = getelementptr inbounds i8, ptr %5, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %16 = load i8, ptr %15, align 1
   %17 = call i8 @llvm.fshl.i8(i8 %12, i8 %16, i8 6)
-  %18 = getelementptr inbounds i8, ptr %4, i64 2
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i8 %17, ptr %18, align 1
-  %19 = getelementptr inbounds i8, ptr %5, i64 3
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 3
   %20 = load i8, ptr %19, align 1
   %21 = call i8 @llvm.fshl.i8(i8 %16, i8 %20, i8 5)
-  %22 = getelementptr inbounds i8, ptr %4, i64 3
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 3
   store i8 %21, ptr %22, align 1
-  %23 = getelementptr inbounds i8, ptr %5, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %24 = load i8, ptr %23, align 1
   %25 = call i8 @llvm.fshl.i8(i8 %20, i8 %24, i8 4)
-  %26 = getelementptr inbounds i8, ptr %4, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 %25, ptr %26, align 1
-  %27 = getelementptr inbounds i8, ptr %5, i64 5
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 5
   %28 = load i8, ptr %27, align 1
   %29 = call i8 @llvm.fshl.i8(i8 %24, i8 %28, i8 3)
-  %30 = getelementptr inbounds i8, ptr %4, i64 5
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 5
   store i8 %29, ptr %30, align 1
-  %31 = getelementptr inbounds i8, ptr %5, i64 6
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 6
   %32 = load i8, ptr %31, align 1
   %33 = call i8 @llvm.fshl.i8(i8 %28, i8 %32, i8 2)
-  %34 = getelementptr inbounds i8, ptr %4, i64 6
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 6
   store i8 %33, ptr %34, align 1
   %35 = shl i8 %32, 1
-  %36 = getelementptr inbounds i8, ptr %4, i64 7
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 7
   store i8 %35, ptr %36, align 1
   call void @DES_set_odd_parity(ptr noundef nonnull %4) #8
   call void @DES_set_key_unchecked(ptr noundef nonnull %4, ptr noundef nonnull %6) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @DES_ecb_encrypt(ptr noundef nonnull @Curl_ntlm_core_mk_lm_hash.magic, ptr noundef %1, ptr noundef nonnull %6, i32 noundef 1) #8
-  %37 = getelementptr inbounds i8, ptr %5, i64 7
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %38 = load i8, ptr %37, align 1
   store i8 %38, ptr %3, align 1
-  %39 = getelementptr inbounds i8, ptr %5, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %40 = load i8, ptr %39, align 1
   %41 = call i8 @llvm.fshl.i8(i8 %38, i8 %40, i8 7)
-  %42 = getelementptr inbounds i8, ptr %3, i64 1
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %41, ptr %42, align 1
-  %43 = getelementptr inbounds i8, ptr %5, i64 9
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 9
   %44 = load i8, ptr %43, align 1
   %45 = call i8 @llvm.fshl.i8(i8 %40, i8 %44, i8 6)
-  %46 = getelementptr inbounds i8, ptr %3, i64 2
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 %45, ptr %46, align 1
-  %47 = getelementptr inbounds i8, ptr %5, i64 10
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 10
   %48 = load i8, ptr %47, align 1
   %49 = call i8 @llvm.fshl.i8(i8 %44, i8 %48, i8 5)
-  %50 = getelementptr inbounds i8, ptr %3, i64 3
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 3
   store i8 %49, ptr %50, align 1
-  %51 = getelementptr inbounds i8, ptr %5, i64 11
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 11
   %52 = load i8, ptr %51, align 1
   %53 = call i8 @llvm.fshl.i8(i8 %48, i8 %52, i8 4)
-  %54 = getelementptr inbounds i8, ptr %3, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i8 %53, ptr %54, align 1
-  %55 = getelementptr inbounds i8, ptr %5, i64 12
+  %55 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %56 = load i8, ptr %55, align 1
   %57 = call i8 @llvm.fshl.i8(i8 %52, i8 %56, i8 3)
-  %58 = getelementptr inbounds i8, ptr %3, i64 5
+  %58 = getelementptr inbounds nuw i8, ptr %3, i64 5
   store i8 %57, ptr %58, align 1
-  %59 = getelementptr inbounds i8, ptr %5, i64 13
+  %59 = getelementptr inbounds nuw i8, ptr %5, i64 13
   %60 = load i8, ptr %59, align 1
   %61 = call i8 @llvm.fshl.i8(i8 %56, i8 %60, i8 2)
-  %62 = getelementptr inbounds i8, ptr %3, i64 6
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 6
   store i8 %61, ptr %62, align 1
   %63 = shl i8 %60, 1
-  %64 = getelementptr inbounds i8, ptr %3, i64 7
+  %64 = getelementptr inbounds nuw i8, ptr %3, i64 7
   store i8 %63, ptr %64, align 1
   call void @DES_set_odd_parity(ptr noundef nonnull %3) #8
   call void @DES_set_key_unchecked(ptr noundef nonnull %3, ptr noundef nonnull %6) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %65 = getelementptr inbounds i8, ptr %1, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @DES_ecb_encrypt(ptr noundef nonnull @Curl_ntlm_core_mk_lm_hash.magic, ptr noundef nonnull %65, ptr noundef nonnull %6, i32 noundef 1) #8
-  %66 = getelementptr inbounds i8, ptr %1, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %66, i8 0, i64 5, i1 false)
   ret i32 0
 }
@@ -283,7 +283,7 @@ define dso_local i32 @Curl_ntlm_core_mk_nt_hash(ptr nocapture noundef readonly %
 
 .lr.ph.i:                                         ; preds = %.thread, %.lr.ph.i
   %.08.i = phi i64 [ %18, %.lr.ph.i ], [ 0, %.thread ]
-  %12 = getelementptr inbounds i8, ptr %0, i64 %.08.i
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 %.08.i
   %13 = load i8, ptr %12, align 1
   %14 = shl nuw i64 %.08.i, 1
   %15 = getelementptr inbounds i8, ptr %11, i64 %14
@@ -303,7 +303,7 @@ ascii_to_unicode_le.exit:                         ; preds = %.lr.ph.i, %6
   br i1 %.not18, label %22, label %24
 
 22:                                               ; preds = %ascii_to_unicode_le.exit
-  %23 = getelementptr inbounds i8, ptr %1, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %23, i8 0, i64 5, i1 false)
   br label %24
 
@@ -341,14 +341,14 @@ define dso_local i32 @Curl_ntlm_core_mk_ntlmv2_hash(ptr nocapture noundef readon
 
 .lr.ph.i:                                         ; preds = %15, %.lr.ph.i
   %.08.i = phi i64 [ %23, %.lr.ph.i ], [ 0, %15 ]
-  %16 = getelementptr inbounds i8, ptr %0, i64 %.08.i
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 %.08.i
   %17 = load i8, ptr %16, align 1
   %18 = tail call signext i8 @Curl_raw_toupper(i8 noundef signext %17) #8
   %19 = shl nuw nsw i64 %.08.i, 1
-  %20 = getelementptr inbounds i8, ptr %14, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 %19
   store i8 %18, ptr %20, align 1
   %21 = or disjoint i64 %19, 1
-  %22 = getelementptr inbounds i8, ptr %14, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 %21
   store i8 0, ptr %22, align 1
   %23 = add nuw nsw i64 %.08.i, 1
   %exitcond.not.i = icmp eq i64 %23, %1
@@ -356,13 +356,13 @@ define dso_local i32 @Curl_ntlm_core_mk_ntlmv2_hash(ptr nocapture noundef readon
 
 ascii_uppercase_to_unicode_le.exit:               ; preds = %.lr.ph.i, %15
   %24 = shl nuw nsw i64 %1, 1
-  %25 = getelementptr inbounds i8, ptr %14, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 %24
   %.not.i23 = icmp eq i64 %3, 0
   br i1 %.not.i23, label %ascii_to_unicode_le.exit, label %.lr.ph.i24
 
 .lr.ph.i24:                                       ; preds = %ascii_uppercase_to_unicode_le.exit, %.lr.ph.i24
   %.08.i25 = phi i64 [ %32, %.lr.ph.i24 ], [ 0, %ascii_uppercase_to_unicode_le.exit ]
-  %26 = getelementptr inbounds i8, ptr %2, i64 %.08.i25
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 %.08.i25
   %27 = load i8, ptr %26, align 1
   %28 = shl nuw i64 %.08.i25, 1
   %29 = getelementptr inbounds i8, ptr %25, i64 %28
@@ -391,7 +391,7 @@ declare i32 @Curl_hmacit(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64
 define dso_local i32 @Curl_ntlm_core_mk_ntlmv2_resp(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
   %6 = alloca [16 x i8], align 16
   %7 = tail call i64 @time(ptr noundef null) #8
-  %8 = getelementptr inbounds i8, ptr %2, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %9 = load i32, ptr %8, align 4
   %10 = add i32 %9, 48
   %11 = load ptr, ptr @Curl_ccalloc, align 8
@@ -406,7 +406,7 @@ define dso_local i32 @Curl_ntlm_core_mk_ntlmv2_resp(ptr noundef %0, ptr nocaptur
   %17 = lshr i64 %16, 32
   %18 = trunc nuw i64 %17 to i32
   %19 = trunc i64 %16 to i32
-  %20 = getelementptr inbounds i8, ptr %13, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %21 = load i32, ptr %8, align 4
   %22 = add i32 %21, 32
   %23 = zext i32 %22 to i64
@@ -423,7 +423,7 @@ define dso_local i32 @Curl_ntlm_core_mk_ntlmv2_resp(ptr noundef %0, ptr nocaptur
   %34 = and i32 %33, 255
   %35 = lshr i32 %18, 24
   %36 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %20, i64 noundef %23, ptr noundef nonnull @.str.1, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef %24, i32 noundef %26, i32 noundef %28, i32 noundef %29, i32 noundef %30, i32 noundef %32, i32 noundef %34, i32 noundef %35) #8
-  %37 = getelementptr inbounds i8, ptr %13, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %38 = load i64, ptr %1, align 1
   store i64 %38, ptr %37, align 1
   %39 = load i32, ptr %8, align 4
@@ -431,16 +431,16 @@ define dso_local i32 @Curl_ntlm_core_mk_ntlmv2_resp(ptr noundef %0, ptr nocaptur
   br i1 %.not28, label %45, label %40
 
 40:                                               ; preds = %14
-  %41 = getelementptr inbounds i8, ptr %13, i64 44
-  %42 = getelementptr inbounds i8, ptr %2, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %13, i64 44
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %43 = load ptr, ptr %42, align 8
   %44 = zext i32 %39 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %41, ptr align 1 %43, i64 %44, i1 false)
   br label %45
 
 45:                                               ; preds = %40, %14
-  %46 = getelementptr inbounds i8, ptr %13, i64 8
-  %47 = getelementptr inbounds i8, ptr %2, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %48 = load i64, ptr %47, align 4
   store i64 %48, ptr %46, align 1
   %49 = load i32, ptr %8, align 4
@@ -480,7 +480,7 @@ define dso_local i32 @Curl_ntlm_core_mk_lmv2_resp(ptr noundef %0, ptr nocapture 
   %6 = alloca [16 x i8], align 16
   %7 = load i64, ptr %2, align 1
   store i64 %7, ptr %5, align 16
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load i64, ptr %1, align 1
   store i64 %9, ptr %8, align 8
   %10 = call i32 @Curl_hmacit(ptr noundef nonnull @Curl_HMAC_MD5, ptr noundef %0, i64 noundef 16, ptr noundef nonnull %5, i64 noundef 16, ptr noundef nonnull %6) #8
@@ -489,7 +489,7 @@ define dso_local i32 @Curl_ntlm_core_mk_lmv2_resp(ptr noundef %0, ptr nocapture 
 
 11:                                               ; preds = %4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %3, ptr noundef nonnull align 16 dereferenceable(16) %6, i64 16, i1 false)
-  %12 = getelementptr inbounds i8, ptr %3, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %13 = load i64, ptr %1, align 1
   store i64 %13, ptr %12, align 1
   br label %14

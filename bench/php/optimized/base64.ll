@@ -88,14 +88,14 @@ define noundef ptr @php_base64_encode_avx512_vbmi(ptr nocapture noundef readonly
   %4 = udiv i64 %3, 3
   %5 = tail call noalias ptr @_safe_emalloc(i64 noundef %4, i64 noundef 4, i64 noundef 32) #10
   store i32 1, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 22, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %7, align 8
   %8 = shl i64 %4, 2
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %11 = load <64 x i8>, ptr @base64_table, align 64
   %12 = icmp ugt i64 %1, 63
   br i1 %12, label %.lr.ph, label %.preheader
@@ -113,8 +113,8 @@ define noundef ptr @php_base64_encode_avx512_vbmi(ptr nocapture noundef readonly
   %16 = tail call <64 x i8> @llvm.x86.avx512.pmultishift.qb.512(<64 x i8> <i8 10, i8 4, i8 22, i8 16, i8 42, i8 36, i8 54, i8 48, i8 10, i8 4, i8 22, i8 16, i8 42, i8 36, i8 54, i8 48, i8 10, i8 4, i8 22, i8 16, i8 42, i8 36, i8 54, i8 48, i8 10, i8 4, i8 22, i8 16, i8 42, i8 36, i8 54, i8 48, i8 10, i8 4, i8 22, i8 16, i8 42, i8 36, i8 54, i8 48, i8 10, i8 4, i8 22, i8 16, i8 42, i8 36, i8 54, i8 48, i8 10, i8 4, i8 22, i8 16, i8 42, i8 36, i8 54, i8 48, i8 10, i8 4, i8 22, i8 16, i8 42, i8 36, i8 54, i8 48>, <64 x i8> %15)
   %17 = tail call <64 x i8> @llvm.x86.avx512.permvar.qi.512(<64 x i8> %11, <64 x i8> %16)
   store <64 x i8> %17, ptr %.0123124, align 1
-  %18 = getelementptr inbounds i8, ptr %.0122125, i64 48
-  %19 = getelementptr inbounds i8, ptr %.0123124, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %.0122125, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %.0123124, i64 64
   %20 = add i64 %.0121126, -48
   %21 = icmp ugt i64 %20, 63
   br i1 %21, label %.lr.ph, label %.lr.ph132.preheader
@@ -132,39 +132,39 @@ define noundef ptr @php_base64_encode_avx512_vbmi(ptr nocapture noundef readonly
   %22 = load i8, ptr %.0131, align 1
   %23 = lshr i8 %22, 2
   %24 = zext nneg i8 %23 to i64
-  %25 = getelementptr inbounds [65 x i8], ptr @base64_table, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw [65 x i8], ptr @base64_table, i64 0, i64 %24
   %26 = load i8, ptr %25, align 1
-  %27 = getelementptr inbounds i8, ptr %.0120129, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.0120129, i64 1
   store i8 %26, ptr %.0120129, align 1
   %28 = shl i8 %22, 4
   %29 = and i8 %28, 48
-  %30 = getelementptr inbounds i8, ptr %.0131, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %.0131, i64 1
   %31 = load i8, ptr %30, align 1
   %32 = lshr i8 %31, 4
   %33 = or disjoint i8 %32, %29
   %34 = zext nneg i8 %33 to i64
-  %35 = getelementptr inbounds [65 x i8], ptr @base64_table, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw [65 x i8], ptr @base64_table, i64 0, i64 %34
   %36 = load i8, ptr %35, align 1
-  %37 = getelementptr inbounds i8, ptr %.0120129, i64 2
+  %37 = getelementptr inbounds nuw i8, ptr %.0120129, i64 2
   store i8 %36, ptr %27, align 1
   %38 = shl i8 %31, 2
   %39 = and i8 %38, 60
-  %40 = getelementptr inbounds i8, ptr %.0131, i64 2
+  %40 = getelementptr inbounds nuw i8, ptr %.0131, i64 2
   %41 = load i8, ptr %40, align 1
   %42 = lshr i8 %41, 6
   %43 = or disjoint i8 %42, %39
   %44 = zext nneg i8 %43 to i64
-  %45 = getelementptr inbounds [65 x i8], ptr @base64_table, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw [65 x i8], ptr @base64_table, i64 0, i64 %44
   %46 = load i8, ptr %45, align 1
-  %47 = getelementptr inbounds i8, ptr %.0120129, i64 3
+  %47 = getelementptr inbounds nuw i8, ptr %.0120129, i64 3
   store i8 %46, ptr %37, align 1
   %48 = and i8 %41, 63
   %49 = zext nneg i8 %48 to i64
-  %50 = getelementptr inbounds [65 x i8], ptr @base64_table, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw [65 x i8], ptr @base64_table, i64 0, i64 %49
   %51 = load i8, ptr %50, align 1
-  %52 = getelementptr inbounds i8, ptr %.0120129, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %.0120129, i64 4
   store i8 %51, ptr %47, align 1
-  %53 = getelementptr inbounds i8, ptr %.0131, i64 3
+  %53 = getelementptr inbounds nuw i8, ptr %.0131, i64 3
   %54 = add nsw i64 %.0119130, -3
   %55 = icmp ugt i64 %54, 2
   br i1 %55, label %.lr.ph132, label %._crit_edge
@@ -180,9 +180,9 @@ define noundef ptr @php_base64_encode_avx512_vbmi(ptr nocapture noundef readonly
   %57 = load i8, ptr %.0.lcssa, align 1
   %58 = lshr i8 %57, 2
   %59 = zext nneg i8 %58 to i64
-  %60 = getelementptr inbounds [65 x i8], ptr @base64_table, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw [65 x i8], ptr @base64_table, i64 0, i64 %59
   %61 = load i8, ptr %60, align 1
-  %62 = getelementptr inbounds i8, ptr %.0120.lcssa, i64 1
+  %62 = getelementptr inbounds nuw i8, ptr %.0120.lcssa, i64 1
   store i8 %61, ptr %.0120.lcssa, align 1
   %63 = icmp eq i64 %.0119.lcssa, 2
   %64 = shl i8 %57, 4
@@ -190,35 +190,35 @@ define noundef ptr @php_base64_encode_avx512_vbmi(ptr nocapture noundef readonly
   br i1 %63, label %66, label %82
 
 66:                                               ; preds = %56
-  %67 = getelementptr inbounds i8, ptr %.0.lcssa, i64 1
+  %67 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 1
   %68 = load i8, ptr %67, align 1
   %69 = lshr i8 %68, 4
   %70 = or disjoint i8 %69, %65
   %71 = zext nneg i8 %70 to i64
-  %72 = getelementptr inbounds [65 x i8], ptr @base64_table, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw [65 x i8], ptr @base64_table, i64 0, i64 %71
   %73 = load i8, ptr %72, align 1
-  %74 = getelementptr inbounds i8, ptr %.0120.lcssa, i64 2
+  %74 = getelementptr inbounds nuw i8, ptr %.0120.lcssa, i64 2
   store i8 %73, ptr %62, align 1
   %75 = shl i8 %68, 2
   %76 = and i8 %75, 60
   %77 = zext nneg i8 %76 to i64
-  %78 = getelementptr inbounds [65 x i8], ptr @base64_table, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw [65 x i8], ptr @base64_table, i64 0, i64 %77
   %79 = load i8, ptr %78, align 4
-  %80 = getelementptr inbounds i8, ptr %.0120.lcssa, i64 3
+  %80 = getelementptr inbounds nuw i8, ptr %.0120.lcssa, i64 3
   store i8 %79, ptr %74, align 1
-  %81 = getelementptr inbounds i8, ptr %.0120.lcssa, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %.0120.lcssa, i64 4
   store i8 61, ptr %80, align 1
   br label %89
 
 82:                                               ; preds = %56
   %83 = zext nneg i8 %65 to i64
-  %84 = getelementptr inbounds [65 x i8], ptr @base64_table, i64 0, i64 %83
+  %84 = getelementptr inbounds nuw [65 x i8], ptr @base64_table, i64 0, i64 %83
   %85 = load i8, ptr %84, align 16
-  %86 = getelementptr inbounds i8, ptr %.0120.lcssa, i64 2
+  %86 = getelementptr inbounds nuw i8, ptr %.0120.lcssa, i64 2
   store i8 %85, ptr %62, align 1
-  %87 = getelementptr inbounds i8, ptr %.0120.lcssa, i64 3
+  %87 = getelementptr inbounds nuw i8, ptr %.0120.lcssa, i64 3
   store i8 61, ptr %86, align 1
-  %88 = getelementptr inbounds i8, ptr %.0120.lcssa, i64 4
+  %88 = getelementptr inbounds nuw i8, ptr %.0120.lcssa, i64 4
   store i8 61, ptr %87, align 1
   br label %89
 
@@ -238,13 +238,13 @@ define noundef ptr @php_base64_decode_ex_avx512_vbmi(ptr nocapture noundef reado
   %5 = add i64 %4, 32
   %6 = tail call noalias ptr @_emalloc(i64 noundef %5) #11
   store i32 1, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %6, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 22, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %11 = icmp ugt i64 %1, 64
   br i1 %11, label %.lr.ph.preheader, label %._crit_edge
 
@@ -274,8 +274,8 @@ define noundef ptr @php_base64_decode_ex_avx512_vbmi(ptr nocapture noundef reado
   %24 = bitcast <16 x i32> %23 to <64 x i8>
   %25 = shufflevector <64 x i8> %24, <64 x i8> poison, <64 x i32> <i32 2, i32 1, i32 0, i32 6, i32 5, i32 4, i32 10, i32 9, i32 8, i32 14, i32 13, i32 12, i32 18, i32 17, i32 16, i32 22, i32 21, i32 20, i32 26, i32 25, i32 24, i32 30, i32 29, i32 28, i32 34, i32 33, i32 32, i32 38, i32 37, i32 36, i32 42, i32 41, i32 40, i32 46, i32 45, i32 44, i32 50, i32 49, i32 48, i32 54, i32 53, i32 52, i32 58, i32 57, i32 56, i32 62, i32 61, i32 60, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0>
   store <64 x i8> %25, ptr %.0255295, align 1
-  %26 = getelementptr inbounds i8, ptr %.0254296, i64 64
-  %27 = getelementptr inbounds i8, ptr %.0255295, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %.0254296, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %.0255295, i64 48
   %28 = add nuw i64 %.0258294, 48
   %29 = add i64 %.0253297, -64
   %30 = icmp ugt i64 %29, 64
@@ -367,14 +367,14 @@ define noundef ptr @php_base64_decode_ex_avx512_vbmi(ptr nocapture noundef reado
 64:                                               ; preds = %.backedge.us.us.us, %.lr.ph307.us.us
   %65 = phi i64 [ %63, %.lr.ph307.us.us ], [ %74, %.backedge.us.us.us ]
   %.0247306.us.us.us = phi ptr [ %.0247.ph276328.us.us, %.lr.ph307.us.us ], [ %66, %.backedge.us.us.us ]
-  %66 = getelementptr inbounds i8, ptr %.0247306.us.us.us, i64 1
+  %66 = getelementptr inbounds nuw i8, ptr %.0247306.us.us.us, i64 1
   %67 = load i8, ptr %.0247306.us.us.us, align 1
   %68 = icmp eq i8 %67, 61
   br i1 %68, label %.split.us.us.us, label %69
 
 69:                                               ; preds = %64
   %70 = zext i8 %67 to i64
-  %71 = getelementptr inbounds [256 x i16], ptr @base64_reverse_table, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw [256 x i16], ptr @base64_reverse_table, i64 0, i64 %70
   %72 = load i16, ptr %71, align 2
   %73 = icmp eq i16 %72, -1
   br i1 %73, label %.backedge.us.us.us, label %.split317.us.split.us.us
@@ -420,7 +420,7 @@ default.unreachable:                              ; preds = %.loopexit271
 82:                                               ; preds = %.lr.ph307, %.backedge
   %83 = phi i64 [ %81, %.lr.ph307 ], [ %94, %.backedge ]
   %.0247306 = phi ptr [ %.0247.ph276328, %.lr.ph307 ], [ %84, %.backedge ]
-  %84 = getelementptr inbounds i8, ptr %.0247306, i64 1
+  %84 = getelementptr inbounds nuw i8, ptr %.0247306, i64 1
   %85 = load i8, ptr %.0247306, align 1
   %86 = icmp eq i8 %85, 61
   br i1 %86, label %.split, label %89
@@ -433,7 +433,7 @@ default.unreachable:                              ; preds = %.loopexit271
 
 89:                                               ; preds = %82
   %90 = zext i8 %85 to i64
-  %91 = getelementptr inbounds [256 x i16], ptr @base64_reverse_table, i64 0, i64 %90
+  %91 = getelementptr inbounds nuw [256 x i16], ptr @base64_reverse_table, i64 0, i64 %90
   %92 = load i16, ptr %91, align 2
   %93 = icmp slt i16 %92, 0
   br i1 %93, label %.backedge, label %.loopexit271
@@ -546,14 +546,14 @@ define noundef ptr @php_base64_encode_avx512(ptr nocapture noundef readonly %0, 
   %4 = udiv i64 %3, 3
   %5 = tail call noalias ptr @_safe_emalloc(i64 noundef %4, i64 noundef 4, i64 noundef 32) #10
   store i32 1, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 22, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %7, align 8
   %8 = shl i64 %4, 2
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %11 = icmp ugt i64 %1, 63
   br i1 %11, label %.lr.ph, label %.preheader
 
@@ -583,8 +583,8 @@ define noundef ptr @php_base64_encode_avx512(ptr nocapture noundef readonly %0, 
   %28 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 71, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -19, i8 -16, i8 65, i8 0, i8 0, i8 71, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -19, i8 -16, i8 65, i8 0, i8 0, i8 71, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -19, i8 -16, i8 65, i8 0, i8 0, i8 71, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -19, i8 -16, i8 65, i8 0, i8 0>, <64 x i8> %27)
   %29 = add <64 x i8> %28, %24
   store <64 x i8> %29, ptr %.0455456, align 1
-  %30 = getelementptr inbounds i8, ptr %.0454457, i64 48
-  %31 = getelementptr inbounds i8, ptr %.0455456, i64 64
+  %30 = getelementptr inbounds nuw i8, ptr %.0454457, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %.0455456, i64 64
   %32 = add i64 %.0453458, -48
   %33 = icmp ugt i64 %32, 63
   br i1 %33, label %.lr.ph, label %.lr.ph464.preheader
@@ -602,39 +602,39 @@ define noundef ptr @php_base64_encode_avx512(ptr nocapture noundef readonly %0, 
   %34 = load i8, ptr %.0463, align 1
   %35 = lshr i8 %34, 2
   %36 = zext nneg i8 %35 to i64
-  %37 = getelementptr inbounds [65 x i8], ptr @base64_table, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw [65 x i8], ptr @base64_table, i64 0, i64 %36
   %38 = load i8, ptr %37, align 1
-  %39 = getelementptr inbounds i8, ptr %.0452461, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %.0452461, i64 1
   store i8 %38, ptr %.0452461, align 1
   %40 = shl i8 %34, 4
   %41 = and i8 %40, 48
-  %42 = getelementptr inbounds i8, ptr %.0463, i64 1
+  %42 = getelementptr inbounds nuw i8, ptr %.0463, i64 1
   %43 = load i8, ptr %42, align 1
   %44 = lshr i8 %43, 4
   %45 = or disjoint i8 %44, %41
   %46 = zext nneg i8 %45 to i64
-  %47 = getelementptr inbounds [65 x i8], ptr @base64_table, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw [65 x i8], ptr @base64_table, i64 0, i64 %46
   %48 = load i8, ptr %47, align 1
-  %49 = getelementptr inbounds i8, ptr %.0452461, i64 2
+  %49 = getelementptr inbounds nuw i8, ptr %.0452461, i64 2
   store i8 %48, ptr %39, align 1
   %50 = shl i8 %43, 2
   %51 = and i8 %50, 60
-  %52 = getelementptr inbounds i8, ptr %.0463, i64 2
+  %52 = getelementptr inbounds nuw i8, ptr %.0463, i64 2
   %53 = load i8, ptr %52, align 1
   %54 = lshr i8 %53, 6
   %55 = or disjoint i8 %54, %51
   %56 = zext nneg i8 %55 to i64
-  %57 = getelementptr inbounds [65 x i8], ptr @base64_table, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw [65 x i8], ptr @base64_table, i64 0, i64 %56
   %58 = load i8, ptr %57, align 1
-  %59 = getelementptr inbounds i8, ptr %.0452461, i64 3
+  %59 = getelementptr inbounds nuw i8, ptr %.0452461, i64 3
   store i8 %58, ptr %49, align 1
   %60 = and i8 %53, 63
   %61 = zext nneg i8 %60 to i64
-  %62 = getelementptr inbounds [65 x i8], ptr @base64_table, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw [65 x i8], ptr @base64_table, i64 0, i64 %61
   %63 = load i8, ptr %62, align 1
-  %64 = getelementptr inbounds i8, ptr %.0452461, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %.0452461, i64 4
   store i8 %63, ptr %59, align 1
-  %65 = getelementptr inbounds i8, ptr %.0463, i64 3
+  %65 = getelementptr inbounds nuw i8, ptr %.0463, i64 3
   %66 = add nsw i64 %.0451462, -3
   %67 = icmp ugt i64 %66, 2
   br i1 %67, label %.lr.ph464, label %._crit_edge
@@ -650,9 +650,9 @@ define noundef ptr @php_base64_encode_avx512(ptr nocapture noundef readonly %0, 
   %69 = load i8, ptr %.0.lcssa, align 1
   %70 = lshr i8 %69, 2
   %71 = zext nneg i8 %70 to i64
-  %72 = getelementptr inbounds [65 x i8], ptr @base64_table, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw [65 x i8], ptr @base64_table, i64 0, i64 %71
   %73 = load i8, ptr %72, align 1
-  %74 = getelementptr inbounds i8, ptr %.0452.lcssa, i64 1
+  %74 = getelementptr inbounds nuw i8, ptr %.0452.lcssa, i64 1
   store i8 %73, ptr %.0452.lcssa, align 1
   %75 = icmp eq i64 %.0451.lcssa, 2
   %76 = shl i8 %69, 4
@@ -660,35 +660,35 @@ define noundef ptr @php_base64_encode_avx512(ptr nocapture noundef readonly %0, 
   br i1 %75, label %78, label %94
 
 78:                                               ; preds = %68
-  %79 = getelementptr inbounds i8, ptr %.0.lcssa, i64 1
+  %79 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 1
   %80 = load i8, ptr %79, align 1
   %81 = lshr i8 %80, 4
   %82 = or disjoint i8 %81, %77
   %83 = zext nneg i8 %82 to i64
-  %84 = getelementptr inbounds [65 x i8], ptr @base64_table, i64 0, i64 %83
+  %84 = getelementptr inbounds nuw [65 x i8], ptr @base64_table, i64 0, i64 %83
   %85 = load i8, ptr %84, align 1
-  %86 = getelementptr inbounds i8, ptr %.0452.lcssa, i64 2
+  %86 = getelementptr inbounds nuw i8, ptr %.0452.lcssa, i64 2
   store i8 %85, ptr %74, align 1
   %87 = shl i8 %80, 2
   %88 = and i8 %87, 60
   %89 = zext nneg i8 %88 to i64
-  %90 = getelementptr inbounds [65 x i8], ptr @base64_table, i64 0, i64 %89
+  %90 = getelementptr inbounds nuw [65 x i8], ptr @base64_table, i64 0, i64 %89
   %91 = load i8, ptr %90, align 4
-  %92 = getelementptr inbounds i8, ptr %.0452.lcssa, i64 3
+  %92 = getelementptr inbounds nuw i8, ptr %.0452.lcssa, i64 3
   store i8 %91, ptr %86, align 1
-  %93 = getelementptr inbounds i8, ptr %.0452.lcssa, i64 4
+  %93 = getelementptr inbounds nuw i8, ptr %.0452.lcssa, i64 4
   store i8 61, ptr %92, align 1
   br label %101
 
 94:                                               ; preds = %68
   %95 = zext nneg i8 %77 to i64
-  %96 = getelementptr inbounds [65 x i8], ptr @base64_table, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw [65 x i8], ptr @base64_table, i64 0, i64 %95
   %97 = load i8, ptr %96, align 16
-  %98 = getelementptr inbounds i8, ptr %.0452.lcssa, i64 2
+  %98 = getelementptr inbounds nuw i8, ptr %.0452.lcssa, i64 2
   store i8 %97, ptr %74, align 1
-  %99 = getelementptr inbounds i8, ptr %.0452.lcssa, i64 3
+  %99 = getelementptr inbounds nuw i8, ptr %.0452.lcssa, i64 3
   store i8 61, ptr %98, align 1
-  %100 = getelementptr inbounds i8, ptr %.0452.lcssa, i64 4
+  %100 = getelementptr inbounds nuw i8, ptr %.0452.lcssa, i64 4
   store i8 61, ptr %99, align 1
   br label %101
 
@@ -711,13 +711,13 @@ define noundef ptr @php_base64_decode_ex_avx512(ptr nocapture noundef readonly %
   %5 = add i64 %4, 32
   %6 = tail call noalias ptr @_emalloc(i64 noundef %5) #11
   store i32 1, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %6, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 22, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %11 = icmp ugt i64 %1, 64
   br i1 %11, label %.lr.ph.preheader, label %._crit_edge
 
@@ -760,8 +760,8 @@ define noundef ptr @php_base64_decode_ex_avx512(ptr nocapture noundef readonly %
   %37 = bitcast <64 x i8> %36 to <16 x i32>
   %38 = shufflevector <16 x i32> %37, <16 x i32> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 4, i32 5, i32 6, i32 8, i32 9, i32 10, i32 12, i32 13, i32 14, i32 0, i32 0, i32 0, i32 0>
   store <16 x i32> %38, ptr %.0606646, align 1
-  %39 = getelementptr inbounds i8, ptr %.0605647, i64 64
-  %40 = getelementptr inbounds i8, ptr %.0606646, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %.0605647, i64 64
+  %40 = getelementptr inbounds nuw i8, ptr %.0606646, i64 48
   %41 = add nuw i64 %.0609645, 48
   %42 = add i64 %.0604648, -64
   %43 = icmp ugt i64 %42, 64
@@ -853,14 +853,14 @@ define noundef ptr @php_base64_decode_ex_avx512(ptr nocapture noundef readonly %
 77:                                               ; preds = %.backedge.us.us.us, %.lr.ph658.us.us
   %78 = phi i64 [ %76, %.lr.ph658.us.us ], [ %87, %.backedge.us.us.us ]
   %.0598657.us.us.us = phi ptr [ %.0598.ph627679.us.us, %.lr.ph658.us.us ], [ %79, %.backedge.us.us.us ]
-  %79 = getelementptr inbounds i8, ptr %.0598657.us.us.us, i64 1
+  %79 = getelementptr inbounds nuw i8, ptr %.0598657.us.us.us, i64 1
   %80 = load i8, ptr %.0598657.us.us.us, align 1
   %81 = icmp eq i8 %80, 61
   br i1 %81, label %.split.us.us.us, label %82
 
 82:                                               ; preds = %77
   %83 = zext i8 %80 to i64
-  %84 = getelementptr inbounds [256 x i16], ptr @base64_reverse_table, i64 0, i64 %83
+  %84 = getelementptr inbounds nuw [256 x i16], ptr @base64_reverse_table, i64 0, i64 %83
   %85 = load i16, ptr %84, align 2
   %86 = icmp eq i16 %85, -1
   br i1 %86, label %.backedge.us.us.us, label %.split668.us.split.us.us
@@ -906,7 +906,7 @@ default.unreachable:                              ; preds = %.loopexit622
 95:                                               ; preds = %.lr.ph658, %.backedge
   %96 = phi i64 [ %94, %.lr.ph658 ], [ %107, %.backedge ]
   %.0598657 = phi ptr [ %.0598.ph627679, %.lr.ph658 ], [ %97, %.backedge ]
-  %97 = getelementptr inbounds i8, ptr %.0598657, i64 1
+  %97 = getelementptr inbounds nuw i8, ptr %.0598657, i64 1
   %98 = load i8, ptr %.0598657, align 1
   %99 = icmp eq i8 %98, 61
   br i1 %99, label %.split, label %102
@@ -919,7 +919,7 @@ default.unreachable:                              ; preds = %.loopexit622
 
 102:                                              ; preds = %95
   %103 = zext i8 %98 to i64
-  %104 = getelementptr inbounds [256 x i16], ptr @base64_reverse_table, i64 0, i64 %103
+  %104 = getelementptr inbounds nuw [256 x i16], ptr @base64_reverse_table, i64 0, i64 %103
   %105 = load i16, ptr %104, align 2
   %106 = icmp slt i16 %105, 0
   br i1 %106, label %.backedge, label %.loopexit622
@@ -1032,14 +1032,14 @@ define noundef ptr @php_base64_encode_avx2(ptr nocapture noundef readonly %0, i6
   %4 = udiv i64 %3, 3
   %5 = tail call noalias ptr @_safe_emalloc(i64 noundef %4, i64 noundef 4, i64 noundef 32) #10
   store i32 1, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 22, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %7, align 8
   %8 = shl i64 %4, 2
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %11 = icmp ugt i64 %1, 31
   br i1 %11, label %12, label %.loopexit
 
@@ -1062,8 +1062,8 @@ define noundef ptr @php_base64_encode_avx2(ptr nocapture noundef readonly %0, i6
   %27 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 65, i8 71, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -19, i8 -16, i8 0, i8 0, i8 65, i8 71, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -19, i8 -16, i8 0, i8 0>, <32 x i8> %26)
   %28 = add <32 x i8> %27, %23
   store <32 x i8> %28, ptr %10, align 1
-  %29 = getelementptr inbounds i8, ptr %0, i64 24
-  %30 = getelementptr inbounds i8, ptr %5, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %31 = add i64 %1, -24
   %32 = icmp ult i64 %31, 28
   br i1 %32, label %.lr.ph120.preheader, label %.lr.ph
@@ -1073,7 +1073,7 @@ define noundef ptr @php_base64_encode_avx2(ptr nocapture noundef readonly %0, i6
   %34 = phi ptr [ %52, %.lr.ph ], [ %30, %12 ]
   %35 = phi ptr [ %51, %.lr.ph ], [ %29, %12 ]
   %.1104114 = phi ptr [ %35, %.lr.ph ], [ %0, %12 ]
-  %36 = getelementptr inbounds i8, ptr %.1104114, i64 20
+  %36 = getelementptr inbounds nuw i8, ptr %.1104114, i64 20
   %37 = load <32 x i8>, ptr %36, align 1
   %38 = shufflevector <32 x i8> %37, <32 x i8> poison, <32 x i32> <i32 5, i32 4, i32 6, i32 5, i32 8, i32 7, i32 9, i32 8, i32 11, i32 10, i32 12, i32 11, i32 14, i32 13, i32 15, i32 14, i32 17, i32 16, i32 18, i32 17, i32 20, i32 19, i32 21, i32 20, i32 23, i32 22, i32 24, i32 23, i32 26, i32 25, i32 27, i32 26>
   %39 = bitcast <32 x i8> %38 to <16 x i16>
@@ -1090,8 +1090,8 @@ define noundef ptr @php_base64_encode_avx2(ptr nocapture noundef readonly %0, i6
   %49 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 65, i8 71, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -19, i8 -16, i8 0, i8 0, i8 65, i8 71, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -19, i8 -16, i8 0, i8 0>, <32 x i8> %48)
   %50 = add <32 x i8> %49, %45
   store <32 x i8> %50, ptr %34, align 1
-  %51 = getelementptr inbounds i8, ptr %35, i64 24
-  %52 = getelementptr inbounds i8, ptr %34, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %35, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %53 = add i64 %33, -24
   %54 = icmp ult i64 %53, 28
   br i1 %54, label %.lr.ph120.preheader, label %.lr.ph
@@ -1113,39 +1113,39 @@ define noundef ptr @php_base64_encode_avx2(ptr nocapture noundef readonly %0, i6
   %56 = load i8, ptr %.0119, align 1
   %57 = lshr i8 %56, 2
   %58 = zext nneg i8 %57 to i64
-  %59 = getelementptr inbounds [65 x i8], ptr @base64_table, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw [65 x i8], ptr @base64_table, i64 0, i64 %58
   %60 = load i8, ptr %59, align 1
-  %61 = getelementptr inbounds i8, ptr %.097117, i64 1
+  %61 = getelementptr inbounds nuw i8, ptr %.097117, i64 1
   store i8 %60, ptr %.097117, align 1
   %62 = shl i8 %56, 4
   %63 = and i8 %62, 48
-  %64 = getelementptr inbounds i8, ptr %.0119, i64 1
+  %64 = getelementptr inbounds nuw i8, ptr %.0119, i64 1
   %65 = load i8, ptr %64, align 1
   %66 = lshr i8 %65, 4
   %67 = or disjoint i8 %66, %63
   %68 = zext nneg i8 %67 to i64
-  %69 = getelementptr inbounds [65 x i8], ptr @base64_table, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw [65 x i8], ptr @base64_table, i64 0, i64 %68
   %70 = load i8, ptr %69, align 1
-  %71 = getelementptr inbounds i8, ptr %.097117, i64 2
+  %71 = getelementptr inbounds nuw i8, ptr %.097117, i64 2
   store i8 %70, ptr %61, align 1
   %72 = shl i8 %65, 2
   %73 = and i8 %72, 60
-  %74 = getelementptr inbounds i8, ptr %.0119, i64 2
+  %74 = getelementptr inbounds nuw i8, ptr %.0119, i64 2
   %75 = load i8, ptr %74, align 1
   %76 = lshr i8 %75, 6
   %77 = or disjoint i8 %76, %73
   %78 = zext nneg i8 %77 to i64
-  %79 = getelementptr inbounds [65 x i8], ptr @base64_table, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw [65 x i8], ptr @base64_table, i64 0, i64 %78
   %80 = load i8, ptr %79, align 1
-  %81 = getelementptr inbounds i8, ptr %.097117, i64 3
+  %81 = getelementptr inbounds nuw i8, ptr %.097117, i64 3
   store i8 %80, ptr %71, align 1
   %82 = and i8 %75, 63
   %83 = zext nneg i8 %82 to i64
-  %84 = getelementptr inbounds [65 x i8], ptr @base64_table, i64 0, i64 %83
+  %84 = getelementptr inbounds nuw [65 x i8], ptr @base64_table, i64 0, i64 %83
   %85 = load i8, ptr %84, align 1
-  %86 = getelementptr inbounds i8, ptr %.097117, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %.097117, i64 4
   store i8 %85, ptr %81, align 1
-  %87 = getelementptr inbounds i8, ptr %.0119, i64 3
+  %87 = getelementptr inbounds nuw i8, ptr %.0119, i64 3
   %88 = add nsw i64 %.096118, -3
   %89 = icmp ugt i64 %88, 2
   br i1 %89, label %.lr.ph120, label %._crit_edge
@@ -1161,9 +1161,9 @@ define noundef ptr @php_base64_encode_avx2(ptr nocapture noundef readonly %0, i6
   %91 = load i8, ptr %.0.lcssa, align 1
   %92 = lshr i8 %91, 2
   %93 = zext nneg i8 %92 to i64
-  %94 = getelementptr inbounds [65 x i8], ptr @base64_table, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw [65 x i8], ptr @base64_table, i64 0, i64 %93
   %95 = load i8, ptr %94, align 1
-  %96 = getelementptr inbounds i8, ptr %.097.lcssa, i64 1
+  %96 = getelementptr inbounds nuw i8, ptr %.097.lcssa, i64 1
   store i8 %95, ptr %.097.lcssa, align 1
   %97 = icmp eq i64 %.096.lcssa, 2
   %98 = shl i8 %91, 4
@@ -1171,35 +1171,35 @@ define noundef ptr @php_base64_encode_avx2(ptr nocapture noundef readonly %0, i6
   br i1 %97, label %100, label %116
 
 100:                                              ; preds = %90
-  %101 = getelementptr inbounds i8, ptr %.0.lcssa, i64 1
+  %101 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 1
   %102 = load i8, ptr %101, align 1
   %103 = lshr i8 %102, 4
   %104 = or disjoint i8 %103, %99
   %105 = zext nneg i8 %104 to i64
-  %106 = getelementptr inbounds [65 x i8], ptr @base64_table, i64 0, i64 %105
+  %106 = getelementptr inbounds nuw [65 x i8], ptr @base64_table, i64 0, i64 %105
   %107 = load i8, ptr %106, align 1
-  %108 = getelementptr inbounds i8, ptr %.097.lcssa, i64 2
+  %108 = getelementptr inbounds nuw i8, ptr %.097.lcssa, i64 2
   store i8 %107, ptr %96, align 1
   %109 = shl i8 %102, 2
   %110 = and i8 %109, 60
   %111 = zext nneg i8 %110 to i64
-  %112 = getelementptr inbounds [65 x i8], ptr @base64_table, i64 0, i64 %111
+  %112 = getelementptr inbounds nuw [65 x i8], ptr @base64_table, i64 0, i64 %111
   %113 = load i8, ptr %112, align 4
-  %114 = getelementptr inbounds i8, ptr %.097.lcssa, i64 3
+  %114 = getelementptr inbounds nuw i8, ptr %.097.lcssa, i64 3
   store i8 %113, ptr %108, align 1
-  %115 = getelementptr inbounds i8, ptr %.097.lcssa, i64 4
+  %115 = getelementptr inbounds nuw i8, ptr %.097.lcssa, i64 4
   store i8 61, ptr %114, align 1
   br label %123
 
 116:                                              ; preds = %90
   %117 = zext nneg i8 %99 to i64
-  %118 = getelementptr inbounds [65 x i8], ptr @base64_table, i64 0, i64 %117
+  %118 = getelementptr inbounds nuw [65 x i8], ptr @base64_table, i64 0, i64 %117
   %119 = load i8, ptr %118, align 16
-  %120 = getelementptr inbounds i8, ptr %.097.lcssa, i64 2
+  %120 = getelementptr inbounds nuw i8, ptr %.097.lcssa, i64 2
   store i8 %119, ptr %96, align 1
-  %121 = getelementptr inbounds i8, ptr %.097.lcssa, i64 3
+  %121 = getelementptr inbounds nuw i8, ptr %.097.lcssa, i64 3
   store i8 61, ptr %120, align 1
-  %122 = getelementptr inbounds i8, ptr %.097.lcssa, i64 4
+  %122 = getelementptr inbounds nuw i8, ptr %.097.lcssa, i64 4
   store i8 61, ptr %121, align 1
   br label %123
 
@@ -1219,14 +1219,14 @@ define noundef ptr @php_base64_encode_ssse3(ptr nocapture noundef readonly %0, i
   %4 = udiv i64 %3, 3
   %5 = tail call noalias ptr @_safe_emalloc(i64 noundef %4, i64 noundef 4, i64 noundef 32) #10
   store i32 1, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 22, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %7, align 8
   %8 = shl i64 %4, 2
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %11 = icmp ugt i64 %1, 15
   br i1 %11, label %.lr.ph, label %.preheader
 
@@ -1254,8 +1254,8 @@ define noundef ptr @php_base64_encode_ssse3(ptr nocapture noundef readonly %0, i
   %25 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> <i8 65, i8 71, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -19, i8 -16, i8 0, i8 0>, <16 x i8> %24)
   %26 = add <16 x i8> %25, %21
   store <16 x i8> %26, ptr %.06975, align 1
-  %27 = getelementptr inbounds i8, ptr %.07074, i64 12
-  %28 = getelementptr inbounds i8, ptr %.06975, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %.07074, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %.06975, i64 16
   %29 = add i64 %.07173, -12
   %30 = icmp ugt i64 %29, 15
   br i1 %30, label %.lr.ph, label %.lr.ph81.preheader
@@ -1273,39 +1273,39 @@ define noundef ptr @php_base64_encode_ssse3(ptr nocapture noundef readonly %0, i
   %31 = load i8, ptr %.080, align 1
   %32 = lshr i8 %31, 2
   %33 = zext nneg i8 %32 to i64
-  %34 = getelementptr inbounds [65 x i8], ptr @base64_table, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw [65 x i8], ptr @base64_table, i64 0, i64 %33
   %35 = load i8, ptr %34, align 1
-  %36 = getelementptr inbounds i8, ptr %.07278, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %.07278, i64 1
   store i8 %35, ptr %.07278, align 1
   %37 = shl i8 %31, 4
   %38 = and i8 %37, 48
-  %39 = getelementptr inbounds i8, ptr %.080, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %.080, i64 1
   %40 = load i8, ptr %39, align 1
   %41 = lshr i8 %40, 4
   %42 = or disjoint i8 %41, %38
   %43 = zext nneg i8 %42 to i64
-  %44 = getelementptr inbounds [65 x i8], ptr @base64_table, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw [65 x i8], ptr @base64_table, i64 0, i64 %43
   %45 = load i8, ptr %44, align 1
-  %46 = getelementptr inbounds i8, ptr %.07278, i64 2
+  %46 = getelementptr inbounds nuw i8, ptr %.07278, i64 2
   store i8 %45, ptr %36, align 1
   %47 = shl i8 %40, 2
   %48 = and i8 %47, 60
-  %49 = getelementptr inbounds i8, ptr %.080, i64 2
+  %49 = getelementptr inbounds nuw i8, ptr %.080, i64 2
   %50 = load i8, ptr %49, align 1
   %51 = lshr i8 %50, 6
   %52 = or disjoint i8 %51, %48
   %53 = zext nneg i8 %52 to i64
-  %54 = getelementptr inbounds [65 x i8], ptr @base64_table, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw [65 x i8], ptr @base64_table, i64 0, i64 %53
   %55 = load i8, ptr %54, align 1
-  %56 = getelementptr inbounds i8, ptr %.07278, i64 3
+  %56 = getelementptr inbounds nuw i8, ptr %.07278, i64 3
   store i8 %55, ptr %46, align 1
   %57 = and i8 %50, 63
   %58 = zext nneg i8 %57 to i64
-  %59 = getelementptr inbounds [65 x i8], ptr @base64_table, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw [65 x i8], ptr @base64_table, i64 0, i64 %58
   %60 = load i8, ptr %59, align 1
-  %61 = getelementptr inbounds i8, ptr %.07278, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %.07278, i64 4
   store i8 %60, ptr %56, align 1
-  %62 = getelementptr inbounds i8, ptr %.080, i64 3
+  %62 = getelementptr inbounds nuw i8, ptr %.080, i64 3
   %63 = add nsw i64 %.06879, -3
   %64 = icmp ugt i64 %63, 2
   br i1 %64, label %.lr.ph81, label %._crit_edge
@@ -1321,9 +1321,9 @@ define noundef ptr @php_base64_encode_ssse3(ptr nocapture noundef readonly %0, i
   %66 = load i8, ptr %.0.lcssa, align 1
   %67 = lshr i8 %66, 2
   %68 = zext nneg i8 %67 to i64
-  %69 = getelementptr inbounds [65 x i8], ptr @base64_table, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw [65 x i8], ptr @base64_table, i64 0, i64 %68
   %70 = load i8, ptr %69, align 1
-  %71 = getelementptr inbounds i8, ptr %.072.lcssa, i64 1
+  %71 = getelementptr inbounds nuw i8, ptr %.072.lcssa, i64 1
   store i8 %70, ptr %.072.lcssa, align 1
   %72 = icmp eq i64 %.068.lcssa, 2
   %73 = shl i8 %66, 4
@@ -1331,35 +1331,35 @@ define noundef ptr @php_base64_encode_ssse3(ptr nocapture noundef readonly %0, i
   br i1 %72, label %75, label %91
 
 75:                                               ; preds = %65
-  %76 = getelementptr inbounds i8, ptr %.0.lcssa, i64 1
+  %76 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 1
   %77 = load i8, ptr %76, align 1
   %78 = lshr i8 %77, 4
   %79 = or disjoint i8 %78, %74
   %80 = zext nneg i8 %79 to i64
-  %81 = getelementptr inbounds [65 x i8], ptr @base64_table, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw [65 x i8], ptr @base64_table, i64 0, i64 %80
   %82 = load i8, ptr %81, align 1
-  %83 = getelementptr inbounds i8, ptr %.072.lcssa, i64 2
+  %83 = getelementptr inbounds nuw i8, ptr %.072.lcssa, i64 2
   store i8 %82, ptr %71, align 1
   %84 = shl i8 %77, 2
   %85 = and i8 %84, 60
   %86 = zext nneg i8 %85 to i64
-  %87 = getelementptr inbounds [65 x i8], ptr @base64_table, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw [65 x i8], ptr @base64_table, i64 0, i64 %86
   %88 = load i8, ptr %87, align 4
-  %89 = getelementptr inbounds i8, ptr %.072.lcssa, i64 3
+  %89 = getelementptr inbounds nuw i8, ptr %.072.lcssa, i64 3
   store i8 %88, ptr %83, align 1
-  %90 = getelementptr inbounds i8, ptr %.072.lcssa, i64 4
+  %90 = getelementptr inbounds nuw i8, ptr %.072.lcssa, i64 4
   store i8 61, ptr %89, align 1
   br label %98
 
 91:                                               ; preds = %65
   %92 = zext nneg i8 %74 to i64
-  %93 = getelementptr inbounds [65 x i8], ptr @base64_table, i64 0, i64 %92
+  %93 = getelementptr inbounds nuw [65 x i8], ptr @base64_table, i64 0, i64 %92
   %94 = load i8, ptr %93, align 16
-  %95 = getelementptr inbounds i8, ptr %.072.lcssa, i64 2
+  %95 = getelementptr inbounds nuw i8, ptr %.072.lcssa, i64 2
   store i8 %94, ptr %71, align 1
-  %96 = getelementptr inbounds i8, ptr %.072.lcssa, i64 3
+  %96 = getelementptr inbounds nuw i8, ptr %.072.lcssa, i64 3
   store i8 61, ptr %95, align 1
-  %97 = getelementptr inbounds i8, ptr %.072.lcssa, i64 4
+  %97 = getelementptr inbounds nuw i8, ptr %.072.lcssa, i64 4
   store i8 61, ptr %96, align 1
   br label %98
 
@@ -1379,13 +1379,13 @@ define noundef ptr @php_base64_decode_ex_avx2(ptr nocapture noundef readonly %0,
   %5 = add i64 %4, 32
   %6 = tail call noalias ptr @_emalloc(i64 noundef %5) #11
   store i32 1, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %6, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 22, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %11 = icmp ugt i64 %1, 44
   br i1 %11, label %.lr.ph, label %._crit_edge
 
@@ -1422,8 +1422,8 @@ define noundef ptr @php_base64_decode_ex_avx2(ptr nocapture noundef readonly %0,
   %34 = bitcast <32 x i8> %33 to <8 x i32>
   %35 = shufflevector <8 x i32> %34, <8 x i32> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 4, i32 5, i32 6, i32 7, i32 7>
   store <8 x i32> %35, ptr %.0585625, align 1
-  %36 = getelementptr inbounds i8, ptr %.0584626, i64 32
-  %37 = getelementptr inbounds i8, ptr %.0585625, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %.0584626, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %.0585625, i64 24
   %38 = add nuw i64 %.0588624, 24
   %39 = add i64 %.0583627, -32
   %40 = icmp ugt i64 %39, 44
@@ -1515,14 +1515,14 @@ define noundef ptr @php_base64_decode_ex_avx2(ptr nocapture noundef readonly %0,
 74:                                               ; preds = %.backedge.us.us.us, %.lr.ph637.us.us
   %75 = phi i64 [ %73, %.lr.ph637.us.us ], [ %84, %.backedge.us.us.us ]
   %.0577636.us.us.us = phi ptr [ %.0577.ph606658.us.us, %.lr.ph637.us.us ], [ %76, %.backedge.us.us.us ]
-  %76 = getelementptr inbounds i8, ptr %.0577636.us.us.us, i64 1
+  %76 = getelementptr inbounds nuw i8, ptr %.0577636.us.us.us, i64 1
   %77 = load i8, ptr %.0577636.us.us.us, align 1
   %78 = icmp eq i8 %77, 61
   br i1 %78, label %.split.us.us.us, label %79
 
 79:                                               ; preds = %74
   %80 = zext i8 %77 to i64
-  %81 = getelementptr inbounds [256 x i16], ptr @base64_reverse_table, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw [256 x i16], ptr @base64_reverse_table, i64 0, i64 %80
   %82 = load i16, ptr %81, align 2
   %83 = icmp eq i16 %82, -1
   br i1 %83, label %.backedge.us.us.us, label %.split647.us.split.us.us
@@ -1568,7 +1568,7 @@ default.unreachable:                              ; preds = %.loopexit601
 92:                                               ; preds = %.lr.ph637, %.backedge
   %93 = phi i64 [ %91, %.lr.ph637 ], [ %104, %.backedge ]
   %.0577636 = phi ptr [ %.0577.ph606658, %.lr.ph637 ], [ %94, %.backedge ]
-  %94 = getelementptr inbounds i8, ptr %.0577636, i64 1
+  %94 = getelementptr inbounds nuw i8, ptr %.0577636, i64 1
   %95 = load i8, ptr %.0577636, align 1
   %96 = icmp eq i8 %95, 61
   br i1 %96, label %.split, label %99
@@ -1581,7 +1581,7 @@ default.unreachable:                              ; preds = %.loopexit601
 
 99:                                               ; preds = %92
   %100 = zext i8 %95 to i64
-  %101 = getelementptr inbounds [256 x i16], ptr @base64_reverse_table, i64 0, i64 %100
+  %101 = getelementptr inbounds nuw [256 x i16], ptr @base64_reverse_table, i64 0, i64 %100
   %102 = load i16, ptr %101, align 2
   %103 = icmp slt i16 %102, 0
   br i1 %103, label %.backedge, label %.loopexit601
@@ -1694,13 +1694,13 @@ define noundef ptr @php_base64_decode_ex_ssse3(ptr nocapture noundef readonly %0
   %5 = add i64 %4, 32
   %6 = tail call noalias ptr @_emalloc(i64 noundef %5) #11
   store i32 1, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %6, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 22, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %11 = icmp ugt i64 %1, 23
   br i1 %11, label %.lr.ph, label %._crit_edge
 
@@ -1735,8 +1735,8 @@ define noundef ptr @php_base64_decode_ex_ssse3(ptr nocapture noundef readonly %0
   %32 = bitcast <4 x i32> %31 to <16 x i8>
   %33 = shufflevector <16 x i8> %32, <16 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 2, i32 1, i32 0, i32 6, i32 5, i32 4, i32 10, i32 9, i32 8, i32 14, i32 13, i32 12, i32 16, i32 16, i32 16, i32 16>
   store <16 x i8> %33, ptr %.0390430, align 1
-  %34 = getelementptr inbounds i8, ptr %.0389431, i64 16
-  %35 = getelementptr inbounds i8, ptr %.0390430, i64 12
+  %34 = getelementptr inbounds nuw i8, ptr %.0389431, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %.0390430, i64 12
   %36 = add nuw i64 %.0393429, 12
   %37 = add i64 %.0388432, -16
   %38 = icmp ugt i64 %37, 23
@@ -1828,14 +1828,14 @@ define noundef ptr @php_base64_decode_ex_ssse3(ptr nocapture noundef readonly %0
 72:                                               ; preds = %.backedge.us.us.us, %.lr.ph442.us.us
   %73 = phi i64 [ %71, %.lr.ph442.us.us ], [ %82, %.backedge.us.us.us ]
   %.0382441.us.us.us = phi ptr [ %.0382.ph411463.us.us, %.lr.ph442.us.us ], [ %74, %.backedge.us.us.us ]
-  %74 = getelementptr inbounds i8, ptr %.0382441.us.us.us, i64 1
+  %74 = getelementptr inbounds nuw i8, ptr %.0382441.us.us.us, i64 1
   %75 = load i8, ptr %.0382441.us.us.us, align 1
   %76 = icmp eq i8 %75, 61
   br i1 %76, label %.split.us.us.us, label %77
 
 77:                                               ; preds = %72
   %78 = zext i8 %75 to i64
-  %79 = getelementptr inbounds [256 x i16], ptr @base64_reverse_table, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw [256 x i16], ptr @base64_reverse_table, i64 0, i64 %78
   %80 = load i16, ptr %79, align 2
   %81 = icmp eq i16 %80, -1
   br i1 %81, label %.backedge.us.us.us, label %.split452.us.split.us.us
@@ -1881,7 +1881,7 @@ default.unreachable:                              ; preds = %.loopexit406
 90:                                               ; preds = %.lr.ph442, %.backedge
   %91 = phi i64 [ %89, %.lr.ph442 ], [ %102, %.backedge ]
   %.0382441 = phi ptr [ %.0382.ph411463, %.lr.ph442 ], [ %92, %.backedge ]
-  %92 = getelementptr inbounds i8, ptr %.0382441, i64 1
+  %92 = getelementptr inbounds nuw i8, ptr %.0382441, i64 1
   %93 = load i8, ptr %.0382441, align 1
   %94 = icmp eq i8 %93, 61
   br i1 %94, label %.split, label %97
@@ -1894,7 +1894,7 @@ default.unreachable:                              ; preds = %.loopexit406
 
 97:                                               ; preds = %90
   %98 = zext i8 %93 to i64
-  %99 = getelementptr inbounds [256 x i16], ptr @base64_reverse_table, i64 0, i64 %98
+  %99 = getelementptr inbounds nuw [256 x i16], ptr @base64_reverse_table, i64 0, i64 %98
   %100 = load i16, ptr %99, align 2
   %101 = icmp slt i16 %100, 0
   br i1 %101, label %.backedge, label %.loopexit406
@@ -2007,14 +2007,14 @@ define hidden noundef ptr @php_base64_encode_default(ptr nocapture noundef reado
   %4 = udiv i64 %3, 3
   %5 = tail call noalias ptr @_safe_emalloc(i64 noundef %4, i64 noundef 4, i64 noundef 32) #10
   store i32 1, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 22, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %7, align 8
   %8 = shl i64 %4, 2
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %11 = icmp ugt i64 %1, 2
   br i1 %11, label %.lr.ph, label %._crit_edge
 
@@ -2025,39 +2025,39 @@ define hidden noundef ptr @php_base64_encode_default(ptr nocapture noundef reado
   %12 = load i8, ptr %.059, align 1
   %13 = lshr i8 %12, 2
   %14 = zext nneg i8 %13 to i64
-  %15 = getelementptr inbounds [65 x i8], ptr @base64_table, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw [65 x i8], ptr @base64_table, i64 0, i64 %14
   %16 = load i8, ptr %15, align 1
-  %17 = getelementptr inbounds i8, ptr %.05657, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.05657, i64 1
   store i8 %16, ptr %.05657, align 1
   %18 = shl i8 %12, 4
   %19 = and i8 %18, 48
-  %20 = getelementptr inbounds i8, ptr %.059, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %.059, i64 1
   %21 = load i8, ptr %20, align 1
   %22 = lshr i8 %21, 4
   %23 = or disjoint i8 %22, %19
   %24 = zext nneg i8 %23 to i64
-  %25 = getelementptr inbounds [65 x i8], ptr @base64_table, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw [65 x i8], ptr @base64_table, i64 0, i64 %24
   %26 = load i8, ptr %25, align 1
-  %27 = getelementptr inbounds i8, ptr %.05657, i64 2
+  %27 = getelementptr inbounds nuw i8, ptr %.05657, i64 2
   store i8 %26, ptr %17, align 1
   %28 = shl i8 %21, 2
   %29 = and i8 %28, 60
-  %30 = getelementptr inbounds i8, ptr %.059, i64 2
+  %30 = getelementptr inbounds nuw i8, ptr %.059, i64 2
   %31 = load i8, ptr %30, align 1
   %32 = lshr i8 %31, 6
   %33 = or disjoint i8 %32, %29
   %34 = zext nneg i8 %33 to i64
-  %35 = getelementptr inbounds [65 x i8], ptr @base64_table, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw [65 x i8], ptr @base64_table, i64 0, i64 %34
   %36 = load i8, ptr %35, align 1
-  %37 = getelementptr inbounds i8, ptr %.05657, i64 3
+  %37 = getelementptr inbounds nuw i8, ptr %.05657, i64 3
   store i8 %36, ptr %27, align 1
   %38 = and i8 %31, 63
   %39 = zext nneg i8 %38 to i64
-  %40 = getelementptr inbounds [65 x i8], ptr @base64_table, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw [65 x i8], ptr @base64_table, i64 0, i64 %39
   %41 = load i8, ptr %40, align 1
-  %42 = getelementptr inbounds i8, ptr %.05657, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %.05657, i64 4
   store i8 %41, ptr %37, align 1
-  %43 = getelementptr inbounds i8, ptr %.059, i64 3
+  %43 = getelementptr inbounds nuw i8, ptr %.059, i64 3
   %44 = add i64 %.05558, -3
   %45 = icmp ugt i64 %44, 2
   br i1 %45, label %.lr.ph, label %._crit_edge
@@ -2073,9 +2073,9 @@ define hidden noundef ptr @php_base64_encode_default(ptr nocapture noundef reado
   %47 = load i8, ptr %.0.lcssa, align 1
   %48 = lshr i8 %47, 2
   %49 = zext nneg i8 %48 to i64
-  %50 = getelementptr inbounds [65 x i8], ptr @base64_table, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw [65 x i8], ptr @base64_table, i64 0, i64 %49
   %51 = load i8, ptr %50, align 1
-  %52 = getelementptr inbounds i8, ptr %.056.lcssa, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %.056.lcssa, i64 1
   store i8 %51, ptr %.056.lcssa, align 1
   %53 = icmp eq i64 %.055.lcssa, 2
   %54 = shl i8 %47, 4
@@ -2083,35 +2083,35 @@ define hidden noundef ptr @php_base64_encode_default(ptr nocapture noundef reado
   br i1 %53, label %56, label %72
 
 56:                                               ; preds = %46
-  %57 = getelementptr inbounds i8, ptr %.0.lcssa, i64 1
+  %57 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 1
   %58 = load i8, ptr %57, align 1
   %59 = lshr i8 %58, 4
   %60 = or disjoint i8 %59, %55
   %61 = zext nneg i8 %60 to i64
-  %62 = getelementptr inbounds [65 x i8], ptr @base64_table, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw [65 x i8], ptr @base64_table, i64 0, i64 %61
   %63 = load i8, ptr %62, align 1
-  %64 = getelementptr inbounds i8, ptr %.056.lcssa, i64 2
+  %64 = getelementptr inbounds nuw i8, ptr %.056.lcssa, i64 2
   store i8 %63, ptr %52, align 1
   %65 = shl i8 %58, 2
   %66 = and i8 %65, 60
   %67 = zext nneg i8 %66 to i64
-  %68 = getelementptr inbounds [65 x i8], ptr @base64_table, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw [65 x i8], ptr @base64_table, i64 0, i64 %67
   %69 = load i8, ptr %68, align 4
-  %70 = getelementptr inbounds i8, ptr %.056.lcssa, i64 3
+  %70 = getelementptr inbounds nuw i8, ptr %.056.lcssa, i64 3
   store i8 %69, ptr %64, align 1
-  %71 = getelementptr inbounds i8, ptr %.056.lcssa, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %.056.lcssa, i64 4
   store i8 61, ptr %70, align 1
   br label %79
 
 72:                                               ; preds = %46
   %73 = zext nneg i8 %55 to i64
-  %74 = getelementptr inbounds [65 x i8], ptr @base64_table, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw [65 x i8], ptr @base64_table, i64 0, i64 %73
   %75 = load i8, ptr %74, align 16
-  %76 = getelementptr inbounds i8, ptr %.056.lcssa, i64 2
+  %76 = getelementptr inbounds nuw i8, ptr %.056.lcssa, i64 2
   store i8 %75, ptr %52, align 1
-  %77 = getelementptr inbounds i8, ptr %.056.lcssa, i64 3
+  %77 = getelementptr inbounds nuw i8, ptr %.056.lcssa, i64 3
   store i8 61, ptr %76, align 1
-  %78 = getelementptr inbounds i8, ptr %.056.lcssa, i64 4
+  %78 = getelementptr inbounds nuw i8, ptr %.056.lcssa, i64 4
   store i8 61, ptr %77, align 1
   br label %79
 
@@ -2131,13 +2131,13 @@ define hidden noundef ptr @php_base64_decode_ex_default(ptr nocapture noundef re
   %5 = add i64 %4, 32
   %6 = tail call noalias ptr @_emalloc(i64 noundef %5) #11
   store i32 1, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %6, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 22, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %.not143161181 = icmp eq i64 %1, 0
   br i1 %.not143161181, label %.thread, label %.lr.ph.lr.ph.lr.ph
 
@@ -2217,14 +2217,14 @@ define hidden noundef ptr @php_base64_decode_ex_default(ptr nocapture noundef re
 44:                                               ; preds = %.backedge.us.us.us, %.lr.ph.us.us
   %45 = phi i64 [ %43, %.lr.ph.us.us ], [ %54, %.backedge.us.us.us ]
   %.0101144.us.us.us = phi ptr [ %.0101.ph124163.us.us, %.lr.ph.us.us ], [ %46, %.backedge.us.us.us ]
-  %46 = getelementptr inbounds i8, ptr %.0101144.us.us.us, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %.0101144.us.us.us, i64 1
   %47 = load i8, ptr %.0101144.us.us.us, align 1
   %48 = icmp eq i8 %47, 61
   br i1 %48, label %.split.us.us.us, label %49
 
 49:                                               ; preds = %44
   %50 = zext i8 %47 to i64
-  %51 = getelementptr inbounds [256 x i16], ptr @base64_reverse_table, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw [256 x i16], ptr @base64_reverse_table, i64 0, i64 %50
   %52 = load i16, ptr %51, align 2
   %53 = icmp eq i16 %52, -1
   br i1 %53, label %.backedge.us.us.us, label %.split152.us.split.us.us
@@ -2270,7 +2270,7 @@ default.unreachable:                              ; preds = %.loopexit119
 62:                                               ; preds = %.lr.ph, %.backedge
   %63 = phi i64 [ %61, %.lr.ph ], [ %74, %.backedge ]
   %.0101144 = phi ptr [ %.0101.ph124163, %.lr.ph ], [ %64, %.backedge ]
-  %64 = getelementptr inbounds i8, ptr %.0101144, i64 1
+  %64 = getelementptr inbounds nuw i8, ptr %.0101144, i64 1
   %65 = load i8, ptr %.0101144, align 1
   %66 = icmp eq i8 %65, 61
   br i1 %66, label %.split, label %69
@@ -2283,7 +2283,7 @@ default.unreachable:                              ; preds = %.loopexit119
 
 69:                                               ; preds = %62
   %70 = zext i8 %65 to i64
-  %71 = getelementptr inbounds [256 x i16], ptr @base64_reverse_table, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw [256 x i16], ptr @base64_reverse_table, i64 0, i64 %70
   %72 = load i16, ptr %71, align 2
   %73 = icmp slt i16 %72, 0
   br i1 %73, label %.backedge, label %.loopexit119
@@ -2393,7 +2393,7 @@ default.unreachable:                              ; preds = %.loopexit119
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_base64_encode(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #6 {
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %cond = icmp eq i32 %5, 1
   br i1 %cond, label %6, label %.thread84
@@ -2403,8 +2403,8 @@ define hidden void @zif_base64_encode(ptr noundef %0, ptr nocapture noundef writ
   br label %14
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
-  %8 = getelementptr inbounds i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %9 = load i8, ptr %8, align 8
   %10 = icmp eq i8 %9, 6
   br i1 %10, label %.thread, label %12
@@ -2432,17 +2432,17 @@ define hidden void @zif_base64_encode(ptr noundef %0, ptr nocapture noundef writ
 
 15:                                               ; preds = %._crit_edge, %.thread
   %16 = phi ptr [ %.pre, %._crit_edge ], [ %11, %.thread ]
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %16, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %20 = call ptr @php_base64_encode(ptr noundef nonnull %19, i64 noundef %18) #10
   store ptr %20, ptr %1, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = load i32, ptr %21, align 4
   %23 = and i32 %22, 64
   %.not78 = icmp eq i32 %23, 0
   %24 = select i1 %.not78, i32 262, i32 6
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %24, ptr %25, align 8
   br label %26
 
@@ -2459,7 +2459,7 @@ define hidden void @zif_base64_decode(ptr noundef %0, ptr nocapture noundef writ
   %3 = alloca ptr, align 8
   %4 = alloca i8, align 1
   store i8 0, ptr %4, align 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %7 = add i32 %6, -3
   %or.cond = icmp ult i32 %7, -2
@@ -2470,8 +2470,8 @@ define hidden void @zif_base64_decode(ptr noundef %0, ptr nocapture noundef writ
   br label %.thread162
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
-  %11 = getelementptr inbounds i8, ptr %0, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %12 = load i8, ptr %11, align 8
   %13 = icmp eq i8 %12, 6
   br i1 %13, label %.thread, label %15
@@ -2491,14 +2491,14 @@ define hidden void @zif_base64_decode(ptr noundef %0, ptr nocapture noundef writ
 
 17:                                               ; preds = %._crit_edge, %.thread
   %18 = phi ptr [ %.pre, %._crit_edge ], [ %14, %.thread ]
-  %19 = getelementptr inbounds i8, ptr %18, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %18, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %22 = icmp eq i32 %6, 1
   br i1 %22, label %.thread151, label %23
 
 23:                                               ; preds = %17
-  %24 = getelementptr inbounds i8, ptr %0, i64 104
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %25 = load i8, ptr %24, align 8
   switch i8 %25, label %27 [
     i8 3, label %.thread147
@@ -2514,7 +2514,7 @@ define hidden void @zif_base64_decode(ptr noundef %0, ptr nocapture noundef writ
   br label %.thread151
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %0, i64 96
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %29 = call zeroext i1 @zend_parse_arg_bool_slow(ptr noundef nonnull %28, ptr noundef nonnull %4, i32 noundef 2) #10
   %.fr = freeze i1 %29
   br i1 %.fr, label %..thread151_crit_edge, label %.thread162
@@ -2540,17 +2540,17 @@ define hidden void @zif_base64_decode(ptr noundef %0, ptr nocapture noundef writ
 
 33:                                               ; preds = %.thread151
   store ptr %32, ptr %1, align 8
-  %34 = getelementptr inbounds i8, ptr %32, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %35 = load i32, ptr %34, align 4
   %36 = and i32 %35, 64
   %.not123 = icmp eq i32 %36, 0
   %37 = select i1 %.not123, i32 262, i32 6
-  %38 = getelementptr inbounds i8, ptr %1, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %37, ptr %38, align 8
   br label %41
 
 39:                                               ; preds = %.thread151
-  %40 = getelementptr inbounds i8, ptr %1, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %40, align 8
   br label %41
 

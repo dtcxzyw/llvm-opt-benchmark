@@ -86,7 +86,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
   %4 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.2, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef %addr, i32 noundef 98, i32 noundef %conv) #11
   br label %trace_cpu_out.exit
@@ -133,7 +133,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
   %4 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.2, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef %addr, i32 noundef 119, i32 noundef %conv) #11
   br label %trace_cpu_out.exit
@@ -178,7 +178,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
   %4 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.2, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef %addr, i32 noundef 108, i32 noundef %val) #11
   br label %trace_cpu_out.exit
@@ -204,7 +204,7 @@ entry:
   %val = alloca i8, align 1
   %conv = zext i32 %addr to i64
   %call.i.i = tail call ptr @get_ptr_rcu_reader() #11
-  %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
+  %depth.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 12
   %0 = load i32, ptr %depth.i.i, align 4
   %inc.i.i = add i32 %0, 1
   store i32 %inc.i.i, ptr %depth.i.i, align 4
@@ -240,19 +240,19 @@ land.lhs.true6.i:                                 ; preds = %land.lhs.true.i
   br i1 %call7.i28, label %lor.rhs.i, label %if.then6.i
 
 lor.rhs.i:                                        ; preds = %land.lhs.true6.i, %land.lhs.true.i
-  %rom_device.i.i = getelementptr inbounds i8, ptr %call4.i, i64 45
+  %rom_device.i.i = getelementptr inbounds nuw i8, ptr %call4.i, i64 45
   %6 = load i8, ptr %rom_device.i.i, align 1
   %tobool.i7.i = trunc i8 %6 to i1
   br i1 %tobool.i7.i, label %memory_access_is_direct.exit, label %if.else.i
 
 memory_access_is_direct.exit:                     ; preds = %lor.rhs.i
-  %romd_mode.i.i = getelementptr inbounds i8, ptr %call4.i, i64 40
+  %romd_mode.i.i = getelementptr inbounds nuw i8, ptr %call4.i, i64 40
   %7 = load i8, ptr %romd_mode.i.i, align 8
   %tobool1.i.i = trunc i8 %7 to i1
   br i1 %tobool1.i.i, label %if.then6.i, label %if.else.i
 
 if.then6.i:                                       ; preds = %land.lhs.true6.i, %memory_access_is_direct.exit
-  %ram_block.i = getelementptr inbounds i8, ptr %call4.i, i64 56
+  %ram_block.i = getelementptr inbounds nuw i8, ptr %call4.i, i64 56
   %8 = load ptr, ptr %ram_block.i, align 8
   %9 = load i64, ptr %addr1.i, align 8
   %call7.i = call ptr @qemu_map_ram_ptr(ptr noundef %8, i64 noundef %9) #11
@@ -268,7 +268,7 @@ if.else.i:                                        ; preds = %lor.rhs.i, %memory_
 
 if.then.i.i:                                      ; preds = %if.then6.i, %if.else.i
   %call.i.i.i.i = call ptr @get_ptr_rcu_reader() #11
-  %depth.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 12
+  %depth.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   %13 = load i32, ptr %depth.i.i.i.i, align 4
   %cmp.not.i.i.i.i = icmp eq i32 %13, 0
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i, label %if.end.i.i.i.i
@@ -287,7 +287,7 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
   fence seq_cst
-  %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
+  %waiting.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 8
   %14 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %14 to i1
   br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
@@ -323,7 +323,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i30
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = call i32 @qemu_get_thread_id() #11
   %20 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %21 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.7, i32 noundef %call10.i.i, i64 noundef %20, i64 noundef %21, i32 noundef %addr, i32 noundef 98, i32 noundef %conv28) #11
   br label %trace_cpu_in.exit
@@ -347,7 +347,7 @@ entry:
   %buf = alloca [2 x i8], align 2
   %conv = zext i32 %addr to i64
   %call.i.i = tail call ptr @get_ptr_rcu_reader() #11
-  %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
+  %depth.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 12
   %0 = load i32, ptr %depth.i.i, align 4
   %inc.i.i = add i32 %0, 1
   store i32 %inc.i.i, ptr %depth.i.i, align 4
@@ -383,19 +383,19 @@ land.lhs.true6.i:                                 ; preds = %land.lhs.true.i
   br i1 %call7.i29, label %lor.rhs.i, label %if.then6.i
 
 lor.rhs.i:                                        ; preds = %land.lhs.true6.i, %land.lhs.true.i
-  %rom_device.i.i = getelementptr inbounds i8, ptr %call4.i, i64 45
+  %rom_device.i.i = getelementptr inbounds nuw i8, ptr %call4.i, i64 45
   %6 = load i8, ptr %rom_device.i.i, align 1
   %tobool.i7.i = trunc i8 %6 to i1
   br i1 %tobool.i7.i, label %memory_access_is_direct.exit, label %if.else.i
 
 memory_access_is_direct.exit:                     ; preds = %lor.rhs.i
-  %romd_mode.i.i = getelementptr inbounds i8, ptr %call4.i, i64 40
+  %romd_mode.i.i = getelementptr inbounds nuw i8, ptr %call4.i, i64 40
   %7 = load i8, ptr %romd_mode.i.i, align 8
   %tobool1.i.i = trunc i8 %7 to i1
   br i1 %tobool1.i.i, label %if.then6.i, label %if.else.i
 
 if.then6.i:                                       ; preds = %land.lhs.true6.i, %memory_access_is_direct.exit
-  %ram_block.i = getelementptr inbounds i8, ptr %call4.i, i64 56
+  %ram_block.i = getelementptr inbounds nuw i8, ptr %call4.i, i64 56
   %8 = load ptr, ptr %ram_block.i, align 8
   %9 = load i64, ptr %addr1.i, align 8
   %call7.i = call ptr @qemu_map_ram_ptr(ptr noundef %8, i64 noundef %9) #11
@@ -411,7 +411,7 @@ if.else.i:                                        ; preds = %lor.rhs.i, %memory_
 
 if.then.i.i:                                      ; preds = %if.then6.i, %if.else.i
   %call.i.i.i.i = call ptr @get_ptr_rcu_reader() #11
-  %depth.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 12
+  %depth.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   %13 = load i32, ptr %depth.i.i.i.i, align 4
   %cmp.not.i.i.i.i = icmp eq i32 %13, 0
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i, label %if.end.i.i.i.i
@@ -430,7 +430,7 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
   fence seq_cst
-  %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
+  %waiting.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 8
   %14 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %14 to i1
   br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
@@ -466,7 +466,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i31
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = call i32 @qemu_get_thread_id() #11
   %19 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %20 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.7, i32 noundef %call10.i.i, i64 noundef %19, i64 noundef %20, i32 noundef %addr, i32 noundef 119, i32 noundef %conv.i.i) #11
   br label %trace_cpu_in.exit
@@ -489,7 +489,7 @@ entry:
   %buf = alloca [4 x i8], align 4
   %conv = zext i32 %addr to i64
   %call.i.i = tail call ptr @get_ptr_rcu_reader() #11
-  %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
+  %depth.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 12
   %0 = load i32, ptr %depth.i.i, align 4
   %inc.i.i = add i32 %0, 1
   store i32 %inc.i.i, ptr %depth.i.i, align 4
@@ -525,19 +525,19 @@ land.lhs.true6.i:                                 ; preds = %land.lhs.true.i
   br i1 %call7.i29, label %lor.rhs.i, label %if.then6.i
 
 lor.rhs.i:                                        ; preds = %land.lhs.true6.i, %land.lhs.true.i
-  %rom_device.i.i = getelementptr inbounds i8, ptr %call4.i, i64 45
+  %rom_device.i.i = getelementptr inbounds nuw i8, ptr %call4.i, i64 45
   %6 = load i8, ptr %rom_device.i.i, align 1
   %tobool.i7.i = trunc i8 %6 to i1
   br i1 %tobool.i7.i, label %memory_access_is_direct.exit, label %if.else.i
 
 memory_access_is_direct.exit:                     ; preds = %lor.rhs.i
-  %romd_mode.i.i = getelementptr inbounds i8, ptr %call4.i, i64 40
+  %romd_mode.i.i = getelementptr inbounds nuw i8, ptr %call4.i, i64 40
   %7 = load i8, ptr %romd_mode.i.i, align 8
   %tobool1.i.i = trunc i8 %7 to i1
   br i1 %tobool1.i.i, label %if.then6.i, label %if.else.i
 
 if.then6.i:                                       ; preds = %land.lhs.true6.i, %memory_access_is_direct.exit
-  %ram_block.i = getelementptr inbounds i8, ptr %call4.i, i64 56
+  %ram_block.i = getelementptr inbounds nuw i8, ptr %call4.i, i64 56
   %8 = load ptr, ptr %ram_block.i, align 8
   %9 = load i64, ptr %addr1.i, align 8
   %call7.i = call ptr @qemu_map_ram_ptr(ptr noundef %8, i64 noundef %9) #11
@@ -553,7 +553,7 @@ if.else.i:                                        ; preds = %lor.rhs.i, %memory_
 
 if.then.i.i:                                      ; preds = %if.then6.i, %if.else.i
   %call.i.i.i.i = call ptr @get_ptr_rcu_reader() #11
-  %depth.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 12
+  %depth.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   %13 = load i32, ptr %depth.i.i.i.i, align 4
   %cmp.not.i.i.i.i = icmp eq i32 %13, 0
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i, label %if.end.i.i.i.i
@@ -572,7 +572,7 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
   fence seq_cst
-  %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
+  %waiting.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 8
   %14 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %14 to i1
   br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
@@ -607,7 +607,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i31
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = call i32 @qemu_get_thread_id() #11
   %19 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %20 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.7, i32 noundef %call10.i.i, i64 noundef %19, i64 noundef %20, i32 noundef %addr, i32 noundef 108, i32 noundef %buf.val) #11
   br label %trace_cpu_in.exit
@@ -637,20 +637,20 @@ while.cond:                                       ; preds = %while.cond, %entry
 
 while.end:                                        ; preds = %while.cond
   store ptr %callbacks, ptr %piolist, align 8
-  %nr = getelementptr inbounds i8, ptr %piolist, i64 24
+  %nr = getelementptr inbounds nuw i8, ptr %piolist, i64 24
   store i32 0, ptr %nr, align 8
   %call = tail call noalias ptr @g_malloc0_n(i64 noundef %idxprom, i64 noundef 8) #13
-  %regions = getelementptr inbounds i8, ptr %piolist, i64 32
+  %regions = getelementptr inbounds nuw i8, ptr %piolist, i64 32
   store ptr %call, ptr %regions, align 8
-  %address_space = getelementptr inbounds i8, ptr %piolist, i64 16
+  %address_space = getelementptr inbounds nuw i8, ptr %piolist, i64 16
   store ptr null, ptr %address_space, align 8
-  %opaque1 = getelementptr inbounds i8, ptr %piolist, i64 40
+  %opaque1 = getelementptr inbounds nuw i8, ptr %piolist, i64 40
   store ptr %opaque, ptr %opaque1, align 8
-  %owner2 = getelementptr inbounds i8, ptr %piolist, i64 8
+  %owner2 = getelementptr inbounds nuw i8, ptr %piolist, i64 8
   store ptr %owner, ptr %owner2, align 8
-  %name3 = getelementptr inbounds i8, ptr %piolist, i64 48
+  %name3 = getelementptr inbounds nuw i8, ptr %piolist, i64 48
   store ptr %name, ptr %name3, align 8
-  %flush_coalesced_mmio = getelementptr inbounds i8, ptr %piolist, i64 56
+  %flush_coalesced_mmio = getelementptr inbounds nuw i8, ptr %piolist, i64 56
   store i8 0, ptr %flush_coalesced_mmio, align 8
   ret void
 }
@@ -661,7 +661,7 @@ declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define dso_local void @portio_list_set_flush_coalesced(ptr nocapture noundef writeonly initializes((56, 57)) %piolist) local_unnamed_addr #4 {
 entry:
-  %flush_coalesced_mmio = getelementptr inbounds i8, ptr %piolist, i64 56
+  %flush_coalesced_mmio = getelementptr inbounds nuw i8, ptr %piolist, i64 56
   store i8 1, ptr %flush_coalesced_mmio, align 8
   ret void
 }
@@ -669,13 +669,13 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @portio_list_destroy(ptr nocapture noundef readonly %piolist) local_unnamed_addr #1 {
 entry:
-  %nr = getelementptr inbounds i8, ptr %piolist, i64 24
+  %nr = getelementptr inbounds nuw i8, ptr %piolist, i64 24
   %0 = load i32, ptr %nr, align 8
   %cmp6.not = icmp eq i32 %0, 0
   br i1 %cmp6.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %regions = getelementptr inbounds i8, ptr %piolist, i64 32
+  %regions = getelementptr inbounds nuw i8, ptr %piolist, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -693,7 +693,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !10
 
 for.end:                                          ; preds = %for.body, %entry
-  %regions1 = getelementptr inbounds i8, ptr %piolist, i64 32
+  %regions1 = getelementptr inbounds nuw i8, ptr %piolist, i64 32
   %5 = load ptr, ptr %regions1, align 8
   tail call void @g_free(ptr noundef %5) #11
   ret void
@@ -709,12 +709,12 @@ declare void @g_free(ptr noundef) local_unnamed_addr #2
 define dso_local void @portio_list_add(ptr nocapture noundef initializes((16, 24)) %piolist, ptr noundef %address_space, i32 noundef %start) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %piolist, align 8
-  %address_space1 = getelementptr inbounds i8, ptr %piolist, i64 16
+  %address_space1 = getelementptr inbounds nuw i8, ptr %piolist, i64 16
   store ptr %address_space, ptr %address_space1, align 8
   %1 = load i32, ptr %0, align 8
-  %len = getelementptr inbounds i8, ptr %0, i64 4
+  %len = getelementptr inbounds nuw i8, ptr %0, i64 4
   %2 = load i32, ptr %len, align 4
-  %size = getelementptr inbounds i8, ptr %0, i64 8
+  %size = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %size, align 8
   %add = add i32 %1, -1
   %add2 = add i32 %add, %2
@@ -763,7 +763,7 @@ if.else14:                                        ; preds = %if.end
   br i1 %cmp17, label %if.then18, label %for.inc
 
 if.then18:                                        ; preds = %if.else14
-  %size21 = getelementptr inbounds i8, ptr %pio_start.039, i64 8
+  %size21 = getelementptr inbounds nuw i8, ptr %pio_start.039, i64 8
   %9 = load i32, ptr %size21, align 8
   %add22 = add i32 %add16, -1
   %sub23 = add i32 %add22, %9
@@ -797,15 +797,15 @@ define internal fastcc void @portio_list_add_1(ptr nocapture noundef %piolist, p
 entry:
   %call = tail call ptr @object_new(ptr noundef nonnull @.str.9) #11
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 44, ptr noundef nonnull @__func__.MEMORY_REGION_PORTIO_LIST) #11
-  %opaque = getelementptr inbounds i8, ptr %piolist, i64 40
+  %opaque = getelementptr inbounds nuw i8, ptr %piolist, i64 40
   %0 = load ptr, ptr %opaque, align 8
-  %portio_opaque = getelementptr inbounds i8, ptr %call.i, i64 320
+  %portio_opaque = getelementptr inbounds nuw i8, ptr %call.i, i64 320
   store ptr %0, ptr %portio_opaque, align 16
   %add = add i32 %count, 1
   %conv = zext i32 %add to i64
   %mul = mul nuw nsw i64 %conv, 40
   %call2 = tail call noalias ptr @g_malloc0(i64 noundef %mul) #14
-  %ports = getelementptr inbounds i8, ptr %call.i, i64 328
+  %ports = getelementptr inbounds nuw i8, ptr %call.i, i64 328
   store ptr %call2, ptr %ports, align 8
   %conv4 = zext i32 %count to i64
   %mul5 = mul nuw nsw i64 %conv4, 40
@@ -834,15 +834,15 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !12
 
 for.end:                                          ; preds = %for.body, %entry
-  %mr = getelementptr inbounds i8, ptr %call.i, i64 48
-  %name13 = getelementptr inbounds i8, ptr %piolist, i64 48
+  %mr = getelementptr inbounds nuw i8, ptr %call.i, i64 48
+  %name13 = getelementptr inbounds nuw i8, ptr %piolist, i64 48
   %4 = load ptr, ptr %name13, align 8
   %sub14 = sub i32 %off_high, %off_low
   %conv15 = zext i32 %sub14 to i64
   tail call void @memory_region_init_io(ptr noundef nonnull %mr, ptr noundef nonnull %call.i, ptr noundef nonnull @portio_ops, ptr noundef nonnull %call.i, ptr noundef %4, i64 noundef %conv15) #11
   %call17 = tail call ptr @object_ref(ptr noundef nonnull %mr) #11
   tail call void @object_unparent(ptr noundef nonnull %mr) #11
-  %owner19 = getelementptr inbounds i8, ptr %piolist, i64 8
+  %owner19 = getelementptr inbounds nuw i8, ptr %piolist, i64 8
   %5 = load ptr, ptr %owner19, align 8
   %tobool.not = icmp eq ptr %5, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -858,7 +858,7 @@ if.end:                                           ; preds = %for.end, %if.then
   %call24 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.11, ptr noundef %6) #11
   %call26 = tail call ptr @object_property_add_child(ptr noundef %owner.0, ptr noundef %call24, ptr noundef nonnull %mr) #11
   tail call void @g_free(ptr noundef %call24) #11
-  %flush_coalesced_mmio = getelementptr inbounds i8, ptr %piolist, i64 56
+  %flush_coalesced_mmio = getelementptr inbounds nuw i8, ptr %piolist, i64 56
   %7 = load i8, ptr %flush_coalesced_mmio, align 8
   %tobool27 = trunc i8 %7 to i1
   br i1 %tobool27, label %if.then28, label %if.end30
@@ -868,14 +868,14 @@ if.then28:                                        ; preds = %if.end
   br label %if.end30
 
 if.end30:                                         ; preds = %if.then28, %if.end
-  %address_space = getelementptr inbounds i8, ptr %piolist, i64 16
+  %address_space = getelementptr inbounds nuw i8, ptr %piolist, i64 16
   %8 = load ptr, ptr %address_space, align 8
   %add31 = add i32 %off_low, %start
   %conv32 = zext i32 %add31 to i64
   tail call void @memory_region_add_subregion(ptr noundef %8, i64 noundef %conv32, ptr noundef nonnull %mr) #11
-  %regions = getelementptr inbounds i8, ptr %piolist, i64 32
+  %regions = getelementptr inbounds nuw i8, ptr %piolist, i64 32
   %9 = load ptr, ptr %regions, align 8
-  %nr = getelementptr inbounds i8, ptr %piolist, i64 24
+  %nr = getelementptr inbounds nuw i8, ptr %piolist, i64 24
   %10 = load i32, ptr %nr, align 8
   %idxprom35 = zext i32 %10 to i64
   %arrayidx36 = getelementptr ptr, ptr %9, i64 %idxprom35
@@ -889,14 +889,14 @@ if.end30:                                         ; preds = %if.then28, %if.end
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @portio_list_del(ptr nocapture noundef readonly %piolist) local_unnamed_addr #1 {
 entry:
-  %nr = getelementptr inbounds i8, ptr %piolist, i64 24
+  %nr = getelementptr inbounds nuw i8, ptr %piolist, i64 24
   %0 = load i32, ptr %nr, align 8
   %cmp5.not = icmp eq i32 %0, 0
   br i1 %cmp5.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %regions = getelementptr inbounds i8, ptr %piolist, i64 32
-  %address_space = getelementptr inbounds i8, ptr %piolist, i64 16
+  %regions = getelementptr inbounds nuw i8, ptr %piolist, i64 32
+  %address_space = getelementptr inbounds nuw i8, ptr %piolist, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -987,7 +987,7 @@ define internal range(i64 0, -9223372036854775808) i64 @portio_read(ptr nocaptur
 entry:
   %0 = getelementptr i8, ptr %opaque, i64 328
   %opaque.val = load ptr, ptr %0, align 8
-  %size11.i = getelementptr inbounds i8, ptr %opaque.val, i64 8
+  %size11.i = getelementptr inbounds nuw i8, ptr %opaque.val, i64 8
   %1 = load i32, ptr %size11.i, align 8
   %tobool.not2.i = icmp eq i32 %1, 0
   br i1 %tobool.not2.i, label %if.else.thread, label %for.body.i
@@ -1001,7 +1001,7 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
   br i1 %cmp.not.i, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %len.i = getelementptr inbounds i8, ptr %mrp.03.i, i64 4
+  %len.i = getelementptr inbounds nuw i8, ptr %mrp.03.i, i64 4
   %4 = load i32, ptr %len.i, align 4
   %add.i = add i32 %4, %3
   %conv5.i = zext i32 %add.i to i64
@@ -1011,7 +1011,7 @@ land.lhs.true.i:                                  ; preds = %for.body.i
   br i1 %or.cond.i, label %land.lhs.true12.i, label %for.inc.i
 
 land.lhs.true12.i:                                ; preds = %land.lhs.true.i
-  %read.i = getelementptr inbounds i8, ptr %mrp.03.i, i64 16
+  %read.i = getelementptr inbounds nuw i8, ptr %mrp.03.i, i64 16
   %5 = load ptr, ptr %read.i, align 8
   %tobool18.not.i = icmp eq ptr %5, null
   br i1 %tobool18.not.i, label %for.inc.i, label %if.then
@@ -1024,9 +1024,9 @@ for.inc.i:                                        ; preds = %land.lhs.true12.i, 
   br i1 %tobool.not.i, label %if.else, label %for.body.i, !llvm.loop !14
 
 if.then:                                          ; preds = %land.lhs.true12.i
-  %portio_opaque = getelementptr inbounds i8, ptr %opaque, i64 320
+  %portio_opaque = getelementptr inbounds nuw i8, ptr %opaque, i64 320
   %7 = load ptr, ptr %portio_opaque, align 16
-  %base = getelementptr inbounds i8, ptr %mrp.03.i, i64 32
+  %base = getelementptr inbounds nuw i8, ptr %mrp.03.i, i64 32
   %8 = load i32, ptr %base, align 8
   %9 = trunc i64 %addr to i32
   %conv1 = add i32 %8, %9
@@ -1058,7 +1058,7 @@ for.body.i28:                                     ; preds = %if.else, %for.inc.i
   br i1 %cmp.not.i31, label %for.inc.i39, label %land.lhs.true.i32
 
 land.lhs.true.i32:                                ; preds = %for.body.i28
-  %len.i33 = getelementptr inbounds i8, ptr %mrp.03.i29, i64 4
+  %len.i33 = getelementptr inbounds nuw i8, ptr %mrp.03.i29, i64 4
   %12 = load i32, ptr %len.i33, align 4
   %add.i34 = add i32 %12, %11
   %conv5.i35 = zext i32 %add.i34 to i64
@@ -1068,7 +1068,7 @@ land.lhs.true.i32:                                ; preds = %for.body.i28
   br i1 %or.cond.i38, label %land.lhs.true12.i44, label %for.inc.i39
 
 land.lhs.true12.i44:                              ; preds = %land.lhs.true.i32
-  %read.i45 = getelementptr inbounds i8, ptr %mrp.03.i29, i64 16
+  %read.i45 = getelementptr inbounds nuw i8, ptr %mrp.03.i29, i64 16
   %13 = load ptr, ptr %read.i45, align 8
   %tobool18.not.i46 = icmp eq ptr %13, null
   br i1 %tobool18.not.i46, label %for.inc.i39, label %if.then8
@@ -1081,10 +1081,10 @@ for.inc.i39:                                      ; preds = %land.lhs.true12.i44
   br i1 %tobool.not.i42, label %if.end37, label %for.body.i28, !llvm.loop !14
 
 if.then8:                                         ; preds = %land.lhs.true12.i44
-  %len.i33.le = getelementptr inbounds i8, ptr %mrp.03.i29, i64 4
-  %portio_opaque10 = getelementptr inbounds i8, ptr %opaque, i64 320
+  %len.i33.le = getelementptr inbounds nuw i8, ptr %mrp.03.i29, i64 4
+  %portio_opaque10 = getelementptr inbounds nuw i8, ptr %opaque, i64 320
   %15 = load ptr, ptr %portio_opaque10, align 16
-  %base11 = getelementptr inbounds i8, ptr %mrp.03.i29, i64 32
+  %base11 = getelementptr inbounds nuw i8, ptr %mrp.03.i29, i64 32
   %16 = load i32, ptr %base11, align 8
   %17 = trunc i64 %addr to i32
   %conv14 = add i32 %16, %17
@@ -1098,7 +1098,7 @@ if.then8:                                         ; preds = %land.lhs.true12.i44
   br i1 %cmp20, label %if.then22, label %if.else33
 
 if.then22:                                        ; preds = %if.then8
-  %read.i45.le = getelementptr inbounds i8, ptr %mrp.03.i29, i64 16
+  %read.i45.le = getelementptr inbounds nuw i8, ptr %mrp.03.i29, i64 16
   %20 = load ptr, ptr %read.i45.le, align 8
   %21 = load ptr, ptr %portio_opaque10, align 16
   %22 = load i32, ptr %base11, align 8
@@ -1125,7 +1125,7 @@ define internal void @portio_write(ptr nocapture noundef readonly %opaque, i64 n
 entry:
   %0 = getelementptr i8, ptr %opaque, i64 328
   %opaque.val = load ptr, ptr %0, align 8
-  %size11.i = getelementptr inbounds i8, ptr %opaque.val, i64 8
+  %size11.i = getelementptr inbounds nuw i8, ptr %opaque.val, i64 8
   %1 = load i32, ptr %size11.i, align 8
   %tobool.not2.i = icmp eq i32 %1, 0
   br i1 %tobool.not2.i, label %if.end31, label %for.body.us.i
@@ -1139,7 +1139,7 @@ for.body.us.i:                                    ; preds = %entry, %for.inc.us.
   br i1 %cmp.not.us.i, label %for.inc.us.i, label %land.lhs.true.us.i
 
 land.lhs.true.us.i:                               ; preds = %for.body.us.i
-  %len.us.i = getelementptr inbounds i8, ptr %mrp.03.us.i, i64 4
+  %len.us.i = getelementptr inbounds nuw i8, ptr %mrp.03.us.i, i64 4
   %4 = load i32, ptr %len.us.i, align 4
   %add.us.i = add i32 %4, %3
   %conv5.us.i = zext i32 %add.us.i to i64
@@ -1149,7 +1149,7 @@ land.lhs.true.us.i:                               ; preds = %for.body.us.i
   br i1 %or.cond.us.i, label %land.lhs.true12.us.i, label %for.inc.us.i
 
 land.lhs.true12.us.i:                             ; preds = %land.lhs.true.us.i
-  %write15.us.i = getelementptr inbounds i8, ptr %mrp.03.us.i, i64 24
+  %write15.us.i = getelementptr inbounds nuw i8, ptr %mrp.03.us.i, i64 24
   %5 = load ptr, ptr %write15.us.i, align 8
   %tobool16.not.us.i = icmp eq ptr %5, null
   br i1 %tobool16.not.us.i, label %for.inc.us.i, label %if.then
@@ -1162,9 +1162,9 @@ for.inc.us.i:                                     ; preds = %land.lhs.true12.us.
   br i1 %tobool.not.us.i, label %if.else, label %for.body.us.i, !llvm.loop !14
 
 if.then:                                          ; preds = %land.lhs.true12.us.i
-  %portio_opaque = getelementptr inbounds i8, ptr %opaque, i64 320
+  %portio_opaque = getelementptr inbounds nuw i8, ptr %opaque, i64 320
   %7 = load ptr, ptr %portio_opaque, align 16
-  %base = getelementptr inbounds i8, ptr %mrp.03.us.i, i64 32
+  %base = getelementptr inbounds nuw i8, ptr %mrp.03.us.i, i64 32
   %8 = load i32, ptr %base, align 8
   %9 = trunc i64 %addr to i32
   %conv1 = add i32 %8, %9
@@ -1185,7 +1185,7 @@ for.body.us.i26:                                  ; preds = %if.else, %for.inc.u
   br i1 %cmp.not.us.i29, label %for.inc.us.i37, label %land.lhs.true.us.i30
 
 land.lhs.true.us.i30:                             ; preds = %for.body.us.i26
-  %len.us.i31 = getelementptr inbounds i8, ptr %mrp.03.us.i27, i64 4
+  %len.us.i31 = getelementptr inbounds nuw i8, ptr %mrp.03.us.i27, i64 4
   %12 = load i32, ptr %len.us.i31, align 4
   %add.us.i32 = add i32 %12, %11
   %conv5.us.i33 = zext i32 %add.us.i32 to i64
@@ -1195,7 +1195,7 @@ land.lhs.true.us.i30:                             ; preds = %for.body.us.i26
   br i1 %or.cond.us.i36, label %land.lhs.true12.us.i42, label %for.inc.us.i37
 
 land.lhs.true12.us.i42:                           ; preds = %land.lhs.true.us.i30
-  %write15.us.i43 = getelementptr inbounds i8, ptr %mrp.03.us.i27, i64 24
+  %write15.us.i43 = getelementptr inbounds nuw i8, ptr %mrp.03.us.i27, i64 24
   %13 = load ptr, ptr %write15.us.i43, align 8
   %tobool16.not.us.i44 = icmp eq ptr %13, null
   br i1 %tobool16.not.us.i44, label %for.inc.us.i37, label %if.then7
@@ -1208,10 +1208,10 @@ for.inc.us.i37:                                   ; preds = %land.lhs.true12.us.
   br i1 %tobool.not.us.i40, label %if.end31, label %for.body.us.i26, !llvm.loop !14
 
 if.then7:                                         ; preds = %land.lhs.true12.us.i42
-  %len.us.i31.le = getelementptr inbounds i8, ptr %mrp.03.us.i27, i64 4
-  %portio_opaque9 = getelementptr inbounds i8, ptr %opaque, i64 320
+  %len.us.i31.le = getelementptr inbounds nuw i8, ptr %mrp.03.us.i27, i64 4
+  %portio_opaque9 = getelementptr inbounds nuw i8, ptr %opaque, i64 320
   %15 = load ptr, ptr %portio_opaque9, align 16
-  %base10 = getelementptr inbounds i8, ptr %mrp.03.us.i27, i64 32
+  %base10 = getelementptr inbounds nuw i8, ptr %mrp.03.us.i27, i64 32
   %16 = load i32, ptr %base10, align 8
   %17 = trunc i64 %addr to i32
   %conv13 = add i32 %16, %17
@@ -1227,7 +1227,7 @@ if.then7:                                         ; preds = %land.lhs.true12.us.
   br i1 %cmp18, label %if.then20, label %if.end31
 
 if.then20:                                        ; preds = %if.then7
-  %write15.us.i43.le = getelementptr inbounds i8, ptr %mrp.03.us.i27, i64 24
+  %write15.us.i43.le = getelementptr inbounds nuw i8, ptr %mrp.03.us.i27, i64 24
   %21 = load ptr, ptr %write15.us.i43.le, align 8
   %22 = load ptr, ptr %portio_opaque9, align 16
   %23 = load i32, ptr %base10, align 8
@@ -1248,9 +1248,9 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #2
 define internal void @memory_region_portio_list_finalize(ptr noundef %obj) #1 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 44, ptr noundef nonnull @__func__.MEMORY_REGION_PORTIO_LIST) #11
-  %mr = getelementptr inbounds i8, ptr %call.i, i64 48
+  %mr = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   tail call void @object_unref(ptr noundef nonnull %mr) #11
-  %ports = getelementptr inbounds i8, ptr %call.i, i64 328
+  %ports = getelementptr inbounds nuw i8, ptr %call.i, i64 328
   %0 = load ptr, ptr %ports, align 8
   tail call void @g_free(ptr noundef %0) #11
   ret void

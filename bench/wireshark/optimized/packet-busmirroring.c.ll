@@ -231,7 +231,7 @@ define internal i32 @dissect_busmirroring(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %10, label %.loopexit, label %11
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void @col_set_str(ptr noundef %13, i32 noundef 34, ptr noundef nonnull @.str.103) #3
   %14 = load i32, ptr @proto_busmirroring, align 4
@@ -242,12 +242,12 @@ define internal i32 @dissect_busmirroring(ptr noundef %0, ptr noundef %1, ptr no
   %19 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %18, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
   %20 = load i32, ptr @hf_sequence_number, align 4
   %21 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %20, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #3
-  %22 = getelementptr inbounds i8, ptr %5, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %22, align 8
   %23 = tail call i64 @tvb_get_guint48(ptr noundef %0, i32 noundef 2, i32 noundef 0) #3
   store i64 %23, ptr %5, align 8
   %24 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef 8, i32 noundef 0) #3
-  %25 = getelementptr inbounds i8, ptr %5, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %24, ptr %25, align 8
   %26 = load i32, ptr @hf_header_timestamp, align 4
   %27 = call ptr @proto_tree_add_time(ptr noundef %17, i32 noundef %26, ptr noundef %0, i32 noundef 2, i32 noundef 10, ptr noundef nonnull %5) #3

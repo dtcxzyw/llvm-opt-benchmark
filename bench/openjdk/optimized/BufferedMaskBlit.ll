@@ -55,13 +55,13 @@ define i32 @Java_sun_java2d_pipe_BufferedMaskBlit_enqueueTile(ptr noundef %0, pt
 
 34:                                               ; preds = %31
   store i32 %11, ptr %18, align 8
-  %35 = getelementptr inbounds i8, ptr %18, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 %12, ptr %35, align 4
   %36 = add nsw i32 %15, %11
-  %37 = getelementptr inbounds i8, ptr %18, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i32 %36, ptr %37, align 8
   %38 = add nsw i32 %16, %12
-  %39 = getelementptr inbounds i8, ptr %18, i64 12
+  %39 = getelementptr inbounds nuw i8, ptr %18, i64 12
   store i32 %38, ptr %39, align 4
   %40 = load ptr, ptr %19, align 8
   %41 = call i32 %40(ptr noundef %0, ptr noundef nonnull %19, ptr noundef nonnull %18, i32 noundef 1) #2
@@ -85,24 +85,24 @@ define i32 @Java_sun_java2d_pipe_BufferedMaskBlit_enqueueTile(ptr noundef %0, pt
   br i1 %50, label %51, label %328
 
 51:                                               ; preds = %47
-  %52 = getelementptr inbounds i8, ptr %19, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %53 = load ptr, ptr %52, align 8
   call void %53(ptr noundef %0, ptr noundef nonnull %19, ptr noundef nonnull %18) #2
-  %54 = getelementptr inbounds i8, ptr %18, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %55 = load ptr, ptr %54, align 8
   %.not251 = icmp eq ptr %55, null
   br i1 %.not251, label %324, label %56
 
 56:                                               ; preds = %51
-  %57 = getelementptr inbounds i8, ptr %18, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %58 = load i32, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %18, i64 28
+  %59 = getelementptr inbounds nuw i8, ptr %18, i64 28
   %60 = load i32, ptr %59, align 4
   %61 = load i32, ptr %35, align 4
   %62 = load i32, ptr %18, align 8
   %63 = sext i32 %60 to i64
   %64 = load ptr, ptr %0, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 1776
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 1776
   %66 = load ptr, ptr %65, align 8
   %67 = call ptr %66(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef null) #2
   %68 = icmp eq ptr %67, null
@@ -110,7 +110,7 @@ define i32 @Java_sun_java2d_pipe_BufferedMaskBlit_enqueueTile(ptr noundef %0, pt
 
 69:                                               ; preds = %56
   call void (i32, i8, ptr, ...) @J2dTraceImpl(i32 noundef 1, i8 noundef zeroext 1, ptr noundef nonnull @.str.5) #2
-  %70 = getelementptr inbounds i8, ptr %19, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %71 = load ptr, ptr %70, align 8
   %.not258 = icmp eq ptr %71, null
   br i1 %.not258, label %73, label %72
@@ -120,7 +120,7 @@ define i32 @Java_sun_java2d_pipe_BufferedMaskBlit_enqueueTile(ptr noundef %0, pt
   br label %73
 
 73:                                               ; preds = %72, %69
-  %74 = getelementptr inbounds i8, ptr %19, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %75 = load ptr, ptr %74, align 8
   %.not259 = icmp eq ptr %75, null
   br i1 %.not259, label %332, label %76
@@ -156,15 +156,15 @@ define i32 @Java_sun_java2d_pipe_BufferedMaskBlit_enqueueTile(ptr noundef %0, pt
   %101 = mul nsw i32 %89, %60
   %102 = sub nsw i32 %58, %101
   store i32 33, ptr %28, align 4
-  %103 = getelementptr inbounds i8, ptr %28, i64 4
+  %103 = getelementptr inbounds nuw i8, ptr %28, i64 4
   store i32 %13, ptr %103, align 4
-  %104 = getelementptr inbounds i8, ptr %28, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i32 %14, ptr %104, align 4
-  %105 = getelementptr inbounds i8, ptr %28, i64 12
+  %105 = getelementptr inbounds nuw i8, ptr %28, i64 12
   store i32 %89, ptr %105, align 4
-  %106 = getelementptr inbounds i8, ptr %28, i64 16
+  %106 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store i32 %92, ptr %106, align 4
-  %107 = getelementptr inbounds i8, ptr %28, i64 20
+  %107 = getelementptr inbounds nuw i8, ptr %28, i64 20
   %108 = add i32 %3, 20
   switch i32 %6, label %.loopexit [
     i32 0, label %.preheader
@@ -205,7 +205,7 @@ define i32 @Java_sun_java2d_pipe_BufferedMaskBlit_enqueueTile(ptr noundef %0, pt
   %.1220 = phi ptr [ %.0219, %117 ], [ %119, %156 ]
   %.1212 = phi ptr [ %.0211, %117 ], [ %159, %156 ]
   %.1206 = phi ptr [ %.0205, %117 ], [ %160, %156 ]
-  %119 = getelementptr inbounds i8, ptr %.1220, i64 1
+  %119 = getelementptr inbounds nuw i8, ptr %.1220, i64 1
   %120 = load i8, ptr %.1220, align 1
   %.not255 = icmp eq i8 %120, 0
   br i1 %.not255, label %156, label %121
@@ -226,20 +226,20 @@ define i32 @Java_sun_java2d_pipe_BufferedMaskBlit_enqueueTile(ptr noundef %0, pt
   %131 = lshr i32 %122, 24
   %132 = zext i8 %120 to i64
   %133 = zext nneg i32 %131 to i64
-  %134 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %132, i64 %133
+  %134 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %132, i64 %133
   %135 = load i8, ptr %134, align 1
   %136 = zext i8 %135 to i32
   %137 = zext i8 %135 to i64
   %138 = zext nneg i32 %130 to i64
-  %139 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %137, i64 %138
+  %139 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %137, i64 %138
   %140 = load i8, ptr %139, align 1
   %141 = zext i8 %140 to i32
   %142 = zext nneg i32 %128 to i64
-  %143 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %137, i64 %142
+  %143 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %137, i64 %142
   %144 = load i8, ptr %143, align 1
   %145 = zext i8 %144 to i32
   %146 = zext nneg i32 %126 to i64
-  %147 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %137, i64 %146
+  %147 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %137, i64 %146
   %148 = load i8, ptr %147, align 1
   %149 = zext i8 %148 to i32
   %150 = shl nuw i32 %136, 24
@@ -256,7 +256,7 @@ define i32 @Java_sun_java2d_pipe_BufferedMaskBlit_enqueueTile(ptr noundef %0, pt
   %157 = ptrtoint ptr %.1212 to i64
   %158 = add nsw i64 %157, %63
   %159 = inttoptr i64 %158 to ptr
-  %160 = getelementptr inbounds i8, ptr %.1206, i64 4
+  %160 = getelementptr inbounds nuw i8, ptr %.1206, i64 4
   %161 = add nsw i32 %.0227, -1
   %162 = icmp sgt i32 %.0227, 1
   br i1 %162, label %118, label %163, !llvm.loop !6
@@ -283,7 +283,7 @@ define i32 @Java_sun_java2d_pipe_BufferedMaskBlit_enqueueTile(ptr noundef %0, pt
   %.3222 = phi ptr [ %.2221, %171 ], [ %173, %208 ]
   %.3214 = phi ptr [ %.2213, %171 ], [ %211, %208 ]
   %.3 = phi ptr [ %.2, %171 ], [ %212, %208 ]
-  %173 = getelementptr inbounds i8, ptr %.3222, i64 1
+  %173 = getelementptr inbounds nuw i8, ptr %.3222, i64 1
   %174 = load i8, ptr %.3222, align 1
   switch i8 %174, label %177 [
     i8 0, label %208
@@ -299,24 +299,24 @@ define i32 @Java_sun_java2d_pipe_BufferedMaskBlit_enqueueTile(ptr noundef %0, pt
   %179 = load i32, ptr %.3214, align 4
   %180 = lshr i32 %179, 24
   %181 = zext nneg i32 %180 to i64
-  %182 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %178, i64 %181
+  %182 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %178, i64 %181
   %183 = load i8, ptr %182, align 1
   %184 = zext i8 %183 to i32
   %185 = lshr i32 %179, 16
   %186 = and i32 %185, 255
   %187 = zext nneg i32 %186 to i64
-  %188 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %178, i64 %187
+  %188 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %178, i64 %187
   %189 = load i8, ptr %188, align 1
   %190 = zext i8 %189 to i32
   %191 = lshr i32 %179, 8
   %192 = and i32 %191, 255
   %193 = zext nneg i32 %192 to i64
-  %194 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %178, i64 %193
+  %194 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %178, i64 %193
   %195 = load i8, ptr %194, align 1
   %196 = zext i8 %195 to i32
   %197 = and i32 %179, 255
   %198 = zext nneg i32 %197 to i64
-  %199 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %178, i64 %198
+  %199 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %178, i64 %198
   %200 = load i8, ptr %199, align 1
   %201 = zext i8 %200 to i32
   %202 = shl nuw i32 %184, 24
@@ -333,7 +333,7 @@ define i32 @Java_sun_java2d_pipe_BufferedMaskBlit_enqueueTile(ptr noundef %0, pt
   %209 = ptrtoint ptr %.3214 to i64
   %210 = add nsw i64 %209, %63
   %211 = inttoptr i64 %210 to ptr
-  %212 = getelementptr inbounds i8, ptr %.3, i64 4
+  %212 = getelementptr inbounds nuw i8, ptr %.3, i64 4
   %213 = add nsw i32 %.0229, -1
   %214 = icmp sgt i32 %.0229, 1
   br i1 %214, label %172, label %215, !llvm.loop !9
@@ -360,7 +360,7 @@ define i32 @Java_sun_java2d_pipe_BufferedMaskBlit_enqueueTile(ptr noundef %0, pt
   %.5224 = phi ptr [ %.4223, %223 ], [ %225, %257 ]
   %.5216 = phi ptr [ %.4215, %223 ], [ %260, %257 ]
   %.5 = phi ptr [ %.4, %223 ], [ %261, %257 ]
-  %225 = getelementptr inbounds i8, ptr %.5224, i64 1
+  %225 = getelementptr inbounds nuw i8, ptr %.5224, i64 1
   %226 = load i8, ptr %.5224, align 1
   switch i8 %226, label %230 [
     i8 0, label %257
@@ -382,15 +382,15 @@ define i32 @Java_sun_java2d_pipe_BufferedMaskBlit_enqueueTile(ptr noundef %0, pt
   %237 = and i32 %236, 255
   %238 = zext i8 %226 to i64
   %239 = zext nneg i32 %237 to i64
-  %240 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %238, i64 %239
+  %240 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %238, i64 %239
   %241 = load i8, ptr %240, align 1
   %242 = zext i8 %241 to i32
   %243 = zext nneg i32 %235 to i64
-  %244 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %238, i64 %243
+  %244 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %238, i64 %243
   %245 = load i8, ptr %244, align 1
   %246 = zext i8 %245 to i32
   %247 = zext nneg i32 %233 to i64
-  %248 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %238, i64 %247
+  %248 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %238, i64 %247
   %249 = load i8, ptr %248, align 1
   %250 = zext i8 %249 to i32
   %251 = shl nuw i32 %231, 24
@@ -407,7 +407,7 @@ define i32 @Java_sun_java2d_pipe_BufferedMaskBlit_enqueueTile(ptr noundef %0, pt
   %258 = ptrtoint ptr %.5216 to i64
   %259 = add nsw i64 %258, %63
   %260 = inttoptr i64 %259 to ptr
-  %261 = getelementptr inbounds i8, ptr %.5, i64 4
+  %261 = getelementptr inbounds nuw i8, ptr %.5, i64 4
   %262 = add nsw i32 %.0228, -1
   %263 = icmp sgt i32 %.0228, 1
   br i1 %263, label %224, label %264, !llvm.loop !11
@@ -434,7 +434,7 @@ define i32 @Java_sun_java2d_pipe_BufferedMaskBlit_enqueueTile(ptr noundef %0, pt
   %.7218 = phi ptr [ %.6217, %272 ], [ %306, %303 ]
   %.7 = phi ptr [ %.6, %272 ], [ %307, %303 ]
   %.0204 = phi i32 [ %89, %272 ], [ %308, %303 ]
-  %274 = getelementptr inbounds i8, ptr %.7226, i64 1
+  %274 = getelementptr inbounds nuw i8, ptr %.7226, i64 1
   %275 = load i8, ptr %.7226, align 1
   %.not252 = icmp eq i8 %275, 0
   br i1 %.not252, label %303, label %276
@@ -449,15 +449,15 @@ define i32 @Java_sun_java2d_pipe_BufferedMaskBlit_enqueueTile(ptr noundef %0, pt
   %283 = and i32 %282, 255
   %284 = zext i8 %275 to i64
   %285 = zext nneg i32 %279 to i64
-  %286 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %284, i64 %285
+  %286 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %284, i64 %285
   %287 = load i8, ptr %286, align 1
   %288 = zext i8 %287 to i32
   %289 = zext nneg i32 %281 to i64
-  %290 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %284, i64 %289
+  %290 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %284, i64 %289
   %291 = load i8, ptr %290, align 1
   %292 = zext i8 %291 to i32
   %293 = zext nneg i32 %283 to i64
-  %294 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %284, i64 %293
+  %294 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %284, i64 %293
   %295 = load i8, ptr %294, align 1
   %296 = zext i8 %295 to i32
   %297 = shl nuw i32 %277, 24
@@ -474,7 +474,7 @@ define i32 @Java_sun_java2d_pipe_BufferedMaskBlit_enqueueTile(ptr noundef %0, pt
   %304 = ptrtoint ptr %.7218 to i64
   %305 = add nsw i64 %304, %63
   %306 = inttoptr i64 %305 to ptr
-  %307 = getelementptr inbounds i8, ptr %.7, i64 4
+  %307 = getelementptr inbounds nuw i8, ptr %.7, i64 4
   %308 = add nsw i32 %.0204, -1
   %309 = icmp sgt i32 %.0204, 1
   br i1 %309, label %273, label %310, !llvm.loop !13
@@ -494,14 +494,14 @@ define i32 @Java_sun_java2d_pipe_BufferedMaskBlit_enqueueTile(ptr noundef %0, pt
   %319 = mul i32 %318, %92
   %320 = add i32 %108, %319
   %321 = load ptr, ptr %0, align 8
-  %322 = getelementptr inbounds i8, ptr %321, i64 1784
+  %322 = getelementptr inbounds nuw i8, ptr %321, i64 1784
   %323 = load ptr, ptr %322, align 8
   call void %323(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %67, i32 noundef 2) #2
   br label %324
 
 324:                                              ; preds = %51, %.loopexit
   %.0203 = phi i32 [ %320, %.loopexit ], [ %3, %51 ]
-  %325 = getelementptr inbounds i8, ptr %19, i64 16
+  %325 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %326 = load ptr, ptr %325, align 8
   %.not256 = icmp eq ptr %326, null
   br i1 %.not256, label %328, label %327
@@ -512,7 +512,7 @@ define i32 @Java_sun_java2d_pipe_BufferedMaskBlit_enqueueTile(ptr noundef %0, pt
 
 328:                                              ; preds = %43, %47, %324, %327
   %.1 = phi i32 [ %.0203, %327 ], [ %.0203, %324 ], [ %3, %47 ], [ %3, %43 ]
-  %329 = getelementptr inbounds i8, ptr %19, i64 24
+  %329 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %330 = load ptr, ptr %329, align 8
   %.not257 = icmp eq ptr %330, null
   br i1 %.not257, label %332, label %331

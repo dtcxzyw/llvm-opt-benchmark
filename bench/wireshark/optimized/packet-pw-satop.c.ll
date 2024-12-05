@@ -195,7 +195,7 @@ define internal fastcc void @dissect_pw_satop(ptr noundef %0, ptr noundef %1, pt
   %12 = load i32, ptr @proto, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #2
   %14 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %13, ptr noundef nonnull @ei_cw_packet_size_too_small, ptr noundef nonnull @.str.21, i32 noundef %8) #2
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   tail call void @col_set_str(ptr noundef %16, i32 noundef 34, ptr noundef nonnull @shortname) #2
   %17 = load ptr, ptr %15, align 8
@@ -340,7 +340,7 @@ define internal fastcc void @dissect_pw_satop(ptr noundef %0, ptr noundef %1, pt
   %77 = phi i1 [ false, %69 ], [ false, %70 ], [ %75, %74 ], [ false, %68 ], [ false, %71 ]
   %78 = phi i1 [ true, %69 ], [ true, %70 ], [ false, %74 ], [ true, %68 ], [ true, %71 ]
   %.0179 = phi i64 [ 1, %69 ], [ 2, %70 ], [ -1, %74 ], [ 0, %68 ], [ 3, %71 ]
-  %79 = getelementptr inbounds i8, ptr %1, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %80 = load ptr, ptr %79, align 8
   tail call void @col_set_str(ptr noundef %80, i32 noundef 34, ptr noundef nonnull @shortname) #2
   %81 = load ptr, ptr %79, align 8
@@ -517,13 +517,13 @@ switch.lookup:                                    ; preds = %156
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %168
 
 168:                                              ; preds = %162
-  %169 = getelementptr inbounds i8, ptr %167, i64 32
+  %169 = getelementptr inbounds nuw i8, ptr %167, i64 32
   %170 = load ptr, ptr %169, align 8
   %.not5.i = icmp eq ptr %170, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %171
 
 171:                                              ; preds = %168
-  %172 = getelementptr inbounds i8, ptr %170, i64 28
+  %172 = getelementptr inbounds nuw i8, ptr %170, i64 28
   %173 = load i32, ptr %172, align 4
   %174 = or i32 %173, 1
   store i32 %174, ptr %172, align 4

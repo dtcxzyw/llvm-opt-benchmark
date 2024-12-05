@@ -17,7 +17,7 @@ define void @mm_delayfree(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2)
   %9 = load i64, ptr %5, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !7
-  %10 = getelementptr inbounds i8, ptr %0, i64 656
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %1, align 8
   store ptr %1, ptr %10, align 8
@@ -39,7 +39,7 @@ define void @mm_delayfree(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2)
   %16 = load i64, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !7
-  %17 = getelementptr inbounds i8, ptr %0, i64 656
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %18 = load ptr, ptr %17, align 8
   store ptr %18, ptr %1, align 8
   store ptr %1, ptr %17, align 8
@@ -58,12 +58,12 @@ define void @mm_delayfree(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2)
   %25 = and i64 %24, -4
   %26 = and i64 %24, -2
   store i64 %26, ptr %23, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %28 = load i64, ptr %27, align 8
   %29 = sub i64 %28, %25
   store i64 %29, ptr %27, align 8
   %30 = getelementptr inbounds i8, ptr %22, i64 %25
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load i64, ptr %31, align 8
   %33 = and i64 %32, 1
   %34 = icmp eq i64 %33, 0
@@ -72,18 +72,18 @@ define void @mm_delayfree(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2)
 35:                                               ; preds = %21
   %36 = and i64 %32, -4
   %37 = getelementptr inbounds i8, ptr %30, i64 %36
-  %38 = getelementptr inbounds i8, ptr %30, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %30, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store ptr %39, ptr %42, align 8
   %.not = icmp eq ptr %39, null
   br i1 %.not, label %46, label %43
 
 43:                                               ; preds = %35
   %44 = load ptr, ptr %40, align 8
-  %45 = getelementptr inbounds i8, ptr %39, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 24
   store ptr %44, ptr %45, align 8
   br label %46
 
@@ -114,21 +114,21 @@ define void @mm_delayfree(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2)
   %57 = load i64, ptr %22, align 8
   %58 = sub i64 0, %57
   %59 = getelementptr inbounds i8, ptr %22, i64 %58
-  %60 = getelementptr inbounds i8, ptr %59, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load i64, ptr %60, align 8
   %62 = and i64 %61, -4
-  %63 = getelementptr inbounds i8, ptr %59, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %59, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %59, i64 24
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
   store ptr %64, ptr %67, align 8
   %.not58 = icmp eq ptr %64, null
   br i1 %.not58, label %71, label %68
 
 68:                                               ; preds = %56
   %69 = load ptr, ptr %65, align 8
-  %70 = getelementptr inbounds i8, ptr %64, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %64, i64 24
   store ptr %69, ptr %70, align 8
   br label %71
 

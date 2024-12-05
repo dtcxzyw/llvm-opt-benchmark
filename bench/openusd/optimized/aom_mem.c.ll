@@ -16,7 +16,7 @@ define hidden ptr @aom_memalign(i64 noundef %0, i64 noundef %1) local_unnamed_ad
   br i1 %.not13, label %18, label %8
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = ptrtoint ptr %9 to i64
   %11 = add i64 %0, -1
   %12 = add i64 %11, %10
@@ -48,7 +48,7 @@ define hidden ptr @aom_malloc(i64 noundef %0) local_unnamed_addr #0 {
   br i1 %.not13.i, label %aom_memalign.exit, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = ptrtoint ptr %7 to i64
   %9 = add i64 %8, 15
   %10 = and i64 %9, -16
@@ -76,7 +76,7 @@ define hidden ptr @aom_calloc(i64 noundef %0, i64 noundef %1) local_unnamed_addr
   br i1 %.not13.i.i, label %aom_malloc.exit.thread, label %aom_malloc.exit
 
 aom_malloc.exit:                                  ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = ptrtoint ptr %8 to i64
   %10 = add i64 %9, 15
   %11 = and i64 %10, -16
@@ -130,7 +130,7 @@ define hidden noundef ptr @aom_memset16(ptr noundef returned writeonly %0, i32 n
 5:                                                ; preds = %.lr.ph, %5
   %.08 = phi ptr [ %0, %.lr.ph ], [ %6, %5 ]
   %.067 = phi i64 [ 0, %.lr.ph ], [ %7, %5 ]
-  %6 = getelementptr inbounds i8, ptr %.08, i64 2
+  %6 = getelementptr inbounds nuw i8, ptr %.08, i64 2
   store i16 %4, ptr %.08, align 2
   %7 = add nuw i64 %.067, 1
   %exitcond.not = icmp eq i64 %7, %2

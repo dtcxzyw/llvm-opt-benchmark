@@ -21,7 +21,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @evp_keymgmt_util_try_import(ptr noundef %params, ptr nocapture noundef %arg) #0 {
 entry:
-  %keydata = getelementptr inbounds i8, ptr %arg, i64 8
+  %keydata = getelementptr inbounds nuw i8, ptr %arg, i64 8
   %0 = load ptr, ptr %keydata, align 8
   %cmp.not = icmp ne ptr %0, null
   br i1 %cmp.not, label %if.end4, label %if.then
@@ -47,7 +47,7 @@ if.end4:                                          ; preds = %if.then, %entry
 
 if.end7:                                          ; preds = %if.end4
   %4 = load ptr, ptr %arg, align 8
-  %selection = getelementptr inbounds i8, ptr %arg, i64 16
+  %selection = getelementptr inbounds nuw i8, ptr %arg, i64 16
   %5 = load i32, ptr %selection, align 8
   %call10 = tail call i32 @evp_keymgmt_import(ptr noundef %4, ptr noundef nonnull %2, i32 noundef %5, ptr noundef nonnull %params) #4
   %tobool.not = icmp ne i32 %call10, 0
@@ -101,7 +101,7 @@ if.then:                                          ; preds = %lor.lhs.false4, %en
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false4
-  %keydata5 = getelementptr inbounds i8, ptr %pkey, i64 104
+  %keydata5 = getelementptr inbounds nuw i8, ptr %pkey, i64 104
   store ptr %keydata, ptr %keydata5, align 8
   tail call void @evp_keymgmt_util_cache_keyinfo(ptr noundef nonnull %pkey)
   br label %return
@@ -124,7 +124,7 @@ entry:
   %tmp2 = alloca %struct.ossl_param_st, align 8
   %tmp4 = alloca %struct.ossl_param_st, align 8
   %tmp6 = alloca %struct.ossl_param_st, align 8
-  %keydata = getelementptr inbounds i8, ptr %pk, i64 104
+  %keydata = getelementptr inbounds nuw i8, ptr %pk, i64 104
   %0 = load ptr, ptr %keydata, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end14, label %if.then
@@ -135,16 +135,16 @@ if.then:                                          ; preds = %entry
   store i32 0, ptr %size, align 4
   call void @OSSL_PARAM_construct_int(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.1, ptr noundef nonnull %bits) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
-  %arrayidx1 = getelementptr inbounds i8, ptr %params, i64 40
+  %arrayidx1 = getelementptr inbounds nuw i8, ptr %params, i64 40
   call void @OSSL_PARAM_construct_int(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp2, ptr noundef nonnull @.str.2, ptr noundef nonnull %security_bits) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx1, ptr noundef nonnull align 8 dereferenceable(40) %tmp2, i64 40, i1 false)
-  %arrayidx3 = getelementptr inbounds i8, ptr %params, i64 80
+  %arrayidx3 = getelementptr inbounds nuw i8, ptr %params, i64 80
   call void @OSSL_PARAM_construct_int(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp4, ptr noundef nonnull @.str.3, ptr noundef nonnull %size) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %arrayidx3, ptr noundef nonnull align 8 dereferenceable(40) %tmp4, i64 40, i1 false)
-  %arrayidx5 = getelementptr inbounds i8, ptr %params, i64 120
+  %arrayidx5 = getelementptr inbounds nuw i8, ptr %params, i64 120
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp6) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx5, ptr noundef nonnull align 8 dereferenceable(40) %tmp6, i64 40, i1 false)
-  %keymgmt = getelementptr inbounds i8, ptr %pk, i64 96
+  %keymgmt = getelementptr inbounds nuw i8, ptr %pk, i64 96
   %1 = load ptr, ptr %keymgmt, align 8
   %2 = load ptr, ptr %keydata, align 8
   %call = call i32 @evp_keymgmt_get_params(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %params) #4
@@ -153,13 +153,13 @@ if.then:                                          ; preds = %entry
 
 if.then8:                                         ; preds = %if.then
   %3 = load i32, ptr %size, align 4
-  %cache = getelementptr inbounds i8, ptr %pk, i64 136
-  %size9 = getelementptr inbounds i8, ptr %pk, i64 144
+  %cache = getelementptr inbounds nuw i8, ptr %pk, i64 136
+  %size9 = getelementptr inbounds nuw i8, ptr %pk, i64 144
   store i32 %3, ptr %size9, align 8
   %4 = load i32, ptr %bits, align 4
   store i32 %4, ptr %cache, align 8
   %5 = load i32, ptr %security_bits, align 4
-  %security_bits13 = getelementptr inbounds i8, ptr %pk, i64 140
+  %security_bits13 = getelementptr inbounds nuw i8, ptr %pk, i64 140
   store i32 %5, ptr %security_bits13, align 4
   br label %if.end14
 
@@ -192,7 +192,7 @@ evp_keymgmt_util_assign_pkey.exit.thread:         ; preds = %lor.lhs.false4.i
   br label %if.then
 
 evp_keymgmt_util_assign_pkey.exit:                ; preds = %lor.lhs.false4.i
-  %keydata5.i = getelementptr inbounds i8, ptr %call, i64 104
+  %keydata5.i = getelementptr inbounds nuw i8, ptr %call, i64 104
   store ptr %keydata, ptr %keydata5.i, align 8
   tail call void @evp_keymgmt_util_cache_keyinfo(ptr noundef nonnull %call)
   br label %return
@@ -220,9 +220,9 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %keymgmt = getelementptr inbounds i8, ptr %pk, i64 96
+  %keymgmt = getelementptr inbounds nuw i8, ptr %pk, i64 96
   %0 = load ptr, ptr %keymgmt, align 8
-  %keydata = getelementptr inbounds i8, ptr %pk, i64 104
+  %keydata = getelementptr inbounds nuw i8, ptr %pk, i64 104
   %1 = load ptr, ptr %keydata, align 8
   %call = tail call i32 @evp_keymgmt_export(ptr noundef %0, ptr noundef %1, i32 noundef %selection, ptr noundef nonnull %export_cb, ptr noundef %export_cbarg) #4
   br label %return
@@ -242,50 +242,50 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %keydata = getelementptr inbounds i8, ptr %pk, i64 104
+  %keydata = getelementptr inbounds nuw i8, ptr %pk, i64 104
   %0 = load ptr, ptr %keydata, align 8
   %cmp1 = icmp eq ptr %0, null
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %keymgmt4 = getelementptr inbounds i8, ptr %pk, i64 96
+  %keymgmt4 = getelementptr inbounds nuw i8, ptr %pk, i64 96
   %1 = load ptr, ptr %keymgmt4, align 8
   %cmp5 = icmp eq ptr %1, %keymgmt
   br i1 %cmp5, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %name_id = getelementptr inbounds i8, ptr %1, i64 4
+  %name_id = getelementptr inbounds nuw i8, ptr %1, i64 4
   %2 = load i32, ptr %name_id, align 4
-  %name_id7 = getelementptr inbounds i8, ptr %keymgmt, i64 4
+  %name_id7 = getelementptr inbounds nuw i8, ptr %keymgmt, i64 4
   %3 = load i32, ptr %name_id7, align 4
   %cmp8 = icmp eq i32 %2, %3
   br i1 %cmp8, label %land.lhs.true, label %if.end14
 
 land.lhs.true:                                    ; preds = %lor.lhs.false
-  %prov = getelementptr inbounds i8, ptr %1, i64 24
+  %prov = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %prov, align 8
-  %prov10 = getelementptr inbounds i8, ptr %keymgmt, i64 24
+  %prov10 = getelementptr inbounds nuw i8, ptr %keymgmt, i64 24
   %5 = load ptr, ptr %prov10, align 8
   %cmp11 = icmp eq ptr %4, %5
   br i1 %cmp11, label %return, label %if.end14
 
 if.end14:                                         ; preds = %land.lhs.true, %lor.lhs.false
-  %lock = getelementptr inbounds i8, ptr %pk, i64 56
+  %lock = getelementptr inbounds nuw i8, ptr %pk, i64 56
   %6 = load ptr, ptr %lock, align 8
   %call = tail call i32 @CRYPTO_THREAD_read_lock(ptr noundef %6) #4
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end16
 
 if.end16:                                         ; preds = %if.end14
-  %dirty_cnt = getelementptr inbounds i8, ptr %pk, i64 112
+  %dirty_cnt = getelementptr inbounds nuw i8, ptr %pk, i64 112
   %7 = load i64, ptr %dirty_cnt, align 8
-  %dirty_cnt_copy = getelementptr inbounds i8, ptr %pk, i64 128
+  %dirty_cnt_copy = getelementptr inbounds nuw i8, ptr %pk, i64 128
   %8 = load i64, ptr %dirty_cnt_copy, align 8
   %cmp17 = icmp eq i64 %7, %8
   br i1 %cmp17, label %if.then18, label %if.end29
 
 if.then18:                                        ; preds = %if.end16
-  %operation_cache.i = getelementptr inbounds i8, ptr %pk, i64 120
+  %operation_cache.i = getelementptr inbounds nuw i8, ptr %pk, i64 120
   %9 = load ptr, ptr %operation_cache.i, align 8
   %call.i.i = tail call i32 @OPENSSL_sk_num(ptr noundef %9) #4
   %cmp8.i = icmp sgt i32 %call.i.i, 0
@@ -300,7 +300,7 @@ for.body.i:                                       ; preds = %if.then18, %for.inc
   br i1 %cmp4.i, label %land.lhs.true.i, label %for.inc.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %selection5.i = getelementptr inbounds i8, ptr %call.i7.i, i64 16
+  %selection5.i = getelementptr inbounds nuw i8, ptr %call.i7.i, i64 16
   %12 = load i32, ptr %selection5.i, align 8
   %and.i = and i32 %12, %selection
   %cmp6.i = icmp eq i32 %and.i, %selection
@@ -312,7 +312,7 @@ for.inc.i:                                        ; preds = %land.lhs.true.i, %f
   br i1 %exitcond.not.i, label %if.end29, label %for.body.i, !llvm.loop !4
 
 if.then24:                                        ; preds = %land.lhs.true.i
-  %keydata25 = getelementptr inbounds i8, ptr %call.i7.i, i64 8
+  %keydata25 = getelementptr inbounds nuw i8, ptr %call.i7.i, i64 8
   %13 = load ptr, ptr %keydata25, align 8
   %14 = load ptr, ptr %lock, align 8
   %call27 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %14) #4
@@ -322,7 +322,7 @@ if.end29:                                         ; preds = %for.inc.i, %if.then
   %15 = load ptr, ptr %lock, align 8
   %call31 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %15) #4
   %16 = load ptr, ptr %keymgmt4, align 8
-  %export = getelementptr inbounds i8, ptr %16, i64 200
+  %export = getelementptr inbounds nuw i8, ptr %16, i64 200
   %17 = load ptr, ptr %export, align 8
   %cmp33 = icmp eq ptr %17, null
   br i1 %cmp33, label %return, label %if.end35
@@ -334,10 +334,10 @@ if.end35:                                         ; preds = %if.end29
   br i1 %cmp38.not, label %return, label %evp_keymgmt_util_export.exit
 
 evp_keymgmt_util_export.exit:                     ; preds = %if.end35
-  %keydata43 = getelementptr inbounds i8, ptr %import_data, i64 8
+  %keydata43 = getelementptr inbounds nuw i8, ptr %import_data, i64 8
   store ptr null, ptr %keydata43, align 8
   store ptr %keymgmt, ptr %import_data, align 8
-  %selection45 = getelementptr inbounds i8, ptr %import_data, i64 16
+  %selection45 = getelementptr inbounds nuw i8, ptr %import_data, i64 16
   store i32 %selection, ptr %selection45, align 8
   %18 = load ptr, ptr %keymgmt4, align 8
   %19 = load ptr, ptr %keydata, align 8
@@ -362,7 +362,7 @@ if.end55:                                         ; preds = %if.end49
   br i1 %cmp57.not, label %if.end69, label %land.lhs.true59
 
 land.lhs.true59:                                  ; preds = %if.end55
-  %keydata60 = getelementptr inbounds i8, ptr %call56, i64 8
+  %keydata60 = getelementptr inbounds nuw i8, ptr %call56, i64 8
   %22 = load ptr, ptr %keydata60, align 8
   %cmp61.not = icmp eq ptr %22, null
   br i1 %cmp61.not, label %if.end69, label %if.then63
@@ -381,7 +381,7 @@ if.end69:                                         ; preds = %land.lhs.true59, %i
   br i1 %cmp72.not, label %if.end76, label %evp_keymgmt_util_clear_operation_cache.exit
 
 evp_keymgmt_util_clear_operation_cache.exit:      ; preds = %if.end69
-  %operation_cache.i48 = getelementptr inbounds i8, ptr %pk, i64 120
+  %operation_cache.i48 = getelementptr inbounds nuw i8, ptr %pk, i64 120
   %27 = load ptr, ptr %operation_cache.i48, align 8
   call void @OPENSSL_sk_pop_free(ptr noundef %27, ptr noundef nonnull @op_cache_free) #4
   store ptr null, ptr %operation_cache.i48, align 8
@@ -418,7 +418,7 @@ declare i32 @CRYPTO_THREAD_read_lock(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define noundef ptr @evp_keymgmt_util_find_operation_cache(ptr nocapture noundef readonly %pk, ptr noundef readnone %keymgmt, i32 noundef %selection) local_unnamed_addr #0 {
 entry:
-  %operation_cache = getelementptr inbounds i8, ptr %pk, i64 120
+  %operation_cache = getelementptr inbounds nuw i8, ptr %pk, i64 120
   %0 = load ptr, ptr %operation_cache, align 8
   %call.i = tail call i32 @OPENSSL_sk_num(ptr noundef %0) #4
   %cmp8 = icmp sgt i32 %call.i, 0
@@ -433,7 +433,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %cmp4, label %land.lhs.true, label %for.inc
 
 land.lhs.true:                                    ; preds = %for.body
-  %selection5 = getelementptr inbounds i8, ptr %call.i7, i64 16
+  %selection5 = getelementptr inbounds nuw i8, ptr %call.i7, i64 16
   %3 = load i32, ptr %selection5, align 8
   %and = and i32 %3, %selection
   %cmp6 = icmp eq i32 %and, %selection
@@ -460,7 +460,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %operation_cache = getelementptr inbounds i8, ptr %pk, i64 120
+  %operation_cache = getelementptr inbounds nuw i8, ptr %pk, i64 120
   %0 = load ptr, ptr %operation_cache, align 8
   tail call void @OPENSSL_sk_pop_free(ptr noundef %0, ptr noundef nonnull @op_cache_free) #4
   store ptr null, ptr %operation_cache, align 8
@@ -477,7 +477,7 @@ entry:
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %operation_cache = getelementptr inbounds i8, ptr %pk, i64 120
+  %operation_cache = getelementptr inbounds nuw i8, ptr %pk, i64 120
   %0 = load ptr, ptr %operation_cache, align 8
   %cmp1 = icmp eq ptr %0, null
   br i1 %cmp1, label %if.then2, label %if.end7
@@ -494,10 +494,10 @@ if.end7:                                          ; preds = %if.then2, %if.then
   br i1 %cmp9, label %return, label %if.end11
 
 if.end11:                                         ; preds = %if.end7
-  %keydata12 = getelementptr inbounds i8, ptr %call8, i64 8
+  %keydata12 = getelementptr inbounds nuw i8, ptr %call8, i64 8
   store ptr %keydata, ptr %keydata12, align 8
   store ptr %keymgmt, ptr %call8, align 8
-  %selection14 = getelementptr inbounds i8, ptr %call8, i64 16
+  %selection14 = getelementptr inbounds nuw i8, ptr %call8, i64 16
   store i32 %selection, ptr %selection14, align 8
   %call15 = tail call i32 @EVP_KEYMGMT_up_ref(ptr noundef %keymgmt) #4
   %tobool.not = icmp eq i32 %call15, 0
@@ -527,7 +527,7 @@ return:                                           ; preds = %return.sink.split, 
 define internal void @op_cache_free(ptr noundef %e) #0 {
 entry:
   %0 = load ptr, ptr %e, align 8
-  %keydata = getelementptr inbounds i8, ptr %e, i64 8
+  %keydata = getelementptr inbounds nuw i8, ptr %e, i64 8
   %1 = load ptr, ptr %keydata, align 8
   tail call void @evp_keymgmt_freedata(ptr noundef %0, ptr noundef %1) #4
   %2 = load ptr, ptr %e, align 8
@@ -583,7 +583,7 @@ evp_keymgmt_util_assign_pkey.exit.thread:         ; preds = %lor.lhs.false2, %lo
   br label %if.then
 
 evp_keymgmt_util_assign_pkey.exit:                ; preds = %lor.lhs.false4.i
-  %keydata5.i = getelementptr inbounds i8, ptr %target, i64 104
+  %keydata5.i = getelementptr inbounds nuw i8, ptr %target, i64 104
   store ptr %call, ptr %keydata5.i, align 8
   tail call void @evp_keymgmt_util_cache_keyinfo(ptr noundef nonnull %target)
   br label %if.end
@@ -600,13 +600,13 @@ if.end:                                           ; preds = %evp_keymgmt_util_as
 ; Function Attrs: nounwind uwtable
 define i32 @evp_keymgmt_util_has(ptr nocapture noundef readonly %pk, i32 noundef %selection) local_unnamed_addr #0 {
 entry:
-  %keymgmt = getelementptr inbounds i8, ptr %pk, i64 96
+  %keymgmt = getelementptr inbounds nuw i8, ptr %pk, i64 96
   %0 = load ptr, ptr %keymgmt, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %keydata = getelementptr inbounds i8, ptr %pk, i64 104
+  %keydata = getelementptr inbounds nuw i8, ptr %pk, i64 104
   %1 = load ptr, ptr %keydata, align 8
   %call = tail call i32 @evp_keymgmt_has(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %selection) #4
   br label %return
@@ -632,13 +632,13 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end5:                                          ; preds = %entry
-  %keymgmt = getelementptr inbounds i8, ptr %pk1, i64 96
+  %keymgmt = getelementptr inbounds nuw i8, ptr %pk1, i64 96
   %0 = load ptr, ptr %keymgmt, align 8
-  %keydata = getelementptr inbounds i8, ptr %pk1, i64 104
+  %keydata = getelementptr inbounds nuw i8, ptr %pk1, i64 104
   %1 = load ptr, ptr %keydata, align 8
-  %keymgmt6 = getelementptr inbounds i8, ptr %pk2, i64 96
+  %keymgmt6 = getelementptr inbounds nuw i8, ptr %pk2, i64 96
   %2 = load ptr, ptr %keymgmt6, align 8
-  %keydata7 = getelementptr inbounds i8, ptr %pk2, i64 104
+  %keydata7 = getelementptr inbounds nuw i8, ptr %pk2, i64 104
   %3 = load ptr, ptr %keydata7, align 8
   %cmp8.not = icmp eq ptr %0, %2
   br i1 %cmp8.not, label %if.end54, label %if.then9
@@ -665,7 +665,7 @@ if.end15:                                         ; preds = %if.then9
   br i1 %cmp12, label %land.lhs.true17, label %if.end28
 
 land.lhs.true17:                                  ; preds = %land.lhs.true13, %if.end15
-  %match = getelementptr inbounds i8, ptr %2, i64 168
+  %match = getelementptr inbounds nuw i8, ptr %2, i64 168
   %4 = load ptr, ptr %match, align 8
   %cmp18.not = icmp eq ptr %4, null
   br i1 %cmp18.not, label %if.end28, label %if.then19
@@ -688,7 +688,7 @@ if.end28:                                         ; preds = %if.end24, %land.lhs
   br i1 %cmp31.not, label %if.end50, label %land.lhs.true33
 
 land.lhs.true33:                                  ; preds = %if.end28
-  %match34 = getelementptr inbounds i8, ptr %0, i64 168
+  %match34 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %5 = load ptr, ptr %match34, align 8
   %cmp35.not = icmp eq ptr %5, null
   br i1 %cmp35.not, label %if.end50, label %if.then37
@@ -744,24 +744,24 @@ declare i32 @evp_keymgmt_match(ptr noundef, ptr noundef, ptr noundef, i32 nounde
 define range(i32 0, 2) i32 @evp_keymgmt_util_copy(ptr noundef %to, ptr noundef readonly %from, i32 noundef %selection) local_unnamed_addr #0 {
 entry:
   %import_data = alloca %struct.evp_keymgmt_util_try_import_data_st, align 8
-  %keymgmt = getelementptr inbounds i8, ptr %to, i64 96
+  %keymgmt = getelementptr inbounds nuw i8, ptr %to, i64 96
   %0 = load ptr, ptr %keymgmt, align 8
-  %keydata = getelementptr inbounds i8, ptr %to, i64 104
+  %keydata = getelementptr inbounds nuw i8, ptr %to, i64 104
   %1 = load ptr, ptr %keydata, align 8
   %cmp = icmp eq ptr %from, null
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %keydata1 = getelementptr inbounds i8, ptr %from, i64 104
+  %keydata1 = getelementptr inbounds nuw i8, ptr %from, i64 104
   %2 = load ptr, ptr %keydata1, align 8
   %cmp2 = icmp eq ptr %2, null
   br i1 %cmp2, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
   %cmp3 = icmp eq ptr %0, null
-  %keymgmt5 = getelementptr inbounds i8, ptr %from, i64 96
+  %keymgmt5 = getelementptr inbounds nuw i8, ptr %from, i64 96
   %3 = load ptr, ptr %keymgmt5, align 8
-  %keymgmt729 = getelementptr inbounds i8, ptr %from, i64 96
+  %keymgmt729 = getelementptr inbounds nuw i8, ptr %from, i64 96
   br i1 %cmp3, label %land.lhs.true, label %if.end6
 
 if.end6:                                          ; preds = %if.end
@@ -770,7 +770,7 @@ if.end6:                                          ; preds = %if.end
 
 land.lhs.true:                                    ; preds = %if.end, %if.end6
   %to_keymgmt.033 = phi ptr [ %0, %if.end6 ], [ %3, %if.end ]
-  %dup = getelementptr inbounds i8, ptr %to_keymgmt.033, i64 224
+  %dup = getelementptr inbounds nuw i8, ptr %to_keymgmt.033, i64 224
   %4 = load ptr, ptr %dup, align 8
   %cmp9 = icmp ne ptr %4, null
   %cmp11 = icmp eq ptr %1, null
@@ -791,9 +791,9 @@ if.else:                                          ; preds = %land.lhs.true, %if.
 
 evp_keymgmt_util_export.exit:                     ; preds = %if.else
   store ptr %to_keymgmt.032, ptr %import_data, align 8
-  %keydata21 = getelementptr inbounds i8, ptr %import_data, i64 8
+  %keydata21 = getelementptr inbounds nuw i8, ptr %import_data, i64 8
   store ptr %1, ptr %keydata21, align 8
-  %selection22 = getelementptr inbounds i8, ptr %import_data, i64 16
+  %selection22 = getelementptr inbounds nuw i8, ptr %import_data, i64 16
   store i32 %selection, ptr %selection22, align 8
   %5 = load ptr, ptr %keymgmt729, align 8
   %6 = load ptr, ptr %keydata1, align 8
@@ -868,7 +868,7 @@ evp_keymgmt_util_assign_pkey.exit.thread:         ; preds = %lor.lhs.false, %lor
   br label %if.then
 
 evp_keymgmt_util_assign_pkey.exit:                ; preds = %lor.lhs.false4.i
-  %keydata5.i = getelementptr inbounds i8, ptr %target, i64 104
+  %keydata5.i = getelementptr inbounds nuw i8, ptr %target, i64 104
   store ptr %call, ptr %keydata5.i, align 8
   tail call void @evp_keymgmt_util_cache_keyinfo(ptr noundef nonnull %target)
   br label %if.end
@@ -897,10 +897,10 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(100) %mdmandatory, i8 0, i64 100, i1 false)
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.4, ptr noundef nonnull %mddefault, i64 noundef 100) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
-  %arrayidx1 = getelementptr inbounds i8, ptr %params, i64 40
+  %arrayidx1 = getelementptr inbounds nuw i8, ptr %params, i64 40
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp2, ptr noundef nonnull @.str.5, ptr noundef nonnull %mdmandatory, i64 noundef 100) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx1, ptr noundef nonnull align 8 dereferenceable(40) %tmp2, i64 40, i1 false)
-  %arrayidx4 = getelementptr inbounds i8, ptr %params, i64 80
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %params, i64 80
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp5) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %arrayidx4, ptr noundef nonnull align 8 dereferenceable(40) %tmp5, i64 40, i1 false)
   %call = call i32 @evp_keymgmt_get_params(ptr noundef %keymgmt, ptr noundef %keydata, ptr noundef nonnull %params) #4
@@ -913,7 +913,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool9.not, label %if.else15, label %if.then10
 
 if.then10:                                        ; preds = %if.end
-  %return_size = getelementptr inbounds i8, ptr %params, i64 72
+  %return_size = getelementptr inbounds nuw i8, ptr %params, i64 72
   %0 = load i64, ptr %return_size, align 8
   br label %if.then30
 
@@ -923,7 +923,7 @@ if.else15:                                        ; preds = %if.end
   br i1 %tobool18.not, label %return, label %if.then19
 
 if.then19:                                        ; preds = %if.else15
-  %return_size21 = getelementptr inbounds i8, ptr %params, i64 32
+  %return_size21 = getelementptr inbounds nuw i8, ptr %params, i64 32
   %1 = load i64, ptr %return_size21, align 16
   br label %if.then30
 
@@ -957,7 +957,7 @@ entry:
   br i1 %cmp.not, label %if.end8, label %if.then
 
 if.then:                                          ; preds = %entry
-  %query_operation_name = getelementptr inbounds i8, ptr %keymgmt, i64 144
+  %query_operation_name = getelementptr inbounds nuw i8, ptr %keymgmt, i64 144
   %0 = load ptr, ptr %query_operation_name, align 8
   %cmp1.not = icmp eq ptr %0, null
   br i1 %cmp1.not, label %if.then5, label %if.end

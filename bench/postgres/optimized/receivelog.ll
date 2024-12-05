@@ -139,7 +139,7 @@ define dso_local noundef zeroext i1 @ReceiveXlogStream(ptr noundef %0, ptr nocap
   br label %CheckServerVersionForStreaming.exit.thread
 
 CheckServerVersionForStreaming.exit:              ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %1, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %28 = load ptr, ptr %27, align 8
   %.not = icmp eq ptr %28, null
   br i1 %.not, label %31, label %29
@@ -150,7 +150,7 @@ CheckServerVersionForStreaming.exit:              ; preds = %22
   br label %35
 
 31:                                               ; preds = %CheckServerVersionForStreaming.exit
-  %32 = getelementptr inbounds i8, ptr %1, i64 28
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %33 = load i8, ptr %32, align 4
   %34 = trunc i8 %33 to i1
   store i1 %34, ptr @reportFlushPosition, align 1
@@ -158,13 +158,13 @@ CheckServerVersionForStreaming.exit:              ; preds = %22
   br label %35
 
 35:                                               ; preds = %31, %29
-  %36 = getelementptr inbounds i8, ptr %1, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %37 = load ptr, ptr %36, align 8
   %.not74 = icmp eq ptr %37, null
   br i1 %.not74, label %._crit_edge, label %38
 
 ._crit_edge:                                      ; preds = %35
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre.pre = load i32, ptr %.phi.trans.insert, align 8
   br label %54
 
@@ -193,7 +193,7 @@ CheckServerVersionForStreaming.exit:              ; preds = %22
 
 48:                                               ; preds = %42
   call void @pg_free(ptr noundef %44) #11
-  %49 = getelementptr inbounds i8, ptr %1, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %50 = load i32, ptr %49, align 8
   %51 = load i32, ptr %16, align 4
   %52 = icmp ugt i32 %50, %51
@@ -207,15 +207,15 @@ CheckServerVersionForStreaming.exit:              ; preds = %22
   %.pre = phi i32 [ %.pre.pre, %._crit_edge ], [ %50, %48 ]
   %55 = load i64, ptr %1, align 8
   store i64 %55, ptr @lastFlushPosition, align 8
-  %56 = getelementptr inbounds i8, ptr %1, i64 8
-  %57 = getelementptr inbounds i8, ptr %1, i64 48
-  %58 = getelementptr inbounds i8, ptr %1, i64 29
-  %59 = getelementptr inbounds i8, ptr %1, i64 32
-  %60 = getelementptr inbounds i8, ptr %1, i64 28
-  %61 = getelementptr inbounds i8, ptr %1, i64 24
-  %62 = getelementptr inbounds i8, ptr %1, i64 40
-  %63 = getelementptr inbounds i8, ptr %1, i64 56
-  %64 = getelementptr inbounds i8, ptr %4, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 29
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %64 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %65
 
 65:                                               ; preds = %545, %54
@@ -232,7 +232,7 @@ existsTimeLineHistoryFile.exit:                   ; preds = %65
   %68 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %12, i64 noundef 64, ptr noundef nonnull @.str.20, i32 noundef %66) #11
   %69 = load ptr, ptr %57, align 8
   %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %72 = load ptr, ptr %71, align 8
   %73 = call zeroext i1 %72(ptr noundef nonnull %69, ptr noundef nonnull %12) #11
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12)
@@ -301,7 +301,7 @@ existsTimeLineHistoryFile.exit:                   ; preds = %65
 
 106:                                              ; preds = %97
   %107 = load ptr, ptr %103, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 40
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 40
   %109 = load ptr, ptr %108, align 8
   %sext.i = shl i64 %90, 32
   %110 = ashr exact i64 %sext.i, 32
@@ -316,14 +316,14 @@ existsTimeLineHistoryFile.exit:                   ; preds = %65
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.24, ptr noundef nonnull %11, ptr noundef %115) #11
   %116 = load ptr, ptr %57, align 8
   %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds i8, ptr %117, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %119 = load ptr, ptr %118, align 8
   %120 = call i32 %119(ptr noundef nonnull %101, i32 noundef 1) #11
   br label %writeTimeLineHistoryFile.exit
 
 121:                                              ; preds = %106
   %122 = load ptr, ptr %113, align 8
-  %123 = getelementptr inbounds i8, ptr %122, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
   %124 = load ptr, ptr %123, align 8
   %125 = call i32 %124(ptr noundef nonnull %101, i32 noundef 0) #11
   %.not24.i = icmp eq i32 %125, 0
@@ -352,7 +352,7 @@ existsTimeLineHistoryFile.exit:                   ; preds = %65
 
 140:                                              ; preds = %132
   %141 = load ptr, ptr %139, align 8
-  %142 = getelementptr inbounds i8, ptr %141, i64 8
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 8
   %143 = load ptr, ptr %142, align 8
   %144 = call i32 %143(ptr noundef nonnull %137, i32 noundef 0) #11
   %.not.i.i = icmp eq i32 %144, 0
@@ -464,7 +464,7 @@ thread-pre-split.i:                               ; preds = %CopyStreamReceive.e
 190:                                              ; preds = %185
   %191 = load ptr, ptr %57, align 8
   %192 = load ptr, ptr %191, align 8
-  %193 = getelementptr inbounds i8, ptr %192, i64 48
+  %193 = getelementptr inbounds nuw i8, ptr %192, i64 48
   %194 = load ptr, ptr %193, align 8
   %195 = call i32 %194(ptr noundef nonnull %188) #11
   %.not.i89 = icmp eq i32 %195, 0
@@ -472,7 +472,7 @@ thread-pre-split.i:                               ; preds = %CopyStreamReceive.e
 
 196:                                              ; preds = %190
   %197 = load ptr, ptr @walfile, align 8
-  %198 = getelementptr inbounds i8, ptr %197, i64 16
+  %198 = getelementptr inbounds nuw i8, ptr %197, i64 16
   %199 = load ptr, ptr %198, align 8
   %200 = load ptr, ptr %57, align 8
   %201 = call ptr @GetLastWalMethodError(ptr noundef %200) #11
@@ -790,7 +790,7 @@ HandleEndOfCopyStream.exit.i:                     ; preds = %299, %CopyStreamRec
 316:                                              ; preds = %311
   %317 = load ptr, ptr %57, align 8
   %318 = load ptr, ptr %317, align 8
-  %319 = getelementptr inbounds i8, ptr %318, i64 48
+  %319 = getelementptr inbounds nuw i8, ptr %318, i64 48
   %320 = load ptr, ptr %319, align 8
   %321 = call i32 %320(ptr noundef nonnull %314) #11
   %.not23.i.i = icmp eq i32 %321, 0
@@ -798,7 +798,7 @@ HandleEndOfCopyStream.exit.i:                     ; preds = %299, %CopyStreamRec
 
 322:                                              ; preds = %316
   %323 = load ptr, ptr @walfile, align 8
-  %324 = getelementptr inbounds i8, ptr %323, i64 16
+  %324 = getelementptr inbounds nuw i8, ptr %323, i64 16
   %325 = load ptr, ptr %324, align 8
   %326 = load ptr, ptr %57, align 8
   %327 = call ptr @GetLastWalMethodError(ptr noundef %326) #11
@@ -850,7 +850,7 @@ ProcessKeepaliveMsg.exit.thread.i.backedge:       ; preds = %332, %309, %306
   br label %HandleCopyStream.exit.thread
 
 347:                                              ; preds = %336
-  %348 = getelementptr inbounds i8, ptr %343, i64 8
+  %348 = getelementptr inbounds nuw i8, ptr %343, i64 8
   %349 = load i64, ptr %348, align 8
   %350 = sext i32 %342 to i64
   %.not.i53.i = icmp eq i64 %349, %350
@@ -897,19 +897,19 @@ ProcessKeepaliveMsg.exit.thread.i.backedge:       ; preds = %332, %309, %306
   %372 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %8, i64 noundef 64, ptr noundef nonnull @.str.51, i32 noundef %366, i32 noundef %369, i32 noundef %371) #11
   %373 = load ptr, ptr %57, align 8
   %374 = load ptr, ptr %373, align 8
-  %375 = getelementptr inbounds i8, ptr %374, i64 32
+  %375 = getelementptr inbounds nuw i8, ptr %374, i64 32
   %376 = load ptr, ptr %375, align 8
   %377 = load ptr, ptr %63, align 8
   %378 = call ptr %376(ptr noundef nonnull %373, ptr noundef nonnull %8, ptr noundef %377) #11
   %379 = load ptr, ptr %57, align 8
-  %380 = getelementptr inbounds i8, ptr %379, i64 8
+  %380 = getelementptr inbounds nuw i8, ptr %379, i64 8
   %381 = load i32, ptr %380, align 8
   %382 = icmp eq i32 %381, 0
   br i1 %382, label %383, label %435
 
 383:                                              ; preds = %363
   %384 = load ptr, ptr %379, align 8
-  %385 = getelementptr inbounds i8, ptr %384, i64 16
+  %385 = getelementptr inbounds nuw i8, ptr %384, i64 16
   %386 = load ptr, ptr %385, align 8
   %387 = call zeroext i1 %386(ptr noundef nonnull %379, ptr noundef %378) #11
   %.pre52.i.i.i = load ptr, ptr %57, align 8
@@ -917,7 +917,7 @@ ProcessKeepaliveMsg.exit.thread.i.backedge:       ; preds = %332, %309, %306
 
 388:                                              ; preds = %383
   %389 = load ptr, ptr %.pre52.i.i.i, align 8
-  %390 = getelementptr inbounds i8, ptr %389, i64 24
+  %390 = getelementptr inbounds nuw i8, ptr %389, i64 24
   %391 = load ptr, ptr %390, align 8
   %392 = call i64 %391(ptr noundef nonnull %.pre52.i.i.i, ptr noundef %378) #11
   %393 = icmp slt i64 %392, 0
@@ -952,7 +952,7 @@ ProcessKeepaliveMsg.exit.thread.i.backedge:       ; preds = %332, %309, %306
 
 411:                                              ; preds = %401
   %412 = load ptr, ptr %408, align 8
-  %413 = getelementptr inbounds i8, ptr %412, i64 48
+  %413 = getelementptr inbounds nuw i8, ptr %412, i64 48
   %414 = load ptr, ptr %413, align 8
   %415 = call i32 %414(ptr noundef nonnull %406) #11
   %.not50.i.i.i = icmp eq i32 %415, 0
@@ -964,7 +964,7 @@ ProcessKeepaliveMsg.exit.thread.i.backedge:       ; preds = %332, %309, %306
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.47, ptr noundef %378, ptr noundef %418) #11
   %419 = load ptr, ptr %57, align 8
   %420 = load ptr, ptr %419, align 8
-  %421 = getelementptr inbounds i8, ptr %420, i64 8
+  %421 = getelementptr inbounds nuw i8, ptr %420, i64 8
   %422 = load ptr, ptr %421, align 8
   %423 = call i32 %422(ptr noundef nonnull %406, i32 noundef 1) #11
   call void @exit(i32 noundef 1) #13
@@ -1038,7 +1038,7 @@ open_walfile.exit.i.i:                            ; preds = %447, %424
   %449 = phi ptr [ %.pre.i57.i, %open_walfile.exit.i.i ], [ %361, %356 ]
   %450 = load ptr, ptr %57, align 8
   %451 = load ptr, ptr %450, align 8
-  %452 = getelementptr inbounds i8, ptr %451, i64 40
+  %452 = getelementptr inbounds nuw i8, ptr %451, i64 40
   %453 = load ptr, ptr %452, align 8
   %454 = sext i32 %.04795.i.i to i64
   %455 = getelementptr i8, ptr %355, i64 %454
@@ -1049,7 +1049,7 @@ open_walfile.exit.i.i:                            ; preds = %447, %424
 
 458:                                              ; preds = %448
   %459 = load ptr, ptr @walfile, align 8
-  %460 = getelementptr inbounds i8, ptr %459, i64 16
+  %460 = getelementptr inbounds nuw i8, ptr %459, i64 16
   %461 = load ptr, ptr %460, align 8
   %462 = load ptr, ptr %57, align 8
   %463 = call ptr @GetLastWalMethodError(ptr noundef %462) #11
@@ -1280,7 +1280,7 @@ ReadEndOfStreamingResult.exit.thread:             ; preds = %511, %519
 562:                                              ; preds = %560
   %563 = load ptr, ptr %57, align 8
   %564 = load ptr, ptr %563, align 8
-  %565 = getelementptr inbounds i8, ptr %564, i64 8
+  %565 = getelementptr inbounds nuw i8, ptr %564, i64 8
   %566 = load ptr, ptr %565, align 8
   %567 = call i32 %566(ptr noundef nonnull %561, i32 noundef 2) #11
   %.not84 = icmp eq i32 %567, 0
@@ -1288,7 +1288,7 @@ ReadEndOfStreamingResult.exit.thread:             ; preds = %511, %519
 
 568:                                              ; preds = %562
   %569 = load ptr, ptr @walfile, align 8
-  %570 = getelementptr inbounds i8, ptr %569, i64 16
+  %570 = getelementptr inbounds nuw i8, ptr %569, i64 16
   %571 = load ptr, ptr %570, align 8
   %572 = load ptr, ptr %57, align 8
   %573 = call ptr @GetLastWalMethodError(ptr noundef %572) #11
@@ -1351,18 +1351,18 @@ declare void @exit(i32 noundef) local_unnamed_addr #5
 define internal fastcc noundef zeroext i1 @sendFeedback(ptr noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca [34 x i8], align 16
   store i8 114, ptr %4, align 16
-  %5 = getelementptr inbounds i8, ptr %4, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1
   call void @fe_sendint64(i64 noundef %1, ptr noundef nonnull %5) #11
   %.b20 = load i1, ptr @reportFlushPosition, align 1
   %6 = load i64, ptr @lastFlushPosition, align 8
   %.sink = select i1 %.b20, i64 %6, i64 0
-  %7 = getelementptr inbounds i8, ptr %4, i64 9
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 9
   call void @fe_sendint64(i64 noundef %.sink, ptr noundef nonnull %7) #11
-  %8 = getelementptr inbounds i8, ptr %4, i64 17
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 17
   call void @fe_sendint64(i64 noundef 0, ptr noundef nonnull %8) #11
-  %9 = getelementptr inbounds i8, ptr %4, i64 25
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 25
   call void @fe_sendint64(i64 noundef %2, ptr noundef nonnull %9) #11
-  %10 = getelementptr inbounds i8, ptr %4, i64 33
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 33
   store i8 0, ptr %10, align 1
   %11 = call i32 @PQputCopyData(ptr noundef %0, ptr noundef nonnull %4, i32 noundef 34) #11
   %12 = icmp slt i32 %11, 1
@@ -1395,18 +1395,18 @@ define internal fastcc noundef zeroext i1 @close_walfile(ptr nocapture noundef r
   br i1 %5, label %60, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %8, i64 noundef 1024) #11
   %10 = load ptr, ptr @walfile, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %19 = load ptr, ptr %18, align 8
   %20 = call ptr %17(ptr noundef nonnull %14, ptr noundef nonnull %3, ptr noundef %19) #11
   %21 = load ptr, ptr %18, align 8
@@ -1425,7 +1425,7 @@ define internal fastcc noundef zeroext i1 @close_walfile(ptr nocapture noundef r
   %.sink22 = phi i32 [ 2, %25 ], [ 0, %6 ]
   %27 = load ptr, ptr %13, align 8
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr @walfile, align 8
   %32 = call i32 %30(ptr noundef %31, i32 noundef %.sink22) #11
@@ -1448,7 +1448,7 @@ define internal fastcc noundef zeroext i1 @close_walfile(ptr nocapture noundef r
   br i1 %39, label %40, label %mark_file_as_archived.exit.thread
 
 40:                                               ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %0, i64 29
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 29
   %42 = load i8, ptr %41, align 1
   %43 = trunc i8 %42 to i1
   br i1 %43, label %44, label %mark_file_as_archived.exit.thread
@@ -1465,7 +1465,7 @@ define internal fastcc noundef zeroext i1 @close_walfile(ptr nocapture noundef r
 
 52:                                               ; preds = %44
   %53 = load ptr, ptr %51, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load ptr, ptr %54, align 8
   %56 = call i32 %55(ptr noundef nonnull %49, i32 noundef 0) #11
   %.not.i = icmp eq i32 %56, 0

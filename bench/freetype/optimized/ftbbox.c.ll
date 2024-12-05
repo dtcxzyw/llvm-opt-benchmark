@@ -21,7 +21,7 @@ define i32 @FT_Outline_Get_BBox(ptr noundef %0, ptr noundef writeonly %1) local_
   br i1 %.not69, label %39, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 2
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %7 = load i16, ptr %6, align 2
   %8 = icmp eq i16 %7, 0
   br i1 %8, label %12, label %9
@@ -36,9 +36,9 @@ define i32 @FT_Outline_Get_BBox(ptr noundef %0, ptr noundef writeonly %1) local_
   br label %39
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8
   %wide.trip.count = zext i16 %7 to i64
   br label %18
@@ -57,11 +57,11 @@ define i32 @FT_Outline_Get_BBox(ptr noundef %0, ptr noundef writeonly %1) local_
   %19 = load i64, ptr %.05783, align 8
   %spec.select = tail call i64 @llvm.smin.i64(i64 %19, i64 %.sroa.036.078)
   %.sroa.7.1 = tail call i64 @llvm.smax.i64(i64 %19, i64 %.sroa.7.076)
-  %20 = getelementptr inbounds i8, ptr %.05783, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.05783, i64 8
   %21 = load i64, ptr %20, align 8
   %.sroa.4.1 = tail call i64 @llvm.smin.i64(i64 %21, i64 %.sroa.4.077)
   %.sroa.10.1 = tail call i64 @llvm.smax.i64(i64 %21, i64 %.sroa.10.075)
-  %22 = getelementptr inbounds i8, ptr %17, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 %indvars.iv
   %23 = load i8, ptr %22, align 1
   %24 = and i8 %23, 3
   %25 = icmp eq i8 %24, 1
@@ -79,7 +79,7 @@ define i32 @FT_Outline_Get_BBox(ptr noundef %0, ptr noundef writeonly %1) local_
   %.sroa.9.1 = phi i64 [ %.sroa.9.080, %18 ], [ %.sroa.9.2, %26 ]
   %.sroa.6.1 = phi i64 [ %.sroa.6.081, %18 ], [ %.sroa.6.2, %26 ]
   %.sroa.0.1 = phi i64 [ %.sroa.0.082, %18 ], [ %spec.select71, %26 ]
-  %28 = getelementptr inbounds i8, ptr %.05783, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %.05783, i64 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %29, label %18, !llvm.loop !4
@@ -95,13 +95,13 @@ define i32 @FT_Outline_Get_BBox(ptr noundef %0, ptr noundef writeonly %1) local_
   br i1 %or.cond73, label %34, label %38
 
 34:                                               ; preds = %29
-  %35 = getelementptr inbounds i8, ptr %3, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %.sroa.0.1, ptr %35, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 24
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %.sroa.6.1, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 32
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i64 %.sroa.9.1, ptr %.sroa.9.0..sroa_idx, align 8
-  %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 40
+  %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %.sroa.12.1, ptr %.sroa.12.0..sroa_idx, align 8
   %36 = call i32 @FT_Outline_Decompose(ptr noundef nonnull %0, ptr noundef nonnull @bbox_interface, ptr noundef nonnull %3) #8
   %.not70 = icmp eq i32 %36, 0
@@ -113,11 +113,11 @@ define i32 @FT_Outline_Get_BBox(ptr noundef %0, ptr noundef writeonly %1) local_
 
 38:                                               ; preds = %29
   store i64 %.sroa.0.1, ptr %1, align 8
-  %.sroa.6.0..sroa_idx25 = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.6.0..sroa_idx25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %.sroa.6.1, ptr %.sroa.6.0..sroa_idx25, align 8
-  %.sroa.9.0..sroa_idx29 = getelementptr inbounds i8, ptr %1, i64 16
+  %.sroa.9.0..sroa_idx29 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %.sroa.9.1, ptr %.sroa.9.0..sroa_idx29, align 8
-  %.sroa.12.0..sroa_idx33 = getelementptr inbounds i8, ptr %1, i64 24
+  %.sroa.12.0..sroa_idx33 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 %.sroa.12.1, ptr %.sroa.12.0..sroa_idx33, align 8
   br label %39
 
@@ -134,7 +134,7 @@ declare i32 @FT_Outline_Decompose(ptr noundef, ptr noundef, ptr noundef) local_u
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef i32 @BBox_Move_To(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((0, 16)) %1) #3 {
   %3 = load i64, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = icmp slt i64 %3, %5
   br i1 %6, label %7, label %8
@@ -146,7 +146,7 @@ define internal noundef i32 @BBox_Move_To(ptr nocapture noundef readonly %0, ptr
 
 8:                                                ; preds = %7, %2
   %9 = phi i64 [ %.pre, %7 ], [ %3, %2 ]
-  %10 = getelementptr inbounds i8, ptr %1, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %11 = load i64, ptr %10, align 8
   %12 = icmp sgt i64 %9, %11
   br i1 %12, label %13, label %14
@@ -156,9 +156,9 @@ define internal noundef i32 @BBox_Move_To(ptr nocapture noundef readonly %0, ptr
   br label %14
 
 14:                                               ; preds = %13, %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load i64, ptr %17, align 8
   %19 = icmp slt i64 %16, %18
   br i1 %19, label %20, label %21
@@ -170,7 +170,7 @@ define internal noundef i32 @BBox_Move_To(ptr nocapture noundef readonly %0, ptr
 
 21:                                               ; preds = %20, %14
   %22 = phi i64 [ %.pre22, %20 ], [ %16, %14 ]
-  %23 = getelementptr inbounds i8, ptr %1, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %24 = load i64, ptr %23, align 8
   %25 = icmp sgt i64 %22, %24
   br i1 %25, label %26, label %27
@@ -193,7 +193,7 @@ define internal noundef i32 @BBox_Line_To(ptr nocapture noundef readonly %0, ptr
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @BBox_Conic_To(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) #0 {
   %4 = load i64, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = icmp slt i64 %4, %6
   br i1 %7, label %8, label %9
@@ -206,7 +206,7 @@ define internal noundef i32 @BBox_Conic_To(ptr nocapture noundef readonly %0, pt
 9:                                                ; preds = %8, %3
   %10 = phi i64 [ %4, %8 ], [ %6, %3 ]
   %11 = phi i64 [ %.pre, %8 ], [ %4, %3 ]
-  %12 = getelementptr inbounds i8, ptr %2, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %13 = load i64, ptr %12, align 8
   %14 = icmp sgt i64 %11, %13
   br i1 %14, label %15, label %16
@@ -217,9 +217,9 @@ define internal noundef i32 @BBox_Conic_To(ptr nocapture noundef readonly %0, pt
 
 16:                                               ; preds = %15, %9
   %17 = phi i64 [ %11, %15 ], [ %13, %9 ]
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load i64, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %2, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %21 = load i64, ptr %20, align 8
   %22 = icmp slt i64 %19, %21
   br i1 %22, label %23, label %24
@@ -231,7 +231,7 @@ define internal noundef i32 @BBox_Conic_To(ptr nocapture noundef readonly %0, pt
 
 24:                                               ; preds = %23, %16
   %25 = phi i64 [ %.pre43, %23 ], [ %19, %16 ]
-  %26 = getelementptr inbounds i8, ptr %2, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %27 = load i64, ptr %26, align 8
   %28 = icmp sgt i64 %25, %27
   br i1 %28, label %29, label %30
@@ -273,7 +273,7 @@ define internal noundef i32 @BBox_Conic_To(ptr nocapture noundef readonly %0, pt
   br label %BBox_Conic_Check.exit
 
 BBox_Conic_Check.exit:                            ; preds = %30, %48, %45
-  %49 = getelementptr inbounds i8, ptr %0, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %50 = load i64, ptr %49, align 8
   %51 = load i64, ptr %20, align 8
   %52 = icmp slt i64 %50, %51
@@ -285,7 +285,7 @@ BBox_Conic_Check.exit:                            ; preds = %30, %48, %45
   br i1 %55, label %56, label %BBox_Conic_Check.exit42
 
 56:                                               ; preds = %53, %BBox_Conic_Check.exit
-  %57 = getelementptr inbounds i8, ptr %2, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %58 = load i64, ptr %57, align 8
   %59 = load i64, ptr %18, align 8
   %60 = sub nsw i64 %58, %50
@@ -318,7 +318,7 @@ BBox_Conic_Check.exit42:                          ; preds = %71, %68, %53
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal noundef i32 @BBox_Cubic_To(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) #4 {
   %5 = load i64, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = icmp slt i64 %5, %7
   br i1 %8, label %._crit_edge, label %9
@@ -328,7 +328,7 @@ define internal noundef i32 @BBox_Cubic_To(ptr nocapture noundef readonly %0, pt
   br label %16
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %3, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %11 = load i64, ptr %10, align 8
   %12 = icmp sgt i64 %5, %11
   %.pre39 = load i64, ptr %1, align 8
@@ -344,26 +344,26 @@ define internal noundef i32 @BBox_Cubic_To(ptr nocapture noundef readonly %0, pt
   %17 = phi i64 [ %.pre, %._crit_edge ], [ %.pre39, %13 ], [ %.pre39, %9 ]
   %18 = load i64, ptr %3, align 8
   %19 = load i64, ptr %2, align 8
-  %20 = getelementptr inbounds i8, ptr %3, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 32
   tail call fastcc void @BBox_Cubic_Check(i64 noundef %18, i64 noundef %5, i64 noundef %17, i64 noundef %19, ptr noundef nonnull %6, ptr noundef nonnull %20)
   br label %21
 
 21:                                               ; preds = %13, %16
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %3, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %25 = load i64, ptr %24, align 8
   %26 = icmp slt i64 %23, %25
   br i1 %26, label %36, label %27
 
 27:                                               ; preds = %21
-  %28 = getelementptr inbounds i8, ptr %3, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %29 = load i64, ptr %28, align 8
   %30 = icmp sgt i64 %23, %29
   br i1 %30, label %36, label %31
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %33 = load i64, ptr %32, align 8
   %34 = icmp slt i64 %33, %25
   %35 = icmp sgt i64 %33, %29
@@ -371,13 +371,13 @@ define internal noundef i32 @BBox_Cubic_To(ptr nocapture noundef readonly %0, pt
   br i1 %or.cond38, label %36, label %44
 
 36:                                               ; preds = %31, %27, %21
-  %37 = getelementptr inbounds i8, ptr %3, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %38 = load i64, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %1, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %2, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %42 = load i64, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %3, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 40
   tail call fastcc void @BBox_Cubic_Check(i64 noundef %38, i64 noundef %23, i64 noundef %40, i64 noundef %42, ptr noundef nonnull %24, ptr noundef nonnull %43)
   br label %44
 

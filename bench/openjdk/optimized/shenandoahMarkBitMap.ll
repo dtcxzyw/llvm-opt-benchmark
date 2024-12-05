@@ -43,13 +43,13 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = 
 define hidden void @_ZN20ShenandoahMarkBitMapC2E9MemRegionS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 4), (8, 40)) %0, ptr %1, i64 %2, ptr %3, i64 %4) unnamed_addr #0 align 2 {
   %6 = load i32, ptr @LogMinObjAlignment, align 4
   store i32 %6, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %7, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %2, ptr %.sroa.22.0..sroa_idx, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %3, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = shl i64 %2, 1
   %11 = zext nneg i32 %6 to i64
   %12 = lshr i64 %10, %11
@@ -88,7 +88,7 @@ define hidden noundef ptr @_ZNK20ShenandoahMarkBitMap20get_next_marked_addrEPKP1
   %10 = sub i32 0, %5
   %11 = sext i32 %10 to i64
   %12 = and i64 %9, %11
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
   %16 = sub i64 %12, %15
@@ -107,9 +107,9 @@ define hidden noundef ptr @_ZNK20ShenandoahMarkBitMap20get_next_marked_addrEPKP1
 
 28:                                               ; preds = %3
   %29 = lshr i64 %21, 6
-  %30 = getelementptr inbounds i8, ptr %0, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i64, ptr %31, i64 %29
+  %32 = getelementptr inbounds nuw i64, ptr %31, i64 %29
   %33 = load i64, ptr %32, align 8
   %34 = and i64 %21, 63
   %35 = lshr i64 %33, %34
@@ -139,7 +139,7 @@ define hidden noundef ptr @_ZNK20ShenandoahMarkBitMap20get_next_marked_addrEPKP1
   br i1 %47, label %48, label %.loopexit.i.i
 
 48:                                               ; preds = %45
-  %49 = getelementptr inbounds i64, ptr %31, i64 %46
+  %49 = getelementptr inbounds nuw i64, ptr %31, i64 %46
   %50 = load i64, ptr %49, align 8
   %.not36.i.i = icmp eq i64 %50, 0
   br i1 %.not36.i.i, label %45, label %51, !llvm.loop !6
@@ -176,10 +176,10 @@ define hidden void @_ZN20ShenandoahMarkBitMap23clear_range_within_wordEmm(ptr no
   %.neg.i = shl nsw i64 -1, %7
   %8 = select i1 %.not.i, i64 0, i64 %.neg.i
   %.0.i = or i64 %8, %6
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = lshr i64 %1, 6
-  %12 = getelementptr inbounds i64, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw i64, ptr %10, i64 %11
   %13 = load i64, ptr %12, align 8
   %14 = and i64 %13, %.0.i
   store i64 %14, ptr %12, align 8
@@ -206,17 +206,17 @@ define hidden void @_ZN20ShenandoahMarkBitMap11clear_rangeEmm(ptr nocapture noun
   %11 = and i64 %1, 63
   %notmask.i.i = shl nsw i64 -1, %11
   %12 = xor i64 %notmask.i.i, -1
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = lshr i64 %1, 6
-  %16 = getelementptr inbounds i64, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw i64, ptr %14, i64 %15
   %17 = load i64, ptr %16, align 8
   %18 = and i64 %17, %12
   store i64 %18, ptr %16, align 8
   br label %_ZN20ShenandoahMarkBitMap20clear_range_of_wordsEmm.exit
 
 _ZN20ShenandoahMarkBitMap20clear_range_of_wordsEmm.exit: ; preds = %9, %10
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load ptr, ptr %19, align 8
   %21 = shl nuw nsw i64 %5, 3
   %scevgep.i.i = getelementptr i8, ptr %20, i64 %21
@@ -230,7 +230,7 @@ _ZN20ShenandoahMarkBitMap20clear_range_of_wordsEmm.exit: ; preds = %9, %10
 25:                                               ; preds = %_ZN20ShenandoahMarkBitMap20clear_range_of_wordsEmm.exit
   %.neg.i.i = shl nsw i64 -1, %24
   %26 = load ptr, ptr %19, align 8
-  %27 = getelementptr inbounds i64, ptr %26, i64 %6
+  %27 = getelementptr inbounds nuw i64, ptr %26, i64 %6
   %28 = load i64, ptr %27, align 8
   %29 = and i64 %28, %.neg.i.i
   store i64 %29, ptr %27, align 8
@@ -250,10 +250,10 @@ _ZN20ShenandoahMarkBitMap20clear_range_of_wordsEmm.exit: ; preds = %9, %10
   %.neg.i.i27 = shl nsw i64 -1, %35
   %36 = select i1 %.not.i.i26, i64 0, i64 %.neg.i.i27
   %.0.i.i28 = or i64 %36, %34
-  %37 = getelementptr inbounds i8, ptr %0, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %38 = load ptr, ptr %37, align 8
   %39 = lshr i64 %1, 6
-  %40 = getelementptr inbounds i64, ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw i64, ptr %38, i64 %39
   %41 = load i64, ptr %40, align 8
   %42 = and i64 %41, %.0.i.i28
   store i64 %42, ptr %40, align 8
@@ -272,10 +272,10 @@ _ZN20ShenandoahMarkBitMap23clear_range_within_wordEmm.exit29: ; preds = %30, %32
   %.neg.i.i33 = shl nsw i64 -1, %46
   %47 = select i1 %.not.i.i32, i64 0, i64 %.neg.i.i33
   %.0.i.i34 = or i64 %47, %45
-  %48 = getelementptr inbounds i8, ptr %0, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %49 = load ptr, ptr %48, align 8
   %50 = lshr i64 %31, 6
-  %51 = getelementptr inbounds i64, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw i64, ptr %49, i64 %50
   %52 = load i64, ptr %51, align 8
   %53 = and i64 %52, %.0.i.i34
   store i64 %53, ptr %51, align 8
@@ -314,19 +314,19 @@ define hidden void @_ZN20ShenandoahMarkBitMap17clear_large_rangeEmm(ptr nocaptur
   %12 = and i64 %1, 63
   %notmask.i.i = shl nsw i64 -1, %12
   %13 = xor i64 %notmask.i.i, -1
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = lshr i64 %1, 6
-  %17 = getelementptr inbounds i64, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw i64, ptr %15, i64 %16
   %18 = load i64, ptr %17, align 8
   %19 = and i64 %18, %13
   store i64 %19, ptr %17, align 8
   br label %_ZN20ShenandoahMarkBitMap23clear_range_within_wordEmm.exit
 
 _ZN20ShenandoahMarkBitMap23clear_range_within_wordEmm.exit: ; preds = %9, %11
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i64, ptr %21, i64 %5
+  %22 = getelementptr inbounds nuw i64, ptr %21, i64 %5
   %23 = sub nsw i64 %6, %5
   %24 = shl nsw i64 %23, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %22, i8 0, i64 %24, i1 false)
@@ -337,7 +337,7 @@ _ZN20ShenandoahMarkBitMap23clear_range_within_wordEmm.exit: ; preds = %9, %11
 26:                                               ; preds = %_ZN20ShenandoahMarkBitMap23clear_range_within_wordEmm.exit
   %.neg.i.i = shl nsw i64 -1, %25
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds i64, ptr %27, i64 %6
+  %28 = getelementptr inbounds nuw i64, ptr %27, i64 %6
   %29 = load i64, ptr %28, align 8
   %30 = and i64 %29, %.neg.i.i
   store i64 %30, ptr %28, align 8
@@ -351,11 +351,11 @@ _ZN20ShenandoahMarkBitMap23clear_range_within_wordEmm.exit18: ; preds = %26, %_Z
 define hidden void @_ZN20ShenandoahMarkBitMap17clear_range_largeE9MemRegion(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr %1, i64 %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %class.MemRegion, align 8
   store ptr %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %2, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.0.0.copyload = load ptr, ptr %6, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %7 = call { ptr, i64 } @_ZNK9MemRegion12intersectionES_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload) #11
   %8 = extractvalue { ptr, i64 } %7, 0
@@ -395,19 +395,19 @@ define hidden void @_ZN20ShenandoahMarkBitMap17clear_range_largeE9MemRegion(ptr 
   %33 = and i64 %18, 63
   %notmask.i.i.i = shl nsw i64 -1, %33
   %34 = xor i64 %notmask.i.i.i, -1
-  %35 = getelementptr inbounds i8, ptr %0, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %36 = load ptr, ptr %35, align 8
   %37 = lshr i64 %18, 6
-  %38 = getelementptr inbounds i64, ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw i64, ptr %36, i64 %37
   %39 = load i64, ptr %38, align 8
   %40 = and i64 %39, %34
   store i64 %40, ptr %38, align 8
   br label %_ZN20ShenandoahMarkBitMap23clear_range_within_wordEmm.exit.i
 
 _ZN20ShenandoahMarkBitMap23clear_range_within_wordEmm.exit.i: ; preds = %32, %30
-  %41 = getelementptr inbounds i8, ptr %0, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i64, ptr %42, i64 %26
+  %43 = getelementptr inbounds nuw i64, ptr %42, i64 %26
   %44 = sub nsw i64 %27, %26
   %45 = shl nsw i64 %44, 3
   call void @llvm.memset.p0.i64(ptr align 8 %43, i8 0, i64 %45, i1 false)
@@ -418,7 +418,7 @@ _ZN20ShenandoahMarkBitMap23clear_range_within_wordEmm.exit.i: ; preds = %32, %30
 47:                                               ; preds = %_ZN20ShenandoahMarkBitMap23clear_range_within_wordEmm.exit.i
   %.neg.i.i.i = shl nsw i64 -1, %46
   %48 = load ptr, ptr %41, align 8
-  %49 = getelementptr inbounds i64, ptr %48, i64 %27
+  %49 = getelementptr inbounds nuw i64, ptr %48, i64 %27
   %50 = load i64, ptr %49, align 8
   %51 = and i64 %50, %.neg.i.i.i
   store i64 %51, ptr %49, align 8

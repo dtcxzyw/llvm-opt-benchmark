@@ -36,8 +36,8 @@ define internal fastcc i32 @ecdsa_sign_restartable(ptr noundef %0, ptr noundef %
   br i1 %switch.selectcmp.i.not, label %65, label %17
 
 17:                                               ; preds = %10
-  %18 = getelementptr inbounds i8, ptr %0, i64 152
-  %19 = getelementptr inbounds i8, ptr %0, i64 168
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %65, label %22
@@ -57,7 +57,7 @@ define internal fastcc i32 @ecdsa_sign_restartable(ptr noundef %0, ptr noundef %
   call void @mbedtls_mpi_init(ptr noundef nonnull %12) #7
   call void @mbedtls_mpi_init(ptr noundef nonnull %13) #7
   call void @mbedtls_mpi_init(ptr noundef nonnull %14) #7
-  %29 = getelementptr inbounds i8, ptr %0, i64 80
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %30
 
 30:                                               ; preds = %62, %28
@@ -171,7 +171,7 @@ define internal fastcc i32 @ecdsa_sign_det_restartable(ptr noundef %0, ptr nound
   %10 = alloca %struct.mbedtls_hmac_drbg_context, align 8
   %11 = alloca [132 x i8], align 16
   %12 = alloca %struct.mbedtls_mpi, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 184
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %14 = load i64, ptr %13, align 8
   %15 = add i64 %14, 7
   %16 = lshr i64 %15, 3
@@ -208,7 +208,7 @@ define internal fastcc i32 @ecdsa_sign_det_restartable(ptr noundef %0, ptr nound
   br i1 %.not24.i, label %34, label %derive_mpi.exit.thread
 
 34:                                               ; preds = %31, %27
-  %35 = getelementptr inbounds i8, ptr %0, i64 152
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %36 = call i32 @mbedtls_mpi_cmp_mpi(ptr noundef nonnull %12, ptr noundef nonnull %35) #7
   %37 = icmp sgt i32 %36, -1
   br i1 %37, label %derive_mpi.exit, label %derive_mpi.exit.thread3
@@ -219,7 +219,7 @@ derive_mpi.exit:                                  ; preds = %34
   br i1 %.not28, label %derive_mpi.exit.thread3, label %derive_mpi.exit.thread
 
 derive_mpi.exit.thread3:                          ; preds = %34, %derive_mpi.exit
-  %39 = getelementptr inbounds i8, ptr %11, i64 %16
+  %39 = getelementptr inbounds nuw i8, ptr %11, i64 %16
   %40 = call i32 @mbedtls_mpi_write_binary(ptr noundef nonnull %12, ptr noundef nonnull %39, i64 noundef %16) #7
   %.not29 = icmp eq i32 %40, 0
   br i1 %.not29, label %41, label %derive_mpi.exit.thread
@@ -266,8 +266,8 @@ define internal fastcc i32 @ecdsa_verify_restartable(ptr noundef %0, ptr noundef
   br i1 %switch.selectcmp.i.not, label %67, label %14
 
 14:                                               ; preds = %6
-  %15 = getelementptr inbounds i8, ptr %0, i64 152
-  %16 = getelementptr inbounds i8, ptr %0, i64 168
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %67, label %19
@@ -293,7 +293,7 @@ define internal fastcc i32 @ecdsa_verify_restartable(ptr noundef %0, ptr noundef
   br i1 %30, label %derive_mpi.exit.thread, label %31
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %0, i64 184
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %33 = load i64, ptr %32, align 8
   %34 = add i64 %33, 7
   %35 = lshr i64 %34, 3
@@ -350,7 +350,7 @@ derive_mpi.exit.thread3:                          ; preds = %45, %derive_mpi.exi
   br i1 %.not44, label %58, label %derive_mpi.exit.thread
 
 58:                                               ; preds = %56
-  %59 = getelementptr inbounds i8, ptr %0, i64 80
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %60 = call i32 @mbedtls_ecp_muladd_restartable(ptr noundef nonnull %0, ptr noundef nonnull %11, ptr noundef nonnull %9, ptr noundef nonnull %59, ptr noundef nonnull %10, ptr noundef %3, ptr noundef null) #7
   %.not45 = icmp eq i32 %60, 0
   br i1 %.not45, label %61, label %derive_mpi.exit.thread
@@ -397,7 +397,7 @@ define hidden i32 @mbedtls_ecdsa_write_signature_restartable(ptr noundef %0, i32
 16:                                               ; preds = %10
   call void @mbedtls_mpi_init(ptr noundef nonnull %13) #7
   call void @mbedtls_mpi_init(ptr noundef nonnull %14) #7
-  %17 = getelementptr inbounds i8, ptr %0, i64 248
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %18 = call fastcc i32 @ecdsa_sign_det_restartable(ptr noundef %0, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %17, ptr noundef %2, i64 noundef %3, i32 noundef %1, ptr noundef nonnull %7, ptr noundef %8)
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %19, label %41
@@ -406,7 +406,7 @@ define hidden i32 @mbedtls_ecdsa_write_signature_restartable(ptr noundef %0, i32
   call void @llvm.lifetime.start.p0(i64 139, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(139) %11, i8 0, i64 139, i1 false)
-  %20 = getelementptr inbounds i8, ptr %11, i64 139
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 139
   store ptr %20, ptr %12, align 8
   %21 = call i32 @mbedtls_asn1_write_mpi(ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull %14) #7
   %22 = icmp slt i32 %21, 0
@@ -517,7 +517,7 @@ define hidden i32 @mbedtls_ecdsa_read_signature_restartable(ptr noundef %0, ptr 
   br label %30
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %0, i64 272
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %27 = call fastcc i32 @ecdsa_verify_restartable(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %26, ptr noundef nonnull %9, ptr noundef nonnull %10)
   %.not24 = icmp eq i32 %27, 0
   br i1 %.not24, label %28, label %30
@@ -546,8 +546,8 @@ define hidden i32 @mbedtls_ecdsa_genkey(ptr noundef %0, i32 noundef %1, ptr noun
   br i1 %.not, label %6, label %10
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 248
-  %8 = getelementptr inbounds i8, ptr %0, i64 272
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %9 = tail call i32 @mbedtls_ecp_gen_keypair(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %2, ptr noundef %3) #7
   br label %10
 
@@ -567,15 +567,15 @@ define hidden i32 @mbedtls_ecdsa_from_keypair(ptr noundef %0, ptr noundef %1) lo
   br i1 %.not, label %4, label %12
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 248
-  %6 = getelementptr inbounds i8, ptr %1, i64 248
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %7 = tail call i32 @mbedtls_mpi_copy(ptr noundef nonnull %5, ptr noundef nonnull %6) #7
   %.not11 = icmp eq i32 %7, 0
   br i1 %.not11, label %8, label %12
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 272
-  %10 = getelementptr inbounds i8, ptr %1, i64 272
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %11 = tail call i32 @mbedtls_ecp_copy(ptr noundef nonnull %9, ptr noundef nonnull %10) #7
   %.not12 = icmp eq i32 %11, 0
   br i1 %.not12, label %mbedtls_ecdsa_free.exit, label %12
@@ -637,7 +637,7 @@ declare i32 @mbedtls_mpi_mod_mpi(ptr noundef, ptr noundef, ptr noundef) local_un
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @derive_mpi(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %3) unnamed_addr #1 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 184
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, 7
   %8 = lshr i64 %7, 3
@@ -659,7 +659,7 @@ define internal fastcc i32 @derive_mpi(ptr noundef %0, ptr noundef nonnull %1, p
   br i1 %.not24, label %18, label %24
 
 18:                                               ; preds = %15, %11
-  %19 = getelementptr inbounds i8, ptr %0, i64 152
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %20 = tail call i32 @mbedtls_mpi_cmp_mpi(ptr noundef nonnull %1, ptr noundef nonnull %19) #7
   %21 = icmp sgt i32 %20, -1
   br i1 %21, label %22, label %24

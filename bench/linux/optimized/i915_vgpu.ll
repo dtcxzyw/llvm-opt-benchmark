@@ -27,10 +27,10 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @intel_vgpu_detect(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 -184
-  %5 = getelementptr inbounds i8, ptr %0, i64 7176
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 7176
   %6 = load i8, ptr %5, align 8
   %7 = icmp ult i8 %6, 6
   br i1 %7, label %42, label %8
@@ -80,12 +80,12 @@ define dso_local void @intel_vgpu_detect(ptr noundef %0) local_unnamed_addr #0 a
 30:                                               ; preds = %20
   %31 = getelementptr i8, ptr %9, i64 16
   %32 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %31) #4, !srcloc !7
-  %33 = getelementptr inbounds i8, ptr %0, i64 7736
-  %34 = getelementptr inbounds i8, ptr %0, i64 7772
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 7736
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 7772
   store i32 %32, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %0, i64 7768
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 7768
   store i8 1, ptr %35, align 8
-  tail call void @__mutex_init(ptr noundef %33, ptr noundef nonnull @.str.2, ptr noundef nonnull @intel_vgpu_detect.__key) #4
+  tail call void @__mutex_init(ptr noundef nonnull %33, ptr noundef nonnull @.str.2, ptr noundef nonnull @intel_vgpu_detect.__key) #4
   %36 = icmp eq ptr %0, null
   br i1 %36, label %39, label %37
 
@@ -123,16 +123,16 @@ declare dso_local void @pci_iounmap(ptr noundef, ptr noundef) local_unnamed_addr
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @intel_vgpu_register(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 7768
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 7768
   %3 = load i8, ptr %2, align 8, !range !8, !noundef !9
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %9, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 7368
-  %7 = getelementptr inbounds i8, ptr %0, i64 7544
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 7368
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 7544
   %8 = load ptr, ptr %7, align 8
-  tail call void %8(ptr noundef %6, i32 493572, i32 noundef 1, i1 noundef zeroext true) #4
+  tail call void %8(ptr noundef nonnull %6, i32 493572, i32 noundef 1, i1 noundef zeroext true) #4
   br label %9
 
 9:                                                ; preds = %5, %1
@@ -141,7 +141,7 @@ define dso_local void @intel_vgpu_register(ptr noundef %0) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
 define dso_local noundef zeroext i1 @intel_vgpu_active(ptr nocapture noundef readonly %0) local_unnamed_addr #3 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 7768
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 7768
   %3 = load i8, ptr %2, align 8, !range !8, !noundef !9
   %4 = icmp ne i8 %3, 0
   ret i1 %4
@@ -149,7 +149,7 @@ define dso_local noundef zeroext i1 @intel_vgpu_active(ptr nocapture noundef rea
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
 define dso_local zeroext i1 @intel_vgpu_has_full_ppgtt(ptr nocapture noundef readonly %0) local_unnamed_addr #3 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 7772
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 7772
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 4
   %5 = icmp ne i32 %4, 0
@@ -158,7 +158,7 @@ define dso_local zeroext i1 @intel_vgpu_has_full_ppgtt(ptr nocapture noundef rea
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
 define dso_local zeroext i1 @intel_vgpu_has_hwsp_emulation(ptr nocapture noundef readonly %0) local_unnamed_addr #3 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 7772
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 7772
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 8
   %5 = icmp ne i32 %4, 0
@@ -167,7 +167,7 @@ define dso_local zeroext i1 @intel_vgpu_has_hwsp_emulation(ptr nocapture noundef
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
 define dso_local zeroext i1 @intel_vgpu_has_huge_gtt(ptr nocapture noundef readonly %0) local_unnamed_addr #3 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 7772
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 7772
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 16
   %5 = icmp ne i32 %4, 0
@@ -176,9 +176,9 @@ define dso_local zeroext i1 @intel_vgpu_has_huge_gtt(ptr nocapture noundef reado
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @intel_vgt_deballoon(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 304
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 7768
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 7768
   %5 = load i8, ptr %4, align 8, !range !8, !noundef !9
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %.loopexit, label %7
@@ -188,21 +188,21 @@ define dso_local void @intel_vgt_deballoon(ptr nocapture noundef %0) local_unnam
   br i1 %8, label %12, label %9
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %11 = load ptr, ptr %10, align 8
   br label %12
 
 12:                                               ; preds = %9, %7
   %13 = phi ptr [ %11, %9 ], [ null, %7 ]
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %13, i32 noundef 1, ptr noundef nonnull @.str.4) #4
-  %14 = getelementptr inbounds i8, ptr %0, i64 336
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 336
   br label %15
 
 15:                                               ; preds = %39, %12
   %16 = phi i64 [ 0, %12 ], [ %40, %39 ]
   %17 = getelementptr [4 x %struct.drm_mm_node], ptr @bl_info, i64 0, i64 %16
   %18 = load ptr, ptr %2, align 8
-  %19 = getelementptr inbounds i8, ptr %17, i64 160
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 160
   %20 = load volatile i64, ptr %19, align 8
   %21 = and i64 %20, 1
   %22 = icmp eq i64 %21, 0
@@ -213,15 +213,15 @@ define dso_local void @intel_vgt_deballoon(ptr nocapture noundef %0) local_unnam
   br i1 %24, label %28, label %25
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %18, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %27 = load ptr, ptr %26, align 8
   br label %28
 
 28:                                               ; preds = %25, %23
   %29 = phi ptr [ %27, %25 ], [ null, %23 ]
-  %30 = getelementptr inbounds i8, ptr %17, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %31 = load i64, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %17, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %33 = load i64, ptr %32, align 8
   %34 = add i64 %33, %31
   %35 = lshr i64 %33, 10
@@ -247,9 +247,9 @@ declare dso_local void @__drm_dev_dbg(ptr noundef, ptr noundef, i32 noundef, ptr
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @vgt_deballoon_space(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 304
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 160
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %6 = load volatile i64, ptr %5, align 8
   %7 = and i64 %6, 1
   %8 = icmp eq i64 %7, 0
@@ -260,21 +260,21 @@ define internal fastcc void @vgt_deballoon_space(ptr nocapture noundef %0, ptr n
   br i1 %10, label %14, label %11
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %13 = load ptr, ptr %12, align 8
   br label %14
 
 14:                                               ; preds = %11, %9
   %15 = phi ptr [ %13, %11 ], [ null, %9 ]
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, %17
   %21 = lshr i64 %19, 10
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %15, i32 noundef 1, ptr noundef nonnull @.str.11, i64 noundef %17, i64 noundef %20, i64 noundef %21) #4
   %22 = load i64, ptr %18, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 336
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %24 = load i64, ptr %23, align 8
   %25 = sub i64 %24, %22
   store i64 %25, ptr %23, align 8
@@ -287,29 +287,29 @@ define internal fastcc void @vgt_deballoon_space(ptr nocapture noundef %0, ptr n
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @intel_vgt_balloon(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 304
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 328
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 7768
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 7768
   %7 = load i8, ptr %6, align 8, !range !8, !noundef !9
   %8 = icmp eq i8 %7, 0
   br i1 %8, label %89, label %9
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %3, i64 7368
-  %11 = getelementptr inbounds i8, ptr %3, i64 7512
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 7368
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 7512
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call i32 %12(ptr noundef %10, i32 491584, i1 noundef zeroext true) #4
+  %13 = tail call i32 %12(ptr noundef nonnull %10, i32 491584, i1 noundef zeroext true) #4
   %14 = zext i32 %13 to i64
   %15 = load ptr, ptr %11, align 8
-  %16 = tail call i32 %15(ptr noundef %10, i32 491588, i1 noundef zeroext true) #4
+  %16 = tail call i32 %15(ptr noundef nonnull %10, i32 491588, i1 noundef zeroext true) #4
   %17 = zext i32 %16 to i64
   %18 = load ptr, ptr %11, align 8
-  %19 = tail call i32 %18(ptr noundef %10, i32 491592, i1 noundef zeroext true) #4
+  %19 = tail call i32 %18(ptr noundef nonnull %10, i32 491592, i1 noundef zeroext true) #4
   %20 = zext i32 %19 to i64
   %21 = load ptr, ptr %11, align 8
-  %22 = tail call i32 %21(ptr noundef %10, i32 491596, i1 noundef zeroext true) #4
+  %22 = tail call i32 %21(ptr noundef nonnull %10, i32 491596, i1 noundef zeroext true) #4
   %23 = zext i32 %22 to i64
   %24 = add nuw nsw i64 %17, %14
   %25 = add nuw nsw i64 %23, %20
@@ -323,7 +323,7 @@ define dso_local i32 @intel_vgt_balloon(ptr noundef %0) local_unnamed_addr #0 al
   br label %34
 
 28:                                               ; preds = %9
-  %29 = getelementptr inbounds i8, ptr %3, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %30 = load ptr, ptr %29, align 8
   tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %30, ptr noundef nonnull @.str.5) #5
   %31 = load ptr, ptr %29, align 8
@@ -336,7 +336,7 @@ define dso_local i32 @intel_vgt_balloon(ptr noundef %0) local_unnamed_addr #0 al
   %35 = phi ptr [ %33, %28 ], [ null, %.thread ]
   %36 = lshr i64 %23, 10
   tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %35, ptr noundef nonnull @.str.7, i64 noundef %20, i64 noundef %36) #5
-  %37 = getelementptr inbounds i8, ptr %0, i64 776
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %38 = load i64, ptr %37, align 8
   %39 = icmp ugt i64 %24, %38
   %40 = icmp ugt i64 %38, %20
@@ -349,7 +349,7 @@ define dso_local i32 @intel_vgt_balloon(ptr noundef %0) local_unnamed_addr #0 al
   br i1 %26, label %48, label %45
 
 45:                                               ; preds = %44
-  %46 = getelementptr inbounds i8, ptr %3, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %47 = load ptr, ptr %46, align 8
   br label %48
 
@@ -399,7 +399,7 @@ define dso_local i32 @intel_vgt_balloon(ptr noundef %0) local_unnamed_addr #0 al
   br i1 %26, label %75, label %72
 
 72:                                               ; preds = %71
-  %73 = getelementptr inbounds i8, ptr %3, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %74 = load ptr, ptr %73, align 8
   br label %75
 
@@ -427,7 +427,7 @@ define dso_local i32 @intel_vgt_balloon(ptr noundef %0) local_unnamed_addr #0 al
   br i1 %26, label %87, label %84
 
 84:                                               ; preds = %82
-  %85 = getelementptr inbounds i8, ptr %3, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %86 = load ptr, ptr %85, align 8
   br label %87
 
@@ -443,7 +443,7 @@ define dso_local i32 @intel_vgt_balloon(ptr noundef %0) local_unnamed_addr #0 al
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @vgt_balloon_space(ptr noundef %0, ptr noundef %1, i64 noundef range(i64 0, 8589934591) %2, i64 noundef %3) unnamed_addr #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 304
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %6 = load ptr, ptr %5, align 8
   %7 = sub i64 %3, %2
   %8 = icmp ult i64 %2, %3
@@ -454,7 +454,7 @@ define internal fastcc i32 @vgt_balloon_space(ptr noundef %0, ptr noundef %1, i6
   br i1 %10, label %14, label %11
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %13 = load ptr, ptr %12, align 8
   br label %14
 
@@ -467,7 +467,7 @@ define internal fastcc i32 @vgt_balloon_space(ptr noundef %0, ptr noundef %1, i6
   br i1 %18, label %19, label %23
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %0, i64 336
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %21, %7
   store i64 %22, ptr %20, align 8

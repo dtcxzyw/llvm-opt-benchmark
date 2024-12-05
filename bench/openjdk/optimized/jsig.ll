@@ -81,19 +81,19 @@ signal_lock.exit:                                 ; preds = %.preheader.i, %3, %
   br i1 %2, label %16, label %._crit_edge
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds [65 x %struct.sigaction], ptr @sact, i64 0, i64 %15, i32 1
+  %17 = getelementptr inbounds nuw [65 x %struct.sigaction], ptr @sact, i64 0, i64 %15, i32 1
   %18 = tail call i32 @sigismember(ptr noundef nonnull %17, i32 noundef %0) #9
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %14, %16
-  %19 = getelementptr inbounds [65 x %struct.sigaction], ptr @sact, i64 0, i64 %15
+  %19 = getelementptr inbounds nuw [65 x %struct.sigaction], ptr @sact, i64 0, i64 %15
   %20 = load ptr, ptr %19, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5)
   store ptr %1, ptr %19, align 8
   %21 = call i32 @sigemptyset(ptr noundef nonnull %5) #9
-  %22 = getelementptr inbounds i8, ptr %19, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %22, ptr noundef nonnull align 8 dereferenceable(128) %5, i64 128, i1 false)
-  %23 = getelementptr inbounds i8, ptr %19, i64 136
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 136
   store i32 0, ptr %23, align 8
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5)
   %24 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @mutex) #9
@@ -127,12 +127,12 @@ call_os_signal.exit:                              ; preds = %28, %29
   %35 = tail call ptr %34(i32 noundef range(i32 0, 65) %0, ptr noundef %1) #9
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4)
   %36 = zext nneg i32 %0 to i64
-  %37 = getelementptr inbounds [65 x %struct.sigaction], ptr @sact, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw [65 x %struct.sigaction], ptr @sact, i64 0, i64 %36
   store ptr %35, ptr %37, align 8
   %38 = call i32 @sigemptyset(ptr noundef nonnull %4) #9
-  %39 = getelementptr inbounds i8, ptr %37, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %39, ptr noundef nonnull align 8 dereferenceable(128) %4, i64 128, i1 false)
-  %40 = getelementptr inbounds i8, ptr %37, i64 136
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 136
   store i32 0, ptr %40, align 8
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4)
   %41 = call i32 @sigaddset(ptr noundef nonnull @jvmsigs, i32 noundef %0) #9
@@ -227,7 +227,7 @@ signal_lock.exit:                                 ; preds = %.preheader.i, %7, %
 
 17:                                               ; preds = %16
   %18 = zext nneg i32 %0 to i64
-  %19 = getelementptr inbounds [65 x %struct.sigaction], ptr @sact, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw [65 x %struct.sigaction], ptr @sact, i64 0, i64 %18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %2, ptr noundef nonnull align 8 dereferenceable(152) %19, i64 152, i1 false)
   br label %20
 
@@ -237,7 +237,7 @@ signal_lock.exit:                                 ; preds = %.preheader.i, %7, %
 
 21:                                               ; preds = %20
   %22 = zext nneg i32 %0 to i64
-  %23 = getelementptr inbounds [65 x %struct.sigaction], ptr @sact, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw [65 x %struct.sigaction], ptr @sact, i64 0, i64 %22
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %23, ptr noundef nonnull align 8 dereferenceable(152) %1, i64 152, i1 false)
   br label %24
 
@@ -278,7 +278,7 @@ call_os_sigaction.exit:                           ; preds = %29, %30
 
 39:                                               ; preds = %38
   %40 = zext nneg i32 %0 to i64
-  %41 = getelementptr inbounds [65 x %struct.sigaction], ptr @sact, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw [65 x %struct.sigaction], ptr @sact, i64 0, i64 %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %41, ptr noundef nonnull align 8 dereferenceable(152) %4, i64 152, i1 false)
   %42 = call i32 @sigaddset(ptr noundef nonnull @jvmsigs, i32 noundef %0) #9
   br label %43

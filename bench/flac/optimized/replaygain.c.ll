@@ -68,7 +68,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not, label %while.cond31, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %if.then
-  %arrayidx14 = getelementptr inbounds i8, ptr %input, i64 8
+  %arrayidx14 = getelementptr inbounds nuw i8, ptr %input, i64 8
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.preheader, %for.end
@@ -89,18 +89,18 @@ for.body:                                         ; preds = %while.body, %for.bo
   %j.1115 = phi i32 [ %j.0, %while.body ], [ %inc26, %for.body ]
   %0 = load ptr, ptr %input, align 8
   %idxprom = zext i32 %j.1115 to i64
-  %arrayidx5 = getelementptr inbounds i32, ptr %0, i64 %idxprom
+  %arrayidx5 = getelementptr inbounds nuw i32, ptr %0, i64 %idxprom
   %1 = load i32, ptr %arrayidx5, align 4
   %conv = sitofp i32 %1 to float
-  %arrayidx7 = getelementptr inbounds [2048 x float], ptr @grabbag__replaygain_analyze.lbuffer, i64 0, i64 %indvars.iv137
+  %arrayidx7 = getelementptr inbounds nuw [2048 x float], ptr @grabbag__replaygain_analyze.lbuffer, i64 0, i64 %indvars.iv137
   store float %conv, ptr %arrayidx7, align 4
   %2 = tail call i32 @llvm.abs.i32(i32 %1, i1 true)
   %cond13 = tail call i32 @llvm.smax.i32(i32 %block_peak.1117, i32 %2)
   %3 = load ptr, ptr %arrayidx14, align 8
-  %arrayidx16 = getelementptr inbounds i32, ptr %3, i64 %idxprom
+  %arrayidx16 = getelementptr inbounds nuw i32, ptr %3, i64 %idxprom
   %4 = load i32, ptr %arrayidx16, align 4
   %conv17 = sitofp i32 %4 to float
-  %arrayidx19 = getelementptr inbounds [2048 x float], ptr @grabbag__replaygain_analyze.rbuffer, i64 0, i64 %indvars.iv137
+  %arrayidx19 = getelementptr inbounds nuw [2048 x float], ptr @grabbag__replaygain_analyze.rbuffer, i64 0, i64 %indvars.iv137
   store float %conv17, ptr %arrayidx19, align 4
   %5 = tail call i32 @llvm.abs.i32(i32 %4, i1 true)
   %cond25 = tail call i32 @llvm.umax.i32(i32 %cond13, i32 %5)
@@ -133,10 +133,10 @@ for.body45:                                       ; preds = %while.body34, %for.
   %j.3118 = phi i32 [ %j.2, %while.body34 ], [ %inc60, %for.body45 ]
   %6 = load ptr, ptr %input, align 8
   %idxprom47 = zext i32 %j.3118 to i64
-  %arrayidx48 = getelementptr inbounds i32, ptr %6, i64 %idxprom47
+  %arrayidx48 = getelementptr inbounds nuw i32, ptr %6, i64 %idxprom47
   %7 = load i32, ptr %arrayidx48, align 4
   %conv49 = sitofp i32 %7 to float
-  %arrayidx51 = getelementptr inbounds [2048 x float], ptr @grabbag__replaygain_analyze.lbuffer, i64 0, i64 %indvars.iv142
+  %arrayidx51 = getelementptr inbounds nuw [2048 x float], ptr @grabbag__replaygain_analyze.lbuffer, i64 0, i64 %indvars.iv142
   store float %conv49, ptr %arrayidx51, align 4
   %8 = tail call i32 @llvm.abs.i32(i32 %7, i1 true)
   %cond57 = tail call i32 @llvm.smax.i32(i32 %block_peak.3120, i32 %8)
@@ -174,7 +174,7 @@ cond.end81:                                       ; preds = %cond.false77, %cond
   br i1 %tobool83.not, label %while.cond152, label %while.cond85.preheader
 
 while.cond85.preheader:                           ; preds = %cond.end81
-  %arrayidx119 = getelementptr inbounds i8, ptr %input, i64 8
+  %arrayidx119 = getelementptr inbounds nuw i8, ptr %input, i64 8
   br label %while.cond85
 
 while.cond85:                                     ; preds = %while.cond85.preheader, %for.end142
@@ -195,23 +195,23 @@ for.body99:                                       ; preds = %while.body88, %for.
   %j.5109 = phi i32 [ %j.4, %while.body88 ], [ %inc141, %for.body99 ]
   %9 = load ptr, ptr %input, align 8
   %idxprom101 = zext i32 %j.5109 to i64
-  %arrayidx102 = getelementptr inbounds i32, ptr %9, i64 %idxprom101
+  %arrayidx102 = getelementptr inbounds nuw i32, ptr %9, i64 %idxprom101
   %10 = load i32, ptr %arrayidx102, align 4
   %conv103 = sitofp i32 %10 to double
   %mul = fmul double %cond82, %conv103
   %conv104 = fptrunc double %mul to float
-  %arrayidx106 = getelementptr inbounds [2048 x float], ptr @grabbag__replaygain_analyze.lbuffer, i64 0, i64 %indvars.iv
+  %arrayidx106 = getelementptr inbounds nuw [2048 x float], ptr @grabbag__replaygain_analyze.lbuffer, i64 0, i64 %indvars.iv
   store float %conv104, ptr %arrayidx106, align 4
   %cmp107 = icmp eq i32 %10, -2147483648
   %11 = tail call i32 @llvm.abs.i32(i32 %10, i1 true)
   %12 = tail call i32 @llvm.smax.i32(i32 %block_peak.6111, i32 %11)
   %13 = load ptr, ptr %arrayidx119, align 8
-  %arrayidx121 = getelementptr inbounds i32, ptr %13, i64 %idxprom101
+  %arrayidx121 = getelementptr inbounds nuw i32, ptr %13, i64 %idxprom101
   %14 = load i32, ptr %arrayidx121, align 4
   %conv122 = sitofp i32 %14 to double
   %mul123 = fmul double %cond82, %conv122
   %conv124 = fptrunc double %mul123 to float
-  %arrayidx126 = getelementptr inbounds [2048 x float], ptr @grabbag__replaygain_analyze.rbuffer, i64 0, i64 %indvars.iv
+  %arrayidx126 = getelementptr inbounds nuw [2048 x float], ptr @grabbag__replaygain_analyze.rbuffer, i64 0, i64 %indvars.iv
   store float %conv124, ptr %arrayidx126, align 4
   %cmp127 = icmp eq i32 %14, -2147483648
   %15 = tail call i32 @llvm.abs.i32(i32 %14, i1 true)
@@ -247,12 +247,12 @@ for.body166:                                      ; preds = %while.body155, %for
   %j.7112 = phi i32 [ %j.6, %while.body155 ], [ %inc189, %for.body166 ]
   %17 = load ptr, ptr %input, align 8
   %idxprom168 = zext i32 %j.7112 to i64
-  %arrayidx169 = getelementptr inbounds i32, ptr %17, i64 %idxprom168
+  %arrayidx169 = getelementptr inbounds nuw i32, ptr %17, i64 %idxprom168
   %18 = load i32, ptr %arrayidx169, align 4
   %conv170 = sitofp i32 %18 to double
   %mul171 = fmul double %cond82, %conv170
   %conv172 = fptrunc double %mul171 to float
-  %arrayidx174 = getelementptr inbounds [2048 x float], ptr @grabbag__replaygain_analyze.lbuffer, i64 0, i64 %indvars.iv132
+  %arrayidx174 = getelementptr inbounds nuw [2048 x float], ptr @grabbag__replaygain_analyze.lbuffer, i64 0, i64 %indvars.iv132
   store float %conv172, ptr %arrayidx174, align 4
   %cmp175 = icmp eq i32 %18, -2147483648
   %19 = tail call i32 @llvm.abs.i32(i32 %18, i1 true)
@@ -340,7 +340,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %error = getelementptr inbounds i8, ptr %instance, i64 12
+  %error = getelementptr inbounds nuw i8, ptr %instance, i64 12
   store i32 0, ptr %error, align 4
   %call1 = tail call i32 @FLAC__stream_decoder_set_md5_checking(ptr noundef nonnull %call, i32 noundef 0) #15
   %call2 = tail call i32 @FLAC__stream_decoder_set_metadata_ignore_all(ptr noundef nonnull %call) #15
@@ -389,14 +389,14 @@ declare i32 @FLAC__stream_decoder_init_file(ptr noundef, ptr noundef, ptr nounde
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i32 0, 2) i32 @write_callback_(ptr nocapture readnone %decoder, ptr nocapture noundef readonly %frame, ptr nocapture noundef readonly %buffer, ptr nocapture noundef %client_data) #0 {
 entry:
-  %bits_per_sample1 = getelementptr inbounds i8, ptr %frame, i64 16
+  %bits_per_sample1 = getelementptr inbounds nuw i8, ptr %frame, i64 16
   %0 = load i32, ptr %bits_per_sample1, align 8
-  %channels3 = getelementptr inbounds i8, ptr %frame, i64 8
+  %channels3 = getelementptr inbounds nuw i8, ptr %frame, i64 8
   %1 = load i32, ptr %channels3, align 8
-  %sample_rate5 = getelementptr inbounds i8, ptr %frame, i64 4
+  %sample_rate5 = getelementptr inbounds nuw i8, ptr %frame, i64 4
   %2 = load i32, ptr %sample_rate5, align 4
   %3 = load i32, ptr %frame, align 8
-  %error = getelementptr inbounds i8, ptr %client_data, i64 12
+  %error = getelementptr inbounds nuw i8, ptr %client_data, i64 12
   %4 = load i32, ptr %error, align 4
   %tobool.not = icmp eq i32 %4, 0
   br i1 %tobool.not, label %land.lhs.true, label %if.end.thread
@@ -408,7 +408,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %or.cond, label %land.lhs.true8, label %if.end.thread
 
 land.lhs.true8:                                   ; preds = %land.lhs.true
-  %bits_per_sample9 = getelementptr inbounds i8, ptr %client_data, i64 4
+  %bits_per_sample9 = getelementptr inbounds nuw i8, ptr %client_data, i64 4
   %6 = load i32, ptr %bits_per_sample9, align 4
   %cmp10 = icmp eq i32 %0, %6
   br i1 %cmp10, label %land.lhs.true11, label %if.end.thread
@@ -419,7 +419,7 @@ land.lhs.true11:                                  ; preds = %land.lhs.true8
   br i1 %cmp13, label %land.lhs.true14, label %if.end.thread
 
 land.lhs.true14:                                  ; preds = %land.lhs.true11
-  %sample_rate15 = getelementptr inbounds i8, ptr %client_data, i64 8
+  %sample_rate15 = getelementptr inbounds nuw i8, ptr %client_data, i64 8
   %8 = load i32, ptr %sample_rate15, align 4
   %cmp16 = icmp eq i32 %2, %8
   br i1 %cmp16, label %if.end, label %if.end.thread
@@ -451,16 +451,16 @@ entry:
   br i1 %cmp, label %if.then, label %if.end15
 
 if.then:                                          ; preds = %entry
-  %bits_per_sample = getelementptr inbounds i8, ptr %metadata, i64 40
+  %bits_per_sample = getelementptr inbounds nuw i8, ptr %metadata, i64 40
   %1 = load i32, ptr %bits_per_sample, align 8
-  %bits_per_sample1 = getelementptr inbounds i8, ptr %client_data, i64 4
+  %bits_per_sample1 = getelementptr inbounds nuw i8, ptr %client_data, i64 4
   store i32 %1, ptr %bits_per_sample1, align 4
-  %channels = getelementptr inbounds i8, ptr %metadata, i64 36
+  %channels = getelementptr inbounds nuw i8, ptr %metadata, i64 36
   %2 = load i32, ptr %channels, align 4
   store i32 %2, ptr %client_data, align 4
-  %sample_rate = getelementptr inbounds i8, ptr %metadata, i64 32
+  %sample_rate = getelementptr inbounds nuw i8, ptr %metadata, i64 32
   %3 = load i32, ptr %sample_rate, align 8
-  %sample_rate5 = getelementptr inbounds i8, ptr %client_data, i64 8
+  %sample_rate5 = getelementptr inbounds nuw i8, ptr %client_data, i64 8
   store i32 %3, ptr %sample_rate5, align 4
   %.off = add i32 %2, -1
   %switch = icmp ult i32 %.off, 2
@@ -473,7 +473,7 @@ if.end:                                           ; preds = %if.then
   br i1 %tobool.not, label %if.end15.sink.split, label %if.end15
 
 if.end15.sink.split:                              ; preds = %if.end, %if.then
-  %error13 = getelementptr inbounds i8, ptr %client_data, i64 12
+  %error13 = getelementptr inbounds nuw i8, ptr %client_data, i64 12
   store i32 1, ptr %error13, align 4
   br label %if.end15
 
@@ -484,7 +484,7 @@ if.end15:                                         ; preds = %if.end15.sink.split
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define internal void @error_callback_(ptr nocapture readnone %decoder, i32 %status, ptr nocapture noundef writeonly initializes((12, 16)) %client_data) #3 {
 entry:
-  %error = getelementptr inbounds i8, ptr %client_data, i64 12
+  %error = getelementptr inbounds nuw i8, ptr %client_data, i64 12
   store i32 1, ptr %error, align 4
   ret void
 }
@@ -633,7 +633,7 @@ declare i32 @FLAC__metadata_object_vorbiscomment_remove_entries_matching(ptr nou
 define internal fastcc i32 @append_tag_(ptr noundef %block, ptr noundef %format, ptr noundef %name, float noundef %value) unnamed_addr #0 {
 entry:
   %buffer = alloca [256 x i8], align 16
-  %arrayidx = getelementptr inbounds i8, ptr %buffer, i64 255
+  %arrayidx = getelementptr inbounds nuw i8, ptr %buffer, i64 255
   store i8 0, ptr %arrayidx, align 1
   %call = tail call ptr @setlocale(i32 noundef 6, ptr noundef null) #15
   %call2 = tail call noalias ptr @strdup(ptr noundef %call) #15
@@ -703,7 +703,7 @@ if.then2:                                         ; preds = %if.end
   %0 = load ptr, ptr %chain, align 8
   %call3 = tail call i32 @FLAC__metadata_chain_status(ptr noundef %0) #15
   %idxprom = zext i32 %call3 to i64
-  %arrayidx = getelementptr inbounds [0 x ptr], ptr @FLAC__Metadata_ChainStatusString, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [0 x ptr], ptr @FLAC__Metadata_ChainStatusString, i64 0, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8
   %2 = load ptr, ptr %chain, align 8
   tail call void @FLAC__metadata_chain_delete(ptr noundef %2) #15
@@ -762,7 +762,7 @@ if.then26:                                        ; preds = %while.end
   %7 = load ptr, ptr %chain, align 8
   %call27 = tail call i32 @FLAC__metadata_chain_status(ptr noundef %7) #15
   %idxprom28 = zext i32 %call27 to i64
-  %arrayidx29 = getelementptr inbounds [0 x ptr], ptr @FLAC__Metadata_ChainStatusString, i64 0, i64 %idxprom28
+  %arrayidx29 = getelementptr inbounds nuw [0 x ptr], ptr @FLAC__Metadata_ChainStatusString, i64 0, i64 %idxprom28
   %8 = load ptr, ptr %arrayidx29, align 8
   %9 = load ptr, ptr %chain, align 8
   tail call void @FLAC__metadata_chain_delete(ptr noundef %9) #15
@@ -794,7 +794,7 @@ entry:
 if.then:                                          ; preds = %entry
   %call3 = tail call i32 @FLAC__metadata_chain_status(ptr noundef %chain) #15
   %idxprom = zext i32 %call3 to i64
-  %arrayidx = getelementptr inbounds [0 x ptr], ptr @FLAC__Metadata_ChainStatusString, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [0 x ptr], ptr @FLAC__Metadata_ChainStatusString, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
   tail call void @FLAC__metadata_chain_delete(ptr noundef %chain) #15
   br label %return
@@ -805,7 +805,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i.not, label %if.then5, label %return
 
 if.then5:                                         ; preds = %if.end
-  %1 = getelementptr inbounds i8, ptr %stats, i64 24
+  %1 = getelementptr inbounds nuw i8, ptr %stats, i64 24
   %stats.val = load i32, ptr %1, align 8
   %call.i7 = tail call i32 @chmod(ptr noundef readonly %filename, i32 noundef %stats.val) #15
   br label %return
@@ -968,20 +968,20 @@ if.end:                                           ; preds = %entry
   br i1 %cmp5, label %if.then7, label %if.end9
 
 if.then7:                                         ; preds = %if.end
-  %comments = getelementptr inbounds i8, ptr %block, i64 40
+  %comments = getelementptr inbounds nuw i8, ptr %block, i64 40
   %1 = load ptr, ptr %comments, align 8
   %idx.ext = zext nneg i32 %call4 to i64
-  %add.ptr = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %1, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %1, i64 %idx.ext
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %s.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i)
-  %entry2.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  %entry2.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   %2 = load ptr, ptr %entry2.i, align 8
   %call.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef 61) #16
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %parse_double_.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then7
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %call.i, i64 1
   %3 = load i32, ptr %add.ptr, align 8
   %conv.i = zext i32 %3 to i64
   %sub.ptr.lhs.cast.i = ptrtoint ptr %incdec.ptr.i to i64
@@ -1026,20 +1026,20 @@ if.end9:                                          ; preds = %parse_double_.exit,
   br i1 %narrow.not, label %if.end46, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end9
-  %comments24 = getelementptr inbounds i8, ptr %block, i64 40
+  %comments24 = getelementptr inbounds nuw i8, ptr %block, i64 40
   %5 = load ptr, ptr %comments24, align 8
   %idx.ext25 = zext nneg i32 %call10 to i64
-  %add.ptr26 = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %5, i64 %idx.ext25
+  %add.ptr26 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %5, i64 %idx.ext25
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %s.i22)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i23)
-  %entry2.i24 = getelementptr inbounds i8, ptr %add.ptr26, i64 8
+  %entry2.i24 = getelementptr inbounds nuw i8, ptr %add.ptr26, i64 8
   %6 = load ptr, ptr %entry2.i24, align 8
   %call.i25 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %6, i32 noundef 61) #16
   %cmp.i26 = icmp eq ptr %call.i25, null
   br i1 %cmp.i26, label %parse_double_.exit45.thread, label %if.end.i27
 
 if.end.i27:                                       ; preds = %land.lhs.true
-  %incdec.ptr.i28 = getelementptr inbounds i8, ptr %call.i25, i64 1
+  %incdec.ptr.i28 = getelementptr inbounds nuw i8, ptr %call.i25, i64 1
   %7 = load i32, ptr %add.ptr26, align 8
   %conv.i29 = zext i32 %7 to i64
   %sub.ptr.lhs.cast.i30 = ptrtoint ptr %incdec.ptr.i28 to i64
@@ -1074,17 +1074,17 @@ land.lhs.true32:                                  ; preds = %safe_strncpy.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i23)
   %9 = load ptr, ptr %comments24, align 8
   %idx.ext35 = zext nneg i32 %call17 to i64
-  %add.ptr36 = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %9, i64 %idx.ext35
+  %add.ptr36 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %9, i64 %idx.ext35
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %s.i46)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i47)
-  %entry2.i48 = getelementptr inbounds i8, ptr %add.ptr36, i64 8
+  %entry2.i48 = getelementptr inbounds nuw i8, ptr %add.ptr36, i64 8
   %10 = load ptr, ptr %entry2.i48, align 8
   %call.i49 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %10, i32 noundef 61) #16
   %cmp.i50 = icmp eq ptr %call.i49, null
   br i1 %cmp.i50, label %parse_double_.exit69.thread, label %if.end.i51
 
 if.end.i51:                                       ; preds = %land.lhs.true32
-  %incdec.ptr.i52 = getelementptr inbounds i8, ptr %call.i49, i64 1
+  %incdec.ptr.i52 = getelementptr inbounds nuw i8, ptr %call.i49, i64 1
   %11 = load i32, ptr %add.ptr36, align 8
   %conv.i53 = zext i32 %11 to i64
   %sub.ptr.lhs.cast.i54 = ptrtoint ptr %incdec.ptr.i52 to i64

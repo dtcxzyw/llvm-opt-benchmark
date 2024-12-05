@@ -647,9 +647,9 @@ define internal noundef i32 @js_std_init(ptr noundef %0, ptr noundef %1) #0 {
   br label %js_new_std_file.exit
 
 30:                                               ; preds = %19
-  %31 = getelementptr inbounds i8, ptr %20, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i32 0, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %20, i64 12
+  %32 = getelementptr inbounds nuw i8, ptr %20, i64 12
   store i32 0, ptr %32, align 4
   store ptr %12, ptr %20, align 8
   tail call void @JS_SetOpaque(i64 %15, i64 %16, ptr noundef nonnull %20) #30
@@ -699,9 +699,9 @@ js_new_std_file.exit:                             ; preds = %18, %21, %24, %29, 
   br label %js_new_std_file.exit35
 
 52:                                               ; preds = %41
-  %53 = getelementptr inbounds i8, ptr %42, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store i32 0, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %42, i64 12
+  %54 = getelementptr inbounds nuw i8, ptr %42, i64 12
   store i32 0, ptr %54, align 4
   store ptr %34, ptr %42, align 8
   tail call void @JS_SetOpaque(i64 %37, i64 %38, ptr noundef nonnull %42) #30
@@ -751,9 +751,9 @@ js_new_std_file.exit35:                           ; preds = %40, %43, %46, %51, 
   br label %js_new_std_file.exit47
 
 74:                                               ; preds = %63
-  %75 = getelementptr inbounds i8, ptr %64, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %64, i64 8
   store i32 0, ptr %75, align 8
-  %76 = getelementptr inbounds i8, ptr %64, i64 12
+  %76 = getelementptr inbounds nuw i8, ptr %64, i64 12
   store i32 0, ptr %76, align 4
   store ptr %56, ptr %64, align 8
   tail call void @JS_SetOpaque(i64 %59, i64 %60, ptr noundef nonnull %64) #30
@@ -814,13 +814,13 @@ define internal i32 @js_os_init(ptr noundef %0, ptr noundef %1) #0 {
   tail call void @JS_SetConstructor(ptr noundef %0, i64 %13, i64 %14, i64 %10, i64 %11) #30
   %15 = load i32, ptr @js_worker_class_id, align 4
   tail call void @JS_SetClassProto(ptr noundef %0, i32 noundef %15, i64 %10, i64 %11) #30
-  %16 = getelementptr inbounds i8, ptr %4, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %17 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %26, label %18
 
 18:                                               ; preds = %2
-  %19 = getelementptr inbounds i8, ptr %4, i64 80
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %20 = load ptr, ptr %19, align 8
   %.not36 = icmp eq ptr %20, null
   br i1 %.not36, label %26, label %21
@@ -939,7 +939,7 @@ define internal { i64, i64 } @js_print(ptr noundef %0, i64 %1, i64 %2, i32 nound
 10:                                               ; preds = %8, %.lr.ph
   %11 = getelementptr %struct.JSValue, ptr %4, i64 %indvars.iv
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %11, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %14 = load i64, ptr %13, align 8
   %15 = call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef nonnull %6, i64 %12, i64 %14, i32 noundef 0) #30
   %.not13 = icmp eq ptr %15, null
@@ -972,7 +972,7 @@ declare i32 @JS_SetPropertyUint32(ptr noundef, i64, i64, i32 noundef, i64, i64) 
 define internal { i64, i64 } @js_loadScript(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
   %6 = alloca i64, align 8
   %7 = load i64, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %7, i64 %9, i32 noundef 0) #30
   %.not = icmp eq ptr %10, null
@@ -1024,29 +1024,29 @@ define dso_local void @js_std_init_handlers(ptr noundef %0) local_unnamed_addr #
 
 6:                                                ; preds = %1
   store ptr %calloc, ptr %calloc, align 8
-  %7 = getelementptr inbounds i8, ptr %calloc, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %calloc, i64 8
   store ptr %calloc, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %calloc, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %calloc, i64 16
   store ptr %8, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %calloc, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %calloc, i64 24
   store ptr %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %calloc, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %calloc, i64 32
   store ptr %10, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %calloc, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %calloc, i64 40
   store ptr %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %calloc, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %calloc, i64 48
   store ptr %12, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %calloc, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %calloc, i64 56
   store ptr %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %calloc, i64 68
+  %14 = getelementptr inbounds nuw i8, ptr %calloc, i64 68
   store i32 1, ptr %14, align 4
   tail call void @JS_SetRuntimeOpaque(ptr noundef %0, ptr noundef nonnull %calloc) #30
-  %15 = getelementptr inbounds i8, ptr %2, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %15, align 8
   store ptr @js_sab_alloc, ptr %2, align 8
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @js_sab_free, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr @js_sab_dup, ptr %17, align 8
   call void @JS_SetSharedArrayBufferFunctions(ptr noundef %0, ptr noundef nonnull %2) #30
   ret void
@@ -1072,7 +1072,7 @@ define internal noalias ptr @js_sab_alloc(ptr nocapture readnone %0, i64 noundef
 
 5:                                                ; preds = %2
   store i32 1, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %7
 
 7:                                                ; preds = %2, %5
@@ -1107,21 +1107,21 @@ declare void @JS_SetSharedArrayBufferFunctions(ptr noundef, ptr noundef) local_u
 ; Function Attrs: nounwind uwtable
 define dso_local void @js_std_free_handlers(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @JS_GetRuntimeOpaque(ptr noundef %0) #30
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not40 = icmp eq ptr %4, %2
   br i1 %.not40, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %free_rw_handler.exit
   %.041 = phi ptr [ %.032, %free_rw_handler.exit ], [ %4, %1 ]
-  %.032.in = getelementptr inbounds i8, ptr %.041, i64 8
+  %.032.in = getelementptr inbounds nuw i8, ptr %.041, i64 8
   %.032 = load ptr, ptr %.032.in, align 8
   %5 = load ptr, ptr %.041, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %.032, ptr %6, align 8
   store ptr %5, ptr %.032, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.041, i8 0, i64 16, i1 false)
-  %7 = getelementptr inbounds i8, ptr %.041, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %.041, i64 24
   br label %8
 
 8:                                                ; preds = %JS_FreeValueRT.exit.i, %.lr.ph
@@ -1129,7 +1129,7 @@ define dso_local void @js_std_free_handlers(ptr noundef %0) local_unnamed_addr #
   %indvars.iv.i = phi i64 [ 0, %.lr.ph ], [ 1, %JS_FreeValueRT.exit.i ]
   %10 = getelementptr [2 x %struct.JSValue], ptr %7, i64 0, i64 %indvars.iv.i
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %10, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %13 = load i64, ptr %12, align 8
   %14 = trunc i64 %13 to i32
   %15 = icmp ugt i32 %14, -12
@@ -1156,24 +1156,24 @@ free_rw_handler.exit:                             ; preds = %JS_FreeValueRT.exit
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %free_rw_handler.exit, %1
-  %22 = getelementptr inbounds i8, ptr %2, i64 16
-  %23 = getelementptr inbounds i8, ptr %2, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %24 = load ptr, ptr %23, align 8
   %.not3642 = icmp eq ptr %24, %22
   br i1 %.not3642, label %._crit_edge46, label %.lr.ph45
 
 .lr.ph45:                                         ; preds = %._crit_edge, %free_sh.exit
   %.143 = phi ptr [ %.133, %free_sh.exit ], [ %24, %._crit_edge ]
-  %.133.in = getelementptr inbounds i8, ptr %.143, i64 8
+  %.133.in = getelementptr inbounds nuw i8, ptr %.143, i64 8
   %.133 = load ptr, ptr %.133.in, align 8
   %25 = load ptr, ptr %.143, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %.133, ptr %26, align 8
   store ptr %25, ptr %.133, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.143, i8 0, i64 16, i1 false)
-  %27 = getelementptr inbounds i8, ptr %.143, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %.143, i64 24
   %28 = load i64, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %.143, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %.143, i64 32
   %30 = load i64, ptr %29, align 8
   %31 = trunc i64 %30 to i32
   %32 = icmp ugt i32 %31, -12
@@ -1197,24 +1197,24 @@ free_sh.exit:                                     ; preds = %.lr.ph45, %33, %38
   br i1 %.not36, label %._crit_edge46, label %.lr.ph45, !llvm.loop !12
 
 ._crit_edge46:                                    ; preds = %free_sh.exit, %._crit_edge
-  %39 = getelementptr inbounds i8, ptr %2, i64 32
-  %40 = getelementptr inbounds i8, ptr %2, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %41 = load ptr, ptr %40, align 8
   %.not3747 = icmp eq ptr %41, %39
   br i1 %.not3747, label %._crit_edge51, label %.lr.ph50
 
 .lr.ph50:                                         ; preds = %._crit_edge46, %free_timer.exit
   %.248 = phi ptr [ %.234, %free_timer.exit ], [ %41, %._crit_edge46 ]
-  %.234.in = getelementptr inbounds i8, ptr %.248, i64 8
+  %.234.in = getelementptr inbounds nuw i8, ptr %.248, i64 8
   %.234 = load ptr, ptr %.234.in, align 8
   %42 = load ptr, ptr %.248, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr %.234, ptr %43, align 8
   store ptr %42, ptr %.234, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.248, i8 0, i64 16, i1 false)
-  %44 = getelementptr inbounds i8, ptr %.248, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %.248, i64 32
   %45 = load i64, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %.248, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %.248, i64 40
   %47 = load i64, ptr %46, align 8
   %48 = trunc i64 %47 to i32
   %49 = icmp ugt i32 %48, -12
@@ -1238,10 +1238,10 @@ free_timer.exit:                                  ; preds = %.lr.ph50, %50, %55
   br i1 %.not37, label %._crit_edge51, label %.lr.ph50, !llvm.loop !13
 
 ._crit_edge51:                                    ; preds = %free_timer.exit, %._crit_edge46
-  %56 = getelementptr inbounds i8, ptr %2, i64 72
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %57 = load ptr, ptr %56, align 8
   tail call fastcc void @js_free_message_pipe(ptr noundef %57)
-  %58 = getelementptr inbounds i8, ptr %2, i64 80
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %59 = load ptr, ptr %58, align 8
   tail call fastcc void @js_free_message_pipe(ptr noundef %59)
   tail call void @free(ptr noundef %2) #30
@@ -1262,23 +1262,23 @@ define internal fastcc void @js_free_message_pipe(ptr noundef %0) unnamed_addr #
   br i1 %4, label %5, label %35
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
   %.not1617 = icmp eq ptr %8, %6
   br i1 %.not1617, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5, %js_free_message.exit
   %.018 = phi ptr [ %.014, %js_free_message.exit ], [ %8, %5 ]
-  %.014.in = getelementptr inbounds i8, ptr %.018, i64 8
+  %.014.in = getelementptr inbounds nuw i8, ptr %.018, i64 8
   %.014 = load ptr, ptr %.014.in, align 8
-  %9 = getelementptr inbounds i8, ptr %.018, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %.018, i64 40
   %10 = load i64, ptr %9, align 8
   %.not.i = icmp eq i64 %10, 0
   br i1 %.not.i, label %js_free_message.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph
-  %11 = getelementptr inbounds i8, ptr %.018, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %.018, i64 32
   br label %12
 
 12:                                               ; preds = %js_sab_free.exit.i, %.lr.ph.i
@@ -1302,10 +1302,10 @@ js_sab_free.exit.i:                               ; preds = %19, %12
   br i1 %22, label %12, label %js_free_message.exit, !llvm.loop !14
 
 js_free_message.exit:                             ; preds = %js_sab_free.exit.i, %.lr.ph
-  %23 = getelementptr inbounds i8, ptr %.018, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %.018, i64 32
   %24 = load ptr, ptr %23, align 8
   tail call void @free(ptr noundef %24) #30
-  %25 = getelementptr inbounds i8, ptr %.018, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %.018, i64 16
   %26 = load ptr, ptr %25, align 8
   tail call void @free(ptr noundef %26) #30
   tail call void @free(ptr noundef nonnull %.018) #30
@@ -1313,12 +1313,12 @@ js_free_message.exit:                             ; preds = %js_sab_free.exit.i,
   br i1 %.not16, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %js_free_message.exit, %5
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %27) #30
-  %29 = getelementptr inbounds i8, ptr %0, i64 64
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %30 = load i32, ptr %29, align 8
   %31 = tail call i32 @close(i32 noundef %30) #30
-  %32 = getelementptr inbounds i8, ptr %0, i64 68
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %33 = load i32, ptr %32, align 4
   %34 = tail call i32 @close(i32 noundef %33) #30
   tail call void @free(ptr noundef %0) #30
@@ -1697,13 +1697,13 @@ define internal void @js_std_file_finalizer(ptr noundef %0, i64 %1, i64 %2) #0 {
   br i1 %.not9, label %18, label %8
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %10 = load i32, ptr %9, align 8
   %.not10 = icmp eq i32 %10, 0
   br i1 %.not10, label %18, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %5, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %13 = load i32, ptr %12, align 4
   %.not11 = icmp eq i32 %13, 0
   br i1 %.not11, label %16, label %14
@@ -1751,7 +1751,7 @@ define internal { i64, i64 } @js_std_file_close(ptr noundef %0, i64 %1, i64 %2, 
   br label %26
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %7, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %16 = load i32, ptr %15, align 4
   %.not23 = icmp eq i32 %16, 0
   br i1 %.not23, label %20, label %17
@@ -1827,7 +1827,7 @@ js_std_file_get.exit:                             ; preds = %14, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %24 ]
   %19 = getelementptr %struct.JSValue, ptr %4, i64 %indvars.iv
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %19, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %22 = load i64, ptr %21, align 8
   %23 = call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef nonnull %7, i64 %20, i64 %22, i32 noundef 0) #30
   %.not19 = icmp eq ptr %23, null
@@ -1973,7 +1973,7 @@ define internal { i64, i64 } @js_std_file_seek(ptr noundef %0, i64 %1, i64 %2, i
 
 js_std_file_get.exit:                             ; preds = %10
   %14 = load i64, ptr %4, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %16 = load i64, ptr %15, align 8
   %17 = call i32 @JS_ToInt64Ext(ptr noundef %0, ptr noundef nonnull %6, i64 %14, i64 %16) #30
   %.not20 = icmp eq i32 %17, 0
@@ -2168,7 +2168,7 @@ js_std_file_get.exit:                             ; preds = %12
 
 27:                                               ; preds = %21
   %28 = load i64, ptr %4, align 8
-  %29 = getelementptr inbounds i8, ptr %4, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %30 = load i64, ptr %29, align 8
   %31 = call ptr @JS_GetArrayBuffer(ptr noundef %0, ptr noundef nonnull %9, i64 %28, i64 %30) #30
   %.not47 = icmp eq ptr %31, null
@@ -2255,7 +2255,7 @@ js_std_file_get.exit:                             ; preds = %9
   ]
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %6, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %18 = load i64, ptr %17, align 8
   %19 = icmp eq i64 %18, 0
   br i1 %19, label %20, label %.loopexit
@@ -2279,7 +2279,7 @@ js_std_file_get.exit:                             ; preds = %9
   br label %js_std_file_get.exit.thread
 
 .loopexit.loopexit:                               ; preds = %14
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %6, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %.loopexit
 
@@ -2327,7 +2327,7 @@ js_std_file_get.exit:                             ; preds = %10
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %js_std_file_get.exit
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
   %16 = and i64 %.sroa.5.0.copyload, 4294967295
   %.not = icmp eq i64 %16, 3
@@ -2373,7 +2373,7 @@ js_std_file_get.exit:                             ; preds = %10
 
 ._crit_edge:                                      ; preds = %22, %.lr.ph, %.thread
   %30 = load ptr, ptr %6, align 8
-  %31 = getelementptr inbounds i8, ptr %6, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %32 = load i64, ptr %31, align 8
   %33 = call { i64, i64 } @JS_NewStringLen(ptr noundef %0, ptr noundef %30, i64 noundef %32) #30
   %34 = extractvalue { i64, i64 } %33, 0
@@ -2441,7 +2441,7 @@ define internal { i64, i64 } @js_std_file_putByte(ptr noundef %0, i64 %1, i64 %2
 
 js_std_file_get.exit:                             ; preds = %9
   %13 = load i64, ptr %4, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %15 = load i64, ptr %14, align 8
   %16 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %6, i64 %13, i64 %15) #30
   %.not13 = icmp eq i32 %16, 0
@@ -2485,7 +2485,7 @@ define internal fastcc { i64, i64 } @js_printf_internal(ptr noundef %0, i32 noun
 
 15:                                               ; preds = %4
   %16 = load i64, ptr %2, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %18 = load i64, ptr %17, align 8
   %19 = call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef nonnull %9, i64 %16, i64 %18, i32 noundef 0) #30
   %.not = icmp eq ptr %19, null
@@ -2498,10 +2498,10 @@ define internal fastcc { i64, i64 } @js_printf_internal(ptr noundef %0, i32 noun
   br i1 %23, label %.lr.ph234, label %.loopexit202
 
 .lr.ph234:                                        ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %5, i64 31
-  %25 = getelementptr inbounds i8, ptr %5, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 31
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %26 = ptrtoint ptr %25 to i64
-  %27 = getelementptr inbounds i8, ptr %5, i64 30
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 30
   br label %28
 
 28:                                               ; preds = %.lr.ph234, %186
@@ -2574,7 +2574,7 @@ define internal fastcc { i64, i64 } @js_printf_internal(ptr noundef %0, i32 noun
   %52 = sext i32 %.0155232 to i64
   %53 = getelementptr %struct.JSValue, ptr %2, i64 %52
   %54 = load i64, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %53, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %56 = load i64, ptr %55, align 8
   %57 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %10, i64 %54, i64 %56) #30
   %.not176 = icmp eq i32 %57, 0
@@ -2641,7 +2641,7 @@ define internal fastcc { i64, i64 } @js_printf_internal(ptr noundef %0, i32 noun
   %86 = sext i32 %.1156 to i64
   %87 = getelementptr %struct.JSValue, ptr %2, i64 %86
   %88 = load i64, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %87, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %90 = load i64, ptr %89, align 8
   %91 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %10, i64 %88, i64 %90) #30
   %.not181 = icmp eq i32 %91, 0
@@ -2719,7 +2719,7 @@ thread-pre-split:                                 ; preds = %102, %92, %.prehead
 115:                                              ; preds = %114
   %116 = sext i32 %.2157 to i64
   %117 = getelementptr %struct.JSValue, ptr %2, i64 %116
-  %118 = getelementptr inbounds i8, ptr %117, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %119 = load i64, ptr %118, align 8
   %120 = and i64 %119, 4294967295
   %.not197 = icmp eq i64 %120, 4294967289
@@ -2768,7 +2768,7 @@ thread-pre-split:                                 ; preds = %102, %92, %.prehead
   %140 = sext i32 %.2157 to i64
   %141 = getelementptr %struct.JSValue, ptr %2, i64 %140
   %142 = load i64, ptr %141, align 8
-  %143 = getelementptr inbounds i8, ptr %141, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %141, i64 8
   %144 = load i64, ptr %143, align 8
   %145 = call i32 @JS_ToInt64Ext(ptr noundef %0, ptr noundef nonnull %11, i64 %142, i64 %144) #30
   %.not188 = icmp eq i32 %145, 0
@@ -2807,7 +2807,7 @@ thread-pre-split:                                 ; preds = %102, %92, %.prehead
   %160 = sext i32 %.2157 to i64
   %161 = getelementptr %struct.JSValue, ptr %2, i64 %160
   %162 = load i64, ptr %161, align 8
-  %163 = getelementptr inbounds i8, ptr %161, i64 8
+  %163 = getelementptr inbounds nuw i8, ptr %161, i64 8
   %164 = load i64, ptr %163, align 8
   %165 = call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %162, i64 %164, i32 noundef 0) #30
   %.not186 = icmp eq ptr %165, null
@@ -2827,7 +2827,7 @@ thread-pre-split:                                 ; preds = %102, %92, %.prehead
   %171 = sext i32 %.2157 to i64
   %172 = getelementptr %struct.JSValue, ptr %2, i64 %171
   %173 = load i64, ptr %172, align 8
-  %174 = getelementptr inbounds i8, ptr %172, i64 8
+  %174 = getelementptr inbounds nuw i8, ptr %172, i64 8
   %175 = load i64, ptr %174, align 8
   %176 = call i32 @JS_ToFloat64(ptr noundef %0, ptr noundef nonnull %12, i64 %173, i64 %175) #30
   %.not184 = icmp eq i32 %176, 0
@@ -2861,7 +2861,7 @@ thread-pre-split:                                 ; preds = %102, %92, %.prehead
   br label %188
 
 188:                                              ; preds = %.loopexit202, %4
-  %189 = getelementptr inbounds i8, ptr %7, i64 24
+  %189 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %190 = load i32, ptr %189, align 8
   %.not195 = icmp eq i32 %190, 0
   br i1 %.not195, label %195, label %191
@@ -2875,7 +2875,7 @@ thread-pre-split:                                 ; preds = %102, %92, %.prehead
 195:                                              ; preds = %188
   %.not196 = icmp eq ptr %3, null
   %196 = load ptr, ptr %7, align 8
-  %197 = getelementptr inbounds i8, ptr %7, i64 8
+  %197 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %198 = load i64, ptr %197, align 8
   br i1 %.not196, label %201, label %199
 
@@ -2977,7 +2977,7 @@ declare void @JS_SetOpaque(i64, i64, ptr noundef) local_unnamed_addr #3
 define internal noundef { i64, i64 } @js_std_exit(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #18 {
   %6 = alloca i32, align 4
   %7 = load i64, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %6, i64 %7, i64 %9) #30
   %.not = icmp eq i32 %10, 0
@@ -3075,20 +3075,20 @@ get_bool_option.exit43.thread:                    ; preds = %.thread.i, %35, %30
   %.046 = phi i32 [ 0, %5 ], [ %.147.ph, %27 ], [ %.147.ph, %30 ], [ %.147.ph, %35 ], [ %.147.ph, %.thread.i ]
   %.0 = phi i32 [ 0, %5 ], [ %28, %27 ], [ %28, %30 ], [ %28, %35 ], [ 0, %.thread.i ]
   %36 = load i64, ptr %4, align 8
-  %37 = getelementptr inbounds i8, ptr %4, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %38 = load i64, ptr %37, align 8
   %39 = call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef nonnull %6, i64 %36, i64 %38, i32 noundef 0) #30
   %.not34 = icmp eq ptr %39, null
   br i1 %.not34, label %get_bool_option.exit, label %40
 
 40:                                               ; preds = %get_bool_option.exit43.thread
-  %41 = getelementptr inbounds i8, ptr %8, i64 72
+  %41 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %42 = load ptr, ptr %41, align 8
   %.not35 = icmp eq ptr %42, null
   br i1 %.not35, label %43, label %50
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %8, i64 64
+  %44 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %45 = load i32, ptr %44, align 8
   %46 = add i32 %45, 1
   store i32 %46, ptr %44, align 8
@@ -3116,7 +3116,7 @@ get_bool_option.exit43.thread:                    ; preds = %.thread.i, %35, %30
   br i1 %.not38, label %57, label %68
 
 57:                                               ; preds = %50
-  %58 = getelementptr inbounds i8, ptr %8, i64 64
+  %58 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %59 = load i32, ptr %58, align 8
   %60 = add i32 %59, -1
   store i32 %60, ptr %58, align 8
@@ -3155,7 +3155,7 @@ get_bool_option.exit:                             ; preds = %.thread.i, %10, %ge
 ; Function Attrs: nounwind uwtable
 define internal { i64, i64 } @js_std_getenv(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
   %6 = load i64, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %6, i64 %8, i32 noundef 0) #30
   %.not = icmp eq ptr %9, null
@@ -3188,7 +3188,7 @@ define internal { i64, i64 } @js_std_getenv(ptr noundef %0, i64 %1, i64 %2, i32 
 ; Function Attrs: nounwind uwtable
 define internal { i64, i64 } @js_std_setenv(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
   %6 = load i64, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %6, i64 %8, i32 noundef 0) #30
   %.not = icmp eq ptr %9, null
@@ -3223,7 +3223,7 @@ define internal { i64, i64 } @js_std_setenv(ptr noundef %0, i64 %1, i64 %2, i32 
 ; Function Attrs: nounwind uwtable
 define internal { i64, i64 } @js_std_unsetenv(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
   %6 = load i64, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %6, i64 %8, i32 noundef 0) #30
   %.not = icmp eq ptr %9, null
@@ -3326,7 +3326,7 @@ define internal { i64, i64 } @js_std_urlGet(ptr noundef %0, i64 %1, i64 %2, i32 
   %7 = alloca %struct.DynBuf, align 8
   %8 = alloca %struct.DynBuf, align 8
   %9 = load i64, ptr %4, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %9, i64 %11, i32 noundef 0) #30
   %.not = icmp eq ptr %12, null
@@ -3441,7 +3441,7 @@ get_bool_option.exit190.thread:                   ; preds = %.thread.i, %40, %35
   call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %12) #30
   %55 = call i32 @dbuf_putstr(ptr noundef nonnull %6, ptr noundef nonnull @.str.76) #30
   %56 = call i32 @dbuf_putc(ptr noundef nonnull %6, i8 noundef zeroext 0) #30
-  %57 = getelementptr inbounds i8, ptr %6, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %.val = load i32, ptr %57, align 8
   %.not169 = icmp eq i32 %.val, 0
   br i1 %.not169, label %59, label %58
@@ -3536,8 +3536,8 @@ http_get_status.exit:                             ; preds = %84, %90
   br i1 %or.cond184, label %.preheader, label %http_get_header_line.exit.thread
 
 .preheader:                                       ; preds = %http_get_status.exit
-  %93 = getelementptr inbounds i8, ptr %69, i64 1
-  %94 = getelementptr inbounds i8, ptr %69, i64 2
+  %93 = getelementptr inbounds nuw i8, ptr %69, i64 1
+  %94 = getelementptr inbounds nuw i8, ptr %69, i64 2
   br label %.split.i
 
 .split.i:                                         ; preds = %.split.i.backedge, %.preheader
@@ -3585,13 +3585,13 @@ sub_2:                                            ; preds = %sub_1
   br i1 %109, label %110, label %.split.i.backedge
 
 110:                                              ; preds = %sub_2
-  %111 = getelementptr inbounds i8, ptr %8, i64 24
+  %111 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.val185 = load i32, ptr %111, align 8
   %.not174 = icmp eq i32 %.val185, 0
   br i1 %.not174, label %112, label %.thread227
 
 112:                                              ; preds = %110
-  %113 = getelementptr inbounds i8, ptr %8, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %114 = load i64, ptr %113, align 8
   %115 = add i64 %114, -2
   store i64 %115, ptr %113, align 8
@@ -3607,7 +3607,7 @@ sub_2:                                            ; preds = %sub_1
   br i1 %121, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %112
-  %122 = getelementptr inbounds i8, ptr %7, i64 24
+  %122 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %.val186 = load i32, ptr %122, align 8
   %.not175 = icmp eq i32 %.val186, 0
   br i1 %.not175, label %123, label %.thread227
@@ -3615,7 +3615,7 @@ sub_2:                                            ; preds = %sub_1
 123:                                              ; preds = %._crit_edge
   %.not176 = icmp eq i32 %.0204, 0
   %124 = load ptr, ptr %7, align 8
-  %125 = getelementptr inbounds i8, ptr %7, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %126 = load i64, ptr %125, align 8
   br i1 %.not176, label %129, label %127
 
@@ -3669,7 +3669,7 @@ http_get_header_line.exit.thread:                 ; preds = %.split.us.i, %.spli
 
 142:                                              ; preds = %139
   %143 = load ptr, ptr %8, align 8
-  %144 = getelementptr inbounds i8, ptr %8, i64 8
+  %144 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %145 = load i64, ptr %144, align 8
   %146 = call { i64, i64 } @JS_NewStringLen(ptr noundef %0, ptr noundef %143, i64 noundef %145) #30
   %147 = extractvalue { i64, i64 } %146, 0
@@ -3746,7 +3746,7 @@ JS_FreeValue.exit:                                ; preds = %163, %158, %155, %5
 define internal { i64, i64 } @js_std_loadFile(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
   %6 = alloca i64, align 8
   %7 = load i64, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %7, i64 %9, i32 noundef 0) #30
   %.not = icmp eq ptr %10, null
@@ -3782,7 +3782,7 @@ define internal { i64, i64 } @js_std_loadFile(ptr noundef %0, i64 %1, i64 %2, i3
 define internal { i64, i64 } @js_std_strerror(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
   %6 = alloca i32, align 4
   %7 = load i64, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %6, i64 %7, i64 %9) #30
   %.not = icmp eq i32 %10, 0
@@ -3808,7 +3808,7 @@ define internal { i64, i64 } @js_std_strerror(ptr noundef %0, i64 %1, i64 %2, i3
 define internal { i64, i64 } @js_std_parseExtJSON(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
   %6 = alloca i64, align 8
   %7 = load i64, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef nonnull %6, i64 %7, i64 %9, i32 noundef 0) #30
   %.not = icmp eq ptr %10, null
@@ -3833,7 +3833,7 @@ define internal { i64, i64 } @js_std_parseExtJSON(ptr noundef %0, i64 %1, i64 %2
 ; Function Attrs: nounwind uwtable
 define internal { i64, i64 } @js_std_open(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
   %6 = load i64, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %6, i64 %8, i32 noundef 0) #30
   %.not = icmp eq ptr %9, null
@@ -3929,9 +3929,9 @@ js_set_error_object.exit:                         ; preds = %34, %30, %28
   br label %js_new_std_file.exit
 
 56:                                               ; preds = %45
-  %57 = getelementptr inbounds i8, ptr %46, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store i32 1, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %46, i64 12
+  %58 = getelementptr inbounds nuw i8, ptr %46, i64 12
   store i32 0, ptr %58, align 4
   store ptr %23, ptr %46, align 8
   tail call void @JS_SetOpaque(i64 %41, i64 %42, ptr noundef nonnull %46) #30
@@ -3964,7 +3964,7 @@ js_new_std_file.exit:                             ; preds = %44, %47, %50, %55, 
 ; Function Attrs: nounwind uwtable
 define internal { i64, i64 } @js_std_popen(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
   %6 = load i64, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %6, i64 %8, i32 noundef 0) #30
   %.not = icmp eq ptr %9, null
@@ -4060,9 +4060,9 @@ js_set_error_object.exit:                         ; preds = %34, %30, %28
   br label %js_new_std_file.exit
 
 56:                                               ; preds = %45
-  %57 = getelementptr inbounds i8, ptr %46, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store i32 1, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %46, i64 12
+  %58 = getelementptr inbounds nuw i8, ptr %46, i64 12
   store i32 1, ptr %58, align 4
   store ptr %23, ptr %46, align 8
   tail call void @JS_SetOpaque(i64 %41, i64 %42, ptr noundef nonnull %46) #30
@@ -4096,7 +4096,7 @@ js_new_std_file.exit:                             ; preds = %44, %47, %50, %55, 
 define internal { i64, i64 } @js_std_fdopen(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
   %6 = alloca i32, align 4
   %7 = load i64, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %6, i64 %7, i64 %9) #30
   %.not = icmp eq i32 %10, 0
@@ -4192,9 +4192,9 @@ js_set_error_object.exit:                         ; preds = %36, %32, %30
   br label %js_new_std_file.exit
 
 58:                                               ; preds = %47
-  %59 = getelementptr inbounds i8, ptr %48, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store i32 1, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %48, i64 12
+  %60 = getelementptr inbounds nuw i8, ptr %48, i64 12
   store i32 0, ptr %60, align 4
   store ptr %25, ptr %48, align 8
   call void @JS_SetOpaque(i64 %43, i64 %44, ptr noundef nonnull %48) #30
@@ -4240,7 +4240,7 @@ define internal { i64, i64 } @js_std_tmpfile(ptr noundef %0, i64 %1, i64 %2, i32
 
 13:                                               ; preds = %8, %9
   %.sroa.06.0.insert.ext.i = phi i64 [ %12, %9 ], [ 0, %8 ]
-  %14 = getelementptr inbounds i8, ptr %4, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %15 = load i64, ptr %14, align 8
   %16 = and i64 %15, 4294967295
   %.not.i = icmp eq i64 %16, 3
@@ -4291,9 +4291,9 @@ js_set_error_object.exit:                         ; preds = %17, %13, %5
   br label %js_new_std_file.exit
 
 38:                                               ; preds = %27
-  %39 = getelementptr inbounds i8, ptr %28, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i32 1, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %28, i64 12
+  %40 = getelementptr inbounds nuw i8, ptr %28, i64 12
   store i32 0, ptr %40, align 4
   store ptr %6, ptr %28, align 8
   tail call void @JS_SetOpaque(i64 %23, i64 %24, ptr noundef nonnull %28) #30
@@ -4432,7 +4432,7 @@ define internal range(i32 -1, 1) i32 @js_os_poll(ptr noundef %0) #0 {
   %7 = alloca %struct.timeval, align 8
   %8 = tail call ptr @JS_GetRuntime(ptr noundef %0) #30
   %9 = tail call ptr @JS_GetRuntimeOpaque(ptr noundef %8) #30
-  %10 = getelementptr inbounds i8, ptr %9, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %11 = load ptr, ptr %10, align 8
   %.not = icmp ne ptr %11, null
   %12 = load i64, ptr @os_pending_signals, align 8
@@ -4441,15 +4441,15 @@ define internal range(i32 -1, 1) i32 @js_os_poll(ptr noundef %0) #0 {
   br i1 %or.cond, label %.loopexit, label %13
 
 13:                                               ; preds = %1
-  %14 = getelementptr inbounds i8, ptr %9, i64 16
-  %15 = getelementptr inbounds i8, ptr %9, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %.0105172 = load ptr, ptr %15, align 8
   %.not117173 = icmp eq ptr %.0105172, %14
   br i1 %.not117173, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13, %28
   %.0105174 = phi ptr [ %.0105, %28 ], [ %.0105172, %13 ]
-  %16 = getelementptr inbounds i8, ptr %.0105174, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %.0105174, i64 16
   %17 = load i32, ptr %16, align 8
   %18 = zext nneg i32 %17 to i64
   %19 = shl nuw i64 1, %18
@@ -4461,57 +4461,57 @@ define internal range(i32 -1, 1) i32 @js_os_poll(ptr noundef %0) #0 {
   %22 = xor i64 %19, -1
   %23 = and i64 %12, %22
   store i64 %23, ptr @os_pending_signals, align 8
-  %24 = getelementptr inbounds i8, ptr %.0105174, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %.0105174, i64 24
   %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %.0105174, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %.0105174, i64 32
   %27 = load i64, ptr %26, align 8
   tail call fastcc void @call_handler(ptr noundef %0, i64 %25, i64 %27)
   br label %JS_FreeValue.exit
 
 28:                                               ; preds = %.lr.ph
-  %29 = getelementptr inbounds i8, ptr %.0105174, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.0105174, i64 8
   %.0105 = load ptr, ptr %29, align 8
   %.not117 = icmp eq ptr %.0105, %14
   br i1 %.not117, label %.loopexit, label %.lr.ph, !llvm.loop !27
 
 .loopexit:                                        ; preds = %28, %13, %1
-  %30 = getelementptr inbounds i8, ptr %9, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %31 = load ptr, ptr %30, align 8
   %.not141 = icmp eq ptr %31, %9
   br i1 %.not141, label %32, label %.loopexit._crit_edge
 
 .loopexit._crit_edge:                             ; preds = %.loopexit
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %9, i64 40
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %9, i64 40
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %40
 
 32:                                               ; preds = %.loopexit
-  %33 = getelementptr inbounds i8, ptr %9, i64 32
-  %34 = getelementptr inbounds i8, ptr %9, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %35 = load ptr, ptr %34, align 8
   %.not142 = icmp eq ptr %35, %33
   br i1 %.not142, label %36, label %40
 
 36:                                               ; preds = %32
-  %37 = getelementptr inbounds i8, ptr %9, i64 48
-  %38 = getelementptr inbounds i8, ptr %9, i64 56
+  %37 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %39 = load ptr, ptr %38, align 8
   %.not143 = icmp eq ptr %39, %37
   br i1 %.not143, label %JS_FreeValue.exit, label %.preheader155.preheader
 
 40:                                               ; preds = %.loopexit._crit_edge, %32
   %41 = phi ptr [ %.pre, %.loopexit._crit_edge ], [ %35, %32 ]
-  %42 = getelementptr inbounds i8, ptr %9, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %.not144 = icmp eq ptr %41, %42
   br i1 %.not144, label %.preheader155.preheader, label %43
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %9, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %9, i64 40
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %45 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #30
   %46 = load i64, ptr %4, align 8
   %.neg145 = mul i64 %46, -1000
-  %47 = getelementptr inbounds i8, ptr %4, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %48 = load i64, ptr %47, align 8
   %.neg = sdiv i64 %48, -1000000
   %.neg146 = add i64 %.neg, %.neg145
@@ -4523,23 +4523,23 @@ define internal range(i32 -1, 1) i32 @js_os_poll(ptr noundef %0) #0 {
 .lr.ph179:                                        ; preds = %43, %77
   %.1106178 = phi ptr [ %.1106, %77 ], [ %.1106175, %43 ]
   %.0103177 = phi i32 [ %spec.select, %77 ], [ 10000, %43 ]
-  %49 = getelementptr inbounds i8, ptr %.1106178, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %.1106178, i64 24
   %50 = load i64, ptr %49, align 8
   %51 = add i64 %.neg146, %50
   %52 = icmp slt i64 %51, 1
   br i1 %52, label %53, label %77
 
 53:                                               ; preds = %.lr.ph179
-  %54 = getelementptr inbounds i8, ptr %.1106178, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %.1106178, i64 32
   %.sroa.018.0.copyload = load i64, ptr %54, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %.1106178, i64 40
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.1106178, i64 40
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
   store i32 0, ptr %54, align 8
   store i64 3, ptr %.sroa.3.0..sroa_idx, align 8
   %55 = load ptr, ptr %.1106178, align 8
-  %56 = getelementptr inbounds i8, ptr %.1106178, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %.1106178, i64 8
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %55, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store ptr %57, ptr %58, align 8
   store ptr %55, ptr %57, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.1106178, i8 0, i64 16, i1 false)
@@ -4585,7 +4585,7 @@ free_timer.exit:                                  ; preds = %53, %63, %68
   %79 = icmp samesign ult i64 %51, %78
   %80 = trunc nuw nsw i64 %51 to i32
   %spec.select = select i1 %79, i32 %80, i32 %.0103177
-  %81 = getelementptr inbounds i8, ptr %.1106178, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %.1106178, i64 8
   %.1106 = load ptr, ptr %81, align 8
   %.not123 = icmp eq ptr %.1106, %42
   br i1 %.not123, label %._crit_edge, label %.lr.ph179, !llvm.loop !28
@@ -4598,7 +4598,7 @@ free_timer.exit:                                  ; preds = %53, %63, %68
   %84 = urem i32 %.0103.lcssa, 1000
   %85 = mul nuw nsw i32 %84, 1000
   %86 = zext nneg i32 %85 to i64
-  %87 = getelementptr inbounds i8, ptr %7, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %86, ptr %87, align 8
   %.2107182.pre = load ptr, ptr %30, align 8
   br label %.preheader155.preheader
@@ -4614,10 +4614,10 @@ free_timer.exit:                                  ; preds = %53, %63, %68
 .lr.ph186:                                        ; preds = %.preheader155.preheader, %116
   %.2107185 = phi ptr [ %.2107, %116 ], [ %.2107182, %.preheader155.preheader ]
   %.0102184 = phi i32 [ %..i, %116 ], [ -1, %.preheader155.preheader ]
-  %88 = getelementptr inbounds i8, ptr %.2107185, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %.2107185, i64 16
   %89 = load i32, ptr %88, align 8
   %..i = call range(i32 -1, -2147483648) i32 @llvm.smax.i32(i32 range(i32 -1, -2147483648) %.0102184, i32 %89)
-  %90 = getelementptr inbounds i8, ptr %.2107185, i64 32
+  %90 = getelementptr inbounds nuw i8, ptr %.2107185, i64 32
   %91 = load i64, ptr %90, align 8
   %92 = and i64 %91, 4294967295
   %.not147 = icmp eq i64 %92, 2
@@ -4656,15 +4656,15 @@ free_timer.exit:                                  ; preds = %53, %63, %68
   br label %116
 
 116:                                              ; preds = %102, %106
-  %117 = getelementptr inbounds i8, ptr %.2107185, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %.2107185, i64 8
   %.2107 = load ptr, ptr %117, align 8
   %.not124 = icmp eq ptr %.2107, %9
   br i1 %.not124, label %._crit_edge187, label %.lr.ph186, !llvm.loop !29
 
 ._crit_edge187:                                   ; preds = %116, %.preheader155.preheader
   %.0102.lcssa = phi i32 [ -1, %.preheader155.preheader ], [ %..i, %116 ]
-  %118 = getelementptr inbounds i8, ptr %9, i64 48
-  %119 = getelementptr inbounds i8, ptr %9, i64 56
+  %118 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  %119 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %.3189 = load ptr, ptr %119, align 8
   %.not125190 = icmp eq ptr %.3189, %118
   br i1 %.not125190, label %._crit_edge195, label %.lr.ph194
@@ -4672,16 +4672,16 @@ free_timer.exit:                                  ; preds = %53, %63, %68
 .lr.ph194:                                        ; preds = %._crit_edge187, %136
   %.3192 = phi ptr [ %.3, %136 ], [ %.3189, %._crit_edge187 ]
   %.1191 = phi i32 [ %.2, %136 ], [ %.0102.lcssa, %._crit_edge187 ]
-  %120 = getelementptr inbounds i8, ptr %.3192, i64 32
+  %120 = getelementptr inbounds nuw i8, ptr %.3192, i64 32
   %121 = load i64, ptr %120, align 8
   %122 = and i64 %121, 4294967295
   %.not149 = icmp eq i64 %122, 2
   br i1 %.not149, label %136, label %123
 
 123:                                              ; preds = %.lr.ph194
-  %124 = getelementptr inbounds i8, ptr %.3192, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %.3192, i64 16
   %125 = load ptr, ptr %124, align 8
-  %126 = getelementptr inbounds i8, ptr %125, i64 64
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 64
   %127 = load i32, ptr %126, align 8
   %..i138 = call range(i32 -1, -2147483648) i32 @llvm.smax.i32(i32 range(i32 -1, -2147483648) %.1191, i32 %127)
   %128 = srem i32 %127, 64
@@ -4697,7 +4697,7 @@ free_timer.exit:                                  ; preds = %53, %63, %68
 
 136:                                              ; preds = %.lr.ph194, %123
   %.2 = phi i32 [ %.1191, %.lr.ph194 ], [ %..i138, %123 ]
-  %137 = getelementptr inbounds i8, ptr %.3192, i64 8
+  %137 = getelementptr inbounds nuw i8, ptr %.3192, i64 8
   %.3 = load ptr, ptr %137, align 8
   %.not125 = icmp eq ptr %.3, %118
   br i1 %.not125, label %._crit_edge195, label %.lr.ph194, !llvm.loop !30
@@ -4721,14 +4721,14 @@ free_timer.exit:                                  ; preds = %53, %63, %68
 
 .lr.ph201:                                        ; preds = %.preheader153, %176
   %.4200 = phi ptr [ %.4, %176 ], [ %.4198, %.preheader153 ]
-  %141 = getelementptr inbounds i8, ptr %.4200, i64 32
+  %141 = getelementptr inbounds nuw i8, ptr %.4200, i64 32
   %142 = load i64, ptr %141, align 8
   %143 = and i64 %142, 4294967295
   %.not150 = icmp eq i64 %143, 2
   br i1 %.not150, label %158, label %144
 
 144:                                              ; preds = %.lr.ph201
-  %145 = getelementptr inbounds i8, ptr %.4200, i64 16
+  %145 = getelementptr inbounds nuw i8, ptr %.4200, i64 16
   %146 = load i32, ptr %145, align 8
   %147 = sdiv i32 %146, 64
   %148 = sext i32 %147 to i64
@@ -4742,7 +4742,7 @@ free_timer.exit:                                  ; preds = %53, %63, %68
   br i1 %.not132, label %158, label %155
 
 155:                                              ; preds = %144
-  %156 = getelementptr inbounds i8, ptr %.4200, i64 24
+  %156 = getelementptr inbounds nuw i8, ptr %.4200, i64 24
   %157 = load i64, ptr %156, align 8
   call fastcc void @call_handler(ptr noundef %0, i64 %157, i64 %142)
   br label %JS_FreeValue.exit
@@ -4755,7 +4755,7 @@ free_timer.exit:                                  ; preds = %53, %63, %68
   br i1 %.not151, label %176, label %162
 
 162:                                              ; preds = %158
-  %163 = getelementptr inbounds i8, ptr %.4200, i64 16
+  %163 = getelementptr inbounds nuw i8, ptr %.4200, i64 16
   %164 = load i32, ptr %163, align 8
   %165 = sdiv i32 %164, 64
   %166 = sext i32 %165 to i64
@@ -4775,23 +4775,23 @@ free_timer.exit:                                  ; preds = %53, %63, %68
   br label %JS_FreeValue.exit
 
 176:                                              ; preds = %158, %162
-  %177 = getelementptr inbounds i8, ptr %.4200, i64 8
+  %177 = getelementptr inbounds nuw i8, ptr %.4200, i64 8
   %.4 = load ptr, ptr %177, align 8
   %.not126 = icmp eq ptr %.4, %9
   br i1 %.not126, label %.preheader, label %.lr.ph201, !llvm.loop !31
 
 .lr.ph208:                                        ; preds = %.preheader, %302
   %.5207 = phi ptr [ %.5, %302 ], [ %.5205, %.preheader ]
-  %178 = getelementptr inbounds i8, ptr %.5207, i64 32
+  %178 = getelementptr inbounds nuw i8, ptr %.5207, i64 32
   %179 = load i64, ptr %178, align 8
   %180 = and i64 %179, 4294967295
   %.not152 = icmp eq i64 %180, 2
   br i1 %.not152, label %302, label %181
 
 181:                                              ; preds = %.lr.ph208
-  %182 = getelementptr inbounds i8, ptr %.5207, i64 16
+  %182 = getelementptr inbounds nuw i8, ptr %.5207, i64 16
   %183 = load ptr, ptr %182, align 8
-  %184 = getelementptr inbounds i8, ptr %183, i64 64
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 64
   %185 = load i32, ptr %184, align 8
   %186 = sdiv i32 %185, 64
   %187 = sext i32 %186 to i64
@@ -4807,23 +4807,23 @@ free_timer.exit:                                  ; preds = %53, %63, %68
 194:                                              ; preds = %181
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %195 = getelementptr inbounds i8, ptr %183, i64 8
+  %195 = getelementptr inbounds nuw i8, ptr %183, i64 8
   %196 = call i32 @pthread_mutex_lock(ptr noundef nonnull %195) #30
-  %197 = getelementptr inbounds i8, ptr %183, i64 48
-  %198 = getelementptr inbounds i8, ptr %183, i64 56
+  %197 = getelementptr inbounds nuw i8, ptr %183, i64 48
+  %198 = getelementptr inbounds nuw i8, ptr %183, i64 56
   %199 = load ptr, ptr %198, align 8
   %.not.i = icmp eq ptr %199, %197
   br i1 %.not.i, label %handle_posted_message.exit, label %200
 
 200:                                              ; preds = %194
-  %201 = getelementptr inbounds i8, ptr %.5207, i64 32
-  %202 = getelementptr inbounds i8, ptr %183, i64 64
-  %203 = getelementptr inbounds i8, ptr %183, i64 56
-  %204 = getelementptr inbounds i8, ptr %.5207, i64 24
+  %201 = getelementptr inbounds nuw i8, ptr %.5207, i64 32
+  %202 = getelementptr inbounds nuw i8, ptr %183, i64 64
+  %203 = getelementptr inbounds nuw i8, ptr %183, i64 56
+  %204 = getelementptr inbounds nuw i8, ptr %.5207, i64 24
   %205 = load ptr, ptr %199, align 8
-  %206 = getelementptr inbounds i8, ptr %199, i64 8
+  %206 = getelementptr inbounds nuw i8, ptr %199, i64 8
   %207 = load ptr, ptr %206, align 8
-  %208 = getelementptr inbounds i8, ptr %205, i64 8
+  %208 = getelementptr inbounds nuw i8, ptr %205, i64 8
   store ptr %207, ptr %208, align 8
   store ptr %205, ptr %207, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %199, i8 0, i64 16, i1 false)
@@ -4858,20 +4858,20 @@ free_timer.exit:                                  ; preds = %53, %63, %68
 
 .loopexit.i:                                      ; preds = %217, %215, %.preheader.i, %200
   %222 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %195) #30
-  %223 = getelementptr inbounds i8, ptr %199, i64 16
+  %223 = getelementptr inbounds nuw i8, ptr %199, i64 16
   %224 = load ptr, ptr %223, align 8
-  %225 = getelementptr inbounds i8, ptr %199, i64 24
+  %225 = getelementptr inbounds nuw i8, ptr %199, i64 24
   %226 = load i64, ptr %225, align 8
   %227 = call { i64, i64 } @JS_ReadObject(ptr noundef %0, ptr noundef %224, i64 noundef %226, i32 noundef 12) #30
   %228 = extractvalue { i64, i64 } %227, 0
   %229 = extractvalue { i64, i64 } %227, 1
-  %230 = getelementptr inbounds i8, ptr %199, i64 40
+  %230 = getelementptr inbounds nuw i8, ptr %199, i64 40
   %231 = load i64, ptr %230, align 8
   %.not.i.i = icmp eq i64 %231, 0
   br i1 %.not.i.i, label %js_free_message.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.loopexit.i
-  %232 = getelementptr inbounds i8, ptr %199, i64 32
+  %232 = getelementptr inbounds nuw i8, ptr %199, i64 32
   br label %233
 
 233:                                              ; preds = %js_sab_free.exit.i.i, %.lr.ph.i.i
@@ -4895,7 +4895,7 @@ js_sab_free.exit.i.i:                             ; preds = %240, %233
   br i1 %243, label %233, label %js_free_message.exit.i, !llvm.loop !14
 
 js_free_message.exit.i:                           ; preds = %js_sab_free.exit.i.i, %.loopexit.i
-  %244 = getelementptr inbounds i8, ptr %199, i64 32
+  %244 = getelementptr inbounds nuw i8, ptr %199, i64 32
   %245 = load ptr, ptr %244, align 8
   call void @free(ptr noundef %245) #30
   %246 = load ptr, ptr %223, align 8
@@ -4910,7 +4910,7 @@ js_free_message.exit.i:                           ; preds = %js_sab_free.exit.i.
   %250 = extractvalue { i64, i64 } %249, 0
   %251 = extractvalue { i64, i64 } %249, 1
   store i64 %250, ptr %2, align 8
-  %.sroa.26.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.26.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %251, ptr %.sroa.26.0..sroa_idx.i, align 8
   %252 = and i64 %251, 4294967295
   %.not3.i = icmp eq i64 %252, 6
@@ -5023,7 +5023,7 @@ handle_posted_message.exit:                       ; preds = %194
   br label %302
 
 302:                                              ; preds = %handle_posted_message.exit, %.lr.ph208, %181
-  %303 = getelementptr inbounds i8, ptr %.5207, i64 8
+  %303 = getelementptr inbounds nuw i8, ptr %.5207, i64 8
   %.5 = load ptr, ptr %303, align 8
   %.not127 = icmp eq ptr %.5, %118
   br i1 %.not127, label %JS_FreeValue.exit, label %.lr.ph208, !llvm.loop !32
@@ -5043,7 +5043,7 @@ define internal { i64, i64 } @js_worker_ctor(ptr noundef %0, i64 %1, i64 %2, i32
   %9 = alloca %union.pthread_attr_t, align 8
   %10 = tail call ptr @JS_GetRuntime(ptr noundef %0) #30
   %11 = tail call ptr @JS_GetRuntimeOpaque(ptr noundef %10) #30
-  %12 = getelementptr inbounds i8, ptr %11, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %13 = load ptr, ptr %12, align 8
   %.not.i.not = icmp eq ptr %13, null
   br i1 %.not.i.not, label %18, label %14
@@ -5075,7 +5075,7 @@ define internal { i64, i64 } @js_worker_ctor(ptr noundef %0, i64 %1, i64 %2, i32
 
 27:                                               ; preds = %25
   %28 = load i64, ptr %4, align 8
-  %29 = getelementptr inbounds i8, ptr %4, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %30 = load i64, ptr %29, align 8
   %31 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %28, i64 %30, i32 noundef 0) #30
   %.not73 = icmp eq ptr %31, null
@@ -5090,7 +5090,7 @@ define internal { i64, i64 } @js_worker_ctor(ptr noundef %0, i64 %1, i64 %2, i32
   %34 = tail call noalias ptr @strdup(ptr noundef nonnull %31) #30
   store ptr %34, ptr %calloc, align 8
   %35 = tail call noalias ptr @strdup(ptr noundef nonnull %26) #30
-  %36 = getelementptr inbounds i8, ptr %calloc, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %calloc, i64 8
   store ptr %35, ptr %36, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %37 = call i32 @pipe(ptr noundef nonnull %7) #30
@@ -5105,7 +5105,7 @@ define internal { i64, i64 } @js_worker_ctor(ptr noundef %0, i64 %1, i64 %2, i32
 41:                                               ; preds = %39
   %42 = load i32, ptr %7, align 4
   %43 = call i32 @close(i32 noundef %42) #30
-  %44 = getelementptr inbounds i8, ptr %7, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %45 = load i32, ptr %44, align 4
   %46 = call i32 @close(i32 noundef %45) #30
   br label %js_new_message_pipe.exit.thread
@@ -5116,21 +5116,21 @@ js_new_message_pipe.exit.thread:                  ; preds = %41, %33
 
 47:                                               ; preds = %39
   store i32 1, ptr %40, align 8
-  %48 = getelementptr inbounds i8, ptr %40, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %40, i64 48
   store ptr %48, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %40, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %40, i64 56
   store ptr %48, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %40, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %51 = call i32 @pthread_mutex_init(ptr noundef nonnull %50, ptr noundef null) #30
   %52 = load i32, ptr %7, align 4
-  %53 = getelementptr inbounds i8, ptr %40, i64 64
+  %53 = getelementptr inbounds nuw i8, ptr %40, i64 64
   store i32 %52, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %7, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %55 = load i32, ptr %54, align 4
-  %56 = getelementptr inbounds i8, ptr %40, i64 68
+  %56 = getelementptr inbounds nuw i8, ptr %40, i64 68
   store i32 %55, ptr %56, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  %57 = getelementptr inbounds i8, ptr %calloc, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %calloc, i64 16
   store ptr %40, ptr %57, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %58 = call i32 @pipe(ptr noundef nonnull %6) #30
@@ -5145,7 +5145,7 @@ js_new_message_pipe.exit.thread:                  ; preds = %41, %33
 62:                                               ; preds = %60
   %63 = load i32, ptr %6, align 4
   %64 = call i32 @close(i32 noundef %63) #30
-  %65 = getelementptr inbounds i8, ptr %6, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %66 = load i32, ptr %65, align 4
   %67 = call i32 @close(i32 noundef %66) #30
   br label %js_new_message_pipe.exit83.thread
@@ -5156,21 +5156,21 @@ js_new_message_pipe.exit83.thread:                ; preds = %62, %47
 
 68:                                               ; preds = %60
   store i32 1, ptr %61, align 8
-  %69 = getelementptr inbounds i8, ptr %61, i64 48
+  %69 = getelementptr inbounds nuw i8, ptr %61, i64 48
   store ptr %69, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %61, i64 56
+  %70 = getelementptr inbounds nuw i8, ptr %61, i64 56
   store ptr %69, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %61, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %72 = call i32 @pthread_mutex_init(ptr noundef nonnull %71, ptr noundef null) #30
   %73 = load i32, ptr %6, align 4
-  %74 = getelementptr inbounds i8, ptr %61, i64 64
+  %74 = getelementptr inbounds nuw i8, ptr %61, i64 64
   store i32 %73, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %6, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %76 = load i32, ptr %75, align 4
-  %77 = getelementptr inbounds i8, ptr %61, i64 68
+  %77 = getelementptr inbounds nuw i8, ptr %61, i64 68
   store i32 %76, ptr %77, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %78 = getelementptr inbounds i8, ptr %calloc, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %calloc, i64 24
   store ptr %61, ptr %78, align 8
   %79 = load ptr, ptr %57, align 8
   %80 = call fastcc { i64, i64 } @js_worker_ctor_internal(ptr noundef %0, i64 %1, i64 %2, ptr noundef %61, ptr noundef %79)
@@ -5200,7 +5200,7 @@ js_new_message_pipe.exit83.thread:                ; preds = %62, %47
 
 .sink.split:                                      ; preds = %js_new_message_pipe.exit.thread, %js_new_message_pipe.exit83.thread
   %.sink88 = phi i64 [ 24, %js_new_message_pipe.exit83.thread ], [ 16, %js_new_message_pipe.exit.thread ]
-  %92 = getelementptr inbounds i8, ptr %calloc, i64 %.sink88
+  %92 = getelementptr inbounds nuw i8, ptr %calloc, i64 %.sink88
   store ptr null, ptr %92, align 8
   br label %93
 
@@ -5221,13 +5221,13 @@ js_new_message_pipe.exit83.thread:                ; preds = %62, %47
 96:                                               ; preds = %95
   %97 = load ptr, ptr %.0, align 8
   call void @free(ptr noundef %97) #30
-  %98 = getelementptr inbounds i8, ptr %.0, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %99 = load ptr, ptr %98, align 8
   call void @free(ptr noundef %99) #30
-  %100 = getelementptr inbounds i8, ptr %.0, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %101 = load ptr, ptr %100, align 8
   call fastcc void @js_free_message_pipe(ptr noundef %101)
-  %102 = getelementptr inbounds i8, ptr %.0, i64 24
+  %102 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   %103 = load ptr, ptr %102, align 8
   call fastcc void @js_free_message_pipe(ptr noundef %103)
   call void @free(ptr noundef nonnull %.0) #30
@@ -5320,7 +5320,7 @@ JS_FreeValue.exit:                                ; preds = %15, %22, %27
   %32 = atomicrmw add ptr %3, i32 1 seq_cst, align 4
   store ptr %3, ptr %30, align 8
   %33 = atomicrmw add ptr %4, i32 1 seq_cst, align 4
-  %34 = getelementptr inbounds i8, ptr %30, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %4, ptr %34, align 8
   tail call void @JS_SetOpaque(i64 %18, i64 %19, ptr noundef nonnull %30) #30
   br label %JS_FreeValue.exit37
@@ -5435,21 +5435,21 @@ define internal void @js_worker_finalizer(ptr noundef %0, i64 %1, i64 %2) #0 {
 6:                                                ; preds = %3
   %7 = load ptr, ptr %5, align 8
   tail call fastcc void @js_free_message_pipe(ptr noundef %7)
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call fastcc void @js_free_message_pipe(ptr noundef %9)
-  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %11 = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %js_free_port.exit, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %11, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %14 = load ptr, ptr %13, align 8
   tail call fastcc void @js_free_message_pipe(ptr noundef %14)
-  %15 = getelementptr inbounds i8, ptr %11, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %11, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %18 = load i64, ptr %17, align 8
   %19 = trunc i64 %18 to i32
   %20 = icmp ugt i32 %19, -12
@@ -5469,9 +5469,9 @@ define internal void @js_worker_finalizer(ptr noundef %0, i64 %1, i64 %2) #0 {
 
 JS_FreeValueRT.exit.i:                            ; preds = %26, %21, %12
   %27 = load ptr, ptr %11, align 8
-  %28 = getelementptr inbounds i8, ptr %11, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %27, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %29, ptr %30, align 8
   store ptr %27, ptr %29, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
@@ -5501,7 +5501,7 @@ define internal { i64, i64 } @js_worker_postMessage(ptr noundef %0, i64 %1, i64 
 
 12:                                               ; preds = %5
   %13 = load i64, ptr %4, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %15 = load i64, ptr %14, align 8
   %16 = call ptr @JS_WriteObject2(ptr noundef %0, ptr noundef nonnull %6, i64 %13, i64 %15, i32 noundef 12, ptr noundef nonnull %8, ptr noundef nonnull %7) #30
   %.not50 = icmp eq ptr %16, null
@@ -5513,8 +5513,8 @@ define internal { i64, i64 } @js_worker_postMessage(ptr noundef %0, i64 %1, i64 
   br i1 %.not51, label %.critedge, label %19
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %18, i64 16
-  %21 = getelementptr inbounds i8, ptr %18, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 32
   store ptr null, ptr %21, align 8
   %22 = load i64, ptr %6, align 8
   %23 = call noalias ptr @malloc(i64 noundef %22) #31
@@ -5524,7 +5524,7 @@ define internal { i64, i64 } @js_worker_postMessage(ptr noundef %0, i64 %1, i64 
 
 24:                                               ; preds = %19
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr nonnull align 1 %16, i64 %22, i1 false)
-  %25 = getelementptr inbounds i8, ptr %18, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store i64 %22, ptr %25, align 8
   %26 = load i64, ptr %7, align 8
   %27 = shl i64 %26, 3
@@ -5536,7 +5536,7 @@ define internal { i64, i64 } @js_worker_postMessage(ptr noundef %0, i64 %1, i64 
 29:                                               ; preds = %24
   %30 = load ptr, ptr %8, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %28, ptr align 8 %30, i64 %27, i1 false)
-  %31 = getelementptr inbounds i8, ptr %18, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %18, i64 40
   store i64 %26, ptr %31, align 8
   call void @js_free(ptr noundef %0, ptr noundef nonnull %16) #30
   %32 = load ptr, ptr %8, align 8
@@ -5557,19 +5557,19 @@ define internal { i64, i64 } @js_worker_postMessage(ptr noundef %0, i64 %1, i64 
   br i1 %40, label %.lr.ph, label %._crit_edge, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %.lr.ph, %29
-  %41 = getelementptr inbounds i8, ptr %11, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = call i32 @pthread_mutex_lock(ptr noundef nonnull %43) #30
-  %45 = getelementptr inbounds i8, ptr %42, i64 48
-  %46 = getelementptr inbounds i8, ptr %42, i64 56
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 48
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 56
   %47 = load ptr, ptr %46, align 8
   %.not56 = icmp eq ptr %47, %45
   br i1 %.not56, label %48, label %.loopexit
 
 48:                                               ; preds = %._crit_edge
   store i8 0, ptr %9, align 1
-  %49 = getelementptr inbounds i8, ptr %42, i64 68
+  %49 = getelementptr inbounds nuw i8, ptr %42, i64 68
   br label %50
 
 50:                                               ; preds = %50, %48
@@ -5583,10 +5583,10 @@ define internal { i64, i64 } @js_worker_postMessage(ptr noundef %0, i64 %1, i64 
 
 .loopexit:                                        ; preds = %50, %._crit_edge
   %56 = load ptr, ptr %45, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   store ptr %18, ptr %57, align 8
   store ptr %56, ptr %18, align 8
-  %58 = getelementptr inbounds i8, ptr %18, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %45, ptr %58, align 8
   store ptr %18, ptr %45, align 8
   %59 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %43) #30
@@ -5617,15 +5617,15 @@ define internal { i64, i64 } @js_worker_get_onmessage(ptr noundef %0, i64 %1, i6
   br i1 %.not, label %21, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
   %.not10 = icmp eq ptr %8, null
   br i1 %.not10, label %21, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %8, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %13 = load i64, ptr %12, align 8
   %14 = trunc i64 %13 to i32
   %15 = icmp ugt i32 %14, -12
@@ -5663,7 +5663,7 @@ define internal { i64, i64 } @js_worker_set_onmessage(ptr noundef %0, i64 %1, i6
   br i1 %.not, label %72, label %10
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %9, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = and i64 %4, 4294967295
   %.not47 = icmp eq i64 %13, 2
@@ -5674,12 +5674,12 @@ define internal { i64, i64 } @js_worker_set_onmessage(ptr noundef %0, i64 %1, i6
   br i1 %.not46, label %72, label %15
 
 15:                                               ; preds = %14
-  %16 = getelementptr inbounds i8, ptr %12, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %17 = load ptr, ptr %16, align 8
   tail call fastcc void @js_free_message_pipe(ptr noundef %17)
-  %18 = getelementptr inbounds i8, ptr %12, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %19 = load i64, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %12, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %21 = load i64, ptr %20, align 8
   %22 = trunc i64 %21 to i32
   %23 = icmp ugt i32 %22, -12
@@ -5699,9 +5699,9 @@ define internal { i64, i64 } @js_worker_set_onmessage(ptr noundef %0, i64 %1, i6
 
 js_free_port.exit:                                ; preds = %15, %24, %29
   %30 = load ptr, ptr %12, align 8
-  %31 = getelementptr inbounds i8, ptr %12, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %30, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %32, ptr %33, align 8
   store ptr %30, ptr %32, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
@@ -5734,18 +5734,18 @@ js_free_port.exit:                                ; preds = %15, %24, %29
 44:                                               ; preds = %42
   %45 = load ptr, ptr %9, align 8
   %46 = atomicrmw add ptr %45, i32 1 seq_cst, align 4
-  %47 = getelementptr inbounds i8, ptr %43, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %43, i64 16
   store ptr %45, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %43, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %43, i64 24
   store i32 0, ptr %48, align 8
-  %.sroa.23.0..sroa_idx = getelementptr inbounds i8, ptr %43, i64 32
+  %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 32
   store i64 2, ptr %.sroa.23.0..sroa_idx, align 8
-  %49 = getelementptr inbounds i8, ptr %7, i64 48
+  %49 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store ptr %43, ptr %51, align 8
   store ptr %50, ptr %43, align 8
-  %52 = getelementptr inbounds i8, ptr %43, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store ptr %49, ptr %52, align 8
   store ptr %43, ptr %49, align 8
   store ptr %43, ptr %11, align 8
@@ -5753,9 +5753,9 @@ js_free_port.exit:                                ; preds = %15, %24, %29
 
 53:                                               ; preds = %44, %41
   %.0 = phi ptr [ %12, %41 ], [ %43, %44 ]
-  %54 = getelementptr inbounds i8, ptr %.0, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   %55 = load i64, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %.0, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %57 = load i64, ptr %56, align 8
   %58 = trunc i64 %57 to i32
   %59 = icmp ugt i32 %58, -12
@@ -5838,13 +5838,13 @@ define internal noundef ptr @worker_func(ptr nocapture noundef %0) #0 {
   tail call void @js_std_init_handlers(ptr noundef nonnull %3)
   tail call void @JS_SetModuleLoaderFunc(ptr noundef nonnull %3, ptr noundef null, ptr noundef nonnull @js_module_loader, ptr noundef null) #30
   %9 = tail call ptr @JS_GetRuntimeOpaque(ptr noundef nonnull %3) #30
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 72
   store ptr %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %9, i64 80
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 80
   store ptr %14, ptr %15, align 8
   %16 = load ptr, ptr @js_worker_new_context_func, align 8
   %17 = tail call ptr %16(ptr noundef nonnull %3) #30
@@ -5860,7 +5860,7 @@ define internal noundef ptr @worker_func(ptr nocapture noundef %0) #0 {
   %.sink = phi ptr [ null, %.split34 ], [ %17, %8 ]
   tail call void @JS_SetCanBlock(ptr noundef nonnull %3, i32 noundef 1) #30
   tail call void @js_std_add_helpers(ptr noundef %.sink, i32 noundef -1, ptr noundef null)
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %0, align 8
   %24 = tail call { i64, i64 } @JS_LoadModule(ptr noundef %17, ptr noundef %22, ptr noundef %23) #30
@@ -5971,7 +5971,7 @@ define internal { i64, i64 } @js_os_open(ptr noundef %0, i64 %1, i64 %2, i32 nou
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = load i64, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %8, i64 %10, i32 noundef 0) #30
   %.not = icmp eq ptr %11, null
@@ -6048,7 +6048,7 @@ js_get_errno.exit:                                ; preds = %29, %34
 define internal { i64, i64 } @js_os_close(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
   %6 = alloca i32, align 4
   %7 = load i64, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %6, i64 %7, i64 %9) #30
   %.not = icmp eq i32 %10, 0
@@ -6085,7 +6085,7 @@ define internal { i64, i64 } @js_os_seek(ptr noundef %0, i64 %1, i64 %2, i32 %3,
   %7 = alloca i32, align 4
   %8 = alloca i64, align 8
   %9 = load i64, ptr %4, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %6, i64 %9, i64 %11) #30
   %.not = icmp eq i32 %12, 0
@@ -6166,7 +6166,7 @@ define internal { i64, i64 } @js_os_read_write(ptr noundef %0, i64 %1, i64 %2, i
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
   %11 = load i64, ptr %4, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %13 = load i64, ptr %12, align 8
   %14 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %7, i64 %11, i64 %13) #30
   %.not = icmp eq i32 %14, 0
@@ -6264,7 +6264,7 @@ js_get_errno.exit:                                ; preds = %js_get_errno.exit.s
 define internal { i64, i64 } @js_os_isatty(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
   %6 = alloca i32, align 4
   %7 = load i64, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %6, i64 %7, i64 %9) #30
   %.not = icmp eq i32 %10, 0
@@ -6290,7 +6290,7 @@ define internal { i64, i64 } @js_os_ttyGetWinSize(ptr noundef %0, i64 %1, i64 %2
   %6 = alloca i32, align 4
   %7 = alloca %struct.winsize, align 2
   %8 = load i64, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %6, i64 %8, i64 %10) #30
   %.not = icmp eq i32 %11, 0
@@ -6300,7 +6300,7 @@ define internal { i64, i64 } @js_os_ttyGetWinSize(ptr noundef %0, i64 %1, i64 %2
   %13 = load i32, ptr %6, align 4
   %14 = call i32 (i32, i64, ...) @ioctl(i32 noundef %13, i64 noundef 21523, ptr noundef nonnull %7) #30
   %15 = icmp eq i32 %14, 0
-  %16 = getelementptr inbounds i8, ptr %7, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 2
   %17 = load i16, ptr %16, align 2
   %18 = icmp ugt i16 %17, 3
   %or.cond = select i1 %15, i1 %18, i1 false
@@ -6347,7 +6347,7 @@ define internal { i64, i64 } @js_os_ttySetRaw(ptr noundef %0, i64 %1, i64 %2, i3
   %6 = alloca %struct.termios, align 4
   %7 = alloca i32, align 4
   %8 = load i64, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %7, i64 %8, i64 %10) #30
   %.not = icmp eq i32 %11, 0
@@ -6361,22 +6361,22 @@ define internal { i64, i64 } @js_os_ttySetRaw(ptr noundef %0, i64 %1, i64 %2, i3
   %15 = load i32, ptr %6, align 4
   %16 = and i32 %15, -1516
   store i32 %16, ptr %6, align 4
-  %17 = getelementptr inbounds i8, ptr %6, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = or i32 %18, 1
   store i32 %19, ptr %17, align 4
-  %20 = getelementptr inbounds i8, ptr %6, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %21 = load i32, ptr %20, align 4
   %22 = and i32 %21, -32843
   store i32 %22, ptr %20, align 4
-  %23 = getelementptr inbounds i8, ptr %6, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %24 = load i32, ptr %23, align 4
   %25 = and i32 %24, -305
   %26 = or disjoint i32 %25, 48
   store i32 %26, ptr %23, align 4
-  %27 = getelementptr inbounds i8, ptr %6, i64 23
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 23
   store i8 1, ptr %27, align 1
-  %28 = getelementptr inbounds i8, ptr %6, i64 22
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 22
   store i8 0, ptr %28, align 2
   %29 = load i32, ptr %7, align 4
   %30 = call i32 @tcsetattr(i32 noundef %29, i32 noundef 0, ptr noundef nonnull %6) #30
@@ -6392,7 +6392,7 @@ define internal { i64, i64 } @js_os_ttySetRaw(ptr noundef %0, i64 %1, i64 %2, i3
 ; Function Attrs: nounwind uwtable
 define internal { i64, i64 } @js_os_remove(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
   %6 = load i64, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %6, i64 %8, i32 noundef 0) #30
   %.not = icmp eq ptr %9, null
@@ -6426,7 +6426,7 @@ js_get_errno.exit:                                ; preds = %10, %13
 ; Function Attrs: nounwind uwtable
 define internal { i64, i64 } @js_os_rename(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
   %6 = load i64, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %6, i64 %8, i32 noundef 0) #30
   %.not = icmp eq ptr %9, null
@@ -6479,7 +6479,7 @@ define internal { i64, i64 } @js_os_setReadHandler(ptr noundef %0, i64 %1, i64 %
   %8 = tail call ptr @JS_GetRuntime(ptr noundef %0) #30
   %9 = tail call ptr @JS_GetRuntimeOpaque(ptr noundef %8) #30
   %10 = load i64, ptr %4, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %7, i64 %10, i64 %12) #30
   %.not = icmp eq i32 %13, 0
@@ -6500,23 +6500,23 @@ define internal { i64, i64 } @js_os_setReadHandler(ptr noundef %0, i64 %1, i64 %
 
 19:                                               ; preds = %20, %17
   %.pn.i = phi ptr [ %9, %17 ], [ %.0.i, %20 ]
-  %.0.in.i = getelementptr inbounds i8, ptr %.pn.i, i64 8
+  %.0.in.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 8
   %.0.i = load ptr, ptr %.0.in.i, align 8
   %.not.i = icmp eq ptr %.0.i, %9
   br i1 %.not.i, label %find_rh.exit.thread, label %20
 
 20:                                               ; preds = %19
-  %21 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %22 = load i32, ptr %21, align 8
   %23 = icmp eq i32 %22, %18
   br i1 %23, label %find_rh.exit, label %19, !llvm.loop !34
 
 find_rh.exit:                                     ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %25 = sext i32 %5 to i64
   %26 = getelementptr [2 x %struct.JSValue], ptr %24, i64 0, i64 %25
   %27 = load i64, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %26, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %29 = load i64, ptr %28, align 8
   %30 = trunc i64 %29 to i32
   %31 = icmp ugt i32 %30, -12
@@ -6537,7 +6537,7 @@ find_rh.exit:                                     ; preds = %20
 JS_FreeValue.exit:                                ; preds = %find_rh.exit, %32, %37
   store i32 0, ptr %26, align 8
   store i64 2, ptr %28, align 8
-  %38 = getelementptr inbounds i8, ptr %.0.i, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
   %39 = load i64, ptr %38, align 8
   %40 = and i64 %39, 4294967295
   %.not73 = icmp eq i64 %40, 2
@@ -6553,9 +6553,9 @@ JS_FreeValue.exit:                                ; preds = %find_rh.exit, %32, 
 45:                                               ; preds = %41
   %46 = call ptr @JS_GetRuntime(ptr noundef %0) #30
   %47 = load ptr, ptr %.0.i, align 8
-  %48 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %47, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store ptr %49, ptr %50, align 8
   store ptr %47, ptr %49, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0.i, i8 0, i64 16, i1 false)
@@ -6566,7 +6566,7 @@ JS_FreeValue.exit:                                ; preds = %find_rh.exit, %32, 
   %indvars.iv.i = phi i64 [ 0, %45 ], [ 1, %JS_FreeValueRT.exit.i ]
   %53 = getelementptr [2 x %struct.JSValue], ptr %24, i64 0, i64 %indvars.iv.i
   %54 = load i64, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %53, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %56 = load i64, ptr %55, align 8
   %57 = trunc i64 %56 to i32
   %58 = icmp ugt i32 %57, -12
@@ -6610,13 +6610,13 @@ free_rw_handler.exit:                             ; preds = %JS_FreeValueRT.exit
 
 74:                                               ; preds = %75, %72
   %.pn.i61 = phi ptr [ %9, %72 ], [ %.0.i63, %75 ]
-  %.0.in.i62 = getelementptr inbounds i8, ptr %.pn.i61, i64 8
+  %.0.in.i62 = getelementptr inbounds nuw i8, ptr %.pn.i61, i64 8
   %.0.i63 = load ptr, ptr %.0.in.i62, align 8
   %.not.i64 = icmp eq ptr %.0.i63, %9
   br i1 %.not.i64, label %79, label %75
 
 75:                                               ; preds = %74
-  %76 = getelementptr inbounds i8, ptr %.0.i63, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %.0.i63, i64 16
   %77 = load i32, ptr %76, align 8
   %78 = icmp eq i32 %77, %73
   br i1 %78, label %find_rh.exit66, label %74, !llvm.loop !34
@@ -6628,32 +6628,32 @@ free_rw_handler.exit:                             ; preds = %JS_FreeValueRT.exit
 
 81:                                               ; preds = %79
   %82 = load i32, ptr %7, align 4
-  %83 = getelementptr inbounds i8, ptr %80, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %80, i64 16
   store i32 %82, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %80, i64 24
+  %84 = getelementptr inbounds nuw i8, ptr %80, i64 24
   store i32 0, ptr %84, align 8
-  %.sroa.26.0..sroa_idx = getelementptr inbounds i8, ptr %80, i64 32
+  %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %80, i64 32
   store i64 2, ptr %.sroa.26.0..sroa_idx, align 8
   %85 = getelementptr i8, ptr %80, i64 40
   store i32 0, ptr %85, align 8
   %.sroa.23.0..sroa_idx = getelementptr i8, ptr %80, i64 48
   store i64 2, ptr %.sroa.23.0..sroa_idx, align 8
   %86 = load ptr, ptr %9, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   store ptr %80, ptr %87, align 8
   store ptr %86, ptr %80, align 8
-  %88 = getelementptr inbounds i8, ptr %80, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %80, i64 8
   store ptr %9, ptr %88, align 8
   store ptr %80, ptr %9, align 8
   br label %find_rh.exit66
 
 find_rh.exit66:                                   ; preds = %75, %81
   %.0 = phi ptr [ %80, %81 ], [ %.0.i63, %75 ]
-  %89 = getelementptr inbounds i8, ptr %.0, i64 24
+  %89 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   %90 = sext i32 %5 to i64
   %91 = getelementptr [2 x %struct.JSValue], ptr %89, i64 0, i64 %90
   %92 = load i64, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %91, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %94 = load i64, ptr %93, align 8
   %95 = trunc i64 %94 to i32
   %96 = icmp ugt i32 %95, -12
@@ -6704,7 +6704,7 @@ define internal { i64, i64 } @js_os_signal(ptr noundef %0, i64 %1, i64 %2, i32 %
   %7 = tail call ptr @JS_GetRuntime(ptr noundef %0) #30
   %8 = tail call ptr @JS_GetRuntimeOpaque(ptr noundef %7) #30
   %9 = tail call ptr @JS_GetRuntimeOpaque(ptr noundef %7) #30
-  %10 = getelementptr inbounds i8, ptr %9, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %11 = load ptr, ptr %10, align 8
   %.not.i.not = icmp eq ptr %11, null
   br i1 %.not.i.not, label %16, label %12
@@ -6718,7 +6718,7 @@ define internal { i64, i64 } @js_os_signal(ptr noundef %0, i64 %1, i64 %2, i32 %
 
 16:                                               ; preds = %5
   %17 = load i64, ptr %4, align 8
-  %18 = getelementptr inbounds i8, ptr %4, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %19 = load i64, ptr %18, align 8
   %20 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %6, i64 %17, i64 %19) #30
   %.not52 = icmp eq i32 %20, 0
@@ -6748,21 +6748,21 @@ define internal { i64, i64 } @js_os_signal(ptr noundef %0, i64 %1, i64 %2, i32 %
   br i1 %switch, label %32, label %59
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %8, i64 16
-  %34 = getelementptr inbounds i8, ptr %8, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.09.i = load ptr, ptr %34, align 8
   %.not10.i = icmp eq ptr %.09.i, %33
   br i1 %.not10.i, label %find_sh.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %32, %38
   %.011.i = phi ptr [ %.0.i, %38 ], [ %.09.i, %32 ]
-  %35 = getelementptr inbounds i8, ptr %.011.i, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %.011.i, i64 16
   %36 = load i32, ptr %35, align 8
   %37 = icmp eq i32 %36, %22
   br i1 %37, label %find_sh.exit, label %38
 
 38:                                               ; preds = %.lr.ph.i
-  %39 = getelementptr inbounds i8, ptr %.011.i, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %.011.i, i64 8
   %.0.i = load ptr, ptr %39, align 8
   %.not.i60 = icmp eq ptr %.0.i, %33
   br i1 %.not.i60, label %find_sh.exit.thread, label %.lr.ph.i, !llvm.loop !35
@@ -6770,15 +6770,15 @@ define internal { i64, i64 } @js_os_signal(ptr noundef %0, i64 %1, i64 %2, i32 %
 find_sh.exit:                                     ; preds = %.lr.ph.i
   %40 = call ptr @JS_GetRuntime(ptr noundef %0) #30
   %41 = load ptr, ptr %.011.i, align 8
-  %42 = getelementptr inbounds i8, ptr %.011.i, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %.011.i, i64 8
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %41, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store ptr %43, ptr %44, align 8
   store ptr %41, ptr %43, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.011.i, i8 0, i64 16, i1 false)
-  %45 = getelementptr inbounds i8, ptr %.011.i, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %.011.i, i64 24
   %46 = load i64, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %.011.i, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %.011.i, i64 32
   %48 = load i64, ptr %47, align 8
   %49 = trunc i64 %48 to i32
   %50 = icmp ugt i32 %49, -12
@@ -6821,21 +6821,21 @@ find_sh.exit.thread:                              ; preds = %38, %32, %free_sh.e
 
 65:                                               ; preds = %59
   %66 = load i32, ptr %6, align 4
-  %67 = getelementptr inbounds i8, ptr %8, i64 16
-  %68 = getelementptr inbounds i8, ptr %8, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.09.i61 = load ptr, ptr %68, align 8
   %.not10.i62 = icmp eq ptr %.09.i61, %67
   br i1 %.not10.i62, label %.loopexit, label %.lr.ph.i63
 
 .lr.ph.i63:                                       ; preds = %65, %72
   %.011.i64 = phi ptr [ %.0.i65, %72 ], [ %.09.i61, %65 ]
-  %69 = getelementptr inbounds i8, ptr %.011.i64, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %.011.i64, i64 16
   %70 = load i32, ptr %69, align 8
   %71 = icmp eq i32 %70, %66
   br i1 %71, label %find_sh.exit68, label %72
 
 72:                                               ; preds = %.lr.ph.i63
-  %73 = getelementptr inbounds i8, ptr %.011.i64, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %.011.i64, i64 8
   %.0.i65 = load ptr, ptr %73, align 8
   %.not.i66 = icmp eq ptr %.0.i65, %67
   br i1 %.not.i66, label %.loopexit, label %.lr.ph.i63, !llvm.loop !35
@@ -6847,22 +6847,22 @@ find_sh.exit.thread:                              ; preds = %38, %32, %free_sh.e
 
 75:                                               ; preds = %.loopexit
   %76 = load i32, ptr %6, align 4
-  %77 = getelementptr inbounds i8, ptr %74, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %74, i64 16
   store i32 %76, ptr %77, align 8
   %78 = load ptr, ptr %67, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   store ptr %74, ptr %79, align 8
   store ptr %78, ptr %74, align 8
-  %80 = getelementptr inbounds i8, ptr %74, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %74, i64 8
   store ptr %67, ptr %80, align 8
   store ptr %74, ptr %67, align 8
   br label %find_sh.exit68
 
 find_sh.exit68:                                   ; preds = %.lr.ph.i63, %75
   %.048 = phi ptr [ %74, %75 ], [ %.011.i64, %.lr.ph.i63 ]
-  %81 = getelementptr inbounds i8, ptr %.048, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %.048, i64 24
   %82 = load i64, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %.048, i64 32
+  %83 = getelementptr inbounds nuw i8, ptr %.048, i64 32
   %84 = load i64, ptr %83, align 8
   %85 = trunc i64 %84 to i32
   %86 = icmp ugt i32 %85, -12
@@ -6917,7 +6917,7 @@ define internal { i64, i64 } @js_os_now(ptr nocapture readnone %0, i64 %1, i64 %
   %7 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #30
   %8 = load i64, ptr %6, align 8
   %9 = mul i64 %8, 1000000000
-  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = add i64 %9, %11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
@@ -6947,7 +6947,7 @@ define internal { i64, i64 } @js_os_setTimeout(ptr noundef %0, i64 %1, i64 %2, i
   %8 = tail call ptr @JS_GetRuntime(ptr noundef %0) #30
   %9 = tail call ptr @JS_GetRuntimeOpaque(ptr noundef %8) #30
   %.sroa.06.0.copyload = load i64, ptr %4, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
   %10 = tail call i32 @JS_IsFunction(ptr noundef %0, i64 %.sroa.06.0.copyload, i64 %.sroa.3.0.copyload) #30
   %.not = icmp eq i32 %10, 0
@@ -6976,9 +6976,9 @@ define internal { i64, i64 } @js_os_setTimeout(ptr noundef %0, i64 %1, i64 %2, i
   br i1 %.not38, label %51, label %23
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %9, i64 68
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 68
   %25 = load i32, ptr %24, align 4
-  %26 = getelementptr inbounds i8, ptr %22, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i32 %25, ptr %26, align 8
   %27 = icmp eq i32 %25, 2147483647
   %28 = add nsw i32 %25, 1
@@ -6988,16 +6988,16 @@ define internal { i64, i64 } @js_os_setTimeout(ptr noundef %0, i64 %1, i64 %2, i
   %29 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #30
   %30 = load i64, ptr %6, align 8
   %31 = mul i64 %30, 1000
-  %32 = getelementptr inbounds i8, ptr %6, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %33 = load i64, ptr %32, align 8
   %34 = sdiv i64 %33, 1000000
   %35 = add i64 %34, %31
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %36 = load i64, ptr %7, align 8
   %37 = add i64 %35, %36
-  %38 = getelementptr inbounds i8, ptr %22, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store i64 %37, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %22, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %40 = trunc i64 %.sroa.3.0.copyload to i32
   %41 = icmp ugt i32 %40, -12
   br i1 %41, label %42, label %JS_DupValue.exit
@@ -7011,14 +7011,14 @@ define internal { i64, i64 } @js_os_setTimeout(ptr noundef %0, i64 %1, i64 %2, i
 
 JS_DupValue.exit:                                 ; preds = %23, %42
   store i64 %.sroa.06.0.copyload, ptr %39, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %22, i64 40
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 40
   store i64 %.sroa.3.0.copyload, ptr %.sroa.2.0..sroa_idx, align 8
-  %46 = getelementptr inbounds i8, ptr %9, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store ptr %22, ptr %48, align 8
   store ptr %47, ptr %22, align 8
-  %49 = getelementptr inbounds i8, ptr %22, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %46, ptr %49, align 8
   store ptr %22, ptr %46, align 8
   %50 = load i32, ptr %26, align 8
@@ -7041,7 +7041,7 @@ define internal { i64, i64 } @js_os_clearTimeout(ptr noundef %0, i64 %1, i64 %2,
   %7 = tail call ptr @JS_GetRuntime(ptr noundef %0) #30
   %8 = tail call ptr @JS_GetRuntimeOpaque(ptr noundef %7) #30
   %9 = load i64, ptr %4, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %6, i64 %9, i64 %11) #30
   %.not = icmp eq i32 %12, 0
@@ -7053,36 +7053,36 @@ define internal { i64, i64 } @js_os_clearTimeout(ptr noundef %0, i64 %1, i64 %2,
   br i1 %15, label %find_timer_by_id.exit.thread, label %16
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %8, i64 32
-  %18 = getelementptr inbounds i8, ptr %8, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %.0911.i = load ptr, ptr %18, align 8
   %.not12.i = icmp eq ptr %.0911.i, %17
   br i1 %.not12.i, label %find_timer_by_id.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %16, %22
   %.0913.i = phi ptr [ %.09.i, %22 ], [ %.0911.i, %16 ]
-  %19 = getelementptr inbounds i8, ptr %.0913.i, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %.0913.i, i64 16
   %20 = load i32, ptr %19, align 8
   %21 = icmp eq i32 %20, %14
   br i1 %21, label %find_timer_by_id.exit, label %22
 
 22:                                               ; preds = %.lr.ph.i
-  %23 = getelementptr inbounds i8, ptr %.0913.i, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.0913.i, i64 8
   %.09.i = load ptr, ptr %23, align 8
   %.not.i = icmp eq ptr %.09.i, %17
   br i1 %.not.i, label %find_timer_by_id.exit.thread, label %.lr.ph.i, !llvm.loop !36
 
 find_timer_by_id.exit:                            ; preds = %.lr.ph.i
   %24 = load ptr, ptr %.0913.i, align 8
-  %25 = getelementptr inbounds i8, ptr %.0913.i, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.0913.i, i64 8
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %24, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %26, ptr %27, align 8
   store ptr %24, ptr %26, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0913.i, i8 0, i64 16, i1 false)
-  %28 = getelementptr inbounds i8, ptr %.0913.i, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.0913.i, i64 32
   %29 = load i64, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %.0913.i, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %.0913.i, i64 40
   %31 = load i64, ptr %30, align 8
   %32 = trunc i64 %31 to i32
   %33 = icmp ugt i32 %32, -12
@@ -7118,7 +7118,7 @@ define internal { i64, i64 } @js_os_sleepAsync(ptr noundef %0, i64 %1, i64 %2, i
   %9 = tail call ptr @JS_GetRuntime(ptr noundef %0) #30
   %10 = tail call ptr @JS_GetRuntimeOpaque(ptr noundef %9) #30
   %11 = load i64, ptr %4, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %13 = load i64, ptr %12, align 8
   %14 = call i32 @JS_ToInt64(ptr noundef %0, ptr noundef nonnull %7, i64 %11, i64 %13) #30
   %.not = icmp eq i32 %14, 0
@@ -7156,7 +7156,7 @@ define internal { i64, i64 } @js_os_sleepAsync(ptr noundef %0, i64 %1, i64 %2, i
 
 JS_FreeValue.exit:                                ; preds = %22, %25, %30
   %31 = load i64, ptr %8, align 16
-  %32 = getelementptr inbounds i8, ptr %8, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %33 = load i64, ptr %32, align 8
   %34 = trunc i64 %33 to i32
   %35 = icmp ugt i32 %34, -12
@@ -7175,9 +7175,9 @@ JS_FreeValue.exit:                                ; preds = %22, %25, %30
   br label %JS_FreeValue.exit30
 
 JS_FreeValue.exit30:                              ; preds = %JS_FreeValue.exit, %36, %41
-  %42 = getelementptr inbounds i8, ptr %8, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %43 = load i64, ptr %42, align 16
-  %44 = getelementptr inbounds i8, ptr %8, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %45 = load i64, ptr %44, align 8
   %46 = trunc i64 %45 to i32
   %47 = icmp ugt i32 %46, -12
@@ -7196,24 +7196,24 @@ JS_FreeValue.exit30:                              ; preds = %JS_FreeValue.exit, 
   br label %JS_FreeValue.exit31
 
 54:                                               ; preds = %20
-  %55 = getelementptr inbounds i8, ptr %21, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i32 -1, ptr %55, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %56 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #30
   %57 = load i64, ptr %6, align 8
   %58 = mul i64 %57, 1000
-  %59 = getelementptr inbounds i8, ptr %6, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %60 = load i64, ptr %59, align 8
   %61 = sdiv i64 %60, 1000000
   %62 = add i64 %61, %58
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %63 = load i64, ptr %7, align 8
   %64 = add i64 %62, %63
-  %65 = getelementptr inbounds i8, ptr %21, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store i64 %64, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %21, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %67 = load i64, ptr %8, align 16
-  %68 = getelementptr inbounds i8, ptr %8, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %69 = load i64, ptr %68, align 8
   %70 = trunc i64 %69 to i32
   %71 = icmp ugt i32 %70, -12
@@ -7228,14 +7228,14 @@ JS_FreeValue.exit30:                              ; preds = %JS_FreeValue.exit, 
 
 JS_DupValue.exit:                                 ; preds = %54, %72
   store i64 %67, ptr %66, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 40
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 40
   store i64 %69, ptr %.sroa.2.0..sroa_idx, align 8
-  %76 = getelementptr inbounds i8, ptr %10, i64 32
+  %76 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
   store ptr %21, ptr %78, align 8
   store ptr %77, ptr %21, align 8
-  %79 = getelementptr inbounds i8, ptr %21, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %76, ptr %79, align 8
   store ptr %21, ptr %76, align 8
   %80 = load i64, ptr %8, align 16
@@ -7257,9 +7257,9 @@ JS_DupValue.exit:                                 ; preds = %54, %72
   br label %JS_FreeValue.exit32
 
 JS_FreeValue.exit32:                              ; preds = %JS_DupValue.exit, %84, %89
-  %90 = getelementptr inbounds i8, ptr %8, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %91 = load i64, ptr %90, align 16
-  %92 = getelementptr inbounds i8, ptr %8, i64 24
+  %92 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %93 = load i64, ptr %92, align 8
   %94 = trunc i64 %93 to i32
   %95 = icmp ugt i32 %94, -12
@@ -7347,7 +7347,7 @@ make_string_error.exit:                           ; preds = %17, %18, %22
 ; Function Attrs: nounwind uwtable
 define internal { i64, i64 } @js_os_chdir(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
   %6 = load i64, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %6, i64 %8, i32 noundef 0) #30
   %.not = icmp eq ptr %9, null
@@ -7399,7 +7399,7 @@ define internal { i64, i64 } @js_os_mkdir(ptr noundef %0, i64 %1, i64 %2, i32 no
 
 15:                                               ; preds = %8, %14
   %16 = load i64, ptr %4, align 8
-  %17 = getelementptr inbounds i8, ptr %4, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %18 = load i64, ptr %17, align 8
   %19 = call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %16, i64 %18, i32 noundef 0) #30
   %.not17 = icmp eq ptr %19, null
@@ -7434,7 +7434,7 @@ js_get_errno.exit:                                ; preds = %20, %24
 ; Function Attrs: nounwind uwtable
 define internal { i64, i64 } @js_os_readdir(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
   %6 = load i64, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %6, i64 %8, i32 noundef 0) #30
   %.not = icmp eq ptr %9, null
@@ -7480,7 +7480,7 @@ define internal { i64, i64 } @js_os_readdir(ptr noundef %0, i64 %1, i64 %2, i32 
   %25 = phi ptr [ %32, %.lr.ph ], [ %22, %20 ]
   %.03141 = phi i32 [ %26, %.lr.ph ], [ 0, %20 ]
   %26 = add i32 %.03141, 1
-  %27 = getelementptr inbounds i8, ptr %25, i64 19
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 19
   %28 = tail call { i64, i64 } @JS_NewString(ptr noundef %0, ptr noundef nonnull %27) #30
   %29 = extractvalue { i64, i64 } %28, 0
   %30 = extractvalue { i64, i64 } %28, 1
@@ -7521,7 +7521,7 @@ make_obj_error.exit:                              ; preds = %37, %33, %5, %15
 define internal { i64, i64 } @js_os_stat(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
   %7 = alloca %struct.stat, align 8
   %8 = load i64, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %8, i64 %10, i32 noundef 0) #30
   %.not = icmp eq ptr %11, null
@@ -7570,7 +7570,7 @@ define internal { i64, i64 } @js_os_stat(ptr noundef %0, i64 %1, i64 %2, i32 %3,
   %.sroa.0404.0 = select i1 %30, i64 %.sroa.0409.0.insert.ext, i64 %32
   %.sroa.3405.0 = select i1 %30, i64 0, i64 7
   %33 = tail call i32 @JS_DefinePropertyValueStr(ptr noundef %0, i64 %27, i64 %24, ptr noundef nonnull @.str.183, i64 %.sroa.0404.0, i64 %.sroa.3405.0, i32 noundef 7) #30
-  %34 = getelementptr inbounds i8, ptr %7, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %35 = load i64, ptr %34, align 8
   %36 = add i64 %35, 2147483648
   %37 = icmp ult i64 %36, 4294967296
@@ -7580,11 +7580,11 @@ define internal { i64, i64 } @js_os_stat(ptr noundef %0, i64 %1, i64 %2, i32 %3,
   %.sroa.0385.0 = select i1 %37, i64 %.sroa.0390.0.insert.ext, i64 %39
   %.sroa.3386.0 = select i1 %37, i64 0, i64 7
   %40 = tail call i32 @JS_DefinePropertyValueStr(ptr noundef %0, i64 %27, i64 %24, ptr noundef nonnull @.str.184, i64 %.sroa.0385.0, i64 %.sroa.3386.0, i32 noundef 7) #30
-  %41 = getelementptr inbounds i8, ptr %7, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %42 = load i32, ptr %41, align 8
   %.sroa.0201.0.insert.ext = zext i32 %42 to i64
   %43 = tail call i32 @JS_DefinePropertyValueStr(ptr noundef %0, i64 %27, i64 %24, ptr noundef nonnull @.str.185, i64 %.sroa.0201.0.insert.ext, i64 0, i32 noundef 7) #30
-  %44 = getelementptr inbounds i8, ptr %7, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %45 = load i64, ptr %44, align 8
   %46 = add i64 %45, 2147483648
   %47 = icmp ult i64 %46, 4294967296
@@ -7594,7 +7594,7 @@ define internal { i64, i64 } @js_os_stat(ptr noundef %0, i64 %1, i64 %2, i32 %3,
   %.sroa.0366.0 = select i1 %47, i64 %.sroa.0371.0.insert.ext, i64 %49
   %.sroa.3367.0 = select i1 %47, i64 0, i64 7
   %50 = tail call i32 @JS_DefinePropertyValueStr(ptr noundef %0, i64 %27, i64 %24, ptr noundef nonnull @.str.186, i64 %.sroa.0366.0, i64 %.sroa.3367.0, i32 noundef 7) #30
-  %51 = getelementptr inbounds i8, ptr %7, i64 28
+  %51 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %52 = load i32, ptr %51, align 4
   %53 = zext i32 %52 to i64
   %54 = sext i32 %52 to i64
@@ -7604,7 +7604,7 @@ define internal { i64, i64 } @js_os_stat(ptr noundef %0, i64 %1, i64 %2, i32 %3,
   %.sroa.0347.0 = select i1 %55, i64 %53, i64 %57
   %.sroa.3348.0 = select i1 %55, i64 0, i64 7
   %58 = tail call i32 @JS_DefinePropertyValueStr(ptr noundef %0, i64 %27, i64 %24, ptr noundef nonnull @.str.187, i64 %.sroa.0347.0, i64 %.sroa.3348.0, i32 noundef 7) #30
-  %59 = getelementptr inbounds i8, ptr %7, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %60 = load i32, ptr %59, align 8
   %61 = zext i32 %60 to i64
   %62 = sext i32 %60 to i64
@@ -7614,7 +7614,7 @@ define internal { i64, i64 } @js_os_stat(ptr noundef %0, i64 %1, i64 %2, i32 %3,
   %.sroa.0328.0 = select i1 %63, i64 %61, i64 %65
   %.sroa.3329.0 = select i1 %63, i64 0, i64 7
   %66 = tail call i32 @JS_DefinePropertyValueStr(ptr noundef %0, i64 %27, i64 %24, ptr noundef nonnull @.str.188, i64 %.sroa.0328.0, i64 %.sroa.3329.0, i32 noundef 7) #30
-  %67 = getelementptr inbounds i8, ptr %7, i64 40
+  %67 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %68 = load i64, ptr %67, align 8
   %69 = add i64 %68, 2147483648
   %70 = icmp ult i64 %69, 4294967296
@@ -7624,7 +7624,7 @@ define internal { i64, i64 } @js_os_stat(ptr noundef %0, i64 %1, i64 %2, i32 %3,
   %.sroa.0309.0 = select i1 %70, i64 %.sroa.0314.0.insert.ext, i64 %72
   %.sroa.3310.0 = select i1 %70, i64 0, i64 7
   %73 = tail call i32 @JS_DefinePropertyValueStr(ptr noundef %0, i64 %27, i64 %24, ptr noundef nonnull @.str.189, i64 %.sroa.0309.0, i64 %.sroa.3310.0, i32 noundef 7) #30
-  %74 = getelementptr inbounds i8, ptr %7, i64 48
+  %74 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %75 = load i64, ptr %74, align 8
   %76 = add i64 %75, 2147483648
   %77 = icmp ult i64 %76, 4294967296
@@ -7634,7 +7634,7 @@ define internal { i64, i64 } @js_os_stat(ptr noundef %0, i64 %1, i64 %2, i32 %3,
   %.sroa.0290.0 = select i1 %77, i64 %.sroa.0295.0.insert.ext, i64 %79
   %.sroa.3291.0 = select i1 %77, i64 0, i64 7
   %80 = tail call i32 @JS_DefinePropertyValueStr(ptr noundef %0, i64 %27, i64 %24, ptr noundef nonnull @.str.190, i64 %.sroa.0290.0, i64 %.sroa.3291.0, i32 noundef 7) #30
-  %81 = getelementptr inbounds i8, ptr %7, i64 64
+  %81 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %82 = load i64, ptr %81, align 8
   %83 = add i64 %82, 2147483648
   %84 = icmp ult i64 %83, 4294967296
@@ -7644,9 +7644,9 @@ define internal { i64, i64 } @js_os_stat(ptr noundef %0, i64 %1, i64 %2, i32 %3,
   %.sroa.0271.0 = select i1 %84, i64 %.sroa.0276.0.insert.ext, i64 %86
   %.sroa.3272.0 = select i1 %84, i64 0, i64 7
   %87 = tail call i32 @JS_DefinePropertyValueStr(ptr noundef %0, i64 %27, i64 %24, ptr noundef nonnull @.str.191, i64 %.sroa.0271.0, i64 %.sroa.3272.0, i32 noundef 7) #30
-  %88 = getelementptr inbounds i8, ptr %7, i64 72
+  %88 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %.val = load i64, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %7, i64 80
+  %89 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %.val427 = load i64, ptr %89, align 8
   %90 = mul i64 %.val, 1000
   %91 = sdiv i64 %.val427, 1000000
@@ -7659,9 +7659,9 @@ define internal { i64, i64 } @js_os_stat(ptr noundef %0, i64 %1, i64 %2, i32 %3,
   %.sroa.0252.0 = select i1 %94, i64 %.sroa.0257.0.insert.ext, i64 %96
   %.sroa.3253.0 = select i1 %94, i64 0, i64 7
   %97 = tail call i32 @JS_DefinePropertyValueStr(ptr noundef %0, i64 %27, i64 %24, ptr noundef nonnull @.str.192, i64 %.sroa.0252.0, i64 %.sroa.3253.0, i32 noundef 7) #30
-  %98 = getelementptr inbounds i8, ptr %7, i64 88
+  %98 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %.val428 = load i64, ptr %98, align 8
-  %99 = getelementptr inbounds i8, ptr %7, i64 96
+  %99 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %.val429 = load i64, ptr %99, align 8
   %100 = mul i64 %.val428, 1000
   %101 = sdiv i64 %.val429, 1000000
@@ -7674,9 +7674,9 @@ define internal { i64, i64 } @js_os_stat(ptr noundef %0, i64 %1, i64 %2, i32 %3,
   %.sroa.0233.0 = select i1 %104, i64 %.sroa.0238.0.insert.ext, i64 %106
   %.sroa.3234.0 = select i1 %104, i64 0, i64 7
   %107 = tail call i32 @JS_DefinePropertyValueStr(ptr noundef %0, i64 %27, i64 %24, ptr noundef nonnull @.str.193, i64 %.sroa.0233.0, i64 %.sroa.3234.0, i32 noundef 7) #30
-  %108 = getelementptr inbounds i8, ptr %7, i64 104
+  %108 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %.val430 = load i64, ptr %108, align 8
-  %109 = getelementptr inbounds i8, ptr %7, i64 112
+  %109 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %.val431 = load i64, ptr %109, align 8
   %110 = mul i64 %.val430, 1000
   %111 = sdiv i64 %.val431, 1000000
@@ -7743,7 +7743,7 @@ define internal { i64, i64 } @js_os_utimes(ptr noundef %0, i64 %1, i64 %2, i32 %
 
 20:                                               ; preds = %14
   %21 = load i64, ptr %4, align 8
-  %22 = getelementptr inbounds i8, ptr %4, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %23 = load i64, ptr %22, align 8
   %24 = call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %21, i64 %23, i32 noundef 0) #30
   %.not20 = icmp eq ptr %24, null
@@ -7755,15 +7755,15 @@ define internal { i64, i64 } @js_os_utimes(ptr noundef %0, i64 %1, i64 %2, i32 %
   store i64 %27, ptr %8, align 16
   %28 = urem i64 %26, 1000
   %29 = mul nuw nsw i64 %28, 1000
-  %30 = getelementptr inbounds i8, ptr %8, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %29, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %8, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %32 = load i64, ptr %7, align 8
   %33 = udiv i64 %32, 1000
   store i64 %33, ptr %31, align 16
   %34 = urem i64 %32, 1000
   %35 = mul nuw nsw i64 %34, 1000
-  %36 = getelementptr inbounds i8, ptr %8, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 %35, ptr %36, align 8
   %37 = call i32 @utimes(ptr noundef nonnull %24, ptr noundef nonnull %8) #30
   %38 = icmp eq i32 %37, -1
@@ -7794,7 +7794,7 @@ define internal { i64, i64 } @js_os_sleep(ptr noundef %0, i64 %1, i64 %2, i32 %3
   %6 = alloca i64, align 8
   %7 = alloca %struct.timespec, align 8
   %8 = load i64, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = call i32 @JS_ToInt64(ptr noundef %0, ptr noundef nonnull %6, i64 %8, i64 %10) #30
   %.not = icmp eq i32 %11, 0
@@ -7815,7 +7815,7 @@ define internal { i64, i64 } @js_os_sleep(ptr noundef %0, i64 %1, i64 %2, i32 %3
   store i64 %18, ptr %7, align 8
   %19 = urem i64 %17, 1000
   %20 = mul nuw nsw i64 %19, 1000000
-  %21 = getelementptr inbounds i8, ptr %7, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %20, ptr %21, align 8
   %22 = call i32 @nanosleep(ptr noundef nonnull %7, ptr noundef null) #30
   %23 = icmp eq i32 %22, -1
@@ -7844,7 +7844,7 @@ js_get_errno.exit:                                ; preds = %16, %24
 define internal { i64, i64 } @js_os_realpath(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
   %6 = alloca [4096 x i8], align 16
   %7 = load i64, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %7, i64 %9, i32 noundef 0) #30
   %.not = icmp eq ptr %10, null
@@ -7909,7 +7909,7 @@ make_string_error.exit:                           ; preds = %22, %23, %27
 ; Function Attrs: nounwind uwtable
 define internal { i64, i64 } @js_os_symlink(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
   %6 = load i64, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %6, i64 %8, i32 noundef 0) #30
   %.not = icmp eq ptr %9, null
@@ -7960,7 +7960,7 @@ js_get_errno.exit:                                ; preds = %16, %19
 define internal { i64, i64 } @js_os_readlink(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
   %6 = alloca [4096 x i8], align 16
   %7 = load i64, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %7, i64 %9, i32 noundef 0) #30
   %.not = icmp eq ptr %10, null
@@ -8038,7 +8038,7 @@ define internal { i64, i64 } @js_os_exec(ptr noundef %0, i64 %1, i64 %2, i32 nou
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
   %.sroa.0144.0.copyload = load i64, ptr %4, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
   %14 = load ptr, ptr @environ, align 8
   store i32 1, ptr %8, align 4
@@ -8614,7 +8614,7 @@ define internal { i64, i64 } @js_os_waitpid(ptr noundef %0, i64 %1, i64 %2, i32 
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = load i64, ptr %4, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %6, i64 %9, i64 %11) #30
   %.not = icmp eq i32 %12, 0
@@ -8699,7 +8699,7 @@ define internal { i64, i64 } @js_os_pipe(ptr noundef %0, i64 %1, i64 %2, i32 %3,
   %16 = load i32, ptr %6, align 4
   %.sroa.032.0.insert.ext = zext i32 %16 to i64
   %17 = call i32 @JS_DefinePropertyValueUint32(ptr noundef %0, i64 %11, i64 %12, i32 noundef 0, i64 %.sroa.032.0.insert.ext, i64 0, i32 noundef 7) #30
-  %18 = getelementptr inbounds i8, ptr %6, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %19 = load i32, ptr %18, align 4
   %.sroa.027.0.insert.ext = zext i32 %19 to i64
   %20 = call i32 @JS_DefinePropertyValueUint32(ptr noundef %0, i64 %11, i64 %12, i32 noundef 1, i64 %.sroa.027.0.insert.ext, i64 0, i32 noundef 7) #30
@@ -8722,7 +8722,7 @@ define internal { i64, i64 } @js_os_kill(ptr noundef %0, i64 %1, i64 %2, i32 %3,
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = load i64, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %6, i64 %8, i64 %10) #30
   %.not = icmp eq i32 %11, 0
@@ -8767,7 +8767,7 @@ js_get_errno.exit:                                ; preds = %18, %23
 define internal { i64, i64 } @js_os_dup(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
   %6 = alloca i32, align 4
   %7 = load i64, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %6, i64 %7, i64 %9) #30
   %.not = icmp eq i32 %10, 0
@@ -8803,7 +8803,7 @@ define internal { i64, i64 } @js_os_dup2(ptr noundef %0, i64 %1, i64 %2, i32 %3,
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = load i64, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %6, i64 %8, i64 %10) #30
   %.not = icmp eq i32 %11, 0
@@ -9126,7 +9126,7 @@ define internal fastcc void @my_execvpe(ptr noundef %0, ptr noundef nonnull %1, 
   %spec.select = select i1 %.not36, ptr @.str.207, ptr %14
   %15 = add i64 %5, 1
   %invariant.op = add i64 %5, -4095
-  %invariant.gep = getelementptr inbounds i8, ptr %4, i64 1
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %4, i64 1
   br label %.outer
 
 .outer:                                           ; preds = %select.unfold.thread, %13

@@ -148,10 +148,10 @@ is_armagetronad_packet.exit:                      ; preds = %13, %4
   br i1 %.not, label %18, label %is_armagetronad_packet.exit.thread
 
 18:                                               ; preds = %is_armagetronad_packet.exit
-  %19 = getelementptr inbounds i8, ptr %1, i64 408
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %20 = load ptr, ptr %19, align 8
   %21 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %20, ptr noundef nonnull @.str.70) #2
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8
   tail call void @col_set_str(ptr noundef %23, i32 noundef 34, ptr noundef nonnull @.str.19) #2
   %24 = load ptr, ptr %22, align 8

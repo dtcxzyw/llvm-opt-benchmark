@@ -86,7 +86,7 @@ define void @dlaqr4_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i8 %53, ptr %32, align 1, !tbaa !7
   %54 = load i32, ptr %1, align 4, !tbaa !3
   %55 = icmp eq i32 %54, 0
-  %56 = getelementptr inbounds i8, ptr %32, i64 1
+  %56 = getelementptr inbounds nuw i8, ptr %32, i64 1
   %57 = select i1 %55, i8 78, i8 86
   store i8 %57, ptr %56, align 1, !tbaa !7
   %58 = call i32 @ilaenv_(ptr noundef nonnull @c__13, ptr noundef nonnull @.str, ptr noundef nonnull %32, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, ptr noundef %14, i32 noundef 6, i32 noundef 2) #5

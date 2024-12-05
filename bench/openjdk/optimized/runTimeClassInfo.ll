@@ -28,28 +28,28 @@ $_ZN9LogPrefixILN6LogTag4typeE14ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN16RunTimeClassInfo4initER17DumpTimeClassInfo(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr @_ZN14ArchiveBuilder8_currentE, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @_ZN14ArchiveBuilder23write_pointer_in_bufferEPPhS0_(ptr noundef nonnull align 8 dereferenceable(1080) %3, ptr noundef nonnull %0, ptr noundef %5) #5
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 186
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 186
   %8 = load i16, ptr %7, align 2
   %.not = icmp eq i16 %8, -9999
   br i1 %.not, label %9, label %16
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
-  %11 = getelementptr inbounds i8, ptr %1, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %12 = load i32, ptr %11, align 8
   store i32 %12, ptr %10, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 36
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %14, ptr %15, align 4
   br label %16
 
 16:                                               ; preds = %9, %2
-  %17 = getelementptr inbounds i8, ptr %1, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %_ZNK17DumpTimeClassInfo24num_verifier_constraintsEv.exit, label %20
@@ -60,9 +60,9 @@ define hidden void @_ZN16RunTimeClassInfo4initER17DumpTimeClassInfo(ptr noundef 
 
 _ZNK17DumpTimeClassInfo24num_verifier_constraintsEv.exit: ; preds = %16, %20
   %22 = phi i32 [ %21, %20 ], [ 0, %16 ]
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %22, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %_ZNK17DumpTimeClassInfo22num_loader_constraintsEv.exit, label %27
@@ -73,7 +73,7 @@ _ZNK17DumpTimeClassInfo24num_verifier_constraintsEv.exit: ; preds = %16, %20
 
 _ZNK17DumpTimeClassInfo22num_loader_constraintsEv.exit: ; preds = %_ZNK17DumpTimeClassInfo24num_verifier_constraintsEv.exit, %27
   %.0.i.i53 = phi i32 [ %28, %27 ], [ 0, %_ZNK17DumpTimeClassInfo24num_verifier_constraintsEv.exit ]
-  %29 = getelementptr inbounds i8, ptr %0, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %.0.i.i53, ptr %29, align 4
   %30 = icmp sgt i32 %22, 0
   br i1 %30, label %.lr.ph, label %80
@@ -82,7 +82,7 @@ _ZNK17DumpTimeClassInfo22num_loader_constraintsEv.exit: ; preds = %_ZNK17DumpTim
   %31 = load i16, ptr %7, align 2
   %.not.i.i.i.i.i = icmp eq i16 %31, -9999
   %32 = select i1 %.not.i.i.i.i.i, i64 24, i64 16
-  %33 = getelementptr inbounds i8, ptr %6, i64 164
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 164
   %.sroa.0.0.copyload.i.i.i.i.i.i = load i32, ptr %33, align 4
   %34 = lshr i32 %.sroa.0.0.copyload.i.i.i.i.i.i, 23
   %35 = and i32 %34, 8
@@ -96,7 +96,7 @@ _ZNK17DumpTimeClassInfo22num_loader_constraintsEv.exit: ; preds = %_ZNK17DumpTim
   %reass.add.i.i = add nsw i64 %36, %41
   %reass.mul.i.i = shl nsw i64 %reass.add.i.i, 3
   %42 = getelementptr i8, ptr %39, i64 %reass.mul.i.i
-  %43 = getelementptr inbounds i8, ptr %1, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 40
   br label %45
 
 .preheader:                                       ; preds = %_ZNK14ArchiveBuilder16any_to_offset_u4IP6SymbolEEjT_.exit54
@@ -106,9 +106,9 @@ _ZNK17DumpTimeClassInfo22num_loader_constraintsEv.exit: ; preds = %_ZNK17DumpTim
 45:                                               ; preds = %.lr.ph, %_ZNK14ArchiveBuilder16any_to_offset_u4IP6SymbolEEjT_.exit54
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK14ArchiveBuilder16any_to_offset_u4IP6SymbolEEjT_.exit54 ]
   %46 = load ptr, ptr %43, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds %"class.DumpTimeClassInfo::DTVerifierConstraint", ptr %48, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw %"class.DumpTimeClassInfo::DTVerifierConstraint", ptr %48, i64 %indvars.iv
   %50 = load ptr, ptr %49, align 8
   %51 = tail call noundef i64 @_ZNK14ArchiveBuilder13any_to_offsetEPh(ptr noundef nonnull align 8 dereferenceable(1080) %3, ptr noundef %50) #5
   %52 = icmp ult i64 %51, 2147483648
@@ -122,12 +122,12 @@ _ZNK17DumpTimeClassInfo22num_loader_constraintsEv.exit: ; preds = %_ZNK17DumpTim
 
 _ZNK14ArchiveBuilder16any_to_offset_u4IP6SymbolEEjT_.exit: ; preds = %45
   %55 = trunc nuw nsw i64 %51 to i32
-  %56 = getelementptr inbounds %"struct.RunTimeClassInfo::RTVerifierConstraint", ptr %40, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw %"struct.RunTimeClassInfo::RTVerifierConstraint", ptr %40, i64 %indvars.iv
   store i32 %55, ptr %56, align 8
   %57 = load ptr, ptr %43, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds %"class.DumpTimeClassInfo::DTVerifierConstraint", ptr %59, i64 %indvars.iv, i32 1
+  %60 = getelementptr inbounds nuw %"class.DumpTimeClassInfo::DTVerifierConstraint", ptr %59, i64 %indvars.iv, i32 1
   %61 = load ptr, ptr %60, align 8
   %62 = tail call noundef i64 @_ZNK14ArchiveBuilder13any_to_offsetEPh(ptr noundef nonnull align 8 dereferenceable(1080) %3, ptr noundef %61) #5
   %63 = icmp ult i64 %62, 2147483648
@@ -141,7 +141,7 @@ _ZNK14ArchiveBuilder16any_to_offset_u4IP6SymbolEEjT_.exit: ; preds = %45
 
 _ZNK14ArchiveBuilder16any_to_offset_u4IP6SymbolEEjT_.exit54: ; preds = %_ZNK14ArchiveBuilder16any_to_offset_u4IP6SymbolEEjT_.exit
   %66 = trunc nuw nsw i64 %62 to i32
-  %67 = getelementptr inbounds i8, ptr %56, i64 4
+  %67 = getelementptr inbounds nuw i8, ptr %56, i64 4
   store i32 %66, ptr %67, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %68 = load i32, ptr %23, align 8
@@ -152,11 +152,11 @@ _ZNK14ArchiveBuilder16any_to_offset_u4IP6SymbolEEjT_.exit54: ; preds = %_ZNK14Ar
 .lr.ph70:                                         ; preds = %.preheader, %.lr.ph70
   %indvars.iv82 = phi i64 [ %indvars.iv.next83, %.lr.ph70 ], [ 0, %.preheader ]
   %71 = load ptr, ptr %17, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 %indvars.iv82
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 %indvars.iv82
   %75 = load i8, ptr %74, align 1
-  %76 = getelementptr inbounds i8, ptr %42, i64 %indvars.iv82
+  %76 = getelementptr inbounds nuw i8, ptr %42, i64 %indvars.iv82
   store i8 %75, ptr %76, align 1
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
   %77 = load i32, ptr %23, align 8
@@ -176,25 +176,25 @@ thread-pre-split:                                 ; preds = %.lr.ph70, %.prehead
   br i1 %82, label %.lr.ph72.preheader, label %.loopexit64
 
 .lr.ph72.preheader:                               ; preds = %80
-  %83 = getelementptr inbounds i8, ptr %.pre91, i64 186
+  %83 = getelementptr inbounds nuw i8, ptr %.pre91, i64 186
   %84 = load i16, ptr %83, align 2
   %.not.i.i.i.i = icmp eq i16 %84, -9999
   %85 = select i1 %.not.i.i.i.i, i64 24, i64 16
-  %86 = getelementptr inbounds i8, ptr %.pre91, i64 164
+  %86 = getelementptr inbounds nuw i8, ptr %.pre91, i64 164
   %.sroa.0.0.copyload.i.i.i.i.i = load i32, ptr %86, align 4
   %87 = lshr i32 %.sroa.0.0.copyload.i.i.i.i.i, 23
   %88 = and i32 %87, 8
   %..i.i.i = zext nneg i32 %88 to i64
-  %89 = getelementptr inbounds i8, ptr %0, i64 %85
-  %90 = getelementptr inbounds i8, ptr %89, i64 %..i.i.i
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 %85
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 %..i.i.i
   br label %.lr.ph72
 
 .lr.ph72:                                         ; preds = %.lr.ph72.preheader, %_ZNK14ArchiveBuilder16any_to_offset_u4IP6SymbolEEjT_.exit55
   %indvars.iv85 = phi i64 [ 0, %.lr.ph72.preheader ], [ %indvars.iv.next86, %_ZNK14ArchiveBuilder16any_to_offset_u4IP6SymbolEEjT_.exit55 ]
   %91 = load ptr, ptr %24, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds %"class.DumpTimeClassInfo::DTLoaderConstraint", ptr %93, i64 %indvars.iv85
+  %94 = getelementptr inbounds nuw %"class.DumpTimeClassInfo::DTLoaderConstraint", ptr %93, i64 %indvars.iv85
   %95 = load ptr, ptr %94, align 8
   %96 = tail call noundef i64 @_ZNK14ArchiveBuilder13any_to_offsetEPh(ptr noundef nonnull align 8 dereferenceable(1080) %3, ptr noundef %95) #5
   %97 = icmp ult i64 %96, 2147483648
@@ -208,21 +208,21 @@ thread-pre-split:                                 ; preds = %.lr.ph70, %.prehead
 
 _ZNK14ArchiveBuilder16any_to_offset_u4IP6SymbolEEjT_.exit55: ; preds = %.lr.ph72
   %100 = trunc nuw nsw i64 %96 to i32
-  %101 = getelementptr inbounds %"struct.RunTimeClassInfo::RTLoaderConstraint", ptr %90, i64 %indvars.iv85
+  %101 = getelementptr inbounds nuw %"struct.RunTimeClassInfo::RTLoaderConstraint", ptr %90, i64 %indvars.iv85
   store i32 %100, ptr %101, align 8
   %102 = load ptr, ptr %24, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
   %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds %"class.DumpTimeClassInfo::DTLoaderConstraint", ptr %104, i64 %indvars.iv85, i32 1
+  %105 = getelementptr inbounds nuw %"class.DumpTimeClassInfo::DTLoaderConstraint", ptr %104, i64 %indvars.iv85, i32 1
   %106 = load i8, ptr %105, align 8
-  %107 = getelementptr inbounds i8, ptr %101, i64 4
+  %107 = getelementptr inbounds nuw i8, ptr %101, i64 4
   store i8 %106, ptr %107, align 4
   %108 = load ptr, ptr %24, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 8
   %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds %"class.DumpTimeClassInfo::DTLoaderConstraint", ptr %110, i64 %indvars.iv85, i32 2
+  %111 = getelementptr inbounds nuw %"class.DumpTimeClassInfo::DTLoaderConstraint", ptr %110, i64 %indvars.iv85, i32 2
   %112 = load i8, ptr %111, align 1
-  %113 = getelementptr inbounds i8, ptr %101, i64 5
+  %113 = getelementptr inbounds nuw i8, ptr %101, i64 5
   store i8 %112, ptr %113, align 1
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %114 = load i32, ptr %29, align 4
@@ -236,19 +236,19 @@ _ZNK14ArchiveBuilder16any_to_offset_u4IP6SymbolEEjT_.exit55: ; preds = %.lr.ph72
 
 .loopexit64:                                      ; preds = %.loopexit64.loopexit, %80
   %117 = phi ptr [ %.pre, %.loopexit64.loopexit ], [ %.pre91, %80 ]
-  %118 = getelementptr inbounds i8, ptr %117, i64 164
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 164
   %.sroa.0.0.copyload.i.i = load i32, ptr %118, align 4
   %119 = and i32 %.sroa.0.0.copyload.i.i, 67108864
   %.not62 = icmp eq i32 %119, 0
   br i1 %.not62, label %127, label %120
 
 120:                                              ; preds = %.loopexit64
-  %121 = getelementptr inbounds i8, ptr %117, i64 186
+  %121 = getelementptr inbounds nuw i8, ptr %117, i64 186
   %122 = load i16, ptr %121, align 2
   %.not.i.i.i = icmp eq i16 %122, -9999
   %123 = select i1 %.not.i.i.i, i64 24, i64 16
-  %124 = getelementptr inbounds i8, ptr %0, i64 %123
-  %125 = getelementptr inbounds i8, ptr %1, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 %123
+  %125 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %126 = load ptr, ptr %125, align 8
   tail call void @_ZN14ArchiveBuilder23write_pointer_in_bufferEPPhS0_(ptr noundef nonnull align 8 dereferenceable(1080) %3, ptr noundef nonnull %124, ptr noundef %126) #5
   %.pre92 = load ptr, ptr %0, align 8
@@ -256,14 +256,14 @@ _ZNK14ArchiveBuilder16any_to_offset_u4IP6SymbolEEjT_.exit55: ; preds = %.lr.ph72
 
 127:                                              ; preds = %120, %.loopexit64
   %128 = phi ptr [ %.pre92, %120 ], [ %117, %.loopexit64 ]
-  %129 = getelementptr inbounds i8, ptr %128, i64 188
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 188
   %130 = load i16, ptr %129, align 4
   %131 = and i16 %130, 16
   %.not63 = icmp eq i16 %131, 0
   br i1 %.not63, label %.loopexit, label %132
 
 132:                                              ; preds = %127
-  %133 = getelementptr inbounds i8, ptr %1, i64 64
+  %133 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %134 = load ptr, ptr %133, align 8
   %135 = icmp eq ptr %134, null
   br i1 %135, label %_ZNK17DumpTimeClassInfo28num_enum_klass_static_fieldsEv.exit, label %136
@@ -274,11 +274,11 @@ _ZNK14ArchiveBuilder16any_to_offset_u4IP6SymbolEEjT_.exit55: ; preds = %.lr.ph72
 
 _ZNK17DumpTimeClassInfo28num_enum_klass_static_fieldsEv.exit: ; preds = %132, %136
   %.0.i.i56 = phi i32 [ %137, %136 ], [ 0, %132 ]
-  %138 = getelementptr inbounds i8, ptr %128, i64 186
+  %138 = getelementptr inbounds nuw i8, ptr %128, i64 186
   %139 = load i16, ptr %138, align 2
   %.not.i.i.i.i.i.i.i.i = icmp eq i16 %139, -9999
   %140 = select i1 %.not.i.i.i.i.i.i.i.i, i64 24, i64 16
-  %141 = getelementptr inbounds i8, ptr %128, i64 164
+  %141 = getelementptr inbounds nuw i8, ptr %128, i64 164
   %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i = load i32, ptr %141, align 4
   %142 = lshr i32 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, 23
   %143 = and i32 %142, 8
@@ -308,11 +308,11 @@ _ZNK17DumpTimeClassInfo28num_enum_klass_static_fieldsEv.exit: ; preds = %132, %1
   %155 = trunc nuw nsw i64 %indvars.iv88 to i32
   %156 = tail call noundef i32 @_ZN17DumpTimeClassInfo23enum_klass_static_fieldEi(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef %155) #5
   %157 = load ptr, ptr %0, align 8
-  %158 = getelementptr inbounds i8, ptr %157, i64 186
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 186
   %159 = load i16, ptr %158, align 2
   %.not.i.i.i.i.i.i.i.i57 = icmp eq i16 %159, -9999
   %160 = select i1 %.not.i.i.i.i.i.i.i.i57, i64 24, i64 16
-  %161 = getelementptr inbounds i8, ptr %157, i64 164
+  %161 = getelementptr inbounds nuw i8, ptr %157, i64 164
   %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i58 = load i32, ptr %161, align 4
   %162 = lshr i32 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i58, 23
   %163 = and i32 %162, 8
@@ -329,8 +329,8 @@ _ZNK17DumpTimeClassInfo28num_enum_klass_static_fieldsEv.exit: ; preds = %132, %1
   %171 = getelementptr i8, ptr %170, i64 %..i.i.i.i.i.i.i59
   %172 = getelementptr i8, ptr %171, i64 %reass.mul.i.i.i.i61
   %173 = getelementptr i8, ptr %172, i64 %169
-  %174 = getelementptr inbounds i8, ptr %173, i64 4
-  %175 = getelementptr inbounds [1 x i32], ptr %174, i64 0, i64 %indvars.iv88
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 4
+  %175 = getelementptr inbounds nuw [1 x i32], ptr %174, i64 0, i64 %indvars.iv88
   store i32 %156, ptr %175, align 4
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next89, %wide.trip.count
@@ -344,7 +344,7 @@ declare noundef i32 @_ZN17DumpTimeClassInfo23enum_klass_static_fieldEi(ptr nound
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef range(i64 0, 9) i64 @_ZN16RunTimeClassInfo8crc_sizeEP13InstanceKlass(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 186
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 186
   %3 = load i16, ptr %2, align 2
   %.not = icmp eq i16 %3, -9999
   %. = select i1 %.not, i64 8, i64 0

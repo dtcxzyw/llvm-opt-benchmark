@@ -15,13 +15,13 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @identify_opfamily_groups(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 61
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 61
   %4 = load i8, ptr %3, align 1
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 61
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 61
   %8 = load i8, ptr %7, align 1
   %9 = trunc i8 %8 to i1
   br i1 %9, label %13, label %10
@@ -34,17 +34,17 @@ define dso_local ptr @identify_opfamily_groups(ptr nocapture noundef readonly %0
   unreachable
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %0, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %15 = load i32, ptr %14, align 8
   %16 = icmp sgt i32 %15, 0
   br i1 %16, label %17, label %26
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %0, i64 80
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 80
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 80
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 22
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 22
   %23 = load i8, ptr %22, align 2
   %24 = zext i8 %23 to i64
   %25 = getelementptr i8, ptr %21, i64 %24
@@ -53,17 +53,17 @@ define dso_local ptr @identify_opfamily_groups(ptr nocapture noundef readonly %0
 26:                                               ; preds = %13, %17
   %.081 = phi ptr [ %25, %17 ], [ null, %13 ]
   %.075 = phi i32 [ 1, %17 ], [ 0, %13 ]
-  %27 = getelementptr inbounds i8, ptr %1, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %28 = load i32, ptr %27, align 8
   %29 = icmp sgt i32 %28, 0
   br i1 %29, label %30, label %39
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %1, i64 80
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 80
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 80
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 22
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 22
   %36 = load i8, ptr %35, align 2
   %37 = zext i8 %36 to i64
   %38 = getelementptr i8, ptr %34, i64 %37
@@ -78,8 +78,8 @@ define dso_local ptr @identify_opfamily_groups(ptr nocapture noundef readonly %0
   br i1 %42, label %.lr.ph.lr.ph.lr.ph, label %.outer92._crit_edge
 
 .lr.ph.lr.ph.lr.ph:                               ; preds = %39
-  %43 = getelementptr inbounds i8, ptr %1, i64 80
-  %44 = getelementptr inbounds i8, ptr %0, i64 80
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %.outer, %.lr.ph.lr.ph.lr.ph
@@ -92,9 +92,9 @@ define dso_local ptr @identify_opfamily_groups(ptr nocapture noundef readonly %0
   %.084.ph253 = phi ptr [ null, %.lr.ph.lr.ph.lr.ph ], [ %.sink419, %.outer ]
   %.085.ph248 = phi ptr [ null, %.lr.ph.lr.ph.lr.ph ], [ %181, %.outer ]
   %.not420 = icmp eq ptr %.084.ph253, null
-  %47 = getelementptr inbounds i8, ptr %.084.ph253, i64 4
-  %48 = getelementptr inbounds i8, ptr %.084.ph253, i64 16
-  %49 = getelementptr inbounds i8, ptr %.084.ph253, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %.084.ph253, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %.084.ph253, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %.084.ph253, i64 8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer92
@@ -105,8 +105,8 @@ define dso_local ptr @identify_opfamily_groups(ptr nocapture noundef readonly %0
   %.179.ph94242 = phi ptr [ %.179.ph255, %.lr.ph.lr.ph ], [ %.179109.us134.us, %.outer92 ]
   %.182.ph93240 = phi ptr [ %.182.ph254, %.lr.ph.lr.ph ], [ %.283, %.outer92 ]
   %.lcssa157.fr = freeze i1 %51
-  %52 = getelementptr inbounds i8, ptr %.182.ph93240, i64 8
-  %53 = getelementptr inbounds i8, ptr %.182.ph93240, i64 12
+  %52 = getelementptr inbounds nuw i8, ptr %.182.ph93240, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %.182.ph93240, i64 12
   br i1 %.not420, label %.split114.us, label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph
@@ -134,20 +134,20 @@ define dso_local ptr @identify_opfamily_groups(ptr nocapture noundef readonly %0
   br i1 %54, label %62, label %.split114.us.thread
 
 62:                                               ; preds = %61
-  %63 = getelementptr inbounds i8, ptr %.179109.us134.us, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %.179109.us134.us, i64 8
   %64 = load i32, ptr %63, align 4
   %65 = icmp eq i32 %64, %.pre317
   br i1 %65, label %66, label %.split114.us.thread.thread
 
 66:                                               ; preds = %62
-  %67 = getelementptr inbounds i8, ptr %.179109.us134.us, i64 12
+  %67 = getelementptr inbounds nuw i8, ptr %.179109.us134.us, i64 12
   %68 = load i32, ptr %67, align 4
   %69 = load i32, ptr %47, align 4
   %70 = icmp eq i32 %68, %69
   br i1 %70, label %71, label %.split114.us.thread.thread
 
 71:                                               ; preds = %66
-  %72 = getelementptr inbounds i8, ptr %.179109.us134.us, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %.179109.us134.us, i64 16
   %73 = load i16, ptr %72, align 4
   %74 = add i16 %73, -1
   %or.cond91.us.us = icmp ult i16 %74, 63
@@ -170,9 +170,9 @@ define dso_local ptr @identify_opfamily_groups(ptr nocapture noundef readonly %0
   %84 = sext i32 %.1110.us133.us to i64
   %85 = getelementptr [0 x ptr], ptr %43, i64 0, i64 %84
   %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 80
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 80
   %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 22
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 22
   %90 = load i8, ptr %89, align 2
   %91 = zext i8 %90 to i64
   %92 = getelementptr i8, ptr %88, i64 %91
@@ -192,7 +192,7 @@ define dso_local ptr @identify_opfamily_groups(ptr nocapture noundef readonly %0
   br i1 %96, label %122, label %.split114.us.thread339
 
 .split.us:                                        ; preds = %57
-  %97 = getelementptr inbounds i8, ptr %.182.ph93240, i64 16
+  %97 = getelementptr inbounds nuw i8, ptr %.182.ph93240, i64 16
   %98 = load i16, ptr %97, align 4
   %99 = add i16 %98, -1
   %or.cond90 = icmp ult i16 %99, 63
@@ -215,9 +215,9 @@ define dso_local ptr @identify_opfamily_groups(ptr nocapture noundef readonly %0
   %109 = sext i32 %.176.ph95243 to i64
   %110 = getelementptr [0 x ptr], ptr %44, i64 0, i64 %109
   %111 = load ptr, ptr %110, align 8
-  %112 = getelementptr inbounds i8, ptr %111, i64 80
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 80
   %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 22
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 22
   %115 = load i8, ptr %114, align 2
   %116 = zext i8 %115 to i64
   %117 = getelementptr i8, ptr %113, i64 %116
@@ -233,21 +233,21 @@ define dso_local ptr @identify_opfamily_groups(ptr nocapture noundef readonly %0
   br i1 %121, label %.lr.ph, label %.outer92._crit_edge, !llvm.loop !5
 
 122:                                              ; preds = %.lr.ph.split.split.split
-  %123 = getelementptr inbounds i8, ptr %.179109, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %.179109, i64 8
   %124 = load i32, ptr %123, align 4
   %125 = load i32, ptr %.084.ph253, align 8
   %126 = icmp eq i32 %124, %125
   br i1 %126, label %127, label %.split114.us.thread339
 
 127:                                              ; preds = %122
-  %128 = getelementptr inbounds i8, ptr %.179109, i64 12
+  %128 = getelementptr inbounds nuw i8, ptr %.179109, i64 12
   %129 = load i32, ptr %128, align 4
   %130 = load i32, ptr %47, align 4
   %131 = icmp eq i32 %129, %130
   br i1 %131, label %132, label %.split114.us.thread339
 
 132:                                              ; preds = %127
-  %133 = getelementptr inbounds i8, ptr %.179109, i64 16
+  %133 = getelementptr inbounds nuw i8, ptr %.179109, i64 16
   %134 = load i16, ptr %133, align 4
   %135 = add i16 %134, -1
   %or.cond91 = icmp ult i16 %135, 63
@@ -270,9 +270,9 @@ define dso_local ptr @identify_opfamily_groups(ptr nocapture noundef readonly %0
   %145 = sext i32 %.1110 to i64
   %146 = getelementptr [0 x ptr], ptr %43, i64 0, i64 %145
   %147 = load ptr, ptr %146, align 8
-  %148 = getelementptr inbounds i8, ptr %147, i64 80
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 80
   %149 = load ptr, ptr %148, align 8
-  %150 = getelementptr inbounds i8, ptr %149, i64 22
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 22
   %151 = load i8, ptr %150, align 2
   %152 = zext i8 %151 to i64
   %153 = getelementptr i8, ptr %149, i64 %152
@@ -302,7 +302,7 @@ define dso_local ptr @identify_opfamily_groups(ptr nocapture noundef readonly %0
   %159 = phi ptr [ %157, %.split114.us.thread339 ], [ %158, %.split114.us ]
   %.us-phi118345 = phi i32 [ %.1110, %.split114.us.thread339 ], [ %.1.ph96245, %.split114.us ]
   %.us-phi117344 = phi ptr [ %.179109, %.split114.us.thread339 ], [ %.179.ph94242, %.split114.us ]
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.us-phi117344, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.us-phi117344, i64 8
   %.pre318 = load i32, ptr %.phi.trans.insert, align 4
   br label %175
 
@@ -315,7 +315,7 @@ define dso_local ptr @identify_opfamily_groups(ptr nocapture noundef readonly %0
   %.us-phi117331349 = phi ptr [ %.179.ph94242, %160 ], [ %.179109.us134.us, %.split114.us.thread.thread ]
   %.us-phi118336347 = phi i32 [ %.1.ph96245, %160 ], [ %.1110.us133.us, %.split114.us.thread.thread ]
   %162 = phi ptr [ %158, %160 ], [ %155, %.split114.us.thread.thread ]
-  %163 = getelementptr inbounds i8, ptr %.us-phi117331349, i64 8
+  %163 = getelementptr inbounds nuw i8, ptr %.us-phi117331349, i64 8
   %164 = load i32, ptr %163, align 4
   %165 = icmp ult i32 %.pre319351, %164
   br i1 %165, label %173, label %166
@@ -326,7 +326,7 @@ define dso_local ptr @identify_opfamily_groups(ptr nocapture noundef readonly %0
 
 168:                                              ; preds = %166
   %169 = load i32, ptr %53, align 4
-  %170 = getelementptr inbounds i8, ptr %.us-phi117331349, i64 12
+  %170 = getelementptr inbounds nuw i8, ptr %.us-phi117331349, i64 12
   %171 = load i32, ptr %170, align 4
   %172 = icmp ult i32 %169, %171
   br i1 %172, label %173, label %175
@@ -345,7 +345,7 @@ define dso_local ptr @identify_opfamily_groups(ptr nocapture noundef readonly %0
   %.us-phi117332 = phi ptr [ %.us-phi117344, %.split114.us._crit_edge ], [ %.us-phi117331349, %168 ], [ %.us-phi117331349, %166 ]
   %177 = phi i32 [ %.pre318, %.split114.us._crit_edge ], [ %.pre319351, %168 ], [ %164, %166 ]
   store i32 %177, ptr %176, align 8
-  %178 = getelementptr inbounds i8, ptr %.us-phi117332, i64 12
+  %178 = getelementptr inbounds nuw i8, ptr %.us-phi117332, i64 12
   br label %.outer
 
 .outer:                                           ; preds = %175, %173
@@ -354,9 +354,9 @@ define dso_local ptr @identify_opfamily_groups(ptr nocapture noundef readonly %0
   %.us-phi118334 = phi i32 [ %.us-phi118335, %175 ], [ %.us-phi118336348, %173 ]
   %.us-phi117333 = phi ptr [ %.us-phi117332, %175 ], [ %.us-phi117331350, %173 ]
   %.sink = load i32, ptr %.sink.in, align 4
-  %179 = getelementptr inbounds i8, ptr %.sink419, i64 4
+  %179 = getelementptr inbounds nuw i8, ptr %.sink419, i64 4
   store i32 %.sink, ptr %179, align 4
-  %180 = getelementptr inbounds i8, ptr %.sink419, i64 8
+  %180 = getelementptr inbounds nuw i8, ptr %.sink419, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %180, i8 0, i64 16, i1 false)
   %181 = tail call ptr @lappend(ptr noundef %.085.ph248, ptr noundef nonnull %.sink419) #7
   %182 = icmp ne ptr %.182.ph93240, null
@@ -395,25 +395,25 @@ define dso_local zeroext i1 @check_amproc_signature(i32 noundef %0, i32 noundef 
   unreachable
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %8, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 22
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 22
   %16 = load i8, ptr %15, align 2
   %17 = zext i8 %16 to i64
   %18 = getelementptr i8, ptr %14, i64 %17
-  %19 = getelementptr inbounds i8, ptr %18, i64 108
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 108
   %20 = load i32, ptr %19, align 4
   %.not29 = icmp eq i32 %20, %1
   br i1 %.not29, label %21, label %31
 
 21:                                               ; preds = %12
-  %22 = getelementptr inbounds i8, ptr %18, i64 100
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 100
   %23 = load i8, ptr %22, align 4
   %24 = trunc i8 %23 to i1
   br i1 %24, label %31, label %25
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %18, i64 104
+  %26 = getelementptr inbounds nuw i8, ptr %18, i64 104
   %27 = load i16, ptr %26, align 4
   %28 = sext i16 %27 to i32
   %29 = icmp sgt i32 %3, %28
@@ -431,10 +431,10 @@ define dso_local zeroext i1 @check_amproc_signature(i32 noundef %0, i32 noundef 
   br i1 %33, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %6, i64 8
-  %35 = getelementptr inbounds i8, ptr %6, i64 16
-  %36 = getelementptr inbounds i8, ptr %18, i64 104
-  %37 = getelementptr inbounds i8, ptr %18, i64 136
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %18, i64 104
+  %37 = getelementptr inbounds nuw i8, ptr %18, i64 136
   br i1 %2, label %.lr.ph.split.us, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
@@ -595,31 +595,31 @@ define dso_local noundef zeroext i1 @check_amop_signature(i32 noundef %0, i32 no
   unreachable
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 22
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 22
   %14 = load i8, ptr %13, align 2
   %15 = zext i8 %14 to i64
   %16 = getelementptr i8, ptr %12, i64 %15
-  %17 = getelementptr inbounds i8, ptr %16, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 88
   %18 = load i32, ptr %17, align 4
   %.not14 = icmp eq i32 %18, %1
   br i1 %.not14, label %19, label %28
 
 19:                                               ; preds = %10
-  %20 = getelementptr inbounds i8, ptr %16, i64 76
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 76
   %21 = load i8, ptr %20, align 4
   %.not15 = icmp eq i8 %21, 98
   br i1 %.not15, label %22, label %28
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %16, i64 80
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 80
   %24 = load i32, ptr %23, align 4
   %.not16 = icmp eq i32 %24, %2
   br i1 %.not16, label %25, label %28
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %16, i64 84
+  %26 = getelementptr inbounds nuw i8, ptr %16, i64 84
   %27 = load i32, ptr %26, align 4
   %.not17 = icmp eq i32 %27, %3
   br i1 %.not17, label %29, label %28
@@ -637,13 +637,13 @@ define dso_local noundef zeroext i1 @check_amop_signature(i32 noundef %0, i32 no
 define dso_local i32 @opclass_for_family_datatype(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = zext i32 %0 to i64
   %5 = tail call ptr @SearchSysCacheList(i32 noundef 13, i32 noundef 1, i64 noundef %4, i64 noundef 0, i64 noundef 0) #7
-  %6 = getelementptr inbounds i8, ptr %5, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %7 = load i32, ptr %6, align 8
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %5, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %wide.trip.count = zext nneg i32 %7 to i64
   br label %10
 
@@ -651,19 +651,19 @@ define dso_local i32 @opclass_for_family_datatype(i32 noundef %0, i32 noundef %1
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
   %11 = getelementptr [0 x ptr], ptr %9, i64 0, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 80
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 22
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 22
   %16 = load i8, ptr %15, align 2
   %17 = zext i8 %16 to i64
   %18 = getelementptr i8, ptr %14, i64 %17
-  %19 = getelementptr inbounds i8, ptr %18, i64 80
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 80
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %20, %1
   br i1 %21, label %22, label %28
 
 22:                                               ; preds = %10
-  %23 = getelementptr inbounds i8, ptr %18, i64 84
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 84
   %24 = load i32, ptr %23, align 4
   %25 = icmp eq i32 %24, %2
   br i1 %25, label %26, label %28
@@ -690,13 +690,13 @@ declare void @ReleaseCatCacheList(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @opfamily_can_sort_type(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @SearchSysCacheList(i32 noundef 13, i32 noundef 1, i64 noundef 403, i64 noundef 0, i64 noundef 0) #7
-  %4 = getelementptr inbounds i8, ptr %3, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph.i, label %opclass_for_family_datatype.exit
 
 .lr.ph.i:                                         ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %3, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %wide.trip.count.i = zext nneg i32 %5 to i64
   br label %8
 
@@ -704,19 +704,19 @@ define dso_local zeroext i1 @opfamily_can_sort_type(i32 noundef %0, i32 noundef 
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %27 ]
   %9 = getelementptr [0 x ptr], ptr %7, i64 0, i64 %indvars.iv.i
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 22
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 22
   %14 = load i8, ptr %13, align 2
   %15 = zext i8 %14 to i64
   %16 = getelementptr i8, ptr %12, i64 %15
-  %17 = getelementptr inbounds i8, ptr %16, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 80
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, %0
   br i1 %19, label %20, label %27
 
 20:                                               ; preds = %8
-  %21 = getelementptr inbounds i8, ptr %16, i64 84
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 84
   %22 = load i32, ptr %21, align 4
   %23 = icmp eq i32 %22, %1
   br i1 %23, label %24, label %27

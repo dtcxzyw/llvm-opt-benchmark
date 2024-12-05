@@ -47,9 +47,9 @@ define void @ompi_intercomm_create_from_groups_f(ptr nocapture noundef readonly 
 22:                                               ; preds = %10
   %23 = getelementptr i8, ptr %14, i64 72
   %.val = load ptr, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %.val, i64 248
+  %24 = getelementptr inbounds nuw i8, ptr %.val, i64 248
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %.val, i64 256
+  %26 = getelementptr inbounds nuw i8, ptr %.val, i64 256
   %27 = load i32, ptr %26, align 8
   %28 = icmp sgt i32 %21, -1
   br i1 %28, label %ompi_errcode_get_mpi_code.exit, label %.preheader.i
@@ -88,7 +88,7 @@ define void @ompi_intercomm_create_from_groups_f(ptr nocapture noundef readonly 
 41:                                               ; preds = %39, %.lr.ph.i
   %42 = phi i8 [ %35, %.lr.ph.i ], [ %.pre.i.i, %39 ]
   %43 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 112), align 8
-  %44 = getelementptr inbounds ptr, ptr %43, i64 %indvars.iv.i
+  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv.i
   %45 = load ptr, ptr %44, align 8
   %46 = trunc i8 %42 to i1
   br i1 %46, label %47, label %opal_pointer_array_get_item.exit.i
@@ -100,13 +100,13 @@ define void @ompi_intercomm_create_from_groups_f(ptr nocapture noundef readonly 
 
 opal_pointer_array_get_item.exit.i:               ; preds = %47, %41
   %49 = phi i8 [ %42, %41 ], [ %.pre.i, %47 ]
-  %50 = getelementptr inbounds i8, ptr %45, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %51 = load i32, ptr %50, align 8
   %52 = icmp eq i32 %51, %21
   br i1 %52, label %53, label %31
 
 53:                                               ; preds = %opal_pointer_array_get_item.exit.i
-  %54 = getelementptr inbounds i8, ptr %45, i64 20
+  %54 = getelementptr inbounds nuw i8, ptr %45, i64 20
   %55 = load i32, ptr %54, align 4
   br label %ompi_errcode_get_mpi_code.exit
 

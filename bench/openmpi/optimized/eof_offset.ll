@@ -13,25 +13,25 @@ define void @ADIOI_Get_eof_offset(ptr noundef %0, ptr nocapture noundef writeonl
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = tail call ptr @ADIOI_Malloc_fn(i64 noundef 56, i32 noundef 23, ptr noundef nonnull @.str) #2
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %12 = load ptr, ptr %11, align 8
   call void %12(ptr noundef %0, i32 noundef 200, ptr noundef %8, ptr noundef nonnull %4) #2
-  %13 = getelementptr inbounds i8, ptr %8, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %14 = load i64, ptr %13, align 8
   call void @ADIOI_Free_fn(ptr noundef %8, i32 noundef 26, ptr noundef nonnull @.str) #2
-  %15 = getelementptr inbounds i8, ptr %0, i64 120
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %16 = load ptr, ptr %15, align 8
   call void @ADIOI_Datatype_iscontig(ptr noundef %16, ptr noundef nonnull %5) #2
-  %17 = getelementptr inbounds i8, ptr %0, i64 128
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %18 = load i64, ptr %17, align 8
   %19 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %24, label %20
 
 20:                                               ; preds = %2
-  %21 = getelementptr inbounds i8, ptr %0, i64 104
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %22 = load i64, ptr %21, align 8
   %23 = sub nsw i64 %14, %22
   br label %55
@@ -43,17 +43,17 @@ define void @ADIOI_Get_eof_offset(ptr noundef %0, ptr nocapture noundef writeonl
   %28 = call i32 @PMPI_Type_size_x(ptr noundef %27, ptr noundef nonnull %3) #2
   %29 = load ptr, ptr %15, align 8
   %30 = call i32 @PMPI_Type_get_extent(ptr noundef %29, ptr noundef nonnull %6, ptr noundef nonnull %7) #2
-  %31 = getelementptr inbounds i8, ptr %0, i64 104
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %32 = load i64, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %26, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %34 = load i64, ptr %33, align 8
   %35 = icmp sgt i64 %34, 0
   %36 = load i64, ptr %7, align 8
   br i1 %35, label %.split.us, label %.loopexit
 
 .split.us:                                        ; preds = %24
-  %37 = getelementptr inbounds i8, ptr %26, i64 24
-  %38 = getelementptr inbounds i8, ptr %26, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %26, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %39 = load ptr, ptr %38, align 8
   %40 = load ptr, ptr %37, align 8
   br label %.lr.ph.us
@@ -76,10 +76,10 @@ define void @ADIOI_Get_eof_offset(ptr noundef %0, ptr nocapture noundef writeonl
 44:                                               ; preds = %.lr.ph.us, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %43 ]
   %.169.us = phi i64 [ 0, %.lr.ph.us ], [ %47, %43 ]
-  %45 = getelementptr inbounds i64, ptr %39, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw i64, ptr %39, i64 %indvars.iv
   %46 = load i64, ptr %45, align 8
   %47 = add nsw i64 %46, %.169.us
-  %48 = getelementptr inbounds i64, ptr %40, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw i64, ptr %40, i64 %indvars.iv
   %49 = load i64, ptr %48, align 8
   %.reass.us = add i64 %49, %invariant.op.us
   %50 = add nsw i64 %.reass.us, %46

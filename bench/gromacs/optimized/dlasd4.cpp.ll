@@ -68,7 +68,7 @@ define void @dlasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 
 .lr.ph1523:                                       ; preds = %.lr.ph1523.preheader, %.lr.ph1523
   %indvars.iv1686 = phi i64 [ 1, %.lr.ph1523.preheader ], [ %indvars.iv.next1687, %.lr.ph1523 ]
-  %48 = getelementptr inbounds double, ptr %20, i64 %indvars.iv1686
+  %48 = getelementptr inbounds nuw double, ptr %20, i64 %indvars.iv1686
   %49 = load double, ptr %48, align 8
   %50 = load i32, ptr %0, align 4
   %51 = sext i32 %50 to i64
@@ -76,7 +76,7 @@ define void @dlasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %53 = load double, ptr %52, align 8
   %54 = fadd double %49, %53
   %55 = fadd double %45, %54
-  %56 = getelementptr inbounds double, ptr %17, i64 %indvars.iv1686
+  %56 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv1686
   store double %55, ptr %56, align 8
   %57 = load double, ptr %48, align 8
   %58 = load i32, ptr %0, align 4
@@ -85,7 +85,7 @@ define void @dlasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %61 = load double, ptr %60, align 8
   %62 = fsub double %57, %61
   %63 = fsub double %62, %45
-  %64 = getelementptr inbounds double, ptr %18, i64 %indvars.iv1686
+  %64 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv1686
   store double %63, ptr %64, align 8
   %indvars.iv.next1687 = add nuw nsw i64 %indvars.iv1686, 1
   %exitcond1690.not = icmp eq i64 %indvars.iv.next1687, %wide.trip.count1689
@@ -104,12 +104,12 @@ define void @dlasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 .lr.ph1529:                                       ; preds = %.lr.ph1529.preheader, %.lr.ph1529
   %indvars.iv1691 = phi i64 [ 1, %.lr.ph1529.preheader ], [ %indvars.iv.next1692, %.lr.ph1529 ]
   %.012811527 = phi double [ 0.000000e+00, %.lr.ph1529.preheader ], [ %75, %.lr.ph1529 ]
-  %66 = getelementptr inbounds double, ptr %19, i64 %indvars.iv1691
+  %66 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv1691
   %67 = load double, ptr %66, align 8
   %68 = fmul double %67, %67
-  %69 = getelementptr inbounds double, ptr %18, i64 %indvars.iv1691
+  %69 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv1691
   %70 = load double, ptr %69, align 8
-  %71 = getelementptr inbounds double, ptr %17, i64 %indvars.iv1691
+  %71 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv1691
   %72 = load double, ptr %71, align 8
   %73 = fmul double %70, %72
   %74 = fdiv double %68, %73
@@ -283,7 +283,7 @@ define void @dlasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 
 .lr.ph1535:                                       ; preds = %.lr.ph1535.preheader, %.lr.ph1535
   %indvars.iv1696 = phi i64 [ 1, %.lr.ph1535.preheader ], [ %indvars.iv.next1697, %.lr.ph1535 ]
-  %204 = getelementptr inbounds double, ptr %20, i64 %indvars.iv1696
+  %204 = getelementptr inbounds nuw double, ptr %20, i64 %indvars.iv1696
   %205 = load double, ptr %204, align 8
   %206 = load i32, ptr %1, align 4
   %207 = sext i32 %206 to i64
@@ -291,7 +291,7 @@ define void @dlasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %209 = load double, ptr %208, align 8
   %210 = fsub double %205, %209
   %211 = fsub double %210, %196
-  %212 = getelementptr inbounds double, ptr %18, i64 %indvars.iv1696
+  %212 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv1696
   store double %211, ptr %212, align 8
   %213 = load double, ptr %204, align 8
   %214 = load i32, ptr %1, align 4
@@ -300,7 +300,7 @@ define void @dlasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %217 = load double, ptr %216, align 8
   %218 = fadd double %213, %217
   %219 = fadd double %196, %218
-  %220 = getelementptr inbounds double, ptr %17, i64 %indvars.iv1696
+  %220 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv1696
   store double %219, ptr %220, align 8
   %indvars.iv.next1697 = add nuw nsw i64 %indvars.iv1696, 1
   %exitcond1700.not = icmp eq i64 %indvars.iv.next1697, %wide.trip.count1699
@@ -311,11 +311,11 @@ define void @dlasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %.01540 = phi double [ 0.000000e+00, %.lr.ph1541.preheader ], [ %231, %.lr.ph1541 ]
   %.012641539 = phi double [ 0.000000e+00, %.lr.ph1541.preheader ], [ %230, %.lr.ph1541 ]
   %.112821538 = phi double [ 0.000000e+00, %.lr.ph1541.preheader ], [ %229, %.lr.ph1541 ]
-  %221 = getelementptr inbounds double, ptr %19, i64 %indvars.iv1701
+  %221 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv1701
   %222 = load double, ptr %221, align 8
-  %223 = getelementptr inbounds double, ptr %18, i64 %indvars.iv1701
+  %223 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv1701
   %224 = load double, ptr %223, align 8
-  %225 = getelementptr inbounds double, ptr %17, i64 %indvars.iv1701
+  %225 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv1701
   %226 = load double, ptr %225, align 8
   %227 = fmul double %224, %226
   %228 = fdiv double %222, %227
@@ -447,11 +447,11 @@ define void @dlasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 
 .lr.ph1549:                                       ; preds = %.lr.ph1549.preheader, %.lr.ph1549
   %indvars.iv1706 = phi i64 [ 1, %.lr.ph1549.preheader ], [ %indvars.iv.next1707, %.lr.ph1549 ]
-  %325 = getelementptr inbounds double, ptr %18, i64 %indvars.iv1706
+  %325 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv1706
   %326 = load double, ptr %325, align 8
   %327 = fsub double %326, %322
   store double %327, ptr %325, align 8
-  %328 = getelementptr inbounds double, ptr %17, i64 %indvars.iv1706
+  %328 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv1706
   %329 = load double, ptr %328, align 8
   %330 = fadd double %322, %329
   store double %330, ptr %328, align 8
@@ -474,11 +474,11 @@ define void @dlasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %.11555 = phi double [ 0.000000e+00, %.lr.ph1557.preheader ], [ %343, %.lr.ph1557 ]
   %.112651554 = phi double [ 0.000000e+00, %.lr.ph1557.preheader ], [ %342, %.lr.ph1557 ]
   %.212831553 = phi double [ 0.000000e+00, %.lr.ph1557.preheader ], [ %341, %.lr.ph1557 ]
-  %333 = getelementptr inbounds double, ptr %19, i64 %indvars.iv1711
+  %333 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv1711
   %334 = load double, ptr %333, align 8
-  %335 = getelementptr inbounds double, ptr %17, i64 %indvars.iv1711
+  %335 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv1711
   %336 = load double, ptr %335, align 8
-  %337 = getelementptr inbounds double, ptr %18, i64 %indvars.iv1711
+  %337 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv1711
   %338 = load double, ptr %337, align 8
   %339 = fmul double %336, %338
   %340 = fdiv double %334, %339
@@ -609,11 +609,11 @@ define void @dlasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 
 .lr.ph1565:                                       ; preds = %.lr.ph1565.preheader, %.lr.ph1565
   %indvars.iv1716 = phi i64 [ 1, %.lr.ph1565.preheader ], [ %indvars.iv.next1717, %.lr.ph1565 ]
-  %429 = getelementptr inbounds double, ptr %18, i64 %indvars.iv1716
+  %429 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv1716
   %430 = load double, ptr %429, align 8
   %431 = fsub double %430, %426
   store double %431, ptr %429, align 8
-  %432 = getelementptr inbounds double, ptr %17, i64 %indvars.iv1716
+  %432 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv1716
   %433 = load double, ptr %432, align 8
   %434 = fadd double %426, %433
   store double %434, ptr %432, align 8
@@ -632,11 +632,11 @@ define void @dlasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %.31571 = phi double [ %447, %.lr.ph1573 ], [ 0.000000e+00, %._crit_edge1566 ]
   %.312671570 = phi double [ %446, %.lr.ph1573 ], [ 0.000000e+00, %._crit_edge1566 ]
   %.312841569 = phi double [ %445, %.lr.ph1573 ], [ 0.000000e+00, %._crit_edge1566 ]
-  %437 = getelementptr inbounds double, ptr %19, i64 %indvars.iv1721
+  %437 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv1721
   %438 = load double, ptr %437, align 8
-  %439 = getelementptr inbounds double, ptr %17, i64 %indvars.iv1721
+  %439 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv1721
   %440 = load double, ptr %439, align 8
-  %441 = getelementptr inbounds double, ptr %18, i64 %indvars.iv1721
+  %441 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv1721
   %442 = load double, ptr %441, align 8
   %443 = fmul double %440, %442
   %444 = fdiv double %438, %443
@@ -710,7 +710,7 @@ define void @dlasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %489 = getelementptr inbounds double, ptr %20, i64 %indvars.iv
+  %489 = getelementptr inbounds nuw double, ptr %20, i64 %indvars.iv
   %490 = load double, ptr %489, align 8
   %491 = load i32, ptr %1, align 4
   %492 = sext i32 %491 to i64
@@ -718,7 +718,7 @@ define void @dlasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %494 = load double, ptr %493, align 8
   %495 = fadd double %490, %494
   %496 = fadd double %486, %495
-  %497 = getelementptr inbounds double, ptr %17, i64 %indvars.iv
+  %497 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv
   store double %496, ptr %497, align 8
   %498 = load double, ptr %489, align 8
   %499 = load i32, ptr %1, align 4
@@ -727,7 +727,7 @@ define void @dlasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %502 = load double, ptr %501, align 8
   %503 = fsub double %498, %502
   %504 = fsub double %503, %486
-  %505 = getelementptr inbounds double, ptr %18, i64 %indvars.iv
+  %505 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv
   store double %504, ptr %505, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -745,12 +745,12 @@ define void @dlasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 .lr.ph1414:                                       ; preds = %.lr.ph1414.preheader, %.lr.ph1414
   %indvars.iv1634 = phi i64 [ 1, %.lr.ph1414.preheader ], [ %indvars.iv.next1635, %.lr.ph1414 ]
   %.412851412 = phi double [ 0.000000e+00, %.lr.ph1414.preheader ], [ %516, %.lr.ph1414 ]
-  %507 = getelementptr inbounds double, ptr %19, i64 %indvars.iv1634
+  %507 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv1634
   %508 = load double, ptr %507, align 8
   %509 = fmul double %508, %508
-  %510 = getelementptr inbounds double, ptr %17, i64 %indvars.iv1634
+  %510 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv1634
   %511 = load double, ptr %510, align 8
-  %512 = getelementptr inbounds double, ptr %18, i64 %indvars.iv1634
+  %512 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv1634
   %513 = load double, ptr %512, align 8
   %514 = fmul double %511, %513
   %515 = fdiv double %509, %514
@@ -909,7 +909,7 @@ define void @dlasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 
 .lr.ph1426:                                       ; preds = %.lr.ph1426.preheader, %.lr.ph1426
   %indvars.iv1642 = phi i64 [ 1, %.lr.ph1426.preheader ], [ %indvars.iv.next1643, %.lr.ph1426 ]
-  %618 = getelementptr inbounds double, ptr %20, i64 %indvars.iv1642
+  %618 = getelementptr inbounds nuw double, ptr %20, i64 %indvars.iv1642
   %619 = load double, ptr %618, align 8
   %620 = load i32, ptr %1, align 4
   %621 = sext i32 %620 to i64
@@ -917,7 +917,7 @@ define void @dlasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %623 = load double, ptr %622, align 8
   %624 = fadd double %619, %623
   %625 = fadd double %610, %624
-  %626 = getelementptr inbounds double, ptr %17, i64 %indvars.iv1642
+  %626 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv1642
   store double %625, ptr %626, align 8
   %627 = load double, ptr %618, align 8
   %628 = load i32, ptr %1, align 4
@@ -926,7 +926,7 @@ define void @dlasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %631 = load double, ptr %630, align 8
   %632 = fsub double %627, %631
   %633 = fsub double %632, %610
-  %634 = getelementptr inbounds double, ptr %18, i64 %indvars.iv1642
+  %634 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv1642
   store double %633, ptr %634, align 8
   %indvars.iv.next1643 = add nuw nsw i64 %indvars.iv1642, 1
   %exitcond1646.not = icmp eq i64 %indvars.iv.next1643, %wide.trip.count1645
@@ -957,18 +957,18 @@ define void @dlasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 
 .lr.ph1430:                                       ; preds = %.lr.ph1430.preheader, %.lr.ph1430
   %indvars.iv1647 = phi i64 [ 1, %.lr.ph1430.preheader ], [ %indvars.iv.next1648, %.lr.ph1430 ]
-  %647 = getelementptr inbounds double, ptr %20, i64 %indvars.iv1647
+  %647 = getelementptr inbounds nuw double, ptr %20, i64 %indvars.iv1647
   %648 = load double, ptr %647, align 8
   %649 = load double, ptr %474, align 8
   %650 = fadd double %648, %649
   %651 = fadd double %640, %650
-  %652 = getelementptr inbounds double, ptr %17, i64 %indvars.iv1647
+  %652 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv1647
   store double %651, ptr %652, align 8
   %653 = load double, ptr %647, align 8
   %654 = load double, ptr %474, align 8
   %655 = fsub double %653, %654
   %656 = fsub double %655, %640
-  %657 = getelementptr inbounds double, ptr %18, i64 %indvars.iv1647
+  %657 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv1647
   store double %656, ptr %657, align 8
   %indvars.iv.next1648 = add nuw nsw i64 %indvars.iv1647, 1
   %exitcond1651.not = icmp eq i64 %indvars.iv.next1648, %wide.trip.count1650
@@ -993,11 +993,11 @@ define void @dlasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %.41435 = phi double [ 0.000000e+00, %.lr.ph1437.preheader ], [ %670, %.lr.ph1437 ]
   %.412681434 = phi double [ 0.000000e+00, %.lr.ph1437.preheader ], [ %669, %.lr.ph1437 ]
   %.512861433 = phi double [ 0.000000e+00, %.lr.ph1437.preheader ], [ %668, %.lr.ph1437 ]
-  %660 = getelementptr inbounds double, ptr %19, i64 %indvars.iv1652
+  %660 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv1652
   %661 = load double, ptr %660, align 8
-  %662 = getelementptr inbounds double, ptr %17, i64 %indvars.iv1652
+  %662 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv1652
   %663 = load double, ptr %662, align 8
-  %664 = getelementptr inbounds double, ptr %18, i64 %indvars.iv1652
+  %664 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv1652
   %665 = load double, ptr %664, align 8
   %666 = fmul double %663, %665
   %667 = fdiv double %661, %666
@@ -1300,15 +1300,15 @@ define void @dlasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 
 864:                                              ; preds = %837, %839, %843
   %.sink = phi double [ %838, %837 ], [ %842, %839 ], [ %863, %843 ]
-  %865 = getelementptr inbounds i8, ptr %13, i64 16
+  %865 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store double %.sink, ptr %865, align 16
   %866 = fmul double %699, %699
-  %867 = getelementptr inbounds i8, ptr %13, i64 8
+  %867 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store double %866, ptr %867, align 8
   store double %809, ptr %12, align 16
-  %868 = getelementptr inbounds i8, ptr %12, i64 8
+  %868 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store double %704, ptr %868, align 8
-  %869 = getelementptr inbounds i8, ptr %12, i64 16
+  %869 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store double %815, ptr %869, align 16
   call void @dlaed6_(ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %10, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %11, ptr noundef nonnull %14, ptr noundef nonnull %8)
   %870 = load i32, ptr %8, align 4
@@ -1403,11 +1403,11 @@ define void @dlasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 
 .lr.ph1456:                                       ; preds = %.lr.ph1456.preheader, %.lr.ph1456
   %indvars.iv1660 = phi i64 [ 1, %.lr.ph1456.preheader ], [ %indvars.iv.next1661, %.lr.ph1456 ]
-  %914 = getelementptr inbounds double, ptr %17, i64 %indvars.iv1660
+  %914 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv1660
   %915 = load double, ptr %914, align 8
   %916 = fadd double %908, %915
   store double %916, ptr %914, align 8
-  %917 = getelementptr inbounds double, ptr %18, i64 %indvars.iv1660
+  %917 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv1660
   %918 = load double, ptr %917, align 8
   %919 = fsub double %918, %908
   store double %919, ptr %917, align 8
@@ -1420,11 +1420,11 @@ define void @dlasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %.61461 = phi double [ 0.000000e+00, %.lr.ph1462.preheader ], [ %930, %.lr.ph1462 ]
   %.512691460 = phi double [ 0.000000e+00, %.lr.ph1462.preheader ], [ %929, %.lr.ph1462 ]
   %.612871459 = phi double [ 0.000000e+00, %.lr.ph1462.preheader ], [ %928, %.lr.ph1462 ]
-  %920 = getelementptr inbounds double, ptr %19, i64 %indvars.iv1665
+  %920 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv1665
   %921 = load double, ptr %920, align 8
-  %922 = getelementptr inbounds double, ptr %17, i64 %indvars.iv1665
+  %922 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv1665
   %923 = load double, ptr %922, align 8
-  %924 = getelementptr inbounds double, ptr %18, i64 %indvars.iv1665
+  %924 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv1665
   %925 = load double, ptr %924, align 8
   %926 = fmul double %923, %925
   %927 = fdiv double %921, %926
@@ -1545,13 +1545,13 @@ define void @dlasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %988 = sext i32 %659 to i64
   %989 = getelementptr inbounds double, ptr %17, i64 %988
   %990 = getelementptr inbounds double, ptr %18, i64 %988
-  %991 = getelementptr inbounds i8, ptr %13, i64 16
+  %991 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %992 = getelementptr inbounds double, ptr %19, i64 %985
   %993 = getelementptr inbounds double, ptr %20, i64 %985
   %994 = getelementptr inbounds double, ptr %20, i64 %988
   %995 = getelementptr inbounds double, ptr %19, i64 %988
-  %996 = getelementptr inbounds i8, ptr %12, i64 8
-  %997 = getelementptr inbounds i8, ptr %12, i64 16
+  %996 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %997 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %998 = fneg double %481
   %wide.trip.count1681 = zext nneg i32 %.01302 to i64
   br label %999
@@ -1899,11 +1899,11 @@ define void @dlasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 
 .lr.ph1481:                                       ; preds = %.lr.ph1481.preheader, %.lr.ph1481
   %indvars.iv1673 = phi i64 [ 1, %.lr.ph1481.preheader ], [ %indvars.iv.next1674, %.lr.ph1481 ]
-  %1208 = getelementptr inbounds double, ptr %17, i64 %indvars.iv1673
+  %1208 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv1673
   %1209 = load double, ptr %1208, align 8
   %1210 = fadd double %1203, %1209
   store double %1210, ptr %1208, align 8
-  %1211 = getelementptr inbounds double, ptr %18, i64 %indvars.iv1673
+  %1211 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv1673
   %1212 = load double, ptr %1211, align 8
   %1213 = fsub double %1212, %1203
   store double %1213, ptr %1211, align 8
@@ -1920,11 +1920,11 @@ define void @dlasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %.91487 = phi double [ %1225, %.lr.ph1489 ], [ 0.000000e+00, %._crit_edge1482 ]
   %.912731486 = phi double [ %1224, %.lr.ph1489 ], [ 0.000000e+00, %._crit_edge1482 ]
   %.812891485 = phi double [ %1223, %.lr.ph1489 ], [ 0.000000e+00, %._crit_edge1482 ]
-  %1215 = getelementptr inbounds double, ptr %19, i64 %indvars.iv1678
+  %1215 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv1678
   %1216 = load double, ptr %1215, align 8
-  %1217 = getelementptr inbounds double, ptr %17, i64 %indvars.iv1678
+  %1217 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv1678
   %1218 = load double, ptr %1217, align 8
-  %1219 = getelementptr inbounds double, ptr %18, i64 %indvars.iv1678
+  %1219 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv1678
   %1220 = load double, ptr %1219, align 8
   %1221 = fmul double %1218, %1220
   %1222 = fdiv double %1216, %1221

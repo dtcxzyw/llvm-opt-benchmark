@@ -26,21 +26,21 @@ define void @osqp_algebra_free_libs() local_unnamed_addr #0 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef i64 @osqp_algebra_name(ptr nocapture noundef writeonly initializes((0, 9)) %0, i64 noundef %1) local_unnamed_addr #1 {
   store i8 66, ptr %0, align 1
-  %3 = getelementptr inbounds i8, ptr %0, i64 1
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 117, ptr %3, align 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 2
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i8 105, ptr %4, align 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 3
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 3
   store i8 108, ptr %5, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 116, ptr %6, align 1
-  %7 = getelementptr inbounds i8, ptr %0, i64 5
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 5
   store i8 45, ptr %7, align 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 6
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 6
   store i8 105, ptr %8, align 1
-  %9 = getelementptr inbounds i8, ptr %0, i64 7
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 7
   store i8 110, ptr %9, align 1
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %10, align 1
   ret i64 9
 }

@@ -100,24 +100,24 @@ entry:
 define dso_local noundef signext range(i8 0, 2) i8 @_ZN6icu_759ScriptRun4nextEv(ptr nocapture noundef nonnull align 8 dereferenceable(1064) %this) local_unnamed_addr #2 align 2 {
 entry:
   %error = alloca i32, align 4
-  %parenSP = getelementptr inbounds i8, ptr %this, i64 1060
+  %parenSP = getelementptr inbounds nuw i8, ptr %this, i64 1060
   %0 = load i32, ptr %parenSP, align 4
   store i32 0, ptr %error, align 4
-  %scriptEnd = getelementptr inbounds i8, ptr %this, i64 28
+  %scriptEnd = getelementptr inbounds nuw i8, ptr %this, i64 28
   %1 = load i32, ptr %scriptEnd, align 4
-  %charLimit = getelementptr inbounds i8, ptr %this, i64 12
+  %charLimit = getelementptr inbounds nuw i8, ptr %this, i64 12
   %2 = load i32, ptr %charLimit, align 4
   %cmp.not = icmp slt i32 %1, %2
   br i1 %cmp.not, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %entry
-  %scriptCode = getelementptr inbounds i8, ptr %this, i64 32
+  %scriptCode = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i32 0, ptr %scriptCode, align 8
-  %scriptStart = getelementptr inbounds i8, ptr %this, i64 24
+  %scriptStart = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 %1, ptr %scriptStart, align 8
-  %charArray = getelementptr inbounds i8, ptr %this, i64 16
-  %parenStack57 = getelementptr inbounds i8, ptr %this, i64 36
-  %3 = getelementptr inbounds i8, ptr %this, i64 40
+  %charArray = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %parenStack57 = getelementptr inbounds nuw i8, ptr %this, i64 36
+  %3 = getelementptr inbounds nuw i8, ptr %this, i64 40
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -221,7 +221,7 @@ if.then53:                                        ; preds = %if.else
 land.rhs:                                         ; preds = %if.then53, %while.body
   %19 = phi i32 [ %16, %if.then53 ], [ %sub64, %while.body ]
   %idxprom59 = zext nneg i32 %19 to i64
-  %arrayidx60 = getelementptr inbounds [128 x %"struct.icu_75::ParenStackEntry"], ptr %parenStack57, i64 0, i64 %idxprom59
+  %arrayidx60 = getelementptr inbounds nuw [128 x %"struct.icu_75::ParenStackEntry"], ptr %parenStack57, i64 0, i64 %idxprom59
   %20 = load i32, ptr %arrayidx60, align 4
   %cmp62.not = icmp eq i32 %20, %and54
   br i1 %cmp62.not, label %if.then72, label %while.body

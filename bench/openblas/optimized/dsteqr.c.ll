@@ -791,7 +791,7 @@ define void @dsteqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 478:                                              ; preds = %486, %476
   %479 = phi i64 [ 1, %476 ], [ %487, %486 ]
-  %480 = getelementptr inbounds double, ptr %22, i64 %479
+  %480 = getelementptr inbounds nuw double, ptr %22, i64 %479
   %481 = load double, ptr %480, align 8, !tbaa !7
   %482 = fcmp une double %481, 0.000000e+00
   br i1 %482, label %483, label %486
@@ -845,7 +845,7 @@ define void @dsteqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %509 = phi i64 [ %497, %505 ], [ %518, %508 ]
   %510 = phi i32 [ %504, %505 ], [ %517, %508 ]
   %511 = phi double [ %500, %505 ], [ %515, %508 ]
-  %512 = getelementptr inbounds double, ptr %21, i64 %509
+  %512 = getelementptr inbounds nuw double, ptr %21, i64 %509
   %513 = load double, ptr %512, align 8, !tbaa !7
   %514 = fcmp olt double %513, %511
   %515 = select i1 %514, double %513, double %511

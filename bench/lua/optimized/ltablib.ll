@@ -568,7 +568,7 @@ entry:
   br i1 %cmp78, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %add.ptr.i = getelementptr inbounds i8, ptr %buff.i, i64 8
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %buff.i, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end64
@@ -787,7 +787,7 @@ if.then62:                                        ; preds = %if.end57
 for.body.i:                                       ; preds = %for.body.i, %if.then62
   %indvars.iv.i = phi i64 [ 0, %if.then62 ], [ %indvars.iv.next.i, %for.body.i ]
   %rnd.05.i = phi i32 [ 0, %if.then62 ], [ %add.i77, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [4 x i32], ptr %buff.i, i64 0, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw [4 x i32], ptr %buff.i, i64 0, i64 %indvars.iv.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %add.i77 = add i32 %0, %rnd.05.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1

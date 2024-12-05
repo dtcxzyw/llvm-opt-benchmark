@@ -149,7 +149,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z17cmFortran_yyparsePv(ptr nounde
 
 27:                                               ; preds = %25
   %28 = zext nneg i32 %.4 to i64
-  %29 = getelementptr inbounds [296 x i8], ptr @_ZL11yytranslate, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw [296 x i8], ptr @_ZL11yytranslate, i64 0, i64 %28
   %30 = load i8, ptr %29, align 1
   %31 = sext i8 %30 to i32
   br label %32
@@ -163,14 +163,14 @@ define dso_local noundef range(i32 0, 3) i32 @_Z17cmFortran_yyparsePv(ptr nounde
 
 34:                                               ; preds = %32
   %35 = zext nneg i32 %33 to i64
-  %36 = getelementptr inbounds [434 x i8], ptr @_ZL7yycheck, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw [434 x i8], ptr @_ZL7yycheck, i64 0, i64 %35
   %37 = load i8, ptr %36, align 1
   %38 = sext i8 %37 to i32
   %.not252 = icmp eq i32 %.0233, %38
   br i1 %.not252, label %39, label %49
 
 39:                                               ; preds = %34
-  %40 = getelementptr inbounds [434 x i8], ptr @_ZL7yytable, i64 0, i64 %35
+  %40 = getelementptr inbounds nuw [434 x i8], ptr @_ZL7yytable, i64 0, i64 %35
   %41 = load i8, ptr %40, align 1
   %42 = sext i8 %41 to i32
   %43 = icmp slt i8 %41, 1
@@ -182,7 +182,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z17cmFortran_yyparsePv(ptr nounde
 
 46:                                               ; preds = %39
   %spec.select = call i32 @llvm.usub.sat.i32(i32 %.0216354, i32 1)
-  %47 = getelementptr inbounds i8, ptr %.0225352, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %.0225352, i64 8
   %48 = load i64, ptr %2, align 8
   store i64 %48, ptr %47, align 8
   br label %7
@@ -457,7 +457,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z17cmFortran_yyparsePv(ptr nounde
   %182 = getelementptr inbounds %struct.cmFortran_yystype, ptr %.0225352, i64 %181
   %.0219.add = sub nsw i64 %.0219.idx353, %58
   %.ptr250 = getelementptr inbounds i8, ptr %3, i64 %.0219.add
-  %183 = getelementptr inbounds i8, ptr %182, i64 8
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 8
   store ptr %.sroa.0.0.copyload, ptr %183, align 8
   %184 = getelementptr inbounds [66 x i8], ptr @_ZL4yyr1, i64 0, i64 %55
   %185 = load i8, ptr %184, align 1
@@ -474,13 +474,13 @@ define dso_local noundef range(i32 0, 3) i32 @_Z17cmFortran_yyparsePv(ptr nounde
 
 195:                                              ; preds = %180
   %196 = zext nneg i32 %193 to i64
-  %197 = getelementptr inbounds [434 x i8], ptr @_ZL7yycheck, i64 0, i64 %196
+  %197 = getelementptr inbounds nuw [434 x i8], ptr @_ZL7yycheck, i64 0, i64 %196
   %198 = load i8, ptr %197, align 1
   %199 = icmp eq i8 %198, %191
   br i1 %199, label %200, label %202
 
 200:                                              ; preds = %195
-  %201 = getelementptr inbounds [434 x i8], ptr @_ZL7yytable, i64 0, i64 %196
+  %201 = getelementptr inbounds nuw [434 x i8], ptr @_ZL7yytable, i64 0, i64 %196
   br label %204
 
 202:                                              ; preds = %195, %180
@@ -503,7 +503,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z17cmFortran_yyparsePv(ptr nounde
 
 210:                                              ; preds = %209
   %211 = zext nneg i32 %.3 to i64
-  %212 = getelementptr inbounds [296 x i8], ptr @_ZL11yytranslate, i64 0, i64 %211
+  %212 = getelementptr inbounds nuw [296 x i8], ptr @_ZL11yytranslate, i64 0, i64 %211
   %213 = load i8, ptr %212, align 1
   %214 = sext i8 %213 to i32
   br label %215
@@ -593,7 +593,7 @@ _ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit: ; preds = %215, 
 242:                                              ; preds = %237
   %243 = sext i16 %238 to i64
   %244 = add nsw i64 %243, 1
-  %245 = getelementptr inbounds [434 x i8], ptr @_ZL7yytable, i64 0, i64 %244
+  %245 = getelementptr inbounds nuw [434 x i8], ptr @_ZL7yytable, i64 0, i64 %244
   %246 = load i8, ptr %245, align 1
   %247 = icmp sgt i8 %246, 0
   br i1 %247, label %258, label %248
@@ -628,7 +628,7 @@ _ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit269: ; preds = %25
 
 258:                                              ; preds = %242
   %259 = zext nneg i8 %246 to i32
-  %260 = getelementptr inbounds i8, ptr %.3228, i64 8
+  %260 = getelementptr inbounds nuw i8, ptr %.3228, i64 8
   %261 = load i64, ptr %2, align 8
   store i64 %261, ptr %260, align 8
   br label %7
@@ -658,7 +658,7 @@ _ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit269: ; preds = %25
   %.4223304316 = phi ptr [ %.4223, %.loopexit334 ], [ %.0219.ptr358, %233 ]
   %.9306314 = phi i32 [ %.9, %.loopexit334 ], [ 0, %233 ]
   %264 = zext nneg i32 %.9306314 to i64
-  %265 = getelementptr inbounds [296 x i8], ptr @_ZL11yytranslate, i64 0, i64 %264
+  %265 = getelementptr inbounds nuw [296 x i8], ptr @_ZL11yytranslate, i64 0, i64 %264
   %266 = load i8, ptr %265, align 1
   %267 = sext i8 %266 to i32
   %.off.i270 = add nsw i32 %267, -32
@@ -762,7 +762,7 @@ define internal fastcc noundef range(i32 -2, 1) i32 @_ZL14yysyntax_errorPlPPcPK1
 
 3:                                                ; preds = %1
   store i32 %.8.val, ptr %2, align 16
-  %4 = getelementptr inbounds i8, ptr %2, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %.val.val.i = load i8, ptr %.0.val1, align 1
   %5 = sext i8 %.val.val.i to i64
   %6 = getelementptr inbounds [123 x i16], ptr @_ZL6yypact, i64 0, i64 %5
@@ -866,7 +866,7 @@ _ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread6: 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZL9yytnamerrPcPKc.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZL9yytnamerrPcPKc.exit.thread ]
   %.04217 = phi i64 [ %42, %.lr.ph.preheader ], [ %59, %_ZL9yytnamerrPcPKc.exit.thread ]
-  %44 = getelementptr inbounds [5 x i32], ptr %2, i64 0, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [5 x i32], ptr %2, i64 0, i64 %indvars.iv
   %45 = load i32, ptr %44, align 4
   %46 = sext i32 %45 to i64
   %47 = getelementptr inbounds [56 x ptr], ptr @_ZL7yytname, i64 0, i64 %46
@@ -878,7 +878,7 @@ _ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread6: 
 .preheader.split.us.i:                            ; preds = %.lr.ph, %56
   %.018.us.i = phi i64 [ %57, %56 ], [ 0, %.lr.ph ]
   %.0.us.i = phi ptr [ %.1.us.i, %56 ], [ %48, %.lr.ph ]
-  %51 = getelementptr inbounds i8, ptr %.0.us.i, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %.0.us.i, i64 1
   %52 = load i8, ptr %51, align 1
   switch i8 %52, label %56 [
     i8 39, label %_ZL9yytnamerrPcPKc.exit
@@ -888,7 +888,7 @@ _ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread6: 
   ]
 
 53:                                               ; preds = %.preheader.split.us.i
-  %54 = getelementptr inbounds i8, ptr %.0.us.i, i64 2
+  %54 = getelementptr inbounds nuw i8, ptr %.0.us.i, i64 2
   %55 = load i8, ptr %54, align 1
   %.not22.us.i = icmp eq i8 %55, 92
   br i1 %.not22.us.i, label %56, label %_ZL9yytnamerrPcPKc.exit
@@ -935,7 +935,7 @@ _ZL9yytnamerrPcPKc.exit.thread:                   ; preds = %.preheader.split.us
   ]
 
 65:                                               ; preds = %.preheader
-  %66 = getelementptr inbounds i8, ptr %.141, i64 1
+  %66 = getelementptr inbounds nuw i8, ptr %.141, i64 1
   %67 = load i8, ptr %66, align 1
   %68 = icmp eq i8 %67, 115
   %69 = icmp slt i32 %.0, %.0.i5
@@ -957,7 +957,7 @@ _ZL9yytnamerrPcPKc.exit.thread:                   ; preds = %.preheader.split.us
 .preheader.split.i:                               ; preds = %70, %85
   %.018.i = phi i64 [ %87, %85 ], [ 0, %70 ]
   %.0.i51 = phi ptr [ %.1.i, %85 ], [ %77, %70 ]
-  %80 = getelementptr inbounds i8, ptr %.0.i51, i64 1
+  %80 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 1
   %81 = load i8, ptr %80, align 1
   switch i8 %81, label %85 [
     i8 39, label %.loopexit.thread.i
@@ -967,20 +967,20 @@ _ZL9yytnamerrPcPKc.exit.thread:                   ; preds = %.preheader.split.us
   ]
 
 82:                                               ; preds = %.preheader.split.i
-  %83 = getelementptr inbounds i8, ptr %.0.i51, i64 2
+  %83 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 2
   %84 = load i8, ptr %83, align 1
   %.not22.i = icmp eq i8 %84, 92
   br i1 %.not22.i, label %85, label %.loopexit.thread.i
 
 85:                                               ; preds = %82, %.preheader.split.i
   %.1.i = phi ptr [ %80, %.preheader.split.i ], [ %83, %82 ]
-  %86 = getelementptr inbounds i8, ptr %.036, i64 %.018.i
+  %86 = getelementptr inbounds nuw i8, ptr %.036, i64 %.018.i
   store i8 %81, ptr %86, align 1
   %87 = add nuw nsw i64 %.018.i, 1
   br label %.preheader.split.i, !llvm.loop !9
 
 .split.us.thread.i:                               ; preds = %.preheader.split.i
-  %88 = getelementptr inbounds i8, ptr %.036, i64 %.018.i
+  %88 = getelementptr inbounds nuw i8, ptr %.036, i64 %.018.i
   store i8 0, ptr %88, align 1
   br label %_ZL9yytnamerrPcPKc.exit58
 
@@ -996,7 +996,7 @@ _ZL9yytnamerrPcPKc.exit58:                        ; preds = %65, %.preheader, %.
   %.sink = phi i64 [ 2, %.loopexit.thread.i ], [ 2, %.split.us.thread.i ], [ 1, %.preheader ], [ 1, %65 ]
   %.1 = phi i32 [ %71, %.loopexit.thread.i ], [ %71, %.split.us.thread.i ], [ %.0, %.preheader ], [ %.0, %65 ]
   %93 = getelementptr inbounds i8, ptr %.036, i64 %.sink26
-  %94 = getelementptr inbounds i8, ptr %.141, i64 %.sink
+  %94 = getelementptr inbounds nuw i8, ptr %.141, i64 %.sink
   br label %.preheader, !llvm.loop !11
 
 _ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread8: ; preds = %_ZL9yytnamerrPcPKc.exit, %.preheader, %._crit_edge.i.i, %62, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit

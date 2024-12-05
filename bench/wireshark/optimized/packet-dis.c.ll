@@ -4879,7 +4879,7 @@ define internal i32 @dissect_dis(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %8, label %653, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_set_str(ptr noundef %11, i32 noundef 34, ptr noundef nonnull @.str.819) #4
   %12 = load ptr, ptr %10, align 8
@@ -4915,7 +4915,7 @@ define internal i32 @dissect_dis(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %39 = urem i64 %37, 1000000
   %40 = trunc nuw nsw i64 %39 to i32
   %41 = mul nuw nsw i32 %40, 1000
-  %42 = getelementptr inbounds i8, ptr %5, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %41, ptr %42, align 8
   %43 = udiv i64 %37, 60000000
   %44 = trunc i64 %43 to i32
@@ -5867,7 +5867,7 @@ define internal fastcc i32 @parse_pdu_payload(ptr noundef %0, ptr noundef %1, pt
   %47 = load i32, ptr @hf_dis_specific, align 4
   %48 = load i32, ptr @hf_dis_extra, align 4
   %49 = tail call fastcc noundef i32 @dissect_DIS_FIELDS_ENTITY_TYPE_RECORD(ptr noundef %0, ptr noundef %2, i32 noundef 20, ptr noundef nonnull @.str.3832, i32 noundef %41, i32 noundef %42, i32 noundef %43, i32 noundef %44, i32 noundef %45, i32 noundef %46, i32 noundef %47, i32 noundef %48)
-  %50 = getelementptr inbounds i8, ptr %1, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %51 = load ptr, ptr %50, align 8
   %52 = load i32, ptr @entityKind, align 4
   %53 = tail call ptr @val_to_str_const(i32 noundef %52, ptr noundef nonnull @DIS_PDU_EntityKind_Strings, ptr noundef nonnull @.str.4046) #4
@@ -5990,7 +5990,7 @@ define internal fastcc i32 @parse_pdu_payload(ptr noundef %0, ptr noundef %1, pt
 155:                                              ; preds = %117
   %156 = add i32 %67, 93
   %157 = load i32, ptr @hf_dis_entity_marking, align 4
-  %158 = getelementptr inbounds i8, ptr %1, i64 408
+  %158 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %159 = load ptr, ptr %158, align 8
   %160 = call ptr @proto_tree_add_item_ret_string(ptr noundef %150, i32 noundef %157, ptr noundef %0, i32 noundef %156, i32 noundef 11, i32 noundef 0, ptr noundef %159, ptr noundef nonnull %20) #4
   %161 = load ptr, ptr %50, align 8
@@ -6292,7 +6292,7 @@ dissect_DIS_PARSER_ELECTROMAGNETIC_EMISSION_PDU.exit: ; preds = %._crit_edge7.i,
   %395 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 31) #4
   %396 = load i32, ptr @hf_dis_num_ua_emitter_systems, align 4
   %397 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %396, ptr noundef %0, i32 noundef 31, i32 noundef 1, i32 noundef 0) #4
-  %398 = getelementptr inbounds i8, ptr %1, i64 8
+  %398 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %399 = load ptr, ptr %398, align 8
   %400 = zext i8 %389 to i32
   %401 = zext i8 %392 to i32
@@ -6446,7 +6446,7 @@ dissect_DIS_PARSER_ELECTROMAGNETIC_EMISSION_PDU.exit: ; preds = %._crit_edge7.i,
   %502 = load i32, ptr @hf_dis_designator_code_name, align 4
   %503 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %502, ptr noundef %0, i32 noundef 18, i32 noundef 2, i32 noundef 0) #4
   %504 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 18) #4
-  %505 = getelementptr inbounds i8, ptr %1, i64 8
+  %505 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %506 = load ptr, ptr %505, align 8
   %507 = zext i16 %504 to i32
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %506, i32 noundef 25, ptr noundef nonnull @.str.4077, i32 noundef %507) #4
@@ -6507,7 +6507,7 @@ dissect_DIS_PARSER_ELECTROMAGNETIC_EMISSION_PDU.exit: ; preds = %._crit_edge7.i,
   %560 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %559, ptr noundef %0, i32 noundef 18, i32 noundef 2, i32 noundef 0) #4
   %561 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 18) #4
   %562 = zext i16 %561 to i32
-  %563 = getelementptr inbounds i8, ptr %1, i64 8
+  %563 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %564 = load ptr, ptr %563, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %564, i32 noundef 25, ptr noundef nonnull @.str.4081, i32 noundef %562) #4
   %565 = load i32, ptr @ett_radio_entity_type, align 4
@@ -6586,7 +6586,7 @@ dissect_DIS_PARSER_ELECTROMAGNETIC_EMISSION_PDU.exit: ; preds = %._crit_edge7.i,
 
 switch.lookup:                                    ; preds = %550
   %633 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table.parse_pdu_payload, i64 0, i64 %633
+  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.parse_pdu_payload, i64 0, i64 %633
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %dissect_DIS_FIELDS_MODULATION_TYPE.exit.i
 
@@ -6679,7 +6679,7 @@ dissect_DIS_FIELDS_MODULATION_TYPE.exit.i:        ; preds = %550, %switch.lookup
   %703 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %702, ptr noundef %0, i32 noundef 18, i32 noundef 2, i32 noundef 0) #4
   %704 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 18) #4
   %705 = zext i16 %704 to i32
-  %706 = getelementptr inbounds i8, ptr %1, i64 8
+  %706 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %707 = load ptr, ptr %706, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %707, i32 noundef 25, ptr noundef nonnull @.str.4081, i32 noundef %705) #4
   %708 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 20) #4
@@ -6753,7 +6753,7 @@ dissect_DIS_FIELDS_MODULATION_TYPE.exit.i:        ; preds = %550, %switch.lookup
   br i1 %760, label %761, label %765
 
 761:                                              ; preds = %740
-  %762 = getelementptr inbounds i8, ptr %16, i64 8
+  %762 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i32 0, ptr %762, align 8
   %763 = load i32, ptr @hf_dis_signal_link16_ptt, align 4
   %764 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_time_format_value(ptr noundef %742, i32 noundef %763, ptr noundef %0, i32 noundef 44, i32 noundef 8, ptr noundef nonnull %16, ptr noundef nonnull @.str.3847) #4
@@ -6795,7 +6795,7 @@ parse_DIS_FIELDS_SIGNAL_LINK16_NETWORK_HEADER.exit.i: ; preds = %765, %761
   br i1 %.not93.i.i, label %parse_Link16_Message_Data.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %772
-  %787 = getelementptr inbounds i8, ptr %1, i64 408
+  %787 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %788
 
 788:                                              ; preds = %847, %.lr.ph.i.i
@@ -6928,7 +6928,7 @@ parse_Link16_Message_Data.exit.i:                 ; preds = %847, %772, %parse_D
   %869 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %868, ptr noundef %0, i32 noundef 18, i32 noundef 2, i32 noundef 0) #4
   %870 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 18) #4
   %871 = zext i16 %870 to i32
-  %872 = getelementptr inbounds i8, ptr %1, i64 8
+  %872 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %873 = load ptr, ptr %872, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %873, i32 noundef 25, ptr noundef nonnull @.str.4081, i32 noundef %871) #4
   %874 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 20) #4
@@ -6972,7 +6972,7 @@ parse_Link16_Message_Data.exit.i:                 ; preds = %847, %772, %parse_D
   %909 = load i32, ptr @hf_intercom_control_source_line_id, align 4
   %910 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %909, ptr noundef %0, i32 noundef 22, i32 noundef 1, i32 noundef 0) #4
   %911 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 22) #4
-  %912 = getelementptr inbounds i8, ptr %1, i64 8
+  %912 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %913 = load ptr, ptr %912, align 8
   %914 = sext i8 %911 to i32
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %913, i32 noundef 25, ptr noundef nonnull @.str.4100, i32 noundef %914) #4
@@ -7184,7 +7184,7 @@ dissect_DIS_PARSER_DETONATION_PDU.exit:           ; preds = %.lr.ph.i151, %991
   %.lhs.trunc.i.i = trunc nuw nsw i64 %1097 to i32
   %1099 = urem i32 %.lhs.trunc.i.i, 1000
   %1100 = mul nuw nsw i32 %1099, 1000000
-  %1101 = getelementptr inbounds i8, ptr %13, i64 8
+  %1101 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 %1100, ptr %1101, align 8
   %1102 = mul i32 %1091, 3600
   %1103 = zext i32 %1102 to i64
@@ -7210,7 +7210,7 @@ dissect_DIS_PARSER_DETONATION_PDU.exit:           ; preds = %.lr.ph.i151, %991
   %.lhs.trunc.i16.i = trunc nuw nsw i64 %1115 to i32
   %1117 = urem i32 %.lhs.trunc.i16.i, 1000
   %1118 = mul nuw nsw i32 %1117, 1000000
-  %1119 = getelementptr inbounds i8, ptr %12, i64 8
+  %1119 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 %1118, ptr %1119, align 8
   %1120 = mul i32 %1109, 3600
   %1121 = zext i32 %1120 to i64
@@ -7257,7 +7257,7 @@ dissect_DIS_PARSER_DETONATION_PDU.exit:           ; preds = %.lr.ph.i151, %991
   %.lhs.trunc.i.i155 = trunc nuw nsw i64 %1152 to i32
   %1154 = urem i32 %.lhs.trunc.i.i155, 1000
   %1155 = mul nuw nsw i32 %1154, 1000000
-  %1156 = getelementptr inbounds i8, ptr %11, i64 8
+  %1156 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 %1155, ptr %1156, align 8
   %1157 = mul i32 %1146, 3600
   %1158 = zext i32 %1157 to i64
@@ -7497,7 +7497,7 @@ parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i:     ; preds = %.lr.ph.i.i159, %126
   %.lhs.trunc.i.i161 = trunc nuw nsw i64 %1348 to i32
   %1350 = urem i32 %.lhs.trunc.i.i161, 1000
   %1351 = mul nuw nsw i32 %1350, 1000000
-  %1352 = getelementptr inbounds i8, ptr %10, i64 8
+  %1352 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 %1351, ptr %1352, align 8
   %1353 = mul i32 %1342, 3600
   %1354 = zext i32 %1353 to i64
@@ -7523,7 +7523,7 @@ parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i:     ; preds = %.lr.ph.i.i159, %126
   %.lhs.trunc.i24.i = trunc nuw nsw i64 %1366 to i32
   %1368 = urem i32 %.lhs.trunc.i24.i, 1000
   %1369 = mul nuw nsw i32 %1368, 1000000
-  %1370 = getelementptr inbounds i8, ptr %9, i64 8
+  %1370 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %1369, ptr %1370, align 8
   %1371 = mul i32 %1360, 3600
   %1372 = zext i32 %1371 to i64
@@ -7574,7 +7574,7 @@ parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i:     ; preds = %.lr.ph.i.i159, %126
   %.lhs.trunc.i.i164 = trunc nuw nsw i64 %1407 to i32
   %1409 = urem i32 %.lhs.trunc.i.i164, 1000
   %1410 = mul nuw nsw i32 %1409, 1000000
-  %1411 = getelementptr inbounds i8, ptr %8, i64 8
+  %1411 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %1410, ptr %1411, align 8
   %1412 = mul i32 %1401, 3600
   %1413 = zext i32 %1412 to i64
@@ -7792,7 +7792,7 @@ parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i172:  ; preds = %.lr.ph.i.i168, %149
   %1582 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 19) #4
   %1583 = load i32, ptr @hf_dis_num_variable_records, align 4
   %1584 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %1583, ptr noundef %0, i32 noundef 19, i32 noundef 1, i32 noundef 0) #4
-  %1585 = getelementptr inbounds i8, ptr %1, i64 8
+  %1585 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %1586 = load ptr, ptr %1585, align 8
   %1587 = load i32, ptr @dissect_DIS_PARSER_ENTITY_STATE_UPDATE_PDU.entitySite, align 4
   %1588 = load i32, ptr @dissect_DIS_PARSER_ENTITY_STATE_UPDATE_PDU.entityApplication, align 4
@@ -8083,7 +8083,7 @@ dissect_DIS_PARSER_APPLICATION_CONTROL_PDU.exit:  ; preds = %parseField_Variable
   store i32 %1792, ptr @dissect_DIS_PARSER_AGGREGATE_STATE_PDU.entityApplication, align 4
   %1793 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 16) #4
   %1794 = zext i16 %1793 to i32
-  %1795 = getelementptr inbounds i8, ptr %1, i64 8
+  %1795 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %1796 = load ptr, ptr %1795, align 8
   %1797 = load i32, ptr @dissect_DIS_PARSER_AGGREGATE_STATE_PDU.entitySite, align 4
   %1798 = load i32, ptr @dissect_DIS_PARSER_AGGREGATE_STATE_PDU.entityApplication, align 4
@@ -8118,7 +8118,7 @@ dissect_DIS_PARSER_APPLICATION_CONTROL_PDU.exit:  ; preds = %parseField_Variable
   %1826 = tail call ptr @proto_tree_add_item(ptr noundef %1824, i32 noundef %1825, ptr noundef %0, i32 noundef %1822, i32 noundef 1, i32 noundef 0) #4
   %1827 = add i32 %1819, 5
   %1828 = load i32, ptr @hf_dis_aggregate_marking, align 4
-  %1829 = getelementptr inbounds i8, ptr %1, i64 408
+  %1829 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %1830 = load ptr, ptr %1829, align 8
   %1831 = call ptr @proto_tree_add_item_ret_string(ptr noundef %1824, i32 noundef %1828, ptr noundef %0, i32 noundef %1827, i32 noundef 31, i32 noundef 0, ptr noundef %1830, ptr noundef nonnull %5) #4
   %1832 = load ptr, ptr %1795, align 8

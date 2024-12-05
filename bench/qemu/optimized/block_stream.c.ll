@@ -81,9 +81,9 @@ if.end10:                                         ; preds = %if.end4
   br i1 %tobool1, label %if.then12, label %if.else17
 
 if.then12:                                        ; preds = %if.end10
-  %drv = getelementptr inbounds i8, ptr %bottom, i64 16
+  %drv = getelementptr inbounds nuw i8, ptr %bottom, i64 16
   %0 = load ptr, ptr %drv, align 8
-  %is_filter = getelementptr inbounds i8, ptr %0, i64 12
+  %is_filter = getelementptr inbounds nuw i8, ptr %0, i64 12
   %1 = load i8, ptr %is_filter, align 4
   %tobool13 = trunc i8 %1 to i1
   br i1 %tobool13, label %if.else15, label %if.end31
@@ -98,8 +98,8 @@ if.else17:                                        ; preds = %if.end10
   br i1 %tobool19.not, label %if.then20, label %if.end23
 
 if.then20:                                        ; preds = %if.else17
-  %node_name = getelementptr inbounds i8, ptr %base, i64 16600
-  %node_name21 = getelementptr inbounds i8, ptr %bs, i64 16600
+  %node_name = getelementptr inbounds nuw i8, ptr %base, i64 16600
+  %node_name21 = getelementptr inbounds nuw i8, ptr %bs, i64 16600
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 288, ptr noundef nonnull @__func__.stream_start, ptr noundef nonnull @.str.5, ptr noundef nonnull %node_name, ptr noundef nonnull %node_name21) #5
   br label %out_rdlock
 
@@ -178,7 +178,7 @@ if.end43:                                         ; preds = %if.end38, %if.end31
   tail call void @qdict_put_str(ptr noundef %call44, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #5
   %call45 = tail call ptr @bdrv_get_node_name(ptr noundef %bs) #5
   tail call void @qdict_put_str(ptr noundef %call44, ptr noundef nonnull @.str.8, ptr noundef %call45) #5
-  %node_name46 = getelementptr inbounds i8, ptr %base_overlay.0, i64 16600
+  %node_name46 = getelementptr inbounds nuw i8, ptr %base_overlay.0, i64 16600
   tail call void @qdict_put_str(ptr noundef %call44, ptr noundef nonnull @.str.9, ptr noundef nonnull %node_name46) #5
   %tobool48.not = icmp eq ptr %filter_node_name, null
   br i1 %tobool48.not, label %if.end50, label %if.end50.thread
@@ -195,7 +195,7 @@ if.end50.thread:                                  ; preds = %if.end43
   br i1 %tobool52.not111, label %if.end104, label %if.end57
 
 if.then56:                                        ; preds = %if.end50
-  %implicit = getelementptr inbounds i8, ptr %call51, i64 8
+  %implicit = getelementptr inbounds nuw i8, ptr %call51, i64 8
   store i8 1, ptr %implicit, align 8
   br label %if.end57
 
@@ -207,7 +207,7 @@ if.end57:                                         ; preds = %if.end50.thread, %i
 
 if.end61:                                         ; preds = %if.end57
   %call62 = tail call ptr @blk_new_with_bs(ptr noundef nonnull %call51112119, i64 noundef 1, i64 noundef 7, ptr noundef %errp) #5
-  %blk = getelementptr inbounds i8, ptr %call58, i64 520
+  %blk = getelementptr inbounds nuw i8, ptr %call58, i64 520
   store ptr %call62, ptr %blk, align 8
   %tobool64.not = icmp eq ptr %call62, null
   br i1 %tobool64.not, label %if.then103.sink.split, label %if.end66
@@ -267,20 +267,20 @@ bdrv_filter_or_cow_bs.exit109:                    ; preds = %for.inc, %cond.true
 
 for.end:                                          ; preds = %bdrv_filter_or_cow_bs.exit109, %bdrv_filter_or_cow_bs.exit104
   tail call void @bdrv_graph_wrunlock(ptr noundef %bs) #5
-  %base_overlay87 = getelementptr inbounds i8, ptr %call58, i64 528
+  %base_overlay87 = getelementptr inbounds nuw i8, ptr %call58, i64 528
   store ptr %base_overlay.0, ptr %base_overlay87, align 8
-  %above_base88 = getelementptr inbounds i8, ptr %call58, i64 536
+  %above_base88 = getelementptr inbounds nuw i8, ptr %call58, i64 536
   store ptr %above_base.0, ptr %above_base88, align 8
   %call89 = tail call noalias ptr @g_strdup(ptr noundef %backing_file_str) #5
-  %backing_file_str90 = getelementptr inbounds i8, ptr %call58, i64 568
+  %backing_file_str90 = getelementptr inbounds nuw i8, ptr %call58, i64 568
   store ptr %call89, ptr %backing_file_str90, align 8
-  %cor_filter_bs91 = getelementptr inbounds i8, ptr %call58, i64 544
+  %cor_filter_bs91 = getelementptr inbounds nuw i8, ptr %call58, i64 544
   store ptr %call51112119, ptr %cor_filter_bs91, align 8
-  %target_bs = getelementptr inbounds i8, ptr %call58, i64 552
+  %target_bs = getelementptr inbounds nuw i8, ptr %call58, i64 552
   store ptr %bs, ptr %target_bs, align 8
-  %bs_read_only93 = getelementptr inbounds i8, ptr %call58, i64 576
+  %bs_read_only93 = getelementptr inbounds nuw i8, ptr %call58, i64 576
   store i8 %frombool, ptr %bs_read_only93, align 8
-  %on_error95 = getelementptr inbounds i8, ptr %call58, i64 560
+  %on_error95 = getelementptr inbounds nuw i8, ptr %call58, i64 560
   store i32 %on_error, ptr %on_error95, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %9 = load i32, ptr @trace_events_enabled_count, align 4
@@ -305,7 +305,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #5
   %call10.i.i = tail call i32 @qemu_get_thread_id() #5
   %13 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %14 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %call10.i.i, i64 noundef %13, i64 noundef %14, ptr noundef %bs, ptr noundef %cond.i.i99, ptr noundef nonnull %call58) #5
   br label %trace_stream_start.exit
@@ -408,8 +408,8 @@ entry:
   %n = alloca i64, align 8
   store i64 0, ptr %n, align 8
   tail call void @bdrv_graph_co_rdlock() #5
-  %target_bs = getelementptr inbounds i8, ptr %job, i64 552
-  %base_overlay = getelementptr inbounds i8, ptr %job, i64 528
+  %target_bs = getelementptr inbounds nuw i8, ptr %job, i64 552
+  %base_overlay = getelementptr inbounds nuw i8, ptr %job, i64 528
   %0 = load ptr, ptr %target_bs, align 8
   %call1 = tail call ptr @bdrv_skip_filters(ptr noundef %0) #5
   %1 = load ptr, ptr %base_overlay, align 8
@@ -438,9 +438,9 @@ glib_autoptr_cleanup_GraphLockable.exit:          ; preds = %entry, %if.then5
   br label %return
 
 for.body11.lr.ph:                                 ; preds = %for.inc
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %blk = getelementptr inbounds i8, ptr %job, i64 520
-  %on_error = getelementptr inbounds i8, ptr %job, i64 560
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
+  %blk = getelementptr inbounds nuw i8, ptr %job, i64 520
+  %on_error = getelementptr inbounds nuw i8, ptr %job, i64 560
   br label %for.body11
 
 for.body11:                                       ; preds = %for.body11.lr.ph, %for.inc76
@@ -603,7 +603,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   tail call void @bdrv_graph_rdlock_main_loop() #5
-  %target_bs = getelementptr inbounds i8, ptr %job, i64 552
+  %target_bs = getelementptr inbounds nuw i8, ptr %job, i64 552
   %0 = load ptr, ptr %target_bs, align 8
   %call1 = tail call ptr @bdrv_skip_filters(ptr noundef %0) #5
   %call.i = tail call ptr @bdrv_cow_child(ptr noundef %call1) #5
@@ -617,7 +617,7 @@ cond.true.i.i:                                    ; preds = %do.end
 bdrv_cow_bs.exit:                                 ; preds = %do.end, %cond.true.i.i
   %cond.i.i = phi ptr [ %1, %cond.true.i.i ], [ null, %do.end ]
   tail call void @bdrv_graph_rdunlock_main_loop() #5
-  %cor_filter_bs = getelementptr inbounds i8, ptr %job, i64 544
+  %cor_filter_bs = getelementptr inbounds nuw i8, ptr %job, i64 544
   %2 = load ptr, ptr %cor_filter_bs, align 8
   tail call void @bdrv_cor_filter_drop(ptr noundef %2) #5
   store ptr null, ptr %cor_filter_bs, align 8
@@ -632,7 +632,7 @@ if.then4:                                         ; preds = %bdrv_cow_bs.exit
 
 if.end5:                                          ; preds = %if.then4, %bdrv_cow_bs.exit
   tail call void @bdrv_graph_rdlock_main_loop() #5
-  %above_base = getelementptr inbounds i8, ptr %job, i64 536
+  %above_base = getelementptr inbounds nuw i8, ptr %job, i64 536
   %3 = load ptr, ptr %above_base, align 8
   %call.i22 = tail call ptr @bdrv_filter_or_cow_child(ptr noundef %3) #5
   %tobool.not.i.i23 = icmp eq ptr %call.i22, null
@@ -653,12 +653,12 @@ if.then9:                                         ; preds = %bdrv_filter_or_cow_
   br i1 %tobool10.not, label %if.end17, label %if.then11
 
 if.then11:                                        ; preds = %if.then9
-  %backing_file_str = getelementptr inbounds i8, ptr %job, i64 568
+  %backing_file_str = getelementptr inbounds nuw i8, ptr %job, i64 568
   %5 = load ptr, ptr %backing_file_str, align 8
   %tobool12.not = icmp eq ptr %5, null
-  %filename = getelementptr inbounds i8, ptr %call7, i64 49
+  %filename = getelementptr inbounds nuw i8, ptr %call7, i64 49
   %cond = select i1 %tobool12.not, ptr %filename, ptr %5
-  %drv = getelementptr inbounds i8, ptr %call7, i64 16
+  %drv = getelementptr inbounds nuw i8, ptr %call7, i64 16
   %6 = load ptr, ptr %drv, align 8
   %tobool13.not = icmp eq ptr %6, null
   br i1 %tobool13.not, label %if.end17, label %if.then14
@@ -699,7 +699,7 @@ if.end28:                                         ; preds = %bdrv_filter_or_cow_
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @stream_clean(ptr nocapture noundef %job) #0 {
 entry:
-  %cor_filter_bs = getelementptr inbounds i8, ptr %job, i64 544
+  %cor_filter_bs = getelementptr inbounds nuw i8, ptr %job, i64 544
   %0 = load ptr, ptr %cor_filter_bs, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -710,23 +710,23 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %blk = getelementptr inbounds i8, ptr %job, i64 520
+  %blk = getelementptr inbounds nuw i8, ptr %job, i64 520
   %1 = load ptr, ptr %blk, align 8
   tail call void @blk_unref(ptr noundef %1) #5
   store ptr null, ptr %blk, align 8
-  %bs_read_only = getelementptr inbounds i8, ptr %job, i64 576
+  %bs_read_only = getelementptr inbounds nuw i8, ptr %job, i64 576
   %2 = load i8, ptr %bs_read_only, align 8
   %tobool4 = trunc i8 %2 to i1
   br i1 %tobool4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.end
-  %target_bs = getelementptr inbounds i8, ptr %job, i64 552
+  %target_bs = getelementptr inbounds nuw i8, ptr %job, i64 552
   %3 = load ptr, ptr %target_bs, align 8
   %call = tail call i32 @bdrv_reopen_set_read_only(ptr noundef %3, i1 noundef zeroext true, ptr noundef null) #5
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then5, %if.end
-  %backing_file_str = getelementptr inbounds i8, ptr %job, i64 568
+  %backing_file_str = getelementptr inbounds nuw i8, ptr %job, i64 568
   %4 = load ptr, ptr %backing_file_str, align 8
   tail call void @g_free(ptr noundef %4) #5
   ret void

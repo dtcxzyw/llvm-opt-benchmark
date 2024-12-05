@@ -5490,7 +5490,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_114DriverOptTableC2Ev() unnamed_add
   tail call void @_ZN4llvm3opt8OptTableC2ENS_8ArrayRefINS1_4InfoEEEb(ptr noundef nonnull align 8 dereferenceable(88) @_ZZN5clang6driver17getDriverOptTableEvE5Table, ptr nonnull @_ZL9InfoTable, i64 3436, i1 noundef zeroext false) #5
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm3opt19PrecomputedOptTableE, i64 16), ptr @_ZZN5clang6driver17getDriverOptTableEvE5Table, align 8
   store ptr @_ZL16PrefixTable_init, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5clang6driver17getDriverOptTableEvE5Table, i64 88), align 8
-  store i64 3, ptr getelementptr inbounds (i8, ptr @_ZZN5clang6driver17getDriverOptTableEvE5Table, i64 96), align 8
+  store i64 3, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5clang6driver17getDriverOptTableEvE5Table, i64 96), align 8
   tail call void @_ZN4llvm3opt8OptTable16buildPrefixCharsEv(ptr noundef nonnull align 8 dereferenceable(88) @_ZZN5clang6driver17getDriverOptTableEvE5Table) #5
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_114DriverOptTableE, i64 16), ptr @_ZZN5clang6driver17getDriverOptTableEvE5Table, align 8
   ret void
@@ -5512,7 +5512,7 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #1
 define linkonce_odr hidden { ptr, i64 } @_ZNK4llvm3opt19PrecomputedOptTable16getPrefixesUnionEv(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %.sroa.0.0.copyload = load ptr, ptr %2, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 96
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 96
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.copyload, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.2.0.copyload, 1

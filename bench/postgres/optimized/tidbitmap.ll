@@ -24,9 +24,9 @@ define dso_local noundef ptr @tbm_create(i64 noundef %0, ptr noundef %1) local_u
   %3 = tail call noundef ptr @palloc0(i64 noundef 160) #13
   store i32 460, ptr %3, align 4
   %4 = load ptr, ptr @CurrentMemoryContext, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %4, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 0, ptr %6, align 8
   %7 = sitofp i64 %0 to double
   %8 = fmul double %7, 1.562500e-02
@@ -34,13 +34,13 @@ define dso_local noundef ptr @tbm_create(i64 noundef %0, ptr noundef %1) local_u
   %10 = tail call i64 @llvm.smin.i64(i64 %9, i64 2147483646)
   %11 = tail call range(i64 16, 2147483647) i64 @llvm.smax.i64(i64 %10, i64 16)
   %12 = trunc nuw nsw i64 %11 to i32
-  %13 = getelementptr inbounds i8, ptr %3, i64 36
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 36
   store i32 %12, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %3, i64 52
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 52
   store i32 0, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %3, i64 152
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 152
   store ptr %1, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 120
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, i8 0, i64 32, i1 false)
   ret ptr %3
 }
@@ -56,7 +56,7 @@ define dso_local range(i64 16, 2147483647) i64 @tbm_calculate_entries(double nou
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @tbm_free(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %4
@@ -64,19 +64,19 @@ define dso_local void @tbm_free(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr i8, ptr %3, i64 40
   %.val.i = load ptr, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %.val.i, i64 152
+  %6 = getelementptr inbounds nuw i8, ptr %.val.i, i64 152
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %3, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %11 = load ptr, ptr %10, align 8
   tail call void @pfree(ptr noundef %11) #13
   br label %pagetable_destroy.exit
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %.val.i, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %.val.i, i64 128
   %14 = load i64, ptr %13, align 8
   %.not.i.i = icmp eq i64 %14, 0
   br i1 %.not.i.i, label %pagetable_destroy.exit, label %15
@@ -91,7 +91,7 @@ pagetable_destroy.exit:                           ; preds = %9, %12, %15
   br label %16
 
 16:                                               ; preds = %pagetable_destroy.exit, %1
-  %17 = getelementptr inbounds i8, ptr %0, i64 104
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %18 = load ptr, ptr %17, align 8
   %.not9 = icmp eq ptr %18, null
   br i1 %.not9, label %20, label %19
@@ -101,7 +101,7 @@ pagetable_destroy.exit:                           ; preds = %9, %12, %15
   br label %20
 
 20:                                               ; preds = %19, %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 112
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %22 = load ptr, ptr %21, align 8
   %.not10 = icmp eq ptr %22, null
   br i1 %.not10, label %24, label %23
@@ -120,7 +120,7 @@ declare void @pfree(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local void @tbm_free_shared_area(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dsa_get_address(ptr noundef %0, i64 noundef %1) #13
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i64, ptr %4, align 8
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %12, label %6
@@ -137,7 +137,7 @@ define dso_local void @tbm_free_shared_area(ptr noundef %0, i64 noundef %1) loca
   br label %12
 
 12:                                               ; preds = %6, %10, %2
-  %13 = getelementptr inbounds i8, ptr %3, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %14 = load i64, ptr %13, align 8
   %.not23 = icmp eq i64 %14, 0
   br i1 %.not23, label %21, label %15
@@ -154,7 +154,7 @@ define dso_local void @tbm_free_shared_area(ptr noundef %0, i64 noundef %1) loca
   br label %21
 
 21:                                               ; preds = %15, %19, %12
-  %22 = getelementptr inbounds i8, ptr %3, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %23 = load i64, ptr %22, align 8
   %.not24 = icmp eq i64 %23, 0
   br i1 %.not24, label %30, label %24
@@ -186,15 +186,15 @@ define dso_local void @tbm_add_tuples(ptr noundef %0, ptr nocapture noundef read
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = zext i1 %3 to i8
-  %14 = getelementptr inbounds i8, ptr %0, i64 36
-  %15 = getelementptr inbounds i8, ptr %0, i64 52
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %16
 
@@ -250,7 +250,7 @@ define dso_local void @tbm_add_tuples(ptr noundef %0, ptr nocapture noundef read
   %.01214.i.i.i = and i32 %.val.i, %44
   %45 = zext i32 %.01214.i.i.i to i64
   %46 = getelementptr %struct.PagetableEntry, ptr %.val15.i, i64 %45
-  %47 = getelementptr inbounds i8, ptr %46, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 4
   %48 = load i8, ptr %47, align 4
   %49 = icmp eq i8 %48, 0
   br i1 %49, label %pagetable_lookup.exit.thread.i, label %.lr.ph.i.i.i
@@ -260,7 +260,7 @@ define dso_local void @tbm_add_tuples(ptr noundef %0, ptr nocapture noundef read
   %.012.i.i.i = and i32 %51, %.val.i
   %52 = zext i32 %.012.i.i.i to i64
   %53 = getelementptr %struct.PagetableEntry, ptr %.val15.i, i64 %52
-  %54 = getelementptr inbounds i8, ptr %53, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 4
   %55 = load i8, ptr %54, align 4
   %56 = icmp eq i8 %55, 0
   br i1 %56, label %pagetable_lookup.exit.thread.i, label %.lr.ph.i.i.i
@@ -273,7 +273,7 @@ define dso_local void @tbm_add_tuples(ptr noundef %0, ptr nocapture noundef read
   br i1 %59, label %pagetable_lookup.exit.i, label %50
 
 pagetable_lookup.exit.i:                          ; preds = %.lr.ph.i.i.i
-  %60 = getelementptr inbounds i8, ptr %57, i64 5
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 5
   %61 = load i8, ptr %60, align 1
   %62 = trunc i8 %61 to i1
   br i1 %62, label %63, label %pagetable_lookup.exit.thread.i
@@ -282,7 +282,7 @@ pagetable_lookup.exit.i:                          ; preds = %.lr.ph.i.i.i
   %64 = lshr i32 %21, 6
   %65 = and i32 %64, 3
   %66 = and i32 %21, 63
-  %67 = getelementptr inbounds i8, ptr %57, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %68 = zext nneg i32 %65 to i64
   %69 = getelementptr [5 x i64], ptr %67, i64 0, i64 %68
   %70 = load i64, ptr %69, align 8
@@ -322,7 +322,7 @@ pagetable_lookup.exit.thread.i:                   ; preds = %50, %33, %pagetable
 
 83:                                               ; preds = %79, %.thread.i
   %.03741.i = phi ptr [ %10, %.thread.i ], [ %81, %79 ]
-  %84 = getelementptr inbounds i8, ptr %.03741.i, i64 4
+  %84 = getelementptr inbounds nuw i8, ptr %.03741.i, i64 4
   %85 = load i8, ptr %84, align 4
   %86 = ptrtoint ptr %.03741.i to i64
   %87 = and i64 %86, 7
@@ -346,7 +346,7 @@ pagetable_lookup.exit.thread.i:                   ; preds = %50, %33, %pagetable
   br label %.loopexit.i
 
 98:                                               ; preds = %83
-  %99 = getelementptr inbounds i8, ptr %.03741.i, i64 5
+  %99 = getelementptr inbounds nuw i8, ptr %.03741.i, i64 5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %99, i8 0, i64 43, i1 false)
   br label %.loopexit.i
 
@@ -373,7 +373,7 @@ tbm_page_is_lossy.exit:                           ; preds = %tbm_get_pageentry.e
   br i1 %104, label %tbm_lossify.exit, label %105
 
 105:                                              ; preds = %tbm_page_is_lossy.exit
-  %106 = getelementptr inbounds i8, ptr %.133, i64 5
+  %106 = getelementptr inbounds nuw i8, ptr %.133, i64 5
   %107 = load i8, ptr %106, align 1
   %108 = trunc i8 %107 to i1
   %109 = add nsw i32 %24, -1
@@ -384,12 +384,12 @@ tbm_page_is_lossy.exit:                           ; preds = %tbm_get_pageentry.e
   %.030 = select i1 %108, i64 0, i64 %113
   %114 = shl nuw i64 1, %112
   %115 = select i1 %108, i64 1, i64 %114
-  %116 = getelementptr inbounds i8, ptr %.133, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %.133, i64 8
   %117 = getelementptr [5 x i64], ptr %116, i64 0, i64 %.030
   %118 = load i64, ptr %117, align 8
   %119 = or i64 %115, %118
   store i64 %119, ptr %117, align 8
-  %120 = getelementptr inbounds i8, ptr %.133, i64 6
+  %120 = getelementptr inbounds nuw i8, ptr %.133, i64 6
   %121 = load i8, ptr %120, align 2
   %122 = and i8 %121, 1
   %123 = or i8 %122, %13
@@ -413,8 +413,8 @@ tbm_page_is_lossy.exit:                           ; preds = %tbm_get_pageentry.e
   %.pre30.i.ph = phi ptr [ %.pre.pre.i, %..backedge_crit_edge.i ], [ %128, %127 ]
   %.sroa.6.0.i.ph = phi i1 [ %spec.select22.i, %..backedge_crit_edge.i ], [ false, %127 ]
   %.sroa.0.0.i.ph = phi i32 [ %142, %..backedge_crit_edge.i ], [ %131, %127 ]
-  %132 = getelementptr inbounds i8, ptr %.pre30.i.ph, i64 24
-  %133 = getelementptr inbounds i8, ptr %.pre30.i.ph, i64 12
+  %132 = getelementptr inbounds nuw i8, ptr %.pre30.i.ph, i64 24
+  %133 = getelementptr inbounds nuw i8, ptr %.pre30.i.ph, i64 12
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %.backedge.i.backedge, %.backedge.i.outer
@@ -439,7 +439,7 @@ tbm_page_is_lossy.exit:                           ; preds = %tbm_get_pageentry.e
   %144 = and i32 %141, %143
   %145 = icmp eq i32 %144, 0
   %spec.select22.i = select i1 %145, i1 true, i1 %.sroa.6.1.i
-  %146 = getelementptr inbounds i8, ptr %139, i64 4
+  %146 = getelementptr inbounds nuw i8, ptr %139, i64 4
   %147 = load i8, ptr %146, align 4
   %148 = icmp eq i8 %147, 1
   br i1 %148, label %pagetable_iterate.exit.i, label %134, !llvm.loop !5
@@ -449,7 +449,7 @@ pagetable_iterate.exit.i:                         ; preds = %136
   br i1 %.not.i, label %pagetable_iterate.exit.thread.i, label %149
 
 149:                                              ; preds = %pagetable_iterate.exit.i
-  %150 = getelementptr inbounds i8, ptr %139, i64 5
+  %150 = getelementptr inbounds nuw i8, ptr %139, i64 5
   %151 = load i8, ptr %150, align 1
   %152 = trunc i8 %151 to i1
   br i1 %152, label %.backedge.i.backedge, label %153
@@ -513,17 +513,17 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 ; Function Attrs: nounwind uwtable
 define dso_local void @tbm_add_page(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   tail call fastcc void @tbm_mark_page_lossy(ptr noundef %0, i32 noundef %1)
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 36
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %6 = load i32, ptr %5, align 4
   %7 = icmp sgt i32 %4, %6
   br i1 %7, label %8, label %tbm_lossify.exit
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 52
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %12 = load i32, ptr %11, align 4
   %13 = getelementptr i8, ptr %10, i64 12
   %.val.i = load i32, ptr %13, align 4
@@ -536,8 +536,8 @@ define dso_local void @tbm_add_page(ptr noundef %0, i32 noundef %1) local_unname
   %.pre30.i.ph = phi ptr [ %.pre.pre.i, %..backedge_crit_edge.i ], [ %10, %8 ]
   %.sroa.6.0.i.ph = phi i1 [ %spec.select22.i, %..backedge_crit_edge.i ], [ false, %8 ]
   %.sroa.0.0.i.ph = phi i32 [ %25, %..backedge_crit_edge.i ], [ %14, %8 ]
-  %15 = getelementptr inbounds i8, ptr %.pre30.i.ph, i64 24
-  %16 = getelementptr inbounds i8, ptr %.pre30.i.ph, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %.pre30.i.ph, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %.pre30.i.ph, i64 12
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %.backedge.i.backedge, %.backedge.i.outer
@@ -562,7 +562,7 @@ define dso_local void @tbm_add_page(ptr noundef %0, i32 noundef %1) local_unname
   %27 = and i32 %24, %26
   %28 = icmp eq i32 %27, 0
   %spec.select22.i = select i1 %28, i1 true, i1 %.sroa.6.1.i
-  %29 = getelementptr inbounds i8, ptr %22, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %30 = load i8, ptr %29, align 4
   %31 = icmp eq i8 %30, 1
   br i1 %31, label %pagetable_iterate.exit.i, label %17, !llvm.loop !5
@@ -572,7 +572,7 @@ pagetable_iterate.exit.i:                         ; preds = %19
   br i1 %.not.i, label %pagetable_iterate.exit.thread.i, label %32
 
 32:                                               ; preds = %pagetable_iterate.exit.i
-  %33 = getelementptr inbounds i8, ptr %22, i64 5
+  %33 = getelementptr inbounds nuw i8, ptr %22, i64 5
   %34 = load i8, ptr %33, align 1
   %35 = trunc i8 %34 to i1
   br i1 %35, label %.backedge.i.backedge, label %36
@@ -622,7 +622,7 @@ tbm_lossify.exit:                                 ; preds = %49, %pagetable_iter
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @tbm_mark_page_lossy(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca i8, align 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 2
   br i1 %.not, label %7, label %6
@@ -638,7 +638,7 @@ define internal fastcc void @tbm_mark_page_lossy(ptr noundef %0, i32 noundef %1)
   br i1 %.not70, label %pagetable_delete.exit.thread, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = lshr i32 %1, 16
   %14 = xor i32 %13, %1
@@ -650,12 +650,12 @@ define internal fastcc void @tbm_mark_page_lossy(ptr noundef %0, i32 noundef %1)
   %20 = xor i32 %19, %18
   %21 = getelementptr i8, ptr %12, i64 12
   %.val.i = load i32, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %12, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %23 = load ptr, ptr %22, align 8
   %.03247.i = and i32 %.val.i, %20
   %24 = zext i32 %.03247.i to i64
   %25 = getelementptr %struct.PagetableEntry, ptr %23, i64 %24
-  %26 = getelementptr inbounds i8, ptr %25, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %27 = load i8, ptr %26, align 4
   %.not55.i = icmp eq i8 %27, 0
   br i1 %.not55.i, label %pagetable_delete.exit.thread, label %.lr.ph.i
@@ -673,7 +673,7 @@ define internal fastcc void @tbm_mark_page_lossy(ptr noundef %0, i32 noundef %1)
   br i1 %33, label %34, label %64
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %12, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %36 = load i32, ptr %35, align 8
   %37 = add i32 %36, -1
   store i32 %37, ptr %35, align 8
@@ -681,7 +681,7 @@ define internal fastcc void @tbm_mark_page_lossy(ptr noundef %0, i32 noundef %1)
   %39 = and i32 %38, %.val.i
   %40 = zext i32 %39 to i64
   %41 = getelementptr %struct.PagetableEntry, ptr %23, i64 %40
-  %42 = getelementptr inbounds i8, ptr %41, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   %43 = load i8, ptr %42, align 4
   %.not50.i = icmp eq i8 %43, 1
   br i1 %.not50.i, label %.lr.ph53.i, label %.loopexit72
@@ -712,7 +712,7 @@ define internal fastcc void @tbm_mark_page_lossy(ptr noundef %0, i32 noundef %1)
   %59 = load ptr, ptr %22, align 8
   %60 = zext i32 %58 to i64
   %61 = getelementptr %struct.PagetableEntry, ptr %59, i64 %60
-  %62 = getelementptr inbounds i8, ptr %61, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %63 = load i8, ptr %62, align 4
   %.not.i = icmp eq i8 %63, 1
   br i1 %.not.i, label %.lr.ph53.i, label %.loopexit72
@@ -722,27 +722,27 @@ define internal fastcc void @tbm_mark_page_lossy(ptr noundef %0, i32 noundef %1)
   %.032.i = and i32 %65, %.val.i
   %66 = zext i32 %.032.i to i64
   %67 = getelementptr %struct.PagetableEntry, ptr %23, i64 %66
-  %68 = getelementptr inbounds i8, ptr %67, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 4
   %69 = load i8, ptr %68, align 4
   %.not56.i = icmp eq i8 %69, 0
   br i1 %.not56.i, label %pagetable_delete.exit.thread, label %.lr.ph.i
 
 .loopexit72:                                      ; preds = %56, %.lr.ph53.i, %34
   %.033.lcssa.sink.i = phi ptr [ %29, %34 ], [ %.03351.i, %.lr.ph53.i ], [ %44, %56 ]
-  %70 = getelementptr inbounds i8, ptr %.033.lcssa.sink.i, i64 4
+  %70 = getelementptr inbounds nuw i8, ptr %.033.lcssa.sink.i, i64 4
   store i8 0, ptr %70, align 4
-  %71 = getelementptr inbounds i8, ptr %0, i64 32
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %72 = load i32, ptr %71, align 8
   %73 = add i32 %72, -1
   store i32 %73, ptr %71, align 8
-  %74 = getelementptr inbounds i8, ptr %0, i64 40
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %75 = load i32, ptr %74, align 8
   %76 = add i32 %75, -1
   store i32 %76, ptr %74, align 8
   br label %pagetable_delete.exit.thread
 
 pagetable_delete.exit.thread:                     ; preds = %64, %10, %.loopexit72, %7
-  %77 = getelementptr inbounds i8, ptr %0, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %78 = load ptr, ptr %77, align 8
   %79 = call fastcc ptr @pagetable_insert(ptr noundef %78, i32 noundef %9, ptr noundef %3)
   %80 = load i8, ptr %3, align 1
@@ -750,7 +750,7 @@ pagetable_delete.exit.thread:                     ; preds = %64, %10, %.loopexit
   br i1 %81, label %106, label %82
 
 82:                                               ; preds = %pagetable_delete.exit.thread
-  %83 = getelementptr inbounds i8, ptr %79, i64 4
+  %83 = getelementptr inbounds nuw i8, ptr %79, i64 4
   %84 = load i8, ptr %83, align 4
   %85 = ptrtoint ptr %79 to i64
   %86 = and i64 %85, 7
@@ -774,33 +774,33 @@ pagetable_delete.exit.thread:                     ; preds = %64, %10, %.loopexit
   br label %.loopexit71
 
 97:                                               ; preds = %82
-  %98 = getelementptr inbounds i8, ptr %79, i64 6
+  %98 = getelementptr inbounds nuw i8, ptr %79, i64 6
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %98, i8 0, i64 42, i1 false)
   br label %.loopexit71
 
 .loopexit71:                                      ; preds = %.lr.ph.preheader, %88, %97
   store i8 %84, ptr %83, align 4
   store i32 %9, ptr %79, align 8
-  %99 = getelementptr inbounds i8, ptr %79, i64 5
+  %99 = getelementptr inbounds nuw i8, ptr %79, i64 5
   store i8 1, ptr %99, align 1
-  %100 = getelementptr inbounds i8, ptr %0, i64 32
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %101 = load i32, ptr %100, align 8
   %102 = add i32 %101, 1
   store i32 %102, ptr %100, align 8
-  %103 = getelementptr inbounds i8, ptr %0, i64 44
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %104 = load i32, ptr %103, align 4
   %105 = add i32 %104, 1
   store i32 %105, ptr %103, align 4
   br label %134
 
 106:                                              ; preds = %pagetable_delete.exit.thread
-  %107 = getelementptr inbounds i8, ptr %79, i64 5
+  %107 = getelementptr inbounds nuw i8, ptr %79, i64 5
   %108 = load i8, ptr %107, align 1
   %109 = trunc i8 %108 to i1
   br i1 %109, label %134, label %110
 
 110:                                              ; preds = %106
-  %111 = getelementptr inbounds i8, ptr %79, i64 4
+  %111 = getelementptr inbounds nuw i8, ptr %79, i64 4
   %112 = load i8, ptr %111, align 4
   %113 = ptrtoint ptr %79 to i64
   %114 = and i64 %113, 7
@@ -824,7 +824,7 @@ pagetable_delete.exit.thread:                     ; preds = %64, %10, %.loopexit
   br label %.loopexit
 
 125:                                              ; preds = %110
-  %126 = getelementptr inbounds i8, ptr %79, i64 6
+  %126 = getelementptr inbounds nuw i8, ptr %79, i64 6
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %126, i8 0, i64 42, i1 false)
   br label %.loopexit
 
@@ -832,13 +832,13 @@ pagetable_delete.exit.thread:                     ; preds = %64, %10, %.loopexit
   store i8 %112, ptr %111, align 4
   store i32 %9, ptr %79, align 8
   store i8 1, ptr %107, align 1
-  %127 = getelementptr inbounds i8, ptr %79, i64 8
+  %127 = getelementptr inbounds nuw i8, ptr %79, i64 8
   store i64 1, ptr %127, align 8
-  %128 = getelementptr inbounds i8, ptr %0, i64 44
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %129 = load i32, ptr %128, align 4
   %130 = add i32 %129, 1
   store i32 %130, ptr %128, align 4
-  %131 = getelementptr inbounds i8, ptr %0, i64 40
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %132 = load i32, ptr %131, align 8
   %133 = add i32 %132, -1
   store i32 %133, ptr %131, align 8
@@ -849,7 +849,7 @@ pagetable_delete.exit.thread:                     ; preds = %64, %10, %.loopexit
   %136 = and i32 %1, 63
   %137 = zext nneg i32 %136 to i64
   %138 = shl nuw i64 1, %137
-  %139 = getelementptr inbounds i8, ptr %79, i64 8
+  %139 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %140 = zext nneg i32 %135 to i64
   %141 = getelementptr [5 x i64], ptr %139, i64 0, i64 %140
   %142 = load i64, ptr %141, align 8
@@ -860,31 +860,31 @@ pagetable_delete.exit.thread:                     ; preds = %64, %10, %.loopexit
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @tbm_union(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %pagetable_iterate.exit.thread, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 1
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %1, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 56
   tail call fastcc void @tbm_union_page(ptr noundef %0, ptr noundef nonnull %11)
   br label %pagetable_iterate.exit.thread
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %1, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = load i64, ptr %14, align 8
   %.not16.i = icmp eq i64 %15, 0
   br i1 %.not16.i, label %pagetable_start_iterate.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %14, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %17 = load ptr, ptr %16, align 8
   br label %18
 
@@ -910,8 +910,8 @@ pagetable_start_iterate.exit:                     ; preds = %18, %22, %12
   %27 = phi ptr [ %14, %pagetable_start_iterate.exit ], [ %.pre, %45 ]
   %.sroa.5.0 = phi i1 [ false, %pagetable_start_iterate.exit ], [ %spec.select, %45 ]
   %.sroa.0.0 = phi i32 [ %.0.i, %pagetable_start_iterate.exit ], [ %38, %45 ]
-  %28 = getelementptr inbounds i8, ptr %27, i64 24
-  %29 = getelementptr inbounds i8, ptr %27, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 12
   br label %30
 
 30:                                               ; preds = %32, %26
@@ -931,7 +931,7 @@ pagetable_start_iterate.exit:                     ; preds = %18, %22, %12
   %40 = and i32 %37, %39
   %41 = icmp eq i32 %40, 0
   %spec.select = select i1 %41, i1 true, i1 %.sroa.5.1
-  %42 = getelementptr inbounds i8, ptr %35, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %43 = load i8, ptr %42, align 4
   %44 = icmp eq i8 %43, 1
   br i1 %44, label %pagetable_iterate.exit, label %30, !llvm.loop !5
@@ -952,13 +952,13 @@ pagetable_iterate.exit.thread:                    ; preds = %pagetable_iterate.e
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @tbm_union_page(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = alloca i8, align 1
-  %4 = getelementptr inbounds i8, ptr %1, i64 5
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %5 = load i8, ptr %4, align 1
   %6 = trunc i8 %5 to i1
   br i1 %6, label %.preheader, label %21
 
 .preheader:                                       ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %8
 
 8:                                                ; preds = %.preheader, %.loopexit
@@ -999,14 +999,14 @@ define internal fastcc void @tbm_union_page(ptr noundef %0, ptr nocapture nounde
 
 21:                                               ; preds = %2
   %22 = load i32, ptr %1, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 44
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %24 = load i32, ptr %23, align 4
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %pagetable_lookup.exit.thread.i, label %26
 
 26:                                               ; preds = %21
   %27 = and i32 %22, -256
-  %28 = getelementptr inbounds i8, ptr %0, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr i8, ptr %29, i64 12
   %.val.i = load i32, ptr %30, align 4
@@ -1023,7 +1023,7 @@ define internal fastcc void @tbm_union_page(ptr noundef %0, ptr nocapture nounde
   %.01214.i.i.i = and i32 %.val.i, %39
   %40 = zext i32 %.01214.i.i.i to i64
   %41 = getelementptr %struct.PagetableEntry, ptr %.val15.i, i64 %40
-  %42 = getelementptr inbounds i8, ptr %41, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   %43 = load i8, ptr %42, align 4
   %44 = icmp eq i8 %43, 0
   br i1 %44, label %pagetable_lookup.exit.thread.i, label %.lr.ph.i.i.i
@@ -1033,7 +1033,7 @@ define internal fastcc void @tbm_union_page(ptr noundef %0, ptr nocapture nounde
   %.012.i.i.i = and i32 %46, %.val.i
   %47 = zext i32 %.012.i.i.i to i64
   %48 = getelementptr %struct.PagetableEntry, ptr %.val15.i, i64 %47
-  %49 = getelementptr inbounds i8, ptr %48, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %50 = load i8, ptr %49, align 4
   %51 = icmp eq i8 %50, 0
   br i1 %51, label %pagetable_lookup.exit.thread.i, label %.lr.ph.i.i.i
@@ -1046,7 +1046,7 @@ define internal fastcc void @tbm_union_page(ptr noundef %0, ptr nocapture nounde
   br i1 %54, label %pagetable_lookup.exit.i, label %45
 
 pagetable_lookup.exit.i:                          ; preds = %.lr.ph.i.i.i
-  %55 = getelementptr inbounds i8, ptr %52, i64 5
+  %55 = getelementptr inbounds nuw i8, ptr %52, i64 5
   %56 = load i8, ptr %55, align 1
   %57 = trunc i8 %56 to i1
   br i1 %57, label %58, label %pagetable_lookup.exit.thread.i
@@ -1055,7 +1055,7 @@ pagetable_lookup.exit.i:                          ; preds = %.lr.ph.i.i.i
   %59 = lshr i32 %22, 6
   %60 = and i32 %59, 3
   %61 = and i32 %22, 63
-  %62 = getelementptr inbounds i8, ptr %52, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %63 = zext nneg i32 %60 to i64
   %64 = getelementptr [5 x i64], ptr %62, i64 0, i64 %63
   %65 = load i64, ptr %64, align 8
@@ -1067,7 +1067,7 @@ pagetable_lookup.exit.i:                          ; preds = %.lr.ph.i.i.i
 
 pagetable_lookup.exit.thread.i:                   ; preds = %45, %26, %pagetable_lookup.exit.i, %58, %21
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  %69 = getelementptr inbounds i8, ptr %0, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %70 = load i32, ptr %69, align 8
   switch i32 %70, label %77 [
     i32 0, label %.thread.i
@@ -1075,12 +1075,12 @@ pagetable_lookup.exit.thread.i:                   ; preds = %45, %26, %pagetable
   ]
 
 .thread.i:                                        ; preds = %pagetable_lookup.exit.thread.i
-  %71 = getelementptr inbounds i8, ptr %0, i64 56
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 1, ptr %69, align 8
   br label %82
 
 72:                                               ; preds = %pagetable_lookup.exit.thread.i
-  %73 = getelementptr inbounds i8, ptr %0, i64 56
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %74 = load i32, ptr %73, align 8
   %75 = icmp eq i32 %74, %22
   br i1 %75, label %tbm_get_pageentry.exit, label %76
@@ -1090,7 +1090,7 @@ pagetable_lookup.exit.thread.i:                   ; preds = %45, %26, %pagetable
   br label %77
 
 77:                                               ; preds = %76, %pagetable_lookup.exit.thread.i
-  %78 = getelementptr inbounds i8, ptr %0, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %79 = load ptr, ptr %78, align 8
   %80 = call fastcc ptr @pagetable_insert(ptr noundef %79, i32 noundef %22, ptr noundef %3)
   %.pre.i = load i8, ptr %3, align 1
@@ -1099,7 +1099,7 @@ pagetable_lookup.exit.thread.i:                   ; preds = %45, %26, %pagetable
 
 82:                                               ; preds = %77, %.thread.i
   %.03741.i = phi ptr [ %71, %.thread.i ], [ %80, %77 ]
-  %83 = getelementptr inbounds i8, ptr %.03741.i, i64 4
+  %83 = getelementptr inbounds nuw i8, ptr %.03741.i, i64 4
   %84 = load i8, ptr %83, align 4
   %85 = ptrtoint ptr %.03741.i to i64
   %86 = and i64 %85, 7
@@ -1123,18 +1123,18 @@ pagetable_lookup.exit.thread.i:                   ; preds = %45, %26, %pagetable
   br label %.loopexit.i
 
 97:                                               ; preds = %82
-  %98 = getelementptr inbounds i8, ptr %.03741.i, i64 5
+  %98 = getelementptr inbounds nuw i8, ptr %.03741.i, i64 5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %98, i8 0, i64 43, i1 false)
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %97, %.lr.ph.preheader.i, %88
   store i8 %84, ptr %83, align 4
   store i32 %22, ptr %.03741.i, align 8
-  %99 = getelementptr inbounds i8, ptr %0, i64 32
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %100 = load i32, ptr %99, align 8
   %101 = add i32 %100, 1
   store i32 %101, ptr %99, align 8
-  %102 = getelementptr inbounds i8, ptr %0, i64 40
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %103 = load i32, ptr %102, align 8
   %104 = add i32 %103, 1
   store i32 %104, ptr %102, align 8
@@ -1143,18 +1143,18 @@ pagetable_lookup.exit.thread.i:                   ; preds = %45, %26, %pagetable
 tbm_get_pageentry.exit:                           ; preds = %72, %77, %.loopexit.i
   %.0.i35 = phi ptr [ %73, %72 ], [ %.03741.i, %.loopexit.i ], [ %80, %77 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  %105 = getelementptr inbounds i8, ptr %.0.i35, i64 5
+  %105 = getelementptr inbounds nuw i8, ptr %.0.i35, i64 5
   %106 = load i8, ptr %105, align 1
   %107 = trunc i8 %106 to i1
   br i1 %107, label %110, label %.preheader41
 
 .preheader41:                                     ; preds = %tbm_get_pageentry.exit
-  %108 = getelementptr inbounds i8, ptr %1, i64 8
-  %109 = getelementptr inbounds i8, ptr %.0.i35, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %.0.i35, i64 8
   br label %114
 
 110:                                              ; preds = %tbm_get_pageentry.exit
-  %111 = getelementptr inbounds i8, ptr %.0.i35, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %.0.i35, i64 8
   %112 = load i64, ptr %111, align 8
   %113 = or i64 %112, 1
   store i64 %113, ptr %111, align 8
@@ -1173,9 +1173,9 @@ tbm_get_pageentry.exit:                           ; preds = %72, %77, %.loopexit
   br i1 %exitcond.not, label %120, label %114, !llvm.loop !13
 
 120:                                              ; preds = %114
-  %121 = getelementptr inbounds i8, ptr %1, i64 6
+  %121 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %122 = load i8, ptr %121, align 2
-  %123 = getelementptr inbounds i8, ptr %.0.i35, i64 6
+  %123 = getelementptr inbounds nuw i8, ptr %.0.i35, i64 6
   %124 = load i8, ptr %123, align 2
   %125 = or i8 %124, %122
   %126 = and i8 %125, 1
@@ -1183,17 +1183,17 @@ tbm_get_pageentry.exit:                           ; preds = %72, %77, %.loopexit
   br label %.loopexit40
 
 .loopexit40:                                      ; preds = %.loopexit, %120, %110
-  %127 = getelementptr inbounds i8, ptr %0, i64 32
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %128 = load i32, ptr %127, align 8
-  %129 = getelementptr inbounds i8, ptr %0, i64 36
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %130 = load i32, ptr %129, align 4
   %131 = icmp sgt i32 %128, %130
   br i1 %131, label %132, label %tbm_page_is_lossy.exit
 
 132:                                              ; preds = %.loopexit40
-  %133 = getelementptr inbounds i8, ptr %0, i64 24
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %134 = load ptr, ptr %133, align 8
-  %135 = getelementptr inbounds i8, ptr %0, i64 52
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %136 = load i32, ptr %135, align 4
   %137 = getelementptr i8, ptr %134, i64 12
   %.val.i36 = load i32, ptr %137, align 4
@@ -1206,8 +1206,8 @@ tbm_get_pageentry.exit:                           ; preds = %72, %77, %.loopexit
   %.pre30.i.ph = phi ptr [ %.pre.pre.i, %..backedge_crit_edge.i ], [ %134, %132 ]
   %.sroa.6.0.i.ph = phi i1 [ %spec.select22.i, %..backedge_crit_edge.i ], [ false, %132 ]
   %.sroa.0.0.i.ph = phi i32 [ %149, %..backedge_crit_edge.i ], [ %138, %132 ]
-  %139 = getelementptr inbounds i8, ptr %.pre30.i.ph, i64 24
-  %140 = getelementptr inbounds i8, ptr %.pre30.i.ph, i64 12
+  %139 = getelementptr inbounds nuw i8, ptr %.pre30.i.ph, i64 24
+  %140 = getelementptr inbounds nuw i8, ptr %.pre30.i.ph, i64 12
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %.backedge.i.backedge, %.backedge.i.outer
@@ -1232,7 +1232,7 @@ tbm_get_pageentry.exit:                           ; preds = %72, %77, %.loopexit
   %151 = and i32 %148, %150
   %152 = icmp eq i32 %151, 0
   %spec.select22.i = select i1 %152, i1 true, i1 %.sroa.6.1.i
-  %153 = getelementptr inbounds i8, ptr %146, i64 4
+  %153 = getelementptr inbounds nuw i8, ptr %146, i64 4
   %154 = load i8, ptr %153, align 4
   %155 = icmp eq i8 %154, 1
   br i1 %155, label %pagetable_iterate.exit.i, label %141, !llvm.loop !5
@@ -1242,7 +1242,7 @@ pagetable_iterate.exit.i:                         ; preds = %143
   br i1 %.not.i, label %pagetable_iterate.exit.thread.i, label %156
 
 156:                                              ; preds = %pagetable_iterate.exit.i
-  %157 = getelementptr inbounds i8, ptr %146, i64 5
+  %157 = getelementptr inbounds nuw i8, ptr %146, i64 5
   %158 = load i8, ptr %157, align 1
   %159 = trunc i8 %158 to i1
   br i1 %159, label %.backedge.i.backedge, label %160
@@ -1291,24 +1291,24 @@ tbm_page_is_lossy.exit:                           ; preds = %173, %pagetable_ite
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @tbm_intersect(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %pagetable_iterate.exit.thread, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 1
   br i1 %9, label %10, label %19
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = tail call fastcc zeroext i1 @tbm_intersect_page(ptr noundef nonnull %11, ptr noundef %1)
   br i1 %12, label %13, label %pagetable_iterate.exit.thread
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load i32, ptr %14, align 8
   %16 = add i32 %15, -1
   store i32 %16, ptr %14, align 8
@@ -1319,14 +1319,14 @@ define dso_local void @tbm_intersect(ptr nocapture noundef %0, ptr nocapture nou
   br label %pagetable_iterate.exit.thread
 
 19:                                               ; preds = %6
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = load i64, ptr %21, align 8
   %.not16.i = icmp eq i64 %22, 0
   br i1 %.not16.i, label %pagetable_start_iterate.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %21, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %24 = load ptr, ptr %23, align 8
   br label %25
 
@@ -1346,16 +1346,16 @@ define dso_local void @tbm_intersect(ptr nocapture noundef %0, ptr nocapture nou
 
 pagetable_start_iterate.exit:                     ; preds = %25, %29, %19
   %.0.i = phi i32 [ -1, %19 ], [ -1, %29 ], [ %.01113.i, %25 ]
-  %33 = getelementptr inbounds i8, ptr %0, i64 40
-  %34 = getelementptr inbounds i8, ptr %0, i64 44
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 44
   br label %35
 
 35:                                               ; preds = %131, %pagetable_start_iterate.exit
   %36 = phi ptr [ %21, %pagetable_start_iterate.exit ], [ %.pre, %131 ]
   %.sroa.5.0 = phi i1 [ false, %pagetable_start_iterate.exit ], [ %spec.select, %131 ]
   %.sroa.0.0 = phi i32 [ %.0.i, %pagetable_start_iterate.exit ], [ %47, %131 ]
-  %37 = getelementptr inbounds i8, ptr %36, i64 24
-  %38 = getelementptr inbounds i8, ptr %36, i64 12
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 12
   br label %39
 
 39:                                               ; preds = %41, %35
@@ -1375,7 +1375,7 @@ pagetable_start_iterate.exit:                     ; preds = %25, %29, %19
   %49 = and i32 %46, %48
   %50 = icmp eq i32 %49, 0
   %spec.select = select i1 %50, i1 true, i1 %.sroa.5.1
-  %51 = getelementptr inbounds i8, ptr %44, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %52 = load i8, ptr %51, align 4
   %53 = icmp eq i8 %52, 1
   br i1 %53, label %pagetable_iterate.exit, label %39, !llvm.loop !5
@@ -1389,7 +1389,7 @@ pagetable_iterate.exit:                           ; preds = %41
   br i1 %55, label %56, label %131
 
 56:                                               ; preds = %54
-  %57 = getelementptr inbounds i8, ptr %44, i64 5
+  %57 = getelementptr inbounds nuw i8, ptr %44, i64 5
   %58 = load i8, ptr %57, align 1
   %59 = trunc i8 %58 to i1
   br i1 %59, label %60, label %63
@@ -1422,12 +1422,12 @@ pagetable_iterate.exit:                           ; preds = %41
   %78 = xor i32 %77, %76
   %79 = getelementptr i8, ptr %69, i64 12
   %.val.i = load i32, ptr %79, align 4
-  %80 = getelementptr inbounds i8, ptr %69, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %69, i64 24
   %81 = load ptr, ptr %80, align 8
   %.03247.i = and i32 %78, %.val.i
   %82 = zext i32 %.03247.i to i64
   %83 = getelementptr %struct.PagetableEntry, ptr %81, i64 %82
-  %84 = getelementptr inbounds i8, ptr %83, i64 4
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 4
   %85 = load i8, ptr %84, align 4
   %.not55.i = icmp eq i8 %85, 0
   br i1 %.not55.i, label %.loopexit, label %.lr.ph.i20
@@ -1445,7 +1445,7 @@ pagetable_iterate.exit:                           ; preds = %41
   br i1 %91, label %92, label %122
 
 92:                                               ; preds = %89
-  %93 = getelementptr inbounds i8, ptr %69, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %94 = load i32, ptr %93, align 8
   %95 = add i32 %94, -1
   store i32 %95, ptr %93, align 8
@@ -1453,7 +1453,7 @@ pagetable_iterate.exit:                           ; preds = %41
   %97 = and i32 %96, %.val.i
   %98 = zext i32 %97 to i64
   %99 = getelementptr %struct.PagetableEntry, ptr %81, i64 %98
-  %100 = getelementptr inbounds i8, ptr %99, i64 4
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 4
   %101 = load i8, ptr %100, align 4
   %.not50.i = icmp eq i8 %101, 1
   br i1 %.not50.i, label %.lr.ph53.i, label %pagetable_delete.exit
@@ -1484,7 +1484,7 @@ pagetable_iterate.exit:                           ; preds = %41
   %117 = load ptr, ptr %80, align 8
   %118 = zext i32 %116 to i64
   %119 = getelementptr %struct.PagetableEntry, ptr %117, i64 %118
-  %120 = getelementptr inbounds i8, ptr %119, i64 4
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 4
   %121 = load i8, ptr %120, align 4
   %.not.i21 = icmp eq i8 %121, 1
   br i1 %.not.i21, label %.lr.ph53.i, label %pagetable_delete.exit
@@ -1494,14 +1494,14 @@ pagetable_iterate.exit:                           ; preds = %41
   %.032.i = and i32 %123, %.val.i
   %124 = zext i32 %.032.i to i64
   %125 = getelementptr %struct.PagetableEntry, ptr %81, i64 %124
-  %126 = getelementptr inbounds i8, ptr %125, i64 4
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 4
   %127 = load i8, ptr %126, align 4
   %.not56.i = icmp eq i8 %127, 0
   br i1 %.not56.i, label %.loopexit, label %.lr.ph.i20
 
 pagetable_delete.exit:                            ; preds = %.lr.ph53.i, %114, %92
   %.033.lcssa.sink.i = phi ptr [ %87, %92 ], [ %.03351.i, %.lr.ph53.i ], [ %102, %114 ]
-  %128 = getelementptr inbounds i8, ptr %.033.lcssa.sink.i, i64 4
+  %128 = getelementptr inbounds nuw i8, ptr %.033.lcssa.sink.i, i64 4
   store i8 0, ptr %128, align 4
   br label %131
 
@@ -1522,18 +1522,18 @@ pagetable_iterate.exit.thread:                    ; preds = %pagetable_iterate.e
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc zeroext i1 @tbm_intersect_page(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 5
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %4 = load i8, ptr %3, align 1
   %5 = trunc i8 %4 to i1
-  %6 = getelementptr inbounds i8, ptr %1, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 44
   br i1 %5, label %.preheader, label %110
 
 .preheader:                                       ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
-  %11 = getelementptr inbounds i8, ptr %1, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 56
   br label %12
 
 12:                                               ; preds = %.preheader, %109
@@ -1583,7 +1583,7 @@ define internal fastcc zeroext i1 @tbm_intersect_page(ptr nocapture noundef %0, 
   %.01214.i.i.i = and i32 %.val.i, %36
   %37 = zext i32 %.01214.i.i.i to i64
   %38 = getelementptr %struct.PagetableEntry, ptr %.val15.i, i64 %37
-  %39 = getelementptr inbounds i8, ptr %38, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %40 = load i8, ptr %39, align 4
   %41 = icmp eq i8 %40, 0
   br i1 %41, label %pagetable_lookup.exit.thread.i, label %.lr.ph.i.i.i
@@ -1593,7 +1593,7 @@ define internal fastcc zeroext i1 @tbm_intersect_page(ptr nocapture noundef %0, 
   %.012.i.i.i = and i32 %43, %.val.i
   %44 = zext i32 %.012.i.i.i to i64
   %45 = getelementptr %struct.PagetableEntry, ptr %.val15.i, i64 %44
-  %46 = getelementptr inbounds i8, ptr %45, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %47 = load i8, ptr %46, align 4
   %48 = icmp eq i8 %47, 0
   br i1 %48, label %pagetable_lookup.exit.thread.i, label %.lr.ph.i.i.i
@@ -1606,7 +1606,7 @@ define internal fastcc zeroext i1 @tbm_intersect_page(ptr nocapture noundef %0, 
   br i1 %51, label %pagetable_lookup.exit.i, label %42
 
 pagetable_lookup.exit.i:                          ; preds = %.lr.ph.i.i.i
-  %52 = getelementptr inbounds i8, ptr %49, i64 5
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 5
   %53 = load i8, ptr %52, align 1
   %54 = trunc i8 %53 to i1
   br i1 %54, label %55, label %pagetable_lookup.exit.thread.i
@@ -1615,7 +1615,7 @@ pagetable_lookup.exit.i:                          ; preds = %.lr.ph.i.i.i
   %56 = lshr i32 %.04321, 6
   %57 = and i32 %56, 3
   %58 = and i32 %.04321, 63
-  %59 = getelementptr inbounds i8, ptr %49, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %60 = zext nneg i32 %57 to i64
   %61 = getelementptr [5 x i64], ptr %59, i64 0, i64 %60
   %62 = load i64, ptr %61, align 8
@@ -1657,7 +1657,7 @@ pagetable_lookup.exit.thread.i:                   ; preds = %42, %24, %pagetable
   %.01214.i.i.i61 = and i32 %.val.i60, %84
   %85 = zext i32 %.01214.i.i.i61 to i64
   %86 = getelementptr %struct.PagetableEntry, ptr %.val13.i, i64 %85
-  %87 = getelementptr inbounds i8, ptr %86, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 4
   %88 = load i8, ptr %87, align 4
   %89 = icmp eq i8 %88, 0
   br i1 %89, label %select.unfold2, label %.lr.ph.i.i.i62
@@ -1667,7 +1667,7 @@ pagetable_lookup.exit.thread.i:                   ; preds = %42, %24, %pagetable
   %.012.i.i.i64 = and i32 %91, %.val.i60
   %92 = zext i32 %.012.i.i.i64 to i64
   %93 = getelementptr %struct.PagetableEntry, ptr %.val13.i, i64 %92
-  %94 = getelementptr inbounds i8, ptr %93, i64 4
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 4
   %95 = load i8, ptr %94, align 4
   %96 = icmp eq i8 %95, 0
   br i1 %96, label %select.unfold2, label %.lr.ph.i.i.i62
@@ -1680,7 +1680,7 @@ pagetable_lookup.exit.thread.i:                   ; preds = %42, %24, %pagetable
   br i1 %99, label %pagetable_lookup.exit.i67, label %90
 
 pagetable_lookup.exit.i67:                        ; preds = %.lr.ph.i.i.i62
-  %100 = getelementptr inbounds i8, ptr %97, i64 5
+  %100 = getelementptr inbounds nuw i8, ptr %97, i64 5
   %101 = load i8, ptr %100, align 1
   %102 = trunc i8 %101 to i1
   br i1 %102, label %select.unfold2, label %tbm_page_is_lossy.exit
@@ -1719,7 +1719,7 @@ tbm_page_is_lossy.exit:                           ; preds = %71, %pagetable_look
 
 114:                                              ; preds = %110
   %115 = and i32 %111, -256
-  %116 = getelementptr inbounds i8, ptr %1, i64 24
+  %116 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %117 = load ptr, ptr %116, align 8
   %118 = getelementptr i8, ptr %117, i64 12
   %.val.i68 = load i32, ptr %118, align 4
@@ -1736,7 +1736,7 @@ tbm_page_is_lossy.exit:                           ; preds = %71, %pagetable_look
   %.01214.i.i.i70 = and i32 %.val.i68, %127
   %128 = zext i32 %.01214.i.i.i70 to i64
   %129 = getelementptr %struct.PagetableEntry, ptr %.val15.i69, i64 %128
-  %130 = getelementptr inbounds i8, ptr %129, i64 4
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 4
   %131 = load i8, ptr %130, align 4
   %132 = icmp eq i8 %131, 0
   br i1 %132, label %pagetable_lookup.exit.thread.i74, label %.lr.ph.i.i.i71
@@ -1746,7 +1746,7 @@ tbm_page_is_lossy.exit:                           ; preds = %71, %pagetable_look
   %.012.i.i.i73 = and i32 %134, %.val.i68
   %135 = zext i32 %.012.i.i.i73 to i64
   %136 = getelementptr %struct.PagetableEntry, ptr %.val15.i69, i64 %135
-  %137 = getelementptr inbounds i8, ptr %136, i64 4
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 4
   %138 = load i8, ptr %137, align 4
   %139 = icmp eq i8 %138, 0
   br i1 %139, label %pagetable_lookup.exit.thread.i74, label %.lr.ph.i.i.i71
@@ -1759,7 +1759,7 @@ tbm_page_is_lossy.exit:                           ; preds = %71, %pagetable_look
   br i1 %142, label %pagetable_lookup.exit.i76, label %133
 
 pagetable_lookup.exit.i76:                        ; preds = %.lr.ph.i.i.i71
-  %143 = getelementptr inbounds i8, ptr %140, i64 5
+  %143 = getelementptr inbounds nuw i8, ptr %140, i64 5
   %144 = load i8, ptr %143, align 1
   %145 = trunc i8 %144 to i1
   br i1 %145, label %146, label %pagetable_lookup.exit.thread.i74
@@ -1768,7 +1768,7 @@ pagetable_lookup.exit.i76:                        ; preds = %.lr.ph.i.i.i71
   %147 = lshr i32 %111, 6
   %148 = and i32 %147, 3
   %149 = and i32 %111, 63
-  %150 = getelementptr inbounds i8, ptr %140, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %140, i64 8
   %151 = zext nneg i32 %148 to i64
   %152 = getelementptr [5 x i64], ptr %150, i64 0, i64 %151
   %153 = load i64, ptr %152, align 8
@@ -1779,30 +1779,30 @@ pagetable_lookup.exit.i76:                        ; preds = %.lr.ph.i.i.i71
   br i1 %.not14.i77, label %pagetable_lookup.exit.thread.i74, label %tbm_page_is_lossy.exit78
 
 tbm_page_is_lossy.exit78:                         ; preds = %146
-  %157 = getelementptr inbounds i8, ptr %0, i64 6
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 6
   store i8 1, ptr %157, align 2
   br label %tbm_find_pageentry.exit91.thread
 
 pagetable_lookup.exit.thread.i74:                 ; preds = %133, %114, %pagetable_lookup.exit.i76, %146, %110
-  %158 = getelementptr inbounds i8, ptr %1, i64 32
+  %158 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %159 = load i32, ptr %158, align 8
   %160 = icmp eq i32 %159, 0
   br i1 %160, label %tbm_find_pageentry.exit91.thread, label %161
 
 161:                                              ; preds = %pagetable_lookup.exit.thread.i74
-  %162 = getelementptr inbounds i8, ptr %1, i64 16
+  %162 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %163 = load i32, ptr %162, align 8
   %164 = icmp eq i32 %163, 1
   br i1 %164, label %165, label %168
 
 165:                                              ; preds = %161
-  %166 = getelementptr inbounds i8, ptr %1, i64 56
+  %166 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %167 = load i32, ptr %166, align 8
   %.not.i89 = icmp eq i32 %167, %111
   br i1 %.not.i89, label %tbm_find_pageentry.exit91, label %tbm_find_pageentry.exit91.thread
 
 168:                                              ; preds = %161
-  %169 = getelementptr inbounds i8, ptr %1, i64 24
+  %169 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %170 = load ptr, ptr %169, align 8
   %171 = getelementptr i8, ptr %170, i64 12
   %.val.i79 = load i32, ptr %171, align 4
@@ -1819,7 +1819,7 @@ pagetable_lookup.exit.thread.i74:                 ; preds = %133, %114, %pagetab
   %.01214.i.i.i81 = and i32 %.val.i79, %180
   %181 = zext i32 %.01214.i.i.i81 to i64
   %182 = getelementptr %struct.PagetableEntry, ptr %.val13.i80, i64 %181
-  %183 = getelementptr inbounds i8, ptr %182, i64 4
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 4
   %184 = load i8, ptr %183, align 4
   %185 = icmp eq i8 %184, 0
   br i1 %185, label %tbm_find_pageentry.exit91.thread, label %.lr.ph.i.i.i82
@@ -1829,7 +1829,7 @@ pagetable_lookup.exit.thread.i74:                 ; preds = %133, %114, %pagetab
   %.012.i.i.i84 = and i32 %187, %.val.i79
   %188 = zext i32 %.012.i.i.i84 to i64
   %189 = getelementptr %struct.PagetableEntry, ptr %.val13.i80, i64 %188
-  %190 = getelementptr inbounds i8, ptr %189, i64 4
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 4
   %191 = load i8, ptr %190, align 4
   %192 = icmp eq i8 %191, 0
   br i1 %192, label %tbm_find_pageentry.exit91.thread, label %.lr.ph.i.i.i82
@@ -1842,15 +1842,15 @@ pagetable_lookup.exit.thread.i74:                 ; preds = %133, %114, %pagetab
   br i1 %195, label %pagetable_lookup.exit.i87, label %186
 
 pagetable_lookup.exit.i87:                        ; preds = %.lr.ph.i.i.i82
-  %196 = getelementptr inbounds i8, ptr %193, i64 5
+  %196 = getelementptr inbounds nuw i8, ptr %193, i64 5
   %197 = load i8, ptr %196, align 1
   %198 = trunc i8 %197 to i1
   br i1 %198, label %tbm_find_pageentry.exit91.thread, label %tbm_find_pageentry.exit91
 
 tbm_find_pageentry.exit91:                        ; preds = %165, %pagetable_lookup.exit.i87
   %.0.i86 = phi ptr [ %193, %pagetable_lookup.exit.i87 ], [ %166, %165 ]
-  %199 = getelementptr inbounds i8, ptr %.0.i86, i64 8
-  %200 = getelementptr inbounds i8, ptr %0, i64 8
+  %199 = getelementptr inbounds nuw i8, ptr %.0.i86, i64 8
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %201
 
 201:                                              ; preds = %tbm_find_pageentry.exit91, %201
@@ -1869,9 +1869,9 @@ tbm_find_pageentry.exit91:                        ; preds = %165, %pagetable_loo
   br i1 %exitcond.not, label %207, label %201, !llvm.loop !17
 
 207:                                              ; preds = %201
-  %208 = getelementptr inbounds i8, ptr %.0.i86, i64 6
+  %208 = getelementptr inbounds nuw i8, ptr %.0.i86, i64 6
   %209 = load i8, ptr %208, align 2
-  %210 = getelementptr inbounds i8, ptr %0, i64 6
+  %210 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %211 = load i8, ptr %210, align 2
   %212 = or i8 %211, %209
   %213 = and i8 %212, 1
@@ -1885,7 +1885,7 @@ tbm_find_pageentry.exit91.thread:                 ; preds = %186, %109, %pagetab
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local zeroext i1 @tbm_is_empty(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
   ret i1 %4
@@ -1895,37 +1895,37 @@ define dso_local zeroext i1 @tbm_is_empty(ptr nocapture noundef readonly %0) loc
 define dso_local noundef ptr @tbm_begin_iterate(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @palloc(i64 noundef 614) #13
   store ptr %0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 0, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 2
   br i1 %8, label %9, label %92
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %92
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 104
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %15 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %16, label %26
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load i32, ptr %17, align 8
   %19 = icmp sgt i32 %18, 0
   br i1 %19, label %20, label %26
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = zext nneg i32 %18 to i64
   %24 = shl nuw nsw i64 %23, 3
@@ -1934,19 +1934,19 @@ define dso_local noundef ptr @tbm_begin_iterate(ptr noundef %0) local_unnamed_ad
   br label %26
 
 26:                                               ; preds = %20, %16, %13
-  %27 = getelementptr inbounds i8, ptr %0, i64 112
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %28 = load ptr, ptr %27, align 8
   %.not38 = icmp eq ptr %28, null
   br i1 %.not38, label %29, label %39
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %0, i64 44
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %31 = load i32, ptr %30, align 4
   %32 = icmp sgt i32 %31, 0
   br i1 %32, label %33, label %39
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = zext nneg i32 %31 to i64
   %37 = shl nuw nsw i64 %36, 3
@@ -1955,14 +1955,14 @@ define dso_local noundef ptr @tbm_begin_iterate(ptr noundef %0) local_unnamed_ad
   br label %39
 
 39:                                               ; preds = %33, %29, %26
-  %40 = getelementptr inbounds i8, ptr %0, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %41 = load ptr, ptr %40, align 8
   %42 = load i64, ptr %41, align 8
   %.not16.i = icmp eq i64 %42, 0
   br i1 %.not16.i, label %pagetable_start_iterate.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %39
-  %43 = getelementptr inbounds i8, ptr %41, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %44 = load ptr, ptr %43, align 8
   br label %45
 
@@ -1990,8 +1990,8 @@ pagetable_start_iterate.exit:                     ; preds = %45, %49, %39
   %.sroa.0.0 = phi i32 [ %.0.i, %pagetable_start_iterate.exit ], [ %65, %80 ]
   %.033 = phi i32 [ 0, %pagetable_start_iterate.exit ], [ %.134, %80 ]
   %.0 = phi i32 [ 0, %pagetable_start_iterate.exit ], [ %.1, %80 ]
-  %55 = getelementptr inbounds i8, ptr %54, i64 24
-  %56 = getelementptr inbounds i8, ptr %54, i64 12
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 12
   br label %57
 
 57:                                               ; preds = %59, %53
@@ -2011,7 +2011,7 @@ pagetable_start_iterate.exit:                     ; preds = %45, %49, %39
   %67 = and i32 %64, %66
   %68 = icmp eq i32 %67, 0
   %spec.select = select i1 %68, i1 true, i1 %.sroa.5.1
-  %69 = getelementptr inbounds i8, ptr %62, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %62, i64 4
   %70 = load i8, ptr %69, align 4
   %71 = icmp eq i8 %70, 1
   br i1 %71, label %pagetable_iterate.exit, label %57, !llvm.loop !5
@@ -2021,7 +2021,7 @@ pagetable_iterate.exit:                           ; preds = %59
   br i1 %.not39, label %pagetable_iterate.exit.thread, label %72
 
 72:                                               ; preds = %pagetable_iterate.exit
-  %73 = getelementptr inbounds i8, ptr %62, i64 5
+  %73 = getelementptr inbounds nuw i8, ptr %62, i64 5
   %74 = load i8, ptr %73, align 1
   %75 = trunc i8 %74 to i1
   br i1 %75, label %76, label %78
@@ -2067,7 +2067,7 @@ pagetable_iterate.exit.thread:                    ; preds = %pagetable_iterate.e
   br label %92
 
 92:                                               ; preds = %87, %89, %9, %1
-  %93 = getelementptr inbounds i8, ptr %0, i64 48
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 1, ptr %93, align 8
   ret ptr %2
 }
@@ -2090,18 +2090,18 @@ define internal range(i32 -1, 2) i32 @tbm_comparator(ptr nocapture noundef reado
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @tbm_prepare_shared_iterate(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 152
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i64 @dsa_allocate_extended(ptr noundef %3, i64 noundef 72, i32 noundef 4) #13
   %5 = load ptr, ptr %2, align 8
   %6 = tail call ptr @dsa_get_address(ptr noundef %5, i64 noundef %4) #13
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %.thread126
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load i32, ptr %11, align 8
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %22, label %13
@@ -2112,7 +2112,7 @@ define dso_local noundef i64 @tbm_prepare_shared_iterate(ptr nocapture noundef %
   %16 = shl nsw i64 %15, 2
   %17 = add nsw i64 %16, 4
   %18 = tail call i64 @dsa_allocate_extended(ptr noundef %14, i64 noundef %17, i32 noundef 0) #13
-  %19 = getelementptr inbounds i8, ptr %0, i64 136
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i64 %18, ptr %19, align 8
   %20 = load ptr, ptr %2, align 8
   %21 = tail call ptr @dsa_get_address(ptr noundef %20, i64 noundef %18) #13
@@ -2121,7 +2121,7 @@ define dso_local noundef i64 @tbm_prepare_shared_iterate(ptr nocapture noundef %
 
 22:                                               ; preds = %13, %10
   %.085 = phi ptr [ %21, %13 ], [ null, %10 ]
-  %23 = getelementptr inbounds i8, ptr %0, i64 44
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %24 = load i32, ptr %23, align 4
   %.not94 = icmp eq i32 %24, 0
   br i1 %.not94, label %34, label %25
@@ -2132,7 +2132,7 @@ define dso_local noundef i64 @tbm_prepare_shared_iterate(ptr nocapture noundef %
   %28 = shl nsw i64 %27, 2
   %29 = add nsw i64 %28, 4
   %30 = tail call i64 @dsa_allocate_extended(ptr noundef %26, i64 noundef %29, i32 noundef 0) #13
-  %31 = getelementptr inbounds i8, ptr %0, i64 144
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i64 %30, ptr %31, align 8
   %32 = load ptr, ptr %2, align 8
   %33 = tail call ptr @dsa_get_address(ptr noundef %32, i64 noundef %30) #13
@@ -2141,7 +2141,7 @@ define dso_local noundef i64 @tbm_prepare_shared_iterate(ptr nocapture noundef %
 
 34:                                               ; preds = %25, %22
   %.086 = phi ptr [ %33, %25 ], [ null, %22 ]
-  %35 = getelementptr inbounds i8, ptr %0, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %36 = load i32, ptr %35, align 8
   switch i32 %36, label %.thread126 [
     i32 2, label %37
@@ -2150,17 +2150,17 @@ define dso_local noundef i64 @tbm_prepare_shared_iterate(ptr nocapture noundef %
 
 37:                                               ; preds = %34
   %38 = load ptr, ptr %2, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 120
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %40 = load i64, ptr %39, align 8
   %41 = tail call ptr @dsa_get_address(ptr noundef %38, i64 noundef %40) #13
-  %42 = getelementptr inbounds i8, ptr %0, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %43 = load ptr, ptr %42, align 8
   %44 = load i64, ptr %43, align 8
   %.not16.i = icmp eq i64 %44, 0
   br i1 %.not16.i, label %pagetable_start_iterate.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %37
-  %45 = getelementptr inbounds i8, ptr %43, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %46 = load ptr, ptr %45, align 8
   br label %47
 
@@ -2180,7 +2180,7 @@ define dso_local noundef i64 @tbm_prepare_shared_iterate(ptr nocapture noundef %
 
 pagetable_start_iterate.exit:                     ; preds = %47, %51, %37
   %.0.i = phi i32 [ -1, %37 ], [ -1, %51 ], [ %.01113.i, %47 ]
-  %55 = getelementptr inbounds i8, ptr %41, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %56 = ptrtoint ptr %55 to i64
   br label %57
 
@@ -2190,8 +2190,8 @@ pagetable_start_iterate.exit:                     ; preds = %47, %51, %37
   %.sroa.0.0 = phi i32 [ %.0.i, %pagetable_start_iterate.exit ], [ %69, %88 ]
   %.081 = phi i32 [ 0, %pagetable_start_iterate.exit ], [ %.182, %88 ]
   %.0 = phi i32 [ 0, %pagetable_start_iterate.exit ], [ %.1, %88 ]
-  %59 = getelementptr inbounds i8, ptr %58, i64 24
-  %60 = getelementptr inbounds i8, ptr %58, i64 12
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 12
   br label %61
 
 61:                                               ; preds = %63, %57
@@ -2211,7 +2211,7 @@ pagetable_start_iterate.exit:                     ; preds = %47, %51, %37
   %71 = and i32 %68, %70
   %72 = icmp eq i32 %71, 0
   %spec.select = select i1 %72, i1 true, i1 %.sroa.5.1
-  %73 = getelementptr inbounds i8, ptr %66, i64 4
+  %73 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %74 = load i8, ptr %73, align 4
   %75 = icmp eq i8 %74, 1
   br i1 %75, label %pagetable_iterate.exit, label %61, !llvm.loop !5
@@ -2225,7 +2225,7 @@ pagetable_iterate.exit:                           ; preds = %63
   %78 = sub i64 %77, %56
   %79 = sdiv exact i64 %78, 48
   %80 = trunc i64 %79 to i32
-  %81 = getelementptr inbounds i8, ptr %66, i64 5
+  %81 = getelementptr inbounds nuw i8, ptr %66, i64 5
   %82 = load i8, ptr %81, align 1
   %83 = trunc i8 %82 to i1
   br i1 %83, label %84, label %86
@@ -2243,7 +2243,7 @@ pagetable_iterate.exit:                           ; preds = %63
   %.085.pn = phi ptr [ %.085, %86 ], [ %.086, %84 ]
   %.182 = phi i32 [ %87, %86 ], [ %.081, %84 ]
   %.1 = phi i32 [ %.0, %86 ], [ %85, %84 ]
-  %.sink148 = getelementptr inbounds i8, ptr %.085.pn, i64 4
+  %.sink148 = getelementptr inbounds nuw i8, ptr %.085.pn, i64 4
   %89 = sext i32 %.081.sink to i64
   %90 = getelementptr [0 x i32], ptr %.sink148, i64 0, i64 %89
   store i32 %80, ptr %90, align 4
@@ -2253,14 +2253,14 @@ pagetable_iterate.exit:                           ; preds = %63
 .thread112:                                       ; preds = %34
   %91 = load ptr, ptr %2, align 8
   %92 = tail call i64 @dsa_allocate_extended(ptr noundef %91, i64 noundef 56, i32 noundef 0) #13
-  %93 = getelementptr inbounds i8, ptr %0, i64 120
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i64 %92, ptr %93, align 8
   %94 = load ptr, ptr %2, align 8
   %95 = tail call ptr @dsa_get_address(ptr noundef %94, i64 noundef %92) #13
-  %96 = getelementptr inbounds i8, ptr %95, i64 8
-  %97 = getelementptr inbounds i8, ptr %0, i64 56
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %96, ptr noundef nonnull align 8 dereferenceable(48) %97, i64 48, i1 false)
-  %98 = getelementptr inbounds i8, ptr %.085, i64 4
+  %98 = getelementptr inbounds nuw i8, ptr %.085, i64 4
   store i32 0, ptr %98, align 4
   br label %99
 
@@ -2283,9 +2283,9 @@ pagetable_iterate.exit.thread:                    ; preds = %pagetable_iterate.e
   br i1 %101, label %102, label %106
 
 102:                                              ; preds = %100
-  %103 = getelementptr inbounds i8, ptr %.085, i64 4
+  %103 = getelementptr inbounds nuw i8, ptr %.085, i64 4
   %104 = zext nneg i32 %.283110 to i64
-  %105 = getelementptr inbounds i8, ptr %.084109, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %.084109, i64 8
   tail call void @qsort_arg(ptr noundef nonnull %103, i64 noundef %104, i64 noundef 4, ptr noundef nonnull @tbm_shared_comparator, ptr noundef nonnull %105) #13
   br label %106
 
@@ -2294,39 +2294,39 @@ pagetable_iterate.exit.thread:                    ; preds = %pagetable_iterate.e
   br i1 %107, label %108, label %.thread126
 
 108:                                              ; preds = %106
-  %109 = getelementptr inbounds i8, ptr %.086, i64 4
+  %109 = getelementptr inbounds nuw i8, ptr %.086, i64 4
   %110 = zext nneg i32 %.2111 to i64
-  %111 = getelementptr inbounds i8, ptr %.084109, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %.084109, i64 8
   tail call void @qsort_arg(ptr noundef nonnull %109, i64 noundef %110, i64 noundef 4, ptr noundef nonnull @tbm_shared_comparator, ptr noundef nonnull %111) #13
   br label %.thread126
 
 .thread126:                                       ; preds = %34, %106, %108, %1
-  %112 = getelementptr inbounds i8, ptr %0, i64 32
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %113 = load i32, ptr %112, align 8
   store i32 %113, ptr %6, align 8
-  %114 = getelementptr inbounds i8, ptr %0, i64 36
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %115 = load i32, ptr %114, align 4
-  %116 = getelementptr inbounds i8, ptr %6, i64 4
+  %116 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %115, ptr %116, align 4
-  %117 = getelementptr inbounds i8, ptr %0, i64 40
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %118 = load i32, ptr %117, align 8
-  %119 = getelementptr inbounds i8, ptr %6, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %118, ptr %119, align 8
-  %120 = getelementptr inbounds i8, ptr %0, i64 44
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %121 = load i32, ptr %120, align 4
-  %122 = getelementptr inbounds i8, ptr %6, i64 12
+  %122 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 %121, ptr %122, align 4
-  %123 = getelementptr inbounds i8, ptr %0, i64 120
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %124 = load i64, ptr %123, align 8
-  %125 = getelementptr inbounds i8, ptr %6, i64 16
+  %125 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %124, ptr %125, align 8
-  %126 = getelementptr inbounds i8, ptr %0, i64 136
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %127 = load i64, ptr %126, align 8
-  %128 = getelementptr inbounds i8, ptr %6, i64 24
+  %128 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 %127, ptr %128, align 8
-  %129 = getelementptr inbounds i8, ptr %0, i64 144
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %130 = load i64, ptr %129, align 8
-  %131 = getelementptr inbounds i8, ptr %6, i64 32
+  %131 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i64 %130, ptr %131, align 8
   %132 = load ptr, ptr %2, align 8
   %133 = load i64, ptr %123, align 8
@@ -2361,13 +2361,13 @@ pagetable_iterate.exit.thread:                    ; preds = %pagetable_iterate.e
   br label %149
 
 149:                                              ; preds = %147, %146
-  %150 = getelementptr inbounds i8, ptr %6, i64 40
+  %150 = getelementptr inbounds nuw i8, ptr %6, i64 40
   tail call void @LWLockInitialize(ptr noundef nonnull %150, i32 noundef 74) #13
-  %151 = getelementptr inbounds i8, ptr %6, i64 64
+  %151 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store i32 0, ptr %151, align 8
-  %152 = getelementptr inbounds i8, ptr %6, i64 60
+  %152 = getelementptr inbounds nuw i8, ptr %6, i64 60
   store i32 0, ptr %152, align 4
-  %153 = getelementptr inbounds i8, ptr %6, i64 56
+  %153 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store i32 0, ptr %153, align 8
   store i32 2, ptr %7, align 8
   ret i64 %4
@@ -2399,17 +2399,17 @@ declare void @LWLockInitialize(ptr noundef, i32 noundef) local_unnamed_addr #2
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local ptr @tbm_iterate(ptr noundef %0) local_unnamed_addr #4 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 20
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
-  %5 = getelementptr inbounds i8, ptr %2, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 44
   %6 = load i32, ptr %4, align 4
   %7 = load i32, ptr %5, align 4
   %8 = icmp slt i32 %6, %7
   br i1 %8, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
-  %10 = getelementptr inbounds i8, ptr %2, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %11 = sext i32 %6 to i64
   %.pre = load i32, ptr %9, align 8
   br label %12
@@ -2424,7 +2424,7 @@ define dso_local ptr @tbm_iterate(ptr noundef %0) local_unnamed_addr #4 {
   %15 = load ptr, ptr %10, align 8
   %16 = getelementptr ptr, ptr %15, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   br label %19
 
 19:                                               ; preds = %28, %.lr.ph.i
@@ -2472,31 +2472,31 @@ tbm_advance_schunkbit.exit.thread:                ; preds = %28, %12, %tbm_advan
   br i1 %39, label %40, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.loopexit
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre64 = load i32, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert65 = getelementptr inbounds i8, ptr %2, i64 40
+  %.phi.trans.insert65 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %.pre66 = load i32, ptr %.phi.trans.insert65, align 8
   br label %66
 
 40:                                               ; preds = %.loopexit
-  %41 = getelementptr inbounds i8, ptr %2, i64 112
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %42 = load ptr, ptr %41, align 8
   %43 = sext i32 %38 to i64
   %44 = getelementptr ptr, ptr %42, i64 %43
   %45 = load ptr, ptr %44, align 8
   %46 = load i32, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %48 = load i32, ptr %47, align 8
   %49 = add i32 %48, %46
-  %50 = getelementptr inbounds i8, ptr %0, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %51 = load i32, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %2, i64 40
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %53 = load i32, ptr %52, align 8
   %.not = icmp slt i32 %51, %53
   br i1 %.not, label %54, label %62
 
 54:                                               ; preds = %40
-  %55 = getelementptr inbounds i8, ptr %2, i64 104
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %56 = load ptr, ptr %55, align 8
   %57 = sext i32 %51 to i64
   %58 = getelementptr ptr, ptr %56, i64 %57
@@ -2507,9 +2507,9 @@ tbm_advance_schunkbit.exit.thread:                ; preds = %28, %12, %tbm_advan
 
 62:                                               ; preds = %54, %40
   store i32 %49, ptr %3, align 4
-  %63 = getelementptr inbounds i8, ptr %0, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 -1, ptr %63, align 4
-  %64 = getelementptr inbounds i8, ptr %0, i64 28
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %64, align 4
   %65 = add i32 %48, 1
   store i32 %65, ptr %47, align 8
@@ -2518,22 +2518,22 @@ tbm_advance_schunkbit.exit.thread:                ; preds = %28, %12, %tbm_advan
 66:                                               ; preds = %._crit_edge, %54
   %67 = phi i32 [ %.pre66, %._crit_edge ], [ %53, %54 ]
   %68 = phi i32 [ %.pre64, %._crit_edge ], [ %51, %54 ]
-  %69 = getelementptr inbounds i8, ptr %0, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %70 = icmp slt i32 %68, %67
   br i1 %70, label %71, label %109
 
 71:                                               ; preds = %66
-  %72 = getelementptr inbounds i8, ptr %2, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %73 = load i32, ptr %72, align 8
   %74 = icmp eq i32 %73, 1
   br i1 %74, label %75, label %77
 
 75:                                               ; preds = %71
-  %76 = getelementptr inbounds i8, ptr %2, i64 56
+  %76 = getelementptr inbounds nuw i8, ptr %2, i64 56
   br label %83
 
 77:                                               ; preds = %71
-  %78 = getelementptr inbounds i8, ptr %2, i64 104
+  %78 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %79 = load ptr, ptr %78, align 8
   %80 = sext i32 %68 to i64
   %81 = getelementptr ptr, ptr %79, i64 %80
@@ -2542,8 +2542,8 @@ tbm_advance_schunkbit.exit.thread:                ; preds = %28, %12, %tbm_advan
 
 83:                                               ; preds = %77, %75
   %.044 = phi ptr [ %76, %75 ], [ %82, %77 ]
-  %84 = getelementptr inbounds i8, ptr %.044, i64 8
-  %85 = getelementptr inbounds i8, ptr %0, i64 30
+  %84 = getelementptr inbounds nuw i8, ptr %.044, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 30
   br label %86
 
 86:                                               ; preds = %.loopexit.i, %83
@@ -2591,11 +2591,11 @@ tbm_advance_schunkbit.exit.thread:                ; preds = %28, %12, %tbm_advan
 tbm_extract_page_tuple.exit:                      ; preds = %.loopexit.i
   %101 = load i32, ptr %.044, align 8
   store i32 %101, ptr %3, align 4
-  %102 = getelementptr inbounds i8, ptr %0, i64 24
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %.3.i, ptr %102, align 4
-  %103 = getelementptr inbounds i8, ptr %.044, i64 6
+  %103 = getelementptr inbounds nuw i8, ptr %.044, i64 6
   %104 = load i8, ptr %103, align 2
-  %105 = getelementptr inbounds i8, ptr %0, i64 28
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %106 = and i8 %104, 1
   store i8 %106, ptr %105, align 4
   %107 = load i32, ptr %69, align 8
@@ -2610,34 +2610,34 @@ tbm_extract_page_tuple.exit:                      ; preds = %.loopexit.i
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @tbm_shared_iterate(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %spec.select = select i1 %.not, ptr null, ptr %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %.not67 = icmp eq ptr %8, null
-  %9 = getelementptr inbounds i8, ptr %8, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %.057 = select i1 %.not67, ptr null, ptr %9
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8
   %.not68 = icmp eq ptr %11, null
-  %12 = getelementptr inbounds i8, ptr %11, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %.058 = select i1 %.not68, ptr null, ptr %12
-  %13 = getelementptr inbounds i8, ptr %3, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %14 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %13, i32 noundef 0) #13
-  %15 = getelementptr inbounds i8, ptr %3, i64 60
-  %16 = getelementptr inbounds i8, ptr %3, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 60
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %17 = load i32, ptr %16, align 4
   %.promoted = load i32, ptr %15, align 4
   %18 = icmp slt i32 %.promoted, %17
   br i1 %18, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %1
-  %19 = getelementptr inbounds i8, ptr %3, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %.promoted79 = load i32, ptr %19, align 8
   %20 = sext i32 %.promoted to i64
   %wide.trip.count = sext i32 %17 to i64
@@ -2696,9 +2696,9 @@ tbm_advance_schunkbit.exit.thread:                ; preds = %37, %21, %tbm_advan
   br i1 %43, label %44, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.loopexit
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 56
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 56
   %.pre = load i32, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert82 = getelementptr inbounds i8, ptr %3, i64 8
+  %.phi.trans.insert82 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.pre83 = load i32, ptr %.phi.trans.insert82, align 8
   br label %71
 
@@ -2709,12 +2709,12 @@ tbm_advance_schunkbit.exit.thread:                ; preds = %37, %21, %tbm_advan
   %48 = sext i32 %47 to i64
   %49 = getelementptr %struct.PagetableEntry, ptr %spec.select, i64 %48
   %50 = load i32, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %3, i64 64
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %52 = load i32, ptr %51, align 8
   %53 = add i32 %52, %50
-  %54 = getelementptr inbounds i8, ptr %3, i64 56
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %55 = load i32, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %3, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %57 = load i32, ptr %56, align 8
   %.not69 = icmp slt i32 %55, %57
   br i1 %.not69, label %58, label %66
@@ -2731,9 +2731,9 @@ tbm_advance_schunkbit.exit.thread:                ; preds = %37, %21, %tbm_advan
 
 66:                                               ; preds = %58, %44
   store i32 %53, ptr %2, align 4
-  %67 = getelementptr inbounds i8, ptr %0, i64 36
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 -1, ptr %67, align 4
-  %68 = getelementptr inbounds i8, ptr %0, i64 40
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 1, ptr %68, align 4
   %69 = load i32, ptr %51, align 8
   %70 = add i32 %69, 1
@@ -2743,7 +2743,7 @@ tbm_advance_schunkbit.exit.thread:                ; preds = %37, %21, %tbm_advan
 71:                                               ; preds = %._crit_edge, %58
   %72 = phi i32 [ %.pre83, %._crit_edge ], [ %57, %58 ]
   %73 = phi i32 [ %.pre, %._crit_edge ], [ %55, %58 ]
-  %74 = getelementptr inbounds i8, ptr %3, i64 56
+  %74 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %75 = icmp slt i32 %73, %72
   br i1 %75, label %76, label %107
 
@@ -2753,8 +2753,8 @@ tbm_advance_schunkbit.exit.thread:                ; preds = %37, %21, %tbm_advan
   %79 = load i32, ptr %78, align 4
   %80 = sext i32 %79 to i64
   %81 = getelementptr %struct.PagetableEntry, ptr %spec.select, i64 %80
-  %82 = getelementptr inbounds i8, ptr %81, i64 8
-  %83 = getelementptr inbounds i8, ptr %0, i64 42
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 42
   br label %84
 
 84:                                               ; preds = %.loopexit.i, %76
@@ -2802,11 +2802,11 @@ tbm_advance_schunkbit.exit.thread:                ; preds = %37, %21, %tbm_advan
 tbm_extract_page_tuple.exit:                      ; preds = %.loopexit.i
   %99 = load i32, ptr %81, align 8
   store i32 %99, ptr %2, align 4
-  %100 = getelementptr inbounds i8, ptr %0, i64 36
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %.3.i, ptr %100, align 4
-  %101 = getelementptr inbounds i8, ptr %81, i64 6
+  %101 = getelementptr inbounds nuw i8, ptr %81, i64 6
   %102 = load i8, ptr %101, align 2
-  %103 = getelementptr inbounds i8, ptr %0, i64 40
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %104 = and i8 %102, 1
   store i8 %104, ptr %103, align 4
   %105 = load i32, ptr %74, align 8
@@ -2841,35 +2841,35 @@ define dso_local ptr @tbm_attach_shared_iterate(ptr noundef %0, i64 noundef %1) 
   %3 = tail call ptr @palloc0(i64 noundef 630) #13
   %4 = tail call ptr @dsa_get_address(ptr noundef %0, i64 noundef %1) #13
   store ptr %4, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = tail call ptr @dsa_get_address(ptr noundef %0, i64 noundef %6) #13
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i32, ptr %9, align 8
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %16, label %11
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %4, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %13 = load i64, ptr %12, align 8
   %14 = tail call ptr @dsa_get_address(ptr noundef %0, i64 noundef %13) #13
-  %15 = getelementptr inbounds i8, ptr %3, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %14, ptr %15, align 8
   br label %16
 
 16:                                               ; preds = %11, %2
-  %17 = getelementptr inbounds i8, ptr %4, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %18 = load i32, ptr %17, align 4
   %.not15 = icmp eq i32 %18, 0
   br i1 %.not15, label %24, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %4, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %21 = load i64, ptr %20, align 8
   %22 = tail call ptr @dsa_get_address(ptr noundef %0, i64 noundef %21) #13
-  %23 = getelementptr inbounds i8, ptr %3, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %22, ptr %23, align 8
   br label %24
 
@@ -2882,14 +2882,14 @@ declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @tbm_create_pagetable(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca i8, align 1
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @MemoryContextAllocZero(ptr noundef %4, i64 noundef 48) #13
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %4, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 152
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %13
@@ -2899,38 +2899,38 @@ define internal fastcc void @tbm_create_pagetable(ptr noundef %0) unnamed_addr #
   br label %pagetable_create.exit
 
 13:                                               ; preds = %1
-  %14 = getelementptr inbounds i8, ptr %0, i64 120
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 128
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i64 %15, ptr %16, align 8
   %17 = tail call i64 @dsa_allocate_extended(ptr noundef nonnull %9, i64 noundef 12296, i32 noundef 5) #13
   store i64 %17, ptr %14, align 8
   %18 = load ptr, ptr %8, align 8
   %19 = tail call ptr @dsa_get_address(ptr noundef %18, i64 noundef %17) #13
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   br label %pagetable_create.exit
 
 pagetable_create.exit:                            ; preds = %11, %13
   %.0.i.i = phi ptr [ %12, %11 ], [ %20, %13 ]
-  %21 = getelementptr inbounds i8, ptr %5, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %.0.i.i, ptr %21, align 8
   store i64 256, ptr %5, align 8
-  %22 = getelementptr inbounds i8, ptr %5, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 255, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 230, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %5, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load i32, ptr %25, align 8
   %27 = icmp eq i32 %26, 1
   br i1 %27, label %28, label %34
 
 28:                                               ; preds = %pagetable_create.exit
-  %29 = getelementptr inbounds i8, ptr %0, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %30 = load i32, ptr %29, align 8
   %31 = call fastcc ptr @pagetable_insert(ptr noundef nonnull %5, i32 noundef %30, ptr noundef %2)
-  %32 = getelementptr inbounds i8, ptr %31, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %33 = load i8, ptr %32, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %31, ptr noundef nonnull align 8 dereferenceable(48) %29, i64 48, i1 false)
   store i8 %33, ptr %32, align 4
@@ -2951,11 +2951,11 @@ define internal fastcc noundef ptr @pagetable_insert(ptr nocapture noundef %0, i
   %9 = mul i32 %8, -1028477387
   %10 = lshr i32 %9, 16
   %11 = xor i32 %10, %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = getelementptr i8, ptr %0, i64 12
   %.pre.i = load i32, ptr %12, align 8
   %.pre175.i = load i32, ptr %13, align 8
@@ -3002,7 +3002,7 @@ define internal fastcc noundef ptr @pagetable_insert(ptr nocapture noundef %0, i
 
 pagetable_compute_size.exit.i.i:                  ; preds = %27
   %41 = load ptr, ptr %15, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 152
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 152
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
   br i1 %44, label %45, label %48
@@ -3013,16 +3013,16 @@ pagetable_compute_size.exit.i.i:                  ; preds = %27
   br label %pagetable_allocate.exit.i.i
 
 48:                                               ; preds = %pagetable_compute_size.exit.i.i
-  %49 = getelementptr inbounds i8, ptr %41, i64 120
+  %49 = getelementptr inbounds nuw i8, ptr %41, i64 120
   %50 = load i64, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %41, i64 128
+  %51 = getelementptr inbounds nuw i8, ptr %41, i64 128
   store i64 %50, ptr %51, align 8
   %52 = or disjoint i64 %36, 8
   %53 = tail call i64 @dsa_allocate_extended(ptr noundef nonnull %43, i64 noundef %52, i32 noundef 5) #13
   store i64 %53, ptr %49, align 8
   %54 = load ptr, ptr %42, align 8
   %55 = tail call ptr @dsa_get_address(ptr noundef %54, i64 noundef %53) #13
-  %56 = getelementptr inbounds i8, ptr %55, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   br label %pagetable_allocate.exit.i.i
 
 pagetable_allocate.exit.i.i:                      ; preds = %48, %45
@@ -3063,7 +3063,7 @@ pagetable_update_parameters.exit.i.i:             ; preds = %pagetable_allocate.
   %73 = phi i64 [ %90, %88 ], [ 0, %pagetable_update_parameters.exit.i.i ]
   %.058.i.i = phi i32 [ %89, %88 ], [ 0, %pagetable_update_parameters.exit.i.i ]
   %74 = getelementptr %struct.PagetableEntry, ptr %29, i64 %73
-  %75 = getelementptr inbounds i8, ptr %74, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 4
   %76 = load i8, ptr %75, align 4
   %.not.i.i = icmp eq i8 %76, 1
   br i1 %.not.i.i, label %77, label %.lr.ph66.i.i.preheader
@@ -3097,7 +3097,7 @@ pagetable_update_parameters.exit.i.i:             ; preds = %pagetable_allocate.
   %.04963.i.i = phi i32 [ %spec.store.select.i.i, %114 ], [ %.04963.i.i.ph, %.lr.ph66.i.i.preheader ]
   %92 = zext i32 %.04963.i.i to i64
   %93 = getelementptr %struct.PagetableEntry, ptr %29, i64 %92
-  %94 = getelementptr inbounds i8, ptr %93, i64 4
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 4
   %95 = load i8, ptr %94, align 4
   %96 = icmp eq i8 %95, 1
   br i1 %96, label %97, label %114
@@ -3120,7 +3120,7 @@ pagetable_update_parameters.exit.i.i:             ; preds = %pagetable_allocate.
   %.047.i.i = and i32 %.pn.i.i, %.val53.i.i
   %107 = zext i32 %.047.i.i to i64
   %108 = getelementptr %struct.PagetableEntry, ptr %.0.i.i.i, i64 %107
-  %109 = getelementptr inbounds i8, ptr %108, i64 4
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 4
   %110 = load i8, ptr %109, align 4
   %111 = icmp eq i8 %110, 0
   %112 = add i32 %.047.i.i, 1
@@ -3142,7 +3142,7 @@ pagetable_update_parameters.exit.i.i:             ; preds = %pagetable_allocate.
 
 ._crit_edge67.i.i:                                ; preds = %114, %pagetable_update_parameters.exit.i.i
   %.val.i.i = load ptr, ptr %15, align 8
-  %120 = getelementptr inbounds i8, ptr %.val.i.i, i64 152
+  %120 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 152
   %121 = load ptr, ptr %120, align 8
   %122 = icmp eq ptr %121, null
   br i1 %122, label %123, label %124
@@ -3152,7 +3152,7 @@ pagetable_update_parameters.exit.i.i:             ; preds = %pagetable_allocate.
   br label %pagetable_grow.exit.i
 
 124:                                              ; preds = %._crit_edge67.i.i
-  %125 = getelementptr inbounds i8, ptr %.val.i.i, i64 128
+  %125 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 128
   %126 = load i64, ptr %125, align 8
   %.not.i.i.i = icmp eq i64 %126, 0
   br i1 %.not.i.i.i, label %pagetable_grow.exit.i, label %127
@@ -3168,14 +3168,14 @@ pagetable_grow.exit.i:                            ; preds = %127, %124, %123, %1
   %.069114.i = and i32 %.val77.i, %11
   %129 = zext i32 %.069114.i to i64
   %130 = getelementptr %struct.PagetableEntry, ptr %128, i64 %129
-  %131 = getelementptr inbounds i8, ptr %130, i64 4
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 4
   %132 = load i8, ptr %131, align 4
   %133 = icmp eq i8 %132, 0
   br i1 %133, label %pagetable_grow.exit._crit_edge.i, label %.lr.ph.i
 
 pagetable_grow.exit._crit_edge.i:                 ; preds = %pagetable_grow.exit.i, %197
   %.lcssa113.i = phi ptr [ %199, %197 ], [ %130, %pagetable_grow.exit.i ]
-  %134 = getelementptr inbounds i8, ptr %.lcssa113.i, i64 4
+  %134 = getelementptr inbounds nuw i8, ptr %.lcssa113.i, i64 4
   %135 = load i32, ptr %12, align 8
   %136 = add i32 %135, 1
   store i32 %136, ptr %12, align 8
@@ -3221,7 +3221,7 @@ pagetable_distance.exit.i:                        ; preds = %150, %140
   %156 = and i32 %155, %.val77.i
   %157 = zext i32 %156 to i64
   %158 = getelementptr %struct.PagetableEntry, ptr %128, i64 %157
-  %159 = getelementptr inbounds i8, ptr %158, i64 4
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 4
   %160 = load i8, ptr %159, align 4
   %161 = icmp eq i8 %160, 0
   br i1 %161, label %.preheader.i, label %.lr.ph123.i
@@ -3229,7 +3229,7 @@ pagetable_distance.exit.i:                        ; preds = %150, %140
 .preheader.i:                                     ; preds = %.preheader84.i, %173
   %.lcssa98.i = phi i32 [ %175, %173 ], [ %156, %.preheader84.i ]
   %.lcssa96.i = phi ptr [ %177, %173 ], [ %158, %.preheader84.i ]
-  %.lcssa87.lcssa.i = getelementptr inbounds i8, ptr %137, i64 4
+  %.lcssa87.lcssa.i = getelementptr inbounds nuw i8, ptr %137, i64 4
   %.not76141.i = icmp eq i32 %.lcssa98.i, %.069116.i
   br i1 %.not76141.i, label %._crit_edge145.i, label %.lr.ph144.i
 
@@ -3259,7 +3259,7 @@ pagetable_distance.exit.i:                        ; preds = %150, %140
   %175 = and i32 %174, %.val77.i
   %176 = zext i32 %175 to i64
   %177 = getelementptr %struct.PagetableEntry, ptr %128, i64 %176
-  %178 = getelementptr inbounds i8, ptr %177, i64 4
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 4
   %179 = load i8, ptr %178, align 4
   %180 = icmp eq i8 %179, 0
   br i1 %180, label %.preheader.i, label %.lr.ph123.i
@@ -3302,7 +3302,7 @@ pagetable_distance.exit.i:                        ; preds = %150, %140
   %.069.i = and i32 %155, %.val77.i
   %198 = zext i32 %.069.i to i64
   %199 = getelementptr %struct.PagetableEntry, ptr %128, i64 %198
-  %200 = getelementptr inbounds i8, ptr %199, i64 4
+  %200 = getelementptr inbounds nuw i8, ptr %199, i64 4
   %201 = load i8, ptr %200, align 4
   %202 = icmp eq i8 %201, 0
   br i1 %202, label %pagetable_grow.exit._crit_edge.i, label %.lr.ph.i

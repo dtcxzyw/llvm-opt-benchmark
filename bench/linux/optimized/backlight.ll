@@ -107,15 +107,15 @@ module asm ".previous\09\09\09\09\09"
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @backlight_device_set_brightness(ptr noundef %0, i64 noundef %1) #0 align 16 {
   %3 = alloca [2 x ptr], align 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
-  tail call void @mutex_lock(ptr noundef %4) #12
-  %5 = getelementptr inbounds i8, ptr %0, i64 96
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  tail call void @mutex_lock(ptr noundef nonnull %4) #12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %26, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = sext i32 %10 to i64
   %12 = icmp ugt i64 %1, %11
@@ -124,14 +124,14 @@ define dso_local i32 @backlight_device_set_brightness(ptr noundef %0, i64 nounde
 13:                                               ; preds = %8
   %14 = trunc i64 %1 to i32
   store i32 %14, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @mutex_lock(ptr noundef %15) #12
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @mutex_lock(ptr noundef nonnull %15) #12
   %16 = load ptr, ptr %5, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %24, label %18
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %16, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %24, label %22
@@ -142,19 +142,19 @@ define dso_local i32 @backlight_device_set_brightness(ptr noundef %0, i64 nounde
 
 24:                                               ; preds = %22, %18, %13
   %25 = phi i32 [ %23, %22 ], [ -2, %18 ], [ -2, %13 ]
-  tail call void @mutex_unlock(ptr noundef %15) #12
+  tail call void @mutex_unlock(ptr noundef nonnull %15) #12
   br label %26
 
 26:                                               ; preds = %24, %8, %2
   %27 = phi i32 [ %25, %24 ], [ -6, %2 ], [ -22, %8 ]
-  tail call void @mutex_unlock(ptr noundef %4) #12
+  tail call void @mutex_unlock(ptr noundef nonnull %4) #12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #12
   store ptr @.str.9, ptr %3, align 16
-  %28 = getelementptr inbounds i8, ptr %3, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 144
-  %30 = call i32 @kobject_uevent_env(ptr noundef %29, i32 noundef 2, ptr noundef nonnull %3) #12
-  call void @sysfs_notify(ptr noundef %29, ptr noundef null, ptr noundef nonnull @.str.12) #12
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %30 = call i32 @kobject_uevent_env(ptr noundef nonnull %29, i32 noundef 2, ptr noundef nonnull %3) #12
+  call void @sysfs_notify(ptr noundef nonnull %29, ptr noundef null, ptr noundef nonnull @.str.12) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #12
   ret i32 %27
 }
@@ -174,15 +174,15 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @backlight_force_update(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %3 = alloca [2 x ptr], align 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
-  tail call void @mutex_lock(ptr noundef %4) #12
-  %5 = getelementptr inbounds i8, ptr %0, i64 96
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  tail call void @mutex_lock(ptr noundef nonnull %4) #12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %20, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %20, label %12
@@ -197,14 +197,14 @@ define dso_local void @backlight_force_update(ptr noundef %0, i32 noundef %1) #0
   br label %20
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %0, i64 144
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %18 = sext i32 %13 to i64
   %19 = inttoptr i64 %18 to ptr
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %17, ptr noundef nonnull @.str, ptr noundef nonnull %19) #13
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %17, ptr noundef nonnull @.str, ptr noundef nonnull %19) #13
   br label %20
 
 20:                                               ; preds = %16, %15, %8, %2
-  tail call void @mutex_unlock(ptr noundef %4) #12
+  tail call void @mutex_unlock(ptr noundef nonnull %4) #12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !5
   %switch.selectcmp = icmp eq i32 %1, 0
@@ -212,11 +212,11 @@ define dso_local void @backlight_force_update(ptr noundef %0, i32 noundef %1) #0
   %switch.selectcmp3 = icmp eq i32 %1, 1
   %switch.select4 = select i1 %switch.selectcmp3, ptr @.str.9, ptr %switch.select
   store ptr %switch.select4, ptr %3, align 16
-  %21 = getelementptr inbounds i8, ptr %3, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 144
-  %23 = call i32 @kobject_uevent_env(ptr noundef %22, i32 noundef 2, ptr noundef nonnull %3) #12
-  call void @sysfs_notify(ptr noundef %22, ptr noundef null, ptr noundef nonnull @.str.12) #12
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %23 = call i32 @kobject_uevent_env(ptr noundef nonnull %22, i32 noundef 2, ptr noundef nonnull %3) #12
+  call void @sysfs_notify(ptr noundef nonnull %22, ptr noundef null, ptr noundef nonnull @.str.12) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #12
   ret void
 }
@@ -232,27 +232,27 @@ define dso_local ptr @backlight_device_register(ptr noundef %0, ptr noundef %1, 
   br i1 %8, label %41, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %7, i64 32
-  tail call void @__mutex_init(ptr noundef %10, ptr noundef nonnull @.str.1, ptr noundef nonnull @backlight_device_register.__key) #12
-  %11 = getelementptr inbounds i8, ptr %7, i64 64
-  tail call void @__mutex_init(ptr noundef %11, ptr noundef nonnull @.str.3, ptr noundef nonnull @backlight_device_register.__key.2) #12
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  tail call void @__mutex_init(ptr noundef nonnull %10, ptr noundef nonnull @.str.1, ptr noundef nonnull @backlight_device_register.__key) #12
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 64
+  tail call void @__mutex_init(ptr noundef nonnull %11, ptr noundef nonnull @.str.3, ptr noundef nonnull @backlight_device_register.__key.2) #12
   %12 = load ptr, ptr @backlight_class, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 144
-  %14 = getelementptr inbounds i8, ptr %7, i64 816
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 144
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 816
   store ptr %12, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %7, i64 208
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 208
   store ptr %1, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 832
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 832
   store ptr @bl_device_release, ptr %16, align 8
-  %17 = tail call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef %13, ptr noundef nonnull @.str.4, ptr noundef %0) #12
-  %18 = getelementptr inbounds i8, ptr %7, i64 264
+  %17 = tail call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef nonnull %13, ptr noundef nonnull @.str.4, ptr noundef %0) #12
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 264
   store ptr %2, ptr %18, align 8
   %19 = icmp eq ptr %4, null
   br i1 %19, label %26, label %20
 
 20:                                               ; preds = %9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %7, ptr noundef nonnull align 4 dereferenceable(28) %4, i64 28, i1 false)
-  %21 = getelementptr inbounds i8, ptr %4, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %22 = load i32, ptr %21, align 4
   %23 = add i32 %22, -4
   %24 = icmp ult i32 %23, -3
@@ -268,31 +268,31 @@ define dso_local ptr @backlight_device_register(ptr noundef %0, ptr noundef %1, 
   br label %26
 
 26:                                               ; preds = %25, %9
-  %27 = getelementptr inbounds i8, ptr %7, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 1, ptr %27, align 8
   br label %28
 
 28:                                               ; preds = %26, %20
-  %29 = tail call i32 @device_register(ptr noundef %13) #12
+  %29 = tail call i32 @device_register(ptr noundef nonnull %13) #12
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %34, label %31
 
 31:                                               ; preds = %28
-  tail call void @put_device(ptr noundef %13) #12
+  tail call void @put_device(ptr noundef nonnull %13) #12
   %32 = sext i32 %29 to i64
   %33 = inttoptr i64 %32 to ptr
   br label %41
 
 34:                                               ; preds = %28
-  %35 = getelementptr inbounds i8, ptr %7, i64 96
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 96
   store ptr %3, ptr %35, align 8
   tail call void @mutex_lock(ptr noundef nonnull @backlight_dev_list_mutex) #12
-  %36 = getelementptr inbounds i8, ptr %7, i64 128
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %37 = load ptr, ptr @backlight_dev_list, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %36, ptr %38, align 8
   store ptr %37, ptr %36, align 8
-  %39 = getelementptr inbounds i8, ptr %7, i64 136
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 136
   store ptr @backlight_dev_list, ptr %39, align 8
   store volatile ptr %36, ptr @backlight_dev_list, align 8
   tail call void @mutex_unlock(ptr noundef nonnull @backlight_dev_list_mutex) #12
@@ -376,24 +376,24 @@ define dso_local void @backlight_device_unregister(ptr noundef %0) #0 align 16 {
 
 3:                                                ; preds = %1
   tail call void @mutex_lock(ptr noundef nonnull @backlight_dev_list_mutex) #12
-  %4 = getelementptr inbounds i8, ptr %0, i64 128
-  %5 = getelementptr inbounds i8, ptr %0, i64 136
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %6, ptr %8, align 8
   store volatile ptr %7, ptr %6, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %4, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %5, align 8
   tail call void @mutex_unlock(ptr noundef nonnull @backlight_dev_list_mutex) #12
   %9 = tail call i32 @blocking_notifier_call_chain(ptr noundef nonnull @backlight_notifier, i64 noundef 1, ptr noundef nonnull %0) #12
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
-  tail call void @mutex_lock(ptr noundef %10) #12
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  tail call void @mutex_lock(ptr noundef nonnull %10) #12
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr null, ptr %11, align 8
-  tail call void @mutex_unlock(ptr noundef %10) #12
-  %12 = getelementptr inbounds i8, ptr %0, i64 144
-  tail call void @device_unregister(ptr noundef %12) #12
+  tail call void @mutex_unlock(ptr noundef nonnull %10) #12
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  tail call void @device_unregister(ptr noundef nonnull %12) #12
   br label %13
 
 13:                                               ; preds = %3, %1
@@ -454,24 +454,24 @@ define internal void @devm_backlight_device_release(ptr nocapture readnone %0, p
 
 5:                                                ; preds = %2
   tail call void @mutex_lock(ptr noundef nonnull @backlight_dev_list_mutex) #12
-  %6 = getelementptr inbounds i8, ptr %3, i64 128
-  %7 = getelementptr inbounds i8, ptr %3, i64 136
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 128
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %8, ptr %10, align 8
   store volatile ptr %9, ptr %8, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %6, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %7, align 8
   tail call void @mutex_unlock(ptr noundef nonnull @backlight_dev_list_mutex) #12
   %11 = tail call i32 @blocking_notifier_call_chain(ptr noundef nonnull @backlight_notifier, i64 noundef 1, ptr noundef nonnull %3) #12
-  %12 = getelementptr inbounds i8, ptr %3, i64 64
-  tail call void @mutex_lock(ptr noundef %12) #12
-  %13 = getelementptr inbounds i8, ptr %3, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  tail call void @mutex_lock(ptr noundef nonnull %12) #12
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 96
   store ptr null, ptr %13, align 8
-  tail call void @mutex_unlock(ptr noundef %12) #12
-  %14 = getelementptr inbounds i8, ptr %3, i64 144
-  tail call void @device_unregister(ptr noundef %14) #12
+  tail call void @mutex_unlock(ptr noundef nonnull %12) #12
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 144
+  tail call void @device_unregister(ptr noundef nonnull %14) #12
   br label %backlight_device_unregister.exit
 
 backlight_device_unregister.exit:                 ; preds = %2, %5
@@ -542,9 +542,9 @@ define internal i32 @backlight_class_init() #7 section ".init.text" align 16 {
   br label %12
 
 9:                                                ; preds = %0
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr @bl_device_groups, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 88
   store ptr @backlight_class_dev_pm_ops, ptr %11, align 8
   store volatile ptr @backlight_dev_list, ptr @backlight_dev_list, align 8
   store volatile ptr @backlight_dev_list, ptr getelementptr inbounds (i8, ptr @backlight_dev_list, i64 8), align 8
@@ -633,7 +633,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @bl_power_store(ptr nound
   br i1 %24, label %.thread, label %25
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %23, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %.thread, label %29
@@ -727,7 +727,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @actual_brightness_show(p
   br i1 %8, label %16, label %9
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %7, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %16, label %13
@@ -829,7 +829,7 @@ define internal noundef i32 @backlight_suspend(ptr noundef %0) #0 align 16 {
   br i1 %17, label %24, label %18
 
 18:                                               ; preds = %11
-  %19 = getelementptr inbounds i8, ptr %16, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %24, label %22
@@ -875,7 +875,7 @@ define internal noundef i32 @backlight_resume(ptr noundef %0) #0 align 16 {
   br i1 %17, label %24, label %18
 
 18:                                               ; preds = %11
-  %19 = getelementptr inbounds i8, ptr %16, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %24, label %22

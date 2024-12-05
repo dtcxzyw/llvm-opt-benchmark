@@ -40,10 +40,10 @@ define dso_local noundef zeroext i1 @_Z26testHdVec4f_2_10_10_10_REVv() local_unn
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 4 dereferenceable(12) @__const._Z26testHdVec4f_2_10_10_10_REVv.a, i64 12, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %2, ptr noundef nonnull align 4 dereferenceable(12) @__const._Z26testHdVec4f_2_10_10_10_REVv.b, i64 12, i1 false)
   store <2 x float> <float 0xBFC4CA6540000000, float 0xBFD0281400000000>, ptr %3, align 8
-  %.sroa.27.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.27.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store float 0x3FEE7F3FA0000000, ptr %.sroa.27.0..sroa_idx, align 8
   store <2 x float> <float 0x3FC0884420000000, float 0xBFEABD5EA0000000>, ptr %4, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store float 0x3FE1188C40000000, ptr %.sroa.2.0..sroa_idx, align 8
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str)
   %6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull @.str.1)

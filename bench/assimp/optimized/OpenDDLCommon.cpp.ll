@@ -27,8 +27,8 @@ _ZN10ODDLParser4Text5clearEv.exit.i:
   br i1 %cmp.not.i, label %_ZN10ODDLParser4Text3setEPKcm.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN10ODDLParser4Text5clearEv.exit.i
-  %m_buffer = getelementptr inbounds i8, ptr %this, i64 16
-  %m_len = getelementptr inbounds i8, ptr %this, i64 8
+  %m_buffer = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %m_len = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 %numChars, ptr %m_len, align 8
   %add.i = add i64 %numChars, 1
   store i64 %add.i, ptr %this, align 8
@@ -46,7 +46,7 @@ _ZN10ODDLParser4Text3setEPKcm.exit:               ; preds = %_ZN10ODDLParser4Tex
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN10ODDLParser4Text3setEPKcm(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 16)) %this, ptr nocapture noundef readonly %buffer, i64 noundef %numChars) local_unnamed_addr #0 align 2 {
 entry:
-  %m_buffer.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_buffer.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_buffer.i, align 8
   %isnull.i = icmp eq ptr %0, null
   br i1 %isnull.i, label %_ZN10ODDLParser4Text5clearEv.exit, label %delete.notnull.i
@@ -61,7 +61,7 @@ _ZN10ODDLParser4Text5clearEv.exit:                ; preds = %entry, %delete.notn
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZN10ODDLParser4Text5clearEv.exit
-  %m_len = getelementptr inbounds i8, ptr %this, i64 8
+  %m_len = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 %numChars, ptr %m_len, align 8
   %add = add i64 %numChars, 1
   store i64 %add, ptr %this, align 8
@@ -79,7 +79,7 @@ if.end:                                           ; preds = %if.then, %_ZN10ODDL
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN10ODDLParser4TextD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 16)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_buffer.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_buffer.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_buffer.i, align 8
   %isnull.i = icmp eq ptr %0, null
   br i1 %isnull.i, label %_ZN10ODDLParser4Text5clearEv.exit, label %delete.notnull.i
@@ -96,7 +96,7 @@ _ZN10ODDLParser4Text5clearEv.exit:                ; preds = %entry, %delete.notn
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN10ODDLParser4Text5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 16)) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %m_buffer = getelementptr inbounds i8, ptr %this, i64 16
+  %m_buffer = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_buffer, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -124,14 +124,14 @@ declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocaptu
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZNK10ODDLParser4TexteqERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %name) local_unnamed_addr #1 align 2 {
 entry:
-  %m_len = getelementptr inbounds i8, ptr %this, i64 8
+  %m_len = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %m_len, align 8
   %call = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #12
   %cmp.not = icmp eq i64 %0, %call
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %m_buffer = getelementptr inbounds i8, ptr %this, i64 16
+  %m_buffer = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %m_buffer, align 8
   %call2 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #12
   %call3 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #12
@@ -156,17 +156,17 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZNK10ODDLParser4TexteqERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %rhs) local_unnamed_addr #7 align 2 {
 entry:
-  %m_len = getelementptr inbounds i8, ptr %this, i64 8
+  %m_len = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %m_len, align 8
-  %m_len2 = getelementptr inbounds i8, ptr %rhs, i64 8
+  %m_len2 = getelementptr inbounds nuw i8, ptr %rhs, i64 8
   %1 = load i64, ptr %m_len2, align 8
   %cmp.not = icmp eq i64 %0, %1
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %m_buffer = getelementptr inbounds i8, ptr %this, i64 16
+  %m_buffer = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %m_buffer, align 8
-  %m_buffer3 = getelementptr inbounds i8, ptr %rhs, i64 16
+  %m_buffer3 = getelementptr inbounds nuw i8, ptr %rhs, i64 16
   %3 = load ptr, ptr %m_buffer3, align 8
   %call = tail call i32 @strncmp(ptr noundef %2, ptr noundef %3, i64 noundef %0) #14
   %cmp5 = icmp eq i32 %call, 0
@@ -181,7 +181,7 @@ return:                                           ; preds = %entry, %if.end
 define hidden void @_ZN10ODDLParser4NameC2ENS_8NameTypeEPNS_4TextE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 4), (8, 16)) %this, i32 noundef %type, ptr noundef %id) unnamed_addr #8 align 2 {
 entry:
   store i32 %type, ptr %this, align 8
-  %m_id = getelementptr inbounds i8, ptr %this, i64 8
+  %m_id = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %id, ptr %m_id, align 8
   ret void
 }
@@ -189,13 +189,13 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN10ODDLParser4NameD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_id = getelementptr inbounds i8, ptr %this, i64 8
+  %m_id = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_id, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  %m_buffer.i.i = getelementptr inbounds i8, ptr %0, i64 16
+  %m_buffer.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load ptr, ptr %m_buffer.i.i, align 8
   %isnull.i.i = icmp eq ptr %1, null
   br i1 %isnull.i.i, label %_ZN10ODDLParser4TextD2Ev.exit, label %delete.notnull.i.i
@@ -222,18 +222,18 @@ entry:
   %0 = load i32, ptr %name, align 8
   store i32 %0, ptr %this, align 8
   %call = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #11
-  %m_id = getelementptr inbounds i8, ptr %name, i64 8
+  %m_id = getelementptr inbounds nuw i8, ptr %name, i64 8
   %1 = load ptr, ptr %m_id, align 8
-  %m_buffer = getelementptr inbounds i8, ptr %1, i64 16
+  %m_buffer = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2 = load ptr, ptr %m_buffer, align 8
-  %m_len = getelementptr inbounds i8, ptr %1, i64 8
+  %m_len = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3 = load i64, ptr %m_len, align 8
   %cmp.not.i.i = icmp eq i64 %3, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call, i8 0, i64 24, i1 false)
   br i1 %cmp.not.i.i, label %invoke.cont, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %m_len.i = getelementptr inbounds i8, ptr %call, i64 8
+  %m_len.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i64 %3, ptr %m_len.i, align 8
   %add.i.i = add i64 %3, 1
   store i64 %add.i.i, ptr %call, align 8
@@ -241,7 +241,7 @@ if.then.i.i:                                      ; preds = %entry
           to label %call.i.i.noexc unwind label %lpad
 
 call.i.i.noexc:                                   ; preds = %if.then.i.i
-  %m_buffer.i = getelementptr inbounds i8, ptr %call, i64 16
+  %m_buffer.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr %call.i.i3, ptr %m_buffer.i, align 8
   %call5.i.i = tail call ptr @strncpy(ptr noundef nonnull %call.i.i3, ptr noundef readonly %2, i64 noundef %3) #12
   %arrayidx.i.i = getelementptr inbounds i8, ptr %call.i.i3, i64 %3
@@ -249,7 +249,7 @@ call.i.i.noexc:                                   ; preds = %if.then.i.i
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %call.i.i.noexc, %entry
-  %m_id4 = getelementptr inbounds i8, ptr %this, i64 8
+  %m_id4 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %call, ptr %m_id4, align 8
   ret void
 
@@ -274,7 +274,7 @@ entry:
 define hidden void @_ZN10ODDLParser9ReferenceC2EmPPNS_4NameE(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %this, i64 noundef %numrefs, ptr nocapture noundef readonly %names) unnamed_addr #0 align 2 {
 entry:
   store i64 %numrefs, ptr %this, align 8
-  %m_referencedName = getelementptr inbounds i8, ptr %this, i64 8
+  %m_referencedName = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %m_referencedName, align 8
   %cmp.not = icmp eq i64 %numrefs, 0
   br i1 %cmp.not, label %if.end, label %if.then
@@ -315,9 +315,9 @@ for.body.lr.ph:                                   ; preds = %entry
   %2 = shl i64 %0, 3
   %3 = select i1 %1, i64 -1, i64 %2
   %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %3) #11
-  %m_referencedName = getelementptr inbounds i8, ptr %this, i64 8
+  %m_referencedName = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %call, ptr %m_referencedName, align 8
-  %m_referencedName8 = getelementptr inbounds i8, ptr %ref, i64 8
+  %m_referencedName8 = getelementptr inbounds nuw i8, ptr %ref, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %invoke.cont
@@ -332,18 +332,18 @@ for.body:                                         ; preds = %for.body.lr.ph, %in
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %for.body
-  %m_id.i = getelementptr inbounds i8, ptr %5, i64 8
+  %m_id.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %m_id.i, align 8
-  %m_buffer.i = getelementptr inbounds i8, ptr %7, i64 16
+  %m_buffer.i = getelementptr inbounds nuw i8, ptr %7, i64 16
   %8 = load ptr, ptr %m_buffer.i, align 8
-  %m_len.i = getelementptr inbounds i8, ptr %7, i64 8
+  %m_len.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i64, ptr %m_len.i, align 8
   %cmp.not.i.i.i = icmp eq i64 %9, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call.i5, i8 0, i64 24, i1 false)
   br i1 %cmp.not.i.i.i, label %invoke.cont, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %call.i.noexc
-  %m_len.i.i = getelementptr inbounds i8, ptr %call.i5, i64 8
+  %m_len.i.i = getelementptr inbounds nuw i8, ptr %call.i5, i64 8
   store i64 %9, ptr %m_len.i.i, align 8
   %add.i.i.i = add i64 %9, 1
   store i64 %add.i.i.i, ptr %call.i5, align 8
@@ -351,7 +351,7 @@ if.then.i.i.i:                                    ; preds = %call.i.noexc
           to label %call.i.i.noexc.i unwind label %lpad.i
 
 call.i.i.noexc.i:                                 ; preds = %if.then.i.i.i
-  %m_buffer.i.i = getelementptr inbounds i8, ptr %call.i5, i64 16
+  %m_buffer.i.i = getelementptr inbounds nuw i8, ptr %call.i5, i64 16
   store ptr %call.i.i3.i, ptr %m_buffer.i.i, align 8
   %call5.i.i.i = tail call ptr @strncpy(ptr noundef nonnull %call.i.i3.i, ptr noundef readonly %8, i64 noundef %9) #12
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %call.i.i3.i, i64 %9
@@ -365,7 +365,7 @@ lpad.i:                                           ; preds = %if.then.i.i.i
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %call.i.i.noexc.i, %call.i.noexc
-  %m_id4.i = getelementptr inbounds i8, ptr %call7, i64 8
+  %m_id4.i = getelementptr inbounds nuw i8, ptr %call7, i64 8
   store ptr %call.i5, ptr %m_id4.i, align 8
   %11 = load ptr, ptr %m_referencedName, align 8
   %arrayidx10 = getelementptr inbounds ptr, ptr %11, i64 %i.09
@@ -397,7 +397,7 @@ entry:
   br i1 %cmp4.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_referencedName = getelementptr inbounds i8, ptr %this, i64 8
+  %m_referencedName = getelementptr inbounds nuw i8, ptr %this, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -410,13 +410,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %isnull, label %for.inc, label %delete.notnull
 
 delete.notnull:                                   ; preds = %for.body
-  %m_id.i = getelementptr inbounds i8, ptr %3, i64 8
+  %m_id.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %4 = load ptr, ptr %m_id.i, align 8
   %isnull.i = icmp eq ptr %4, null
   br i1 %isnull.i, label %_ZN10ODDLParser4NameD2Ev.exit, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %delete.notnull
-  %m_buffer.i.i.i = getelementptr inbounds i8, ptr %4, i64 16
+  %m_buffer.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load ptr, ptr %m_buffer.i.i.i, align 8
   %isnull.i.i.i = icmp eq ptr %5, null
   br i1 %isnull.i.i.i, label %_ZN10ODDLParser4TextD2Ev.exit.i, label %delete.notnull.i.i.i
@@ -442,7 +442,7 @@ for.inc:                                          ; preds = %for.body, %_ZN10ODD
 
 for.end:                                          ; preds = %for.inc, %entry
   store i64 0, ptr %this, align 8
-  %m_referencedName3 = getelementptr inbounds i8, ptr %this, i64 8
+  %m_referencedName3 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %7 = load ptr, ptr %m_referencedName3, align 8
   %isnull4 = icmp eq ptr %7, null
   br i1 %isnull4, label %delete.end6, label %delete.notnull5
@@ -464,7 +464,7 @@ entry:
   br i1 %cmp, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %m_referencedName = getelementptr inbounds i8, ptr %this, i64 8
+  %m_referencedName = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %m_referencedName, align 8
   br label %for.body
 
@@ -477,9 +477,9 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %cmp4.not, label %for.inc, label %if.then5
 
 if.then5:                                         ; preds = %for.body
-  %m_id = getelementptr inbounds i8, ptr %2, i64 8
+  %m_id = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load ptr, ptr %m_id, align 8
-  %m_len = getelementptr inbounds i8, ptr %3, i64 8
+  %m_len = getelementptr inbounds nuw i8, ptr %3, i64 8
   %4 = load i64, ptr %m_len, align 8
   %add = add i64 %4, %size.05
   br label %for.inc
@@ -499,7 +499,7 @@ return:                                           ; preds = %for.inc, %entry
 define hidden void @_ZN10ODDLParser8PropertyC2EPNS_4TextE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this, ptr noundef %id) unnamed_addr #8 align 2 {
 entry:
   store ptr %id, ptr %this, align 8
-  %m_value = getelementptr inbounds i8, ptr %this, i64 8
+  %m_value = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_value, i8 0, i64 24, i1 false)
   ret void
 }
@@ -512,7 +512,7 @@ entry:
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  %m_buffer.i.i = getelementptr inbounds i8, ptr %0, i64 16
+  %m_buffer.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load ptr, ptr %m_buffer.i.i, align 8
   %isnull.i.i = icmp eq ptr %1, null
   br i1 %isnull.i.i, label %_ZN10ODDLParser4TextD2Ev.exit, label %delete.notnull.i.i
@@ -526,7 +526,7 @@ _ZN10ODDLParser4TextD2Ev.exit:                    ; preds = %delete.notnull, %de
   br label %delete.end
 
 delete.end:                                       ; preds = %_ZN10ODDLParser4TextD2Ev.exit, %entry
-  %m_value = getelementptr inbounds i8, ptr %this, i64 8
+  %m_value = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load ptr, ptr %m_value, align 8
   %cmp.not = icmp eq ptr %2, null
   br i1 %cmp.not, label %if.end, label %delete.notnull4
@@ -537,7 +537,7 @@ delete.notnull4:                                  ; preds = %delete.end
   br label %if.end
 
 if.end:                                           ; preds = %delete.notnull4, %delete.end
-  %m_ref = getelementptr inbounds i8, ptr %this, i64 16
+  %m_ref = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load ptr, ptr %m_ref, align 8
   %cmp6.not = icmp eq ptr %3, null
   br i1 %cmp6.not, label %if.end12, label %delete.notnull10
@@ -548,7 +548,7 @@ delete.notnull10:                                 ; preds = %if.end
   br i1 %cmp4.not.i, label %for.end.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %delete.notnull10
-  %m_referencedName.i = getelementptr inbounds i8, ptr %3, i64 8
+  %m_referencedName.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -561,13 +561,13 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %isnull.i, label %for.inc.i, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %for.body.i
-  %m_id.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %m_id.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   %8 = load ptr, ptr %m_id.i.i, align 8
   %isnull.i.i4 = icmp eq ptr %8, null
   br i1 %isnull.i.i4, label %_ZN10ODDLParser4NameD2Ev.exit.i, label %delete.notnull.i.i5
 
 delete.notnull.i.i5:                              ; preds = %delete.notnull.i
-  %m_buffer.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 16
+  %m_buffer.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 16
   %9 = load ptr, ptr %m_buffer.i.i.i.i, align 8
   %isnull.i.i.i.i = icmp eq ptr %9, null
   br i1 %isnull.i.i.i.i, label %_ZN10ODDLParser4TextD2Ev.exit.i.i, label %delete.notnull.i.i.i.i
@@ -593,7 +593,7 @@ for.inc.i:                                        ; preds = %_ZN10ODDLParser4Nam
 
 for.end.i:                                        ; preds = %for.inc.i, %delete.notnull10
   store i64 0, ptr %3, align 8
-  %m_referencedName3.i = getelementptr inbounds i8, ptr %3, i64 8
+  %m_referencedName3.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %11 = load ptr, ptr %m_referencedName3.i, align 8
   %isnull4.i = icmp eq ptr %11, null
   br i1 %isnull4.i, label %_ZN10ODDLParser9ReferenceD2Ev.exit, label %delete.notnull5.i
@@ -607,7 +607,7 @@ _ZN10ODDLParser9ReferenceD2Ev.exit:               ; preds = %for.end.i, %delete.
   br label %if.end12
 
 if.end12:                                         ; preds = %_ZN10ODDLParser9ReferenceD2Ev.exit, %if.end
-  %m_next = getelementptr inbounds i8, ptr %this, i64 24
+  %m_next = getelementptr inbounds nuw i8, ptr %this, i64 24
   %12 = load ptr, ptr %m_next, align 8
   %cmp13.not = icmp eq ptr %12, null
   br i1 %cmp13.not, label %common.ret6, label %delete.notnull17
@@ -634,7 +634,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN10ODDLParser13DataArrayListD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_dataList = getelementptr inbounds i8, ptr %this, i64 8
+  %m_dataList = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_dataList, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -645,7 +645,7 @@ delete.notnull:                                   ; preds = %entry
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
-  %m_next = getelementptr inbounds i8, ptr %this, i64 16
+  %m_next = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %m_next, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.end, label %delete.notnull4
@@ -656,7 +656,7 @@ delete.notnull4:                                  ; preds = %delete.end
   br label %if.end
 
 if.end:                                           ; preds = %delete.notnull4, %delete.end
-  %m_refs = getelementptr inbounds i8, ptr %this, i64 24
+  %m_refs = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load ptr, ptr %m_refs, align 8
   %cmp6.not = icmp eq ptr %2, null
   br i1 %cmp6.not, label %if.end12, label %delete.notnull10
@@ -667,7 +667,7 @@ delete.notnull10:                                 ; preds = %if.end
   br i1 %cmp4.not.i, label %for.end.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %delete.notnull10
-  %m_referencedName.i = getelementptr inbounds i8, ptr %2, i64 8
+  %m_referencedName.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -680,13 +680,13 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %isnull.i, label %for.inc.i, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %for.body.i
-  %m_id.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  %m_id.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %7 = load ptr, ptr %m_id.i.i, align 8
   %isnull.i.i = icmp eq ptr %7, null
   br i1 %isnull.i.i, label %_ZN10ODDLParser4NameD2Ev.exit.i, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %delete.notnull.i
-  %m_buffer.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 16
+  %m_buffer.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 16
   %8 = load ptr, ptr %m_buffer.i.i.i.i, align 8
   %isnull.i.i.i.i = icmp eq ptr %8, null
   br i1 %isnull.i.i.i.i, label %_ZN10ODDLParser4TextD2Ev.exit.i.i, label %delete.notnull.i.i.i.i
@@ -712,7 +712,7 @@ for.inc.i:                                        ; preds = %_ZN10ODDLParser4Nam
 
 for.end.i:                                        ; preds = %for.inc.i, %delete.notnull10
   store i64 0, ptr %2, align 8
-  %m_referencedName3.i = getelementptr inbounds i8, ptr %2, i64 8
+  %m_referencedName3.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load ptr, ptr %m_referencedName3.i, align 8
   %isnull4.i = icmp eq ptr %10, null
   br i1 %isnull4.i, label %_ZN10ODDLParser9ReferenceD2Ev.exit, label %delete.notnull5.i
@@ -732,13 +732,13 @@ if.end12:                                         ; preds = %_ZN10ODDLParser9Ref
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef i64 @_ZN10ODDLParser13DataArrayList4sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #9 align 2 {
 entry:
-  %m_next = getelementptr inbounds i8, ptr %this, i64 16
+  %m_next = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_next, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %while.body
 
 if.then:                                          ; preds = %entry
-  %m_dataList = getelementptr inbounds i8, ptr %this, i64 8
+  %m_dataList = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %m_dataList, align 8
   %cmp2.not = icmp ne ptr %1, null
   %spec.select = zext i1 %cmp2.not to i64
@@ -748,7 +748,7 @@ while.body:                                       ; preds = %entry, %while.body
   %n.05 = phi ptr [ %2, %while.body ], [ %0, %entry ]
   %result.14 = phi i64 [ %inc, %while.body ], [ 0, %entry ]
   %inc = add i64 %result.14, 1
-  %m_next7 = getelementptr inbounds i8, ptr %n.05, i64 16
+  %m_next7 = getelementptr inbounds nuw i8, ptr %n.05, i64 16
   %2 = load ptr, ptr %m_next7, align 8
   %cmp6.not = icmp eq ptr %2, null
   br i1 %cmp6.not, label %return, label %while.body, !llvm.loop !9

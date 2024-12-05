@@ -23,7 +23,7 @@ entry:
 if.end:                                           ; preds = %entry
   %div4.i = lshr i64 %0, 25
   %rem.i = and i64 %div4.i, 63
-  %arrayidx = getelementptr inbounds [20481 x i64], ptr @mi_segment_map, i64 0, i64 %div15.i
+  %arrayidx = getelementptr inbounds nuw [20481 x i64], ptr @mi_segment_map, i64 0, i64 %div15.i
   %1 = load atomic i64, ptr %arrayidx monotonic, align 8
   %2 = shl nuw i64 1, %rem.i
   br label %do.body
@@ -53,7 +53,7 @@ entry:
 if.end:                                           ; preds = %entry
   %div4.i = lshr i64 %0, 25
   %rem.i = and i64 %div4.i, 63
-  %arrayidx = getelementptr inbounds [20481 x i64], ptr @mi_segment_map, i64 0, i64 %div15.i
+  %arrayidx = getelementptr inbounds nuw [20481 x i64], ptr @mi_segment_map, i64 0, i64 %div15.i
   %1 = load atomic i64, ptr %arrayidx monotonic, align 8
   %2 = shl nuw i64 1, %rem.i
   %3 = xor i64 %2, -1
@@ -88,7 +88,7 @@ if.end.i.i:                                       ; preds = %entry
   %rem.sink.i.i.i = select i1 %cmp.i.i.i, i64 0, i64 %rem.i.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %sub.i.i.i, i64 43980465111040)
   %retval.0.i.i.i = lshr i64 %2, 31
-  %arrayidx.i.i = getelementptr inbounds [20481 x i64], ptr @mi_segment_map, i64 0, i64 %retval.0.i.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [20481 x i64], ptr @mi_segment_map, i64 0, i64 %retval.0.i.i.i
   %3 = load atomic i64, ptr %arrayidx.i.i monotonic, align 8
   %shl.i.i = shl nuw i64 1, %rem.sink.i.i.i
   %and.i.i = and i64 %3, %shl.i.i
@@ -141,7 +141,7 @@ if.end39.i.i:                                     ; preds = %if.end32.i.i
   %10 = ptrtoint ptr %add.ptr.i.i to i64
   %11 = load i64, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2864), align 8
   %xor.i.i.i = xor i64 %11, %10
-  %cookie.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 216
+  %cookie.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 216
   %12 = load i64, ptr %cookie.i.i, align 8
   %cmp41.not.i.i = icmp eq i64 %xor.i.i.i, %12
   br i1 %cmp41.not.i.i, label %if.end53.i.i, label %lor.rhs.i

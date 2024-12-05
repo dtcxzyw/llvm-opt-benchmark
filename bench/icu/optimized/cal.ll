@@ -69,20 +69,20 @@ for.body:                                         ; preds = %for.body.preheader,
   %useLongNames.056 = phi i8 [ 0, %for.body.preheader ], [ %useLongNames.1, %for.inc ]
   %printVersion.055 = phi i32 [ 0, %for.body.preheader ], [ %printVersion.1, %for.inc ]
   %printUsage.054 = phi i32 [ 0, %for.body.preheader ], [ %printUsage.1, %for.inc ]
-  %arrayidx = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %argv, i64 %indvars.iv
   %0 = load ptr, ptr %arrayidx, align 8
   %1 = load i8, ptr %0, align 1
   %.not = icmp eq i8 %1, 45
   br i1 %.not, label %sub_1, label %lor.lhs.false.thread102
 
 sub_1:                                            ; preds = %for.body
-  %2 = getelementptr inbounds i8, ptr %0, i64 1
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %3 = load i8, ptr %2, align 1
   %.not65 = icmp eq i8 %3, 118
   br i1 %.not65, label %for.body.tail, label %lor.lhs.false
 
 for.body.tail:                                    ; preds = %sub_1
-  %4 = getelementptr inbounds i8, ptr %0, i64 2
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %5 = load i8, ptr %4, align 1
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %for.inc, label %lor.lhs.false.thread
@@ -103,13 +103,13 @@ lor.lhs.false.thread:                             ; preds = %for.body.tail
   br i1 %cmp386, label %for.inc, label %sub_127
 
 sub_127:                                          ; preds = %lor.lhs.false, %lor.lhs.false.thread
-  %7 = getelementptr inbounds i8, ptr %0, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %8 = load i8, ptr %7, align 1
   %.not67 = icmp eq i8 %8, 104
   br i1 %.not67, label %if.else.tail, label %lor.lhs.false6
 
 if.else.tail:                                     ; preds = %sub_127
-  %9 = getelementptr inbounds i8, ptr %0, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %10 = load i8, ptr %9, align 1
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %for.inc, label %lor.lhs.false6.thread
@@ -130,13 +130,13 @@ lor.lhs.false6.thread:                            ; preds = %if.else.tail
   br i1 %cmp889, label %for.inc, label %sub_131
 
 sub_131:                                          ; preds = %lor.lhs.false6, %lor.lhs.false6.thread
-  %12 = getelementptr inbounds i8, ptr %0, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %13 = load i8, ptr %12, align 1
   %.not69 = icmp eq i8 %13, 108
   br i1 %.not69, label %if.else10.tail, label %lor.lhs.false13.thread110
 
 if.else10.tail:                                   ; preds = %sub_131
-  %14 = getelementptr inbounds i8, ptr %0, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %15 = load i8, ptr %14, align 1
   %16 = icmp eq i8 %15, 0
   br i1 %16, label %for.inc, label %lor.lhs.false13.thread
@@ -157,13 +157,13 @@ lor.lhs.false13.thread:                           ; preds = %if.else10.tail
   br i1 %cmp1592, label %for.inc, label %sub_135
 
 sub_135:                                          ; preds = %lor.lhs.false13.thread110, %lor.lhs.false13.thread
-  %17 = getelementptr inbounds i8, ptr %0, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %18 = load i8, ptr %17, align 1
   %.not71 = icmp eq i8 %18, 45
   br i1 %.not71, label %if.else17.tail, label %if.then24
 
 if.else17.tail:                                   ; preds = %sub_135
-  %19 = getelementptr inbounds i8, ptr %0, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %20 = load i8, ptr %19, align 1
   %21 = icmp eq i8 %20, 0
   br i1 %21, label %if.then20, label %if.then24
@@ -178,7 +178,7 @@ if.else21:                                        ; preds = %lor.lhs.false13
   br label %for.end
 
 if.then24:                                        ; preds = %if.else17.tail, %sub_135
-  %add.ptr = getelementptr inbounds i8, ptr %0, i64 1
+  %add.ptr = getelementptr inbounds nuw i8, ptr %0, i64 1
   %call25 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, ptr noundef nonnull %add.ptr)
   br label %for.inc
 
@@ -344,7 +344,7 @@ for.body.i.i127.i.i:                              ; preds = %if.end.i.i122.i.i, 
   %conv.i.i130.i.i = sext i32 %add8.i.i129.i.i to i64
   %mul.i.i131.i.i = shl nsw i64 %conv.i.i130.i.i, 1
   %call9.i.i132.i.i = call noalias ptr @malloc(i64 noundef %mul.i.i131.i.i) #11
-  %arrayidx.i.i133.i.i = getelementptr inbounds ptr, ptr %months.i, i64 %indvars.iv.i.i.i
+  %arrayidx.i.i133.i.i = getelementptr inbounds nuw ptr, ptr %months.i, i64 %indvars.iv.i.i.i
   store ptr %call9.i.i132.i.i, ptr %arrayidx.i.i133.i.i, align 8
   store i32 0, ptr %status, align 4
   %call13.i.i134.i.i = call i32 @udat_getSymbols_75(ptr noundef %call.i.i, i32 noundef range(i32 1, 5) %cond.i124.i.i, i32 noundef %33, ptr noundef %call9.i.i132.i.i, i32 noundef %add8.i.i129.i.i, ptr noundef nonnull %status) #10
@@ -358,10 +358,10 @@ for.body.i.i.preheader:                           ; preds = %for.body.i.i127.i.i
 for.body.i.i:                                     ; preds = %for.body.i.i.preheader, %for.body.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i ], [ 0, %for.body.i.i.preheader ]
   %width.0297.i.i = phi i32 [ %add.i.i, %for.body.i.i ], [ 6, %for.body.i.i.preheader ]
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %days.i, i64 %indvars.iv.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw ptr, ptr %days.i, i64 %indvars.iv.i.i
   %34 = load ptr, ptr %arrayidx.i.i, align 8
   %call5.i.i = call i32 @u_strlen_75(ptr noundef %34) #10
-  %arrayidx7.i.i = getelementptr inbounds [7 x i32], ptr %lens.i.i, i64 0, i64 %indvars.iv.i.i
+  %arrayidx7.i.i = getelementptr inbounds nuw [7 x i32], ptr %lens.i.i, i64 0, i64 %indvars.iv.i.i
   store i32 %call5.i.i, ptr %arrayidx7.i.i, align 4
   %add.i.i = add nsw i32 %call5.i.i, %width.0297.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -418,7 +418,7 @@ indent.exit.i.i:                                  ; preds = %for.body.i.i.i, %if
 
 for.body22.i.i:                                   ; preds = %while.end141.i.i, %indent.exit.i.i
   %indvars.iv336.i.i = phi i64 [ 0, %indent.exit.i.i ], [ %indvars.iv.next337.i.i, %while.end141.i.i ]
-  %arrayidx24.i.i = getelementptr inbounds ptr, ptr %months.i, i64 %indvars.iv336.i.i
+  %arrayidx24.i.i = getelementptr inbounds nuw ptr, ptr %months.i, i64 %indvars.iv336.i.i
   %39 = load ptr, ptr %arrayidx24.i.i, align 16
   %call25.i.i = call i32 @u_strlen_75(ptr noundef %39) #10
   %sub26.i.i = sub nsw i32 %add.i.i, %call25.i.i
@@ -475,7 +475,7 @@ for.body.i154.i.i:                                ; preds = %if.end.i152.i.i, %f
 indent.exit162.i.i:                               ; preds = %for.body.i154.i.i, %if.then2.i159.i.i, %indent.exit149.i.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %c.i150.i.i)
   %43 = or disjoint i64 %indvars.iv336.i.i, 1
-  %arrayidx34.i.i = getelementptr inbounds ptr, ptr %months.i, i64 %43
+  %arrayidx34.i.i = getelementptr inbounds nuw ptr, ptr %months.i, i64 %43
   %44 = load ptr, ptr %arrayidx34.i.i, align 8
   %call35.i.i = call i32 @u_strlen_75(ptr noundef %44) #10
   %sub36.i.i = sub nsw i32 %add.i.i, %call35.i.i
@@ -515,7 +515,7 @@ indent.exit175.i.i:                               ; preds = %for.body.i167.i.i, 
 
 for.body.i177.i.i:                                ; preds = %indent.exit175.i.i, %for.body.i177.i.i
   %indvars.iv.i178.i.i = phi i64 [ %indvars.iv.next.i180.i.i, %for.body.i177.i.i ], [ 0, %indent.exit175.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %days.i, i64 %indvars.iv.i178.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw ptr, ptr %days.i, i64 %indvars.iv.i178.i.i
   %50 = load ptr, ptr %arrayidx.i.i.i, align 8
   call void @uprint(ptr noundef %50, ptr noundef %48, ptr noundef nonnull %status) #10
   %call.i179.i.i = call i32 @putc(i32 noundef 32, ptr noundef %48)
@@ -540,7 +540,7 @@ print_days.exit.i.i:                              ; preds = %print_days.exit.loo
 
 for.body.i187.i.i:                                ; preds = %print_days.exit.i.i, %for.body.i187.i.i
   %indvars.iv.i188.i.i = phi i64 [ %indvars.iv.next.i191.i.i, %for.body.i187.i.i ], [ 0, %print_days.exit.i.i ]
-  %arrayidx.i189.i.i = getelementptr inbounds ptr, ptr %days.i, i64 %indvars.iv.i188.i.i
+  %arrayidx.i189.i.i = getelementptr inbounds nuw ptr, ptr %days.i, i64 %indvars.iv.i188.i.i
   %54 = load ptr, ptr %arrayidx.i189.i.i, align 8
   call void @uprint(ptr noundef %54, ptr noundef %52, ptr noundef nonnull %status) #10
   %call.i190.i.i = call i32 @putc(i32 noundef 32, ptr noundef %52)
@@ -642,7 +642,7 @@ for.body71.preheader.i.i:                         ; preds = %while.body66.i.i
 
 for.body71.i.i:                                   ; preds = %indent.exit219.i.i, %for.body71.preheader.i.i
   %indvars.iv321.i.i = phi i64 [ 0, %for.body71.preheader.i.i ], [ %indvars.iv.next322.i.i, %indent.exit219.i.i ]
-  %arrayidx73.i.i = getelementptr inbounds [7 x i32], ptr %lens.i.i, i64 0, i64 %indvars.iv321.i.i
+  %arrayidx73.i.i = getelementptr inbounds nuw [7 x i32], ptr %lens.i.i, i64 0, i64 %indvars.iv321.i.i
   %63 = load i32, ptr %arrayidx73.i.i, align 4
   %add74.i.i = add nsw i32 %63, 1
   %64 = load ptr, ptr @stdout, align 8
@@ -789,7 +789,7 @@ for.body115.preheader.i.i:                        ; preds = %while.body110.i.i
 
 for.body115.i.i:                                  ; preds = %indent.exit262.i.i, %for.body115.preheader.i.i
   %indvars.iv331.i.i = phi i64 [ 0, %for.body115.preheader.i.i ], [ %indvars.iv.next332.i.i, %indent.exit262.i.i ]
-  %arrayidx117.i.i = getelementptr inbounds [7 x i32], ptr %lens.i.i, i64 0, i64 %indvars.iv331.i.i
+  %arrayidx117.i.i = getelementptr inbounds nuw [7 x i32], ptr %lens.i.i, i64 0, i64 %indvars.iv331.i.i
   %75 = load i32, ptr %arrayidx117.i.i, align 4
   %add118.i.i = add nsw i32 %75, 1
   %76 = load ptr, ptr @stdout, align 8
@@ -889,7 +889,7 @@ while.end141.i.i:                                 ; preds = %while.end139.i.i, %
 
 for.body.i.i276.i.i:                              ; preds = %while.end141.i.i, %for.body.i.i276.i.i
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %for.body.i.i276.i.i ], [ 0, %while.end141.i.i ]
-  %arrayidx.i.i277.i.i = getelementptr inbounds ptr, ptr %months.i, i64 %indvars.iv.i.i.i.i
+  %arrayidx.i.i277.i.i = getelementptr inbounds nuw ptr, ptr %months.i, i64 %indvars.iv.i.i.i.i
   %85 = load ptr, ptr %arrayidx.i.i277.i.i, align 8
   call void @free(ptr noundef %85) #10
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
@@ -898,7 +898,7 @@ for.body.i.i276.i.i:                              ; preds = %while.end141.i.i, %
 
 for.body.i.i279.i.i:                              ; preds = %for.body.i.i276.i.i, %for.body.i.i279.i.i
   %indvars.iv.i.i280.i.i = phi i64 [ %indvars.iv.next.i.i282.i.i, %for.body.i.i279.i.i ], [ 0, %for.body.i.i276.i.i ]
-  %arrayidx.i.i281.i.i = getelementptr inbounds ptr, ptr %days.i, i64 %indvars.iv.i.i280.i.i
+  %arrayidx.i.i281.i.i = getelementptr inbounds nuw ptr, ptr %days.i, i64 %indvars.iv.i.i280.i.i
   %86 = load ptr, ptr %arrayidx.i.i281.i.i, align 8
   call void @free(ptr noundef %86) #10
   %indvars.iv.next.i.i282.i.i = add nuw nsw i64 %indvars.iv.i.i280.i.i, 1
@@ -982,10 +982,10 @@ for.body.i32.i.preheader:                         ; preds = %for.body.i.i.i69.i,
 for.body.i32.i:                                   ; preds = %for.body.i32.i.preheader, %for.body.i32.i
   %indvars.iv.i33.i = phi i64 [ %indvars.iv.next.i36.i, %for.body.i32.i ], [ 0, %for.body.i32.i.preheader ]
   %width.080.i.i = phi i32 [ %add.i35.i, %for.body.i32.i ], [ 6, %for.body.i32.i.preheader ]
-  %arrayidx.i34.i = getelementptr inbounds ptr, ptr %days.i, i64 %indvars.iv.i33.i
+  %arrayidx.i34.i = getelementptr inbounds nuw ptr, ptr %days.i, i64 %indvars.iv.i33.i
   %89 = load ptr, ptr %arrayidx.i34.i, align 8
   %call9.i.i = call i32 @u_strlen_75(ptr noundef %89) #10
-  %arrayidx11.i.i = getelementptr inbounds [7 x i32], ptr %lens.i19.i, i64 0, i64 %indvars.iv.i33.i
+  %arrayidx11.i.i = getelementptr inbounds nuw [7 x i32], ptr %lens.i19.i, i64 0, i64 %indvars.iv.i33.i
   store i32 %call9.i.i, ptr %arrayidx11.i.i, align 4
   %add.i35.i = add nsw i32 %call9.i.i, %width.080.i.i
   %indvars.iv.next.i36.i = add nuw nsw i64 %indvars.iv.i33.i, 1
@@ -1031,7 +1031,7 @@ indent.exit.i49.i:                                ; preds = %for.body.i.i44.i, %
 
 for.body.i47.i.i:                                 ; preds = %indent.exit.i49.i, %for.body.i47.i.i
   %indvars.iv.i.i51.i = phi i64 [ %indvars.iv.next.i.i53.i, %for.body.i47.i.i ], [ 0, %indent.exit.i49.i ]
-  %arrayidx.i.i52.i = getelementptr inbounds ptr, ptr %days.i, i64 %indvars.iv.i.i51.i
+  %arrayidx.i.i52.i = getelementptr inbounds nuw ptr, ptr %days.i, i64 %indvars.iv.i.i51.i
   %95 = load ptr, ptr %arrayidx.i.i52.i, align 8
   call void @uprint(ptr noundef %95, ptr noundef %93, ptr noundef nonnull %status) #10
   %call.i48.i.i = call i32 @putc(i32 noundef 32, ptr noundef %93)
@@ -1062,7 +1062,7 @@ for.body30.preheader.i.i:                         ; preds = %print_days.exit.i56
 
 for.body30.i.i:                                   ; preds = %indent.exit62.i.i, %for.body30.preheader.i.i
   %indvars.iv84.i.i = phi i64 [ 0, %for.body30.preheader.i.i ], [ %indvars.iv.next85.i.i, %indent.exit62.i.i ]
-  %arrayidx32.i.i = getelementptr inbounds [7 x i32], ptr %lens.i19.i, i64 0, i64 %indvars.iv84.i.i
+  %arrayidx32.i.i = getelementptr inbounds nuw [7 x i32], ptr %lens.i19.i, i64 0, i64 %indvars.iv84.i.i
   %97 = load i32, ptr %arrayidx32.i.i, align 4
   %add33.i.i = add nsw i32 %97, 1
   %98 = load ptr, ptr @stdout, align 8
@@ -1157,7 +1157,7 @@ do.end.i.i:                                       ; preds = %if.end52.i.i
 
 for.body.i.i76.i.i:                               ; preds = %for.body.i.i76.i.i, %do.end.i.i
   %indvars.iv.i.i.i61.i = phi i64 [ 0, %do.end.i.i ], [ %indvars.iv.next.i.i.i62.i, %for.body.i.i76.i.i ]
-  %arrayidx.i.i77.i.i = getelementptr inbounds ptr, ptr %days.i, i64 %indvars.iv.i.i.i61.i
+  %arrayidx.i.i77.i.i = getelementptr inbounds nuw ptr, ptr %days.i, i64 %indvars.iv.i.i.i61.i
   %105 = load ptr, ptr %arrayidx.i.i77.i.i, align 8
   call void @free(ptr noundef %105) #10
   %indvars.iv.next.i.i.i62.i = add nuw nsw i64 %indvars.iv.i.i.i61.i, 1

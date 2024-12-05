@@ -5,7 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define ptr @Extra_zddMaximal(ptr noundef initializes((448, 452)) %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 448
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %4
 
 4:                                                ; preds = %4, %2
@@ -21,13 +21,13 @@ define ptr @Extra_zddMaximal(ptr noundef initializes((448, 452)) %0, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define ptr @extraZddMaximal(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %1, %4
   br i1 %5, label %55, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %1, %8
   br i1 %9, label %55, label %10
@@ -38,18 +38,18 @@ define ptr @extraZddMaximal(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not, label %12, label %55
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %1, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr @extraZddMaximal(ptr noundef nonnull %0, ptr noundef %14)
   %16 = icmp eq ptr %15, null
   br i1 %16, label %55, label %17
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %1, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = ptrtoint ptr %15 to i64
   %20 = and i64 %19, -2
   %21 = inttoptr i64 %20 to ptr
-  %22 = getelementptr inbounds i8, ptr %21, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %23 = load i32, ptr %22, align 4
   %24 = add i32 %23, 1
   store i32 %24, ptr %22, align 4
@@ -66,7 +66,7 @@ define ptr @extraZddMaximal(ptr noundef %0, ptr noundef %1) #0 {
   %30 = ptrtoint ptr %26 to i64
   %31 = and i64 %30, -2
   %32 = inttoptr i64 %31 to ptr
-  %33 = getelementptr inbounds i8, ptr %32, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %34 = load i32, ptr %33, align 4
   %35 = add i32 %34, 1
   store i32 %35, ptr %33, align 4
@@ -83,7 +83,7 @@ define ptr @extraZddMaximal(ptr noundef %0, ptr noundef %1) #0 {
   %40 = ptrtoint ptr %36 to i64
   %41 = and i64 %40, -2
   %42 = inttoptr i64 %41 to ptr
-  %43 = getelementptr inbounds i8, ptr %42, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %44 = load i32, ptr %43, align 4
   %45 = add i32 %44, 1
   store i32 %45, ptr %43, align 4
@@ -115,7 +115,7 @@ define ptr @extraZddMaximal(ptr noundef %0, ptr noundef %1) #0 {
 
 ; Function Attrs: nounwind uwtable
 define ptr @Extra_zddMinimal(ptr noundef initializes((448, 452)) %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 448
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %4
 
 4:                                                ; preds = %4, %2
@@ -131,7 +131,7 @@ define ptr @Extra_zddMinimal(ptr noundef initializes((448, 452)) %0, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define ptr @extraZddMinimal(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %1, %4
   br i1 %5, label %56, label %6
@@ -142,7 +142,7 @@ define ptr @extraZddMinimal(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not, label %11, label %8
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8
   br label %56
 
@@ -152,18 +152,18 @@ define ptr @extraZddMinimal(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not54, label %13, label %56
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %1, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr @extraZddMinimal(ptr noundef nonnull %0, ptr noundef %15)
   %17 = icmp eq ptr %16, null
   br i1 %17, label %56, label %18
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = ptrtoint ptr %16 to i64
   %21 = and i64 %20, -2
   %22 = inttoptr i64 %21 to ptr
-  %23 = getelementptr inbounds i8, ptr %22, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %24 = load i32, ptr %23, align 4
   %25 = add i32 %24, 1
   store i32 %25, ptr %23, align 4
@@ -180,7 +180,7 @@ define ptr @extraZddMinimal(ptr noundef %0, ptr noundef %1) #0 {
   %31 = ptrtoint ptr %27 to i64
   %32 = and i64 %31, -2
   %33 = inttoptr i64 %32 to ptr
-  %34 = getelementptr inbounds i8, ptr %33, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %35 = load i32, ptr %34, align 4
   %36 = add i32 %35, 1
   store i32 %36, ptr %34, align 4
@@ -197,7 +197,7 @@ define ptr @extraZddMinimal(ptr noundef %0, ptr noundef %1) #0 {
   %41 = ptrtoint ptr %37 to i64
   %42 = and i64 %41, -2
   %43 = inttoptr i64 %42 to ptr
-  %44 = getelementptr inbounds i8, ptr %43, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %45 = load i32, ptr %44, align 4
   %46 = add i32 %45, 1
   store i32 %46, ptr %44, align 4
@@ -229,7 +229,7 @@ define ptr @extraZddMinimal(ptr noundef %0, ptr noundef %1) #0 {
 
 ; Function Attrs: nounwind uwtable
 define ptr @Extra_zddMaxUnion(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 448
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %5
 
 5:                                                ; preds = %5, %3
@@ -245,14 +245,14 @@ define ptr @Extra_zddMaxUnion(ptr noundef initializes((448, 452)) %0, ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define ptr @extraZddMaxUnion(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %1, %5
   br i1 %6, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
-  %8 = getelementptr inbounds i8, ptr %0, i64 320
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %9 = icmp eq ptr %2, %5
   %10 = icmp eq ptr %1, %2
   %or.cond96118 = or i1 %10, %9
@@ -276,11 +276,11 @@ define ptr @extraZddMaxUnion(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 
   %16 = load ptr, ptr %8, align 8
   %17 = load i32, ptr %.tr97101120, align 8
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds i32, ptr %16, i64 %18
+  %19 = getelementptr inbounds nuw i32, ptr %16, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = load i32, ptr %.tr98102119, align 8
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds i32, ptr %16, i64 %22
+  %23 = getelementptr inbounds nuw i32, ptr %16, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = icmp sgt i32 %20, %24
   br i1 %25, label %tailrecurse, label %26
@@ -303,24 +303,24 @@ tailrecurse:                                      ; preds = %26, %15
   br i1 %.not, label %33, label %.loopexit
 
 33:                                               ; preds = %31
-  %34 = getelementptr inbounds i8, ptr %.tr97101120, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %.tr97101120, i64 24
   %35 = load ptr, ptr %34, align 8
   br i1 %27, label %36, label %55
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %.tr98102119, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %.tr98102119, i64 24
   %38 = load ptr, ptr %37, align 8
   %39 = tail call ptr @extraZddMaxUnion(ptr noundef nonnull %0, ptr noundef %35, ptr noundef %38)
   %40 = icmp eq ptr %39, null
   br i1 %40, label %.loopexit, label %41
 
 41:                                               ; preds = %36
-  %42 = getelementptr inbounds i8, ptr %.tr98102119, i64 16
-  %43 = getelementptr inbounds i8, ptr %.tr97101120, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %.tr98102119, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.tr97101120, i64 16
   %44 = ptrtoint ptr %39 to i64
   %45 = and i64 %44, -2
   %46 = inttoptr i64 %45 to ptr
-  %47 = getelementptr inbounds i8, ptr %46, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 4
   %48 = load i32, ptr %47, align 4
   %49 = add i32 %48, 1
   store i32 %49, ptr %47, align 4
@@ -340,11 +340,11 @@ tailrecurse:                                      ; preds = %26, %15
   br i1 %57, label %.loopexit, label %58
 
 58:                                               ; preds = %55
-  %59 = getelementptr inbounds i8, ptr %.tr97101120, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %.tr97101120, i64 16
   %60 = ptrtoint ptr %56 to i64
   %61 = and i64 %60, -2
   %62 = inttoptr i64 %61 to ptr
-  %63 = getelementptr inbounds i8, ptr %62, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 4
   %64 = load i32, ptr %63, align 4
   %65 = add i32 %64, 1
   store i32 %65, ptr %63, align 4
@@ -357,7 +357,7 @@ tailrecurse:                                      ; preds = %26, %15
   %68 = ptrtoint ptr %.sink to i64
   %69 = and i64 %68, -2
   %70 = inttoptr i64 %69 to ptr
-  %71 = getelementptr inbounds i8, ptr %70, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 4
   %72 = load i32, ptr %71, align 4
   %73 = add i32 %72, 1
   store i32 %73, ptr %71, align 4
@@ -374,7 +374,7 @@ tailrecurse:                                      ; preds = %26, %15
   %78 = ptrtoint ptr %74 to i64
   %79 = and i64 %78, -2
   %80 = inttoptr i64 %79 to ptr
-  %81 = getelementptr inbounds i8, ptr %80, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 4
   %82 = load i32, ptr %81, align 4
   %83 = add i32 %82, 1
   store i32 %83, ptr %81, align 4
@@ -396,7 +396,7 @@ tailrecurse:                                      ; preds = %26, %15
   %91 = ptrtoint ptr %.sink to i64
   %92 = and i64 %91, -2
   %93 = inttoptr i64 %92 to ptr
-  %94 = getelementptr inbounds i8, ptr %93, i64 4
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 4
   %95 = load i32, ptr %94, align 4
   %96 = add i32 %95, -1
   store i32 %96, ptr %94, align 4
@@ -410,7 +410,7 @@ tailrecurse:                                      ; preds = %26, %15
 
 ; Function Attrs: nounwind uwtable
 define ptr @Extra_zddMinUnion(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 448
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %5
 
 5:                                                ; preds = %5, %3
@@ -426,13 +426,13 @@ define ptr @Extra_zddMinUnion(ptr noundef initializes((448, 452)) %0, ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define ptr @extraZddMinUnion(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %1, %5
   br i1 %6, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 320
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 320
   br label %8
 
 8:                                                ; preds = %.lr.ph, %tailrecurse
@@ -455,7 +455,7 @@ define ptr @extraZddMinUnion(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 
   br i1 %.not94, label %19, label %16
 
 16:                                               ; preds = %14, %12
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load ptr, ptr %17, align 8
   br label %.loopexit
 
@@ -463,11 +463,11 @@ define ptr @extraZddMinUnion(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 
   %20 = load ptr, ptr %7, align 8
   %21 = load i32, ptr %.tr97103, align 8
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds i32, ptr %20, i64 %22
+  %23 = getelementptr inbounds nuw i32, ptr %20, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = load i32, ptr %.tr98104, align 8
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds i32, ptr %20, i64 %26
+  %27 = getelementptr inbounds nuw i32, ptr %20, i64 %26
   %28 = load i32, ptr %27, align 4
   %29 = icmp sgt i32 %24, %28
   br i1 %29, label %tailrecurse, label %30
@@ -489,24 +489,24 @@ tailrecurse:                                      ; preds = %30, %19
   br i1 %.not95, label %37, label %.loopexit
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds i8, ptr %.tr97103, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %.tr97103, i64 24
   %39 = load ptr, ptr %38, align 8
   br i1 %31, label %40, label %59
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %.tr98104, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %.tr98104, i64 24
   %42 = load ptr, ptr %41, align 8
   %43 = tail call ptr @extraZddMinUnion(ptr noundef nonnull %0, ptr noundef %39, ptr noundef %42)
   %44 = icmp eq ptr %43, null
   br i1 %44, label %.loopexit, label %45
 
 45:                                               ; preds = %40
-  %46 = getelementptr inbounds i8, ptr %.tr98104, i64 16
-  %47 = getelementptr inbounds i8, ptr %.tr97103, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %.tr98104, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %.tr97103, i64 16
   %48 = ptrtoint ptr %43 to i64
   %49 = and i64 %48, -2
   %50 = inttoptr i64 %49 to ptr
-  %51 = getelementptr inbounds i8, ptr %50, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
   %52 = load i32, ptr %51, align 4
   %53 = add i32 %52, 1
   store i32 %53, ptr %51, align 4
@@ -526,11 +526,11 @@ tailrecurse:                                      ; preds = %30, %19
   br i1 %61, label %.loopexit, label %62
 
 62:                                               ; preds = %59
-  %63 = getelementptr inbounds i8, ptr %.tr97103, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %.tr97103, i64 16
   %64 = ptrtoint ptr %60 to i64
   %65 = and i64 %64, -2
   %66 = inttoptr i64 %65 to ptr
-  %67 = getelementptr inbounds i8, ptr %66, i64 4
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %68 = load i32, ptr %67, align 4
   %69 = add i32 %68, 1
   store i32 %69, ptr %67, align 4
@@ -543,7 +543,7 @@ tailrecurse:                                      ; preds = %30, %19
   %72 = ptrtoint ptr %.sink to i64
   %73 = and i64 %72, -2
   %74 = inttoptr i64 %73 to ptr
-  %75 = getelementptr inbounds i8, ptr %74, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 4
   %76 = load i32, ptr %75, align 4
   %77 = add i32 %76, 1
   store i32 %77, ptr %75, align 4
@@ -560,7 +560,7 @@ tailrecurse:                                      ; preds = %30, %19
   %82 = ptrtoint ptr %78 to i64
   %83 = and i64 %82, -2
   %84 = inttoptr i64 %83 to ptr
-  %85 = getelementptr inbounds i8, ptr %84, i64 4
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 4
   %86 = load i32, ptr %85, align 4
   %87 = add i32 %86, 1
   store i32 %87, ptr %85, align 4
@@ -579,7 +579,7 @@ tailrecurse:                                      ; preds = %30, %19
   %93 = ptrtoint ptr %.082 to i64
   %94 = and i64 %93, -2
   %95 = inttoptr i64 %94 to ptr
-  %96 = getelementptr inbounds i8, ptr %95, i64 4
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 4
   %97 = load i32, ptr %96, align 4
   %98 = add i32 %97, -1
   store i32 %98, ptr %96, align 4
@@ -596,7 +596,7 @@ tailrecurse:                                      ; preds = %30, %19
 
 ; Function Attrs: nounwind uwtable
 define ptr @Extra_zddDotProduct(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 448
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %5
 
 5:                                                ; preds = %5, %3
@@ -612,7 +612,7 @@ define ptr @Extra_zddDotProduct(ptr noundef initializes((448, 452)) %0, ptr noun
 
 ; Function Attrs: nounwind uwtable
 define ptr @extraZddDotProduct(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %1, %5
   %7 = icmp eq ptr %2, %5
@@ -620,9 +620,9 @@ define ptr @extraZddDotProduct(ptr noundef %0, ptr noundef %1, ptr noundef %2) #
   br i1 %or.cond122, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 320
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 320
   br label %11
 
 11:                                               ; preds = %.lr.ph, %tailrecurse
@@ -639,11 +639,11 @@ define ptr @extraZddDotProduct(ptr noundef %0, ptr noundef %1, ptr noundef %2) #
   %16 = load ptr, ptr %10, align 8
   %17 = load i32, ptr %.tr118123, align 8
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds i32, ptr %16, i64 %18
+  %19 = getelementptr inbounds nuw i32, ptr %16, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = load i32, ptr %.tr119124, align 8
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds i32, ptr %16, i64 %22
+  %23 = getelementptr inbounds nuw i32, ptr %16, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = icmp sgt i32 %20, %24
   br i1 %25, label %tailrecurse, label %26
@@ -669,8 +669,8 @@ tailrecurse:                                      ; preds = %26, %15
   br i1 %27, label %34, label %88
 
 34:                                               ; preds = %33
-  %35 = getelementptr inbounds i8, ptr %.tr119124, i64 16
-  %36 = getelementptr inbounds i8, ptr %.tr119124, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %.tr119124, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %.tr119124, i64 24
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr %35, align 8
   %39 = tail call ptr @cuddZddUnion(ptr noundef nonnull %0, ptr noundef %37, ptr noundef %38) #2
@@ -681,11 +681,11 @@ tailrecurse:                                      ; preds = %26, %15
   %42 = ptrtoint ptr %39 to i64
   %43 = and i64 %42, -2
   %44 = inttoptr i64 %43 to ptr
-  %45 = getelementptr inbounds i8, ptr %44, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %46 = load i32, ptr %45, align 4
   %47 = add i32 %46, 1
   store i32 %47, ptr %45, align 4
-  %48 = getelementptr inbounds i8, ptr %.tr118123, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %.tr118123, i64 16
   %49 = load ptr, ptr %48, align 8
   %50 = tail call ptr @extraZddDotProduct(ptr noundef nonnull %0, ptr noundef %49, ptr noundef nonnull %39)
   %51 = icmp eq ptr %50, null
@@ -699,12 +699,12 @@ tailrecurse:                                      ; preds = %26, %15
   %54 = ptrtoint ptr %50 to i64
   %55 = and i64 %54, -2
   %56 = inttoptr i64 %55 to ptr
-  %57 = getelementptr inbounds i8, ptr %56, i64 4
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 4
   %58 = load i32, ptr %57, align 4
   %59 = add i32 %58, 1
   store i32 %59, ptr %57, align 4
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %39) #2
-  %60 = getelementptr inbounds i8, ptr %.tr118123, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %.tr118123, i64 24
   %61 = load ptr, ptr %60, align 8
   %62 = load ptr, ptr %35, align 8
   %63 = tail call ptr @extraZddDotProduct(ptr noundef nonnull %0, ptr noundef %61, ptr noundef %62)
@@ -719,7 +719,7 @@ tailrecurse:                                      ; preds = %26, %15
   %67 = ptrtoint ptr %63 to i64
   %68 = and i64 %67, -2
   %69 = inttoptr i64 %68 to ptr
-  %70 = getelementptr inbounds i8, ptr %69, i64 4
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
   %71 = load i32, ptr %70, align 4
   %72 = add i32 %71, 1
   store i32 %72, ptr %70, align 4
@@ -736,7 +736,7 @@ tailrecurse:                                      ; preds = %26, %15
   %77 = ptrtoint ptr %73 to i64
   %78 = and i64 %77, -2
   %79 = inttoptr i64 %78 to ptr
-  %80 = getelementptr inbounds i8, ptr %79, i64 4
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 4
   %81 = load i32, ptr %80, align 4
   %82 = add i32 %81, 1
   store i32 %82, ptr %80, align 4
@@ -753,7 +753,7 @@ tailrecurse:                                      ; preds = %26, %15
   br label %.loopexit
 
 88:                                               ; preds = %33
-  %89 = getelementptr inbounds i8, ptr %.tr118123, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %.tr118123, i64 16
   %90 = load ptr, ptr %89, align 8
   %91 = tail call ptr @extraZddDotProduct(ptr noundef nonnull %0, ptr noundef %90, ptr noundef nonnull %.tr119124)
   %92 = icmp eq ptr %91, null
@@ -763,11 +763,11 @@ tailrecurse:                                      ; preds = %26, %15
   %94 = ptrtoint ptr %91 to i64
   %95 = and i64 %94, -2
   %96 = inttoptr i64 %95 to ptr
-  %97 = getelementptr inbounds i8, ptr %96, i64 4
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 4
   %98 = load i32, ptr %97, align 4
   %99 = add i32 %98, 1
   store i32 %99, ptr %97, align 4
-  %100 = getelementptr inbounds i8, ptr %.tr118123, i64 24
+  %100 = getelementptr inbounds nuw i8, ptr %.tr118123, i64 24
   %101 = load ptr, ptr %100, align 8
   %102 = tail call ptr @extraZddDotProduct(ptr noundef nonnull %0, ptr noundef %101, ptr noundef nonnull %.tr119124)
   %103 = icmp eq ptr %102, null
@@ -783,7 +783,7 @@ tailrecurse:                                      ; preds = %26, %15
   %106 = ptrtoint ptr %.sink to i64
   %107 = and i64 %106, -2
   %108 = inttoptr i64 %107 to ptr
-  %109 = getelementptr inbounds i8, ptr %108, i64 4
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 4
   %110 = load i32, ptr %109, align 4
   %111 = add i32 %110, 1
   store i32 %111, ptr %109, align 4
@@ -801,14 +801,14 @@ tailrecurse:                                      ; preds = %26, %15
   %117 = ptrtoint ptr %.sink to i64
   %118 = and i64 %117, -2
   %119 = inttoptr i64 %118 to ptr
-  %120 = getelementptr inbounds i8, ptr %119, i64 4
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 4
   %121 = load i32, ptr %120, align 4
   %122 = add i32 %121, -1
   store i32 %122, ptr %120, align 4
   %123 = ptrtoint ptr %.0100 to i64
   %124 = and i64 %123, -2
   %125 = inttoptr i64 %124 to ptr
-  %126 = getelementptr inbounds i8, ptr %125, i64 4
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 4
   %127 = load i32, ptr %126, align 4
   %128 = add i32 %127, -1
   store i32 %128, ptr %126, align 4
@@ -822,7 +822,7 @@ tailrecurse:                                      ; preds = %26, %15
 
 ; Function Attrs: nounwind uwtable
 define ptr @Extra_zddCrossProduct(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 448
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %5
 
 5:                                                ; preds = %5, %3
@@ -838,7 +838,7 @@ define ptr @Extra_zddCrossProduct(ptr noundef initializes((448, 452)) %0, ptr no
 
 ; Function Attrs: nounwind uwtable
 define ptr @extraZddCrossProduct(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %1, %5
   %7 = icmp eq ptr %2, %5
@@ -846,9 +846,9 @@ define ptr @extraZddCrossProduct(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br i1 %or.cond136, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 320
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 320
   br label %11
 
 11:                                               ; preds = %.lr.ph, %tailrecurse
@@ -863,11 +863,11 @@ define ptr @extraZddCrossProduct(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %15 = load ptr, ptr %10, align 8
   %16 = load i32, ptr %.tr132137, align 8
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds i32, ptr %15, i64 %17
+  %18 = getelementptr inbounds nuw i32, ptr %15, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = load i32, ptr %.tr133138, align 8
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds i32, ptr %15, i64 %21
+  %22 = getelementptr inbounds nuw i32, ptr %15, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = icmp sgt i32 %19, %23
   br i1 %24, label %tailrecurse, label %25
@@ -893,8 +893,8 @@ tailrecurse:                                      ; preds = %25, %14
   br i1 %26, label %33, label %103
 
 33:                                               ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %.tr133138, i64 16
-  %35 = getelementptr inbounds i8, ptr %.tr133138, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %.tr133138, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %.tr133138, i64 24
   %36 = load ptr, ptr %35, align 8
   %37 = load ptr, ptr %34, align 8
   %38 = tail call ptr @cuddZddUnion(ptr noundef nonnull %0, ptr noundef %36, ptr noundef %37) #2
@@ -905,12 +905,12 @@ tailrecurse:                                      ; preds = %25, %14
   %41 = ptrtoint ptr %38 to i64
   %42 = and i64 %41, -2
   %43 = inttoptr i64 %42 to ptr
-  %44 = getelementptr inbounds i8, ptr %43, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %45 = load i32, ptr %44, align 4
   %46 = add i32 %45, 1
   store i32 %46, ptr %44, align 4
-  %47 = getelementptr inbounds i8, ptr %.tr132137, i64 16
-  %48 = getelementptr inbounds i8, ptr %.tr132137, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %.tr132137, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %.tr132137, i64 24
   %49 = load ptr, ptr %48, align 8
   %50 = tail call ptr @extraZddCrossProduct(ptr noundef nonnull %0, ptr noundef %49, ptr noundef nonnull %38)
   %51 = icmp eq ptr %50, null
@@ -924,7 +924,7 @@ tailrecurse:                                      ; preds = %25, %14
   %54 = ptrtoint ptr %50 to i64
   %55 = and i64 %54, -2
   %56 = inttoptr i64 %55 to ptr
-  %57 = getelementptr inbounds i8, ptr %56, i64 4
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 4
   %58 = load i32, ptr %57, align 4
   %59 = add i32 %58, 1
   store i32 %59, ptr %57, align 4
@@ -943,7 +943,7 @@ tailrecurse:                                      ; preds = %25, %14
   %66 = ptrtoint ptr %62 to i64
   %67 = and i64 %66, -2
   %68 = inttoptr i64 %67 to ptr
-  %69 = getelementptr inbounds i8, ptr %68, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %70 = load i32, ptr %69, align 4
   %71 = add i32 %70, 1
   store i32 %71, ptr %69, align 4
@@ -960,7 +960,7 @@ tailrecurse:                                      ; preds = %25, %14
   %76 = ptrtoint ptr %72 to i64
   %77 = and i64 %76, -2
   %78 = inttoptr i64 %77 to ptr
-  %79 = getelementptr inbounds i8, ptr %78, i64 4
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 4
   %80 = load i32, ptr %79, align 4
   %81 = add i32 %80, 1
   store i32 %81, ptr %79, align 4
@@ -980,7 +980,7 @@ tailrecurse:                                      ; preds = %25, %14
   %88 = ptrtoint ptr %84 to i64
   %89 = and i64 %88, -2
   %90 = inttoptr i64 %89 to ptr
-  %91 = getelementptr inbounds i8, ptr %90, i64 4
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 4
   %92 = load i32, ptr %91, align 4
   %93 = add i32 %92, 1
   store i32 %93, ptr %91, align 4
@@ -1004,18 +1004,18 @@ tailrecurse:                                      ; preds = %25, %14
   br label %139
 
 103:                                              ; preds = %32
-  %104 = getelementptr inbounds i8, ptr %.tr132137, i64 24
+  %104 = getelementptr inbounds nuw i8, ptr %.tr132137, i64 24
   %105 = load ptr, ptr %104, align 8
   %106 = tail call ptr @extraZddCrossProduct(ptr noundef nonnull %0, ptr noundef %105, ptr noundef nonnull %.tr133138)
   %107 = icmp eq ptr %106, null
   br i1 %107, label %.loopexit, label %108
 
 108:                                              ; preds = %103
-  %109 = getelementptr inbounds i8, ptr %.tr132137, i64 16
+  %109 = getelementptr inbounds nuw i8, ptr %.tr132137, i64 16
   %110 = ptrtoint ptr %106 to i64
   %111 = and i64 %110, -2
   %112 = inttoptr i64 %111 to ptr
-  %113 = getelementptr inbounds i8, ptr %112, i64 4
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 4
   %114 = load i32, ptr %113, align 4
   %115 = add i32 %114, 1
   store i32 %115, ptr %113, align 4
@@ -1032,7 +1032,7 @@ tailrecurse:                                      ; preds = %25, %14
   %121 = ptrtoint ptr %117 to i64
   %122 = and i64 %121, -2
   %123 = inttoptr i64 %122 to ptr
-  %124 = getelementptr inbounds i8, ptr %123, i64 4
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 4
   %125 = load i32, ptr %124, align 4
   %126 = add i32 %125, 1
   store i32 %126, ptr %124, align 4
@@ -1049,7 +1049,7 @@ tailrecurse:                                      ; preds = %25, %14
   %131 = ptrtoint ptr %127 to i64
   %132 = and i64 %131, -2
   %133 = inttoptr i64 %132 to ptr
-  %134 = getelementptr inbounds i8, ptr %133, i64 4
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 4
   %135 = load i32, ptr %134, align 4
   %136 = add i32 %135, 1
   store i32 %136, ptr %134, align 4
@@ -1072,7 +1072,7 @@ tailrecurse:                                      ; preds = %25, %14
 
 ; Function Attrs: nounwind uwtable
 define ptr @Extra_zddMaxDotProduct(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 448
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %5
 
 5:                                                ; preds = %5, %3
@@ -1088,7 +1088,7 @@ define ptr @Extra_zddMaxDotProduct(ptr noundef initializes((448, 452)) %0, ptr n
 
 ; Function Attrs: nounwind uwtable
 define ptr @extraZddMaxDotProduct(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %1, %5
   %7 = icmp eq ptr %2, %5
@@ -1096,9 +1096,9 @@ define ptr @extraZddMaxDotProduct(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %or.cond134, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 320
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 320
   br label %11
 
 11:                                               ; preds = %.lr.ph, %tailrecurse
@@ -1115,11 +1115,11 @@ define ptr @extraZddMaxDotProduct(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %16 = load ptr, ptr %10, align 8
   %17 = load i32, ptr %.tr130135, align 8
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds i32, ptr %16, i64 %18
+  %19 = getelementptr inbounds nuw i32, ptr %16, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = load i32, ptr %.tr131136, align 8
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds i32, ptr %16, i64 %22
+  %23 = getelementptr inbounds nuw i32, ptr %16, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = icmp sgt i32 %20, %24
   br i1 %25, label %tailrecurse, label %26
@@ -1145,8 +1145,8 @@ tailrecurse:                                      ; preds = %26, %15
   br i1 %27, label %34, label %88
 
 34:                                               ; preds = %33
-  %35 = getelementptr inbounds i8, ptr %.tr131136, i64 16
-  %36 = getelementptr inbounds i8, ptr %.tr131136, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %.tr131136, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %.tr131136, i64 24
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr %35, align 8
   %39 = tail call ptr @extraZddMaxUnion(ptr noundef nonnull %0, ptr noundef %37, ptr noundef %38)
@@ -1157,11 +1157,11 @@ tailrecurse:                                      ; preds = %26, %15
   %42 = ptrtoint ptr %39 to i64
   %43 = and i64 %42, -2
   %44 = inttoptr i64 %43 to ptr
-  %45 = getelementptr inbounds i8, ptr %44, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %46 = load i32, ptr %45, align 4
   %47 = add i32 %46, 1
   store i32 %47, ptr %45, align 4
-  %48 = getelementptr inbounds i8, ptr %.tr130135, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %.tr130135, i64 16
   %49 = load ptr, ptr %48, align 8
   %50 = tail call ptr @extraZddMaxDotProduct(ptr noundef nonnull %0, ptr noundef %49, ptr noundef nonnull %39)
   %51 = icmp eq ptr %50, null
@@ -1175,12 +1175,12 @@ tailrecurse:                                      ; preds = %26, %15
   %54 = ptrtoint ptr %50 to i64
   %55 = and i64 %54, -2
   %56 = inttoptr i64 %55 to ptr
-  %57 = getelementptr inbounds i8, ptr %56, i64 4
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 4
   %58 = load i32, ptr %57, align 4
   %59 = add i32 %58, 1
   store i32 %59, ptr %57, align 4
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %39) #2
-  %60 = getelementptr inbounds i8, ptr %.tr130135, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %.tr130135, i64 24
   %61 = load ptr, ptr %60, align 8
   %62 = load ptr, ptr %35, align 8
   %63 = tail call ptr @extraZddMaxDotProduct(ptr noundef nonnull %0, ptr noundef %61, ptr noundef %62)
@@ -1195,7 +1195,7 @@ tailrecurse:                                      ; preds = %26, %15
   %67 = ptrtoint ptr %63 to i64
   %68 = and i64 %67, -2
   %69 = inttoptr i64 %68 to ptr
-  %70 = getelementptr inbounds i8, ptr %69, i64 4
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
   %71 = load i32, ptr %70, align 4
   %72 = add i32 %71, 1
   store i32 %72, ptr %70, align 4
@@ -1212,7 +1212,7 @@ tailrecurse:                                      ; preds = %26, %15
   %77 = ptrtoint ptr %73 to i64
   %78 = and i64 %77, -2
   %79 = inttoptr i64 %78 to ptr
-  %80 = getelementptr inbounds i8, ptr %79, i64 4
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 4
   %81 = load i32, ptr %80, align 4
   %82 = add i32 %81, 1
   store i32 %82, ptr %80, align 4
@@ -1229,7 +1229,7 @@ tailrecurse:                                      ; preds = %26, %15
   br label %.loopexit
 
 88:                                               ; preds = %33
-  %89 = getelementptr inbounds i8, ptr %.tr130135, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %.tr130135, i64 16
   %90 = load ptr, ptr %89, align 8
   %91 = tail call ptr @extraZddMaxDotProduct(ptr noundef nonnull %0, ptr noundef %90, ptr noundef nonnull %.tr131136)
   %92 = icmp eq ptr %91, null
@@ -1239,11 +1239,11 @@ tailrecurse:                                      ; preds = %26, %15
   %94 = ptrtoint ptr %91 to i64
   %95 = and i64 %94, -2
   %96 = inttoptr i64 %95 to ptr
-  %97 = getelementptr inbounds i8, ptr %96, i64 4
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 4
   %98 = load i32, ptr %97, align 4
   %99 = add i32 %98, 1
   store i32 %99, ptr %97, align 4
-  %100 = getelementptr inbounds i8, ptr %.tr130135, i64 24
+  %100 = getelementptr inbounds nuw i8, ptr %.tr130135, i64 24
   %101 = load ptr, ptr %100, align 8
   %102 = tail call ptr @extraZddMaxDotProduct(ptr noundef nonnull %0, ptr noundef %101, ptr noundef nonnull %.tr131136)
   %103 = icmp eq ptr %102, null
@@ -1259,7 +1259,7 @@ tailrecurse:                                      ; preds = %26, %15
   %106 = ptrtoint ptr %.sink to i64
   %107 = and i64 %106, -2
   %108 = inttoptr i64 %107 to ptr
-  %109 = getelementptr inbounds i8, ptr %108, i64 4
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 4
   %110 = load i32, ptr %109, align 4
   %111 = add i32 %110, 1
   store i32 %111, ptr %109, align 4
@@ -1276,7 +1276,7 @@ tailrecurse:                                      ; preds = %26, %15
   %116 = ptrtoint ptr %112 to i64
   %117 = and i64 %116, -2
   %118 = inttoptr i64 %117 to ptr
-  %119 = getelementptr inbounds i8, ptr %118, i64 4
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 4
   %120 = load i32, ptr %119, align 4
   %121 = add i32 %120, 1
   store i32 %121, ptr %119, align 4
@@ -1298,7 +1298,7 @@ tailrecurse:                                      ; preds = %26, %15
   %129 = ptrtoint ptr %.0 to i64
   %130 = and i64 %129, -2
   %131 = inttoptr i64 %130 to ptr
-  %132 = getelementptr inbounds i8, ptr %131, i64 4
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 4
   %133 = load i32, ptr %132, align 4
   %134 = add i32 %133, -1
   store i32 %134, ptr %132, align 4

@@ -72,19 +72,19 @@ define dso_local noundef zeroext i1 @_ZN5clang4ento13ModelConsumer18HandleTopLev
   %8 = select i1 %.not.i, ptr null, ptr %4
   %9 = and i64 %5, -2
   %10 = inttoptr i64 %9 to ptr
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.0.i = select i1 %7, ptr %8, ptr %11
   br i1 %7, label %12, label %15
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %4, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %14 = select i1 %.not.i, ptr null, ptr %13
   br label %_ZN5clang12DeclGroupRef3endEv.exit
 
 15:                                               ; preds = %2
   %16 = load i32, ptr %10, align 8
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds ptr, ptr %11, i64 %17
+  %18 = getelementptr inbounds nuw ptr, ptr %11, i64 %17
   br label %_ZN5clang12DeclGroupRef3endEv.exit
 
 _ZN5clang12DeclGroupRef3endEv.exit:               ; preds = %12, %15
@@ -94,8 +94,8 @@ _ZN5clang12DeclGroupRef3endEv.exit:               ; preds = %12, %15
 
 .lr.ph:                                           ; preds = %_ZN5clang12DeclGroupRef3endEv.exit
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.218.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
+  %.sroa.218.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %20
 
 20:                                               ; preds = %.lr.ph, %52
@@ -112,7 +112,7 @@ _ZN5clang12DeclGroupRef3endEv.exit:               ; preds = %12, %15
 
 27:                                               ; preds = %20
   %28 = load ptr, ptr %21, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 72
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 72
   %30 = load ptr, ptr %29, align 8
   %31 = call noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(168) %21) #6
   br i1 %31, label %32, label %52
@@ -132,7 +132,7 @@ _ZN5clang12DeclGroupRef3endEv.exit:               ; preds = %12, %15
   %40 = inttoptr i64 %38 to ptr
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load i64, ptr %42, align 8
   %45 = and i64 %44, 4294967295
   br label %_ZNK5clang9NamedDecl7getNameEv.exit
@@ -141,7 +141,7 @@ _ZNK5clang9NamedDecl7getNameEv.exit:              ; preds = %32, %39
   %.sroa.3.0.i = phi i64 [ %45, %39 ], [ 0, %32 ]
   %.sroa.0.0.i = phi ptr [ %43, %39 ], [ @.str, %32 ]
   %46 = load ptr, ptr %21, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 64
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 64
   %48 = load ptr, ptr %47, align 8
   %49 = call noundef ptr %48(ptr noundef nonnull align 8 dereferenceable(168) %21) #6
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
@@ -154,7 +154,7 @@ _ZNK5clang9NamedDecl7getNameEv.exit:              ; preds = %32, %39
   br label %52
 
 52:                                               ; preds = %20, %27, %_ZNK5clang9NamedDecl7getNameEv.exit
-  %53 = getelementptr inbounds i8, ptr %.021, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %.021, i64 8
   %.not = icmp eq ptr %53, %.0.i14
   br i1 %.not, label %._crit_edge, label %20
 
@@ -265,7 +265,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapIPN5clang4StmtENS_15Ma
   %6 = tail call noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %3) #6
   %7 = load ptr, ptr %0, align 8
   %8 = zext i32 %6 to i64
-  %9 = getelementptr inbounds ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
   %magicptr = ptrtoint ptr %10 to i64
   switch i64 %magicptr, label %.preheader.i.i [
@@ -283,7 +283,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapIPN5clang4StmtENS_15Ma
   ]
 
 .critedge.i.i.i:                                  ; preds = %.preheader.i.i, %.preheader.i.i
-  %12 = getelementptr inbounds i8, ptr %.sroa.031.0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.031.0, i64 8
   %.pre = load ptr, ptr %12, align 8
   br label %.preheader.i.i, !llvm.loop !4
 
@@ -297,7 +297,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapIPN5clang4StmtENS_15Ma
 17:                                               ; preds = %5, %13
   %18 = add i64 %2, 17
   %19 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %18, i64 noundef 8) #6
-  %20 = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %.not.i.i = icmp eq i64 %2, 0
   br i1 %.not.i.i, label %_ZN4llvm14StringMapEntryIPN5clang4StmtEE6createINS_15MallocAllocatorEJS3_EEEPS4_NS_9StringRefERT_DpOT0_.exit, label %21
 
@@ -320,7 +320,7 @@ _ZN4llvm14StringMapEntryIPN5clang4StmtEE6createINS_15MallocAllocatorEJS3_EEEPS4_
   %28 = tail call noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %6) #6
   %29 = load ptr, ptr %0, align 8
   %30 = zext i32 %28 to i64
-  %31 = getelementptr inbounds ptr, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %30
   br label %.preheader.i.i24
 
 .preheader.i.i24:                                 ; preds = %.critedge.i.i.i26, %_ZN4llvm14StringMapEntryIPN5clang4StmtEE6createINS_15MallocAllocatorEJS3_EEEPS4_NS_9StringRefERT_DpOT0_.exit
@@ -333,7 +333,7 @@ _ZN4llvm14StringMapEntryIPN5clang4StmtEE6createINS_15MallocAllocatorEJS3_EEEPS4_
   ]
 
 .critedge.i.i.i26:                                ; preds = %.preheader.i.i24, %.preheader.i.i24
-  %33 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 8
   br label %.preheader.i.i24, !llvm.loop !4
 
 _ZN4llvm17StringMapIteratorIPN5clang4StmtEEC2EPPNS_18StringMapEntryBaseEb.exit: ; preds = %.preheader.i.i24, %.preheader.i.i

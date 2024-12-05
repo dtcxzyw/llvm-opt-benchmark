@@ -259,7 +259,7 @@ is_riemann.exit:                                  ; preds = %riemann_get_guint64
   br i1 %or.cond33.i.not, label %is_riemann.exit.thread, label %is_riemann.exit.thread22
 
 is_riemann.exit.thread22:                         ; preds = %riemann_get_guint64.exit.i, %is_riemann.exit
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8
   tail call void @col_set_str(ptr noundef %25, i32 noundef 34, ptr noundef nonnull @.str.55) #2
   %26 = load ptr, ptr %24, align 8

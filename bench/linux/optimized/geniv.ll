@@ -39,18 +39,18 @@ define dso_local ptr @aead_geniv_alloc(ptr noundef %0, ptr noundef %1) #0 align 
   br i1 %12, label %60, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %11, i64 512
-  %15 = getelementptr inbounds i8, ptr %11, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 512
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %16 = getelementptr i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @crypto_attr_alg_name(ptr noundef %17) #5
   %19 = load i32, ptr %3, align 4
-  %20 = call i32 @crypto_grab_aead(ptr noundef %14, ptr noundef %15, ptr noundef %18, i32 noundef 0, i32 noundef %19) #5
+  %20 = call i32 @crypto_grab_aead(ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef %18, i32 noundef 0, i32 noundef %19) #5
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %56
 
 22:                                               ; preds = %13
-  %23 = getelementptr inbounds i8, ptr %11, i64 528
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 528
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr i8, ptr %24, i64 -16
   %26 = load i32, ptr %25, align 8
@@ -60,49 +60,49 @@ define dso_local ptr @aead_geniv_alloc(ptr noundef %0, ptr noundef %1) #0 align 
   br i1 %29, label %56, label %30
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %11, i64 8
-  %32 = getelementptr inbounds i8, ptr %11, i64 128
-  %33 = getelementptr inbounds i8, ptr %0, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %11, i64 128
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %34 = getelementptr i8, ptr %24, i64 56
-  %35 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %32, i64 noundef 128, ptr noundef nonnull @.str, ptr noundef %33, ptr noundef %34) #5
+  %35 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %32, i64 noundef 128, ptr noundef nonnull @.str, ptr noundef nonnull %33, ptr noundef %34) #5
   %36 = icmp sgt i32 %35, 127
   br i1 %36, label %56, label %37
 
 37:                                               ; preds = %30
-  %38 = getelementptr inbounds i8, ptr %11, i64 256
+  %38 = getelementptr inbounds nuw i8, ptr %11, i64 256
   %39 = getelementptr i8, ptr %24, i64 184
-  %40 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %38, i64 noundef 128, ptr noundef nonnull @.str, ptr noundef %33, ptr noundef %39) #5
+  %40 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %38, i64 noundef 128, ptr noundef nonnull @.str, ptr noundef nonnull %33, ptr noundef %39) #5
   %41 = icmp sgt i32 %40, 127
   br i1 %41, label %56, label %42
 
 42:                                               ; preds = %37
   %43 = getelementptr i8, ptr %24, i64 48
   %44 = load i32, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %11, i64 120
+  %45 = getelementptr inbounds nuw i8, ptr %11, i64 120
   store i32 %44, ptr %45, align 8
   %46 = getelementptr i8, ptr %24, i64 36
   %47 = load i32, ptr %46, align 4
-  %48 = getelementptr inbounds i8, ptr %11, i64 108
+  %48 = getelementptr inbounds nuw i8, ptr %11, i64 108
   store i32 %47, ptr %48, align 4
   %49 = getelementptr i8, ptr %24, i64 44
   %50 = load i32, ptr %49, align 4
-  %51 = getelementptr inbounds i8, ptr %11, i64 116
+  %51 = getelementptr inbounds nuw i8, ptr %11, i64 116
   store i32 %50, ptr %51, align 4
-  %52 = getelementptr inbounds i8, ptr %11, i64 112
+  %52 = getelementptr inbounds nuw i8, ptr %11, i64 112
   store i32 24, ptr %52, align 8
   store ptr @aead_geniv_setkey, ptr %31, align 8
-  %53 = getelementptr inbounds i8, ptr %11, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr @aead_geniv_setauthsize, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %11, i64 56
+  %54 = getelementptr inbounds nuw i8, ptr %11, i64 56
   store i32 %26, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %11, i64 60
+  %55 = getelementptr inbounds nuw i8, ptr %11, i64 60
   store i32 %28, ptr %55, align 4
   store ptr @aead_geniv_free, ptr %11, align 8
   br label %60
 
 56:                                               ; preds = %37, %30, %22, %13
   %57 = phi i32 [ %20, %13 ], [ -22, %22 ], [ -36, %30 ], [ -36, %37 ]
-  call void @crypto_drop_spawn(ptr noundef %14) #5
+  call void @crypto_drop_spawn(ptr noundef nonnull %14) #5
   call void @kfree(ptr noundef nonnull %11) #5
   %58 = sext i32 %57 to i64
   %59 = inttoptr i64 %58 to ptr
@@ -131,7 +131,7 @@ declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly,
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @aead_geniv_setkey(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @crypto_aead_setkey(ptr noundef %5, ptr noundef %1, i32 noundef %2) #5
   ret i32 %6
@@ -139,7 +139,7 @@ define internal i32 @aead_geniv_setkey(ptr nocapture noundef readonly %0, ptr no
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @aead_geniv_setauthsize(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @crypto_aead_setauthsize(ptr noundef %4, i32 noundef %1) #5
   ret i32 %5
@@ -147,8 +147,8 @@ define internal i32 @aead_geniv_setauthsize(ptr nocapture noundef readonly %0, i
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @aead_geniv_free(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 512
-  tail call void @crypto_drop_spawn(ptr noundef %2) #5
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 512
+  tail call void @crypto_drop_spawn(ptr noundef nonnull %2) #5
   tail call void @kfree(ptr noundef %0) #5
   ret void
 }
@@ -158,8 +158,8 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @aead_init_geniv(ptr noundef initializes((40, 44)) %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   store i32 0, ptr %2, align 8
   %5 = tail call i32 @crypto_get_default_rng() #5
@@ -168,22 +168,22 @@ define dso_local i32 @aead_init_geniv(ptr noundef initializes((40, 44)) %0) #0 a
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr @crypto_default_rng, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %3, align 8
   %11 = getelementptr i8, ptr %10, i64 -16
   %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr i8, ptr %14, i64 -32
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call i32 %16(ptr noundef %8, ptr noundef null, i32 noundef 0, ptr noundef %9, i32 noundef %12) #5
+  %17 = tail call i32 %16(ptr noundef %8, ptr noundef null, i32 noundef 0, ptr noundef nonnull %9, i32 noundef %12) #5
   tail call void @crypto_put_default_rng() #5
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %35
 
 19:                                               ; preds = %7
   %20 = tail call ptr @crypto_get_default_null_skcipher() #5
-  %21 = getelementptr inbounds i8, ptr %0, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %20, ptr %21, align 8
   %22 = ptrtoint ptr %20 to i64
   %23 = trunc i64 %22 to i32
@@ -197,12 +197,12 @@ define dso_local i32 @aead_init_geniv(ptr noundef initializes((40, 44)) %0) #0 a
   br i1 %28, label %37, label %29
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %0, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %27, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %27, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %32 = load i32, ptr %31, align 4
   %33 = add i32 %32, 80
-  %34 = getelementptr inbounds i8, ptr %0, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %33, ptr %34, align 4
   br label %35
 
@@ -231,10 +231,10 @@ declare dso_local void @crypto_put_default_null_skcipher() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @aead_exit_geniv(ptr nocapture noundef readonly %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
-  tail call void @crypto_destroy_tfm(ptr noundef %3, ptr noundef %4) #5
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  tail call void @crypto_destroy_tfm(ptr noundef %3, ptr noundef nonnull %4) #5
   tail call void @crypto_put_default_null_skcipher() #5
   ret void
 }

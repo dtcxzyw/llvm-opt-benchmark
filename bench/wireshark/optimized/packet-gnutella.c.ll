@@ -164,7 +164,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_gnutella(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.92) #3
   %7 = load ptr, ptr %5, align 8
@@ -277,7 +277,7 @@ define internal i32 @dissect_gnutella_pdu(ptr noundef %0, ptr nocapture noundef 
 
 19:                                               ; preds = %11, %18, %17, %16, %15, %14
   %.0 = phi ptr [ @.str.94, %18 ], [ @.str.12, %17 ], [ @.str.9, %16 ], [ @.str.6, %15 ], [ @.str.3, %14 ], [ @.str.93, %11 ]
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load ptr, ptr %20, align 8
   tail call void @col_append_sep_str(ptr noundef %21, i32 noundef 25, ptr noundef null, ptr noundef nonnull %.0) #3
   br i1 %.not, label %dissect_gnutella_query.exit, label %22

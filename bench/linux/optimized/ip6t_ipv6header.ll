@@ -39,23 +39,23 @@ define internal i32 @ipv6header_mt6_init() #0 section ".init.text" align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal zeroext i1 @ipv6header_mt6(ptr noundef %0, ptr nocapture noundef %1) #2 align 16 {
   %3 = alloca %struct.ipv6_opt_hdr, align 2
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 192
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 180
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %9 = load i16, ptr %8, align 4
   %10 = zext i16 %9 to i64
   %11 = getelementptr i8, ptr %7, i64 %10
-  %12 = getelementptr inbounds i8, ptr %11, i64 6
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 6
   %13 = load i8, ptr %12, align 2
-  %14 = getelementptr inbounds i8, ptr %0, i64 112
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %15 = load i32, ptr %14, align 8
   %16 = add i32 %15, -40
-  %17 = getelementptr inbounds i8, ptr %0, i64 116
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %18 = icmp eq ptr %0, null
-  %19 = getelementptr inbounds i8, ptr %0, i64 200
-  %20 = getelementptr inbounds i8, ptr %1, i64 30
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 30
   br i1 %18, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %2, %59
@@ -107,7 +107,7 @@ define internal zeroext i1 @ipv6header_mt6(ptr noundef %0, ptr nocapture noundef
   ]
 
 .thread7.us:                                      ; preds = %.thread5.us
-  %40 = getelementptr inbounds i8, ptr %38, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 1
   %41 = load i8, ptr %40, align 1
   %42 = zext i8 %41 to i32
   %43 = shl nuw nsw i32 %42, 2
@@ -115,7 +115,7 @@ define internal zeroext i1 @ipv6header_mt6(ptr noundef %0, ptr nocapture noundef
   br label %.thread6.us
 
 45:                                               ; preds = %.thread5.us
-  %46 = getelementptr inbounds i8, ptr %38, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %38, i64 1
   %47 = load i8, ptr %46, align 1
   %48 = zext i8 %47 to i32
   %49 = shl nuw nsw i32 %48, 3
@@ -217,7 +217,7 @@ define internal zeroext i1 @ipv6header_mt6(ptr noundef %0, ptr nocapture noundef
   ]
 
 .thread7:                                         ; preds = %.thread5
-  %87 = getelementptr inbounds i8, ptr %86, i64 1
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 1
   %88 = load i8, ptr %87, align 1
   %89 = zext i8 %88 to i32
   %90 = shl nuw nsw i32 %89, 2
@@ -225,7 +225,7 @@ define internal zeroext i1 @ipv6header_mt6(ptr noundef %0, ptr nocapture noundef
   br label %.thread6
 
 92:                                               ; preds = %.thread5
-  %93 = getelementptr inbounds i8, ptr %86, i64 1
+  %93 = getelementptr inbounds nuw i8, ptr %86, i64 1
   %94 = load i8, ptr %93, align 1
   %95 = zext i8 %94 to i32
   %96 = shl nuw nsw i32 %95, 3
@@ -281,7 +281,7 @@ define internal zeroext i1 @ipv6header_mt6(ptr noundef %0, ptr nocapture noundef
 
 113:                                              ; preds = %111, %.loopexit, %.loopexit
   %114 = phi i32 [ %112, %111 ], [ %109, %.loopexit ], [ %109, %.loopexit ]
-  %115 = getelementptr inbounds i8, ptr %5, i64 2
+  %115 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %116 = load i8, ptr %115, align 1
   %117 = icmp eq i8 %116, 0
   br i1 %117, label %128, label %118
@@ -289,7 +289,7 @@ define internal zeroext i1 @ipv6header_mt6(ptr noundef %0, ptr nocapture noundef
 118:                                              ; preds = %113
   %119 = load i8, ptr %5, align 1
   %120 = zext i8 %119 to i32
-  %121 = getelementptr inbounds i8, ptr %5, i64 1
+  %121 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %122 = load i8, ptr %121, align 1
   %123 = xor i8 %122, %119
   %124 = zext i8 %123 to i32
@@ -299,7 +299,7 @@ define internal zeroext i1 @ipv6header_mt6(ptr noundef %0, ptr nocapture noundef
   br label %138
 
 128:                                              ; preds = %113
-  %129 = getelementptr inbounds i8, ptr %5, i64 1
+  %129 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %130 = load i8, ptr %129, align 1
   %131 = icmp eq i8 %130, 0
   %132 = load i8, ptr %5, align 1
@@ -321,15 +321,15 @@ define internal zeroext i1 @ipv6header_mt6(ptr noundef %0, ptr nocapture noundef
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
 define internal range(i32 -22, 1) i32 @ipv6header_mt6_check(ptr nocapture noundef readonly %0) #3 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 2
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %5 = load i8, ptr %4, align 1
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %7, label %13
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %3, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %9 = load i8, ptr %8, align 1
   %10 = add i8 %9, 1
   %11 = icmp ult i8 %10, 2

@@ -21,9 +21,9 @@ $_ZNK4llvh11raw_ostream10has_colorsEv = comdat any
 define hidden void @_ZN4llvh14raw_os_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 16), ptr %this, align 8
-  %OutBufCur.i = getelementptr inbounds i8, ptr %this, i64 24
+  %OutBufCur.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %OutBufCur.i, align 8
-  %OutBufStart.i = getelementptr inbounds i8, ptr %this, i64 8
+  %OutBufStart.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %OutBufStart.i, align 8
   %cmp.not.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i, label %_ZN4llvh11raw_ostream5flushEv.exit, label %if.then.i
@@ -44,9 +44,9 @@ declare void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferencea
 define hidden void @_ZN4llvh14raw_os_ostreamD0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 16), ptr %this, align 8
-  %OutBufCur.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %OutBufCur.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %OutBufCur.i.i, align 8
-  %OutBufStart.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %OutBufStart.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %OutBufStart.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i.i, label %_ZN4llvh14raw_os_ostreamD2Ev.exit, label %if.then.i.i
@@ -67,7 +67,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4llvh14raw_os_ostream10write_implEPKcm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef %Ptr, i64 noundef %Size) unnamed_addr #0 align 2 {
 entry:
-  %OS = getelementptr inbounds i8, ptr %this, i64 40
+  %OS = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %OS, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %Ptr, i64 noundef %Size) #4
   ret void
@@ -78,7 +78,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr nou
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZNK4llvh14raw_os_ostream11current_posEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) unnamed_addr #0 align 2 {
 entry:
-  %OS = getelementptr inbounds i8, ptr %this, i64 40
+  %OS = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %OS, align 8
   %call = tail call { i64, i64 } @_ZNSo5tellpEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #4
   %1 = extractvalue { i64, i64 } %call, 0
@@ -115,7 +115,7 @@ entry:
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvh11raw_ostream10has_colorsEv(ptr noundef nonnull align 8 dereferenceable(36) %this) unnamed_addr #0 comdat align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(36) %this) #4
   ret i1 %call

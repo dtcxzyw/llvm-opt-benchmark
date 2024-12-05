@@ -391,7 +391,7 @@ define internal i32 @dissect_icq(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 7:                                                ; preds = %4
   %8 = zext nneg i16 %5 to i32
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %10, i32 noundef 34, ptr noundef nonnull @.str.218, i32 noundef %8) #3
   %11 = load ptr, ptr %9, align 8
@@ -432,7 +432,7 @@ define internal i32 @dissect_icq(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %41 = sdiv i32 %40, 4
   %42 = shl nsw i32 %41, 2
   %43 = add i32 %42, 10
-  %44 = getelementptr inbounds i8, ptr %1, i64 408
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %45 = load ptr, ptr %44, align 8
   %46 = zext i32 %43 to i64
   %47 = tail call noalias ptr @wmem_alloc(ptr noundef %45, i64 noundef %46) #3
@@ -508,13 +508,13 @@ decrypt_v5.exit.i.i:                              ; preds = %76, %20
   br i1 %.not.i.i.i, label %proto_item_set_generated.exit.i.i, label %87
 
 87:                                               ; preds = %decrypt_v5.exit.i.i
-  %88 = getelementptr inbounds i8, ptr %86, i64 32
+  %88 = getelementptr inbounds nuw i8, ptr %86, i64 32
   %89 = load ptr, ptr %88, align 8
   %.not5.i.i.i = icmp eq ptr %89, null
   br i1 %.not5.i.i.i, label %proto_item_set_generated.exit.i.i, label %90
 
 90:                                               ; preds = %87
-  %91 = getelementptr inbounds i8, ptr %89, i64 28
+  %91 = getelementptr inbounds nuw i8, ptr %89, i64 28
   %92 = load i32, ptr %91, align 4
   %93 = or i32 %92, 2
   store i32 %93, ptr %91, align 4
@@ -541,13 +541,13 @@ proto_item_set_generated.exit.i.i:                ; preds = %90, %87, %decrypt_v
   br i1 %.not.i76.i.i, label %proto_item_set_generated.exit78.i.i, label %110
 
 110:                                              ; preds = %proto_item_set_generated.exit.i.i
-  %111 = getelementptr inbounds i8, ptr %109, i64 32
+  %111 = getelementptr inbounds nuw i8, ptr %109, i64 32
   %112 = load ptr, ptr %111, align 8
   %.not5.i77.i.i = icmp eq ptr %112, null
   br i1 %.not5.i77.i.i, label %proto_item_set_generated.exit78.i.i, label %113
 
 113:                                              ; preds = %110
-  %114 = getelementptr inbounds i8, ptr %112, i64 28
+  %114 = getelementptr inbounds nuw i8, ptr %112, i64 28
   %115 = load i32, ptr %114, align 4
   %116 = or i32 %115, 2
   store i32 %116, ptr %114, align 4
@@ -740,7 +740,7 @@ define internal fastcc void @dissect_icqv5Server(ptr noundef %0, i32 noundef %1,
   br i1 %10, label %11, label %17
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = zext i16 %9 to i32
   %15 = tail call ptr @val_to_str_const(i32 noundef %14, ptr noundef nonnull @serverCmdCode, ptr noundef nonnull @.str.124) #3
@@ -758,13 +758,13 @@ define internal fastcc void @dissect_icqv5Server(ptr noundef %0, i32 noundef %1,
   br i1 %.not.i, label %proto_item_set_generated.exit, label %22
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %21, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %24 = load ptr, ptr %23, align 8
   %.not5.i = icmp eq ptr %24, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %25
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %24, i64 28
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 28
   %27 = load i32, ptr %26, align 4
   %28 = or i32 %27, 2
   store i32 %28, ptr %26, align 4
@@ -1154,7 +1154,7 @@ define internal fastcc void @icqv5_decode_msgType(ptr noundef %0, ptr noundef %1
 
 .preheader223:                                    ; preds = %14
   %.5.neg235 = sub i32 -4, %2
-  %19 = getelementptr inbounds i8, ptr %4, i64 408
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 408
   br label %91
 
 20:                                               ; preds = %14

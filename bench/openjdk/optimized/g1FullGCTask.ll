@@ -26,7 +26,7 @@ define hidden void @_ZN12G1FullGCTask8log_taskEPKcjRK11TimeInstantI30CompositeCo
   %6 = load i64, ptr %3, align 8
   %7 = sub nsw i64 %.sroa.0.0.copyload.i.i.i.i.i, %6
   %8 = tail call noundef double @_ZN10TimeHelper17counter_to_millisEl(i64 noundef %7) #4
-  %9 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %9 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %11, label %10
 

@@ -30,11 +30,11 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define internal void @kitty_format(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 264
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 568
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 572
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 572
   %7 = load i32, ptr %6, align 4
   %8 = shl i32 %5, 2
   %9 = mul i32 %8, %7
@@ -44,10 +44,10 @@ define internal void @kitty_format(ptr nocapture noundef readonly %0) #0 {
 
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i
   %.012.i = phi i64 [ %16, %.lr.ph.i ], [ 0, %1 ]
-  %11 = getelementptr inbounds i8, ptr %3, i64 %.012.i
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 %.012.i
   %12 = load i8, ptr %11, align 1
   %13 = or disjoint i64 %.012.i, 2
-  %14 = getelementptr inbounds i8, ptr %3, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 %13
   %15 = load i8, ptr %14, align 1
   store i8 %15, ptr %11, align 1
   store i8 %12, ptr %14, align 1
@@ -99,7 +99,7 @@ gv_alloc.exit.preheader.i:                        ; preds = %5
   %20 = zext i8 %19 to i32
   %21 = lshr i32 %20, 2
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds [66 x i8], ptr @base64_alphabet, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw [66 x i8], ptr @base64_alphabet, i64 0, i64 %22
   %24 = load i8, ptr %23, align 1
   %25 = getelementptr inbounds i8, ptr %12, i64 %.046.i
   store i8 %24, ptr %25, align 1
@@ -120,7 +120,7 @@ gv_alloc.exit.preheader.i:                        ; preds = %5
   %36 = lshr i32 %33, 4
   %37 = or disjoint i32 %36, %35
   %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr inbounds [66 x i8], ptr @base64_alphabet, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw [66 x i8], ptr @base64_alphabet, i64 0, i64 %38
   %40 = load i8, ptr %39, align 1
   %41 = or disjoint i64 %.046.i, 2
   %42 = getelementptr i8, ptr %25, i64 1
@@ -145,7 +145,7 @@ gv_alloc.exit.preheader.i:                        ; preds = %5
   %54 = lshr i32 %51, 6
   %55 = or disjoint i32 %54, %53
   %56 = zext nneg i32 %55 to i64
-  %57 = getelementptr inbounds [66 x i8], ptr @base64_alphabet, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw [66 x i8], ptr @base64_alphabet, i64 0, i64 %56
   %58 = load i8, ptr %57, align 1
   %59 = or disjoint i64 %.046.i, 3
   %60 = getelementptr inbounds i8, ptr %12, i64 %41
@@ -155,7 +155,7 @@ gv_alloc.exit.preheader.i:                        ; preds = %5
 gv_alloc.exit.i:                                  ; preds = %50
   %61 = and i32 %51, 63
   %62 = zext nneg i32 %61 to i64
-  %63 = getelementptr inbounds [66 x i8], ptr @base64_alphabet, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw [66 x i8], ptr @base64_alphabet, i64 0, i64 %62
   %64 = load i8, ptr %63, align 1
   %65 = add i64 %.046.i, 4
   %66 = getelementptr inbounds i8, ptr %12, i64 %59
@@ -245,11 +245,11 @@ declare void @exit(i32 noundef) local_unnamed_addr #5
 ; Function Attrs: nounwind uwtable
 define internal void @zkitty_format(ptr nocapture noundef readonly %0) #0 {
   %2 = alloca %struct.z_stream_s, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 264
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 568
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 572
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 572
   %8 = load i32, ptr %7, align 4
   %9 = shl i32 %6, 2
   %10 = mul i32 %9, %8
@@ -259,10 +259,10 @@ define internal void @zkitty_format(ptr nocapture noundef readonly %0) #0 {
 
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i
   %.012.i = phi i64 [ %17, %.lr.ph.i ], [ 0, %1 ]
-  %12 = getelementptr inbounds i8, ptr %4, i64 %.012.i
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 %.012.i
   %13 = load i8, ptr %12, align 1
   %14 = or disjoint i64 %.012.i, 2
-  %15 = getelementptr inbounds i8, ptr %4, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 %14
   %16 = load i8, ptr %15, align 1
   store i8 %16, ptr %12, align 1
   store i8 %13, ptr %15, align 1
@@ -272,7 +272,7 @@ define internal void @zkitty_format(ptr nocapture noundef readonly %0) #0 {
 
 fix_colors.exit:                                  ; preds = %.lr.ph.i, %1
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %2)
-  %19 = getelementptr inbounds i8, ptr %2, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
   %20 = call i32 @deflateInit_(ptr noundef nonnull %2, i32 noundef -1, ptr noundef nonnull @.str.11, i32 noundef 112) #14
   %.not.i8 = icmp eq i32 %20, 0
@@ -291,13 +291,13 @@ fix_colors.exit:                                  ; preds = %.lr.ph.i, %1
   unreachable
 
 gv_alloc.exit.i:                                  ; preds = %fix_colors.exit
-  %28 = getelementptr inbounds i8, ptr %2, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %10, ptr %28, align 8
   store ptr %4, ptr %2, align 8
-  %29 = getelementptr inbounds i8, ptr %2, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %22, ptr %29, align 8
   %30 = trunc i64 %21 to i32
-  %31 = getelementptr inbounds i8, ptr %2, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %30, ptr %31, align 8
   %32 = call i32 @deflate(ptr noundef nonnull %2, i32 noundef 4) #14
   %33 = load i32, ptr %31, align 8

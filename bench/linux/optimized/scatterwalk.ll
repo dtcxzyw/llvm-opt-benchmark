@@ -18,7 +18,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_scatterwalk_
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @scatterwalk_copychunks(ptr nocapture noundef %0, ptr nocapture noundef %1, i64 noundef %2, i32 noundef %3) #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = icmp eq i32 %3, 2
   %7 = icmp eq i32 %3, 0
   %.pre7 = load ptr, ptr %1, align 8
@@ -26,9 +26,9 @@ define dso_local void @scatterwalk_copychunks(ptr nocapture noundef %0, ptr noca
   br i1 %6, label %.split.us.preheader, label %.split
 
 .split.us.preheader:                              ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %.pre7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.pre7, i64 8
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %.pre7, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %.pre7, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = add i32 %11, %9
   %13 = sub i32 %12, %.pre8
@@ -62,7 +62,7 @@ define dso_local void @scatterwalk_copychunks(ptr nocapture noundef %0, ptr noca
 35:                                               ; preds = %.lr.ph
   %36 = tail call ptr @sg_next(ptr noundef %29) #6
   store ptr %36, ptr %1, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load i32, ptr %37, align 8
   store i32 %38, ptr %5, align 8
   br label %.split.us
@@ -70,9 +70,9 @@ define dso_local void @scatterwalk_copychunks(ptr nocapture noundef %0, ptr noca
 .split.us:                                        ; preds = %35, %.lr.ph
   %39 = phi ptr [ %36, %35 ], [ %29, %.lr.ph ]
   %40 = phi i32 [ %38, %35 ], [ %25, %.lr.ph ]
-  %41 = getelementptr inbounds i8, ptr %39, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %42 = load i32, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %39, i64 12
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 12
   %44 = load i32, ptr %43, align 4
   %45 = add i32 %44, %42
   %46 = sub i32 %45, %40
@@ -94,9 +94,9 @@ define dso_local void @scatterwalk_copychunks(ptr nocapture noundef %0, ptr noca
   %58 = phi ptr [ %.be12, %.split.backedge ], [ %.pre7, %4 ]
   %59 = phi i64 [ %95, %.split.backedge ], [ %2, %4 ]
   %60 = phi ptr [ %94, %.split.backedge ], [ %0, %4 ]
-  %61 = getelementptr inbounds i8, ptr %58, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %62 = load i32, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %58, i64 12
+  %63 = getelementptr inbounds nuw i8, ptr %58, i64 12
   %64 = load i32, ptr %63, align 4
   %65 = add i32 %64, %62
   %66 = sub i32 %65, %57
@@ -135,9 +135,9 @@ define dso_local void @scatterwalk_copychunks(ptr nocapture noundef %0, ptr noca
   %94 = getelementptr i8, ptr %60, i64 %87
   %95 = sub i64 %59, %87
   %96 = load ptr, ptr %1, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %98 = load i32, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %96, i64 12
+  %99 = getelementptr inbounds nuw i8, ptr %96, i64 12
   %100 = load i32, ptr %99, align 4
   %101 = add i32 %100, %98
   %102 = icmp ult i32 %91, %101
@@ -146,7 +146,7 @@ define dso_local void @scatterwalk_copychunks(ptr nocapture noundef %0, ptr noca
 103:                                              ; preds = %93
   %104 = tail call ptr @sg_next(ptr noundef %96) #6
   store ptr %104, ptr %1, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %106 = load i32, ptr %105, align 8
   store i32 %106, ptr %5, align 8
   br label %.split.backedge
@@ -181,7 +181,7 @@ define dso_local void @scatterwalk_map_and_copy(ptr nocapture noundef %0, ptr no
 .preheader:                                       ; preds = %8, %15
   %10 = phi i32 [ %16, %15 ], [ %2, %8 ]
   %11 = phi ptr [ %17, %15 ], [ %1, %8 ]
-  %12 = getelementptr inbounds i8, ptr %11, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %13 = load i32, ptr %12, align 4
   %14 = icmp ugt i32 %13, %10
   br i1 %14, label %19, label %15
@@ -193,32 +193,32 @@ define dso_local void @scatterwalk_map_and_copy(ptr nocapture noundef %0, ptr no
   br i1 %18, label %.loopexit, label %.preheader, !llvm.loop !6
 
 19:                                               ; preds = %.preheader
-  %20 = getelementptr inbounds i8, ptr %11, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 12
   call void @sg_init_table(ptr noundef nonnull %6, i32 noundef 2) #6
   %21 = load i64, ptr %11, align 8
   %22 = and i64 %21, -4
   %23 = load i32, ptr %20, align 4
   %24 = sub i32 %23, %10
-  %25 = getelementptr inbounds i8, ptr %11, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = add i32 %26, %10
   %28 = load i64, ptr %6, align 16
   %29 = and i64 %28, 3
   %30 = or disjoint i64 %29, %22
   store i64 %30, ptr %6, align 16
-  %31 = getelementptr inbounds i8, ptr %6, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %27, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %6, i64 12
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 %24, ptr %32, align 4
   %33 = call ptr @sg_next(ptr noundef %11) #6
   %34 = icmp eq ptr %33, null
   br i1 %34, label %42, label %35
 
 35:                                               ; preds = %19
-  %36 = getelementptr inbounds i8, ptr %6, i64 32
-  %37 = getelementptr inbounds i8, ptr %6, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i32 0, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %6, i64 44
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 44
   store i32 0, ptr %38, align 4
   %39 = ptrtoint ptr %33 to i64
   %40 = and i64 %39, -4
@@ -235,7 +235,7 @@ define dso_local void @scatterwalk_map_and_copy(ptr nocapture noundef %0, ptr no
 
 .loopexit:                                        ; preds = %15, %42, %35, %8
   %46 = phi ptr [ %6, %35 ], [ %6, %42 ], [ %1, %8 ], [ %17, %15 ]
-  %47 = getelementptr inbounds i8, ptr %46, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load i32, ptr %47, align 8
   %49 = zext i32 %3 to i64
   switch i32 %4, label %.split.split.outer [
@@ -244,7 +244,7 @@ define dso_local void @scatterwalk_map_and_copy(ptr nocapture noundef %0, ptr no
   ]
 
 .split.us:                                        ; preds = %.loopexit
-  %50 = getelementptr inbounds i8, ptr %46, i64 12
+  %50 = getelementptr inbounds nuw i8, ptr %46, i64 12
   %51 = load i32, ptr %50, align 4
   %52 = and i32 %48, 4095
   %53 = sub nuw nsw i32 4096, %52
@@ -272,7 +272,7 @@ define dso_local void @scatterwalk_map_and_copy(ptr nocapture noundef %0, ptr no
 
 66:                                               ; preds = %.lr.ph
   %67 = call ptr @sg_next(ptr noundef %60) #6
-  %68 = getelementptr inbounds i8, ptr %67, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %69 = load i32, ptr %68, align 8
   br label %.lr.ph._crit_edge
 
@@ -280,7 +280,7 @@ define dso_local void @scatterwalk_map_and_copy(ptr nocapture noundef %0, ptr no
   %.pre2832 = phi i32 [ %69, %66 ], [ %.pre28, %.lr.ph ]
   %70 = phi i32 [ %69, %66 ], [ %62, %.lr.ph ]
   %71 = phi ptr [ %67, %66 ], [ %60, %.lr.ph ]
-  %72 = getelementptr inbounds i8, ptr %71, i64 12
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 12
   %73 = load i32, ptr %72, align 4
   %74 = sub i32 %.pre2832, %70
   %75 = add i32 %74, %73
@@ -341,7 +341,7 @@ define dso_local void @scatterwalk_map_and_copy(ptr nocapture noundef %0, ptr no
 
 122:                                              ; preds = %114
   %123 = call ptr @sg_next(ptr noundef %.ph58) #6
-  %124 = getelementptr inbounds i8, ptr %123, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
   %125 = load i32, ptr %124, align 8
   br label %.split.split.us.outer
 
@@ -350,8 +350,8 @@ define dso_local void @scatterwalk_map_and_copy(ptr nocapture noundef %0, ptr no
   %.ph58 = phi ptr [ %123, %122 ], [ %46, %.loopexit ]
   %.ph59 = phi i64 [ %117, %122 ], [ %49, %.loopexit ]
   %.ph60 = phi ptr [ %116, %122 ], [ %0, %.loopexit ]
-  %126 = getelementptr inbounds i8, ptr %.ph58, i64 12
-  %127 = getelementptr inbounds i8, ptr %.ph58, i64 8
+  %126 = getelementptr inbounds nuw i8, ptr %.ph58, i64 12
+  %127 = getelementptr inbounds nuw i8, ptr %.ph58, i64 8
   br label %.split.split.us
 
 .split.split:                                     ; preds = %.split.split.outer, %157
@@ -400,7 +400,7 @@ define dso_local void @scatterwalk_map_and_copy(ptr nocapture noundef %0, ptr no
 
 165:                                              ; preds = %157
   %166 = call ptr @sg_next(ptr noundef %.ph50) #6
-  %167 = getelementptr inbounds i8, ptr %166, i64 8
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 8
   %168 = load i32, ptr %167, align 8
   br label %.split.split.outer
 
@@ -409,8 +409,8 @@ define dso_local void @scatterwalk_map_and_copy(ptr nocapture noundef %0, ptr no
   %.ph50 = phi ptr [ %166, %165 ], [ %46, %.loopexit ]
   %.ph51 = phi i64 [ %160, %165 ], [ %49, %.loopexit ]
   %.ph52 = phi ptr [ %159, %165 ], [ %0, %.loopexit ]
-  %169 = getelementptr inbounds i8, ptr %.ph50, i64 12
-  %170 = getelementptr inbounds i8, ptr %.ph50, i64 8
+  %169 = getelementptr inbounds nuw i8, ptr %.ph50, i64 12
+  %170 = getelementptr inbounds nuw i8, ptr %.ph50, i64 8
   br label %.split.split
 
 .thread:                                          ; preds = %.split.split.us, %.lr.ph._crit_edge, %.split.split, %.split.us, %5
@@ -429,7 +429,7 @@ define dso_local ptr @scatterwalk_ffwd(ptr noundef %0, ptr noundef %1, i32 nound
 .preheader:                                       ; preds = %3, %10
   %5 = phi i32 [ %11, %10 ], [ %2, %3 ]
   %6 = phi ptr [ %12, %10 ], [ %1, %3 ]
-  %7 = getelementptr inbounds i8, ptr %6, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %8 = load i32, ptr %7, align 4
   %9 = icmp ugt i32 %8, %5
   br i1 %9, label %14, label %10
@@ -441,22 +441,22 @@ define dso_local ptr @scatterwalk_ffwd(ptr noundef %0, ptr noundef %1, i32 nound
   br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !6
 
 14:                                               ; preds = %.preheader
-  %15 = getelementptr inbounds i8, ptr %6, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 12
   tail call void @sg_init_table(ptr noundef %0, i32 noundef 2) #6
   %16 = load i64, ptr %6, align 8
   %17 = and i64 %16, -4
   %18 = load i32, ptr %15, align 4
   %19 = sub i32 %18, %5
-  %20 = getelementptr inbounds i8, ptr %6, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %21 = load i32, ptr %20, align 8
   %22 = add i32 %21, %5
   %23 = load i64, ptr %0, align 8
   %24 = and i64 %23, 3
   %25 = or disjoint i64 %24, %17
   store i64 %25, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %22, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %19, ptr %27, align 4
   %28 = tail call ptr @sg_next(ptr noundef %6) #6
   %29 = icmp eq ptr %28, null

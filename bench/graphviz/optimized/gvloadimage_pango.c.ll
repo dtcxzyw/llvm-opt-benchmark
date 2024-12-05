@@ -31,15 +31,15 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define internal void @pango_loadimage_cairo(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly byval(%struct.boxf) align 8 %2, i1 zeroext %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 248
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %14, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %1, i64 96
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, @cairo_freeimage
   br i1 %12, label %cairo_loadimage.exit.thread15, label %13
@@ -55,13 +55,13 @@ define internal void @pango_loadimage_cairo(ptr nocapture noundef readonly %0, p
   br i1 %15, label %16, label %cairo_loadimage.exit.thread
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %1, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %18 = load i32, ptr %17, align 8
   %cond.i = icmp eq i32 %18, 3
   br i1 %cond.i, label %19, label %cairo_loadimage.exit.thread19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %1, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %21 = load ptr, ptr %20, align 8
   %22 = tail call ptr @cairo_image_surface_create_from_png_stream(ptr noundef nonnull @reader, ptr noundef %21) #4
   %23 = tail call ptr @cairo_surface_reference(ptr noundef %22) #4
@@ -74,7 +74,7 @@ cairo_loadimage.exit.thread19:                    ; preds = %19, %16
 
 cairo_loadimage.exit:                             ; preds = %19
   store ptr %22, ptr %7, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 96
   store ptr @cairo_freeimage, ptr %24, align 8
   tail call void @gvusershape_file_release(ptr noundef nonnull %1) #4
   br label %cairo_loadimage.exit.thread15
@@ -83,21 +83,21 @@ cairo_loadimage.exit.thread15:                    ; preds = %9, %cairo_loadimage
   %.019.i18 = phi ptr [ %22, %cairo_loadimage.exit ], [ %8, %9 ]
   tail call void @cairo_save(ptr noundef %6) #4
   %25 = load double, ptr %2, align 8
-  %26 = getelementptr inbounds i8, ptr %2, i64 16
-  %27 = getelementptr inbounds i8, ptr %2, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %28 = load double, ptr %27, align 8
   %29 = fneg double %28
   tail call void @cairo_translate(ptr noundef %6, double noundef %25, double noundef %29) #4
   %30 = load double, ptr %26, align 8
   %31 = fsub double %30, %25
-  %32 = getelementptr inbounds i8, ptr %1, i64 64
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %33 = load i32, ptr %32, align 8
   %34 = sitofp i32 %33 to double
   %35 = fdiv double %31, %34
-  %36 = getelementptr inbounds i8, ptr %2, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %37 = load double, ptr %36, align 8
   %38 = fsub double %28, %37
-  %39 = getelementptr inbounds i8, ptr %1, i64 68
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %40 = load i32, ptr %39, align 4
   %41 = sitofp i32 %40 to double
   %42 = fdiv double %38, %41
@@ -125,7 +125,7 @@ declare void @cairo_restore(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @cairo_freeimage(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   tail call void @cairo_surface_destroy(ptr noundef %3) #4
   ret void
@@ -167,13 +167,13 @@ declare noundef i32 @feof(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal void @pango_loadimage_ps(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly byval(%struct.boxf) align 8 %2, i1 zeroext %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %12, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, @cairo_freeimage
   br i1 %10, label %cairo_loadimage.exit.thread54, label %11
@@ -189,13 +189,13 @@ define internal void @pango_loadimage_ps(ptr noundef %0, ptr noundef %1, ptr noc
   br i1 %13, label %14, label %cairo_loadimage.exit.thread
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %1, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %16 = load i32, ptr %15, align 8
   %cond.i = icmp eq i32 %16, 3
   br i1 %cond.i, label %17, label %cairo_loadimage.exit.thread58
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %1, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %19 = load ptr, ptr %18, align 8
   %20 = tail call ptr @cairo_image_surface_create_from_png_stream(ptr noundef nonnull @reader, ptr noundef %19) #4
   %21 = tail call ptr @cairo_surface_reference(ptr noundef %20) #4
@@ -208,7 +208,7 @@ cairo_loadimage.exit.thread58:                    ; preds = %17, %14
 
 cairo_loadimage.exit:                             ; preds = %17
   store ptr %20, ptr %5, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 96
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 96
   store ptr @cairo_freeimage, ptr %22, align 8
   tail call void @gvusershape_file_release(ptr noundef nonnull %1) #4
   br label %cairo_loadimage.exit.thread54
@@ -250,16 +250,16 @@ cairo_loadimage.exit.thread54:                    ; preds = %7, %cairo_loadimage
 38:                                               ; preds = %.lr.ph.us, %54
   %.062.us = phi i32 [ 0, %.lr.ph.us ], [ %55, %54 ]
   %.04961.us = phi ptr [ %37, %.lr.ph.us ], [ %40, %54 ]
-  %39 = getelementptr inbounds i8, ptr %.04961.us, i64 3
-  %40 = getelementptr inbounds i8, ptr %.04961.us, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %.04961.us, i64 3
+  %40 = getelementptr inbounds nuw i8, ptr %.04961.us, i64 4
   %41 = load i8, ptr %39, align 1
   %42 = icmp ult i8 %41, 127
   br i1 %42, label %52, label %43
 
 43:                                               ; preds = %38
-  %44 = getelementptr inbounds i8, ptr %.04961.us, i64 2
+  %44 = getelementptr inbounds nuw i8, ptr %.04961.us, i64 2
   %45 = load i8, ptr %44, align 1
-  %46 = getelementptr inbounds i8, ptr %.04961.us, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %.04961.us, i64 1
   %47 = load i8, ptr %46, align 1
   %48 = load i8, ptr %.04961.us, align 1
   %49 = zext i8 %45 to i32
@@ -295,22 +295,22 @@ cairo_loadimage.exit.thread54:                    ; preds = %7, %cairo_loadimage
   %60 = tail call i32 @gvputs(ptr noundef %0, ptr noundef nonnull @.str.10) #4
   %61 = tail call i32 @gvputs(ptr noundef %0, ptr noundef nonnull @.str.11) #4
   %62 = load double, ptr %2, align 8
-  %63 = getelementptr inbounds i8, ptr %2, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %64 = load double, ptr %63, align 8
   %65 = fsub double %64, %62
-  %66 = getelementptr inbounds i8, ptr %0, i64 552
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %67 = load double, ptr %66, align 8
   %68 = fdiv double %67, 9.600000e+01
   %69 = fsub double 1.000000e+00, %68
   %70 = fmul double %65, %69
   %71 = fmul double %70, 5.000000e-01
   %72 = fadd double %62, %71
-  %73 = getelementptr inbounds i8, ptr %2, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %74 = load double, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %2, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %76 = load double, ptr %75, align 8
   %77 = fsub double %76, %74
-  %78 = getelementptr inbounds i8, ptr %0, i64 560
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %79 = load double, ptr %78, align 8
   %80 = fdiv double %79, 9.600000e+01
   %81 = fsub double 1.000000e+00, %80

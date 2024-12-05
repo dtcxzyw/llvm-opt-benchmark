@@ -353,10 +353,10 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %rb_long2int_inline.
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %27 ]
-  %17 = getelementptr inbounds %struct.EC_builtin_curve, ptr %10, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw %struct.EC_builtin_curve, ptr %10, i64 %indvars.iv
   %18 = load i32, ptr %17, align 16
   %19 = call ptr @OBJ_nid2sn(i32 noundef %18) #6
-  %20 = getelementptr inbounds i8, ptr %17, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = call i64 @rb_ary_new_capa(i64 noundef 2) #6
   %23 = call i64 @rb_str_new_cstr(ptr noundef %19) #6
@@ -402,7 +402,7 @@ define internal i64 @ossl_ec_key_s_generate(i64 noundef %0, i64 noundef %1) #0 {
 
 10:                                               ; preds = %6
   %11 = inttoptr i64 %3 to ptr
-  %12 = getelementptr inbounds i8, ptr %11, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr %5, ptr %12, align 8
   %13 = tail call i32 @EC_KEY_generate_key(ptr noundef nonnull %4) #6
   %.not11 = icmp eq i32 %13, 0
@@ -510,7 +510,7 @@ define internal noundef i64 @ossl_ec_key_initialize(i32 noundef %0, ptr noundef 
 43:                                               ; preds = %39, %30
   %.sink = phi ptr [ %27, %30 ], [ %38, %39 ]
   %44 = inttoptr i64 %2 to ptr
-  %45 = getelementptr inbounds i8, ptr %44, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 32
   store ptr %.sink, ptr %45, align 8
   ret i64 %2
 }
@@ -556,7 +556,7 @@ define internal i64 @ossl_ec_key_get_group(i64 noundef %0) #0 {
 
 ec_group_new.exit:                                ; preds = %12
   %18 = inttoptr i64 %14 to ptr
-  %19 = getelementptr inbounds i8, ptr %18, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
   store ptr %15, ptr %19, align 8
   br label %20
 
@@ -1069,7 +1069,7 @@ RB_SYMBOL_P.exit.thread40:                        ; preds = %54, %RB_SYMBOL_P.ex
 83:                                               ; preds = %.thread, %74, %23, %49, %32
   %.1 = phi ptr [ %76, %74 ], [ %24, %23 ], [ %34, %32 ], [ %44, %49 ], [ %30, %.thread ]
   %84 = inttoptr i64 %2 to ptr
-  %85 = getelementptr inbounds i8, ptr %84, i64 32
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 32
   store ptr %.1, ptr %85, align 8
   ret i64 %2
 }
@@ -1107,7 +1107,7 @@ define internal noundef i64 @ossl_ec_group_initialize_copy(i64 noundef returned 
 
 15:                                               ; preds = %11
   %16 = inttoptr i64 %0 to ptr
-  %17 = getelementptr inbounds i8, ptr %16, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr %12, ptr %17, align 8
   ret i64 %0
 }
@@ -1471,7 +1471,7 @@ define internal i64 @ossl_ec_group_set_seed(i64 noundef %0, i64 noundef %1) #0 {
   %12 = load i64, ptr %11, align 8, !noalias !9
   %13 = and i64 %12, 8192
   %.not.i.i = icmp eq i64 %13, 0
-  %14 = getelementptr inbounds i8, ptr %11, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %15
 
 15:                                               ; preds = %8
@@ -1480,12 +1480,12 @@ define internal i64 @ossl_ec_group_set_seed(i64 noundef %0, i64 noundef %1) #0 {
 
 RSTRING_PTR.exit:                                 ; preds = %8, %15
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %15 ], [ %14, %8 ]
-  %16 = getelementptr inbounds i8, ptr %11, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %17 = load i64, ptr %16, align 8
   %18 = call i64 @EC_GROUP_set_seed(ptr noundef nonnull %4, ptr noundef %.sroa.2.0.i, i64 noundef %17) #6
   %19 = load i64, ptr %3, align 8
   %20 = inttoptr i64 %19 to ptr
-  %21 = getelementptr inbounds i8, ptr %20, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load i64, ptr %21, align 8
   %.not = icmp eq i64 %18, %22
   br i1 %.not, label %25, label %23
@@ -1670,7 +1670,7 @@ define internal noundef i64 @ossl_ec_point_initialize(i32 noundef %0, ptr nounde
   %50 = load i64, ptr %49, align 8, !noalias !12
   %51 = and i64 %50, 8192
   %.not.i.i = icmp eq i64 %51, 0
-  %52 = getelementptr inbounds i8, ptr %49, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %53
 
 53:                                               ; preds = %47
@@ -1679,7 +1679,7 @@ define internal noundef i64 @ossl_ec_point_initialize(i32 noundef %0, ptr nounde
 
 RSTRING_PTR.exit:                                 ; preds = %47, %53
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %53 ], [ %52, %47 ]
-  %54 = getelementptr inbounds i8, ptr %49, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %55 = load i64, ptr %54, align 8
   %56 = call ptr @ossl_bn_ctx_get() #6
   %57 = call i32 @EC_POINT_oct2point(ptr noundef nonnull %22, ptr noundef nonnull %44, ptr noundef %.sroa.2.0.i, i64 noundef %55, ptr noundef %56) #6
@@ -1695,7 +1695,7 @@ RSTRING_PTR.exit:                                 ; preds = %47, %53
 60:                                               ; preds = %36, %RSTRING_PTR.exit, %28
   %.021 = phi ptr [ %29, %28 ], [ %39, %36 ], [ %44, %RSTRING_PTR.exit ]
   %61 = inttoptr i64 %2 to ptr
-  %62 = getelementptr inbounds i8, ptr %61, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 32
   store ptr %.021, ptr %62, align 8
   %63 = load i64, ptr @id_i_group, align 8
   %64 = load i64, ptr %4, align 8
@@ -1752,7 +1752,7 @@ define internal noundef i64 @ossl_ec_point_initialize_copy(i64 noundef returned 
 
 23:                                               ; preds = %19
   %24 = inttoptr i64 %0 to ptr
-  %25 = getelementptr inbounds i8, ptr %24, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store ptr %20, ptr %25, align 8
   %26 = load i64, ptr @id_i_group, align 8
   %27 = tail call i64 @rb_ivar_set(i64 noundef %0, i64 noundef %26, i64 noundef %14) #6
@@ -2074,7 +2074,7 @@ parse_point_conversion_form_symbol.exit:          ; preds = %14, %18, %21
   %33 = load i64, ptr %32, align 8, !noalias !16
   %34 = and i64 %33, 8192
   %.not.i.i = icmp eq i64 %34, 0
-  %35 = getelementptr inbounds i8, ptr %32, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %36
 
 36:                                               ; preds = %30
@@ -2422,7 +2422,7 @@ define internal fastcc i64 @ec_point_new(ptr noundef nonnull %0, ptr noundef %1)
 
 8:                                                ; preds = %2
   %9 = inttoptr i64 %4 to ptr
-  %10 = getelementptr inbounds i8, ptr %9, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr %5, ptr %10, align 8
   %11 = load i64, ptr @id_i_group, align 8
   %12 = load i64, ptr @cEC_GROUP, align 8
@@ -2438,7 +2438,7 @@ define internal fastcc i64 @ec_point_new(ptr noundef nonnull %0, ptr noundef %1)
 
 ec_group_new.exit:                                ; preds = %8
   %17 = inttoptr i64 %13 to ptr
-  %18 = getelementptr inbounds i8, ptr %17, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store ptr %14, ptr %18, align 8
   %19 = tail call i64 @rb_ivar_set(i64 noundef %4, i64 noundef %11, i64 noundef %13) #6
   ret i64 %4

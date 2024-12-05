@@ -189,7 +189,7 @@ _ZN4llvm11SmallPtrSetIPNS_2cl10SubCommandELj1EED2Ev.exit.i: ; preds = %12, %_ZNS
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #10
   %15 = load ptr, ptr %13, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %17 = icmp eq ptr %15, %16
   br i1 %17, label %_ZN4llvm2cl6OptionD2Ev.exit, label %18
 
@@ -211,7 +211,7 @@ define dso_local void @_ZN4llvm21AArch64TargetStreamerC2ERNS_10MCStreamerE(ptr n
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #11
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %6 = getelementptr inbounds i8, ptr %4, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %6, i64 noundef 0) #10
   store ptr %4, ptr %3, align 8
@@ -364,47 +364,47 @@ define dso_local void @_ZN4llvm21AArch64TargetStreamer15emitNoteSectionEjmm(ptr 
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr %12, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 168
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 168
   %32 = load ptr, ptr %31, align 8
   call void %32(ptr noundef nonnull align 8 dereferenceable(288) %12, ptr noundef nonnull %18, i32 noundef 0) #10
   %33 = load ptr, ptr %12, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 640
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 640
   %35 = load ptr, ptr %34, align 8
   call void %35(ptr noundef nonnull align 8 dereferenceable(288) %12, i8 3, i64 noundef 0, i32 noundef 1, i32 noundef 0) #10
   %36 = load ptr, ptr %12, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 520
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 520
   %38 = load ptr, ptr %37, align 8
   call void %38(ptr noundef nonnull align 8 dereferenceable(288) %12, i64 noundef 4, i32 noundef 4) #10
   %39 = load ptr, ptr %12, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 520
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 520
   %41 = load ptr, ptr %40, align 8
   call void %41(ptr noundef nonnull align 8 dereferenceable(288) %12, i64 noundef %.1, i32 noundef 4) #10
   %42 = load ptr, ptr %12, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 520
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 520
   %44 = load ptr, ptr %43, align 8
   call void %44(ptr noundef nonnull align 8 dereferenceable(288) %12, i64 noundef 5, i32 noundef 4) #10
   %45 = load ptr, ptr %12, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 496
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 496
   %47 = load ptr, ptr %46, align 8
   call void %47(ptr noundef nonnull align 8 dereferenceable(288) %12, ptr nonnull @.str.4, i64 4) #10
   br i1 %.not, label %62, label %48
 
 48:                                               ; preds = %25
   %49 = load ptr, ptr %12, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 520
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 520
   %51 = load ptr, ptr %50, align 8
   call void %51(ptr noundef nonnull align 8 dereferenceable(288) %12, i64 noundef 3221225472, i32 noundef 4) #10
   %52 = load ptr, ptr %12, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 520
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 520
   %54 = load ptr, ptr %53, align 8
   call void %54(ptr noundef nonnull align 8 dereferenceable(288) %12, i64 noundef 4, i32 noundef 4) #10
   %55 = zext i32 %1 to i64
   %56 = load ptr, ptr %12, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 520
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 520
   %58 = load ptr, ptr %57, align 8
   call void %58(ptr noundef nonnull align 8 dereferenceable(288) %12, i64 noundef %55, i32 noundef 4) #10
   %59 = load ptr, ptr %12, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 520
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 520
   %61 = load ptr, ptr %60, align 8
   call void %61(ptr noundef nonnull align 8 dereferenceable(288) %12, i64 noundef 0, i32 noundef 4) #10
   br label %62
@@ -414,19 +414,19 @@ define dso_local void @_ZN4llvm21AArch64TargetStreamer15emitNoteSectionEjmm(ptr 
 
 63:                                               ; preds = %62
   %64 = load ptr, ptr %12, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 520
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 520
   %66 = load ptr, ptr %65, align 8
   call void %66(ptr noundef nonnull align 8 dereferenceable(288) %12, i64 noundef 3221225473, i32 noundef 4) #10
   %67 = load ptr, ptr %12, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 520
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 520
   %69 = load ptr, ptr %68, align 8
   call void %69(ptr noundef nonnull align 8 dereferenceable(288) %12, i64 noundef 16, i32 noundef 4) #10
   %70 = load ptr, ptr %12, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 520
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 520
   %72 = load ptr, ptr %71, align 8
   call void %72(ptr noundef nonnull align 8 dereferenceable(288) %12, i64 noundef %2, i32 noundef 8) #10
   %73 = load ptr, ptr %12, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 520
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 520
   %75 = load ptr, ptr %74, align 8
   call void %75(ptr noundef nonnull align 8 dereferenceable(288) %12, i64 noundef %3, i32 noundef 8) #10
   br label %76
@@ -434,7 +434,7 @@ define dso_local void @_ZN4llvm21AArch64TargetStreamer15emitNoteSectionEjmm(ptr 
 76:                                               ; preds = %63, %62
   %77 = call noundef ptr @_ZN4llvm10MCStreamer10endSectionEPNS_9MCSectionE(ptr noundef nonnull align 8 dereferenceable(288) %12, ptr noundef nonnull %18) #10
   %78 = load ptr, ptr %12, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 168
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 168
   %80 = load ptr, ptr %79, align 8
   call void %80(ptr noundef nonnull align 8 dereferenceable(288) %12, ptr noundef %29, i32 noundef 0) #10
   br label %81
@@ -455,7 +455,7 @@ define dso_local void @_ZN4llvm21AArch64TargetStreamer8emitInstEj(ptr nocapture 
 4:                                                ; preds = %2, %4
   %.011 = phi i32 [ %1, %2 ], [ %6, %4 ]
   %.09.idx10 = phi i64 [ 0, %2 ], [ %.09.add, %4 ]
-  %.09.ptr = getelementptr inbounds i8, ptr %3, i64 %.09.idx10
+  %.09.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.09.idx10
   %5 = trunc i32 %.011 to i8
   store i8 %5, ptr %.09.ptr, align 1
   %6 = lshr i32 %.011, 8
@@ -467,7 +467,7 @@ define dso_local void @_ZN4llvm21AArch64TargetStreamer8emitInstEj(ptr nocapture 
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 496
   %12 = load ptr, ptr %11, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(288) %9, ptr nonnull %3, i64 4) #10
   ret void
@@ -489,7 +489,7 @@ define dso_local noundef ptr @_ZN4llvm33createAArch64ObjectTargetStreamerERNS_10
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #11
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %10 = getelementptr inbounds i8, ptr %8, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 40, i1 false)
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %10, i64 noundef 0) #10
   store ptr %8, ptr %7, align 8
@@ -503,7 +503,7 @@ define dso_local noundef ptr @_ZN4llvm33createAArch64ObjectTargetStreamerERNS_10
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #11
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %16 = getelementptr inbounds i8, ptr %14, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %14, i8 0, i64 40, i1 false)
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull %16, i64 noundef 0) #10
   store ptr %14, ptr %13, align 8
@@ -762,7 +762,7 @@ define linkonce_odr hidden void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagEN
   store i16 %14, ptr %5, align 2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %17 = getelementptr inbounds i8, ptr %0, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %15, i8 0, i64 52, i1 false)
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull %17, i64 noundef 1) #10
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -911,7 +911,7 @@ _ZNSt4pairIPN4llvm9MCSectionENS0_12ConstantPoolEED2Ev.exit.i: ; preds = %20, %.l
 
 _ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_9MCSectionENS_12ConstantPoolEELb0EE13destroy_rangeEPS5_S7_.exit: ; preds = %_ZNSt4pairIPN4llvm9MCSectionENS0_12ConstantPoolEED2Ev.exit.i, %1
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = icmp eq ptr %21, %22
   br i1 %23, label %_ZN4llvm15SmallVectorImplISt4pairIPNS_9MCSectionENS_12ConstantPoolEEED2Ev.exit, label %24
 
@@ -951,9 +951,9 @@ define internal void @_GLOBAL__sub_I_AArch64TargetStreamer.cpp() #8 section ".te
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1)
   store i8 0, ptr %1, align 1
   tail call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL15MarkBTIProperty, i32 noundef 0, i32 noundef 0)
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL15MarkBTIProperty, i64 128), align 8
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZL15MarkBTIProperty, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZL15MarkBTIProperty, i64 136), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL15MarkBTIProperty, i64 128), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL15MarkBTIProperty, i64 144), align 8
+  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL15MarkBTIProperty, i64 136), align 8
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL15MarkBTIProperty, align 8
   tail call void @_ZN4llvm2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL15MarkBTIProperty, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL15MarkBTIProperty) #10
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL15MarkBTIProperty, i64 152), align 8
@@ -966,7 +966,7 @@ define internal void @_GLOBAL__sub_I_AArch64TargetStreamer.cpp() #8 section ".te
   %4 = or disjoint i16 %3, 32
   store i16 %4, ptr getelementptr inbounds nuw (i8, ptr @_ZL15MarkBTIProperty, i64 10), align 2
   store ptr @.str.1, ptr getelementptr inbounds nuw (i8, ptr @_ZL15MarkBTIProperty, i64 32), align 8
-  store i64 49, ptr getelementptr inbounds (i8, ptr @_ZL15MarkBTIProperty, i64 40), align 8
+  store i64 49, ptr getelementptr inbounds nuw (i8, ptr @_ZL15MarkBTIProperty, i64 40), align 8
   call void @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEE15setInitialValueERKb(ptr noundef nonnull align 8 dereferenceable(192) @_ZL15MarkBTIProperty, ptr noundef nonnull align 1 dereferenceable(1) %1) #10
   call void @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEE4doneEv(ptr noundef nonnull align 8 dereferenceable(192) @_ZL15MarkBTIProperty) #10
   %5 = call i32 @__cxa_atexit(ptr nonnull @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEED2Ev, ptr nonnull @_ZL15MarkBTIProperty, ptr nonnull @__dso_handle) #10

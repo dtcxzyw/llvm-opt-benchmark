@@ -17,14 +17,14 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @fprop_global_init(ptr noundef initializes((40, 44)) %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 0, ptr %3, align 8
   %4 = tail call i32 @__percpu_counter_init_many(ptr noundef %0, i64 noundef 1, i32 noundef %1, i32 noundef 1, ptr noundef nonnull @fprop_global_init.__key) #7
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 0, ptr %7, align 4
   br label %8
 
@@ -54,7 +54,7 @@ define dso_local noundef zeroext i1 @fprop_new_period(ptr noundef %0, i32 nounde
   br i1 %4, label %5, label %20
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4
   %8 = add i32 %7, 1
   store i32 %8, ptr %6, align 4
@@ -66,7 +66,7 @@ define dso_local noundef zeroext i1 @fprop_new_period(ptr noundef %0, i32 nounde
   %13 = sub nsw i64 %12, %3
   %14 = load i32, ptr @percpu_counter_batch, align 4
   tail call void @percpu_counter_add_batch(ptr noundef %0, i64 noundef %13, i32 noundef %14) #7
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load i32, ptr %15, align 8
   %17 = add i32 %16, %1
   store i32 %17, ptr %15, align 8
@@ -93,16 +93,16 @@ define dso_local void @fprop_local_destroy_single(ptr nocapture noundef readnone
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @__fprop_inc_single(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, %4
   br i1 %7, label %23, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 12
-  %10 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %9) #7
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %10 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %9) #7
   %11 = load i32, ptr %5, align 8
   %12 = icmp ult i32 %11, %4
   br i1 %12, label %13, label %22
@@ -125,7 +125,7 @@ define dso_local void @__fprop_inc_single(ptr noundef %0, ptr noundef %1) local_
   br label %22
 
 22:                                               ; preds = %20, %8
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %9, i64 noundef %10) #7
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %9, i64 noundef %10) #7
   br label %23
 
 23:                                               ; preds = %22, %2
@@ -139,11 +139,11 @@ define dso_local void @__fprop_inc_single(ptr noundef %0, ptr noundef %1) local_
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @fprop_fraction_single(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 12
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %10
 
 10:                                               ; preds = %35, %4
@@ -168,7 +168,7 @@ define dso_local void @fprop_fraction_single(ptr noundef %0, ptr noundef %1, ptr
   br i1 %20, label %35, label %21
 
 21:                                               ; preds = %.loopexit
-  %22 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %8) #7
+  %22 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %8) #7
   %23 = load i32, ptr %7, align 8
   %24 = icmp ult i32 %23, %18
   br i1 %24, label %25, label %34
@@ -191,7 +191,7 @@ define dso_local void @fprop_fraction_single(ptr noundef %0, ptr noundef %1, ptr
   br label %34
 
 34:                                               ; preds = %32, %21
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %8, i64 noundef %22) #7
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %8, i64 noundef %22) #7
   br label %35
 
 35:                                               ; preds = %34, %.loopexit
@@ -219,9 +219,9 @@ define dso_local i32 @fprop_local_init_percpu(ptr noundef %0, i32 noundef %1) lo
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 0, ptr %7, align 4
   br label %8
 
@@ -252,14 +252,14 @@ define dso_local void @__fprop_add_percpu(ptr noundef %0, ptr noundef %1, i64 no
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @fprop_reflect_period_percpu(i32 %.40.val, ptr noundef %0) unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, %.40.val
   br i1 %4, label %37, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 44
-  %7 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %6) #7
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %7 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %6) #7
   %8 = load i32, ptr %2, align 8
   %9 = icmp ult i32 %8, %.40.val
   br i1 %9, label %10, label %36
@@ -270,7 +270,7 @@ define internal fastcc void @fprop_reflect_period_percpu(i32 %.40.val, ptr nound
   br i1 %12, label %13, label %34
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i64, ptr %14, align 8
   %16 = load i32, ptr @nr_cpu_ids, align 4
   %17 = tail call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %16, i32 -1) #8, !srcloc !15
@@ -310,7 +310,7 @@ define internal fastcc void @fprop_reflect_period_percpu(i32 %.40.val, ptr nound
   br label %36
 
 36:                                               ; preds = %35, %5
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %6, i64 noundef %7) #7
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %6, i64 noundef %7) #7
   br label %37
 
 37:                                               ; preds = %36, %1
@@ -322,9 +322,9 @@ declare dso_local void @percpu_counter_add_batch(ptr noundef, i64 noundef, i32 n
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @fprop_fraction_percpu(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = getelementptr i8, ptr %0, i64 40
   br label %9
 

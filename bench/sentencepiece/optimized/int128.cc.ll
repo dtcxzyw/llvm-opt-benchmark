@@ -88,7 +88,7 @@ define void @_ZN6google8protobuf7uint12810DivModImplES1_S1_PS1_S2_(i64 %0, i64 %
 29:                                               ; preds = %24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   store i64 %0, ptr %5, align 8
-  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %1, ptr %.sroa.9.0..sroa_idx, align 8
   br label %135
 
@@ -289,10 +289,10 @@ _ZN6google8protobuf7uint128pLERKS1_.exit:         ; preds = %_ZN6google8protobuf
   %.sroa.052.0.lcssa = phi i64 [ %0, %_ZN6google8protobufL6Fls128ENS0_7uint128E.exit30 ], [ %.sroa.052.1, %_ZN6google8protobuf7uint128pLERKS1_.exit ]
   %.sroa.9.0.lcssa = phi i64 [ %1, %_ZN6google8protobufL6Fls128ENS0_7uint128E.exit30 ], [ %.sroa.9.1, %_ZN6google8protobuf7uint128pLERKS1_.exit ]
   store i64 %.sroa.035.0.lcssa, ptr %4, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %.sroa.6.0.lcssa, ptr %.sroa.6.0..sroa_idx, align 8
   store i64 %.sroa.052.0.lcssa, ptr %5, align 8
-  %.sroa.9.0..sroa_idx57 = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.9.0..sroa_idx57 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %.sroa.9.0.lcssa, ptr %.sroa.9.0..sroa_idx57, align 8
   br label %135
 
@@ -322,10 +322,10 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6google8protobuf7uint
   %4 = alloca %"class.google::protobuf::uint128", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %.sroa.01.0.copyload = load i64, ptr %0, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   call void @_ZN6google8protobuf7uint12810DivModImplES1_S1_PS1_S2_(i64 %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload, i64 %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload, ptr noundef nonnull %3, ptr noundef nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
@@ -338,10 +338,10 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6google8protobuf7uint
   %4 = alloca %"class.google::protobuf::uint128", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   %.sroa.01.0.copyload = load i64, ptr %0, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   call void @_ZN6google8protobuf7uint12810DivModImplES1_S1_PS1_S2_(i64 %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload, i64 %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload, ptr noundef nonnull %3, ptr noundef nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
@@ -359,7 +359,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google8protobuflsERSo
   %9 = getelementptr i8, ptr %8, i64 -24
   %10 = load i64, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 %10
-  %12 = getelementptr inbounds i8, ptr %11, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 74
   switch i32 %14, label %16 [
@@ -382,7 +382,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google8protobuflsERSo
   %20 = load i64, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %3, i64 %20
   %22 = and i32 %13, 16970
-  %23 = getelementptr inbounds i8, ptr %21, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %24 = load i32, ptr %23, align 8
   %25 = and i32 %24, -16971
   %26 = or disjoint i32 %25, %22
@@ -390,7 +390,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google8protobuflsERSo
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %.sroa.012.0.copyload = load i64, ptr %4, align 8
-  %.sroa.213.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.213.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.213.0.copyload = load i64, ptr %.sroa.213.0..sroa_idx, align 8
   invoke void @_ZN6google8protobuf7uint12810DivModImplES1_S1_PS1_S2_(i64 %.sroa.012.0.copyload, i64 %.sroa.213.0.copyload, i64 %.sroa.041.0, i64 0, ptr noundef nonnull %4, ptr noundef nonnull %5)
           to label %27 unwind label %41
@@ -469,7 +469,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google8protobuflsERSo
   %59 = getelementptr i8, ptr %58, i64 -24
   %60 = load i64, ptr %59, align 8
   %61 = getelementptr inbounds i8, ptr %0, i64 %60
-  %62 = getelementptr inbounds i8, ptr %61, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %63 = load i64, ptr %62, align 8
   store i64 0, ptr %62, align 8
   %64 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #8
@@ -537,7 +537,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(216) ptr @_ZSt10noshowbaseRSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %0) #3 comdat {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, -513
   store i32 %4, ptr %2, align 8

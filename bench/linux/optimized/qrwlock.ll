@@ -78,7 +78,7 @@ define dso_local void @queued_read_lock_slowpath(ptr noundef %0) #0 section ".sp
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %20, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i32 @__SCT__tp_func_contention_begin(ptr noundef %24, ptr noundef %0, i32 noundef 3) #6
   br label %26
@@ -98,8 +98,8 @@ define dso_local void @queued_read_lock_slowpath(ptr noundef %0) #0 section ".sp
   br label %33
 
 33:                                               ; preds = %30, %26, %13, %12
-  %34 = getelementptr inbounds i8, ptr %0, i64 4
-  %35 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %34, i32 1, ptr elementtype(i32) %34, i32 0) #6, !srcloc !21
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %35 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %34, i32 1, ptr nonnull elementtype(i32) %34, i32 0) #6, !srcloc !21
   %36 = extractvalue { i8, i32 } %35, 0
   %37 = icmp ult i8 %36, 2
   tail call void @llvm.assume(i1 %37)
@@ -108,7 +108,7 @@ define dso_local void @queued_read_lock_slowpath(ptr noundef %0) #0 section ".sp
 
 39:                                               ; preds = %33
   %40 = extractvalue { i8, i32 } %35, 1
-  tail call void @queued_spin_lock_slowpath(ptr noundef %34, i32 noundef %40) #6
+  tail call void @queued_spin_lock_slowpath(ptr noundef nonnull %34, i32 noundef %40) #6
   br label %41
 
 41:                                               ; preds = %33, %39
@@ -149,7 +149,7 @@ define dso_local void @queued_read_lock_slowpath(ptr noundef %0) #0 section ".sp
   br i1 %56, label %61, label %57
 
 57:                                               ; preds = %54
-  %58 = getelementptr inbounds i8, ptr %55, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %59 = load ptr, ptr %58, align 8
   %60 = tail call i32 @__SCT__tp_func_contention_end(ptr noundef %59, ptr noundef %0, i32 noundef 0) #6
   br label %61
@@ -194,7 +194,7 @@ define dso_local void @queued_write_lock_slowpath(ptr noundef %0) #0 section ".s
   br i1 %10, label %15, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %9, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 @__SCT__tp_func_contention_begin(ptr noundef %13, ptr noundef %0, i32 noundef 5) #6
   br label %15
@@ -214,8 +214,8 @@ define dso_local void @queued_write_lock_slowpath(ptr noundef %0) #0 section ".s
   br label %22
 
 22:                                               ; preds = %19, %15, %2, %1
-  %23 = getelementptr inbounds i8, ptr %0, i64 4
-  %24 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %23, i32 1, ptr elementtype(i32) %23, i32 0) #6, !srcloc !21
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %24 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %23, i32 1, ptr nonnull elementtype(i32) %23, i32 0) #6, !srcloc !21
   %25 = extractvalue { i8, i32 } %24, 0
   %26 = icmp ult i8 %25, 2
   tail call void @llvm.assume(i1 %26)
@@ -224,7 +224,7 @@ define dso_local void @queued_write_lock_slowpath(ptr noundef %0) #0 section ".s
 
 28:                                               ; preds = %22
   %29 = extractvalue { i8, i32 } %24, 1
-  tail call void @queued_spin_lock_slowpath(ptr noundef %23, i32 noundef %29) #6
+  tail call void @queued_spin_lock_slowpath(ptr noundef nonnull %23, i32 noundef %29) #6
   br label %30
 
 30:                                               ; preds = %22, %28
@@ -286,7 +286,7 @@ define dso_local void @queued_write_lock_slowpath(ptr noundef %0) #0 section ".s
   br i1 %56, label %61, label %57
 
 57:                                               ; preds = %54
-  %58 = getelementptr inbounds i8, ptr %55, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %59 = load ptr, ptr %58, align 8
   %60 = tail call i32 @__SCT__tp_func_contention_end(ptr noundef %59, ptr noundef %0, i32 noundef 0) #6
   br label %61

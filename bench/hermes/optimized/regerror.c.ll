@@ -53,7 +53,7 @@ entry:
   br i1 %cmp, label %if.then, label %for.cond
 
 if.then:                                          ; preds = %entry
-  %re_endp.i = getelementptr inbounds i8, ptr %preg, i64 16
+  %re_endp.i = getelementptr inbounds nuw i8, ptr %preg, i64 16
   %0 = load ptr, ptr %re_endp.i, align 8
   %call.i12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(12) @.str.1, ptr noundef nonnull dereferenceable(1) %0) #4
   %cmp1.i13 = icmp eq i32 %call.i12, 0
@@ -61,13 +61,13 @@ if.then:                                          ; preds = %entry
 
 for.cond.i:                                       ; preds = %if.then, %for.body.i
   %r.07.i14 = phi ptr [ %incdec.ptr.i, %for.body.i ], [ @rerrs, %if.then ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %r.07.i14, i64 24
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %r.07.i14, i64 24
   %1 = load i32, ptr %incdec.ptr.i, align 8
   %cmp.not.i = icmp eq i32 %1, 0
   br i1 %cmp.not.i, label %if.end19, label %for.body.i, !llvm.loop !4
 
 for.body.i:                                       ; preds = %for.cond.i
-  %name.i = getelementptr inbounds i8, ptr %r.07.i14, i64 32
+  %name.i = getelementptr inbounds nuw i8, ptr %r.07.i14, i64 32
   %2 = load ptr, ptr %name.i, align 8
   %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %0) #4
   %cmp1.i = icmp eq i32 %call.i, 0
@@ -84,7 +84,7 @@ for.cond:                                         ; preds = %entry, %for.cond
   %cmp1.not = icmp eq i32 %3, 0
   %cmp3 = icmp eq i32 %3, %and
   %or.cond = or i1 %cmp1.not, %cmp3
-  %incdec.ptr = getelementptr inbounds i8, ptr %r.0, i64 24
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %r.0, i64 24
   br i1 %or.cond, label %for.end, label %for.cond, !llvm.loop !6
 
 for.end:                                          ; preds = %for.cond
@@ -96,7 +96,7 @@ if.then6:                                         ; preds = %for.end
   br i1 %cmp1.not, label %if.else12, label %if.then9
 
 if.then9:                                         ; preds = %if.then6
-  %name = getelementptr inbounds i8, ptr %r.0, i64 8
+  %name = getelementptr inbounds nuw i8, ptr %r.0, i64 8
   %4 = load ptr, ptr %name, align 8
   %call11 = call i64 @llvh_strlcpy(ptr noundef nonnull %convbuf, ptr noundef %4, i64 noundef 50) #5
   br label %if.end19
@@ -106,7 +106,7 @@ if.else12:                                        ; preds = %if.then6
   br label %if.end19
 
 if.else17:                                        ; preds = %for.end
-  %explain = getelementptr inbounds i8, ptr %r.0, i64 16
+  %explain = getelementptr inbounds nuw i8, ptr %r.0, i64 16
   %5 = load ptr, ptr %explain, align 8
   br label %if.end19
 

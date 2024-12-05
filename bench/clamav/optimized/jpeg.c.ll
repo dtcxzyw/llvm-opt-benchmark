@@ -96,16 +96,16 @@ define i32 @cli_parsejpeg(ptr noundef %0) local_unnamed_addr #0 {
   br label %fmap_readn.exit.thread
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 88
   %11 = load i64, ptr %10, align 8
   %.not.i = icmp eq i64 %11, 0
   br i1 %.not.i, label %fmap_readn.exit.thread, label %12
 
 12:                                               ; preds = %7
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %11, i64 4)
-  %13 = getelementptr inbounds i8, ptr %9, i64 104
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 104
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr %14(ptr noundef nonnull %9, i64 noundef 0, i64 noundef %spec.select.i, i32 noundef 0) #6
   %.not26.i = icmp eq ptr %15, null
@@ -128,9 +128,9 @@ fmap_readn.exit:                                  ; preds = %12
 
 18:                                               ; preds = %17, %16
   %.0179 = phi i32 [ 2, %16 ], [ 4, %17 ]
-  %19 = getelementptr inbounds i8, ptr %3, i64 1
-  %20 = getelementptr inbounds i8, ptr %0, i64 64
-  %21 = getelementptr inbounds i8, ptr %3, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 12
   br label %22
 
 22:                                               ; preds = %.backedge, %18
@@ -170,7 +170,7 @@ fmap_readn.exit217:                               ; preds = %.lr.ph
 
 fmap_readn.exit217.thread:                        ; preds = %.lr.ph
   %35 = load ptr, ptr %20, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load i32, ptr %36, align 4
   %38 = and i32 %37, 8192
   %.not194 = icmp eq i32 %38, 0
@@ -200,7 +200,7 @@ fmap_readn.exit217.thread:                        ; preds = %.lr.ph
 
 50:                                               ; preds = %._crit_edge
   %51 = load ptr, ptr %20, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = load i32, ptr %52, align 4
   %54 = and i32 %53, 8192
   %.not207 = icmp eq i32 %54, 0
@@ -278,7 +278,7 @@ fmap_readn.exit227:                               ; preds = %72
 
 fmap_readn.exit227.thread:                        ; preds = %72, %.thread._crit_edge, %fmap_readn.exit227
   %76 = load ptr, ptr %20, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %78 = load i32, ptr %77, align 4
   %79 = and i32 %78, 8192
   %.not206 = icmp eq i32 %79, 0
@@ -303,7 +303,7 @@ fmap_readn.exit227.thread:                        ; preds = %72, %.thread._crit_
 
 86:                                               ; preds = %83
   %87 = load ptr, ptr %20, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %89 = load i32, ptr %88, align 4
   %90 = and i32 %89, 8192
   %.not205 = icmp eq i32 %90, 0
@@ -328,7 +328,7 @@ fmap_readn.exit227.thread:                        ; preds = %72, %.thread._crit_
 
 98:                                               ; preds = %94
   %99 = load ptr, ptr %20, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %101 = load i32, ptr %100, align 4
   %102 = and i32 %101, 8192
   %.not204 = icmp eq i32 %102, 0
@@ -409,7 +409,7 @@ fmap_readn.exit232:                               ; preds = %110
 117:                                              ; preds = %115
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.22) #6
   %118 = load ptr, ptr %20, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
   %120 = load i32, ptr %119, align 4
   %121 = and i32 %120, 8192
   %.not = icmp eq i32 %121, 0
@@ -499,7 +499,7 @@ fmap_readn.exit237:                               ; preds = %148
 155:                                              ; preds = %153
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.32) #6
   %156 = load ptr, ptr %20, align 8
-  %157 = getelementptr inbounds i8, ptr %156, i64 8
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 8
   %158 = load i32, ptr %157, align 4
   %159 = and i32 %158, 8192
   %.not202 = icmp eq i32 %159, 0
@@ -637,7 +637,7 @@ fmap_readn.exit252:                               ; preds = %203
 210:                                              ; preds = %208
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.44) #6
   %211 = load ptr, ptr %20, align 8
-  %212 = getelementptr inbounds i8, ptr %211, i64 8
+  %212 = getelementptr inbounds nuw i8, ptr %211, i64 8
   %213 = load i32, ptr %212, align 4
   %214 = and i32 %213, 8192
   %.not199 = icmp eq i32 %214, 0
@@ -719,7 +719,7 @@ fmap_readn.exit257:                               ; preds = %233
   %.0269 = phi i64 [ %241, %240 ], [ %277, %jpeg_check_photoshop_8bim.exit ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   %243 = load ptr, ptr %8, align 8
-  %244 = getelementptr inbounds i8, ptr %243, i64 104
+  %244 = getelementptr inbounds nuw i8, ptr %243, i64 104
   %245 = load ptr, ptr %244, align 8
   %246 = tail call ptr %245(ptr noundef %243, i64 noundef %.0269, i64 noundef 7, i32 noundef 0) #6
   %.not.i258 = icmp eq ptr %246, null
@@ -731,14 +731,14 @@ fmap_readn.exit257:                               ; preds = %233
   br i1 %.not29.i, label %248, label %.thread295.sink.split
 
 248:                                              ; preds = %247
-  %249 = getelementptr inbounds i8, ptr %246, i64 4
+  %249 = getelementptr inbounds nuw i8, ptr %246, i64 4
   %250 = load i8, ptr %249, align 1
-  %251 = getelementptr inbounds i8, ptr %246, i64 5
+  %251 = getelementptr inbounds nuw i8, ptr %246, i64 5
   %252 = load i8, ptr %251, align 1
   %253 = zext i8 %250 to i32
   %254 = zext i8 %252 to i32
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.76, i32 noundef %253, i32 noundef %254) #6
-  %255 = getelementptr inbounds i8, ptr %246, i64 6
+  %255 = getelementptr inbounds nuw i8, ptr %246, i64 6
   %256 = load i8, ptr %255, align 1
   %257 = zext i8 %256 to i64
   %258 = and i8 %256, 1
@@ -747,7 +747,7 @@ fmap_readn.exit257:                               ; preds = %233
   %261 = add i64 %.0269, 7
   %262 = add i64 %261, %257
   %263 = add i64 %262, %260
-  %264 = getelementptr inbounds i8, ptr %243, i64 88
+  %264 = getelementptr inbounds nuw i8, ptr %243, i64 88
   %265 = load i64, ptr %264, align 8
   %or.cond.not.i = icmp ult i64 %263, %265
   br i1 %or.cond.not.i, label %266, label %.thread295
@@ -888,7 +888,7 @@ fmap_readn.exit265.thread:                        ; preds = %291, %289, %296, %f
 
 306:                                              ; preds = %304
   %307 = load ptr, ptr %20, align 8
-  %308 = getelementptr inbounds i8, ptr %307, i64 8
+  %308 = getelementptr inbounds nuw i8, ptr %307, i64 8
   %309 = load i32, ptr %308, align 4
   %310 = and i32 %309, 8192
   %.not198 = icmp eq i32 %310, 0
@@ -911,7 +911,7 @@ fmap_readn.exit265.thread:                        ; preds = %291, %289, %296, %f
 316:                                              ; preds = %106
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.65) #6
   %317 = load ptr, ptr %20, align 8
-  %318 = getelementptr inbounds i8, ptr %317, i64 8
+  %318 = getelementptr inbounds nuw i8, ptr %317, i64 8
   %319 = load i32, ptr %318, align 4
   %320 = and i32 %319, 8192
   %.not197 = icmp eq i32 %320, 0
@@ -933,7 +933,7 @@ fmap_readn.exit265.thread:                        ; preds = %291, %289, %296, %f
 325:                                              ; preds = %106
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.70) #6
   %326 = load ptr, ptr %20, align 8
-  %327 = getelementptr inbounds i8, ptr %326, i64 8
+  %327 = getelementptr inbounds nuw i8, ptr %326, i64 8
   %328 = load i32, ptr %327, align 4
   %329 = and i32 %328, 8192
   %330 = icmp ne i32 %329, 0

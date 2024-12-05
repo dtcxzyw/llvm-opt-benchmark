@@ -75,7 +75,7 @@ declare ptr @register_tap_listener(ptr noundef, ptr noundef, ptr noundef, i32 no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @rlc_lte_stat_reset(ptr nocapture noundef initializes((8, 28)) %0) #4 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.not = icmp eq ptr %2, null
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %3, i8 0, i64 20, i1 false)
   br i1 %.not, label %5, label %4
@@ -94,11 +94,11 @@ define internal range(i32 0, 2) i32 @rlc_lte_stat_packet(ptr noundef %0, ptr noc
   br i1 %.not, label %.thread92, label %6
 
 6:                                                ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = add i32 %8, 1
   store i32 %9, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 6
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 6
   %11 = load i16, ptr %10, align 2
   switch i16 %11, label %32 [
     i16 2, label %12
@@ -107,28 +107,28 @@ define internal range(i32 0, 2) i32 @rlc_lte_stat_packet(ptr noundef %0, ptr noc
   ]
 
 12:                                               ; preds = %6, %6
-  %13 = getelementptr inbounds i8, ptr %0, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %14 = load i32, ptr %13, align 4
   %15 = add i32 %14, 1
   store i32 %15, ptr %13, align 4
-  %16 = getelementptr inbounds i8, ptr %3, i64 10
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 10
   %17 = load i16, ptr %16, align 2
   %18 = zext i16 %17 to i32
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load i32, ptr %19, align 4
   %21 = add i32 %20, %18
   store i32 %21, ptr %19, align 4
   br label %.thread92
 
 22:                                               ; preds = %6
-  %23 = getelementptr inbounds i8, ptr %0, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %24 = load i32, ptr %23, align 4
   %25 = add i32 %24, 1
   store i32 %25, ptr %23, align 4
-  %26 = getelementptr inbounds i8, ptr %3, i64 10
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 10
   %27 = load i16, ptr %26, align 2
   %28 = zext i16 %27 to i32
-  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %30 = load i32, ptr %29, align 4
   %31 = add i32 %30, %28
   store i32 %31, ptr %29, align 4
@@ -141,7 +141,7 @@ define internal range(i32 0, 2) i32 @rlc_lte_stat_packet(ptr noundef %0, ptr noc
 
 .preheader:                                       ; preds = %32
   %34 = load i8, ptr %3, align 8
-  %35 = getelementptr inbounds i8, ptr %3, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 4
   br label %38
 
 36:                                               ; preds = %32
@@ -155,13 +155,13 @@ define internal range(i32 0, 2) i32 @rlc_lte_stat_packet(ptr noundef %0, ptr noc
 
 38:                                               ; preds = %.preheader, %47
   %.06899 = phi ptr [ %33, %.preheader ], [ %48, %47 ]
-  %39 = getelementptr inbounds i8, ptr %.06899, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %.06899, i64 8
   %40 = load i8, ptr %39, align 8
   %41 = icmp eq i8 %40, %34
   br i1 %41, label %42, label %47
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %.06899, i64 10
+  %43 = getelementptr inbounds nuw i8, ptr %.06899, i64 10
   %44 = load i16, ptr %43, align 2
   %45 = load i16, ptr %35, align 4
   %46 = icmp eq i16 %44, %45
@@ -179,17 +179,17 @@ define internal range(i32 0, 2) i32 @rlc_lte_stat_packet(ptr noundef %0, ptr noc
 
 51:                                               ; preds = %49
   %52 = load i8, ptr %3, align 8
-  %53 = getelementptr inbounds i8, ptr %50, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store i8 %52, ptr %53, align 8
   %54 = load i16, ptr %35, align 4
-  %55 = getelementptr inbounds i8, ptr %50, i64 10
+  %55 = getelementptr inbounds nuw i8, ptr %50, i64 10
   store i16 %54, ptr %55, align 2
-  %56 = getelementptr inbounds i8, ptr %50, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %50, i64 16
   store i32 0, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %50, i64 20
+  %57 = getelementptr inbounds nuw i8, ptr %50, i64 20
   store i32 0, ptr %57, align 4
-  %58 = getelementptr inbounds i8, ptr %50, i64 80
-  %59 = getelementptr inbounds i8, ptr %50, i64 56
+  %58 = getelementptr inbounds nuw i8, ptr %50, i64 80
+  %59 = getelementptr inbounds nuw i8, ptr %50, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %59, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %58, i8 0, i64 44, i1 false)
   %60 = load ptr, ptr %0, align 8
@@ -208,18 +208,18 @@ define internal range(i32 0, 2) i32 @rlc_lte_stat_packet(ptr noundef %0, ptr noc
 
 64:                                               ; preds = %36
   %65 = load i8, ptr %3, align 8
-  %66 = getelementptr inbounds i8, ptr %37, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i8 %65, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %3, i64 4
+  %67 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %68 = load i16, ptr %67, align 4
-  %69 = getelementptr inbounds i8, ptr %37, i64 10
+  %69 = getelementptr inbounds nuw i8, ptr %37, i64 10
   store i16 %68, ptr %69, align 2
-  %70 = getelementptr inbounds i8, ptr %37, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %37, i64 16
   store i32 0, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %37, i64 20
+  %71 = getelementptr inbounds nuw i8, ptr %37, i64 20
   store i32 0, ptr %71, align 4
-  %72 = getelementptr inbounds i8, ptr %37, i64 80
-  %73 = getelementptr inbounds i8, ptr %37, i64 56
+  %72 = getelementptr inbounds nuw i8, ptr %37, i64 80
+  %73 = getelementptr inbounds nuw i8, ptr %37, i64 56
   store ptr null, ptr %37, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %73, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %72, i8 0, i64 44, i1 false)
@@ -228,64 +228,64 @@ define internal range(i32 0, 2) i32 @rlc_lte_stat_packet(ptr noundef %0, ptr noc
 
 .thread88:                                        ; preds = %42, %63, %64
   %.06791 = phi ptr [ %37, %64 ], [ %50, %63 ], [ %.06899, %42 ]
-  %74 = getelementptr inbounds i8, ptr %3, i64 4
+  %74 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %75 = load i16, ptr %74, align 4
-  %76 = getelementptr inbounds i8, ptr %.06791, i64 10
+  %76 = getelementptr inbounds nuw i8, ptr %.06791, i64 10
   store i16 %75, ptr %76, align 2
-  %77 = getelementptr inbounds i8, ptr %3, i64 2
+  %77 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %78 = load i8, ptr %77, align 2
   %79 = icmp eq i8 %78, 0
   br i1 %79, label %80, label %97
 
 80:                                               ; preds = %.thread88
-  %81 = getelementptr inbounds i8, ptr %.06791, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %.06791, i64 16
   %82 = load i32, ptr %81, align 8
   %83 = icmp eq i32 %82, 0
   br i1 %83, label %84, label %87
 
 84:                                               ; preds = %80
-  %85 = getelementptr inbounds i8, ptr %.06791, i64 24
-  %86 = getelementptr inbounds i8, ptr %3, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %.06791, i64 24
+  %86 = getelementptr inbounds nuw i8, ptr %3, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %85, ptr noundef nonnull align 8 dereferenceable(16) %86, i64 16, i1 false)
   br label %87
 
 87:                                               ; preds = %84, %80
-  %88 = getelementptr inbounds i8, ptr %.06791, i64 40
-  %89 = getelementptr inbounds i8, ptr %3, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %.06791, i64 40
+  %89 = getelementptr inbounds nuw i8, ptr %3, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %88, ptr noundef nonnull align 8 dereferenceable(16) %89, i64 16, i1 false)
   %90 = add i32 %82, 1
   store i32 %90, ptr %81, align 8
-  %91 = getelementptr inbounds i8, ptr %3, i64 10
+  %91 = getelementptr inbounds nuw i8, ptr %3, i64 10
   %92 = load i16, ptr %91, align 2
   %93 = zext i16 %92 to i32
-  %94 = getelementptr inbounds i8, ptr %.06791, i64 20
+  %94 = getelementptr inbounds nuw i8, ptr %.06791, i64 20
   %95 = load i32, ptr %94, align 4
   %96 = add i32 %95, %93
   store i32 %96, ptr %94, align 4
   br label %114
 
 97:                                               ; preds = %.thread88
-  %98 = getelementptr inbounds i8, ptr %.06791, i64 68
+  %98 = getelementptr inbounds nuw i8, ptr %.06791, i64 68
   %99 = load i32, ptr %98, align 4
   %100 = icmp eq i32 %99, 0
   br i1 %100, label %101, label %104
 
 101:                                              ; preds = %97
-  %102 = getelementptr inbounds i8, ptr %.06791, i64 80
-  %103 = getelementptr inbounds i8, ptr %3, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %.06791, i64 80
+  %103 = getelementptr inbounds nuw i8, ptr %3, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %102, ptr noundef nonnull align 8 dereferenceable(16) %103, i64 16, i1 false)
   br label %104
 
 104:                                              ; preds = %101, %97
-  %105 = getelementptr inbounds i8, ptr %.06791, i64 96
-  %106 = getelementptr inbounds i8, ptr %3, i64 16
+  %105 = getelementptr inbounds nuw i8, ptr %.06791, i64 96
+  %106 = getelementptr inbounds nuw i8, ptr %3, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %105, ptr noundef nonnull align 8 dereferenceable(16) %106, i64 16, i1 false)
   %107 = add i32 %99, 1
   store i32 %107, ptr %98, align 4
-  %108 = getelementptr inbounds i8, ptr %3, i64 10
+  %108 = getelementptr inbounds nuw i8, ptr %3, i64 10
   %109 = load i16, ptr %108, align 2
   %110 = zext i16 %109 to i32
-  %111 = getelementptr inbounds i8, ptr %.06791, i64 72
+  %111 = getelementptr inbounds nuw i8, ptr %.06791, i64 72
   %112 = load i32, ptr %111, align 8
   %113 = add i32 %112, %110
   store i32 %113, ptr %111, align 8
@@ -294,7 +294,7 @@ define internal range(i32 0, 2) i32 @rlc_lte_stat_packet(ptr noundef %0, ptr noc
 114:                                              ; preds = %104, %87
   %115 = load i8, ptr %77, align 2
   %116 = icmp eq i8 %115, 0
-  %117 = getelementptr inbounds i8, ptr %3, i64 45
+  %117 = getelementptr inbounds nuw i8, ptr %3, i64 45
   %118 = load i8, ptr %117, align 1
   %.not80 = icmp eq i8 %118, 0
   br i1 %116, label %119, label %137
@@ -303,24 +303,24 @@ define internal range(i32 0, 2) i32 @rlc_lte_stat_packet(ptr noundef %0, ptr noc
   br i1 %.not80, label %124, label %120
 
 120:                                              ; preds = %119
-  %121 = getelementptr inbounds i8, ptr %.06791, i64 56
+  %121 = getelementptr inbounds nuw i8, ptr %.06791, i64 56
   %122 = load i32, ptr %121, align 8
   %123 = add i32 %122, 1
   store i32 %123, ptr %121, align 8
   br label %124
 
 124:                                              ; preds = %120, %119
-  %125 = getelementptr inbounds i8, ptr %3, i64 52
+  %125 = getelementptr inbounds nuw i8, ptr %3, i64 52
   %126 = load i16, ptr %125, align 4
   %127 = zext i16 %126 to i32
-  %128 = getelementptr inbounds i8, ptr %.06791, i64 60
+  %128 = getelementptr inbounds nuw i8, ptr %.06791, i64 60
   %129 = load i32, ptr %128, align 4
   %130 = add i32 %129, %127
   store i32 %130, ptr %128, align 4
-  %131 = getelementptr inbounds i8, ptr %3, i64 2104
+  %131 = getelementptr inbounds nuw i8, ptr %3, i64 2104
   %132 = load i16, ptr %131, align 8
   %133 = zext i16 %132 to i32
-  %134 = getelementptr inbounds i8, ptr %.06791, i64 64
+  %134 = getelementptr inbounds nuw i8, ptr %.06791, i64 64
   %135 = load i32, ptr %134, align 8
   %136 = add i32 %135, %133
   store i32 %136, ptr %134, align 8
@@ -330,24 +330,24 @@ define internal range(i32 0, 2) i32 @rlc_lte_stat_packet(ptr noundef %0, ptr noc
   br i1 %.not80, label %142, label %138
 
 138:                                              ; preds = %137
-  %139 = getelementptr inbounds i8, ptr %.06791, i64 112
+  %139 = getelementptr inbounds nuw i8, ptr %.06791, i64 112
   %140 = load i32, ptr %139, align 8
   %141 = add i32 %140, 1
   store i32 %141, ptr %139, align 8
   br label %142
 
 142:                                              ; preds = %138, %137
-  %143 = getelementptr inbounds i8, ptr %3, i64 52
+  %143 = getelementptr inbounds nuw i8, ptr %3, i64 52
   %144 = load i16, ptr %143, align 4
   %145 = zext i16 %144 to i32
-  %146 = getelementptr inbounds i8, ptr %.06791, i64 116
+  %146 = getelementptr inbounds nuw i8, ptr %.06791, i64 116
   %147 = load i32, ptr %146, align 4
   %148 = add i32 %147, %145
   store i32 %148, ptr %146, align 4
-  %149 = getelementptr inbounds i8, ptr %3, i64 2104
+  %149 = getelementptr inbounds nuw i8, ptr %3, i64 2104
   %150 = load i16, ptr %149, align 8
   %151 = zext i16 %150 to i32
-  %152 = getelementptr inbounds i8, ptr %.06791, i64 120
+  %152 = getelementptr inbounds nuw i8, ptr %.06791, i64 120
   %153 = load i32, ptr %152, align 8
   %154 = add i32 %153, %151
   store i32 %154, ptr %152, align 8
@@ -363,13 +363,13 @@ define internal void @rlc_lte_stat_draw(ptr nocapture noundef readonly %0) #5 {
   %2 = load ptr, ptr %0, align 8
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   %puts39 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  %3 = getelementptr inbounds i8, ptr %0, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i32, ptr %9, align 4
   %11 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %4, i32 noundef %6, i32 noundef %8, i32 noundef %10)
   %.not46 = icmp eq ptr %2, null
@@ -389,7 +389,7 @@ define internal void @rlc_lte_stat_draw(ptr nocapture noundef readonly %0) #5 {
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
   %.0.lcssa = phi i32 [ 0, %1 ], [ %14, %._crit_edge.loopexit ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load i32, ptr %15, align 8
   %17 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %.0.lcssa, i32 noundef %16)
   %puts40 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
@@ -410,10 +410,10 @@ define internal void @rlc_lte_stat_draw(ptr nocapture noundef readonly %0) #5 {
 
 .lr.ph53:                                         ; preds = %22, %calculate_bw.exit45
   %.151 = phi ptr [ %99, %calculate_bw.exit45 ], [ %2, %22 ]
-  %23 = getelementptr inbounds i8, ptr %.151, i64 8
-  %24 = getelementptr inbounds i8, ptr %.151, i64 24
-  %25 = getelementptr inbounds i8, ptr %.151, i64 40
-  %26 = getelementptr inbounds i8, ptr %.151, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %.151, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.151, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %.151, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %.151, i64 20
   %27 = load i32, ptr %26, align 4
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) %24, ptr noundef nonnull readonly dereferenceable(16) %25, i64 16)
   %.not.i = icmp eq i32 %bcmp.i, 0
@@ -425,10 +425,10 @@ define internal void @rlc_lte_stat_draw(ptr nocapture noundef readonly %0) #5 {
   %31 = load i64, ptr %24, align 8
   %32 = sitofp i64 %31 to float
   %33 = fsub float %30, %32
-  %34 = getelementptr inbounds i8, ptr %.151, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %.151, i64 48
   %35 = load i32, ptr %34, align 8
   %36 = sitofp i32 %35 to float
-  %37 = getelementptr inbounds i8, ptr %.151, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %.151, i64 32
   %38 = load i32, ptr %37, align 8
   %39 = sitofp i32 %38 to float
   %40 = fsub float %36, %39
@@ -447,9 +447,9 @@ define internal void @rlc_lte_stat_draw(ptr nocapture noundef readonly %0) #5 {
 
 calculate_bw.exit:                                ; preds = %.lr.ph53, %28, %44
   %.0.i = phi double [ %49, %44 ], [ 0.000000e+00, %28 ], [ 0.000000e+00, %.lr.ph53 ]
-  %50 = getelementptr inbounds i8, ptr %.151, i64 80
-  %51 = getelementptr inbounds i8, ptr %.151, i64 96
-  %52 = getelementptr inbounds i8, ptr %.151, i64 72
+  %50 = getelementptr inbounds nuw i8, ptr %.151, i64 80
+  %51 = getelementptr inbounds nuw i8, ptr %.151, i64 96
+  %52 = getelementptr inbounds nuw i8, ptr %.151, i64 72
   %53 = load i32, ptr %52, align 8
   %bcmp.i42 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) %50, ptr noundef nonnull readonly dereferenceable(16) %51, i64 16)
   %.not.i43 = icmp eq i32 %bcmp.i42, 0
@@ -461,10 +461,10 @@ calculate_bw.exit:                                ; preds = %.lr.ph53, %28, %44
   %57 = load i64, ptr %50, align 8
   %58 = sitofp i64 %57 to float
   %59 = fsub float %56, %58
-  %60 = getelementptr inbounds i8, ptr %.151, i64 104
+  %60 = getelementptr inbounds nuw i8, ptr %.151, i64 104
   %61 = load i32, ptr %60, align 8
   %62 = sitofp i32 %61 to float
-  %63 = getelementptr inbounds i8, ptr %.151, i64 88
+  %63 = getelementptr inbounds nuw i8, ptr %.151, i64 88
   %64 = load i32, ptr %63, align 8
   %65 = sitofp i32 %64 to float
   %66 = fsub float %62, %65
@@ -486,24 +486,24 @@ calculate_bw.exit45:                              ; preds = %calculate_bw.exit, 
   %76 = load i8, ptr %23, align 8
   %77 = icmp eq i8 %76, 0
   %78 = select i1 %77, ptr @.str.11, ptr @.str.12
-  %79 = getelementptr inbounds i8, ptr %.151, i64 10
+  %79 = getelementptr inbounds nuw i8, ptr %.151, i64 10
   %80 = load i16, ptr %79, align 2
   %81 = zext i16 %80 to i32
-  %82 = getelementptr inbounds i8, ptr %.151, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %.151, i64 16
   %83 = load i32, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %.151, i64 56
+  %84 = getelementptr inbounds nuw i8, ptr %.151, i64 56
   %85 = load i32, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %.151, i64 60
+  %86 = getelementptr inbounds nuw i8, ptr %.151, i64 60
   %87 = load i32, ptr %86, align 4
-  %88 = getelementptr inbounds i8, ptr %.151, i64 64
+  %88 = getelementptr inbounds nuw i8, ptr %.151, i64 64
   %89 = load i32, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %.151, i64 68
+  %90 = getelementptr inbounds nuw i8, ptr %.151, i64 68
   %91 = load i32, ptr %90, align 4
-  %92 = getelementptr inbounds i8, ptr %.151, i64 112
+  %92 = getelementptr inbounds nuw i8, ptr %.151, i64 112
   %93 = load i32, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %.151, i64 116
+  %94 = getelementptr inbounds nuw i8, ptr %.151, i64 116
   %95 = load i32, ptr %94, align 4
-  %96 = getelementptr inbounds i8, ptr %.151, i64 120
+  %96 = getelementptr inbounds nuw i8, ptr %.151, i64 120
   %97 = load i32, ptr %96, align 8
   %98 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, ptr noundef nonnull %78, i32 noundef %81, i32 noundef %83, i32 noundef %27, double noundef %.0.i, i32 noundef %85, i32 noundef %87, i32 noundef %89, i32 noundef %91, i32 noundef %53, double noundef %.0.i44, i32 noundef %93, i32 noundef %95, i32 noundef %97)
   %99 = load ptr, ptr %.151, align 8

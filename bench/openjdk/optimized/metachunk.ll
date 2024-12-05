@@ -25,7 +25,7 @@ $_ZN9LogPrefixILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = co
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef signext range(i8 63, 118) i8 @_ZNK9metaspace9Metachunk14get_state_charEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 25
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %3 = load i8, ptr %2, align 1
   %4 = icmp ult i8 %3, 3
   %switch.cast = zext i8 %3 to i24
@@ -38,11 +38,11 @@ define hidden noundef signext range(i8 63, 118) i8 @_ZNK9metaspace9Metachunk14ge
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN9metaspace9Metachunk12commit_up_toEm(ptr noundef nonnull align 8 dereferenceable(72) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %1, 8191
   %6 = and i64 %5, -8192
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i8, ptr %7, align 8
   %9 = sext i8 %8 to i64
   %10 = and i64 %9, 4294967295
@@ -52,20 +52,20 @@ define hidden noundef zeroext i1 @_ZN9metaspace9Metachunk12commit_up_toEm(ptr no
   br i1 %13, label %14, label %32
 
 14:                                               ; preds = %2
-  %15 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %15 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %25, label %16
 
 16:                                               ; preds = %14
   %17 = ptrtoint ptr %0 to i64
-  %18 = getelementptr inbounds i8, ptr %0, i64 25
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %19 = load i8, ptr %18, align 1
   %20 = icmp ult i8 %19, 3
   br i1 %20, label %switch.lookup, label %_ZNK9metaspace9Metachunk14get_state_charEv.exit
 
 switch.lookup:                                    ; preds = %16
   %21 = zext nneg i8 %19 to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZNK9metaspace9Metachunk8print_onEP12outputStream, i64 0, i64 %21
+  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZNK9metaspace9Metachunk8print_onEP12outputStream, i64 0, i64 %21
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK9metaspace9Metachunk14get_state_charEv.exit
 
@@ -78,7 +78,7 @@ _ZNK9metaspace9Metachunk14get_state_charEv.exit:  ; preds = %16, %switch.lookup
   br label %25
 
 25:                                               ; preds = %14, %_ZNK9metaspace9Metachunk14get_state_charEv.exit
-  %26 = getelementptr inbounds i8, ptr %0, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %27 = load ptr, ptr %26, align 8
   %28 = load ptr, ptr %0, align 8
   %29 = getelementptr inbounds ptr, ptr %28, i64 %4
@@ -108,7 +108,7 @@ declare noundef zeroext i1 @_ZN9metaspace16VirtualSpaceNode25ensure_range_is_com
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN9metaspace9Metachunk16ensure_committedEm(ptr noundef nonnull align 8 dereferenceable(72) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = icmp ugt i64 %1, %4
   br i1 %5, label %6, label %_ZN11MutexLockerD2Ev.exit
@@ -127,7 +127,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %6, %8
   %9 = phi i64 [ %4, %6 ], [ %.pre, %8 ]
   %10 = add i64 %1, 8191
   %11 = and i64 %10, -8192
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load i8, ptr %12, align 8
   %14 = sext i8 %13 to i64
   %15 = and i64 %14, 4294967295
@@ -137,20 +137,20 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %6, %8
   br i1 %18, label %19, label %37
 
 19:                                               ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
-  %20 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %20 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i = icmp eq ptr %20, null
   br i1 %.not.i, label %30, label %21
 
 21:                                               ; preds = %19
   %22 = ptrtoint ptr %0 to i64
-  %23 = getelementptr inbounds i8, ptr %0, i64 25
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %24 = load i8, ptr %23, align 1
   %25 = icmp ult i8 %24, 3
   br i1 %25, label %switch.lookup, label %_ZNK9metaspace9Metachunk14get_state_charEv.exit.i
 
 switch.lookup:                                    ; preds = %21
   %26 = zext nneg i8 %24 to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZNK9metaspace9Metachunk8print_onEP12outputStream, i64 0, i64 %26
+  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZNK9metaspace9Metachunk8print_onEP12outputStream, i64 0, i64 %26
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK9metaspace9Metachunk14get_state_charEv.exit.i
 
@@ -163,7 +163,7 @@ _ZNK9metaspace9Metachunk14get_state_charEv.exit.i: ; preds = %21, %switch.lookup
   br label %30
 
 30:                                               ; preds = %_ZNK9metaspace9Metachunk14get_state_charEv.exit.i, %19
-  %31 = getelementptr inbounds i8, ptr %0, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %0, align 8
   %34 = getelementptr inbounds ptr, ptr %33, i64 %9
@@ -190,7 +190,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %38, %_ZN9metaspace9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN9metaspace9Metachunk23ensure_committed_lockedEm(ptr noundef nonnull align 8 dereferenceable(72) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = icmp ugt i64 %1, %4
   br i1 %5, label %6, label %_ZN9metaspace9Metachunk12commit_up_toEm.exit
@@ -198,7 +198,7 @@ define hidden noundef zeroext i1 @_ZN9metaspace9Metachunk23ensure_committed_lock
 6:                                                ; preds = %2
   %7 = add i64 %1, 8191
   %8 = and i64 %7, -8192
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i8, ptr %9, align 8
   %11 = sext i8 %10 to i64
   %12 = and i64 %11, 4294967295
@@ -208,20 +208,20 @@ define hidden noundef zeroext i1 @_ZN9metaspace9Metachunk23ensure_committed_lock
   br i1 %15, label %16, label %34
 
 16:                                               ; preds = %6
-  %17 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %17 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %27, label %18
 
 18:                                               ; preds = %16
   %19 = ptrtoint ptr %0 to i64
-  %20 = getelementptr inbounds i8, ptr %0, i64 25
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %21 = load i8, ptr %20, align 1
   %22 = icmp ult i8 %21, 3
   br i1 %22, label %switch.lookup, label %_ZNK9metaspace9Metachunk14get_state_charEv.exit.i
 
 switch.lookup:                                    ; preds = %18
   %23 = zext nneg i8 %21 to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZNK9metaspace9Metachunk8print_onEP12outputStream, i64 0, i64 %23
+  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZNK9metaspace9Metachunk8print_onEP12outputStream, i64 0, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK9metaspace9Metachunk14get_state_charEv.exit.i
 
@@ -234,7 +234,7 @@ _ZNK9metaspace9Metachunk14get_state_charEv.exit.i: ; preds = %18, %switch.lookup
   br label %27
 
 27:                                               ; preds = %_ZNK9metaspace9Metachunk14get_state_charEv.exit.i, %16
-  %28 = getelementptr inbounds i8, ptr %0, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds ptr, ptr %30, i64 %4
@@ -262,7 +262,7 @@ define hidden void @_ZN9metaspace9Metachunk8uncommitEv(ptr nocapture noundef non
   br label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
 
 _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %1, %3
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i8, ptr %4, align 8
   %6 = sext i8 %5 to i64
   %7 = and i64 %6, 4294967295
@@ -271,11 +271,11 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %1, %3
 
 8:                                                ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
   %9 = lshr exact i64 2097152, %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %0, align 8
   tail call void @_ZN9metaspace16VirtualSpaceNode14uncommit_rangeEPP12MetaWordImplm(ptr noundef nonnull align 8 dereferenceable(192) %11, ptr noundef %12, i64 noundef %9) #7
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %13, align 8
   br label %_ZN9metaspace9Metachunk15uncommit_lockedEv.exit
 
@@ -292,7 +292,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN9metaspace9Metac
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9metaspace9Metachunk15uncommit_lockedEv(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8
   %4 = sext i8 %3 to i64
   %5 = and i64 %4, 4294967295
@@ -301,11 +301,11 @@ define hidden void @_ZN9metaspace9Metachunk15uncommit_lockedEv(ptr nocapture nou
 
 6:                                                ; preds = %1
   %7 = lshr exact i64 2097152, %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %0, align 8
   tail call void @_ZN9metaspace16VirtualSpaceNode14uncommit_rangeEPP12MetaWordImplm(ptr noundef nonnull align 8 dereferenceable(192) %9, ptr noundef %10, i64 noundef %7) #7
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %11, align 8
   br label %12
 
@@ -319,13 +319,13 @@ declare void @_ZN9metaspace16VirtualSpaceNode14uncommit_rangeEPP12MetaWordImplm(
 define hidden void @_ZN9metaspace9Metachunk19set_committed_wordsEm(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((16, 24)) %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = add i64 %1, 8191
   %4 = and i64 %3, -8192
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
   %7 = sext i8 %6 to i64
   %8 = and i64 %7, 4294967295
   %9 = lshr i64 2097152, %8
   %10 = tail call noundef i64 @llvm.umin.i64(i64 %4, i64 %9)
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %10, ptr %11, align 8
   ret void
 }
@@ -333,7 +333,7 @@ define hidden void @_ZN9metaspace9Metachunk19set_committed_wordsEm(ptr nocapture
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden noundef ptr @_ZN9metaspace9Metachunk8allocateEm(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds ptr, ptr %3, i64 %5
   %7 = add i64 %5, %1
@@ -343,14 +343,14 @@ define hidden noundef ptr @_ZN9metaspace9Metachunk8allocateEm(ptr nocapture noun
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK9metaspace9Metachunk8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 25
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %4 = load i8, ptr %3, align 1
   %5 = icmp ult i8 %4, 3
   br i1 %5, label %switch.lookup, label %_ZNK9metaspace9Metachunk14get_state_charEv.exit
 
 switch.lookup:                                    ; preds = %2
   %6 = zext nneg i8 %4 to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZNK9metaspace9Metachunk8print_onEP12outputStream, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZNK9metaspace9Metachunk8print_onEP12outputStream, i64 0, i64 %6
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK9metaspace9Metachunk14get_state_charEv.exit
 
@@ -359,16 +359,16 @@ _ZNK9metaspace9Metachunk14get_state_charEv.exit:  ; preds = %2, %switch.lookup
   %7 = ptrtoint ptr %0 to i64
   %8 = load ptr, ptr %0, align 8
   %9 = ptrtoint ptr %8 to i64
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load i8, ptr %10, align 8
   %12 = icmp ult i8 %11, 15
   %13 = zext nneg i8 %11 to i64
   %14 = lshr i64 2097152, %13
   %15 = select i1 %12, i64 %14, i64 -1
   %16 = sext i8 %11 to i32
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load i64, ptr %19, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.4, i64 noundef %7, i32 noundef %.0.i, i64 noundef %9, i32 noundef %16, i64 noundef %15, i64 noundef %18, i64 noundef %20) #7
   ret void

@@ -54,13 +54,13 @@ define void @_Z6jacobiPPdiS_S0_Pi(ptr nocapture noundef readonly %0, i32 noundef
 
 .preheader203.us.i:                               ; preds = %._crit_edge.us.i, %.preheader203.us.preheader.i
   %indvars.iv245.i = phi i64 [ 0, %.preheader203.us.preheader.i ], [ %indvars.iv.next246.i, %._crit_edge.us.i ]
-  %11 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv245.i
+  %11 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv245.i
   br label %12
 
 12:                                               ; preds = %12, %.preheader203.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader203.us.i ], [ %indvars.iv.next.i, %12 ]
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds double, ptr %13, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv.i
   store double 0.000000e+00, ptr %14, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count248.i
@@ -68,7 +68,7 @@ define void @_Z6jacobiPPdiS_S0_Pi(ptr nocapture noundef readonly %0, i32 noundef
 
 ._crit_edge.us.i:                                 ; preds = %12
   %15 = load ptr, ptr %11, align 8
-  %16 = getelementptr inbounds double, ptr %15, i64 %indvars.iv245.i
+  %16 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv245.i
   store double 1.000000e+00, ptr %16, align 8
   %indvars.iv.next246.i = add nuw nsw i64 %indvars.iv245.i, 1
   %exitcond249.not.i = icmp eq i64 %indvars.iv.next246.i, %wide.trip.count248.i
@@ -91,14 +91,14 @@ define void @_Z6jacobiPPdiS_S0_Pi(ptr nocapture noundef readonly %0, i32 noundef
   %indvars.iv262.i.us = phi i64 [ %indvars.iv.next263.i.us, %.loopexit198.i.us ], [ 0, %.preheader200.i.us ]
   %indvars.iv255.i.us = phi i64 [ %indvars.iv.next256.i.us, %.loopexit198.i.us ], [ 1, %.preheader200.i.us ]
   %.0180211.i.us = phi double [ %26, %.loopexit198.i.us ], [ 0.000000e+00, %.preheader200.i.us ]
-  %20 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv262.i.us
+  %20 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv262.i.us
   %21 = load ptr, ptr %20, align 8
   br label %22
 
 22:                                               ; preds = %22, %.lr.ph210.i.us
   %indvars.iv257.i.us = phi i64 [ %indvars.iv255.i.us, %.lr.ph210.i.us ], [ %indvars.iv.next258.i.us, %22 ]
   %.1181208.i.us = phi double [ %.0180211.i.us, %.lr.ph210.i.us ], [ %26, %22 ]
-  %23 = getelementptr inbounds double, ptr %21, i64 %indvars.iv257.i.us
+  %23 = getelementptr inbounds nuw double, ptr %21, i64 %indvars.iv257.i.us
   %24 = load double, ptr %23, align 8
   %25 = tail call noundef double @llvm.fabs.f64(double %24)
   %26 = fadd double %.1181208.i.us, %25
@@ -130,9 +130,9 @@ define void @_Z6jacobiPPdiS_S0_Pi(ptr nocapture noundef readonly %0, i32 noundef
   %indvars.iv272.i.us = phi i64 [ 1, %28 ], [ %indvars.iv.next273.i.us, %.loopexit.i.us ]
   %.1169234.i.us = phi i32 [ %.0168241.i.us, %28 ], [ %.3171.i.us, %.loopexit.i.us ]
   %indvars.iv.next299.i.us = add nuw nsw i64 %indvars.iv298.i.us, 1
-  %33 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv298.i.us
-  %34 = getelementptr inbounds double, ptr %2, i64 %indvars.iv298.i.us
-  %35 = getelementptr inbounds double, ptr %9, i64 %indvars.iv298.i.us
+  %33 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv298.i.us
+  %34 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv298.i.us
+  %35 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv298.i.us
   %.not.i.us = icmp eq i64 %indvars.iv298.i.us, 0
   br label %36
 
@@ -141,7 +141,7 @@ define void @_Z6jacobiPPdiS_S0_Pi(ptr nocapture noundef readonly %0, i32 noundef
   %indvars.iv281.i.us = phi i64 [ %indvars.iv279.i.us, %.lr.ph231.i.us ], [ %indvars.iv.next282.i.us, %159 ]
   %.2170229.i.us = phi i32 [ %.1169234.i.us, %.lr.ph231.i.us ], [ %.3171.i.us, %159 ]
   %37 = load ptr, ptr %33, align 8
-  %38 = getelementptr inbounds double, ptr %37, i64 %indvars.iv292.i.us
+  %38 = getelementptr inbounds nuw double, ptr %37, i64 %indvars.iv292.i.us
   %39 = load double, ptr %38, align 8
   %40 = tail call noundef double @llvm.fabs.f64(double %39)
   %41 = fmul double %40, 1.000000e+02
@@ -155,7 +155,7 @@ define void @_Z6jacobiPPdiS_S0_Pi(ptr nocapture noundef readonly %0, i32 noundef
   br i1 %46, label %47, label %53
 
 47:                                               ; preds = %42
-  %48 = getelementptr inbounds double, ptr %2, i64 %indvars.iv292.i.us
+  %48 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv292.i.us
   %49 = load double, ptr %48, align 8
   %50 = tail call noundef double @llvm.fabs.f64(double %49)
   %51 = fadd double %41, %50
@@ -167,7 +167,7 @@ define void @_Z6jacobiPPdiS_S0_Pi(ptr nocapture noundef readonly %0, i32 noundef
   br i1 %54, label %55, label %159
 
 55:                                               ; preds = %53
-  %56 = getelementptr inbounds double, ptr %2, i64 %indvars.iv292.i.us
+  %56 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv292.i.us
   %57 = load double, ptr %56, align 8
   %58 = load double, ptr %34, align 8
   %59 = fsub double %57, %58
@@ -207,7 +207,7 @@ define void @_Z6jacobiPPdiS_S0_Pi(ptr nocapture noundef readonly %0, i32 noundef
   %82 = load double, ptr %35, align 8
   %83 = fsub double %82, %81
   store double %83, ptr %35, align 8
-  %84 = getelementptr inbounds double, ptr %9, i64 %indvars.iv292.i.us
+  %84 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv292.i.us
   %85 = load double, ptr %84, align 8
   %86 = fadd double %81, %85
   store double %86, ptr %84, align 8
@@ -218,7 +218,7 @@ define void @_Z6jacobiPPdiS_S0_Pi(ptr nocapture noundef readonly %0, i32 noundef
   %90 = fadd double %81, %89
   store double %90, ptr %56, align 8
   %91 = load ptr, ptr %33, align 8
-  %92 = getelementptr inbounds double, ptr %91, i64 %indvars.iv292.i.us
+  %92 = getelementptr inbounds nuw double, ptr %91, i64 %indvars.iv292.i.us
   store double 0.000000e+00, ptr %92, align 8
   br i1 %.not.i.us, label %.preheader197.i.us, label %.lr.ph218.i.us
 
@@ -228,11 +228,11 @@ define void @_Z6jacobiPPdiS_S0_Pi(ptr nocapture noundef readonly %0, i32 noundef
 
 94:                                               ; preds = %94, %.lr.ph218.i.us
   %indvars.iv267.i.us = phi i64 [ 0, %.lr.ph218.i.us ], [ %indvars.iv.next268.i.us, %94 ]
-  %95 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv267.i.us
+  %95 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv267.i.us
   %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds double, ptr %96, i64 %indvars.iv298.i.us
+  %97 = getelementptr inbounds nuw double, ptr %96, i64 %indvars.iv298.i.us
   %98 = load double, ptr %97, align 8
-  %99 = getelementptr inbounds double, ptr %96, i64 %indvars.iv292.i.us
+  %99 = getelementptr inbounds nuw double, ptr %96, i64 %indvars.iv292.i.us
   %100 = load double, ptr %99, align 8
   %101 = tail call double @llvm.fmuladd.f64(double %98, double %80, double %100)
   %102 = tail call double @llvm.fmuladd.f64(double %93, double %101, double %98)
@@ -241,7 +241,7 @@ define void @_Z6jacobiPPdiS_S0_Pi(ptr nocapture noundef readonly %0, i32 noundef
   %104 = tail call double @llvm.fmuladd.f64(double %103, double %80, double %98)
   %105 = tail call double @llvm.fmuladd.f64(double %78, double %104, double %100)
   %106 = load ptr, ptr %95, align 8
-  %107 = getelementptr inbounds double, ptr %106, i64 %indvars.iv292.i.us
+  %107 = getelementptr inbounds nuw double, ptr %106, i64 %indvars.iv292.i.us
   store double %105, ptr %107, align 8
   %indvars.iv.next268.i.us = add nuw nsw i64 %indvars.iv267.i.us, 1
   %exitcond271.not.i.us = icmp eq i64 %indvars.iv.next268.i.us, %indvars.iv298.i.us
@@ -258,11 +258,11 @@ define void @_Z6jacobiPPdiS_S0_Pi(ptr nocapture noundef readonly %0, i32 noundef
 110:                                              ; preds = %110, %.lr.ph220.i.us
   %indvars.iv274.i.us = phi i64 [ %indvars.iv272.i.us, %.lr.ph220.i.us ], [ %indvars.iv.next275.i.us, %110 ]
   %111 = load ptr, ptr %33, align 8
-  %112 = getelementptr inbounds double, ptr %111, i64 %indvars.iv274.i.us
+  %112 = getelementptr inbounds nuw double, ptr %111, i64 %indvars.iv274.i.us
   %113 = load double, ptr %112, align 8
-  %114 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv274.i.us
+  %114 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv274.i.us
   %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds double, ptr %115, i64 %indvars.iv292.i.us
+  %116 = getelementptr inbounds nuw double, ptr %115, i64 %indvars.iv292.i.us
   %117 = load double, ptr %116, align 8
   %118 = tail call double @llvm.fmuladd.f64(double %113, double %80, double %117)
   %119 = tail call double @llvm.fmuladd.f64(double %109, double %118, double %113)
@@ -271,7 +271,7 @@ define void @_Z6jacobiPPdiS_S0_Pi(ptr nocapture noundef readonly %0, i32 noundef
   %121 = tail call double @llvm.fmuladd.f64(double %120, double %80, double %113)
   %122 = tail call double @llvm.fmuladd.f64(double %78, double %121, double %117)
   %123 = load ptr, ptr %114, align 8
-  %124 = getelementptr inbounds double, ptr %123, i64 %indvars.iv292.i.us
+  %124 = getelementptr inbounds nuw double, ptr %123, i64 %indvars.iv292.i.us
   store double %122, ptr %124, align 8
   %indvars.iv.next275.i.us = add nuw nsw i64 %indvars.iv274.i.us, 1
   %exitcond278.not.i.us = icmp eq i64 %indvars.iv.next275.i.us, %indvars.iv292.i.us
@@ -288,17 +288,17 @@ define void @_Z6jacobiPPdiS_S0_Pi(ptr nocapture noundef readonly %0, i32 noundef
   br label %.preheader.i.us
 
 .lr.ph223.i.us:                                   ; preds = %.preheader196.i.us
-  %128 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv292.i.us
+  %128 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv292.i.us
   %129 = fneg double %78
   br label %130
 
 130:                                              ; preds = %130, %.lr.ph223.i.us
   %indvars.iv283.i.us = phi i64 [ %indvars.iv281.i.us, %.lr.ph223.i.us ], [ %indvars.iv.next284.i.us, %130 ]
   %131 = load ptr, ptr %33, align 8
-  %132 = getelementptr inbounds double, ptr %131, i64 %indvars.iv283.i.us
+  %132 = getelementptr inbounds nuw double, ptr %131, i64 %indvars.iv283.i.us
   %133 = load double, ptr %132, align 8
   %134 = load ptr, ptr %128, align 8
-  %135 = getelementptr inbounds double, ptr %134, i64 %indvars.iv283.i.us
+  %135 = getelementptr inbounds nuw double, ptr %134, i64 %indvars.iv283.i.us
   %136 = load double, ptr %135, align 8
   %137 = tail call double @llvm.fmuladd.f64(double %133, double %80, double %136)
   %138 = tail call double @llvm.fmuladd.f64(double %129, double %137, double %133)
@@ -307,7 +307,7 @@ define void @_Z6jacobiPPdiS_S0_Pi(ptr nocapture noundef readonly %0, i32 noundef
   %140 = tail call double @llvm.fmuladd.f64(double %139, double %80, double %133)
   %141 = tail call double @llvm.fmuladd.f64(double %78, double %140, double %136)
   %142 = load ptr, ptr %128, align 8
-  %143 = getelementptr inbounds double, ptr %142, i64 %indvars.iv283.i.us
+  %143 = getelementptr inbounds nuw double, ptr %142, i64 %indvars.iv283.i.us
   store double %141, ptr %143, align 8
   %indvars.iv.next284.i.us = add nuw nsw i64 %indvars.iv283.i.us, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next284.i.us to i32
@@ -320,11 +320,11 @@ define void @_Z6jacobiPPdiS_S0_Pi(ptr nocapture noundef readonly %0, i32 noundef
 
 144:                                              ; preds = %144, %.preheader.i.us
   %indvars.iv287.i.us = phi i64 [ 0, %.preheader.i.us ], [ %indvars.iv.next288.i.us, %144 ]
-  %145 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv287.i.us
+  %145 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv287.i.us
   %146 = load ptr, ptr %145, align 8
-  %147 = getelementptr inbounds double, ptr %146, i64 %indvars.iv298.i.us
+  %147 = getelementptr inbounds nuw double, ptr %146, i64 %indvars.iv298.i.us
   %148 = load double, ptr %147, align 8
-  %149 = getelementptr inbounds double, ptr %146, i64 %indvars.iv292.i.us
+  %149 = getelementptr inbounds nuw double, ptr %146, i64 %indvars.iv292.i.us
   %150 = load double, ptr %149, align 8
   %151 = tail call double @llvm.fmuladd.f64(double %148, double %80, double %150)
   %152 = tail call double @llvm.fmuladd.f64(double %.pre-phi, double %151, double %148)
@@ -333,7 +333,7 @@ define void @_Z6jacobiPPdiS_S0_Pi(ptr nocapture noundef readonly %0, i32 noundef
   %154 = tail call double @llvm.fmuladd.f64(double %153, double %80, double %148)
   %155 = tail call double @llvm.fmuladd.f64(double %78, double %154, double %150)
   %156 = load ptr, ptr %145, align 8
-  %157 = getelementptr inbounds double, ptr %156, i64 %indvars.iv292.i.us
+  %157 = getelementptr inbounds nuw double, ptr %156, i64 %indvars.iv292.i.us
   store double %155, ptr %157, align 8
   %indvars.iv.next288.i.us = add nuw nsw i64 %indvars.iv287.i.us, 1
   %exitcond291.not.i.us = icmp eq i64 %indvars.iv.next288.i.us, %wide.trip.count248.i
@@ -358,13 +358,13 @@ define void @_Z6jacobiPPdiS_S0_Pi(ptr nocapture noundef readonly %0, i32 noundef
 
 .lr.ph239.i.us:                                   ; preds = %.loopexit.i.us, %.lr.ph239.i.us
   %indvars.iv303.i.us = phi i64 [ %indvars.iv.next304.i.us, %.lr.ph239.i.us ], [ 0, %.loopexit.i.us ]
-  %160 = getelementptr inbounds double, ptr %9, i64 %indvars.iv303.i.us
+  %160 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv303.i.us
   %161 = load double, ptr %160, align 8
-  %162 = getelementptr inbounds double, ptr %8, i64 %indvars.iv303.i.us
+  %162 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv303.i.us
   %163 = load double, ptr %162, align 8
   %164 = fadd double %161, %163
   store double %164, ptr %162, align 8
-  %165 = getelementptr inbounds double, ptr %2, i64 %indvars.iv303.i.us
+  %165 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv303.i.us
   store double %164, ptr %165, align 8
   store double 0.000000e+00, ptr %160, align 8
   %indvars.iv.next304.i.us = add nuw nsw i64 %indvars.iv303.i.us, 1
@@ -382,15 +382,15 @@ define void @_Z6jacobiPPdiS_S0_Pi(ptr nocapture noundef readonly %0, i32 noundef
 
 .lr.ph.i:                                         ; preds = %._crit_edge.us.i, %.lr.ph.i
   %indvars.iv250.i = phi i64 [ %indvars.iv.next251.i, %.lr.ph.i ], [ 0, %._crit_edge.us.i ]
-  %168 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv250.i
+  %168 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv250.i
   %169 = load ptr, ptr %168, align 8
-  %170 = getelementptr inbounds double, ptr %169, i64 %indvars.iv250.i
+  %170 = getelementptr inbounds nuw double, ptr %169, i64 %indvars.iv250.i
   %171 = load double, ptr %170, align 8
-  %172 = getelementptr inbounds double, ptr %2, i64 %indvars.iv250.i
+  %172 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv250.i
   store double %171, ptr %172, align 8
-  %173 = getelementptr inbounds double, ptr %8, i64 %indvars.iv250.i
+  %173 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv250.i
   store double %171, ptr %173, align 8
-  %174 = getelementptr inbounds double, ptr %9, i64 %indvars.iv250.i
+  %174 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv250.i
   store double 0.000000e+00, ptr %174, align 8
   %indvars.iv.next251.i = add nuw nsw i64 %indvars.iv250.i, 1
   %exitcond254.not.i = icmp eq i64 %indvars.iv.next251.i, %wide.trip.count248.i
@@ -444,7 +444,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA120_cS1_EERKT_NS1_6f
   %9 = extractvalue { i64, ptr } %7, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 %8, ptr %9) #11
   %10 = load i64, ptr %4, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load ptr, ptr %11, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 %10, ptr %12, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %13 unwind label %17
@@ -452,7 +452,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA120_cS1_EERKT_NS1_6f
 13:                                               ; preds = %3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #11
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void @_ZNSt10filesystem7__cxx114path5_ListC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
           to label %15 unwind label %19
 
@@ -503,7 +503,7 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %4
@@ -598,28 +598,28 @@ define noundef i32 @_Z6jacobiN3gmx8ArrayRefINS_11BasicVectorIdEEEENS0_IdEES3_(pt
   %28 = mul nuw nsw i64 %indvar.i, 24
   %scevgep.i = getelementptr nuw i8, ptr %4, i64 %28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %scevgep.i, i8 0, i64 24, i1 false)
-  %29 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %indvar.i
-  %30 = getelementptr inbounds [3 x double], ptr %29, i64 0, i64 %indvar.i
+  %29 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %4, i64 %indvar.i
+  %30 = getelementptr inbounds nuw [3 x double], ptr %29, i64 0, i64 %indvar.i
   store double 1.000000e+00, ptr %30, align 8
   %indvar.next.i = add nuw nsw i64 %indvar.i, 1
   %exitcond.not.i = icmp eq i64 %indvar.next.i, 3
   br i1 %exitcond.not.i, label %.preheader206.i, label %.preheader207.i, !llvm.loop !19
 
 .preheader205.i:                                  ; preds = %.preheader206.i
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %.preheader204.i
 
 .preheader206.i:                                  ; preds = %.preheader207.i, %.preheader206.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader206.i ], [ 0, %.preheader207.i ]
-  %33 = getelementptr inbounds %"class.gmx::BasicVector", ptr %0, i64 %indvars.iv.i
-  %34 = getelementptr inbounds [3 x double], ptr %33, i64 0, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %0, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw [3 x double], ptr %33, i64 0, i64 %indvars.iv.i
   %35 = load double, ptr %34, align 8
-  %36 = getelementptr inbounds double, ptr %2, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv.i
   store double %35, ptr %36, align 8
-  %37 = getelementptr inbounds double, ptr %26, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv.i
   store double %35, ptr %37, align 8
-  %38 = getelementptr inbounds double, ptr %27, i64 %indvars.iv.i
+  %38 = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv.i
   store double 0.000000e+00, ptr %38, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond251.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -639,13 +639,13 @@ define noundef i32 @_Z6jacobiN3gmx8ArrayRefINS_11BasicVectorIdEEEENS0_IdEES3_(pt
   %indvars.iv258.i = phi i64 [ 0, %.preheader204.i ], [ 1, %.loopexit202.i ]
   %indvars.iv252.i = phi i64 [ 1, %.preheader204.i ], [ %indvars.iv.next253.i, %.loopexit202.i ]
   %.0165214.i = phi double [ 0.000000e+00, %.preheader204.i ], [ %44, %.loopexit202.i ]
-  %39 = getelementptr inbounds %"class.gmx::BasicVector", ptr %0, i64 %indvars.iv258.i
+  %39 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %0, i64 %indvars.iv258.i
   br label %40
 
 40:                                               ; preds = %40, %.lr.ph.i
   %indvars.iv254.i = phi i64 [ %indvars.iv252.i, %.lr.ph.i ], [ %indvars.iv.next255.i, %40 ]
   %.1166212.i = phi double [ %.0165214.i, %.lr.ph.i ], [ %44, %40 ]
-  %41 = getelementptr inbounds [3 x double], ptr %39, i64 0, i64 %indvars.iv254.i
+  %41 = getelementptr inbounds nuw [3 x double], ptr %39, i64 0, i64 %indvars.iv254.i
   %42 = load double, ptr %41, align 8
   %43 = tail call noundef double @llvm.fabs.f64(double %42)
   %44 = fadd double %.1166212.i, %43
@@ -676,17 +676,17 @@ define noundef i32 @_Z6jacobiN3gmx8ArrayRefINS_11BasicVectorIdEEEENS0_IdEES3_(pt
   %indvars.iv265.i = phi i64 [ 1, %47 ], [ %indvars.iv.next266.i, %.loopexit.i ]
   %.1154236.i = phi i32 [ %.0153238.i, %47 ], [ %.3156.i, %.loopexit.i ]
   %indvars.iv.next272.i = add nuw nsw i64 %indvars.iv271.i, 1
-  %53 = getelementptr inbounds %"class.gmx::BasicVector", ptr %0, i64 %indvars.iv271.i
-  %54 = getelementptr inbounds double, ptr %2, i64 %indvars.iv271.i
-  %55 = getelementptr inbounds double, ptr %27, i64 %indvars.iv271.i
-  %56 = getelementptr inbounds %"class.gmx::BasicVector", ptr %0, i64 %indvars.iv271.i, i32 0, i64 1
-  %57 = getelementptr inbounds %"class.gmx::BasicVector", ptr %0, i64 %indvars.iv271.i, i32 0, i64 2
+  %53 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %0, i64 %indvars.iv271.i
+  %54 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv271.i
+  %55 = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv271.i
+  %56 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %0, i64 %indvars.iv271.i, i32 0, i64 1
+  %57 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %0, i64 %indvars.iv271.i, i32 0, i64 2
   br label %58
 
 58:                                               ; preds = %153, %.lr.ph233.i
   %indvars.iv267.i = phi i64 [ %indvars.iv265.i, %.lr.ph233.i ], [ %indvars.iv.next268.i, %153 ]
   %.2155232.i = phi i32 [ %.1154236.i, %.lr.ph233.i ], [ %.3156.i, %153 ]
-  %59 = getelementptr inbounds [3 x double], ptr %53, i64 0, i64 %indvars.iv267.i
+  %59 = getelementptr inbounds nuw [3 x double], ptr %53, i64 0, i64 %indvars.iv267.i
   %60 = load double, ptr %59, align 8
   %61 = tail call noundef double @llvm.fabs.f64(double %60)
   %62 = fmul double %61, 1.000000e+02
@@ -700,7 +700,7 @@ define noundef i32 @_Z6jacobiN3gmx8ArrayRefINS_11BasicVectorIdEEEENS0_IdEES3_(pt
   br i1 %67, label %68, label %75
 
 68:                                               ; preds = %63
-  %69 = getelementptr inbounds double, ptr %2, i64 %indvars.iv267.i
+  %69 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv267.i
   %70 = load double, ptr %69, align 8
   %71 = tail call noundef double @llvm.fabs.f64(double %70)
   %72 = fadd double %62, %71
@@ -716,7 +716,7 @@ define noundef i32 @_Z6jacobiN3gmx8ArrayRefINS_11BasicVectorIdEEEENS0_IdEES3_(pt
   br i1 %76, label %77, label %153
 
 77:                                               ; preds = %75
-  %78 = getelementptr inbounds double, ptr %2, i64 %indvars.iv267.i
+  %78 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv267.i
   %79 = load double, ptr %78, align 8
   %80 = load double, ptr %54, align 8
   %81 = fsub double %79, %80
@@ -756,7 +756,7 @@ define noundef i32 @_Z6jacobiN3gmx8ArrayRefINS_11BasicVectorIdEEEENS0_IdEES3_(pt
   %104 = load double, ptr %55, align 8
   %105 = fsub double %104, %103
   store double %105, ptr %55, align 8
-  %106 = getelementptr inbounds double, ptr %27, i64 %indvars.iv267.i
+  %106 = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv267.i
   %107 = load double, ptr %106, align 8
   %108 = fadd double %103, %107
   store double %108, ptr %106, align 8
@@ -771,7 +771,7 @@ define noundef i32 @_Z6jacobiN3gmx8ArrayRefINS_11BasicVectorIdEEEENS0_IdEES3_(pt
 
 .lr.ph216.split.i:                                ; preds = %97
   %113 = fneg double %100
-  %114 = getelementptr inbounds [3 x double], ptr %0, i64 0, i64 %indvars.iv267.i
+  %114 = getelementptr inbounds nuw [3 x double], ptr %0, i64 0, i64 %indvars.iv267.i
   %115 = load double, ptr %31, align 8
   %116 = load double, ptr %114, align 8
   %117 = tail call double @llvm.fmuladd.f64(double %115, double %102, double %116)
@@ -810,7 +810,7 @@ define noundef i32 @_Z6jacobiN3gmx8ArrayRefINS_11BasicVectorIdEEEENS0_IdEES3_(pt
 
 .critedge.i:                                      ; preds = %129
   %130 = load double, ptr %57, align 8
-  %131 = getelementptr inbounds %"class.gmx::BasicVector", ptr %0, i64 %indvars.iv267.i, i32 0, i64 2
+  %131 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %0, i64 %indvars.iv267.i, i32 0, i64 2
   %132 = load double, ptr %131, align 8
   %133 = tail call double @llvm.fmuladd.f64(double %130, double %102, double %132)
   %134 = fneg double %100
@@ -828,10 +828,10 @@ define noundef i32 @_Z6jacobiN3gmx8ArrayRefINS_11BasicVectorIdEEEENS0_IdEES3_(pt
 
 140:                                              ; preds = %140, %139
   %indvars.iv261.i = phi i64 [ 0, %139 ], [ %indvars.iv.next262.i, %140 ]
-  %141 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %indvars.iv261.i
-  %142 = getelementptr inbounds [3 x double], ptr %141, i64 0, i64 %indvars.iv271.i
+  %141 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %4, i64 %indvars.iv261.i
+  %142 = getelementptr inbounds nuw [3 x double], ptr %141, i64 0, i64 %indvars.iv271.i
   %143 = load double, ptr %142, align 8
-  %144 = getelementptr inbounds [3 x double], ptr %141, i64 0, i64 %indvars.iv267.i
+  %144 = getelementptr inbounds nuw [3 x double], ptr %141, i64 0, i64 %indvars.iv267.i
   %145 = load double, ptr %144, align 8
   %146 = tail call double @llvm.fmuladd.f64(double %143, double %102, double %145)
   %147 = tail call double @llvm.fmuladd.f64(double %.pre-phi.i, double %146, double %143)
@@ -856,13 +856,13 @@ define noundef i32 @_Z6jacobiN3gmx8ArrayRefINS_11BasicVectorIdEEEENS0_IdEES3_(pt
 
 .preheader203.i:                                  ; preds = %.loopexit.i, %.preheader203.i
   %indvars.iv274.i = phi i64 [ %indvars.iv.next275.i, %.preheader203.i ], [ 0, %.loopexit.i ]
-  %154 = getelementptr inbounds double, ptr %27, i64 %indvars.iv274.i
+  %154 = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv274.i
   %155 = load double, ptr %154, align 8
-  %156 = getelementptr inbounds double, ptr %26, i64 %indvars.iv274.i
+  %156 = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv274.i
   %157 = load double, ptr %156, align 8
   %158 = fadd double %155, %157
   store double %158, ptr %156, align 8
-  %159 = getelementptr inbounds double, ptr %2, i64 %indvars.iv274.i
+  %159 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv274.i
   store double %158, ptr %159, align 8
   store double 0.000000e+00, ptr %154, align 8
   %indvars.iv.next275.i = add nuw nsw i64 %indvars.iv274.i, 1
@@ -920,7 +920,7 @@ define noundef i32 @_Z9m_inv_genPKfiPf(ptr nocapture noundef readonly %0, i32 no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %10 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   %11 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 202, i64 noundef range(i64 -2147483648, 2147483648) %5, i64 noundef 8)
   store ptr %11, ptr %10, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -934,7 +934,7 @@ define noundef i32 @_Z9m_inv_genPKfiPf(ptr nocapture noundef readonly %0, i32 no
 
 .lr.ph102:                                        ; preds = %._crit_edge, %.lr.ph102
   %indvars.iv136 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next137, %.lr.ph102 ]
-  %13 = getelementptr inbounds ptr, ptr %12, i64 %indvars.iv136
+  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv136
   %14 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.1, i32 noundef 207, i64 noundef range(i64 -2147483648, 2147483648) %5, i64 noundef 8)
   store ptr %14, ptr %13, align 8
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
@@ -949,17 +949,17 @@ define noundef i32 @_Z9m_inv_genPKfiPf(ptr nocapture noundef readonly %0, i32 no
 .preheader98.us:                                  ; preds = %._crit_edge103, %._crit_edge106.us
   %indvars.iv146 = phi i64 [ 0, %._crit_edge103 ], [ %indvars.iv.next147, %._crit_edge106.us ]
   %17 = mul nuw nsw i64 %indvars.iv146, %16
-  %18 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv146
-  %invariant.gep = getelementptr inbounds float, ptr %0, i64 %17
+  %18 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv146
+  %invariant.gep = getelementptr inbounds nuw float, ptr %0, i64 %17
   br label %19
 
 19:                                               ; preds = %.preheader98.us, %19
   %indvars.iv141 = phi i64 [ 0, %.preheader98.us ], [ %indvars.iv.next142, %19 ]
-  %gep = getelementptr inbounds float, ptr %invariant.gep, i64 %indvars.iv141
+  %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %indvars.iv141
   %20 = load float, ptr %gep, align 4
   %21 = fpext float %20 to double
   %22 = load ptr, ptr %18, align 8
-  %23 = getelementptr inbounds double, ptr %22, i64 %indvars.iv141
+  %23 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv141
   store double %21, ptr %23, align 8
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
   %exitcond145.not = icmp eq i64 %indvars.iv.next142, %16
@@ -977,9 +977,9 @@ define noundef i32 @_Z9m_inv_genPKfiPf(ptr nocapture noundef readonly %0, i32 no
 .lr.ph110:                                        ; preds = %.lr.ph110.preheader, %.lr.ph110
   %indvars.iv151 = phi i64 [ 0, %.lr.ph110.preheader ], [ %indvars.iv.next152, %.lr.ph110 ]
   %.077108 = phi double [ 0.000000e+00, %.lr.ph110.preheader ], [ %29, %.lr.ph110 ]
-  %24 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv151
+  %24 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv151
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds double, ptr %25, i64 %indvars.iv151
+  %26 = getelementptr inbounds nuw double, ptr %25, i64 %indvars.iv151
   %27 = load double, ptr %26, align 8
   %28 = tail call noundef double @llvm.fabs.f64(double %27)
   %29 = fadd double %.077108, %28
@@ -1001,27 +1001,27 @@ define noundef i32 @_Z9m_inv_genPKfiPf(ptr nocapture noundef readonly %0, i32 no
 
 .preheader95.us:                                  ; preds = %.preheader95.us.preheader, %._crit_edge123.split.us.us
   %indvars.iv171 = phi i64 [ 0, %.preheader95.us.preheader ], [ %indvars.iv.next172, %._crit_edge123.split.us.us ]
-  %34 = getelementptr inbounds ptr, ptr %12, i64 %indvars.iv171
+  %34 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv171
   %35 = mul nuw nsw i64 %indvars.iv171, %33
-  %invariant.gep203 = getelementptr inbounds float, ptr %2, i64 %35
+  %invariant.gep203 = getelementptr inbounds nuw float, ptr %2, i64 %35
   br label %.preheader.us.us
 
 .preheader.us.us:                                 ; preds = %._crit_edge120.us.us, %.preheader95.us
   %indvars.iv166 = phi i64 [ %indvars.iv.next167, %._crit_edge120.us.us ], [ 0, %.preheader95.us ]
   %36 = load ptr, ptr %34, align 8
-  %37 = getelementptr inbounds ptr, ptr %12, i64 %indvars.iv166
+  %37 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv166
   %38 = load ptr, ptr %37, align 8
   br label %39
 
 39:                                               ; preds = %39, %.preheader.us.us
   %indvars.iv161 = phi i64 [ %indvars.iv.next162, %39 ], [ 0, %.preheader.us.us ]
   %.076117.us.us = phi double [ %47, %39 ], [ 0.000000e+00, %.preheader.us.us ]
-  %40 = getelementptr inbounds double, ptr %15, i64 %indvars.iv161
+  %40 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv161
   %41 = load double, ptr %40, align 8
-  %42 = getelementptr inbounds double, ptr %36, i64 %indvars.iv161
+  %42 = getelementptr inbounds nuw double, ptr %36, i64 %indvars.iv161
   %43 = load double, ptr %42, align 8
   %44 = fmul double %41, %43
-  %45 = getelementptr inbounds double, ptr %38, i64 %indvars.iv161
+  %45 = getelementptr inbounds nuw double, ptr %38, i64 %indvars.iv161
   %46 = load double, ptr %45, align 8
   %47 = call double @llvm.fmuladd.f64(double %44, double %46, double %.076117.us.us)
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
@@ -1030,7 +1030,7 @@ define noundef i32 @_Z9m_inv_genPKfiPf(ptr nocapture noundef readonly %0, i32 no
 
 ._crit_edge120.us.us:                             ; preds = %39
   %48 = fptrunc double %47 to float
-  %gep204 = getelementptr inbounds float, ptr %invariant.gep203, i64 %indvars.iv166
+  %gep204 = getelementptr inbounds nuw float, ptr %invariant.gep203, i64 %indvars.iv166
   store float %48, ptr %gep204, align 4
   %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
   %exitcond170.not = icmp eq i64 %indvars.iv.next167, %33
@@ -1044,7 +1044,7 @@ define noundef i32 @_Z9m_inv_genPKfiPf(ptr nocapture noundef readonly %0, i32 no
 .lr.ph115:                                        ; preds = %._crit_edge111, %.lr.ph115
   %indvars.iv156 = phi i64 [ 0, %._crit_edge111 ], [ %indvars.iv.next157, %.lr.ph115 ]
   %.074112 = phi i32 [ 0, %._crit_edge111 ], [ %.175, %.lr.ph115 ]
-  %49 = getelementptr inbounds double, ptr %15, i64 %indvars.iv156
+  %49 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv156
   %50 = load double, ptr %49, align 8
   %51 = call noundef double @llvm.fabs.f64(double %50)
   %52 = fcmp olt double %51, %32
@@ -1064,7 +1064,7 @@ define noundef i32 @_Z9m_inv_genPKfiPf(ptr nocapture noundef readonly %0, i32 no
 
 .lr.ph128:                                        ; preds = %._crit_edge125, %.lr.ph128
   %indvars.iv176 = phi i64 [ 0, %._crit_edge125 ], [ %indvars.iv.next177, %.lr.ph128 ]
-  %55 = getelementptr inbounds ptr, ptr %12, i64 %indvars.iv176
+  %55 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv176
   %56 = load ptr, ptr %55, align 8
   call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.1, i32 noundef 257, ptr noundef %56)
   %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, 1
@@ -1078,7 +1078,7 @@ define noundef i32 @_Z9m_inv_genPKfiPf(ptr nocapture noundef readonly %0, i32 no
 
 .lr.ph132:                                        ; preds = %._crit_edge129, %.lr.ph132
   %indvars.iv181 = phi i64 [ 0, %._crit_edge129 ], [ %indvars.iv.next182, %.lr.ph132 ]
-  %57 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv181
+  %57 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv181
   %58 = load ptr, ptr %57, align 8
   call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 262, ptr noundef %58)
   %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1

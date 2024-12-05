@@ -125,7 +125,7 @@ land.lhs.true39:                                  ; preds = %land.lhs.true34
 if.then44:                                        ; preds = %land.lhs.true39
   %call45 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #8
   %add.ptr = getelementptr inbounds i8, ptr %call45, i64 %i.0.ph359
-  %add.ptr46 = getelementptr inbounds i8, ptr %add.ptr, i64 3
+  %add.ptr46 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 3
   %8 = load i8, ptr %add.ptr46, align 1
   %9 = add i8 %8, -48
   %or.cond.i.i = icmp ult i8 %9, 10
@@ -149,7 +149,7 @@ if.else12.i.i:                                    ; preds = %if.else.i.i
 
 _ZN6Assimp17HexDigitToDecimalEc.exit.i:           ; preds = %if.else12.i.i, %if.then9.i.i, %if.then44
   %out.0.i.i = phi i8 [ %sub11.i.i, %if.then9.i.i ], [ %spec.select.i.i, %if.else12.i.i ], [ %9, %if.then44 ]
-  %arrayidx2.i = getelementptr inbounds i8, ptr %add.ptr, i64 4
+  %arrayidx2.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 4
   %12 = load i8, ptr %arrayidx2.i, align 1
   %13 = add i8 %12, -48
   %or.cond.i3.i = icmp ult i8 %13, 10
@@ -182,7 +182,7 @@ if.end:                                           ; preds = %_ZN6Assimp17HexOcte
   %conv48 = zext i8 %add.i to i64
   %sub = add nuw nsw i64 %conv48, 4294967264
   %idxprom = and i64 %sub, 4294967295
-  %arrayidx = getelementptr inbounds [224 x i16], ptr @_ZL13mac_codetable, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [224 x i16], ptr @_ZL13mac_codetable, i64 0, i64 %idxprom
   %16 = load i16, ptr %arrayidx, align 2
   %conv52 = zext i16 %16 to i32
   %call.i = call noundef ptr @_ZN4utf86appendIPhEET_jS2_(i32 noundef %conv52, ptr noundef nonnull %temp)
@@ -330,7 +330,7 @@ if.else12.i.i127:                                 ; preds = %if.else.i.i125
 
 _ZN6Assimp17HexDigitToDecimalEc.exit.i131:        ; preds = %if.else12.i.i127, %if.then9.i.i146, %for.body137
   %out.0.i.i132 = phi i8 [ %sub11.i.i147, %if.then9.i.i146 ], [ %spec.select.i.i130, %if.else12.i.i127 ], [ %29, %for.body137 ]
-  %arrayidx2.i133 = getelementptr inbounds i8, ptr %cur.0347, i64 1
+  %arrayidx2.i133 = getelementptr inbounds nuw i8, ptr %cur.0347, i64 1
   %32 = load i8, ptr %arrayidx2.i133, align 1
   %33 = add i8 %32, -48
   %or.cond.i3.i134 = icmp ult i8 %33, 10
@@ -356,7 +356,7 @@ invoke.cont:                                      ; preds = %if.else12.i6.i137, 
   %out.0.i10.i141 = phi i8 [ %sub11.i12.i145, %if.then9.i11.i144 ], [ %spec.select.i9.i140, %if.else12.i6.i137 ], [ %33, %_ZN6Assimp17HexDigitToDecimalEc.exit.i131 ]
   %conv1.i142 = shl i8 %out.0.i.i132, 4
   %add.i143 = add i8 %out.0.i10.i141, %conv1.i142
-  %add.ptr141 = getelementptr inbounds i8, ptr %cur.0347, i64 2
+  %add.ptr141 = getelementptr inbounds nuw i8, ptr %cur.0347, i64 2
   %36 = load i8, ptr %add.ptr141, align 1
   %37 = add i8 %36, -48
   %or.cond.i.i149 = icmp ult i8 %37, 10
@@ -380,7 +380,7 @@ if.else12.i.i152:                                 ; preds = %if.else.i.i150
 
 _ZN6Assimp17HexDigitToDecimalEc.exit.i156:        ; preds = %if.else12.i.i152, %if.then9.i.i171, %invoke.cont
   %out.0.i.i157 = phi i8 [ %sub11.i.i172, %if.then9.i.i171 ], [ %spec.select.i.i155, %if.else12.i.i152 ], [ %37, %invoke.cont ]
-  %arrayidx2.i158 = getelementptr inbounds i8, ptr %cur.0347, i64 3
+  %arrayidx2.i158 = getelementptr inbounds nuw i8, ptr %cur.0347, i64 3
   %40 = load i8, ptr %arrayidx2.i158, align 1
   %41 = add i8 %40, -48
   %or.cond.i3.i159 = icmp ult i8 %41, 10
@@ -410,10 +410,10 @@ invoke.cont142:                                   ; preds = %if.else12.i6.i162, 
   %shl = shl nuw i16 %conv140, 8
   %conv145 = zext i8 %add.i168 to i16
   %or146 = or disjoint i16 %shl, %conv145
-  %arrayidx.i = getelementptr inbounds i16, ptr %call132, i64 %k.0346
+  %arrayidx.i = getelementptr inbounds nuw i16, ptr %call132, i64 %k.0346
   store i16 %or146, ptr %arrayidx.i, align 2
   %inc151 = add nuw nsw i64 %k.0346, 1
-  %add.ptr152 = getelementptr inbounds i8, ptr %cur.0347, i64 4
+  %add.ptr152 = getelementptr inbounds nuw i8, ptr %cur.0347, i64 4
   %exitcond375.not = icmp eq i64 %inc151, %umax374
   br i1 %exitcond375.not, label %for.end153, label %for.body137, !llvm.loop !7
 
@@ -428,7 +428,7 @@ for.end153:                                       ; preds = %invoke.cont142
           to label %invoke.cont154 unwind label %lpad
 
 invoke.cont154:                                   ; preds = %for.end153
-  %add.ptr158 = getelementptr inbounds i16, ptr %call132, i64 %div120
+  %add.ptr158 = getelementptr inbounds nuw i16, ptr %call132, i64 %div120
   %call161 = invoke noundef ptr @_ZN4utf88utf16to8IPKtPhEET0_T_S5_S4_(ptr noundef nonnull %call132, ptr noundef nonnull %add.ptr158, ptr noundef nonnull %call155)
           to label %invoke.cont160 unwind label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit178
 
@@ -499,7 +499,7 @@ if.else12.i.i185:                                 ; preds = %if.else.i.i183
 
 _ZN6Assimp17HexDigitToDecimalEc.exit.i189:        ; preds = %if.else12.i.i185, %if.then9.i.i204, %for.body197
   %out.0.i.i190 = phi i8 [ %sub11.i.i205, %if.then9.i.i204 ], [ %spec.select.i.i188, %if.else12.i.i185 ], [ %49, %for.body197 ]
-  %arrayidx2.i191 = getelementptr inbounds i8, ptr %cur191.0343, i64 1
+  %arrayidx2.i191 = getelementptr inbounds nuw i8, ptr %cur191.0343, i64 1
   %52 = load i8, ptr %arrayidx2.i191, align 1
   %53 = add i8 %52, -48
   %or.cond.i3.i192 = icmp ult i8 %53, 10
@@ -525,7 +525,7 @@ invoke.cont199:                                   ; preds = %if.else12.i6.i195, 
   %out.0.i10.i199 = phi i8 [ %sub11.i12.i203, %if.then9.i11.i202 ], [ %spec.select.i9.i198, %if.else12.i6.i195 ], [ %53, %_ZN6Assimp17HexDigitToDecimalEc.exit.i189 ]
   %conv1.i200 = shl i8 %out.0.i.i190, 4
   %add.i201 = add i8 %out.0.i10.i199, %conv1.i200
-  %add.ptr203 = getelementptr inbounds i8, ptr %cur191.0343, i64 2
+  %add.ptr203 = getelementptr inbounds nuw i8, ptr %cur191.0343, i64 2
   %56 = load i8, ptr %add.ptr203, align 1
   %57 = add i8 %56, -48
   %or.cond.i.i207 = icmp ult i8 %57, 10
@@ -549,7 +549,7 @@ if.else12.i.i210:                                 ; preds = %if.else.i.i208
 
 _ZN6Assimp17HexDigitToDecimalEc.exit.i214:        ; preds = %if.else12.i.i210, %if.then9.i.i229, %invoke.cont199
   %out.0.i.i215 = phi i8 [ %sub11.i.i230, %if.then9.i.i229 ], [ %spec.select.i.i213, %if.else12.i.i210 ], [ %57, %invoke.cont199 ]
-  %arrayidx2.i216 = getelementptr inbounds i8, ptr %cur191.0343, i64 3
+  %arrayidx2.i216 = getelementptr inbounds nuw i8, ptr %cur191.0343, i64 3
   %60 = load i8, ptr %arrayidx2.i216, align 1
   %61 = add i8 %60, -48
   %or.cond.i3.i217 = icmp ult i8 %61, 10
@@ -575,7 +575,7 @@ invoke.cont204:                                   ; preds = %if.else12.i6.i220, 
   %out.0.i10.i224 = phi i8 [ %sub11.i12.i228, %if.then9.i11.i227 ], [ %spec.select.i9.i223, %if.else12.i6.i220 ], [ %61, %_ZN6Assimp17HexDigitToDecimalEc.exit.i214 ]
   %conv1.i225 = shl i8 %out.0.i.i215, 4
   %add.i226 = add i8 %out.0.i10.i224, %conv1.i225
-  %add.ptr209 = getelementptr inbounds i8, ptr %cur191.0343, i64 4
+  %add.ptr209 = getelementptr inbounds nuw i8, ptr %cur191.0343, i64 4
   %64 = load i8, ptr %add.ptr209, align 1
   %65 = add i8 %64, -48
   %or.cond.i.i232 = icmp ult i8 %65, 10
@@ -599,7 +599,7 @@ if.else12.i.i235:                                 ; preds = %if.else.i.i233
 
 _ZN6Assimp17HexDigitToDecimalEc.exit.i239:        ; preds = %if.else12.i.i235, %if.then9.i.i254, %invoke.cont204
   %out.0.i.i240 = phi i8 [ %sub11.i.i255, %if.then9.i.i254 ], [ %spec.select.i.i238, %if.else12.i.i235 ], [ %65, %invoke.cont204 ]
-  %arrayidx2.i241 = getelementptr inbounds i8, ptr %cur191.0343, i64 5
+  %arrayidx2.i241 = getelementptr inbounds nuw i8, ptr %cur191.0343, i64 5
   %68 = load i8, ptr %arrayidx2.i241, align 1
   %69 = add i8 %68, -48
   %or.cond.i3.i242 = icmp ult i8 %69, 10
@@ -625,7 +625,7 @@ invoke.cont210:                                   ; preds = %if.else12.i6.i245, 
   %out.0.i10.i249 = phi i8 [ %sub11.i12.i253, %if.then9.i11.i252 ], [ %spec.select.i9.i248, %if.else12.i6.i245 ], [ %69, %_ZN6Assimp17HexDigitToDecimalEc.exit.i239 ]
   %conv1.i250 = shl i8 %out.0.i.i240, 4
   %add.i251 = add i8 %out.0.i10.i249, %conv1.i250
-  %add.ptr215 = getelementptr inbounds i8, ptr %cur191.0343, i64 6
+  %add.ptr215 = getelementptr inbounds nuw i8, ptr %cur191.0343, i64 6
   %72 = load i8, ptr %add.ptr215, align 1
   %73 = add i8 %72, -48
   %or.cond.i.i257 = icmp ult i8 %73, 10
@@ -649,7 +649,7 @@ if.else12.i.i260:                                 ; preds = %if.else.i.i258
 
 _ZN6Assimp17HexDigitToDecimalEc.exit.i264:        ; preds = %if.else12.i.i260, %if.then9.i.i279, %invoke.cont210
   %out.0.i.i265 = phi i8 [ %sub11.i.i280, %if.then9.i.i279 ], [ %spec.select.i.i263, %if.else12.i.i260 ], [ %73, %invoke.cont210 ]
-  %arrayidx2.i266 = getelementptr inbounds i8, ptr %cur191.0343, i64 7
+  %arrayidx2.i266 = getelementptr inbounds nuw i8, ptr %cur191.0343, i64 7
   %76 = load i8, ptr %arrayidx2.i266, align 1
   %77 = add i8 %76, -48
   %or.cond.i3.i267 = icmp ult i8 %77, 10
@@ -685,10 +685,10 @@ invoke.cont216:                                   ; preds = %if.else12.i6.i270, 
   %or214 = or disjoint i32 %shl213, %or208
   %conv218 = zext i8 %add.i276 to i32
   %or219 = or disjoint i32 %or214, %conv218
-  %arrayidx.i282 = getelementptr inbounds i32, ptr %call190, i64 %k194.0344
+  %arrayidx.i282 = getelementptr inbounds nuw i32, ptr %call190, i64 %k194.0344
   store i32 %or219, ptr %arrayidx.i282, align 4
   %inc223 = add nuw nsw i64 %k194.0344, 1
-  %add.ptr224 = getelementptr inbounds i8, ptr %cur191.0343, i64 8
+  %add.ptr224 = getelementptr inbounds nuw i8, ptr %cur191.0343, i64 8
   %exitcond373.not = icmp eq i64 %inc223, %umax
   br i1 %exitcond373.not, label %for.end225, label %for.body197, !llvm.loop !8
 
@@ -703,7 +703,7 @@ for.end225:                                       ; preds = %invoke.cont216
           to label %while.body.i283.preheader unwind label %lpad198
 
 while.body.i283.preheader:                        ; preds = %for.end225
-  %add.ptr235 = getelementptr inbounds i32, ptr %call190, i64 %div188118
+  %add.ptr235 = getelementptr inbounds nuw i32, ptr %call190, i64 %div188118
   br label %while.body.i283
 
 while.body.i283:                                  ; preds = %while.body.i283.preheader, %call.i287.noexc
@@ -714,7 +714,7 @@ while.body.i283:                                  ; preds = %while.body.i283.pre
           to label %call.i287.noexc unwind label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit297.loopexit
 
 call.i287.noexc:                                  ; preds = %while.body.i283
-  %incdec.ptr.i286 = getelementptr inbounds i8, ptr %start.addr.04.i285, i64 4
+  %incdec.ptr.i286 = getelementptr inbounds nuw i8, ptr %start.addr.04.i285, i64 4
   %cmp.not.i288 = icmp eq ptr %incdec.ptr.i286, %add.ptr235
   br i1 %cmp.not.i288, label %invoke.cont237, label %while.body.i283, !llvm.loop !9
 
@@ -792,7 +792,7 @@ entry:
 while.body:                                       ; preds = %entry, %if.end25
   %start.addr.023 = phi ptr [ %start.addr.1, %if.end25 ], [ %start, %entry ]
   %result.addr.022 = phi ptr [ %call26, %if.end25 ], [ %result, %entry ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %start.addr.023, i64 2
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %start.addr.023, i64 2
   %0 = load i16, ptr %start.addr.023, align 2
   %conv = zext i16 %0 to i32
   %trunc = and i16 %0, -1024
@@ -813,7 +813,7 @@ if.then3:                                         ; preds = %if.then
   br i1 %3, label %if.then8, label %if.else
 
 if.then8:                                         ; preds = %if.then3
-  %incdec.ptr4 = getelementptr inbounds i8, ptr %start.addr.023, i64 4
+  %incdec.ptr4 = getelementptr inbounds nuw i8, ptr %start.addr.023, i64 4
   %shl = shl nuw nsw i32 %conv, 10
   %add = add nsw i32 %shl, -56613888
   %add9 = add nsw i32 %add, %conv6
@@ -822,7 +822,7 @@ if.then8:                                         ; preds = %if.then3
 if.else:                                          ; preds = %if.then3
   %exception = tail call ptr @__cxa_allocate_exception(i64 16) #8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4utf813invalid_utf16E, i64 16), ptr %exception, align 8
-  %u16.i = getelementptr inbounds i8, ptr %exception, i64 8
+  %u16.i = getelementptr inbounds nuw i8, ptr %exception, i64 8
   store i16 %1, ptr %u16.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN4utf813invalid_utf16E, ptr nonnull @_ZN4utf813invalid_utf16D2Ev) #11
   unreachable
@@ -830,7 +830,7 @@ if.else:                                          ; preds = %if.then3
 if.else11:                                        ; preds = %if.then
   %exception12 = tail call ptr @__cxa_allocate_exception(i64 16) #8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4utf813invalid_utf16E, i64 16), ptr %exception12, align 8
-  %u16.i13 = getelementptr inbounds i8, ptr %exception12, i64 8
+  %u16.i13 = getelementptr inbounds nuw i8, ptr %exception12, i64 8
   store i16 %0, ptr %u16.i13, align 8
   tail call void @__cxa_throw(ptr nonnull %exception12, ptr nonnull @_ZTIN4utf813invalid_utf16E, ptr nonnull @_ZN4utf813invalid_utf16D2Ev) #11
   unreachable
@@ -838,7 +838,7 @@ if.else11:                                        ; preds = %if.then
 if.then19:                                        ; preds = %while.body
   %exception20 = tail call ptr @__cxa_allocate_exception(i64 16) #8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4utf813invalid_utf16E, i64 16), ptr %exception20, align 8
-  %u16.i14 = getelementptr inbounds i8, ptr %exception20, i64 8
+  %u16.i14 = getelementptr inbounds nuw i8, ptr %exception20, i64 8
   store i16 %0, ptr %u16.i14, align 8
   tail call void @__cxa_throw(ptr nonnull %exception20, ptr nonnull @_ZTIN4utf813invalid_utf16E, ptr nonnull @_ZN4utf813invalid_utf16D2Ev) #11
   unreachable
@@ -867,7 +867,7 @@ entry:
 if.then:                                          ; preds = %entry
   %exception = tail call ptr @__cxa_allocate_exception(i64 16) #8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4utf818invalid_code_pointE, i64 16), ptr %exception, align 8
-  %cp.i = getelementptr inbounds i8, ptr %exception, i64 8
+  %cp.i = getelementptr inbounds nuw i8, ptr %exception, i64 8
   store i32 %cp, ptr %cp.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN4utf818invalid_code_pointE, ptr nonnull @_ZN4utf818invalid_code_pointD2Ev) #11
   unreachable
@@ -878,7 +878,7 @@ if.end:                                           ; preds = %entry
 
 if.then.i.i:                                      ; preds = %if.end
   %conv.i.i = trunc nuw nsw i32 %cp to i8
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %result, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %result, i64 1
   store i8 %conv.i.i, ptr %result, align 1
   br label %_ZN4utf88internal6appendIPhEET_jS3_.exit
 
@@ -890,19 +890,19 @@ if.then2.i.i:                                     ; preds = %if.else.i.i
   %shr.i.i = lshr i32 %cp, 6
   %3 = trunc nuw i32 %shr.i.i to i8
   %conv3.i.i = or disjoint i8 %3, -64
-  %incdec.ptr4.i.i = getelementptr inbounds i8, ptr %result, i64 1
+  %incdec.ptr4.i.i = getelementptr inbounds nuw i8, ptr %result, i64 1
   store i8 %conv3.i.i, ptr %result, align 1
   %4 = trunc i32 %cp to i8
   %5 = and i8 %4, 63
   %conv6.i.i = or disjoint i8 %5, -128
-  %incdec.ptr7.i.i = getelementptr inbounds i8, ptr %result, i64 2
+  %incdec.ptr7.i.i = getelementptr inbounds nuw i8, ptr %result, i64 2
   store i8 %conv6.i.i, ptr %incdec.ptr4.i.i, align 1
   br label %_ZN4utf88internal6appendIPhEET_jS3_.exit
 
 if.else8.i.i:                                     ; preds = %if.else.i.i
   %cmp9.i.i = icmp samesign ult i32 %cp, 65536
-  %incdec.ptr14.i.i = getelementptr inbounds i8, ptr %result, i64 1
-  %incdec.ptr19.i.i = getelementptr inbounds i8, ptr %result, i64 2
+  %incdec.ptr14.i.i = getelementptr inbounds nuw i8, ptr %result, i64 1
+  %incdec.ptr19.i.i = getelementptr inbounds nuw i8, ptr %result, i64 2
   br i1 %cmp9.i.i, label %if.then10.i.i, label %if.else24.i.i
 
 if.then10.i.i:                                    ; preds = %if.else8.i.i
@@ -918,7 +918,7 @@ if.then10.i.i:                                    ; preds = %if.else8.i.i
   %9 = trunc i32 %cp to i8
   %10 = and i8 %9, 63
   %conv22.i.i = or disjoint i8 %10, -128
-  %incdec.ptr23.i.i = getelementptr inbounds i8, ptr %result, i64 3
+  %incdec.ptr23.i.i = getelementptr inbounds nuw i8, ptr %result, i64 3
   store i8 %conv22.i.i, ptr %incdec.ptr19.i.i, align 1
   br label %_ZN4utf88internal6appendIPhEET_jS3_.exit
 
@@ -936,12 +936,12 @@ if.else24.i.i:                                    ; preds = %if.else8.i.i
   %14 = trunc i32 %shr34.i.i to i8
   %15 = and i8 %14, 63
   %conv37.i.i = or disjoint i8 %15, -128
-  %incdec.ptr38.i.i = getelementptr inbounds i8, ptr %result, i64 3
+  %incdec.ptr38.i.i = getelementptr inbounds nuw i8, ptr %result, i64 3
   store i8 %conv37.i.i, ptr %incdec.ptr19.i.i, align 1
   %16 = trunc i32 %cp to i8
   %17 = and i8 %16, 63
   %conv41.i.i = or disjoint i8 %17, -128
-  %incdec.ptr42.i.i = getelementptr inbounds i8, ptr %result, i64 4
+  %incdec.ptr42.i.i = getelementptr inbounds nuw i8, ptr %result, i64 4
   store i8 %conv41.i.i, ptr %incdec.ptr38.i.i, align 1
   br label %_ZN4utf88internal6appendIPhEET_jS3_.exit
 

@@ -43,7 +43,7 @@ sub_0:                                            ; preds = %for.body
   br i1 %.not, label %if.then4.tail, label %if.else
 
 if.then4.tail:                                    ; preds = %sub_0
-  %3 = getelementptr inbounds i8, ptr %pt.04447, i64 1
+  %3 = getelementptr inbounds nuw i8, ptr %pt.04447, i64 1
   %4 = load i8, ptr %3, align 1
   %5 = icmp eq i8 %4, 59
   br i1 %5, label %if.then8, label %if.else
@@ -151,7 +151,7 @@ if.then97:                                        ; preds = %land.lhs.true87, %l
   br i1 %tobool99.not, label %return, label %if.end107
 
 if.end107:                                        ; preds = %land.lhs.true91, %if.then8, %if.end51, %if.then57, %if.then65, %if.then53, %if.then42, %lor.lhs.false, %land.lhs.true87, %if.then97, %if.end78, %if.then16, %if.then25, %if.then29, %if.end23, %for.body
-  %incdec.ptr = getelementptr inbounds i8, ptr %call, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %call, i64 1
   %9 = load i8, ptr %incdec.ptr, align 1
   %tobool1.not = icmp eq i8 %9, 0
   br i1 %tobool1.not, label %for.end, label %for.body

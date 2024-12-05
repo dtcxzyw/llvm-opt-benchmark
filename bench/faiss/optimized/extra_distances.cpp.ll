@@ -189,13 +189,13 @@ define weak_odr void @_ZN5faiss17knn_extra_metricsINS_4CMaxIflEEEEvPKfS4_mmmNS_1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %79)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %80)
   store i64 %2, ptr %72, align 8
-  %84 = getelementptr inbounds i8, ptr %72, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %72, i64 8
   store float %6, ptr %84, align 8
   store ptr %0, ptr %73, align 8
   store ptr %1, ptr %74, align 8
   store i64 %4, ptr %75, align 8
   store ptr %7, ptr %76, align 8
-  %85 = getelementptr inbounds i8, ptr %7, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %86 = load i64, ptr %85, align 8
   store i64 %86, ptr %77, align 8
   store i64 %2, ptr %78, align 8
@@ -244,13 +244,13 @@ _ZN5faiss12_GLOBAL__N_126knn_extra_metrics_templateINS_14VectorDistanceILNS_10Me
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %70)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %71)
   store i64 %2, ptr %63, align 8
-  %97 = getelementptr inbounds i8, ptr %63, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store float %6, ptr %97, align 8
   store ptr %0, ptr %64, align 8
   store ptr %1, ptr %65, align 8
   store i64 %4, ptr %66, align 8
   store ptr %7, ptr %67, align 8
-  %98 = getelementptr inbounds i8, ptr %7, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %99 = load i64, ptr %98, align 8
   store i64 %99, ptr %68, align 8
   store i64 %2, ptr %69, align 8
@@ -299,13 +299,13 @@ _ZN5faiss12_GLOBAL__N_126knn_extra_metrics_templateINS_14VectorDistanceILNS_10Me
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %61)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %62)
   store i64 %2, ptr %54, align 8
-  %110 = getelementptr inbounds i8, ptr %54, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store float %6, ptr %110, align 8
   store ptr %0, ptr %55, align 8
   store ptr %1, ptr %56, align 8
   store i64 %4, ptr %57, align 8
   store ptr %7, ptr %58, align 8
-  %111 = getelementptr inbounds i8, ptr %7, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %112 = load i64, ptr %111, align 8
   store i64 %112, ptr %59, align 8
   store i64 %2, ptr %60, align 8
@@ -354,13 +354,13 @@ _ZN5faiss12_GLOBAL__N_126knn_extra_metrics_templateINS_14VectorDistanceILNS_10Me
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %52)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %53)
   store i64 %2, ptr %45, align 8
-  %123 = getelementptr inbounds i8, ptr %45, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store float %6, ptr %123, align 8
   store ptr %0, ptr %46, align 8
   store ptr %1, ptr %47, align 8
   store i64 %4, ptr %48, align 8
   store ptr %7, ptr %49, align 8
-  %124 = getelementptr inbounds i8, ptr %7, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %125 = load i64, ptr %124, align 8
   store i64 %125, ptr %50, align 8
   store i64 %2, ptr %51, align 8
@@ -409,13 +409,13 @@ _ZN5faiss12_GLOBAL__N_126knn_extra_metrics_templateINS_14VectorDistanceILNS_10Me
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %43)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %44)
   store i64 %2, ptr %36, align 8
-  %136 = getelementptr inbounds i8, ptr %36, i64 8
+  %136 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store float %6, ptr %136, align 8
   store ptr %0, ptr %37, align 8
   store ptr %1, ptr %38, align 8
   store i64 %4, ptr %39, align 8
   store ptr %7, ptr %40, align 8
-  %137 = getelementptr inbounds i8, ptr %7, i64 8
+  %137 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %138 = load i64, ptr %137, align 8
   store i64 %138, ptr %41, align 8
   store i64 %2, ptr %42, align 8
@@ -464,13 +464,13 @@ _ZN5faiss12_GLOBAL__N_126knn_extra_metrics_templateINS_14VectorDistanceILNS_10Me
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35)
   store i64 %2, ptr %27, align 8
-  %149 = getelementptr inbounds i8, ptr %27, i64 8
+  %149 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store float %6, ptr %149, align 8
   store ptr %0, ptr %28, align 8
   store ptr %1, ptr %29, align 8
   store i64 %4, ptr %30, align 8
   store ptr %7, ptr %31, align 8
-  %150 = getelementptr inbounds i8, ptr %7, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %151 = load i64, ptr %150, align 8
   store i64 %151, ptr %32, align 8
   store i64 %2, ptr %33, align 8
@@ -519,13 +519,13 @@ _ZN5faiss12_GLOBAL__N_126knn_extra_metrics_templateINS_14VectorDistanceILNS_10Me
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26)
   store i64 %2, ptr %18, align 8
-  %162 = getelementptr inbounds i8, ptr %18, i64 8
+  %162 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store float %6, ptr %162, align 8
   store ptr %0, ptr %19, align 8
   store ptr %1, ptr %20, align 8
   store i64 %4, ptr %21, align 8
   store ptr %7, ptr %22, align 8
-  %163 = getelementptr inbounds i8, ptr %7, i64 8
+  %163 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %164 = load i64, ptr %163, align 8
   store i64 %164, ptr %23, align 8
   store i64 %2, ptr %24, align 8
@@ -574,13 +574,13 @@ _ZN5faiss12_GLOBAL__N_126knn_extra_metrics_templateINS_14VectorDistanceILNS_10Me
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
   store i64 %2, ptr %9, align 8
-  %175 = getelementptr inbounds i8, ptr %9, i64 8
+  %175 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store float %6, ptr %175, align 8
   store ptr %0, ptr %10, align 8
   store ptr %1, ptr %11, align 8
   store i64 %4, ptr %12, align 8
   store ptr %7, ptr %13, align 8
-  %176 = getelementptr inbounds i8, ptr %7, i64 8
+  %176 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %177 = load i64, ptr %176, align 8
   store i64 %177, ptr %14, align 8
   store i64 %2, ptr %15, align 8
@@ -704,7 +704,7 @@ declare void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5faiss14FaissExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 comdat align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss14FaissExceptionE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #6
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #6
   ret void
@@ -763,13 +763,13 @@ define internal void @_ZN5faiss12_GLOBAL__N_126knn_extra_metrics_templateINS_14V
   %32 = getelementptr inbounds float, ptr %29, i64 %31
   %33 = load ptr, ptr %6, align 8
   %34 = load ptr, ptr %7, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %34, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %38 = load i64, ptr %37, align 8
   %39 = mul i64 %38, %28
   %40 = getelementptr inbounds float, ptr %36, i64 %39
-  %41 = getelementptr inbounds i8, ptr %34, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds i64, ptr %42, i64 %39
   %44 = load i64, ptr %8, align 8
@@ -1143,13 +1143,13 @@ define internal void @_ZN5faiss12_GLOBAL__N_126knn_extra_metrics_templateINS_14V
   %32 = getelementptr inbounds float, ptr %29, i64 %31
   %33 = load ptr, ptr %6, align 8
   %34 = load ptr, ptr %7, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %34, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %38 = load i64, ptr %37, align 8
   %39 = mul i64 %38, %28
   %40 = getelementptr inbounds float, ptr %36, i64 %39
-  %41 = getelementptr inbounds i8, ptr %34, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds i64, ptr %42, i64 %39
   %44 = load i64, ptr %8, align 8
@@ -1354,13 +1354,13 @@ define internal void @_ZN5faiss12_GLOBAL__N_126knn_extra_metrics_templateINS_14V
   %32 = getelementptr inbounds float, ptr %29, i64 %31
   %33 = load ptr, ptr %6, align 8
   %34 = load ptr, ptr %7, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %34, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %38 = load i64, ptr %37, align 8
   %39 = mul i64 %38, %28
   %40 = getelementptr inbounds float, ptr %36, i64 %39
-  %41 = getelementptr inbounds i8, ptr %34, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds i64, ptr %42, i64 %39
   %44 = load i64, ptr %8, align 8
@@ -1565,13 +1565,13 @@ define internal void @_ZN5faiss12_GLOBAL__N_126knn_extra_metrics_templateINS_14V
   %32 = getelementptr inbounds float, ptr %29, i64 %31
   %33 = load ptr, ptr %6, align 8
   %34 = load ptr, ptr %7, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %34, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %38 = load i64, ptr %37, align 8
   %39 = mul i64 %38, %28
   %40 = getelementptr inbounds float, ptr %36, i64 %39
-  %41 = getelementptr inbounds i8, ptr %34, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds i64, ptr %42, i64 %39
   %44 = load i64, ptr %8, align 8
@@ -1791,13 +1791,13 @@ define internal void @_ZN5faiss12_GLOBAL__N_126knn_extra_metrics_templateINS_14V
   %32 = getelementptr inbounds float, ptr %29, i64 %31
   %33 = load ptr, ptr %6, align 8
   %34 = load ptr, ptr %7, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %34, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %38 = load i64, ptr %37, align 8
   %39 = mul i64 %38, %28
   %40 = getelementptr inbounds float, ptr %36, i64 %39
-  %41 = getelementptr inbounds i8, ptr %34, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds i64, ptr %42, i64 %39
   %44 = load i64, ptr %8, align 8
@@ -2018,13 +2018,13 @@ define internal void @_ZN5faiss12_GLOBAL__N_126knn_extra_metrics_templateINS_14V
   %32 = getelementptr inbounds float, ptr %29, i64 %31
   %33 = load ptr, ptr %6, align 8
   %34 = load ptr, ptr %7, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %34, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %38 = load i64, ptr %37, align 8
   %39 = mul i64 %38, %28
   %40 = getelementptr inbounds float, ptr %36, i64 %39
-  %41 = getelementptr inbounds i8, ptr %34, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds i64, ptr %42, i64 %39
   %44 = load i64, ptr %8, align 8
@@ -2248,7 +2248,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_126knn_extra_metrics_templateINS_14V
   br i1 %27, label %.lr.ph52, label %._crit_edge53
 
 .lr.ph52:                                         ; preds = %19
-  %28 = getelementptr inbounds i8, ptr %10, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %10, i64 8
   br label %29
 
 29:                                               ; preds = %.lr.ph52, %116
@@ -2260,13 +2260,13 @@ define internal void @_ZN5faiss12_GLOBAL__N_126knn_extra_metrics_templateINS_14V
   %34 = getelementptr inbounds float, ptr %31, i64 %33
   %35 = load ptr, ptr %6, align 8
   %36 = load ptr, ptr %7, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %36, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %40 = load i64, ptr %39, align 8
   %41 = mul i64 %40, %30
   %42 = getelementptr inbounds float, ptr %38, i64 %41
-  %43 = getelementptr inbounds i8, ptr %36, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds i64, ptr %44, i64 %41
   %46 = load i64, ptr %8, align 8
@@ -2481,13 +2481,13 @@ define internal void @_ZN5faiss12_GLOBAL__N_126knn_extra_metrics_templateINS_14V
   %32 = getelementptr inbounds float, ptr %29, i64 %31
   %33 = load ptr, ptr %6, align 8
   %34 = load ptr, ptr %7, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %34, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %38 = load i64, ptr %37, align 8
   %39 = mul i64 %38, %28
   %40 = getelementptr inbounds float, ptr %36, i64 %39
-  %41 = getelementptr inbounds i8, ptr %34, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds i64, ptr %42, i64 %39
   %44 = load i64, ptr %8, align 8
@@ -2882,13 +2882,13 @@ define weak_odr void @_ZN5faiss17knn_extra_metricsINS_4CMinIflEEEEvPKfS4_mmmNS_1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %79)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %80)
   store i64 %2, ptr %72, align 8
-  %84 = getelementptr inbounds i8, ptr %72, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %72, i64 8
   store float %6, ptr %84, align 8
   store ptr %0, ptr %73, align 8
   store ptr %1, ptr %74, align 8
   store i64 %4, ptr %75, align 8
   store ptr %7, ptr %76, align 8
-  %85 = getelementptr inbounds i8, ptr %7, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %86 = load i64, ptr %85, align 8
   store i64 %86, ptr %77, align 8
   store i64 %2, ptr %78, align 8
@@ -2937,13 +2937,13 @@ _ZN5faiss12_GLOBAL__N_126knn_extra_metrics_templateINS_14VectorDistanceILNS_10Me
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %70)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %71)
   store i64 %2, ptr %63, align 8
-  %97 = getelementptr inbounds i8, ptr %63, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store float %6, ptr %97, align 8
   store ptr %0, ptr %64, align 8
   store ptr %1, ptr %65, align 8
   store i64 %4, ptr %66, align 8
   store ptr %7, ptr %67, align 8
-  %98 = getelementptr inbounds i8, ptr %7, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %99 = load i64, ptr %98, align 8
   store i64 %99, ptr %68, align 8
   store i64 %2, ptr %69, align 8
@@ -2992,13 +2992,13 @@ _ZN5faiss12_GLOBAL__N_126knn_extra_metrics_templateINS_14VectorDistanceILNS_10Me
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %61)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %62)
   store i64 %2, ptr %54, align 8
-  %110 = getelementptr inbounds i8, ptr %54, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store float %6, ptr %110, align 8
   store ptr %0, ptr %55, align 8
   store ptr %1, ptr %56, align 8
   store i64 %4, ptr %57, align 8
   store ptr %7, ptr %58, align 8
-  %111 = getelementptr inbounds i8, ptr %7, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %112 = load i64, ptr %111, align 8
   store i64 %112, ptr %59, align 8
   store i64 %2, ptr %60, align 8
@@ -3047,13 +3047,13 @@ _ZN5faiss12_GLOBAL__N_126knn_extra_metrics_templateINS_14VectorDistanceILNS_10Me
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %52)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %53)
   store i64 %2, ptr %45, align 8
-  %123 = getelementptr inbounds i8, ptr %45, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store float %6, ptr %123, align 8
   store ptr %0, ptr %46, align 8
   store ptr %1, ptr %47, align 8
   store i64 %4, ptr %48, align 8
   store ptr %7, ptr %49, align 8
-  %124 = getelementptr inbounds i8, ptr %7, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %125 = load i64, ptr %124, align 8
   store i64 %125, ptr %50, align 8
   store i64 %2, ptr %51, align 8
@@ -3102,13 +3102,13 @@ _ZN5faiss12_GLOBAL__N_126knn_extra_metrics_templateINS_14VectorDistanceILNS_10Me
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %43)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %44)
   store i64 %2, ptr %36, align 8
-  %136 = getelementptr inbounds i8, ptr %36, i64 8
+  %136 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store float %6, ptr %136, align 8
   store ptr %0, ptr %37, align 8
   store ptr %1, ptr %38, align 8
   store i64 %4, ptr %39, align 8
   store ptr %7, ptr %40, align 8
-  %137 = getelementptr inbounds i8, ptr %7, i64 8
+  %137 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %138 = load i64, ptr %137, align 8
   store i64 %138, ptr %41, align 8
   store i64 %2, ptr %42, align 8
@@ -3157,13 +3157,13 @@ _ZN5faiss12_GLOBAL__N_126knn_extra_metrics_templateINS_14VectorDistanceILNS_10Me
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35)
   store i64 %2, ptr %27, align 8
-  %149 = getelementptr inbounds i8, ptr %27, i64 8
+  %149 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store float %6, ptr %149, align 8
   store ptr %0, ptr %28, align 8
   store ptr %1, ptr %29, align 8
   store i64 %4, ptr %30, align 8
   store ptr %7, ptr %31, align 8
-  %150 = getelementptr inbounds i8, ptr %7, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %151 = load i64, ptr %150, align 8
   store i64 %151, ptr %32, align 8
   store i64 %2, ptr %33, align 8
@@ -3212,13 +3212,13 @@ _ZN5faiss12_GLOBAL__N_126knn_extra_metrics_templateINS_14VectorDistanceILNS_10Me
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26)
   store i64 %2, ptr %18, align 8
-  %162 = getelementptr inbounds i8, ptr %18, i64 8
+  %162 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store float %6, ptr %162, align 8
   store ptr %0, ptr %19, align 8
   store ptr %1, ptr %20, align 8
   store i64 %4, ptr %21, align 8
   store ptr %7, ptr %22, align 8
-  %163 = getelementptr inbounds i8, ptr %7, i64 8
+  %163 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %164 = load i64, ptr %163, align 8
   store i64 %164, ptr %23, align 8
   store i64 %2, ptr %24, align 8
@@ -3267,13 +3267,13 @@ _ZN5faiss12_GLOBAL__N_126knn_extra_metrics_templateINS_14VectorDistanceILNS_10Me
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
   store i64 %2, ptr %9, align 8
-  %175 = getelementptr inbounds i8, ptr %9, i64 8
+  %175 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store float %6, ptr %175, align 8
   store ptr %0, ptr %10, align 8
   store ptr %1, ptr %11, align 8
   store i64 %4, ptr %12, align 8
   store ptr %7, ptr %13, align 8
-  %176 = getelementptr inbounds i8, ptr %7, i64 8
+  %176 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %177 = load i64, ptr %176, align 8
   store i64 %177, ptr %14, align 8
   store i64 %2, ptr %15, align 8
@@ -3392,13 +3392,13 @@ define internal void @_ZN5faiss12_GLOBAL__N_126knn_extra_metrics_templateINS_14V
   %32 = getelementptr inbounds float, ptr %29, i64 %31
   %33 = load ptr, ptr %6, align 8
   %34 = load ptr, ptr %7, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %34, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %38 = load i64, ptr %37, align 8
   %39 = mul i64 %38, %28
   %40 = getelementptr inbounds float, ptr %36, i64 %39
-  %41 = getelementptr inbounds i8, ptr %34, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds i64, ptr %42, i64 %39
   %44 = load i64, ptr %8, align 8
@@ -3744,13 +3744,13 @@ define internal void @_ZN5faiss12_GLOBAL__N_126knn_extra_metrics_templateINS_14V
   %32 = getelementptr inbounds float, ptr %29, i64 %31
   %33 = load ptr, ptr %6, align 8
   %34 = load ptr, ptr %7, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %34, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %38 = load i64, ptr %37, align 8
   %39 = mul i64 %38, %28
   %40 = getelementptr inbounds float, ptr %36, i64 %39
-  %41 = getelementptr inbounds i8, ptr %34, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds i64, ptr %42, i64 %39
   %44 = load i64, ptr %8, align 8
@@ -3953,13 +3953,13 @@ define internal void @_ZN5faiss12_GLOBAL__N_126knn_extra_metrics_templateINS_14V
   %32 = getelementptr inbounds float, ptr %29, i64 %31
   %33 = load ptr, ptr %6, align 8
   %34 = load ptr, ptr %7, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %34, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %38 = load i64, ptr %37, align 8
   %39 = mul i64 %38, %28
   %40 = getelementptr inbounds float, ptr %36, i64 %39
-  %41 = getelementptr inbounds i8, ptr %34, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds i64, ptr %42, i64 %39
   %44 = load i64, ptr %8, align 8
@@ -4162,13 +4162,13 @@ define internal void @_ZN5faiss12_GLOBAL__N_126knn_extra_metrics_templateINS_14V
   %32 = getelementptr inbounds float, ptr %29, i64 %31
   %33 = load ptr, ptr %6, align 8
   %34 = load ptr, ptr %7, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %34, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %38 = load i64, ptr %37, align 8
   %39 = mul i64 %38, %28
   %40 = getelementptr inbounds float, ptr %36, i64 %39
-  %41 = getelementptr inbounds i8, ptr %34, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds i64, ptr %42, i64 %39
   %44 = load i64, ptr %8, align 8
@@ -4388,13 +4388,13 @@ define internal void @_ZN5faiss12_GLOBAL__N_126knn_extra_metrics_templateINS_14V
   %32 = getelementptr inbounds float, ptr %29, i64 %31
   %33 = load ptr, ptr %6, align 8
   %34 = load ptr, ptr %7, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %34, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %38 = load i64, ptr %37, align 8
   %39 = mul i64 %38, %28
   %40 = getelementptr inbounds float, ptr %36, i64 %39
-  %41 = getelementptr inbounds i8, ptr %34, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds i64, ptr %42, i64 %39
   %44 = load i64, ptr %8, align 8
@@ -4615,13 +4615,13 @@ define internal void @_ZN5faiss12_GLOBAL__N_126knn_extra_metrics_templateINS_14V
   %32 = getelementptr inbounds float, ptr %29, i64 %31
   %33 = load ptr, ptr %6, align 8
   %34 = load ptr, ptr %7, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %34, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %38 = load i64, ptr %37, align 8
   %39 = mul i64 %38, %28
   %40 = getelementptr inbounds float, ptr %36, i64 %39
-  %41 = getelementptr inbounds i8, ptr %34, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds i64, ptr %42, i64 %39
   %44 = load i64, ptr %8, align 8
@@ -4842,7 +4842,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_126knn_extra_metrics_templateINS_14V
   br i1 %27, label %.lr.ph52, label %._crit_edge53
 
 .lr.ph52:                                         ; preds = %19
-  %28 = getelementptr inbounds i8, ptr %10, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %10, i64 8
   br label %29
 
 29:                                               ; preds = %.lr.ph52, %116
@@ -4854,13 +4854,13 @@ define internal void @_ZN5faiss12_GLOBAL__N_126knn_extra_metrics_templateINS_14V
   %34 = getelementptr inbounds float, ptr %31, i64 %33
   %35 = load ptr, ptr %6, align 8
   %36 = load ptr, ptr %7, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %36, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %40 = load i64, ptr %39, align 8
   %41 = mul i64 %40, %30
   %42 = getelementptr inbounds float, ptr %38, i64 %41
-  %43 = getelementptr inbounds i8, ptr %36, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds i64, ptr %44, i64 %41
   %46 = load i64, ptr %8, align 8
@@ -5072,13 +5072,13 @@ define internal void @_ZN5faiss12_GLOBAL__N_126knn_extra_metrics_templateINS_14V
   %32 = getelementptr inbounds float, ptr %29, i64 %31
   %33 = load ptr, ptr %6, align 8
   %34 = load ptr, ptr %7, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %34, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %38 = load i64, ptr %37, align 8
   %39 = mul i64 %38, %28
   %40 = getelementptr inbounds float, ptr %36, i64 %39
-  %41 = getelementptr inbounds i8, ptr %34, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds i64, ptr %42, i64 %39
   %44 = load i64, ptr %8, align 8
@@ -5389,7 +5389,7 @@ define void @_ZN5faiss24pairwise_extra_distancesEllPKflS1_NS_10MetricTypeEfPflll
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %93)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %94)
   store i64 %0, ptr %85, align 8
-  %105 = getelementptr inbounds i8, ptr %85, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %85, i64 8
   store float %6, ptr %105, align 8
   store i64 %1, ptr %86, align 8
   store ptr %2, ptr %87, align 8
@@ -5438,7 +5438,7 @@ _ZN5faiss12_GLOBAL__N_133pairwise_extra_distances_templateINS_14VectorDistanceIL
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %83)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %84)
   store i64 %0, ptr %75, align 8
-  %110 = getelementptr inbounds i8, ptr %75, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %75, i64 8
   store float %6, ptr %110, align 8
   store i64 %1, ptr %76, align 8
   store ptr %2, ptr %77, align 8
@@ -5487,7 +5487,7 @@ _ZN5faiss12_GLOBAL__N_133pairwise_extra_distances_templateINS_14VectorDistanceIL
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %73)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %74)
   store i64 %0, ptr %65, align 8
-  %115 = getelementptr inbounds i8, ptr %65, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store float %6, ptr %115, align 8
   store i64 %1, ptr %66, align 8
   store ptr %2, ptr %67, align 8
@@ -5536,7 +5536,7 @@ _ZN5faiss12_GLOBAL__N_133pairwise_extra_distances_templateINS_14VectorDistanceIL
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %63)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %64)
   store i64 %0, ptr %55, align 8
-  %120 = getelementptr inbounds i8, ptr %55, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store float %6, ptr %120, align 8
   store i64 %1, ptr %56, align 8
   store ptr %2, ptr %57, align 8
@@ -5585,7 +5585,7 @@ _ZN5faiss12_GLOBAL__N_133pairwise_extra_distances_templateINS_14VectorDistanceIL
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %53)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %54)
   store i64 %0, ptr %45, align 8
-  %125 = getelementptr inbounds i8, ptr %45, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store float %6, ptr %125, align 8
   store i64 %1, ptr %46, align 8
   store ptr %2, ptr %47, align 8
@@ -5634,7 +5634,7 @@ _ZN5faiss12_GLOBAL__N_133pairwise_extra_distances_templateINS_14VectorDistanceIL
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %43)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %44)
   store i64 %0, ptr %35, align 8
-  %130 = getelementptr inbounds i8, ptr %35, i64 8
+  %130 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store float %6, ptr %130, align 8
   store i64 %1, ptr %36, align 8
   store ptr %2, ptr %37, align 8
@@ -5682,7 +5682,7 @@ _ZN5faiss12_GLOBAL__N_133pairwise_extra_distances_templateINS_14VectorDistanceIL
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34)
   store i64 %0, ptr %26, align 8
-  %135 = getelementptr inbounds i8, ptr %26, i64 8
+  %135 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store float %6, ptr %135, align 8
   store i64 %1, ptr %27, align 8
   store ptr %2, ptr %28, align 8
@@ -5762,7 +5762,7 @@ _ZN5faiss12_GLOBAL__N_133pairwise_extra_distances_templateINS_14VectorDistanceIL
 _ZNK5faiss14VectorDistanceILNS_10MetricTypeE4EEclEPKfS4_.exit.i.i: ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i
   %161 = phi i64 [ 0, %.lr.ph.i.i ], [ %0, %.lr.ph.i.i.i ]
   %.0.lcssa.i.i.i = phi float [ 0.000000e+00, %.lr.ph.i.i ], [ %159, %.lr.ph.i.i.i ]
-  %162 = getelementptr inbounds float, ptr %150, i64 %.030.i.i
+  %162 = getelementptr inbounds nuw float, ptr %150, i64 %.030.i.i
   store float %.0.lcssa.i.i.i, ptr %162, align 4, !noalias !56
   %163 = getelementptr inbounds float, ptr %.02829.i.i, i64 %.0139
   %164 = add nuw nsw i64 %.030.i.i, 1
@@ -5811,7 +5811,7 @@ _ZN5faiss12_GLOBAL__N_133pairwise_extra_distances_templateINS_14VectorDistanceIL
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21)
   store i64 %0, ptr %12, align 8
-  %167 = getelementptr inbounds i8, ptr %12, i64 8
+  %167 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store float %6, ptr %167, align 8
   store i64 %1, ptr %13, align 8
   store ptr %2, ptr %14, align 8
@@ -5947,7 +5947,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_133pairwise_extra_distances_template
           to label %_ZNK5faiss14VectorDistanceILNS_10MetricTypeE1EEclEPKfS4_.exit unwind label %50
 
 _ZNK5faiss14VectorDistanceILNS_10MetricTypeE1EEclEPKfS4_.exit: ; preds = %.lr.ph
-  %40 = getelementptr inbounds float, ptr %35, i64 %.030
+  %40 = getelementptr inbounds nuw float, ptr %35, i64 %.030
   store float %39, ptr %40, align 4
   %41 = load i64, ptr %10, align 8
   %42 = getelementptr inbounds float, ptr %.02829, i64 %41
@@ -6049,7 +6049,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_133pairwise_extra_distances_template
           to label %_ZNK5faiss14VectorDistanceILNS_10MetricTypeE2EEclEPKfS4_.exit unwind label %50
 
 _ZNK5faiss14VectorDistanceILNS_10MetricTypeE2EEclEPKfS4_.exit: ; preds = %.lr.ph
-  %40 = getelementptr inbounds float, ptr %35, i64 %.030
+  %40 = getelementptr inbounds nuw float, ptr %35, i64 %.030
   store float %39, ptr %40, align 4
   %41 = load i64, ptr %10, align 8
   %42 = getelementptr inbounds float, ptr %.02829, i64 %41
@@ -6139,7 +6139,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_133pairwise_extra_distances_template
           to label %_ZNK5faiss14VectorDistanceILNS_10MetricTypeE3EEclEPKfS4_.exit unwind label %50
 
 _ZNK5faiss14VectorDistanceILNS_10MetricTypeE3EEclEPKfS4_.exit: ; preds = %.lr.ph
-  %40 = getelementptr inbounds float, ptr %35, i64 %.030
+  %40 = getelementptr inbounds nuw float, ptr %35, i64 %.030
   store float %39, ptr %40, align 4
   %41 = load i64, ptr %10, align 8
   %42 = getelementptr inbounds float, ptr %.02829, i64 %41
@@ -6253,7 +6253,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_133pairwise_extra_distances_template
 
 _ZNK5faiss14VectorDistanceILNS_10MetricTypeE20EEclEPKfS4_.exit: ; preds = %.lr.ph.i, %.lr.ph
   %.0.lcssa.i = phi float [ 0.000000e+00, %.lr.ph ], [ %54, %.lr.ph.i ]
-  %56 = getelementptr inbounds float, ptr %35, i64 %.030
+  %56 = getelementptr inbounds nuw float, ptr %35, i64 %.030
   store float %.0.lcssa.i, ptr %56, align 4
   %57 = load i64, ptr %10, align 8
   %58 = getelementptr inbounds float, ptr %.02829, i64 %57
@@ -6359,7 +6359,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_133pairwise_extra_distances_template
 
 _ZNK5faiss14VectorDistanceILNS_10MetricTypeE21EEclEPKfS4_.exit: ; preds = %.lr.ph, %._crit_edge.loopexit.i
   %51 = phi float [ 0x7FF8000000000000, %.lr.ph ], [ %50, %._crit_edge.loopexit.i ]
-  %52 = getelementptr inbounds float, ptr %35, i64 %.031
+  %52 = getelementptr inbounds nuw float, ptr %35, i64 %.031
   store float %51, ptr %52, align 4
   %53 = load i64, ptr %10, align 8
   %54 = getelementptr inbounds float, ptr %.02830, i64 %53
@@ -6477,7 +6477,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_133pairwise_extra_distances_template
 
 _ZNK5faiss14VectorDistanceILNS_10MetricTypeE22EEclEPKfS4_.exit: ; preds = %.lr.ph, %._crit_edge.loopexit.i
   %.0.lcssa.i = phi float [ 0.000000e+00, %.lr.ph ], [ %64, %._crit_edge.loopexit.i ]
-  %65 = getelementptr inbounds float, ptr %35, i64 %.030
+  %65 = getelementptr inbounds nuw float, ptr %35, i64 %.030
   store float %.0.lcssa.i, ptr %65, align 4
   %66 = load i64, ptr %10, align 8
   %67 = getelementptr inbounds float, ptr %.02829, i64 %66
@@ -6531,7 +6531,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_133pairwise_extra_distances_template
   br i1 %.not31, label %._crit_edge35, label %.lr.ph34
 
 .lr.ph34:                                         ; preds = %18
-  %24 = getelementptr inbounds i8, ptr %9, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %25 = load i64, ptr %8, align 8
   %26 = icmp sgt i64 %25, 0
   br i1 %26, label %.lr.ph34.split, label %._crit_edge35
@@ -6581,7 +6581,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_133pairwise_extra_distances_template
 
 _ZNK5faiss14VectorDistanceILNS_10MetricTypeE4EEclEPKfS4_.exit: ; preds = %.lr.ph.i, %.lr.ph
   %.0.lcssa.i = phi float [ 0.000000e+00, %.lr.ph ], [ %48, %.lr.ph.i ]
-  %52 = getelementptr inbounds float, ptr %36, i64 %.030
+  %52 = getelementptr inbounds nuw float, ptr %36, i64 %.030
   store float %.0.lcssa.i, ptr %52, align 4
   %53 = load i64, ptr %10, align 8
   %54 = getelementptr inbounds float, ptr %.02829, i64 %53
@@ -6691,7 +6691,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_133pairwise_extra_distances_template
 
 _ZNK5faiss14VectorDistanceILNS_10MetricTypeE23EEclEPKfS4_.exit: ; preds = %.lr.ph, %._crit_edge.loopexit.i
   %55 = phi float [ 0x7FF8000000000000, %.lr.ph ], [ %54, %._crit_edge.loopexit.i ]
-  %56 = getelementptr inbounds float, ptr %35, i64 %.031
+  %56 = getelementptr inbounds nuw float, ptr %35, i64 %.031
   store float %55, ptr %56, align 4
   %57 = load i64, ptr %10, align 8
   %58 = getelementptr inbounds float, ptr %.02830, i64 %57
@@ -6792,20 +6792,20 @@ define noalias noundef nonnull ptr @_ZN5faiss27get_extra_distance_computerEmNS_1
   %.sink72 = phi ptr [ getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE23EEEEE, i64 16), %14 ], [ getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE4EEEEE, i64 16), %13 ], [ getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE22EEEEE, i64 16), %12 ], [ getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE21EEEEE, i64 16), %11 ], [ getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE20EEEEE, i64 16), %10 ], [ getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE3EEEEE, i64 16), %9 ], [ getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE2EEEEE, i64 16), %8 ], [ getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE1EEEEE, i64 16), %5 ]
   %24 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #25
   %25 = shl i64 %0, 2
-  %26 = getelementptr inbounds i8, ptr %24, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %4, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %24, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store i64 %25, ptr %27, align 8
   store ptr %.sink72, ptr %24, align 8
-  %28 = getelementptr inbounds i8, ptr %24, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store i64 %0, ptr %28, align 8
-  %.sroa.362.0..sroa_idx = getelementptr inbounds i8, ptr %24, i64 32
+  %.sroa.362.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 32
   store float %2, ptr %.sroa.362.0..sroa_idx, align 8
-  %29 = getelementptr inbounds i8, ptr %24, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 40
   store i64 %3, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %24, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 48
   store ptr null, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %24, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 56
   store ptr %4, ptr %31, align 8
   ret ptr %24
 
@@ -6825,21 +6825,21 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE1EEEE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((48, 56)) %0, ptr noundef %1) unnamed_addr #17 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef float @_ZN5faiss25FlatCodesDistanceComputerclEl(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = mul i64 %6, %1
   %8 = getelementptr inbounds i8, ptr %4, i64 %7
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef float %11(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %8)
   ret float %12
@@ -6848,19 +6848,19 @@ define linkonce_odr noundef float @_ZN5faiss25FlatCodesDistanceComputerclEl(ptr 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5faiss16DistanceComputer17distances_batch_4EllllRfS1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %8) unnamed_addr #0 comdat align 2 {
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef float %12(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1)
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef float %16(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %2)
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = tail call noundef float %20(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %3)
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noundef float %24(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %4)
   store float %13, ptr %5, align 4
@@ -6872,8 +6872,8 @@ define linkonce_odr void @_ZN5faiss16DistanceComputer17distances_batch_4EllllRfS
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE1EEEE13symmetric_disEll(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %4, align 8
   %8 = mul i64 %7, %2
@@ -6897,8 +6897,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14Vector
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE1EEEE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %3, align 8
   %7 = tail call noundef float @_ZN5faiss10fvec_L2sqrEPKfS1_m(ptr noundef %5, ptr noundef %1, i64 noundef %6)
@@ -6907,15 +6907,15 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE2EEEE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((48, 56)) %0, ptr noundef %1) unnamed_addr #17 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE2EEEE13symmetric_disEll(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %4, align 8
   %8 = mul i64 %7, %2
@@ -6939,8 +6939,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14Vector
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE2EEEE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %3, align 8
   %7 = tail call noundef float @_ZN5faiss7fvec_L1EPKfS1_m(ptr noundef %5, ptr noundef %1, i64 noundef %6)
@@ -6949,15 +6949,15 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE3EEEE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((48, 56)) %0, ptr noundef %1) unnamed_addr #17 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE3EEEE13symmetric_disEll(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %4, align 8
   %8 = mul i64 %7, %2
@@ -6981,8 +6981,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14Vector
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE3EEEE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %3, align 8
   %7 = tail call noundef float @_ZN5faiss9fvec_LinfEPKfS1_m(ptr noundef %5, ptr noundef %1, i64 noundef %6)
@@ -6991,15 +6991,15 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE20EEEE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((48, 56)) %0, ptr noundef %1) unnamed_addr #17 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE20EEEE13symmetric_disEll(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #19 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %4, align 8
   %8 = mul i64 %7, %2
@@ -7050,8 +7050,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14Vector
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE20EEEE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr nocapture noundef readonly %1) unnamed_addr #19 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %3, align 8
   %.not.i = icmp eq i64 %6, 0
@@ -7087,15 +7087,15 @@ _ZNK5faiss14VectorDistanceILNS_10MetricTypeE20EEclEPKfS4_.exit: ; preds = %.lr.p
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE21EEEE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((48, 56)) %0, ptr noundef %1) unnamed_addr #17 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE21EEEE13symmetric_disEll(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #19 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %4, align 8
   %8 = mul i64 %7, %2
@@ -7145,8 +7145,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14Vector
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE21EEEE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr nocapture noundef readonly %1) unnamed_addr #19 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %3, align 8
   %.not.i = icmp eq i64 %6, 0
@@ -7181,15 +7181,15 @@ _ZNK5faiss14VectorDistanceILNS_10MetricTypeE21EEclEPKfS4_.exit: ; preds = %2, %.
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE22EEEE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((48, 56)) %0, ptr noundef %1) unnamed_addr #17 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE22EEEE13symmetric_disEll(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #20 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %4, align 8
   %8 = mul i64 %7, %2
@@ -7251,8 +7251,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14Vector
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE22EEEE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr nocapture noundef readonly %1) unnamed_addr #20 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %3, align 8
   %.not.i = icmp eq i64 %6, 0
@@ -7299,15 +7299,15 @@ _ZNK5faiss14VectorDistanceILNS_10MetricTypeE22EEclEPKfS4_.exit: ; preds = %2, %.
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE4EEEE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((48, 56)) %0, ptr noundef %1) unnamed_addr #17 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE4EEEE13symmetric_disEll(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #20 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %4, align 8
   %8 = mul i64 %7, %2
@@ -7318,7 +7318,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS
   br i1 %.not.i, label %_ZNK5faiss14VectorDistanceILNS_10MetricTypeE4EEclEPKfS4_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %13
 
 13:                                               ; preds = %13, %.lr.ph.i
@@ -7356,15 +7356,15 @@ define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14Vector
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE4EEEE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr nocapture noundef readonly %1) unnamed_addr #20 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %3, align 8
   %.not.i = icmp eq i64 %6, 0
   br i1 %.not.i, label %_ZNK5faiss14VectorDistanceILNS_10MetricTypeE4EEclEPKfS4_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %8
 
 8:                                                ; preds = %8, %.lr.ph.i
@@ -7391,15 +7391,15 @@ _ZNK5faiss14VectorDistanceILNS_10MetricTypeE4EEclEPKfS4_.exit: ; preds = %8, %2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE23EEEE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((48, 56)) %0, ptr noundef %1) unnamed_addr #17 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE23EEEE13symmetric_disEll(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #19 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %4, align 8
   %8 = mul i64 %7, %2
@@ -7453,8 +7453,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14Vector
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE23EEEE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr nocapture noundef readonly %1) unnamed_addr #19 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %3, align 8
   %.not.i = icmp eq i64 %6, 0

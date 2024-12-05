@@ -77,7 +77,7 @@ define hidden noundef i32 @_ZNK4ncnn15Clip_x86_avx51215forward_inplaceERNS_3MatE
   %38 = tail call fast noundef <16 x float> @llvm.x86.avx512.max.ps.512(<16 x float> %37, <16 x float> %33, i32 4)
   %39 = tail call fast noundef <16 x float> @llvm.x86.avx512.min.ps.512(<16 x float> %38, <16 x float> %36, i32 4)
   store <16 x float> %39, ptr %.0181204, align 1
-  %40 = getelementptr inbounds i8, ptr %.0181204, i64 64
+  %40 = getelementptr inbounds nuw i8, ptr %.0181204, i64 64
   %41 = add nuw nsw i32 %.0182203, 16
   %42 = or disjoint i32 %41, 15
   %43 = icmp slt i32 %42, %16
@@ -108,7 +108,7 @@ define hidden noundef i32 @_ZNK4ncnn15Clip_x86_avx51215forward_inplaceERNS_3MatE
   %53 = tail call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %52, <8 x float> %47)
   %54 = tail call fast noundef <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> %53, <8 x float> %49)
   store <8 x float> %54, ptr %.1207, align 1
-  %55 = getelementptr inbounds i8, ptr %.1207, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %.1207, i64 32
   %56 = add nuw nsw i32 %.1183206, 8
   %57 = or disjoint i32 %56, 7
   %58 = icmp slt i32 %57, %16
@@ -145,7 +145,7 @@ define hidden noundef i32 @_ZNK4ncnn15Clip_x86_avx51215forward_inplaceERNS_3MatE
   %69 = tail call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %68, <4 x float> %62)
   %70 = tail call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %69, <4 x float> %64)
   store <4 x float> %70, ptr %.2214, align 16
-  %71 = getelementptr inbounds i8, ptr %.2214, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %.2214, i64 16
   %72 = add nuw nsw i32 %.2184213, 4
   %73 = or disjoint i32 %72, 3
   %74 = icmp slt i32 %73, %16
@@ -174,7 +174,7 @@ define hidden noundef i32 @_ZNK4ncnn15Clip_x86_avx51215forward_inplaceERNS_3MatE
   br label %84
 
 84:                                               ; preds = %83, %79
-  %85 = getelementptr inbounds i8, ptr %.3220, i64 4
+  %85 = getelementptr inbounds nuw i8, ptr %.3220, i64 4
   %86 = add nuw nsw i32 %.3185219, 1
   %exitcond.not = icmp eq i32 %86, %16
   br i1 %exitcond.not, label %._crit_edge222, label %.lr.ph221, !llvm.loop !8

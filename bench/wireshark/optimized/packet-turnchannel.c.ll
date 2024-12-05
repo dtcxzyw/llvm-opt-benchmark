@@ -82,7 +82,7 @@ define internal i32 @dissect_turnchannel_message(ptr noundef %0, ptr noundef %1,
   br i1 %.not39, label %15, label %38
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
   tail call void @col_set_str(ptr noundef %17, i32 noundef 34, ptr noundef nonnull @.str.14) #3
   %18 = load ptr, ptr %16, align 8

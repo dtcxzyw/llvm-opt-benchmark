@@ -48,8 +48,8 @@ define dso_local void @parse_backup_label(ptr noundef %0, ptr nocapture noundef 
   store i64 0, ptr %3, align 8
   store i32 0, ptr %4, align 4
   store i64 0, ptr %5, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 16
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load i32, ptr %15, align 8
   %18 = load i32, ptr %16, align 8
   %19 = icmp slt i32 %17, %18
@@ -479,8 +479,8 @@ define dso_local void @write_backup_label(ptr noundef %0, ptr nocapture noundef 
   br i1 %13, label %19, label %.preheader
 
 .preheader:                                       ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load i32, ptr %14, align 8
   %17 = load i32, ptr %15, align 8
   %18 = icmp slt i32 %16, %17
@@ -657,9 +657,9 @@ line_starts_with.exit.thread:                     ; preds = %.lr.ph.i38, %.lr.ph
   unreachable
 
 73:                                               ; preds = %69
-  %74 = getelementptr inbounds i8, ptr %8, i64 48
+  %74 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %75 = load i64, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %8, i64 88
+  %76 = getelementptr inbounds nuw i8, ptr %8, i64 88
   %77 = load i64, ptr %76, align 8
   call void @add_file_to_manifest(ptr noundef nonnull %3, ptr noundef nonnull @.str.21, i64 noundef %75, i64 noundef %77, i32 noundef %2, i32 noundef %68, ptr noundef nonnull %7) #6
   br label %78

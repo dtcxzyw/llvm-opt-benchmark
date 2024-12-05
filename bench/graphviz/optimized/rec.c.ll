@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define ptr @aggetrec(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   br label %6
 
@@ -23,7 +23,7 @@ define ptr @aggetrec(ptr nocapture noundef %0, ptr nocapture noundef readonly %1
   br i1 %10, label %.critedge, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %.021, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.021, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, %5
   br i1 %14, label %.critedge26, label %6
@@ -64,7 +64,7 @@ define ptr @aggetrec(ptr nocapture noundef %0, ptr nocapture noundef readonly %1
   %29 = icmp eq i32 %28, 3
   %.v.i = select i1 %29, i64 -64, i64 64
   %30 = getelementptr inbounds i8, ptr %0, i64 %.v.i
-  %31 = getelementptr inbounds i8, ptr %30, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store ptr %.021, ptr %31, align 8
   %32 = load i32, ptr %30, align 8
   %33 = and i32 %32, -5
@@ -82,7 +82,7 @@ declare i32 @agerr(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define ptr @agbindrec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call ptr @agraphof(ptr noundef %0) #6
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   br label %8
 
@@ -98,7 +98,7 @@ define ptr @agbindrec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nounde
   br i1 %12, label %.critedge.i, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %.021.i, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.021.i, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, %7
   br i1 %16, label %aggetrec.exit, label %8
@@ -131,24 +131,24 @@ aggetrec.exit:                                    ; preds = %8, %13
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %22
-  %29 = getelementptr inbounds i8, ptr %24, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %24, ptr %29, align 8
   br label %38
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %26, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, %26
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %30
   store ptr %24, ptr %31, align 8
-  %35 = getelementptr inbounds i8, ptr %24, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %26, ptr %35, align 8
   br label %38
 
 36:                                               ; preds = %30
-  %37 = getelementptr inbounds i8, ptr %24, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %32, ptr %37, align 8
   store ptr %24, ptr %31, align 8
   br label %38
@@ -172,7 +172,7 @@ objputrec.exit.sink.split:                        ; preds = %41, %20
   %44 = icmp eq i32 %43, 3
   %.v.i.i = select i1 %44, i64 -64, i64 64
   %45 = getelementptr inbounds i8, ptr %0, i64 %.v.i.i
-  %46 = getelementptr inbounds i8, ptr %45, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   store ptr %.021.i.lcssa39.sink, ptr %46, align 8
   %47 = load i32, ptr %45, align 8
   %48 = and i32 %47, -5
@@ -200,7 +200,7 @@ objputrec.exit:                                   ; preds = %objputrec.exit.sink
   br i1 %55, label %.critedge.i24, label %56
 
 56:                                               ; preds = %52
-  %57 = getelementptr inbounds i8, ptr %.021.i21, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %.021.i21, i64 8
   %58 = load ptr, ptr %57, align 8
   %59 = icmp eq ptr %58, %50
   br i1 %59, label %aggetrec.exit29, label %51
@@ -232,7 +232,7 @@ objputrec.exit:                                   ; preds = %objputrec.exit.sink
   %70 = icmp eq i32 %69, 3
   %.v.i.i28 = select i1 %70, i64 -64, i64 64
   %71 = getelementptr inbounds i8, ptr %0, i64 %.v.i.i28
-  %72 = getelementptr inbounds i8, ptr %71, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 16
   store ptr %.021.i21, ptr %72, align 8
   %73 = load i32, ptr %71, align 8
   %74 = or i32 %73, 4
@@ -252,7 +252,7 @@ declare ptr @agstrdup(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @agdelrec(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = tail call ptr @agraphof(ptr noundef %0) #6
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   br label %6
 
@@ -268,7 +268,7 @@ define range(i32 -1, 1) i32 @agdelrec(ptr noundef %0, ptr nocapture noundef read
   br i1 %10, label %.critedge.i, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %.021.i, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.021.i, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, %5
   br i1 %14, label %aggetrec.exit, label %6
@@ -292,7 +292,7 @@ define range(i32 -1, 1) i32 @agdelrec(ptr noundef %0, ptr nocapture noundef read
   %22 = icmp eq i32 %21, 3
   %.v.i.i = select i1 %22, i64 -64, i64 64
   %23 = getelementptr inbounds i8, ptr %0, i64 %.v.i.i
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store ptr %.021.i, ptr %24, align 8
   %25 = load i32, ptr %23, align 8
   %26 = and i32 %25, -5
@@ -306,14 +306,14 @@ define range(i32 -1, 1) i32 @agdelrec(ptr noundef %0, ptr nocapture noundef read
 
 27:                                               ; preds = %.preheader, %27
   %.0.i19 = phi ptr [ %29, %27 ], [ %.0.i19.ph, %.preheader ]
-  %28 = getelementptr inbounds i8, ptr %.0.i19, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i19, i64 8
   %29 = load ptr, ptr %28, align 8
   %.not.i20 = icmp eq ptr %29, %.021.i
   br i1 %.not.i20, label %listdelrec.exit, label %27
 
 listdelrec.exit:                                  ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %.0.i19, i64 8
-  %31 = getelementptr inbounds i8, ptr %.021.i, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i19, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %.021.i, i64 8
   %32 = load ptr, ptr %31, align 8
   store ptr %32, ptr %30, align 8
   %33 = load i32, ptr %0, align 8
@@ -352,13 +352,13 @@ aggetrec.exit:                                    ; preds = %11, %6, %objdelrec.
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @objdelrec(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef readonly %2) #2 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, %2
   br i1 %6, label %7, label %set_data.exit
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, %2
   %. = select i1 %10, ptr null, ptr %9
@@ -375,7 +375,7 @@ define internal void @objdelrec(ptr nocapture readnone %0, ptr nocapture noundef
   %16 = icmp eq i32 %15, 3
   %.v.i = select i1 %16, i64 -64, i64 64
   %17 = getelementptr inbounds i8, ptr %1, i64 %.v.i
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr %., ptr %18, align 8
   %19 = load i32, ptr %17, align 8
   %20 = and i32 %19, -5
@@ -512,7 +512,7 @@ define void @agclean(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnam
 .lr.ph:                                           ; preds = %.lr.ph26.split, %agdelrec.exit
   %.022 = phi ptr [ %55, %agdelrec.exit ], [ %11, %.lr.ph26.split ]
   %12 = tail call ptr @agraphof(ptr noundef nonnull %.022) #6
-  %13 = getelementptr inbounds i8, ptr %.022, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %.022, i64 16
   %14 = load ptr, ptr %13, align 8
   br label %15
 
@@ -528,7 +528,7 @@ define void @agclean(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnam
   br i1 %19, label %.critedge.i.i, label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %.021.i.i, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %.021.i.i, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, %14
   br i1 %23, label %agdelrec.exit, label %15
@@ -552,7 +552,7 @@ define void @agclean(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnam
   %31 = icmp eq i32 %30, 3
   %.v.i.i.i = select i1 %31, i64 -64, i64 64
   %32 = getelementptr inbounds i8, ptr %.022, i64 %.v.i.i.i
-  %33 = getelementptr inbounds i8, ptr %32, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store ptr %.021.i.i, ptr %33, align 8
   %34 = load i32, ptr %32, align 8
   %35 = and i32 %34, -5
@@ -566,14 +566,14 @@ define void @agclean(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnam
 
 36:                                               ; preds = %.preheader, %36
   %.0.i19.i = phi ptr [ %38, %36 ], [ %.0.i19.i.ph, %.preheader ]
-  %37 = getelementptr inbounds i8, ptr %.0.i19.i, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i19.i, i64 8
   %38 = load ptr, ptr %37, align 8
   %.not.i20.i = icmp eq ptr %38, %.021.i.i
   br i1 %.not.i20.i, label %listdelrec.exit.i, label %36
 
 listdelrec.exit.i:                                ; preds = %36
-  %39 = getelementptr inbounds i8, ptr %.0.i19.i, i64 8
-  %40 = getelementptr inbounds i8, ptr %.021.i.i, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %.0.i19.i, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %.021.i.i, i64 8
   %41 = load ptr, ptr %40, align 8
   store ptr %41, ptr %39, align 8
   %42 = load i32, ptr %.022, align 8
@@ -628,14 +628,14 @@ define internal void @simple_delrec(ptr nocapture readnone %0, ptr noundef %1, p
 ; Function Attrs: nounwind uwtable
 define void @agrecclose(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @agraphof(ptr noundef %0) #6
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %1, %.preheader
   %.0 = phi ptr [ %6, %.preheader ], [ %4, %1 ]
-  %5 = getelementptr inbounds i8, ptr %.0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %.0, align 8
   %8 = tail call i32 @agstrfree(ptr noundef %2, ptr noundef %7) #6

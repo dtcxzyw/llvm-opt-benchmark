@@ -111,7 +111,7 @@ define dso_local void @_ZN4llvm3pdb9PDBSymbolD2Ev(ptr nocapture noundef nonnull 
 
 _ZNKSt14default_deleteIN4llvm3pdb13IPDBRawSymbolEEclEPS2_.exit.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
   br label %_ZNSt10unique_ptrIN4llvm3pdb13IPDBRawSymbolESt14default_deleteIS2_EED2Ev.exit
@@ -143,7 +143,7 @@ define dso_local void @_ZN4llvm3pdb9PDBSymbol12createSymbolERKNS0_11IPDBSessionE
 
 switch.lookup:                                    ; preds = %3
   %8 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [30 x ptr], ptr @switch.table._ZN4llvm3pdb9PDBSymbol6createERKNS0_11IPDBSessionERNS0_13IPDBRawSymbolE, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw [30 x ptr], ptr @switch.table._ZN4llvm3pdb9PDBSymbol6createERKNS0_11IPDBSessionERNS0_13IPDBRawSymbolE, i64 0, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %9
 
@@ -161,7 +161,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 define dso_local void @_ZN4llvm3pdb9PDBSymbol6createERKNS0_11IPDBSessionESt10unique_ptrINS0_13IPDBRawSymbolESt14default_deleteIS6_EE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.2") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr nocapture noundef %2) local_unnamed_addr #2 align 2 {
   %4 = load ptr, ptr %2, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 688
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 688
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(8) %4) #12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
@@ -174,7 +174,7 @@ define dso_local void @_ZN4llvm3pdb9PDBSymbol6createERKNS0_11IPDBSessionESt10uni
 
 switch.lookup:                                    ; preds = %3
   %12 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [30 x ptr], ptr @switch.table._ZN4llvm3pdb9PDBSymbol6createERKNS0_11IPDBSessionERNS0_13IPDBRawSymbolE, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw [30 x ptr], ptr @switch.table._ZN4llvm3pdb9PDBSymbol6createERKNS0_11IPDBSessionERNS0_13IPDBRawSymbolE, i64 0, i64 %12
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZNSt10unique_ptrIN4llvm3pdb13IPDBRawSymbolESt14default_deleteIS2_EEaSEOS5_.exit
 
@@ -194,7 +194,7 @@ _ZNSt10unique_ptrIN4llvm3pdb13IPDBRawSymbolESt14default_deleteIS2_EEaSEOS5_.exit
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm3pdb9PDBSymbol6createERKNS0_11IPDBSessionERNS0_13IPDBRawSymbolE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.2") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #2 align 2 {
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 688
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 688
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(8) %2) #12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
@@ -209,7 +209,7 @@ define dso_local void @_ZN4llvm3pdb9PDBSymbol6createERKNS0_11IPDBSessionERNS0_13
 
 switch.lookup:                                    ; preds = %3
   %12 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [30 x ptr], ptr @switch.table._ZN4llvm3pdb9PDBSymbol6createERKNS0_11IPDBSessionERNS0_13IPDBRawSymbolE, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw [30 x ptr], ptr @switch.table._ZN4llvm3pdb9PDBSymbol6createERKNS0_11IPDBSessionERNS0_13IPDBRawSymbolE, i64 0, i64 %12
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN4llvm3pdb9PDBSymbol12createSymbolERKNS0_11IPDBSessionENS0_11PDB_SymTypeE.exit
 
@@ -227,7 +227,7 @@ define dso_local void @_ZNK4llvm3pdb9PDBSymbol11defaultDumpERNS_11raw_ostreamEiN
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #12
   ret void
@@ -250,7 +250,7 @@ define dso_local void @_ZNK4llvm3pdb9PDBSymbol14dumpPropertiesEv(ptr nocapture n
 10:                                               ; preds = %1
   store i8 10, ptr %6, align 1
   %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store ptr %12, ptr %5, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -259,7 +259,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %8, %10
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
   tail call void %18(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(48) %13, i32 noundef 0, i32 noundef -1, i32 noundef 0) #12
   %19 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4outsEv() #12
@@ -301,7 +301,7 @@ define dso_local void @_ZNK4llvm3pdb9PDBSymbol14dumpChildStatsEv(ptr nocapture n
 
 _ZNKSt14default_deleteIN4llvm3pdb16IPDBEnumChildrenINS1_9PDBSymbolEEEEclEPS4_.exit.i: ; preds = %1
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(8) %9) #12
   br label %_ZNSt10unique_ptrIN4llvm3pdb16IPDBEnumChildrenINS1_9PDBSymbolEEESt14default_deleteIS4_EED2Ev.exit
@@ -323,7 +323,7 @@ _ZNSt10unique_ptrIN4llvm3pdb16IPDBEnumChildrenINS1_9PDBSymbolEEESt14default_dele
 21:                                               ; preds = %_ZNSt10unique_ptrIN4llvm3pdb16IPDBEnumChildrenINS1_9PDBSymbolEEESt14default_deleteIS4_EED2Ev.exit
   store i8 10, ptr %17, align 1
   %22 = load ptr, ptr %16, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1
   store ptr %23, ptr %16, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -334,7 +334,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %19, %21
 
 .lr.ph:                                           ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit, %_ZN4llvm11raw_ostreamlsEPKc.exit10
   %.sroa.012.016 = phi ptr [ %55, %_ZN4llvm11raw_ostreamlsEPKc.exit10 ], [ %24, %_ZN4llvm11raw_ostreamlsEPKc.exit ]
-  %25 = getelementptr inbounds i8, ptr %.sroa.012.016, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.012.016, i64 8
   %26 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4outsEv() #12
   %27 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdblsERNS_11raw_ostreamERKNS0_11PDB_SymTypeE(ptr noundef nonnull align 8 dereferenceable(48) %26, ptr noundef nonnull align 4 dereferenceable(4) %25) #12
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
@@ -354,13 +354,13 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %19, %21
 38:                                               ; preds = %.lr.ph
   store i16 8250, ptr %31, align 1
   %39 = load ptr, ptr %30, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 2
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 2
   store ptr %40, ptr %30, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit7
 
 _ZN4llvm11raw_ostreamlsEPKc.exit7:                ; preds = %36, %38
   %.0.i.i6 = phi ptr [ %37, %36 ], [ %27, %38 ]
-  %41 = getelementptr inbounds i8, ptr %.sroa.012.016, i64 12
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.012.016, i64 12
   %42 = load i32, ptr %41, align 4
   %43 = sext i32 %42 to i64
   %44 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i6, i64 noundef %43) #12
@@ -378,7 +378,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit7:                ; preds = %36, %38
 52:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit7
   store i8 10, ptr %48, align 1
   %53 = load ptr, ptr %47, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 1
   store ptr %54, ptr %47, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit10
 
@@ -440,7 +440,7 @@ define dso_local void @_ZNK4llvm3pdb9PDBSymbol13getChildStatsERSt13unordered_map
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8, !noalias !12
   %9 = load ptr, ptr %8, align 8, !noalias !12
-  %10 = getelementptr inbounds i8, ptr %9, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8, !noalias !12
   call void %11(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.12") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %8, i32 noundef 0) #12
   %12 = load ptr, ptr %4, align 8
@@ -469,7 +469,7 @@ _ZNSt13unordered_mapIN4llvm3pdb11PDB_SymTypeEiSt4hashIS2_ESt8equal_toIS2_ESaISt4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   %21 = load ptr, ptr %4, align 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %24 = load ptr, ptr %23, align 8
   call void %24(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.2") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %21) #12
   %25 = load ptr, ptr %5, align 8
@@ -481,7 +481,7 @@ _ZNSt13unordered_mapIN4llvm3pdb11PDB_SymTypeEiSt4hashIS2_ESt8equal_toIS2_ESaISt4
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 688
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 688
   %31 = load ptr, ptr %30, align 8
   %32 = call noundef i32 %31(ptr noundef nonnull align 8 dereferenceable(8) %28) #12
   store i32 %32, ptr %6, align 4
@@ -495,7 +495,7 @@ _ZNSt13unordered_mapIN4llvm3pdb11PDB_SymTypeEiSt4hashIS2_ESt8equal_toIS2_ESaISt4
 
 _ZNKSt14default_deleteIN4llvm3pdb9PDBSymbolEEclEPS2_.exit.i: ; preds = %.lr.ph
   %36 = load ptr, ptr %.pr, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load ptr, ptr %37, align 8
   call void %38(ptr noundef nonnull align 8 dereferenceable(32) %.pr) #12
   br label %_ZNSt10unique_ptrIN4llvm3pdb9PDBSymbolESt14default_deleteIS2_EED2Ev.exit
@@ -504,7 +504,7 @@ _ZNSt10unique_ptrIN4llvm3pdb9PDBSymbolESt14default_deleteIS2_EED2Ev.exit: ; pred
   store ptr null, ptr %5, align 8
   %39 = load ptr, ptr %4, align 8
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %42 = load ptr, ptr %41, align 8
   call void %42(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.2") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %39) #12
   %43 = load ptr, ptr %5, align 8
@@ -515,7 +515,7 @@ _ZNSt10unique_ptrIN4llvm3pdb9PDBSymbolESt14default_deleteIS2_EED2Ev.exit: ; pred
   store ptr null, ptr %5, align 8
   %44 = load ptr, ptr %4, align 8
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %47 = load ptr, ptr %46, align 8
   call void %47(ptr noundef nonnull align 8 dereferenceable(8) %44) #12
   %48 = load i64, ptr %4, align 8
@@ -534,7 +534,7 @@ define dso_local noundef i32 @_ZNK4llvm3pdb9PDBSymbol9getSymTagEv(ptr nocapture 
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 688
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 688
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
   ret i32 %7
@@ -545,7 +545,7 @@ define dso_local noundef i32 @_ZNK4llvm3pdb9PDBSymbol13getSymIndexIdEv(ptr nocap
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 528
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 528
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
   ret i32 %7
@@ -556,7 +556,7 @@ define dso_local void @_ZNK4llvm3pdb9PDBSymbol15findAllChildrenEv(ptr dead_on_un
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !noalias !17
   %5 = load ptr, ptr %4, align 8, !noalias !17
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8, !noalias !17
   tail call void %7(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.12") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #12
   ret void
@@ -567,7 +567,7 @@ define dso_local void @_ZNK4llvm3pdb9PDBSymbol15findAllChildrenENS0_11PDB_SymTyp
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.12") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %2) #12
   ret void
@@ -578,7 +578,7 @@ define dso_local void @_ZNK4llvm3pdb9PDBSymbol12findChildrenENS0_11PDB_SymTypeEN
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.12") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %8, i32 noundef %2, ptr %3, i64 %4, i32 noundef %5) #12
   ret void
@@ -592,7 +592,7 @@ define dso_local void @_ZNK4llvm3pdb9PDBSymbol17findChildrenByRVAENS0_11PDB_SymT
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %12 = load ptr, ptr %11, align 8
   tail call void %12(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.12") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %9, i32 noundef %2, ptr %3, i64 %4, i32 noundef %5, i32 noundef %6) #12
   ret void
@@ -603,7 +603,7 @@ define dso_local void @_ZNK4llvm3pdb9PDBSymbol20findInlineFramesByVAEm(ptr dead_
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.12") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef %2) #12
   ret void
@@ -614,7 +614,7 @@ define dso_local void @_ZNK4llvm3pdb9PDBSymbol21findInlineFramesByRVAEj(ptr dead
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.12") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %2) #12
   ret void
@@ -625,7 +625,7 @@ define dso_local void @_ZNK4llvm3pdb9PDBSymbol20findInlineeLinesByVAEmj(ptr dead
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 112
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %9 = load ptr, ptr %8, align 8
   tail call void %9(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.20") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef %2, i32 noundef %3) #12
   ret void
@@ -636,7 +636,7 @@ define dso_local void @_ZNK4llvm3pdb9PDBSymbol21findInlineeLinesByRVAEjj(ptr dea
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %9 = load ptr, ptr %8, align 8
   tail call void %9(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.20") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %2, i32 noundef %3) #12
   ret void
@@ -647,7 +647,7 @@ define dso_local void @_ZNK4llvm3pdb9PDBSymbol7getNameB5cxx11Ev(ptr dead_on_unwi
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 336
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 336
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %4) #12
   ret void
@@ -658,7 +658,7 @@ define dso_local void @_ZNK4llvm3pdb9PDBSymbol19getSymbolByIdHelperEj(ptr dead_o
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.2") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %2) #12
   ret void
@@ -686,7 +686,7 @@ define dso_local void @_ZN4llvm3pdb17dumpSymbolIdFieldERNS_11raw_ostreamENS_9Str
 21:                                               ; preds = %13
   store i8 10, ptr %17, align 1
   %22 = load ptr, ptr %16, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1
   store ptr %23, ptr %16, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -736,7 +736,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %31, %33, %34
   %47 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
   store i16 8250, ptr %37, align 1
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 2
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 2
   store ptr %49, ptr %47, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit19
 
@@ -752,7 +752,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit19:               ; preds = %44, %46
 
 55:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit19
   %56 = load ptr, ptr %5, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 40
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 40
   %58 = load ptr, ptr %57, align 8
   call void %58(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.2") align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %3) #12
   %59 = load ptr, ptr %10, align 8
@@ -764,7 +764,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit19:               ; preds = %44, %46
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 24
   %63 = load ptr, ptr %62, align 8
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %66 = load ptr, ptr %65, align 8
   call void %66(ptr noundef nonnull align 8 dereferenceable(8) %63, ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %61, i32 noundef %7, i32 noundef 0) #12
   %.pr = load ptr, ptr %10, align 8
@@ -773,7 +773,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit19:               ; preds = %44, %46
 
 _ZNKSt14default_deleteIN4llvm3pdb9PDBSymbolEEclEPS2_.exit.i: ; preds = %60
   %67 = load ptr, ptr %.pr, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %69 = load ptr, ptr %68, align 8
   call void %69(ptr noundef nonnull align 8 dereferenceable(32) %.pr) #12
   br label %_ZNSt10unique_ptrIN4llvm3pdb9PDBSymbolESt14default_deleteIS2_EED2Ev.exit
@@ -820,8 +820,8 @@ define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8__deta
 
 11:                                               ; preds = %2
   %12 = load ptr, ptr %10, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
-  %14 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %15 = load i64, ptr %14, align 8
   %16 = icmp eq i64 %15, %4
   %17 = load i32, ptr %13, align 4
@@ -830,7 +830,7 @@ define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8__deta
   br i1 %19, label %_ZNKSt10_HashtableIN4llvm3pdb11PDB_SymTypeESt4pairIKS2_iESaIS5_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS4_m.exit, label %.lr.ph.i.i
 
 20:                                               ; preds = %27
-  %21 = getelementptr inbounds i8, ptr %26, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %22 = icmp eq i64 %29, %4
   %23 = load i32, ptr %21, align 4
   %24 = icmp eq i32 %3, %23
@@ -844,7 +844,7 @@ define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8__deta
   br i1 %.not16.i.i, label %.loopexit, label %27
 
 27:                                               ; preds = %.lr.ph.i.i
-  %28 = getelementptr inbounds i8, ptr %26, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = urem i64 %29, %6
   %.not17.i.i = icmp eq i64 %30, %7
@@ -852,9 +852,9 @@ define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8__deta
 
 .loopexit:                                        ; preds = %27, %.lr.ph.i.i, %2
   %31 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
-  %32 = getelementptr inbounds i8, ptr %31, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i32 %3, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %31, i64 12
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 12
   store i32 0, ptr %33, align 4
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -873,7 +873,7 @@ define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8__deta
 
 44:                                               ; preds = %40, %.loopexit
   %.0.i17 = phi i64 [ %43, %40 ], [ %7, %.loopexit ]
-  %45 = getelementptr inbounds i8, ptr %31, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store i64 %4, ptr %45, align 8
   %46 = load ptr, ptr %0, align 8
   %47 = getelementptr inbounds ptr, ptr %46, i64 %.0.i17
@@ -897,7 +897,7 @@ define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8__deta
 
 54:                                               ; preds = %51
   %55 = load i64, ptr %5, align 8
-  %56 = getelementptr inbounds i8, ptr %53, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %57 = load i64, ptr %56, align 8
   %58 = urem i64 %57, %55
   %59 = getelementptr inbounds ptr, ptr %46, i64 %58
@@ -919,7 +919,7 @@ _ZNSt10_HashtableIN4llvm3pdb11PDB_SymTypeESt4pairIKS2_iESaIS5_ENSt8__detail10_Se
 
 _ZNKSt10_HashtableIN4llvm3pdb11PDB_SymTypeESt4pairIKS2_iESaIS5_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS4_m.exit: ; preds = %20, %11, %_ZNSt10_HashtableIN4llvm3pdb11PDB_SymTypeESt4pairIKS2_iESaIS5_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
   %65 = phi ptr [ %31, %_ZNSt10_HashtableIN4llvm3pdb11PDB_SymTypeESt4pairIKS2_iESaIS5_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit ], [ %12, %11 ], [ %26, %20 ]
-  %.0 = getelementptr inbounds i8, ptr %65, i64 12
+  %.0 = getelementptr inbounds nuw i8, ptr %65, i64 12
   ret ptr %.0
 }
 
@@ -975,7 +975,7 @@ _ZNSt10_HashtableIN4llvm3pdb11PDB_SymTypeESt4pairIKS2_iESaIS5_ENSt8__detail10_Se
   %.031 = phi ptr [ %16, %30 ], [ %15, %_ZNSt10_HashtableIN4llvm3pdb11PDB_SymTypeESt4pairIKS2_iESaIS5_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %.02530 = phi i64 [ %.1, %30 ], [ 0, %_ZNSt10_HashtableIN4llvm3pdb11PDB_SymTypeESt4pairIKS2_iESaIS5_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %16 = load ptr, ptr %.031, align 8
-  %17 = getelementptr inbounds i8, ptr %.031, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %.031, i64 16
   %18 = load i64, ptr %17, align 8
   %19 = urem i64 %18, %1
   %20 = getelementptr inbounds ptr, ptr %.0.i, i64 %19

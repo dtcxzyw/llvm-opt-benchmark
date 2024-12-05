@@ -178,40 +178,40 @@ define weak_odr dso_local void @_ZN3ozz9animation8internal5TrackIfEC2Ev(ptr noun
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN3ozz9animation8internal5TrackIfEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #3 comdat($_ZN3ozz9animation8internal5TrackIfEC5EOS3_) align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   %6 = load ptr, ptr %1, align 8
   store ptr %6, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   %.sroa.0.0.copyload.i5.i = load ptr, ptr %3, align 8
-  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.2.0.copyload.i7.i = load i64, ptr %.sroa.2.0..sroa_idx.i6.i, align 8
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %3, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load i64, ptr %11, align 8
   store i64 %12, ptr %.sroa.2.0..sroa_idx.i6.i, align 8
   store ptr %.sroa.0.0.copyload.i5.i, ptr %9, align 8
   store i64 %.sroa.2.0.copyload.i7.i, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.0.0.copyload.i8.i = load ptr, ptr %4, align 8
-  %.sroa.2.0..sroa_idx.i9.i = getelementptr inbounds i8, ptr %0, i64 40
+  %.sroa.2.0..sroa_idx.i9.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.2.0.copyload.i10.i = load i64, ptr %.sroa.2.0..sroa_idx.i9.i, align 8
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr %4, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %16 = load i64, ptr %15, align 8
   store i64 %16, ptr %.sroa.2.0..sroa_idx.i9.i, align 8
   store ptr %.sroa.0.0.copyload.i8.i, ptr %13, align 8
   store i64 %.sroa.2.0.copyload.i10.i, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %18 = load ptr, ptr %5, align 8
   %19 = load ptr, ptr %17, align 8
   store ptr %19, ptr %5, align 8
@@ -222,41 +222,41 @@ define weak_odr dso_local void @_ZN3ozz9animation8internal5TrackIfEC2EOS3_(ptr n
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN3ozz9animation8internal5TrackIfEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) local_unnamed_addr #3 comdat align 2 {
   %.sroa.0.0.copyload.i = load ptr, ptr %0, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
   store i64 %5, ptr %.sroa.2.0..sroa_idx.i, align 8
   store ptr %.sroa.0.0.copyload.i, ptr %1, align 8
   store i64 %.sroa.2.0.copyload.i, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.0.0.copyload.i5 = load ptr, ptr %6, align 8
-  %.sroa.2.0..sroa_idx.i6 = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.2.0..sroa_idx.i6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.2.0.copyload.i7 = load i64, ptr %.sroa.2.0..sroa_idx.i6, align 8
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i64, ptr %9, align 8
   store i64 %10, ptr %.sroa.2.0..sroa_idx.i6, align 8
   store ptr %.sroa.0.0.copyload.i5, ptr %7, align 8
   store i64 %.sroa.2.0.copyload.i7, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
-  %12 = getelementptr inbounds i8, ptr %1, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.0.0.copyload.i8 = load ptr, ptr %11, align 8
-  %.sroa.2.0..sroa_idx.i9 = getelementptr inbounds i8, ptr %0, i64 40
+  %.sroa.2.0..sroa_idx.i9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.2.0.copyload.i10 = load i64, ptr %.sroa.2.0..sroa_idx.i9, align 8
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %15 = load i64, ptr %14, align 8
   store i64 %15, ptr %.sroa.2.0..sroa_idx.i9, align 8
   store ptr %.sroa.0.0.copyload.i8, ptr %12, align 8
   store i64 %.sroa.2.0.copyload.i10, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 48
-  %17 = getelementptr inbounds i8, ptr %1, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %18 = load ptr, ptr %16, align 8
   %19 = load ptr, ptr %17, align 8
   store ptr %19, ptr %16, align 8
@@ -270,10 +270,10 @@ define weak_odr dso_local void @_ZN3ozz9animation8internal5TrackIfED2Ev(ptr noun
           to label %.noexc unwind label %9
 
 .noexc:                                           ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
   invoke void %7(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %4)
           to label %8 unwind label %9
@@ -293,10 +293,10 @@ define weak_odr dso_local void @_ZN3ozz9animation8internal5TrackIfED2Ev(ptr noun
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN3ozz9animation8internal5TrackIfE10DeallocateEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #3 comdat align 2 {
   %2 = tail call noundef ptr @_ZN3ozz6memory17default_allocatorEv()
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %4)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
@@ -320,7 +320,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #6
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local { ptr, i64 } @_ZNK3ozz9animation8internal5TrackIfE6ratiosEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #3 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %.fca.0.insert.i = insertvalue { ptr, i64 } poison, ptr %2, 0
   %.fca.1.insert.i = insertvalue { ptr, i64 } %.fca.0.insert.i, i64 %4, 1
@@ -329,9 +329,9 @@ define weak_odr dso_local { ptr, i64 } @_ZNK3ozz9animation8internal5TrackIfE6rat
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local { ptr, i64 } @_ZNK3ozz9animation8internal5TrackIfE6valuesEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
   %.fca.0.insert.i = insertvalue { ptr, i64 } poison, ptr %3, 0
   %.fca.1.insert.i = insertvalue { ptr, i64 } %.fca.0.insert.i, i64 %5, 1
@@ -340,9 +340,9 @@ define weak_odr dso_local { ptr, i64 } @_ZNK3ozz9animation8internal5TrackIfE6val
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local { ptr, i64 } @_ZNK3ozz9animation8internal5TrackIfE5stepsEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i64, ptr %4, align 8
   %.fca.0.insert.i = insertvalue { ptr, i64 } poison, ptr %3, 0
   %.fca.1.insert.i = insertvalue { ptr, i64 } %.fca.0.insert.i, i64 %5, 1
@@ -351,13 +351,13 @@ define weak_odr dso_local { ptr, i64 } @_ZNK3ozz9animation8internal5TrackIfE5ste
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef i64 @_ZNK3ozz9animation8internal5TrackIfE4sizeEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, %3
   %7 = shl i64 %6, 2
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load i64, ptr %8, align 8
   %10 = add i64 %9, 56
   %11 = add i64 %10, %7
@@ -366,7 +366,7 @@ define weak_odr dso_local noundef i64 @_ZNK3ozz9animation8internal5TrackIfE4size
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef ptr @_ZNK3ozz9animation8internal5TrackIfE4nameEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   %spec.select = select i1 %.not, ptr @.str, ptr %3
@@ -381,11 +381,11 @@ define weak_odr dso_local void @_ZNK3ozz9animation8internal5TrackIfE4SaveERNS_2i
   %6 = alloca float, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = trunc i64 %10 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i8, ptr %12, align 8
   %14 = trunc i8 %13 to i1
   %.sroa.0.0.insert.insert.i = tail call i32 @llvm.bswap.i32(i32 %11)
@@ -393,11 +393,11 @@ define weak_odr dso_local void @_ZNK3ozz9animation8internal5TrackIfE4SaveERNS_2i
   store i32 %15, ptr %8, align 4
   %16 = load ptr, ptr %1, align 8
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = call noundef i64 %19(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull %8, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  %21 = getelementptr inbounds i8, ptr %0, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %22 = load ptr, ptr %21, align 8
   %.not = icmp eq ptr %22, null
   br i1 %.not, label %25, label %23
@@ -417,7 +417,7 @@ define weak_odr dso_local void @_ZNK3ozz9animation8internal5TrackIfE4SaveERNS_2i
   store i32 %30, ptr %7, align 4
   %31 = load ptr, ptr %1, align 8
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = call noundef i64 %34(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull %7, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
@@ -464,7 +464,7 @@ _ZN3ozz2io8OArchivelsEf.exit.i.i:                 ; preds = %42, %.lr.ph.i.i
   store float %52, ptr %6, align 4
   %53 = load ptr, ptr %1, align 8
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load ptr, ptr %55, align 8
   %57 = call noundef i64 %56(ptr noundef nonnull align 8 dereferenceable(8) %53, ptr noundef nonnull %6, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
@@ -476,15 +476,15 @@ _ZN3ozz2io8OArchivelsEf.exit.i.i:                 ; preds = %42, %.lr.ph.i.i
   %60 = shl i64 %.sroa.24.0.copyload, 2
   %61 = load ptr, ptr %1, align 8
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load ptr, ptr %63, align 8
   %65 = call noundef i64 %64(ptr noundef nonnull align 8 dereferenceable(8) %61, ptr noundef %.sroa.03.0.copyload, i64 noundef %60)
   br label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIfEEEEvRKT_.exit
 
 _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIfEEEEvRKT_.exit: ; preds = %_ZN3ozz2io8OArchivelsEf.exit.i.i, %.preheader.i.i, %59
-  %66 = getelementptr inbounds i8, ptr %0, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.01.0.copyload = load ptr, ptr %66, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8
   %67 = load i8, ptr %12, align 8
   %68 = trunc i8 %67 to i1
@@ -527,7 +527,7 @@ _ZN3ozz2io8OArchivelsEf.exit.i.i34:               ; preds = %73, %.lr.ph.i.i32
   store float %83, ptr %5, align 4
   %84 = load ptr, ptr %1, align 8
   %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %87 = load ptr, ptr %86, align 8
   %88 = call noundef i64 %87(ptr noundef nonnull align 8 dereferenceable(8) %84, ptr noundef nonnull %5, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
@@ -539,15 +539,15 @@ _ZN3ozz2io8OArchivelsEf.exit.i.i34:               ; preds = %73, %.lr.ph.i.i32
   %91 = shl i64 %.sroa.22.0.copyload, 2
   %92 = load ptr, ptr %1, align 8
   %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 16
   %95 = load ptr, ptr %94, align 8
   %96 = call noundef i64 %95(ptr noundef nonnull align 8 dereferenceable(8) %92, ptr noundef %.sroa.01.0.copyload, i64 noundef %91)
   br label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIfEEEEvRKT_.exit42
 
 _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIfEEEEvRKT_.exit42: ; preds = %_ZN3ozz2io8OArchivelsEf.exit.i.i34, %.preheader.i.i30, %90
-  %97 = getelementptr inbounds i8, ptr %0, i64 32
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.0.0.copyload = load ptr, ptr %97, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %98 = load i8, ptr %12, align 8
   %99 = trunc i8 %98 to i1
@@ -565,7 +565,7 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIfEEEEvRKT_.exit42: ; preds = %_ZN3ozz2
   store i8 %101, ptr %4, align 1
   %102 = load ptr, ptr %1, align 8
   %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 16
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 16
   %105 = load ptr, ptr %104, align 8
   %106 = call noundef i64 %105(ptr noundef nonnull align 8 dereferenceable(8) %102, ptr noundef nonnull %4, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
@@ -576,7 +576,7 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIfEEEEvRKT_.exit42: ; preds = %_ZN3ozz2
 108:                                              ; preds = %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIfEEEEvRKT_.exit42
   %109 = load ptr, ptr %1, align 8
   %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 16
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 16
   %112 = load ptr, ptr %111, align 8
   %113 = call noundef i64 %112(ptr noundef nonnull align 8 dereferenceable(8) %109, ptr noundef %.sroa.0.0.copyload, i64 noundef %.sroa.2.0.copyload)
   br label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIhEEEEvRKT_.exit
@@ -599,7 +599,7 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIhEEEEvRKT_.exit: ; preds = %.lr.ph.i.i
   store i8 %118, ptr %3, align 1
   %119 = load ptr, ptr %1, align 8
   %120 = load ptr, ptr %119, align 8
-  %121 = getelementptr inbounds i8, ptr %120, i64 16
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 16
   %122 = load ptr, ptr %121, align 8
   %123 = call noundef i64 %122(ptr noundef nonnull align 8 dereferenceable(8) %119, ptr noundef nonnull %3, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
@@ -610,7 +610,7 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIhEEEEvRKT_.exit: ; preds = %.lr.ph.i.i
 125:                                              ; preds = %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIhEEEEvRKT_.exit
   %126 = load ptr, ptr %1, align 8
   %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 16
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 16
   %129 = load ptr, ptr %128, align 8
   %130 = call noundef i64 %129(ptr noundef nonnull align 8 dereferenceable(8) %126, ptr noundef %114, i64 noundef %26)
   br label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIcEEEEvRKT_.exit
@@ -628,10 +628,10 @@ define weak_odr dso_local void @_ZN3ozz9animation8internal5TrackIfE4LoadERNS_2io
   %5 = alloca i32, align 4
   %6 = alloca %"class.ozz::log::Err", align 8
   %7 = tail call noundef ptr @_ZN3ozz6memory17default_allocatorEv()
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load ptr, ptr %11, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %9)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
@@ -670,10 +670,10 @@ _ZN3ozz3log6LoggerlsIA27_cEERSoRKT_.exit:         ; preds = %14
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %26 = load ptr, ptr %1, align 8
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = call noundef i64 %29(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull %5, i64 noundef 4)
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load i8, ptr %31, align 8
   %33 = trunc i8 %32 to i1
   %34 = load i32, ptr %5, align 4
@@ -683,7 +683,7 @@ _ZN3ozz3log6LoggerlsIA27_cEERSoRKT_.exit:         ; preds = %14
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   %36 = load ptr, ptr %1, align 8
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = call noundef i64 %39(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef nonnull %4, i64 noundef 4)
   %41 = load i8, ptr %31, align 8
@@ -704,29 +704,29 @@ _ZN3ozz3log6LoggerlsIA27_cEERSoRKT_.exit:         ; preds = %14
   %53 = add nsw i64 %50, %52
   %54 = call noundef ptr @_ZN3ozz6memory17default_allocatorEv()
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %57 = load ptr, ptr %56, align 8
   %58 = call noundef ptr %57(ptr noundef nonnull align 8 dereferenceable(8) %54, i64 noundef %53, i64 noundef 4)
   %.idx.i.i = shl nuw nsw i64 %45, 2
-  %59 = getelementptr inbounds i8, ptr %58, i64 %.idx.i.i
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 %.idx.i.i
   store ptr %58, ptr %8, align 8
-  %60 = getelementptr inbounds i8, ptr %0, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %45, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %59, i64 %.idx.i.i
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 %.idx.i.i
   store ptr %59, ptr %0, align 8
-  %62 = getelementptr inbounds i8, ptr %0, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %45, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %61, i64 %49
-  %64 = getelementptr inbounds i8, ptr %0, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 %49
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %61, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 40
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %49, ptr %65, align 8
   %spec.select.i = select i1 %.not.i, ptr null, ptr %63
-  %66 = getelementptr inbounds i8, ptr %0, i64 48
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %spec.select.i, ptr %66, align 8
   %67 = load ptr, ptr %1, align 8
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %70 = load ptr, ptr %69, align 8
   %71 = call noundef i64 %70(ptr noundef nonnull align 8 dereferenceable(8) %67, ptr noundef %59, i64 noundef %.idx.i.i)
   %72 = load i8, ptr %31, align 8
@@ -737,17 +737,17 @@ _ZN3ozz3log6LoggerlsIA27_cEERSoRKT_.exit:         ; preds = %14
 
 .lr.ph.i.i:                                       ; preds = %25, %.lr.ph.i.i
   %.03940.i.i = phi i64 [ %85, %.lr.ph.i.i ], [ 0, %25 ]
-  %74 = getelementptr inbounds i8, ptr %59, i64 %.03940.i.i
+  %74 = getelementptr inbounds nuw i8, ptr %59, i64 %.03940.i.i
   %75 = or disjoint i64 %.03940.i.i, 3
-  %76 = getelementptr inbounds i8, ptr %59, i64 %75
+  %76 = getelementptr inbounds nuw i8, ptr %59, i64 %75
   %77 = load i8, ptr %74, align 1
   %78 = load i8, ptr %76, align 1
   store i8 %77, ptr %76, align 1
   store i8 %78, ptr %74, align 1
   %79 = or disjoint i64 %.03940.i.i, 1
-  %80 = getelementptr inbounds i8, ptr %59, i64 %79
+  %80 = getelementptr inbounds nuw i8, ptr %59, i64 %79
   %81 = or disjoint i64 %.03940.i.i, 2
-  %82 = getelementptr inbounds i8, ptr %59, i64 %81
+  %82 = getelementptr inbounds nuw i8, ptr %59, i64 %81
   %83 = load i8, ptr %80, align 1
   %84 = load i8, ptr %82, align 1
   store i8 %83, ptr %82, align 1
@@ -762,7 +762,7 @@ _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit: ; preds = %.lr.ph.i.i
   %87 = shl i64 %.sroa.22.0.copyload, 2
   %88 = load ptr, ptr %1, align 8
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %91 = load ptr, ptr %90, align 8
   %92 = call noundef i64 %91(ptr noundef nonnull align 8 dereferenceable(8) %88, ptr noundef %.sroa.01.0.copyload, i64 noundef %87)
   %93 = load i8, ptr %31, align 8
@@ -797,7 +797,7 @@ _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit35: ; preds = %.lr.ph.i
   %.sroa.2.0.copyload = load i64, ptr %65, align 8
   %108 = load ptr, ptr %1, align 8
   %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
   %111 = load ptr, ptr %110, align 8
   %112 = call noundef i64 %111(ptr noundef nonnull align 8 dereferenceable(8) %108, ptr noundef %.sroa.0.0.copyload, i64 noundef %.sroa.2.0.copyload)
   %113 = load ptr, ptr %66, align 8
@@ -807,7 +807,7 @@ _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit35: ; preds = %.lr.ph.i
 114:                                              ; preds = %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit35
   %115 = load ptr, ptr %1, align 8
   %116 = load ptr, ptr %115, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %118 = load ptr, ptr %117, align 8
   %119 = call noundef i64 %118(ptr noundef nonnull align 8 dereferenceable(8) %115, ptr noundef nonnull %113, i64 noundef %46)
   %120 = load ptr, ptr %66, align 8
@@ -841,26 +841,26 @@ define weak_odr dso_local void @_ZN3ozz9animation8internal5TrackIfE8AllocateEmm(
   %10 = add i64 %7, %9
   %11 = tail call noundef ptr @_ZN3ozz6memory17default_allocatorEv()
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(8) %11, i64 noundef %10, i64 noundef 4)
   %.idx.i = shl nsw i64 %1, 2
   %16 = getelementptr inbounds i8, ptr %15, i64 %.idx.i
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %15, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %1, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %16, i64 %.idx.i
   store ptr %16, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %19, i64 %6
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 %6
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %19, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %6, ptr %23, align 8
   %spec.select = select i1 %.not, ptr null, ptr %21
-  %24 = getelementptr inbounds i8, ptr %0, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %spec.select, ptr %24, align 8
   ret void
 }
@@ -875,40 +875,40 @@ define weak_odr dso_local void @_ZN3ozz9animation8internal5TrackINS_4math6Float2
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN3ozz9animation8internal5TrackINS_4math6Float2EEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #3 comdat($_ZN3ozz9animation8internal5TrackINS_4math6Float2EEC5EOS5_) align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   %6 = load ptr, ptr %1, align 8
   store ptr %6, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   %.sroa.0.0.copyload.i5.i = load ptr, ptr %3, align 8
-  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.2.0.copyload.i7.i = load i64, ptr %.sroa.2.0..sroa_idx.i6.i, align 8
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %3, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load i64, ptr %11, align 8
   store i64 %12, ptr %.sroa.2.0..sroa_idx.i6.i, align 8
   store ptr %.sroa.0.0.copyload.i5.i, ptr %9, align 8
   store i64 %.sroa.2.0.copyload.i7.i, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.0.0.copyload.i8.i = load ptr, ptr %4, align 8
-  %.sroa.2.0..sroa_idx.i9.i = getelementptr inbounds i8, ptr %0, i64 40
+  %.sroa.2.0..sroa_idx.i9.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.2.0.copyload.i10.i = load i64, ptr %.sroa.2.0..sroa_idx.i9.i, align 8
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr %4, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %16 = load i64, ptr %15, align 8
   store i64 %16, ptr %.sroa.2.0..sroa_idx.i9.i, align 8
   store ptr %.sroa.0.0.copyload.i8.i, ptr %13, align 8
   store i64 %.sroa.2.0.copyload.i10.i, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %18 = load ptr, ptr %5, align 8
   %19 = load ptr, ptr %17, align 8
   store ptr %19, ptr %5, align 8
@@ -919,41 +919,41 @@ define weak_odr dso_local void @_ZN3ozz9animation8internal5TrackINS_4math6Float2
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN3ozz9animation8internal5TrackINS_4math6Float2EEaSEOS5_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) local_unnamed_addr #3 comdat align 2 {
   %.sroa.0.0.copyload.i = load ptr, ptr %0, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
   store i64 %5, ptr %.sroa.2.0..sroa_idx.i, align 8
   store ptr %.sroa.0.0.copyload.i, ptr %1, align 8
   store i64 %.sroa.2.0.copyload.i, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.0.0.copyload.i5 = load ptr, ptr %6, align 8
-  %.sroa.2.0..sroa_idx.i6 = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.2.0..sroa_idx.i6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.2.0.copyload.i7 = load i64, ptr %.sroa.2.0..sroa_idx.i6, align 8
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i64, ptr %9, align 8
   store i64 %10, ptr %.sroa.2.0..sroa_idx.i6, align 8
   store ptr %.sroa.0.0.copyload.i5, ptr %7, align 8
   store i64 %.sroa.2.0.copyload.i7, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
-  %12 = getelementptr inbounds i8, ptr %1, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.0.0.copyload.i8 = load ptr, ptr %11, align 8
-  %.sroa.2.0..sroa_idx.i9 = getelementptr inbounds i8, ptr %0, i64 40
+  %.sroa.2.0..sroa_idx.i9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.2.0.copyload.i10 = load i64, ptr %.sroa.2.0..sroa_idx.i9, align 8
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %15 = load i64, ptr %14, align 8
   store i64 %15, ptr %.sroa.2.0..sroa_idx.i9, align 8
   store ptr %.sroa.0.0.copyload.i8, ptr %12, align 8
   store i64 %.sroa.2.0.copyload.i10, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 48
-  %17 = getelementptr inbounds i8, ptr %1, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %18 = load ptr, ptr %16, align 8
   %19 = load ptr, ptr %17, align 8
   store ptr %19, ptr %16, align 8
@@ -967,10 +967,10 @@ define weak_odr dso_local void @_ZN3ozz9animation8internal5TrackINS_4math6Float2
           to label %.noexc unwind label %9
 
 .noexc:                                           ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
   invoke void %7(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %4)
           to label %8 unwind label %9
@@ -990,10 +990,10 @@ define weak_odr dso_local void @_ZN3ozz9animation8internal5TrackINS_4math6Float2
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN3ozz9animation8internal5TrackINS_4math6Float2EE10DeallocateEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #3 comdat align 2 {
   %2 = tail call noundef ptr @_ZN3ozz6memory17default_allocatorEv()
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %4)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
@@ -1003,7 +1003,7 @@ define weak_odr dso_local void @_ZN3ozz9animation8internal5TrackINS_4math6Float2
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local { ptr, i64 } @_ZNK3ozz9animation8internal5TrackINS_4math6Float2EE6ratiosEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #3 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %.fca.0.insert.i = insertvalue { ptr, i64 } poison, ptr %2, 0
   %.fca.1.insert.i = insertvalue { ptr, i64 } %.fca.0.insert.i, i64 %4, 1
@@ -1012,9 +1012,9 @@ define weak_odr dso_local { ptr, i64 } @_ZNK3ozz9animation8internal5TrackINS_4ma
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local { ptr, i64 } @_ZNK3ozz9animation8internal5TrackINS_4math6Float2EE6valuesEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
   %.fca.0.insert.i = insertvalue { ptr, i64 } poison, ptr %3, 0
   %.fca.1.insert.i = insertvalue { ptr, i64 } %.fca.0.insert.i, i64 %5, 1
@@ -1023,9 +1023,9 @@ define weak_odr dso_local { ptr, i64 } @_ZNK3ozz9animation8internal5TrackINS_4ma
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local { ptr, i64 } @_ZNK3ozz9animation8internal5TrackINS_4math6Float2EE5stepsEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i64, ptr %4, align 8
   %.fca.0.insert.i = insertvalue { ptr, i64 } poison, ptr %3, 0
   %.fca.1.insert.i = insertvalue { ptr, i64 } %.fca.0.insert.i, i64 %5, 1
@@ -1034,15 +1034,15 @@ define weak_odr dso_local { ptr, i64 } @_ZNK3ozz9animation8internal5TrackINS_4ma
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef i64 @_ZNK3ozz9animation8internal5TrackINS_4math6Float2EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8
   %4 = shl i64 %3, 3
   %5 = add i64 %4, 56
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = shl i64 %7, 2
   %9 = add i64 %5, %8
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load i64, ptr %10, align 8
   %12 = add i64 %9, %11
   ret i64 %12
@@ -1050,7 +1050,7 @@ define weak_odr dso_local noundef i64 @_ZNK3ozz9animation8internal5TrackINS_4mat
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef ptr @_ZNK3ozz9animation8internal5TrackINS_4math6Float2EE4nameEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   %spec.select = select i1 %.not, ptr @.str, ptr %3
@@ -1064,11 +1064,11 @@ define weak_odr dso_local void @_ZNK3ozz9animation8internal5TrackINS_4math6Float
   %5 = alloca float, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = trunc i64 %9 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i8, ptr %11, align 8
   %13 = trunc i8 %12 to i1
   %.sroa.0.0.insert.insert.i = tail call i32 @llvm.bswap.i32(i32 %10)
@@ -1076,11 +1076,11 @@ define weak_odr dso_local void @_ZNK3ozz9animation8internal5TrackINS_4math6Float
   store i32 %14, ptr %7, align 4
   %15 = load ptr, ptr %1, align 8
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = call noundef i64 %18(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull %7, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  %20 = getelementptr inbounds i8, ptr %0, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %21 = load ptr, ptr %20, align 8
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %24, label %22
@@ -1100,7 +1100,7 @@ define weak_odr dso_local void @_ZNK3ozz9animation8internal5TrackINS_4math6Float
   store i32 %29, ptr %6, align 4
   %30 = load ptr, ptr %1, align 8
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load ptr, ptr %32, align 8
   %34 = call noundef i64 %33(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull %6, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
@@ -1147,7 +1147,7 @@ _ZN3ozz2io8OArchivelsEf.exit.i.i:                 ; preds = %41, %.lr.ph.i.i
   store float %51, ptr %5, align 4
   %52 = load ptr, ptr %1, align 8
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load ptr, ptr %54, align 8
   %56 = call noundef i64 %55(ptr noundef nonnull align 8 dereferenceable(8) %52, ptr noundef nonnull %5, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
@@ -1159,20 +1159,20 @@ _ZN3ozz2io8OArchivelsEf.exit.i.i:                 ; preds = %41, %.lr.ph.i.i
   %59 = shl i64 %.sroa.24.0.copyload, 2
   %60 = load ptr, ptr %1, align 8
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %63 = load ptr, ptr %62, align 8
   %64 = call noundef i64 %63(ptr noundef nonnull align 8 dereferenceable(8) %60, ptr noundef %.sroa.03.0.copyload, i64 noundef %59)
   br label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIfEEEEvRKT_.exit
 
 _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIfEEEEvRKT_.exit: ; preds = %_ZN3ozz2io8OArchivelsEf.exit.i.i, %.preheader.i.i, %58
-  %65 = getelementptr inbounds i8, ptr %0, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.01.0.copyload = load ptr, ptr %65, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8
   call void @_ZN3ozz2io6ExternINS_4math6Float2EE4SaveERNS0_8OArchiveEPKS3_m(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef %.sroa.01.0.copyload, i64 noundef %.sroa.22.0.copyload)
-  %66 = getelementptr inbounds i8, ptr %0, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.0.0.copyload = load ptr, ptr %66, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %67 = load i8, ptr %11, align 8
   %68 = trunc i8 %67 to i1
@@ -1190,7 +1190,7 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIfEEEEvRKT_.exit: ; preds = %_ZN3ozz2io
   store i8 %70, ptr %4, align 1
   %71 = load ptr, ptr %1, align 8
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %74 = load ptr, ptr %73, align 8
   %75 = call noundef i64 %74(ptr noundef nonnull align 8 dereferenceable(8) %71, ptr noundef nonnull %4, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
@@ -1201,7 +1201,7 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIfEEEEvRKT_.exit: ; preds = %_ZN3ozz2io
 77:                                               ; preds = %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIfEEEEvRKT_.exit
   %78 = load ptr, ptr %1, align 8
   %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
   %81 = load ptr, ptr %80, align 8
   %82 = call noundef i64 %81(ptr noundef nonnull align 8 dereferenceable(8) %78, ptr noundef %.sroa.0.0.copyload, i64 noundef %.sroa.2.0.copyload)
   br label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIhEEEEvRKT_.exit
@@ -1224,7 +1224,7 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIhEEEEvRKT_.exit: ; preds = %.lr.ph.i.i
   store i8 %87, ptr %3, align 1
   %88 = load ptr, ptr %1, align 8
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %91 = load ptr, ptr %90, align 8
   %92 = call noundef i64 %91(ptr noundef nonnull align 8 dereferenceable(8) %88, ptr noundef nonnull %3, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
@@ -1235,7 +1235,7 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIhEEEEvRKT_.exit: ; preds = %.lr.ph.i.i
 94:                                               ; preds = %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIhEEEEvRKT_.exit
   %95 = load ptr, ptr %1, align 8
   %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 16
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 16
   %98 = load ptr, ptr %97, align 8
   %99 = call noundef i64 %98(ptr noundef nonnull align 8 dereferenceable(8) %95, ptr noundef %83, i64 noundef %25)
   br label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIcEEEEvRKT_.exit
@@ -1250,10 +1250,10 @@ define weak_odr dso_local void @_ZN3ozz9animation8internal5TrackINS_4math6Float2
   %5 = alloca i32, align 4
   %6 = alloca %"class.ozz::log::Err", align 8
   %7 = tail call noundef ptr @_ZN3ozz6memory17default_allocatorEv()
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load ptr, ptr %11, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %9)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
@@ -1292,10 +1292,10 @@ _ZN3ozz3log6LoggerlsIA27_cEERSoRKT_.exit:         ; preds = %14
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %26 = load ptr, ptr %1, align 8
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = call noundef i64 %29(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull %5, i64 noundef 4)
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load i8, ptr %31, align 8
   %33 = trunc i8 %32 to i1
   %34 = load i32, ptr %5, align 4
@@ -1305,7 +1305,7 @@ _ZN3ozz3log6LoggerlsIA27_cEERSoRKT_.exit:         ; preds = %14
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   %36 = load ptr, ptr %1, align 8
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = call noundef i64 %39(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef nonnull %4, i64 noundef 4)
   %41 = load i8, ptr %31, align 8
@@ -1326,30 +1326,30 @@ _ZN3ozz3log6LoggerlsIA27_cEERSoRKT_.exit:         ; preds = %14
   %53 = add nsw i64 %50, %52
   %54 = call noundef ptr @_ZN3ozz6memory17default_allocatorEv()
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %57 = load ptr, ptr %56, align 8
   %58 = call noundef ptr %57(ptr noundef nonnull align 8 dereferenceable(8) %54, i64 noundef %53, i64 noundef 4)
   %.idx.i.i = shl nuw nsw i64 %45, 3
-  %59 = getelementptr inbounds i8, ptr %58, i64 %.idx.i.i
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 %.idx.i.i
   store ptr %58, ptr %8, align 8
-  %60 = getelementptr inbounds i8, ptr %0, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %45, ptr %60, align 8
   %.idx.i12.i = shl nuw nsw i64 %45, 2
-  %61 = getelementptr inbounds i8, ptr %59, i64 %.idx.i12.i
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 %.idx.i12.i
   store ptr %59, ptr %0, align 8
-  %62 = getelementptr inbounds i8, ptr %0, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %45, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %61, i64 %49
-  %64 = getelementptr inbounds i8, ptr %0, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 %49
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %61, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 40
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %49, ptr %65, align 8
   %spec.select.i = select i1 %.not.i, ptr null, ptr %63
-  %66 = getelementptr inbounds i8, ptr %0, i64 48
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %spec.select.i, ptr %66, align 8
   %67 = load ptr, ptr %1, align 8
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %70 = load ptr, ptr %69, align 8
   %71 = call noundef i64 %70(ptr noundef nonnull align 8 dereferenceable(8) %67, ptr noundef %59, i64 noundef %.idx.i12.i)
   %72 = load i8, ptr %31, align 8
@@ -1360,17 +1360,17 @@ _ZN3ozz3log6LoggerlsIA27_cEERSoRKT_.exit:         ; preds = %14
 
 .lr.ph.i.i:                                       ; preds = %25, %.lr.ph.i.i
   %.03940.i.i = phi i64 [ %85, %.lr.ph.i.i ], [ 0, %25 ]
-  %74 = getelementptr inbounds i8, ptr %59, i64 %.03940.i.i
+  %74 = getelementptr inbounds nuw i8, ptr %59, i64 %.03940.i.i
   %75 = or disjoint i64 %.03940.i.i, 3
-  %76 = getelementptr inbounds i8, ptr %59, i64 %75
+  %76 = getelementptr inbounds nuw i8, ptr %59, i64 %75
   %77 = load i8, ptr %74, align 1
   %78 = load i8, ptr %76, align 1
   store i8 %77, ptr %76, align 1
   store i8 %78, ptr %74, align 1
   %79 = or disjoint i64 %.03940.i.i, 1
-  %80 = getelementptr inbounds i8, ptr %59, i64 %79
+  %80 = getelementptr inbounds nuw i8, ptr %59, i64 %79
   %81 = or disjoint i64 %.03940.i.i, 2
-  %82 = getelementptr inbounds i8, ptr %59, i64 %81
+  %82 = getelementptr inbounds nuw i8, ptr %59, i64 %81
   %83 = load i8, ptr %80, align 1
   %84 = load i8, ptr %82, align 1
   store i8 %83, ptr %82, align 1
@@ -1387,7 +1387,7 @@ _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit: ; preds = %.lr.ph.i.i
   %.sroa.2.0.copyload = load i64, ptr %65, align 8
   %87 = load ptr, ptr %1, align 8
   %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %90 = load ptr, ptr %89, align 8
   %91 = call noundef i64 %90(ptr noundef nonnull align 8 dereferenceable(8) %87, ptr noundef %.sroa.0.0.copyload, i64 noundef %.sroa.2.0.copyload)
   %92 = load ptr, ptr %66, align 8
@@ -1397,7 +1397,7 @@ _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit: ; preds = %.lr.ph.i.i
 93:                                               ; preds = %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit
   %94 = load ptr, ptr %1, align 8
   %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %97 = load ptr, ptr %96, align 8
   %98 = call noundef i64 %97(ptr noundef nonnull align 8 dereferenceable(8) %94, ptr noundef nonnull %92, i64 noundef %46)
   %99 = load ptr, ptr %66, align 8
@@ -1421,27 +1421,27 @@ define weak_odr dso_local void @_ZN3ozz9animation8internal5TrackINS_4math6Float2
   %10 = add i64 %7, %9
   %11 = tail call noundef ptr @_ZN3ozz6memory17default_allocatorEv()
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(8) %11, i64 noundef %10, i64 noundef 4)
   %.idx.i = shl nsw i64 %1, 3
   %16 = getelementptr inbounds i8, ptr %15, i64 %.idx.i
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %15, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %1, ptr %18, align 8
   %.idx.i12 = shl nsw i64 %1, 2
   %19 = getelementptr inbounds i8, ptr %16, i64 %.idx.i12
   store ptr %16, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %19, i64 %6
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 %6
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %19, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %6, ptr %23, align 8
   %spec.select = select i1 %.not, ptr null, ptr %21
-  %24 = getelementptr inbounds i8, ptr %0, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %spec.select, ptr %24, align 8
   ret void
 }
@@ -1454,40 +1454,40 @@ define weak_odr dso_local void @_ZN3ozz9animation8internal5TrackINS_4math6Float3
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN3ozz9animation8internal5TrackINS_4math6Float3EEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #3 comdat($_ZN3ozz9animation8internal5TrackINS_4math6Float3EEC5EOS5_) align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   %6 = load ptr, ptr %1, align 8
   store ptr %6, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   %.sroa.0.0.copyload.i5.i = load ptr, ptr %3, align 8
-  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.2.0.copyload.i7.i = load i64, ptr %.sroa.2.0..sroa_idx.i6.i, align 8
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %3, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load i64, ptr %11, align 8
   store i64 %12, ptr %.sroa.2.0..sroa_idx.i6.i, align 8
   store ptr %.sroa.0.0.copyload.i5.i, ptr %9, align 8
   store i64 %.sroa.2.0.copyload.i7.i, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.0.0.copyload.i8.i = load ptr, ptr %4, align 8
-  %.sroa.2.0..sroa_idx.i9.i = getelementptr inbounds i8, ptr %0, i64 40
+  %.sroa.2.0..sroa_idx.i9.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.2.0.copyload.i10.i = load i64, ptr %.sroa.2.0..sroa_idx.i9.i, align 8
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr %4, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %16 = load i64, ptr %15, align 8
   store i64 %16, ptr %.sroa.2.0..sroa_idx.i9.i, align 8
   store ptr %.sroa.0.0.copyload.i8.i, ptr %13, align 8
   store i64 %.sroa.2.0.copyload.i10.i, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %18 = load ptr, ptr %5, align 8
   %19 = load ptr, ptr %17, align 8
   store ptr %19, ptr %5, align 8
@@ -1498,41 +1498,41 @@ define weak_odr dso_local void @_ZN3ozz9animation8internal5TrackINS_4math6Float3
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN3ozz9animation8internal5TrackINS_4math6Float3EEaSEOS5_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) local_unnamed_addr #3 comdat align 2 {
   %.sroa.0.0.copyload.i = load ptr, ptr %0, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
   store i64 %5, ptr %.sroa.2.0..sroa_idx.i, align 8
   store ptr %.sroa.0.0.copyload.i, ptr %1, align 8
   store i64 %.sroa.2.0.copyload.i, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.0.0.copyload.i5 = load ptr, ptr %6, align 8
-  %.sroa.2.0..sroa_idx.i6 = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.2.0..sroa_idx.i6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.2.0.copyload.i7 = load i64, ptr %.sroa.2.0..sroa_idx.i6, align 8
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i64, ptr %9, align 8
   store i64 %10, ptr %.sroa.2.0..sroa_idx.i6, align 8
   store ptr %.sroa.0.0.copyload.i5, ptr %7, align 8
   store i64 %.sroa.2.0.copyload.i7, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
-  %12 = getelementptr inbounds i8, ptr %1, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.0.0.copyload.i8 = load ptr, ptr %11, align 8
-  %.sroa.2.0..sroa_idx.i9 = getelementptr inbounds i8, ptr %0, i64 40
+  %.sroa.2.0..sroa_idx.i9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.2.0.copyload.i10 = load i64, ptr %.sroa.2.0..sroa_idx.i9, align 8
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %15 = load i64, ptr %14, align 8
   store i64 %15, ptr %.sroa.2.0..sroa_idx.i9, align 8
   store ptr %.sroa.0.0.copyload.i8, ptr %12, align 8
   store i64 %.sroa.2.0.copyload.i10, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 48
-  %17 = getelementptr inbounds i8, ptr %1, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %18 = load ptr, ptr %16, align 8
   %19 = load ptr, ptr %17, align 8
   store ptr %19, ptr %16, align 8
@@ -1546,10 +1546,10 @@ define weak_odr dso_local void @_ZN3ozz9animation8internal5TrackINS_4math6Float3
           to label %.noexc unwind label %9
 
 .noexc:                                           ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
   invoke void %7(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %4)
           to label %8 unwind label %9
@@ -1569,10 +1569,10 @@ define weak_odr dso_local void @_ZN3ozz9animation8internal5TrackINS_4math6Float3
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN3ozz9animation8internal5TrackINS_4math6Float3EE10DeallocateEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #3 comdat align 2 {
   %2 = tail call noundef ptr @_ZN3ozz6memory17default_allocatorEv()
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %4)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
@@ -1582,7 +1582,7 @@ define weak_odr dso_local void @_ZN3ozz9animation8internal5TrackINS_4math6Float3
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local { ptr, i64 } @_ZNK3ozz9animation8internal5TrackINS_4math6Float3EE6ratiosEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #3 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %.fca.0.insert.i = insertvalue { ptr, i64 } poison, ptr %2, 0
   %.fca.1.insert.i = insertvalue { ptr, i64 } %.fca.0.insert.i, i64 %4, 1
@@ -1591,9 +1591,9 @@ define weak_odr dso_local { ptr, i64 } @_ZNK3ozz9animation8internal5TrackINS_4ma
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local { ptr, i64 } @_ZNK3ozz9animation8internal5TrackINS_4math6Float3EE6valuesEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
   %.fca.0.insert.i = insertvalue { ptr, i64 } poison, ptr %3, 0
   %.fca.1.insert.i = insertvalue { ptr, i64 } %.fca.0.insert.i, i64 %5, 1
@@ -1602,9 +1602,9 @@ define weak_odr dso_local { ptr, i64 } @_ZNK3ozz9animation8internal5TrackINS_4ma
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local { ptr, i64 } @_ZNK3ozz9animation8internal5TrackINS_4math6Float3EE5stepsEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i64, ptr %4, align 8
   %.fca.0.insert.i = insertvalue { ptr, i64 } poison, ptr %3, 0
   %.fca.1.insert.i = insertvalue { ptr, i64 } %.fca.0.insert.i, i64 %5, 1
@@ -1613,15 +1613,15 @@ define weak_odr dso_local { ptr, i64 } @_ZNK3ozz9animation8internal5TrackINS_4ma
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef i64 @_ZNK3ozz9animation8internal5TrackINS_4math6Float3EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8
   %4 = mul i64 %3, 12
   %5 = add i64 %4, 56
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = shl i64 %7, 2
   %9 = add i64 %5, %8
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load i64, ptr %10, align 8
   %12 = add i64 %9, %11
   ret i64 %12
@@ -1629,7 +1629,7 @@ define weak_odr dso_local noundef i64 @_ZNK3ozz9animation8internal5TrackINS_4mat
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef ptr @_ZNK3ozz9animation8internal5TrackINS_4math6Float3EE4nameEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   %spec.select = select i1 %.not, ptr @.str, ptr %3
@@ -1643,11 +1643,11 @@ define weak_odr dso_local void @_ZNK3ozz9animation8internal5TrackINS_4math6Float
   %5 = alloca float, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = trunc i64 %9 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i8, ptr %11, align 8
   %13 = trunc i8 %12 to i1
   %.sroa.0.0.insert.insert.i = tail call i32 @llvm.bswap.i32(i32 %10)
@@ -1655,11 +1655,11 @@ define weak_odr dso_local void @_ZNK3ozz9animation8internal5TrackINS_4math6Float
   store i32 %14, ptr %7, align 4
   %15 = load ptr, ptr %1, align 8
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = call noundef i64 %18(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull %7, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  %20 = getelementptr inbounds i8, ptr %0, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %21 = load ptr, ptr %20, align 8
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %24, label %22
@@ -1679,7 +1679,7 @@ define weak_odr dso_local void @_ZNK3ozz9animation8internal5TrackINS_4math6Float
   store i32 %29, ptr %6, align 4
   %30 = load ptr, ptr %1, align 8
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load ptr, ptr %32, align 8
   %34 = call noundef i64 %33(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull %6, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
@@ -1726,7 +1726,7 @@ _ZN3ozz2io8OArchivelsEf.exit.i.i:                 ; preds = %41, %.lr.ph.i.i
   store float %51, ptr %5, align 4
   %52 = load ptr, ptr %1, align 8
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load ptr, ptr %54, align 8
   %56 = call noundef i64 %55(ptr noundef nonnull align 8 dereferenceable(8) %52, ptr noundef nonnull %5, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
@@ -1738,20 +1738,20 @@ _ZN3ozz2io8OArchivelsEf.exit.i.i:                 ; preds = %41, %.lr.ph.i.i
   %59 = shl i64 %.sroa.24.0.copyload, 2
   %60 = load ptr, ptr %1, align 8
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %63 = load ptr, ptr %62, align 8
   %64 = call noundef i64 %63(ptr noundef nonnull align 8 dereferenceable(8) %60, ptr noundef %.sroa.03.0.copyload, i64 noundef %59)
   br label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIfEEEEvRKT_.exit
 
 _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIfEEEEvRKT_.exit: ; preds = %_ZN3ozz2io8OArchivelsEf.exit.i.i, %.preheader.i.i, %58
-  %65 = getelementptr inbounds i8, ptr %0, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.01.0.copyload = load ptr, ptr %65, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8
   call void @_ZN3ozz2io6ExternINS_4math6Float3EE4SaveERNS0_8OArchiveEPKS3_m(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef %.sroa.01.0.copyload, i64 noundef %.sroa.22.0.copyload)
-  %66 = getelementptr inbounds i8, ptr %0, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.0.0.copyload = load ptr, ptr %66, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %67 = load i8, ptr %11, align 8
   %68 = trunc i8 %67 to i1
@@ -1769,7 +1769,7 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIfEEEEvRKT_.exit: ; preds = %_ZN3ozz2io
   store i8 %70, ptr %4, align 1
   %71 = load ptr, ptr %1, align 8
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %74 = load ptr, ptr %73, align 8
   %75 = call noundef i64 %74(ptr noundef nonnull align 8 dereferenceable(8) %71, ptr noundef nonnull %4, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
@@ -1780,7 +1780,7 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIfEEEEvRKT_.exit: ; preds = %_ZN3ozz2io
 77:                                               ; preds = %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIfEEEEvRKT_.exit
   %78 = load ptr, ptr %1, align 8
   %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
   %81 = load ptr, ptr %80, align 8
   %82 = call noundef i64 %81(ptr noundef nonnull align 8 dereferenceable(8) %78, ptr noundef %.sroa.0.0.copyload, i64 noundef %.sroa.2.0.copyload)
   br label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIhEEEEvRKT_.exit
@@ -1803,7 +1803,7 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIhEEEEvRKT_.exit: ; preds = %.lr.ph.i.i
   store i8 %87, ptr %3, align 1
   %88 = load ptr, ptr %1, align 8
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %91 = load ptr, ptr %90, align 8
   %92 = call noundef i64 %91(ptr noundef nonnull align 8 dereferenceable(8) %88, ptr noundef nonnull %3, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
@@ -1814,7 +1814,7 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIhEEEEvRKT_.exit: ; preds = %.lr.ph.i.i
 94:                                               ; preds = %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIhEEEEvRKT_.exit
   %95 = load ptr, ptr %1, align 8
   %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 16
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 16
   %98 = load ptr, ptr %97, align 8
   %99 = call noundef i64 %98(ptr noundef nonnull align 8 dereferenceable(8) %95, ptr noundef %83, i64 noundef %25)
   br label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIcEEEEvRKT_.exit
@@ -1829,10 +1829,10 @@ define weak_odr dso_local void @_ZN3ozz9animation8internal5TrackINS_4math6Float3
   %5 = alloca i32, align 4
   %6 = alloca %"class.ozz::log::Err", align 8
   %7 = tail call noundef ptr @_ZN3ozz6memory17default_allocatorEv()
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load ptr, ptr %11, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %9)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
@@ -1871,10 +1871,10 @@ _ZN3ozz3log6LoggerlsIA27_cEERSoRKT_.exit:         ; preds = %14
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %26 = load ptr, ptr %1, align 8
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = call noundef i64 %29(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull %5, i64 noundef 4)
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load i8, ptr %31, align 8
   %33 = trunc i8 %32 to i1
   %34 = load i32, ptr %5, align 4
@@ -1884,7 +1884,7 @@ _ZN3ozz3log6LoggerlsIA27_cEERSoRKT_.exit:         ; preds = %14
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   %36 = load ptr, ptr %1, align 8
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = call noundef i64 %39(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef nonnull %4, i64 noundef 4)
   %41 = load i8, ptr %31, align 8
@@ -1905,30 +1905,30 @@ _ZN3ozz3log6LoggerlsIA27_cEERSoRKT_.exit:         ; preds = %14
   %53 = add nsw i64 %50, %52
   %54 = call noundef ptr @_ZN3ozz6memory17default_allocatorEv()
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %57 = load ptr, ptr %56, align 8
   %58 = call noundef ptr %57(ptr noundef nonnull align 8 dereferenceable(8) %54, i64 noundef %53, i64 noundef 4)
   %.idx.i.i = mul nuw nsw i64 %45, 12
-  %59 = getelementptr inbounds i8, ptr %58, i64 %.idx.i.i
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 %.idx.i.i
   store ptr %58, ptr %8, align 8
-  %60 = getelementptr inbounds i8, ptr %0, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %45, ptr %60, align 8
   %.idx.i12.i = shl nuw nsw i64 %45, 2
-  %61 = getelementptr inbounds i8, ptr %59, i64 %.idx.i12.i
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 %.idx.i12.i
   store ptr %59, ptr %0, align 8
-  %62 = getelementptr inbounds i8, ptr %0, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %45, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %61, i64 %49
-  %64 = getelementptr inbounds i8, ptr %0, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 %49
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %61, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 40
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %49, ptr %65, align 8
   %spec.select.i = select i1 %.not.i, ptr null, ptr %63
-  %66 = getelementptr inbounds i8, ptr %0, i64 48
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %spec.select.i, ptr %66, align 8
   %67 = load ptr, ptr %1, align 8
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %70 = load ptr, ptr %69, align 8
   %71 = call noundef i64 %70(ptr noundef nonnull align 8 dereferenceable(8) %67, ptr noundef %59, i64 noundef %.idx.i12.i)
   %72 = load i8, ptr %31, align 8
@@ -1939,17 +1939,17 @@ _ZN3ozz3log6LoggerlsIA27_cEERSoRKT_.exit:         ; preds = %14
 
 .lr.ph.i.i:                                       ; preds = %25, %.lr.ph.i.i
   %.03940.i.i = phi i64 [ %85, %.lr.ph.i.i ], [ 0, %25 ]
-  %74 = getelementptr inbounds i8, ptr %59, i64 %.03940.i.i
+  %74 = getelementptr inbounds nuw i8, ptr %59, i64 %.03940.i.i
   %75 = or disjoint i64 %.03940.i.i, 3
-  %76 = getelementptr inbounds i8, ptr %59, i64 %75
+  %76 = getelementptr inbounds nuw i8, ptr %59, i64 %75
   %77 = load i8, ptr %74, align 1
   %78 = load i8, ptr %76, align 1
   store i8 %77, ptr %76, align 1
   store i8 %78, ptr %74, align 1
   %79 = or disjoint i64 %.03940.i.i, 1
-  %80 = getelementptr inbounds i8, ptr %59, i64 %79
+  %80 = getelementptr inbounds nuw i8, ptr %59, i64 %79
   %81 = or disjoint i64 %.03940.i.i, 2
-  %82 = getelementptr inbounds i8, ptr %59, i64 %81
+  %82 = getelementptr inbounds nuw i8, ptr %59, i64 %81
   %83 = load i8, ptr %80, align 1
   %84 = load i8, ptr %82, align 1
   store i8 %83, ptr %82, align 1
@@ -1966,7 +1966,7 @@ _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit: ; preds = %.lr.ph.i.i
   %.sroa.2.0.copyload = load i64, ptr %65, align 8
   %87 = load ptr, ptr %1, align 8
   %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %90 = load ptr, ptr %89, align 8
   %91 = call noundef i64 %90(ptr noundef nonnull align 8 dereferenceable(8) %87, ptr noundef %.sroa.0.0.copyload, i64 noundef %.sroa.2.0.copyload)
   %92 = load ptr, ptr %66, align 8
@@ -1976,7 +1976,7 @@ _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit: ; preds = %.lr.ph.i.i
 93:                                               ; preds = %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit
   %94 = load ptr, ptr %1, align 8
   %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %97 = load ptr, ptr %96, align 8
   %98 = call noundef i64 %97(ptr noundef nonnull align 8 dereferenceable(8) %94, ptr noundef nonnull %92, i64 noundef %46)
   %99 = load ptr, ptr %66, align 8
@@ -2000,27 +2000,27 @@ define weak_odr dso_local void @_ZN3ozz9animation8internal5TrackINS_4math6Float3
   %10 = add i64 %7, %9
   %11 = tail call noundef ptr @_ZN3ozz6memory17default_allocatorEv()
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(8) %11, i64 noundef %10, i64 noundef 4)
   %.idx.i = mul nsw i64 %1, 12
   %16 = getelementptr inbounds i8, ptr %15, i64 %.idx.i
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %15, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %1, ptr %18, align 8
   %.idx.i12 = shl nsw i64 %1, 2
   %19 = getelementptr inbounds i8, ptr %16, i64 %.idx.i12
   store ptr %16, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %19, i64 %6
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 %6
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %19, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %6, ptr %23, align 8
   %spec.select = select i1 %.not, ptr null, ptr %21
-  %24 = getelementptr inbounds i8, ptr %0, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %spec.select, ptr %24, align 8
   ret void
 }
@@ -2033,40 +2033,40 @@ define weak_odr dso_local void @_ZN3ozz9animation8internal5TrackINS_4math6Float4
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN3ozz9animation8internal5TrackINS_4math6Float4EEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #3 comdat($_ZN3ozz9animation8internal5TrackINS_4math6Float4EEC5EOS5_) align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   %6 = load ptr, ptr %1, align 8
   store ptr %6, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   %.sroa.0.0.copyload.i5.i = load ptr, ptr %3, align 8
-  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.2.0.copyload.i7.i = load i64, ptr %.sroa.2.0..sroa_idx.i6.i, align 8
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %3, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load i64, ptr %11, align 8
   store i64 %12, ptr %.sroa.2.0..sroa_idx.i6.i, align 8
   store ptr %.sroa.0.0.copyload.i5.i, ptr %9, align 8
   store i64 %.sroa.2.0.copyload.i7.i, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.0.0.copyload.i8.i = load ptr, ptr %4, align 8
-  %.sroa.2.0..sroa_idx.i9.i = getelementptr inbounds i8, ptr %0, i64 40
+  %.sroa.2.0..sroa_idx.i9.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.2.0.copyload.i10.i = load i64, ptr %.sroa.2.0..sroa_idx.i9.i, align 8
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr %4, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %16 = load i64, ptr %15, align 8
   store i64 %16, ptr %.sroa.2.0..sroa_idx.i9.i, align 8
   store ptr %.sroa.0.0.copyload.i8.i, ptr %13, align 8
   store i64 %.sroa.2.0.copyload.i10.i, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %18 = load ptr, ptr %5, align 8
   %19 = load ptr, ptr %17, align 8
   store ptr %19, ptr %5, align 8
@@ -2077,41 +2077,41 @@ define weak_odr dso_local void @_ZN3ozz9animation8internal5TrackINS_4math6Float4
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN3ozz9animation8internal5TrackINS_4math6Float4EEaSEOS5_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) local_unnamed_addr #3 comdat align 2 {
   %.sroa.0.0.copyload.i = load ptr, ptr %0, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
   store i64 %5, ptr %.sroa.2.0..sroa_idx.i, align 8
   store ptr %.sroa.0.0.copyload.i, ptr %1, align 8
   store i64 %.sroa.2.0.copyload.i, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.0.0.copyload.i5 = load ptr, ptr %6, align 8
-  %.sroa.2.0..sroa_idx.i6 = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.2.0..sroa_idx.i6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.2.0.copyload.i7 = load i64, ptr %.sroa.2.0..sroa_idx.i6, align 8
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i64, ptr %9, align 8
   store i64 %10, ptr %.sroa.2.0..sroa_idx.i6, align 8
   store ptr %.sroa.0.0.copyload.i5, ptr %7, align 8
   store i64 %.sroa.2.0.copyload.i7, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
-  %12 = getelementptr inbounds i8, ptr %1, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.0.0.copyload.i8 = load ptr, ptr %11, align 8
-  %.sroa.2.0..sroa_idx.i9 = getelementptr inbounds i8, ptr %0, i64 40
+  %.sroa.2.0..sroa_idx.i9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.2.0.copyload.i10 = load i64, ptr %.sroa.2.0..sroa_idx.i9, align 8
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %15 = load i64, ptr %14, align 8
   store i64 %15, ptr %.sroa.2.0..sroa_idx.i9, align 8
   store ptr %.sroa.0.0.copyload.i8, ptr %12, align 8
   store i64 %.sroa.2.0.copyload.i10, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 48
-  %17 = getelementptr inbounds i8, ptr %1, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %18 = load ptr, ptr %16, align 8
   %19 = load ptr, ptr %17, align 8
   store ptr %19, ptr %16, align 8
@@ -2125,10 +2125,10 @@ define weak_odr dso_local void @_ZN3ozz9animation8internal5TrackINS_4math6Float4
           to label %.noexc unwind label %9
 
 .noexc:                                           ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
   invoke void %7(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %4)
           to label %8 unwind label %9
@@ -2148,10 +2148,10 @@ define weak_odr dso_local void @_ZN3ozz9animation8internal5TrackINS_4math6Float4
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN3ozz9animation8internal5TrackINS_4math6Float4EE10DeallocateEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #3 comdat align 2 {
   %2 = tail call noundef ptr @_ZN3ozz6memory17default_allocatorEv()
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %4)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
@@ -2161,7 +2161,7 @@ define weak_odr dso_local void @_ZN3ozz9animation8internal5TrackINS_4math6Float4
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local { ptr, i64 } @_ZNK3ozz9animation8internal5TrackINS_4math6Float4EE6ratiosEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #3 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %.fca.0.insert.i = insertvalue { ptr, i64 } poison, ptr %2, 0
   %.fca.1.insert.i = insertvalue { ptr, i64 } %.fca.0.insert.i, i64 %4, 1
@@ -2170,9 +2170,9 @@ define weak_odr dso_local { ptr, i64 } @_ZNK3ozz9animation8internal5TrackINS_4ma
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local { ptr, i64 } @_ZNK3ozz9animation8internal5TrackINS_4math6Float4EE6valuesEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
   %.fca.0.insert.i = insertvalue { ptr, i64 } poison, ptr %3, 0
   %.fca.1.insert.i = insertvalue { ptr, i64 } %.fca.0.insert.i, i64 %5, 1
@@ -2181,9 +2181,9 @@ define weak_odr dso_local { ptr, i64 } @_ZNK3ozz9animation8internal5TrackINS_4ma
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local { ptr, i64 } @_ZNK3ozz9animation8internal5TrackINS_4math6Float4EE5stepsEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i64, ptr %4, align 8
   %.fca.0.insert.i = insertvalue { ptr, i64 } poison, ptr %3, 0
   %.fca.1.insert.i = insertvalue { ptr, i64 } %.fca.0.insert.i, i64 %5, 1
@@ -2192,15 +2192,15 @@ define weak_odr dso_local { ptr, i64 } @_ZNK3ozz9animation8internal5TrackINS_4ma
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef i64 @_ZNK3ozz9animation8internal5TrackINS_4math6Float4EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8
   %4 = shl i64 %3, 4
   %5 = add i64 %4, 56
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = shl i64 %7, 2
   %9 = add i64 %5, %8
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load i64, ptr %10, align 8
   %12 = add i64 %9, %11
   ret i64 %12
@@ -2208,7 +2208,7 @@ define weak_odr dso_local noundef i64 @_ZNK3ozz9animation8internal5TrackINS_4mat
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef ptr @_ZNK3ozz9animation8internal5TrackINS_4math6Float4EE4nameEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   %spec.select = select i1 %.not, ptr @.str, ptr %3
@@ -2222,11 +2222,11 @@ define weak_odr dso_local void @_ZNK3ozz9animation8internal5TrackINS_4math6Float
   %5 = alloca float, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = trunc i64 %9 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i8, ptr %11, align 8
   %13 = trunc i8 %12 to i1
   %.sroa.0.0.insert.insert.i = tail call i32 @llvm.bswap.i32(i32 %10)
@@ -2234,11 +2234,11 @@ define weak_odr dso_local void @_ZNK3ozz9animation8internal5TrackINS_4math6Float
   store i32 %14, ptr %7, align 4
   %15 = load ptr, ptr %1, align 8
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = call noundef i64 %18(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull %7, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  %20 = getelementptr inbounds i8, ptr %0, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %21 = load ptr, ptr %20, align 8
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %24, label %22
@@ -2258,7 +2258,7 @@ define weak_odr dso_local void @_ZNK3ozz9animation8internal5TrackINS_4math6Float
   store i32 %29, ptr %6, align 4
   %30 = load ptr, ptr %1, align 8
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load ptr, ptr %32, align 8
   %34 = call noundef i64 %33(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull %6, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
@@ -2305,7 +2305,7 @@ _ZN3ozz2io8OArchivelsEf.exit.i.i:                 ; preds = %41, %.lr.ph.i.i
   store float %51, ptr %5, align 4
   %52 = load ptr, ptr %1, align 8
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load ptr, ptr %54, align 8
   %56 = call noundef i64 %55(ptr noundef nonnull align 8 dereferenceable(8) %52, ptr noundef nonnull %5, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
@@ -2317,20 +2317,20 @@ _ZN3ozz2io8OArchivelsEf.exit.i.i:                 ; preds = %41, %.lr.ph.i.i
   %59 = shl i64 %.sroa.24.0.copyload, 2
   %60 = load ptr, ptr %1, align 8
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %63 = load ptr, ptr %62, align 8
   %64 = call noundef i64 %63(ptr noundef nonnull align 8 dereferenceable(8) %60, ptr noundef %.sroa.03.0.copyload, i64 noundef %59)
   br label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIfEEEEvRKT_.exit
 
 _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIfEEEEvRKT_.exit: ; preds = %_ZN3ozz2io8OArchivelsEf.exit.i.i, %.preheader.i.i, %58
-  %65 = getelementptr inbounds i8, ptr %0, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.01.0.copyload = load ptr, ptr %65, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8
   call void @_ZN3ozz2io6ExternINS_4math6Float4EE4SaveERNS0_8OArchiveEPKS3_m(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef %.sroa.01.0.copyload, i64 noundef %.sroa.22.0.copyload)
-  %66 = getelementptr inbounds i8, ptr %0, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.0.0.copyload = load ptr, ptr %66, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %67 = load i8, ptr %11, align 8
   %68 = trunc i8 %67 to i1
@@ -2348,7 +2348,7 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIfEEEEvRKT_.exit: ; preds = %_ZN3ozz2io
   store i8 %70, ptr %4, align 1
   %71 = load ptr, ptr %1, align 8
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %74 = load ptr, ptr %73, align 8
   %75 = call noundef i64 %74(ptr noundef nonnull align 8 dereferenceable(8) %71, ptr noundef nonnull %4, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
@@ -2359,7 +2359,7 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIfEEEEvRKT_.exit: ; preds = %_ZN3ozz2io
 77:                                               ; preds = %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIfEEEEvRKT_.exit
   %78 = load ptr, ptr %1, align 8
   %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
   %81 = load ptr, ptr %80, align 8
   %82 = call noundef i64 %81(ptr noundef nonnull align 8 dereferenceable(8) %78, ptr noundef %.sroa.0.0.copyload, i64 noundef %.sroa.2.0.copyload)
   br label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIhEEEEvRKT_.exit
@@ -2382,7 +2382,7 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIhEEEEvRKT_.exit: ; preds = %.lr.ph.i.i
   store i8 %87, ptr %3, align 1
   %88 = load ptr, ptr %1, align 8
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %91 = load ptr, ptr %90, align 8
   %92 = call noundef i64 %91(ptr noundef nonnull align 8 dereferenceable(8) %88, ptr noundef nonnull %3, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
@@ -2393,7 +2393,7 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIhEEEEvRKT_.exit: ; preds = %.lr.ph.i.i
 94:                                               ; preds = %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIhEEEEvRKT_.exit
   %95 = load ptr, ptr %1, align 8
   %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 16
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 16
   %98 = load ptr, ptr %97, align 8
   %99 = call noundef i64 %98(ptr noundef nonnull align 8 dereferenceable(8) %95, ptr noundef %83, i64 noundef %25)
   br label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIcEEEEvRKT_.exit
@@ -2408,10 +2408,10 @@ define weak_odr dso_local void @_ZN3ozz9animation8internal5TrackINS_4math6Float4
   %5 = alloca i32, align 4
   %6 = alloca %"class.ozz::log::Err", align 8
   %7 = tail call noundef ptr @_ZN3ozz6memory17default_allocatorEv()
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load ptr, ptr %11, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %9)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
@@ -2450,10 +2450,10 @@ _ZN3ozz3log6LoggerlsIA27_cEERSoRKT_.exit:         ; preds = %14
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %26 = load ptr, ptr %1, align 8
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = call noundef i64 %29(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull %5, i64 noundef 4)
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load i8, ptr %31, align 8
   %33 = trunc i8 %32 to i1
   %34 = load i32, ptr %5, align 4
@@ -2463,7 +2463,7 @@ _ZN3ozz3log6LoggerlsIA27_cEERSoRKT_.exit:         ; preds = %14
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   %36 = load ptr, ptr %1, align 8
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = call noundef i64 %39(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef nonnull %4, i64 noundef 4)
   %41 = load i8, ptr %31, align 8
@@ -2484,30 +2484,30 @@ _ZN3ozz3log6LoggerlsIA27_cEERSoRKT_.exit:         ; preds = %14
   %53 = add nsw i64 %50, %52
   %54 = call noundef ptr @_ZN3ozz6memory17default_allocatorEv()
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %57 = load ptr, ptr %56, align 8
   %58 = call noundef ptr %57(ptr noundef nonnull align 8 dereferenceable(8) %54, i64 noundef %53, i64 noundef 4)
   %.idx.i.i = shl nuw nsw i64 %45, 4
-  %59 = getelementptr inbounds i8, ptr %58, i64 %.idx.i.i
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 %.idx.i.i
   store ptr %58, ptr %8, align 8
-  %60 = getelementptr inbounds i8, ptr %0, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %45, ptr %60, align 8
   %.idx.i12.i = shl nuw nsw i64 %45, 2
-  %61 = getelementptr inbounds i8, ptr %59, i64 %.idx.i12.i
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 %.idx.i12.i
   store ptr %59, ptr %0, align 8
-  %62 = getelementptr inbounds i8, ptr %0, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %45, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %61, i64 %49
-  %64 = getelementptr inbounds i8, ptr %0, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 %49
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %61, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 40
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %49, ptr %65, align 8
   %spec.select.i = select i1 %.not.i, ptr null, ptr %63
-  %66 = getelementptr inbounds i8, ptr %0, i64 48
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %spec.select.i, ptr %66, align 8
   %67 = load ptr, ptr %1, align 8
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %70 = load ptr, ptr %69, align 8
   %71 = call noundef i64 %70(ptr noundef nonnull align 8 dereferenceable(8) %67, ptr noundef %59, i64 noundef %.idx.i12.i)
   %72 = load i8, ptr %31, align 8
@@ -2518,17 +2518,17 @@ _ZN3ozz3log6LoggerlsIA27_cEERSoRKT_.exit:         ; preds = %14
 
 .lr.ph.i.i:                                       ; preds = %25, %.lr.ph.i.i
   %.03940.i.i = phi i64 [ %85, %.lr.ph.i.i ], [ 0, %25 ]
-  %74 = getelementptr inbounds i8, ptr %59, i64 %.03940.i.i
+  %74 = getelementptr inbounds nuw i8, ptr %59, i64 %.03940.i.i
   %75 = or disjoint i64 %.03940.i.i, 3
-  %76 = getelementptr inbounds i8, ptr %59, i64 %75
+  %76 = getelementptr inbounds nuw i8, ptr %59, i64 %75
   %77 = load i8, ptr %74, align 1
   %78 = load i8, ptr %76, align 1
   store i8 %77, ptr %76, align 1
   store i8 %78, ptr %74, align 1
   %79 = or disjoint i64 %.03940.i.i, 1
-  %80 = getelementptr inbounds i8, ptr %59, i64 %79
+  %80 = getelementptr inbounds nuw i8, ptr %59, i64 %79
   %81 = or disjoint i64 %.03940.i.i, 2
-  %82 = getelementptr inbounds i8, ptr %59, i64 %81
+  %82 = getelementptr inbounds nuw i8, ptr %59, i64 %81
   %83 = load i8, ptr %80, align 1
   %84 = load i8, ptr %82, align 1
   store i8 %83, ptr %82, align 1
@@ -2545,7 +2545,7 @@ _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit: ; preds = %.lr.ph.i.i
   %.sroa.2.0.copyload = load i64, ptr %65, align 8
   %87 = load ptr, ptr %1, align 8
   %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %90 = load ptr, ptr %89, align 8
   %91 = call noundef i64 %90(ptr noundef nonnull align 8 dereferenceable(8) %87, ptr noundef %.sroa.0.0.copyload, i64 noundef %.sroa.2.0.copyload)
   %92 = load ptr, ptr %66, align 8
@@ -2555,7 +2555,7 @@ _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit: ; preds = %.lr.ph.i.i
 93:                                               ; preds = %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit
   %94 = load ptr, ptr %1, align 8
   %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %97 = load ptr, ptr %96, align 8
   %98 = call noundef i64 %97(ptr noundef nonnull align 8 dereferenceable(8) %94, ptr noundef nonnull %92, i64 noundef %46)
   %99 = load ptr, ptr %66, align 8
@@ -2579,27 +2579,27 @@ define weak_odr dso_local void @_ZN3ozz9animation8internal5TrackINS_4math6Float4
   %10 = add i64 %7, %9
   %11 = tail call noundef ptr @_ZN3ozz6memory17default_allocatorEv()
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(8) %11, i64 noundef %10, i64 noundef 4)
   %.idx.i = shl nsw i64 %1, 4
   %16 = getelementptr inbounds i8, ptr %15, i64 %.idx.i
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %15, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %1, ptr %18, align 8
   %.idx.i12 = shl nsw i64 %1, 2
   %19 = getelementptr inbounds i8, ptr %16, i64 %.idx.i12
   store ptr %16, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %19, i64 %6
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 %6
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %19, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %6, ptr %23, align 8
   %spec.select = select i1 %.not, ptr null, ptr %21
-  %24 = getelementptr inbounds i8, ptr %0, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %spec.select, ptr %24, align 8
   ret void
 }
@@ -2612,40 +2612,40 @@ define weak_odr dso_local void @_ZN3ozz9animation8internal5TrackINS_4math10Quate
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN3ozz9animation8internal5TrackINS_4math10QuaternionEEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #3 comdat($_ZN3ozz9animation8internal5TrackINS_4math10QuaternionEEC5EOS5_) align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   %6 = load ptr, ptr %1, align 8
   store ptr %6, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   %.sroa.0.0.copyload.i5.i = load ptr, ptr %3, align 8
-  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.2.0.copyload.i7.i = load i64, ptr %.sroa.2.0..sroa_idx.i6.i, align 8
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %3, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load i64, ptr %11, align 8
   store i64 %12, ptr %.sroa.2.0..sroa_idx.i6.i, align 8
   store ptr %.sroa.0.0.copyload.i5.i, ptr %9, align 8
   store i64 %.sroa.2.0.copyload.i7.i, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.0.0.copyload.i8.i = load ptr, ptr %4, align 8
-  %.sroa.2.0..sroa_idx.i9.i = getelementptr inbounds i8, ptr %0, i64 40
+  %.sroa.2.0..sroa_idx.i9.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.2.0.copyload.i10.i = load i64, ptr %.sroa.2.0..sroa_idx.i9.i, align 8
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr %4, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %16 = load i64, ptr %15, align 8
   store i64 %16, ptr %.sroa.2.0..sroa_idx.i9.i, align 8
   store ptr %.sroa.0.0.copyload.i8.i, ptr %13, align 8
   store i64 %.sroa.2.0.copyload.i10.i, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %18 = load ptr, ptr %5, align 8
   %19 = load ptr, ptr %17, align 8
   store ptr %19, ptr %5, align 8
@@ -2656,41 +2656,41 @@ define weak_odr dso_local void @_ZN3ozz9animation8internal5TrackINS_4math10Quate
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN3ozz9animation8internal5TrackINS_4math10QuaternionEEaSEOS5_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) local_unnamed_addr #3 comdat align 2 {
   %.sroa.0.0.copyload.i = load ptr, ptr %0, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
   store i64 %5, ptr %.sroa.2.0..sroa_idx.i, align 8
   store ptr %.sroa.0.0.copyload.i, ptr %1, align 8
   store i64 %.sroa.2.0.copyload.i, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.0.0.copyload.i5 = load ptr, ptr %6, align 8
-  %.sroa.2.0..sroa_idx.i6 = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.2.0..sroa_idx.i6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.2.0.copyload.i7 = load i64, ptr %.sroa.2.0..sroa_idx.i6, align 8
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i64, ptr %9, align 8
   store i64 %10, ptr %.sroa.2.0..sroa_idx.i6, align 8
   store ptr %.sroa.0.0.copyload.i5, ptr %7, align 8
   store i64 %.sroa.2.0.copyload.i7, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
-  %12 = getelementptr inbounds i8, ptr %1, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.0.0.copyload.i8 = load ptr, ptr %11, align 8
-  %.sroa.2.0..sroa_idx.i9 = getelementptr inbounds i8, ptr %0, i64 40
+  %.sroa.2.0..sroa_idx.i9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.2.0.copyload.i10 = load i64, ptr %.sroa.2.0..sroa_idx.i9, align 8
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %15 = load i64, ptr %14, align 8
   store i64 %15, ptr %.sroa.2.0..sroa_idx.i9, align 8
   store ptr %.sroa.0.0.copyload.i8, ptr %12, align 8
   store i64 %.sroa.2.0.copyload.i10, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 48
-  %17 = getelementptr inbounds i8, ptr %1, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %18 = load ptr, ptr %16, align 8
   %19 = load ptr, ptr %17, align 8
   store ptr %19, ptr %16, align 8
@@ -2704,10 +2704,10 @@ define weak_odr dso_local void @_ZN3ozz9animation8internal5TrackINS_4math10Quate
           to label %.noexc unwind label %9
 
 .noexc:                                           ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
   invoke void %7(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %4)
           to label %8 unwind label %9
@@ -2727,10 +2727,10 @@ define weak_odr dso_local void @_ZN3ozz9animation8internal5TrackINS_4math10Quate
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN3ozz9animation8internal5TrackINS_4math10QuaternionEE10DeallocateEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #3 comdat align 2 {
   %2 = tail call noundef ptr @_ZN3ozz6memory17default_allocatorEv()
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %4)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
@@ -2740,7 +2740,7 @@ define weak_odr dso_local void @_ZN3ozz9animation8internal5TrackINS_4math10Quate
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local { ptr, i64 } @_ZNK3ozz9animation8internal5TrackINS_4math10QuaternionEE6ratiosEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #3 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %.fca.0.insert.i = insertvalue { ptr, i64 } poison, ptr %2, 0
   %.fca.1.insert.i = insertvalue { ptr, i64 } %.fca.0.insert.i, i64 %4, 1
@@ -2749,9 +2749,9 @@ define weak_odr dso_local { ptr, i64 } @_ZNK3ozz9animation8internal5TrackINS_4ma
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local { ptr, i64 } @_ZNK3ozz9animation8internal5TrackINS_4math10QuaternionEE6valuesEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
   %.fca.0.insert.i = insertvalue { ptr, i64 } poison, ptr %3, 0
   %.fca.1.insert.i = insertvalue { ptr, i64 } %.fca.0.insert.i, i64 %5, 1
@@ -2760,9 +2760,9 @@ define weak_odr dso_local { ptr, i64 } @_ZNK3ozz9animation8internal5TrackINS_4ma
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local { ptr, i64 } @_ZNK3ozz9animation8internal5TrackINS_4math10QuaternionEE5stepsEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i64, ptr %4, align 8
   %.fca.0.insert.i = insertvalue { ptr, i64 } poison, ptr %3, 0
   %.fca.1.insert.i = insertvalue { ptr, i64 } %.fca.0.insert.i, i64 %5, 1
@@ -2771,15 +2771,15 @@ define weak_odr dso_local { ptr, i64 } @_ZNK3ozz9animation8internal5TrackINS_4ma
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef i64 @_ZNK3ozz9animation8internal5TrackINS_4math10QuaternionEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8
   %4 = shl i64 %3, 4
   %5 = add i64 %4, 56
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = shl i64 %7, 2
   %9 = add i64 %5, %8
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load i64, ptr %10, align 8
   %12 = add i64 %9, %11
   ret i64 %12
@@ -2787,7 +2787,7 @@ define weak_odr dso_local noundef i64 @_ZNK3ozz9animation8internal5TrackINS_4mat
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef ptr @_ZNK3ozz9animation8internal5TrackINS_4math10QuaternionEE4nameEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   %spec.select = select i1 %.not, ptr @.str, ptr %3
@@ -2801,11 +2801,11 @@ define weak_odr dso_local void @_ZNK3ozz9animation8internal5TrackINS_4math10Quat
   %5 = alloca float, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = trunc i64 %9 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i8, ptr %11, align 8
   %13 = trunc i8 %12 to i1
   %.sroa.0.0.insert.insert.i = tail call i32 @llvm.bswap.i32(i32 %10)
@@ -2813,11 +2813,11 @@ define weak_odr dso_local void @_ZNK3ozz9animation8internal5TrackINS_4math10Quat
   store i32 %14, ptr %7, align 4
   %15 = load ptr, ptr %1, align 8
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = call noundef i64 %18(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull %7, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  %20 = getelementptr inbounds i8, ptr %0, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %21 = load ptr, ptr %20, align 8
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %24, label %22
@@ -2837,7 +2837,7 @@ define weak_odr dso_local void @_ZNK3ozz9animation8internal5TrackINS_4math10Quat
   store i32 %29, ptr %6, align 4
   %30 = load ptr, ptr %1, align 8
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load ptr, ptr %32, align 8
   %34 = call noundef i64 %33(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull %6, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
@@ -2884,7 +2884,7 @@ _ZN3ozz2io8OArchivelsEf.exit.i.i:                 ; preds = %41, %.lr.ph.i.i
   store float %51, ptr %5, align 4
   %52 = load ptr, ptr %1, align 8
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load ptr, ptr %54, align 8
   %56 = call noundef i64 %55(ptr noundef nonnull align 8 dereferenceable(8) %52, ptr noundef nonnull %5, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
@@ -2896,20 +2896,20 @@ _ZN3ozz2io8OArchivelsEf.exit.i.i:                 ; preds = %41, %.lr.ph.i.i
   %59 = shl i64 %.sroa.24.0.copyload, 2
   %60 = load ptr, ptr %1, align 8
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %63 = load ptr, ptr %62, align 8
   %64 = call noundef i64 %63(ptr noundef nonnull align 8 dereferenceable(8) %60, ptr noundef %.sroa.03.0.copyload, i64 noundef %59)
   br label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIfEEEEvRKT_.exit
 
 _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIfEEEEvRKT_.exit: ; preds = %_ZN3ozz2io8OArchivelsEf.exit.i.i, %.preheader.i.i, %58
-  %65 = getelementptr inbounds i8, ptr %0, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.01.0.copyload = load ptr, ptr %65, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8
   call void @_ZN3ozz2io6ExternINS_4math10QuaternionEE4SaveERNS0_8OArchiveEPKS3_m(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef %.sroa.01.0.copyload, i64 noundef %.sroa.22.0.copyload)
-  %66 = getelementptr inbounds i8, ptr %0, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.0.0.copyload = load ptr, ptr %66, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %67 = load i8, ptr %11, align 8
   %68 = trunc i8 %67 to i1
@@ -2927,7 +2927,7 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIfEEEEvRKT_.exit: ; preds = %_ZN3ozz2io
   store i8 %70, ptr %4, align 1
   %71 = load ptr, ptr %1, align 8
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %74 = load ptr, ptr %73, align 8
   %75 = call noundef i64 %74(ptr noundef nonnull align 8 dereferenceable(8) %71, ptr noundef nonnull %4, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
@@ -2938,7 +2938,7 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIfEEEEvRKT_.exit: ; preds = %_ZN3ozz2io
 77:                                               ; preds = %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIfEEEEvRKT_.exit
   %78 = load ptr, ptr %1, align 8
   %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
   %81 = load ptr, ptr %80, align 8
   %82 = call noundef i64 %81(ptr noundef nonnull align 8 dereferenceable(8) %78, ptr noundef %.sroa.0.0.copyload, i64 noundef %.sroa.2.0.copyload)
   br label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIhEEEEvRKT_.exit
@@ -2961,7 +2961,7 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIhEEEEvRKT_.exit: ; preds = %.lr.ph.i.i
   store i8 %87, ptr %3, align 1
   %88 = load ptr, ptr %1, align 8
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %91 = load ptr, ptr %90, align 8
   %92 = call noundef i64 %91(ptr noundef nonnull align 8 dereferenceable(8) %88, ptr noundef nonnull %3, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
@@ -2972,7 +2972,7 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIhEEEEvRKT_.exit: ; preds = %.lr.ph.i.i
 94:                                               ; preds = %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIhEEEEvRKT_.exit
   %95 = load ptr, ptr %1, align 8
   %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 16
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 16
   %98 = load ptr, ptr %97, align 8
   %99 = call noundef i64 %98(ptr noundef nonnull align 8 dereferenceable(8) %95, ptr noundef %83, i64 noundef %25)
   br label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIcEEEEvRKT_.exit
@@ -2987,10 +2987,10 @@ define weak_odr dso_local void @_ZN3ozz9animation8internal5TrackINS_4math10Quate
   %5 = alloca i32, align 4
   %6 = alloca %"class.ozz::log::Err", align 8
   %7 = tail call noundef ptr @_ZN3ozz6memory17default_allocatorEv()
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load ptr, ptr %11, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %9)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
@@ -3029,10 +3029,10 @@ _ZN3ozz3log6LoggerlsIA27_cEERSoRKT_.exit:         ; preds = %14
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %26 = load ptr, ptr %1, align 8
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = call noundef i64 %29(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull %5, i64 noundef 4)
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load i8, ptr %31, align 8
   %33 = trunc i8 %32 to i1
   %34 = load i32, ptr %5, align 4
@@ -3042,7 +3042,7 @@ _ZN3ozz3log6LoggerlsIA27_cEERSoRKT_.exit:         ; preds = %14
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   %36 = load ptr, ptr %1, align 8
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = call noundef i64 %39(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef nonnull %4, i64 noundef 4)
   %41 = load i8, ptr %31, align 8
@@ -3063,30 +3063,30 @@ _ZN3ozz3log6LoggerlsIA27_cEERSoRKT_.exit:         ; preds = %14
   %53 = add nsw i64 %50, %52
   %54 = call noundef ptr @_ZN3ozz6memory17default_allocatorEv()
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %57 = load ptr, ptr %56, align 8
   %58 = call noundef ptr %57(ptr noundef nonnull align 8 dereferenceable(8) %54, i64 noundef %53, i64 noundef 4)
   %.idx.i.i = shl nuw nsw i64 %45, 4
-  %59 = getelementptr inbounds i8, ptr %58, i64 %.idx.i.i
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 %.idx.i.i
   store ptr %58, ptr %8, align 8
-  %60 = getelementptr inbounds i8, ptr %0, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %45, ptr %60, align 8
   %.idx.i12.i = shl nuw nsw i64 %45, 2
-  %61 = getelementptr inbounds i8, ptr %59, i64 %.idx.i12.i
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 %.idx.i12.i
   store ptr %59, ptr %0, align 8
-  %62 = getelementptr inbounds i8, ptr %0, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %45, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %61, i64 %49
-  %64 = getelementptr inbounds i8, ptr %0, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 %49
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %61, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 40
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %49, ptr %65, align 8
   %spec.select.i = select i1 %.not.i, ptr null, ptr %63
-  %66 = getelementptr inbounds i8, ptr %0, i64 48
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %spec.select.i, ptr %66, align 8
   %67 = load ptr, ptr %1, align 8
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %70 = load ptr, ptr %69, align 8
   %71 = call noundef i64 %70(ptr noundef nonnull align 8 dereferenceable(8) %67, ptr noundef %59, i64 noundef %.idx.i12.i)
   %72 = load i8, ptr %31, align 8
@@ -3097,17 +3097,17 @@ _ZN3ozz3log6LoggerlsIA27_cEERSoRKT_.exit:         ; preds = %14
 
 .lr.ph.i.i:                                       ; preds = %25, %.lr.ph.i.i
   %.03940.i.i = phi i64 [ %85, %.lr.ph.i.i ], [ 0, %25 ]
-  %74 = getelementptr inbounds i8, ptr %59, i64 %.03940.i.i
+  %74 = getelementptr inbounds nuw i8, ptr %59, i64 %.03940.i.i
   %75 = or disjoint i64 %.03940.i.i, 3
-  %76 = getelementptr inbounds i8, ptr %59, i64 %75
+  %76 = getelementptr inbounds nuw i8, ptr %59, i64 %75
   %77 = load i8, ptr %74, align 1
   %78 = load i8, ptr %76, align 1
   store i8 %77, ptr %76, align 1
   store i8 %78, ptr %74, align 1
   %79 = or disjoint i64 %.03940.i.i, 1
-  %80 = getelementptr inbounds i8, ptr %59, i64 %79
+  %80 = getelementptr inbounds nuw i8, ptr %59, i64 %79
   %81 = or disjoint i64 %.03940.i.i, 2
-  %82 = getelementptr inbounds i8, ptr %59, i64 %81
+  %82 = getelementptr inbounds nuw i8, ptr %59, i64 %81
   %83 = load i8, ptr %80, align 1
   %84 = load i8, ptr %82, align 1
   store i8 %83, ptr %82, align 1
@@ -3124,7 +3124,7 @@ _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit: ; preds = %.lr.ph.i.i
   %.sroa.2.0.copyload = load i64, ptr %65, align 8
   %87 = load ptr, ptr %1, align 8
   %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %90 = load ptr, ptr %89, align 8
   %91 = call noundef i64 %90(ptr noundef nonnull align 8 dereferenceable(8) %87, ptr noundef %.sroa.0.0.copyload, i64 noundef %.sroa.2.0.copyload)
   %92 = load ptr, ptr %66, align 8
@@ -3134,7 +3134,7 @@ _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit: ; preds = %.lr.ph.i.i
 93:                                               ; preds = %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit
   %94 = load ptr, ptr %1, align 8
   %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %97 = load ptr, ptr %96, align 8
   %98 = call noundef i64 %97(ptr noundef nonnull align 8 dereferenceable(8) %94, ptr noundef nonnull %92, i64 noundef %46)
   %99 = load ptr, ptr %66, align 8
@@ -3158,27 +3158,27 @@ define weak_odr dso_local void @_ZN3ozz9animation8internal5TrackINS_4math10Quate
   %10 = add i64 %7, %9
   %11 = tail call noundef ptr @_ZN3ozz6memory17default_allocatorEv()
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(8) %11, i64 noundef %10, i64 noundef 4)
   %.idx.i = shl nsw i64 %1, 4
   %16 = getelementptr inbounds i8, ptr %15, i64 %.idx.i
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %15, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %1, ptr %18, align 8
   %.idx.i12 = shl nsw i64 %1, 2
   %19 = getelementptr inbounds i8, ptr %16, i64 %.idx.i12
   store ptr %16, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %19, i64 %6
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 %6
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %19, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %6, ptr %23, align 8
   %spec.select = select i1 %.not, ptr null, ptr %21
-  %24 = getelementptr inbounds i8, ptr %0, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %spec.select, ptr %24, align 8
   ret void
 }

@@ -31,14 +31,14 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 63) i32 @protobuf_lang_lex(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %68
 
 4:                                                ; preds = %1
   store i32 1, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 76
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %6 = load i32, ptr %5, align 4
   %.not642 = icmp eq i32 %6, 0
   br i1 %.not642, label %7, label %8
@@ -48,7 +48,7 @@ define hidden range(i32 0, 63) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
   br label %8
 
 8:                                                ; preds = %7, %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not643 = icmp eq ptr %10, null
   br i1 %.not643, label %11, label %13
@@ -60,7 +60,7 @@ define hidden range(i32 0, 63) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 13:                                               ; preds = %11, %8
   %14 = phi ptr [ %12, %11 ], [ %10, %8 ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8
   %.not644 = icmp eq ptr %16, null
   br i1 %.not644, label %17, label %19
@@ -71,13 +71,13 @@ define hidden range(i32 0, 63) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
   br label %19
 
 19:                                               ; preds = %17, %13
-  %20 = getelementptr inbounds i8, ptr %0, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %21 = load ptr, ptr %20, align 8
   %.not645 = icmp eq ptr %21, null
   br i1 %.not645, label %27, label %22
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load i64, ptr %23, align 8
   %25 = getelementptr ptr, ptr %21, i64 %24
   %26 = load ptr, ptr %25, align 8
@@ -96,14 +96,14 @@ define hidden range(i32 0, 63) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 30:                                               ; preds = %27
   store i64 0, ptr %28, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 1, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %32, align 8
   br label %protobuf_lang_ensure_buffer_stack.exit
 
 33:                                               ; preds = %22
-  %34 = getelementptr inbounds i8, ptr %0, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %35 = load i64, ptr %34, align 8
   %36 = add i64 %35, -1
   %.not27.i = icmp ult i64 %24, %36
@@ -133,7 +133,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %45 = phi ptr [ %14, %30 ], [ %14, %33 ], [ %.pre, %42 ]
   %46 = tail call ptr @protobuf_lang__create_buffer(ptr noundef %45, i32 noundef 16384, ptr noundef nonnull %0)
   %47 = load ptr, ptr %20, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %49 = load i64, ptr %48, align 8
   %50 = getelementptr ptr, ptr %47, i64 %49
   store ptr %46, ptr %50, align 8
@@ -148,39 +148,39 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %53 = phi i64 [ %.pre1298, %protobuf_lang_ensure_buffer_stack.exit ], [ %24, %22 ]
   %54 = phi ptr [ %.pre1297, %protobuf_lang_ensure_buffer_stack.exit ], [ %21, %22 ]
   %55 = getelementptr ptr, ptr %54, i64 %53
-  %56 = getelementptr inbounds i8, ptr %52, i64 28
+  %56 = getelementptr inbounds nuw i8, ptr %52, i64 28
   %57 = load i32, ptr %56, align 4
-  %58 = getelementptr inbounds i8, ptr %0, i64 52
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 %57, ptr %58, align 4
   %59 = load ptr, ptr %55, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %0, i64 64
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %61, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %0, i64 128
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr %61, ptr %63, align 8
   %64 = load ptr, ptr %55, align 8
   %65 = load ptr, ptr %64, align 8
   store ptr %65, ptr %9, align 8
   %66 = load i8, ptr %61, align 1
-  %67 = getelementptr inbounds i8, ptr %0, i64 48
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 %66, ptr %67, align 8
   br label %68
 
 68:                                               ; preds = %51, %1
-  %69 = getelementptr inbounds i8, ptr %0, i64 64
-  %70 = getelementptr inbounds i8, ptr %0, i64 48
-  %71 = getelementptr inbounds i8, ptr %0, i64 76
-  %72 = getelementptr inbounds i8, ptr %0, i64 104
-  %73 = getelementptr inbounds i8, ptr %0, i64 112
-  %74 = getelementptr inbounds i8, ptr %0, i64 128
-  %75 = getelementptr inbounds i8, ptr %0, i64 56
-  %76 = getelementptr inbounds i8, ptr %0, i64 40
-  %77 = getelementptr inbounds i8, ptr %0, i64 24
-  %78 = getelementptr inbounds i8, ptr %0, i64 52
-  %79 = getelementptr inbounds i8, ptr %0, i64 8
-  %80 = getelementptr inbounds i8, ptr %0, i64 80
-  %81 = getelementptr inbounds i8, ptr %0, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.backedge, %68
@@ -319,7 +319,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %149 = load i64, ptr %77, align 8
   %150 = getelementptr ptr, ptr %148, i64 %149
   %151 = load ptr, ptr %150, align 8
-  %152 = getelementptr inbounds i8, ptr %151, i64 44
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 44
   %153 = load i32, ptr %152, align 4
   %154 = add i32 %153, 1
   store i32 %154, ptr %152, align 4
@@ -327,7 +327,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %156 = load i64, ptr %77, align 8
   %157 = getelementptr ptr, ptr %155, i64 %156
   %158 = load ptr, ptr %157, align 8
-  %159 = getelementptr inbounds i8, ptr %158, i64 48
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 48
   store i32 0, ptr %159, align 8
   %.pre1301 = load i32, ptr %75, align 8
   br label %160
@@ -430,12 +430,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 167:                                              ; preds = %.loopexit971
   %168 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %169 = load ptr, ptr %0, align 8
-  %170 = getelementptr inbounds i8, ptr %169, i64 56
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 56
   store ptr %168, ptr %170, align 8
   %171 = load ptr, ptr %0, align 8
-  %172 = getelementptr inbounds i8, ptr %171, i64 56
+  %172 = getelementptr inbounds nuw i8, ptr %171, i64 56
   %173 = load ptr, ptr %172, align 8
-  %174 = getelementptr inbounds i8, ptr %171, i64 24
+  %174 = getelementptr inbounds nuw i8, ptr %171, i64 24
   %175 = load ptr, ptr %174, align 8
   %176 = tail call ptr @g_slist_prepend(ptr noundef %175, ptr noundef %173) #29
   store ptr %176, ptr %174, align 8
@@ -443,7 +443,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val = load ptr, ptr %0, align 8
   %178 = tail call fastcc ptr @strdup_and_store(ptr %.val, ptr noundef %177)
   %179 = load ptr, ptr %0, align 8
-  %180 = getelementptr inbounds i8, ptr %179, i64 56
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 56
   %181 = load ptr, ptr %180, align 8
   store ptr %178, ptr %181, align 8
   %182 = load ptr, ptr %76, align 8
@@ -460,12 +460,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 187:                                              ; preds = %.loopexit971
   %188 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %189 = load ptr, ptr %0, align 8
-  %190 = getelementptr inbounds i8, ptr %189, i64 56
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 56
   store ptr %188, ptr %190, align 8
   %191 = load ptr, ptr %0, align 8
-  %192 = getelementptr inbounds i8, ptr %191, i64 56
+  %192 = getelementptr inbounds nuw i8, ptr %191, i64 56
   %193 = load ptr, ptr %192, align 8
-  %194 = getelementptr inbounds i8, ptr %191, i64 24
+  %194 = getelementptr inbounds nuw i8, ptr %191, i64 24
   %195 = load ptr, ptr %194, align 8
   %196 = tail call ptr @g_slist_prepend(ptr noundef %195, ptr noundef %193) #29
   store ptr %196, ptr %194, align 8
@@ -473,7 +473,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val654 = load ptr, ptr %0, align 8
   %198 = tail call fastcc ptr @strdup_and_store(ptr %.val654, ptr noundef %197)
   %199 = load ptr, ptr %0, align 8
-  %200 = getelementptr inbounds i8, ptr %199, i64 56
+  %200 = getelementptr inbounds nuw i8, ptr %199, i64 56
   %201 = load ptr, ptr %200, align 8
   store ptr %198, ptr %201, align 8
   %202 = load ptr, ptr %76, align 8
@@ -490,12 +490,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 207:                                              ; preds = %.loopexit971
   %208 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %209 = load ptr, ptr %0, align 8
-  %210 = getelementptr inbounds i8, ptr %209, i64 56
+  %210 = getelementptr inbounds nuw i8, ptr %209, i64 56
   store ptr %208, ptr %210, align 8
   %211 = load ptr, ptr %0, align 8
-  %212 = getelementptr inbounds i8, ptr %211, i64 56
+  %212 = getelementptr inbounds nuw i8, ptr %211, i64 56
   %213 = load ptr, ptr %212, align 8
-  %214 = getelementptr inbounds i8, ptr %211, i64 24
+  %214 = getelementptr inbounds nuw i8, ptr %211, i64 24
   %215 = load ptr, ptr %214, align 8
   %216 = tail call ptr @g_slist_prepend(ptr noundef %215, ptr noundef %213) #29
   store ptr %216, ptr %214, align 8
@@ -503,7 +503,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val655 = load ptr, ptr %0, align 8
   %218 = tail call fastcc ptr @strdup_and_store(ptr %.val655, ptr noundef %217)
   %219 = load ptr, ptr %0, align 8
-  %220 = getelementptr inbounds i8, ptr %219, i64 56
+  %220 = getelementptr inbounds nuw i8, ptr %219, i64 56
   %221 = load ptr, ptr %220, align 8
   store ptr %218, ptr %221, align 8
   %222 = load ptr, ptr %76, align 8
@@ -520,12 +520,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 227:                                              ; preds = %.loopexit971
   %228 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %229 = load ptr, ptr %0, align 8
-  %230 = getelementptr inbounds i8, ptr %229, i64 56
+  %230 = getelementptr inbounds nuw i8, ptr %229, i64 56
   store ptr %228, ptr %230, align 8
   %231 = load ptr, ptr %0, align 8
-  %232 = getelementptr inbounds i8, ptr %231, i64 56
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 56
   %233 = load ptr, ptr %232, align 8
-  %234 = getelementptr inbounds i8, ptr %231, i64 24
+  %234 = getelementptr inbounds nuw i8, ptr %231, i64 24
   %235 = load ptr, ptr %234, align 8
   %236 = tail call ptr @g_slist_prepend(ptr noundef %235, ptr noundef %233) #29
   store ptr %236, ptr %234, align 8
@@ -533,7 +533,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val656 = load ptr, ptr %0, align 8
   %238 = tail call fastcc ptr @strdup_and_store(ptr %.val656, ptr noundef %237)
   %239 = load ptr, ptr %0, align 8
-  %240 = getelementptr inbounds i8, ptr %239, i64 56
+  %240 = getelementptr inbounds nuw i8, ptr %239, i64 56
   %241 = load ptr, ptr %240, align 8
   store ptr %238, ptr %241, align 8
   %242 = load ptr, ptr %76, align 8
@@ -550,12 +550,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 247:                                              ; preds = %.loopexit971
   %248 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %249 = load ptr, ptr %0, align 8
-  %250 = getelementptr inbounds i8, ptr %249, i64 56
+  %250 = getelementptr inbounds nuw i8, ptr %249, i64 56
   store ptr %248, ptr %250, align 8
   %251 = load ptr, ptr %0, align 8
-  %252 = getelementptr inbounds i8, ptr %251, i64 56
+  %252 = getelementptr inbounds nuw i8, ptr %251, i64 56
   %253 = load ptr, ptr %252, align 8
-  %254 = getelementptr inbounds i8, ptr %251, i64 24
+  %254 = getelementptr inbounds nuw i8, ptr %251, i64 24
   %255 = load ptr, ptr %254, align 8
   %256 = tail call ptr @g_slist_prepend(ptr noundef %255, ptr noundef %253) #29
   store ptr %256, ptr %254, align 8
@@ -563,7 +563,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val657 = load ptr, ptr %0, align 8
   %258 = tail call fastcc ptr @strdup_and_store(ptr %.val657, ptr noundef %257)
   %259 = load ptr, ptr %0, align 8
-  %260 = getelementptr inbounds i8, ptr %259, i64 56
+  %260 = getelementptr inbounds nuw i8, ptr %259, i64 56
   %261 = load ptr, ptr %260, align 8
   store ptr %258, ptr %261, align 8
   %262 = load ptr, ptr %76, align 8
@@ -580,12 +580,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 267:                                              ; preds = %.loopexit971
   %268 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %269 = load ptr, ptr %0, align 8
-  %270 = getelementptr inbounds i8, ptr %269, i64 56
+  %270 = getelementptr inbounds nuw i8, ptr %269, i64 56
   store ptr %268, ptr %270, align 8
   %271 = load ptr, ptr %0, align 8
-  %272 = getelementptr inbounds i8, ptr %271, i64 56
+  %272 = getelementptr inbounds nuw i8, ptr %271, i64 56
   %273 = load ptr, ptr %272, align 8
-  %274 = getelementptr inbounds i8, ptr %271, i64 24
+  %274 = getelementptr inbounds nuw i8, ptr %271, i64 24
   %275 = load ptr, ptr %274, align 8
   %276 = tail call ptr @g_slist_prepend(ptr noundef %275, ptr noundef %273) #29
   store ptr %276, ptr %274, align 8
@@ -593,7 +593,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val658 = load ptr, ptr %0, align 8
   %278 = tail call fastcc ptr @strdup_and_store(ptr %.val658, ptr noundef %277)
   %279 = load ptr, ptr %0, align 8
-  %280 = getelementptr inbounds i8, ptr %279, i64 56
+  %280 = getelementptr inbounds nuw i8, ptr %279, i64 56
   %281 = load ptr, ptr %280, align 8
   store ptr %278, ptr %281, align 8
   %282 = load ptr, ptr %76, align 8
@@ -610,12 +610,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 287:                                              ; preds = %.loopexit971
   %288 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %289 = load ptr, ptr %0, align 8
-  %290 = getelementptr inbounds i8, ptr %289, i64 56
+  %290 = getelementptr inbounds nuw i8, ptr %289, i64 56
   store ptr %288, ptr %290, align 8
   %291 = load ptr, ptr %0, align 8
-  %292 = getelementptr inbounds i8, ptr %291, i64 56
+  %292 = getelementptr inbounds nuw i8, ptr %291, i64 56
   %293 = load ptr, ptr %292, align 8
-  %294 = getelementptr inbounds i8, ptr %291, i64 24
+  %294 = getelementptr inbounds nuw i8, ptr %291, i64 24
   %295 = load ptr, ptr %294, align 8
   %296 = tail call ptr @g_slist_prepend(ptr noundef %295, ptr noundef %293) #29
   store ptr %296, ptr %294, align 8
@@ -623,7 +623,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val659 = load ptr, ptr %0, align 8
   %298 = tail call fastcc ptr @strdup_and_store(ptr %.val659, ptr noundef %297)
   %299 = load ptr, ptr %0, align 8
-  %300 = getelementptr inbounds i8, ptr %299, i64 56
+  %300 = getelementptr inbounds nuw i8, ptr %299, i64 56
   %301 = load ptr, ptr %300, align 8
   store ptr %298, ptr %301, align 8
   %302 = load ptr, ptr %76, align 8
@@ -640,12 +640,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 307:                                              ; preds = %.loopexit971
   %308 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %309 = load ptr, ptr %0, align 8
-  %310 = getelementptr inbounds i8, ptr %309, i64 56
+  %310 = getelementptr inbounds nuw i8, ptr %309, i64 56
   store ptr %308, ptr %310, align 8
   %311 = load ptr, ptr %0, align 8
-  %312 = getelementptr inbounds i8, ptr %311, i64 56
+  %312 = getelementptr inbounds nuw i8, ptr %311, i64 56
   %313 = load ptr, ptr %312, align 8
-  %314 = getelementptr inbounds i8, ptr %311, i64 24
+  %314 = getelementptr inbounds nuw i8, ptr %311, i64 24
   %315 = load ptr, ptr %314, align 8
   %316 = tail call ptr @g_slist_prepend(ptr noundef %315, ptr noundef %313) #29
   store ptr %316, ptr %314, align 8
@@ -653,7 +653,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val660 = load ptr, ptr %0, align 8
   %318 = tail call fastcc ptr @strdup_and_store(ptr %.val660, ptr noundef %317)
   %319 = load ptr, ptr %0, align 8
-  %320 = getelementptr inbounds i8, ptr %319, i64 56
+  %320 = getelementptr inbounds nuw i8, ptr %319, i64 56
   %321 = load ptr, ptr %320, align 8
   store ptr %318, ptr %321, align 8
   %322 = load ptr, ptr %76, align 8
@@ -670,12 +670,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 327:                                              ; preds = %.loopexit971
   %328 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %329 = load ptr, ptr %0, align 8
-  %330 = getelementptr inbounds i8, ptr %329, i64 56
+  %330 = getelementptr inbounds nuw i8, ptr %329, i64 56
   store ptr %328, ptr %330, align 8
   %331 = load ptr, ptr %0, align 8
-  %332 = getelementptr inbounds i8, ptr %331, i64 56
+  %332 = getelementptr inbounds nuw i8, ptr %331, i64 56
   %333 = load ptr, ptr %332, align 8
-  %334 = getelementptr inbounds i8, ptr %331, i64 24
+  %334 = getelementptr inbounds nuw i8, ptr %331, i64 24
   %335 = load ptr, ptr %334, align 8
   %336 = tail call ptr @g_slist_prepend(ptr noundef %335, ptr noundef %333) #29
   store ptr %336, ptr %334, align 8
@@ -683,7 +683,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val661 = load ptr, ptr %0, align 8
   %338 = tail call fastcc ptr @strdup_and_store(ptr %.val661, ptr noundef %337)
   %339 = load ptr, ptr %0, align 8
-  %340 = getelementptr inbounds i8, ptr %339, i64 56
+  %340 = getelementptr inbounds nuw i8, ptr %339, i64 56
   %341 = load ptr, ptr %340, align 8
   store ptr %338, ptr %341, align 8
   %342 = load ptr, ptr %76, align 8
@@ -700,12 +700,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 347:                                              ; preds = %.loopexit971
   %348 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %349 = load ptr, ptr %0, align 8
-  %350 = getelementptr inbounds i8, ptr %349, i64 56
+  %350 = getelementptr inbounds nuw i8, ptr %349, i64 56
   store ptr %348, ptr %350, align 8
   %351 = load ptr, ptr %0, align 8
-  %352 = getelementptr inbounds i8, ptr %351, i64 56
+  %352 = getelementptr inbounds nuw i8, ptr %351, i64 56
   %353 = load ptr, ptr %352, align 8
-  %354 = getelementptr inbounds i8, ptr %351, i64 24
+  %354 = getelementptr inbounds nuw i8, ptr %351, i64 24
   %355 = load ptr, ptr %354, align 8
   %356 = tail call ptr @g_slist_prepend(ptr noundef %355, ptr noundef %353) #29
   store ptr %356, ptr %354, align 8
@@ -713,7 +713,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val662 = load ptr, ptr %0, align 8
   %358 = tail call fastcc ptr @strdup_and_store(ptr %.val662, ptr noundef %357)
   %359 = load ptr, ptr %0, align 8
-  %360 = getelementptr inbounds i8, ptr %359, i64 56
+  %360 = getelementptr inbounds nuw i8, ptr %359, i64 56
   %361 = load ptr, ptr %360, align 8
   store ptr %358, ptr %361, align 8
   %362 = load ptr, ptr %76, align 8
@@ -730,12 +730,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 367:                                              ; preds = %.loopexit971
   %368 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %369 = load ptr, ptr %0, align 8
-  %370 = getelementptr inbounds i8, ptr %369, i64 56
+  %370 = getelementptr inbounds nuw i8, ptr %369, i64 56
   store ptr %368, ptr %370, align 8
   %371 = load ptr, ptr %0, align 8
-  %372 = getelementptr inbounds i8, ptr %371, i64 56
+  %372 = getelementptr inbounds nuw i8, ptr %371, i64 56
   %373 = load ptr, ptr %372, align 8
-  %374 = getelementptr inbounds i8, ptr %371, i64 24
+  %374 = getelementptr inbounds nuw i8, ptr %371, i64 24
   %375 = load ptr, ptr %374, align 8
   %376 = tail call ptr @g_slist_prepend(ptr noundef %375, ptr noundef %373) #29
   store ptr %376, ptr %374, align 8
@@ -743,7 +743,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val663 = load ptr, ptr %0, align 8
   %378 = tail call fastcc ptr @strdup_and_store(ptr %.val663, ptr noundef %377)
   %379 = load ptr, ptr %0, align 8
-  %380 = getelementptr inbounds i8, ptr %379, i64 56
+  %380 = getelementptr inbounds nuw i8, ptr %379, i64 56
   %381 = load ptr, ptr %380, align 8
   store ptr %378, ptr %381, align 8
   %382 = load ptr, ptr %76, align 8
@@ -760,12 +760,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 387:                                              ; preds = %.loopexit971
   %388 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %389 = load ptr, ptr %0, align 8
-  %390 = getelementptr inbounds i8, ptr %389, i64 56
+  %390 = getelementptr inbounds nuw i8, ptr %389, i64 56
   store ptr %388, ptr %390, align 8
   %391 = load ptr, ptr %0, align 8
-  %392 = getelementptr inbounds i8, ptr %391, i64 56
+  %392 = getelementptr inbounds nuw i8, ptr %391, i64 56
   %393 = load ptr, ptr %392, align 8
-  %394 = getelementptr inbounds i8, ptr %391, i64 24
+  %394 = getelementptr inbounds nuw i8, ptr %391, i64 24
   %395 = load ptr, ptr %394, align 8
   %396 = tail call ptr @g_slist_prepend(ptr noundef %395, ptr noundef %393) #29
   store ptr %396, ptr %394, align 8
@@ -773,7 +773,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val664 = load ptr, ptr %0, align 8
   %398 = tail call fastcc ptr @strdup_and_store(ptr %.val664, ptr noundef %397)
   %399 = load ptr, ptr %0, align 8
-  %400 = getelementptr inbounds i8, ptr %399, i64 56
+  %400 = getelementptr inbounds nuw i8, ptr %399, i64 56
   %401 = load ptr, ptr %400, align 8
   store ptr %398, ptr %401, align 8
   %402 = load ptr, ptr %76, align 8
@@ -790,12 +790,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 407:                                              ; preds = %.loopexit971
   %408 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %409 = load ptr, ptr %0, align 8
-  %410 = getelementptr inbounds i8, ptr %409, i64 56
+  %410 = getelementptr inbounds nuw i8, ptr %409, i64 56
   store ptr %408, ptr %410, align 8
   %411 = load ptr, ptr %0, align 8
-  %412 = getelementptr inbounds i8, ptr %411, i64 56
+  %412 = getelementptr inbounds nuw i8, ptr %411, i64 56
   %413 = load ptr, ptr %412, align 8
-  %414 = getelementptr inbounds i8, ptr %411, i64 24
+  %414 = getelementptr inbounds nuw i8, ptr %411, i64 24
   %415 = load ptr, ptr %414, align 8
   %416 = tail call ptr @g_slist_prepend(ptr noundef %415, ptr noundef %413) #29
   store ptr %416, ptr %414, align 8
@@ -803,7 +803,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val665 = load ptr, ptr %0, align 8
   %418 = tail call fastcc ptr @strdup_and_store(ptr %.val665, ptr noundef %417)
   %419 = load ptr, ptr %0, align 8
-  %420 = getelementptr inbounds i8, ptr %419, i64 56
+  %420 = getelementptr inbounds nuw i8, ptr %419, i64 56
   %421 = load ptr, ptr %420, align 8
   store ptr %418, ptr %421, align 8
   %422 = load ptr, ptr %76, align 8
@@ -820,12 +820,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 427:                                              ; preds = %.loopexit971
   %428 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %429 = load ptr, ptr %0, align 8
-  %430 = getelementptr inbounds i8, ptr %429, i64 56
+  %430 = getelementptr inbounds nuw i8, ptr %429, i64 56
   store ptr %428, ptr %430, align 8
   %431 = load ptr, ptr %0, align 8
-  %432 = getelementptr inbounds i8, ptr %431, i64 56
+  %432 = getelementptr inbounds nuw i8, ptr %431, i64 56
   %433 = load ptr, ptr %432, align 8
-  %434 = getelementptr inbounds i8, ptr %431, i64 24
+  %434 = getelementptr inbounds nuw i8, ptr %431, i64 24
   %435 = load ptr, ptr %434, align 8
   %436 = tail call ptr @g_slist_prepend(ptr noundef %435, ptr noundef %433) #29
   store ptr %436, ptr %434, align 8
@@ -833,7 +833,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val666 = load ptr, ptr %0, align 8
   %438 = tail call fastcc ptr @strdup_and_store(ptr %.val666, ptr noundef %437)
   %439 = load ptr, ptr %0, align 8
-  %440 = getelementptr inbounds i8, ptr %439, i64 56
+  %440 = getelementptr inbounds nuw i8, ptr %439, i64 56
   %441 = load ptr, ptr %440, align 8
   store ptr %438, ptr %441, align 8
   %442 = load ptr, ptr %76, align 8
@@ -850,12 +850,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 447:                                              ; preds = %.loopexit971
   %448 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %449 = load ptr, ptr %0, align 8
-  %450 = getelementptr inbounds i8, ptr %449, i64 56
+  %450 = getelementptr inbounds nuw i8, ptr %449, i64 56
   store ptr %448, ptr %450, align 8
   %451 = load ptr, ptr %0, align 8
-  %452 = getelementptr inbounds i8, ptr %451, i64 56
+  %452 = getelementptr inbounds nuw i8, ptr %451, i64 56
   %453 = load ptr, ptr %452, align 8
-  %454 = getelementptr inbounds i8, ptr %451, i64 24
+  %454 = getelementptr inbounds nuw i8, ptr %451, i64 24
   %455 = load ptr, ptr %454, align 8
   %456 = tail call ptr @g_slist_prepend(ptr noundef %455, ptr noundef %453) #29
   store ptr %456, ptr %454, align 8
@@ -863,7 +863,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val667 = load ptr, ptr %0, align 8
   %458 = tail call fastcc ptr @strdup_and_store(ptr %.val667, ptr noundef %457)
   %459 = load ptr, ptr %0, align 8
-  %460 = getelementptr inbounds i8, ptr %459, i64 56
+  %460 = getelementptr inbounds nuw i8, ptr %459, i64 56
   %461 = load ptr, ptr %460, align 8
   store ptr %458, ptr %461, align 8
   %462 = load ptr, ptr %76, align 8
@@ -880,12 +880,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 467:                                              ; preds = %.loopexit971
   %468 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %469 = load ptr, ptr %0, align 8
-  %470 = getelementptr inbounds i8, ptr %469, i64 56
+  %470 = getelementptr inbounds nuw i8, ptr %469, i64 56
   store ptr %468, ptr %470, align 8
   %471 = load ptr, ptr %0, align 8
-  %472 = getelementptr inbounds i8, ptr %471, i64 56
+  %472 = getelementptr inbounds nuw i8, ptr %471, i64 56
   %473 = load ptr, ptr %472, align 8
-  %474 = getelementptr inbounds i8, ptr %471, i64 24
+  %474 = getelementptr inbounds nuw i8, ptr %471, i64 24
   %475 = load ptr, ptr %474, align 8
   %476 = tail call ptr @g_slist_prepend(ptr noundef %475, ptr noundef %473) #29
   store ptr %476, ptr %474, align 8
@@ -893,7 +893,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val668 = load ptr, ptr %0, align 8
   %478 = tail call fastcc ptr @strdup_and_store(ptr %.val668, ptr noundef %477)
   %479 = load ptr, ptr %0, align 8
-  %480 = getelementptr inbounds i8, ptr %479, i64 56
+  %480 = getelementptr inbounds nuw i8, ptr %479, i64 56
   %481 = load ptr, ptr %480, align 8
   store ptr %478, ptr %481, align 8
   %482 = load ptr, ptr %76, align 8
@@ -910,12 +910,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 487:                                              ; preds = %.loopexit971
   %488 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %489 = load ptr, ptr %0, align 8
-  %490 = getelementptr inbounds i8, ptr %489, i64 56
+  %490 = getelementptr inbounds nuw i8, ptr %489, i64 56
   store ptr %488, ptr %490, align 8
   %491 = load ptr, ptr %0, align 8
-  %492 = getelementptr inbounds i8, ptr %491, i64 56
+  %492 = getelementptr inbounds nuw i8, ptr %491, i64 56
   %493 = load ptr, ptr %492, align 8
-  %494 = getelementptr inbounds i8, ptr %491, i64 24
+  %494 = getelementptr inbounds nuw i8, ptr %491, i64 24
   %495 = load ptr, ptr %494, align 8
   %496 = tail call ptr @g_slist_prepend(ptr noundef %495, ptr noundef %493) #29
   store ptr %496, ptr %494, align 8
@@ -923,7 +923,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val669 = load ptr, ptr %0, align 8
   %498 = tail call fastcc ptr @strdup_and_store(ptr %.val669, ptr noundef %497)
   %499 = load ptr, ptr %0, align 8
-  %500 = getelementptr inbounds i8, ptr %499, i64 56
+  %500 = getelementptr inbounds nuw i8, ptr %499, i64 56
   %501 = load ptr, ptr %500, align 8
   store ptr %498, ptr %501, align 8
   %502 = load ptr, ptr %76, align 8
@@ -940,12 +940,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 507:                                              ; preds = %.loopexit971
   %508 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %509 = load ptr, ptr %0, align 8
-  %510 = getelementptr inbounds i8, ptr %509, i64 56
+  %510 = getelementptr inbounds nuw i8, ptr %509, i64 56
   store ptr %508, ptr %510, align 8
   %511 = load ptr, ptr %0, align 8
-  %512 = getelementptr inbounds i8, ptr %511, i64 56
+  %512 = getelementptr inbounds nuw i8, ptr %511, i64 56
   %513 = load ptr, ptr %512, align 8
-  %514 = getelementptr inbounds i8, ptr %511, i64 24
+  %514 = getelementptr inbounds nuw i8, ptr %511, i64 24
   %515 = load ptr, ptr %514, align 8
   %516 = tail call ptr @g_slist_prepend(ptr noundef %515, ptr noundef %513) #29
   store ptr %516, ptr %514, align 8
@@ -953,7 +953,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val670 = load ptr, ptr %0, align 8
   %518 = tail call fastcc ptr @strdup_and_store(ptr %.val670, ptr noundef %517)
   %519 = load ptr, ptr %0, align 8
-  %520 = getelementptr inbounds i8, ptr %519, i64 56
+  %520 = getelementptr inbounds nuw i8, ptr %519, i64 56
   %521 = load ptr, ptr %520, align 8
   store ptr %518, ptr %521, align 8
   %522 = load ptr, ptr %76, align 8
@@ -970,12 +970,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 527:                                              ; preds = %.loopexit971
   %528 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %529 = load ptr, ptr %0, align 8
-  %530 = getelementptr inbounds i8, ptr %529, i64 56
+  %530 = getelementptr inbounds nuw i8, ptr %529, i64 56
   store ptr %528, ptr %530, align 8
   %531 = load ptr, ptr %0, align 8
-  %532 = getelementptr inbounds i8, ptr %531, i64 56
+  %532 = getelementptr inbounds nuw i8, ptr %531, i64 56
   %533 = load ptr, ptr %532, align 8
-  %534 = getelementptr inbounds i8, ptr %531, i64 24
+  %534 = getelementptr inbounds nuw i8, ptr %531, i64 24
   %535 = load ptr, ptr %534, align 8
   %536 = tail call ptr @g_slist_prepend(ptr noundef %535, ptr noundef %533) #29
   store ptr %536, ptr %534, align 8
@@ -983,7 +983,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val671 = load ptr, ptr %0, align 8
   %538 = tail call fastcc ptr @strdup_and_store(ptr %.val671, ptr noundef %537)
   %539 = load ptr, ptr %0, align 8
-  %540 = getelementptr inbounds i8, ptr %539, i64 56
+  %540 = getelementptr inbounds nuw i8, ptr %539, i64 56
   %541 = load ptr, ptr %540, align 8
   store ptr %538, ptr %541, align 8
   %542 = load ptr, ptr %76, align 8
@@ -1000,12 +1000,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 547:                                              ; preds = %.loopexit971
   %548 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %549 = load ptr, ptr %0, align 8
-  %550 = getelementptr inbounds i8, ptr %549, i64 56
+  %550 = getelementptr inbounds nuw i8, ptr %549, i64 56
   store ptr %548, ptr %550, align 8
   %551 = load ptr, ptr %0, align 8
-  %552 = getelementptr inbounds i8, ptr %551, i64 56
+  %552 = getelementptr inbounds nuw i8, ptr %551, i64 56
   %553 = load ptr, ptr %552, align 8
-  %554 = getelementptr inbounds i8, ptr %551, i64 24
+  %554 = getelementptr inbounds nuw i8, ptr %551, i64 24
   %555 = load ptr, ptr %554, align 8
   %556 = tail call ptr @g_slist_prepend(ptr noundef %555, ptr noundef %553) #29
   store ptr %556, ptr %554, align 8
@@ -1013,7 +1013,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val672 = load ptr, ptr %0, align 8
   %558 = tail call fastcc ptr @strdup_and_store(ptr %.val672, ptr noundef %557)
   %559 = load ptr, ptr %0, align 8
-  %560 = getelementptr inbounds i8, ptr %559, i64 56
+  %560 = getelementptr inbounds nuw i8, ptr %559, i64 56
   %561 = load ptr, ptr %560, align 8
   store ptr %558, ptr %561, align 8
   %562 = load ptr, ptr %76, align 8
@@ -1030,12 +1030,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 567:                                              ; preds = %.loopexit971
   %568 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %569 = load ptr, ptr %0, align 8
-  %570 = getelementptr inbounds i8, ptr %569, i64 56
+  %570 = getelementptr inbounds nuw i8, ptr %569, i64 56
   store ptr %568, ptr %570, align 8
   %571 = load ptr, ptr %0, align 8
-  %572 = getelementptr inbounds i8, ptr %571, i64 56
+  %572 = getelementptr inbounds nuw i8, ptr %571, i64 56
   %573 = load ptr, ptr %572, align 8
-  %574 = getelementptr inbounds i8, ptr %571, i64 24
+  %574 = getelementptr inbounds nuw i8, ptr %571, i64 24
   %575 = load ptr, ptr %574, align 8
   %576 = tail call ptr @g_slist_prepend(ptr noundef %575, ptr noundef %573) #29
   store ptr %576, ptr %574, align 8
@@ -1043,7 +1043,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val673 = load ptr, ptr %0, align 8
   %578 = tail call fastcc ptr @strdup_and_store(ptr %.val673, ptr noundef %577)
   %579 = load ptr, ptr %0, align 8
-  %580 = getelementptr inbounds i8, ptr %579, i64 56
+  %580 = getelementptr inbounds nuw i8, ptr %579, i64 56
   %581 = load ptr, ptr %580, align 8
   store ptr %578, ptr %581, align 8
   %582 = load ptr, ptr %76, align 8
@@ -1060,12 +1060,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 587:                                              ; preds = %.loopexit971
   %588 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %589 = load ptr, ptr %0, align 8
-  %590 = getelementptr inbounds i8, ptr %589, i64 56
+  %590 = getelementptr inbounds nuw i8, ptr %589, i64 56
   store ptr %588, ptr %590, align 8
   %591 = load ptr, ptr %0, align 8
-  %592 = getelementptr inbounds i8, ptr %591, i64 56
+  %592 = getelementptr inbounds nuw i8, ptr %591, i64 56
   %593 = load ptr, ptr %592, align 8
-  %594 = getelementptr inbounds i8, ptr %591, i64 24
+  %594 = getelementptr inbounds nuw i8, ptr %591, i64 24
   %595 = load ptr, ptr %594, align 8
   %596 = tail call ptr @g_slist_prepend(ptr noundef %595, ptr noundef %593) #29
   store ptr %596, ptr %594, align 8
@@ -1073,7 +1073,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val674 = load ptr, ptr %0, align 8
   %598 = tail call fastcc ptr @strdup_and_store(ptr %.val674, ptr noundef %597)
   %599 = load ptr, ptr %0, align 8
-  %600 = getelementptr inbounds i8, ptr %599, i64 56
+  %600 = getelementptr inbounds nuw i8, ptr %599, i64 56
   %601 = load ptr, ptr %600, align 8
   store ptr %598, ptr %601, align 8
   %602 = load ptr, ptr %76, align 8
@@ -1090,12 +1090,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 607:                                              ; preds = %.loopexit971
   %608 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %609 = load ptr, ptr %0, align 8
-  %610 = getelementptr inbounds i8, ptr %609, i64 56
+  %610 = getelementptr inbounds nuw i8, ptr %609, i64 56
   store ptr %608, ptr %610, align 8
   %611 = load ptr, ptr %0, align 8
-  %612 = getelementptr inbounds i8, ptr %611, i64 56
+  %612 = getelementptr inbounds nuw i8, ptr %611, i64 56
   %613 = load ptr, ptr %612, align 8
-  %614 = getelementptr inbounds i8, ptr %611, i64 24
+  %614 = getelementptr inbounds nuw i8, ptr %611, i64 24
   %615 = load ptr, ptr %614, align 8
   %616 = tail call ptr @g_slist_prepend(ptr noundef %615, ptr noundef %613) #29
   store ptr %616, ptr %614, align 8
@@ -1103,7 +1103,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val675 = load ptr, ptr %0, align 8
   %618 = tail call fastcc ptr @strdup_and_store(ptr %.val675, ptr noundef %617)
   %619 = load ptr, ptr %0, align 8
-  %620 = getelementptr inbounds i8, ptr %619, i64 56
+  %620 = getelementptr inbounds nuw i8, ptr %619, i64 56
   %621 = load ptr, ptr %620, align 8
   store ptr %618, ptr %621, align 8
   %622 = load ptr, ptr %76, align 8
@@ -1120,12 +1120,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 627:                                              ; preds = %.loopexit971
   %628 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %629 = load ptr, ptr %0, align 8
-  %630 = getelementptr inbounds i8, ptr %629, i64 56
+  %630 = getelementptr inbounds nuw i8, ptr %629, i64 56
   store ptr %628, ptr %630, align 8
   %631 = load ptr, ptr %0, align 8
-  %632 = getelementptr inbounds i8, ptr %631, i64 56
+  %632 = getelementptr inbounds nuw i8, ptr %631, i64 56
   %633 = load ptr, ptr %632, align 8
-  %634 = getelementptr inbounds i8, ptr %631, i64 24
+  %634 = getelementptr inbounds nuw i8, ptr %631, i64 24
   %635 = load ptr, ptr %634, align 8
   %636 = tail call ptr @g_slist_prepend(ptr noundef %635, ptr noundef %633) #29
   store ptr %636, ptr %634, align 8
@@ -1133,7 +1133,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val676 = load ptr, ptr %0, align 8
   %638 = tail call fastcc ptr @strdup_and_store(ptr %.val676, ptr noundef %637)
   %639 = load ptr, ptr %0, align 8
-  %640 = getelementptr inbounds i8, ptr %639, i64 56
+  %640 = getelementptr inbounds nuw i8, ptr %639, i64 56
   %641 = load ptr, ptr %640, align 8
   store ptr %638, ptr %641, align 8
   %642 = load ptr, ptr %76, align 8
@@ -1150,12 +1150,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 647:                                              ; preds = %.loopexit971
   %648 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %649 = load ptr, ptr %0, align 8
-  %650 = getelementptr inbounds i8, ptr %649, i64 56
+  %650 = getelementptr inbounds nuw i8, ptr %649, i64 56
   store ptr %648, ptr %650, align 8
   %651 = load ptr, ptr %0, align 8
-  %652 = getelementptr inbounds i8, ptr %651, i64 56
+  %652 = getelementptr inbounds nuw i8, ptr %651, i64 56
   %653 = load ptr, ptr %652, align 8
-  %654 = getelementptr inbounds i8, ptr %651, i64 24
+  %654 = getelementptr inbounds nuw i8, ptr %651, i64 24
   %655 = load ptr, ptr %654, align 8
   %656 = tail call ptr @g_slist_prepend(ptr noundef %655, ptr noundef %653) #29
   store ptr %656, ptr %654, align 8
@@ -1163,7 +1163,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val677 = load ptr, ptr %0, align 8
   %658 = tail call fastcc ptr @strdup_and_store(ptr %.val677, ptr noundef %657)
   %659 = load ptr, ptr %0, align 8
-  %660 = getelementptr inbounds i8, ptr %659, i64 56
+  %660 = getelementptr inbounds nuw i8, ptr %659, i64 56
   %661 = load ptr, ptr %660, align 8
   store ptr %658, ptr %661, align 8
   %662 = load ptr, ptr %76, align 8
@@ -1180,12 +1180,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 667:                                              ; preds = %.loopexit971
   %668 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %669 = load ptr, ptr %0, align 8
-  %670 = getelementptr inbounds i8, ptr %669, i64 56
+  %670 = getelementptr inbounds nuw i8, ptr %669, i64 56
   store ptr %668, ptr %670, align 8
   %671 = load ptr, ptr %0, align 8
-  %672 = getelementptr inbounds i8, ptr %671, i64 56
+  %672 = getelementptr inbounds nuw i8, ptr %671, i64 56
   %673 = load ptr, ptr %672, align 8
-  %674 = getelementptr inbounds i8, ptr %671, i64 24
+  %674 = getelementptr inbounds nuw i8, ptr %671, i64 24
   %675 = load ptr, ptr %674, align 8
   %676 = tail call ptr @g_slist_prepend(ptr noundef %675, ptr noundef %673) #29
   store ptr %676, ptr %674, align 8
@@ -1193,7 +1193,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val678 = load ptr, ptr %0, align 8
   %678 = tail call fastcc ptr @strdup_and_store(ptr %.val678, ptr noundef %677)
   %679 = load ptr, ptr %0, align 8
-  %680 = getelementptr inbounds i8, ptr %679, i64 56
+  %680 = getelementptr inbounds nuw i8, ptr %679, i64 56
   %681 = load ptr, ptr %680, align 8
   store ptr %678, ptr %681, align 8
   %682 = load ptr, ptr %76, align 8
@@ -1210,12 +1210,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 687:                                              ; preds = %.loopexit971
   %688 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %689 = load ptr, ptr %0, align 8
-  %690 = getelementptr inbounds i8, ptr %689, i64 56
+  %690 = getelementptr inbounds nuw i8, ptr %689, i64 56
   store ptr %688, ptr %690, align 8
   %691 = load ptr, ptr %0, align 8
-  %692 = getelementptr inbounds i8, ptr %691, i64 56
+  %692 = getelementptr inbounds nuw i8, ptr %691, i64 56
   %693 = load ptr, ptr %692, align 8
-  %694 = getelementptr inbounds i8, ptr %691, i64 24
+  %694 = getelementptr inbounds nuw i8, ptr %691, i64 24
   %695 = load ptr, ptr %694, align 8
   %696 = tail call ptr @g_slist_prepend(ptr noundef %695, ptr noundef %693) #29
   store ptr %696, ptr %694, align 8
@@ -1223,7 +1223,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val679 = load ptr, ptr %0, align 8
   %698 = tail call fastcc ptr @strdup_and_store(ptr %.val679, ptr noundef %697)
   %699 = load ptr, ptr %0, align 8
-  %700 = getelementptr inbounds i8, ptr %699, i64 56
+  %700 = getelementptr inbounds nuw i8, ptr %699, i64 56
   %701 = load ptr, ptr %700, align 8
   store ptr %698, ptr %701, align 8
   %702 = load ptr, ptr %76, align 8
@@ -1240,12 +1240,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 707:                                              ; preds = %.loopexit971
   %708 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %709 = load ptr, ptr %0, align 8
-  %710 = getelementptr inbounds i8, ptr %709, i64 56
+  %710 = getelementptr inbounds nuw i8, ptr %709, i64 56
   store ptr %708, ptr %710, align 8
   %711 = load ptr, ptr %0, align 8
-  %712 = getelementptr inbounds i8, ptr %711, i64 56
+  %712 = getelementptr inbounds nuw i8, ptr %711, i64 56
   %713 = load ptr, ptr %712, align 8
-  %714 = getelementptr inbounds i8, ptr %711, i64 24
+  %714 = getelementptr inbounds nuw i8, ptr %711, i64 24
   %715 = load ptr, ptr %714, align 8
   %716 = tail call ptr @g_slist_prepend(ptr noundef %715, ptr noundef %713) #29
   store ptr %716, ptr %714, align 8
@@ -1253,7 +1253,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val680 = load ptr, ptr %0, align 8
   %718 = tail call fastcc ptr @strdup_and_store(ptr %.val680, ptr noundef %717)
   %719 = load ptr, ptr %0, align 8
-  %720 = getelementptr inbounds i8, ptr %719, i64 56
+  %720 = getelementptr inbounds nuw i8, ptr %719, i64 56
   %721 = load ptr, ptr %720, align 8
   store ptr %718, ptr %721, align 8
   %722 = load ptr, ptr %76, align 8
@@ -1270,12 +1270,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 727:                                              ; preds = %.loopexit971
   %728 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %729 = load ptr, ptr %0, align 8
-  %730 = getelementptr inbounds i8, ptr %729, i64 56
+  %730 = getelementptr inbounds nuw i8, ptr %729, i64 56
   store ptr %728, ptr %730, align 8
   %731 = load ptr, ptr %0, align 8
-  %732 = getelementptr inbounds i8, ptr %731, i64 56
+  %732 = getelementptr inbounds nuw i8, ptr %731, i64 56
   %733 = load ptr, ptr %732, align 8
-  %734 = getelementptr inbounds i8, ptr %731, i64 24
+  %734 = getelementptr inbounds nuw i8, ptr %731, i64 24
   %735 = load ptr, ptr %734, align 8
   %736 = tail call ptr @g_slist_prepend(ptr noundef %735, ptr noundef %733) #29
   store ptr %736, ptr %734, align 8
@@ -1283,7 +1283,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val681 = load ptr, ptr %0, align 8
   %738 = tail call fastcc ptr @strdup_and_store(ptr %.val681, ptr noundef %737)
   %739 = load ptr, ptr %0, align 8
-  %740 = getelementptr inbounds i8, ptr %739, i64 56
+  %740 = getelementptr inbounds nuw i8, ptr %739, i64 56
   %741 = load ptr, ptr %740, align 8
   store ptr %738, ptr %741, align 8
   %742 = load ptr, ptr %76, align 8
@@ -1300,12 +1300,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 747:                                              ; preds = %.loopexit971
   %748 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %749 = load ptr, ptr %0, align 8
-  %750 = getelementptr inbounds i8, ptr %749, i64 56
+  %750 = getelementptr inbounds nuw i8, ptr %749, i64 56
   store ptr %748, ptr %750, align 8
   %751 = load ptr, ptr %0, align 8
-  %752 = getelementptr inbounds i8, ptr %751, i64 56
+  %752 = getelementptr inbounds nuw i8, ptr %751, i64 56
   %753 = load ptr, ptr %752, align 8
-  %754 = getelementptr inbounds i8, ptr %751, i64 24
+  %754 = getelementptr inbounds nuw i8, ptr %751, i64 24
   %755 = load ptr, ptr %754, align 8
   %756 = tail call ptr @g_slist_prepend(ptr noundef %755, ptr noundef %753) #29
   store ptr %756, ptr %754, align 8
@@ -1313,7 +1313,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val682 = load ptr, ptr %0, align 8
   %758 = tail call fastcc ptr @strdup_and_store(ptr %.val682, ptr noundef %757)
   %759 = load ptr, ptr %0, align 8
-  %760 = getelementptr inbounds i8, ptr %759, i64 56
+  %760 = getelementptr inbounds nuw i8, ptr %759, i64 56
   %761 = load ptr, ptr %760, align 8
   store ptr %758, ptr %761, align 8
   %762 = load ptr, ptr %76, align 8
@@ -1330,12 +1330,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 767:                                              ; preds = %.loopexit971
   %768 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %769 = load ptr, ptr %0, align 8
-  %770 = getelementptr inbounds i8, ptr %769, i64 56
+  %770 = getelementptr inbounds nuw i8, ptr %769, i64 56
   store ptr %768, ptr %770, align 8
   %771 = load ptr, ptr %0, align 8
-  %772 = getelementptr inbounds i8, ptr %771, i64 56
+  %772 = getelementptr inbounds nuw i8, ptr %771, i64 56
   %773 = load ptr, ptr %772, align 8
-  %774 = getelementptr inbounds i8, ptr %771, i64 24
+  %774 = getelementptr inbounds nuw i8, ptr %771, i64 24
   %775 = load ptr, ptr %774, align 8
   %776 = tail call ptr @g_slist_prepend(ptr noundef %775, ptr noundef %773) #29
   store ptr %776, ptr %774, align 8
@@ -1343,7 +1343,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val683 = load ptr, ptr %0, align 8
   %778 = tail call fastcc ptr @strdup_and_store(ptr %.val683, ptr noundef %777)
   %779 = load ptr, ptr %0, align 8
-  %780 = getelementptr inbounds i8, ptr %779, i64 56
+  %780 = getelementptr inbounds nuw i8, ptr %779, i64 56
   %781 = load ptr, ptr %780, align 8
   store ptr %778, ptr %781, align 8
   %782 = load ptr, ptr %76, align 8
@@ -1360,12 +1360,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 787:                                              ; preds = %.loopexit971
   %788 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %789 = load ptr, ptr %0, align 8
-  %790 = getelementptr inbounds i8, ptr %789, i64 56
+  %790 = getelementptr inbounds nuw i8, ptr %789, i64 56
   store ptr %788, ptr %790, align 8
   %791 = load ptr, ptr %0, align 8
-  %792 = getelementptr inbounds i8, ptr %791, i64 56
+  %792 = getelementptr inbounds nuw i8, ptr %791, i64 56
   %793 = load ptr, ptr %792, align 8
-  %794 = getelementptr inbounds i8, ptr %791, i64 24
+  %794 = getelementptr inbounds nuw i8, ptr %791, i64 24
   %795 = load ptr, ptr %794, align 8
   %796 = tail call ptr @g_slist_prepend(ptr noundef %795, ptr noundef %793) #29
   store ptr %796, ptr %794, align 8
@@ -1373,7 +1373,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val684 = load ptr, ptr %0, align 8
   %798 = tail call fastcc ptr @strdup_and_store(ptr %.val684, ptr noundef %797)
   %799 = load ptr, ptr %0, align 8
-  %800 = getelementptr inbounds i8, ptr %799, i64 56
+  %800 = getelementptr inbounds nuw i8, ptr %799, i64 56
   %801 = load ptr, ptr %800, align 8
   store ptr %798, ptr %801, align 8
   %802 = load ptr, ptr %76, align 8
@@ -1390,12 +1390,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 807:                                              ; preds = %.loopexit971
   %808 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %809 = load ptr, ptr %0, align 8
-  %810 = getelementptr inbounds i8, ptr %809, i64 56
+  %810 = getelementptr inbounds nuw i8, ptr %809, i64 56
   store ptr %808, ptr %810, align 8
   %811 = load ptr, ptr %0, align 8
-  %812 = getelementptr inbounds i8, ptr %811, i64 56
+  %812 = getelementptr inbounds nuw i8, ptr %811, i64 56
   %813 = load ptr, ptr %812, align 8
-  %814 = getelementptr inbounds i8, ptr %811, i64 24
+  %814 = getelementptr inbounds nuw i8, ptr %811, i64 24
   %815 = load ptr, ptr %814, align 8
   %816 = tail call ptr @g_slist_prepend(ptr noundef %815, ptr noundef %813) #29
   store ptr %816, ptr %814, align 8
@@ -1403,7 +1403,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val685 = load ptr, ptr %0, align 8
   %818 = tail call fastcc ptr @strdup_and_store(ptr %.val685, ptr noundef %817)
   %819 = load ptr, ptr %0, align 8
-  %820 = getelementptr inbounds i8, ptr %819, i64 56
+  %820 = getelementptr inbounds nuw i8, ptr %819, i64 56
   %821 = load ptr, ptr %820, align 8
   store ptr %818, ptr %821, align 8
   %822 = load ptr, ptr %76, align 8
@@ -1420,12 +1420,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 827:                                              ; preds = %.loopexit971
   %828 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %829 = load ptr, ptr %0, align 8
-  %830 = getelementptr inbounds i8, ptr %829, i64 56
+  %830 = getelementptr inbounds nuw i8, ptr %829, i64 56
   store ptr %828, ptr %830, align 8
   %831 = load ptr, ptr %0, align 8
-  %832 = getelementptr inbounds i8, ptr %831, i64 56
+  %832 = getelementptr inbounds nuw i8, ptr %831, i64 56
   %833 = load ptr, ptr %832, align 8
-  %834 = getelementptr inbounds i8, ptr %831, i64 24
+  %834 = getelementptr inbounds nuw i8, ptr %831, i64 24
   %835 = load ptr, ptr %834, align 8
   %836 = tail call ptr @g_slist_prepend(ptr noundef %835, ptr noundef %833) #29
   store ptr %836, ptr %834, align 8
@@ -1433,7 +1433,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val686 = load ptr, ptr %0, align 8
   %838 = tail call fastcc ptr @strdup_and_store(ptr %.val686, ptr noundef %837)
   %839 = load ptr, ptr %0, align 8
-  %840 = getelementptr inbounds i8, ptr %839, i64 56
+  %840 = getelementptr inbounds nuw i8, ptr %839, i64 56
   %841 = load ptr, ptr %840, align 8
   store ptr %838, ptr %841, align 8
   %842 = load ptr, ptr %76, align 8
@@ -1450,12 +1450,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 847:                                              ; preds = %.loopexit971
   %848 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %849 = load ptr, ptr %0, align 8
-  %850 = getelementptr inbounds i8, ptr %849, i64 56
+  %850 = getelementptr inbounds nuw i8, ptr %849, i64 56
   store ptr %848, ptr %850, align 8
   %851 = load ptr, ptr %0, align 8
-  %852 = getelementptr inbounds i8, ptr %851, i64 56
+  %852 = getelementptr inbounds nuw i8, ptr %851, i64 56
   %853 = load ptr, ptr %852, align 8
-  %854 = getelementptr inbounds i8, ptr %851, i64 24
+  %854 = getelementptr inbounds nuw i8, ptr %851, i64 24
   %855 = load ptr, ptr %854, align 8
   %856 = tail call ptr @g_slist_prepend(ptr noundef %855, ptr noundef %853) #29
   store ptr %856, ptr %854, align 8
@@ -1463,7 +1463,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val687 = load ptr, ptr %0, align 8
   %858 = tail call fastcc ptr @strdup_and_store(ptr %.val687, ptr noundef %857)
   %859 = load ptr, ptr %0, align 8
-  %860 = getelementptr inbounds i8, ptr %859, i64 56
+  %860 = getelementptr inbounds nuw i8, ptr %859, i64 56
   %861 = load ptr, ptr %860, align 8
   store ptr %858, ptr %861, align 8
   %862 = load ptr, ptr %76, align 8
@@ -1480,12 +1480,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 867:                                              ; preds = %.loopexit971
   %868 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %869 = load ptr, ptr %0, align 8
-  %870 = getelementptr inbounds i8, ptr %869, i64 56
+  %870 = getelementptr inbounds nuw i8, ptr %869, i64 56
   store ptr %868, ptr %870, align 8
   %871 = load ptr, ptr %0, align 8
-  %872 = getelementptr inbounds i8, ptr %871, i64 56
+  %872 = getelementptr inbounds nuw i8, ptr %871, i64 56
   %873 = load ptr, ptr %872, align 8
-  %874 = getelementptr inbounds i8, ptr %871, i64 24
+  %874 = getelementptr inbounds nuw i8, ptr %871, i64 24
   %875 = load ptr, ptr %874, align 8
   %876 = tail call ptr @g_slist_prepend(ptr noundef %875, ptr noundef %873) #29
   store ptr %876, ptr %874, align 8
@@ -1493,7 +1493,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val688 = load ptr, ptr %0, align 8
   %878 = tail call fastcc ptr @strdup_and_store(ptr %.val688, ptr noundef %877)
   %879 = load ptr, ptr %0, align 8
-  %880 = getelementptr inbounds i8, ptr %879, i64 56
+  %880 = getelementptr inbounds nuw i8, ptr %879, i64 56
   %881 = load ptr, ptr %880, align 8
   store ptr %878, ptr %881, align 8
   %882 = load ptr, ptr %76, align 8
@@ -1510,12 +1510,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 887:                                              ; preds = %.loopexit971
   %888 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %889 = load ptr, ptr %0, align 8
-  %890 = getelementptr inbounds i8, ptr %889, i64 56
+  %890 = getelementptr inbounds nuw i8, ptr %889, i64 56
   store ptr %888, ptr %890, align 8
   %891 = load ptr, ptr %0, align 8
-  %892 = getelementptr inbounds i8, ptr %891, i64 56
+  %892 = getelementptr inbounds nuw i8, ptr %891, i64 56
   %893 = load ptr, ptr %892, align 8
-  %894 = getelementptr inbounds i8, ptr %891, i64 24
+  %894 = getelementptr inbounds nuw i8, ptr %891, i64 24
   %895 = load ptr, ptr %894, align 8
   %896 = tail call ptr @g_slist_prepend(ptr noundef %895, ptr noundef %893) #29
   store ptr %896, ptr %894, align 8
@@ -1523,7 +1523,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val689 = load ptr, ptr %0, align 8
   %898 = tail call fastcc ptr @strdup_and_store(ptr %.val689, ptr noundef %897)
   %899 = load ptr, ptr %0, align 8
-  %900 = getelementptr inbounds i8, ptr %899, i64 56
+  %900 = getelementptr inbounds nuw i8, ptr %899, i64 56
   %901 = load ptr, ptr %900, align 8
   store ptr %898, ptr %901, align 8
   %902 = load ptr, ptr %76, align 8
@@ -1540,12 +1540,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 907:                                              ; preds = %.loopexit971
   %908 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %909 = load ptr, ptr %0, align 8
-  %910 = getelementptr inbounds i8, ptr %909, i64 56
+  %910 = getelementptr inbounds nuw i8, ptr %909, i64 56
   store ptr %908, ptr %910, align 8
   %911 = load ptr, ptr %0, align 8
-  %912 = getelementptr inbounds i8, ptr %911, i64 56
+  %912 = getelementptr inbounds nuw i8, ptr %911, i64 56
   %913 = load ptr, ptr %912, align 8
-  %914 = getelementptr inbounds i8, ptr %911, i64 24
+  %914 = getelementptr inbounds nuw i8, ptr %911, i64 24
   %915 = load ptr, ptr %914, align 8
   %916 = tail call ptr @g_slist_prepend(ptr noundef %915, ptr noundef %913) #29
   store ptr %916, ptr %914, align 8
@@ -1553,7 +1553,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val690 = load ptr, ptr %0, align 8
   %918 = tail call fastcc ptr @strdup_and_store(ptr %.val690, ptr noundef %917)
   %919 = load ptr, ptr %0, align 8
-  %920 = getelementptr inbounds i8, ptr %919, i64 56
+  %920 = getelementptr inbounds nuw i8, ptr %919, i64 56
   %921 = load ptr, ptr %920, align 8
   store ptr %918, ptr %921, align 8
   %922 = load ptr, ptr %76, align 8
@@ -1570,12 +1570,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 927:                                              ; preds = %.loopexit971
   %928 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %929 = load ptr, ptr %0, align 8
-  %930 = getelementptr inbounds i8, ptr %929, i64 56
+  %930 = getelementptr inbounds nuw i8, ptr %929, i64 56
   store ptr %928, ptr %930, align 8
   %931 = load ptr, ptr %0, align 8
-  %932 = getelementptr inbounds i8, ptr %931, i64 56
+  %932 = getelementptr inbounds nuw i8, ptr %931, i64 56
   %933 = load ptr, ptr %932, align 8
-  %934 = getelementptr inbounds i8, ptr %931, i64 24
+  %934 = getelementptr inbounds nuw i8, ptr %931, i64 24
   %935 = load ptr, ptr %934, align 8
   %936 = tail call ptr @g_slist_prepend(ptr noundef %935, ptr noundef %933) #29
   store ptr %936, ptr %934, align 8
@@ -1583,7 +1583,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val691 = load ptr, ptr %0, align 8
   %938 = tail call fastcc ptr @strdup_and_store(ptr %.val691, ptr noundef %937)
   %939 = load ptr, ptr %0, align 8
-  %940 = getelementptr inbounds i8, ptr %939, i64 56
+  %940 = getelementptr inbounds nuw i8, ptr %939, i64 56
   %941 = load ptr, ptr %940, align 8
   store ptr %938, ptr %941, align 8
   %942 = load ptr, ptr %76, align 8
@@ -1600,12 +1600,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 947:                                              ; preds = %.loopexit971
   %948 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %949 = load ptr, ptr %0, align 8
-  %950 = getelementptr inbounds i8, ptr %949, i64 56
+  %950 = getelementptr inbounds nuw i8, ptr %949, i64 56
   store ptr %948, ptr %950, align 8
   %951 = load ptr, ptr %0, align 8
-  %952 = getelementptr inbounds i8, ptr %951, i64 56
+  %952 = getelementptr inbounds nuw i8, ptr %951, i64 56
   %953 = load ptr, ptr %952, align 8
-  %954 = getelementptr inbounds i8, ptr %951, i64 24
+  %954 = getelementptr inbounds nuw i8, ptr %951, i64 24
   %955 = load ptr, ptr %954, align 8
   %956 = tail call ptr @g_slist_prepend(ptr noundef %955, ptr noundef %953) #29
   store ptr %956, ptr %954, align 8
@@ -1613,7 +1613,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val692 = load ptr, ptr %0, align 8
   %958 = tail call fastcc ptr @strdup_and_store(ptr %.val692, ptr noundef %957)
   %959 = load ptr, ptr %0, align 8
-  %960 = getelementptr inbounds i8, ptr %959, i64 56
+  %960 = getelementptr inbounds nuw i8, ptr %959, i64 56
   %961 = load ptr, ptr %960, align 8
   store ptr %958, ptr %961, align 8
   %962 = load ptr, ptr %76, align 8
@@ -1630,12 +1630,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 967:                                              ; preds = %.loopexit971
   %968 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %969 = load ptr, ptr %0, align 8
-  %970 = getelementptr inbounds i8, ptr %969, i64 56
+  %970 = getelementptr inbounds nuw i8, ptr %969, i64 56
   store ptr %968, ptr %970, align 8
   %971 = load ptr, ptr %0, align 8
-  %972 = getelementptr inbounds i8, ptr %971, i64 56
+  %972 = getelementptr inbounds nuw i8, ptr %971, i64 56
   %973 = load ptr, ptr %972, align 8
-  %974 = getelementptr inbounds i8, ptr %971, i64 24
+  %974 = getelementptr inbounds nuw i8, ptr %971, i64 24
   %975 = load ptr, ptr %974, align 8
   %976 = tail call ptr @g_slist_prepend(ptr noundef %975, ptr noundef %973) #29
   store ptr %976, ptr %974, align 8
@@ -1643,7 +1643,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val693 = load ptr, ptr %0, align 8
   %978 = tail call fastcc ptr @strdup_and_store(ptr %.val693, ptr noundef %977)
   %979 = load ptr, ptr %0, align 8
-  %980 = getelementptr inbounds i8, ptr %979, i64 56
+  %980 = getelementptr inbounds nuw i8, ptr %979, i64 56
   %981 = load ptr, ptr %980, align 8
   store ptr %978, ptr %981, align 8
   %982 = load ptr, ptr %76, align 8
@@ -1660,12 +1660,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 987:                                              ; preds = %.loopexit971
   %988 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %989 = load ptr, ptr %0, align 8
-  %990 = getelementptr inbounds i8, ptr %989, i64 56
+  %990 = getelementptr inbounds nuw i8, ptr %989, i64 56
   store ptr %988, ptr %990, align 8
   %991 = load ptr, ptr %0, align 8
-  %992 = getelementptr inbounds i8, ptr %991, i64 56
+  %992 = getelementptr inbounds nuw i8, ptr %991, i64 56
   %993 = load ptr, ptr %992, align 8
-  %994 = getelementptr inbounds i8, ptr %991, i64 24
+  %994 = getelementptr inbounds nuw i8, ptr %991, i64 24
   %995 = load ptr, ptr %994, align 8
   %996 = tail call ptr @g_slist_prepend(ptr noundef %995, ptr noundef %993) #29
   store ptr %996, ptr %994, align 8
@@ -1673,7 +1673,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val694 = load ptr, ptr %0, align 8
   %998 = tail call fastcc ptr @strdup_and_store(ptr %.val694, ptr noundef %997)
   %999 = load ptr, ptr %0, align 8
-  %1000 = getelementptr inbounds i8, ptr %999, i64 56
+  %1000 = getelementptr inbounds nuw i8, ptr %999, i64 56
   %1001 = load ptr, ptr %1000, align 8
   store ptr %998, ptr %1001, align 8
   %1002 = load ptr, ptr %76, align 8
@@ -1690,12 +1690,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 1007:                                             ; preds = %.loopexit971
   %1008 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %1009 = load ptr, ptr %0, align 8
-  %1010 = getelementptr inbounds i8, ptr %1009, i64 56
+  %1010 = getelementptr inbounds nuw i8, ptr %1009, i64 56
   store ptr %1008, ptr %1010, align 8
   %1011 = load ptr, ptr %0, align 8
-  %1012 = getelementptr inbounds i8, ptr %1011, i64 56
+  %1012 = getelementptr inbounds nuw i8, ptr %1011, i64 56
   %1013 = load ptr, ptr %1012, align 8
-  %1014 = getelementptr inbounds i8, ptr %1011, i64 24
+  %1014 = getelementptr inbounds nuw i8, ptr %1011, i64 24
   %1015 = load ptr, ptr %1014, align 8
   %1016 = tail call ptr @g_slist_prepend(ptr noundef %1015, ptr noundef %1013) #29
   store ptr %1016, ptr %1014, align 8
@@ -1703,7 +1703,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val695 = load ptr, ptr %0, align 8
   %1018 = tail call fastcc ptr @strdup_and_store(ptr %.val695, ptr noundef %1017)
   %1019 = load ptr, ptr %0, align 8
-  %1020 = getelementptr inbounds i8, ptr %1019, i64 56
+  %1020 = getelementptr inbounds nuw i8, ptr %1019, i64 56
   %1021 = load ptr, ptr %1020, align 8
   store ptr %1018, ptr %1021, align 8
   %1022 = load ptr, ptr %76, align 8
@@ -1720,12 +1720,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 1027:                                             ; preds = %.loopexit971
   %1028 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %1029 = load ptr, ptr %0, align 8
-  %1030 = getelementptr inbounds i8, ptr %1029, i64 56
+  %1030 = getelementptr inbounds nuw i8, ptr %1029, i64 56
   store ptr %1028, ptr %1030, align 8
   %1031 = load ptr, ptr %0, align 8
-  %1032 = getelementptr inbounds i8, ptr %1031, i64 56
+  %1032 = getelementptr inbounds nuw i8, ptr %1031, i64 56
   %1033 = load ptr, ptr %1032, align 8
-  %1034 = getelementptr inbounds i8, ptr %1031, i64 24
+  %1034 = getelementptr inbounds nuw i8, ptr %1031, i64 24
   %1035 = load ptr, ptr %1034, align 8
   %1036 = tail call ptr @g_slist_prepend(ptr noundef %1035, ptr noundef %1033) #29
   store ptr %1036, ptr %1034, align 8
@@ -1733,7 +1733,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val696 = load ptr, ptr %0, align 8
   %1038 = tail call fastcc ptr @strdup_and_store(ptr %.val696, ptr noundef %1037)
   %1039 = load ptr, ptr %0, align 8
-  %1040 = getelementptr inbounds i8, ptr %1039, i64 56
+  %1040 = getelementptr inbounds nuw i8, ptr %1039, i64 56
   %1041 = load ptr, ptr %1040, align 8
   store ptr %1038, ptr %1041, align 8
   %1042 = load ptr, ptr %76, align 8
@@ -1750,12 +1750,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 1047:                                             ; preds = %.loopexit971
   %1048 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %1049 = load ptr, ptr %0, align 8
-  %1050 = getelementptr inbounds i8, ptr %1049, i64 56
+  %1050 = getelementptr inbounds nuw i8, ptr %1049, i64 56
   store ptr %1048, ptr %1050, align 8
   %1051 = load ptr, ptr %0, align 8
-  %1052 = getelementptr inbounds i8, ptr %1051, i64 56
+  %1052 = getelementptr inbounds nuw i8, ptr %1051, i64 56
   %1053 = load ptr, ptr %1052, align 8
-  %1054 = getelementptr inbounds i8, ptr %1051, i64 24
+  %1054 = getelementptr inbounds nuw i8, ptr %1051, i64 24
   %1055 = load ptr, ptr %1054, align 8
   %1056 = tail call ptr @g_slist_prepend(ptr noundef %1055, ptr noundef %1053) #29
   store ptr %1056, ptr %1054, align 8
@@ -1763,7 +1763,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val697 = load ptr, ptr %0, align 8
   %1058 = tail call fastcc ptr @strdup_and_store(ptr %.val697, ptr noundef %1057)
   %1059 = load ptr, ptr %0, align 8
-  %1060 = getelementptr inbounds i8, ptr %1059, i64 56
+  %1060 = getelementptr inbounds nuw i8, ptr %1059, i64 56
   %1061 = load ptr, ptr %1060, align 8
   store ptr %1058, ptr %1061, align 8
   %1062 = load ptr, ptr %76, align 8
@@ -1780,12 +1780,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 1067:                                             ; preds = %.loopexit971
   %1068 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %1069 = load ptr, ptr %0, align 8
-  %1070 = getelementptr inbounds i8, ptr %1069, i64 56
+  %1070 = getelementptr inbounds nuw i8, ptr %1069, i64 56
   store ptr %1068, ptr %1070, align 8
   %1071 = load ptr, ptr %0, align 8
-  %1072 = getelementptr inbounds i8, ptr %1071, i64 56
+  %1072 = getelementptr inbounds nuw i8, ptr %1071, i64 56
   %1073 = load ptr, ptr %1072, align 8
-  %1074 = getelementptr inbounds i8, ptr %1071, i64 24
+  %1074 = getelementptr inbounds nuw i8, ptr %1071, i64 24
   %1075 = load ptr, ptr %1074, align 8
   %1076 = tail call ptr @g_slist_prepend(ptr noundef %1075, ptr noundef %1073) #29
   store ptr %1076, ptr %1074, align 8
@@ -1793,7 +1793,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val698 = load ptr, ptr %0, align 8
   %1078 = tail call fastcc ptr @strdup_and_store(ptr %.val698, ptr noundef %1077)
   %1079 = load ptr, ptr %0, align 8
-  %1080 = getelementptr inbounds i8, ptr %1079, i64 56
+  %1080 = getelementptr inbounds nuw i8, ptr %1079, i64 56
   %1081 = load ptr, ptr %1080, align 8
   store ptr %1078, ptr %1081, align 8
   %1082 = load ptr, ptr %76, align 8
@@ -1810,12 +1810,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 1087:                                             ; preds = %.loopexit971
   %1088 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %1089 = load ptr, ptr %0, align 8
-  %1090 = getelementptr inbounds i8, ptr %1089, i64 56
+  %1090 = getelementptr inbounds nuw i8, ptr %1089, i64 56
   store ptr %1088, ptr %1090, align 8
   %1091 = load ptr, ptr %0, align 8
-  %1092 = getelementptr inbounds i8, ptr %1091, i64 56
+  %1092 = getelementptr inbounds nuw i8, ptr %1091, i64 56
   %1093 = load ptr, ptr %1092, align 8
-  %1094 = getelementptr inbounds i8, ptr %1091, i64 24
+  %1094 = getelementptr inbounds nuw i8, ptr %1091, i64 24
   %1095 = load ptr, ptr %1094, align 8
   %1096 = tail call ptr @g_slist_prepend(ptr noundef %1095, ptr noundef %1093) #29
   store ptr %1096, ptr %1094, align 8
@@ -1823,7 +1823,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val699 = load ptr, ptr %0, align 8
   %1098 = tail call fastcc ptr @strdup_and_store(ptr %.val699, ptr noundef %1097)
   %1099 = load ptr, ptr %0, align 8
-  %1100 = getelementptr inbounds i8, ptr %1099, i64 56
+  %1100 = getelementptr inbounds nuw i8, ptr %1099, i64 56
   %1101 = load ptr, ptr %1100, align 8
   store ptr %1098, ptr %1101, align 8
   %1102 = load ptr, ptr %76, align 8
@@ -1840,12 +1840,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 1107:                                             ; preds = %.loopexit971
   %1108 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %1109 = load ptr, ptr %0, align 8
-  %1110 = getelementptr inbounds i8, ptr %1109, i64 56
+  %1110 = getelementptr inbounds nuw i8, ptr %1109, i64 56
   store ptr %1108, ptr %1110, align 8
   %1111 = load ptr, ptr %0, align 8
-  %1112 = getelementptr inbounds i8, ptr %1111, i64 56
+  %1112 = getelementptr inbounds nuw i8, ptr %1111, i64 56
   %1113 = load ptr, ptr %1112, align 8
-  %1114 = getelementptr inbounds i8, ptr %1111, i64 24
+  %1114 = getelementptr inbounds nuw i8, ptr %1111, i64 24
   %1115 = load ptr, ptr %1114, align 8
   %1116 = tail call ptr @g_slist_prepend(ptr noundef %1115, ptr noundef %1113) #29
   store ptr %1116, ptr %1114, align 8
@@ -1853,7 +1853,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val700 = load ptr, ptr %0, align 8
   %1118 = tail call fastcc ptr @strdup_and_store(ptr %.val700, ptr noundef %1117)
   %1119 = load ptr, ptr %0, align 8
-  %1120 = getelementptr inbounds i8, ptr %1119, i64 56
+  %1120 = getelementptr inbounds nuw i8, ptr %1119, i64 56
   %1121 = load ptr, ptr %1120, align 8
   store ptr %1118, ptr %1121, align 8
   %1122 = load ptr, ptr %76, align 8
@@ -1870,12 +1870,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 1127:                                             ; preds = %.loopexit971
   %1128 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %1129 = load ptr, ptr %0, align 8
-  %1130 = getelementptr inbounds i8, ptr %1129, i64 56
+  %1130 = getelementptr inbounds nuw i8, ptr %1129, i64 56
   store ptr %1128, ptr %1130, align 8
   %1131 = load ptr, ptr %0, align 8
-  %1132 = getelementptr inbounds i8, ptr %1131, i64 56
+  %1132 = getelementptr inbounds nuw i8, ptr %1131, i64 56
   %1133 = load ptr, ptr %1132, align 8
-  %1134 = getelementptr inbounds i8, ptr %1131, i64 24
+  %1134 = getelementptr inbounds nuw i8, ptr %1131, i64 24
   %1135 = load ptr, ptr %1134, align 8
   %1136 = tail call ptr @g_slist_prepend(ptr noundef %1135, ptr noundef %1133) #29
   store ptr %1136, ptr %1134, align 8
@@ -1883,7 +1883,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val701 = load ptr, ptr %0, align 8
   %1138 = tail call fastcc ptr @strdup_and_store(ptr %.val701, ptr noundef %1137)
   %1139 = load ptr, ptr %0, align 8
-  %1140 = getelementptr inbounds i8, ptr %1139, i64 56
+  %1140 = getelementptr inbounds nuw i8, ptr %1139, i64 56
   %1141 = load ptr, ptr %1140, align 8
   store ptr %1138, ptr %1141, align 8
   %1142 = load ptr, ptr %76, align 8
@@ -1900,12 +1900,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 1147:                                             ; preds = %.loopexit971
   %1148 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %1149 = load ptr, ptr %0, align 8
-  %1150 = getelementptr inbounds i8, ptr %1149, i64 56
+  %1150 = getelementptr inbounds nuw i8, ptr %1149, i64 56
   store ptr %1148, ptr %1150, align 8
   %1151 = load ptr, ptr %0, align 8
-  %1152 = getelementptr inbounds i8, ptr %1151, i64 56
+  %1152 = getelementptr inbounds nuw i8, ptr %1151, i64 56
   %1153 = load ptr, ptr %1152, align 8
-  %1154 = getelementptr inbounds i8, ptr %1151, i64 24
+  %1154 = getelementptr inbounds nuw i8, ptr %1151, i64 24
   %1155 = load ptr, ptr %1154, align 8
   %1156 = tail call ptr @g_slist_prepend(ptr noundef %1155, ptr noundef %1153) #29
   store ptr %1156, ptr %1154, align 8
@@ -1913,7 +1913,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val702 = load ptr, ptr %0, align 8
   %1158 = tail call fastcc ptr @strdup_and_store(ptr %.val702, ptr noundef %1157)
   %1159 = load ptr, ptr %0, align 8
-  %1160 = getelementptr inbounds i8, ptr %1159, i64 56
+  %1160 = getelementptr inbounds nuw i8, ptr %1159, i64 56
   %1161 = load ptr, ptr %1160, align 8
   store ptr %1158, ptr %1161, align 8
   %1162 = load ptr, ptr %76, align 8
@@ -1930,12 +1930,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 1167:                                             ; preds = %.loopexit971
   %1168 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %1169 = load ptr, ptr %0, align 8
-  %1170 = getelementptr inbounds i8, ptr %1169, i64 56
+  %1170 = getelementptr inbounds nuw i8, ptr %1169, i64 56
   store ptr %1168, ptr %1170, align 8
   %1171 = load ptr, ptr %0, align 8
-  %1172 = getelementptr inbounds i8, ptr %1171, i64 56
+  %1172 = getelementptr inbounds nuw i8, ptr %1171, i64 56
   %1173 = load ptr, ptr %1172, align 8
-  %1174 = getelementptr inbounds i8, ptr %1171, i64 24
+  %1174 = getelementptr inbounds nuw i8, ptr %1171, i64 24
   %1175 = load ptr, ptr %1174, align 8
   %1176 = tail call ptr @g_slist_prepend(ptr noundef %1175, ptr noundef %1173) #29
   store ptr %1176, ptr %1174, align 8
@@ -1943,7 +1943,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val703 = load ptr, ptr %0, align 8
   %1178 = tail call fastcc ptr @strdup_and_store(ptr %.val703, ptr noundef %1177)
   %1179 = load ptr, ptr %0, align 8
-  %1180 = getelementptr inbounds i8, ptr %1179, i64 56
+  %1180 = getelementptr inbounds nuw i8, ptr %1179, i64 56
   %1181 = load ptr, ptr %1180, align 8
   store ptr %1178, ptr %1181, align 8
   %1182 = load ptr, ptr %76, align 8
@@ -1960,12 +1960,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 1187:                                             ; preds = %.loopexit971
   %1188 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %1189 = load ptr, ptr %0, align 8
-  %1190 = getelementptr inbounds i8, ptr %1189, i64 56
+  %1190 = getelementptr inbounds nuw i8, ptr %1189, i64 56
   store ptr %1188, ptr %1190, align 8
   %1191 = load ptr, ptr %0, align 8
-  %1192 = getelementptr inbounds i8, ptr %1191, i64 56
+  %1192 = getelementptr inbounds nuw i8, ptr %1191, i64 56
   %1193 = load ptr, ptr %1192, align 8
-  %1194 = getelementptr inbounds i8, ptr %1191, i64 24
+  %1194 = getelementptr inbounds nuw i8, ptr %1191, i64 24
   %1195 = load ptr, ptr %1194, align 8
   %1196 = tail call ptr @g_slist_prepend(ptr noundef %1195, ptr noundef %1193) #29
   store ptr %1196, ptr %1194, align 8
@@ -1973,7 +1973,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val704 = load ptr, ptr %0, align 8
   %1198 = tail call fastcc ptr @strdup_and_store(ptr %.val704, ptr noundef %1197)
   %1199 = load ptr, ptr %0, align 8
-  %1200 = getelementptr inbounds i8, ptr %1199, i64 56
+  %1200 = getelementptr inbounds nuw i8, ptr %1199, i64 56
   %1201 = load ptr, ptr %1200, align 8
   store ptr %1198, ptr %1201, align 8
   %1202 = load ptr, ptr %76, align 8
@@ -1990,12 +1990,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 1207:                                             ; preds = %.loopexit971
   %1208 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %1209 = load ptr, ptr %0, align 8
-  %1210 = getelementptr inbounds i8, ptr %1209, i64 56
+  %1210 = getelementptr inbounds nuw i8, ptr %1209, i64 56
   store ptr %1208, ptr %1210, align 8
   %1211 = load ptr, ptr %0, align 8
-  %1212 = getelementptr inbounds i8, ptr %1211, i64 56
+  %1212 = getelementptr inbounds nuw i8, ptr %1211, i64 56
   %1213 = load ptr, ptr %1212, align 8
-  %1214 = getelementptr inbounds i8, ptr %1211, i64 24
+  %1214 = getelementptr inbounds nuw i8, ptr %1211, i64 24
   %1215 = load ptr, ptr %1214, align 8
   %1216 = tail call ptr @g_slist_prepend(ptr noundef %1215, ptr noundef %1213) #29
   store ptr %1216, ptr %1214, align 8
@@ -2003,7 +2003,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val705 = load ptr, ptr %0, align 8
   %1218 = tail call fastcc ptr @strdup_and_store(ptr %.val705, ptr noundef %1217)
   %1219 = load ptr, ptr %0, align 8
-  %1220 = getelementptr inbounds i8, ptr %1219, i64 56
+  %1220 = getelementptr inbounds nuw i8, ptr %1219, i64 56
   %1221 = load ptr, ptr %1220, align 8
   store ptr %1218, ptr %1221, align 8
   %1222 = load ptr, ptr %76, align 8
@@ -2020,12 +2020,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 1227:                                             ; preds = %.loopexit971
   %1228 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %1229 = load ptr, ptr %0, align 8
-  %1230 = getelementptr inbounds i8, ptr %1229, i64 56
+  %1230 = getelementptr inbounds nuw i8, ptr %1229, i64 56
   store ptr %1228, ptr %1230, align 8
   %1231 = load ptr, ptr %0, align 8
-  %1232 = getelementptr inbounds i8, ptr %1231, i64 56
+  %1232 = getelementptr inbounds nuw i8, ptr %1231, i64 56
   %1233 = load ptr, ptr %1232, align 8
-  %1234 = getelementptr inbounds i8, ptr %1231, i64 24
+  %1234 = getelementptr inbounds nuw i8, ptr %1231, i64 24
   %1235 = load ptr, ptr %1234, align 8
   %1236 = tail call ptr @g_slist_prepend(ptr noundef %1235, ptr noundef %1233) #29
   store ptr %1236, ptr %1234, align 8
@@ -2033,7 +2033,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val706 = load ptr, ptr %0, align 8
   %1238 = tail call fastcc ptr @strdup_and_store(ptr %.val706, ptr noundef %1237)
   %1239 = load ptr, ptr %0, align 8
-  %1240 = getelementptr inbounds i8, ptr %1239, i64 56
+  %1240 = getelementptr inbounds nuw i8, ptr %1239, i64 56
   %1241 = load ptr, ptr %1240, align 8
   store ptr %1238, ptr %1241, align 8
   %1242 = load ptr, ptr %76, align 8
@@ -2050,12 +2050,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 1247:                                             ; preds = %.loopexit971
   %1248 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %1249 = load ptr, ptr %0, align 8
-  %1250 = getelementptr inbounds i8, ptr %1249, i64 56
+  %1250 = getelementptr inbounds nuw i8, ptr %1249, i64 56
   store ptr %1248, ptr %1250, align 8
   %1251 = load ptr, ptr %0, align 8
-  %1252 = getelementptr inbounds i8, ptr %1251, i64 56
+  %1252 = getelementptr inbounds nuw i8, ptr %1251, i64 56
   %1253 = load ptr, ptr %1252, align 8
-  %1254 = getelementptr inbounds i8, ptr %1251, i64 24
+  %1254 = getelementptr inbounds nuw i8, ptr %1251, i64 24
   %1255 = load ptr, ptr %1254, align 8
   %1256 = tail call ptr @g_slist_prepend(ptr noundef %1255, ptr noundef %1253) #29
   store ptr %1256, ptr %1254, align 8
@@ -2063,7 +2063,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val707 = load ptr, ptr %0, align 8
   %1258 = tail call fastcc ptr @strdup_and_store(ptr %.val707, ptr noundef %1257)
   %1259 = load ptr, ptr %0, align 8
-  %1260 = getelementptr inbounds i8, ptr %1259, i64 56
+  %1260 = getelementptr inbounds nuw i8, ptr %1259, i64 56
   %1261 = load ptr, ptr %1260, align 8
   store ptr %1258, ptr %1261, align 8
   %1262 = load ptr, ptr %76, align 8
@@ -2080,12 +2080,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 1267:                                             ; preds = %.loopexit971
   %1268 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %1269 = load ptr, ptr %0, align 8
-  %1270 = getelementptr inbounds i8, ptr %1269, i64 56
+  %1270 = getelementptr inbounds nuw i8, ptr %1269, i64 56
   store ptr %1268, ptr %1270, align 8
   %1271 = load ptr, ptr %0, align 8
-  %1272 = getelementptr inbounds i8, ptr %1271, i64 56
+  %1272 = getelementptr inbounds nuw i8, ptr %1271, i64 56
   %1273 = load ptr, ptr %1272, align 8
-  %1274 = getelementptr inbounds i8, ptr %1271, i64 24
+  %1274 = getelementptr inbounds nuw i8, ptr %1271, i64 24
   %1275 = load ptr, ptr %1274, align 8
   %1276 = tail call ptr @g_slist_prepend(ptr noundef %1275, ptr noundef %1273) #29
   store ptr %1276, ptr %1274, align 8
@@ -2093,7 +2093,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val708 = load ptr, ptr %0, align 8
   %1278 = tail call fastcc ptr @strdup_and_store(ptr %.val708, ptr noundef %1277)
   %1279 = load ptr, ptr %0, align 8
-  %1280 = getelementptr inbounds i8, ptr %1279, i64 56
+  %1280 = getelementptr inbounds nuw i8, ptr %1279, i64 56
   %1281 = load ptr, ptr %1280, align 8
   store ptr %1278, ptr %1281, align 8
   %1282 = load ptr, ptr %76, align 8
@@ -2110,12 +2110,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 1287:                                             ; preds = %.loopexit971
   %1288 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %1289 = load ptr, ptr %0, align 8
-  %1290 = getelementptr inbounds i8, ptr %1289, i64 56
+  %1290 = getelementptr inbounds nuw i8, ptr %1289, i64 56
   store ptr %1288, ptr %1290, align 8
   %1291 = load ptr, ptr %0, align 8
-  %1292 = getelementptr inbounds i8, ptr %1291, i64 56
+  %1292 = getelementptr inbounds nuw i8, ptr %1291, i64 56
   %1293 = load ptr, ptr %1292, align 8
-  %1294 = getelementptr inbounds i8, ptr %1291, i64 24
+  %1294 = getelementptr inbounds nuw i8, ptr %1291, i64 24
   %1295 = load ptr, ptr %1294, align 8
   %1296 = tail call ptr @g_slist_prepend(ptr noundef %1295, ptr noundef %1293) #29
   store ptr %1296, ptr %1294, align 8
@@ -2123,7 +2123,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val709 = load ptr, ptr %0, align 8
   %1298 = tail call fastcc ptr @strdup_and_store(ptr %.val709, ptr noundef %1297)
   %1299 = load ptr, ptr %0, align 8
-  %1300 = getelementptr inbounds i8, ptr %1299, i64 56
+  %1300 = getelementptr inbounds nuw i8, ptr %1299, i64 56
   %1301 = load ptr, ptr %1300, align 8
   store ptr %1298, ptr %1301, align 8
   %1302 = load ptr, ptr %76, align 8
@@ -2140,12 +2140,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 1307:                                             ; preds = %.loopexit971
   %1308 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %1309 = load ptr, ptr %0, align 8
-  %1310 = getelementptr inbounds i8, ptr %1309, i64 56
+  %1310 = getelementptr inbounds nuw i8, ptr %1309, i64 56
   store ptr %1308, ptr %1310, align 8
   %1311 = load ptr, ptr %0, align 8
-  %1312 = getelementptr inbounds i8, ptr %1311, i64 56
+  %1312 = getelementptr inbounds nuw i8, ptr %1311, i64 56
   %1313 = load ptr, ptr %1312, align 8
-  %1314 = getelementptr inbounds i8, ptr %1311, i64 24
+  %1314 = getelementptr inbounds nuw i8, ptr %1311, i64 24
   %1315 = load ptr, ptr %1314, align 8
   %1316 = tail call ptr @g_slist_prepend(ptr noundef %1315, ptr noundef %1313) #29
   store ptr %1316, ptr %1314, align 8
@@ -2153,7 +2153,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val710 = load ptr, ptr %0, align 8
   %1318 = tail call fastcc ptr @strdup_and_store(ptr %.val710, ptr noundef %1317)
   %1319 = load ptr, ptr %0, align 8
-  %1320 = getelementptr inbounds i8, ptr %1319, i64 56
+  %1320 = getelementptr inbounds nuw i8, ptr %1319, i64 56
   %1321 = load ptr, ptr %1320, align 8
   store ptr %1318, ptr %1321, align 8
   %1322 = load ptr, ptr %76, align 8
@@ -2170,12 +2170,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 1327:                                             ; preds = %.loopexit971
   %1328 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %1329 = load ptr, ptr %0, align 8
-  %1330 = getelementptr inbounds i8, ptr %1329, i64 56
+  %1330 = getelementptr inbounds nuw i8, ptr %1329, i64 56
   store ptr %1328, ptr %1330, align 8
   %1331 = load ptr, ptr %0, align 8
-  %1332 = getelementptr inbounds i8, ptr %1331, i64 56
+  %1332 = getelementptr inbounds nuw i8, ptr %1331, i64 56
   %1333 = load ptr, ptr %1332, align 8
-  %1334 = getelementptr inbounds i8, ptr %1331, i64 24
+  %1334 = getelementptr inbounds nuw i8, ptr %1331, i64 24
   %1335 = load ptr, ptr %1334, align 8
   %1336 = tail call ptr @g_slist_prepend(ptr noundef %1335, ptr noundef %1333) #29
   store ptr %1336, ptr %1334, align 8
@@ -2183,7 +2183,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val711 = load ptr, ptr %0, align 8
   %1338 = tail call fastcc ptr @strdup_and_store(ptr %.val711, ptr noundef %1337)
   %1339 = load ptr, ptr %0, align 8
-  %1340 = getelementptr inbounds i8, ptr %1339, i64 56
+  %1340 = getelementptr inbounds nuw i8, ptr %1339, i64 56
   %1341 = load ptr, ptr %1340, align 8
   store ptr %1338, ptr %1341, align 8
   %1342 = load ptr, ptr %76, align 8
@@ -2200,12 +2200,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 1347:                                             ; preds = %.loopexit971
   %1348 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %1349 = load ptr, ptr %0, align 8
-  %1350 = getelementptr inbounds i8, ptr %1349, i64 56
+  %1350 = getelementptr inbounds nuw i8, ptr %1349, i64 56
   store ptr %1348, ptr %1350, align 8
   %1351 = load ptr, ptr %0, align 8
-  %1352 = getelementptr inbounds i8, ptr %1351, i64 56
+  %1352 = getelementptr inbounds nuw i8, ptr %1351, i64 56
   %1353 = load ptr, ptr %1352, align 8
-  %1354 = getelementptr inbounds i8, ptr %1351, i64 24
+  %1354 = getelementptr inbounds nuw i8, ptr %1351, i64 24
   %1355 = load ptr, ptr %1354, align 8
   %1356 = tail call ptr @g_slist_prepend(ptr noundef %1355, ptr noundef %1353) #29
   store ptr %1356, ptr %1354, align 8
@@ -2213,7 +2213,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val712 = load ptr, ptr %0, align 8
   %1358 = tail call fastcc ptr @strdup_and_store(ptr %.val712, ptr noundef %1357)
   %1359 = load ptr, ptr %0, align 8
-  %1360 = getelementptr inbounds i8, ptr %1359, i64 56
+  %1360 = getelementptr inbounds nuw i8, ptr %1359, i64 56
   %1361 = load ptr, ptr %1360, align 8
   store ptr %1358, ptr %1361, align 8
   %1362 = load ptr, ptr %76, align 8
@@ -2230,12 +2230,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 1367:                                             ; preds = %.loopexit971
   %1368 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %1369 = load ptr, ptr %0, align 8
-  %1370 = getelementptr inbounds i8, ptr %1369, i64 56
+  %1370 = getelementptr inbounds nuw i8, ptr %1369, i64 56
   store ptr %1368, ptr %1370, align 8
   %1371 = load ptr, ptr %0, align 8
-  %1372 = getelementptr inbounds i8, ptr %1371, i64 56
+  %1372 = getelementptr inbounds nuw i8, ptr %1371, i64 56
   %1373 = load ptr, ptr %1372, align 8
-  %1374 = getelementptr inbounds i8, ptr %1371, i64 24
+  %1374 = getelementptr inbounds nuw i8, ptr %1371, i64 24
   %1375 = load ptr, ptr %1374, align 8
   %1376 = tail call ptr @g_slist_prepend(ptr noundef %1375, ptr noundef %1373) #29
   store ptr %1376, ptr %1374, align 8
@@ -2243,7 +2243,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val713 = load ptr, ptr %0, align 8
   %1378 = tail call fastcc ptr @strdup_and_store(ptr %.val713, ptr noundef %1377)
   %1379 = load ptr, ptr %0, align 8
-  %1380 = getelementptr inbounds i8, ptr %1379, i64 56
+  %1380 = getelementptr inbounds nuw i8, ptr %1379, i64 56
   %1381 = load ptr, ptr %1380, align 8
   store ptr %1378, ptr %1381, align 8
   %1382 = load ptr, ptr %76, align 8
@@ -2260,12 +2260,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 1387:                                             ; preds = %.loopexit971
   %1388 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %1389 = load ptr, ptr %0, align 8
-  %1390 = getelementptr inbounds i8, ptr %1389, i64 56
+  %1390 = getelementptr inbounds nuw i8, ptr %1389, i64 56
   store ptr %1388, ptr %1390, align 8
   %1391 = load ptr, ptr %0, align 8
-  %1392 = getelementptr inbounds i8, ptr %1391, i64 56
+  %1392 = getelementptr inbounds nuw i8, ptr %1391, i64 56
   %1393 = load ptr, ptr %1392, align 8
-  %1394 = getelementptr inbounds i8, ptr %1391, i64 24
+  %1394 = getelementptr inbounds nuw i8, ptr %1391, i64 24
   %1395 = load ptr, ptr %1394, align 8
   %1396 = tail call ptr @g_slist_prepend(ptr noundef %1395, ptr noundef %1393) #29
   store ptr %1396, ptr %1394, align 8
@@ -2273,7 +2273,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val714 = load ptr, ptr %0, align 8
   %1398 = tail call fastcc ptr @strdup_and_store(ptr %.val714, ptr noundef %1397)
   %1399 = load ptr, ptr %0, align 8
-  %1400 = getelementptr inbounds i8, ptr %1399, i64 56
+  %1400 = getelementptr inbounds nuw i8, ptr %1399, i64 56
   %1401 = load ptr, ptr %1400, align 8
   store ptr %1398, ptr %1401, align 8
   %1402 = load ptr, ptr %76, align 8
@@ -2290,12 +2290,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 1407:                                             ; preds = %.loopexit971
   %1408 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %1409 = load ptr, ptr %0, align 8
-  %1410 = getelementptr inbounds i8, ptr %1409, i64 56
+  %1410 = getelementptr inbounds nuw i8, ptr %1409, i64 56
   store ptr %1408, ptr %1410, align 8
   %1411 = load ptr, ptr %0, align 8
-  %1412 = getelementptr inbounds i8, ptr %1411, i64 56
+  %1412 = getelementptr inbounds nuw i8, ptr %1411, i64 56
   %1413 = load ptr, ptr %1412, align 8
-  %1414 = getelementptr inbounds i8, ptr %1411, i64 24
+  %1414 = getelementptr inbounds nuw i8, ptr %1411, i64 24
   %1415 = load ptr, ptr %1414, align 8
   %1416 = tail call ptr @g_slist_prepend(ptr noundef %1415, ptr noundef %1413) #29
   store ptr %1416, ptr %1414, align 8
@@ -2303,7 +2303,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.val715 = load ptr, ptr %0, align 8
   %1418 = tail call fastcc ptr @strdup_and_store(ptr %.val715, ptr noundef %1417)
   %1419 = load ptr, ptr %0, align 8
-  %1420 = getelementptr inbounds i8, ptr %1419, i64 56
+  %1420 = getelementptr inbounds nuw i8, ptr %1419, i64 56
   %1421 = load ptr, ptr %1420, align 8
   store ptr %1418, ptr %1421, align 8
   %1422 = load ptr, ptr %76, align 8
@@ -2356,13 +2356,13 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %1447 = load i64, ptr %77, align 8
   %1448 = getelementptr ptr, ptr %1446, i64 %1447
   %1449 = load ptr, ptr %1448, align 8
-  %1450 = getelementptr inbounds i8, ptr %1449, i64 56
+  %1450 = getelementptr inbounds nuw i8, ptr %1449, i64 56
   %1451 = load i32, ptr %1450, align 8
   %1452 = icmp eq i32 %1451, 0
   br i1 %1452, label %1453, label %1463
 
 1453:                                             ; preds = %1443
-  %1454 = getelementptr inbounds i8, ptr %1449, i64 28
+  %1454 = getelementptr inbounds nuw i8, ptr %1449, i64 28
   %1455 = load i32, ptr %1454, align 4
   store i32 %1455, ptr %78, align 4
   %1456 = load ptr, ptr %79, align 8
@@ -2372,7 +2372,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %1459 = load i64, ptr %77, align 8
   %1460 = getelementptr ptr, ptr %1458, i64 %1459
   %1461 = load ptr, ptr %1460, align 8
-  %1462 = getelementptr inbounds i8, ptr %1461, i64 56
+  %1462 = getelementptr inbounds nuw i8, ptr %1461, i64 56
   store i32 1, ptr %1462, align 8
   %.pre1302 = load ptr, ptr %76, align 8
   %.pre1303 = load i64, ptr %77, align 8
@@ -2385,7 +2385,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %1465 = phi i64 [ %.pre1303, %1453 ], [ %1447, %1443 ]
   %1466 = phi ptr [ %.pre1302, %1453 ], [ %1446, %1443 ]
   %1467 = load ptr, ptr %69, align 8
-  %1468 = getelementptr inbounds i8, ptr %1464, i64 8
+  %1468 = getelementptr inbounds nuw i8, ptr %1464, i64 8
   %1469 = load ptr, ptr %1468, align 8
   %1470 = load i32, ptr %78, align 4
   %1471 = sext i32 %1470 to i64
@@ -2443,7 +2443,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   unreachable
 
 1495:                                             ; preds = %1488
-  %1496 = getelementptr inbounds i8, ptr %1464, i64 52
+  %1496 = getelementptr inbounds nuw i8, ptr %1464, i64 52
   %1497 = load i32, ptr %1496, align 4
   %1498 = icmp eq i32 %1497, 0
   %1499 = ptrtoint ptr %1467 to i64
@@ -2485,7 +2485,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %1513 = phi ptr [ %.pre179.i, %._crit_edge.loopexit.i ], [ %1464, %1504 ]
   %1514 = phi i64 [ %.pre178.i, %._crit_edge.loopexit.i ], [ %1465, %1504 ]
   %1515 = phi ptr [ %.pre.i, %._crit_edge.loopexit.i ], [ %1466, %1504 ]
-  %1516 = getelementptr inbounds i8, ptr %1513, i64 56
+  %1516 = getelementptr inbounds nuw i8, ptr %1513, i64 56
   %1517 = load i32, ptr %1516, align 8
   %1518 = icmp eq i32 %1517, 2
   br i1 %1518, label %1519, label %1521
@@ -2497,7 +2497,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 
 1521:                                             ; preds = %._crit_edge.i
   %1522 = xor i32 %1507, -1
-  %.pn.in162.i = getelementptr inbounds i8, ptr %1513, i64 24
+  %.pn.in162.i = getelementptr inbounds nuw i8, ptr %1513, i64 24
   %.pn163.i = load i32, ptr %.pn.in162.i, align 8
   %.0132164.i = add i32 %.pn163.i, %1522
   %1523 = icmp slt i32 %.0132164.i, 1
@@ -2511,12 +2511,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %1524 = phi i32 [ %.pn163.i, %.lr.ph166.preheader.i ], [ %.pn.i, %1545 ]
   %1525 = phi ptr [ %.pre180.i, %.lr.ph166.preheader.i ], [ %1547, %1545 ]
   %1526 = phi ptr [ %1513, %.lr.ph166.preheader.i ], [ %1551, %1545 ]
-  %1527 = getelementptr inbounds i8, ptr %1526, i64 8
+  %1527 = getelementptr inbounds nuw i8, ptr %1526, i64 8
   %1528 = load ptr, ptr %1527, align 8
   %1529 = ptrtoint ptr %1525 to i64
   %1530 = ptrtoint ptr %1528 to i64
   %1531 = sub i64 %1529, %1530
-  %1532 = getelementptr inbounds i8, ptr %1526, i64 32
+  %1532 = getelementptr inbounds nuw i8, ptr %1526, i64 32
   %1533 = load i32, ptr %1532, align 8
   %.not145.i = icmp eq i32 %1533, 0
   br i1 %.not145.i, label %.thread.i, label %1534
@@ -2526,7 +2526,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br label %.loopexit.i
 
 1534:                                             ; preds = %.lr.ph166.i
-  %1535 = getelementptr inbounds i8, ptr %1526, i64 24
+  %1535 = getelementptr inbounds nuw i8, ptr %1526, i64 24
   %1536 = shl i32 %1524, 1
   %1537 = icmp slt i32 %1536, 1
   br i1 %1537, label %1538, label %1541
@@ -2559,7 +2559,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %1549 = load i64, ptr %77, align 8
   %1550 = getelementptr ptr, ptr %1548, i64 %1549
   %1551 = load ptr, ptr %1550, align 8
-  %.pn.in.i = getelementptr inbounds i8, ptr %1551, i64 24
+  %.pn.in.i = getelementptr inbounds nuw i8, ptr %1551, i64 24
   %.pn.i = load i32, ptr %.pn.in.i, align 8
   %.0132.i = add i32 %.pn.i, %1522
   %1552 = icmp slt i32 %.0132.i, 1
@@ -2569,7 +2569,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %1553 = phi ptr [ %1513, %1521 ], [ %1551, %1545 ]
   %.0132.lcssa.i = phi i32 [ %.0132164.i, %1521 ], [ %.0132.i, %1545 ]
   %1554 = tail call i32 @llvm.umin.i32(i32 %.0132.lcssa.i, i32 8192)
-  %1555 = getelementptr inbounds i8, ptr %1553, i64 36
+  %1555 = getelementptr inbounds nuw i8, ptr %1553, i64 36
   %1556 = load i32, ptr %1555, align 4
   %.not.i965 = icmp eq i32 %1556, 0
   br i1 %.not.i965, label %1587, label %.preheader.i
@@ -2595,7 +2595,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %1564 = load i64, ptr %77, align 8
   %1565 = getelementptr ptr, ptr %1563, i64 %1564
   %1566 = load ptr, ptr %1565, align 8
-  %1567 = getelementptr inbounds i8, ptr %1566, i64 8
+  %1567 = getelementptr inbounds nuw i8, ptr %1566, i64 8
   %1568 = load ptr, ptr %1567, align 8
   %1569 = getelementptr i8, ptr %1568, i64 %1557
   %1570 = getelementptr i8, ptr %1569, i64 %indvars.iv.i
@@ -2620,7 +2620,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %1573 = load i64, ptr %77, align 8
   %1574 = getelementptr ptr, ptr %1572, i64 %1573
   %1575 = load ptr, ptr %1574, align 8
-  %1576 = getelementptr inbounds i8, ptr %1575, i64 8
+  %1576 = getelementptr inbounds nuw i8, ptr %1575, i64 8
   %1577 = load ptr, ptr %1576, align 8
   %1578 = getelementptr i8, ptr %1577, i64 %1557
   %1579 = add nuw i32 %.0126.lcssa.i, 1
@@ -2654,7 +2654,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %1592 = load i64, ptr %77, align 8
   %1593 = getelementptr ptr, ptr %1591, i64 %1592
   %1594 = load ptr, ptr %1593, align 8
-  %1595 = getelementptr inbounds i8, ptr %1594, i64 8
+  %1595 = getelementptr inbounds nuw i8, ptr %1594, i64 8
   %1596 = load ptr, ptr %1595, align 8
   %1597 = getelementptr i8, ptr %1596, i64 %1589
   %1598 = load ptr, ptr %79, align 8
@@ -2687,7 +2687,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %1610 = load i64, ptr %77, align 8
   %1611 = getelementptr ptr, ptr %1609, i64 %1610
   %1612 = load ptr, ptr %1611, align 8
-  %1613 = getelementptr inbounds i8, ptr %1612, i64 8
+  %1613 = getelementptr inbounds nuw i8, ptr %1612, i64 8
   %1614 = load ptr, ptr %1613, align 8
   %1615 = getelementptr i8, ptr %1614, i64 %1589
   %1616 = load ptr, ptr %79, align 8
@@ -2708,7 +2708,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.sink194.in.i = phi ptr [ %1623, %.critedge2.i ], [ %1520, %1519 ]
   %.sink.i = phi i32 [ %1620, %.critedge2.i ], [ 0, %1519 ]
   %.sink194.i = load ptr, ptr %.sink194.in.i, align 8
-  %1625 = getelementptr inbounds i8, ptr %.sink194.i, i64 28
+  %1625 = getelementptr inbounds nuw i8, ptr %.sink194.i, i64 28
   store i32 %.sink.i, ptr %1625, align 4
   %1626 = load i32, ptr %78, align 4
   %1627 = icmp eq i32 %1626, 0
@@ -2728,7 +2728,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %1634 = load i64, ptr %77, align 8
   %1635 = getelementptr ptr, ptr %1633, i64 %1634
   %1636 = load ptr, ptr %1635, align 8
-  %1637 = getelementptr inbounds i8, ptr %1636, i64 56
+  %1637 = getelementptr inbounds nuw i8, ptr %1636, i64 56
   store i32 2, ptr %1637, align 8
   br label %1638
 
@@ -2740,7 +2740,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %1642 = load i64, ptr %77, align 8
   %1643 = getelementptr ptr, ptr %1641, i64 %1642
   %1644 = load ptr, ptr %1643, align 8
-  %1645 = getelementptr inbounds i8, ptr %1644, i64 24
+  %1645 = getelementptr inbounds nuw i8, ptr %1644, i64 24
   %1646 = load i32, ptr %1645, align 8
   %1647 = icmp sgt i32 %1640, %1646
   br i1 %1647, label %1648, label %yy_get_next_buffer.exit
@@ -2748,7 +2748,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 1648:                                             ; preds = %1638
   %1649 = ashr i32 %1639, 1
   %1650 = add i32 %1640, %1649
-  %1651 = getelementptr inbounds i8, ptr %1644, i64 8
+  %1651 = getelementptr inbounds nuw i8, ptr %1644, i64 8
   %1652 = load ptr, ptr %1651, align 8
   %1653 = sext i32 %1650 to i64
   %1654 = tail call ptr @realloc(ptr noundef %1652, i64 noundef %1653) #27
@@ -2756,13 +2756,13 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %1656 = load i64, ptr %77, align 8
   %1657 = getelementptr ptr, ptr %1655, i64 %1656
   %1658 = load ptr, ptr %1657, align 8
-  %1659 = getelementptr inbounds i8, ptr %1658, i64 8
+  %1659 = getelementptr inbounds nuw i8, ptr %1658, i64 8
   store ptr %1654, ptr %1659, align 8
   %1660 = load ptr, ptr %76, align 8
   %1661 = load i64, ptr %77, align 8
   %1662 = getelementptr ptr, ptr %1660, i64 %1661
   %1663 = load ptr, ptr %1662, align 8
-  %1664 = getelementptr inbounds i8, ptr %1663, i64 8
+  %1664 = getelementptr inbounds nuw i8, ptr %1663, i64 8
   %1665 = load ptr, ptr %1664, align 8
   %.not149.i = icmp eq ptr %1665, null
   br i1 %.not149.i, label %1666, label %1667
@@ -2773,7 +2773,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 
 1667:                                             ; preds = %1648
   %1668 = add i32 %1650, -2
-  %1669 = getelementptr inbounds i8, ptr %1663, i64 24
+  %1669 = getelementptr inbounds nuw i8, ptr %1663, i64 24
   store i32 %1668, ptr %1669, align 8
   %.pre181.i = load i32, ptr %78, align 4
   %.pre182.i = load ptr, ptr %76, align 8
@@ -2788,7 +2788,7 @@ yy_get_next_buffer.exit:                          ; preds = %1638, %1667
   store i32 %.pre-phi.i, ptr %78, align 4
   %1672 = getelementptr ptr, ptr %1671, i64 %1670
   %1673 = load ptr, ptr %1672, align 8
-  %1674 = getelementptr inbounds i8, ptr %1673, i64 8
+  %1674 = getelementptr inbounds nuw i8, ptr %1673, i64 8
   %1675 = load ptr, ptr %1674, align 8
   %1676 = sext i32 %.pre-phi.i to i64
   %1677 = getelementptr i8, ptr %1675, i64 %1676
@@ -2797,7 +2797,7 @@ yy_get_next_buffer.exit:                          ; preds = %1638, %1667
   %1679 = load i64, ptr %77, align 8
   %1680 = getelementptr ptr, ptr %1678, i64 %1679
   %1681 = load ptr, ptr %1680, align 8
-  %1682 = getelementptr inbounds i8, ptr %1681, i64 8
+  %1682 = getelementptr inbounds nuw i8, ptr %1681, i64 8
   %1683 = load ptr, ptr %1682, align 8
   %1684 = load i32, ptr %78, align 4
   %1685 = add i32 %1684, 1
@@ -2808,7 +2808,7 @@ yy_get_next_buffer.exit:                          ; preds = %1638, %1667
   %1689 = load i64, ptr %77, align 8
   %1690 = getelementptr ptr, ptr %1688, i64 %1689
   %1691 = load ptr, ptr %1690, align 8
-  %1692 = getelementptr inbounds i8, ptr %1691, i64 8
+  %1692 = getelementptr inbounds nuw i8, ptr %1691, i64 8
   %1693 = load ptr, ptr %1692, align 8
   store ptr %1693, ptr %74, align 8
   switch i32 %.0133.i, label %default.unreachable1311 [
@@ -2820,7 +2820,7 @@ yy_get_next_buffer.exit:                          ; preds = %1638, %1667
 yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread968_crit_edge: ; preds = %yy_get_next_buffer.exit
   %1694 = getelementptr ptr, ptr %1688, i64 %1689
   %.pre1306 = load ptr, ptr %1694, align 8
-  %.phi.trans.insert1307 = getelementptr inbounds i8, ptr %.pre1306, i64 8
+  %.phi.trans.insert1307 = getelementptr inbounds nuw i8, ptr %.pre1306, i64 8
   %.pre1308 = load ptr, ptr %.phi.trans.insert1307, align 8
   %.pre1309 = load i32, ptr %78, align 4
   %.pre1310 = sext i32 %.pre1309 to i64
@@ -2868,7 +2868,7 @@ default.unreachable1311:                          ; preds = %yy_get_next_buffer.
 .loopexit970.sink.split.sink.split:               ; preds = %1423, %1403, %1383, %1363, %1343, %1323, %1303, %1283, %1263, %1243, %1223, %1203, %1183, %1163, %1143, %1123, %1103, %1083, %1063, %1043, %1023, %1003, %983, %963, %943, %923, %903, %883, %863, %843, %823, %803, %783, %763, %743, %723, %703, %683, %663, %643, %623, %603, %583, %563, %543, %523, %503, %483, %463, %443, %423, %403, %383, %363, %343, %323, %303, %283, %263, %243, %223, %203, %183
   %.sink1446 = phi ptr [ %186, %183 ], [ %206, %203 ], [ %226, %223 ], [ %246, %243 ], [ %266, %263 ], [ %286, %283 ], [ %306, %303 ], [ %326, %323 ], [ %346, %343 ], [ %366, %363 ], [ %386, %383 ], [ %406, %403 ], [ %426, %423 ], [ %446, %443 ], [ %466, %463 ], [ %486, %483 ], [ %506, %503 ], [ %526, %523 ], [ %546, %543 ], [ %566, %563 ], [ %586, %583 ], [ %606, %603 ], [ %626, %623 ], [ %646, %643 ], [ %666, %663 ], [ %686, %683 ], [ %706, %703 ], [ %726, %723 ], [ %746, %743 ], [ %766, %763 ], [ %786, %783 ], [ %806, %803 ], [ %826, %823 ], [ %846, %843 ], [ %866, %863 ], [ %886, %883 ], [ %906, %903 ], [ %926, %923 ], [ %946, %943 ], [ %966, %963 ], [ %986, %983 ], [ %1006, %1003 ], [ %1026, %1023 ], [ %1046, %1043 ], [ %1066, %1063 ], [ %1086, %1083 ], [ %1106, %1103 ], [ %1126, %1123 ], [ %1146, %1143 ], [ %1166, %1163 ], [ %1186, %1183 ], [ %1206, %1203 ], [ %1226, %1223 ], [ %1246, %1243 ], [ %1266, %1263 ], [ %1286, %1283 ], [ %1306, %1303 ], [ %1326, %1323 ], [ %1346, %1343 ], [ %1366, %1363 ], [ %1386, %1383 ], [ %1406, %1403 ], [ %1426, %1423 ]
   %.0.ph.ph = phi i32 [ 26, %183 ], [ 27, %203 ], [ 32, %223 ], [ 33, %243 ], [ 29, %263 ], [ 30, %283 ], [ 34, %303 ], [ 35, %323 ], [ 36, %343 ], [ 37, %363 ], [ 38, %383 ], [ 39, %403 ], [ 24, %423 ], [ 40, %443 ], [ 41, %463 ], [ 42, %483 ], [ 43, %503 ], [ 44, %523 ], [ 45, %543 ], [ 46, %563 ], [ 47, %583 ], [ 48, %603 ], [ 49, %623 ], [ 50, %643 ], [ 51, %663 ], [ 52, %683 ], [ 53, %703 ], [ 54, %723 ], [ 55, %743 ], [ 25, %763 ], [ 28, %783 ], [ 56, %803 ], [ 57, %823 ], [ 58, %843 ], [ 59, %863 ], [ 2, %883 ], [ 3, %903 ], [ 4, %923 ], [ 5, %943 ], [ 6, %963 ], [ 7, %983 ], [ 8, %1003 ], [ 9, %1023 ], [ 10, %1043 ], [ 11, %1063 ], [ 12, %1083 ], [ 13, %1103 ], [ 14, %1123 ], [ 15, %1143 ], [ 16, %1163 ], [ 17, %1183 ], [ 18, %1203 ], [ 19, %1223 ], [ 20, %1243 ], [ 21, %1263 ], [ 22, %1283 ], [ 23, %1303 ], [ 60, %1323 ], [ 61, %1343 ], [ 62, %1363 ], [ 1, %1383 ], [ 31, %1403 ], [ 31, %1423 ]
-  %1714 = getelementptr inbounds i8, ptr %.sink1446, i64 44
+  %1714 = getelementptr inbounds nuw i8, ptr %.sink1446, i64 44
   %1715 = load i32, ptr %1714, align 4
   br label %.loopexit970.sink.split
 
@@ -2876,9 +2876,9 @@ default.unreachable1311:                          ; preds = %yy_get_next_buffer.
   %.0.i963.sink = phi i32 [ 0, %167 ], [ 0, %183 ], [ 0, %187 ], [ 0, %203 ], [ 0, %207 ], [ 0, %223 ], [ 0, %227 ], [ 0, %243 ], [ 0, %247 ], [ 0, %263 ], [ 0, %267 ], [ 0, %283 ], [ 0, %287 ], [ 0, %303 ], [ 0, %307 ], [ 0, %323 ], [ 0, %327 ], [ 0, %343 ], [ 0, %347 ], [ 0, %363 ], [ 0, %367 ], [ 0, %383 ], [ 0, %387 ], [ 0, %403 ], [ 0, %407 ], [ 0, %423 ], [ 0, %427 ], [ 0, %443 ], [ 0, %447 ], [ 0, %463 ], [ 0, %467 ], [ 0, %483 ], [ 0, %487 ], [ 0, %503 ], [ 0, %507 ], [ 0, %523 ], [ 0, %527 ], [ 0, %543 ], [ 0, %547 ], [ 0, %563 ], [ 0, %567 ], [ 0, %583 ], [ 0, %587 ], [ 0, %603 ], [ 0, %607 ], [ 0, %623 ], [ 0, %627 ], [ 0, %643 ], [ 0, %647 ], [ 0, %663 ], [ 0, %667 ], [ 0, %683 ], [ 0, %687 ], [ 0, %703 ], [ 0, %707 ], [ 0, %723 ], [ 0, %727 ], [ 0, %743 ], [ 0, %747 ], [ 0, %763 ], [ 0, %767 ], [ 0, %783 ], [ 0, %787 ], [ 0, %803 ], [ 0, %807 ], [ 0, %823 ], [ 0, %827 ], [ 0, %843 ], [ 0, %847 ], [ 0, %863 ], [ 0, %867 ], [ 0, %883 ], [ 0, %887 ], [ 0, %903 ], [ 0, %907 ], [ 0, %923 ], [ 0, %927 ], [ 0, %943 ], [ 0, %947 ], [ 0, %963 ], [ 0, %967 ], [ 0, %983 ], [ 0, %987 ], [ 0, %1003 ], [ 0, %1007 ], [ 0, %1023 ], [ 0, %1027 ], [ 0, %1043 ], [ 0, %1047 ], [ 0, %1063 ], [ 0, %1067 ], [ 0, %1083 ], [ 0, %1087 ], [ 0, %1103 ], [ 0, %1107 ], [ 0, %1123 ], [ 0, %1127 ], [ 0, %1143 ], [ 0, %1147 ], [ 0, %1163 ], [ 0, %1167 ], [ 0, %1183 ], [ 0, %1187 ], [ 0, %1203 ], [ 0, %1207 ], [ 0, %1223 ], [ 0, %1227 ], [ 0, %1243 ], [ 0, %1247 ], [ 0, %1263 ], [ 0, %1267 ], [ 0, %1283 ], [ 0, %1287 ], [ 0, %1303 ], [ 0, %1307 ], [ 0, %1323 ], [ 0, %1327 ], [ 0, %1343 ], [ 0, %1347 ], [ 0, %1363 ], [ 0, %1367 ], [ 0, %1383 ], [ 0, %1387 ], [ 0, %1403 ], [ 0, %1407 ], [ 0, %1423 ], [ %1715, %.loopexit970.sink.split.sink.split ]
   %.0.ph = phi i32 [ 26, %167 ], [ 26, %183 ], [ 27, %187 ], [ 27, %203 ], [ 32, %207 ], [ 32, %223 ], [ 33, %227 ], [ 33, %243 ], [ 29, %247 ], [ 29, %263 ], [ 30, %267 ], [ 30, %283 ], [ 34, %287 ], [ 34, %303 ], [ 35, %307 ], [ 35, %323 ], [ 36, %327 ], [ 36, %343 ], [ 37, %347 ], [ 37, %363 ], [ 38, %367 ], [ 38, %383 ], [ 39, %387 ], [ 39, %403 ], [ 24, %407 ], [ 24, %423 ], [ 40, %427 ], [ 40, %443 ], [ 41, %447 ], [ 41, %463 ], [ 42, %467 ], [ 42, %483 ], [ 43, %487 ], [ 43, %503 ], [ 44, %507 ], [ 44, %523 ], [ 45, %527 ], [ 45, %543 ], [ 46, %547 ], [ 46, %563 ], [ 47, %567 ], [ 47, %583 ], [ 48, %587 ], [ 48, %603 ], [ 49, %607 ], [ 49, %623 ], [ 50, %627 ], [ 50, %643 ], [ 51, %647 ], [ 51, %663 ], [ 52, %667 ], [ 52, %683 ], [ 53, %687 ], [ 53, %703 ], [ 54, %707 ], [ 54, %723 ], [ 55, %727 ], [ 55, %743 ], [ 25, %747 ], [ 25, %763 ], [ 28, %767 ], [ 28, %783 ], [ 56, %787 ], [ 56, %803 ], [ 57, %807 ], [ 57, %823 ], [ 58, %827 ], [ 58, %843 ], [ 59, %847 ], [ 59, %863 ], [ 2, %867 ], [ 2, %883 ], [ 3, %887 ], [ 3, %903 ], [ 4, %907 ], [ 4, %923 ], [ 5, %927 ], [ 5, %943 ], [ 6, %947 ], [ 6, %963 ], [ 7, %967 ], [ 7, %983 ], [ 8, %987 ], [ 8, %1003 ], [ 9, %1007 ], [ 9, %1023 ], [ 10, %1027 ], [ 10, %1043 ], [ 11, %1047 ], [ 11, %1063 ], [ 12, %1067 ], [ 12, %1083 ], [ 13, %1087 ], [ 13, %1103 ], [ 14, %1107 ], [ 14, %1123 ], [ 15, %1127 ], [ 15, %1143 ], [ 16, %1147 ], [ 16, %1163 ], [ 17, %1167 ], [ 17, %1183 ], [ 18, %1187 ], [ 18, %1203 ], [ 19, %1207 ], [ 19, %1223 ], [ 20, %1227 ], [ 20, %1243 ], [ 21, %1247 ], [ 21, %1263 ], [ 22, %1267 ], [ 22, %1283 ], [ 23, %1287 ], [ 23, %1303 ], [ 60, %1307 ], [ 60, %1323 ], [ 61, %1327 ], [ 61, %1343 ], [ 62, %1347 ], [ 62, %1363 ], [ 1, %1367 ], [ 1, %1383 ], [ 31, %1387 ], [ 31, %1403 ], [ 31, %1407 ], [ 31, %1423 ], [ %.0.ph.ph, %.loopexit970.sink.split.sink.split ]
   %1716 = load ptr, ptr %0, align 8
-  %1717 = getelementptr inbounds i8, ptr %1716, i64 56
+  %1717 = getelementptr inbounds nuw i8, ptr %1716, i64 56
   %1718 = load ptr, ptr %1717, align 8
-  %1719 = getelementptr inbounds i8, ptr %1718, i64 8
+  %1719 = getelementptr inbounds nuw i8, ptr %1718, i64 8
   store i32 %.0.i963.sink, ptr %1719, align 8
   br label %.loopexit970
 
@@ -2898,12 +2898,12 @@ define hidden nonnull ptr @protobuf_lang__create_buffer(ptr noundef %0, i32 noun
   unreachable
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 %1, ptr %7, align 8
   %8 = add i32 %1, 2
   %9 = sext i32 %8 to i64
   %10 = tail call noalias ptr @malloc(i64 noundef %9) #25
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %10, ptr %11, align 8
   %.not12 = icmp eq ptr %10, null
   br i1 %.not12, label %12, label %13
@@ -2913,28 +2913,28 @@ define hidden nonnull ptr @protobuf_lang__create_buffer(ptr noundef %0, i32 noun
   unreachable
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %4, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i32 1, ptr %14, align 8
   %15 = tail call ptr @__errno_location() #30
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %4, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store i32 0, ptr %17, align 4
   store i8 0, ptr %10, align 1
   %18 = getelementptr i8, ptr %10, i64 1
   store i8 0, ptr %18, align 1
-  %19 = getelementptr inbounds i8, ptr %4, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %10, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %4, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 1, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %4, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i32 0, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %2, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %23 = load ptr, ptr %22, align 8
   %.not15.i.i = icmp eq ptr %23, null
   br i1 %.not15.i.i, label %protobuf_lang__flush_buffer.exit.i, label %24
 
 24:                                               ; preds = %13
-  %25 = getelementptr inbounds i8, ptr %2, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %26 = load i64, ptr %25, align 8
   %27 = getelementptr ptr, ptr %23, i64 %26
   %28 = load ptr, ptr %27, align 8
@@ -2942,37 +2942,37 @@ define hidden nonnull ptr @protobuf_lang__create_buffer(ptr noundef %0, i32 noun
   br i1 %29, label %30, label %45
 
 30:                                               ; preds = %24
-  %31 = getelementptr inbounds i8, ptr %28, i64 28
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 28
   %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds i8, ptr %2, i64 52
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 52
   store i32 %32, ptr %33, align 4
   %34 = load ptr, ptr %27, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %2, i64 64
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %36, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %2, i64 128
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 128
   store ptr %36, ptr %38, align 8
   %39 = load ptr, ptr %27, align 8
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %2, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %40, ptr %41, align 8
   %42 = load i8, ptr %36, align 1
-  %43 = getelementptr inbounds i8, ptr %2, i64 48
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i8 %42, ptr %43, align 8
   br label %45
 
 protobuf_lang__flush_buffer.exit.i:               ; preds = %13
   store ptr %0, ptr %4, align 8
-  %44 = getelementptr inbounds i8, ptr %4, i64 52
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 52
   store i32 1, ptr %44, align 4
   br label %.thread.i
 
 45:                                               ; preds = %30, %24
   store ptr %0, ptr %4, align 8
-  %46 = getelementptr inbounds i8, ptr %4, i64 52
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 52
   store i32 1, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %2, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %48 = load i64, ptr %47, align 8
   %49 = getelementptr ptr, ptr %23, i64 %48
   %50 = load ptr, ptr %49, align 8
@@ -2980,14 +2980,14 @@ protobuf_lang__flush_buffer.exit.i:               ; preds = %13
   br i1 %.not14.i, label %protobuf_lang__init_buffer.exit, label %.thread.i
 
 .thread.i:                                        ; preds = %protobuf_lang__flush_buffer.exit.i, %45
-  %51 = getelementptr inbounds i8, ptr %4, i64 44
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 44
   store i32 1, ptr %51, align 4
-  %52 = getelementptr inbounds i8, ptr %4, i64 48
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i32 0, ptr %52, align 8
   br label %protobuf_lang__init_buffer.exit
 
 protobuf_lang__init_buffer.exit:                  ; preds = %45, %.thread.i
-  %53 = getelementptr inbounds i8, ptr %4, i64 36
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 36
   store i32 0, ptr %53, align 4
   store i32 %16, ptr %15, align 4
   ret ptr %4
@@ -3005,7 +3005,7 @@ define hidden ptr @protobuf_lang_get_extra(ptr nocapture noundef readonly %0) lo
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @strdup_and_store(ptr nocapture %.0.val, ptr noundef %0) unnamed_addr #0 {
   %2 = tail call noalias ptr @g_strdup(ptr noundef %0) #29
-  %3 = getelementptr inbounds i8, ptr %.0.val, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @g_slist_prepend(ptr noundef %4, ptr noundef %2) #29
   store ptr %5, ptr %3, align 8
@@ -3014,13 +3014,13 @@ define internal fastcc noundef ptr @strdup_and_store(ptr nocapture %.0.val, ptr 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden i32 @protobuf_lang_get_lineno(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr ptr, ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8
@@ -3028,7 +3028,7 @@ define hidden i32 @protobuf_lang_get_lineno(ptr nocapture noundef readonly %0) l
   br i1 %.not8, label %12, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %8, i64 44
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 44
   %11 = load i32, ptr %10, align 4
   br label %12
 
@@ -3044,18 +3044,18 @@ declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc i32 @yy_get_previous_state(ptr nocapture noundef %0) unnamed_addr #7 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 76
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %3 = load i32, ptr %2, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 128
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8
   %8 = icmp ult ptr %5, %7
   br i1 %8, label %.lr.ph31, label %._crit_edge32
 
 .lr.ph31:                                         ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 104
-  %10 = getelementptr inbounds i8, ptr %0, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
   br label %11
 
 11:                                               ; preds = %.lr.ph31, %._crit_edge
@@ -3146,11 +3146,11 @@ define internal fastcc range(i32 -32768, 32768) i32 @yy_try_NUL_trans(i32 nounde
   br i1 %.not, label %11, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 104
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store i32 %0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 112
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 112
   store ptr %8, ptr %10, align 8
   br label %11
 
@@ -3199,13 +3199,13 @@ define internal fastcc void @yy_fatal_error(ptr noundef %0) unnamed_addr #9 {
 
 ; Function Attrs: nounwind uwtable
 define hidden void @protobuf_lang_restart(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %10, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr ptr, ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8
@@ -3224,14 +3224,14 @@ define hidden void @protobuf_lang_restart(ptr noundef %0, ptr nocapture noundef 
 
 13:                                               ; preds = %10
   store i64 0, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i64 1, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 0, ptr %15, align 8
   br label %28
 
 16:                                               ; preds = %5
-  %17 = getelementptr inbounds i8, ptr %1, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, -1
   %.not27.i = icmp ult i64 %7, %19
@@ -3257,11 +3257,11 @@ define hidden void @protobuf_lang_restart(ptr noundef %0, ptr nocapture noundef 
   br label %28
 
 28:                                               ; preds = %25, %16, %13
-  %29 = getelementptr inbounds i8, ptr %1, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = tail call ptr @protobuf_lang__create_buffer(ptr noundef %30, i32 noundef 16384, ptr noundef nonnull %1)
   %32 = load ptr, ptr %3, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %34 = load i64, ptr %33, align 8
   %35 = getelementptr ptr, ptr %32, i64 %34
   store ptr %31, ptr %35, align 8
@@ -3276,7 +3276,7 @@ define hidden void @protobuf_lang_restart(ptr noundef %0, ptr nocapture noundef 
 
 .thread:                                          ; preds = %5, %28
   %38 = phi ptr [ %.pre, %28 ], [ %4, %5 ]
-  %39 = getelementptr inbounds i8, ptr %1, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %40 = load i64, ptr %39, align 8
   %41 = getelementptr ptr, ptr %38, i64 %40
   %42 = load ptr, ptr %41, align 8
@@ -3286,20 +3286,20 @@ define hidden void @protobuf_lang_restart(ptr noundef %0, ptr nocapture noundef 
   br i1 %.not.i.i, label %protobuf_lang__flush_buffer.exit.i, label %45
 
 45:                                               ; preds = %.thread
-  %46 = getelementptr inbounds i8, ptr %42, i64 28
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 28
   store i32 0, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %42, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %48 = load ptr, ptr %47, align 8
   store i8 0, ptr %48, align 1
   %49 = load ptr, ptr %47, align 8
   %50 = getelementptr i8, ptr %49, i64 1
   store i8 0, ptr %50, align 1
   %51 = load ptr, ptr %47, align 8
-  %52 = getelementptr inbounds i8, ptr %42, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store ptr %51, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %42, i64 40
+  %53 = getelementptr inbounds nuw i8, ptr %42, i64 40
   store i32 1, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %42, i64 56
+  %54 = getelementptr inbounds nuw i8, ptr %42, i64 56
   store i32 0, ptr %54, align 8
   %55 = load ptr, ptr %3, align 8
   %.not15.i.i = icmp eq ptr %55, null
@@ -3313,23 +3313,23 @@ define hidden void @protobuf_lang_restart(ptr noundef %0, ptr nocapture noundef 
   br i1 %60, label %61, label %protobuf_lang__flush_buffer.exit.i
 
 61:                                               ; preds = %56
-  %62 = getelementptr inbounds i8, ptr %59, i64 28
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 28
   %63 = load i32, ptr %62, align 4
-  %64 = getelementptr inbounds i8, ptr %1, i64 52
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 52
   store i32 %63, ptr %64, align 4
   %65 = load ptr, ptr %58, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %1, i64 64
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr %67, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %1, i64 128
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store ptr %67, ptr %69, align 8
   %70 = load ptr, ptr %58, align 8
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %1, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %71, ptr %72, align 8
   %73 = load i8, ptr %67, align 1
-  %74 = getelementptr inbounds i8, ptr %1, i64 48
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i8 %73, ptr %74, align 8
   br label %protobuf_lang__flush_buffer.exit.i
 
@@ -3338,14 +3338,14 @@ protobuf_lang__flush_buffer.exit.i:               ; preds = %.thread19, %61, %56
   %76 = phi ptr [ %36, %.thread19 ], [ %43, %61 ], [ %43, %56 ], [ %43, %45 ], [ %43, %.thread ]
   %77 = phi ptr [ null, %.thread19 ], [ %42, %61 ], [ %42, %56 ], [ %42, %45 ], [ null, %.thread ]
   store ptr %0, ptr %77, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 52
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 52
   store i32 1, ptr %78, align 4
   %79 = load ptr, ptr %3, align 8
   %.not.i18 = icmp eq ptr %79, null
   br i1 %.not.i18, label %.thread.i, label %80
 
 80:                                               ; preds = %protobuf_lang__flush_buffer.exit.i
-  %81 = getelementptr inbounds i8, ptr %1, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %82 = load i64, ptr %81, align 8
   %83 = getelementptr ptr, ptr %79, i64 %82
   %84 = load ptr, ptr %83, align 8
@@ -3353,45 +3353,45 @@ protobuf_lang__flush_buffer.exit.i:               ; preds = %.thread19, %61, %56
   br i1 %.not14.i, label %protobuf_lang__init_buffer.exit, label %.thread.i
 
 .thread.i:                                        ; preds = %80, %protobuf_lang__flush_buffer.exit.i
-  %85 = getelementptr inbounds i8, ptr %77, i64 44
+  %85 = getelementptr inbounds nuw i8, ptr %77, i64 44
   store i32 1, ptr %85, align 4
-  %86 = getelementptr inbounds i8, ptr %77, i64 48
+  %86 = getelementptr inbounds nuw i8, ptr %77, i64 48
   store i32 0, ptr %86, align 8
   br label %protobuf_lang__init_buffer.exit
 
 protobuf_lang__init_buffer.exit:                  ; preds = %80, %.thread.i
-  %87 = getelementptr inbounds i8, ptr %77, i64 36
+  %87 = getelementptr inbounds nuw i8, ptr %77, i64 36
   store i32 0, ptr %87, align 4
   store i32 %75, ptr %76, align 4
   %88 = load ptr, ptr %3, align 8
-  %89 = getelementptr inbounds i8, ptr %1, i64 24
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %90 = load i64, ptr %89, align 8
   %91 = getelementptr ptr, ptr %88, i64 %90
   %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 28
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 28
   %94 = load i32, ptr %93, align 4
-  %95 = getelementptr inbounds i8, ptr %1, i64 52
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 52
   store i32 %94, ptr %95, align 4
   %96 = load ptr, ptr %91, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 16
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 16
   %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %1, i64 64
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr %98, ptr %99, align 8
-  %100 = getelementptr inbounds i8, ptr %1, i64 128
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store ptr %98, ptr %100, align 8
   %101 = load ptr, ptr %91, align 8
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %1, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %102, ptr %103, align 8
   %104 = load i8, ptr %98, align 1
-  %105 = getelementptr inbounds i8, ptr %1, i64 48
+  %105 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i8 %104, ptr %105, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @protobuf_lang__switch_to_buffer(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %5, label %11
@@ -3408,16 +3408,16 @@ define hidden void @protobuf_lang__switch_to_buffer(ptr noundef %0, ptr nocaptur
 
 8:                                                ; preds = %5
   store i64 0, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i64 1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 0, ptr %10, align 8
   br label %.thread
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, -1
   %.not27.i = icmp ult i64 %13, %16
@@ -3444,7 +3444,7 @@ define hidden void @protobuf_lang__switch_to_buffer(ptr noundef %0, ptr nocaptur
 
 .thread:                                          ; preds = %22, %11, %8
   %25 = phi ptr [ %6, %8 ], [ %4, %11 ], [ %20, %22 ]
-  %26 = getelementptr inbounds i8, ptr %1, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %27 = load i64, ptr %26, align 8
   %28 = getelementptr ptr, ptr %25, i64 %27
   %29 = load ptr, ptr %28, align 8
@@ -3456,9 +3456,9 @@ define hidden void @protobuf_lang__switch_to_buffer(ptr noundef %0, ptr nocaptur
   br i1 %.not25, label %50, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds i8, ptr %1, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %34 = load i8, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %36 = load ptr, ptr %35, align 8
   store i8 %34, ptr %36, align 1
   %37 = load ptr, ptr %35, align 8
@@ -3466,22 +3466,22 @@ define hidden void @protobuf_lang__switch_to_buffer(ptr noundef %0, ptr nocaptur
   %39 = load i64, ptr %26, align 8
   %40 = getelementptr ptr, ptr %38, i64 %39
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store ptr %37, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %1, i64 52
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %44 = load i32, ptr %43, align 4
   %45 = load ptr, ptr %3, align 8
   %46 = load i64, ptr %26, align 8
   %47 = getelementptr ptr, ptr %45, i64 %46
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 28
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 28
   store i32 %44, ptr %49, align 4
   %.pre = load ptr, ptr %3, align 8
   br label %50
 
 50:                                               ; preds = %32, %31
   %51 = phi ptr [ %.pre, %32 ], [ %25, %31 ]
-  %52 = getelementptr inbounds i8, ptr %1, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %53 = load i64, ptr %52, align 8
   %54 = getelementptr ptr, ptr %51, i64 %53
   store ptr %0, ptr %54, align 8
@@ -3489,25 +3489,25 @@ define hidden void @protobuf_lang__switch_to_buffer(ptr noundef %0, ptr nocaptur
   %56 = load i64, ptr %52, align 8
   %57 = getelementptr ptr, ptr %55, i64 %56
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 28
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 28
   %60 = load i32, ptr %59, align 4
-  %61 = getelementptr inbounds i8, ptr %1, i64 52
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 52
   store i32 %60, ptr %61, align 4
   %62 = load ptr, ptr %57, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %1, i64 64
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr %64, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %1, i64 128
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store ptr %64, ptr %66, align 8
   %67 = load ptr, ptr %57, align 8
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %1, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %68, ptr %69, align 8
   %70 = load i8, ptr %64, align 1
-  %71 = getelementptr inbounds i8, ptr %1, i64 48
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i8 %70, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %1, i64 80
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store i32 1, ptr %72, align 8
   br label %73
 
@@ -3524,13 +3524,13 @@ define hidden void @protobuf_lang__delete_buffer(ptr noundef %0, ptr nocapture n
   br i1 %.not, label %19, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %1, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %5 = load ptr, ptr %4, align 8
   %.not12 = icmp eq ptr %5, null
   br i1 %.not12, label %.thread, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr ptr, ptr %5, i64 %8
   %10 = load ptr, ptr %9, align 8
@@ -3542,13 +3542,13 @@ define hidden void @protobuf_lang__delete_buffer(ptr noundef %0, ptr nocapture n
   br label %.thread
 
 .thread:                                          ; preds = %3, %12, %6
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load i32, ptr %13, align 8
   %.not13 = icmp eq i32 %14, 0
   br i1 %.not13, label %18, label %15
 
 15:                                               ; preds = %.thread
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
   tail call void @free(ptr noundef %17) #29
   br label %18
@@ -3570,28 +3570,28 @@ define hidden void @protobuf_lang__flush_buffer(ptr noundef %0, ptr nocapture no
   br i1 %.not, label %.thread, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 28
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   store i8 0, ptr %6, align 1
   %7 = load ptr, ptr %5, align 8
   %8 = getelementptr i8, ptr %7, i64 1
   store i8 0, ptr %8, align 1
   %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %14 = load ptr, ptr %13, align 8
   %.not15 = icmp eq ptr %14, null
   br i1 %.not15, label %.thread, label %15
 
 15:                                               ; preds = %3
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load i64, ptr %16, align 8
   %18 = getelementptr ptr, ptr %14, i64 %17
   %19 = load ptr, ptr %18, align 8
@@ -3599,23 +3599,23 @@ define hidden void @protobuf_lang__flush_buffer(ptr noundef %0, ptr nocapture no
   br i1 %20, label %21, label %.thread
 
 21:                                               ; preds = %15
-  %22 = getelementptr inbounds i8, ptr %19, i64 28
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 28
   %23 = load i32, ptr %22, align 4
-  %24 = getelementptr inbounds i8, ptr %1, i64 52
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 52
   store i32 %23, ptr %24, align 4
   %25 = load ptr, ptr %18, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 64
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 128
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store ptr %27, ptr %29, align 8
   %30 = load ptr, ptr %18, align 8
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %31, ptr %32, align 8
   %33 = load i8, ptr %27, align 1
-  %34 = getelementptr inbounds i8, ptr %1, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i8 %33, ptr %34, align 8
   br label %.thread
 
@@ -3629,7 +3629,7 @@ define hidden void @protobuf_lang_push_buffer_state(ptr noundef %0, ptr nocaptur
   br i1 %3, label %73, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %1, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %7, label %13
@@ -3646,16 +3646,16 @@ define hidden void @protobuf_lang_push_buffer_state(ptr noundef %0, ptr nocaptur
 
 10:                                               ; preds = %7
   store i64 0, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i64 1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 0, ptr %12, align 8
   br label %protobuf_lang_ensure_buffer_stack.exit
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %1, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, -1
   %.not27.i = icmp ult i64 %15, %18
@@ -3684,16 +3684,16 @@ define hidden void @protobuf_lang_push_buffer_state(ptr noundef %0, ptr nocaptur
 protobuf_lang_ensure_buffer_stack.exit:           ; preds = %10, %13, %24
   %27 = phi i64 [ 0, %10 ], [ %15, %13 ], [ %.pre, %24 ]
   %28 = phi ptr [ %8, %10 ], [ %6, %13 ], [ %22, %24 ]
-  %29 = getelementptr inbounds i8, ptr %1, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %30 = getelementptr ptr, ptr %28, i64 %27
   %31 = load ptr, ptr %30, align 8
   %.not25 = icmp eq ptr %31, null
   br i1 %.not25, label %.thread, label %32
 
 32:                                               ; preds = %protobuf_lang_ensure_buffer_stack.exit
-  %33 = getelementptr inbounds i8, ptr %1, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %34 = load i8, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %36 = load ptr, ptr %35, align 8
   store i8 %34, ptr %36, align 1
   %37 = load ptr, ptr %35, align 8
@@ -3701,15 +3701,15 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %10, %13, %24
   %39 = load i64, ptr %29, align 8
   %40 = getelementptr ptr, ptr %38, i64 %39
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store ptr %37, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %1, i64 52
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %44 = load i32, ptr %43, align 4
   %45 = load ptr, ptr %5, align 8
   %46 = load i64, ptr %29, align 8
   %47 = getelementptr ptr, ptr %45, i64 %46
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 28
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 28
   store i32 %44, ptr %49, align 4
   %.pr.pre = load ptr, ptr %5, align 8
   %.pre30 = load i64, ptr %29, align 8
@@ -3732,25 +3732,25 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %10, %13, %24
   %56 = load i64, ptr %29, align 8
   %57 = getelementptr ptr, ptr %55, i64 %56
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 28
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 28
   %60 = load i32, ptr %59, align 4
-  %61 = getelementptr inbounds i8, ptr %1, i64 52
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 52
   store i32 %60, ptr %61, align 4
   %62 = load ptr, ptr %57, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %1, i64 64
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr %64, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %1, i64 128
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store ptr %64, ptr %66, align 8
   %67 = load ptr, ptr %57, align 8
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %1, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %68, ptr %69, align 8
   %70 = load i8, ptr %64, align 1
-  %71 = getelementptr inbounds i8, ptr %1, i64 48
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i8 %70, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %1, i64 80
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store i32 1, ptr %72, align 8
   br label %73
 
@@ -3760,13 +3760,13 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %10, %13, %24
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define hidden void @protobuf_lang_pop_buffer_state(ptr nocapture noundef %0) local_unnamed_addr #11 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %41, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr ptr, ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8
@@ -3775,13 +3775,13 @@ define hidden void @protobuf_lang_pop_buffer_state(ptr nocapture noundef %0) loc
 
 .thread.i:                                        ; preds = %4
   store ptr null, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %10 = load i32, ptr %9, align 8
   %.not13.i = icmp eq i32 %10, 0
   br i1 %.not13.i, label %protobuf_lang__delete_buffer.exit, label %11
 
 11:                                               ; preds = %.thread.i
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void @free(ptr noundef %13) #29
   br label %protobuf_lang__delete_buffer.exit
@@ -3814,25 +3814,25 @@ protobuf_lang__delete_buffer.exit:                ; preds = %.thread.i, %11
   br i1 %.not23, label %41, label %26
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %25, i64 28
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 28
   %28 = load i32, ptr %27, align 4
-  %29 = getelementptr inbounds i8, ptr %0, i64 52
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 %28, ptr %29, align 4
   %30 = load ptr, ptr %24, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 64
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 128
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr %32, ptr %34, align 8
   %35 = load ptr, ptr %24, align 8
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %36, ptr %37, align 8
   %38 = load i8, ptr %32, align 1
-  %39 = getelementptr inbounds i8, ptr %0, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 %38, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 80
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 1, ptr %40, align 8
   br label %41
 
@@ -3870,24 +3870,24 @@ define hidden noundef ptr @protobuf_lang__scan_buffer(ptr noundef %0, i64 nounde
 
 16:                                               ; preds = %13
   %17 = trunc i64 %6 to i32
-  %18 = getelementptr inbounds i8, ptr %14, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i32 %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %14, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %0, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %14, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %0, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %14, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store i32 0, ptr %21, align 8
   store ptr null, ptr %14, align 8
-  %22 = getelementptr inbounds i8, ptr %14, i64 28
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 28
   store i32 %17, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %14, i64 36
+  %23 = getelementptr inbounds nuw i8, ptr %14, i64 36
   store i32 0, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %14, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store i32 1, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %14, i64 52
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 52
   store i32 0, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %14, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %14, i64 56
   store i32 0, ptr %26, align 8
   tail call void @protobuf_lang__switch_to_buffer(ptr noundef nonnull %14, ptr noundef %2)
   br label %27
@@ -3973,24 +3973,24 @@ define hidden nonnull ptr @protobuf_lang__scan_bytes(ptr nocapture noundef reado
 
 33:                                               ; preds = %29
   %34 = trunc i64 %22 to i32
-  %35 = getelementptr inbounds i8, ptr %30, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 24
   store i32 %34, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %30, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %6, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %30, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store ptr %6, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %30, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %30, i64 32
   store i32 0, ptr %38, align 8
   store ptr null, ptr %30, align 8
-  %39 = getelementptr inbounds i8, ptr %30, i64 28
+  %39 = getelementptr inbounds nuw i8, ptr %30, i64 28
   store i32 %34, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %30, i64 36
+  %40 = getelementptr inbounds nuw i8, ptr %30, i64 36
   store i32 0, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %30, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %30, i64 40
   store i32 1, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %30, i64 52
+  %42 = getelementptr inbounds nuw i8, ptr %30, i64 52
   store i32 0, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %30, i64 56
+  %43 = getelementptr inbounds nuw i8, ptr %30, i64 56
   store i32 0, ptr %43, align 8
   tail call void @protobuf_lang__switch_to_buffer(ptr noundef nonnull %30, ptr noundef %2)
   store i32 1, ptr %38, align 8
@@ -4002,13 +4002,13 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden i32 @protobuf_lang_get_column(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr ptr, ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8
@@ -4016,7 +4016,7 @@ define hidden i32 @protobuf_lang_get_column(ptr nocapture noundef readonly %0) l
   br i1 %.not8, label %12, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %8, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %11 = load i32, ptr %10, align 8
   br label %12
 
@@ -4027,28 +4027,28 @@ define hidden i32 @protobuf_lang_get_column(ptr nocapture noundef readonly %0) l
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @protobuf_lang_get_in(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @protobuf_lang_get_out(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i32 @protobuf_lang_get_leng(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @protobuf_lang_get_text(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
@@ -4061,13 +4061,13 @@ define hidden void @protobuf_lang_set_extra(ptr noundef %0, ptr nocapture nounde
 
 ; Function Attrs: nofree nounwind uwtable
 define hidden void @protobuf_lang_set_lineno(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %10, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr ptr, ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8
@@ -4079,20 +4079,20 @@ define hidden void @protobuf_lang_set_lineno(i32 noundef %0, ptr nocapture nound
   unreachable
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %9, i64 44
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 44
   store i32 %0, ptr %12, align 4
   ret void
 }
 
 ; Function Attrs: nofree nounwind uwtable
 define hidden void @protobuf_lang_set_column(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %10, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr ptr, ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8
@@ -4104,35 +4104,35 @@ define hidden void @protobuf_lang_set_column(i32 noundef %0, ptr nocapture nound
   unreachable
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %9, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store i32 %0, ptr %12, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @protobuf_lang_set_in(ptr noundef %0, ptr nocapture noundef writeonly initializes((8, 16)) %1) local_unnamed_addr #15 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %0, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @protobuf_lang_set_out(ptr noundef %0, ptr nocapture noundef writeonly initializes((16, 24)) %1) local_unnamed_addr #15 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %0, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i32 @protobuf_lang_get_debug(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 124
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @protobuf_lang_set_debug(i32 noundef %0, ptr nocapture noundef writeonly initializes((124, 128)) %1) local_unnamed_addr #15 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 124
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 124
   store i32 %0, ptr %3, align 4
   ret void
 }
@@ -4197,19 +4197,19 @@ define hidden range(i32 0, 2) i32 @protobuf_lang_lex_init_extra(ptr noundef %0, 
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @protobuf_lang_lex_destroy(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not22 = icmp eq ptr %4, null
   br i1 %.not22, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 52
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
-  %7 = getelementptr inbounds i8, ptr %0, i64 128
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %11 = load i64, ptr %2, align 8
   %12 = getelementptr ptr, ptr %4, i64 %11
   %13 = load ptr, ptr %12, align 8
@@ -4220,13 +4220,13 @@ define hidden noundef i32 @protobuf_lang_lex_destroy(ptr nocapture noundef %0) l
   %15 = phi ptr [ %59, %protobuf_lang_pop_buffer_state.exit ], [ %13, %.lr.ph ]
   %16 = phi ptr [ %58, %protobuf_lang_pop_buffer_state.exit ], [ %12, %.lr.ph ]
   store ptr null, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %15, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %18 = load i32, ptr %17, align 8
   %.not13.i = icmp eq i32 %18, 0
   br i1 %.not13.i, label %protobuf_lang__delete_buffer.exit, label %19
 
 19:                                               ; preds = %.thread.i
-  %20 = getelementptr inbounds i8, ptr %15, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %21 = load ptr, ptr %20, align 8
   tail call void @free(ptr noundef %21) #29
   br label %protobuf_lang__delete_buffer.exit
@@ -4250,13 +4250,13 @@ protobuf_lang__delete_buffer.exit:                ; preds = %.thread.i, %19
 
 .thread.i.i:                                      ; preds = %26
   store ptr null, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %31 = load i32, ptr %30, align 8
   %.not13.i.i = icmp eq i32 %31, 0
   br i1 %.not13.i.i, label %protobuf_lang__delete_buffer.exit.i, label %32
 
 32:                                               ; preds = %.thread.i.i
-  %33 = getelementptr inbounds i8, ptr %29, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %34 = load ptr, ptr %33, align 8
   tail call void @free(ptr noundef %34) #29
   br label %protobuf_lang__delete_buffer.exit.i
@@ -4289,11 +4289,11 @@ protobuf_lang__delete_buffer.exit.i:              ; preds = %32, %.thread.i.i
   br i1 %.not23.i, label %protobuf_lang_pop_buffer_state.exit, label %47
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %46, i64 28
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 28
   %49 = load i32, ptr %48, align 4
   store i32 %49, ptr %5, align 4
   %50 = load ptr, ptr %45, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load ptr, ptr %51, align 8
   store ptr %52, ptr %6, align 8
   store ptr %52, ptr %7, align 8
@@ -4317,7 +4317,7 @@ protobuf_lang_pop_buffer_state.exit:              ; preds = %26, %44, %47
   %.lcssa = phi ptr [ null, %1 ], [ %4, %.lr.ph ], [ null, %41 ], [ null, %protobuf_lang__delete_buffer.exit ], [ %56, %protobuf_lang_pop_buffer_state.exit ]
   tail call void @free(ptr noundef %.lcssa) #29
   store ptr null, ptr %3, align 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 96
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %62 = load ptr, ptr %61, align 8
   tail call void @free(ptr noundef %62) #29
   tail call void @free(ptr noundef nonnull %0) #29

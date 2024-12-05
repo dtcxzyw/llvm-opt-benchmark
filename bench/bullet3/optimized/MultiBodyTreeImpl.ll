@@ -107,110 +107,110 @@ invoke.cont15:
   %ref.tmp = alloca %"struct.btInverseDynamicsBullet3::RigidBody", align 8
   %ref.tmp31 = alloca %class.b3AlignedObjectArray.0, align 8
   store i32 %num_bodies_, ptr %this, align 8
-  %m_num_dofs = getelementptr inbounds i8, ptr %this, i64 4
+  %m_num_dofs = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i32 %num_dofs_, ptr %m_num_dofs, align 4
-  %m_body_list = getelementptr inbounds i8, ptr %this, i64 24
-  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %m_body_list = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %m_ownsMemory.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i8 1, ptr %m_ownsMemory.i.i, align 8
-  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_data.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr null, ptr %m_data.i.i, align 8
-  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 28
+  %m_size.i.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %m_capacity.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i32 0, ptr %m_capacity.i.i, align 8
-  %m_parent_index = getelementptr inbounds i8, ptr %this, i64 56
-  %m_ownsMemory.i.i16 = getelementptr inbounds i8, ptr %this, i64 80
+  %m_parent_index = getelementptr inbounds nuw i8, ptr %this, i64 56
+  %m_ownsMemory.i.i16 = getelementptr inbounds nuw i8, ptr %this, i64 80
   store i8 1, ptr %m_ownsMemory.i.i16, align 8
-  %m_data.i.i17 = getelementptr inbounds i8, ptr %this, i64 72
+  %m_data.i.i17 = getelementptr inbounds nuw i8, ptr %this, i64 72
   store ptr null, ptr %m_data.i.i17, align 8
-  %m_size.i.i18 = getelementptr inbounds i8, ptr %this, i64 60
+  %m_size.i.i18 = getelementptr inbounds nuw i8, ptr %this, i64 60
   store i32 0, ptr %m_size.i.i18, align 4
-  %m_capacity.i.i19 = getelementptr inbounds i8, ptr %this, i64 64
+  %m_capacity.i.i19 = getelementptr inbounds nuw i8, ptr %this, i64 64
   store i32 0, ptr %m_capacity.i.i19, align 8
-  %m_child_indices = getelementptr inbounds i8, ptr %this, i64 88
-  %m_ownsMemory.i.i20 = getelementptr inbounds i8, ptr %this, i64 112
+  %m_child_indices = getelementptr inbounds nuw i8, ptr %this, i64 88
+  %m_ownsMemory.i.i20 = getelementptr inbounds nuw i8, ptr %this, i64 112
   store i8 1, ptr %m_ownsMemory.i.i20, align 8
-  %m_data.i.i21 = getelementptr inbounds i8, ptr %this, i64 104
+  %m_data.i.i21 = getelementptr inbounds nuw i8, ptr %this, i64 104
   store ptr null, ptr %m_data.i.i21, align 8
-  %m_size.i.i22 = getelementptr inbounds i8, ptr %this, i64 92
+  %m_size.i.i22 = getelementptr inbounds nuw i8, ptr %this, i64 92
   store i32 0, ptr %m_size.i.i22, align 4
-  %m_capacity.i.i23 = getelementptr inbounds i8, ptr %this, i64 96
+  %m_capacity.i.i23 = getelementptr inbounds nuw i8, ptr %this, i64 96
   store i32 0, ptr %m_capacity.i.i23, align 8
-  %m_ownsMemory.i.i24 = getelementptr inbounds i8, ptr %this, i64 144
+  %m_ownsMemory.i.i24 = getelementptr inbounds nuw i8, ptr %this, i64 144
   store i8 1, ptr %m_ownsMemory.i.i24, align 8
-  %m_data.i.i25 = getelementptr inbounds i8, ptr %this, i64 136
+  %m_data.i.i25 = getelementptr inbounds nuw i8, ptr %this, i64 136
   store ptr null, ptr %m_data.i.i25, align 8
-  %m_size.i.i26 = getelementptr inbounds i8, ptr %this, i64 124
+  %m_size.i.i26 = getelementptr inbounds nuw i8, ptr %this, i64 124
   store i32 0, ptr %m_size.i.i26, align 4
-  %m_capacity.i.i27 = getelementptr inbounds i8, ptr %this, i64 128
+  %m_capacity.i.i27 = getelementptr inbounds nuw i8, ptr %this, i64 128
   store i32 0, ptr %m_capacity.i.i27, align 8
-  %m_ownsMemory.i.i28 = getelementptr inbounds i8, ptr %this, i64 176
+  %m_ownsMemory.i.i28 = getelementptr inbounds nuw i8, ptr %this, i64 176
   store i8 1, ptr %m_ownsMemory.i.i28, align 8
-  %m_data.i.i29 = getelementptr inbounds i8, ptr %this, i64 168
+  %m_data.i.i29 = getelementptr inbounds nuw i8, ptr %this, i64 168
   store ptr null, ptr %m_data.i.i29, align 8
-  %m_size.i.i30 = getelementptr inbounds i8, ptr %this, i64 156
+  %m_size.i.i30 = getelementptr inbounds nuw i8, ptr %this, i64 156
   store i32 0, ptr %m_size.i.i30, align 4
-  %m_capacity.i.i31 = getelementptr inbounds i8, ptr %this, i64 160
+  %m_capacity.i.i31 = getelementptr inbounds nuw i8, ptr %this, i64 160
   store i32 0, ptr %m_capacity.i.i31, align 8
-  %m_ownsMemory.i.i32 = getelementptr inbounds i8, ptr %this, i64 208
+  %m_ownsMemory.i.i32 = getelementptr inbounds nuw i8, ptr %this, i64 208
   store i8 1, ptr %m_ownsMemory.i.i32, align 8
-  %m_data.i.i33 = getelementptr inbounds i8, ptr %this, i64 200
+  %m_data.i.i33 = getelementptr inbounds nuw i8, ptr %this, i64 200
   store ptr null, ptr %m_data.i.i33, align 8
-  %m_size.i.i34 = getelementptr inbounds i8, ptr %this, i64 188
+  %m_size.i.i34 = getelementptr inbounds nuw i8, ptr %this, i64 188
   store i32 0, ptr %m_size.i.i34, align 4
-  %m_capacity.i.i35 = getelementptr inbounds i8, ptr %this, i64 192
+  %m_capacity.i.i35 = getelementptr inbounds nuw i8, ptr %this, i64 192
   store i32 0, ptr %m_capacity.i.i35, align 8
-  %m_ownsMemory.i.i36 = getelementptr inbounds i8, ptr %this, i64 240
+  %m_ownsMemory.i.i36 = getelementptr inbounds nuw i8, ptr %this, i64 240
   store i8 1, ptr %m_ownsMemory.i.i36, align 8
-  %m_data.i.i37 = getelementptr inbounds i8, ptr %this, i64 232
+  %m_data.i.i37 = getelementptr inbounds nuw i8, ptr %this, i64 232
   store ptr null, ptr %m_data.i.i37, align 8
-  %m_size.i.i38 = getelementptr inbounds i8, ptr %this, i64 220
+  %m_size.i.i38 = getelementptr inbounds nuw i8, ptr %this, i64 220
   store i32 0, ptr %m_size.i.i38, align 4
-  %m_capacity.i.i39 = getelementptr inbounds i8, ptr %this, i64 224
+  %m_capacity.i.i39 = getelementptr inbounds nuw i8, ptr %this, i64 224
   store i32 0, ptr %m_capacity.i.i39, align 8
-  %m_user_int = getelementptr inbounds i8, ptr %this, i64 248
-  %m_ownsMemory.i.i40 = getelementptr inbounds i8, ptr %this, i64 272
+  %m_user_int = getelementptr inbounds nuw i8, ptr %this, i64 248
+  %m_ownsMemory.i.i40 = getelementptr inbounds nuw i8, ptr %this, i64 272
   store i8 1, ptr %m_ownsMemory.i.i40, align 8
-  %m_data.i.i41 = getelementptr inbounds i8, ptr %this, i64 264
+  %m_data.i.i41 = getelementptr inbounds nuw i8, ptr %this, i64 264
   store ptr null, ptr %m_data.i.i41, align 8
-  %m_size.i.i42 = getelementptr inbounds i8, ptr %this, i64 252
+  %m_size.i.i42 = getelementptr inbounds nuw i8, ptr %this, i64 252
   store i32 0, ptr %m_size.i.i42, align 4
-  %m_capacity.i.i43 = getelementptr inbounds i8, ptr %this, i64 256
+  %m_capacity.i.i43 = getelementptr inbounds nuw i8, ptr %this, i64 256
   store i32 0, ptr %m_capacity.i.i43, align 8
-  %m_user_ptr = getelementptr inbounds i8, ptr %this, i64 280
-  %m_ownsMemory.i.i44 = getelementptr inbounds i8, ptr %this, i64 304
+  %m_user_ptr = getelementptr inbounds nuw i8, ptr %this, i64 280
+  %m_ownsMemory.i.i44 = getelementptr inbounds nuw i8, ptr %this, i64 304
   store i8 1, ptr %m_ownsMemory.i.i44, align 8
-  %m_data.i.i45 = getelementptr inbounds i8, ptr %this, i64 296
+  %m_data.i.i45 = getelementptr inbounds nuw i8, ptr %this, i64 296
   store ptr null, ptr %m_data.i.i45, align 8
-  %m_size.i.i46 = getelementptr inbounds i8, ptr %this, i64 284
+  %m_size.i.i46 = getelementptr inbounds nuw i8, ptr %this, i64 284
   store i32 0, ptr %m_size.i.i46, align 4
-  %m_capacity.i.i47 = getelementptr inbounds i8, ptr %this, i64 288
+  %m_capacity.i.i47 = getelementptr inbounds nuw i8, ptr %this, i64 288
   store i32 0, ptr %m_capacity.i.i47, align 8
-  %m_m3x = getelementptr inbounds i8, ptr %this, i64 312
+  %m_m3x = getelementptr inbounds nuw i8, ptr %this, i64 312
   store i32 3, ptr %m_m3x, align 8
-  %m_cols.i.i = getelementptr inbounds i8, ptr %this, i64 316
+  %m_cols.i.i = getelementptr inbounds nuw i8, ptr %this, i64 316
   store i32 %num_dofs_, ptr %m_cols.i.i, align 4
-  %m_operations.i.i = getelementptr inbounds i8, ptr %this, i64 320
+  %m_operations.i.i = getelementptr inbounds nuw i8, ptr %this, i64 320
   store i32 0, ptr %m_operations.i.i, align 8
-  %m_resizeOperations.i.i = getelementptr inbounds i8, ptr %this, i64 324
+  %m_resizeOperations.i.i = getelementptr inbounds nuw i8, ptr %this, i64 324
   store i32 0, ptr %m_resizeOperations.i.i, align 4
-  %m_setElemOperations.i.i = getelementptr inbounds i8, ptr %this, i64 328
+  %m_setElemOperations.i.i = getelementptr inbounds nuw i8, ptr %this, i64 328
   store i32 0, ptr %m_setElemOperations.i.i, align 8
-  %m_ownsMemory.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 360
+  %m_ownsMemory.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 360
   store i8 1, ptr %m_ownsMemory.i.i.i.i, align 8
-  %m_data.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 352
+  %m_data.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 352
   store ptr null, ptr %m_data.i.i.i.i, align 8
-  %m_size.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 340
+  %m_size.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 340
   store i32 0, ptr %m_size.i.i.i.i, align 4
-  %m_capacity.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 344
+  %m_capacity.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 344
   store i32 0, ptr %m_capacity.i.i.i.i, align 8
-  %m_ownsMemory.i.i4.i.i = getelementptr inbounds i8, ptr %this, i64 392
+  %m_ownsMemory.i.i4.i.i = getelementptr inbounds nuw i8, ptr %this, i64 392
   store i8 1, ptr %m_ownsMemory.i.i4.i.i, align 8
-  %m_data.i.i5.i.i = getelementptr inbounds i8, ptr %this, i64 384
+  %m_data.i.i5.i.i = getelementptr inbounds nuw i8, ptr %this, i64 384
   store ptr null, ptr %m_data.i.i5.i.i, align 8
-  %m_size.i.i6.i.i = getelementptr inbounds i8, ptr %this, i64 372
+  %m_size.i.i6.i.i = getelementptr inbounds nuw i8, ptr %this, i64 372
   store i32 0, ptr %m_size.i.i6.i.i, align 4
-  %m_capacity.i.i7.i.i = getelementptr inbounds i8, ptr %this, i64 376
+  %m_capacity.i.i7.i.i = getelementptr inbounds nuw i8, ptr %this, i64 376
   store i32 0, ptr %m_capacity.i.i7.i.i, align 8
   invoke void @_ZN9btMatrixXIfE6resizeEii(ptr noundef nonnull align 8 dereferenceable(88) %m_m3x, i32 noundef 3, i32 noundef %num_dofs_)
           to label %invoke.cont18 unwind label %lpad2.i.i
@@ -218,8 +218,8 @@ invoke.cont15:
 lpad2.i.i:                                        ; preds = %invoke.cont15
   %0 = landingpad { ptr, i32 }
           cleanup
-  %m_rowNonZeroElements1.i.i = getelementptr inbounds i8, ptr %this, i64 368
-  %m_storage.i.i = getelementptr inbounds i8, ptr %this, i64 336
+  %m_rowNonZeroElements1.i.i = getelementptr inbounds nuw i8, ptr %this, i64 368
+  %m_storage.i.i = getelementptr inbounds nuw i8, ptr %this, i64 336
   tail call void @_ZN20btAlignedObjectArrayIS_IiEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_rowNonZeroElements1.i.i) #16
   tail call void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_storage.i.i) #16
   br label %ehcleanup49
@@ -249,25 +249,25 @@ _Z9btSetZeroIfEvPT_i.exit.i.i.i:                  ; preds = %.noexc50
 invoke.cont24:                                    ; preds = %.noexc50, %_Z9btSetZeroIfEvPT_i.exit.i.i.i
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile.i.i.i) #16
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__profile.i.i.i)
-  %m_body_Jac_T.i = getelementptr inbounds i8, ptr %ref.tmp, i64 608
-  %m_ownsMemory.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 656
+  %m_body_Jac_T.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 608
+  %m_ownsMemory.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 656
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(816) %ref.tmp, i8 0, i64 816, i1 false)
   store i8 1, ptr %m_ownsMemory.i.i.i.i.i, align 8
-  %m_size.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 636
+  %m_size.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 636
   store i32 0, ptr %m_size.i.i.i.i.i, align 4
-  %m_ownsMemory.i.i1.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 688
+  %m_ownsMemory.i.i1.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 688
   store i8 1, ptr %m_ownsMemory.i.i1.i.i.i, align 8
-  %m_size.i.i3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 668
+  %m_size.i.i3.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 668
   store i32 0, ptr %m_size.i.i3.i.i.i, align 4
-  %m_body_Jac_R.i = getelementptr inbounds i8, ptr %ref.tmp, i64 696
-  %m_ownsMemory.i.i.i.i2.i = getelementptr inbounds i8, ptr %ref.tmp, i64 744
+  %m_body_Jac_R.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 696
+  %m_ownsMemory.i.i.i.i2.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 744
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %m_body_Jac_R.i, i8 0, i64 20, i1 false)
   store i8 1, ptr %m_ownsMemory.i.i.i.i2.i, align 8
-  %m_size.i.i.i.i4.i = getelementptr inbounds i8, ptr %ref.tmp, i64 724
+  %m_size.i.i.i.i4.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 724
   store i32 0, ptr %m_size.i.i.i.i4.i, align 4
-  %m_ownsMemory.i.i1.i.i6.i = getelementptr inbounds i8, ptr %ref.tmp, i64 776
+  %m_ownsMemory.i.i1.i.i6.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 776
   store i8 1, ptr %m_ownsMemory.i.i1.i.i6.i, align 8
-  %m_size.i.i3.i.i8.i = getelementptr inbounds i8, ptr %ref.tmp, i64 756
+  %m_size.i.i3.i.i8.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 756
   store i32 0, ptr %m_size.i.i3.i.i8.i, align 4
   %5 = load i32, ptr %m_size.i.i, align 4
   %cmp.i = icmp slt i32 %num_bodies_, %5
@@ -281,9 +281,9 @@ for.body.i:                                       ; preds = %for.body.i, %for.co
   %indvars.iv19.i = phi i64 [ %6, %for.cond.preheader.i ], [ %indvars.iv.next20.i, %for.body.i ]
   %7 = load ptr, ptr %m_data.i.i, align 8
   %arrayidx.i = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %7, i64 %indvars.iv19.i
-  %m_body_Jac_R.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 696
+  %m_body_Jac_R.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 696
   call void @_ZN9btMatrixXIfED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %m_body_Jac_R.i.i) #16
-  %m_body_Jac_T.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 608
+  %m_body_Jac_T.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 608
   call void @_ZN9btMatrixXIfED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %m_body_Jac_T.i.i) #16
   %indvars.iv.next20.i = add nsw i64 %indvars.iv19.i, 1
   %lftr.wideiv22.i = trunc i64 %indvars.iv.next20.i to i32
@@ -343,13 +343,13 @@ for.body9.i60:                                    ; preds = %for.body9.i60, %.no
 
 invoke.cont32:                                    ; preds = %for.body9.i60, %invoke.cont26
   store i32 %num_bodies_, ptr %m_size.i.i18, align 4
-  %m_ownsMemory.i.i66 = getelementptr inbounds i8, ptr %ref.tmp31, i64 24
+  %m_ownsMemory.i.i66 = getelementptr inbounds nuw i8, ptr %ref.tmp31, i64 24
   store i8 1, ptr %m_ownsMemory.i.i66, align 8
-  %m_data.i.i67 = getelementptr inbounds i8, ptr %ref.tmp31, i64 16
+  %m_data.i.i67 = getelementptr inbounds nuw i8, ptr %ref.tmp31, i64 16
   store ptr null, ptr %m_data.i.i67, align 8
-  %m_size.i.i68 = getelementptr inbounds i8, ptr %ref.tmp31, i64 4
+  %m_size.i.i68 = getelementptr inbounds nuw i8, ptr %ref.tmp31, i64 4
   store i32 0, ptr %m_size.i.i68, align 4
-  %m_capacity.i.i69 = getelementptr inbounds i8, ptr %ref.tmp31, i64 8
+  %m_capacity.i.i69 = getelementptr inbounds nuw i8, ptr %ref.tmp31, i64 8
   store i32 0, ptr %m_capacity.i.i69, align 8
   invoke void @_ZN20b3AlignedObjectArrayIS_IiEE6resizeEiRKS0_(ptr noundef nonnull align 8 dereferenceable(25) %m_child_indices, i32 noundef %num_bodies_, ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp31)
           to label %invoke.cont34 unwind label %lpad33
@@ -427,12 +427,12 @@ for.body9.i90:                                    ; preds = %for.body9.i90, %.no
   br i1 %exitcond.not.i94, label %invoke.cont47, label %for.body9.i90, !llvm.loop !9
 
 invoke.cont47:                                    ; preds = %for.body9.i90, %invoke.cont37
-  %m_world_gravity = getelementptr inbounds i8, ptr %this, i64 8
+  %m_world_gravity = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %num_bodies_, ptr %m_size.i.i46, align 4
   store float 0.000000e+00, ptr %m_world_gravity, align 8
-  %arrayidx.i97 = getelementptr inbounds i8, ptr %this, i64 12
+  %arrayidx.i97 = getelementptr inbounds nuw i8, ptr %this, i64 12
   store float 0.000000e+00, ptr %arrayidx.i97, align 4
-  %arrayidx.i98 = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx.i98 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store float 0xC0239999A0000000, ptr %arrayidx.i98, align 8
   ret void
 
@@ -470,10 +470,10 @@ ehcleanup:                                        ; preds = %lpad33, %lpad25, %l
 
 ehcleanup49:                                      ; preds = %lpad2.i.i, %ehcleanup
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %0, %lpad2.i.i ]
-  %m_body_spherical_list = getelementptr inbounds i8, ptr %this, i64 216
-  %m_body_floating_list = getelementptr inbounds i8, ptr %this, i64 184
-  %m_body_prismatic_list = getelementptr inbounds i8, ptr %this, i64 152
-  %m_body_revolute_list = getelementptr inbounds i8, ptr %this, i64 120
+  %m_body_spherical_list = getelementptr inbounds nuw i8, ptr %this, i64 216
+  %m_body_floating_list = getelementptr inbounds nuw i8, ptr %this, i64 184
+  %m_body_prismatic_list = getelementptr inbounds nuw i8, ptr %this, i64 152
+  %m_body_revolute_list = getelementptr inbounds nuw i8, ptr %this, i64 120
   call void @_ZN20b3AlignedObjectArrayIPvED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_user_ptr) #16
   call void @_ZN20b3AlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_user_int) #16
   call void @_ZN20b3AlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_body_spherical_list) #16
@@ -494,13 +494,13 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIS_IiEE6resizeEiRKS0_(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %newsize, ptr noundef nonnull align 8 dereferenceable(25) %fillData) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_size.i = getelementptr inbounds i8, ptr %this, i64 4
+  %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = load i32, ptr %m_size.i, align 4
   %cmp = icmp slt i32 %newsize, %0
   br i1 %cmp, label %for.cond.preheader, label %if.else
 
 for.cond.preheader:                               ; preds = %entry
-  %m_data = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = sext i32 %newsize to i64
   br label %for.body
 
@@ -508,13 +508,13 @@ for.body:                                         ; preds = %for.cond.preheader,
   %indvars.iv19 = phi i64 [ %1, %for.cond.preheader ], [ %indvars.iv.next20, %_ZN20b3AlignedObjectArrayIiED2Ev.exit ]
   %2 = load ptr, ptr %m_data, align 8
   %arrayidx = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %2, i64 %indvars.iv19
-  %m_data.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %m_data.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   %3 = load ptr, ptr %m_data.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i, label %_ZN20b3AlignedObjectArrayIiED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body
-  %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 24
+  %m_ownsMemory.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
   %4 = load i8, ptr %m_ownsMemory.i.i.i, align 8
   %tobool2.i.i.i = trunc i8 %4 to i1
   br i1 %tobool2.i.i.i, label %if.then3.i.i.i, label %_ZN20b3AlignedObjectArrayIiED2Ev.exit
@@ -531,12 +531,12 @@ terminate.lpad.i:                                 ; preds = %if.then3.i.i.i
   unreachable
 
 _ZN20b3AlignedObjectArrayIiED2Ev.exit:            ; preds = %for.body, %if.then.i.i.i, %if.then3.i.i.i
-  %m_size.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 4
-  %m_ownsMemory.i1.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 24
+  %m_size.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
+  %m_ownsMemory.i1.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
   store i8 1, ptr %m_ownsMemory.i1.i.i, align 8
   store ptr null, ptr %m_data.i.i.i, align 8
   store i32 0, ptr %m_size.i.i.i, align 4
-  %m_capacity.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %m_capacity.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   store i32 0, ptr %m_capacity.i.i.i, align 8
   %indvars.iv.next20 = add nsw i64 %indvars.iv19, 1
   %lftr.wideiv22 = trunc i64 %indvars.iv.next20 to i32
@@ -549,9 +549,9 @@ if.else:                                          ; preds = %entry
 
 for.body9.lr.ph:                                  ; preds = %if.else
   tail call void @_ZN20b3AlignedObjectArrayIS_IiEE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %newsize)
-  %m_data10 = getelementptr inbounds i8, ptr %this, i64 16
-  %m_size.i6.i = getelementptr inbounds i8, ptr %fillData, i64 4
-  %m_data.i7.i = getelementptr inbounds i8, ptr %fillData, i64 16
+  %m_data10 = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %m_size.i6.i = getelementptr inbounds nuw i8, ptr %fillData, i64 4
+  %m_data.i7.i = getelementptr inbounds nuw i8, ptr %fillData, i64 16
   %7 = sext i32 %0 to i64
   br label %for.body9
 
@@ -559,13 +559,13 @@ for.body9:                                        ; preds = %for.body9.lr.ph, %_
   %indvars.iv = phi i64 [ %7, %for.body9.lr.ph ], [ %indvars.iv.next, %_ZN20b3AlignedObjectArrayIiEC2ERKS0_.exit ]
   %8 = load ptr, ptr %m_data10, align 8
   %arrayidx12 = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %8, i64 %indvars.iv
-  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %arrayidx12, i64 24
+  %m_ownsMemory.i.i = getelementptr inbounds nuw i8, ptr %arrayidx12, i64 24
   store i8 1, ptr %m_ownsMemory.i.i, align 8
-  %m_data.i.i = getelementptr inbounds i8, ptr %arrayidx12, i64 16
+  %m_data.i.i = getelementptr inbounds nuw i8, ptr %arrayidx12, i64 16
   store ptr null, ptr %m_data.i.i, align 8
-  %m_size.i.i = getelementptr inbounds i8, ptr %arrayidx12, i64 4
+  %m_size.i.i = getelementptr inbounds nuw i8, ptr %arrayidx12, i64 4
   store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds i8, ptr %arrayidx12, i64 8
+  %m_capacity.i.i = getelementptr inbounds nuw i8, ptr %arrayidx12, i64 8
   store i32 0, ptr %m_capacity.i.i, align 8
   %9 = load i32, ptr %m_size.i6.i, align 4
   %cmp4.i.i = icmp sgt i32 %9, 0
@@ -583,7 +583,7 @@ for.body9.lr.ph.i.i:                              ; preds = %for.body9
 for.body9.i.i:                                    ; preds = %for.body9.i.i, %for.body9.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body9.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.body9.i.i ]
   %10 = load ptr, ptr %m_data.i.i, align 8
-  %arrayidx12.i.i = getelementptr inbounds i32, ptr %10, i64 %indvars.iv.i.i
+  %arrayidx12.i.i = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.i.i
   store i32 0, ptr %arrayidx12.i.i, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -596,10 +596,10 @@ _ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit.i:  ; preds = %for.body9.i.i
 for.body.i:                                       ; preds = %for.body.i, %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit.i
   %indvars.iv.i = phi i64 [ 0, %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit.i ], [ %indvars.iv.next.i, %for.body.i ]
   %11 = load ptr, ptr %m_data.i7.i, align 8
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %11, i64 %indvars.iv.i
+  %arrayidx.i.i = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.i
   %12 = load i32, ptr %arrayidx.i.i, align 4
   %13 = load ptr, ptr %m_data.i.i, align 8
-  %arrayidx.i = getelementptr inbounds i32, ptr %13, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.i
   store i32 %12, ptr %arrayidx.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i.i
@@ -619,13 +619,13 @@ if.end16:                                         ; preds = %_ZN20b3AlignedObjec
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_data.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %invoke.cont, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_ownsMemory.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load i8, ptr %m_ownsMemory.i.i, align 8
   %tobool2.i.i = trunc i8 %1 to i1
   br i1 %tobool2.i.i, label %if.then3.i.i, label %invoke.cont
@@ -635,12 +635,12 @@ if.then3.i.i:                                     ; preds = %if.then.i.i
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then.i.i, %entry, %if.then3.i.i
-  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 4
-  %m_ownsMemory.i1.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_size.i.i = getelementptr inbounds nuw i8, ptr %this, i64 4
+  %m_ownsMemory.i1.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory.i1.i, align 8
   store ptr null, ptr %m_data.i.i, align 8
   store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_capacity.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 0, ptr %m_capacity.i.i, align 8
   ret void
 
@@ -655,13 +655,13 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIPvED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_data.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %invoke.cont, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_ownsMemory.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load i8, ptr %m_ownsMemory.i.i, align 8
   %tobool2.i.i = trunc i8 %1 to i1
   br i1 %tobool2.i.i, label %if.then3.i.i, label %invoke.cont
@@ -671,12 +671,12 @@ if.then3.i.i:                                     ; preds = %if.then.i.i
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then.i.i, %entry, %if.then3.i.i
-  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 4
-  %m_ownsMemory.i1.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_size.i.i = getelementptr inbounds nuw i8, ptr %this, i64 4
+  %m_ownsMemory.i1.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory.i1.i, align 8
   store ptr null, ptr %m_data.i.i, align 8
   store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_capacity.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 0, ptr %m_capacity.i.i, align 8
   ret void
 
@@ -691,27 +691,27 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIS_IiEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 4
+  %m_size.i.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = load i32, ptr %m_size.i.i, align 4
   %cmp3.i.i = icmp sgt i32 %0, 0
   br i1 %cmp3.i.i, label %for.body.lr.ph.i.i, label %_ZN20b3AlignedObjectArrayIS_IiEE7destroyEii.exit.i
 
 for.body.lr.ph.i.i:                               ; preds = %entry
-  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %zext.i = zext nneg i32 %0 to i64
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %_ZN20b3AlignedObjectArrayIiED2Ev.exit.i.i, %for.body.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %_ZN20b3AlignedObjectArrayIiED2Ev.exit.i.i ]
   %1 = load ptr, ptr %m_data.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %1, i64 %indvars.iv.i.i
-  %m_data.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
+  %arrayidx.i.i = getelementptr inbounds nuw %class.b3AlignedObjectArray.0, ptr %1, i64 %indvars.iv.i.i
+  %m_data.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 16
   %2 = load ptr, ptr %m_data.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN20b3AlignedObjectArrayIiED2Ev.exit.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %for.body.i.i
-  %m_ownsMemory.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 24
+  %m_ownsMemory.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 24
   %3 = load i8, ptr %m_ownsMemory.i.i.i.i.i, align 8
   %tobool2.i.i.i.i.i = trunc i8 %3 to i1
   br i1 %tobool2.i.i.i.i.i, label %if.then3.i.i.i.i.i, label %_ZN20b3AlignedObjectArrayIiED2Ev.exit.i.i
@@ -728,25 +728,25 @@ terminate.lpad.i.i.i:                             ; preds = %if.then3.i.i.i.i.i
   unreachable
 
 _ZN20b3AlignedObjectArrayIiED2Ev.exit.i.i:        ; preds = %if.then3.i.i.i.i.i, %if.then.i.i.i.i.i, %for.body.i.i
-  %m_size.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 4
-  %m_ownsMemory.i1.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 24
+  %m_size.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 4
+  %m_ownsMemory.i1.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 24
   store i8 1, ptr %m_ownsMemory.i1.i.i.i.i, align 8
   store ptr null, ptr %m_data.i.i.i.i.i, align 8
   store i32 0, ptr %m_size.i.i.i.i.i, align 4
-  %m_capacity.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
+  %m_capacity.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 8
   store i32 0, ptr %m_capacity.i.i.i.i.i, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %6 = icmp eq i64 %indvars.iv.next.i.i, %zext.i
   br i1 %6, label %_ZN20b3AlignedObjectArrayIS_IiEE7destroyEii.exit.i, label %for.body.i.i, !llvm.loop !13
 
 _ZN20b3AlignedObjectArrayIS_IiEE7destroyEii.exit.i: ; preds = %_ZN20b3AlignedObjectArrayIiED2Ev.exit.i.i, %entry
-  %m_data.i1.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data.i1.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %7 = load ptr, ptr %m_data.i1.i, align 8
   %tobool.not.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i, label %invoke.cont, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN20b3AlignedObjectArrayIS_IiEE7destroyEii.exit.i
-  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_ownsMemory.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %8 = load i8, ptr %m_ownsMemory.i.i, align 8
   %tobool2.i.i = trunc i8 %8 to i1
   br i1 %tobool2.i.i, label %if.then3.i.i, label %invoke.cont
@@ -756,11 +756,11 @@ if.then3.i.i:                                     ; preds = %if.then.i.i
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then.i.i, %_ZN20b3AlignedObjectArrayIS_IiEE7destroyEii.exit.i, %if.then3.i.i
-  %m_ownsMemory.i2.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_ownsMemory.i2.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory.i2.i, align 8
   store ptr null, ptr %m_data.i1.i, align 8
   store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_capacity.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 0, ptr %m_capacity.i.i, align 8
   ret void
 
@@ -775,36 +775,36 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 4
+  %m_size.i.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = load i32, ptr %m_size.i.i, align 4
   %cmp3.i.i = icmp sgt i32 %0, 0
   br i1 %cmp3.i.i, label %for.body.lr.ph.i.i, label %_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEE7destroyEii.exit.i
 
 for.body.lr.ph.i.i:                               ; preds = %entry
-  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %zext.i = zext nneg i32 %0 to i64
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
   %1 = load ptr, ptr %m_data.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %1, i64 %indvars.iv.i.i
-  %m_body_Jac_R.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 696
+  %arrayidx.i.i = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %1, i64 %indvars.iv.i.i
+  %m_body_Jac_R.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 696
   tail call void @_ZN9btMatrixXIfED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %m_body_Jac_R.i.i.i) #16
-  %m_body_Jac_T.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 608
+  %m_body_Jac_T.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 608
   tail call void @_ZN9btMatrixXIfED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %m_body_Jac_T.i.i.i) #16
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %2 = icmp eq i64 %indvars.iv.next.i.i, %zext.i
   br i1 %2, label %_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEE7destroyEii.exit.i, label %for.body.i.i, !llvm.loop !14
 
 _ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEE7destroyEii.exit.i: ; preds = %for.body.i.i, %entry
-  %m_data.i1.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data.i1.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load ptr, ptr %m_data.i1.i, align 8
   %tobool.not.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i, label %invoke.cont, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEE7destroyEii.exit.i
-  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_ownsMemory.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %4 = load i8, ptr %m_ownsMemory.i.i, align 8
   %tobool2.i.i = trunc i8 %4 to i1
   br i1 %tobool2.i.i, label %if.then3.i.i, label %invoke.cont
@@ -814,11 +814,11 @@ if.then3.i.i:                                     ; preds = %if.then.i.i
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then.i.i, %_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEE7destroyEii.exit.i, %if.then3.i.i
-  %m_ownsMemory.i2.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_ownsMemory.i2.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory.i2.i, align 8
   store ptr null, ptr %m_data.i1.i, align 8
   store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_capacity.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 0, ptr %m_capacity.i.i, align 8
   ret void
 
@@ -839,7 +839,7 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table._ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl15getJointTypeStrEiPPKc, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl15getJointTypeStrEiPPKc, i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %return
 
@@ -851,16 +851,16 @@ return:                                           ; preds = %entry, %switch.look
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl9printTreeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(400) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_data.i, align 8
-  %m_joint_type = getelementptr inbounds i8, ptr %0, i64 420
+  %m_joint_type = getelementptr inbounds nuw i8, ptr %0, i64 420
   %1 = load i32, ptr %m_joint_type, align 4
   %2 = icmp ult i32 %1, 5
   br i1 %2, label %switch.lookup, label %_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl17jointTypeToStringERKNS_9JointTypeE.exit
 
 switch.lookup:                                    ; preds = %entry
   %3 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table._ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl15getJointTypeStrEiPPKc, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl15getJointTypeStrEiPPKc, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl17jointTypeToStringERKNS_9JointTypeE.exit
 
@@ -876,7 +876,7 @@ declare void @b3OutputPrintfVarArgsInternal(ptr noundef, ...) local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl9printTreeEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(400) %this, i32 noundef %index, i32 noundef %indentation) local_unnamed_addr #0 align 2 {
 entry:
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 104
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = sext i32 %index to i64
   %m_size.i = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %0, i64 %idxprom.i, i32 2
@@ -887,7 +887,7 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %cmp2.i = icmp sgt i32 %indentation, -2
-  %m_data.i16 = getelementptr inbounds i8, ptr %this, i64 40
+  %m_data.i16 = getelementptr inbounds nuw i8, ptr %this, i64 40
   br i1 %cmp2.i, label %for.body.us.preheader, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %for.body.lr.ph
@@ -904,7 +904,7 @@ for.body.us:                                      ; preds = %for.body.us.prehead
   %2 = load ptr, ptr %m_data.i, align 8
   %m_data.i13.us = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %2, i64 %idxprom.i, i32 5
   %3 = load ptr, ptr %m_data.i13.us, align 8
-  %arrayidx.i15.us = getelementptr inbounds i32, ptr %3, i64 %indvars.iv66
+  %arrayidx.i15.us = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv66
   %4 = load i32, ptr %arrayidx.i15.us, align 4
   br label %for.body.i.us
 
@@ -916,12 +916,12 @@ for.body.i.us:                                    ; preds = %for.body.us, %for.b
   br i1 %exitcond65.not, label %_ZN24btInverseDynamicsBullet36indentERKi.exit.loopexit.us, label %for.body.i.us, !llvm.loop !15
 
 _ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl17jointTypeToStringERKNS_9JointTypeE.exit.thread52.us: ; preds = %_ZN24btInverseDynamicsBullet36indentERKi.exit.loopexit.us
-  %m_q_index55.us = getelementptr inbounds i8, ptr %arrayidx.i18.us, i64 536
+  %m_q_index55.us = getelementptr inbounds nuw i8, ptr %arrayidx.i18.us, i64 536
   %5 = load i32, ptr %m_q_index55.us, align 8
   br label %_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl11bodyNumDoFsERKNS_9JointTypeE.exit.us
 
 _ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl17jointTypeToStringERKNS_9JointTypeE.exit.thread46.us: ; preds = %_ZN24btInverseDynamicsBullet36indentERKi.exit.loopexit.us
-  %m_q_index49.us = getelementptr inbounds i8, ptr %arrayidx.i18.us, i64 536
+  %m_q_index49.us = getelementptr inbounds nuw i8, ptr %arrayidx.i18.us, i64 536
   %6 = load i32, ptr %m_q_index49.us, align 8
   br label %_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl11bodyNumDoFsERKNS_9JointTypeE.exit.us
 
@@ -930,17 +930,17 @@ sw.bb3.i.us:                                      ; preds = %_ZN24btInverseDynam
 
 _ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl17jointTypeToStringERKNS_9JointTypeE.exit.thread.us: ; preds = %sw.bb3.i.us, %_ZN24btInverseDynamicsBullet36indentERKi.exit.loopexit.us
   %retval.0.i.ph.us = phi ptr [ @.str.2, %sw.bb3.i.us ], [ @.str.1, %_ZN24btInverseDynamicsBullet36indentERKi.exit.loopexit.us ]
-  %m_q_index37.us = getelementptr inbounds i8, ptr %arrayidx.i18.us, i64 536
+  %m_q_index37.us = getelementptr inbounds nuw i8, ptr %arrayidx.i18.us, i64 536
   %7 = load i32, ptr %m_q_index37.us, align 8
   br label %_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl11bodyNumDoFsERKNS_9JointTypeE.exit.us
 
 _ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl17jointTypeToStringERKNS_9JointTypeE.exit.thread42.us: ; preds = %_ZN24btInverseDynamicsBullet36indentERKi.exit.loopexit.us
-  %m_q_index45.us = getelementptr inbounds i8, ptr %arrayidx.i18.us, i64 536
+  %m_q_index45.us = getelementptr inbounds nuw i8, ptr %arrayidx.i18.us, i64 536
   %8 = load i32, ptr %m_q_index45.us, align 8
   br label %_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl11bodyNumDoFsERKNS_9JointTypeE.exit.us
 
 _ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl17jointTypeToStringERKNS_9JointTypeE.exit.us: ; preds = %_ZN24btInverseDynamicsBullet36indentERKi.exit.loopexit.us
-  %m_q_index.us = getelementptr inbounds i8, ptr %arrayidx.i18.us, i64 536
+  %m_q_index.us = getelementptr inbounds nuw i8, ptr %arrayidx.i18.us, i64 536
   %9 = load i32, ptr %m_q_index.us, align 8
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, i32 noundef 96)
   %10 = load i32, ptr %m_joint_type.us, align 4
@@ -962,7 +962,7 @@ _ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl11bodyNumDoFsERKNS_9
 _ZN24btInverseDynamicsBullet36indentERKi.exit.loopexit.us: ; preds = %for.body.i.us
   %12 = load ptr, ptr %m_data.i16, align 8
   %arrayidx.i18.us = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %12, i64 %idxprom.i
-  %m_joint_type.us = getelementptr inbounds i8, ptr %arrayidx.i18.us, i64 420
+  %m_joint_type.us = getelementptr inbounds nuw i8, ptr %arrayidx.i18.us, i64 420
   %13 = load i32, ptr %m_joint_type.us, align 4
   switch i32 %13, label %_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl17jointTypeToStringERKNS_9JointTypeE.exit.us [
     i32 0, label %_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl17jointTypeToStringERKNS_9JointTypeE.exit.thread42.us
@@ -977,11 +977,11 @@ for.body:                                         ; preds = %for.body.preheader,
   %14 = load ptr, ptr %m_data.i, align 8
   %m_data.i13 = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %14, i64 %idxprom.i, i32 5
   %15 = load ptr, ptr %m_data.i13, align 8
-  %arrayidx.i15 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv
+  %arrayidx.i15 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
   %16 = load i32, ptr %arrayidx.i15, align 4
   %17 = load ptr, ptr %m_data.i16, align 8
   %arrayidx.i18 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %17, i64 %idxprom.i
-  %m_joint_type = getelementptr inbounds i8, ptr %arrayidx.i18, i64 420
+  %m_joint_type = getelementptr inbounds nuw i8, ptr %arrayidx.i18, i64 420
   %18 = load i32, ptr %m_joint_type, align 4
   switch i32 %18, label %_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl17jointTypeToStringERKNS_9JointTypeE.exit [
     i32 0, label %_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl17jointTypeToStringERKNS_9JointTypeE.exit.thread42
@@ -992,7 +992,7 @@ for.body:                                         ; preds = %for.body.preheader,
   ]
 
 _ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl17jointTypeToStringERKNS_9JointTypeE.exit.thread42: ; preds = %for.body
-  %m_q_index45 = getelementptr inbounds i8, ptr %arrayidx.i18, i64 536
+  %m_q_index45 = getelementptr inbounds nuw i8, ptr %arrayidx.i18, i64 536
   %19 = load i32, ptr %m_q_index45, align 8
   br label %_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl11bodyNumDoFsERKNS_9JointTypeE.exit
 
@@ -1000,23 +1000,23 @@ sw.bb3.i:                                         ; preds = %for.body
   br label %_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl17jointTypeToStringERKNS_9JointTypeE.exit.thread
 
 _ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl17jointTypeToStringERKNS_9JointTypeE.exit.thread46: ; preds = %for.body
-  %m_q_index49 = getelementptr inbounds i8, ptr %arrayidx.i18, i64 536
+  %m_q_index49 = getelementptr inbounds nuw i8, ptr %arrayidx.i18, i64 536
   %20 = load i32, ptr %m_q_index49, align 8
   br label %_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl11bodyNumDoFsERKNS_9JointTypeE.exit
 
 _ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl17jointTypeToStringERKNS_9JointTypeE.exit.thread52: ; preds = %for.body
-  %m_q_index55 = getelementptr inbounds i8, ptr %arrayidx.i18, i64 536
+  %m_q_index55 = getelementptr inbounds nuw i8, ptr %arrayidx.i18, i64 536
   %21 = load i32, ptr %m_q_index55, align 8
   br label %_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl11bodyNumDoFsERKNS_9JointTypeE.exit
 
 _ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl17jointTypeToStringERKNS_9JointTypeE.exit.thread: ; preds = %sw.bb3.i, %for.body
   %retval.0.i.ph = phi ptr [ @.str.2, %sw.bb3.i ], [ @.str.1, %for.body ]
-  %m_q_index37 = getelementptr inbounds i8, ptr %arrayidx.i18, i64 536
+  %m_q_index37 = getelementptr inbounds nuw i8, ptr %arrayidx.i18, i64 536
   %22 = load i32, ptr %m_q_index37, align 8
   br label %_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl11bodyNumDoFsERKNS_9JointTypeE.exit
 
 _ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl17jointTypeToStringERKNS_9JointTypeE.exit: ; preds = %for.body
-  %m_q_index = getelementptr inbounds i8, ptr %arrayidx.i18, i64 536
+  %m_q_index = getelementptr inbounds nuw i8, ptr %arrayidx.i18, i64 536
   %23 = load i32, ptr %m_q_index, align 8
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, i32 noundef 96)
   %24 = load i32, ptr %m_joint_type, align 4
@@ -1042,106 +1042,106 @@ for.end:                                          ; preds = %_ZNK24btInverseDyna
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl13printTreeDataEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(400) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %m_size.i = getelementptr inbounds i8, ptr %this, i64 28
+  %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %m_size.i, align 4
   %cmp53 = icmp sgt i32 %0, 0
   br i1 %cmp53, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl17jointTypeToStringERKNS_9JointTypeE.exit
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl17jointTypeToStringERKNS_9JointTypeE.exit ]
   %1 = load ptr, ptr %m_data.i, align 8
-  %arrayidx.i = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %1, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %1, i64 %indvars.iv
   %2 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.7, i32 noundef %2)
-  %m_joint_type = getelementptr inbounds i8, ptr %arrayidx.i, i64 420
+  %m_joint_type = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 420
   %3 = load i32, ptr %m_joint_type, align 4
   %4 = icmp ult i32 %3, 5
   br i1 %4, label %switch.lookup, label %_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl17jointTypeToStringERKNS_9JointTypeE.exit
 
 switch.lookup:                                    ; preds = %for.body
   %5 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table._ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl15getJointTypeStrEiPPKc, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl15getJointTypeStrEiPPKc, i64 0, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl17jointTypeToStringERKNS_9JointTypeE.exit
 
 _ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl17jointTypeToStringERKNS_9JointTypeE.exit: ; preds = %for.body, %switch.lookup
   %retval.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.5, %for.body ]
   tail call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.8, ptr noundef nonnull %retval.0.i)
-  %m_q_index = getelementptr inbounds i8, ptr %arrayidx.i, i64 536
+  %m_q_index = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 536
   %6 = load i32, ptr %m_q_index, align 8
   tail call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.9, i32 noundef %6)
-  %m_Jac_JR = getelementptr inbounds i8, ptr %arrayidx.i, i64 488
+  %m_Jac_JR = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 488
   %7 = load float, ptr %m_Jac_JR, align 4
   %conv = fpext float %7 to double
-  %arrayidx.i28 = getelementptr inbounds i8, ptr %arrayidx.i, i64 492
+  %arrayidx.i28 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 492
   %8 = load float, ptr %arrayidx.i28, align 4
   %conv8 = fpext float %8 to double
-  %arrayidx.i29 = getelementptr inbounds i8, ptr %arrayidx.i, i64 496
+  %arrayidx.i29 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 496
   %9 = load float, ptr %arrayidx.i29, align 4
   %conv11 = fpext float %9 to double
   tail call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.10, double noundef %conv, double noundef %conv8, double noundef %conv11)
-  %m_Jac_JT = getelementptr inbounds i8, ptr %arrayidx.i, i64 504
+  %m_Jac_JT = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 504
   %10 = load float, ptr %m_Jac_JT, align 4
   %conv13 = fpext float %10 to double
-  %arrayidx.i31 = getelementptr inbounds i8, ptr %arrayidx.i, i64 508
+  %arrayidx.i31 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 508
   %11 = load float, ptr %arrayidx.i31, align 4
   %conv16 = fpext float %11 to double
-  %arrayidx.i32 = getelementptr inbounds i8, ptr %arrayidx.i, i64 512
+  %arrayidx.i32 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 512
   %12 = load float, ptr %arrayidx.i32, align 4
   %conv19 = fpext float %12 to double
   tail call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.11, double noundef %conv13, double noundef %conv16, double noundef %conv19)
   %13 = load float, ptr %arrayidx.i, align 8
   %conv20 = fpext float %13 to double
   tail call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.12, double noundef %conv20)
-  %m_body_mass_com = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
+  %m_body_mass_com = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 4
   %14 = load float, ptr %m_body_mass_com, align 4
   %conv22 = fpext float %14 to double
-  %arrayidx.i34 = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %arrayidx.i34 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %15 = load float, ptr %arrayidx.i34, align 4
   %conv25 = fpext float %15 to double
-  %arrayidx.i35 = getelementptr inbounds i8, ptr %arrayidx.i, i64 12
+  %arrayidx.i35 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 12
   %16 = load float, ptr %arrayidx.i35, align 4
   %conv28 = fpext float %16 to double
   tail call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.13, double noundef %conv22, double noundef %conv25, double noundef %conv28)
-  %m_body_I_body = getelementptr inbounds i8, ptr %arrayidx.i, i64 20
+  %m_body_I_body = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 20
   %17 = load float, ptr %m_body_I_body, align 4
   %conv30 = fpext float %17 to double
-  %arrayidx.i37 = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
+  %arrayidx.i37 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 24
   %18 = load float, ptr %arrayidx.i37, align 4
   %conv33 = fpext float %18 to double
-  %arrayidx.i38 = getelementptr inbounds i8, ptr %arrayidx.i, i64 28
+  %arrayidx.i38 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 28
   %19 = load float, ptr %arrayidx.i38, align 4
   %conv36 = fpext float %19 to double
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 36
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 36
   %20 = load float, ptr %arrayidx.i.i, align 4
   %conv39 = fpext float %20 to double
-  %arrayidx.i41 = getelementptr inbounds i8, ptr %arrayidx.i, i64 40
+  %arrayidx.i41 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 40
   %21 = load float, ptr %arrayidx.i41, align 4
   %conv42 = fpext float %21 to double
-  %arrayidx.i43 = getelementptr inbounds i8, ptr %arrayidx.i, i64 44
+  %arrayidx.i43 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 44
   %22 = load float, ptr %arrayidx.i43, align 4
   %conv45 = fpext float %22 to double
-  %arrayidx.i.i44 = getelementptr inbounds i8, ptr %arrayidx.i, i64 52
+  %arrayidx.i.i44 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 52
   %23 = load float, ptr %arrayidx.i.i44, align 4
   %conv48 = fpext float %23 to double
-  %arrayidx.i47 = getelementptr inbounds i8, ptr %arrayidx.i, i64 56
+  %arrayidx.i47 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 56
   %24 = load float, ptr %arrayidx.i47, align 4
   %conv51 = fpext float %24 to double
-  %arrayidx.i49 = getelementptr inbounds i8, ptr %arrayidx.i, i64 60
+  %arrayidx.i49 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 60
   %25 = load float, ptr %arrayidx.i49, align 4
   %conv54 = fpext float %25 to double
   tail call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.14, double noundef %conv30, double noundef %conv33, double noundef %conv36, double noundef %conv39, double noundef %conv42, double noundef %conv45, double noundef %conv48, double noundef %conv51, double noundef %conv54)
-  %m_parent_pos_parent_body_ref = getelementptr inbounds i8, ptr %arrayidx.i, i64 424
+  %m_parent_pos_parent_body_ref = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 424
   %26 = load float, ptr %m_parent_pos_parent_body_ref, align 4
   %conv56 = fpext float %26 to double
-  %arrayidx.i51 = getelementptr inbounds i8, ptr %arrayidx.i, i64 428
+  %arrayidx.i51 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 428
   %27 = load float, ptr %arrayidx.i51, align 4
   %conv59 = fpext float %27 to double
-  %arrayidx.i52 = getelementptr inbounds i8, ptr %arrayidx.i, i64 432
+  %arrayidx.i52 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 432
   %28 = load float, ptr %arrayidx.i52, align 4
   %conv62 = fpext float %28 to double
   tail call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.15, double noundef %conv56, double noundef %conv59, double noundef %conv62)
@@ -1170,7 +1170,7 @@ do.body:                                          ; preds = %entry
 
 switch.lookup:                                    ; preds = %entry
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table._ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl11bodyNumDoFsERKNS_9JointTypeE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl11bodyNumDoFsERKNS_9JointTypeE, i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %return
 
@@ -1184,7 +1184,7 @@ declare void @b3OutputErrorMessageVarArgsInternal(ptr noundef, ...) local_unname
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl22setGravityInWorldFrameERKNS_4vec3E(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(400) initializes((8, 24)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %gravity) local_unnamed_addr #5 align 2 {
 entry:
-  %m_world_gravity = getelementptr inbounds i8, ptr %this, i64 8
+  %m_world_gravity = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_world_gravity, ptr noundef nonnull align 4 dereferenceable(16) %gravity, i64 16, i1 false)
   ret i32 0
 }
@@ -1196,14 +1196,14 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl17generateIndexSetsEv(ptr noundef nonnull align 8 dereferenceable(400) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp25 = alloca %class.b3AlignedObjectArray.0, align 8
-  %m_body_revolute_list = getelementptr inbounds i8, ptr %this, i64 120
-  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 124
+  %m_body_revolute_list = getelementptr inbounds nuw i8, ptr %this, i64 120
+  %m_size.i.i = getelementptr inbounds nuw i8, ptr %this, i64 124
   %0 = load i32, ptr %m_size.i.i, align 4
   %cmp4.i = icmp slt i32 %0, 0
   br i1 %cmp4.i, label %for.body9.lr.ph.i, label %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit
 
 for.body9.lr.ph.i:                                ; preds = %entry
-  %m_capacity.i.i101 = getelementptr inbounds i8, ptr %this, i64 128
+  %m_capacity.i.i101 = getelementptr inbounds nuw i8, ptr %this, i64 128
   %1 = load i32, ptr %m_capacity.i.i101, align 8
   %cmp.i102 = icmp slt i32 %1, 0
   br i1 %cmp.i102, label %if.then.i103, label %_ZN20b3AlignedObjectArrayIiE7reserveEi.exit
@@ -1212,13 +1212,13 @@ if.then.i103:                                     ; preds = %for.body9.lr.ph.i
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.37, i32 noundef 301)
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.38)
   store i32 0, ptr %m_size.i.i, align 4
-  %m_data.i20.i = getelementptr inbounds i8, ptr %this, i64 136
+  %m_data.i20.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   %2 = load ptr, ptr %m_data.i20.i, align 8
   %tobool.not.i21.i = icmp eq ptr %2, null
   br i1 %tobool.not.i21.i, label %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i, label %if.then.i22.i
 
 if.then.i22.i:                                    ; preds = %if.then.i103
-  %m_ownsMemory.i.i105 = getelementptr inbounds i8, ptr %this, i64 144
+  %m_ownsMemory.i.i105 = getelementptr inbounds nuw i8, ptr %this, i64 144
   %3 = load i8, ptr %m_ownsMemory.i.i105, align 8
   %tobool2.i.i = trunc i8 %3 to i1
   br i1 %tobool2.i.i, label %if.then3.i.i, label %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i
@@ -1228,14 +1228,14 @@ if.then3.i.i:                                     ; preds = %if.then.i22.i
   br label %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i
 
 _ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i: ; preds = %if.then3.i.i, %if.then.i22.i, %if.then.i103
-  %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 144
+  %m_ownsMemory.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   store i8 1, ptr %m_ownsMemory.i, align 8
   store ptr null, ptr %m_data.i20.i, align 8
   store i32 0, ptr %m_capacity.i.i101, align 8
   br label %_ZN20b3AlignedObjectArrayIiE7reserveEi.exit
 
 _ZN20b3AlignedObjectArrayIiE7reserveEi.exit:      ; preds = %for.body9.lr.ph.i, %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i
-  %m_data10.i = getelementptr inbounds i8, ptr %this, i64 136
+  %m_data10.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   %4 = sext i32 %0 to i64
   br label %for.body9.i
 
@@ -1250,14 +1250,14 @@ for.body9.i:                                      ; preds = %for.body9.i, %_ZN20
 
 _ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit:    ; preds = %for.body9.i, %entry
   store i32 0, ptr %m_size.i.i, align 4
-  %m_body_prismatic_list = getelementptr inbounds i8, ptr %this, i64 152
-  %m_size.i.i21 = getelementptr inbounds i8, ptr %this, i64 156
+  %m_body_prismatic_list = getelementptr inbounds nuw i8, ptr %this, i64 152
+  %m_size.i.i21 = getelementptr inbounds nuw i8, ptr %this, i64 156
   %6 = load i32, ptr %m_size.i.i21, align 4
   %cmp4.i22 = icmp slt i32 %6, 0
   br i1 %cmp4.i22, label %for.body9.lr.ph.i23, label %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit31
 
 for.body9.lr.ph.i23:                              ; preds = %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit
-  %m_capacity.i.i106 = getelementptr inbounds i8, ptr %this, i64 160
+  %m_capacity.i.i106 = getelementptr inbounds nuw i8, ptr %this, i64 160
   %7 = load i32, ptr %m_capacity.i.i106, align 8
   %cmp.i107 = icmp slt i32 %7, 0
   br i1 %cmp.i107, label %if.then.i108, label %_ZN20b3AlignedObjectArrayIiE7reserveEi.exit118
@@ -1266,13 +1266,13 @@ if.then.i108:                                     ; preds = %for.body9.lr.ph.i23
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.37, i32 noundef 301)
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.38)
   store i32 0, ptr %m_size.i.i21, align 4
-  %m_data.i20.i110 = getelementptr inbounds i8, ptr %this, i64 168
+  %m_data.i20.i110 = getelementptr inbounds nuw i8, ptr %this, i64 168
   %8 = load ptr, ptr %m_data.i20.i110, align 8
   %tobool.not.i21.i111 = icmp eq ptr %8, null
   br i1 %tobool.not.i21.i111, label %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i115, label %if.then.i22.i112
 
 if.then.i22.i112:                                 ; preds = %if.then.i108
-  %m_ownsMemory.i.i113 = getelementptr inbounds i8, ptr %this, i64 176
+  %m_ownsMemory.i.i113 = getelementptr inbounds nuw i8, ptr %this, i64 176
   %9 = load i8, ptr %m_ownsMemory.i.i113, align 8
   %tobool2.i.i114 = trunc i8 %9 to i1
   br i1 %tobool2.i.i114, label %if.then3.i.i117, label %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i115
@@ -1282,14 +1282,14 @@ if.then3.i.i117:                                  ; preds = %if.then.i22.i112
   br label %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i115
 
 _ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i115: ; preds = %if.then3.i.i117, %if.then.i22.i112, %if.then.i108
-  %m_ownsMemory.i116 = getelementptr inbounds i8, ptr %this, i64 176
+  %m_ownsMemory.i116 = getelementptr inbounds nuw i8, ptr %this, i64 176
   store i8 1, ptr %m_ownsMemory.i116, align 8
   store ptr null, ptr %m_data.i20.i110, align 8
   store i32 0, ptr %m_capacity.i.i106, align 8
   br label %_ZN20b3AlignedObjectArrayIiE7reserveEi.exit118
 
 _ZN20b3AlignedObjectArrayIiE7reserveEi.exit118:   ; preds = %for.body9.lr.ph.i23, %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i115
-  %m_data10.i24 = getelementptr inbounds i8, ptr %this, i64 168
+  %m_data10.i24 = getelementptr inbounds nuw i8, ptr %this, i64 168
   %10 = sext i32 %6 to i64
   br label %for.body9.i26
 
@@ -1304,35 +1304,35 @@ for.body9.i26:                                    ; preds = %for.body9.i26, %_ZN
 
 _ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit31:  ; preds = %for.body9.i26, %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit
   store i32 0, ptr %m_size.i.i21, align 4
-  %m_size.i = getelementptr inbounds i8, ptr %this, i64 28
+  %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %12 = load i32, ptr %m_size.i, align 4
   %cmp141 = icmp sgt i32 %12, 0
   br i1 %cmp141, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit31
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 40
-  %m_size.i.i63 = getelementptr inbounds i8, ptr %this, i64 220
-  %m_capacity.i.i64 = getelementptr inbounds i8, ptr %this, i64 224
-  %m_body_spherical_list = getelementptr inbounds i8, ptr %this, i64 216
-  %m_data.i66 = getelementptr inbounds i8, ptr %this, i64 232
-  %m_size.i.i50 = getelementptr inbounds i8, ptr %this, i64 188
-  %m_capacity.i.i51 = getelementptr inbounds i8, ptr %this, i64 192
-  %m_body_floating_list = getelementptr inbounds i8, ptr %this, i64 184
-  %m_data.i53 = getelementptr inbounds i8, ptr %this, i64 200
-  %m_capacity.i.i38 = getelementptr inbounds i8, ptr %this, i64 160
-  %m_data.i40 = getelementptr inbounds i8, ptr %this, i64 168
-  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 128
-  %m_data.i33 = getelementptr inbounds i8, ptr %this, i64 136
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %m_size.i.i63 = getelementptr inbounds nuw i8, ptr %this, i64 220
+  %m_capacity.i.i64 = getelementptr inbounds nuw i8, ptr %this, i64 224
+  %m_body_spherical_list = getelementptr inbounds nuw i8, ptr %this, i64 216
+  %m_data.i66 = getelementptr inbounds nuw i8, ptr %this, i64 232
+  %m_size.i.i50 = getelementptr inbounds nuw i8, ptr %this, i64 188
+  %m_capacity.i.i51 = getelementptr inbounds nuw i8, ptr %this, i64 192
+  %m_body_floating_list = getelementptr inbounds nuw i8, ptr %this, i64 184
+  %m_data.i53 = getelementptr inbounds nuw i8, ptr %this, i64 200
+  %m_capacity.i.i38 = getelementptr inbounds nuw i8, ptr %this, i64 160
+  %m_data.i40 = getelementptr inbounds nuw i8, ptr %this, i64 168
+  %m_capacity.i.i = getelementptr inbounds nuw i8, ptr %this, i64 128
+  %m_data.i33 = getelementptr inbounds nuw i8, ptr %this, i64 136
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %q_index.0143 = phi i32 [ 0, %for.body.lr.ph ], [ %q_index.1, %for.inc ]
   %13 = load ptr, ptr %m_data.i, align 8
-  %arrayidx.i = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %13, i64 %indvars.iv
-  %m_q_index = getelementptr inbounds i8, ptr %arrayidx.i, i64 536
+  %arrayidx.i = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %13, i64 %indvars.iv
+  %m_q_index = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 536
   store i32 -1, ptr %m_q_index, align 8
-  %m_joint_type = getelementptr inbounds i8, ptr %arrayidx.i, i64 420
+  %m_joint_type = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 420
   %14 = load i32, ptr %m_joint_type, align 4
   switch i32 %14, label %do.body [
     i32 1, label %sw.bb
@@ -1447,7 +1447,7 @@ _ZN20b3AlignedObjectArrayIiE9push_backERKi.exit75: ; preds = %sw.bb14, %if.then.
   br label %for.inc.sink.split
 
 do.body:                                          ; preds = %for.body
-  %m_joint_type.le = getelementptr inbounds i8, ptr %arrayidx.i, i64 420
+  %m_joint_type.le = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 420
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, i32 noundef 163)
   %39 = load i32, ptr %m_joint_type.le, align 4
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.20, i32 noundef %39)
@@ -1470,7 +1470,7 @@ for.inc:                                          ; preds = %for.inc.sink.split,
 for.end:                                          ; preds = %for.inc, %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit31
   %q_index.0.lcssa = phi i32 [ 0, %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit31 ], [ %q_index.1, %for.inc ]
   %.lcssa138 = phi i32 [ %12, %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit31 ], [ %40, %for.inc ]
-  %m_num_dofs = getelementptr inbounds i8, ptr %this, i64 4
+  %m_num_dofs = getelementptr inbounds nuw i8, ptr %this, i64 4
   %42 = load i32, ptr %m_num_dofs, align 4
   %cmp19.not = icmp eq i32 %q_index.0.lcssa, %42
   br i1 %cmp19.not, label %if.end, label %do.body20
@@ -1482,14 +1482,14 @@ do.body20:                                        ; preds = %for.end
   br label %return
 
 if.end:                                           ; preds = %for.end
-  %m_child_indices = getelementptr inbounds i8, ptr %this, i64 88
-  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %ref.tmp25, i64 24
+  %m_child_indices = getelementptr inbounds nuw i8, ptr %this, i64 88
+  %m_ownsMemory.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp25, i64 24
   store i8 1, ptr %m_ownsMemory.i.i, align 8
-  %m_data.i.i = getelementptr inbounds i8, ptr %ref.tmp25, i64 16
+  %m_data.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp25, i64 16
   store ptr null, ptr %m_data.i.i, align 8
-  %m_size.i.i77 = getelementptr inbounds i8, ptr %ref.tmp25, i64 4
+  %m_size.i.i77 = getelementptr inbounds nuw i8, ptr %ref.tmp25, i64 4
   store i32 0, ptr %m_size.i.i77, align 4
-  %m_capacity.i.i78 = getelementptr inbounds i8, ptr %ref.tmp25, i64 8
+  %m_capacity.i.i78 = getelementptr inbounds nuw i8, ptr %ref.tmp25, i64 8
   store i32 0, ptr %m_capacity.i.i78, align 8
   invoke void @_ZN20b3AlignedObjectArrayIS_IiEE6resizeEiRKS0_(ptr noundef nonnull align 8 dereferenceable(25) %m_child_indices, i32 noundef %.lcssa138, ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp25)
           to label %invoke.cont unwind label %lpad
@@ -1520,21 +1520,21 @@ _ZN20b3AlignedObjectArrayIiED2Ev.exit:            ; preds = %invoke.cont, %if.th
   store ptr null, ptr %m_data.i.i, align 8
   store i32 0, ptr %m_size.i.i77, align 4
   store i32 0, ptr %m_capacity.i.i78, align 8
-  %m_size.i79 = getelementptr inbounds i8, ptr %this, i64 60
+  %m_size.i79 = getelementptr inbounds nuw i8, ptr %this, i64 60
   %48 = load i32, ptr %m_size.i79, align 4
   %cmp28150 = icmp sgt i32 %48, 1
   br i1 %cmp28150, label %for.body29.lr.ph, label %return
 
 for.body29.lr.ph:                                 ; preds = %_ZN20b3AlignedObjectArrayIiED2Ev.exit
-  %m_data.i80 = getelementptr inbounds i8, ptr %this, i64 72
-  %m_data.i84 = getelementptr inbounds i8, ptr %this, i64 104
+  %m_data.i80 = getelementptr inbounds nuw i8, ptr %this, i64 72
+  %m_data.i84 = getelementptr inbounds nuw i8, ptr %this, i64 104
   br label %for.body29
 
 for.body29:                                       ; preds = %for.body29.lr.ph, %_ZN20b3AlignedObjectArrayIiE9push_backERKi.exit99
   %indvars.iv166 = phi i64 [ 1, %for.body29.lr.ph ], [ %indvars.iv.next167, %_ZN20b3AlignedObjectArrayIiE9push_backERKi.exit99 ]
   %49 = phi i32 [ %48, %for.body29.lr.ph ], [ %59, %_ZN20b3AlignedObjectArrayIiE9push_backERKi.exit99 ]
   %50 = load ptr, ptr %m_data.i80, align 8
-  %arrayidx.i82 = getelementptr inbounds i32, ptr %50, i64 %indvars.iv166
+  %arrayidx.i82 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv166
   %51 = load i32, ptr %arrayidx.i82, align 4
   %cmp32 = icmp sgt i32 %51, -1
   br i1 %cmp32, label %land.lhs.true, label %if.else
@@ -1547,10 +1547,10 @@ land.lhs.true:                                    ; preds = %for.body29
 if.then36:                                        ; preds = %land.lhs.true
   %52 = load ptr, ptr %m_data.i84, align 8
   %idxprom.i85 = zext nneg i32 %51 to i64
-  %arrayidx.i86 = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %52, i64 %idxprom.i85
-  %m_size.i.i87 = getelementptr inbounds i8, ptr %arrayidx.i86, i64 4
+  %arrayidx.i86 = getelementptr inbounds nuw %class.b3AlignedObjectArray.0, ptr %52, i64 %idxprom.i85
+  %m_size.i.i87 = getelementptr inbounds nuw i8, ptr %arrayidx.i86, i64 4
   %53 = load i32, ptr %m_size.i.i87, align 4
-  %m_capacity.i.i88 = getelementptr inbounds i8, ptr %arrayidx.i86, i64 8
+  %m_capacity.i.i88 = getelementptr inbounds nuw i8, ptr %arrayidx.i86, i64 8
   %54 = load i32, ptr %m_capacity.i.i88, align 8
   %cmp.i89 = icmp eq i32 %53, %54
   br i1 %cmp.i89, label %if.then.i94, label %_ZN20b3AlignedObjectArrayIiE9push_backERKi.exit99
@@ -1565,7 +1565,7 @@ if.then.i94:                                      ; preds = %if.then36
 
 _ZN20b3AlignedObjectArrayIiE9push_backERKi.exit99: ; preds = %if.then36, %if.then.i94
   %55 = phi i32 [ %.pre.i98, %if.then.i94 ], [ %53, %if.then36 ]
-  %m_data.i90 = getelementptr inbounds i8, ptr %arrayidx.i86, i64 16
+  %m_data.i90 = getelementptr inbounds nuw i8, ptr %arrayidx.i86, i64 16
   %56 = load ptr, ptr %m_data.i90, align 8
   %idxprom.i91 = sext i32 %55 to i64
   %arrayidx.i92 = getelementptr inbounds i32, ptr %56, i64 %idxprom.i91
@@ -1602,7 +1602,7 @@ do.body44.loopexit:                               ; preds = %land.lhs.true
 
 do.body44:                                        ; preds = %do.body44.loopexit, %if.else
   %storemerge20151162 = phi i32 [ %63, %do.body44.loopexit ], [ %62, %if.else ]
-  %arrayidx.i82173 = getelementptr inbounds i32, ptr %50, i64 %indvars.iv166
+  %arrayidx.i82173 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv166
   call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, i32 noundef 195)
   %64 = load i32, ptr %arrayidx.i82173, align 4
   %65 = load i32, ptr %m_size.i79, align 4
@@ -1621,21 +1621,21 @@ entry:
   %__profile.i.i = alloca %class.CProfileSample, align 1
   %__profile.i.i.i99 = alloca %class.CProfileSample, align 1
   %__profile.i.i.i = alloca %class.CProfileSample, align 1
-  %m_size.i = getelementptr inbounds i8, ptr %this, i64 28
+  %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %m_size.i, align 4
   %cmp113 = icmp sgt i32 %0, 0
   br i1 %cmp113, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 40
-  %m_num_dofs = getelementptr inbounds i8, ptr %this, i64 4
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %m_num_dofs = getelementptr inbounds nuw i8, ptr %this, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN24btInverseDynamicsBullet35mat3x7setZeroEv.exit112
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %_ZN24btInverseDynamicsBullet35mat3x7setZeroEv.exit112 ]
   %1 = load ptr, ptr %m_data.i, align 8
-  %arrayidx.i = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %1, i64 %indvars.iv
-  %m_joint_type = getelementptr inbounds i8, ptr %arrayidx.i, i64 420
+  %arrayidx.i = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %1, i64 %indvars.iv
+  %m_joint_type = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 420
   %2 = load i32, ptr %m_joint_type, align 4
   switch i32 %2, label %sw.epilog [
     i32 1, label %sw.bb
@@ -1645,39 +1645,39 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   ]
 
 sw.bb:                                            ; preds = %for.body
-  %m_parent_vel_rel = getelementptr inbounds i8, ptr %arrayidx.i, i64 372
+  %m_parent_vel_rel = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 372
   store float 0.000000e+00, ptr %m_parent_vel_rel, align 4
-  %arrayidx.i57 = getelementptr inbounds i8, ptr %arrayidx.i, i64 376
+  %arrayidx.i57 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 376
   store float 0.000000e+00, ptr %arrayidx.i57, align 4
-  %arrayidx.i58 = getelementptr inbounds i8, ptr %arrayidx.i, i64 380
+  %arrayidx.i58 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 380
   store float 0.000000e+00, ptr %arrayidx.i58, align 4
-  %m_parent_acc_rel = getelementptr inbounds i8, ptr %arrayidx.i, i64 404
+  %m_parent_acc_rel = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 404
   store float 0.000000e+00, ptr %m_parent_acc_rel, align 4
-  %arrayidx.i60 = getelementptr inbounds i8, ptr %arrayidx.i, i64 408
+  %arrayidx.i60 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 408
   store float 0.000000e+00, ptr %arrayidx.i60, align 4
-  %arrayidx.i61 = getelementptr inbounds i8, ptr %arrayidx.i, i64 412
+  %arrayidx.i61 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 412
   store float 0.000000e+00, ptr %arrayidx.i61, align 4
-  %m_parent_pos_parent_body_ref = getelementptr inbounds i8, ptr %arrayidx.i, i64 424
-  %m_parent_pos_parent_body = getelementptr inbounds i8, ptr %arrayidx.i, i64 340
+  %m_parent_pos_parent_body_ref = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 424
+  %m_parent_pos_parent_body = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 340
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_parent_pos_parent_body, ptr noundef nonnull align 8 dereferenceable(16) %m_parent_pos_parent_body_ref, i64 16, i1 false)
   br label %sw.epilog
 
 sw.bb14:                                          ; preds = %for.body
-  %m_body_T_parent_ref = getelementptr inbounds i8, ptr %arrayidx.i, i64 440
-  %m_body_T_parent = getelementptr inbounds i8, ptr %arrayidx.i, i64 292
+  %m_body_T_parent_ref = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 440
+  %m_body_T_parent = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 292
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %m_body_T_parent, ptr noundef nonnull align 4 dereferenceable(48) %m_body_T_parent_ref, i64 16, i1 false)
-  %arrayidx5.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 456
-  %arrayidx7.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 308
+  %arrayidx5.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 456
+  %arrayidx7.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 308
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i, i64 16, i1 false)
-  %arrayidx9.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 472
-  %arrayidx11.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 324
+  %arrayidx9.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 472
+  %arrayidx11.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 324
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx11.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx9.i.i, i64 16, i1 false)
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 444
-  %arrayidx.i1.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 460
-  %arrayidx.i2.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 476
-  %arrayidx.i3.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 448
-  %arrayidx.i4.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 464
-  %arrayidx.i5.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 480
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 444
+  %arrayidx.i1.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 460
+  %arrayidx.i2.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 476
+  %arrayidx.i3.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 448
+  %arrayidx.i4.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 464
+  %arrayidx.i5.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 480
   %3 = load float, ptr %m_body_T_parent_ref, align 4, !noalias !20
   %4 = load float, ptr %arrayidx5.i.i, align 4, !noalias !20
   %5 = load float, ptr %arrayidx9.i.i, align 4, !noalias !20
@@ -1687,13 +1687,13 @@ sw.bb14:                                          ; preds = %for.body
   %9 = load float, ptr %arrayidx.i3.i, align 4, !noalias !20
   %10 = load float, ptr %arrayidx.i4.i, align 4, !noalias !20
   %11 = load float, ptr %arrayidx.i5.i, align 4, !noalias !20
-  %m_Jac_JT = getelementptr inbounds i8, ptr %arrayidx.i, i64 504
+  %m_Jac_JT = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 504
   %12 = load float, ptr %m_Jac_JT, align 4
-  %arrayidx7.i.i63 = getelementptr inbounds i8, ptr %arrayidx.i, i64 508
+  %arrayidx7.i.i63 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 508
   %13 = load float, ptr %arrayidx7.i.i63, align 4
   %mul8.i.i = fmul float %4, %13
   %14 = call float @llvm.fmuladd.f32(float %3, float %12, float %mul8.i.i)
-  %arrayidx12.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 512
+  %arrayidx12.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 512
   %15 = load float, ptr %arrayidx12.i.i, align 4
   %16 = call noundef float @llvm.fmuladd.f32(float %5, float %15, float %14)
   %mul8.i7.i = fmul float %7, %13
@@ -1705,106 +1705,106 @@ sw.bb14:                                          ; preds = %for.body
   %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %16, i64 0
   %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %18, i64 1
   %retval.sroa.3.12.vec.insert.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %20, i64 0
-  %m_parent_Jac_JT = getelementptr inbounds i8, ptr %arrayidx.i, i64 520
+  %m_parent_Jac_JT = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 520
   store <2 x float> %retval.sroa.0.4.vec.insert.i, ptr %m_parent_Jac_JT, align 4
-  %ref.tmp.sroa.2.0.m_parent_Jac_JT.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i, i64 528
+  %ref.tmp.sroa.2.0.m_parent_Jac_JT.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 528
   store <2 x float> %retval.sroa.3.12.vec.insert.i, ptr %ref.tmp.sroa.2.0.m_parent_Jac_JT.sroa_idx, align 4
-  %m_body_ang_vel_rel = getelementptr inbounds i8, ptr %arrayidx.i, i64 356
+  %m_body_ang_vel_rel = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 356
   store float 0.000000e+00, ptr %m_body_ang_vel_rel, align 4
-  %arrayidx.i66 = getelementptr inbounds i8, ptr %arrayidx.i, i64 360
+  %arrayidx.i66 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 360
   store float 0.000000e+00, ptr %arrayidx.i66, align 4
-  %arrayidx.i67 = getelementptr inbounds i8, ptr %arrayidx.i, i64 364
+  %arrayidx.i67 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 364
   store float 0.000000e+00, ptr %arrayidx.i67, align 4
-  %m_body_ang_acc_rel = getelementptr inbounds i8, ptr %arrayidx.i, i64 388
+  %m_body_ang_acc_rel = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 388
   store float 0.000000e+00, ptr %m_body_ang_acc_rel, align 4
-  %arrayidx.i69 = getelementptr inbounds i8, ptr %arrayidx.i, i64 392
+  %arrayidx.i69 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 392
   store float 0.000000e+00, ptr %arrayidx.i69, align 4
-  %arrayidx.i70 = getelementptr inbounds i8, ptr %arrayidx.i, i64 396
+  %arrayidx.i70 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 396
   store float 0.000000e+00, ptr %arrayidx.i70, align 4
   br label %sw.epilog
 
 sw.bb30:                                          ; preds = %for.body
-  %m_parent_pos_parent_body_ref31 = getelementptr inbounds i8, ptr %arrayidx.i, i64 424
-  %m_parent_pos_parent_body32 = getelementptr inbounds i8, ptr %arrayidx.i, i64 340
+  %m_parent_pos_parent_body_ref31 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 424
+  %m_parent_pos_parent_body32 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 340
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_parent_pos_parent_body32, ptr noundef nonnull align 8 dereferenceable(16) %m_parent_pos_parent_body_ref31, i64 16, i1 false)
-  %m_body_T_parent_ref33 = getelementptr inbounds i8, ptr %arrayidx.i, i64 440
-  %m_body_T_parent34 = getelementptr inbounds i8, ptr %arrayidx.i, i64 292
+  %m_body_T_parent_ref33 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 440
+  %m_body_T_parent34 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 292
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %m_body_T_parent34, ptr noundef nonnull align 4 dereferenceable(48) %m_body_T_parent_ref33, i64 16, i1 false)
-  %arrayidx5.i.i71 = getelementptr inbounds i8, ptr %arrayidx.i, i64 456
-  %arrayidx7.i.i72 = getelementptr inbounds i8, ptr %arrayidx.i, i64 308
+  %arrayidx5.i.i71 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 456
+  %arrayidx7.i.i72 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 308
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i.i72, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i71, i64 16, i1 false)
-  %arrayidx9.i.i73 = getelementptr inbounds i8, ptr %arrayidx.i, i64 472
-  %arrayidx11.i.i74 = getelementptr inbounds i8, ptr %arrayidx.i, i64 324
+  %arrayidx9.i.i73 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 472
+  %arrayidx11.i.i74 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 324
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx11.i.i74, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx9.i.i73, i64 16, i1 false)
-  %m_body_ang_vel_rel36 = getelementptr inbounds i8, ptr %arrayidx.i, i64 356
+  %m_body_ang_vel_rel36 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 356
   store float 0.000000e+00, ptr %m_body_ang_vel_rel36, align 4
-  %arrayidx.i76 = getelementptr inbounds i8, ptr %arrayidx.i, i64 360
+  %arrayidx.i76 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 360
   store float 0.000000e+00, ptr %arrayidx.i76, align 4
-  %arrayidx.i77 = getelementptr inbounds i8, ptr %arrayidx.i, i64 364
+  %arrayidx.i77 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 364
   store float 0.000000e+00, ptr %arrayidx.i77, align 4
-  %m_parent_vel_rel42 = getelementptr inbounds i8, ptr %arrayidx.i, i64 372
+  %m_parent_vel_rel42 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 372
   store float 0.000000e+00, ptr %m_parent_vel_rel42, align 4
-  %arrayidx.i79 = getelementptr inbounds i8, ptr %arrayidx.i, i64 376
+  %arrayidx.i79 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 376
   store float 0.000000e+00, ptr %arrayidx.i79, align 4
-  %arrayidx.i80 = getelementptr inbounds i8, ptr %arrayidx.i, i64 380
+  %arrayidx.i80 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 380
   store float 0.000000e+00, ptr %arrayidx.i80, align 4
-  %m_body_ang_acc_rel48 = getelementptr inbounds i8, ptr %arrayidx.i, i64 388
+  %m_body_ang_acc_rel48 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 388
   store float 0.000000e+00, ptr %m_body_ang_acc_rel48, align 4
-  %arrayidx.i82 = getelementptr inbounds i8, ptr %arrayidx.i, i64 392
+  %arrayidx.i82 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 392
   store float 0.000000e+00, ptr %arrayidx.i82, align 4
-  %arrayidx.i83 = getelementptr inbounds i8, ptr %arrayidx.i, i64 396
+  %arrayidx.i83 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 396
   store float 0.000000e+00, ptr %arrayidx.i83, align 4
-  %m_parent_acc_rel54 = getelementptr inbounds i8, ptr %arrayidx.i, i64 404
+  %m_parent_acc_rel54 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 404
   store float 0.000000e+00, ptr %m_parent_acc_rel54, align 4
-  %arrayidx.i85 = getelementptr inbounds i8, ptr %arrayidx.i, i64 408
+  %arrayidx.i85 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 408
   store float 0.000000e+00, ptr %arrayidx.i85, align 4
-  %arrayidx.i86 = getelementptr inbounds i8, ptr %arrayidx.i, i64 412
+  %arrayidx.i86 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 412
   store float 0.000000e+00, ptr %arrayidx.i86, align 4
   br label %sw.epilog
 
 sw.bb61:                                          ; preds = %for.body
-  %m_parent_pos_parent_body_ref62 = getelementptr inbounds i8, ptr %arrayidx.i, i64 424
-  %m_parent_pos_parent_body63 = getelementptr inbounds i8, ptr %arrayidx.i, i64 340
+  %m_parent_pos_parent_body_ref62 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 424
+  %m_parent_pos_parent_body63 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 340
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_parent_pos_parent_body63, ptr noundef nonnull align 8 dereferenceable(16) %m_parent_pos_parent_body_ref62, i64 16, i1 false)
-  %m_parent_vel_rel64 = getelementptr inbounds i8, ptr %arrayidx.i, i64 372
+  %m_parent_vel_rel64 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 372
   store float 0.000000e+00, ptr %m_parent_vel_rel64, align 4
-  %arrayidx.i88 = getelementptr inbounds i8, ptr %arrayidx.i, i64 376
+  %arrayidx.i88 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 376
   store float 0.000000e+00, ptr %arrayidx.i88, align 4
-  %arrayidx.i89 = getelementptr inbounds i8, ptr %arrayidx.i, i64 380
+  %arrayidx.i89 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 380
   store float 0.000000e+00, ptr %arrayidx.i89, align 4
-  %m_parent_acc_rel70 = getelementptr inbounds i8, ptr %arrayidx.i, i64 404
+  %m_parent_acc_rel70 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 404
   store float 0.000000e+00, ptr %m_parent_acc_rel70, align 4
-  %arrayidx.i91 = getelementptr inbounds i8, ptr %arrayidx.i, i64 408
+  %arrayidx.i91 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 408
   store float 0.000000e+00, ptr %arrayidx.i91, align 4
-  %arrayidx.i92 = getelementptr inbounds i8, ptr %arrayidx.i, i64 412
+  %arrayidx.i92 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 412
   store float 0.000000e+00, ptr %arrayidx.i92, align 4
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb61, %sw.bb30, %sw.bb14, %sw.bb, %for.body
-  %m_body_dot_Jac_T_u = getelementptr inbounds i8, ptr %arrayidx.i, i64 784
+  %m_body_dot_Jac_T_u = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 784
   store float 0.000000e+00, ptr %m_body_dot_Jac_T_u, align 4
-  %arrayidx.i94 = getelementptr inbounds i8, ptr %arrayidx.i, i64 788
+  %arrayidx.i94 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 788
   store float 0.000000e+00, ptr %arrayidx.i94, align 4
-  %arrayidx.i95 = getelementptr inbounds i8, ptr %arrayidx.i, i64 792
+  %arrayidx.i95 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 792
   store float 0.000000e+00, ptr %arrayidx.i95, align 4
-  %m_body_dot_Jac_R_u = getelementptr inbounds i8, ptr %arrayidx.i, i64 800
+  %m_body_dot_Jac_R_u = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 800
   store float 0.000000e+00, ptr %m_body_dot_Jac_R_u, align 4
-  %arrayidx.i97 = getelementptr inbounds i8, ptr %arrayidx.i, i64 804
+  %arrayidx.i97 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 804
   store float 0.000000e+00, ptr %arrayidx.i97, align 4
-  %arrayidx.i98 = getelementptr inbounds i8, ptr %arrayidx.i, i64 808
+  %arrayidx.i98 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 808
   store float 0.000000e+00, ptr %arrayidx.i98, align 4
-  %m_body_Jac_T = getelementptr inbounds i8, ptr %arrayidx.i, i64 608
+  %m_body_Jac_T = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 608
   %21 = load i32, ptr %m_num_dofs, align 4
   call void @_ZN9btMatrixXIfE6resizeEii(ptr noundef nonnull align 8 dereferenceable(88) %m_body_Jac_T, i32 noundef 3, i32 noundef %21)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__profile.i.i.i)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %__profile.i.i.i, ptr noundef nonnull @.str.33)
-  %m_size.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 636
+  %m_size.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 636
   %22 = load i32, ptr %m_size.i.i.i.i, align 4
   %tobool.not.i.i.i = icmp eq i32 %22, 0
   br i1 %tobool.not.i.i.i, label %_ZN24btInverseDynamicsBullet36resizeERNS_5mat3xEi.exit, label %_Z9btSetZeroIfEvPT_i.exit.i.i.i
 
 _Z9btSetZeroIfEvPT_i.exit.i.i.i:                  ; preds = %sw.epilog
-  %m_data.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 648
+  %m_data.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 648
   %23 = load ptr, ptr %m_data.i.i.i.i, align 8
   %conv.i.i.i.i = sext i32 %22 to i64
   %24 = shl nuw nsw i64 %conv.i.i.i.i, 2
@@ -1814,18 +1814,18 @@ _Z9btSetZeroIfEvPT_i.exit.i.i.i:                  ; preds = %sw.epilog
 _ZN24btInverseDynamicsBullet36resizeERNS_5mat3xEi.exit: ; preds = %sw.epilog, %_Z9btSetZeroIfEvPT_i.exit.i.i.i
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile.i.i.i) #16
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__profile.i.i.i)
-  %m_body_Jac_R = getelementptr inbounds i8, ptr %arrayidx.i, i64 696
+  %m_body_Jac_R = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 696
   %25 = load i32, ptr %m_num_dofs, align 4
   call void @_ZN9btMatrixXIfE6resizeEii(ptr noundef nonnull align 8 dereferenceable(88) %m_body_Jac_R, i32 noundef 3, i32 noundef %25)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__profile.i.i.i99)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %__profile.i.i.i99, ptr noundef nonnull @.str.33)
-  %m_size.i.i.i.i100 = getelementptr inbounds i8, ptr %arrayidx.i, i64 724
+  %m_size.i.i.i.i100 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 724
   %26 = load i32, ptr %m_size.i.i.i.i100, align 4
   %tobool.not.i.i.i101 = icmp eq i32 %26, 0
   br i1 %tobool.not.i.i.i101, label %_ZN24btInverseDynamicsBullet36resizeERNS_5mat3xEi.exit105, label %_Z9btSetZeroIfEvPT_i.exit.i.i.i102
 
 _Z9btSetZeroIfEvPT_i.exit.i.i.i102:               ; preds = %_ZN24btInverseDynamicsBullet36resizeERNS_5mat3xEi.exit
-  %m_data.i.i.i.i103 = getelementptr inbounds i8, ptr %arrayidx.i, i64 736
+  %m_data.i.i.i.i103 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 736
   %27 = load ptr, ptr %m_data.i.i.i.i103, align 8
   %conv.i.i.i.i104 = sext i32 %26 to i64
   %28 = shl nuw nsw i64 %conv.i.i.i.i104, 2
@@ -1842,7 +1842,7 @@ _ZN24btInverseDynamicsBullet36resizeERNS_5mat3xEi.exit105: ; preds = %_ZN24btInv
   br i1 %tobool.not.i.i, label %_ZN24btInverseDynamicsBullet35mat3x7setZeroEv.exit, label %_Z9btSetZeroIfEvPT_i.exit.i.i
 
 _Z9btSetZeroIfEvPT_i.exit.i.i:                    ; preds = %_ZN24btInverseDynamicsBullet36resizeERNS_5mat3xEi.exit105
-  %m_data.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 648
+  %m_data.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 648
   %30 = load ptr, ptr %m_data.i.i.i, align 8
   %conv.i.i.i = sext i32 %29 to i64
   %31 = shl nuw nsw i64 %conv.i.i.i, 2
@@ -1859,7 +1859,7 @@ _ZN24btInverseDynamicsBullet35mat3x7setZeroEv.exit: ; preds = %_ZN24btInverseDyn
   br i1 %tobool.not.i.i108, label %_ZN24btInverseDynamicsBullet35mat3x7setZeroEv.exit112, label %_Z9btSetZeroIfEvPT_i.exit.i.i109
 
 _Z9btSetZeroIfEvPT_i.exit.i.i109:                 ; preds = %_ZN24btInverseDynamicsBullet35mat3x7setZeroEv.exit
-  %m_data.i.i.i110 = getelementptr inbounds i8, ptr %arrayidx.i, i64 736
+  %m_data.i.i.i110 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 736
   %33 = load ptr, ptr %m_data.i.i.i110, align 8
   %conv.i.i.i111 = sext i32 %32 to i64
   %34 = shl nuw nsw i64 %conv.i.i.i111, 2
@@ -1884,23 +1884,23 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
 entry:
   %sum_f_children = alloca %"class.btInverseDynamicsBullet3::vec3", align 4
   %sum_m_children = alloca %"class.btInverseDynamicsBullet3::vec3", align 4
-  %m_size.i.i.i = getelementptr inbounds i8, ptr %q, i64 4
+  %m_size.i.i.i = getelementptr inbounds nuw i8, ptr %q, i64 4
   %0 = load i32, ptr %m_size.i.i.i, align 4
-  %m_num_dofs = getelementptr inbounds i8, ptr %this, i64 4
+  %m_num_dofs = getelementptr inbounds nuw i8, ptr %this, i64 4
   %1 = load i32, ptr %m_num_dofs, align 4
   %cmp.not = icmp eq i32 %0, %1
-  %m_size.i.i.i79 = getelementptr inbounds i8, ptr %u, i64 4
+  %m_size.i.i.i79 = getelementptr inbounds nuw i8, ptr %u, i64 4
   %2 = load i32, ptr %m_size.i.i.i79, align 4
   %cmp4.not = icmp eq i32 %2, %1
   %or.cond = select i1 %cmp.not, i1 %cmp4.not, i1 false
-  %m_size.i.i.i80 = getelementptr inbounds i8, ptr %dot_u, i64 4
+  %m_size.i.i.i80 = getelementptr inbounds nuw i8, ptr %dot_u, i64 4
   %3 = load i32, ptr %m_size.i.i.i80, align 4
   %cmp8.not = icmp eq i32 %3, %1
   %or.cond439 = select i1 %or.cond, i1 %cmp8.not, i1 false
   br i1 %or.cond439, label %lor.lhs.false9, label %do.body
 
 lor.lhs.false9:                                   ; preds = %entry
-  %m_size.i.i.i81 = getelementptr inbounds i8, ptr %joint_forces, i64 4
+  %m_size.i.i.i81 = getelementptr inbounds nuw i8, ptr %joint_forces, i64 4
   %4 = load i32, ptr %m_size.i.i.i81, align 4
   %cmp12.not = icmp eq i32 %4, %0
   br i1 %cmp12.not, label %if.end, label %do.body
@@ -1911,7 +1911,7 @@ do.body:                                          ; preds = %entry, %lor.lhs.fal
   %6 = load i32, ptr %m_size.i.i.i, align 4
   %7 = load i32, ptr %m_size.i.i.i79, align 4
   %8 = load i32, ptr %m_size.i.i.i80, align 4
-  %m_size.i.i.i85 = getelementptr inbounds i8, ptr %joint_forces, i64 4
+  %m_size.i.i.i85 = getelementptr inbounds nuw i8, ptr %joint_forces, i64 4
   %9 = load i32, ptr %m_size.i.i.i85, align 4
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.24, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9)
   br label %return
@@ -1922,13 +1922,13 @@ if.end:                                           ; preds = %lor.lhs.false9
   br i1 %cmp19, label %do.body21, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end
-  %m_size.i = getelementptr inbounds i8, ptr %this, i64 28
+  %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %10 = load i32, ptr %m_size.i, align 4
   %cmp25440 = icmp sgt i32 %10, 0
   br i1 %cmp25440, label %for.body.lr.ph, label %for.cond131.preheader
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   br label %for.body
 
 do.body21:                                        ; preds = %if.end
@@ -1941,61 +1941,61 @@ for.cond80.preheader:                             ; preds = %for.body
   br i1 %cmp81446, label %for.body82.lr.ph, label %for.cond131.preheader
 
 for.body82.lr.ph:                                 ; preds = %for.cond80.preheader
-  %m_data.i225 = getelementptr inbounds i8, ptr %this, i64 104
-  %m_data.i235 = getelementptr inbounds i8, ptr %this, i64 40
-  %arrayidx7.i260 = getelementptr inbounds i8, ptr %sum_f_children, i64 4
-  %arrayidx12.i = getelementptr inbounds i8, ptr %sum_f_children, i64 8
-  %arrayidx7.i325 = getelementptr inbounds i8, ptr %sum_m_children, i64 4
-  %arrayidx12.i328 = getelementptr inbounds i8, ptr %sum_m_children, i64 8
+  %m_data.i225 = getelementptr inbounds nuw i8, ptr %this, i64 104
+  %m_data.i235 = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %arrayidx7.i260 = getelementptr inbounds nuw i8, ptr %sum_f_children, i64 4
+  %arrayidx12.i = getelementptr inbounds nuw i8, ptr %sum_f_children, i64 8
+  %arrayidx7.i325 = getelementptr inbounds nuw i8, ptr %sum_m_children, i64 4
+  %arrayidx12.i328 = getelementptr inbounds nuw i8, ptr %sum_m_children, i64 8
   %11 = zext nneg i32 %80 to i64
   br label %for.body82
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %12 = load ptr, ptr %m_data.i, align 8
-  %arrayidx.i = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %12, i64 %indvars.iv
-  %m_body_I_body = getelementptr inbounds i8, ptr %arrayidx.i, i64 20
-  %m_body_ang_acc = getelementptr inbounds i8, ptr %arrayidx.i, i64 228
+  %arrayidx.i = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %12, i64 %indvars.iv
+  %m_body_I_body = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 20
+  %m_body_ang_acc = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 228
   %13 = load float, ptr %m_body_I_body, align 4
   %14 = load float, ptr %m_body_ang_acc, align 4
-  %arrayidx5.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
+  %arrayidx5.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 24
   %15 = load float, ptr %arrayidx5.i.i, align 4
-  %arrayidx7.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 232
+  %arrayidx7.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 232
   %16 = load float, ptr %arrayidx7.i.i, align 4
   %mul8.i.i = fmul float %15, %16
   %17 = tail call float @llvm.fmuladd.f32(float %13, float %14, float %mul8.i.i)
-  %arrayidx10.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 28
+  %arrayidx10.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 28
   %18 = load float, ptr %arrayidx10.i.i, align 4
-  %arrayidx12.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 236
+  %arrayidx12.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 236
   %19 = load float, ptr %arrayidx12.i.i, align 4
   %20 = tail call noundef float @llvm.fmuladd.f32(float %18, float %19, float %17)
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 36
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 36
   %21 = load float, ptr %arrayidx.i.i, align 4
-  %arrayidx5.i5.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 40
+  %arrayidx5.i5.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 40
   %22 = load float, ptr %arrayidx5.i5.i, align 4
   %mul8.i7.i = fmul float %16, %22
   %23 = tail call float @llvm.fmuladd.f32(float %21, float %14, float %mul8.i7.i)
-  %arrayidx10.i8.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 44
+  %arrayidx10.i8.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 44
   %24 = load float, ptr %arrayidx10.i8.i, align 4
   %25 = tail call noundef float @llvm.fmuladd.f32(float %24, float %19, float %23)
-  %arrayidx.i10.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 52
+  %arrayidx.i10.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 52
   %26 = load float, ptr %arrayidx.i10.i, align 4
-  %arrayidx5.i11.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 56
+  %arrayidx5.i11.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 56
   %27 = load float, ptr %arrayidx5.i11.i, align 4
   %mul8.i13.i = fmul float %16, %27
   %28 = tail call float @llvm.fmuladd.f32(float %26, float %14, float %mul8.i13.i)
-  %arrayidx10.i14.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 60
+  %arrayidx10.i14.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 60
   %29 = load float, ptr %arrayidx10.i14.i, align 4
   %30 = tail call noundef float @llvm.fmuladd.f32(float %29, float %19, float %28)
-  %m_body_mass_com = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
-  %m_body_acc = getelementptr inbounds i8, ptr %arrayidx.i, i64 196
-  %arrayidx.i86 = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %m_body_mass_com = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 4
+  %m_body_acc = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 196
+  %arrayidx.i86 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %31 = load float, ptr %arrayidx.i86, align 4
-  %arrayidx3.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 204
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 204
   %32 = load float, ptr %arrayidx3.i, align 4
-  %arrayidx5.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 12
+  %arrayidx5.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 12
   %33 = load float, ptr %arrayidx5.i, align 4
-  %arrayidx7.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 200
+  %arrayidx7.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 200
   %34 = load float, ptr %arrayidx7.i, align 4
   %35 = fneg float %34
   %neg.i = fmul float %33, %35
@@ -2011,13 +2011,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add.i = fadd float %20, %36
   %add8.i = fadd float %25, %40
   %add14.i = fadd float %30, %42
-  %m_body_ang_vel = getelementptr inbounds i8, ptr %arrayidx.i, i64 212
+  %m_body_ang_vel = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 212
   %43 = load float, ptr %m_body_ang_vel, align 4
-  %arrayidx7.i.i100 = getelementptr inbounds i8, ptr %arrayidx.i, i64 216
+  %arrayidx7.i.i100 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 216
   %44 = load float, ptr %arrayidx7.i.i100, align 4
   %mul8.i.i101 = fmul float %15, %44
   %45 = tail call float @llvm.fmuladd.f32(float %13, float %43, float %mul8.i.i101)
-  %arrayidx12.i.i103 = getelementptr inbounds i8, ptr %arrayidx.i, i64 220
+  %arrayidx12.i.i103 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 220
   %46 = load float, ptr %arrayidx12.i.i103, align 4
   %47 = tail call noundef float @llvm.fmuladd.f32(float %18, float %46, float %45)
   %mul8.i7.i106 = fmul float %22, %44
@@ -2038,21 +2038,21 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add.i129 = fadd float %add.i, %53
   %add8.i132 = fadd float %add8.i, %55
   %add14.i135 = fadd float %add14.i, %57
-  %m_body_moment_user = getelementptr inbounds i8, ptr %arrayidx.i, i64 148
+  %m_body_moment_user = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 148
   %58 = load float, ptr %m_body_moment_user, align 4
   %sub.i = fsub float %add.i129, %58
-  %arrayidx7.i142 = getelementptr inbounds i8, ptr %arrayidx.i, i64 152
+  %arrayidx7.i142 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 152
   %59 = load float, ptr %arrayidx7.i142, align 4
   %sub8.i = fsub float %add8.i132, %59
-  %arrayidx13.i144 = getelementptr inbounds i8, ptr %arrayidx.i, i64 156
+  %arrayidx13.i144 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 156
   %60 = load float, ptr %arrayidx13.i144, align 4
   %sub14.i = fsub float %add14.i135, %60
   %retval.sroa.0.0.vec.insert.i145 = insertelement <2 x float> poison, float %sub.i, i64 0
   %retval.sroa.0.4.vec.insert.i146 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i145, float %sub8.i, i64 1
   %retval.sroa.3.12.vec.insert.i147 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %sub14.i, i64 0
-  %m_eom_lhs_rotational = getelementptr inbounds i8, ptr %arrayidx.i, i64 84
+  %m_eom_lhs_rotational = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 84
   store <2 x float> %retval.sroa.0.4.vec.insert.i146, ptr %m_eom_lhs_rotational, align 4
-  %ref.tmp.sroa.2.0.m_eom_lhs_rotational.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i, i64 92
+  %ref.tmp.sroa.2.0.m_eom_lhs_rotational.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 92
   store <2 x float> %retval.sroa.3.12.vec.insert.i147, ptr %ref.tmp.sroa.2.0.m_eom_lhs_rotational.sroa_idx, align 4
   %61 = fneg float %31
   %neg.i154 = fmul float %19, %61
@@ -2088,21 +2088,21 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add.i200 = fadd float %72, %add.i164
   %add8.i203 = fadd float %74, %add8.i167
   %add14.i206 = fadd float %76, %add14.i170
-  %m_body_force_user = getelementptr inbounds i8, ptr %arrayidx.i, i64 132
+  %m_body_force_user = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 132
   %77 = load float, ptr %m_body_force_user, align 4
   %sub.i212 = fsub float %add.i200, %77
-  %arrayidx7.i214 = getelementptr inbounds i8, ptr %arrayidx.i, i64 136
+  %arrayidx7.i214 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 136
   %78 = load float, ptr %arrayidx7.i214, align 4
   %sub8.i215 = fsub float %add8.i203, %78
-  %arrayidx13.i217 = getelementptr inbounds i8, ptr %arrayidx.i, i64 140
+  %arrayidx13.i217 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 140
   %79 = load float, ptr %arrayidx13.i217, align 4
   %sub14.i218 = fsub float %add14.i206, %79
   %retval.sroa.0.0.vec.insert.i219 = insertelement <2 x float> poison, float %sub.i212, i64 0
   %retval.sroa.0.4.vec.insert.i220 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i219, float %sub8.i215, i64 1
   %retval.sroa.3.12.vec.insert.i221 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %sub14.i218, i64 0
-  %m_eom_lhs_translational = getelementptr inbounds i8, ptr %arrayidx.i, i64 68
+  %m_eom_lhs_translational = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 68
   store <2 x float> %retval.sroa.0.4.vec.insert.i220, ptr %m_eom_lhs_translational, align 4
-  %ref.tmp50.sroa.2.0.m_eom_lhs_translational.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i, i64 76
+  %ref.tmp50.sroa.2.0.m_eom_lhs_translational.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 76
   store <2 x float> %retval.sroa.3.12.vec.insert.i221, ptr %ref.tmp50.sroa.2.0.m_eom_lhs_translational.sroa_idx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %80 = load i32, ptr %m_size.i, align 4
@@ -2111,15 +2111,15 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp25, label %for.body, label %for.cond80.preheader, !llvm.loop !24
 
 for.cond131.preheader:                            ; preds = %for.end112, %for.cond.preheader, %for.cond80.preheader
-  %m_size.i357 = getelementptr inbounds i8, ptr %this, i64 124
+  %m_size.i357 = getelementptr inbounds nuw i8, ptr %this, i64 124
   %82 = load i32, ptr %m_size.i357, align 4
   %cmp133448 = icmp sgt i32 %82, 0
   br i1 %cmp133448, label %for.body134.lr.ph, label %for.cond147.preheader
 
 for.body134.lr.ph:                                ; preds = %for.cond131.preheader
-  %m_data.i358 = getelementptr inbounds i8, ptr %this, i64 136
-  %m_data.i361 = getelementptr inbounds i8, ptr %this, i64 40
-  %m_data.i.i.i = getelementptr inbounds i8, ptr %joint_forces, i64 16
+  %m_data.i358 = getelementptr inbounds nuw i8, ptr %this, i64 136
+  %m_data.i361 = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %m_data.i.i.i = getelementptr inbounds nuw i8, ptr %joint_forces, i64 16
   br label %for.body134
 
 for.body82:                                       ; preds = %for.body82.lr.ph, %for.end112
@@ -2129,7 +2129,7 @@ for.body82:                                       ; preds = %for.body82.lr.ph, %
   call void @_ZN24btInverseDynamicsBullet37setZeroERNS_4vec3E(ptr noundef nonnull align 4 dereferenceable(16) %sum_m_children)
   %83 = load ptr, ptr %m_data.i225, align 8
   %arrayidx.i227 = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %83, i64 %indvars.iv.next462
-  %m_size.i228 = getelementptr inbounds i8, ptr %arrayidx.i227, i64 4
+  %m_size.i228 = getelementptr inbounds nuw i8, ptr %arrayidx.i227, i64 4
   %84 = load i32, ptr %m_size.i228, align 4
   %cmp86442 = icmp sgt i32 %84, 0
   %.pre481 = load float, ptr %sum_f_children, align 4
@@ -2138,7 +2138,7 @@ for.body82:                                       ; preds = %for.body82.lr.ph, %
   br i1 %cmp86442, label %for.body87.lr.ph, label %for.end112
 
 for.body87.lr.ph:                                 ; preds = %for.body82
-  %m_data.i232 = getelementptr inbounds i8, ptr %arrayidx.i227, i64 16
+  %m_data.i232 = getelementptr inbounds nuw i8, ptr %arrayidx.i227, i64 16
   %85 = load ptr, ptr %m_data.i235, align 8
   %.pre478 = load float, ptr %sum_m_children, align 4
   %.pre479 = load float, ptr %arrayidx7.i325, align 4
@@ -2154,19 +2154,19 @@ for.body87:                                       ; preds = %for.body87.lr.ph, %
   %91 = phi float [ %.pre481, %for.body87.lr.ph ], [ %sub.i258, %for.body87 ]
   %indvars.iv458 = phi i64 [ 0, %for.body87.lr.ph ], [ %indvars.iv.next459, %for.body87 ]
   %92 = load ptr, ptr %m_data.i232, align 8
-  %arrayidx.i234 = getelementptr inbounds i32, ptr %92, i64 %indvars.iv458
+  %arrayidx.i234 = getelementptr inbounds nuw i32, ptr %92, i64 %indvars.iv458
   %93 = load i32, ptr %arrayidx.i234, align 4
   %idxprom.i236 = sext i32 %93 to i64
   %arrayidx.i237 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %85, i64 %idxprom.i236
-  %m_body_T_parent = getelementptr inbounds i8, ptr %arrayidx.i237, i64 292
-  %arrayidx3.i238 = getelementptr inbounds i8, ptr %arrayidx.i237, i64 308
-  %arrayidx6.i = getelementptr inbounds i8, ptr %arrayidx.i237, i64 324
-  %arrayidx.i.i239 = getelementptr inbounds i8, ptr %arrayidx.i237, i64 296
-  %arrayidx.i1.i = getelementptr inbounds i8, ptr %arrayidx.i237, i64 312
-  %arrayidx.i2.i = getelementptr inbounds i8, ptr %arrayidx.i237, i64 328
-  %arrayidx.i3.i = getelementptr inbounds i8, ptr %arrayidx.i237, i64 300
-  %arrayidx.i4.i = getelementptr inbounds i8, ptr %arrayidx.i237, i64 316
-  %arrayidx.i5.i = getelementptr inbounds i8, ptr %arrayidx.i237, i64 332
+  %m_body_T_parent = getelementptr inbounds nuw i8, ptr %arrayidx.i237, i64 292
+  %arrayidx3.i238 = getelementptr inbounds nuw i8, ptr %arrayidx.i237, i64 308
+  %arrayidx6.i = getelementptr inbounds nuw i8, ptr %arrayidx.i237, i64 324
+  %arrayidx.i.i239 = getelementptr inbounds nuw i8, ptr %arrayidx.i237, i64 296
+  %arrayidx.i1.i = getelementptr inbounds nuw i8, ptr %arrayidx.i237, i64 312
+  %arrayidx.i2.i = getelementptr inbounds nuw i8, ptr %arrayidx.i237, i64 328
+  %arrayidx.i3.i = getelementptr inbounds nuw i8, ptr %arrayidx.i237, i64 300
+  %arrayidx.i4.i = getelementptr inbounds nuw i8, ptr %arrayidx.i237, i64 316
+  %arrayidx.i5.i = getelementptr inbounds nuw i8, ptr %arrayidx.i237, i64 332
   %94 = load float, ptr %m_body_T_parent, align 4, !noalias !25
   %95 = load float, ptr %arrayidx3.i238, align 4, !noalias !25
   %96 = load float, ptr %arrayidx6.i, align 4, !noalias !25
@@ -2176,13 +2176,13 @@ for.body87:                                       ; preds = %for.body87.lr.ph, %
   %100 = load float, ptr %arrayidx.i3.i, align 4, !noalias !25
   %101 = load float, ptr %arrayidx.i4.i, align 4, !noalias !25
   %102 = load float, ptr %arrayidx.i5.i, align 4, !noalias !25
-  %m_force_at_joint = getelementptr inbounds i8, ptr %arrayidx.i237, i64 100
+  %m_force_at_joint = getelementptr inbounds nuw i8, ptr %arrayidx.i237, i64 100
   %103 = load float, ptr %m_force_at_joint, align 4
-  %arrayidx7.i.i241 = getelementptr inbounds i8, ptr %arrayidx.i237, i64 104
+  %arrayidx7.i.i241 = getelementptr inbounds nuw i8, ptr %arrayidx.i237, i64 104
   %104 = load float, ptr %arrayidx7.i.i241, align 4
   %mul8.i.i242 = fmul float %95, %104
   %105 = call float @llvm.fmuladd.f32(float %94, float %103, float %mul8.i.i242)
-  %arrayidx12.i.i244 = getelementptr inbounds i8, ptr %arrayidx.i237, i64 108
+  %arrayidx12.i.i244 = getelementptr inbounds nuw i8, ptr %arrayidx.i237, i64 108
   %106 = load float, ptr %arrayidx12.i.i244, align 4
   %107 = call noundef float @llvm.fmuladd.f32(float %96, float %106, float %105)
   %mul8.i7.i247 = fmul float %98, %104
@@ -2206,13 +2206,13 @@ for.body87:                                       ; preds = %for.body87.lr.ph, %
   %118 = load float, ptr %arrayidx.i3.i, align 4, !noalias !28
   %119 = load float, ptr %arrayidx.i4.i, align 4, !noalias !28
   %120 = load float, ptr %arrayidx.i5.i, align 4, !noalias !28
-  %m_moment_at_joint = getelementptr inbounds i8, ptr %arrayidx.i237, i64 116
+  %m_moment_at_joint = getelementptr inbounds nuw i8, ptr %arrayidx.i237, i64 116
   %121 = load float, ptr %m_moment_at_joint, align 4
-  %arrayidx7.i.i282 = getelementptr inbounds i8, ptr %arrayidx.i237, i64 120
+  %arrayidx7.i.i282 = getelementptr inbounds nuw i8, ptr %arrayidx.i237, i64 120
   %122 = load float, ptr %arrayidx7.i.i282, align 4
   %mul8.i.i283 = fmul float %113, %122
   %123 = call float @llvm.fmuladd.f32(float %112, float %121, float %mul8.i.i283)
-  %arrayidx12.i.i285 = getelementptr inbounds i8, ptr %arrayidx.i237, i64 124
+  %arrayidx12.i.i285 = getelementptr inbounds nuw i8, ptr %arrayidx.i237, i64 124
   %124 = load float, ptr %arrayidx12.i.i285, align 4
   %125 = call noundef float @llvm.fmuladd.f32(float %114, float %124, float %123)
   %mul8.i7.i288 = fmul float %116, %122
@@ -2221,10 +2221,10 @@ for.body87:                                       ; preds = %for.body87.lr.ph, %
   %mul8.i13.i292 = fmul float %119, %122
   %128 = call float @llvm.fmuladd.f32(float %118, float %121, float %mul8.i13.i292)
   %129 = call noundef float @llvm.fmuladd.f32(float %120, float %124, float %128)
-  %m_parent_pos_parent_body = getelementptr inbounds i8, ptr %arrayidx.i237, i64 340
-  %arrayidx.i299 = getelementptr inbounds i8, ptr %arrayidx.i237, i64 344
+  %m_parent_pos_parent_body = getelementptr inbounds nuw i8, ptr %arrayidx.i237, i64 340
+  %arrayidx.i299 = getelementptr inbounds nuw i8, ptr %arrayidx.i237, i64 344
   %130 = load float, ptr %arrayidx.i299, align 4
-  %arrayidx5.i301 = getelementptr inbounds i8, ptr %arrayidx.i237, i64 348
+  %arrayidx5.i301 = getelementptr inbounds nuw i8, ptr %arrayidx.i237, i64 348
   %131 = load float, ptr %arrayidx5.i301, align 4
   %132 = fneg float %109
   %neg.i303 = fmul float %131, %132
@@ -2257,80 +2257,80 @@ for.end112:                                       ; preds = %for.body87, %for.bo
   %143 = phi float [ %.pre481, %for.body82 ], [ %sub.i258, %for.body87 ]
   %144 = load ptr, ptr %m_data.i235, align 8
   %arrayidx.i332 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %144, i64 %indvars.iv.next462
-  %m_eom_lhs_translational117 = getelementptr inbounds i8, ptr %arrayidx.i332, i64 68
+  %m_eom_lhs_translational117 = getelementptr inbounds nuw i8, ptr %arrayidx.i332, i64 68
   %145 = load float, ptr %m_eom_lhs_translational117, align 4
   %sub.i333 = fsub float %145, %143
-  %arrayidx5.i334 = getelementptr inbounds i8, ptr %arrayidx.i332, i64 72
+  %arrayidx5.i334 = getelementptr inbounds nuw i8, ptr %arrayidx.i332, i64 72
   %146 = load float, ptr %arrayidx5.i334, align 4
   %sub8.i336 = fsub float %146, %142
-  %arrayidx11.i337 = getelementptr inbounds i8, ptr %arrayidx.i332, i64 76
+  %arrayidx11.i337 = getelementptr inbounds nuw i8, ptr %arrayidx.i332, i64 76
   %147 = load float, ptr %arrayidx11.i337, align 4
   %sub14.i339 = fsub float %147, %141
   %retval.sroa.0.0.vec.insert.i340 = insertelement <2 x float> poison, float %sub.i333, i64 0
   %retval.sroa.0.4.vec.insert.i341 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i340, float %sub8.i336, i64 1
   %retval.sroa.3.12.vec.insert.i342 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %sub14.i339, i64 0
-  %m_force_at_joint120 = getelementptr inbounds i8, ptr %arrayidx.i332, i64 100
+  %m_force_at_joint120 = getelementptr inbounds nuw i8, ptr %arrayidx.i332, i64 100
   store <2 x float> %retval.sroa.0.4.vec.insert.i341, ptr %m_force_at_joint120, align 4
-  %ref.tmp116.sroa.2.0.m_force_at_joint120.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i332, i64 108
+  %ref.tmp116.sroa.2.0.m_force_at_joint120.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i332, i64 108
   store <2 x float> %retval.sroa.3.12.vec.insert.i342, ptr %ref.tmp116.sroa.2.0.m_force_at_joint120.sroa_idx, align 4
-  %m_eom_lhs_rotational123 = getelementptr inbounds i8, ptr %arrayidx.i332, i64 84
+  %m_eom_lhs_rotational123 = getelementptr inbounds nuw i8, ptr %arrayidx.i332, i64 84
   %148 = load float, ptr %m_eom_lhs_rotational123, align 4
   %149 = load float, ptr %sum_m_children, align 4
   %sub.i345 = fsub float %148, %149
-  %arrayidx5.i346 = getelementptr inbounds i8, ptr %arrayidx.i332, i64 88
+  %arrayidx5.i346 = getelementptr inbounds nuw i8, ptr %arrayidx.i332, i64 88
   %150 = load float, ptr %arrayidx5.i346, align 4
   %151 = load float, ptr %arrayidx7.i325, align 4
   %sub8.i348 = fsub float %150, %151
-  %arrayidx11.i349 = getelementptr inbounds i8, ptr %arrayidx.i332, i64 92
+  %arrayidx11.i349 = getelementptr inbounds nuw i8, ptr %arrayidx.i332, i64 92
   %152 = load float, ptr %arrayidx11.i349, align 4
   %153 = load float, ptr %arrayidx12.i328, align 4
   %sub14.i351 = fsub float %152, %153
   %retval.sroa.0.0.vec.insert.i352 = insertelement <2 x float> poison, float %sub.i345, i64 0
   %retval.sroa.0.4.vec.insert.i353 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i352, float %sub8.i348, i64 1
   %retval.sroa.3.12.vec.insert.i354 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %sub14.i351, i64 0
-  %m_moment_at_joint126 = getelementptr inbounds i8, ptr %arrayidx.i332, i64 116
+  %m_moment_at_joint126 = getelementptr inbounds nuw i8, ptr %arrayidx.i332, i64 116
   store <2 x float> %retval.sroa.0.4.vec.insert.i353, ptr %m_moment_at_joint126, align 4
-  %ref.tmp122.sroa.2.0.m_moment_at_joint126.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i332, i64 124
+  %ref.tmp122.sroa.2.0.m_moment_at_joint126.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i332, i64 124
   store <2 x float> %retval.sroa.3.12.vec.insert.i354, ptr %ref.tmp122.sroa.2.0.m_moment_at_joint126.sroa_idx, align 4
   %cmp81 = icmp sgt i64 %indvars.iv461, 1
   br i1 %cmp81, label %for.body82, label %for.cond131.preheader, !llvm.loop !32
 
 for.cond147.preheader:                            ; preds = %for.body134, %for.cond131.preheader
-  %m_size.i368 = getelementptr inbounds i8, ptr %this, i64 156
+  %m_size.i368 = getelementptr inbounds nuw i8, ptr %this, i64 156
   %154 = load i32, ptr %m_size.i368, align 4
   %cmp149450 = icmp sgt i32 %154, 0
   br i1 %cmp149450, label %for.body150.lr.ph, label %for.cond164.preheader
 
 for.body150.lr.ph:                                ; preds = %for.cond147.preheader
-  %m_data.i369 = getelementptr inbounds i8, ptr %this, i64 168
-  %m_data.i372 = getelementptr inbounds i8, ptr %this, i64 40
-  %m_data.i.i.i380 = getelementptr inbounds i8, ptr %joint_forces, i64 16
+  %m_data.i369 = getelementptr inbounds nuw i8, ptr %this, i64 168
+  %m_data.i372 = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %m_data.i.i.i380 = getelementptr inbounds nuw i8, ptr %joint_forces, i64 16
   br label %for.body150
 
 for.body134:                                      ; preds = %for.body134.lr.ph, %for.body134
   %indvars.iv464 = phi i64 [ 0, %for.body134.lr.ph ], [ %indvars.iv.next465, %for.body134 ]
   %155 = load ptr, ptr %m_data.i358, align 8
-  %arrayidx.i360 = getelementptr inbounds i32, ptr %155, i64 %indvars.iv464
+  %arrayidx.i360 = getelementptr inbounds nuw i32, ptr %155, i64 %indvars.iv464
   %156 = load i32, ptr %arrayidx.i360, align 4
   %157 = load ptr, ptr %m_data.i361, align 8
   %idxprom.i362 = sext i32 %156 to i64
   %arrayidx.i363 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %157, i64 %idxprom.i362
-  %m_Jac_JR = getelementptr inbounds i8, ptr %arrayidx.i363, i64 488
-  %m_moment_at_joint140 = getelementptr inbounds i8, ptr %arrayidx.i363, i64 116
+  %m_Jac_JR = getelementptr inbounds nuw i8, ptr %arrayidx.i363, i64 488
+  %m_moment_at_joint140 = getelementptr inbounds nuw i8, ptr %arrayidx.i363, i64 116
   %158 = load float, ptr %m_Jac_JR, align 4
   %159 = load float, ptr %m_moment_at_joint140, align 4
-  %arrayidx5.i364 = getelementptr inbounds i8, ptr %arrayidx.i363, i64 492
+  %arrayidx5.i364 = getelementptr inbounds nuw i8, ptr %arrayidx.i363, i64 492
   %160 = load float, ptr %arrayidx5.i364, align 4
-  %arrayidx7.i365 = getelementptr inbounds i8, ptr %arrayidx.i363, i64 120
+  %arrayidx7.i365 = getelementptr inbounds nuw i8, ptr %arrayidx.i363, i64 120
   %161 = load float, ptr %arrayidx7.i365, align 4
   %mul8.i = fmul float %160, %161
   %162 = call float @llvm.fmuladd.f32(float %158, float %159, float %mul8.i)
-  %arrayidx10.i366 = getelementptr inbounds i8, ptr %arrayidx.i363, i64 496
+  %arrayidx10.i366 = getelementptr inbounds nuw i8, ptr %arrayidx.i363, i64 496
   %163 = load float, ptr %arrayidx10.i366, align 4
-  %arrayidx12.i367 = getelementptr inbounds i8, ptr %arrayidx.i363, i64 124
+  %arrayidx12.i367 = getelementptr inbounds nuw i8, ptr %arrayidx.i363, i64 124
   %164 = load float, ptr %arrayidx12.i367, align 4
   %165 = call noundef float @llvm.fmuladd.f32(float %163, float %164, float %162)
-  %m_q_index = getelementptr inbounds i8, ptr %arrayidx.i363, i64 536
+  %m_q_index = getelementptr inbounds nuw i8, ptr %arrayidx.i363, i64 536
   %166 = load i32, ptr %m_q_index, align 8
   %167 = load ptr, ptr %m_data.i.i.i, align 8
   %idxprom.i.i.i = sext i32 %166 to i64
@@ -2343,41 +2343,41 @@ for.body134:                                      ; preds = %for.body134.lr.ph, 
   br i1 %cmp133, label %for.body134, label %for.cond147.preheader, !llvm.loop !33
 
 for.cond164.preheader:                            ; preds = %for.body150, %for.cond147.preheader
-  %m_size.i383 = getelementptr inbounds i8, ptr %this, i64 188
+  %m_size.i383 = getelementptr inbounds nuw i8, ptr %this, i64 188
   %170 = load i32, ptr %m_size.i383, align 4
   %cmp166452 = icmp sgt i32 %170, 0
   br i1 %cmp166452, label %for.body167.lr.ph, label %for.cond206.preheader
 
 for.body167.lr.ph:                                ; preds = %for.cond164.preheader
-  %m_data.i384 = getelementptr inbounds i8, ptr %this, i64 200
-  %m_data.i387 = getelementptr inbounds i8, ptr %this, i64 40
-  %m_data.i.i.i391 = getelementptr inbounds i8, ptr %joint_forces, i64 16
+  %m_data.i384 = getelementptr inbounds nuw i8, ptr %this, i64 200
+  %m_data.i387 = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %m_data.i.i.i391 = getelementptr inbounds nuw i8, ptr %joint_forces, i64 16
   br label %for.body167
 
 for.body150:                                      ; preds = %for.body150.lr.ph, %for.body150
   %indvars.iv467 = phi i64 [ 0, %for.body150.lr.ph ], [ %indvars.iv.next468, %for.body150 ]
   %171 = load ptr, ptr %m_data.i369, align 8
-  %arrayidx.i371 = getelementptr inbounds i32, ptr %171, i64 %indvars.iv467
+  %arrayidx.i371 = getelementptr inbounds nuw i32, ptr %171, i64 %indvars.iv467
   %172 = load i32, ptr %arrayidx.i371, align 4
   %173 = load ptr, ptr %m_data.i372, align 8
   %idxprom.i373 = sext i32 %172 to i64
   %arrayidx.i374 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %173, i64 %idxprom.i373
-  %m_Jac_JT = getelementptr inbounds i8, ptr %arrayidx.i374, i64 504
-  %m_force_at_joint156 = getelementptr inbounds i8, ptr %arrayidx.i374, i64 100
+  %m_Jac_JT = getelementptr inbounds nuw i8, ptr %arrayidx.i374, i64 504
+  %m_force_at_joint156 = getelementptr inbounds nuw i8, ptr %arrayidx.i374, i64 100
   %174 = load float, ptr %m_Jac_JT, align 4
   %175 = load float, ptr %m_force_at_joint156, align 4
-  %arrayidx5.i375 = getelementptr inbounds i8, ptr %arrayidx.i374, i64 508
+  %arrayidx5.i375 = getelementptr inbounds nuw i8, ptr %arrayidx.i374, i64 508
   %176 = load float, ptr %arrayidx5.i375, align 4
-  %arrayidx7.i376 = getelementptr inbounds i8, ptr %arrayidx.i374, i64 104
+  %arrayidx7.i376 = getelementptr inbounds nuw i8, ptr %arrayidx.i374, i64 104
   %177 = load float, ptr %arrayidx7.i376, align 4
   %mul8.i377 = fmul float %176, %177
   %178 = call float @llvm.fmuladd.f32(float %174, float %175, float %mul8.i377)
-  %arrayidx10.i378 = getelementptr inbounds i8, ptr %arrayidx.i374, i64 512
+  %arrayidx10.i378 = getelementptr inbounds nuw i8, ptr %arrayidx.i374, i64 512
   %179 = load float, ptr %arrayidx10.i378, align 4
-  %arrayidx12.i379 = getelementptr inbounds i8, ptr %arrayidx.i374, i64 108
+  %arrayidx12.i379 = getelementptr inbounds nuw i8, ptr %arrayidx.i374, i64 108
   %180 = load float, ptr %arrayidx12.i379, align 4
   %181 = call noundef float @llvm.fmuladd.f32(float %179, float %180, float %178)
-  %m_q_index158 = getelementptr inbounds i8, ptr %arrayidx.i374, i64 536
+  %m_q_index158 = getelementptr inbounds nuw i8, ptr %arrayidx.i374, i64 536
   %182 = load i32, ptr %m_q_index158, align 8
   %183 = load ptr, ptr %m_data.i.i.i380, align 8
   %idxprom.i.i.i381 = sext i32 %182 to i64
@@ -2390,34 +2390,34 @@ for.body150:                                      ; preds = %for.body150.lr.ph, 
   br i1 %cmp149, label %for.body150, label %for.cond164.preheader, !llvm.loop !34
 
 for.cond206.preheader:                            ; preds = %for.body167, %for.cond164.preheader
-  %m_size.i414 = getelementptr inbounds i8, ptr %this, i64 220
+  %m_size.i414 = getelementptr inbounds nuw i8, ptr %this, i64 220
   %186 = load i32, ptr %m_size.i414, align 4
   %cmp208454 = icmp sgt i32 %186, 0
   br i1 %cmp208454, label %for.body209.lr.ph, label %return
 
 for.body209.lr.ph:                                ; preds = %for.cond206.preheader
-  %m_data.i415 = getelementptr inbounds i8, ptr %this, i64 232
-  %m_data.i418 = getelementptr inbounds i8, ptr %this, i64 40
-  %m_data.i.i.i422 = getelementptr inbounds i8, ptr %joint_forces, i64 16
+  %m_data.i415 = getelementptr inbounds nuw i8, ptr %this, i64 232
+  %m_data.i418 = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %m_data.i.i.i422 = getelementptr inbounds nuw i8, ptr %joint_forces, i64 16
   br label %for.body209
 
 for.body167:                                      ; preds = %for.body167.lr.ph, %for.body167
   %indvars.iv470 = phi i64 [ 0, %for.body167.lr.ph ], [ %indvars.iv.next471, %for.body167 ]
   %187 = load ptr, ptr %m_data.i384, align 8
-  %arrayidx.i386 = getelementptr inbounds i32, ptr %187, i64 %indvars.iv470
+  %arrayidx.i386 = getelementptr inbounds nuw i32, ptr %187, i64 %indvars.iv470
   %188 = load i32, ptr %arrayidx.i386, align 4
   %189 = load ptr, ptr %m_data.i387, align 8
   %idxprom.i388 = sext i32 %188 to i64
   %arrayidx.i389 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %189, i64 %idxprom.i388
-  %m_moment_at_joint173 = getelementptr inbounds i8, ptr %arrayidx.i389, i64 116
+  %m_moment_at_joint173 = getelementptr inbounds nuw i8, ptr %arrayidx.i389, i64 116
   %190 = load float, ptr %m_moment_at_joint173, align 4
-  %m_q_index175 = getelementptr inbounds i8, ptr %arrayidx.i389, i64 536
+  %m_q_index175 = getelementptr inbounds nuw i8, ptr %arrayidx.i389, i64 536
   %191 = load i32, ptr %m_q_index175, align 8
   %192 = load ptr, ptr %m_data.i.i.i391, align 8
   %idxprom.i.i.i392 = sext i32 %191 to i64
   %arrayidx.i.i.i393 = getelementptr inbounds float, ptr %192, i64 %idxprom.i.i.i392
   store float %190, ptr %arrayidx.i.i.i393, align 4
-  %arrayidx.i394 = getelementptr inbounds i8, ptr %arrayidx.i389, i64 120
+  %arrayidx.i394 = getelementptr inbounds nuw i8, ptr %arrayidx.i389, i64 120
   %193 = load float, ptr %arrayidx.i394, align 4
   %194 = load i32, ptr %m_q_index175, align 8
   %195 = load ptr, ptr %m_data.i.i.i391, align 8
@@ -2425,7 +2425,7 @@ for.body167:                                      ; preds = %for.body167.lr.ph, 
   %197 = getelementptr float, ptr %195, i64 %196
   %arrayidx.i.i.i397 = getelementptr i8, ptr %197, i64 4
   store float %193, ptr %arrayidx.i.i.i397, align 4
-  %arrayidx.i398 = getelementptr inbounds i8, ptr %arrayidx.i389, i64 124
+  %arrayidx.i398 = getelementptr inbounds nuw i8, ptr %arrayidx.i389, i64 124
   %198 = load float, ptr %arrayidx.i398, align 4
   %199 = load i32, ptr %m_q_index175, align 8
   %200 = load ptr, ptr %m_data.i.i.i391, align 8
@@ -2433,7 +2433,7 @@ for.body167:                                      ; preds = %for.body167.lr.ph, 
   %202 = getelementptr float, ptr %200, i64 %201
   %arrayidx.i.i.i401 = getelementptr i8, ptr %202, i64 8
   store float %198, ptr %arrayidx.i.i.i401, align 4
-  %m_force_at_joint187 = getelementptr inbounds i8, ptr %arrayidx.i389, i64 100
+  %m_force_at_joint187 = getelementptr inbounds nuw i8, ptr %arrayidx.i389, i64 100
   %203 = load float, ptr %m_force_at_joint187, align 4
   %204 = load i32, ptr %m_q_index175, align 8
   %205 = load ptr, ptr %m_data.i.i.i391, align 8
@@ -2441,7 +2441,7 @@ for.body167:                                      ; preds = %for.body167.lr.ph, 
   %207 = getelementptr float, ptr %205, i64 %206
   %arrayidx.i.i.i405 = getelementptr i8, ptr %207, i64 12
   store float %203, ptr %arrayidx.i.i.i405, align 4
-  %arrayidx.i406 = getelementptr inbounds i8, ptr %arrayidx.i389, i64 104
+  %arrayidx.i406 = getelementptr inbounds nuw i8, ptr %arrayidx.i389, i64 104
   %208 = load float, ptr %arrayidx.i406, align 4
   %209 = load i32, ptr %m_q_index175, align 8
   %210 = load ptr, ptr %m_data.i.i.i391, align 8
@@ -2449,7 +2449,7 @@ for.body167:                                      ; preds = %for.body167.lr.ph, 
   %212 = getelementptr float, ptr %210, i64 %211
   %arrayidx.i.i.i409 = getelementptr i8, ptr %212, i64 16
   store float %208, ptr %arrayidx.i.i.i409, align 4
-  %arrayidx.i410 = getelementptr inbounds i8, ptr %arrayidx.i389, i64 108
+  %arrayidx.i410 = getelementptr inbounds nuw i8, ptr %arrayidx.i389, i64 108
   %213 = load float, ptr %arrayidx.i410, align 4
   %214 = load i32, ptr %m_q_index175, align 8
   %215 = load ptr, ptr %m_data.i.i.i391, align 8
@@ -2466,20 +2466,20 @@ for.body167:                                      ; preds = %for.body167.lr.ph, 
 for.body209:                                      ; preds = %for.body209.lr.ph, %for.body209
   %indvars.iv473 = phi i64 [ 0, %for.body209.lr.ph ], [ %indvars.iv.next474, %for.body209 ]
   %220 = load ptr, ptr %m_data.i415, align 8
-  %arrayidx.i417 = getelementptr inbounds i32, ptr %220, i64 %indvars.iv473
+  %arrayidx.i417 = getelementptr inbounds nuw i32, ptr %220, i64 %indvars.iv473
   %221 = load i32, ptr %arrayidx.i417, align 4
   %222 = load ptr, ptr %m_data.i418, align 8
   %idxprom.i419 = sext i32 %221 to i64
   %arrayidx.i420 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %222, i64 %idxprom.i419
-  %m_moment_at_joint215 = getelementptr inbounds i8, ptr %arrayidx.i420, i64 116
+  %m_moment_at_joint215 = getelementptr inbounds nuw i8, ptr %arrayidx.i420, i64 116
   %223 = load float, ptr %m_moment_at_joint215, align 4
-  %m_q_index217 = getelementptr inbounds i8, ptr %arrayidx.i420, i64 536
+  %m_q_index217 = getelementptr inbounds nuw i8, ptr %arrayidx.i420, i64 536
   %224 = load i32, ptr %m_q_index217, align 8
   %225 = load ptr, ptr %m_data.i.i.i422, align 8
   %idxprom.i.i.i423 = sext i32 %224 to i64
   %arrayidx.i.i.i424 = getelementptr inbounds float, ptr %225, i64 %idxprom.i.i.i423
   store float %223, ptr %arrayidx.i.i.i424, align 4
-  %arrayidx.i425 = getelementptr inbounds i8, ptr %arrayidx.i420, i64 120
+  %arrayidx.i425 = getelementptr inbounds nuw i8, ptr %arrayidx.i420, i64 120
   %226 = load float, ptr %arrayidx.i425, align 4
   %227 = load i32, ptr %m_q_index217, align 8
   %228 = load ptr, ptr %m_data.i.i.i422, align 8
@@ -2487,7 +2487,7 @@ for.body209:                                      ; preds = %for.body209.lr.ph, 
   %230 = getelementptr float, ptr %228, i64 %229
   %arrayidx.i.i.i428 = getelementptr i8, ptr %230, i64 4
   store float %226, ptr %arrayidx.i.i.i428, align 4
-  %arrayidx.i429 = getelementptr inbounds i8, ptr %arrayidx.i420, i64 124
+  %arrayidx.i429 = getelementptr inbounds nuw i8, ptr %arrayidx.i420, i64 124
   %231 = load float, ptr %arrayidx.i429, align 4
   %232 = load i32, ptr %m_q_index217, align 8
   %233 = load ptr, ptr %m_data.i.i.i422, align 8
@@ -2516,16 +2516,16 @@ entry:
   %ref.tmp237 = alloca %"class.btInverseDynamicsBullet3::mat33", align 4
   %ref.tmp240 = alloca %"class.btInverseDynamicsBullet3::mat33", align 4
   %ref.tmp244 = alloca %"class.btInverseDynamicsBullet3::mat33", align 4
-  %m_size.i.i.i = getelementptr inbounds i8, ptr %q, i64 4
+  %m_size.i.i.i = getelementptr inbounds nuw i8, ptr %q, i64 4
   %0 = load i32, ptr %m_size.i.i.i, align 4
-  %m_num_dofs = getelementptr inbounds i8, ptr %this, i64 4
+  %m_num_dofs = getelementptr inbounds nuw i8, ptr %this, i64 4
   %1 = load i32, ptr %m_num_dofs, align 4
   %cmp.not = icmp eq i32 %0, %1
-  %m_size.i.i.i205 = getelementptr inbounds i8, ptr %u, i64 4
+  %m_size.i.i.i205 = getelementptr inbounds nuw i8, ptr %u, i64 4
   %2 = load i32, ptr %m_size.i.i.i205, align 4
   %cmp4.not = icmp eq i32 %2, %1
   %or.cond = select i1 %cmp.not, i1 %cmp4.not, i1 false
-  %m_size.i.i.i206 = getelementptr inbounds i8, ptr %dot_u, i64 4
+  %m_size.i.i.i206 = getelementptr inbounds nuw i8, ptr %dot_u, i64 4
   %3 = load i32, ptr %m_size.i.i.i206, align 4
   %cmp8.not = icmp eq i32 %3, %1
   %or.cond1219 = select i1 %or.cond, i1 %cmp8.not, i1 false
@@ -2545,27 +2545,27 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond1, label %do.body18, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end
-  %m_size.i = getelementptr inbounds i8, ptr %this, i64 124
+  %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 124
   %8 = load i32, ptr %m_size.i, align 4
   %cmp221220 = icmp sgt i32 %8, 0
   br i1 %cmp221220, label %for.body.lr.ph, label %for.cond48.preheader
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 136
-  %m_data.i210 = getelementptr inbounds i8, ptr %this, i64 40
-  %m_data.i.i.i = getelementptr inbounds i8, ptr %q, i64 16
-  %arrayidx.i.i.i213 = getelementptr inbounds i8, ptr %T, i64 4
-  %arrayidx.i3.i.i = getelementptr inbounds i8, ptr %T, i64 8
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %T, i64 16
-  %arrayidx.i.i27.i = getelementptr inbounds i8, ptr %T, i64 20
-  %arrayidx.i3.i30.i = getelementptr inbounds i8, ptr %T, i64 24
-  %arrayidx.i45.i = getelementptr inbounds i8, ptr %T, i64 32
-  %arrayidx.i.i47.i = getelementptr inbounds i8, ptr %T, i64 36
-  %arrayidx.i3.i50.i = getelementptr inbounds i8, ptr %T, i64 40
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 136
+  %m_data.i210 = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %m_data.i.i.i = getelementptr inbounds nuw i8, ptr %q, i64 16
+  %arrayidx.i.i.i213 = getelementptr inbounds nuw i8, ptr %T, i64 4
+  %arrayidx.i3.i.i = getelementptr inbounds nuw i8, ptr %T, i64 8
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %T, i64 16
+  %arrayidx.i.i27.i = getelementptr inbounds nuw i8, ptr %T, i64 20
+  %arrayidx.i3.i30.i = getelementptr inbounds nuw i8, ptr %T, i64 24
+  %arrayidx.i45.i = getelementptr inbounds nuw i8, ptr %T, i64 32
+  %arrayidx.i.i47.i = getelementptr inbounds nuw i8, ptr %T, i64 36
+  %arrayidx.i3.i50.i = getelementptr inbounds nuw i8, ptr %T, i64 40
   %cond = icmp eq i32 %type, 0
-  %m_data.i.i.i215 = getelementptr inbounds i8, ptr %u, i64 16
+  %m_data.i.i.i215 = getelementptr inbounds nuw i8, ptr %u, i64 16
   %cmp37 = icmp eq i32 %type, 2
-  %m_data.i.i.i218 = getelementptr inbounds i8, ptr %dot_u, i64 16
+  %m_data.i.i.i218 = getelementptr inbounds nuw i8, ptr %dot_u, i64 16
   br label %for.body
 
 do.body18:                                        ; preds = %if.end
@@ -2574,64 +2574,64 @@ do.body18:                                        ; preds = %if.end
   br label %return
 
 for.cond48.preheader:                             ; preds = %for.inc, %for.cond.preheader
-  %m_size.i231 = getelementptr inbounds i8, ptr %this, i64 156
+  %m_size.i231 = getelementptr inbounds nuw i8, ptr %this, i64 156
   %9 = load i32, ptr %m_size.i231, align 4
   %cmp501222 = icmp sgt i32 %9, 0
   br i1 %cmp501222, label %for.body51.lr.ph, label %for.cond94.preheader
 
 for.body51.lr.ph:                                 ; preds = %for.cond48.preheader
-  %m_data.i232 = getelementptr inbounds i8, ptr %this, i64 168
-  %m_data.i235 = getelementptr inbounds i8, ptr %this, i64 40
-  %m_data.i.i.i238 = getelementptr inbounds i8, ptr %q, i64 16
+  %m_data.i232 = getelementptr inbounds nuw i8, ptr %this, i64 168
+  %m_data.i235 = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %m_data.i.i.i238 = getelementptr inbounds nuw i8, ptr %q, i64 16
   %cond202 = icmp eq i32 %type, 0
-  %m_data.i.i.i278 = getelementptr inbounds i8, ptr %u, i64 16
+  %m_data.i.i.i278 = getelementptr inbounds nuw i8, ptr %u, i64 16
   %cmp80 = icmp eq i32 %type, 2
-  %m_data.i.i.i291 = getelementptr inbounds i8, ptr %dot_u, i64 16
+  %m_data.i.i.i291 = getelementptr inbounds nuw i8, ptr %dot_u, i64 16
   br label %for.body51
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %10 = load ptr, ptr %m_data.i, align 8
-  %arrayidx.i = getelementptr inbounds i32, ptr %10, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
   %11 = load i32, ptr %arrayidx.i, align 4
   %12 = load ptr, ptr %m_data.i210, align 8
   %idxprom.i211 = sext i32 %11 to i64
   %arrayidx.i212 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %12, i64 %idxprom.i211
-  %m_Jac_JR = getelementptr inbounds i8, ptr %arrayidx.i212, i64 488
-  %m_q_index = getelementptr inbounds i8, ptr %arrayidx.i212, i64 536
+  %m_Jac_JR = getelementptr inbounds nuw i8, ptr %arrayidx.i212, i64 488
+  %m_q_index = getelementptr inbounds nuw i8, ptr %arrayidx.i212, i64 536
   %13 = load i32, ptr %m_q_index, align 8
   %14 = load ptr, ptr %m_data.i.i.i, align 8
   %idxprom.i.i.i = sext i32 %13 to i64
   %arrayidx.i.i.i = getelementptr inbounds float, ptr %14, i64 %idxprom.i.i.i
   call void @_ZN24btInverseDynamicsBullet324bodyTParentFromAxisAngleERKNS_4vec3ERKfPNS_5mat33E(ptr noundef nonnull align 4 dereferenceable(16) %m_Jac_JR, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx.i.i.i, ptr noundef nonnull %T)
-  %m_body_T_parent_ref = getelementptr inbounds i8, ptr %arrayidx.i212, i64 440
+  %m_body_T_parent_ref = getelementptr inbounds nuw i8, ptr %arrayidx.i212, i64 440
   %15 = load float, ptr %m_body_T_parent_ref, align 4, !noalias !37
   %16 = load float, ptr %T, align 4, !noalias !37
-  %arrayidx4.i.i = getelementptr inbounds i8, ptr %arrayidx.i212, i64 456
+  %arrayidx4.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i212, i64 456
   %17 = load float, ptr %arrayidx4.i.i, align 4, !noalias !37
   %18 = load float, ptr %arrayidx.i.i.i213, align 4, !noalias !37
   %mul7.i.i = fmul float %17, %18
   %19 = call float @llvm.fmuladd.f32(float %15, float %16, float %mul7.i.i)
-  %arrayidx9.i.i = getelementptr inbounds i8, ptr %arrayidx.i212, i64 472
+  %arrayidx9.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i212, i64 472
   %20 = load float, ptr %arrayidx9.i.i, align 4, !noalias !37
   %21 = load float, ptr %arrayidx.i3.i.i, align 4, !noalias !37
   %22 = call noundef float @llvm.fmuladd.f32(float %20, float %21, float %19)
-  %arrayidx.i.i17.i = getelementptr inbounds i8, ptr %arrayidx.i212, i64 444
+  %arrayidx.i.i17.i = getelementptr inbounds nuw i8, ptr %arrayidx.i212, i64 444
   %23 = load float, ptr %arrayidx.i.i17.i, align 4, !noalias !37
-  %arrayidx.i3.i18.i = getelementptr inbounds i8, ptr %arrayidx.i212, i64 460
+  %arrayidx.i3.i18.i = getelementptr inbounds nuw i8, ptr %arrayidx.i212, i64 460
   %24 = load float, ptr %arrayidx.i3.i18.i, align 4, !noalias !37
   %mul7.i19.i = fmul float %18, %24
   %25 = call float @llvm.fmuladd.f32(float %23, float %16, float %mul7.i19.i)
-  %arrayidx.i5.i.i = getelementptr inbounds i8, ptr %arrayidx.i212, i64 476
+  %arrayidx.i5.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i212, i64 476
   %26 = load float, ptr %arrayidx.i5.i.i, align 4, !noalias !37
   %27 = call noundef float @llvm.fmuladd.f32(float %26, float %21, float %25)
-  %arrayidx.i.i20.i = getelementptr inbounds i8, ptr %arrayidx.i212, i64 448
+  %arrayidx.i.i20.i = getelementptr inbounds nuw i8, ptr %arrayidx.i212, i64 448
   %28 = load float, ptr %arrayidx.i.i20.i, align 4, !noalias !37
-  %arrayidx.i3.i21.i = getelementptr inbounds i8, ptr %arrayidx.i212, i64 464
+  %arrayidx.i3.i21.i = getelementptr inbounds nuw i8, ptr %arrayidx.i212, i64 464
   %29 = load float, ptr %arrayidx.i3.i21.i, align 4, !noalias !37
   %mul7.i23.i = fmul float %18, %29
   %30 = call float @llvm.fmuladd.f32(float %28, float %16, float %mul7.i23.i)
-  %arrayidx.i5.i24.i = getelementptr inbounds i8, ptr %arrayidx.i212, i64 480
+  %arrayidx.i5.i24.i = getelementptr inbounds nuw i8, ptr %arrayidx.i212, i64 480
   %31 = load float, ptr %arrayidx.i5.i24.i, align 4, !noalias !37
   %32 = call noundef float @llvm.fmuladd.f32(float %31, float %21, float %30)
   %33 = load float, ptr %arrayidx.i.i, align 4, !noalias !37
@@ -2658,29 +2658,29 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %mul7.i62.i = fmul float %29, %43
   %49 = call float @llvm.fmuladd.f32(float %28, float %42, float %mul7.i62.i)
   %50 = call noundef float @llvm.fmuladd.f32(float %31, float %45, float %49)
-  %m_body_T_parent = getelementptr inbounds i8, ptr %arrayidx.i212, i64 292
+  %m_body_T_parent = getelementptr inbounds nuw i8, ptr %arrayidx.i212, i64 292
   store float %22, ptr %m_body_T_parent, align 4
-  %ref.tmp.sroa.2.0.m_body_T_parent.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i212, i64 296
+  %ref.tmp.sroa.2.0.m_body_T_parent.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i212, i64 296
   store float %27, ptr %ref.tmp.sroa.2.0.m_body_T_parent.sroa_idx, align 4
-  %ref.tmp.sroa.3.0.m_body_T_parent.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i212, i64 300
+  %ref.tmp.sroa.3.0.m_body_T_parent.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i212, i64 300
   store float %32, ptr %ref.tmp.sroa.3.0.m_body_T_parent.sroa_idx, align 4
-  %ref.tmp.sroa.4.0.m_body_T_parent.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i212, i64 304
+  %ref.tmp.sroa.4.0.m_body_T_parent.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i212, i64 304
   store float 0.000000e+00, ptr %ref.tmp.sroa.4.0.m_body_T_parent.sroa_idx, align 4
-  %arrayidx7.i.i = getelementptr inbounds i8, ptr %arrayidx.i212, i64 308
+  %arrayidx7.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i212, i64 308
   store float %37, ptr %arrayidx7.i.i, align 4
-  %ref.tmp.sroa.7.16.arrayidx7.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i212, i64 312
+  %ref.tmp.sroa.7.16.arrayidx7.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i212, i64 312
   store float %39, ptr %ref.tmp.sroa.7.16.arrayidx7.i.i.sroa_idx, align 4
-  %ref.tmp.sroa.8.16.arrayidx7.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i212, i64 316
+  %ref.tmp.sroa.8.16.arrayidx7.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i212, i64 316
   store float %41, ptr %ref.tmp.sroa.8.16.arrayidx7.i.i.sroa_idx, align 4
-  %ref.tmp.sroa.9.16.arrayidx7.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i212, i64 320
+  %ref.tmp.sroa.9.16.arrayidx7.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i212, i64 320
   store float 0.000000e+00, ptr %ref.tmp.sroa.9.16.arrayidx7.i.i.sroa_idx, align 4
-  %arrayidx11.i.i = getelementptr inbounds i8, ptr %arrayidx.i212, i64 324
+  %arrayidx11.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i212, i64 324
   store float %46, ptr %arrayidx11.i.i, align 4
-  %ref.tmp.sroa.12.32.arrayidx11.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i212, i64 328
+  %ref.tmp.sroa.12.32.arrayidx11.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i212, i64 328
   store float %48, ptr %ref.tmp.sroa.12.32.arrayidx11.i.i.sroa_idx, align 4
-  %ref.tmp.sroa.13.32.arrayidx11.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i212, i64 332
+  %ref.tmp.sroa.13.32.arrayidx11.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i212, i64 332
   store float %50, ptr %ref.tmp.sroa.13.32.arrayidx11.i.i.sroa_idx, align 4
-  %ref.tmp.sroa.14.32.arrayidx11.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i212, i64 336
+  %ref.tmp.sroa.14.32.arrayidx11.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i212, i64 336
   store float 0.000000e+00, ptr %ref.tmp.sroa.14.32.arrayidx11.i.i.sroa_idx, align 4
   br i1 %cond, label %for.inc, label %if.then29
 
@@ -2692,18 +2692,18 @@ if.then29:                                        ; preds = %for.body
   %53 = load float, ptr %m_Jac_JR, align 4
   %54 = load float, ptr %arrayidx.i.i.i217, align 4
   %mul.i = fmul float %53, %54
-  %arrayidx3.i = getelementptr inbounds i8, ptr %arrayidx.i212, i64 492
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %arrayidx.i212, i64 492
   %55 = load float, ptr %arrayidx3.i, align 4
   %mul4.i = fmul float %54, %55
-  %arrayidx7.i = getelementptr inbounds i8, ptr %arrayidx.i212, i64 496
+  %arrayidx7.i = getelementptr inbounds nuw i8, ptr %arrayidx.i212, i64 496
   %56 = load float, ptr %arrayidx7.i, align 4
   %mul8.i = fmul float %54, %56
   %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %mul.i, i64 0
   %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %mul4.i, i64 1
   %retval.sroa.3.12.vec.insert.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %mul8.i, i64 0
-  %m_body_ang_vel_rel = getelementptr inbounds i8, ptr %arrayidx.i212, i64 356
+  %m_body_ang_vel_rel = getelementptr inbounds nuw i8, ptr %arrayidx.i212, i64 356
   store <2 x float> %retval.sroa.0.4.vec.insert.i, ptr %m_body_ang_vel_rel, align 4
-  %ref.tmp30.sroa.2.0.m_body_ang_vel_rel.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i212, i64 364
+  %ref.tmp30.sroa.2.0.m_body_ang_vel_rel.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i212, i64 364
   store <2 x float> %retval.sroa.3.12.vec.insert.i, ptr %ref.tmp30.sroa.2.0.m_body_ang_vel_rel.sroa_idx, align 4
   br i1 %cmp37, label %if.then38, label %for.inc
 
@@ -2717,9 +2717,9 @@ if.then38:                                        ; preds = %if.then29
   %retval.sroa.0.0.vec.insert.i226 = insertelement <2 x float> poison, float %mul.i221, i64 0
   %retval.sroa.0.4.vec.insert.i227 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i226, float %mul4.i223, i64 1
   %retval.sroa.3.12.vec.insert.i228 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %mul8.i225, i64 0
-  %m_body_ang_acc_rel = getelementptr inbounds i8, ptr %arrayidx.i212, i64 388
+  %m_body_ang_acc_rel = getelementptr inbounds nuw i8, ptr %arrayidx.i212, i64 388
   store <2 x float> %retval.sroa.0.4.vec.insert.i227, ptr %m_body_ang_acc_rel, align 4
-  %ref.tmp39.sroa.2.0.m_body_ang_acc_rel.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i212, i64 396
+  %ref.tmp39.sroa.2.0.m_body_ang_acc_rel.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i212, i64 396
   store <2 x float> %retval.sroa.3.12.vec.insert.i228, ptr %ref.tmp39.sroa.2.0.m_body_ang_acc_rel.sroa_idx, align 4
   br label %for.inc
 
@@ -2731,56 +2731,56 @@ for.inc:                                          ; preds = %for.body, %if.then2
   br i1 %cmp22, label %for.body, label %for.cond48.preheader, !llvm.loop !40
 
 for.cond94.preheader:                             ; preds = %for.inc90, %for.cond48.preheader
-  %m_size.i304 = getelementptr inbounds i8, ptr %this, i64 188
+  %m_size.i304 = getelementptr inbounds nuw i8, ptr %this, i64 188
   %61 = load i32, ptr %m_size.i304, align 4
   %cmp961224 = icmp sgt i32 %61, 0
   br i1 %cmp961224, label %for.body97.lr.ph, label %for.cond225.preheader
 
 for.body97.lr.ph:                                 ; preds = %for.cond94.preheader
-  %m_data.i305 = getelementptr inbounds i8, ptr %this, i64 200
-  %m_data.i308 = getelementptr inbounds i8, ptr %this, i64 40
-  %m_data.i.i.i311 = getelementptr inbounds i8, ptr %q, i64 16
-  %arrayidx4.i.i317 = getelementptr inbounds i8, ptr %ref.tmp108, i64 16
-  %arrayidx.i.i.i318 = getelementptr inbounds i8, ptr %ref.tmp105, i64 4
-  %arrayidx9.i.i320 = getelementptr inbounds i8, ptr %ref.tmp108, i64 32
-  %arrayidx.i3.i.i321 = getelementptr inbounds i8, ptr %ref.tmp105, i64 8
-  %arrayidx.i.i17.i322 = getelementptr inbounds i8, ptr %ref.tmp108, i64 4
-  %arrayidx.i3.i18.i323 = getelementptr inbounds i8, ptr %ref.tmp108, i64 20
-  %arrayidx.i5.i.i325 = getelementptr inbounds i8, ptr %ref.tmp108, i64 36
-  %arrayidx.i.i20.i326 = getelementptr inbounds i8, ptr %ref.tmp108, i64 8
-  %arrayidx.i3.i21.i327 = getelementptr inbounds i8, ptr %ref.tmp108, i64 24
-  %arrayidx.i5.i24.i329 = getelementptr inbounds i8, ptr %ref.tmp108, i64 40
-  %arrayidx.i.i330 = getelementptr inbounds i8, ptr %ref.tmp105, i64 16
-  %arrayidx.i.i27.i331 = getelementptr inbounds i8, ptr %ref.tmp105, i64 20
-  %arrayidx.i3.i30.i333 = getelementptr inbounds i8, ptr %ref.tmp105, i64 24
-  %arrayidx.i45.i336 = getelementptr inbounds i8, ptr %ref.tmp105, i64 32
-  %arrayidx.i.i47.i337 = getelementptr inbounds i8, ptr %ref.tmp105, i64 36
-  %arrayidx.i3.i50.i339 = getelementptr inbounds i8, ptr %ref.tmp105, i64 40
-  %arrayidx4.i.i356 = getelementptr inbounds i8, ptr %ref.tmp112, i64 16
-  %arrayidx9.i.i359 = getelementptr inbounds i8, ptr %ref.tmp112, i64 32
-  %arrayidx.i.i17.i361 = getelementptr inbounds i8, ptr %ref.tmp112, i64 4
-  %arrayidx.i3.i18.i362 = getelementptr inbounds i8, ptr %ref.tmp112, i64 20
-  %arrayidx.i5.i.i364 = getelementptr inbounds i8, ptr %ref.tmp112, i64 36
-  %arrayidx.i.i20.i365 = getelementptr inbounds i8, ptr %ref.tmp112, i64 8
-  %arrayidx.i3.i21.i366 = getelementptr inbounds i8, ptr %ref.tmp112, i64 24
-  %arrayidx.i5.i24.i368 = getelementptr inbounds i8, ptr %ref.tmp112, i64 40
+  %m_data.i305 = getelementptr inbounds nuw i8, ptr %this, i64 200
+  %m_data.i308 = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %m_data.i.i.i311 = getelementptr inbounds nuw i8, ptr %q, i64 16
+  %arrayidx4.i.i317 = getelementptr inbounds nuw i8, ptr %ref.tmp108, i64 16
+  %arrayidx.i.i.i318 = getelementptr inbounds nuw i8, ptr %ref.tmp105, i64 4
+  %arrayidx9.i.i320 = getelementptr inbounds nuw i8, ptr %ref.tmp108, i64 32
+  %arrayidx.i3.i.i321 = getelementptr inbounds nuw i8, ptr %ref.tmp105, i64 8
+  %arrayidx.i.i17.i322 = getelementptr inbounds nuw i8, ptr %ref.tmp108, i64 4
+  %arrayidx.i3.i18.i323 = getelementptr inbounds nuw i8, ptr %ref.tmp108, i64 20
+  %arrayidx.i5.i.i325 = getelementptr inbounds nuw i8, ptr %ref.tmp108, i64 36
+  %arrayidx.i.i20.i326 = getelementptr inbounds nuw i8, ptr %ref.tmp108, i64 8
+  %arrayidx.i3.i21.i327 = getelementptr inbounds nuw i8, ptr %ref.tmp108, i64 24
+  %arrayidx.i5.i24.i329 = getelementptr inbounds nuw i8, ptr %ref.tmp108, i64 40
+  %arrayidx.i.i330 = getelementptr inbounds nuw i8, ptr %ref.tmp105, i64 16
+  %arrayidx.i.i27.i331 = getelementptr inbounds nuw i8, ptr %ref.tmp105, i64 20
+  %arrayidx.i3.i30.i333 = getelementptr inbounds nuw i8, ptr %ref.tmp105, i64 24
+  %arrayidx.i45.i336 = getelementptr inbounds nuw i8, ptr %ref.tmp105, i64 32
+  %arrayidx.i.i47.i337 = getelementptr inbounds nuw i8, ptr %ref.tmp105, i64 36
+  %arrayidx.i3.i50.i339 = getelementptr inbounds nuw i8, ptr %ref.tmp105, i64 40
+  %arrayidx4.i.i356 = getelementptr inbounds nuw i8, ptr %ref.tmp112, i64 16
+  %arrayidx9.i.i359 = getelementptr inbounds nuw i8, ptr %ref.tmp112, i64 32
+  %arrayidx.i.i17.i361 = getelementptr inbounds nuw i8, ptr %ref.tmp112, i64 4
+  %arrayidx.i3.i18.i362 = getelementptr inbounds nuw i8, ptr %ref.tmp112, i64 20
+  %arrayidx.i5.i.i364 = getelementptr inbounds nuw i8, ptr %ref.tmp112, i64 36
+  %arrayidx.i.i20.i365 = getelementptr inbounds nuw i8, ptr %ref.tmp112, i64 8
+  %arrayidx.i3.i21.i366 = getelementptr inbounds nuw i8, ptr %ref.tmp112, i64 24
+  %arrayidx.i5.i24.i368 = getelementptr inbounds nuw i8, ptr %ref.tmp112, i64 40
   %cond203 = icmp eq i32 %type, 0
-  %m_data.i.i.i426 = getelementptr inbounds i8, ptr %u, i64 16
+  %m_data.i.i.i426 = getelementptr inbounds nuw i8, ptr %u, i64 16
   %cmp180 = icmp eq i32 %type, 2
-  %m_data.i.i.i487 = getelementptr inbounds i8, ptr %dot_u, i64 16
+  %m_data.i.i.i487 = getelementptr inbounds nuw i8, ptr %dot_u, i64 16
   br label %for.body97
 
 for.body51:                                       ; preds = %for.body51.lr.ph, %for.inc90
   %indvars.iv1231 = phi i64 [ 0, %for.body51.lr.ph ], [ %indvars.iv.next1232, %for.inc90 ]
   %62 = load ptr, ptr %m_data.i232, align 8
-  %arrayidx.i234 = getelementptr inbounds i32, ptr %62, i64 %indvars.iv1231
+  %arrayidx.i234 = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv1231
   %63 = load i32, ptr %arrayidx.i234, align 4
   %64 = load ptr, ptr %m_data.i235, align 8
   %idxprom.i236 = sext i32 %63 to i64
   %arrayidx.i237 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %64, i64 %idxprom.i236
-  %m_parent_pos_parent_body_ref = getelementptr inbounds i8, ptr %arrayidx.i237, i64 424
-  %m_parent_Jac_JT = getelementptr inbounds i8, ptr %arrayidx.i237, i64 520
-  %m_q_index59 = getelementptr inbounds i8, ptr %arrayidx.i237, i64 536
+  %m_parent_pos_parent_body_ref = getelementptr inbounds nuw i8, ptr %arrayidx.i237, i64 424
+  %m_parent_Jac_JT = getelementptr inbounds nuw i8, ptr %arrayidx.i237, i64 520
+  %m_q_index59 = getelementptr inbounds nuw i8, ptr %arrayidx.i237, i64 536
   %65 = load i32, ptr %m_q_index59, align 8
   %66 = load ptr, ptr %m_data.i.i.i238, align 8
   %idxprom.i.i.i239 = sext i32 %65 to i64
@@ -2788,39 +2788,39 @@ for.body51:                                       ; preds = %for.body51.lr.ph, %
   %67 = load float, ptr %m_parent_Jac_JT, align 4
   %68 = load float, ptr %arrayidx.i.i.i240, align 4
   %mul.i241 = fmul float %67, %68
-  %arrayidx3.i242 = getelementptr inbounds i8, ptr %arrayidx.i237, i64 524
+  %arrayidx3.i242 = getelementptr inbounds nuw i8, ptr %arrayidx.i237, i64 524
   %69 = load float, ptr %arrayidx3.i242, align 4
   %mul4.i243 = fmul float %68, %69
-  %arrayidx7.i244 = getelementptr inbounds i8, ptr %arrayidx.i237, i64 528
+  %arrayidx7.i244 = getelementptr inbounds nuw i8, ptr %arrayidx.i237, i64 528
   %70 = load float, ptr %arrayidx7.i244, align 4
   %mul8.i245 = fmul float %68, %70
   %71 = load float, ptr %m_parent_pos_parent_body_ref, align 4
   %add.i = fadd float %mul.i241, %71
-  %arrayidx5.i = getelementptr inbounds i8, ptr %arrayidx.i237, i64 428
+  %arrayidx5.i = getelementptr inbounds nuw i8, ptr %arrayidx.i237, i64 428
   %72 = load float, ptr %arrayidx5.i, align 4
   %add8.i = fadd float %mul4.i243, %72
-  %arrayidx11.i = getelementptr inbounds i8, ptr %arrayidx.i237, i64 432
+  %arrayidx11.i = getelementptr inbounds nuw i8, ptr %arrayidx.i237, i64 432
   %73 = load float, ptr %arrayidx11.i, align 4
   %add14.i = fadd float %mul8.i245, %73
   %retval.sroa.0.0.vec.insert.i252 = insertelement <2 x float> poison, float %add.i, i64 0
   %retval.sroa.0.4.vec.insert.i253 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i252, float %add8.i, i64 1
   %retval.sroa.3.12.vec.insert.i254 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add14.i, i64 0
-  %m_parent_pos_parent_body = getelementptr inbounds i8, ptr %arrayidx.i237, i64 340
+  %m_parent_pos_parent_body = getelementptr inbounds nuw i8, ptr %arrayidx.i237, i64 340
   store <2 x float> %retval.sroa.0.4.vec.insert.i253, ptr %m_parent_pos_parent_body, align 4
-  %ref.tmp57.sroa.2.0.m_parent_pos_parent_body.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i237, i64 348
+  %ref.tmp57.sroa.2.0.m_parent_pos_parent_body.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i237, i64 348
   store <2 x float> %retval.sroa.3.12.vec.insert.i254, ptr %ref.tmp57.sroa.2.0.m_parent_pos_parent_body.sroa_idx, align 4
   br i1 %cond202, label %for.inc90, label %if.then67
 
 if.then67:                                        ; preds = %for.body51
-  %m_body_T_parent_ref71 = getelementptr inbounds i8, ptr %arrayidx.i237, i64 440
-  %arrayidx3.i257 = getelementptr inbounds i8, ptr %arrayidx.i237, i64 456
-  %arrayidx6.i = getelementptr inbounds i8, ptr %arrayidx.i237, i64 472
-  %arrayidx.i.i258 = getelementptr inbounds i8, ptr %arrayidx.i237, i64 444
-  %arrayidx.i1.i = getelementptr inbounds i8, ptr %arrayidx.i237, i64 460
-  %arrayidx.i2.i = getelementptr inbounds i8, ptr %arrayidx.i237, i64 476
-  %arrayidx.i3.i = getelementptr inbounds i8, ptr %arrayidx.i237, i64 448
-  %arrayidx.i4.i = getelementptr inbounds i8, ptr %arrayidx.i237, i64 464
-  %arrayidx.i5.i = getelementptr inbounds i8, ptr %arrayidx.i237, i64 480
+  %m_body_T_parent_ref71 = getelementptr inbounds nuw i8, ptr %arrayidx.i237, i64 440
+  %arrayidx3.i257 = getelementptr inbounds nuw i8, ptr %arrayidx.i237, i64 456
+  %arrayidx6.i = getelementptr inbounds nuw i8, ptr %arrayidx.i237, i64 472
+  %arrayidx.i.i258 = getelementptr inbounds nuw i8, ptr %arrayidx.i237, i64 444
+  %arrayidx.i1.i = getelementptr inbounds nuw i8, ptr %arrayidx.i237, i64 460
+  %arrayidx.i2.i = getelementptr inbounds nuw i8, ptr %arrayidx.i237, i64 476
+  %arrayidx.i3.i = getelementptr inbounds nuw i8, ptr %arrayidx.i237, i64 448
+  %arrayidx.i4.i = getelementptr inbounds nuw i8, ptr %arrayidx.i237, i64 464
+  %arrayidx.i5.i = getelementptr inbounds nuw i8, ptr %arrayidx.i237, i64 480
   %74 = load float, ptr %m_body_T_parent_ref71, align 4, !noalias !41
   %75 = load float, ptr %arrayidx3.i257, align 4, !noalias !41
   %76 = load float, ptr %arrayidx6.i, align 4, !noalias !41
@@ -2830,13 +2830,13 @@ if.then67:                                        ; preds = %for.body51
   %80 = load float, ptr %arrayidx.i3.i, align 4, !noalias !41
   %81 = load float, ptr %arrayidx.i4.i, align 4, !noalias !41
   %82 = load float, ptr %arrayidx.i5.i, align 4, !noalias !41
-  %m_Jac_JT = getelementptr inbounds i8, ptr %arrayidx.i237, i64 504
+  %m_Jac_JT = getelementptr inbounds nuw i8, ptr %arrayidx.i237, i64 504
   %83 = load float, ptr %m_Jac_JT, align 4
-  %arrayidx7.i.i271 = getelementptr inbounds i8, ptr %arrayidx.i237, i64 508
+  %arrayidx7.i.i271 = getelementptr inbounds nuw i8, ptr %arrayidx.i237, i64 508
   %84 = load float, ptr %arrayidx7.i.i271, align 4
   %mul8.i.i = fmul float %75, %84
   %85 = call float @llvm.fmuladd.f32(float %74, float %83, float %mul8.i.i)
-  %arrayidx12.i.i = getelementptr inbounds i8, ptr %arrayidx.i237, i64 512
+  %arrayidx12.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i237, i64 512
   %86 = load float, ptr %arrayidx12.i.i, align 4
   %87 = call noundef float @llvm.fmuladd.f32(float %76, float %86, float %85)
   %mul8.i7.i = fmul float %78, %84
@@ -2854,9 +2854,9 @@ if.then67:                                        ; preds = %for.body51
   %retval.sroa.0.0.vec.insert.i286 = insertelement <2 x float> poison, float %mul.i281, i64 0
   %retval.sroa.0.4.vec.insert.i287 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i286, float %mul4.i283, i64 1
   %retval.sroa.3.12.vec.insert.i288 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %mul8.i285, i64 0
-  %m_parent_vel_rel = getelementptr inbounds i8, ptr %arrayidx.i237, i64 372
+  %m_parent_vel_rel = getelementptr inbounds nuw i8, ptr %arrayidx.i237, i64 372
   store <2 x float> %retval.sroa.0.4.vec.insert.i287, ptr %m_parent_vel_rel, align 4
-  %ref.tmp68.sroa.2.0.m_parent_vel_rel.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i237, i64 380
+  %ref.tmp68.sroa.2.0.m_parent_vel_rel.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i237, i64 380
   store <2 x float> %retval.sroa.3.12.vec.insert.i288, ptr %ref.tmp68.sroa.2.0.m_parent_vel_rel.sroa_idx, align 4
   br i1 %cmp80, label %if.then81, label %for.inc90
 
@@ -2870,9 +2870,9 @@ if.then81:                                        ; preds = %if.then67
   %retval.sroa.0.0.vec.insert.i299 = insertelement <2 x float> poison, float %mul.i294, i64 0
   %retval.sroa.0.4.vec.insert.i300 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i299, float %mul4.i296, i64 1
   %retval.sroa.3.12.vec.insert.i301 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %mul8.i298, i64 0
-  %m_parent_acc_rel = getelementptr inbounds i8, ptr %arrayidx.i237, i64 404
+  %m_parent_acc_rel = getelementptr inbounds nuw i8, ptr %arrayidx.i237, i64 404
   store <2 x float> %retval.sroa.0.4.vec.insert.i300, ptr %m_parent_acc_rel, align 4
-  %ref.tmp82.sroa.2.0.m_parent_acc_rel.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i237, i64 412
+  %ref.tmp82.sroa.2.0.m_parent_acc_rel.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i237, i64 412
   store <2 x float> %retval.sroa.3.12.vec.insert.i301, ptr %ref.tmp82.sroa.2.0.m_parent_acc_rel.sroa_idx, align 4
   br label %for.inc90
 
@@ -2884,54 +2884,54 @@ for.inc90:                                        ; preds = %for.body51, %if.the
   br i1 %cmp50, label %for.body51, label %for.cond94.preheader, !llvm.loop !44
 
 for.cond225.preheader:                            ; preds = %for.inc221, %for.cond94.preheader
-  %m_size.i548 = getelementptr inbounds i8, ptr %this, i64 220
+  %m_size.i548 = getelementptr inbounds nuw i8, ptr %this, i64 220
   %98 = load i32, ptr %m_size.i548, align 4
   %cmp2271226 = icmp sgt i32 %98, 0
   br i1 %cmp2271226, label %for.body228.lr.ph, label %for.end320
 
 for.body228.lr.ph:                                ; preds = %for.cond225.preheader
-  %m_data.i549 = getelementptr inbounds i8, ptr %this, i64 232
-  %m_data.i552 = getelementptr inbounds i8, ptr %this, i64 40
-  %m_data.i.i.i555 = getelementptr inbounds i8, ptr %q, i64 16
-  %arrayidx4.i.i561 = getelementptr inbounds i8, ptr %ref.tmp240, i64 16
-  %arrayidx.i.i.i562 = getelementptr inbounds i8, ptr %ref.tmp237, i64 4
-  %arrayidx9.i.i564 = getelementptr inbounds i8, ptr %ref.tmp240, i64 32
-  %arrayidx.i3.i.i565 = getelementptr inbounds i8, ptr %ref.tmp237, i64 8
-  %arrayidx.i.i17.i566 = getelementptr inbounds i8, ptr %ref.tmp240, i64 4
-  %arrayidx.i3.i18.i567 = getelementptr inbounds i8, ptr %ref.tmp240, i64 20
-  %arrayidx.i5.i.i569 = getelementptr inbounds i8, ptr %ref.tmp240, i64 36
-  %arrayidx.i.i20.i570 = getelementptr inbounds i8, ptr %ref.tmp240, i64 8
-  %arrayidx.i3.i21.i571 = getelementptr inbounds i8, ptr %ref.tmp240, i64 24
-  %arrayidx.i5.i24.i573 = getelementptr inbounds i8, ptr %ref.tmp240, i64 40
-  %arrayidx.i.i574 = getelementptr inbounds i8, ptr %ref.tmp237, i64 16
-  %arrayidx.i.i27.i575 = getelementptr inbounds i8, ptr %ref.tmp237, i64 20
-  %arrayidx.i3.i30.i577 = getelementptr inbounds i8, ptr %ref.tmp237, i64 24
-  %arrayidx.i45.i580 = getelementptr inbounds i8, ptr %ref.tmp237, i64 32
-  %arrayidx.i.i47.i581 = getelementptr inbounds i8, ptr %ref.tmp237, i64 36
-  %arrayidx.i3.i50.i583 = getelementptr inbounds i8, ptr %ref.tmp237, i64 40
-  %arrayidx4.i.i600 = getelementptr inbounds i8, ptr %ref.tmp244, i64 16
-  %arrayidx9.i.i603 = getelementptr inbounds i8, ptr %ref.tmp244, i64 32
-  %arrayidx.i.i17.i605 = getelementptr inbounds i8, ptr %ref.tmp244, i64 4
-  %arrayidx.i3.i18.i606 = getelementptr inbounds i8, ptr %ref.tmp244, i64 20
-  %arrayidx.i5.i.i608 = getelementptr inbounds i8, ptr %ref.tmp244, i64 36
-  %arrayidx.i.i20.i609 = getelementptr inbounds i8, ptr %ref.tmp244, i64 8
-  %arrayidx.i3.i21.i610 = getelementptr inbounds i8, ptr %ref.tmp244, i64 24
-  %arrayidx.i5.i24.i612 = getelementptr inbounds i8, ptr %ref.tmp244, i64 40
+  %m_data.i549 = getelementptr inbounds nuw i8, ptr %this, i64 232
+  %m_data.i552 = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %m_data.i.i.i555 = getelementptr inbounds nuw i8, ptr %q, i64 16
+  %arrayidx4.i.i561 = getelementptr inbounds nuw i8, ptr %ref.tmp240, i64 16
+  %arrayidx.i.i.i562 = getelementptr inbounds nuw i8, ptr %ref.tmp237, i64 4
+  %arrayidx9.i.i564 = getelementptr inbounds nuw i8, ptr %ref.tmp240, i64 32
+  %arrayidx.i3.i.i565 = getelementptr inbounds nuw i8, ptr %ref.tmp237, i64 8
+  %arrayidx.i.i17.i566 = getelementptr inbounds nuw i8, ptr %ref.tmp240, i64 4
+  %arrayidx.i3.i18.i567 = getelementptr inbounds nuw i8, ptr %ref.tmp240, i64 20
+  %arrayidx.i5.i.i569 = getelementptr inbounds nuw i8, ptr %ref.tmp240, i64 36
+  %arrayidx.i.i20.i570 = getelementptr inbounds nuw i8, ptr %ref.tmp240, i64 8
+  %arrayidx.i3.i21.i571 = getelementptr inbounds nuw i8, ptr %ref.tmp240, i64 24
+  %arrayidx.i5.i24.i573 = getelementptr inbounds nuw i8, ptr %ref.tmp240, i64 40
+  %arrayidx.i.i574 = getelementptr inbounds nuw i8, ptr %ref.tmp237, i64 16
+  %arrayidx.i.i27.i575 = getelementptr inbounds nuw i8, ptr %ref.tmp237, i64 20
+  %arrayidx.i3.i30.i577 = getelementptr inbounds nuw i8, ptr %ref.tmp237, i64 24
+  %arrayidx.i45.i580 = getelementptr inbounds nuw i8, ptr %ref.tmp237, i64 32
+  %arrayidx.i.i47.i581 = getelementptr inbounds nuw i8, ptr %ref.tmp237, i64 36
+  %arrayidx.i3.i50.i583 = getelementptr inbounds nuw i8, ptr %ref.tmp237, i64 40
+  %arrayidx4.i.i600 = getelementptr inbounds nuw i8, ptr %ref.tmp244, i64 16
+  %arrayidx9.i.i603 = getelementptr inbounds nuw i8, ptr %ref.tmp244, i64 32
+  %arrayidx.i.i17.i605 = getelementptr inbounds nuw i8, ptr %ref.tmp244, i64 4
+  %arrayidx.i3.i18.i606 = getelementptr inbounds nuw i8, ptr %ref.tmp244, i64 20
+  %arrayidx.i5.i.i608 = getelementptr inbounds nuw i8, ptr %ref.tmp244, i64 36
+  %arrayidx.i.i20.i609 = getelementptr inbounds nuw i8, ptr %ref.tmp244, i64 8
+  %arrayidx.i3.i21.i610 = getelementptr inbounds nuw i8, ptr %ref.tmp244, i64 24
+  %arrayidx.i5.i24.i612 = getelementptr inbounds nuw i8, ptr %ref.tmp244, i64 40
   %cond204 = icmp eq i32 %type, 0
-  %m_data.i.i.i701 = getelementptr inbounds i8, ptr %u, i64 16
+  %m_data.i.i.i701 = getelementptr inbounds nuw i8, ptr %u, i64 16
   %cmp292 = icmp eq i32 %type, 2
-  %m_data.i.i.i750 = getelementptr inbounds i8, ptr %dot_u, i64 16
+  %m_data.i.i.i750 = getelementptr inbounds nuw i8, ptr %dot_u, i64 16
   br label %for.body228
 
 for.body97:                                       ; preds = %for.body97.lr.ph, %for.inc221
   %indvars.iv1234 = phi i64 [ 0, %for.body97.lr.ph ], [ %indvars.iv.next1235, %for.inc221 ]
   %99 = load ptr, ptr %m_data.i305, align 8
-  %arrayidx.i307 = getelementptr inbounds i32, ptr %99, i64 %indvars.iv1234
+  %arrayidx.i307 = getelementptr inbounds nuw i32, ptr %99, i64 %indvars.iv1234
   %100 = load i32, ptr %arrayidx.i307, align 4
   %101 = load ptr, ptr %m_data.i308, align 8
   %idxprom.i309 = sext i32 %100 to i64
   %arrayidx.i310 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %101, i64 %idxprom.i309
-  %m_q_index106 = getelementptr inbounds i8, ptr %arrayidx.i310, i64 536
+  %m_q_index106 = getelementptr inbounds nuw i8, ptr %arrayidx.i310, i64 536
   %102 = load i32, ptr %m_q_index106, align 8
   %103 = load ptr, ptr %m_data.i.i.i311, align 8
   %104 = sext i32 %102 to i64
@@ -3030,29 +3030,29 @@ for.body97:                                       ; preds = %for.body97.lr.ph, %
   %mul7.i62.i380 = fmul float %143, %159
   %173 = call float @llvm.fmuladd.f32(float %158, float %141, float %mul7.i62.i380)
   %174 = call noundef float @llvm.fmuladd.f32(float %161, float %145, float %173)
-  %m_body_T_parent115 = getelementptr inbounds i8, ptr %arrayidx.i310, i64 292
+  %m_body_T_parent115 = getelementptr inbounds nuw i8, ptr %arrayidx.i310, i64 292
   store float %152, ptr %m_body_T_parent115, align 4
-  %ref.tmp103.sroa.2.0.m_body_T_parent115.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i310, i64 296
+  %ref.tmp103.sroa.2.0.m_body_T_parent115.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i310, i64 296
   store float %157, ptr %ref.tmp103.sroa.2.0.m_body_T_parent115.sroa_idx, align 4
-  %ref.tmp103.sroa.3.0.m_body_T_parent115.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i310, i64 300
+  %ref.tmp103.sroa.3.0.m_body_T_parent115.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i310, i64 300
   store float %162, ptr %ref.tmp103.sroa.3.0.m_body_T_parent115.sroa_idx, align 4
-  %ref.tmp103.sroa.4.0.m_body_T_parent115.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i310, i64 304
+  %ref.tmp103.sroa.4.0.m_body_T_parent115.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i310, i64 304
   store float 0.000000e+00, ptr %ref.tmp103.sroa.4.0.m_body_T_parent115.sroa_idx, align 4
-  %arrayidx7.i.i393 = getelementptr inbounds i8, ptr %arrayidx.i310, i64 308
+  %arrayidx7.i.i393 = getelementptr inbounds nuw i8, ptr %arrayidx.i310, i64 308
   store float %164, ptr %arrayidx7.i.i393, align 4
-  %ref.tmp103.sroa.7.16.arrayidx7.i.i393.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i310, i64 312
+  %ref.tmp103.sroa.7.16.arrayidx7.i.i393.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i310, i64 312
   store float %166, ptr %ref.tmp103.sroa.7.16.arrayidx7.i.i393.sroa_idx, align 4
-  %ref.tmp103.sroa.8.16.arrayidx7.i.i393.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i310, i64 316
+  %ref.tmp103.sroa.8.16.arrayidx7.i.i393.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i310, i64 316
   store float %168, ptr %ref.tmp103.sroa.8.16.arrayidx7.i.i393.sroa_idx, align 4
-  %ref.tmp103.sroa.9.16.arrayidx7.i.i393.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i310, i64 320
+  %ref.tmp103.sroa.9.16.arrayidx7.i.i393.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i310, i64 320
   store float 0.000000e+00, ptr %ref.tmp103.sroa.9.16.arrayidx7.i.i393.sroa_idx, align 4
-  %arrayidx11.i.i395 = getelementptr inbounds i8, ptr %arrayidx.i310, i64 324
+  %arrayidx11.i.i395 = getelementptr inbounds nuw i8, ptr %arrayidx.i310, i64 324
   store float %170, ptr %arrayidx11.i.i395, align 4
-  %ref.tmp103.sroa.12.32.arrayidx11.i.i395.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i310, i64 328
+  %ref.tmp103.sroa.12.32.arrayidx11.i.i395.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i310, i64 328
   store float %172, ptr %ref.tmp103.sroa.12.32.arrayidx11.i.i395.sroa_idx, align 4
-  %ref.tmp103.sroa.13.32.arrayidx11.i.i395.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i310, i64 332
+  %ref.tmp103.sroa.13.32.arrayidx11.i.i395.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i310, i64 332
   store float %174, ptr %ref.tmp103.sroa.13.32.arrayidx11.i.i395.sroa_idx, align 4
-  %ref.tmp103.sroa.14.32.arrayidx11.i.i395.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i310, i64 336
+  %ref.tmp103.sroa.14.32.arrayidx11.i.i395.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i310, i64 336
   store float 0.000000e+00, ptr %ref.tmp103.sroa.14.32.arrayidx11.i.i395.sroa_idx, align 4
   %175 = load i32, ptr %m_q_index106, align 8
   %add118 = add nsw i32 %175, 3
@@ -3060,21 +3060,21 @@ for.body97:                                       ; preds = %for.body97.lr.ph, %
   %idxprom.i.i.i397 = sext i32 %add118 to i64
   %arrayidx.i.i.i398 = getelementptr inbounds float, ptr %176, i64 %idxprom.i.i.i397
   %177 = load float, ptr %arrayidx.i.i.i398, align 4
-  %m_parent_pos_parent_body120 = getelementptr inbounds i8, ptr %arrayidx.i310, i64 340
+  %m_parent_pos_parent_body120 = getelementptr inbounds nuw i8, ptr %arrayidx.i310, i64 340
   store float %177, ptr %m_parent_pos_parent_body120, align 4
   %add123 = add nsw i32 %175, 4
   %178 = load ptr, ptr %m_data.i.i.i311, align 8
   %idxprom.i.i.i401 = sext i32 %add123 to i64
   %arrayidx.i.i.i402 = getelementptr inbounds float, ptr %178, i64 %idxprom.i.i.i401
   %179 = load float, ptr %arrayidx.i.i.i402, align 4
-  %arrayidx.i403 = getelementptr inbounds i8, ptr %arrayidx.i310, i64 344
+  %arrayidx.i403 = getelementptr inbounds nuw i8, ptr %arrayidx.i310, i64 344
   store float %179, ptr %arrayidx.i403, align 4
   %add128 = add nsw i32 %175, 5
   %180 = load ptr, ptr %m_data.i.i.i311, align 8
   %idxprom.i.i.i405 = sext i32 %add128 to i64
   %arrayidx.i.i.i406 = getelementptr inbounds float, ptr %180, i64 %idxprom.i.i.i405
   %181 = load float, ptr %arrayidx.i.i.i406, align 4
-  %arrayidx.i407 = getelementptr inbounds i8, ptr %arrayidx.i310, i64 348
+  %arrayidx.i407 = getelementptr inbounds nuw i8, ptr %arrayidx.i310, i64 348
   %mul8.i.i410 = fmul float %157, %179
   %182 = call float @llvm.fmuladd.f32(float %152, float %177, float %mul8.i.i410)
   %183 = call noundef float @llvm.fmuladd.f32(float %162, float %181, float %182)
@@ -3096,36 +3096,36 @@ if.then140:                                       ; preds = %for.body97
   %idxprom.i.i.i427 = sext i32 %175 to i64
   %arrayidx.i.i.i428 = getelementptr inbounds float, ptr %188, i64 %idxprom.i.i.i427
   %189 = load float, ptr %arrayidx.i.i.i428, align 4
-  %m_body_ang_vel_rel144 = getelementptr inbounds i8, ptr %arrayidx.i310, i64 356
+  %m_body_ang_vel_rel144 = getelementptr inbounds nuw i8, ptr %arrayidx.i310, i64 356
   store float %189, ptr %m_body_ang_vel_rel144, align 4
   %add147 = add nsw i32 %175, 1
   %190 = load ptr, ptr %m_data.i.i.i426, align 8
   %idxprom.i.i.i431 = sext i32 %add147 to i64
   %arrayidx.i.i.i432 = getelementptr inbounds float, ptr %190, i64 %idxprom.i.i.i431
   %191 = load float, ptr %arrayidx.i.i.i432, align 4
-  %arrayidx.i433 = getelementptr inbounds i8, ptr %arrayidx.i310, i64 360
+  %arrayidx.i433 = getelementptr inbounds nuw i8, ptr %arrayidx.i310, i64 360
   store float %191, ptr %arrayidx.i433, align 4
   %add152 = add nsw i32 %175, 2
   %192 = load ptr, ptr %m_data.i.i.i426, align 8
   %idxprom.i.i.i435 = sext i32 %add152 to i64
   %arrayidx.i.i.i436 = getelementptr inbounds float, ptr %192, i64 %idxprom.i.i.i435
   %193 = load float, ptr %arrayidx.i.i.i436, align 4
-  %arrayidx.i437 = getelementptr inbounds i8, ptr %arrayidx.i310, i64 364
+  %arrayidx.i437 = getelementptr inbounds nuw i8, ptr %arrayidx.i310, i64 364
   store float %193, ptr %arrayidx.i437, align 4
   %194 = load ptr, ptr %m_data.i.i.i426, align 8
   %arrayidx.i.i.i440 = getelementptr inbounds float, ptr %194, i64 %idxprom.i.i.i397
   %195 = load float, ptr %arrayidx.i.i.i440, align 4
-  %m_parent_vel_rel159 = getelementptr inbounds i8, ptr %arrayidx.i310, i64 372
+  %m_parent_vel_rel159 = getelementptr inbounds nuw i8, ptr %arrayidx.i310, i64 372
   store float %195, ptr %m_parent_vel_rel159, align 4
   %196 = load ptr, ptr %m_data.i.i.i426, align 8
   %arrayidx.i.i.i444 = getelementptr inbounds float, ptr %196, i64 %idxprom.i.i.i401
   %197 = load float, ptr %arrayidx.i.i.i444, align 4
-  %arrayidx.i445 = getelementptr inbounds i8, ptr %arrayidx.i310, i64 376
+  %arrayidx.i445 = getelementptr inbounds nuw i8, ptr %arrayidx.i310, i64 376
   store float %197, ptr %arrayidx.i445, align 4
   %198 = load ptr, ptr %m_data.i.i.i426, align 8
   %arrayidx.i.i.i448 = getelementptr inbounds float, ptr %198, i64 %idxprom.i.i.i405
   %199 = load float, ptr %arrayidx.i.i.i448, align 4
-  %arrayidx.i449 = getelementptr inbounds i8, ptr %arrayidx.i310, i64 380
+  %arrayidx.i449 = getelementptr inbounds nuw i8, ptr %arrayidx.i310, i64 380
   %mul8.i.i471 = fmul float %164, %197
   %200 = call float @llvm.fmuladd.f32(float %152, float %195, float %mul8.i.i471)
   %201 = call noundef float @llvm.fmuladd.f32(float %170, float %199, float %200)
@@ -3146,32 +3146,32 @@ if.then181:                                       ; preds = %if.then140
   %206 = load ptr, ptr %m_data.i.i.i487, align 8
   %arrayidx.i.i.i489 = getelementptr inbounds float, ptr %206, i64 %idxprom.i.i.i427
   %207 = load float, ptr %arrayidx.i.i.i489, align 4
-  %m_body_ang_acc_rel185 = getelementptr inbounds i8, ptr %arrayidx.i310, i64 388
+  %m_body_ang_acc_rel185 = getelementptr inbounds nuw i8, ptr %arrayidx.i310, i64 388
   store float %207, ptr %m_body_ang_acc_rel185, align 4
   %208 = load ptr, ptr %m_data.i.i.i487, align 8
   %arrayidx.i.i.i493 = getelementptr inbounds float, ptr %208, i64 %idxprom.i.i.i431
   %209 = load float, ptr %arrayidx.i.i.i493, align 4
-  %arrayidx.i494 = getelementptr inbounds i8, ptr %arrayidx.i310, i64 392
+  %arrayidx.i494 = getelementptr inbounds nuw i8, ptr %arrayidx.i310, i64 392
   store float %209, ptr %arrayidx.i494, align 4
   %210 = load ptr, ptr %m_data.i.i.i487, align 8
   %arrayidx.i.i.i497 = getelementptr inbounds float, ptr %210, i64 %idxprom.i.i.i435
   %211 = load float, ptr %arrayidx.i.i.i497, align 4
-  %arrayidx.i498 = getelementptr inbounds i8, ptr %arrayidx.i310, i64 396
+  %arrayidx.i498 = getelementptr inbounds nuw i8, ptr %arrayidx.i310, i64 396
   store float %211, ptr %arrayidx.i498, align 4
   %212 = load ptr, ptr %m_data.i.i.i487, align 8
   %arrayidx.i.i.i501 = getelementptr inbounds float, ptr %212, i64 %idxprom.i.i.i397
   %213 = load float, ptr %arrayidx.i.i.i501, align 4
-  %m_parent_acc_rel200 = getelementptr inbounds i8, ptr %arrayidx.i310, i64 404
+  %m_parent_acc_rel200 = getelementptr inbounds nuw i8, ptr %arrayidx.i310, i64 404
   store float %213, ptr %m_parent_acc_rel200, align 4
   %214 = load ptr, ptr %m_data.i.i.i487, align 8
   %arrayidx.i.i.i505 = getelementptr inbounds float, ptr %214, i64 %idxprom.i.i.i401
   %215 = load float, ptr %arrayidx.i.i.i505, align 4
-  %arrayidx.i506 = getelementptr inbounds i8, ptr %arrayidx.i310, i64 408
+  %arrayidx.i506 = getelementptr inbounds nuw i8, ptr %arrayidx.i310, i64 408
   store float %215, ptr %arrayidx.i506, align 4
   %216 = load ptr, ptr %m_data.i.i.i487, align 8
   %arrayidx.i.i.i509 = getelementptr inbounds float, ptr %216, i64 %idxprom.i.i.i405
   %217 = load float, ptr %arrayidx.i.i.i509, align 4
-  %arrayidx.i510 = getelementptr inbounds i8, ptr %arrayidx.i310, i64 412
+  %arrayidx.i510 = getelementptr inbounds nuw i8, ptr %arrayidx.i310, i64 412
   %mul8.i.i532 = fmul float %164, %215
   %218 = call float @llvm.fmuladd.f32(float %152, float %213, float %mul8.i.i532)
   %219 = call noundef float @llvm.fmuladd.f32(float %170, float %217, float %218)
@@ -3198,12 +3198,12 @@ for.inc221:                                       ; preds = %for.body97, %if.the
 for.body228:                                      ; preds = %for.body228.lr.ph, %for.inc318
   %indvars.iv1237 = phi i64 [ 0, %for.body228.lr.ph ], [ %indvars.iv.next1238, %for.inc318 ]
   %226 = load ptr, ptr %m_data.i549, align 8
-  %arrayidx.i551 = getelementptr inbounds i32, ptr %226, i64 %indvars.iv1237
+  %arrayidx.i551 = getelementptr inbounds nuw i32, ptr %226, i64 %indvars.iv1237
   %227 = load i32, ptr %arrayidx.i551, align 4
   %228 = load ptr, ptr %m_data.i552, align 8
   %idxprom.i553 = sext i32 %227 to i64
   %arrayidx.i554 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %228, i64 %idxprom.i553
-  %m_q_index238 = getelementptr inbounds i8, ptr %arrayidx.i554, i64 536
+  %m_q_index238 = getelementptr inbounds nuw i8, ptr %arrayidx.i554, i64 536
   %229 = load i32, ptr %m_q_index238, align 8
   %230 = load ptr, ptr %m_data.i.i.i555, align 8
   %idxprom.i.i.i556 = sext i32 %229 to i64
@@ -3302,31 +3302,31 @@ for.body228:                                      ; preds = %for.body228.lr.ph, 
   %mul7.i62.i624 = fmul float %268, %286
   %300 = call float @llvm.fmuladd.f32(float %285, float %266, float %mul7.i62.i624)
   %301 = call noundef float @llvm.fmuladd.f32(float %288, float %270, float %300)
-  %m_body_T_parent_ref250 = getelementptr inbounds i8, ptr %arrayidx.i554, i64 440
+  %m_body_T_parent_ref250 = getelementptr inbounds nuw i8, ptr %arrayidx.i554, i64 440
   %302 = load float, ptr %m_body_T_parent_ref250, align 4, !noalias !58
-  %arrayidx4.i.i640 = getelementptr inbounds i8, ptr %arrayidx.i554, i64 456
+  %arrayidx4.i.i640 = getelementptr inbounds nuw i8, ptr %arrayidx.i554, i64 456
   %303 = load float, ptr %arrayidx4.i.i640, align 4, !noalias !58
   %mul7.i.i642 = fmul float %284, %303
   %304 = call float @llvm.fmuladd.f32(float %302, float %279, float %mul7.i.i642)
-  %arrayidx9.i.i643 = getelementptr inbounds i8, ptr %arrayidx.i554, i64 472
+  %arrayidx9.i.i643 = getelementptr inbounds nuw i8, ptr %arrayidx.i554, i64 472
   %305 = load float, ptr %arrayidx9.i.i643, align 4, !noalias !58
   %306 = call noundef float @llvm.fmuladd.f32(float %305, float %289, float %304)
-  %arrayidx.i.i17.i645 = getelementptr inbounds i8, ptr %arrayidx.i554, i64 444
+  %arrayidx.i.i17.i645 = getelementptr inbounds nuw i8, ptr %arrayidx.i554, i64 444
   %307 = load float, ptr %arrayidx.i.i17.i645, align 4, !noalias !58
-  %arrayidx.i3.i18.i646 = getelementptr inbounds i8, ptr %arrayidx.i554, i64 460
+  %arrayidx.i3.i18.i646 = getelementptr inbounds nuw i8, ptr %arrayidx.i554, i64 460
   %308 = load float, ptr %arrayidx.i3.i18.i646, align 4, !noalias !58
   %mul7.i19.i647 = fmul float %284, %308
   %309 = call float @llvm.fmuladd.f32(float %307, float %279, float %mul7.i19.i647)
-  %arrayidx.i5.i.i648 = getelementptr inbounds i8, ptr %arrayidx.i554, i64 476
+  %arrayidx.i5.i.i648 = getelementptr inbounds nuw i8, ptr %arrayidx.i554, i64 476
   %310 = load float, ptr %arrayidx.i5.i.i648, align 4, !noalias !58
   %311 = call noundef float @llvm.fmuladd.f32(float %310, float %289, float %309)
-  %arrayidx.i.i20.i649 = getelementptr inbounds i8, ptr %arrayidx.i554, i64 448
+  %arrayidx.i.i20.i649 = getelementptr inbounds nuw i8, ptr %arrayidx.i554, i64 448
   %312 = load float, ptr %arrayidx.i.i20.i649, align 4, !noalias !58
-  %arrayidx.i3.i21.i650 = getelementptr inbounds i8, ptr %arrayidx.i554, i64 464
+  %arrayidx.i3.i21.i650 = getelementptr inbounds nuw i8, ptr %arrayidx.i554, i64 464
   %313 = load float, ptr %arrayidx.i3.i21.i650, align 4, !noalias !58
   %mul7.i23.i651 = fmul float %284, %313
   %314 = call float @llvm.fmuladd.f32(float %312, float %279, float %mul7.i23.i651)
-  %arrayidx.i5.i24.i652 = getelementptr inbounds i8, ptr %arrayidx.i554, i64 480
+  %arrayidx.i5.i24.i652 = getelementptr inbounds nuw i8, ptr %arrayidx.i554, i64 480
   %315 = load float, ptr %arrayidx.i5.i24.i652, align 4, !noalias !58
   %316 = call noundef float @llvm.fmuladd.f32(float %315, float %289, float %314)
   %mul7.i28.i655 = fmul float %293, %303
@@ -3347,31 +3347,31 @@ for.body228:                                      ; preds = %for.body228.lr.ph, 
   %mul7.i62.i664 = fmul float %299, %313
   %327 = call float @llvm.fmuladd.f32(float %312, float %297, float %mul7.i62.i664)
   %328 = call noundef float @llvm.fmuladd.f32(float %315, float %301, float %327)
-  %m_body_T_parent251 = getelementptr inbounds i8, ptr %arrayidx.i554, i64 292
+  %m_body_T_parent251 = getelementptr inbounds nuw i8, ptr %arrayidx.i554, i64 292
   store float %306, ptr %m_body_T_parent251, align 4
-  %ref.tmp249.sroa.2.0.m_body_T_parent251.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i554, i64 296
+  %ref.tmp249.sroa.2.0.m_body_T_parent251.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i554, i64 296
   store float %311, ptr %ref.tmp249.sroa.2.0.m_body_T_parent251.sroa_idx, align 4
-  %ref.tmp249.sroa.3.0.m_body_T_parent251.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i554, i64 300
+  %ref.tmp249.sroa.3.0.m_body_T_parent251.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i554, i64 300
   store float %316, ptr %ref.tmp249.sroa.3.0.m_body_T_parent251.sroa_idx, align 4
-  %ref.tmp249.sroa.4.0.m_body_T_parent251.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i554, i64 304
+  %ref.tmp249.sroa.4.0.m_body_T_parent251.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i554, i64 304
   store float 0.000000e+00, ptr %ref.tmp249.sroa.4.0.m_body_T_parent251.sroa_idx, align 4
-  %arrayidx7.i.i677 = getelementptr inbounds i8, ptr %arrayidx.i554, i64 308
+  %arrayidx7.i.i677 = getelementptr inbounds nuw i8, ptr %arrayidx.i554, i64 308
   store float %318, ptr %arrayidx7.i.i677, align 4
-  %ref.tmp249.sroa.7.16.arrayidx7.i.i677.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i554, i64 312
+  %ref.tmp249.sroa.7.16.arrayidx7.i.i677.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i554, i64 312
   store float %320, ptr %ref.tmp249.sroa.7.16.arrayidx7.i.i677.sroa_idx, align 4
-  %ref.tmp249.sroa.8.16.arrayidx7.i.i677.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i554, i64 316
+  %ref.tmp249.sroa.8.16.arrayidx7.i.i677.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i554, i64 316
   store float %322, ptr %ref.tmp249.sroa.8.16.arrayidx7.i.i677.sroa_idx, align 4
-  %ref.tmp249.sroa.9.16.arrayidx7.i.i677.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i554, i64 320
+  %ref.tmp249.sroa.9.16.arrayidx7.i.i677.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i554, i64 320
   store float 0.000000e+00, ptr %ref.tmp249.sroa.9.16.arrayidx7.i.i677.sroa_idx, align 4
-  %arrayidx11.i.i679 = getelementptr inbounds i8, ptr %arrayidx.i554, i64 324
+  %arrayidx11.i.i679 = getelementptr inbounds nuw i8, ptr %arrayidx.i554, i64 324
   store float %324, ptr %arrayidx11.i.i679, align 4
-  %ref.tmp249.sroa.12.32.arrayidx11.i.i679.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i554, i64 328
+  %ref.tmp249.sroa.12.32.arrayidx11.i.i679.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i554, i64 328
   store float %326, ptr %ref.tmp249.sroa.12.32.arrayidx11.i.i679.sroa_idx, align 4
-  %ref.tmp249.sroa.13.32.arrayidx11.i.i679.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i554, i64 332
+  %ref.tmp249.sroa.13.32.arrayidx11.i.i679.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i554, i64 332
   store float %328, ptr %ref.tmp249.sroa.13.32.arrayidx11.i.i679.sroa_idx, align 4
-  %ref.tmp249.sroa.14.32.arrayidx11.i.i679.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i554, i64 336
-  %m_parent_pos_parent_body253 = getelementptr inbounds i8, ptr %arrayidx.i554, i64 340
-  %arrayidx.i682 = getelementptr inbounds i8, ptr %arrayidx.i554, i64 348
+  %ref.tmp249.sroa.14.32.arrayidx11.i.i679.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i554, i64 336
+  %m_parent_pos_parent_body253 = getelementptr inbounds nuw i8, ptr %arrayidx.i554, i64 340
+  %arrayidx.i682 = getelementptr inbounds nuw i8, ptr %arrayidx.i554, i64 348
   %mul8.i.i685 = fmul float %311, 0.000000e+00
   %329 = call float @llvm.fmuladd.f32(float %306, float 0.000000e+00, float %mul8.i.i685)
   %330 = call noundef float @llvm.fmuladd.f32(float %316, float 0.000000e+00, float %329)
@@ -3395,29 +3395,29 @@ if.then267:                                       ; preds = %for.body228
   %idxprom.i.i.i702 = sext i32 %335 to i64
   %arrayidx.i.i.i703 = getelementptr inbounds float, ptr %336, i64 %idxprom.i.i.i702
   %337 = load float, ptr %arrayidx.i.i.i703, align 4
-  %m_body_ang_vel_rel271 = getelementptr inbounds i8, ptr %arrayidx.i554, i64 356
+  %m_body_ang_vel_rel271 = getelementptr inbounds nuw i8, ptr %arrayidx.i554, i64 356
   store float %337, ptr %m_body_ang_vel_rel271, align 4
   %add274 = add nsw i32 %335, 1
   %338 = load ptr, ptr %m_data.i.i.i701, align 8
   %idxprom.i.i.i706 = sext i32 %add274 to i64
   %arrayidx.i.i.i707 = getelementptr inbounds float, ptr %338, i64 %idxprom.i.i.i706
   %339 = load float, ptr %arrayidx.i.i.i707, align 4
-  %arrayidx.i708 = getelementptr inbounds i8, ptr %arrayidx.i554, i64 360
+  %arrayidx.i708 = getelementptr inbounds nuw i8, ptr %arrayidx.i554, i64 360
   store float %339, ptr %arrayidx.i708, align 4
   %add279 = add nsw i32 %335, 2
   %340 = load ptr, ptr %m_data.i.i.i701, align 8
   %idxprom.i.i.i710 = sext i32 %add279 to i64
   %arrayidx.i.i.i711 = getelementptr inbounds float, ptr %340, i64 %idxprom.i.i.i710
   %341 = load float, ptr %arrayidx.i.i.i711, align 4
-  %arrayidx.i712 = getelementptr inbounds i8, ptr %arrayidx.i554, i64 364
+  %arrayidx.i712 = getelementptr inbounds nuw i8, ptr %arrayidx.i554, i64 364
   store float %341, ptr %arrayidx.i712, align 4
-  %m_parent_vel_rel286 = getelementptr inbounds i8, ptr %arrayidx.i554, i64 372
+  %m_parent_vel_rel286 = getelementptr inbounds nuw i8, ptr %arrayidx.i554, i64 372
   %342 = load float, ptr %m_parent_vel_rel286, align 4
-  %arrayidx7.i.i733 = getelementptr inbounds i8, ptr %arrayidx.i554, i64 376
+  %arrayidx7.i.i733 = getelementptr inbounds nuw i8, ptr %arrayidx.i554, i64 376
   %343 = load float, ptr %arrayidx7.i.i733, align 4
   %mul8.i.i734 = fmul float %318, %343
   %344 = call float @llvm.fmuladd.f32(float %306, float %342, float %mul8.i.i734)
-  %arrayidx12.i.i736 = getelementptr inbounds i8, ptr %arrayidx.i554, i64 380
+  %arrayidx12.i.i736 = getelementptr inbounds nuw i8, ptr %arrayidx.i554, i64 380
   %345 = load float, ptr %arrayidx12.i.i736, align 4
   %346 = call noundef float @llvm.fmuladd.f32(float %324, float %345, float %344)
   %mul8.i7.i739 = fmul float %320, %343
@@ -3437,25 +3437,25 @@ if.then293:                                       ; preds = %if.then267
   %351 = load ptr, ptr %m_data.i.i.i750, align 8
   %arrayidx.i.i.i752 = getelementptr inbounds float, ptr %351, i64 %idxprom.i.i.i702
   %352 = load float, ptr %arrayidx.i.i.i752, align 4
-  %m_body_ang_acc_rel297 = getelementptr inbounds i8, ptr %arrayidx.i554, i64 388
+  %m_body_ang_acc_rel297 = getelementptr inbounds nuw i8, ptr %arrayidx.i554, i64 388
   store float %352, ptr %m_body_ang_acc_rel297, align 4
   %353 = load ptr, ptr %m_data.i.i.i750, align 8
   %arrayidx.i.i.i756 = getelementptr inbounds float, ptr %353, i64 %idxprom.i.i.i706
   %354 = load float, ptr %arrayidx.i.i.i756, align 4
-  %arrayidx.i757 = getelementptr inbounds i8, ptr %arrayidx.i554, i64 392
+  %arrayidx.i757 = getelementptr inbounds nuw i8, ptr %arrayidx.i554, i64 392
   store float %354, ptr %arrayidx.i757, align 4
   %355 = load ptr, ptr %m_data.i.i.i750, align 8
   %arrayidx.i.i.i760 = getelementptr inbounds float, ptr %355, i64 %idxprom.i.i.i710
   %356 = load float, ptr %arrayidx.i.i.i760, align 4
-  %arrayidx.i761 = getelementptr inbounds i8, ptr %arrayidx.i554, i64 396
+  %arrayidx.i761 = getelementptr inbounds nuw i8, ptr %arrayidx.i554, i64 396
   store float %356, ptr %arrayidx.i761, align 4
-  %m_parent_acc_rel312 = getelementptr inbounds i8, ptr %arrayidx.i554, i64 404
+  %m_parent_acc_rel312 = getelementptr inbounds nuw i8, ptr %arrayidx.i554, i64 404
   %357 = load float, ptr %m_parent_acc_rel312, align 4
-  %arrayidx7.i.i782 = getelementptr inbounds i8, ptr %arrayidx.i554, i64 408
+  %arrayidx7.i.i782 = getelementptr inbounds nuw i8, ptr %arrayidx.i554, i64 408
   %358 = load float, ptr %arrayidx7.i.i782, align 4
   %mul8.i.i783 = fmul float %318, %358
   %359 = call float @llvm.fmuladd.f32(float %306, float %357, float %mul8.i.i783)
-  %arrayidx12.i.i785 = getelementptr inbounds i8, ptr %arrayidx.i554, i64 412
+  %arrayidx12.i.i785 = getelementptr inbounds nuw i8, ptr %arrayidx.i554, i64 412
   %360 = load float, ptr %arrayidx12.i.i785, align 4
   %361 = call noundef float @llvm.fmuladd.f32(float %324, float %360, float %359)
   %mul8.i7.i788 = fmul float %320, %358
@@ -3479,78 +3479,78 @@ for.inc318:                                       ; preds = %for.body228, %if.th
   br i1 %cmp227, label %for.body228, label %for.end320, !llvm.loop !61
 
 for.end320:                                       ; preds = %for.inc318, %for.cond225.preheader
-  %m_data.i799 = getelementptr inbounds i8, ptr %this, i64 40
+  %m_data.i799 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %368 = load ptr, ptr %m_data.i799, align 8
-  %m_body_T_parent325 = getelementptr inbounds i8, ptr %368, i64 292
-  %m_parent_pos_parent_body326 = getelementptr inbounds i8, ptr %368, i64 340
+  %m_body_T_parent325 = getelementptr inbounds nuw i8, ptr %368, i64 292
+  %m_parent_pos_parent_body326 = getelementptr inbounds nuw i8, ptr %368, i64 340
   %369 = load float, ptr %m_body_T_parent325, align 4
   %370 = load float, ptr %m_parent_pos_parent_body326, align 4
-  %arrayidx5.i.i801 = getelementptr inbounds i8, ptr %368, i64 296
+  %arrayidx5.i.i801 = getelementptr inbounds nuw i8, ptr %368, i64 296
   %371 = load float, ptr %arrayidx5.i.i801, align 4
-  %arrayidx7.i.i802 = getelementptr inbounds i8, ptr %368, i64 344
+  %arrayidx7.i.i802 = getelementptr inbounds nuw i8, ptr %368, i64 344
   %372 = load float, ptr %arrayidx7.i.i802, align 4
   %mul8.i.i803 = fmul float %371, %372
   %373 = call float @llvm.fmuladd.f32(float %369, float %370, float %mul8.i.i803)
-  %arrayidx10.i.i804 = getelementptr inbounds i8, ptr %368, i64 300
+  %arrayidx10.i.i804 = getelementptr inbounds nuw i8, ptr %368, i64 300
   %374 = load float, ptr %arrayidx10.i.i804, align 4
-  %arrayidx12.i.i805 = getelementptr inbounds i8, ptr %368, i64 348
+  %arrayidx12.i.i805 = getelementptr inbounds nuw i8, ptr %368, i64 348
   %375 = load float, ptr %arrayidx12.i.i805, align 4
   %376 = call noundef float @llvm.fmuladd.f32(float %374, float %375, float %373)
-  %arrayidx.i.i806 = getelementptr inbounds i8, ptr %368, i64 308
+  %arrayidx.i.i806 = getelementptr inbounds nuw i8, ptr %368, i64 308
   %377 = load float, ptr %arrayidx.i.i806, align 4
-  %arrayidx5.i5.i807 = getelementptr inbounds i8, ptr %368, i64 312
+  %arrayidx5.i5.i807 = getelementptr inbounds nuw i8, ptr %368, i64 312
   %378 = load float, ptr %arrayidx5.i5.i807, align 4
   %mul8.i7.i808 = fmul float %372, %378
   %379 = call float @llvm.fmuladd.f32(float %377, float %370, float %mul8.i7.i808)
-  %arrayidx10.i8.i809 = getelementptr inbounds i8, ptr %368, i64 316
+  %arrayidx10.i8.i809 = getelementptr inbounds nuw i8, ptr %368, i64 316
   %380 = load float, ptr %arrayidx10.i8.i809, align 4
   %381 = call noundef float @llvm.fmuladd.f32(float %380, float %375, float %379)
-  %arrayidx.i10.i810 = getelementptr inbounds i8, ptr %368, i64 324
+  %arrayidx.i10.i810 = getelementptr inbounds nuw i8, ptr %368, i64 324
   %382 = load float, ptr %arrayidx.i10.i810, align 4
-  %arrayidx5.i11.i811 = getelementptr inbounds i8, ptr %368, i64 328
+  %arrayidx5.i11.i811 = getelementptr inbounds nuw i8, ptr %368, i64 328
   %383 = load float, ptr %arrayidx5.i11.i811, align 4
   %mul8.i13.i812 = fmul float %372, %383
   %384 = call float @llvm.fmuladd.f32(float %382, float %370, float %mul8.i13.i812)
-  %arrayidx10.i14.i813 = getelementptr inbounds i8, ptr %368, i64 332
+  %arrayidx10.i14.i813 = getelementptr inbounds nuw i8, ptr %368, i64 332
   %385 = load float, ptr %arrayidx10.i14.i813, align 4
   %386 = call noundef float @llvm.fmuladd.f32(float %385, float %375, float %384)
   %retval.sroa.0.0.vec.insert.i814 = insertelement <2 x float> poison, float %376, i64 0
   %retval.sroa.0.4.vec.insert.i815 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i814, float %381, i64 1
   %retval.sroa.3.12.vec.insert.i816 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %386, i64 0
-  %m_body_pos = getelementptr inbounds i8, ptr %368, i64 164
+  %m_body_pos = getelementptr inbounds nuw i8, ptr %368, i64 164
   store <2 x float> %retval.sroa.0.4.vec.insert.i815, ptr %m_body_pos, align 4
-  %ref.tmp324.sroa.2.0.m_body_pos.sroa_idx = getelementptr inbounds i8, ptr %368, i64 172
+  %ref.tmp324.sroa.2.0.m_body_pos.sroa_idx = getelementptr inbounds nuw i8, ptr %368, i64 172
   store <2 x float> %retval.sroa.3.12.vec.insert.i816, ptr %ref.tmp324.sroa.2.0.m_body_pos.sroa_idx, align 4
-  %m_body_T_world = getelementptr inbounds i8, ptr %368, i64 244
+  %m_body_T_world = getelementptr inbounds nuw i8, ptr %368, i64 244
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %m_body_T_world, ptr noundef nonnull align 4 dereferenceable(48) %m_body_T_parent325, i64 16, i1 false)
-  %arrayidx7.i.i820 = getelementptr inbounds i8, ptr %368, i64 260
+  %arrayidx7.i.i820 = getelementptr inbounds nuw i8, ptr %368, i64 260
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i.i820, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i.i806, i64 16, i1 false)
-  %arrayidx11.i.i822 = getelementptr inbounds i8, ptr %368, i64 276
+  %arrayidx11.i.i822 = getelementptr inbounds nuw i8, ptr %368, i64 276
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx11.i.i822, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i10.i810, i64 16, i1 false)
   %cmp332.not = icmp eq i32 %type, 0
   br i1 %cmp332.not, label %if.end356, label %if.end336
 
 if.end336:                                        ; preds = %for.end320
-  %m_body_ang_vel_rel334 = getelementptr inbounds i8, ptr %368, i64 356
-  %m_body_ang_vel = getelementptr inbounds i8, ptr %368, i64 212
+  %m_body_ang_vel_rel334 = getelementptr inbounds nuw i8, ptr %368, i64 356
+  %m_body_ang_vel = getelementptr inbounds nuw i8, ptr %368, i64 212
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_body_ang_vel, ptr noundef nonnull align 4 dereferenceable(16) %m_body_ang_vel_rel334, i64 16, i1 false)
-  %m_parent_vel_rel335 = getelementptr inbounds i8, ptr %368, i64 372
-  %m_body_vel = getelementptr inbounds i8, ptr %368, i64 180
+  %m_parent_vel_rel335 = getelementptr inbounds nuw i8, ptr %368, i64 372
+  %m_body_vel = getelementptr inbounds nuw i8, ptr %368, i64 180
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_body_vel, ptr noundef nonnull align 4 dereferenceable(16) %m_parent_vel_rel335, i64 16, i1 false)
   %cmp337 = icmp eq i32 %type, 2
   br i1 %cmp337, label %if.then338, label %if.end356
 
 if.then338:                                       ; preds = %if.end336
-  %m_body_ang_acc_rel339 = getelementptr inbounds i8, ptr %368, i64 388
-  %m_body_ang_acc = getelementptr inbounds i8, ptr %368, i64 228
+  %m_body_ang_acc_rel339 = getelementptr inbounds nuw i8, ptr %368, i64 388
+  %m_body_ang_acc = getelementptr inbounds nuw i8, ptr %368, i64 228
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_body_ang_acc, ptr noundef nonnull align 4 dereferenceable(16) %m_body_ang_acc_rel339, i64 16, i1 false)
-  %m_parent_acc_rel342 = getelementptr inbounds i8, ptr %368, i64 404
+  %m_parent_acc_rel342 = getelementptr inbounds nuw i8, ptr %368, i64 404
   %387 = load float, ptr %m_parent_acc_rel342, align 4
-  %arrayidx7.i.i824 = getelementptr inbounds i8, ptr %368, i64 408
+  %arrayidx7.i.i824 = getelementptr inbounds nuw i8, ptr %368, i64 408
   %388 = load float, ptr %arrayidx7.i.i824, align 4
   %mul8.i.i825 = fmul float %371, %388
   %389 = call float @llvm.fmuladd.f32(float %369, float %387, float %mul8.i.i825)
-  %arrayidx12.i.i827 = getelementptr inbounds i8, ptr %368, i64 412
+  %arrayidx12.i.i827 = getelementptr inbounds nuw i8, ptr %368, i64 412
   %390 = load float, ptr %arrayidx12.i.i827, align 4
   %391 = call noundef float @llvm.fmuladd.f32(float %374, float %390, float %389)
   %mul8.i7.i830 = fmul float %388, %378
@@ -3562,17 +3562,17 @@ if.then338:                                       ; preds = %if.end336
   %retval.sroa.0.0.vec.insert.i836 = insertelement <2 x float> poison, float %391, i64 0
   %retval.sroa.0.4.vec.insert.i837 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i836, float %393, i64 1
   %retval.sroa.3.12.vec.insert.i838 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %395, i64 0
-  %m_body_acc = getelementptr inbounds i8, ptr %368, i64 196
+  %m_body_acc = getelementptr inbounds nuw i8, ptr %368, i64 196
   store <2 x float> %retval.sroa.0.4.vec.insert.i837, ptr %m_body_acc, align 4
-  %ref.tmp340.sroa.2.0.m_body_acc.sroa_idx = getelementptr inbounds i8, ptr %368, i64 204
+  %ref.tmp340.sroa.2.0.m_body_acc.sroa_idx = getelementptr inbounds nuw i8, ptr %368, i64 204
   store <2 x float> %retval.sroa.3.12.vec.insert.i838, ptr %ref.tmp340.sroa.2.0.m_body_acc.sroa_idx, align 4
-  %m_world_gravity = getelementptr inbounds i8, ptr %this, i64 8
+  %m_world_gravity = getelementptr inbounds nuw i8, ptr %this, i64 8
   %396 = load float, ptr %m_world_gravity, align 8
-  %arrayidx7.i.i842 = getelementptr inbounds i8, ptr %this, i64 12
+  %arrayidx7.i.i842 = getelementptr inbounds nuw i8, ptr %this, i64 12
   %397 = load float, ptr %arrayidx7.i.i842, align 4
   %mul8.i.i843 = fmul float %371, %397
   %398 = call float @llvm.fmuladd.f32(float %369, float %396, float %mul8.i.i843)
-  %arrayidx12.i.i845 = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx12.i.i845 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %399 = load float, ptr %arrayidx12.i.i845, align 8
   %400 = call noundef float @llvm.fmuladd.f32(float %374, float %399, float %398)
   %mul8.i7.i848 = fmul float %378, %397
@@ -3593,98 +3593,98 @@ if.then338:                                       ; preds = %if.end336
 
 if.end356:                                        ; preds = %for.end320, %if.then338, %if.end336
   %cmp3371218 = phi i1 [ true, %if.then338 ], [ false, %if.end336 ], [ false, %for.end320 ]
-  %m_size.i868 = getelementptr inbounds i8, ptr %this, i64 28
+  %m_size.i868 = getelementptr inbounds nuw i8, ptr %this, i64 28
   %405 = load i32, ptr %m_size.i868, align 4
   %cmp3611228 = icmp sgt i32 %405, 1
   br i1 %cmp3611228, label %for.body362.lr.ph, label %return
 
 for.body362.lr.ph:                                ; preds = %if.end356
-  %m_data.i872 = getelementptr inbounds i8, ptr %this, i64 72
+  %m_data.i872 = getelementptr inbounds nuw i8, ptr %this, i64 72
   br label %for.body362
 
 for.body362:                                      ; preds = %for.body362.lr.ph, %for.inc487
   %indvars.iv1240 = phi i64 [ 1, %for.body362.lr.ph ], [ %indvars.iv.next1241, %for.inc487 ]
   %406 = load ptr, ptr %m_data.i799, align 8
-  %arrayidx.i871 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %406, i64 %indvars.iv1240
+  %arrayidx.i871 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %406, i64 %indvars.iv1240
   %407 = load ptr, ptr %m_data.i872, align 8
-  %arrayidx.i874 = getelementptr inbounds i32, ptr %407, i64 %indvars.iv1240
+  %arrayidx.i874 = getelementptr inbounds nuw i32, ptr %407, i64 %indvars.iv1240
   %408 = load i32, ptr %arrayidx.i874, align 4
   %idxprom.i876 = sext i32 %408 to i64
   %arrayidx.i877 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %406, i64 %idxprom.i876
-  %m_body_T_parent370 = getelementptr inbounds i8, ptr %arrayidx.i871, i64 292
-  %m_body_pos372 = getelementptr inbounds i8, ptr %arrayidx.i877, i64 164
-  %m_parent_pos_parent_body373 = getelementptr inbounds i8, ptr %arrayidx.i871, i64 340
+  %m_body_T_parent370 = getelementptr inbounds nuw i8, ptr %arrayidx.i871, i64 292
+  %m_body_pos372 = getelementptr inbounds nuw i8, ptr %arrayidx.i877, i64 164
+  %m_parent_pos_parent_body373 = getelementptr inbounds nuw i8, ptr %arrayidx.i871, i64 340
   %409 = load float, ptr %m_body_pos372, align 4
   %410 = load float, ptr %m_parent_pos_parent_body373, align 4
   %add.i878 = fadd float %409, %410
-  %arrayidx5.i879 = getelementptr inbounds i8, ptr %arrayidx.i877, i64 168
+  %arrayidx5.i879 = getelementptr inbounds nuw i8, ptr %arrayidx.i877, i64 168
   %411 = load float, ptr %arrayidx5.i879, align 4
-  %arrayidx7.i880 = getelementptr inbounds i8, ptr %arrayidx.i871, i64 344
+  %arrayidx7.i880 = getelementptr inbounds nuw i8, ptr %arrayidx.i871, i64 344
   %412 = load float, ptr %arrayidx7.i880, align 4
   %add8.i881 = fadd float %411, %412
-  %arrayidx11.i882 = getelementptr inbounds i8, ptr %arrayidx.i877, i64 172
+  %arrayidx11.i882 = getelementptr inbounds nuw i8, ptr %arrayidx.i877, i64 172
   %413 = load float, ptr %arrayidx11.i882, align 4
-  %arrayidx13.i883 = getelementptr inbounds i8, ptr %arrayidx.i871, i64 348
+  %arrayidx13.i883 = getelementptr inbounds nuw i8, ptr %arrayidx.i871, i64 348
   %414 = load float, ptr %arrayidx13.i883, align 4
   %add14.i884 = fadd float %413, %414
   %415 = load float, ptr %m_body_T_parent370, align 4
-  %arrayidx5.i.i890 = getelementptr inbounds i8, ptr %arrayidx.i871, i64 296
+  %arrayidx5.i.i890 = getelementptr inbounds nuw i8, ptr %arrayidx.i871, i64 296
   %416 = load float, ptr %arrayidx5.i.i890, align 4
   %mul8.i.i892 = fmul float %add8.i881, %416
   %417 = call float @llvm.fmuladd.f32(float %415, float %add.i878, float %mul8.i.i892)
-  %arrayidx10.i.i893 = getelementptr inbounds i8, ptr %arrayidx.i871, i64 300
+  %arrayidx10.i.i893 = getelementptr inbounds nuw i8, ptr %arrayidx.i871, i64 300
   %418 = load float, ptr %arrayidx10.i.i893, align 4
   %419 = call noundef float @llvm.fmuladd.f32(float %418, float %add14.i884, float %417)
-  %arrayidx.i.i895 = getelementptr inbounds i8, ptr %arrayidx.i871, i64 308
+  %arrayidx.i.i895 = getelementptr inbounds nuw i8, ptr %arrayidx.i871, i64 308
   %420 = load float, ptr %arrayidx.i.i895, align 4
-  %arrayidx5.i5.i896 = getelementptr inbounds i8, ptr %arrayidx.i871, i64 312
+  %arrayidx5.i5.i896 = getelementptr inbounds nuw i8, ptr %arrayidx.i871, i64 312
   %421 = load float, ptr %arrayidx5.i5.i896, align 4
   %mul8.i7.i897 = fmul float %add8.i881, %421
   %422 = call float @llvm.fmuladd.f32(float %420, float %add.i878, float %mul8.i7.i897)
-  %arrayidx10.i8.i898 = getelementptr inbounds i8, ptr %arrayidx.i871, i64 316
+  %arrayidx10.i8.i898 = getelementptr inbounds nuw i8, ptr %arrayidx.i871, i64 316
   %423 = load float, ptr %arrayidx10.i8.i898, align 4
   %424 = call noundef float @llvm.fmuladd.f32(float %423, float %add14.i884, float %422)
-  %arrayidx.i10.i899 = getelementptr inbounds i8, ptr %arrayidx.i871, i64 324
+  %arrayidx.i10.i899 = getelementptr inbounds nuw i8, ptr %arrayidx.i871, i64 324
   %425 = load float, ptr %arrayidx.i10.i899, align 4
-  %arrayidx5.i11.i900 = getelementptr inbounds i8, ptr %arrayidx.i871, i64 328
+  %arrayidx5.i11.i900 = getelementptr inbounds nuw i8, ptr %arrayidx.i871, i64 328
   %426 = load float, ptr %arrayidx5.i11.i900, align 4
   %mul8.i13.i901 = fmul float %add8.i881, %426
   %427 = call float @llvm.fmuladd.f32(float %425, float %add.i878, float %mul8.i13.i901)
-  %arrayidx10.i14.i902 = getelementptr inbounds i8, ptr %arrayidx.i871, i64 332
+  %arrayidx10.i14.i902 = getelementptr inbounds nuw i8, ptr %arrayidx.i871, i64 332
   %428 = load float, ptr %arrayidx10.i14.i902, align 4
   %429 = call noundef float @llvm.fmuladd.f32(float %428, float %add14.i884, float %427)
   %retval.sroa.0.0.vec.insert.i903 = insertelement <2 x float> poison, float %419, i64 0
   %retval.sroa.0.4.vec.insert.i904 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i903, float %424, i64 1
   %retval.sroa.3.12.vec.insert.i905 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %429, i64 0
-  %m_body_pos378 = getelementptr inbounds i8, ptr %arrayidx.i871, i64 164
+  %m_body_pos378 = getelementptr inbounds nuw i8, ptr %arrayidx.i871, i64 164
   store <2 x float> %retval.sroa.0.4.vec.insert.i904, ptr %m_body_pos378, align 4
-  %ref.tmp369.sroa.2.0.m_body_pos378.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i871, i64 172
+  %ref.tmp369.sroa.2.0.m_body_pos378.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i871, i64 172
   store <2 x float> %retval.sroa.3.12.vec.insert.i905, ptr %ref.tmp369.sroa.2.0.m_body_pos378.sroa_idx, align 4
-  %m_body_T_world382 = getelementptr inbounds i8, ptr %arrayidx.i877, i64 244
+  %m_body_T_world382 = getelementptr inbounds nuw i8, ptr %arrayidx.i877, i64 244
   %430 = load float, ptr %m_body_T_world382, align 4, !noalias !62
-  %arrayidx4.i.i908 = getelementptr inbounds i8, ptr %arrayidx.i877, i64 260
+  %arrayidx4.i.i908 = getelementptr inbounds nuw i8, ptr %arrayidx.i877, i64 260
   %431 = load float, ptr %arrayidx4.i.i908, align 4, !noalias !62
   %mul7.i.i910 = fmul float %416, %431
   %432 = call float @llvm.fmuladd.f32(float %430, float %415, float %mul7.i.i910)
-  %arrayidx9.i.i911 = getelementptr inbounds i8, ptr %arrayidx.i877, i64 276
+  %arrayidx9.i.i911 = getelementptr inbounds nuw i8, ptr %arrayidx.i877, i64 276
   %433 = load float, ptr %arrayidx9.i.i911, align 4, !noalias !62
   %434 = call noundef float @llvm.fmuladd.f32(float %433, float %418, float %432)
-  %arrayidx.i.i17.i913 = getelementptr inbounds i8, ptr %arrayidx.i877, i64 248
+  %arrayidx.i.i17.i913 = getelementptr inbounds nuw i8, ptr %arrayidx.i877, i64 248
   %435 = load float, ptr %arrayidx.i.i17.i913, align 4, !noalias !62
-  %arrayidx.i3.i18.i914 = getelementptr inbounds i8, ptr %arrayidx.i877, i64 264
+  %arrayidx.i3.i18.i914 = getelementptr inbounds nuw i8, ptr %arrayidx.i877, i64 264
   %436 = load float, ptr %arrayidx.i3.i18.i914, align 4, !noalias !62
   %mul7.i19.i915 = fmul float %416, %436
   %437 = call float @llvm.fmuladd.f32(float %435, float %415, float %mul7.i19.i915)
-  %arrayidx.i5.i.i916 = getelementptr inbounds i8, ptr %arrayidx.i877, i64 280
+  %arrayidx.i5.i.i916 = getelementptr inbounds nuw i8, ptr %arrayidx.i877, i64 280
   %438 = load float, ptr %arrayidx.i5.i.i916, align 4, !noalias !62
   %439 = call noundef float @llvm.fmuladd.f32(float %438, float %418, float %437)
-  %arrayidx.i.i20.i917 = getelementptr inbounds i8, ptr %arrayidx.i877, i64 252
+  %arrayidx.i.i20.i917 = getelementptr inbounds nuw i8, ptr %arrayidx.i877, i64 252
   %440 = load float, ptr %arrayidx.i.i20.i917, align 4, !noalias !62
-  %arrayidx.i3.i21.i918 = getelementptr inbounds i8, ptr %arrayidx.i877, i64 268
+  %arrayidx.i3.i21.i918 = getelementptr inbounds nuw i8, ptr %arrayidx.i877, i64 268
   %441 = load float, ptr %arrayidx.i3.i21.i918, align 4, !noalias !62
   %mul7.i23.i919 = fmul float %416, %441
   %442 = call float @llvm.fmuladd.f32(float %440, float %415, float %mul7.i23.i919)
-  %arrayidx.i5.i24.i920 = getelementptr inbounds i8, ptr %arrayidx.i877, i64 284
+  %arrayidx.i5.i24.i920 = getelementptr inbounds nuw i8, ptr %arrayidx.i877, i64 284
   %443 = load float, ptr %arrayidx.i5.i24.i920, align 4, !noalias !62
   %444 = call noundef float @llvm.fmuladd.f32(float %443, float %418, float %442)
   %mul7.i28.i923 = fmul float %421, %431
@@ -3705,40 +3705,40 @@ for.body362:                                      ; preds = %for.body362.lr.ph, 
   %mul7.i62.i932 = fmul float %426, %441
   %455 = call float @llvm.fmuladd.f32(float %440, float %425, float %mul7.i62.i932)
   %456 = call noundef float @llvm.fmuladd.f32(float %443, float %428, float %455)
-  %m_body_T_world383 = getelementptr inbounds i8, ptr %arrayidx.i871, i64 244
+  %m_body_T_world383 = getelementptr inbounds nuw i8, ptr %arrayidx.i871, i64 244
   store float %434, ptr %m_body_T_world383, align 4
-  %ref.tmp380.sroa.2.0.m_body_T_world383.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i871, i64 248
+  %ref.tmp380.sroa.2.0.m_body_T_world383.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i871, i64 248
   store float %439, ptr %ref.tmp380.sroa.2.0.m_body_T_world383.sroa_idx, align 4
-  %ref.tmp380.sroa.3.0.m_body_T_world383.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i871, i64 252
+  %ref.tmp380.sroa.3.0.m_body_T_world383.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i871, i64 252
   store float %444, ptr %ref.tmp380.sroa.3.0.m_body_T_world383.sroa_idx, align 4
-  %ref.tmp380.sroa.4.0.m_body_T_world383.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i871, i64 256
+  %ref.tmp380.sroa.4.0.m_body_T_world383.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i871, i64 256
   store float 0.000000e+00, ptr %ref.tmp380.sroa.4.0.m_body_T_world383.sroa_idx, align 4
-  %arrayidx7.i.i945 = getelementptr inbounds i8, ptr %arrayidx.i871, i64 260
+  %arrayidx7.i.i945 = getelementptr inbounds nuw i8, ptr %arrayidx.i871, i64 260
   store float %446, ptr %arrayidx7.i.i945, align 4
-  %ref.tmp380.sroa.7.16.arrayidx7.i.i945.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i871, i64 264
+  %ref.tmp380.sroa.7.16.arrayidx7.i.i945.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i871, i64 264
   store float %448, ptr %ref.tmp380.sroa.7.16.arrayidx7.i.i945.sroa_idx, align 4
-  %ref.tmp380.sroa.8.16.arrayidx7.i.i945.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i871, i64 268
+  %ref.tmp380.sroa.8.16.arrayidx7.i.i945.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i871, i64 268
   store float %450, ptr %ref.tmp380.sroa.8.16.arrayidx7.i.i945.sroa_idx, align 4
-  %ref.tmp380.sroa.9.16.arrayidx7.i.i945.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i871, i64 272
+  %ref.tmp380.sroa.9.16.arrayidx7.i.i945.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i871, i64 272
   store float 0.000000e+00, ptr %ref.tmp380.sroa.9.16.arrayidx7.i.i945.sroa_idx, align 4
-  %arrayidx11.i.i947 = getelementptr inbounds i8, ptr %arrayidx.i871, i64 276
+  %arrayidx11.i.i947 = getelementptr inbounds nuw i8, ptr %arrayidx.i871, i64 276
   store float %452, ptr %arrayidx11.i.i947, align 4
-  %ref.tmp380.sroa.12.32.arrayidx11.i.i947.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i871, i64 280
+  %ref.tmp380.sroa.12.32.arrayidx11.i.i947.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i871, i64 280
   store float %454, ptr %ref.tmp380.sroa.12.32.arrayidx11.i.i947.sroa_idx, align 4
-  %ref.tmp380.sroa.13.32.arrayidx11.i.i947.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i871, i64 284
+  %ref.tmp380.sroa.13.32.arrayidx11.i.i947.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i871, i64 284
   store float %456, ptr %ref.tmp380.sroa.13.32.arrayidx11.i.i947.sroa_idx, align 4
-  %ref.tmp380.sroa.14.32.arrayidx11.i.i947.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i871, i64 288
+  %ref.tmp380.sroa.14.32.arrayidx11.i.i947.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i871, i64 288
   store float 0.000000e+00, ptr %ref.tmp380.sroa.14.32.arrayidx11.i.i947.sroa_idx, align 4
   br i1 %cmp332.not, label %if.end417, label %if.then386
 
 if.then386:                                       ; preds = %for.body362
-  %m_body_ang_vel390 = getelementptr inbounds i8, ptr %arrayidx.i877, i64 212
+  %m_body_ang_vel390 = getelementptr inbounds nuw i8, ptr %arrayidx.i877, i64 212
   %457 = load float, ptr %m_body_ang_vel390, align 4
-  %arrayidx7.i.i949 = getelementptr inbounds i8, ptr %arrayidx.i877, i64 216
+  %arrayidx7.i.i949 = getelementptr inbounds nuw i8, ptr %arrayidx.i877, i64 216
   %458 = load float, ptr %arrayidx7.i.i949, align 4
   %mul8.i.i950 = fmul float %416, %458
   %459 = call float @llvm.fmuladd.f32(float %415, float %457, float %mul8.i.i950)
-  %arrayidx12.i.i952 = getelementptr inbounds i8, ptr %arrayidx.i877, i64 220
+  %arrayidx12.i.i952 = getelementptr inbounds nuw i8, ptr %arrayidx.i877, i64 220
   %460 = load float, ptr %arrayidx12.i.i952, align 4
   %461 = call noundef float @llvm.fmuladd.f32(float %418, float %460, float %459)
   %mul8.i7.i955 = fmul float %421, %458
@@ -3747,23 +3747,23 @@ if.then386:                                       ; preds = %for.body362
   %mul8.i13.i959 = fmul float %426, %458
   %464 = call float @llvm.fmuladd.f32(float %425, float %457, float %mul8.i13.i959)
   %465 = call noundef float @llvm.fmuladd.f32(float %428, float %460, float %464)
-  %m_body_ang_vel_rel393 = getelementptr inbounds i8, ptr %arrayidx.i871, i64 356
+  %m_body_ang_vel_rel393 = getelementptr inbounds nuw i8, ptr %arrayidx.i871, i64 356
   %466 = load float, ptr %m_body_ang_vel_rel393, align 4
   %add.i966 = fadd float %466, %461
-  %arrayidx7.i968 = getelementptr inbounds i8, ptr %arrayidx.i871, i64 360
+  %arrayidx7.i968 = getelementptr inbounds nuw i8, ptr %arrayidx.i871, i64 360
   %467 = load float, ptr %arrayidx7.i968, align 4
   %add8.i969 = fadd float %463, %467
-  %arrayidx13.i971 = getelementptr inbounds i8, ptr %arrayidx.i871, i64 364
+  %arrayidx13.i971 = getelementptr inbounds nuw i8, ptr %arrayidx.i871, i64 364
   %468 = load float, ptr %arrayidx13.i971, align 4
   %add14.i972 = fadd float %465, %468
   %retval.sroa.0.0.vec.insert.i973 = insertelement <2 x float> poison, float %add.i966, i64 0
   %retval.sroa.0.4.vec.insert.i974 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i973, float %add8.i969, i64 1
   %retval.sroa.3.12.vec.insert.i975 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add14.i972, i64 0
-  %m_body_ang_vel396 = getelementptr inbounds i8, ptr %arrayidx.i871, i64 212
+  %m_body_ang_vel396 = getelementptr inbounds nuw i8, ptr %arrayidx.i871, i64 212
   store <2 x float> %retval.sroa.0.4.vec.insert.i974, ptr %m_body_ang_vel396, align 4
-  %ref.tmp387.sroa.2.0.m_body_ang_vel396.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i871, i64 220
+  %ref.tmp387.sroa.2.0.m_body_ang_vel396.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i871, i64 220
   store <2 x float> %retval.sroa.3.12.vec.insert.i975, ptr %ref.tmp387.sroa.2.0.m_body_ang_vel396.sroa_idx, align 4
-  %m_body_vel402 = getelementptr inbounds i8, ptr %arrayidx.i877, i64 180
+  %m_body_vel402 = getelementptr inbounds nuw i8, ptr %arrayidx.i877, i64 180
   %469 = load float, ptr %arrayidx7.i.i949, align 4
   %470 = load float, ptr %arrayidx12.i.i952, align 4
   %471 = fneg float %412
@@ -3778,19 +3778,19 @@ if.then386:                                       ; preds = %for.body362
   %477 = call float @llvm.fmuladd.f32(float %473, float %412, float %neg30.i)
   %478 = load float, ptr %m_body_vel402, align 4
   %add.i987 = fadd float %478, %472
-  %arrayidx5.i988 = getelementptr inbounds i8, ptr %arrayidx.i877, i64 184
+  %arrayidx5.i988 = getelementptr inbounds nuw i8, ptr %arrayidx.i877, i64 184
   %479 = load float, ptr %arrayidx5.i988, align 4
   %add8.i990 = fadd float %479, %475
-  %arrayidx11.i991 = getelementptr inbounds i8, ptr %arrayidx.i877, i64 188
+  %arrayidx11.i991 = getelementptr inbounds nuw i8, ptr %arrayidx.i877, i64 188
   %480 = load float, ptr %arrayidx11.i991, align 4
   %add14.i993 = fadd float %477, %480
-  %m_parent_vel_rel410 = getelementptr inbounds i8, ptr %arrayidx.i871, i64 372
+  %m_parent_vel_rel410 = getelementptr inbounds nuw i8, ptr %arrayidx.i871, i64 372
   %481 = load float, ptr %m_parent_vel_rel410, align 4
   %add.i999 = fadd float %add.i987, %481
-  %arrayidx7.i1001 = getelementptr inbounds i8, ptr %arrayidx.i871, i64 376
+  %arrayidx7.i1001 = getelementptr inbounds nuw i8, ptr %arrayidx.i871, i64 376
   %482 = load float, ptr %arrayidx7.i1001, align 4
   %add8.i1002 = fadd float %add8.i990, %482
-  %arrayidx13.i1004 = getelementptr inbounds i8, ptr %arrayidx.i871, i64 380
+  %arrayidx13.i1004 = getelementptr inbounds nuw i8, ptr %arrayidx.i871, i64 380
   %483 = load float, ptr %arrayidx13.i1004, align 4
   %add14.i1005 = fadd float %add14.i993, %483
   %mul8.i.i1013 = fmul float %416, %add8.i1002
@@ -3805,9 +3805,9 @@ if.then386:                                       ; preds = %for.body362
   %retval.sroa.0.0.vec.insert.i1024 = insertelement <2 x float> poison, float %485, i64 0
   %retval.sroa.0.4.vec.insert.i1025 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i1024, float %487, i64 1
   %retval.sroa.3.12.vec.insert.i1026 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %489, i64 0
-  %m_body_vel415 = getelementptr inbounds i8, ptr %arrayidx.i871, i64 180
+  %m_body_vel415 = getelementptr inbounds nuw i8, ptr %arrayidx.i871, i64 180
   store <2 x float> %retval.sroa.0.4.vec.insert.i1025, ptr %m_body_vel415, align 4
-  %ref.tmp398.sroa.2.0.m_body_vel415.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i871, i64 188
+  %ref.tmp398.sroa.2.0.m_body_vel415.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i871, i64 188
   store <2 x float> %retval.sroa.3.12.vec.insert.i1026, ptr %ref.tmp398.sroa.2.0.m_body_vel415.sroa_idx, align 4
   br label %if.end417
 
@@ -3815,15 +3815,15 @@ if.end417:                                        ; preds = %if.then386, %for.bo
   br i1 %cmp3371218, label %if.then419, label %for.inc487
 
 if.then419:                                       ; preds = %if.end417
-  %m_body_ang_acc424 = getelementptr inbounds i8, ptr %arrayidx.i877, i64 228
+  %m_body_ang_acc424 = getelementptr inbounds nuw i8, ptr %arrayidx.i877, i64 228
   %490 = load float, ptr %m_body_T_parent370, align 4
   %491 = load float, ptr %m_body_ang_acc424, align 4
   %492 = load float, ptr %arrayidx5.i.i890, align 4
-  %arrayidx7.i.i1030 = getelementptr inbounds i8, ptr %arrayidx.i877, i64 232
+  %arrayidx7.i.i1030 = getelementptr inbounds nuw i8, ptr %arrayidx.i877, i64 232
   %493 = load float, ptr %arrayidx7.i.i1030, align 4
   %mul8.i.i1031 = fmul float %492, %493
   %494 = call float @llvm.fmuladd.f32(float %490, float %491, float %mul8.i.i1031)
-  %arrayidx12.i.i1033 = getelementptr inbounds i8, ptr %arrayidx.i877, i64 236
+  %arrayidx12.i.i1033 = getelementptr inbounds nuw i8, ptr %arrayidx.i877, i64 236
   %495 = load float, ptr %arrayidx12.i.i1033, align 4
   %496 = call noundef float @llvm.fmuladd.f32(float %418, float %495, float %494)
   %mul8.i7.i1036 = fmul float %493, %421
@@ -3832,14 +3832,14 @@ if.then419:                                       ; preds = %if.end417
   %mul8.i13.i1040 = fmul float %493, %426
   %499 = call float @llvm.fmuladd.f32(float %425, float %491, float %mul8.i13.i1040)
   %500 = call noundef float @llvm.fmuladd.f32(float %428, float %495, float %499)
-  %m_body_ang_vel_rel428 = getelementptr inbounds i8, ptr %arrayidx.i871, i64 356
-  %m_body_ang_vel431 = getelementptr inbounds i8, ptr %arrayidx.i877, i64 212
+  %m_body_ang_vel_rel428 = getelementptr inbounds nuw i8, ptr %arrayidx.i871, i64 356
+  %m_body_ang_vel431 = getelementptr inbounds nuw i8, ptr %arrayidx.i877, i64 212
   %501 = load float, ptr %m_body_ang_vel431, align 4
-  %arrayidx7.i.i1048 = getelementptr inbounds i8, ptr %arrayidx.i877, i64 216
+  %arrayidx7.i.i1048 = getelementptr inbounds nuw i8, ptr %arrayidx.i877, i64 216
   %502 = load float, ptr %arrayidx7.i.i1048, align 4
   %mul8.i.i1049 = fmul float %492, %502
   %503 = call float @llvm.fmuladd.f32(float %490, float %501, float %mul8.i.i1049)
-  %arrayidx12.i.i1051 = getelementptr inbounds i8, ptr %arrayidx.i877, i64 220
+  %arrayidx12.i.i1051 = getelementptr inbounds nuw i8, ptr %arrayidx.i877, i64 220
   %504 = load float, ptr %arrayidx12.i.i1051, align 4
   %505 = call noundef float @llvm.fmuladd.f32(float %418, float %504, float %503)
   %mul8.i7.i1054 = fmul float %421, %502
@@ -3848,9 +3848,9 @@ if.then419:                                       ; preds = %if.end417
   %mul8.i13.i1058 = fmul float %426, %502
   %508 = call float @llvm.fmuladd.f32(float %425, float %501, float %mul8.i13.i1058)
   %509 = call noundef float @llvm.fmuladd.f32(float %428, float %504, float %508)
-  %arrayidx.i1065 = getelementptr inbounds i8, ptr %arrayidx.i871, i64 360
+  %arrayidx.i1065 = getelementptr inbounds nuw i8, ptr %arrayidx.i871, i64 360
   %510 = load float, ptr %arrayidx.i1065, align 4
-  %arrayidx5.i1067 = getelementptr inbounds i8, ptr %arrayidx.i871, i64 364
+  %arrayidx5.i1067 = getelementptr inbounds nuw i8, ptr %arrayidx.i871, i64 364
   %511 = load float, ptr %arrayidx5.i1067, align 4
   %512 = fneg float %507
   %neg.i1069 = fmul float %511, %512
@@ -3865,23 +3865,23 @@ if.then419:                                       ; preds = %if.end417
   %sub.i1077 = fsub float %496, %513
   %sub8.i1080 = fsub float %498, %516
   %sub14.i1083 = fsub float %500, %518
-  %m_body_ang_acc_rel438 = getelementptr inbounds i8, ptr %arrayidx.i871, i64 388
+  %m_body_ang_acc_rel438 = getelementptr inbounds nuw i8, ptr %arrayidx.i871, i64 388
   %519 = load float, ptr %m_body_ang_acc_rel438, align 4
   %add.i1089 = fadd float %519, %sub.i1077
-  %arrayidx7.i1091 = getelementptr inbounds i8, ptr %arrayidx.i871, i64 392
+  %arrayidx7.i1091 = getelementptr inbounds nuw i8, ptr %arrayidx.i871, i64 392
   %520 = load float, ptr %arrayidx7.i1091, align 4
   %add8.i1092 = fadd float %520, %sub8.i1080
-  %arrayidx13.i1094 = getelementptr inbounds i8, ptr %arrayidx.i871, i64 396
+  %arrayidx13.i1094 = getelementptr inbounds nuw i8, ptr %arrayidx.i871, i64 396
   %521 = load float, ptr %arrayidx13.i1094, align 4
   %add14.i1095 = fadd float %sub14.i1083, %521
   %retval.sroa.0.0.vec.insert.i1096 = insertelement <2 x float> poison, float %add.i1089, i64 0
   %retval.sroa.0.4.vec.insert.i1097 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i1096, float %add8.i1092, i64 1
   %retval.sroa.3.12.vec.insert.i1098 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add14.i1095, i64 0
-  %m_body_ang_acc441 = getelementptr inbounds i8, ptr %arrayidx.i871, i64 228
+  %m_body_ang_acc441 = getelementptr inbounds nuw i8, ptr %arrayidx.i871, i64 228
   store <2 x float> %retval.sroa.0.4.vec.insert.i1097, ptr %m_body_ang_acc441, align 4
-  %ref.tmp420.sroa.2.0.m_body_ang_acc441.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i871, i64 236
+  %ref.tmp420.sroa.2.0.m_body_ang_acc441.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i871, i64 236
   store <2 x float> %retval.sroa.3.12.vec.insert.i1098, ptr %ref.tmp420.sroa.2.0.m_body_ang_acc441.sroa_idx, align 4
-  %m_body_acc449 = getelementptr inbounds i8, ptr %arrayidx.i877, i64 196
+  %m_body_acc449 = getelementptr inbounds nuw i8, ptr %arrayidx.i877, i64 196
   %522 = load float, ptr %arrayidx7.i.i1030, align 4
   %523 = load float, ptr %arrayidx13.i883, align 4
   %524 = load float, ptr %arrayidx12.i.i1033, align 4
@@ -3899,10 +3899,10 @@ if.then419:                                       ; preds = %if.end417
   %533 = call float @llvm.fmuladd.f32(float %529, float %525, float %neg30.i1107)
   %534 = load float, ptr %m_body_acc449, align 4
   %add.i1113 = fadd float %527, %534
-  %arrayidx5.i1114 = getelementptr inbounds i8, ptr %arrayidx.i877, i64 200
+  %arrayidx5.i1114 = getelementptr inbounds nuw i8, ptr %arrayidx.i877, i64 200
   %535 = load float, ptr %arrayidx5.i1114, align 4
   %add8.i1116 = fadd float %535, %531
-  %arrayidx11.i1117 = getelementptr inbounds i8, ptr %arrayidx.i877, i64 204
+  %arrayidx11.i1117 = getelementptr inbounds nuw i8, ptr %arrayidx.i877, i64 204
   %536 = load float, ptr %arrayidx11.i1117, align 4
   %add14.i1119 = fadd float %533, %536
   %neg.i1129 = fmul float %504, %526
@@ -3923,10 +3923,10 @@ if.then419:                                       ; preds = %if.end417
   %add.i1149 = fadd float %add.i1113, %541
   %add8.i1152 = fadd float %add8.i1116, %543
   %add14.i1155 = fadd float %545, %add14.i1119
-  %m_parent_vel_rel472 = getelementptr inbounds i8, ptr %arrayidx.i871, i64 372
-  %arrayidx3.i1162 = getelementptr inbounds i8, ptr %arrayidx.i871, i64 380
+  %m_parent_vel_rel472 = getelementptr inbounds nuw i8, ptr %arrayidx.i871, i64 372
+  %arrayidx3.i1162 = getelementptr inbounds nuw i8, ptr %arrayidx.i871, i64 380
   %546 = load float, ptr %arrayidx3.i1162, align 4
-  %arrayidx7.i1164 = getelementptr inbounds i8, ptr %arrayidx.i871, i64 376
+  %arrayidx7.i1164 = getelementptr inbounds nuw i8, ptr %arrayidx.i871, i64 376
   %547 = load float, ptr %arrayidx7.i1164, align 4
   %548 = fneg float %547
   %neg.i1165 = fmul float %504, %548
@@ -3944,13 +3944,13 @@ if.then419:                                       ; preds = %if.end417
   %add.i1175 = fadd float %add.i1149, %mul.i.i
   %add8.i1178 = fadd float %add8.i1152, %mul4.i.i
   %add14.i1181 = fadd float %add14.i1155, %mul8.i.i1174
-  %m_parent_acc_rel479 = getelementptr inbounds i8, ptr %arrayidx.i871, i64 404
+  %m_parent_acc_rel479 = getelementptr inbounds nuw i8, ptr %arrayidx.i871, i64 404
   %555 = load float, ptr %m_parent_acc_rel479, align 4
   %add.i1187 = fadd float %555, %add.i1175
-  %arrayidx7.i1189 = getelementptr inbounds i8, ptr %arrayidx.i871, i64 408
+  %arrayidx7.i1189 = getelementptr inbounds nuw i8, ptr %arrayidx.i871, i64 408
   %556 = load float, ptr %arrayidx7.i1189, align 4
   %add8.i1190 = fadd float %556, %add8.i1178
-  %arrayidx13.i1192 = getelementptr inbounds i8, ptr %arrayidx.i871, i64 412
+  %arrayidx13.i1192 = getelementptr inbounds nuw i8, ptr %arrayidx.i871, i64 412
   %557 = load float, ptr %arrayidx13.i1192, align 4
   %add14.i1193 = fadd float %557, %add14.i1181
   %mul8.i.i1201 = fmul float %492, %add8.i1190
@@ -3965,9 +3965,9 @@ if.then419:                                       ; preds = %if.end417
   %retval.sroa.0.0.vec.insert.i1212 = insertelement <2 x float> poison, float %559, i64 0
   %retval.sroa.0.4.vec.insert.i1213 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i1212, float %561, i64 1
   %retval.sroa.3.12.vec.insert.i1214 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %563, i64 0
-  %m_body_acc484 = getelementptr inbounds i8, ptr %arrayidx.i871, i64 196
+  %m_body_acc484 = getelementptr inbounds nuw i8, ptr %arrayidx.i871, i64 196
   store <2 x float> %retval.sroa.0.4.vec.insert.i1213, ptr %m_body_acc484, align 4
-  %ref.tmp443.sroa.2.0.m_body_acc484.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i871, i64 204
+  %ref.tmp443.sroa.2.0.m_body_acc484.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i871, i64 204
   store <2 x float> %retval.sroa.3.12.vec.insert.i1214, ptr %ref.tmp443.sroa.2.0.m_body_acc484.sroa_idx, align 4
   br label %for.inc487
 
@@ -3996,8 +3996,8 @@ declare void @_ZN24btInverseDynamicsBullet310transformXERKf(ptr sret(%"class.btI
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl28addRelativeJacobianComponentERNS_9RigidBodyE(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(816) %body) local_unnamed_addr #8 align 2 {
 entry:
-  %m_q_index = getelementptr inbounds i8, ptr %body, i64 536
-  %m_joint_type = getelementptr inbounds i8, ptr %body, i64 420
+  %m_q_index = getelementptr inbounds nuw i8, ptr %body, i64 536
+  %m_joint_type = getelementptr inbounds nuw i8, ptr %body, i64 420
   %0 = load i32, ptr %m_joint_type, align 4
   switch i32 %0, label %sw.epilog [
     i32 4, label %sw.bb90
@@ -4008,20 +4008,20 @@ entry:
 
 sw.bb2:                                           ; preds = %entry
   %1 = load i32, ptr %m_q_index, align 8
-  %m_Jac_JR = getelementptr inbounds i8, ptr %body, i64 488
+  %m_Jac_JR = getelementptr inbounds nuw i8, ptr %body, i64 488
   %2 = load float, ptr %m_Jac_JR, align 8
-  %m_setElemOperations.i.i = getelementptr inbounds i8, ptr %body, i64 712
+  %m_setElemOperations.i.i = getelementptr inbounds nuw i8, ptr %body, i64 712
   %3 = load i32, ptr %m_setElemOperations.i.i, align 8
   %inc.i.i = add nsw i32 %3, 1
   store i32 %inc.i.i, ptr %m_setElemOperations.i.i, align 8
-  %m_cols.i.i = getelementptr inbounds i8, ptr %body, i64 700
-  %m_data.i.i.i = getelementptr inbounds i8, ptr %body, i64 736
+  %m_cols.i.i = getelementptr inbounds nuw i8, ptr %body, i64 700
+  %m_data.i.i.i = getelementptr inbounds nuw i8, ptr %body, i64 736
   %4 = load ptr, ptr %m_data.i.i.i, align 8
   %idxprom.i.i.i = sext i32 %1 to i64
   %arrayidx.i.i.i = getelementptr inbounds float, ptr %4, i64 %idxprom.i.i.i
   store float %2, ptr %arrayidx.i.i.i, align 4
   %5 = load i32, ptr %m_q_index, align 8
-  %arrayidx.i = getelementptr inbounds i8, ptr %body, i64 492
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %body, i64 492
   %6 = load float, ptr %arrayidx.i, align 4
   %7 = load i32, ptr %m_setElemOperations.i.i, align 8
   %inc.i.i74 = add nsw i32 %7, 1
@@ -4033,7 +4033,7 @@ sw.bb2:                                           ; preds = %entry
   %arrayidx.i.i.i78 = getelementptr inbounds float, ptr %9, i64 %idxprom.i.i.i77
   store float %6, ptr %arrayidx.i.i.i78, align 4
   %10 = load i32, ptr %m_q_index, align 8
-  %arrayidx.i79 = getelementptr inbounds i8, ptr %body, i64 496
+  %arrayidx.i79 = getelementptr inbounds nuw i8, ptr %body, i64 496
   %11 = load float, ptr %arrayidx.i79, align 8
   %12 = load i32, ptr %m_setElemOperations.i.i, align 8
   %inc.i.i81 = add nsw i32 %12, 1
@@ -4045,41 +4045,41 @@ sw.bb2:                                           ; preds = %entry
 
 sw.bb9:                                           ; preds = %entry
   %14 = load i32, ptr %m_q_index, align 8
-  %m_body_T_parent_ref = getelementptr inbounds i8, ptr %body, i64 440
+  %m_body_T_parent_ref = getelementptr inbounds nuw i8, ptr %body, i64 440
   %15 = load float, ptr %m_body_T_parent_ref, align 8
-  %m_Jac_JT = getelementptr inbounds i8, ptr %body, i64 504
+  %m_Jac_JT = getelementptr inbounds nuw i8, ptr %body, i64 504
   %16 = load float, ptr %m_Jac_JT, align 8
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %body, i64 456
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %body, i64 456
   %17 = load float, ptr %arrayidx.i.i, align 8
-  %arrayidx.i90 = getelementptr inbounds i8, ptr %body, i64 508
+  %arrayidx.i90 = getelementptr inbounds nuw i8, ptr %body, i64 508
   %18 = load float, ptr %arrayidx.i90, align 4
   %mul16 = fmul float %17, %18
   %19 = tail call float @llvm.fmuladd.f32(float %15, float %16, float %mul16)
-  %arrayidx.i.i91 = getelementptr inbounds i8, ptr %body, i64 472
+  %arrayidx.i.i91 = getelementptr inbounds nuw i8, ptr %body, i64 472
   %20 = load float, ptr %arrayidx.i.i91, align 8
-  %arrayidx.i93 = getelementptr inbounds i8, ptr %body, i64 512
+  %arrayidx.i93 = getelementptr inbounds nuw i8, ptr %body, i64 512
   %21 = load float, ptr %arrayidx.i93, align 8
   %22 = tail call float @llvm.fmuladd.f32(float %20, float %21, float %19)
-  %m_setElemOperations.i.i94 = getelementptr inbounds i8, ptr %body, i64 624
+  %m_setElemOperations.i.i94 = getelementptr inbounds nuw i8, ptr %body, i64 624
   %23 = load i32, ptr %m_setElemOperations.i.i94, align 8
   %inc.i.i95 = add nsw i32 %23, 1
   store i32 %inc.i.i95, ptr %m_setElemOperations.i.i94, align 8
-  %m_cols.i.i96 = getelementptr inbounds i8, ptr %body, i64 612
-  %m_data.i.i.i99 = getelementptr inbounds i8, ptr %body, i64 648
+  %m_cols.i.i96 = getelementptr inbounds nuw i8, ptr %body, i64 612
+  %m_data.i.i.i99 = getelementptr inbounds nuw i8, ptr %body, i64 648
   %24 = load ptr, ptr %m_data.i.i.i99, align 8
   %idxprom.i.i.i100 = sext i32 %14 to i64
   %arrayidx.i.i.i101 = getelementptr inbounds float, ptr %24, i64 %idxprom.i.i.i100
   store float %22, ptr %arrayidx.i.i.i101, align 4
   %25 = load i32, ptr %m_q_index, align 8
-  %arrayidx.i103 = getelementptr inbounds i8, ptr %body, i64 444
+  %arrayidx.i103 = getelementptr inbounds nuw i8, ptr %body, i64 444
   %26 = load float, ptr %arrayidx.i103, align 4
   %27 = load float, ptr %m_Jac_JT, align 8
-  %arrayidx.i106 = getelementptr inbounds i8, ptr %body, i64 460
+  %arrayidx.i106 = getelementptr inbounds nuw i8, ptr %body, i64 460
   %28 = load float, ptr %arrayidx.i106, align 4
   %29 = load float, ptr %arrayidx.i90, align 4
   %mul29 = fmul float %28, %29
   %30 = tail call float @llvm.fmuladd.f32(float %26, float %27, float %mul29)
-  %arrayidx.i109 = getelementptr inbounds i8, ptr %body, i64 476
+  %arrayidx.i109 = getelementptr inbounds nuw i8, ptr %body, i64 476
   %31 = load float, ptr %arrayidx.i109, align 4
   %32 = load float, ptr %arrayidx.i93, align 8
   %33 = tail call float @llvm.fmuladd.f32(float %31, float %32, float %30)
@@ -4093,15 +4093,15 @@ sw.bb9:                                           ; preds = %entry
   %arrayidx.i.i.i118 = getelementptr inbounds float, ptr %36, i64 %idxprom.i.i.i117
   store float %33, ptr %arrayidx.i.i.i118, align 4
   %37 = load i32, ptr %m_q_index, align 8
-  %arrayidx.i120 = getelementptr inbounds i8, ptr %body, i64 448
+  %arrayidx.i120 = getelementptr inbounds nuw i8, ptr %body, i64 448
   %38 = load float, ptr %arrayidx.i120, align 8
   %39 = load float, ptr %m_Jac_JT, align 8
-  %arrayidx.i123 = getelementptr inbounds i8, ptr %body, i64 464
+  %arrayidx.i123 = getelementptr inbounds nuw i8, ptr %body, i64 464
   %40 = load float, ptr %arrayidx.i123, align 8
   %41 = load float, ptr %arrayidx.i90, align 4
   %mul43 = fmul float %40, %41
   %42 = tail call float @llvm.fmuladd.f32(float %38, float %39, float %mul43)
-  %arrayidx.i126 = getelementptr inbounds i8, ptr %body, i64 480
+  %arrayidx.i126 = getelementptr inbounds nuw i8, ptr %body, i64 480
   %43 = load float, ptr %arrayidx.i126, align 8
   %44 = load float, ptr %arrayidx.i93, align 8
   %45 = tail call float @llvm.fmuladd.f32(float %43, float %44, float %42)
@@ -4115,12 +4115,12 @@ sw.bb9:                                           ; preds = %entry
 
 sw.bb49:                                          ; preds = %entry
   %48 = load i32, ptr %m_q_index, align 8
-  %m_setElemOperations.i.i136 = getelementptr inbounds i8, ptr %body, i64 712
+  %m_setElemOperations.i.i136 = getelementptr inbounds nuw i8, ptr %body, i64 712
   %49 = load i32, ptr %m_setElemOperations.i.i136, align 8
   %inc.i.i137 = add nsw i32 %49, 1
   store i32 %inc.i.i137, ptr %m_setElemOperations.i.i136, align 8
-  %m_cols.i.i138 = getelementptr inbounds i8, ptr %body, i64 700
-  %m_data.i.i.i141 = getelementptr inbounds i8, ptr %body, i64 736
+  %m_cols.i.i138 = getelementptr inbounds nuw i8, ptr %body, i64 700
+  %m_data.i.i.i141 = getelementptr inbounds nuw i8, ptr %body, i64 736
   %50 = load ptr, ptr %m_data.i.i.i141, align 8
   %idxprom.i.i.i142 = sext i32 %48 to i64
   %arrayidx.i.i.i143 = getelementptr inbounds float, ptr %50, i64 %idxprom.i.i.i142
@@ -4149,21 +4149,21 @@ sw.bb49:                                          ; preds = %entry
   %arrayidx.i.i.i159 = getelementptr inbounds float, ptr %58, i64 %idxprom.i.i.i158
   store float 1.000000e+00, ptr %arrayidx.i.i.i159, align 4
   %59 = load i32, ptr %m_q_index, align 8
-  %m_body_T_parent = getelementptr inbounds i8, ptr %body, i64 292
+  %m_body_T_parent = getelementptr inbounds nuw i8, ptr %body, i64 292
   %60 = load float, ptr %m_body_T_parent, align 4
-  %m_setElemOperations.i.i162 = getelementptr inbounds i8, ptr %body, i64 624
+  %m_setElemOperations.i.i162 = getelementptr inbounds nuw i8, ptr %body, i64 624
   %61 = load i32, ptr %m_setElemOperations.i.i162, align 8
   %inc.i.i163 = add nsw i32 %61, 1
   store i32 %inc.i.i163, ptr %m_setElemOperations.i.i162, align 8
-  %m_cols.i.i164 = getelementptr inbounds i8, ptr %body, i64 612
-  %m_data.i.i.i167 = getelementptr inbounds i8, ptr %body, i64 648
+  %m_cols.i.i164 = getelementptr inbounds nuw i8, ptr %body, i64 612
+  %m_data.i.i.i167 = getelementptr inbounds nuw i8, ptr %body, i64 648
   %62 = load ptr, ptr %m_data.i.i.i167, align 8
   %63 = sext i32 %59 to i64
   %64 = getelementptr float, ptr %62, i64 %63
   %arrayidx.i.i.i169 = getelementptr i8, ptr %64, i64 12
   store float %60, ptr %arrayidx.i.i.i169, align 4
   %65 = load i32, ptr %m_q_index, align 8
-  %arrayidx.i.i170 = getelementptr inbounds i8, ptr %body, i64 308
+  %arrayidx.i.i170 = getelementptr inbounds nuw i8, ptr %body, i64 308
   %66 = load float, ptr %arrayidx.i.i170, align 4
   %67 = load i32, ptr %m_setElemOperations.i.i162, align 8
   %inc.i.i173 = add nsw i32 %67, 1
@@ -4174,7 +4174,7 @@ sw.bb49:                                          ; preds = %entry
   %arrayidx.i.i.i179 = getelementptr i8, ptr %70, i64 16
   store float %66, ptr %arrayidx.i.i.i179, align 4
   %71 = load i32, ptr %m_q_index, align 8
-  %arrayidx.i.i180 = getelementptr inbounds i8, ptr %body, i64 324
+  %arrayidx.i.i180 = getelementptr inbounds nuw i8, ptr %body, i64 324
   %72 = load float, ptr %arrayidx.i.i180, align 4
   %73 = load i32, ptr %m_setElemOperations.i.i162, align 8
   %inc.i.i183 = add nsw i32 %73, 1
@@ -4186,7 +4186,7 @@ sw.bb49:                                          ; preds = %entry
   store float %72, ptr %arrayidx.i.i.i189, align 4
   %77 = load i32, ptr %m_q_index, align 8
   %add66 = add nsw i32 %77, 3
-  %arrayidx.i191 = getelementptr inbounds i8, ptr %body, i64 296
+  %arrayidx.i191 = getelementptr inbounds nuw i8, ptr %body, i64 296
   %78 = load float, ptr %arrayidx.i191, align 8
   %79 = load i32, ptr %m_setElemOperations.i.i162, align 8
   %inc.i.i193 = add nsw i32 %79, 1
@@ -4199,7 +4199,7 @@ sw.bb49:                                          ; preds = %entry
   store float %78, ptr %arrayidx.i.i.i199, align 4
   %82 = load i32, ptr %m_q_index, align 8
   %add70 = add nsw i32 %82, 4
-  %arrayidx.i201 = getelementptr inbounds i8, ptr %body, i64 312
+  %arrayidx.i201 = getelementptr inbounds nuw i8, ptr %body, i64 312
   %83 = load float, ptr %arrayidx.i201, align 8
   %84 = load i32, ptr %m_setElemOperations.i.i162, align 8
   %inc.i.i203 = add nsw i32 %84, 1
@@ -4212,7 +4212,7 @@ sw.bb49:                                          ; preds = %entry
   store float %83, ptr %arrayidx.i.i.i209, align 4
   %87 = load i32, ptr %m_q_index, align 8
   %add74 = add nsw i32 %87, 5
-  %arrayidx.i211 = getelementptr inbounds i8, ptr %body, i64 328
+  %arrayidx.i211 = getelementptr inbounds nuw i8, ptr %body, i64 328
   %88 = load float, ptr %arrayidx.i211, align 8
   %89 = load i32, ptr %m_setElemOperations.i.i162, align 8
   %inc.i.i213 = add nsw i32 %89, 1
@@ -4225,7 +4225,7 @@ sw.bb49:                                          ; preds = %entry
   store float %88, ptr %arrayidx.i.i.i219, align 4
   %92 = load i32, ptr %m_q_index, align 8
   %add78 = add nsw i32 %92, 3
-  %arrayidx.i221 = getelementptr inbounds i8, ptr %body, i64 300
+  %arrayidx.i221 = getelementptr inbounds nuw i8, ptr %body, i64 300
   %93 = load float, ptr %arrayidx.i221, align 4
   %94 = load i32, ptr %m_setElemOperations.i.i162, align 8
   %inc.i.i223 = add nsw i32 %94, 1
@@ -4239,7 +4239,7 @@ sw.bb49:                                          ; preds = %entry
   store float %93, ptr %arrayidx.i.i.i229, align 4
   %97 = load i32, ptr %m_q_index, align 8
   %add82 = add nsw i32 %97, 4
-  %arrayidx.i231 = getelementptr inbounds i8, ptr %body, i64 316
+  %arrayidx.i231 = getelementptr inbounds nuw i8, ptr %body, i64 316
   %98 = load float, ptr %arrayidx.i231, align 4
   %99 = load i32, ptr %m_setElemOperations.i.i162, align 8
   %inc.i.i233 = add nsw i32 %99, 1
@@ -4253,7 +4253,7 @@ sw.bb49:                                          ; preds = %entry
   store float %98, ptr %arrayidx.i.i.i239, align 4
   %102 = load i32, ptr %m_q_index, align 8
   %add86 = add nsw i32 %102, 5
-  %arrayidx.i241 = getelementptr inbounds i8, ptr %body, i64 332
+  %arrayidx.i241 = getelementptr inbounds nuw i8, ptr %body, i64 332
   %103 = load float, ptr %arrayidx.i241, align 4
   %104 = load i32, ptr %m_setElemOperations.i.i162, align 8
   %inc.i.i243 = add nsw i32 %104, 1
@@ -4265,12 +4265,12 @@ sw.bb49:                                          ; preds = %entry
 
 sw.bb90:                                          ; preds = %entry
   %106 = load i32, ptr %m_q_index, align 8
-  %m_setElemOperations.i.i250 = getelementptr inbounds i8, ptr %body, i64 712
+  %m_setElemOperations.i.i250 = getelementptr inbounds nuw i8, ptr %body, i64 712
   %107 = load i32, ptr %m_setElemOperations.i.i250, align 8
   %inc.i.i251 = add nsw i32 %107, 1
   store i32 %inc.i.i251, ptr %m_setElemOperations.i.i250, align 8
-  %m_cols.i.i252 = getelementptr inbounds i8, ptr %body, i64 700
-  %m_data.i.i.i255 = getelementptr inbounds i8, ptr %body, i64 736
+  %m_cols.i.i252 = getelementptr inbounds nuw i8, ptr %body, i64 700
+  %m_data.i.i.i255 = getelementptr inbounds nuw i8, ptr %body, i64 736
   %108 = load ptr, ptr %m_data.i.i.i255, align 8
   %idxprom.i.i.i256 = sext i32 %106 to i64
   %arrayidx.i.i.i257 = getelementptr inbounds float, ptr %108, i64 %idxprom.i.i.i256
@@ -4317,12 +4317,12 @@ declare float @llvm.fmuladd.f32(float, float, float) #9
 define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl18calculateJacobiansERKNS_4vecxES4_NS1_13KinUpdateTypeE(ptr noundef nonnull align 8 dereferenceable(400) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %q, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %u, i32 noundef %type) local_unnamed_addr #7 align 2 {
 entry:
   %ref.tmp = alloca %"class.btInverseDynamicsBullet3::mat33", align 4
-  %m_size.i.i.i = getelementptr inbounds i8, ptr %q, i64 4
+  %m_size.i.i.i = getelementptr inbounds nuw i8, ptr %q, i64 4
   %0 = load i32, ptr %m_size.i.i.i, align 4
-  %m_num_dofs = getelementptr inbounds i8, ptr %this, i64 4
+  %m_num_dofs = getelementptr inbounds nuw i8, ptr %this, i64 4
   %1 = load i32, ptr %m_num_dofs, align 4
   %cmp.not = icmp eq i32 %0, %1
-  %m_size.i.i.i36 = getelementptr inbounds i8, ptr %u, i64 4
+  %m_size.i.i.i36 = getelementptr inbounds nuw i8, ptr %u, i64 4
   %2 = load i32, ptr %m_size.i.i.i36, align 4
   %cmp4.not = icmp eq i32 %2, %1
   %or.cond178 = select i1 %cmp.not, i1 %cmp4.not, i1 false
@@ -4346,82 +4346,82 @@ do.body11:                                        ; preds = %if.end
   br label %return
 
 if.end13:                                         ; preds = %if.end
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %6 = load ptr, ptr %m_data.i, align 8
   tail call void @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl28addRelativeJacobianComponentERNS_9RigidBodyE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(816) %6)
-  %m_size.i = getelementptr inbounds i8, ptr %this, i64 28
+  %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %7 = load i32, ptr %m_size.i, align 4
   %cmp17179 = icmp sgt i32 %7, 1
   br i1 %cmp17179, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %if.end13
-  %m_data.i40 = getelementptr inbounds i8, ptr %this, i64 72
-  %m_m3x = getelementptr inbounds i8, ptr %this, i64 312
+  %m_data.i40 = getelementptr inbounds nuw i8, ptr %this, i64 72
+  %m_m3x = getelementptr inbounds nuw i8, ptr %this, i64 312
   %cmp32 = icmp eq i32 %type, 1
   br i1 %cmp32, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
   %indvars.iv183 = phi i64 [ %indvars.iv.next184, %for.body.us ], [ 1, %for.body.lr.ph ]
   %8 = load ptr, ptr %m_data.i, align 8
-  %arrayidx.i.us = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %8, i64 %indvars.iv183
+  %arrayidx.i.us = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %8, i64 %indvars.iv183
   %9 = load ptr, ptr %m_data.i40, align 8
-  %arrayidx.i42.us = getelementptr inbounds i32, ptr %9, i64 %indvars.iv183
+  %arrayidx.i42.us = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv183
   %10 = load i32, ptr %arrayidx.i42.us, align 4
   %idxprom.i44.us = sext i32 %10 to i64
   %arrayidx.i45.us = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %8, i64 %idxprom.i44.us
-  %m_body_T_parent.us = getelementptr inbounds i8, ptr %arrayidx.i.us, i64 292
-  %m_body_Jac_R.us = getelementptr inbounds i8, ptr %arrayidx.i45.us, i64 696
-  %m_body_Jac_R23.us = getelementptr inbounds i8, ptr %arrayidx.i.us, i64 696
+  %m_body_T_parent.us = getelementptr inbounds nuw i8, ptr %arrayidx.i.us, i64 292
+  %m_body_Jac_R.us = getelementptr inbounds nuw i8, ptr %arrayidx.i45.us, i64 696
+  %m_body_Jac_R23.us = getelementptr inbounds nuw i8, ptr %arrayidx.i.us, i64 696
   call void @_ZN24btInverseDynamicsBullet33mulERKNS_5mat33ERKNS_5mat3xEPS3_(ptr noundef nonnull align 4 dereferenceable(48) %m_body_T_parent.us, ptr noundef nonnull align 8 dereferenceable(88) %m_body_Jac_R.us, ptr noundef nonnull %m_body_Jac_R23.us)
-  %m_body_Jac_T.us = getelementptr inbounds i8, ptr %arrayidx.i45.us, i64 608
-  %m_body_Jac_T24.us = getelementptr inbounds i8, ptr %arrayidx.i.us, i64 608
+  %m_body_Jac_T.us = getelementptr inbounds nuw i8, ptr %arrayidx.i45.us, i64 608
+  %m_body_Jac_T24.us = getelementptr inbounds nuw i8, ptr %arrayidx.i.us, i64 608
   call void @_ZN24btInverseDynamicsBullet35mat3xaSERKS0_(ptr noundef nonnull align 8 dereferenceable(88) %m_body_Jac_T24.us, ptr noundef nonnull align 8 dereferenceable(88) %m_body_Jac_T.us)
-  %m_parent_pos_parent_body.us = getelementptr inbounds i8, ptr %arrayidx.i.us, i64 340
+  %m_parent_pos_parent_body.us = getelementptr inbounds nuw i8, ptr %arrayidx.i.us, i64 340
   call void @_ZN24btInverseDynamicsBullet313tildeOperatorERKNS_4vec3E(ptr nonnull sret(%"class.btInverseDynamicsBullet3::mat33") align 4 %ref.tmp, ptr noundef nonnull align 4 dereferenceable(16) %m_parent_pos_parent_body.us)
   call void @_ZN24btInverseDynamicsBullet33mulERKNS_5mat33ERKNS_5mat3xEPS3_(ptr noundef nonnull align 4 dereferenceable(48) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(88) %m_body_Jac_R.us, ptr noundef nonnull %m_m3x)
   call void @_ZN24btInverseDynamicsBullet33subERKNS_5mat3xES2_PS0_(ptr noundef nonnull align 8 dereferenceable(88) %m_body_Jac_T24.us, ptr noundef nonnull align 8 dereferenceable(88) %m_m3x, ptr noundef nonnull %m_body_Jac_T24.us)
   call void @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl28addRelativeJacobianComponentERNS_9RigidBodyE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(816) %arrayidx.i.us)
   call void @_ZN24btInverseDynamicsBullet33mulERKNS_5mat33ERKNS_5mat3xEPS3_(ptr noundef nonnull align 4 dereferenceable(48) %m_body_T_parent.us, ptr noundef nonnull align 8 dereferenceable(88) %m_body_Jac_T24.us, ptr noundef nonnull %m_body_Jac_T24.us)
-  %m_body_dot_Jac_R_u.us = getelementptr inbounds i8, ptr %arrayidx.i45.us, i64 800
+  %m_body_dot_Jac_R_u.us = getelementptr inbounds nuw i8, ptr %arrayidx.i45.us, i64 800
   %11 = load float, ptr %m_body_T_parent.us, align 4
   %12 = load float, ptr %m_body_dot_Jac_R_u.us, align 4
-  %arrayidx5.i.i.us = getelementptr inbounds i8, ptr %arrayidx.i.us, i64 296
+  %arrayidx5.i.i.us = getelementptr inbounds nuw i8, ptr %arrayidx.i.us, i64 296
   %13 = load float, ptr %arrayidx5.i.i.us, align 4
-  %arrayidx7.i.i.us = getelementptr inbounds i8, ptr %arrayidx.i45.us, i64 804
+  %arrayidx7.i.i.us = getelementptr inbounds nuw i8, ptr %arrayidx.i45.us, i64 804
   %14 = load float, ptr %arrayidx7.i.i.us, align 4
   %mul8.i.i.us = fmul float %13, %14
   %15 = call float @llvm.fmuladd.f32(float %11, float %12, float %mul8.i.i.us)
-  %arrayidx10.i.i.us = getelementptr inbounds i8, ptr %arrayidx.i.us, i64 300
+  %arrayidx10.i.i.us = getelementptr inbounds nuw i8, ptr %arrayidx.i.us, i64 300
   %16 = load float, ptr %arrayidx10.i.i.us, align 4
-  %arrayidx12.i.i.us = getelementptr inbounds i8, ptr %arrayidx.i45.us, i64 808
+  %arrayidx12.i.i.us = getelementptr inbounds nuw i8, ptr %arrayidx.i45.us, i64 808
   %17 = load float, ptr %arrayidx12.i.i.us, align 4
   %18 = call noundef float @llvm.fmuladd.f32(float %16, float %17, float %15)
-  %arrayidx.i.i.us = getelementptr inbounds i8, ptr %arrayidx.i.us, i64 308
+  %arrayidx.i.i.us = getelementptr inbounds nuw i8, ptr %arrayidx.i.us, i64 308
   %19 = load float, ptr %arrayidx.i.i.us, align 4
-  %arrayidx5.i5.i.us = getelementptr inbounds i8, ptr %arrayidx.i.us, i64 312
+  %arrayidx5.i5.i.us = getelementptr inbounds nuw i8, ptr %arrayidx.i.us, i64 312
   %20 = load float, ptr %arrayidx5.i5.i.us, align 4
   %mul8.i7.i.us = fmul float %14, %20
   %21 = call float @llvm.fmuladd.f32(float %19, float %12, float %mul8.i7.i.us)
-  %arrayidx10.i8.i.us = getelementptr inbounds i8, ptr %arrayidx.i.us, i64 316
+  %arrayidx10.i8.i.us = getelementptr inbounds nuw i8, ptr %arrayidx.i.us, i64 316
   %22 = load float, ptr %arrayidx10.i8.i.us, align 4
   %23 = call noundef float @llvm.fmuladd.f32(float %22, float %17, float %21)
-  %arrayidx.i10.i.us = getelementptr inbounds i8, ptr %arrayidx.i.us, i64 324
+  %arrayidx.i10.i.us = getelementptr inbounds nuw i8, ptr %arrayidx.i.us, i64 324
   %24 = load float, ptr %arrayidx.i10.i.us, align 4
-  %arrayidx5.i11.i.us = getelementptr inbounds i8, ptr %arrayidx.i.us, i64 328
+  %arrayidx5.i11.i.us = getelementptr inbounds nuw i8, ptr %arrayidx.i.us, i64 328
   %25 = load float, ptr %arrayidx5.i11.i.us, align 4
   %mul8.i13.i.us = fmul float %14, %25
   %26 = call float @llvm.fmuladd.f32(float %24, float %12, float %mul8.i13.i.us)
-  %arrayidx10.i14.i.us = getelementptr inbounds i8, ptr %arrayidx.i.us, i64 332
+  %arrayidx10.i14.i.us = getelementptr inbounds nuw i8, ptr %arrayidx.i.us, i64 332
   %27 = load float, ptr %arrayidx10.i14.i.us, align 4
   %28 = call noundef float @llvm.fmuladd.f32(float %27, float %17, float %26)
-  %m_body_ang_vel_rel.us = getelementptr inbounds i8, ptr %arrayidx.i.us, i64 356
-  %m_body_ang_vel.us = getelementptr inbounds i8, ptr %arrayidx.i45.us, i64 212
+  %m_body_ang_vel_rel.us = getelementptr inbounds nuw i8, ptr %arrayidx.i.us, i64 356
+  %m_body_ang_vel.us = getelementptr inbounds nuw i8, ptr %arrayidx.i45.us, i64 212
   %29 = load float, ptr %m_body_ang_vel.us, align 4
-  %arrayidx7.i.i47.us = getelementptr inbounds i8, ptr %arrayidx.i45.us, i64 216
+  %arrayidx7.i.i47.us = getelementptr inbounds nuw i8, ptr %arrayidx.i45.us, i64 216
   %30 = load float, ptr %arrayidx7.i.i47.us, align 4
   %mul8.i.i48.us = fmul float %13, %30
   %31 = call float @llvm.fmuladd.f32(float %11, float %29, float %mul8.i.i48.us)
-  %arrayidx12.i.i50.us = getelementptr inbounds i8, ptr %arrayidx.i45.us, i64 220
+  %arrayidx12.i.i50.us = getelementptr inbounds nuw i8, ptr %arrayidx.i45.us, i64 220
   %32 = load float, ptr %arrayidx12.i.i50.us, align 4
   %33 = call noundef float @llvm.fmuladd.f32(float %16, float %32, float %31)
   %mul8.i7.i53.us = fmul float %20, %30
@@ -4430,9 +4430,9 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %mul8.i13.i57.us = fmul float %25, %30
   %36 = call float @llvm.fmuladd.f32(float %24, float %29, float %mul8.i13.i57.us)
   %37 = call noundef float @llvm.fmuladd.f32(float %27, float %32, float %36)
-  %arrayidx.i64.us = getelementptr inbounds i8, ptr %arrayidx.i.us, i64 360
+  %arrayidx.i64.us = getelementptr inbounds nuw i8, ptr %arrayidx.i.us, i64 360
   %38 = load float, ptr %arrayidx.i64.us, align 4
-  %arrayidx5.i.us = getelementptr inbounds i8, ptr %arrayidx.i.us, i64 364
+  %arrayidx5.i.us = getelementptr inbounds nuw i8, ptr %arrayidx.i.us, i64 364
   %39 = load float, ptr %arrayidx5.i.us, align 4
   %40 = fneg float %35
   %neg.i.us = fmul float %39, %40
@@ -4450,16 +4450,16 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %retval.sroa.0.0.vec.insert.i72.us = insertelement <2 x float> poison, float %sub.i.us, i64 0
   %retval.sroa.0.4.vec.insert.i73.us = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i72.us, float %sub8.i.us, i64 1
   %retval.sroa.3.12.vec.insert.i74.us = insertelement <2 x float> <float poison, float 0.000000e+00>, float %sub14.i.us, i64 0
-  %m_body_dot_Jac_R_u47.us = getelementptr inbounds i8, ptr %arrayidx.i.us, i64 800
+  %m_body_dot_Jac_R_u47.us = getelementptr inbounds nuw i8, ptr %arrayidx.i.us, i64 800
   store <2 x float> %retval.sroa.0.4.vec.insert.i73.us, ptr %m_body_dot_Jac_R_u47.us, align 4
-  %ref.tmp34.sroa.2.0.m_body_dot_Jac_R_u47.sroa_idx.us = getelementptr inbounds i8, ptr %arrayidx.i.us, i64 808
+  %ref.tmp34.sroa.2.0.m_body_dot_Jac_R_u47.sroa_idx.us = getelementptr inbounds nuw i8, ptr %arrayidx.i.us, i64 808
   store <2 x float> %retval.sroa.3.12.vec.insert.i74.us, ptr %ref.tmp34.sroa.2.0.m_body_dot_Jac_R_u47.sroa_idx.us, align 4
-  %m_body_dot_Jac_T_u.us = getelementptr inbounds i8, ptr %arrayidx.i45.us, i64 784
+  %m_body_dot_Jac_T_u.us = getelementptr inbounds nuw i8, ptr %arrayidx.i45.us, i64 784
   %47 = load float, ptr %arrayidx7.i.i.us, align 4
-  %arrayidx3.i78.us = getelementptr inbounds i8, ptr %arrayidx.i.us, i64 348
+  %arrayidx3.i78.us = getelementptr inbounds nuw i8, ptr %arrayidx.i.us, i64 348
   %48 = load float, ptr %arrayidx3.i78.us, align 4
   %49 = load float, ptr %arrayidx12.i.i.us, align 4
-  %arrayidx7.i80.us = getelementptr inbounds i8, ptr %arrayidx.i.us, i64 344
+  %arrayidx7.i80.us = getelementptr inbounds nuw i8, ptr %arrayidx.i.us, i64 344
   %50 = load float, ptr %arrayidx7.i80.us, align 4
   %51 = fneg float %50
   %neg.i81.us = fmul float %49, %51
@@ -4474,10 +4474,10 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %58 = call float @llvm.fmuladd.f32(float %54, float %50, float %neg30.i83.us)
   %59 = load float, ptr %m_body_dot_Jac_T_u.us, align 4
   %add.i.us = fadd float %52, %59
-  %arrayidx5.i89.us = getelementptr inbounds i8, ptr %arrayidx.i45.us, i64 788
+  %arrayidx5.i89.us = getelementptr inbounds nuw i8, ptr %arrayidx.i45.us, i64 788
   %60 = load float, ptr %arrayidx5.i89.us, align 4
   %add8.i.us = fadd float %60, %56
-  %arrayidx11.i91.us = getelementptr inbounds i8, ptr %arrayidx.i45.us, i64 792
+  %arrayidx11.i91.us = getelementptr inbounds nuw i8, ptr %arrayidx.i45.us, i64 792
   %61 = load float, ptr %arrayidx11.i91.us, align 4
   %add14.i.us = fadd float %58, %61
   %neg.i102.us = fmul float %32, %51
@@ -4498,10 +4498,10 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %add.i122.us = fadd float %add.i.us, %66
   %add8.i125.us = fadd float %add8.i.us, %68
   %add14.i128.us = fadd float %70, %add14.i.us
-  %m_parent_vel_rel.us = getelementptr inbounds i8, ptr %arrayidx.i.us, i64 372
-  %arrayidx3.i135.us = getelementptr inbounds i8, ptr %arrayidx.i.us, i64 380
+  %m_parent_vel_rel.us = getelementptr inbounds nuw i8, ptr %arrayidx.i.us, i64 372
+  %arrayidx3.i135.us = getelementptr inbounds nuw i8, ptr %arrayidx.i.us, i64 380
   %71 = load float, ptr %arrayidx3.i135.us, align 4
-  %arrayidx7.i137.us = getelementptr inbounds i8, ptr %arrayidx.i.us, i64 376
+  %arrayidx7.i137.us = getelementptr inbounds nuw i8, ptr %arrayidx.i.us, i64 376
   %72 = load float, ptr %arrayidx7.i137.us, align 4
   %73 = fneg float %72
   %neg.i138.us = fmul float %32, %73
@@ -4531,9 +4531,9 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %retval.sroa.0.0.vec.insert.i173.us = insertelement <2 x float> poison, float %81, i64 0
   %retval.sroa.0.4.vec.insert.i174.us = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i173.us, float %83, i64 1
   %retval.sroa.3.12.vec.insert.i175.us = insertelement <2 x float> <float poison, float 0.000000e+00>, float %85, i64 0
-  %m_body_dot_Jac_T_u84.us = getelementptr inbounds i8, ptr %arrayidx.i.us, i64 784
+  %m_body_dot_Jac_T_u84.us = getelementptr inbounds nuw i8, ptr %arrayidx.i.us, i64 784
   store <2 x float> %retval.sroa.0.4.vec.insert.i174.us, ptr %m_body_dot_Jac_T_u84.us, align 4
-  %ref.tmp49.sroa.2.0.m_body_dot_Jac_T_u84.sroa_idx.us = getelementptr inbounds i8, ptr %arrayidx.i.us, i64 792
+  %ref.tmp49.sroa.2.0.m_body_dot_Jac_T_u84.sroa_idx.us = getelementptr inbounds nuw i8, ptr %arrayidx.i.us, i64 792
   store <2 x float> %retval.sroa.3.12.vec.insert.i175.us, ptr %ref.tmp49.sroa.2.0.m_body_dot_Jac_T_u84.sroa_idx.us, align 4
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
   %86 = load i32, ptr %m_size.i, align 4
@@ -4544,20 +4544,20 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 1, %for.body.lr.ph ]
   %88 = load ptr, ptr %m_data.i, align 8
-  %arrayidx.i = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %88, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %88, i64 %indvars.iv
   %89 = load ptr, ptr %m_data.i40, align 8
-  %arrayidx.i42 = getelementptr inbounds i32, ptr %89, i64 %indvars.iv
+  %arrayidx.i42 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv
   %90 = load i32, ptr %arrayidx.i42, align 4
   %idxprom.i44 = sext i32 %90 to i64
   %arrayidx.i45 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %88, i64 %idxprom.i44
-  %m_body_T_parent = getelementptr inbounds i8, ptr %arrayidx.i, i64 292
-  %m_body_Jac_R = getelementptr inbounds i8, ptr %arrayidx.i45, i64 696
-  %m_body_Jac_R23 = getelementptr inbounds i8, ptr %arrayidx.i, i64 696
+  %m_body_T_parent = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 292
+  %m_body_Jac_R = getelementptr inbounds nuw i8, ptr %arrayidx.i45, i64 696
+  %m_body_Jac_R23 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 696
   call void @_ZN24btInverseDynamicsBullet33mulERKNS_5mat33ERKNS_5mat3xEPS3_(ptr noundef nonnull align 4 dereferenceable(48) %m_body_T_parent, ptr noundef nonnull align 8 dereferenceable(88) %m_body_Jac_R, ptr noundef nonnull %m_body_Jac_R23)
-  %m_body_Jac_T = getelementptr inbounds i8, ptr %arrayidx.i45, i64 608
-  %m_body_Jac_T24 = getelementptr inbounds i8, ptr %arrayidx.i, i64 608
+  %m_body_Jac_T = getelementptr inbounds nuw i8, ptr %arrayidx.i45, i64 608
+  %m_body_Jac_T24 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 608
   call void @_ZN24btInverseDynamicsBullet35mat3xaSERKS0_(ptr noundef nonnull align 8 dereferenceable(88) %m_body_Jac_T24, ptr noundef nonnull align 8 dereferenceable(88) %m_body_Jac_T)
-  %m_parent_pos_parent_body = getelementptr inbounds i8, ptr %arrayidx.i, i64 340
+  %m_parent_pos_parent_body = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 340
   call void @_ZN24btInverseDynamicsBullet313tildeOperatorERKNS_4vec3E(ptr nonnull sret(%"class.btInverseDynamicsBullet3::mat33") align 4 %ref.tmp, ptr noundef nonnull align 4 dereferenceable(16) %m_parent_pos_parent_body)
   call void @_ZN24btInverseDynamicsBullet33mulERKNS_5mat33ERKNS_5mat3xEPS3_(ptr noundef nonnull align 4 dereferenceable(48) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(88) %m_body_Jac_R, ptr noundef nonnull %m_m3x)
   call void @_ZN24btInverseDynamicsBullet33subERKNS_5mat3xES2_PS0_(ptr noundef nonnull align 8 dereferenceable(88) %m_body_Jac_T24, ptr noundef nonnull align 8 dereferenceable(88) %m_m3x, ptr noundef nonnull %m_body_Jac_T24)
@@ -4579,9 +4579,9 @@ declare void @_ZN24btInverseDynamicsBullet33mulERKNS_5mat33ERKNS_5mat3xEPS3_(ptr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN24btInverseDynamicsBullet35mat3xaSERKS0_(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(88) %rhs) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %m_cols = getelementptr inbounds i8, ptr %this, i64 4
+  %m_cols = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = load i32, ptr %m_cols, align 4
-  %m_cols2 = getelementptr inbounds i8, ptr %rhs, i64 4
+  %m_cols2 = getelementptr inbounds nuw i8, ptr %rhs, i64 4
   %1 = load i32, ptr %m_cols2, align 4
   %cmp.not = icmp eq i32 %0, %1
   br i1 %cmp.not, label %for.cond.preheader, label %do.body
@@ -4592,9 +4592,9 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp520, label %for.cond6.preheader.lr.ph, label %for.end13
 
 for.cond6.preheader.lr.ph:                        ; preds = %for.cond.preheader
-  %m_data.i.i = getelementptr inbounds i8, ptr %rhs, i64 40
-  %m_setElemOperations.i = getelementptr inbounds i8, ptr %this, i64 16
-  %m_data.i.i15 = getelementptr inbounds i8, ptr %this, i64 40
+  %m_data.i.i = getelementptr inbounds nuw i8, ptr %rhs, i64 40
+  %m_setElemOperations.i = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %m_data.i.i15 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %3 = icmp sgt i32 %0, 0
   br i1 %3, label %for.cond6.preheader, label %for.end13
 
@@ -4674,9 +4674,9 @@ entry:
   %Jac_JT = alloca %"class.btInverseDynamicsBullet3::vec3", align 4
   %Jac_JR337 = alloca %"class.btInverseDynamicsBullet3::vec3", align 4
   %Jac_JT339 = alloca %"class.btInverseDynamicsBullet3::vec3", align 4
-  %m_size.i.i.i = getelementptr inbounds i8, ptr %q, i64 4
+  %m_size.i.i.i = getelementptr inbounds nuw i8, ptr %q, i64 4
   %0 = load i32, ptr %m_size.i.i.i, align 4
-  %m_num_dofs = getelementptr inbounds i8, ptr %this, i64 4
+  %m_num_dofs = getelementptr inbounds nuw i8, ptr %this, i64 4
   %1 = load i32, ptr %m_num_dofs, align 4
   %cmp.not = icmp eq i32 %0, %1
   br i1 %cmp.not, label %lor.lhs.false, label %do.body
@@ -4687,7 +4687,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp6.not, label %lor.lhs.false7, label %do.body
 
 lor.lhs.false7:                                   ; preds = %lor.lhs.false
-  %m_cols.i = getelementptr inbounds i8, ptr %mass_matrix, i64 4
+  %m_cols.i = getelementptr inbounds nuw i8, ptr %mass_matrix, i64 4
   %3 = load i32, ptr %m_cols.i, align 4
   %cmp10.not = icmp eq i32 %3, %0
   br i1 %cmp10.not, label %if.end, label %do.body
@@ -4697,7 +4697,7 @@ do.body:                                          ; preds = %entry, %lor.lhs.fal
   %4 = load i32, ptr %m_num_dofs, align 4
   %5 = load i32, ptr %m_size.i.i.i, align 4
   %6 = load i32, ptr %mass_matrix, align 8
-  %m_cols.i149 = getelementptr inbounds i8, ptr %mass_matrix, i64 4
+  %m_cols.i149 = getelementptr inbounds nuw i8, ptr %mass_matrix, i64 4
   %7 = load i32, ptr %m_cols.i149, align 4
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.29, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7)
   br label %return
@@ -4708,8 +4708,8 @@ if.end:                                           ; preds = %lor.lhs.false7
   br i1 %or.cond, label %for.cond18.preheader.preheader, label %if.end25
 
 for.cond18.preheader.preheader:                   ; preds = %if.end
-  %m_setElemOperations.i.i = getelementptr inbounds i8, ptr %mass_matrix, i64 16
-  %m_data.i.i.i = getelementptr inbounds i8, ptr %mass_matrix, i64 40
+  %m_setElemOperations.i.i = getelementptr inbounds nuw i8, ptr %mass_matrix, i64 16
+  %m_data.i.i.i = getelementptr inbounds nuw i8, ptr %mass_matrix, i64 40
   br label %for.cond18.preheader
 
 for.cond18.preheader:                             ; preds = %for.cond18.preheader.preheader, %for.inc22
@@ -4745,80 +4745,80 @@ if.end25:                                         ; preds = %for.inc22, %if.end
   br i1 %update_kinematics, label %for.cond29.preheader, label %if.end155
 
 for.cond29.preheader:                             ; preds = %if.end25
-  %m_size.i = getelementptr inbounds i8, ptr %this, i64 124
+  %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 124
   %14 = load i32, ptr %m_size.i, align 4
   %cmp311163 = icmp sgt i32 %14, 0
   br i1 %cmp311163, label %for.body32.lr.ph, label %for.cond42.preheader
 
 for.body32.lr.ph:                                 ; preds = %for.cond29.preheader
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 136
-  %m_data.i150 = getelementptr inbounds i8, ptr %this, i64 40
-  %m_data.i.i.i153 = getelementptr inbounds i8, ptr %q, i64 16
-  %arrayidx.i.i.i156 = getelementptr inbounds i8, ptr %body_T_body_ref, i64 4
-  %arrayidx.i3.i.i = getelementptr inbounds i8, ptr %body_T_body_ref, i64 8
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %body_T_body_ref, i64 16
-  %arrayidx.i.i27.i = getelementptr inbounds i8, ptr %body_T_body_ref, i64 20
-  %arrayidx.i3.i30.i = getelementptr inbounds i8, ptr %body_T_body_ref, i64 24
-  %arrayidx.i45.i = getelementptr inbounds i8, ptr %body_T_body_ref, i64 32
-  %arrayidx.i.i47.i = getelementptr inbounds i8, ptr %body_T_body_ref, i64 36
-  %arrayidx.i3.i50.i = getelementptr inbounds i8, ptr %body_T_body_ref, i64 40
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 136
+  %m_data.i150 = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %m_data.i.i.i153 = getelementptr inbounds nuw i8, ptr %q, i64 16
+  %arrayidx.i.i.i156 = getelementptr inbounds nuw i8, ptr %body_T_body_ref, i64 4
+  %arrayidx.i3.i.i = getelementptr inbounds nuw i8, ptr %body_T_body_ref, i64 8
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %body_T_body_ref, i64 16
+  %arrayidx.i.i27.i = getelementptr inbounds nuw i8, ptr %body_T_body_ref, i64 20
+  %arrayidx.i3.i30.i = getelementptr inbounds nuw i8, ptr %body_T_body_ref, i64 24
+  %arrayidx.i45.i = getelementptr inbounds nuw i8, ptr %body_T_body_ref, i64 32
+  %arrayidx.i.i47.i = getelementptr inbounds nuw i8, ptr %body_T_body_ref, i64 36
+  %arrayidx.i3.i50.i = getelementptr inbounds nuw i8, ptr %body_T_body_ref, i64 40
   br label %for.body32
 
 for.cond42.preheader:                             ; preds = %for.body32, %for.cond29.preheader
-  %m_size.i158 = getelementptr inbounds i8, ptr %this, i64 156
+  %m_size.i158 = getelementptr inbounds nuw i8, ptr %this, i64 156
   %15 = load i32, ptr %m_size.i158, align 4
   %cmp441165 = icmp sgt i32 %15, 0
   br i1 %cmp441165, label %for.body45.lr.ph, label %for.cond63.preheader
 
 for.body45.lr.ph:                                 ; preds = %for.cond42.preheader
-  %m_data.i159 = getelementptr inbounds i8, ptr %this, i64 168
-  %m_data.i162 = getelementptr inbounds i8, ptr %this, i64 40
-  %m_data.i.i.i165 = getelementptr inbounds i8, ptr %q, i64 16
+  %m_data.i159 = getelementptr inbounds nuw i8, ptr %this, i64 168
+  %m_data.i162 = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %m_data.i.i.i165 = getelementptr inbounds nuw i8, ptr %q, i64 16
   br label %for.body45
 
 for.body32:                                       ; preds = %for.body32.lr.ph, %for.body32
   %indvars.iv = phi i64 [ 0, %for.body32.lr.ph ], [ %indvars.iv.next, %for.body32 ]
   %16 = load ptr, ptr %m_data.i, align 8
-  %arrayidx.i = getelementptr inbounds i32, ptr %16, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
   %17 = load i32, ptr %arrayidx.i, align 4
   %18 = load ptr, ptr %m_data.i150, align 8
   %idxprom.i151 = sext i32 %17 to i64
   %arrayidx.i152 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %18, i64 %idxprom.i151
-  %m_Jac_JR = getelementptr inbounds i8, ptr %arrayidx.i152, i64 488
-  %m_q_index = getelementptr inbounds i8, ptr %arrayidx.i152, i64 536
+  %m_Jac_JR = getelementptr inbounds nuw i8, ptr %arrayidx.i152, i64 488
+  %m_q_index = getelementptr inbounds nuw i8, ptr %arrayidx.i152, i64 536
   %19 = load i32, ptr %m_q_index, align 8
   %20 = load ptr, ptr %m_data.i.i.i153, align 8
   %idxprom.i.i.i154 = sext i32 %19 to i64
   %arrayidx.i.i.i155 = getelementptr inbounds float, ptr %20, i64 %idxprom.i.i.i154
   call void @_ZN24btInverseDynamicsBullet324bodyTParentFromAxisAngleERKNS_4vec3ERKfPNS_5mat33E(ptr noundef nonnull align 4 dereferenceable(16) %m_Jac_JR, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx.i.i.i155, ptr noundef nonnull %body_T_body_ref)
-  %m_body_T_parent_ref = getelementptr inbounds i8, ptr %arrayidx.i152, i64 440
+  %m_body_T_parent_ref = getelementptr inbounds nuw i8, ptr %arrayidx.i152, i64 440
   %21 = load float, ptr %m_body_T_parent_ref, align 4, !noalias !72
   %22 = load float, ptr %body_T_body_ref, align 4, !noalias !72
-  %arrayidx4.i.i = getelementptr inbounds i8, ptr %arrayidx.i152, i64 456
+  %arrayidx4.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i152, i64 456
   %23 = load float, ptr %arrayidx4.i.i, align 4, !noalias !72
   %24 = load float, ptr %arrayidx.i.i.i156, align 4, !noalias !72
   %mul7.i.i = fmul float %23, %24
   %25 = call float @llvm.fmuladd.f32(float %21, float %22, float %mul7.i.i)
-  %arrayidx9.i.i = getelementptr inbounds i8, ptr %arrayidx.i152, i64 472
+  %arrayidx9.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i152, i64 472
   %26 = load float, ptr %arrayidx9.i.i, align 4, !noalias !72
   %27 = load float, ptr %arrayidx.i3.i.i, align 4, !noalias !72
   %28 = call noundef float @llvm.fmuladd.f32(float %26, float %27, float %25)
-  %arrayidx.i.i17.i = getelementptr inbounds i8, ptr %arrayidx.i152, i64 444
+  %arrayidx.i.i17.i = getelementptr inbounds nuw i8, ptr %arrayidx.i152, i64 444
   %29 = load float, ptr %arrayidx.i.i17.i, align 4, !noalias !72
-  %arrayidx.i3.i18.i = getelementptr inbounds i8, ptr %arrayidx.i152, i64 460
+  %arrayidx.i3.i18.i = getelementptr inbounds nuw i8, ptr %arrayidx.i152, i64 460
   %30 = load float, ptr %arrayidx.i3.i18.i, align 4, !noalias !72
   %mul7.i19.i = fmul float %24, %30
   %31 = call float @llvm.fmuladd.f32(float %29, float %22, float %mul7.i19.i)
-  %arrayidx.i5.i.i = getelementptr inbounds i8, ptr %arrayidx.i152, i64 476
+  %arrayidx.i5.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i152, i64 476
   %32 = load float, ptr %arrayidx.i5.i.i, align 4, !noalias !72
   %33 = call noundef float @llvm.fmuladd.f32(float %32, float %27, float %31)
-  %arrayidx.i.i20.i = getelementptr inbounds i8, ptr %arrayidx.i152, i64 448
+  %arrayidx.i.i20.i = getelementptr inbounds nuw i8, ptr %arrayidx.i152, i64 448
   %34 = load float, ptr %arrayidx.i.i20.i, align 4, !noalias !72
-  %arrayidx.i3.i21.i = getelementptr inbounds i8, ptr %arrayidx.i152, i64 464
+  %arrayidx.i3.i21.i = getelementptr inbounds nuw i8, ptr %arrayidx.i152, i64 464
   %35 = load float, ptr %arrayidx.i3.i21.i, align 4, !noalias !72
   %mul7.i23.i = fmul float %24, %35
   %36 = call float @llvm.fmuladd.f32(float %34, float %22, float %mul7.i23.i)
-  %arrayidx.i5.i24.i = getelementptr inbounds i8, ptr %arrayidx.i152, i64 480
+  %arrayidx.i5.i24.i = getelementptr inbounds nuw i8, ptr %arrayidx.i152, i64 480
   %37 = load float, ptr %arrayidx.i5.i24.i, align 4, !noalias !72
   %38 = call noundef float @llvm.fmuladd.f32(float %37, float %27, float %36)
   %39 = load float, ptr %arrayidx.i.i, align 4, !noalias !72
@@ -4845,29 +4845,29 @@ for.body32:                                       ; preds = %for.body32.lr.ph, %
   %mul7.i62.i = fmul float %35, %49
   %55 = call float @llvm.fmuladd.f32(float %34, float %48, float %mul7.i62.i)
   %56 = call noundef float @llvm.fmuladd.f32(float %37, float %51, float %55)
-  %m_body_T_parent = getelementptr inbounds i8, ptr %arrayidx.i152, i64 292
+  %m_body_T_parent = getelementptr inbounds nuw i8, ptr %arrayidx.i152, i64 292
   store float %28, ptr %m_body_T_parent, align 4
-  %ref.tmp.sroa.2.0.m_body_T_parent.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i152, i64 296
+  %ref.tmp.sroa.2.0.m_body_T_parent.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i152, i64 296
   store float %33, ptr %ref.tmp.sroa.2.0.m_body_T_parent.sroa_idx, align 4
-  %ref.tmp.sroa.3.0.m_body_T_parent.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i152, i64 300
+  %ref.tmp.sroa.3.0.m_body_T_parent.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i152, i64 300
   store float %38, ptr %ref.tmp.sroa.3.0.m_body_T_parent.sroa_idx, align 4
-  %ref.tmp.sroa.4.0.m_body_T_parent.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i152, i64 304
+  %ref.tmp.sroa.4.0.m_body_T_parent.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i152, i64 304
   store float 0.000000e+00, ptr %ref.tmp.sroa.4.0.m_body_T_parent.sroa_idx, align 4
-  %arrayidx7.i.i = getelementptr inbounds i8, ptr %arrayidx.i152, i64 308
+  %arrayidx7.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i152, i64 308
   store float %43, ptr %arrayidx7.i.i, align 4
-  %ref.tmp.sroa.7.16.arrayidx7.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i152, i64 312
+  %ref.tmp.sroa.7.16.arrayidx7.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i152, i64 312
   store float %45, ptr %ref.tmp.sroa.7.16.arrayidx7.i.i.sroa_idx, align 4
-  %ref.tmp.sroa.8.16.arrayidx7.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i152, i64 316
+  %ref.tmp.sroa.8.16.arrayidx7.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i152, i64 316
   store float %47, ptr %ref.tmp.sroa.8.16.arrayidx7.i.i.sroa_idx, align 4
-  %ref.tmp.sroa.9.16.arrayidx7.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i152, i64 320
+  %ref.tmp.sroa.9.16.arrayidx7.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i152, i64 320
   store float 0.000000e+00, ptr %ref.tmp.sroa.9.16.arrayidx7.i.i.sroa_idx, align 4
-  %arrayidx11.i.i = getelementptr inbounds i8, ptr %arrayidx.i152, i64 324
+  %arrayidx11.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i152, i64 324
   store float %52, ptr %arrayidx11.i.i, align 4
-  %ref.tmp.sroa.12.32.arrayidx11.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i152, i64 328
+  %ref.tmp.sroa.12.32.arrayidx11.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i152, i64 328
   store float %54, ptr %ref.tmp.sroa.12.32.arrayidx11.i.i.sroa_idx, align 4
-  %ref.tmp.sroa.13.32.arrayidx11.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i152, i64 332
+  %ref.tmp.sroa.13.32.arrayidx11.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i152, i64 332
   store float %56, ptr %ref.tmp.sroa.13.32.arrayidx11.i.i.sroa_idx, align 4
-  %ref.tmp.sroa.14.32.arrayidx11.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i152, i64 336
+  %ref.tmp.sroa.14.32.arrayidx11.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i152, i64 336
   store float 0.000000e+00, ptr %ref.tmp.sroa.14.32.arrayidx11.i.i.sroa_idx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %57 = load i32, ptr %m_size.i, align 4
@@ -4876,52 +4876,52 @@ for.body32:                                       ; preds = %for.body32.lr.ph, %
   br i1 %cmp31, label %for.body32, label %for.cond42.preheader, !llvm.loop !75
 
 for.cond63.preheader:                             ; preds = %for.body45, %for.cond42.preheader
-  %m_size.i174 = getelementptr inbounds i8, ptr %this, i64 188
+  %m_size.i174 = getelementptr inbounds nuw i8, ptr %this, i64 188
   %59 = load i32, ptr %m_size.i174, align 4
   %cmp651167 = icmp sgt i32 %59, 0
   br i1 %cmp651167, label %for.body66.lr.ph, label %for.cond112.preheader
 
 for.body66.lr.ph:                                 ; preds = %for.cond63.preheader
-  %m_data.i175 = getelementptr inbounds i8, ptr %this, i64 200
-  %m_data.i178 = getelementptr inbounds i8, ptr %this, i64 40
-  %m_data.i.i.i181 = getelementptr inbounds i8, ptr %q, i64 16
-  %arrayidx4.i.i187 = getelementptr inbounds i8, ptr %ref.tmp77, i64 16
-  %arrayidx.i.i.i188 = getelementptr inbounds i8, ptr %ref.tmp74, i64 4
-  %arrayidx9.i.i190 = getelementptr inbounds i8, ptr %ref.tmp77, i64 32
-  %arrayidx.i3.i.i191 = getelementptr inbounds i8, ptr %ref.tmp74, i64 8
-  %arrayidx.i.i17.i192 = getelementptr inbounds i8, ptr %ref.tmp77, i64 4
-  %arrayidx.i3.i18.i193 = getelementptr inbounds i8, ptr %ref.tmp77, i64 20
-  %arrayidx.i5.i.i195 = getelementptr inbounds i8, ptr %ref.tmp77, i64 36
-  %arrayidx.i.i20.i196 = getelementptr inbounds i8, ptr %ref.tmp77, i64 8
-  %arrayidx.i3.i21.i197 = getelementptr inbounds i8, ptr %ref.tmp77, i64 24
-  %arrayidx.i5.i24.i199 = getelementptr inbounds i8, ptr %ref.tmp77, i64 40
-  %arrayidx.i.i200 = getelementptr inbounds i8, ptr %ref.tmp74, i64 16
-  %arrayidx.i.i27.i201 = getelementptr inbounds i8, ptr %ref.tmp74, i64 20
-  %arrayidx.i3.i30.i203 = getelementptr inbounds i8, ptr %ref.tmp74, i64 24
-  %arrayidx.i45.i206 = getelementptr inbounds i8, ptr %ref.tmp74, i64 32
-  %arrayidx.i.i47.i207 = getelementptr inbounds i8, ptr %ref.tmp74, i64 36
-  %arrayidx.i3.i50.i209 = getelementptr inbounds i8, ptr %ref.tmp74, i64 40
-  %arrayidx4.i.i226 = getelementptr inbounds i8, ptr %ref.tmp81, i64 16
-  %arrayidx9.i.i229 = getelementptr inbounds i8, ptr %ref.tmp81, i64 32
-  %arrayidx.i.i17.i231 = getelementptr inbounds i8, ptr %ref.tmp81, i64 4
-  %arrayidx.i3.i18.i232 = getelementptr inbounds i8, ptr %ref.tmp81, i64 20
-  %arrayidx.i5.i.i234 = getelementptr inbounds i8, ptr %ref.tmp81, i64 36
-  %arrayidx.i.i20.i235 = getelementptr inbounds i8, ptr %ref.tmp81, i64 8
-  %arrayidx.i3.i21.i236 = getelementptr inbounds i8, ptr %ref.tmp81, i64 24
-  %arrayidx.i5.i24.i238 = getelementptr inbounds i8, ptr %ref.tmp81, i64 40
+  %m_data.i175 = getelementptr inbounds nuw i8, ptr %this, i64 200
+  %m_data.i178 = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %m_data.i.i.i181 = getelementptr inbounds nuw i8, ptr %q, i64 16
+  %arrayidx4.i.i187 = getelementptr inbounds nuw i8, ptr %ref.tmp77, i64 16
+  %arrayidx.i.i.i188 = getelementptr inbounds nuw i8, ptr %ref.tmp74, i64 4
+  %arrayidx9.i.i190 = getelementptr inbounds nuw i8, ptr %ref.tmp77, i64 32
+  %arrayidx.i3.i.i191 = getelementptr inbounds nuw i8, ptr %ref.tmp74, i64 8
+  %arrayidx.i.i17.i192 = getelementptr inbounds nuw i8, ptr %ref.tmp77, i64 4
+  %arrayidx.i3.i18.i193 = getelementptr inbounds nuw i8, ptr %ref.tmp77, i64 20
+  %arrayidx.i5.i.i195 = getelementptr inbounds nuw i8, ptr %ref.tmp77, i64 36
+  %arrayidx.i.i20.i196 = getelementptr inbounds nuw i8, ptr %ref.tmp77, i64 8
+  %arrayidx.i3.i21.i197 = getelementptr inbounds nuw i8, ptr %ref.tmp77, i64 24
+  %arrayidx.i5.i24.i199 = getelementptr inbounds nuw i8, ptr %ref.tmp77, i64 40
+  %arrayidx.i.i200 = getelementptr inbounds nuw i8, ptr %ref.tmp74, i64 16
+  %arrayidx.i.i27.i201 = getelementptr inbounds nuw i8, ptr %ref.tmp74, i64 20
+  %arrayidx.i3.i30.i203 = getelementptr inbounds nuw i8, ptr %ref.tmp74, i64 24
+  %arrayidx.i45.i206 = getelementptr inbounds nuw i8, ptr %ref.tmp74, i64 32
+  %arrayidx.i.i47.i207 = getelementptr inbounds nuw i8, ptr %ref.tmp74, i64 36
+  %arrayidx.i3.i50.i209 = getelementptr inbounds nuw i8, ptr %ref.tmp74, i64 40
+  %arrayidx4.i.i226 = getelementptr inbounds nuw i8, ptr %ref.tmp81, i64 16
+  %arrayidx9.i.i229 = getelementptr inbounds nuw i8, ptr %ref.tmp81, i64 32
+  %arrayidx.i.i17.i231 = getelementptr inbounds nuw i8, ptr %ref.tmp81, i64 4
+  %arrayidx.i3.i18.i232 = getelementptr inbounds nuw i8, ptr %ref.tmp81, i64 20
+  %arrayidx.i5.i.i234 = getelementptr inbounds nuw i8, ptr %ref.tmp81, i64 36
+  %arrayidx.i.i20.i235 = getelementptr inbounds nuw i8, ptr %ref.tmp81, i64 8
+  %arrayidx.i3.i21.i236 = getelementptr inbounds nuw i8, ptr %ref.tmp81, i64 24
+  %arrayidx.i5.i24.i238 = getelementptr inbounds nuw i8, ptr %ref.tmp81, i64 40
   br label %for.body66
 
 for.body45:                                       ; preds = %for.body45.lr.ph, %for.body45
   %indvars.iv1206 = phi i64 [ 0, %for.body45.lr.ph ], [ %indvars.iv.next1207, %for.body45 ]
   %60 = load ptr, ptr %m_data.i159, align 8
-  %arrayidx.i161 = getelementptr inbounds i32, ptr %60, i64 %indvars.iv1206
+  %arrayidx.i161 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv1206
   %61 = load i32, ptr %arrayidx.i161, align 4
   %62 = load ptr, ptr %m_data.i162, align 8
   %idxprom.i163 = sext i32 %61 to i64
   %arrayidx.i164 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %62, i64 %idxprom.i163
-  %m_parent_pos_parent_body_ref = getelementptr inbounds i8, ptr %arrayidx.i164, i64 424
-  %m_parent_Jac_JT = getelementptr inbounds i8, ptr %arrayidx.i164, i64 520
-  %m_q_index53 = getelementptr inbounds i8, ptr %arrayidx.i164, i64 536
+  %m_parent_pos_parent_body_ref = getelementptr inbounds nuw i8, ptr %arrayidx.i164, i64 424
+  %m_parent_Jac_JT = getelementptr inbounds nuw i8, ptr %arrayidx.i164, i64 520
+  %m_q_index53 = getelementptr inbounds nuw i8, ptr %arrayidx.i164, i64 536
   %63 = load i32, ptr %m_q_index53, align 8
   %64 = load ptr, ptr %m_data.i.i.i165, align 8
   %idxprom.i.i.i166 = sext i32 %63 to i64
@@ -4929,26 +4929,26 @@ for.body45:                                       ; preds = %for.body45.lr.ph, %
   %65 = load float, ptr %m_parent_Jac_JT, align 4
   %66 = load float, ptr %arrayidx.i.i.i167, align 4
   %mul.i = fmul float %65, %66
-  %arrayidx3.i = getelementptr inbounds i8, ptr %arrayidx.i164, i64 524
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %arrayidx.i164, i64 524
   %67 = load float, ptr %arrayidx3.i, align 4
   %mul4.i = fmul float %66, %67
-  %arrayidx7.i = getelementptr inbounds i8, ptr %arrayidx.i164, i64 528
+  %arrayidx7.i = getelementptr inbounds nuw i8, ptr %arrayidx.i164, i64 528
   %68 = load float, ptr %arrayidx7.i, align 4
   %mul8.i = fmul float %66, %68
   %69 = load float, ptr %m_parent_pos_parent_body_ref, align 4
   %add.i = fadd float %mul.i, %69
-  %arrayidx5.i = getelementptr inbounds i8, ptr %arrayidx.i164, i64 428
+  %arrayidx5.i = getelementptr inbounds nuw i8, ptr %arrayidx.i164, i64 428
   %70 = load float, ptr %arrayidx5.i, align 4
   %add8.i = fadd float %mul4.i, %70
-  %arrayidx11.i = getelementptr inbounds i8, ptr %arrayidx.i164, i64 432
+  %arrayidx11.i = getelementptr inbounds nuw i8, ptr %arrayidx.i164, i64 432
   %71 = load float, ptr %arrayidx11.i, align 4
   %add14.i = fadd float %mul8.i, %71
   %retval.sroa.0.0.vec.insert.i169 = insertelement <2 x float> poison, float %add.i, i64 0
   %retval.sroa.0.4.vec.insert.i170 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i169, float %add8.i, i64 1
   %retval.sroa.3.12.vec.insert.i171 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add14.i, i64 0
-  %m_parent_pos_parent_body = getelementptr inbounds i8, ptr %arrayidx.i164, i64 340
+  %m_parent_pos_parent_body = getelementptr inbounds nuw i8, ptr %arrayidx.i164, i64 340
   store <2 x float> %retval.sroa.0.4.vec.insert.i170, ptr %m_parent_pos_parent_body, align 4
-  %ref.tmp51.sroa.2.0.m_parent_pos_parent_body.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i164, i64 348
+  %ref.tmp51.sroa.2.0.m_parent_pos_parent_body.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i164, i64 348
   store <2 x float> %retval.sroa.3.12.vec.insert.i171, ptr %ref.tmp51.sroa.2.0.m_parent_pos_parent_body.sroa_idx, align 4
   %indvars.iv.next1207 = add nuw nsw i64 %indvars.iv1206, 1
   %72 = load i32, ptr %m_size.i158, align 4
@@ -4957,50 +4957,50 @@ for.body45:                                       ; preds = %for.body45.lr.ph, %
   br i1 %cmp44, label %for.body45, label %for.cond63.preheader, !llvm.loop !76
 
 for.cond112.preheader:                            ; preds = %for.body66, %for.cond63.preheader
-  %m_size.i286 = getelementptr inbounds i8, ptr %this, i64 220
+  %m_size.i286 = getelementptr inbounds nuw i8, ptr %this, i64 220
   %74 = load i32, ptr %m_size.i286, align 4
   %cmp1141169 = icmp sgt i32 %74, 0
   br i1 %cmp1141169, label %for.body115.lr.ph, label %if.end155
 
 for.body115.lr.ph:                                ; preds = %for.cond112.preheader
-  %m_data.i287 = getelementptr inbounds i8, ptr %this, i64 232
-  %m_data.i290 = getelementptr inbounds i8, ptr %this, i64 40
-  %m_data.i.i.i293 = getelementptr inbounds i8, ptr %q, i64 16
-  %arrayidx4.i.i299 = getelementptr inbounds i8, ptr %ref.tmp126, i64 16
-  %arrayidx.i.i.i300 = getelementptr inbounds i8, ptr %ref.tmp123, i64 4
-  %arrayidx9.i.i302 = getelementptr inbounds i8, ptr %ref.tmp126, i64 32
-  %arrayidx.i3.i.i303 = getelementptr inbounds i8, ptr %ref.tmp123, i64 8
-  %arrayidx.i.i17.i304 = getelementptr inbounds i8, ptr %ref.tmp126, i64 4
-  %arrayidx.i3.i18.i305 = getelementptr inbounds i8, ptr %ref.tmp126, i64 20
-  %arrayidx.i5.i.i307 = getelementptr inbounds i8, ptr %ref.tmp126, i64 36
-  %arrayidx.i.i20.i308 = getelementptr inbounds i8, ptr %ref.tmp126, i64 8
-  %arrayidx.i3.i21.i309 = getelementptr inbounds i8, ptr %ref.tmp126, i64 24
-  %arrayidx.i5.i24.i311 = getelementptr inbounds i8, ptr %ref.tmp126, i64 40
-  %arrayidx.i.i312 = getelementptr inbounds i8, ptr %ref.tmp123, i64 16
-  %arrayidx.i.i27.i313 = getelementptr inbounds i8, ptr %ref.tmp123, i64 20
-  %arrayidx.i3.i30.i315 = getelementptr inbounds i8, ptr %ref.tmp123, i64 24
-  %arrayidx.i45.i318 = getelementptr inbounds i8, ptr %ref.tmp123, i64 32
-  %arrayidx.i.i47.i319 = getelementptr inbounds i8, ptr %ref.tmp123, i64 36
-  %arrayidx.i3.i50.i321 = getelementptr inbounds i8, ptr %ref.tmp123, i64 40
-  %arrayidx4.i.i338 = getelementptr inbounds i8, ptr %ref.tmp130, i64 16
-  %arrayidx9.i.i341 = getelementptr inbounds i8, ptr %ref.tmp130, i64 32
-  %arrayidx.i.i17.i343 = getelementptr inbounds i8, ptr %ref.tmp130, i64 4
-  %arrayidx.i3.i18.i344 = getelementptr inbounds i8, ptr %ref.tmp130, i64 20
-  %arrayidx.i5.i.i346 = getelementptr inbounds i8, ptr %ref.tmp130, i64 36
-  %arrayidx.i.i20.i347 = getelementptr inbounds i8, ptr %ref.tmp130, i64 8
-  %arrayidx.i3.i21.i348 = getelementptr inbounds i8, ptr %ref.tmp130, i64 24
-  %arrayidx.i5.i24.i350 = getelementptr inbounds i8, ptr %ref.tmp130, i64 40
+  %m_data.i287 = getelementptr inbounds nuw i8, ptr %this, i64 232
+  %m_data.i290 = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %m_data.i.i.i293 = getelementptr inbounds nuw i8, ptr %q, i64 16
+  %arrayidx4.i.i299 = getelementptr inbounds nuw i8, ptr %ref.tmp126, i64 16
+  %arrayidx.i.i.i300 = getelementptr inbounds nuw i8, ptr %ref.tmp123, i64 4
+  %arrayidx9.i.i302 = getelementptr inbounds nuw i8, ptr %ref.tmp126, i64 32
+  %arrayidx.i3.i.i303 = getelementptr inbounds nuw i8, ptr %ref.tmp123, i64 8
+  %arrayidx.i.i17.i304 = getelementptr inbounds nuw i8, ptr %ref.tmp126, i64 4
+  %arrayidx.i3.i18.i305 = getelementptr inbounds nuw i8, ptr %ref.tmp126, i64 20
+  %arrayidx.i5.i.i307 = getelementptr inbounds nuw i8, ptr %ref.tmp126, i64 36
+  %arrayidx.i.i20.i308 = getelementptr inbounds nuw i8, ptr %ref.tmp126, i64 8
+  %arrayidx.i3.i21.i309 = getelementptr inbounds nuw i8, ptr %ref.tmp126, i64 24
+  %arrayidx.i5.i24.i311 = getelementptr inbounds nuw i8, ptr %ref.tmp126, i64 40
+  %arrayidx.i.i312 = getelementptr inbounds nuw i8, ptr %ref.tmp123, i64 16
+  %arrayidx.i.i27.i313 = getelementptr inbounds nuw i8, ptr %ref.tmp123, i64 20
+  %arrayidx.i3.i30.i315 = getelementptr inbounds nuw i8, ptr %ref.tmp123, i64 24
+  %arrayidx.i45.i318 = getelementptr inbounds nuw i8, ptr %ref.tmp123, i64 32
+  %arrayidx.i.i47.i319 = getelementptr inbounds nuw i8, ptr %ref.tmp123, i64 36
+  %arrayidx.i3.i50.i321 = getelementptr inbounds nuw i8, ptr %ref.tmp123, i64 40
+  %arrayidx4.i.i338 = getelementptr inbounds nuw i8, ptr %ref.tmp130, i64 16
+  %arrayidx9.i.i341 = getelementptr inbounds nuw i8, ptr %ref.tmp130, i64 32
+  %arrayidx.i.i17.i343 = getelementptr inbounds nuw i8, ptr %ref.tmp130, i64 4
+  %arrayidx.i3.i18.i344 = getelementptr inbounds nuw i8, ptr %ref.tmp130, i64 20
+  %arrayidx.i5.i.i346 = getelementptr inbounds nuw i8, ptr %ref.tmp130, i64 36
+  %arrayidx.i.i20.i347 = getelementptr inbounds nuw i8, ptr %ref.tmp130, i64 8
+  %arrayidx.i3.i21.i348 = getelementptr inbounds nuw i8, ptr %ref.tmp130, i64 24
+  %arrayidx.i5.i24.i350 = getelementptr inbounds nuw i8, ptr %ref.tmp130, i64 40
   br label %for.body115
 
 for.body66:                                       ; preds = %for.body66.lr.ph, %for.body66
   %indvars.iv1209 = phi i64 [ 0, %for.body66.lr.ph ], [ %indvars.iv.next1210, %for.body66 ]
   %75 = load ptr, ptr %m_data.i175, align 8
-  %arrayidx.i177 = getelementptr inbounds i32, ptr %75, i64 %indvars.iv1209
+  %arrayidx.i177 = getelementptr inbounds nuw i32, ptr %75, i64 %indvars.iv1209
   %76 = load i32, ptr %arrayidx.i177, align 4
   %77 = load ptr, ptr %m_data.i178, align 8
   %idxprom.i179 = sext i32 %76 to i64
   %arrayidx.i180 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %77, i64 %idxprom.i179
-  %m_q_index75 = getelementptr inbounds i8, ptr %arrayidx.i180, i64 536
+  %m_q_index75 = getelementptr inbounds nuw i8, ptr %arrayidx.i180, i64 536
   %78 = load i32, ptr %m_q_index75, align 8
   %79 = load ptr, ptr %m_data.i.i.i181, align 8
   %80 = sext i32 %78 to i64
@@ -5099,29 +5099,29 @@ for.body66:                                       ; preds = %for.body66.lr.ph, %
   %mul7.i62.i250 = fmul float %119, %135
   %149 = call float @llvm.fmuladd.f32(float %134, float %117, float %mul7.i62.i250)
   %150 = call noundef float @llvm.fmuladd.f32(float %137, float %121, float %149)
-  %m_body_T_parent84 = getelementptr inbounds i8, ptr %arrayidx.i180, i64 292
+  %m_body_T_parent84 = getelementptr inbounds nuw i8, ptr %arrayidx.i180, i64 292
   store float %128, ptr %m_body_T_parent84, align 4
-  %ref.tmp72.sroa.2.0.m_body_T_parent84.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i180, i64 296
+  %ref.tmp72.sroa.2.0.m_body_T_parent84.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i180, i64 296
   store float %133, ptr %ref.tmp72.sroa.2.0.m_body_T_parent84.sroa_idx, align 4
-  %ref.tmp72.sroa.3.0.m_body_T_parent84.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i180, i64 300
+  %ref.tmp72.sroa.3.0.m_body_T_parent84.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i180, i64 300
   store float %138, ptr %ref.tmp72.sroa.3.0.m_body_T_parent84.sroa_idx, align 4
-  %ref.tmp72.sroa.4.0.m_body_T_parent84.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i180, i64 304
+  %ref.tmp72.sroa.4.0.m_body_T_parent84.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i180, i64 304
   store float 0.000000e+00, ptr %ref.tmp72.sroa.4.0.m_body_T_parent84.sroa_idx, align 4
-  %arrayidx7.i.i263 = getelementptr inbounds i8, ptr %arrayidx.i180, i64 308
+  %arrayidx7.i.i263 = getelementptr inbounds nuw i8, ptr %arrayidx.i180, i64 308
   store float %140, ptr %arrayidx7.i.i263, align 4
-  %ref.tmp72.sroa.7.16.arrayidx7.i.i263.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i180, i64 312
+  %ref.tmp72.sroa.7.16.arrayidx7.i.i263.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i180, i64 312
   store float %142, ptr %ref.tmp72.sroa.7.16.arrayidx7.i.i263.sroa_idx, align 4
-  %ref.tmp72.sroa.8.16.arrayidx7.i.i263.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i180, i64 316
+  %ref.tmp72.sroa.8.16.arrayidx7.i.i263.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i180, i64 316
   store float %144, ptr %ref.tmp72.sroa.8.16.arrayidx7.i.i263.sroa_idx, align 4
-  %ref.tmp72.sroa.9.16.arrayidx7.i.i263.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i180, i64 320
+  %ref.tmp72.sroa.9.16.arrayidx7.i.i263.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i180, i64 320
   store float 0.000000e+00, ptr %ref.tmp72.sroa.9.16.arrayidx7.i.i263.sroa_idx, align 4
-  %arrayidx11.i.i265 = getelementptr inbounds i8, ptr %arrayidx.i180, i64 324
+  %arrayidx11.i.i265 = getelementptr inbounds nuw i8, ptr %arrayidx.i180, i64 324
   store float %146, ptr %arrayidx11.i.i265, align 4
-  %ref.tmp72.sroa.12.32.arrayidx11.i.i265.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i180, i64 328
+  %ref.tmp72.sroa.12.32.arrayidx11.i.i265.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i180, i64 328
   store float %148, ptr %ref.tmp72.sroa.12.32.arrayidx11.i.i265.sroa_idx, align 4
-  %ref.tmp72.sroa.13.32.arrayidx11.i.i265.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i180, i64 332
+  %ref.tmp72.sroa.13.32.arrayidx11.i.i265.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i180, i64 332
   store float %150, ptr %ref.tmp72.sroa.13.32.arrayidx11.i.i265.sroa_idx, align 4
-  %ref.tmp72.sroa.14.32.arrayidx11.i.i265.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i180, i64 336
+  %ref.tmp72.sroa.14.32.arrayidx11.i.i265.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i180, i64 336
   store float 0.000000e+00, ptr %ref.tmp72.sroa.14.32.arrayidx11.i.i265.sroa_idx, align 4
   %151 = load i32, ptr %m_q_index75, align 8
   %152 = load ptr, ptr %m_data.i.i.i181, align 8
@@ -5129,19 +5129,19 @@ for.body66:                                       ; preds = %for.body66.lr.ph, %
   %154 = getelementptr float, ptr %152, i64 %153
   %arrayidx.i.i.i268 = getelementptr i8, ptr %154, i64 12
   %155 = load float, ptr %arrayidx.i.i.i268, align 4
-  %m_parent_pos_parent_body89 = getelementptr inbounds i8, ptr %arrayidx.i180, i64 340
+  %m_parent_pos_parent_body89 = getelementptr inbounds nuw i8, ptr %arrayidx.i180, i64 340
   store float %155, ptr %m_parent_pos_parent_body89, align 4
   %156 = load ptr, ptr %m_data.i.i.i181, align 8
   %157 = getelementptr float, ptr %156, i64 %153
   %arrayidx.i.i.i272 = getelementptr i8, ptr %157, i64 16
   %158 = load float, ptr %arrayidx.i.i.i272, align 4
-  %arrayidx.i273 = getelementptr inbounds i8, ptr %arrayidx.i180, i64 344
+  %arrayidx.i273 = getelementptr inbounds nuw i8, ptr %arrayidx.i180, i64 344
   store float %158, ptr %arrayidx.i273, align 4
   %159 = load ptr, ptr %m_data.i.i.i181, align 8
   %160 = getelementptr float, ptr %159, i64 %153
   %arrayidx.i.i.i276 = getelementptr i8, ptr %160, i64 20
   %161 = load float, ptr %arrayidx.i.i.i276, align 4
-  %arrayidx.i277 = getelementptr inbounds i8, ptr %arrayidx.i180, i64 348
+  %arrayidx.i277 = getelementptr inbounds nuw i8, ptr %arrayidx.i180, i64 348
   %mul8.i.i = fmul float %133, %158
   %162 = call float @llvm.fmuladd.f32(float %128, float %155, float %mul8.i.i)
   %163 = call noundef float @llvm.fmuladd.f32(float %138, float %161, float %162)
@@ -5165,12 +5165,12 @@ for.body66:                                       ; preds = %for.body66.lr.ph, %
 for.body115:                                      ; preds = %for.body115.lr.ph, %for.body115
   %indvars.iv1212 = phi i64 [ 0, %for.body115.lr.ph ], [ %indvars.iv.next1213, %for.body115 ]
   %170 = load ptr, ptr %m_data.i287, align 8
-  %arrayidx.i289 = getelementptr inbounds i32, ptr %170, i64 %indvars.iv1212
+  %arrayidx.i289 = getelementptr inbounds nuw i32, ptr %170, i64 %indvars.iv1212
   %171 = load i32, ptr %arrayidx.i289, align 4
   %172 = load ptr, ptr %m_data.i290, align 8
   %idxprom.i291 = sext i32 %171 to i64
   %arrayidx.i292 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %172, i64 %idxprom.i291
-  %m_q_index124 = getelementptr inbounds i8, ptr %arrayidx.i292, i64 536
+  %m_q_index124 = getelementptr inbounds nuw i8, ptr %arrayidx.i292, i64 536
   %173 = load i32, ptr %m_q_index124, align 8
   %174 = load ptr, ptr %m_data.i.i.i293, align 8
   %idxprom.i.i.i294 = sext i32 %173 to i64
@@ -5269,31 +5269,31 @@ for.body115:                                      ; preds = %for.body115.lr.ph, 
   %mul7.i62.i362 = fmul float %212, %230
   %244 = call float @llvm.fmuladd.f32(float %229, float %210, float %mul7.i62.i362)
   %245 = call noundef float @llvm.fmuladd.f32(float %232, float %214, float %244)
-  %m_body_T_parent_ref136 = getelementptr inbounds i8, ptr %arrayidx.i292, i64 440
+  %m_body_T_parent_ref136 = getelementptr inbounds nuw i8, ptr %arrayidx.i292, i64 440
   %246 = load float, ptr %m_body_T_parent_ref136, align 4, !noalias !90
-  %arrayidx4.i.i378 = getelementptr inbounds i8, ptr %arrayidx.i292, i64 456
+  %arrayidx4.i.i378 = getelementptr inbounds nuw i8, ptr %arrayidx.i292, i64 456
   %247 = load float, ptr %arrayidx4.i.i378, align 4, !noalias !90
   %mul7.i.i380 = fmul float %228, %247
   %248 = call float @llvm.fmuladd.f32(float %246, float %223, float %mul7.i.i380)
-  %arrayidx9.i.i381 = getelementptr inbounds i8, ptr %arrayidx.i292, i64 472
+  %arrayidx9.i.i381 = getelementptr inbounds nuw i8, ptr %arrayidx.i292, i64 472
   %249 = load float, ptr %arrayidx9.i.i381, align 4, !noalias !90
   %250 = call noundef float @llvm.fmuladd.f32(float %249, float %233, float %248)
-  %arrayidx.i.i17.i383 = getelementptr inbounds i8, ptr %arrayidx.i292, i64 444
+  %arrayidx.i.i17.i383 = getelementptr inbounds nuw i8, ptr %arrayidx.i292, i64 444
   %251 = load float, ptr %arrayidx.i.i17.i383, align 4, !noalias !90
-  %arrayidx.i3.i18.i384 = getelementptr inbounds i8, ptr %arrayidx.i292, i64 460
+  %arrayidx.i3.i18.i384 = getelementptr inbounds nuw i8, ptr %arrayidx.i292, i64 460
   %252 = load float, ptr %arrayidx.i3.i18.i384, align 4, !noalias !90
   %mul7.i19.i385 = fmul float %228, %252
   %253 = call float @llvm.fmuladd.f32(float %251, float %223, float %mul7.i19.i385)
-  %arrayidx.i5.i.i386 = getelementptr inbounds i8, ptr %arrayidx.i292, i64 476
+  %arrayidx.i5.i.i386 = getelementptr inbounds nuw i8, ptr %arrayidx.i292, i64 476
   %254 = load float, ptr %arrayidx.i5.i.i386, align 4, !noalias !90
   %255 = call noundef float @llvm.fmuladd.f32(float %254, float %233, float %253)
-  %arrayidx.i.i20.i387 = getelementptr inbounds i8, ptr %arrayidx.i292, i64 448
+  %arrayidx.i.i20.i387 = getelementptr inbounds nuw i8, ptr %arrayidx.i292, i64 448
   %256 = load float, ptr %arrayidx.i.i20.i387, align 4, !noalias !90
-  %arrayidx.i3.i21.i388 = getelementptr inbounds i8, ptr %arrayidx.i292, i64 464
+  %arrayidx.i3.i21.i388 = getelementptr inbounds nuw i8, ptr %arrayidx.i292, i64 464
   %257 = load float, ptr %arrayidx.i3.i21.i388, align 4, !noalias !90
   %mul7.i23.i389 = fmul float %228, %257
   %258 = call float @llvm.fmuladd.f32(float %256, float %223, float %mul7.i23.i389)
-  %arrayidx.i5.i24.i390 = getelementptr inbounds i8, ptr %arrayidx.i292, i64 480
+  %arrayidx.i5.i24.i390 = getelementptr inbounds nuw i8, ptr %arrayidx.i292, i64 480
   %259 = load float, ptr %arrayidx.i5.i24.i390, align 4, !noalias !90
   %260 = call noundef float @llvm.fmuladd.f32(float %259, float %233, float %258)
   %mul7.i28.i393 = fmul float %237, %247
@@ -5314,31 +5314,31 @@ for.body115:                                      ; preds = %for.body115.lr.ph, 
   %mul7.i62.i402 = fmul float %243, %257
   %271 = call float @llvm.fmuladd.f32(float %256, float %241, float %mul7.i62.i402)
   %272 = call noundef float @llvm.fmuladd.f32(float %259, float %245, float %271)
-  %m_body_T_parent137 = getelementptr inbounds i8, ptr %arrayidx.i292, i64 292
+  %m_body_T_parent137 = getelementptr inbounds nuw i8, ptr %arrayidx.i292, i64 292
   store float %250, ptr %m_body_T_parent137, align 4
-  %ref.tmp135.sroa.2.0.m_body_T_parent137.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i292, i64 296
+  %ref.tmp135.sroa.2.0.m_body_T_parent137.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i292, i64 296
   store float %255, ptr %ref.tmp135.sroa.2.0.m_body_T_parent137.sroa_idx, align 4
-  %ref.tmp135.sroa.3.0.m_body_T_parent137.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i292, i64 300
+  %ref.tmp135.sroa.3.0.m_body_T_parent137.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i292, i64 300
   store float %260, ptr %ref.tmp135.sroa.3.0.m_body_T_parent137.sroa_idx, align 4
-  %ref.tmp135.sroa.4.0.m_body_T_parent137.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i292, i64 304
+  %ref.tmp135.sroa.4.0.m_body_T_parent137.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i292, i64 304
   store float 0.000000e+00, ptr %ref.tmp135.sroa.4.0.m_body_T_parent137.sroa_idx, align 4
-  %arrayidx7.i.i415 = getelementptr inbounds i8, ptr %arrayidx.i292, i64 308
+  %arrayidx7.i.i415 = getelementptr inbounds nuw i8, ptr %arrayidx.i292, i64 308
   store float %262, ptr %arrayidx7.i.i415, align 4
-  %ref.tmp135.sroa.7.16.arrayidx7.i.i415.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i292, i64 312
+  %ref.tmp135.sroa.7.16.arrayidx7.i.i415.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i292, i64 312
   store float %264, ptr %ref.tmp135.sroa.7.16.arrayidx7.i.i415.sroa_idx, align 4
-  %ref.tmp135.sroa.8.16.arrayidx7.i.i415.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i292, i64 316
+  %ref.tmp135.sroa.8.16.arrayidx7.i.i415.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i292, i64 316
   store float %266, ptr %ref.tmp135.sroa.8.16.arrayidx7.i.i415.sroa_idx, align 4
-  %ref.tmp135.sroa.9.16.arrayidx7.i.i415.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i292, i64 320
+  %ref.tmp135.sroa.9.16.arrayidx7.i.i415.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i292, i64 320
   store float 0.000000e+00, ptr %ref.tmp135.sroa.9.16.arrayidx7.i.i415.sroa_idx, align 4
-  %arrayidx11.i.i417 = getelementptr inbounds i8, ptr %arrayidx.i292, i64 324
+  %arrayidx11.i.i417 = getelementptr inbounds nuw i8, ptr %arrayidx.i292, i64 324
   store float %268, ptr %arrayidx11.i.i417, align 4
-  %ref.tmp135.sroa.12.32.arrayidx11.i.i417.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i292, i64 328
+  %ref.tmp135.sroa.12.32.arrayidx11.i.i417.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i292, i64 328
   store float %270, ptr %ref.tmp135.sroa.12.32.arrayidx11.i.i417.sroa_idx, align 4
-  %ref.tmp135.sroa.13.32.arrayidx11.i.i417.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i292, i64 332
+  %ref.tmp135.sroa.13.32.arrayidx11.i.i417.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i292, i64 332
   store float %272, ptr %ref.tmp135.sroa.13.32.arrayidx11.i.i417.sroa_idx, align 4
-  %ref.tmp135.sroa.14.32.arrayidx11.i.i417.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i292, i64 336
-  %m_parent_pos_parent_body139 = getelementptr inbounds i8, ptr %arrayidx.i292, i64 340
-  %arrayidx.i420 = getelementptr inbounds i8, ptr %arrayidx.i292, i64 348
+  %ref.tmp135.sroa.14.32.arrayidx11.i.i417.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i292, i64 336
+  %m_parent_pos_parent_body139 = getelementptr inbounds nuw i8, ptr %arrayidx.i292, i64 340
+  %arrayidx.i420 = getelementptr inbounds nuw i8, ptr %arrayidx.i292, i64 348
   %mul8.i.i423 = fmul float %255, 0.000000e+00
   %273 = call float @llvm.fmuladd.f32(float %250, float 0.000000e+00, float %mul8.i.i423)
   %274 = call noundef float @llvm.fmuladd.f32(float %260, float 0.000000e+00, float %273)
@@ -5361,33 +5361,33 @@ for.body115:                                      ; preds = %for.body115.lr.ph, 
   br i1 %cmp114, label %for.body115, label %if.end155, !llvm.loop !93
 
 if.end155:                                        ; preds = %for.body115, %for.cond112.preheader, %if.end25
-  %m_size.i439 = getelementptr inbounds i8, ptr %this, i64 28
+  %m_size.i439 = getelementptr inbounds nuw i8, ptr %this, i64 28
   %281 = load i32, ptr %m_size.i439, align 4
   %cmp1601177 = icmp sgt i32 %281, 0
   br i1 %cmp1601177, label %for.body161.lr.ph, label %for.end371
 
 for.body161.lr.ph:                                ; preds = %if.end155
-  %m_data.i440 = getelementptr inbounds i8, ptr %this, i64 40
-  %m_data.i447 = getelementptr inbounds i8, ptr %this, i64 104
-  %ref.tmp204.sroa.2.0.r_com.sroa_idx = getelementptr inbounds i8, ptr %r_com, i64 8
-  %arrayidx7.i616 = getelementptr inbounds i8, ptr %r_com, i64 4
-  %ref.tmp213.sroa.2.0.ref.tmp212.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp212, i64 8
-  %arrayidx4.i.i626 = getelementptr inbounds i8, ptr %tilde_r_child_com, i64 16
-  %arrayidx.i.i.i627 = getelementptr inbounds i8, ptr %tilde_r_child_com, i64 4
-  %arrayidx9.i.i629 = getelementptr inbounds i8, ptr %tilde_r_child_com, i64 32
-  %arrayidx.i3.i.i630 = getelementptr inbounds i8, ptr %tilde_r_child_com, i64 8
-  %arrayidx.i3.i18.i632 = getelementptr inbounds i8, ptr %tilde_r_child_com, i64 20
-  %arrayidx.i5.i.i634 = getelementptr inbounds i8, ptr %tilde_r_child_com, i64 36
-  %arrayidx.i3.i21.i636 = getelementptr inbounds i8, ptr %tilde_r_child_com, i64 24
-  %arrayidx.i5.i24.i638 = getelementptr inbounds i8, ptr %tilde_r_child_com, i64 40
-  %arrayidx4.i.i662 = getelementptr inbounds i8, ptr %tilde_r_body_com, i64 16
-  %arrayidx.i.i.i663 = getelementptr inbounds i8, ptr %tilde_r_body_com, i64 4
-  %arrayidx9.i.i665 = getelementptr inbounds i8, ptr %tilde_r_body_com, i64 32
-  %arrayidx.i3.i.i666 = getelementptr inbounds i8, ptr %tilde_r_body_com, i64 8
-  %arrayidx.i3.i18.i668 = getelementptr inbounds i8, ptr %tilde_r_body_com, i64 20
-  %arrayidx.i5.i.i670 = getelementptr inbounds i8, ptr %tilde_r_body_com, i64 36
-  %arrayidx.i3.i21.i672 = getelementptr inbounds i8, ptr %tilde_r_body_com, i64 24
-  %arrayidx.i5.i24.i674 = getelementptr inbounds i8, ptr %tilde_r_body_com, i64 40
+  %m_data.i440 = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %m_data.i447 = getelementptr inbounds nuw i8, ptr %this, i64 104
+  %ref.tmp204.sroa.2.0.r_com.sroa_idx = getelementptr inbounds nuw i8, ptr %r_com, i64 8
+  %arrayidx7.i616 = getelementptr inbounds nuw i8, ptr %r_com, i64 4
+  %ref.tmp213.sroa.2.0.ref.tmp212.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp212, i64 8
+  %arrayidx4.i.i626 = getelementptr inbounds nuw i8, ptr %tilde_r_child_com, i64 16
+  %arrayidx.i.i.i627 = getelementptr inbounds nuw i8, ptr %tilde_r_child_com, i64 4
+  %arrayidx9.i.i629 = getelementptr inbounds nuw i8, ptr %tilde_r_child_com, i64 32
+  %arrayidx.i3.i.i630 = getelementptr inbounds nuw i8, ptr %tilde_r_child_com, i64 8
+  %arrayidx.i3.i18.i632 = getelementptr inbounds nuw i8, ptr %tilde_r_child_com, i64 20
+  %arrayidx.i5.i.i634 = getelementptr inbounds nuw i8, ptr %tilde_r_child_com, i64 36
+  %arrayidx.i3.i21.i636 = getelementptr inbounds nuw i8, ptr %tilde_r_child_com, i64 24
+  %arrayidx.i5.i24.i638 = getelementptr inbounds nuw i8, ptr %tilde_r_child_com, i64 40
+  %arrayidx4.i.i662 = getelementptr inbounds nuw i8, ptr %tilde_r_body_com, i64 16
+  %arrayidx.i.i.i663 = getelementptr inbounds nuw i8, ptr %tilde_r_body_com, i64 4
+  %arrayidx9.i.i665 = getelementptr inbounds nuw i8, ptr %tilde_r_body_com, i64 32
+  %arrayidx.i3.i.i666 = getelementptr inbounds nuw i8, ptr %tilde_r_body_com, i64 8
+  %arrayidx.i3.i18.i668 = getelementptr inbounds nuw i8, ptr %tilde_r_body_com, i64 20
+  %arrayidx.i5.i.i670 = getelementptr inbounds nuw i8, ptr %tilde_r_body_com, i64 36
+  %arrayidx.i3.i21.i672 = getelementptr inbounds nuw i8, ptr %tilde_r_body_com, i64 24
+  %arrayidx.i5.i24.i674 = getelementptr inbounds nuw i8, ptr %tilde_r_body_com, i64 40
   %282 = zext nneg i32 %281 to i64
   br label %for.body161
 
@@ -5399,61 +5399,61 @@ for.body161:                                      ; preds = %for.body161.lr.ph, 
   %indvars.iv1218 = phi i64 [ %282, %for.body161.lr.ph ], [ %indvars.iv.next1219, %for.cond159.loopexit ]
   %indvars.iv.next1219 = add nsw i64 %indvars.iv1218, -1
   %283 = load ptr, ptr %m_data.i440, align 8
-  %arrayidx.i442 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %283, i64 %indvars.iv.next1219
+  %arrayidx.i442 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %283, i64 %indvars.iv.next1219
   %284 = load float, ptr %arrayidx.i442, align 8
-  %m_subtree_mass = getelementptr inbounds i8, ptr %arrayidx.i442, i64 540
+  %m_subtree_mass = getelementptr inbounds nuw i8, ptr %arrayidx.i442, i64 540
   store float %284, ptr %m_subtree_mass, align 4
-  %m_body_mass_com = getelementptr inbounds i8, ptr %arrayidx.i442, i64 4
-  %m_body_subtree_mass_com = getelementptr inbounds i8, ptr %arrayidx.i442, i64 544
+  %m_body_mass_com = getelementptr inbounds nuw i8, ptr %arrayidx.i442, i64 4
+  %m_body_subtree_mass_com = getelementptr inbounds nuw i8, ptr %arrayidx.i442, i64 544
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_body_subtree_mass_com, ptr noundef nonnull align 4 dereferenceable(16) %m_body_mass_com, i64 16, i1 false)
-  %m_body_I_body = getelementptr inbounds i8, ptr %arrayidx.i442, i64 20
-  %m_body_subtree_I_body = getelementptr inbounds i8, ptr %arrayidx.i442, i64 560
+  %m_body_I_body = getelementptr inbounds nuw i8, ptr %arrayidx.i442, i64 20
+  %m_body_subtree_I_body = getelementptr inbounds nuw i8, ptr %arrayidx.i442, i64 560
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %m_body_subtree_I_body, ptr noundef nonnull align 4 dereferenceable(48) %m_body_I_body, i64 16, i1 false)
-  %arrayidx5.i.i443 = getelementptr inbounds i8, ptr %arrayidx.i442, i64 36
-  %arrayidx7.i.i444 = getelementptr inbounds i8, ptr %arrayidx.i442, i64 576
+  %arrayidx5.i.i443 = getelementptr inbounds nuw i8, ptr %arrayidx.i442, i64 36
+  %arrayidx7.i.i444 = getelementptr inbounds nuw i8, ptr %arrayidx.i442, i64 576
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i.i444, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i443, i64 16, i1 false)
-  %arrayidx9.i.i445 = getelementptr inbounds i8, ptr %arrayidx.i442, i64 52
-  %arrayidx11.i.i446 = getelementptr inbounds i8, ptr %arrayidx.i442, i64 592
+  %arrayidx9.i.i445 = getelementptr inbounds nuw i8, ptr %arrayidx.i442, i64 52
+  %arrayidx11.i.i446 = getelementptr inbounds nuw i8, ptr %arrayidx.i442, i64 592
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx11.i.i446, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx9.i.i445, i64 16, i1 false)
   %285 = load ptr, ptr %m_data.i447, align 8
-  %m_size.i4501172 = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %285, i64 %indvars.iv.next1219, i32 2
+  %m_size.i4501172 = getelementptr inbounds nuw %class.b3AlignedObjectArray.0, ptr %285, i64 %indvars.iv.next1219, i32 2
   %286 = load i32, ptr %m_size.i4501172, align 4
   %cmp1691173 = icmp sgt i32 %286, 0
   br i1 %cmp1691173, label %for.body170.lr.ph, label %for.cond159.loopexit
 
 for.body170.lr.ph:                                ; preds = %for.body161
-  %arrayidx7.i516 = getelementptr inbounds i8, ptr %arrayidx.i442, i64 548
-  %arrayidx12.i = getelementptr inbounds i8, ptr %arrayidx.i442, i64 552
-  %arrayidx11.i591 = getelementptr inbounds i8, ptr %arrayidx.i442, i64 564
-  %arrayidx21.i = getelementptr inbounds i8, ptr %arrayidx.i442, i64 568
-  %arrayidx41.i = getelementptr inbounds i8, ptr %arrayidx.i442, i64 580
-  %arrayidx51.i = getelementptr inbounds i8, ptr %arrayidx.i442, i64 584
-  %arrayidx71.i = getelementptr inbounds i8, ptr %arrayidx.i442, i64 596
-  %arrayidx81.i = getelementptr inbounds i8, ptr %arrayidx.i442, i64 600
-  %arrayidx7.i.i.i592 = getelementptr inbounds i8, ptr %arrayidx.i442, i64 572
-  %arrayidx7.i3.i.i = getelementptr inbounds i8, ptr %arrayidx.i442, i64 588
-  %arrayidx7.i6.i.i = getelementptr inbounds i8, ptr %arrayidx.i442, i64 604
+  %arrayidx7.i516 = getelementptr inbounds nuw i8, ptr %arrayidx.i442, i64 548
+  %arrayidx12.i = getelementptr inbounds nuw i8, ptr %arrayidx.i442, i64 552
+  %arrayidx11.i591 = getelementptr inbounds nuw i8, ptr %arrayidx.i442, i64 564
+  %arrayidx21.i = getelementptr inbounds nuw i8, ptr %arrayidx.i442, i64 568
+  %arrayidx41.i = getelementptr inbounds nuw i8, ptr %arrayidx.i442, i64 580
+  %arrayidx51.i = getelementptr inbounds nuw i8, ptr %arrayidx.i442, i64 584
+  %arrayidx71.i = getelementptr inbounds nuw i8, ptr %arrayidx.i442, i64 596
+  %arrayidx81.i = getelementptr inbounds nuw i8, ptr %arrayidx.i442, i64 600
+  %arrayidx7.i.i.i592 = getelementptr inbounds nuw i8, ptr %arrayidx.i442, i64 572
+  %arrayidx7.i3.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i442, i64 588
+  %arrayidx7.i6.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i442, i64 604
   br label %for.body170
 
 for.body170:                                      ; preds = %for.body170.lr.ph, %for.inc226
   %indvars.iv1215 = phi i64 [ 0, %for.body170.lr.ph ], [ %indvars.iv.next1216, %for.inc226 ]
   %287 = phi ptr [ %285, %for.body170.lr.ph ], [ %461, %for.inc226 ]
-  %m_data.i454 = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %287, i64 %indvars.iv.next1219, i32 5
+  %m_data.i454 = getelementptr inbounds nuw %class.b3AlignedObjectArray.0, ptr %287, i64 %indvars.iv.next1219, i32 5
   %288 = load ptr, ptr %m_data.i454, align 8
-  %arrayidx.i456 = getelementptr inbounds i32, ptr %288, i64 %indvars.iv1215
+  %arrayidx.i456 = getelementptr inbounds nuw i32, ptr %288, i64 %indvars.iv1215
   %289 = load i32, ptr %arrayidx.i456, align 4
   %290 = load ptr, ptr %m_data.i440, align 8
   %idxprom.i458 = sext i32 %289 to i64
   %arrayidx.i459 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %290, i64 %idxprom.i458
-  %m_body_T_parent177 = getelementptr inbounds i8, ptr %arrayidx.i459, i64 292
-  %arrayidx3.i460 = getelementptr inbounds i8, ptr %arrayidx.i459, i64 308
-  %arrayidx6.i = getelementptr inbounds i8, ptr %arrayidx.i459, i64 324
-  %arrayidx.i.i461 = getelementptr inbounds i8, ptr %arrayidx.i459, i64 296
-  %arrayidx.i1.i = getelementptr inbounds i8, ptr %arrayidx.i459, i64 312
-  %arrayidx.i2.i = getelementptr inbounds i8, ptr %arrayidx.i459, i64 328
-  %arrayidx.i3.i = getelementptr inbounds i8, ptr %arrayidx.i459, i64 300
-  %arrayidx.i4.i = getelementptr inbounds i8, ptr %arrayidx.i459, i64 316
-  %arrayidx.i5.i = getelementptr inbounds i8, ptr %arrayidx.i459, i64 332
+  %m_body_T_parent177 = getelementptr inbounds nuw i8, ptr %arrayidx.i459, i64 292
+  %arrayidx3.i460 = getelementptr inbounds nuw i8, ptr %arrayidx.i459, i64 308
+  %arrayidx6.i = getelementptr inbounds nuw i8, ptr %arrayidx.i459, i64 324
+  %arrayidx.i.i461 = getelementptr inbounds nuw i8, ptr %arrayidx.i459, i64 296
+  %arrayidx.i1.i = getelementptr inbounds nuw i8, ptr %arrayidx.i459, i64 312
+  %arrayidx.i2.i = getelementptr inbounds nuw i8, ptr %arrayidx.i459, i64 328
+  %arrayidx.i3.i = getelementptr inbounds nuw i8, ptr %arrayidx.i459, i64 300
+  %arrayidx.i4.i = getelementptr inbounds nuw i8, ptr %arrayidx.i459, i64 316
+  %arrayidx.i5.i = getelementptr inbounds nuw i8, ptr %arrayidx.i459, i64 332
   %291 = load float, ptr %m_body_T_parent177, align 4, !noalias !95
   %292 = load float, ptr %arrayidx3.i460, align 4, !noalias !95
   %293 = load float, ptr %arrayidx6.i, align 4, !noalias !95
@@ -5463,18 +5463,18 @@ for.body170:                                      ; preds = %for.body170.lr.ph, 
   %297 = load float, ptr %arrayidx.i3.i, align 4, !noalias !95
   %298 = load float, ptr %arrayidx.i4.i, align 4, !noalias !95
   %299 = load float, ptr %arrayidx.i5.i, align 4, !noalias !95
-  %m_subtree_mass178 = getelementptr inbounds i8, ptr %arrayidx.i459, i64 540
+  %m_subtree_mass178 = getelementptr inbounds nuw i8, ptr %arrayidx.i459, i64 540
   %300 = load float, ptr %m_subtree_mass178, align 4
   %301 = load float, ptr %m_subtree_mass, align 4
   %add180 = fadd float %300, %301
   store float %add180, ptr %m_subtree_mass, align 4
-  %m_body_subtree_mass_com183 = getelementptr inbounds i8, ptr %arrayidx.i459, i64 544
+  %m_body_subtree_mass_com183 = getelementptr inbounds nuw i8, ptr %arrayidx.i459, i64 544
   %302 = load float, ptr %m_body_subtree_mass_com183, align 4
-  %arrayidx7.i.i475 = getelementptr inbounds i8, ptr %arrayidx.i459, i64 548
+  %arrayidx7.i.i475 = getelementptr inbounds nuw i8, ptr %arrayidx.i459, i64 548
   %303 = load float, ptr %arrayidx7.i.i475, align 4
   %mul8.i.i476 = fmul float %292, %303
   %304 = call float @llvm.fmuladd.f32(float %291, float %302, float %mul8.i.i476)
-  %arrayidx12.i.i478 = getelementptr inbounds i8, ptr %arrayidx.i459, i64 552
+  %arrayidx12.i.i478 = getelementptr inbounds nuw i8, ptr %arrayidx.i459, i64 552
   %305 = load float, ptr %arrayidx12.i.i478, align 4
   %306 = call noundef float @llvm.fmuladd.f32(float %293, float %305, float %304)
   %mul8.i7.i481 = fmul float %295, %303
@@ -5483,14 +5483,14 @@ for.body170:                                      ; preds = %for.body170.lr.ph, 
   %mul8.i13.i485 = fmul float %298, %303
   %309 = call float @llvm.fmuladd.f32(float %297, float %302, float %mul8.i13.i485)
   %310 = call noundef float @llvm.fmuladd.f32(float %299, float %305, float %309)
-  %m_parent_pos_parent_body187 = getelementptr inbounds i8, ptr %arrayidx.i459, i64 340
+  %m_parent_pos_parent_body187 = getelementptr inbounds nuw i8, ptr %arrayidx.i459, i64 340
   %311 = load float, ptr %m_parent_pos_parent_body187, align 4
   %312 = load float, ptr %m_subtree_mass178, align 4
   %mul.i492 = fmul float %311, %312
-  %arrayidx3.i493 = getelementptr inbounds i8, ptr %arrayidx.i459, i64 344
+  %arrayidx3.i493 = getelementptr inbounds nuw i8, ptr %arrayidx.i459, i64 344
   %313 = load float, ptr %arrayidx3.i493, align 4
   %mul4.i494 = fmul float %312, %313
-  %arrayidx7.i495 = getelementptr inbounds i8, ptr %arrayidx.i459, i64 348
+  %arrayidx7.i495 = getelementptr inbounds nuw i8, ptr %arrayidx.i459, i64 348
   %314 = load float, ptr %arrayidx7.i495, align 4
   %mul8.i496 = fmul float %312, %314
   %add.i502 = fadd float %306, %mul.i492
@@ -5505,31 +5505,31 @@ for.body170:                                      ; preds = %for.body170.lr.ph, 
   %317 = load float, ptr %arrayidx12.i, align 4
   %add13.i = fadd float %add14.i508, %317
   store float %add13.i, ptr %arrayidx12.i, align 4
-  %m_body_subtree_I_body197 = getelementptr inbounds i8, ptr %arrayidx.i459, i64 560
+  %m_body_subtree_I_body197 = getelementptr inbounds nuw i8, ptr %arrayidx.i459, i64 560
   %318 = load float, ptr %m_body_subtree_I_body197, align 4, !noalias !98
-  %arrayidx4.i.i518 = getelementptr inbounds i8, ptr %arrayidx.i459, i64 576
+  %arrayidx4.i.i518 = getelementptr inbounds nuw i8, ptr %arrayidx.i459, i64 576
   %319 = load float, ptr %arrayidx4.i.i518, align 4, !noalias !98
   %mul7.i.i520 = fmul float %292, %319
   %320 = call float @llvm.fmuladd.f32(float %318, float %291, float %mul7.i.i520)
-  %arrayidx9.i.i521 = getelementptr inbounds i8, ptr %arrayidx.i459, i64 592
+  %arrayidx9.i.i521 = getelementptr inbounds nuw i8, ptr %arrayidx.i459, i64 592
   %321 = load float, ptr %arrayidx9.i.i521, align 4, !noalias !98
   %322 = call noundef float @llvm.fmuladd.f32(float %321, float %293, float %320)
-  %arrayidx.i.i17.i523 = getelementptr inbounds i8, ptr %arrayidx.i459, i64 564
+  %arrayidx.i.i17.i523 = getelementptr inbounds nuw i8, ptr %arrayidx.i459, i64 564
   %323 = load float, ptr %arrayidx.i.i17.i523, align 4, !noalias !98
-  %arrayidx.i3.i18.i524 = getelementptr inbounds i8, ptr %arrayidx.i459, i64 580
+  %arrayidx.i3.i18.i524 = getelementptr inbounds nuw i8, ptr %arrayidx.i459, i64 580
   %324 = load float, ptr %arrayidx.i3.i18.i524, align 4, !noalias !98
   %mul7.i19.i525 = fmul float %292, %324
   %325 = call float @llvm.fmuladd.f32(float %323, float %291, float %mul7.i19.i525)
-  %arrayidx.i5.i.i526 = getelementptr inbounds i8, ptr %arrayidx.i459, i64 596
+  %arrayidx.i5.i.i526 = getelementptr inbounds nuw i8, ptr %arrayidx.i459, i64 596
   %326 = load float, ptr %arrayidx.i5.i.i526, align 4, !noalias !98
   %327 = call noundef float @llvm.fmuladd.f32(float %326, float %293, float %325)
-  %arrayidx.i.i20.i527 = getelementptr inbounds i8, ptr %arrayidx.i459, i64 568
+  %arrayidx.i.i20.i527 = getelementptr inbounds nuw i8, ptr %arrayidx.i459, i64 568
   %328 = load float, ptr %arrayidx.i.i20.i527, align 4, !noalias !98
-  %arrayidx.i3.i21.i528 = getelementptr inbounds i8, ptr %arrayidx.i459, i64 584
+  %arrayidx.i3.i21.i528 = getelementptr inbounds nuw i8, ptr %arrayidx.i459, i64 584
   %329 = load float, ptr %arrayidx.i3.i21.i528, align 4, !noalias !98
   %mul7.i23.i529 = fmul float %292, %329
   %330 = call float @llvm.fmuladd.f32(float %328, float %291, float %mul7.i23.i529)
-  %arrayidx.i5.i24.i530 = getelementptr inbounds i8, ptr %arrayidx.i459, i64 600
+  %arrayidx.i5.i24.i530 = getelementptr inbounds nuw i8, ptr %arrayidx.i459, i64 600
   %331 = load float, ptr %arrayidx.i5.i24.i530, align 4, !noalias !98
   %332 = call noundef float @llvm.fmuladd.f32(float %331, float %293, float %330)
   %mul7.i28.i533 = fmul float %295, %319
@@ -5784,7 +5784,7 @@ if.then203:                                       ; preds = %for.body170
 for.inc226:                                       ; preds = %for.body170, %if.then203
   %indvars.iv.next1216 = add nuw nsw i64 %indvars.iv1215, 1
   %461 = load ptr, ptr %m_data.i447, align 8
-  %m_size.i450 = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %461, i64 %indvars.iv.next1219, i32 2
+  %m_size.i450 = getelementptr inbounds nuw %class.b3AlignedObjectArray.0, ptr %461, i64 %indvars.iv.next1219, i32 2
   %462 = load i32, ptr %m_size.i450, align 4
   %463 = sext i32 %462 to i64
   %cmp169 = icmp slt i64 %indvars.iv.next1216, %463
@@ -5796,18 +5796,18 @@ for.end230:                                       ; preds = %for.cond159.loopexi
   br i1 %cmp2361197, label %for.body237.lr.ph, label %for.end371
 
 for.body237.lr.ph:                                ; preds = %for.end230
-  %m_data.i748 = getelementptr inbounds i8, ptr %this, i64 40
-  %arrayidx.i37.i = getelementptr inbounds i8, ptr %Jac_JT, i64 4
-  %arrayidx.i38.i = getelementptr inbounds i8, ptr %Jac_JT, i64 8
-  %arrayidx.i28.i = getelementptr inbounds i8, ptr %Jac_JR, i64 4
-  %arrayidx.i29.i = getelementptr inbounds i8, ptr %Jac_JR, i64 8
-  %m_setElemOperations.i.i838 = getelementptr inbounds i8, ptr %mass_matrix, i64 16
-  %m_data.i.i.i843 = getelementptr inbounds i8, ptr %mass_matrix, i64 40
-  %m_data.i910 = getelementptr inbounds i8, ptr %this, i64 72
-  %arrayidx.i16.i1008 = getelementptr inbounds i8, ptr %Jac_JR337, i64 4
-  %arrayidx.i17.i1009 = getelementptr inbounds i8, ptr %Jac_JR337, i64 8
-  %arrayidx.i37.i1013 = getelementptr inbounds i8, ptr %Jac_JT339, i64 4
-  %arrayidx.i38.i1014 = getelementptr inbounds i8, ptr %Jac_JT339, i64 8
+  %m_data.i748 = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %arrayidx.i37.i = getelementptr inbounds nuw i8, ptr %Jac_JT, i64 4
+  %arrayidx.i38.i = getelementptr inbounds nuw i8, ptr %Jac_JT, i64 8
+  %arrayidx.i28.i = getelementptr inbounds nuw i8, ptr %Jac_JR, i64 4
+  %arrayidx.i29.i = getelementptr inbounds nuw i8, ptr %Jac_JR, i64 8
+  %m_setElemOperations.i.i838 = getelementptr inbounds nuw i8, ptr %mass_matrix, i64 16
+  %m_data.i.i.i843 = getelementptr inbounds nuw i8, ptr %mass_matrix, i64 40
+  %m_data.i910 = getelementptr inbounds nuw i8, ptr %this, i64 72
+  %arrayidx.i16.i1008 = getelementptr inbounds nuw i8, ptr %Jac_JR337, i64 4
+  %arrayidx.i17.i1009 = getelementptr inbounds nuw i8, ptr %Jac_JR337, i64 8
+  %arrayidx.i37.i1013 = getelementptr inbounds nuw i8, ptr %Jac_JT339, i64 4
+  %arrayidx.i38.i1014 = getelementptr inbounds nuw i8, ptr %Jac_JT339, i64 8
   %464 = zext nneg i32 %.pre to i64
   br label %for.body237
 
@@ -5819,10 +5819,10 @@ for.body237:                                      ; preds = %for.body237.lr.ph, 
   %indvars.iv1221 = phi i64 [ %464, %for.body237.lr.ph ], [ %indvars.iv.next1222, %for.cond235.loopexit ]
   %indvars.iv.next1222 = add nsw i64 %indvars.iv1221, -1
   %465 = load ptr, ptr %m_data.i748, align 8
-  %arrayidx.i750 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %465, i64 %indvars.iv.next1222
-  %m_q_index241 = getelementptr inbounds i8, ptr %arrayidx.i750, i64 536
+  %arrayidx.i750 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %465, i64 %indvars.iv.next1222
+  %m_q_index241 = getelementptr inbounds nuw i8, ptr %arrayidx.i750, i64 536
   %466 = load i32, ptr %m_q_index241, align 8
-  %m_joint_type = getelementptr inbounds i8, ptr %arrayidx.i750, i64 420
+  %m_joint_type = getelementptr inbounds nuw i8, ptr %arrayidx.i750, i64 420
   %m_joint_type.val = load i32, ptr %m_joint_type, align 4
   switch i32 %m_joint_type.val, label %do.body.i [
     i32 0, label %_ZN24btInverseDynamicsBullet3L12jointNumDoFsERKNS_9JointTypeE.exit
@@ -5845,32 +5845,32 @@ do.body.i:                                        ; preds = %for.body237
   unreachable
 
 _ZN24btInverseDynamicsBullet3L12jointNumDoFsERKNS_9JointTypeE.exit: ; preds = %for.body237
-  %m_Jac_JR245 = getelementptr inbounds i8, ptr %arrayidx.i750, i64 488
+  %m_Jac_JR245 = getelementptr inbounds nuw i8, ptr %arrayidx.i750, i64 488
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %Jac_JR, ptr noundef nonnull align 8 dereferenceable(16) %m_Jac_JR245, i64 16, i1 false)
-  %m_Jac_JT = getelementptr inbounds i8, ptr %arrayidx.i750, i64 504
+  %m_Jac_JT = getelementptr inbounds nuw i8, ptr %arrayidx.i750, i64 504
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %Jac_JT, ptr noundef nonnull align 8 dereferenceable(16) %m_Jac_JT, i64 16, i1 false)
   br label %for.cond235.loopexit
 
 for.body248.lr.ph:                                ; preds = %for.body237, %for.body237, %sw.bb3.i, %sw.bb2.i
   %retval.0.i.ph = phi i32 [ 6, %sw.bb2.i ], [ 3, %sw.bb3.i ], [ 1, %for.body237 ], [ 1, %for.body237 ]
-  %m_Jac_JR2451229 = getelementptr inbounds i8, ptr %arrayidx.i750, i64 488
+  %m_Jac_JR2451229 = getelementptr inbounds nuw i8, ptr %arrayidx.i750, i64 488
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %Jac_JR, ptr noundef nonnull align 8 dereferenceable(16) %m_Jac_JR2451229, i64 16, i1 false)
-  %m_Jac_JT1230 = getelementptr inbounds i8, ptr %arrayidx.i750, i64 504
+  %m_Jac_JT1230 = getelementptr inbounds nuw i8, ptr %arrayidx.i750, i64 504
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %Jac_JT, ptr noundef nonnull align 8 dereferenceable(16) %m_Jac_JT1230, i64 16, i1 false)
   %add243 = add nsw i32 %retval.0.i.ph, %466
-  %m_body_subtree_I_body261 = getelementptr inbounds i8, ptr %arrayidx.i750, i64 560
-  %arrayidx5.i.i757 = getelementptr inbounds i8, ptr %arrayidx.i750, i64 564
-  %arrayidx10.i.i760 = getelementptr inbounds i8, ptr %arrayidx.i750, i64 568
-  %arrayidx.i.i762 = getelementptr inbounds i8, ptr %arrayidx.i750, i64 576
-  %arrayidx5.i5.i763 = getelementptr inbounds i8, ptr %arrayidx.i750, i64 580
-  %arrayidx10.i8.i765 = getelementptr inbounds i8, ptr %arrayidx.i750, i64 584
-  %arrayidx.i10.i766 = getelementptr inbounds i8, ptr %arrayidx.i750, i64 592
-  %arrayidx5.i11.i767 = getelementptr inbounds i8, ptr %arrayidx.i750, i64 596
-  %arrayidx10.i14.i769 = getelementptr inbounds i8, ptr %arrayidx.i750, i64 600
-  %m_body_subtree_mass_com265 = getelementptr inbounds i8, ptr %arrayidx.i750, i64 544
-  %arrayidx.i775 = getelementptr inbounds i8, ptr %arrayidx.i750, i64 548
-  %arrayidx5.i777 = getelementptr inbounds i8, ptr %arrayidx.i750, i64 552
-  %m_subtree_mass272 = getelementptr inbounds i8, ptr %arrayidx.i750, i64 540
+  %m_body_subtree_I_body261 = getelementptr inbounds nuw i8, ptr %arrayidx.i750, i64 560
+  %arrayidx5.i.i757 = getelementptr inbounds nuw i8, ptr %arrayidx.i750, i64 564
+  %arrayidx10.i.i760 = getelementptr inbounds nuw i8, ptr %arrayidx.i750, i64 568
+  %arrayidx.i.i762 = getelementptr inbounds nuw i8, ptr %arrayidx.i750, i64 576
+  %arrayidx5.i5.i763 = getelementptr inbounds nuw i8, ptr %arrayidx.i750, i64 580
+  %arrayidx10.i8.i765 = getelementptr inbounds nuw i8, ptr %arrayidx.i750, i64 584
+  %arrayidx.i10.i766 = getelementptr inbounds nuw i8, ptr %arrayidx.i750, i64 592
+  %arrayidx5.i11.i767 = getelementptr inbounds nuw i8, ptr %arrayidx.i750, i64 596
+  %arrayidx10.i14.i769 = getelementptr inbounds nuw i8, ptr %arrayidx.i750, i64 600
+  %m_body_subtree_mass_com265 = getelementptr inbounds nuw i8, ptr %arrayidx.i750, i64 544
+  %arrayidx.i775 = getelementptr inbounds nuw i8, ptr %arrayidx.i750, i64 548
+  %arrayidx5.i777 = getelementptr inbounds nuw i8, ptr %arrayidx.i750, i64 552
+  %m_subtree_mass272 = getelementptr inbounds nuw i8, ptr %arrayidx.i750, i64 540
   %467 = trunc nuw nsw i64 %indvars.iv.next1222 to i32
   br label %for.body248
 
@@ -5954,13 +5954,13 @@ if.then256:                                       ; preds = %if.end253
 
 switch.lookup:                                    ; preds = %if.then256
   %471 = zext nneg i32 %sub257 to i64
-  %switch.gep = getelementptr inbounds [3 x float], ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.7, i64 0, i64 %471
+  %switch.gep = getelementptr inbounds nuw [3 x float], ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.7, i64 0, i64 %471
   %switch.load = load float, ptr %switch.gep, align 4
   %472 = zext nneg i32 %sub257 to i64
-  %switch.gep1237 = getelementptr inbounds [3 x float], ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.8, i64 0, i64 %472
+  %switch.gep1237 = getelementptr inbounds nuw [3 x float], ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.8, i64 0, i64 %472
   %switch.load1238 = load float, ptr %switch.gep1237, align 4
   %473 = zext nneg i32 %sub257 to i64
-  %switch.gep1239 = getelementptr inbounds [3 x float], ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.9, i64 0, i64 %473
+  %switch.gep1239 = getelementptr inbounds nuw [3 x float], ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.9, i64 0, i64 %473
   %switch.load1240 = load float, ptr %switch.gep1239, align 4
   store float %switch.load, ptr %Jac_JR, align 4
   store float %switch.load1238, ptr %arrayidx.i28.i, align 4
@@ -6064,13 +6064,13 @@ if.then290:                                       ; preds = %for.body287
 
 switch.lookup1241:                                ; preds = %if.then290
   %520 = zext nneg i32 %sub291 to i64
-  %switch.gep1242 = getelementptr inbounds [3 x float], ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.7, i64 0, i64 %520
+  %switch.gep1242 = getelementptr inbounds nuw [3 x float], ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.7, i64 0, i64 %520
   %switch.load1243 = load float, ptr %switch.gep1242, align 4
   %521 = zext nneg i32 %sub291 to i64
-  %switch.gep1244 = getelementptr inbounds [3 x float], ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.8, i64 0, i64 %521
+  %switch.gep1244 = getelementptr inbounds nuw [3 x float], ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.8, i64 0, i64 %521
   %switch.load1245 = load float, ptr %switch.gep1244, align 4
   %522 = zext nneg i32 %sub291 to i64
-  %switch.gep1246 = getelementptr inbounds [3 x float], ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.9, i64 0, i64 %522
+  %switch.gep1246 = getelementptr inbounds nuw [3 x float], ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.9, i64 0, i64 %522
   %switch.load1247 = load float, ptr %switch.gep1246, align 4
   store float %switch.load1243, ptr %Jac_JR, align 4
   store float %switch.load1245, ptr %arrayidx.i28.i, align 4
@@ -6196,7 +6196,7 @@ for.inc308:                                       ; preds = %if.end296, %_ZN24bt
 
 for.end310:                                       ; preds = %for.inc308, %if.end258
   %550 = load ptr, ptr %m_data.i910, align 8
-  %arrayidx.i912 = getelementptr inbounds i32, ptr %550, i64 %indvars.iv.next1222
+  %arrayidx.i912 = getelementptr inbounds nuw i32, ptr %550, i64 %indvars.iv.next1222
   %parent_idx.01184 = load i32, ptr %arrayidx.i912, align 4
   %cmp3121185 = icmp sgt i32 %parent_idx.01184, -1
   br i1 %cmp3121185, label %while.body, label %for.cond246.loopexit
@@ -6213,16 +6213,16 @@ while.body:                                       ; preds = %for.end310, %for.en
   %idxprom.i914 = sext i32 %child_idx.01190 to i64
   %arrayidx.i915 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %552, i64 %idxprom.i914
   %idxprom.i917 = zext nneg i32 %parent_idx.01191 to i64
-  %arrayidx.i918 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %552, i64 %idxprom.i917
-  %m_body_T_parent318 = getelementptr inbounds i8, ptr %arrayidx.i915, i64 292
-  %arrayidx3.i919 = getelementptr inbounds i8, ptr %arrayidx.i915, i64 308
-  %arrayidx6.i920 = getelementptr inbounds i8, ptr %arrayidx.i915, i64 324
-  %arrayidx.i.i921 = getelementptr inbounds i8, ptr %arrayidx.i915, i64 296
-  %arrayidx.i1.i922 = getelementptr inbounds i8, ptr %arrayidx.i915, i64 312
-  %arrayidx.i2.i923 = getelementptr inbounds i8, ptr %arrayidx.i915, i64 328
-  %arrayidx.i3.i924 = getelementptr inbounds i8, ptr %arrayidx.i915, i64 300
-  %arrayidx.i4.i925 = getelementptr inbounds i8, ptr %arrayidx.i915, i64 316
-  %arrayidx.i5.i926 = getelementptr inbounds i8, ptr %arrayidx.i915, i64 332
+  %arrayidx.i918 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %552, i64 %idxprom.i917
+  %m_body_T_parent318 = getelementptr inbounds nuw i8, ptr %arrayidx.i915, i64 292
+  %arrayidx3.i919 = getelementptr inbounds nuw i8, ptr %arrayidx.i915, i64 308
+  %arrayidx6.i920 = getelementptr inbounds nuw i8, ptr %arrayidx.i915, i64 324
+  %arrayidx.i.i921 = getelementptr inbounds nuw i8, ptr %arrayidx.i915, i64 296
+  %arrayidx.i1.i922 = getelementptr inbounds nuw i8, ptr %arrayidx.i915, i64 312
+  %arrayidx.i2.i923 = getelementptr inbounds nuw i8, ptr %arrayidx.i915, i64 328
+  %arrayidx.i3.i924 = getelementptr inbounds nuw i8, ptr %arrayidx.i915, i64 300
+  %arrayidx.i4.i925 = getelementptr inbounds nuw i8, ptr %arrayidx.i915, i64 316
+  %arrayidx.i5.i926 = getelementptr inbounds nuw i8, ptr %arrayidx.i915, i64 332
   %553 = load float, ptr %m_body_T_parent318, align 4, !noalias !119
   %554 = load float, ptr %arrayidx3.i919, align 4, !noalias !119
   %555 = load float, ptr %arrayidx6.i920, align 4, !noalias !119
@@ -6259,10 +6259,10 @@ while.body:                                       ; preds = %for.end310, %for.en
   %retval.sroa.0.0.vec.insert.i973 = insertelement <2 x float> poison, float %569, i64 0
   %retval.sroa.0.4.vec.insert.i974 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i973, float %571, i64 1
   %retval.sroa.3.12.vec.insert.i975 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %573, i64 0
-  %m_parent_pos_parent_body328 = getelementptr inbounds i8, ptr %arrayidx.i915, i64 340
-  %arrayidx.i978 = getelementptr inbounds i8, ptr %arrayidx.i915, i64 344
+  %m_parent_pos_parent_body328 = getelementptr inbounds nuw i8, ptr %arrayidx.i915, i64 340
+  %arrayidx.i978 = getelementptr inbounds nuw i8, ptr %arrayidx.i915, i64 344
   %574 = load float, ptr %arrayidx.i978, align 4
-  %arrayidx5.i980 = getelementptr inbounds i8, ptr %arrayidx.i915, i64 348
+  %arrayidx5.i980 = getelementptr inbounds nuw i8, ptr %arrayidx.i915, i64 348
   %575 = load float, ptr %arrayidx5.i980, align 4
   %576 = fneg float %571
   %neg.i982 = fmul float %575, %576
@@ -6280,9 +6280,9 @@ while.body:                                       ; preds = %for.end310, %for.en
   %body_eom_rot.sroa.0.4.vec.insert = insertelement <2 x float> %583, float %add8.i993, i64 1
   %add13.i996 = fadd float %567, %582
   %body_eom_rot.sroa.16.8.vec.insert = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add13.i996, i64 0
-  %m_q_index332 = getelementptr inbounds i8, ptr %arrayidx.i918, i64 536
+  %m_q_index332 = getelementptr inbounds nuw i8, ptr %arrayidx.i918, i64 536
   %584 = load i32, ptr %m_q_index332, align 8
-  %m_joint_type333 = getelementptr inbounds i8, ptr %arrayidx.i918, i64 420
+  %m_joint_type333 = getelementptr inbounds nuw i8, ptr %arrayidx.i918, i64 420
   %m_joint_type333.val = load i32, ptr %m_joint_type333, align 4
   switch i32 %m_joint_type333.val, label %do.body.i1001 [
     i32 0, label %_ZN24btInverseDynamicsBullet3L12jointNumDoFsERKNS_9JointTypeE.exit1002
@@ -6305,17 +6305,17 @@ do.body.i1001:                                    ; preds = %while.body
   unreachable
 
 _ZN24btInverseDynamicsBullet3L12jointNumDoFsERKNS_9JointTypeE.exit1002: ; preds = %while.body
-  %m_Jac_JR338 = getelementptr inbounds i8, ptr %arrayidx.i918, i64 488
+  %m_Jac_JR338 = getelementptr inbounds nuw i8, ptr %arrayidx.i918, i64 488
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %Jac_JR337, ptr noundef nonnull align 8 dereferenceable(16) %m_Jac_JR338, i64 16, i1 false)
-  %m_Jac_JT340 = getelementptr inbounds i8, ptr %arrayidx.i918, i64 504
+  %m_Jac_JT340 = getelementptr inbounds nuw i8, ptr %arrayidx.i918, i64 504
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %Jac_JT339, ptr noundef nonnull align 8 dereferenceable(16) %m_Jac_JT340, i64 16, i1 false)
   br label %for.end363
 
 for.body344.preheader:                            ; preds = %while.body, %while.body, %sw.bb3.i997, %sw.bb2.i999
   %retval.0.i998.ph = phi i32 [ 6, %sw.bb2.i999 ], [ 3, %sw.bb3.i997 ], [ 1, %while.body ], [ 1, %while.body ]
-  %m_Jac_JR3381234 = getelementptr inbounds i8, ptr %arrayidx.i918, i64 488
+  %m_Jac_JR3381234 = getelementptr inbounds nuw i8, ptr %arrayidx.i918, i64 488
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %Jac_JR337, ptr noundef nonnull align 8 dereferenceable(16) %m_Jac_JR3381234, i64 16, i1 false)
-  %m_Jac_JT3401235 = getelementptr inbounds i8, ptr %arrayidx.i918, i64 504
+  %m_Jac_JT3401235 = getelementptr inbounds nuw i8, ptr %arrayidx.i918, i64 504
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %Jac_JT339, ptr noundef nonnull align 8 dereferenceable(16) %m_Jac_JT3401235, i64 16, i1 false)
   %add335 = add nsw i32 %retval.0.i998.ph, %584
   br label %for.body344
@@ -6334,13 +6334,13 @@ if.then347:                                       ; preds = %for.body344
 
 switch.lookup1248:                                ; preds = %if.then347
   %587 = zext nneg i32 %sub348 to i64
-  %switch.gep1249 = getelementptr inbounds [3 x float], ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.7, i64 0, i64 %587
+  %switch.gep1249 = getelementptr inbounds nuw [3 x float], ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.7, i64 0, i64 %587
   %switch.load1250 = load float, ptr %switch.gep1249, align 4
   %588 = zext nneg i32 %sub348 to i64
-  %switch.gep1251 = getelementptr inbounds [3 x float], ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.8, i64 0, i64 %588
+  %switch.gep1251 = getelementptr inbounds nuw [3 x float], ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.8, i64 0, i64 %588
   %switch.load1252 = load float, ptr %switch.gep1251, align 4
   %589 = zext nneg i32 %sub348 to i64
-  %switch.gep1253 = getelementptr inbounds [3 x float], ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.9, i64 0, i64 %589
+  %switch.gep1253 = getelementptr inbounds nuw [3 x float], ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.9, i64 0, i64 %589
   %switch.load1254 = load float, ptr %switch.gep1253, align 4
   store float %switch.load1250, ptr %Jac_JR337, align 4
   store float %switch.load1252, ptr %arrayidx.i16.i1008, align 4
@@ -6440,7 +6440,7 @@ for.end363.loopexit:                              ; preds = %if.end354
 
 for.end363:                                       ; preds = %_ZN24btInverseDynamicsBullet3L12jointNumDoFsERKNS_9JointTypeE.exit1002, %for.end363.loopexit
   %604 = phi ptr [ %.pre1224, %for.end363.loopexit ], [ %551, %_ZN24btInverseDynamicsBullet3L12jointNumDoFsERKNS_9JointTypeE.exit1002 ]
-  %arrayidx.i1051 = getelementptr inbounds i32, ptr %604, i64 %idxprom.i917
+  %arrayidx.i1051 = getelementptr inbounds nuw i32, ptr %604, i64 %idxprom.i917
   %parent_idx.0 = load i32, ptr %arrayidx.i1051, align 4
   %cmp312 = icmp sgt i32 %parent_idx.0, -1
   br i1 %cmp312, label %while.body, label %for.cond246.loopexit, !llvm.loop !123
@@ -6452,8 +6452,8 @@ for.end371:                                       ; preds = %for.cond235.loopexi
   br i1 %or.cond1203, label %for.cond380.preheader.lr.ph, label %return
 
 for.cond380.preheader.lr.ph:                      ; preds = %for.end371
-  %m_data.i.i = getelementptr inbounds i8, ptr %mass_matrix, i64 40
-  %m_setElemOperations.i.i1056 = getelementptr inbounds i8, ptr %mass_matrix, i64 16
+  %m_data.i.i = getelementptr inbounds nuw i8, ptr %mass_matrix, i64 40
+  %m_setElemOperations.i.i1056 = getelementptr inbounds nuw i8, ptr %mass_matrix, i64 16
   br label %for.cond380.preheader
 
 for.cond380.preheader:                            ; preds = %for.cond380.preheader.lr.ph, %for.inc387
@@ -6514,10 +6514,10 @@ do.body3:                                         ; preds = %entry
   br label %return
 
 do.end5:                                          ; preds = %entry
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 72
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %2 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = zext nneg i32 %body_index to i64
-  %arrayidx.i = getelementptr inbounds i32, ptr %2, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw i32, ptr %2, i64 %idxprom.i
   %3 = load i32, ptr %arrayidx.i, align 4
   store i32 %3, ptr %p, align 4
   br label %return
@@ -6543,10 +6543,10 @@ do.body3:                                         ; preds = %entry
   br label %return
 
 do.end5:                                          ; preds = %entry
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 264
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 264
   %2 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = zext nneg i32 %body_index to i64
-  %arrayidx.i = getelementptr inbounds i32, ptr %2, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw i32, ptr %2, i64 %idxprom.i
   %3 = load i32, ptr %arrayidx.i, align 4
   store i32 %3, ptr %user_int, align 4
   br label %return
@@ -6572,10 +6572,10 @@ do.body3:                                         ; preds = %entry
   br label %return
 
 do.end5:                                          ; preds = %entry
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 296
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 296
   %2 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = zext nneg i32 %body_index to i64
-  %arrayidx.i = getelementptr inbounds ptr, ptr %2, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %2, i64 %idxprom.i
   %3 = load ptr, ptr %arrayidx.i, align 8
   store ptr %3, ptr %user_ptr, align 8
   br label %return
@@ -6601,10 +6601,10 @@ do.body3:                                         ; preds = %entry
   br label %return
 
 do.end5:                                          ; preds = %entry
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 264
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 264
   %2 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = zext nneg i32 %body_index to i64
-  %arrayidx.i = getelementptr inbounds i32, ptr %2, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw i32, ptr %2, i64 %idxprom.i
   store i32 %user_int, ptr %arrayidx.i, align 4
   br label %return
 
@@ -6629,10 +6629,10 @@ do.body3:                                         ; preds = %entry
   br label %return
 
 do.end5:                                          ; preds = %entry
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 296
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 296
   %2 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = zext nneg i32 %body_index to i64
-  %arrayidx.i = getelementptr inbounds ptr, ptr %2, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %2, i64 %idxprom.i
   store ptr %user_ptr, ptr %arrayidx.i, align 8
   br label %return
 
@@ -6657,19 +6657,19 @@ do.body3:                                         ; preds = %entry
   br label %return
 
 do.end5:                                          ; preds = %entry
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %2 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = zext nneg i32 %body_index to i64
-  %arrayidx.i = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %2, i64 %idxprom.i
-  %m_body_T_world = getelementptr inbounds i8, ptr %arrayidx.i, i64 244
-  %arrayidx3.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 260
-  %arrayidx6.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 276
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 248
-  %arrayidx.i1.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 264
-  %arrayidx.i2.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 280
-  %arrayidx.i3.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 252
-  %arrayidx.i4.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 268
-  %arrayidx.i5.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 284
+  %arrayidx.i = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %2, i64 %idxprom.i
+  %m_body_T_world = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 244
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 260
+  %arrayidx6.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 276
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 248
+  %arrayidx.i1.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 264
+  %arrayidx.i2.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 280
+  %arrayidx.i3.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 252
+  %arrayidx.i4.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 268
+  %arrayidx.i5.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 284
   %3 = load float, ptr %m_body_T_world, align 4, !noalias !126
   %4 = load float, ptr %arrayidx3.i, align 4, !noalias !126
   %5 = load float, ptr %arrayidx6.i, align 4, !noalias !126
@@ -6679,13 +6679,13 @@ do.end5:                                          ; preds = %entry
   %9 = load float, ptr %arrayidx.i3.i, align 4, !noalias !126
   %10 = load float, ptr %arrayidx.i4.i, align 4, !noalias !126
   %11 = load float, ptr %arrayidx.i5.i, align 4, !noalias !126
-  %m_body_pos = getelementptr inbounds i8, ptr %arrayidx.i, i64 164
+  %m_body_pos = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 164
   %12 = load float, ptr %m_body_pos, align 4
-  %arrayidx7.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 168
+  %arrayidx7.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 168
   %13 = load float, ptr %arrayidx7.i.i, align 4
   %mul8.i.i = fmul float %4, %13
   %14 = tail call float @llvm.fmuladd.f32(float %3, float %12, float %mul8.i.i)
-  %arrayidx12.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 172
+  %arrayidx12.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 172
   %15 = load float, ptr %arrayidx12.i.i, align 4
   %16 = tail call noundef float @llvm.fmuladd.f32(float %5, float %15, float %14)
   %mul8.i7.i = fmul float %7, %13
@@ -6698,7 +6698,7 @@ do.end5:                                          ; preds = %entry
   %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %18, i64 1
   %retval.sroa.3.12.vec.insert.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %20, i64 0
   store <2 x float> %retval.sroa.0.4.vec.insert.i, ptr %world_origin, align 4
-  %ref.tmp.sroa.2.0.world_origin.sroa_idx = getelementptr inbounds i8, ptr %world_origin, i64 8
+  %ref.tmp.sroa.2.0.world_origin.sroa_idx = getelementptr inbounds nuw i8, ptr %world_origin, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i, ptr %ref.tmp.sroa.2.0.world_origin.sroa_idx, align 4
   br label %return
 
@@ -6723,21 +6723,21 @@ do.body3:                                         ; preds = %entry
   br label %return
 
 do.end5:                                          ; preds = %entry
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %2 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = zext nneg i32 %body_index to i64
-  %arrayidx.i = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %2, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %2, i64 %idxprom.i
   %3 = load float, ptr %arrayidx.i, align 8
   %cmp6 = fcmp ogt float %3, 0.000000e+00
-  %m_body_T_world = getelementptr inbounds i8, ptr %arrayidx.i, i64 244
-  %arrayidx3.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 260
-  %arrayidx6.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 276
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 248
-  %arrayidx.i1.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 264
-  %arrayidx.i2.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 280
-  %arrayidx.i3.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 252
-  %arrayidx.i4.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 268
-  %arrayidx.i5.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 284
+  %m_body_T_world = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 244
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 260
+  %arrayidx6.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 276
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 248
+  %arrayidx.i1.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 264
+  %arrayidx.i2.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 280
+  %arrayidx.i3.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 252
+  %arrayidx.i4.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 268
+  %arrayidx.i5.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 284
   %4 = load float, ptr %m_body_T_world, align 4, !noalias !129
   %5 = load float, ptr %arrayidx3.i, align 4, !noalias !129
   %6 = load float, ptr %arrayidx6.i, align 4, !noalias !129
@@ -6747,26 +6747,26 @@ do.end5:                                          ; preds = %entry
   %10 = load float, ptr %arrayidx.i3.i, align 4, !noalias !129
   %11 = load float, ptr %arrayidx.i4.i, align 4, !noalias !129
   %12 = load float, ptr %arrayidx.i5.i, align 4, !noalias !129
-  %m_body_pos = getelementptr inbounds i8, ptr %arrayidx.i, i64 164
+  %m_body_pos = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 164
   br i1 %cmp6, label %if.then7, label %if.else
 
 if.then7:                                         ; preds = %do.end5
-  %m_body_mass_com = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
+  %m_body_mass_com = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 4
   %div.i = fdiv float 1.000000e+00, %3
   %13 = load float, ptr %m_body_mass_com, align 4
   %mul.i.i = fmul float %div.i, %13
-  %arrayidx3.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %arrayidx3.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %14 = load float, ptr %arrayidx3.i.i, align 4
   %mul4.i.i = fmul float %div.i, %14
-  %arrayidx7.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 12
+  %arrayidx7.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 12
   %15 = load float, ptr %arrayidx7.i.i, align 4
   %mul8.i.i = fmul float %div.i, %15
   %16 = load float, ptr %m_body_pos, align 4
   %add.i = fadd float %mul.i.i, %16
-  %arrayidx5.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 168
+  %arrayidx5.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 168
   %17 = load float, ptr %arrayidx5.i, align 4
   %add8.i = fadd float %mul4.i.i, %17
-  %arrayidx11.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 172
+  %arrayidx11.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 172
   %18 = load float, ptr %arrayidx11.i, align 4
   %add14.i = fadd float %mul8.i.i, %18
   %mul8.i.i12 = fmul float %5, %add8.i
@@ -6782,17 +6782,17 @@ if.then7:                                         ; preds = %do.end5
   %retval.sroa.0.4.vec.insert.i15 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i14, float %22, i64 1
   %retval.sroa.3.12.vec.insert.i16 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %24, i64 0
   store <2 x float> %retval.sroa.0.4.vec.insert.i15, ptr %world_com, align 4
-  %ref.tmp.sroa.2.0.world_com.sroa_idx = getelementptr inbounds i8, ptr %world_com, i64 8
+  %ref.tmp.sroa.2.0.world_com.sroa_idx = getelementptr inbounds nuw i8, ptr %world_com, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i16, ptr %ref.tmp.sroa.2.0.world_com.sroa_idx, align 4
   br label %return
 
 if.else:                                          ; preds = %do.end5
   %25 = load float, ptr %m_body_pos, align 4
-  %arrayidx7.i.i39 = getelementptr inbounds i8, ptr %arrayidx.i, i64 168
+  %arrayidx7.i.i39 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 168
   %26 = load float, ptr %arrayidx7.i.i39, align 4
   %mul8.i.i40 = fmul float %5, %26
   %27 = tail call float @llvm.fmuladd.f32(float %4, float %25, float %mul8.i.i40)
-  %arrayidx12.i.i42 = getelementptr inbounds i8, ptr %arrayidx.i, i64 172
+  %arrayidx12.i.i42 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 172
   %28 = load float, ptr %arrayidx12.i.i42, align 4
   %29 = tail call noundef float @llvm.fmuladd.f32(float %6, float %28, float %27)
   %mul8.i7.i45 = fmul float %8, %26
@@ -6805,7 +6805,7 @@ if.else:                                          ; preds = %do.end5
   %retval.sroa.0.4.vec.insert.i52 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i51, float %31, i64 1
   %retval.sroa.3.12.vec.insert.i53 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %33, i64 0
   store <2 x float> %retval.sroa.0.4.vec.insert.i52, ptr %world_com, align 4
-  %ref.tmp18.sroa.2.0.world_com.sroa_idx = getelementptr inbounds i8, ptr %world_com, i64 8
+  %ref.tmp18.sroa.2.0.world_com.sroa_idx = getelementptr inbounds nuw i8, ptr %world_com, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i53, ptr %ref.tmp18.sroa.2.0.world_com.sroa_idx, align 4
   br label %return
 
@@ -6830,18 +6830,18 @@ do.body3:                                         ; preds = %entry
   br label %return
 
 do.end5:                                          ; preds = %entry
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %2 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = zext nneg i32 %body_index to i64
-  %m_body_T_world = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %2, i64 %idxprom.i, i32 14
-  %arrayidx3.i = getelementptr inbounds i8, ptr %m_body_T_world, i64 16
-  %arrayidx6.i = getelementptr inbounds i8, ptr %m_body_T_world, i64 32
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %m_body_T_world, i64 4
-  %arrayidx.i1.i = getelementptr inbounds i8, ptr %m_body_T_world, i64 20
-  %arrayidx.i2.i = getelementptr inbounds i8, ptr %m_body_T_world, i64 36
-  %arrayidx.i3.i = getelementptr inbounds i8, ptr %m_body_T_world, i64 8
-  %arrayidx.i4.i = getelementptr inbounds i8, ptr %m_body_T_world, i64 24
-  %arrayidx.i5.i = getelementptr inbounds i8, ptr %m_body_T_world, i64 40
+  %m_body_T_world = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %2, i64 %idxprom.i, i32 14
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %m_body_T_world, i64 16
+  %arrayidx6.i = getelementptr inbounds nuw i8, ptr %m_body_T_world, i64 32
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %m_body_T_world, i64 4
+  %arrayidx.i1.i = getelementptr inbounds nuw i8, ptr %m_body_T_world, i64 20
+  %arrayidx.i2.i = getelementptr inbounds nuw i8, ptr %m_body_T_world, i64 36
+  %arrayidx.i3.i = getelementptr inbounds nuw i8, ptr %m_body_T_world, i64 8
+  %arrayidx.i4.i = getelementptr inbounds nuw i8, ptr %m_body_T_world, i64 24
+  %arrayidx.i5.i = getelementptr inbounds nuw i8, ptr %m_body_T_world, i64 40
   %3 = load float, ptr %m_body_T_world, align 4, !noalias !130
   %4 = load float, ptr %arrayidx3.i, align 4, !noalias !130
   %5 = load float, ptr %arrayidx6.i, align 4, !noalias !130
@@ -6852,27 +6852,27 @@ do.end5:                                          ; preds = %entry
   %10 = load float, ptr %arrayidx.i4.i, align 4, !noalias !130
   %11 = load float, ptr %arrayidx.i5.i, align 4, !noalias !130
   store float %3, ptr %world_T_body, align 4
-  %ref.tmp.sroa.2.0.world_T_body.sroa_idx = getelementptr inbounds i8, ptr %world_T_body, i64 4
+  %ref.tmp.sroa.2.0.world_T_body.sroa_idx = getelementptr inbounds nuw i8, ptr %world_T_body, i64 4
   store float %4, ptr %ref.tmp.sroa.2.0.world_T_body.sroa_idx, align 4
-  %ref.tmp.sroa.3.0.world_T_body.sroa_idx = getelementptr inbounds i8, ptr %world_T_body, i64 8
+  %ref.tmp.sroa.3.0.world_T_body.sroa_idx = getelementptr inbounds nuw i8, ptr %world_T_body, i64 8
   store float %5, ptr %ref.tmp.sroa.3.0.world_T_body.sroa_idx, align 4
-  %ref.tmp.sroa.4.0.world_T_body.sroa_idx = getelementptr inbounds i8, ptr %world_T_body, i64 12
+  %ref.tmp.sroa.4.0.world_T_body.sroa_idx = getelementptr inbounds nuw i8, ptr %world_T_body, i64 12
   store float 0.000000e+00, ptr %ref.tmp.sroa.4.0.world_T_body.sroa_idx, align 4
-  %arrayidx7.i.i = getelementptr inbounds i8, ptr %world_T_body, i64 16
+  %arrayidx7.i.i = getelementptr inbounds nuw i8, ptr %world_T_body, i64 16
   store float %6, ptr %arrayidx7.i.i, align 4
-  %ref.tmp.sroa.7.16.arrayidx7.i.i.sroa_idx = getelementptr inbounds i8, ptr %world_T_body, i64 20
+  %ref.tmp.sroa.7.16.arrayidx7.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %world_T_body, i64 20
   store float %7, ptr %ref.tmp.sroa.7.16.arrayidx7.i.i.sroa_idx, align 4
-  %ref.tmp.sroa.8.16.arrayidx7.i.i.sroa_idx = getelementptr inbounds i8, ptr %world_T_body, i64 24
+  %ref.tmp.sroa.8.16.arrayidx7.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %world_T_body, i64 24
   store float %8, ptr %ref.tmp.sroa.8.16.arrayidx7.i.i.sroa_idx, align 4
-  %ref.tmp.sroa.9.16.arrayidx7.i.i.sroa_idx = getelementptr inbounds i8, ptr %world_T_body, i64 28
+  %ref.tmp.sroa.9.16.arrayidx7.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %world_T_body, i64 28
   store float 0.000000e+00, ptr %ref.tmp.sroa.9.16.arrayidx7.i.i.sroa_idx, align 4
-  %arrayidx11.i.i = getelementptr inbounds i8, ptr %world_T_body, i64 32
+  %arrayidx11.i.i = getelementptr inbounds nuw i8, ptr %world_T_body, i64 32
   store float %9, ptr %arrayidx11.i.i, align 4
-  %ref.tmp.sroa.12.32.arrayidx11.i.i.sroa_idx = getelementptr inbounds i8, ptr %world_T_body, i64 36
+  %ref.tmp.sroa.12.32.arrayidx11.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %world_T_body, i64 36
   store float %10, ptr %ref.tmp.sroa.12.32.arrayidx11.i.i.sroa_idx, align 4
-  %ref.tmp.sroa.13.32.arrayidx11.i.i.sroa_idx = getelementptr inbounds i8, ptr %world_T_body, i64 40
+  %ref.tmp.sroa.13.32.arrayidx11.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %world_T_body, i64 40
   store float %11, ptr %ref.tmp.sroa.13.32.arrayidx11.i.i.sroa_idx, align 4
-  %ref.tmp.sroa.14.32.arrayidx11.i.i.sroa_idx = getelementptr inbounds i8, ptr %world_T_body, i64 44
+  %ref.tmp.sroa.14.32.arrayidx11.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %world_T_body, i64 44
   store float 0.000000e+00, ptr %ref.tmp.sroa.14.32.arrayidx11.i.i.sroa_idx, align 4
   br label %return
 
@@ -6897,19 +6897,19 @@ do.body3:                                         ; preds = %entry
   br label %return
 
 do.end5:                                          ; preds = %entry
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %2 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = zext nneg i32 %body_index to i64
-  %arrayidx.i = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %2, i64 %idxprom.i
-  %m_body_T_world = getelementptr inbounds i8, ptr %arrayidx.i, i64 244
-  %arrayidx3.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 260
-  %arrayidx6.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 276
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 248
-  %arrayidx.i1.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 264
-  %arrayidx.i2.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 280
-  %arrayidx.i3.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 252
-  %arrayidx.i4.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 268
-  %arrayidx.i5.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 284
+  %arrayidx.i = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %2, i64 %idxprom.i
+  %m_body_T_world = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 244
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 260
+  %arrayidx6.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 276
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 248
+  %arrayidx.i1.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 264
+  %arrayidx.i2.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 280
+  %arrayidx.i3.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 252
+  %arrayidx.i4.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 268
+  %arrayidx.i5.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 284
   %3 = load float, ptr %m_body_T_world, align 4, !noalias !133
   %4 = load float, ptr %arrayidx3.i, align 4, !noalias !133
   %5 = load float, ptr %arrayidx6.i, align 4, !noalias !133
@@ -6919,13 +6919,13 @@ do.end5:                                          ; preds = %entry
   %9 = load float, ptr %arrayidx.i3.i, align 4, !noalias !133
   %10 = load float, ptr %arrayidx.i4.i, align 4, !noalias !133
   %11 = load float, ptr %arrayidx.i5.i, align 4, !noalias !133
-  %m_body_ang_vel = getelementptr inbounds i8, ptr %arrayidx.i, i64 212
+  %m_body_ang_vel = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 212
   %12 = load float, ptr %m_body_ang_vel, align 4
-  %arrayidx7.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 216
+  %arrayidx7.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 216
   %13 = load float, ptr %arrayidx7.i.i, align 4
   %mul8.i.i = fmul float %4, %13
   %14 = tail call float @llvm.fmuladd.f32(float %3, float %12, float %mul8.i.i)
-  %arrayidx12.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 220
+  %arrayidx12.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 220
   %15 = load float, ptr %arrayidx12.i.i, align 4
   %16 = tail call noundef float @llvm.fmuladd.f32(float %5, float %15, float %14)
   %mul8.i7.i = fmul float %7, %13
@@ -6938,7 +6938,7 @@ do.end5:                                          ; preds = %entry
   %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %18, i64 1
   %retval.sroa.3.12.vec.insert.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %20, i64 0
   store <2 x float> %retval.sroa.0.4.vec.insert.i, ptr %world_omega, align 4
-  %ref.tmp.sroa.2.0.world_omega.sroa_idx = getelementptr inbounds i8, ptr %world_omega, i64 8
+  %ref.tmp.sroa.2.0.world_omega.sroa_idx = getelementptr inbounds nuw i8, ptr %world_omega, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i, ptr %ref.tmp.sroa.2.0.world_omega.sroa_idx, align 4
   br label %return
 
@@ -6963,19 +6963,19 @@ do.body3:                                         ; preds = %entry
   br label %return
 
 do.end5:                                          ; preds = %entry
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %2 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = zext nneg i32 %body_index to i64
-  %arrayidx.i = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %2, i64 %idxprom.i
-  %m_body_T_world = getelementptr inbounds i8, ptr %arrayidx.i, i64 244
-  %arrayidx3.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 260
-  %arrayidx6.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 276
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 248
-  %arrayidx.i1.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 264
-  %arrayidx.i2.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 280
-  %arrayidx.i3.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 252
-  %arrayidx.i4.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 268
-  %arrayidx.i5.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 284
+  %arrayidx.i = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %2, i64 %idxprom.i
+  %m_body_T_world = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 244
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 260
+  %arrayidx6.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 276
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 248
+  %arrayidx.i1.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 264
+  %arrayidx.i2.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 280
+  %arrayidx.i3.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 252
+  %arrayidx.i4.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 268
+  %arrayidx.i5.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 284
   %3 = load float, ptr %m_body_T_world, align 4, !noalias !136
   %4 = load float, ptr %arrayidx3.i, align 4, !noalias !136
   %5 = load float, ptr %arrayidx6.i, align 4, !noalias !136
@@ -6985,13 +6985,13 @@ do.end5:                                          ; preds = %entry
   %9 = load float, ptr %arrayidx.i3.i, align 4, !noalias !136
   %10 = load float, ptr %arrayidx.i4.i, align 4, !noalias !136
   %11 = load float, ptr %arrayidx.i5.i, align 4, !noalias !136
-  %m_body_vel = getelementptr inbounds i8, ptr %arrayidx.i, i64 180
+  %m_body_vel = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 180
   %12 = load float, ptr %m_body_vel, align 4
-  %arrayidx7.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 184
+  %arrayidx7.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 184
   %13 = load float, ptr %arrayidx7.i.i, align 4
   %mul8.i.i = fmul float %4, %13
   %14 = tail call float @llvm.fmuladd.f32(float %3, float %12, float %mul8.i.i)
-  %arrayidx12.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 188
+  %arrayidx12.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 188
   %15 = load float, ptr %arrayidx12.i.i, align 4
   %16 = tail call noundef float @llvm.fmuladd.f32(float %5, float %15, float %14)
   %mul8.i7.i = fmul float %7, %13
@@ -7004,7 +7004,7 @@ do.end5:                                          ; preds = %entry
   %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %18, i64 1
   %retval.sroa.3.12.vec.insert.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %20, i64 0
   store <2 x float> %retval.sroa.0.4.vec.insert.i, ptr %world_velocity, align 4
-  %ref.tmp.sroa.2.0.world_velocity.sroa_idx = getelementptr inbounds i8, ptr %world_velocity, i64 8
+  %ref.tmp.sroa.2.0.world_velocity.sroa_idx = getelementptr inbounds nuw i8, ptr %world_velocity, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i, ptr %ref.tmp.sroa.2.0.world_velocity.sroa_idx, align 4
   br label %return
 
@@ -7029,23 +7029,23 @@ do.body3:                                         ; preds = %entry
   br label %return
 
 do.end5:                                          ; preds = %entry
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %2 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = zext nneg i32 %body_index to i64
-  %arrayidx.i = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %2, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %2, i64 %idxprom.i
   %3 = load float, ptr %arrayidx.i, align 8
   %cmp6 = fcmp ogt float %3, 0.000000e+00
   br i1 %cmp6, label %if.then7, label %if.end14
 
 if.then7:                                         ; preds = %do.end5
-  %m_body_mass_com = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
+  %m_body_mass_com = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 4
   %div.i = fdiv float 1.000000e+00, %3
   %4 = load float, ptr %m_body_mass_com, align 4
   %mul.i.i = fmul float %div.i, %4
-  %arrayidx3.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %arrayidx3.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %5 = load float, ptr %arrayidx3.i.i, align 4
   %mul4.i.i = fmul float %div.i, %5
-  %arrayidx7.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 12
+  %arrayidx7.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 12
   %6 = load float, ptr %arrayidx7.i.i, align 4
   %mul8.i.i = fmul float %div.i, %6
   %retval.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %mul.i.i, i64 0
@@ -7056,15 +7056,15 @@ if.then7:                                         ; preds = %do.end5
 if.end14:                                         ; preds = %do.end5, %if.then7
   %com.sroa.0.0 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i.i, %if.then7 ], [ zeroinitializer, %do.end5 ]
   %com.sroa.5.0 = phi <2 x float> [ %retval.sroa.3.12.vec.insert.i.i, %if.then7 ], [ <float 0.000000e+00, float undef>, %do.end5 ]
-  %m_body_T_world = getelementptr inbounds i8, ptr %arrayidx.i, i64 244
-  %arrayidx3.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 260
-  %arrayidx6.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 276
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 248
-  %arrayidx.i1.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 264
-  %arrayidx.i2.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 280
-  %arrayidx.i3.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 252
-  %arrayidx.i4.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 268
-  %arrayidx.i5.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 284
+  %m_body_T_world = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 244
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 260
+  %arrayidx6.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 276
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 248
+  %arrayidx.i1.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 264
+  %arrayidx.i2.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 280
+  %arrayidx.i3.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 252
+  %arrayidx.i4.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 268
+  %arrayidx.i5.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 284
   %7 = load float, ptr %m_body_T_world, align 4, !noalias !139
   %8 = load float, ptr %arrayidx3.i, align 4, !noalias !139
   %9 = load float, ptr %arrayidx6.i, align 4, !noalias !139
@@ -7074,12 +7074,12 @@ if.end14:                                         ; preds = %do.end5, %if.then7
   %13 = load float, ptr %arrayidx.i3.i, align 4, !noalias !139
   %14 = load float, ptr %arrayidx.i4.i, align 4, !noalias !139
   %15 = load float, ptr %arrayidx.i5.i, align 4, !noalias !139
-  %m_body_vel = getelementptr inbounds i8, ptr %arrayidx.i, i64 180
-  %m_body_ang_vel = getelementptr inbounds i8, ptr %arrayidx.i, i64 212
-  %arrayidx.i12 = getelementptr inbounds i8, ptr %arrayidx.i, i64 216
+  %m_body_vel = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 180
+  %m_body_ang_vel = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 212
+  %arrayidx.i12 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 216
   %16 = load float, ptr %arrayidx.i12, align 4
   %com.sroa.5.8.vec.extract = extractelement <2 x float> %com.sroa.5.0, i64 0
-  %arrayidx5.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 220
+  %arrayidx5.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 220
   %17 = load float, ptr %arrayidx5.i, align 4
   %com.sroa.0.4.vec.extract = extractelement <2 x float> %com.sroa.0.0, i64 1
   %18 = fneg float %com.sroa.0.4.vec.extract
@@ -7095,10 +7095,10 @@ if.end14:                                         ; preds = %do.end5, %if.then7
   %24 = tail call float @llvm.fmuladd.f32(float %20, float %com.sroa.0.4.vec.extract, float %neg30.i)
   %25 = load float, ptr %m_body_vel, align 4
   %add.i = fadd float %25, %19
-  %arrayidx5.i14 = getelementptr inbounds i8, ptr %arrayidx.i, i64 184
+  %arrayidx5.i14 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 184
   %26 = load float, ptr %arrayidx5.i14, align 4
   %add8.i = fadd float %26, %22
-  %arrayidx11.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 188
+  %arrayidx11.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 188
   %27 = load float, ptr %arrayidx11.i, align 4
   %add14.i = fadd float %24, %27
   %mul8.i.i22 = fmul float %8, %add8.i
@@ -7114,7 +7114,7 @@ if.end14:                                         ; preds = %do.end5, %if.then7
   %retval.sroa.0.4.vec.insert.i25 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i24, float %31, i64 1
   %retval.sroa.3.12.vec.insert.i26 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %33, i64 0
   store <2 x float> %retval.sroa.0.4.vec.insert.i25, ptr %world_velocity, align 4
-  %ref.tmp15.sroa.2.0.world_velocity.sroa_idx = getelementptr inbounds i8, ptr %world_velocity, i64 8
+  %ref.tmp15.sroa.2.0.world_velocity.sroa_idx = getelementptr inbounds nuw i8, ptr %world_velocity, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i26, ptr %ref.tmp15.sroa.2.0.world_velocity.sroa_idx, align 4
   br label %return
 
@@ -7139,19 +7139,19 @@ do.body3:                                         ; preds = %entry
   br label %return
 
 do.end5:                                          ; preds = %entry
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %2 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = zext nneg i32 %body_index to i64
-  %arrayidx.i = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %2, i64 %idxprom.i
-  %m_body_T_world = getelementptr inbounds i8, ptr %arrayidx.i, i64 244
-  %arrayidx3.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 260
-  %arrayidx6.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 276
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 248
-  %arrayidx.i1.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 264
-  %arrayidx.i2.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 280
-  %arrayidx.i3.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 252
-  %arrayidx.i4.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 268
-  %arrayidx.i5.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 284
+  %arrayidx.i = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %2, i64 %idxprom.i
+  %m_body_T_world = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 244
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 260
+  %arrayidx6.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 276
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 248
+  %arrayidx.i1.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 264
+  %arrayidx.i2.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 280
+  %arrayidx.i3.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 252
+  %arrayidx.i4.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 268
+  %arrayidx.i5.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 284
   %3 = load float, ptr %m_body_T_world, align 4, !noalias !142
   %4 = load float, ptr %arrayidx3.i, align 4, !noalias !142
   %5 = load float, ptr %arrayidx6.i, align 4, !noalias !142
@@ -7161,13 +7161,13 @@ do.end5:                                          ; preds = %entry
   %9 = load float, ptr %arrayidx.i3.i, align 4, !noalias !142
   %10 = load float, ptr %arrayidx.i4.i, align 4, !noalias !142
   %11 = load float, ptr %arrayidx.i5.i, align 4, !noalias !142
-  %m_body_ang_acc = getelementptr inbounds i8, ptr %arrayidx.i, i64 228
+  %m_body_ang_acc = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 228
   %12 = load float, ptr %m_body_ang_acc, align 4
-  %arrayidx7.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 232
+  %arrayidx7.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 232
   %13 = load float, ptr %arrayidx7.i.i, align 4
   %mul8.i.i = fmul float %4, %13
   %14 = tail call float @llvm.fmuladd.f32(float %3, float %12, float %mul8.i.i)
-  %arrayidx12.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 236
+  %arrayidx12.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 236
   %15 = load float, ptr %arrayidx12.i.i, align 4
   %16 = tail call noundef float @llvm.fmuladd.f32(float %5, float %15, float %14)
   %mul8.i7.i = fmul float %7, %13
@@ -7180,7 +7180,7 @@ do.end5:                                          ; preds = %entry
   %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %18, i64 1
   %retval.sroa.3.12.vec.insert.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %20, i64 0
   store <2 x float> %retval.sroa.0.4.vec.insert.i, ptr %world_dot_omega, align 4
-  %ref.tmp.sroa.2.0.world_dot_omega.sroa_idx = getelementptr inbounds i8, ptr %world_dot_omega, i64 8
+  %ref.tmp.sroa.2.0.world_dot_omega.sroa_idx = getelementptr inbounds nuw i8, ptr %world_dot_omega, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i, ptr %ref.tmp.sroa.2.0.world_dot_omega.sroa_idx, align 4
   br label %return
 
@@ -7205,19 +7205,19 @@ do.body3:                                         ; preds = %entry
   br label %return
 
 do.end5:                                          ; preds = %entry
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %2 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = zext nneg i32 %body_index to i64
-  %arrayidx.i = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %2, i64 %idxprom.i
-  %m_body_T_world = getelementptr inbounds i8, ptr %arrayidx.i, i64 244
-  %arrayidx3.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 260
-  %arrayidx6.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 276
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 248
-  %arrayidx.i1.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 264
-  %arrayidx.i2.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 280
-  %arrayidx.i3.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 252
-  %arrayidx.i4.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 268
-  %arrayidx.i5.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 284
+  %arrayidx.i = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %2, i64 %idxprom.i
+  %m_body_T_world = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 244
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 260
+  %arrayidx6.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 276
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 248
+  %arrayidx.i1.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 264
+  %arrayidx.i2.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 280
+  %arrayidx.i3.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 252
+  %arrayidx.i4.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 268
+  %arrayidx.i5.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 284
   %3 = load float, ptr %m_body_T_world, align 4, !noalias !145
   %4 = load float, ptr %arrayidx3.i, align 4, !noalias !145
   %5 = load float, ptr %arrayidx6.i, align 4, !noalias !145
@@ -7227,13 +7227,13 @@ do.end5:                                          ; preds = %entry
   %9 = load float, ptr %arrayidx.i3.i, align 4, !noalias !145
   %10 = load float, ptr %arrayidx.i4.i, align 4, !noalias !145
   %11 = load float, ptr %arrayidx.i5.i, align 4, !noalias !145
-  %m_body_acc = getelementptr inbounds i8, ptr %arrayidx.i, i64 196
+  %m_body_acc = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 196
   %12 = load float, ptr %m_body_acc, align 4
-  %arrayidx7.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 200
+  %arrayidx7.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 200
   %13 = load float, ptr %arrayidx7.i.i, align 4
   %mul8.i.i = fmul float %4, %13
   %14 = tail call float @llvm.fmuladd.f32(float %3, float %12, float %mul8.i.i)
-  %arrayidx12.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 204
+  %arrayidx12.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 204
   %15 = load float, ptr %arrayidx12.i.i, align 4
   %16 = tail call noundef float @llvm.fmuladd.f32(float %5, float %15, float %14)
   %mul8.i7.i = fmul float %7, %13
@@ -7246,7 +7246,7 @@ do.end5:                                          ; preds = %entry
   %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %18, i64 1
   %retval.sroa.3.12.vec.insert.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %20, i64 0
   store <2 x float> %retval.sroa.0.4.vec.insert.i, ptr %world_acceleration, align 4
-  %ref.tmp.sroa.2.0.world_acceleration.sroa_idx = getelementptr inbounds i8, ptr %world_acceleration, i64 8
+  %ref.tmp.sroa.2.0.world_acceleration.sroa_idx = getelementptr inbounds nuw i8, ptr %world_acceleration, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i, ptr %ref.tmp.sroa.2.0.world_acceleration.sroa_idx, align 4
   br label %return
 
@@ -7271,10 +7271,10 @@ do.body3:                                         ; preds = %entry
   br label %return
 
 do.end5:                                          ; preds = %entry
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %2 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = zext nneg i32 %body_index to i64
-  %m_joint_type = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %2, i64 %idxprom.i, i32 21
+  %m_joint_type = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %2, i64 %idxprom.i, i32 21
   %3 = load i32, ptr %m_joint_type, align 4
   store i32 %3, ptr %joint_type, align 4
   br label %return
@@ -7300,17 +7300,17 @@ do.body3:                                         ; preds = %entry
   br label %return
 
 do.end5:                                          ; preds = %entry
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %2 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = zext nneg i32 %body_index to i64
-  %m_joint_type = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %2, i64 %idxprom.i, i32 21
+  %m_joint_type = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %2, i64 %idxprom.i, i32 21
   %3 = load i32, ptr %m_joint_type, align 4
   %4 = icmp ult i32 %3, 5
   br i1 %4, label %switch.lookup, label %_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl17jointTypeToStringERKNS_9JointTypeE.exit
 
 switch.lookup:                                    ; preds = %do.end5
   %5 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table._ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl15getJointTypeStrEiPPKc, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl15getJointTypeStrEiPPKc, i64 0, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl17jointTypeToStringERKNS_9JointTypeE.exit
 
@@ -7340,10 +7340,10 @@ do.body3:                                         ; preds = %entry
   br label %return
 
 do.end5:                                          ; preds = %entry
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %2 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = zext nneg i32 %body_index to i64
-  %m_parent_pos_parent_body_ref = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %2, i64 %idxprom.i, i32 22
+  %m_parent_pos_parent_body_ref = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %2, i64 %idxprom.i, i32 22
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %r, ptr noundef nonnull align 8 dereferenceable(16) %m_parent_pos_parent_body_ref, i64 16, i1 false)
   br label %return
 
@@ -7368,16 +7368,16 @@ do.body3:                                         ; preds = %entry
   br label %return
 
 do.end5:                                          ; preds = %entry
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %2 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = zext nneg i32 %body_index to i64
-  %m_body_T_parent_ref = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %2, i64 %idxprom.i, i32 23
+  %m_body_T_parent_ref = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %2, i64 %idxprom.i, i32 23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %T, ptr noundef nonnull align 4 dereferenceable(48) %m_body_T_parent_ref, i64 16, i1 false)
-  %arrayidx5.i.i = getelementptr inbounds i8, ptr %m_body_T_parent_ref, i64 16
-  %arrayidx7.i.i = getelementptr inbounds i8, ptr %T, i64 16
+  %arrayidx5.i.i = getelementptr inbounds nuw i8, ptr %m_body_T_parent_ref, i64 16
+  %arrayidx7.i.i = getelementptr inbounds nuw i8, ptr %T, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i, i64 16, i1 false)
-  %arrayidx9.i.i = getelementptr inbounds i8, ptr %m_body_T_parent_ref, i64 32
-  %arrayidx11.i.i = getelementptr inbounds i8, ptr %T, i64 32
+  %arrayidx9.i.i = getelementptr inbounds nuw i8, ptr %m_body_T_parent_ref, i64 32
+  %arrayidx11.i.i = getelementptr inbounds nuw i8, ptr %T, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx11.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx9.i.i, i64 16, i1 false)
   br label %return
 
@@ -7402,11 +7402,11 @@ do.body3:                                         ; preds = %entry
   br label %return
 
 do.end5:                                          ; preds = %entry
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %2 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = zext nneg i32 %body_index to i64
-  %arrayidx.i = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %2, i64 %idxprom.i
-  %m_joint_type = getelementptr inbounds i8, ptr %arrayidx.i, i64 420
+  %arrayidx.i = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %2, i64 %idxprom.i
+  %m_joint_type = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 420
   %3 = load i32, ptr %m_joint_type, align 4
   switch i32 %3, label %if.end18 [
     i32 1, label %if.then7
@@ -7414,12 +7414,12 @@ do.end5:                                          ; preds = %entry
   ]
 
 if.then7:                                         ; preds = %do.end5
-  %m_Jac_JR = getelementptr inbounds i8, ptr %arrayidx.i, i64 488
+  %m_Jac_JR = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 488
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %axis, ptr noundef nonnull align 8 dereferenceable(16) %m_Jac_JR, i64 16, i1 false)
   br label %return
 
 if.then15:                                        ; preds = %do.end5
-  %m_Jac_JT = getelementptr inbounds i8, ptr %arrayidx.i, i64 504
+  %m_Jac_JT = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 504
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %axis, ptr noundef nonnull align 8 dereferenceable(16) %m_Jac_JT, i64 16, i1 false)
   br label %return
 
@@ -7448,10 +7448,10 @@ do.body3:                                         ; preds = %entry
   br label %return
 
 do.end5:                                          ; preds = %entry
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %2 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = zext nneg i32 %body_index to i64
-  %m_q_index = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %2, i64 %idxprom.i, i32 27
+  %m_q_index = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %2, i64 %idxprom.i, i32 27
   %3 = load i32, ptr %m_q_index, align 8
   store i32 %3, ptr %q_index, align 4
   br label %return
@@ -7477,10 +7477,10 @@ do.body3:                                         ; preds = %entry
   br label %return
 
 do.end5:                                          ; preds = %entry
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %2 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = zext nneg i32 %body_index to i64
-  %arrayidx.i = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %2, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %2, i64 %idxprom.i
   store float %mass, ptr %arrayidx.i, align 8
   br label %return
 
@@ -7505,10 +7505,10 @@ do.body3:                                         ; preds = %entry
   br label %return
 
 do.end5:                                          ; preds = %entry
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %2 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = zext nneg i32 %body_index to i64
-  %m_body_mass_com = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %2, i64 %idxprom.i, i32 1
+  %m_body_mass_com = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %2, i64 %idxprom.i, i32 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_body_mass_com, ptr noundef nonnull align 4 dereferenceable(16) %first_mass_moment, i64 16, i1 false)
   br label %return
 
@@ -7533,16 +7533,16 @@ do.body3:                                         ; preds = %entry
   br label %return
 
 do.end5:                                          ; preds = %entry
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %2 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = zext nneg i32 %body_index to i64
-  %m_body_I_body = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %2, i64 %idxprom.i, i32 2
+  %m_body_I_body = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %2, i64 %idxprom.i, i32 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %m_body_I_body, ptr noundef nonnull align 4 dereferenceable(48) %second_mass_moment, i64 16, i1 false)
-  %arrayidx5.i.i = getelementptr inbounds i8, ptr %second_mass_moment, i64 16
-  %arrayidx7.i.i = getelementptr inbounds i8, ptr %m_body_I_body, i64 16
+  %arrayidx5.i.i = getelementptr inbounds nuw i8, ptr %second_mass_moment, i64 16
+  %arrayidx7.i.i = getelementptr inbounds nuw i8, ptr %m_body_I_body, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i, i64 16, i1 false)
-  %arrayidx9.i.i = getelementptr inbounds i8, ptr %second_mass_moment, i64 32
-  %arrayidx11.i.i = getelementptr inbounds i8, ptr %m_body_I_body, i64 32
+  %arrayidx9.i.i = getelementptr inbounds nuw i8, ptr %second_mass_moment, i64 32
+  %arrayidx11.i.i = getelementptr inbounds nuw i8, ptr %m_body_I_body, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx11.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx9.i.i, i64 16, i1 false)
   br label %return
 
@@ -7567,10 +7567,10 @@ do.body3:                                         ; preds = %entry
   br label %return
 
 do.end5:                                          ; preds = %entry
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %2 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = zext nneg i32 %body_index to i64
-  %arrayidx.i = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %2, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %2, i64 %idxprom.i
   %3 = load float, ptr %arrayidx.i, align 8
   store float %3, ptr %mass, align 4
   br label %return
@@ -7596,10 +7596,10 @@ do.body3:                                         ; preds = %entry
   br label %return
 
 do.end5:                                          ; preds = %entry
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %2 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = zext nneg i32 %body_index to i64
-  %m_body_mass_com = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %2, i64 %idxprom.i, i32 1
+  %m_body_mass_com = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %2, i64 %idxprom.i, i32 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %first_mass_moment, ptr noundef nonnull align 4 dereferenceable(16) %m_body_mass_com, i64 16, i1 false)
   br label %return
 
@@ -7624,16 +7624,16 @@ do.body3:                                         ; preds = %entry
   br label %return
 
 do.end5:                                          ; preds = %entry
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %2 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = zext nneg i32 %body_index to i64
-  %m_body_I_body = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %2, i64 %idxprom.i, i32 2
+  %m_body_I_body = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %2, i64 %idxprom.i, i32 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %second_mass_moment, ptr noundef nonnull align 4 dereferenceable(48) %m_body_I_body, i64 16, i1 false)
-  %arrayidx5.i.i = getelementptr inbounds i8, ptr %m_body_I_body, i64 16
-  %arrayidx7.i.i = getelementptr inbounds i8, ptr %second_mass_moment, i64 16
+  %arrayidx5.i.i = getelementptr inbounds nuw i8, ptr %m_body_I_body, i64 16
+  %arrayidx7.i.i = getelementptr inbounds nuw i8, ptr %second_mass_moment, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i, i64 16, i1 false)
-  %arrayidx9.i.i = getelementptr inbounds i8, ptr %m_body_I_body, i64 32
-  %arrayidx11.i.i = getelementptr inbounds i8, ptr %second_mass_moment, i64 32
+  %arrayidx9.i.i = getelementptr inbounds nuw i8, ptr %m_body_I_body, i64 32
+  %arrayidx11.i.i = getelementptr inbounds nuw i8, ptr %second_mass_moment, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx11.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx9.i.i, i64 16, i1 false)
   br label %return
 
@@ -7650,16 +7650,16 @@ entry:
   br i1 %cmp4, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %1 = load ptr, ptr %m_data.i, align 8
-  %arrayidx.i = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %1, i64 %indvars.iv
-  %m_body_force_user = getelementptr inbounds i8, ptr %arrayidx.i, i64 132
+  %arrayidx.i = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %1, i64 %indvars.iv
+  %m_body_force_user = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 132
   tail call void @_ZN24btInverseDynamicsBullet37setZeroERNS_4vec3E(ptr noundef nonnull align 4 dereferenceable(16) %m_body_force_user)
-  %m_body_moment_user = getelementptr inbounds i8, ptr %arrayidx.i, i64 148
+  %m_body_moment_user = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 148
   tail call void @_ZN24btInverseDynamicsBullet37setZeroERNS_4vec3E(ptr noundef nonnull align 4 dereferenceable(16) %m_body_moment_user)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %2 = load i32, ptr %this, align 8
@@ -7687,23 +7687,23 @@ do.body3:                                         ; preds = %entry
   br label %return
 
 do.end5:                                          ; preds = %entry
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %2 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = zext nneg i32 %body_index to i64
-  %m_body_force_user = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %2, i64 %idxprom.i, i32 7
+  %m_body_force_user = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %2, i64 %idxprom.i, i32 7
   %3 = load float, ptr %body_force, align 4
   %4 = load float, ptr %m_body_force_user, align 4
   %add.i = fadd float %3, %4
   store float %add.i, ptr %m_body_force_user, align 4
-  %arrayidx5.i = getelementptr inbounds i8, ptr %body_force, i64 4
+  %arrayidx5.i = getelementptr inbounds nuw i8, ptr %body_force, i64 4
   %5 = load float, ptr %arrayidx5.i, align 4
-  %arrayidx7.i = getelementptr inbounds i8, ptr %m_body_force_user, i64 4
+  %arrayidx7.i = getelementptr inbounds nuw i8, ptr %m_body_force_user, i64 4
   %6 = load float, ptr %arrayidx7.i, align 4
   %add8.i = fadd float %5, %6
   store float %add8.i, ptr %arrayidx7.i, align 4
-  %arrayidx10.i = getelementptr inbounds i8, ptr %body_force, i64 8
+  %arrayidx10.i = getelementptr inbounds nuw i8, ptr %body_force, i64 8
   %7 = load float, ptr %arrayidx10.i, align 4
-  %arrayidx12.i = getelementptr inbounds i8, ptr %m_body_force_user, i64 8
+  %arrayidx12.i = getelementptr inbounds nuw i8, ptr %m_body_force_user, i64 8
   %8 = load float, ptr %arrayidx12.i, align 4
   %add13.i = fadd float %7, %8
   store float %add13.i, ptr %arrayidx12.i, align 4
@@ -7730,23 +7730,23 @@ do.body3:                                         ; preds = %entry
   br label %return
 
 do.end5:                                          ; preds = %entry
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %2 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = zext nneg i32 %body_index to i64
-  %m_body_moment_user = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %2, i64 %idxprom.i, i32 8
+  %m_body_moment_user = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %2, i64 %idxprom.i, i32 8
   %3 = load float, ptr %body_moment, align 4
   %4 = load float, ptr %m_body_moment_user, align 4
   %add.i = fadd float %3, %4
   store float %add.i, ptr %m_body_moment_user, align 4
-  %arrayidx5.i = getelementptr inbounds i8, ptr %body_moment, i64 4
+  %arrayidx5.i = getelementptr inbounds nuw i8, ptr %body_moment, i64 4
   %5 = load float, ptr %arrayidx5.i, align 4
-  %arrayidx7.i = getelementptr inbounds i8, ptr %m_body_moment_user, i64 4
+  %arrayidx7.i = getelementptr inbounds nuw i8, ptr %m_body_moment_user, i64 4
   %6 = load float, ptr %arrayidx7.i, align 4
   %add8.i = fadd float %5, %6
   store float %add8.i, ptr %arrayidx7.i, align 4
-  %arrayidx10.i = getelementptr inbounds i8, ptr %body_moment, i64 8
+  %arrayidx10.i = getelementptr inbounds nuw i8, ptr %body_moment, i64 8
   %7 = load float, ptr %arrayidx10.i, align 4
-  %arrayidx12.i = getelementptr inbounds i8, ptr %m_body_moment_user, i64 8
+  %arrayidx12.i = getelementptr inbounds nuw i8, ptr %m_body_moment_user, i64 8
   %8 = load float, ptr %arrayidx12.i, align 4
   %add13.i = fadd float %7, %8
   store float %add13.i, ptr %arrayidx12.i, align 4
@@ -7773,19 +7773,19 @@ do.body3:                                         ; preds = %entry
   br label %return
 
 do.end5:                                          ; preds = %entry
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %2 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = zext nneg i32 %body_index to i64
-  %arrayidx.i = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %2, i64 %idxprom.i
-  %m_body_T_world = getelementptr inbounds i8, ptr %arrayidx.i, i64 244
-  %arrayidx3.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 260
-  %arrayidx6.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 276
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 248
-  %arrayidx.i1.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 264
-  %arrayidx.i2.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 280
-  %arrayidx.i3.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 252
-  %arrayidx.i4.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 268
-  %arrayidx.i5.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 284
+  %arrayidx.i = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %2, i64 %idxprom.i
+  %m_body_T_world = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 244
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 260
+  %arrayidx6.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 276
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 248
+  %arrayidx.i1.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 264
+  %arrayidx.i2.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 280
+  %arrayidx.i3.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 252
+  %arrayidx.i4.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 268
+  %arrayidx.i5.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 284
   %3 = load float, ptr %m_body_T_world, align 4, !noalias !149
   %4 = load float, ptr %arrayidx3.i, align 4, !noalias !149
   %5 = load float, ptr %arrayidx6.i, align 4, !noalias !149
@@ -7795,13 +7795,13 @@ do.end5:                                          ; preds = %entry
   %9 = load float, ptr %arrayidx.i3.i, align 4, !noalias !149
   %10 = load float, ptr %arrayidx.i4.i, align 4, !noalias !149
   %11 = load float, ptr %arrayidx.i5.i, align 4, !noalias !149
-  %m_body_dot_Jac_T_u = getelementptr inbounds i8, ptr %arrayidx.i, i64 784
+  %m_body_dot_Jac_T_u = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 784
   %12 = load float, ptr %m_body_dot_Jac_T_u, align 4
-  %arrayidx7.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 788
+  %arrayidx7.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 788
   %13 = load float, ptr %arrayidx7.i.i, align 4
   %mul8.i.i = fmul float %4, %13
   %14 = tail call float @llvm.fmuladd.f32(float %3, float %12, float %mul8.i.i)
-  %arrayidx12.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 792
+  %arrayidx12.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 792
   %15 = load float, ptr %arrayidx12.i.i, align 4
   %16 = tail call noundef float @llvm.fmuladd.f32(float %5, float %15, float %14)
   %mul8.i7.i = fmul float %7, %13
@@ -7814,7 +7814,7 @@ do.end5:                                          ; preds = %entry
   %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %18, i64 1
   %retval.sroa.3.12.vec.insert.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %20, i64 0
   store <2 x float> %retval.sroa.0.4.vec.insert.i, ptr %world_dot_jac_trans_u, align 4
-  %ref.tmp.sroa.2.0.world_dot_jac_trans_u.sroa_idx = getelementptr inbounds i8, ptr %world_dot_jac_trans_u, i64 8
+  %ref.tmp.sroa.2.0.world_dot_jac_trans_u.sroa_idx = getelementptr inbounds nuw i8, ptr %world_dot_jac_trans_u, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i, ptr %ref.tmp.sroa.2.0.world_dot_jac_trans_u.sroa_idx, align 4
   br label %return
 
@@ -7839,19 +7839,19 @@ do.body3:                                         ; preds = %entry
   br label %return
 
 do.end5:                                          ; preds = %entry
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %2 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = zext nneg i32 %body_index to i64
-  %arrayidx.i = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %2, i64 %idxprom.i
-  %m_body_T_world = getelementptr inbounds i8, ptr %arrayidx.i, i64 244
-  %arrayidx3.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 260
-  %arrayidx6.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 276
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 248
-  %arrayidx.i1.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 264
-  %arrayidx.i2.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 280
-  %arrayidx.i3.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 252
-  %arrayidx.i4.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 268
-  %arrayidx.i5.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 284
+  %arrayidx.i = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %2, i64 %idxprom.i
+  %m_body_T_world = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 244
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 260
+  %arrayidx6.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 276
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 248
+  %arrayidx.i1.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 264
+  %arrayidx.i2.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 280
+  %arrayidx.i3.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 252
+  %arrayidx.i4.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 268
+  %arrayidx.i5.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 284
   %3 = load float, ptr %m_body_T_world, align 4, !noalias !152
   %4 = load float, ptr %arrayidx3.i, align 4, !noalias !152
   %5 = load float, ptr %arrayidx6.i, align 4, !noalias !152
@@ -7861,13 +7861,13 @@ do.end5:                                          ; preds = %entry
   %9 = load float, ptr %arrayidx.i3.i, align 4, !noalias !152
   %10 = load float, ptr %arrayidx.i4.i, align 4, !noalias !152
   %11 = load float, ptr %arrayidx.i5.i, align 4, !noalias !152
-  %m_body_dot_Jac_R_u = getelementptr inbounds i8, ptr %arrayidx.i, i64 800
+  %m_body_dot_Jac_R_u = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 800
   %12 = load float, ptr %m_body_dot_Jac_R_u, align 4
-  %arrayidx7.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 804
+  %arrayidx7.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 804
   %13 = load float, ptr %arrayidx7.i.i, align 4
   %mul8.i.i = fmul float %4, %13
   %14 = tail call float @llvm.fmuladd.f32(float %3, float %12, float %mul8.i.i)
-  %arrayidx12.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 808
+  %arrayidx12.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 808
   %15 = load float, ptr %arrayidx12.i.i, align 4
   %16 = tail call noundef float @llvm.fmuladd.f32(float %5, float %15, float %14)
   %mul8.i7.i = fmul float %7, %13
@@ -7880,7 +7880,7 @@ do.end5:                                          ; preds = %entry
   %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %18, i64 1
   %retval.sroa.3.12.vec.insert.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %20, i64 0
   store <2 x float> %retval.sroa.0.4.vec.insert.i, ptr %world_dot_jac_rot_u, align 4
-  %ref.tmp.sroa.2.0.world_dot_jac_rot_u.sroa_idx = getelementptr inbounds i8, ptr %world_dot_jac_rot_u, i64 8
+  %ref.tmp.sroa.2.0.world_dot_jac_rot_u.sroa_idx = getelementptr inbounds nuw i8, ptr %world_dot_jac_rot_u, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i, ptr %ref.tmp.sroa.2.0.world_dot_jac_rot_u.sroa_idx, align 4
   br label %return
 
@@ -7906,19 +7906,19 @@ do.body3:                                         ; preds = %entry
   br label %return
 
 do.end5:                                          ; preds = %entry
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %2 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = zext nneg i32 %body_index to i64
-  %arrayidx.i = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %2, i64 %idxprom.i
-  %m_body_T_world = getelementptr inbounds i8, ptr %arrayidx.i, i64 244
-  %arrayidx3.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 260
-  %arrayidx6.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 276
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 248
-  %arrayidx.i1.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 264
-  %arrayidx.i2.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 280
-  %arrayidx.i3.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 252
-  %arrayidx.i4.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 268
-  %arrayidx.i5.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 284
+  %arrayidx.i = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %2, i64 %idxprom.i
+  %m_body_T_world = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 244
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 260
+  %arrayidx6.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 276
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 248
+  %arrayidx.i1.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 264
+  %arrayidx.i2.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 280
+  %arrayidx.i3.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 252
+  %arrayidx.i4.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 268
+  %arrayidx.i5.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 284
   %3 = load float, ptr %m_body_T_world, align 4, !noalias !155
   %4 = load float, ptr %arrayidx3.i, align 4, !noalias !155
   %5 = load float, ptr %arrayidx6.i, align 4, !noalias !155
@@ -7929,29 +7929,29 @@ do.end5:                                          ; preds = %entry
   %10 = load float, ptr %arrayidx.i4.i, align 4, !noalias !155
   %11 = load float, ptr %arrayidx.i5.i, align 4, !noalias !155
   store float %3, ptr %ref.tmp, align 4
-  %ref.tmp6.sroa.2.0.ref.tmp.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  %ref.tmp6.sroa.2.0.ref.tmp.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 4
   store float %4, ptr %ref.tmp6.sroa.2.0.ref.tmp.sroa_idx, align 4
-  %ref.tmp6.sroa.3.0.ref.tmp.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %ref.tmp6.sroa.3.0.ref.tmp.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store float %5, ptr %ref.tmp6.sroa.3.0.ref.tmp.sroa_idx, align 4
-  %ref.tmp6.sroa.4.0.ref.tmp.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 12
+  %ref.tmp6.sroa.4.0.ref.tmp.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 12
   store float 0.000000e+00, ptr %ref.tmp6.sroa.4.0.ref.tmp.sroa_idx, align 4
-  %arrayidx7.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %arrayidx7.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   store float %6, ptr %arrayidx7.i.i.i, align 4
-  %ref.tmp6.sroa.7.16.arrayidx7.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 20
+  %ref.tmp6.sroa.7.16.arrayidx7.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 20
   store float %7, ptr %ref.tmp6.sroa.7.16.arrayidx7.i.i.i.sroa_idx, align 4
-  %ref.tmp6.sroa.8.16.arrayidx7.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 24
+  %ref.tmp6.sroa.8.16.arrayidx7.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
   store float %8, ptr %ref.tmp6.sroa.8.16.arrayidx7.i.i.i.sroa_idx, align 4
-  %ref.tmp6.sroa.9.16.arrayidx7.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 28
+  %ref.tmp6.sroa.9.16.arrayidx7.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 28
   store float 0.000000e+00, ptr %ref.tmp6.sroa.9.16.arrayidx7.i.i.i.sroa_idx, align 4
-  %arrayidx11.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
+  %arrayidx11.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 32
   store float %9, ptr %arrayidx11.i.i.i, align 4
-  %ref.tmp6.sroa.12.32.arrayidx11.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 36
+  %ref.tmp6.sroa.12.32.arrayidx11.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 36
   store float %10, ptr %ref.tmp6.sroa.12.32.arrayidx11.i.i.i.sroa_idx, align 4
-  %ref.tmp6.sroa.13.32.arrayidx11.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 40
+  %ref.tmp6.sroa.13.32.arrayidx11.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 40
   store float %11, ptr %ref.tmp6.sroa.13.32.arrayidx11.i.i.i.sroa_idx, align 4
-  %ref.tmp6.sroa.14.32.arrayidx11.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 44
+  %ref.tmp6.sroa.14.32.arrayidx11.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 44
   store float 0.000000e+00, ptr %ref.tmp6.sroa.14.32.arrayidx11.i.i.i.sroa_idx, align 4
-  %m_body_Jac_T = getelementptr inbounds i8, ptr %arrayidx.i, i64 608
+  %m_body_Jac_T = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 608
   call void @_ZN24btInverseDynamicsBullet33mulERKNS_5mat33ERKNS_5mat3xEPS3_(ptr noundef nonnull align 4 dereferenceable(48) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(88) %m_body_Jac_T, ptr noundef %world_jac_trans)
   br label %return
 
@@ -7977,19 +7977,19 @@ do.body3:                                         ; preds = %entry
   br label %return
 
 do.end5:                                          ; preds = %entry
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %2 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = zext nneg i32 %body_index to i64
-  %arrayidx.i = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %2, i64 %idxprom.i
-  %m_body_T_world = getelementptr inbounds i8, ptr %arrayidx.i, i64 244
-  %arrayidx3.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 260
-  %arrayidx6.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 276
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 248
-  %arrayidx.i1.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 264
-  %arrayidx.i2.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 280
-  %arrayidx.i3.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 252
-  %arrayidx.i4.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 268
-  %arrayidx.i5.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 284
+  %arrayidx.i = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %2, i64 %idxprom.i
+  %m_body_T_world = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 244
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 260
+  %arrayidx6.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 276
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 248
+  %arrayidx.i1.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 264
+  %arrayidx.i2.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 280
+  %arrayidx.i3.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 252
+  %arrayidx.i4.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 268
+  %arrayidx.i5.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 284
   %3 = load float, ptr %m_body_T_world, align 4, !noalias !158
   %4 = load float, ptr %arrayidx3.i, align 4, !noalias !158
   %5 = load float, ptr %arrayidx6.i, align 4, !noalias !158
@@ -8000,29 +8000,29 @@ do.end5:                                          ; preds = %entry
   %10 = load float, ptr %arrayidx.i4.i, align 4, !noalias !158
   %11 = load float, ptr %arrayidx.i5.i, align 4, !noalias !158
   store float %3, ptr %ref.tmp, align 4
-  %ref.tmp6.sroa.2.0.ref.tmp.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  %ref.tmp6.sroa.2.0.ref.tmp.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 4
   store float %4, ptr %ref.tmp6.sroa.2.0.ref.tmp.sroa_idx, align 4
-  %ref.tmp6.sroa.3.0.ref.tmp.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %ref.tmp6.sroa.3.0.ref.tmp.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store float %5, ptr %ref.tmp6.sroa.3.0.ref.tmp.sroa_idx, align 4
-  %ref.tmp6.sroa.4.0.ref.tmp.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 12
+  %ref.tmp6.sroa.4.0.ref.tmp.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 12
   store float 0.000000e+00, ptr %ref.tmp6.sroa.4.0.ref.tmp.sroa_idx, align 4
-  %arrayidx7.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %arrayidx7.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   store float %6, ptr %arrayidx7.i.i.i, align 4
-  %ref.tmp6.sroa.7.16.arrayidx7.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 20
+  %ref.tmp6.sroa.7.16.arrayidx7.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 20
   store float %7, ptr %ref.tmp6.sroa.7.16.arrayidx7.i.i.i.sroa_idx, align 4
-  %ref.tmp6.sroa.8.16.arrayidx7.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 24
+  %ref.tmp6.sroa.8.16.arrayidx7.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
   store float %8, ptr %ref.tmp6.sroa.8.16.arrayidx7.i.i.i.sroa_idx, align 4
-  %ref.tmp6.sroa.9.16.arrayidx7.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 28
+  %ref.tmp6.sroa.9.16.arrayidx7.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 28
   store float 0.000000e+00, ptr %ref.tmp6.sroa.9.16.arrayidx7.i.i.i.sroa_idx, align 4
-  %arrayidx11.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
+  %arrayidx11.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 32
   store float %9, ptr %arrayidx11.i.i.i, align 4
-  %ref.tmp6.sroa.12.32.arrayidx11.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 36
+  %ref.tmp6.sroa.12.32.arrayidx11.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 36
   store float %10, ptr %ref.tmp6.sroa.12.32.arrayidx11.i.i.i.sroa_idx, align 4
-  %ref.tmp6.sroa.13.32.arrayidx11.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 40
+  %ref.tmp6.sroa.13.32.arrayidx11.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 40
   store float %11, ptr %ref.tmp6.sroa.13.32.arrayidx11.i.i.i.sroa_idx, align 4
-  %ref.tmp6.sroa.14.32.arrayidx11.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 44
+  %ref.tmp6.sroa.14.32.arrayidx11.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 44
   store float 0.000000e+00, ptr %ref.tmp6.sroa.14.32.arrayidx11.i.i.i.sroa_idx, align 4
-  %m_body_Jac_R = getelementptr inbounds i8, ptr %arrayidx.i, i64 696
+  %m_body_Jac_R = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 696
   call void @_ZN24btInverseDynamicsBullet33mulERKNS_5mat33ERKNS_5mat3xEPS3_(ptr noundef nonnull align 4 dereferenceable(48) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(88) %m_body_Jac_R, ptr noundef %world_jac_rot)
   br label %return
 
@@ -8035,22 +8035,22 @@ return:                                           ; preds = %do.end5, %do.body3
 define linkonce_odr dso_local void @_ZN9btMatrixXIfE6resizeEii(ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %rows, i32 noundef %cols) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__profile = alloca %class.CProfileSample, align 1
-  %m_resizeOperations = getelementptr inbounds i8, ptr %this, i64 12
+  %m_resizeOperations = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i32, ptr %m_resizeOperations, align 4
   %inc = add nsw i32 %0, 1
   store i32 %inc, ptr %m_resizeOperations, align 4
   store i32 %rows, ptr %this, align 8
-  %m_cols = getelementptr inbounds i8, ptr %this, i64 4
+  %m_cols = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i32 %cols, ptr %m_cols, align 4
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %__profile, ptr noundef nonnull @.str.31)
   %mul = mul nsw i32 %cols, %rows
-  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 28
+  %m_size.i.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %1 = load i32, ptr %m_size.i.i, align 4
   %cmp3.i = icmp sgt i32 %mul, %1
   br i1 %cmp3.i, label %if.then4.i, label %invoke.cont
 
 if.then4.i:                                       ; preds = %entry
-  %m_capacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %m_capacity.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %2 = load i32, ptr %m_capacity.i.i.i, align 8
   %cmp.i.i = icmp slt i32 %2, %mul
   br i1 %cmp.i.i, label %if.then.i.i, label %for.body8.lr.ph.i
@@ -8076,15 +8076,15 @@ _ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i: ; preds = %call.i.i.i.i.noexc,
   br i1 %cmp4.i.i.i, label %for.body.lr.ph.i.i.i, label %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %_ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i
-  %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_data.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %wide.trip.count.i.i.i = zext nneg i32 %3 to i64
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %for.body.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds float, ptr %retval.0.i.i.i, i64 %indvars.iv.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw float, ptr %retval.0.i.i.i, i64 %indvars.iv.i.i.i
   %4 = load ptr, ptr %m_data.i.i.i, align 8
-  %arrayidx3.i.i.i = getelementptr inbounds float, ptr %4, i64 %indvars.iv.i.i.i
+  %arrayidx3.i.i.i = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i.i.i
   %5 = load float, ptr %arrayidx3.i.i.i, align 4
   store float %5, ptr %arrayidx.i.i.i, align 4
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -8092,13 +8092,13 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i, label %for.body.i.i.i, !llvm.loop !161
 
 _ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i: ; preds = %for.body.i.i.i, %_ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i
-  %m_data.i5.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_data.i5.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %6 = load ptr, ptr %m_data.i5.i.i, align 8
   %tobool.not.i6.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i6.i.i, label %if.end.i, label %if.then.i7.i.i
 
 if.then.i7.i.i:                                   ; preds = %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i
-  %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %m_ownsMemory.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %7 = load i8, ptr %m_ownsMemory.i.i.i, align 8
   %tobool2.i.i.i = trunc i8 %7 to i1
   br i1 %tobool2.i.i.i, label %if.then3.i.i.i, label %if.end.i
@@ -8108,14 +8108,14 @@ if.then3.i.i.i:                                   ; preds = %if.then.i7.i.i
           to label %if.end.i unwind label %lpad
 
 if.end.i:                                         ; preds = %if.then3.i.i.i, %if.then.i7.i.i, %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i
-  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %m_ownsMemory.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i8 1, ptr %m_ownsMemory.i.i, align 8
   store ptr %retval.0.i.i.i, ptr %m_data.i5.i.i, align 8
   store i32 %mul, ptr %m_capacity.i.i.i, align 8
   br label %for.body8.lr.ph.i
 
 for.body8.lr.ph.i:                                ; preds = %if.end.i, %if.then4.i
-  %m_data9.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_data9.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %8 = sext i32 %1 to i64
   %wide.trip.count.i = sext i32 %mul to i64
   br label %for.body8.i
@@ -8144,27 +8144,27 @@ lpad:                                             ; preds = %if.then3.i.i.i, %if
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIS_IiEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 4
+  %m_size.i.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = load i32, ptr %m_size.i.i, align 4
   %cmp3.i.i = icmp sgt i32 %0, 0
   br i1 %cmp3.i.i, label %for.body.lr.ph.i.i, label %_ZN20btAlignedObjectArrayIS_IiEE7destroyEii.exit.i
 
 for.body.lr.ph.i.i:                               ; preds = %entry
-  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %zext.i = zext nneg i32 %0 to i64
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %_ZN20btAlignedObjectArrayIiED2Ev.exit.i.i, %for.body.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %_ZN20btAlignedObjectArrayIiED2Ev.exit.i.i ]
   %1 = load ptr, ptr %m_data.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds %class.btAlignedObjectArray.16, ptr %1, i64 %indvars.iv.i.i
-  %m_data.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
+  %arrayidx.i.i = getelementptr inbounds nuw %class.btAlignedObjectArray.16, ptr %1, i64 %indvars.iv.i.i
+  %m_data.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 16
   %2 = load ptr, ptr %m_data.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN20btAlignedObjectArrayIiED2Ev.exit.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %for.body.i.i
-  %m_ownsMemory.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 24
+  %m_ownsMemory.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 24
   %3 = load i8, ptr %m_ownsMemory.i.i.i.i.i, align 8
   %tobool2.i.i.i.i.i = trunc i8 %3 to i1
   br i1 %tobool2.i.i.i.i.i, label %if.then3.i.i.i.i.i, label %_ZN20btAlignedObjectArrayIiED2Ev.exit.i.i
@@ -8181,25 +8181,25 @@ terminate.lpad.i.i.i:                             ; preds = %if.then3.i.i.i.i.i
   unreachable
 
 _ZN20btAlignedObjectArrayIiED2Ev.exit.i.i:        ; preds = %if.then3.i.i.i.i.i, %if.then.i.i.i.i.i, %for.body.i.i
-  %m_size.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 4
-  %m_ownsMemory.i1.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 24
+  %m_size.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 4
+  %m_ownsMemory.i1.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 24
   store i8 1, ptr %m_ownsMemory.i1.i.i.i.i, align 8
   store ptr null, ptr %m_data.i.i.i.i.i, align 8
   store i32 0, ptr %m_size.i.i.i.i.i, align 4
-  %m_capacity.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
+  %m_capacity.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 8
   store i32 0, ptr %m_capacity.i.i.i.i.i, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %6 = icmp eq i64 %indvars.iv.next.i.i, %zext.i
   br i1 %6, label %_ZN20btAlignedObjectArrayIS_IiEE7destroyEii.exit.i, label %for.body.i.i, !llvm.loop !163
 
 _ZN20btAlignedObjectArrayIS_IiEE7destroyEii.exit.i: ; preds = %_ZN20btAlignedObjectArrayIiED2Ev.exit.i.i, %entry
-  %m_data.i1.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data.i1.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %7 = load ptr, ptr %m_data.i1.i, align 8
   %tobool.not.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i, label %invoke.cont, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN20btAlignedObjectArrayIS_IiEE7destroyEii.exit.i
-  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_ownsMemory.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %8 = load i8, ptr %m_ownsMemory.i.i, align 8
   %tobool2.i.i = trunc i8 %8 to i1
   br i1 %tobool2.i.i, label %if.then3.i.i, label %invoke.cont
@@ -8209,11 +8209,11 @@ if.then3.i.i:                                     ; preds = %if.then.i.i
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then.i.i, %_ZN20btAlignedObjectArrayIS_IiEE7destroyEii.exit.i, %if.then3.i.i
-  %m_ownsMemory.i2.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_ownsMemory.i2.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory.i2.i, align 8
   store ptr null, ptr %m_data.i1.i, align 8
   store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_capacity.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 0, ptr %m_capacity.i.i, align 8
   ret void
 
@@ -8228,13 +8228,13 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_data.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %invoke.cont, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_ownsMemory.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load i8, ptr %m_ownsMemory.i.i, align 8
   %tobool2.i.i = trunc i8 %1 to i1
   br i1 %tobool2.i.i, label %if.then3.i.i, label %invoke.cont
@@ -8244,12 +8244,12 @@ if.then3.i.i:                                     ; preds = %if.then.i.i
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then.i.i, %entry, %if.then3.i.i
-  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 4
-  %m_ownsMemory.i1.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_size.i.i = getelementptr inbounds nuw i8, ptr %this, i64 4
+  %m_ownsMemory.i1.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory.i1.i, align 8
   store ptr null, ptr %m_data.i.i, align 8
   store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_capacity.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 0, ptr %m_capacity.i.i, align 8
   ret void
 
@@ -8285,27 +8285,27 @@ declare void @_ZSt9terminatev() local_unnamed_addr #12
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9btMatrixXIfED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 60
+  %m_size.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 60
   %0 = load i32, ptr %m_size.i.i.i, align 4
   %cmp3.i.i.i = icmp sgt i32 %0, 0
   br i1 %cmp3.i.i.i, label %for.body.lr.ph.i.i.i, label %_ZN20btAlignedObjectArrayIS_IiEE7destroyEii.exit.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %entry
-  %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
+  %m_data.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %zext.i.i = zext nneg i32 %0 to i64
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %_ZN20btAlignedObjectArrayIiED2Ev.exit.i.i.i, %for.body.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %_ZN20btAlignedObjectArrayIiED2Ev.exit.i.i.i ]
   %1 = load ptr, ptr %m_data.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds %class.btAlignedObjectArray.16, ptr %1, i64 %indvars.iv.i.i.i
-  %m_data.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 16
+  %arrayidx.i.i.i = getelementptr inbounds nuw %class.btAlignedObjectArray.16, ptr %1, i64 %indvars.iv.i.i.i
+  %m_data.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 16
   %2 = load ptr, ptr %m_data.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN20btAlignedObjectArrayIiED2Ev.exit.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i
-  %m_ownsMemory.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 24
+  %m_ownsMemory.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 24
   %3 = load i8, ptr %m_ownsMemory.i.i.i.i.i.i, align 8
   %tobool2.i.i.i.i.i.i = trunc i8 %3 to i1
   br i1 %tobool2.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZN20btAlignedObjectArrayIiED2Ev.exit.i.i.i
@@ -8322,25 +8322,25 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then3.i.i.i.i.i.
   unreachable
 
 _ZN20btAlignedObjectArrayIiED2Ev.exit.i.i.i:      ; preds = %if.then3.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %for.body.i.i.i
-  %m_size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 4
-  %m_ownsMemory.i1.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 24
+  %m_size.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 4
+  %m_ownsMemory.i1.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 24
   store i8 1, ptr %m_ownsMemory.i1.i.i.i.i.i, align 8
   store ptr null, ptr %m_data.i.i.i.i.i.i, align 8
   store i32 0, ptr %m_size.i.i.i.i.i.i, align 4
-  %m_capacity.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 8
+  %m_capacity.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 8
   store i32 0, ptr %m_capacity.i.i.i.i.i.i, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %6 = icmp eq i64 %indvars.iv.next.i.i.i, %zext.i.i
   br i1 %6, label %_ZN20btAlignedObjectArrayIS_IiEE7destroyEii.exit.i.i, label %for.body.i.i.i, !llvm.loop !163
 
 _ZN20btAlignedObjectArrayIS_IiEE7destroyEii.exit.i.i: ; preds = %_ZN20btAlignedObjectArrayIiED2Ev.exit.i.i.i, %entry
-  %m_data.i1.i.i = getelementptr inbounds i8, ptr %this, i64 72
+  %m_data.i1.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %7 = load ptr, ptr %m_data.i1.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.i, label %_ZN20btAlignedObjectArrayIS_IiEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN20btAlignedObjectArrayIS_IiEE7destroyEii.exit.i.i
-  %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
+  %m_ownsMemory.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %8 = load i8, ptr %m_ownsMemory.i.i.i, align 8
   %tobool2.i.i.i = trunc i8 %8 to i1
   br i1 %tobool2.i.i.i, label %if.then3.i.i.i, label %_ZN20btAlignedObjectArrayIS_IiEED2Ev.exit
@@ -8357,19 +8357,19 @@ terminate.lpad.i:                                 ; preds = %if.then3.i.i.i
   unreachable
 
 _ZN20btAlignedObjectArrayIS_IiEED2Ev.exit:        ; preds = %_ZN20btAlignedObjectArrayIS_IiEE7destroyEii.exit.i.i, %if.then.i.i.i, %if.then3.i.i.i
-  %m_ownsMemory.i2.i.i = getelementptr inbounds i8, ptr %this, i64 80
+  %m_ownsMemory.i2.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   store i8 1, ptr %m_ownsMemory.i2.i.i, align 8
   store ptr null, ptr %m_data.i1.i.i, align 8
   store i32 0, ptr %m_size.i.i.i, align 4
-  %m_capacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %m_capacity.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   store i32 0, ptr %m_capacity.i.i.i, align 8
-  %m_data.i.i.i1 = getelementptr inbounds i8, ptr %this, i64 40
+  %m_data.i.i.i1 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %11 = load ptr, ptr %m_data.i.i.i1, align 8
   %tobool.not.i.i.i2 = icmp eq ptr %11, null
   br i1 %tobool.not.i.i.i2, label %_ZN20btAlignedObjectArrayIfED2Ev.exit, label %if.then.i.i.i3
 
 if.then.i.i.i3:                                   ; preds = %_ZN20btAlignedObjectArrayIS_IiEED2Ev.exit
-  %m_ownsMemory.i.i.i4 = getelementptr inbounds i8, ptr %this, i64 48
+  %m_ownsMemory.i.i.i4 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %12 = load i8, ptr %m_ownsMemory.i.i.i4, align 8
   %tobool2.i.i.i5 = trunc i8 %12 to i1
   br i1 %tobool2.i.i.i5, label %if.then3.i.i.i8, label %_ZN20btAlignedObjectArrayIfED2Ev.exit
@@ -8386,12 +8386,12 @@ terminate.lpad.i9:                                ; preds = %if.then3.i.i.i8
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit:            ; preds = %_ZN20btAlignedObjectArrayIS_IiEED2Ev.exit, %if.then.i.i.i3, %if.then3.i.i.i8
-  %m_size.i.i.i6 = getelementptr inbounds i8, ptr %this, i64 28
-  %m_ownsMemory.i1.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %m_size.i.i.i6 = getelementptr inbounds nuw i8, ptr %this, i64 28
+  %m_ownsMemory.i1.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i8 1, ptr %m_ownsMemory.i1.i.i, align 8
   store ptr null, ptr %m_data.i.i.i1, align 8
   store i32 0, ptr %m_size.i.i.i6, align 4
-  %m_capacity.i.i.i7 = getelementptr inbounds i8, ptr %this, i64 32
+  %m_capacity.i.i.i7 = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i32 0, ptr %m_capacity.i.i.i7, align 8
   ret void
 }
@@ -8404,7 +8404,7 @@ declare void @_Z21b3AlignedFreeInternalPv(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %_Count) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_capacity.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_capacity.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %m_capacity.i, align 8
   %cmp = icmp slt i32 %0, %_Count
   br i1 %cmp, label %if.then, label %if.end7
@@ -8421,21 +8421,21 @@ _ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEE8allocateEi.exi
   br i1 %cmp3, label %_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEE4copyEiiPS1_.exit18, label %if.then.split
 
 if.then.split:                                    ; preds = %_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEE8allocateEi.exit
-  %m_size.i = getelementptr inbounds i8, ptr %this, i64 4
+  %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %1 = load i32, ptr %m_size.i, align 4
   %cmp4.i = icmp sgt i32 %1, 0
   br i1 %cmp4.i, label %for.body.lr.ph.i, label %_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEE7destroyEii.exit
 
 for.body.lr.ph.i:                                 ; preds = %if.then.split
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %zext = zext nneg i32 %1 to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %call.i.i, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %call.i.i, i64 %indvars.iv.i
   %2 = load ptr, ptr %m_data.i, align 8
-  %arrayidx3.i = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %2, i64 %indvars.iv.i
+  %arrayidx3.i = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %2, i64 %indvars.iv.i
   tail call void @_ZN24btInverseDynamicsBullet39RigidBodyC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(816) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(816) %arrayidx3.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %3 = icmp eq i64 %indvars.iv.next.i, %zext
@@ -8444,7 +8444,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 _ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEE4copyEiiPS1_.exit18: ; preds = %if.then, %_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEE8allocateEi.exit
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.37, i32 noundef 301)
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.38)
-  %m_size = getelementptr inbounds i8, ptr %this, i64 4
+  %m_size = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i32 0, ptr %m_size, align 4
   br label %_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEE7destroyEii.exit
 
@@ -8454,17 +8454,17 @@ if.end:                                           ; preds = %for.body.i
   br i1 %cmp3.i, label %for.body.lr.ph.i20, label %_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEE7destroyEii.exit
 
 for.body.lr.ph.i20:                               ; preds = %if.end
-  %m_data.i21 = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data.i21 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %zext35 = zext nneg i32 %.pre to i64
   br label %for.body.i22
 
 for.body.i22:                                     ; preds = %for.body.i22, %for.body.lr.ph.i20
   %indvars.iv.i23 = phi i64 [ 0, %for.body.lr.ph.i20 ], [ %indvars.iv.next.i25, %for.body.i22 ]
   %4 = load ptr, ptr %m_data.i21, align 8
-  %arrayidx.i24 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %4, i64 %indvars.iv.i23
-  %m_body_Jac_R.i.i = getelementptr inbounds i8, ptr %arrayidx.i24, i64 696
+  %arrayidx.i24 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %4, i64 %indvars.iv.i23
+  %m_body_Jac_R.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i24, i64 696
   tail call void @_ZN9btMatrixXIfED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %m_body_Jac_R.i.i) #16
-  %m_body_Jac_T.i.i = getelementptr inbounds i8, ptr %arrayidx.i24, i64 608
+  %m_body_Jac_T.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i24, i64 608
   tail call void @_ZN9btMatrixXIfED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %m_body_Jac_T.i.i) #16
   %indvars.iv.next.i25 = add nuw nsw i64 %indvars.iv.i23, 1
   %5 = icmp eq i64 %indvars.iv.next.i25, %zext35
@@ -8473,13 +8473,13 @@ for.body.i22:                                     ; preds = %for.body.i22, %for.
 _ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEE7destroyEii.exit: ; preds = %for.body.i22, %if.then.split, %_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEE4copyEiiPS1_.exit18, %if.end
   %_Count.addr.040 = phi i32 [ %_Count, %if.end ], [ %_Count, %if.then.split ], [ 0, %_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEE4copyEiiPS1_.exit18 ], [ %_Count, %for.body.i22 ]
   %retval.0.i3339 = phi ptr [ %call.i.i, %if.end ], [ %call.i.i, %if.then.split ], [ null, %_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEE4copyEiiPS1_.exit18 ], [ %call.i.i, %for.body.i22 ]
-  %m_data.i28 = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data.i28 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %6 = load ptr, ptr %m_data.i28, align 8
   %tobool.not.i29 = icmp eq ptr %6, null
   br i1 %tobool.not.i29, label %_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEE10deallocateEv.exit, label %if.then.i30
 
 if.then.i30:                                      ; preds = %_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEE7destroyEii.exit
-  %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_ownsMemory.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %7 = load i8, ptr %m_ownsMemory.i, align 8
   %tobool2.i = trunc i8 %7 to i1
   br i1 %tobool2.i, label %if.then3.i, label %_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEE10deallocateEv.exit
@@ -8489,7 +8489,7 @@ if.then3.i:                                       ; preds = %if.then.i30
   br label %_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEE10deallocateEv.exit
 
 _ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEE10deallocateEv.exit: ; preds = %if.then.i30, %if.then3.i, %_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEE7destroyEii.exit
-  %m_ownsMemory = getelementptr inbounds i8, ptr %this, i64 24
+  %m_ownsMemory = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory, align 8
   store ptr %retval.0.i3339, ptr %m_data.i28, align 8
   store i32 %_Count.addr.040, ptr %m_capacity.i, align 8
@@ -8503,81 +8503,81 @@ if.end7:                                          ; preds = %_ZN20b3AlignedObjec
 define linkonce_odr dso_local void @_ZN24btInverseDynamicsBullet39RigidBodyC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(816) %this, ptr noundef nonnull align 8 dereferenceable(816) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(20) %0, i64 20, i1 false)
-  %m_body_I_body = getelementptr inbounds i8, ptr %this, i64 20
-  %m_body_I_body3 = getelementptr inbounds i8, ptr %0, i64 20
+  %m_body_I_body = getelementptr inbounds nuw i8, ptr %this, i64 20
+  %m_body_I_body3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %m_body_I_body, ptr noundef nonnull align 4 dereferenceable(48) %m_body_I_body3, i64 16, i1 false)
-  %arrayidx6.i.i = getelementptr inbounds i8, ptr %0, i64 36
-  %arrayidx8.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  %arrayidx6.i.i = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %arrayidx8.i.i = getelementptr inbounds nuw i8, ptr %this, i64 36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i, i64 16, i1 false)
-  %arrayidx10.i.i = getelementptr inbounds i8, ptr %0, i64 52
-  %arrayidx12.i.i = getelementptr inbounds i8, ptr %this, i64 52
+  %arrayidx10.i.i = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %arrayidx12.i.i = getelementptr inbounds nuw i8, ptr %this, i64 52
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx12.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i, i64 16, i1 false)
-  %m_eom_lhs_translational = getelementptr inbounds i8, ptr %this, i64 68
-  %m_eom_lhs_translational4 = getelementptr inbounds i8, ptr %0, i64 68
+  %m_eom_lhs_translational = getelementptr inbounds nuw i8, ptr %this, i64 68
+  %m_eom_lhs_translational4 = getelementptr inbounds nuw i8, ptr %0, i64 68
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(176) %m_eom_lhs_translational, ptr noundef nonnull align 4 dereferenceable(176) %m_eom_lhs_translational4, i64 176, i1 false)
-  %m_body_T_world = getelementptr inbounds i8, ptr %this, i64 244
-  %m_body_T_world5 = getelementptr inbounds i8, ptr %0, i64 244
+  %m_body_T_world = getelementptr inbounds nuw i8, ptr %this, i64 244
+  %m_body_T_world5 = getelementptr inbounds nuw i8, ptr %0, i64 244
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %m_body_T_world, ptr noundef nonnull align 4 dereferenceable(48) %m_body_T_world5, i64 16, i1 false)
-  %arrayidx6.i.i12 = getelementptr inbounds i8, ptr %0, i64 260
-  %arrayidx8.i.i13 = getelementptr inbounds i8, ptr %this, i64 260
+  %arrayidx6.i.i12 = getelementptr inbounds nuw i8, ptr %0, i64 260
+  %arrayidx8.i.i13 = getelementptr inbounds nuw i8, ptr %this, i64 260
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i.i13, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i12, i64 16, i1 false)
-  %arrayidx10.i.i14 = getelementptr inbounds i8, ptr %0, i64 276
-  %arrayidx12.i.i15 = getelementptr inbounds i8, ptr %this, i64 276
+  %arrayidx10.i.i14 = getelementptr inbounds nuw i8, ptr %0, i64 276
+  %arrayidx12.i.i15 = getelementptr inbounds nuw i8, ptr %this, i64 276
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx12.i.i15, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i14, i64 16, i1 false)
-  %m_body_T_parent = getelementptr inbounds i8, ptr %this, i64 292
-  %m_body_T_parent6 = getelementptr inbounds i8, ptr %0, i64 292
+  %m_body_T_parent = getelementptr inbounds nuw i8, ptr %this, i64 292
+  %m_body_T_parent6 = getelementptr inbounds nuw i8, ptr %0, i64 292
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %m_body_T_parent, ptr noundef nonnull align 4 dereferenceable(48) %m_body_T_parent6, i64 16, i1 false)
-  %arrayidx6.i.i16 = getelementptr inbounds i8, ptr %0, i64 308
-  %arrayidx8.i.i17 = getelementptr inbounds i8, ptr %this, i64 308
+  %arrayidx6.i.i16 = getelementptr inbounds nuw i8, ptr %0, i64 308
+  %arrayidx8.i.i17 = getelementptr inbounds nuw i8, ptr %this, i64 308
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i.i17, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i16, i64 16, i1 false)
-  %arrayidx10.i.i18 = getelementptr inbounds i8, ptr %0, i64 324
-  %arrayidx12.i.i19 = getelementptr inbounds i8, ptr %this, i64 324
+  %arrayidx10.i.i18 = getelementptr inbounds nuw i8, ptr %0, i64 324
+  %arrayidx12.i.i19 = getelementptr inbounds nuw i8, ptr %this, i64 324
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx12.i.i19, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i18, i64 16, i1 false)
-  %m_parent_pos_parent_body = getelementptr inbounds i8, ptr %this, i64 340
-  %m_parent_pos_parent_body7 = getelementptr inbounds i8, ptr %0, i64 340
+  %m_parent_pos_parent_body = getelementptr inbounds nuw i8, ptr %this, i64 340
+  %m_parent_pos_parent_body7 = getelementptr inbounds nuw i8, ptr %0, i64 340
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(100) %m_parent_pos_parent_body, ptr noundef nonnull align 4 dereferenceable(100) %m_parent_pos_parent_body7, i64 100, i1 false)
-  %m_body_T_parent_ref = getelementptr inbounds i8, ptr %this, i64 440
-  %m_body_T_parent_ref8 = getelementptr inbounds i8, ptr %0, i64 440
+  %m_body_T_parent_ref = getelementptr inbounds nuw i8, ptr %this, i64 440
+  %m_body_T_parent_ref8 = getelementptr inbounds nuw i8, ptr %0, i64 440
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %m_body_T_parent_ref, ptr noundef nonnull align 8 dereferenceable(48) %m_body_T_parent_ref8, i64 16, i1 false)
-  %arrayidx6.i.i20 = getelementptr inbounds i8, ptr %0, i64 456
-  %arrayidx8.i.i21 = getelementptr inbounds i8, ptr %this, i64 456
+  %arrayidx6.i.i20 = getelementptr inbounds nuw i8, ptr %0, i64 456
+  %arrayidx8.i.i21 = getelementptr inbounds nuw i8, ptr %this, i64 456
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx8.i.i21, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx6.i.i20, i64 16, i1 false)
-  %arrayidx10.i.i22 = getelementptr inbounds i8, ptr %0, i64 472
-  %arrayidx12.i.i23 = getelementptr inbounds i8, ptr %this, i64 472
+  %arrayidx10.i.i22 = getelementptr inbounds nuw i8, ptr %0, i64 472
+  %arrayidx12.i.i23 = getelementptr inbounds nuw i8, ptr %this, i64 472
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx12.i.i23, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx10.i.i22, i64 16, i1 false)
-  %m_Jac_JR = getelementptr inbounds i8, ptr %this, i64 488
-  %m_Jac_JR9 = getelementptr inbounds i8, ptr %0, i64 488
+  %m_Jac_JR = getelementptr inbounds nuw i8, ptr %this, i64 488
+  %m_Jac_JR9 = getelementptr inbounds nuw i8, ptr %0, i64 488
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %m_Jac_JR, ptr noundef nonnull align 8 dereferenceable(72) %m_Jac_JR9, i64 72, i1 false)
-  %m_body_subtree_I_body = getelementptr inbounds i8, ptr %this, i64 560
-  %m_body_subtree_I_body10 = getelementptr inbounds i8, ptr %0, i64 560
+  %m_body_subtree_I_body = getelementptr inbounds nuw i8, ptr %this, i64 560
+  %m_body_subtree_I_body10 = getelementptr inbounds nuw i8, ptr %0, i64 560
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %m_body_subtree_I_body, ptr noundef nonnull align 8 dereferenceable(48) %m_body_subtree_I_body10, i64 16, i1 false)
-  %arrayidx6.i.i24 = getelementptr inbounds i8, ptr %0, i64 576
-  %arrayidx8.i.i25 = getelementptr inbounds i8, ptr %this, i64 576
+  %arrayidx6.i.i24 = getelementptr inbounds nuw i8, ptr %0, i64 576
+  %arrayidx8.i.i25 = getelementptr inbounds nuw i8, ptr %this, i64 576
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx8.i.i25, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx6.i.i24, i64 16, i1 false)
-  %arrayidx10.i.i26 = getelementptr inbounds i8, ptr %0, i64 592
-  %arrayidx12.i.i27 = getelementptr inbounds i8, ptr %this, i64 592
+  %arrayidx10.i.i26 = getelementptr inbounds nuw i8, ptr %0, i64 592
+  %arrayidx12.i.i27 = getelementptr inbounds nuw i8, ptr %this, i64 592
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx12.i.i27, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx10.i.i26, i64 16, i1 false)
-  %m_body_Jac_T = getelementptr inbounds i8, ptr %this, i64 608
-  %m_body_Jac_T11 = getelementptr inbounds i8, ptr %0, i64 608
-  %m_ownsMemory.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 656
+  %m_body_Jac_T = getelementptr inbounds nuw i8, ptr %this, i64 608
+  %m_body_Jac_T11 = getelementptr inbounds nuw i8, ptr %0, i64 608
+  %m_ownsMemory.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 656
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %m_body_Jac_T, i8 0, i64 20, i1 false)
   store i8 1, ptr %m_ownsMemory.i.i.i.i, align 8
-  %m_data.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 648
+  %m_data.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 648
   store ptr null, ptr %m_data.i.i.i.i, align 8
-  %m_size.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 636
+  %m_size.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 636
   store i32 0, ptr %m_size.i.i.i.i, align 4
-  %m_capacity.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 640
+  %m_capacity.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 640
   store i32 0, ptr %m_capacity.i.i.i.i, align 8
-  %m_ownsMemory.i.i1.i.i = getelementptr inbounds i8, ptr %this, i64 688
+  %m_ownsMemory.i.i1.i.i = getelementptr inbounds nuw i8, ptr %this, i64 688
   store i8 1, ptr %m_ownsMemory.i.i1.i.i, align 8
-  %m_data.i.i2.i.i = getelementptr inbounds i8, ptr %this, i64 680
+  %m_data.i.i2.i.i = getelementptr inbounds nuw i8, ptr %this, i64 680
   store ptr null, ptr %m_data.i.i2.i.i, align 8
-  %m_size.i.i3.i.i = getelementptr inbounds i8, ptr %this, i64 668
+  %m_size.i.i3.i.i = getelementptr inbounds nuw i8, ptr %this, i64 668
   store i32 0, ptr %m_size.i.i3.i.i, align 4
-  %m_capacity.i.i4.i.i = getelementptr inbounds i8, ptr %this, i64 672
+  %m_capacity.i.i4.i.i = getelementptr inbounds nuw i8, ptr %this, i64 672
   store i32 0, ptr %m_capacity.i.i4.i.i, align 8
   %1 = load i32, ptr %m_body_Jac_T11, align 8
-  %m_cols.i.i = getelementptr inbounds i8, ptr %0, i64 612
+  %m_cols.i.i = getelementptr inbounds nuw i8, ptr %0, i64 612
   %2 = load i32, ptr %m_cols.i.i, align 4
   invoke void @_ZN9btMatrixXIfE6resizeEii(ptr noundef nonnull align 8 dereferenceable(88) %m_body_Jac_T, i32 noundef %1, i32 noundef %2)
           to label %invoke.cont.i unwind label %lpad.i
@@ -8597,27 +8597,27 @@ lpad.i:                                           ; preds = %invoke.cont.i, %ent
   br label %common.resume
 
 _ZN24btInverseDynamicsBullet35mat3xC2ERKS0_.exit: ; preds = %invoke.cont.i
-  %m_body_Jac_R = getelementptr inbounds i8, ptr %this, i64 696
-  %m_body_Jac_R12 = getelementptr inbounds i8, ptr %0, i64 696
-  %m_ownsMemory.i.i.i.i28 = getelementptr inbounds i8, ptr %this, i64 744
+  %m_body_Jac_R = getelementptr inbounds nuw i8, ptr %this, i64 696
+  %m_body_Jac_R12 = getelementptr inbounds nuw i8, ptr %0, i64 696
+  %m_ownsMemory.i.i.i.i28 = getelementptr inbounds nuw i8, ptr %this, i64 744
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %m_body_Jac_R, i8 0, i64 20, i1 false)
   store i8 1, ptr %m_ownsMemory.i.i.i.i28, align 8
-  %m_data.i.i.i.i29 = getelementptr inbounds i8, ptr %this, i64 736
+  %m_data.i.i.i.i29 = getelementptr inbounds nuw i8, ptr %this, i64 736
   store ptr null, ptr %m_data.i.i.i.i29, align 8
-  %m_size.i.i.i.i30 = getelementptr inbounds i8, ptr %this, i64 724
+  %m_size.i.i.i.i30 = getelementptr inbounds nuw i8, ptr %this, i64 724
   store i32 0, ptr %m_size.i.i.i.i30, align 4
-  %m_capacity.i.i.i.i31 = getelementptr inbounds i8, ptr %this, i64 728
+  %m_capacity.i.i.i.i31 = getelementptr inbounds nuw i8, ptr %this, i64 728
   store i32 0, ptr %m_capacity.i.i.i.i31, align 8
-  %m_ownsMemory.i.i1.i.i32 = getelementptr inbounds i8, ptr %this, i64 776
+  %m_ownsMemory.i.i1.i.i32 = getelementptr inbounds nuw i8, ptr %this, i64 776
   store i8 1, ptr %m_ownsMemory.i.i1.i.i32, align 8
-  %m_data.i.i2.i.i33 = getelementptr inbounds i8, ptr %this, i64 768
+  %m_data.i.i2.i.i33 = getelementptr inbounds nuw i8, ptr %this, i64 768
   store ptr null, ptr %m_data.i.i2.i.i33, align 8
-  %m_size.i.i3.i.i34 = getelementptr inbounds i8, ptr %this, i64 756
+  %m_size.i.i3.i.i34 = getelementptr inbounds nuw i8, ptr %this, i64 756
   store i32 0, ptr %m_size.i.i3.i.i34, align 4
-  %m_capacity.i.i4.i.i35 = getelementptr inbounds i8, ptr %this, i64 760
+  %m_capacity.i.i4.i.i35 = getelementptr inbounds nuw i8, ptr %this, i64 760
   store i32 0, ptr %m_capacity.i.i4.i.i35, align 8
   %4 = load i32, ptr %m_body_Jac_R12, align 8
-  %m_cols.i.i36 = getelementptr inbounds i8, ptr %0, i64 700
+  %m_cols.i.i36 = getelementptr inbounds nuw i8, ptr %0, i64 700
   %5 = load i32, ptr %m_cols.i.i36, align 4
   invoke void @_ZN9btMatrixXIfE6resizeEii(ptr noundef nonnull align 8 dereferenceable(88) %m_body_Jac_R, i32 noundef %4, i32 noundef %5)
           to label %invoke.cont.i38 unwind label %lpad.i37
@@ -8633,8 +8633,8 @@ lpad.i37:                                         ; preds = %invoke.cont.i38, %_
   br label %common.resume
 
 invoke.cont:                                      ; preds = %invoke.cont.i38
-  %m_body_dot_Jac_T_u = getelementptr inbounds i8, ptr %this, i64 784
-  %m_body_dot_Jac_T_u13 = getelementptr inbounds i8, ptr %0, i64 784
+  %m_body_dot_Jac_T_u = getelementptr inbounds nuw i8, ptr %this, i64 784
+  %m_body_dot_Jac_T_u13 = getelementptr inbounds nuw i8, ptr %0, i64 784
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_body_dot_Jac_T_u, ptr noundef nonnull align 8 dereferenceable(32) %m_body_dot_Jac_T_u13, i64 32, i1 false)
   ret void
 }
@@ -8644,7 +8644,7 @@ declare noundef ptr @_Z22b3AlignedAllocInternalmi(i64 noundef, i32 noundef) loca
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIiE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %_Count) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %m_capacity.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_capacity.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %m_capacity.i, align 8
   %cmp = icmp slt i32 %0, %_Count
   br i1 %cmp, label %if.then, label %if.end7
@@ -8661,21 +8661,21 @@ _ZN20b3AlignedObjectArrayIiE8allocateEi.exit:     ; preds = %if.then
   br i1 %cmp3, label %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit18, label %if.then.split
 
 if.then.split:                                    ; preds = %_ZN20b3AlignedObjectArrayIiE8allocateEi.exit
-  %m_size.i = getelementptr inbounds i8, ptr %this, i64 4
+  %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %1 = load i32, ptr %m_size.i, align 4
   %cmp4.i = icmp sgt i32 %1, 0
   br i1 %cmp4.i, label %for.body.lr.ph.i, label %if.end
 
 for.body.lr.ph.i:                                 ; preds = %if.then.split
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %wide.trip.count.i = zext nneg i32 %1 to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds i32, ptr %call.i.i, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw i32, ptr %call.i.i, i64 %indvars.iv.i
   %2 = load ptr, ptr %m_data.i, align 8
-  %arrayidx3.i = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.i
+  %arrayidx3.i = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i
   %3 = load i32, ptr %arrayidx3.i, align 4
   store i32 %3, ptr %arrayidx.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -8685,20 +8685,20 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 _ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit18:   ; preds = %if.then, %_ZN20b3AlignedObjectArrayIiE8allocateEi.exit
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.37, i32 noundef 301)
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.38)
-  %m_size = getelementptr inbounds i8, ptr %this, i64 4
+  %m_size = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i32 0, ptr %m_size, align 4
   br label %if.end
 
 if.end:                                           ; preds = %for.body.i, %if.then.split, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit18
   %retval.0.i25 = phi ptr [ null, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit18 ], [ %call.i.i, %if.then.split ], [ %call.i.i, %for.body.i ]
   %_Count.addr.0 = phi i32 [ 0, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit18 ], [ %_Count, %if.then.split ], [ %_Count, %for.body.i ]
-  %m_data.i20 = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data.i20 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %4 = load ptr, ptr %m_data.i20, align 8
   %tobool.not.i21 = icmp eq ptr %4, null
   br i1 %tobool.not.i21, label %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit, label %if.then.i22
 
 if.then.i22:                                      ; preds = %if.end
-  %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_ownsMemory.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %5 = load i8, ptr %m_ownsMemory.i, align 8
   %tobool2.i = trunc i8 %5 to i1
   br i1 %tobool2.i, label %if.then3.i, label %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit
@@ -8708,7 +8708,7 @@ if.then3.i:                                       ; preds = %if.then.i22
   br label %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit
 
 _ZN20b3AlignedObjectArrayIiE10deallocateEv.exit:  ; preds = %if.then.i22, %if.then3.i, %if.end
-  %m_ownsMemory = getelementptr inbounds i8, ptr %this, i64 24
+  %m_ownsMemory = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory, align 8
   store ptr %retval.0.i25, ptr %m_data.i20, align 8
   store i32 %_Count.addr.0, ptr %m_capacity.i, align 8
@@ -8721,7 +8721,7 @@ if.end7:                                          ; preds = %_ZN20b3AlignedObjec
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIS_IiEE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %_Count) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_capacity.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_capacity.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %m_capacity.i, align 8
   %cmp = icmp slt i32 %0, %_Count
   br i1 %cmp, label %if.then, label %if.end7
@@ -8738,30 +8738,30 @@ _ZN20b3AlignedObjectArrayIS_IiEE8allocateEi.exit: ; preds = %if.then
   br i1 %cmp3, label %do.body, label %if.then.split
 
 if.then.split:                                    ; preds = %_ZN20b3AlignedObjectArrayIS_IiEE8allocateEi.exit
-  %m_size.i = getelementptr inbounds i8, ptr %this, i64 4
+  %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %1 = load i32, ptr %m_size.i, align 4
   %cmp4.i = icmp sgt i32 %1, 0
   br i1 %cmp4.i, label %for.body.lr.ph.i, label %_ZN20b3AlignedObjectArrayIS_IiEE7destroyEii.exit
 
 for.body.lr.ph.i:                                 ; preds = %if.then.split
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %zext = zext nneg i32 %1 to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN20b3AlignedObjectArrayIiEC2ERKS0_.exit.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %_ZN20b3AlignedObjectArrayIiEC2ERKS0_.exit.i ]
-  %arrayidx.i = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %call.i.i, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw %class.b3AlignedObjectArray.0, ptr %call.i.i, i64 %indvars.iv.i
   %2 = load ptr, ptr %m_data.i, align 8
-  %arrayidx3.i = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %2, i64 %indvars.iv.i
-  %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
+  %arrayidx3.i = getelementptr inbounds nuw %class.b3AlignedObjectArray.0, ptr %2, i64 %indvars.iv.i
+  %m_ownsMemory.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 24
   store i8 1, ptr %m_ownsMemory.i.i.i, align 8
-  %m_data.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
+  %m_data.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   store ptr null, ptr %m_data.i.i.i, align 8
-  %m_size.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
+  %m_size.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 4
   store i32 0, ptr %m_size.i.i.i, align 4
-  %m_capacity.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %m_capacity.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   store i32 0, ptr %m_capacity.i.i.i, align 8
-  %m_size.i6.i.i = getelementptr inbounds i8, ptr %arrayidx3.i, i64 4
+  %m_size.i6.i.i = getelementptr inbounds nuw i8, ptr %arrayidx3.i, i64 4
   %3 = load i32, ptr %m_size.i6.i.i, align 4
   %cmp4.i.i.i = icmp sgt i32 %3, 0
   br i1 %cmp4.i.i.i, label %for.body9.lr.ph.i.i.i, label %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit.thread.i.i
@@ -8778,7 +8778,7 @@ for.body9.lr.ph.i.i.i:                            ; preds = %for.body.i
 for.body9.i.i.i:                                  ; preds = %for.body9.i.i.i, %for.body9.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %for.body9.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %for.body9.i.i.i ]
   %4 = load ptr, ptr %m_data.i.i.i, align 8
-  %arrayidx12.i.i.i = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i.i.i
+  %arrayidx12.i.i.i = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i.i.i
   store i32 0, ptr %arrayidx12.i.i.i, align 4
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
@@ -8786,16 +8786,16 @@ for.body9.i.i.i:                                  ; preds = %for.body9.i.i.i, %f
 
 _ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit.i.i: ; preds = %for.body9.i.i.i
   store i32 %3, ptr %m_size.i.i.i, align 4
-  %m_data.i7.i.i = getelementptr inbounds i8, ptr %arrayidx3.i, i64 16
+  %m_data.i7.i.i = getelementptr inbounds nuw i8, ptr %arrayidx3.i, i64 16
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit.i.i
   %indvars.iv.i.i = phi i64 [ 0, %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit.i.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
   %5 = load ptr, ptr %m_data.i7.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds i32, ptr %5, i64 %indvars.iv.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i.i
   %6 = load i32, ptr %arrayidx.i.i.i, align 4
   %7 = load ptr, ptr %m_data.i.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %7, i64 %indvars.iv.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i.i
   store i32 %6, ptr %arrayidx.i.i, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i.i
@@ -8809,7 +8809,7 @@ _ZN20b3AlignedObjectArrayIiEC2ERKS0_.exit.i:      ; preds = %for.body.i.i, %_ZN2
 do.body:                                          ; preds = %if.then, %_ZN20b3AlignedObjectArrayIS_IiEE8allocateEi.exit
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.37, i32 noundef 301)
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.38)
-  %m_size = getelementptr inbounds i8, ptr %this, i64 4
+  %m_size = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i32 0, ptr %m_size, align 4
   br label %_ZN20b3AlignedObjectArrayIS_IiEE7destroyEii.exit
 
@@ -8819,21 +8819,21 @@ if.end:                                           ; preds = %_ZN20b3AlignedObjec
   br i1 %cmp3.i, label %for.body.lr.ph.i43, label %_ZN20b3AlignedObjectArrayIS_IiEE7destroyEii.exit
 
 for.body.lr.ph.i43:                               ; preds = %if.end
-  %m_data.i44 = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data.i44 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %zext58 = zext nneg i32 %.pre to i64
   br label %for.body.i45
 
 for.body.i45:                                     ; preds = %_ZN20b3AlignedObjectArrayIiED2Ev.exit.i, %for.body.lr.ph.i43
   %indvars.iv.i46 = phi i64 [ 0, %for.body.lr.ph.i43 ], [ %indvars.iv.next.i48, %_ZN20b3AlignedObjectArrayIiED2Ev.exit.i ]
   %9 = load ptr, ptr %m_data.i44, align 8
-  %arrayidx.i47 = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %9, i64 %indvars.iv.i46
-  %m_data.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i47, i64 16
+  %arrayidx.i47 = getelementptr inbounds nuw %class.b3AlignedObjectArray.0, ptr %9, i64 %indvars.iv.i46
+  %m_data.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i47, i64 16
   %10 = load ptr, ptr %m_data.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i.i, label %_ZN20b3AlignedObjectArrayIiED2Ev.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %for.body.i45
-  %m_ownsMemory.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i47, i64 24
+  %m_ownsMemory.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i47, i64 24
   %11 = load i8, ptr %m_ownsMemory.i.i.i.i, align 8
   %tobool2.i.i.i.i = trunc i8 %11 to i1
   br i1 %tobool2.i.i.i.i, label %if.then3.i.i.i.i, label %_ZN20b3AlignedObjectArrayIiED2Ev.exit.i
@@ -8850,12 +8850,12 @@ terminate.lpad.i.i:                               ; preds = %if.then3.i.i.i.i
   unreachable
 
 _ZN20b3AlignedObjectArrayIiED2Ev.exit.i:          ; preds = %if.then3.i.i.i.i, %if.then.i.i.i.i, %for.body.i45
-  %m_size.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i47, i64 4
-  %m_ownsMemory.i1.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i47, i64 24
+  %m_size.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i47, i64 4
+  %m_ownsMemory.i1.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i47, i64 24
   store i8 1, ptr %m_ownsMemory.i1.i.i.i, align 8
   store ptr null, ptr %m_data.i.i.i.i, align 8
   store i32 0, ptr %m_size.i.i.i.i, align 4
-  %m_capacity.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i47, i64 8
+  %m_capacity.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i47, i64 8
   store i32 0, ptr %m_capacity.i.i.i.i, align 8
   %indvars.iv.next.i48 = add nuw nsw i64 %indvars.iv.i46, 1
   %14 = icmp eq i64 %indvars.iv.next.i48, %zext58
@@ -8864,13 +8864,13 @@ _ZN20b3AlignedObjectArrayIiED2Ev.exit.i:          ; preds = %if.then3.i.i.i.i, %
 _ZN20b3AlignedObjectArrayIS_IiEE7destroyEii.exit: ; preds = %_ZN20b3AlignedObjectArrayIiED2Ev.exit.i, %do.body, %if.then.split, %if.end
   %_Count.addr.063 = phi i32 [ %_Count, %if.end ], [ 0, %do.body ], [ %_Count, %if.then.split ], [ %_Count, %_ZN20b3AlignedObjectArrayIiED2Ev.exit.i ]
   %retval.0.i5662 = phi ptr [ %call.i.i, %if.end ], [ null, %do.body ], [ %call.i.i, %if.then.split ], [ %call.i.i, %_ZN20b3AlignedObjectArrayIiED2Ev.exit.i ]
-  %m_data.i51 = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data.i51 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %15 = load ptr, ptr %m_data.i51, align 8
   %tobool.not.i52 = icmp eq ptr %15, null
   br i1 %tobool.not.i52, label %_ZN20b3AlignedObjectArrayIS_IiEE10deallocateEv.exit, label %if.then.i53
 
 if.then.i53:                                      ; preds = %_ZN20b3AlignedObjectArrayIS_IiEE7destroyEii.exit
-  %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_ownsMemory.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %16 = load i8, ptr %m_ownsMemory.i, align 8
   %tobool2.i = trunc i8 %16 to i1
   br i1 %tobool2.i, label %if.then3.i, label %_ZN20b3AlignedObjectArrayIS_IiEE10deallocateEv.exit
@@ -8880,7 +8880,7 @@ if.then3.i:                                       ; preds = %if.then.i53
   br label %_ZN20b3AlignedObjectArrayIS_IiEE10deallocateEv.exit
 
 _ZN20b3AlignedObjectArrayIS_IiEE10deallocateEv.exit: ; preds = %if.then.i53, %if.then3.i, %_ZN20b3AlignedObjectArrayIS_IiEE7destroyEii.exit
-  %m_ownsMemory = getelementptr inbounds i8, ptr %this, i64 24
+  %m_ownsMemory = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory, align 8
   store ptr %retval.0.i5662, ptr %m_data.i51, align 8
   store i32 %_Count.addr.063, ptr %m_capacity.i, align 8
@@ -8893,7 +8893,7 @@ if.end7:                                          ; preds = %_ZN20b3AlignedObjec
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIPvE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %_Count) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %m_capacity.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_capacity.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %m_capacity.i, align 8
   %cmp = icmp slt i32 %0, %_Count
   br i1 %cmp, label %if.then, label %if.end7
@@ -8910,21 +8910,21 @@ _ZN20b3AlignedObjectArrayIPvE8allocateEi.exit:    ; preds = %if.then
   br i1 %cmp3, label %_ZNK20b3AlignedObjectArrayIPvE4copyEiiPS0_.exit18, label %if.then.split
 
 if.then.split:                                    ; preds = %_ZN20b3AlignedObjectArrayIPvE8allocateEi.exit
-  %m_size.i = getelementptr inbounds i8, ptr %this, i64 4
+  %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %1 = load i32, ptr %m_size.i, align 4
   %cmp4.i = icmp sgt i32 %1, 0
   br i1 %cmp4.i, label %for.body.lr.ph.i, label %if.end
 
 for.body.lr.ph.i:                                 ; preds = %if.then.split
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %wide.trip.count.i = zext nneg i32 %1 to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds ptr, ptr %call.i.i, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %call.i.i, i64 %indvars.iv.i
   %2 = load ptr, ptr %m_data.i, align 8
-  %arrayidx3.i = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.i
+  %arrayidx3.i = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i
   %3 = load ptr, ptr %arrayidx3.i, align 8
   store ptr %3, ptr %arrayidx.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -8934,20 +8934,20 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 _ZNK20b3AlignedObjectArrayIPvE4copyEiiPS0_.exit18: ; preds = %if.then, %_ZN20b3AlignedObjectArrayIPvE8allocateEi.exit
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.37, i32 noundef 301)
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.38)
-  %m_size = getelementptr inbounds i8, ptr %this, i64 4
+  %m_size = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i32 0, ptr %m_size, align 4
   br label %if.end
 
 if.end:                                           ; preds = %for.body.i, %if.then.split, %_ZNK20b3AlignedObjectArrayIPvE4copyEiiPS0_.exit18
   %retval.0.i25 = phi ptr [ null, %_ZNK20b3AlignedObjectArrayIPvE4copyEiiPS0_.exit18 ], [ %call.i.i, %if.then.split ], [ %call.i.i, %for.body.i ]
   %_Count.addr.0 = phi i32 [ 0, %_ZNK20b3AlignedObjectArrayIPvE4copyEiiPS0_.exit18 ], [ %_Count, %if.then.split ], [ %_Count, %for.body.i ]
-  %m_data.i20 = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data.i20 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %4 = load ptr, ptr %m_data.i20, align 8
   %tobool.not.i21 = icmp eq ptr %4, null
   br i1 %tobool.not.i21, label %_ZN20b3AlignedObjectArrayIPvE10deallocateEv.exit, label %if.then.i22
 
 if.then.i22:                                      ; preds = %if.end
-  %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_ownsMemory.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %5 = load i8, ptr %m_ownsMemory.i, align 8
   %tobool2.i = trunc i8 %5 to i1
   br i1 %tobool2.i, label %if.then3.i, label %_ZN20b3AlignedObjectArrayIPvE10deallocateEv.exit
@@ -8957,7 +8957,7 @@ if.then3.i:                                       ; preds = %if.then.i22
   br label %_ZN20b3AlignedObjectArrayIPvE10deallocateEv.exit
 
 _ZN20b3AlignedObjectArrayIPvE10deallocateEv.exit: ; preds = %if.then.i22, %if.then3.i, %if.end
-  %m_ownsMemory = getelementptr inbounds i8, ptr %this, i64 24
+  %m_ownsMemory = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory, align 8
   store ptr %retval.0.i25, ptr %m_data.i20, align 8
   store i32 %_Count.addr.0, ptr %m_capacity.i, align 8

@@ -54,9 +54,9 @@ define hidden void @_ZN21XVirtualMemoryManagerC2Em(ptr noundef nonnull align 8 d
   %3 = alloca %class.GCLogPreciousHandle, align 8
   %4 = alloca %class.GCLogPreciousHandle, align 8
   tail call void @_ZN14XMemoryManagerC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #8
-  %5 = getelementptr inbounds i8, ptr %0, i64 112
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i64 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 120
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i8 0, ptr %6, align 8
   %7 = load i64, ptr @XAddressOffsetMax, align 8
   %8 = icmp ugt i64 %1, %7
@@ -64,7 +64,7 @@ define hidden void @_ZN21XVirtualMemoryManagerC2Em(ptr noundef nonnull align 8 d
 
 9:                                                ; preds = %2
   store i32 5, ptr %3, align 8
-  %.sroa.21.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.21.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i, align 8
   %10 = lshr i64 %7, 30
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str, i64 noundef %10)
@@ -77,7 +77,7 @@ define hidden void @_ZN21XVirtualMemoryManagerC2Em(ptr noundef nonnull align 8 d
 
 13:                                               ; preds = %11
   store i32 5, ptr %4, align 8
-  %.sroa.21.0..sroa_idx.i4 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.21.0..sroa_idx.i4 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i4, align 8
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle15write_and_debugEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str.4)
   br label %15
@@ -98,7 +98,7 @@ define linkonce_odr hidden void @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %.sroa.0.0.copyload = load i32, ptr %0, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.21.0.copyload = load ptr, ptr %.sroa.21.0..sroa_idx, align 8
   call void @_ZN13GCLogPrecious6vwriteE15LogTargetHandlePKcP13__va_list_tag(i32 %.sroa.0.0.copyload, ptr %.sroa.21.0.copyload, ptr noundef %1, ptr noundef nonnull %3) #8
   call void @llvm.va_end.p0(ptr nonnull %3)
@@ -176,7 +176,7 @@ _ZN21XVirtualMemoryManager18reserve_contiguousEm.exit: ; preds = %.lr.ph.i17, %_
   %39 = phi ptr [ @.str.7, %.loopexit ], [ @.str.6, %_ZN21XVirtualMemoryManager18reserve_contiguousEm.exit.loopexit21 ], [ @.str.7, %.lr.ph.i17 ]
   %.0 = phi i64 [ 0, %.loopexit ], [ %9, %_ZN21XVirtualMemoryManager18reserve_contiguousEm.exit.loopexit21 ], [ %32, %.lr.ph.i17 ]
   store i32 3, ptr %3, align 8
-  %.sroa.21.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.21.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i, align 8
   %40 = icmp eq i64 %7, %38
   %41 = select i1 %40, ptr @.str.8, ptr @.str.9
@@ -184,13 +184,13 @@ _ZN21XVirtualMemoryManager18reserve_contiguousEm.exit: ; preds = %.lr.ph.i17, %_
   %.str.10..str.11 = select i1 %42, ptr @.str.10, ptr @.str.11
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.5, ptr noundef nonnull %39, ptr noundef nonnull %41, ptr noundef nonnull %.str.10..str.11)
   store i32 3, ptr %4, align 8
-  %.sroa.21.0..sroa_idx.i18 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.21.0..sroa_idx.i18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i18, align 8
   %43 = lshr i64 %.0, 20
   %44 = mul i64 %.0, 3
   %45 = lshr i64 %44, 20
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str.12, i64 noundef %43, i64 noundef 3, i64 noundef %45)
-  %46 = getelementptr inbounds i8, ptr %0, i64 112
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i64 %.0, ptr %46, align 8
   %47 = icmp uge i64 %.0, %1
   ret i1 %47
@@ -201,7 +201,7 @@ define linkonce_odr hidden void @_ZN19GCLogPreciousHandle15write_and_debugEPKcz(
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %.sroa.0.0.copyload = load i32, ptr %0, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.21.0.copyload = load ptr, ptr %.sroa.21.0..sroa_idx, align 8
   call void @_ZN13GCLogPrecious16vwrite_and_debugE15LogTargetHandlePKcP13__va_list_tag(i32 %.sroa.0.0.copyload, ptr %.sroa.21.0.copyload, ptr noundef %1, ptr noundef nonnull %3) #8
   call void @llvm.va_end.p0(ptr nonnull %3)
@@ -414,7 +414,7 @@ declare void @_ZN15NativeCallStackC1Ei(ptr noundef nonnull align 8 dereferenceab
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK21XVirtualMemoryManager14is_initializedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(121) %0) local_unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
   ret i1 %4
@@ -449,7 +449,7 @@ declare noundef i64 @_ZN14XMemoryManager18alloc_high_addressEm(ptr noundef nonnu
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN21XVirtualMemoryManager4freeERK14XVirtualMemory(ptr noundef nonnull align 8 dereferenceable(121) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
   %3 = load i64, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = sub i64 %5, %3
   tail call void @_ZN14XMemoryManager4freeEmm(ptr noundef nonnull align 8 dereferenceable(112) %0, i64 noundef %3, i64 noundef %6) #8

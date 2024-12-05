@@ -90,7 +90,7 @@ define dso_local noundef zeroext range(i8 4, 23) i8 @_ZN4Luau7CodeGen3X6415getCo
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds [14 x i8], ptr @switch.table._ZN4Luau7CodeGen3X6415getConditionIntENS0_11IrConditionE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [14 x i8], ptr @switch.table._ZN4Luau7CodeGen3X6415getConditionIntENS0_11IrConditionE, i64 0, i64 %3
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %4
 
@@ -398,10 +398,10 @@ define dso_local void @_ZN4Luau7CodeGen3X6417callBarrierObjectERNS1_13IrRegAlloc
   %10 = alloca %"class.Luau::CodeGen::X64::IrCallWrapperX64", align 8
   %11 = alloca %"struct.Luau::CodeGen::X64::OperandX64", align 8
   store i32 0, ptr %7, align 4
-  %12 = getelementptr inbounds i8, ptr %7, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 -1, ptr %12, align 4
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64ENS1_7SizeX64E(ptr noundef nonnull align 8 dereferenceable(9) %8, ptr noundef nonnull align 8 dereferenceable(256) %0, i8 noundef zeroext 4)
-  %13 = getelementptr inbounds i8, ptr %8, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.06.0.copyload = load i8, ptr %13, align 8
   invoke void @_ZN4Luau7CodeGen3X6428checkObjectBarrierConditionsERNS1_18AssemblyBuilderX64ENS1_11RegisterX64ES4_NS0_4IrOpEiRNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(252) %1, i8 %.sroa.06.0.copyload, i8 %2, i32 %4, i32 noundef %5, ptr noundef nonnull align 4 dereferenceable(8) %7)
           to label %14 unwind label %22
@@ -483,7 +483,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6420callBarrierTableFastERNS1_13IrRegAl
   %7 = alloca %"class.Luau::CodeGen::X64::IrCallWrapperX64", align 8
   %8 = alloca %"struct.Luau::CodeGen::X64::OperandX64", align 8
   store i32 0, ptr %5, align 4
-  %9 = getelementptr inbounds i8, ptr %5, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 -1, ptr %9, align 4
   %.sroa.3.0.insert.ext.i = zext i8 %2 to i64
   %.sroa.3.0.insert.shift.i = shl nuw nsw i64 %.sroa.3.0.insert.ext.i, 16
@@ -534,14 +534,14 @@ define dso_local void @_ZN4Luau7CodeGen3X6410callStepGcERNS1_13IrRegAllocX64ERNS
   %7 = alloca %"class.Luau::CodeGen::X64::IrCallWrapperX64", align 8
   %8 = alloca %"struct.Luau::CodeGen::X64::OperandX64", align 8
   store i32 0, ptr %3, align 4
-  %9 = getelementptr inbounds i8, ptr %3, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 -1, ptr %9, align 4
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64ENS1_7SizeX64E(ptr noundef nonnull align 8 dereferenceable(9) %4, ptr noundef nonnull align 8 dereferenceable(256) %0, i8 noundef zeroext 4)
   invoke void @_ZN4Luau7CodeGen3X6412ScopedRegX64C1ERNS1_13IrRegAllocX64ENS1_7SizeX64E(ptr noundef nonnull align 8 dereferenceable(9) %5, ptr noundef nonnull align 8 dereferenceable(256) %0, i8 noundef zeroext 4)
           to label %10 unwind label %21
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.010.0.copyload = load i8, ptr %11, align 8
   %.sroa.372.0.insert.ext = zext i8 %.sroa.010.0.copyload to i64
   %.sroa.372.0.insert.shift = shl nuw nsw i64 %.sroa.372.0.insert.ext, 16
@@ -550,7 +550,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6410callStepGcERNS1_13IrRegAllocX64ERNS
           to label %12 unwind label %23
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %5, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.07.0.copyload = load i8, ptr %13, align 8
   %.sroa.05.0.copyload = load i8, ptr %11, align 8
   %.sroa.3.0.insert.ext.i = zext i8 %.sroa.05.0.copyload to i64
@@ -665,11 +665,11 @@ declare void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643jmpENS1_10OperandX64E(ptr
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau7CodeGen3X6413emitInterruptERNS1_18AssemblyBuilderX64E(ptr noundef nonnull align 8 dereferenceable(252) %0) local_unnamed_addr #0 {
   %2 = alloca %"struct.Luau::CodeGen::Label", align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 84
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
   store i32 0, ptr %2, align 4
-  %6 = getelementptr inbounds i8, ptr %2, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 -1, ptr %6, align 4
   tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643movENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %0, i64 269254656, i64 240856104961)
   tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643leaENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %0, i64 269254656, i64 1074529281)
@@ -750,7 +750,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6410emitReturnERNS1_18AssemblyBuilderX6
   tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643leaENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %0, i64 273448960, i64 -171525767167)
   tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643movENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %0, i64 271810560, i64 137762209793)
   store i32 0, ptr %3, align 4
-  %6 = getelementptr inbounds i8, ptr %3, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 -1, ptr %6, align 4
   tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643subENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %0, i64 269189120, i64 271810560)
   call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643jccENS0_12ConditionX64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(252) %0, i8 noundef zeroext 12, ptr noundef nonnull align 4 dereferenceable(8) %3)
@@ -765,7 +765,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6410emitReturnERNS1_18AssemblyBuilderX6
   call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643movENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %0, i64 276070400, i64 340557825)
   call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643movENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %0, i64 69063180289, i64 276070400)
   store i32 0, ptr %5, align 4
-  %8 = getelementptr inbounds i8, ptr %5, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 -1, ptr %8, align 4
   call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX644testENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %0, i64 271810560, i64 271810560)
   call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643jccENS0_12ConditionX64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(252) %0, i8 noundef zeroext 9, ptr noundef nonnull align 4 dereferenceable(8) %5)
@@ -773,7 +773,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6410emitReturnERNS1_18AssemblyBuilderX6
   call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull align 4 dereferenceable(8) %5)
   call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643movENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %0, i64 34703441921, i64 272400384)
   call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX644testENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %0, i64 154908524545, i64 4571824130)
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643jccENS0_12ConditionX64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(252) %0, i8 noundef zeroext 23, ptr noundef nonnull align 4 dereferenceable(8) %9)
   call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643movENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %0, i64 268730368, i64 34700296193)
   call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643movENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %0, i64 268730368, i64 335839233)
@@ -800,10 +800,10 @@ declare void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643incENS1_10OperandX64E(ptr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define internal void @_GLOBAL__sub_I_EmitCommonX64.cpp() #4 section ".text.startup" {
   store i8 0, ptr @_ZN5FFlag23LuauCodegenSplitDoarithE, align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN5FFlag23LuauCodegenSplitDoarithE, i64 1), align 1
-  store ptr @.str, ptr getelementptr inbounds (i8, ptr @_ZN5FFlag23LuauCodegenSplitDoarithE, i64 8), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag23LuauCodegenSplitDoarithE, i64 1), align 1
+  store ptr @.str, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag23LuauCodegenSplitDoarithE, i64 8), align 8
   %1 = load ptr, ptr @_ZN4Luau6FValueIbE4listE, align 8
-  store ptr %1, ptr getelementptr inbounds (i8, ptr @_ZN5FFlag23LuauCodegenSplitDoarithE, i64 16), align 8
+  store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag23LuauCodegenSplitDoarithE, i64 16), align 8
   store ptr @_ZN5FFlag23LuauCodegenSplitDoarithE, ptr @_ZN4Luau6FValueIbE4listE, align 8
   ret void
 }

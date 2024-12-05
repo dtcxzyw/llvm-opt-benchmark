@@ -559,7 +559,7 @@ define hidden noundef range(i32 0, 7) i32 @_Z32TLABWasteIncrementConstraintFuncm
 5:                                                ; preds = %2
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 480
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 480
   %9 = load i64, ptr %8, align 8
   %10 = xor i64 %0, -1
   %11 = icmp ugt i64 %9, %10

@@ -77,7 +77,7 @@ define dso_local void @drm_clflush_pages(ptr nocapture noundef readonly %0, i64 
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !10
   %15 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #12, !srcloc !11
   %16 = inttoptr i64 %15 to ptr
-  %17 = getelementptr inbounds i8, ptr %16, i64 2628
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 2628
   %18 = load i32, ptr %17, align 4
   %19 = add i32 %18, 1
   store i32 %19, ptr %17, align 4
@@ -157,14 +157,14 @@ define dso_local void @drm_clflush_sg(ptr nocapture noundef readonly %0) #0 alig
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false), !annotation !24
   tail call void asm sideeffect "mfence", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !25
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %9 = load i32, ptr %8, align 4
   call void @__sg_page_iter_start(ptr noundef nonnull %2, ptr noundef %7, i32 noundef %9, i64 noundef 0) #11
   %10 = call zeroext i1 @__sg_page_iter_next(ptr noundef nonnull %2) #11
   br i1 %10, label %11, label %.loopexit
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %13
 
 13:                                               ; preds = %51, %11
@@ -184,7 +184,7 @@ define dso_local void @drm_clflush_sg(ptr nocapture noundef readonly %0) #0 alig
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !10
   %24 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #12, !srcloc !11
   %25 = inttoptr i64 %24 to ptr
-  %26 = getelementptr inbounds i8, ptr %25, i64 2628
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 2628
   %27 = load i32, ptr %26, align 4
   %28 = add i32 %27, 1
   store i32 %28, ptr %26, align 4
@@ -309,10 +309,10 @@ define dso_local zeroext i1 @drm_need_swiotlb(i32 noundef %0) #5 align 16 {
 .preheader:                                       ; preds = %1, %.preheader
   %4 = phi ptr [ %10, %.preheader ], [ %2, %1 ]
   %5 = phi i64 [ %8, %.preheader ], [ 0, %1 ]
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = tail call i64 @llvm.umax.i64(i64 %5, i64 %7)
-  %9 = getelementptr inbounds i8, ptr %4, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.loopexit, label %.preheader, !llvm.loop !31
@@ -412,10 +412,10 @@ define dso_local void @drm_memcpy_from_wc(ptr nocapture noundef readonly %0, ptr
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @memcpy_fallback(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #0 align 16 {
   %4 = alloca [128 x i8], align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i8, ptr %5, align 8, !range !41, !noundef !42
   %7 = icmp eq i8 %6, 0
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i8, ptr %8, align 8, !range !41, !noundef !42
   %10 = icmp eq i8 %9, 0
   br i1 %7, label %11, label %.thread

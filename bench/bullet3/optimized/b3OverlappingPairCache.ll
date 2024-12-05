@@ -102,31 +102,31 @@ $_ZTI17b3OverlapCallback = comdat any
 define dso_local void @_ZN28b3HashedOverlappingPairCacheC2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8), (12, 20), (24, 33), (40, 48), (52, 60), (64, 73), (84, 92), (96, 105)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.then.i:
   store ptr getelementptr inbounds (i8, ptr @_ZTV28b3HashedOverlappingPairCache, i64 16), ptr %this, align 8
-  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %m_ownsMemory.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i8 1, ptr %m_ownsMemory.i.i, align 8
-  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_data.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr null, ptr %m_data.i.i, align 8
-  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 12
+  %m_size.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_capacity.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 0, ptr %m_capacity.i.i, align 8
-  %m_overlapFilterCallback = getelementptr inbounds i8, ptr %this, i64 40
+  %m_overlapFilterCallback = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr null, ptr %m_overlapFilterCallback, align 8
-  %m_ownsMemory.i.i4 = getelementptr inbounds i8, ptr %this, i64 72
+  %m_ownsMemory.i.i4 = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i8 1, ptr %m_ownsMemory.i.i4, align 8
-  %m_data.i.i5 = getelementptr inbounds i8, ptr %this, i64 64
+  %m_data.i.i5 = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr null, ptr %m_data.i.i5, align 8
-  %m_size.i.i6 = getelementptr inbounds i8, ptr %this, i64 52
+  %m_size.i.i6 = getelementptr inbounds nuw i8, ptr %this, i64 52
   store i32 0, ptr %m_size.i.i6, align 4
-  %m_capacity.i.i7 = getelementptr inbounds i8, ptr %this, i64 56
+  %m_capacity.i.i7 = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i32 0, ptr %m_capacity.i.i7, align 8
-  %m_ownsMemory.i.i8 = getelementptr inbounds i8, ptr %this, i64 104
+  %m_ownsMemory.i.i8 = getelementptr inbounds nuw i8, ptr %this, i64 104
   store i8 1, ptr %m_ownsMemory.i.i8, align 8
-  %m_data.i.i9 = getelementptr inbounds i8, ptr %this, i64 96
+  %m_data.i.i9 = getelementptr inbounds nuw i8, ptr %this, i64 96
   store ptr null, ptr %m_data.i.i9, align 8
-  %m_size.i.i10 = getelementptr inbounds i8, ptr %this, i64 84
+  %m_size.i.i10 = getelementptr inbounds nuw i8, ptr %this, i64 84
   store i32 0, ptr %m_size.i.i10, align 4
-  %m_capacity.i.i11 = getelementptr inbounds i8, ptr %this, i64 88
+  %m_capacity.i.i11 = getelementptr inbounds nuw i8, ptr %this, i64 88
   store i32 0, ptr %m_capacity.i.i11, align 8
   %call.i.i.i16 = invoke noundef ptr @_Z22b3AlignedAllocInternalmi(i64 noundef 32, i32 noundef 16)
           to label %call.i.i.i.noexc unwind label %lpad7
@@ -146,9 +146,9 @@ for.body.lr.ph.i.i:                               ; preds = %if.then.split.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
-  %arrayidx.i.i = getelementptr inbounds %struct.b3Int4, ptr %call.i.i.i16, i64 %indvars.iv.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw %struct.b3Int4, ptr %call.i.i.i16, i64 %indvars.iv.i.i
   %1 = load ptr, ptr %m_data.i.i, align 8
-  %arrayidx3.i.i = getelementptr inbounds %struct.b3Int4, ptr %1, i64 %indvars.iv.i.i
+  %arrayidx3.i.i = getelementptr inbounds nuw %struct.b3Int4, ptr %1, i64 %indvars.iv.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i.i, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx3.i.i, i64 16, i1 false)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -194,9 +194,9 @@ invoke.cont9:                                     ; preds = %invoke.cont8
 lpad7:                                            ; preds = %if.then3.i.i, %.noexc, %_ZNK20b3AlignedObjectArrayI6b3Int4E4copyEiiPS0_.exit18.i, %if.then.i, %invoke.cont8
   %4 = landingpad { ptr, i32 }
           cleanup
-  %m_next = getelementptr inbounds i8, ptr %this, i64 80
-  %m_hashTable = getelementptr inbounds i8, ptr %this, i64 48
-  %m_overlappingPairArray = getelementptr inbounds i8, ptr %this, i64 8
+  %m_next = getelementptr inbounds nuw i8, ptr %this, i64 80
+  %m_hashTable = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %m_overlappingPairArray = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN20b3AlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_next) #12
   tail call void @_ZN20b3AlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_hashTable) #12
   tail call void @_ZN20b3AlignedObjectArrayI6b3Int4ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_overlappingPairArray) #12
@@ -208,7 +208,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayI6b3Int4E7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %_Count) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %m_capacity.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_capacity.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %m_capacity.i, align 8
   %cmp = icmp slt i32 %0, %_Count
   br i1 %cmp, label %if.then, label %if.end7
@@ -225,21 +225,21 @@ _ZN20b3AlignedObjectArrayI6b3Int4E8allocateEi.exit: ; preds = %if.then
   br i1 %cmp3, label %_ZNK20b3AlignedObjectArrayI6b3Int4E4copyEiiPS0_.exit18, label %if.then.split
 
 if.then.split:                                    ; preds = %_ZN20b3AlignedObjectArrayI6b3Int4E8allocateEi.exit
-  %m_size.i = getelementptr inbounds i8, ptr %this, i64 4
+  %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %1 = load i32, ptr %m_size.i, align 4
   %cmp4.i = icmp sgt i32 %1, 0
   br i1 %cmp4.i, label %for.body.lr.ph.i, label %if.end
 
 for.body.lr.ph.i:                                 ; preds = %if.then.split
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %wide.trip.count.i = zext nneg i32 %1 to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds %struct.b3Int4, ptr %call.i.i, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw %struct.b3Int4, ptr %call.i.i, i64 %indvars.iv.i
   %2 = load ptr, ptr %m_data.i, align 8
-  %arrayidx3.i = getelementptr inbounds %struct.b3Int4, ptr %2, i64 %indvars.iv.i
+  %arrayidx3.i = getelementptr inbounds nuw %struct.b3Int4, ptr %2, i64 %indvars.iv.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx3.i, i64 16, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -248,20 +248,20 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 _ZNK20b3AlignedObjectArrayI6b3Int4E4copyEiiPS0_.exit18: ; preds = %if.then, %_ZN20b3AlignedObjectArrayI6b3Int4E8allocateEi.exit
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 301)
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.2)
-  %m_size = getelementptr inbounds i8, ptr %this, i64 4
+  %m_size = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i32 0, ptr %m_size, align 4
   br label %if.end
 
 if.end:                                           ; preds = %for.body.i, %if.then.split, %_ZNK20b3AlignedObjectArrayI6b3Int4E4copyEiiPS0_.exit18
   %retval.0.i25 = phi ptr [ null, %_ZNK20b3AlignedObjectArrayI6b3Int4E4copyEiiPS0_.exit18 ], [ %call.i.i, %if.then.split ], [ %call.i.i, %for.body.i ]
   %_Count.addr.0 = phi i32 [ 0, %_ZNK20b3AlignedObjectArrayI6b3Int4E4copyEiiPS0_.exit18 ], [ %_Count, %if.then.split ], [ %_Count, %for.body.i ]
-  %m_data.i20 = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data.i20 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load ptr, ptr %m_data.i20, align 8
   %tobool.not.i21 = icmp eq ptr %3, null
   br i1 %tobool.not.i21, label %_ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit, label %if.then.i22
 
 if.then.i22:                                      ; preds = %if.end
-  %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_ownsMemory.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %4 = load i8, ptr %m_ownsMemory.i, align 8
   %tobool2.i = trunc i8 %4 to i1
   br i1 %tobool2.i, label %if.then3.i, label %_ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit
@@ -271,7 +271,7 @@ if.then3.i:                                       ; preds = %if.then.i22
   br label %_ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit
 
 _ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit: ; preds = %if.then.i22, %if.then3.i, %if.end
-  %m_ownsMemory = getelementptr inbounds i8, ptr %this, i64 24
+  %m_ownsMemory = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory, align 8
   store ptr %retval.0.i25, ptr %m_data.i20, align 8
   store i32 %_Count.addr.0, ptr %m_capacity.i, align 8
@@ -284,17 +284,17 @@ if.end7:                                          ; preds = %_ZN20b3AlignedObjec
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN28b3HashedOverlappingPairCache10growTablesEv(ptr noundef nonnull align 8 dereferenceable(112) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %m_capacity.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_capacity.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %m_capacity.i, align 8
-  %m_size.i = getelementptr inbounds i8, ptr %this, i64 52
+  %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 52
   %1 = load i32, ptr %m_size.i, align 4
   %cmp = icmp slt i32 %1, %0
   br i1 %cmp, label %for.body9.lr.ph.i, label %if.end
 
 for.body9.lr.ph.i:                                ; preds = %entry
-  %m_hashTable = getelementptr inbounds i8, ptr %this, i64 48
+  %m_hashTable = getelementptr inbounds nuw i8, ptr %this, i64 48
   tail call void @_ZN20b3AlignedObjectArrayIiE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %m_hashTable, i32 noundef %0)
-  %m_data10.i = getelementptr inbounds i8, ptr %this, i64 64
+  %m_data10.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %2 = sext i32 %1 to i64
   %wide.trip.count.i = sext i32 %0 to i64
   br label %for.body9.i
@@ -310,15 +310,15 @@ for.body9.i:                                      ; preds = %for.body9.i, %for.b
 
 _ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit:    ; preds = %for.body9.i
   store i32 %0, ptr %m_size.i, align 4
-  %m_size.i.i18 = getelementptr inbounds i8, ptr %this, i64 84
+  %m_size.i.i18 = getelementptr inbounds nuw i8, ptr %this, i64 84
   %4 = load i32, ptr %m_size.i.i18, align 4
   %cmp4.i19 = icmp sgt i32 %0, %4
   br i1 %cmp4.i19, label %for.body9.lr.ph.i20, label %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit29
 
 for.body9.lr.ph.i20:                              ; preds = %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit
-  %m_next = getelementptr inbounds i8, ptr %this, i64 80
+  %m_next = getelementptr inbounds nuw i8, ptr %this, i64 80
   tail call void @_ZN20b3AlignedObjectArrayIiE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %m_next, i32 noundef %0)
-  %m_data10.i21 = getelementptr inbounds i8, ptr %this, i64 96
+  %m_data10.i21 = getelementptr inbounds nuw i8, ptr %this, i64 96
   %5 = sext i32 %4 to i64
   br label %for.body9.i24
 
@@ -341,14 +341,14 @@ for.body.lr.ph:                                   ; preds = %_ZN20b3AlignedObjec
   br label %for.body
 
 for.body12.lr.ph:                                 ; preds = %for.body
-  %m_data.i30 = getelementptr inbounds i8, ptr %this, i64 96
+  %m_data.i30 = getelementptr inbounds nuw i8, ptr %this, i64 96
   %wide.trip.count56 = zext nneg i32 %0 to i64
   br label %for.body12
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %7 = load ptr, ptr %m_data10.i, align 8
-  %arrayidx.i = getelementptr inbounds i32, ptr %7, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
   store i32 -1, ptr %arrayidx.i, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -359,15 +359,15 @@ for.cond18.preheader:                             ; preds = %for.body12, %_ZN20b
   br i1 %cmp1950, label %for.body20.lr.ph, label %if.end
 
 for.body20.lr.ph:                                 ; preds = %for.cond18.preheader
-  %m_data.i33 = getelementptr inbounds i8, ptr %this, i64 24
-  %m_data.i40 = getelementptr inbounds i8, ptr %this, i64 96
+  %m_data.i33 = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %m_data.i40 = getelementptr inbounds nuw i8, ptr %this, i64 96
   %wide.trip.count61 = zext nneg i32 %1 to i64
   br label %for.body20
 
 for.body12:                                       ; preds = %for.body12.lr.ph, %for.body12
   %indvars.iv53 = phi i64 [ 0, %for.body12.lr.ph ], [ %indvars.iv.next54, %for.body12 ]
   %8 = load ptr, ptr %m_data.i30, align 8
-  %arrayidx.i32 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv53
+  %arrayidx.i32 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv53
   store i32 -1, ptr %arrayidx.i32, align 4
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count56
@@ -376,9 +376,9 @@ for.body12:                                       ; preds = %for.body12.lr.ph, %
 for.body20:                                       ; preds = %for.body20.lr.ph, %for.body20
   %indvars.iv58 = phi i64 [ 0, %for.body20.lr.ph ], [ %indvars.iv.next59, %for.body20 ]
   %9 = load ptr, ptr %m_data.i33, align 8
-  %arrayidx.i35 = getelementptr inbounds %struct.b3Int4, ptr %9, i64 %indvars.iv58
+  %arrayidx.i35 = getelementptr inbounds nuw %struct.b3Int4, ptr %9, i64 %indvars.iv58
   %10 = load i32, ptr %arrayidx.i35, align 16
-  %y = getelementptr inbounds i8, ptr %arrayidx.i35, i64 4
+  %y = getelementptr inbounds nuw i8, ptr %arrayidx.i35, i64 4
   %11 = load i32, ptr %y, align 4
   %shl.i = shl i32 %11, 16
   %or.i = or i32 %shl.i, %10
@@ -403,7 +403,7 @@ for.body20:                                       ; preds = %for.body20.lr.ph, %
   %arrayidx.i39 = getelementptr inbounds i32, ptr %13, i64 %idxprom.i38
   %14 = load i32, ptr %arrayidx.i39, align 4
   %15 = load ptr, ptr %m_data.i40, align 8
-  %arrayidx.i42 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv58
+  %arrayidx.i42 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv58
   store i32 %14, ptr %arrayidx.i42, align 4
   %16 = load ptr, ptr %m_data10.i, align 8
   %arrayidx.i45 = getelementptr inbounds i32, ptr %16, i64 %idxprom.i38
@@ -420,13 +420,13 @@ if.end:                                           ; preds = %for.body20, %for.co
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_data.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %invoke.cont, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_ownsMemory.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load i8, ptr %m_ownsMemory.i.i, align 8
   %tobool2.i.i = trunc i8 %1 to i1
   br i1 %tobool2.i.i, label %if.then3.i.i, label %invoke.cont
@@ -436,12 +436,12 @@ if.then3.i.i:                                     ; preds = %if.then.i.i
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then.i.i, %entry, %if.then3.i.i
-  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 4
-  %m_ownsMemory.i1.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_size.i.i = getelementptr inbounds nuw i8, ptr %this, i64 4
+  %m_ownsMemory.i1.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory.i1.i, align 8
   store ptr null, ptr %m_data.i.i, align 8
   store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_capacity.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 0, ptr %m_capacity.i.i, align 8
   ret void
 
@@ -456,13 +456,13 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayI6b3Int4ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_data.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %invoke.cont, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_ownsMemory.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load i8, ptr %m_ownsMemory.i.i, align 8
   %tobool2.i.i = trunc i8 %1 to i1
   br i1 %tobool2.i.i, label %if.then3.i.i, label %invoke.cont
@@ -472,12 +472,12 @@ if.then3.i.i:                                     ; preds = %if.then.i.i
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then.i.i, %entry, %if.then3.i.i
-  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 4
-  %m_ownsMemory.i1.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_size.i.i = getelementptr inbounds nuw i8, ptr %this, i64 4
+  %m_ownsMemory.i1.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory.i1.i, align 8
   store ptr null, ptr %m_data.i.i, align 8
   store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_capacity.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 0, ptr %m_capacity.i.i, align 8
   ret void
 
@@ -493,13 +493,13 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 define dso_local void @_ZN28b3HashedOverlappingPairCacheD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV28b3HashedOverlappingPairCache, i64 16), ptr %this, align 8
-  %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
+  %m_data.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load ptr, ptr %m_data.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZN20b3AlignedObjectArrayIiED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
+  %m_ownsMemory.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   %1 = load i8, ptr %m_ownsMemory.i.i.i, align 8
   %tobool2.i.i.i = trunc i8 %1 to i1
   br i1 %tobool2.i.i.i, label %if.then3.i.i.i, label %_ZN20b3AlignedObjectArrayIiED2Ev.exit
@@ -516,20 +516,20 @@ terminate.lpad.i:                                 ; preds = %if.then3.i.i.i
   unreachable
 
 _ZN20b3AlignedObjectArrayIiED2Ev.exit:            ; preds = %entry, %if.then.i.i.i, %if.then3.i.i.i
-  %m_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 84
-  %m_ownsMemory.i1.i.i = getelementptr inbounds i8, ptr %this, i64 104
+  %m_size.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 84
+  %m_ownsMemory.i1.i.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   store i8 1, ptr %m_ownsMemory.i1.i.i, align 8
   store ptr null, ptr %m_data.i.i.i, align 8
   store i32 0, ptr %m_size.i.i.i, align 4
-  %m_capacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
+  %m_capacity.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   store i32 0, ptr %m_capacity.i.i.i, align 8
-  %m_data.i.i.i1 = getelementptr inbounds i8, ptr %this, i64 64
+  %m_data.i.i.i1 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %4 = load ptr, ptr %m_data.i.i.i1, align 8
   %tobool.not.i.i.i2 = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i2, label %_ZN20b3AlignedObjectArrayIiED2Ev.exit11, label %if.then.i.i.i3
 
 if.then.i.i.i3:                                   ; preds = %_ZN20b3AlignedObjectArrayIiED2Ev.exit
-  %m_ownsMemory.i.i.i4 = getelementptr inbounds i8, ptr %this, i64 72
+  %m_ownsMemory.i.i.i4 = getelementptr inbounds nuw i8, ptr %this, i64 72
   %5 = load i8, ptr %m_ownsMemory.i.i.i4, align 8
   %tobool2.i.i.i5 = trunc i8 %5 to i1
   br i1 %tobool2.i.i.i5, label %if.then3.i.i.i9, label %_ZN20b3AlignedObjectArrayIiED2Ev.exit11
@@ -546,20 +546,20 @@ terminate.lpad.i10:                               ; preds = %if.then3.i.i.i9
   unreachable
 
 _ZN20b3AlignedObjectArrayIiED2Ev.exit11:          ; preds = %_ZN20b3AlignedObjectArrayIiED2Ev.exit, %if.then.i.i.i3, %if.then3.i.i.i9
-  %m_size.i.i.i6 = getelementptr inbounds i8, ptr %this, i64 52
-  %m_ownsMemory.i1.i.i7 = getelementptr inbounds i8, ptr %this, i64 72
+  %m_size.i.i.i6 = getelementptr inbounds nuw i8, ptr %this, i64 52
+  %m_ownsMemory.i1.i.i7 = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i8 1, ptr %m_ownsMemory.i1.i.i7, align 8
   store ptr null, ptr %m_data.i.i.i1, align 8
   store i32 0, ptr %m_size.i.i.i6, align 4
-  %m_capacity.i.i.i8 = getelementptr inbounds i8, ptr %this, i64 56
+  %m_capacity.i.i.i8 = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i32 0, ptr %m_capacity.i.i.i8, align 8
-  %m_data.i.i.i12 = getelementptr inbounds i8, ptr %this, i64 24
+  %m_data.i.i.i12 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %8 = load ptr, ptr %m_data.i.i.i12, align 8
   %tobool.not.i.i.i13 = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i13, label %_ZN20b3AlignedObjectArrayI6b3Int4ED2Ev.exit, label %if.then.i.i.i14
 
 if.then.i.i.i14:                                  ; preds = %_ZN20b3AlignedObjectArrayIiED2Ev.exit11
-  %m_ownsMemory.i.i.i15 = getelementptr inbounds i8, ptr %this, i64 32
+  %m_ownsMemory.i.i.i15 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %9 = load i8, ptr %m_ownsMemory.i.i.i15, align 8
   %tobool2.i.i.i16 = trunc i8 %9 to i1
   br i1 %tobool2.i.i.i16, label %if.then3.i.i.i20, label %_ZN20b3AlignedObjectArrayI6b3Int4ED2Ev.exit
@@ -576,12 +576,12 @@ terminate.lpad.i21:                               ; preds = %if.then3.i.i.i20
   unreachable
 
 _ZN20b3AlignedObjectArrayI6b3Int4ED2Ev.exit:      ; preds = %_ZN20b3AlignedObjectArrayIiED2Ev.exit11, %if.then.i.i.i14, %if.then3.i.i.i20
-  %m_size.i.i.i17 = getelementptr inbounds i8, ptr %this, i64 12
-  %m_ownsMemory.i1.i.i18 = getelementptr inbounds i8, ptr %this, i64 32
+  %m_size.i.i.i17 = getelementptr inbounds nuw i8, ptr %this, i64 12
+  %m_ownsMemory.i1.i.i18 = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i8 1, ptr %m_ownsMemory.i1.i.i18, align 8
   store ptr null, ptr %m_data.i.i.i12, align 8
   store i32 0, ptr %m_size.i.i.i17, align 4
-  %m_capacity.i.i.i19 = getelementptr inbounds i8, ptr %this, i64 16
+  %m_capacity.i.i.i19 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 0, ptr %m_capacity.i.i.i19, align 8
   ret void
 }
@@ -608,14 +608,14 @@ define dso_local void @_ZN28b3HashedOverlappingPairCache19cleanProxyFromPairsEiP
 entry:
   %cleanPairs = alloca %class.CleanPairCallback, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVZN28b3HashedOverlappingPairCache19cleanProxyFromPairsEiP12b3DispatcherE17CleanPairCallback, i64 16), ptr %cleanPairs, align 8
-  %m_cleanProxy.i = getelementptr inbounds i8, ptr %cleanPairs, i64 8
+  %m_cleanProxy.i = getelementptr inbounds nuw i8, ptr %cleanPairs, i64 8
   store i32 %proxy, ptr %m_cleanProxy.i, align 8
-  %m_pairCache.i = getelementptr inbounds i8, ptr %cleanPairs, i64 16
+  %m_pairCache.i = getelementptr inbounds nuw i8, ptr %cleanPairs, i64 16
   store ptr %this, ptr %m_pairCache.i, align 8
-  %m_dispatcher.i = getelementptr inbounds i8, ptr %cleanPairs, i64 24
+  %m_dispatcher.i = getelementptr inbounds nuw i8, ptr %cleanPairs, i64 24
   store ptr %dispatcher, ptr %m_dispatcher.i, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 72
   %0 = load ptr, ptr %vfn, align 8
   call void %0(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull %cleanPairs, ptr noundef %dispatcher)
   ret void
@@ -632,10 +632,10 @@ define dso_local void @_ZN28b3HashedOverlappingPairCache37removeOverlappingPairs
 entry:
   %removeCallback = alloca %class.RemovePairCallback, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVZN28b3HashedOverlappingPairCache37removeOverlappingPairsContainingProxyEiP12b3DispatcherE18RemovePairCallback, i64 16), ptr %removeCallback, align 8
-  %m_obsoleteProxy.i = getelementptr inbounds i8, ptr %removeCallback, i64 8
+  %m_obsoleteProxy.i = getelementptr inbounds nuw i8, ptr %removeCallback, i64 8
   store i32 %proxy, ptr %m_obsoleteProxy.i, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 72
   %0 = load ptr, ptr %vfn, align 8
   call void %0(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull %removeCallback, ptr noundef %dispatcher)
   ret void
@@ -670,17 +670,17 @@ entry:
   %add9.i = add nsw i32 %xor6.i, %not8.i
   %shr10.i = ashr i32 %add9.i, 16
   %xor11.i = xor i32 %shr10.i, %add9.i
-  %m_capacity.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_capacity.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i32, ptr %m_capacity.i, align 8
   %sub = add nsw i32 %1, -1
   %and = and i32 %sub, %xor11.i
-  %m_size.i = getelementptr inbounds i8, ptr %this, i64 52
+  %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 52
   %2 = load i32, ptr %m_size.i, align 4
   %cmp4.not = icmp slt i32 %and, %2
   br i1 %cmp4.not, label %if.end6, label %return
 
 if.end6:                                          ; preds = %entry
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 64
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %3 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = sext i32 %and to i64
   %arrayidx.i = getelementptr inbounds i32, ptr %3, i64 %idxprom.i
@@ -689,9 +689,9 @@ if.end6:                                          ; preds = %entry
   br i1 %cond21, label %return, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %if.end6
-  %m_data.i8 = getelementptr inbounds i8, ptr %this, i64 24
+  %m_data.i8 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %4 = load ptr, ptr %m_data.i8, align 8
-  %m_data.i11 = getelementptr inbounds i8, ptr %this, i64 96
+  %m_data.i11 = getelementptr inbounds nuw i8, ptr %this, i64 96
   %5 = load ptr, ptr %m_data.i11, align 8
   br label %land.rhs
 
@@ -701,7 +701,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %wh
   %arrayidx.i10 = getelementptr inbounds %struct.b3Int4, ptr %4, i64 %idxprom.i9
   %6 = load i32, ptr %arrayidx.i10, align 16
   %cmp.i = icmp eq i32 %6, %spec.select
-  %y.i = getelementptr inbounds i8, ptr %arrayidx.i10, i64 4
+  %y.i = getelementptr inbounds nuw i8, ptr %arrayidx.i10, i64 4
   %7 = load i32, ptr %y.i, align 4
   %cmp2.i = icmp eq i32 %7, %spec.select19
   %8 = select i1 %cmp.i, i1 %cmp2.i, i1 false
@@ -738,12 +738,12 @@ entry:
   %add9.i = add nsw i32 %xor6.i, %not8.i
   %shr10.i = ashr i32 %add9.i, 16
   %xor11.i = xor i32 %shr10.i, %add9.i
-  %m_overlappingPairArray = getelementptr inbounds i8, ptr %this, i64 8
-  %m_capacity.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_overlappingPairArray = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %m_capacity.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %m_capacity.i, align 8
   %sub = add nsw i32 %0, -1
   %and = and i32 %sub, %xor11.i
-  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %m_data.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %1 = load ptr, ptr %m_data.i.i, align 8
   %idxprom.i.i = sext i32 %and to i64
   %arrayidx.i.i = getelementptr inbounds i32, ptr %1, i64 %idxprom.i.i
@@ -752,9 +752,9 @@ entry:
   br i1 %cond15.i, label %if.end6, label %land.rhs.lr.ph.i
 
 land.rhs.lr.ph.i:                                 ; preds = %entry
-  %m_data.i5.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_data.i5.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load ptr, ptr %m_data.i5.i, align 8
-  %m_data.i8.i = getelementptr inbounds i8, ptr %this, i64 96
+  %m_data.i8.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   %3 = load ptr, ptr %m_data.i8.i, align 8
   br label %land.rhs.i
 
@@ -764,7 +764,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   %arrayidx.i7.i = getelementptr inbounds %struct.b3Int4, ptr %2, i64 %idxprom.i6.i
   %4 = load i32, ptr %arrayidx.i7.i, align 16
   %cmp.i.i = icmp eq i32 %4, %spec.select
-  %y.i.i = getelementptr inbounds i8, ptr %arrayidx.i7.i, i64 4
+  %y.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i7.i, i64 4
   %5 = load i32, ptr %y.i.i, align 4
   %cmp2.i.i = icmp eq i32 %5, %spec.select44
   %6 = select i1 %cmp.i.i, i1 %cmp2.i.i, i1 false
@@ -777,7 +777,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   br i1 %cond.i, label %if.end6, label %land.rhs.i, !llvm.loop !12
 
 if.end6:                                          ; preds = %while.body.i, %entry
-  %m_size.i = getelementptr inbounds i8, ptr %this, i64 12
+  %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %7 = load i32, ptr %m_size.i, align 4
   %cmp.i = icmp eq i32 %7, %0
   br i1 %cmp.i, label %_ZN20b3AlignedObjectArrayI6b3Int4E21expandNonInitializingEv.exit, label %_ZN20b3AlignedObjectArrayI6b3Int4E21expandNonInitializingEv.exit.thread
@@ -785,7 +785,7 @@ if.end6:                                          ; preds = %while.body.i, %entr
 _ZN20b3AlignedObjectArrayI6b3Int4E21expandNonInitializingEv.exit.thread: ; preds = %if.end6
   %inc.i48 = add nsw i32 %7, 1
   store i32 %inc.i48, ptr %m_size.i, align 4
-  %m_data.i49 = getelementptr inbounds i8, ptr %this, i64 24
+  %m_data.i49 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %8 = load ptr, ptr %m_data.i49, align 8
   %idxprom.i50 = sext i32 %7 to i64
   %arrayidx.i51 = getelementptr inbounds %struct.b3Int4, ptr %8, i64 %idxprom.i50
@@ -800,7 +800,7 @@ _ZN20b3AlignedObjectArrayI6b3Int4E21expandNonInitializingEv.exit: ; preds = %if.
   %.pre = load i32, ptr %m_capacity.i, align 8
   %inc.i = add nsw i32 %.pre.i, 1
   store i32 %inc.i, ptr %m_size.i, align 4
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %9 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = sext i32 %7 to i64
   %arrayidx.i = getelementptr inbounds %struct.b3Int4, ptr %9, i64 %idxprom.i
@@ -824,12 +824,12 @@ if.end22:                                         ; preds = %_ZN20b3AlignedObjec
   %retval.sroa.0.0.insert.ext.i = zext i32 %spec.select to i64
   %retval.sroa.0.0.insert.insert.i = or disjoint i64 %retval.sroa.3.0.insert.shift.i, %retval.sroa.0.0.insert.ext.i
   store i64 %retval.sroa.0.0.insert.insert.i, ptr %arrayidx.i54, align 16
-  %ref.tmp.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i54, i64 8
+  %ref.tmp.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i54, i64 8
   store i64 -1, ptr %ref.tmp.sroa.2.0..sroa_idx, align 8
   %11 = load ptr, ptr %m_data.i.i, align 8
   %arrayidx.i29 = getelementptr inbounds i32, ptr %11, i64 %idxprom.i28.pre-phi
   %12 = load i32, ptr %arrayidx.i29, align 4
-  %m_data.i30 = getelementptr inbounds i8, ptr %this, i64 96
+  %m_data.i30 = getelementptr inbounds nuw i8, ptr %this, i64 96
   %13 = load ptr, ptr %m_data.i30, align 8
   %arrayidx.i32 = getelementptr inbounds i32, ptr %13, i64 %idxprom.i53
   store i32 %12, ptr %arrayidx.i32, align 4
@@ -869,11 +869,11 @@ entry:
   %add9.i = add nsw i32 %xor6.i, %not8.i
   %shr10.i = ashr i32 %add9.i, 16
   %xor11.i = xor i32 %shr10.i, %add9.i
-  %m_capacity.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_capacity.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i32, ptr %m_capacity.i, align 8
   %sub = add nsw i32 %1, -1
   %and = and i32 %sub, %xor11.i
-  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %m_data.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %2 = load ptr, ptr %m_data.i.i, align 8
   %idxprom.i.i = sext i32 %and to i64
   %arrayidx.i.i = getelementptr inbounds i32, ptr %2, i64 %idxprom.i.i
@@ -882,9 +882,9 @@ entry:
   br i1 %cond15.i, label %return, label %land.rhs.lr.ph.i
 
 land.rhs.lr.ph.i:                                 ; preds = %entry
-  %m_data.i5.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_data.i5.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load ptr, ptr %m_data.i5.i, align 8
-  %m_data.i8.i = getelementptr inbounds i8, ptr %this, i64 96
+  %m_data.i8.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   %4 = load ptr, ptr %m_data.i8.i, align 8
   br label %land.rhs.i
 
@@ -894,7 +894,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   %arrayidx.i7.i = getelementptr inbounds %struct.b3Int4, ptr %3, i64 %idxprom.i6.i
   %5 = load i32, ptr %arrayidx.i7.i, align 16
   %cmp.i.i = icmp eq i32 %5, %spec.select
-  %y.i.i = getelementptr inbounds i8, ptr %arrayidx.i7.i, i64 4
+  %y.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i7.i, i64 4
   %6 = load i32, ptr %y.i.i, align 4
   %cmp2.i.i = icmp eq i32 %6, %spec.select105
   %7 = select i1 %cmp.i.i, i1 %cmp2.i.i, i1 false
@@ -908,7 +908,7 @@ while.body.i:                                     ; preds = %land.rhs.i
 
 if.end6:                                          ; preds = %land.rhs.i
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %8 = load ptr, ptr %vfn, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i7.i, ptr noundef %dispatcher)
   %9 = load ptr, ptr %m_data.i5.i, align 8
@@ -960,7 +960,7 @@ if.else:                                          ; preds = %if.end6, %while.end
   br label %if.end22
 
 if.end22:                                         ; preds = %if.else, %if.then13
-  %m_size.i = getelementptr inbounds i8, ptr %this, i64 12
+  %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %16 = load i32, ptr %m_size.i, align 4
   %sub25 = add nsw i32 %16, -1
   %cmp26 = icmp eq i32 %sub25, %conv
@@ -971,7 +971,7 @@ if.end29:                                         ; preds = %if.end22
   %idxprom.i46 = sext i32 %sub25 to i64
   %arrayidx.i47 = getelementptr inbounds %struct.b3Int4, ptr %17, i64 %idxprom.i46
   %18 = load i32, ptr %arrayidx.i47, align 16
-  %y = getelementptr inbounds i8, ptr %arrayidx.i47, i64 4
+  %y = getelementptr inbounds nuw i8, ptr %arrayidx.i47, i64 4
   %19 = load i32, ptr %y, align 4
   %shl.i48 = shl i32 %19, 16
   %or.i49 = or i32 %shl.i48, %18
@@ -1062,13 +1062,13 @@ return:                                           ; preds = %while.body.i, %retu
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN28b3HashedOverlappingPairCache26processAllOverlappingPairsEP17b3OverlapCallbackP12b3Dispatcher(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %callback, ptr noundef %dispatcher) unnamed_addr #0 align 2 {
 entry:
-  %m_size.i = getelementptr inbounds i8, ptr %this, i64 12
+  %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i32, ptr %m_size.i, align 4
   %cmp5 = icmp sgt i32 %0, 0
   br i1 %cmp5, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end
@@ -1077,17 +1077,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %idxprom.i = sext i32 %i.06 to i64
   %arrayidx.i = getelementptr inbounds %struct.b3Int4, ptr %1, i64 %idxprom.i
   %vtable = load ptr, ptr %callback, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %2 = load ptr, ptr %vfn, align 8
   %call4 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(8) %callback, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i)
   br i1 %call4, label %if.then, label %if.else
 
 if.then:                                          ; preds = %for.body
   %3 = load i32, ptr %arrayidx.i, align 16
-  %y = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
+  %y = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 4
   %4 = load i32, ptr %y, align 4
   %vtable5 = load ptr, ptr %this, align 8
-  %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 104
+  %vfn6 = getelementptr inbounds nuw i8, ptr %vtable5, i64 104
   %5 = load ptr, ptr %vfn6, align 8
   %call7 = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(112) %this, i32 noundef %3, i32 noundef %4, ptr noundef %dispatcher)
   %6 = load i32, ptr @b3g_overlappingPairs, align 4
@@ -1114,21 +1114,21 @@ define dso_local void @_ZN28b3HashedOverlappingPairCache20sortOverlappingPairsEP
 entry:
   %tmpPairs = alloca %class.b3AlignedObjectArray, align 8
   %ref.tmp = alloca %class.b3BroadphasePairSortPredicate, align 1
-  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %tmpPairs, i64 24
+  %m_ownsMemory.i.i = getelementptr inbounds nuw i8, ptr %tmpPairs, i64 24
   store i8 1, ptr %m_ownsMemory.i.i, align 8
-  %m_data.i.i = getelementptr inbounds i8, ptr %tmpPairs, i64 16
+  %m_data.i.i = getelementptr inbounds nuw i8, ptr %tmpPairs, i64 16
   store ptr null, ptr %m_data.i.i, align 8
-  %m_size.i.i = getelementptr inbounds i8, ptr %tmpPairs, i64 4
+  %m_size.i.i = getelementptr inbounds nuw i8, ptr %tmpPairs, i64 4
   store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds i8, ptr %tmpPairs, i64 8
+  %m_capacity.i.i = getelementptr inbounds nuw i8, ptr %tmpPairs, i64 8
   store i32 0, ptr %m_capacity.i.i, align 8
-  %m_size.i = getelementptr inbounds i8, ptr %this, i64 12
+  %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i32, ptr %m_size.i, align 4
   %cmp61 = icmp sgt i32 %0, 0
   br i1 %cmp61, label %for.body.lr.ph, label %for.cond20.preheader
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   br label %for.body
 
 for.cond6.preheader:                              ; preds = %for.inc
@@ -1141,7 +1141,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %3 = phi i32 [ 0, %for.body.lr.ph ], [ %inc.i, %for.inc ]
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %4 = load ptr, ptr %m_data.i, align 8
-  %arrayidx.i = getelementptr inbounds %struct.b3Int4, ptr %4, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw %struct.b3Int4, ptr %4, i64 %indvars.iv
   %cmp.i = icmp eq i32 %3, %2
   br i1 %cmp.i, label %if.then.i, label %for.inc
 
@@ -1178,8 +1178,8 @@ for.body.lr.ph.i.i:                               ; preds = %if.then.split.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
-  %arrayidx.i.i = getelementptr inbounds %struct.b3Int4, ptr %call.i.i.i49, i64 %indvars.iv.i.i
-  %arrayidx3.i.i = getelementptr inbounds %struct.b3Int4, ptr %.pre79, i64 %indvars.iv.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw %struct.b3Int4, ptr %call.i.i.i49, i64 %indvars.iv.i.i
+  %arrayidx3.i.i = getelementptr inbounds nuw %struct.b3Int4, ptr %.pre79, i64 %indvars.iv.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i.i, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx3.i.i, i64 16, i1 false)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -1274,24 +1274,24 @@ lpad:                                             ; preds = %lpad.loopexit.split
 
 for.cond20.preheader:                             ; preds = %for.inc17, %entry, %for.cond6.preheader
   %14 = phi i32 [ %inc.i, %for.cond6.preheader ], [ 0, %entry ], [ %20, %for.inc17 ]
-  %m_size.i26 = getelementptr inbounds i8, ptr %this, i64 84
+  %m_size.i26 = getelementptr inbounds nuw i8, ptr %this, i64 84
   %15 = load i32, ptr %m_size.i26, align 4
   %cmp2365 = icmp sgt i32 %15, 0
   br i1 %cmp2365, label %for.body24.lr.ph, label %for.end30
 
 for.body24.lr.ph:                                 ; preds = %for.cond20.preheader
-  %m_data.i27 = getelementptr inbounds i8, ptr %this, i64 96
+  %m_data.i27 = getelementptr inbounds nuw i8, ptr %this, i64 96
   br label %for.body24
 
 for.body10:                                       ; preds = %for.cond6.preheader, %for.inc17
   %indvars.iv70 = phi i64 [ %indvars.iv.next71, %for.inc17 ], [ 0, %for.cond6.preheader ]
   %16 = load ptr, ptr %m_data.i.i, align 8
-  %arrayidx.i22 = getelementptr inbounds %struct.b3Int4, ptr %16, i64 %indvars.iv70
+  %arrayidx.i22 = getelementptr inbounds nuw %struct.b3Int4, ptr %16, i64 %indvars.iv70
   %17 = load i32, ptr %arrayidx.i22, align 16
-  %y = getelementptr inbounds i8, ptr %arrayidx.i22, i64 4
+  %y = getelementptr inbounds nuw i8, ptr %arrayidx.i22, i64 4
   %18 = load i32, ptr %y, align 4
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 104
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 104
   %19 = load ptr, ptr %vfn, align 8
   %call16 = invoke noundef ptr %19(ptr noundef nonnull align 8 dereferenceable(112) %this, i32 noundef %17, i32 noundef %18, ptr noundef %dispatcher)
           to label %for.inc17 unwind label %lpad.loopexit.split-lp.loopexit
@@ -1306,7 +1306,7 @@ for.inc17:                                        ; preds = %for.body10
 for.body24:                                       ; preds = %for.body24.lr.ph, %for.body24
   %indvars.iv73 = phi i64 [ 0, %for.body24.lr.ph ], [ %indvars.iv.next74, %for.body24 ]
   %22 = load ptr, ptr %m_data.i27, align 8
-  %arrayidx.i29 = getelementptr inbounds i32, ptr %22, i64 %indvars.iv73
+  %arrayidx.i29 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv73
   store i32 -1, ptr %arrayidx.i29, align 4
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %23 = load i32, ptr %m_size.i26, align 4
@@ -1340,12 +1340,12 @@ _ZN20b3AlignedObjectArrayI6b3Int4E9quickSortI29b3BroadphasePairSortPredicateEEvR
 for.body36:                                       ; preds = %_ZN20b3AlignedObjectArrayI6b3Int4E9quickSortI29b3BroadphasePairSortPredicateEEvRKT_.exit, %for.inc47
   %indvars.iv76 = phi i64 [ %indvars.iv.next77, %for.inc47 ], [ 0, %_ZN20b3AlignedObjectArrayI6b3Int4E9quickSortI29b3BroadphasePairSortPredicateEEvRKT_.exit ]
   %27 = load ptr, ptr %m_data.i.i, align 8
-  %arrayidx.i37 = getelementptr inbounds %struct.b3Int4, ptr %27, i64 %indvars.iv76
+  %arrayidx.i37 = getelementptr inbounds nuw %struct.b3Int4, ptr %27, i64 %indvars.iv76
   %28 = load i32, ptr %arrayidx.i37, align 16
-  %y42 = getelementptr inbounds i8, ptr %arrayidx.i37, i64 4
+  %y42 = getelementptr inbounds nuw i8, ptr %arrayidx.i37, i64 4
   %29 = load i32, ptr %y42, align 4
   %vtable43 = load ptr, ptr %this, align 8
-  %vfn44 = getelementptr inbounds i8, ptr %vtable43, i64 96
+  %vfn44 = getelementptr inbounds nuw i8, ptr %vtable43, i64 96
   %30 = load ptr, ptr %vfn44, align 8
   %call46 = invoke noundef ptr %30(ptr noundef nonnull align 8 dereferenceable(112) %this, i32 noundef %28, i32 noundef %29)
           to label %for.inc47 unwind label %lpad.loopexit
@@ -1387,7 +1387,7 @@ define dso_local noundef ptr @_ZN28b3SortedOverlappingPairCache21removeOverlappi
 entry:
   %temp.sroa.0.i = alloca %struct.anon, align 16
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 88
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 88
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(56) %this)
   br i1 %call, label %return, label %if.then
@@ -1395,23 +1395,23 @@ entry:
 if.then:                                          ; preds = %entry
   %xx.yy.i = tail call i32 @llvm.smin.i32(i32 %proxy0, i32 %proxy1)
   %yy.xx.i = tail call i32 @llvm.smax.i32(i32 %proxy0, i32 %proxy1)
-  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 12
+  %m_size.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %1 = load i32, ptr %m_size.i.i, align 4
   %cmp5.i = icmp sgt i32 %1, 0
   br i1 %cmp5.i, label %for.body.lr.ph.i, label %return
 
 for.body.lr.ph.i:                                 ; preds = %if.then
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load ptr, ptr %m_data.i, align 8
   %wide.trip.count.i = zext nneg i32 %1 to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %arrayidx.i = getelementptr inbounds %struct.b3Int4, ptr %2, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw %struct.b3Int4, ptr %2, i64 %indvars.iv.i
   %3 = load i32, ptr %arrayidx.i, align 16
   %cmp.i.i = icmp eq i32 %3, %xx.yy.i
-  %y.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
+  %y.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 4
   %4 = load i32, ptr %y.i.i, align 4
   %cmp3.i.i = icmp eq i32 %4, %yy.xx.i
   %5 = select i1 %cmp.i.i, i1 %cmp3.i.i, i1 false
@@ -1435,10 +1435,10 @@ if.then7:                                         ; preds = %_ZNK20b3AlignedObje
   %idxprom.i = ashr exact i64 %sext, 32
   %arrayidx.i4 = getelementptr inbounds %struct.b3Int4, ptr %2, i64 %idxprom.i
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 40
+  %vfn11 = getelementptr inbounds nuw i8, ptr %vtable10, i64 40
   %8 = load ptr, ptr %vfn11, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i4, ptr noundef %dispatcher)
-  %m_capacity.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_capacity.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %9 = load i32, ptr %m_capacity.i, align 8
   %sub = add nsw i32 %9, -1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %temp.sroa.0.i)
@@ -1464,28 +1464,28 @@ return:                                           ; preds = %for.inc.i, %if.then
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZN28b3SortedOverlappingPairCache18addOverlappingPairEii(ptr noundef nonnull align 8 dereferenceable(56) %this, i32 noundef %proxy0, i32 noundef %proxy1) unnamed_addr #0 align 2 {
 entry:
-  %m_overlapFilterCallback.i = getelementptr inbounds i8, ptr %this, i64 48
+  %m_overlapFilterCallback.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %m_overlapFilterCallback.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.end, label %_ZNK28b3SortedOverlappingPairCache24needsBroadphaseCollisionEii.exit
 
 _ZNK28b3SortedOverlappingPairCache24needsBroadphaseCollisionEii.exit: ; preds = %entry
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 16
   %1 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %proxy0, i32 noundef %proxy1)
   br i1 %call.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry, %_ZNK28b3SortedOverlappingPairCache24needsBroadphaseCollisionEii.exit
-  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 12
+  %m_size.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %2 = load i32, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_capacity.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load i32, ptr %m_capacity.i.i, align 8
   %cmp.i = icmp eq i32 %2, %3
   br i1 %cmp.i, label %if.then.i4, label %_ZN20b3AlignedObjectArrayI6b3Int4E21expandNonInitializingEv.exit
 
 if.then.i4:                                       ; preds = %if.end
-  %m_overlappingPairArray = getelementptr inbounds i8, ptr %this, i64 8
+  %m_overlappingPairArray = getelementptr inbounds nuw i8, ptr %this, i64 8
   %tobool.not.i.i = icmp eq i32 %2, 0
   %mul.i.i = shl nsw i32 %2, 1
   %cond.i.i = select i1 %tobool.not.i.i, i32 1, i32 %mul.i.i
@@ -1497,7 +1497,7 @@ _ZN20b3AlignedObjectArrayI6b3Int4E21expandNonInitializingEv.exit: ; preds = %if.
   %4 = phi i32 [ %.pre.i, %if.then.i4 ], [ %2, %if.end ]
   %inc.i = add nsw i32 %4, 1
   store i32 %inc.i, ptr %m_size.i.i, align 4
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %5 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = sext i32 %2 to i64
   %arrayidx.i = getelementptr inbounds %struct.b3Int4, ptr %5, i64 %idxprom.i
@@ -1508,7 +1508,7 @@ _ZN20b3AlignedObjectArrayI6b3Int4E21expandNonInitializingEv.exit: ; preds = %if.
   %retval.sroa.0.0.insert.ext.i = zext i32 %xx.yy.i to i64
   %retval.sroa.0.0.insert.insert.i = or disjoint i64 %retval.sroa.3.0.insert.shift.i, %retval.sroa.0.0.insert.ext.i
   store i64 %retval.sroa.0.0.insert.insert.i, ptr %arrayidx.i, align 16
-  %ref.tmp.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %ref.tmp.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   store i64 -1, ptr %ref.tmp.sroa.2.0..sroa_idx, align 8
   %6 = load i32, ptr @b3g_overlappingPairs, align 4
   %inc = add nsw i32 %6, 1
@@ -1526,14 +1526,14 @@ return:                                           ; preds = %_ZNK28b3SortedOverl
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZN28b3SortedOverlappingPairCache8findPairEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i32 noundef %proxy0, i32 noundef %proxy1) unnamed_addr #0 align 2 {
 entry:
-  %m_overlapFilterCallback.i = getelementptr inbounds i8, ptr %this, i64 48
+  %m_overlapFilterCallback.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %m_overlapFilterCallback.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.end, label %_ZNK28b3SortedOverlappingPairCache24needsBroadphaseCollisionEii.exit
 
 _ZNK28b3SortedOverlappingPairCache24needsBroadphaseCollisionEii.exit: ; preds = %entry
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 16
   %1 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %proxy0, i32 noundef %proxy1)
   br i1 %call.i, label %if.end, label %return
@@ -1541,23 +1541,23 @@ _ZNK28b3SortedOverlappingPairCache24needsBroadphaseCollisionEii.exit: ; preds = 
 if.end:                                           ; preds = %entry, %_ZNK28b3SortedOverlappingPairCache24needsBroadphaseCollisionEii.exit
   %xx.yy.i = tail call i32 @llvm.smin.i32(i32 %proxy0, i32 %proxy1)
   %yy.xx.i = tail call i32 @llvm.smax.i32(i32 %proxy0, i32 %proxy1)
-  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 12
+  %m_size.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %2 = load i32, ptr %m_size.i.i, align 4
   %cmp5.i = icmp sgt i32 %2, 0
   br i1 %cmp5.i, label %for.body.lr.ph.i, label %return
 
 for.body.lr.ph.i:                                 ; preds = %if.end
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load ptr, ptr %m_data.i, align 8
   %wide.trip.count.i = zext nneg i32 %2 to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %arrayidx.i = getelementptr inbounds %struct.b3Int4, ptr %3, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw %struct.b3Int4, ptr %3, i64 %indvars.iv.i
   %4 = load i32, ptr %arrayidx.i, align 16
   %cmp.i.i = icmp eq i32 %4, %xx.yy.i
-  %y.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
+  %y.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 4
   %5 = load i32, ptr %y.i.i, align 4
   %cmp3.i.i = icmp eq i32 %5, %yy.xx.i
   %6 = select i1 %cmp.i.i, i1 %cmp3.i.i, i1 false
@@ -1588,13 +1588,13 @@ return:                                           ; preds = %for.inc.i, %if.end,
 define dso_local void @_ZN28b3SortedOverlappingPairCache26processAllOverlappingPairsEP17b3OverlapCallbackP12b3Dispatcher(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %callback, ptr noundef %dispatcher) unnamed_addr #0 align 2 {
 entry:
   %temp.sroa.0.i = alloca %struct.anon, align 16
-  %m_size.i = getelementptr inbounds i8, ptr %this, i64 12
+  %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i32, ptr %m_size.i, align 4
   %cmp12 = icmp sgt i32 %0, 0
   br i1 %cmp12, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end
@@ -1603,18 +1603,18 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %idxprom.i = sext i32 %i.013 to i64
   %arrayidx.i = getelementptr inbounds %struct.b3Int4, ptr %1, i64 %idxprom.i
   %vtable = load ptr, ptr %callback, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %2 = load ptr, ptr %vfn, align 8
   %call4 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(8) %callback, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i)
   br i1 %call4, label %if.then, label %if.else
 
 if.then:                                          ; preds = %for.body
   %vtable5 = load ptr, ptr %this, align 8
-  %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 40
+  %vfn6 = getelementptr inbounds nuw i8, ptr %vtable5, i64 40
   %3 = load ptr, ptr %vfn6, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i, ptr noundef %dispatcher)
   store i32 -1, ptr %arrayidx.i, align 16
-  %y = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
+  %y = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 4
   store i32 -1, ptr %y, align 4
   %4 = load i32, ptr %m_size.i, align 4
   %sub = add nsw i32 %4, -1
@@ -1656,19 +1656,19 @@ for.end:                                          ; preds = %if.end, %entry
 define dso_local void @_ZN28b3SortedOverlappingPairCacheC2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8), (12, 20), (24, 33), (40, 42), (48, 56)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.then.i:
   store ptr getelementptr inbounds (i8, ptr @_ZTV28b3SortedOverlappingPairCache, i64 16), ptr %this, align 8
-  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %m_ownsMemory.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i8 1, ptr %m_ownsMemory.i.i, align 8
-  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_data.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr null, ptr %m_data.i.i, align 8
-  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 12
+  %m_size.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_capacity.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 0, ptr %m_capacity.i.i, align 8
-  %m_blockedForChanges = getelementptr inbounds i8, ptr %this, i64 40
+  %m_blockedForChanges = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i8 0, ptr %m_blockedForChanges, align 8
-  %m_hasDeferredRemoval = getelementptr inbounds i8, ptr %this, i64 41
+  %m_hasDeferredRemoval = getelementptr inbounds nuw i8, ptr %this, i64 41
   store i8 1, ptr %m_hasDeferredRemoval, align 1
-  %m_overlapFilterCallback = getelementptr inbounds i8, ptr %this, i64 48
+  %m_overlapFilterCallback = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr null, ptr %m_overlapFilterCallback, align 8
   %call.i.i.i6 = invoke noundef ptr @_Z22b3AlignedAllocInternalmi(i64 noundef 32, i32 noundef 16)
           to label %call.i.i.i.noexc unwind label %lpad3
@@ -1688,9 +1688,9 @@ for.body.lr.ph.i.i:                               ; preds = %if.then.split.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
-  %arrayidx.i.i = getelementptr inbounds %struct.b3Int4, ptr %call.i.i.i6, i64 %indvars.iv.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw %struct.b3Int4, ptr %call.i.i.i6, i64 %indvars.iv.i.i
   %1 = load ptr, ptr %m_data.i.i, align 8
-  %arrayidx3.i.i = getelementptr inbounds %struct.b3Int4, ptr %1, i64 %indvars.iv.i.i
+  %arrayidx3.i.i = getelementptr inbounds nuw %struct.b3Int4, ptr %1, i64 %indvars.iv.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i.i, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx3.i.i, i64 16, i1 false)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -1732,7 +1732,7 @@ invoke.cont4:                                     ; preds = %if.then3.i.i, %if.t
 lpad3:                                            ; preds = %if.then3.i.i, %.noexc, %_ZNK20b3AlignedObjectArrayI6b3Int4E4copyEiiPS0_.exit18.i, %if.then.i
   %4 = landingpad { ptr, i32 }
           cleanup
-  %m_overlappingPairArray = getelementptr inbounds i8, ptr %this, i64 8
+  %m_overlappingPairArray = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN20b3AlignedObjectArrayI6b3Int4ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_overlappingPairArray) #12
   resume { ptr, i32 } %4
 }
@@ -1741,13 +1741,13 @@ lpad3:                                            ; preds = %if.then3.i.i, %.noe
 define dso_local void @_ZN28b3SortedOverlappingPairCacheD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV28b3SortedOverlappingPairCache, i64 16), ptr %this, align 8
-  %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_data.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_data.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZN20b3AlignedObjectArrayI6b3Int4ED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %m_ownsMemory.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load i8, ptr %m_ownsMemory.i.i.i, align 8
   %tobool2.i.i.i = trunc i8 %1 to i1
   br i1 %tobool2.i.i.i, label %if.then3.i.i.i, label %_ZN20b3AlignedObjectArrayI6b3Int4ED2Ev.exit
@@ -1764,12 +1764,12 @@ terminate.lpad.i:                                 ; preds = %if.then3.i.i.i
   unreachable
 
 _ZN20b3AlignedObjectArrayI6b3Int4ED2Ev.exit:      ; preds = %entry, %if.then.i.i.i, %if.then3.i.i.i
-  %m_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 12
-  %m_ownsMemory.i1.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %m_size.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
+  %m_ownsMemory.i1.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i8 1, ptr %m_ownsMemory.i1.i.i, align 8
   store ptr null, ptr %m_data.i.i.i, align 8
   store i32 0, ptr %m_size.i.i.i, align 4
-  %m_capacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_capacity.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 0, ptr %m_capacity.i.i.i, align 8
   ret void
 }
@@ -1778,13 +1778,13 @@ _ZN20b3AlignedObjectArrayI6b3Int4ED2Ev.exit:      ; preds = %entry, %if.then.i.i
 define dso_local void @_ZN28b3SortedOverlappingPairCacheD0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV28b3SortedOverlappingPairCache, i64 16), ptr %this, align 8
-  %m_data.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_data.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_data.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i, label %_ZN28b3SortedOverlappingPairCacheD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %m_ownsMemory.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %m_ownsMemory.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load i8, ptr %m_ownsMemory.i.i.i.i, align 8
   %tobool2.i.i.i.i = trunc i8 %1 to i1
   br i1 %tobool2.i.i.i.i, label %if.then3.i.i.i.i, label %_ZN28b3SortedOverlappingPairCacheD2Ev.exit
@@ -1816,14 +1816,14 @@ define dso_local void @_ZN28b3SortedOverlappingPairCache19cleanProxyFromPairsEiP
 entry:
   %cleanPairs = alloca %class.CleanPairCallback.5, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVZN28b3SortedOverlappingPairCache19cleanProxyFromPairsEiP12b3DispatcherE17CleanPairCallback, i64 16), ptr %cleanPairs, align 8
-  %m_cleanProxy.i = getelementptr inbounds i8, ptr %cleanPairs, i64 8
+  %m_cleanProxy.i = getelementptr inbounds nuw i8, ptr %cleanPairs, i64 8
   store i32 %proxy, ptr %m_cleanProxy.i, align 8
-  %m_pairCache.i = getelementptr inbounds i8, ptr %cleanPairs, i64 16
+  %m_pairCache.i = getelementptr inbounds nuw i8, ptr %cleanPairs, i64 16
   store ptr %this, ptr %m_pairCache.i, align 8
-  %m_dispatcher.i = getelementptr inbounds i8, ptr %cleanPairs, i64 24
+  %m_dispatcher.i = getelementptr inbounds nuw i8, ptr %cleanPairs, i64 24
   store ptr %dispatcher, ptr %m_dispatcher.i, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 72
   %0 = load ptr, ptr %vfn, align 8
   call void %0(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull %cleanPairs, ptr noundef %dispatcher)
   ret void
@@ -1840,10 +1840,10 @@ define dso_local void @_ZN28b3SortedOverlappingPairCache37removeOverlappingPairs
 entry:
   %removeCallback = alloca %class.RemovePairCallback.6, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVZN28b3SortedOverlappingPairCache37removeOverlappingPairsContainingProxyEiP12b3DispatcherE18RemovePairCallback, i64 16), ptr %removeCallback, align 8
-  %m_obsoleteProxy.i = getelementptr inbounds i8, ptr %removeCallback, i64 8
+  %m_obsoleteProxy.i = getelementptr inbounds nuw i8, ptr %removeCallback, i64 8
   store i32 %proxy, ptr %m_obsoleteProxy.i, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 72
   %0 = load ptr, ptr %vfn, align 8
   call void %0(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull %removeCallback, ptr noundef %dispatcher)
   ret void
@@ -1864,7 +1864,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZN28b3HashedOverlappingPairCache26getOverlappingPairArrayPtrEv(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_data.i, align 8
   ret ptr %0
 }
@@ -1872,7 +1872,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK28b3HashedOverlappingPairCache26getOverlappingPairArrayPtrEv(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_data.i, align 8
   ret ptr %0
 }
@@ -1880,14 +1880,14 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(25) ptr @_ZN28b3HashedOverlappingPairCache23getOverlappingPairArrayEv(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  %m_overlappingPairArray = getelementptr inbounds i8, ptr %this, i64 8
+  %m_overlappingPairArray = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %m_overlappingPairArray
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i32 @_ZNK28b3HashedOverlappingPairCache22getNumOverlappingPairsEv(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %m_size.i = getelementptr inbounds i8, ptr %this, i64 12
+  %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i32, ptr %m_size.i, align 4
   ret i32 %0
 }
@@ -1895,7 +1895,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN28b3HashedOverlappingPairCache24setOverlapFilterCallbackEP23b3OverlapFilterCallback(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %callback) unnamed_addr #1 comdat align 2 {
 entry:
-  %m_overlapFilterCallback = getelementptr inbounds i8, ptr %this, i64 40
+  %m_overlapFilterCallback = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %callback, ptr %m_overlapFilterCallback, align 8
   ret void
 }
@@ -1912,14 +1912,14 @@ entry:
   %0 = load i32, ptr @b3g_addedPairs, align 4
   %inc = add nsw i32 %0, 1
   store i32 %inc, ptr @b3g_addedPairs, align 4
-  %m_overlapFilterCallback.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_overlapFilterCallback.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %1 = load ptr, ptr %m_overlapFilterCallback.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %if.end, label %_ZNK28b3HashedOverlappingPairCache24needsBroadphaseCollisionEii.exit
 
 _ZNK28b3HashedOverlappingPairCache24needsBroadphaseCollisionEii.exit: ; preds = %entry
   %vtable.i = load ptr, ptr %1, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 16
   %2 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %proxy0, i32 noundef %proxy1)
   br i1 %call.i, label %if.end, label %return
@@ -1936,7 +1936,7 @@ return:                                           ; preds = %_ZNK28b3HashedOverl
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZN28b3SortedOverlappingPairCache26getOverlappingPairArrayPtrEv(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_data.i, align 8
   ret ptr %0
 }
@@ -1944,7 +1944,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK28b3SortedOverlappingPairCache26getOverlappingPairArrayPtrEv(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_data.i, align 8
   ret ptr %0
 }
@@ -1952,14 +1952,14 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(25) ptr @_ZN28b3SortedOverlappingPairCache23getOverlappingPairArrayEv(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  %m_overlappingPairArray = getelementptr inbounds i8, ptr %this, i64 8
+  %m_overlappingPairArray = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %m_overlappingPairArray
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i32 @_ZNK28b3SortedOverlappingPairCache22getNumOverlappingPairsEv(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %m_size.i = getelementptr inbounds i8, ptr %this, i64 12
+  %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i32, ptr %m_size.i, align 4
   ret i32 %0
 }
@@ -1967,7 +1967,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN28b3SortedOverlappingPairCache24setOverlapFilterCallbackEP23b3OverlapFilterCallback(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %callback) unnamed_addr #1 comdat align 2 {
 entry:
-  %m_overlapFilterCallback = getelementptr inbounds i8, ptr %this, i64 48
+  %m_overlapFilterCallback = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr %callback, ptr %m_overlapFilterCallback, align 8
   ret void
 }
@@ -1975,7 +1975,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN28b3SortedOverlappingPairCache18hasDeferredRemovalEv(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  %m_hasDeferredRemoval = getelementptr inbounds i8, ptr %this, i64 41
+  %m_hasDeferredRemoval = getelementptr inbounds nuw i8, ptr %this, i64 41
   %0 = load i8, ptr %m_hasDeferredRemoval, align 1
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -1992,22 +1992,22 @@ entry:
 define internal noundef zeroext i1 @_ZZN28b3HashedOverlappingPairCache19cleanProxyFromPairsEiP12b3DispatcherEN17CleanPairCallback14processOverlapER6b3Int4(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull align 16 dereferenceable(16) %pair) unnamed_addr #0 align 2 {
 entry:
   %0 = load i32, ptr %pair, align 16
-  %m_cleanProxy = getelementptr inbounds i8, ptr %this, i64 8
+  %m_cleanProxy = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i32, ptr %m_cleanProxy, align 8
   %cmp = icmp eq i32 %0, %1
-  %y = getelementptr inbounds i8, ptr %pair, i64 4
+  %y = getelementptr inbounds nuw i8, ptr %pair, i64 4
   %2 = load i32, ptr %y, align 4
   %cmp3 = icmp eq i32 %2, %1
   %or.cond = select i1 %cmp, i1 true, i1 %cmp3
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %m_pairCache = getelementptr inbounds i8, ptr %this, i64 16
+  %m_pairCache = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load ptr, ptr %m_pairCache, align 8
-  %m_dispatcher = getelementptr inbounds i8, ptr %this, i64 24
+  %m_dispatcher = getelementptr inbounds nuw i8, ptr %this, i64 24
   %4 = load ptr, ptr %m_dispatcher, align 8
   %vtable = load ptr, ptr %3, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %5 = load ptr, ptr %vfn, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 16 dereferenceable(16) %pair, ptr noundef %4)
   br label %if.end
@@ -2027,10 +2027,10 @@ entry:
 define internal noundef zeroext i1 @_ZZN28b3HashedOverlappingPairCache37removeOverlappingPairsContainingProxyEiP12b3DispatcherEN18RemovePairCallback14processOverlapER6b3Int4(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %pair) unnamed_addr #6 align 2 {
 entry:
   %0 = load i32, ptr %pair, align 16
-  %m_obsoleteProxy = getelementptr inbounds i8, ptr %this, i64 8
+  %m_obsoleteProxy = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i32, ptr %m_obsoleteProxy, align 8
   %cmp = icmp eq i32 %0, %1
-  %y = getelementptr inbounds i8, ptr %pair, i64 4
+  %y = getelementptr inbounds nuw i8, ptr %pair, i64 4
   %2 = load i32, ptr %y, align 4
   %cmp3 = icmp eq i32 %2, %1
   %3 = select i1 %cmp, i1 true, i1 %cmp3
@@ -2048,22 +2048,22 @@ entry:
 define internal noundef zeroext i1 @_ZZN28b3SortedOverlappingPairCache19cleanProxyFromPairsEiP12b3DispatcherEN17CleanPairCallback14processOverlapER6b3Int4(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull align 16 dereferenceable(16) %pair) unnamed_addr #0 align 2 {
 entry:
   %0 = load i32, ptr %pair, align 16
-  %m_cleanProxy = getelementptr inbounds i8, ptr %this, i64 8
+  %m_cleanProxy = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i32, ptr %m_cleanProxy, align 8
   %cmp = icmp eq i32 %0, %1
-  %y = getelementptr inbounds i8, ptr %pair, i64 4
+  %y = getelementptr inbounds nuw i8, ptr %pair, i64 4
   %2 = load i32, ptr %y, align 4
   %cmp3 = icmp eq i32 %2, %1
   %or.cond = select i1 %cmp, i1 true, i1 %cmp3
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %m_pairCache = getelementptr inbounds i8, ptr %this, i64 16
+  %m_pairCache = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load ptr, ptr %m_pairCache, align 8
-  %m_dispatcher = getelementptr inbounds i8, ptr %this, i64 24
+  %m_dispatcher = getelementptr inbounds nuw i8, ptr %this, i64 24
   %4 = load ptr, ptr %m_dispatcher, align 8
   %vtable = load ptr, ptr %3, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %5 = load ptr, ptr %vfn, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 16 dereferenceable(16) %pair, ptr noundef %4)
   br label %if.end
@@ -2083,10 +2083,10 @@ entry:
 define internal noundef zeroext i1 @_ZZN28b3SortedOverlappingPairCache37removeOverlappingPairsContainingProxyEiP12b3DispatcherEN18RemovePairCallback14processOverlapER6b3Int4(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %pair) unnamed_addr #6 align 2 {
 entry:
   %0 = load i32, ptr %pair, align 16
-  %m_obsoleteProxy = getelementptr inbounds i8, ptr %this, i64 8
+  %m_obsoleteProxy = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i32, ptr %m_obsoleteProxy, align 8
   %cmp = icmp eq i32 %0, %1
-  %y = getelementptr inbounds i8, ptr %pair, i64 4
+  %y = getelementptr inbounds nuw i8, ptr %pair, i64 4
   %2 = load i32, ptr %y, align 4
   %cmp3 = icmp eq i32 %2, %1
   %3 = select i1 %cmp, i1 true, i1 %cmp3
@@ -2114,7 +2114,7 @@ declare noundef ptr @_Z22b3AlignedAllocInternalmi(i64 noundef, i32 noundef) loca
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIiE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %_Count) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %m_capacity.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_capacity.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %m_capacity.i, align 8
   %cmp = icmp slt i32 %0, %_Count
   br i1 %cmp, label %if.then, label %if.end7
@@ -2131,21 +2131,21 @@ _ZN20b3AlignedObjectArrayIiE8allocateEi.exit:     ; preds = %if.then
   br i1 %cmp3, label %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit18, label %if.then.split
 
 if.then.split:                                    ; preds = %_ZN20b3AlignedObjectArrayIiE8allocateEi.exit
-  %m_size.i = getelementptr inbounds i8, ptr %this, i64 4
+  %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %1 = load i32, ptr %m_size.i, align 4
   %cmp4.i = icmp sgt i32 %1, 0
   br i1 %cmp4.i, label %for.body.lr.ph.i, label %if.end
 
 for.body.lr.ph.i:                                 ; preds = %if.then.split
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %wide.trip.count.i = zext nneg i32 %1 to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds i32, ptr %call.i.i, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw i32, ptr %call.i.i, i64 %indvars.iv.i
   %2 = load ptr, ptr %m_data.i, align 8
-  %arrayidx3.i = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.i
+  %arrayidx3.i = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i
   %3 = load i32, ptr %arrayidx3.i, align 4
   store i32 %3, ptr %arrayidx.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2155,20 +2155,20 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 _ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit18:   ; preds = %if.then, %_ZN20b3AlignedObjectArrayIiE8allocateEi.exit
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 301)
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.2)
-  %m_size = getelementptr inbounds i8, ptr %this, i64 4
+  %m_size = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i32 0, ptr %m_size, align 4
   br label %if.end
 
 if.end:                                           ; preds = %for.body.i, %if.then.split, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit18
   %retval.0.i25 = phi ptr [ null, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit18 ], [ %call.i.i, %if.then.split ], [ %call.i.i, %for.body.i ]
   %_Count.addr.0 = phi i32 [ 0, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit18 ], [ %_Count, %if.then.split ], [ %_Count, %for.body.i ]
-  %m_data.i20 = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data.i20 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %4 = load ptr, ptr %m_data.i20, align 8
   %tobool.not.i21 = icmp eq ptr %4, null
   br i1 %tobool.not.i21, label %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit, label %if.then.i22
 
 if.then.i22:                                      ; preds = %if.end
-  %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_ownsMemory.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %5 = load i8, ptr %m_ownsMemory.i, align 8
   %tobool2.i = trunc i8 %5 to i1
   br i1 %tobool2.i, label %if.then3.i, label %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit
@@ -2178,7 +2178,7 @@ if.then3.i:                                       ; preds = %if.then.i22
   br label %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit
 
 _ZN20b3AlignedObjectArrayIiE10deallocateEv.exit:  ; preds = %if.then.i22, %if.then3.i, %if.end
-  %m_ownsMemory = getelementptr inbounds i8, ptr %this, i64 24
+  %m_ownsMemory = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory, align 8
   store ptr %retval.0.i25, ptr %m_data.i20, align 8
   store i32 %_Count.addr.0, ptr %m_capacity.i, align 8
@@ -2192,7 +2192,7 @@ if.end7:                                          ; preds = %_ZN20b3AlignedObjec
 define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayI6b3Int4E17quickSortInternalI29b3BroadphasePairSortPredicateEEvRKT_ii(ptr noundef nonnull align 8 dereferenceable(25) %this, ptr noundef nonnull align 1 dereferenceable(1) %CompareFunc, i32 noundef %lo, i32 noundef %hi) local_unnamed_addr #0 comdat align 2 {
 entry:
   %temp.sroa.0.i = alloca %struct.anon, align 16
-  %m_data = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data = getelementptr inbounds nuw i8, ptr %this, i64 16
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %if.end17, %entry
@@ -2203,7 +2203,7 @@ tailrecurse:                                      ; preds = %if.end17, %entry
   %idxprom = sext i32 %div to i64
   %arrayidx = getelementptr inbounds %struct.b3Int4, ptr %0, i64 %idxprom
   %x.sroa.0.0.copyload = load i32, ptr %arrayidx, align 16
-  %x.sroa.3.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %arrayidx, i64 4
+  %x.sroa.3.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   %x.sroa.3.0.copyload = load i32, ptr %x.sroa.3.0.arrayidx.sroa_idx, align 4
   br label %do.body
 
@@ -2222,7 +2222,7 @@ while.cond:                                       ; preds = %while.body, %do.bod
   br i1 %cmp.i, label %while.body, label %_ZNK29b3BroadphasePairSortPredicateclERK6b3Int4S2_.exit
 
 _ZNK29b3BroadphasePairSortPredicateclERK6b3Int4S2_.exit: ; preds = %while.cond
-  %y.i = getelementptr inbounds i8, ptr %arrayidx4, i64 4
+  %y.i = getelementptr inbounds nuw i8, ptr %arrayidx4, i64 4
   %4 = load i32, ptr %y.i, align 4
   %cmp4.i = icmp eq i32 %3, %x.sroa.0.0.copyload
   %cmp5.i = icmp sgt i32 %4, %x.sroa.3.0.copyload
@@ -2245,7 +2245,7 @@ while.cond5:                                      ; preds = %while.cond5.prehead
   br i1 %cmp.i24, label %while.body10, label %_ZNK29b3BroadphasePairSortPredicateclERK6b3Int4S2_.exit30
 
 _ZNK29b3BroadphasePairSortPredicateclERK6b3Int4S2_.exit30: ; preds = %while.cond5
-  %y3.i26 = getelementptr inbounds i8, ptr %arrayidx8, i64 4
+  %y3.i26 = getelementptr inbounds nuw i8, ptr %arrayidx8, i64 4
   %8 = load i32, ptr %y3.i26, align 4
   %cmp4.i28 = icmp eq i32 %x.sroa.0.0.copyload, %7
   %cmp5.i29 = icmp sgt i32 %x.sroa.3.0.copyload, %8

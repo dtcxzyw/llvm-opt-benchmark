@@ -190,7 +190,7 @@ define dso_local noundef ptr @callthunks_translate_call_dest(ptr noundef %0) loc
   br i1 %24, label %.loopexit, label %25
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %23, i64 320
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 320
   br label %27
 
 27:                                               ; preds = %43, %25
@@ -206,7 +206,7 @@ define dso_local noundef ptr @callthunks_translate_call_dest(ptr noundef %0) loc
   %35 = getelementptr [7 x %struct.module_memory], ptr %26, i64 0, i64 %28
   %36 = load ptr, ptr %35, align 8
   %37 = ptrtoint ptr %36 to i64
-  %38 = getelementptr inbounds i8, ptr %35, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %39 = load i32, ptr %38, align 8
   %40 = zext i32 %39 to i64
   %41 = sub i64 %18, %37
@@ -278,18 +278,18 @@ define dso_local noundef ptr @callthunks_translate_call_dest(ptr noundef %0) loc
 define dso_local void @callthunks_patch_module_calls(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #5 align 16 {
   %3 = alloca %struct.core_text, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #12
-  %4 = getelementptr inbounds i8, ptr %1, i64 320
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %5 = load ptr, ptr %4, align 64
   %6 = ptrtoint ptr %5 to i64
   store i64 %6, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 328
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
   %11 = add i64 %10, %6
   store i64 %11, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 16
-  %13 = getelementptr inbounds i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %13, ptr %12, align 8
   %14 = load i1, ptr @thunks_initialized, align 1
   br i1 %14, label %15, label %46
@@ -300,12 +300,12 @@ define dso_local void @callthunks_patch_module_calls(ptr nocapture noundef reado
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %15
-  %18 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1, ptr noundef %13) #13
+  %18 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1, ptr noundef nonnull %13) #13
   br label %19
 
 19:                                               ; preds = %17, %15
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = icmp ult ptr %20, %22
   br i1 %23, label %.preheader2, label %.loopexit3
@@ -321,9 +321,9 @@ define dso_local void @callthunks_patch_module_calls(ptr nocapture noundef reado
   br i1 %29, label %.preheader2, label %.loopexit3, !llvm.loop !7
 
 .loopexit3:                                       ; preds = %.preheader2, %19
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = load ptr, ptr %32, align 8
   %34 = icmp ult ptr %31, %33
   br i1 %34, label %.preheader, label %.loopexit
@@ -373,7 +373,7 @@ define internal fastcc void @patch_call(ptr noundef %0, ptr noundef readonly %1)
   br i1 %7, label %.thread11, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = icmp ugt i64 %10, %5
   br i1 %11, label %12, label %.thread11
@@ -392,17 +392,17 @@ define internal fastcc void @patch_call(ptr noundef %0, ptr noundef readonly %1)
   br label %44
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %3, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %20 = load i8, ptr %19, align 8
   %21 = icmp eq i8 %20, -24
   br i1 %21, label %22, label %.thread
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %3, i64 82
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 82
   %24 = load i8, ptr %23, align 2
   %25 = zext i8 %24 to i64
   %26 = getelementptr i8, ptr %0, i64 %25
-  %27 = getelementptr inbounds i8, ptr %3, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %28 = load i32, ptr %27, align 8
   %29 = sext i32 %28 to i64
   %30 = getelementptr i8, ptr %26, i64 %29
@@ -470,7 +470,7 @@ define internal fastcc void @patch_call(ptr noundef %0, ptr noundef readonly %1)
   br i1 %63, label %.loopexit, label %64
 
 64:                                               ; preds = %61
-  %65 = getelementptr inbounds i8, ptr %62, i64 320
+  %65 = getelementptr inbounds nuw i8, ptr %62, i64 320
   br label %66
 
 66:                                               ; preds = %82, %64
@@ -486,7 +486,7 @@ define internal fastcc void @patch_call(ptr noundef %0, ptr noundef readonly %1)
   %74 = getelementptr [7 x %struct.module_memory], ptr %65, i64 0, i64 %67
   %75 = load ptr, ptr %74, align 8
   %76 = ptrtoint ptr %75 to i64
-  %77 = getelementptr inbounds i8, ptr %74, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %78 = load i32, ptr %77, align 8
   %79 = zext i32 %78 to i64
   %80 = sub i64 %.pre, %76
@@ -583,7 +583,7 @@ define internal fastcc void @patch_call(ptr noundef %0, ptr noundef readonly %1)
   %130 = ptrtoint ptr %129 to i64
   %131 = sub i64 %128, %130
   %132 = trunc i64 %131 to i32
-  %133 = getelementptr inbounds i8, ptr %125, i64 1
+  %133 = getelementptr inbounds nuw i8, ptr %125, i64 1
   store i32 %132, ptr %133, align 1
   call void @text_poke_early(ptr noundef %0, ptr noundef nonnull %4, i64 noundef 5) #12
   br label %.thread11

@@ -138,7 +138,7 @@ define dso_local void @_ZN4llvm8codeview20visitDebugSubsectionERKNS0_21DebugSubs
   %33 = getelementptr inbounds nuw i8, ptr %26, i64 12
   store i32 0, ptr %33, align 4
   %34 = load ptr, ptr %26, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
   call void %36(ptr noundef nonnull align 8 dereferenceable(16) %26) #6
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
@@ -164,7 +164,7 @@ define dso_local void @_ZN4llvm8codeview20visitDebugSubsectionERKNS0_21DebugSubs
 
 45:                                               ; preds = %43
   %46 = load ptr, ptr %26, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
   call void %48(ptr noundef nonnull align 8 dereferenceable(16) %26) #6
   %49 = getelementptr inbounds nuw i8, ptr %26, i64 12
@@ -189,7 +189,7 @@ define dso_local void @_ZN4llvm8codeview20visitDebugSubsectionERKNS0_21DebugSubs
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i: ; preds = %56, %32
   %58 = load ptr, ptr %26, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 24
   %60 = load ptr, ptr %59, align 8
   call void %60(ptr noundef nonnull align 8 dereferenceable(16) %26) #6
   br label %_ZN4llvm15BinaryStreamRefD2Ev.exit
@@ -264,7 +264,7 @@ _ZN4llvm18BinaryStreamReaderC2ERKS0_.exit:        ; preds = %62, %72, %75
   %89 = getelementptr inbounds nuw i8, ptr %82, i64 12
   store i32 0, ptr %89, align 4
   %90 = load ptr, ptr %82, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %92 = load ptr, ptr %91, align 8
   call void %92(ptr noundef nonnull align 8 dereferenceable(16) %82) #6
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i
@@ -290,7 +290,7 @@ _ZN4llvm18BinaryStreamReaderC2ERKS0_.exit:        ; preds = %62, %72, %75
 
 101:                                              ; preds = %99
   %102 = load ptr, ptr %82, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 16
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 16
   %104 = load ptr, ptr %103, align 8
   call void %104(ptr noundef nonnull align 8 dereferenceable(16) %82) #6
   %105 = getelementptr inbounds nuw i8, ptr %82, i64 12
@@ -315,7 +315,7 @@ _ZN4llvm18BinaryStreamReaderC2ERKS0_.exit:        ; preds = %62, %72, %75
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i: ; preds = %112, %88
   %114 = load ptr, ptr %82, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 24
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 24
   %116 = load ptr, ptr %115, align 8
   call void %116(ptr noundef nonnull align 8 dereferenceable(16) %82) #6
   br label %_ZN4llvm18BinaryStreamReaderD2Ev.exit
@@ -327,7 +327,7 @@ _ZN4llvm18BinaryStreamReaderD2Ev.exit:            ; preds = %_ZN4llvm18BinaryStr
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZN4llvm18BinaryStreamReaderD2Ev.exit
   %118 = load ptr, ptr %2, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 24
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 24
   %120 = load ptr, ptr %119, align 8
   call void %120(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(88) %7, ptr noundef nonnull align 8 dereferenceable(48) %3) #6
   br label %.critedge
@@ -370,7 +370,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZN4llvm18BinaryStr
 
 137:                                              ; preds = %135
   %138 = load ptr, ptr %122, align 8
-  %139 = getelementptr inbounds i8, ptr %138, i64 16
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 16
   %140 = load ptr, ptr %139, align 8
   call void %140(ptr noundef nonnull align 8 dereferenceable(16) %122) #6
   %141 = getelementptr inbounds nuw i8, ptr %122, i64 12
@@ -457,7 +457,7 @@ _ZN4llvm18BinaryStreamReaderC2ERKS0_.exit81:      ; preds = %150, %164, %167
   %181 = getelementptr inbounds nuw i8, ptr %174, i64 12
   store i32 0, ptr %181, align 4
   %182 = load ptr, ptr %174, align 8
-  %183 = getelementptr inbounds i8, ptr %182, i64 16
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 16
   %184 = load ptr, ptr %183, align 8
   call void %184(ptr noundef nonnull align 8 dereferenceable(16) %174) #6
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i87
@@ -483,7 +483,7 @@ _ZN4llvm18BinaryStreamReaderC2ERKS0_.exit81:      ; preds = %150, %164, %167
 
 193:                                              ; preds = %191
   %194 = load ptr, ptr %174, align 8
-  %195 = getelementptr inbounds i8, ptr %194, i64 16
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 16
   %196 = load ptr, ptr %195, align 8
   call void %196(ptr noundef nonnull align 8 dereferenceable(16) %174) #6
   %197 = getelementptr inbounds nuw i8, ptr %174, i64 12
@@ -508,7 +508,7 @@ _ZN4llvm18BinaryStreamReaderC2ERKS0_.exit81:      ; preds = %150, %164, %167
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i87: ; preds = %204, %180
   %206 = load ptr, ptr %174, align 8
-  %207 = getelementptr inbounds i8, ptr %206, i64 24
+  %207 = getelementptr inbounds nuw i8, ptr %206, i64 24
   %208 = load ptr, ptr %207, align 8
   call void %208(ptr noundef nonnull align 8 dereferenceable(16) %174) #6
   br label %_ZN4llvm18BinaryStreamReaderD2Ev.exit88
@@ -520,7 +520,7 @@ _ZN4llvm18BinaryStreamReaderD2Ev.exit88:          ; preds = %_ZN4llvm18BinaryStr
 
 _ZN4llvm5ErrorD2Ev.exit89:                        ; preds = %_ZN4llvm18BinaryStreamReaderD2Ev.exit88
   %210 = load ptr, ptr %2, align 8
-  %211 = getelementptr inbounds i8, ptr %210, i64 32
+  %211 = getelementptr inbounds nuw i8, ptr %210, i64 32
   %212 = load ptr, ptr %211, align 8
   call void %212(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(72) %9, ptr noundef nonnull align 8 dereferenceable(48) %3) #6
   br label %.critedge58
@@ -563,7 +563,7 @@ _ZN4llvm5ErrorD2Ev.exit89:                        ; preds = %_ZN4llvm18BinaryStr
 
 229:                                              ; preds = %227
   %230 = load ptr, ptr %214, align 8
-  %231 = getelementptr inbounds i8, ptr %230, i64 16
+  %231 = getelementptr inbounds nuw i8, ptr %230, i64 16
   %232 = load ptr, ptr %231, align 8
   call void %232(ptr noundef nonnull align 8 dereferenceable(16) %214) #6
   %233 = getelementptr inbounds nuw i8, ptr %214, i64 12
@@ -642,7 +642,7 @@ _ZN4llvm18BinaryStreamReaderC2ERKS0_.exit98:      ; preds = %242, %252, %255
   %269 = getelementptr inbounds nuw i8, ptr %262, i64 12
   store i32 0, ptr %269, align 4
   %270 = load ptr, ptr %262, align 8
-  %271 = getelementptr inbounds i8, ptr %270, i64 16
+  %271 = getelementptr inbounds nuw i8, ptr %270, i64 16
   %272 = load ptr, ptr %271, align 8
   call void %272(ptr noundef nonnull align 8 dereferenceable(16) %262) #6
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i104
@@ -668,7 +668,7 @@ _ZN4llvm18BinaryStreamReaderC2ERKS0_.exit98:      ; preds = %242, %252, %255
 
 281:                                              ; preds = %279
   %282 = load ptr, ptr %262, align 8
-  %283 = getelementptr inbounds i8, ptr %282, i64 16
+  %283 = getelementptr inbounds nuw i8, ptr %282, i64 16
   %284 = load ptr, ptr %283, align 8
   call void %284(ptr noundef nonnull align 8 dereferenceable(16) %262) #6
   %285 = getelementptr inbounds nuw i8, ptr %262, i64 12
@@ -693,7 +693,7 @@ _ZN4llvm18BinaryStreamReaderC2ERKS0_.exit98:      ; preds = %242, %252, %255
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i104: ; preds = %292, %268
   %294 = load ptr, ptr %262, align 8
-  %295 = getelementptr inbounds i8, ptr %294, i64 24
+  %295 = getelementptr inbounds nuw i8, ptr %294, i64 24
   %296 = load ptr, ptr %295, align 8
   call void %296(ptr noundef nonnull align 8 dereferenceable(16) %262) #6
   br label %_ZN4llvm18BinaryStreamReaderD2Ev.exit105
@@ -705,7 +705,7 @@ _ZN4llvm18BinaryStreamReaderD2Ev.exit105:         ; preds = %_ZN4llvm18BinaryStr
 
 _ZN4llvm5ErrorD2Ev.exit106:                       ; preds = %_ZN4llvm18BinaryStreamReaderD2Ev.exit105
   %298 = load ptr, ptr %2, align 8
-  %299 = getelementptr inbounds i8, ptr %298, i64 40
+  %299 = getelementptr inbounds nuw i8, ptr %298, i64 40
   %300 = load ptr, ptr %299, align 8
   call void %300(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(72) %11, ptr noundef nonnull align 8 dereferenceable(48) %3) #6
   br label %.critedge60
@@ -748,7 +748,7 @@ _ZN4llvm5ErrorD2Ev.exit106:                       ; preds = %_ZN4llvm18BinaryStr
 
 317:                                              ; preds = %315
   %318 = load ptr, ptr %302, align 8
-  %319 = getelementptr inbounds i8, ptr %318, i64 16
+  %319 = getelementptr inbounds nuw i8, ptr %318, i64 16
   %320 = load ptr, ptr %319, align 8
   call void %320(ptr noundef nonnull align 8 dereferenceable(16) %302) #6
   %321 = getelementptr inbounds nuw i8, ptr %302, i64 12
@@ -833,7 +833,7 @@ _ZN4llvm18BinaryStreamReaderC2ERKS0_.exit115:     ; preds = %330, %343, %346
   %360 = getelementptr inbounds nuw i8, ptr %353, i64 12
   store i32 0, ptr %360, align 4
   %361 = load ptr, ptr %353, align 8
-  %362 = getelementptr inbounds i8, ptr %361, i64 16
+  %362 = getelementptr inbounds nuw i8, ptr %361, i64 16
   %363 = load ptr, ptr %362, align 8
   call void %363(ptr noundef nonnull align 8 dereferenceable(16) %353) #6
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i121
@@ -859,7 +859,7 @@ _ZN4llvm18BinaryStreamReaderC2ERKS0_.exit115:     ; preds = %330, %343, %346
 
 372:                                              ; preds = %370
   %373 = load ptr, ptr %353, align 8
-  %374 = getelementptr inbounds i8, ptr %373, i64 16
+  %374 = getelementptr inbounds nuw i8, ptr %373, i64 16
   %375 = load ptr, ptr %374, align 8
   call void %375(ptr noundef nonnull align 8 dereferenceable(16) %353) #6
   %376 = getelementptr inbounds nuw i8, ptr %353, i64 12
@@ -884,7 +884,7 @@ _ZN4llvm18BinaryStreamReaderC2ERKS0_.exit115:     ; preds = %330, %343, %346
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i121: ; preds = %383, %359
   %385 = load ptr, ptr %353, align 8
-  %386 = getelementptr inbounds i8, ptr %385, i64 24
+  %386 = getelementptr inbounds nuw i8, ptr %385, i64 24
   %387 = load ptr, ptr %386, align 8
   call void %387(ptr noundef nonnull align 8 dereferenceable(16) %353) #6
   br label %_ZN4llvm18BinaryStreamReaderD2Ev.exit122
@@ -896,7 +896,7 @@ _ZN4llvm18BinaryStreamReaderD2Ev.exit122:         ; preds = %_ZN4llvm18BinaryStr
 
 _ZN4llvm5ErrorD2Ev.exit123:                       ; preds = %_ZN4llvm18BinaryStreamReaderD2Ev.exit122
   %389 = load ptr, ptr %2, align 8
-  %390 = getelementptr inbounds i8, ptr %389, i64 48
+  %390 = getelementptr inbounds nuw i8, ptr %389, i64 48
   %391 = load ptr, ptr %390, align 8
   call void %391(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(64) %13, ptr noundef nonnull align 8 dereferenceable(48) %3) #6
   br label %.critedge62
@@ -939,7 +939,7 @@ _ZN4llvm5ErrorD2Ev.exit123:                       ; preds = %_ZN4llvm18BinaryStr
 
 408:                                              ; preds = %406
   %409 = load ptr, ptr %393, align 8
-  %410 = getelementptr inbounds i8, ptr %409, i64 16
+  %410 = getelementptr inbounds nuw i8, ptr %409, i64 16
   %411 = load ptr, ptr %410, align 8
   call void %411(ptr noundef nonnull align 8 dereferenceable(16) %393) #6
   %412 = getelementptr inbounds nuw i8, ptr %393, i64 12
@@ -1026,7 +1026,7 @@ _ZN4llvm18BinaryStreamReaderC2ERKS0_.exit132:     ; preds = %421, %435, %438
   %452 = getelementptr inbounds nuw i8, ptr %445, i64 12
   store i32 0, ptr %452, align 4
   %453 = load ptr, ptr %445, align 8
-  %454 = getelementptr inbounds i8, ptr %453, i64 16
+  %454 = getelementptr inbounds nuw i8, ptr %453, i64 16
   %455 = load ptr, ptr %454, align 8
   call void %455(ptr noundef nonnull align 8 dereferenceable(16) %445) #6
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i138
@@ -1052,7 +1052,7 @@ _ZN4llvm18BinaryStreamReaderC2ERKS0_.exit132:     ; preds = %421, %435, %438
 
 464:                                              ; preds = %462
   %465 = load ptr, ptr %445, align 8
-  %466 = getelementptr inbounds i8, ptr %465, i64 16
+  %466 = getelementptr inbounds nuw i8, ptr %465, i64 16
   %467 = load ptr, ptr %466, align 8
   call void %467(ptr noundef nonnull align 8 dereferenceable(16) %445) #6
   %468 = getelementptr inbounds nuw i8, ptr %445, i64 12
@@ -1077,7 +1077,7 @@ _ZN4llvm18BinaryStreamReaderC2ERKS0_.exit132:     ; preds = %421, %435, %438
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i138: ; preds = %475, %451
   %477 = load ptr, ptr %445, align 8
-  %478 = getelementptr inbounds i8, ptr %477, i64 24
+  %478 = getelementptr inbounds nuw i8, ptr %477, i64 24
   %479 = load ptr, ptr %478, align 8
   call void %479(ptr noundef nonnull align 8 dereferenceable(16) %445) #6
   br label %_ZN4llvm18BinaryStreamReaderD2Ev.exit139
@@ -1089,7 +1089,7 @@ _ZN4llvm18BinaryStreamReaderD2Ev.exit139:         ; preds = %_ZN4llvm18BinaryStr
 
 _ZN4llvm5ErrorD2Ev.exit140:                       ; preds = %_ZN4llvm18BinaryStreamReaderD2Ev.exit139
   %481 = load ptr, ptr %2, align 8
-  %482 = getelementptr inbounds i8, ptr %481, i64 56
+  %482 = getelementptr inbounds nuw i8, ptr %481, i64 56
   %483 = load ptr, ptr %482, align 8
   call void %483(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(72) %15, ptr noundef nonnull align 8 dereferenceable(48) %3) #6
   br label %.critedge64
@@ -1132,7 +1132,7 @@ _ZN4llvm5ErrorD2Ev.exit140:                       ; preds = %_ZN4llvm18BinaryStr
 
 500:                                              ; preds = %498
   %501 = load ptr, ptr %485, align 8
-  %502 = getelementptr inbounds i8, ptr %501, i64 16
+  %502 = getelementptr inbounds nuw i8, ptr %501, i64 16
   %503 = load ptr, ptr %502, align 8
   call void %503(ptr noundef nonnull align 8 dereferenceable(16) %485) #6
   %504 = getelementptr inbounds nuw i8, ptr %485, i64 12
@@ -1219,7 +1219,7 @@ _ZN4llvm18BinaryStreamReaderC2ERKS0_.exit149:     ; preds = %513, %527, %530
   %544 = getelementptr inbounds nuw i8, ptr %537, i64 12
   store i32 0, ptr %544, align 4
   %545 = load ptr, ptr %537, align 8
-  %546 = getelementptr inbounds i8, ptr %545, i64 16
+  %546 = getelementptr inbounds nuw i8, ptr %545, i64 16
   %547 = load ptr, ptr %546, align 8
   call void %547(ptr noundef nonnull align 8 dereferenceable(16) %537) #6
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i155
@@ -1245,7 +1245,7 @@ _ZN4llvm18BinaryStreamReaderC2ERKS0_.exit149:     ; preds = %513, %527, %530
 
 556:                                              ; preds = %554
   %557 = load ptr, ptr %537, align 8
-  %558 = getelementptr inbounds i8, ptr %557, i64 16
+  %558 = getelementptr inbounds nuw i8, ptr %557, i64 16
   %559 = load ptr, ptr %558, align 8
   call void %559(ptr noundef nonnull align 8 dereferenceable(16) %537) #6
   %560 = getelementptr inbounds nuw i8, ptr %537, i64 12
@@ -1270,7 +1270,7 @@ _ZN4llvm18BinaryStreamReaderC2ERKS0_.exit149:     ; preds = %513, %527, %530
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i155: ; preds = %567, %543
   %569 = load ptr, ptr %537, align 8
-  %570 = getelementptr inbounds i8, ptr %569, i64 24
+  %570 = getelementptr inbounds nuw i8, ptr %569, i64 24
   %571 = load ptr, ptr %570, align 8
   call void %571(ptr noundef nonnull align 8 dereferenceable(16) %537) #6
   br label %_ZN4llvm18BinaryStreamReaderD2Ev.exit156
@@ -1282,7 +1282,7 @@ _ZN4llvm18BinaryStreamReaderD2Ev.exit156:         ; preds = %_ZN4llvm18BinaryStr
 
 _ZN4llvm5ErrorD2Ev.exit157:                       ; preds = %_ZN4llvm18BinaryStreamReaderD2Ev.exit156
   %573 = load ptr, ptr %2, align 8
-  %574 = getelementptr inbounds i8, ptr %573, i64 72
+  %574 = getelementptr inbounds nuw i8, ptr %573, i64 72
   %575 = load ptr, ptr %574, align 8
   call void %575(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(72) %17, ptr noundef nonnull align 8 dereferenceable(48) %3) #6
   br label %.critedge66
@@ -1325,7 +1325,7 @@ _ZN4llvm5ErrorD2Ev.exit157:                       ; preds = %_ZN4llvm18BinaryStr
 
 592:                                              ; preds = %590
   %593 = load ptr, ptr %577, align 8
-  %594 = getelementptr inbounds i8, ptr %593, i64 16
+  %594 = getelementptr inbounds nuw i8, ptr %593, i64 16
   %595 = load ptr, ptr %594, align 8
   call void %595(ptr noundef nonnull align 8 dereferenceable(16) %577) #6
   %596 = getelementptr inbounds nuw i8, ptr %577, i64 12
@@ -1357,7 +1357,7 @@ _ZN4llvm5ErrorD2Ev.exit157:                       ; preds = %_ZN4llvm18BinaryStr
 
 _ZN4llvm5ErrorD2Ev.exit164:                       ; preds = %605
   %607 = load ptr, ptr %2, align 8
-  %608 = getelementptr inbounds i8, ptr %607, i64 64
+  %608 = getelementptr inbounds nuw i8, ptr %607, i64 64
   %609 = load ptr, ptr %608, align 8
   call void %609(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(64) %19, ptr noundef nonnull align 8 dereferenceable(48) %3) #6
   br label %.critedge68
@@ -1401,7 +1401,7 @@ _ZN4llvm5ErrorD2Ev.exit164:                       ; preds = %605
 
 626:                                              ; preds = %624
   %627 = load ptr, ptr %611, align 8
-  %628 = getelementptr inbounds i8, ptr %627, i64 16
+  %628 = getelementptr inbounds nuw i8, ptr %627, i64 16
   %629 = load ptr, ptr %628, align 8
   call void %629(ptr noundef nonnull align 8 dereferenceable(16) %611) #6
   %630 = getelementptr inbounds nuw i8, ptr %611, i64 12
@@ -1486,7 +1486,7 @@ _ZN4llvm18BinaryStreamReaderC2ERKS0_.exit173:     ; preds = %639, %652, %655
   %669 = getelementptr inbounds nuw i8, ptr %662, i64 12
   store i32 0, ptr %669, align 4
   %670 = load ptr, ptr %662, align 8
-  %671 = getelementptr inbounds i8, ptr %670, i64 16
+  %671 = getelementptr inbounds nuw i8, ptr %670, i64 16
   %672 = load ptr, ptr %671, align 8
   call void %672(ptr noundef nonnull align 8 dereferenceable(16) %662) #6
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i179
@@ -1512,7 +1512,7 @@ _ZN4llvm18BinaryStreamReaderC2ERKS0_.exit173:     ; preds = %639, %652, %655
 
 681:                                              ; preds = %679
   %682 = load ptr, ptr %662, align 8
-  %683 = getelementptr inbounds i8, ptr %682, i64 16
+  %683 = getelementptr inbounds nuw i8, ptr %682, i64 16
   %684 = load ptr, ptr %683, align 8
   call void %684(ptr noundef nonnull align 8 dereferenceable(16) %662) #6
   %685 = getelementptr inbounds nuw i8, ptr %662, i64 12
@@ -1537,7 +1537,7 @@ _ZN4llvm18BinaryStreamReaderC2ERKS0_.exit173:     ; preds = %639, %652, %655
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i179: ; preds = %692, %668
   %694 = load ptr, ptr %662, align 8
-  %695 = getelementptr inbounds i8, ptr %694, i64 24
+  %695 = getelementptr inbounds nuw i8, ptr %694, i64 24
   %696 = load ptr, ptr %695, align 8
   call void %696(ptr noundef nonnull align 8 dereferenceable(16) %662) #6
   br label %_ZN4llvm18BinaryStreamReaderD2Ev.exit180
@@ -1549,7 +1549,7 @@ _ZN4llvm18BinaryStreamReaderD2Ev.exit180:         ; preds = %_ZN4llvm18BinaryStr
 
 _ZN4llvm5ErrorD2Ev.exit181:                       ; preds = %_ZN4llvm18BinaryStreamReaderD2Ev.exit180
   %698 = load ptr, ptr %2, align 8
-  %699 = getelementptr inbounds i8, ptr %698, i64 80
+  %699 = getelementptr inbounds nuw i8, ptr %698, i64 80
   %700 = load ptr, ptr %699, align 8
   call void %700(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(72) %20, ptr noundef nonnull align 8 dereferenceable(48) %3) #6
   br label %.critedge70
@@ -1592,7 +1592,7 @@ _ZN4llvm5ErrorD2Ev.exit181:                       ; preds = %_ZN4llvm18BinaryStr
 
 717:                                              ; preds = %715
   %718 = load ptr, ptr %702, align 8
-  %719 = getelementptr inbounds i8, ptr %718, i64 16
+  %719 = getelementptr inbounds nuw i8, ptr %718, i64 16
   %720 = load ptr, ptr %719, align 8
   call void %720(ptr noundef nonnull align 8 dereferenceable(16) %702) #6
   %721 = getelementptr inbounds nuw i8, ptr %702, i64 12
@@ -1624,7 +1624,7 @@ _ZN4llvm5ErrorD2Ev.exit181:                       ; preds = %_ZN4llvm18BinaryStr
 
 _ZN4llvm5ErrorD2Ev.exit188:                       ; preds = %730
   %732 = load ptr, ptr %2, align 8
-  %733 = getelementptr inbounds i8, ptr %732, i64 88
+  %733 = getelementptr inbounds nuw i8, ptr %732, i64 88
   %734 = load ptr, ptr %733, align 8
   call void %734(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(64) %22, ptr noundef nonnull align 8 dereferenceable(48) %3) #6
   br label %.critedge72
@@ -1667,7 +1667,7 @@ _ZN4llvm5ErrorD2Ev.exit188:                       ; preds = %730
 
 751:                                              ; preds = %749
   %752 = load ptr, ptr %736, align 8
-  %753 = getelementptr inbounds i8, ptr %752, i64 16
+  %753 = getelementptr inbounds nuw i8, ptr %752, i64 16
   %754 = load ptr, ptr %753, align 8
   call void %754(ptr noundef nonnull align 8 dereferenceable(16) %736) #6
   %755 = getelementptr inbounds nuw i8, ptr %736, i64 12
@@ -1748,7 +1748,7 @@ _ZN4llvm8codeview25DebugUnknownSubsectionRefC2ENS0_19DebugSubsectionKindENS_15Bi
   %790 = getelementptr inbounds nuw i8, ptr %.pr, i64 12
   store i32 0, ptr %790, align 4
   %791 = load ptr, ptr %.pr, align 8
-  %792 = getelementptr inbounds i8, ptr %791, i64 16
+  %792 = getelementptr inbounds nuw i8, ptr %791, i64 16
   %793 = load ptr, ptr %792, align 8
   call void %793(ptr noundef nonnull align 8 dereferenceable(16) %.pr) #6
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i202
@@ -1774,7 +1774,7 @@ _ZN4llvm8codeview25DebugUnknownSubsectionRefC2ENS0_19DebugSubsectionKindENS_15Bi
 
 802:                                              ; preds = %800
   %803 = load ptr, ptr %.pr, align 8
-  %804 = getelementptr inbounds i8, ptr %803, i64 16
+  %804 = getelementptr inbounds nuw i8, ptr %803, i64 16
   %805 = load ptr, ptr %804, align 8
   call void %805(ptr noundef nonnull align 8 dereferenceable(16) %.pr) #6
   %806 = getelementptr inbounds nuw i8, ptr %.pr, i64 12
@@ -1799,14 +1799,14 @@ _ZN4llvm8codeview25DebugUnknownSubsectionRefC2ENS0_19DebugSubsectionKindENS_15Bi
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i202: ; preds = %813, %789
   %815 = load ptr, ptr %.pr, align 8
-  %816 = getelementptr inbounds i8, ptr %815, i64 24
+  %816 = getelementptr inbounds nuw i8, ptr %815, i64 24
   %817 = load ptr, ptr %816, align 8
   call void %817(ptr noundef nonnull align 8 dereferenceable(16) %.pr) #6
   br label %_ZN4llvm15BinaryStreamRefD2Ev.exit203
 
 _ZN4llvm15BinaryStreamRefD2Ev.exit203:            ; preds = %_ZN4llvm8codeview25DebugUnknownSubsectionRefC2ENS0_19DebugSubsectionKindENS_15BinaryStreamRefE.exit.thread, %_ZN4llvm8codeview25DebugUnknownSubsectionRefC2ENS0_19DebugSubsectionKindENS_15BinaryStreamRefE.exit, %800, %813, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i202
   %818 = load ptr, ptr %2, align 8
-  %819 = getelementptr inbounds i8, ptr %818, i64 16
+  %819 = getelementptr inbounds nuw i8, ptr %818, i64 16
   %820 = load ptr, ptr %819, align 8
   call void %820(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(64) %23) #6
   %821 = load ptr, ptr %769, align 8
@@ -1845,7 +1845,7 @@ _ZN4llvm15BinaryStreamRefD2Ev.exit203:            ; preds = %_ZN4llvm8codeview25
 
 836:                                              ; preds = %834
   %837 = load ptr, ptr %821, align 8
-  %838 = getelementptr inbounds i8, ptr %837, i64 16
+  %838 = getelementptr inbounds nuw i8, ptr %837, i64 16
   %839 = load ptr, ptr %838, align 8
   call void %839(ptr noundef nonnull align 8 dereferenceable(16) %821) #6
   %840 = getelementptr inbounds nuw i8, ptr %821, i64 12
@@ -1874,7 +1874,7 @@ _ZN4llvm8codeview23DebugLinesSubsectionRefD2Ev.exit.sink.split.sink.split: ; pre
   %849 = getelementptr inbounds nuw i8, ptr %.sink237, i64 12
   store i32 0, ptr %849, align 4
   %850 = load ptr, ptr %.sink237, align 8
-  %851 = getelementptr inbounds i8, ptr %850, i64 16
+  %851 = getelementptr inbounds nuw i8, ptr %850, i64 16
   %852 = load ptr, ptr %851, align 8
   call void %852(ptr noundef nonnull align 8 dereferenceable(16) %.sink237) #6
   br label %_ZN4llvm8codeview23DebugLinesSubsectionRefD2Ev.exit.sink.split
@@ -1883,7 +1883,7 @@ _ZN4llvm8codeview23DebugLinesSubsectionRefD2Ev.exit.sink.split: ; preds = %_ZN4l
   %.sink230 = phi ptr [ %122, %148 ], [ %214, %240 ], [ %302, %328 ], [ %393, %419 ], [ %485, %511 ], [ %577, %603 ], [ %611, %637 ], [ %702, %728 ], [ %736, %762 ], [ %821, %847 ], [ %.sink237, %_ZN4llvm8codeview23DebugLinesSubsectionRefD2Ev.exit.sink.split.sink.split ]
   %.sink.ph = phi ptr [ %7, %148 ], [ %9, %240 ], [ %11, %328 ], [ %13, %419 ], [ %15, %511 ], [ %17, %603 ], [ %19, %637 ], [ %20, %728 ], [ %22, %762 ], [ %23, %847 ], [ %.sink.ph.ph, %_ZN4llvm8codeview23DebugLinesSubsectionRefD2Ev.exit.sink.split.sink.split ]
   %853 = load ptr, ptr %.sink230, align 8
-  %854 = getelementptr inbounds i8, ptr %853, i64 24
+  %854 = getelementptr inbounds nuw i8, ptr %853, i64 24
   %855 = load ptr, ptr %854, align 8
   call void %855(ptr noundef nonnull align 8 dereferenceable(16) %.sink230) #6
   br label %_ZN4llvm8codeview23DebugLinesSubsectionRefD2Ev.exit
@@ -1909,7 +1909,7 @@ _ZN4llvm8codeview23DebugLinesSubsectionRefD2Ev.exit: ; preds = %_ZN4llvm8codevie
   %864 = getelementptr inbounds nuw i8, ptr %857, i64 12
   store i32 0, ptr %864, align 4
   %865 = load ptr, ptr %857, align 8
-  %866 = getelementptr inbounds i8, ptr %865, i64 16
+  %866 = getelementptr inbounds nuw i8, ptr %865, i64 16
   %867 = load ptr, ptr %866, align 8
   call void %867(ptr noundef nonnull align 8 dereferenceable(16) %857) #6
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i215
@@ -1935,7 +1935,7 @@ _ZN4llvm8codeview23DebugLinesSubsectionRefD2Ev.exit: ; preds = %_ZN4llvm8codevie
 
 876:                                              ; preds = %874
   %877 = load ptr, ptr %857, align 8
-  %878 = getelementptr inbounds i8, ptr %877, i64 16
+  %878 = getelementptr inbounds nuw i8, ptr %877, i64 16
   %879 = load ptr, ptr %878, align 8
   call void %879(ptr noundef nonnull align 8 dereferenceable(16) %857) #6
   %880 = getelementptr inbounds nuw i8, ptr %857, i64 12
@@ -1960,7 +1960,7 @@ _ZN4llvm8codeview23DebugLinesSubsectionRefD2Ev.exit: ; preds = %_ZN4llvm8codevie
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i215: ; preds = %887, %863
   %889 = load ptr, ptr %857, align 8
-  %890 = getelementptr inbounds i8, ptr %889, i64 24
+  %890 = getelementptr inbounds nuw i8, ptr %889, i64 24
   %891 = load ptr, ptr %890, align 8
   call void %891(ptr noundef nonnull align 8 dereferenceable(16) %857) #6
   br label %_ZN4llvm18BinaryStreamReaderD2Ev.exit216
@@ -1999,7 +1999,7 @@ define linkonce_odr hidden void @_ZN4llvm18BinaryStreamReaderD2Ev(ptr noundef no
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
@@ -2025,7 +2025,7 @@ define linkonce_odr hidden void @_ZN4llvm18BinaryStreamReaderD2Ev(ptr noundef no
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -2050,7 +2050,7 @@ define linkonce_odr hidden void @_ZN4llvm18BinaryStreamReaderD2Ev(ptr noundef no
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i: ; preds = %33, %9
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
   br label %_ZN4llvm15BinaryStreamRefD2Ev.exit
@@ -2080,7 +2080,7 @@ define linkonce_odr hidden void @_ZN4llvm8codeview27DebugChecksumsSubsectionRefD
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i
@@ -2106,7 +2106,7 @@ define linkonce_odr hidden void @_ZN4llvm8codeview27DebugChecksumsSubsectionRefD
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -2131,7 +2131,7 @@ define linkonce_odr hidden void @_ZN4llvm8codeview27DebugChecksumsSubsectionRefD
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i: ; preds = %33, %9
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
   br label %_ZN4llvm14VarStreamArrayINS_8codeview17FileChecksumEntryENS_23VarStreamArrayExtractorIS2_EEED2Ev.exit
@@ -2166,7 +2166,7 @@ define linkonce_odr hidden void @_ZN4llvm8codeview36DebugCrossModuleExportsSubse
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i
@@ -2192,7 +2192,7 @@ define linkonce_odr hidden void @_ZN4llvm8codeview36DebugCrossModuleExportsSubse
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -2217,7 +2217,7 @@ define linkonce_odr hidden void @_ZN4llvm8codeview36DebugCrossModuleExportsSubse
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i: ; preds = %33, %9
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
   br label %_ZN4llvm16FixedStreamArrayINS_8codeview17CrossModuleExportEED2Ev.exit
@@ -2248,7 +2248,7 @@ define linkonce_odr hidden void @_ZN4llvm8codeview36DebugCrossModuleImportsSubse
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i
@@ -2274,7 +2274,7 @@ define linkonce_odr hidden void @_ZN4llvm8codeview36DebugCrossModuleImportsSubse
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -2299,7 +2299,7 @@ define linkonce_odr hidden void @_ZN4llvm8codeview36DebugCrossModuleImportsSubse
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i: ; preds = %33, %9
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
   br label %_ZN4llvm14VarStreamArrayINS_8codeview21CrossModuleImportItemENS_23VarStreamArrayExtractorIS2_EEED2Ev.exit
@@ -2330,7 +2330,7 @@ define linkonce_odr hidden void @_ZN4llvm8codeview25DebugSymbolsSubsectionRefD2E
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i
@@ -2356,7 +2356,7 @@ define linkonce_odr hidden void @_ZN4llvm8codeview25DebugSymbolsSubsectionRefD2E
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -2381,7 +2381,7 @@ define linkonce_odr hidden void @_ZN4llvm8codeview25DebugSymbolsSubsectionRefD2E
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i: ; preds = %33, %9
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
   br label %_ZN4llvm14VarStreamArrayINS_8codeview8CVRecordINS1_10SymbolKindEEENS_23VarStreamArrayExtractorIS4_EEED2Ev.exit
@@ -2415,7 +2415,7 @@ define linkonce_odr hidden void @_ZN4llvm8codeview29DebugStringTableSubsectionRe
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
@@ -2441,7 +2441,7 @@ define linkonce_odr hidden void @_ZN4llvm8codeview29DebugStringTableSubsectionRe
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -2466,7 +2466,7 @@ define linkonce_odr hidden void @_ZN4llvm8codeview29DebugStringTableSubsectionRe
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i: ; preds = %33, %9
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
   br label %_ZN4llvm15BinaryStreamRefD2Ev.exit
@@ -2497,7 +2497,7 @@ define linkonce_odr hidden void @_ZN4llvm8codeview27DebugFrameDataSubsectionRefD
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i
@@ -2523,7 +2523,7 @@ define linkonce_odr hidden void @_ZN4llvm8codeview27DebugFrameDataSubsectionRefD
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -2548,7 +2548,7 @@ define linkonce_odr hidden void @_ZN4llvm8codeview27DebugFrameDataSubsectionRefD
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i: ; preds = %33, %9
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
   br label %_ZN4llvm16FixedStreamArrayINS_8codeview9FrameDataEED2Ev.exit
@@ -2581,7 +2581,7 @@ define linkonce_odr hidden void @_ZN4llvm8codeview25DebugUnknownSubsectionRefD2E
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
@@ -2607,7 +2607,7 @@ define linkonce_odr hidden void @_ZN4llvm8codeview25DebugUnknownSubsectionRefD2E
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -2632,7 +2632,7 @@ define linkonce_odr hidden void @_ZN4llvm8codeview25DebugUnknownSubsectionRefD2E
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i: ; preds = %33, %9
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
   br label %_ZN4llvm15BinaryStreamRefD2Ev.exit
@@ -2662,7 +2662,7 @@ define linkonce_odr hidden void @_ZN4llvm18BinaryStreamReaderD0Ev(ptr noundef no
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i
@@ -2688,7 +2688,7 @@ define linkonce_odr hidden void @_ZN4llvm18BinaryStreamReaderD0Ev(ptr noundef no
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -2713,7 +2713,7 @@ define linkonce_odr hidden void @_ZN4llvm18BinaryStreamReaderD0Ev(ptr noundef no
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i: ; preds = %33, %9
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
   br label %_ZN4llvm18BinaryStreamReaderD2Ev.exit
@@ -2751,7 +2751,7 @@ define linkonce_odr hidden void @_ZN4llvm8codeview27DebugChecksumsSubsectionRefD
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i
@@ -2777,7 +2777,7 @@ define linkonce_odr hidden void @_ZN4llvm8codeview27DebugChecksumsSubsectionRefD
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -2802,7 +2802,7 @@ define linkonce_odr hidden void @_ZN4llvm8codeview27DebugChecksumsSubsectionRefD
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i: ; preds = %33, %9
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
   br label %_ZN4llvm8codeview27DebugChecksumsSubsectionRefD2Ev.exit
@@ -2832,7 +2832,7 @@ define linkonce_odr hidden void @_ZN4llvm8codeview36DebugCrossModuleExportsSubse
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i
@@ -2858,7 +2858,7 @@ define linkonce_odr hidden void @_ZN4llvm8codeview36DebugCrossModuleExportsSubse
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -2883,7 +2883,7 @@ define linkonce_odr hidden void @_ZN4llvm8codeview36DebugCrossModuleExportsSubse
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i: ; preds = %33, %9
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
   br label %_ZN4llvm8codeview36DebugCrossModuleExportsSubsectionRefD2Ev.exit
@@ -2913,7 +2913,7 @@ define linkonce_odr hidden void @_ZN4llvm8codeview36DebugCrossModuleImportsSubse
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i
@@ -2939,7 +2939,7 @@ define linkonce_odr hidden void @_ZN4llvm8codeview36DebugCrossModuleImportsSubse
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -2964,7 +2964,7 @@ define linkonce_odr hidden void @_ZN4llvm8codeview36DebugCrossModuleImportsSubse
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i: ; preds = %33, %9
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
   br label %_ZN4llvm8codeview36DebugCrossModuleImportsSubsectionRefD2Ev.exit
@@ -2994,7 +2994,7 @@ define linkonce_odr hidden void @_ZN4llvm8codeview25DebugSymbolsSubsectionRefD0E
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i
@@ -3020,7 +3020,7 @@ define linkonce_odr hidden void @_ZN4llvm8codeview25DebugSymbolsSubsectionRefD0E
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -3045,7 +3045,7 @@ define linkonce_odr hidden void @_ZN4llvm8codeview25DebugSymbolsSubsectionRefD0E
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i: ; preds = %33, %9
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
   br label %_ZN4llvm8codeview25DebugSymbolsSubsectionRefD2Ev.exit
@@ -3076,7 +3076,7 @@ define linkonce_odr hidden void @_ZN4llvm8codeview29DebugStringTableSubsectionRe
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i
@@ -3102,7 +3102,7 @@ define linkonce_odr hidden void @_ZN4llvm8codeview29DebugStringTableSubsectionRe
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -3127,7 +3127,7 @@ define linkonce_odr hidden void @_ZN4llvm8codeview29DebugStringTableSubsectionRe
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i: ; preds = %33, %9
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
   br label %_ZN4llvm8codeview29DebugStringTableSubsectionRefD2Ev.exit
@@ -3157,7 +3157,7 @@ define linkonce_odr hidden void @_ZN4llvm8codeview27DebugFrameDataSubsectionRefD
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i
@@ -3183,7 +3183,7 @@ define linkonce_odr hidden void @_ZN4llvm8codeview27DebugFrameDataSubsectionRefD
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -3208,7 +3208,7 @@ define linkonce_odr hidden void @_ZN4llvm8codeview27DebugFrameDataSubsectionRefD
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i: ; preds = %33, %9
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
   br label %_ZN4llvm8codeview27DebugFrameDataSubsectionRefD2Ev.exit
@@ -3238,7 +3238,7 @@ define linkonce_odr hidden void @_ZN4llvm8codeview25DebugUnknownSubsectionRefD0E
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i
@@ -3264,7 +3264,7 @@ define linkonce_odr hidden void @_ZN4llvm8codeview25DebugUnknownSubsectionRefD0E
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -3289,7 +3289,7 @@ define linkonce_odr hidden void @_ZN4llvm8codeview25DebugUnknownSubsectionRefD0E
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i: ; preds = %33, %9
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
   br label %_ZN4llvm8codeview25DebugUnknownSubsectionRefD2Ev.exit

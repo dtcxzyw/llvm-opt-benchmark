@@ -26,7 +26,7 @@ define internal void @bbstreamer_gzip_writer_content(ptr nocapture noundef reado
 7:                                                ; preds = %5
   %8 = tail call ptr @__errno_location() #6
   store i32 0, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @gzwrite(ptr noundef %10, ptr noundef %2, i32 noundef %3) #7
   %.not = icmp eq i32 %11, %3
@@ -42,7 +42,7 @@ define internal void @bbstreamer_gzip_writer_content(ptr nocapture noundef reado
   br label %16
 
 16:                                               ; preds = %12, %15
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %9, align 8
   %20 = tail call fastcc ptr @get_gz_error(ptr noundef %19)
@@ -58,14 +58,14 @@ define internal void @bbstreamer_gzip_writer_content(ptr nocapture noundef reado
 define internal void @bbstreamer_gzip_writer_finalize(ptr nocapture noundef %0) #0 {
   %2 = tail call ptr @__errno_location() #6
   store i32 0, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @gzclose(ptr noundef %4) #7
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.8, ptr noundef %8) #7
   tail call void @exit(i32 noundef 1) #8
@@ -78,7 +78,7 @@ define internal void @bbstreamer_gzip_writer_finalize(ptr nocapture noundef %0) 
 
 ; Function Attrs: nounwind uwtable
 define internal void @bbstreamer_gzip_writer_free(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   tail call void @pfree(ptr noundef %3) #7
   tail call void @pfree(ptr noundef %0) #7
@@ -87,21 +87,21 @@ define internal void @bbstreamer_gzip_writer_free(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @bbstreamer_gzip_decompressor_content(ptr noundef initializes((40, 52)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %2, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %3, ptr %7, align 8
   %.not27 = icmp eq i32 %3, 0
   br i1 %.not27, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
-  %9 = getelementptr inbounds i8, ptr %0, i64 152
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
-  %11 = getelementptr inbounds i8, ptr %0, i64 28
-  %12 = getelementptr inbounds i8, ptr %0, i64 72
-  %13 = getelementptr inbounds i8, ptr %0, i64 88
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load i64, ptr %9, align 8
   br label %15
 
@@ -154,18 +154,18 @@ define internal void @bbstreamer_gzip_decompressor_content(ptr noundef initializ
 
 ; Function Attrs: nounwind uwtable
 define internal void @bbstreamer_gzip_decompressor_finalize(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 28
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %7 = load i32, ptr %6, align 4
   %8 = load ptr, ptr %3, align 8
   %9 = load ptr, ptr %8, align 8
   tail call void %9(ptr noundef nonnull %3, ptr noundef null, ptr noundef %5, i32 noundef %7, i32 noundef 0) #7
   %10 = load ptr, ptr %2, align 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull %10) #7
   ret void
@@ -173,13 +173,13 @@ define internal void @bbstreamer_gzip_decompressor_finalize(ptr nocapture nounde
 
 ; Function Attrs: nounwind uwtable
 define internal void @bbstreamer_gzip_decompressor_free(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull %3) #7
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   tail call void @pfree(ptr noundef %8) #7
   tail call void @pfree(ptr noundef %0) #7
@@ -191,14 +191,14 @@ define dso_local noundef ptr @bbstreamer_gzip_writer_new(ptr noundef %0, ptr nou
   %4 = tail call ptr @palloc0(i64 noundef 56) #7
   store ptr @bbstreamer_gzip_writer_ops, ptr %4, align 8
   %5 = tail call ptr @pstrdup(ptr noundef %0) #7
-  %6 = getelementptr inbounds i8, ptr %4, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %5, ptr %6, align 8
   %7 = icmp eq ptr %1, null
   br i1 %7, label %8, label %13
 
 8:                                                ; preds = %3
   %9 = tail call ptr @gzopen(ptr noundef %0, ptr noundef nonnull @.str) #7
-  %10 = getelementptr inbounds i8, ptr %4, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr %9, ptr %10, align 8
   %11 = icmp eq ptr %9, null
   br i1 %11, label %12, label %23
@@ -221,7 +221,7 @@ define dso_local noundef ptr @bbstreamer_gzip_writer_new(ptr noundef %0, ptr nou
 
 18:                                               ; preds = %13
   %19 = tail call ptr @gzdopen(i32 noundef %15, ptr noundef nonnull @.str) #7
-  %20 = getelementptr inbounds i8, ptr %4, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr %19, ptr %20, align 8
   %21 = icmp eq ptr %19, null
   br i1 %21, label %22, label %23
@@ -233,14 +233,14 @@ define dso_local noundef ptr @bbstreamer_gzip_writer_new(ptr noundef %0, ptr nou
 
 23:                                               ; preds = %18, %8
   %24 = phi ptr [ %19, %18 ], [ %9, %8 ]
-  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = tail call i32 @gzsetparams(ptr noundef nonnull %24, i32 noundef %26, i32 noundef 0) #7
   %.not = icmp eq i32 %27, 0
   br i1 %.not, label %33, label %28
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds i8, ptr %4, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %30 = load i32, ptr %25, align 8
   %31 = load ptr, ptr %29, align 8
   %32 = tail call fastcc ptr @get_gz_error(ptr noundef %31)
@@ -296,21 +296,21 @@ define internal fastcc ptr @get_gz_error(ptr noundef %0) unnamed_addr #0 {
 define dso_local noundef ptr @bbstreamer_gzip_decompressor_new(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @palloc0(i64 noundef 160) #7
   store ptr @bbstreamer_gzip_decompressor_ops, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   tail call void @initStringInfo(ptr noundef nonnull %4) #7
-  %5 = getelementptr inbounds i8, ptr %2, i64 40
-  %6 = getelementptr inbounds i8, ptr %2, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store ptr @gzip_palloc, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 112
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 112
   store ptr @gzip_pfree, ptr %7, align 8
   %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %2, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store i32 %11, ptr %12, align 8
   %13 = tail call i32 @inflateInit2_(ptr noundef nonnull %5, i32 noundef 31, ptr noundef nonnull @.str.5, i32 noundef 112) #7
   %.not = icmp eq i32 %13, 0

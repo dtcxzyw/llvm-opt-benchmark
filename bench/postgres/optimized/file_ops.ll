@@ -219,7 +219,7 @@ define dso_local void @remove_target(ptr nocapture noundef readonly %0) local_un
   %2 = alloca [1024 x i8], align 16
   %3 = alloca [1024 x i8], align 16
   %4 = alloca [1024 x i8], align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = load i32, ptr %5, align 4
   switch i32 %6, label %40 [
     i32 2, label %7
@@ -229,7 +229,7 @@ define dso_local void @remove_target(ptr nocapture noundef readonly %0) local_un
   ]
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4)
   %10 = load i8, ptr @dry_run, align 1
@@ -253,7 +253,7 @@ remove_target_dir.exit:                           ; preds = %7, %12
   br label %40
 
 17:                                               ; preds = %1
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3)
   %20 = load i8, ptr @dry_run, align 1
@@ -277,7 +277,7 @@ remove_target_file.exit:                          ; preds = %17, %22
   br label %40
 
 27:                                               ; preds = %1
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load ptr, ptr %28, align 8
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %2)
   %30 = load i8, ptr @dry_run, align 1
@@ -301,7 +301,7 @@ remove_target_symlink.exit:                       ; preds = %27, %32
   br label %40
 
 37:                                               ; preds = %1
-  %38 = getelementptr inbounds i8, ptr %0, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load ptr, ptr %38, align 8
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.5, ptr noundef %39) #11
   tail call void @exit(i32 noundef 1) #12
@@ -345,7 +345,7 @@ define dso_local void @remove_target_file(ptr noundef %0, i1 noundef zeroext %1)
 define dso_local void @create_target(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca [1024 x i8], align 16
   %3 = alloca [1024 x i8], align 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 60
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %5 = load i32, ptr %4, align 4
   switch i32 %5, label %33 [
     i32 2, label %6
@@ -355,7 +355,7 @@ define dso_local void @create_target(ptr nocapture noundef readonly %0) local_un
   ]
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3)
   %9 = load i8, ptr @dry_run, align 1
@@ -380,9 +380,9 @@ create_target_dir.exit:                           ; preds = %6, %11
   br label %33
 
 17:                                               ; preds = %1
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %21 = load ptr, ptr %20, align 8
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %2)
   %22 = load i8, ptr @dry_run, align 1
@@ -411,7 +411,7 @@ create_target_symlink.exit:                       ; preds = %17, %24
   unreachable
 
 30:                                               ; preds = %1
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %32 = load ptr, ptr %31, align 8
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.5, ptr noundef %32) #11
   tail call void @exit(i32 noundef 1) #12
@@ -514,7 +514,7 @@ define dso_local noundef ptr @slurpFile(ptr noundef %0, ptr noundef %1, ptr noun
   unreachable
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %4, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %16 = load i64, ptr %15, align 8
   %17 = trunc i64 %16 to i32
   %18 = shl i64 %16, 32
@@ -601,8 +601,8 @@ define internal fastcc void @recurse_dir(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not2940, label %._crit_edge, label %sub_0.lr.ph
 
 sub_0.lr.ph:                                      ; preds = %.preheader
-  %18 = getelementptr inbounds i8, ptr %5, i64 24
-  %19 = getelementptr inbounds i8, ptr %5, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 48
   br label %sub_0
 
 20:                                               ; preds = %13
@@ -612,25 +612,25 @@ sub_0.lr.ph:                                      ; preds = %.preheader
 
 sub_0:                                            ; preds = %sub_0.lr.ph, %.backedge
   %21 = phi ptr [ %17, %sub_0.lr.ph ], [ %32, %.backedge ]
-  %22 = getelementptr inbounds i8, ptr %21, i64 19
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 19
   %23 = load i8, ptr %22, align 1
   %.not41 = icmp eq i8 %23, 46
   br i1 %.not41, label %.tail, label %.tail33.thread
 
 .tail:                                            ; preds = %sub_0
-  %24 = getelementptr inbounds i8, ptr %21, i64 20
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 20
   %25 = load i8, ptr %24, align 1
   %26 = icmp eq i8 %25, 0
   br i1 %26, label %.backedge, label %sub_135
 
 sub_135:                                          ; preds = %.tail
-  %27 = getelementptr inbounds i8, ptr %21, i64 20
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 20
   %28 = load i8, ptr %27, align 1
   %.not43 = icmp eq i8 %28, 46
   br i1 %.not43, label %.tail33, label %.tail33.thread
 
 .tail33:                                          ; preds = %sub_135
-  %29 = getelementptr inbounds i8, ptr %21, i64 21
+  %29 = getelementptr inbounds nuw i8, ptr %21, i64 21
   %30 = load i8, ptr %29, align 1
   %31 = icmp eq i8 %30, 0
   br i1 %31, label %.backedge, label %.tail33.thread

@@ -66,17 +66,17 @@ define dso_local void @intel_engine_init_ctx_wa(ptr noundef initializes((640, 65
   %20 = alloca %struct.i915_wa, align 4
   %21 = alloca %struct.i915_wa, align 4
   %22 = alloca %struct.i915_wa, align 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 640
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %26, ptr %23, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 648
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 648
   store ptr @.str, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 656
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 656
   store ptr %27, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %24, i64 7176
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 7176
   %31 = load i8, ptr %30, align 8
   %32 = icmp ugt i8 %31, 11
   br i1 %32, label %33, label %71
@@ -84,7 +84,7 @@ define dso_local void @intel_engine_init_ctx_wa(ptr noundef initializes((640, 65
 33:                                               ; preds = %1
   %34 = zext i8 %31 to i32
   %35 = shl nuw nsw i32 %34, 8
-  %36 = getelementptr inbounds i8, ptr %24, i64 7177
+  %36 = getelementptr inbounds nuw i8, ptr %24, i64 7177
   %37 = load i8, ptr %36, align 1
   %38 = zext i8 %37 to i32
   %39 = or disjoint i32 %35, %38
@@ -92,36 +92,36 @@ define dso_local void @intel_engine_init_ctx_wa(ptr noundef initializes((640, 65
   br i1 %40, label %41, label %50
 
 41:                                               ; preds = %33
-  %42 = getelementptr inbounds i8, ptr %0, i64 72
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %43 = load i32, ptr %42, align 8
   %44 = add i32 %43, 156
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %22) #10
-  %45 = getelementptr inbounds i8, ptr %22, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i32 0, ptr %45, align 4, !annotation !5
   store i32 %44, ptr %22, align 4
-  %46 = getelementptr inbounds i8, ptr %22, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %22, i64 4
   store i32 0, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %22, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i32 268435456, ptr %47, align 4
-  %48 = getelementptr inbounds i8, ptr %22, i64 12
+  %48 = getelementptr inbounds nuw i8, ptr %22, i64 12
   store i32 4096, ptr %48, align 4
-  %49 = getelementptr inbounds i8, ptr %22, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i8 1, ptr %49, align 4
-  call fastcc void @_wa_add(ptr noundef %23, ptr noundef nonnull %22)
+  call fastcc void @_wa_add(ptr noundef nonnull %23, ptr noundef nonnull %22)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %22) #10
   br label %50
 
 50:                                               ; preds = %41, %33
-  %51 = getelementptr inbounds i8, ptr %0, i64 56
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %52 = load i8, ptr %51, align 8
   %53 = icmp eq i8 %52, 3
   br i1 %53, label %54, label %71
 
 54:                                               ; preds = %50
   %55 = load ptr, ptr %25, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 5168
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 5168
   %57 = load i8, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 72
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %59 = load i32, ptr %58, align 8
   %60 = add i32 %59, 516
   %61 = zext i8 %57 to i32
@@ -131,39 +131,39 @@ define dso_local void @intel_engine_init_ctx_wa(ptr noundef initializes((640, 65
   %65 = and i32 %62, 126
   %66 = or disjoint i32 %64, %65
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %21) #10
-  %67 = getelementptr inbounds i8, ptr %21, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i32 0, ptr %67, align 4, !annotation !5
   store i32 %60, ptr %21, align 4
-  %68 = getelementptr inbounds i8, ptr %21, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store i32 32639, ptr %68, align 4
-  %69 = getelementptr inbounds i8, ptr %21, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i32 %66, ptr %69, align 4
-  %70 = getelementptr inbounds i8, ptr %21, i64 12
+  %70 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 32639, ptr %70, align 4
-  call fastcc void @_wa_add(ptr noundef %23, ptr noundef nonnull %21)
+  call fastcc void @_wa_add(ptr noundef nonnull %23, ptr noundef nonnull %21)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %21) #10
   br label %71
 
 71:                                               ; preds = %54, %50, %1
-  %72 = getelementptr inbounds i8, ptr %0, i64 56
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %73 = load i8, ptr %72, align 8
   %74 = icmp eq i8 %73, 0
   br i1 %74, label %75, label %390
 
 75:                                               ; preds = %71
   %76 = load ptr, ptr %25, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 16
   %78 = load i32, ptr %77, align 8
   %79 = icmp eq i32 %78, 2
   br i1 %79, label %282, label %80
 
 80:                                               ; preds = %75
   %81 = load ptr, ptr %76, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 7176
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 7176
   %83 = load i8, ptr %82, align 8
   %84 = zext i8 %83 to i32
   %85 = shl nuw nsw i32 %84, 8
-  %86 = getelementptr inbounds i8, ptr %81, i64 7177
+  %86 = getelementptr inbounds nuw i8, ptr %81, i64 7177
   %87 = load i8, ptr %86, align 1
   %88 = and i8 %87, -2
   %89 = zext i8 %88 to i32
@@ -173,46 +173,46 @@ define dso_local void @intel_engine_init_ctx_wa(ptr noundef initializes((640, 65
 
 92:                                               ; preds = %80
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %20) #10
-  %93 = getelementptr inbounds i8, ptr %20, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i32 0, ptr %93, align 4, !annotation !5
   store i32 25096, ptr %20, align 4
-  %94 = getelementptr inbounds i8, ptr %20, i64 4
+  %94 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store i32 0, ptr %94, align 4
-  %95 = getelementptr inbounds i8, ptr %20, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i32 2097184, ptr %95, align 4
-  %96 = getelementptr inbounds i8, ptr %20, i64 12
+  %96 = getelementptr inbounds nuw i8, ptr %20, i64 12
   store i32 32, ptr %96, align 4
-  %97 = getelementptr inbounds i8, ptr %20, i64 16
+  %97 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i8 3, ptr %97, align 4
-  call fastcc void @_wa_add(ptr noundef %23, ptr noundef nonnull %20)
+  call fastcc void @_wa_add(ptr noundef nonnull %23, ptr noundef nonnull %20)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %20) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %19) #10
-  %98 = getelementptr inbounds i8, ptr %19, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i32 0, ptr %98, align 4, !annotation !5
   store i32 45400, ptr %19, align 4
-  %99 = getelementptr inbounds i8, ptr %19, i64 4
+  %99 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i32 1023, ptr %99, align 4
-  %100 = getelementptr inbounds i8, ptr %19, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i32 127, ptr %100, align 4
-  %101 = getelementptr inbounds i8, ptr %19, i64 12
+  %101 = getelementptr inbounds nuw i8, ptr %19, i64 12
   store i32 1023, ptr %101, align 4
-  %102 = getelementptr inbounds i8, ptr %19, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i8 2, ptr %102, align 4
-  call fastcc void @_wa_add(ptr noundef %23, ptr noundef nonnull %19)
+  call fastcc void @_wa_add(ptr noundef nonnull %23, ptr noundef nonnull %19)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %19) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %18) #10
-  %103 = getelementptr inbounds i8, ptr %18, i64 16
+  %103 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i32 0, ptr %103, align 4, !annotation !5
   store i32 26116, ptr %18, align 4
-  %104 = getelementptr inbounds i8, ptr %18, i64 4
+  %104 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 16711680, ptr %104, align 4
-  %105 = getelementptr inbounds i8, ptr %18, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i32 262144, ptr %105, align 4
-  %106 = getelementptr inbounds i8, ptr %18, i64 12
+  %106 = getelementptr inbounds nuw i8, ptr %18, i64 12
   store i32 16711680, ptr %106, align 4
-  %107 = getelementptr inbounds i8, ptr %18, i64 16
+  %107 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i8 2, ptr %107, align 4
-  call fastcc void @_wa_add(ptr noundef %23, ptr noundef nonnull %18)
+  call fastcc void @_wa_add(ptr noundef nonnull %23, ptr noundef nonnull %18)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %18) #10
   %108 = load i32, ptr %77, align 8
   %109 = icmp eq i32 %108, 2
@@ -220,11 +220,11 @@ define dso_local void @intel_engine_init_ctx_wa(ptr noundef initializes((640, 65
 
 110:                                              ; preds = %92
   %111 = load ptr, ptr %76, align 8
-  %112 = getelementptr inbounds i8, ptr %111, i64 7176
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 7176
   %113 = load i8, ptr %112, align 8
   %114 = zext i8 %113 to i32
   %115 = shl nuw nsw i32 %114, 8
-  %116 = getelementptr inbounds i8, ptr %111, i64 7177
+  %116 = getelementptr inbounds nuw i8, ptr %111, i64 7177
   %117 = load i8, ptr %116, align 1
   %118 = zext i8 %117 to i32
   %119 = or disjoint i32 %115, %118
@@ -232,7 +232,7 @@ define dso_local void @intel_engine_init_ctx_wa(ptr noundef initializes((640, 65
   br i1 %120, label %121, label %.thread
 
 121:                                              ; preds = %110
-  %122 = getelementptr inbounds i8, ptr %111, i64 7200
+  %122 = getelementptr inbounds nuw i8, ptr %111, i64 7200
   %123 = load i8, ptr %122, align 8
   %124 = icmp eq i8 %123, 0
   br i1 %124, label %125, label %140, !prof !6
@@ -240,13 +240,13 @@ define dso_local void @intel_engine_init_ctx_wa(ptr noundef initializes((640, 65
 125:                                              ; preds = %121
   tail call void asm sideeffect "868: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 868b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 868) #10, !srcloc !7
   %126 = load ptr, ptr %76, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 8
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
   %128 = load ptr, ptr %127, align 8
   %129 = tail call ptr @dev_driver_string(ptr noundef %128) #10
   %130 = load ptr, ptr %76, align 8
-  %131 = getelementptr inbounds i8, ptr %130, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
   %132 = load ptr, ptr %131, align 8
-  %133 = getelementptr inbounds i8, ptr %132, i64 80
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 80
   %134 = load ptr, ptr %133, align 8
   %135 = icmp eq ptr %134, null
   br i1 %135, label %136, label %138
@@ -263,7 +263,7 @@ define dso_local void @intel_engine_init_ctx_wa(ptr noundef initializes((640, 65
   tail call void asm sideeffect "870: nop\0A\09.pushsection .discard.instr_end\0A\09.long 870b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 870) #10, !srcloc !10
   tail call void asm sideeffect "871: nop\0A\09.pushsection .discard.instr_end\0A\09.long 871b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 871) #10, !srcloc !11
   %.pre = load ptr, ptr %76, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 7200
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 7200
   %.pre18 = load i8, ptr %.phi.trans.insert, align 8
   br label %140
 
@@ -281,11 +281,11 @@ define dso_local void @intel_engine_init_ctx_wa(ptr noundef initializes((640, 65
 
 .thread:                                          ; preds = %110, %145
   %147 = phi ptr [ %142, %145 ], [ %111, %110 ]
-  %148 = getelementptr inbounds i8, ptr %147, i64 7176
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 7176
   %149 = load i8, ptr %148, align 8
   %150 = zext i8 %149 to i32
   %151 = shl nuw nsw i32 %150, 8
-  %152 = getelementptr inbounds i8, ptr %147, i64 7177
+  %152 = getelementptr inbounds nuw i8, ptr %147, i64 7177
   %153 = load i8, ptr %152, align 1
   %154 = zext i8 %153 to i32
   %155 = or disjoint i32 %151, %154
@@ -293,7 +293,7 @@ define dso_local void @intel_engine_init_ctx_wa(ptr noundef initializes((640, 65
   br i1 %156, label %157, label %185
 
 157:                                              ; preds = %.thread
-  %158 = getelementptr inbounds i8, ptr %147, i64 7200
+  %158 = getelementptr inbounds nuw i8, ptr %147, i64 7200
   %159 = load i8, ptr %158, align 8
   %160 = icmp eq i8 %159, 0
   br i1 %160, label %161, label %176, !prof !6
@@ -301,13 +301,13 @@ define dso_local void @intel_engine_init_ctx_wa(ptr noundef initializes((640, 65
 161:                                              ; preds = %157
   tail call void asm sideeffect "872: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 872b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 872) #10, !srcloc !12
   %162 = load ptr, ptr %76, align 8
-  %163 = getelementptr inbounds i8, ptr %162, i64 8
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 8
   %164 = load ptr, ptr %163, align 8
   %165 = tail call ptr @dev_driver_string(ptr noundef %164) #10
   %166 = load ptr, ptr %76, align 8
-  %167 = getelementptr inbounds i8, ptr %166, i64 8
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 8
   %168 = load ptr, ptr %167, align 8
-  %169 = getelementptr inbounds i8, ptr %168, i64 80
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 80
   %170 = load ptr, ptr %169, align 8
   %171 = icmp eq ptr %170, null
   br i1 %171, label %172, label %174
@@ -324,7 +324,7 @@ define dso_local void @intel_engine_init_ctx_wa(ptr noundef initializes((640, 65
   tail call void asm sideeffect "874: nop\0A\09.pushsection .discard.instr_end\0A\09.long 874b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 874) #10, !srcloc !15
   tail call void asm sideeffect "875: nop\0A\09.pushsection .discard.instr_end\0A\09.long 875b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 875) #10, !srcloc !16
   %.pre20 = load ptr, ptr %76, align 8
-  %.phi.trans.insert21 = getelementptr inbounds i8, ptr %.pre20, i64 7200
+  %.phi.trans.insert21 = getelementptr inbounds nuw i8, ptr %.pre20, i64 7200
   %.pre22 = load i8, ptr %.phi.trans.insert21, align 8
   br label %176
 
@@ -336,16 +336,16 @@ define dso_local void @intel_engine_init_ctx_wa(ptr noundef initializes((640, 65
 
 180:                                              ; preds = %176, %140
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %17) #10
-  %181 = getelementptr inbounds i8, ptr %17, i64 16
+  %181 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i32 0, ptr %181, align 4, !annotation !5
   store i32 9920, ptr %17, align 4
-  %182 = getelementptr inbounds i8, ptr %17, i64 4
+  %182 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 1023, ptr %182, align 4
-  %183 = getelementptr inbounds i8, ptr %17, i64 8
+  %183 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i32 1023, ptr %183, align 4
-  %184 = getelementptr inbounds i8, ptr %17, i64 12
+  %184 = getelementptr inbounds nuw i8, ptr %17, i64 12
   store i32 0, ptr %184, align 4
-  call fastcc void @_wa_add(ptr noundef %23, ptr noundef nonnull %17)
+  call fastcc void @_wa_add(ptr noundef nonnull %23, ptr noundef nonnull %17)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %17) #10
   br label %185
 
@@ -356,11 +356,11 @@ define dso_local void @intel_engine_init_ctx_wa(ptr noundef initializes((640, 65
 
 187:                                              ; preds = %185
   %188 = load ptr, ptr %76, align 8
-  %189 = getelementptr inbounds i8, ptr %188, i64 7176
+  %189 = getelementptr inbounds nuw i8, ptr %188, i64 7176
   %190 = load i8, ptr %189, align 8
   %191 = zext i8 %190 to i32
   %192 = shl nuw nsw i32 %191, 8
-  %193 = getelementptr inbounds i8, ptr %188, i64 7177
+  %193 = getelementptr inbounds nuw i8, ptr %188, i64 7177
   %194 = load i8, ptr %193, align 1
   %195 = zext i8 %194 to i32
   %196 = or disjoint i32 %192, %195
@@ -368,7 +368,7 @@ define dso_local void @intel_engine_init_ctx_wa(ptr noundef initializes((640, 65
   br i1 %197, label %198, label %.thread13.thread
 
 198:                                              ; preds = %187
-  %199 = getelementptr inbounds i8, ptr %188, i64 7200
+  %199 = getelementptr inbounds nuw i8, ptr %188, i64 7200
   %200 = load i8, ptr %199, align 8
   %201 = icmp eq i8 %200, 0
   br i1 %201, label %202, label %217, !prof !6
@@ -376,13 +376,13 @@ define dso_local void @intel_engine_init_ctx_wa(ptr noundef initializes((640, 65
 202:                                              ; preds = %198
   tail call void asm sideeffect "876: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 876b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 876) #10, !srcloc !17
   %203 = load ptr, ptr %76, align 8
-  %204 = getelementptr inbounds i8, ptr %203, i64 8
+  %204 = getelementptr inbounds nuw i8, ptr %203, i64 8
   %205 = load ptr, ptr %204, align 8
   %206 = tail call ptr @dev_driver_string(ptr noundef %205) #10
   %207 = load ptr, ptr %76, align 8
-  %208 = getelementptr inbounds i8, ptr %207, i64 8
+  %208 = getelementptr inbounds nuw i8, ptr %207, i64 8
   %209 = load ptr, ptr %208, align 8
-  %210 = getelementptr inbounds i8, ptr %209, i64 80
+  %210 = getelementptr inbounds nuw i8, ptr %209, i64 80
   %211 = load ptr, ptr %210, align 8
   %212 = icmp eq ptr %211, null
   br i1 %212, label %213, label %215
@@ -399,7 +399,7 @@ define dso_local void @intel_engine_init_ctx_wa(ptr noundef initializes((640, 65
   tail call void asm sideeffect "878: nop\0A\09.pushsection .discard.instr_end\0A\09.long 878b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 878) #10, !srcloc !20
   tail call void asm sideeffect "879: nop\0A\09.pushsection .discard.instr_end\0A\09.long 879b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 879) #10, !srcloc !21
   %.pre23 = load ptr, ptr %76, align 8
-  %.phi.trans.insert24 = getelementptr inbounds i8, ptr %.pre23, i64 7200
+  %.phi.trans.insert24 = getelementptr inbounds nuw i8, ptr %.pre23, i64 7200
   %.pre25 = load i8, ptr %.phi.trans.insert24, align 8
   br label %217
 
@@ -417,11 +417,11 @@ define dso_local void @intel_engine_init_ctx_wa(ptr noundef initializes((640, 65
 
 .thread13.thread:                                 ; preds = %187, %.thread13
   %223 = phi ptr [ %219, %.thread13 ], [ %188, %187 ]
-  %224 = getelementptr inbounds i8, ptr %223, i64 7176
+  %224 = getelementptr inbounds nuw i8, ptr %223, i64 7176
   %225 = load i8, ptr %224, align 8
   %226 = zext i8 %225 to i32
   %227 = shl nuw nsw i32 %226, 8
-  %228 = getelementptr inbounds i8, ptr %223, i64 7177
+  %228 = getelementptr inbounds nuw i8, ptr %223, i64 7177
   %229 = load i8, ptr %228, align 1
   %230 = zext i8 %229 to i32
   %231 = or disjoint i32 %227, %230
@@ -429,7 +429,7 @@ define dso_local void @intel_engine_init_ctx_wa(ptr noundef initializes((640, 65
   br i1 %232, label %233, label %.thread16
 
 233:                                              ; preds = %.thread13.thread
-  %234 = getelementptr inbounds i8, ptr %223, i64 7200
+  %234 = getelementptr inbounds nuw i8, ptr %223, i64 7200
   %235 = load i8, ptr %234, align 8
   %236 = icmp eq i8 %235, 0
   br i1 %236, label %237, label %252, !prof !6
@@ -437,13 +437,13 @@ define dso_local void @intel_engine_init_ctx_wa(ptr noundef initializes((640, 65
 237:                                              ; preds = %233
   tail call void asm sideeffect "880: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 880b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 880) #10, !srcloc !22
   %238 = load ptr, ptr %76, align 8
-  %239 = getelementptr inbounds i8, ptr %238, i64 8
+  %239 = getelementptr inbounds nuw i8, ptr %238, i64 8
   %240 = load ptr, ptr %239, align 8
   %241 = tail call ptr @dev_driver_string(ptr noundef %240) #10
   %242 = load ptr, ptr %76, align 8
-  %243 = getelementptr inbounds i8, ptr %242, i64 8
+  %243 = getelementptr inbounds nuw i8, ptr %242, i64 8
   %244 = load ptr, ptr %243, align 8
-  %245 = getelementptr inbounds i8, ptr %244, i64 80
+  %245 = getelementptr inbounds nuw i8, ptr %244, i64 80
   %246 = load ptr, ptr %245, align 8
   %247 = icmp eq ptr %246, null
   br i1 %247, label %248, label %250
@@ -460,7 +460,7 @@ define dso_local void @intel_engine_init_ctx_wa(ptr noundef initializes((640, 65
   tail call void asm sideeffect "882: nop\0A\09.pushsection .discard.instr_end\0A\09.long 882b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 882) #10, !srcloc !25
   tail call void asm sideeffect "883: nop\0A\09.pushsection .discard.instr_end\0A\09.long 883b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 883) #10, !srcloc !26
   %.pre27 = load ptr, ptr %76, align 8
-  %.phi.trans.insert28 = getelementptr inbounds i8, ptr %.pre27, i64 7200
+  %.phi.trans.insert28 = getelementptr inbounds nuw i8, ptr %.pre27, i64 7200
   %.pre29 = load i8, ptr %.phi.trans.insert28, align 8
   br label %252
 
@@ -472,82 +472,82 @@ define dso_local void @intel_engine_init_ctx_wa(ptr noundef initializes((640, 65
 
 256:                                              ; preds = %252, %217
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %16) #10
-  %257 = getelementptr inbounds i8, ptr %16, i64 16
+  %257 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i32 0, ptr %257, align 4, !annotation !5
   store i32 33700, ptr %16, align 4
-  %258 = getelementptr inbounds i8, ptr %16, i64 4
+  %258 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store i32 0, ptr %258, align 4
-  %259 = getelementptr inbounds i8, ptr %16, i64 8
+  %259 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i32 -49152, ptr %259, align 4
-  %260 = getelementptr inbounds i8, ptr %16, i64 12
+  %260 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 65535, ptr %260, align 4
-  %261 = getelementptr inbounds i8, ptr %16, i64 16
+  %261 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i8 1, ptr %261, align 4
-  call fastcc void @_wa_add(ptr noundef %23, ptr noundef nonnull %16)
+  call fastcc void @_wa_add(ptr noundef nonnull %23, ptr noundef nonnull %16)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %16) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %15) #10
-  %262 = getelementptr inbounds i8, ptr %15, i64 16
+  %262 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i32 0, ptr %262, align 4, !annotation !5
   store i32 29468, ptr %15, align 4
-  %263 = getelementptr inbounds i8, ptr %15, i64 4
+  %263 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store i32 0, ptr %263, align 4
-  %264 = getelementptr inbounds i8, ptr %15, i64 8
+  %264 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i32 1073758208, ptr %264, align 4
-  %265 = getelementptr inbounds i8, ptr %15, i64 12
+  %265 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i32 16384, ptr %265, align 4
-  %266 = getelementptr inbounds i8, ptr %15, i64 16
+  %266 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i8 3, ptr %266, align 4
-  call fastcc void @_wa_add(ptr noundef %23, ptr noundef nonnull %15)
+  call fastcc void @_wa_add(ptr noundef nonnull %23, ptr noundef nonnull %15)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %15) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %14) #10
-  %267 = getelementptr inbounds i8, ptr %14, i64 16
+  %267 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i32 0, ptr %267, align 4, !annotation !5
   store i32 25256, ptr %14, align 4
-  %268 = getelementptr inbounds i8, ptr %14, i64 4
+  %268 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 0, ptr %268, align 4
-  %269 = getelementptr inbounds i8, ptr %14, i64 8
+  %269 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 2097184, ptr %269, align 4
-  %270 = getelementptr inbounds i8, ptr %14, i64 12
+  %270 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store i32 32, ptr %270, align 4
-  %271 = getelementptr inbounds i8, ptr %14, i64 16
+  %271 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i8 3, ptr %271, align 4
-  call fastcc void @_wa_add(ptr noundef %23, ptr noundef nonnull %14)
+  call fastcc void @_wa_add(ptr noundef nonnull %23, ptr noundef nonnull %14)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %13) #10
-  %272 = getelementptr inbounds i8, ptr %13, i64 16
+  %272 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i32 0, ptr %272, align 4, !annotation !5
   store i32 28732, ptr %13, align 4
-  %273 = getelementptr inbounds i8, ptr %13, i64 4
+  %273 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 0, ptr %273, align 4
-  %274 = getelementptr inbounds i8, ptr %13, i64 8
+  %274 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 2097184, ptr %274, align 4
-  %275 = getelementptr inbounds i8, ptr %13, i64 12
+  %275 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 32, ptr %275, align 4
-  %276 = getelementptr inbounds i8, ptr %13, i64 16
+  %276 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i8 3, ptr %276, align 4
-  call fastcc void @_wa_add(ptr noundef %23, ptr noundef nonnull %13)
+  call fastcc void @_wa_add(ptr noundef nonnull %23, ptr noundef nonnull %13)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %13) #10
   br label %.thread16
 
 .thread16:                                        ; preds = %145, %92, %185, %256, %252, %.thread13.thread, %.thread13
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %12) #10
-  %277 = getelementptr inbounds i8, ptr %12, i64 16
+  %277 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 0, ptr %277, align 4, !annotation !5
   store i32 28676, ptr %12, align 4
-  %278 = getelementptr inbounds i8, ptr %12, i64 4
+  %278 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 0, ptr %278, align 4
-  %279 = getelementptr inbounds i8, ptr %12, i64 8
+  %279 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 134219776, ptr %279, align 4
-  %280 = getelementptr inbounds i8, ptr %12, i64 12
+  %280 = getelementptr inbounds nuw i8, ptr %12, i64 12
   store i32 2048, ptr %280, align 4
-  %281 = getelementptr inbounds i8, ptr %12, i64 16
+  %281 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i8 1, ptr %281, align 4
-  call fastcc void @_wa_add(ptr noundef %23, ptr noundef nonnull %12)
+  call fastcc void @_wa_add(ptr noundef nonnull %23, ptr noundef nonnull %12)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %12) #10
   br label %390
 
 282:                                              ; preds = %80, %75
-  %283 = getelementptr inbounds i8, ptr %24, i64 7184
+  %283 = getelementptr inbounds nuw i8, ptr %24, i64 7184
   %284 = getelementptr i8, ptr %24, i64 7188
   %285 = load i32, ptr %284, align 4
   %286 = zext i32 %285 to i64
@@ -562,116 +562,116 @@ define dso_local void @intel_engine_init_ctx_wa(ptr noundef initializes((640, 65
 
 292:                                              ; preds = %289
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %11) #10
-  %293 = getelementptr inbounds i8, ptr %11, i64 16
+  %293 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i32 0, ptr %293, align 4, !annotation !5
   store i32 25096, ptr %11, align 4
-  %294 = getelementptr inbounds i8, ptr %11, i64 4
+  %294 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 0, ptr %294, align 4
-  %295 = getelementptr inbounds i8, ptr %11, i64 8
+  %295 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 2097184, ptr %295, align 4
-  %296 = getelementptr inbounds i8, ptr %11, i64 12
+  %296 = getelementptr inbounds nuw i8, ptr %11, i64 12
   store i32 32, ptr %296, align 4
-  %297 = getelementptr inbounds i8, ptr %11, i64 16
+  %297 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i8 3, ptr %297, align 4
-  call fastcc void @_wa_add(ptr noundef %23, ptr noundef nonnull %11)
+  call fastcc void @_wa_add(ptr noundef nonnull %23, ptr noundef nonnull %11)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %11) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %10) #10
-  %298 = getelementptr inbounds i8, ptr %10, i64 16
+  %298 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 0, ptr %298, align 4, !annotation !5
   store i32 45400, ptr %10, align 4
-  %299 = getelementptr inbounds i8, ptr %10, i64 4
+  %299 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 1023, ptr %299, align 4
-  %300 = getelementptr inbounds i8, ptr %10, i64 8
+  %300 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 127, ptr %300, align 4
-  %301 = getelementptr inbounds i8, ptr %10, i64 12
+  %301 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store i32 1023, ptr %301, align 4
-  %302 = getelementptr inbounds i8, ptr %10, i64 16
+  %302 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i8 2, ptr %302, align 4
-  call fastcc void @_wa_add(ptr noundef %23, ptr noundef nonnull %10)
+  call fastcc void @_wa_add(ptr noundef nonnull %23, ptr noundef nonnull %10)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %10) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %9) #10
-  %303 = getelementptr inbounds i8, ptr %9, i64 16
+  %303 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 0, ptr %303, align 4, !annotation !5
   store i32 26116, ptr %9, align 4
-  %304 = getelementptr inbounds i8, ptr %9, i64 4
+  %304 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 16711680, ptr %304, align 4
-  %305 = getelementptr inbounds i8, ptr %9, i64 8
+  %305 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 262144, ptr %305, align 4
-  %306 = getelementptr inbounds i8, ptr %9, i64 12
+  %306 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 16711680, ptr %306, align 4
-  %307 = getelementptr inbounds i8, ptr %9, i64 16
+  %307 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i8 2, ptr %307, align 4
-  call fastcc void @_wa_add(ptr noundef %23, ptr noundef nonnull %9)
+  call fastcc void @_wa_add(ptr noundef nonnull %23, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %8) #10
-  %308 = getelementptr inbounds i8, ptr %8, i64 16
+  %308 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 0, ptr %308, align 4, !annotation !5
   store i32 29468, ptr %8, align 4
-  %309 = getelementptr inbounds i8, ptr %8, i64 4
+  %309 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 0, ptr %309, align 4
-  %310 = getelementptr inbounds i8, ptr %8, i64 8
+  %310 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 1073758208, ptr %310, align 4
-  %311 = getelementptr inbounds i8, ptr %8, i64 12
+  %311 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 16384, ptr %311, align 4
-  %312 = getelementptr inbounds i8, ptr %8, i64 16
+  %312 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i8 3, ptr %312, align 4
-  call fastcc void @_wa_add(ptr noundef %23, ptr noundef nonnull %8)
+  call fastcc void @_wa_add(ptr noundef nonnull %23, ptr noundef nonnull %8)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %7) #10
-  %313 = getelementptr inbounds i8, ptr %7, i64 16
+  %313 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 0, ptr %313, align 4, !annotation !5
   store i32 33700, ptr %7, align 4
-  %314 = getelementptr inbounds i8, ptr %7, i64 4
+  %314 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 0, ptr %314, align 4
-  %315 = getelementptr inbounds i8, ptr %7, i64 8
+  %315 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 -49152, ptr %315, align 4
-  %316 = getelementptr inbounds i8, ptr %7, i64 12
+  %316 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 65535, ptr %316, align 4
-  %317 = getelementptr inbounds i8, ptr %7, i64 16
+  %317 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i8 1, ptr %317, align 4
-  call fastcc void @_wa_add(ptr noundef %23, ptr noundef nonnull %7)
+  call fastcc void @_wa_add(ptr noundef nonnull %23, ptr noundef nonnull %7)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #10
-  %318 = getelementptr inbounds i8, ptr %6, i64 16
+  %318 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 0, ptr %318, align 4, !annotation !5
   store i32 28732, ptr %6, align 4
-  %319 = getelementptr inbounds i8, ptr %6, i64 4
+  %319 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 0, ptr %319, align 4
-  %320 = getelementptr inbounds i8, ptr %6, i64 8
+  %320 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 2097184, ptr %320, align 4
-  %321 = getelementptr inbounds i8, ptr %6, i64 12
+  %321 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 32, ptr %321, align 4
-  %322 = getelementptr inbounds i8, ptr %6, i64 16
+  %322 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i8 3, ptr %322, align 4
-  call fastcc void @_wa_add(ptr noundef %23, ptr noundef nonnull %6)
+  call fastcc void @_wa_add(ptr noundef nonnull %23, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #10
-  %323 = getelementptr inbounds i8, ptr %5, i64 16
+  %323 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 0, ptr %323, align 4, !annotation !5
   store i32 28676, ptr %5, align 4
-  %324 = getelementptr inbounds i8, ptr %5, i64 4
+  %324 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 0, ptr %324, align 4
-  %325 = getelementptr inbounds i8, ptr %5, i64 8
+  %325 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 134219776, ptr %325, align 4
-  %326 = getelementptr inbounds i8, ptr %5, i64 12
+  %326 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 2048, ptr %326, align 4
-  %327 = getelementptr inbounds i8, ptr %5, i64 16
+  %327 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i8 1, ptr %327, align 4
-  call fastcc void @_wa_add(ptr noundef %23, ptr noundef nonnull %5)
+  call fastcc void @_wa_add(ptr noundef nonnull %23, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #10
-  %328 = getelementptr inbounds i8, ptr %4, i64 16
+  %328 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %328, align 4, !annotation !5
   store i32 28740, ptr %4, align 4
-  %329 = getelementptr inbounds i8, ptr %4, i64 4
+  %329 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %329, align 4
-  %330 = getelementptr inbounds i8, ptr %4, i64 8
+  %330 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 2097184, ptr %330, align 4
-  %331 = getelementptr inbounds i8, ptr %4, i64 12
+  %331 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 32, ptr %331, align 4
-  %332 = getelementptr inbounds i8, ptr %4, i64 16
+  %332 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i8 3, ptr %332, align 4
-  call fastcc void @_wa_add(ptr noundef %23, ptr noundef nonnull %4)
+  call fastcc void @_wa_add(ptr noundef nonnull %23, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #10
   br label %390
 
@@ -687,7 +687,7 @@ define dso_local void @intel_engine_init_ctx_wa(ptr noundef initializes((640, 65
 
 339:                                              ; preds = %336
   %.val5 = load ptr, ptr %0, align 8
-  tail call fastcc void @dg1_ctx_workarounds_init(ptr %.val5, ptr noundef %23)
+  tail call fastcc void @dg1_ctx_workarounds_init(ptr %.val5, ptr noundef nonnull %23)
   br label %390
 
 340:                                              ; preds = %336
@@ -699,11 +699,11 @@ define dso_local void @intel_engine_init_ctx_wa(ptr noundef initializes((640, 65
 
 342:                                              ; preds = %340
   %.val = load ptr, ptr %0, align 8
-  tail call fastcc void @gen12_ctx_workarounds_init(ptr %.val, ptr noundef %23)
+  tail call fastcc void @gen12_ctx_workarounds_init(ptr %.val, ptr noundef nonnull %23)
   br label %390
 
 343:                                              ; preds = %340
-  tail call fastcc void @icl_ctx_workarounds_init(ptr noundef %23)
+  tail call fastcc void @icl_ctx_workarounds_init(ptr noundef nonnull %23)
   br label %390
 
 344:                                              ; preds = %340
@@ -715,7 +715,7 @@ define dso_local void @intel_engine_init_ctx_wa(ptr noundef initializes((640, 65
 
 349:                                              ; preds = %344
   %.val6 = load ptr, ptr %0, align 8
-  tail call fastcc void @cfl_ctx_workarounds_init(ptr %.val6, ptr noundef %23)
+  tail call fastcc void @cfl_ctx_workarounds_init(ptr %.val6, ptr noundef nonnull %23)
   br label %390
 
 350:                                              ; preds = %344
@@ -725,7 +725,7 @@ define dso_local void @intel_engine_init_ctx_wa(ptr noundef initializes((640, 65
 
 353:                                              ; preds = %350
   %.val7 = load ptr, ptr %0, align 8
-  tail call fastcc void @glk_ctx_workarounds_init(ptr %.val7, ptr noundef %23)
+  tail call fastcc void @glk_ctx_workarounds_init(ptr %.val7, ptr noundef nonnull %23)
   br label %390
 
 354:                                              ; preds = %350
@@ -735,7 +735,7 @@ define dso_local void @intel_engine_init_ctx_wa(ptr noundef initializes((640, 65
 
 357:                                              ; preds = %354
   %.val8 = load ptr, ptr %0, align 8
-  tail call fastcc void @kbl_ctx_workarounds_init(ptr %.val8, ptr noundef %23)
+  tail call fastcc void @kbl_ctx_workarounds_init(ptr %.val8, ptr noundef nonnull %23)
   br label %390
 
 358:                                              ; preds = %354
@@ -745,7 +745,7 @@ define dso_local void @intel_engine_init_ctx_wa(ptr noundef initializes((640, 65
 
 361:                                              ; preds = %358
   %.val9 = load ptr, ptr %0, align 8
-  tail call fastcc void @bxt_ctx_workarounds_init(ptr %.val9, ptr noundef %23)
+  tail call fastcc void @bxt_ctx_workarounds_init(ptr %.val9, ptr noundef nonnull %23)
   br label %390
 
 362:                                              ; preds = %358
@@ -754,7 +754,7 @@ define dso_local void @intel_engine_init_ctx_wa(ptr noundef initializes((640, 65
   br i1 %364, label %366, label %365
 
 365:                                              ; preds = %362
-  tail call fastcc void @skl_ctx_workarounds_init(ptr noundef %0, ptr noundef %23)
+  tail call fastcc void @skl_ctx_workarounds_init(ptr noundef %0, ptr noundef nonnull %23)
   br label %390
 
 366:                                              ; preds = %362
@@ -763,7 +763,7 @@ define dso_local void @intel_engine_init_ctx_wa(ptr noundef initializes((640, 65
   br i1 %368, label %370, label %369
 
 369:                                              ; preds = %366
-  tail call fastcc void @chv_ctx_workarounds_init(ptr noundef %23)
+  tail call fastcc void @chv_ctx_workarounds_init(ptr noundef nonnull %23)
   br label %390
 
 370:                                              ; preds = %366
@@ -773,7 +773,7 @@ define dso_local void @intel_engine_init_ctx_wa(ptr noundef initializes((640, 65
 
 373:                                              ; preds = %370
   %.val10 = load ptr, ptr %0, align 8
-  tail call fastcc void @bdw_ctx_workarounds_init(ptr %.val10, ptr noundef %23)
+  tail call fastcc void @bdw_ctx_workarounds_init(ptr %.val10, ptr noundef nonnull %23)
   br label %390
 
 374:                                              ; preds = %370
@@ -784,31 +784,31 @@ define dso_local void @intel_engine_init_ctx_wa(ptr noundef initializes((640, 65
 
 375:                                              ; preds = %374
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #10
-  %376 = getelementptr inbounds i8, ptr %3, i64 16
+  %376 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 1, ptr %376, align 4, !annotation !5
   store i32 8384, ptr %3, align 4
-  %377 = getelementptr inbounds i8, ptr %3, i64 4
+  %377 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %377, align 4
-  %378 = getelementptr inbounds i8, ptr %3, i64 8
+  %378 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 8388736, ptr %378, align 4
-  %379 = getelementptr inbounds i8, ptr %3, i64 12
+  %379 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 128, ptr %379, align 4
-  call fastcc void @_wa_add(ptr noundef %23, ptr noundef nonnull %3)
+  call fastcc void @_wa_add(ptr noundef nonnull %23, ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #10
   br label %390
 
 380:                                              ; preds = %374
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #10
-  %381 = getelementptr inbounds i8, ptr %2, i64 16
+  %381 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 1, ptr %381, align 4, !annotation !5
   store i32 8384, ptr %2, align 4
-  %382 = getelementptr inbounds i8, ptr %2, i64 4
+  %382 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %382, align 4
-  %383 = getelementptr inbounds i8, ptr %2, i64 8
+  %383 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 8388736, ptr %383, align 4
-  %384 = getelementptr inbounds i8, ptr %2, i64 12
+  %384 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 128, ptr %384, align 4
-  call fastcc void @_wa_add(ptr noundef %23, ptr noundef nonnull %2)
+  call fastcc void @_wa_add(ptr noundef nonnull %23, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #10
   br label %390
 
@@ -828,14 +828,14 @@ define dso_local void @intel_engine_init_ctx_wa(ptr noundef initializes((640, 65
   br label %390
 
 390:                                              ; preds = %387, %385, %380, %375, %373, %369, %365, %361, %357, %353, %349, %343, %342, %339, %333, %292, %282, %.thread16, %71
-  %391 = getelementptr inbounds i8, ptr %0, i64 672
+  %391 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %392 = load i32, ptr %391, align 8
   %393 = and i32 %392, 15
   %394 = icmp eq i32 %393, 0
   br i1 %394, label %404, label %395
 
 395:                                              ; preds = %390
-  %396 = getelementptr inbounds i8, ptr %0, i64 664
+  %396 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %397 = load ptr, ptr %396, align 8
   %398 = zext i32 %392 to i64
   %399 = mul nuw nsw i64 %398, 20
@@ -865,15 +865,15 @@ thread-pre-split.i:                               ; preds = %402, %395
   br i1 %410, label %414, label %411
 
 411:                                              ; preds = %407
-  %412 = getelementptr inbounds i8, ptr %409, i64 8
+  %412 = getelementptr inbounds nuw i8, ptr %409, i64 8
   %413 = load ptr, ptr %412, align 8
   br label %414
 
 414:                                              ; preds = %411, %407
   %415 = phi ptr [ %413, %411 ], [ null, %407 ]
-  %416 = getelementptr inbounds i8, ptr %408, i64 4952
+  %416 = getelementptr inbounds nuw i8, ptr %408, i64 4952
   %417 = load i32, ptr %416, align 8
-  %418 = getelementptr inbounds i8, ptr %0, i64 676
+  %418 = getelementptr inbounds nuw i8, ptr %0, i64 676
   %419 = load i32, ptr %418, align 4
   %420 = load ptr, ptr %28, align 8
   %421 = load ptr, ptr %29, align 8
@@ -887,19 +887,19 @@ wa_init_finish.exit:                              ; preds = %404, %414
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @intel_engine_emit_ctx_wa(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca i64, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 640
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 640
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %7 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
-  %8 = getelementptr inbounds i8, ptr %4, i64 672
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 672
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %113, label %11
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %4, i64 888
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 888
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 %13(ptr noundef %0, i32 noundef 3) #10
   %15 = icmp eq i32 %14, 0
@@ -925,7 +925,7 @@ define dso_local i32 @intel_engine_emit_ctx_wa(ptr noundef %0) local_unnamed_add
   br i1 %27, label %.loopexit5, label %28
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %4, i64 664
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 664
   %30 = load ptr, ptr %29, align 8
   br label %31
 
@@ -946,8 +946,8 @@ define dso_local i32 @intel_engine_emit_ctx_wa(ptr noundef %0) local_unnamed_add
   %42 = phi i32 [ 0, %25 ], [ %37, %31 ]
   %43 = load ptr, ptr %5, align 8
   call void @intel_gt_mcr_lock(ptr noundef %43, ptr noundef nonnull %2) #10
-  %44 = getelementptr inbounds i8, ptr %7, i64 32
-  call void @_raw_spin_lock(ptr noundef %44) #10
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  call void @_raw_spin_lock(ptr noundef nonnull %44) #10
   call void @intel_uncore_forcewake_get__locked(ptr noundef %7, i32 noundef %42) #10
   %45 = load i32, ptr %8, align 8
   %46 = shl i32 %45, 1
@@ -960,30 +960,30 @@ define dso_local i32 @intel_engine_emit_ctx_wa(ptr noundef %0) local_unnamed_add
   br i1 %51, label %.loopexit, label %52
 
 52:                                               ; preds = %.loopexit5
-  %53 = getelementptr inbounds i8, ptr %4, i64 664
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 664
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %7, i64 36
+  %55 = getelementptr inbounds nuw i8, ptr %7, i64 36
   br label %56
 
 56:                                               ; preds = %97, %52
   %57 = phi ptr [ %49, %52 ], [ %101, %97 ]
   %58 = phi i32 [ 0, %52 ], [ %102, %97 ]
   %59 = phi ptr [ %54, %52 ], [ %103, %97 ]
-  %60 = getelementptr inbounds i8, ptr %59, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load i8, ptr %60, align 4
   %62 = and i8 %61, 1
   %63 = icmp eq i8 %62, 0
   br i1 %63, label %64, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %56
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %59, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %59, i64 8
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   br label %97
 
 64:                                               ; preds = %56
-  %65 = getelementptr inbounds i8, ptr %59, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %66 = load i32, ptr %65, align 4
-  %67 = getelementptr inbounds i8, ptr %59, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %68 = load i32, ptr %67, align 4
   %69 = or i32 %68, %66
   %70 = icmp eq i32 %69, -1
@@ -1044,12 +1044,12 @@ define dso_local i32 @intel_engine_emit_ctx_wa(ptr noundef %0) local_unnamed_add
   %106 = phi ptr [ %49, %.loopexit5 ], [ %101, %97 ]
   store i32 0, ptr %106, align 4
   call void @intel_uncore_forcewake_put__locked(ptr noundef %7, i32 noundef %42) #10
-  call void @_raw_spin_unlock(ptr noundef %44) #10
+  call void @_raw_spin_unlock(ptr noundef nonnull %44) #10
   %107 = load ptr, ptr %5, align 8
   %108 = load i64, ptr %2, align 8
   call void @intel_gt_mcr_unlock(ptr noundef %107, i64 noundef %108) #10
   %109 = load ptr, ptr %3, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 888
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 888
   %111 = load ptr, ptr %110, align 8
   %112 = call i32 %111(ptr noundef %0, i32 noundef 3) #10
   br label %113
@@ -1132,24 +1132,24 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
   %45 = alloca %struct.i915_wa, align 4
   %46 = alloca %struct.i915_wa, align 4
   %47 = alloca %struct.i915_wa, align 4
-  %48 = getelementptr inbounds i8, ptr %0, i64 3104
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 3104
   store ptr %0, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 3112
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 3112
   store ptr @.str.1, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 3120
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 3120
   store ptr @.str.2, ptr %50, align 8
   %51 = load ptr, ptr %0, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %53 = load i32, ptr %52, align 8
   %54 = icmp eq i32 %53, 2
   br i1 %54, label %77, label %55
 
 55:                                               ; preds = %1
-  %56 = getelementptr inbounds i8, ptr %51, i64 7176
+  %56 = getelementptr inbounds nuw i8, ptr %51, i64 7176
   %57 = load i8, ptr %56, align 8
   %58 = zext i8 %57 to i32
   %59 = shl nuw nsw i32 %58, 8
-  %60 = getelementptr inbounds i8, ptr %51, i64 7177
+  %60 = getelementptr inbounds nuw i8, ptr %51, i64 7177
   %61 = load i8, ptr %60, align 1
   %62 = and i8 %61, -2
   %63 = zext i8 %62 to i32
@@ -1159,32 +1159,32 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
 
 66:                                               ; preds = %55
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %47) #10
-  %67 = getelementptr inbounds i8, ptr %47, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %47, i64 16
   store i32 0, ptr %67, align 4, !annotation !5
   store i32 45448, ptr %47, align 4
-  %68 = getelementptr inbounds i8, ptr %47, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %47, i64 4
   store i32 8, ptr %68, align 4
-  %69 = getelementptr inbounds i8, ptr %47, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i32 8, ptr %69, align 4
-  %70 = getelementptr inbounds i8, ptr %47, i64 12
+  %70 = getelementptr inbounds nuw i8, ptr %47, i64 12
   store i32 8, ptr %70, align 4
-  %71 = getelementptr inbounds i8, ptr %47, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %47, i64 16
   store i8 2, ptr %71, align 4
-  call fastcc void @_wa_add(ptr noundef %48, ptr noundef nonnull %47)
+  call fastcc void @_wa_add(ptr noundef nonnull %48, ptr noundef nonnull %47)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %47) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %46) #10
-  %72 = getelementptr inbounds i8, ptr %46, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %46, i64 16
   store i32 0, ptr %72, align 4, !annotation !5
   store i32 34596, ptr %46, align 4
-  %73 = getelementptr inbounds i8, ptr %46, i64 4
+  %73 = getelementptr inbounds nuw i8, ptr %46, i64 4
   store i32 1073741824, ptr %73, align 4
-  %74 = getelementptr inbounds i8, ptr %46, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store i32 1073741824, ptr %74, align 4
-  %75 = getelementptr inbounds i8, ptr %46, i64 12
+  %75 = getelementptr inbounds nuw i8, ptr %46, i64 12
   store i32 1073741824, ptr %75, align 4
-  %76 = getelementptr inbounds i8, ptr %46, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %46, i64 16
   store i8 2, ptr %76, align 4
-  call fastcc void @_wa_add(ptr noundef %48, ptr noundef nonnull %46)
+  call fastcc void @_wa_add(ptr noundef nonnull %48, ptr noundef nonnull %46)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %46) #10
   %.pre = load ptr, ptr %0, align 8
   br label %77
@@ -1199,32 +1199,32 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
 
 83:                                               ; preds = %77
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %45) #10
-  %84 = getelementptr inbounds i8, ptr %45, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %45, i64 16
   store i32 0, ptr %84, align 4, !annotation !5
   store i32 45452, ptr %45, align 4
-  %85 = getelementptr inbounds i8, ptr %45, i64 4
+  %85 = getelementptr inbounds nuw i8, ptr %45, i64 4
   store i32 -1, ptr %85, align 4
-  %86 = getelementptr inbounds i8, ptr %45, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i32 4102, ptr %86, align 4
-  %87 = getelementptr inbounds i8, ptr %45, i64 12
+  %87 = getelementptr inbounds nuw i8, ptr %45, i64 12
   store i32 -1, ptr %87, align 4
-  %88 = getelementptr inbounds i8, ptr %45, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %45, i64 16
   store i8 2, ptr %88, align 4
-  call fastcc void @_wa_add(ptr noundef %48, ptr noundef nonnull %45)
+  call fastcc void @_wa_add(ptr noundef nonnull %48, ptr noundef nonnull %45)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %45) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %44) #10
-  %89 = getelementptr inbounds i8, ptr %44, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %44, i64 16
   store i32 0, ptr %89, align 4, !annotation !5
   store i32 45084, ptr %44, align 4
-  %90 = getelementptr inbounds i8, ptr %44, i64 4
+  %90 = getelementptr inbounds nuw i8, ptr %44, i64 4
   store i32 0, ptr %90, align 4
-  %91 = getelementptr inbounds i8, ptr %44, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i32 131074, ptr %91, align 4
-  %92 = getelementptr inbounds i8, ptr %44, i64 12
+  %92 = getelementptr inbounds nuw i8, ptr %44, i64 12
   store i32 2, ptr %92, align 4
-  %93 = getelementptr inbounds i8, ptr %44, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %44, i64 16
   store i8 3, ptr %93, align 4
-  call fastcc void @_wa_add(ptr noundef %48, ptr noundef nonnull %44)
+  call fastcc void @_wa_add(ptr noundef nonnull %48, ptr noundef nonnull %44)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %44) #10
   %.pre16 = load ptr, ptr %0, align 8
   %.phi.trans.insert = getelementptr i8, ptr %.pre16, i64 7188
@@ -1239,32 +1239,32 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
 
 98:                                               ; preds = %94
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %43) #10
-  %99 = getelementptr inbounds i8, ptr %43, i64 16
+  %99 = getelementptr inbounds nuw i8, ptr %43, i64 16
   store i32 0, ptr %99, align 4, !annotation !5
   store i32 45448, ptr %43, align 4
-  %100 = getelementptr inbounds i8, ptr %43, i64 4
+  %100 = getelementptr inbounds nuw i8, ptr %43, i64 4
   store i32 8, ptr %100, align 4
-  %101 = getelementptr inbounds i8, ptr %43, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i32 8, ptr %101, align 4
-  %102 = getelementptr inbounds i8, ptr %43, i64 12
+  %102 = getelementptr inbounds nuw i8, ptr %43, i64 12
   store i32 8, ptr %102, align 4
-  %103 = getelementptr inbounds i8, ptr %43, i64 16
+  %103 = getelementptr inbounds nuw i8, ptr %43, i64 16
   store i8 2, ptr %103, align 4
-  call fastcc void @_wa_add(ptr noundef %48, ptr noundef nonnull %43)
+  call fastcc void @_wa_add(ptr noundef nonnull %48, ptr noundef nonnull %43)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %43) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %42) #10
-  %104 = getelementptr inbounds i8, ptr %42, i64 16
+  %104 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store i32 0, ptr %104, align 4, !annotation !5
   store i32 34596, ptr %42, align 4
-  %105 = getelementptr inbounds i8, ptr %42, i64 4
+  %105 = getelementptr inbounds nuw i8, ptr %42, i64 4
   store i32 1073741824, ptr %105, align 4
-  %106 = getelementptr inbounds i8, ptr %42, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store i32 1073741824, ptr %106, align 4
-  %107 = getelementptr inbounds i8, ptr %42, i64 12
+  %107 = getelementptr inbounds nuw i8, ptr %42, i64 12
   store i32 1073741824, ptr %107, align 4
-  %108 = getelementptr inbounds i8, ptr %42, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store i8 2, ptr %108, align 4
-  call fastcc void @_wa_add(ptr noundef %48, ptr noundef nonnull %42)
+  call fastcc void @_wa_add(ptr noundef nonnull %48, ptr noundef nonnull %42)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %42) #10
   br label %109
 
@@ -1274,11 +1274,11 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
   br i1 %111, label %112, label %167
 
 112:                                              ; preds = %109
-  %113 = getelementptr inbounds i8, ptr %51, i64 7179
+  %113 = getelementptr inbounds nuw i8, ptr %51, i64 7179
   %114 = load i8, ptr %113, align 1
   %115 = zext i8 %114 to i32
   %116 = shl nuw nsw i32 %115, 8
-  %117 = getelementptr inbounds i8, ptr %51, i64 7180
+  %117 = getelementptr inbounds nuw i8, ptr %51, i64 7180
   %118 = load i8, ptr %117, align 1
   %119 = zext i8 %118 to i32
   %120 = or disjoint i32 %116, %119
@@ -1286,11 +1286,11 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
   br i1 %121, label %122, label %160
 
 122:                                              ; preds = %112
-  %123 = getelementptr inbounds i8, ptr %0, i64 4040
-  %124 = getelementptr inbounds i8, ptr %41, i64 4
-  %125 = getelementptr inbounds i8, ptr %41, i64 8
-  %126 = getelementptr inbounds i8, ptr %41, i64 12
-  %127 = getelementptr inbounds i8, ptr %41, i64 16
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 4040
+  %124 = getelementptr inbounds nuw i8, ptr %41, i64 4
+  %125 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %126 = getelementptr inbounds nuw i8, ptr %41, i64 12
+  %127 = getelementptr inbounds nuw i8, ptr %41, i64 16
   br label %128
 
 128:                                              ; preds = %141, %122
@@ -1301,13 +1301,13 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
   br i1 %132, label %141, label %133
 
 133:                                              ; preds = %128
-  %134 = getelementptr inbounds i8, ptr %131, i64 56
+  %134 = getelementptr inbounds nuw i8, ptr %131, i64 56
   %135 = load i8, ptr %134, align 8
   %136 = icmp eq i8 %135, 1
   br i1 %136, label %137, label %141
 
 137:                                              ; preds = %133
-  %138 = getelementptr inbounds i8, ptr %131, i64 72
+  %138 = getelementptr inbounds nuw i8, ptr %131, i64 72
   %139 = load i32, ptr %138, align 8
   %140 = add i32 %139, 16156
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %41) #10
@@ -1316,7 +1316,7 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
   store i32 8, ptr %124, align 4
   store i32 8, ptr %125, align 4
   store i32 8, ptr %126, align 4
-  call fastcc void @_wa_add(ptr noundef %48, ptr noundef nonnull %41)
+  call fastcc void @_wa_add(ptr noundef nonnull %48, ptr noundef nonnull %41)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %41) #10
   br label %141
 
@@ -1327,34 +1327,34 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
 
 144:                                              ; preds = %141
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %40) #10
-  %145 = getelementptr inbounds i8, ptr %40, i64 16
+  %145 = getelementptr inbounds nuw i8, ptr %40, i64 16
   store i32 0, ptr %145, align 4, !annotation !5
   store i32 53040, ptr %40, align 4
-  %146 = getelementptr inbounds i8, ptr %40, i64 4
+  %146 = getelementptr inbounds nuw i8, ptr %40, i64 4
   store i32 8, ptr %146, align 4
-  %147 = getelementptr inbounds i8, ptr %40, i64 8
+  %147 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store i32 8, ptr %147, align 4
-  %148 = getelementptr inbounds i8, ptr %40, i64 12
+  %148 = getelementptr inbounds nuw i8, ptr %40, i64 12
   store i32 8, ptr %148, align 4
-  call fastcc void @_wa_add(ptr noundef %48, ptr noundef nonnull %40)
+  call fastcc void @_wa_add(ptr noundef nonnull %48, ptr noundef nonnull %40)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %40) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %39) #10
-  %149 = getelementptr inbounds i8, ptr %39, i64 16
+  %149 = getelementptr inbounds nuw i8, ptr %39, i64 16
   store i32 0, ptr %149, align 4, !annotation !5
   store i32 34584, ptr %39, align 4
-  %150 = getelementptr inbounds i8, ptr %39, i64 4
+  %150 = getelementptr inbounds nuw i8, ptr %39, i64 4
   store i32 8388608, ptr %150, align 4
-  %151 = getelementptr inbounds i8, ptr %39, i64 8
+  %151 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i32 8388608, ptr %151, align 4
-  %152 = getelementptr inbounds i8, ptr %39, i64 12
+  %152 = getelementptr inbounds nuw i8, ptr %39, i64 12
   store i32 8388608, ptr %152, align 4
-  call fastcc void @_wa_add(ptr noundef %48, ptr noundef nonnull %39)
+  call fastcc void @_wa_add(ptr noundef nonnull %48, ptr noundef nonnull %39)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %39) #10
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %38) #10
   store ptr @__drm_printfn_debug, ptr %38, align 8, !alias.scope !38
-  %153 = getelementptr inbounds i8, ptr %38, i64 8
-  %154 = getelementptr inbounds i8, ptr %38, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %153, i8 0, i64 16, i1 false), !alias.scope !38
+  %153 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %154 = getelementptr inbounds nuw i8, ptr %38, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %153, i8 0, i64 16, i1 false), !alias.scope !38
   store ptr @.str.15, ptr %154, align 8, !alias.scope !38
   %155 = load i64, ptr @__drm_debug, align 8
   %156 = and i64 %155, 2
@@ -1386,11 +1386,11 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
 
 167:                                              ; preds = %109
   %168 = load ptr, ptr %0, align 8
-  %169 = getelementptr inbounds i8, ptr %168, i64 7176
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 7176
   %170 = load i8, ptr %169, align 8
   %171 = zext i8 %170 to i32
   %172 = shl nuw nsw i32 %171, 8
-  %173 = getelementptr inbounds i8, ptr %168, i64 7177
+  %173 = getelementptr inbounds nuw i8, ptr %168, i64 7177
   %174 = load i8, ptr %173, align 1
   %175 = and i8 %174, -2
   %176 = zext i8 %175 to i32
@@ -1400,30 +1400,30 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
 
 179:                                              ; preds = %167
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %37) #10
-  %180 = getelementptr inbounds i8, ptr %37, i64 16
+  %180 = getelementptr inbounds nuw i8, ptr %37, i64 16
   store i32 0, ptr %180, align 4, !annotation !5
   store i32 53040, ptr %37, align 4
-  %181 = getelementptr inbounds i8, ptr %37, i64 4
+  %181 = getelementptr inbounds nuw i8, ptr %37, i64 4
   store i32 8, ptr %181, align 4
-  %182 = getelementptr inbounds i8, ptr %37, i64 8
+  %182 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i32 8, ptr %182, align 4
-  %183 = getelementptr inbounds i8, ptr %37, i64 12
+  %183 = getelementptr inbounds nuw i8, ptr %37, i64 12
   store i32 8, ptr %183, align 4
-  %184 = getelementptr inbounds i8, ptr %37, i64 16
+  %184 = getelementptr inbounds nuw i8, ptr %37, i64 16
   store i8 2, ptr %184, align 4
-  call fastcc void @_wa_add(ptr noundef %48, ptr noundef nonnull %37)
+  call fastcc void @_wa_add(ptr noundef nonnull %48, ptr noundef nonnull %37)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %37) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %36) #10
-  %185 = getelementptr inbounds i8, ptr %36, i64 16
+  %185 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store i32 0, ptr %185, align 4, !annotation !5
   store i32 34584, ptr %36, align 4
-  %186 = getelementptr inbounds i8, ptr %36, i64 4
+  %186 = getelementptr inbounds nuw i8, ptr %36, i64 4
   store i32 8388608, ptr %186, align 4
-  %187 = getelementptr inbounds i8, ptr %36, i64 8
+  %187 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store i32 8388608, ptr %187, align 4
-  %188 = getelementptr inbounds i8, ptr %36, i64 12
+  %188 = getelementptr inbounds nuw i8, ptr %36, i64 12
   store i32 8388608, ptr %188, align 4
-  call fastcc void @_wa_add(ptr noundef %48, ptr noundef nonnull %36)
+  call fastcc void @_wa_add(ptr noundef nonnull %48, ptr noundef nonnull %36)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %36) #10
   %189 = load i32, ptr %52, align 8
   %190 = icmp eq i32 %189, 2
@@ -1431,11 +1431,11 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
 
 191:                                              ; preds = %179
   %192 = load ptr, ptr %0, align 8
-  %193 = getelementptr inbounds i8, ptr %192, i64 7176
+  %193 = getelementptr inbounds nuw i8, ptr %192, i64 7176
   %194 = load i8, ptr %193, align 8
   %195 = zext i8 %194 to i32
   %196 = shl nuw nsw i32 %195, 8
-  %197 = getelementptr inbounds i8, ptr %192, i64 7177
+  %197 = getelementptr inbounds nuw i8, ptr %192, i64 7177
   %198 = load i8, ptr %197, align 1
   %199 = zext i8 %198 to i32
   %200 = or disjoint i32 %196, %199
@@ -1443,7 +1443,7 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
   br i1 %201, label %202, label %.thread29
 
 202:                                              ; preds = %191
-  %203 = getelementptr inbounds i8, ptr %192, i64 7200
+  %203 = getelementptr inbounds nuw i8, ptr %192, i64 7200
   %204 = load i8, ptr %203, align 8
   %205 = icmp eq i8 %204, 0
   br i1 %205, label %206, label %221, !prof !6
@@ -1451,13 +1451,13 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
 206:                                              ; preds = %202
   tail call void asm sideeffect "919: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 919b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 919) #10, !srcloc !46
   %207 = load ptr, ptr %0, align 8
-  %208 = getelementptr inbounds i8, ptr %207, i64 8
+  %208 = getelementptr inbounds nuw i8, ptr %207, i64 8
   %209 = load ptr, ptr %208, align 8
   %210 = tail call ptr @dev_driver_string(ptr noundef %209) #10
   %211 = load ptr, ptr %0, align 8
-  %212 = getelementptr inbounds i8, ptr %211, i64 8
+  %212 = getelementptr inbounds nuw i8, ptr %211, i64 8
   %213 = load ptr, ptr %212, align 8
-  %214 = getelementptr inbounds i8, ptr %213, i64 80
+  %214 = getelementptr inbounds nuw i8, ptr %213, i64 80
   %215 = load ptr, ptr %214, align 8
   %216 = icmp eq ptr %215, null
   br i1 %216, label %217, label %219
@@ -1474,7 +1474,7 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
   tail call void asm sideeffect "921: nop\0A\09.pushsection .discard.instr_end\0A\09.long 921b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 921) #10, !srcloc !49
   tail call void asm sideeffect "922: nop\0A\09.pushsection .discard.instr_end\0A\09.long 922b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 922) #10, !srcloc !50
   %.pre22 = load ptr, ptr %0, align 8
-  %.phi.trans.insert23 = getelementptr inbounds i8, ptr %.pre22, i64 7200
+  %.phi.trans.insert23 = getelementptr inbounds nuw i8, ptr %.pre22, i64 7200
   %.pre24 = load i8, ptr %.phi.trans.insert23, align 8
   br label %221
 
@@ -1492,11 +1492,11 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
 
 .thread29:                                        ; preds = %191, %226
   %228 = phi ptr [ %223, %226 ], [ %192, %191 ]
-  %229 = getelementptr inbounds i8, ptr %228, i64 7176
+  %229 = getelementptr inbounds nuw i8, ptr %228, i64 7176
   %230 = load i8, ptr %229, align 8
   %231 = zext i8 %230 to i32
   %232 = shl nuw nsw i32 %231, 8
-  %233 = getelementptr inbounds i8, ptr %228, i64 7177
+  %233 = getelementptr inbounds nuw i8, ptr %228, i64 7177
   %234 = load i8, ptr %233, align 1
   %235 = zext i8 %234 to i32
   %236 = or disjoint i32 %232, %235
@@ -1504,7 +1504,7 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
   br i1 %237, label %238, label %.thread
 
 238:                                              ; preds = %.thread29
-  %239 = getelementptr inbounds i8, ptr %228, i64 7200
+  %239 = getelementptr inbounds nuw i8, ptr %228, i64 7200
   %240 = load i8, ptr %239, align 8
   %241 = icmp eq i8 %240, 0
   br i1 %241, label %242, label %257, !prof !6
@@ -1512,13 +1512,13 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
 242:                                              ; preds = %238
   tail call void asm sideeffect "923: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 923b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 923) #10, !srcloc !51
   %243 = load ptr, ptr %0, align 8
-  %244 = getelementptr inbounds i8, ptr %243, i64 8
+  %244 = getelementptr inbounds nuw i8, ptr %243, i64 8
   %245 = load ptr, ptr %244, align 8
   %246 = tail call ptr @dev_driver_string(ptr noundef %245) #10
   %247 = load ptr, ptr %0, align 8
-  %248 = getelementptr inbounds i8, ptr %247, i64 8
+  %248 = getelementptr inbounds nuw i8, ptr %247, i64 8
   %249 = load ptr, ptr %248, align 8
-  %250 = getelementptr inbounds i8, ptr %249, i64 80
+  %250 = getelementptr inbounds nuw i8, ptr %249, i64 80
   %251 = load ptr, ptr %250, align 8
   %252 = icmp eq ptr %251, null
   br i1 %252, label %253, label %255
@@ -1535,7 +1535,7 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
   tail call void asm sideeffect "925: nop\0A\09.pushsection .discard.instr_end\0A\09.long 925b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 925) #10, !srcloc !54
   tail call void asm sideeffect "926: nop\0A\09.pushsection .discard.instr_end\0A\09.long 926b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 926) #10, !srcloc !55
   %.pre26 = load ptr, ptr %0, align 8
-  %.phi.trans.insert27 = getelementptr inbounds i8, ptr %.pre26, i64 7200
+  %.phi.trans.insert27 = getelementptr inbounds nuw i8, ptr %.pre26, i64 7200
   %.pre28 = load i8, ptr %.phi.trans.insert27, align 8
   br label %257
 
@@ -1547,39 +1547,39 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
 
 261:                                              ; preds = %257, %221
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %35) #10
-  %262 = getelementptr inbounds i8, ptr %35, i64 16
+  %262 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store i32 0, ptr %262, align 4, !annotation !5
   store i32 59660, ptr %35, align 4
-  %263 = getelementptr inbounds i8, ptr %35, i64 4
+  %263 = getelementptr inbounds nuw i8, ptr %35, i64 4
   store i32 1610612736, ptr %263, align 4
-  %264 = getelementptr inbounds i8, ptr %35, i64 8
+  %264 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i32 0, ptr %264, align 4
-  %265 = getelementptr inbounds i8, ptr %35, i64 12
+  %265 = getelementptr inbounds nuw i8, ptr %35, i64 12
   store i32 1610612736, ptr %265, align 4
-  %266 = getelementptr inbounds i8, ptr %35, i64 16
+  %266 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store i8 2, ptr %266, align 4
-  call fastcc void @_wa_add(ptr noundef %48, ptr noundef nonnull %35)
+  call fastcc void @_wa_add(ptr noundef nonnull %48, ptr noundef nonnull %35)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %35) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %34) #10
-  %267 = getelementptr inbounds i8, ptr %34, i64 16
+  %267 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store i32 0, ptr %267, align 4, !annotation !5
   store i32 37924, ptr %34, align 4
-  %268 = getelementptr inbounds i8, ptr %34, i64 4
+  %268 = getelementptr inbounds nuw i8, ptr %34, i64 4
   store i32 2, ptr %268, align 4
-  %269 = getelementptr inbounds i8, ptr %34, i64 8
+  %269 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i32 0, ptr %269, align 4
-  %270 = getelementptr inbounds i8, ptr %34, i64 12
+  %270 = getelementptr inbounds nuw i8, ptr %34, i64 12
   store i32 2, ptr %270, align 4
-  call fastcc void @_wa_add(ptr noundef %48, ptr noundef nonnull %34)
+  call fastcc void @_wa_add(ptr noundef nonnull %48, ptr noundef nonnull %34)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %34) #10
   br label %.thread
 
 .thread:                                          ; preds = %179, %261, %257, %.thread29, %226
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %33) #10
   store ptr @__drm_printfn_debug, ptr %33, align 8, !alias.scope !56
-  %271 = getelementptr inbounds i8, ptr %33, i64 8
-  %272 = getelementptr inbounds i8, ptr %33, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %271, i8 0, i64 16, i1 false), !alias.scope !56
+  %271 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %272 = getelementptr inbounds nuw i8, ptr %33, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %271, i8 0, i64 16, i1 false), !alias.scope !56
   store ptr @.str.15, ptr %272, align 8, !alias.scope !56
   %273 = load i64, ptr @__drm_debug, align 8
   %274 = and i64 %273, 2
@@ -1595,7 +1595,7 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
   br label %670
 
 278:                                              ; preds = %167
-  %279 = getelementptr inbounds i8, ptr %51, i64 7184
+  %279 = getelementptr inbounds nuw i8, ptr %51, i64 7184
   %280 = getelementptr i8, ptr %51, i64 7188
   %281 = load i32, ptr %280, align 4
   %282 = zext i32 %281 to i64
@@ -1604,7 +1604,7 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
   br i1 %284, label %344, label %285
 
 285:                                              ; preds = %278
-  %286 = getelementptr inbounds i8, ptr %0, i64 4976
+  %286 = getelementptr inbounds nuw i8, ptr %0, i64 4976
   %287 = load i64, ptr %286, align 8
   %288 = icmp eq i64 %287, 0
   br i1 %288, label %292, label %289
@@ -1623,28 +1623,28 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
   %298 = shl nuw nsw i32 %295, 24
   %299 = or disjoint i32 %297, %298
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %32) #10
-  %300 = getelementptr inbounds i8, ptr %32, i64 16
+  %300 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store i32 0, ptr %300, align 4, !annotation !5
   store i32 4060, ptr %32, align 4
-  %301 = getelementptr inbounds i8, ptr %32, i64 4
+  %301 = getelementptr inbounds nuw i8, ptr %32, i64 4
   store i32 2130706432, ptr %301, align 4
-  %302 = getelementptr inbounds i8, ptr %32, i64 8
+  %302 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store i32 %299, ptr %302, align 4
-  %303 = getelementptr inbounds i8, ptr %32, i64 12
+  %303 = getelementptr inbounds nuw i8, ptr %32, i64 12
   store i32 2130706432, ptr %303, align 4
-  call fastcc void @_wa_add(ptr noundef %48, ptr noundef nonnull %32)
+  call fastcc void @_wa_add(ptr noundef nonnull %48, ptr noundef nonnull %32)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %32) #10
   %304 = trunc i32 %294 to i8
-  %305 = getelementptr inbounds i8, ptr %0, i64 4936
+  %305 = getelementptr inbounds nuw i8, ptr %0, i64 4936
   store i8 %304, ptr %305, align 8
   %306 = trunc nuw nsw i32 %295 to i8
-  %307 = getelementptr inbounds i8, ptr %0, i64 4937
+  %307 = getelementptr inbounds nuw i8, ptr %0, i64 4937
   store i8 %306, ptr %307, align 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %31) #10
   store ptr @__drm_printfn_debug, ptr %31, align 8, !alias.scope !60
-  %308 = getelementptr inbounds i8, ptr %31, i64 8
-  %309 = getelementptr inbounds i8, ptr %31, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %308, i8 0, i64 16, i1 false), !alias.scope !60
+  %308 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %309 = getelementptr inbounds nuw i8, ptr %31, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %308, i8 0, i64 16, i1 false), !alias.scope !60
   store ptr @.str.15, ptr %309, align 8, !alias.scope !60
   %310 = load i64, ptr @__drm_debug, align 8
   %311 = and i64 %310, 2
@@ -1658,86 +1658,86 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
 314:                                              ; preds = %313, %292
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %31) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %30) #10
-  %315 = getelementptr inbounds i8, ptr %30, i64 16
+  %315 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store i32 0, ptr %315, align 4, !annotation !5
   store i32 37924, ptr %30, align 4
-  %316 = getelementptr inbounds i8, ptr %30, i64 4
+  %316 = getelementptr inbounds nuw i8, ptr %30, i64 4
   store i32 2, ptr %316, align 4
-  %317 = getelementptr inbounds i8, ptr %30, i64 8
+  %317 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i32 0, ptr %317, align 4
-  %318 = getelementptr inbounds i8, ptr %30, i64 12
+  %318 = getelementptr inbounds nuw i8, ptr %30, i64 12
   store i32 2, ptr %318, align 4
-  call fastcc void @_wa_add(ptr noundef %48, ptr noundef nonnull %30)
+  call fastcc void @_wa_add(ptr noundef nonnull %48, ptr noundef nonnull %30)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %30) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %29) #10
-  %319 = getelementptr inbounds i8, ptr %29, i64 16
+  %319 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store i32 0, ptr %319, align 4, !annotation !5
   store i32 53036, ptr %29, align 4
-  %320 = getelementptr inbounds i8, ptr %29, i64 4
+  %320 = getelementptr inbounds nuw i8, ptr %29, i64 4
   store i32 8, ptr %320, align 4
-  %321 = getelementptr inbounds i8, ptr %29, i64 8
+  %321 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i32 8, ptr %321, align 4
-  %322 = getelementptr inbounds i8, ptr %29, i64 12
+  %322 = getelementptr inbounds nuw i8, ptr %29, i64 12
   store i32 8, ptr %322, align 4
-  %323 = getelementptr inbounds i8, ptr %29, i64 16
+  %323 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store i8 2, ptr %323, align 4
-  call fastcc void @_wa_add(ptr noundef %48, ptr noundef nonnull %29)
+  call fastcc void @_wa_add(ptr noundef nonnull %48, ptr noundef nonnull %29)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %29) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %28) #10
-  %324 = getelementptr inbounds i8, ptr %28, i64 16
+  %324 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store i32 0, ptr %324, align 4, !annotation !5
   store i32 53040, ptr %28, align 4
-  %325 = getelementptr inbounds i8, ptr %28, i64 4
+  %325 = getelementptr inbounds nuw i8, ptr %28, i64 4
   store i32 8, ptr %325, align 4
-  %326 = getelementptr inbounds i8, ptr %28, i64 8
+  %326 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i32 8, ptr %326, align 4
-  %327 = getelementptr inbounds i8, ptr %28, i64 12
+  %327 = getelementptr inbounds nuw i8, ptr %28, i64 12
   store i32 8, ptr %327, align 4
-  %328 = getelementptr inbounds i8, ptr %28, i64 16
+  %328 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store i8 2, ptr %328, align 4
-  call fastcc void @_wa_add(ptr noundef %48, ptr noundef nonnull %28)
+  call fastcc void @_wa_add(ptr noundef nonnull %48, ptr noundef nonnull %28)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %28) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %27) #10
-  %329 = getelementptr inbounds i8, ptr %27, i64 16
+  %329 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store i32 0, ptr %329, align 4, !annotation !5
   store i32 53044, ptr %27, align 4
-  %330 = getelementptr inbounds i8, ptr %27, i64 4
+  %330 = getelementptr inbounds nuw i8, ptr %27, i64 4
   store i32 8, ptr %330, align 4
-  %331 = getelementptr inbounds i8, ptr %27, i64 8
+  %331 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i32 8, ptr %331, align 4
-  %332 = getelementptr inbounds i8, ptr %27, i64 12
+  %332 = getelementptr inbounds nuw i8, ptr %27, i64 12
   store i32 8, ptr %332, align 4
-  %333 = getelementptr inbounds i8, ptr %27, i64 16
+  %333 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store i8 2, ptr %333, align 4
-  call fastcc void @_wa_add(ptr noundef %48, ptr noundef nonnull %27)
+  call fastcc void @_wa_add(ptr noundef nonnull %48, ptr noundef nonnull %27)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %27) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %26) #10
-  %334 = getelementptr inbounds i8, ptr %26, i64 16
+  %334 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store i32 0, ptr %334, align 4, !annotation !5
   store i32 53048, ptr %26, align 4
-  %335 = getelementptr inbounds i8, ptr %26, i64 4
+  %335 = getelementptr inbounds nuw i8, ptr %26, i64 4
   store i32 8, ptr %335, align 4
-  %336 = getelementptr inbounds i8, ptr %26, i64 8
+  %336 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i32 8, ptr %336, align 4
-  %337 = getelementptr inbounds i8, ptr %26, i64 12
+  %337 = getelementptr inbounds nuw i8, ptr %26, i64 12
   store i32 8, ptr %337, align 4
-  %338 = getelementptr inbounds i8, ptr %26, i64 16
+  %338 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store i8 2, ptr %338, align 4
-  call fastcc void @_wa_add(ptr noundef %48, ptr noundef nonnull %26)
+  call fastcc void @_wa_add(ptr noundef nonnull %48, ptr noundef nonnull %26)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %26) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %25) #10
-  %339 = getelementptr inbounds i8, ptr %25, i64 16
+  %339 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store i32 0, ptr %339, align 4, !annotation !5
   store i32 45084, ptr %25, align 4
-  %340 = getelementptr inbounds i8, ptr %25, i64 4
+  %340 = getelementptr inbounds nuw i8, ptr %25, i64 4
   store i32 0, ptr %340, align 4
-  %341 = getelementptr inbounds i8, ptr %25, i64 8
+  %341 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i32 65537, ptr %341, align 4
-  %342 = getelementptr inbounds i8, ptr %25, i64 12
+  %342 = getelementptr inbounds nuw i8, ptr %25, i64 12
   store i32 1, ptr %342, align 4
-  %343 = getelementptr inbounds i8, ptr %25, i64 16
+  %343 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store i8 3, ptr %343, align 4
-  call fastcc void @_wa_add(ptr noundef %48, ptr noundef nonnull %25)
+  call fastcc void @_wa_add(ptr noundef nonnull %48, ptr noundef nonnull %25)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %25) #10
   br label %670
 
@@ -1747,12 +1747,12 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
   br i1 %346, label %431, label %347
 
 347:                                              ; preds = %344
-  tail call fastcc void @xehp_init_mcr(ptr noundef %0, ptr noundef %48)
-  %348 = getelementptr inbounds i8, ptr %0, i64 4040
-  %349 = getelementptr inbounds i8, ptr %24, i64 4
-  %350 = getelementptr inbounds i8, ptr %24, i64 8
-  %351 = getelementptr inbounds i8, ptr %24, i64 12
-  %352 = getelementptr inbounds i8, ptr %24, i64 16
+  tail call fastcc void @xehp_init_mcr(ptr noundef %0, ptr noundef nonnull %48)
+  %348 = getelementptr inbounds nuw i8, ptr %0, i64 4040
+  %349 = getelementptr inbounds nuw i8, ptr %24, i64 4
+  %350 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %351 = getelementptr inbounds nuw i8, ptr %24, i64 12
+  %352 = getelementptr inbounds nuw i8, ptr %24, i64 16
   br label %353
 
 353:                                              ; preds = %371, %347
@@ -1763,20 +1763,20 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
   br i1 %357, label %371, label %358
 
 358:                                              ; preds = %353
-  %359 = getelementptr inbounds i8, ptr %356, i64 56
+  %359 = getelementptr inbounds nuw i8, ptr %356, i64 56
   %360 = load i8, ptr %359, align 8
   %361 = icmp eq i8 %360, 1
   br i1 %361, label %362, label %371
 
 362:                                              ; preds = %358
-  %363 = getelementptr inbounds i8, ptr %356, i64 57
+  %363 = getelementptr inbounds nuw i8, ptr %356, i64 57
   %364 = load i8, ptr %363, align 1
   %365 = and i8 %364, 1
   %366 = icmp eq i8 %365, 0
   br i1 %366, label %367, label %371
 
 367:                                              ; preds = %362
-  %368 = getelementptr inbounds i8, ptr %356, i64 72
+  %368 = getelementptr inbounds nuw i8, ptr %356, i64 72
   %369 = load i32, ptr %368, align 8
   %370 = add i32 %369, 16144
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %24) #10
@@ -1785,7 +1785,7 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
   store i32 4194304, ptr %349, align 4
   store i32 4194304, ptr %350, align 4
   store i32 4194304, ptr %351, align 4
-  call fastcc void @_wa_add(ptr noundef %48, ptr noundef nonnull %24)
+  call fastcc void @_wa_add(ptr noundef nonnull %48, ptr noundef nonnull %24)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %24) #10
   br label %371
 
@@ -1806,141 +1806,141 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
 
 382:                                              ; preds = %374
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %23) #10
-  %383 = getelementptr inbounds i8, ptr %23, i64 16
+  %383 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store i32 0, ptr %383, align 4, !annotation !5
   store i32 37940, ptr %23, align 4
-  %384 = getelementptr inbounds i8, ptr %23, i64 4
+  %384 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store i32 131072, ptr %384, align 4
-  %385 = getelementptr inbounds i8, ptr %23, i64 8
+  %385 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i32 131072, ptr %385, align 4
-  %386 = getelementptr inbounds i8, ptr %23, i64 12
+  %386 = getelementptr inbounds nuw i8, ptr %23, i64 12
   store i32 131072, ptr %386, align 4
-  call fastcc void @_wa_add(ptr noundef %48, ptr noundef nonnull %23)
+  call fastcc void @_wa_add(ptr noundef nonnull %48, ptr noundef nonnull %23)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %23) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %22) #10
-  %387 = getelementptr inbounds i8, ptr %22, i64 16
+  %387 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i32 0, ptr %387, align 4, !annotation !5
   store i32 38180, ptr %22, align 4
-  %388 = getelementptr inbounds i8, ptr %22, i64 4
+  %388 = getelementptr inbounds nuw i8, ptr %22, i64 4
   store i32 268435456, ptr %388, align 4
-  %389 = getelementptr inbounds i8, ptr %22, i64 8
+  %389 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i32 268435456, ptr %389, align 4
-  %390 = getelementptr inbounds i8, ptr %22, i64 12
+  %390 = getelementptr inbounds nuw i8, ptr %22, i64 12
   store i32 268435456, ptr %390, align 4
-  %391 = getelementptr inbounds i8, ptr %22, i64 16
+  %391 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i8 2, ptr %391, align 4
-  call fastcc void @_wa_add(ptr noundef %48, ptr noundef nonnull %22)
+  call fastcc void @_wa_add(ptr noundef nonnull %48, ptr noundef nonnull %22)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %22) #10
   br label %392
 
 392:                                              ; preds = %382, %374
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %21) #10
-  %393 = getelementptr inbounds i8, ptr %21, i64 16
+  %393 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i32 0, ptr %393, align 4, !annotation !5
   store i32 59660, ptr %21, align 4
-  %394 = getelementptr inbounds i8, ptr %21, i64 4
+  %394 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store i32 1610612736, ptr %394, align 4
-  %395 = getelementptr inbounds i8, ptr %21, i64 8
+  %395 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i32 0, ptr %395, align 4
-  %396 = getelementptr inbounds i8, ptr %21, i64 12
+  %396 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1610612736, ptr %396, align 4
-  %397 = getelementptr inbounds i8, ptr %21, i64 16
+  %397 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i8 2, ptr %397, align 4
-  call fastcc void @_wa_add(ptr noundef %48, ptr noundef nonnull %21)
+  call fastcc void @_wa_add(ptr noundef nonnull %48, ptr noundef nonnull %21)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %21) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %20) #10
-  %398 = getelementptr inbounds i8, ptr %20, i64 16
+  %398 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i32 0, ptr %398, align 4, !annotation !5
   store i32 37924, ptr %20, align 4
-  %399 = getelementptr inbounds i8, ptr %20, i64 4
+  %399 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store i32 2, ptr %399, align 4
-  %400 = getelementptr inbounds i8, ptr %20, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(9) %400, i8 0, i64 9, i1 false)
-  call fastcc void @_wa_add(ptr noundef %48, ptr noundef nonnull %20)
+  %400 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %400, i8 0, i64 9, i1 false)
+  call fastcc void @_wa_add(ptr noundef nonnull %48, ptr noundef nonnull %20)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %20) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %19) #10
-  %401 = getelementptr inbounds i8, ptr %19, i64 16
+  %401 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i32 0, ptr %401, align 4, !annotation !5
   store i32 53036, ptr %19, align 4
-  %402 = getelementptr inbounds i8, ptr %19, i64 4
+  %402 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i32 8, ptr %402, align 4
-  %403 = getelementptr inbounds i8, ptr %19, i64 8
+  %403 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i32 8, ptr %403, align 4
-  %404 = getelementptr inbounds i8, ptr %19, i64 12
+  %404 = getelementptr inbounds nuw i8, ptr %19, i64 12
   store i32 8, ptr %404, align 4
-  %405 = getelementptr inbounds i8, ptr %19, i64 16
+  %405 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i8 2, ptr %405, align 4
-  call fastcc void @_wa_add(ptr noundef %48, ptr noundef nonnull %19)
+  call fastcc void @_wa_add(ptr noundef nonnull %48, ptr noundef nonnull %19)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %19) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %18) #10
-  %406 = getelementptr inbounds i8, ptr %18, i64 16
+  %406 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i32 0, ptr %406, align 4, !annotation !5
   store i32 53040, ptr %18, align 4
-  %407 = getelementptr inbounds i8, ptr %18, i64 4
+  %407 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 8, ptr %407, align 4
-  %408 = getelementptr inbounds i8, ptr %18, i64 8
+  %408 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i32 8, ptr %408, align 4
-  %409 = getelementptr inbounds i8, ptr %18, i64 12
+  %409 = getelementptr inbounds nuw i8, ptr %18, i64 12
   store i32 8, ptr %409, align 4
-  %410 = getelementptr inbounds i8, ptr %18, i64 16
+  %410 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i8 2, ptr %410, align 4
-  call fastcc void @_wa_add(ptr noundef %48, ptr noundef nonnull %18)
+  call fastcc void @_wa_add(ptr noundef nonnull %48, ptr noundef nonnull %18)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %18) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %17) #10
-  %411 = getelementptr inbounds i8, ptr %17, i64 16
+  %411 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i32 0, ptr %411, align 4, !annotation !5
   store i32 53044, ptr %17, align 4
-  %412 = getelementptr inbounds i8, ptr %17, i64 4
+  %412 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 8, ptr %412, align 4
-  %413 = getelementptr inbounds i8, ptr %17, i64 8
+  %413 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i32 8, ptr %413, align 4
-  %414 = getelementptr inbounds i8, ptr %17, i64 12
+  %414 = getelementptr inbounds nuw i8, ptr %17, i64 12
   store i32 8, ptr %414, align 4
-  %415 = getelementptr inbounds i8, ptr %17, i64 16
+  %415 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i8 2, ptr %415, align 4
-  call fastcc void @_wa_add(ptr noundef %48, ptr noundef nonnull %17)
+  call fastcc void @_wa_add(ptr noundef nonnull %48, ptr noundef nonnull %17)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %17) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %16) #10
-  %416 = getelementptr inbounds i8, ptr %16, i64 16
+  %416 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i32 0, ptr %416, align 4, !annotation !5
   store i32 53048, ptr %16, align 4
-  %417 = getelementptr inbounds i8, ptr %16, i64 4
+  %417 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store i32 8, ptr %417, align 4
-  %418 = getelementptr inbounds i8, ptr %16, i64 8
+  %418 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i32 8, ptr %418, align 4
-  %419 = getelementptr inbounds i8, ptr %16, i64 12
+  %419 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 8, ptr %419, align 4
-  %420 = getelementptr inbounds i8, ptr %16, i64 16
+  %420 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i8 2, ptr %420, align 4
-  call fastcc void @_wa_add(ptr noundef %48, ptr noundef nonnull %16)
+  call fastcc void @_wa_add(ptr noundef nonnull %48, ptr noundef nonnull %16)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %16) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %15) #10
-  %421 = getelementptr inbounds i8, ptr %15, i64 16
+  %421 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i32 0, ptr %421, align 4, !annotation !5
   store i32 53076, ptr %15, align 4
-  %422 = getelementptr inbounds i8, ptr %15, i64 4
+  %422 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store i32 4100, ptr %422, align 4
-  %423 = getelementptr inbounds i8, ptr %15, i64 8
+  %423 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i32 4100, ptr %423, align 4
-  %424 = getelementptr inbounds i8, ptr %15, i64 12
+  %424 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i32 4100, ptr %424, align 4
-  %425 = getelementptr inbounds i8, ptr %15, i64 16
+  %425 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i8 2, ptr %425, align 4
-  call fastcc void @_wa_add(ptr noundef %48, ptr noundef nonnull %15)
+  call fastcc void @_wa_add(ptr noundef nonnull %48, ptr noundef nonnull %15)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %15) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %14) #10
-  %426 = getelementptr inbounds i8, ptr %14, i64 16
+  %426 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i32 0, ptr %426, align 4, !annotation !5
   store i32 45236, ptr %14, align 4
-  %427 = getelementptr inbounds i8, ptr %14, i64 4
+  %427 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 524288, ptr %427, align 4
-  %428 = getelementptr inbounds i8, ptr %14, i64 8
+  %428 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 524288, ptr %428, align 4
-  %429 = getelementptr inbounds i8, ptr %14, i64 12
+  %429 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store i32 524288, ptr %429, align 4
-  %430 = getelementptr inbounds i8, ptr %14, i64 16
+  %430 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i8 2, ptr %430, align 4
-  call fastcc void @_wa_add(ptr noundef %48, ptr noundef nonnull %14)
+  call fastcc void @_wa_add(ptr noundef nonnull %48, ptr noundef nonnull %14)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14) #10
   br label %670
 
@@ -1950,20 +1950,20 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
   br i1 %433, label %609, label %434
 
 434:                                              ; preds = %431
-  tail call fastcc void @xehp_init_mcr(ptr noundef %0, ptr noundef %48)
+  tail call fastcc void @xehp_init_mcr(ptr noundef %0, ptr noundef nonnull %48)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %13) #10
-  %435 = getelementptr inbounds i8, ptr %13, i64 16
+  %435 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i32 0, ptr %435, align 4, !annotation !5
   store i32 38108, ptr %13, align 4
-  %436 = getelementptr inbounds i8, ptr %13, i64 4
+  %436 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 16384, ptr %436, align 4
-  %437 = getelementptr inbounds i8, ptr %13, i64 8
+  %437 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 16384, ptr %437, align 4
-  %438 = getelementptr inbounds i8, ptr %13, i64 12
+  %438 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 16384, ptr %438, align 4
-  %439 = getelementptr inbounds i8, ptr %13, i64 16
+  %439 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i8 2, ptr %439, align 4
-  call fastcc void @_wa_add(ptr noundef %48, ptr noundef nonnull %13)
+  call fastcc void @_wa_add(ptr noundef nonnull %48, ptr noundef nonnull %13)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %13) #10
   %440 = getelementptr i8, ptr %168, i64 7188
   %441 = load i32, ptr %440, align 4
@@ -1972,18 +1972,18 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
   br i1 %443, label %475, label %444
 
 444:                                              ; preds = %434
-  %445 = getelementptr inbounds i8, ptr %168, i64 7200
+  %445 = getelementptr inbounds nuw i8, ptr %168, i64 7200
   %446 = load i8, ptr %445, align 8
   %447 = icmp eq i8 %446, 0
   br i1 %447, label %448, label %460, !prof !6
 
 448:                                              ; preds = %444
   tail call void asm sideeffect "903: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 903b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 903) #10, !srcloc !64
-  %449 = getelementptr inbounds i8, ptr %168, i64 8
+  %449 = getelementptr inbounds nuw i8, ptr %168, i64 8
   %450 = load ptr, ptr %449, align 8
   %451 = tail call ptr @dev_driver_string(ptr noundef %450) #10
   %452 = load ptr, ptr %449, align 8
-  %453 = getelementptr inbounds i8, ptr %452, i64 80
+  %453 = getelementptr inbounds nuw i8, ptr %452, i64 80
   %454 = load ptr, ptr %453, align 8
   %455 = icmp eq ptr %454, null
   br i1 %455, label %456, label %458
@@ -2010,32 +2010,32 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
 
 464:                                              ; preds = %460
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %12) #10
-  %465 = getelementptr inbounds i8, ptr %12, i64 16
+  %465 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 0, ptr %465, align 4, !annotation !5
   store i32 45424, ptr %12, align 4
-  %466 = getelementptr inbounds i8, ptr %12, i64 4
+  %466 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 0, ptr %466, align 4
-  %467 = getelementptr inbounds i8, ptr %12, i64 8
+  %467 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 262144, ptr %467, align 4
-  %468 = getelementptr inbounds i8, ptr %12, i64 12
+  %468 = getelementptr inbounds nuw i8, ptr %12, i64 12
   store i32 4, ptr %468, align 4
-  %469 = getelementptr inbounds i8, ptr %12, i64 16
+  %469 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i8 3, ptr %469, align 4
-  call fastcc void @_wa_add(ptr noundef %48, ptr noundef nonnull %12)
+  call fastcc void @_wa_add(ptr noundef nonnull %48, ptr noundef nonnull %12)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %12) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %11) #10
-  %470 = getelementptr inbounds i8, ptr %11, i64 16
+  %470 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i32 0, ptr %470, align 4, !annotation !5
   store i32 45568, ptr %11, align 4
-  %471 = getelementptr inbounds i8, ptr %11, i64 4
+  %471 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 32, ptr %471, align 4
-  %472 = getelementptr inbounds i8, ptr %11, i64 8
+  %472 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 32, ptr %472, align 4
-  %473 = getelementptr inbounds i8, ptr %11, i64 12
+  %473 = getelementptr inbounds nuw i8, ptr %11, i64 12
   store i32 32, ptr %473, align 4
-  %474 = getelementptr inbounds i8, ptr %11, i64 16
+  %474 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i8 2, ptr %474, align 4
-  call fastcc void @_wa_add(ptr noundef %48, ptr noundef nonnull %11)
+  call fastcc void @_wa_add(ptr noundef nonnull %48, ptr noundef nonnull %11)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %11) #10
   br label %475
 
@@ -2046,18 +2046,18 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
   br i1 %478, label %504, label %479
 
 479:                                              ; preds = %475
-  %480 = getelementptr inbounds i8, ptr %168, i64 7200
+  %480 = getelementptr inbounds nuw i8, ptr %168, i64 7200
   %481 = load i8, ptr %480, align 8
   %482 = icmp eq i8 %481, 0
   br i1 %482, label %483, label %495, !prof !6
 
 483:                                              ; preds = %479
   tail call void asm sideeffect "907: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 907b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 907) #10, !srcloc !69
-  %484 = getelementptr inbounds i8, ptr %168, i64 8
+  %484 = getelementptr inbounds nuw i8, ptr %168, i64 8
   %485 = load ptr, ptr %484, align 8
   %486 = tail call ptr @dev_driver_string(ptr noundef %485) #10
   %487 = load ptr, ptr %484, align 8
-  %488 = getelementptr inbounds i8, ptr %487, i64 80
+  %488 = getelementptr inbounds nuw i8, ptr %487, i64 80
   %489 = load ptr, ptr %488, align 8
   %490 = icmp eq ptr %489, null
   br i1 %490, label %491, label %493
@@ -2084,16 +2084,16 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
 
 499:                                              ; preds = %495
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %10) #10
-  %500 = getelementptr inbounds i8, ptr %10, i64 16
+  %500 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 0, ptr %500, align 4, !annotation !5
   store i32 37940, ptr %10, align 4
-  %501 = getelementptr inbounds i8, ptr %10, i64 4
+  %501 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 131072, ptr %501, align 4
-  %502 = getelementptr inbounds i8, ptr %10, i64 8
+  %502 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 131072, ptr %502, align 4
-  %503 = getelementptr inbounds i8, ptr %10, i64 12
+  %503 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store i32 131072, ptr %503, align 4
-  call fastcc void @_wa_add(ptr noundef %48, ptr noundef nonnull %10)
+  call fastcc void @_wa_add(ptr noundef nonnull %48, ptr noundef nonnull %10)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %10) #10
   br label %504
 
@@ -2104,18 +2104,18 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
   br i1 %507, label %537, label %508
 
 508:                                              ; preds = %504
-  %509 = getelementptr inbounds i8, ptr %168, i64 7200
+  %509 = getelementptr inbounds nuw i8, ptr %168, i64 7200
   %510 = load i8, ptr %509, align 8
   %511 = icmp eq i8 %510, 0
   br i1 %511, label %512, label %524, !prof !6
 
 512:                                              ; preds = %508
   tail call void asm sideeffect "911: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 911b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 911) #10, !srcloc !74
-  %513 = getelementptr inbounds i8, ptr %168, i64 8
+  %513 = getelementptr inbounds nuw i8, ptr %168, i64 8
   %514 = load ptr, ptr %513, align 8
   %515 = tail call ptr @dev_driver_string(ptr noundef %514) #10
   %516 = load ptr, ptr %513, align 8
-  %517 = getelementptr inbounds i8, ptr %516, i64 80
+  %517 = getelementptr inbounds nuw i8, ptr %516, i64 80
   %518 = load ptr, ptr %517, align 8
   %519 = icmp eq ptr %518, null
   br i1 %519, label %520, label %522
@@ -2142,28 +2142,28 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
 
 528:                                              ; preds = %524
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %9) #10
-  %529 = getelementptr inbounds i8, ptr %9, i64 16
+  %529 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 0, ptr %529, align 4, !annotation !5
   store i32 37952, ptr %9, align 4
-  %530 = getelementptr inbounds i8, ptr %9, i64 4
+  %530 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 501465152, ptr %530, align 4
-  %531 = getelementptr inbounds i8, ptr %9, i64 8
+  %531 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 501465152, ptr %531, align 4
-  %532 = getelementptr inbounds i8, ptr %9, i64 12
+  %532 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 501465152, ptr %532, align 4
-  call fastcc void @_wa_add(ptr noundef %48, ptr noundef nonnull %9)
+  call fastcc void @_wa_add(ptr noundef nonnull %48, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %8) #10
-  %533 = getelementptr inbounds i8, ptr %8, i64 16
+  %533 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 0, ptr %533, align 4, !annotation !5
   store i32 37956, ptr %8, align 4
-  %534 = getelementptr inbounds i8, ptr %8, i64 4
+  %534 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 2147418112, ptr %534, align 4
-  %535 = getelementptr inbounds i8, ptr %8, i64 8
+  %535 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 2147418112, ptr %535, align 4
-  %536 = getelementptr inbounds i8, ptr %8, i64 12
+  %536 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 2147418112, ptr %536, align 4
-  call fastcc void @_wa_add(ptr noundef %48, ptr noundef nonnull %8)
+  call fastcc void @_wa_add(ptr noundef nonnull %48, ptr noundef nonnull %8)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8) #10
   br label %537
 
@@ -2174,18 +2174,18 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
   br i1 %540, label %566, label %541
 
 541:                                              ; preds = %537
-  %542 = getelementptr inbounds i8, ptr %168, i64 7200
+  %542 = getelementptr inbounds nuw i8, ptr %168, i64 7200
   %543 = load i8, ptr %542, align 8
   %544 = icmp eq i8 %543, 0
   br i1 %544, label %545, label %557, !prof !6
 
 545:                                              ; preds = %541
   tail call void asm sideeffect "915: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 915b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 915) #10, !srcloc !79
-  %546 = getelementptr inbounds i8, ptr %168, i64 8
+  %546 = getelementptr inbounds nuw i8, ptr %168, i64 8
   %547 = load ptr, ptr %546, align 8
   %548 = tail call ptr @dev_driver_string(ptr noundef %547) #10
   %549 = load ptr, ptr %546, align 8
-  %550 = getelementptr inbounds i8, ptr %549, i64 80
+  %550 = getelementptr inbounds nuw i8, ptr %549, i64 80
   %551 = load ptr, ptr %550, align 8
   %552 = icmp eq ptr %551, null
   br i1 %552, label %553, label %555
@@ -2212,25 +2212,25 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
 
 561:                                              ; preds = %557
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %7) #10
-  %562 = getelementptr inbounds i8, ptr %7, i64 16
+  %562 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 0, ptr %562, align 4, !annotation !5
   store i32 37940, ptr %7, align 4
-  %563 = getelementptr inbounds i8, ptr %7, i64 4
+  %563 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 1048576, ptr %563, align 4
-  %564 = getelementptr inbounds i8, ptr %7, i64 8
+  %564 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 1048576, ptr %564, align 4
-  %565 = getelementptr inbounds i8, ptr %7, i64 12
+  %565 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 1048576, ptr %565, align 4
-  call fastcc void @_wa_add(ptr noundef %48, ptr noundef nonnull %7)
+  call fastcc void @_wa_add(ptr noundef nonnull %48, ptr noundef nonnull %7)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #10
   br label %566
 
 566:                                              ; preds = %561, %557, %537
-  %567 = getelementptr inbounds i8, ptr %0, i64 4040
-  %568 = getelementptr inbounds i8, ptr %6, i64 4
-  %569 = getelementptr inbounds i8, ptr %6, i64 8
-  %570 = getelementptr inbounds i8, ptr %6, i64 12
-  %571 = getelementptr inbounds i8, ptr %6, i64 16
+  %567 = getelementptr inbounds nuw i8, ptr %0, i64 4040
+  %568 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %569 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %570 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %571 = getelementptr inbounds nuw i8, ptr %6, i64 16
   br label %572
 
 572:                                              ; preds = %590, %566
@@ -2241,20 +2241,20 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
   br i1 %576, label %590, label %577
 
 577:                                              ; preds = %572
-  %578 = getelementptr inbounds i8, ptr %575, i64 56
+  %578 = getelementptr inbounds nuw i8, ptr %575, i64 56
   %579 = load i8, ptr %578, align 8
   %580 = icmp eq i8 %579, 1
   br i1 %580, label %581, label %590
 
 581:                                              ; preds = %577
-  %582 = getelementptr inbounds i8, ptr %575, i64 57
+  %582 = getelementptr inbounds nuw i8, ptr %575, i64 57
   %583 = load i8, ptr %582, align 1
   %584 = and i8 %583, 1
   %585 = icmp eq i8 %584, 0
   br i1 %585, label %586, label %590
 
 586:                                              ; preds = %581
-  %587 = getelementptr inbounds i8, ptr %575, i64 72
+  %587 = getelementptr inbounds nuw i8, ptr %575, i64 72
   %588 = load i32, ptr %587, align 8
   %589 = add i32 %588, 16144
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #10
@@ -2263,7 +2263,7 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
   store i32 4194304, ptr %568, align 4
   store i32 4194304, ptr %569, align 4
   store i32 4194304, ptr %570, align 4
-  call fastcc void @_wa_add(ptr noundef %48, ptr noundef nonnull %6)
+  call fastcc void @_wa_add(ptr noundef nonnull %48, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #10
   br label %590
 
@@ -2274,46 +2274,46 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
 
 593:                                              ; preds = %590
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #10
-  %594 = getelementptr inbounds i8, ptr %5, i64 16
+  %594 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 0, ptr %594, align 4, !annotation !5
   store i32 53032, ptr %5, align 4
-  %595 = getelementptr inbounds i8, ptr %5, i64 4
+  %595 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 8, ptr %595, align 4
-  %596 = getelementptr inbounds i8, ptr %5, i64 8
+  %596 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 8, ptr %596, align 4
-  %597 = getelementptr inbounds i8, ptr %5, i64 12
+  %597 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 8, ptr %597, align 4
-  %598 = getelementptr inbounds i8, ptr %5, i64 16
+  %598 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i8 2, ptr %598, align 4
-  call fastcc void @_wa_add(ptr noundef %48, ptr noundef nonnull %5)
+  call fastcc void @_wa_add(ptr noundef nonnull %48, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #10
-  %599 = getelementptr inbounds i8, ptr %4, i64 16
+  %599 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %599, align 4, !annotation !5
   store i32 53076, ptr %4, align 4
-  %600 = getelementptr inbounds i8, ptr %4, i64 4
+  %600 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 4100, ptr %600, align 4
-  %601 = getelementptr inbounds i8, ptr %4, i64 8
+  %601 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 4100, ptr %601, align 4
-  %602 = getelementptr inbounds i8, ptr %4, i64 12
+  %602 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 4100, ptr %602, align 4
-  %603 = getelementptr inbounds i8, ptr %4, i64 16
+  %603 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i8 2, ptr %603, align 4
-  call fastcc void @_wa_add(ptr noundef %48, ptr noundef nonnull %4)
+  call fastcc void @_wa_add(ptr noundef nonnull %48, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #10
-  %604 = getelementptr inbounds i8, ptr %3, i64 16
+  %604 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 0, ptr %604, align 4, !annotation !5
   store i32 45236, ptr %3, align 4
-  %605 = getelementptr inbounds i8, ptr %3, i64 4
+  %605 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 524288, ptr %605, align 4
-  %606 = getelementptr inbounds i8, ptr %3, i64 8
+  %606 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 524288, ptr %606, align 4
-  %607 = getelementptr inbounds i8, ptr %3, i64 12
+  %607 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 524288, ptr %607, align 4
-  %608 = getelementptr inbounds i8, ptr %3, i64 16
+  %608 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i8 2, ptr %608, align 4
-  call fastcc void @_wa_add(ptr noundef %48, ptr noundef nonnull %3)
+  call fastcc void @_wa_add(ptr noundef nonnull %48, ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #10
   br label %670
 
@@ -2323,11 +2323,11 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
   br i1 %611, label %613, label %612
 
 612:                                              ; preds = %609
-  tail call fastcc void @dg1_gt_workarounds_init(ptr noundef %0, ptr noundef %48)
+  tail call fastcc void @dg1_gt_workarounds_init(ptr noundef %0, ptr noundef nonnull %48)
   br label %670
 
 613:                                              ; preds = %609
-  %614 = getelementptr inbounds i8, ptr %51, i64 7176
+  %614 = getelementptr inbounds nuw i8, ptr %51, i64 7176
   %615 = load i8, ptr %614, align 8
   switch i8 %615, label %618 [
     i8 12, label %616
@@ -2335,11 +2335,11 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
   ]
 
 616:                                              ; preds = %613
-  tail call fastcc void @gen12_gt_workarounds_init(ptr noundef %0, ptr noundef %48)
+  tail call fastcc void @gen12_gt_workarounds_init(ptr noundef %0, ptr noundef nonnull %48)
   br label %670
 
 617:                                              ; preds = %613
-  tail call fastcc void @icl_gt_workarounds_init(ptr noundef %0, ptr noundef %48)
+  tail call fastcc void @icl_gt_workarounds_init(ptr noundef %0, ptr noundef nonnull %48)
   br label %670
 
 618:                                              ; preds = %613
@@ -2350,7 +2350,7 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
   br i1 %622, label %624, label %623
 
 623:                                              ; preds = %618
-  tail call fastcc void @cfl_gt_workarounds_init(ptr %168, ptr noundef %48)
+  tail call fastcc void @cfl_gt_workarounds_init(ptr %168, ptr noundef nonnull %48)
   br label %670
 
 624:                                              ; preds = %618
@@ -2359,7 +2359,7 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
   br i1 %626, label %628, label %627
 
 627:                                              ; preds = %624
-  tail call fastcc void @gen9_gt_workarounds_init(ptr %168, ptr noundef %48)
+  tail call fastcc void @gen9_gt_workarounds_init(ptr %168, ptr noundef nonnull %48)
   br label %670
 
 628:                                              ; preds = %624
@@ -2368,7 +2368,7 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
   br i1 %630, label %632, label %631
 
 631:                                              ; preds = %628
-  tail call fastcc void @kbl_gt_workarounds_init(ptr noundef %0, ptr noundef %48)
+  tail call fastcc void @kbl_gt_workarounds_init(ptr noundef %0, ptr noundef nonnull %48)
   br label %670
 
 632:                                              ; preds = %628
@@ -2377,7 +2377,7 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
   br i1 %634, label %636, label %635
 
 635:                                              ; preds = %632
-  tail call fastcc void @gen9_gt_workarounds_init(ptr %168, ptr noundef %48)
+  tail call fastcc void @gen9_gt_workarounds_init(ptr %168, ptr noundef nonnull %48)
   br label %670
 
 636:                                              ; preds = %632
@@ -2386,7 +2386,7 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
   br i1 %638, label %640, label %639
 
 639:                                              ; preds = %636
-  tail call fastcc void @skl_gt_workarounds_init(ptr noundef %0, ptr noundef %48)
+  tail call fastcc void @skl_gt_workarounds_init(ptr noundef %0, ptr noundef nonnull %48)
   br label %670
 
 640:                                              ; preds = %636
@@ -2395,7 +2395,7 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
   br i1 %642, label %644, label %643
 
 643:                                              ; preds = %640
-  tail call fastcc void @hsw_gt_workarounds_init(ptr noundef %48)
+  tail call fastcc void @hsw_gt_workarounds_init(ptr noundef nonnull %48)
   br label %670
 
 644:                                              ; preds = %640
@@ -2404,7 +2404,7 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
   br i1 %646, label %648, label %647
 
 647:                                              ; preds = %644
-  tail call fastcc void @vlv_gt_workarounds_init(ptr noundef %48)
+  tail call fastcc void @vlv_gt_workarounds_init(ptr noundef nonnull %48)
   br label %670
 
 648:                                              ; preds = %644
@@ -2413,7 +2413,7 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
   br i1 %650, label %652, label %651
 
 651:                                              ; preds = %648
-  tail call fastcc void @ivb_gt_workarounds_init(ptr noundef %48)
+  tail call fastcc void @ivb_gt_workarounds_init(ptr noundef nonnull %48)
   br label %670
 
 652:                                              ; preds = %648
@@ -2423,7 +2423,7 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
   ]
 
 653:                                              ; preds = %652
-  tail call fastcc void @ilk_gt_workarounds_init(ptr noundef %48)
+  tail call fastcc void @ilk_gt_workarounds_init(ptr noundef nonnull %48)
   br label %670
 
 654:                                              ; preds = %652
@@ -2432,7 +2432,7 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
   br i1 %656, label %658, label %657
 
 657:                                              ; preds = %654
-  tail call fastcc void @g4x_gt_workarounds_init(ptr noundef %48)
+  tail call fastcc void @g4x_gt_workarounds_init(ptr noundef nonnull %48)
   br label %670
 
 658:                                              ; preds = %654
@@ -2441,16 +2441,16 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
 
 660:                                              ; preds = %658
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #10
-  %661 = getelementptr inbounds i8, ptr %2, i64 16
+  %661 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 1, ptr %661, align 4, !annotation !5
   store i32 8480, ptr %2, align 4
-  %662 = getelementptr inbounds i8, ptr %2, i64 4
+  %662 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %662, align 4
-  %663 = getelementptr inbounds i8, ptr %2, i64 8
+  %663 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 65536, ptr %663, align 4
-  %664 = getelementptr inbounds i8, ptr %2, i64 12
+  %664 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 1, ptr %664, align 4
-  call fastcc void @_wa_add(ptr noundef %48, ptr noundef nonnull %2)
+  call fastcc void @_wa_add(ptr noundef nonnull %48, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #10
   br label %670
 
@@ -2470,14 +2470,14 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
   br label %670
 
 670:                                              ; preds = %667, %665, %660, %657, %653, %652, %651, %647, %643, %639, %635, %631, %627, %623, %617, %616, %612, %593, %392, %314, %277, %160, %159
-  %671 = getelementptr inbounds i8, ptr %0, i64 3136
+  %671 = getelementptr inbounds nuw i8, ptr %0, i64 3136
   %672 = load i32, ptr %671, align 8
   %673 = and i32 %672, 15
   %674 = icmp eq i32 %673, 0
   br i1 %674, label %684, label %675
 
 675:                                              ; preds = %670
-  %676 = getelementptr inbounds i8, ptr %0, i64 3128
+  %676 = getelementptr inbounds nuw i8, ptr %0, i64 3128
   %677 = load ptr, ptr %676, align 8
   %678 = zext i32 %672 to i64
   %679 = mul nuw nsw i64 %678, 20
@@ -2507,15 +2507,15 @@ thread-pre-split.i:                               ; preds = %682, %675
   br i1 %690, label %694, label %691
 
 691:                                              ; preds = %687
-  %692 = getelementptr inbounds i8, ptr %689, i64 8
+  %692 = getelementptr inbounds nuw i8, ptr %689, i64 8
   %693 = load ptr, ptr %692, align 8
   br label %694
 
 694:                                              ; preds = %691, %687
   %695 = phi ptr [ %693, %691 ], [ null, %687 ]
-  %696 = getelementptr inbounds i8, ptr %688, i64 4952
+  %696 = getelementptr inbounds nuw i8, ptr %688, i64 4952
   %697 = load i32, ptr %696, align 8
-  %698 = getelementptr inbounds i8, ptr %0, i64 3140
+  %698 = getelementptr inbounds nuw i8, ptr %0, i64 3140
   %699 = load i32, ptr %698, align 4
   %700 = load ptr, ptr %49, align 8
   %701 = load ptr, ptr %50, align 8
@@ -2528,8 +2528,8 @@ wa_init_finish.exit:                              ; preds = %684, %694
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @intel_gt_apply_workarounds(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 3104
-  tail call fastcc void @wa_list_apply(ptr noundef %2)
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 3104
+  tail call fastcc void @wa_list_apply(ptr noundef nonnull %2)
   ret void
 }
 
@@ -2537,17 +2537,17 @@ define dso_local void @intel_gt_apply_workarounds(ptr nocapture noundef readonly
 define internal fastcc void @wa_list_apply(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
   %2 = alloca i64, align 8
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %89, label %9
 
 9:                                                ; preds = %1
   store i64 0, ptr %2, align 8, !annotation !5
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8
   br label %12
 
@@ -2566,8 +2566,8 @@ define internal fastcc void @wa_list_apply(ptr nocapture noundef readonly %0) un
 
 23:                                               ; preds = %12
   call void @intel_gt_mcr_lock(ptr noundef %3, ptr noundef nonnull %2) #10
-  %24 = getelementptr inbounds i8, ptr %5, i64 32
-  call void @_raw_spin_lock(ptr noundef %24) #10
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  call void @_raw_spin_lock(ptr noundef nonnull %24) #10
   call void @intel_uncore_forcewake_get__locked(ptr noundef %5, i32 noundef %18) #10
   %25 = load i32, ptr %6, align 8
   %26 = icmp eq i32 %25, 0
@@ -2575,19 +2575,19 @@ define internal fastcc void @wa_list_apply(ptr nocapture noundef readonly %0) un
 
 27:                                               ; preds = %23
   %28 = load ptr, ptr %10, align 8
-  %29 = getelementptr inbounds i8, ptr %5, i64 36
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 36
   br label %30
 
 30:                                               ; preds = %83, %27
   %31 = phi i32 [ 0, %27 ], [ %84, %83 ]
   %32 = phi ptr [ %28, %27 ], [ %85, %83 ]
-  %33 = getelementptr inbounds i8, ptr %32, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %34 = load i32, ptr %33, align 4
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %55, label %36
 
 36:                                               ; preds = %30
-  %37 = getelementptr inbounds i8, ptr %32, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %38 = load i8, ptr %37, align 4
   %39 = and i8 %38, 2
   %40 = icmp eq i8 %39, 0
@@ -2620,7 +2620,7 @@ define internal fastcc void @wa_list_apply(ptr nocapture noundef readonly %0) un
   %57 = load i32, ptr %33, align 4
   %58 = xor i32 %57, -1
   %59 = and i32 %56, %58
-  %60 = getelementptr inbounds i8, ptr %32, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %61 = load i32, ptr %60, align 4
   %62 = or i32 %59, %61
   %63 = icmp ne i32 %62, %56
@@ -2629,7 +2629,7 @@ define internal fastcc void @wa_list_apply(ptr nocapture noundef readonly %0) un
   br i1 %65, label %66, label %83
 
 66:                                               ; preds = %55
-  %67 = getelementptr inbounds i8, ptr %32, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %68 = load i8, ptr %67, align 4
   %69 = and i8 %68, 2
   %70 = icmp eq i8 %69, 0
@@ -2666,7 +2666,7 @@ define internal fastcc void @wa_list_apply(ptr nocapture noundef readonly %0) un
 
 .loopexit:                                        ; preds = %83, %23
   call void @intel_uncore_forcewake_put__locked(ptr noundef %5, i32 noundef %18) #10
-  call void @_raw_spin_unlock(ptr noundef %24) #10
+  call void @_raw_spin_unlock(ptr noundef nonnull %24) #10
   %88 = load i64, ptr %2, align 8
   call void @intel_gt_mcr_unlock(ptr noundef %3, i64 noundef %88) #10
   br label %89
@@ -2679,18 +2679,18 @@ define internal fastcc void @wa_list_apply(ptr nocapture noundef readonly %0) un
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local zeroext i1 @intel_gt_verify_workarounds(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 3104
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 3104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
   store i64 0, ptr %3, align 8, !annotation !5
-  %7 = getelementptr inbounds i8, ptr %0, i64 3136
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 3136
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %.loopexit3, label %10
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 3128
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 3128
   %12 = load ptr, ptr %11, align 8
   br label %13
 
@@ -2710,18 +2710,18 @@ define dso_local zeroext i1 @intel_gt_verify_workarounds(ptr noundef %0, ptr nou
 .loopexit3:                                       ; preds = %13, %2
   %24 = phi i32 [ 0, %2 ], [ %19, %13 ]
   call void @intel_gt_mcr_lock(ptr noundef %0, ptr noundef nonnull %3) #10
-  %25 = getelementptr inbounds i8, ptr %6, i64 32
-  call void @_raw_spin_lock(ptr noundef %25) #10
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  call void @_raw_spin_lock(ptr noundef nonnull %25) #10
   call void @intel_uncore_forcewake_get__locked(ptr noundef %6, i32 noundef %24) #10
   %26 = load i32, ptr %7, align 8
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %.loopexit, label %28
 
 28:                                               ; preds = %.loopexit3
-  %29 = getelementptr inbounds i8, ptr %0, i64 3128
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 3128
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %6, i64 36
-  %32 = getelementptr inbounds i8, ptr %0, i64 3112
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 36
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 3112
   br label %33
 
 33:                                               ; preds = %79, %28
@@ -2729,7 +2729,7 @@ define dso_local zeroext i1 @intel_gt_verify_workarounds(ptr noundef %0, ptr nou
   %35 = phi i32 [ 0, %28 ], [ %81, %79 ]
   %36 = phi ptr [ %30, %28 ], [ %82, %79 ]
   %37 = load ptr, ptr %4, align 8
-  %38 = getelementptr inbounds i8, ptr %36, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %39 = load i8, ptr %38, align 4
   %40 = and i8 %39, 2
   %41 = icmp eq i8 %40, 0
@@ -2760,10 +2760,10 @@ define dso_local zeroext i1 @intel_gt_verify_workarounds(ptr noundef %0, ptr nou
 56:                                               ; preds = %50, %43
   %57 = phi i32 [ %44, %43 ], [ %55, %50 ]
   %58 = load ptr, ptr %32, align 8
-  %59 = getelementptr inbounds i8, ptr %36, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %60 = load i32, ptr %59, align 4
   %61 = xor i32 %60, %57
-  %62 = getelementptr inbounds i8, ptr %36, i64 12
+  %62 = getelementptr inbounds nuw i8, ptr %36, i64 12
   %63 = load i32, ptr %62, align 4
   %64 = and i32 %61, %63
   %65 = icmp eq i32 %64, 0
@@ -2775,13 +2775,13 @@ define dso_local zeroext i1 @intel_gt_verify_workarounds(ptr noundef %0, ptr nou
   br i1 %68, label %72, label %69
 
 69:                                               ; preds = %66
-  %70 = getelementptr inbounds i8, ptr %67, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %71 = load ptr, ptr %70, align 8
   br label %72
 
 72:                                               ; preds = %69, %66
   %73 = phi ptr [ %71, %69 ], [ null, %66 ]
-  %74 = getelementptr inbounds i8, ptr %37, i64 4952
+  %74 = getelementptr inbounds nuw i8, ptr %37, i64 4952
   %75 = load i32, ptr %74, align 8
   %76 = load i32, ptr %36, align 4
   %77 = and i32 %63, %57
@@ -2800,7 +2800,7 @@ define dso_local zeroext i1 @intel_gt_verify_workarounds(ptr noundef %0, ptr nou
 .loopexit:                                        ; preds = %79, %.loopexit3
   %85 = phi i1 [ true, %.loopexit3 ], [ %80, %79 ]
   call void @intel_uncore_forcewake_put__locked(ptr noundef %6, i32 noundef %24) #10
-  call void @_raw_spin_unlock(ptr noundef %25) #10
+  call void @_raw_spin_unlock(ptr noundef nonnull %25) #10
   %86 = load i64, ptr %3, align 8
   call void @intel_gt_mcr_unlock(ptr noundef %0, i64 noundef %86) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
@@ -2814,27 +2814,27 @@ define dso_local void @intel_engine_init_whitelist(ptr noundef initializes((720,
   %4 = alloca %struct.i915_wa, align 4
   %5 = alloca %struct.i915_wa, align 4
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 720
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 720
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %9, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 728
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 728
   store ptr @.str.3, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 736
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 736
   store ptr %10, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %9, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, 2
   br i1 %15, label %100, label %16
 
 16:                                               ; preds = %1
   %17 = load ptr, ptr %9, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 7176
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 7176
   %19 = load i8, ptr %18, align 8
   %20 = zext i8 %19 to i32
   %21 = shl nuw nsw i32 %20, 8
-  %22 = getelementptr inbounds i8, ptr %17, i64 7177
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 7177
   %23 = load i8, ptr %22, align 1
   %24 = and i8 %23, -2
   %25 = zext i8 %24 to i32
@@ -2843,30 +2843,30 @@ define dso_local void @intel_engine_init_whitelist(ptr noundef initializes((720,
   br i1 %27, label %28, label %38
 
 28:                                               ; preds = %16
-  %29 = getelementptr inbounds i8, ptr %0, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %30 = load i8, ptr %29, align 8
   %31 = icmp eq i8 %30, 0
   br i1 %31, label %32, label %100
 
 32:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #10
-  %33 = getelementptr inbounds i8, ptr %5, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 0, ptr %33, align 4, !annotation !5
   store i32 29444, ptr %5, align 4
-  %34 = getelementptr inbounds i8, ptr %5, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 0, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %5, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %35, align 4
-  %36 = getelementptr inbounds i8, ptr %5, i64 12
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 0, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %5, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i8 2, ptr %37, align 4
-  call fastcc void @_wa_add(ptr noundef %7, ptr noundef nonnull %5)
+  call fastcc void @_wa_add(ptr noundef nonnull %7, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #10
   br label %100
 
 38:                                               ; preds = %16
-  %39 = getelementptr inbounds i8, ptr %6, i64 7184
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 7184
   %40 = getelementptr i8, ptr %6, i64 7188
   %41 = load i32, ptr %40, align 4
   %42 = zext i32 %41 to i64
@@ -2876,16 +2876,16 @@ define dso_local void @intel_engine_init_whitelist(ptr noundef initializes((720,
 
 45:                                               ; preds = %38
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #10
-  %46 = getelementptr inbounds i8, ptr %4, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %46, i8 0, i64 16, i1 false)
   store i32 1073759235, ptr %4, align 4
-  call fastcc void @_wa_add(ptr noundef %7, ptr noundef nonnull %4)
+  call fastcc void @_wa_add(ptr noundef nonnull %7, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #10
-  %47 = getelementptr inbounds i8, ptr %3, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %47, i8 0, i64 16, i1 false)
   store i32 1073759491, ptr %3, align 4
-  call fastcc void @_wa_add(ptr noundef %7, ptr noundef nonnull %3)
+  call fastcc void @_wa_add(ptr noundef nonnull %7, ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #10
   br label %100
 
@@ -2895,25 +2895,25 @@ define dso_local void @intel_engine_init_whitelist(ptr noundef initializes((720,
   br i1 %50, label %61, label %51
 
 51:                                               ; preds = %48
-  %52 = getelementptr inbounds i8, ptr %0, i64 56
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %53 = load i8, ptr %52, align 8
   %54 = icmp eq i8 %53, 0
   br i1 %54, label %55, label %100
 
 55:                                               ; preds = %51
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #10
-  %56 = getelementptr inbounds i8, ptr %2, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 0, ptr %56, align 4, !annotation !5
   store i32 29444, ptr %2, align 4
-  %57 = getelementptr inbounds i8, ptr %2, i64 4
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %57, align 4
-  %58 = getelementptr inbounds i8, ptr %2, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %58, align 4
-  %59 = getelementptr inbounds i8, ptr %2, i64 12
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 0, ptr %59, align 4
-  %60 = getelementptr inbounds i8, ptr %2, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i8 2, ptr %60, align 4
-  call fastcc void @_wa_add(ptr noundef %7, ptr noundef nonnull %2)
+  call fastcc void @_wa_add(ptr noundef nonnull %7, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #10
   br label %100
 
@@ -2923,7 +2923,7 @@ define dso_local void @intel_engine_init_whitelist(ptr noundef initializes((720,
   br i1 %63, label %64, label %100
 
 64:                                               ; preds = %61
-  %65 = getelementptr inbounds i8, ptr %6, i64 7176
+  %65 = getelementptr inbounds nuw i8, ptr %6, i64 7176
   %66 = load i8, ptr %65, align 8
   switch i8 %66, label %69 [
     i8 12, label %67
@@ -3010,14 +3010,14 @@ define dso_local void @intel_engine_init_whitelist(ptr noundef initializes((720,
   br label %100
 
 100:                                              ; preds = %97, %95, %94, %90, %86, %82, %78, %74, %68, %67, %61, %55, %51, %45, %32, %28, %1
-  %101 = getelementptr inbounds i8, ptr %0, i64 752
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %102 = load i32, ptr %101, align 8
   %103 = and i32 %102, 15
   %104 = icmp eq i32 %103, 0
   br i1 %104, label %114, label %105
 
 105:                                              ; preds = %100
-  %106 = getelementptr inbounds i8, ptr %0, i64 744
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %107 = load ptr, ptr %106, align 8
   %108 = zext i32 %102 to i64
   %109 = mul nuw nsw i64 %108, 20
@@ -3047,15 +3047,15 @@ thread-pre-split.i:                               ; preds = %112, %105
   br i1 %120, label %124, label %121
 
 121:                                              ; preds = %117
-  %122 = getelementptr inbounds i8, ptr %119, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %119, i64 8
   %123 = load ptr, ptr %122, align 8
   br label %124
 
 124:                                              ; preds = %121, %117
   %125 = phi ptr [ %123, %121 ], [ null, %117 ]
-  %126 = getelementptr inbounds i8, ptr %118, i64 4952
+  %126 = getelementptr inbounds nuw i8, ptr %118, i64 4952
   %127 = load i32, ptr %126, align 8
-  %128 = getelementptr inbounds i8, ptr %0, i64 756
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 756
   %129 = load i32, ptr %128, align 4
   %130 = load ptr, ptr %11, align 8
   %131 = load ptr, ptr %12, align 8
@@ -3073,52 +3073,52 @@ define internal fastcc void @tgl_whitelist_build(ptr nocapture noundef %0) unnam
   %4 = alloca %struct.i915_wa, align 4
   %5 = alloca %struct.i915_wa, align 4
   %6 = alloca %struct.i915_wa, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load i8, ptr %7, align 8
   %9 = icmp eq i8 %8, 0
   br i1 %9, label %.thread, label %10
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 720
-  %12 = getelementptr inbounds i8, ptr %0, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 720
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %13 = load i32, ptr %12, align 8
   %14 = add i32 %13, 936
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #10
   %15 = or i32 %14, 268435456
-  %16 = getelementptr inbounds i8, ptr %6, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %16, i8 0, i64 16, i1 false)
   store i32 %15, ptr %6, align 4
-  call fastcc void @_wa_add(ptr noundef %11, ptr noundef nonnull %6)
+  call fastcc void @_wa_add(ptr noundef nonnull %11, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #10
   %.pr = load i8, ptr %7, align 8
   %17 = icmp eq i8 %.pr, 0
   br i1 %17, label %.thread, label %23
 
 .thread:                                          ; preds = %1, %10
-  %18 = getelementptr inbounds i8, ptr %0, i64 720
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 720
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #10
-  %19 = getelementptr inbounds i8, ptr %5, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %19, i8 0, i64 16, i1 false)
   store i32 268444489, ptr %5, align 4
-  call fastcc void @_wa_add(ptr noundef %18, ptr noundef nonnull %5)
+  call fastcc void @_wa_add(ptr noundef nonnull %18, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #10
-  %20 = getelementptr inbounds i8, ptr %4, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %20, i8 0, i64 16, i1 false)
   store i32 28688, ptr %4, align 4
-  call fastcc void @_wa_add(ptr noundef %18, ptr noundef nonnull %4)
+  call fastcc void @_wa_add(ptr noundef nonnull %18, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #10
-  %21 = getelementptr inbounds i8, ptr %3, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %21, i8 0, i64 16, i1 false)
   store i32 28696, ptr %3, align 4
-  call fastcc void @_wa_add(ptr noundef %18, ptr noundef nonnull %3)
+  call fastcc void @_wa_add(ptr noundef nonnull %18, ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #10
-  %22 = getelementptr inbounds i8, ptr %2, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %22, i8 0, i64 16, i1 false)
   store i32 29444, ptr %2, align 4
-  call fastcc void @_wa_add(ptr noundef %18, ptr noundef nonnull %2)
+  call fastcc void @_wa_add(ptr noundef nonnull %18, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #10
   br label %23
 
@@ -3136,22 +3136,22 @@ define internal fastcc void @icl_whitelist_build(ptr nocapture noundef %0) unnam
   %7 = alloca %struct.i915_wa, align 4
   %8 = alloca %struct.i915_wa, align 4
   %9 = alloca %struct.i915_wa, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 720
-  %11 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 720
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = load i8, ptr %11, align 8
   %13 = icmp eq i8 %12, 0
   br i1 %13, label %.thread, label %14
 
 14:                                               ; preds = %1
-  %15 = getelementptr inbounds i8, ptr %0, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %16 = load i32, ptr %15, align 8
   %17 = add i32 %16, 936
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %9) #10
   %18 = or i32 %17, 268435456
-  %19 = getelementptr inbounds i8, ptr %9, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %19, i8 0, i64 16, i1 false)
   store i32 %18, ptr %9, align 4
-  call fastcc void @_wa_add(ptr noundef %10, ptr noundef nonnull %9)
+  call fastcc void @_wa_add(ptr noundef nonnull %10, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9) #10
   %.pr = load i8, ptr %11, align 8
   switch i8 %.pr, label %45 [
@@ -3161,44 +3161,44 @@ define internal fastcc void @icl_whitelist_build(ptr nocapture noundef %0) unnam
 
 .thread:                                          ; preds = %1, %14
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %8) #10
-  %20 = getelementptr inbounds i8, ptr %8, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 0, ptr %20, align 4, !annotation !5
   store i32 57748, ptr %8, align 4
-  %21 = getelementptr inbounds i8, ptr %8, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 0, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %8, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 0, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %8, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 0, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %8, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i8 2, ptr %24, align 4
-  call fastcc void @_wa_add(ptr noundef %10, ptr noundef nonnull %8)
+  call fastcc void @_wa_add(ptr noundef nonnull %10, ptr noundef nonnull %8)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %7) #10
-  %25 = getelementptr inbounds i8, ptr %7, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 0, ptr %25, align 4, !annotation !5
   store i32 57740, ptr %7, align 4
-  %26 = getelementptr inbounds i8, ptr %7, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 0, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %7, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 0, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %7, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 0, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %7, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i8 2, ptr %29, align 4
-  call fastcc void @_wa_add(ptr noundef %10, ptr noundef nonnull %7)
+  call fastcc void @_wa_add(ptr noundef nonnull %10, ptr noundef nonnull %7)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #10
-  %30 = getelementptr inbounds i8, ptr %6, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %30, i8 0, i64 16, i1 false)
   store i32 29468, ptr %6, align 4
-  call fastcc void @_wa_add(ptr noundef %10, ptr noundef nonnull %6)
+  call fastcc void @_wa_add(ptr noundef nonnull %10, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #10
-  %31 = getelementptr inbounds i8, ptr %5, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %31, i8 0, i64 16, i1 false)
   store i32 268444489, ptr %5, align 4
-  call fastcc void @_wa_add(ptr noundef %10, ptr noundef nonnull %5)
+  call fastcc void @_wa_add(ptr noundef nonnull %10, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #10
   br label %45
 
@@ -3207,28 +3207,28 @@ define internal fastcc void @icl_whitelist_build(ptr nocapture noundef %0) unnam
   %34 = add i32 %33, 8192
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #10
   %35 = or i32 %34, 268435456
-  %36 = getelementptr inbounds i8, ptr %4, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %36, i8 0, i64 16, i1 false)
   store i32 %35, ptr %4, align 4
-  call fastcc void @_wa_add(ptr noundef %10, ptr noundef nonnull %4)
+  call fastcc void @_wa_add(ptr noundef nonnull %10, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #10
   %37 = load i32, ptr %15, align 8
   %38 = add i32 %37, 8212
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #10
   %39 = or i32 %38, 268435456
-  %40 = getelementptr inbounds i8, ptr %3, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %40, i8 0, i64 16, i1 false)
   store i32 %39, ptr %3, align 4
-  call fastcc void @_wa_add(ptr noundef %10, ptr noundef nonnull %3)
+  call fastcc void @_wa_add(ptr noundef nonnull %10, ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #10
   %41 = load i32, ptr %15, align 8
   %42 = add i32 %41, 9136
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #10
   %43 = or i32 %42, 268435456
-  %44 = getelementptr inbounds i8, ptr %2, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %44, i8 0, i64 16, i1 false)
   store i32 %43, ptr %2, align 4
-  call fastcc void @_wa_add(ptr noundef %10, ptr noundef nonnull %2)
+  call fastcc void @_wa_add(ptr noundef nonnull %10, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #10
   br label %45
 
@@ -3239,22 +3239,22 @@ define internal fastcc void @icl_whitelist_build(ptr nocapture noundef %0) unnam
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @cml_whitelist_build(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.i915_wa, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i8, ptr %3, align 8
   %5 = icmp eq i8 %4, 0
   br i1 %5, label %13, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 720
-  %8 = getelementptr inbounds i8, ptr %0, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 720
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = load i32, ptr %8, align 8
   %10 = add i32 %9, 936
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #10
   %11 = or i32 %10, 268435456
-  %12 = getelementptr inbounds i8, ptr %2, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %12, i8 0, i64 16, i1 false)
   store i32 %11, ptr %2, align 4
-  call fastcc void @_wa_add(ptr noundef %7, ptr noundef nonnull %2)
+  call fastcc void @_wa_add(ptr noundef nonnull %7, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #10
   br label %13
 
@@ -3270,42 +3270,42 @@ define internal fastcc void @cfl_whitelist_build(ptr nocapture noundef %0) unnam
   %4 = alloca %struct.i915_wa, align 4
   %5 = alloca %struct.i915_wa, align 4
   %6 = alloca %struct.i915_wa, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load i8, ptr %7, align 8
   %9 = icmp eq i8 %8, 0
   br i1 %9, label %10, label %17
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 720
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 720
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #10
-  %12 = getelementptr inbounds i8, ptr %6, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %12, i8 0, i64 16, i1 false)
   store i32 8776, ptr %6, align 4
-  call fastcc void @_wa_add(ptr noundef %11, ptr noundef nonnull %6)
+  call fastcc void @_wa_add(ptr noundef nonnull %11, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #10
-  %13 = getelementptr inbounds i8, ptr %5, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %13, i8 0, i64 16, i1 false)
   store i32 9600, ptr %5, align 4
-  call fastcc void @_wa_add(ptr noundef %11, ptr noundef nonnull %5)
+  call fastcc void @_wa_add(ptr noundef nonnull %11, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #10
-  %14 = getelementptr inbounds i8, ptr %4, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %14, i8 0, i64 16, i1 false)
   store i32 29444, ptr %4, align 4
-  call fastcc void @_wa_add(ptr noundef %11, ptr noundef nonnull %4)
+  call fastcc void @_wa_add(ptr noundef nonnull %11, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #10
-  %15 = getelementptr inbounds i8, ptr %3, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %15, i8 0, i64 16, i1 false)
   store i32 28692, ptr %3, align 4
-  call fastcc void @_wa_add(ptr noundef %11, ptr noundef nonnull %3)
+  call fastcc void @_wa_add(ptr noundef nonnull %11, ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #10
-  %16 = getelementptr inbounds i8, ptr %2, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %16, i8 0, i64 16, i1 false)
   store i32 268444489, ptr %2, align 4
-  call fastcc void @_wa_add(ptr noundef %11, ptr noundef nonnull %2)
+  call fastcc void @_wa_add(ptr noundef nonnull %11, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #10
   br label %17
 
@@ -3320,42 +3320,42 @@ define internal fastcc void @glk_whitelist_build(ptr nocapture noundef %0) unnam
   %4 = alloca %struct.i915_wa, align 4
   %5 = alloca %struct.i915_wa, align 4
   %6 = alloca %struct.i915_wa, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load i8, ptr %7, align 8
   %9 = icmp eq i8 %8, 0
   br i1 %9, label %10, label %17
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 720
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 720
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #10
-  %12 = getelementptr inbounds i8, ptr %6, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %12, i8 0, i64 16, i1 false)
   store i32 8776, ptr %6, align 4
-  call fastcc void @_wa_add(ptr noundef %11, ptr noundef nonnull %6)
+  call fastcc void @_wa_add(ptr noundef nonnull %11, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #10
-  %13 = getelementptr inbounds i8, ptr %5, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %13, i8 0, i64 16, i1 false)
   store i32 9600, ptr %5, align 4
-  call fastcc void @_wa_add(ptr noundef %11, ptr noundef nonnull %5)
+  call fastcc void @_wa_add(ptr noundef nonnull %11, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #10
-  %14 = getelementptr inbounds i8, ptr %4, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %14, i8 0, i64 16, i1 false)
   store i32 29444, ptr %4, align 4
-  call fastcc void @_wa_add(ptr noundef %11, ptr noundef nonnull %4)
+  call fastcc void @_wa_add(ptr noundef nonnull %11, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #10
-  %15 = getelementptr inbounds i8, ptr %3, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %15, i8 0, i64 16, i1 false)
   store i32 28692, ptr %3, align 4
-  call fastcc void @_wa_add(ptr noundef %11, ptr noundef nonnull %3)
+  call fastcc void @_wa_add(ptr noundef nonnull %11, ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #10
-  %16 = getelementptr inbounds i8, ptr %2, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %16, i8 0, i64 16, i1 false)
   store i32 29468, ptr %2, align 4
-  call fastcc void @_wa_add(ptr noundef %11, ptr noundef nonnull %2)
+  call fastcc void @_wa_add(ptr noundef nonnull %11, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #10
   br label %17
 
@@ -3370,50 +3370,50 @@ define internal fastcc void @kbl_whitelist_build(ptr nocapture noundef %0) unnam
   %4 = alloca %struct.i915_wa, align 4
   %5 = alloca %struct.i915_wa, align 4
   %6 = alloca %struct.i915_wa, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load i8, ptr %7, align 8
   %9 = icmp eq i8 %8, 0
   br i1 %9, label %10, label %21
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 720
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 720
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #10
-  %12 = getelementptr inbounds i8, ptr %6, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %12, i8 0, i64 16, i1 false)
   store i32 8776, ptr %6, align 4
-  call fastcc void @_wa_add(ptr noundef %11, ptr noundef nonnull %6)
+  call fastcc void @_wa_add(ptr noundef nonnull %11, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #10
-  %13 = getelementptr inbounds i8, ptr %5, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %13, i8 0, i64 16, i1 false)
   store i32 9600, ptr %5, align 4
-  call fastcc void @_wa_add(ptr noundef %11, ptr noundef nonnull %5)
+  call fastcc void @_wa_add(ptr noundef nonnull %11, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #10
-  %14 = getelementptr inbounds i8, ptr %4, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %14, i8 0, i64 16, i1 false)
   store i32 29444, ptr %4, align 4
-  call fastcc void @_wa_add(ptr noundef %11, ptr noundef nonnull %4)
+  call fastcc void @_wa_add(ptr noundef nonnull %11, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #10
-  %15 = getelementptr inbounds i8, ptr %3, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %15, i8 0, i64 16, i1 false)
   store i32 28692, ptr %3, align 4
-  call fastcc void @_wa_add(ptr noundef %11, ptr noundef nonnull %3)
+  call fastcc void @_wa_add(ptr noundef nonnull %11, ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #10
-  %16 = getelementptr inbounds i8, ptr %2, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 0, ptr %16, align 4, !annotation !5
   store i32 45336, ptr %2, align 4
-  %17 = getelementptr inbounds i8, ptr %2, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %2, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %2, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 0, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %2, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i8 2, ptr %20, align 4
-  call fastcc void @_wa_add(ptr noundef %11, ptr noundef nonnull %2)
+  call fastcc void @_wa_add(ptr noundef nonnull %11, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #10
   br label %21
 
@@ -3427,36 +3427,36 @@ define internal fastcc void @bxt_whitelist_build(ptr nocapture noundef %0) unnam
   %3 = alloca %struct.i915_wa, align 4
   %4 = alloca %struct.i915_wa, align 4
   %5 = alloca %struct.i915_wa, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load i8, ptr %6, align 8
   %8 = icmp eq i8 %7, 0
   br i1 %8, label %9, label %15
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 720
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 720
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #10
-  %11 = getelementptr inbounds i8, ptr %5, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %11, i8 0, i64 16, i1 false)
   store i32 8776, ptr %5, align 4
-  call fastcc void @_wa_add(ptr noundef %10, ptr noundef nonnull %5)
+  call fastcc void @_wa_add(ptr noundef nonnull %10, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #10
-  %12 = getelementptr inbounds i8, ptr %4, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %12, i8 0, i64 16, i1 false)
   store i32 9600, ptr %4, align 4
-  call fastcc void @_wa_add(ptr noundef %10, ptr noundef nonnull %4)
+  call fastcc void @_wa_add(ptr noundef nonnull %10, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #10
-  %13 = getelementptr inbounds i8, ptr %3, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %13, i8 0, i64 16, i1 false)
   store i32 29444, ptr %3, align 4
-  call fastcc void @_wa_add(ptr noundef %10, ptr noundef nonnull %3)
+  call fastcc void @_wa_add(ptr noundef nonnull %10, ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #10
-  %14 = getelementptr inbounds i8, ptr %2, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %14, i8 0, i64 16, i1 false)
   store i32 28692, ptr %2, align 4
-  call fastcc void @_wa_add(ptr noundef %10, ptr noundef nonnull %2)
+  call fastcc void @_wa_add(ptr noundef nonnull %10, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #10
   br label %15
 
@@ -3471,50 +3471,50 @@ define internal fastcc void @skl_whitelist_build(ptr nocapture noundef %0) unnam
   %4 = alloca %struct.i915_wa, align 4
   %5 = alloca %struct.i915_wa, align 4
   %6 = alloca %struct.i915_wa, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load i8, ptr %7, align 8
   %9 = icmp eq i8 %8, 0
   br i1 %9, label %10, label %21
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 720
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 720
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #10
-  %12 = getelementptr inbounds i8, ptr %6, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %12, i8 0, i64 16, i1 false)
   store i32 8776, ptr %6, align 4
-  call fastcc void @_wa_add(ptr noundef %11, ptr noundef nonnull %6)
+  call fastcc void @_wa_add(ptr noundef nonnull %11, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #10
-  %13 = getelementptr inbounds i8, ptr %5, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %13, i8 0, i64 16, i1 false)
   store i32 9600, ptr %5, align 4
-  call fastcc void @_wa_add(ptr noundef %11, ptr noundef nonnull %5)
+  call fastcc void @_wa_add(ptr noundef nonnull %11, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #10
-  %14 = getelementptr inbounds i8, ptr %4, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %14, i8 0, i64 16, i1 false)
   store i32 29444, ptr %4, align 4
-  call fastcc void @_wa_add(ptr noundef %11, ptr noundef nonnull %4)
+  call fastcc void @_wa_add(ptr noundef nonnull %11, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #10
-  %15 = getelementptr inbounds i8, ptr %3, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %15, i8 0, i64 16, i1 false)
   store i32 28692, ptr %3, align 4
-  call fastcc void @_wa_add(ptr noundef %11, ptr noundef nonnull %3)
+  call fastcc void @_wa_add(ptr noundef nonnull %11, ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #10
-  %16 = getelementptr inbounds i8, ptr %2, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 0, ptr %16, align 4, !annotation !5
   store i32 45336, ptr %2, align 4
-  %17 = getelementptr inbounds i8, ptr %2, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %2, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %2, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 0, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %2, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i8 2, ptr %20, align 4
-  call fastcc void @_wa_add(ptr noundef %11, ptr noundef nonnull %2)
+  call fastcc void @_wa_add(ptr noundef nonnull %11, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #10
   br label %21
 
@@ -3527,20 +3527,20 @@ declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @intel_engine_apply_whitelist(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 752
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %.loopexit, label %9
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 744
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %11 = load ptr, ptr %10, align 8
   %12 = add i32 %5, 1232
-  %13 = getelementptr inbounds i8, ptr %3, i64 176
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 176
   br label %18
 
 14:                                               ; preds = %18
@@ -3658,17 +3658,17 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   %76 = alloca %struct.i915_wa, align 4
   %77 = alloca %struct.i915_wa, align 4
   %78 = alloca %struct.i915_wa, align 4
-  %79 = getelementptr inbounds i8, ptr %0, i64 680
-  %80 = getelementptr inbounds i8, ptr %0, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 680
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %0, i64 24
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %81, ptr %79, align 8
-  %83 = getelementptr inbounds i8, ptr %0, i64 688
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 688
   store ptr @.str.7, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %0, i64 696
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 696
   store ptr %82, ptr %84, align 8
   %85 = load ptr, ptr %0, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 7176
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 7176
   %87 = load i8, ptr %86, align 8
   %88 = icmp ult i8 %87, 4
   br i1 %88, label %.thread53, label %89
@@ -3678,24 +3678,24 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   br i1 %90, label %91, label %141
 
 91:                                               ; preds = %89
-  %92 = getelementptr inbounds i8, ptr %81, i64 5168
+  %92 = getelementptr inbounds nuw i8, ptr %81, i64 5168
   %93 = load i8, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %85, i64 7168
+  %94 = getelementptr inbounds nuw i8, ptr %85, i64 7168
   %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 28
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 28
   %97 = load i64, ptr %96, align 4
   %98 = and i64 %97, 131072
   %99 = icmp eq i64 %98, 0
   br i1 %99, label %123, label %100
 
 100:                                              ; preds = %91
-  %101 = getelementptr inbounds i8, ptr %0, i64 56
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %102 = load i8, ptr %101, align 8
   %103 = icmp eq i8 %102, 5
   br i1 %103, label %104, label %123
 
 104:                                              ; preds = %100
-  %105 = getelementptr inbounds i8, ptr %81, i64 5169
+  %105 = getelementptr inbounds nuw i8, ptr %81, i64 5169
   %106 = load i8, ptr %105, align 1
   %107 = icmp eq i8 %106, 0
   br i1 %107, label %108, label %123, !prof !6
@@ -3703,13 +3703,13 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 108:                                              ; preds = %104
   tail call void asm sideeffect "939: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 939b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 939) #10, !srcloc !99
   %109 = load ptr, ptr %0, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
   %111 = load ptr, ptr %110, align 8
   %112 = tail call ptr @dev_driver_string(ptr noundef %111) #10
   %113 = load ptr, ptr %0, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
   %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 80
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 80
   %117 = load ptr, ptr %116, align 8
   %118 = icmp eq ptr %117, null
   br i1 %118, label %119, label %121
@@ -3729,7 +3729,7 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 
 123:                                              ; preds = %121, %104, %100, %91
   %124 = phi i8 [ %93, %100 ], [ %93, %91 ], [ 0, %121 ], [ %106, %104 ]
-  %125 = getelementptr inbounds i8, ptr %0, i64 72
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %126 = load i32, ptr %125, align 8
   %127 = add i32 %126, 196
   %128 = zext i8 %93 to i32
@@ -3741,23 +3741,23 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   %134 = or disjoint i32 %130, %133
   %135 = or disjoint i32 %134, 1073676288
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %78) #10
-  %136 = getelementptr inbounds i8, ptr %78, i64 16
+  %136 = getelementptr inbounds nuw i8, ptr %78, i64 16
   store i32 0, ptr %136, align 4, !annotation !5
   store i32 %127, ptr %78, align 4
-  %137 = getelementptr inbounds i8, ptr %78, i64 4
+  %137 = getelementptr inbounds nuw i8, ptr %78, i64 4
   store i32 0, ptr %137, align 4
-  %138 = getelementptr inbounds i8, ptr %78, i64 8
+  %138 = getelementptr inbounds nuw i8, ptr %78, i64 8
   store i32 %135, ptr %138, align 4
-  %139 = getelementptr inbounds i8, ptr %78, i64 12
+  %139 = getelementptr inbounds nuw i8, ptr %78, i64 12
   store i32 16383, ptr %139, align 4
-  %140 = getelementptr inbounds i8, ptr %78, i64 16
+  %140 = getelementptr inbounds nuw i8, ptr %78, i64 16
   store i8 1, ptr %140, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %78)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %78)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %78) #10
   br label %141
 
 141:                                              ; preds = %123, %89
-  %142 = getelementptr inbounds i8, ptr %0, i64 1248
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 1248
   %143 = load i32, ptr %142, align 8
   %144 = and i32 %143, 2048
   %145 = icmp eq i32 %144, 0
@@ -3767,17 +3767,17 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   %147 = load ptr, ptr %0, align 8
   %148 = load ptr, ptr %80, align 8
   %149 = load ptr, ptr %148, align 8
-  %150 = getelementptr inbounds i8, ptr %148, i64 16
+  %150 = getelementptr inbounds nuw i8, ptr %148, i64 16
   %151 = load i32, ptr %150, align 8
   %152 = icmp eq i32 %151, 2
   br i1 %152, label %164, label %153
 
 153:                                              ; preds = %146
-  %154 = getelementptr inbounds i8, ptr %149, i64 7176
+  %154 = getelementptr inbounds nuw i8, ptr %149, i64 7176
   %155 = load i8, ptr %154, align 8
   %156 = zext i8 %155 to i32
   %157 = shl nuw nsw i32 %156, 8
-  %158 = getelementptr inbounds i8, ptr %149, i64 7177
+  %158 = getelementptr inbounds nuw i8, ptr %149, i64 7177
   %159 = load i8, ptr %158, align 1
   %160 = and i8 %159, -2
   %161 = zext i8 %160 to i32
@@ -3794,25 +3794,25 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 
 169:                                              ; preds = %164, %153
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %77) #10
-  %170 = getelementptr inbounds i8, ptr %77, i64 16
+  %170 = getelementptr inbounds nuw i8, ptr %77, i64 16
   store i32 0, ptr %170, align 4, !annotation !5
   store i32 58672, ptr %77, align 4
-  %171 = getelementptr inbounds i8, ptr %77, i64 4
+  %171 = getelementptr inbounds nuw i8, ptr %77, i64 4
   store i32 96, ptr %171, align 4
-  %172 = getelementptr inbounds i8, ptr %77, i64 8
+  %172 = getelementptr inbounds nuw i8, ptr %77, i64 8
   store i32 64, ptr %172, align 4
-  %173 = getelementptr inbounds i8, ptr %77, i64 12
+  %173 = getelementptr inbounds nuw i8, ptr %77, i64 12
   store i32 96, ptr %173, align 4
-  %174 = getelementptr inbounds i8, ptr %77, i64 16
+  %174 = getelementptr inbounds nuw i8, ptr %77, i64 16
   store i8 2, ptr %174, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %77)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %77)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %77) #10
   br label %175
 
 175:                                              ; preds = %169, %164
-  %176 = getelementptr inbounds i8, ptr %149, i64 7168
+  %176 = getelementptr inbounds nuw i8, ptr %149, i64 7168
   %177 = load ptr, ptr %176, align 8
-  %178 = getelementptr inbounds i8, ptr %177, i64 28
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 28
   %179 = load i64, ptr %178, align 4
   %180 = and i64 %179, 34359738368
   %181 = icmp eq i64 %180, 0
@@ -3820,29 +3820,29 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 
 182:                                              ; preds = %175
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %76) #10
-  %183 = getelementptr inbounds i8, ptr %76, i64 16
+  %183 = getelementptr inbounds nuw i8, ptr %76, i64 16
   store i32 0, ptr %183, align 4, !annotation !5
   store i32 58508, ptr %76, align 4
-  %184 = getelementptr inbounds i8, ptr %76, i64 4
+  %184 = getelementptr inbounds nuw i8, ptr %76, i64 4
   store i32 0, ptr %184, align 4
-  %185 = getelementptr inbounds i8, ptr %76, i64 8
+  %185 = getelementptr inbounds nuw i8, ptr %76, i64 8
   store i32 786440, ptr %185, align 4
-  %186 = getelementptr inbounds i8, ptr %76, i64 12
+  %186 = getelementptr inbounds nuw i8, ptr %76, i64 12
   store i32 12, ptr %186, align 4
-  %187 = getelementptr inbounds i8, ptr %76, i64 16
+  %187 = getelementptr inbounds nuw i8, ptr %76, i64 16
   store i8 3, ptr %187, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %76)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %76)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %76) #10
   br label %188
 
 188:                                              ; preds = %182, %175
-  %189 = getelementptr inbounds i8, ptr %149, i64 7176
+  %189 = getelementptr inbounds nuw i8, ptr %149, i64 7176
   %190 = load i8, ptr %189, align 8
   %191 = icmp eq i8 %190, 12
   br i1 %191, label %192, label %203
 
 192:                                              ; preds = %188
-  %193 = getelementptr inbounds i8, ptr %149, i64 7177
+  %193 = getelementptr inbounds nuw i8, ptr %149, i64 7177
   %194 = load i8, ptr %193, align 1
   %195 = zext i8 %194 to i32
   %196 = or disjoint i32 %195, 3072
@@ -3851,39 +3851,39 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 
 198:                                              ; preds = %192
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %75) #10
-  %199 = getelementptr inbounds i8, ptr %75, i64 16
+  %199 = getelementptr inbounds nuw i8, ptr %75, i64 16
   store i32 0, ptr %199, align 4, !annotation !5
   store i32 45060, ptr %75, align 4
-  %200 = getelementptr inbounds i8, ptr %75, i64 4
+  %200 = getelementptr inbounds nuw i8, ptr %75, i64 4
   store i32 128, ptr %200, align 4
-  %201 = getelementptr inbounds i8, ptr %75, i64 8
+  %201 = getelementptr inbounds nuw i8, ptr %75, i64 8
   store i32 0, ptr %201, align 4
-  %202 = getelementptr inbounds i8, ptr %75, i64 12
+  %202 = getelementptr inbounds nuw i8, ptr %75, i64 12
   store i32 128, ptr %202, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %75)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %75)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %75) #10
   br label %203
 
 203:                                              ; preds = %198, %192, %188
-  %204 = getelementptr inbounds i8, ptr %147, i64 7176
+  %204 = getelementptr inbounds nuw i8, ptr %147, i64 7176
   %205 = load i8, ptr %204, align 8
   %206 = icmp ugt i8 %205, 10
   br i1 %206, label %207, label %213
 
 207:                                              ; preds = %203
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %74) #10
-  %208 = getelementptr inbounds i8, ptr %74, i64 16
+  %208 = getelementptr inbounds nuw i8, ptr %74, i64 16
   store i32 0, ptr %208, align 4, !annotation !5
   store i32 57740, ptr %74, align 4
-  %209 = getelementptr inbounds i8, ptr %74, i64 4
+  %209 = getelementptr inbounds nuw i8, ptr %74, i64 4
   store i32 0, ptr %209, align 4
-  %210 = getelementptr inbounds i8, ptr %74, i64 8
+  %210 = getelementptr inbounds nuw i8, ptr %74, i64 8
   store i32 65537, ptr %210, align 4
-  %211 = getelementptr inbounds i8, ptr %74, i64 12
+  %211 = getelementptr inbounds nuw i8, ptr %74, i64 12
   store i32 1, ptr %211, align 4
-  %212 = getelementptr inbounds i8, ptr %74, i64 16
+  %212 = getelementptr inbounds nuw i8, ptr %74, i64 16
   store i8 3, ptr %212, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %74)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %74)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %74) #10
   br label %213
 
@@ -3894,11 +3894,11 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 
 216:                                              ; preds = %213
   %217 = load ptr, ptr %148, align 8
-  %218 = getelementptr inbounds i8, ptr %217, i64 7176
+  %218 = getelementptr inbounds nuw i8, ptr %217, i64 7176
   %219 = load i8, ptr %218, align 8
   %220 = zext i8 %219 to i32
   %221 = shl nuw nsw i32 %220, 8
-  %222 = getelementptr inbounds i8, ptr %217, i64 7177
+  %222 = getelementptr inbounds nuw i8, ptr %217, i64 7177
   %223 = load i8, ptr %222, align 1
   %224 = zext i8 %223 to i32
   %225 = or disjoint i32 %221, %224
@@ -3906,7 +3906,7 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   br i1 %226, label %227, label %.thread
 
 227:                                              ; preds = %216
-  %228 = getelementptr inbounds i8, ptr %217, i64 7200
+  %228 = getelementptr inbounds nuw i8, ptr %217, i64 7200
   %229 = load i8, ptr %228, align 8
   %230 = icmp eq i8 %229, 0
   br i1 %230, label %231, label %246, !prof !6
@@ -3914,13 +3914,13 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 231:                                              ; preds = %227
   tail call void asm sideeffect "980: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 980b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 980) #10, !srcloc !104
   %232 = load ptr, ptr %148, align 8
-  %233 = getelementptr inbounds i8, ptr %232, i64 8
+  %233 = getelementptr inbounds nuw i8, ptr %232, i64 8
   %234 = load ptr, ptr %233, align 8
   %235 = tail call ptr @dev_driver_string(ptr noundef %234) #10
   %236 = load ptr, ptr %148, align 8
-  %237 = getelementptr inbounds i8, ptr %236, i64 8
+  %237 = getelementptr inbounds nuw i8, ptr %236, i64 8
   %238 = load ptr, ptr %237, align 8
-  %239 = getelementptr inbounds i8, ptr %238, i64 80
+  %239 = getelementptr inbounds nuw i8, ptr %238, i64 80
   %240 = load ptr, ptr %239, align 8
   %241 = icmp eq ptr %240, null
   br i1 %241, label %242, label %244
@@ -3937,7 +3937,7 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   tail call void asm sideeffect "982: nop\0A\09.pushsection .discard.instr_end\0A\09.long 982b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 982) #10, !srcloc !107
   tail call void asm sideeffect "983: nop\0A\09.pushsection .discard.instr_end\0A\09.long 983b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 983) #10, !srcloc !108
   %.pre = load ptr, ptr %148, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 7200
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 7200
   %.pre61 = load i8, ptr %.phi.trans.insert, align 8
   br label %246
 
@@ -3955,11 +3955,11 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 
 .thread:                                          ; preds = %216, %251
   %253 = phi ptr [ %248, %251 ], [ %217, %216 ]
-  %254 = getelementptr inbounds i8, ptr %253, i64 7176
+  %254 = getelementptr inbounds nuw i8, ptr %253, i64 7176
   %255 = load i8, ptr %254, align 8
   %256 = zext i8 %255 to i32
   %257 = shl nuw nsw i32 %256, 8
-  %258 = getelementptr inbounds i8, ptr %253, i64 7177
+  %258 = getelementptr inbounds nuw i8, ptr %253, i64 7177
   %259 = load i8, ptr %258, align 1
   %260 = zext i8 %259 to i32
   %261 = or disjoint i32 %257, %260
@@ -3967,7 +3967,7 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   br i1 %262, label %263, label %292
 
 263:                                              ; preds = %.thread
-  %264 = getelementptr inbounds i8, ptr %253, i64 7200
+  %264 = getelementptr inbounds nuw i8, ptr %253, i64 7200
   %265 = load i8, ptr %264, align 8
   %266 = icmp eq i8 %265, 0
   br i1 %266, label %267, label %282, !prof !6
@@ -3975,13 +3975,13 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 267:                                              ; preds = %263
   tail call void asm sideeffect "984: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 984b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 984) #10, !srcloc !109
   %268 = load ptr, ptr %148, align 8
-  %269 = getelementptr inbounds i8, ptr %268, i64 8
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 8
   %270 = load ptr, ptr %269, align 8
   %271 = tail call ptr @dev_driver_string(ptr noundef %270) #10
   %272 = load ptr, ptr %148, align 8
-  %273 = getelementptr inbounds i8, ptr %272, i64 8
+  %273 = getelementptr inbounds nuw i8, ptr %272, i64 8
   %274 = load ptr, ptr %273, align 8
-  %275 = getelementptr inbounds i8, ptr %274, i64 80
+  %275 = getelementptr inbounds nuw i8, ptr %274, i64 80
   %276 = load ptr, ptr %275, align 8
   %277 = icmp eq ptr %276, null
   br i1 %277, label %278, label %280
@@ -3998,7 +3998,7 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   tail call void asm sideeffect "986: nop\0A\09.pushsection .discard.instr_end\0A\09.long 986b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 986) #10, !srcloc !112
   tail call void asm sideeffect "987: nop\0A\09.pushsection .discard.instr_end\0A\09.long 987b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 987) #10, !srcloc !113
   %.pre63 = load ptr, ptr %148, align 8
-  %.phi.trans.insert64 = getelementptr inbounds i8, ptr %.pre63, i64 7200
+  %.phi.trans.insert64 = getelementptr inbounds nuw i8, ptr %.pre63, i64 7200
   %.pre65 = load i8, ptr %.phi.trans.insert64, align 8
   br label %282
 
@@ -4010,18 +4010,18 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 
 286:                                              ; preds = %282, %246
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %73) #10
-  %287 = getelementptr inbounds i8, ptr %73, i64 16
+  %287 = getelementptr inbounds nuw i8, ptr %73, i64 16
   store i32 0, ptr %287, align 4, !annotation !5
   store i32 58524, ptr %73, align 4
-  %288 = getelementptr inbounds i8, ptr %73, i64 4
+  %288 = getelementptr inbounds nuw i8, ptr %73, i64 4
   store i32 0, ptr %288, align 4
-  %289 = getelementptr inbounds i8, ptr %73, i64 8
+  %289 = getelementptr inbounds nuw i8, ptr %73, i64 8
   store i32 33554944, ptr %289, align 4
-  %290 = getelementptr inbounds i8, ptr %73, i64 12
+  %290 = getelementptr inbounds nuw i8, ptr %73, i64 12
   store i32 512, ptr %290, align 4
-  %291 = getelementptr inbounds i8, ptr %73, i64 16
+  %291 = getelementptr inbounds nuw i8, ptr %73, i64 16
   store i8 3, ptr %291, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %73)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %73)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %73) #10
   br label %292
 
@@ -4032,11 +4032,11 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 
 294:                                              ; preds = %292
   %295 = load ptr, ptr %148, align 8
-  %296 = getelementptr inbounds i8, ptr %295, i64 7176
+  %296 = getelementptr inbounds nuw i8, ptr %295, i64 7176
   %297 = load i8, ptr %296, align 8
   %298 = zext i8 %297 to i32
   %299 = shl nuw nsw i32 %298, 8
-  %300 = getelementptr inbounds i8, ptr %295, i64 7177
+  %300 = getelementptr inbounds nuw i8, ptr %295, i64 7177
   %301 = load i8, ptr %300, align 1
   %302 = zext i8 %301 to i32
   %303 = or disjoint i32 %299, %302
@@ -4044,7 +4044,7 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   br i1 %304, label %305, label %.thread21.thread
 
 305:                                              ; preds = %294
-  %306 = getelementptr inbounds i8, ptr %295, i64 7200
+  %306 = getelementptr inbounds nuw i8, ptr %295, i64 7200
   %307 = load i8, ptr %306, align 8
   %308 = icmp eq i8 %307, 0
   br i1 %308, label %309, label %324, !prof !6
@@ -4052,13 +4052,13 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 309:                                              ; preds = %305
   tail call void asm sideeffect "988: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 988b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 988) #10, !srcloc !114
   %310 = load ptr, ptr %148, align 8
-  %311 = getelementptr inbounds i8, ptr %310, i64 8
+  %311 = getelementptr inbounds nuw i8, ptr %310, i64 8
   %312 = load ptr, ptr %311, align 8
   %313 = tail call ptr @dev_driver_string(ptr noundef %312) #10
   %314 = load ptr, ptr %148, align 8
-  %315 = getelementptr inbounds i8, ptr %314, i64 8
+  %315 = getelementptr inbounds nuw i8, ptr %314, i64 8
   %316 = load ptr, ptr %315, align 8
-  %317 = getelementptr inbounds i8, ptr %316, i64 80
+  %317 = getelementptr inbounds nuw i8, ptr %316, i64 80
   %318 = load ptr, ptr %317, align 8
   %319 = icmp eq ptr %318, null
   br i1 %319, label %320, label %322
@@ -4075,7 +4075,7 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   tail call void asm sideeffect "990: nop\0A\09.pushsection .discard.instr_end\0A\09.long 990b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 990) #10, !srcloc !117
   tail call void asm sideeffect "991: nop\0A\09.pushsection .discard.instr_end\0A\09.long 991b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 991) #10, !srcloc !118
   %.pre66 = load ptr, ptr %148, align 8
-  %.phi.trans.insert67 = getelementptr inbounds i8, ptr %.pre66, i64 7200
+  %.phi.trans.insert67 = getelementptr inbounds nuw i8, ptr %.pre66, i64 7200
   %.pre68 = load i8, ptr %.phi.trans.insert67, align 8
   br label %324
 
@@ -4093,11 +4093,11 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 
 .thread21.thread:                                 ; preds = %294, %.thread21
   %330 = phi ptr [ %326, %.thread21 ], [ %295, %294 ]
-  %331 = getelementptr inbounds i8, ptr %330, i64 7176
+  %331 = getelementptr inbounds nuw i8, ptr %330, i64 7176
   %332 = load i8, ptr %331, align 8
   %333 = zext i8 %332 to i32
   %334 = shl nuw nsw i32 %333, 8
-  %335 = getelementptr inbounds i8, ptr %330, i64 7177
+  %335 = getelementptr inbounds nuw i8, ptr %330, i64 7177
   %336 = load i8, ptr %335, align 1
   %337 = zext i8 %336 to i32
   %338 = or disjoint i32 %334, %337
@@ -4105,7 +4105,7 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   br i1 %339, label %340, label %369
 
 340:                                              ; preds = %.thread21.thread
-  %341 = getelementptr inbounds i8, ptr %330, i64 7200
+  %341 = getelementptr inbounds nuw i8, ptr %330, i64 7200
   %342 = load i8, ptr %341, align 8
   %343 = icmp eq i8 %342, 0
   br i1 %343, label %344, label %359, !prof !6
@@ -4113,13 +4113,13 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 344:                                              ; preds = %340
   tail call void asm sideeffect "992: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 992b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 992) #10, !srcloc !119
   %345 = load ptr, ptr %148, align 8
-  %346 = getelementptr inbounds i8, ptr %345, i64 8
+  %346 = getelementptr inbounds nuw i8, ptr %345, i64 8
   %347 = load ptr, ptr %346, align 8
   %348 = tail call ptr @dev_driver_string(ptr noundef %347) #10
   %349 = load ptr, ptr %148, align 8
-  %350 = getelementptr inbounds i8, ptr %349, i64 8
+  %350 = getelementptr inbounds nuw i8, ptr %349, i64 8
   %351 = load ptr, ptr %350, align 8
-  %352 = getelementptr inbounds i8, ptr %351, i64 80
+  %352 = getelementptr inbounds nuw i8, ptr %351, i64 80
   %353 = load ptr, ptr %352, align 8
   %354 = icmp eq ptr %353, null
   br i1 %354, label %355, label %357
@@ -4136,7 +4136,7 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   tail call void asm sideeffect "994: nop\0A\09.pushsection .discard.instr_end\0A\09.long 994b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 994) #10, !srcloc !122
   tail call void asm sideeffect "995: nop\0A\09.pushsection .discard.instr_end\0A\09.long 995b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 995) #10, !srcloc !123
   %.pre70 = load ptr, ptr %148, align 8
-  %.phi.trans.insert71 = getelementptr inbounds i8, ptr %.pre70, i64 7200
+  %.phi.trans.insert71 = getelementptr inbounds nuw i8, ptr %.pre70, i64 7200
   %.pre72 = load i8, ptr %.phi.trans.insert71, align 8
   br label %359
 
@@ -4148,18 +4148,18 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 
 363:                                              ; preds = %359, %324
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %72) #10
-  %364 = getelementptr inbounds i8, ptr %72, i64 16
+  %364 = getelementptr inbounds nuw i8, ptr %72, i64 16
   store i32 0, ptr %364, align 4, !annotation !5
   store i32 57740, ptr %72, align 4
-  %365 = getelementptr inbounds i8, ptr %72, i64 4
+  %365 = getelementptr inbounds nuw i8, ptr %72, i64 4
   store i32 0, ptr %365, align 4
-  %366 = getelementptr inbounds i8, ptr %72, i64 8
+  %366 = getelementptr inbounds nuw i8, ptr %72, i64 8
   store i32 524296, ptr %366, align 4
-  %367 = getelementptr inbounds i8, ptr %72, i64 12
+  %367 = getelementptr inbounds nuw i8, ptr %72, i64 12
   store i32 8, ptr %367, align 4
-  %368 = getelementptr inbounds i8, ptr %72, i64 16
+  %368 = getelementptr inbounds nuw i8, ptr %72, i64 16
   store i8 3, ptr %368, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %72)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %72)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %72) #10
   br label %369
 
@@ -4170,11 +4170,11 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 
 371:                                              ; preds = %369
   %372 = load ptr, ptr %148, align 8
-  %373 = getelementptr inbounds i8, ptr %372, i64 7176
+  %373 = getelementptr inbounds nuw i8, ptr %372, i64 7176
   %374 = load i8, ptr %373, align 8
   %375 = zext i8 %374 to i32
   %376 = shl nuw nsw i32 %375, 8
-  %377 = getelementptr inbounds i8, ptr %372, i64 7177
+  %377 = getelementptr inbounds nuw i8, ptr %372, i64 7177
   %378 = load i8, ptr %377, align 1
   %379 = zext i8 %378 to i32
   %380 = or disjoint i32 %376, %379
@@ -4182,7 +4182,7 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   br i1 %381, label %382, label %.thread28
 
 382:                                              ; preds = %371
-  %383 = getelementptr inbounds i8, ptr %372, i64 7200
+  %383 = getelementptr inbounds nuw i8, ptr %372, i64 7200
   %384 = load i8, ptr %383, align 8
   %385 = icmp eq i8 %384, 0
   br i1 %385, label %386, label %401, !prof !6
@@ -4190,13 +4190,13 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 386:                                              ; preds = %382
   tail call void asm sideeffect "996: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 996b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 996) #10, !srcloc !124
   %387 = load ptr, ptr %148, align 8
-  %388 = getelementptr inbounds i8, ptr %387, i64 8
+  %388 = getelementptr inbounds nuw i8, ptr %387, i64 8
   %389 = load ptr, ptr %388, align 8
   %390 = tail call ptr @dev_driver_string(ptr noundef %389) #10
   %391 = load ptr, ptr %148, align 8
-  %392 = getelementptr inbounds i8, ptr %391, i64 8
+  %392 = getelementptr inbounds nuw i8, ptr %391, i64 8
   %393 = load ptr, ptr %392, align 8
-  %394 = getelementptr inbounds i8, ptr %393, i64 80
+  %394 = getelementptr inbounds nuw i8, ptr %393, i64 80
   %395 = load ptr, ptr %394, align 8
   %396 = icmp eq ptr %395, null
   br i1 %396, label %397, label %399
@@ -4213,7 +4213,7 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   tail call void asm sideeffect "998: nop\0A\09.pushsection .discard.instr_end\0A\09.long 998b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 998) #10, !srcloc !127
   tail call void asm sideeffect "999: nop\0A\09.pushsection .discard.instr_end\0A\09.long 999b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 999) #10, !srcloc !128
   %.pre73 = load ptr, ptr %148, align 8
-  %.phi.trans.insert74 = getelementptr inbounds i8, ptr %.pre73, i64 7200
+  %.phi.trans.insert74 = getelementptr inbounds nuw i8, ptr %.pre73, i64 7200
   %.pre75 = load i8, ptr %.phi.trans.insert74, align 8
   br label %401
 
@@ -4225,18 +4225,18 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 
 405:                                              ; preds = %401
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %71) #10
-  %406 = getelementptr inbounds i8, ptr %71, i64 16
+  %406 = getelementptr inbounds nuw i8, ptr %71, i64 16
   store i32 0, ptr %406, align 4, !annotation !5
   store i32 58400, ptr %71, align 4
-  %407 = getelementptr inbounds i8, ptr %71, i64 4
+  %407 = getelementptr inbounds nuw i8, ptr %71, i64 4
   store i32 0, ptr %407, align 4
-  %408 = getelementptr inbounds i8, ptr %71, i64 8
+  %408 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store i32 524296, ptr %408, align 4
-  %409 = getelementptr inbounds i8, ptr %71, i64 12
+  %409 = getelementptr inbounds nuw i8, ptr %71, i64 12
   store i32 8, ptr %409, align 4
-  %410 = getelementptr inbounds i8, ptr %71, i64 16
+  %410 = getelementptr inbounds nuw i8, ptr %71, i64 16
   store i8 3, ptr %410, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %71)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %71)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %71) #10
   br label %.thread28
 
@@ -4247,11 +4247,11 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 
 412:                                              ; preds = %.thread28
   %413 = load ptr, ptr %148, align 8
-  %414 = getelementptr inbounds i8, ptr %413, i64 7176
+  %414 = getelementptr inbounds nuw i8, ptr %413, i64 7176
   %415 = load i8, ptr %414, align 8
   %416 = zext i8 %415 to i32
   %417 = shl nuw nsw i32 %416, 8
-  %418 = getelementptr inbounds i8, ptr %413, i64 7177
+  %418 = getelementptr inbounds nuw i8, ptr %413, i64 7177
   %419 = load i8, ptr %418, align 1
   %420 = zext i8 %419 to i32
   %421 = or disjoint i32 %417, %420
@@ -4259,7 +4259,7 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   br i1 %422, label %423, label %.thread135
 
 423:                                              ; preds = %412
-  %424 = getelementptr inbounds i8, ptr %413, i64 7200
+  %424 = getelementptr inbounds nuw i8, ptr %413, i64 7200
   %425 = load i8, ptr %424, align 8
   %426 = icmp eq i8 %425, 0
   br i1 %426, label %427, label %442, !prof !6
@@ -4267,13 +4267,13 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 427:                                              ; preds = %423
   tail call void asm sideeffect "1000: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1000b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1000) #10, !srcloc !129
   %428 = load ptr, ptr %148, align 8
-  %429 = getelementptr inbounds i8, ptr %428, i64 8
+  %429 = getelementptr inbounds nuw i8, ptr %428, i64 8
   %430 = load ptr, ptr %429, align 8
   %431 = tail call ptr @dev_driver_string(ptr noundef %430) #10
   %432 = load ptr, ptr %148, align 8
-  %433 = getelementptr inbounds i8, ptr %432, i64 8
+  %433 = getelementptr inbounds nuw i8, ptr %432, i64 8
   %434 = load ptr, ptr %433, align 8
-  %435 = getelementptr inbounds i8, ptr %434, i64 80
+  %435 = getelementptr inbounds nuw i8, ptr %434, i64 80
   %436 = load ptr, ptr %435, align 8
   %437 = icmp eq ptr %436, null
   br i1 %437, label %438, label %440
@@ -4290,7 +4290,7 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   tail call void asm sideeffect "1002: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1002b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1002) #10, !srcloc !132
   tail call void asm sideeffect "1003: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1003b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1003) #10, !srcloc !133
   %.pre76 = load ptr, ptr %148, align 8
-  %.phi.trans.insert77 = getelementptr inbounds i8, ptr %.pre76, i64 7200
+  %.phi.trans.insert77 = getelementptr inbounds nuw i8, ptr %.pre76, i64 7200
   %.pre78 = load i8, ptr %.phi.trans.insert77, align 8
   br label %442
 
@@ -4308,11 +4308,11 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 
 .thread135:                                       ; preds = %412, %447
   %449 = phi ptr [ %444, %447 ], [ %413, %412 ]
-  %450 = getelementptr inbounds i8, ptr %449, i64 7176
+  %450 = getelementptr inbounds nuw i8, ptr %449, i64 7176
   %451 = load i8, ptr %450, align 8
   %452 = zext i8 %451 to i32
   %453 = shl nuw nsw i32 %452, 8
-  %454 = getelementptr inbounds i8, ptr %449, i64 7177
+  %454 = getelementptr inbounds nuw i8, ptr %449, i64 7177
   %455 = load i8, ptr %454, align 1
   %456 = zext i8 %455 to i32
   %457 = or disjoint i32 %453, %456
@@ -4320,7 +4320,7 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   br i1 %458, label %459, label %.thread35
 
 459:                                              ; preds = %.thread135
-  %460 = getelementptr inbounds i8, ptr %449, i64 7200
+  %460 = getelementptr inbounds nuw i8, ptr %449, i64 7200
   %461 = load i8, ptr %460, align 8
   %462 = icmp eq i8 %461, 0
   br i1 %462, label %463, label %478, !prof !6
@@ -4328,13 +4328,13 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 463:                                              ; preds = %459
   tail call void asm sideeffect "1004: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1004b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1004) #10, !srcloc !134
   %464 = load ptr, ptr %148, align 8
-  %465 = getelementptr inbounds i8, ptr %464, i64 8
+  %465 = getelementptr inbounds nuw i8, ptr %464, i64 8
   %466 = load ptr, ptr %465, align 8
   %467 = tail call ptr @dev_driver_string(ptr noundef %466) #10
   %468 = load ptr, ptr %148, align 8
-  %469 = getelementptr inbounds i8, ptr %468, i64 8
+  %469 = getelementptr inbounds nuw i8, ptr %468, i64 8
   %470 = load ptr, ptr %469, align 8
-  %471 = getelementptr inbounds i8, ptr %470, i64 80
+  %471 = getelementptr inbounds nuw i8, ptr %470, i64 80
   %472 = load ptr, ptr %471, align 8
   %473 = icmp eq ptr %472, null
   br i1 %473, label %474, label %476
@@ -4351,7 +4351,7 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   tail call void asm sideeffect "1006: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1006b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1006) #10, !srcloc !137
   tail call void asm sideeffect "1007: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1007b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1007) #10, !srcloc !138
   %.pre81 = load ptr, ptr %148, align 8
-  %.phi.trans.insert82 = getelementptr inbounds i8, ptr %.pre81, i64 7200
+  %.phi.trans.insert82 = getelementptr inbounds nuw i8, ptr %.pre81, i64 7200
   %.pre83 = load i8, ptr %.phi.trans.insert82, align 8
   br label %478
 
@@ -4370,32 +4370,32 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 
 486:                                              ; preds = %.thread35, %478, %442
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %70) #10
-  %487 = getelementptr inbounds i8, ptr %70, i64 16
+  %487 = getelementptr inbounds nuw i8, ptr %70, i64 16
   store i32 0, ptr %487, align 4, !annotation !5
   store i32 59340, ptr %70, align 4
-  %488 = getelementptr inbounds i8, ptr %70, i64 4
+  %488 = getelementptr inbounds nuw i8, ptr %70, i64 4
   store i32 16, ptr %488, align 4
-  %489 = getelementptr inbounds i8, ptr %70, i64 8
+  %489 = getelementptr inbounds nuw i8, ptr %70, i64 8
   store i32 16, ptr %489, align 4
-  %490 = getelementptr inbounds i8, ptr %70, i64 12
+  %490 = getelementptr inbounds nuw i8, ptr %70, i64 12
   store i32 16, ptr %490, align 4
-  %491 = getelementptr inbounds i8, ptr %70, i64 16
+  %491 = getelementptr inbounds nuw i8, ptr %70, i64 16
   store i8 2, ptr %491, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %70)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %70)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %70) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %69) #10
-  %492 = getelementptr inbounds i8, ptr %69, i64 16
+  %492 = getelementptr inbounds nuw i8, ptr %69, i64 16
   store i32 0, ptr %492, align 4, !annotation !5
   store i32 33716, ptr %69, align 4
-  %493 = getelementptr inbounds i8, ptr %69, i64 4
+  %493 = getelementptr inbounds nuw i8, ptr %69, i64 4
   store i32 0, ptr %493, align 4
-  %494 = getelementptr inbounds i8, ptr %69, i64 8
+  %494 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store i32 1048592, ptr %494, align 4
-  %495 = getelementptr inbounds i8, ptr %69, i64 12
+  %495 = getelementptr inbounds nuw i8, ptr %69, i64 12
   store i32 16, ptr %495, align 4
-  %496 = getelementptr inbounds i8, ptr %69, i64 16
+  %496 = getelementptr inbounds nuw i8, ptr %69, i64 16
   store i8 1, ptr %496, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %69)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %69)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %69) #10
   br label %497
 
@@ -4406,11 +4406,11 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 
 500:                                              ; preds = %497
   %501 = load ptr, ptr %148, align 8
-  %502 = getelementptr inbounds i8, ptr %501, i64 7176
+  %502 = getelementptr inbounds nuw i8, ptr %501, i64 7176
   %503 = load i8, ptr %502, align 8
   %504 = zext i8 %503 to i32
   %505 = shl nuw nsw i32 %504, 8
-  %506 = getelementptr inbounds i8, ptr %501, i64 7177
+  %506 = getelementptr inbounds nuw i8, ptr %501, i64 7177
   %507 = load i8, ptr %506, align 1
   %508 = zext i8 %507 to i32
   %509 = or disjoint i32 %505, %508
@@ -4418,7 +4418,7 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   br i1 %510, label %511, label %.thread137
 
 511:                                              ; preds = %500
-  %512 = getelementptr inbounds i8, ptr %501, i64 7200
+  %512 = getelementptr inbounds nuw i8, ptr %501, i64 7200
   %513 = load i8, ptr %512, align 8
   %514 = icmp eq i8 %513, 0
   br i1 %514, label %515, label %530, !prof !6
@@ -4426,13 +4426,13 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 515:                                              ; preds = %511
   tail call void asm sideeffect "1008: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1008b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1008) #10, !srcloc !139
   %516 = load ptr, ptr %148, align 8
-  %517 = getelementptr inbounds i8, ptr %516, i64 8
+  %517 = getelementptr inbounds nuw i8, ptr %516, i64 8
   %518 = load ptr, ptr %517, align 8
   %519 = tail call ptr @dev_driver_string(ptr noundef %518) #10
   %520 = load ptr, ptr %148, align 8
-  %521 = getelementptr inbounds i8, ptr %520, i64 8
+  %521 = getelementptr inbounds nuw i8, ptr %520, i64 8
   %522 = load ptr, ptr %521, align 8
-  %523 = getelementptr inbounds i8, ptr %522, i64 80
+  %523 = getelementptr inbounds nuw i8, ptr %522, i64 80
   %524 = load ptr, ptr %523, align 8
   %525 = icmp eq ptr %524, null
   br i1 %525, label %526, label %528
@@ -4449,7 +4449,7 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   tail call void asm sideeffect "1010: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1010b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1010) #10, !srcloc !142
   tail call void asm sideeffect "1011: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1011b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1011) #10, !srcloc !143
   %.pre84 = load ptr, ptr %148, align 8
-  %.phi.trans.insert85 = getelementptr inbounds i8, ptr %.pre84, i64 7200
+  %.phi.trans.insert85 = getelementptr inbounds nuw i8, ptr %.pre84, i64 7200
   %.pre86 = load i8, ptr %.phi.trans.insert85, align 8
   br label %530
 
@@ -4467,11 +4467,11 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 
 .thread137:                                       ; preds = %500, %535
   %537 = phi ptr [ %532, %535 ], [ %501, %500 ]
-  %538 = getelementptr inbounds i8, ptr %537, i64 7176
+  %538 = getelementptr inbounds nuw i8, ptr %537, i64 7176
   %539 = load i8, ptr %538, align 8
   %540 = zext i8 %539 to i32
   %541 = shl nuw nsw i32 %540, 8
-  %542 = getelementptr inbounds i8, ptr %537, i64 7177
+  %542 = getelementptr inbounds nuw i8, ptr %537, i64 7177
   %543 = load i8, ptr %542, align 1
   %544 = zext i8 %543 to i32
   %545 = or disjoint i32 %541, %544
@@ -4479,7 +4479,7 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   br i1 %546, label %547, label %.thread38
 
 547:                                              ; preds = %.thread137
-  %548 = getelementptr inbounds i8, ptr %537, i64 7200
+  %548 = getelementptr inbounds nuw i8, ptr %537, i64 7200
   %549 = load i8, ptr %548, align 8
   %550 = icmp eq i8 %549, 0
   br i1 %550, label %551, label %566, !prof !6
@@ -4487,13 +4487,13 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 551:                                              ; preds = %547
   tail call void asm sideeffect "1012: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1012b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1012) #10, !srcloc !144
   %552 = load ptr, ptr %148, align 8
-  %553 = getelementptr inbounds i8, ptr %552, i64 8
+  %553 = getelementptr inbounds nuw i8, ptr %552, i64 8
   %554 = load ptr, ptr %553, align 8
   %555 = tail call ptr @dev_driver_string(ptr noundef %554) #10
   %556 = load ptr, ptr %148, align 8
-  %557 = getelementptr inbounds i8, ptr %556, i64 8
+  %557 = getelementptr inbounds nuw i8, ptr %556, i64 8
   %558 = load ptr, ptr %557, align 8
-  %559 = getelementptr inbounds i8, ptr %558, i64 80
+  %559 = getelementptr inbounds nuw i8, ptr %558, i64 80
   %560 = load ptr, ptr %559, align 8
   %561 = icmp eq ptr %560, null
   br i1 %561, label %562, label %564
@@ -4510,7 +4510,7 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   tail call void asm sideeffect "1014: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1014b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1014) #10, !srcloc !147
   tail call void asm sideeffect "1015: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1015b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1015) #10, !srcloc !148
   %.pre89 = load ptr, ptr %148, align 8
-  %.phi.trans.insert90 = getelementptr inbounds i8, ptr %.pre89, i64 7200
+  %.phi.trans.insert90 = getelementptr inbounds nuw i8, ptr %.pre89, i64 7200
   %.pre91 = load i8, ptr %.phi.trans.insert90, align 8
   br label %566
 
@@ -4533,18 +4533,18 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 
 575:                                              ; preds = %530, %566, %.thread38
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %68) #10
-  %576 = getelementptr inbounds i8, ptr %68, i64 16
+  %576 = getelementptr inbounds nuw i8, ptr %68, i64 16
   store i32 0, ptr %576, align 4, !annotation !5
   store i32 59336, ptr %68, align 4
-  %577 = getelementptr inbounds i8, ptr %68, i64 4
+  %577 = getelementptr inbounds nuw i8, ptr %68, i64 4
   store i32 1073741824, ptr %577, align 4
-  %578 = getelementptr inbounds i8, ptr %68, i64 8
+  %578 = getelementptr inbounds nuw i8, ptr %68, i64 8
   store i32 1073741824, ptr %578, align 4
-  %579 = getelementptr inbounds i8, ptr %68, i64 12
+  %579 = getelementptr inbounds nuw i8, ptr %68, i64 12
   store i32 1073741824, ptr %579, align 4
-  %580 = getelementptr inbounds i8, ptr %68, i64 16
+  %580 = getelementptr inbounds nuw i8, ptr %68, i64 16
   store i8 2, ptr %580, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %68)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %68)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %68) #10
   %.phi.trans.insert92 = getelementptr i8, ptr %147, i64 7188
   %.pre93 = load i32, ptr %.phi.trans.insert92, align 4
@@ -4555,32 +4555,32 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 
 583:                                              ; preds = %575
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %67) #10
-  %584 = getelementptr inbounds i8, ptr %67, i64 16
+  %584 = getelementptr inbounds nuw i8, ptr %67, i64 16
   store i32 0, ptr %584, align 4, !annotation !5
   store i32 58508, ptr %67, align 4
-  %585 = getelementptr inbounds i8, ptr %67, i64 4
+  %585 = getelementptr inbounds nuw i8, ptr %67, i64 4
   store i32 0, ptr %585, align 4
-  %586 = getelementptr inbounds i8, ptr %67, i64 8
+  %586 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store i32 134219776, ptr %586, align 4
-  %587 = getelementptr inbounds i8, ptr %67, i64 12
+  %587 = getelementptr inbounds nuw i8, ptr %67, i64 12
   store i32 2048, ptr %587, align 4
-  %588 = getelementptr inbounds i8, ptr %67, i64 16
+  %588 = getelementptr inbounds nuw i8, ptr %67, i64 16
   store i8 3, ptr %588, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %67)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %67)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %67) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %66) #10
-  %589 = getelementptr inbounds i8, ptr %66, i64 16
+  %589 = getelementptr inbounds nuw i8, ptr %66, i64 16
   store i32 0, ptr %589, align 4, !annotation !5
   store i32 8420, ptr %66, align 4
-  %590 = getelementptr inbounds i8, ptr %66, i64 4
+  %590 = getelementptr inbounds nuw i8, ptr %66, i64 4
   store i32 0, ptr %590, align 4
-  %591 = getelementptr inbounds i8, ptr %66, i64 8
+  %591 = getelementptr inbounds nuw i8, ptr %66, i64 8
   store i32 -2147450880, ptr %591, align 4
-  %592 = getelementptr inbounds i8, ptr %66, i64 12
+  %592 = getelementptr inbounds nuw i8, ptr %66, i64 12
   store i32 32768, ptr %592, align 4
-  %593 = getelementptr inbounds i8, ptr %66, i64 16
+  %593 = getelementptr inbounds nuw i8, ptr %66, i64 16
   store i8 1, ptr %593, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %66)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %66)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %66) #10
   %.pre129 = load i32, ptr %582, align 4
   br label %594
@@ -4594,32 +4594,32 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 
 599:                                              ; preds = %594
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %65) #10
-  %600 = getelementptr inbounds i8, ptr %65, i64 16
+  %600 = getelementptr inbounds nuw i8, ptr %65, i64 16
   store i32 0, ptr %600, align 4, !annotation !5
   store i32 59340, ptr %65, align 4
-  %601 = getelementptr inbounds i8, ptr %65, i64 4
+  %601 = getelementptr inbounds nuw i8, ptr %65, i64 4
   store i32 8388608, ptr %601, align 4
-  %602 = getelementptr inbounds i8, ptr %65, i64 8
+  %602 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store i32 8388608, ptr %602, align 4
-  %603 = getelementptr inbounds i8, ptr %65, i64 12
+  %603 = getelementptr inbounds nuw i8, ptr %65, i64 12
   store i32 8388608, ptr %603, align 4
-  %604 = getelementptr inbounds i8, ptr %65, i64 16
+  %604 = getelementptr inbounds nuw i8, ptr %65, i64 16
   store i8 2, ptr %604, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %65)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %65)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %65) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %64) #10
-  %605 = getelementptr inbounds i8, ptr %64, i64 16
+  %605 = getelementptr inbounds nuw i8, ptr %64, i64 16
   store i32 0, ptr %605, align 4, !annotation !5
   store i32 59340, ptr %64, align 4
-  %606 = getelementptr inbounds i8, ptr %64, i64 4
+  %606 = getelementptr inbounds nuw i8, ptr %64, i64 4
   store i32 67108864, ptr %606, align 4
-  %607 = getelementptr inbounds i8, ptr %64, i64 8
+  %607 = getelementptr inbounds nuw i8, ptr %64, i64 8
   store i32 67108864, ptr %607, align 4
-  %608 = getelementptr inbounds i8, ptr %64, i64 12
+  %608 = getelementptr inbounds nuw i8, ptr %64, i64 12
   store i32 67108864, ptr %608, align 4
-  %609 = getelementptr inbounds i8, ptr %64, i64 16
+  %609 = getelementptr inbounds nuw i8, ptr %64, i64 16
   store i8 2, ptr %609, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %64)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %64)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %64) #10
   %.pre94 = load i32, ptr %595, align 4
   br label %610
@@ -4634,46 +4634,46 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 
 616:                                              ; preds = %610
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %63) #10
-  %617 = getelementptr inbounds i8, ptr %63, i64 16
+  %617 = getelementptr inbounds nuw i8, ptr %63, i64 16
   store i32 0, ptr %617, align 4, !annotation !5
   store i32 59340, ptr %63, align 4
-  %618 = getelementptr inbounds i8, ptr %63, i64 4
+  %618 = getelementptr inbounds nuw i8, ptr %63, i64 4
   store i32 224, ptr %618, align 4
-  %619 = getelementptr inbounds i8, ptr %63, i64 8
+  %619 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i32 64, ptr %619, align 4
-  %620 = getelementptr inbounds i8, ptr %63, i64 12
+  %620 = getelementptr inbounds nuw i8, ptr %63, i64 12
   store i32 224, ptr %620, align 4
-  %621 = getelementptr inbounds i8, ptr %63, i64 16
+  %621 = getelementptr inbounds nuw i8, ptr %63, i64 16
   store i8 2, ptr %621, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %63)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %63)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %63) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %62) #10
-  %622 = getelementptr inbounds i8, ptr %62, i64 16
+  %622 = getelementptr inbounds nuw i8, ptr %62, i64 16
   store i32 0, ptr %622, align 4, !annotation !5
   store i32 59336, ptr %62, align 4
-  %623 = getelementptr inbounds i8, ptr %62, i64 4
+  %623 = getelementptr inbounds nuw i8, ptr %62, i64 4
   store i32 32768, ptr %623, align 4
-  %624 = getelementptr inbounds i8, ptr %62, i64 8
+  %624 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store i32 32768, ptr %624, align 4
-  %625 = getelementptr inbounds i8, ptr %62, i64 12
+  %625 = getelementptr inbounds nuw i8, ptr %62, i64 12
   store i32 32768, ptr %625, align 4
-  %626 = getelementptr inbounds i8, ptr %62, i64 16
+  %626 = getelementptr inbounds nuw i8, ptr %62, i64 16
   store i8 2, ptr %626, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %62)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %62)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %62) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %61) #10
-  %627 = getelementptr inbounds i8, ptr %61, i64 16
+  %627 = getelementptr inbounds nuw i8, ptr %61, i64 16
   store i32 0, ptr %627, align 4, !annotation !5
   store i32 58400, ptr %61, align 4
-  %628 = getelementptr inbounds i8, ptr %61, i64 4
+  %628 = getelementptr inbounds nuw i8, ptr %61, i64 4
   store i32 0, ptr %628, align 4
-  %629 = getelementptr inbounds i8, ptr %61, i64 8
+  %629 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store i32 524296, ptr %629, align 4
-  %630 = getelementptr inbounds i8, ptr %61, i64 12
+  %630 = getelementptr inbounds nuw i8, ptr %61, i64 12
   store i32 0, ptr %630, align 4
-  %631 = getelementptr inbounds i8, ptr %61, i64 16
+  %631 = getelementptr inbounds nuw i8, ptr %61, i64 16
   store i8 3, ptr %631, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %61)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %61)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %61) #10
   %.pre95 = load i32, ptr %595, align 4
   br label %632
@@ -4686,51 +4686,51 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 
 636:                                              ; preds = %632
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %60) #10
-  %637 = getelementptr inbounds i8, ptr %60, i64 16
+  %637 = getelementptr inbounds nuw i8, ptr %60, i64 16
   store i32 0, ptr %637, align 4, !annotation !5
   store i32 58608, ptr %60, align 4
-  %638 = getelementptr inbounds i8, ptr %60, i64 4
+  %638 = getelementptr inbounds nuw i8, ptr %60, i64 4
   store i32 0, ptr %638, align 4
-  %639 = getelementptr inbounds i8, ptr %60, i64 8
+  %639 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store i32 67109888, ptr %639, align 4
-  %640 = getelementptr inbounds i8, ptr %60, i64 12
+  %640 = getelementptr inbounds nuw i8, ptr %60, i64 12
   store i32 1024, ptr %640, align 4
-  %641 = getelementptr inbounds i8, ptr %60, i64 16
+  %641 = getelementptr inbounds nuw i8, ptr %60, i64 16
   store i8 3, ptr %641, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %60)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %60)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %60) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %59) #10
-  %642 = getelementptr inbounds i8, ptr %59, i64 16
+  %642 = getelementptr inbounds nuw i8, ptr %59, i64 16
   store i32 0, ptr %642, align 4, !annotation !5
   store i32 58508, ptr %59, align 4
-  %643 = getelementptr inbounds i8, ptr %59, i64 4
+  %643 = getelementptr inbounds nuw i8, ptr %59, i64 4
   store i32 0, ptr %643, align 4
-  %644 = getelementptr inbounds i8, ptr %59, i64 8
+  %644 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store i32 536879104, ptr %644, align 4
-  %645 = getelementptr inbounds i8, ptr %59, i64 12
+  %645 = getelementptr inbounds nuw i8, ptr %59, i64 12
   store i32 8192, ptr %645, align 4
-  %646 = getelementptr inbounds i8, ptr %59, i64 16
+  %646 = getelementptr inbounds nuw i8, ptr %59, i64 16
   store i8 3, ptr %646, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %59)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %59)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %59) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %58) #10
-  %647 = getelementptr inbounds i8, ptr %58, i64 16
+  %647 = getelementptr inbounds nuw i8, ptr %58, i64 16
   store i32 0, ptr %647, align 4, !annotation !5
   store i32 57600, ptr %58, align 4
-  %648 = getelementptr inbounds i8, ptr %58, i64 4
+  %648 = getelementptr inbounds nuw i8, ptr %58, i64 4
   store i32 0, ptr %648, align 4
-  %649 = getelementptr inbounds i8, ptr %58, i64 8
+  %649 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store i32 524296, ptr %649, align 4
-  %650 = getelementptr inbounds i8, ptr %58, i64 12
+  %650 = getelementptr inbounds nuw i8, ptr %58, i64 12
   store i32 8, ptr %650, align 4
-  %651 = getelementptr inbounds i8, ptr %58, i64 16
+  %651 = getelementptr inbounds nuw i8, ptr %58, i64 16
   store i8 3, ptr %651, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %58)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %58)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %58) #10
   br label %652
 
 652:                                              ; preds = %636, %632, %141
-  %653 = getelementptr inbounds i8, ptr %0, i64 56
+  %653 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %654 = load i8, ptr %653, align 8
   %655 = load ptr, ptr %0, align 8
   switch i8 %654, label %1263 [
@@ -4746,7 +4746,7 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   br i1 %660, label %.thread53, label %661
 
 661:                                              ; preds = %656
-  %662 = getelementptr inbounds i8, ptr %655, i64 7200
+  %662 = getelementptr inbounds nuw i8, ptr %655, i64 7200
   %663 = load i8, ptr %662, align 8
   %664 = icmp eq i8 %663, 0
   br i1 %664, label %665, label %680, !prof !6
@@ -4754,13 +4754,13 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 665:                                              ; preds = %661
   tail call void asm sideeffect "976: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 976b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 976) #10, !srcloc !149
   %666 = load ptr, ptr %0, align 8
-  %667 = getelementptr inbounds i8, ptr %666, i64 8
+  %667 = getelementptr inbounds nuw i8, ptr %666, i64 8
   %668 = load ptr, ptr %667, align 8
   %669 = tail call ptr @dev_driver_string(ptr noundef %668) #10
   %670 = load ptr, ptr %0, align 8
-  %671 = getelementptr inbounds i8, ptr %670, i64 8
+  %671 = getelementptr inbounds nuw i8, ptr %670, i64 8
   %672 = load ptr, ptr %671, align 8
-  %673 = getelementptr inbounds i8, ptr %672, i64 80
+  %673 = getelementptr inbounds nuw i8, ptr %672, i64 80
   %674 = load ptr, ptr %673, align 8
   %675 = icmp eq ptr %674, null
   br i1 %675, label %676, label %678
@@ -4777,7 +4777,7 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   tail call void asm sideeffect "978: nop\0A\09.pushsection .discard.instr_end\0A\09.long 978b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 978) #10, !srcloc !152
   tail call void asm sideeffect "979: nop\0A\09.pushsection .discard.instr_end\0A\09.long 979b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 979) #10, !srcloc !153
   %.pre125 = load ptr, ptr %0, align 8
-  %.phi.trans.insert126 = getelementptr inbounds i8, ptr %.pre125, i64 7200
+  %.phi.trans.insert126 = getelementptr inbounds nuw i8, ptr %.pre125, i64 7200
   %.pre127 = load i8, ptr %.phi.trans.insert126, align 8
   br label %680
 
@@ -4789,35 +4789,35 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 
 684:                                              ; preds = %680
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %57) #10
-  %685 = getelementptr inbounds i8, ptr %57, i64 16
+  %685 = getelementptr inbounds nuw i8, ptr %57, i64 16
   store i32 0, ptr %685, align 4, !annotation !5
   store i32 58400, ptr %57, align 4
-  %686 = getelementptr inbounds i8, ptr %57, i64 4
+  %686 = getelementptr inbounds nuw i8, ptr %57, i64 4
   store i32 0, ptr %686, align 4
-  %687 = getelementptr inbounds i8, ptr %57, i64 8
+  %687 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store i32 2097184, ptr %687, align 4
-  %688 = getelementptr inbounds i8, ptr %57, i64 12
+  %688 = getelementptr inbounds nuw i8, ptr %57, i64 12
   store i32 32, ptr %688, align 4
-  %689 = getelementptr inbounds i8, ptr %57, i64 16
+  %689 = getelementptr inbounds nuw i8, ptr %57, i64 16
   store i8 3, ptr %689, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %57)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %57)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %57) #10
   br label %.thread53
 
 690:                                              ; preds = %652
   %691 = load ptr, ptr %80, align 8
-  %692 = getelementptr inbounds i8, ptr %691, i64 16
+  %692 = getelementptr inbounds nuw i8, ptr %691, i64 16
   %693 = load i32, ptr %692, align 8
   %694 = icmp eq i32 %693, 2
   br i1 %694, label %.thread48, label %695
 
 695:                                              ; preds = %690
   %696 = load ptr, ptr %691, align 8
-  %697 = getelementptr inbounds i8, ptr %696, i64 7176
+  %697 = getelementptr inbounds nuw i8, ptr %696, i64 7176
   %698 = load i8, ptr %697, align 8
   %699 = zext i8 %698 to i32
   %700 = shl nuw nsw i32 %699, 8
-  %701 = getelementptr inbounds i8, ptr %696, i64 7177
+  %701 = getelementptr inbounds nuw i8, ptr %696, i64 7177
   %702 = load i8, ptr %701, align 1
   %703 = zext i8 %702 to i32
   %704 = or disjoint i32 %700, %703
@@ -4825,7 +4825,7 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   br i1 %705, label %706, label %.thread141
 
 706:                                              ; preds = %695
-  %707 = getelementptr inbounds i8, ptr %696, i64 7200
+  %707 = getelementptr inbounds nuw i8, ptr %696, i64 7200
   %708 = load i8, ptr %707, align 8
   %709 = icmp eq i8 %708, 0
   br i1 %709, label %710, label %725, !prof !6
@@ -4833,13 +4833,13 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 710:                                              ; preds = %706
   tail call void asm sideeffect "943: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 943b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 943) #10, !srcloc !154
   %711 = load ptr, ptr %691, align 8
-  %712 = getelementptr inbounds i8, ptr %711, i64 8
+  %712 = getelementptr inbounds nuw i8, ptr %711, i64 8
   %713 = load ptr, ptr %712, align 8
   %714 = tail call ptr @dev_driver_string(ptr noundef %713) #10
   %715 = load ptr, ptr %691, align 8
-  %716 = getelementptr inbounds i8, ptr %715, i64 8
+  %716 = getelementptr inbounds nuw i8, ptr %715, i64 8
   %717 = load ptr, ptr %716, align 8
-  %718 = getelementptr inbounds i8, ptr %717, i64 80
+  %718 = getelementptr inbounds nuw i8, ptr %717, i64 80
   %719 = load ptr, ptr %718, align 8
   %720 = icmp eq ptr %719, null
   br i1 %720, label %721, label %723
@@ -4856,7 +4856,7 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   tail call void asm sideeffect "945: nop\0A\09.pushsection .discard.instr_end\0A\09.long 945b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 945) #10, !srcloc !157
   tail call void asm sideeffect "946: nop\0A\09.pushsection .discard.instr_end\0A\09.long 946b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 946) #10, !srcloc !158
   %.pre96 = load ptr, ptr %691, align 8
-  %.phi.trans.insert97 = getelementptr inbounds i8, ptr %.pre96, i64 7200
+  %.phi.trans.insert97 = getelementptr inbounds nuw i8, ptr %.pre96, i64 7200
   %.pre98 = load i8, ptr %.phi.trans.insert97, align 8
   br label %725
 
@@ -4874,11 +4874,11 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 
 .thread141:                                       ; preds = %695, %730
   %732 = phi ptr [ %727, %730 ], [ %696, %695 ]
-  %733 = getelementptr inbounds i8, ptr %732, i64 7176
+  %733 = getelementptr inbounds nuw i8, ptr %732, i64 7176
   %734 = load i8, ptr %733, align 8
   %735 = zext i8 %734 to i32
   %736 = shl nuw nsw i32 %735, 8
-  %737 = getelementptr inbounds i8, ptr %732, i64 7177
+  %737 = getelementptr inbounds nuw i8, ptr %732, i64 7177
   %738 = load i8, ptr %737, align 1
   %739 = zext i8 %738 to i32
   %740 = or disjoint i32 %736, %739
@@ -4886,7 +4886,7 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   br i1 %741, label %742, label %771
 
 742:                                              ; preds = %.thread141
-  %743 = getelementptr inbounds i8, ptr %732, i64 7200
+  %743 = getelementptr inbounds nuw i8, ptr %732, i64 7200
   %744 = load i8, ptr %743, align 8
   %745 = icmp eq i8 %744, 0
   br i1 %745, label %746, label %761, !prof !6
@@ -4894,13 +4894,13 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 746:                                              ; preds = %742
   tail call void asm sideeffect "947: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 947b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 947) #10, !srcloc !159
   %747 = load ptr, ptr %691, align 8
-  %748 = getelementptr inbounds i8, ptr %747, i64 8
+  %748 = getelementptr inbounds nuw i8, ptr %747, i64 8
   %749 = load ptr, ptr %748, align 8
   %750 = tail call ptr @dev_driver_string(ptr noundef %749) #10
   %751 = load ptr, ptr %691, align 8
-  %752 = getelementptr inbounds i8, ptr %751, i64 8
+  %752 = getelementptr inbounds nuw i8, ptr %751, i64 8
   %753 = load ptr, ptr %752, align 8
-  %754 = getelementptr inbounds i8, ptr %753, i64 80
+  %754 = getelementptr inbounds nuw i8, ptr %753, i64 80
   %755 = load ptr, ptr %754, align 8
   %756 = icmp eq ptr %755, null
   br i1 %756, label %757, label %759
@@ -4917,7 +4917,7 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   tail call void asm sideeffect "949: nop\0A\09.pushsection .discard.instr_end\0A\09.long 949b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 949) #10, !srcloc !162
   tail call void asm sideeffect "950: nop\0A\09.pushsection .discard.instr_end\0A\09.long 950b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 950) #10, !srcloc !163
   %.pre101 = load ptr, ptr %691, align 8
-  %.phi.trans.insert102 = getelementptr inbounds i8, ptr %.pre101, i64 7200
+  %.phi.trans.insert102 = getelementptr inbounds nuw i8, ptr %.pre101, i64 7200
   %.pre103 = load i8, ptr %.phi.trans.insert102, align 8
   br label %761
 
@@ -4929,18 +4929,18 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 
 765:                                              ; preds = %761, %725
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %56) #10
-  %766 = getelementptr inbounds i8, ptr %56, i64 16
+  %766 = getelementptr inbounds nuw i8, ptr %56, i64 16
   store i32 0, ptr %766, align 4, !annotation !5
   store i32 58400, ptr %56, align 4
-  %767 = getelementptr inbounds i8, ptr %56, i64 4
+  %767 = getelementptr inbounds nuw i8, ptr %56, i64 4
   store i32 0, ptr %767, align 4
-  %768 = getelementptr inbounds i8, ptr %56, i64 8
+  %768 = getelementptr inbounds nuw i8, ptr %56, i64 8
   store i32 67109888, ptr %768, align 4
-  %769 = getelementptr inbounds i8, ptr %56, i64 12
+  %769 = getelementptr inbounds nuw i8, ptr %56, i64 12
   store i32 1024, ptr %769, align 4
-  %770 = getelementptr inbounds i8, ptr %56, i64 16
+  %770 = getelementptr inbounds nuw i8, ptr %56, i64 16
   store i8 3, ptr %770, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %56)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %56)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %56) #10
   br label %771
 
@@ -4951,11 +4951,11 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 
 773:                                              ; preds = %771
   %774 = load ptr, ptr %691, align 8
-  %775 = getelementptr inbounds i8, ptr %774, i64 7176
+  %775 = getelementptr inbounds nuw i8, ptr %774, i64 7176
   %776 = load i8, ptr %775, align 8
   %777 = zext i8 %776 to i32
   %778 = shl nuw nsw i32 %777, 8
-  %779 = getelementptr inbounds i8, ptr %774, i64 7177
+  %779 = getelementptr inbounds nuw i8, ptr %774, i64 7177
   %780 = load i8, ptr %779, align 1
   %781 = zext i8 %780 to i32
   %782 = or disjoint i32 %778, %781
@@ -4963,7 +4963,7 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   br i1 %783, label %784, label %.thread45.thread
 
 784:                                              ; preds = %773
-  %785 = getelementptr inbounds i8, ptr %774, i64 7200
+  %785 = getelementptr inbounds nuw i8, ptr %774, i64 7200
   %786 = load i8, ptr %785, align 8
   %787 = icmp eq i8 %786, 0
   br i1 %787, label %788, label %803, !prof !6
@@ -4971,13 +4971,13 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 788:                                              ; preds = %784
   tail call void asm sideeffect "951: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 951b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 951) #10, !srcloc !164
   %789 = load ptr, ptr %691, align 8
-  %790 = getelementptr inbounds i8, ptr %789, i64 8
+  %790 = getelementptr inbounds nuw i8, ptr %789, i64 8
   %791 = load ptr, ptr %790, align 8
   %792 = tail call ptr @dev_driver_string(ptr noundef %791) #10
   %793 = load ptr, ptr %691, align 8
-  %794 = getelementptr inbounds i8, ptr %793, i64 8
+  %794 = getelementptr inbounds nuw i8, ptr %793, i64 8
   %795 = load ptr, ptr %794, align 8
-  %796 = getelementptr inbounds i8, ptr %795, i64 80
+  %796 = getelementptr inbounds nuw i8, ptr %795, i64 80
   %797 = load ptr, ptr %796, align 8
   %798 = icmp eq ptr %797, null
   br i1 %798, label %799, label %801
@@ -4994,7 +4994,7 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   tail call void asm sideeffect "953: nop\0A\09.pushsection .discard.instr_end\0A\09.long 953b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 953) #10, !srcloc !167
   tail call void asm sideeffect "954: nop\0A\09.pushsection .discard.instr_end\0A\09.long 954b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 954) #10, !srcloc !168
   %.pre104 = load ptr, ptr %691, align 8
-  %.phi.trans.insert105 = getelementptr inbounds i8, ptr %.pre104, i64 7200
+  %.phi.trans.insert105 = getelementptr inbounds nuw i8, ptr %.pre104, i64 7200
   %.pre106 = load i8, ptr %.phi.trans.insert105, align 8
   br label %803
 
@@ -5012,11 +5012,11 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 
 .thread45.thread:                                 ; preds = %773, %.thread45
   %809 = phi ptr [ %805, %.thread45 ], [ %774, %773 ]
-  %810 = getelementptr inbounds i8, ptr %809, i64 7176
+  %810 = getelementptr inbounds nuw i8, ptr %809, i64 7176
   %811 = load i8, ptr %810, align 8
   %812 = zext i8 %811 to i32
   %813 = shl nuw nsw i32 %812, 8
-  %814 = getelementptr inbounds i8, ptr %809, i64 7177
+  %814 = getelementptr inbounds nuw i8, ptr %809, i64 7177
   %815 = load i8, ptr %814, align 1
   %816 = zext i8 %815 to i32
   %817 = or disjoint i32 %813, %816
@@ -5024,7 +5024,7 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   br i1 %818, label %819, label %.thread48
 
 819:                                              ; preds = %.thread45.thread
-  %820 = getelementptr inbounds i8, ptr %809, i64 7200
+  %820 = getelementptr inbounds nuw i8, ptr %809, i64 7200
   %821 = load i8, ptr %820, align 8
   %822 = icmp eq i8 %821, 0
   br i1 %822, label %823, label %838, !prof !6
@@ -5032,13 +5032,13 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 823:                                              ; preds = %819
   tail call void asm sideeffect "955: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 955b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 955) #10, !srcloc !169
   %824 = load ptr, ptr %691, align 8
-  %825 = getelementptr inbounds i8, ptr %824, i64 8
+  %825 = getelementptr inbounds nuw i8, ptr %824, i64 8
   %826 = load ptr, ptr %825, align 8
   %827 = tail call ptr @dev_driver_string(ptr noundef %826) #10
   %828 = load ptr, ptr %691, align 8
-  %829 = getelementptr inbounds i8, ptr %828, i64 8
+  %829 = getelementptr inbounds nuw i8, ptr %828, i64 8
   %830 = load ptr, ptr %829, align 8
-  %831 = getelementptr inbounds i8, ptr %830, i64 80
+  %831 = getelementptr inbounds nuw i8, ptr %830, i64 80
   %832 = load ptr, ptr %831, align 8
   %833 = icmp eq ptr %832, null
   br i1 %833, label %834, label %836
@@ -5055,7 +5055,7 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   tail call void asm sideeffect "957: nop\0A\09.pushsection .discard.instr_end\0A\09.long 957b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 957) #10, !srcloc !172
   tail call void asm sideeffect "958: nop\0A\09.pushsection .discard.instr_end\0A\09.long 958b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 958) #10, !srcloc !173
   %.pre108 = load ptr, ptr %691, align 8
-  %.phi.trans.insert109 = getelementptr inbounds i8, ptr %.pre108, i64 7200
+  %.phi.trans.insert109 = getelementptr inbounds nuw i8, ptr %.pre108, i64 7200
   %.pre110 = load i8, ptr %.phi.trans.insert109, align 8
   br label %838
 
@@ -5074,18 +5074,18 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 
 846:                                              ; preds = %.thread48, %838, %803
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %55) #10
-  %847 = getelementptr inbounds i8, ptr %55, i64 16
+  %847 = getelementptr inbounds nuw i8, ptr %55, i64 16
   store i32 0, ptr %847, align 4, !annotation !5
   store i32 57740, ptr %55, align 4
-  %848 = getelementptr inbounds i8, ptr %55, i64 4
+  %848 = getelementptr inbounds nuw i8, ptr %55, i64 4
   store i32 0, ptr %848, align 4
-  %849 = getelementptr inbounds i8, ptr %55, i64 8
+  %849 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store i32 33554944, ptr %849, align 4
-  %850 = getelementptr inbounds i8, ptr %55, i64 12
+  %850 = getelementptr inbounds nuw i8, ptr %55, i64 12
   store i32 512, ptr %850, align 4
-  %851 = getelementptr inbounds i8, ptr %55, i64 16
+  %851 = getelementptr inbounds nuw i8, ptr %55, i64 16
   store i8 3, ptr %851, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %55)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %55)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %55) #10
   br label %852
 
@@ -5096,11 +5096,11 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 
 855:                                              ; preds = %852
   %856 = load ptr, ptr %691, align 8
-  %857 = getelementptr inbounds i8, ptr %856, i64 7176
+  %857 = getelementptr inbounds nuw i8, ptr %856, i64 7176
   %858 = load i8, ptr %857, align 8
   %859 = zext i8 %858 to i32
   %860 = shl nuw nsw i32 %859, 8
-  %861 = getelementptr inbounds i8, ptr %856, i64 7177
+  %861 = getelementptr inbounds nuw i8, ptr %856, i64 7177
   %862 = load i8, ptr %861, align 1
   %863 = zext i8 %862 to i32
   %864 = or disjoint i32 %860, %863
@@ -5108,7 +5108,7 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   br i1 %865, label %866, label %889
 
 866:                                              ; preds = %855
-  %867 = getelementptr inbounds i8, ptr %856, i64 7200
+  %867 = getelementptr inbounds nuw i8, ptr %856, i64 7200
   %868 = load i8, ptr %867, align 8
   %869 = icmp eq i8 %868, 0
   br i1 %869, label %870, label %885, !prof !6
@@ -5116,13 +5116,13 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 870:                                              ; preds = %866
   tail call void asm sideeffect "959: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 959b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 959) #10, !srcloc !174
   %871 = load ptr, ptr %691, align 8
-  %872 = getelementptr inbounds i8, ptr %871, i64 8
+  %872 = getelementptr inbounds nuw i8, ptr %871, i64 8
   %873 = load ptr, ptr %872, align 8
   %874 = tail call ptr @dev_driver_string(ptr noundef %873) #10
   %875 = load ptr, ptr %691, align 8
-  %876 = getelementptr inbounds i8, ptr %875, i64 8
+  %876 = getelementptr inbounds nuw i8, ptr %875, i64 8
   %877 = load ptr, ptr %876, align 8
-  %878 = getelementptr inbounds i8, ptr %877, i64 80
+  %878 = getelementptr inbounds nuw i8, ptr %877, i64 80
   %879 = load ptr, ptr %878, align 8
   %880 = icmp eq ptr %879, null
   br i1 %880, label %881, label %883
@@ -5139,7 +5139,7 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   tail call void asm sideeffect "961: nop\0A\09.pushsection .discard.instr_end\0A\09.long 961b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 961) #10, !srcloc !177
   tail call void asm sideeffect "962: nop\0A\09.pushsection .discard.instr_end\0A\09.long 962b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 962) #10, !srcloc !178
   %.pre111 = load ptr, ptr %691, align 8
-  %.phi.trans.insert112 = getelementptr inbounds i8, ptr %.pre111, i64 7200
+  %.phi.trans.insert112 = getelementptr inbounds nuw i8, ptr %.pre111, i64 7200
   %.pre113 = load i8, ptr %.phi.trans.insert112, align 8
   br label %885
 
@@ -5158,18 +5158,18 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 
 894:                                              ; preds = %885, %889
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %54) #10
-  %895 = getelementptr inbounds i8, ptr %54, i64 16
+  %895 = getelementptr inbounds nuw i8, ptr %54, i64 16
   store i32 0, ptr %895, align 4, !annotation !5
   store i32 58612, ptr %54, align 4
-  %896 = getelementptr inbounds i8, ptr %54, i64 4
+  %896 = getelementptr inbounds nuw i8, ptr %54, i64 4
   store i32 0, ptr %896, align 4
-  %897 = getelementptr inbounds i8, ptr %54, i64 8
+  %897 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store i32 -2147450880, ptr %897, align 4
-  %898 = getelementptr inbounds i8, ptr %54, i64 12
+  %898 = getelementptr inbounds nuw i8, ptr %54, i64 12
   store i32 32768, ptr %898, align 4
-  %899 = getelementptr inbounds i8, ptr %54, i64 16
+  %899 = getelementptr inbounds nuw i8, ptr %54, i64 16
   store i8 3, ptr %899, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %54)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %54)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %54) #10
   %.phi.trans.insert114 = getelementptr i8, ptr %655, i64 7188
   %.pre115 = load i32, ptr %.phi.trans.insert114, align 4
@@ -5179,23 +5179,23 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 
 901:                                              ; preds = %894
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %53) #10
-  %902 = getelementptr inbounds i8, ptr %53, i64 16
+  %902 = getelementptr inbounds nuw i8, ptr %53, i64 16
   store i32 0, ptr %902, align 4, !annotation !5
   store i32 58864, ptr %53, align 4
-  %903 = getelementptr inbounds i8, ptr %53, i64 4
+  %903 = getelementptr inbounds nuw i8, ptr %53, i64 4
   store i32 0, ptr %903, align 4
-  %904 = getelementptr inbounds i8, ptr %53, i64 8
+  %904 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i32 939524096, ptr %904, align 4
-  %905 = getelementptr inbounds i8, ptr %53, i64 12
+  %905 = getelementptr inbounds nuw i8, ptr %53, i64 12
   store i32 14336, ptr %905, align 4
-  %906 = getelementptr inbounds i8, ptr %53, i64 16
+  %906 = getelementptr inbounds nuw i8, ptr %53, i64 16
   store i8 3, ptr %906, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %53)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %53)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %53) #10
   br label %.thread144
 
 .thread144:                                       ; preds = %889, %901, %894
-  %907 = getelementptr inbounds i8, ptr %655, i64 7184
+  %907 = getelementptr inbounds nuw i8, ptr %655, i64 7184
   %908 = getelementptr i8, ptr %655, i64 7188
   %909 = load i32, ptr %692, align 8
   %910 = icmp eq i32 %909, 2
@@ -5203,11 +5203,11 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 
 911:                                              ; preds = %.thread144
   %912 = load ptr, ptr %691, align 8
-  %913 = getelementptr inbounds i8, ptr %912, i64 7176
+  %913 = getelementptr inbounds nuw i8, ptr %912, i64 7176
   %914 = load i8, ptr %913, align 8
   %915 = zext i8 %914 to i32
   %916 = shl nuw nsw i32 %915, 8
-  %917 = getelementptr inbounds i8, ptr %912, i64 7177
+  %917 = getelementptr inbounds nuw i8, ptr %912, i64 7177
   %918 = load i8, ptr %917, align 1
   %919 = and i8 %918, -2
   %920 = zext i8 %919 to i32
@@ -5223,18 +5223,18 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 
 927:                                              ; preds = %923, %911
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %52) #10
-  %928 = getelementptr inbounds i8, ptr %52, i64 16
+  %928 = getelementptr inbounds nuw i8, ptr %52, i64 16
   store i32 0, ptr %928, align 4, !annotation !5
   store i32 58864, ptr %52, align 4
-  %929 = getelementptr inbounds i8, ptr %52, i64 4
+  %929 = getelementptr inbounds nuw i8, ptr %52, i64 4
   store i32 0, ptr %929, align 4
-  %930 = getelementptr inbounds i8, ptr %52, i64 8
+  %930 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store i32 524296, ptr %930, align 4
-  %931 = getelementptr inbounds i8, ptr %52, i64 12
+  %931 = getelementptr inbounds nuw i8, ptr %52, i64 12
   store i32 0, ptr %931, align 4
-  %932 = getelementptr inbounds i8, ptr %52, i64 16
+  %932 = getelementptr inbounds nuw i8, ptr %52, i64 16
   store i8 3, ptr %932, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %52)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %52)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %52) #10
   %.pre116 = load i32, ptr %908, align 4
   br label %933
@@ -5247,18 +5247,18 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 
 937:                                              ; preds = %933
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %51) #10
-  %938 = getelementptr inbounds i8, ptr %51, i64 16
+  %938 = getelementptr inbounds nuw i8, ptr %51, i64 16
   store i32 0, ptr %938, align 4, !annotation !5
   store i32 8428, ptr %51, align 4
-  %939 = getelementptr inbounds i8, ptr %51, i64 4
+  %939 = getelementptr inbounds nuw i8, ptr %51, i64 4
   store i32 0, ptr %939, align 4
-  %940 = getelementptr inbounds i8, ptr %51, i64 8
+  %940 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store i32 131074, ptr %940, align 4
-  %941 = getelementptr inbounds i8, ptr %51, i64 12
+  %941 = getelementptr inbounds nuw i8, ptr %51, i64 12
   store i32 2, ptr %941, align 4
-  %942 = getelementptr inbounds i8, ptr %51, i64 16
+  %942 = getelementptr inbounds nuw i8, ptr %51, i64 16
   store i8 1, ptr %942, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %51)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %51)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %51) #10
   %.pre117 = load i32, ptr %908, align 4
   br label %943
@@ -5271,44 +5271,44 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 
 947:                                              ; preds = %943
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %50) #10
-  %948 = getelementptr inbounds i8, ptr %50, i64 16
+  %948 = getelementptr inbounds nuw i8, ptr %50, i64 16
   store i32 0, ptr %948, align 4, !annotation !5
   store i32 58612, ptr %50, align 4
-  %949 = getelementptr inbounds i8, ptr %50, i64 4
+  %949 = getelementptr inbounds nuw i8, ptr %50, i64 4
   store i32 0, ptr %949, align 4
-  %950 = getelementptr inbounds i8, ptr %50, i64 8
+  %950 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store i32 1073758208, ptr %950, align 4
-  %951 = getelementptr inbounds i8, ptr %50, i64 12
+  %951 = getelementptr inbounds nuw i8, ptr %50, i64 12
   store i32 16384, ptr %951, align 4
-  %952 = getelementptr inbounds i8, ptr %50, i64 16
+  %952 = getelementptr inbounds nuw i8, ptr %50, i64 16
   store i8 3, ptr %952, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %50)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %50)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %50) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %49) #10
-  %953 = getelementptr inbounds i8, ptr %49, i64 16
+  %953 = getelementptr inbounds nuw i8, ptr %49, i64 16
   store i32 0, ptr %953, align 4, !annotation !5
   store i32 8352, ptr %49, align 4
-  %954 = getelementptr inbounds i8, ptr %49, i64 4
+  %954 = getelementptr inbounds nuw i8, ptr %49, i64 4
   store i32 524288, ptr %954, align 4
-  %955 = getelementptr inbounds i8, ptr %49, i64 8
+  %955 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store i32 524288, ptr %955, align 4
-  %956 = getelementptr inbounds i8, ptr %49, i64 12
+  %956 = getelementptr inbounds nuw i8, ptr %49, i64 12
   store i32 524288, ptr %956, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %49)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %49)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %49) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %48) #10
-  %957 = getelementptr inbounds i8, ptr %48, i64 16
+  %957 = getelementptr inbounds nuw i8, ptr %48, i64 16
   store i32 0, ptr %957, align 4, !annotation !5
   store i32 57740, ptr %48, align 4
-  %958 = getelementptr inbounds i8, ptr %48, i64 4
+  %958 = getelementptr inbounds nuw i8, ptr %48, i64 4
   store i32 0, ptr %958, align 4
-  %959 = getelementptr inbounds i8, ptr %48, i64 8
+  %959 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store i32 -2147450880, ptr %959, align 4
-  %960 = getelementptr inbounds i8, ptr %48, i64 12
+  %960 = getelementptr inbounds nuw i8, ptr %48, i64 12
   store i32 32768, ptr %960, align 4
-  %961 = getelementptr inbounds i8, ptr %48, i64 16
+  %961 = getelementptr inbounds nuw i8, ptr %48, i64 16
   store i8 3, ptr %961, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %48)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %48)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %48) #10
   %.pre118 = load i32, ptr %908, align 4
   br label %962
@@ -5321,32 +5321,32 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 
 966:                                              ; preds = %962
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %47) #10
-  %967 = getelementptr inbounds i8, ptr %47, i64 16
+  %967 = getelementptr inbounds nuw i8, ptr %47, i64 16
   store i32 0, ptr %967, align 4, !annotation !5
   store i32 58612, ptr %47, align 4
-  %968 = getelementptr inbounds i8, ptr %47, i64 4
+  %968 = getelementptr inbounds nuw i8, ptr %47, i64 4
   store i32 0, ptr %968, align 4
-  %969 = getelementptr inbounds i8, ptr %47, i64 8
+  %969 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i32 16777472, ptr %969, align 4
-  %970 = getelementptr inbounds i8, ptr %47, i64 12
+  %970 = getelementptr inbounds nuw i8, ptr %47, i64 12
   store i32 256, ptr %970, align 4
-  %971 = getelementptr inbounds i8, ptr %47, i64 16
+  %971 = getelementptr inbounds nuw i8, ptr %47, i64 16
   store i8 3, ptr %971, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %47)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %47)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %47) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %46) #10
-  %972 = getelementptr inbounds i8, ptr %46, i64 16
+  %972 = getelementptr inbounds nuw i8, ptr %46, i64 16
   store i32 0, ptr %972, align 4, !annotation !5
   store i32 58508, ptr %46, align 4
-  %973 = getelementptr inbounds i8, ptr %46, i64 4
+  %973 = getelementptr inbounds nuw i8, ptr %46, i64 4
   store i32 0, ptr %973, align 4
-  %974 = getelementptr inbounds i8, ptr %46, i64 8
+  %974 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store i32 33554944, ptr %974, align 4
-  %975 = getelementptr inbounds i8, ptr %46, i64 12
+  %975 = getelementptr inbounds nuw i8, ptr %46, i64 12
   store i32 512, ptr %975, align 4
-  %976 = getelementptr inbounds i8, ptr %46, i64 16
+  %976 = getelementptr inbounds nuw i8, ptr %46, i64 16
   store i8 3, ptr %976, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %46)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %46)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %46) #10
   %.pre119 = load i32, ptr %908, align 4
   br label %977
@@ -5359,157 +5359,157 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 
 981:                                              ; preds = %977
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %45) #10
-  %982 = getelementptr inbounds i8, ptr %45, i64 16
+  %982 = getelementptr inbounds nuw i8, ptr %45, i64 16
   store i32 0, ptr %982, align 4, !annotation !5
   store i32 8272, ptr %45, align 4
-  %983 = getelementptr inbounds i8, ptr %45, i64 4
+  %983 = getelementptr inbounds nuw i8, ptr %45, i64 4
   store i32 0, ptr %983, align 4
-  %984 = getelementptr inbounds i8, ptr %45, i64 8
+  %984 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i32 276828288, ptr %984, align 4
-  %985 = getelementptr inbounds i8, ptr %45, i64 12
+  %985 = getelementptr inbounds nuw i8, ptr %45, i64 12
   store i32 4224, ptr %985, align 4
-  %986 = getelementptr inbounds i8, ptr %45, i64 16
+  %986 = getelementptr inbounds nuw i8, ptr %45, i64 16
   store i8 1, ptr %986, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %45)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %45)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %45) #10
   br label %987
 
 987:                                              ; preds = %981, %977
-  %988 = getelementptr inbounds i8, ptr %655, i64 7176
+  %988 = getelementptr inbounds nuw i8, ptr %655, i64 7176
   %989 = load i8, ptr %988, align 8
   %990 = icmp eq i8 %989, 11
   br i1 %990, label %991, label %1037
 
 991:                                              ; preds = %987
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %44) #10
-  %992 = getelementptr inbounds i8, ptr %44, i64 16
+  %992 = getelementptr inbounds nuw i8, ptr %44, i64 16
   store i32 0, ptr %992, align 4, !annotation !5
   store i32 8336, ptr %44, align 4
-  %993 = getelementptr inbounds i8, ptr %44, i64 4
+  %993 = getelementptr inbounds nuw i8, ptr %44, i64 4
   store i32 0, ptr %993, align 4
-  %994 = getelementptr inbounds i8, ptr %44, i64 8
+  %994 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i32 2097184, ptr %994, align 4
-  %995 = getelementptr inbounds i8, ptr %44, i64 12
+  %995 = getelementptr inbounds nuw i8, ptr %44, i64 12
   store i32 32, ptr %995, align 4
-  %996 = getelementptr inbounds i8, ptr %44, i64 16
+  %996 = getelementptr inbounds nuw i8, ptr %44, i64 16
   store i8 1, ptr %996, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %44)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %44)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %44) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %43) #10
-  %997 = getelementptr inbounds i8, ptr %43, i64 16
+  %997 = getelementptr inbounds nuw i8, ptr %43, i64 16
   store i32 0, ptr %997, align 4, !annotation !5
   store i32 45060, ptr %43, align 4
-  %998 = getelementptr inbounds i8, ptr %43, i64 4
+  %998 = getelementptr inbounds nuw i8, ptr %43, i64 4
   store i32 264241152, ptr %998, align 4
-  %999 = getelementptr inbounds i8, ptr %43, i64 8
+  %999 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i32 264241152, ptr %999, align 4
-  %1000 = getelementptr inbounds i8, ptr %43, i64 12
+  %1000 = getelementptr inbounds nuw i8, ptr %43, i64 12
   store i32 264241152, ptr %1000, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %43)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %43)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %43) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %42) #10
-  %1001 = getelementptr inbounds i8, ptr %42, i64 16
+  %1001 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store i32 0, ptr %1001, align 4, !annotation !5
   store i32 45060, ptr %42, align 4
-  %1002 = getelementptr inbounds i8, ptr %42, i64 4
+  %1002 = getelementptr inbounds nuw i8, ptr %42, i64 4
   store i32 127, ptr %1002, align 4
-  %1003 = getelementptr inbounds i8, ptr %42, i64 8
+  %1003 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store i32 1, ptr %1003, align 4
-  %1004 = getelementptr inbounds i8, ptr %42, i64 12
+  %1004 = getelementptr inbounds nuw i8, ptr %42, i64 12
   store i32 127, ptr %1004, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %42)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %42)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %42) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %41) #10
-  %1005 = getelementptr inbounds i8, ptr %41, i64 16
+  %1005 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store i32 0, ptr %1005, align 4, !annotation !5
   store i32 46084, ptr %41, align 4
-  %1006 = getelementptr inbounds i8, ptr %41, i64 4
+  %1006 = getelementptr inbounds nuw i8, ptr %41, i64 4
   store i32 4064, ptr %1006, align 4
-  %1007 = getelementptr inbounds i8, ptr %41, i64 8
+  %1007 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store i32 32, ptr %1007, align 4
-  %1008 = getelementptr inbounds i8, ptr %41, i64 12
+  %1008 = getelementptr inbounds nuw i8, ptr %41, i64 12
   store i32 4064, ptr %1008, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %41)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %41)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %41) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %40) #10
-  %1009 = getelementptr inbounds i8, ptr %40, i64 16
+  %1009 = getelementptr inbounds nuw i8, ptr %40, i64 16
   store i32 0, ptr %1009, align 4, !annotation !5
   store i32 45336, ptr %40, align 4
-  %1010 = getelementptr inbounds i8, ptr %40, i64 4
+  %1010 = getelementptr inbounds nuw i8, ptr %40, i64 4
   store i32 64, ptr %1010, align 4
-  %1011 = getelementptr inbounds i8, ptr %40, i64 8
+  %1011 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store i32 64, ptr %1011, align 4
-  %1012 = getelementptr inbounds i8, ptr %40, i64 12
+  %1012 = getelementptr inbounds nuw i8, ptr %40, i64 12
   store i32 64, ptr %1012, align 4
-  %1013 = getelementptr inbounds i8, ptr %40, i64 16
+  %1013 = getelementptr inbounds nuw i8, ptr %40, i64 16
   store i8 2, ptr %1013, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %40)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %40)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %40) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %39) #10
-  %1014 = getelementptr inbounds i8, ptr %39, i64 16
+  %1014 = getelementptr inbounds nuw i8, ptr %39, i64 16
   store i32 0, ptr %1014, align 4, !annotation !5
   store i32 45056, ptr %39, align 4
-  %1015 = getelementptr inbounds i8, ptr %39, i64 4
+  %1015 = getelementptr inbounds nuw i8, ptr %39, i64 4
   store i32 1073741824, ptr %1015, align 4
-  %1016 = getelementptr inbounds i8, ptr %39, i64 8
+  %1016 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i32 1073741824, ptr %1016, align 4
-  %1017 = getelementptr inbounds i8, ptr %39, i64 12
+  %1017 = getelementptr inbounds nuw i8, ptr %39, i64 12
   store i32 1073741824, ptr %1017, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %39)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %39)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %39) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %38) #10
-  %1018 = getelementptr inbounds i8, ptr %38, i64 16
+  %1018 = getelementptr inbounds nuw i8, ptr %38, i64 16
   store i32 0, ptr %1018, align 4, !annotation !5
   store i32 45376, ptr %38, align 4
-  %1019 = getelementptr inbounds i8, ptr %38, i64 4
+  %1019 = getelementptr inbounds nuw i8, ptr %38, i64 4
   store i32 524288, ptr %1019, align 4
-  %1020 = getelementptr inbounds i8, ptr %38, i64 8
+  %1020 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store i32 0, ptr %1020, align 4
-  %1021 = getelementptr inbounds i8, ptr %38, i64 12
+  %1021 = getelementptr inbounds nuw i8, ptr %38, i64 12
   store i32 524288, ptr %1021, align 4
-  %1022 = getelementptr inbounds i8, ptr %38, i64 16
+  %1022 = getelementptr inbounds nuw i8, ptr %38, i64 16
   store i8 2, ptr %1022, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %38)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %38)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %38) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %37) #10
-  %1023 = getelementptr inbounds i8, ptr %37, i64 16
+  %1023 = getelementptr inbounds nuw i8, ptr %37, i64 16
   store i32 0, ptr %1023, align 4, !annotation !5
   store i32 8404, ptr %37, align 4
-  %1024 = getelementptr inbounds i8, ptr %37, i64 4
+  %1024 = getelementptr inbounds nuw i8, ptr %37, i64 4
   store i32 0, ptr %1024, align 4
-  %1025 = getelementptr inbounds i8, ptr %37, i64 8
+  %1025 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i32 8388736, ptr %1025, align 4
-  %1026 = getelementptr inbounds i8, ptr %37, i64 12
+  %1026 = getelementptr inbounds nuw i8, ptr %37, i64 12
   store i32 128, ptr %1026, align 4
-  %1027 = getelementptr inbounds i8, ptr %37, i64 16
+  %1027 = getelementptr inbounds nuw i8, ptr %37, i64 16
   store i8 1, ptr %1027, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %37)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %37)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %37) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %36) #10
-  %1028 = getelementptr inbounds i8, ptr %36, i64 16
+  %1028 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store i32 0, ptr %1028, align 4, !annotation !5
   store i32 8352, ptr %36, align 4
-  %1029 = getelementptr inbounds i8, ptr %36, i64 4
+  %1029 = getelementptr inbounds nuw i8, ptr %36, i64 4
   store i32 524288, ptr %1029, align 4
-  %1030 = getelementptr inbounds i8, ptr %36, i64 8
+  %1030 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store i32 524288, ptr %1030, align 4
-  %1031 = getelementptr inbounds i8, ptr %36, i64 12
+  %1031 = getelementptr inbounds nuw i8, ptr %36, i64 12
   store i32 524288, ptr %1031, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %36)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %36)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %36) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %35) #10
-  %1032 = getelementptr inbounds i8, ptr %35, i64 16
+  %1032 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store i32 0, ptr %1032, align 4, !annotation !5
   store i32 8428, ptr %35, align 4
-  %1033 = getelementptr inbounds i8, ptr %35, i64 4
+  %1033 = getelementptr inbounds nuw i8, ptr %35, i64 4
   store i32 0, ptr %1033, align 4
-  %1034 = getelementptr inbounds i8, ptr %35, i64 8
+  %1034 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i32 131074, ptr %1034, align 4
-  %1035 = getelementptr inbounds i8, ptr %35, i64 12
+  %1035 = getelementptr inbounds nuw i8, ptr %35, i64 12
   store i32 2, ptr %1035, align 4
-  %1036 = getelementptr inbounds i8, ptr %35, i64 16
+  %1036 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store i8 1, ptr %1036, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %35)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %35)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %35) #10
   %.pr49 = load i8, ptr %988, align 8
   br label %1037
@@ -5521,18 +5521,18 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 
 1040:                                             ; preds = %1037
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %34) #10
-  %1041 = getelementptr inbounds i8, ptr %34, i64 16
+  %1041 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store i32 0, ptr %1041, align 4, !annotation !5
   store i32 8416, ptr %34, align 4
-  %1042 = getelementptr inbounds i8, ptr %34, i64 4
+  %1042 = getelementptr inbounds nuw i8, ptr %34, i64 4
   store i32 0, ptr %1042, align 4
-  %1043 = getelementptr inbounds i8, ptr %34, i64 8
+  %1043 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i32 1073758208, ptr %1043, align 4
-  %1044 = getelementptr inbounds i8, ptr %34, i64 12
+  %1044 = getelementptr inbounds nuw i8, ptr %34, i64 12
   store i32 16384, ptr %1044, align 4
-  %1045 = getelementptr inbounds i8, ptr %34, i64 16
+  %1045 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store i8 1, ptr %1045, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %34)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %34)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %34) #10
   br label %1046
 
@@ -5544,16 +5544,16 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 
 1050:                                             ; preds = %1046
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %33) #10
-  %1051 = getelementptr inbounds i8, ptr %33, i64 16
+  %1051 = getelementptr inbounds nuw i8, ptr %33, i64 16
   store i32 0, ptr %1051, align 4, !annotation !5
   store i32 45060, ptr %33, align 4
-  %1052 = getelementptr inbounds i8, ptr %33, i64 4
+  %1052 = getelementptr inbounds nuw i8, ptr %33, i64 4
   store i32 128, ptr %1052, align 4
-  %1053 = getelementptr inbounds i8, ptr %33, i64 8
+  %1053 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store i32 128, ptr %1053, align 4
-  %1054 = getelementptr inbounds i8, ptr %33, i64 12
+  %1054 = getelementptr inbounds nuw i8, ptr %33, i64 12
   store i32 128, ptr %1054, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %33)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %33)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %33) #10
   %.pre120 = load i32, ptr %907, align 4
   br label %1055
@@ -5566,18 +5566,18 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 
 1059:                                             ; preds = %1055
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %32) #10
-  %1060 = getelementptr inbounds i8, ptr %32, i64 16
+  %1060 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store i32 0, ptr %1060, align 4, !annotation !5
   store i32 8420, ptr %32, align 4
-  %1061 = getelementptr inbounds i8, ptr %32, i64 4
+  %1061 = getelementptr inbounds nuw i8, ptr %32, i64 4
   store i32 0, ptr %1061, align 4
-  %1062 = getelementptr inbounds i8, ptr %32, i64 8
+  %1062 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store i32 67109888, ptr %1062, align 4
-  %1063 = getelementptr inbounds i8, ptr %32, i64 12
+  %1063 = getelementptr inbounds nuw i8, ptr %32, i64 12
   store i32 1024, ptr %1063, align 4
-  %1064 = getelementptr inbounds i8, ptr %32, i64 16
+  %1064 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store i8 1, ptr %1064, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %32)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %32)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %32) #10
   br label %1065
 
@@ -5588,41 +5588,41 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 
 1068:                                             ; preds = %1065
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %31) #10
-  %1069 = getelementptr inbounds i8, ptr %31, i64 16
+  %1069 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store i32 0, ptr %1069, align 4, !annotation !5
   store i32 8404, ptr %31, align 4
-  %1070 = getelementptr inbounds i8, ptr %31, i64 4
+  %1070 = getelementptr inbounds nuw i8, ptr %31, i64 4
   store i32 0, ptr %1070, align 4
-  %1071 = getelementptr inbounds i8, ptr %31, i64 8
+  %1071 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i32 262148, ptr %1071, align 4
-  %1072 = getelementptr inbounds i8, ptr %31, i64 12
+  %1072 = getelementptr inbounds nuw i8, ptr %31, i64 12
   store i32 4, ptr %1072, align 4
-  %1073 = getelementptr inbounds i8, ptr %31, i64 16
+  %1073 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store i8 1, ptr %1073, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %31)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %31)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %31) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %30) #10
-  %1074 = getelementptr inbounds i8, ptr %30, i64 16
+  %1074 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store i32 0, ptr %1074, align 4, !annotation !5
   store i32 45340, ptr %30, align 4
-  %1075 = getelementptr inbounds i8, ptr %30, i64 4
+  %1075 = getelementptr inbounds nuw i8, ptr %30, i64 4
   store i32 4, ptr %1075, align 4
-  %1076 = getelementptr inbounds i8, ptr %30, i64 8
+  %1076 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i32 4, ptr %1076, align 4
-  %1077 = getelementptr inbounds i8, ptr %30, i64 12
+  %1077 = getelementptr inbounds nuw i8, ptr %30, i64 12
   store i32 4, ptr %1077, align 4
-  %1078 = getelementptr inbounds i8, ptr %30, i64 16
+  %1078 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store i8 2, ptr %1078, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %30)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %30)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %30) #10
   %1079 = load i8, ptr %988, align 8
   %1080 = icmp eq i8 %1079, 9
   br i1 %1080, label %1081, label %1094
 
 1081:                                             ; preds = %1068
-  %1082 = getelementptr inbounds i8, ptr %655, i64 7168
+  %1082 = getelementptr inbounds nuw i8, ptr %655, i64 7168
   %1083 = load ptr, ptr %1082, align 8
-  %1084 = getelementptr inbounds i8, ptr %1083, i64 28
+  %1084 = getelementptr inbounds nuw i8, ptr %1083, i64 28
   %1085 = load i64, ptr %1084, align 4
   %1086 = and i64 %1085, 2
   %1087 = icmp eq i64 %1086, 0
@@ -5630,75 +5630,75 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 
 1088:                                             ; preds = %1081
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %29) #10
-  %1089 = getelementptr inbounds i8, ptr %29, i64 16
+  %1089 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store i32 0, ptr %1089, align 4, !annotation !5
   store i32 45312, ptr %29, align 4
-  %1090 = getelementptr inbounds i8, ptr %29, i64 4
+  %1090 = getelementptr inbounds nuw i8, ptr %29, i64 4
   store i32 16760832, ptr %1090, align 4
-  %1091 = getelementptr inbounds i8, ptr %29, i64 8
+  %1091 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i32 16269312, ptr %1091, align 4
-  %1092 = getelementptr inbounds i8, ptr %29, i64 12
+  %1092 = getelementptr inbounds nuw i8, ptr %29, i64 12
   store i32 16760832, ptr %1092, align 4
-  %1093 = getelementptr inbounds i8, ptr %29, i64 16
+  %1093 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store i8 2, ptr %1093, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %29)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %29)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %29) #10
   br label %1094
 
 1094:                                             ; preds = %1088, %1081, %1068
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %28) #10
-  %1095 = getelementptr inbounds i8, ptr %28, i64 16
+  %1095 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store i32 0, ptr %1095, align 4, !annotation !5
   store i32 45336, ptr %28, align 4
-  %1096 = getelementptr inbounds i8, ptr %28, i64 4
+  %1096 = getelementptr inbounds nuw i8, ptr %28, i64 4
   store i32 2097152, ptr %1096, align 4
-  %1097 = getelementptr inbounds i8, ptr %28, i64 8
+  %1097 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i32 2097152, ptr %1097, align 4
-  %1098 = getelementptr inbounds i8, ptr %28, i64 12
+  %1098 = getelementptr inbounds nuw i8, ptr %28, i64 12
   store i32 2097152, ptr %1098, align 4
-  %1099 = getelementptr inbounds i8, ptr %28, i64 16
+  %1099 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store i8 2, ptr %1099, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %28)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %28)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %28) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %27) #10
-  %1100 = getelementptr inbounds i8, ptr %27, i64 16
+  %1100 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store i32 0, ptr %1100, align 4, !annotation !5
   store i32 45064, ptr %27, align 4
-  %1101 = getelementptr inbounds i8, ptr %27, i64 4
+  %1101 = getelementptr inbounds nuw i8, ptr %27, i64 4
   store i32 1, ptr %1101, align 4
-  %1102 = getelementptr inbounds i8, ptr %27, i64 8
+  %1102 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i32 0, ptr %1102, align 4
-  %1103 = getelementptr inbounds i8, ptr %27, i64 12
+  %1103 = getelementptr inbounds nuw i8, ptr %27, i64 12
   store i32 1, ptr %1103, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %27)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %27)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %27) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %26) #10
-  %1104 = getelementptr inbounds i8, ptr %26, i64 16
+  %1104 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store i32 0, ptr %1104, align 4, !annotation !5
   store i32 45336, ptr %26, align 4
-  %1105 = getelementptr inbounds i8, ptr %26, i64 4
+  %1105 = getelementptr inbounds nuw i8, ptr %26, i64 4
   store i32 4194304, ptr %1105, align 4
-  %1106 = getelementptr inbounds i8, ptr %26, i64 8
+  %1106 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i32 0, ptr %1106, align 4
-  %1107 = getelementptr inbounds i8, ptr %26, i64 12
+  %1107 = getelementptr inbounds nuw i8, ptr %26, i64 12
   store i32 4194304, ptr %1107, align 4
-  %1108 = getelementptr inbounds i8, ptr %26, i64 16
+  %1108 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store i8 2, ptr %1108, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %26)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %26)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %26) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %25) #10
-  %1109 = getelementptr inbounds i8, ptr %25, i64 16
+  %1109 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store i32 0, ptr %1109, align 4, !annotation !5
   store i32 45340, ptr %25, align 4
-  %1110 = getelementptr inbounds i8, ptr %25, i64 4
+  %1110 = getelementptr inbounds nuw i8, ptr %25, i64 4
   store i32 256, ptr %1110, align 4
-  %1111 = getelementptr inbounds i8, ptr %25, i64 8
+  %1111 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i32 0, ptr %1111, align 4
-  %1112 = getelementptr inbounds i8, ptr %25, i64 12
+  %1112 = getelementptr inbounds nuw i8, ptr %25, i64 12
   store i32 256, ptr %1112, align 4
-  %1113 = getelementptr inbounds i8, ptr %25, i64 16
+  %1113 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store i8 2, ptr %1113, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %25)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %25)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %25) #10
   br label %1114
 
@@ -5710,32 +5710,32 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 
 1118:                                             ; preds = %1114
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %24) #10
-  %1119 = getelementptr inbounds i8, ptr %24, i64 16
+  %1119 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store i32 0, ptr %1119, align 4, !annotation !5
   store i32 57732, ptr %24, align 4
-  %1120 = getelementptr inbounds i8, ptr %24, i64 4
+  %1120 = getelementptr inbounds nuw i8, ptr %24, i64 4
   store i32 0, ptr %1120, align 4
-  %1121 = getelementptr inbounds i8, ptr %24, i64 8
+  %1121 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i32 33554944, ptr %1121, align 4
-  %1122 = getelementptr inbounds i8, ptr %24, i64 12
+  %1122 = getelementptr inbounds nuw i8, ptr %24, i64 12
   store i32 512, ptr %1122, align 4
-  %1123 = getelementptr inbounds i8, ptr %24, i64 16
+  %1123 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store i8 1, ptr %1123, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %24)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %24)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %24) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %23) #10
-  %1124 = getelementptr inbounds i8, ptr %23, i64 16
+  %1124 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store i32 0, ptr %1124, align 4, !annotation !5
   store i32 28672, ptr %23, align 4
-  %1125 = getelementptr inbounds i8, ptr %23, i64 4
+  %1125 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store i32 0, ptr %1125, align 4
-  %1126 = getelementptr inbounds i8, ptr %23, i64 8
+  %1126 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i32 262144, ptr %1126, align 4
-  %1127 = getelementptr inbounds i8, ptr %23, i64 12
+  %1127 = getelementptr inbounds nuw i8, ptr %23, i64 12
   store i32 4, ptr %1127, align 4
-  %1128 = getelementptr inbounds i8, ptr %23, i64 16
+  %1128 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store i8 1, ptr %1128, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %23)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %23)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %23) #10
   %.pre121 = load i32, ptr %907, align 4
   br label %1129
@@ -5748,44 +5748,44 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 
 1133:                                             ; preds = %1129
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %22) #10
-  %1134 = getelementptr inbounds i8, ptr %22, i64 16
+  %1134 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i32 0, ptr %1134, align 4, !annotation !5
   store i32 8336, ptr %22, align 4
-  %1135 = getelementptr inbounds i8, ptr %22, i64 4
+  %1135 = getelementptr inbounds nuw i8, ptr %22, i64 4
   store i32 0, ptr %1135, align 4
-  %1136 = getelementptr inbounds i8, ptr %22, i64 8
+  %1136 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i32 67109888, ptr %1136, align 4
-  %1137 = getelementptr inbounds i8, ptr %22, i64 12
+  %1137 = getelementptr inbounds nuw i8, ptr %22, i64 12
   store i32 1024, ptr %1137, align 4
-  %1138 = getelementptr inbounds i8, ptr %22, i64 16
+  %1138 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i8 1, ptr %1138, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %22)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %22)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %22) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %21) #10
-  %1139 = getelementptr inbounds i8, ptr %21, i64 16
+  %1139 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i32 0, ptr %1139, align 4, !annotation !5
   store i32 8352, ptr %21, align 4
-  %1140 = getelementptr inbounds i8, ptr %21, i64 4
+  %1140 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store i32 487536, ptr %1140, align 4
-  %1141 = getelementptr inbounds i8, ptr %21, i64 8
+  %1141 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i32 0, ptr %1141, align 4
-  %1142 = getelementptr inbounds i8, ptr %21, i64 12
+  %1142 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 487536, ptr %1142, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %21)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %21)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %21) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %20) #10
-  %1143 = getelementptr inbounds i8, ptr %20, i64 16
+  %1143 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i32 0, ptr %1143, align 4, !annotation !5
   store i32 57600, ptr %20, align 4
-  %1144 = getelementptr inbounds i8, ptr %20, i64 4
+  %1144 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store i32 0, ptr %1144, align 4
-  %1145 = getelementptr inbounds i8, ptr %20, i64 8
+  %1145 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i32 -2146926584, ptr %1145, align 4
-  %1146 = getelementptr inbounds i8, ptr %20, i64 12
+  %1146 = getelementptr inbounds nuw i8, ptr %20, i64 12
   store i32 32776, ptr %1146, align 4
-  %1147 = getelementptr inbounds i8, ptr %20, i64 16
+  %1147 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i8 1, ptr %1147, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %20)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %20)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %20) #10
   %.pre122 = load i32, ptr %907, align 4
   br label %1148
@@ -5798,30 +5798,30 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 
 1152:                                             ; preds = %1148
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %19) #10
-  %1153 = getelementptr inbounds i8, ptr %19, i64 16
+  %1153 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i32 0, ptr %1153, align 4, !annotation !5
   store i32 8336, ptr %19, align 4
-  %1154 = getelementptr inbounds i8, ptr %19, i64 4
+  %1154 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i32 0, ptr %1154, align 4
-  %1155 = getelementptr inbounds i8, ptr %19, i64 8
+  %1155 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i32 67109888, ptr %1155, align 4
-  %1156 = getelementptr inbounds i8, ptr %19, i64 12
+  %1156 = getelementptr inbounds nuw i8, ptr %19, i64 12
   store i32 1024, ptr %1156, align 4
-  %1157 = getelementptr inbounds i8, ptr %19, i64 16
+  %1157 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i8 1, ptr %1157, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %19)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %19)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %19) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %18) #10
-  %1158 = getelementptr inbounds i8, ptr %18, i64 16
+  %1158 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i32 0, ptr %1158, align 4, !annotation !5
   store i32 8352, ptr %18, align 4
-  %1159 = getelementptr inbounds i8, ptr %18, i64 4
+  %1159 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 487536, ptr %1159, align 4
-  %1160 = getelementptr inbounds i8, ptr %18, i64 8
+  %1160 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i32 0, ptr %1160, align 4
-  %1161 = getelementptr inbounds i8, ptr %18, i64 12
+  %1161 = getelementptr inbounds nuw i8, ptr %18, i64 12
   store i32 487536, ptr %1161, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %18)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %18)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %18) #10
   %1162 = load i32, ptr %907, align 4
   %1163 = and i32 %1162, 1048576
@@ -5829,27 +5829,27 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   br i1 %1164, label %1177, label %1165
 
 1165:                                             ; preds = %1152
-  %1166 = getelementptr inbounds i8, ptr %655, i64 7168
+  %1166 = getelementptr inbounds nuw i8, ptr %655, i64 7168
   %1167 = load ptr, ptr %1166, align 8
-  %1168 = getelementptr inbounds i8, ptr %1167, i64 16
+  %1168 = getelementptr inbounds nuw i8, ptr %1167, i64 16
   %1169 = load i8, ptr %1168, align 8
   %1170 = icmp eq i8 %1169, 1
   br i1 %1170, label %1171, label %1177
 
 1171:                                             ; preds = %1165
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %17) #10
-  %1172 = getelementptr inbounds i8, ptr %17, i64 16
+  %1172 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i32 0, ptr %1172, align 4, !annotation !5
   store i32 57600, ptr %17, align 4
-  %1173 = getelementptr inbounds i8, ptr %17, i64 4
+  %1173 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 0, ptr %1173, align 4
-  %1174 = getelementptr inbounds i8, ptr %17, i64 8
+  %1174 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i32 524296, ptr %1174, align 4
-  %1175 = getelementptr inbounds i8, ptr %17, i64 12
+  %1175 = getelementptr inbounds nuw i8, ptr %17, i64 12
   store i32 8, ptr %1175, align 4
-  %1176 = getelementptr inbounds i8, ptr %17, i64 16
+  %1176 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i8 1, ptr %1176, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %17)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %17)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %17) #10
   br label %1177
 
@@ -5860,60 +5860,60 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 
 1180:                                             ; preds = %1177
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %16) #10
-  %1181 = getelementptr inbounds i8, ptr %16, i64 16
+  %1181 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i32 0, ptr %1181, align 4, !annotation !5
   store i32 8860, ptr %16, align 4
-  %1182 = getelementptr inbounds i8, ptr %16, i64 4
+  %1182 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store i32 0, ptr %1182, align 4
-  %1183 = getelementptr inbounds i8, ptr %16, i64 8
+  %1183 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i32 671098880, ptr %1183, align 4
-  %1184 = getelementptr inbounds i8, ptr %16, i64 12
+  %1184 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 10240, ptr %1184, align 4
-  %1185 = getelementptr inbounds i8, ptr %16, i64 16
+  %1185 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i8 1, ptr %1185, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %16)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %16)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %16) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %15) #10
-  %1186 = getelementptr inbounds i8, ptr %15, i64 16
+  %1186 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i32 0, ptr %1186, align 4, !annotation !5
   store i32 28672, ptr %15, align 4
-  %1187 = getelementptr inbounds i8, ptr %15, i64 4
+  %1187 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store i32 0, ptr %1187, align 4
-  %1188 = getelementptr inbounds i8, ptr %15, i64 8
+  %1188 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i32 65536, ptr %1188, align 4
-  %1189 = getelementptr inbounds i8, ptr %15, i64 12
+  %1189 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i32 1, ptr %1189, align 4
-  %1190 = getelementptr inbounds i8, ptr %15, i64 16
+  %1190 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i8 1, ptr %1190, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %15)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %15)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %15) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %14) #10
-  %1191 = getelementptr inbounds i8, ptr %14, i64 16
+  %1191 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i32 0, ptr %1191, align 4, !annotation !5
   store i32 28676, ptr %14, align 4
-  %1192 = getelementptr inbounds i8, ptr %14, i64 4
+  %1192 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 0, ptr %1192, align 4
-  %1193 = getelementptr inbounds i8, ptr %14, i64 8
+  %1193 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 4194368, ptr %1193, align 4
-  %1194 = getelementptr inbounds i8, ptr %14, i64 12
+  %1194 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store i32 64, ptr %1194, align 4
-  %1195 = getelementptr inbounds i8, ptr %14, i64 16
+  %1195 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i8 1, ptr %1195, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %14)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %14)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %13) #10
-  %1196 = getelementptr inbounds i8, ptr %13, i64 16
+  %1196 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i32 0, ptr %1196, align 4, !annotation !5
   store i32 28680, ptr %13, align 4
-  %1197 = getelementptr inbounds i8, ptr %13, i64 4
+  %1197 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 0, ptr %1197, align 4
-  %1198 = getelementptr inbounds i8, ptr %13, i64 8
+  %1198 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 41943552, ptr %1198, align 4
-  %1199 = getelementptr inbounds i8, ptr %13, i64 12
+  %1199 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 640, ptr %1199, align 4
-  %1200 = getelementptr inbounds i8, ptr %13, i64 16
+  %1200 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i8 1, ptr %1200, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %13)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %13)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %13) #10
   %.pre123 = load i8, ptr %988, align 8
   br label %1201
@@ -5926,18 +5926,18 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 
 1205:                                             ; preds = %1201
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %12) #10
-  %1206 = getelementptr inbounds i8, ptr %12, i64 16
+  %1206 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 0, ptr %1206, align 4, !annotation !5
   store i32 8348, ptr %12, align 4
-  %1207 = getelementptr inbounds i8, ptr %12, i64 4
+  %1207 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 0, ptr %1207, align 4
-  %1208 = getelementptr inbounds i8, ptr %12, i64 8
+  %1208 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 1073758208, ptr %1208, align 4
-  %1209 = getelementptr inbounds i8, ptr %12, i64 12
+  %1209 = getelementptr inbounds nuw i8, ptr %12, i64 12
   store i32 16384, ptr %1209, align 4
-  %1210 = getelementptr inbounds i8, ptr %12, i64 16
+  %1210 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i8 1, ptr %1210, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %12)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %12)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %12) #10
   %.pr50 = load i8, ptr %988, align 8
   %1211 = icmp eq i8 %.pr50, 6
@@ -5945,88 +5945,88 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 
 1212:                                             ; preds = %1205
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %11) #10
-  %1213 = getelementptr inbounds i8, ptr %11, i64 16
+  %1213 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i32 0, ptr %1213, align 4, !annotation !5
   store i32 9504, ptr %11, align 4
-  %1214 = getelementptr inbounds i8, ptr %11, i64 4
+  %1214 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 0, ptr %1214, align 4
-  %1215 = getelementptr inbounds i8, ptr %11, i64 8
+  %1215 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 536879104, ptr %1215, align 4
-  %1216 = getelementptr inbounds i8, ptr %11, i64 12
+  %1216 = getelementptr inbounds nuw i8, ptr %11, i64 12
   store i32 8192, ptr %1216, align 4
-  %1217 = getelementptr inbounds i8, ptr %11, i64 16
+  %1217 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i8 1, ptr %1217, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %11)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %11)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %11) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %10) #10
-  %1218 = getelementptr inbounds i8, ptr %10, i64 16
+  %1218 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 0, ptr %1218, align 4, !annotation !5
   store i32 8324, ptr %10, align 4
-  %1219 = getelementptr inbounds i8, ptr %10, i64 4
+  %1219 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 0, ptr %1219, align 4
-  %1220 = getelementptr inbounds i8, ptr %10, i64 8
+  %1220 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 67109888, ptr %1220, align 4
-  %1221 = getelementptr inbounds i8, ptr %10, i64 12
+  %1221 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store i32 1024, ptr %1221, align 4
-  %1222 = getelementptr inbounds i8, ptr %10, i64 16
+  %1222 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i8 1, ptr %1222, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %10)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %10)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %10) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %9) #10
-  %1223 = getelementptr inbounds i8, ptr %9, i64 16
+  %1223 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 0, ptr %1223, align 4, !annotation !5
   store i32 8336, ptr %9, align 4
-  %1224 = getelementptr inbounds i8, ptr %9, i64 4
+  %1224 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 0, ptr %1224, align 4
-  %1225 = getelementptr inbounds i8, ptr %9, i64 8
+  %1225 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 2228258, ptr %1225, align 4
-  %1226 = getelementptr inbounds i8, ptr %9, i64 12
+  %1226 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 34, ptr %1226, align 4
-  %1227 = getelementptr inbounds i8, ptr %9, i64 16
+  %1227 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i8 1, ptr %1227, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %9)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %8) #10
-  %1228 = getelementptr inbounds i8, ptr %8, i64 16
+  %1228 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 0, ptr %1228, align 4, !annotation !5
   store i32 8400, ptr %8, align 4
-  %1229 = getelementptr inbounds i8, ptr %8, i64 4
+  %1229 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 0, ptr %1229, align 4
-  %1230 = getelementptr inbounds i8, ptr %8, i64 8
+  %1230 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 41943552, ptr %1230, align 4
-  %1231 = getelementptr inbounds i8, ptr %8, i64 12
+  %1231 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 640, ptr %1231, align 4
-  %1232 = getelementptr inbounds i8, ptr %8, i64 16
+  %1232 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i8 1, ptr %1232, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %8)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %8)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %7) #10
-  %1233 = getelementptr inbounds i8, ptr %7, i64 16
+  %1233 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 0, ptr %1233, align 4, !annotation !5
   store i32 8480, ptr %7, align 4
-  %1234 = getelementptr inbounds i8, ptr %7, i64 4
+  %1234 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 0, ptr %1234, align 4
-  %1235 = getelementptr inbounds i8, ptr %7, i64 8
+  %1235 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 65536, ptr %1235, align 4
-  %1236 = getelementptr inbounds i8, ptr %7, i64 12
+  %1236 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 1, ptr %1236, align 4
-  %1237 = getelementptr inbounds i8, ptr %7, i64 16
+  %1237 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i8 1, ptr %1237, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %7)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %7)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #10
-  %1238 = getelementptr inbounds i8, ptr %6, i64 16
+  %1238 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 0, ptr %1238, align 4, !annotation !5
   store i32 8480, ptr %6, align 4
-  %1239 = getelementptr inbounds i8, ptr %6, i64 4
+  %1239 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 0, ptr %1239, align 4
-  %1240 = getelementptr inbounds i8, ptr %6, i64 8
+  %1240 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 2097152, ptr %1240, align 4
-  %1241 = getelementptr inbounds i8, ptr %6, i64 12
+  %1241 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 32, ptr %1241, align 4
-  %1242 = getelementptr inbounds i8, ptr %6, i64 16
+  %1242 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i8 1, ptr %1242, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %6)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #10
   %.pre124 = load i8, ptr %988, align 8
   br label %.thread51
@@ -6043,18 +6043,18 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   %1249 = and i32 %1248, 64
   %1250 = xor i32 %1249, 64
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #10
-  %1251 = getelementptr inbounds i8, ptr %5, i64 16
+  %1251 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 0, ptr %1251, align 4, !annotation !5
   store i32 8348, ptr %5, align 4
-  %1252 = getelementptr inbounds i8, ptr %5, i64 4
+  %1252 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 0, ptr %1252, align 4
-  %1253 = getelementptr inbounds i8, ptr %5, i64 8
+  %1253 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 4194368, ptr %1253, align 4
-  %1254 = getelementptr inbounds i8, ptr %5, i64 12
+  %1254 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %1250, ptr %1254, align 4
-  %1255 = getelementptr inbounds i8, ptr %5, i64 16
+  %1255 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i8 1, ptr %1255, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %5)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #10
   %.pr52 = load i8, ptr %988, align 8
   %1256 = icmp eq i8 %.pr52, 4
@@ -6062,41 +6062,41 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 
 1257:                                             ; preds = %1246
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #10
-  %1258 = getelementptr inbounds i8, ptr %4, i64 16
+  %1258 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %1258, align 4, !annotation !5
   store i32 8656, ptr %4, align 4
-  %1259 = getelementptr inbounds i8, ptr %4, i64 4
+  %1259 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %1259, align 4
-  %1260 = getelementptr inbounds i8, ptr %4, i64 8
+  %1260 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 1048592, ptr %1260, align 4
-  %1261 = getelementptr inbounds i8, ptr %4, i64 12
+  %1261 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 0, ptr %1261, align 4
-  %1262 = getelementptr inbounds i8, ptr %4, i64 16
+  %1262 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i8 1, ptr %1262, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %4)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #10
   br label %.thread53
 
 1263:                                             ; preds = %652
-  %1264 = getelementptr inbounds i8, ptr %655, i64 7184
+  %1264 = getelementptr inbounds nuw i8, ptr %655, i64 7184
   %1265 = load i32, ptr %1264, align 4
   %1266 = and i32 %1265, 134217728
   %1267 = icmp eq i32 %1266, 0
   br i1 %1267, label %1296, label %1268
 
 1268:                                             ; preds = %1263
-  %1269 = getelementptr inbounds i8, ptr %655, i64 7200
+  %1269 = getelementptr inbounds nuw i8, ptr %655, i64 7200
   %1270 = load i8, ptr %1269, align 8
   %1271 = icmp eq i8 %1270, 0
   br i1 %1271, label %1272, label %1284, !prof !6
 
 1272:                                             ; preds = %1268
   tail call void asm sideeffect "972: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 972b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 972) #10, !srcloc !179
-  %1273 = getelementptr inbounds i8, ptr %655, i64 8
+  %1273 = getelementptr inbounds nuw i8, ptr %655, i64 8
   %1274 = load ptr, ptr %1273, align 8
   %1275 = tail call ptr @dev_driver_string(ptr noundef %1274) #10
   %1276 = load ptr, ptr %1273, align 8
-  %1277 = getelementptr inbounds i8, ptr %1276, i64 80
+  %1277 = getelementptr inbounds nuw i8, ptr %1276, i64 80
   %1278 = load ptr, ptr %1277, align 8
   %1279 = icmp eq ptr %1278, null
   br i1 %1279, label %1280, label %1282
@@ -6122,37 +6122,37 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   br i1 %1287, label %1288, label %1296
 
 1288:                                             ; preds = %1284
-  %1289 = getelementptr inbounds i8, ptr %0, i64 72
+  %1289 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %1290 = load i32, ptr %1289, align 8
   %1291 = add i32 %1290, 588
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #10
-  %1292 = getelementptr inbounds i8, ptr %3, i64 16
+  %1292 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 0, ptr %1292, align 4, !annotation !5
   store i32 %1291, ptr %3, align 4
-  %1293 = getelementptr inbounds i8, ptr %3, i64 4
+  %1293 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 -1, ptr %1293, align 4
-  %1294 = getelementptr inbounds i8, ptr %3, i64 8
+  %1294 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 1, ptr %1294, align 4
-  %1295 = getelementptr inbounds i8, ptr %3, i64 12
+  %1295 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 -1, ptr %1295, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %3)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #10
   br label %1296
 
 1296:                                             ; preds = %1288, %1284, %1263
   %1297 = load ptr, ptr %80, align 8
-  %1298 = getelementptr inbounds i8, ptr %1297, i64 16
+  %1298 = getelementptr inbounds nuw i8, ptr %1297, i64 16
   %1299 = load i32, ptr %1298, align 8
   %1300 = icmp eq i32 %1299, 2
   br i1 %1300, label %.thread53, label %1301
 
 1301:                                             ; preds = %1296
   %1302 = load ptr, ptr %1297, align 8
-  %1303 = getelementptr inbounds i8, ptr %1302, i64 7176
+  %1303 = getelementptr inbounds nuw i8, ptr %1302, i64 7176
   %1304 = load i8, ptr %1303, align 8
   %1305 = zext i8 %1304 to i32
   %1306 = shl nuw nsw i32 %1305, 8
-  %1307 = getelementptr inbounds i8, ptr %1302, i64 7177
+  %1307 = getelementptr inbounds nuw i8, ptr %1302, i64 7177
   %1308 = load i8, ptr %1307, align 1
   %1309 = zext i8 %1308 to i32
   %1310 = or disjoint i32 %1306, %1309
@@ -6166,40 +6166,40 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   br i1 %1315, label %1316, label %.thread53
 
 1316:                                             ; preds = %1313
-  %1317 = getelementptr inbounds i8, ptr %0, i64 57
+  %1317 = getelementptr inbounds nuw i8, ptr %0, i64 57
   %1318 = load i8, ptr %1317, align 1
   %1319 = icmp eq i8 %1318, 0
   br i1 %1319, label %1320, label %.thread53
 
 1320:                                             ; preds = %1316
-  %1321 = getelementptr inbounds i8, ptr %0, i64 72
+  %1321 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %1322 = load i32, ptr %1321, align 8
   %1323 = add i32 %1322, 464
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #10
-  %1324 = getelementptr inbounds i8, ptr %2, i64 16
+  %1324 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 0, ptr %1324, align 4, !annotation !5
   store i32 %1323, ptr %2, align 4
-  %1325 = getelementptr inbounds i8, ptr %2, i64 4
+  %1325 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %1325, align 4
-  %1326 = getelementptr inbounds i8, ptr %2, i64 8
+  %1326 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 402655232, ptr %1326, align 4
-  %1327 = getelementptr inbounds i8, ptr %2, i64 12
+  %1327 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 6144, ptr %1327, align 4
-  %1328 = getelementptr inbounds i8, ptr %2, i64 16
+  %1328 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i8 1, ptr %1328, align 4
-  call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %2)
+  call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #10
   br label %.thread53
 
 .thread53:                                        ; preds = %.thread51, %1320, %1316, %1313, %1301, %1296, %1257, %1246, %684, %680, %656, %1
-  %1329 = getelementptr inbounds i8, ptr %0, i64 712
+  %1329 = getelementptr inbounds nuw i8, ptr %0, i64 712
   %1330 = load i32, ptr %1329, align 8
   %1331 = and i32 %1330, 15
   %1332 = icmp eq i32 %1331, 0
   br i1 %1332, label %1342, label %1333
 
 1333:                                             ; preds = %.thread53
-  %1334 = getelementptr inbounds i8, ptr %0, i64 704
+  %1334 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %1335 = load ptr, ptr %1334, align 8
   %1336 = zext i32 %1330 to i64
   %1337 = mul nuw nsw i64 %1336, 20
@@ -6229,15 +6229,15 @@ thread-pre-split.i:                               ; preds = %1340, %1333
   br i1 %1348, label %1352, label %1349
 
 1349:                                             ; preds = %1345
-  %1350 = getelementptr inbounds i8, ptr %1347, i64 8
+  %1350 = getelementptr inbounds nuw i8, ptr %1347, i64 8
   %1351 = load ptr, ptr %1350, align 8
   br label %1352
 
 1352:                                             ; preds = %1349, %1345
   %1353 = phi ptr [ %1351, %1349 ], [ null, %1345 ]
-  %1354 = getelementptr inbounds i8, ptr %1346, i64 4952
+  %1354 = getelementptr inbounds nuw i8, ptr %1346, i64 4952
   %1355 = load i32, ptr %1354, align 8
-  %1356 = getelementptr inbounds i8, ptr %0, i64 716
+  %1356 = getelementptr inbounds nuw i8, ptr %0, i64 716
   %1357 = load i32, ptr %1356, align 4
   %1358 = load ptr, ptr %83, align 8
   %1359 = load ptr, ptr %84, align 8
@@ -6250,30 +6250,30 @@ wa_init_finish.exit:                              ; preds = %1342, %1352
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @intel_engine_apply_workarounds(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 680
-  tail call fastcc void @wa_list_apply(ptr noundef %2)
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 680
+  tail call fastcc void @wa_list_apply(ptr noundef nonnull %2)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @intel_engine_verify_workarounds(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca %struct.i915_gem_ww_ctx, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 176
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 680
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 680
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #10
-  %7 = getelementptr inbounds i8, ptr %0, i64 712
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 712
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %.thread56, label %10
 
 10:                                               ; preds = %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false), !annotation !5
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %16 = load ptr, ptr %15, align 8
   %17 = zext i32 %8 to i64
   %18 = shl nuw nsw i64 %17, 2
@@ -6288,7 +6288,7 @@ define dso_local i32 @intel_engine_verify_workarounds(ptr nocapture noundef read
 
 24:                                               ; preds = %10
   %25 = load ptr, ptr %11, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 352
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 352
   %27 = tail call i32 @__SCT__might_resched() #10
   %28 = load volatile i32, ptr %26, align 4
   %29 = icmp eq i32 %28, 0
@@ -6297,7 +6297,7 @@ define dso_local i32 @intel_engine_verify_workarounds(ptr nocapture noundef read
 .lr.ph:                                           ; preds = %24, %36
   %30 = phi i32 [ %37, %36 ], [ %28, %24 ]
   %31 = add i32 %30, 1
-  %32 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %26, i32 %31, ptr elementtype(i32) %26, i32 %30) #10, !srcloc !185
+  %32 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %26, i32 %31, ptr nonnull elementtype(i32) %26, i32 %30) #10, !srcloc !185
   %33 = extractvalue { i8, i32 } %32, 0
   %34 = icmp ult i8 %33, 2
   tail call void @llvm.assume(i1 %34)
@@ -6310,30 +6310,30 @@ define dso_local i32 @intel_engine_verify_workarounds(ptr nocapture noundef read
   br i1 %38, label %._crit_edge, label %.lr.ph, !prof !186, !llvm.loop !187
 
 ._crit_edge:                                      ; preds = %36, %24
-  %39 = tail call i32 @__intel_wakeref_get_first(ptr noundef %26) #10
+  %39 = tail call i32 @__intel_wakeref_get_first(ptr noundef nonnull %26) #10
   br label %.loopexit67
 
 .loopexit67:                                      ; preds = %.lr.ph, %._crit_edge
   call void @i915_gem_ww_ctx_init(ptr noundef nonnull %3, i1 noundef zeroext false) #10
-  %40 = getelementptr inbounds i8, ptr %19, i64 184
-  %41 = getelementptr inbounds i8, ptr %3, i64 48
-  %42 = getelementptr inbounds i8, ptr %3, i64 24
-  %43 = getelementptr inbounds i8, ptr %3, i64 32
-  %44 = getelementptr inbounds i8, ptr %3, i64 40
-  %45 = getelementptr inbounds i8, ptr %5, i64 204
-  %46 = getelementptr inbounds i8, ptr %19, i64 268
-  %47 = getelementptr inbounds i8, ptr %0, i64 704
-  %48 = getelementptr inbounds i8, ptr %19, i64 8
-  %49 = getelementptr inbounds i8, ptr %19, i64 248
-  %50 = getelementptr inbounds i8, ptr %0, i64 688
-  %51 = getelementptr inbounds i8, ptr %5, i64 400
+  %40 = getelementptr inbounds nuw i8, ptr %19, i64 184
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 204
+  %46 = getelementptr inbounds nuw i8, ptr %19, i64 268
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 704
+  %48 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %19, i64 248
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 688
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 400
   br label %52
 
 52:                                               ; preds = %370, %.loopexit67
   %53 = load ptr, ptr %40, align 8
   %54 = load i8, ptr %41, align 8, !range !188, !noundef !189
   %55 = icmp eq i8 %54, 0
-  %56 = getelementptr inbounds i8, ptr %53, i64 248
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 248
   %57 = load ptr, ptr %56, align 8
   br i1 %55, label %60, label %58
 
@@ -6367,11 +6367,11 @@ define dso_local i32 @intel_engine_verify_workarounds(ptr nocapture noundef read
   br label %74
 
 74:                                               ; preds = %72, %68
-  %75 = getelementptr inbounds i8, ptr %53, i64 528
+  %75 = getelementptr inbounds nuw i8, ptr %53, i64 528
   %76 = load ptr, ptr %43, align 8
   store ptr %75, ptr %43, align 8
   store ptr %42, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %53, i64 536
+  %77 = getelementptr inbounds nuw i8, ptr %53, i64 536
   store ptr %76, ptr %77, align 8
   store volatile ptr %75, ptr %76, align 8
   br label %78
@@ -6412,7 +6412,7 @@ define dso_local i32 @intel_engine_verify_workarounds(ptr nocapture noundef read
 .lr.ph70:                                         ; preds = %90, %99
   %93 = phi i32 [ %100, %99 ], [ %91, %90 ]
   %94 = add i32 %93, 1
-  %95 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %45, i32 %94, ptr elementtype(i32) %45, i32 %93) #10, !srcloc !185
+  %95 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %45, i32 %94, ptr nonnull elementtype(i32) %45, i32 %93) #10, !srcloc !185
   %96 = extractvalue { i8, i32 } %95, 0
   %97 = icmp ult i8 %96, 2
   call void @llvm.assume(i1 %97)
@@ -6454,9 +6454,9 @@ define dso_local i32 @intel_engine_verify_workarounds(ptr nocapture noundef read
   br i1 %118, label %119, label %.loopexit66
 
 119:                                              ; preds = %116
-  %120 = getelementptr inbounds i8, ptr %111, i64 72
+  %120 = getelementptr inbounds nuw i8, ptr %111, i64 72
   %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 7176
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 7176
   %123 = load i8, ptr %122, align 8
   %124 = icmp ult i8 %123, 8
   %125 = select i1 %124, i32 306184193, i32 306184194
@@ -6467,7 +6467,7 @@ define dso_local i32 @intel_engine_verify_workarounds(ptr nocapture noundef read
 128:                                              ; preds = %119
   %129 = zext i8 %123 to i32
   %130 = shl nuw nsw i32 %129, 8
-  %131 = getelementptr inbounds i8, ptr %121, i64 7177
+  %131 = getelementptr inbounds nuw i8, ptr %121, i64 7177
   %132 = load i8, ptr %131, align 1
   %133 = zext i8 %132 to i32
   %134 = or disjoint i32 %130, %133
@@ -6500,7 +6500,7 @@ define dso_local i32 @intel_engine_verify_workarounds(ptr nocapture noundef read
   br i1 %152, label %157, label %153
 
 153:                                              ; preds = %148
-  %154 = getelementptr inbounds i8, ptr %150, i64 4
+  %154 = getelementptr inbounds nuw i8, ptr %150, i64 4
   %155 = load i32, ptr %154, align 4
   %156 = icmp ult i32 %155, %147
   br i1 %156, label %157, label %.loopexit63
@@ -6544,7 +6544,7 @@ define dso_local i32 @intel_engine_verify_workarounds(ptr nocapture noundef read
 
 178:                                              ; preds = %175
   %179 = load ptr, ptr %47, align 8
-  %180 = getelementptr inbounds i8, ptr %121, i64 7177
+  %180 = getelementptr inbounds nuw i8, ptr %121, i64 7177
   br label %181
 
 181:                                              ; preds = %.loopexit60, %178
@@ -6584,7 +6584,7 @@ define dso_local i32 @intel_engine_verify_workarounds(ptr nocapture noundef read
   br i1 %205, label %210, label %206
 
 206:                                              ; preds = %.preheader59
-  %207 = getelementptr inbounds i8, ptr %203, i64 4
+  %207 = getelementptr inbounds nuw i8, ptr %203, i64 4
   %208 = load i32, ptr %207, align 4
   %209 = icmp ult i32 %208, %186
   br i1 %209, label %210, label %.loopexit60
@@ -6629,8 +6629,8 @@ define dso_local i32 @intel_engine_verify_workarounds(ptr nocapture noundef read
   br i1 %232, label %243, label %233
 
 233:                                              ; preds = %.loopexit66
-  %234 = getelementptr inbounds i8, ptr %111, i64 56
-  %235 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %234, i32 1, ptr elementtype(i32) %234) #10, !srcloc !190
+  %234 = getelementptr inbounds nuw i8, ptr %111, i64 56
+  %235 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %234, i32 1, ptr nonnull elementtype(i32) %234) #10, !srcloc !190
   %236 = icmp eq i32 %235, 0
   br i1 %236, label %241, label %237, !prof !6
 
@@ -6642,7 +6642,7 @@ define dso_local i32 @intel_engine_verify_workarounds(ptr nocapture noundef read
 
 241:                                              ; preds = %237, %233
   %242 = phi i32 [ 2, %233 ], [ 1, %237 ]
-  call void @refcount_warn_saturate(ptr noundef %234, i32 noundef %242) #10
+  call void @refcount_warn_saturate(ptr noundef nonnull %234, i32 noundef %242) #10
   br label %243
 
 243:                                              ; preds = %241, %237, %.loopexit66
@@ -6678,7 +6678,7 @@ define dso_local i32 @intel_engine_verify_workarounds(ptr nocapture noundef read
 
 260:                                              ; preds = %257
   %261 = load ptr, ptr %47, align 8
-  %262 = getelementptr inbounds i8, ptr %111, i64 72
+  %262 = getelementptr inbounds nuw i8, ptr %111, i64 72
   br label %263
 
 263:                                              ; preds = %.loopexit57, %260
@@ -6688,11 +6688,11 @@ define dso_local i32 @intel_engine_verify_workarounds(ptr nocapture noundef read
   %267 = phi ptr [ %261, %260 ], [ %327, %.loopexit57 ]
   %268 = load ptr, ptr %262, align 8
   %269 = load i32, ptr %267, align 4
-  %270 = getelementptr inbounds i8, ptr %268, i64 7176
+  %270 = getelementptr inbounds nuw i8, ptr %268, i64 7176
   %271 = load i8, ptr %270, align 8
   %272 = zext i8 %271 to i32
   %273 = shl nuw nsw i32 %272, 8
-  %274 = getelementptr inbounds i8, ptr %268, i64 7177
+  %274 = getelementptr inbounds nuw i8, ptr %268, i64 7177
   %275 = load i8, ptr %274, align 1
   %276 = zext i8 %275 to i32
   %277 = or disjoint i32 %273, %276
@@ -6721,7 +6721,7 @@ define dso_local i32 @intel_engine_verify_workarounds(ptr nocapture noundef read
   br i1 %290, label %295, label %291
 
 291:                                              ; preds = %.preheader
-  %292 = getelementptr inbounds i8, ptr %288, i64 4
+  %292 = getelementptr inbounds nuw i8, ptr %288, i64 4
   %293 = load i32, ptr %292, align 4
   %294 = icmp ult i32 %293, %269
   br i1 %294, label %295, label %.loopexit57
@@ -6739,10 +6739,10 @@ define dso_local i32 @intel_engine_verify_workarounds(ptr nocapture noundef read
   %302 = getelementptr i32, ptr %252, i64 %265
   %303 = load i32, ptr %302, align 4
   %304 = load ptr, ptr %50, align 8
-  %305 = getelementptr inbounds i8, ptr %267, i64 8
+  %305 = getelementptr inbounds nuw i8, ptr %267, i64 8
   %306 = load i32, ptr %305, align 4
   %307 = xor i32 %306, %303
-  %308 = getelementptr inbounds i8, ptr %267, i64 12
+  %308 = getelementptr inbounds nuw i8, ptr %267, i64 12
   %309 = load i32, ptr %308, align 4
   %310 = and i32 %307, %309
   %311 = icmp eq i32 %310, 0
@@ -6754,13 +6754,13 @@ define dso_local i32 @intel_engine_verify_workarounds(ptr nocapture noundef read
   br i1 %314, label %318, label %315
 
 315:                                              ; preds = %312
-  %316 = getelementptr inbounds i8, ptr %313, i64 8
+  %316 = getelementptr inbounds nuw i8, ptr %313, i64 8
   %317 = load ptr, ptr %316, align 8
   br label %318
 
 318:                                              ; preds = %315, %312
   %319 = phi ptr [ %317, %315 ], [ null, %312 ]
-  %320 = getelementptr inbounds i8, ptr %301, i64 4952
+  %320 = getelementptr inbounds nuw i8, ptr %301, i64 4952
   %321 = load i32, ptr %320, align 8
   %322 = and i32 %309, %303
   %323 = and i32 %309, %306
@@ -6780,8 +6780,8 @@ define dso_local i32 @intel_engine_verify_workarounds(ptr nocapture noundef read
 .loopexit65:                                      ; preds = %.loopexit57, %257
   %330 = phi i32 [ 0, %257 ], [ %325, %.loopexit57 ]
   %331 = load ptr, ptr %40, align 8
-  %332 = getelementptr inbounds i8, ptr %331, i64 672
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %332, ptr elementtype(i32) %332) #10, !srcloc !196
+  %332 = getelementptr inbounds nuw i8, ptr %331, i64 672
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %332, ptr nonnull elementtype(i32) %332) #10, !srcloc !196
   br label %333
 
 333:                                              ; preds = %.loopexit65, %254, %247, %245
@@ -6789,8 +6789,8 @@ define dso_local i32 @intel_engine_verify_workarounds(ptr nocapture noundef read
   br i1 %232, label %.thread50, label %335
 
 335:                                              ; preds = %333
-  %336 = getelementptr inbounds i8, ptr %111, i64 56
-  %337 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %336, i32 -1, ptr elementtype(i32) %336) #10, !srcloc !197
+  %336 = getelementptr inbounds nuw i8, ptr %111, i64 56
+  %337 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %336, i32 -1, ptr nonnull elementtype(i32) %336) #10, !srcloc !197
   %338 = icmp eq i32 %337, 1
   br i1 %338, label %342, label %339
 
@@ -6799,23 +6799,23 @@ define dso_local i32 @intel_engine_verify_workarounds(ptr nocapture noundef read
   br i1 %340, label %.thread50, label %341, !prof !191
 
 341:                                              ; preds = %339
-  call void @refcount_warn_saturate(ptr noundef %336, i32 noundef 3) #10
+  call void @refcount_warn_saturate(ptr noundef nonnull %336, i32 noundef 3) #10
   br label %.thread50
 
 342:                                              ; preds = %335
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !198
-  call void @dma_fence_release(ptr noundef %336) #10, !callees !199
+  call void @dma_fence_release(ptr noundef nonnull %336) #10, !callees !199
   br label %.thread50
 
 .thread50:                                        ; preds = %339, %341, %342, %333, %113
   %343 = phi i32 [ %115, %113 ], [ %334, %333 ], [ %334, %342 ], [ %334, %341 ], [ %334, %339 ]
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %46, ptr elementtype(i32) %46) #10, !srcloc !196
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %46, ptr nonnull elementtype(i32) %46) #10, !srcloc !196
   br label %344
 
 344:                                              ; preds = %.thread50, %.thread48
   %345 = phi i32 [ %108, %.thread48 ], [ %343, %.thread50 ]
   %346 = load ptr, ptr %51, align 8
-  %347 = getelementptr inbounds i8, ptr %346, i64 88
+  %347 = getelementptr inbounds nuw i8, ptr %346, i64 88
   %348 = load ptr, ptr %347, align 8
   %349 = icmp eq ptr %348, null
   br i1 %349, label %350, label %.preheader64
@@ -6832,7 +6832,7 @@ define dso_local i32 @intel_engine_verify_workarounds(ptr nocapture noundef read
 .lr.ph75:                                         ; preds = %.preheader64, %359
   %353 = phi i32 [ %360, %359 ], [ %351, %.preheader64 ]
   %354 = add i32 %353, -1
-  %355 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %45, i32 %354, ptr elementtype(i32) %45, i32 %353) #10, !srcloc !185
+  %355 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %45, i32 %354, ptr nonnull elementtype(i32) %45, i32 %353) #10, !srcloc !185
   %356 = extractvalue { i8, i32 } %355, 0
   %357 = icmp ult i8 %356, 2
   call void @llvm.assume(i1 %357)
@@ -6845,13 +6845,13 @@ define dso_local i32 @intel_engine_verify_workarounds(ptr nocapture noundef read
   br i1 %361, label %._crit_edge76, label %.lr.ph75, !prof !186, !llvm.loop !187
 
 ._crit_edge76:                                    ; preds = %359, %.preheader64
-  %362 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %45, i32 2, i32 1, ptr elementtype(i32) %45) #10, !srcloc !200
+  %362 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %45, i32 2, i32 1, ptr nonnull elementtype(i32) %45) #10, !srcloc !200
   %363 = icmp eq i32 %362, 1
   br i1 %363, label %364, label %.preheader64, !llvm.loop !201
 
 364:                                              ; preds = %._crit_edge76
   %365 = load ptr, ptr %51, align 8
-  %366 = getelementptr inbounds i8, ptr %365, i64 88
+  %366 = getelementptr inbounds nuw i8, ptr %365, i64 88
   %367 = load ptr, ptr %366, align 8
   call void %367(ptr noundef %5) #10
   br label %.thread47
@@ -6870,7 +6870,7 @@ define dso_local i32 @intel_engine_verify_workarounds(ptr nocapture noundef read
   %374 = phi i32 [ %371, %370 ], [ %368, %.thread47 ]
   call void @i915_gem_ww_ctx_fini(ptr noundef nonnull %3) #10
   %375 = load ptr, ptr %11, align 8
-  %376 = getelementptr inbounds i8, ptr %375, i64 352
+  %376 = getelementptr inbounds nuw i8, ptr %375, i64 352
   %377 = call i32 @__SCT__might_resched() #10
   %378 = load volatile i32, ptr %376, align 4
   %379 = icmp eq i32 %378, 1
@@ -6879,7 +6879,7 @@ define dso_local i32 @intel_engine_verify_workarounds(ptr nocapture noundef read
 .lr.ph78:                                         ; preds = %373, %386
   %380 = phi i32 [ %387, %386 ], [ %378, %373 ]
   %381 = add i32 %380, -1
-  %382 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %376, i32 %381, ptr elementtype(i32) %376, i32 %380) #10, !srcloc !185
+  %382 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %376, i32 %381, ptr nonnull elementtype(i32) %376, i32 %380) #10, !srcloc !185
   %383 = extractvalue { i8, i32 } %382, 0
   %384 = icmp ult i8 %383, 2
   call void @llvm.assume(i1 %384)
@@ -6892,7 +6892,7 @@ define dso_local i32 @intel_engine_verify_workarounds(ptr nocapture noundef read
   br i1 %388, label %._crit_edge79, label %.lr.ph78, !prof !186, !llvm.loop !187
 
 ._crit_edge79:                                    ; preds = %386, %373
-  call void @__intel_wakeref_put_last(ptr noundef %376, i64 noundef 0) #10
+  call void @__intel_wakeref_put_last(ptr noundef nonnull %376, i64 noundef 0) #10
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph78, %._crit_edge79
@@ -6926,30 +6926,30 @@ define internal fastcc void @dg1_ctx_workarounds_init(ptr nocapture readonly %.0
   %3 = alloca %struct.i915_wa, align 4
   tail call fastcc void @gen12_ctx_workarounds_init(ptr %.0.val, ptr noundef %0)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #10
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 0, ptr %4, align 4, !annotation !5
   store i32 29444, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %3, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 268435456, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %3, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 4096, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i8 1, ptr %8, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #10
-  %9 = getelementptr inbounds i8, ptr %2, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 0, ptr %9, align 4, !annotation !5
   store i32 28696, ptr %2, align 4
-  %10 = getelementptr inbounds i8, ptr %2, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 1073758208, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %2, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 16384, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %2, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i8 1, ptr %13, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #10
@@ -6964,42 +6964,42 @@ define internal fastcc void @gen12_ctx_workarounds_init(ptr nocapture readonly %
   %5 = alloca %struct.i915_wa, align 4
   %6 = alloca %struct.i915_wa, align 4
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #10
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 0, ptr %7, align 4, !annotation !5
   store i32 29444, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %6, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 0, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 33554944, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %6, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 512, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i8 1, ptr %11, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #10
-  %12 = getelementptr inbounds i8, ptr %5, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 0, ptr %12, align 4, !annotation !5
   store i32 9600, ptr %5, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 0, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %5, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 393218, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %5, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 6, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %5, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i8 1, ptr %16, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #10
-  %17 = getelementptr inbounds i8, ptr %4, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %17, align 4, !annotation !5
   store i32 26116, ptr %4, align 4
-  %18 = getelementptr inbounds i8, ptr %4, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 -1, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %4, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 -536608768, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %4, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 0, ptr %20, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #10
@@ -7011,30 +7011,30 @@ define internal fastcc void @gen12_ctx_workarounds_init(ptr nocapture readonly %
 
 25:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #10
-  %26 = getelementptr inbounds i8, ptr %3, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 0, ptr %26, align 4, !annotation !5
   store i32 28696, ptr %3, align 4
-  %27 = getelementptr inbounds i8, ptr %3, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %3, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 536879104, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %3, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 8192, ptr %29, align 4
-  %30 = getelementptr inbounds i8, ptr %3, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i8 1, ptr %30, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #10
-  %31 = getelementptr inbounds i8, ptr %2, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 0, ptr %31, align 4, !annotation !5
   store i32 29440, ptr %2, align 4
-  %32 = getelementptr inbounds i8, ptr %2, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %2, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 4194368, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %2, i64 12
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 64, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %2, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i8 1, ptr %35, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #10
@@ -7055,108 +7055,108 @@ define internal fastcc void @icl_ctx_workarounds_init(ptr nocapture noundef %0) 
   %8 = alloca %struct.i915_wa, align 4
   %9 = alloca %struct.i915_wa, align 4
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %9) #10
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 0, ptr %10, align 4, !annotation !5
   store i32 28724, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %9, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 -1, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %9, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 512, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %9, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 -1, ptr %13, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %8) #10
-  %14 = getelementptr inbounds i8, ptr %8, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 0, ptr %14, align 4, !annotation !5
   store i32 58868, ptr %8, align 4
-  %15 = getelementptr inbounds i8, ptr %8, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 0, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %8, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 1048592, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %8, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 16, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %8, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i8 3, ptr %18, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %8)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %7) #10
-  %19 = getelementptr inbounds i8, ptr %7, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 0, ptr %19, align 4, !annotation !5
   store i32 58400, ptr %7, align 4
-  %20 = getelementptr inbounds i8, ptr %7, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 0, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %7, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 1048592, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %7, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 0, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %7, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i8 3, ptr %23, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %7)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #10
-  %24 = getelementptr inbounds i8, ptr %6, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 0, ptr %24, align 4, !annotation !5
   store i32 9600, ptr %6, align 4
-  %25 = getelementptr inbounds i8, ptr %6, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 0, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %6, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 393218, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %6, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 6, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %6, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i8 1, ptr %28, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #10
-  %29 = getelementptr inbounds i8, ptr %5, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 0, ptr %29, align 4, !annotation !5
   store i32 57740, ptr %5, align 4
-  %30 = getelementptr inbounds i8, ptr %5, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 0, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %5, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 2097184, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %5, i64 12
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 32, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %5, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i8 3, ptr %33, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #10
-  %34 = getelementptr inbounds i8, ptr %4, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %34, align 4, !annotation !5
   store i32 28704, ptr %4, align 4
-  %35 = getelementptr inbounds i8, ptr %4, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 -1, ptr %35, align 4
-  %36 = getelementptr inbounds i8, ptr %4, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 -2, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %4, i64 12
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 -1, ptr %37, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #10
-  %38 = getelementptr inbounds i8, ptr %3, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 0, ptr %38, align 4, !annotation !5
   store i32 28708, ptr %3, align 4
-  %39 = getelementptr inbounds i8, ptr %3, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %3, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 -1, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %3, i64 12
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 -1, ptr %41, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #10
-  %42 = getelementptr inbounds i8, ptr %2, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 0, ptr %42, align 4, !annotation !5
   store i32 58508, ptr %2, align 4
-  %43 = getelementptr inbounds i8, ptr %2, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %43, align 4
-  %44 = getelementptr inbounds i8, ptr %2, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 8388736, ptr %44, align 4
-  %45 = getelementptr inbounds i8, ptr %2, i64 12
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 128, ptr %45, align 4
-  %46 = getelementptr inbounds i8, ptr %2, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i8 3, ptr %46, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #10
@@ -7169,30 +7169,30 @@ define internal fastcc void @cfl_ctx_workarounds_init(ptr nocapture readonly %.0
   %3 = alloca %struct.i915_wa, align 4
   tail call fastcc void @gen9_ctx_workarounds_init(ptr %.0.val, ptr noundef %0)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #10
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 0, ptr %4, align 4, !annotation !5
   store i32 28692, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %3, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 16777472, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %3, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 256, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i8 1, ptr %8, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #10
-  %9 = getelementptr inbounds i8, ptr %2, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 0, ptr %9, align 4, !annotation !5
   store i32 57600, ptr %2, align 4
-  %10 = getelementptr inbounds i8, ptr %2, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 1048592, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %2, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 16, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %2, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i8 3, ptr %13, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #10
@@ -7204,16 +7204,16 @@ define internal fastcc void @glk_ctx_workarounds_init(ptr nocapture readonly %.0
   %2 = alloca %struct.i915_wa, align 4
   tail call fastcc void @gen9_ctx_workarounds_init(ptr %.0.val, ptr noundef %0)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #10
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 0, ptr %3, align 4, !annotation !5
   store i32 28692, ptr %2, align 4
-  %4 = getelementptr inbounds i8, ptr %2, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 16777472, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %2, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 256, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i8 1, ptr %7, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #10
@@ -7225,25 +7225,25 @@ define internal fastcc void @kbl_ctx_workarounds_init(ptr nocapture readonly %.0
   %2 = alloca %struct.i915_wa, align 4
   %3 = alloca %struct.i915_wa, align 4
   tail call fastcc void @gen9_ctx_workarounds_init(ptr %.0.val, ptr noundef %0)
-  %4 = getelementptr inbounds i8, ptr %.0.val, i64 7184
+  %4 = getelementptr inbounds nuw i8, ptr %.0.val, i64 7184
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 134217728
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %34, label %8
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %.0.val, i64 7200
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 7200
   %10 = load i8, ptr %9, align 8
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %12, label %24, !prof !6
 
 12:                                               ; preds = %8
   tail call void asm sideeffect "861: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 861b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 861) #10, !srcloc !202
-  %13 = getelementptr inbounds i8, ptr %.0.val, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr @dev_driver_string(ptr noundef %14) #10
   %16 = load ptr, ptr %13, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 80
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %22
@@ -7270,16 +7270,16 @@ define internal fastcc void @kbl_ctx_workarounds_init(ptr nocapture readonly %.0
 
 28:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #10
-  %29 = getelementptr inbounds i8, ptr %3, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 0, ptr %29, align 4, !annotation !5
   store i32 28692, ptr %3, align 4
-  %30 = getelementptr inbounds i8, ptr %3, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %3, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 16777472, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %3, i64 12
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 256, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %3, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i8 1, ptr %33, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #10
@@ -7287,16 +7287,16 @@ define internal fastcc void @kbl_ctx_workarounds_init(ptr nocapture readonly %.0
 
 34:                                               ; preds = %28, %24, %1
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #10
-  %35 = getelementptr inbounds i8, ptr %2, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 0, ptr %35, align 4, !annotation !5
   store i32 57600, ptr %2, align 4
-  %36 = getelementptr inbounds i8, ptr %2, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %2, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 1048592, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %2, i64 12
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 16, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %2, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i8 3, ptr %39, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #10
@@ -7309,30 +7309,30 @@ define internal fastcc void @bxt_ctx_workarounds_init(ptr nocapture readonly %.0
   %3 = alloca %struct.i915_wa, align 4
   tail call fastcc void @gen9_ctx_workarounds_init(ptr %.0.val, ptr noundef %0)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #10
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 0, ptr %4, align 4, !annotation !5
   store i32 58608, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %3, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 2097184, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %3, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 32, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i8 3, ptr %8, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #10
-  %9 = getelementptr inbounds i8, ptr %2, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 0, ptr %9, align 4, !annotation !5
   store i32 28692, ptr %2, align 4
-  %10 = getelementptr inbounds i8, ptr %2, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 16777472, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %2, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 256, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %2, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i8 1, ptr %13, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #10
@@ -7345,11 +7345,11 @@ define internal fastcc void @skl_ctx_workarounds_init(ptr nocapture noundef read
   %4 = alloca [3 x i8], align 1
   %.val = load ptr, ptr %0, align 8
   tail call fastcc void @gen9_ctx_workarounds_init(ptr %.val, ptr noundef %1)
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %4) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %4, i8 0, i64 3, i1 false)
-  %7 = getelementptr inbounds i8, ptr %6, i64 5132
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 5132
   br label %8
 
 8:                                                ; preds = %20, %2
@@ -7377,11 +7377,11 @@ define internal fastcc void @skl_ctx_workarounds_init(ptr nocapture noundef read
 23:                                               ; preds = %20
   %24 = load i8, ptr %4, align 1
   %25 = icmp eq i8 %24, 0
-  %26 = getelementptr inbounds i8, ptr %4, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %27 = load i8, ptr %26, align 1
   %28 = icmp eq i8 %27, 0
   %29 = select i1 %25, i1 %28, i1 false
-  %30 = getelementptr inbounds i8, ptr %4, i64 2
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %31 = load i8, ptr %30, align 1
   %32 = icmp eq i8 %31, 0
   %33 = select i1 %29, i1 %32, i1 false
@@ -7397,16 +7397,16 @@ define internal fastcc void @skl_ctx_workarounds_init(ptr nocapture noundef read
   %41 = or i32 %40, %39
   %42 = or disjoint i32 %41, 4128768
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #10
-  %43 = getelementptr inbounds i8, ptr %3, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 0, ptr %43, align 4, !annotation !5
   store i32 28680, ptr %3, align 4
-  %44 = getelementptr inbounds i8, ptr %3, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %44, align 4
-  %45 = getelementptr inbounds i8, ptr %3, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %42, ptr %45, align 4
-  %46 = getelementptr inbounds i8, ptr %3, i64 12
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 63, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %3, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i8 1, ptr %47, align 4
   call fastcc void @_wa_add(ptr noundef %1, ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #10
@@ -7423,30 +7423,30 @@ define internal fastcc void @chv_ctx_workarounds_init(ptr nocapture noundef %0) 
   %3 = alloca %struct.i915_wa, align 4
   tail call fastcc void @gen8_ctx_workarounds_init(ptr noundef %0)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #10
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 0, ptr %4, align 4, !annotation !5
   store i32 58608, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %3, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 2097184, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %3, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 32, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i8 3, ptr %8, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #10
-  %9 = getelementptr inbounds i8, ptr %2, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 0, ptr %9, align 4, !annotation !5
   store i32 28696, ptr %2, align 4
-  %10 = getelementptr inbounds i8, ptr %2, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 -2147450880, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %2, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 32768, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %2, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i8 1, ptr %13, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #10
@@ -7461,57 +7461,57 @@ define internal fastcc void @bdw_ctx_workarounds_init(ptr nocapture readonly %.0
   %5 = alloca %struct.i915_wa, align 4
   tail call fastcc void @gen8_ctx_workarounds_init(ptr noundef %0)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #10
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 0, ptr %6, align 4, !annotation !5
   store i32 58608, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 0, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 2097184, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %5, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 32, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i8 3, ptr %10, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #10
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %11, align 4, !annotation !5
   store i32 58612, ptr %4, align 4
-  %12 = getelementptr inbounds i8, ptr %4, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %4, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 65537, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %4, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 1, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %4, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i8 3, ptr %15, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #10
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 0, ptr %16, align 4, !annotation !5
   store i32 57732, ptr %3, align 4
-  %17 = getelementptr inbounds i8, ptr %3, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %3, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 131074, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %3, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 2, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %3, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i8 3, ptr %20, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #10
-  %21 = getelementptr inbounds i8, ptr %.0.val, i64 7184
+  %21 = getelementptr inbounds nuw i8, ptr %.0.val, i64 7184
   %22 = load i32, ptr %21, align 4
   %23 = and i32 %22, 8388608
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %32, label %25
 
 25:                                               ; preds = %1
-  %26 = getelementptr inbounds i8, ptr %.0.val, i64 7168
+  %26 = getelementptr inbounds nuw i8, ptr %.0.val, i64 7168
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load i8, ptr %28, align 8
   %30 = icmp eq i8 %29, 3
   %31 = select i1 %30, i32 16416, i32 32
@@ -7521,16 +7521,16 @@ define internal fastcc void @bdw_ctx_workarounds_init(ptr nocapture readonly %.0
   %33 = phi i32 [ 32, %1 ], [ %31, %25 ]
   %34 = mul nuw nsw i32 %33, 65537
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #10
-  %35 = getelementptr inbounds i8, ptr %2, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 0, ptr %35, align 4, !annotation !5
   store i32 29440, ptr %2, align 4
-  %36 = getelementptr inbounds i8, ptr %2, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %2, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %34, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %2, i64 12
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %33, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %2, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i8 1, ptr %39, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #10
@@ -7549,17 +7549,17 @@ define internal fastcc void @_wa_add(ptr nocapture noundef %0, ptr nocapture nou
   %4 = load i32, ptr %1, align 4
   %5 = load ptr, ptr %0, align 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 15
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %13, label %.thread16
 
 .thread16:                                        ; preds = %2
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 24
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.pre.pre = load ptr, ptr %.phi.trans.insert, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
-  %12 = getelementptr inbounds i8, ptr %0, i64 36
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 36
   br label %.lr.ph
 
 13:                                               ; preds = %2
@@ -7575,7 +7575,7 @@ define internal fastcc void @_wa_add(ptr nocapture noundef %0, ptr nocapture nou
   br i1 %20, label %.thread, label %21
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %6, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %23 = load ptr, ptr %22, align 8
   br label %.thread
 
@@ -7585,7 +7585,7 @@ define internal fastcc void @_wa_add(ptr nocapture noundef %0, ptr nocapture nou
   br label %.loopexit
 
 25:                                               ; preds = %13
-  %26 = getelementptr inbounds i8, ptr %0, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %33, label %29
@@ -7600,8 +7600,8 @@ define internal fastcc void @_wa_add(ptr nocapture noundef %0, ptr nocapture nou
 
 33:                                               ; preds = %29, %25
   store ptr %17, ptr %26, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 24
-  %35 = getelementptr inbounds i8, ptr %0, i64 36
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -7609,11 +7609,11 @@ define internal fastcc void @_wa_add(ptr nocapture noundef %0, ptr nocapture nou
   %36 = phi ptr [ %12, %.thread16 ], [ %35, %33 ]
   %37 = phi ptr [ %11, %.thread16 ], [ %34, %33 ]
   %.pre19 = phi ptr [ %.pre.pre, %.thread16 ], [ %17, %33 ]
-  %38 = getelementptr inbounds i8, ptr %1, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %39 = icmp eq ptr %6, null
-  %40 = getelementptr inbounds i8, ptr %6, i64 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 8
-  %42 = getelementptr inbounds i8, ptr %1, i64 12
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 12
   br label %43
 
 43:                                               ; preds = %.lr.ph, %91
@@ -7638,7 +7638,7 @@ define internal fastcc void @_wa_add(ptr nocapture noundef %0, ptr nocapture nou
 
 57:                                               ; preds = %55
   %58 = load i32, ptr %38, align 4
-  %59 = getelementptr inbounds i8, ptr %50, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %50, i64 4
   %60 = load i32, ptr %59, align 4
   %61 = or i32 %60, %58
   %62 = icmp eq i32 %61, 0
@@ -7659,7 +7659,7 @@ define internal fastcc void @_wa_add(ptr nocapture noundef %0, ptr nocapture nou
 
 70:                                               ; preds = %68, %67
   %71 = phi ptr [ %69, %68 ], [ null, %67 ]
-  %72 = getelementptr inbounds i8, ptr %50, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %73 = load i32, ptr %72, align 4
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %71, ptr noundef nonnull @.str.9, i32 noundef %51, i32 noundef %60, i32 noundef %73) #13
   %74 = load i32, ptr %38, align 4
@@ -7674,7 +7674,7 @@ define internal fastcc void @_wa_add(ptr nocapture noundef %0, ptr nocapture nou
   %79 = add i32 %78, 1
   store i32 %79, ptr %36, align 4
   %80 = load i32, ptr %41, align 4
-  %81 = getelementptr inbounds i8, ptr %50, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %82 = load i32, ptr %81, align 4
   %83 = or i32 %82, %80
   store i32 %83, ptr %81, align 4
@@ -7683,7 +7683,7 @@ define internal fastcc void @_wa_add(ptr nocapture noundef %0, ptr nocapture nou
   %86 = or i32 %85, %84
   store i32 %86, ptr %59, align 4
   %87 = load i32, ptr %42, align 4
-  %88 = getelementptr inbounds i8, ptr %50, i64 12
+  %88 = getelementptr inbounds nuw i8, ptr %50, i64 12
   %89 = load i32, ptr %88, align 4
   %90 = or i32 %89, %87
   store i32 %90, ptr %88, align 4
@@ -7761,9 +7761,9 @@ define internal fastcc void @gen9_ctx_workarounds_init(ptr nocapture readonly %.
   %12 = alloca %struct.i915_wa, align 4
   %13 = alloca %struct.i915_wa, align 4
   %14 = alloca %struct.i915_wa, align 4
-  %15 = getelementptr inbounds i8, ptr %.0.val, i64 7168
+  %15 = getelementptr inbounds nuw i8, ptr %.0.val, i64 7168
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 28
   %18 = load i64, ptr %17, align 4
   %19 = and i64 %18, 524288
   %20 = icmp eq i64 %19, 0
@@ -7771,30 +7771,30 @@ define internal fastcc void @gen9_ctx_workarounds_init(ptr nocapture readonly %.
 
 21:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %14) #10
-  %22 = getelementptr inbounds i8, ptr %14, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i32 0, ptr %22, align 4, !annotation !5
   store i32 28692, ptr %14, align 4
-  %23 = getelementptr inbounds i8, ptr %14, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 0, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %14, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 536879104, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %14, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store i32 8192, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %14, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i8 1, ptr %26, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %14)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %13) #10
-  %27 = getelementptr inbounds i8, ptr %13, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i32 0, ptr %27, align 4, !annotation !5
   store i32 57748, ptr %13, align 4
-  %28 = getelementptr inbounds i8, ptr %13, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 0, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %13, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 16777472, ptr %29, align 4
-  %30 = getelementptr inbounds i8, ptr %13, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 256, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %13, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i8 3, ptr %31, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %13)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %13) #10
@@ -7802,90 +7802,90 @@ define internal fastcc void @gen9_ctx_workarounds_init(ptr nocapture readonly %.
 
 32:                                               ; preds = %21, %1
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %12) #10
-  %33 = getelementptr inbounds i8, ptr %12, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 0, ptr %33, align 4, !annotation !5
   store i32 58608, ptr %12, align 4
-  %34 = getelementptr inbounds i8, ptr %12, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 0, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %12, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 -2130673408, ptr %35, align 4
-  %36 = getelementptr inbounds i8, ptr %12, i64 12
+  %36 = getelementptr inbounds nuw i8, ptr %12, i64 12
   store i32 33024, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %12, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i8 3, ptr %37, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %12)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %12) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %11) #10
-  %38 = getelementptr inbounds i8, ptr %11, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i32 0, ptr %38, align 4, !annotation !5
   store i32 57748, ptr %11, align 4
-  %39 = getelementptr inbounds i8, ptr %11, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 0, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %11, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 1310740, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %11, i64 12
+  %41 = getelementptr inbounds nuw i8, ptr %11, i64 12
   store i32 20, ptr %41, align 4
-  %42 = getelementptr inbounds i8, ptr %11, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i8 3, ptr %42, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %11)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %11) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %10) #10
-  %43 = getelementptr inbounds i8, ptr %10, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 0, ptr %43, align 4, !annotation !5
   store i32 28676, ptr %10, align 4
-  %44 = getelementptr inbounds i8, ptr %10, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 0, ptr %44, align 4
-  %45 = getelementptr inbounds i8, ptr %10, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 4325442, ptr %45, align 4
-  %46 = getelementptr inbounds i8, ptr %10, i64 12
+  %46 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store i32 66, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %10, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i8 1, ptr %47, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %10)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %10) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %9) #10
-  %48 = getelementptr inbounds i8, ptr %9, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 0, ptr %48, align 4, !annotation !5
   store i32 57736, ptr %9, align 4
-  %49 = getelementptr inbounds i8, ptr %9, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 0, ptr %49, align 4
-  %50 = getelementptr inbounds i8, ptr %9, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 524288, ptr %50, align 4
-  %51 = getelementptr inbounds i8, ptr %9, i64 12
+  %51 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 8, ptr %51, align 4
-  %52 = getelementptr inbounds i8, ptr %9, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i8 3, ptr %52, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %8) #10
-  %53 = getelementptr inbounds i8, ptr %8, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 0, ptr %53, align 4, !annotation !5
   store i32 29440, ptr %8, align 4
-  %54 = getelementptr inbounds i8, ptr %8, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 0, ptr %54, align 4
-  %55 = getelementptr inbounds i8, ptr %8, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 -2145353696, ptr %55, align 4
-  %56 = getelementptr inbounds i8, ptr %8, i64 12
+  %56 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 32800, ptr %56, align 4
-  %57 = getelementptr inbounds i8, ptr %8, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i8 1, ptr %57, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %8)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %7) #10
-  %58 = getelementptr inbounds i8, ptr %7, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 0, ptr %58, align 4, !annotation !5
   store i32 29440, ptr %7, align 4
-  %59 = getelementptr inbounds i8, ptr %7, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 0, ptr %59, align 4
-  %60 = getelementptr inbounds i8, ptr %7, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 1048592, ptr %60, align 4
-  %61 = getelementptr inbounds i8, ptr %7, i64 12
+  %61 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 16, ptr %61, align 4
-  %62 = getelementptr inbounds i8, ptr %7, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i8 1, ptr %62, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %7)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #10
-  %63 = getelementptr inbounds i8, ptr %.0.val, i64 7184
+  %63 = getelementptr inbounds nuw i8, ptr %.0.val, i64 7184
   %64 = load i32, ptr %63, align 4
   %65 = and i32 %64, 1778384896
   %66 = icmp eq i32 %65, 0
@@ -7893,16 +7893,16 @@ define internal fastcc void @gen9_ctx_workarounds_init(ptr nocapture readonly %.
 
 67:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #10
-  %68 = getelementptr inbounds i8, ptr %6, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 0, ptr %68, align 4, !annotation !5
   store i32 57732, ptr %6, align 4
-  %69 = getelementptr inbounds i8, ptr %6, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 0, ptr %69, align 4
-  %70 = getelementptr inbounds i8, ptr %6, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 131074, ptr %70, align 4
-  %71 = getelementptr inbounds i8, ptr %6, i64 12
+  %71 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 2, ptr %71, align 4
-  %72 = getelementptr inbounds i8, ptr %6, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i8 3, ptr %72, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #10
@@ -7910,55 +7910,55 @@ define internal fastcc void @gen9_ctx_workarounds_init(ptr nocapture readonly %.
 
 73:                                               ; preds = %67, %32
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #10
-  %74 = getelementptr inbounds i8, ptr %5, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 0, ptr %74, align 4, !annotation !5
   store i32 57728, ptr %5, align 4
-  %75 = getelementptr inbounds i8, ptr %5, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 0, ptr %75, align 4
-  %76 = getelementptr inbounds i8, ptr %5, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 536879104, ptr %76, align 4
-  %77 = getelementptr inbounds i8, ptr %5, i64 12
+  %77 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 8192, ptr %77, align 4
-  %78 = getelementptr inbounds i8, ptr %5, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i8 3, ptr %78, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #10
-  %79 = getelementptr inbounds i8, ptr %4, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %79, align 4, !annotation !5
   store i32 9600, ptr %4, align 4
-  %80 = getelementptr inbounds i8, ptr %4, i64 4
+  %80 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %80, align 4
-  %81 = getelementptr inbounds i8, ptr %4, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 65536, ptr %81, align 4
-  %82 = getelementptr inbounds i8, ptr %4, i64 12
+  %82 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 1, ptr %82, align 4
-  %83 = getelementptr inbounds i8, ptr %4, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i8 1, ptr %83, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #10
-  %84 = getelementptr inbounds i8, ptr %3, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 0, ptr %84, align 4, !annotation !5
   store i32 9600, ptr %3, align 4
-  %85 = getelementptr inbounds i8, ptr %3, i64 4
+  %85 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %85, align 4
-  %86 = getelementptr inbounds i8, ptr %3, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 393220, ptr %86, align 4
-  %87 = getelementptr inbounds i8, ptr %3, i64 12
+  %87 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 6, ptr %87, align 4
-  %88 = getelementptr inbounds i8, ptr %3, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i8 1, ptr %88, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #10
-  %89 = getelementptr inbounds i8, ptr %.0.val, i64 7176
+  %89 = getelementptr inbounds nuw i8, ptr %.0.val, i64 7176
   %90 = load i8, ptr %89, align 8
   %91 = icmp eq i8 %90, 9
   br i1 %91, label %92, label %104
 
 92:                                               ; preds = %73
   %93 = load ptr, ptr %15, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 28
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 28
   %95 = load i64, ptr %94, align 4
   %96 = and i64 %95, 2
   %97 = icmp eq i64 %96, 0
@@ -7966,16 +7966,16 @@ define internal fastcc void @gen9_ctx_workarounds_init(ptr nocapture readonly %.
 
 98:                                               ; preds = %92
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #10
-  %99 = getelementptr inbounds i8, ptr %2, i64 16
+  %99 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 0, ptr %99, align 4, !annotation !5
   store i32 21896, ptr %2, align 4
-  %100 = getelementptr inbounds i8, ptr %2, i64 4
+  %100 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %100, align 4
-  %101 = getelementptr inbounds i8, ptr %2, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 33554944, ptr %101, align 4
-  %102 = getelementptr inbounds i8, ptr %2, i64 12
+  %102 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 512, ptr %102, align 4
-  %103 = getelementptr inbounds i8, ptr %2, i64 16
+  %103 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i8 1, ptr %103, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #10
@@ -7995,100 +7995,100 @@ define internal fastcc void @gen8_ctx_workarounds_init(ptr nocapture noundef %0)
   %7 = alloca %struct.i915_wa, align 4
   %8 = alloca %struct.i915_wa, align 4
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %8) #10
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 0, ptr %9, align 4, !annotation !5
   store i32 8384, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %8, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 0, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 8388736, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %8, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 128, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %8, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i8 1, ptr %13, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %8)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %7) #10
-  %14 = getelementptr inbounds i8, ptr %7, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 0, ptr %14, align 4, !annotation !5
   store i32 8348, ptr %7, align 4
-  %15 = getelementptr inbounds i8, ptr %7, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 0, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %7, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 1073758208, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %7, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 16384, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %7, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i8 1, ptr %18, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %7)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #10
-  %19 = getelementptr inbounds i8, ptr %6, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 0, ptr %19, align 4, !annotation !5
   store i32 58608, ptr %6, align 4
-  %20 = getelementptr inbounds i8, ptr %6, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 0, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %6, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 16777472, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %6, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 256, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %6, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i8 3, ptr %23, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #10
-  %24 = getelementptr inbounds i8, ptr %5, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 0, ptr %24, align 4, !annotation !5
   store i32 29440, ptr %5, align 4
-  %25 = getelementptr inbounds i8, ptr %5, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 0, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %5, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 135268368, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %5, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 2064, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %5, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i8 1, ptr %28, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #10
-  %29 = getelementptr inbounds i8, ptr %4, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %29, align 4, !annotation !5
   store i32 28672, ptr %4, align 4
-  %30 = getelementptr inbounds i8, ptr %4, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %4, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 262144, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %4, i64 12
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 4, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %4, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i8 1, ptr %33, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #10
-  %34 = getelementptr inbounds i8, ptr %3, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 0, ptr %34, align 4, !annotation !5
   store i32 28676, ptr %3, align 4
-  %35 = getelementptr inbounds i8, ptr %3, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %35, align 4
-  %36 = getelementptr inbounds i8, ptr %3, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 4194368, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %3, i64 12
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 64, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %3, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i8 1, ptr %38, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #10
-  %39 = getelementptr inbounds i8, ptr %2, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 0, ptr %39, align 4, !annotation !5
   store i32 28680, ptr %2, align 4
-  %40 = getelementptr inbounds i8, ptr %2, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %2, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 41943552, ptr %41, align 4
-  %42 = getelementptr inbounds i8, ptr %2, i64 12
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 640, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %2, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i8 1, ptr %43, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #10
@@ -8110,28 +8110,28 @@ define internal fastcc void @dg1_gt_workarounds_init(ptr noundef %0, ptr nocaptu
   %4 = alloca %struct.i915_wa, align 4
   tail call fastcc void @gen12_gt_workarounds_init(ptr noundef %0, ptr noundef %1)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #10
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %5, align 4, !annotation !5
   store i32 38184, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %4, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 512, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 512, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 512, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i8 2, ptr %9, align 4
   call fastcc void @_wa_add(ptr noundef %1, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #10
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 0, ptr %10, align 4, !annotation !5
   store i32 38116, ptr %3, align 4
-  %11 = getelementptr inbounds i8, ptr %3, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 524288, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %3, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 524288, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %3, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 524288, ptr %13, align 4
   call fastcc void @_wa_add(ptr noundef %1, ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #10
@@ -8145,11 +8145,11 @@ define internal fastcc void @gen12_gt_workarounds_init(ptr noundef %0, ptr nocap
   %5 = alloca %struct.i915_wa, align 4
   %6 = alloca %struct.i915_wa, align 4
   %7 = alloca %struct.i915_wa, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 4968
-  %9 = tail call i32 @intel_sseu_get_hsw_subslices(ptr noundef %8, i8 noundef zeroext 0) #10
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4968
+  %9 = tail call i32 @intel_sseu_get_hsw_subslices(ptr noundef nonnull %8, i8 noundef zeroext 0) #10
   %10 = zext i32 %9 to i64
   %11 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %10) #12, !srcloc !59
-  %12 = getelementptr inbounds i8, ptr %0, i64 4960
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 4960
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
   %15 = and i64 %11, 4294967295
@@ -8159,7 +8159,7 @@ define internal fastcc void @gen12_gt_workarounds_init(ptr noundef %0, ptr nocap
   br i1 %18, label %21, label %19
 
 19:                                               ; preds = %2
-  %20 = getelementptr inbounds i8, ptr %0, i64 4880
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 4880
   store ptr null, ptr %20, align 8
   br label %21
 
@@ -8168,27 +8168,27 @@ define internal fastcc void @gen12_gt_workarounds_init(ptr noundef %0, ptr nocap
   %23 = shl i32 %22, 24
   %24 = and i32 %23, 117440512
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #10
-  %25 = getelementptr inbounds i8, ptr %4, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %25, align 4, !annotation !5
   store i32 4060, ptr %4, align 4
-  %26 = getelementptr inbounds i8, ptr %4, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 2130706432, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %4, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %24, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %4, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 2130706432, ptr %28, align 4
   call fastcc void @_wa_add(ptr noundef %1, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #10
-  %29 = getelementptr inbounds i8, ptr %0, i64 4936
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 4936
   store i8 0, ptr %29, align 8
   %30 = trunc i64 %11 to i8
-  %31 = getelementptr inbounds i8, ptr %0, i64 4937
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 4937
   store i8 %30, ptr %31, align 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #10
   store ptr @__drm_printfn_debug, ptr %3, align 8, !alias.scope !212
-  %32 = getelementptr inbounds i8, ptr %3, i64 8
-  %33 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false), !alias.scope !212
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false), !alias.scope !212
   store ptr @.str.15, ptr %33, align 8, !alias.scope !212
   %34 = load i64, ptr @__drm_debug, align 8
   %35 = and i64 %34, 2
@@ -8201,11 +8201,11 @@ define internal fastcc void @gen12_gt_workarounds_init(ptr noundef %0, ptr nocap
 
 icl_wa_init_mcr.exit:                             ; preds = %21, %37
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #10
-  %38 = getelementptr inbounds i8, ptr %0, i64 4040
-  %39 = getelementptr inbounds i8, ptr %7, i64 4
-  %40 = getelementptr inbounds i8, ptr %7, i64 8
-  %41 = getelementptr inbounds i8, ptr %7, i64 12
-  %42 = getelementptr inbounds i8, ptr %7, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 4040
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br label %43
 
 43:                                               ; preds = %61, %icl_wa_init_mcr.exit
@@ -8216,20 +8216,20 @@ icl_wa_init_mcr.exit:                             ; preds = %21, %37
   br i1 %47, label %61, label %48
 
 48:                                               ; preds = %43
-  %49 = getelementptr inbounds i8, ptr %46, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 56
   %50 = load i8, ptr %49, align 8
   %51 = icmp eq i8 %50, 1
   br i1 %51, label %52, label %61
 
 52:                                               ; preds = %48
-  %53 = getelementptr inbounds i8, ptr %46, i64 57
+  %53 = getelementptr inbounds nuw i8, ptr %46, i64 57
   %54 = load i8, ptr %53, align 1
   %55 = and i8 %54, 1
   %56 = icmp eq i8 %55, 0
   br i1 %56, label %57, label %61
 
 57:                                               ; preds = %52
-  %58 = getelementptr inbounds i8, ptr %46, i64 72
+  %58 = getelementptr inbounds nuw i8, ptr %46, i64 72
   %59 = load i32, ptr %58, align 8
   %60 = add i32 %59, 16144
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %7) #10
@@ -8249,27 +8249,27 @@ icl_wa_init_mcr.exit:                             ; preds = %21, %37
 
 64:                                               ; preds = %61
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #10
-  %65 = getelementptr inbounds i8, ptr %6, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 0, ptr %65, align 4, !annotation !5
   store i32 38224, ptr %6, align 4
-  %66 = getelementptr inbounds i8, ptr %6, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 512, ptr %66, align 4
-  %67 = getelementptr inbounds i8, ptr %6, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 512, ptr %67, align 4
-  %68 = getelementptr inbounds i8, ptr %6, i64 12
+  %68 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 512, ptr %68, align 4
-  %69 = getelementptr inbounds i8, ptr %6, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i8 2, ptr %69, align 4
   call fastcc void @_wa_add(ptr noundef %1, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #10
-  %70 = getelementptr inbounds i8, ptr %5, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 0, ptr %70, align 4, !annotation !5
   store i32 37924, ptr %5, align 4
-  %71 = getelementptr inbounds i8, ptr %5, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 2, ptr %71, align 4
-  %72 = getelementptr inbounds i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(9) %72, i8 0, i64 9, i1 false)
+  %72 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %72, i8 0, i64 9, i1 false)
   call fastcc void @_wa_add(ptr noundef %1, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #10
   ret void
@@ -8289,11 +8289,11 @@ define internal fastcc void @icl_gt_workarounds_init(ptr noundef %0, ptr nocaptu
   %12 = alloca %struct.i915_wa, align 4
   %13 = alloca %struct.i915_wa, align 4
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 4968
-  %16 = tail call i32 @intel_sseu_get_hsw_subslices(ptr noundef %15, i8 noundef zeroext 0) #10
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 4968
+  %16 = tail call i32 @intel_sseu_get_hsw_subslices(ptr noundef nonnull %15, i8 noundef zeroext 0) #10
   %17 = zext i32 %16 to i64
   %18 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %17) #12, !srcloc !59
-  %19 = getelementptr inbounds i8, ptr %0, i64 4960
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 4960
   %20 = load i32, ptr %19, align 8
   %21 = zext i32 %20 to i64
   %22 = and i64 %18, 4294967295
@@ -8303,7 +8303,7 @@ define internal fastcc void @icl_gt_workarounds_init(ptr noundef %0, ptr nocaptu
   br i1 %25, label %28, label %26
 
 26:                                               ; preds = %2
-  %27 = getelementptr inbounds i8, ptr %0, i64 4880
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 4880
   store ptr null, ptr %27, align 8
   br label %28
 
@@ -8312,27 +8312,27 @@ define internal fastcc void @icl_gt_workarounds_init(ptr noundef %0, ptr nocaptu
   %30 = shl i32 %29, 24
   %31 = and i32 %30, 117440512
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #10
-  %32 = getelementptr inbounds i8, ptr %4, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %32, align 4, !annotation !5
   store i32 4060, ptr %4, align 4
-  %33 = getelementptr inbounds i8, ptr %4, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 2130706432, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %4, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %31, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %4, i64 12
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 2130706432, ptr %35, align 4
   call fastcc void @_wa_add(ptr noundef %1, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #10
-  %36 = getelementptr inbounds i8, ptr %0, i64 4936
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 4936
   store i8 0, ptr %36, align 8
   %37 = trunc i64 %18 to i8
-  %38 = getelementptr inbounds i8, ptr %0, i64 4937
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 4937
   store i8 %37, ptr %38, align 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #10
   store ptr @__drm_printfn_debug, ptr %3, align 8, !alias.scope !215
-  %39 = getelementptr inbounds i8, ptr %3, i64 8
-  %40 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false), !alias.scope !215
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false), !alias.scope !215
   store ptr @.str.15, ptr %40, align 8, !alias.scope !215
   %41 = load i64, ptr @__drm_debug, align 8
   %42 = and i64 %41, 2
@@ -8346,92 +8346,92 @@ define internal fastcc void @icl_gt_workarounds_init(ptr noundef %0, ptr nocaptu
 icl_wa_init_mcr.exit:                             ; preds = %28, %44
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %13) #10
-  %45 = getelementptr inbounds i8, ptr %13, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i32 0, ptr %45, align 4, !annotation !5
   store i32 19328, ptr %13, align 4
-  %46 = getelementptr inbounds i8, ptr %13, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 12303, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %13, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 4097, ptr %47, align 4
-  %48 = getelementptr inbounds i8, ptr %13, i64 12
+  %48 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 12303, ptr %48, align 4
   call fastcc void @_wa_add(ptr noundef %1, ptr noundef nonnull %13)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %13) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %12) #10
-  %49 = getelementptr inbounds i8, ptr %12, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 0, ptr %49, align 4, !annotation !5
   store i32 46140, ptr %12, align 4
-  %50 = getelementptr inbounds i8, ptr %12, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 640, ptr %50, align 4
-  %51 = getelementptr inbounds i8, ptr %12, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 640, ptr %51, align 4
-  %52 = getelementptr inbounds i8, ptr %12, i64 12
+  %52 = getelementptr inbounds nuw i8, ptr %12, i64 12
   store i32 640, ptr %52, align 4
   call fastcc void @_wa_add(ptr noundef %1, ptr noundef nonnull %12)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %12) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %11) #10
-  %53 = getelementptr inbounds i8, ptr %11, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i32 0, ptr %53, align 4, !annotation !5
   store i32 16512, ptr %11, align 4
-  %54 = getelementptr inbounds i8, ptr %11, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 128, ptr %54, align 4
-  %55 = getelementptr inbounds i8, ptr %11, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 128, ptr %55, align 4
-  %56 = getelementptr inbounds i8, ptr %11, i64 12
+  %56 = getelementptr inbounds nuw i8, ptr %11, i64 12
   store i32 128, ptr %56, align 4
   call fastcc void @_wa_add(ptr noundef %1, ptr noundef nonnull %11)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %11) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %10) #10
-  %57 = getelementptr inbounds i8, ptr %10, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 0, ptr %57, align 4, !annotation !5
   store i32 19128, ptr %10, align 4
-  %58 = getelementptr inbounds i8, ptr %10, i64 4
+  %58 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 -2147483648, ptr %58, align 4
-  %59 = getelementptr inbounds i8, ptr %10, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 -2147483648, ptr %59, align 4
-  %60 = getelementptr inbounds i8, ptr %10, i64 12
+  %60 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store i32 -2147483648, ptr %60, align 4
   call fastcc void @_wa_add(ptr noundef %1, ptr noundef nonnull %10)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %10) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %9) #10
-  %61 = getelementptr inbounds i8, ptr %9, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 0, ptr %61, align 4, !annotation !5
   store i32 37940, ptr %9, align 4
-  %62 = getelementptr inbounds i8, ptr %9, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 264, ptr %62, align 4
-  %63 = getelementptr inbounds i8, ptr %9, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 264, ptr %63, align 4
-  %64 = getelementptr inbounds i8, ptr %9, i64 12
+  %64 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 264, ptr %64, align 4
   call fastcc void @_wa_add(ptr noundef %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %8) #10
-  %65 = getelementptr inbounds i8, ptr %8, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 0, ptr %65, align 4, !annotation !5
   store i32 38116, ptr %8, align 4
-  %66 = getelementptr inbounds i8, ptr %8, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 32, ptr %66, align 4
-  %67 = getelementptr inbounds i8, ptr %8, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 32, ptr %67, align 4
-  %68 = getelementptr inbounds i8, ptr %8, i64 12
+  %68 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 32, ptr %68, align 4
   call fastcc void @_wa_add(ptr noundef %1, ptr noundef nonnull %8)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %7) #10
-  %69 = getelementptr inbounds i8, ptr %7, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 0, ptr %69, align 4, !annotation !5
   store i32 38180, ptr %7, align 4
-  %70 = getelementptr inbounds i8, ptr %7, i64 4
+  %70 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 65536, ptr %70, align 4
-  %71 = getelementptr inbounds i8, ptr %7, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 65536, ptr %71, align 4
-  %72 = getelementptr inbounds i8, ptr %7, i64 12
+  %72 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 65536, ptr %72, align 4
-  %73 = getelementptr inbounds i8, ptr %7, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i8 2, ptr %73, align 4
   call fastcc void @_wa_add(ptr noundef %1, ptr noundef nonnull %7)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #10
-  %74 = getelementptr inbounds i8, ptr %14, i64 7184
+  %74 = getelementptr inbounds nuw i8, ptr %14, i64 7184
   %75 = load i32, ptr %74, align 4
   %76 = icmp sgt i32 %75, -1
   br i1 %76, label %77, label %102
@@ -8444,18 +8444,18 @@ icl_wa_init_mcr.exit:                             ; preds = %28, %44
   br i1 %81, label %107, label %82
 
 82:                                               ; preds = %77
-  %83 = getelementptr inbounds i8, ptr %14, i64 7200
+  %83 = getelementptr inbounds nuw i8, ptr %14, i64 7200
   %84 = load i8, ptr %83, align 8
   %85 = icmp eq i8 %84, 0
   br i1 %85, label %86, label %98, !prof !6
 
 86:                                               ; preds = %82
   tail call void asm sideeffect "899: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 899b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 899) #10, !srcloc !218
-  %87 = getelementptr inbounds i8, ptr %14, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %88 = load ptr, ptr %87, align 8
   %89 = tail call ptr @dev_driver_string(ptr noundef %88) #10
   %90 = load ptr, ptr %87, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 80
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 80
   %92 = load ptr, ptr %91, align 8
   %93 = icmp eq ptr %92, null
   br i1 %93, label %94, label %96
@@ -8482,14 +8482,14 @@ icl_wa_init_mcr.exit:                             ; preds = %28, %44
 
 102:                                              ; preds = %98, %icl_wa_init_mcr.exit
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #10
-  %103 = getelementptr inbounds i8, ptr %6, i64 16
+  %103 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 0, ptr %103, align 4, !annotation !5
   store i32 38100, ptr %6, align 4
-  %104 = getelementptr inbounds i8, ptr %6, i64 4
+  %104 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 196608, ptr %104, align 4
-  %105 = getelementptr inbounds i8, ptr %6, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 196608, ptr %105, align 4
-  %106 = getelementptr inbounds i8, ptr %6, i64 12
+  %106 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 196608, ptr %106, align 4
   call fastcc void @_wa_add(ptr noundef %1, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #10
@@ -8497,16 +8497,16 @@ icl_wa_init_mcr.exit:                             ; preds = %28, %44
 
 107:                                              ; preds = %102, %98, %77
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #10
-  %108 = getelementptr inbounds i8, ptr %5, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 0, ptr %108, align 4, !annotation !5
   store i32 38224, ptr %5, align 4
-  %109 = getelementptr inbounds i8, ptr %5, i64 4
+  %109 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 512, ptr %109, align 4
-  %110 = getelementptr inbounds i8, ptr %5, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %110, align 4
-  %111 = getelementptr inbounds i8, ptr %5, i64 12
+  %111 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 512, ptr %111, align 4
-  %112 = getelementptr inbounds i8, ptr %5, i64 16
+  %112 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i8 2, ptr %112, align 4
   call fastcc void @_wa_add(ptr noundef %1, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #10
@@ -8519,26 +8519,26 @@ define internal fastcc void @cfl_gt_workarounds_init(ptr %.0.val, ptr nocapture 
   %3 = alloca %struct.i915_wa, align 4
   tail call fastcc void @gen9_gt_workarounds_init(ptr %.0.val, ptr noundef %0)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #10
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 0, ptr %4, align 4, !annotation !5
   store i32 37900, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %3, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 16384, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 16384, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %3, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 16384, ptr %7, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #10
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 0, ptr %8, align 4, !annotation !5
   store i32 19120, ptr %2, align 4
-  %9 = getelementptr inbounds i8, ptr %2, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 262144, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %2, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 262144, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %2, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 262144, ptr %11, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #10
@@ -8553,14 +8553,14 @@ define internal fastcc void @kbl_gt_workarounds_init(ptr nocapture noundef reado
   %.val = load ptr, ptr %0, align 8
   tail call fastcc void @gen9_gt_workarounds_init(ptr %.val, ptr noundef %1)
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 7184
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 7184
   %8 = load i32, ptr %7, align 4
   %9 = and i32 %8, 134217728
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %38, label %11
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %6, i64 7200
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 7200
   %13 = load i8, ptr %12, align 8
   %14 = icmp eq i8 %13, 0
   br i1 %14, label %15, label %30, !prof !6
@@ -8568,13 +8568,13 @@ define internal fastcc void @kbl_gt_workarounds_init(ptr nocapture noundef reado
 15:                                               ; preds = %11
   tail call void asm sideeffect "895: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 895b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 895) #10, !srcloc !223
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr @dev_driver_string(ptr noundef %18) #10
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 80
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 80
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %26, label %28
@@ -8591,7 +8591,7 @@ define internal fastcc void @kbl_gt_workarounds_init(ptr nocapture noundef reado
   tail call void asm sideeffect "897: nop\0A\09.pushsection .discard.instr_end\0A\09.long 897b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 897) #10, !srcloc !226
   tail call void asm sideeffect "898: nop\0A\09.pushsection .discard.instr_end\0A\09.long 898b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 898) #10, !srcloc !227
   %.pre = load ptr, ptr %0, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 7200
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 7200
   %.pre1 = load i8, ptr %.phi.trans.insert, align 8
   br label %30
 
@@ -8602,14 +8602,14 @@ define internal fastcc void @kbl_gt_workarounds_init(ptr nocapture noundef reado
 
 33:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #10
-  %34 = getelementptr inbounds i8, ptr %5, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 0, ptr %34, align 4, !annotation !5
   store i32 19128, ptr %5, align 4
-  %35 = getelementptr inbounds i8, ptr %5, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 268435456, ptr %35, align 4
-  %36 = getelementptr inbounds i8, ptr %5, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 268435456, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %5, i64 12
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 268435456, ptr %37, align 4
   call fastcc void @_wa_add(ptr noundef %1, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #10
@@ -8617,26 +8617,26 @@ define internal fastcc void @kbl_gt_workarounds_init(ptr nocapture noundef reado
 
 38:                                               ; preds = %33, %30, %2
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #10
-  %39 = getelementptr inbounds i8, ptr %4, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %39, align 4, !annotation !5
   store i32 37900, ptr %4, align 4
-  %40 = getelementptr inbounds i8, ptr %4, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 16384, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %4, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 16384, ptr %41, align 4
-  %42 = getelementptr inbounds i8, ptr %4, i64 12
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 16384, ptr %42, align 4
   call fastcc void @_wa_add(ptr noundef %1, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #10
-  %43 = getelementptr inbounds i8, ptr %3, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 0, ptr %43, align 4, !annotation !5
   store i32 19120, ptr %3, align 4
-  %44 = getelementptr inbounds i8, ptr %3, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 262144, ptr %44, align 4
-  %45 = getelementptr inbounds i8, ptr %3, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 262144, ptr %45, align 4
-  %46 = getelementptr inbounds i8, ptr %3, i64 12
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 262144, ptr %46, align 4
   call fastcc void @_wa_add(ptr noundef %1, ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #10
@@ -8649,20 +8649,20 @@ define internal fastcc void @gen9_gt_workarounds_init(ptr readonly %.0.val, ptr 
   %3 = alloca %struct.i915_wa, align 4
   %4 = alloca %struct.i915_wa, align 4
   %5 = alloca %struct.i915_wa, align 4
-  %6 = getelementptr inbounds i8, ptr %.0.val, i64 9304
+  %6 = getelementptr inbounds nuw i8, ptr %.0.val, i64 9304
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 4968
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4968
   %9 = load i8, ptr %8, align 8
   %10 = zext i8 %9 to i32
   %11 = tail call i32 asm "bsfl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %10, i32 -1) #12, !srcloc !208
   %12 = trunc i32 %11 to i8
-  %13 = tail call i32 @intel_sseu_get_hsw_subslices(ptr noundef %8, i8 noundef zeroext %12) #10
+  %13 = tail call i32 @intel_sseu_get_hsw_subslices(ptr noundef nonnull %8, i8 noundef zeroext %12) #10
   %14 = tail call i32 asm "bsfl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %13, i32 -1) #12, !srcloc !208
   %15 = icmp eq ptr %.0.val, null
   br i1 %15, label %19, label %16
 
 16:                                               ; preds = %1
-  %17 = getelementptr inbounds i8, ptr %.0.val, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
   %18 = load ptr, ptr %17, align 8
   br label %19
 
@@ -8675,18 +8675,18 @@ define internal fastcc void @gen9_gt_workarounds_init(ptr readonly %.0.val, ptr 
   %25 = or disjoint i32 %24, %22
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %20, i32 noundef 1, ptr noundef nonnull @.str.17, i32 noundef %11, i32 noundef %14, i32 noundef %25) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #10
-  %26 = getelementptr inbounds i8, ptr %5, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 0, ptr %26, align 4, !annotation !5
   store i32 4060, ptr %5, align 4
-  %27 = getelementptr inbounds i8, ptr %5, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 251658240, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %5, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %25, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %5, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 251658240, ptr %29, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #10
-  %30 = getelementptr inbounds i8, ptr %.0.val, i64 7184
+  %30 = getelementptr inbounds nuw i8, ptr %.0.val, i64 7184
   %31 = load i32, ptr %30, align 4
   %32 = and i32 %31, 1610612736
   %33 = icmp eq i32 %32, 0
@@ -8694,23 +8694,23 @@ define internal fastcc void @gen9_gt_workarounds_init(ptr readonly %.0.val, ptr 
 
 34:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #10
-  %35 = getelementptr inbounds i8, ptr %4, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %35, align 4, !annotation !5
   store i32 16528, ptr %4, align 4
-  %36 = getelementptr inbounds i8, ptr %4, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 256, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %4, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 256, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %4, i64 12
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 256, ptr %38, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #10
   br label %39
 
 39:                                               ; preds = %34, %19
-  %40 = getelementptr inbounds i8, ptr %.0.val, i64 7168
+  %40 = getelementptr inbounds nuw i8, ptr %.0.val, i64 7168
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 28
   %43 = load i64, ptr %42, align 4
   %44 = and i64 %43, 524288
   %45 = icmp eq i64 %44, 0
@@ -8718,14 +8718,14 @@ define internal fastcc void @gen9_gt_workarounds_init(ptr readonly %.0.val, ptr 
 
 46:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #10
-  %47 = getelementptr inbounds i8, ptr %3, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 0, ptr %47, align 4, !annotation !5
   store i32 19932, ptr %3, align 4
-  %48 = getelementptr inbounds i8, ptr %3, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 -2013265920, ptr %48, align 4
-  %49 = getelementptr inbounds i8, ptr %3, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 -2013265920, ptr %49, align 4
-  %50 = getelementptr inbounds i8, ptr %3, i64 12
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 -2013265920, ptr %50, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #10
@@ -8733,14 +8733,14 @@ define internal fastcc void @gen9_gt_workarounds_init(ptr readonly %.0.val, ptr 
 
 51:                                               ; preds = %46, %39
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #10
-  %52 = getelementptr inbounds i8, ptr %2, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 0, ptr %52, align 4, !annotation !5
   store i32 16528, ptr %2, align 4
-  %53 = getelementptr inbounds i8, ptr %2, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 33554432, ptr %53, align 4
-  %54 = getelementptr inbounds i8, ptr %2, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 33554432, ptr %54, align 4
-  %55 = getelementptr inbounds i8, ptr %2, i64 12
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 33554432, ptr %55, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #10
@@ -8754,26 +8754,26 @@ define internal fastcc void @skl_gt_workarounds_init(ptr nocapture noundef reado
   %.val = load ptr, ptr %0, align 8
   tail call fastcc void @gen9_gt_workarounds_init(ptr %.val, ptr noundef %1)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #10
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %5, align 4, !annotation !5
   store i32 37900, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %4, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 16384, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 16384, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 16384, ptr %8, align 4
   call fastcc void @_wa_add(ptr noundef %1, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #10
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 7184
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 7184
   %11 = load i32, ptr %10, align 4
   %12 = and i32 %11, 33554432
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %42, label %14
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %9, i64 7200
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 7200
   %16 = load i8, ptr %15, align 8
   %17 = icmp eq i8 %16, 0
   br i1 %17, label %18, label %33, !prof !6
@@ -8781,13 +8781,13 @@ define internal fastcc void @skl_gt_workarounds_init(ptr nocapture noundef reado
 18:                                               ; preds = %14
   tail call void asm sideeffect "891: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 891b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 891) #10, !srcloc !228
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = tail call ptr @dev_driver_string(ptr noundef %21) #10
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 80
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 80
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %31
@@ -8804,7 +8804,7 @@ define internal fastcc void @skl_gt_workarounds_init(ptr nocapture noundef reado
   tail call void asm sideeffect "893: nop\0A\09.pushsection .discard.instr_end\0A\09.long 893b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 893) #10, !srcloc !231
   tail call void asm sideeffect "894: nop\0A\09.pushsection .discard.instr_end\0A\09.long 894b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 894) #10, !srcloc !232
   %.pre = load ptr, ptr %0, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 7200
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 7200
   %.pre1 = load i8, ptr %.phi.trans.insert, align 8
   br label %33
 
@@ -8816,14 +8816,14 @@ define internal fastcc void @skl_gt_workarounds_init(ptr nocapture noundef reado
 
 37:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #10
-  %38 = getelementptr inbounds i8, ptr %3, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 0, ptr %38, align 4, !annotation !5
   store i32 19120, ptr %3, align 4
-  %39 = getelementptr inbounds i8, ptr %3, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 262144, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %3, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 262144, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %3, i64 12
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 262144, ptr %41, align 4
   call fastcc void @_wa_add(ptr noundef %1, ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #10
@@ -8839,40 +8839,40 @@ define internal fastcc void @hsw_gt_workarounds_init(ptr nocapture noundef %0) u
   %3 = alloca %struct.i915_wa, align 4
   %4 = alloca %struct.i915_wa, align 4
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #10
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %5, align 4, !annotation !5
   store i32 45112, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %4, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 -1, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 134217728, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 -1, ptr %8, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #10
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 0, ptr %9, align 4, !annotation !5
   store i32 58524, ptr %3, align 4
-  %10 = getelementptr inbounds i8, ptr %3, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 4194368, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %3, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %3, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i8 1, ptr %13, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #10
-  %14 = getelementptr inbounds i8, ptr %2, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 0, ptr %14, align 4, !annotation !5
   store i32 8352, ptr %2, align 4
-  %15 = getelementptr inbounds i8, ptr %2, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 32768, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %2, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 32768, ptr %17, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #10
@@ -8884,26 +8884,26 @@ define internal fastcc void @vlv_gt_workarounds_init(ptr nocapture noundef %0) u
   %2 = alloca %struct.i915_wa, align 4
   %3 = alloca %struct.i915_wa, align 4
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #10
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 0, ptr %4, align 4, !annotation !5
   store i32 45108, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %3, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 134217728, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %3, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 134217728, ptr %7, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #10
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 0, ptr %8, align 4, !annotation !5
   store i32 45072, ptr %2, align 4
-  %9 = getelementptr inbounds i8, ptr %2, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 -1, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %2, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 13828096, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %2, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 -1, ptr %11, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #10
@@ -8917,52 +8917,52 @@ define internal fastcc void @ivb_gt_workarounds_init(ptr nocapture noundef %0) u
   %4 = alloca %struct.i915_wa, align 4
   %5 = alloca %struct.i915_wa, align 4
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #10
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 0, ptr %6, align 4, !annotation !5
   store i32 28688, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 0, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 67108864, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %5, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 1024, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i8 1, ptr %10, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #10
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %11, align 4, !annotation !5
   store i32 45084, ptr %4, align 4
-  %12 = getelementptr inbounds i8, ptr %4, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 -1, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %4, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 1011351436, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %4, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 -1, ptr %14, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #10
-  %15 = getelementptr inbounds i8, ptr %3, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 0, ptr %15, align 4, !annotation !5
   store i32 45104, ptr %3, align 4
-  %16 = getelementptr inbounds i8, ptr %3, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 -1, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %3, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 536870912, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %3, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 -1, ptr %18, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #10
-  %19 = getelementptr inbounds i8, ptr %2, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 0, ptr %19, align 4, !annotation !5
   store i32 45108, ptr %2, align 4
-  %20 = getelementptr inbounds i8, ptr %2, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 134217728, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %2, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %2, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 134217728, ptr %22, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #10
@@ -8975,44 +8975,44 @@ define internal fastcc void @ilk_gt_workarounds_init(ptr nocapture noundef %0) u
   %3 = alloca %struct.i915_wa, align 4
   %4 = alloca %struct.i915_wa, align 4
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #10
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %5, align 4, !annotation !5
   store i32 8480, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %4, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 65536, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 1, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i8 1, ptr %9, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #10
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 0, ptr %10, align 4, !annotation !5
   store i32 8480, ptr %3, align 4
-  %11 = getelementptr inbounds i8, ptr %3, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %3, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 16777472, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %3, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 256, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %3, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i8 1, ptr %14, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #10
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 0, ptr %15, align 4, !annotation !5
   store i32 8332, ptr %2, align 4
-  %16 = getelementptr inbounds i8, ptr %2, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %2, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 1073758208, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %2, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 16384, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %2, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i8 1, ptr %19, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #10
@@ -9024,30 +9024,30 @@ define internal fastcc void @g4x_gt_workarounds_init(ptr nocapture noundef %0) u
   %2 = alloca %struct.i915_wa, align 4
   %3 = alloca %struct.i915_wa, align 4
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #10
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 0, ptr %4, align 4, !annotation !5
   store i32 8480, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %3, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 65536, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %3, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 1, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i8 1, ptr %8, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #10
-  %9 = getelementptr inbounds i8, ptr %2, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 0, ptr %9, align 4, !annotation !5
   store i32 8480, ptr %2, align 4
-  %10 = getelementptr inbounds i8, ptr %2, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 16777472, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %2, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 256, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %2, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i8 1, ptr %13, align 4
   call fastcc void @_wa_add(ptr noundef %0, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #10
@@ -9067,10 +9067,10 @@ define internal fastcc void @xehp_init_mcr(ptr noundef %0, ptr nocapture noundef
   %5 = alloca %struct.i915_wa, align 4
   %6 = alloca %struct.drm_printer, align 8
   %7 = alloca %struct.i915_wa, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 4976
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4976
   %9 = load i64, ptr %8, align 8
   %10 = tail call zeroext i16 @intel_slicemask_from_xehp_dssmask(i64 %9, i32 noundef 4) #10
-  %11 = getelementptr inbounds i8, ptr %0, i64 5144
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 5144
   %12 = load i64, ptr %11, align 8
   %invariant.op = and i64 %12, 15
   br label %13
@@ -9168,28 +9168,28 @@ define internal fastcc void @xehp_init_mcr(ptr noundef %0, ptr nocapture noundef
   %73 = shl nuw nsw i32 %70, 24
   %74 = or disjoint i32 %73, %72
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %7) #10
-  %75 = getelementptr inbounds i8, ptr %7, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 0, ptr %75, align 4, !annotation !5
   store i32 4060, ptr %7, align 4
-  %76 = getelementptr inbounds i8, ptr %7, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 2130706432, ptr %76, align 4
-  %77 = getelementptr inbounds i8, ptr %7, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %74, ptr %77, align 4
-  %78 = getelementptr inbounds i8, ptr %7, i64 12
+  %78 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 2130706432, ptr %78, align 4
   call fastcc void @_wa_add(ptr noundef %1, ptr noundef nonnull %7)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #10
   %79 = trunc i64 %55 to i8
-  %80 = getelementptr inbounds i8, ptr %0, i64 4936
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 4936
   store i8 %79, ptr %80, align 8
   %81 = trunc nuw nsw i32 %70 to i8
-  %82 = getelementptr inbounds i8, ptr %0, i64 4937
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 4937
   store i8 %81, ptr %82, align 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #10
   store ptr @__drm_printfn_debug, ptr %6, align 8, !alias.scope !235
-  %83 = getelementptr inbounds i8, ptr %6, i64 8
-  %84 = getelementptr inbounds i8, ptr %6, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %83, i8 0, i64 16, i1 false), !alias.scope !235
+  %83 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %83, i8 0, i64 16, i1 false), !alias.scope !235
   store ptr @.str.15, ptr %84, align 8, !alias.scope !235
   %85 = load i64, ptr @__drm_debug, align 8
   %86 = and i64 %85, 2
@@ -9203,26 +9203,26 @@ define internal fastcc void @xehp_init_mcr(ptr noundef %0, ptr nocapture noundef
 89:                                               ; preds = %88, %69
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #10
-  %90 = getelementptr inbounds i8, ptr %5, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 0, ptr %90, align 4, !annotation !5
   store i32 4048, ptr %5, align 4
-  %91 = getelementptr inbounds i8, ptr %5, i64 4
+  %91 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 2130706432, ptr %91, align 4
-  %92 = getelementptr inbounds i8, ptr %5, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 33554432, ptr %92, align 4
-  %93 = getelementptr inbounds i8, ptr %5, i64 12
+  %93 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 2130706432, ptr %93, align 4
   call fastcc void @_wa_add(ptr noundef %1, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #10
-  %94 = getelementptr inbounds i8, ptr %4, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %94, align 4, !annotation !5
   store i32 4056, ptr %4, align 4
-  %95 = getelementptr inbounds i8, ptr %4, i64 4
+  %95 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 2130706432, ptr %95, align 4
-  %96 = getelementptr inbounds i8, ptr %4, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 33554432, ptr %96, align 4
-  %97 = getelementptr inbounds i8, ptr %4, i64 12
+  %97 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 2130706432, ptr %97, align 4
   call fastcc void @_wa_add(ptr noundef %1, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #10
@@ -9235,14 +9235,14 @@ define internal fastcc void @xehp_init_mcr(ptr noundef %0, ptr nocapture noundef
 
 103:                                              ; preds = %89
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #10
-  %104 = getelementptr inbounds i8, ptr %3, i64 16
+  %104 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 0, ptr %104, align 4, !annotation !5
   store i32 4064, ptr %3, align 4
-  %105 = getelementptr inbounds i8, ptr %3, i64 4
+  %105 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 2130706432, ptr %105, align 4
-  %106 = getelementptr inbounds i8, ptr %3, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 134217728, ptr %106, align 4
-  %107 = getelementptr inbounds i8, ptr %3, i64 12
+  %107 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 2130706432, ptr %107, align 4
   call fastcc void @_wa_add(ptr noundef %1, ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #10

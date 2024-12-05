@@ -174,28 +174,28 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define hidden void @_ZN19OpenColorIO_v2_4dev10RangeOpCPUC2ERSt10shared_ptrIKNS_11RangeOpDataEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %range) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev10RangeOpCPUE, i64 16), ptr %this, align 8
-  %m_scale = getelementptr inbounds i8, ptr %this, i64 8
-  %m_offset = getelementptr inbounds i8, ptr %this, i64 12
-  %m_lowerBound = getelementptr inbounds i8, ptr %this, i64 16
-  %m_upperBound = getelementptr inbounds i8, ptr %this, i64 20
+  %m_scale = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %m_offset = getelementptr inbounds nuw i8, ptr %this, i64 12
+  %m_lowerBound = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %m_upperBound = getelementptr inbounds nuw i8, ptr %this, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_scale, i8 0, i64 16, i1 false)
   %0 = load ptr, ptr %range, align 8
-  %m_scale.i = getelementptr inbounds i8, ptr %0, i64 200
+  %m_scale.i = getelementptr inbounds nuw i8, ptr %0, i64 200
   %1 = load double, ptr %m_scale.i, align 8
   %conv = fptrunc double %1 to float
   store float %conv, ptr %m_scale, align 8
   %2 = load ptr, ptr %range, align 8
-  %m_offset.i = getelementptr inbounds i8, ptr %2, i64 208
+  %m_offset.i = getelementptr inbounds nuw i8, ptr %2, i64 208
   %3 = load double, ptr %m_offset.i, align 8
   %conv7 = fptrunc double %3 to float
   store float %conv7, ptr %m_offset, align 4
   %4 = load ptr, ptr %range, align 8
-  %m_minOutValue.i = getelementptr inbounds i8, ptr %4, i64 184
+  %m_minOutValue.i = getelementptr inbounds nuw i8, ptr %4, i64 184
   %5 = load double, ptr %m_minOutValue.i, align 8
   %conv12 = fptrunc double %5 to float
   store float %conv12, ptr %m_lowerBound, align 8
   %6 = load ptr, ptr %range, align 8
-  %m_maxOutValue.i = getelementptr inbounds i8, ptr %6, i64 192
+  %m_maxOutValue.i = getelementptr inbounds nuw i8, ptr %6, i64 192
   %7 = load double, ptr %m_maxOutValue.i, align 8
   %conv17 = fptrunc double %7 to float
   store float %conv17, ptr %m_upperBound, align 4
@@ -211,28 +211,28 @@ declare i32 @__gxx_personality_v0(...)
 define hidden void @_ZN19OpenColorIO_v2_4dev24RangeScaleMinMaxRendererC2ERSt10shared_ptrIKNS_11RangeOpDataEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %range) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev10RangeOpCPUE, i64 16), ptr %this, align 8
-  %m_scale.i = getelementptr inbounds i8, ptr %this, i64 8
-  %m_offset.i = getelementptr inbounds i8, ptr %this, i64 12
-  %m_lowerBound.i = getelementptr inbounds i8, ptr %this, i64 16
-  %m_upperBound.i = getelementptr inbounds i8, ptr %this, i64 20
+  %m_scale.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %m_offset.i = getelementptr inbounds nuw i8, ptr %this, i64 12
+  %m_lowerBound.i = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %m_upperBound.i = getelementptr inbounds nuw i8, ptr %this, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_scale.i, i8 0, i64 16, i1 false)
   %0 = load ptr, ptr %range, align 8
-  %m_scale.i.i = getelementptr inbounds i8, ptr %0, i64 200
+  %m_scale.i.i = getelementptr inbounds nuw i8, ptr %0, i64 200
   %1 = load double, ptr %m_scale.i.i, align 8
   %conv.i = fptrunc double %1 to float
   store float %conv.i, ptr %m_scale.i, align 8
   %2 = load ptr, ptr %range, align 8
-  %m_offset.i.i = getelementptr inbounds i8, ptr %2, i64 208
+  %m_offset.i.i = getelementptr inbounds nuw i8, ptr %2, i64 208
   %3 = load double, ptr %m_offset.i.i, align 8
   %conv7.i = fptrunc double %3 to float
   store float %conv7.i, ptr %m_offset.i, align 4
   %4 = load ptr, ptr %range, align 8
-  %m_minOutValue.i.i = getelementptr inbounds i8, ptr %4, i64 184
+  %m_minOutValue.i.i = getelementptr inbounds nuw i8, ptr %4, i64 184
   %5 = load double, ptr %m_minOutValue.i.i, align 8
   %conv12.i = fptrunc double %5 to float
   store float %conv12.i, ptr %m_lowerBound.i, align 8
   %6 = load ptr, ptr %range, align 8
-  %m_maxOutValue.i.i = getelementptr inbounds i8, ptr %6, i64 192
+  %m_maxOutValue.i.i = getelementptr inbounds nuw i8, ptr %6, i64 192
   %7 = load double, ptr %m_maxOutValue.i.i, align 8
   %conv17.i = fptrunc double %7 to float
   store float %conv17.i, ptr %m_upperBound.i, align 4
@@ -247,10 +247,10 @@ entry:
   br i1 %cmp18, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_scale = getelementptr inbounds i8, ptr %this, i64 8
-  %m_offset = getelementptr inbounds i8, ptr %this, i64 12
-  %m_lowerBound = getelementptr inbounds i8, ptr %this, i64 16
-  %m_upperBound = getelementptr inbounds i8, ptr %this, i64 20
+  %m_scale = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %m_offset = getelementptr inbounds nuw i8, ptr %this, i64 12
+  %m_lowerBound = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %m_upperBound = getelementptr inbounds nuw i8, ptr %this, i64 20
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -261,10 +261,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %1 = load float, ptr %m_scale, align 8
   %2 = load float, ptr %m_offset, align 4
   %3 = tail call float @llvm.fmuladd.f32(float %0, float %1, float %2)
-  %arrayidx2 = getelementptr inbounds i8, ptr %in.021, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %in.021, i64 4
   %4 = load float, ptr %arrayidx2, align 4
   %5 = tail call float @llvm.fmuladd.f32(float %4, float %1, float %2)
-  %arrayidx6 = getelementptr inbounds i8, ptr %in.021, i64 8
+  %arrayidx6 = getelementptr inbounds nuw i8, ptr %in.021, i64 8
   %6 = load float, ptr %arrayidx6, align 4
   %7 = tail call float @llvm.fmuladd.f32(float %6, float %1, float %2)
   %8 = load float, ptr %m_lowerBound, align 8
@@ -280,7 +280,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %.sroa.speculated3.i11 = select i1 %cmp.i.i10, float %5, float %10
   %cmp.i1.i12 = fcmp olt float %11, %.sroa.speculated3.i11
   %.sroa.speculated.i13 = select i1 %cmp.i1.i12, float %11, float %.sroa.speculated3.i11
-  %arrayidx15 = getelementptr inbounds i8, ptr %out.020, i64 4
+  %arrayidx15 = getelementptr inbounds nuw i8, ptr %out.020, i64 4
   store float %.sroa.speculated.i13, ptr %arrayidx15, align 4
   %12 = load float, ptr %m_lowerBound, align 8
   %13 = load float, ptr %m_upperBound, align 4
@@ -288,14 +288,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %.sroa.speculated3.i15 = select i1 %cmp.i.i14, float %7, float %12
   %cmp.i1.i16 = fcmp olt float %13, %.sroa.speculated3.i15
   %.sroa.speculated.i17 = select i1 %cmp.i1.i16, float %13, float %.sroa.speculated3.i15
-  %arrayidx20 = getelementptr inbounds i8, ptr %out.020, i64 8
+  %arrayidx20 = getelementptr inbounds nuw i8, ptr %out.020, i64 8
   store float %.sroa.speculated.i17, ptr %arrayidx20, align 4
-  %arrayidx21 = getelementptr inbounds i8, ptr %in.021, i64 12
+  %arrayidx21 = getelementptr inbounds nuw i8, ptr %in.021, i64 12
   %14 = load float, ptr %arrayidx21, align 4
-  %arrayidx22 = getelementptr inbounds i8, ptr %out.020, i64 12
+  %arrayidx22 = getelementptr inbounds nuw i8, ptr %out.020, i64 12
   store float %14, ptr %arrayidx22, align 4
-  %add.ptr = getelementptr inbounds i8, ptr %in.021, i64 16
-  %add.ptr23 = getelementptr inbounds i8, ptr %out.020, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %in.021, i64 16
+  %add.ptr23 = getelementptr inbounds nuw i8, ptr %out.020, i64 16
   %inc = add nuw nsw i64 %idx.019, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
@@ -311,28 +311,28 @@ declare float @llvm.fmuladd.f32(float, float, float) #6
 define hidden void @_ZN19OpenColorIO_v2_4dev19RangeMinMaxRendererC2ERSt10shared_ptrIKNS_11RangeOpDataEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %range) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev10RangeOpCPUE, i64 16), ptr %this, align 8
-  %m_scale.i = getelementptr inbounds i8, ptr %this, i64 8
-  %m_offset.i = getelementptr inbounds i8, ptr %this, i64 12
-  %m_lowerBound.i = getelementptr inbounds i8, ptr %this, i64 16
-  %m_upperBound.i = getelementptr inbounds i8, ptr %this, i64 20
+  %m_scale.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %m_offset.i = getelementptr inbounds nuw i8, ptr %this, i64 12
+  %m_lowerBound.i = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %m_upperBound.i = getelementptr inbounds nuw i8, ptr %this, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_scale.i, i8 0, i64 16, i1 false)
   %0 = load ptr, ptr %range, align 8
-  %m_scale.i.i = getelementptr inbounds i8, ptr %0, i64 200
+  %m_scale.i.i = getelementptr inbounds nuw i8, ptr %0, i64 200
   %1 = load double, ptr %m_scale.i.i, align 8
   %conv.i = fptrunc double %1 to float
   store float %conv.i, ptr %m_scale.i, align 8
   %2 = load ptr, ptr %range, align 8
-  %m_offset.i.i = getelementptr inbounds i8, ptr %2, i64 208
+  %m_offset.i.i = getelementptr inbounds nuw i8, ptr %2, i64 208
   %3 = load double, ptr %m_offset.i.i, align 8
   %conv7.i = fptrunc double %3 to float
   store float %conv7.i, ptr %m_offset.i, align 4
   %4 = load ptr, ptr %range, align 8
-  %m_minOutValue.i.i = getelementptr inbounds i8, ptr %4, i64 184
+  %m_minOutValue.i.i = getelementptr inbounds nuw i8, ptr %4, i64 184
   %5 = load double, ptr %m_minOutValue.i.i, align 8
   %conv12.i = fptrunc double %5 to float
   store float %conv12.i, ptr %m_lowerBound.i, align 8
   %6 = load ptr, ptr %range, align 8
-  %m_maxOutValue.i.i = getelementptr inbounds i8, ptr %6, i64 192
+  %m_maxOutValue.i.i = getelementptr inbounds nuw i8, ptr %6, i64 192
   %7 = load double, ptr %m_maxOutValue.i.i, align 8
   %conv17.i = fptrunc double %7 to float
   store float %conv17.i, ptr %m_upperBound.i, align 4
@@ -347,8 +347,8 @@ entry:
   br i1 %cmp18, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_lowerBound = getelementptr inbounds i8, ptr %this, i64 16
-  %m_upperBound = getelementptr inbounds i8, ptr %this, i64 20
+  %m_lowerBound = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %m_upperBound = getelementptr inbounds nuw i8, ptr %this, i64 20
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -363,7 +363,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %cmp.i1.i = fcmp olt float %2, %.sroa.speculated3.i
   %.sroa.speculated.i = select i1 %cmp.i1.i, float %2, float %.sroa.speculated3.i
   store float %.sroa.speculated.i, ptr %out.020, align 4
-  %arrayidx3 = getelementptr inbounds i8, ptr %in.019, i64 4
+  %arrayidx3 = getelementptr inbounds nuw i8, ptr %in.019, i64 4
   %3 = load float, ptr %arrayidx3, align 4
   %4 = load float, ptr %m_lowerBound, align 8
   %5 = load float, ptr %m_upperBound, align 4
@@ -371,9 +371,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %.sroa.speculated3.i11 = select i1 %cmp.i.i10, float %3, float %4
   %cmp.i1.i12 = fcmp olt float %5, %.sroa.speculated3.i11
   %.sroa.speculated.i13 = select i1 %cmp.i1.i12, float %5, float %.sroa.speculated3.i11
-  %arrayidx7 = getelementptr inbounds i8, ptr %out.020, i64 4
+  %arrayidx7 = getelementptr inbounds nuw i8, ptr %out.020, i64 4
   store float %.sroa.speculated.i13, ptr %arrayidx7, align 4
-  %arrayidx8 = getelementptr inbounds i8, ptr %in.019, i64 8
+  %arrayidx8 = getelementptr inbounds nuw i8, ptr %in.019, i64 8
   %6 = load float, ptr %arrayidx8, align 4
   %7 = load float, ptr %m_lowerBound, align 8
   %8 = load float, ptr %m_upperBound, align 4
@@ -381,14 +381,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %.sroa.speculated3.i15 = select i1 %cmp.i.i14, float %6, float %7
   %cmp.i1.i16 = fcmp olt float %8, %.sroa.speculated3.i15
   %.sroa.speculated.i17 = select i1 %cmp.i1.i16, float %8, float %.sroa.speculated3.i15
-  %arrayidx12 = getelementptr inbounds i8, ptr %out.020, i64 8
+  %arrayidx12 = getelementptr inbounds nuw i8, ptr %out.020, i64 8
   store float %.sroa.speculated.i17, ptr %arrayidx12, align 4
-  %arrayidx13 = getelementptr inbounds i8, ptr %in.019, i64 12
+  %arrayidx13 = getelementptr inbounds nuw i8, ptr %in.019, i64 12
   %9 = load float, ptr %arrayidx13, align 4
-  %arrayidx14 = getelementptr inbounds i8, ptr %out.020, i64 12
+  %arrayidx14 = getelementptr inbounds nuw i8, ptr %out.020, i64 12
   store float %9, ptr %arrayidx14, align 4
-  %add.ptr = getelementptr inbounds i8, ptr %in.019, i64 16
-  %add.ptr15 = getelementptr inbounds i8, ptr %out.020, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %in.019, i64 16
+  %add.ptr15 = getelementptr inbounds nuw i8, ptr %out.020, i64 16
   %inc = add nuw nsw i64 %idx.021, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
@@ -401,28 +401,28 @@ for.end:                                          ; preds = %for.body, %entry
 define hidden void @_ZN19OpenColorIO_v2_4dev16RangeMinRendererC2ERSt10shared_ptrIKNS_11RangeOpDataEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %range) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev10RangeOpCPUE, i64 16), ptr %this, align 8
-  %m_scale.i = getelementptr inbounds i8, ptr %this, i64 8
-  %m_offset.i = getelementptr inbounds i8, ptr %this, i64 12
-  %m_lowerBound.i = getelementptr inbounds i8, ptr %this, i64 16
-  %m_upperBound.i = getelementptr inbounds i8, ptr %this, i64 20
+  %m_scale.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %m_offset.i = getelementptr inbounds nuw i8, ptr %this, i64 12
+  %m_lowerBound.i = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %m_upperBound.i = getelementptr inbounds nuw i8, ptr %this, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_scale.i, i8 0, i64 16, i1 false)
   %0 = load ptr, ptr %range, align 8
-  %m_scale.i.i = getelementptr inbounds i8, ptr %0, i64 200
+  %m_scale.i.i = getelementptr inbounds nuw i8, ptr %0, i64 200
   %1 = load double, ptr %m_scale.i.i, align 8
   %conv.i = fptrunc double %1 to float
   store float %conv.i, ptr %m_scale.i, align 8
   %2 = load ptr, ptr %range, align 8
-  %m_offset.i.i = getelementptr inbounds i8, ptr %2, i64 208
+  %m_offset.i.i = getelementptr inbounds nuw i8, ptr %2, i64 208
   %3 = load double, ptr %m_offset.i.i, align 8
   %conv7.i = fptrunc double %3 to float
   store float %conv7.i, ptr %m_offset.i, align 4
   %4 = load ptr, ptr %range, align 8
-  %m_minOutValue.i.i = getelementptr inbounds i8, ptr %4, i64 184
+  %m_minOutValue.i.i = getelementptr inbounds nuw i8, ptr %4, i64 184
   %5 = load double, ptr %m_minOutValue.i.i, align 8
   %conv12.i = fptrunc double %5 to float
   store float %conv12.i, ptr %m_lowerBound.i, align 8
   %6 = load ptr, ptr %range, align 8
-  %m_maxOutValue.i.i = getelementptr inbounds i8, ptr %6, i64 192
+  %m_maxOutValue.i.i = getelementptr inbounds nuw i8, ptr %6, i64 192
   %7 = load double, ptr %m_maxOutValue.i.i, align 8
   %conv17.i = fptrunc double %7 to float
   store float %conv17.i, ptr %m_upperBound.i, align 4
@@ -437,7 +437,7 @@ entry:
   br i1 %cmp14, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_lowerBound = getelementptr inbounds i8, ptr %this, i64 16
+  %m_lowerBound = getelementptr inbounds nuw i8, ptr %this, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -449,26 +449,26 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %cmp.i = fcmp olt float %0, %1
   %2 = select i1 %cmp.i, float %1, float %0
   store float %2, ptr %out.016, align 4
-  %arrayidx4 = getelementptr inbounds i8, ptr %in.015, i64 4
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %in.015, i64 4
   %3 = load float, ptr %m_lowerBound, align 8
   %4 = load float, ptr %arrayidx4, align 4
   %cmp.i10 = fcmp olt float %3, %4
   %5 = select i1 %cmp.i10, float %4, float %3
-  %arrayidx6 = getelementptr inbounds i8, ptr %out.016, i64 4
+  %arrayidx6 = getelementptr inbounds nuw i8, ptr %out.016, i64 4
   store float %5, ptr %arrayidx6, align 4
-  %arrayidx8 = getelementptr inbounds i8, ptr %in.015, i64 8
+  %arrayidx8 = getelementptr inbounds nuw i8, ptr %in.015, i64 8
   %6 = load float, ptr %m_lowerBound, align 8
   %7 = load float, ptr %arrayidx8, align 4
   %cmp.i12 = fcmp olt float %6, %7
   %8 = select i1 %cmp.i12, float %7, float %6
-  %arrayidx10 = getelementptr inbounds i8, ptr %out.016, i64 8
+  %arrayidx10 = getelementptr inbounds nuw i8, ptr %out.016, i64 8
   store float %8, ptr %arrayidx10, align 4
-  %arrayidx11 = getelementptr inbounds i8, ptr %in.015, i64 12
+  %arrayidx11 = getelementptr inbounds nuw i8, ptr %in.015, i64 12
   %9 = load float, ptr %arrayidx11, align 4
-  %arrayidx12 = getelementptr inbounds i8, ptr %out.016, i64 12
+  %arrayidx12 = getelementptr inbounds nuw i8, ptr %out.016, i64 12
   store float %9, ptr %arrayidx12, align 4
-  %add.ptr = getelementptr inbounds i8, ptr %in.015, i64 16
-  %add.ptr13 = getelementptr inbounds i8, ptr %out.016, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %in.015, i64 16
+  %add.ptr13 = getelementptr inbounds nuw i8, ptr %out.016, i64 16
   %inc = add nuw nsw i64 %idx.017, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
@@ -481,28 +481,28 @@ for.end:                                          ; preds = %for.body, %entry
 define hidden void @_ZN19OpenColorIO_v2_4dev16RangeMaxRendererC2ERSt10shared_ptrIKNS_11RangeOpDataEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %range) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev10RangeOpCPUE, i64 16), ptr %this, align 8
-  %m_scale.i = getelementptr inbounds i8, ptr %this, i64 8
-  %m_offset.i = getelementptr inbounds i8, ptr %this, i64 12
-  %m_lowerBound.i = getelementptr inbounds i8, ptr %this, i64 16
-  %m_upperBound.i = getelementptr inbounds i8, ptr %this, i64 20
+  %m_scale.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %m_offset.i = getelementptr inbounds nuw i8, ptr %this, i64 12
+  %m_lowerBound.i = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %m_upperBound.i = getelementptr inbounds nuw i8, ptr %this, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_scale.i, i8 0, i64 16, i1 false)
   %0 = load ptr, ptr %range, align 8
-  %m_scale.i.i = getelementptr inbounds i8, ptr %0, i64 200
+  %m_scale.i.i = getelementptr inbounds nuw i8, ptr %0, i64 200
   %1 = load double, ptr %m_scale.i.i, align 8
   %conv.i = fptrunc double %1 to float
   store float %conv.i, ptr %m_scale.i, align 8
   %2 = load ptr, ptr %range, align 8
-  %m_offset.i.i = getelementptr inbounds i8, ptr %2, i64 208
+  %m_offset.i.i = getelementptr inbounds nuw i8, ptr %2, i64 208
   %3 = load double, ptr %m_offset.i.i, align 8
   %conv7.i = fptrunc double %3 to float
   store float %conv7.i, ptr %m_offset.i, align 4
   %4 = load ptr, ptr %range, align 8
-  %m_minOutValue.i.i = getelementptr inbounds i8, ptr %4, i64 184
+  %m_minOutValue.i.i = getelementptr inbounds nuw i8, ptr %4, i64 184
   %5 = load double, ptr %m_minOutValue.i.i, align 8
   %conv12.i = fptrunc double %5 to float
   store float %conv12.i, ptr %m_lowerBound.i, align 8
   %6 = load ptr, ptr %range, align 8
-  %m_maxOutValue.i.i = getelementptr inbounds i8, ptr %6, i64 192
+  %m_maxOutValue.i.i = getelementptr inbounds nuw i8, ptr %6, i64 192
   %7 = load double, ptr %m_maxOutValue.i.i, align 8
   %conv17.i = fptrunc double %7 to float
   store float %conv17.i, ptr %m_upperBound.i, align 4
@@ -517,7 +517,7 @@ entry:
   br i1 %cmp14, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_upperBound = getelementptr inbounds i8, ptr %this, i64 20
+  %m_upperBound = getelementptr inbounds nuw i8, ptr %this, i64 20
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -529,26 +529,26 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %cmp.i = fcmp olt float %0, %1
   %2 = select i1 %cmp.i, float %0, float %1
   store float %2, ptr %out.016, align 4
-  %arrayidx4 = getelementptr inbounds i8, ptr %in.015, i64 4
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %in.015, i64 4
   %3 = load float, ptr %arrayidx4, align 4
   %4 = load float, ptr %m_upperBound, align 4
   %cmp.i10 = fcmp olt float %3, %4
   %5 = select i1 %cmp.i10, float %3, float %4
-  %arrayidx6 = getelementptr inbounds i8, ptr %out.016, i64 4
+  %arrayidx6 = getelementptr inbounds nuw i8, ptr %out.016, i64 4
   store float %5, ptr %arrayidx6, align 4
-  %arrayidx8 = getelementptr inbounds i8, ptr %in.015, i64 8
+  %arrayidx8 = getelementptr inbounds nuw i8, ptr %in.015, i64 8
   %6 = load float, ptr %arrayidx8, align 4
   %7 = load float, ptr %m_upperBound, align 4
   %cmp.i12 = fcmp olt float %6, %7
   %8 = select i1 %cmp.i12, float %6, float %7
-  %arrayidx10 = getelementptr inbounds i8, ptr %out.016, i64 8
+  %arrayidx10 = getelementptr inbounds nuw i8, ptr %out.016, i64 8
   store float %8, ptr %arrayidx10, align 4
-  %arrayidx11 = getelementptr inbounds i8, ptr %in.015, i64 12
+  %arrayidx11 = getelementptr inbounds nuw i8, ptr %in.015, i64 12
   %9 = load float, ptr %arrayidx11, align 4
-  %arrayidx12 = getelementptr inbounds i8, ptr %out.016, i64 12
+  %arrayidx12 = getelementptr inbounds nuw i8, ptr %out.016, i64 12
   store float %9, ptr %arrayidx12, align 4
-  %add.ptr = getelementptr inbounds i8, ptr %in.015, i64 16
-  %add.ptr13 = getelementptr inbounds i8, ptr %out.016, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %in.015, i64 16
+  %add.ptr13 = getelementptr inbounds nuw i8, ptr %out.016, i64 16
   %inc = add nuw nsw i64 %idx.017, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
@@ -563,15 +563,15 @@ entry:
   %rangeFwd = alloca %"class.std::shared_ptr", align 8
   %0 = load ptr, ptr %range, align 8
   store ptr %0, ptr %rangeFwd, align 8
-  %_M_refcount.i.i = getelementptr inbounds i8, ptr %rangeFwd, i64 8
-  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %range, i64 8
+  %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %rangeFwd, i64 8
+  %_M_refcount3.i.i = getelementptr inbounds nuw i8, ptr %range, i64 8
   %1 = load ptr, ptr %_M_refcount3.i.i, align 8
   store ptr %1, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11RangeOpDataEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -588,7 +588,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11RangeOpDataEEC2ERKS3_.exit: ; preds = %entry, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
   %5 = load ptr, ptr %range, align 8
-  %m_direction.i = getelementptr inbounds i8, ptr %5, i64 224
+  %m_direction.i = getelementptr inbounds nuw i8, ptr %5, i64 224
   %6 = load i32, ptr %m_direction.i, align 8
   %cmp = icmp eq i32 %6, 1
   br i1 %cmp, label %if.then, label %if.end
@@ -626,9 +626,9 @@ if.then6:                                         ; preds = %invoke.cont4
           to label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev16RangeMaxRendererEED2Ev.exit unwind label %lpad2
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev16RangeMaxRendererEED2Ev.exit: ; preds = %if.then6
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i3, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i3, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !9
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i3, i64 12
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i3, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !9
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev16RangeMaxRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i3, align 8, !noalias !9
   br label %cleanup
@@ -645,9 +645,9 @@ if.then11:                                        ; preds = %invoke.cont9
           to label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev16RangeMinRendererEED2Ev.exit unwind label %lpad2
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev16RangeMinRendererEED2Ev.exit: ; preds = %if.then11
-  %_M_use_count.i.i.i.i.i.i14 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i29, i64 8
+  %_M_use_count.i.i.i.i.i.i14 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i29, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i14, align 8, !noalias !12
-  %_M_weak_count.i.i.i.i.i.i15 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i29, i64 12
+  %_M_weak_count.i.i.i.i.i.i15 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i29, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i15, align 4, !noalias !12
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev16RangeMinRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i29, align 8, !noalias !12
   br label %cleanup
@@ -664,9 +664,9 @@ if.then19:                                        ; preds = %invoke.cont17
           to label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev19RangeMinMaxRendererEED2Ev.exit unwind label %lpad2
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev19RangeMinMaxRendererEED2Ev.exit: ; preds = %if.then19
-  %_M_use_count.i.i.i.i.i.i64 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i79, i64 8
+  %_M_use_count.i.i.i.i.i.i64 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i79, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i64, align 8, !noalias !15
-  %_M_weak_count.i.i.i.i.i.i65 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i79, i64 12
+  %_M_weak_count.i.i.i.i.i.i65 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i79, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i65, align 4, !noalias !15
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev19RangeMinMaxRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i79, align 8, !noalias !15
   br label %cleanup
@@ -676,9 +676,9 @@ if.end22:                                         ; preds = %invoke.cont17
           to label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev24RangeScaleMinMaxRendererEED2Ev.exit unwind label %lpad2
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev24RangeScaleMinMaxRendererEED2Ev.exit: ; preds = %if.end22
-  %_M_use_count.i.i.i.i.i.i114 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i129, i64 8
+  %_M_use_count.i.i.i.i.i.i114 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i129, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i114, align 8, !noalias !18
-  %_M_weak_count.i.i.i.i.i.i115 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i129, i64 12
+  %_M_weak_count.i.i.i.i.i.i115 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i129, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i115, align 4, !noalias !18
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev24RangeScaleMinMaxRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i129, align 8, !noalias !18
   br label %cleanup
@@ -686,37 +686,37 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev24RangeScaleMinMaxRendererEED2Ev.exit: ;
 cleanup:                                          ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev24RangeScaleMinMaxRendererEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev19RangeMinMaxRendererEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev16RangeMinRendererEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev16RangeMaxRendererEED2Ev.exit
   %call5.i.i.i3.i.i.i.i129.sink207 = phi ptr [ %call5.i.i.i3.i.i.i.i129, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev24RangeScaleMinMaxRendererEED2Ev.exit ], [ %call5.i.i.i3.i.i.i.i79, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev19RangeMinMaxRendererEED2Ev.exit ], [ %call5.i.i.i3.i.i.i.i29, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev16RangeMinRendererEED2Ev.exit ], [ %call5.i.i.i3.i.i.i.i3, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev16RangeMaxRendererEED2Ev.exit ]
   %.sink = phi ptr [ getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev24RangeScaleMinMaxRendererE, i64 16), %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev24RangeScaleMinMaxRendererEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev19RangeMinMaxRendererE, i64 16), %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev19RangeMinMaxRendererEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev16RangeMinRendererE, i64 16), %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev16RangeMinRendererEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev16RangeMaxRendererE, i64 16), %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev16RangeMaxRendererEED2Ev.exit ]
-  %_M_impl.i.i.i.i.i.i116 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i129.sink207, i64 16
-  %m_scale.i.i.i.i.i.i.i.i.i117 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i129.sink207, i64 24
-  %m_offset.i.i.i.i.i.i.i.i.i118 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i129.sink207, i64 28
-  %m_lowerBound.i.i.i.i.i.i.i.i.i119 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i129.sink207, i64 32
-  %m_upperBound.i.i.i.i.i.i.i.i.i120 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i129.sink207, i64 36
-  %m_scale.i.i.i.i.i.i.i.i.i.i121 = getelementptr inbounds i8, ptr %9, i64 200
+  %_M_impl.i.i.i.i.i.i116 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i129.sink207, i64 16
+  %m_scale.i.i.i.i.i.i.i.i.i117 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i129.sink207, i64 24
+  %m_offset.i.i.i.i.i.i.i.i.i118 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i129.sink207, i64 28
+  %m_lowerBound.i.i.i.i.i.i.i.i.i119 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i129.sink207, i64 32
+  %m_upperBound.i.i.i.i.i.i.i.i.i120 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i129.sink207, i64 36
+  %m_scale.i.i.i.i.i.i.i.i.i.i121 = getelementptr inbounds nuw i8, ptr %9, i64 200
   %10 = load double, ptr %m_scale.i.i.i.i.i.i.i.i.i.i121, align 8, !noalias !21
   %conv.i.i.i.i.i.i.i.i.i122 = fptrunc double %10 to float
   store float %conv.i.i.i.i.i.i.i.i.i122, ptr %m_scale.i.i.i.i.i.i.i.i.i117, align 8, !noalias !21
-  %m_offset.i.i.i.i.i.i.i.i.i.i123 = getelementptr inbounds i8, ptr %9, i64 208
+  %m_offset.i.i.i.i.i.i.i.i.i.i123 = getelementptr inbounds nuw i8, ptr %9, i64 208
   %11 = load double, ptr %m_offset.i.i.i.i.i.i.i.i.i.i123, align 8, !noalias !21
   %conv7.i.i.i.i.i.i.i.i.i124 = fptrunc double %11 to float
   store float %conv7.i.i.i.i.i.i.i.i.i124, ptr %m_offset.i.i.i.i.i.i.i.i.i118, align 4, !noalias !21
-  %m_minOutValue.i.i.i.i.i.i.i.i.i.i125 = getelementptr inbounds i8, ptr %9, i64 184
+  %m_minOutValue.i.i.i.i.i.i.i.i.i.i125 = getelementptr inbounds nuw i8, ptr %9, i64 184
   %12 = load double, ptr %m_minOutValue.i.i.i.i.i.i.i.i.i.i125, align 8, !noalias !21
   %conv12.i.i.i.i.i.i.i.i.i126 = fptrunc double %12 to float
   store float %conv12.i.i.i.i.i.i.i.i.i126, ptr %m_lowerBound.i.i.i.i.i.i.i.i.i119, align 8, !noalias !21
-  %m_maxOutValue.i.i.i.i.i.i.i.i.i.i127 = getelementptr inbounds i8, ptr %9, i64 192
+  %m_maxOutValue.i.i.i.i.i.i.i.i.i.i127 = getelementptr inbounds nuw i8, ptr %9, i64 192
   %13 = load double, ptr %m_maxOutValue.i.i.i.i.i.i.i.i.i.i127, align 8, !noalias !21
   %conv17.i.i.i.i.i.i.i.i.i128 = fptrunc double %13 to float
   store float %conv17.i.i.i.i.i.i.i.i.i128, ptr %m_upperBound.i.i.i.i.i.i.i.i.i120, align 4, !noalias !21
   store ptr %.sink, ptr %_M_impl.i.i.i.i.i.i116, align 8, !noalias !21
   store ptr %_M_impl.i.i.i.i.i.i116, ptr %agg.result, align 8
-  %_M_refcount.i.i130 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_refcount.i.i130 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %call5.i.i.i3.i.i.i.i129.sink207, ptr %_M_refcount.i.i130, align 8
   %14 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i164 = icmp eq ptr %14, null
   br i1 %cmp.not.i.i.i164, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11RangeOpDataEED2Ev.exit, label %if.then.i.i.i165
 
 if.then.i.i.i165:                                 ; preds = %cleanup
-  %_M_use_count.i.i.i.i166 = getelementptr inbounds i8, ptr %14, i64 8
+  %_M_use_count.i.i.i.i166 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %15 = load atomic i64, ptr %_M_use_count.i.i.i.i166 acquire, align 8
   %cmp.i.i.i.i167 = icmp eq i64 %15, 4294967297
   %16 = trunc i64 %15 to i32
@@ -724,10 +724,10 @@ if.then.i.i.i165:                                 ; preds = %cleanup
 
 if.then.i.i.i.i190:                               ; preds = %if.then.i.i.i165
   store i32 0, ptr %_M_use_count.i.i.i.i166, align 8
-  %_M_weak_count.i.i.i.i191 = getelementptr inbounds i8, ptr %14, i64 12
+  %_M_weak_count.i.i.i.i191 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i191, align 4
   %vtable.i.i.i.i192 = load ptr, ptr %14, align 8
-  %vfn.i.i.i.i193 = getelementptr inbounds i8, ptr %vtable.i.i.i.i192, i64 16
+  %vfn.i.i.i.i193 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i192, i64 16
   %17 = load ptr, ptr %vfn.i.i.i.i193, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %14) #15
   br label %if.end8.sink.split.i.i.i.i185
@@ -753,10 +753,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i172: ; preds = %if.el
 
 if.then7.i.i.i.i175:                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i172
   %vtable.i.i.i.i.i.i176 = load ptr, ptr %14, align 8
-  %vfn.i.i.i.i.i.i177 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i176, i64 16
+  %vfn.i.i.i.i.i.i177 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i176, i64 16
   %20 = load ptr, ptr %vfn.i.i.i.i.i.i177, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %14) #15
-  %_M_weak_count.i.i.i.i.i.i178 = getelementptr inbounds i8, ptr %14, i64 12
+  %_M_weak_count.i.i.i.i.i.i178 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %21 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i179 = icmp eq i8 %21, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i179, label %if.else.i.i.i.i.i.i.i188, label %if.then.i.i.i.i.i.i.i180
@@ -778,7 +778,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i182: ; preds = %i
 
 if.end8.sink.split.i.i.i.i185:                    ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i182, %if.then.i.i.i.i190
   %vtable2.i.i.i.i.i.i186 = load ptr, ptr %14, align 8
-  %vfn3.i.i.i.i.i.i187 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i186, i64 24
+  %vfn3.i.i.i.i.i.i187 = getelementptr inbounds nuw i8, ptr %vtable2.i.i.i.i.i.i186, i64 24
   %24 = load ptr, ptr %vfn3.i.i.i.i.i.i187, align 8
   tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %14) #15
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11RangeOpDataEED2Ev.exit
@@ -816,13 +816,13 @@ declare noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11RangeOpData6scalesEv(ptr 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11RangeOpDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_refcount.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_refcount.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_refcount.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_4dev11RangeOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %_M_use_count.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i acquire, align 8
   %cmp.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -830,10 +830,10 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   store i32 0, ptr %_M_use_count.i.i.i, align 8
-  %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
+  %_M_weak_count.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i, align 4
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #15
   br label %if.end8.sink.split.i.i.i
@@ -859,10 +859,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %if.else.i.
 
 if.then7.i.i.i:                                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
+  %vfn.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #15
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -884,7 +884,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.end8.sink.split.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.then.i.i.i
   %vtable2.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i, i64 24
+  %vfn3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable2.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #15
   br label %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_4dev11RangeOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -988,7 +988,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev16RangeMaxRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_impl.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %vtable.i.i = load ptr, ptr %_M_impl.i, align 8
   %0 = load ptr, ptr %vtable.i.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(24) %_M_impl.i) #15
@@ -1005,12 +1005,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev16Ra
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev16RangeMaxRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(16) %__ti) unnamed_addr #9 comdat align 2 {
 entry:
-  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_impl.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
+  %__name.i = getelementptr inbounds nuw i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
@@ -1056,7 +1056,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev16RangeMinRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_impl.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %vtable.i.i = load ptr, ptr %_M_impl.i, align 8
   %0 = load ptr, ptr %vtable.i.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(24) %_M_impl.i) #15
@@ -1073,12 +1073,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev16Ra
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev16RangeMinRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(16) %__ti) unnamed_addr #9 comdat align 2 {
 entry:
-  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_impl.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
+  %__name.i = getelementptr inbounds nuw i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
@@ -1118,7 +1118,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev19RangeMinMaxRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_impl.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %vtable.i.i = load ptr, ptr %_M_impl.i, align 8
   %0 = load ptr, ptr %vtable.i.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(24) %_M_impl.i) #15
@@ -1135,12 +1135,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev19Ra
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev19RangeMinMaxRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(16) %__ti) unnamed_addr #9 comdat align 2 {
 entry:
-  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_impl.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
+  %__name.i = getelementptr inbounds nuw i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
@@ -1180,7 +1180,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev24RangeScaleMinMaxRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_impl.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %vtable.i.i = load ptr, ptr %_M_impl.i, align 8
   %0 = load ptr, ptr %vtable.i.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(24) %_M_impl.i) #15
@@ -1197,12 +1197,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev24Ra
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev24RangeScaleMinMaxRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(16) %__ti) unnamed_addr #9 comdat align 2 {
 entry:
-  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_impl.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
+  %__name.i = getelementptr inbounds nuw i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i

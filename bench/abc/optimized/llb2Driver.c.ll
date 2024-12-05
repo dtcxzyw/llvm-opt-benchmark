@@ -13,13 +13,13 @@ define noalias noundef ptr @Llb_DriverCountRefs(ptr nocapture noundef readonly %
   %5 = add i32 %.val.val, -1
   %or.cond.i.i = icmp ult i32 %5, 15
   %spec.store.select.i.i = select i1 %or.cond.i.i, i32 16, i32 %.val.val
-  %6 = getelementptr inbounds i8, ptr %4, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %spec.store.select.i.i, ptr %4, align 8
   %.not.i.i = icmp eq i32 %spec.store.select.i.i, 0
   br i1 %.not.i.i, label %Vec_IntAlloc.exit.thread.i, label %Vec_IntAlloc.exit.i
 
 Vec_IntAlloc.exit.thread.i:                       ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %7, align 8
   store i32 %.val.val, ptr %6, align 4
   br label %Vec_IntStart.exit
@@ -28,7 +28,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %1
   %8 = sext i32 %spec.store.select.i.i to i64
   %9 = shl nsw i64 %8, 2
   %10 = tail call noalias ptr @malloc(i64 noundef %9) #6
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %10, ptr %11, align 8
   store i32 %.val.val, ptr %6, align 4
   %.not.i = icmp eq ptr %10, null
@@ -48,7 +48,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   br i1 %16, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %Vec_IntStart.exit
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = getelementptr i8, ptr %0, i64 112
   %.pre = load ptr, ptr %17, align 8
   %.val10.pre = load i32, ptr %18, align 8
@@ -71,7 +71,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %27 = ptrtoint ptr %.val12 to i64
   %28 = and i64 %27, -2
   %29 = inttoptr i64 %28 to ptr
-  %30 = getelementptr inbounds i8, ptr %29, i64 36
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 36
   %31 = load i32, ptr %30, align 4
   %32 = sext i32 %31 to i64
   br label %Aig_ObjFaninId0.exit
@@ -98,7 +98,7 @@ define noalias noundef ptr @Llb_DriverCollectNs(ptr nocapture noundef readonly %
   %5 = add i32 %.val21, -1
   %or.cond.i = icmp ult i32 %5, 15
   %spec.store.select.i = select i1 %or.cond.i, i32 16, i32 %.val21
-  %6 = getelementptr inbounds i8, ptr %4, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %6, align 4
   store i32 %spec.store.select.i, ptr %4, align 8
   %.not.i = icmp eq i32 %spec.store.select.i, 0
@@ -112,13 +112,13 @@ define noalias noundef ptr @Llb_DriverCollectNs(ptr nocapture noundef readonly %
 
 Vec_IntAlloc.exit:                                ; preds = %2, %7
   %11 = phi ptr [ %10, %7 ], [ null, %2 ]
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %11, ptr %12, align 8
   %13 = icmp sgt i32 %.val21, 0
   br i1 %13, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %Vec_IntAlloc.exit
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = getelementptr i8, ptr %0, i64 112
   %16 = getelementptr i8, ptr %1, i64 8
   %17 = getelementptr i8, ptr %0, i64 108
@@ -301,7 +301,7 @@ define noalias noundef ptr @Llb_DriverCollectCs(ptr nocapture noundef readonly %
   %4 = add i32 %.val10, -1
   %or.cond.i = icmp ult i32 %4, 15
   %spec.store.select.i = select i1 %or.cond.i, i32 16, i32 %.val10
-  %5 = getelementptr inbounds i8, ptr %3, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %5, align 4
   store i32 %spec.store.select.i, ptr %3, align 8
   %.not.i = icmp eq i32 %spec.store.select.i, 0
@@ -315,13 +315,13 @@ define noalias noundef ptr @Llb_DriverCollectCs(ptr nocapture noundef readonly %
 
 Vec_IntAlloc.exit:                                ; preds = %1, %6
   %10 = phi ptr [ %9, %6 ], [ null, %1 ]
-  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %10, ptr %11, align 8
   %12 = icmp sgt i32 %.val10, 0
   br i1 %12, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %Vec_IntAlloc.exit
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = getelementptr i8, ptr %0, i64 108
   br label %15
 
@@ -409,7 +409,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Llb_DriverPhaseCube(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 752
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 752
   %5 = load i64, ptr %4, align 8
   store i64 0, ptr %4, align 8
   %6 = tail call ptr @Cudd_ReadOne(ptr noundef %2) #8
@@ -420,7 +420,7 @@ define noundef ptr @Llb_DriverPhaseCube(ptr nocapture noundef readonly %0, ptr n
   br i1 %8, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = getelementptr i8, ptr %0, i64 112
   %11 = getelementptr i8, ptr %1, i64 8
   br label %12
@@ -446,7 +446,7 @@ define noundef ptr @Llb_DriverPhaseCube(ptr nocapture noundef readonly %0, ptr n
   %21 = ptrtoint ptr %.val29 to i64
   %22 = and i64 %21, -2
   %23 = inttoptr i64 %22 to ptr
-  %24 = getelementptr inbounds i8, ptr %23, i64 36
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 36
   %25 = load i32, ptr %24, align 4
   %26 = sext i32 %25 to i64
   br label %Aig_ObjFaninId0.exit
@@ -471,7 +471,7 @@ Aig_ObjFaninId0.exit:                             ; preds = %12, %20
 34:                                               ; preds = %33
   %35 = and i64 %31, -2
   %36 = inttoptr i64 %35 to ptr
-  %37 = getelementptr inbounds i8, ptr %36, i64 36
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 36
   %38 = load i32, ptr %37, align 4
   br label %Aig_ObjFaninId0.exit33
 
@@ -518,7 +518,7 @@ define noundef ptr @Llb_DriverLastPartition(ptr nocapture noundef readonly %0, p
   %.val.val = load i32, ptr %5, align 4
   %6 = tail call ptr @Cudd_Init(i32 noundef %.val.val, i32 noundef 0, i32 noundef 256, i32 noundef 262144, i64 noundef 0) #8
   tail call void @Cudd_AutodynEnable(ptr noundef %6, i32 noundef 6) #8
-  %7 = getelementptr inbounds i8, ptr %6, i64 752
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 752
   store i64 %2, ptr %7, align 8
   %8 = tail call ptr @Cudd_ReadOne(ptr noundef %6) #8
   tail call void @Cudd_Ref(ptr noundef %8) #8
@@ -542,7 +542,7 @@ define noundef ptr @Llb_DriverLastPartition(ptr nocapture noundef readonly %0, p
 
 14:                                               ; preds = %13
   %.val52 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds i32, ptr %.val52, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i32, ptr %.val52, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4
   %17 = getelementptr i8, ptr %.val56, i64 8
   %.val.i = load ptr, ptr %17, align 8
@@ -578,7 +578,7 @@ Saig_ObjIsLi.exit:                                ; preds = %Aig_ManObj.exit
   %29 = ptrtoint ptr %.val49 to i64
   %30 = and i64 %29, -2
   %31 = inttoptr i64 %30 to ptr
-  %32 = getelementptr inbounds i8, ptr %31, i64 36
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 36
   %33 = load i32, ptr %32, align 4
   br label %Aig_ObjFaninId0.exit
 
@@ -637,7 +637,7 @@ Saig_ObjIsLi.exit.thread:                         ; preds = %Aig_ManObj.exit, %S
 .critedge:                                        ; preds = %Saig_ObjIsLi.exit.thread, %3
   %.046.lcssa = phi ptr [ %8, %3 ], [ %.1, %Saig_ObjIsLi.exit.thread ]
   tail call void @Cudd_AutodynDisable(ptr noundef %6) #8
-  %55 = getelementptr inbounds i8, ptr %6, i64 736
+  %55 = getelementptr inbounds nuw i8, ptr %6, i64 736
   store ptr %.046.lcssa, ptr %55, align 8
   store i64 0, ptr %7, align 8
   br label %56

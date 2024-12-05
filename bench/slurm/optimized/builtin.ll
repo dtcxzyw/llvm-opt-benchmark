@@ -122,8 +122,8 @@ define noalias noundef ptr @builtin_agent(ptr nocapture noundef readnone %0) loc
   br i1 %.b1323, label %_my_sleep.exit._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %9, i64 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.pre39 = load i32, ptr @builtin_interval, align 4
   br label %13
 
@@ -240,12 +240,12 @@ _my_sleep.exit:                                   ; preds = %30
   br i1 %.not.i6, label %.loopexit.i, label %53
 
 53:                                               ; preds = %51
-  %54 = getelementptr inbounds i8, ptr %52, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %52, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %57 = load ptr, ptr %56, align 8
   call void @slurm_xfree(ptr noundef nonnull %2) #11
-  %58 = getelementptr inbounds i8, ptr %55, i64 664
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 664
   %59 = load ptr, ptr %58, align 8
   %.not59.i = icmp eq ptr %57, %59
   br i1 %.not59.i, label %60, label %51, !llvm.loop !6
@@ -262,17 +262,17 @@ _my_sleep.exit:                                   ; preds = %30
   br i1 %66, label %.loopexit.sink.split.i, label %.loopexit.i
 
 67:                                               ; preds = %60
-  %68 = getelementptr inbounds i8, ptr %55, i64 216
+  %68 = getelementptr inbounds nuw i8, ptr %55, i64 216
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 284
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 284
   %71 = load i32, ptr %70, align 4
-  %72 = getelementptr inbounds i8, ptr %57, i64 216
+  %72 = getelementptr inbounds nuw i8, ptr %57, i64 216
   %73 = load i32, ptr %72, align 8
   %..i = call i32 @llvm.umax.i32(i32 %71, i32 %73)
-  %74 = getelementptr inbounds i8, ptr %69, i64 240
+  %74 = getelementptr inbounds nuw i8, ptr %69, i64 240
   %75 = load i32, ptr %74, align 8
   %76 = icmp eq i32 %75, 0
-  %77 = getelementptr inbounds i8, ptr %57, i64 200
+  %77 = getelementptr inbounds nuw i8, ptr %57, i64 200
   %78 = load i32, ptr %77, align 8
   %.72.i = call i32 @llvm.umin.i32(i32 %75, i32 %78)
   %.046.i = select i1 %76, i32 %78, i32 %.72.i
@@ -303,7 +303,7 @@ _my_sleep.exit:                                   ; preds = %30
   br label %.outer.i, !llvm.loop !6
 
 87:                                               ; preds = %81
-  %88 = getelementptr inbounds i8, ptr %55, i64 664
+  %88 = getelementptr inbounds nuw i8, ptr %55, i64 664
   %...le.i = select i1 %76, i32 %..i, i32 %79
   %89 = load ptr, ptr %4, align 8
   %90 = call i32 @select_g_job_test(ptr noundef nonnull %55, ptr noundef %89, i32 noundef %..i, i32 noundef %79, i32 noundef %...le.i, i16 noundef zeroext 2, ptr noundef null, ptr noundef null, ptr noundef nonnull %7) #11
@@ -313,7 +313,7 @@ _my_sleep.exit:                                   ; preds = %30
 92:                                               ; preds = %87
   %93 = load i64, ptr %5, align 8
   store i64 %93, ptr @last_job_update, align 8
-  %94 = getelementptr inbounds i8, ptr %55, i64 944
+  %94 = getelementptr inbounds nuw i8, ptr %55, i64 944
   %95 = load i32, ptr %94, align 8
   switch i32 %95, label %96 [
     i32 -1, label %104
@@ -330,7 +330,7 @@ _my_sleep.exit:                                   ; preds = %30
   br i1 %.not63.i, label %104, label %100
 
 100:                                              ; preds = %98
-  %101 = getelementptr inbounds i8, ptr %99, i64 212
+  %101 = getelementptr inbounds nuw i8, ptr %99, i64 212
   %102 = load i32, ptr %101, align 4
   %.not64.i = icmp eq i32 %102, -1
   %103 = mul i32 %102, 60
@@ -345,7 +345,7 @@ _my_sleep.exit:                                   ; preds = %30
   br i1 %.not65.i, label %111, label %107
 
 107:                                              ; preds = %104
-  %108 = getelementptr inbounds i8, ptr %55, i64 888
+  %108 = getelementptr inbounds nuw i8, ptr %55, i64 888
   %109 = load i64, ptr %108, align 8
   %.not66.i = icmp sgt i64 %109, %.0.ph.ph.i
   br i1 %.not66.i, label %111, label %110
@@ -358,7 +358,7 @@ _my_sleep.exit:                                   ; preds = %30
   %112 = load ptr, ptr %3, align 8
   %113 = load ptr, ptr %4, align 8
   call void @bit_or(ptr noundef %112, ptr noundef %113) #11
-  %114 = getelementptr inbounds i8, ptr %55, i64 888
+  %114 = getelementptr inbounds nuw i8, ptr %55, i64 888
   %115 = load i64, ptr %114, align 8
   %116 = zext i32 %.043.i to i64
   %117 = add nsw i64 %115, %116
@@ -450,7 +450,7 @@ define internal fastcc void @_load_config() unnamed_addr #0 {
   br i1 %.not, label %thread-pre-split, label %8
 
 8:                                                ; preds = %0
-  %9 = getelementptr inbounds i8, ptr %7, i64 9
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 9
   %10 = tail call i32 @atoi(ptr nocapture noundef nonnull %9) #14
   store i32 %10, ptr @builtin_interval, align 4
   br label %11
@@ -476,7 +476,7 @@ thread-pre-split:                                 ; preds = %0
   br i1 %.not7, label %22, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %18, i64 11
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 11
   %21 = tail call i32 @atoi(ptr nocapture noundef nonnull %20) #14
   store i32 %21, ptr @max_sched_job_cnt, align 4
   br label %22
@@ -488,7 +488,7 @@ thread-pre-split:                                 ; preds = %0
   br i1 %.not8, label %thread-pre-split9, label %25
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %24, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %27 = tail call i32 @atoi(ptr nocapture noundef nonnull %26) #14
   store i32 %27, ptr @max_sched_job_cnt, align 4
   br label %28

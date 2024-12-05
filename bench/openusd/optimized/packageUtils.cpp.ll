@@ -147,7 +147,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__25ArJoinPackageRelativePathERK
   br i1 %11, label %12, label %._crit_edge.i
 
 12:                                               ; preds = %.lr.ph.i
-  %13 = getelementptr inbounds i8, ptr %.sroa.018.046.i, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.018.046.i, i64 32
   %.not.i = icmp eq ptr %13, %10
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !6
 
@@ -294,7 +294,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__25ArJoinPackageRelativePathERK
 
 82:                                               ; preds = %.loopexit28.i, %16
   %.0.i = phi i64 [ %17, %16 ], [ %79, %.loopexit28.i ]
-  %.sroa.018.151.i = getelementptr inbounds i8, ptr %.sroa.018.0.lcssa.i, i64 32
+  %.sroa.018.151.i = getelementptr inbounds nuw i8, ptr %.sroa.018.0.lcssa.i, i64 32
   %.not2752.i = icmp eq ptr %.sroa.018.151.i, %10
   br i1 %.not2752.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_JoinPackageRelativePathIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEEEES9_T_SG_.exit, label %.lr.ph56.i
 
@@ -333,7 +333,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__25ArJoinPackageRelativePathERK
 
 95:                                               ; preds = %91, %.lr.ph56.i
   %.2.i = phi i64 [ %.153.i, %.lr.ph56.i ], [ %94, %91 ]
-  %.sroa.018.1.i = getelementptr inbounds i8, ptr %.sroa.018.154.i, i64 32
+  %.sroa.018.1.i = getelementptr inbounds nuw i8, ptr %.sroa.018.154.i, i64 32
   %.not27.i = icmp eq ptr %.sroa.018.1.i, %10
   br i1 %.not27.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_JoinPackageRelativePathIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEEEES9_T_SG_.exit, label %.lr.ph56.i, !llvm.loop !18
 
@@ -377,10 +377,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_JoinPackageRelativePathIN9
 define void @_ZN32pxrInternal_v0_24__pxrReserved__25ArJoinPackageRelativePathERKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_E(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #2 {
   %3 = alloca [2 x ptr], align 16
   store ptr %1, ptr %3, align 16
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr %5, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_JoinPackageRelativePathIPKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_T_SC_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %3, ptr noundef %6)
   ret void
 }
@@ -402,7 +402,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %.lr.ph
-  %11 = getelementptr inbounds i8, ptr %.051, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.051, i64 8
   %.not = icmp eq ptr %11, %2
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
@@ -545,7 +545,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
 
 78:                                               ; preds = %.loopexit32, %12
   %.022 = phi i64 [ %13, %12 ], [ %75, %.loopexit32 ]
-  %.154 = getelementptr inbounds i8, ptr %.051, i64 8
+  %.154 = getelementptr inbounds nuw i8, ptr %.051, i64 8
   %.not2555 = icmp eq ptr %.154, %2
   br i1 %.not2555, label %.loopexit, label %.lr.ph59
 
@@ -586,7 +586,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
 
 91:                                               ; preds = %.lr.ph59, %87
   %.2 = phi i64 [ %.12356, %.lr.ph59 ], [ %90, %87 ]
-  %.1 = getelementptr inbounds i8, ptr %.157, i64 8
+  %.1 = getelementptr inbounds nuw i8, ptr %.157, i64 8
   %.not25 = icmp eq ptr %.1, %2
   br i1 %.not25, label %.loopexit, label %.lr.ph59, !llvm.loop !28
 
@@ -625,9 +625,9 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
 define void @_ZN32pxrInternal_v0_24__pxrReserved__25ArJoinPackageRelativePathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #2 {
   %4 = alloca [2 x ptr], align 16
   store ptr %1, ptr %4, align 16
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %2, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_JoinPackageRelativePathIPKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_T_SC_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %4, ptr noundef %6)
   ret void
 }
@@ -727,7 +727,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_FindOutermostClosingDelimi
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN9__gnu_cxx17__normal_iteratorIPKcS4_EEvEET_SB_RKS3_.exit: ; preds = %.noexc18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #7
-  %41 = getelementptr inbounds i8, ptr %27, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %27, i64 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #7
   %42 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %.noexc19 unwind label %51
@@ -1138,7 +1138,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__31ArSplitPackageRelativePathIn
   ]
 
 20:                                               ; preds = %.lr.ph.i
-  %21 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i7.i, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i7.i, i64 1
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_FindInnermostClosingDelimiterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 22:                                               ; preds = %.lr.ph.i
@@ -1210,7 +1210,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_FindInnermostClosingDelimi
           to label %49 unwind label %58
 
 49:                                               ; preds = %40
-  %50 = getelementptr inbounds i8, ptr %32, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %32, i64 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #7
   %51 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %.noexc unwind label %60

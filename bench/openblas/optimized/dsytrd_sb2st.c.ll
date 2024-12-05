@@ -195,7 +195,7 @@ define void @dsytrd_sb2st_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   %118 = mul nsw i64 %117, %112
   %119 = getelementptr double, ptr %115, i64 %118
   %120 = load double, ptr %119, align 8, !tbaa !7
-  %121 = getelementptr inbounds double, ptr %28, i64 %117
+  %121 = getelementptr inbounds nuw double, ptr %28, i64 %117
   store double %120, ptr %121, align 8, !tbaa !7
   %122 = add nuw nsw i64 %117, 1
   %123 = icmp eq i64 %122, %114
@@ -229,7 +229,7 @@ define void @dsytrd_sb2st_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   %137 = mul nsw i64 %136, %131
   %138 = getelementptr double, ptr %134, i64 %137
   %139 = load double, ptr %138, align 8, !tbaa !7
-  %140 = getelementptr inbounds double, ptr %28, i64 %136
+  %140 = getelementptr inbounds nuw double, ptr %28, i64 %136
   store double %139, ptr %140, align 8, !tbaa !7
   %141 = add nuw nsw i64 %136, 1
   %142 = icmp eq i64 %141, %133
@@ -254,7 +254,7 @@ define void @dsytrd_sb2st_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   %152 = mul nsw i64 %151, %146
   %153 = getelementptr double, ptr %148, i64 %152
   %154 = load double, ptr %153, align 8, !tbaa !7
-  %155 = getelementptr inbounds double, ptr %29, i64 %150
+  %155 = getelementptr inbounds nuw double, ptr %29, i64 %150
   store double %154, ptr %155, align 8, !tbaa !7
   %156 = icmp eq i64 %151, %147
   br i1 %156, label %.loopexit22, label %149, !llvm.loop !13
@@ -273,7 +273,7 @@ define void @dsytrd_sb2st_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   %164 = mul nsw i64 %163, %159
   %165 = getelementptr double, ptr %161, i64 %164
   %166 = load double, ptr %165, align 8, !tbaa !7
-  %167 = getelementptr inbounds double, ptr %29, i64 %163
+  %167 = getelementptr inbounds nuw double, ptr %29, i64 %163
   store double %166, ptr %167, align 8, !tbaa !7
   %168 = add nuw nsw i64 %163, 1
   %169 = icmp eq i64 %168, %160
@@ -310,9 +310,9 @@ define void @dsytrd_sb2st_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   %187 = fptosi double %186 to i32
   %188 = add nuw nsw i32 %61, 1
   store i32 %188, ptr %15, align 4, !tbaa !3
-  %189 = getelementptr inbounds double, ptr %31, i64 %109
+  %189 = getelementptr inbounds nuw double, ptr %31, i64 %109
   call void @dlacpy_(ptr noundef nonnull @.str.6, ptr noundef nonnull %15, ptr noundef nonnull %3, ptr noundef %5, ptr noundef nonnull %6, ptr noundef nonnull %189, ptr noundef nonnull %21) #5
-  %190 = getelementptr inbounds double, ptr %31, i64 %106
+  %190 = getelementptr inbounds nuw double, ptr %31, i64 %106
   call void @dlaset_(ptr noundef nonnull @.str.6, ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef nonnull @c_b26, ptr noundef nonnull @c_b26, ptr noundef nonnull %190, ptr noundef nonnull %21) #5
   store i32 %187, ptr %15, align 4, !tbaa !3
   %191 = icmp slt i32 %187, 1
@@ -463,7 +463,7 @@ define void @dsytrd_sb2st_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   %281 = mul nsw i64 %280, %274
   %282 = getelementptr double, ptr %277, i64 %281
   %283 = load double, ptr %282, align 8, !tbaa !7
-  %284 = getelementptr inbounds double, ptr %28, i64 %279
+  %284 = getelementptr inbounds nuw double, ptr %28, i64 %279
   store double %283, ptr %284, align 8, !tbaa !7
   %285 = add nuw nsw i64 %279, 1
   %286 = icmp eq i64 %285, %276
@@ -488,7 +488,7 @@ define void @dsytrd_sb2st_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   %296 = mul nsw i64 %295, %291
   %297 = getelementptr double, ptr %293, i64 %296
   %298 = load double, ptr %297, align 8, !tbaa !7
-  %299 = getelementptr inbounds double, ptr %29, i64 %295
+  %299 = getelementptr inbounds nuw double, ptr %29, i64 %295
   store double %298, ptr %299, align 8, !tbaa !7
   %300 = add nuw nsw i64 %295, 1
   %301 = icmp eq i64 %300, %292
@@ -510,7 +510,7 @@ define void @dsytrd_sb2st_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   %311 = mul nsw i64 %310, %305
   %312 = getelementptr double, ptr %307, i64 %311
   %313 = load double, ptr %312, align 8, !tbaa !7
-  %314 = getelementptr inbounds double, ptr %29, i64 %309
+  %314 = getelementptr inbounds nuw double, ptr %29, i64 %309
   store double %313, ptr %314, align 8, !tbaa !7
   %315 = add nuw nsw i64 %309, 1
   %316 = icmp eq i64 %315, %306

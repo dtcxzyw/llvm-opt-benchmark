@@ -37,7 +37,7 @@ define hidden void @zim_DOMAttr___construct(ptr nocapture noundef readonly %0, p
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   store ptr null, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4
   %9 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %8, ptr noundef nonnull @.str, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %6) #7
   %10 = icmp eq i32 %9, -1
@@ -50,7 +50,7 @@ define hidden void @zim_DOMAttr___construct(ptr nocapture noundef readonly %0, p
   br label %35
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 -24
   %18 = load ptr, ptr %3, align 8
@@ -124,25 +124,25 @@ define hidden range(i32 -1, 1) i32 @dom_attr_name_read(ptr noundef %0, ptr nocap
   br label %19
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #8
   %10 = and i64 %9, -8
   %11 = add i64 %10, 32
   %12 = tail call noalias ptr @_emalloc(i64 noundef %11) #9
   store i32 1, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %12, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 22, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %12, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 0, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %12, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i64 %9, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %12, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %16, ptr align 1 %8, i64 %9, i1 false)
   %17 = getelementptr inbounds [1 x i8], ptr %16, i64 0, i64 %9
   store i8 0, ptr %17, align 1
   store ptr %12, ptr %1, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 262, ptr %18, align 8
   br label %19
 
@@ -156,7 +156,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden noundef i32 @dom_attr_specified_read(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly initializes((8, 12)) %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 3, ptr %3, align 8
   ret i32 0
 }
@@ -182,18 +182,18 @@ define hidden range(i32 -1, 1) i32 @dom_attr_value_read(ptr noundef %0, ptr noca
   %11 = add i64 %10, 32
   %12 = tail call noalias ptr @_emalloc(i64 noundef %11) #9
   store i32 1, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %12, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 22, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %12, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 0, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %12, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i64 %9, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %12, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %16, ptr nonnull align 1 %7, i64 %9, i1 false)
   %17 = getelementptr inbounds [1 x i8], ptr %16, i64 0, i64 %9
   store i8 0, ptr %17, align 1
   store ptr %12, ptr %1, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 262, ptr %18, align 8
   %19 = load ptr, ptr @xmlFree, align 8
   tail call void %19(ptr noundef nonnull %7) #7
@@ -202,7 +202,7 @@ define hidden range(i32 -1, 1) i32 @dom_attr_value_read(ptr noundef %0, ptr noca
 20:                                               ; preds = %6
   %21 = load ptr, ptr @zend_empty_string, align 8
   store ptr %21, ptr %1, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 6, ptr %22, align 8
   br label %23
 
@@ -226,8 +226,8 @@ define hidden range(i32 -1, 1) i32 @dom_attr_value_write(ptr noundef %0, ptr noc
 6:                                                ; preds = %2
   %7 = load ptr, ptr %1, align 8
   tail call void @dom_remove_all_children(ptr noundef nonnull %3) #7
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
-  %9 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %10 = load i64, ptr %9, align 8
   %11 = trunc i64 %10 to i32
   tail call void @xmlNodeSetContentLen(ptr noundef nonnull %3, ptr noundef nonnull %8, i32 noundef %11) #7
@@ -253,13 +253,13 @@ define hidden range(i32 -1, 1) i32 @dom_attr_owner_element_read(ptr noundef %0, 
   br label %13
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %3, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %9, label %11
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 1, ptr %10, align 8
   br label %13
 
@@ -276,14 +276,14 @@ declare zeroext i1 @php_dom_create_object(ptr noundef, ptr noundef, ptr noundef)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden noundef i32 @dom_attr_schema_type_info_read(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly initializes((8, 12)) %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 1, ptr %3, align 8
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_DOMAttr_isId(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -296,7 +296,7 @@ define hidden void @zim_DOMAttr_isId(ptr nocapture noundef readonly %0, ptr noca
   br label %29
 
 .critedge:                                        ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 -24
   %11 = load ptr, ptr %10, align 8
@@ -304,11 +304,11 @@ define hidden void @zim_DOMAttr_isId(ptr nocapture noundef readonly %0, ptr noca
   br i1 %12, label %13, label %21
 
 13:                                               ; preds = %.critedge
-  %14 = getelementptr inbounds i8, ptr %9, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.1, ptr noundef nonnull %18) #7
   %19 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %20 = icmp ne ptr %19, null
@@ -317,10 +317,10 @@ define hidden void @zim_DOMAttr_isId(ptr nocapture noundef readonly %0, ptr noca
 
 21:                                               ; preds = %.critedge
   %22 = load ptr, ptr %11, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 80
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 80
   %24 = load i32, ptr %23, align 8
   %25 = icmp eq i32 %24, 2
-  %26 = getelementptr inbounds i8, ptr %1, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br i1 %25, label %27, label %28
 
 27:                                               ; preds = %21

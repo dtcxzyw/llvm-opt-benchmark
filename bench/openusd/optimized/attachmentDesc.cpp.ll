@@ -45,25 +45,25 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_17HgiAtt
   br i1 %17, label %18, label %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4feqERKS0_.exit28
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %0, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %20 = load float, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %1, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %22 = load float, ptr %21, align 4
   %23 = fcmp oeq float %20, %22
   br i1 %23, label %24, label %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4feqERKS0_.exit28
 
 24:                                               ; preds = %18
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = load float, ptr %25, align 4
-  %27 = getelementptr inbounds i8, ptr %1, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %28 = load float, ptr %27, align 4
   %29 = fcmp oeq float %26, %28
   br i1 %29, label %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4feqERKS0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4feqERKS0_.exit28
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4feqERKS0_.exit: ; preds = %24
-  %30 = getelementptr inbounds i8, ptr %0, i64 28
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %31 = load float, ptr %30, align 4
-  %32 = getelementptr inbounds i8, ptr %1, i64 28
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %33 = load float, ptr %32, align 4
   %34 = fcmp oeq float %31, %33
   br i1 %34, label %35, label %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4feqERKS0_.exit28
@@ -159,25 +159,25 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4feqERKS0_.exit: ; preds = %24
   br i1 %102, label %103, label %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4feqERKS0_.exit28
 
 103:                                              ; preds = %97
-  %104 = getelementptr inbounds i8, ptr %0, i64 68
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %105 = load float, ptr %104, align 4
-  %106 = getelementptr inbounds i8, ptr %1, i64 68
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %107 = load float, ptr %106, align 4
   %108 = fcmp oeq float %105, %107
   br i1 %108, label %109, label %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4feqERKS0_.exit28
 
 109:                                              ; preds = %103
-  %110 = getelementptr inbounds i8, ptr %0, i64 72
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %111 = load float, ptr %110, align 4
-  %112 = getelementptr inbounds i8, ptr %1, i64 72
+  %112 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %113 = load float, ptr %112, align 4
   %114 = fcmp oeq float %111, %113
   br i1 %114, label %115, label %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4feqERKS0_.exit28
 
 115:                                              ; preds = %109
-  %116 = getelementptr inbounds i8, ptr %0, i64 76
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %117 = load float, ptr %116, align 4
-  %118 = getelementptr inbounds i8, ptr %1, i64 76
+  %118 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %119 = load float, ptr %118, align 4
   %120 = fcmp oeq float %117, %119
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4feqERKS0_.exit28

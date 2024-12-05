@@ -47,12 +47,12 @@ define dso_local void @cgroup_rstat_updated(ptr noundef %0, i32 noundef %1) #0 a
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, ptrtoint (ptr @cgroup_rstat_cpu_lock to i64)
   %7 = inttoptr i64 %6 to ptr
-  %8 = getelementptr inbounds i8, ptr %0, i64 752
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %9 = load ptr, ptr %8, align 16
   %10 = ptrtoint ptr %9 to i64
   %11 = add i64 %5, %10
   %12 = inttoptr i64 %11 to ptr
-  %13 = getelementptr inbounds i8, ptr %12, i64 104
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 104
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %46
@@ -64,7 +64,7 @@ define dso_local void @cgroup_rstat_updated(ptr noundef %0, i32 noundef %1) #0 a
   %20 = load i64, ptr %4, align 8
   %21 = add i64 %20, %19
   %22 = inttoptr i64 %21 to ptr
-  %23 = getelementptr inbounds i8, ptr %22, i64 104
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 104
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %.lr.ph, label %.thread
@@ -73,7 +73,7 @@ define dso_local void @cgroup_rstat_updated(ptr noundef %0, i32 noundef %1) #0 a
   %26 = phi ptr [ %43, %30 ], [ %23, %16 ]
   %27 = phi i64 [ %40, %30 ], [ %20, %16 ]
   %28 = phi ptr [ %29, %30 ], [ %0, %16 ]
-  %.in = getelementptr inbounds i8, ptr %28, i64 192
+  %.in = getelementptr inbounds nuw i8, ptr %28, i64 192
   %29 = load ptr, ptr %.in, align 64
   %.not = icmp eq ptr %29, null
   br i1 %.not, label %.thread1, label %30
@@ -83,12 +83,12 @@ define dso_local void @cgroup_rstat_updated(ptr noundef %0, i32 noundef %1) #0 a
   br label %.thread
 
 30:                                               ; preds = %.lr.ph
-  %31 = getelementptr inbounds i8, ptr %29, i64 752
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 752
   %32 = load ptr, ptr %31, align 16
   %33 = ptrtoint ptr %32 to i64
   %34 = add i64 %27, %33
   %35 = inttoptr i64 %34 to ptr
-  %36 = getelementptr inbounds i8, ptr %35, i64 96
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 96
   %37 = load ptr, ptr %36, align 8
   store ptr %37, ptr %26, align 8
   store ptr %28, ptr %36, align 8
@@ -97,7 +97,7 @@ define dso_local void @cgroup_rstat_updated(ptr noundef %0, i32 noundef %1) #0 a
   %40 = load i64, ptr %4, align 8
   %41 = add i64 %40, %39
   %42 = inttoptr i64 %41 to ptr
-  %43 = getelementptr inbounds i8, ptr %42, i64 104
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 104
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, null
   br i1 %45, label %.lr.ph, label %.thread
@@ -138,9 +138,9 @@ define dso_local void @cgroup_rstat_flush(ptr noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @cgroup_rstat_flush_locked(ptr noundef %0) unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 752
-  %3 = getelementptr inbounds i8, ptr %0, i64 192
-  %4 = getelementptr inbounds i8, ptr %0, i64 832
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 752
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 832
   br label %5
 
 5:                                                ; preds = %1, %246
@@ -168,7 +168,7 @@ define internal fastcc void @cgroup_rstat_flush_locked(ptr noundef %0) unnamed_a
   %23 = add i64 %18, %22
   %24 = inttoptr i64 %23 to ptr
   %25 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %20) #9
-  %26 = getelementptr inbounds i8, ptr %24, i64 104
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 104
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %.thread20, label %29
@@ -183,20 +183,20 @@ define internal fastcc void @cgroup_rstat_flush_locked(ptr noundef %0) unnamed_a
   br i1 %31, label %59, label %32
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %30, i64 752
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 752
   %34 = load ptr, ptr %33, align 16
   %35 = ptrtoint ptr %34 to i64
   %36 = load i64, ptr %17, align 8
   %37 = add i64 %36, %35
   %38 = inttoptr i64 %37 to ptr
-  %39 = getelementptr inbounds i8, ptr %38, i64 96
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 96
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, %0
   br i1 %41, label %56, label %.preheader26
 
 .preheader26:                                     ; preds = %32, %51
   %42 = phi ptr [ %53, %51 ], [ %40, %32 ]
-  %43 = getelementptr inbounds i8, ptr %42, i64 752
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 752
   %44 = load ptr, ptr %43, align 16
   %45 = ptrtoint ptr %44 to i64
   %46 = load i64, ptr %17, align 8
@@ -212,13 +212,13 @@ define internal fastcc void @cgroup_rstat_flush_locked(ptr noundef %0) unnamed_a
   br label %51
 
 51:                                               ; preds = %50, %.preheader26
-  %52 = getelementptr inbounds i8, ptr %48, i64 104
+  %52 = getelementptr inbounds nuw i8, ptr %48, i64 104
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %53, %0
   br i1 %54, label %.loopexit27, label %.preheader26, !llvm.loop !11
 
 .loopexit27:                                      ; preds = %51
-  %55 = getelementptr inbounds i8, ptr %48, i64 104
+  %55 = getelementptr inbounds nuw i8, ptr %48, i64 104
   %.pre = load ptr, ptr %26, align 8
   br label %56
 
@@ -231,14 +231,14 @@ define internal fastcc void @cgroup_rstat_flush_locked(ptr noundef %0) unnamed_a
 59:                                               ; preds = %56, %29
   store ptr null, ptr %26, align 8
   store ptr null, ptr %4, align 64
-  %60 = getelementptr inbounds i8, ptr %24, i64 96
+  %60 = getelementptr inbounds nuw i8, ptr %24, i64 96
   %61 = load ptr, ptr %60, align 8
   store ptr %0, ptr %60, align 8
   %62 = icmp eq ptr %61, %0
   br i1 %62, label %.thread19, label %63
 
 63:                                               ; preds = %59
-  %64 = getelementptr inbounds i8, ptr %61, i64 832
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 832
   store ptr null, ptr %64, align 64
   br label %65
 
@@ -258,9 +258,9 @@ define internal fastcc void @cgroup_rstat_flush_locked(ptr noundef %0) unnamed_a
   %72 = phi ptr [ %70, %.loopexit ], [ null, %65 ]
   %73 = phi ptr [ %76, %.loopexit ], [ %67, %65 ]
   %74 = phi ptr [ %69, %.loopexit ], [ %66, %65 ]
-  %75 = getelementptr inbounds i8, ptr %73, i64 832
+  %75 = getelementptr inbounds nuw i8, ptr %73, i64 832
   %76 = load ptr, ptr %75, align 64
-  %77 = getelementptr inbounds i8, ptr %73, i64 192
+  %77 = getelementptr inbounds nuw i8, ptr %73, i64 192
   %78 = load ptr, ptr %77, align 64
   %79 = icmp eq ptr %73, %78
   br i1 %79, label %.loopexit, label %.preheader
@@ -269,28 +269,28 @@ define internal fastcc void @cgroup_rstat_flush_locked(ptr noundef %0) unnamed_a
   %80 = phi ptr [ %96, %95 ], [ %72, %.preheader23 ]
   %81 = phi ptr [ %82, %95 ], [ %74, %.preheader23 ]
   %82 = phi ptr [ %98, %95 ], [ %73, %.preheader23 ]
-  %83 = getelementptr inbounds i8, ptr %82, i64 832
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 832
   store ptr %81, ptr %83, align 64
-  %84 = getelementptr inbounds i8, ptr %82, i64 752
+  %84 = getelementptr inbounds nuw i8, ptr %82, i64 752
   %85 = load ptr, ptr %84, align 16
   %86 = ptrtoint ptr %85 to i64
   %87 = load i64, ptr %17, align 8
   %88 = add i64 %87, %86
   %89 = inttoptr i64 %88 to ptr
-  %90 = getelementptr inbounds i8, ptr %89, i64 96
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 96
   %91 = load ptr, ptr %90, align 8
   %92 = icmp eq ptr %91, %82
   br i1 %92, label %95, label %93
 
 93:                                               ; preds = %.preheader
   store ptr %82, ptr %90, align 8
-  %94 = getelementptr inbounds i8, ptr %91, i64 832
+  %94 = getelementptr inbounds nuw i8, ptr %91, i64 832
   store ptr %80, ptr %94, align 64
   br label %95
 
 95:                                               ; preds = %93, %.preheader
   %96 = phi ptr [ %91, %93 ], [ %80, %.preheader ]
-  %97 = getelementptr inbounds i8, ptr %89, i64 104
+  %97 = getelementptr inbounds nuw i8, ptr %89, i64 104
   %98 = load ptr, ptr %97, align 8
   store ptr null, ptr %97, align 8
   %99 = icmp eq ptr %98, %78
@@ -308,41 +308,41 @@ define internal fastcc void @cgroup_rstat_flush_locked(ptr noundef %0) unnamed_a
 
 .preheader24:                                     ; preds = %.thread19, %.loopexit22
   %104 = phi ptr [ %231, %.loopexit22 ], [ %102, %.thread19 ]
-  %105 = getelementptr inbounds i8, ptr %104, i64 752
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 752
   %106 = load ptr, ptr %105, align 16
   %107 = ptrtoint ptr %106 to i64
   %108 = load i64, ptr %17, align 8
   %109 = add i64 %108, %107
   %110 = inttoptr i64 %109 to ptr
-  %111 = getelementptr inbounds i8, ptr %104, i64 192
+  %111 = getelementptr inbounds nuw i8, ptr %104, i64 192
   %112 = load ptr, ptr %111, align 64
   %113 = icmp eq ptr %112, null
   br i1 %113, label %217, label %114
 
 114:                                              ; preds = %.preheader24
   %115 = load i64, ptr %110, align 8
-  %116 = getelementptr inbounds i8, ptr %110, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %117 = load i64, ptr %116, align 8
-  %118 = getelementptr inbounds i8, ptr %110, i64 16
+  %118 = getelementptr inbounds nuw i8, ptr %110, i64 16
   %119 = load i64, ptr %118, align 8
-  %120 = getelementptr inbounds i8, ptr %110, i64 24
-  %121 = getelementptr inbounds i8, ptr %110, i64 32
+  %120 = getelementptr inbounds nuw i8, ptr %110, i64 24
+  %121 = getelementptr inbounds nuw i8, ptr %110, i64 32
   %122 = load i64, ptr %121, align 8
   %123 = sub i64 %117, %122
   %124 = load i64, ptr %120, align 8
   %125 = sub i64 %115, %124
-  %126 = getelementptr inbounds i8, ptr %110, i64 40
+  %126 = getelementptr inbounds nuw i8, ptr %110, i64 40
   %127 = load i64, ptr %126, align 8
   %128 = sub i64 %119, %127
-  %129 = getelementptr inbounds i8, ptr %104, i64 864
-  %130 = getelementptr inbounds i8, ptr %104, i64 872
+  %129 = getelementptr inbounds nuw i8, ptr %104, i64 864
+  %130 = getelementptr inbounds nuw i8, ptr %104, i64 872
   %131 = load i64, ptr %130, align 8
   %132 = add i64 %131, %123
   store i64 %132, ptr %130, align 8
   %133 = load i64, ptr %129, align 8
   %134 = add i64 %133, %125
   store i64 %134, ptr %129, align 8
-  %135 = getelementptr inbounds i8, ptr %104, i64 880
+  %135 = getelementptr inbounds nuw i8, ptr %104, i64 880
   %136 = load i64, ptr %135, align 8
   %137 = add i64 %136, %128
   store i64 %137, ptr %135, align 8
@@ -355,19 +355,19 @@ define internal fastcc void @cgroup_rstat_flush_locked(ptr noundef %0) unnamed_a
   %142 = load i64, ptr %126, align 8
   %143 = add i64 %142, %128
   store i64 %143, ptr %126, align 8
-  %144 = getelementptr inbounds i8, ptr %110, i64 48
-  %145 = getelementptr inbounds i8, ptr %110, i64 56
+  %144 = getelementptr inbounds nuw i8, ptr %110, i64 48
+  %145 = getelementptr inbounds nuw i8, ptr %110, i64 56
   %146 = load i64, ptr %145, align 8
   %147 = add i64 %146, %123
   store i64 %147, ptr %145, align 8
   %148 = load i64, ptr %144, align 8
   %149 = add i64 %148, %125
   store i64 %149, ptr %144, align 8
-  %150 = getelementptr inbounds i8, ptr %110, i64 64
+  %150 = getelementptr inbounds nuw i8, ptr %110, i64 64
   %151 = load i64, ptr %150, align 8
   %152 = add i64 %151, %128
   store i64 %152, ptr %150, align 8
-  %153 = getelementptr inbounds i8, ptr %112, i64 192
+  %153 = getelementptr inbounds nuw i8, ptr %112, i64 192
   %154 = load ptr, ptr %153, align 64
   %155 = icmp eq ptr %154, null
   br i1 %155, label %217, label %156
@@ -376,24 +376,24 @@ define internal fastcc void @cgroup_rstat_flush_locked(ptr noundef %0) unnamed_a
   %157 = load i64, ptr %129, align 32
   %158 = load i64, ptr %130, align 8
   %159 = load i64, ptr %135, align 16
-  %160 = getelementptr inbounds i8, ptr %104, i64 840
-  %161 = getelementptr inbounds i8, ptr %104, i64 848
+  %160 = getelementptr inbounds nuw i8, ptr %104, i64 840
+  %161 = getelementptr inbounds nuw i8, ptr %104, i64 848
   %162 = load i64, ptr %161, align 8
   %163 = sub i64 %158, %162
   %164 = load i64, ptr %160, align 8
   %165 = sub i64 %157, %164
-  %166 = getelementptr inbounds i8, ptr %104, i64 856
+  %166 = getelementptr inbounds nuw i8, ptr %104, i64 856
   %167 = load i64, ptr %166, align 8
   %168 = sub i64 %159, %167
-  %169 = getelementptr inbounds i8, ptr %112, i64 864
-  %170 = getelementptr inbounds i8, ptr %112, i64 872
+  %169 = getelementptr inbounds nuw i8, ptr %112, i64 864
+  %170 = getelementptr inbounds nuw i8, ptr %112, i64 872
   %171 = load i64, ptr %170, align 8
   %172 = add i64 %171, %163
   store i64 %172, ptr %170, align 8
   %173 = load i64, ptr %169, align 8
   %174 = add i64 %173, %165
   store i64 %174, ptr %169, align 8
-  %175 = getelementptr inbounds i8, ptr %112, i64 880
+  %175 = getelementptr inbounds nuw i8, ptr %112, i64 880
   %176 = load i64, ptr %175, align 8
   %177 = add i64 %176, %168
   store i64 %177, ptr %175, align 8
@@ -409,30 +409,30 @@ define internal fastcc void @cgroup_rstat_flush_locked(ptr noundef %0) unnamed_a
   %184 = load i64, ptr %144, align 8
   %185 = load i64, ptr %145, align 8
   %186 = load i64, ptr %150, align 8
-  %187 = getelementptr inbounds i8, ptr %112, i64 752
+  %187 = getelementptr inbounds nuw i8, ptr %112, i64 752
   %188 = load ptr, ptr %187, align 16
   %189 = ptrtoint ptr %188 to i64
   %190 = load i64, ptr %17, align 8
   %191 = add i64 %190, %189
   %192 = inttoptr i64 %191 to ptr
-  %193 = getelementptr inbounds i8, ptr %110, i64 72
-  %194 = getelementptr inbounds i8, ptr %110, i64 80
+  %193 = getelementptr inbounds nuw i8, ptr %110, i64 72
+  %194 = getelementptr inbounds nuw i8, ptr %110, i64 80
   %195 = load i64, ptr %194, align 8
   %196 = sub i64 %185, %195
   %197 = load i64, ptr %193, align 8
   %198 = sub i64 %184, %197
-  %199 = getelementptr inbounds i8, ptr %110, i64 88
+  %199 = getelementptr inbounds nuw i8, ptr %110, i64 88
   %200 = load i64, ptr %199, align 8
   %201 = sub i64 %186, %200
-  %202 = getelementptr inbounds i8, ptr %192, i64 48
-  %203 = getelementptr inbounds i8, ptr %192, i64 56
+  %202 = getelementptr inbounds nuw i8, ptr %192, i64 48
+  %203 = getelementptr inbounds nuw i8, ptr %192, i64 56
   %204 = load i64, ptr %203, align 8
   %205 = add i64 %204, %196
   store i64 %205, ptr %203, align 8
   %206 = load i64, ptr %202, align 8
   %207 = add i64 %206, %198
   store i64 %207, ptr %202, align 8
-  %208 = getelementptr inbounds i8, ptr %192, i64 64
+  %208 = getelementptr inbounds nuw i8, ptr %192, i64 64
   %209 = load i64, ptr %208, align 8
   %210 = add i64 %209, %201
   store i64 %210, ptr %208, align 8
@@ -451,7 +451,7 @@ define internal fastcc void @cgroup_rstat_flush_locked(ptr noundef %0) unnamed_a
   %218 = load ptr, ptr %111, align 64
   tail call void @bpf_rstat_flush(ptr noundef nonnull %104, ptr noundef %218, i32 noundef %13)
   tail call void @__rcu_read_lock() #9
-  %219 = getelementptr inbounds i8, ptr %104, i64 760
+  %219 = getelementptr inbounds nuw i8, ptr %104, i64 760
   %220 = load volatile ptr, ptr %219, align 8
   %221 = icmp eq ptr %220, %219
   br i1 %221, label %.loopexit22, label %.preheader21
@@ -461,7 +461,7 @@ define internal fastcc void @cgroup_rstat_flush_locked(ptr noundef %0) unnamed_a
   %223 = getelementptr i8, ptr %222, i64 -64
   %224 = getelementptr i8, ptr %222, i64 -56
   %225 = load ptr, ptr %224, align 8
-  %226 = getelementptr inbounds i8, ptr %225, i64 48
+  %226 = getelementptr inbounds nuw i8, ptr %225, i64 48
   %227 = load ptr, ptr %226, align 8
   tail call void %227(ptr noundef %223, i32 noundef %13) #9
   %228 = load volatile ptr, ptr %222, align 8
@@ -470,7 +470,7 @@ define internal fastcc void @cgroup_rstat_flush_locked(ptr noundef %0) unnamed_a
 
 .loopexit22:                                      ; preds = %.preheader21, %217
   tail call void @__rcu_read_unlock() #9
-  %230 = getelementptr inbounds i8, ptr %104, i64 832
+  %230 = getelementptr inbounds nuw i8, ptr %104, i64 832
   %231 = load ptr, ptr %230, align 64
   %232 = icmp eq ptr %231, null
   br i1 %232, label %.loopexit25, label %.preheader24, !llvm.loop !17
@@ -528,7 +528,7 @@ define dso_local void @cgroup_rstat_flush_release() local_unnamed_addr #0 align 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -12, 1) i32 @cgroup_rstat_init(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 752
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %3 = load ptr, ptr %2, align 16
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %8
@@ -564,7 +564,7 @@ define dso_local noundef range(i32 -12, 1) i32 @cgroup_rstat_init(ptr noundef %0
   %24 = load i64, ptr %23, align 8
   %25 = add i64 %24, %21
   %26 = inttoptr i64 %25 to ptr
-  %27 = getelementptr inbounds i8, ptr %26, i64 96
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 96
   store ptr %0, ptr %27, align 8
   %28 = add nuw nsw i64 %16, 1
   %29 = and i64 %28, 127
@@ -586,7 +586,7 @@ define dso_local void @cgroup_rstat_exit(ptr noundef %0) local_unnamed_addr #0 a
   tail call fastcc void @cgroup_rstat_flush_locked(ptr noundef %0)
   tail call void @_raw_spin_unlock_irq(ptr noundef nonnull @cgroup_rstat_lock) #9
   %3 = load i64, ptr @__cpu_possible_mask, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 752
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 752
   br label %5
 
 5:                                                ; preds = %29, %1
@@ -615,7 +615,7 @@ define dso_local void @cgroup_rstat_exit(ptr noundef %0) local_unnamed_addr #0 a
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, %19
   %24 = inttoptr i64 %23 to ptr
-  %25 = getelementptr inbounds i8, ptr %24, i64 96
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 96
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, %0
   br i1 %27, label %29, label %28, !prof !23
@@ -627,7 +627,7 @@ define dso_local void @cgroup_rstat_exit(ptr noundef %0) local_unnamed_addr #0 a
   br label %36
 
 29:                                               ; preds = %17
-  %30 = getelementptr inbounds i8, ptr %24, i64 104
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 104
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
   %33 = add nuw nsw i64 %14, 1
@@ -690,11 +690,11 @@ define dso_local void @cgroup_rstat_boot() local_unnamed_addr #4 section ".init.
 define dso_local void @__cgroup_account_cputime(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #9, !srcloc !32
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !33
-  %3 = getelementptr inbounds i8, ptr %0, i64 752
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %4 = load ptr, ptr %3, align 16
   %5 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %4) #10, !srcloc !34
   %6 = inttoptr i64 %5 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %8, %1
   store i64 %9, ptr %7, align 8
@@ -708,7 +708,7 @@ define dso_local void @__cgroup_account_cputime(ptr noundef %0, i64 noundef %1) 
   %17 = ptrtoint ptr %16 to i64
   %18 = add i64 %13, %17
   %19 = inttoptr i64 %18 to ptr
-  %20 = getelementptr inbounds i8, ptr %19, i64 104
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 104
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %cgroup_rstat_updated.exit
@@ -720,7 +720,7 @@ define dso_local void @__cgroup_account_cputime(ptr noundef %0, i64 noundef %1) 
   %27 = load i64, ptr %12, align 8
   %28 = add i64 %27, %26
   %29 = inttoptr i64 %28 to ptr
-  %30 = getelementptr inbounds i8, ptr %29, i64 104
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 104
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %.lr.ph.i, label %.thread.i
@@ -729,7 +729,7 @@ define dso_local void @__cgroup_account_cputime(ptr noundef %0, i64 noundef %1) 
   %33 = phi ptr [ %50, %37 ], [ %30, %23 ]
   %34 = phi i64 [ %47, %37 ], [ %27, %23 ]
   %35 = phi ptr [ %36, %37 ], [ %0, %23 ]
-  %.in.i = getelementptr inbounds i8, ptr %35, i64 192
+  %.in.i = getelementptr inbounds nuw i8, ptr %35, i64 192
   %36 = load ptr, ptr %.in.i, align 64
   %.not.i = icmp eq ptr %36, null
   br i1 %.not.i, label %.thread1.i, label %37
@@ -739,12 +739,12 @@ define dso_local void @__cgroup_account_cputime(ptr noundef %0, i64 noundef %1) 
   br label %.thread.i
 
 37:                                               ; preds = %.lr.ph.i
-  %38 = getelementptr inbounds i8, ptr %36, i64 752
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 752
   %39 = load ptr, ptr %38, align 16
   %40 = ptrtoint ptr %39 to i64
   %41 = add i64 %34, %40
   %42 = inttoptr i64 %41 to ptr
-  %43 = getelementptr inbounds i8, ptr %42, i64 96
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 96
   %44 = load ptr, ptr %43, align 8
   store ptr %44, ptr %33, align 8
   store ptr %35, ptr %43, align 8
@@ -753,7 +753,7 @@ define dso_local void @__cgroup_account_cputime(ptr noundef %0, i64 noundef %1) 
   %47 = load i64, ptr %12, align 8
   %48 = add i64 %47, %46
   %49 = inttoptr i64 %48 to ptr
-  %50 = getelementptr inbounds i8, ptr %49, i64 104
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 104
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, null
   br i1 %52, label %.lr.ph.i, label %.thread.i
@@ -784,7 +784,7 @@ cgroup_rstat_updated.exit:                        ; preds = %2, %.thread.i
 define dso_local void @__cgroup_account_cputime_field(ptr noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #9, !srcloc !32
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !33
-  %4 = getelementptr inbounds i8, ptr %0, i64 752
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %5 = load ptr, ptr %4, align 16
   %6 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %5) #10, !srcloc !34
   %7 = inttoptr i64 %6 to ptr
@@ -797,7 +797,7 @@ define dso_local void @__cgroup_account_cputime_field(ptr noundef %0, i32 nounde
   ]
 
 8:                                                ; preds = %3, %3
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %10
 
 10:                                               ; preds = %8, %3, %3, %3
@@ -818,7 +818,7 @@ define dso_local void @__cgroup_account_cputime_field(ptr noundef %0, i32 nounde
   %22 = ptrtoint ptr %21 to i64
   %23 = add i64 %18, %22
   %24 = inttoptr i64 %23 to ptr
-  %25 = getelementptr inbounds i8, ptr %24, i64 104
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 104
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %cgroup_rstat_updated.exit
@@ -830,7 +830,7 @@ define dso_local void @__cgroup_account_cputime_field(ptr noundef %0, i32 nounde
   %32 = load i64, ptr %17, align 8
   %33 = add i64 %32, %31
   %34 = inttoptr i64 %33 to ptr
-  %35 = getelementptr inbounds i8, ptr %34, i64 104
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 104
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
   br i1 %37, label %.lr.ph.i, label %.thread.i
@@ -839,7 +839,7 @@ define dso_local void @__cgroup_account_cputime_field(ptr noundef %0, i32 nounde
   %38 = phi ptr [ %55, %42 ], [ %35, %28 ]
   %39 = phi i64 [ %52, %42 ], [ %32, %28 ]
   %40 = phi ptr [ %41, %42 ], [ %0, %28 ]
-  %.in.i = getelementptr inbounds i8, ptr %40, i64 192
+  %.in.i = getelementptr inbounds nuw i8, ptr %40, i64 192
   %41 = load ptr, ptr %.in.i, align 64
   %.not.i = icmp eq ptr %41, null
   br i1 %.not.i, label %.thread1.i, label %42
@@ -849,12 +849,12 @@ define dso_local void @__cgroup_account_cputime_field(ptr noundef %0, i32 nounde
   br label %.thread.i
 
 42:                                               ; preds = %.lr.ph.i
-  %43 = getelementptr inbounds i8, ptr %41, i64 752
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 752
   %44 = load ptr, ptr %43, align 16
   %45 = ptrtoint ptr %44 to i64
   %46 = add i64 %39, %45
   %47 = inttoptr i64 %46 to ptr
-  %48 = getelementptr inbounds i8, ptr %47, i64 96
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 96
   %49 = load ptr, ptr %48, align 8
   store ptr %49, ptr %38, align 8
   store ptr %40, ptr %48, align 8
@@ -863,7 +863,7 @@ define dso_local void @__cgroup_account_cputime_field(ptr noundef %0, i32 nounde
   %52 = load i64, ptr %17, align 8
   %53 = add i64 %52, %51
   %54 = inttoptr i64 %53 to ptr
-  %55 = getelementptr inbounds i8, ptr %54, i64 104
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 104
   %56 = load ptr, ptr %55, align 8
   %57 = icmp eq ptr %56, null
   br i1 %57, label %.lr.ph.i, label %.thread.i
@@ -894,7 +894,7 @@ cgroup_rstat_updated.exit:                        ; preds = %14, %.thread.i
 define dso_local void @cgroup_base_stat_cputime_show(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @of_css(ptr noundef %5) #9
   %7 = load ptr, ptr %6, align 8
@@ -902,7 +902,7 @@ define dso_local void @cgroup_base_stat_cputime_show(ptr noundef %0) local_unnam
   store i64 0, ptr %2, align 8, !annotation !39
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
   store i64 0, ptr %3, align 8, !annotation !39
-  %8 = getelementptr inbounds i8, ptr %7, i64 192
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 192
   %9 = load ptr, ptr %8, align 64
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %13
@@ -915,11 +915,11 @@ define dso_local void @cgroup_base_stat_cputime_show(ptr noundef %0) local_unnam
   %14 = tail call i32 @__SCT__might_resched() #9
   tail call void @_raw_spin_lock_irq(ptr noundef nonnull @cgroup_rstat_lock) #9
   tail call fastcc void @cgroup_rstat_flush_locked(ptr noundef %7)
-  %15 = getelementptr inbounds i8, ptr %7, i64 864
-  %16 = getelementptr inbounds i8, ptr %7, i64 880
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 864
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 880
   %17 = load i64, ptr %16, align 16
-  %18 = getelementptr inbounds i8, ptr %7, i64 888
-  call void @cputime_adjust(ptr noundef %15, ptr noundef %18, ptr noundef nonnull %2, ptr noundef nonnull %3) #9
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 888
+  call void @cputime_adjust(ptr noundef nonnull %15, ptr noundef nonnull %18, ptr noundef nonnull %2, ptr noundef nonnull %3) #9
   call void @_raw_spin_unlock_irq(ptr noundef nonnull @cgroup_rstat_lock) #9
   %.pre = load i64, ptr %2, align 8
   %.pre4 = load i64, ptr %3, align 8
@@ -948,15 +948,15 @@ define dso_local void @cgroup_base_stat_cputime_show(ptr noundef %0) local_unnam
   %35 = add i64 %34, ptrtoint (ptr @kernel_cpustat to i64)
   %36 = inttoptr i64 %35 to ptr
   %37 = load i64, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %36, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %39 = load i64, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %36, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %41 = load i64, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %36, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %43 = load i64, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %36, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %45 = load i64, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %36, i64 56
+  %46 = getelementptr inbounds nuw i8, ptr %36, i64 56
   %47 = load i64, ptr %46, align 8
   %48 = add i64 %39, %37
   %49 = add i64 %48, %22

@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 0, 12299) i32 @acpi_ex_convert_to_integer(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 9
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %5 = load i8, ptr %4, align 1
   switch i8 %5, label %44 [
     i8 1, label %42
@@ -19,9 +19,9 @@ define dso_local noundef range(i32 0, 12299) i32 @acpi_ex_convert_to_integer(ptr
   ]
 
 6:                                                ; preds = %3, %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i32, ptr %9, align 8
   %switch = icmp eq i8 %5, 2
   br i1 %switch, label %11, label %17
@@ -106,7 +106,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 0, 9) i32 @acpi_ex_convert_to_buffer(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 9
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %4 = load i8, ptr %3, align 1
   switch i8 %4, label %38 [
     i8 3, label %36
@@ -122,16 +122,16 @@ define dso_local noundef range(i32 0, 9) i32 @acpi_ex_convert_to_buffer(ptr noun
   br i1 %9, label %38, label %10
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %8, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i8, ptr @acpi_gbl_integer_byte_width, align 1
   %15 = zext i8 %14 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %12, ptr align 8 %13, i64 %15, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %12, ptr nonnull align 8 %13, i64 %15, i1 false)
   br label %31
 
 16:                                               ; preds = %2
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load i32, ptr %17, align 8
   %19 = zext i32 %18 to i64
   %20 = add nuw nsw i64 %19, 1
@@ -140,9 +140,9 @@ define dso_local noundef range(i32 0, 9) i32 @acpi_ex_convert_to_buffer(ptr noun
   br i1 %22, label %38, label %23
 
 23:                                               ; preds = %16
-  %24 = getelementptr inbounds i8, ptr %21, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = load i32, ptr %17, align 8
   %29 = zext i32 %28 to i64
@@ -151,7 +151,7 @@ define dso_local noundef range(i32 0, 9) i32 @acpi_ex_convert_to_buffer(ptr noun
 
 31:                                               ; preds = %23, %10
   %32 = phi ptr [ %21, %23 ], [ %8, %10 ]
-  %33 = getelementptr inbounds i8, ptr %32, i64 12
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 12
   %34 = load i8, ptr %33, align 4
   %35 = or i8 %34, 4
   store i8 %35, ptr %33, align 4
@@ -180,7 +180,7 @@ declare dso_local ptr @strncpy(ptr noalias noundef returned writeonly, ptr noali
 define dso_local noundef range(i32 0, 4098) i32 @acpi_ex_convert_to_string(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = alloca i64, align 8
   %5 = alloca i32, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 9
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %7 = load i8, ptr %6, align 1
   switch i8 %7, label %187 [
     i8 2, label %185
@@ -200,13 +200,13 @@ define dso_local noundef range(i32 0, 4098) i32 @acpi_ex_convert_to_string(ptr n
 
 16:                                               ; preds = %8
   %17 = select i1 %9, i16 10, i16 16
-  %18 = getelementptr inbounds i8, ptr %14, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load i64, ptr %20, align 8
   %22 = load i8, ptr @acpi_gbl_integer_byte_width, align 1
   %23 = tail call fastcc i32 @acpi_ex_convert_to_ascii(i64 noundef %21, i16 noundef zeroext %17, ptr noundef %19, i8 noundef zeroext %22)
-  %24 = getelementptr inbounds i8, ptr %14, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i32 %23, ptr %24, align 8
   %25 = zext i32 %23 to i64
   %26 = getelementptr i8, ptr %19, i64 %25
@@ -220,13 +220,13 @@ define dso_local noundef range(i32 0, 4098) i32 @acpi_ex_convert_to_string(ptr n
   ]
 
 28:                                               ; preds = %27
-  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %30 = load i32, ptr %29, align 8
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %.loopexit, label %32
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = zext i32 %30 to i64
   br label %36
@@ -250,7 +250,7 @@ define dso_local noundef range(i32 0, 4098) i32 @acpi_ex_convert_to_string(ptr n
 
 49:                                               ; preds = %48, %27
   %50 = phi i8 [ 44, %48 ], [ 32, %27 ]
-  %51 = getelementptr inbounds i8, ptr %0, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %52 = load i32, ptr %51, align 8
   %53 = mul i32 %52, 5
   br label %.loopexit
@@ -267,15 +267,15 @@ define dso_local noundef range(i32 0, 4098) i32 @acpi_ex_convert_to_string(ptr n
   br i1 %61, label %187, label %62
 
 62:                                               ; preds = %.loopexit
-  %63 = getelementptr inbounds i8, ptr %60, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %66 = load i32, ptr %65, align 8
   %67 = icmp eq i32 %66, 0
   br i1 %67, label %178, label %68
 
 68:                                               ; preds = %62
-  %69 = getelementptr inbounds i8, ptr %0, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
   switch i16 %56, label %.split [
     i16 10, label %.split.us
     i16 16, label %.split.us10
@@ -605,9 +605,9 @@ define internal fastcc i32 @acpi_ex_convert_to_ascii(i64 noundef %0, i16 noundef
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 0, 12304) i32 @acpi_ex_convert_to_target_type(i32 noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 align 16 {
   store ptr %1, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 1040
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 1040
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = and i32 %8, 31
   switch i32 %9, label %90 [
@@ -624,7 +624,7 @@ define dso_local range(i32 0, 12304) i32 @acpi_ex_convert_to_target_type(i32 nou
   br i1 %11, label %acpi_ex_convert_to_integer.exit.thread, label %12
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %1, i64 9
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i32
   %16 = icmp eq i32 %0, %15
@@ -641,7 +641,7 @@ define dso_local range(i32 0, 12304) i32 @acpi_ex_convert_to_target_type(i32 nou
   ]
 
 18:                                               ; preds = %17, %17, %17, %17
-  %19 = getelementptr inbounds i8, ptr %1, i64 9
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %20 = load i8, ptr %19, align 1
   switch i8 %20, label %acpi_ex_convert_to_integer.exit.thread5 [
     i8 1, label %53
@@ -650,9 +650,9 @@ define dso_local range(i32 0, 12304) i32 @acpi_ex_convert_to_target_type(i32 nou
   ]
 
 21:                                               ; preds = %18, %18
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load i32, ptr %24, align 8
   %switch.i = icmp eq i8 %20, 2
   br i1 %switch.i, label %26, label %28
@@ -705,7 +705,7 @@ define dso_local range(i32 0, 12304) i32 @acpi_ex_convert_to_target_type(i32 nou
   br label %acpi_ex_convert_to_integer.exit.thread
 
 55:                                               ; preds = %17
-  %56 = getelementptr inbounds i8, ptr %1, i64 9
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %57 = load i8, ptr %56, align 1
   switch i8 %57, label %acpi_ex_convert_to_integer.exit.thread5 [
     i8 3, label %acpi_ex_convert_to_integer.exit.thread
@@ -721,16 +721,16 @@ define dso_local range(i32 0, 12304) i32 @acpi_ex_convert_to_target_type(i32 nou
   br i1 %62, label %acpi_ex_convert_to_integer.exit.thread, label %63
 
 63:                                               ; preds = %58
-  %64 = getelementptr inbounds i8, ptr %61, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %1, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %67 = load i8, ptr @acpi_gbl_integer_byte_width, align 1
   %68 = zext i8 %67 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %65, ptr align 8 %66, i64 %68, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %65, ptr nonnull align 8 %66, i64 %68, i1 false)
   br label %84
 
 69:                                               ; preds = %55
-  %70 = getelementptr inbounds i8, ptr %1, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %71 = load i32, ptr %70, align 8
   %72 = zext i32 %71 to i64
   %73 = add nuw nsw i64 %72, 1
@@ -739,9 +739,9 @@ define dso_local range(i32 0, 12304) i32 @acpi_ex_convert_to_target_type(i32 nou
   br i1 %75, label %acpi_ex_convert_to_integer.exit.thread, label %76
 
 76:                                               ; preds = %69
-  %77 = getelementptr inbounds i8, ptr %74, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %1, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %80 = load ptr, ptr %79, align 8
   %81 = load i32, ptr %70, align 8
   %82 = zext i32 %81 to i64
@@ -750,7 +750,7 @@ define dso_local range(i32 0, 12304) i32 @acpi_ex_convert_to_target_type(i32 nou
 
 84:                                               ; preds = %76, %63
   %85 = phi ptr [ %74, %76 ], [ %61, %63 ]
-  %86 = getelementptr inbounds i8, ptr %85, i64 12
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 12
   %87 = load i8, ptr %86, align 4
   %88 = or i8 %87, 4
   store i8 %88, ptr %86, align 4
@@ -762,7 +762,7 @@ define dso_local range(i32 0, 12304) i32 @acpi_ex_convert_to_target_type(i32 nou
   br label %acpi_ex_convert_to_integer.exit.thread
 
 90:                                               ; preds = %4
-  %91 = getelementptr inbounds i8, ptr %3, i64 10
+  %91 = getelementptr inbounds nuw i8, ptr %3, i64 10
   %92 = load i16, ptr %91, align 2
   %93 = zext i16 %92 to i32
   %94 = tail call ptr @acpi_ut_get_type_name(i32 noundef %0) #6

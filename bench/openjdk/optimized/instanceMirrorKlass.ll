@@ -79,16 +79,16 @@ define hidden noundef range(i64 -2147483648, 2147483648) i64 @_ZN19InstanceMirro
   br i1 %.not, label %19, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %1, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = icmp slt i32 %5, 5
   br i1 %6, label %7, label %19
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = ashr i32 %9, 3
-  %11 = getelementptr inbounds i8, ptr %1, i64 284
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %12 = load i32, ptr %11, align 4
   %13 = load i32, ptr @MinObjAlignment, align 4
   %14 = add i32 %12, -1
@@ -99,7 +99,7 @@ define hidden noundef range(i64 -2147483648, 2147483648) i64 @_ZN19InstanceMirro
   br label %23
 
 19:                                               ; preds = %3, %2
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load i32, ptr %20, align 8
   %22 = ashr i32 %21, 3
   br label %23
@@ -117,16 +117,16 @@ define hidden noundef ptr @_ZN19InstanceMirrorKlass17allocate_instanceEP5KlassP1
   br i1 %.not.i, label %21, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %7 = load i32, ptr %6, align 4
   %8 = icmp slt i32 %7, 5
   br i1 %8, label %9, label %21
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = ashr i32 %11, 3
-  %13 = getelementptr inbounds i8, ptr %1, i64 284
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %14 = load i32, ptr %13, align 4
   %15 = load i32, ptr @MinObjAlignment, align 4
   %16 = add i32 %14, -1
@@ -137,7 +137,7 @@ define hidden noundef ptr @_ZN19InstanceMirrorKlass17allocate_instanceEP5KlassP1
   br label %_ZN19InstanceMirrorKlass13instance_sizeEP5Klass.exit
 
 21:                                               ; preds = %5, %3
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load i32, ptr %22, align 8
   %24 = ashr i32 %23, 3
   br label %_ZN19InstanceMirrorKlass13instance_sizeEP5Klass.exit
@@ -146,11 +146,11 @@ _ZN19InstanceMirrorKlass13instance_sizeEP5Klass.exit: ; preds = %9, %21
   %.0.in.i = phi i32 [ %20, %9 ], [ %24, %21 ]
   %.0.i = sext i32 %.0.in.i to i64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  %25 = getelementptr inbounds i8, ptr %4, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %2, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %4, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %0, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %4, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %.0.i, ptr %27, align 8
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV14ClassAllocator, i64 16), ptr %4, align 8
   %28 = call noundef ptr @_ZNK12MemAllocator8allocateEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #5
@@ -178,13 +178,13 @@ define hidden noundef range(i32 0, 65536) i32 @_ZN19InstanceMirrorKlass30compute
   br i1 %.not, label %13, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %4, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %7 = load i32, ptr %6, align 4
   %8 = icmp slt i32 %7, 5
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %4, i64 300
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 300
   %11 = load i16, ptr %10, align 4
   %12 = zext i16 %11 to i32
   br label %13
@@ -197,7 +197,7 @@ define hidden noundef range(i32 0, 65536) i32 @_ZN19InstanceMirrorKlass30compute
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19InstanceMirrorKlass17serialize_offsetsEP16SerializeClosure(ptr noundef %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %4 = load ptr, ptr %3, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @_ZN19InstanceMirrorKlass24_offset_of_static_fieldsE) #5
   ret void
@@ -235,13 +235,13 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK8Metadata17is_methodCountersE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK13InstanceKlass4sizeEv(ptr noundef nonnull align 8 dereferenceable(464) %0) unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 160
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 292
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 292
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 288
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 164
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %9 = load i32, ptr %8, align 4
   %10 = add nsw i32 %3, 58
   %11 = add nsw i32 %10, %5
@@ -273,7 +273,7 @@ declare noundef ptr @_ZN13InstanceKlass24compute_secondary_supersEiP5ArrayIPS_E(
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK13InstanceKlass10java_superEv(ptr noundef nonnull align 8 dereferenceable(464) %0) unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
@@ -284,7 +284,7 @@ declare noundef ptr @_ZNK13InstanceKlass6moduleEv(ptr noundef nonnull align 8 de
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK13InstanceKlass7packageEv(ptr noundef nonnull align 8 dereferenceable(464) %0) unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 208
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }

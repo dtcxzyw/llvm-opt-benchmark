@@ -25,7 +25,7 @@ define noundef ptr @stream_new(ptr noundef %0, i32 noundef %1) local_unnamed_add
   %3 = alloca %struct.stream_key, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   store ptr %0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %1, ptr %4, align 8
   %5 = load ptr, ptr @stream_hash, align 8
   %6 = call ptr @g_hash_table_lookup(ptr noundef %5, ptr noundef nonnull %3) #6
@@ -41,12 +41,12 @@ define noundef ptr @stream_new(ptr noundef %0, i32 noundef %1) local_unnamed_add
   %10 = call ptr @wmem_file_scope() #6
   %11 = call noalias ptr @wmem_alloc(ptr noundef %10, i64 noundef 16) #6
   store ptr %0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 %1, ptr %12, align 8
   %13 = call ptr @wmem_file_scope() #6
   %14 = call noalias ptr @wmem_alloc(ptr noundef %13, i64 noundef 32) #6
   store ptr %11, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %15, i8 0, i64 20, i1 false)
   %16 = load ptr, ptr @stream_hash, align 8
   %17 = call i32 @g_hash_table_insert(ptr noundef %16, ptr noundef nonnull %11, ptr noundef nonnull %14) #6
@@ -61,7 +61,7 @@ define ptr @find_stream(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.stream_key, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   store ptr %0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %1, ptr %4, align 8
   %5 = load ptr, ptr @stream_hash, align 8
   %6 = call ptr @g_hash_table_lookup(ptr noundef %5, ptr noundef nonnull %3) #6
@@ -115,9 +115,9 @@ define ptr @stream_find_frag(ptr noundef %0, i32 noundef %1, i32 noundef %2) loc
   %4 = alloca %struct.fragment_key, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   store ptr %0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %2, ptr %6, align 4
   %7 = load ptr, ptr @fragment_hash, align 8
   %8 = call ptr @g_hash_table_lookup(ptr noundef %7, ptr noundef nonnull %4) #6
@@ -135,7 +135,7 @@ define noundef ptr @stream_add_frag(ptr noundef %0, i32 noundef %1, i32 noundef 
   unreachable
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %0, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %10 = load i32, ptr %9, align 4
   %11 = icmp ugt i32 %1, %10
   br i1 %11, label %19, label %12
@@ -145,7 +145,7 @@ define noundef ptr @stream_add_frag(ptr noundef %0, i32 noundef %1, i32 noundef 
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load i32, ptr %15, align 8
   %17 = icmp ugt i32 %2, %16
   br i1 %17, label %19, label %18
@@ -155,13 +155,13 @@ define noundef ptr @stream_add_frag(ptr noundef %0, i32 noundef %1, i32 noundef 
   unreachable
 
 19:                                               ; preds = %8, %14
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %19
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %21, i64 12
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %21, i64 12
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   br label %33
 
@@ -169,16 +169,16 @@ define noundef ptr @stream_add_frag(ptr noundef %0, i32 noundef %1, i32 noundef 
   %24 = tail call ptr @wmem_file_scope() #6
   %25 = tail call noalias ptr @wmem_alloc(ptr noundef %24, i64 noundef 16) #6
   store ptr null, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = load i32, ptr %26, align 8
   %28 = add i32 %27, 1
   store i32 %28, ptr %26, align 8
-  %29 = getelementptr inbounds i8, ptr %25, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i32 %27, ptr %29, align 8
   %30 = load i32, ptr @pdu_counter, align 4
   %31 = add i32 %30, 1
   store i32 %31, ptr @pdu_counter, align 4
-  %32 = getelementptr inbounds i8, ptr %25, i64 12
+  %32 = getelementptr inbounds nuw i8, ptr %25, i64 12
   store i32 %30, ptr %32, align 4
   store ptr %25, ptr %20, align 8
   br label %33
@@ -192,16 +192,16 @@ define noundef ptr @stream_add_frag(ptr noundef %0, i32 noundef %1, i32 noundef 
   %38 = tail call ptr @wmem_file_scope() #6
   %39 = tail call noalias ptr @wmem_alloc(ptr noundef %38, i64 noundef 16) #6
   store ptr %0, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i32 %1, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %39, i64 12
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 12
   store i32 %2, ptr %41, align 4
   %42 = tail call ptr @wmem_file_scope() #6
   %43 = tail call noalias ptr @wmem_alloc(ptr noundef %42, i64 noundef 24) #6
   store i32 %37, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store ptr null, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %43, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 16
   store i32 0, ptr %45, align 8
   %46 = load ptr, ptr @fragment_hash, align 8
   %47 = tail call i32 @g_hash_table_insert(ptr noundef %46, ptr noundef nonnull %39, ptr noundef nonnull %43) #6
@@ -217,7 +217,7 @@ define noundef ptr @stream_add_frag(ptr noundef %0, i32 noundef %1, i32 noundef 
 
 49:                                               ; preds = %48, %33
   store i32 %1, ptr %9, align 4
-  %50 = getelementptr inbounds i8, ptr %0, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %2, ptr %50, align 8
   ret ptr %43
 }
@@ -236,9 +236,9 @@ define ptr @stream_process_reassembled(ptr noundef %0, i32 noundef %1, ptr nound
   unreachable
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %14 = load i32, ptr %13, align 8
   %.not20 = icmp eq i32 %14, 0
   %15 = load ptr, ptr %12, align 8
@@ -249,14 +249,14 @@ define ptr @stream_process_reassembled(ptr noundef %0, i32 noundef %1, ptr nound
   br i1 %.not21, label %27, label %17
 
 17:                                               ; preds = %16
-  %18 = getelementptr inbounds i8, ptr %5, i64 80
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %19 = load ptr, ptr %18, align 8
   %.not22 = icmp eq ptr %19, null
   br i1 %.not22, label %27, label %20
 
 20:                                               ; preds = %17
   %21 = load i32, ptr %19, align 4
-  %22 = getelementptr inbounds i8, ptr %15, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %23 = load i32, ptr %22, align 8
   %24 = tail call ptr @proto_tree_add_uint(ptr noundef %7, i32 noundef %21, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %23) #6
   br label %27
@@ -298,7 +298,7 @@ define hidden ptr @stream_get_frag_data(ptr noundef readonly %0) local_unnamed_a
   unreachable
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
   ret ptr %6
@@ -314,9 +314,9 @@ define hidden i32 @stream_get_pdu_no(ptr noundef readonly %0) local_unnamed_addr
   unreachable
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8
   ret i32 %7
 }
@@ -338,7 +338,7 @@ define internal i32 @stream_hash_func(ptr nocapture noundef readonly %0) #3 {
   %2 = load ptr, ptr %0, align 8
   %3 = ptrtoint ptr %2 to i64
   %4 = trunc i64 %3 to i32
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = xor i32 %6, %4
   ret i32 %7
@@ -346,9 +346,9 @@ define internal i32 @stream_hash_func(ptr nocapture noundef readonly %0) #3 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 0, 2) i32 @stream_compare_func(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %12
@@ -370,10 +370,10 @@ define internal i32 @fragment_hash_func(ptr nocapture noundef readonly %0) #3 {
   %2 = load ptr, ptr %0, align 8
   %3 = ptrtoint ptr %2 to i64
   %4 = trunc i64 %3 to i32
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = add i32 %6, %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %9 = load i32, ptr %8, align 4
   %10 = add i32 %7, %9
   ret i32 %10
@@ -387,17 +387,17 @@ define internal range(i32 0, 2) i32 @fragment_compare_func(ptr nocapture noundef
   br i1 %5, label %6, label %19
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %8, %10
   br i1 %11, label %12, label %19
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %0, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %1, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %14, %16
   %18 = zext i1 %17 to i32

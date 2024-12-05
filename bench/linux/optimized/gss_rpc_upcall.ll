@@ -57,9 +57,9 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @init_gssp_clnt(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 144
-  tail call void @__mutex_init(ptr noundef %2, ptr noundef nonnull @.str, ptr noundef nonnull @init_gssp_clnt.__key) #7
-  %3 = getelementptr inbounds i8, ptr %0, i64 176
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  tail call void @__mutex_init(ptr noundef nonnull %2, ptr noundef nonnull @.str, ptr noundef nonnull @init_gssp_clnt.__key) #7
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store ptr null, ptr %3, align 8
   ret void
 }
@@ -72,44 +72,44 @@ define dso_local i32 @set_gssp_clnt(ptr noundef %0) local_unnamed_addr #0 align 
   %2 = alloca %struct.rpc_create_args, align 8
   %3 = load i32, ptr @sunrpc_net_id, align 4
   tail call void @__rcu_read_lock() #7
-  %4 = getelementptr inbounds i8, ptr %0, i64 2536
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 2536
   %5 = load volatile ptr, ptr %4, align 8
   %6 = zext i32 %3 to i64
   %7 = getelementptr [0 x ptr], ptr %5, i64 0, i64 %6
   %8 = load ptr, ptr %7, align 8
   tail call void @__rcu_read_unlock() #7
-  %9 = getelementptr inbounds i8, ptr %8, i64 144
-  tail call void @mutex_lock(ptr noundef %9) #7
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 144
+  tail call void @mutex_lock(ptr noundef nonnull %9) #7
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %2) #7
-  %10 = getelementptr inbounds i8, ptr %2, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 0, ptr %10, align 8, !annotation !5
   store ptr %0, ptr %2, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 257, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr @gssp_rpc_create.gssp_localaddr, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 110, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %2, i64 32
-  %15 = getelementptr inbounds i8, ptr %2, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   store ptr @.str.1, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %2, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store ptr null, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr @gssp_program, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store i32 0, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %2, i64 76
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 76
   store i32 1, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %2, i64 80
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i32 0, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %2, i64 84
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 84
   store i32 0, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %2, i64 88
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store i64 4368, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %2, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(56) %23, i8 0, i64 56, i1 false)
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 96
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %23, i8 0, i64 56, i1 false)
   %24 = call ptr @rpc_create(ptr noundef nonnull %2) #7
   %25 = icmp ugt ptr %24, inttoptr (i64 -4096 to ptr)
   %26 = ptrtoint ptr %24 to i64
@@ -121,7 +121,7 @@ define dso_local i32 @set_gssp_clnt(ptr noundef %0) local_unnamed_addr #0 align 
   br i1 %30, label %31, label %37
 
 31:                                               ; preds = %1
-  %32 = getelementptr inbounds i8, ptr %8, i64 176
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 176
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
   br i1 %34, label %36, label %35
@@ -135,7 +135,7 @@ define dso_local i32 @set_gssp_clnt(ptr noundef %0) local_unnamed_addr #0 align 
   br label %37
 
 37:                                               ; preds = %36, %1
-  call void @mutex_unlock(ptr noundef %9) #7
+  call void @mutex_unlock(ptr noundef nonnull %9) #7
   ret i32 %29
 }
 
@@ -156,9 +156,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @clear_gssp_clnt(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 144
-  tail call void @mutex_lock(ptr noundef %2) #7
-  %3 = getelementptr inbounds i8, ptr %0, i64 176
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  tail call void @mutex_lock(ptr noundef nonnull %2) #7
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %7, label %6
@@ -169,7 +169,7 @@ define dso_local void @clear_gssp_clnt(ptr noundef %0) local_unnamed_addr #0 ali
   br label %7
 
 7:                                                ; preds = %6, %1
-  tail call void @mutex_unlock(ptr noundef %2) #7
+  tail call void @mutex_unlock(ptr noundef nonnull %2) #7
   ret void
 }
 
@@ -181,54 +181,54 @@ define dso_local i32 @gssp_accept_sec_context_upcall(ptr noundef %0, ptr noundef
   %6 = alloca %struct.gssx_res_accept_sec_context, align 8
   %7 = alloca %struct.rpc_message, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #7
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %3, i8 0, i64 128, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %8, ptr noundef align 8 dereferenceable(16) %1, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef align 8 dereferenceable(16) %1, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #7
-  %9 = getelementptr inbounds i8, ptr %4, i64 64
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %4, i8 0, i64 128, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %9, ptr noundef align 8 dereferenceable(16) %10, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %5, i8 0, i64 128, i1 false)
   store i32 128, ptr %5, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i32 32, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store i32 256, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 72
   store i32 256, ptr %13, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #7
-  %14 = getelementptr inbounds i8, ptr %6, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %6, i8 0, i64 128, i1 false)
   store ptr %5, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 104
-  %16 = getelementptr inbounds i8, ptr %1, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 104
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store ptr %16, ptr %15, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #7
   store ptr getelementptr inbounds (i8, ptr @gssp_procedures, i64 432), ptr %7, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %4, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %7, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %6, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %7, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr null, ptr %19, align 8
   %20 = load i32, ptr %1, align 8
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %24, label %22
 
 22:                                               ; preds = %2
-  %23 = getelementptr inbounds i8, ptr %4, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr %3, ptr %23, align 8
   br label %24
 
 24:                                               ; preds = %22, %2
   store i32 1024, ptr %16, align 8
-  %25 = getelementptr inbounds i8, ptr %4, i64 120
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i32 64, ptr %25, align 8
   %26 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
   %27 = call noalias noundef align 8 dereferenceable_or_null(512) ptr @kmalloc_trace(ptr noundef %26, i32 noundef 3520, i64 noundef 512) #8
-  %28 = getelementptr inbounds i8, ptr %4, i64 112
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 112
   store ptr %27, ptr %28, align 8
   %29 = icmp eq ptr %27, null
   br i1 %29, label %208, label %30
@@ -285,15 +285,15 @@ define dso_local i32 @gssp_accept_sec_context_upcall(ptr noundef %0, ptr noundef
 .loopexit20:                                      ; preds = %33, %30
   %59 = load i32, ptr @sunrpc_net_id, align 4
   call void @__rcu_read_lock() #7
-  %60 = getelementptr inbounds i8, ptr %0, i64 2536
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 2536
   %61 = load volatile ptr, ptr %60, align 8
   %62 = zext i32 %59 to i64
   %63 = getelementptr [0 x ptr], ptr %61, i64 0, i64 %62
   %64 = load ptr, ptr %63, align 8
   call void @__rcu_read_unlock() #7
-  %65 = getelementptr inbounds i8, ptr %64, i64 144
-  call void @mutex_lock(ptr noundef %65) #7
-  %66 = getelementptr inbounds i8, ptr %64, i64 176
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 144
+  call void @mutex_lock(ptr noundef nonnull %65) #7
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 176
   %67 = load ptr, ptr %66, align 8
   %68 = icmp eq ptr %67, null
   br i1 %68, label %97, label %69
@@ -315,7 +315,7 @@ define dso_local i32 @gssp_accept_sec_context_upcall(ptr noundef %0, ptr noundef
   br label %78
 
 78:                                               ; preds = %76, %72
-  call void @mutex_unlock(ptr noundef %65) #7
+  call void @mutex_unlock(ptr noundef nonnull %65) #7
   %79 = call i32 @rpc_call_sync(ptr noundef nonnull %67, ptr noundef nonnull %7, i32 noundef 0) #7
   %80 = icmp slt i32 %79, 0
   br i1 %80, label %81, label %95
@@ -356,7 +356,7 @@ define dso_local i32 @gssp_accept_sec_context_upcall(ptr noundef %0, ptr noundef
   br label %98
 
 97:                                               ; preds = %.loopexit20
-  call void @mutex_unlock(ptr noundef %65) #7
+  call void @mutex_unlock(ptr noundef nonnull %65) #7
   br label %98
 
 98:                                               ; preds = %97, %95
@@ -386,41 +386,41 @@ define dso_local i32 @gssp_accept_sec_context_upcall(ptr noundef %0, ptr noundef
   call void @kfree(ptr noundef %112) #7
   %113 = load i64, ptr %6, align 8
   %114 = trunc i64 %113 to i32
-  %115 = getelementptr inbounds i8, ptr %1, i64 164
+  %115 = getelementptr inbounds nuw i8, ptr %1, i64 164
   store i32 %114, ptr %115, align 4
-  %116 = getelementptr inbounds i8, ptr %6, i64 24
+  %116 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %117 = load i64, ptr %116, align 8
   %118 = trunc i64 %117 to i32
-  %119 = getelementptr inbounds i8, ptr %1, i64 168
+  %119 = getelementptr inbounds nuw i8, ptr %1, i64 168
   store i32 %118, ptr %119, align 8
   %120 = load ptr, ptr %14, align 8
   %121 = icmp eq ptr %120, null
   br i1 %121, label %141, label %122
 
 122:                                              ; preds = %.loopexit
-  %123 = getelementptr inbounds i8, ptr %1, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %123, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
+  %123 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %123, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
   %124 = load i32, ptr %11, align 8
-  %125 = getelementptr inbounds i8, ptr %1, i64 64
+  %125 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 %124, ptr %125, align 8
-  %126 = getelementptr inbounds i8, ptr %5, i64 48
+  %126 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %127 = load ptr, ptr %126, align 8
   %128 = icmp eq ptr %127, null
   br i1 %128, label %132, label %129
 
 129:                                              ; preds = %122
-  %130 = getelementptr inbounds i8, ptr %1, i64 68
+  %130 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %131 = zext i32 %124 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %130, ptr nonnull align 1 %127, i64 %131, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %130, ptr nonnull align 1 %127, i64 %131, i1 false)
   call void @kfree(ptr noundef nonnull %127) #7
   br label %132
 
 132:                                              ; preds = %129, %122
   %133 = load i32, ptr %12, align 8
-  %134 = getelementptr inbounds i8, ptr %5, i64 64
+  %134 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %135 = load ptr, ptr %134, align 8
   %136 = load i32, ptr %13, align 8
-  %137 = getelementptr inbounds i8, ptr %5, i64 80
+  %137 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %138 = load ptr, ptr %137, align 8
   %139 = zext i32 %133 to i64
   %140 = zext i32 %136 to i64
@@ -431,30 +431,30 @@ define dso_local i32 @gssp_accept_sec_context_upcall(ptr noundef %0, ptr noundef
   %143 = phi ptr [ null, %.loopexit ], [ %135, %132 ]
   %144 = phi i64 [ 0, %.loopexit ], [ %140, %132 ]
   %145 = phi ptr [ null, %.loopexit ], [ %138, %132 ]
-  %146 = getelementptr inbounds i8, ptr %6, i64 112
+  %146 = getelementptr inbounds nuw i8, ptr %6, i64 112
   %147 = load i32, ptr %146, align 8
   %148 = icmp eq i32 %147, 1
   br i1 %148, label %149, label %163
 
 149:                                              ; preds = %141
-  %150 = getelementptr inbounds i8, ptr %6, i64 120
+  %150 = getelementptr inbounds nuw i8, ptr %6, i64 120
   %151 = load ptr, ptr %150, align 8
-  %152 = getelementptr inbounds i8, ptr %151, i64 16
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 16
   %153 = load i32, ptr %152, align 8
   %154 = icmp eq i32 %153, 1
   br i1 %154, label %155, label %160
 
 155:                                              ; preds = %149
-  %156 = getelementptr inbounds i8, ptr %1, i64 104
-  %157 = getelementptr inbounds i8, ptr %151, i64 24
+  %156 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %157 = getelementptr inbounds nuw i8, ptr %151, i64 24
   %158 = load ptr, ptr %157, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(56) %156, ptr noundef align 8 dereferenceable(56) %158, i64 56, i1 false)
-  %159 = getelementptr inbounds i8, ptr %1, i64 160
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %156, ptr noundef align 8 dereferenceable(56) %158, i64 56, i1 false)
+  %159 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store i32 1, ptr %159, align 8
   br label %160
 
 160:                                              ; preds = %155, %149
-  %161 = getelementptr inbounds i8, ptr %151, i64 24
+  %161 = getelementptr inbounds nuw i8, ptr %151, i64 24
   %162 = load ptr, ptr %161, align 8
   call void @kfree(ptr noundef %162) #7
   %.pr = load i32, ptr %146, align 8
@@ -466,13 +466,13 @@ define dso_local i32 @gssp_accept_sec_context_upcall(ptr noundef %0, ptr noundef
   br i1 %165, label %169, label %166
 
 166:                                              ; preds = %163
-  %167 = getelementptr inbounds i8, ptr %6, i64 120
+  %167 = getelementptr inbounds nuw i8, ptr %6, i64 120
   %168 = load ptr, ptr %167, align 8
   call void @kfree(ptr noundef %168) #7
   br label %169
 
 169:                                              ; preds = %166, %163
-  %170 = getelementptr inbounds i8, ptr %1, i64 160
+  %170 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %171 = load i32, ptr %170, align 8
   %172 = icmp eq i32 %171, 0
   br i1 %172, label %207, label %173
@@ -483,10 +483,10 @@ define dso_local i32 @gssp_accept_sec_context_upcall(ptr noundef %0, ptr noundef
 
 175:                                              ; preds = %173
   %176 = call ptr @kmemdup_nul(ptr noundef nonnull %143, i64 noundef %142, i32 noundef 3264) #7
-  %177 = getelementptr inbounds i8, ptr %1, i64 128
+  %177 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store ptr %176, ptr %177, align 8
   %178 = call ptr @kmemdup_nul(ptr noundef nonnull %143, i64 noundef %142, i32 noundef 3264) #7
-  %179 = getelementptr inbounds i8, ptr %1, i64 136
+  %179 = getelementptr inbounds nuw i8, ptr %1, i64 136
   store ptr %178, ptr %179, align 8
   %180 = icmp eq ptr %178, null
   br i1 %180, label %191, label %181
@@ -519,7 +519,7 @@ define dso_local i32 @gssp_accept_sec_context_upcall(ptr noundef %0, ptr noundef
 
 193:                                              ; preds = %191
   %194 = call ptr @kmemdup_nul(ptr noundef nonnull %145, i64 noundef %144, i32 noundef 3264) #7
-  %195 = getelementptr inbounds i8, ptr %1, i64 144
+  %195 = getelementptr inbounds nuw i8, ptr %1, i64 144
   store ptr %194, ptr %195, align 8
   %196 = icmp eq ptr %194, null
   br i1 %196, label %207, label %197
@@ -577,16 +577,16 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @gssp_free_upcall_data(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @kfree(ptr noundef %3) #7
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   tail call void @kfree(ptr noundef %5) #7
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8
   tail call void @kfree(ptr noundef %7) #7
-  %8 = getelementptr inbounds i8, ptr %0, i64 112
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.thread, label %11
@@ -611,20 +611,20 @@ define dso_local void @gssp_free_upcall_data(ptr nocapture noundef %0) local_unn
   br label %.thread
 
 .thread:                                          ; preds = %14, %16, %17, %1
-  %19 = getelementptr inbounds i8, ptr %0, i64 128
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %20 = load ptr, ptr %19, align 8
   tail call void @kfree(ptr noundef %20) #7
-  %21 = getelementptr inbounds i8, ptr %0, i64 136
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %22 = load ptr, ptr %21, align 8
   tail call void @kfree(ptr noundef %22) #7
-  %23 = getelementptr inbounds i8, ptr %0, i64 144
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %24 = load ptr, ptr %23, align 8
   tail call void @kfree(ptr noundef %24) #7
-  %25 = getelementptr inbounds i8, ptr %0, i64 152
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %26 = load ptr, ptr %25, align 8
   tail call void @gss_mech_put(ptr noundef %26) #7
   store ptr null, ptr %8, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(32) %19, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 0, i64 32, i1 false)
   ret void
 }
 

@@ -83,11 +83,11 @@ declare void @_ZN12ZStatCounterC1EPKcS1_PFv15LogTargetHandleRK12ZStatSamplerRK19
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN16ZObjectAllocatorC2E8ZPageAge(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 2)) %0, i8 noundef zeroext %1) unnamed_addr #1 align 2 {
   store i8 %1, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 1
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %4 = tail call noundef zeroext i1 @_ZN11ZHeuristics30use_per_cpu_shared_small_pagesEv() #8
   %5 = zext i1 %4 to i8
   store i8 %5, ptr %3, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr @_ZN13ZValueStorageI14ZPerCPUStorageE4_topE, align 8
   %8 = add i64 %7, 7
   %9 = and i64 %8, -8
@@ -142,7 +142,7 @@ _ZN6ZValueI14ZPerCPUStoragemEC2ERKm.exit:         ; preds = %_ZN6ZValueI14ZPerCP
   %32 = phi i32 [ %29, %_ZN6ZValueI14ZPerCPUStoragemEC2ERKm.exit.loopexit ], [ 0, %_ZN13ZValueStorageI14ZPerCPUStorageE5allocEm.exit.i ]
   %33 = phi i64 [ %.pre29, %_ZN6ZValueI14ZPerCPUStoragemEC2ERKm.exit.loopexit ], [ %22, %_ZN13ZValueStorageI14ZPerCPUStorageE5allocEm.exit.i ]
   %34 = phi i64 [ %.pre, %_ZN6ZValueI14ZPerCPUStoragemEC2ERKm.exit.loopexit ], [ %23, %_ZN13ZValueStorageI14ZPerCPUStorageE5allocEm.exit.i ]
-  %35 = getelementptr inbounds i8, ptr %0, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %36 = add i64 %34, 7
   %37 = and i64 %36, -8
   %38 = add i64 %37, 8
@@ -189,7 +189,7 @@ _ZN13ZValueStorageI14ZPerCPUStorageE5allocEm.exit.i2: ; preds = %_ZN13ZValueStor
   br i1 %56, label %.lr.ph.i7, label %_ZN6ZValueI14ZPerCPUStoragemEC2ERKm.exit10, !llvm.loop !6
 
 _ZN6ZValueI14ZPerCPUStoragemEC2ERKm.exit10:       ; preds = %.lr.ph.i7, %_ZN13ZValueStorageI14ZPerCPUStorageE5allocEm.exit.i2
-  %57 = getelementptr inbounds i8, ptr %0, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %58 = load i64, ptr @_ZN13ZValueStorageI17ZContendedStorageE4_topE, align 8
   %59 = add i64 %58, 63
   %60 = and i64 %59, -64
@@ -215,7 +215,7 @@ _ZN6ZValueI17ZContendedStorageP5ZPageEC2ERKS2_.exit: ; preds = %tailrecurse.i.i1
   store i64 %.lcssa.i.i12, ptr %57, align 8
   %70 = inttoptr i64 %.lcssa.i.i12 to ptr
   store ptr null, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %0, i64 32
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %72 = load i64, ptr @_ZN13ZValueStorageI14ZPerCPUStorageE4_topE, align 8
   %73 = add i64 %72, 7
   %74 = and i64 %73, -8
@@ -267,10 +267,10 @@ declare noundef zeroext i1 @_ZN11ZHeuristics30use_per_cpu_shared_small_pagesEv()
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN16ZObjectAllocator22shared_small_page_addrEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %3 = load i8, ptr %2, align 1
   %4 = trunc i8 %3 to i1
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br i1 %4, label %6, label %21
 
 6:                                                ; preds = %1
@@ -278,7 +278,7 @@ define hidden noundef ptr @_ZN16ZObjectAllocator22shared_small_page_addrEv(ptr n
   %8 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZN4ZCPU4_cpuE)
   %9 = load i32, ptr %8, align 4
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds %class.PaddedEnd, ptr %7, i64 %10
+  %11 = getelementptr inbounds nuw %class.PaddedEnd, ptr %7, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4ZCPU5_selfE)
   %14 = load ptr, ptr %13, align 8
@@ -309,10 +309,10 @@ _ZN14ZPerCPUStorage2idEv.exit:                    ; preds = %6, %16
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZNK16ZObjectAllocator22shared_small_page_addrEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %3 = load i8, ptr %2, align 1
   %4 = trunc i8 %3 to i1
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br i1 %4, label %6, label %21
 
 6:                                                ; preds = %1
@@ -320,7 +320,7 @@ define hidden noundef ptr @_ZNK16ZObjectAllocator22shared_small_page_addrEv(ptr 
   %8 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZN4ZCPU4_cpuE)
   %9 = load i32, ptr %8, align 4
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds %class.PaddedEnd, ptr %7, i64 %10
+  %11 = getelementptr inbounds nuw %class.PaddedEnd, ptr %7, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4ZCPU5_selfE)
   %14 = load ptr, ptr %13, align 8
@@ -358,12 +358,12 @@ define hidden noundef ptr @_ZN16ZObjectAllocator10alloc_pageE9ZPageTypem16ZAlloc
   br i1 %.not, label %26, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr @_ZN4ZCPU9_affinityE, align 8
   %11 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZN4ZCPU4_cpuE)
   %12 = load i32, ptr %11, align 4
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds %class.PaddedEnd, ptr %10, i64 %13
+  %14 = getelementptr inbounds nuw %class.PaddedEnd, ptr %10, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4ZCPU5_selfE)
   %17 = load ptr, ptr %16, align 8
@@ -404,7 +404,7 @@ define hidden void @_ZN16ZObjectAllocator15undo_alloc_pageEP5ZPage(ptr nocapture
   %4 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZN4ZCPU4_cpuE)
   %5 = load i32, ptr %4, align 4
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds %class.PaddedEnd, ptr %3, i64 %6
+  %7 = getelementptr inbounds nuw %class.PaddedEnd, ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4ZCPU5_selfE)
   %10 = load ptr, ptr %9, align 8
@@ -418,13 +418,13 @@ define hidden void @_ZN16ZObjectAllocator15undo_alloc_pageEP5ZPage(ptr nocapture
 
 _ZN14ZPerCPUStorage2idEv.exit:                    ; preds = %2, %12
   %.pre-phi = phi i64 [ %6, %2 ], [ %.pre, %12 ]
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load i64, ptr %14, align 8
   %16 = shl nuw nsw i64 %.pre-phi, 12
   %17 = add i64 %16, %15
   %18 = inttoptr i64 %17 to ptr
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
-  %20 = getelementptr inbounds i8, ptr %1, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load i64, ptr %20, align 8
   %22 = load i64, ptr %19, align 8
   %23 = sub i64 %21, %22
@@ -473,9 +473,9 @@ _ZNK5ZPage16object_alignmentEv.exit.i:            ; preds = %_ZNK5ZPage16object_
   %17 = add i64 %16, %.0.i.i
   %18 = sub nsw i64 0, %.0.i.i
   %19 = and i64 %17, %18
-  %20 = getelementptr inbounds i8, ptr %7, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %21 = load volatile i64, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %7, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 24
   br label %23
 
 23:                                               ; preds = %28, %_ZNK5ZPage16object_alignmentEv.exit.i
@@ -507,12 +507,12 @@ _ZN5ZPage19alloc_object_atomicEm.exit.thread:     ; preds = %23, %6, %_ZN5ZPage1
   br i1 %.not.i, label %_ZN16ZObjectAllocator10alloc_pageE9ZPageTypem16ZAllocationFlags.exit.thread, label %37
 
 37:                                               ; preds = %_ZN5ZPage19alloc_object_atomicEm.exit.thread
-  %38 = getelementptr inbounds i8, ptr %0, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load ptr, ptr @_ZN4ZCPU9_affinityE, align 8
   %40 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZN4ZCPU4_cpuE)
   %41 = load i32, ptr %40, align 4
   %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds %class.PaddedEnd, ptr %39, i64 %42
+  %43 = getelementptr inbounds nuw %class.PaddedEnd, ptr %39, i64 %42
   %44 = load ptr, ptr %43, align 8
   %45 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4ZCPU5_selfE)
   %46 = load ptr, ptr %45, align 8
@@ -560,12 +560,12 @@ _ZNK5ZPage16object_alignmentEv.exit.i31:          ; preds = %_ZNK5ZPage16object_
   %64 = add i64 %.0.i.i32, %63
   %65 = sub nsw i64 0, %.0.i.i32
   %66 = and i64 %64, %65
-  %67 = getelementptr inbounds i8, ptr %36, i64 32
+  %67 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %68 = load volatile i64, ptr %67, align 8
   %69 = add i64 %66, %68
   %70 = load i64, ptr @ZAddressOffsetMax, align 8
   %.not.i.i33 = icmp ugt i64 %69, %70
-  %71 = getelementptr inbounds i8, ptr %36, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %72 = load i64, ptr %71, align 8
   %73 = icmp ugt i64 %69, %72
   %or.cond.i34 = select i1 %.not.i.i33, i1 true, i1 %73
@@ -625,9 +625,9 @@ _ZNK5ZPage16object_alignmentEv.exit.i37:          ; preds = %_ZNK5ZPage16object_
   %90 = add i64 %.0.i.i38, %63
   %91 = sub nsw i64 0, %.0.i.i38
   %92 = and i64 %90, %91
-  %93 = getelementptr inbounds i8, ptr %80, i64 32
+  %93 = getelementptr inbounds nuw i8, ptr %80, i64 32
   %94 = load volatile i64, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %80, i64 24
+  %95 = getelementptr inbounds nuw i8, ptr %80, i64 24
   br label %96
 
 96:                                               ; preds = %101, %_ZNK5ZPage16object_alignmentEv.exit.i37
@@ -655,7 +655,7 @@ _ZN5ZPage19alloc_object_atomicEm.exit45:          ; preds = %101
   %108 = load ptr, ptr @_ZN4ZCPU9_affinityE, align 8
   %109 = load i32, ptr %40, align 4
   %110 = zext i32 %109 to i64
-  %111 = getelementptr inbounds %class.PaddedEnd, ptr %108, i64 %110
+  %111 = getelementptr inbounds nuw %class.PaddedEnd, ptr %108, i64 %110
   %112 = load ptr, ptr %111, align 8
   %113 = load ptr, ptr %45, align 8
   %114 = icmp eq ptr %112, %113
@@ -668,12 +668,12 @@ _ZN5ZPage19alloc_object_atomicEm.exit45:          ; preds = %101
 
 _ZN16ZObjectAllocator15undo_alloc_pageEP5ZPage.exit: ; preds = %107, %115
   %.pre-phi.i48 = phi i64 [ %110, %107 ], [ %.pre.i46, %115 ]
-  %117 = getelementptr inbounds i8, ptr %0, i64 16
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %118 = load i64, ptr %117, align 8
   %119 = shl nuw nsw i64 %.pre-phi.i48, 12
   %120 = add i64 %119, %118
   %121 = inttoptr i64 %120 to ptr
-  %122 = getelementptr inbounds i8, ptr %36, i64 16
+  %122 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %123 = load i64, ptr %71, align 8
   %124 = load i64, ptr %122, align 8
   %125 = sub i64 %123, %124
@@ -699,12 +699,12 @@ define hidden noundef i64 @_ZN16ZObjectAllocator18alloc_large_objectEm16ZAllocat
   br i1 %.not.i, label %_ZN5ZPage12alloc_objectEm.exit, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr @_ZN4ZCPU9_affinityE, align 8
   %13 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZN4ZCPU4_cpuE)
   %14 = load i32, ptr %13, align 4
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds %class.PaddedEnd, ptr %12, i64 %15
+  %16 = getelementptr inbounds nuw %class.PaddedEnd, ptr %12, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4ZCPU5_selfE)
   %19 = load ptr, ptr %18, align 8
@@ -751,12 +751,12 @@ _ZNK5ZPage16object_alignmentEv.exit.i:            ; preds = %_ZNK5ZPage16object_
   %36 = add i64 %4, %.0.i.i
   %37 = sub nsw i64 0, %.0.i.i
   %38 = and i64 %36, %37
-  %39 = getelementptr inbounds i8, ptr %9, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %40 = load volatile i64, ptr %39, align 8
   %41 = add i64 %38, %40
   %42 = load i64, ptr @ZAddressOffsetMax, align 8
   %.not.i.i = icmp ugt i64 %41, %42
-  %43 = getelementptr inbounds i8, ptr %9, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %44 = load i64, ptr %43, align 8
   %45 = icmp ugt i64 %41, %44
   %or.cond.i = select i1 %.not.i.i, i1 true, i1 %45
@@ -775,7 +775,7 @@ _ZN5ZPage12alloc_objectEm.exit:                   ; preds = %3, %46, %_ZNK5ZPage
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZN16ZObjectAllocator19alloc_medium_objectEm16ZAllocationFlags(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i64 noundef %1, i8 %2) local_unnamed_addr #1 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
   %7 = load i64, ptr @ZPageSizeMedium, align 8
@@ -785,10 +785,10 @@ define hidden noundef i64 @_ZN16ZObjectAllocator19alloc_medium_objectEm16ZAlloca
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZN16ZObjectAllocator18alloc_small_objectEm16ZAllocationFlags(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i64 noundef %1, i8 %2) local_unnamed_addr #1 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 1
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %5 = load i8, ptr %4, align 1
   %6 = trunc i8 %5 to i1
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br i1 %6, label %8, label %23
 
 8:                                                ; preds = %3
@@ -796,7 +796,7 @@ define hidden noundef i64 @_ZN16ZObjectAllocator18alloc_small_objectEm16ZAllocat
   %10 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZN4ZCPU4_cpuE)
   %11 = load i32, ptr %10, align 4
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds %class.PaddedEnd, ptr %9, i64 %12
+  %13 = getelementptr inbounds nuw %class.PaddedEnd, ptr %9, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4ZCPU5_selfE)
   %16 = load ptr, ptr %15, align 8
@@ -832,10 +832,10 @@ define hidden noundef i64 @_ZN16ZObjectAllocator12alloc_objectEm16ZAllocationFla
   br i1 %4, label %5, label %29
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %7 = load i8, ptr %6, align 1
   %8 = trunc i8 %7 to i1
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br i1 %8, label %10, label %25
 
 10:                                               ; preds = %5
@@ -843,7 +843,7 @@ define hidden noundef i64 @_ZN16ZObjectAllocator12alloc_objectEm16ZAllocationFla
   %12 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZN4ZCPU4_cpuE)
   %13 = load i32, ptr %12, align 4
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds %class.PaddedEnd, ptr %11, i64 %14
+  %15 = getelementptr inbounds nuw %class.PaddedEnd, ptr %11, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4ZCPU5_selfE)
   %18 = load ptr, ptr %17, align 8
@@ -878,7 +878,7 @@ _ZN16ZObjectAllocator18alloc_small_objectEm16ZAllocationFlags.exit: ; preds = %_
   br i1 %.not, label %37, label %31
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = load i64, ptr %32, align 8
   %34 = inttoptr i64 %33 to ptr
   %35 = load i64, ptr @ZPageSizeMedium, align 8
@@ -912,9 +912,9 @@ define hidden void @_ZN16ZObjectAllocator32undo_alloc_object_for_relocationE8zad
   %5 = load i64, ptr @ZAddressOffsetMask, align 8
   %6 = and i64 %5, %1
   %7 = lshr i64 %6, 21
-  %8 = getelementptr inbounds i8, ptr %4, i64 624
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 624
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds ptr, ptr %9, i64 %7
+  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %7
   %11 = load volatile ptr, ptr %10, align 8
   %12 = load i8, ptr %11, align 8
   switch i8 %12, label %39 [
@@ -928,7 +928,7 @@ define hidden void @_ZN16ZObjectAllocator32undo_alloc_object_for_relocationE8zad
   %15 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZN4ZCPU4_cpuE)
   %16 = load i32, ptr %15, align 4
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds %class.PaddedEnd, ptr %14, i64 %17
+  %18 = getelementptr inbounds nuw %class.PaddedEnd, ptr %14, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4ZCPU5_selfE)
   %21 = load ptr, ptr %20, align 8
@@ -942,13 +942,13 @@ define hidden void @_ZN16ZObjectAllocator32undo_alloc_object_for_relocationE8zad
 
 _ZN16ZObjectAllocator15undo_alloc_pageEP5ZPage.exit: ; preds = %13, %23
   %.pre-phi.i = phi i64 [ %17, %13 ], [ %.pre.i, %23 ]
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load i64, ptr %25, align 8
   %27 = shl nuw nsw i64 %.pre-phi.i, 12
   %28 = add i64 %27, %26
   %29 = inttoptr i64 %28 to ptr
-  %30 = getelementptr inbounds i8, ptr %11, i64 16
-  %31 = getelementptr inbounds i8, ptr %11, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %32 = load i64, ptr %31, align 8
   %33 = load i64, ptr %30, align 8
   %34 = sub i64 %32, %33
@@ -975,7 +975,7 @@ _ZNK5ZPage16object_alignmentEv.exit.sink.split.i: ; preds = %3, %37
   %44 = add i64 %43, %42
   %45 = sub nsw i64 0, %42
   %46 = and i64 %44, %45
-  %47 = getelementptr inbounds i8, ptr %11, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %48 = load volatile i64, ptr %47, align 8
   br label %49
 
@@ -1011,7 +1011,7 @@ define hidden noundef i64 @_ZNK16ZObjectAllocator4usedEv(ptr nocapture noundef n
   br i1 %.not, label %_ZN19ZValueConstIteratorI14ZPerCPUStoragemE4nextEPPKm.exit5, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %wide.trip.count = zext i32 %2 to i64
   br label %5
@@ -1029,7 +1029,7 @@ define hidden noundef i64 @_ZNK16ZObjectAllocator4usedEv(ptr nocapture noundef n
   br i1 %exitcond.not, label %.lr.ph25, label %5, !llvm.loop !14
 
 .lr.ph25:                                         ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i64, ptr %11, align 8
   %wide.trip.count33 = zext i32 %2 to i64
   br label %13
@@ -1057,10 +1057,10 @@ _ZN19ZValueConstIteratorI14ZPerCPUStoragemE4nextEPPKm.exit5: ; preds = %_ZN19ZVa
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZNK16ZObjectAllocator9remainingEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %3 = load i8, ptr %2, align 1
   %4 = trunc i8 %3 to i1
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br i1 %4, label %6, label %21
 
 6:                                                ; preds = %1
@@ -1068,7 +1068,7 @@ define hidden noundef i64 @_ZNK16ZObjectAllocator9remainingEv(ptr nocapture noun
   %8 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZN4ZCPU4_cpuE)
   %9 = load i32, ptr %8, align 4
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds %class.PaddedEnd, ptr %7, i64 %10
+  %11 = getelementptr inbounds nuw %class.PaddedEnd, ptr %7, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4ZCPU5_selfE)
   %14 = load ptr, ptr %13, align 8
@@ -1100,9 +1100,9 @@ _ZNK16ZObjectAllocator22shared_small_page_addrEv.exit: ; preds = %_ZN14ZPerCPUSt
   br i1 %.not, label %31, label %25
 
 25:                                               ; preds = %_ZNK16ZObjectAllocator22shared_small_page_addrEv.exit
-  %26 = getelementptr inbounds i8, ptr %24, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %27 = load i64, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %24, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %29 = load volatile i64, ptr %28, align 8
   %30 = sub i64 %27, %29
   br label %31
@@ -1114,7 +1114,7 @@ _ZNK16ZObjectAllocator22shared_small_page_addrEv.exit: ; preds = %_ZN14ZPerCPUSt
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN16ZObjectAllocator12retire_pagesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #4 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr @_ZN2os16_processor_countE, align 4
   %.not.i = icmp eq i32 %3, 0
   br i1 %.not.i, label %_ZN6ZValueI14ZPerCPUStoragemE7set_allERKm.exit7, label %.lr.ph.i
@@ -1133,7 +1133,7 @@ define hidden void @_ZN16ZObjectAllocator12retire_pagesEv(ptr nocapture noundef 
   br i1 %10, label %.lr.ph.i, label %_ZN6ZValueI14ZPerCPUStoragemE7set_allERKm.exit, !llvm.loop !16
 
 _ZN6ZValueI14ZPerCPUStoragemE7set_allERKm.exit:   ; preds = %.lr.ph.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.not.i1 = icmp eq i32 %8, 0
   br i1 %.not.i1, label %_ZN6ZValueI14ZPerCPUStoragemE7set_allERKm.exit7, label %.lr.ph.i4
 
@@ -1151,11 +1151,11 @@ _ZN6ZValueI14ZPerCPUStoragemE7set_allERKm.exit:   ; preds = %.lr.ph.i
   br i1 %18, label %.lr.ph.i4, label %_ZN6ZValueI14ZPerCPUStoragemE7set_allERKm.exit7, !llvm.loop !16
 
 _ZN6ZValueI14ZPerCPUStoragemE7set_allERKm.exit7:  ; preds = %.lr.ph.i4, %1, %_ZN6ZValueI14ZPerCPUStoragemE7set_allERKm.exit
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load i64, ptr %19, align 8
   %21 = inttoptr i64 %20 to ptr
   store ptr null, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = load i32, ptr @_ZN2os16_processor_countE, align 4
   %.not.i8 = icmp eq i32 %23, 0
   br i1 %.not.i8, label %_ZN6ZValueI14ZPerCPUStorageP5ZPageE7set_allERKS2_.exit, label %.lr.ph.i11

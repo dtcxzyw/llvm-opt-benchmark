@@ -149,7 +149,7 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_81_$LT$impl$u20$syn..parse.
   %5 = alloca { { i64, [3 x i64] }, {} }, align 8
   %6 = alloca { i64, [5 x i64] }, align 8
   %7 = load ptr, ptr %1, align 8, !noundef !3
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !noundef !3
   call void @_ZN3syn6buffer6Cursor5ident17hc5b8e3ee3beec73aE(ptr nonnull sret({ i64, [5 x i64] }) align 8 %6, ptr %7, ptr %9)
   %10 = load i64, ptr %6, align 8, !range !4, !noundef !3
@@ -158,9 +158,9 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_81_$LT$impl$u20$syn..parse.
 
 11:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
-  %12 = getelementptr inbounds i8, ptr %6, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds i8, ptr %6, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %15 = load ptr, ptr %14, align 8, !noundef !3
   store ptr @anon.e67be1aaff1d310ba57d6bd4da82a214.1, ptr %4, align 8
   %16 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h83518ee1d887689eE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
@@ -182,14 +182,14 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_81_$LT$impl$u20$syn..parse.
 20:                                               ; preds = %19
   %21 = load i64, ptr %5, align 8, !range !5, !noundef !3
   %22 = icmp eq i64 %21, -9223372036854775808
-  %23 = getelementptr inbounds i8, ptr %5, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %24 = load i32, ptr %23, align 4, !range !6
   %.0 = select i1 %22, i32 %24, i32 0
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.0, ptr %25, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %13, ptr %.sroa.21.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %15, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %5)
@@ -208,12 +208,12 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_81_$LT$impl$u20$syn..parse.
   resume { ptr, i32 } %18
 
 30:                                               ; preds = %2, %.thread
-  %31 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %32 = load i32, ptr %31, align 8, !noundef !3
   %33 = load ptr, ptr %1, align 8, !noundef !3
   %34 = load ptr, ptr %8, align 8, !noundef !3
   call void @_ZN3syn5error6new_at17h57b91627ae2fa74fE(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %3, i32 %32, ptr %33, ptr %34, ptr nonnull align 1 @anon.e67be1aaff1d310ba57d6bd4da82a214.2, i64 15)
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
   br label %26
@@ -226,7 +226,7 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_89_$LT$impl$u20$syn..parse.
   %5 = alloca { { i64, [3 x i64] }, {} }, align 8
   %6 = alloca { i64, [5 x i64] }, align 8
   %7 = load ptr, ptr %1, align 8, !noundef !3
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !noundef !3
   call void @_ZN3syn6buffer6Cursor5ident17hc5b8e3ee3beec73aE(ptr nonnull sret({ i64, [5 x i64] }) align 8 %6, ptr %7, ptr %9)
   %10 = load i64, ptr %6, align 8, !range !4, !noundef !3
@@ -235,9 +235,9 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_89_$LT$impl$u20$syn..parse.
 
 11:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
-  %12 = getelementptr inbounds i8, ptr %6, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds i8, ptr %6, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %15 = load ptr, ptr %14, align 8, !noundef !3
   store ptr @anon.e67be1aaff1d310ba57d6bd4da82a214.4, ptr %4, align 8
   %16 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h83518ee1d887689eE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
@@ -259,14 +259,14 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_89_$LT$impl$u20$syn..parse.
 20:                                               ; preds = %19
   %21 = load i64, ptr %5, align 8, !range !5, !noundef !3
   %22 = icmp eq i64 %21, -9223372036854775808
-  %23 = getelementptr inbounds i8, ptr %5, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %24 = load i32, ptr %23, align 4, !range !6
   %.0 = select i1 %22, i32 %24, i32 0
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.0, ptr %25, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %13, ptr %.sroa.21.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %15, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %5)
@@ -285,12 +285,12 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_89_$LT$impl$u20$syn..parse.
   resume { ptr, i32 } %18
 
 30:                                               ; preds = %2, %.thread
-  %31 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %32 = load i32, ptr %31, align 8, !noundef !3
   %33 = load ptr, ptr %1, align 8, !noundef !3
   %34 = load ptr, ptr %8, align 8, !noundef !3
   call void @_ZN3syn5error6new_at17h57b91627ae2fa74fE(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %3, i32 %32, ptr %33, ptr %34, ptr nonnull align 1 @anon.e67be1aaff1d310ba57d6bd4da82a214.5, i64 23)
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
   br label %26
@@ -303,7 +303,7 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_85_$LT$impl$u20$syn..parse.
   %5 = alloca { { i64, [3 x i64] }, {} }, align 8
   %6 = alloca { i64, [5 x i64] }, align 8
   %7 = load ptr, ptr %1, align 8, !noundef !3
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !noundef !3
   call void @_ZN3syn6buffer6Cursor5ident17hc5b8e3ee3beec73aE(ptr nonnull sret({ i64, [5 x i64] }) align 8 %6, ptr %7, ptr %9)
   %10 = load i64, ptr %6, align 8, !range !4, !noundef !3
@@ -312,9 +312,9 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_85_$LT$impl$u20$syn..parse.
 
 11:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
-  %12 = getelementptr inbounds i8, ptr %6, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds i8, ptr %6, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %15 = load ptr, ptr %14, align 8, !noundef !3
   store ptr @anon.e67be1aaff1d310ba57d6bd4da82a214.7, ptr %4, align 8
   %16 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h83518ee1d887689eE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
@@ -336,14 +336,14 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_85_$LT$impl$u20$syn..parse.
 20:                                               ; preds = %19
   %21 = load i64, ptr %5, align 8, !range !5, !noundef !3
   %22 = icmp eq i64 %21, -9223372036854775808
-  %23 = getelementptr inbounds i8, ptr %5, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %24 = load i32, ptr %23, align 4, !range !6
   %.0 = select i1 %22, i32 %24, i32 0
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.0, ptr %25, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %13, ptr %.sroa.21.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %15, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %5)
@@ -362,12 +362,12 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_85_$LT$impl$u20$syn..parse.
   resume { ptr, i32 } %18
 
 30:                                               ; preds = %2, %.thread
-  %31 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %32 = load i32, ptr %31, align 8, !noundef !3
   %33 = load ptr, ptr %1, align 8, !noundef !3
   %34 = load ptr, ptr %8, align 8, !noundef !3
   call void @_ZN3syn5error6new_at17h57b91627ae2fa74fE(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %3, i32 %32, ptr %33, ptr %34, ptr nonnull align 1 @anon.e67be1aaff1d310ba57d6bd4da82a214.8, i64 19)
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
   br label %26
@@ -380,7 +380,7 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_83_$LT$impl$u20$syn..parse.
   %5 = alloca { { i64, [3 x i64] }, {} }, align 8
   %6 = alloca { i64, [5 x i64] }, align 8
   %7 = load ptr, ptr %1, align 8, !noundef !3
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !noundef !3
   call void @_ZN3syn6buffer6Cursor5ident17hc5b8e3ee3beec73aE(ptr nonnull sret({ i64, [5 x i64] }) align 8 %6, ptr %7, ptr %9)
   %10 = load i64, ptr %6, align 8, !range !4, !noundef !3
@@ -389,9 +389,9 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_83_$LT$impl$u20$syn..parse.
 
 11:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
-  %12 = getelementptr inbounds i8, ptr %6, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds i8, ptr %6, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %15 = load ptr, ptr %14, align 8, !noundef !3
   store ptr @anon.e67be1aaff1d310ba57d6bd4da82a214.10, ptr %4, align 8
   %16 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h83518ee1d887689eE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
@@ -413,14 +413,14 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_83_$LT$impl$u20$syn..parse.
 20:                                               ; preds = %19
   %21 = load i64, ptr %5, align 8, !range !5, !noundef !3
   %22 = icmp eq i64 %21, -9223372036854775808
-  %23 = getelementptr inbounds i8, ptr %5, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %24 = load i32, ptr %23, align 4, !range !6
   %.0 = select i1 %22, i32 %24, i32 0
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.0, ptr %25, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %13, ptr %.sroa.21.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %15, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %5)
@@ -439,12 +439,12 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_83_$LT$impl$u20$syn..parse.
   resume { ptr, i32 } %18
 
 30:                                               ; preds = %2, %.thread
-  %31 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %32 = load i32, ptr %31, align 8, !noundef !3
   %33 = load ptr, ptr %1, align 8, !noundef !3
   %34 = load ptr, ptr %8, align 8, !noundef !3
   call void @_ZN3syn5error6new_at17h57b91627ae2fa74fE(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %3, i32 %32, ptr %33, ptr %34, ptr nonnull align 1 @anon.e67be1aaff1d310ba57d6bd4da82a214.11, i64 17)
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
   br label %26
@@ -457,7 +457,7 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_83_$LT$impl$u20$syn..parse.
   %5 = alloca { { i64, [3 x i64] }, {} }, align 8
   %6 = alloca { i64, [5 x i64] }, align 8
   %7 = load ptr, ptr %1, align 8, !noundef !3
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !noundef !3
   call void @_ZN3syn6buffer6Cursor5ident17hc5b8e3ee3beec73aE(ptr nonnull sret({ i64, [5 x i64] }) align 8 %6, ptr %7, ptr %9)
   %10 = load i64, ptr %6, align 8, !range !4, !noundef !3
@@ -466,9 +466,9 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_83_$LT$impl$u20$syn..parse.
 
 11:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
-  %12 = getelementptr inbounds i8, ptr %6, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds i8, ptr %6, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %15 = load ptr, ptr %14, align 8, !noundef !3
   store ptr @anon.e67be1aaff1d310ba57d6bd4da82a214.13, ptr %4, align 8
   %16 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h83518ee1d887689eE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
@@ -490,14 +490,14 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_83_$LT$impl$u20$syn..parse.
 20:                                               ; preds = %19
   %21 = load i64, ptr %5, align 8, !range !5, !noundef !3
   %22 = icmp eq i64 %21, -9223372036854775808
-  %23 = getelementptr inbounds i8, ptr %5, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %24 = load i32, ptr %23, align 4, !range !6
   %.0 = select i1 %22, i32 %24, i32 0
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.0, ptr %25, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %13, ptr %.sroa.21.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %15, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %5)
@@ -516,12 +516,12 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_83_$LT$impl$u20$syn..parse.
   resume { ptr, i32 } %18
 
 30:                                               ; preds = %2, %.thread
-  %31 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %32 = load i32, ptr %31, align 8, !noundef !3
   %33 = load ptr, ptr %1, align 8, !noundef !3
   %34 = load ptr, ptr %8, align 8, !noundef !3
   call void @_ZN3syn5error6new_at17h57b91627ae2fa74fE(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %3, i32 %32, ptr %33, ptr %34, ptr nonnull align 1 @anon.e67be1aaff1d310ba57d6bd4da82a214.14, i64 17)
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
   br label %26
@@ -534,7 +534,7 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_85_$LT$impl$u20$syn..parse.
   %5 = alloca { { i64, [3 x i64] }, {} }, align 8
   %6 = alloca { i64, [5 x i64] }, align 8
   %7 = load ptr, ptr %1, align 8, !noundef !3
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !noundef !3
   call void @_ZN3syn6buffer6Cursor5ident17hc5b8e3ee3beec73aE(ptr nonnull sret({ i64, [5 x i64] }) align 8 %6, ptr %7, ptr %9)
   %10 = load i64, ptr %6, align 8, !range !4, !noundef !3
@@ -543,9 +543,9 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_85_$LT$impl$u20$syn..parse.
 
 11:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
-  %12 = getelementptr inbounds i8, ptr %6, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds i8, ptr %6, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %15 = load ptr, ptr %14, align 8, !noundef !3
   store ptr @anon.e67be1aaff1d310ba57d6bd4da82a214.16, ptr %4, align 8
   %16 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h83518ee1d887689eE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
@@ -567,14 +567,14 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_85_$LT$impl$u20$syn..parse.
 20:                                               ; preds = %19
   %21 = load i64, ptr %5, align 8, !range !5, !noundef !3
   %22 = icmp eq i64 %21, -9223372036854775808
-  %23 = getelementptr inbounds i8, ptr %5, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %24 = load i32, ptr %23, align 4, !range !6
   %.0 = select i1 %22, i32 %24, i32 0
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.0, ptr %25, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %13, ptr %.sroa.21.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %15, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %5)
@@ -593,12 +593,12 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_85_$LT$impl$u20$syn..parse.
   resume { ptr, i32 } %18
 
 30:                                               ; preds = %2, %.thread
-  %31 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %32 = load i32, ptr %31, align 8, !noundef !3
   %33 = load ptr, ptr %1, align 8, !noundef !3
   %34 = load ptr, ptr %8, align 8, !noundef !3
   call void @_ZN3syn5error6new_at17h57b91627ae2fa74fE(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %3, i32 %32, ptr %33, ptr %34, ptr nonnull align 1 @anon.e67be1aaff1d310ba57d6bd4da82a214.17, i64 19)
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
   br label %26
@@ -611,7 +611,7 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_84_$LT$impl$u20$syn..parse.
   %5 = alloca { { i64, [3 x i64] }, {} }, align 8
   %6 = alloca { i64, [5 x i64] }, align 8
   %7 = load ptr, ptr %1, align 8, !noundef !3
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !noundef !3
   call void @_ZN3syn6buffer6Cursor5ident17hc5b8e3ee3beec73aE(ptr nonnull sret({ i64, [5 x i64] }) align 8 %6, ptr %7, ptr %9)
   %10 = load i64, ptr %6, align 8, !range !4, !noundef !3
@@ -620,9 +620,9 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_84_$LT$impl$u20$syn..parse.
 
 11:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
-  %12 = getelementptr inbounds i8, ptr %6, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds i8, ptr %6, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %15 = load ptr, ptr %14, align 8, !noundef !3
   store ptr @anon.e67be1aaff1d310ba57d6bd4da82a214.19, ptr %4, align 8
   %16 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h83518ee1d887689eE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
@@ -644,14 +644,14 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_84_$LT$impl$u20$syn..parse.
 20:                                               ; preds = %19
   %21 = load i64, ptr %5, align 8, !range !5, !noundef !3
   %22 = icmp eq i64 %21, -9223372036854775808
-  %23 = getelementptr inbounds i8, ptr %5, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %24 = load i32, ptr %23, align 4, !range !6
   %.0 = select i1 %22, i32 %24, i32 0
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.0, ptr %25, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %13, ptr %.sroa.21.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %15, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %5)
@@ -670,12 +670,12 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_84_$LT$impl$u20$syn..parse.
   resume { ptr, i32 } %18
 
 30:                                               ; preds = %2, %.thread
-  %31 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %32 = load i32, ptr %31, align 8, !noundef !3
   %33 = load ptr, ptr %1, align 8, !noundef !3
   %34 = load ptr, ptr %8, align 8, !noundef !3
   call void @_ZN3syn5error6new_at17h57b91627ae2fa74fE(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %3, i32 %32, ptr %33, ptr %34, ptr nonnull align 1 @anon.e67be1aaff1d310ba57d6bd4da82a214.20, i64 18)
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
   br label %26
@@ -688,7 +688,7 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_84_$LT$impl$u20$syn..parse.
   %5 = alloca { { i64, [3 x i64] }, {} }, align 8
   %6 = alloca { i64, [5 x i64] }, align 8
   %7 = load ptr, ptr %1, align 8, !noundef !3
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !noundef !3
   call void @_ZN3syn6buffer6Cursor5ident17hc5b8e3ee3beec73aE(ptr nonnull sret({ i64, [5 x i64] }) align 8 %6, ptr %7, ptr %9)
   %10 = load i64, ptr %6, align 8, !range !4, !noundef !3
@@ -697,9 +697,9 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_84_$LT$impl$u20$syn..parse.
 
 11:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
-  %12 = getelementptr inbounds i8, ptr %6, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds i8, ptr %6, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %15 = load ptr, ptr %14, align 8, !noundef !3
   store ptr @anon.e67be1aaff1d310ba57d6bd4da82a214.22, ptr %4, align 8
   %16 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h83518ee1d887689eE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
@@ -721,14 +721,14 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_84_$LT$impl$u20$syn..parse.
 20:                                               ; preds = %19
   %21 = load i64, ptr %5, align 8, !range !5, !noundef !3
   %22 = icmp eq i64 %21, -9223372036854775808
-  %23 = getelementptr inbounds i8, ptr %5, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %24 = load i32, ptr %23, align 4, !range !6
   %.0 = select i1 %22, i32 %24, i32 0
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.0, ptr %25, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %13, ptr %.sroa.21.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %15, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %5)
@@ -747,12 +747,12 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_84_$LT$impl$u20$syn..parse.
   resume { ptr, i32 } %18
 
 30:                                               ; preds = %2, %.thread
-  %31 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %32 = load i32, ptr %31, align 8, !noundef !3
   %33 = load ptr, ptr %1, align 8, !noundef !3
   %34 = load ptr, ptr %8, align 8, !noundef !3
   call void @_ZN3syn5error6new_at17h57b91627ae2fa74fE(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %3, i32 %32, ptr %33, ptr %34, ptr nonnull align 1 @anon.e67be1aaff1d310ba57d6bd4da82a214.23, i64 18)
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
   br label %26
@@ -765,7 +765,7 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_88_$LT$impl$u20$syn..parse.
   %5 = alloca { { i64, [3 x i64] }, {} }, align 8
   %6 = alloca { i64, [5 x i64] }, align 8
   %7 = load ptr, ptr %1, align 8, !noundef !3
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !noundef !3
   call void @_ZN3syn6buffer6Cursor5ident17hc5b8e3ee3beec73aE(ptr nonnull sret({ i64, [5 x i64] }) align 8 %6, ptr %7, ptr %9)
   %10 = load i64, ptr %6, align 8, !range !4, !noundef !3
@@ -774,9 +774,9 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_88_$LT$impl$u20$syn..parse.
 
 11:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
-  %12 = getelementptr inbounds i8, ptr %6, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds i8, ptr %6, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %15 = load ptr, ptr %14, align 8, !noundef !3
   store ptr @anon.e67be1aaff1d310ba57d6bd4da82a214.25, ptr %4, align 8
   %16 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h83518ee1d887689eE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
@@ -798,14 +798,14 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_88_$LT$impl$u20$syn..parse.
 20:                                               ; preds = %19
   %21 = load i64, ptr %5, align 8, !range !5, !noundef !3
   %22 = icmp eq i64 %21, -9223372036854775808
-  %23 = getelementptr inbounds i8, ptr %5, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %24 = load i32, ptr %23, align 4, !range !6
   %.0 = select i1 %22, i32 %24, i32 0
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.0, ptr %25, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %13, ptr %.sroa.21.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %15, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %5)
@@ -824,12 +824,12 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_88_$LT$impl$u20$syn..parse.
   resume { ptr, i32 } %18
 
 30:                                               ; preds = %2, %.thread
-  %31 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %32 = load i32, ptr %31, align 8, !noundef !3
   %33 = load ptr, ptr %1, align 8, !noundef !3
   %34 = load ptr, ptr %8, align 8, !noundef !3
   call void @_ZN3syn5error6new_at17h57b91627ae2fa74fE(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %3, i32 %32, ptr %33, ptr %34, ptr nonnull align 1 @anon.e67be1aaff1d310ba57d6bd4da82a214.26, i64 22)
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
   br label %26
@@ -842,7 +842,7 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_86_$LT$impl$u20$syn..parse.
   %5 = alloca { { i64, [3 x i64] }, {} }, align 8
   %6 = alloca { i64, [5 x i64] }, align 8
   %7 = load ptr, ptr %1, align 8, !noundef !3
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !noundef !3
   call void @_ZN3syn6buffer6Cursor5ident17hc5b8e3ee3beec73aE(ptr nonnull sret({ i64, [5 x i64] }) align 8 %6, ptr %7, ptr %9)
   %10 = load i64, ptr %6, align 8, !range !4, !noundef !3
@@ -851,9 +851,9 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_86_$LT$impl$u20$syn..parse.
 
 11:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
-  %12 = getelementptr inbounds i8, ptr %6, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds i8, ptr %6, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %15 = load ptr, ptr %14, align 8, !noundef !3
   store ptr @anon.e67be1aaff1d310ba57d6bd4da82a214.28, ptr %4, align 8
   %16 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h83518ee1d887689eE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
@@ -875,14 +875,14 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_86_$LT$impl$u20$syn..parse.
 20:                                               ; preds = %19
   %21 = load i64, ptr %5, align 8, !range !5, !noundef !3
   %22 = icmp eq i64 %21, -9223372036854775808
-  %23 = getelementptr inbounds i8, ptr %5, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %24 = load i32, ptr %23, align 4, !range !6
   %.0 = select i1 %22, i32 %24, i32 0
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.0, ptr %25, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %13, ptr %.sroa.21.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %15, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %5)
@@ -901,12 +901,12 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_86_$LT$impl$u20$syn..parse.
   resume { ptr, i32 } %18
 
 30:                                               ; preds = %2, %.thread
-  %31 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %32 = load i32, ptr %31, align 8, !noundef !3
   %33 = load ptr, ptr %1, align 8, !noundef !3
   %34 = load ptr, ptr %8, align 8, !noundef !3
   call void @_ZN3syn5error6new_at17h57b91627ae2fa74fE(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %3, i32 %32, ptr %33, ptr %34, ptr nonnull align 1 @anon.e67be1aaff1d310ba57d6bd4da82a214.29, i64 20)
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
   br label %26

@@ -71,11 +71,11 @@ define void @_ZN14cranelift_isle7overlap5check17h7a4f5035b685ee0bE(ptr nocapture
   %55 = alloca { { i64, ptr, {} }, i64 }, align 8
   call void @_ZN14cranelift_isle10trie_again5build17h726d1e8f70d6a73dE(ptr nonnull sret({ { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }) align 8 %53, ptr align 8 %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %55, ptr noundef nonnull align 8 dereferenceable(24) %53, i64 24, i1 false)
-  %56 = getelementptr inbounds i8, ptr %53, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %54, ptr noundef nonnull align 8 dereferenceable(24) %56, i64 24, i1 false)
-  %57 = getelementptr inbounds i8, ptr %55, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %58 = load ptr, ptr %57, align 8, !nonnull !3, !noundef !3
-  %59 = getelementptr inbounds i8, ptr %55, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %60 = load i64, ptr %59, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %43)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %44)
@@ -96,9 +96,9 @@ define void @_ZN14cranelift_isle7overlap5check17h7a4f5035b685ee0bE(ptr nocapture
   %62 = extractvalue { i64, i64 } %61, 0
   %63 = extractvalue { i64, i64 } %61, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull align 8 dereferenceable(32) @anon.52c58e60444f7a11faa97e45e4d99f5f.12, i64 32, i1 false), !noalias !10
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %42, i64 32
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %42, i64 32
   store i64 %62, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !10
-  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %42, i64 40
+  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %42, i64 40
   store i64 %63, ptr %.sroa.3.0..sroa_idx.i.i, align 8, !noalias !10
   invoke void @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h0e8514830c51738dE"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %40, ptr nonnull align 8 @anon.52c58e60444f7a11faa97e45e4d99f5f.7)
           to label %66 unwind label %64, !noalias !10
@@ -123,29 +123,29 @@ define void @_ZN14cranelift_isle7overlap5check17h7a4f5035b685ee0bE(ptr nocapture
   %70 = extractvalue { i64, i64 } %67, 0
   %71 = extractvalue { i64, i64 } %67, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %46, ptr noundef nonnull align 8 dereferenceable(48) %42, i64 48, i1 false), !noalias !7
-  %72 = getelementptr inbounds i8, ptr %46, i64 48
+  %72 = getelementptr inbounds nuw i8, ptr %46, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %72, ptr noundef nonnull align 8 dereferenceable(32) @anon.52c58e60444f7a11faa97e45e4d99f5f.12, i64 32, i1 false), !noalias !7
-  %.sroa.0.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %46, i64 80
+  %.sroa.0.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %46, i64 80
   store i64 %70, ptr %.sroa.0.sroa.2.0..sroa_idx.i.i, align 8, !alias.scope !4, !noalias !7
-  %.sroa.0.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %46, i64 88
+  %.sroa.0.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %46, i64 88
   store i64 %71, ptr %.sroa.0.sroa.3.0..sroa_idx.i.i, align 8, !alias.scope !4, !noalias !7
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %40), !noalias !7
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %41), !noalias !7
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %42), !noalias !7
   %73 = getelementptr inbounds { i64, { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, ptr %58, i64 %60
   store ptr %58, ptr %45, align 8, !noalias !7
-  %74 = getelementptr inbounds i8, ptr %45, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store ptr %73, ptr %74, align 8, !noalias !7
-  %75 = getelementptr inbounds i8, ptr %2, i64 16
-  %76 = getelementptr inbounds i8, ptr %2, i64 8
-  %77 = getelementptr inbounds i8, ptr %44, i64 8
-  %78 = getelementptr inbounds i8, ptr %43, i64 8
-  %79 = getelementptr inbounds i8, ptr %30, i64 8
-  %80 = getelementptr inbounds i8, ptr %35, i64 8
-  %81 = getelementptr inbounds i8, ptr %32, i64 8
-  %82 = getelementptr inbounds i8, ptr %39, i64 8
-  %83 = getelementptr inbounds i8, ptr %31, i64 8
-  %84 = getelementptr inbounds i8, ptr %38, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %38, i64 8
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %.backedge.i.backedge, %"_ZN74_$LT$cranelift_isle..overlap..Errors$u20$as$u20$core..default..Default$GT$7default17h07949a8036b18039E.exit.i"
@@ -206,7 +206,7 @@ define void @_ZN14cranelift_isle7overlap5check17h7a4f5035b685ee0bE(ptr nocapture
   unreachable
 
 100:                                              ; preds = %94
-  %101 = getelementptr inbounds i8, ptr %96, i64 145
+  %101 = getelementptr inbounds nuw i8, ptr %96, i64 145
   %102 = load i8, ptr %101, align 1, !range !13, !noalias !7, !noundef !3
   %103 = trunc nuw i8 %102 to i1
   br i1 %103, label %.backedge.i.backedge, label %.critedge.i
@@ -215,9 +215,9 @@ define void @_ZN14cranelift_isle7overlap5check17h7a4f5035b685ee0bE(ptr nocapture
   br label %.backedge.i
 
 .critedge.i:                                      ; preds = %100, %94
-  %104 = getelementptr inbounds i8, ptr %85, i64 16
+  %104 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %105 = load ptr, ptr %104, align 8, !noalias !7, !nonnull !3, !noundef !3
-  %106 = getelementptr inbounds i8, ptr %85, i64 24
+  %106 = getelementptr inbounds nuw i8, ptr %85, i64 24
   %107 = load i64, ptr %106, align 8, !noalias !7, !noundef !3
   %108 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, { i64, i64, i64, i64 }, i64, i16, [3 x i16] }, ptr %105, i64 %107
   store ptr %105, ptr %44, align 8, !noalias !7
@@ -241,8 +241,8 @@ define void @_ZN14cranelift_isle7overlap5check17h7a4f5035b685ee0bE(ptr nocapture
   %117 = getelementptr inbounds i8, ptr %112, i64 %116
   store ptr %112, ptr %43, align 8, !noalias !7
   store ptr %117, ptr %78, align 8, !noalias !7
-  %118 = getelementptr inbounds i8, ptr %109, i64 200
-  %119 = getelementptr inbounds i8, ptr %109, i64 168
+  %118 = getelementptr inbounds nuw i8, ptr %109, i64 200
+  %119 = getelementptr inbounds nuw i8, ptr %109, i64 168
   br label %120
 
 120:                                              ; preds = %_ZN14cranelift_isle7overlap6Errors10check_pair17hfd9ba8981b846d2fE.exit.i, %111
@@ -275,7 +275,7 @@ define void @_ZN14cranelift_isle7overlap5check17h7a4f5035b685ee0bE(ptr nocapture
 
 126:                                              ; preds = %.noexc.i
   %127 = load i64, ptr %118, align 8, !noalias !7, !noundef !3
-  %128 = getelementptr inbounds i8, ptr %121, i64 200
+  %128 = getelementptr inbounds nuw i8, ptr %121, i64 200
   %129 = load i64, ptr %128, align 8, !noalias !7, !noundef !3
   %130 = icmp eq i64 %127, %129
   br i1 %130, label %133, label %131
@@ -311,7 +311,7 @@ define void @_ZN14cranelift_isle7overlap5check17h7a4f5035b685ee0bE(ptr nocapture
   br i1 %.not17.i.i, label %_ZN14cranelift_isle7overlap6Errors10check_pair17hfd9ba8981b846d2fE.exit.i, label %139
 
 139:                                              ; preds = %.noexc26.i
-  %140 = getelementptr inbounds i8, ptr %.21.i.i, i64 168
+  %140 = getelementptr inbounds nuw i8, ptr %.21.i.i, i64 168
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %140, i64 32, i1 false), !noalias !7
   invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17hf986ba129ef9bdc8E"(ptr nonnull sret({ i64, [6 x i64] }) align 8 %30, ptr nonnull align 8 %72, ptr nonnull align 8 %34)
           to label %.noexc27.i unwind label %.loopexit.i, !noalias !7
@@ -335,7 +335,7 @@ define void @_ZN14cranelift_isle7overlap5check17h7a4f5035b685ee0bE(ptr nocapture
           to label %.noexc28.i unwind label %.loopexit.i, !noalias !7
 
 .noexc28.i:                                       ; preds = %144
-  %146 = getelementptr inbounds i8, ptr %..i.i, i64 168
+  %146 = getelementptr inbounds nuw i8, ptr %..i.i, i64 168
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) %146, i64 32, i1 false), !noalias !7
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h94687fb61ef2ecebE"(ptr align 8 %145, ptr nonnull align 8 %33)
           to label %_ZN14cranelift_isle7overlap6Errors10check_pair17hfd9ba8981b846d2fE.exit.i unwind label %.loopexit.i, !noalias !7
@@ -354,7 +354,7 @@ define void @_ZN14cranelift_isle7overlap5check17h7a4f5035b685ee0bE(ptr nocapture
           to label %.noexc30.i unwind label %.loopexit.i, !noalias !7
 
 .noexc30.i:                                       ; preds = %149
-  %151 = getelementptr inbounds i8, ptr %121, i64 168
+  %151 = getelementptr inbounds nuw i8, ptr %121, i64 168
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %151, i64 32, i1 false), !noalias !7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %151, i64 32, i1 false), !noalias !7
   %152 = invoke zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h2c9f812405ab619fE"(ptr align 8 %150, ptr nonnull align 8 %28)
@@ -444,21 +444,21 @@ _ZN14cranelift_isle7overlap6Errors10check_pair17hfd9ba8981b846d2fE.exit.i: ; pre
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %26)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %27)
   store i64 0, ptr %27, align 8, !noalias !15
-  %164 = getelementptr inbounds i8, ptr %27, i64 8
+  %164 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %164, align 8, !noalias !15
-  %165 = getelementptr inbounds i8, ptr %27, i64 16
+  %165 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store i64 0, ptr %165, align 8, !noalias !15
-  %.sroa.230.0..sroa_idx.i = getelementptr inbounds i8, ptr %10, i64 8
-  %.sroa.331.0..sroa_idx.i = getelementptr inbounds i8, ptr %10, i64 40
-  %.sroa.432.0..sroa_idx.i = getelementptr inbounds i8, ptr %10, i64 48
-  %.sroa.213.0..sroa_idx.i = getelementptr inbounds i8, ptr %9, i64 8
-  %.sroa.314.0..sroa_idx.i = getelementptr inbounds i8, ptr %9, i64 40
-  %.sroa.4.0..sroa_idx15.i = getelementptr inbounds i8, ptr %9, i64 48
-  %166 = getelementptr inbounds i8, ptr %8, i64 32
-  %167 = getelementptr inbounds i8, ptr %14, i64 8
-  %.sroa.018.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %14, i64 16
-  %.sroa.018.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %14, i64 24
-  %168 = getelementptr inbounds i8, ptr %14, i64 32
+  %.sroa.230.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %.sroa.331.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 40
+  %.sroa.432.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 48
+  %.sroa.213.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.sroa.314.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 40
+  %.sroa.4.0..sroa_idx15.i = getelementptr inbounds nuw i8, ptr %9, i64 48
+  %166 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %167 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %.sroa.018.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %.sroa.018.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %168 = getelementptr inbounds nuw i8, ptr %14, i64 32
   br label %169
 
 169:                                              ; preds = %200, %163
@@ -497,7 +497,7 @@ _ZN14cranelift_isle7overlap6Errors10check_pair17hfd9ba8981b846d2fE.exit.i: ; pre
           to label %178 unwind label %.loopexit75.i, !noalias !15
 
 176:                                              ; preds = %173
-  %177 = getelementptr inbounds i8, ptr %51, i64 48
+  %177 = getelementptr inbounds nuw i8, ptr %51, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %177, i64 48, i1 false), !noalias !15
   invoke void @"_ZN106_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h199c4a7632f9305dE"(ptr nonnull sret({ { { i64, [2 x i64] }, { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} } }) align 8 %5, ptr nonnull align 8 %4)
           to label %219 unwind label %.loopexit.split-lp76.i, !noalias !15
@@ -676,7 +676,7 @@ _ZN14cranelift_isle7overlap6Errors10check_pair17hfd9ba8981b846d2fE.exit.i: ; pre
   br i1 %.1.i, label %226, label %250
 
 226:                                              ; preds = %225
-  %227 = getelementptr inbounds i8, ptr %51, i64 48
+  %227 = getelementptr inbounds nuw i8, ptr %51, i64 48
   invoke void @"_ZN4core3ptr143drop_in_place$LT$std..collections..hash..map..HashMap$LT$cranelift_isle..lexer..Pos$C$alloc..vec..Vec$LT$cranelift_isle..lexer..Pos$GT$$GT$$GT$17h4f0af291144250ccE"(ptr nonnull align 8 %227) #8
           to label %250 unwind label %205, !noalias !15
 
@@ -720,7 +720,7 @@ _ZN14cranelift_isle7overlap6Errors10check_pair17hfd9ba8981b846d2fE.exit.i: ; pre
           to label %232 unwind label %161
 
 232:                                              ; preds = %231
-  %233 = getelementptr inbounds i8, ptr %54, i64 16
+  %233 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %234 = load i64, ptr %233, align 8, !noundef !3
   %.not = icmp eq i64 %234, 0
   br i1 %.not, label %243, label %235
@@ -741,7 +741,7 @@ _ZN14cranelift_isle7overlap6Errors10check_pair17hfd9ba8981b846d2fE.exit.i: ; pre
   br label %236
 
 239:                                              ; preds = %235
-  %240 = getelementptr inbounds i8, ptr %1, i64 24
+  %240 = getelementptr inbounds nuw i8, ptr %1, i64 24
   invoke void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17he828f09ea8fbbd3fE"(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %47, ptr nonnull align 8 %240)
           to label %.critedge unwind label %241
 
@@ -752,7 +752,7 @@ _ZN14cranelift_isle7overlap6Errors10check_pair17hfd9ba8981b846d2fE.exit.i: ; pre
           to label %236 unwind label %248
 
 243:                                              ; preds = %232
-  %244 = getelementptr inbounds i8, ptr %0, i64 8
+  %244 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %244, ptr noundef nonnull align 8 dereferenceable(24) %55, i64 24, i1 false)
   store i64 -9223372036854775808, ptr %0, align 8
   call void @"_ZN4core3ptr72drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..error..Error$GT$$GT$17h04433ebd8252f567E"(ptr nonnull align 8 %54)
@@ -763,9 +763,9 @@ _ZN14cranelift_isle7overlap6Errors10check_pair17hfd9ba8981b846d2fE.exit.i: ; pre
 
 .critedge:                                        ; preds = %239
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, ptr noundef nonnull align 8 dereferenceable(24) %49, i64 24, i1 false)
-  %246 = getelementptr inbounds i8, ptr %50, i64 24
+  %246 = getelementptr inbounds nuw i8, ptr %50, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %246, ptr noundef nonnull align 8 dereferenceable(24) %48, i64 24, i1 false)
-  %247 = getelementptr inbounds i8, ptr %50, i64 48
+  %247 = getelementptr inbounds nuw i8, ptr %50, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %247, ptr noundef nonnull align 8 dereferenceable(24) %47, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %50, i64 72, i1 false)
   call void @"_ZN4core3ptr118drop_in_place$LT$alloc..vec..Vec$LT$$LP$cranelift_isle..sema..TermId$C$cranelift_isle..trie_again..RuleSet$RP$$GT$$GT$17h17a39cd91c99c9eaE"(ptr nonnull align 8 %55)

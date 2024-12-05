@@ -939,7 +939,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 define internal i32 @dissect_awdl_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @col_set_str(ptr noundef %8, i32 noundef 34, ptr noundef nonnull @.str.532) #5
   %9 = load ptr, ptr %7, align 8
@@ -1069,20 +1069,20 @@ define internal i32 @dissect_awdl_action(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not.i, label %proto_item_set_generated.exit, label %40
 
 40:                                               ; preds = %4
-  %41 = getelementptr inbounds i8, ptr %39, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 32
   %42 = load ptr, ptr %41, align 8
   %.not5.i = icmp eq ptr %42, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %43
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %42, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 28
   %45 = load i32, ptr %44, align 4
   %46 = or i32 %45, 2
   store i32 %46, ptr %44, align 4
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %4, %40, %43
-  %47 = getelementptr inbounds i8, ptr %1, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %48 = load ptr, ptr %47, align 8
   call void @col_set_str(ptr noundef %48, i32 noundef 34, ptr noundef nonnull @.str.437) #5
   %49 = load ptr, ptr %47, align 8
@@ -1215,7 +1215,7 @@ define internal fastcc range(i32 2, 65539) i32 @awdl_add_tagged_field(ptr nounde
 37:                                               ; preds = %35, %25
   %38 = tail call ptr @tvb_new_subset_length(ptr noundef %2, i32 noundef %32, i32 noundef %.058) #5
   store ptr %.059, ptr %6, align 8
-  %39 = getelementptr inbounds i8, ptr %6, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %31, ptr %39, align 8
   %40 = load ptr, ptr @tagged_field_table, align 8
   %41 = call i32 @dissector_try_uint_new(ptr noundef %40, i32 noundef %8, ptr noundef %38, ptr noundef %0, ptr noundef %.0, i32 noundef 0, ptr noundef nonnull %6) #5
@@ -1332,7 +1332,7 @@ thread-pre-split:                                 ; preds = %4
   br i1 %.not56, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %thread-pre-split
-  %40 = getelementptr inbounds i8, ptr %1, i64 408
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %41
 
 41:                                               ; preds = %.lr.ph, %54
@@ -1874,7 +1874,7 @@ define internal i32 @awdl_tag_channel_sequence(ptr noundef %0, ptr nocapture nou
   %17 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %16, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef -2147483648) #5
   %18 = load i32, ptr @hf_awdl_channelseq_fill_chan, align 4
   %19 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %18, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef -2147483648) #5
-  %20 = getelementptr inbounds i8, ptr %1, i64 408
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %21 = load ptr, ptr %20, align 8
   %22 = load i32, ptr %5, align 4
   %23 = mul i32 %22, 5
@@ -2065,7 +2065,7 @@ define internal fastcc i32 @add_awdl_dns_entry(ptr nocapture noundef readonly %0
   %13 = alloca i32, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %6, i32 noundef %7, i32 noundef 0, i32 noundef 0) #5
   %15 = tail call ptr @proto_item_add_subtree(ptr noundef %14, i32 noundef %2) #5
-  %16 = getelementptr inbounds i8, ptr %0, i64 408
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %17 = load ptr, ptr %16, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)

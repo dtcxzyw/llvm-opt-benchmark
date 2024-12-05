@@ -33,19 +33,19 @@ define dso_local range(i32 -2, 1) i32 @cm_zlib_inflateResetKeep(ptr noundef %0) 
   br i1 %2, label %inflateStateCheck.exit.thread, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %inflateStateCheck.exit.thread, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %inflateStateCheck.exit.thread, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %inflateStateCheck.exit.thread, label %15
@@ -56,19 +56,19 @@ define dso_local range(i32 -2, 1) i32 @cm_zlib_inflateResetKeep(ptr noundef %0) 
   br i1 %.not.i, label %inflateStateCheck.exit, label %inflateStateCheck.exit.thread
 
 inflateStateCheck.exit:                           ; preds = %15
-  %17 = getelementptr inbounds i8, ptr %13, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %18 = load i32, ptr %17, align 8
   %19 = add i32 %18, -16180
   %or.cond.i = icmp ult i32 %19, 32
   br i1 %or.cond.i, label %20, label %inflateStateCheck.exit.thread
 
 20:                                               ; preds = %inflateStateCheck.exit
-  %21 = getelementptr inbounds i8, ptr %13, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i64 0, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 40
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %13, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %13, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
   %25 = load i32, ptr %24, align 8
   %.not24 = icmp eq i32 %25, 0
@@ -77,36 +77,36 @@ inflateStateCheck.exit:                           ; preds = %15
 26:                                               ; preds = %20
   %27 = and i32 %25, 1
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds i8, ptr %0, i64 96
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i64 %28, ptr %29, align 8
   br label %30
 
 30:                                               ; preds = %26, %20
   store i32 16180, ptr %17, align 8
-  %31 = getelementptr inbounds i8, ptr %13, i64 12
+  %31 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 0, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %13, i64 20
+  %32 = getelementptr inbounds nuw i8, ptr %13, i64 20
   store i32 0, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %13, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i32 -1, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %13, i64 28
+  %34 = getelementptr inbounds nuw i8, ptr %13, i64 28
   store i32 32768, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %13, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %13, i64 48
   store ptr null, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %13, i64 80
+  %36 = getelementptr inbounds nuw i8, ptr %13, i64 80
   store i64 0, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %13, i64 88
+  %37 = getelementptr inbounds nuw i8, ptr %13, i64 88
   store i32 0, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %13, i64 1368
-  %39 = getelementptr inbounds i8, ptr %13, i64 144
+  %38 = getelementptr inbounds nuw i8, ptr %13, i64 1368
+  %39 = getelementptr inbounds nuw i8, ptr %13, i64 144
   store ptr %38, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %13, i64 112
+  %40 = getelementptr inbounds nuw i8, ptr %13, i64 112
   store ptr %38, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %13, i64 104
+  %41 = getelementptr inbounds nuw i8, ptr %13, i64 104
   store ptr %38, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %13, i64 7144
+  %42 = getelementptr inbounds nuw i8, ptr %13, i64 7144
   store i32 1, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %13, i64 7148
+  %43 = getelementptr inbounds nuw i8, ptr %13, i64 7148
   store i32 -1, ptr %43, align 4
   br label %inflateStateCheck.exit.thread
 
@@ -121,19 +121,19 @@ define dso_local range(i32 -2, 1) i32 @cm_zlib_inflateReset(ptr noundef %0) loca
   br i1 %2, label %cm_zlib_inflateResetKeep.exit, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %cm_zlib_inflateResetKeep.exit, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %cm_zlib_inflateResetKeep.exit, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %cm_zlib_inflateResetKeep.exit, label %15
@@ -144,18 +144,18 @@ define dso_local range(i32 -2, 1) i32 @cm_zlib_inflateReset(ptr noundef %0) loca
   br i1 %.not.i, label %inflateStateCheck.exit, label %cm_zlib_inflateResetKeep.exit
 
 inflateStateCheck.exit:                           ; preds = %15
-  %17 = getelementptr inbounds i8, ptr %13, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %18 = load i32, ptr %17, align 8
   %19 = add i32 %18, -16180
   %or.cond.i = icmp ult i32 %19, 32
   br i1 %or.cond.i, label %20, label %cm_zlib_inflateResetKeep.exit
 
 20:                                               ; preds = %inflateStateCheck.exit
-  %21 = getelementptr inbounds i8, ptr %13, i64 60
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 60
   store i32 0, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %13, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 64
   store i32 0, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %13, i64 68
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 68
   store i32 0, ptr %23, align 4
   %24 = load ptr, ptr %4, align 8
   %25 = icmp eq ptr %24, null
@@ -177,19 +177,19 @@ inflateStateCheck.exit:                           ; preds = %15
   br i1 %.not.i.i, label %inflateStateCheck.exit.i, label %cm_zlib_inflateResetKeep.exit
 
 inflateStateCheck.exit.i:                         ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %30, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %35 = load i32, ptr %34, align 8
   %36 = add i32 %35, -16180
   %or.cond.i.i = icmp ult i32 %36, 32
   br i1 %or.cond.i.i, label %37, label %cm_zlib_inflateResetKeep.exit
 
 37:                                               ; preds = %inflateStateCheck.exit.i
-  %38 = getelementptr inbounds i8, ptr %30, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %30, i64 40
   store i64 0, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 40
-  %40 = getelementptr inbounds i8, ptr %0, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %30, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %30, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false)
   %42 = load i32, ptr %41, align 8
   %.not24.i = icmp eq i32 %42, 0
@@ -198,36 +198,36 @@ inflateStateCheck.exit.i:                         ; preds = %32
 43:                                               ; preds = %37
   %44 = and i32 %42, 1
   %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr inbounds i8, ptr %0, i64 96
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i64 %45, ptr %46, align 8
   br label %47
 
 47:                                               ; preds = %43, %37
   store i32 16180, ptr %34, align 8
-  %48 = getelementptr inbounds i8, ptr %30, i64 12
+  %48 = getelementptr inbounds nuw i8, ptr %30, i64 12
   store i32 0, ptr %48, align 4
-  %49 = getelementptr inbounds i8, ptr %30, i64 20
+  %49 = getelementptr inbounds nuw i8, ptr %30, i64 20
   store i32 0, ptr %49, align 4
-  %50 = getelementptr inbounds i8, ptr %30, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %30, i64 24
   store i32 -1, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %30, i64 28
+  %51 = getelementptr inbounds nuw i8, ptr %30, i64 28
   store i32 32768, ptr %51, align 4
-  %52 = getelementptr inbounds i8, ptr %30, i64 48
+  %52 = getelementptr inbounds nuw i8, ptr %30, i64 48
   store ptr null, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %30, i64 80
+  %53 = getelementptr inbounds nuw i8, ptr %30, i64 80
   store i64 0, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %30, i64 88
+  %54 = getelementptr inbounds nuw i8, ptr %30, i64 88
   store i32 0, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %30, i64 1368
-  %56 = getelementptr inbounds i8, ptr %30, i64 144
+  %55 = getelementptr inbounds nuw i8, ptr %30, i64 1368
+  %56 = getelementptr inbounds nuw i8, ptr %30, i64 144
   store ptr %55, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %30, i64 112
+  %57 = getelementptr inbounds nuw i8, ptr %30, i64 112
   store ptr %55, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %30, i64 104
+  %58 = getelementptr inbounds nuw i8, ptr %30, i64 104
   store ptr %55, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %30, i64 7144
+  %59 = getelementptr inbounds nuw i8, ptr %30, i64 7144
   store i32 1, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %30, i64 7148
+  %60 = getelementptr inbounds nuw i8, ptr %30, i64 7148
   store i32 -1, ptr %60, align 4
   br label %cm_zlib_inflateResetKeep.exit
 
@@ -242,19 +242,19 @@ define dso_local range(i32 -2, 1) i32 @cm_zlib_inflateReset2(ptr noundef %0, i32
   br i1 %3, label %inflateStateCheck.exit.thread, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %inflateStateCheck.exit.thread, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %inflateStateCheck.exit.thread, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %inflateStateCheck.exit.thread, label %16
@@ -265,7 +265,7 @@ define dso_local range(i32 -2, 1) i32 @cm_zlib_inflateReset2(ptr noundef %0, i32
   br i1 %.not.i, label %inflateStateCheck.exit, label %inflateStateCheck.exit.thread
 
 inflateStateCheck.exit:                           ; preds = %16
-  %18 = getelementptr inbounds i8, ptr %14, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %19 = load i32, ptr %18, align 8
   %20 = add i32 %19, -16180
   %or.cond.i = icmp ult i32 %20, 32
@@ -307,28 +307,28 @@ select.unfold:                                    ; preds = %27, %25
   ]
 
 32:                                               ; preds = %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold, %select.unfold
-  %33 = getelementptr inbounds i8, ptr %14, i64 72
+  %33 = getelementptr inbounds nuw i8, ptr %14, i64 72
   %34 = load ptr, ptr %33, align 8
   %.not29 = icmp eq ptr %34, null
   br i1 %.not29, label %41, label %35
 
 35:                                               ; preds = %32
-  %36 = getelementptr inbounds i8, ptr %14, i64 56
+  %36 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %37 = load i32, ptr %36, align 8
   %.not30 = icmp eq i32 %37, %.025
   br i1 %.not30, label %41, label %38
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %0, i64 80
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %40 = load ptr, ptr %39, align 8
   tail call void %10(ptr noundef %40, ptr noundef nonnull %34) #9
   store ptr null, ptr %33, align 8
   br label %41
 
 41:                                               ; preds = %38, %35, %32
-  %42 = getelementptr inbounds i8, ptr %14, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i32 %.024, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %14, i64 56
+  %43 = getelementptr inbounds nuw i8, ptr %14, i64 56
   store i32 %.025, ptr %43, align 8
   %44 = tail call i32 @cm_zlib_inflateReset(ptr noundef nonnull %0)
   br label %inflateStateCheck.exit.thread
@@ -355,22 +355,22 @@ define dso_local range(i32 -6, 1) i32 @cm_zlib_inflateInit2_(ptr noundef %0, i32
   br i1 %11, label %69, label %12
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %12
   store ptr @cm_zlib_zcalloc, ptr %14, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 80
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr null, ptr %18, align 8
   br label %19
 
 19:                                               ; preds = %17, %12
   %20 = phi ptr [ @cm_zlib_zcalloc, %17 ], [ %15, %12 ]
-  %21 = getelementptr inbounds i8, ptr %0, i64 72
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %25
@@ -380,19 +380,19 @@ define dso_local range(i32 -6, 1) i32 @cm_zlib_inflateInit2_(ptr noundef %0, i32
   br label %25
 
 25:                                               ; preds = %24, %19
-  %26 = getelementptr inbounds i8, ptr %0, i64 80
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %27 = load ptr, ptr %26, align 8
   %28 = tail call ptr %20(ptr noundef %27, i32 noundef 1, i32 noundef 7160) #9
   %29 = icmp eq ptr %28, null
   br i1 %29, label %69, label %30
 
 30:                                               ; preds = %25
-  %31 = getelementptr inbounds i8, ptr %0, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %28, ptr %31, align 8
   store ptr %0, ptr %28, align 8
-  %32 = getelementptr inbounds i8, ptr %28, i64 72
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 72
   store ptr null, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %28, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i32 16180, ptr %33, align 8
   %34 = load ptr, ptr %14, align 8
   %35 = icmp eq ptr %34, null
@@ -412,7 +412,7 @@ define dso_local range(i32 -6, 1) i32 @cm_zlib_inflateInit2_(ptr noundef %0, i32
   br i1 %.not.i.i, label %inflateStateCheck.exit.i, label %cm_zlib_inflateReset2.exit.thread
 
 inflateStateCheck.exit.i:                         ; preds = %40
-  %42 = getelementptr inbounds i8, ptr %38, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %43 = load i32, ptr %42, align 8
   %44 = add i32 %43, -16180
   %or.cond.i.i = icmp ult i32 %44, 32
@@ -454,13 +454,13 @@ select.unfold.i:                                  ; preds = %51, %49
   ]
 
 56:                                               ; preds = %select.unfold.i, %select.unfold.i, %select.unfold.i, %select.unfold.i, %select.unfold.i, %select.unfold.i, %select.unfold.i, %select.unfold.i, %select.unfold.i
-  %57 = getelementptr inbounds i8, ptr %38, i64 72
+  %57 = getelementptr inbounds nuw i8, ptr %38, i64 72
   %58 = load ptr, ptr %57, align 8
   %.not29.i = icmp eq ptr %58, null
   br i1 %.not29.i, label %cm_zlib_inflateReset2.exit, label %59
 
 59:                                               ; preds = %56
-  %60 = getelementptr inbounds i8, ptr %38, i64 56
+  %60 = getelementptr inbounds nuw i8, ptr %38, i64 56
   %61 = load i32, ptr %60, align 8
   %.not30.i = icmp eq i32 %61, %.025.i
   br i1 %.not30.i, label %cm_zlib_inflateReset2.exit, label %62
@@ -472,9 +472,9 @@ select.unfold.i:                                  ; preds = %51, %49
   br label %cm_zlib_inflateReset2.exit
 
 cm_zlib_inflateReset2.exit:                       ; preds = %56, %59, %62
-  %64 = getelementptr inbounds i8, ptr %38, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %38, i64 16
   store i32 %.024.i, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %38, i64 56
+  %65 = getelementptr inbounds nuw i8, ptr %38, i64 56
   store i32 %.025.i, ptr %65, align 8
   %66 = tail call i32 @cm_zlib_inflateReset(ptr noundef nonnull %0)
   %.not = icmp eq i32 %66, 0
@@ -513,19 +513,19 @@ define dso_local range(i32 -2, 1) i32 @cm_zlib_inflatePrime(ptr noundef readonly
   br i1 %4, label %inflateStateCheck.exit.thread, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %inflateStateCheck.exit.thread, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %inflateStateCheck.exit.thread, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %inflateStateCheck.exit.thread, label %17
@@ -536,7 +536,7 @@ define dso_local range(i32 -2, 1) i32 @cm_zlib_inflatePrime(ptr noundef readonly
   br i1 %.not.i, label %inflateStateCheck.exit, label %inflateStateCheck.exit.thread
 
 inflateStateCheck.exit:                           ; preds = %17
-  %19 = getelementptr inbounds i8, ptr %15, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %20 = load i32, ptr %19, align 8
   %21 = add i32 %20, -16180
   %or.cond.i = icmp ult i32 %21, 32
@@ -547,9 +547,9 @@ inflateStateCheck.exit:                           ; preds = %17
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %15, i64 80
+  %25 = getelementptr inbounds nuw i8, ptr %15, i64 80
   store i64 0, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %15, i64 88
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 88
   store i32 0, ptr %26, align 8
   br label %inflateStateCheck.exit.thread
 
@@ -558,7 +558,7 @@ inflateStateCheck.exit:                           ; preds = %17
   br i1 %28, label %inflateStateCheck.exit.thread, label %29
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %15, i64 88
+  %30 = getelementptr inbounds nuw i8, ptr %15, i64 88
   %31 = load i32, ptr %30, align 8
   %32 = add i32 %31, %1
   %33 = icmp ugt i32 %32, 32
@@ -572,7 +572,7 @@ inflateStateCheck.exit:                           ; preds = %17
   %38 = and i32 %2, %37
   %39 = shl i32 %38, %31
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds i8, ptr %15, i64 80
+  %41 = getelementptr inbounds nuw i8, ptr %15, i64 80
   %42 = load i64, ptr %41, align 8
   %43 = add i64 %42, %40
   store i64 %43, ptr %41, align 8
@@ -591,19 +591,19 @@ define dso_local i32 @cm_zlib_inflate(ptr noundef %0, i32 noundef %1) local_unna
   br i1 %4, label %inflateStateCheck.exit.thread, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %inflateStateCheck.exit.thread, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %inflateStateCheck.exit.thread, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %inflateStateCheck.exit.thread, label %17
@@ -614,14 +614,14 @@ define dso_local i32 @cm_zlib_inflate(ptr noundef %0, i32 noundef %1) local_unna
   br i1 %.not.i, label %inflateStateCheck.exit, label %inflateStateCheck.exit.thread
 
 inflateStateCheck.exit:                           ; preds = %17
-  %19 = getelementptr inbounds i8, ptr %15, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %20 = load i32, ptr %19, align 8
   %21 = add i32 %20, -16180
   %or.cond.i = icmp ult i32 %21, 32
   br i1 %or.cond.i, label %22, label %inflateStateCheck.exit.thread
 
 22:                                               ; preds = %inflateStateCheck.exit
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %inflateStateCheck.exit.thread, label %26
@@ -632,7 +632,7 @@ inflateStateCheck.exit:                           ; preds = %17
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load i32, ptr %30, align 8
   %.not1172 = icmp eq i32 %31, 0
   br i1 %.not1172, label %32, label %inflateStateCheck.exit.thread
@@ -651,55 +651,55 @@ inflateStateCheck.exit:                           ; preds = %17
   %35 = phi i32 [ %20, %32 ], [ 16192, %34 ]
   %36 = phi ptr [ %27, %32 ], [ %.pre2837, %34 ]
   %37 = phi ptr [ %24, %32 ], [ %.pre, %34 ]
-  %38 = getelementptr inbounds i8, ptr %0, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %39 = load i32, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %41 = load i32, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %15, i64 80
+  %42 = getelementptr inbounds nuw i8, ptr %15, i64 80
   %43 = load i64, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %15, i64 88
+  %44 = getelementptr inbounds nuw i8, ptr %15, i64 88
   %45 = load i32, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %15, i64 16
-  %47 = getelementptr inbounds i8, ptr %0, i64 40
-  %48 = getelementptr inbounds i8, ptr %15, i64 40
-  %49 = getelementptr inbounds i8, ptr %15, i64 24
-  %50 = getelementptr inbounds i8, ptr %15, i64 32
-  %51 = getelementptr inbounds i8, ptr %0, i64 96
-  %52 = getelementptr inbounds i8, ptr %0, i64 48
-  %53 = getelementptr inbounds i8, ptr %15, i64 92
-  %54 = getelementptr inbounds i8, ptr %15, i64 132
-  %55 = getelementptr inbounds i8, ptr %15, i64 136
-  %56 = getelementptr inbounds i8, ptr %15, i64 128
-  %57 = getelementptr inbounds i8, ptr %15, i64 140
-  %58 = getelementptr inbounds i8, ptr %15, i64 152
-  %59 = getelementptr inbounds i8, ptr %15, i64 1368
-  %60 = getelementptr inbounds i8, ptr %15, i64 144
-  %61 = getelementptr inbounds i8, ptr %15, i64 104
-  %62 = getelementptr inbounds i8, ptr %15, i64 120
-  %63 = getelementptr inbounds i8, ptr %15, i64 792
-  %64 = getelementptr inbounds i8, ptr %15, i64 664
-  %65 = getelementptr inbounds i8, ptr %15, i64 112
-  %66 = getelementptr inbounds i8, ptr %15, i64 124
+  %46 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %15, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %53 = getelementptr inbounds nuw i8, ptr %15, i64 92
+  %54 = getelementptr inbounds nuw i8, ptr %15, i64 132
+  %55 = getelementptr inbounds nuw i8, ptr %15, i64 136
+  %56 = getelementptr inbounds nuw i8, ptr %15, i64 128
+  %57 = getelementptr inbounds nuw i8, ptr %15, i64 140
+  %58 = getelementptr inbounds nuw i8, ptr %15, i64 152
+  %59 = getelementptr inbounds nuw i8, ptr %15, i64 1368
+  %60 = getelementptr inbounds nuw i8, ptr %15, i64 144
+  %61 = getelementptr inbounds nuw i8, ptr %15, i64 104
+  %62 = getelementptr inbounds nuw i8, ptr %15, i64 120
+  %63 = getelementptr inbounds nuw i8, ptr %15, i64 792
+  %64 = getelementptr inbounds nuw i8, ptr %15, i64 664
+  %65 = getelementptr inbounds nuw i8, ptr %15, i64 112
+  %66 = getelementptr inbounds nuw i8, ptr %15, i64 124
   %67 = icmp eq i32 %1, 6
-  %68 = getelementptr inbounds i8, ptr %15, i64 7148
-  %69 = getelementptr inbounds i8, ptr %15, i64 100
-  %70 = getelementptr inbounds i8, ptr %15, i64 7152
-  %71 = getelementptr inbounds i8, ptr %15, i64 96
-  %72 = getelementptr inbounds i8, ptr %15, i64 64
-  %73 = getelementptr inbounds i8, ptr %15, i64 7144
-  %74 = getelementptr inbounds i8, ptr %15, i64 68
-  %75 = getelementptr inbounds i8, ptr %15, i64 72
-  %76 = getelementptr inbounds i8, ptr %15, i64 60
-  %77 = getelementptr inbounds i8, ptr %15, i64 20
+  %68 = getelementptr inbounds nuw i8, ptr %15, i64 7148
+  %69 = getelementptr inbounds nuw i8, ptr %15, i64 100
+  %70 = getelementptr inbounds nuw i8, ptr %15, i64 7152
+  %71 = getelementptr inbounds nuw i8, ptr %15, i64 96
+  %72 = getelementptr inbounds nuw i8, ptr %15, i64 64
+  %73 = getelementptr inbounds nuw i8, ptr %15, i64 7144
+  %74 = getelementptr inbounds nuw i8, ptr %15, i64 68
+  %75 = getelementptr inbounds nuw i8, ptr %15, i64 72
+  %76 = getelementptr inbounds nuw i8, ptr %15, i64 60
+  %77 = getelementptr inbounds nuw i8, ptr %15, i64 20
   %78 = add i32 %1, -5
   %or.cond3 = icmp ult i32 %78, 2
-  %79 = getelementptr inbounds i8, ptr %15, i64 12
-  %80 = getelementptr inbounds i8, ptr %15, i64 48
-  %81 = getelementptr inbounds i8, ptr %3, i64 1
-  %82 = getelementptr inbounds i8, ptr %3, i64 2
-  %83 = getelementptr inbounds i8, ptr %3, i64 3
-  %84 = getelementptr inbounds i8, ptr %15, i64 56
-  %85 = getelementptr inbounds i8, ptr %15, i64 28
+  %79 = getelementptr inbounds nuw i8, ptr %15, i64 12
+  %80 = getelementptr inbounds nuw i8, ptr %15, i64 48
+  %81 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %82 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  %83 = getelementptr inbounds nuw i8, ptr %3, i64 3
+  %84 = getelementptr inbounds nuw i8, ptr %15, i64 56
+  %85 = getelementptr inbounds nuw i8, ptr %15, i64 28
   br label %86
 
 86:                                               ; preds = %.thread, %.split2329
@@ -813,7 +813,7 @@ inflateStateCheck.exit:                           ; preds = %17
 
 101:                                              ; preds = %.lr.ph2323
   %102 = add i32 %.2210132320, -1
-  %103 = getelementptr inbounds i8, ptr %.2210772319, i64 1
+  %103 = getelementptr inbounds nuw i8, ptr %.2210772319, i64 1
   %104 = load i8, ptr %.2210772319, align 1
   %105 = zext i8 %104 to i64
   %106 = shl nuw nsw i64 %105, %indvars.iv2834
@@ -862,7 +862,7 @@ inflateStateCheck.exit:                           ; preds = %17
   br i1 %.not1249, label %124, label %122
 
 122:                                              ; preds = %120
-  %123 = getelementptr inbounds i8, ptr %121, i64 72
+  %123 = getelementptr inbounds nuw i8, ptr %121, i64 72
   store i32 -1, ptr %123, align 8
   %.pre2859 = load i32, ptr %46, align 8
   br label %124
@@ -946,7 +946,7 @@ inflateStateCheck.exit:                           ; preds = %17
 
 157:                                              ; preds = %.lr.ph2274
   %158 = add i32 %.2310142271, -1
-  %159 = getelementptr inbounds i8, ptr %.2310782270, i64 1
+  %159 = getelementptr inbounds nuw i8, ptr %.2310782270, i64 1
   %160 = load i8, ptr %.2310782270, align 1
   %161 = zext i8 %160 to i64
   %162 = shl nuw nsw i64 %161, %indvars.iv2813
@@ -1046,7 +1046,7 @@ inflateStateCheck.exit:                           ; preds = %17
 
 193:                                              ; preds = %.lr.ph2285
   %194 = add i32 %.2510162281, -1
-  %195 = getelementptr inbounds i8, ptr %.2510802280, i64 1
+  %195 = getelementptr inbounds nuw i8, ptr %.2510802280, i64 1
   %196 = load i8, ptr %.2510802280, align 1
   %197 = zext i8 %196 to i64
   %198 = shl nuw nsw i64 %197, %indvars.iv2816
@@ -1064,7 +1064,7 @@ inflateStateCheck.exit:                           ; preds = %17
   br i1 %.not1215, label %204, label %202
 
 202:                                              ; preds = %._crit_edge2286
-  %203 = getelementptr inbounds i8, ptr %201, i64 8
+  %203 = getelementptr inbounds nuw i8, ptr %201, i64 8
   store i64 %.25953.lcssa, ptr %203, align 8
   br label %204
 
@@ -1123,7 +1123,7 @@ inflateStateCheck.exit:                           ; preds = %17
 
 224:                                              ; preds = %.lr.ph2295
   %225 = add i32 %.2710182291, -1
-  %226 = getelementptr inbounds i8, ptr %.2710822290, i64 1
+  %226 = getelementptr inbounds nuw i8, ptr %.2710822290, i64 1
   %227 = load i8, ptr %.2710822290, align 1
   %228 = zext i8 %227 to i64
   %229 = shl nuw nsw i64 %228, %indvars.iv2819
@@ -1143,12 +1143,12 @@ inflateStateCheck.exit:                           ; preds = %17
 233:                                              ; preds = %._crit_edge2296
   %234 = trunc i64 %.27955.lcssa to i32
   %235 = and i32 %234, 255
-  %236 = getelementptr inbounds i8, ptr %232, i64 16
+  %236 = getelementptr inbounds nuw i8, ptr %232, i64 16
   store i32 %235, ptr %236, align 8
   %237 = lshr i64 %.27955.lcssa, 8
   %238 = trunc i64 %237 to i32
   %239 = load ptr, ptr %80, align 8
-  %240 = getelementptr inbounds i8, ptr %239, i64 20
+  %240 = getelementptr inbounds nuw i8, ptr %239, i64 20
   store i32 %238, ptr %240, align 4
   br label %241
 
@@ -1211,7 +1211,7 @@ inflateStateCheck.exit:                           ; preds = %17
 
 262:                                              ; preds = %.lr.ph2304
   %263 = add i32 %.2810192301, -1
-  %264 = getelementptr inbounds i8, ptr %.2810832300, i64 1
+  %264 = getelementptr inbounds nuw i8, ptr %.2810832300, i64 1
   %265 = load i8, ptr %.2810832300, align 1
   %266 = zext i8 %265 to i64
   %267 = shl nuw nsw i64 %266, %indvars.iv2822
@@ -1232,7 +1232,7 @@ inflateStateCheck.exit:                           ; preds = %17
   br i1 %.not1223, label %275, label %273
 
 273:                                              ; preds = %._crit_edge2305
-  %274 = getelementptr inbounds i8, ptr %272, i64 32
+  %274 = getelementptr inbounds nuw i8, ptr %272, i64 32
   store i32 %271, ptr %274, align 8
   %.pre2857 = load i32, ptr %49, align 8
   br label %275
@@ -1270,7 +1270,7 @@ inflateStateCheck.exit:                           ; preds = %17
   br i1 %.not1222, label %291, label %289
 
 289:                                              ; preds = %287
-  %290 = getelementptr inbounds i8, ptr %288, i64 24
+  %290 = getelementptr inbounds nuw i8, ptr %288, i64 24
   store ptr null, ptr %290, align 8
   br label %291
 
@@ -1304,23 +1304,23 @@ inflateStateCheck.exit:                           ; preds = %17
   br i1 %.not1228, label %317, label %299
 
 299:                                              ; preds = %297
-  %300 = getelementptr inbounds i8, ptr %298, i64 24
+  %300 = getelementptr inbounds nuw i8, ptr %298, i64 24
   %301 = load ptr, ptr %300, align 8
   %.not1229 = icmp eq ptr %301, null
   br i1 %.not1229, label %317, label %302
 
 302:                                              ; preds = %299
-  %303 = getelementptr inbounds i8, ptr %298, i64 32
+  %303 = getelementptr inbounds nuw i8, ptr %298, i64 32
   %304 = load i32, ptr %303, align 8
   %305 = sub i32 %304, %296
-  %306 = getelementptr inbounds i8, ptr %298, i64 36
+  %306 = getelementptr inbounds nuw i8, ptr %298, i64 36
   %307 = load i32, ptr %306, align 4
   %308 = icmp ult i32 %305, %307
   br i1 %308, label %309, label %317
 
 309:                                              ; preds = %302
   %310 = zext i32 %305 to i64
-  %311 = getelementptr inbounds i8, ptr %301, i64 %310
+  %311 = getelementptr inbounds nuw i8, ptr %301, i64 %310
   %312 = add i32 %305, %spec.select
   %313 = icmp ugt i32 %312, %307
   %314 = sub nuw i32 %307, %305
@@ -1351,7 +1351,7 @@ inflateStateCheck.exit:                           ; preds = %17
 326:                                              ; preds = %323, %320, %317
   %327 = sub i32 %.2993, %spec.select
   %328 = zext i32 %spec.select to i64
-  %329 = getelementptr inbounds i8, ptr %.21057, i64 %328
+  %329 = getelementptr inbounds nuw i8, ptr %.21057, i64 %328
   %330 = load i32, ptr %53, align 4
   %331 = sub i32 %330, %spec.select
   store i32 %331, ptr %53, align 4
@@ -1392,21 +1392,21 @@ inflateStateCheck.exit:                           ; preds = %17
 .preheader1290:                                   ; preds = %.preheader1290.preheader, %356
   %indvars.iv2825 = phi i64 [ 0, %.preheader1290.preheader ], [ %indvars.iv.next2826, %356 ]
   %indvars.iv.next2826 = add nuw nsw i64 %indvars.iv2825, 1
-  %341 = getelementptr inbounds i8, ptr %.31058, i64 %indvars.iv2825
+  %341 = getelementptr inbounds nuw i8, ptr %.31058, i64 %indvars.iv2825
   %342 = load i8, ptr %341, align 1
   %343 = load ptr, ptr %80, align 8
   %.not1235 = icmp eq ptr %343, null
   br i1 %.not1235, label %356, label %344
 
 344:                                              ; preds = %.preheader1290
-  %345 = getelementptr inbounds i8, ptr %343, i64 40
+  %345 = getelementptr inbounds nuw i8, ptr %343, i64 40
   %346 = load ptr, ptr %345, align 8
   %.not1236 = icmp eq ptr %346, null
   br i1 %.not1236, label %356, label %347
 
 347:                                              ; preds = %344
   %348 = load i32, ptr %53, align 4
-  %349 = getelementptr inbounds i8, ptr %343, i64 48
+  %349 = getelementptr inbounds nuw i8, ptr %343, i64 48
   %350 = load i32, ptr %349, align 8
   %351 = icmp ult i32 %348, %350
   br i1 %351, label %352, label %356
@@ -1415,7 +1415,7 @@ inflateStateCheck.exit:                           ; preds = %17
   %353 = add nuw i32 %348, 1
   store i32 %353, ptr %53, align 4
   %354 = zext i32 %348 to i64
-  %355 = getelementptr inbounds i8, ptr %346, i64 %354
+  %355 = getelementptr inbounds nuw i8, ptr %346, i64 %354
   store i8 %342, ptr %355, align 1
   br label %356
 
@@ -1447,7 +1447,7 @@ inflateStateCheck.exit:                           ; preds = %17
 370:                                              ; preds = %367, %364, %360
   %371 = sub i32 %.3994, %361
   %372 = and i64 %indvars.iv.next2826, 4294967295
-  %373 = getelementptr inbounds i8, ptr %.31058, i64 %372
+  %373 = getelementptr inbounds nuw i8, ptr %.31058, i64 %372
   br i1 %357, label %.loopexit1276, label %378
 
 374:                                              ; preds = %335
@@ -1456,7 +1456,7 @@ inflateStateCheck.exit:                           ; preds = %17
   br i1 %.not1234, label %378, label %376
 
 376:                                              ; preds = %374
-  %377 = getelementptr inbounds i8, ptr %375, i64 40
+  %377 = getelementptr inbounds nuw i8, ptr %375, i64 40
   store ptr null, ptr %377, align 8
   br label %378
 
@@ -1488,21 +1488,21 @@ inflateStateCheck.exit:                           ; preds = %17
 .preheader1289:                                   ; preds = %.preheader1289.preheader, %400
   %indvars.iv2828 = phi i64 [ 0, %.preheader1289.preheader ], [ %indvars.iv.next2829, %400 ]
   %indvars.iv.next2829 = add nuw nsw i64 %indvars.iv2828, 1
-  %385 = getelementptr inbounds i8, ptr %.41059, i64 %indvars.iv2828
+  %385 = getelementptr inbounds nuw i8, ptr %.41059, i64 %indvars.iv2828
   %386 = load i8, ptr %385, align 1
   %387 = load ptr, ptr %80, align 8
   %.not1241 = icmp eq ptr %387, null
   br i1 %.not1241, label %400, label %388
 
 388:                                              ; preds = %.preheader1289
-  %389 = getelementptr inbounds i8, ptr %387, i64 56
+  %389 = getelementptr inbounds nuw i8, ptr %387, i64 56
   %390 = load ptr, ptr %389, align 8
   %.not1242 = icmp eq ptr %390, null
   br i1 %.not1242, label %400, label %391
 
 391:                                              ; preds = %388
   %392 = load i32, ptr %53, align 4
-  %393 = getelementptr inbounds i8, ptr %387, i64 64
+  %393 = getelementptr inbounds nuw i8, ptr %387, i64 64
   %394 = load i32, ptr %393, align 8
   %395 = icmp ult i32 %392, %394
   br i1 %395, label %396, label %400
@@ -1511,7 +1511,7 @@ inflateStateCheck.exit:                           ; preds = %17
   %397 = add nuw i32 %392, 1
   store i32 %397, ptr %53, align 4
   %398 = zext i32 %392 to i64
-  %399 = getelementptr inbounds i8, ptr %390, i64 %398
+  %399 = getelementptr inbounds nuw i8, ptr %390, i64 %398
   store i8 %386, ptr %399, align 1
   br label %400
 
@@ -1543,7 +1543,7 @@ inflateStateCheck.exit:                           ; preds = %17
 414:                                              ; preds = %411, %408, %404
   %415 = sub i32 %.4995, %405
   %416 = and i64 %indvars.iv.next2829, 4294967295
-  %417 = getelementptr inbounds i8, ptr %.41059, i64 %416
+  %417 = getelementptr inbounds nuw i8, ptr %.41059, i64 %416
   br i1 %401, label %.loopexit1276, label %422
 
 418:                                              ; preds = %379
@@ -1552,7 +1552,7 @@ inflateStateCheck.exit:                           ; preds = %17
   br i1 %.not1240, label %422, label %420
 
 420:                                              ; preds = %418
-  %421 = getelementptr inbounds i8, ptr %419, i64 56
+  %421 = getelementptr inbounds nuw i8, ptr %419, i64 56
   store ptr null, ptr %421, align 8
   br label %422
 
@@ -1590,7 +1590,7 @@ inflateStateCheck.exit:                           ; preds = %17
 
 429:                                              ; preds = %.lr.ph2313
   %430 = add i32 %.3510262310, -1
-  %431 = getelementptr inbounds i8, ptr %.3510902309, i64 1
+  %431 = getelementptr inbounds nuw i8, ptr %.3510902309, i64 1
   %432 = load i8, ptr %.3510902309, align 1
   %433 = zext i8 %432 to i64
   %434 = shl nuw nsw i64 %433, %indvars.iv2831
@@ -1636,10 +1636,10 @@ inflateStateCheck.exit:                           ; preds = %17
 446:                                              ; preds = %444
   %447 = lshr i32 %424, 9
   %448 = and i32 %447, 1
-  %449 = getelementptr inbounds i8, ptr %445, i64 68
+  %449 = getelementptr inbounds nuw i8, ptr %445, i64 68
   store i32 %448, ptr %449, align 4
   %450 = load ptr, ptr %80, align 8
-  %451 = getelementptr inbounds i8, ptr %450, i64 72
+  %451 = getelementptr inbounds nuw i8, ptr %450, i64 72
   store i32 1, ptr %451, align 8
   br label %452
 
@@ -1660,7 +1660,7 @@ inflateStateCheck.exit:                           ; preds = %17
 
 455:                                              ; preds = %.lr.ph2106
   %456 = add i32 %.3610272103, -1
-  %457 = getelementptr inbounds i8, ptr %.3610912102, i64 1
+  %457 = getelementptr inbounds nuw i8, ptr %.3610912102, i64 1
   %458 = load i8, ptr %.3610912102, align 1
   %459 = zext i8 %458 to i64
   %460 = shl nuw nsw i64 %459, %indvars.iv2810
@@ -1741,7 +1741,7 @@ inflateStateCheck.exit:                           ; preds = %17
 ._crit_edge2116:                                  ; preds = %.lr.ph2115
   %480 = or disjoint i32 %.8925, 8
   %481 = add i32 %.8999, -1
-  %482 = getelementptr inbounds i8, ptr %.81063, i64 1
+  %482 = getelementptr inbounds nuw i8, ptr %.81063, i64 1
   %483 = load i8, ptr %.81063, align 1
   %484 = zext i8 %483 to i64
   %485 = zext nneg i32 %.8925 to i64
@@ -1822,7 +1822,7 @@ default.unreachable2862:                          ; preds = %488
 
 511:                                              ; preds = %.lr.ph2096
   %512 = add i32 %.3810292092, -1
-  %513 = getelementptr inbounds i8, ptr %.3810932091, i64 1
+  %513 = getelementptr inbounds nuw i8, ptr %.3810932091, i64 1
   %514 = load i8, ptr %.3810932091, align 1
   %515 = zext i8 %514 to i64
   %516 = shl nuw nsw i64 %515, %indvars.iv2808
@@ -1885,9 +1885,9 @@ default.unreachable2862:                          ; preds = %488
   %533 = zext i32 %.4905 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.01052, ptr align 1 %.101065, i64 %533, i1 false)
   %534 = sub i32 %.101001, %.4905
-  %535 = getelementptr inbounds i8, ptr %.101065, i64 %533
+  %535 = getelementptr inbounds nuw i8, ptr %.101065, i64 %533
   %536 = sub i32 %.0989, %.4905
-  %537 = getelementptr inbounds i8, ptr %.01052, i64 %533
+  %537 = getelementptr inbounds nuw i8, ptr %.01052, i64 %533
   %538 = load i32, ptr %53, align 4
   %539 = sub i32 %538, %.4905
   store i32 %539, ptr %53, align 4
@@ -1907,7 +1907,7 @@ default.unreachable2862:                          ; preds = %488
 
 542:                                              ; preds = %.lr.ph1764
   %543 = add i32 %.3910301761, -1
-  %544 = getelementptr inbounds i8, ptr %.3910941760, i64 1
+  %544 = getelementptr inbounds nuw i8, ptr %.3910941760, i64 1
   %545 = load i8, ptr %.3910941760, align 1
   %546 = zext i8 %545 to i64
   %547 = shl nuw nsw i64 %546, %indvars.iv2772
@@ -1996,7 +1996,7 @@ default.unreachable2862:                          ; preds = %488
 ._crit_edge1775:                                  ; preds = %.lr.ph1774
   %572 = or disjoint i32 %.361927, 8
   %573 = add i32 %.4010311925, -1
-  %574 = getelementptr inbounds i8, ptr %.4010951924, i64 1
+  %574 = getelementptr inbounds nuw i8, ptr %.4010951924, i64 1
   %575 = load i8, ptr %.4010951924, align 1
   %576 = zext i8 %575 to i64
   %577 = zext nneg i32 %.361927 to i64
@@ -2014,10 +2014,10 @@ default.unreachable2862:                          ; preds = %488
   %indvars.iv.next2776 = add nuw nsw i64 %indvars.iv2775, 1
   %583 = trunc nuw i64 %indvars.iv.next2776 to i32
   store i32 %583, ptr %57, align 4
-  %584 = getelementptr inbounds [19 x i16], ptr @cm_zlib_inflate.order, i64 0, i64 %indvars.iv2775
+  %584 = getelementptr inbounds nuw [19 x i16], ptr @cm_zlib_inflate.order, i64 0, i64 %indvars.iv2775
   %585 = load i16, ptr %584, align 2
   %586 = zext i16 %585 to i64
-  %587 = getelementptr inbounds [320 x i16], ptr %58, i64 0, i64 %586
+  %587 = getelementptr inbounds nuw [320 x i16], ptr %58, i64 0, i64 %586
   store i16 %582, ptr %587, align 2
   %588 = lshr i64 %.37965.lcssa, 3
   %589 = add i32 %.37.lcssa, -3
@@ -2028,10 +2028,10 @@ default.unreachable2862:                          ; preds = %488
   %591 = phi i32 [ %592, %.lr.ph1934 ], [ %.lcssa, %.preheader1312 ]
   %592 = add nuw nsw i32 %591, 1
   %593 = zext nneg i32 %591 to i64
-  %594 = getelementptr inbounds [19 x i16], ptr @cm_zlib_inflate.order, i64 0, i64 %593
+  %594 = getelementptr inbounds nuw [19 x i16], ptr @cm_zlib_inflate.order, i64 0, i64 %593
   %595 = load i16, ptr %594, align 2
   %596 = zext i16 %595 to i64
-  %597 = getelementptr inbounds [320 x i16], ptr %58, i64 0, i64 %596
+  %597 = getelementptr inbounds nuw [320 x i16], ptr %58, i64 0, i64 %596
   store i16 0, ptr %597, align 2
   %598 = icmp samesign ult i32 %591, 18
   br i1 %598, label %.lr.ph1934, label %._crit_edge1935.loopexit, !llvm.loop !18
@@ -2087,7 +2087,7 @@ default.unreachable2862:                          ; preds = %488
   %608 = trunc i64 %.389661994 to i32
   %609 = and i32 %607, %608
   %610 = zext nneg i32 %609 to i64
-  %.sroa.1667.0..sroa_idx1938 = getelementptr inbounds %struct.code, ptr %.pre2846, i64 %610, i32 1
+  %.sroa.1667.0..sroa_idx1938 = getelementptr inbounds nuw %struct.code, ptr %.pre2846, i64 %610, i32 1
   %.sroa.1667.0.copyload1939 = load i8, ptr %.sroa.1667.0..sroa_idx1938, align 1
   %611 = zext i8 %.sroa.1667.0.copyload1939 to i32
   %.not11831940 = icmp ult i32 %.381995, %611
@@ -2107,7 +2107,7 @@ default.unreachable2862:                          ; preds = %488
 
 614:                                              ; preds = %.lr.ph1945
   %615 = add i32 %.4410351942, -1
-  %616 = getelementptr inbounds i8, ptr %.4410991941, i64 1
+  %616 = getelementptr inbounds nuw i8, ptr %.4410991941, i64 1
   %617 = load i8, ptr %.4410991941, align 1
   %618 = zext i8 %617 to i64
   %619 = shl i64 %618, %indvars.iv2778
@@ -2116,7 +2116,7 @@ default.unreachable2862:                          ; preds = %488
   %621 = trunc i64 %620 to i32
   %622 = and i32 %607, %621
   %623 = zext nneg i32 %622 to i64
-  %.sroa.1667.0..sroa_idx = getelementptr inbounds %struct.code, ptr %.pre2846, i64 %623, i32 1
+  %.sroa.1667.0..sroa_idx = getelementptr inbounds nuw %struct.code, ptr %.pre2846, i64 %623, i32 1
   %.sroa.1667.0.copyload = load i8, ptr %.sroa.1667.0..sroa_idx, align 1
   %624 = zext i8 %.sroa.1667.0.copyload to i64
   %.not1183 = icmp samesign ult i64 %indvars.iv.next2779, %624
@@ -2135,7 +2135,7 @@ default.unreachable2862:                          ; preds = %488
   %.40968.lcssa = phi i64 [ %.389661994, %.preheader1281 ], [ %620, %._crit_edge1946.loopexit ]
   %.40.lcssa = phi i32 [ %.381995, %.preheader1281 ], [ %626, %._crit_edge1946.loopexit ]
   %.sroa.1667.0.copyload.lcssa = phi i8 [ %.sroa.1667.0.copyload1939, %.preheader1281 ], [ %.sroa.1667.0.copyload, %._crit_edge1946.loopexit ]
-  %.sroa.40.0..sroa_idx.le = getelementptr inbounds %struct.code, ptr %.pre2846, i64 %627, i32 2
+  %.sroa.40.0..sroa_idx.le = getelementptr inbounds nuw %struct.code, ptr %.pre2846, i64 %627, i32 2
   %.sroa.40.0.copyload.le = load i16, ptr %.sroa.40.0..sroa_idx.le, align 2
   %628 = icmp ult i16 %.sroa.40.0.copyload.le, 16
   br i1 %628, label %629, label %636
@@ -2147,7 +2147,7 @@ default.unreachable2862:                          ; preds = %488
   %633 = add i32 %.lcssa198619891991, 1
   store i32 %633, ptr %57, align 4
   %634 = zext i32 %.lcssa198619891991 to i64
-  %635 = getelementptr inbounds [320 x i16], ptr %58, i64 0, i64 %634
+  %635 = getelementptr inbounds nuw [320 x i16], ptr %58, i64 0, i64 %634
   store i16 %.sroa.40.0.copyload.le, ptr %635, align 2
   br label %717
 
@@ -2197,7 +2197,7 @@ default.unreachable2862:                          ; preds = %488
 
 650:                                              ; preds = %.lr.ph1969
   %651 = add i32 %.4610371966, -1
-  %652 = getelementptr inbounds i8, ptr %.4611011965, i64 1
+  %652 = getelementptr inbounds nuw i8, ptr %.4611011965, i64 1
   %653 = load i8, ptr %.4611011965, align 1
   %654 = zext i8 %653 to i64
   %655 = shl i64 %654, %indvars.iv2784
@@ -2229,7 +2229,7 @@ default.unreachable2862:                          ; preds = %488
 664:                                              ; preds = %._crit_edge1970
   %665 = add i32 %.lcssa198619891991, -1
   %666 = zext i32 %665 to i64
-  %667 = getelementptr inbounds [320 x i16], ptr %58, i64 0, i64 %666
+  %667 = getelementptr inbounds nuw [320 x i16], ptr %58, i64 0, i64 %666
   %668 = load i16, ptr %667, align 2
   %669 = trunc i64 %660 to i32
   %670 = and i32 %669, 3
@@ -2248,7 +2248,7 @@ default.unreachable2862:                          ; preds = %488
 
 675:                                              ; preds = %.lr.ph1959
   %676 = add i32 %.4810391956, -1
-  %677 = getelementptr inbounds i8, ptr %.4811031955, i64 1
+  %677 = getelementptr inbounds nuw i8, ptr %.4811031955, i64 1
   %678 = load i8, ptr %.4811031955, align 1
   %679 = zext i8 %678 to i64
   %680 = shl i64 %679, %indvars.iv2781
@@ -2286,7 +2286,7 @@ default.unreachable2862:                          ; preds = %488
 
 692:                                              ; preds = %.lr.ph1979
   %693 = add i32 %.4910401976, -1
-  %694 = getelementptr inbounds i8, ptr %.4911041975, i64 1
+  %694 = getelementptr inbounds nuw i8, ptr %.4911041975, i64 1
   %695 = load i8, ptr %.4911041975, align 1
   %696 = zext i8 %695 to i64
   %697 = shl i64 %696, %indvars.iv2787
@@ -2336,7 +2336,7 @@ default.unreachable2862:                          ; preds = %488
   %713 = add nsw i32 %.69071987, -1
   %714 = add i32 %712, 1
   %715 = zext i32 %712 to i64
-  %716 = getelementptr inbounds [320 x i16], ptr %58, i64 0, i64 %715
+  %716 = getelementptr inbounds nuw [320 x i16], ptr %58, i64 0, i64 %715
   store i16 %.0897, ptr %716, align 2
   %.not1184 = icmp eq i32 %713, 0
   br i1 %.not1184, label %.loopexit, label %.preheader, !llvm.loop !22
@@ -2387,7 +2387,7 @@ default.unreachable2862:                          ; preds = %488
   store i32 6, ptr %66, align 4
   %727 = load i32, ptr %54, align 4
   %728 = zext i32 %727 to i64
-  %729 = getelementptr inbounds i16, ptr %58, i64 %728
+  %729 = getelementptr inbounds nuw i16, ptr %58, i64 %728
   %730 = load i32, ptr %55, align 8
   %731 = call i32 @cm_zlib_inflate_table(i32 noundef 2, ptr noundef nonnull %729, i32 noundef %730, ptr noundef nonnull %60, ptr noundef nonnull %66, ptr noundef nonnull %63) #9
   %.not1186 = icmp eq i32 %731, 0
@@ -2453,8 +2453,8 @@ default.unreachable2862:                          ; preds = %488
   %752 = trunc i64 %.14942 to i32
   %753 = and i32 %751, %752
   %754 = zext nneg i32 %753 to i64
-  %755 = getelementptr inbounds %struct.code, ptr %749, i64 %754
-  %.sroa.1667.0..sroa_idx682002 = getelementptr inbounds i8, ptr %755, i64 1
+  %755 = getelementptr inbounds nuw %struct.code, ptr %749, i64 %754
+  %.sroa.1667.0..sroa_idx682002 = getelementptr inbounds nuw i8, ptr %755, i64 1
   %.sroa.1667.0.copyload692003 = load i8, ptr %.sroa.1667.0..sroa_idx682002, align 1
   %756 = zext i8 %.sroa.1667.0.copyload692003 to i32
   %.not11882004 = icmp ult i32 %.14, %756
@@ -2474,7 +2474,7 @@ default.unreachable2862:                          ; preds = %488
 
 759:                                              ; preds = %.lr.ph2010
   %760 = add i32 %.5010412006, -1
-  %761 = getelementptr inbounds i8, ptr %.5011052005, i64 1
+  %761 = getelementptr inbounds nuw i8, ptr %.5011052005, i64 1
   %762 = load i8, ptr %.5011052005, align 1
   %763 = zext i8 %762 to i64
   %764 = shl i64 %763, %indvars.iv2790
@@ -2483,8 +2483,8 @@ default.unreachable2862:                          ; preds = %488
   %766 = trunc i64 %765 to i32
   %767 = and i32 %751, %766
   %768 = zext nneg i32 %767 to i64
-  %769 = getelementptr inbounds %struct.code, ptr %749, i64 %768
-  %.sroa.1667.0..sroa_idx68 = getelementptr inbounds i8, ptr %769, i64 1
+  %769 = getelementptr inbounds nuw %struct.code, ptr %749, i64 %768
+  %.sroa.1667.0..sroa_idx68 = getelementptr inbounds nuw i8, ptr %769, i64 1
   %.sroa.1667.0.copyload69 = load i8, ptr %.sroa.1667.0..sroa_idx68, align 1
   %770 = zext i8 %.sroa.1667.0.copyload69 to i64
   %.not1188 = icmp samesign ult i64 %indvars.iv.next2791, %770
@@ -2503,7 +2503,7 @@ default.unreachable2862:                          ; preds = %488
   %.46.lcssa = phi i32 [ %.14, %748 ], [ %772, %._crit_edge2011.loopexit ]
   %.sroa.1667.0.copyload69.lcssa = phi i8 [ %.sroa.1667.0.copyload692003, %748 ], [ %.sroa.1667.0.copyload69, %._crit_edge2011.loopexit ]
   %.lcssa1404 = phi i32 [ %756, %748 ], [ %771, %._crit_edge2011.loopexit ]
-  %.sroa.40.0..sroa_idx97.le = getelementptr inbounds i8, ptr %.lcssa2001, i64 2
+  %.sroa.40.0..sroa_idx97.le = getelementptr inbounds nuw i8, ptr %.lcssa2001, i64 2
   %.sroa.40.0.copyload98.le = load i16, ptr %.sroa.40.0..sroa_idx97.le, align 2
   %.sroa.054.0.copyload63 = load i8, ptr %.lcssa2001, align 2
   %773 = add i8 %.sroa.054.0.copyload63, -1
@@ -2521,8 +2521,8 @@ default.unreachable2862:                          ; preds = %488
   %780 = lshr i32 %779, %.lcssa1404
   %781 = add nuw i32 %780, %775
   %782 = zext i32 %781 to i64
-  %783 = getelementptr inbounds %struct.code, ptr %749, i64 %782
-  %.sroa.1667.0..sroa_idx702021 = getelementptr inbounds i8, ptr %783, i64 1
+  %783 = getelementptr inbounds nuw %struct.code, ptr %749, i64 %782
+  %.sroa.1667.0..sroa_idx702021 = getelementptr inbounds nuw i8, ptr %783, i64 1
   %.sroa.1667.0.copyload712022 = load i8, ptr %.sroa.1667.0..sroa_idx702021, align 1
   %784 = zext i8 %.sroa.1667.0.copyload712022 to i32
   %785 = add nuw nsw i32 %.lcssa1404, %784
@@ -2543,7 +2543,7 @@ default.unreachable2862:                          ; preds = %488
 
 788:                                              ; preds = %.lr.ph2028
   %789 = add i32 %.5110422025, -1
-  %790 = getelementptr inbounds i8, ptr %.5111062024, i64 1
+  %790 = getelementptr inbounds nuw i8, ptr %.5111062024, i64 1
   %791 = load i8, ptr %.5111062024, align 1
   %792 = zext i8 %791 to i64
   %793 = shl i64 %792, %indvars.iv2794
@@ -2554,8 +2554,8 @@ default.unreachable2862:                          ; preds = %488
   %797 = lshr i32 %796, %.lcssa1404
   %798 = add nuw i32 %797, %775
   %799 = zext i32 %798 to i64
-  %800 = getelementptr inbounds %struct.code, ptr %749, i64 %799
-  %.sroa.1667.0..sroa_idx70 = getelementptr inbounds i8, ptr %800, i64 1
+  %800 = getelementptr inbounds nuw %struct.code, ptr %749, i64 %799
+  %.sroa.1667.0..sroa_idx70 = getelementptr inbounds nuw i8, ptr %800, i64 1
   %.sroa.1667.0.copyload71 = load i8, ptr %.sroa.1667.0..sroa_idx70, align 1
   %801 = zext i8 %.sroa.1667.0.copyload71 to i32
   %802 = add nuw nsw i32 %.lcssa1404, %801
@@ -2574,7 +2574,7 @@ default.unreachable2862:                          ; preds = %488
   %.47.lcssa = phi i32 [ %.46.lcssa, %.preheader1309 ], [ %804, %._crit_edge2029.loopexit ]
   %.lcssa1417 = phi ptr [ %783, %.preheader1309 ], [ %800, %._crit_edge2029.loopexit ]
   %.sroa.1667.0.copyload71.lcssa = phi i8 [ %.sroa.1667.0.copyload712022, %.preheader1309 ], [ %.sroa.1667.0.copyload71, %._crit_edge2029.loopexit ]
-  %.sroa.40.0..sroa_idx99 = getelementptr inbounds i8, ptr %.lcssa1417, i64 2
+  %.sroa.40.0..sroa_idx99 = getelementptr inbounds nuw i8, ptr %.lcssa1417, i64 2
   %.sroa.40.0.copyload100 = load i16, ptr %.sroa.40.0..sroa_idx99, align 2
   %.sroa.054.0.copyload64 = load i8, ptr %.lcssa1417, align 2
   %805 = zext nneg i8 %.sroa.1667.0.copyload69.lcssa to i64
@@ -2661,7 +2661,7 @@ default.unreachable2862:                          ; preds = %488
 
 831:                                              ; preds = %.lr.ph2040
   %832 = add i32 %.5410452037, -1
-  %833 = getelementptr inbounds i8, ptr %.5411092036, i64 1
+  %833 = getelementptr inbounds nuw i8, ptr %.5411092036, i64 1
   %834 = load i8, ptr %.5411092036, align 1
   %835 = zext i8 %834 to i64
   %836 = zext nneg i32 %.502039 to i64
@@ -2714,8 +2714,8 @@ default.unreachable2862:                          ; preds = %488
   %857 = trunc i64 %.16944 to i32
   %858 = and i32 %856, %857
   %859 = zext nneg i32 %858 to i64
-  %860 = getelementptr inbounds %struct.code, ptr %854, i64 %859
-  %.sroa.1667.0..sroa_idx722047 = getelementptr inbounds i8, ptr %860, i64 1
+  %860 = getelementptr inbounds nuw %struct.code, ptr %854, i64 %859
+  %.sroa.1667.0..sroa_idx722047 = getelementptr inbounds nuw i8, ptr %860, i64 1
   %.sroa.1667.0.copyload732048 = load i8, ptr %.sroa.1667.0..sroa_idx722047, align 1
   %861 = zext i8 %.sroa.1667.0.copyload732048 to i32
   %.not11972049 = icmp ult i32 %.16, %861
@@ -2735,7 +2735,7 @@ default.unreachable2862:                          ; preds = %488
 
 864:                                              ; preds = %.lr.ph2055
   %865 = add i32 %.5510462051, -1
-  %866 = getelementptr inbounds i8, ptr %.5511102050, i64 1
+  %866 = getelementptr inbounds nuw i8, ptr %.5511102050, i64 1
   %867 = load i8, ptr %.5511102050, align 1
   %868 = zext i8 %867 to i64
   %869 = shl i64 %868, %indvars.iv2799
@@ -2744,8 +2744,8 @@ default.unreachable2862:                          ; preds = %488
   %871 = trunc i64 %870 to i32
   %872 = and i32 %856, %871
   %873 = zext nneg i32 %872 to i64
-  %874 = getelementptr inbounds %struct.code, ptr %854, i64 %873
-  %.sroa.1667.0..sroa_idx72 = getelementptr inbounds i8, ptr %874, i64 1
+  %874 = getelementptr inbounds nuw %struct.code, ptr %854, i64 %873
+  %.sroa.1667.0..sroa_idx72 = getelementptr inbounds nuw i8, ptr %874, i64 1
   %.sroa.1667.0.copyload73 = load i8, ptr %.sroa.1667.0..sroa_idx72, align 1
   %875 = zext i8 %.sroa.1667.0.copyload73 to i64
   %.not1197 = icmp samesign ult i64 %indvars.iv.next2800, %875
@@ -2764,7 +2764,7 @@ default.unreachable2862:                          ; preds = %488
   %.51.lcssa = phi i32 [ %.16, %853 ], [ %877, %._crit_edge2056.loopexit ]
   %.sroa.1667.0.copyload73.lcssa = phi i8 [ %.sroa.1667.0.copyload732048, %853 ], [ %.sroa.1667.0.copyload73, %._crit_edge2056.loopexit ]
   %.lcssa1427 = phi i32 [ %861, %853 ], [ %876, %._crit_edge2056.loopexit ]
-  %.sroa.40.0..sroa_idx101.le = getelementptr inbounds i8, ptr %.lcssa2046, i64 2
+  %.sroa.40.0..sroa_idx101.le = getelementptr inbounds nuw i8, ptr %.lcssa2046, i64 2
   %.sroa.40.0.copyload102.le = load i16, ptr %.sroa.40.0..sroa_idx101.le, align 2
   %.sroa.054.0.copyload65 = load i8, ptr %.lcssa2046, align 2
   %878 = icmp ult i8 %.sroa.054.0.copyload65, 16
@@ -2785,8 +2785,8 @@ default.unreachable2862:                          ; preds = %488
   %885 = lshr i32 %884, %.lcssa1427
   %886 = add nuw i32 %885, %880
   %887 = zext i32 %886 to i64
-  %888 = getelementptr inbounds %struct.code, ptr %854, i64 %887
-  %.sroa.1667.0..sroa_idx742066 = getelementptr inbounds i8, ptr %888, i64 1
+  %888 = getelementptr inbounds nuw %struct.code, ptr %854, i64 %887
+  %.sroa.1667.0..sroa_idx742066 = getelementptr inbounds nuw i8, ptr %888, i64 1
   %.sroa.1667.0.copyload752067 = load i8, ptr %.sroa.1667.0..sroa_idx742066, align 1
   %889 = zext i8 %.sroa.1667.0.copyload752067 to i32
   %890 = add nuw nsw i32 %.lcssa1427, %889
@@ -2807,7 +2807,7 @@ default.unreachable2862:                          ; preds = %488
 
 893:                                              ; preds = %.lr.ph2073
   %894 = add i32 %.5610472070, -1
-  %895 = getelementptr inbounds i8, ptr %.5611112069, i64 1
+  %895 = getelementptr inbounds nuw i8, ptr %.5611112069, i64 1
   %896 = load i8, ptr %.5611112069, align 1
   %897 = zext i8 %896 to i64
   %898 = shl i64 %897, %indvars.iv2803
@@ -2818,8 +2818,8 @@ default.unreachable2862:                          ; preds = %488
   %902 = lshr i32 %901, %.lcssa1427
   %903 = add nuw i32 %902, %880
   %904 = zext i32 %903 to i64
-  %905 = getelementptr inbounds %struct.code, ptr %854, i64 %904
-  %.sroa.1667.0..sroa_idx74 = getelementptr inbounds i8, ptr %905, i64 1
+  %905 = getelementptr inbounds nuw %struct.code, ptr %854, i64 %904
+  %.sroa.1667.0..sroa_idx74 = getelementptr inbounds nuw i8, ptr %905, i64 1
   %.sroa.1667.0.copyload75 = load i8, ptr %.sroa.1667.0..sroa_idx74, align 1
   %906 = zext i8 %.sroa.1667.0.copyload75 to i32
   %907 = add nuw nsw i32 %.lcssa1427, %906
@@ -2838,7 +2838,7 @@ default.unreachable2862:                          ; preds = %488
   %.52.lcssa = phi i32 [ %.51.lcssa, %.preheader1304 ], [ %909, %._crit_edge2074.loopexit ]
   %.lcssa1440 = phi ptr [ %888, %.preheader1304 ], [ %905, %._crit_edge2074.loopexit ]
   %.sroa.1667.0.copyload75.lcssa = phi i8 [ %.sroa.1667.0.copyload752067, %.preheader1304 ], [ %.sroa.1667.0.copyload75, %._crit_edge2074.loopexit ]
-  %.sroa.40.0..sroa_idx103 = getelementptr inbounds i8, ptr %.lcssa1440, i64 2
+  %.sroa.40.0..sroa_idx103 = getelementptr inbounds nuw i8, ptr %.lcssa1440, i64 2
   %.sroa.40.0.copyload104 = load i16, ptr %.sroa.40.0..sroa_idx103, align 2
   %.sroa.054.0.copyload66 = load i8, ptr %.lcssa1440, align 2
   %910 = zext nneg i8 %.sroa.1667.0.copyload73.lcssa to i64
@@ -2905,7 +2905,7 @@ default.unreachable2862:                          ; preds = %488
 
 932:                                              ; preds = %.lr.ph2085
   %933 = add i32 %.5910502082, -1
-  %934 = getelementptr inbounds i8, ptr %.5911142081, i64 1
+  %934 = getelementptr inbounds nuw i8, ptr %.5911142081, i64 1
   %935 = load i8, ptr %.5911142081, align 1
   %936 = zext i8 %935 to i64
   %937 = zext nneg i32 %.552084 to i64
@@ -2994,7 +2994,7 @@ default.unreachable2862:                          ; preds = %488
   %.7908 = phi i32 [ %960, %973 ], [ %970, %969 ]
   %.sink3331 = load ptr, ptr %75, align 8
   %976 = zext i32 %.sink3333 to i64
-  %977 = getelementptr inbounds i8, ptr %.sink3331, i64 %976
+  %977 = getelementptr inbounds nuw i8, ptr %.sink3331, i64 %976
   %978 = load i32, ptr %53, align 4
   %spec.select1261 = call i32 @llvm.umin.i32(i32 %.7908, i32 %978)
   br label %984
@@ -3019,9 +3019,9 @@ default.unreachable2862:                          ; preds = %488
   %.21054 = phi ptr [ %.01052, %984 ], [ %990, %987 ]
   %.10 = phi i32 [ %spec.select1262, %984 ], [ %991, %987 ]
   %.2900 = phi ptr [ %.1899, %984 ], [ %988, %987 ]
-  %988 = getelementptr inbounds i8, ptr %.2900, i64 1
+  %988 = getelementptr inbounds nuw i8, ptr %.2900, i64 1
   %989 = load i8, ptr %.2900, align 1
-  %990 = getelementptr inbounds i8, ptr %.21054, i64 1
+  %990 = getelementptr inbounds nuw i8, ptr %.21054, i64 1
   store i8 %989, ptr %.21054, align 1
   %991 = add i32 %.10, -1
   %.not1204 = icmp eq i32 %991, 0
@@ -3044,7 +3044,7 @@ default.unreachable2862:                          ; preds = %488
 999:                                              ; preds = %997
   %1000 = load i32, ptr %53, align 4
   %1001 = trunc i32 %1000 to i8
-  %1002 = getelementptr inbounds i8, ptr %.01052, i64 1
+  %1002 = getelementptr inbounds nuw i8, ptr %.01052, i64 1
   store i8 %1001, ptr %.01052, align 1
   %1003 = add i32 %.0989, -1
   store i32 16200, ptr %19, align 8
@@ -3073,7 +3073,7 @@ default.unreachable2862:                          ; preds = %488
 
 1009:                                             ; preds = %.lr.ph
   %1010 = add i32 %.611744, -1
-  %1011 = getelementptr inbounds i8, ptr %.6111161743, i64 1
+  %1011 = getelementptr inbounds nuw i8, ptr %.6111161743, i64 1
   %1012 = load i8, ptr %.6111161743, align 1
   %1013 = zext i8 %1012 to i64
   %1014 = shl nuw nsw i64 %1013, %indvars.iv
@@ -3195,7 +3195,7 @@ default.unreachable2862:                          ; preds = %488
 
 1056:                                             ; preds = %.lr.ph1754
   %1057 = add i32 %.631751, -1
-  %1058 = getelementptr inbounds i8, ptr %.6311181750, i64 1
+  %1058 = getelementptr inbounds nuw i8, ptr %.6311181750, i64 1
   %1059 = load i8, ptr %.6311181750, align 1
   %1060 = zext i8 %1059 to i64
   %1061 = shl nuw nsw i64 %1060, %indvars.iv2769
@@ -3394,16 +3394,16 @@ default.unreachable2862:                          ; preds = %488
   %1115 = load ptr, ptr %23, align 8
   %1116 = sub i32 %.5916, %.pre2860
   %1117 = load ptr, ptr %14, align 8
-  %1118 = getelementptr inbounds i8, ptr %1117, i64 72
+  %1118 = getelementptr inbounds nuw i8, ptr %1117, i64 72
   %1119 = load ptr, ptr %1118, align 8
   %1120 = icmp eq ptr %1119, null
   br i1 %1120, label %1121, label %1130
 
 1121:                                             ; preds = %1114
   %1122 = load ptr, ptr %6, align 8
-  %1123 = getelementptr inbounds i8, ptr %0, i64 80
+  %1123 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %1124 = load ptr, ptr %1123, align 8
-  %1125 = getelementptr inbounds i8, ptr %1117, i64 56
+  %1125 = getelementptr inbounds nuw i8, ptr %1117, i64 56
   %1126 = load i32, ptr %1125, align 8
   %1127 = shl nuw i32 1, %1126
   %1128 = call ptr %1122(ptr noundef %1124, i32 noundef %1127, i32 noundef 1) #9
@@ -3413,19 +3413,19 @@ default.unreachable2862:                          ; preds = %488
 
 1130:                                             ; preds = %1121, %1114
   %1131 = phi ptr [ %1128, %1121 ], [ %1119, %1114 ]
-  %1132 = getelementptr inbounds i8, ptr %1117, i64 60
+  %1132 = getelementptr inbounds nuw i8, ptr %1117, i64 60
   %1133 = load i32, ptr %1132, align 4
   %1134 = icmp eq i32 %1133, 0
   br i1 %1134, label %1135, label %1141
 
 1135:                                             ; preds = %1130
-  %1136 = getelementptr inbounds i8, ptr %1117, i64 56
+  %1136 = getelementptr inbounds nuw i8, ptr %1117, i64 56
   %1137 = load i32, ptr %1136, align 8
   %1138 = shl nuw i32 1, %1137
   store i32 %1138, ptr %1132, align 4
-  %1139 = getelementptr inbounds i8, ptr %1117, i64 68
+  %1139 = getelementptr inbounds nuw i8, ptr %1117, i64 68
   store i32 0, ptr %1139, align 4
-  %1140 = getelementptr inbounds i8, ptr %1117, i64 64
+  %1140 = getelementptr inbounds nuw i8, ptr %1117, i64 64
   store i32 0, ptr %1140, align 8
   br label %1141
 
@@ -3439,20 +3439,20 @@ default.unreachable2862:                          ; preds = %488
   %1145 = sub nsw i64 0, %1144
   %1146 = getelementptr inbounds i8, ptr %1115, i64 %1145
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %1131, ptr noundef nonnull readonly align 1 dereferenceable(1) %1146, i64 %1144, i1 false)
-  %1147 = getelementptr inbounds i8, ptr %1117, i64 68
+  %1147 = getelementptr inbounds nuw i8, ptr %1117, i64 68
   store i32 0, ptr %1147, align 4
   %1148 = load i32, ptr %1132, align 4
-  %1149 = getelementptr inbounds i8, ptr %1117, i64 64
+  %1149 = getelementptr inbounds nuw i8, ptr %1117, i64 64
   store i32 %1148, ptr %1149, align 8
   br label %updatewindow.exit.thread
 
 1150:                                             ; preds = %1141
-  %1151 = getelementptr inbounds i8, ptr %1117, i64 68
+  %1151 = getelementptr inbounds nuw i8, ptr %1117, i64 68
   %1152 = load i32, ptr %1151, align 4
   %1153 = sub i32 %1142, %1152
   %spec.select.i1264 = call i32 @llvm.umin.i32(i32 %1153, i32 %1116)
   %1154 = zext i32 %1152 to i64
-  %1155 = getelementptr inbounds i8, ptr %1131, i64 %1154
+  %1155 = getelementptr inbounds nuw i8, ptr %1131, i64 %1154
   %1156 = zext i32 %1116 to i64
   %1157 = sub nsw i64 0, %1156
   %1158 = getelementptr inbounds i8, ptr %1115, i64 %1157
@@ -3470,7 +3470,7 @@ default.unreachable2862:                          ; preds = %488
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1162, ptr readonly align 1 %1165, i64 %1163, i1 false)
   store i32 %1161, ptr %1151, align 4
   %1166 = load i32, ptr %1132, align 4
-  %1167 = getelementptr inbounds i8, ptr %1117, i64 64
+  %1167 = getelementptr inbounds nuw i8, ptr %1117, i64 64
   store i32 %1166, ptr %1167, align 8
   br label %updatewindow.exit.thread
 
@@ -3481,7 +3481,7 @@ default.unreachable2862:                          ; preds = %488
   %1172 = icmp eq i32 %1170, %1171
   %spec.store.select.i = select i1 %1172, i32 0, i32 %1170
   store i32 %spec.store.select.i, ptr %1151, align 4
-  %1173 = getelementptr inbounds i8, ptr %1117, i64 64
+  %1173 = getelementptr inbounds nuw i8, ptr %1117, i64 64
   %1174 = load i32, ptr %1173, align 8
   %1175 = icmp ult i32 %1174, %1171
   br i1 %1175, label %1176, label %updatewindow.exit.thread
@@ -3501,7 +3501,7 @@ updatewindow.exit.thread:                         ; preds = %1143, %1168, %1176,
   %1180 = load i32, ptr %38, align 8
   %1181 = sub i32 %.5916, %1180
   %1182 = zext i32 %1179 to i64
-  %1183 = getelementptr inbounds i8, ptr %0, i64 16
+  %1183 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1184 = load i64, ptr %1183, align 8
   %1185 = add i64 %1184, %1182
   store i64 %1185, ptr %1183, align 8
@@ -3557,7 +3557,7 @@ updatewindow.exit.thread:                         ; preds = %1143, %1168, %1176,
   %1218 = or i1 %1216, %1217
   %1219 = select i1 %1218, i32 256, i32 0
   %1220 = add nsw i32 %1215, %1219
-  %1221 = getelementptr inbounds i8, ptr %0, i64 88
+  %1221 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 %1220, ptr %1221, align 8
   %1222 = icmp eq i32 %41, %1178
   %1223 = icmp eq i32 %.5916, %1180
@@ -3594,19 +3594,19 @@ define dso_local range(i32 -2, 1) i32 @cm_zlib_inflateEnd(ptr noundef %0) local_
   br i1 %2, label %inflateStateCheck.exit.thread, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %inflateStateCheck.exit.thread, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %inflateStateCheck.exit.thread, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %inflateStateCheck.exit.thread, label %15
@@ -3617,20 +3617,20 @@ define dso_local range(i32 -2, 1) i32 @cm_zlib_inflateEnd(ptr noundef %0) local_
   br i1 %.not.i, label %inflateStateCheck.exit, label %inflateStateCheck.exit.thread
 
 inflateStateCheck.exit:                           ; preds = %15
-  %17 = getelementptr inbounds i8, ptr %13, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %18 = load i32, ptr %17, align 8
   %19 = add i32 %18, -16180
   %or.cond.i = icmp ult i32 %19, 32
   br i1 %or.cond.i, label %20, label %inflateStateCheck.exit.thread
 
 20:                                               ; preds = %inflateStateCheck.exit
-  %21 = getelementptr inbounds i8, ptr %13, i64 72
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 72
   %22 = load ptr, ptr %21, align 8
   %.not11 = icmp eq ptr %22, null
   br i1 %.not11, label %26, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %0, i64 80
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %25 = load ptr, ptr %24, align 8
   tail call void %9(ptr noundef %25, ptr noundef nonnull %22) #9
   %.pre = load ptr, ptr %8, align 8
@@ -3640,7 +3640,7 @@ inflateStateCheck.exit:                           ; preds = %15
 26:                                               ; preds = %23, %20
   %27 = phi ptr [ %.pre14, %23 ], [ %13, %20 ]
   %28 = phi ptr [ %.pre, %23 ], [ %9, %20 ]
-  %29 = getelementptr inbounds i8, ptr %0, i64 80
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %30 = load ptr, ptr %29, align 8
   tail call void %28(ptr noundef %30, ptr noundef %27) #9
   store ptr null, ptr %12, align 8
@@ -3657,19 +3657,19 @@ define dso_local range(i32 -2, 1) i32 @cm_zlib_inflateGetDictionary(ptr noundef 
   br i1 %4, label %inflateStateCheck.exit.thread, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %inflateStateCheck.exit.thread, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %inflateStateCheck.exit.thread, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %inflateStateCheck.exit.thread, label %17
@@ -3680,14 +3680,14 @@ define dso_local range(i32 -2, 1) i32 @cm_zlib_inflateGetDictionary(ptr noundef 
   br i1 %.not.i, label %inflateStateCheck.exit, label %inflateStateCheck.exit.thread
 
 inflateStateCheck.exit:                           ; preds = %17
-  %19 = getelementptr inbounds i8, ptr %15, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %20 = load i32, ptr %19, align 8
   %21 = add i32 %20, -16180
   %or.cond.i = icmp ult i32 %21, 32
   br i1 %or.cond.i, label %22, label %inflateStateCheck.exit.thread
 
 22:                                               ; preds = %inflateStateCheck.exit
-  %23 = getelementptr inbounds i8, ptr %15, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %24 = load i32, ptr %23, align 8
   %25 = icmp ne i32 %24, 0
   %26 = icmp ne ptr %1, null
@@ -3695,18 +3695,18 @@ inflateStateCheck.exit:                           ; preds = %17
   br i1 %or.cond, label %27, label %44
 
 27:                                               ; preds = %22
-  %28 = getelementptr inbounds i8, ptr %15, i64 72
+  %28 = getelementptr inbounds nuw i8, ptr %15, i64 72
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %15, i64 68
+  %30 = getelementptr inbounds nuw i8, ptr %15, i64 68
   %31 = load i32, ptr %30, align 4
   %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds i8, ptr %29, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 %32
   %34 = sub i32 %24, %31
   %35 = zext i32 %34 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1, ptr align 1 %33, i64 %35, i1 false)
   %36 = load i32, ptr %23, align 8
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds i8, ptr %1, i64 %37
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 %37
   %39 = load i32, ptr %30, align 4
   %40 = zext i32 %39 to i64
   %41 = sub nsw i64 0, %40
@@ -3735,19 +3735,19 @@ define dso_local range(i32 -4, 1) i32 @cm_zlib_inflateSetDictionary(ptr noundef 
   br i1 %4, label %inflateStateCheck.exit.thread, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %inflateStateCheck.exit.thread, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %inflateStateCheck.exit.thread, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %inflateStateCheck.exit.thread, label %17
@@ -3758,14 +3758,14 @@ define dso_local range(i32 -4, 1) i32 @cm_zlib_inflateSetDictionary(ptr noundef 
   br i1 %.not.i, label %inflateStateCheck.exit, label %inflateStateCheck.exit.thread
 
 inflateStateCheck.exit:                           ; preds = %17
-  %19 = getelementptr inbounds i8, ptr %15, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %20 = load i32, ptr %19, align 8
   %21 = add i32 %20, -16180
   %or.cond.i = icmp ult i32 %21, 32
   br i1 %or.cond.i, label %22, label %inflateStateCheck.exit.thread
 
 22:                                               ; preds = %inflateStateCheck.exit
-  %23 = getelementptr inbounds i8, ptr %15, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %24 = load i32, ptr %23, align 8
   %.not17 = icmp eq i32 %24, 0
   %25 = icmp eq i32 %20, 16190
@@ -3780,7 +3780,7 @@ inflateStateCheck.exit:                           ; preds = %17
 .thread:                                          ; preds = %26, %27
   %28 = tail call i64 @cm_zlib_adler32(i64 noundef 0, ptr noundef null, i32 noundef 0) #9
   %29 = tail call i64 @cm_zlib_adler32(i64 noundef %28, ptr noundef %1, i32 noundef %2) #9
-  %30 = getelementptr inbounds i8, ptr %15, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %31 = load i64, ptr %30, align 8
   %.not19 = icmp eq i64 %29, %31
   br i1 %.not19, label %._crit_edge, label %inflateStateCheck.exit.thread
@@ -3792,17 +3792,17 @@ inflateStateCheck.exit:                           ; preds = %17
 32:                                               ; preds = %._crit_edge, %27
   %33 = phi ptr [ %.pre, %._crit_edge ], [ %15, %27 ]
   %34 = zext i32 %2 to i64
-  %35 = getelementptr inbounds i8, ptr %1, i64 %34
-  %36 = getelementptr inbounds i8, ptr %33, i64 72
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 %34
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 72
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
   br i1 %38, label %39, label %48
 
 39:                                               ; preds = %32
   %40 = load ptr, ptr %6, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 80
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %33, i64 56
+  %43 = getelementptr inbounds nuw i8, ptr %33, i64 56
   %44 = load i32, ptr %43, align 8
   %45 = shl nuw i32 1, %44
   %46 = tail call ptr %40(ptr noundef %42, i32 noundef %45, i32 noundef 1) #9
@@ -3812,19 +3812,19 @@ inflateStateCheck.exit:                           ; preds = %17
 
 48:                                               ; preds = %39, %32
   %49 = phi ptr [ %46, %39 ], [ %37, %32 ]
-  %50 = getelementptr inbounds i8, ptr %33, i64 60
+  %50 = getelementptr inbounds nuw i8, ptr %33, i64 60
   %51 = load i32, ptr %50, align 4
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %53, label %59
 
 53:                                               ; preds = %48
-  %54 = getelementptr inbounds i8, ptr %33, i64 56
+  %54 = getelementptr inbounds nuw i8, ptr %33, i64 56
   %55 = load i32, ptr %54, align 8
   %56 = shl nuw i32 1, %55
   store i32 %56, ptr %50, align 4
-  %57 = getelementptr inbounds i8, ptr %33, i64 68
+  %57 = getelementptr inbounds nuw i8, ptr %33, i64 68
   store i32 0, ptr %57, align 4
-  %58 = getelementptr inbounds i8, ptr %33, i64 64
+  %58 = getelementptr inbounds nuw i8, ptr %33, i64 64
   store i32 0, ptr %58, align 8
   br label %59
 
@@ -3838,20 +3838,20 @@ inflateStateCheck.exit:                           ; preds = %17
   %63 = sub nsw i64 0, %62
   %64 = getelementptr inbounds i8, ptr %35, i64 %63
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %49, ptr noundef nonnull readonly align 1 dereferenceable(1) %64, i64 %62, i1 false)
-  %65 = getelementptr inbounds i8, ptr %33, i64 68
+  %65 = getelementptr inbounds nuw i8, ptr %33, i64 68
   store i32 0, ptr %65, align 4
   %66 = load i32, ptr %50, align 4
-  %67 = getelementptr inbounds i8, ptr %33, i64 64
+  %67 = getelementptr inbounds nuw i8, ptr %33, i64 64
   store i32 %66, ptr %67, align 8
   br label %93
 
 68:                                               ; preds = %59
-  %69 = getelementptr inbounds i8, ptr %33, i64 68
+  %69 = getelementptr inbounds nuw i8, ptr %33, i64 68
   %70 = load i32, ptr %69, align 4
   %71 = sub i32 %60, %70
   %spec.select.i22 = tail call i32 @llvm.umin.i32(i32 %71, i32 %2)
   %72 = zext i32 %70 to i64
-  %73 = getelementptr inbounds i8, ptr %49, i64 %72
+  %73 = getelementptr inbounds nuw i8, ptr %49, i64 %72
   %74 = zext i32 %spec.select.i22 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr readonly align 1 %1, i64 %74, i1 false)
   %.not57.not.i = icmp ugt i32 %2, %71
@@ -3866,7 +3866,7 @@ inflateStateCheck.exit:                           ; preds = %17
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %77, ptr nonnull readonly align 1 %80, i64 %78, i1 false)
   store i32 %76, ptr %69, align 4
   %81 = load i32, ptr %50, align 4
-  %82 = getelementptr inbounds i8, ptr %33, i64 64
+  %82 = getelementptr inbounds nuw i8, ptr %33, i64 64
   store i32 %81, ptr %82, align 8
   br label %93
 
@@ -3877,7 +3877,7 @@ inflateStateCheck.exit:                           ; preds = %17
   %87 = icmp eq i32 %85, %86
   %spec.store.select.i = select i1 %87, i32 0, i32 %85
   store i32 %spec.store.select.i, ptr %69, align 4
-  %88 = getelementptr inbounds i8, ptr %33, i64 64
+  %88 = getelementptr inbounds nuw i8, ptr %33, i64 64
   %89 = load i32, ptr %88, align 8
   %90 = icmp ult i32 %89, %86
   br i1 %90, label %91, label %93
@@ -3892,7 +3892,7 @@ updatewindow.exit:                                ; preds = %39
   br label %inflateStateCheck.exit.thread
 
 93:                                               ; preds = %75, %91, %83, %61
-  %94 = getelementptr inbounds i8, ptr %15, i64 20
+  %94 = getelementptr inbounds nuw i8, ptr %15, i64 20
   store i32 1, ptr %94, align 4
   br label %inflateStateCheck.exit.thread
 
@@ -3907,19 +3907,19 @@ define dso_local range(i32 -2, 1) i32 @cm_zlib_inflateGetHeader(ptr noundef read
   br i1 %3, label %inflateStateCheck.exit.thread, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %inflateStateCheck.exit.thread, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %inflateStateCheck.exit.thread, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %inflateStateCheck.exit.thread, label %16
@@ -3930,23 +3930,23 @@ define dso_local range(i32 -2, 1) i32 @cm_zlib_inflateGetHeader(ptr noundef read
   br i1 %.not.i, label %inflateStateCheck.exit, label %inflateStateCheck.exit.thread
 
 inflateStateCheck.exit:                           ; preds = %16
-  %18 = getelementptr inbounds i8, ptr %14, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %19 = load i32, ptr %18, align 8
   %20 = add i32 %19, -16180
   %or.cond.i = icmp ult i32 %20, 32
   br i1 %or.cond.i, label %21, label %inflateStateCheck.exit.thread
 
 21:                                               ; preds = %inflateStateCheck.exit
-  %22 = getelementptr inbounds i8, ptr %14, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %23 = load i32, ptr %22, align 8
   %24 = and i32 %23, 2
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %inflateStateCheck.exit.thread, label %26
 
 26:                                               ; preds = %21
-  %27 = getelementptr inbounds i8, ptr %14, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %14, i64 48
   store ptr %1, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 72
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i32 0, ptr %28, align 8
   br label %inflateStateCheck.exit.thread
 
@@ -3962,19 +3962,19 @@ define dso_local range(i32 -5, 1) i32 @cm_zlib_inflateSync(ptr noundef %0) local
   br i1 %3, label %inflateStateCheck.exit.thread, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %inflateStateCheck.exit.thread, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %inflateStateCheck.exit.thread, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %inflateStateCheck.exit.thread, label %16
@@ -3985,20 +3985,20 @@ define dso_local range(i32 -5, 1) i32 @cm_zlib_inflateSync(ptr noundef %0) local
   br i1 %.not.i, label %inflateStateCheck.exit, label %inflateStateCheck.exit.thread
 
 inflateStateCheck.exit:                           ; preds = %16
-  %18 = getelementptr inbounds i8, ptr %14, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %19 = load i32, ptr %18, align 8
   %20 = add i32 %19, -16180
   %or.cond.i = icmp ult i32 %20, 32
   br i1 %or.cond.i, label %21, label %inflateStateCheck.exit.thread
 
 21:                                               ; preds = %inflateStateCheck.exit
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %29
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %14, i64 88
+  %26 = getelementptr inbounds nuw i8, ptr %14, i64 88
   %27 = load i32, ptr %26, align 8
   %28 = icmp ult i32 %27, 8
   br i1 %28, label %inflateStateCheck.exit.thread, label %29
@@ -4008,16 +4008,16 @@ inflateStateCheck.exit:                           ; preds = %16
   br i1 %.not43, label %._crit_edge70, label %30
 
 ._crit_edge70:                                    ; preds = %29
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %14, i64 140
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %14, i64 140
   %.pre71 = load i32, ptr %.phi.trans.insert, align 4
   br label %59
 
 30:                                               ; preds = %29
   store i32 16211, ptr %18, align 8
-  %31 = getelementptr inbounds i8, ptr %14, i64 88
+  %31 = getelementptr inbounds nuw i8, ptr %14, i64 88
   %32 = load i32, ptr %31, align 8
   %33 = and i32 %32, 7
-  %34 = getelementptr inbounds i8, ptr %14, i64 80
+  %34 = getelementptr inbounds nuw i8, ptr %14, i64 80
   %35 = load i64, ptr %34, align 8
   %36 = zext nneg i32 %33 to i64
   %37 = shl i64 %35, %36
@@ -4028,7 +4028,7 @@ inflateStateCheck.exit:                           ; preds = %16
 
 .thread:                                          ; preds = %30
   store i32 0, ptr %31, align 8
-  %39 = getelementptr inbounds i8, ptr %14, i64 140
+  %39 = getelementptr inbounds nuw i8, ptr %14, i64 140
   store i32 0, ptr %39, align 4
   br label %syncsearch.exit
 
@@ -4038,7 +4038,7 @@ inflateStateCheck.exit:                           ; preds = %16
   %storemerge64 = phi i32 [ %44, %.lr.ph ], [ %38, %30 ]
   %41 = trunc i64 %40 to i8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %42 = getelementptr inbounds [4 x i8], ptr %2, i64 0, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 0, i64 %indvars.iv
   store i8 %41, ptr %42, align 1
   %43 = lshr i64 %40, 8
   %44 = add i32 %storemerge64, -8
@@ -4048,7 +4048,7 @@ inflateStateCheck.exit:                           ; preds = %16
 .lr.ph.preheader.i:                               ; preds = %.lr.ph
   store i64 %43, ptr %34, align 8
   store i32 0, ptr %31, align 8
-  %45 = getelementptr inbounds i8, ptr %14, i64 140
+  %45 = getelementptr inbounds nuw i8, ptr %14, i64 140
   store i32 0, ptr %45, align 4
   %46 = and i64 %indvars.iv.next, 4294967295
   br label %.lr.ph.i
@@ -4056,7 +4056,7 @@ inflateStateCheck.exit:                           ; preds = %16
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.01415.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1.i, %.lr.ph.i ]
-  %47 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %48 = load i8, ptr %47, align 1
   %49 = zext i8 %48 to i32
   %50 = icmp samesign ult i32 %.01415.i, 2
@@ -4083,7 +4083,7 @@ syncsearch.exit:                                  ; preds = %.lr.ph.i, %.thread
 59:                                               ; preds = %._crit_edge70, %syncsearch.exit
   %60 = phi i32 [ %.014.lcssa.i, %syncsearch.exit ], [ %.pre71, %._crit_edge70 ]
   %61 = phi i32 [ %.pre, %syncsearch.exit ], [ %23, %._crit_edge70 ]
-  %62 = getelementptr inbounds i8, ptr %14, i64 140
+  %62 = getelementptr inbounds nuw i8, ptr %14, i64 140
   %63 = load ptr, ptr %0, align 8
   %64 = icmp ne i32 %61, 0
   %65 = icmp ult i32 %60, 4
@@ -4097,7 +4097,7 @@ syncsearch.exit:                                  ; preds = %.lr.ph.i, %.thread
 .lr.ph.i50:                                       ; preds = %.lr.ph.i50, %.lr.ph.preheader.i49
   %indvars.iv.i51 = phi i64 [ 0, %.lr.ph.preheader.i49 ], [ %indvars.iv.next.i56, %.lr.ph.i50 ]
   %.01415.i52 = phi i32 [ %60, %.lr.ph.preheader.i49 ], [ %.1.i55, %.lr.ph.i50 ]
-  %68 = getelementptr inbounds i8, ptr %63, i64 %indvars.iv.i51
+  %68 = getelementptr inbounds nuw i8, ptr %63, i64 %indvars.iv.i51
   %69 = load i8, ptr %68, align 1
   %70 = zext i8 %69 to i32
   %71 = icmp samesign ult i32 %.01415.i52, 2
@@ -4127,9 +4127,9 @@ syncsearch.exit58:                                ; preds = %59, %._crit_edge.lo
   store i32 %81, ptr %22, align 8
   %82 = load ptr, ptr %0, align 8
   %83 = zext i32 %.0.lcssa.i48 to i64
-  %84 = getelementptr inbounds i8, ptr %82, i64 %83
+  %84 = getelementptr inbounds nuw i8, ptr %82, i64 %83
   store ptr %84, ptr %0, align 8
-  %85 = getelementptr inbounds i8, ptr %0, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %86 = load i64, ptr %85, align 8
   %87 = add i64 %86, %83
   store i64 %87, ptr %85, align 8
@@ -4138,10 +4138,10 @@ syncsearch.exit58:                                ; preds = %59, %._crit_edge.lo
   br i1 %.not44, label %89, label %inflateStateCheck.exit.thread
 
 89:                                               ; preds = %syncsearch.exit58
-  %90 = getelementptr inbounds i8, ptr %14, i64 24
+  %90 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %91 = load i32, ptr %90, align 8
   %92 = icmp eq i32 %91, -1
-  %93 = getelementptr inbounds i8, ptr %14, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %14, i64 16
   br i1 %92, label %97, label %94
 
 94:                                               ; preds = %89
@@ -4153,7 +4153,7 @@ syncsearch.exit58:                                ; preds = %59, %._crit_edge.lo
   %.sink = phi i32 [ %96, %94 ], [ 0, %89 ]
   store i32 %.sink, ptr %93, align 8
   %98 = load i64, ptr %85, align 8
-  %99 = getelementptr inbounds i8, ptr %0, i64 40
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %100 = load i64, ptr %99, align 8
   %101 = load ptr, ptr %5, align 8
   %102 = icmp eq ptr %101, null
@@ -4175,18 +4175,18 @@ syncsearch.exit58:                                ; preds = %59, %._crit_edge.lo
   br i1 %.not.i.i, label %inflateStateCheck.exit.i, label %cm_zlib_inflateReset.exit
 
 inflateStateCheck.exit.i:                         ; preds = %109
-  %111 = getelementptr inbounds i8, ptr %107, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %112 = load i32, ptr %111, align 8
   %113 = add i32 %112, -16180
   %or.cond.i.i = icmp ult i32 %113, 32
   br i1 %or.cond.i.i, label %114, label %cm_zlib_inflateReset.exit
 
 114:                                              ; preds = %inflateStateCheck.exit.i
-  %115 = getelementptr inbounds i8, ptr %107, i64 60
+  %115 = getelementptr inbounds nuw i8, ptr %107, i64 60
   store i32 0, ptr %115, align 4
-  %116 = getelementptr inbounds i8, ptr %107, i64 64
+  %116 = getelementptr inbounds nuw i8, ptr %107, i64 64
   store i32 0, ptr %116, align 8
-  %117 = getelementptr inbounds i8, ptr %107, i64 68
+  %117 = getelementptr inbounds nuw i8, ptr %107, i64 68
   store i32 0, ptr %117, align 4
   %118 = load ptr, ptr %5, align 8
   %119 = icmp eq ptr %118, null
@@ -4208,17 +4208,17 @@ inflateStateCheck.exit.i:                         ; preds = %109
   br i1 %.not.i.i.i, label %inflateStateCheck.exit.i.i, label %cm_zlib_inflateReset.exit
 
 inflateStateCheck.exit.i.i:                       ; preds = %126
-  %128 = getelementptr inbounds i8, ptr %124, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %124, i64 8
   %129 = load i32, ptr %128, align 8
   %130 = add i32 %129, -16180
   %or.cond.i.i.i = icmp ult i32 %130, 32
   br i1 %or.cond.i.i.i, label %131, label %cm_zlib_inflateReset.exit
 
 131:                                              ; preds = %inflateStateCheck.exit.i.i
-  %132 = getelementptr inbounds i8, ptr %124, i64 40
+  %132 = getelementptr inbounds nuw i8, ptr %124, i64 40
   store i64 0, ptr %132, align 8
   store i64 0, ptr %85, align 8
-  %133 = getelementptr inbounds i8, ptr %124, i64 16
+  %133 = getelementptr inbounds nuw i8, ptr %124, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %99, i8 0, i64 16, i1 false)
   %134 = load i32, ptr %133, align 8
   %.not24.i.i = icmp eq i32 %134, 0
@@ -4227,36 +4227,36 @@ inflateStateCheck.exit.i.i:                       ; preds = %126
 135:                                              ; preds = %131
   %136 = and i32 %134, 1
   %137 = zext nneg i32 %136 to i64
-  %138 = getelementptr inbounds i8, ptr %0, i64 96
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i64 %137, ptr %138, align 8
   br label %139
 
 139:                                              ; preds = %135, %131
   store i32 16180, ptr %128, align 8
-  %140 = getelementptr inbounds i8, ptr %124, i64 12
+  %140 = getelementptr inbounds nuw i8, ptr %124, i64 12
   store i32 0, ptr %140, align 4
-  %141 = getelementptr inbounds i8, ptr %124, i64 20
+  %141 = getelementptr inbounds nuw i8, ptr %124, i64 20
   store i32 0, ptr %141, align 4
-  %142 = getelementptr inbounds i8, ptr %124, i64 24
+  %142 = getelementptr inbounds nuw i8, ptr %124, i64 24
   store i32 -1, ptr %142, align 8
-  %143 = getelementptr inbounds i8, ptr %124, i64 28
+  %143 = getelementptr inbounds nuw i8, ptr %124, i64 28
   store i32 32768, ptr %143, align 4
-  %144 = getelementptr inbounds i8, ptr %124, i64 48
+  %144 = getelementptr inbounds nuw i8, ptr %124, i64 48
   store ptr null, ptr %144, align 8
-  %145 = getelementptr inbounds i8, ptr %124, i64 80
+  %145 = getelementptr inbounds nuw i8, ptr %124, i64 80
   store i64 0, ptr %145, align 8
-  %146 = getelementptr inbounds i8, ptr %124, i64 88
+  %146 = getelementptr inbounds nuw i8, ptr %124, i64 88
   store i32 0, ptr %146, align 8
-  %147 = getelementptr inbounds i8, ptr %124, i64 1368
-  %148 = getelementptr inbounds i8, ptr %124, i64 144
+  %147 = getelementptr inbounds nuw i8, ptr %124, i64 1368
+  %148 = getelementptr inbounds nuw i8, ptr %124, i64 144
   store ptr %147, ptr %148, align 8
-  %149 = getelementptr inbounds i8, ptr %124, i64 112
+  %149 = getelementptr inbounds nuw i8, ptr %124, i64 112
   store ptr %147, ptr %149, align 8
-  %150 = getelementptr inbounds i8, ptr %124, i64 104
+  %150 = getelementptr inbounds nuw i8, ptr %124, i64 104
   store ptr %147, ptr %150, align 8
-  %151 = getelementptr inbounds i8, ptr %124, i64 7144
+  %151 = getelementptr inbounds nuw i8, ptr %124, i64 7144
   store i32 1, ptr %151, align 8
-  %152 = getelementptr inbounds i8, ptr %124, i64 7148
+  %152 = getelementptr inbounds nuw i8, ptr %124, i64 7148
   store i32 -1, ptr %152, align 4
   br label %cm_zlib_inflateReset.exit
 
@@ -4278,19 +4278,19 @@ define dso_local range(i32 -2, 2) i32 @cm_zlib_inflateSyncPoint(ptr noundef read
   br i1 %2, label %inflateStateCheck.exit.thread, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %inflateStateCheck.exit.thread, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %inflateStateCheck.exit.thread, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %inflateStateCheck.exit.thread, label %15
@@ -4301,7 +4301,7 @@ define dso_local range(i32 -2, 2) i32 @cm_zlib_inflateSyncPoint(ptr noundef read
   br i1 %.not.i, label %inflateStateCheck.exit, label %inflateStateCheck.exit.thread
 
 inflateStateCheck.exit:                           ; preds = %15
-  %17 = getelementptr inbounds i8, ptr %13, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %18 = load i32, ptr %17, align 8
   %19 = add i32 %18, -16180
   %or.cond.i = icmp ult i32 %19, 32
@@ -4312,7 +4312,7 @@ inflateStateCheck.exit:                           ; preds = %15
   br i1 %21, label %22, label %inflateStateCheck.exit.thread
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %13, i64 88
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 88
   %24 = load i32, ptr %23, align 8
   %25 = icmp eq i32 %24, 0
   %26 = zext i1 %25 to i32
@@ -4329,19 +4329,19 @@ define dso_local range(i32 -4, 1) i32 @cm_zlib_inflateCopy(ptr noundef %0, ptr n
   br i1 %3, label %inflateStateCheck.exit.thread, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %1, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %inflateStateCheck.exit.thread, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %1, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %inflateStateCheck.exit.thread, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %1, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %inflateStateCheck.exit.thread, label %16
@@ -4352,7 +4352,7 @@ define dso_local range(i32 -4, 1) i32 @cm_zlib_inflateCopy(ptr noundef %0, ptr n
   br i1 %.not.i, label %inflateStateCheck.exit, label %inflateStateCheck.exit.thread
 
 inflateStateCheck.exit:                           ; preds = %16
-  %18 = getelementptr inbounds i8, ptr %14, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %19 = load i32, ptr %18, align 8
   %20 = add i32 %19, -16212
   %or.cond.i = icmp ult i32 %20, -32
@@ -4361,14 +4361,14 @@ inflateStateCheck.exit:                           ; preds = %16
   br i1 %or.cond, label %inflateStateCheck.exit.thread, label %22
 
 22:                                               ; preds = %inflateStateCheck.exit
-  %23 = getelementptr inbounds i8, ptr %1, i64 80
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %24 = load ptr, ptr %23, align 8
   %25 = tail call ptr %6(ptr noundef %24, i32 noundef 1, i32 noundef 7160) #9
   %26 = icmp eq ptr %25, null
   br i1 %26, label %inflateStateCheck.exit.thread, label %27
 
 27:                                               ; preds = %22
-  %28 = getelementptr inbounds i8, ptr %14, i64 72
+  %28 = getelementptr inbounds nuw i8, ptr %14, i64 72
   %29 = load ptr, ptr %28, align 8
   %.not = icmp eq ptr %29, null
   br i1 %.not, label %41, label %30
@@ -4376,7 +4376,7 @@ inflateStateCheck.exit:                           ; preds = %16
 30:                                               ; preds = %27
   %31 = load ptr, ptr %5, align 8
   %32 = load ptr, ptr %23, align 8
-  %33 = getelementptr inbounds i8, ptr %14, i64 56
+  %33 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %34 = load i32, ptr %33, align 8
   %35 = shl nuw i32 1, %34
   %36 = tail call ptr %31(ptr noundef %32, i32 noundef %35, i32 noundef 1) #9
@@ -4394,11 +4394,11 @@ inflateStateCheck.exit:                           ; preds = %16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(112) %0, ptr noundef nonnull align 1 dereferenceable(112) %1, i64 112, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7160) %25, ptr noundef nonnull align 1 dereferenceable(7160) %14, i64 7160, i1 false)
   store ptr %0, ptr %25, align 8
-  %42 = getelementptr inbounds i8, ptr %14, i64 104
+  %42 = getelementptr inbounds nuw i8, ptr %14, i64 104
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %14, i64 1368
+  %44 = getelementptr inbounds nuw i8, ptr %14, i64 1368
   %.not52 = icmp ult ptr %43, %44
-  %45 = getelementptr inbounds i8, ptr %14, i64 7140
+  %45 = getelementptr inbounds nuw i8, ptr %14, i64 7140
   %.not53 = icmp ugt ptr %43, %45
   %or.cond55 = select i1 %.not52, i1 true, i1 %.not53
   br i1 %or.cond55, label %._crit_edge, label %46
@@ -4408,37 +4408,37 @@ inflateStateCheck.exit:                           ; preds = %16
   br label %59
 
 46:                                               ; preds = %41
-  %47 = getelementptr inbounds i8, ptr %25, i64 1368
+  %47 = getelementptr inbounds nuw i8, ptr %25, i64 1368
   %48 = ptrtoint ptr %43 to i64
   %49 = ptrtoint ptr %44 to i64
   %50 = sub i64 %48, %49
   %51 = getelementptr inbounds i8, ptr %47, i64 %50
-  %52 = getelementptr inbounds i8, ptr %25, i64 104
+  %52 = getelementptr inbounds nuw i8, ptr %25, i64 104
   store ptr %51, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %14, i64 112
+  %53 = getelementptr inbounds nuw i8, ptr %14, i64 112
   %54 = load ptr, ptr %53, align 8
   %55 = ptrtoint ptr %54 to i64
   %56 = sub i64 %55, %49
   %57 = getelementptr inbounds i8, ptr %47, i64 %56
-  %58 = getelementptr inbounds i8, ptr %25, i64 112
+  %58 = getelementptr inbounds nuw i8, ptr %25, i64 112
   store ptr %57, ptr %58, align 8
   br label %59
 
 59:                                               ; preds = %._crit_edge, %46
   %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %49, %46 ]
-  %60 = getelementptr inbounds i8, ptr %25, i64 1368
-  %61 = getelementptr inbounds i8, ptr %14, i64 144
+  %60 = getelementptr inbounds nuw i8, ptr %25, i64 1368
+  %61 = getelementptr inbounds nuw i8, ptr %14, i64 144
   %62 = load ptr, ptr %61, align 8
   %63 = ptrtoint ptr %62 to i64
   %64 = sub i64 %63, %.pre-phi
   %65 = getelementptr inbounds i8, ptr %60, i64 %64
-  %66 = getelementptr inbounds i8, ptr %25, i64 144
+  %66 = getelementptr inbounds nuw i8, ptr %25, i64 144
   store ptr %65, ptr %66, align 8
   %.not54 = icmp eq ptr %.046, null
   br i1 %.not54, label %73, label %67
 
 67:                                               ; preds = %59
-  %68 = getelementptr inbounds i8, ptr %14, i64 56
+  %68 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %69 = load i32, ptr %68, align 8
   %70 = shl nuw i32 1, %69
   %71 = load ptr, ptr %28, align 8
@@ -4447,9 +4447,9 @@ inflateStateCheck.exit:                           ; preds = %16
   br label %73
 
 73:                                               ; preds = %67, %59
-  %74 = getelementptr inbounds i8, ptr %25, i64 72
+  %74 = getelementptr inbounds nuw i8, ptr %25, i64 72
   store ptr %.046, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %0, i64 56
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %25, ptr %75, align 8
   br label %inflateStateCheck.exit.thread
 
@@ -4464,19 +4464,19 @@ define dso_local range(i32 -3, -1) i32 @cm_zlib_inflateUndermine(ptr noundef rea
   br i1 %3, label %inflateStateCheck.exit.thread, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %inflateStateCheck.exit.thread, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %inflateStateCheck.exit.thread, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %inflateStateCheck.exit.thread, label %16
@@ -4487,14 +4487,14 @@ define dso_local range(i32 -3, -1) i32 @cm_zlib_inflateUndermine(ptr noundef rea
   br i1 %.not.i, label %inflateStateCheck.exit, label %inflateStateCheck.exit.thread
 
 inflateStateCheck.exit:                           ; preds = %16
-  %18 = getelementptr inbounds i8, ptr %14, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %19 = load i32, ptr %18, align 8
   %20 = add i32 %19, -16180
   %or.cond.i = icmp ult i32 %20, 32
   br i1 %or.cond.i, label %21, label %inflateStateCheck.exit.thread
 
 21:                                               ; preds = %inflateStateCheck.exit
-  %22 = getelementptr inbounds i8, ptr %14, i64 7144
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 7144
   store i32 1, ptr %22, align 8
   br label %inflateStateCheck.exit.thread
 
@@ -4509,19 +4509,19 @@ define dso_local range(i32 -2, 1) i32 @cm_zlib_inflateValidate(ptr noundef reado
   br i1 %3, label %inflateStateCheck.exit.thread, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %inflateStateCheck.exit.thread, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %inflateStateCheck.exit.thread, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %inflateStateCheck.exit.thread, label %16
@@ -4532,7 +4532,7 @@ define dso_local range(i32 -2, 1) i32 @cm_zlib_inflateValidate(ptr noundef reado
   br i1 %.not.i, label %inflateStateCheck.exit, label %inflateStateCheck.exit.thread
 
 inflateStateCheck.exit:                           ; preds = %16
-  %18 = getelementptr inbounds i8, ptr %14, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %19 = load i32, ptr %18, align 8
   %20 = add i32 %19, -16180
   %or.cond.i = icmp ult i32 %20, 32
@@ -4540,7 +4540,7 @@ inflateStateCheck.exit:                           ; preds = %16
 
 21:                                               ; preds = %inflateStateCheck.exit
   %.not7 = icmp eq i32 %1, 0
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %14, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %14, i64 16
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   br i1 %.not7, label %._crit_edge, label %23
 
@@ -4559,7 +4559,7 @@ inflateStateCheck.exit:                           ; preds = %16
 
 26:                                               ; preds = %._crit_edge, %23
   %27 = phi i32 [ %22, %._crit_edge ], [ 0, %23 ]
-  %28 = getelementptr inbounds i8, ptr %14, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i32 %27, ptr %28, align 8
   br label %inflateStateCheck.exit.thread
 
@@ -4574,19 +4574,19 @@ define dso_local range(i64 -140737488355328, 140741783257088) i64 @cm_zlib_infla
   br i1 %2, label %inflateStateCheck.exit.thread, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %inflateStateCheck.exit.thread, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %inflateStateCheck.exit.thread, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %inflateStateCheck.exit.thread, label %15
@@ -4597,14 +4597,14 @@ define dso_local range(i64 -140737488355328, 140741783257088) i64 @cm_zlib_infla
   br i1 %.not.i, label %inflateStateCheck.exit, label %inflateStateCheck.exit.thread
 
 inflateStateCheck.exit:                           ; preds = %15
-  %17 = getelementptr inbounds i8, ptr %13, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %18 = load i32, ptr %17, align 8
   %19 = add i32 %18, -16180
   %or.cond.i = icmp ult i32 %19, 32
   br i1 %or.cond.i, label %20, label %inflateStateCheck.exit.thread
 
 20:                                               ; preds = %inflateStateCheck.exit
-  %21 = getelementptr inbounds i8, ptr %13, i64 7148
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 7148
   %22 = load i32, ptr %21, align 4
   %23 = sext i32 %22 to i64
   %24 = shl nsw i64 %23, 16
@@ -4614,14 +4614,14 @@ inflateStateCheck.exit:                           ; preds = %15
   ]
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %13, i64 92
+  %26 = getelementptr inbounds nuw i8, ptr %13, i64 92
   %27 = load i32, ptr %26, align 4
   br label %34
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %13, i64 7152
+  %29 = getelementptr inbounds nuw i8, ptr %13, i64 7152
   %30 = load i32, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %13, i64 92
+  %31 = getelementptr inbounds nuw i8, ptr %13, i64 92
   %32 = load i32, ptr %31, align 4
   %33 = sub i32 %30, %32
   br label %34
@@ -4643,19 +4643,19 @@ define dso_local range(i64 -2305843009213693952, 2305843009213693952) i64 @cm_zl
   br i1 %2, label %inflateStateCheck.exit.thread, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %inflateStateCheck.exit.thread, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %inflateStateCheck.exit.thread, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %inflateStateCheck.exit.thread, label %15
@@ -4666,16 +4666,16 @@ define dso_local range(i64 -2305843009213693952, 2305843009213693952) i64 @cm_zl
   br i1 %.not.i, label %inflateStateCheck.exit, label %inflateStateCheck.exit.thread
 
 inflateStateCheck.exit:                           ; preds = %15
-  %17 = getelementptr inbounds i8, ptr %13, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %18 = load i32, ptr %17, align 8
   %19 = add i32 %18, -16180
   %or.cond.i = icmp ult i32 %19, 32
   br i1 %or.cond.i, label %20, label %inflateStateCheck.exit.thread
 
 20:                                               ; preds = %inflateStateCheck.exit
-  %21 = getelementptr inbounds i8, ptr %13, i64 144
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 144
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %13, i64 1368
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 1368
   %24 = ptrtoint ptr %22 to i64
   %25 = ptrtoint ptr %23 to i64
   %26 = sub i64 %24, %25

@@ -36,51 +36,51 @@ $_ZN16ConvexVolumeTool4typeEv = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN16ConvexVolumeToolC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(232) initializes((0, 32), (176, 180), (228, 232)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV16ConvexVolumeTool, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 4, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 20
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store float 0.000000e+00, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store float 6.000000e+00, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 28
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store float 1.000000e+00, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 176
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i32 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 228
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 228
   store i32 0, ptr %8, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN16ConvexVolumeTool4initEP6Sample(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(232) initializes((8, 16)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN16ConvexVolumeTool5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(232) initializes((176, 180), (228, 232)) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 176
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i32 0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 228
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 228
   store i32 0, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN16ConvexVolumeTool10handleMenuEv(ptr noundef nonnull align 8 dereferenceable(232) %0) unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = tail call noundef zeroext i1 @_Z11imguiSliderPKcPffffb(ptr noundef nonnull @.str, ptr noundef nonnull %2, float noundef 0x3FB99999A0000000, float noundef 2.000000e+01, float noundef 0x3FB99999A0000000, i1 noundef zeroext true)
-  %4 = getelementptr inbounds i8, ptr %0, i64 28
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %5 = tail call noundef zeroext i1 @_Z11imguiSliderPKcPffffb(ptr noundef nonnull @.str.1, ptr noundef nonnull %4, float noundef 0x3FB99999A0000000, float noundef 2.000000e+01, float noundef 0x3FB99999A0000000, i1 noundef zeroext true)
-  %6 = getelementptr inbounds i8, ptr %0, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %7 = tail call noundef zeroext i1 @_Z11imguiSliderPKcPffffb(ptr noundef nonnull @.str.2, ptr noundef nonnull %6, float noundef 0.000000e+00, float noundef 1.000000e+01, float noundef 0x3FB99999A0000000, i1 noundef zeroext true)
   tail call void @_Z14imguiSeparatorv()
   tail call void @_Z10imguiLabelPKc(ptr noundef nonnull @.str.3)
   tail call void @_Z11imguiIndentv()
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 0
   %11 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.4, i1 noundef zeroext %10, i1 noundef zeroext true)
@@ -167,9 +167,9 @@ define dso_local void @_ZN16ConvexVolumeTool10handleMenuEv(ptr noundef nonnull a
   br i1 %39, label %40, label %43
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds i8, ptr %0, i64 176
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i32 0, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 228
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 228
   store i32 0, ptr %42, align 4
   br label %43
 
@@ -195,14 +195,14 @@ declare noundef zeroext i1 @_Z11imguiButtonPKcb(ptr noundef, i1 noundef zeroext)
 define dso_local void @_ZN16ConvexVolumeTool11handleClickEPKfS1_b(ptr nocapture noundef nonnull align 8 dereferenceable(232) %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3) unnamed_addr #1 align 2 {
   %5 = alloca [36 x float], align 16
   %6 = alloca [72 x float], align 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %._crit_edge75.thread, label %9
 
 9:                                                ; preds = %4
   %10 = load ptr, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 112
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 112
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(200) %8)
   %.not54 = icmp eq ptr %13, null
@@ -212,23 +212,23 @@ define dso_local void @_ZN16ConvexVolumeTool11handleClickEPKfS1_b(ptr nocapture 
   br i1 %3, label %15, label %67
 
 15:                                               ; preds = %14
-  %16 = getelementptr inbounds i8, ptr %13, i64 9348
-  %17 = getelementptr inbounds i8, ptr %13, i64 50308
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 9348
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 50308
   %18 = load i32, ptr %17, align 4
   %19 = icmp sgt i32 %18, 0
   br i1 %19, label %.lr.ph74, label %._crit_edge75.thread
 
 .lr.ph74:                                         ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %2, i64 8
-  %21 = getelementptr inbounds i8, ptr %2, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %wide.trip.count87 = zext nneg i32 %18 to i64
   br label %22
 
 22:                                               ; preds = %.lr.ph74, %_ZL11pointInPolyiPKfS0_.exit.thread
   %indvars.iv84 = phi i64 [ 0, %.lr.ph74 ], [ %indvars.iv.next85, %_ZL11pointInPolyiPKfS0_.exit.thread ]
   %.072 = phi i32 [ -1, %.lr.ph74 ], [ %.1, %_ZL11pointInPolyiPKfS0_.exit.thread ]
-  %23 = getelementptr inbounds %struct.ConvexVolume, ptr %16, i64 %indvars.iv84
-  %24 = getelementptr inbounds i8, ptr %23, i64 152
+  %23 = getelementptr inbounds nuw %struct.ConvexVolume, ptr %16, i64 %indvars.iv84
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 152
   %25 = load i32, ptr %24, align 4
   %26 = icmp sgt i32 %25, 0
   br i1 %26, label %.lr.ph.i, label %_ZL11pointInPolyiPKfS0_.exit.thread
@@ -244,14 +244,14 @@ define dso_local void @_ZN16ConvexVolumeTool11handleClickEPKfS1_b(ptr nocapture 
   %.02125.i = phi i32 [ %27, %.lr.ph.i ], [ %54, %53 ]
   %.02224.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %53 ]
   %.idx.i = mul nuw nsw i64 %indvars.iv.i, 12
-  %30 = getelementptr inbounds i8, ptr %23, i64 %.idx.i
+  %30 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx.i
   %31 = mul nsw i32 %.02125.i, 3
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds float, ptr %23, i64 %32
-  %34 = getelementptr inbounds i8, ptr %30, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %35 = load float, ptr %34, align 4
   %36 = fcmp ogt float %35, %28
-  %37 = getelementptr inbounds i8, ptr %33, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %38 = load float, ptr %37, align 4
   %39 = fcmp ule float %38, %28
   %.not.i = xor i1 %36, %39
@@ -288,13 +288,13 @@ _ZL11pointInPolyiPKfS0_.exit:                     ; preds = %53
 
 55:                                               ; preds = %_ZL11pointInPolyiPKfS0_.exit
   %56 = load float, ptr %21, align 4
-  %57 = getelementptr inbounds i8, ptr %23, i64 144
+  %57 = getelementptr inbounds nuw i8, ptr %23, i64 144
   %58 = load float, ptr %57, align 4
   %59 = fcmp ult float %56, %58
   br i1 %59, label %_ZL11pointInPolyiPKfS0_.exit.thread, label %60
 
 60:                                               ; preds = %55
-  %61 = getelementptr inbounds i8, ptr %23, i64 148
+  %61 = getelementptr inbounds nuw i8, ptr %23, i64 148
   %62 = load float, ptr %61, align 4
   %63 = fcmp ugt float %56, %62
   br i1 %63, label %_ZL11pointInPolyiPKfS0_.exit.thread, label %64
@@ -318,28 +318,28 @@ _ZL11pointInPolyiPKfS0_.exit.thread:              ; preds = %22, %_ZL11pointInPo
   br label %._crit_edge75.thread
 
 67:                                               ; preds = %14
-  %68 = getelementptr inbounds i8, ptr %0, i64 176
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %69 = load i32, ptr %68, align 8
   %.not55 = icmp eq i32 %69, 0
   %.pre = load float, ptr %2, align 4
   br i1 %.not55, label %.thread, label %70
 
 70:                                               ; preds = %67
-  %71 = getelementptr inbounds i8, ptr %0, i64 32
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %72 = mul i32 %69, 3
   %73 = add i32 %72, -3
   %74 = sext i32 %73 to i64
   %75 = getelementptr inbounds [36 x float], ptr %71, i64 0, i64 %74
   %76 = load float, ptr %75, align 4
   %77 = fsub float %76, %.pre
-  %78 = getelementptr inbounds i8, ptr %75, i64 4
+  %78 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %79 = load float, ptr %78, align 4
-  %80 = getelementptr inbounds i8, ptr %2, i64 4
+  %80 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %81 = load float, ptr %80, align 4
   %82 = fsub float %79, %81
-  %83 = getelementptr inbounds i8, ptr %75, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %84 = load float, ptr %83, align 4
-  %85 = getelementptr inbounds i8, ptr %2, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %86 = load float, ptr %85, align 4
   %87 = fsub float %84, %86
   %88 = fmul float %82, %82
@@ -349,34 +349,34 @@ _ZL11pointInPolyiPKfS0_.exit.thread:              ; preds = %22, %_ZL11pointInPo
   br i1 %91, label %92, label %139
 
 92:                                               ; preds = %70
-  %93 = getelementptr inbounds i8, ptr %0, i64 228
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 228
   %94 = load i32, ptr %93, align 4
   %95 = icmp sgt i32 %94, 2
   br i1 %95, label %.preheader67, label %138
 
 .preheader67:                                     ; preds = %92
-  %96 = getelementptr inbounds i8, ptr %0, i64 180
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %wide.trip.count = zext nneg i32 %94 to i64
   br label %97
 
 97:                                               ; preds = %.preheader67, %97
   %indvars.iv = phi i64 [ 0, %.preheader67 ], [ %indvars.iv.next, %97 ]
   %98 = mul nuw nsw i64 %indvars.iv, 3
-  %99 = getelementptr inbounds [36 x float], ptr %5, i64 0, i64 %98
-  %100 = getelementptr inbounds [12 x i32], ptr %96, i64 0, i64 %indvars.iv
+  %99 = getelementptr inbounds nuw [36 x float], ptr %5, i64 0, i64 %98
+  %100 = getelementptr inbounds nuw [12 x i32], ptr %96, i64 0, i64 %indvars.iv
   %101 = load i32, ptr %100, align 4
   %102 = mul nsw i32 %101, 3
   %103 = sext i32 %102 to i64
   %104 = getelementptr inbounds [36 x float], ptr %71, i64 0, i64 %103
   %105 = load float, ptr %104, align 4
   store float %105, ptr %99, align 4
-  %106 = getelementptr inbounds i8, ptr %104, i64 4
+  %106 = getelementptr inbounds nuw i8, ptr %104, i64 4
   %107 = load float, ptr %106, align 4
-  %108 = getelementptr inbounds i8, ptr %99, i64 4
+  %108 = getelementptr inbounds nuw i8, ptr %99, i64 4
   store float %107, ptr %108, align 4
-  %109 = getelementptr inbounds i8, ptr %104, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %110 = load float, ptr %109, align 4
-  %111 = getelementptr inbounds i8, ptr %99, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %99, i64 8
   store float %110, ptr %111, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -387,7 +387,7 @@ _ZL11pointInPolyiPKfS0_.exit.thread:              ; preds = %22, %_ZL11pointInPo
   %.04269 = phi float [ %117, %.lr.ph ], [ 0x47EFFFFFE0000000, %97 ]
   %112 = mul nuw nsw i64 %indvars.iv79, 3
   %113 = add nuw nsw i64 %112, 1
-  %114 = getelementptr inbounds [36 x float], ptr %5, i64 0, i64 %113
+  %114 = getelementptr inbounds nuw [36 x float], ptr %5, i64 0, i64 %113
   %115 = load float, ptr %114, align 4
   %116 = fcmp olt float %.04269, %115
   %117 = select i1 %116, float %.04269, float %115
@@ -396,13 +396,13 @@ _ZL11pointInPolyiPKfS0_.exit.thread:              ; preds = %22, %_ZL11pointInPo
   br i1 %exitcond83.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %118 = getelementptr inbounds i8, ptr %0, i64 28
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %119 = load float, ptr %118, align 4
   %120 = fsub float %117, %119
-  %121 = getelementptr inbounds i8, ptr %0, i64 24
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %122 = load float, ptr %121, align 8
   %123 = fadd float %120, %122
-  %124 = getelementptr inbounds i8, ptr %0, i64 20
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %125 = load float, ptr %124, align 4
   %126 = fcmp ogt float %125, 0x3F847AE140000000
   br i1 %126, label %127, label %134
@@ -413,14 +413,14 @@ _ZL11pointInPolyiPKfS0_.exit.thread:              ; preds = %22, %_ZL11pointInPo
   br i1 %129, label %130, label %138
 
 130:                                              ; preds = %127
-  %131 = getelementptr inbounds i8, ptr %0, i64 16
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %132 = load i32, ptr %131, align 8
   %133 = trunc i32 %132 to i8
   call void @_ZN9InputGeom15addConvexVolumeEPKfiffh(ptr noundef nonnull align 8 dereferenceable(50312) %13, ptr noundef nonnull %6, i32 noundef %128, float noundef %120, float noundef %123, i8 noundef zeroext %133)
   br label %138
 
 134:                                              ; preds = %._crit_edge
-  %135 = getelementptr inbounds i8, ptr %0, i64 16
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %136 = load i32, ptr %135, align 8
   %137 = trunc i32 %136 to i8
   call void @_ZN9InputGeom15addConvexVolumeEPKfiffh(ptr noundef nonnull align 8 dereferenceable(50312) %13, ptr noundef nonnull %5, i32 noundef %94, float noundef %120, float noundef %123, i8 noundef zeroext %137)
@@ -437,17 +437,17 @@ _ZL11pointInPolyiPKfS0_.exit.thread:              ; preds = %22, %_ZL11pointInPo
 
 .thread:                                          ; preds = %67, %139
   %.pre-phi = phi i32 [ %72, %139 ], [ 0, %67 ]
-  %141 = getelementptr inbounds i8, ptr %0, i64 32
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %142 = sext i32 %.pre-phi to i64
   %143 = getelementptr inbounds [36 x float], ptr %141, i64 0, i64 %142
   store float %.pre, ptr %143, align 4
-  %144 = getelementptr inbounds i8, ptr %2, i64 4
+  %144 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %145 = load float, ptr %144, align 4
-  %146 = getelementptr inbounds i8, ptr %143, i64 4
+  %146 = getelementptr inbounds nuw i8, ptr %143, i64 4
   store float %145, ptr %146, align 4
-  %147 = getelementptr inbounds i8, ptr %2, i64 8
+  %147 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %148 = load float, ptr %147, align 4
-  %149 = getelementptr inbounds i8, ptr %143, i64 8
+  %149 = getelementptr inbounds nuw i8, ptr %143, i64 8
   store float %148, ptr %149, align 4
   %150 = load i32, ptr %68, align 8
   %151 = add nsw i32 %150, 1
@@ -463,7 +463,7 @@ _ZL11pointInPolyiPKfS0_.exit.thread:              ; preds = %22, %_ZL11pointInPo
   %indvars.iv.i59 = phi i64 [ 1, %153 ], [ %indvars.iv.next.i61, %_Z5cmpptPKfS0_.exit.i ]
   %.02933.i = phi i32 [ 0, %153 ], [ %172, %_Z5cmpptPKfS0_.exit.i ]
   %.idx.i60 = mul nuw nsw i64 %indvars.iv.i59, 12
-  %155 = getelementptr inbounds i8, ptr %141, i64 %.idx.i60
+  %155 = getelementptr inbounds nuw i8, ptr %141, i64 %.idx.i60
   %156 = mul nsw i32 %.02933.i, 3
   %157 = sext i32 %156 to i64
   %158 = getelementptr inbounds float, ptr %141, i64 %157
@@ -478,9 +478,9 @@ _ZL11pointInPolyiPKfS0_.exit.thread:              ; preds = %22, %_ZL11pointInPo
   br i1 %164, label %_Z5cmpptPKfS0_.exit.i, label %165
 
 165:                                              ; preds = %163
-  %166 = getelementptr inbounds i8, ptr %155, i64 8
+  %166 = getelementptr inbounds nuw i8, ptr %155, i64 8
   %167 = load float, ptr %166, align 4
-  %168 = getelementptr inbounds i8, ptr %158, i64 8
+  %168 = getelementptr inbounds nuw i8, ptr %158, i64 8
   %169 = load float, ptr %168, align 4
   %170 = fcmp olt float %167, %169
   br i1 %170, label %_Z5cmpptPKfS0_.exit.i, label %171
@@ -495,18 +495,18 @@ _Z5cmpptPKfS0_.exit.i:                            ; preds = %171, %165, %163, %1
   br i1 %exitcond.not.i62, label %.preheader.i.preheader, label %154, !llvm.loop !10
 
 .preheader.i.preheader:                           ; preds = %_Z5cmpptPKfS0_.exit.i
-  %173 = getelementptr inbounds i8, ptr %0, i64 180
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 180
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %205
   %indvars.iv44.i = phi i64 [ %indvars.iv.next45.i, %205 ], [ 0, %.preheader.i.preheader ]
   %.2.i = phi i32 [ %.1.i63, %205 ], [ %172, %.preheader.i.preheader ]
-  %174 = getelementptr inbounds i32, ptr %173, i64 %indvars.iv44.i
+  %174 = getelementptr inbounds nuw i32, ptr %173, i64 %indvars.iv44.i
   store i32 %.2.i, ptr %174, align 4
   %175 = mul nsw i32 %.2.i, 3
   %176 = sext i32 %175 to i64
   %177 = getelementptr inbounds float, ptr %141, i64 %176
-  %178 = getelementptr inbounds i8, ptr %177, i64 8
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 8
   br label %179
 
 179:                                              ; preds = %204, %.preheader.i
@@ -520,17 +520,17 @@ _Z5cmpptPKfS0_.exit.i:                            ; preds = %171, %165, %163, %1
   %183 = sext i32 %182 to i64
   %184 = getelementptr inbounds float, ptr %141, i64 %183
   %.idx47.i = mul nuw nsw i64 %indvars.iv39.i, 12
-  %185 = getelementptr inbounds i8, ptr %141, i64 %.idx47.i
+  %185 = getelementptr inbounds nuw i8, ptr %141, i64 %.idx47.i
   %186 = load float, ptr %184, align 4
   %187 = load float, ptr %177, align 4
   %188 = fsub float %186, %187
-  %189 = getelementptr inbounds i8, ptr %184, i64 8
+  %189 = getelementptr inbounds nuw i8, ptr %184, i64 8
   %190 = load float, ptr %189, align 4
   %191 = load float, ptr %178, align 4
   %192 = fsub float %190, %191
   %193 = load float, ptr %185, align 4
   %194 = fsub float %193, %187
-  %195 = getelementptr inbounds i8, ptr %185, i64 8
+  %195 = getelementptr inbounds nuw i8, ptr %185, i64 8
   %196 = load float, ptr %195, align 4
   %197 = fsub float %196, %191
   %198 = fneg float %194
@@ -557,12 +557,12 @@ _Z5cmpptPKfS0_.exit.i:                            ; preds = %171, %165, %163, %1
 
 _ZL10convexhullPKfiPi.exit:                       ; preds = %205
   %207 = trunc nuw i64 %indvars.iv.next45.i to i32
-  %208 = getelementptr inbounds i8, ptr %0, i64 228
+  %208 = getelementptr inbounds nuw i8, ptr %0, i64 228
   store i32 %207, ptr %208, align 4
   br label %._crit_edge75.thread
 
 209:                                              ; preds = %.thread
-  %210 = getelementptr inbounds i8, ptr %0, i64 228
+  %210 = getelementptr inbounds nuw i8, ptr %0, i64 228
   store i32 0, ptr %210, align 4
   br label %._crit_edge75.thread
 
@@ -593,16 +593,16 @@ define dso_local void @_ZN16ConvexVolumeTool12handleUpdateEf(ptr nocapture nonnu
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN16ConvexVolumeTool12handleRenderEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %0) unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 192
-  %5 = getelementptr inbounds i8, ptr %0, i64 176
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 192
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %wide.trip.count = zext nneg i32 %6 to i64
   br label %9
 
@@ -611,7 +611,7 @@ define dso_local void @_ZN16ConvexVolumeTool12handleRenderEv(ptr nocapture nound
   %.052 = phi float [ 0x47EFFFFFE0000000, %.lr.ph ], [ %15, %9 ]
   %10 = mul nuw nsw i64 %indvars.iv, 3
   %11 = add nuw nsw i64 %10, 1
-  %12 = getelementptr inbounds [36 x float], ptr %8, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw [36 x float], ptr %8, i64 0, i64 %11
   %13 = load float, ptr %12, align 4
   %14 = fcmp olt float %.052, %13
   %15 = select i1 %14, float %.052, float %13
@@ -621,14 +621,14 @@ define dso_local void @_ZN16ConvexVolumeTool12handleRenderEv(ptr nocapture nound
 
 ._crit_edge:                                      ; preds = %9, %1
   %.0.lcssa = phi float [ 0x47EFFFFFE0000000, %1 ], [ %15, %9 ]
-  %16 = getelementptr inbounds i8, ptr %0, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %17 = load float, ptr %16, align 4
   %18 = fsub float %.0.lcssa, %17
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load float, ptr %19, align 8
   %21 = fadd float %18, %20
   %22 = load ptr, ptr %4, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %24 = load ptr, ptr %23, align 8
   tail call void %24(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0, float noundef 4.000000e+00)
   %25 = load i32, ptr %5, align 8
@@ -636,7 +636,7 @@ define dso_local void @_ZN16ConvexVolumeTool12handleRenderEv(ptr nocapture nound
   br i1 %26, label %.lr.ph55, label %._crit_edge56
 
 .lr.ph55:                                         ; preds = %._crit_edge
-  %27 = getelementptr inbounds i8, ptr %0, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %28
 
 28:                                               ; preds = %.lr.ph55, %28
@@ -647,17 +647,17 @@ define dso_local void @_ZN16ConvexVolumeTool12handleRenderEv(ptr nocapture nound
   %32 = icmp eq i64 %indvars.iv63, %31
   %spec.select = select i1 %32, i32 -15720208, i32 -1
   %33 = mul nuw nsw i64 %indvars.iv63, 3
-  %34 = getelementptr inbounds [36 x float], ptr %27, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw [36 x float], ptr %27, i64 0, i64 %33
   %35 = load float, ptr %34, align 4
   %36 = add nuw nsw i64 %33, 1
-  %37 = getelementptr inbounds [36 x float], ptr %27, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw [36 x float], ptr %27, i64 0, i64 %36
   %38 = load float, ptr %37, align 4
   %39 = fadd float %38, 0x3FB99999A0000000
   %40 = add nuw nsw i64 %33, 2
-  %41 = getelementptr inbounds [36 x float], ptr %27, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw [36 x float], ptr %27, i64 0, i64 %40
   %42 = load float, ptr %41, align 4
   %43 = load ptr, ptr %4, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 48
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 48
   %45 = load ptr, ptr %44, align 8
   tail call void %45(ptr noundef nonnull align 8 dereferenceable(8) %4, float noundef %35, float noundef %39, float noundef %42, i32 noundef %spec.select)
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
@@ -668,22 +668,22 @@ define dso_local void @_ZN16ConvexVolumeTool12handleRenderEv(ptr nocapture nound
 
 ._crit_edge56:                                    ; preds = %28, %._crit_edge
   %49 = load ptr, ptr %4, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 72
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 72
   %51 = load ptr, ptr %50, align 8
   tail call void %51(ptr noundef nonnull align 8 dereferenceable(8) %4)
   %52 = load ptr, ptr %4, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 32
   %54 = load ptr, ptr %53, align 8
   tail call void %54(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 1, float noundef 2.000000e+00)
-  %55 = getelementptr inbounds i8, ptr %0, i64 228
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 228
   %56 = load i32, ptr %55, align 4
   %57 = icmp sgt i32 %56, 0
   br i1 %57, label %.lr.ph60, label %._crit_edge61
 
 .lr.ph60:                                         ; preds = %._crit_edge56
   %58 = add nsw i32 %56, -1
-  %59 = getelementptr inbounds i8, ptr %0, i64 32
-  %60 = getelementptr inbounds i8, ptr %0, i64 180
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 180
   br label %61
 
 61:                                               ; preds = %.lr.ph60, %61
@@ -695,47 +695,47 @@ define dso_local void @_ZN16ConvexVolumeTool12handleRenderEv(ptr nocapture nound
   %65 = mul nsw i32 %64, 3
   %66 = sext i32 %65 to i64
   %67 = getelementptr inbounds [36 x float], ptr %59, i64 0, i64 %66
-  %68 = getelementptr inbounds [12 x i32], ptr %60, i64 0, i64 %indvars.iv66
+  %68 = getelementptr inbounds nuw [12 x i32], ptr %60, i64 0, i64 %indvars.iv66
   %69 = load i32, ptr %68, align 4
   %70 = mul nsw i32 %69, 3
   %71 = sext i32 %70 to i64
   %72 = getelementptr inbounds [36 x float], ptr %59, i64 0, i64 %71
   %73 = load float, ptr %72, align 4
-  %74 = getelementptr inbounds i8, ptr %72, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %75 = load float, ptr %74, align 4
   %76 = load ptr, ptr %4, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 48
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 48
   %78 = load ptr, ptr %77, align 8
   tail call void %78(ptr noundef nonnull align 8 dereferenceable(8) %4, float noundef %73, float noundef %18, float noundef %75, i32 noundef 1090519039)
   %79 = load float, ptr %67, align 4
-  %80 = getelementptr inbounds i8, ptr %67, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %81 = load float, ptr %80, align 4
   %82 = load ptr, ptr %4, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 48
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 48
   %84 = load ptr, ptr %83, align 8
   tail call void %84(ptr noundef nonnull align 8 dereferenceable(8) %4, float noundef %79, float noundef %18, float noundef %81, i32 noundef 1090519039)
   %85 = load float, ptr %72, align 4
   %86 = load float, ptr %74, align 4
   %87 = load ptr, ptr %4, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 48
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 48
   %89 = load ptr, ptr %88, align 8
   tail call void %89(ptr noundef nonnull align 8 dereferenceable(8) %4, float noundef %85, float noundef %21, float noundef %86, i32 noundef 1090519039)
   %90 = load float, ptr %67, align 4
   %91 = load float, ptr %80, align 4
   %92 = load ptr, ptr %4, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 48
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 48
   %94 = load ptr, ptr %93, align 8
   tail call void %94(ptr noundef nonnull align 8 dereferenceable(8) %4, float noundef %90, float noundef %21, float noundef %91, i32 noundef 1090519039)
   %95 = load float, ptr %72, align 4
   %96 = load float, ptr %74, align 4
   %97 = load ptr, ptr %4, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 48
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 48
   %99 = load ptr, ptr %98, align 8
   tail call void %99(ptr noundef nonnull align 8 dereferenceable(8) %4, float noundef %95, float noundef %18, float noundef %96, i32 noundef 1090519039)
   %100 = load float, ptr %72, align 4
   %101 = load float, ptr %74, align 4
   %102 = load ptr, ptr %4, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 48
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 48
   %104 = load ptr, ptr %103, align 8
   tail call void %104(ptr noundef nonnull align 8 dereferenceable(8) %4, float noundef %100, float noundef %21, float noundef %101, i32 noundef 1090519039)
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
@@ -747,7 +747,7 @@ define dso_local void @_ZN16ConvexVolumeTool12handleRenderEv(ptr nocapture nound
 
 ._crit_edge61:                                    ; preds = %61, %._crit_edge56
   %109 = load ptr, ptr %4, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 72
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 72
   %111 = load ptr, ptr %110, align 8
   tail call void %111(ptr noundef nonnull align 8 dereferenceable(8) %4)
   ret void
@@ -755,9 +755,9 @@ define dso_local void @_ZN16ConvexVolumeTool12handleRenderEv(ptr nocapture nound
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN16ConvexVolumeTool19handleRenderOverlayEPdS0_Pi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3) unnamed_addr #1 align 2 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 176
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %8 = load i32, ptr %7, align 8
   %.not = icmp eq i32 %8, 0
   %9 = add nsw i32 %6, -40

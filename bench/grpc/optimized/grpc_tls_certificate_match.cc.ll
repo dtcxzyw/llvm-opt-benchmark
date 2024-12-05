@@ -324,7 +324,7 @@ if.end55:                                         ; preds = %if.end46
   %frombool = zext i1 %cmp57 to i8
   tail call void @EVP_PKEY_free(ptr noundef nonnull %call47)
   tail call void @EVP_PKEY_free(ptr noundef nonnull %call27)
-  %25 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i8 %frombool, ptr %25, align 8
   store i64 0, ptr %agg.result, align 8
   br label %return

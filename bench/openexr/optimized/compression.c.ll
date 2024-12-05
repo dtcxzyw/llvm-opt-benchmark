@@ -37,9 +37,9 @@ entry:
   br i1 %tobool.not, label %cond.end4, label %cond.true2
 
 cond.true2:                                       ; preds = %entry
-  %alloc_fn = getelementptr inbounds i8, ptr %ctxt, i64 88
+  %alloc_fn = getelementptr inbounds nuw i8, ptr %ctxt, i64 88
   %0 = load ptr, ptr %alloc_fn, align 8
-  %free_fn = getelementptr inbounds i8, ptr %ctxt, i64 96
+  %free_fn = getelementptr inbounds nuw i8, ptr %ctxt, i64 96
   %1 = load ptr, ptr %free_fn, align 8
   br label %cond.end4
 
@@ -107,9 +107,9 @@ entry:
   br i1 %tobool.not, label %cond.end4, label %cond.true2
 
 cond.true2:                                       ; preds = %entry
-  %alloc_fn = getelementptr inbounds i8, ptr %ctxt, i64 88
+  %alloc_fn = getelementptr inbounds nuw i8, ptr %ctxt, i64 88
   %0 = load ptr, ptr %alloc_fn, align 8
-  %free_fn = getelementptr inbounds i8, ptr %ctxt, i64 96
+  %free_fn = getelementptr inbounds nuw i8, ptr %ctxt, i64 96
   %1 = load ptr, ptr %free_fn, align 8
   br label %cond.end4
 

@@ -117,66 +117,66 @@ $_ZTV16IgnoreDerivedOop = comdat any
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN12OopMapStreamC2EPK6OopMap(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(30) initializes((0, 12), (16, 25), (26, 30)) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 26
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 26
   store i16 0, ptr %7, align 2
-  %8 = getelementptr inbounds i8, ptr %0, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i16 -1, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %1, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 0, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 0, ptr %13, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN12OopMapStreamC2EPK15ImmutableOopMap(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(30) initializes((0, 12), (16, 25), (26, 30)) %0, ptr noundef %1) unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 26
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 26
   store i16 0, ptr %5, align 2
-  %6 = getelementptr inbounds i8, ptr %0, i64 28
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i16 -1, ptr %6, align 4
   %7 = load i32, ptr %1, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 0, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 0, ptr %10, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN12OopMapStream9find_nextEv(ptr noundef nonnull align 8 dereferenceable(30) %0) local_unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 20
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
   %4 = add nsw i32 %3, 1
   store i32 %4, ptr %2, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = icmp slt i32 %3, %6
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 26
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 26
   tail call void @_ZN11OopMapValue9read_fromEP20CompressedReadStream(ptr noundef nonnull align 2 dereferenceable(4) %9, ptr noundef nonnull %0)
   br label %10
 
 10:                                               ; preds = %1, %8
   %.sink = phi i8 [ 1, %8 ], [ 0, %1 ]
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 %.sink, ptr %11, align 8
   ret void
 }
@@ -184,7 +184,7 @@ define hidden void @_ZN12OopMapStream9find_nextEv(ptr noundef nonnull align 8 de
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN11OopMapValue9read_fromEP20CompressedReadStream(ptr noundef nonnull align 2 dereferenceable(4) %0, ptr noundef %1) local_unnamed_addr #2 comdat align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 4
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds i8, ptr %3, i64 %6
@@ -294,7 +294,7 @@ _ZN20CompressedReadStream8read_intEv.exit13:      ; preds = %35, %.preheader.i.i
   %67 = ptrtoint ptr %66 to i64
   %68 = trunc i64 %67 to i16
   %69 = sub i16 %68, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i16)
-  %70 = getelementptr inbounds i8, ptr %0, i64 2
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 %69, ptr %70, align 2
   br label %71
 
@@ -306,15 +306,15 @@ _ZN20CompressedReadStream8read_intEv.exit13:      ; preds = %35, %.preheader.i.i
 define hidden void @_ZN6OopMapC2Eii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((4, 17), (24, 32)) %0, i32 %1, i32 %2) unnamed_addr #2 align 2 {
   %4 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #19
   tail call void @_ZN21CompressedWriteStreamC1Ei(ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 32) #19
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %4, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 -1, ptr %9, align 4
   ret void
 }
@@ -325,28 +325,28 @@ declare void @_ZN21CompressedWriteStreamC1Ei(ptr noundef nonnull align 8 derefer
 define hidden void @_ZN6OopMapC2ENS_13DeepCopyTokenEPS_(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 17), (24, 32)) %0, i32 %1, ptr nocapture noundef readonly %2) unnamed_addr #2 align 2 {
   %4 = alloca %class.OopMapValue, align 4
   %5 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #19
-  %6 = getelementptr inbounds i8, ptr %2, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = shl nsw i32 %7, 1
   tail call void @_ZN21CompressedWriteStreamC1Ei(ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef %8) #19
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %5, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %10, align 4
   %11 = load i32, ptr %2, align 8
   store i32 %11, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %13, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load i8, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = and i8 %16, 1
   store i8 %18, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 -1, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %2, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %21, align 8
   %23 = load i32, ptr %6, align 4
@@ -610,8 +610,8 @@ _ZN12OopMapStream4nextEv.exit.backedge:           ; preds = %_ZN20CompressedRead
 define linkonce_odr hidden void @_ZN11OopMapValue8write_onEP21CompressedWriteStream(ptr noundef nonnull align 2 dereferenceable(4) %0, ptr noundef %1) local_unnamed_addr #2 comdat align 2 {
   %3 = load i16, ptr %0, align 2
   %4 = zext i16 %3 to i32
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %7 = load i32, ptr %5, align 4
   %8 = load i32, ptr %6, align 4
   %9 = add nsw i32 %7, 5
@@ -699,7 +699,7 @@ _ZN21CompressedWriteStream9write_intEj.exit:      ; preds = %_ZN9UNSIGNED513fits
   br i1 %switch.not, label %82, label %42
 
 42:                                               ; preds = %_ZN21CompressedWriteStream9write_intEj.exit
-  %43 = getelementptr inbounds i8, ptr %0, i64 2
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %44 = load i16, ptr %43, align 2
   %45 = sext i16 %44 to i64
   %46 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %45
@@ -801,10 +801,10 @@ define hidden noundef ptr @_ZN6OopMap9deep_copyEv(ptr nocapture noundef nonnull 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZNK6OopMap12copy_data_toEPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = sext i32 %7 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %5, i64 %8, i1 false)
@@ -818,13 +818,13 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define hidden void @_ZN10OopMapSort4sortEv(ptr nocapture noundef nonnull align 8 dereferenceable(20) %0) local_unnamed_addr #6 align 2 {
 .preheader:
   %1 = load ptr, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %_ZN12OopMapStream4nextEv.exit22
 
 _ZN12OopMapStream4nextEv.exit22:                  ; preds = %_ZN12OopMapStream4nextEv.exit22.backedge, %.preheader
@@ -1090,10 +1090,10 @@ _ZN12OopMapStream4nextEv.exit22.backedge:         ; preds = %_ZN20CompressedRead
 148:                                              ; preds = %9
   %149 = load i32, ptr %7, align 8
   %150 = load ptr, ptr %0, align 8
-  %151 = getelementptr inbounds i8, ptr %150, i64 24
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 24
   %152 = load ptr, ptr %151, align 8
   %153 = load ptr, ptr %152, align 8
-  %154 = getelementptr inbounds i8, ptr %150, i64 4
+  %154 = getelementptr inbounds nuw i8, ptr %150, i64 4
   %155 = load i32, ptr %154, align 4
   %156 = load i32, ptr @_ZN9VMRegImpl15stack_slot_sizeE, align 4
   %157 = sext i32 %149 to i64
@@ -1240,7 +1240,7 @@ _ZN12OopMapStream7is_doneEv.exit27.thread:        ; preds = %_ZN20CompressedRead
   %228 = load ptr, ptr %8, align 8
   %229 = lshr i32 %.sroa.0253.0.insert.ext255, 2
   %230 = zext nneg i32 %229 to i64
-  %231 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %230
+  %231 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %230
   %232 = ptrtoint ptr %231 to i64
   %233 = trunc i64 %232 to i32
   %234 = sub i32 %233, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
@@ -1259,7 +1259,7 @@ _ZN12OopMapStream7is_doneEv.exit27.thread:        ; preds = %_ZN20CompressedRead
   %241 = lshr i32 %.sroa.01.0.copyload.i, 2
   %242 = and i32 %241, 16383
   %243 = zext nneg i32 %242 to i64
-  %244 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %243
+  %244 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %243
   %245 = ptrtoint ptr %244 to i64
   %246 = trunc i64 %245 to i32
   %247 = sub i32 %246, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
@@ -1442,10 +1442,10 @@ _ZN12OopMapStream4nextEv.exit43.backedge:         ; preds = %_ZN20CompressedRead
 
 337:                                              ; preds = %159
   %338 = load ptr, ptr %0, align 8
-  %339 = getelementptr inbounds i8, ptr %338, i64 24
+  %339 = getelementptr inbounds nuw i8, ptr %338, i64 24
   %340 = load ptr, ptr %339, align 8
   %341 = load ptr, ptr %340, align 8
-  %342 = getelementptr inbounds i8, ptr %338, i64 4
+  %342 = getelementptr inbounds nuw i8, ptr %338, i64 4
   %343 = load i32, ptr %342, align 4
   br label %_ZN12OopMapStream4nextEv.exit66
 
@@ -1603,11 +1603,11 @@ _ZN12OopMapStream7is_doneEv.exit48.thread:        ; preds = %_ZN20CompressedRead
   %421 = getelementptr inbounds %class.OopMapValue, ptr %415, i64 %indvars.iv.i51
   %422 = trunc nsw i64 %indvars.iv.i51 to i32
   %423 = and i16 %.fr30.i, 3
-  %424 = getelementptr inbounds i8, ptr %421, i64 2
+  %424 = getelementptr inbounds nuw i8, ptr %421, i64 2
   %.not.i = icmp eq i16 %423, 3
   %425 = lshr i32 %.sroa.0.0.insert.ext237, 2
   %426 = zext nneg i32 %425 to i64
-  %427 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %426
+  %427 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %426
   %428 = ptrtoint ptr %427 to i64
   %429 = trunc i64 %428 to i32
   %430 = sub i32 %429, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
@@ -1635,7 +1635,7 @@ _ZN12OopMapStream7is_doneEv.exit48.thread:        ; preds = %_ZN20CompressedRead
   %439 = lshr i32 %.sroa.01.0.copyload.us.i, 2
   %440 = and i32 %439, 16383
   %441 = zext nneg i32 %440 to i64
-  %442 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %441
+  %442 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %441
   %443 = ptrtoint ptr %442 to i64
   %444 = trunc i64 %443 to i32
   %445 = sub i32 %444, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
@@ -1823,20 +1823,20 @@ _ZN12OopMapStream4nextEv.exit66.backedge:         ; preds = %_ZN20CompressedRead
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN10OopMapSort5printEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0) local_unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr @_ZN9VMRegImpl15stack_slot_sizeE, align 4
   br label %7
 
 7:                                                ; preds = %.lr.ph, %69
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %69 ]
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds %class.OopMapValue, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw %class.OopMapValue, ptr %8, i64 %indvars.iv
   %10 = load i32, ptr %9, align 2
   %.sroa.0.0.extract.trunc = trunc i32 %10 to i16
   %11 = and i32 %10, 3
@@ -1846,7 +1846,7 @@ define hidden void @_ZN10OopMapSort5printEv(ptr nocapture noundef nonnull readon
 12:                                               ; preds = %7
   %13 = lshr i16 %.sroa.0.0.extract.trunc, 2
   %14 = zext nneg i16 %13 to i64
-  %15 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %14
+  %15 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %14
   %16 = ptrtoint ptr %15 to i64
   %17 = trunc i64 %16 to i32
   %18 = sub i32 %17, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
@@ -1888,7 +1888,7 @@ define hidden void @_ZN10OopMapSort5printEv(ptr nocapture noundef nonnull readon
   %39 = load ptr, ptr @tty, align 8
   %40 = lshr i16 %.sroa.0.0.extract.trunc, 2
   %41 = zext nneg i16 %40 to i64
-  %42 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %41
+  %42 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %41
   %43 = ptrtoint ptr %42 to i64
   %44 = trunc i64 %43 to i32
   %45 = sub i32 %44, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 617) to i32)
@@ -1900,7 +1900,7 @@ define hidden void @_ZN10OopMapSort5printEv(ptr nocapture noundef nonnull readon
 48:                                               ; preds = %30
   %49 = lshr i16 %.sroa.0.0.extract.trunc, 2
   %50 = zext nneg i16 %49 to i64
-  %51 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %50
+  %51 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %50
   %52 = ptrtoint ptr %51 to i64
   %53 = trunc i64 %52 to i32
   %54 = sub i32 %53, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
@@ -1944,20 +1944,20 @@ declare void @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 derefe
 define hidden void @_ZNK6OopMap21copy_and_sort_data_toEPh(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 align 2 {
   %3 = alloca %class.OopMapSort, align 8
   store ptr %0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = sext i32 %6 to i64
   %8 = shl nsw i64 %7, 2
   %9 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %8, i32 noundef 0) #19
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %9, ptr %10, align 8
   call void @_ZN10OopMapSort4sortEv(ptr noundef nonnull align 8 dereferenceable(20) %3)
   %11 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #19
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i32, ptr %14, align 8
   tail call void @_ZN21CompressedWriteStreamC1Ei(ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef %15) #19
   %16 = load i32, ptr %4, align 8
@@ -1971,7 +1971,7 @@ define hidden void @_ZNK6OopMap21copy_and_sort_data_toEPh(ptr noundef nonnull al
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %20 = getelementptr inbounds %class.OopMapValue, ptr %18, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw %class.OopMapValue, ptr %18, i64 %indvars.iv.i
   tail call void @_ZN11OopMapValue8write_onEP21CompressedWriteStream(ptr noundef nonnull align 2 dereferenceable(4) %20, ptr noundef nonnull %11)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %19
@@ -1979,7 +1979,7 @@ define hidden void @_ZNK6OopMap21copy_and_sort_data_toEPh(ptr noundef nonnull al
 
 _ZN10OopMapSort5writeEP21CompressedWriteStream.exit: ; preds = %.lr.ph.i, %2
   %21 = load ptr, ptr %11, align 8
-  %22 = getelementptr inbounds i8, ptr %11, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %23 = load i32, ptr %22, align 8
   %24 = sext i32 %23 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %21, i64 %24, i1 false)
@@ -1988,9 +1988,9 @@ _ZN10OopMapSort5writeEP21CompressedWriteStream.exit: ; preds = %.lr.ph.i, %2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef range(i32 0, -7) i32 @_ZNK6OopMap9heap_sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #7 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = add nsw i32 %5, 39
   %7 = and i32 %6, -8
@@ -2010,12 +2010,12 @@ define hidden void @_ZN6OopMap7set_xxxEP9VMRegImplN11OopMapValue9oop_typesES1_(p
   %12 = ptrtoint ptr %3 to i64
   %13 = trunc i64 %12 to i16
   %14 = sub i16 %13, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i16)
-  %15 = getelementptr inbounds i8, ptr %5, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i16 %14, ptr %15, align 2
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load ptr, ptr %16, align 8
   call void @_ZN11OopMapValue8write_onEP21CompressedWriteStream(ptr noundef nonnull align 2 dereferenceable(4) %5, ptr noundef %17)
-  %18 = getelementptr inbounds i8, ptr %0, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %19 = load i32, ptr %18, align 4
   %20 = add nsw i32 %19, 1
   store i32 %20, ptr %18, align 4
@@ -2023,7 +2023,7 @@ define hidden void @_ZN6OopMap7set_xxxEP9VMRegImplN11OopMapValue9oop_typesES1_(p
   br i1 %or.cond, label %21, label %25
 
 21:                                               ; preds = %4
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load i32, ptr %22, align 8
   %24 = add nsw i32 %23, 1
   store i32 %24, ptr %22, align 8
@@ -2034,7 +2034,7 @@ define hidden void @_ZN6OopMap7set_xxxEP9VMRegImplN11OopMapValue9oop_typesES1_(p
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 1, ptr %28, align 8
   br label %29
 
@@ -2051,16 +2051,16 @@ define hidden void @_ZN6OopMap7set_oopEP9VMRegImpl(ptr nocapture noundef nonnull
   %.tr = sub i16 %5, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i16)
   %6 = shl i16 %.tr, 2
   store i16 %6, ptr %3, align 2
-  %7 = getelementptr inbounds i8, ptr %3, i64 2
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i16 -1, ptr %7, align 2
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   call void @_ZN11OopMapValue8write_onEP21CompressedWriteStream(ptr noundef nonnull align 2 dereferenceable(4) %3, ptr noundef %9)
-  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = add nsw i32 %11, 1
   store i32 %12, ptr %10, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i32, ptr %13, align 8
   %15 = add nsw i32 %14, 1
   store i32 %15, ptr %13, align 8
@@ -2078,16 +2078,16 @@ define hidden void @_ZN6OopMap13set_narrowoopEP9VMRegImpl(ptr nocapture noundef 
   %6 = shl i16 %.tr, 2
   %7 = or disjoint i16 %6, 1
   store i16 %7, ptr %3, align 2
-  %8 = getelementptr inbounds i8, ptr %3, i64 2
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i16 -1, ptr %8, align 2
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   call void @_ZN11OopMapValue8write_onEP21CompressedWriteStream(ptr noundef nonnull align 2 dereferenceable(4) %3, ptr noundef %10)
-  %11 = getelementptr inbounds i8, ptr %0, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = add nsw i32 %12, 1
   store i32 %13, ptr %11, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = add nsw i32 %15, 1
   store i32 %16, ptr %14, align 8
@@ -2108,12 +2108,12 @@ define hidden void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr nocapture no
   %9 = ptrtoint ptr %2 to i64
   %10 = trunc i64 %9 to i16
   %11 = sub i16 %10, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i16)
-  %12 = getelementptr inbounds i8, ptr %4, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i16 %11, ptr %12, align 2
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
   call void @_ZN11OopMapValue8write_onEP21CompressedWriteStream(ptr noundef nonnull align 2 dereferenceable(4) %4, ptr noundef %14)
-  %15 = getelementptr inbounds i8, ptr %0, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = add nsw i32 %16, 1
   store i32 %17, ptr %15, align 4
@@ -2135,16 +2135,16 @@ define hidden void @_ZN6OopMap15set_derived_oopEP9VMRegImplS1_(ptr nocapture nou
 10:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i16 %9, ptr %5, align 2
-  %11 = getelementptr inbounds i8, ptr %5, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i16 -1, ptr %11, align 2
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8
   call void @_ZN11OopMapValue8write_onEP21CompressedWriteStream(ptr noundef nonnull align 2 dereferenceable(4) %5, ptr noundef %13)
-  %14 = getelementptr inbounds i8, ptr %0, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = add nsw i32 %15, 1
   store i32 %16, ptr %14, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load i32, ptr %17, align 8
   %19 = add nsw i32 %18, 1
   store i32 %19, ptr %17, align 8
@@ -2158,16 +2158,16 @@ define hidden void @_ZN6OopMap15set_derived_oopEP9VMRegImplS1_(ptr nocapture nou
   %22 = ptrtoint ptr %2 to i64
   %23 = trunc i64 %22 to i16
   %24 = sub i16 %23, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i16)
-  %25 = getelementptr inbounds i8, ptr %4, i64 2
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i16 %24, ptr %25, align 2
-  %26 = getelementptr inbounds i8, ptr %0, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = load ptr, ptr %26, align 8
   call void @_ZN11OopMapValue8write_onEP21CompressedWriteStream(ptr noundef nonnull align 2 dereferenceable(4) %4, ptr noundef %27)
-  %28 = getelementptr inbounds i8, ptr %0, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %29 = load i32, ptr %28, align 4
   %30 = add nsw i32 %29, 1
   store i32 %30, ptr %28, align 4
-  %31 = getelementptr inbounds i8, ptr %0, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 1, ptr %31, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   br label %32
@@ -2180,12 +2180,12 @@ define hidden void @_ZN6OopMap15set_derived_oopEP9VMRegImplS1_(ptr nocapture nou
 define hidden void @_ZN9OopMapSetC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #2 align 2 {
   %2 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 8, i32 noundef 8) #19
   store i32 0, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 8, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, i8 0, i64 64, i1 false)
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %5, align 8
   ret void
 }
@@ -2194,7 +2194,7 @@ define hidden void @_ZN9OopMapSetC2Ev(ptr nocapture noundef nonnull writeonly al
 define hidden noundef i32 @_ZN9OopMapSet10add_gc_mapEiP6OopMap(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, ptr noundef initializes((0, 4)) %2) local_unnamed_addr #2 align 2 {
   store i32 %1, ptr %2, align 8
   %4 = load i32, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %4, %6
   br i1 %7, label %8, label %_ZN9OopMapSet3addEP6OopMap.exit
@@ -2217,12 +2217,12 @@ _ZN9OopMapSet3addEP6OopMap.exit:                  ; preds = %3, %8
   %16 = phi i32 [ %.pre.i.i, %8 ], [ %4, %3 ]
   %17 = add nsw i32 %16, 1
   store i32 %17, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = sext i32 %16 to i64
   %21 = getelementptr inbounds ptr, ptr %19, i64 %20
   store ptr %2, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %2, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %16, ptr %22, align 4
   ret i32 %16
 }
@@ -2233,9 +2233,9 @@ define hidden void @_ZN9OopMapSet7oops_doEPK5framePK11RegisterMapP10OopClosure27
   %6 = alloca %class.AddDerivedOop, align 8
   %7 = alloca %class.IgnoreDerivedOop, align 8
   %8 = alloca %class.OopMapDo, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef ptr @_ZNK8CodeBlob26oop_map_for_return_addressEPh(ptr noundef nonnull align 8 dereferenceable(54) %10, ptr noundef %12) #19
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
@@ -2243,7 +2243,7 @@ define hidden void @_ZN9OopMapSet7oops_doEPK5framePK11RegisterMapP10OopClosure27
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV17ProcessDerivedOop, i64 16), ptr %5, align 8
-  %14 = getelementptr inbounds i8, ptr %5, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %2, ptr %14, align 8
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV13AddDerivedOop, i64 16), ptr %6, align 8
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV16IgnoreDerivedOop, i64 16), ptr %7, align 8
@@ -2268,7 +2268,7 @@ define hidden void @_ZN9OopMapSet7oops_doEPK5framePK11RegisterMapP10OopClosure27
 _ZNK15ImmutableOopMap7oops_doEPK5framePK11RegisterMapP10OopClosure27DerivedPointerIterationMode.exit: ; preds = %4, %15, %16
   %.0.i = phi ptr [ %7, %16 ], [ %6, %15 ], [ %5, %4 ]
   store ptr %2, ptr %8, align 8
-  %19 = getelementptr inbounds i8, ptr %8, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %.0.i, ptr %19, align 8
   call void @_ZN8OopMapDoI10OopClosure17DerivedOopClosure13SkipNullValueE15iterate_oops_doI11RegisterMapEEvPK5framePKT_PK15ImmutableOopMap(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(9) %13)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
@@ -2280,9 +2280,9 @@ _ZNK15ImmutableOopMap7oops_doEPK5framePK11RegisterMapP10OopClosure27DerivedPoint
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN9OopMapSet8find_mapEPK5frame(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef ptr @_ZNK8CodeBlob26oop_map_for_return_addressEPh(ptr noundef nonnull align 8 dereferenceable(54) %3, ptr noundef %5) #19
   ret ptr %6
@@ -2295,7 +2295,7 @@ define hidden void @_ZNK15ImmutableOopMap7oops_doEPK5framePK11RegisterMapP10OopC
   %8 = alloca %class.IgnoreDerivedOop, align 8
   %9 = alloca %class.OopMapDo, align 8
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV17ProcessDerivedOop, i64 16), ptr %6, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %3, ptr %10, align 8
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV13AddDerivedOop, i64 16), ptr %7, align 8
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV16IgnoreDerivedOop, i64 16), ptr %8, align 8
@@ -2320,7 +2320,7 @@ define hidden void @_ZNK15ImmutableOopMap7oops_doEPK5framePK11RegisterMapP10OopC
 15:                                               ; preds = %5, %12, %11
   %.0 = phi ptr [ %8, %12 ], [ %7, %11 ], [ %6, %5 ]
   store ptr %3, ptr %9, align 8
-  %16 = getelementptr inbounds i8, ptr %9, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %.0, ptr %16, align 8
   call void @_ZN8OopMapDoI10OopClosure17DerivedOopClosure13SkipNullValueE15iterate_oops_doI11RegisterMapEEvPK5framePKT_PK15ImmutableOopMap(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %0)
   ret void
@@ -2329,14 +2329,14 @@ define hidden void @_ZNK15ImmutableOopMap7oops_doEPK5framePK11RegisterMapP10OopC
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9OopMapSet7oops_doEPK5framePK11RegisterMapP10OopClosureP17DerivedOopClosure(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 align 2 {
   %5 = alloca %class.OopMapDo, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef ptr @_ZNK8CodeBlob26oop_map_for_return_addressEPh(ptr noundef nonnull align 8 dereferenceable(54) %7, ptr noundef %9) #19
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store ptr %2, ptr %5, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %3, ptr %11, align 8
   call void @_ZN8OopMapDoI10OopClosure17DerivedOopClosure13SkipNullValueE15iterate_oops_doI11RegisterMapEEvPK5framePKT_PK15ImmutableOopMap(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(9) %10)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
@@ -2347,7 +2347,7 @@ define hidden void @_ZN9OopMapSet7oops_doEPK5framePK11RegisterMapP10OopClosureP1
 define hidden void @_ZNK15ImmutableOopMap7oops_doEPK5framePK11RegisterMapP10OopClosureP17DerivedOopClosure(ptr noundef nonnull align 4 dereferenceable(9) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #2 align 2 {
   %6 = alloca %class.OopMapDo, align 8
   store ptr %3, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %4, ptr %7, align 8
   call void @_ZN8OopMapDoI10OopClosure17DerivedOopClosure13SkipNullValueE15iterate_oops_doI11RegisterMapEEvPK5framePKT_PK15ImmutableOopMap(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %0)
   ret void
@@ -2358,7 +2358,7 @@ declare void @_Z15report_vm_errorPKciS0_S0_z(ptr noundef, i32 noundef, ptr nound
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK15ImmutableOopMap11all_type_doEPK5frameP13OopMapClosure(ptr nocapture noundef nonnull readonly align 4 dereferenceable(9) %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #2 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %0, align 4
   br label %_ZN12OopMapStream4nextEv.exit
 
@@ -2476,9 +2476,9 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %_ZN20CompressedRead
 61:                                               ; preds = %_ZN12OopMapStream7is_doneEv.exit.thread
   %62 = lshr i16 %.sroa.26.247, 2
   %63 = zext nneg i16 %62 to i64
-  %64 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %63
+  %64 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %63
   %65 = load ptr, ptr %2, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = load ptr, ptr %66, align 8
   tail call void %67(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %64, i32 noundef %57) #19
   br label %68
@@ -2587,7 +2587,7 @@ _ZN12OopMapStream4nextEv.exit.backedge:           ; preds = %_ZN20CompressedRead
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK15ImmutableOopMap11all_type_doEPK5frameN11OopMapValue9oop_typesEP13OopMapClosure(ptr nocapture noundef nonnull readonly align 4 dereferenceable(9) %0, ptr nocapture noundef readnone %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #2 align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i32, ptr %0, align 4
   br label %_ZN12OopMapStream4nextEv.exit
 
@@ -2703,9 +2703,9 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %_ZN20CompressedRead
 60:                                               ; preds = %_ZN12OopMapStream7is_doneEv.exit.thread
   %61 = lshr i16 %.sroa.26.246, 2
   %62 = zext nneg i16 %61 to i64
-  %63 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %62
+  %63 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %62
   %64 = load ptr, ptr %3, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %66 = load ptr, ptr %65, align 8
   tail call void %66(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %63, i32 noundef %2) #19
   br label %67
@@ -2814,14 +2814,14 @@ _ZN12OopMapStream4nextEv.exit.backedge:           ; preds = %_ZN20CompressedRead
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK15ImmutableOopMap19update_register_mapEPK5frameP11RegisterMap(ptr nocapture noundef nonnull readonly align 4 dereferenceable(9) %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #2 align 2 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i32, ptr %0, align 4
   %7 = load i32, ptr @_ZN9VMRegImpl15stack_slot_sizeE, align 4
-  %8 = getelementptr inbounds i8, ptr %2, i64 4968
-  %9 = getelementptr inbounds i8, ptr %1, i64 48
-  %10 = getelementptr inbounds i8, ptr %1, i64 40
-  %11 = getelementptr inbounds i8, ptr %2, i64 4872
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4968
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 4872
   br label %_ZN12OopMapStream4nextEv.exit.i
 
 _ZN12OopMapStream4nextEv.exit.i:                  ; preds = %_ZN12OopMapStream4nextEv.exit.i.backedge, %3
@@ -2957,7 +2957,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread.i:        ; preds = %_ZN20CompressedRead
   %82 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %81
   %83 = lshr i16 %.sroa.26.250.i, 2
   %84 = zext nneg i16 %83 to i64
-  %85 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %84
+  %85 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %84
   %86 = ptrtoint ptr %85 to i64
   %87 = trunc i64 %86 to i32
   %88 = sub i32 %87, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
@@ -3006,7 +3006,7 @@ _ZNK11RegisterMap7in_contEv.exit.i.i:             ; preds = %106
   br i1 %.not.i.i.i.i, label %122, label %114
 
 114:                                              ; preds = %112
-  %115 = getelementptr inbounds i8, ptr %113, i64 44
+  %115 = getelementptr inbounds nuw i8, ptr %113, i64 44
   %116 = load i32, ptr %115, align 4
   %117 = icmp sgt i32 %116, 0
   br i1 %117, label %118, label %122
@@ -3014,7 +3014,7 @@ _ZNK11RegisterMap7in_contEv.exit.i.i:             ; preds = %106
 118:                                              ; preds = %114
   %119 = load ptr, ptr %9, align 8
   %120 = zext nneg i32 %116 to i64
-  %121 = getelementptr inbounds i64, ptr %119, i64 %120
+  %121 = getelementptr inbounds nuw i64, ptr %119, i64 %120
   br label %_ZNK17stackChunkOopDesc21relativize_usp_offsetERK5framei.exit.i.i
 
 122:                                              ; preds = %114, %112
@@ -3191,9 +3191,9 @@ declare noundef ptr @_ZNK8CodeBlob26oop_map_for_return_addressEPh(ptr noundef no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9OopMapSet19update_register_mapEPK5frameP11RegisterMap(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef ptr @_ZNK8CodeBlob26oop_map_for_return_addressEPh(ptr noundef nonnull align 8 dereferenceable(54) %4, ptr noundef %6) #19
   tail call void @_ZNK15ImmutableOopMap19update_register_mapEPK5frameP11RegisterMap(ptr noundef nonnull align 4 dereferenceable(9) %7, ptr noundef %0, ptr noundef %1)
@@ -3205,12 +3205,12 @@ define hidden void @_ZNK11OopMapValue8print_onEP12outputStream(ptr nocapture nou
   %3 = load i16, ptr %0, align 2
   %4 = lshr i16 %3, 2
   %5 = zext nneg i16 %4 to i64
-  %6 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %5
+  %6 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %5
   tail call void @_ZNK9VMRegImpl8print_onEP12outputStream(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef %1) #19
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.11) #19
   %7 = load i16, ptr %0, align 2
   %8 = and i16 %7, 3
-  %9 = getelementptr inbounds i8, ptr %0, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %10 = load i16, ptr %9, align 2
   %11 = sext i16 %10 to i64
   %12 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %11
@@ -3262,7 +3262,7 @@ define hidden void @_ZNK11OopMapValue5printEv(ptr nocapture noundef nonnull read
 define hidden void @_ZNK15ImmutableOopMap8print_onEP12outputStream(ptr nocapture noundef nonnull readonly align 4 dereferenceable(9) %0, ptr noundef nonnull %1) local_unnamed_addr #2 align 2 {
   %3 = alloca %class.OopMapValue, align 4
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.13) #19
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %0, align 4
   br label %_ZN12OopMapStream4nextEv.exit
 
@@ -3528,10 +3528,10 @@ define hidden void @_ZNK15ImmutableOopMap5printEv(ptr nocapture noundef nonnull 
 define hidden void @_ZNK6OopMap8print_onEP12outputStream(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull %1) local_unnamed_addr #2 align 2 {
   %3 = alloca %class.OopMapValue, align 4
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.15) #19
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
   br label %_ZN12OopMapStream4nextEv.exit
 
@@ -3802,15 +3802,15 @@ define hidden void @_ZNK18ImmutableOopMapSet8print_onEP12outputStream(ptr nounde
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %6
 
 6:                                                ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
   %.020 = phi ptr [ null, %.lr.ph ], [ %15, %17 ]
-  %7 = getelementptr inbounds %class.ImmutableOopMapPair, ptr %5, i64 %indvars.iv
-  %8 = getelementptr inbounds i8, ptr %7, i64 4
+  %7 = getelementptr inbounds nuw %class.ImmutableOopMapPair, ptr %5, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = load i32, ptr %0, align 4
   %11 = sext i32 %10 to i64
@@ -3856,14 +3856,14 @@ define hidden void @_ZNK9OopMapSet8print_onEP12outputStream(ptr nocapture nounde
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %6
 
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
   %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.21, i32 noundef %10) #19
@@ -3887,14 +3887,14 @@ define hidden void @_ZNK9OopMapSet5printEv(ptr nocapture noundef nonnull readonl
   br i1 %4, label %.lr.ph.i, label %_ZNK9OopMapSet8print_onEP12outputStream.exit
 
 .lr.ph.i:                                         ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %wide.trip.count.i = zext nneg i32 %3 to i64
   br label %6
 
 6:                                                ; preds = %6, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %6 ]
   %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i
   %9 = load ptr, ptr %8, align 8
   %10 = trunc nuw nsw i64 %indvars.iv.i to i32
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.21, i32 noundef %10) #19
@@ -3911,21 +3911,21 @@ _ZNK9OopMapSet8print_onEP12outputStream.exit:     ; preds = %6, %1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZNK6OopMap6equalsEPKS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #9 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %20
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i32, ptr %14, align 8
   %.not5 = icmp eq i32 %11, %15
   br i1 %.not5, label %16, label %20
@@ -3945,7 +3945,7 @@ define hidden noundef zeroext i1 @_ZNK6OopMap6equalsEPKS_(ptr nocapture noundef 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef range(i32 -2147483648, 2147483647) i32 @_ZNK18ImmutableOopMapSet20find_slot_for_offsetEi(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %0, align 4
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph.preheader, label %.loopexit
@@ -3956,7 +3956,7 @@ define hidden noundef range(i32 -2147483648, 2147483647) i32 @_ZNK18ImmutableOop
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %12 ]
-  %6 = getelementptr inbounds %class.ImmutableOopMapPair, ptr %3, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw %class.ImmutableOopMapPair, ptr %3, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4
   %.not = icmp slt i32 %7, %1
   br i1 %.not, label %12, label %8
@@ -3979,7 +3979,7 @@ define hidden noundef range(i32 -2147483648, 2147483647) i32 @_ZNK18ImmutableOop
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef nonnull ptr @_ZNK18ImmutableOopMapSet18find_map_at_offsetEi(ptr noundef nonnull readonly align 4 dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %0, align 4
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
@@ -3995,7 +3995,7 @@ define hidden noundef nonnull ptr @_ZNK18ImmutableOopMapSet18find_map_at_offsetE
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %6 ]
-  %7 = getelementptr inbounds %class.ImmutableOopMapPair, ptr %3, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw %class.ImmutableOopMapPair, ptr %3, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4
   %.not = icmp slt i32 %8, %1
   br i1 %.not, label %6, label %10
@@ -4009,10 +4009,10 @@ define hidden noundef nonnull ptr @_ZNK18ImmutableOopMapSet18find_map_at_offsetE
 10:                                               ; preds = %.lr.ph
   %.idx = shl nuw nsw i64 %indvars.iv, 3
   %.offs = or disjoint i64 %.idx, 4
-  %11 = getelementptr inbounds i8, ptr %3, i64 %.offs
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 %.offs
   %12 = load i32, ptr %11, align 4
   %13 = shl nuw nsw i64 %wide.trip.count, 3
-  %14 = getelementptr inbounds i8, ptr %3, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 %13
   %15 = sext i32 %12 to i64
   %16 = getelementptr inbounds i8, ptr %14, i64 %15
   ret ptr %16
@@ -4021,33 +4021,33 @@ define hidden noundef nonnull ptr @_ZNK18ImmutableOopMapSet18find_map_at_offsetE
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN15ImmutableOopMapC2EPK6OopMap(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(9) initializes((0, 9)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = alloca %class.OopMapSort, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
   store i32 %5, ptr %0, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i32, ptr %7, align 8
   store i32 %8, ptr %6, align 4
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i8, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = and i8 %10, 1
   store i8 %12, ptr %11, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   store ptr %1, ptr %3, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 0, ptr %13, align 8
   %14 = load i32, ptr %4, align 4
   %15 = sext i32 %14 to i64
   %16 = shl nsw i64 %15, 2
   %17 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %16, i32 noundef 0) #19
-  %18 = getelementptr inbounds i8, ptr %3, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %17, ptr %18, align 8
   call void @_ZN10OopMapSort4sortEv(ptr noundef nonnull align 8 dereferenceable(20) %3)
   %19 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #19
-  %20 = getelementptr inbounds i8, ptr %1, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i32, ptr %22, align 8
   tail call void @_ZN21CompressedWriteStreamC1Ei(ptr noundef nonnull align 8 dereferenceable(16) %19, i32 noundef %23) #19
   %24 = load i32, ptr %13, align 8
@@ -4061,16 +4061,16 @@ define hidden void @_ZN15ImmutableOopMapC2EPK6OopMap(ptr nocapture noundef nonnu
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.i.preheader.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %.lr.ph.i.preheader.i ]
-  %28 = getelementptr inbounds %class.OopMapValue, ptr %26, i64 %indvars.iv.i.i
+  %28 = getelementptr inbounds nuw %class.OopMapValue, ptr %26, i64 %indvars.iv.i.i
   tail call void @_ZN11OopMapValue8write_onEP21CompressedWriteStream(ptr noundef nonnull align 2 dereferenceable(4) %28, ptr noundef nonnull %19)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i.i, %27
   br i1 %exitcond.not.i, label %_ZNK6OopMap21copy_and_sort_data_toEPh.exit, label %.lr.ph.i.i, !llvm.loop !19
 
 _ZNK6OopMap21copy_and_sort_data_toEPh.exit:       ; preds = %.lr.ph.i.i, %2
-  %29 = getelementptr inbounds i8, ptr %0, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %30 = load ptr, ptr %19, align 8
-  %31 = getelementptr inbounds i8, ptr %19, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %32 = load i32, ptr %31, align 8
   %33 = sext i32 %32 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %29, ptr align 1 %30, i64 %33, i1 false)
@@ -4080,7 +4080,7 @@ _ZNK6OopMap21copy_and_sort_data_toEPh.exit:       ; preds = %.lr.ph.i.i, %2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK15ImmutableOopMap7has_anyEN11OopMapValue9oop_typesE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(9) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %0, align 4
   br label %_ZN12OopMapStream4nextEv.exit
 
@@ -4293,23 +4293,23 @@ _ZN12OopMapStream7is_doneEv.exit:                 ; preds = %5, %_ZN12OopMapStre
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN22ImmutableOopMapBuilderC2EPK9OopMapSet(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 56)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   store ptr %1, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store i32 -1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 28
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 -1, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 36
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 -1, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr null, ptr %8, align 8
   %9 = load i32, ptr %1, align 4
   %10 = sext i32 %9 to i64
   %11 = shl nsw i64 %10, 5
   %12 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %11, i32 noundef 0) #19
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %12, ptr %13, align 8
   ret void
 }
@@ -4318,9 +4318,9 @@ declare noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFail
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef range(i32 0, -7) i32 @_ZNK22ImmutableOopMapBuilder8size_forEPK6OopMap(ptr nocapture noundef nonnull readnone align 8 dereferenceable(56) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #7 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = add i32 %6, 19
   %8 = and i32 %7, -8
@@ -4335,27 +4335,27 @@ define hidden noundef i32 @_ZN22ImmutableOopMapBuilder9heap_sizeEv(ptr nocapture
   br i1 %4, label %.lr.ph, label %.._crit_edge_crit_edge
 
 .._crit_edge_crit_edge:                           ; preds = %1
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 32
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
-  %7 = getelementptr inbounds i8, ptr %0, i64 28
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %11
 
 11:                                               ; preds = %.lr.ph, %84
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %84 ]
   %12 = phi ptr [ %2, %.lr.ph ], [ %87, %84 ]
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %44
@@ -4367,16 +4367,16 @@ define hidden noundef i32 @_ZN22ImmutableOopMapBuilder9heap_sizeEv(ptr nocapture
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %6, align 8
-  %24 = getelementptr inbounds %"class.ImmutableOopMapBuilder::Mapping", ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw %"class.ImmutableOopMapBuilder::Mapping", ptr %23, i64 %indvars.iv
   %25 = load ptr, ptr %10, align 8
   store i32 2, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %24, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 4
   store i32 %21, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %24, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i32 0, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %24, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store ptr %16, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %24, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store ptr %25, ptr %29, align 8
   br label %84
 
@@ -4384,22 +4384,22 @@ define hidden noundef i32 @_ZN22ImmutableOopMapBuilder9heap_sizeEv(ptr nocapture
   %31 = load i32, ptr %8, align 8
   store i32 %31, ptr %9, align 8
   store ptr %16, ptr %10, align 8
-  %32 = getelementptr inbounds i8, ptr %16, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load i32, ptr %34, align 8
   %36 = add i32 %35, 19
   %37 = and i32 %36, -8
   %38 = load ptr, ptr %6, align 8
-  %39 = getelementptr inbounds %"class.ImmutableOopMapBuilder::Mapping", ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw %"class.ImmutableOopMapBuilder::Mapping", ptr %38, i64 %indvars.iv
   store i32 1, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   store i32 %31, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %39, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i32 %37, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %39, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 16
   store ptr %16, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %39, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 24
   store ptr null, ptr %43, align 8
   br label %84
 
@@ -4409,7 +4409,7 @@ define hidden noundef i32 @_ZN22ImmutableOopMapBuilder9heap_sizeEv(ptr nocapture
   br i1 %.not.i, label %_ZN22ImmutableOopMapBuilder17is_last_duplicateEPK6OopMap.exit, label %46
 
 46:                                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %45, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %48 = load i32, ptr %47, align 4
   %49 = icmp sgt i32 %48, 0
   %.not.i.i = icmp eq i32 %18, %48
@@ -4417,13 +4417,13 @@ define hidden noundef i32 @_ZN22ImmutableOopMapBuilder9heap_sizeEv(ptr nocapture
   br i1 %or.cond, label %50, label %_ZN22ImmutableOopMapBuilder17is_last_duplicateEPK6OopMap.exit
 
 50:                                               ; preds = %46
-  %51 = getelementptr inbounds i8, ptr %16, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load i32, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %45, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load i32, ptr %57, align 8
   %.not5.i.i = icmp eq i32 %54, %58
   br i1 %.not5.i.i, label %_ZNK6OopMap6equalsEPKS_.exit.i, label %_ZN22ImmutableOopMapBuilder17is_last_duplicateEPK6OopMap.exit
@@ -4438,37 +4438,37 @@ _ZNK6OopMap6equalsEPKS_.exit.i:                   ; preds = %50
 
 62:                                               ; preds = %_ZNK6OopMap6equalsEPKS_.exit.i
   %63 = load ptr, ptr %6, align 8
-  %64 = getelementptr inbounds %"class.ImmutableOopMapBuilder::Mapping", ptr %63, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw %"class.ImmutableOopMapBuilder::Mapping", ptr %63, i64 %indvars.iv
   %65 = load i32, ptr %7, align 4
   store i32 3, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %64, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 4
   store i32 %65, ptr %66, align 4
-  %67 = getelementptr inbounds i8, ptr %64, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 8
   store i32 0, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %64, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %64, i64 16
   store ptr %16, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %64, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %64, i64 24
   store ptr %45, ptr %69, align 8
   br label %84
 
 _ZN22ImmutableOopMapBuilder17is_last_duplicateEPK6OopMap.exit: ; preds = %_ZNK6OopMap6equalsEPKS_.exit.i, %50, %46, %44
-  %70 = getelementptr inbounds i8, ptr %16, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = load i32, ptr %72, align 8
   %74 = add i32 %73, 19
   %75 = and i32 %74, -8
   %76 = load ptr, ptr %6, align 8
-  %77 = getelementptr inbounds %"class.ImmutableOopMapBuilder::Mapping", ptr %76, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw %"class.ImmutableOopMapBuilder::Mapping", ptr %76, i64 %indvars.iv
   %78 = load i32, ptr %8, align 8
   store i32 1, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %77, i64 4
+  %79 = getelementptr inbounds nuw i8, ptr %77, i64 4
   store i32 %78, ptr %79, align 4
-  %80 = getelementptr inbounds i8, ptr %77, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %77, i64 8
   store i32 %75, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %77, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %77, i64 16
   store ptr %16, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %77, i64 24
+  %82 = getelementptr inbounds nuw i8, ptr %77, i64 24
   store ptr null, ptr %82, align 8
   %83 = load i32, ptr %8, align 8
   store i32 %83, ptr %7, align 4
@@ -4492,7 +4492,7 @@ _ZN22ImmutableOopMapBuilder17is_last_duplicateEPK6OopMap.exit: ; preds = %_ZNK6O
   %92 = shl i32 %3, 3
   %93 = add nsw i32 %92, 8
   %94 = add nsw i32 %93, %91
-  %95 = getelementptr inbounds i8, ptr %0, i64 36
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %94, ptr %95, align 4
   ret i32 %94
 }
@@ -4501,7 +4501,7 @@ _ZN22ImmutableOopMapBuilder17is_last_duplicateEPK6OopMap.exit: ; preds = %_ZNK6O
 define hidden void @_ZN22ImmutableOopMapBuilder9fill_pairEP19ImmutableOopMapPairPK6OopMapiPK18ImmutableOopMapSet(ptr nocapture noundef nonnull readnone align 8 dereferenceable(56) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef readnone %4) local_unnamed_addr #1 align 2 {
   %6 = load i32, ptr %2, align 8
   store i32 %6, ptr %1, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %3, ptr %7, align 4
   ret void
 }
@@ -4510,11 +4510,11 @@ define hidden void @_ZN22ImmutableOopMapBuilder9fill_pairEP19ImmutableOopMapPair
 define hidden noundef range(i32 0, -7) i32 @_ZN22ImmutableOopMapBuilder8fill_mapEP19ImmutableOopMapPairPK6OopMapiPK18ImmutableOopMapSet(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readnone %4) local_unnamed_addr #2 align 2 {
   %6 = load i32, ptr %2, align 8
   store i32 %6, ptr %1, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %3, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i32, ptr %9, align 4
   %12 = sext i32 %11 to i64
   %13 = shl nsw i64 %12, 3
@@ -4522,9 +4522,9 @@ define hidden noundef range(i32 0, -7) i32 @_ZN22ImmutableOopMapBuilder8fill_map
   %15 = sext i32 %3 to i64
   %16 = getelementptr inbounds i8, ptr %14, i64 %15
   tail call void @_ZN15ImmutableOopMapC2EPK6OopMap(ptr noundef nonnull align 4 dereferenceable(9) %16, ptr noundef nonnull %2)
-  %17 = getelementptr inbounds i8, ptr %2, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load i32, ptr %19, align 8
   %21 = add i32 %20, 19
   %22 = and i32 %21, -8
@@ -4533,22 +4533,22 @@ define hidden noundef range(i32 0, -7) i32 @_ZN22ImmutableOopMapBuilder8fill_map
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN22ImmutableOopMapBuilder4fillEP18ImmutableOopMapSeti(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %1, align 4
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %9
 
 9:                                                ; preds = %.lr.ph, %36
   %10 = phi i32 [ %5, %.lr.ph ], [ %37, %36 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds %"class.ImmutableOopMapBuilder::Mapping", ptr %11, i64 %indvars.iv
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %12 = getelementptr inbounds nuw %"class.ImmutableOopMapBuilder::Mapping", ptr %11, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = load i32, ptr %12, align 8
   switch i32 %15, label %36 [
@@ -4558,15 +4558,15 @@ define hidden void @_ZN22ImmutableOopMapBuilder4fillEP18ImmutableOopMapSeti(ptr 
   ]
 
 16:                                               ; preds = %9
-  %17 = getelementptr inbounds %class.ImmutableOopMapPair, ptr %4, i64 %indvars.iv
-  %18 = getelementptr inbounds i8, ptr %12, i64 4
+  %17 = getelementptr inbounds nuw %class.ImmutableOopMapPair, ptr %4, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %19 = load i32, ptr %18, align 4
   %20 = load i32, ptr %14, align 8
   store i32 %20, ptr %17, align 4
-  %21 = getelementptr inbounds i8, ptr %17, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 %19, ptr %21, align 4
   %22 = load ptr, ptr %8, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i32, ptr %22, align 4
   %25 = sext i32 %24 to i64
   %26 = shl nsw i64 %25, 3
@@ -4578,12 +4578,12 @@ define hidden void @_ZN22ImmutableOopMapBuilder4fillEP18ImmutableOopMapSeti(ptr 
   br label %36
 
 30:                                               ; preds = %9, %9
-  %31 = getelementptr inbounds %class.ImmutableOopMapPair, ptr %4, i64 %indvars.iv
-  %32 = getelementptr inbounds %"class.ImmutableOopMapBuilder::Mapping", ptr %11, i64 %indvars.iv, i32 1
+  %31 = getelementptr inbounds nuw %class.ImmutableOopMapPair, ptr %4, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw %"class.ImmutableOopMapBuilder::Mapping", ptr %11, i64 %indvars.iv, i32 1
   %33 = load i32, ptr %32, align 4
   %34 = load i32, ptr %14, align 8
   store i32 %34, ptr %31, align 4
-  %35 = getelementptr inbounds i8, ptr %31, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 4
   store i32 %33, ptr %35, align 4
   br label %36
 
@@ -4601,29 +4601,29 @@ define hidden void @_ZN22ImmutableOopMapBuilder4fillEP18ImmutableOopMapSeti(ptr 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN22ImmutableOopMapBuilder13generate_intoEPh(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((48, 56)) %0, ptr noundef initializes((0, 8)) %1) local_unnamed_addr #2 align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 36
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %5 = load i32, ptr %4, align 4
   %6 = load i32, ptr %3, align 4
   store i32 %6, ptr %1, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %5, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i32, ptr %1, align 4
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %.lr.ph.i, label %_ZN22ImmutableOopMapBuilder4fillEP18ImmutableOopMapSeti.exit
 
 .lr.ph.i:                                         ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %13
 
 13:                                               ; preds = %40, %.lr.ph.i
   %14 = phi i32 [ %10, %.lr.ph.i ], [ %41, %40 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %40 ]
   %15 = load ptr, ptr %12, align 8
-  %16 = getelementptr inbounds %"class.ImmutableOopMapBuilder::Mapping", ptr %15, i64 %indvars.iv.i
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %16 = getelementptr inbounds nuw %"class.ImmutableOopMapBuilder::Mapping", ptr %15, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = load i32, ptr %16, align 8
   switch i32 %19, label %40 [
@@ -4633,15 +4633,15 @@ define hidden noundef ptr @_ZN22ImmutableOopMapBuilder13generate_intoEPh(ptr noc
   ]
 
 20:                                               ; preds = %13
-  %21 = getelementptr inbounds %class.ImmutableOopMapPair, ptr %9, i64 %indvars.iv.i
-  %22 = getelementptr inbounds i8, ptr %16, i64 4
+  %21 = getelementptr inbounds nuw %class.ImmutableOopMapPair, ptr %9, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %23 = load i32, ptr %22, align 4
   %24 = load i32, ptr %18, align 8
   store i32 %24, ptr %21, align 4
-  %25 = getelementptr inbounds i8, ptr %21, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store i32 %23, ptr %25, align 4
   %26 = load ptr, ptr %8, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load i32, ptr %26, align 4
   %29 = sext i32 %28 to i64
   %30 = shl nsw i64 %29, 3
@@ -4653,12 +4653,12 @@ define hidden noundef ptr @_ZN22ImmutableOopMapBuilder13generate_intoEPh(ptr noc
   br label %40
 
 34:                                               ; preds = %13, %13
-  %35 = getelementptr inbounds %class.ImmutableOopMapPair, ptr %9, i64 %indvars.iv.i
-  %36 = getelementptr inbounds %"class.ImmutableOopMapBuilder::Mapping", ptr %15, i64 %indvars.iv.i, i32 1
+  %35 = getelementptr inbounds nuw %class.ImmutableOopMapPair, ptr %9, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw %"class.ImmutableOopMapBuilder::Mapping", ptr %15, i64 %indvars.iv.i, i32 1
   %37 = load i32, ptr %36, align 4
   %38 = load i32, ptr %18, align 8
   store i32 %38, ptr %35, align 4
-  %39 = getelementptr inbounds i8, ptr %35, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 4
   store i32 %37, ptr %39, align 4
   br label %40
 
@@ -4681,7 +4681,7 @@ _ZN22ImmutableOopMapBuilder4fillEP18ImmutableOopMapSeti.exit: ; preds = %_ZN22Im
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN22ImmutableOopMapBuilder5buildEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #2 align 2 {
   %2 = tail call noundef i32 @_ZN22ImmutableOopMapBuilder9heap_sizeEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  %3 = getelementptr inbounds i8, ptr %0, i64 36
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %2, ptr %3, align 4
   %4 = sext i32 %2 to i64
   %5 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %4, i8 noundef zeroext 4, i32 noundef 0) #19
@@ -4689,25 +4689,25 @@ define hidden noundef ptr @_ZN22ImmutableOopMapBuilder5buildEv(ptr nocapture nou
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr %6, align 4
   store i32 %8, ptr %5, align 4
-  %9 = getelementptr inbounds i8, ptr %5, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %7, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %5, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %12 = load i32, ptr %5, align 4
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %.lr.ph.i.i, label %_ZN22ImmutableOopMapBuilder13generate_intoEPh.exit
 
 .lr.ph.i.i:                                       ; preds = %1
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %15
 
 15:                                               ; preds = %42, %.lr.ph.i.i
   %16 = phi i32 [ %12, %.lr.ph.i.i ], [ %43, %42 ]
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %42 ]
   %17 = load ptr, ptr %14, align 8
-  %18 = getelementptr inbounds %"class.ImmutableOopMapBuilder::Mapping", ptr %17, i64 %indvars.iv.i.i
-  %19 = getelementptr inbounds i8, ptr %18, i64 16
+  %18 = getelementptr inbounds nuw %"class.ImmutableOopMapBuilder::Mapping", ptr %17, i64 %indvars.iv.i.i
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = load i32, ptr %18, align 8
   switch i32 %21, label %42 [
@@ -4717,15 +4717,15 @@ define hidden noundef ptr @_ZN22ImmutableOopMapBuilder5buildEv(ptr nocapture nou
   ]
 
 22:                                               ; preds = %15
-  %23 = getelementptr inbounds %class.ImmutableOopMapPair, ptr %11, i64 %indvars.iv.i.i
-  %24 = getelementptr inbounds i8, ptr %18, i64 4
+  %23 = getelementptr inbounds nuw %class.ImmutableOopMapPair, ptr %11, i64 %indvars.iv.i.i
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %25 = load i32, ptr %24, align 4
   %26 = load i32, ptr %20, align 8
   store i32 %26, ptr %23, align 4
-  %27 = getelementptr inbounds i8, ptr %23, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store i32 %25, ptr %27, align 4
   %28 = load ptr, ptr %10, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load i32, ptr %28, align 4
   %31 = sext i32 %30 to i64
   %32 = shl nsw i64 %31, 3
@@ -4737,12 +4737,12 @@ define hidden noundef ptr @_ZN22ImmutableOopMapBuilder5buildEv(ptr nocapture nou
   br label %42
 
 36:                                               ; preds = %15, %15
-  %37 = getelementptr inbounds %class.ImmutableOopMapPair, ptr %11, i64 %indvars.iv.i.i
-  %38 = getelementptr inbounds %"class.ImmutableOopMapBuilder::Mapping", ptr %17, i64 %indvars.iv.i.i, i32 1
+  %37 = getelementptr inbounds nuw %class.ImmutableOopMapPair, ptr %11, i64 %indvars.iv.i.i
+  %38 = getelementptr inbounds nuw %"class.ImmutableOopMapBuilder::Mapping", ptr %17, i64 %indvars.iv.i.i, i32 1
   %39 = load i32, ptr %38, align 4
   %40 = load i32, ptr %20, align 8
   store i32 %40, ptr %37, align 4
-  %41 = getelementptr inbounds i8, ptr %37, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 4
   store i32 %39, ptr %41, align 4
   br label %42
 
@@ -4769,34 +4769,34 @@ define hidden noundef ptr @_ZN18ImmutableOopMapSet10build_fromEPK9OopMapSet(ptr 
   %2 = alloca %class.ImmutableOopMapBuilder, align 8
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 800
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 800
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %14 = load i64, ptr %13, align 8
   store ptr %0, ptr %2, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 8
-  %16 = getelementptr inbounds i8, ptr %2, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   store i32 -1, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 -1, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %2, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 0, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %2, i64 36
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 36
   store i32 -1, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %2, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr null, ptr %20, align 8
   %21 = load i32, ptr %0, align 4
   %22 = sext i32 %21 to i64
   %23 = shl nsw i64 %22, 5
   %24 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %23, i32 noundef 0) #19
-  %25 = getelementptr inbounds i8, ptr %2, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr %24, ptr %25, align 8
   %26 = call noundef ptr @_ZN22ImmutableOopMapBuilder5buildEv(ptr noundef nonnull align 8 dereferenceable(56) %2)
   %27 = load ptr, ptr %8, align 8
@@ -4873,9 +4873,9 @@ define hidden void @_ZN19DerivedPointerTable3addEP15derived_pointerP12derived_ba
   store i64 %3, ptr %0, align 8
   %7 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i8 noundef zeroext 7, i32 noundef 0) #19
   store ptr %0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %6, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store volatile ptr null, ptr %9, align 8
   %10 = load ptr, ptr @_ZN19DerivedPointerTable5Entry5_listE, align 8
   %11 = load volatile ptr, ptr %10, align 8
@@ -4901,10 +4901,10 @@ define hidden void @_ZN19DerivedPointerTable15update_pointersEv() local_unnamed_
 
 .lr.ph:                                           ; preds = %0, %.lr.ph
   %.011 = phi ptr [ %4, %.lr.ph ], [ %2, %0 ]
-  %3 = getelementptr inbounds i8, ptr %.011, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %.011, i64 16
   %4 = load volatile ptr, ptr %3, align 8
   %5 = load ptr, ptr %.011, align 8
-  %6 = getelementptr inbounds i8, ptr %.011, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %.011, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %8, align 8
@@ -5010,9 +5010,9 @@ declare void @_ZN21CompressedWriteStream4growEv(ptr noundef nonnull align 8 dere
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP6OopMap13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #2 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %7, label %9
@@ -5044,7 +5044,7 @@ _ZN13GrowableArrayIP6OopMapE8allocateEv.exit:     ; preds = %7, %11, %15
   br i1 %19, label %.lr.ph, label %.preheader16
 
 .lr.ph:                                           ; preds = %_ZN13GrowableArrayIP6OopMapE8allocateEv.exit
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %25
 
 .preheader16.loopexit:                            ; preds = %25
@@ -5063,9 +5063,9 @@ _ZN13GrowableArrayIP6OopMapE8allocateEv.exit:     ; preds = %7, %11, %15
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds ptr, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5075,14 +5075,14 @@ _ZN13GrowableArrayIP6OopMapE8allocateEv.exit:     ; preds = %7, %11, %15
   br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !36
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8
   %.not = icmp eq ptr %34, null
   br i1 %.not, label %_ZN13GrowableArrayIP6OopMapE10deallocateEPS1_.exit, label %39
 
 .lr.ph19:                                         ; preds = %.lr.ph19.preheader, %.lr.ph19
   %indvars.iv21 = phi i64 [ %24, %.lr.ph19.preheader ], [ %indvars.iv.next22, %.lr.ph19 ]
-  %35 = getelementptr inbounds ptr, ptr %.0.i, i64 %indvars.iv21
+  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv21
   store ptr null, ptr %35, align 8
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %36 = load i32, ptr %3, align 4
@@ -5122,7 +5122,7 @@ define linkonce_odr hidden void @_ZN17ProcessDerivedOop14do_derived_oopEP12deriv
   %5 = load i64, ptr %2, align 8
   %6 = sub i64 %5, %4
   store i64 %4, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %9, align 8
@@ -5142,9 +5142,9 @@ define linkonce_odr hidden void @_ZN13AddDerivedOop14do_derived_oopEP12derived_b
   store i64 %4, ptr %2, align 8
   %8 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i8 noundef zeroext 7, i32 noundef 0) #19
   store ptr %2, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %7, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %8, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store volatile ptr null, ptr %10, align 8
   %11 = load ptr, ptr @_ZN19DerivedPointerTable5Entry5_listE, align 8
   %12 = load volatile ptr, ptr %11, align 8
@@ -5179,20 +5179,20 @@ declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8OopMapDoI10OopClosure17DerivedOopClosure13SkipNullValueE15iterate_oops_doI11RegisterMapEEvPK5framePKT_PK15ImmutableOopMap(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 comdat align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %_ZN12OopMapStream7is_doneEv.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %3, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %9 = load i32, ptr %3, align 4
   %10 = load i32, ptr @_ZN9VMRegImpl15stack_slot_sizeE, align 4
-  %11 = getelementptr inbounds i8, ptr %2, i64 4968
-  %12 = getelementptr inbounds i8, ptr %1, i64 16
-  %13 = getelementptr inbounds i8, ptr %1, i64 48
-  %14 = getelementptr inbounds i8, ptr %1, i64 40
-  %15 = getelementptr inbounds i8, ptr %2, i64 4872
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 4968
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 4872
   br label %_ZN12OopMapStream4nextEv.exit
 
 _ZN12OopMapStream4nextEv.exit:                    ; preds = %_ZN12OopMapStream4nextEv.exit.backedge, %7
@@ -5326,7 +5326,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %_ZN20CompressedRead
 83:                                               ; preds = %_ZN12OopMapStream7is_doneEv.exit.thread
   %84 = lshr i16 %.sroa.26177.2186, 2
   %85 = zext nneg i16 %84 to i64
-  %86 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %85
+  %86 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %85
   %87 = ptrtoint ptr %86 to i64
   %88 = trunc i64 %87 to i32
   %89 = sub i32 %88, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
@@ -5379,7 +5379,7 @@ _ZNK11RegisterMap7in_contEv.exit.i:               ; preds = %107
   br label %122
 
 115:                                              ; preds = %113
-  %116 = getelementptr inbounds i8, ptr %114, i64 44
+  %116 = getelementptr inbounds nuw i8, ptr %114, i64 44
   %117 = load i32, ptr %116, align 4
   %118 = icmp sgt i32 %117, 0
   %.pre.i.i.pre245 = load ptr, ptr %13, align 8
@@ -5387,7 +5387,7 @@ _ZNK11RegisterMap7in_contEv.exit.i:               ; preds = %107
 
 119:                                              ; preds = %115
   %120 = zext nneg i32 %117 to i64
-  %121 = getelementptr inbounds i64, ptr %.pre.i.i.pre245, i64 %120
+  %121 = getelementptr inbounds nuw i64, ptr %.pre.i.i.pre245, i64 %120
   br label %_ZNK17stackChunkOopDesc21relativize_usp_offsetERK5framei.exit.i
 
 122:                                              ; preds = %._crit_edge, %115
@@ -5488,7 +5488,7 @@ _ZNK11RegisterMap7in_contEv.exit.i37:             ; preds = %164
   br label %179
 
 172:                                              ; preds = %170
-  %173 = getelementptr inbounds i8, ptr %171, i64 44
+  %173 = getelementptr inbounds nuw i8, ptr %171, i64 44
   %174 = load i32, ptr %173, align 4
   %175 = icmp sgt i32 %174, 0
   %.pre.i.i41.pre248 = load ptr, ptr %13, align 8
@@ -5496,7 +5496,7 @@ _ZNK11RegisterMap7in_contEv.exit.i37:             ; preds = %164
 
 176:                                              ; preds = %172
   %177 = zext nneg i32 %174 to i64
-  %178 = getelementptr inbounds i64, ptr %.pre.i.i41.pre248, i64 %177
+  %178 = getelementptr inbounds nuw i64, ptr %.pre.i.i41.pre248, i64 %177
   br label %_ZNK17stackChunkOopDesc21relativize_usp_offsetERK5framei.exit.i42
 
 179:                                              ; preds = %._crit_edge247, %172
@@ -5672,14 +5672,14 @@ _ZN12OopMapStream7is_doneEv.exit:                 ; preds = %16, %4
   br i1 %.not27, label %_ZN12OopMapStream7is_doneEv.exit55, label %270
 
 270:                                              ; preds = %_ZN12OopMapStream7is_doneEv.exit
-  %271 = getelementptr inbounds i8, ptr %3, i64 12
+  %271 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %272 = load i32, ptr %3, align 4
   %273 = load i32, ptr @_ZN9VMRegImpl15stack_slot_sizeE, align 4
-  %274 = getelementptr inbounds i8, ptr %2, i64 4968
-  %275 = getelementptr inbounds i8, ptr %1, i64 16
-  %276 = getelementptr inbounds i8, ptr %1, i64 48
-  %277 = getelementptr inbounds i8, ptr %1, i64 40
-  %278 = getelementptr inbounds i8, ptr %2, i64 4872
+  %274 = getelementptr inbounds nuw i8, ptr %2, i64 4968
+  %275 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %276 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %277 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %278 = getelementptr inbounds nuw i8, ptr %2, i64 4872
   br label %_ZN12OopMapStream4nextEv.exit73
 
 _ZN12OopMapStream4nextEv.exit73:                  ; preds = %_ZN12OopMapStream4nextEv.exit73.backedge, %270
@@ -5794,7 +5794,7 @@ _ZN12OopMapStream7is_doneEv.exit55.thread:        ; preds = %_ZN20CompressedRead
 330:                                              ; preds = %_ZN12OopMapStream7is_doneEv.exit55.thread
   %331 = lshr i16 %.sroa.26.2201, 2
   %332 = zext nneg i16 %331 to i64
-  %333 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %332
+  %333 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %332
   %334 = ptrtoint ptr %333 to i64
   %335 = trunc i64 %334 to i32
   %336 = sub i32 %335, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
@@ -5847,7 +5847,7 @@ _ZNK11RegisterMap7in_contEv.exit.i58:             ; preds = %354
   br label %369
 
 362:                                              ; preds = %360
-  %363 = getelementptr inbounds i8, ptr %361, i64 44
+  %363 = getelementptr inbounds nuw i8, ptr %361, i64 44
   %364 = load i32, ptr %363, align 4
   %365 = icmp sgt i32 %364, 0
   %.pre.i.i62.pre251 = load ptr, ptr %276, align 8
@@ -5855,7 +5855,7 @@ _ZNK11RegisterMap7in_contEv.exit.i58:             ; preds = %354
 
 366:                                              ; preds = %362
   %367 = zext nneg i32 %364 to i64
-  %368 = getelementptr inbounds i64, ptr %.pre.i.i62.pre251, i64 %367
+  %368 = getelementptr inbounds nuw i64, ptr %.pre.i.i62.pre251, i64 %367
   br label %_ZNK17stackChunkOopDesc21relativize_usp_offsetERK5framei.exit.i63
 
 369:                                              ; preds = %._crit_edge250, %362
@@ -5927,7 +5927,7 @@ _ZN13SkipNullValue11should_skipEPv.exit70.thread210: ; preds = %392
 400:                                              ; preds = %388
   %401 = load ptr, ptr %0, align 8
   %402 = load ptr, ptr %401, align 8
-  %403 = getelementptr inbounds i8, ptr %402, i64 8
+  %403 = getelementptr inbounds nuw i8, ptr %402, i64 8
   %404 = load ptr, ptr %403, align 8
   tail call void %404(ptr noundef nonnull align 8 dereferenceable(8) %401, ptr noundef nonnull %.0.i66) #19
   br label %_ZN13SkipNullValue11should_skipEPv.exit70.thread

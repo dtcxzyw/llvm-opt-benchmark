@@ -8,9 +8,9 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zend_optimize_temporary_variables(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load i32, ptr %5, align 8
   %7 = load ptr, ptr %1, align 8
   %8 = load ptr, ptr %7, align 8
@@ -18,7 +18,7 @@ define hidden void @zend_optimize_temporary_variables(ptr nocapture noundef %0, 
   %10 = add nuw nsw i64 %9, 63
   %sh.diff = lshr i64 %10, 3
   %11 = and i64 %sh.diff, 1073741816
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
   %15 = ptrtoint ptr %8 to i64
@@ -27,11 +27,11 @@ define hidden void @zend_optimize_temporary_variables(ptr nocapture noundef %0, 
   br i1 %.not, label %19, label %17
 
 17:                                               ; preds = %2
-  %18 = getelementptr inbounds i8, ptr %8, i64 %11
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 %11
   store ptr %18, ptr %7, align 8
   %.pre = load ptr, ptr %1, align 8
   %.pre495 = load ptr, ptr %.pre, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %.pre496 = load ptr, ptr %.phi.trans.insert, align 8
   br label %29
 
@@ -41,13 +41,13 @@ define hidden void @zend_optimize_temporary_variables(ptr nocapture noundef %0, 
   %22 = sub i64 %14, %21
   %. = tail call i64 @llvm.umax.i64(i64 %20, i64 %22)
   %23 = tail call noalias ptr @_emalloc(i64 noundef %.) #5
-  %24 = getelementptr inbounds i8, ptr %23, i64 24
-  %25 = getelementptr inbounds i8, ptr %24, i64 %11
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 %11
   store ptr %25, ptr %23, align 8
   %26 = getelementptr inbounds i8, ptr %23, i64 %.
-  %27 = getelementptr inbounds i8, ptr %23, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %26, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %23, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store ptr %7, ptr %28, align 8
   store ptr %23, ptr %1, align 8
   br label %29
@@ -65,11 +65,11 @@ define hidden void @zend_optimize_temporary_variables(ptr nocapture noundef %0, 
   br i1 %.not397, label %39, label %37
 
 37:                                               ; preds = %29
-  %38 = getelementptr inbounds i8, ptr %31, i64 %33
+  %38 = getelementptr inbounds nuw i8, ptr %31, i64 %33
   store ptr %38, ptr %32, align 8
   %.pre497 = load ptr, ptr %1, align 8
   %.pre498 = load ptr, ptr %.pre497, align 8
-  %.phi.trans.insert499 = getelementptr inbounds i8, ptr %.pre497, i64 8
+  %.phi.trans.insert499 = getelementptr inbounds nuw i8, ptr %.pre497, i64 8
   %.pre500 = load ptr, ptr %.phi.trans.insert499, align 8
   br label %49
 
@@ -79,13 +79,13 @@ define hidden void @zend_optimize_temporary_variables(ptr nocapture noundef %0, 
   %42 = sub i64 %34, %41
   %.413 = tail call i64 @llvm.umax.i64(i64 %40, i64 %42)
   %43 = tail call noalias ptr @_emalloc(i64 noundef %.413) #5
-  %44 = getelementptr inbounds i8, ptr %43, i64 24
-  %45 = getelementptr inbounds i8, ptr %44, i64 %33
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 %33
   store ptr %45, ptr %43, align 8
   %46 = getelementptr inbounds i8, ptr %43, i64 %.413
-  %47 = getelementptr inbounds i8, ptr %43, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store ptr %46, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %43, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %43, i64 16
   store ptr %32, ptr %48, align 8
   store ptr %43, ptr %1, align 8
   br label %49
@@ -105,7 +105,7 @@ define hidden void @zend_optimize_temporary_variables(ptr nocapture noundef %0, 
   br i1 %.not398, label %61, label %59
 
 59:                                               ; preds = %49
-  %60 = getelementptr inbounds i8, ptr %51, i64 %55
+  %60 = getelementptr inbounds nuw i8, ptr %51, i64 %55
   store ptr %60, ptr %52, align 8
   br label %.lr.ph
 
@@ -115,13 +115,13 @@ define hidden void @zend_optimize_temporary_variables(ptr nocapture noundef %0, 
   %64 = sub i64 %56, %63
   %.414 = tail call i64 @llvm.umax.i64(i64 %62, i64 %64)
   %65 = tail call noalias ptr @_emalloc(i64 noundef %.414) #5
-  %66 = getelementptr inbounds i8, ptr %65, i64 24
-  %67 = getelementptr inbounds i8, ptr %66, i64 %55
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 %55
   store ptr %67, ptr %65, align 8
   %68 = getelementptr inbounds i8, ptr %65, i64 %.414
-  %69 = getelementptr inbounds i8, ptr %65, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store ptr %68, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %65, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %65, i64 16
   store ptr %52, ptr %70, align 8
   store ptr %65, ptr %1, align 8
   br label %.lr.ph
@@ -129,31 +129,31 @@ define hidden void @zend_optimize_temporary_variables(ptr nocapture noundef %0, 
 .lr.ph:                                           ; preds = %59, %61
   %.0376 = phi ptr [ %51, %59 ], [ %66, %61 ]
   tail call void @llvm.memset.p0.i64(ptr align 4 %.0376, i8 -1, i64 %53, i1 false)
-  %71 = getelementptr inbounds i8, ptr %0, i64 88
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %0, i64 84
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %74 = load i32, ptr %73, align 4
   %75 = add i32 %74, -1
   %76 = zext i32 %75 to i64
-  %77 = getelementptr inbounds %struct._zend_op, ptr %72, i64 %76
+  %77 = getelementptr inbounds nuw %struct._zend_op, ptr %72, i64 %76
   br label %78
 
 78:                                               ; preds = %.lr.ph, %89
   %.0372425 = phi ptr [ %77, %.lr.ph ], [ %90, %89 ]
-  %79 = getelementptr inbounds i8, ptr %.0372425, i64 31
+  %79 = getelementptr inbounds nuw i8, ptr %.0372425, i64 31
   %80 = load i8, ptr %79, align 1
   %81 = and i8 %80, 6
   %.not412 = icmp eq i8 %81, 0
   br i1 %.not412, label %89, label %82
 
 82:                                               ; preds = %78
-  %83 = getelementptr inbounds i8, ptr %.0372425, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %.0372425, i64 16
   %84 = load i32, ptr %83, align 8
   %85 = lshr i32 %84, 4
   %reass.sub = sub i32 %85, %6
   %86 = add i32 %reass.sub, -5
   %87 = zext i32 %86 to i64
-  %88 = getelementptr inbounds ptr, ptr %.0375, i64 %87
+  %88 = getelementptr inbounds nuw ptr, ptr %.0375, i64 %87
   store ptr %.0372425, ptr %88, align 8
   br label %89
 
@@ -168,33 +168,33 @@ define hidden void @zend_optimize_temporary_variables(ptr nocapture noundef %0, 
   %92 = load i32, ptr %73, align 4
   %93 = add i32 %92, -1
   %94 = zext i32 %93 to i64
-  %95 = getelementptr inbounds %struct._zend_op, ptr %91, i64 %94
-  %96 = getelementptr inbounds i8, ptr %0, i64 4
+  %95 = getelementptr inbounds nuw %struct._zend_op, ptr %91, i64 %94
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.not475 = icmp eq i32 %4, 0
   br label %97
 
 97:                                               ; preds = %.lr.ph467, %.thread
   %.0367465 = phi i32 [ -1, %.lr.ph467 ], [ %.7, %.thread ]
   %.1373460 = phi ptr [ %95, %.lr.ph467 ], [ %312, %.thread ]
-  %98 = getelementptr inbounds i8, ptr %.1373460, i64 29
+  %98 = getelementptr inbounds nuw i8, ptr %.1373460, i64 29
   %99 = load i8, ptr %98, align 1
   %100 = and i8 %99, 6
   %.not401 = icmp eq i8 %100, 0
   br i1 %.not401, label %.loopexit, label %101
 
 101:                                              ; preds = %97
-  %102 = getelementptr inbounds i8, ptr %.1373460, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %.1373460, i64 8
   %103 = load i32, ptr %102, align 8
   %104 = lshr i32 %103, 4
   %reass.sub478 = sub i32 %104, %6
   %105 = add i32 %reass.sub478, -5
-  %106 = getelementptr inbounds i8, ptr %.1373460, i64 28
+  %106 = getelementptr inbounds nuw i8, ptr %.1373460, i64 28
   %107 = load i8, ptr %106, align 4
   %108 = icmp eq i8 %107, 56
   br i1 %108, label %109, label %157
 
 109:                                              ; preds = %101
-  %110 = getelementptr inbounds i8, ptr %.1373460, i64 20
+  %110 = getelementptr inbounds nuw i8, ptr %.1373460, i64 20
   %111 = load i32, ptr %110, align 4
   %112 = add i32 %111, 1
   %113 = zext i32 %112 to i64
@@ -212,7 +212,7 @@ define hidden void @zend_optimize_temporary_variables(ptr nocapture noundef %0, 
 .lr.ph438:                                        ; preds = %.lr.ph438.preheader, %126
   %indvars.iv482 = phi i64 [ %119, %.lr.ph438.preheader ], [ %indvars.iv.next483, %126 ]
   %120 = lshr i64 %indvars.iv482, 6
-  %121 = getelementptr inbounds i64, ptr %.0374, i64 %120
+  %121 = getelementptr inbounds nuw i64, ptr %.0374, i64 %120
   %122 = load i64, ptr %121, align 8
   %123 = and i64 %indvars.iv482, 63
   %124 = shl nuw i64 1, %123
@@ -242,7 +242,7 @@ define hidden void @zend_optimize_temporary_variables(ptr nocapture noundef %0, 
   %136 = shl nuw i64 1, %135
   %137 = lshr i32 %131, 6
   %138 = zext nneg i32 %137 to i64
-  %139 = getelementptr inbounds i64, ptr %.0374, i64 %138
+  %139 = getelementptr inbounds nuw i64, ptr %.0374, i64 %138
   %140 = load i64, ptr %139, align 8
   %141 = or i64 %140, %136
   store i64 %141, ptr %139, align 8
@@ -262,7 +262,7 @@ define hidden void @zend_optimize_temporary_variables(ptr nocapture noundef %0, 
   %150 = shl nuw i64 1, %149
   %151 = lshr i32 %147, 6
   %152 = zext nneg i32 %151 to i64
-  %153 = getelementptr inbounds i64, ptr %.0374, i64 %152
+  %153 = getelementptr inbounds nuw i64, ptr %.0374, i64 %152
   %154 = load i64, ptr %153, align 8
   %155 = or i64 %154, %150
   store i64 %155, ptr %153, align 8
@@ -321,7 +321,7 @@ define hidden void @zend_optimize_temporary_variables(ptr nocapture noundef %0, 
   %177 = shl nuw i64 1, %176
   %178 = lshr i32 %174, 6
   %179 = zext nneg i32 %178 to i64
-  %180 = getelementptr inbounds i64, ptr %.0374, i64 %179
+  %180 = getelementptr inbounds nuw i64, ptr %.0374, i64 %179
   %181 = load i64, ptr %180, align 8
   %182 = or i64 %181, %177
   store i64 %182, ptr %180, align 8
@@ -333,7 +333,7 @@ define hidden void @zend_optimize_temporary_variables(ptr nocapture noundef %0, 
 .lr.ph432:                                        ; preds = %.critedge416, %189
   %indvars.iv = phi i64 [ %indvars.iv.next, %189 ], [ 0, %.critedge416 ]
   %183 = lshr i64 %indvars.iv, 6
-  %184 = getelementptr inbounds i64, ptr %.0374, i64 %183
+  %184 = getelementptr inbounds nuw i64, ptr %.0374, i64 %183
   %185 = load i64, ptr %184, align 8
   %186 = and i64 %indvars.iv, 63
   %187 = shl nuw i64 1, %186
@@ -357,7 +357,7 @@ define hidden void @zend_optimize_temporary_variables(ptr nocapture noundef %0, 
   %193 = shl nuw i64 1, %192
   %194 = lshr i32 %.1369.lcssa, 6
   %195 = zext nneg i32 %194 to i64
-  %196 = getelementptr inbounds i64, ptr %.0374, i64 %195
+  %196 = getelementptr inbounds nuw i64, ptr %.0374, i64 %195
   %197 = load i64, ptr %196, align 8
   %198 = or i64 %197, %193
   store i64 %198, ptr %196, align 8
@@ -381,14 +381,14 @@ define hidden void @zend_optimize_temporary_variables(ptr nocapture noundef %0, 
 
 .loopexit:                                        ; preds = %.lr.ph443, %.critedge, %200, %97
   %.1 = phi i32 [ %.2, %200 ], [ %.0367465, %97 ], [ %130, %.critedge ], [ %130, %.lr.ph443 ]
-  %205 = getelementptr inbounds i8, ptr %.1373460, i64 30
+  %205 = getelementptr inbounds nuw i8, ptr %.1373460, i64 30
   %206 = load i8, ptr %205, align 2
   %207 = and i8 %206, 6
   %.not409 = icmp eq i8 %207, 0
   br i1 %.not409, label %238, label %208
 
 208:                                              ; preds = %.loopexit
-  %209 = getelementptr inbounds i8, ptr %.1373460, i64 12
+  %209 = getelementptr inbounds nuw i8, ptr %.1373460, i64 12
   %210 = load i32, ptr %209, align 4
   %211 = lshr i32 %210, 4
   %reass.sub479 = sub i32 %211, %6
@@ -405,7 +405,7 @@ define hidden void @zend_optimize_temporary_variables(ptr nocapture noundef %0, 
 .lr.ph445:                                        ; preds = %.preheader423, %223
   %indvars.iv485 = phi i64 [ %indvars.iv.next486, %223 ], [ 0, %.preheader423 ]
   %217 = lshr i64 %indvars.iv485, 6
-  %218 = getelementptr inbounds i64, ptr %.0374, i64 %217
+  %218 = getelementptr inbounds nuw i64, ptr %.0374, i64 %217
   %219 = load i64, ptr %218, align 8
   %220 = and i64 %indvars.iv485, 63
   %221 = shl nuw i64 1, %220
@@ -429,7 +429,7 @@ define hidden void @zend_optimize_temporary_variables(ptr nocapture noundef %0, 
   %227 = shl nuw i64 1, %226
   %228 = lshr i32 %.2370.lcssa, 6
   %229 = zext nneg i32 %228 to i64
-  %230 = getelementptr inbounds i64, ptr %.0374, i64 %229
+  %230 = getelementptr inbounds nuw i64, ptr %.0374, i64 %229
   %231 = load i64, ptr %230, align 8
   %232 = or i64 %231, %227
   store i64 %232, ptr %230, align 8
@@ -448,14 +448,14 @@ define hidden void @zend_optimize_temporary_variables(ptr nocapture noundef %0, 
 
 238:                                              ; preds = %233, %.loopexit
   %.4 = phi i32 [ %.5, %233 ], [ %.1, %.loopexit ]
-  %239 = getelementptr inbounds i8, ptr %.1373460, i64 31
+  %239 = getelementptr inbounds nuw i8, ptr %.1373460, i64 31
   %240 = load i8, ptr %239, align 1
   %241 = and i8 %240, 6
   %.not410 = icmp eq i8 %241, 0
   br i1 %.not410, label %.thread, label %242
 
 242:                                              ; preds = %238
-  %243 = getelementptr inbounds i8, ptr %.1373460, i64 16
+  %243 = getelementptr inbounds nuw i8, ptr %.1373460, i64 16
   %244 = load i32, ptr %243, align 8
   %245 = lshr i32 %244, 4
   %reass.sub480 = sub i32 %245, %6
@@ -472,7 +472,7 @@ define hidden void @zend_optimize_temporary_variables(ptr nocapture noundef %0, 
 .lr.ph451:                                        ; preds = %.preheader, %257
   %indvars.iv490 = phi i64 [ %indvars.iv.next491, %257 ], [ 0, %.preheader ]
   %251 = lshr i64 %indvars.iv490, 6
-  %252 = getelementptr inbounds i64, ptr %.0374, i64 %251
+  %252 = getelementptr inbounds nuw i64, ptr %.0374, i64 %251
   %253 = load i64, ptr %252, align 8
   %254 = and i64 %indvars.iv490, 63
   %255 = shl nuw i64 1, %254
@@ -496,7 +496,7 @@ define hidden void @zend_optimize_temporary_variables(ptr nocapture noundef %0, 
   %261 = shl nuw i64 1, %260
   %262 = lshr i32 %.3371.lcssa, 6
   %263 = zext nneg i32 %262 to i64
-  %264 = getelementptr inbounds i64, ptr %.0374, i64 %263
+  %264 = getelementptr inbounds nuw i64, ptr %.0374, i64 %263
   %265 = load i64, ptr %264, align 8
   %266 = or i64 %265, %261
   store i64 %266, ptr %264, align 8
@@ -517,7 +517,7 @@ define hidden void @zend_optimize_temporary_variables(ptr nocapture noundef %0, 
   br i1 %274, label %275, label %.thread
 
 275:                                              ; preds = %267
-  %276 = getelementptr inbounds i8, ptr %.1373460, i64 28
+  %276 = getelementptr inbounds nuw i8, ptr %.1373460, i64 28
   %277 = load i8, ptr %276, align 4
   %.not411 = icmp eq i8 %277, -94
   br i1 %.not411, label %.thread, label %278
@@ -530,7 +530,7 @@ define hidden void @zend_optimize_temporary_variables(ptr nocapture noundef %0, 
   %283 = xor i64 %282, -1
   %284 = lshr i32 %279, 6
   %285 = zext nneg i32 %284 to i64
-  %286 = getelementptr inbounds i64, ptr %.0374, i64 %285
+  %286 = getelementptr inbounds nuw i64, ptr %.0374, i64 %285
   %287 = load i64, ptr %286, align 8
   %288 = and i64 %287, %283
   store i64 %288, ptr %286, align 8
@@ -539,7 +539,7 @@ define hidden void @zend_optimize_temporary_variables(ptr nocapture noundef %0, 
   br i1 %289, label %290, label %.thread
 
 290:                                              ; preds = %278
-  %291 = getelementptr inbounds i8, ptr %.1373460, i64 20
+  %291 = getelementptr inbounds nuw i8, ptr %.1373460, i64 20
   %292 = load i32, ptr %291, align 4
   %293 = icmp ugt i32 %292, 2
   br i1 %293, label %.lr.ph458.preheader, label %.thread
@@ -563,7 +563,7 @@ define hidden void @zend_optimize_temporary_variables(ptr nocapture noundef %0, 
   %305 = xor i64 %304, -1
   %306 = lshr i32 %301, 6
   %307 = zext nneg i32 %306 to i64
-  %308 = getelementptr inbounds i64, ptr %.0374, i64 %307
+  %308 = getelementptr inbounds nuw i64, ptr %.0374, i64 %307
   %309 = load i64, ptr %308, align 8
   %310 = and i64 %309, %305
   store i64 %310, ptr %308, align 8
@@ -578,7 +578,7 @@ define hidden void @zend_optimize_temporary_variables(ptr nocapture noundef %0, 
 
 ._crit_edge468:                                   ; preds = %.thread
   %313 = load ptr, ptr %1, align 8
-  %314 = getelementptr inbounds i8, ptr %313, i64 8
+  %314 = getelementptr inbounds nuw i8, ptr %313, i64 8
   %315 = load ptr, ptr %314, align 8
   %316 = icmp ugt ptr %8, %315
   %317 = icmp ule ptr %8, %313
@@ -587,11 +587,11 @@ define hidden void @zend_optimize_temporary_variables(ptr nocapture noundef %0, 
 
 .lr.ph472:                                        ; preds = %._crit_edge468, %.lr.ph472
   %.0366470 = phi ptr [ %320, %.lr.ph472 ], [ %313, %._crit_edge468 ]
-  %319 = getelementptr inbounds i8, ptr %.0366470, i64 16
+  %319 = getelementptr inbounds nuw i8, ptr %.0366470, i64 16
   %320 = load ptr, ptr %319, align 8
   tail call void @_efree(ptr noundef nonnull %.0366470) #6
   store ptr %320, ptr %1, align 8
-  %321 = getelementptr inbounds i8, ptr %320, i64 8
+  %321 = getelementptr inbounds nuw i8, ptr %320, i64 8
   %322 = load ptr, ptr %321, align 8
   %323 = icmp ugt ptr %8, %322
   %324 = icmp ule ptr %8, %320

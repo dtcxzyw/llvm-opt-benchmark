@@ -45,7 +45,7 @@ define hidden noundef range(i64 16384, 0) i64 @_ZN20AccessBarrierSupport32resolv
 5:                                                ; preds = %3
   %6 = load i8, ptr @UseCompressedClassPointers, align 1
   %7 = trunc i8 %6 to i1
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br i1 %7, label %_ZN23java_lang_ref_Reference8is_finalEP7oopDesc.exit, label %_ZN23java_lang_ref_Reference8is_finalEP7oopDesc.exit.thread
 
 _ZN23java_lang_ref_Reference8is_finalEP7oopDesc.exit: ; preds = %5
@@ -58,14 +58,14 @@ _ZN23java_lang_ref_Reference8is_finalEP7oopDesc.exit: ; preds = %5
   %15 = shl i64 %13, %14
   %16 = add i64 %15, %12
   %17 = inttoptr i64 %16 to ptr
-  %18 = getelementptr inbounds i8, ptr %17, i64 306
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 306
   %19 = load i8, ptr %18, align 2
   %20 = icmp eq i8 %19, 3
   br i1 %20, label %27, label %_ZN23java_lang_ref_Reference10is_phantomEP7oopDesc.exit
 
 _ZN23java_lang_ref_Reference8is_finalEP7oopDesc.exit.thread: ; preds = %5
   %21 = load ptr, ptr %8, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 306
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 306
   %23 = load i8, ptr %22, align 2
   %24 = icmp eq i8 %23, 3
   br i1 %24, label %27, label %_ZN23java_lang_ref_Reference10is_phantomEP7oopDesc.exit

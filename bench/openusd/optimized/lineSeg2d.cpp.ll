@@ -69,12 +69,12 @@ define { double, double } @_ZNK32pxrInternal_v0_24__pxrReserved__11GfLineSeg2d16
   %20 = fmul double %storemerge, %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.0.0.copyload2.i.i.i = load double, ptr %21, align 8
-  %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.4.0.copyload.i.i.i = load double, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8
   %22 = fmul double %20, %.sroa.0.0.copyload2.i.i.i
   %23 = fmul double %20, %.sroa.4.0.copyload.i.i.i
   %.sroa.0.0.copyload2.i2.i.i = load double, ptr %0, align 8
-  %.sroa.4.0..sroa_idx.i3.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.4.0..sroa_idx.i3.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.4.0.copyload.i4.i.i = load double, ptr %.sroa.4.0..sroa_idx.i3.i.i, align 8
   %24 = fadd double %22, %.sroa.0.0.copyload2.i2.i.i
   %25 = fadd double %23, %.sroa.4.0.copyload.i4.i.i
@@ -107,17 +107,17 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__19GfFindClosestP
   %19 = fmul double %15, %.0.i
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.0.0.copyload2.i.i.i = load double, ptr %20, align 8
-  %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %1, i64 24
+  %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.4.0.copyload.i.i.i = load double, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8
   %21 = fmul double %.sroa.0.0.copyload2.i.i.i, %19
   %22 = fmul double %.sroa.4.0.copyload.i.i.i, %19
   %.sroa.0.0.copyload2.i2.i.i = load double, ptr %1, align 8
-  %.sroa.4.0..sroa_idx.i3.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.4.0..sroa_idx.i3.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.4.0.copyload.i4.i.i = load double, ptr %.sroa.4.0..sroa_idx.i3.i.i, align 8
   %23 = fadd double %.sroa.0.0.copyload2.i2.i.i, %21
   %24 = fadd double %.sroa.4.0.copyload.i4.i.i, %22
   store double %23, ptr %8, align 8
-  %.sroa.23.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
+  %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   store double %24, ptr %.sroa.23.0..sroa_idx, align 8
   %25 = fcmp ole double %.0.i, 0.000000e+00
   %26 = fcmp oge double %.0.i, 1.000000e+00
@@ -129,7 +129,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__19GfFindClosestP
   %29 = extractvalue { double, double } %28, 0
   %30 = extractvalue { double, double } %28, 1
   store double %29, ptr %7, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store double %30, ptr %.sroa.2.0..sroa_idx, align 8
   br label %31
 
@@ -209,17 +209,17 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__19GfFindClosestP
   %26 = fmul double %15, %.0.i
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.0.0.copyload2.i.i.i = load double, ptr %27, align 8
-  %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.4.0.copyload.i.i.i = load double, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8
   %28 = fmul double %26, %.sroa.0.0.copyload2.i.i.i
   %29 = fmul double %26, %.sroa.4.0.copyload.i.i.i
   %.sroa.0.0.copyload2.i2.i.i = load double, ptr %0, align 8
-  %.sroa.4.0..sroa_idx.i3.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.4.0..sroa_idx.i3.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.4.0.copyload.i4.i.i = load double, ptr %.sroa.4.0..sroa_idx.i3.i.i, align 8
   %30 = fadd double %28, %.sroa.0.0.copyload2.i2.i.i
   %31 = fadd double %29, %.sroa.4.0.copyload.i4.i.i
   store double %30, ptr %2, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store double %31, ptr %.sroa.22.0..sroa_idx, align 8
   br label %32
 
@@ -232,17 +232,17 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__19GfFindClosestP
   %35 = fmul double %.0.i25, %34
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.0.0.copyload2.i.i.i26 = load double, ptr %36, align 8
-  %.sroa.4.0..sroa_idx.i.i.i27 = getelementptr inbounds i8, ptr %1, i64 24
+  %.sroa.4.0..sroa_idx.i.i.i27 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.4.0.copyload.i.i.i28 = load double, ptr %.sroa.4.0..sroa_idx.i.i.i27, align 8
   %37 = fmul double %35, %.sroa.0.0.copyload2.i.i.i26
   %38 = fmul double %35, %.sroa.4.0.copyload.i.i.i28
   %.sroa.0.0.copyload2.i2.i.i29 = load double, ptr %1, align 8
-  %.sroa.4.0..sroa_idx.i3.i.i30 = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.4.0..sroa_idx.i3.i.i30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.4.0.copyload.i4.i.i31 = load double, ptr %.sroa.4.0..sroa_idx.i3.i.i30, align 8
   %39 = fadd double %37, %.sroa.0.0.copyload2.i2.i.i29
   %40 = fadd double %38, %.sroa.4.0.copyload.i4.i.i31
   store double %39, ptr %3, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store double %40, ptr %.sroa.2.0..sroa_idx, align 8
   br label %41
 

@@ -126,13 +126,13 @@ define dso_local void @scontrol_print_part(ptr noundef %0, i32 noundef %1, ptr n
 
 14:                                               ; preds = %3
   %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i32, ptr %16, align 8
   %.not51 = icmp eq i32 %17, 0
   br i1 %.not51, label %.loopexit65, label %18
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %15, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = add i32 %17, 1
   %22 = zext i32 %21 to i64
@@ -148,8 +148,8 @@ define dso_local void @scontrol_print_part(ptr noundef %0, i32 noundef %1, ptr n
 
 .thread.us:                                       ; preds = %.lr.ph, %.thread.us
   %indvars.iv78 = phi i64 [ %indvars.iv.next79, %.thread.us ], [ 0, %.lr.ph ]
-  %25 = getelementptr inbounds %struct.partition_info, ptr %20, i64 %indvars.iv78
-  %26 = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv78
+  %25 = getelementptr inbounds nuw %struct.partition_info, ptr %20, i64 %indvars.iv78
+  %26 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv78
   store ptr %25, ptr %26, align 8
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %27 = load i32, ptr %16, align 8
@@ -159,14 +159,14 @@ define dso_local void @scontrol_print_part(ptr noundef %0, i32 noundef %1, ptr n
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %35
   %indvars.iv = phi i64 [ %indvars.iv.next, %35 ], [ 0, %.lr.ph ]
-  %30 = getelementptr inbounds %struct.partition_info, ptr %20, i64 %indvars.iv, i32 24
+  %30 = getelementptr inbounds nuw %struct.partition_info, ptr %20, i64 %indvars.iv, i32 24
   %31 = load ptr, ptr %30, align 8
   %32 = tail call i32 @xstrcmp(ptr noundef nonnull %0, ptr noundef %31) #5
   %.not53 = icmp eq i32 %32, 0
   br i1 %.not53, label %33, label %35
 
 33:                                               ; preds = %.lr.ph.split
-  %34 = getelementptr inbounds %struct.partition_info, ptr %20, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw %struct.partition_info, ptr %20, i64 %indvars.iv
   store ptr %34, ptr %23, align 8
   br label %.loopexit65
 
@@ -214,15 +214,15 @@ define dso_local void @scontrol_print_part(ptr noundef %0, i32 noundef %1, ptr n
 51:                                               ; preds = %48
   %52 = load i64, ptr %15, align 8
   store i64 %52, ptr %7, align 8
-  %53 = getelementptr inbounds i8, ptr %7, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %.041, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %7, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr null, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %8, i64 8
-  %56 = getelementptr inbounds i8, ptr %8, i64 16
-  %57 = getelementptr inbounds i8, ptr %8, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %7, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %8, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i64 %52, ptr %58, align 8
   %59 = sext i32 %.041 to i64
   %60 = call ptr @slurm_xcalloc(i64 noundef %59, i64 noundef 232, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 139, ptr noundef nonnull @__func__.scontrol_print_part) #5
@@ -236,8 +236,8 @@ define dso_local void @scontrol_print_part(ptr noundef %0, i32 noundef %1, ptr n
 
 62:                                               ; preds = %.lr.ph71, %62
   %indvars.iv83 = phi i64 [ 0, %.lr.ph71 ], [ %indvars.iv.next84, %62 ]
-  %63 = getelementptr inbounds %struct.partition_info, ptr %60, i64 %indvars.iv83
-  %64 = getelementptr inbounds ptr, ptr %40, i64 %indvars.iv83
+  %63 = getelementptr inbounds nuw %struct.partition_info, ptr %60, i64 %indvars.iv83
+  %64 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv83
   %65 = load ptr, ptr %64, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %63, ptr noundef nonnull align 8 dereferenceable(232) %65, i64 232, i1 false)
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
@@ -246,10 +246,10 @@ define dso_local void @scontrol_print_part(ptr noundef %0, i32 noundef %1, ptr n
 
 .loopexit92:                                      ; preds = %62, %51
   store i32 463606195, ptr %9, align 8
-  %66 = getelementptr inbounds i8, ptr %9, i64 4
-  %67 = getelementptr inbounds i8, ptr %9, i64 8
-  %68 = getelementptr inbounds i8, ptr %9, i64 16
-  %69 = getelementptr inbounds i8, ptr %9, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %67 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i32 0, ptr %66, align 4
   %70 = load ptr, ptr @data_parser, align 8
   store ptr %70, ptr %69, align 8
@@ -302,7 +302,7 @@ define dso_local void @scontrol_print_part(ptr noundef %0, i32 noundef %1, ptr n
 .lr.ph73:                                         ; preds = %.lr.ph73.preheader, %.lr.ph73
   %indvars.iv86 = phi i64 [ 0, %.lr.ph73.preheader ], [ %indvars.iv.next87, %.lr.ph73 ]
   %87 = load ptr, ptr @stdout, align 8
-  %88 = getelementptr inbounds ptr, ptr %40, i64 %indvars.iv86
+  %88 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv86
   %89 = load ptr, ptr %88, align 8
   %90 = load i32, ptr @one_liner, align 4
   call void @slurm_print_partition_info(ptr noundef %87, ptr noundef %89, i32 noundef %90) #5

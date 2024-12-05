@@ -58,12 +58,12 @@ entry:
   %ref.tmp153 = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp154 = alloca %"class.icu_75::ConstChar16Ptr", align 8
   %ref.tmp209 = alloca %"class.icu_75::UnicodeString", align 8
-  %fPropSets.ptr = getelementptr inbounds i8, ptr %this, i64 8
+  %fPropSets.ptr = getelementptr inbounds nuw i8, ptr %this, i64 8
   br label %arrayinit.body
 
 arrayinit.body:                                   ; preds = %invoke.cont, %entry
   %arrayinit.cur.idx = phi i64 [ 8, %entry ], [ %arrayinit.cur.add, %invoke.cont ]
-  %arrayinit.cur.ptr.ptr = getelementptr inbounds i8, ptr %this, i64 %arrayinit.cur.idx
+  %arrayinit.cur.ptr.ptr = getelementptr inbounds nuw i8, ptr %this, i64 %arrayinit.cur.idx
   invoke void @_ZN6icu_7510UnicodeSetC1Ev(ptr noundef nonnull align 8 dereferenceable(200) %arrayinit.cur.ptr.ptr)
           to label %invoke.cont unwind label %lpad
 
@@ -73,14 +73,14 @@ invoke.cont:                                      ; preds = %arrayinit.body
   br i1 %arrayinit.done, label %arrayinit.end2, label %arrayinit.body
 
 arrayinit.end2:                                   ; preds = %invoke.cont
-  %fPropSets8.ptr = getelementptr inbounds i8, ptr %this, i64 2608
+  %fPropSets8.ptr = getelementptr inbounds nuw i8, ptr %this, i64 2608
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(416) %fPropSets8.ptr, i8 0, i64 416, i1 false)
-  %fRuleSets.ptr = getelementptr inbounds i8, ptr %this, i64 3024
+  %fRuleSets.ptr = getelementptr inbounds nuw i8, ptr %this, i64 3024
   br label %arrayinit.body16
 
 arrayinit.body16:                                 ; preds = %invoke.cont19, %arrayinit.end2
   %arrayinit.cur17.idx = phi i64 [ 3024, %arrayinit.end2 ], [ %arrayinit.cur17.add, %invoke.cont19 ]
-  %arrayinit.cur17.ptr.ptr = getelementptr inbounds i8, ptr %this, i64 %arrayinit.cur17.idx
+  %arrayinit.cur17.ptr.ptr = getelementptr inbounds nuw i8, ptr %this, i64 %arrayinit.cur17.idx
   invoke void @_ZN6icu_7510UnicodeSetC1Ev(ptr noundef nonnull align 8 dereferenceable(200) %arrayinit.cur17.ptr.ptr)
           to label %invoke.cont19 unwind label %lpad18
 
@@ -90,12 +90,12 @@ invoke.cont19:                                    ; preds = %arrayinit.body16
   br i1 %arrayinit.done21, label %arrayinit.end22, label %arrayinit.body16
 
 arrayinit.end22:                                  ; preds = %invoke.cont19
-  %fUnescapeCharSet = getelementptr inbounds i8, ptr %this, i64 3624
+  %fUnescapeCharSet = getelementptr inbounds nuw i8, ptr %this, i64 3624
   invoke void @_ZN6icu_7510UnicodeSetC1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fUnescapeCharSet)
           to label %invoke.cont30 unwind label %lpad29
 
 invoke.cont30:                                    ; preds = %arrayinit.end22
-  %fRuleDigitsAlias = getelementptr inbounds i8, ptr %this, i64 3824
+  %fRuleDigitsAlias = getelementptr inbounds nuw i8, ptr %this, i64 3824
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fRuleDigitsAlias, i8 0, i64 16, i1 false)
   store ptr @.str, ptr %agg.tmp, align 8
   invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, i8 noundef signext 1, ptr noundef nonnull %agg.tmp, i32 noundef -1)
@@ -118,7 +118,7 @@ invoke.cont38:                                    ; preds = %invoke.cont37
           to label %invoke.cont45 unwind label %lpad44
 
 invoke.cont45:                                    ; preds = %invoke.cont38
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 208
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 208
   %call48 = invoke noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet12applyPatternERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(200) %arrayidx, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp41, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont47 unwind label %lpad46
 
@@ -135,7 +135,7 @@ invoke.cont49:                                    ; preds = %invoke.cont47
           to label %invoke.cont59 unwind label %lpad58
 
 invoke.cont59:                                    ; preds = %invoke.cont49
-  %arrayidx54 = getelementptr inbounds i8, ptr %this, i64 808
+  %arrayidx54 = getelementptr inbounds nuw i8, ptr %this, i64 808
   %call62 = invoke noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet12applyPatternERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(200) %arrayidx54, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp55, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont61 unwind label %lpad60
 
@@ -152,7 +152,7 @@ invoke.cont63:                                    ; preds = %invoke.cont61
           to label %invoke.cont73 unwind label %lpad72
 
 invoke.cont73:                                    ; preds = %invoke.cont63
-  %arrayidx68 = getelementptr inbounds i8, ptr %this, i64 1208
+  %arrayidx68 = getelementptr inbounds nuw i8, ptr %this, i64 1208
   %call76 = invoke noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet12applyPatternERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(200) %arrayidx68, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp69, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont75 unwind label %lpad74
 
@@ -164,7 +164,7 @@ invoke.cont77:                                    ; preds = %invoke.cont75
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp69) #7
   %3 = load ptr, ptr %agg.tmp70, align 8
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %3) #7, !srcloc !4
-  %arrayidx82 = getelementptr inbounds i8, ptr %this, i64 1408
+  %arrayidx82 = getelementptr inbounds nuw i8, ptr %this, i64 1408
   store ptr @.str.4, ptr %agg.tmp84, align 8
   invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp83, i8 noundef signext 1, ptr noundef nonnull %agg.tmp84, i32 noundef -1)
           to label %invoke.cont87 unwind label %lpad86
@@ -181,7 +181,7 @@ invoke.cont91:                                    ; preds = %invoke.cont89
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp83) #7
   %4 = load ptr, ptr %agg.tmp84, align 8
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %4) #7, !srcloc !4
-  %arrayidx96 = getelementptr inbounds i8, ptr %this, i64 1608
+  %arrayidx96 = getelementptr inbounds nuw i8, ptr %this, i64 1608
   store ptr @.str.5, ptr %agg.tmp98, align 8
   invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp97, i8 noundef signext 1, ptr noundef nonnull %agg.tmp98, i32 noundef -1)
           to label %invoke.cont101 unwind label %lpad100
@@ -198,7 +198,7 @@ invoke.cont105:                                   ; preds = %invoke.cont103
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp97) #7
   %5 = load ptr, ptr %agg.tmp98, align 8
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %5) #7, !srcloc !4
-  %arrayidx110 = getelementptr inbounds i8, ptr %this, i64 2208
+  %arrayidx110 = getelementptr inbounds nuw i8, ptr %this, i64 2208
   store ptr @.str.6, ptr %agg.tmp112, align 8
   invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp111, i8 noundef signext 1, ptr noundef nonnull %agg.tmp112, i32 noundef -1)
           to label %invoke.cont115 unwind label %lpad114
@@ -215,7 +215,7 @@ invoke.cont119:                                   ; preds = %invoke.cont117
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp111) #7
   %6 = load ptr, ptr %agg.tmp112, align 8
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %6) #7, !srcloc !4
-  %arrayidx124 = getelementptr inbounds i8, ptr %this, i64 2408
+  %arrayidx124 = getelementptr inbounds nuw i8, ptr %this, i64 2408
   store ptr @.str.7, ptr %agg.tmp126, align 8
   invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp125, i8 noundef signext 1, ptr noundef nonnull %agg.tmp126, i32 noundef -1)
           to label %invoke.cont129 unwind label %lpad128
@@ -237,7 +237,7 @@ invoke.cont133:                                   ; preds = %invoke.cont131
           to label %invoke.cont143 unwind label %lpad142
 
 invoke.cont143:                                   ; preds = %invoke.cont133
-  %arrayidx138 = getelementptr inbounds i8, ptr %this, i64 1808
+  %arrayidx138 = getelementptr inbounds nuw i8, ptr %this, i64 1808
   %call146 = invoke noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet12applyPatternERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(200) %arrayidx138, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp139, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont145 unwind label %lpad144
 
@@ -254,7 +254,7 @@ invoke.cont147:                                   ; preds = %invoke.cont145
           to label %invoke.cont157 unwind label %lpad156
 
 invoke.cont157:                                   ; preds = %invoke.cont147
-  %arrayidx152 = getelementptr inbounds i8, ptr %this, i64 2008
+  %arrayidx152 = getelementptr inbounds nuw i8, ptr %this, i64 2008
   %call160 = invoke noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet12applyPatternERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(200) %arrayidx152, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp153, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont159 unwind label %lpad158
 
@@ -266,7 +266,7 @@ invoke.cont161:                                   ; preds = %invoke.cont159
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp153) #7
   %9 = load ptr, ptr %agg.tmp154, align 8
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %9) #7, !srcloc !4
-  %arrayidx166 = getelementptr inbounds i8, ptr %this, i64 1008
+  %arrayidx166 = getelementptr inbounds nuw i8, ptr %this, i64 1008
   %call168 = invoke noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet10complementEv(ptr noundef nonnull align 8 dereferenceable(200) %arrayidx166)
           to label %invoke.cont167 unwind label %lpad32.loopexit.split-lp
 
@@ -296,8 +296,8 @@ invoke.cont195:                                   ; preds = %invoke.cont189
 
 for.body:                                         ; preds = %invoke.cont195, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %invoke.cont195 ]
-  %arrayidx202 = getelementptr inbounds [13 x %"struct.icu_75::Regex8BitSet"], ptr %fPropSets8.ptr, i64 0, i64 %indvars.iv
-  %arrayidx205 = getelementptr inbounds [13 x %"class.icu_75::UnicodeSet"], ptr %fPropSets.ptr, i64 0, i64 %indvars.iv
+  %arrayidx202 = getelementptr inbounds nuw [13 x %"struct.icu_75::Regex8BitSet"], ptr %fPropSets8.ptr, i64 0, i64 %indvars.iv
+  %arrayidx205 = getelementptr inbounds nuw [13 x %"class.icu_75::UnicodeSet"], ptr %fPropSets.ptr, i64 0, i64 %indvars.iv
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body, %for.inc.i
@@ -314,7 +314,7 @@ if.then3.i:                                       ; preds = %call.i.noexc
   %shl.i.i = shl nuw nsw i32 1, %and.i.i
   %shr.i.i = lshr i32 %i.05.i, 3
   %idxprom.i.i = zext nneg i32 %shr.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds [32 x i8], ptr %arrayidx202, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [32 x i8], ptr %arrayidx202, i64 0, i64 %idxprom.i.i
   %10 = load i8, ptr %arrayidx.i.i, align 1
   %11 = trunc nuw i32 %shl.i.i to i8
   %conv2.i.i = or i8 %10, %11
@@ -549,7 +549,7 @@ for.end:                                          ; preds = %for.inc
           to label %invoke.cont210 unwind label %lpad32.loopexit.split-lp
 
 invoke.cont210:                                   ; preds = %for.end
-  %arrayidx208 = getelementptr inbounds i8, ptr %this, i64 3424
+  %arrayidx208 = getelementptr inbounds nuw i8, ptr %this, i64 3424
   %call213 = invoke noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet6addAllERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(200) %arrayidx208, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp209)
           to label %invoke.cont212 unwind label %lpad211
 
@@ -571,7 +571,7 @@ invoke.cont221:                                   ; preds = %invoke.cont216
           to label %invoke.cont223 unwind label %lpad32.loopexit.split-lp
 
 invoke.cont223:                                   ; preds = %invoke.cont221
-  %arrayidx226 = getelementptr inbounds i8, ptr %this, i64 3224
+  %arrayidx226 = getelementptr inbounds nuw i8, ptr %this, i64 3224
   %call228 = invoke noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet3addEii(ptr noundef nonnull align 8 dereferenceable(200) %arrayidx226, i32 noundef 65, i32 noundef 90)
           to label %invoke.cont227 unwind label %lpad32.loopexit.split-lp
 
@@ -589,7 +589,7 @@ invoke.cont231:                                   ; preds = %invoke.cont229
           to label %invoke.cont236 unwind label %lpad32.loopexit.split-lp
 
 invoke.cont236:                                   ; preds = %invoke.cont231
-  %fEmptyText = getelementptr inbounds i8, ptr %this, i64 3832
+  %fEmptyText = getelementptr inbounds nuw i8, ptr %this, i64 3832
   store ptr %call237, ptr %fEmptyText, align 8
   ret void
 
@@ -666,15 +666,15 @@ declare ptr @utext_openUChars_75(ptr noundef, ptr noundef, i64 noundef, ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7515RegexStaticSetsD2Ev(ptr noundef nonnull align 8 dereferenceable(3840) initializes((3824, 3832)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %fRuleDigitsAlias = getelementptr inbounds i8, ptr %this, i64 3824
+  %fRuleDigitsAlias = getelementptr inbounds nuw i8, ptr %this, i64 3824
   store ptr null, ptr %fRuleDigitsAlias, align 8
-  %fEmptyText = getelementptr inbounds i8, ptr %this, i64 3832
+  %fEmptyText = getelementptr inbounds nuw i8, ptr %this, i64 3832
   %0 = load ptr, ptr %fEmptyText, align 8
   %call = invoke ptr @utext_close_75(ptr noundef %0)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  %fUnescapeCharSet = getelementptr inbounds i8, ptr %this, i64 3624
+  %fUnescapeCharSet = getelementptr inbounds nuw i8, ptr %this, i64 3624
   tail call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fUnescapeCharSet) #7
   br label %arraydestroy.body
 
@@ -781,12 +781,12 @@ if.then4.i3:                                      ; preds = %land.lhs.true.i2, %
 
 _ZN6icu_75L14initStaticSetsER10UErrorCode.exit:   ; preds = %new.cont.i, %land.lhs.true.i2, %if.then4.i3
   %6 = phi i32 [ %2, %new.cont.i ], [ %.pre.i, %land.lhs.true.i2 ], [ 7, %if.then4.i3 ]
-  store i32 %6, ptr getelementptr inbounds (i8, ptr @_ZN6icu_7519gStaticSetsInitOnceE, i64 4), align 4
+  store i32 %6, ptr getelementptr inbounds nuw (i8, ptr @_ZN6icu_7519gStaticSetsInitOnceE, i64 4), align 4
   tail call void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZN6icu_7519gStaticSetsInitOnceE)
   br label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.end.i
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN6icu_7519gStaticSetsInitOnceE, i64 4), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6icu_7519gStaticSetsInitOnceE, i64 4), align 4
   %cmp.i9.i = icmp slt i32 %7, 1
   br i1 %cmp.i9.i, label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit, label %if.then8.i
 

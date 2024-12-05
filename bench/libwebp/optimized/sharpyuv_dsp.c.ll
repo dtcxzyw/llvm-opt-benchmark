@@ -44,14 +44,14 @@ define internal i64 @SharpYuvUpdateY_C(ptr nocapture noundef readonly %0, ptr no
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.019 = phi i64 [ 0, %.lr.ph.preheader ], [ %25, %.lr.ph ]
-  %8 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
   %9 = load i16, ptr %8, align 2
   %10 = zext i16 %9 to i32
-  %11 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
   %12 = load i16, ptr %11, align 2
   %13 = zext i16 %12 to i32
   %14 = sub nsw i32 %10, %13
-  %15 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
   %16 = load i16, ptr %15, align 2
   %17 = zext i16 %16 to i32
   %18 = add nsw i32 %14, %17
@@ -83,12 +83,12 @@ define internal void @SharpYuvUpdateRGB_C(ptr nocapture noundef readonly %0, ptr
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
   %7 = load i16, ptr %6, align 2
-  %8 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
   %9 = load i16, ptr %8, align 2
   %10 = sub i16 %7, %9
-  %11 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
   %12 = load i16, ptr %11, align 2
   %13 = add i16 %10, %12
   store i16 %13, ptr %11, align 2
@@ -118,12 +118,12 @@ define internal void @SharpYuvFilterRow_C(ptr nocapture noundef readonly %0, ptr
   %9 = load i16, ptr %.031, align 2
   %10 = sext i16 %9 to i32
   %11 = mul nsw i32 %10, 9
-  %12 = getelementptr inbounds i8, ptr %.031, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %.031, i64 2
   %13 = load i16, ptr %12, align 2
   %14 = sext i16 %13 to i32
   %15 = load i16, ptr %.02530, align 2
   %16 = sext i16 %15 to i32
-  %17 = getelementptr inbounds i8, ptr %.02530, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %.02530, i64 2
   %18 = load i16, ptr %17, align 2
   %19 = sext i16 %18 to i32
   %reass.add = add nsw i32 %16, %14
@@ -140,7 +140,7 @@ define internal void @SharpYuvFilterRow_C(ptr nocapture noundef readonly %0, ptr
   %27 = add nsw i32 %26, %reass.mul28
   %28 = ashr i32 %27, 4
   %29 = shl nuw nsw i64 %indvars.iv, 1
-  %30 = getelementptr inbounds i16, ptr %3, i64 %29
+  %30 = getelementptr inbounds nuw i16, ptr %3, i64 %29
   %31 = load i16, ptr %30, align 2
   %32 = zext i16 %31 to i32
   %33 = add nsw i32 %23, %32
@@ -148,10 +148,10 @@ define internal void @SharpYuvFilterRow_C(ptr nocapture noundef readonly %0, ptr
   %35 = tail call i32 @llvm.smin.i32(i32 range(i32 -65535, 131071) %33, i32 range(i32 -2147483648, 2147483647) %7)
   %36 = trunc i32 %35 to i16
   %37 = select i1 %34, i16 0, i16 %36
-  %38 = getelementptr inbounds i16, ptr %4, i64 %29
+  %38 = getelementptr inbounds nuw i16, ptr %4, i64 %29
   store i16 %37, ptr %38, align 2
   %39 = or disjoint i64 %29, 1
-  %40 = getelementptr inbounds i16, ptr %3, i64 %39
+  %40 = getelementptr inbounds nuw i16, ptr %3, i64 %39
   %41 = load i16, ptr %40, align 2
   %42 = zext i16 %41 to i32
   %43 = add nsw i32 %28, %42
@@ -159,7 +159,7 @@ define internal void @SharpYuvFilterRow_C(ptr nocapture noundef readonly %0, ptr
   %45 = tail call i32 @llvm.smin.i32(i32 range(i32 -65535, 131071) %43, i32 range(i32 -2147483648, 2147483647) %7)
   %46 = trunc i32 %45 to i16
   %47 = select i1 %44, i16 0, i16 %46
-  %48 = getelementptr inbounds i16, ptr %4, i64 %39
+  %48 = getelementptr inbounds nuw i16, ptr %4, i64 %39
   store i16 %47, ptr %48, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

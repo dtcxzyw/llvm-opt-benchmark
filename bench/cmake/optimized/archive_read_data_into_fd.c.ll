@@ -23,7 +23,7 @@ define dso_local range(i32 2, 1) i32 @archive_read_data_into_fd(ptr noundef %0, 
 9:                                                ; preds = %2
   %10 = call i32 @fstat(i32 noundef %1, ptr noundef nonnull %3) #9
   %11 = icmp eq i32 %10, 0
-  %12 = getelementptr inbounds i8, ptr %3, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 61440
   %15 = icmp eq i32 %14, 32768
@@ -77,7 +77,7 @@ define dso_local range(i32 2, 1) i32 @archive_read_data_into_fd(ptr noundef %0, 
 
 34:                                               ; preds = %.lr.ph.us
   %35 = add nsw i64 %32, %.278.us
-  %36 = getelementptr inbounds i8, ptr %.079.us, i64 %32
+  %36 = getelementptr inbounds nuw i8, ptr %.079.us, i64 %32
   %37 = load i64, ptr %5, align 8
   %38 = sub i64 %37, %32
   store i64 %38, ptr %5, align 8
@@ -142,7 +142,7 @@ define dso_local range(i32 2, 1) i32 @archive_read_data_into_fd(ptr noundef %0, 
 
 57:                                               ; preds = %.lr.ph
   %58 = add nsw i64 %55, %.278
-  %59 = getelementptr inbounds i8, ptr %.079, i64 %55
+  %59 = getelementptr inbounds nuw i8, ptr %.079, i64 %55
   %60 = load i64, ptr %5, align 8
   %61 = sub i64 %60, %55
   store i64 %61, ptr %5, align 8

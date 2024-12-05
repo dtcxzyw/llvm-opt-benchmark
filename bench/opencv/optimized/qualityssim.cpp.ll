@@ -125,34 +125,34 @@ define void @_ZN2cv7quality11QualitySSIM9_mat_dataC2ERKNS_4UMatE(ptr noundef non
   %16 = alloca %"class.cv::_InputArray", align 8
   %17 = alloca %"class.cv::_OutputArray", align 8
   tail call void @_ZN2cv4UMatC1ENS_14UMatUsageFlagsE(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef 0) #14
-  %18 = getelementptr inbounds i8, ptr %0, i64 80
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @_ZN2cv4UMatC1ENS_14UMatUsageFlagsE(ptr noundef nonnull align 8 dereferenceable(80) %18, i32 noundef 0) #14
-  %19 = getelementptr inbounds i8, ptr %0, i64 160
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 160
   tail call void @_ZN2cv4UMatC1ENS_14UMatUsageFlagsE(ptr noundef nonnull align 8 dereferenceable(80) %19, i32 noundef 0) #14
-  %20 = getelementptr inbounds i8, ptr %0, i64 240
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 240
   tail call void @_ZN2cv4UMatC1ENS_14UMatUsageFlagsE(ptr noundef nonnull align 8 dereferenceable(80) %20, i32 noundef 0) #14
-  %21 = getelementptr inbounds i8, ptr %0, i64 320
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 320
   tail call void @_ZN2cv4UMatC1ENS_14UMatUsageFlagsE(ptr noundef nonnull align 8 dereferenceable(80) %21, i32 noundef 0) #14
   %22 = invoke noundef nonnull align 8 dereferenceable(80) ptr @_ZN2cv4UMataSERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %1)
           to label %23 unwind label %73
 
 23:                                               ; preds = %2
-  %24 = getelementptr inbounds i8, ptr %7, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 0, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %7, i64 20
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i32 0, ptr %25, align 4
   store i32 17432576, ptr %7, align 8
-  %26 = getelementptr inbounds i8, ptr %7, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %0, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %8, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 0, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %8, i64 20
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i32 0, ptr %28, align 4
   store i32 17432576, ptr %8, align 8
-  %29 = getelementptr inbounds i8, ptr %8, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %0, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %9, i64 8
-  %31 = getelementptr inbounds i8, ptr %9, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 0, ptr %31, align 8
   store i32 34209792, ptr %9, align 8
   store ptr %18, ptr %30, align 8
@@ -163,15 +163,15 @@ define void @_ZN2cv7quality11QualitySSIM9_mat_dataC2ERKNS_4UMatE(ptr noundef non
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @_ZN2cv4UMatC1ENS_14UMatUsageFlagsE(ptr noundef nonnull align 8 dereferenceable(80) %10, i32 noundef 0) #14
-  %33 = getelementptr inbounds i8, ptr %5, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 0, ptr %33, align 8, !noalias !4
-  %34 = getelementptr inbounds i8, ptr %5, i64 20
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 0, ptr %34, align 4, !noalias !4
   store i32 17432576, ptr %5, align 8, !noalias !4
-  %35 = getelementptr inbounds i8, ptr %5, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %35, align 8, !noalias !4
-  %36 = getelementptr inbounds i8, ptr %6, i64 8
-  %37 = getelementptr inbounds i8, ptr %6, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 0, ptr %37, align 8, !noalias !4
   store i32 34209792, ptr %6, align 8, !noalias !4
   store ptr %10, ptr %36, align 8, !noalias !4
@@ -192,22 +192,22 @@ define void @_ZN2cv7quality11QualitySSIM9_mat_dataC2ERKNS_4UMatE(ptr noundef non
 
 42:                                               ; preds = %40
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %10) #14
-  %43 = getelementptr inbounds i8, ptr %11, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i32 0, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %11, i64 20
+  %44 = getelementptr inbounds nuw i8, ptr %11, i64 20
   store i32 0, ptr %44, align 4
   store i32 17432576, ptr %11, align 8
-  %45 = getelementptr inbounds i8, ptr %11, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %19, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %12, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 0, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %12, i64 20
+  %47 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i32 0, ptr %47, align 4
   store i32 17432576, ptr %12, align 8
-  %48 = getelementptr inbounds i8, ptr %12, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %19, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %13, i64 8
-  %50 = getelementptr inbounds i8, ptr %13, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 0, ptr %50, align 8
   store i32 34209792, ptr %13, align 8
   store ptr %20, ptr %49, align 8
@@ -218,15 +218,15 @@ define void @_ZN2cv7quality11QualitySSIM9_mat_dataC2ERKNS_4UMatE(ptr noundef non
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @_ZN2cv4UMatC1ENS_14UMatUsageFlagsE(ptr noundef nonnull align 8 dereferenceable(80) %14, i32 noundef 0) #14
-  %52 = getelementptr inbounds i8, ptr %3, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 0, ptr %52, align 8, !noalias !7
-  %53 = getelementptr inbounds i8, ptr %3, i64 20
+  %53 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i32 0, ptr %53, align 4, !noalias !7
   store i32 17432576, ptr %3, align 8, !noalias !7
-  %54 = getelementptr inbounds i8, ptr %3, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %18, ptr %54, align 8, !noalias !7
-  %55 = getelementptr inbounds i8, ptr %4, i64 8
-  %56 = getelementptr inbounds i8, ptr %4, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %56, align 8, !noalias !7
   store i32 34209792, ptr %4, align 8, !noalias !7
   store ptr %14, ptr %55, align 8, !noalias !7
@@ -247,22 +247,22 @@ define void @_ZN2cv7quality11QualitySSIM9_mat_dataC2ERKNS_4UMatE(ptr noundef non
 
 61:                                               ; preds = %59
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %14) #14
-  %62 = getelementptr inbounds i8, ptr %15, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i32 0, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %15, i64 20
+  %63 = getelementptr inbounds nuw i8, ptr %15, i64 20
   store i32 0, ptr %63, align 4
   store i32 17432576, ptr %15, align 8
-  %64 = getelementptr inbounds i8, ptr %15, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %21, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %16, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i32 0, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %16, i64 20
+  %66 = getelementptr inbounds nuw i8, ptr %16, i64 20
   store i32 0, ptr %66, align 4
   store i32 17432576, ptr %16, align 8
-  %67 = getelementptr inbounds i8, ptr %16, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %20, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %17, i64 8
-  %69 = getelementptr inbounds i8, ptr %17, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i64 0, ptr %69, align 8
   store i32 34209792, ptr %17, align 8
   store ptr %21, ptr %68, align 8
@@ -348,8 +348,8 @@ define void @_ZN2cv7quality11QualitySSIM9_mat_dataC2ERKNS_11_InputArrayE(ptr nou
   %.off.i = add nsw i32 %6, -4
   %switch.i = icmp ult i32 %.off.i, 3
   %spec.select.i = select i1 %switch.i, i32 6, i32 5
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 0, ptr %8, align 8, !noalias !10
   store i32 34209792, ptr %3, align 8, !noalias !10
   store ptr %4, ptr %7, align 8, !noalias !10
@@ -394,10 +394,10 @@ define void @_ZN2cv7quality11QualitySSIM6createERKNS_11_InputArrayE(ptr dead_on_
 
 .noexc:                                           ; preds = %5
   store ptr getelementptr inbounds inrange(-80, 80) (i8, ptr @_ZTCN2cv7quality11QualitySSIME0_NS0_11QualityBaseE, i64 80), ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @_ZN2cv4UMatC1ENS_14UMatUsageFlagsE(ptr noundef nonnull align 8 dereferenceable(80) %6, i32 noundef 0) #14
   store ptr getelementptr inbounds inrange(-80, 80) (i8, ptr @_ZTVN2cv7quality11QualitySSIME, i64 80), ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 88
   invoke void @_ZN2cv7quality11QualitySSIM9_mat_dataC2EOS2_(ptr noundef nonnull align 8 dereferenceable(400) %7, ptr noundef nonnull align 8 dereferenceable(400) %3)
           to label %_ZN2cv7quality11QualitySSIMC1ENS1_9_mat_dataE.exit unwind label %8
 
@@ -411,7 +411,7 @@ define void @_ZN2cv7quality11QualitySSIM6createERKNS_11_InputArrayE(ptr dead_on_
 
 _ZN2cv7quality11QualitySSIMC1ENS1_9_mat_dataE.exit: ; preds = %.noexc
   store ptr %4, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %10, align 8
   %11 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #15
           to label %25 unwind label %12
@@ -422,7 +422,7 @@ _ZN2cv7quality11QualitySSIMC1ENS1_9_mat_dataE.exit: ; preds = %.noexc
   %14 = extractvalue { ptr, i32 } %13, 0
   %15 = call ptr @__cxa_begin_catch(ptr %14) #14
   %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
   call void %18(ptr noundef nonnull align 8 dereferenceable(488) %4) #14
   invoke void @__cxa_rethrow() #16
@@ -445,21 +445,21 @@ _ZN2cv7quality11QualitySSIMC1ENS1_9_mat_dataE.exit: ; preds = %.noexc
   unreachable
 
 25:                                               ; preds = %_ZN2cv7quality11QualitySSIMC1ENS1_9_mat_dataE.exit
-  %26 = getelementptr inbounds i8, ptr %11, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 1, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %11, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %11, i64 12
   store i32 1, ptr %27, align 4
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv7quality11QualitySSIMELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11, align 8
-  %28 = getelementptr inbounds i8, ptr %11, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %4, ptr %28, align 8
   store ptr %11, ptr %10, align 8
-  %29 = getelementptr inbounds i8, ptr %3, i64 320
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 320
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %29) #14
-  %30 = getelementptr inbounds i8, ptr %3, i64 240
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 240
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %30) #14
-  %31 = getelementptr inbounds i8, ptr %3, i64 160
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 160
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %31) #14
-  %32 = getelementptr inbounds i8, ptr %3, i64 80
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 80
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %32) #14
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(400) %3) #14
   ret void
@@ -498,13 +498,13 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv7quality11QualitySSIM9_mat_dataD2Ev(ptr noundef nonnull align 8 dereferenceable(400) %0) unnamed_addr #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 320
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 320
   tail call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %2) #14
-  %3 = getelementptr inbounds i8, ptr %0, i64 240
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 240
   tail call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %3) #14
-  %4 = getelementptr inbounds i8, ptr %0, i64 160
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 160
   tail call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %4) #14
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #14
   tail call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) #14
   ret void
@@ -527,22 +527,22 @@ define void @_ZN2cv7quality11QualitySSIM7computeERKNS_11_InputArrayES4_RKNS_12_O
           to label %9 unwind label %24
 
 9:                                                ; preds = %8
-  %10 = getelementptr inbounds i8, ptr %7, i64 320
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 320
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %10) #14
-  %11 = getelementptr inbounds i8, ptr %7, i64 240
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 240
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %11) #14
-  %12 = getelementptr inbounds i8, ptr %7, i64 160
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 160
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %12) #14
-  %13 = getelementptr inbounds i8, ptr %7, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 80
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %13) #14
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(400) %7) #14
-  %14 = getelementptr inbounds i8, ptr %6, i64 320
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 320
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %14) #14
-  %15 = getelementptr inbounds i8, ptr %6, i64 240
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 240
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %15) #14
-  %16 = getelementptr inbounds i8, ptr %6, i64 160
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 160
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %16) #14
-  %17 = getelementptr inbounds i8, ptr %6, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 80
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %17) #14
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(400) %6) #14
   %18 = invoke noundef zeroext i1 @_ZNK2cv12_OutputArray6neededEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
@@ -552,7 +552,7 @@ define void @_ZN2cv7quality11QualitySSIM7computeERKNS_11_InputArrayES4_RKNS_12_O
   br i1 %18, label %20, label %_ZN2cv7Scalar_IdEC2ERKS1_.exit
 
 20:                                               ; preds = %19
-  %21 = getelementptr inbounds i8, ptr %5, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 32
   invoke void @_ZNK2cv12_OutputArray6assignERKNS_4UMatE(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(80) %21)
           to label %_ZN2cv7Scalar_IdEC2ERKS1_.exit unwind label %27
 
@@ -575,13 +575,13 @@ define void @_ZN2cv7quality11QualitySSIM7computeERKNS_11_InputArrayES4_RKNS_12_O
 27:                                               ; preds = %20, %9
   %28 = landingpad { ptr, i32 }
           cleanup
-  %29 = getelementptr inbounds i8, ptr %5, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 32
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %29) #14
   br label %31
 
 _ZN2cv7Scalar_IdEC2ERKS1_.exit:                   ; preds = %20, %19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
-  %30 = getelementptr inbounds i8, ptr %5, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 32
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %30) #14
   ret void
 
@@ -657,22 +657,22 @@ define void @_ZN2cv7quality11QualitySSIM9_mat_data7computeERKS2_S4_(ptr dead_on_
   call void @_ZN2cv4UMatC1ENS_14UMatUsageFlagsE(ptr noundef nonnull align 8 dereferenceable(80) %11, i32 noundef 0) #14
   call void @_ZN2cv4UMatC1ENS_14UMatUsageFlagsE(ptr noundef nonnull align 8 dereferenceable(80) %12, i32 noundef 0) #14
   call void @_ZN2cv4UMatC1ENS_14UMatUsageFlagsE(ptr noundef nonnull align 8 dereferenceable(80) %13, i32 noundef 0) #14
-  %61 = getelementptr inbounds i8, ptr %14, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i32 0, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %14, i64 20
+  %62 = getelementptr inbounds nuw i8, ptr %14, i64 20
   store i32 0, ptr %62, align 4
   store i32 17432576, ptr %14, align 8
-  %63 = getelementptr inbounds i8, ptr %14, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %1, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %15, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i32 0, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %15, i64 20
+  %65 = getelementptr inbounds nuw i8, ptr %15, i64 20
   store i32 0, ptr %65, align 4
   store i32 17432576, ptr %15, align 8
-  %66 = getelementptr inbounds i8, ptr %15, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %2, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %16, i64 8
-  %68 = getelementptr inbounds i8, ptr %16, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i64 0, ptr %68, align 8
   store i32 34209792, ptr %16, align 8
   store ptr %8, ptr %67, align 8
@@ -680,24 +680,24 @@ define void @_ZN2cv7quality11QualitySSIM9_mat_data7computeERKS2_S4_(ptr dead_on_
           to label %69 unwind label %226
 
 69:                                               ; preds = %3
-  %70 = getelementptr inbounds i8, ptr %1, i64 160
-  %71 = getelementptr inbounds i8, ptr %17, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  %71 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i32 0, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %17, i64 20
+  %72 = getelementptr inbounds nuw i8, ptr %17, i64 20
   store i32 0, ptr %72, align 4
   store i32 17432576, ptr %17, align 8
-  %73 = getelementptr inbounds i8, ptr %17, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %70, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %2, i64 160
-  %75 = getelementptr inbounds i8, ptr %18, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %2, i64 160
+  %75 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i32 0, ptr %75, align 8
-  %76 = getelementptr inbounds i8, ptr %18, i64 20
+  %76 = getelementptr inbounds nuw i8, ptr %18, i64 20
   store i32 0, ptr %76, align 4
   store i32 17432576, ptr %18, align 8
-  %77 = getelementptr inbounds i8, ptr %18, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %74, ptr %77, align 8
-  %78 = getelementptr inbounds i8, ptr %19, i64 8
-  %79 = getelementptr inbounds i8, ptr %19, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i64 0, ptr %79, align 8
   store i32 34209792, ptr %19, align 8
   store ptr %9, ptr %78, align 8
@@ -708,15 +708,15 @@ define void @_ZN2cv7quality11QualitySSIM9_mat_data7computeERKS2_S4_(ptr dead_on_
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @_ZN2cv4UMatC1ENS_14UMatUsageFlagsE(ptr noundef nonnull align 8 dereferenceable(80) %21, i32 noundef 0) #14
-  %81 = getelementptr inbounds i8, ptr %4, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %81, align 8, !noalias !13
-  %82 = getelementptr inbounds i8, ptr %4, i64 20
+  %82 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 0, ptr %82, align 4, !noalias !13
   store i32 17432576, ptr %4, align 8, !noalias !13
-  %83 = getelementptr inbounds i8, ptr %4, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %8, ptr %83, align 8, !noalias !13
-  %84 = getelementptr inbounds i8, ptr %5, i64 8
-  %85 = getelementptr inbounds i8, ptr %5, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %85, align 8, !noalias !13
   store i32 34209792, ptr %5, align 8, !noalias !13
   store ptr %21, ptr %84, align 8, !noalias !13
@@ -732,22 +732,22 @@ define void @_ZN2cv7quality11QualitySSIM9_mat_data7computeERKS2_S4_(ptr dead_on_
 88:                                               ; preds = %80
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  %89 = getelementptr inbounds i8, ptr %20, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i32 0, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %20, i64 20
+  %90 = getelementptr inbounds nuw i8, ptr %20, i64 20
   store i32 0, ptr %90, align 4
   store i32 17432576, ptr %20, align 8
-  %91 = getelementptr inbounds i8, ptr %20, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %21, ptr %91, align 8
-  %92 = getelementptr inbounds i8, ptr %22, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i32 0, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %22, i64 20
+  %93 = getelementptr inbounds nuw i8, ptr %22, i64 20
   store i32 0, ptr %93, align 4
   store i32 17432576, ptr %22, align 8
-  %94 = getelementptr inbounds i8, ptr %22, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %9, ptr %94, align 8
-  %95 = getelementptr inbounds i8, ptr %23, i64 8
-  %96 = getelementptr inbounds i8, ptr %23, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store i64 0, ptr %96, align 8
   store i32 34209792, ptr %23, align 8
   store ptr %13, ptr %95, align 8
@@ -760,21 +760,21 @@ define void @_ZN2cv7quality11QualitySSIM9_mat_data7computeERKS2_S4_(ptr dead_on_
 
 99:                                               ; preds = %98
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %21) #14
-  %100 = getelementptr inbounds i8, ptr %24, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store i32 0, ptr %100, align 8
-  %101 = getelementptr inbounds i8, ptr %24, i64 20
+  %101 = getelementptr inbounds nuw i8, ptr %24, i64 20
   store i32 0, ptr %101, align 4
   store i32 17432576, ptr %24, align 8
-  %102 = getelementptr inbounds i8, ptr %24, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %9, ptr %102, align 8
   store double 2.000000e+00, ptr %26, align 8
-  %103 = getelementptr inbounds i8, ptr %25, i64 16
+  %103 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store i32 -1056833530, ptr %25, align 8
-  %104 = getelementptr inbounds i8, ptr %25, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %26, ptr %104, align 8
   store i64 4294967297, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %27, i64 8
-  %106 = getelementptr inbounds i8, ptr %27, i64 16
+  %105 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store i64 0, ptr %106, align 8
   store i32 34209792, ptr %27, align 8
   store ptr %10, ptr %105, align 8
@@ -782,20 +782,20 @@ define void @_ZN2cv7quality11QualitySSIM9_mat_data7computeERKS2_S4_(ptr dead_on_
           to label %107 unwind label %232
 
 107:                                              ; preds = %99
-  %108 = getelementptr inbounds i8, ptr %28, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store i32 0, ptr %108, align 8
-  %109 = getelementptr inbounds i8, ptr %28, i64 20
+  %109 = getelementptr inbounds nuw i8, ptr %28, i64 20
   store i32 0, ptr %109, align 4
   store i32 17432576, ptr %28, align 8
-  %110 = getelementptr inbounds i8, ptr %28, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr %10, ptr %110, align 8
-  %111 = getelementptr inbounds i8, ptr %29, i64 16
+  %111 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store i32 -1056833530, ptr %29, align 8
-  %112 = getelementptr inbounds i8, ptr %29, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr %6, ptr %112, align 8
   store i64 4294967297, ptr %111, align 8
-  %113 = getelementptr inbounds i8, ptr %30, i64 8
-  %114 = getelementptr inbounds i8, ptr %30, i64 16
+  %113 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store i64 0, ptr %114, align 8
   store i32 34209792, ptr %30, align 8
   store ptr %10, ptr %113, align 8
@@ -807,21 +807,21 @@ define void @_ZN2cv7quality11QualitySSIM9_mat_data7computeERKS2_S4_(ptr dead_on_
           to label %117 unwind label %234
 
 117:                                              ; preds = %116
-  %118 = getelementptr inbounds i8, ptr %31, i64 16
+  %118 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store i32 0, ptr %118, align 8
-  %119 = getelementptr inbounds i8, ptr %31, i64 20
+  %119 = getelementptr inbounds nuw i8, ptr %31, i64 20
   store i32 0, ptr %119, align 4
   store i32 17432576, ptr %31, align 8
-  %120 = getelementptr inbounds i8, ptr %31, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr %13, ptr %120, align 8
   store double 2.000000e+00, ptr %33, align 8
-  %121 = getelementptr inbounds i8, ptr %32, i64 16
+  %121 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store i32 -1056833530, ptr %32, align 8
-  %122 = getelementptr inbounds i8, ptr %32, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr %33, ptr %122, align 8
   store i64 4294967297, ptr %121, align 8
-  %123 = getelementptr inbounds i8, ptr %34, i64 8
-  %124 = getelementptr inbounds i8, ptr %34, i64 16
+  %123 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store i64 0, ptr %124, align 8
   store i32 34209792, ptr %34, align 8
   store ptr %11, ptr %123, align 8
@@ -829,20 +829,20 @@ define void @_ZN2cv7quality11QualitySSIM9_mat_data7computeERKS2_S4_(ptr dead_on_
           to label %125 unwind label %236
 
 125:                                              ; preds = %117
-  %126 = getelementptr inbounds i8, ptr %35, i64 16
+  %126 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store i32 0, ptr %126, align 8
-  %127 = getelementptr inbounds i8, ptr %35, i64 20
+  %127 = getelementptr inbounds nuw i8, ptr %35, i64 20
   store i32 0, ptr %127, align 4
   store i32 17432576, ptr %35, align 8
-  %128 = getelementptr inbounds i8, ptr %35, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %11, ptr %128, align 8
-  %129 = getelementptr inbounds i8, ptr %36, i64 16
+  %129 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store i32 -1056833530, ptr %36, align 8
-  %130 = getelementptr inbounds i8, ptr %36, i64 8
+  %130 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %7, ptr %130, align 8
   store i64 4294967297, ptr %129, align 8
-  %131 = getelementptr inbounds i8, ptr %37, i64 8
-  %132 = getelementptr inbounds i8, ptr %37, i64 16
+  %131 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %37, i64 16
   store i64 0, ptr %132, align 8
   store i32 34209792, ptr %37, align 8
   store ptr %11, ptr %131, align 8
@@ -854,22 +854,22 @@ define void @_ZN2cv7quality11QualitySSIM9_mat_data7computeERKS2_S4_(ptr dead_on_
           to label %135 unwind label %238
 
 135:                                              ; preds = %134
-  %136 = getelementptr inbounds i8, ptr %38, i64 16
+  %136 = getelementptr inbounds nuw i8, ptr %38, i64 16
   store i32 0, ptr %136, align 8
-  %137 = getelementptr inbounds i8, ptr %38, i64 20
+  %137 = getelementptr inbounds nuw i8, ptr %38, i64 20
   store i32 0, ptr %137, align 4
   store i32 17432576, ptr %38, align 8
-  %138 = getelementptr inbounds i8, ptr %38, i64 8
+  %138 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store ptr %10, ptr %138, align 8
-  %139 = getelementptr inbounds i8, ptr %39, i64 16
+  %139 = getelementptr inbounds nuw i8, ptr %39, i64 16
   store i32 0, ptr %139, align 8
-  %140 = getelementptr inbounds i8, ptr %39, i64 20
+  %140 = getelementptr inbounds nuw i8, ptr %39, i64 20
   store i32 0, ptr %140, align 4
   store i32 17432576, ptr %39, align 8
-  %141 = getelementptr inbounds i8, ptr %39, i64 8
+  %141 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr %11, ptr %141, align 8
-  %142 = getelementptr inbounds i8, ptr %40, i64 8
-  %143 = getelementptr inbounds i8, ptr %40, i64 16
+  %142 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %40, i64 16
   store i64 0, ptr %143, align 8
   store i32 34209792, ptr %40, align 8
   store ptr %12, ptr %142, align 8
@@ -877,24 +877,24 @@ define void @_ZN2cv7quality11QualitySSIM9_mat_data7computeERKS2_S4_(ptr dead_on_
           to label %144 unwind label %240
 
 144:                                              ; preds = %135
-  %145 = getelementptr inbounds i8, ptr %1, i64 240
-  %146 = getelementptr inbounds i8, ptr %41, i64 16
+  %145 = getelementptr inbounds nuw i8, ptr %1, i64 240
+  %146 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store i32 0, ptr %146, align 8
-  %147 = getelementptr inbounds i8, ptr %41, i64 20
+  %147 = getelementptr inbounds nuw i8, ptr %41, i64 20
   store i32 0, ptr %147, align 4
   store i32 17432576, ptr %41, align 8
-  %148 = getelementptr inbounds i8, ptr %41, i64 8
+  %148 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store ptr %145, ptr %148, align 8
-  %149 = getelementptr inbounds i8, ptr %2, i64 240
-  %150 = getelementptr inbounds i8, ptr %42, i64 16
+  %149 = getelementptr inbounds nuw i8, ptr %2, i64 240
+  %150 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store i32 0, ptr %150, align 8
-  %151 = getelementptr inbounds i8, ptr %42, i64 20
+  %151 = getelementptr inbounds nuw i8, ptr %42, i64 20
   store i32 0, ptr %151, align 4
   store i32 17432576, ptr %42, align 8
-  %152 = getelementptr inbounds i8, ptr %42, i64 8
+  %152 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr %149, ptr %152, align 8
-  %153 = getelementptr inbounds i8, ptr %43, i64 8
-  %154 = getelementptr inbounds i8, ptr %43, i64 16
+  %153 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %154 = getelementptr inbounds nuw i8, ptr %43, i64 16
   store i64 0, ptr %154, align 8
   store i32 34209792, ptr %43, align 8
   store ptr %10, ptr %153, align 8
@@ -906,20 +906,20 @@ define void @_ZN2cv7quality11QualitySSIM9_mat_data7computeERKS2_S4_(ptr dead_on_
           to label %157 unwind label %242
 
 157:                                              ; preds = %156
-  %158 = getelementptr inbounds i8, ptr %44, i64 16
+  %158 = getelementptr inbounds nuw i8, ptr %44, i64 16
   store i32 0, ptr %158, align 8
-  %159 = getelementptr inbounds i8, ptr %44, i64 20
+  %159 = getelementptr inbounds nuw i8, ptr %44, i64 20
   store i32 0, ptr %159, align 4
   store i32 17432576, ptr %44, align 8
-  %160 = getelementptr inbounds i8, ptr %44, i64 8
+  %160 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store ptr %10, ptr %160, align 8
-  %161 = getelementptr inbounds i8, ptr %45, i64 16
+  %161 = getelementptr inbounds nuw i8, ptr %45, i64 16
   store i32 -1056833530, ptr %45, align 8
-  %162 = getelementptr inbounds i8, ptr %45, i64 8
+  %162 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store ptr %6, ptr %162, align 8
   store i64 4294967297, ptr %161, align 8
-  %163 = getelementptr inbounds i8, ptr %46, i64 8
-  %164 = getelementptr inbounds i8, ptr %46, i64 16
+  %163 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %164 = getelementptr inbounds nuw i8, ptr %46, i64 16
   store i64 0, ptr %164, align 8
   store i32 34209792, ptr %46, align 8
   store ptr %10, ptr %163, align 8
@@ -931,24 +931,24 @@ define void @_ZN2cv7quality11QualitySSIM9_mat_data7computeERKS2_S4_(ptr dead_on_
           to label %167 unwind label %244
 
 167:                                              ; preds = %166
-  %168 = getelementptr inbounds i8, ptr %1, i64 320
-  %169 = getelementptr inbounds i8, ptr %47, i64 16
+  %168 = getelementptr inbounds nuw i8, ptr %1, i64 320
+  %169 = getelementptr inbounds nuw i8, ptr %47, i64 16
   store i32 0, ptr %169, align 8
-  %170 = getelementptr inbounds i8, ptr %47, i64 20
+  %170 = getelementptr inbounds nuw i8, ptr %47, i64 20
   store i32 0, ptr %170, align 4
   store i32 17432576, ptr %47, align 8
-  %171 = getelementptr inbounds i8, ptr %47, i64 8
+  %171 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store ptr %168, ptr %171, align 8
-  %172 = getelementptr inbounds i8, ptr %2, i64 320
-  %173 = getelementptr inbounds i8, ptr %48, i64 16
+  %172 = getelementptr inbounds nuw i8, ptr %2, i64 320
+  %173 = getelementptr inbounds nuw i8, ptr %48, i64 16
   store i32 0, ptr %173, align 8
-  %174 = getelementptr inbounds i8, ptr %48, i64 20
+  %174 = getelementptr inbounds nuw i8, ptr %48, i64 20
   store i32 0, ptr %174, align 4
   store i32 17432576, ptr %48, align 8
-  %175 = getelementptr inbounds i8, ptr %48, i64 8
+  %175 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store ptr %172, ptr %175, align 8
-  %176 = getelementptr inbounds i8, ptr %49, i64 8
-  %177 = getelementptr inbounds i8, ptr %49, i64 16
+  %176 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %177 = getelementptr inbounds nuw i8, ptr %49, i64 16
   store i64 0, ptr %177, align 8
   store i32 34209792, ptr %49, align 8
   store ptr %11, ptr %176, align 8
@@ -960,20 +960,20 @@ define void @_ZN2cv7quality11QualitySSIM9_mat_data7computeERKS2_S4_(ptr dead_on_
           to label %180 unwind label %246
 
 180:                                              ; preds = %179
-  %181 = getelementptr inbounds i8, ptr %50, i64 16
+  %181 = getelementptr inbounds nuw i8, ptr %50, i64 16
   store i32 0, ptr %181, align 8
-  %182 = getelementptr inbounds i8, ptr %50, i64 20
+  %182 = getelementptr inbounds nuw i8, ptr %50, i64 20
   store i32 0, ptr %182, align 4
   store i32 17432576, ptr %50, align 8
-  %183 = getelementptr inbounds i8, ptr %50, i64 8
+  %183 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store ptr %11, ptr %183, align 8
-  %184 = getelementptr inbounds i8, ptr %51, i64 16
+  %184 = getelementptr inbounds nuw i8, ptr %51, i64 16
   store i32 -1056833530, ptr %51, align 8
-  %185 = getelementptr inbounds i8, ptr %51, i64 8
+  %185 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store ptr %7, ptr %185, align 8
   store i64 4294967297, ptr %184, align 8
-  %186 = getelementptr inbounds i8, ptr %52, i64 8
-  %187 = getelementptr inbounds i8, ptr %52, i64 16
+  %186 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %187 = getelementptr inbounds nuw i8, ptr %52, i64 16
   store i64 0, ptr %187, align 8
   store i32 34209792, ptr %52, align 8
   store ptr %11, ptr %186, align 8
@@ -985,22 +985,22 @@ define void @_ZN2cv7quality11QualitySSIM9_mat_data7computeERKS2_S4_(ptr dead_on_
           to label %190 unwind label %248
 
 190:                                              ; preds = %189
-  %191 = getelementptr inbounds i8, ptr %53, i64 16
+  %191 = getelementptr inbounds nuw i8, ptr %53, i64 16
   store i32 0, ptr %191, align 8
-  %192 = getelementptr inbounds i8, ptr %53, i64 20
+  %192 = getelementptr inbounds nuw i8, ptr %53, i64 20
   store i32 0, ptr %192, align 4
   store i32 17432576, ptr %53, align 8
-  %193 = getelementptr inbounds i8, ptr %53, i64 8
+  %193 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store ptr %10, ptr %193, align 8
-  %194 = getelementptr inbounds i8, ptr %54, i64 16
+  %194 = getelementptr inbounds nuw i8, ptr %54, i64 16
   store i32 0, ptr %194, align 8
-  %195 = getelementptr inbounds i8, ptr %54, i64 20
+  %195 = getelementptr inbounds nuw i8, ptr %54, i64 20
   store i32 0, ptr %195, align 4
   store i32 17432576, ptr %54, align 8
-  %196 = getelementptr inbounds i8, ptr %54, i64 8
+  %196 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store ptr %11, ptr %196, align 8
-  %197 = getelementptr inbounds i8, ptr %55, i64 8
-  %198 = getelementptr inbounds i8, ptr %55, i64 16
+  %197 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  %198 = getelementptr inbounds nuw i8, ptr %55, i64 16
   store i64 0, ptr %198, align 8
   store i32 34209792, ptr %55, align 8
   store ptr %10, ptr %197, align 8
@@ -1008,22 +1008,22 @@ define void @_ZN2cv7quality11QualitySSIM9_mat_data7computeERKS2_S4_(ptr dead_on_
           to label %199 unwind label %250
 
 199:                                              ; preds = %190
-  %200 = getelementptr inbounds i8, ptr %56, i64 16
+  %200 = getelementptr inbounds nuw i8, ptr %56, i64 16
   store i32 0, ptr %200, align 8
-  %201 = getelementptr inbounds i8, ptr %56, i64 20
+  %201 = getelementptr inbounds nuw i8, ptr %56, i64 20
   store i32 0, ptr %201, align 4
   store i32 17432576, ptr %56, align 8
-  %202 = getelementptr inbounds i8, ptr %56, i64 8
+  %202 = getelementptr inbounds nuw i8, ptr %56, i64 8
   store ptr %12, ptr %202, align 8
-  %203 = getelementptr inbounds i8, ptr %57, i64 16
+  %203 = getelementptr inbounds nuw i8, ptr %57, i64 16
   store i32 0, ptr %203, align 8
-  %204 = getelementptr inbounds i8, ptr %57, i64 20
+  %204 = getelementptr inbounds nuw i8, ptr %57, i64 20
   store i32 0, ptr %204, align 4
   store i32 17432576, ptr %57, align 8
-  %205 = getelementptr inbounds i8, ptr %57, i64 8
+  %205 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store ptr %10, ptr %205, align 8
-  %206 = getelementptr inbounds i8, ptr %58, i64 8
-  %207 = getelementptr inbounds i8, ptr %58, i64 16
+  %206 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  %207 = getelementptr inbounds nuw i8, ptr %58, i64 16
   store i64 0, ptr %207, align 8
   store i32 34209792, ptr %58, align 8
   store ptr %12, ptr %206, align 8
@@ -1031,12 +1031,12 @@ define void @_ZN2cv7quality11QualitySSIM9_mat_data7computeERKS2_S4_(ptr dead_on_
           to label %208 unwind label %252
 
 208:                                              ; preds = %199
-  %209 = getelementptr inbounds i8, ptr %60, i64 16
+  %209 = getelementptr inbounds nuw i8, ptr %60, i64 16
   store i32 0, ptr %209, align 8
-  %210 = getelementptr inbounds i8, ptr %60, i64 20
+  %210 = getelementptr inbounds nuw i8, ptr %60, i64 20
   store i32 0, ptr %210, align 4
   store i32 17432576, ptr %60, align 8
-  %211 = getelementptr inbounds i8, ptr %60, i64 8
+  %211 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store ptr %12, ptr %211, align 8
   %212 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv7noArrayEv()
           to label %213 unwind label %254
@@ -1048,19 +1048,19 @@ define void @_ZN2cv7quality11QualitySSIM9_mat_data7computeERKS2_S4_(ptr dead_on_
 214:                                              ; preds = %213
   %215 = load double, ptr %59, align 8
   store double %215, ptr %0, align 8
-  %216 = getelementptr inbounds i8, ptr %59, i64 8
+  %216 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %217 = load double, ptr %216, align 8
-  %218 = getelementptr inbounds i8, ptr %0, i64 8
+  %218 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %217, ptr %218, align 8
-  %219 = getelementptr inbounds i8, ptr %59, i64 16
+  %219 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %220 = load double, ptr %219, align 8
-  %221 = getelementptr inbounds i8, ptr %0, i64 16
+  %221 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %220, ptr %221, align 8
-  %222 = getelementptr inbounds i8, ptr %59, i64 24
+  %222 = getelementptr inbounds nuw i8, ptr %59, i64 24
   %223 = load double, ptr %222, align 8
-  %224 = getelementptr inbounds i8, ptr %0, i64 24
+  %224 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %223, ptr %224, align 8
-  %225 = getelementptr inbounds i8, ptr %0, i64 32
+  %225 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void @_ZN2cv4UMatC1EOS0_(ptr noundef nonnull align 8 dereferenceable(80) %225, ptr noundef nonnull align 8 dereferenceable(80) %12)
           to label %_ZNSt4pairIN2cv7Scalar_IdEENS0_4UMatEEC2IS2_S3_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS7_S8_EEEbE4typeELb1EEEOS7_OS8_.exit unwind label %254
 
@@ -1169,28 +1169,28 @@ define void @_ZN2cv7quality11QualitySSIM7computeERKNS_11_InputArrayE(ptr dead_on
   %4 = alloca %"struct.std::pair", align 8
   %5 = alloca %"struct.cv::quality::QualitySSIM::_mat_data", align 8
   %6 = alloca %"class.cv::_OutputArray", align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 88
   call void @_ZN2cv7quality11QualitySSIM9_mat_dataC1ERKNS_11_InputArrayE(ptr noundef nonnull align 8 dereferenceable(400) %5, ptr noundef nonnull align 8 dereferenceable(24) %2)
   invoke void @_ZN2cv7quality11QualitySSIM9_mat_data7computeERKS2_S4_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair") align 8 %4, ptr noundef nonnull align 8 dereferenceable(400) %7, ptr noundef nonnull align 8 dereferenceable(400) %5)
           to label %8 unwind label %17
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %5, i64 320
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 320
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %9) #14
-  %10 = getelementptr inbounds i8, ptr %5, i64 240
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 240
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %10) #14
-  %11 = getelementptr inbounds i8, ptr %5, i64 160
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 160
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %11) #14
-  %12 = getelementptr inbounds i8, ptr %5, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 80
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %12) #14
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(400) %5) #14
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 0, ptr %15, align 8
   store i32 34209792, ptr %6, align 8
   store ptr %13, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 32
   invoke void @_ZNK2cv12_OutputArray6assignERKNS_4UMatE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(80) %16)
           to label %.preheader.preheader unwind label %19
 
@@ -1238,7 +1238,7 @@ define linkonce_odr hidden void @_ZN2cv7quality11QualityBaseD0Ev(ptr noundef non
 define linkonce_odr hidden void @_ZN2cv7quality11QualityBase5clearEv(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.cv::UMat", align 8
   call void @_ZN2cv4UMatC1ENS_14UMatUsageFlagsE(ptr noundef nonnull align 8 dereferenceable(80) %2, i32 noundef 0) #14
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = invoke noundef nonnull align 8 dereferenceable(80) ptr @_ZN2cv4UMataSEOS0_(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull align 8 dereferenceable(80) %2)
           to label %5 unwind label %6
 
@@ -1265,7 +1265,7 @@ define linkonce_odr hidden void @_ZN2cv9Algorithm4readERKNS_8FileNodeE(ptr nound
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK2cv7quality11QualityBase5emptyEv(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = tail call noundef zeroext i1 @_ZNK2cv4UMat5emptyEv(ptr noundef nonnull align 8 dereferenceable(80) %2)
   ret i1 %3
 }
@@ -1282,7 +1282,7 @@ define linkonce_odr hidden void @_ZNK2cv7quality11QualityBase13getQualityMapERKN
   br i1 %3, label %4, label %8
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = tail call noundef zeroext i1 @_ZNK2cv4UMat5emptyEv(ptr noundef nonnull align 8 dereferenceable(80) %5)
   br i1 %6, label %8, label %7
 
@@ -1297,18 +1297,18 @@ define linkonce_odr hidden void @_ZNK2cv7quality11QualityBase13getQualityMapERKN
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv7quality11QualitySSIMD1Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #4 comdat align 2 {
   store ptr getelementptr inbounds inrange(-80, 80) (i8, ptr @_ZTVN2cv7quality11QualitySSIME, i64 80), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 88
-  %3 = getelementptr inbounds i8, ptr %0, i64 408
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 408
   tail call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %3) #14
-  %4 = getelementptr inbounds i8, ptr %0, i64 328
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 328
   tail call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %4) #14
-  %5 = getelementptr inbounds i8, ptr %0, i64 248
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 248
   tail call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #14
-  %6 = getelementptr inbounds i8, ptr %0, i64 168
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 168
   tail call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %6) #14
   tail call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(400) %2) #14
   store ptr getelementptr inbounds inrange(-80, 80) (i8, ptr @_ZTCN2cv7quality11QualitySSIME0_NS0_11QualityBaseE, i64 80), ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %7) #14
   tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
   ret void
@@ -1317,18 +1317,18 @@ define linkonce_odr hidden void @_ZN2cv7quality11QualitySSIMD1Ev(ptr noundef non
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv7quality11QualitySSIMD0Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #4 comdat align 2 {
   store ptr getelementptr inbounds inrange(-80, 80) (i8, ptr @_ZTVN2cv7quality11QualitySSIME, i64 80), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 88
-  %3 = getelementptr inbounds i8, ptr %0, i64 408
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 408
   tail call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %3) #14
-  %4 = getelementptr inbounds i8, ptr %0, i64 328
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 328
   tail call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %4) #14
-  %5 = getelementptr inbounds i8, ptr %0, i64 248
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 248
   tail call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #14
-  %6 = getelementptr inbounds i8, ptr %0, i64 168
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 168
   tail call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %6) #14
   tail call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(400) %2) #14
   store ptr getelementptr inbounds inrange(-80, 80) (i8, ptr @_ZTCN2cv7quality11QualitySSIME0_NS0_11QualityBaseE, i64 80), ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %7) #14
   tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) #14
   tail call void @_ZdlPv(ptr noundef nonnull %0) #18
@@ -1341,35 +1341,35 @@ define linkonce_odr hidden void @_ZN2cv7quality11QualitySSIM5clearEv(ptr noundef
   %3 = alloca %"struct.cv::quality::QualitySSIM::_mat_data", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %3, i8 0, i64 400, i1 false)
   call void @_ZN2cv4UMatC1ENS_14UMatUsageFlagsE(ptr noundef nonnull align 8 dereferenceable(400) %3, i32 noundef 0) #14
-  %4 = getelementptr inbounds i8, ptr %3, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 80
   call void @_ZN2cv4UMatC1ENS_14UMatUsageFlagsE(ptr noundef nonnull align 8 dereferenceable(80) %4, i32 noundef 0) #14
-  %5 = getelementptr inbounds i8, ptr %3, i64 160
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 160
   call void @_ZN2cv4UMatC1ENS_14UMatUsageFlagsE(ptr noundef nonnull align 8 dereferenceable(80) %5, i32 noundef 0) #14
-  %6 = getelementptr inbounds i8, ptr %3, i64 240
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 240
   call void @_ZN2cv4UMatC1ENS_14UMatUsageFlagsE(ptr noundef nonnull align 8 dereferenceable(80) %6, i32 noundef 0) #14
-  %7 = getelementptr inbounds i8, ptr %3, i64 320
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 320
   call void @_ZN2cv4UMatC1ENS_14UMatUsageFlagsE(ptr noundef nonnull align 8 dereferenceable(80) %7, i32 noundef 0) #14
-  %8 = getelementptr inbounds i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %9 = invoke noundef nonnull align 8 dereferenceable(80) ptr @_ZN2cv4UMataSEOS0_(ptr noundef nonnull align 8 dereferenceable(400) %8, ptr noundef nonnull align 8 dereferenceable(400) %3)
           to label %.noexc unwind label %22
 
 .noexc:                                           ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 168
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %11 = invoke noundef nonnull align 8 dereferenceable(80) ptr @_ZN2cv4UMataSEOS0_(ptr noundef nonnull align 8 dereferenceable(80) %10, ptr noundef nonnull align 8 dereferenceable(80) %4)
           to label %.noexc2 unwind label %22
 
 .noexc2:                                          ; preds = %.noexc
-  %12 = getelementptr inbounds i8, ptr %0, i64 248
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %13 = invoke noundef nonnull align 8 dereferenceable(80) ptr @_ZN2cv4UMataSEOS0_(ptr noundef nonnull align 8 dereferenceable(80) %12, ptr noundef nonnull align 8 dereferenceable(80) %5)
           to label %.noexc3 unwind label %22
 
 .noexc3:                                          ; preds = %.noexc2
-  %14 = getelementptr inbounds i8, ptr %0, i64 328
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %15 = invoke noundef nonnull align 8 dereferenceable(80) ptr @_ZN2cv4UMataSEOS0_(ptr noundef nonnull align 8 dereferenceable(80) %14, ptr noundef nonnull align 8 dereferenceable(80) %6)
           to label %.noexc4 unwind label %22
 
 .noexc4:                                          ; preds = %.noexc3
-  %16 = getelementptr inbounds i8, ptr %0, i64 408
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %17 = invoke noundef nonnull align 8 dereferenceable(80) ptr @_ZN2cv4UMataSEOS0_(ptr noundef nonnull align 8 dereferenceable(80) %16, ptr noundef nonnull align 8 dereferenceable(80) %7)
           to label %_ZN2cv7quality11QualitySSIM9_mat_dataaSEOS2_.exit unwind label %22
 
@@ -1381,7 +1381,7 @@ _ZN2cv7quality11QualitySSIM9_mat_dataaSEOS2_.exit: ; preds = %.noexc4
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(400) %3) #14
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2)
   call void @_ZN2cv4UMatC1ENS_14UMatUsageFlagsE(ptr noundef nonnull align 8 dereferenceable(80) %2, i32 noundef 0) #14
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = invoke noundef nonnull align 8 dereferenceable(80) ptr @_ZN2cv4UMataSEOS0_(ptr noundef nonnull align 8 dereferenceable(80) %18, ptr noundef nonnull align 8 dereferenceable(80) %2)
           to label %_ZN2cv7quality11QualityBase5clearEv.exit unwind label %20
 
@@ -1409,32 +1409,32 @@ _ZN2cv7quality11QualityBase5clearEv.exit:         ; preds = %_ZN2cv7quality11Qua
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK2cv7quality11QualitySSIM5emptyEv(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 88
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = tail call noundef zeroext i1 @_ZNK2cv4UMat5emptyEv(ptr noundef nonnull align 8 dereferenceable(400) %2)
   br i1 %3, label %4, label %_ZNK2cv7quality11QualitySSIM9_mat_data5emptyEv.exit.thread
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 168
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %6 = tail call noundef zeroext i1 @_ZNK2cv4UMat5emptyEv(ptr noundef nonnull align 8 dereferenceable(80) %5)
   br i1 %6, label %7, label %_ZNK2cv7quality11QualitySSIM9_mat_data5emptyEv.exit.thread
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 248
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %9 = tail call noundef zeroext i1 @_ZNK2cv4UMat5emptyEv(ptr noundef nonnull align 8 dereferenceable(80) %8)
   br i1 %9, label %10, label %_ZNK2cv7quality11QualitySSIM9_mat_data5emptyEv.exit.thread
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 328
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %12 = tail call noundef zeroext i1 @_ZNK2cv4UMat5emptyEv(ptr noundef nonnull align 8 dereferenceable(80) %11)
   br i1 %12, label %_ZNK2cv7quality11QualitySSIM9_mat_data5emptyEv.exit, label %_ZNK2cv7quality11QualitySSIM9_mat_data5emptyEv.exit.thread
 
 _ZNK2cv7quality11QualitySSIM9_mat_data5emptyEv.exit: ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %0, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %14 = tail call noundef zeroext i1 @_ZNK2cv4UMat5emptyEv(ptr noundef nonnull align 8 dereferenceable(80) %13)
   br i1 %14, label %15, label %_ZNK2cv7quality11QualitySSIM9_mat_data5emptyEv.exit.thread
 
 15:                                               ; preds = %_ZNK2cv7quality11QualitySSIM9_mat_data5emptyEv.exit
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = tail call noundef zeroext i1 @_ZNK2cv4UMat5emptyEv(ptr noundef nonnull align 8 dereferenceable(80) %16)
   br label %_ZNK2cv7quality11QualitySSIM9_mat_data5emptyEv.exit.thread
 
@@ -1450,26 +1450,26 @@ declare void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv7quality11QualitySSIM9_mat_dataC2EOS2_(ptr noundef nonnull align 8 dereferenceable(400) %0, ptr noundef nonnull align 8 dereferenceable(400) %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN2cv4UMatC1EOS0_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %1)
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
-  %4 = getelementptr inbounds i8, ptr %1, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 80
   invoke void @_ZN2cv4UMatC1EOS0_(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull align 8 dereferenceable(80) %4)
           to label %5 unwind label %15
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 160
-  %7 = getelementptr inbounds i8, ptr %1, i64 160
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 160
   invoke void @_ZN2cv4UMatC1EOS0_(ptr noundef nonnull align 8 dereferenceable(80) %6, ptr noundef nonnull align 8 dereferenceable(80) %7)
           to label %8 unwind label %17
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 240
-  %10 = getelementptr inbounds i8, ptr %1, i64 240
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 240
   invoke void @_ZN2cv4UMatC1EOS0_(ptr noundef nonnull align 8 dereferenceable(80) %9, ptr noundef nonnull align 8 dereferenceable(80) %10)
           to label %11 unwind label %19
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 320
-  %13 = getelementptr inbounds i8, ptr %1, i64 320
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 320
   invoke void @_ZN2cv4UMatC1EOS0_(ptr noundef nonnull align 8 dereferenceable(80) %12, ptr noundef nonnull align 8 dereferenceable(80) %13)
           to label %14 unwind label %21
 
@@ -1565,7 +1565,7 @@ define linkonce_odr hidden void @_ZN2cv7quality13quality_utils11extract_matINS_4
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %.noexc
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8, !noalias !16
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull align 8 dereferenceable(96) %20)
           to label %22 unwind label %39
@@ -1575,8 +1575,8 @@ define linkonce_odr hidden void @_ZN2cv7quality13quality_utils11extract_matINS_4
           to label %22 unwind label %39
 
 22:                                               ; preds = %21, %18
-  %23 = getelementptr inbounds i8, ptr %5, i64 8
-  %24 = getelementptr inbounds i8, ptr %5, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %24, align 8
   store i32 34209792, ptr %5, align 8
   store ptr %0, ptr %23, align 8
@@ -1592,7 +1592,7 @@ define linkonce_odr hidden void @_ZN2cv7quality13quality_utils11extract_matINS_4
   br i1 %27, label %28, label %31
 
 28:                                               ; preds = %.noexc37
-  %29 = getelementptr inbounds i8, ptr %1, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %30 = load ptr, ptr %29, align 8, !noalias !19
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull align 8 dereferenceable(96) %30)
           to label %_ZNK2cv11_InputArray6getMatEi.exit40 unwind label %41
@@ -1659,8 +1659,8 @@ _ZNK2cv11_InputArray6getMatEi.exit40:             ; preds = %28, %31
           to label %52 unwind label %39
 
 52:                                               ; preds = %51
-  %53 = getelementptr inbounds i8, ptr %8, i64 8
-  %54 = getelementptr inbounds i8, ptr %8, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 0, ptr %54, align 8
   store i32 34209792, ptr %8, align 8
   store ptr %0, ptr %53, align 8
@@ -1794,14 +1794,14 @@ define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIPN2cv7quality11QualitySS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIPN2cv7quality11QualitySSIMELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %9, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(488) %3) #14
   br label %9

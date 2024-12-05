@@ -15,10 +15,10 @@ define range(i8 4, 3) i8 @_ZN4core4iter6traits8iterator12iter_compare17h8f23d2f7
   %5 = alloca [16 x i8], align 8
   %6 = alloca [16 x i8], align 8
   store ptr %0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %1, ptr %7, align 8
   store ptr %2, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %3, ptr %8, align 8
   %9 = call i8 @_ZN4core4iter6traits8iterator8Iterator12try_for_each17h63acabb5468ca6f1E(ptr nonnull align 8 %6, ptr nonnull align 8 %5)
   %10 = icmp eq i8 %9, 3

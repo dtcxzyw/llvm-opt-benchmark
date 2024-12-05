@@ -82,7 +82,7 @@ $_ZTV20CachedNMTInformation = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN19MappingPrintSessionC2EP12outputStreamRK20CachedNMTInformation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %2) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8
   ret void
 }
@@ -153,11 +153,11 @@ define hidden noundef zeroext i1 @_ZNK19MappingPrintSession25print_nmt_info_for_
   br i1 %7, label %8, label %_ZNK20CachedNMTInformation6lookupEPKvS1_.exit.thread
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8, !noalias !6
-  %13 = getelementptr inbounds i8, ptr %10, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %14 = load i64, ptr %13, align 8, !noalias !6
   %15 = getelementptr inbounds %"struct.CachedNMTInformation::Range", ptr %12, i64 %14
   %16 = load ptr, ptr %15, align 8, !noalias !6
@@ -170,13 +170,13 @@ define hidden noundef zeroext i1 @_ZNK19MappingPrintSession25print_nmt_info_for_
 
 18:                                               ; preds = %17, %8
   %19 = phi i64 [ 0, %17 ], [ %14, %8 ]
-  %20 = getelementptr inbounds i8, ptr %10, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %21 = load i64, ptr %20, align 8, !noalias !6
   %22 = icmp ult i64 %19, %21
   br i1 %22, label %.lr.ph.i, label %_ZNK20CachedNMTInformation6lookupEPKvS1_.exit.thread
 
 .lr.ph.i:                                         ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %10, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %24 = load ptr, ptr %23, align 8, !noalias !6
   br label %25
 
@@ -185,7 +185,7 @@ define hidden noundef zeroext i1 @_ZNK19MappingPrintSession25print_nmt_info_for_
   %26 = phi i32 [ 0, %.lr.ph.i ], [ %48, %47 ]
   %27 = getelementptr inbounds %"struct.CachedNMTInformation::Range", ptr %12, i64 %.014.i
   %28 = load ptr, ptr %27, align 8, !noalias !6
-  %29 = getelementptr inbounds i8, ptr %27, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %30 = load ptr, ptr %29, align 8, !noalias !6
   %31 = icmp ugt ptr %1, %28
   %32 = select i1 %31, ptr %1, ptr %28
@@ -227,13 +227,13 @@ _ZNK20CachedNMTInformation6lookupEPKvS1_.exit:    ; preds = %47, %46
 .preheader:                                       ; preds = %_ZNK20CachedNMTInformation6lookupEPKvS1_.exit
   %50 = zext i32 %.sroa.0.0 to i64
   %51 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %52 = getelementptr inbounds i8, ptr %4, i64 8
-  %53 = getelementptr inbounds i8, ptr %4, i64 64
-  %54 = getelementptr inbounds i8, ptr %4, i64 24
-  %55 = getelementptr inbounds i8, ptr %5, i64 8
-  %56 = getelementptr inbounds i8, ptr %5, i64 16
-  %57 = getelementptr inbounds i8, ptr %5, i64 24
-  %58 = getelementptr inbounds i8, ptr %5, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %5, i64 32
   br label %59
 
 59:                                               ; preds = %.preheader, %204
@@ -260,7 +260,7 @@ _ZNK20CachedNMTInformation6lookupEPKvS1_.exit:    ; preds = %47, %46
   br i1 %69, label %switch.hole_check, label %70
 
 70:                                               ; preds = %switch.hole_check, %67
-  %71 = getelementptr inbounds [28 x %"struct.NMTUtil::S"], ptr @_ZN7NMTUtil8_stringsE, i64 0, i64 %indvars.iv29
+  %71 = getelementptr inbounds nuw [28 x %"struct.NMTUtil::S"], ptr @_ZN7NMTUtil8_stringsE, i64 0, i64 %indvars.iv29
   br label %_ZL26get_shortname_for_nmt_flag8MEMFLAGS.exit
 
 switch.hole_check:                                ; preds = %67
@@ -272,7 +272,7 @@ switch.hole_check:                                ; preds = %67
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %73 = and i64 %indvars.iv29, 31
-  %switch.gep = getelementptr inbounds [25 x ptr], ptr @switch.table._ZNK19MappingPrintSession25print_nmt_info_for_regionEPKvS1_, i64 0, i64 %73
+  %switch.gep = getelementptr inbounds nuw [25 x ptr], ptr @switch.table._ZNK19MappingPrintSession25print_nmt_info_for_regionEPKvS1_, i64 0, i64 %73
   br label %_ZL26get_shortname_for_nmt_flag8MEMFLAGS.exit
 
 _ZL26get_shortname_for_nmt_flag8MEMFLAGS.exit:    ; preds = %switch.lookup, %70
@@ -287,21 +287,21 @@ _ZL26get_shortname_for_nmt_flag8MEMFLAGS.exit:    ; preds = %switch.lookup, %70
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
   %77 = load ptr, ptr %51, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 800
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 800
   %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 24
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %79, i64 32
+  %82 = getelementptr inbounds nuw i8, ptr %79, i64 32
   %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %79, i64 40
+  %84 = getelementptr inbounds nuw i8, ptr %79, i64 40
   %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %79, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %87 = load i64, ptr %86, align 8
   call void @_ZN17ThreadsListHandleC1EP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %52, ptr noundef %77) #13
   store i32 0, ptr %53, align 8
   %88 = load ptr, ptr %54, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 4
-  %90 = getelementptr inbounds i8, ptr %88, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
+  %90 = getelementptr inbounds nuw i8, ptr %88, i64 16
   br label %91
 
 91:                                               ; preds = %98, %75
@@ -316,7 +316,7 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit.i:  ; preds = %91
   %94 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %94, ptr %53, align 8
   %95 = load ptr, ptr %90, align 8
-  %96 = getelementptr inbounds ptr, ptr %95, i64 %indvars.iv
+  %96 = getelementptr inbounds nuw ptr, ptr %95, i64 %indvars.iv
   %97 = load ptr, ptr %96, align 8
   %.not.i14 = icmp eq ptr %97, null
   br i1 %.not.i14, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread.i, label %98
@@ -336,13 +336,13 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit.i:  ; preds = %91
   br i1 %107, label %108, label %91, !llvm.loop !11
 
 108:                                              ; preds = %98
-  %109 = getelementptr inbounds i8, ptr %97, i64 792
+  %109 = getelementptr inbounds nuw i8, ptr %97, i64 792
   %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 192
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 192
   %112 = load i32, ptr %111, align 8
   %113 = sext i32 %112 to i64
   %114 = load ptr, ptr %97, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 168
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 168
   %116 = load ptr, ptr %115, align 8
   %117 = call noundef ptr %116(ptr noundef nonnull align 8 dereferenceable(1800) %97) #13
   call fastcc void @_ZL20print_thread_detailsmPKcP12outputStream(i64 noundef %113, ptr noundef %117, ptr noundef %76)
@@ -370,13 +370,13 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread.i: ; preds = %_ZN28JavaThre
   br i1 %128, label %129, label %139
 
 129:                                              ; preds = %119
-  %130 = getelementptr inbounds i8, ptr %118, i64 792
+  %130 = getelementptr inbounds nuw i8, ptr %118, i64 792
   %131 = load ptr, ptr %130, align 8
-  %132 = getelementptr inbounds i8, ptr %131, i64 192
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 192
   %133 = load i32, ptr %132, align 8
   %134 = sext i32 %133 to i64
   %135 = load ptr, ptr %118, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 168
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 168
   %137 = load ptr, ptr %136, align 8
   %138 = call noundef ptr %137(ptr noundef nonnull align 8 dereferenceable(916) %118) #13
   call fastcc void @_ZL20print_thread_detailsmPKcP12outputStream(i64 noundef %134, ptr noundef %138, ptr noundef %76)
@@ -402,13 +402,13 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread.i: ; preds = %_ZN28JavaThre
   br i1 %150, label %151, label %161
 
 151:                                              ; preds = %141
-  %152 = getelementptr inbounds i8, ptr %140, i64 792
+  %152 = getelementptr inbounds nuw i8, ptr %140, i64 792
   %153 = load ptr, ptr %152, align 8
-  %154 = getelementptr inbounds i8, ptr %153, i64 192
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 192
   %155 = load i32, ptr %154, align 8
   %156 = sext i32 %155 to i64
   %157 = load ptr, ptr %140, align 8
-  %158 = getelementptr inbounds i8, ptr %157, i64 168
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 168
   %159 = load ptr, ptr %158, align 8
   %160 = call noundef ptr %159(ptr noundef nonnull align 8 dereferenceable(896) %140) #13
   call fastcc void @_ZL20print_thread_detailsmPKcP12outputStream(i64 noundef %156, ptr noundef %160, ptr noundef %76)
@@ -436,14 +436,14 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread.i: ; preds = %_ZN28JavaThre
 
 174:                                              ; preds = %163
   %175 = call noundef ptr @_ZN14AsyncLogWriter8instanceEv() #13
-  %176 = getelementptr inbounds i8, ptr %175, i64 792
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 792
   %177 = load ptr, ptr %176, align 8
-  %178 = getelementptr inbounds i8, ptr %177, i64 192
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 192
   %179 = load i32, ptr %178, align 8
   %180 = sext i32 %179 to i64
   %181 = call noundef ptr @_ZN14AsyncLogWriter8instanceEv() #13
   %182 = load ptr, ptr %181, align 8
-  %183 = getelementptr inbounds i8, ptr %182, i64 168
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 168
   %184 = load ptr, ptr %183, align 8
   %185 = call noundef ptr %184(ptr noundef nonnull align 8 dereferenceable(1184) %181) #13
   call fastcc void @_ZL20print_thread_detailsmPKcP12outputStream(i64 noundef %180, ptr noundef %185, ptr noundef %76)
@@ -461,7 +461,7 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread.i: ; preds = %_ZN28JavaThre
   store ptr %1, ptr %57, align 8
   store ptr %2, ptr %58, align 8
   %189 = load ptr, ptr %187, align 8
-  %190 = getelementptr inbounds i8, ptr %189, i64 352
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 352
   %191 = load ptr, ptr %190, align 8
   call void %191(ptr noundef nonnull align 8 dereferenceable(104) %187, ptr noundef nonnull %5) #13
   %192 = load i8, ptr %55, align 8
@@ -527,7 +527,7 @@ define hidden void @_ZN13MemMapPrinter18print_all_mappingsEP12outputStream(ptr n
   %2 = alloca %class.CachedNMTInformation, align 8
   %3 = alloca %class.MappingPrintSession, align 8
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV20CachedNMTInformation, i64 16), ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.29) #13
   %5 = load i32, ptr @_ZN10MemTracker15_tracking_levelE, align 4
@@ -544,13 +544,13 @@ define hidden void @_ZN13MemMapPrinter18print_all_mappingsEP12outputStream(ptr n
 
 10:                                               ; preds = %9, %7
   store ptr %0, ptr %3, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %2, ptr %11, align 8
   call void @_ZN13MemMapPrinter21pd_print_all_mappingsERK19MappingPrintSession(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV20CachedNMTInformation, i64 16), ptr %2, align 8
   %12 = load ptr, ptr %4, align 8
   call void @free(ptr noundef %12) #13
-  %13 = getelementptr inbounds i8, ptr %2, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %14 = load ptr, ptr %13, align 8
   call void @free(ptr noundef %14) #13
   ret void
@@ -605,7 +605,7 @@ define internal fastcc void @_ZL20print_thread_detailsmPKcP12outputStream(i64 no
 
 12:                                               ; preds = %.lr.ph, %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %13 = getelementptr inbounds [64 x i8], ptr %4, i64 0, i64 %indvars.iv.next
+  %13 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 0, i64 %indvars.iv.next
   %14 = load i8, ptr %13, align 1
   %.not = icmp eq i8 %14, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
@@ -642,7 +642,7 @@ declare void @_ZN17ThreadsListHandleD1Ev(ptr noundef nonnull align 8 dereference
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN15GCThreadClosure9do_threadEP6Thread(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 0
   %6 = icmp ne ptr %1, null
@@ -650,9 +650,9 @@ define linkonce_odr hidden void @_ZN15GCThreadClosure9do_threadEP6Thread(ptr nou
   br i1 %or.cond, label %7, label %28
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr i8, ptr %1, i64 824
   %.val = load ptr, ptr %12, align 8
@@ -668,11 +668,11 @@ define linkonce_odr hidden void @_ZN15GCThreadClosure9do_threadEP6Thread(ptr nou
   br i1 %20, label %21, label %28
 
 21:                                               ; preds = %7
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 792
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 792
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 192
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 192
   %26 = load i32, ptr %25, align 8
   %27 = sext i32 %26 to i64
   store i64 %27, ptr %3, align 8
@@ -689,18 +689,18 @@ declare void @_ZN5Chunk9next_chopEPS_(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN20CachedNMTInformation18do_allocation_siteEPK20ReservedMemoryRegion(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 %5
-  %7 = getelementptr inbounds i8, ptr %1, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %8 = load i8, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i64, ptr %9, align 8
   %.not.i = icmp eq i64 %10, 0
   br i1 %.not.i, label %25, label %11
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = add i64 %10, -1
   %15 = getelementptr inbounds %"struct.CachedNMTInformation::Range", ptr %13, i64 %14, i32 1
@@ -709,7 +709,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN20CachedNMTInformation18do_all
   br i1 %17, label %18, label %25
 
 18:                                               ; preds = %11
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 %14
   %22 = load i8, ptr %21, align 1
@@ -721,25 +721,25 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN20CachedNMTInformation18do_all
   br label %_ZN20CachedNMTInformation3addEPKvS1_8MEMFLAGS.exit
 
 25:                                               ; preds = %18, %11, %2
-  %26 = getelementptr inbounds i8, ptr %0, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %27 = load i64, ptr %26, align 8
   %28 = icmp eq i64 %10, %27
   br i1 %28, label %29, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %25
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %43
 
 29:                                               ; preds = %25
   %30 = shl i64 %10, 1
   %31 = tail call noundef i64 @llvm.umax.i64(i64 %30, i64 4096)
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = shl i64 %31, 4
   %35 = tail call ptr @realloc(ptr noundef %33, i64 noundef %34) #15
   store ptr %35, ptr %32, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %37 = load ptr, ptr %36, align 8
   %38 = tail call ptr @realloc(ptr noundef %37, i64 noundef %31) #15
   store ptr %38, ptr %36, align 8
@@ -759,9 +759,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN20CachedNMTInformation18do_all
   %45 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %39, %42 ]
   %46 = getelementptr inbounds %"struct.CachedNMTInformation::Range", ptr %45, i64 %44
   store ptr %3, ptr %46, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %46, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %46, i64 8
   store ptr %6, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %48 = load ptr, ptr %47, align 8
   %49 = load i64, ptr %9, align 8
   %50 = getelementptr inbounds i8, ptr %48, i64 %49

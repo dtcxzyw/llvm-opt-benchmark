@@ -284,7 +284,7 @@ define internal i64 @ossl_pkcs7_s_read_smime(i64 %0, i64 noundef %1) #0 {
 16:                                               ; preds = %14, %12
   %17 = phi i64 [ %15, %14 ], [ 4, %12 ]
   %18 = inttoptr i64 %6 to ptr
-  %19 = getelementptr inbounds i8, ptr %18, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
   store ptr %8, ptr %19, align 8
   %20 = call i64 @rb_iv_set(i64 noundef %6, ptr noundef nonnull @.str.52, i64 noundef %17) #7
   %21 = call i64 @rb_iv_set(i64 noundef %6, ptr noundef nonnull @.str.53, i64 noundef 4) #7
@@ -348,7 +348,7 @@ rb_num2int_inline.exit:                           ; preds = %12, %14
   br i1 %31, label %.thread, label %32
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %26, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %34 = load ptr, ptr %33, align 8
   %35 = call i32 @OBJ_obj2nid(ptr noundef %34) #7
   %36 = icmp eq i32 %35, 22
@@ -475,7 +475,7 @@ rb_num2int_inline.exit:                           ; preds = %19, %21
 
 42:                                               ; preds = %37
   %43 = inttoptr i64 %27 to ptr
-  %44 = getelementptr inbounds i8, ptr %43, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 32
   store ptr %38, ptr %44, align 8
   %45 = load i64, ptr %6, align 8
   %46 = call i64 @rb_iv_set(i64 noundef %27, ptr noundef nonnull @.str.52, i64 noundef %45) #7
@@ -561,7 +561,7 @@ rb_num2int_inline.exit:                           ; preds = %21, %23
 
 42:                                               ; preds = %37
   %43 = inttoptr i64 %29 to ptr
-  %44 = getelementptr inbounds i8, ptr %43, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 32
   store ptr %38, ptr %44, align 8
   %45 = load i64, ptr %5, align 8
   %46 = call i64 @rb_iv_set(i64 noundef %29, ptr noundef nonnull @.str.52, i64 noundef %45) #7
@@ -589,7 +589,7 @@ define internal i64 @ossl_pkcs7_alloc(i64 noundef %0) #0 {
 
 6:                                                ; preds = %1
   %7 = inttoptr i64 %2 to ptr
-  %8 = getelementptr inbounds i8, ptr %7, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %3, ptr %8, align 8
   ret i64 %2
 }
@@ -653,7 +653,7 @@ rb_check_frozen_inline.exit:                      ; preds = %7
   unreachable
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %8, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %24, ptr %28, align 8
   tail call void @PKCS7_free(ptr noundef nonnull %16) #7
   br label %29
@@ -666,7 +666,7 @@ rb_check_frozen_inline.exit:                      ; preds = %7
 define internal noundef i64 @ossl_pkcs7_initialize(i32 noundef %0, ptr noundef %1, i64 noundef returned %2) #0 {
   %4 = alloca i64, align 8
   %5 = inttoptr i64 %2 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.57, ptr noundef nonnull %4) #7
   %9 = icmp eq i32 %8, 0
@@ -759,7 +759,7 @@ RB_SYMBOL_P.exit.thread7.i:                       ; preds = %RB_SYMBOL_P.exit.i,
   %24 = load i64, ptr %23, align 8, !noalias !6
   %25 = and i64 %24, 8192
   %.not.i.i = icmp eq i64 %25, 0
-  %26 = getelementptr inbounds i8, ptr %23, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 24
   br i1 %.not.i.i, label %rbimpl_rstring_getmem.exit.i, label %27
 
 27:                                               ; preds = %21
@@ -768,7 +768,7 @@ RB_SYMBOL_P.exit.thread7.i:                       ; preds = %RB_SYMBOL_P.exit.i,
 
 rbimpl_rstring_getmem.exit.i:                     ; preds = %27, %21
   %.sroa.3.0.i = phi ptr [ %.sroa.3.0.copyload.i, %27 ], [ %26, %21 ]
-  %.sroa.1.0.in.i = getelementptr inbounds i8, ptr %23, i64 16
+  %.sroa.1.0.in.i = getelementptr inbounds nuw i8, ptr %23, i64 16
   %.sroa.1.0.i = load i64, ptr %.sroa.1.0.in.i, align 8
   br label %30
 
@@ -779,7 +779,7 @@ rbimpl_rstring_getmem.exit.i:                     ; preds = %27, %21
 
 30:                                               ; preds = %36, %rbimpl_rstring_getmem.exit.i
   %indvars.iv.i = phi i64 [ 0, %rbimpl_rstring_getmem.exit.i ], [ %indvars.iv.next.i, %36 ]
-  %31 = getelementptr inbounds [6 x %struct.anon.0], ptr @ossl_pkcs7_sym2typeid.p7_type_tab, i64 0, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw [6 x %struct.anon.0], ptr @ossl_pkcs7_sym2typeid.p7_type_tab, i64 0, i64 %indvars.iv.i
   %32 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %31) #9
   %.not.i = icmp eq i64 %32, %.sroa.1.0.i
   br i1 %.not.i, label %33, label %36
@@ -795,7 +795,7 @@ rbimpl_rstring_getmem.exit.i:                     ; preds = %27, %21
   br i1 %37, label %28, label %30
 
 ossl_pkcs7_sym2typeid.exit:                       ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %31, i64 20
+  %38 = getelementptr inbounds nuw i8, ptr %31, i64 20
   %39 = load i32, ptr %38, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %40 = call i32 @PKCS7_set_type(ptr noundef nonnull %4, i32 noundef %39) #7
@@ -823,7 +823,7 @@ define internal i64 @ossl_pkcs7_get_type(i64 noundef %0) #0 {
   unreachable
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %2, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @OBJ_obj2nid(ptr noundef %7) #7
   %9 = icmp eq i32 %8, 22
@@ -986,7 +986,7 @@ define internal range(i64 0, 21) i64 @ossl_pkcs7_detached_p(i64 noundef %0) #0 {
   unreachable
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %2, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @OBJ_obj2nid(ptr noundef %7) #7
   %9 = icmp eq i32 %8, 22
@@ -1056,7 +1056,7 @@ define internal noundef i64 @ossl_pkcs7_add_signer(i64 noundef returned %0, i64 
   br i1 %.not.i, label %ossl_PKCS7_SIGNER_INFO_dup.exit, label %12
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %7, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %14 = load ptr, ptr %13, align 8
   %.not8.i = icmp eq ptr %14, null
   br i1 %.not8.i, label %20, label %15
@@ -1064,7 +1064,7 @@ define internal noundef i64 @ossl_pkcs7_add_signer(i64 noundef returned %0, i64 
 15:                                               ; preds = %12
   %16 = tail call i32 @EVP_PKEY_up_ref(ptr noundef nonnull %14) #7
   %17 = load ptr, ptr %13, align 8
-  %18 = getelementptr inbounds i8, ptr %11, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 56
   store ptr %17, ptr %18, align 8
   br label %20
 
@@ -1152,7 +1152,7 @@ define internal i64 @ossl_pkcs7_get_signer(i64 noundef %0) #0 {
   br i1 %.not.i.i, label %ossl_PKCS7_SIGNER_INFO_dup.exit.thread9.i, label %32
 
 32:                                               ; preds = %30
-  %33 = getelementptr inbounds i8, ptr %27, i64 56
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 56
   %34 = load ptr, ptr %33, align 8
   %.not8.i.i = icmp eq ptr %34, null
   br i1 %.not8.i.i, label %ossl_pkcs7si_new.exit, label %35
@@ -1160,7 +1160,7 @@ define internal i64 @ossl_pkcs7_get_signer(i64 noundef %0) #0 {
 35:                                               ; preds = %32
   %36 = tail call i32 @EVP_PKEY_up_ref(ptr noundef nonnull %34) #7
   %37 = load ptr, ptr %33, align 8
-  %38 = getelementptr inbounds i8, ptr %31, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %31, i64 56
   store ptr %37, ptr %38, align 8
   br label %ossl_pkcs7si_new.exit
 
@@ -1177,7 +1177,7 @@ ossl_PKCS7_SIGNER_INFO_dup.exit.thread9.i:        ; preds = %ossl_PKCS7_SIGNER_I
 ossl_pkcs7si_new.exit:                            ; preds = %32, %35, %ossl_PKCS7_SIGNER_INFO_dup.exit.i
   %41 = phi ptr [ %39, %ossl_PKCS7_SIGNER_INFO_dup.exit.i ], [ %31, %32 ], [ %31, %35 ]
   %42 = inttoptr i64 %29 to ptr
-  %43 = getelementptr inbounds i8, ptr %42, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 32
   store ptr %41, ptr %43, align 8
   %44 = tail call i64 @rb_ary_push(i64 noundef %26, i64 noundef %29) #7
   %45 = add nuw nsw i32 %.01318, 1
@@ -1247,7 +1247,7 @@ define internal i64 @ossl_pkcs7_get_recipient(i64 noundef %0) #0 {
   unreachable
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %2, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @OBJ_obj2nid(ptr noundef %7) #7
   %9 = icmp eq i32 %8, 23
@@ -1261,9 +1261,9 @@ define internal i64 @ossl_pkcs7_get_recipient(i64 noundef %0) #0 {
 
 14:                                               ; preds = %10, %5
   %.sink26 = phi i64 [ 8, %5 ], [ 48, %10 ]
-  %15 = getelementptr inbounds i8, ptr %2, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 %.sink26
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %.sink26
   %.018 = load ptr, ptr %17, align 8
   %.not21 = icmp eq ptr %.018, null
   br i1 %.not21, label %.thread, label %19
@@ -1316,7 +1316,7 @@ define internal i64 @ossl_pkcs7_get_recipient(i64 noundef %0) #0 {
 
 ossl_pkcs7ri_new.exit:                            ; preds = %34
   %38 = inttoptr i64 %29 to ptr
-  %39 = getelementptr inbounds i8, ptr %38, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
   store ptr %35, ptr %39, align 8
   %40 = tail call i64 @rb_ary_push(i64 noundef %26, i64 noundef %29) #7
   %41 = add nuw nsw i32 %.01724, 1
@@ -1366,7 +1366,7 @@ define internal noundef i64 @ossl_pkcs7_set_certificates(i64 noundef %0, i64 nou
   unreachable
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %3, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 @OBJ_obj2nid(ptr noundef %8) #7
   switch i32 %9, label %pkcs7_get_certs.exit [
@@ -1375,9 +1375,9 @@ define internal noundef i64 @ossl_pkcs7_set_certificates(i64 noundef %0, i64 nou
   ]
 
 .sink.split.i:                                    ; preds = %6, %6
-  %10 = getelementptr inbounds i8, ptr %3, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   br label %pkcs7_get_certs.exit
 
@@ -1423,7 +1423,7 @@ define internal i64 @ossl_pkcs7_get_certificates(i64 noundef %0) #0 {
   unreachable
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %2, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @OBJ_obj2nid(ptr noundef %7) #7
   switch i32 %8, label %pkcs7_get_certs.exit [
@@ -1432,9 +1432,9 @@ define internal i64 @ossl_pkcs7_get_certificates(i64 noundef %0) #0 {
   ]
 
 .sink.split.i:                                    ; preds = %5, %5
-  %9 = getelementptr inbounds i8, ptr %2, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8
   br label %pkcs7_get_certs.exit
 
@@ -1482,7 +1482,7 @@ define internal noundef i64 @ossl_pkcs7_set_crls(i64 noundef %0, i64 noundef ret
   unreachable
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %3, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 @OBJ_obj2nid(ptr noundef %8) #7
   switch i32 %9, label %pkcs7_get_crls.exit [
@@ -1491,9 +1491,9 @@ define internal noundef i64 @ossl_pkcs7_set_crls(i64 noundef %0, i64 noundef ret
   ]
 
 .sink.split.i:                                    ; preds = %6, %6
-  %10 = getelementptr inbounds i8, ptr %3, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8
   br label %pkcs7_get_crls.exit
 
@@ -1539,7 +1539,7 @@ define internal i64 @ossl_pkcs7_get_crls(i64 noundef %0) #0 {
   unreachable
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %2, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @OBJ_obj2nid(ptr noundef %7) #7
   switch i32 %8, label %pkcs7_get_crls.exit [
@@ -1548,9 +1548,9 @@ define internal i64 @ossl_pkcs7_get_crls(i64 noundef %0) #0 {
   ]
 
 .sink.split.i:                                    ; preds = %5, %5
-  %9 = getelementptr inbounds i8, ptr %2, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load ptr, ptr %11, align 8
   br label %pkcs7_get_crls.exit
 
@@ -1575,7 +1575,7 @@ define internal i64 @ossl_pkcs7_add_data(i64 noundef %0, i64 noundef %1) #0 {
   unreachable
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %5, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @OBJ_obj2nid(ptr noundef %10) #7
   %12 = icmp eq i32 %11, 22
@@ -1904,7 +1904,7 @@ define internal i64 @ossl_pkcs7_to_der(i64 noundef %0) #0 {
   %15 = load i64, ptr %14, align 8, !noalias !16
   %16 = and i64 %15, 8192
   %.not.i.i = icmp eq i64 %16, 0
-  %17 = getelementptr inbounds i8, ptr %14, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %18
 
 18:                                               ; preds = %11
@@ -1959,7 +1959,7 @@ define internal i64 @ossl_pkcs7si_alloc(i64 noundef %0) #0 {
 
 6:                                                ; preds = %1
   %7 = inttoptr i64 %2 to ptr
-  %8 = getelementptr inbounds i8, ptr %7, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %3, ptr %8, align 8
   ret i64 %2
 }
@@ -2004,7 +2004,7 @@ define internal i64 @ossl_pkcs7si_get_issuer(i64 noundef %0) #0 {
   unreachable
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @ossl_x509name_new(ptr noundef %8) #7
@@ -2023,9 +2023,9 @@ define internal i64 @ossl_pkcs7si_get_serial(i64 noundef %0) #0 {
   unreachable
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i64 @asn1integer_to_num(ptr noundef %9) #7
   ret i64 %10
@@ -2058,7 +2058,7 @@ define internal i64 @ossl_pkcs7si_get_signed_time(i64 noundef %0) #0 {
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %6, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i64 @asn1time_to_time(ptr noundef %14) #7
   br label %16
@@ -2082,7 +2082,7 @@ define internal i64 @ossl_pkcs7ri_alloc(i64 noundef %0) #0 {
 
 6:                                                ; preds = %1
   %7 = inttoptr i64 %2 to ptr
-  %8 = getelementptr inbounds i8, ptr %7, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %3, ptr %8, align 8
   ret i64 %2
 }
@@ -2125,7 +2125,7 @@ define internal i64 @ossl_pkcs7ri_get_issuer(i64 noundef %0) #0 {
   unreachable
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @ossl_x509name_new(ptr noundef %8) #7
@@ -2144,9 +2144,9 @@ define internal i64 @ossl_pkcs7ri_get_serial(i64 noundef %0) #0 {
   unreachable
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i64 @asn1integer_to_num(ptr noundef %9) #7
   ret i64 %10
@@ -2164,7 +2164,7 @@ define internal i64 @ossl_pkcs7ri_get_enc_key(i64 noundef %0) #0 {
   unreachable
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %2, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i64 @asn1str_to_str(ptr noundef %7) #7
   ret i64 %8

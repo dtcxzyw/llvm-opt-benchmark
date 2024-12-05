@@ -73,16 +73,16 @@ define void @arrow_flags(ptr noundef %0, ptr nocapture noundef initializes((0, 4
   br i1 %15, label %16, label %21
 
 16:                                               ; preds = %.preheader
-  %17 = getelementptr inbounds i8, ptr %.051, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.051, i64 8
   %18 = load i32, ptr %17, align 8
   store i32 %18, ptr %1, align 4
-  %19 = getelementptr inbounds i8, ptr %.051, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %.051, i64 12
   %20 = load i32, ptr %19, align 4
   store i32 %20, ptr %2, align 4
   br label %24
 
 21:                                               ; preds = %.preheader
-  %22 = getelementptr inbounds i8, ptr %.051, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %.051, i64 16
   %23 = load ptr, ptr %22, align 8
   %.not45 = icmp eq ptr %23, null
   br i1 %.not45, label %thread-pre-split, label %.preheader
@@ -134,9 +134,9 @@ thread-pre-split:                                 ; preds = %21, %10
   br label %44
 
 44:                                               ; preds = %37, %40, %43, %34
-  %45 = getelementptr inbounds i8, ptr %0, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 209
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 209
   %48 = load i8, ptr %47, align 1
   %49 = trunc i8 %48 to i1
   br i1 %49, label %50, label %76
@@ -147,19 +147,19 @@ thread-pre-split:                                 ; preds = %21, %10
   %53 = icmp eq i32 %52, 2
   %54 = getelementptr inbounds i8, ptr %0, i64 -64
   %55 = select i1 %53, ptr %0, ptr %54
-  %56 = getelementptr inbounds i8, ptr %55, i64 56
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 56
   %57 = load ptr, ptr %56, align 8
   %58 = tail call ptr @agraphof(ptr noundef %57) #12
   %59 = load i32, ptr %0, align 8
   %60 = and i32 %59, 3
   %61 = icmp eq i32 %60, 2
   %62 = select i1 %61, ptr %0, ptr %54
-  %63 = getelementptr inbounds i8, ptr %62, i64 56
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 56
   %64 = load ptr, ptr %63, align 8
   %65 = icmp eq i32 %60, 3
   %.idx = select i1 %65, i64 0, i64 64
-  %66 = getelementptr inbounds i8, ptr %0, i64 %.idx
-  %67 = getelementptr inbounds i8, ptr %66, i64 56
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 56
   %68 = load ptr, ptr %67, align 8
   %69 = tail call ptr @agedge(ptr noundef %58, ptr noundef %64, ptr noundef %68, ptr noundef null, i32 noundef 0) #12
   call void @arrow_flags(ptr noundef %69, ptr noundef nonnull %4, ptr noundef nonnull %5)
@@ -201,7 +201,7 @@ define internal fastcc void @arrow_match_name(ptr noundef %0, ptr nocapture noun
   br i1 %6, label %arrow_match_name_frag.exit.i, label %.preheader.i
 
 arrow_match_name_frag.exit.i:                     ; preds = %.lr.ph
-  %7 = getelementptr inbounds i8, ptr %.01432, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %.01432, i64 8
   br label %arrow_match_shape.exit
 
 .preheader.i:                                     ; preds = %.lr.ph, %arrow_match_name_frag.exit20.i
@@ -218,14 +218,14 @@ arrow_match_name_frag.exit.i:                     ; preds = %.lr.ph
   br i1 %11, label %12, label %17
 
 12:                                               ; preds = %.lr.ph.i16.i
-  %13 = getelementptr inbounds i8, ptr %.015.i17.i, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.015.i17.i, i64 8
   %14 = load i32, ptr %13, align 8
   %15 = or i32 %14, %.131.i
   %16 = getelementptr inbounds i8, ptr %.1.i, i64 %9
   br label %arrow_match_name_frag.exit20.i
 
 17:                                               ; preds = %.lr.ph.i16.i
-  %18 = getelementptr inbounds i8, ptr %.015.i17.i, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %.015.i17.i, i64 16
   %19 = load ptr, ptr %18, align 8
   %.not.i18.i = icmp eq ptr %19, null
   br i1 %.not.i18.i, label %arrow_match_name_frag.exit20.i, label %.lr.ph.i16.i
@@ -245,14 +245,14 @@ arrow_match_name_frag.exit20.i:                   ; preds = %17, %12
   br i1 %23, label %24, label %29
 
 24:                                               ; preds = %.lr.ph.i21.i
-  %25 = getelementptr inbounds i8, ptr %.015.i22.i, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.015.i22.i, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = or i32 %26, %.4.i
   %28 = getelementptr inbounds i8, ptr %.1.i, i64 %21
   br label %arrow_match_shape.exit
 
 29:                                               ; preds = %.lr.ph.i21.i
-  %30 = getelementptr inbounds i8, ptr %.015.i22.i, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %.015.i22.i, i64 16
   %31 = load ptr, ptr %30, align 8
   %.not.i23.i = icmp eq ptr %31, null
   br i1 %.not.i23.i, label %arrow_match_shape.exit, label %.lr.ph.i21.i
@@ -339,16 +339,16 @@ define noundef i64 @arrowEndClip(ptr noundef %0, ptr nocapture noundef %1, i64 n
 
 20:                                               ; preds = %18, %.preheader.i
   %.02226.i = phi i64 [ 0, %.preheader.i ], [ %19, %18 ]
-  %21 = getelementptr inbounds [8 x %struct.arrowtype_t], ptr @Arrowtypes, i64 0, i64 %.02226.i
+  %21 = getelementptr inbounds nuw [8 x %struct.arrowtype_t], ptr @Arrowtypes, i64 0, i64 %.02226.i
   %22 = load i32, ptr %21, align 16
   %23 = icmp eq i32 %17, %22
   br i1 %23, label %24, label %18
 
 24:                                               ; preds = %20
   %25 = and i32 %16, 255
-  %26 = getelementptr inbounds i8, ptr %21, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %21, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %29 = load double, ptr %28, align 8
   %30 = tail call double %27(double noundef %29, double noundef %13, double noundef %11, i32 noundef %25) #12
   %31 = fadd double %.02128.i, %30
@@ -364,9 +364,9 @@ arrow_length.exit:                                ; preds = %.loopexit.i, %6
   %.0.i = phi double [ 0.000000e+00, %6 ], [ %.1.i, %.loopexit.i ]
   %33 = fmul double %.0.i, %.0.i
   store double %33, ptr %9, align 8
-  %34 = getelementptr inbounds i8, ptr %4, i64 20
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 %5, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %4, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %36 = getelementptr %struct.pointf_s, ptr %1, i64 %3
   %37 = getelementptr i8, ptr %36, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(16) %37, i64 16, i1 false)
@@ -377,7 +377,7 @@ arrow_length.exit:                                ; preds = %.loopexit.i, %6
   %40 = load double, ptr %36, align 8
   %41 = load double, ptr %37, align 8
   %42 = fsub double %40, %41
-  %43 = getelementptr inbounds i8, ptr %36, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %44 = load double, ptr %43, align 8
   %45 = getelementptr i8, ptr %36, i64 56
   %46 = load double, ptr %45, align 8
@@ -393,13 +393,13 @@ arrow_length.exit:                                ; preds = %.loopexit.i, %6
 
 53:                                               ; preds = %51, %39, %arrow_length.exit
   %.0 = phi i64 [ %52, %51 ], [ %3, %39 ], [ %3, %arrow_length.exit ]
-  %54 = getelementptr inbounds i8, ptr %8, i64 48
+  %54 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %55 = getelementptr inbounds %struct.pointf_s, ptr %1, i64 %.0
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %55, i64 16, i1 false)
-  %56 = getelementptr inbounds i8, ptr %8, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %57 = getelementptr i8, ptr %55, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %56, ptr noundef nonnull align 8 dereferenceable(16) %57, i64 16, i1 false)
-  %58 = getelementptr inbounds i8, ptr %8, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %59 = getelementptr i8, ptr %55, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %58, ptr noundef nonnull align 8 dereferenceable(16) %59, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %37, i64 16, i1 false)
@@ -408,7 +408,7 @@ arrow_length.exit:                                ; preds = %.loopexit.i, %6
 
 61:                                               ; preds = %53
   store ptr %8, ptr %7, align 8
-  %62 = getelementptr inbounds i8, ptr %7, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %9, ptr %62, align 8
   call void @bezier_clip(ptr noundef nonnull %7, ptr noundef nonnull @inside, ptr noundef nonnull %8, i1 noundef zeroext true) #12
   br label %63
@@ -435,12 +435,12 @@ define internal zeroext i1 @inside(ptr nocapture noundef readonly %0, double %1,
   %4 = load ptr, ptr %0, align 8
   %5 = load double, ptr %4, align 8
   %6 = fsub double %1, %5
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load double, ptr %7, align 8
   %9 = fsub double %2, %8
   %10 = fmul double %9, %9
   %11 = tail call double @llvm.fmuladd.f64(double %6, double %6, double %10)
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load double, ptr %13, align 8
   %15 = fcmp ole double %11, %14
@@ -474,16 +474,16 @@ define noundef i64 @arrowStartClip(ptr noundef %0, ptr nocapture noundef %1, i64
 
 20:                                               ; preds = %18, %.preheader.i
   %.02226.i = phi i64 [ 0, %.preheader.i ], [ %19, %18 ]
-  %21 = getelementptr inbounds [8 x %struct.arrowtype_t], ptr @Arrowtypes, i64 0, i64 %.02226.i
+  %21 = getelementptr inbounds nuw [8 x %struct.arrowtype_t], ptr @Arrowtypes, i64 0, i64 %.02226.i
   %22 = load i32, ptr %21, align 16
   %23 = icmp eq i32 %17, %22
   br i1 %23, label %24, label %18
 
 24:                                               ; preds = %20
   %25 = and i32 %16, 255
-  %26 = getelementptr inbounds i8, ptr %21, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %21, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %29 = load double, ptr %28, align 8
   %30 = tail call double %27(double noundef %29, double noundef %13, double noundef %11, i32 noundef %25) #12
   %31 = fadd double %.02128.i, %30
@@ -499,9 +499,9 @@ arrow_length.exit:                                ; preds = %.loopexit.i, %6
   %.0.i = phi double [ 0.000000e+00, %6 ], [ %.1.i, %.loopexit.i ]
   %33 = fmul double %.0.i, %.0.i
   store double %33, ptr %9, align 8
-  %34 = getelementptr inbounds i8, ptr %4, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %5, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %4, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %36 = getelementptr inbounds %struct.pointf_s, ptr %1, i64 %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(16) %36, i64 16, i1 false)
   %37 = icmp ugt i64 %3, %2
@@ -513,9 +513,9 @@ arrow_length.exit:                                ; preds = %.loopexit.i, %6
   %41 = getelementptr inbounds %struct.pointf_s, ptr %1, i64 %40
   %42 = load double, ptr %41, align 8
   %43 = fsub double %39, %42
-  %44 = getelementptr inbounds i8, ptr %36, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %45 = load double, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %41, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %47 = load double, ptr %46, align 8
   %48 = fsub double %45, %47
   %49 = fmul double %48, %48
@@ -531,20 +531,20 @@ arrow_length.exit:                                ; preds = %.loopexit.i, %6
   %54 = getelementptr %struct.pointf_s, ptr %1, i64 %.0
   %55 = getelementptr i8, ptr %54, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %55, i64 16, i1 false)
-  %56 = getelementptr inbounds i8, ptr %8, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %57 = getelementptr i8, ptr %54, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %56, ptr noundef nonnull align 8 dereferenceable(16) %57, i64 16, i1 false)
-  %58 = getelementptr inbounds i8, ptr %8, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %59 = getelementptr i8, ptr %54, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %58, ptr noundef nonnull align 8 dereferenceable(16) %59, i64 16, i1 false)
-  %60 = getelementptr inbounds i8, ptr %8, i64 48
+  %60 = getelementptr inbounds nuw i8, ptr %8, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %60, ptr noundef nonnull align 8 dereferenceable(16) %36, i64 16, i1 false)
   %61 = fcmp ogt double %.0.i, 0.000000e+00
   br i1 %61, label %62, label %64
 
 62:                                               ; preds = %53
   store ptr %60, ptr %7, align 8
-  %63 = getelementptr inbounds i8, ptr %7, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %9, ptr %63, align 8
   call void @bezier_clip(ptr noundef nonnull %7, ptr noundef nonnull @inside, ptr noundef nonnull %8, i1 noundef zeroext false) #12
   br label %64
@@ -569,7 +569,7 @@ define void @arrowOrthoClip(ptr noundef %0, ptr nocapture noundef %1, i64 nounde
 12:                                               ; preds = %7
   %13 = getelementptr inbounds %struct.pointf_s, ptr %1, i64 %3
   %.sroa.078.0.copyload = load double, ptr %13, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 8
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
   %.sroa.22.0.copyload = load double, ptr %.sroa.22.0..sroa_idx, align 8
   %14 = getelementptr i8, ptr %13, i64 48
   %.sroa.035.0.copyload = load double, ptr %14, align 8
@@ -597,16 +597,16 @@ define void @arrowOrthoClip(ptr noundef %0, ptr nocapture noundef %1, i64 nounde
 
 25:                                               ; preds = %23, %.preheader.i
   %.02226.i = phi i64 [ 0, %.preheader.i ], [ %24, %23 ]
-  %26 = getelementptr inbounds [8 x %struct.arrowtype_t], ptr @Arrowtypes, i64 0, i64 %.02226.i
+  %26 = getelementptr inbounds nuw [8 x %struct.arrowtype_t], ptr @Arrowtypes, i64 0, i64 %.02226.i
   %27 = load i32, ptr %26, align 16
   %28 = icmp eq i32 %22, %27
   br i1 %28, label %29, label %23
 
 29:                                               ; preds = %25
   %30 = and i32 %21, 255
-  %31 = getelementptr inbounds i8, ptr %26, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %26, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %34 = load double, ptr %33, align 8
   %35 = tail call double %32(double noundef %34, double noundef %18, double noundef %16, i32 noundef %30) #12
   %36 = fadd double %.02128.i, %35
@@ -642,16 +642,16 @@ arrow_length.exit:                                ; preds = %.loopexit.i, %12
 
 48:                                               ; preds = %46, %.preheader.i197
   %.02226.i200 = phi i64 [ 0, %.preheader.i197 ], [ %47, %46 ]
-  %49 = getelementptr inbounds [8 x %struct.arrowtype_t], ptr @Arrowtypes, i64 0, i64 %.02226.i200
+  %49 = getelementptr inbounds nuw [8 x %struct.arrowtype_t], ptr @Arrowtypes, i64 0, i64 %.02226.i200
   %50 = load i32, ptr %49, align 16
   %51 = icmp eq i32 %45, %50
   br i1 %51, label %52, label %46
 
 52:                                               ; preds = %48
   %53 = and i32 %44, 255
-  %54 = getelementptr inbounds i8, ptr %49, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %49, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %57 = load double, ptr %56, align 8
   %58 = tail call double %55(double noundef %57, double noundef %41, double noundef %39, i32 noundef %53) #12
   %59 = fadd double %.02128.i198, %58
@@ -720,13 +720,13 @@ arrow_length.exit206:                             ; preds = %.loopexit.i202, %ar
   store double %.sroa.0.0, ptr %14, align 8
   store double %.sroa.4.0, ptr %.sroa.19.0..sroa_idx, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %87, ptr noundef nonnull align 8 dereferenceable(16) %14, i64 16, i1 false)
-  %88 = getelementptr inbounds i8, ptr %4, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %5, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %4, i64 24
+  %89 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store double %.sroa.078.0.copyload, ptr %89, align 8
-  %.sroa.22.0..sroa_idx99 = getelementptr inbounds i8, ptr %4, i64 32
+  %.sroa.22.0..sroa_idx99 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store double %.sroa.22.0.copyload, ptr %.sroa.22.0..sroa_idx99, align 8
-  %90 = getelementptr inbounds i8, ptr %4, i64 20
+  %90 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 %6, ptr %90, align 4
   br label %.sink.split
 
@@ -756,16 +756,16 @@ arrow_length.exit206:                             ; preds = %.loopexit.i202, %ar
 
 103:                                              ; preds = %101, %.preheader.i207
   %.02226.i210 = phi i64 [ 0, %.preheader.i207 ], [ %102, %101 ]
-  %104 = getelementptr inbounds [8 x %struct.arrowtype_t], ptr @Arrowtypes, i64 0, i64 %.02226.i210
+  %104 = getelementptr inbounds nuw [8 x %struct.arrowtype_t], ptr @Arrowtypes, i64 0, i64 %.02226.i210
   %105 = load i32, ptr %104, align 16
   %106 = icmp eq i32 %100, %105
   br i1 %106, label %107, label %101
 
 107:                                              ; preds = %103
   %108 = and i32 %99, 255
-  %109 = getelementptr inbounds i8, ptr %104, i64 24
+  %109 = getelementptr inbounds nuw i8, ptr %104, i64 24
   %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds i8, ptr %104, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %112 = load double, ptr %111, align 8
   %113 = tail call double %110(double noundef %112, double noundef %96, double noundef %94, i32 noundef %108) #12
   %114 = fadd double %.02128.i208, %113
@@ -781,7 +781,7 @@ arrow_length.exit216:                             ; preds = %.loopexit.i212, %92
   %.0.i215 = phi double [ 0.000000e+00, %92 ], [ %.1.i213, %.loopexit.i212 ]
   %116 = getelementptr inbounds %struct.pointf_s, ptr %1, i64 %3
   %.sroa.078.0.copyload95 = load double, ptr %116, align 8
-  %.sroa.22.0..sroa_idx101 = getelementptr inbounds i8, ptr %116, i64 8
+  %.sroa.22.0..sroa_idx101 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %.sroa.22.0.copyload102 = load double, ptr %.sroa.22.0..sroa_idx101, align 8
   %117 = getelementptr i8, ptr %116, i64 48
   %.sroa.035.0.copyload49 = load double, ptr %117, align 8
@@ -833,11 +833,11 @@ arrow_length.exit216:                             ; preds = %.loopexit.i212, %92
   store double %.sroa.031.0, ptr %117, align 8
   store double %.sroa.8.0, ptr %.sroa.19.0..sroa_idx55, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %138, ptr noundef nonnull align 8 dereferenceable(16) %117, i64 16, i1 false)
-  %139 = getelementptr inbounds i8, ptr %4, i64 20
+  %139 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 %6, ptr %139, align 4
-  %140 = getelementptr inbounds i8, ptr %4, i64 40
+  %140 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store double %.sroa.035.0.copyload49, ptr %140, align 8
-  %.sroa.19.0..sroa_idx57 = getelementptr inbounds i8, ptr %4, i64 48
+  %.sroa.19.0..sroa_idx57 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store double %.sroa.19.0.copyload56, ptr %.sroa.19.0..sroa_idx57, align 8
   br label %141
 
@@ -867,16 +867,16 @@ arrow_length.exit216:                             ; preds = %.loopexit.i212, %92
 
 153:                                              ; preds = %151, %.preheader.i217
   %.02226.i220 = phi i64 [ 0, %.preheader.i217 ], [ %152, %151 ]
-  %154 = getelementptr inbounds [8 x %struct.arrowtype_t], ptr @Arrowtypes, i64 0, i64 %.02226.i220
+  %154 = getelementptr inbounds nuw [8 x %struct.arrowtype_t], ptr @Arrowtypes, i64 0, i64 %.02226.i220
   %155 = load i32, ptr %154, align 16
   %156 = icmp eq i32 %150, %155
   br i1 %156, label %157, label %151
 
 157:                                              ; preds = %153
   %158 = and i32 %149, 255
-  %159 = getelementptr inbounds i8, ptr %154, i64 24
+  %159 = getelementptr inbounds nuw i8, ptr %154, i64 24
   %160 = load ptr, ptr %159, align 8
-  %161 = getelementptr inbounds i8, ptr %154, i64 8
+  %161 = getelementptr inbounds nuw i8, ptr %154, i64 8
   %162 = load double, ptr %161, align 8
   %163 = tail call double %160(double noundef %162, double noundef %146, double noundef %144, i32 noundef %158) #12
   %164 = fadd double %.02128.i218, %163
@@ -892,7 +892,7 @@ arrow_length.exit226:                             ; preds = %.loopexit.i222, %14
   %.0.i225 = phi double [ 0.000000e+00, %142 ], [ %.1.i223, %.loopexit.i222 ]
   %166 = getelementptr inbounds %struct.pointf_s, ptr %1, i64 %2
   %.sroa.078.0.copyload97 = load double, ptr %166, align 8
-  %.sroa.22.0..sroa_idx105 = getelementptr inbounds i8, ptr %166, i64 8
+  %.sroa.22.0..sroa_idx105 = getelementptr inbounds nuw i8, ptr %166, i64 8
   %.sroa.22.0.copyload106 = load double, ptr %.sroa.22.0..sroa_idx105, align 8
   %167 = getelementptr i8, ptr %166, i64 48
   %.sroa.035.0.copyload51 = load double, ptr %167, align 8
@@ -945,7 +945,7 @@ arrow_length.exit226:                             ; preds = %.loopexit.i222, %14
   store double %.sroa.035.0.copyload51, ptr %188, align 8
   %.sroa.19.0..sroa_idx61 = getelementptr i8, ptr %166, i64 40
   store double %.sroa.19.0.copyload60, ptr %.sroa.19.0..sroa_idx61, align 8
-  %189 = getelementptr inbounds i8, ptr %4, i64 16
+  %189 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %5, ptr %189, align 8
   br label %.sink.split
 
@@ -954,9 +954,9 @@ arrow_length.exit226:                             ; preds = %.loopexit.i222, %14
   %.sroa.078.0.copyload97.sink = phi double [ %.sroa.078.0.copyload97, %186 ], [ %.sroa.035.0.copyload, %85 ]
   %.sink = phi i64 [ 32, %186 ], [ 48, %85 ]
   %.sroa.22.0.copyload106.sink = phi double [ %.sroa.22.0.copyload106, %186 ], [ %.sroa.19.0.copyload, %85 ]
-  %190 = getelementptr inbounds i8, ptr %4, i64 %.sink252
+  %190 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink252
   store double %.sroa.078.0.copyload97.sink, ptr %190, align 8
-  %.sroa.22.0..sroa_idx107 = getelementptr inbounds i8, ptr %4, i64 %.sink
+  %.sroa.22.0..sroa_idx107 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink
   store double %.sroa.22.0.copyload106.sink, ptr %.sroa.22.0..sroa_idx107, align 8
   br label %191
 
@@ -996,7 +996,7 @@ define void @arrow_bb(ptr dead_on_unwind noalias nocapture writable writeonly sr
   %. = select i1 %33, double %25, double %32
   %34 = fcmp ogt double %23, %.
   %35 = select i1 %34, double %23, double %.
-  %36 = getelementptr inbounds i8, ptr %0, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %35, ptr %36, align 8
   %37 = fcmp ogt double %28, %30
   %38 = select i1 %37, double %28, double %30
@@ -1004,7 +1004,7 @@ define void @arrow_bb(ptr dead_on_unwind noalias nocapture writable writeonly sr
   %40 = select i1 %39, double %26, double %38
   %41 = fcmp ogt double %24, %40
   %42 = select i1 %41, double %24, double %40
-  %43 = getelementptr inbounds i8, ptr %0, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %42, ptr %43, align 8
   %44 = fcmp olt double %27, %29
   %45 = select i1 %44, double %27, double %29
@@ -1019,7 +1019,7 @@ define void @arrow_bb(ptr dead_on_unwind noalias nocapture writable writeonly sr
   %53 = select i1 %52, double %26, double %51
   %54 = fcmp olt double %24, %53
   %55 = select i1 %54, double %24, double %53
-  %56 = getelementptr inbounds i8, ptr %0, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %55, ptr %56, align 8
   ret void
 }
@@ -1029,13 +1029,13 @@ declare double @hypot(double noundef, double noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define void @arrow_gen(ptr noundef %0, i32 noundef %1, double %2, double %3, double %4, double %5, double noundef %6, double noundef %7, i32 noundef %8) local_unnamed_addr #0 {
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load i32, ptr %12, align 8
   store i32 %1, ptr %12, align 8
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 528
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 528
   %16 = load ptr, ptr %15, align 8
   tail call void @gvrender_set_style(ptr noundef nonnull %0, ptr noundef %16) #12
   tail call void @gvrender_set_penwidth(ptr noundef nonnull %0, double noundef %7) #12
@@ -1075,18 +1075,18 @@ define void @arrow_gen(ptr noundef %0, i32 noundef %1, double %2, double %3, dou
 
 39:                                               ; preds = %37, %35
   %.021.i = phi i64 [ 0, %35 ], [ %38, %37 ]
-  %40 = getelementptr inbounds [8 x %struct.arrowtype_t], ptr @Arrowtypes, i64 0, i64 %.021.i
+  %40 = getelementptr inbounds nuw [8 x %struct.arrowtype_t], ptr @Arrowtypes, i64 0, i64 %.021.i
   %41 = load i32, ptr %40, align 16
   %42 = icmp eq i32 %36, %41
   br i1 %42, label %43, label %37
 
 43:                                               ; preds = %39
-  %44 = getelementptr inbounds i8, ptr %40, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %45 = load double, ptr %44, align 8
   %46 = fmul double %6, %45
   %47 = fmul double %28, %46
   %48 = fmul double %29, %46
-  %49 = getelementptr inbounds i8, ptr %40, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %50 = load ptr, ptr %49, align 8
   %51 = tail call { double, double } %50(ptr noundef nonnull %0, double %.sroa.031.037, double %.sroa.4.038, double %47, double %48, double noundef %6, double noundef %7, i32 noundef range(i32 1, 256) %33) #12
   br label %arrow_gen_type.exit
@@ -1150,12 +1150,12 @@ define internal { double, double } @arrow_type_normal(ptr noundef %0, double %1,
   br i1 %.not13, label %21, label %19
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %9, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 32
   call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %20, i64 noundef 3, i32 noundef %18) #12
   br label %23
 
 21:                                               ; preds = %15
-  %22 = getelementptr inbounds i8, ptr %9, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 16
   call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %22, i64 noundef 3, i32 noundef %18) #12
   br label %23
 
@@ -1170,13 +1170,13 @@ define internal double @arrow_length_normal(double noundef %0, double noundef %1
   %7 = fmul double %6, 1.000000e+01
   %8 = call fastcc { double, double } @arrow_type_normal0(double 0.000000e+00, double 0.000000e+00, double %7, double 0.000000e+00, double noundef %2, i32 noundef %3, ptr noundef %5)
   %9 = extractvalue { double, double } %8, 0
-  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.sroa.011.0.copyload = load double, ptr %10, align 16
-  %.sroa.212.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
+  %.sroa.212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
   %.sroa.212.0.copyload = load double, ptr %.sroa.212.0..sroa_idx, align 8
-  %.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 56
+  %.sroa.1.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 56
   %.sroa.1.0.copyload = load double, ptr %.sroa.1.0..sroa_idx, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.sroa.0.0.copyload = load double, ptr %11, align 16
   %12 = fsub double %.sroa.011.0.copyload, %.sroa.0.0.copyload
   %13 = tail call double @llvm.fabs.f64(double %12)
@@ -1211,7 +1211,7 @@ define internal { double, double } @arrow_type_crow(ptr noundef %0, double %1, d
   br i1 %.not11, label %17, label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %9, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 64
   call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %16, i64 noundef 5, i32 noundef 1) #12
   br label %18
 
@@ -1230,14 +1230,14 @@ define internal double @arrow_length_crow(double noundef %0, double noundef %1, 
   %7 = fmul double %6, 1.000000e+01
   %8 = call fastcc { double, double } @arrow_type_crow0(double 0.000000e+00, double 0.000000e+00, double %7, double 0.000000e+00, double noundef %1, double noundef %2, i32 noundef %3, ptr noundef %5)
   %9 = extractvalue { double, double } %8, 0
-  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.sroa.014.0.copyload = load double, ptr %10, align 16
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
   %.sroa.3.0.copyload = load double, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 120
+  %.sroa.1.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 120
   %.sroa.1.0.copyload = load double, ptr %.sroa.1.0..sroa_idx, align 8
   %.sroa.011.0.copyload = load double, ptr %5, align 16
-  %11 = getelementptr inbounds i8, ptr %5, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %.sroa.0.0.copyload = load double, ptr %11, align 16
   %12 = fsub double %.sroa.014.0.copyload, %.sroa.0.0.copyload
   %13 = fsub double %9, %12
@@ -1304,25 +1304,25 @@ define internal { double, double } @arrow_type_tee(ptr noundef %0, double %1, do
   %39 = fsub double %.sroa.042.0, %4
   store double %39, ptr %9, align 16
   %40 = fadd double %3, %.sroa.746.0
-  %41 = getelementptr inbounds i8, ptr %9, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store double %40, ptr %41, align 8
   %42 = fadd double %4, %.sroa.042.0
-  %43 = getelementptr inbounds i8, ptr %9, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store double %42, ptr %43, align 16
   %44 = fsub double %.sroa.746.0, %3
-  %45 = getelementptr inbounds i8, ptr %9, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store double %44, ptr %45, align 8
   %46 = fadd double %4, %.sroa.034.0
-  %47 = getelementptr inbounds i8, ptr %9, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store double %46, ptr %47, align 16
   %48 = fsub double %.sroa.7.0, %3
-  %49 = getelementptr inbounds i8, ptr %9, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store double %48, ptr %49, align 8
   %50 = fsub double %.sroa.034.0, %4
-  %51 = getelementptr inbounds i8, ptr %9, i64 48
+  %51 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store double %50, ptr %51, align 16
   %52 = fadd double %3, %.sroa.7.0
-  %53 = getelementptr inbounds i8, ptr %9, i64 56
+  %53 = getelementptr inbounds nuw i8, ptr %9, i64 56
   store double %52, ptr %53, align 8
   %54 = and i32 %7, 64
   %.not = icmp eq i32 %54, 0
@@ -1407,25 +1407,25 @@ define internal { double, double } @arrow_type_box(ptr noundef %0, double %1, do
   %31 = fadd double %10, %27
   store double %31, ptr %9, align 16
   %32 = fadd double %11, %28
-  %33 = getelementptr inbounds i8, ptr %9, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store double %32, ptr %33, align 8
   %34 = fsub double %27, %10
-  %35 = getelementptr inbounds i8, ptr %9, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store double %34, ptr %35, align 16
   %36 = fsub double %28, %11
-  %37 = getelementptr inbounds i8, ptr %9, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store double %36, ptr %37, align 8
   %38 = fsub double %29, %10
-  %39 = getelementptr inbounds i8, ptr %9, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store double %38, ptr %39, align 16
   %40 = fsub double %30, %11
-  %41 = getelementptr inbounds i8, ptr %9, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store double %40, ptr %41, align 8
   %42 = fadd double %10, %29
-  %43 = getelementptr inbounds i8, ptr %9, i64 48
+  %43 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store double %42, ptr %43, align 16
   %44 = fadd double %11, %30
-  %45 = getelementptr inbounds i8, ptr %9, i64 56
+  %45 = getelementptr inbounds nuw i8, ptr %9, i64 56
   store double %44, ptr %45, align 8
   %46 = and i32 %7, 64
   %.not = icmp eq i32 %46, 0
@@ -1508,7 +1508,7 @@ define internal { double, double } @arrow_type_diamond(ptr noundef %0, double %1
   %28 = fneg double %4
   call fastcc void @miter_shape(ptr dead_on_unwind noalias writable align 8 %9, double %.sroa.026.0.i, double %.sroa.328.0.i, double %27, double %28, double %.sroa.021.0.i, double %.sroa.323.0.i, double noundef %6)
   %.sroa.014.0.copyload.i = load double, ptr %9, align 8
-  %.sroa.215.0..sroa_idx.i = getelementptr inbounds i8, ptr %9, i64 8
+  %.sroa.215.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.sroa.215.0.copyload.i = load double, ptr %.sroa.215.0..sroa_idx.i, align 8
   %29 = fadd double %3, %.sroa.014.0.copyload.i
   %30 = fadd double %4, %.sroa.215.0.copyload.i
@@ -1518,26 +1518,26 @@ define internal { double, double } @arrow_type_diamond(ptr noundef %0, double %1
   %34 = fsub double %24, %30
   %35 = fsub double %22, %29
   %36 = fsub double %21, %30
-  %37 = getelementptr inbounds i8, ptr %10, i64 64
+  %37 = getelementptr inbounds nuw i8, ptr %10, i64 64
   store double %35, ptr %37, align 16
-  %.sroa.781.0..sroa_idx.i = getelementptr inbounds i8, ptr %10, i64 72
+  %.sroa.781.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 72
   store double %36, ptr %.sroa.781.0..sroa_idx.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %10, ptr noundef nonnull align 16 dereferenceable(16) %37, i64 16, i1 false)
   %38 = fadd double %11, %33
-  %39 = getelementptr inbounds i8, ptr %10, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store double %38, ptr %39, align 16
   %40 = fadd double %12, %34
-  %41 = getelementptr inbounds i8, ptr %10, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store double %40, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %10, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store double %31, ptr %42, align 16
-  %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %10, i64 40
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 40
   store double %32, ptr %.sroa.6.0..sroa_idx.i, align 8
   %43 = fsub double %33, %11
-  %44 = getelementptr inbounds i8, ptr %10, i64 48
+  %44 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store double %43, ptr %44, align 16
   %45 = fsub double %34, %12
-  %46 = getelementptr inbounds i8, ptr %10, i64 56
+  %46 = getelementptr inbounds nuw i8, ptr %10, i64 56
   store double %45, ptr %46, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9)
   %47 = lshr i32 %7, 4
@@ -1592,7 +1592,7 @@ define internal double @arrow_length_diamond(double noundef %0, double noundef %
   %17 = fneg double %7
   call fastcc void @miter_shape(ptr dead_on_unwind noalias writable align 8 %5, double %.sroa.026.0.i, double %.sroa.328.0.i, double %17, double -0.000000e+00, double %.sroa.021.0.i, double %.sroa.323.0.i, double noundef %2)
   %.sroa.014.0.copyload.i = load double, ptr %5, align 8
-  %.sroa.215.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.215.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.215.0.copyload.i = load double, ptr %.sroa.215.0..sroa_idx.i, align 8
   %18 = fadd double %7, %.sroa.014.0.copyload.i
   %19 = fadd double %.sroa.215.0.copyload.i, 0.000000e+00
@@ -1652,13 +1652,13 @@ define internal { double, double } @arrow_type_dot(ptr noundef %0, double %1, do
   %30 = fmul double %4, 5.000000e-01
   %31 = fadd double %30, %.sroa.6.0
   %32 = fsub double %31, %26
-  %33 = getelementptr inbounds i8, ptr %9, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store double %32, ptr %33, align 8
   %34 = fadd double %26, %28
-  %35 = getelementptr inbounds i8, ptr %9, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store double %34, ptr %35, align 16
   %36 = fadd double %26, %31
-  %37 = getelementptr inbounds i8, ptr %9, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store double %36, ptr %37, align 8
   %38 = lshr i32 %7, 4
   %.lobit = and i32 %38, 1
@@ -1689,7 +1689,7 @@ define internal { double, double } @arrow_type_curve(ptr noundef %0, double %1, 
   %13 = fmul double %12, 2.500000e-01
   %14 = select i1 %11, double %13, double 5.000000e-01
   store double %1, ptr %10, align 16
-  %.sroa.1162.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
+  %.sroa.1162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   store double %2, ptr %.sroa.1162.0..sroa_idx, align 8
   %15 = and i32 %7, 32
   %.not = icmp eq i32 %15, 0
@@ -1722,24 +1722,24 @@ define internal { double, double } @arrow_type_curve(ptr noundef %0, double %1, 
   %33 = fneg double %4
   %34 = fmul double %14, %33
   %35 = fmul double %3, %14
-  %36 = getelementptr inbounds i8, ptr %10, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store double %31, ptr %36, align 16
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 24
   store double %32, ptr %.sroa.3.0..sroa_idx, align 8
   %37 = fadd double %34, %.sroa.054.0
   %38 = fadd double %35, %37
   store double %38, ptr %9, align 16
   %39 = fadd double %35, %.sroa.1162.0
   %40 = fsub double %39, %34
-  %41 = getelementptr inbounds i8, ptr %9, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store double %40, ptr %41, align 8
   %42 = fsub double %.sroa.054.0, %34
   %43 = fadd double %35, %42
-  %44 = getelementptr inbounds i8, ptr %9, i64 48
+  %44 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store double %43, ptr %44, align 16
   %45 = fsub double %.sroa.1162.0, %35
   %46 = fsub double %45, %34
-  %47 = getelementptr inbounds i8, ptr %9, i64 56
+  %47 = getelementptr inbounds nuw i8, ptr %9, i64 56
   store double %46, ptr %47, align 8
   %48 = tail call double @llvm.fmuladd.f64(double %34, double 0x3FEE666666666666, double %.sroa.054.0)
   %49 = fadd double %35, %48
@@ -1770,13 +1770,13 @@ define internal { double, double } @arrow_type_curve(ptr noundef %0, double %1, 
   %.sink70 = phi double [ %63, %61 ], [ %58, %56 ]
   %.sink69 = phi double [ %64, %61 ], [ %59, %56 ]
   %.sink = phi double [ %65, %61 ], [ %60, %56 ]
-  %67 = getelementptr inbounds i8, ptr %9, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store double %.sink71, ptr %67, align 16
-  %68 = getelementptr inbounds i8, ptr %9, i64 24
+  %68 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store double %.sink70, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %9, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store double %.sink69, ptr %69, align 16
-  %70 = getelementptr inbounds i8, ptr %9, i64 40
+  %70 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store double %.sink, ptr %70, align 8
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %10, i64 noundef 2) #12
   %71 = and i32 %7, 64
@@ -1817,11 +1817,11 @@ define internal { double, double } @arrow_type_gap(ptr noundef %0, double %1, do
   %10 = fadd double %1, %3
   %11 = fadd double %2, %4
   store double %1, ptr %9, align 16
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   store double %2, ptr %.sroa.3.0..sroa_idx, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store double %10, ptr %12, align 16
-  %.sroa.33.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 24
+  %.sroa.33.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 24
   store double %11, ptr %.sroa.33.0..sroa_idx, align 8
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 2) #12
   %.fca.0.insert = insertvalue { double, double } poison, double %10, 0
@@ -1887,9 +1887,9 @@ define internal fastcc { double, double } @arrow_type_normal0(double %0, double 
 
 36:                                               ; preds = %27
   call fastcc void @miter_shape(ptr dead_on_unwind noalias writable align 8 %8, double %.sroa.086.0, double %.sroa.590.0, double %.sroa.053.0, double %.sroa.11.0, double %.sroa.078.0, double %.sroa.5.0, double noundef %4)
-  %37 = getelementptr inbounds i8, ptr %8, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %.sroa.036.0.copyload = load double, ptr %37, align 8
-  %.sroa.237.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 24
+  %.sroa.237.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sroa.237.0.copyload = load double, ptr %.sroa.237.0..sroa_idx, align 8
   %38 = fsub double %.sroa.036.0.copyload, %.sroa.053.0
   %39 = fsub double %.sroa.237.0.copyload, %.sroa.11.0
@@ -1911,9 +1911,9 @@ define internal fastcc { double, double } @arrow_type_normal0(double %0, double 
 
 52:                                               ; preds = %51
   call fastcc void @miter_shape(ptr dead_on_unwind noalias writable align 8 %9, double %.sroa.086.0, double %.sroa.590.0, double %.sroa.053.0, double %.sroa.11.0, double %.sroa.078.0, double %.sroa.5.0, double noundef %4)
-  %53 = getelementptr inbounds i8, ptr %9, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %.sroa.020.0.copyload = load double, ptr %53, align 8
-  %.sroa.221.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 40
+  %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 40
   %.sroa.221.0.copyload = load double, ptr %.sroa.221.0..sroa_idx, align 8
   %54 = fsub double %.sroa.020.0.copyload, %.sroa.053.0
   %55 = fsub double %.sroa.221.0.copyload, %.sroa.11.0
@@ -1933,7 +1933,7 @@ define internal fastcc { double, double } @arrow_type_normal0(double %0, double 
 67:                                               ; preds = %51
   call fastcc void @miter_shape(ptr dead_on_unwind noalias writable align 8 %10, double %.sroa.086.0, double %.sroa.590.0, double %.sroa.053.0, double %.sroa.11.0, double %.sroa.078.0, double %.sroa.5.0, double noundef %4)
   %.sroa.05.0.copyload = load double, ptr %10, align 8
-  %.sroa.26.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
+  %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.sroa.26.0.copyload = load double, ptr %.sroa.26.0..sroa_idx, align 8
   %68 = fsub double %.sroa.05.0.copyload, %.sroa.053.0
   %69 = fsub double %.sroa.26.0.copyload, %.sroa.11.0
@@ -1952,8 +1952,8 @@ define internal fastcc { double, double } @arrow_type_normal0(double %0, double 
   %.sroa.048.0 = phi double [ %.sroa.048.1, %70 ], [ 0.000000e+00, %7 ]
   %.sroa.5110.0 = phi double [ %73, %70 ], [ 0.000000e+00, %7 ]
   %.sroa.0107.0 = phi double [ %72, %70 ], [ 0.000000e+00, %7 ]
-  %75 = getelementptr inbounds i8, ptr %6, i64 64
-  %.sroa.14.0..sroa_idx180 = getelementptr inbounds i8, ptr %6, i64 72
+  %75 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %.sroa.14.0..sroa_idx180 = getelementptr inbounds nuw i8, ptr %6, i64 72
   br i1 %.not189, label %83, label %76
 
 76:                                               ; preds = %74
@@ -1991,17 +1991,17 @@ define internal fastcc { double, double } @arrow_type_normal0(double %0, double 
   %.sink190 = fadd double %15, %.pn
   %.sink193 = fsub double %.pn195, %16
   %.sink194 = fsub double %.pn, %15
-  %91 = getelementptr inbounds i8, ptr %6, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store double %.sink194, ptr %91, align 8
-  %92 = getelementptr inbounds i8, ptr %6, i64 24
+  %92 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store double %.sink193, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %6, i64 32
+  %93 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store double %.sink192, ptr %93, align 8
-  %94 = getelementptr inbounds i8, ptr %6, i64 40
+  %94 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store double %.sink191, ptr %94, align 8
-  %95 = getelementptr inbounds i8, ptr %6, i64 48
+  %95 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store double %.sink190, ptr %95, align 8
-  %96 = getelementptr inbounds i8, ptr %6, i64 56
+  %96 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store double %.sink, ptr %96, align 8
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.0173.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.14.0, 1
@@ -2028,15 +2028,15 @@ define internal fastcc void @miter_shape(ptr dead_on_unwind noalias nocapture no
 
 14:                                               ; preds = %11, %8
   store double %3, ptr %0, align 8
-  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %4, ptr %.sroa.10.0..sroa_idx, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %3, ptr %15, align 8
-  %.sroa.10.0..sroa_idx68 = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.10.0..sroa_idx68 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %4, ptr %.sroa.10.0..sroa_idx68, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store double %3, ptr %16, align 8
-  %.sroa.10.0..sroa_idx70 = getelementptr inbounds i8, ptr %0, i64 40
+  %.sroa.10.0..sroa_idx70 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store double %4, ptr %.sroa.10.0..sroa_idx70, align 8
   br label %64
 
@@ -2075,11 +2075,11 @@ define internal fastcc void @miter_shape(ptr dead_on_unwind noalias nocapture no
   %49 = tail call double @llvm.fmuladd.f64(double %27, double %48, double %3)
   %50 = tail call double @llvm.fmuladd.f64(double %27, double %34, double %4)
   %51 = fcmp ogt double %46, 4.000000e+00
-  %.sroa.23.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.532.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  %53 = getelementptr inbounds i8, ptr %0, i64 32
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
+  %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.sroa.532.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   br i1 %51, label %54, label %59
 
 54:                                               ; preds = %17
@@ -2193,9 +2193,9 @@ define internal fastcc { double, double } @arrow_type_crow0(double %0, double %1
 
 48:                                               ; preds = %38
   call fastcc void @miter_shape(ptr dead_on_unwind noalias writable align 8 %9, double %.sroa.0116.0, double %.sroa.5120.0, double %.sroa.083.0, double %.sroa.11.0, double %.sroa.0108.0, double %.sroa.5.0, double noundef %5)
-  %49 = getelementptr inbounds i8, ptr %9, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %.sroa.063.0.copyload = load double, ptr %49, align 8
-  %.sroa.264.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 40
+  %.sroa.264.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 40
   %.sroa.264.0.copyload = load double, ptr %.sroa.264.0..sroa_idx, align 8
   %50 = fsub double %.sroa.063.0.copyload, %.sroa.083.0
   %51 = fsub double %.sroa.264.0.copyload, %.sroa.11.0
@@ -2221,9 +2221,9 @@ define internal fastcc { double, double } @arrow_type_crow0(double %0, double %1
 
 65:                                               ; preds = %63
   call fastcc void @miter_shape(ptr dead_on_unwind noalias writable align 8 %10, double %.sroa.0116.0, double %.sroa.5120.0, double %.sroa.083.0, double %.sroa.11.0, double %.sroa.0108.0, double %.sroa.5.0, double noundef %5)
-  %66 = getelementptr inbounds i8, ptr %10, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %.sroa.047.0.copyload = load double, ptr %66, align 8
-  %.sroa.248.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 24
+  %.sroa.248.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 24
   %.sroa.248.0.copyload = load double, ptr %.sroa.248.0..sroa_idx, align 8
   %67 = fsub double %.sroa.047.0.copyload, %.sroa.083.0
   %68 = fsub double %.sroa.248.0.copyload, %.sroa.11.0
@@ -2243,7 +2243,7 @@ define internal fastcc { double, double } @arrow_type_crow0(double %0, double %1
 80:                                               ; preds = %63
   call fastcc void @miter_shape(ptr dead_on_unwind noalias writable align 8 %11, double %.sroa.0116.0, double %.sroa.5120.0, double %.sroa.083.0, double %.sroa.11.0, double %.sroa.0108.0, double %.sroa.5.0, double noundef %5)
   %.sroa.031.0.copyload = load double, ptr %11, align 8
-  %.sroa.232.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 8
+  %.sroa.232.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.sroa.232.0.copyload = load double, ptr %.sroa.232.0..sroa_idx, align 8
   %81 = fsub double %.sroa.031.0.copyload, %.sroa.083.0
   %82 = fsub double %.sroa.232.0.copyload, %.sroa.11.0
@@ -2268,9 +2268,9 @@ define internal fastcc { double, double } @arrow_type_crow0(double %0, double %1
   %91 = fsub double %23, %2
   %92 = fsub double %24, %3
   call fastcc void @miter_shape(ptr dead_on_unwind noalias writable align 8 %12, double %89, double %90, double %91, double %92, double 0.000000e+00, double 0.000000e+00, double noundef %5)
-  %93 = getelementptr inbounds i8, ptr %12, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %.sroa.016.0.copyload = load double, ptr %93, align 8
-  %.sroa.217.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 24
+  %.sroa.217.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 24
   %.sroa.217.0.copyload = load double, ptr %.sroa.217.0..sroa_idx, align 8
   %94 = fsub double %.sroa.016.0.copyload, %91
   %95 = fsub double %.sroa.217.0.copyload, %92
@@ -2300,50 +2300,50 @@ define internal fastcc { double, double } @arrow_type_crow0(double %0, double %1
   %111 = fsub double %1, %.sroa.7.0334
   %112 = fsub double %27, %.sroa.078.0335
   %113 = fsub double %28, %.sroa.7.0334
-  %114 = getelementptr inbounds i8, ptr %7, i64 128
+  %114 = getelementptr inbounds nuw i8, ptr %7, i64 128
   store double %110, ptr %114, align 8
-  %.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 136
+  %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 136
   store double %111, ptr %.sroa.13.0..sroa_idx, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %114, i64 16, i1 false)
   %115 = fsub double %112, %23
-  %116 = getelementptr inbounds i8, ptr %7, i64 16
+  %116 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store double %115, ptr %116, align 8
   %117 = fsub double %113, %24
-  %118 = getelementptr inbounds i8, ptr %7, i64 24
+  %118 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store double %117, ptr %118, align 8
   %119 = fsub double %29, %25
-  %120 = getelementptr inbounds i8, ptr %7, i64 32
+  %120 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store double %119, ptr %120, align 8
   %121 = fsub double %30, %26
-  %122 = getelementptr inbounds i8, ptr %7, i64 40
+  %122 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store double %121, ptr %122, align 8
   %123 = fsub double %112, %25
-  %124 = getelementptr inbounds i8, ptr %7, i64 48
+  %124 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store double %123, ptr %124, align 8
   %125 = fsub double %113, %26
-  %126 = getelementptr inbounds i8, ptr %7, i64 56
+  %126 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store double %125, ptr %126, align 8
-  %127 = getelementptr inbounds i8, ptr %7, i64 64
+  %127 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store double %112, ptr %127, align 8
-  %.sroa.17.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 72
+  %.sroa.17.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 72
   store double %113, ptr %.sroa.17.0..sroa_idx, align 8
   %128 = fadd double %25, %112
-  %129 = getelementptr inbounds i8, ptr %7, i64 80
+  %129 = getelementptr inbounds nuw i8, ptr %7, i64 80
   store double %128, ptr %129, align 8
   %130 = fadd double %26, %113
-  %131 = getelementptr inbounds i8, ptr %7, i64 88
+  %131 = getelementptr inbounds nuw i8, ptr %7, i64 88
   store double %130, ptr %131, align 8
   %132 = fadd double %29, %25
-  %133 = getelementptr inbounds i8, ptr %7, i64 96
+  %133 = getelementptr inbounds nuw i8, ptr %7, i64 96
   store double %132, ptr %133, align 8
   %134 = fadd double %30, %26
-  %135 = getelementptr inbounds i8, ptr %7, i64 104
+  %135 = getelementptr inbounds nuw i8, ptr %7, i64 104
   store double %134, ptr %135, align 8
   %136 = fadd double %23, %112
-  %137 = getelementptr inbounds i8, ptr %7, i64 112
+  %137 = getelementptr inbounds nuw i8, ptr %7, i64 112
   store double %136, ptr %137, align 8
   %138 = fadd double %24, %113
-  %139 = getelementptr inbounds i8, ptr %7, i64 120
+  %139 = getelementptr inbounds nuw i8, ptr %7, i64 120
   store double %138, ptr %139, align 8
   %140 = fsub double %112, %.sroa.0138.0337
   %141 = fsub double %113, %.sroa.9.0336
@@ -2358,48 +2358,48 @@ define internal fastcc { double, double } @arrow_type_crow0(double %0, double %1
   %144 = fadd double %1, %.sroa.9.0327
   %145 = fadd double %27, %.sroa.0138.0328
   %146 = fadd double %28, %.sroa.9.0327
-  %147 = getelementptr inbounds i8, ptr %7, i64 128
+  %147 = getelementptr inbounds nuw i8, ptr %7, i64 128
   store double %145, ptr %147, align 8
-  %.sroa.17.0..sroa_idx288 = getelementptr inbounds i8, ptr %7, i64 136
+  %.sroa.17.0..sroa_idx288 = getelementptr inbounds nuw i8, ptr %7, i64 136
   store double %146, ptr %.sroa.17.0..sroa_idx288, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %147, i64 16, i1 false)
   %148 = fsub double %143, %23
-  %149 = getelementptr inbounds i8, ptr %7, i64 16
+  %149 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store double %148, ptr %149, align 8
   %150 = fsub double %144, %24
-  %151 = getelementptr inbounds i8, ptr %7, i64 24
+  %151 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store double %150, ptr %151, align 8
   %152 = fsub double %29, %25
-  %153 = getelementptr inbounds i8, ptr %7, i64 32
+  %153 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store double %152, ptr %153, align 8
   %154 = fsub double %30, %26
-  %155 = getelementptr inbounds i8, ptr %7, i64 40
+  %155 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store double %154, ptr %155, align 8
   %156 = fadd double %.sroa.0138.0328, %143
-  %157 = getelementptr inbounds i8, ptr %7, i64 48
+  %157 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store double %156, ptr %157, align 8
   %158 = fadd double %.sroa.9.0327, %144
-  %159 = getelementptr inbounds i8, ptr %7, i64 56
+  %159 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store double %158, ptr %159, align 8
-  %160 = getelementptr inbounds i8, ptr %7, i64 64
+  %160 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store double %156, ptr %160, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 72
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 72
   store double %158, ptr %.sroa.2.0..sroa_idx, align 8
-  %161 = getelementptr inbounds i8, ptr %7, i64 80
+  %161 = getelementptr inbounds nuw i8, ptr %7, i64 80
   store double %156, ptr %161, align 8
-  %162 = getelementptr inbounds i8, ptr %7, i64 88
+  %162 = getelementptr inbounds nuw i8, ptr %7, i64 88
   store double %158, ptr %162, align 8
   %163 = fadd double %29, %25
-  %164 = getelementptr inbounds i8, ptr %7, i64 96
+  %164 = getelementptr inbounds nuw i8, ptr %7, i64 96
   store double %163, ptr %164, align 8
   %165 = fadd double %30, %26
-  %166 = getelementptr inbounds i8, ptr %7, i64 104
+  %166 = getelementptr inbounds nuw i8, ptr %7, i64 104
   store double %165, ptr %166, align 8
   %167 = fadd double %23, %143
-  %168 = getelementptr inbounds i8, ptr %7, i64 112
+  %168 = getelementptr inbounds nuw i8, ptr %7, i64 112
   store double %167, ptr %168, align 8
   %169 = fadd double %24, %144
-  %170 = getelementptr inbounds i8, ptr %7, i64 120
+  %170 = getelementptr inbounds nuw i8, ptr %7, i64 120
   store double %169, ptr %170, align 8
   %171 = fadd double %145, %.sroa.078.0326
   %172 = fadd double %146, %.sroa.7.0325

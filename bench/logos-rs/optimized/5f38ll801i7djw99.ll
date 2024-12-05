@@ -52,7 +52,7 @@ define hidden void @_ZN12regex_syntax3hir3Hir3dot17hc14803ee48837057E(ptr sret([
   %.sroa.023.0.insert.ext = zext i32 %26 to i64
   %.sroa.023.0.insert.insert = or disjoint i64 %.sroa.224.0.insert.shift, %.sroa.023.0.insert.ext
   call void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$3new17h6daf26bae5176d71E"(ptr nonnull sret([32 x i8]) align 8 %10, i64 %.sroa.023.0.insert.insert)
-  %28 = getelementptr inbounds i8, ptr %22, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %22, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false)
   store i64 0, ptr %22, align 8
   br label %88
@@ -66,7 +66,7 @@ define hidden void @_ZN12regex_syntax3hir3Hir3dot17hc14803ee48837057E(ptr sret([
   %.sroa.025.0.insert.ext = zext i8 %31 to i16
   %.sroa.025.0.insert.insert = or disjoint i16 %.sroa.226.0.insert.shift, %.sroa.025.0.insert.ext
   call void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$3new17hcb004fbc02070904E"(ptr nonnull sret([32 x i8]) align 8 %9, i16 %.sroa.025.0.insert.insert)
-  %33 = getelementptr inbounds i8, ptr %21, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %21, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
   store i64 1, ptr %21, align 8
   br label %88
@@ -94,14 +94,14 @@ define hidden void @_ZN12regex_syntax3hir3Hir3dot17hc14803ee48837057E(ptr sret([
   %43 = extractvalue { i32, i32 } %42, 0
   %44 = extractvalue { i32, i32 } %42, 1
   store i32 %40, ptr %17, align 4
-  %45 = getelementptr inbounds i8, ptr %17, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 %41, ptr %45, align 4
-  %46 = getelementptr inbounds i8, ptr %17, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i32 %43, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %17, i64 12
+  %47 = getelementptr inbounds nuw i8, ptr %17, i64 12
   store i32 %44, ptr %47, align 4
   call void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$3new17he16caf6839535d31E"(ptr nonnull sret([32 x i8]) align 8 %7, ptr nonnull align 4 %17)
-  %48 = getelementptr inbounds i8, ptr %18, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %18, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
   store i64 0, ptr %18, align 8
   br label %88
@@ -117,18 +117,18 @@ define hidden void @_ZN12regex_syntax3hir3Hir3dot17hc14803ee48837057E(ptr sret([
   %57 = extractvalue { i32, i32 } %56, 0
   %58 = extractvalue { i32, i32 } %56, 1
   store i32 %51, ptr %15, align 4
-  %59 = getelementptr inbounds i8, ptr %15, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store i32 %52, ptr %59, align 4
-  %60 = getelementptr inbounds i8, ptr %15, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i32 %54, ptr %60, align 4
-  %61 = getelementptr inbounds i8, ptr %15, i64 12
+  %61 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i32 %55, ptr %61, align 4
-  %62 = getelementptr inbounds i8, ptr %15, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i32 %57, ptr %62, align 4
-  %63 = getelementptr inbounds i8, ptr %15, i64 20
+  %63 = getelementptr inbounds nuw i8, ptr %15, i64 20
   store i32 %58, ptr %63, align 4
   call void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$3new17h6e4b6de9311b78e3E"(ptr nonnull sret([32 x i8]) align 8 %6, ptr nonnull align 4 %15)
-  %64 = getelementptr inbounds i8, ptr %16, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %16, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %64, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   store i64 0, ptr %16, align 8
   br label %88
@@ -166,7 +166,7 @@ define hidden void @_ZN12regex_syntax3hir3Hir3dot17hc14803ee48837057E(ptr sret([
   %.sroa.033.0.insert.ext = zext i8 %71 to i32
   %.sroa.033.0.insert.insert = or disjoint i32 %.sroa.234.0.insert.insert, %.sroa.033.0.insert.ext
   call void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$3new17h4ecab89ec885331bE"(ptr nonnull sret([32 x i8]) align 8 %4, i32 %.sroa.033.0.insert.insert)
-  %76 = getelementptr inbounds i8, ptr %12, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %12, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %76, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   store i64 1, ptr %12, align 8
   br label %88
@@ -198,7 +198,7 @@ define hidden void @_ZN12regex_syntax3hir3Hir3dot17hc14803ee48837057E(ptr sret([
   %.sroa.037.0.insert.ext = zext i8 %79 to i48
   %.sroa.037.0.insert.insert = or disjoint i48 %.sroa.238.0.insert.insert, %.sroa.037.0.insert.ext
   call void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$3new17heefaa8ca64c6d797E"(ptr nonnull sret([32 x i8]) align 8 %3, i48 %.sroa.037.0.insert.insert)
-  %87 = getelementptr inbounds i8, ptr %11, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %11, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %87, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   store i64 1, ptr %11, align 8
   br label %88
@@ -209,7 +209,7 @@ define hidden void @_ZN12regex_syntax3hir3Hir3dot17hc14803ee48837057E(ptr sret([
   ret void
 
 89:                                               ; preds = %34
-  %90 = getelementptr inbounds i8, ptr %19, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %19, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef nonnull align 8 dereferenceable(32) %20, i64 32, i1 false)
   store i64 0, ptr %19, align 8
   br label %88
@@ -231,7 +231,7 @@ define hidden void @_ZN12regex_syntax3hir3Hir3dot17hc14803ee48837057E(ptr sret([
   unreachable
 
 96:                                               ; preds = %65
-  %97 = getelementptr inbounds i8, ptr %13, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %13, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %97, ptr noundef nonnull align 8 dereferenceable(32) %14, i64 32, i1 false)
   store i64 1, ptr %13, align 8
   br label %88
@@ -276,7 +276,7 @@ define internal fastcc void @_ZN12regex_syntax3hir3Hir5class17he96f3a992a1277bfE
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %11
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !noalias !3
   store i64 1, ptr %4, align 8, !noalias !3
   %13 = invoke align 8 ptr @_ZN12regex_syntax3hir10Properties5class17hb3799045a6713692E(ptr nonnull align 8 %4)
@@ -296,7 +296,7 @@ define internal fastcc void @_ZN12regex_syntax3hir3Hir5class17he96f3a992a1277bfE
 
 _ZN12regex_syntax3hir3Hir4fail17he2ee867dce36e74dE.exit: ; preds = %.noexc
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false)
-  %18 = getelementptr inbounds i8, ptr %0, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %13, ptr %18, align 8, !alias.scope !3
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
@@ -326,7 +326,7 @@ _ZN12regex_syntax3hir3Hir4fail17he2ee867dce36e74dE.exit: ; preds = %.noexc
 
 26:                                               ; preds = %24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
-  %27 = getelementptr inbounds i8, ptr %0, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %25, ptr %27, align 8
   br label %28
 
@@ -349,7 +349,7 @@ define hidden void @"_ZN63_$LT$regex_syntax..hir..Class$u20$as$u20$core..clone..
   %4 = alloca [24 x i8], align 8
   %5 = load i64, ptr %1, align 8
   %6 = icmp eq i64 %5, 0
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br i1 %6, label %8, label %9
 
 8:                                                ; preds = %2
@@ -363,12 +363,12 @@ define hidden void @"_ZN63_$LT$regex_syntax..hir..Class$u20$as$u20$core..clone..
 10:                                               ; preds = %9, %8
   %.sink10 = phi ptr [ %4, %9 ], [ %3, %8 ]
   %storemerge = phi i64 [ 1, %9 ], [ 0, %8 ]
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %13 = load i8, ptr %12, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %.sink10, i64 24, i1 false)
   %.sink = and i8 %13, 1
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 %.sink, ptr %14, align 8
   store i64 %storemerge, ptr %0, align 8
   ret void
@@ -403,13 +403,13 @@ define hidden zeroext i1 @"_ZN63_$LT$regex_syntax..hir..Hir$u20$as$u20$core..cmp
   unreachable
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %22 = load i64, ptr %21, align 8
   %23 = tail call zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h081703c16b7fec56E"(ptr align 1 %16, i64 %18, ptr align 1 %20, i64 %22)
   br i1 %23, label %"_ZN67_$LT$regex_syntax..hir..HirKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17hde583452ddf9b074E.exit.thread", label %"_ZN71_$LT$regex_syntax..hir..PropertiesI$u20$as$u20$core..cmp..PartialEq$GT$2eq17h14f7da4dcf824ceeE.exit"
@@ -420,8 +420,8 @@ define hidden zeroext i1 @"_ZN63_$LT$regex_syntax..hir..Hir$u20$as$u20$core..cmp
 
 26:                                               ; preds = %24
   %27 = icmp eq i64 %3, 0
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br i1 %27, label %30, label %32
 
 30:                                               ; preds = %26
@@ -433,63 +433,63 @@ define hidden zeroext i1 @"_ZN63_$LT$regex_syntax..hir..Hir$u20$as$u20$core..cmp
   br i1 %33, label %"_ZN67_$LT$regex_syntax..hir..HirKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17hde583452ddf9b074E.exit.thread", label %"_ZN71_$LT$regex_syntax..hir..PropertiesI$u20$as$u20$core..cmp..PartialEq$GT$2eq17h14f7da4dcf824ceeE.exit"
 
 34:                                               ; preds = %12
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = load i32, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %1, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %38 = load i32, ptr %37, align 8
   %39 = icmp eq i32 %36, %38
   br i1 %39, label %"_ZN67_$LT$regex_syntax..hir..HirKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17hde583452ddf9b074E.exit.thread", label %"_ZN71_$LT$regex_syntax..hir..PropertiesI$u20$as$u20$core..cmp..PartialEq$GT$2eq17h14f7da4dcf824ceeE.exit"
 
 40:                                               ; preds = %12
-  %41 = getelementptr inbounds i8, ptr %0, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %42 = load i32, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %1, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %44 = load i32, ptr %43, align 8
   %45 = icmp eq i32 %42, %44
   br i1 %45, label %46, label %"_ZN71_$LT$regex_syntax..hir..PropertiesI$u20$as$u20$core..cmp..PartialEq$GT$2eq17h14f7da4dcf824ceeE.exit"
 
 46:                                               ; preds = %40
-  %47 = getelementptr inbounds i8, ptr %1, i64 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %49 = tail call zeroext i1 @"_ZN70_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbf759af297b15271E"(ptr nonnull align 8 %48, ptr nonnull align 8 %47)
   br i1 %49, label %50, label %"_ZN71_$LT$regex_syntax..hir..PropertiesI$u20$as$u20$core..cmp..PartialEq$GT$2eq17h14f7da4dcf824ceeE.exit"
 
 50:                                               ; preds = %46
-  %51 = getelementptr inbounds i8, ptr %0, i64 28
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %52 = load i8, ptr %51, align 4
-  %53 = getelementptr inbounds i8, ptr %1, i64 28
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %54 = load i8, ptr %53, align 4
   %55 = xor i8 %54, %52
   %56 = trunc i8 %55 to i1
   br i1 %56, label %"_ZN71_$LT$regex_syntax..hir..PropertiesI$u20$as$u20$core..cmp..PartialEq$GT$2eq17h14f7da4dcf824ceeE.exit", label %57
 
 57:                                               ; preds = %50
-  %58 = getelementptr inbounds i8, ptr %0, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %1, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %61 = load ptr, ptr %60, align 8
   %62 = tail call zeroext i1 @"_ZN63_$LT$regex_syntax..hir..Hir$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4c08670ff0d4b115E"(ptr align 8 %59, ptr align 8 %61)
   br i1 %62, label %"_ZN67_$LT$regex_syntax..hir..HirKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17hde583452ddf9b074E.exit.thread", label %"_ZN71_$LT$regex_syntax..hir..PropertiesI$u20$as$u20$core..cmp..PartialEq$GT$2eq17h14f7da4dcf824ceeE.exit"
 
 63:                                               ; preds = %12
-  %64 = getelementptr inbounds i8, ptr %0, i64 8
-  %65 = getelementptr inbounds i8, ptr %1, i64 8
-  %66 = getelementptr inbounds i8, ptr %0, i64 32
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %67 = load i32, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %1, i64 32
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %69 = load i32, ptr %68, align 8
   %70 = icmp eq i32 %67, %69
   br i1 %70, label %71, label %"_ZN71_$LT$regex_syntax..hir..PropertiesI$u20$as$u20$core..cmp..PartialEq$GT$2eq17h14f7da4dcf824ceeE.exit"
 
 71:                                               ; preds = %63
-  %72 = getelementptr inbounds i8, ptr %0, i64 16
-  %73 = getelementptr inbounds i8, ptr %1, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %74 = tail call zeroext i1 @"_ZN70_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1fd8e979bdeccd3fE"(ptr nonnull align 8 %72, ptr nonnull align 8 %73)
   br i1 %74, label %"_ZN67_$LT$regex_syntax..hir..HirKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17hde583452ddf9b074E.exit", label %"_ZN71_$LT$regex_syntax..hir..PropertiesI$u20$as$u20$core..cmp..PartialEq$GT$2eq17h14f7da4dcf824ceeE.exit"
 
 75:                                               ; preds = %12
-  %76 = getelementptr inbounds i8, ptr %0, i64 8
-  %77 = getelementptr inbounds i8, ptr %1, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %78 = tail call { ptr, i64 } @"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h32ee98bea6987de9E"(ptr nonnull align 8 %76, ptr nonnull align 8 @anon.cfd0c34ce66d0c4527c991317dd844f7.1)
   %79 = extractvalue { ptr, i64 } %78, 0
   %80 = extractvalue { ptr, i64 } %78, 1
@@ -500,8 +500,8 @@ define hidden zeroext i1 @"_ZN63_$LT$regex_syntax..hir..Hir$u20$as$u20$core..cmp
   br i1 %84, label %"_ZN67_$LT$regex_syntax..hir..HirKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17hde583452ddf9b074E.exit.thread", label %"_ZN71_$LT$regex_syntax..hir..PropertiesI$u20$as$u20$core..cmp..PartialEq$GT$2eq17h14f7da4dcf824ceeE.exit"
 
 85:                                               ; preds = %12
-  %86 = getelementptr inbounds i8, ptr %0, i64 8
-  %87 = getelementptr inbounds i8, ptr %1, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %88 = tail call { ptr, i64 } @"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h32ee98bea6987de9E"(ptr nonnull align 8 %86, ptr nonnull align 8 @anon.cfd0c34ce66d0c4527c991317dd844f7.1)
   %89 = extractvalue { ptr, i64 } %88, 0
   %90 = extractvalue { ptr, i64 } %88, 1
@@ -518,95 +518,95 @@ define hidden zeroext i1 @"_ZN63_$LT$regex_syntax..hir..Hir$u20$as$u20$core..cmp
   br i1 %97, label %"_ZN67_$LT$regex_syntax..hir..HirKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17hde583452ddf9b074E.exit.thread", label %"_ZN71_$LT$regex_syntax..hir..PropertiesI$u20$as$u20$core..cmp..PartialEq$GT$2eq17h14f7da4dcf824ceeE.exit"
 
 "_ZN67_$LT$regex_syntax..hir..HirKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17hde583452ddf9b074E.exit.thread": ; preds = %12, %57, %32, %30, %14, %34, %75, %85, %"_ZN67_$LT$regex_syntax..hir..HirKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17hde583452ddf9b074E.exit"
-  %98 = getelementptr inbounds i8, ptr %0, i64 40
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %1, i64 40
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %101 = load ptr, ptr %100, align 8
   %102 = tail call zeroext i1 @"_ZN70_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h23d1a2535269fd16E"(ptr align 8 %99, ptr align 8 %101)
   br i1 %102, label %103, label %"_ZN71_$LT$regex_syntax..hir..PropertiesI$u20$as$u20$core..cmp..PartialEq$GT$2eq17h14f7da4dcf824ceeE.exit"
 
 103:                                              ; preds = %"_ZN67_$LT$regex_syntax..hir..HirKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17hde583452ddf9b074E.exit.thread"
-  %104 = getelementptr inbounds i8, ptr %99, i64 16
-  %105 = getelementptr inbounds i8, ptr %101, i64 16
+  %104 = getelementptr inbounds nuw i8, ptr %99, i64 16
+  %105 = getelementptr inbounds nuw i8, ptr %101, i64 16
   %106 = tail call zeroext i1 @"_ZN70_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h23d1a2535269fd16E"(ptr nonnull align 8 %104, ptr nonnull align 8 %105)
   br i1 %106, label %107, label %"_ZN71_$LT$regex_syntax..hir..PropertiesI$u20$as$u20$core..cmp..PartialEq$GT$2eq17h14f7da4dcf824ceeE.exit"
 
 107:                                              ; preds = %103
-  %108 = getelementptr inbounds i8, ptr %99, i64 56
+  %108 = getelementptr inbounds nuw i8, ptr %99, i64 56
   %109 = load i32, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %101, i64 56
+  %110 = getelementptr inbounds nuw i8, ptr %101, i64 56
   %111 = load i32, ptr %110, align 8
   %112 = icmp eq i32 %109, %111
   br i1 %112, label %113, label %"_ZN71_$LT$regex_syntax..hir..PropertiesI$u20$as$u20$core..cmp..PartialEq$GT$2eq17h14f7da4dcf824ceeE.exit"
 
 113:                                              ; preds = %107
-  %114 = getelementptr inbounds i8, ptr %99, i64 60
+  %114 = getelementptr inbounds nuw i8, ptr %99, i64 60
   %115 = load i32, ptr %114, align 4
-  %116 = getelementptr inbounds i8, ptr %101, i64 60
+  %116 = getelementptr inbounds nuw i8, ptr %101, i64 60
   %117 = load i32, ptr %116, align 4
   %118 = icmp eq i32 %115, %117
   br i1 %118, label %119, label %"_ZN71_$LT$regex_syntax..hir..PropertiesI$u20$as$u20$core..cmp..PartialEq$GT$2eq17h14f7da4dcf824ceeE.exit"
 
 119:                                              ; preds = %113
-  %120 = getelementptr inbounds i8, ptr %99, i64 64
+  %120 = getelementptr inbounds nuw i8, ptr %99, i64 64
   %121 = load i32, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %101, i64 64
+  %122 = getelementptr inbounds nuw i8, ptr %101, i64 64
   %123 = load i32, ptr %122, align 8
   %124 = icmp eq i32 %121, %123
   br i1 %124, label %125, label %"_ZN71_$LT$regex_syntax..hir..PropertiesI$u20$as$u20$core..cmp..PartialEq$GT$2eq17h14f7da4dcf824ceeE.exit"
 
 125:                                              ; preds = %119
-  %126 = getelementptr inbounds i8, ptr %99, i64 68
+  %126 = getelementptr inbounds nuw i8, ptr %99, i64 68
   %127 = load i32, ptr %126, align 4
-  %128 = getelementptr inbounds i8, ptr %101, i64 68
+  %128 = getelementptr inbounds nuw i8, ptr %101, i64 68
   %129 = load i32, ptr %128, align 4
   %130 = icmp eq i32 %127, %129
   br i1 %130, label %131, label %"_ZN71_$LT$regex_syntax..hir..PropertiesI$u20$as$u20$core..cmp..PartialEq$GT$2eq17h14f7da4dcf824ceeE.exit"
 
 131:                                              ; preds = %125
-  %132 = getelementptr inbounds i8, ptr %99, i64 72
+  %132 = getelementptr inbounds nuw i8, ptr %99, i64 72
   %133 = load i32, ptr %132, align 8
-  %134 = getelementptr inbounds i8, ptr %101, i64 72
+  %134 = getelementptr inbounds nuw i8, ptr %101, i64 72
   %135 = load i32, ptr %134, align 8
   %136 = icmp eq i32 %133, %135
   br i1 %136, label %137, label %"_ZN71_$LT$regex_syntax..hir..PropertiesI$u20$as$u20$core..cmp..PartialEq$GT$2eq17h14f7da4dcf824ceeE.exit"
 
 137:                                              ; preds = %131
-  %138 = getelementptr inbounds i8, ptr %99, i64 76
+  %138 = getelementptr inbounds nuw i8, ptr %99, i64 76
   %139 = load i8, ptr %138, align 4
-  %140 = getelementptr inbounds i8, ptr %101, i64 76
+  %140 = getelementptr inbounds nuw i8, ptr %101, i64 76
   %141 = load i8, ptr %140, align 4
   %142 = xor i8 %141, %139
   %143 = trunc i8 %142 to i1
   br i1 %143, label %"_ZN71_$LT$regex_syntax..hir..PropertiesI$u20$as$u20$core..cmp..PartialEq$GT$2eq17h14f7da4dcf824ceeE.exit", label %144
 
 144:                                              ; preds = %137
-  %145 = getelementptr inbounds i8, ptr %99, i64 48
+  %145 = getelementptr inbounds nuw i8, ptr %99, i64 48
   %146 = load i64, ptr %145, align 8
-  %147 = getelementptr inbounds i8, ptr %101, i64 48
+  %147 = getelementptr inbounds nuw i8, ptr %101, i64 48
   %148 = load i64, ptr %147, align 8
   %149 = icmp eq i64 %146, %148
   br i1 %149, label %150, label %"_ZN71_$LT$regex_syntax..hir..PropertiesI$u20$as$u20$core..cmp..PartialEq$GT$2eq17h14f7da4dcf824ceeE.exit"
 
 150:                                              ; preds = %144
-  %151 = getelementptr inbounds i8, ptr %99, i64 32
-  %152 = getelementptr inbounds i8, ptr %101, i64 32
+  %151 = getelementptr inbounds nuw i8, ptr %99, i64 32
+  %152 = getelementptr inbounds nuw i8, ptr %101, i64 32
   %153 = tail call zeroext i1 @"_ZN70_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h23d1a2535269fd16E"(ptr nonnull align 8 %151, ptr nonnull align 8 %152)
   br i1 %153, label %154, label %"_ZN71_$LT$regex_syntax..hir..PropertiesI$u20$as$u20$core..cmp..PartialEq$GT$2eq17h14f7da4dcf824ceeE.exit"
 
 154:                                              ; preds = %150
-  %155 = getelementptr inbounds i8, ptr %99, i64 77
+  %155 = getelementptr inbounds nuw i8, ptr %99, i64 77
   %156 = load i8, ptr %155, align 1
-  %157 = getelementptr inbounds i8, ptr %101, i64 77
+  %157 = getelementptr inbounds nuw i8, ptr %101, i64 77
   %158 = load i8, ptr %157, align 1
   %159 = xor i8 %158, %156
   %160 = trunc i8 %159 to i1
   br i1 %160, label %"_ZN71_$LT$regex_syntax..hir..PropertiesI$u20$as$u20$core..cmp..PartialEq$GT$2eq17h14f7da4dcf824ceeE.exit", label %161
 
 161:                                              ; preds = %154
-  %162 = getelementptr inbounds i8, ptr %99, i64 78
+  %162 = getelementptr inbounds nuw i8, ptr %99, i64 78
   %163 = load i8, ptr %162, align 2
-  %164 = getelementptr inbounds i8, ptr %101, i64 78
+  %164 = getelementptr inbounds nuw i8, ptr %101, i64 78
   %165 = load i8, ptr %164, align 2
   %166 = xor i8 %165, %163
   %167 = trunc i8 %166 to i1
@@ -623,7 +623,7 @@ define void @"_ZN120_$LT$regex_syntax..hir..Literal$u20$as$u20$logos_codegen..pa
   %4 = alloca [24 x i8], align 8
   %5 = alloca [16 x i8], align 8
   store ptr %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %2, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h3fba940f86b6c311E"(ptr nonnull sret([24 x i8]) align 8 %4, ptr %1, ptr %7)
@@ -636,7 +636,7 @@ define void @"_ZN120_$LT$regex_syntax..hir..Literal$u20$as$u20$logos_codegen..pa
           to label %14 unwind label %12
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   store i64 5, ptr %0, align 8
   call void @"_ZN4core3ptr47drop_in_place$LT$regex_syntax..hir..Literal$GT$17hba07ffe4a8f6148dE"(ptr nonnull align 8 %5)
@@ -667,7 +667,7 @@ define void @"_ZN123_$LT$regex_syntax..hir..ClassBytes$u20$as$u20$logos_codegen.
 5:                                                ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   store i64 1, ptr %0, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2, i64 32, i1 false)
   ret void
 
@@ -690,17 +690,17 @@ define void @"_ZN125_$LT$regex_syntax..hir..ClassUnicode$u20$as$u20$logos_codege
   %6 = alloca [16 x i8], align 8
   %7 = alloca [24 x i8], align 8
   store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr inttoptr (i64 4 to ptr), ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load i64, ptr %12, align 8
   %14 = getelementptr inbounds { i32, i32 }, ptr %11, i64 %13
   store ptr %11, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %14, ptr %15, align 8
   br label %.backedge
 
@@ -745,7 +745,7 @@ define void @"_ZN125_$LT$regex_syntax..hir..ClassUnicode$u20$as$u20$logos_codege
 28:                                               ; preds = %27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.212, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   store i64 0, ptr %0, align 8
-  %.sroa.212.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.212.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.212, i64 32, i1 false)
   ret void
 
@@ -757,7 +757,7 @@ define void @"_ZN125_$LT$regex_syntax..hir..ClassUnicode$u20$as$u20$logos_codege
 
 31:                                               ; preds = %21
   %32 = trunc nuw nsw i32 %22 to i8
-  %33 = getelementptr inbounds i8, ptr %16, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %34 = load i32, ptr %33, align 4
   %35 = icmp ult i32 %34, 128
   br i1 %35, label %38, label %36
@@ -882,7 +882,7 @@ define void @"_ZN118_$LT$regex_syntax..hir..Class$u20$as$u20$logos_codegen..pars
   %4 = alloca [32 x i8], align 8
   %5 = load i64, ptr %1, align 8
   %6 = icmp eq i64 %5, 0
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br i1 %6, label %8, label %9
 
 8:                                                ; preds = %2
@@ -912,7 +912,7 @@ define void @"_ZN118_$LT$regex_syntax..hir..Class$u20$as$u20$logos_codegen..pars
 
 "_ZN123_$LT$regex_syntax..hir..ClassBytes$u20$as$u20$logos_codegen..parser..ignore_flags..ascii_case..MakeAsciiCaseInsensitive$GT$27make_ascii_case_insensitive17h20a21a19f1718c85E.exit": ; preds = %9
   store i64 1, ptr %0, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   br label %15
 

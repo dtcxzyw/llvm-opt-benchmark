@@ -139,7 +139,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__23TfUtf8CodePointIterator18_GetEncodingLen
   br i1 %or.cond, label %107, label %28
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %2, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %30 = load i8, ptr %29, align 1
   %or.cond5 = icmp sgt i8 %30, -65
   br i1 %or.cond5, label %107, label %31
@@ -155,9 +155,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__23TfUtf8CodePointIterator18_GetEncodingLen
 
 38:                                               ; preds = %24
   %39 = load i8, ptr %2, align 1
-  %40 = getelementptr inbounds i8, ptr %2, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %41 = load i8, ptr %40, align 1
-  %42 = getelementptr inbounds i8, ptr %2, i64 2
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %43 = load i8, ptr %42, align 1
   %44 = icmp eq i8 %39, -32
   br i1 %44, label %45, label %48
@@ -208,11 +208,11 @@ _ZNK32pxrInternal_v0_24__pxrReserved__23TfUtf8CodePointIterator18_GetEncodingLen
 
 69:                                               ; preds = %24
   %70 = load i8, ptr %2, align 1
-  %71 = getelementptr inbounds i8, ptr %2, i64 1
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %72 = load i8, ptr %71, align 1
-  %73 = getelementptr inbounds i8, ptr %2, i64 2
+  %73 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %74 = load i8, ptr %73, align 1
-  %75 = getelementptr inbounds i8, ptr %2, i64 3
+  %75 = getelementptr inbounds nuw i8, ptr %2, i64 3
   %76 = load i8, ptr %75, align 1
   %77 = icmp eq i8 %70, -16
   br i1 %77, label %78, label %82
@@ -282,7 +282,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__25TfIsUtf8CodePo
 4:                                                ; preds = %1
   %5 = zext nneg i32 %0 to i64
   %6 = lshr i64 %5, 6
-  %7 = getelementptr inbounds [17408 x i64], ptr %2, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [17408 x i64], ptr %2, i64 0, i64 %6
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %5, 63
   %10 = shl nuw i64 1, %9
@@ -306,7 +306,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__28TfIsUtf8CodePo
 4:                                                ; preds = %1
   %5 = zext nneg i32 %0 to i64
   %6 = lshr i64 %5, 6
-  %7 = getelementptr inbounds [17408 x i64], ptr %2, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [17408 x i64], ptr %2, i64 0, i64 %6
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %5, 63
   %10 = shl nuw i64 1, %9

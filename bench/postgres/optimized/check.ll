@@ -244,7 +244,7 @@ sub_0.i:                                          ; preds = %.lr.ph.i
   br i1 %.not10.i, label %.tail.i, label %.tail.thread.i
 
 .tail.i:                                          ; preds = %sub_0.i
-  %32 = getelementptr inbounds i8, ptr %28, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 1
   %33 = load i8, ptr %32, align 1
   %34 = icmp eq i8 %33, 0
   br i1 %34, label %35, label %.tail.thread.i
@@ -258,7 +258,7 @@ sub_02.i:                                         ; preds = %.lr.ph.i
   br i1 %.not9.i, label %.tail1.i, label %.tail.thread.i
 
 .tail1.i:                                         ; preds = %sub_02.i
-  %36 = getelementptr inbounds i8, ptr %28, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %28, i64 1
   %37 = load i8, ptr %36, align 1
   %38 = icmp eq i8 %37, 0
   br i1 %38, label %39, label %.tail.thread.i
@@ -467,7 +467,7 @@ check_for_isn_and_int8_passing_mismatch.exit:     ; preds = %67, %._crit_edge10.
   br i1 %117, label %.lr.ph31.split.us.i, label %._crit_edge32.i, !llvm.loop !9
 
 .lr.ph.us.i:                                      ; preds = %.lr.ph31.split.us.i
-  %118 = getelementptr inbounds i8, ptr %112, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %112, i64 8
   br label %119
 
 119:                                              ; preds = %134, %.lr.ph.us.i
@@ -476,7 +476,7 @@ check_for_isn_and_int8_passing_mismatch.exit:     ; preds = %67, %._crit_edge10.
   %.127.us.us.i = phi ptr [ %.3.us.us.i, %134 ], [ %.029.us.i, %.lr.ph.us.i ]
   %121 = load ptr, ptr %118, align 8
   %122 = getelementptr %struct.LogicalSlotInfo, ptr %121, i64 %indvars.iv41.i
-  %123 = getelementptr inbounds i8, ptr %122, i64 18
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 18
   %124 = load i8, ptr %123, align 2
   %125 = trunc i8 %124 to i1
   br i1 %125, label %126, label %134
@@ -516,7 +516,7 @@ check_for_isn_and_int8_passing_mismatch.exit:     ; preds = %67, %._crit_edge10.
   br i1 %142, label %.lr.ph.i12, label %._crit_edge.split.i
 
 .lr.ph.i12:                                       ; preds = %.lr.ph31.split.i
-  %143 = getelementptr inbounds i8, ptr %140, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %140, i64 8
   br label %144
 
 144:                                              ; preds = %177, %.lr.ph.i12
@@ -524,7 +524,7 @@ check_for_isn_and_int8_passing_mismatch.exit:     ; preds = %67, %._crit_edge10.
   %.127.i = phi ptr [ %.029.i, %.lr.ph.i12 ], [ %.3.i, %177 ]
   %145 = load ptr, ptr %143, align 8
   %146 = getelementptr %struct.LogicalSlotInfo, ptr %145, i64 %indvars.iv.i13
-  %147 = getelementptr inbounds i8, ptr %146, i64 18
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 18
   %148 = load i8, ptr %147, align 2
   %149 = trunc i8 %148 to i1
   br i1 %149, label %150, label %161
@@ -552,7 +552,7 @@ check_for_isn_and_int8_passing_mismatch.exit:     ; preds = %67, %._crit_edge10.
   br label %177
 
 161:                                              ; preds = %144
-  %162 = getelementptr inbounds i8, ptr %146, i64 17
+  %162 = getelementptr inbounds nuw i8, ptr %146, i64 17
   %163 = load i8, ptr %162, align 1
   %164 = trunc i8 %163 to i1
   br i1 %164, label %177, label %165
@@ -1329,7 +1329,7 @@ sub_0:                                            ; preds = %15
   br i1 %.not14, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
-  %19 = getelementptr inbounds i8, ptr %17, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 1
   %20 = load i8, ptr %19, align 1
   %21 = icmp eq i8 %20, 0
   br i1 %21, label %22, label %.tail.thread
@@ -1422,7 +1422,7 @@ define dso_local void @check_new_cluster() local_unnamed_addr #0 {
 6:                                                ; preds = %._crit_edge.i, %.lr.ph19.i
   %indvars.iv27.i = phi i64 [ 0, %.lr.ph19.i ], [ %indvars.iv.next28.i, %._crit_edge.i ]
   %7 = getelementptr %struct.DbInfo, ptr %5, i64 %indvars.iv27.i, i32 3
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %.lr.ph.i, label %._crit_edge.i
@@ -1448,7 +1448,7 @@ define dso_local void @check_new_cluster() local_unnamed_addr #0 {
 17:                                               ; preds = %13
   %18 = getelementptr %struct.DbInfo, ptr %5, i64 %indvars.iv27.i, i32 1
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %14, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %21 = load ptr, ptr %20, align 8
   tail call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.36, ptr noundef %19, ptr noundef %15, ptr noundef %21) #14
   unreachable

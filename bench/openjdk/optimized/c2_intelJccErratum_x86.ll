@@ -25,7 +25,7 @@ define hidden noundef zeroext i1 @_ZN15IntelJccErratum41is_crossing_or_ending_at
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZN15IntelJccErratum21is_jcc_erratum_branchEPK8MachNode(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 44
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 31
   %5 = icmp ne i32 %4, 30
@@ -46,12 +46,12 @@ define hidden noundef zeroext i1 @_ZN15IntelJccErratum21is_jcc_erratum_branchEPK
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZN15IntelJccErratum22jcc_erratum_taint_nodeEP8MachNodeP13PhaseRegAlloc(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i32, ptr %3, align 8
   %5 = or i32 %4, 262144
   store i32 %5, ptr %3, align 8
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 168
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 168
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef i32 %8(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) #6
   ret i32 %9
@@ -61,23 +61,23 @@ define hidden noundef i32 @_ZN15IntelJccErratum22jcc_erratum_taint_nodeEP8MachNo
 define hidden noundef i32 @_ZN15IntelJccErratum22tag_affected_machnodesEP7CompileP8PhaseCFGP13PhaseRegAlloc(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #2 align 2 {
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 800
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 800
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %7, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %17 = load i32, ptr %16, align 8
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %._crit_edge58, label %.lr.ph57
 
 .lr.ph57:                                         ; preds = %3
-  %18 = getelementptr inbounds i8, ptr %1, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 48
   br label %19
 
 19:                                               ; preds = %.lr.ph57, %._crit_edge
@@ -86,16 +86,16 @@ define hidden noundef i32 @_ZN15IntelJccErratum22tag_affected_machnodesEP7Compil
   %.055 = phi i32 [ 0, %.lr.ph57 ], [ %.1.lcssa, %._crit_edge ]
   %.03154 = phi ptr [ null, %.lr.ph57 ], [ %.132.lcssa, %._crit_edge ]
   %21 = load ptr, ptr %18, align 8
-  %22 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv65
+  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv65
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 40
   %25 = load i32, ptr %24, align 8
   %.not60 = icmp eq i32 %25, 0
   br i1 %.not60, label %._crit_edge, label %.lr.ph50
 
 .lr.ph50:                                         ; preds = %19
-  %26 = getelementptr inbounds i8, ptr %23, i64 24
-  %27 = getelementptr inbounds i8, ptr %23, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 32
   br label %28
 
 28:                                               ; preds = %.lr.ph50, %.loopexit
@@ -109,13 +109,13 @@ define hidden noundef i32 @_ZN15IntelJccErratum22tag_affected_machnodesEP7Compil
 
 32:                                               ; preds = %28
   %33 = load ptr, ptr %27, align 8
-  %34 = getelementptr inbounds ptr, ptr %33, i64 %indvars.iv62
+  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv62
   %35 = load ptr, ptr %34, align 8
   br label %_ZNK5Block8get_nodeEj.exit
 
 _ZNK5Block8get_nodeEj.exit:                       ; preds = %28, %32
   %36 = phi ptr [ %35, %32 ], [ null, %28 ]
-  %37 = getelementptr inbounds i8, ptr %36, i64 44
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 44
   %38 = load i32, ptr %37, align 4
   %39 = and i32 %38, 3
   %40 = icmp eq i32 %39, 2
@@ -133,12 +133,12 @@ _ZNK5Block8get_nodeEj.exit:                       ; preds = %28, %32
   br i1 %or.cond, label %_ZN15IntelJccErratum21is_jcc_erratum_branchEPK8MachNode.exit.thread, label %.loopexit
 
 _ZN15IntelJccErratum21is_jcc_erratum_branchEPK8MachNode.exit.thread: ; preds = %41
-  %48 = getelementptr inbounds i8, ptr %36, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %36, i64 48
   %49 = load i32, ptr %48, align 8
   %50 = or i32 %49, 262144
   store i32 %50, ptr %48, align 8
   %51 = load ptr, ptr %36, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 168
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 168
   %53 = load ptr, ptr %52, align 8
   %54 = tail call noundef i32 %53(ptr noundef nonnull align 8 dereferenceable(64) %36, ptr noundef %2) #6
   %55 = add nsw i32 %54, %.149
@@ -148,14 +148,14 @@ _ZN15IntelJccErratum21is_jcc_erratum_branchEPK8MachNode.exit.thread: ; preds = %
   br i1 %or.cond42, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %_ZN15IntelJccErratum21is_jcc_erratum_branchEPK8MachNode.exit.thread
-  %58 = getelementptr inbounds i8, ptr %36, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %59 = load i32, ptr %58, align 8
   %60 = icmp ugt i32 %59, 1
   br i1 %60, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %61 = getelementptr inbounds i8, ptr %36, i64 8
-  %62 = getelementptr inbounds i8, ptr %.13248, i64 48
+  %61 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %.13248, i64 48
   br label %63
 
 63:                                               ; preds = %.lr.ph, %81
@@ -163,7 +163,7 @@ _ZN15IntelJccErratum21is_jcc_erratum_branchEPK8MachNode.exit.thread: ; preds = %
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %81 ]
   %.446 = phi i32 [ %55, %.lr.ph ], [ %.5, %81 ]
   %65 = load ptr, ptr %61, align 8
-  %66 = getelementptr inbounds ptr, ptr %65, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv
   %67 = load ptr, ptr %66, align 8
   %68 = icmp eq ptr %67, %.13248
   br i1 %68, label %69, label %81
@@ -179,7 +179,7 @@ _ZN15IntelJccErratum21is_jcc_erratum_branchEPK8MachNode.exit.thread: ; preds = %
   %75 = or i32 %74, 262144
   store i32 %75, ptr %62, align 8
   %76 = load ptr, ptr %.13248, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 168
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 168
   %78 = load ptr, ptr %77, align 8
   %79 = tail call noundef i32 %78(ptr noundef nonnull align 8 dereferenceable(64) %.13248, ptr noundef %2) #6
   %80 = add nsw i32 %79, %.446
@@ -245,10 +245,10 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %93, %95
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZN15IntelJccErratum15compute_paddingEmPK8MachNodeP5BlockjP13PhaseRegAlloc(i64 noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #2 align 2 {
   %6 = load ptr, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 168
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 168
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef i32 %8(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef %4) #6
-  %10 = getelementptr inbounds i8, ptr %2, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %11 = load i32, ptr %10, align 8
   %12 = add i32 %11, -1
   %13 = icmp ult i32 %3, %12
@@ -256,29 +256,29 @@ define hidden noundef i32 @_ZN15IntelJccErratum15compute_paddingEmPK8MachNodeP5B
 
 14:                                               ; preds = %5
   %15 = add nuw i32 %3, 1
-  %16 = getelementptr inbounds i8, ptr %2, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %17 = load i32, ptr %16, align 8
   %18 = icmp ult i32 %15, %17
   br i1 %18, label %19, label %_ZNK5Block8get_nodeEj.exit
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %2, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %21 = load ptr, ptr %20, align 8
   %22 = zext i32 %15 to i64
-  %23 = getelementptr inbounds ptr, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw ptr, ptr %21, i64 %22
   %24 = load ptr, ptr %23, align 8
   br label %_ZNK5Block8get_nodeEj.exit
 
 _ZNK5Block8get_nodeEj.exit:                       ; preds = %14, %19
   %25 = phi ptr [ %24, %19 ], [ null, %14 ]
-  %26 = getelementptr inbounds i8, ptr %25, i64 44
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 44
   %27 = load i32, ptr %26, align 4
   %28 = and i32 %27, 3
   %29 = icmp eq i32 %28, 2
   br i1 %29, label %30, label %40
 
 30:                                               ; preds = %_ZNK5Block8get_nodeEj.exit
-  %31 = getelementptr inbounds i8, ptr %25, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 48
   %32 = load i32, ptr %31, align 8
   %33 = and i32 %32, 262144
   %.not = icmp eq i32 %33, 0
@@ -286,7 +286,7 @@ _ZNK5Block8get_nodeEj.exit:                       ; preds = %14, %19
 
 34:                                               ; preds = %30
   %35 = load ptr, ptr %25, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 168
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 168
   %37 = load ptr, ptr %36, align 8
   %38 = tail call noundef i32 %37(ptr noundef nonnull align 8 dereferenceable(52) %25, ptr noundef %4) #6
   %39 = add i32 %38, %9
@@ -319,9 +319,9 @@ _ZNK5Block8get_nodeEj.exit:                       ; preds = %14, %19
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef i64 @_ZN24IntelJccErratumAlignment2pcEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #3 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   ret i64 %7
@@ -330,10 +330,10 @@ define hidden noundef i64 @_ZN24IntelJccErratumAlignment2pcEv(ptr nocapture noun
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN24IntelJccErratumAlignmentC2EP14MacroAssembleri(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 align 2 {
   store ptr %1, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %8 to i64
   store i64 %9, ptr %4, align 8
@@ -344,13 +344,13 @@ define hidden void @_ZN24IntelJccErratumAlignmentC2EP14MacroAssembleri(ptr nocap
 12:                                               ; preds = %3
   %13 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 1808
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 1808
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 128
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 128
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 2288
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 2288
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 572
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 572
   %22 = load i8, ptr %21, align 4
   %23 = trunc i8 %22 to i1
   br i1 %23, label %24, label %25
@@ -373,9 +373,9 @@ define hidden void @_ZN24IntelJccErratumAlignmentC2EP14MacroAssembleri(ptr nocap
   %33 = trunc i64 %32 to i32
   tail call void @_ZN9Assembler3nopEj(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %33) #6
   %34 = load ptr, ptr %0, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
   %39 = ptrtoint ptr %38 to i64
   store i64 %39, ptr %4, align 8

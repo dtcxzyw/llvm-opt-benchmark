@@ -20,23 +20,23 @@ define internal range(i32 -2147483648, 1) i32 @linkstate_prepare_data(ptr nocapt
 
 7:                                                ; preds = %3
   %8 = tail call i32 @__ethtool_get_link(ptr noundef %4) #4
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 2144
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 2144
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %.thread, label %13
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %11, i64 1312
-  tail call void @mutex_lock(ptr noundef %14) #4
-  %15 = getelementptr inbounds i8, ptr %11, i64 832
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 1312
+  tail call void @mutex_lock(ptr noundef nonnull %14) #4
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 832
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %24, label %18
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %16, i64 456
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 456
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %24, label %22
@@ -47,7 +47,7 @@ define internal range(i32 -2147483648, 1) i32 @linkstate_prepare_data(ptr nocapt
 
 24:                                               ; preds = %13, %18, %22
   %25 = phi i32 [ %23, %22 ], [ -95, %18 ], [ -95, %13 ]
-  tail call void @mutex_unlock(ptr noundef %14) #4
+  tail call void @mutex_unlock(ptr noundef nonnull %14) #4
   %26 = icmp slt i32 %25, 0
   %27 = icmp ne i32 %25, -95
   %28 = and i1 %26, %27
@@ -55,22 +55,22 @@ define internal range(i32 -2147483648, 1) i32 @linkstate_prepare_data(ptr nocapt
 
 .thread:                                          ; preds = %7, %24
   %29 = phi i32 [ %25, %24 ], [ -95, %7 ]
-  %30 = getelementptr inbounds i8, ptr %1, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 %29, ptr %30, align 4
   %31 = load ptr, ptr %10, align 8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %.thread14, label %33
 
 33:                                               ; preds = %.thread
-  %34 = getelementptr inbounds i8, ptr %31, i64 1312
-  tail call void @mutex_lock(ptr noundef %34) #4
-  %35 = getelementptr inbounds i8, ptr %31, i64 832
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 1312
+  tail call void @mutex_lock(ptr noundef nonnull %34) #4
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 832
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
   br i1 %37, label %44, label %38
 
 38:                                               ; preds = %33
-  %39 = getelementptr inbounds i8, ptr %36, i64 464
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 464
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
   br i1 %41, label %44, label %42
@@ -81,7 +81,7 @@ define internal range(i32 -2147483648, 1) i32 @linkstate_prepare_data(ptr nocapt
 
 44:                                               ; preds = %33, %38, %42
   %45 = phi i32 [ %43, %42 ], [ -95, %38 ], [ -95, %33 ]
-  tail call void @mutex_unlock(ptr noundef %34) #4
+  tail call void @mutex_unlock(ptr noundef nonnull %34) #4
   %46 = icmp slt i32 %45, 0
   %47 = icmp ne i32 %45, -95
   %48 = and i1 %46, %47
@@ -89,31 +89,31 @@ define internal range(i32 -2147483648, 1) i32 @linkstate_prepare_data(ptr nocapt
 
 .thread14:                                        ; preds = %.thread, %44
   %49 = phi i32 [ %45, %44 ], [ -95, %.thread ]
-  %50 = getelementptr inbounds i8, ptr %1, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 %49, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %4, i64 168
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 168
   %52 = load i32, ptr %51, align 8
   %53 = and i32 %52, 1
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %.thread17, label %55
 
 55:                                               ; preds = %.thread14
-  %56 = getelementptr inbounds i8, ptr %4, i64 760
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 760
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 88
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 88
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %59, null
   br i1 %60, label %.thread17, label %61
 
 61:                                               ; preds = %55
-  %62 = getelementptr inbounds i8, ptr %1, i64 36
-  %63 = tail call i32 %59(ptr noundef %4, ptr noundef %62) #4
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %63 = tail call i32 %59(ptr noundef %4, ptr noundef nonnull %62) #4
   %64 = freeze i32 %63
   %65 = icmp eq i32 %64, 0
   br i1 %65, label %.thread16, label %67
 
 .thread16:                                        ; preds = %61
-  %66 = getelementptr inbounds i8, ptr %1, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i8 1, ptr %66, align 8
   br label %.thread17
 
@@ -128,9 +128,9 @@ define internal range(i32 -2147483648, 1) i32 @linkstate_prepare_data(ptr nocapt
   ]
 
 .thread17:                                        ; preds = %55, %.thread16, %69, %69, %67, %.thread14
-  %70 = getelementptr inbounds i8, ptr %1, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 -1, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %0, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %72 = load i32, ptr %71, align 8
   %73 = and i32 %72, 4
   %74 = icmp eq i32 %73, 0
@@ -142,22 +142,22 @@ define internal range(i32 -2147483648, 1) i32 @linkstate_prepare_data(ptr nocapt
   br i1 %77, label %82, label %78
 
 78:                                               ; preds = %75
-  %79 = getelementptr inbounds i8, ptr %76, i64 1400
+  %79 = getelementptr inbounds nuw i8, ptr %76, i64 1400
   %80 = load volatile i32, ptr %79, align 8
   %81 = zext i32 %80 to i64
   store i64 %81, ptr %70, align 8
   br label %82
 
 82:                                               ; preds = %78, %75
-  %83 = getelementptr inbounds i8, ptr %4, i64 760
+  %83 = getelementptr inbounds nuw i8, ptr %4, i64 760
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 96
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 96
   %86 = load ptr, ptr %85, align 8
   %87 = icmp eq ptr %86, null
   br i1 %87, label %89, label %88
 
 88:                                               ; preds = %82
-  tail call void %86(ptr noundef %4, ptr noundef %70) #4
+  tail call void %86(ptr noundef %4, ptr noundef nonnull %70) #4
   br label %89
 
 89:                                               ; preds = %88, %82, %.thread17, %69, %44, %24
@@ -172,26 +172,26 @@ define internal range(i32 -2147483648, 1) i32 @linkstate_prepare_data(ptr nocapt
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
 define internal range(i32 8, 49) i32 @linkstate_reply_size(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, -95
   %6 = select i1 %5, i32 8, i32 16
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, -95
   %10 = add nuw nsw i32 %6, 8
   %11 = select i1 %9, i32 %6, i32 %10
-  %12 = getelementptr inbounds i8, ptr %1, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %13 = load i8, ptr %12, align 8, !range !5, !noundef !6
   %14 = icmp eq i8 %13, 0
   %15 = add nuw nsw i32 %11, 8
   %16 = select i1 %14, i32 %11, i32 %15
-  %17 = getelementptr inbounds i8, ptr %1, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, 0
   %20 = add nuw nsw i32 %16, 8
   %21 = select i1 %19, i32 %16, i32 %20
-  %22 = getelementptr inbounds i8, ptr %1, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %23 = load i64, ptr %22, align 8
   %24 = icmp eq i64 %23, -1
   %25 = add nuw nsw i32 %21, 8
@@ -207,7 +207,7 @@ define internal noundef range(i32 -90, 1) i32 @linkstate_fill_reply(ptr noundef 
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i8, align 1
-  %10 = getelementptr inbounds i8, ptr %2, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = icmp sgt i32 %11, -1
   br i1 %12, label %13, label %18
@@ -223,7 +223,7 @@ define internal noundef range(i32 -90, 1) i32 @linkstate_fill_reply(ptr noundef 
   br i1 %17, label %18, label %59
 
 18:                                               ; preds = %13, %3
-  %19 = getelementptr inbounds i8, ptr %2, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %20, -95
   br i1 %21, label %25, label %22
@@ -237,7 +237,7 @@ define internal noundef range(i32 -90, 1) i32 @linkstate_fill_reply(ptr noundef 
   br i1 %24, label %25, label %59
 
 25:                                               ; preds = %22, %18
-  %26 = getelementptr inbounds i8, ptr %2, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %27 = load i32, ptr %26, align 8
   %28 = icmp eq i32 %27, -95
   br i1 %28, label %32, label %29
@@ -251,13 +251,13 @@ define internal noundef range(i32 -90, 1) i32 @linkstate_fill_reply(ptr noundef 
   br i1 %31, label %32, label %59
 
 32:                                               ; preds = %29, %25
-  %33 = getelementptr inbounds i8, ptr %2, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %34 = load i8, ptr %33, align 8, !range !5, !noundef !6
   %35 = icmp eq i8 %34, 0
   br i1 %35, label %50, label %36
 
 36:                                               ; preds = %32
-  %37 = getelementptr inbounds i8, ptr %2, i64 36
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %38 = load i32, ptr %37, align 4
   %39 = trunc i32 %38 to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #4
@@ -268,7 +268,7 @@ define internal noundef range(i32 -90, 1) i32 @linkstate_fill_reply(ptr noundef 
   br i1 %41, label %42, label %59
 
 42:                                               ; preds = %36
-  %43 = getelementptr inbounds i8, ptr %2, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %44 = load i32, ptr %43, align 4
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %50, label %46
@@ -283,7 +283,7 @@ define internal noundef range(i32 -90, 1) i32 @linkstate_fill_reply(ptr noundef 
   br i1 %49, label %50, label %59
 
 50:                                               ; preds = %46, %42, %32
-  %51 = getelementptr inbounds i8, ptr %2, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %52 = load i64, ptr %51, align 8
   %53 = icmp eq i64 %52, -1
   br i1 %53, label %58, label %54

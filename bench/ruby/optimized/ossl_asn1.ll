@@ -232,7 +232,7 @@ define i64 @asn1time_to_time(ptr nocapture noundef readonly %0) local_unnamed_ad
   %2 = alloca %struct.tm, align 8
   %3 = alloca [6 x i64], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   switch i32 %5, label %39 [
     i32 23, label %6
@@ -240,13 +240,13 @@ define i64 @asn1time_to_time(ptr nocapture noundef readonly %0) local_unnamed_ad
   ]
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 20
-  %10 = getelementptr inbounds i8, ptr %2, i64 16
-  %11 = getelementptr inbounds i8, ptr %2, i64 12
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %14 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %8, ptr noundef nonnull @.str, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %2) #9
   switch i32 %14, label %16 [
     i32 5, label %15
@@ -279,13 +279,13 @@ define i64 @asn1time_to_time(ptr nocapture noundef readonly %0) local_unnamed_ad
   br label %40
 
 26:                                               ; preds = %1
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %2, i64 20
-  %30 = getelementptr inbounds i8, ptr %2, i64 16
-  %31 = getelementptr inbounds i8, ptr %2, i64 12
-  %32 = getelementptr inbounds i8, ptr %2, i64 8
-  %33 = getelementptr inbounds i8, ptr %2, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %34 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %28, ptr noundef nonnull @.str.2, ptr noundef nonnull %29, ptr noundef nonnull %30, ptr noundef nonnull %31, ptr noundef nonnull %32, ptr noundef nonnull %33, ptr noundef nonnull %2) #9
   switch i32 %34, label %36 [
     i32 5, label %35
@@ -307,45 +307,45 @@ define i64 @asn1time_to_time(ptr nocapture noundef readonly %0) local_unnamed_ad
   br label %78
 
 40:                                               ; preds = %26, %35, %22, %24
-  %41 = getelementptr inbounds i8, ptr %2, i64 20
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %42 = load i32, ptr %41, align 4
   %43 = sext i32 %42 to i64
   %44 = shl nsw i64 %43, 1
   %45 = or disjoint i64 %44, 1
   store i64 %45, ptr %3, align 16
-  %46 = getelementptr inbounds i8, ptr %2, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %47 = load i32, ptr %46, align 8
   %48 = sext i32 %47 to i64
   %49 = shl nsw i64 %48, 1
   %50 = or disjoint i64 %49, 1
-  %51 = getelementptr inbounds i8, ptr %3, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %50, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %2, i64 12
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %53 = load i32, ptr %52, align 4
   %54 = sext i32 %53 to i64
   %55 = shl nsw i64 %54, 1
   %56 = or disjoint i64 %55, 1
-  %57 = getelementptr inbounds i8, ptr %3, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %56, ptr %57, align 16
-  %58 = getelementptr inbounds i8, ptr %2, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %59 = load i32, ptr %58, align 8
   %60 = sext i32 %59 to i64
   %61 = shl nsw i64 %60, 1
   %62 = or disjoint i64 %61, 1
-  %63 = getelementptr inbounds i8, ptr %3, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %62, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %2, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %65 = load i32, ptr %64, align 4
   %66 = sext i32 %65 to i64
   %67 = shl nsw i64 %66, 1
   %68 = or disjoint i64 %67, 1
-  %69 = getelementptr inbounds i8, ptr %3, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i64 %68, ptr %69, align 16
   %70 = load i32, ptr %2, align 8
   %71 = sext i32 %70 to i64
   %72 = shl nsw i64 %71, 1
   %73 = or disjoint i64 %72, 1
-  %74 = getelementptr inbounds i8, ptr %3, i64 40
+  %74 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %73, ptr %74, align 8
   %75 = load i64, ptr @rb_cTime, align 8
   %.pr.i = load i64, ptr @asn1time_to_time.rbimpl_id, align 8
@@ -476,7 +476,7 @@ declare i64 @rb_funcall(i64 noundef, i64 noundef, i32 noundef, ...) local_unname
 
 ; Function Attrs: nounwind uwtable
 define i64 @asn1str_to_str(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %0, align 8
   %5 = sext i32 %4 to i64
@@ -499,7 +499,7 @@ define i64 @asn1integer_to_num(ptr noundef %0) local_unnamed_addr #0 {
   unreachable
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 10
   br i1 %7, label %8, label %10
@@ -686,7 +686,7 @@ rb_num2int_inline.exit:                           ; preds = %30, %32
   %45 = load i64, ptr %44, align 8, !noalias !8
   %46 = and i64 %45, 8192
   %.not.i.i.i = icmp eq i64 %46, 0
-  %47 = getelementptr inbounds i8, ptr %44, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 24
   br i1 %.not.i.i.i, label %RSTRING_PTR.exit.i, label %48
 
 48:                                               ; preds = %42
@@ -695,7 +695,7 @@ rb_num2int_inline.exit:                           ; preds = %30, %32
 
 RSTRING_PTR.exit.i:                               ; preds = %48, %42
   %.sroa.2.0.i.i = phi ptr [ %.sroa.2.0.copyload.i.i, %48 ], [ %47, %42 ]
-  %49 = getelementptr inbounds i8, ptr %44, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %50 = load i64, ptr %49, align 8
   %51 = add i64 %50, 2147483648
   %.not.i.i8.i = icmp ult i64 %51, 4294967296
@@ -708,7 +708,7 @@ RSTRING_PTR.exit.i:                               ; preds = %48, %42
 obj_to_asn1bstr.exit:                             ; preds = %RSTRING_PTR.exit.i
   %53 = trunc i64 %50 to i32
   %54 = call i32 @ASN1_BIT_STRING_set(ptr noundef nonnull %39, ptr noundef %.sroa.2.0.i.i, i32 noundef %53) #9
-  %55 = getelementptr inbounds i8, ptr %39, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %56 = load i64, ptr %55, align 8
   %57 = and i64 %56, -16
   %58 = or disjoint i64 %34, %57
@@ -755,7 +755,7 @@ obj_to_asn1bstr.exit:                             ; preds = %RSTRING_PTR.exit.i
   %76 = load i64, ptr %75, align 8, !noalias !11
   %77 = and i64 %76, 8192
   %.not.i.i.i28 = icmp eq i64 %77, 0
-  %78 = getelementptr inbounds i8, ptr %75, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %75, i64 24
   br i1 %.not.i.i.i28, label %RSTRING_PTR.exit.i30, label %79
 
 79:                                               ; preds = %73
@@ -764,7 +764,7 @@ obj_to_asn1bstr.exit:                             ; preds = %RSTRING_PTR.exit.i
 
 RSTRING_PTR.exit.i30:                             ; preds = %79, %73
   %.sroa.2.0.i.i31 = phi ptr [ %.sroa.2.0.copyload.i.i29, %79 ], [ %78, %73 ]
-  %80 = getelementptr inbounds i8, ptr %75, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %81 = load i64, ptr %80, align 8
   %82 = add i64 %81, 2147483648
   %.not.i.i2.i = icmp ult i64 %82, 4294967296
@@ -789,7 +789,7 @@ obj_to_asn1str.exit:                              ; preds = %RSTRING_PTR.exit.i3
   %90 = load i64, ptr %89, align 8, !noalias !14
   %91 = and i64 %90, 8192
   %.not.i.i.i32 = icmp eq i64 %91, 0
-  %92 = getelementptr inbounds i8, ptr %89, i64 24
+  %92 = getelementptr inbounds nuw i8, ptr %89, i64 24
   br i1 %.not.i.i.i32, label %RSTRING_PTR.exit.i34, label %93
 
 93:                                               ; preds = %86
@@ -808,7 +808,7 @@ RSTRING_PTR.exit.i34:                             ; preds = %93, %86
   %98 = load i64, ptr %97, align 8, !noalias !17
   %99 = and i64 %98, 8192
   %.not.i.i5.i = icmp eq i64 %99, 0
-  %100 = getelementptr inbounds i8, ptr %97, i64 24
+  %100 = getelementptr inbounds nuw i8, ptr %97, i64 24
   br i1 %.not.i.i5.i, label %102, label %101
 
 101:                                              ; preds = %95
@@ -888,7 +888,7 @@ obj_to_asn1gtime.exit:                            ; preds = %113
   %126 = load i64, ptr %125, align 8, !noalias !20
   %127 = and i64 %126, 8192
   %.not.i.i.i40 = icmp eq i64 %127, 0
-  %128 = getelementptr inbounds i8, ptr %125, i64 24
+  %128 = getelementptr inbounds nuw i8, ptr %125, i64 24
   br i1 %.not.i.i.i40, label %RSTRING_PTR.exit.i42, label %129
 
 129:                                              ; preds = %124
@@ -897,7 +897,7 @@ obj_to_asn1gtime.exit:                            ; preds = %113
 
 RSTRING_PTR.exit.i42:                             ; preds = %129, %124
   %.sroa.2.0.i.i43 = phi ptr [ %.sroa.2.0.copyload.i.i41, %129 ], [ %128, %124 ]
-  %130 = getelementptr inbounds i8, ptr %125, i64 16
+  %130 = getelementptr inbounds nuw i8, ptr %125, i64 16
   %131 = load i64, ptr %130, align 8
   %132 = add i64 %131, 2147483648
   %.not.i.i4.i = icmp ult i64 %132, 4294967296
@@ -960,7 +960,7 @@ define internal fastcc i32 @ossl_asn1_default_tag(i64 noundef %0) unnamed_addr #
 
 6:                                                ; preds = %1
   %7 = inttoptr i64 %0 to ptr
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %rb_class_of.exit
 
 9:                                                ; preds = %1
@@ -1096,7 +1096,7 @@ define void @Init_ossl_asn1() local_unnamed_addr #0 {
 
 28:                                               ; preds = %0, %38
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %38 ]
-  %29 = getelementptr inbounds [31 x %struct.ossl_asn1_info_t], ptr @ossl_asn1_info, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [31 x %struct.ossl_asn1_info_t], ptr @ossl_asn1_info, i64 0, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 16
   %31 = load i8, ptr %30, align 1
   %32 = icmp eq i8 %31, 91
@@ -1434,7 +1434,7 @@ define internal noundef i64 @ossl_asn1_traverse(i64 %0, i64 noundef %1) #0 {
   %13 = load i64, ptr %12, align 8, !noalias !25
   %14 = and i64 %13, 8192
   %.not.i.i = icmp eq i64 %14, 0
-  %15 = getelementptr inbounds i8, ptr %12, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %16
 
 16:                                               ; preds = %2
@@ -1444,7 +1444,7 @@ define internal noundef i64 @ossl_asn1_traverse(i64 %0, i64 noundef %1) #0 {
 RSTRING_PTR.exit:                                 ; preds = %2, %16
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %16 ], [ %15, %2 ]
   store ptr %.sroa.2.0.i, ptr %4, align 8
-  %17 = getelementptr inbounds i8, ptr %12, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %18 = load i64, ptr %17, align 8
   %19 = call fastcc i64 @ossl_asn1_decode0(ptr noundef %4, i64 noundef %18, ptr noundef %7, i32 noundef 0, i32 noundef 1, ptr noundef %6)
   store ptr %5, ptr %8, align 8
@@ -1490,7 +1490,7 @@ define internal noundef i64 @ossl_asn1_decode(i64 %0, i64 noundef %1) #0 {
   %13 = load i64, ptr %12, align 8, !noalias !29
   %14 = and i64 %13, 8192
   %.not.i.i = icmp eq i64 %14, 0
-  %15 = getelementptr inbounds i8, ptr %12, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %16
 
 16:                                               ; preds = %2
@@ -1500,7 +1500,7 @@ define internal noundef i64 @ossl_asn1_decode(i64 %0, i64 noundef %1) #0 {
 RSTRING_PTR.exit:                                 ; preds = %2, %16
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %16 ], [ %15, %2 ]
   store ptr %.sroa.2.0.i, ptr %4, align 8
-  %17 = getelementptr inbounds i8, ptr %12, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %18 = load i64, ptr %17, align 8
   %19 = call fastcc i64 @ossl_asn1_decode0(ptr noundef %4, i64 noundef %18, ptr noundef %7, i32 noundef 0, i32 noundef 0, ptr noundef %6)
   store ptr %5, ptr %8, align 8
@@ -1545,7 +1545,7 @@ define internal i64 @ossl_asn1_decode_all(i64 %0, i64 noundef %1) #0 {
   %13 = load i64, ptr %12, align 8, !noalias !33
   %14 = and i64 %13, 8192
   %.not.i.i = icmp eq i64 %14, 0
-  %15 = getelementptr inbounds i8, ptr %12, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %16
 
 16:                                               ; preds = %2
@@ -1555,7 +1555,7 @@ define internal i64 @ossl_asn1_decode_all(i64 %0, i64 noundef %1) #0 {
 RSTRING_PTR.exit:                                 ; preds = %2, %16
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %16 ], [ %15, %2 ]
   store ptr %.sroa.2.0.i, ptr %4, align 8
-  %17 = getelementptr inbounds i8, ptr %12, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %18 = load i64, ptr %17, align 8
   %19 = call i64 @rb_ary_new() #9
   %20 = icmp sgt i64 %18, 0
@@ -1869,7 +1869,7 @@ define internal i64 @ossl_asn1prim_to_der(i64 noundef %0) #0 {
   %29 = load i64, ptr %28, align 8, !noalias !38
   %30 = and i64 %29, 8192
   %.not.i.i = icmp eq i64 %30, 0
-  %31 = getelementptr inbounds i8, ptr %28, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %32
 
 32:                                               ; preds = %27
@@ -1919,8 +1919,8 @@ define internal i64 @ossl_asn1cons_to_der(i64 noundef %0) #0 {
   %9 = tail call i64 @rb_convert_type(i64 noundef %8, i32 noundef 7, ptr noundef nonnull @.str.128, ptr noundef nonnull @.str.129) #9
   %10 = tail call i64 @rb_str_new_static(ptr noundef null, i64 noundef 0) #9
   %11 = inttoptr i64 %9 to ptr
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
-  %13 = getelementptr inbounds i8, ptr %11, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 32
   br i1 %6, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %1, %27
@@ -1947,7 +1947,7 @@ rb_array_len.exit.us:                             ; preds = %.split.us
 
 rb_array_const_ptr.exit.us:                       ; preds = %rb_array_len.exit.thread.us, %21
   %.0.i16.us = phi ptr [ %22, %21 ], [ %12, %rb_array_len.exit.thread.us ]
-  %23 = getelementptr inbounds i64, ptr %.0.i16.us, i64 %.0.us
+  %23 = getelementptr inbounds nuw i64, ptr %.0.i16.us, i64 %.0.us
   %24 = load i64, ptr %23, align 8
   store i64 %24, ptr %2, align 8
   %25 = load i64, ptr @cASN1EndOfContent, align 8
@@ -1989,7 +1989,7 @@ rb_array_len.exit.thread:                         ; preds = %.split
 
 rb_array_const_ptr.exit:                          ; preds = %rb_array_len.exit.thread, %41
   %.0.i16 = phi ptr [ %42, %41 ], [ %12, %rb_array_len.exit.thread ]
-  %43 = getelementptr inbounds i64, ptr %.0.i16, i64 %.0
+  %43 = getelementptr inbounds nuw i64, ptr %.0.i16, i64 %.0
   %44 = load i64, ptr %43, align 8
   store i64 %44, ptr %2, align 8
   %45 = call i64 @ossl_to_der_if_possible(i64 noundef %44) #9
@@ -2496,7 +2496,7 @@ define internal noundef i64 @ossl_asn1obj_s_register(i64 %0, i64 noundef %1, i64
   %13 = load i64, ptr %12, align 8, !noalias !42
   %14 = and i64 %13, 8192
   %.not.i.i = icmp eq i64 %14, 0
-  %15 = getelementptr inbounds i8, ptr %12, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %16
 
 16:                                               ; preds = %4
@@ -2510,7 +2510,7 @@ RSTRING_PTR.exit:                                 ; preds = %4, %16
   %19 = load i64, ptr %18, align 8, !noalias !45
   %20 = and i64 %19, 8192
   %.not.i.i1 = icmp eq i64 %20, 0
-  %21 = getelementptr inbounds i8, ptr %18, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 24
   br i1 %.not.i.i1, label %RSTRING_PTR.exit4, label %22
 
 22:                                               ; preds = %RSTRING_PTR.exit
@@ -2524,7 +2524,7 @@ RSTRING_PTR.exit4:                                ; preds = %RSTRING_PTR.exit, %
   %25 = load i64, ptr %24, align 8, !noalias !48
   %26 = and i64 %25, 8192
   %.not.i.i5 = icmp eq i64 %26, 0
-  %27 = getelementptr inbounds i8, ptr %24, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 24
   br i1 %.not.i.i5, label %RSTRING_PTR.exit8, label %28
 
 28:                                               ; preds = %RSTRING_PTR.exit4
@@ -2602,7 +2602,7 @@ define internal i64 @ossl_asn1obj_get_oid(i64 noundef %0) #0 {
   %9 = load i64, ptr %8, align 8, !noalias !51
   %10 = and i64 %9, 8192
   %.not.i.i.i = icmp eq i64 %10, 0
-  %11 = getelementptr inbounds i8, ptr %8, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 24
   br i1 %.not.i.i.i, label %RSTRING_PTR.exit.i, label %12
 
 12:                                               ; preds = %1
@@ -2621,7 +2621,7 @@ RSTRING_PTR.exit.i:                               ; preds = %12, %1
   %17 = load i64, ptr %16, align 8, !noalias !54
   %18 = and i64 %17, 8192
   %.not.i.i5.i = icmp eq i64 %18, 0
-  %19 = getelementptr inbounds i8, ptr %16, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 24
   br i1 %.not.i.i5.i, label %21, label %20
 
 20:                                               ; preds = %14
@@ -3035,7 +3035,7 @@ ossl_asn1_tag.exit.us:                            ; preds = %117, %115
 
 140:                                              ; preds = %138
   %141 = zext nneg i32 %100 to i64
-  %142 = getelementptr inbounds [31 x %struct.ossl_asn1_info_t], ptr @ossl_asn1_info, i64 0, i64 %141, i32 1
+  %142 = getelementptr inbounds nuw [31 x %struct.ossl_asn1_info_t], ptr @ossl_asn1_info, i64 0, i64 %141, i32 1
   %143 = load ptr, ptr %142, align 8
   br label %144
 
@@ -3047,11 +3047,11 @@ ossl_asn1_tag.exit.us:                            ; preds = %117, %115
   %147 = sext i32 %100 to i64
   %148 = shl nsw i64 %147, 1
   %149 = or disjoint i64 %148, 1
-  %150 = getelementptr inbounds i8, ptr %19, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i64 %149, ptr %150, align 8
-  %151 = getelementptr inbounds i8, ptr %19, i64 16
+  %151 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i64 4, ptr %151, align 16
-  %152 = getelementptr inbounds i8, ptr %19, i64 24
+  %152 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store i64 %.0, ptr %152, align 8
   %153 = call i64 @ossl_asn1_initialize(i32 noundef 4, ptr noundef nonnull %19, i64 noundef %146)
   br label %int_ossl_asn1_decode0_cons.exit
@@ -3125,7 +3125,7 @@ int_ossl_asn1_decode0_cons.exit:                  ; preds = %154, %144
   br i1 %183, label %184, label %188
 
 184:                                              ; preds = %181
-  %185 = getelementptr inbounds i8, ptr %174, i64 1
+  %185 = getelementptr inbounds nuw i8, ptr %174, i64 1
   %186 = load i8, ptr %185, align 1
   %187 = icmp eq i8 %186, 0
   br i1 %187, label %decode_eoc.exit.i, label %188
@@ -3155,7 +3155,7 @@ decode_eoc.exit.i:                                ; preds = %184
   br i1 %.not4.i.i, label %197, label %200
 
 197:                                              ; preds = %195
-  %198 = getelementptr inbounds i8, ptr %174, i64 1
+  %198 = getelementptr inbounds nuw i8, ptr %174, i64 1
   %199 = load i8, ptr %198, align 1
   %.not5.i.i = icmp eq i8 %199, 1
   br i1 %.not5.i.i, label %decode_bool.exit.i, label %200
@@ -3166,7 +3166,7 @@ decode_eoc.exit.i:                                ; preds = %184
   unreachable
 
 decode_bool.exit.i:                               ; preds = %197
-  %202 = getelementptr inbounds i8, ptr %174, i64 2
+  %202 = getelementptr inbounds nuw i8, ptr %174, i64 2
   %203 = load i8, ptr %202, align 1
   %.not6.i.i = icmp eq i8 %203, 0
   %204 = select i1 %.not6.i.i, i64 0, i64 20
@@ -3219,12 +3219,12 @@ decode_int.exit.i:                                ; preds = %210
 
 decode_bstr.exit.i:                               ; preds = %215
   %220 = load i32, ptr %217, align 8
-  %221 = getelementptr inbounds i8, ptr %217, i64 16
+  %221 = getelementptr inbounds nuw i8, ptr %217, i64 16
   %222 = load i64, ptr %221, align 8
   %223 = and i64 %222, 8
   %.not10.i.i = icmp eq i64 %223, 0
   %224 = sext i32 %220 to i64
-  %225 = getelementptr inbounds i8, ptr %217, i64 8
+  %225 = getelementptr inbounds nuw i8, ptr %217, i64 8
   %226 = load ptr, ptr %225, align 8
   %227 = call i64 @rb_str_new(ptr noundef %226, i64 noundef %224) #9
   call void @ASN1_BIT_STRING_free(ptr noundef nonnull %217) #9
@@ -3400,11 +3400,11 @@ decode_time.exit.i:                               ; preds = %270
   store i64 %.0.i71, ptr %16, align 16
   %295 = shl nsw i64 %287, 1
   %296 = or disjoint i64 %295, 1
-  %297 = getelementptr inbounds i8, ptr %16, i64 8
+  %297 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 %296, ptr %297, align 8
-  %298 = getelementptr inbounds i8, ptr %16, i64 16
+  %298 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i64 4, ptr %298, align 16
-  %299 = getelementptr inbounds i8, ptr %16, i64 24
+  %299 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store i64 %.0, ptr %299, align 8
   %300 = call i64 @rb_obj_alloc(i64 noundef %294) #9
   %301 = call i64 @ossl_asn1_initialize(i32 noundef 4, ptr noundef nonnull %16, i64 noundef %300)
@@ -3482,7 +3482,7 @@ define internal i64 @asn1integer_to_num_i(i64 noundef %0) #0 {
   unreachable
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %2, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 10
   br i1 %8, label %9, label %11
@@ -3614,7 +3614,7 @@ ossl_asn1_tag.exit:                               ; preds = %31, %33
   %35 = trunc i64 %.0.i.i to i32
   %36 = tail call fastcc i32 @ossl_asn1_default_tag(i64 noundef %0)
   %37 = inttoptr i64 %3 to ptr
-  %38 = getelementptr inbounds i8, ptr %37, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load i64, ptr %38, align 8
   %40 = add i64 %39, 2147483648
   %.not.i.i46 = icmp ult i64 %40, 4294967296
@@ -3650,7 +3650,7 @@ RSTRING_LENINT.exit:                              ; preds = %ossl_asn1_tag.exit
   %57 = load i64, ptr %56, align 8, !noalias !59
   %58 = and i64 %57, 8192
   %.not.i.i47 = icmp eq i64 %58, 0
-  %59 = getelementptr inbounds i8, ptr %56, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 24
   br i1 %.not.i.i47, label %RSTRING_PTR.exit, label %60
 
 60:                                               ; preds = %51
@@ -3666,7 +3666,7 @@ RSTRING_PTR.exit:                                 ; preds = %51, %60
   %62 = load i64, ptr %37, align 8, !noalias !62
   %63 = and i64 %62, 8192
   %.not.i.i48 = icmp eq i64 %63, 0
-  %64 = getelementptr inbounds i8, ptr %37, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %37, i64 24
   br i1 %.not.i.i48, label %RSTRING_PTR.exit51, label %65
 
 65:                                               ; preds = %RSTRING_PTR.exit
@@ -3693,7 +3693,7 @@ RSTRING_PTR.exit51:                               ; preds = %RSTRING_PTR.exit, %
   %75 = load i64, ptr %74, align 8, !noalias !65
   %76 = and i64 %75, 8192
   %.not.i.i52 = icmp eq i64 %76, 0
-  %77 = getelementptr inbounds i8, ptr %74, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %74, i64 24
   br i1 %.not.i.i52, label %RSTRING_PTR.exit55, label %78
 
 78:                                               ; preds = %70
@@ -3708,7 +3708,7 @@ RSTRING_PTR.exit55:                               ; preds = %70, %78
   %80 = load i64, ptr %37, align 8, !noalias !68
   %81 = and i64 %80, 8192
   %.not.i.i56 = icmp eq i64 %81, 0
-  %82 = getelementptr inbounds i8, ptr %37, i64 24
+  %82 = getelementptr inbounds nuw i8, ptr %37, i64 24
   br i1 %.not.i.i56, label %RSTRING_PTR.exit59, label %83
 
 83:                                               ; preds = %RSTRING_PTR.exit55
@@ -3769,7 +3769,7 @@ define internal i64 @asn1obj_get_oid_i(i64 noundef %0) #0 {
   %5 = load i64, ptr %4, align 8, !noalias !71
   %6 = and i64 %5, 8192
   %.not.i.i = icmp eq i64 %6, 0
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %8
 
 8:                                                ; preds = %1
@@ -3778,7 +3778,7 @@ define internal i64 @asn1obj_get_oid_i(i64 noundef %0) #0 {
 
 RSTRING_PTR.exit:                                 ; preds = %1, %8
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %8 ], [ %7, %1 ]
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %10 = load i64, ptr %9, align 8
   %11 = add i64 %10, 2147483648
   %.not.i.i19 = icmp ult i64 %11, 4294967296

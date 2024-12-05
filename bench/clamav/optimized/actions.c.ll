@@ -43,14 +43,14 @@ target triple = "x86_64-pc-linux-gnu"
 define range(i32 0, 2) i32 @actsetup(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.stat, align 8
   %3 = tail call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str) #11
-  %4 = getelementptr inbounds i8, ptr %3, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %10
 
 6:                                                ; preds = %1
   %7 = tail call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.1) #11
-  %8 = getelementptr inbounds i8, ptr %7, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load i32, ptr %8, align 8
   %.not9 = icmp eq i32 %9, 0
   br i1 %.not9, label %35, label %10
@@ -58,7 +58,7 @@ define range(i32 0, 2) i32 @actsetup(ptr noundef %0) local_unnamed_addr #0 {
 10:                                               ; preds = %6, %1
   %11 = phi ptr [ @.str.1, %6 ], [ @.str, %1 ]
   %12 = tail call ptr @optget(ptr noundef %0, ptr noundef nonnull %11) #11
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr @actarget, align 8
   %15 = tail call i32 @cli_realpath(ptr noundef %14, ptr noundef nonnull @actarget) #11
@@ -79,7 +79,7 @@ define range(i32 0, 2) i32 @actsetup(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i, label %23, label %isdir.exit.thread
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %2, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 61440
   %27 = icmp eq i32 %26, 16384
@@ -103,7 +103,7 @@ isdir.exit.thread:                                ; preds = %21, %23
 
 35:                                               ; preds = %6
   %36 = tail call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.3) #11
-  %37 = getelementptr inbounds i8, ptr %36, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %38 = load i32, ptr %37, align 8
   %.not10 = icmp eq i32 %38, 0
   br i1 %.not10, label %40, label %39

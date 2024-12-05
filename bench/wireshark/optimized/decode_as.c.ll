@@ -32,7 +32,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define void @register_decode_as(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @find_dissector_table(ptr noundef %3) #14
   %.not = icmp eq ptr %4, null
@@ -66,9 +66,9 @@ define ptr @register_decode_as_next_proto(i32 noundef %0, ptr noundef %1, ptr no
   store ptr %10, ptr %7, align 8
   %11 = tail call ptr @wmem_epan_scope() #14
   %12 = tail call noalias ptr @wmem_strdup(ptr noundef %11, ptr noundef %1) #14
-  %13 = getelementptr inbounds i8, ptr %7, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %7, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 1, ptr %14, align 8
   %15 = icmp eq ptr %3, null
   br i1 %15, label %21, label %16
@@ -77,21 +77,21 @@ define ptr @register_decode_as_next_proto(i32 noundef %0, ptr noundef %1, ptr no
   %17 = tail call ptr @wmem_epan_scope() #14
   %18 = tail call noalias ptr @wmem_alloc(ptr noundef %17, i64 noundef 24) #14
   store ptr %3, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i32 1, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %18, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr @next_proto_values, ptr %20, align 8
   br label %21
 
 21:                                               ; preds = %4, %16
   %.sink = phi ptr [ %18, %16 ], [ @next_proto_da_values, %4 ]
-  %22 = getelementptr inbounds i8, ptr %7, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %.sink, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %7, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr @decode_as_default_populate_list, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %7, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store ptr @decode_as_default_reset, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %7, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store ptr @decode_as_default_change, ptr %25, align 8
   %26 = tail call ptr @find_dissector_table(ptr noundef %12) #14
   %.not.i = icmp eq ptr %26, null
@@ -124,7 +124,7 @@ declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 define void @decode_as_default_populate_list(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.decode_as_default_populate, align 8
   store ptr %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %2, ptr %5, align 8
   call void @dissector_table_foreach_handle(ptr noundef %0, ptr noundef nonnull @decode_proto_add_to_list, ptr noundef nonnull %4) #14
   ret void
@@ -221,7 +221,7 @@ define internal void @decode_proto_add_to_list(ptr noundef %0, ptr noundef %1, p
 
 10:                                               ; preds = %7, %3
   %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void %11(ptr noundef %0, ptr noundef %4, ptr noundef %1, ptr noundef %13) #14
   br label %14
@@ -274,7 +274,7 @@ define void @decode_clear_all() local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %0, %16
   %.015 = phi ptr [ %.0, %16 ], [ %.013, %0 ]
   %1 = load ptr, ptr %.015, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3 = load i32, ptr %2, align 8
   switch i32 %3, label %15 [
     i32 4, label %4
@@ -291,7 +291,7 @@ define void @decode_clear_all() local_unnamed_addr #0 {
 
 4:                                                ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %5 = load ptr, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i32, ptr %6, align 8
   tail call void @dissector_reset_uint(ptr noundef %5, i32 noundef %7) #14
   br label %16
@@ -303,7 +303,7 @@ define void @decode_clear_all() local_unnamed_addr #0 {
 
 10:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %11 = load ptr, ptr %1, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void @dissector_reset_string(ptr noundef %11, ptr noundef %13) #14
   %14 = load ptr, ptr %12, align 8
@@ -318,7 +318,7 @@ define void @decode_clear_all() local_unnamed_addr #0 {
   %17 = load ptr, ptr %1, align 8
   tail call void @g_free(ptr noundef %17) #14
   tail call void @g_free(ptr noundef nonnull %1) #14
-  %18 = getelementptr inbounds i8, ptr %.015, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.015, i64 8
   %.0 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !4
@@ -406,7 +406,7 @@ define internal range(i32 0, 3) i32 @read_set_decode_as_entries(ptr nocapture no
 
 26:                                               ; preds = %23
   %27 = tail call i32 @dissector_table_get_type(ptr noundef nonnull %25) #14
-  %28 = getelementptr inbounds i8, ptr %5, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %29 = load ptr, ptr %28, align 8
   %30 = tail call ptr @dissector_table_get_dissector_handle(ptr noundef nonnull %25, ptr noundef %29) #14
   %.not79 = icmp eq ptr %30, null
@@ -427,13 +427,13 @@ define internal range(i32 0, 3) i32 @read_set_decode_as_entries(ptr nocapture no
   ]
 
 .thread86:                                        ; preds = %.critedge, %.critedge, %.critedge, %.critedge, %.critedge
-  %34 = getelementptr inbounds i8, ptr %5, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %35 = load ptr, ptr %34, align 8
   tail call void @dissector_change_string(ptr noundef %24, ptr noundef %35, ptr noundef %30) #14
   br label %67
 
 36:                                               ; preds = %.critedge
-  %37 = getelementptr inbounds i8, ptr %5, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %38 = load ptr, ptr %37, align 8
   %39 = call i64 @strtol(ptr noundef %38, ptr noundef nonnull %6, i32 noundef 0) #14
   %40 = load ptr, ptr %6, align 8
@@ -479,7 +479,7 @@ define internal range(i32 0, 3) i32 @read_set_decode_as_entries(ptr nocapture no
   %60 = trunc i64 %39 to i32
   %61 = tail call i32 @prefs_add_decode_as_value(ptr noundef nonnull %53, i32 noundef %60, i32 noundef %.0) #14
   %62 = tail call i32 @prefs_get_effect_flags(ptr noundef nonnull %53) #14
-  %63 = getelementptr inbounds i8, ptr %52, i64 60
+  %63 = getelementptr inbounds nuw i8, ptr %52, i64 60
   %64 = load i32, ptr %63, align 4
   %65 = or i32 %64, %62
   store i32 %65, ptr %63, align 4
@@ -494,7 +494,7 @@ define internal range(i32 0, 3) i32 @read_set_decode_as_entries(ptr nocapture no
   %69 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #17
   %70 = tail call noalias ptr @g_strdup(ptr noundef %24) #14
   store ptr %70, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %69, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store i32 %27, ptr %71, align 8
   switch i32 %27, label %81 [
     i32 4, label %72
@@ -512,18 +512,18 @@ define internal range(i32 0, 3) i32 @read_set_decode_as_entries(ptr nocapture no
 72:                                               ; preds = %67, %67, %67, %67
   %73 = ptrtoint ptr %68 to i64
   %74 = trunc i64 %73 to i32
-  %75 = getelementptr inbounds i8, ptr %69, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %69, i64 16
   store i32 %74, ptr %75, align 8
   br label %decode_build_reset_list.exit
 
 76:                                               ; preds = %67
-  %77 = getelementptr inbounds i8, ptr %69, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %69, i64 16
   store i32 0, ptr %77, align 8
   br label %decode_build_reset_list.exit
 
 78:                                               ; preds = %67, %67, %67, %67, %67
   %79 = tail call noalias ptr @g_strdup(ptr noundef %68) #14
-  %80 = getelementptr inbounds i8, ptr %69, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %69, i64 16
   store ptr %79, ptr %80, align 8
   br label %decode_build_reset_list.exit
 
@@ -708,7 +708,7 @@ define void @decode_build_reset_list(ptr noundef %0, i32 noundef %1, ptr noundef
   %6 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #17
   %7 = tail call noalias ptr @g_strdup(ptr noundef %0) #14
   store ptr %7, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %1, ptr %8, align 8
   switch i32 %1, label %18 [
     i32 4, label %9
@@ -726,18 +726,18 @@ define void @decode_build_reset_list(ptr noundef %0, i32 noundef %1, ptr noundef
 9:                                                ; preds = %5, %5, %5, %5
   %10 = ptrtoint ptr %2 to i64
   %11 = trunc i64 %10 to i32
-  %12 = getelementptr inbounds i8, ptr %6, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %11, ptr %12, align 8
   br label %19
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %6, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 0, ptr %14, align 8
   br label %19
 
 15:                                               ; preds = %5, %5, %5, %5, %5
   %16 = tail call noalias ptr @g_strdup(ptr noundef %2) #14
-  %17 = getelementptr inbounds i8, ptr %6, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %16, ptr %17, align 8
   br label %19
 

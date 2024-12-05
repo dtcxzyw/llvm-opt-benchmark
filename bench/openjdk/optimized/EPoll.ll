@@ -47,7 +47,7 @@ declare void @JNU_ThrowIOExceptionWithLastError(ptr noundef, ptr noundef) local_
 define i32 @Java_sun_nio_ch_EPoll_ctl(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = alloca %struct.epoll_event, align 4
   store i32 %5, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %7, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %4, ptr %8, align 4
   %9 = call i32 @epoll_ctl(i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %7) #5
   %10 = icmp eq i32 %9, 0

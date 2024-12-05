@@ -72,7 +72,7 @@ if.then:                                          ; preds = %entry
   %1 = load ptr, ptr @stderr, align 8
   %sub = sub nsw i32 0, %call
   %idxprom = zext nneg i32 %sub to i64
-  %arrayidx1 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom
+  %arrayidx1 = getelementptr inbounds nuw ptr, ptr %argv, i64 %idxprom
   %2 = load ptr, ptr %arrayidx1, align 8
   %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.2, ptr noundef %2) #9
   %3 = load ptr, ptr @_ZL8progName, align 8
@@ -184,7 +184,7 @@ if.end34:                                         ; preds = %if.end.i
   %conv.i36 = trunc i64 %call2.i35 to i32
   %call14.i = call i32 @fclose(ptr noundef nonnull %call.i32)
   store i32 0, ptr %parseError, align 4
-  %offset = getelementptr inbounds i8, ptr %parseError, i64 4
+  %offset = getelementptr inbounds nuw i8, ptr %parseError, i64 4
   store i32 0, ptr %offset, align 4
   %call35 = call ptr @uspoof_openFromSource_75(ptr noundef nonnull %call4.i, i32 noundef %conv.i36, ptr noundef null, i32 noundef 0, ptr noundef nonnull %errType, ptr noundef nonnull %parseError, ptr noundef nonnull %status)
   %23 = load i32, ptr %status, align 4
@@ -220,7 +220,7 @@ if.end49:                                         ; preds = %if.end43
   %conv = zext i32 %call44 to i64
   %call50 = call noalias noundef nonnull ptr @_Znam(i64 noundef %conv) #11
   %call51 = call i32 @uspoof_serialize_75(ptr noundef %call35, ptr noundef nonnull %call50, i32 noundef %call44, ptr noundef nonnull %status)
-  %fFormatVersion = getelementptr inbounds i8, ptr %call50, i64 4
+  %fFormatVersion = getelementptr inbounds nuw i8, ptr %call50, i64 4
   %31 = load i32, ptr %fFormatVersion, align 4
   store i32 %31, ptr getelementptr inbounds (i8, ptr @dh, i64 16), align 2
   %call52 = call ptr @udata_create(ptr noundef %spec.select, ptr noundef null, ptr noundef %13, ptr noundef nonnull getelementptr inbounds (i8, ptr @dh, i64 4), ptr noundef %copyright.0, ptr noundef nonnull %status)

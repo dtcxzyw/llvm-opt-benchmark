@@ -42,9 +42,9 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @tdata_available(ptr nocapture noundef readonly %env, i32 noundef %tdata_index) local_unnamed_addr #0 {
 entry:
-  %trigger_cur = getelementptr inbounds i8, ptr %env, i64 8352
+  %trigger_cur = getelementptr inbounds nuw i8, ptr %env, i64 8352
   %0 = load i64, ptr %trigger_cur, align 16
-  %tdata1.i = getelementptr inbounds i8, ptr %env, i64 8360
+  %tdata1.i = getelementptr inbounds nuw i8, ptr %env, i64 8360
   %arrayidx.i = getelementptr [2 x i64], ptr %tdata1.i, i64 0, i64 %0
   %1 = load i64, ptr %arrayidx.i, align 8
   %2 = getelementptr i8, ptr %env, i64 5008
@@ -88,7 +88,7 @@ return:                                           ; preds = %get_trigger_type.ex
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local i64 @tselect_csr_read(ptr nocapture noundef readonly %env) local_unnamed_addr #1 {
 entry:
-  %trigger_cur = getelementptr inbounds i8, ptr %env, i64 8352
+  %trigger_cur = getelementptr inbounds nuw i8, ptr %env, i64 8352
   %0 = load i64, ptr %trigger_cur, align 16
   ret i64 %0
 }
@@ -100,7 +100,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %trigger_cur = getelementptr inbounds i8, ptr %env, i64 8352
+  %trigger_cur = getelementptr inbounds nuw i8, ptr %env, i64 8352
   store i64 %val, ptr %trigger_cur, align 16
   br label %if.end
 
@@ -111,11 +111,11 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @riscv_itrigger_enabled(ptr nocapture noundef readonly %env) local_unnamed_addr #0 {
 entry:
-  %tdata1.i = getelementptr inbounds i8, ptr %env, i64 8360
+  %tdata1.i = getelementptr inbounds nuw i8, ptr %env, i64 8360
   %0 = getelementptr i8, ptr %env, i64 5008
   %env.val.i = load i32, ptr %0, align 16
-  %virt_enabled.i = getelementptr inbounds i8, ptr %env, i64 5056
-  %priv.i = getelementptr inbounds i8, ptr %env, i64 5048
+  %virt_enabled.i = getelementptr inbounds nuw i8, ptr %env, i64 5056
+  %priv.i = getelementptr inbounds nuw i8, ptr %env, i64 5048
   %env.val.i.off = add i32 %env.val.i, -1
   %switch = icmp ult i32 %env.val.i.off, 3
   br i1 %switch, label %entry.split, label %do.body.i.i
@@ -248,11 +248,11 @@ return:                                           ; preds = %for.inc, %if.end5, 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_itrigger_match(ptr noundef %env) local_unnamed_addr #0 {
 entry:
-  %tdata1.i = getelementptr inbounds i8, ptr %env, i64 8360
+  %tdata1.i = getelementptr inbounds nuw i8, ptr %env, i64 8360
   %0 = getelementptr i8, ptr %env, i64 5008
-  %virt_enabled.i = getelementptr inbounds i8, ptr %env, i64 5056
-  %priv.i = getelementptr inbounds i8, ptr %env, i64 5048
-  %itrigger_enabled = getelementptr inbounds i8, ptr %env, i64 8464
+  %virt_enabled.i = getelementptr inbounds nuw i8, ptr %env, i64 5056
+  %priv.i = getelementptr inbounds nuw i8, ptr %env, i64 5048
+  %itrigger_enabled = getelementptr inbounds nuw i8, ptr %env, i64 8464
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
@@ -352,7 +352,7 @@ for.end:                                          ; preds = %for.inc
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @do_trigger_action(ptr noundef %env, i64 noundef range(i64 0, 2) %trigger_index) unnamed_addr #0 {
 entry:
-  %tdata11.i = getelementptr inbounds i8, ptr %env, i64 8360
+  %tdata11.i = getelementptr inbounds nuw i8, ptr %env, i64 8360
   %arrayidx.i = getelementptr [2 x i64], ptr %tdata11.i, i64 0, i64 %trigger_index
   %0 = load i64, ptr %arrayidx.i, align 8
   %1 = getelementptr i8, ptr %env, i64 5008
@@ -461,15 +461,15 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @riscv_itrigger_update_count(ptr noundef %env) unnamed_addr #0 {
 entry:
-  %last_icount1 = getelementptr inbounds i8, ptr %env, i64 8456
+  %last_icount1 = getelementptr inbounds nuw i8, ptr %env, i64 8456
   %0 = load i64, ptr %last_icount1, align 8
   %call = tail call i64 @icount_get_raw() #8
   store i64 %call, ptr %last_icount1, align 8
-  %tdata1.i = getelementptr inbounds i8, ptr %env, i64 8360
+  %tdata1.i = getelementptr inbounds nuw i8, ptr %env, i64 8360
   %1 = getelementptr i8, ptr %env, i64 5008
-  %virt_enabled.i = getelementptr inbounds i8, ptr %env, i64 5056
-  %priv.i = getelementptr inbounds i8, ptr %env, i64 5048
-  %itrigger_timer = getelementptr inbounds i8, ptr %env, i64 8440
+  %virt_enabled.i = getelementptr inbounds nuw i8, ptr %env, i64 5056
+  %priv.i = getelementptr inbounds nuw i8, ptr %env, i64 5048
+  %itrigger_timer = getelementptr inbounds nuw i8, ptr %env, i64 8440
   %sub = sub i64 %call, %0
   %conv11 = trunc i64 %sub to i32
   br label %for.body
@@ -585,8 +585,8 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %tdata1 = getelementptr inbounds i8, ptr %env, i64 8360
-  %trigger_cur = getelementptr inbounds i8, ptr %env, i64 8352
+  %tdata1 = getelementptr inbounds nuw i8, ptr %env, i64 8360
+  %trigger_cur = getelementptr inbounds nuw i8, ptr %env, i64 8352
   %0 = load i64, ptr %trigger_cur, align 16
   %arrayidx = getelementptr [2 x i64], ptr %tdata1, i64 0, i64 %0
   %1 = load i64, ptr %arrayidx, align 8
@@ -631,10 +631,10 @@ if.then:                                          ; preds = %extract_trigger_typ
   br i1 %cmp.not.i, label %itrigger_get_adjust_count.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then
-  %virt_enabled.i.i = getelementptr inbounds i8, ptr %env, i64 5056
+  %virt_enabled.i.i = getelementptr inbounds nuw i8, ptr %env, i64 5056
   %7 = load i8, ptr %virt_enabled.i.i, align 16
   %tobool.i.i = trunc i8 %7 to i1
-  %priv.i.i = getelementptr inbounds i8, ptr %env, i64 5048
+  %priv.i.i = getelementptr inbounds nuw i8, ptr %env, i64 5048
   %8 = load i64, ptr %priv.i.i, align 8
   br i1 %tobool.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -668,7 +668,7 @@ check_itrigger_priv.exit.i:                       ; preds = %lor.lhs.false.i.i
 
 if.then.i:                                        ; preds = %check_itrigger_priv.exit.i, %lor.lhs.false.i.i, %if.else.i.i, %if.then.i.i
   %call6.i = tail call i64 @icount_get_raw() #8
-  %last_icount.i = getelementptr inbounds i8, ptr %env, i64 8456
+  %last_icount.i = getelementptr inbounds nuw i8, ptr %env, i64 8456
   %10 = load i64, ptr %last_icount.i, align 8
   %sub.i = sub i64 %call6.i, %10
   %conv7.i = trunc i64 %sub.i to i32
@@ -685,16 +685,16 @@ itrigger_get_adjust_count.exit:                   ; preds = %if.then, %if.then.i
   br label %sw.epilog
 
 sw.bb11:                                          ; preds = %entry
-  %tdata2 = getelementptr inbounds i8, ptr %env, i64 8376
-  %trigger_cur12 = getelementptr inbounds i8, ptr %env, i64 8352
+  %tdata2 = getelementptr inbounds nuw i8, ptr %env, i64 8376
+  %trigger_cur12 = getelementptr inbounds nuw i8, ptr %env, i64 8352
   %11 = load i64, ptr %trigger_cur12, align 16
   %arrayidx13 = getelementptr [2 x i64], ptr %tdata2, i64 0, i64 %11
   %12 = load i64, ptr %arrayidx13, align 8
   br label %sw.epilog
 
 sw.bb14:                                          ; preds = %entry
-  %tdata3 = getelementptr inbounds i8, ptr %env, i64 8392
-  %trigger_cur15 = getelementptr inbounds i8, ptr %env, i64 8352
+  %tdata3 = getelementptr inbounds nuw i8, ptr %env, i64 8392
+  %trigger_cur15 = getelementptr inbounds nuw i8, ptr %env, i64 8352
   %13 = load i64, ptr %trigger_cur15, align 16
   %arrayidx16 = getelementptr [2 x i64], ptr %tdata3, i64 0, i64 %13
   %14 = load i64, ptr %arrayidx16, align 8
@@ -741,9 +741,9 @@ do.body.i:                                        ; preds = %if.then
   unreachable
 
 if.else:                                          ; preds = %entry
-  %trigger_cur = getelementptr inbounds i8, ptr %env, i64 8352
+  %trigger_cur = getelementptr inbounds nuw i8, ptr %env, i64 8352
   %1 = load i64, ptr %trigger_cur, align 16
-  %tdata1.i = getelementptr inbounds i8, ptr %env, i64 8360
+  %tdata1.i = getelementptr inbounds nuw i8, ptr %env, i64 8360
   %arrayidx.i = getelementptr [2 x i64], ptr %tdata1.i, i64 0, i64 %1
   %2 = load i64, ptr %arrayidx.i, align 8
   %3 = getelementptr i8, ptr %env, i64 5008
@@ -783,7 +783,7 @@ if.end:                                           ; preds = %sw.bb3.i.i, %sw.bb.
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %trigger_cur3 = getelementptr inbounds i8, ptr %env, i64 8352
+  %trigger_cur3 = getelementptr inbounds nuw i8, ptr %env, i64 8352
   %4 = load i64, ptr %trigger_cur3, align 16
   switch i32 %tdata_index, label %do.body15.i [
     i32 0, label %sw.bb.i19
@@ -962,7 +962,7 @@ type2_mcontrol_validate.exit.i:                   ; preds = %if.then8.i.i, %if.e
   %val.0.i.i = phi i64 [ %tdata1.0.i.i.i, %if.then4.i.i ], [ %tdata1.0.i.i.i, %do.body.i.i20 ], [ %or10.i.i, %if.then8.i.i ], [ %or.i.i, %if.else.i.i ]
   %and13.i.i = and i64 %val, 95
   %or14.i.i = or i64 %val.0.i.i, %and13.i.i
-  %tdata1.i21 = getelementptr inbounds i8, ptr %env, i64 8360
+  %tdata1.i21 = getelementptr inbounds nuw i8, ptr %env, i64 8360
   %arrayidx.i22 = getelementptr [2 x i64], ptr %tdata1.i21, i64 0, i64 %4
   %20 = load i64, ptr %arrayidx.i22, align 8
   %cmp.not.i = icmp eq i64 %or14.i.i, %20
@@ -971,7 +971,7 @@ type2_mcontrol_validate.exit.i:                   ; preds = %if.then8.i.i, %if.e
 if.then.i:                                        ; preds = %type2_mcontrol_validate.exit.i
   store i64 %or14.i.i, ptr %arrayidx.i22, align 8
   %add.ptr.i.i.i = getelementptr i8, ptr %env, i64 -10176
-  %cpu_breakpoint.i.i = getelementptr inbounds i8, ptr %env, i64 8408
+  %cpu_breakpoint.i.i = getelementptr inbounds nuw i8, ptr %env, i64 8408
   %arrayidx.i.i = getelementptr [2 x ptr], ptr %cpu_breakpoint.i.i, i64 0, i64 %4
   %21 = load ptr, ptr %arrayidx.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %21, null
@@ -983,7 +983,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %if.then.i
-  %cpu_watchpoint.i.i = getelementptr inbounds i8, ptr %env, i64 8424
+  %cpu_watchpoint.i.i = getelementptr inbounds nuw i8, ptr %env, i64 8424
   %arrayidx5.i.i = getelementptr [2 x ptr], ptr %cpu_watchpoint.i.i, i64 0, i64 %4
   %22 = load ptr, ptr %arrayidx5.i.i, align 8
   %tobool6.not.i.i = icmp eq ptr %22, null
@@ -996,7 +996,7 @@ if.then7.i.i:                                     ; preds = %if.end.i.i
 
 type2_breakpoint_remove.exit.i:                   ; preds = %if.then7.i.i, %if.end.i.i
   %23 = load i64, ptr %arrayidx.i22, align 8
-  %tdata2.i.i = getelementptr inbounds i8, ptr %env, i64 8376
+  %tdata2.i.i = getelementptr inbounds nuw i8, ptr %env, i64 8376
   %arrayidx1.i.i = getelementptr [2 x i64], ptr %tdata2.i.i, i64 0, i64 %4
   %24 = load i64, ptr %arrayidx1.i.i, align 8
   %and.i.i20.i = and i64 %23, 88
@@ -1042,7 +1042,7 @@ if.then19.i.i:                                    ; preds = %if.end7.i.i
   br label %sw.epilog
 
 sw.bb3.i18:                                       ; preds = %sw.bb
-  %tdata2.i = getelementptr inbounds i8, ptr %env, i64 8376
+  %tdata2.i = getelementptr inbounds nuw i8, ptr %env, i64 8376
   %arrayidx4.i = getelementptr [2 x i64], ptr %tdata2.i, i64 0, i64 %4
   %30 = load i64, ptr %arrayidx4.i, align 8
   %cmp5.not.i = icmp eq i64 %val, %30
@@ -1051,7 +1051,7 @@ sw.bb3.i18:                                       ; preds = %sw.bb
 if.then6.i:                                       ; preds = %sw.bb3.i18
   store i64 %val, ptr %arrayidx4.i, align 8
   %add.ptr.i.i34.i = getelementptr i8, ptr %env, i64 -10176
-  %cpu_breakpoint.i35.i = getelementptr inbounds i8, ptr %env, i64 8408
+  %cpu_breakpoint.i35.i = getelementptr inbounds nuw i8, ptr %env, i64 8408
   %arrayidx.i36.i = getelementptr [2 x ptr], ptr %cpu_breakpoint.i35.i, i64 0, i64 %4
   %31 = load ptr, ptr %arrayidx.i36.i, align 8
   %tobool.not.i37.i = icmp eq ptr %31, null
@@ -1063,7 +1063,7 @@ if.then.i38.i:                                    ; preds = %if.then6.i
   br label %if.end.i39.i
 
 if.end.i39.i:                                     ; preds = %if.then.i38.i, %if.then6.i
-  %cpu_watchpoint.i40.i = getelementptr inbounds i8, ptr %env, i64 8424
+  %cpu_watchpoint.i40.i = getelementptr inbounds nuw i8, ptr %env, i64 8424
   %arrayidx5.i41.i = getelementptr [2 x ptr], ptr %cpu_watchpoint.i40.i, i64 0, i64 %4
   %32 = load ptr, ptr %arrayidx5.i41.i, align 8
   %tobool6.not.i42.i = icmp eq ptr %32, null
@@ -1075,7 +1075,7 @@ if.then7.i43.i:                                   ; preds = %if.end.i39.i
   br label %type2_breakpoint_remove.exit44.i
 
 type2_breakpoint_remove.exit44.i:                 ; preds = %if.then7.i43.i, %if.end.i39.i
-  %tdata1.i45.i = getelementptr inbounds i8, ptr %env, i64 8360
+  %tdata1.i45.i = getelementptr inbounds nuw i8, ptr %env, i64 8360
   %arrayidx.i46.i = getelementptr [2 x i64], ptr %tdata1.i45.i, i64 0, i64 %4
   %33 = load i64, ptr %arrayidx.i46.i, align 8
   %34 = load i64, ptr %arrayidx4.i, align 8
@@ -1137,7 +1137,7 @@ do.body15.i:                                      ; preds = %sw.bb
   unreachable
 
 sw.bb4:                                           ; preds = %if.end
-  %trigger_cur5 = getelementptr inbounds i8, ptr %env, i64 8352
+  %trigger_cur5 = getelementptr inbounds nuw i8, ptr %env, i64 8352
   %42 = load i64, ptr %trigger_cur5, align 16
   switch i32 %tdata_index, label %do.body15.i95 [
     i32 0, label %sw.bb.i31
@@ -1304,7 +1304,7 @@ type6_mcontrol6_validate.exit.i:                  ; preds = %if.else.i.i87, %if.
   %val.0.i.i63 = phi i64 [ %tdata1.0.i.i.i40, %if.then6.i.i ], [ %tdata1.0.i.i.i40, %do.body.i.i62 ], [ %or.i.i89, %if.else.i.i87 ]
   %and8.i.i64 = and i64 %val, 25165919
   %or9.i.i = or i64 %val.0.i.i63, %and8.i.i64
-  %tdata1.i65 = getelementptr inbounds i8, ptr %env, i64 8360
+  %tdata1.i65 = getelementptr inbounds nuw i8, ptr %env, i64 8360
   %arrayidx.i66 = getelementptr [2 x i64], ptr %tdata1.i65, i64 0, i64 %42
   %55 = load i64, ptr %arrayidx.i66, align 8
   %cmp.not.i67 = icmp eq i64 %or9.i.i, %55
@@ -1313,7 +1313,7 @@ type6_mcontrol6_validate.exit.i:                  ; preds = %if.else.i.i87, %if.
 if.then.i68:                                      ; preds = %type6_mcontrol6_validate.exit.i
   store i64 %or9.i.i, ptr %arrayidx.i66, align 8
   %add.ptr.i.i.i.i = getelementptr i8, ptr %env, i64 -10176
-  %cpu_breakpoint.i.i.i = getelementptr inbounds i8, ptr %env, i64 8408
+  %cpu_breakpoint.i.i.i = getelementptr inbounds nuw i8, ptr %env, i64 8408
   %arrayidx.i.i.i = getelementptr [2 x ptr], ptr %cpu_breakpoint.i.i.i, i64 0, i64 %42
   %56 = load ptr, ptr %arrayidx.i.i.i, align 8
   %tobool.not.i.i19.i = icmp eq ptr %56, null
@@ -1325,7 +1325,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i68
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %if.then.i68
-  %cpu_watchpoint.i.i.i = getelementptr inbounds i8, ptr %env, i64 8424
+  %cpu_watchpoint.i.i.i = getelementptr inbounds nuw i8, ptr %env, i64 8424
   %arrayidx5.i.i.i = getelementptr [2 x ptr], ptr %cpu_watchpoint.i.i.i, i64 0, i64 %42
   %57 = load ptr, ptr %arrayidx5.i.i.i, align 8
   %tobool6.not.i.i.i = icmp eq ptr %57, null
@@ -1338,7 +1338,7 @@ if.then7.i.i.i:                                   ; preds = %if.end.i.i.i
 
 type6_breakpoint_remove.exit.i:                   ; preds = %if.then7.i.i.i, %if.end.i.i.i
   %58 = load i64, ptr %arrayidx.i66, align 8
-  %tdata2.i.i69 = getelementptr inbounds i8, ptr %env, i64 8376
+  %tdata2.i.i69 = getelementptr inbounds nuw i8, ptr %env, i64 8376
   %arrayidx1.i.i70 = getelementptr [2 x i64], ptr %tdata2.i.i69, i64 0, i64 %42
   %59 = load i64, ptr %arrayidx1.i.i70, align 8
   %and.i.i20.i71 = and i64 %58, 25165912
@@ -1378,7 +1378,7 @@ if.then19.i.i85:                                  ; preds = %if.end7.i.i79
   br label %sw.epilog
 
 sw.bb3.i26:                                       ; preds = %sw.bb4
-  %tdata2.i27 = getelementptr inbounds i8, ptr %env, i64 8376
+  %tdata2.i27 = getelementptr inbounds nuw i8, ptr %env, i64 8376
   %arrayidx4.i28 = getelementptr [2 x i64], ptr %tdata2.i27, i64 0, i64 %42
   %63 = load i64, ptr %arrayidx4.i28, align 8
   %cmp5.not.i29 = icmp eq i64 %val, %63
@@ -1387,7 +1387,7 @@ sw.bb3.i26:                                       ; preds = %sw.bb4
 if.then6.i30:                                     ; preds = %sw.bb3.i26
   store i64 %val, ptr %arrayidx4.i28, align 8
   %add.ptr.i.i.i25.i = getelementptr i8, ptr %env, i64 -10176
-  %cpu_breakpoint.i.i26.i = getelementptr inbounds i8, ptr %env, i64 8408
+  %cpu_breakpoint.i.i26.i = getelementptr inbounds nuw i8, ptr %env, i64 8408
   %arrayidx.i.i27.i = getelementptr [2 x ptr], ptr %cpu_breakpoint.i.i26.i, i64 0, i64 %42
   %64 = load ptr, ptr %arrayidx.i.i27.i, align 8
   %tobool.not.i.i28.i = icmp eq ptr %64, null
@@ -1399,7 +1399,7 @@ if.then.i.i29.i:                                  ; preds = %if.then6.i30
   br label %if.end.i.i30.i
 
 if.end.i.i30.i:                                   ; preds = %if.then.i.i29.i, %if.then6.i30
-  %cpu_watchpoint.i.i31.i = getelementptr inbounds i8, ptr %env, i64 8424
+  %cpu_watchpoint.i.i31.i = getelementptr inbounds nuw i8, ptr %env, i64 8424
   %arrayidx5.i.i32.i = getelementptr [2 x ptr], ptr %cpu_watchpoint.i.i31.i, i64 0, i64 %42
   %65 = load ptr, ptr %arrayidx5.i.i32.i, align 8
   %tobool6.not.i.i33.i = icmp eq ptr %65, null
@@ -1411,7 +1411,7 @@ if.then7.i.i34.i:                                 ; preds = %if.end.i.i30.i
   br label %type6_breakpoint_remove.exit35.i
 
 type6_breakpoint_remove.exit35.i:                 ; preds = %if.then7.i.i34.i, %if.end.i.i30.i
-  %tdata1.i36.i = getelementptr inbounds i8, ptr %env, i64 8360
+  %tdata1.i36.i = getelementptr inbounds nuw i8, ptr %env, i64 8360
   %arrayidx.i37.i = getelementptr [2 x i64], ptr %tdata1.i36.i, i64 0, i64 %42
   %66 = load i64, ptr %arrayidx.i37.i, align 8
   %67 = load i64, ptr %arrayidx4.i28, align 8
@@ -1466,7 +1466,7 @@ do.body15.i95:                                    ; preds = %sw.bb4
   unreachable
 
 sw.bb6:                                           ; preds = %if.end
-  %trigger_cur7 = getelementptr inbounds i8, ptr %env, i64 8352
+  %trigger_cur7 = getelementptr inbounds nuw i8, ptr %env, i64 8352
   %72 = load i64, ptr %trigger_cur7, align 16
   switch i32 %tdata_index, label %do.body30.i [
     i32 0, label %sw.bb.i98
@@ -1562,7 +1562,7 @@ if.then3.i20.i.i131:                              ; preds = %do.body.i17.i.i128
 itrigger_validate.exit.i:                         ; preds = %if.then3.i20.i.i131, %do.body.i17.i.i128, %warn_always_zero_bit.exit14.i.i
   %and.i.i132 = and i64 %val, 117440192
   %or.i.i133 = or disjoint i64 %tdata1.0.i.i.i107, %and.i.i132
-  %tdata1.i134 = getelementptr inbounds i8, ptr %env, i64 8360
+  %tdata1.i134 = getelementptr inbounds nuw i8, ptr %env, i64 8360
   %arrayidx.i135 = getelementptr [2 x i64], ptr %tdata1.i134, i64 0, i64 %72
   %79 = load i64, ptr %arrayidx.i135, align 8
   %cmp.not.i136 = icmp eq i64 %or.i.i133, %79
@@ -1576,9 +1576,9 @@ if.then.i137:                                     ; preds = %itrigger_validate.e
 
 if.then3.i:                                       ; preds = %if.then.i137
   %call4.i = tail call i64 @icount_get_raw() #8
-  %last_icount.i = getelementptr inbounds i8, ptr %env, i64 8456
+  %last_icount.i = getelementptr inbounds nuw i8, ptr %env, i64 8456
   store i64 %call4.i, ptr %last_icount.i, align 8
-  %itrigger_timer.i = getelementptr inbounds i8, ptr %env, i64 8440
+  %itrigger_timer.i = getelementptr inbounds nuw i8, ptr %env, i64 8440
   %arrayidx5.i = getelementptr [2 x ptr], ptr %itrigger_timer.i, i64 0, i64 %72
   %81 = load ptr, ptr %arrayidx5.i, align 8
   %sext.i = shl i64 %72, 32
@@ -1593,7 +1593,7 @@ if.then3.i:                                       ; preds = %if.then.i137
 
 if.else.i:                                        ; preds = %if.then.i137
   %call9.i = tail call zeroext i1 @riscv_itrigger_enabled(ptr noundef nonnull %env)
-  %itrigger_enabled.i = getelementptr inbounds i8, ptr %env, i64 8464
+  %itrigger_enabled.i = getelementptr inbounds nuw i8, ptr %env, i64 8464
   %frombool.i = zext i1 %call9.i to i8
   store i8 %frombool.i, ptr %itrigger_enabled.i, align 16
   br label %sw.epilog
@@ -1662,21 +1662,21 @@ entry:
 define dso_local void @riscv_cpu_debug_excp_handler(ptr noundef %cs) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %cs, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #8
-  %env1 = getelementptr inbounds i8, ptr %call.i, i64 10176
-  %watchpoint_hit = getelementptr inbounds i8, ptr %cs, i64 616
+  %env1 = getelementptr inbounds nuw i8, ptr %call.i, i64 10176
+  %watchpoint_hit = getelementptr inbounds nuw i8, ptr %cs, i64 616
   %0 = load ptr, ptr %watchpoint_hit, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %flags = getelementptr inbounds i8, ptr %0, i64 28
+  %flags = getelementptr inbounds nuw i8, ptr %0, i64 28
   %1 = load i32, ptr %flags, align 4
   %and = and i32 %1, 32
   %tobool3.not = icmp eq i32 %and, 0
   br i1 %tobool3.not, label %if.end8, label %if.end8.sink.split
 
 if.else:                                          ; preds = %entry
-  %pc = getelementptr inbounds i8, ptr %call.i, i64 14832
+  %pc = getelementptr inbounds nuw i8, ptr %call.i, i64 14832
   %2 = load i64, ptr %pc, align 16
   %3 = getelementptr i8, ptr %cs, i64 584
   %cs.val = load ptr, ptr %3, align 8
@@ -1690,14 +1690,14 @@ for.body.i:                                       ; preds = %if.else, %for.inc.i
   br i1 %cmp6.i, label %land.lhs.true.i, label %for.inc.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %flags.i = getelementptr inbounds i8, ptr %bp.01.i, i64 8
+  %flags.i = getelementptr inbounds nuw i8, ptr %bp.01.i, i64 8
   %5 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %5, 32
   %tobool8.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool8.not.i, label %for.inc.i, label %if.end8.sink.split
 
 for.inc.i:                                        ; preds = %land.lhs.true.i, %for.body.i
-  %entry10.i = getelementptr inbounds i8, ptr %bp.01.i, i64 16
+  %entry10.i = getelementptr inbounds nuw i8, ptr %bp.01.i, i64 16
   %6 = load ptr, ptr %entry10.i, align 8
   %tobool4.not.i = icmp eq ptr %6, null
   br i1 %tobool4.not.i, label %if.end8, label %for.body.i, !llvm.loop !9
@@ -1714,18 +1714,18 @@ if.end8:                                          ; preds = %for.inc.i, %if.end8
 define dso_local noundef zeroext i1 @riscv_cpu_debug_check_breakpoint(ptr noundef %cs) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %cs, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #8
-  %breakpoints = getelementptr inbounds i8, ptr %cs, i64 584
+  %breakpoints = getelementptr inbounds nuw i8, ptr %cs, i64 584
   %bp.027 = load ptr, ptr %breakpoints, align 8
   %tobool.not28 = icmp eq ptr %bp.027, null
   br i1 %tobool.not28, label %return, label %for.cond2.preheader.lr.ph
 
 for.cond2.preheader.lr.ph:                        ; preds = %entry
-  %tdata1.i = getelementptr inbounds i8, ptr %call.i, i64 18536
+  %tdata1.i = getelementptr inbounds nuw i8, ptr %call.i, i64 18536
   %0 = getelementptr i8, ptr %call.i, i64 15184
   %env.val.i = load i32, ptr %0, align 16
-  %tdata223 = getelementptr inbounds i8, ptr %call.i, i64 18552
-  %virt_enabled33 = getelementptr inbounds i8, ptr %call.i, i64 15232
-  %priv44 = getelementptr inbounds i8, ptr %call.i, i64 15224
+  %tdata223 = getelementptr inbounds nuw i8, ptr %call.i, i64 18552
+  %virt_enabled33 = getelementptr inbounds nuw i8, ptr %call.i, i64 15232
+  %priv44 = getelementptr inbounds nuw i8, ptr %call.i, i64 15224
   %env.val.i.off = add i32 %env.val.i, -1
   %switch = icmp ult i32 %env.val.i.off, 3
   br i1 %switch, label %for.cond2.preheader.lr.ph.split, label %do.body.i.i
@@ -1810,7 +1810,7 @@ for.inc.us.us:                                    ; preds = %if.then13.us.us, %l
   br i1 %cmp.us.us, label %for.body3.us.us, label %for.inc52.split.us.us, !llvm.loop !10
 
 for.inc52.split.us.us:                            ; preds = %for.inc.us.us
-  %entry53.us = getelementptr inbounds i8, ptr %bp.029.us, i64 16
+  %entry53.us = getelementptr inbounds nuw i8, ptr %bp.029.us, i64 16
   %bp.0.us = load ptr, ptr %entry53.us, align 8
   %tobool.not.us = icmp eq ptr %bp.0.us, null
   br i1 %tobool.not.us, label %return, label %for.cond2.preheader.us, !llvm.loop !11
@@ -1895,7 +1895,7 @@ for.inc:                                          ; preds = %if.then13, %land.lh
   br i1 %cmp, label %for.body3, label %for.inc52.split, !llvm.loop !10
 
 for.inc52.split:                                  ; preds = %for.inc
-  %entry53 = getelementptr inbounds i8, ptr %bp.029, i64 16
+  %entry53 = getelementptr inbounds nuw i8, ptr %bp.029, i64 16
   %bp.0 = load ptr, ptr %entry53, align 8
   %tobool.not = icmp eq ptr %bp.0, null
   br i1 %tobool.not, label %return, label %for.cond2.preheader, !llvm.loop !11
@@ -1909,13 +1909,13 @@ return:                                           ; preds = %for.inc52.split, %s
 define dso_local noundef zeroext i1 @riscv_cpu_debug_check_watchpoint(ptr noundef %cs, ptr nocapture noundef readonly %wp) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %cs, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #8
-  %tdata1.i = getelementptr inbounds i8, ptr %call.i, i64 18536
+  %tdata1.i = getelementptr inbounds nuw i8, ptr %call.i, i64 18536
   %0 = getelementptr i8, ptr %call.i, i64 15184
   %env.val.i = load i32, ptr %0, align 16
-  %flags42 = getelementptr inbounds i8, ptr %wp, i64 28
-  %tdata229 = getelementptr inbounds i8, ptr %call.i, i64 18552
-  %virt_enabled50 = getelementptr inbounds i8, ptr %call.i, i64 15232
-  %priv61 = getelementptr inbounds i8, ptr %call.i, i64 15224
+  %flags42 = getelementptr inbounds nuw i8, ptr %wp, i64 28
+  %tdata229 = getelementptr inbounds nuw i8, ptr %call.i, i64 18552
+  %virt_enabled50 = getelementptr inbounds nuw i8, ptr %call.i, i64 15232
+  %priv61 = getelementptr inbounds nuw i8, ptr %call.i, i64 15224
   %env.val.i.off = add i32 %env.val.i, -1
   %switch = icmp ult i32 %env.val.i.off, 3
   br i1 %switch, label %for.body.preheader, label %do.body.i.i
@@ -2024,7 +2024,7 @@ return:                                           ; preds = %if.else, %if.then52
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @riscv_trigger_realize(ptr noundef %env) local_unnamed_addr #0 {
 entry:
-  %itrigger_timer = getelementptr inbounds i8, ptr %env, i64 8440
+  %itrigger_timer = getelementptr inbounds nuw i8, ptr %env, i64 8440
   %call.i.i.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #9
   tail call void @timer_init_full(ptr noundef %call.i.i.i, ptr noundef null, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @riscv_itrigger_timer_cb, ptr noundef %env) #8
   store ptr %call.i.i.i, ptr %itrigger_timer, align 8
@@ -2057,14 +2057,14 @@ do.body.i:                                        ; preds = %entry
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table.riscv_trigger_reset_hold, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table.riscv_trigger_reset_hold, i64 0, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
-  %tdata11 = getelementptr inbounds i8, ptr %env, i64 8360
-  %tdata2 = getelementptr inbounds i8, ptr %env, i64 8376
-  %tdata3 = getelementptr inbounds i8, ptr %env, i64 8392
-  %cpu_breakpoint = getelementptr inbounds i8, ptr %env, i64 8408
-  %cpu_watchpoint = getelementptr inbounds i8, ptr %env, i64 8424
-  %itrigger_timer = getelementptr inbounds i8, ptr %env, i64 8440
+  %tdata11 = getelementptr inbounds nuw i8, ptr %env, i64 8360
+  %tdata2 = getelementptr inbounds nuw i8, ptr %env, i64 8376
+  %tdata3 = getelementptr inbounds nuw i8, ptr %env, i64 8392
+  %cpu_breakpoint = getelementptr inbounds nuw i8, ptr %env, i64 8408
+  %cpu_watchpoint = getelementptr inbounds nuw i8, ptr %env, i64 8424
+  %itrigger_timer = getelementptr inbounds nuw i8, ptr %env, i64 8440
   br label %for.body
 
 for.body:                                         ; preds = %switch.lookup, %for.body

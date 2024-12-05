@@ -25,7 +25,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i.i4 = tail call noalias noundef nonnull dereferenceable(8072) ptr @_Znwm(i64 noundef 8072) #8
   store ptr %call5.i.i.i.i2.i.i4, ptr %this, align 8, !tbaa !3
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i4, i64 8072
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i4, i64 8072
   %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !8
   %_M_finish.i.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -38,7 +38,7 @@ entry:
 
 invoke.cont4:                                     ; preds = %entry
   store ptr %call5.i.i.i.i2.i.i9, ptr %ran_u, align 8, !tbaa !3
-  %add.ptr.i.i.i5 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i9, i64 8072
+  %add.ptr.i.i.i5 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i9, i64 8072
   %_M_end_of_storage.i.i.i6 = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr %add.ptr.i.i.i5, ptr %_M_end_of_storage.i.i.i6, align 8, !tbaa !8
   %_M_finish.i.i7.i8 = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -135,13 +135,13 @@ declare i32 @__gxx_personality_v0(...)
 define void @_ZN8QuantLib15KnuthUniformRng10ranf_startEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, i64 noundef %seed) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call5.i.i.i.i2.i.i64 = tail call noalias noundef nonnull dereferenceable(1592) ptr @_Znwm(i64 noundef 1592) #8
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i64, i64 8
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i64, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1592) %call5.i.i.i.i2.i.i64, i8 0, i64 1592, i1 false)
   %call5.i.i.i.i2.i.i69 = invoke noalias noundef nonnull dereferenceable(1592) ptr @_Znwm(i64 noundef 1592) #8
           to label %invoke.cont4 unwind label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
 invoke.cont4:                                     ; preds = %entry
-  %incdec.ptr.i.i.i.i.i67 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i69, i64 8
+  %incdec.ptr.i.i.i.i.i67 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i69, i64 8
   %and = and i64 %seed, 1073741823
   %add = add nuw nsw i64 %and, 2
   %conv = uitofp nneg i64 %add to double
@@ -169,9 +169,9 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %entry
   resume { ptr, i32 } %0
 
 for.end21:                                        ; preds = %for.body
-  %scevgep = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i69, i64 800
+  %scevgep = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i69, i64 800
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(792) %scevgep, i8 0, i64 792, i1 false), !tbaa !18
-  %scevgep194 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i64, i64 800
+  %scevgep194 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i64, i64 800
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(792) %scevgep194, i8 0, i64 792, i1 false), !tbaa !18
   %1 = load double, ptr %incdec.ptr.i.i.i.i.i, align 8, !tbaa !18
   %add23 = fadd double %1, 0x3CB0000000000000
@@ -192,7 +192,7 @@ for.cond28.preheader:                             ; preds = %for.end21, %if.end1
 for.cond146.preheader:                            ; preds = %if.end141
   %ran_u = getelementptr inbounds nuw i8, ptr %this, i64 40
   %2 = load ptr, ptr %ran_u, align 8, !tbaa !3
-  %invariant.gep = getelementptr inbounds i8, ptr %2, i64 504
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %2, i64 504
   br label %for.body148
 
 for.body30:                                       ; preds = %for.cond28.preheader, %for.body30
@@ -310,7 +310,7 @@ for.body148:                                      ; preds = %for.cond146.prehead
   %indvars.iv216 = phi i64 [ 0, %for.cond146.preheader ], [ %indvars.iv.next217, %for.body148 ]
   %add.ptr.i117 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i64, i64 %indvars.iv216
   %21 = load double, ptr %add.ptr.i117, align 8, !tbaa !18
-  %gep = getelementptr inbounds double, ptr %invariant.gep, i64 %indvars.iv216
+  %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %indvars.iv216
   store double %21, ptr %gep, align 8, !tbaa !18
   %indvars.iv.next217 = add nuw nsw i64 %indvars.iv216, 1
   %exitcond219.not = icmp eq i64 %indvars.iv.next217, 37

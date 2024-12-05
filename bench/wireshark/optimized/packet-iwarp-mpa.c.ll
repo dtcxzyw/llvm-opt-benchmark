@@ -195,15 +195,15 @@ get_mpa_state.exit.i:                             ; preds = %17
   br i1 %.not13.i, label %is_mpa_fpdu.exit.thread, label %23
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %1, i64 20
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %25 = load i32, ptr %24, align 4
-  %26 = getelementptr inbounds i8, ptr %20, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %25, %27
   br i1 %28, label %is_mpa_fpdu.exit.thread, label %is_mpa_fpdu.exit
 
 is_mpa_fpdu.exit:                                 ; preds = %23
-  %29 = getelementptr inbounds i8, ptr %20, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %30 = load i32, ptr %29, align 4
   %.not26 = icmp eq i32 %25, %30
   %cond.fr = freeze i1 %.not26
@@ -214,7 +214,7 @@ is_mpa_fpdu.exit.thread:                          ; preds = %17, %get_mpa_state.
   br i1 %.0, label %32, label %.thread
 
 .thread:                                          ; preds = %is_mpa_fpdu.exit, %is_mpa_fpdu.exit.thread
-  %31 = getelementptr inbounds i8, ptr %1, i64 280
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 280
   store i32 12, ptr %31, align 8
   tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1, i32 noundef 8, ptr noundef nonnull @iwrap_mpa_pdu_length, ptr noundef nonnull @dissect_iwarp_mpa_pdu, ptr noundef nonnull %3) #5
   br label %32
@@ -249,28 +249,28 @@ define internal fastcc range(i32 0, 2) i32 @is_mpa_req(ptr noundef %0, ptr nound
 10:                                               ; preds = %6
   %11 = tail call ptr @wmem_file_scope() #5
   %12 = tail call noalias ptr @wmem_alloc0(ptr noundef %11, i64 noundef 52) #5
-  %13 = getelementptr inbounds i8, ptr %12, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %14 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 16) #5
   %15 = zext i8 %14 to i32
   %16 = and i32 %15, 128
-  %17 = getelementptr inbounds i8, ptr %12, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 12
   store i32 %16, ptr %17, align 4
   %18 = and i32 %15, 64
-  %19 = getelementptr inbounds i8, ptr %12, i64 44
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 44
   store i32 %18, ptr %19, align 4
   %20 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 17) #5
   %21 = zext i8 %20 to i32
   store i32 %21, ptr %13, align 4
-  %22 = getelementptr inbounds i8, ptr %1, i64 20
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %23 = load i32, ptr %22, align 4
-  %24 = getelementptr inbounds i8, ptr %12, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 %23, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %1, i64 284
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %26 = load i32, ptr %25, align 4
   %27 = trunc i32 %26 to i16
-  %28 = getelementptr inbounds i8, ptr %12, i64 20
+  %28 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i16 %27, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %1, i64 288
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %30 = load i32, ptr %29, align 8
   %31 = trunc i32 %30 to i16
   %32 = getelementptr i8, ptr %12, i64 32
@@ -330,16 +330,16 @@ get_mpa_state.exit:                               ; preds = %6
   %13 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 16) #5
   %14 = zext i8 %13 to i32
   %15 = and i32 %14, 128
-  %16 = getelementptr inbounds i8, ptr %9, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 %15, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %9, i64 44
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 44
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %14, 64
   %20 = or i32 %18, %19
   store i32 %20, ptr %17, align 4
-  %21 = getelementptr inbounds i8, ptr %1, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %22 = load i32, ptr %21, align 4
-  %23 = getelementptr inbounds i8, ptr %9, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %22, ptr %23, align 4
   %24 = and i32 %14, 32
   %.not24 = icmp eq i32 %24, 0
@@ -375,7 +375,7 @@ define internal range(i32 0, 33619977) i32 @iwrap_mpa_pdu_length(ptr noundef %0,
   br i1 %.not44, label %.thread, label %10
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %9, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %12 = load i8, ptr %5, align 1
   %13 = zext i8 %12 to i64
   %.idx = mul nuw nsw i64 %13, 12
@@ -573,13 +573,13 @@ expected_ulpdu_length.exit.i.i:                   ; preds = %65
   %.not76105.i.i = phi i1 [ true, %.thread.i.i ], [ false, %70 ]
   %76 = phi i8 [ %49, %.thread.i.i ], [ %54, %70 ]
   %.0104.i.i = phi i32 [ 0, %.thread.i.i ], [ %45, %70 ]
-  %77 = getelementptr inbounds i8, ptr %1, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %78 = load ptr, ptr %77, align 8
   tail call void @col_set_str(ptr noundef %78, i32 noundef 34, ptr noundef nonnull @.str.56) #5
   %79 = load ptr, ptr %77, align 8
-  %80 = getelementptr inbounds i8, ptr %1, i64 284
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %81 = load i32, ptr %80, align 4
-  %82 = getelementptr inbounds i8, ptr %1, i64 288
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %83 = load i32, ptr %82, align 8
   %84 = tail call ptr @val_to_str(i32 noundef 3, ptr noundef nonnull @mpa_messages, ptr noundef nonnull @.str.58) #5
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %79, i32 noundef 25, ptr noundef nonnull @.str.57, i32 noundef %81, i32 noundef %83, ptr noundef %84) #5
@@ -711,7 +711,7 @@ dissect_mpa_fpdu.exit.i:                          ; preds = %127, %157
   br i1 %162, label %163, label %208
 
 163:                                              ; preds = %161
-  %164 = getelementptr inbounds i8, ptr %9, i64 20
+  %164 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %narrow.i = mul nuw nsw i8 %11, 12
   %165 = zext nneg i8 %narrow.i to i64
   %166 = getelementptr i8, ptr %164, i64 %165
@@ -764,7 +764,7 @@ dissect_mpa_fpdu.exit.i:                          ; preds = %127, %157
 
 .lr.ph.preheader.i.i:                             ; preds = %188
   %192 = sub i32 %.1.i.i58.i, %185
-  %193 = getelementptr inbounds i8, ptr %1, i64 408
+  %193 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %194 = load ptr, ptr %193, align 8
   %195 = zext i32 %192 to i64
   %196 = tail call noalias ptr @wmem_alloc(ptr noundef %194, i64 noundef %195) #5
@@ -886,15 +886,15 @@ get_mpa_state.exit.i:                             ; preds = %7
   br i1 %.not13.i, label %is_mpa_fpdu.exit.thread, label %13
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %1, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %10, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %15, %17
   br i1 %18, label %is_mpa_fpdu.exit.thread, label %is_mpa_fpdu.exit
 
 is_mpa_fpdu.exit:                                 ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %10, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %20 = load i32, ptr %19, align 4
   %.not29 = icmp eq i32 %15, %20
   br i1 %.not29, label %is_mpa_fpdu.exit.thread, label %21
@@ -911,9 +911,9 @@ is_mpa_fpdu.exit:                                 ; preds = %13
 
 get_mpa_state.exit:                               ; preds = %21, %23
   %.0.i26 = phi ptr [ %25, %23 ], [ null, %21 ]
-  %26 = getelementptr inbounds i8, ptr %1, i64 284
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %27 = load i32, ptr %26, align 4
-  %28 = getelementptr inbounds i8, ptr %.0.i26, i64 20
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i26, i64 20
   %29 = load i16, ptr %28, align 4
   %30 = zext i16 %29 to i32
   %31 = icmp eq i32 %27, %30
@@ -933,13 +933,13 @@ get_mpa_state.exit:                               ; preds = %21, %23
 38:                                               ; preds = %32, %get_mpa_state.exit
   %storemerge = phi i8 [ 0, %get_mpa_state.exit ], [ 1, %32 ]
   store i8 %storemerge, ptr %3, align 1
-  %39 = getelementptr inbounds i8, ptr %.0.i26, i64 12
+  %39 = getelementptr inbounds nuw i8, ptr %.0.i26, i64 12
   %40 = load i32, ptr %39, align 4
   %.not22 = icmp eq i32 %40, 0
   br i1 %.not22, label %41, label %44
 
 41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %.0.i26, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %.0.i26, i64 16
   %43 = load i32, ptr %42, align 4
   %.not23 = icmp eq i32 %43, 0
   br i1 %.not23, label %is_mpa_fpdu.exit.thread, label %44
@@ -947,14 +947,14 @@ get_mpa_state.exit:                               ; preds = %21, %23
 44:                                               ; preds = %38, %41
   %45 = zext nneg i8 %storemerge to i64
   %46 = getelementptr [2 x %struct.minfo], ptr %28, i64 0, i64 %45
-  %47 = getelementptr inbounds i8, ptr %46, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load i32, ptr %47, align 4
   %.not24 = icmp eq i32 %48, 0
   br i1 %.not24, label %49, label %is_mpa_fpdu.exit.thread
 
 49:                                               ; preds = %44
   %50 = load i32, ptr %2, align 4
-  %51 = getelementptr inbounds i8, ptr %46, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %46, i64 4
   store i32 %50, ptr %51, align 4
   %52 = load i8, ptr %3, align 1
   %53 = zext i8 %52 to i64
@@ -980,13 +980,13 @@ declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @dissect_mpa_req_rep(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 3) %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.56) #5
   %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 284
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %1, i64 288
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %11 = load i32, ptr %10, align 8
   %12 = tail call ptr @val_to_str(i32 noundef range(i32 1, 4) %3, ptr noundef nonnull @mpa_messages, ptr noundef nonnull @.str.58) #5
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.57, i32 noundef %9, i32 noundef %11, ptr noundef %12) #5

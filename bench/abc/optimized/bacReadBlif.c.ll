@@ -85,7 +85,7 @@ Psr_ManAlloc.exit.thread:                         ; preds = %1
   %8 = ashr exact i64 %sext.i.i, 32
   %9 = tail call noalias ptr @malloc(i64 noundef %8) #15
   store i8 10, ptr %9, align 1
-  %10 = getelementptr inbounds i8, ptr %9, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 1
   %11 = ashr exact i64 %7, 32
   %12 = tail call i64 @fread(ptr noundef nonnull %10, i64 noundef %11, i64 noundef 1, ptr noundef nonnull %2)
   %13 = tail call i32 @fclose(ptr noundef nonnull %2)
@@ -98,32 +98,32 @@ Psr_ManAlloc.exit.thread:                         ; preds = %1
   %17 = getelementptr inbounds i8, ptr %9, i64 %16
   store i8 0, ptr %17, align 1
   %18 = getelementptr inbounds i8, ptr %9, i64 %11
-  %19 = getelementptr inbounds i8, ptr %18, i64 3
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 3
   %20 = tail call noalias dereferenceable_or_null(1160) ptr @calloc(i64 noundef 1, i64 noundef 1160) #16
   store ptr %0, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %9, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %20, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store ptr %19, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %20, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store ptr %9, ptr %23, align 8
   %24 = tail call ptr @Abc_NamStart(i32 noundef 1000, i32 noundef 24) #17
-  %25 = getelementptr inbounds i8, ptr %20, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store ptr %24, ptr %25, align 8
   %26 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #15
-  %27 = getelementptr inbounds i8, ptr %26, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
   store i32 0, ptr %27, align 4
   store i32 100, ptr %26, align 8
   %28 = tail call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #15
-  %29 = getelementptr inbounds i8, ptr %26, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %28, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %20, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %20, i64 48
   store ptr %26, ptr %30, align 8
   br label %31
 
 31:                                               ; preds = %31, %4
   %indvars.iv.i = phi i64 [ 1, %4 ], [ %indvars.iv.next.i, %31 ]
-  %32 = getelementptr inbounds [12 x ptr], ptr @s_BlifTypes, i64 0, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw [12 x ptr], ptr @s_BlifTypes, i64 0, i64 %indvars.iv.i
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %25, align 8
   %35 = tail call i32 @Abc_NamStrFindOrAdd(ptr noundef %34, ptr noundef %33, ptr noundef null) #17
@@ -133,18 +133,18 @@ Psr_ManAlloc.exit.thread:                         ; preds = %1
 
 Psr_NtkAddBlifDirectives.exit:                    ; preds = %31
   %37 = load ptr, ptr %23, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 1
   %39 = load i8, ptr %38, align 1
   %.not70.i = icmp eq i8 %39, 0
   br i1 %.not70.i, label %Psr_ManReadLines.exit, label %.preheader.lr.ph.i
 
 .preheader.lr.ph.i:                               ; preds = %Psr_NtkAddBlifDirectives.exit
-  %40 = getelementptr inbounds i8, ptr %20, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %20, i64 56
   %41 = getelementptr i8, ptr %20, i64 60
   %.phi.trans.insert.i.i.i.i = getelementptr i8, ptr %20, i64 64
-  %42 = getelementptr inbounds i8, ptr %20, i64 40
-  %43 = getelementptr inbounds i8, ptr %20, i64 72
-  %44 = getelementptr inbounds i8, ptr %20, i64 76
+  %42 = getelementptr inbounds nuw i8, ptr %20, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %20, i64 72
+  %44 = getelementptr inbounds nuw i8, ptr %20, i64 76
   %45 = getelementptr i8, ptr %20, i64 80
   br label %.preheader.i
 
@@ -163,7 +163,7 @@ Psr_NtkAddBlifDirectives.exit:                    ; preds = %31
   ]
 
 Psr_ManIsSpace.exit.thread.i.i:                   ; preds = %.preheader.i, %.preheader.i, %.preheader.i
-  %46 = getelementptr inbounds i8, ptr %storemerge11.i, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %storemerge11.i, i64 1
   br label %.preheader.i.backedge
 
 .preheader.i.backedge:                            ; preds = %Psr_ManIsSpace.exit.thread.i.i, %.backedge.i, %Psr_ManSkipToChar.exit.i.i
@@ -172,19 +172,19 @@ Psr_ManIsSpace.exit.thread.i.i:                   ; preds = %.preheader.i, %.pre
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i, %.lr.ph.i.i.i
   %47 = phi ptr [ %48, %.lr.ph.i.i.i ], [ %storemerge11.i, %.preheader.i ]
-  %48 = getelementptr inbounds i8, ptr %47, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 1
   store ptr %48, ptr %23, align 8
   %.val.val.i.i.i = load i8, ptr %48, align 1
   %.not.i.i.i = icmp eq i8 %.val.val.i.i.i, 10
   br i1 %.not.i.i.i, label %Psr_ManSkipToChar.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !7
 
 Psr_ManSkipToChar.exit.i.i:                       ; preds = %.lr.ph.i.i.i
-  %49 = getelementptr inbounds i8, ptr %47, i64 2
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 2
   br label %.preheader.i.backedge
 
 .lr.ph.i14.i.i:                                   ; preds = %.preheader.i, %.lr.ph.i14.i.i
   %50 = phi ptr [ %51, %.lr.ph.i14.i.i ], [ %storemerge11.i, %.preheader.i ]
-  %51 = getelementptr inbounds i8, ptr %50, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 1
   store ptr %51, ptr %23, align 8
   %.val.val.i15.i.i = load i8, ptr %51, align 1
   %.not.i16.i.i = icmp eq i8 %.val.val.i15.i.i, 10
@@ -192,7 +192,7 @@ Psr_ManSkipToChar.exit.i.i:                       ; preds = %.lr.ph.i.i.i
 
 .backedge.i:                                      ; preds = %.lr.ph.i14.i.i, %.preheader.i, %Psr_ManReadDirective.exit..backedge_crit_edge.i
   %52 = phi ptr [ %.pre140.i, %Psr_ManReadDirective.exit..backedge_crit_edge.i ], [ %storemerge11.i, %.preheader.i ], [ %51, %.lr.ph.i14.i.i ]
-  %53 = getelementptr inbounds i8, ptr %52, i64 1
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 1
   %54 = load i8, ptr %53, align 1
   %.not.i = icmp eq i8 %54, 0
   br i1 %.not.i, label %Psr_ManReadLines.exit, label %.preheader.i.backedge
@@ -207,7 +207,7 @@ Psr_ManSkipToChar.exit.i.i:                       ; preds = %.lr.ph.i.i.i
   ]
 
 55:                                               ; preds = %.preheader83.i, %.preheader83.i, %.preheader83.i
-  %56 = getelementptr inbounds i8, ptr %.val25.i.i.i, i64 1
+  %56 = getelementptr inbounds nuw i8, ptr %.val25.i.i.i, i64 1
   store ptr %56, ptr %23, align 8
   %57 = load i8, ptr %.val25.i.i.i, align 1
   %58 = load i32, ptr %41, align 4
@@ -296,24 +296,24 @@ Vec_StrPush.exit.i.i.i:                           ; preds = %78, %Vec_StrGrow.ex
   ]
 
 Psr_ManIsSpace.exit.thread.i.i.i.i:               ; preds = %.preheader.i.i.i, %.preheader.i.i.i, %.preheader.i.i.i
-  %86 = getelementptr inbounds i8, ptr %85, i64 1
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 1
   br label %.preheader.i.i.i.sink.split, !llvm.loop !9
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.preheader.i.i.i, %.lr.ph.i.i.i.i.i
   %87 = phi ptr [ %88, %.lr.ph.i.i.i.i.i ], [ %85, %.preheader.i.i.i ]
-  %88 = getelementptr inbounds i8, ptr %87, i64 1
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 1
   store ptr %88, ptr %23, align 8
   %.val.val.i.i.i.i.i = load i8, ptr %88, align 1
   %.not.i.i.i.i.i = icmp eq i8 %.val.val.i.i.i.i.i, 10
   br i1 %.not.i.i.i.i.i, label %Psr_ManSkipToChar.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !7
 
 Psr_ManSkipToChar.exit.i.i.i.i:                   ; preds = %.lr.ph.i.i.i.i.i
-  %89 = getelementptr inbounds i8, ptr %87, i64 2
+  %89 = getelementptr inbounds nuw i8, ptr %87, i64 2
   br label %.preheader.i.i.i.sink.split
 
 .lr.ph.i14.i.i.i.i:                               ; preds = %.preheader.i.i.i, %.lr.ph.i14.i.i.i.i
   %90 = phi ptr [ %91, %.lr.ph.i14.i.i.i.i ], [ %85, %.preheader.i.i.i ]
-  %91 = getelementptr inbounds i8, ptr %90, i64 1
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 1
   store ptr %91, ptr %23, align 8
   %.val.val.i15.i.i.i.i = load i8, ptr %91, align 1
   %.not.i16.i.i.i.i = icmp eq i8 %.val.val.i15.i.i.i.i, 10
@@ -325,7 +325,7 @@ Psr_ManSkipSpaces.exit.thread.i.i.i:              ; preds = %.preheader.i.i.i, %
   br i1 %.not23.i.i.i, label %94, label %92
 
 92:                                               ; preds = %Psr_ManSkipSpaces.exit.thread.i.i.i
-  %93 = getelementptr inbounds i8, ptr %20, i64 156
+  %93 = getelementptr inbounds nuw i8, ptr %20, i64 156
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %93, ptr noundef nonnull align 1 dereferenceable(18) @.str.19, i64 18, i1 false)
   br label %Psr_ManReadLines.exit
 
@@ -417,7 +417,7 @@ Vec_StrPush.exit43.i.i.i:                         ; preds = %123, %Vec_StrGrow.e
   br label %Psr_ManReadDirective.exit..backedge_crit_edge.i
 
 130:                                              ; preds = %.preheader.i.i.i
-  %131 = getelementptr inbounds i8, ptr %20, i64 156
+  %131 = getelementptr inbounds nuw i8, ptr %20, i64 156
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %131, ptr noundef nonnull align 1 dereferenceable(28) @.str.20, i64 28, i1 false)
   br label %Psr_ManReadLines.exit
 
@@ -484,7 +484,7 @@ Vec_StrPush.exit53.i.i.i:                         ; preds = %153, %Vec_StrGrow.e
   %159 = getelementptr inbounds i8, ptr %155, i64 %158
   store i8 32, ptr %159, align 1
   %160 = load ptr, ptr %23, align 8
-  %161 = getelementptr inbounds i8, ptr %160, i64 1
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 1
   store ptr %161, ptr %23, align 8
   %162 = load i8, ptr %160, align 1
   %163 = load i32, ptr %41, align 4
@@ -625,7 +625,7 @@ Vec_StrPush.exit67.i.i.i:                         ; preds = %210, %Vec_StrGrow.e
   ]
 
 Psr_ManIsSpace.exit.thread.i77.i.i.i:             ; preds = %217, %217, %217
-  %219 = getelementptr inbounds i8, ptr %218, i64 1
+  %219 = getelementptr inbounds nuw i8, ptr %218, i64 1
   br label %.backedge377
 
 .backedge377:                                     ; preds = %Psr_ManIsSpace.exit.thread.i77.i.i.i, %Psr_ManSkipToChar.exit.i76.i.i.i
@@ -635,26 +635,26 @@ Psr_ManIsSpace.exit.thread.i77.i.i.i:             ; preds = %217, %217, %217
 
 .lr.ph.i.i73.i.i.i:                               ; preds = %217, %.lr.ph.i.i73.i.i.i
   %220 = phi ptr [ %221, %.lr.ph.i.i73.i.i.i ], [ %218, %217 ]
-  %221 = getelementptr inbounds i8, ptr %220, i64 1
+  %221 = getelementptr inbounds nuw i8, ptr %220, i64 1
   store ptr %221, ptr %23, align 8
   %.val.val.i.i74.i.i.i = load i8, ptr %221, align 1
   %.not.i.i75.i.i.i = icmp eq i8 %.val.val.i.i74.i.i.i, 10
   br i1 %.not.i.i75.i.i.i, label %Psr_ManSkipToChar.exit.i76.i.i.i, label %.lr.ph.i.i73.i.i.i, !llvm.loop !7
 
 Psr_ManSkipToChar.exit.i76.i.i.i:                 ; preds = %.lr.ph.i.i73.i.i.i
-  %222 = getelementptr inbounds i8, ptr %220, i64 2
+  %222 = getelementptr inbounds nuw i8, ptr %220, i64 2
   br label %.backedge377
 
 .lr.ph.i14.i70.i.i.i:                             ; preds = %217, %.lr.ph.i14.i70.i.i.i
   %223 = phi ptr [ %224, %.lr.ph.i14.i70.i.i.i ], [ %218, %217 ]
-  %224 = getelementptr inbounds i8, ptr %223, i64 1
+  %224 = getelementptr inbounds nuw i8, ptr %223, i64 1
   store ptr %224, ptr %23, align 8
   %.val.val.i15.i71.i.i.i = load i8, ptr %224, align 1
   %.not.i16.i72.i.i.i = icmp eq i8 %.val.val.i15.i71.i.i.i, 10
   br i1 %.not.i16.i72.i.i.i, label %Psr_ManReadDirective.exit..backedge_crit_edge.i, label %.lr.ph.i14.i70.i.i.i, !llvm.loop !7
 
 225:                                              ; preds = %217
-  %226 = getelementptr inbounds i8, ptr %20, i64 156
+  %226 = getelementptr inbounds nuw i8, ptr %20, i64 156
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(25) %226, ptr noundef nonnull align 1 dereferenceable(25) @.str.21, i64 25, i1 false)
   br label %Psr_ManReadLines.exit
 
@@ -682,7 +682,7 @@ Psr_ManSkipToChar.exit.i76.i.i.i:                 ; preds = %.lr.ph.i.i73.i.i.i
 thread-pre-split.sink.split.i.i.i:                ; preds = %233, %230
   %.sink23.i.i.i = phi i8 [ 8, %233 ], [ 4, %230 ]
   %234 = load ptr, ptr %42, align 8
-  %235 = getelementptr inbounds i8, ptr %234, i64 4
+  %235 = getelementptr inbounds nuw i8, ptr %234, i64 4
   %236 = load i8, ptr %235, align 4
   %237 = or i8 %236, %.sink23.i.i.i
   store i8 %237, ptr %235, align 4
@@ -873,7 +873,7 @@ Psr_ManSaveCover.exit.i.i:                        ; preds = %291, %289, %287, %2
   br i1 %.not.i.i8.i, label %310, label %308
 
 308:                                              ; preds = %306
-  %309 = getelementptr inbounds i8, ptr %20, i64 156
+  %309 = getelementptr inbounds nuw i8, ptr %20, i64 156
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(38) %309, ptr noundef nonnull align 1 dereferenceable(38) @.str.38, i64 38, i1 false)
   br label %Psr_ManReadLines.exit
 
@@ -883,7 +883,7 @@ Psr_ManSaveCover.exit.i.i:                        ; preds = %291, %289, %287, %2
   br i1 %312, label %313, label %315
 
 313:                                              ; preds = %310
-  %314 = getelementptr inbounds i8, ptr %20, i64 156
+  %314 = getelementptr inbounds nuw i8, ptr %20, i64 156
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %314, ptr noundef nonnull align 1 dereferenceable(24) @.str.39, i64 24, i1 false)
   br label %Psr_ManReadLines.exit
 
@@ -894,18 +894,18 @@ Psr_ManSaveCover.exit.i.i:                        ; preds = %291, %289, %287, %2
   %317 = load ptr, ptr %25, align 8
   %318 = tail call ptr @Abc_NamRef(ptr noundef %317) #17
   %319 = load ptr, ptr %42, align 8
-  %320 = getelementptr inbounds i8, ptr %319, i64 8
+  %320 = getelementptr inbounds nuw i8, ptr %319, i64 8
   store ptr %318, ptr %320, align 8
   %321 = load ptr, ptr %30, align 8
   %322 = load ptr, ptr %42, align 8
-  %323 = getelementptr inbounds i8, ptr %321, i64 4
+  %323 = getelementptr inbounds nuw i8, ptr %321, i64 4
   %324 = load i32, ptr %323, align 4
   %325 = load i32, ptr %321, align 8
   %326 = icmp eq i32 %324, %325
   br i1 %326, label %327, label %.Vec_PtrGrow.exit11_crit_edge.i.i.i.i.i
 
 .Vec_PtrGrow.exit11_crit_edge.i.i.i.i.i:          ; preds = %315
-  %.phi.trans.insert.i.i.i.i.i = getelementptr inbounds i8, ptr %321, i64 8
+  %.phi.trans.insert.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %321, i64 8
   %.pre.i.i.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i.i.i, align 8
   br label %Psr_ManInitializeNtk.exit.i.i.i
 
@@ -914,7 +914,7 @@ Psr_ManSaveCover.exit.i.i:                        ; preds = %291, %289, %287, %2
   br i1 %328, label %329, label %337
 
 329:                                              ; preds = %327
-  %330 = getelementptr inbounds i8, ptr %321, i64 8
+  %330 = getelementptr inbounds nuw i8, ptr %321, i64 8
   %331 = load ptr, ptr %330, align 8
   %.not9.i.i.i.i.i.i = icmp eq ptr %331, null
   br i1 %.not9.i.i.i.i.i.i, label %334, label %332
@@ -935,7 +935,7 @@ Vec_PtrGrow.exit.i.i.i.i.i:                       ; preds = %334, %332
 
 337:                                              ; preds = %327
   %338 = shl nuw nsw i32 %324, 1
-  %339 = getelementptr inbounds i8, ptr %321, i64 8
+  %339 = getelementptr inbounds nuw i8, ptr %321, i64 8
   %340 = load ptr, ptr %339, align 8
   %.not9.i10.i.i.i.i.i = icmp eq ptr %340, null
   %341 = zext nneg i32 %338 to i64
@@ -980,7 +980,7 @@ Psr_ManInitializeNtk.exit.i.i.i:                  ; preds = %347, %Vec_PtrGrow.e
   ]
 
 Psr_ManIsSpace.exit.thread.i.i46.i.i:             ; preds = %354, %354, %354
-  %356 = getelementptr inbounds i8, ptr %355, i64 1
+  %356 = getelementptr inbounds nuw i8, ptr %355, i64 1
   br label %.backedge382
 
 .backedge382:                                     ; preds = %Psr_ManIsSpace.exit.thread.i.i46.i.i, %Psr_ManSkipToChar.exit.i.i45.i.i
@@ -990,65 +990,65 @@ Psr_ManIsSpace.exit.thread.i.i46.i.i:             ; preds = %354, %354, %354
 
 .lr.ph.i.i.i42.i.i:                               ; preds = %354, %.lr.ph.i.i.i42.i.i
   %357 = phi ptr [ %358, %.lr.ph.i.i.i42.i.i ], [ %355, %354 ]
-  %358 = getelementptr inbounds i8, ptr %357, i64 1
+  %358 = getelementptr inbounds nuw i8, ptr %357, i64 1
   store ptr %358, ptr %23, align 8
   %.val.val.i.i.i43.i.i = load i8, ptr %358, align 1
   %.not.i.i.i44.i.i = icmp eq i8 %.val.val.i.i.i43.i.i, 10
   br i1 %.not.i.i.i44.i.i, label %Psr_ManSkipToChar.exit.i.i45.i.i, label %.lr.ph.i.i.i42.i.i, !llvm.loop !7
 
 Psr_ManSkipToChar.exit.i.i45.i.i:                 ; preds = %.lr.ph.i.i.i42.i.i
-  %359 = getelementptr inbounds i8, ptr %357, i64 2
+  %359 = getelementptr inbounds nuw i8, ptr %357, i64 2
   br label %.backedge382
 
 .lr.ph.i14.i.i39.i.i:                             ; preds = %354, %.lr.ph.i14.i.i39.i.i
   %360 = phi ptr [ %361, %.lr.ph.i14.i.i39.i.i ], [ %355, %354 ]
-  %361 = getelementptr inbounds i8, ptr %360, i64 1
+  %361 = getelementptr inbounds nuw i8, ptr %360, i64 1
   store ptr %361, ptr %23, align 8
   %.val.val.i15.i.i40.i.i = load i8, ptr %361, align 1
   %.not.i16.i.i41.i.i = icmp eq i8 %.val.val.i15.i.i40.i.i, 10
   br i1 %.not.i16.i.i41.i.i, label %Psr_ManReadDirective.exit..backedge_crit_edge.i, label %.lr.ph.i14.i.i39.i.i, !llvm.loop !7
 
 362:                                              ; preds = %354
-  %363 = getelementptr inbounds i8, ptr %20, i64 156
+  %363 = getelementptr inbounds nuw i8, ptr %20, i64 156
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %363, ptr noundef nonnull align 1 dereferenceable(33) @.str.40, i64 33, i1 false)
   br label %Psr_ManReadLines.exit
 
 364:                                              ; preds = %304
   %365 = load ptr, ptr %42, align 8
-  %366 = getelementptr inbounds i8, ptr %365, i64 16
+  %366 = getelementptr inbounds nuw i8, ptr %365, i64 16
   %367 = tail call fastcc i32 @Psr_ManReadList(ptr noundef nonnull %20, ptr noundef nonnull %366, i32 noundef 3)
   %.not.i48.i.i = icmp eq i32 %367, 0
   br i1 %.not.i48.i.i, label %368, label %Psr_ManReadLines.exit
 
 368:                                              ; preds = %364
   %369 = load ptr, ptr %42, align 8
-  %370 = getelementptr inbounds i8, ptr %369, i64 32
+  %370 = getelementptr inbounds nuw i8, ptr %369, i64 32
   tail call fastcc void @Vec_IntAppend(ptr noundef nonnull %370, ptr noundef %43)
   br label %Psr_ManReadDirective.exit..backedge_crit_edge.i
 
 371:                                              ; preds = %304
   %372 = load ptr, ptr %42, align 8
-  %373 = getelementptr inbounds i8, ptr %372, i64 16
+  %373 = getelementptr inbounds nuw i8, ptr %372, i64 16
   %374 = tail call fastcc i32 @Psr_ManReadList(ptr noundef nonnull %20, ptr noundef nonnull %373, i32 noundef 1)
   %.not.i50.i.i = icmp eq i32 %374, 0
   br i1 %.not.i50.i.i, label %375, label %Psr_ManReadLines.exit
 
 375:                                              ; preds = %371
   %376 = load ptr, ptr %42, align 8
-  %377 = getelementptr inbounds i8, ptr %376, i64 48
+  %377 = getelementptr inbounds nuw i8, ptr %376, i64 48
   tail call fastcc void @Vec_IntAppend(ptr noundef nonnull %377, ptr noundef %43)
   br label %Psr_ManReadDirective.exit..backedge_crit_edge.i
 
 378:                                              ; preds = %304
   %379 = load ptr, ptr %42, align 8
-  %380 = getelementptr inbounds i8, ptr %379, i64 16
+  %380 = getelementptr inbounds nuw i8, ptr %379, i64 16
   %381 = tail call fastcc i32 @Psr_ManReadList(ptr noundef nonnull %20, ptr noundef nonnull %380, i32 noundef 2)
   %.not.i52.i.i = icmp eq i32 %381, 0
   br i1 %.not.i52.i.i, label %382, label %Psr_ManReadLines.exit
 
 382:                                              ; preds = %378
   %383 = load ptr, ptr %42, align 8
-  %384 = getelementptr inbounds i8, ptr %383, i64 64
+  %384 = getelementptr inbounds nuw i8, ptr %383, i64 64
   tail call fastcc void @Vec_IntAppend(ptr noundef nonnull %384, ptr noundef %43)
   br label %Psr_ManReadDirective.exit..backedge_crit_edge.i
 
@@ -1194,7 +1194,7 @@ Vec_IntPushTwo.exit.i.i.i.i:                      ; preds = %437, %Vec_IntGrow.e
   br i1 %445, label %Psr_ManReadList2.exit.i.i.i, label %447
 
 Psr_ManReadList2.exit.i.i.i:                      ; preds = %._crit_edge.i.i.i.i
-  %446 = getelementptr inbounds i8, ptr %20, i64 156
+  %446 = getelementptr inbounds nuw i8, ptr %20, i64 156
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(22) %446, ptr noundef nonnull align 1 dereferenceable(22) @.str.41, i64 22, i1 false)
   br label %Psr_ManReadLines.exit
 
@@ -1213,20 +1213,20 @@ Psr_ManReadList2.exit.i.i.i:                      ; preds = %._crit_edge.i.i.i.i
   br i1 %452, label %453, label %455
 
 453:                                              ; preds = %450
-  %454 = getelementptr inbounds i8, ptr %20, i64 156
+  %454 = getelementptr inbounds nuw i8, ptr %20, i64 156
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(25) %454, ptr noundef nonnull align 1 dereferenceable(25) @.str.47, i64 25, i1 false)
   br label %Psr_ManReadLines.exit
 
 455:                                              ; preds = %450
   %.val23.i.i.i = load ptr, ptr %45, align 8
-  %456 = getelementptr inbounds i8, ptr %.val23.i.i.i, i64 4
+  %456 = getelementptr inbounds nuw i8, ptr %.val23.i.i.i, i64 4
   store i32 %451, ptr %456, align 4
   %457 = tail call fastcc i32 @Psr_ManReadName(ptr noundef nonnull %20)
   %458 = icmp eq i32 %457, 0
   br i1 %458, label %459, label %461
 
 459:                                              ; preds = %455
-  %460 = getelementptr inbounds i8, ptr %20, i64 156
+  %460 = getelementptr inbounds nuw i8, ptr %20, i64 156
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(26) %460, ptr noundef nonnull align 1 dereferenceable(26) @.str.48, i64 26, i1 false)
   br label %Psr_ManReadLines.exit
 
@@ -1251,7 +1251,7 @@ Psr_ManReadList2.exit.i.i.i:                      ; preds = %._crit_edge.i.i.i.i
   ]
 
 Psr_ManIsSpace.exit.thread.i.i65.i.i:             ; preds = %462, %462, %462
-  %464 = getelementptr inbounds i8, ptr %463, i64 1
+  %464 = getelementptr inbounds nuw i8, ptr %463, i64 1
   br label %.backedge388
 
 .backedge388:                                     ; preds = %Psr_ManIsSpace.exit.thread.i.i65.i.i, %Psr_ManSkipToChar.exit.i.i64.i.i
@@ -1261,19 +1261,19 @@ Psr_ManIsSpace.exit.thread.i.i65.i.i:             ; preds = %462, %462, %462
 
 .lr.ph.i.i.i61.i.i:                               ; preds = %462, %.lr.ph.i.i.i61.i.i
   %465 = phi ptr [ %466, %.lr.ph.i.i.i61.i.i ], [ %463, %462 ]
-  %466 = getelementptr inbounds i8, ptr %465, i64 1
+  %466 = getelementptr inbounds nuw i8, ptr %465, i64 1
   store ptr %466, ptr %23, align 8
   %.val.val.i.i.i62.i.i = load i8, ptr %466, align 1
   %.not.i.i.i63.i.i = icmp eq i8 %.val.val.i.i.i62.i.i, 10
   br i1 %.not.i.i.i63.i.i, label %Psr_ManSkipToChar.exit.i.i64.i.i, label %.lr.ph.i.i.i61.i.i, !llvm.loop !7
 
 Psr_ManSkipToChar.exit.i.i64.i.i:                 ; preds = %.lr.ph.i.i.i61.i.i
-  %467 = getelementptr inbounds i8, ptr %465, i64 2
+  %467 = getelementptr inbounds nuw i8, ptr %465, i64 2
   br label %.backedge388
 
 .lr.ph.i14.i.i58.i.i:                             ; preds = %462, %.lr.ph.i14.i.i58.i.i
   %468 = phi ptr [ %469, %.lr.ph.i14.i.i58.i.i ], [ %463, %462 ]
-  %469 = getelementptr inbounds i8, ptr %468, i64 1
+  %469 = getelementptr inbounds nuw i8, ptr %468, i64 1
   store ptr %469, ptr %23, align 8
   %.val.val.i15.i.i59.i.i = load i8, ptr %469, align 1
   %.not.i16.i.i60.i.i = icmp eq i8 %.val.val.i15.i.i59.i.i, 10
@@ -1291,7 +1291,7 @@ Psr_ManSkipToChar.exit.i.i64.i.i:                 ; preds = %.lr.ph.i.i.i61.i.i
 
 .lr.ph.i.i67.i.i:                                 ; preds = %.lr.ph.i.i67.i.i, %.lr.ph.i.preheader.i.i.i
   %471 = phi ptr [ %472, %.lr.ph.i.i67.i.i ], [ %463, %.lr.ph.i.preheader.i.i.i ]
-  %472 = getelementptr inbounds i8, ptr %471, i64 1
+  %472 = getelementptr inbounds nuw i8, ptr %471, i64 1
   store ptr %472, ptr %23, align 8
   %.val.val.i26.i.i.i = load i8, ptr %472, align 1
   %.not.i.i68.i.i = icmp eq i8 %.val.val.i26.i.i.i, 10
@@ -1310,20 +1310,20 @@ Psr_ManSkipToChar.exit.i.i.i:                     ; preds = %462, %.lr.ph.i14.i.
   br i1 %477, label %478, label %480
 
 478:                                              ; preds = %475
-  %479 = getelementptr inbounds i8, ptr %20, i64 156
+  %479 = getelementptr inbounds nuw i8, ptr %20, i64 156
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(26) %479, ptr noundef nonnull align 1 dereferenceable(26) @.str.49, i64 26, i1 false)
   br label %Psr_ManReadLines.exit
 
 480:                                              ; preds = %475
   %.val20.i69.i.i = load ptr, ptr %45, align 8
-  %481 = getelementptr inbounds i8, ptr %.val20.i69.i.i, i64 4
+  %481 = getelementptr inbounds nuw i8, ptr %.val20.i69.i.i, i64 4
   store i32 %476, ptr %481, align 4
   %482 = tail call fastcc i32 @Psr_ManReadName(ptr noundef nonnull %20)
   %483 = icmp eq i32 %482, 0
   br i1 %483, label %484, label %486
 
 484:                                              ; preds = %480
-  %485 = getelementptr inbounds i8, ptr %20, i64 156
+  %485 = getelementptr inbounds nuw i8, ptr %20, i64 156
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(27) %485, ptr noundef nonnull align 1 dereferenceable(27) @.str.50, i64 27, i1 false)
   br label %Psr_ManReadLines.exit
 
@@ -1346,7 +1346,7 @@ Psr_ManSkipToChar.exit.i.i.i:                     ; preds = %462, %.lr.ph.i14.i.
   ]
 
 Psr_ManIsSpace.exit.thread.i.i81.i.i:             ; preds = %487, %487, %487
-  %489 = getelementptr inbounds i8, ptr %488, i64 1
+  %489 = getelementptr inbounds nuw i8, ptr %488, i64 1
   br label %.backedge391
 
 .backedge391:                                     ; preds = %Psr_ManIsSpace.exit.thread.i.i81.i.i, %Psr_ManSkipToChar.exit.i.i80.i.i
@@ -1356,26 +1356,26 @@ Psr_ManIsSpace.exit.thread.i.i81.i.i:             ; preds = %487, %487, %487
 
 .lr.ph.i.i.i77.i.i:                               ; preds = %487, %.lr.ph.i.i.i77.i.i
   %490 = phi ptr [ %491, %.lr.ph.i.i.i77.i.i ], [ %488, %487 ]
-  %491 = getelementptr inbounds i8, ptr %490, i64 1
+  %491 = getelementptr inbounds nuw i8, ptr %490, i64 1
   store ptr %491, ptr %23, align 8
   %.val.val.i.i.i78.i.i = load i8, ptr %491, align 1
   %.not.i.i.i79.i.i = icmp eq i8 %.val.val.i.i.i78.i.i, 10
   br i1 %.not.i.i.i79.i.i, label %Psr_ManSkipToChar.exit.i.i80.i.i, label %.lr.ph.i.i.i77.i.i, !llvm.loop !7
 
 Psr_ManSkipToChar.exit.i.i80.i.i:                 ; preds = %.lr.ph.i.i.i77.i.i
-  %492 = getelementptr inbounds i8, ptr %490, i64 2
+  %492 = getelementptr inbounds nuw i8, ptr %490, i64 2
   br label %.backedge391
 
 .lr.ph.i14.i.i72.i.i:                             ; preds = %487, %.lr.ph.i14.i.i72.i.i
   %493 = phi ptr [ %494, %.lr.ph.i14.i.i72.i.i ], [ %488, %487 ]
-  %494 = getelementptr inbounds i8, ptr %493, i64 1
+  %494 = getelementptr inbounds nuw i8, ptr %493, i64 1
   store ptr %494, ptr %23, align 8
   %.val.val.i15.i.i73.i.i = load i8, ptr %494, align 1
   %.not.i16.i.i74.i.i = icmp eq i8 %.val.val.i15.i.i73.i.i, 10
   br i1 %.not.i16.i.i74.i.i, label %Psr_ManSkipSpaces.exit.thread.i75.i.i, label %.lr.ph.i14.i.i72.i.i, !llvm.loop !7
 
 495:                                              ; preds = %487
-  %496 = getelementptr inbounds i8, ptr %20, i64 156
+  %496 = getelementptr inbounds nuw i8, ptr %20, i64 156
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %496, ptr noundef nonnull align 1 dereferenceable(33) @.str.51, i64 33, i1 false)
   br label %Psr_ManReadLines.exit
 
@@ -1392,7 +1392,7 @@ Psr_ManSkipSpaces.exit.thread.i75.i.i:            ; preds = %487, %.lr.ph.i14.i.
   br i1 %502, label %503, label %505
 
 503:                                              ; preds = %500
-  %504 = getelementptr inbounds i8, ptr %20, i64 156
+  %504 = getelementptr inbounds nuw i8, ptr %20, i64 156
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %504, ptr noundef nonnull align 1 dereferenceable(31) @.str.52, i64 31, i1 false)
   br label %Psr_ManReadLines.exit
 
@@ -1414,7 +1414,7 @@ Psr_ManSkipSpaces.exit.thread.i75.i.i:            ; preds = %487, %.lr.ph.i14.i.
   ]
 
 Psr_ManIsSpace.exit.thread.i.i94.i.i:             ; preds = %506, %506, %506
-  %508 = getelementptr inbounds i8, ptr %507, i64 1
+  %508 = getelementptr inbounds nuw i8, ptr %507, i64 1
   br label %.backedge395
 
 .backedge395:                                     ; preds = %Psr_ManIsSpace.exit.thread.i.i94.i.i, %Psr_ManSkipToChar.exit.i.i93.i.i
@@ -1424,26 +1424,26 @@ Psr_ManIsSpace.exit.thread.i.i94.i.i:             ; preds = %506, %506, %506
 
 .lr.ph.i.i.i90.i.i:                               ; preds = %506, %.lr.ph.i.i.i90.i.i
   %509 = phi ptr [ %510, %.lr.ph.i.i.i90.i.i ], [ %507, %506 ]
-  %510 = getelementptr inbounds i8, ptr %509, i64 1
+  %510 = getelementptr inbounds nuw i8, ptr %509, i64 1
   store ptr %510, ptr %23, align 8
   %.val.val.i.i.i91.i.i = load i8, ptr %510, align 1
   %.not.i.i.i92.i.i = icmp eq i8 %.val.val.i.i.i91.i.i, 10
   br i1 %.not.i.i.i92.i.i, label %Psr_ManSkipToChar.exit.i.i93.i.i, label %.lr.ph.i.i.i90.i.i, !llvm.loop !7
 
 Psr_ManSkipToChar.exit.i.i93.i.i:                 ; preds = %.lr.ph.i.i.i90.i.i
-  %511 = getelementptr inbounds i8, ptr %509, i64 2
+  %511 = getelementptr inbounds nuw i8, ptr %509, i64 2
   br label %.backedge395
 
 .lr.ph.i14.i.i85.i.i:                             ; preds = %506, %.lr.ph.i14.i.i85.i.i
   %512 = phi ptr [ %513, %.lr.ph.i14.i.i85.i.i ], [ %507, %506 ]
-  %513 = getelementptr inbounds i8, ptr %512, i64 1
+  %513 = getelementptr inbounds nuw i8, ptr %512, i64 1
   store ptr %513, ptr %23, align 8
   %.val.val.i15.i.i86.i.i = load i8, ptr %513, align 1
   %.not.i16.i.i87.i.i = icmp eq i8 %.val.val.i15.i.i86.i.i, 10
   br i1 %.not.i16.i.i87.i.i, label %Psr_ManReadDirective.exit..backedge_crit_edge.i, label %.lr.ph.i14.i.i85.i.i, !llvm.loop !7
 
 514:                                              ; preds = %506
-  %515 = getelementptr inbounds i8, ptr %20, i64 156
+  %515 = getelementptr inbounds nuw i8, ptr %20, i64 156
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %515, ptr noundef nonnull align 1 dereferenceable(31) @.str.53, i64 31, i1 false)
   br label %Psr_ManReadLines.exit
 
@@ -1460,7 +1460,7 @@ Psr_ManReadDirective.exit.i:                      ; preds = %449, %304
   br i1 %521, label %522, label %524
 
 522:                                              ; preds = %Psr_ManReadDirective.exit.i
-  %523 = getelementptr inbounds i8, ptr %20, i64 156
+  %523 = getelementptr inbounds nuw i8, ptr %20, i64 156
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %523, ptr noundef nonnull align 1 dereferenceable(24) @.str.39, i64 24, i1 false)
   br label %Psr_ManReadLines.exit
 
@@ -1482,7 +1482,7 @@ Psr_ManReadDirective.exit.i:                      ; preds = %449, %304
   br i1 %528, label %._crit_edge.i21, label %.lr.ph.i17
 
 ._crit_edge.i21:                                  ; preds = %.lr.ph.i.i, %.loopexit.i
-  %529 = getelementptr inbounds i8, ptr %20, i64 156
+  %529 = getelementptr inbounds nuw i8, ptr %20, i64 156
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(25) %529, ptr noundef nonnull align 1 dereferenceable(25) @.str.42, i64 25, i1 false)
   br label %Psr_ManReadLines.exit
 
@@ -1565,7 +1565,7 @@ Vec_IntPush.exit.i.i:                             ; preds = %552, %Vec_IntGrow.e
   ]
 
 Psr_ManIsSpace.exit.thread.i.i.i:                 ; preds = %559, %559, %559
-  %561 = getelementptr inbounds i8, ptr %560, i64 1
+  %561 = getelementptr inbounds nuw i8, ptr %560, i64 1
   br label %.backedge374
 
 .backedge374:                                     ; preds = %Psr_ManIsSpace.exit.thread.i.i.i, %Psr_ManSkipToChar.exit.i.i.i25
@@ -1575,19 +1575,19 @@ Psr_ManIsSpace.exit.thread.i.i.i:                 ; preds = %559, %559, %559
 
 .lr.ph.i.i.i.i22:                                 ; preds = %559, %.lr.ph.i.i.i.i22
   %562 = phi ptr [ %563, %.lr.ph.i.i.i.i22 ], [ %560, %559 ]
-  %563 = getelementptr inbounds i8, ptr %562, i64 1
+  %563 = getelementptr inbounds nuw i8, ptr %562, i64 1
   store ptr %563, ptr %23, align 8
   %.val.val.i.i.i.i23 = load i8, ptr %563, align 1
   %.not.i.i.i.i24 = icmp eq i8 %.val.val.i.i.i.i23, 10
   br i1 %.not.i.i.i.i24, label %Psr_ManSkipToChar.exit.i.i.i25, label %.lr.ph.i.i.i.i22, !llvm.loop !7
 
 Psr_ManSkipToChar.exit.i.i.i25:                   ; preds = %.lr.ph.i.i.i.i22
-  %564 = getelementptr inbounds i8, ptr %562, i64 2
+  %564 = getelementptr inbounds nuw i8, ptr %562, i64 2
   br label %.backedge374
 
 .lr.ph.i14.i.i.i:                                 ; preds = %559, %.lr.ph.i14.i.i.i
   %565 = phi ptr [ %566, %.lr.ph.i14.i.i.i ], [ %560, %559 ]
-  %566 = getelementptr inbounds i8, ptr %565, i64 1
+  %566 = getelementptr inbounds nuw i8, ptr %565, i64 1
   store ptr %566, ptr %23, align 8
   %.val.val.i15.i.i.i = load i8, ptr %566, align 1
   %.not.i16.i.i.i = icmp eq i8 %.val.val.i15.i.i.i, 10
@@ -1595,14 +1595,14 @@ Psr_ManSkipToChar.exit.i.i.i25:                   ; preds = %.lr.ph.i.i.i.i22
 
 Psr_ManSkipSpaces.exit.i.i:                       ; preds = %559, %.lr.ph.i14.i.i.i
   %567 = phi ptr [ %566, %.lr.ph.i14.i.i.i ], [ %560, %559 ]
-  %568 = getelementptr inbounds i8, ptr %567, i64 1
+  %568 = getelementptr inbounds nuw i8, ptr %567, i64 1
   store ptr %568, ptr %23, align 8
   %569 = load i8, ptr %567, align 1
   %.not48.i.i = icmp eq i8 %569, 61
   br i1 %.not48.i.i, label %572, label %570
 
 570:                                              ; preds = %Psr_ManSkipSpaces.exit.i.i
-  %571 = getelementptr inbounds i8, ptr %20, i64 156
+  %571 = getelementptr inbounds nuw i8, ptr %20, i64 156
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %571, ptr noundef nonnull align 1 dereferenceable(24) @.str.43, i64 24, i1 false)
   br label %Psr_ManReadLines.exit
 
@@ -1612,7 +1612,7 @@ Psr_ManSkipSpaces.exit.i.i:                       ; preds = %559, %.lr.ph.i14.i.
   br i1 %574, label %575, label %577
 
 575:                                              ; preds = %572
-  %576 = getelementptr inbounds i8, ptr %20, i64 156
+  %576 = getelementptr inbounds nuw i8, ptr %20, i64 156
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(25) %576, ptr noundef nonnull align 1 dereferenceable(25) @.str.44, i64 25, i1 false)
   br label %Psr_ManReadLines.exit
 
@@ -1695,7 +1695,7 @@ Vec_IntPush.exit34.i.i:                           ; preds = %599, %Vec_IntGrow.e
   ]
 
 Psr_ManIsSpace.exit.thread.i44.i.i:               ; preds = %606, %606, %606
-  %608 = getelementptr inbounds i8, ptr %607, i64 1
+  %608 = getelementptr inbounds nuw i8, ptr %607, i64 1
   br label %.backedge
 
 .backedge:                                        ; preds = %Psr_ManIsSpace.exit.thread.i44.i.i, %Psr_ManSkipToChar.exit.i43.i.i
@@ -1705,19 +1705,19 @@ Psr_ManIsSpace.exit.thread.i44.i.i:               ; preds = %606, %606, %606
 
 .lr.ph.i.i40.i.i:                                 ; preds = %606, %.lr.ph.i.i40.i.i
   %609 = phi ptr [ %610, %.lr.ph.i.i40.i.i ], [ %607, %606 ]
-  %610 = getelementptr inbounds i8, ptr %609, i64 1
+  %610 = getelementptr inbounds nuw i8, ptr %609, i64 1
   store ptr %610, ptr %23, align 8
   %.val.val.i.i41.i.i = load i8, ptr %610, align 1
   %.not.i.i42.i.i = icmp eq i8 %.val.val.i.i41.i.i, 10
   br i1 %.not.i.i42.i.i, label %Psr_ManSkipToChar.exit.i43.i.i, label %.lr.ph.i.i40.i.i, !llvm.loop !7
 
 Psr_ManSkipToChar.exit.i43.i.i:                   ; preds = %.lr.ph.i.i40.i.i
-  %611 = getelementptr inbounds i8, ptr %609, i64 2
+  %611 = getelementptr inbounds nuw i8, ptr %609, i64 2
   br label %.backedge
 
 .lr.ph.i14.i37.i.i:                               ; preds = %606, %.lr.ph.i14.i37.i.i
   %612 = phi ptr [ %613, %.lr.ph.i14.i37.i.i ], [ %607, %606 ]
-  %613 = getelementptr inbounds i8, ptr %612, i64 1
+  %613 = getelementptr inbounds nuw i8, ptr %612, i64 1
   store ptr %613, ptr %23, align 8
   %.val.val.i15.i38.i.i = load i8, ptr %613, align 1
   %.not.i16.i39.i.i = icmp eq i8 %.val.val.i15.i38.i.i, 10
@@ -1729,7 +1729,7 @@ Psr_ManSkipToChar.exit.i43.i.i:                   ; preds = %.lr.ph.i.i40.i.i
   br i1 %614, label %._crit_edge.thread.i.i, label %616
 
 ._crit_edge.thread.i.i:                           ; preds = %._crit_edge.i.i, %524
-  %615 = getelementptr inbounds i8, ptr %20, i64 156
+  %615 = getelementptr inbounds nuw i8, ptr %20, i64 156
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(43) %615, ptr noundef nonnull align 1 dereferenceable(43) @.str.45, i64 43, i1 false)
   br label %Psr_ManReadLines.exit
 
@@ -1739,7 +1739,7 @@ Psr_ManSkipToChar.exit.i43.i.i:                   ; preds = %.lr.ph.i.i40.i.i
   br i1 %.not22.i.i, label %Psr_ManReadList3.exit.i, label %618
 
 618:                                              ; preds = %616
-  %619 = getelementptr inbounds i8, ptr %20, i64 156
+  %619 = getelementptr inbounds nuw i8, ptr %20, i64 156
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(47) %619, ptr noundef nonnull align 1 dereferenceable(47) @.str.46, i64 47, i1 false)
   br label %Psr_ManReadLines.exit
 
@@ -1750,7 +1750,7 @@ Psr_ManReadList3.exit.i:                          ; preds = %616
 
 621:                                              ; preds = %Psr_ManReadList3.exit.i
   %622 = load ptr, ptr %42, align 8
-  %623 = getelementptr inbounds i8, ptr %622, i64 4
+  %623 = getelementptr inbounds nuw i8, ptr %622, i64 4
   %624 = load i8, ptr %623, align 4
   %625 = or i8 %624, 1
   store i8 %625, ptr %623, align 4
@@ -1761,7 +1761,7 @@ Psr_ManReadDirective.exit..backedge_crit_edge.i:  ; preds = %506, %.lr.ph.i14.i.
   br label %.backedge.i
 
 Psr_ManReadLines.exit:                            ; preds = %.backedge.i, %364, %371, %378, %618, %._crit_edge.thread.i.i, %570, %575, %._crit_edge.i21, %522, %Psr_NtkAddBlifDirectives.exit, %92, %130, %225, %308, %313, %362, %Psr_ManReadList2.exit.i.i.i, %453, %459, %478, %484, %495, %503, %514, %516
-  %626 = getelementptr inbounds i8, ptr %20, i64 156
+  %626 = getelementptr inbounds nuw i8, ptr %20, i64 156
   %627 = load i8, ptr %626, align 4
   %.not.i15 = icmp eq i8 %627, 0
   br i1 %.not.i15, label %Psr_ManErrorPrint.exit, label %628
@@ -1779,7 +1779,7 @@ Psr_ManReadLines.exit:                            ; preds = %.backedge.i, %364, 
   %633 = icmp eq i8 %632, 10
   %634 = zext i1 %633 to i32
   %635 = add nuw nsw i32 %.012.i, %634
-  %636 = getelementptr inbounds i8, ptr %.0911.i, i64 1
+  %636 = getelementptr inbounds nuw i8, ptr %.0911.i, i64 1
   %exitcond.not.i = icmp eq ptr %636, %630
   br i1 %exitcond.not.i, label %Psr_ManErrorPrint.exit.thread, label %.lr.ph.i, !llvm.loop !11
 
@@ -1813,8 +1813,8 @@ Psr_ManErrorPrint.exit:                           ; preds = %Psr_ManReadLines.ex
   br label %645
 
 645:                                              ; preds = %644, %642
-  %646 = getelementptr inbounds i8, ptr %20, i64 56
-  %647 = getelementptr inbounds i8, ptr %20, i64 64
+  %646 = getelementptr inbounds nuw i8, ptr %20, i64 56
+  %647 = getelementptr inbounds nuw i8, ptr %20, i64 64
   %648 = load ptr, ptr %647, align 8
   %.not.i.i = icmp eq ptr %648, null
   br i1 %.not.i.i, label %Vec_StrErase.exit.i, label %649
@@ -1825,11 +1825,11 @@ Psr_ManErrorPrint.exit:                           ; preds = %Psr_ManReadLines.ex
   br label %Vec_StrErase.exit.i
 
 Vec_StrErase.exit.i:                              ; preds = %649, %645
-  %650 = getelementptr inbounds i8, ptr %20, i64 60
+  %650 = getelementptr inbounds nuw i8, ptr %20, i64 60
   store i32 0, ptr %650, align 4
   store i32 0, ptr %646, align 8
-  %651 = getelementptr inbounds i8, ptr %20, i64 72
-  %652 = getelementptr inbounds i8, ptr %20, i64 80
+  %651 = getelementptr inbounds nuw i8, ptr %20, i64 72
+  %652 = getelementptr inbounds nuw i8, ptr %20, i64 80
   %653 = load ptr, ptr %652, align 8
   %.not.i20.i = icmp eq ptr %653, null
   br i1 %.not.i20.i, label %Vec_IntErase.exit.i, label %654
@@ -1840,11 +1840,11 @@ Vec_StrErase.exit.i:                              ; preds = %649, %645
   br label %Vec_IntErase.exit.i
 
 Vec_IntErase.exit.i:                              ; preds = %654, %Vec_StrErase.exit.i
-  %655 = getelementptr inbounds i8, ptr %20, i64 76
+  %655 = getelementptr inbounds nuw i8, ptr %20, i64 76
   store i32 0, ptr %655, align 4
   store i32 0, ptr %651, align 8
-  %656 = getelementptr inbounds i8, ptr %20, i64 88
-  %657 = getelementptr inbounds i8, ptr %20, i64 96
+  %656 = getelementptr inbounds nuw i8, ptr %20, i64 88
+  %657 = getelementptr inbounds nuw i8, ptr %20, i64 96
   %658 = load ptr, ptr %657, align 8
   %.not.i21.i = icmp eq ptr %658, null
   br i1 %.not.i21.i, label %Vec_IntErase.exit22.i, label %659
@@ -1855,11 +1855,11 @@ Vec_IntErase.exit.i:                              ; preds = %654, %Vec_StrErase.
   br label %Vec_IntErase.exit22.i
 
 Vec_IntErase.exit22.i:                            ; preds = %659, %Vec_IntErase.exit.i
-  %660 = getelementptr inbounds i8, ptr %20, i64 92
+  %660 = getelementptr inbounds nuw i8, ptr %20, i64 92
   store i32 0, ptr %660, align 4
   store i32 0, ptr %656, align 8
-  %661 = getelementptr inbounds i8, ptr %20, i64 104
-  %662 = getelementptr inbounds i8, ptr %20, i64 112
+  %661 = getelementptr inbounds nuw i8, ptr %20, i64 104
+  %662 = getelementptr inbounds nuw i8, ptr %20, i64 112
   %663 = load ptr, ptr %662, align 8
   %.not.i23.i = icmp eq ptr %663, null
   br i1 %.not.i23.i, label %Vec_IntErase.exit24.i, label %664
@@ -1870,11 +1870,11 @@ Vec_IntErase.exit22.i:                            ; preds = %659, %Vec_IntErase.
   br label %Vec_IntErase.exit24.i
 
 Vec_IntErase.exit24.i:                            ; preds = %664, %Vec_IntErase.exit22.i
-  %665 = getelementptr inbounds i8, ptr %20, i64 108
+  %665 = getelementptr inbounds nuw i8, ptr %20, i64 108
   store i32 0, ptr %665, align 4
   store i32 0, ptr %661, align 8
-  %666 = getelementptr inbounds i8, ptr %20, i64 120
-  %667 = getelementptr inbounds i8, ptr %20, i64 128
+  %666 = getelementptr inbounds nuw i8, ptr %20, i64 120
+  %667 = getelementptr inbounds nuw i8, ptr %20, i64 128
   %668 = load ptr, ptr %667, align 8
   %.not.i25.i = icmp eq ptr %668, null
   br i1 %.not.i25.i, label %Vec_IntErase.exit26.i, label %669
@@ -1885,11 +1885,11 @@ Vec_IntErase.exit24.i:                            ; preds = %664, %Vec_IntErase.
   br label %Vec_IntErase.exit26.i
 
 Vec_IntErase.exit26.i:                            ; preds = %669, %Vec_IntErase.exit24.i
-  %670 = getelementptr inbounds i8, ptr %20, i64 124
+  %670 = getelementptr inbounds nuw i8, ptr %20, i64 124
   store i32 0, ptr %670, align 4
   store i32 0, ptr %666, align 8
-  %671 = getelementptr inbounds i8, ptr %20, i64 136
-  %672 = getelementptr inbounds i8, ptr %20, i64 144
+  %671 = getelementptr inbounds nuw i8, ptr %20, i64 136
+  %672 = getelementptr inbounds nuw i8, ptr %20, i64 144
   %673 = load ptr, ptr %672, align 8
   %.not.i27.i = icmp eq ptr %673, null
   br i1 %.not.i27.i, label %Vec_IntErase.exit28.i, label %674
@@ -1900,7 +1900,7 @@ Vec_IntErase.exit26.i:                            ; preds = %669, %Vec_IntErase.
   br label %Vec_IntErase.exit28.i
 
 Vec_IntErase.exit28.i:                            ; preds = %674, %Vec_IntErase.exit26.i
-  %675 = getelementptr inbounds i8, ptr %20, i64 140
+  %675 = getelementptr inbounds nuw i8, ptr %20, i64 140
   store i32 0, ptr %675, align 4
   store i32 0, ptr %671, align 8
   %676 = load ptr, ptr %21, align 8
@@ -1932,7 +1932,7 @@ define void @Psr_ManReadBlifTest() local_unnamed_addr #0 {
 5:                                                ; preds = %0
   %6 = load i64, ptr %2, align 8
   %.neg8 = mul i64 %6, -1000000
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load i64, ptr %7, align 8
   %.neg = sdiv i64 %8, -1000
   %.neg9 = add i64 %.neg, %.neg8
@@ -1955,7 +1955,7 @@ Abc_Clock.exit:                                   ; preds = %0, %5
   %14 = getelementptr i8, ptr %9, i64 8
   %.val4.i.i.i = load ptr, ptr %14, align 8
   %15 = load ptr, ptr %.val4.i.i.i, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call i32 @Abc_NamObjNumMax(ptr noundef %17) #17
   %19 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %18)
@@ -1976,16 +1976,16 @@ Abc_Clock.exit:                                   ; preds = %0, %5
 25:                                               ; preds = %25, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %25 ]
   %.014.i = phi i32 [ %23, %.lr.ph.i ], [ %123, %25 ]
-  %26 = getelementptr inbounds ptr, ptr %.val11.i, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw ptr, ptr %.val11.i, i64 %indvars.iv.i
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load i32, ptr %28, align 8
   %30 = sext i32 %29 to i64
   %31 = uitofp i64 %30 to double
   %32 = call double @llvm.fmuladd.f64(double %31, double 4.000000e+00, double 1.600000e+01)
   %33 = fadd double %32, 2.240000e+02
   %34 = fptosi double %33 to i32
-  %35 = getelementptr inbounds i8, ptr %27, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %36 = load i32, ptr %35, align 8
   %37 = sext i32 %36 to i64
   %38 = uitofp i64 %37 to double
@@ -1993,7 +1993,7 @@ Abc_Clock.exit:                                   ; preds = %0, %5
   %40 = sitofp i32 %34 to double
   %41 = fadd double %39, %40
   %42 = fptosi double %41 to i32
-  %43 = getelementptr inbounds i8, ptr %27, i64 48
+  %43 = getelementptr inbounds nuw i8, ptr %27, i64 48
   %44 = load i32, ptr %43, align 8
   %45 = sext i32 %44 to i64
   %46 = uitofp i64 %45 to double
@@ -2001,7 +2001,7 @@ Abc_Clock.exit:                                   ; preds = %0, %5
   %48 = sitofp i32 %42 to double
   %49 = fadd double %47, %48
   %50 = fptosi double %49 to i32
-  %51 = getelementptr inbounds i8, ptr %27, i64 64
+  %51 = getelementptr inbounds nuw i8, ptr %27, i64 64
   %52 = load i32, ptr %51, align 8
   %53 = sext i32 %52 to i64
   %54 = uitofp i64 %53 to double
@@ -2009,7 +2009,7 @@ Abc_Clock.exit:                                   ; preds = %0, %5
   %56 = sitofp i32 %50 to double
   %57 = fadd double %55, %56
   %58 = fptosi double %57 to i32
-  %59 = getelementptr inbounds i8, ptr %27, i64 80
+  %59 = getelementptr inbounds nuw i8, ptr %27, i64 80
   %60 = load i32, ptr %59, align 8
   %61 = sext i32 %60 to i64
   %62 = uitofp i64 %61 to double
@@ -2017,7 +2017,7 @@ Abc_Clock.exit:                                   ; preds = %0, %5
   %64 = sitofp i32 %58 to double
   %65 = fadd double %63, %64
   %66 = fptosi double %65 to i32
-  %67 = getelementptr inbounds i8, ptr %27, i64 96
+  %67 = getelementptr inbounds nuw i8, ptr %27, i64 96
   %68 = load i32, ptr %67, align 8
   %69 = sext i32 %68 to i64
   %70 = uitofp i64 %69 to double
@@ -2025,7 +2025,7 @@ Abc_Clock.exit:                                   ; preds = %0, %5
   %72 = sitofp i32 %66 to double
   %73 = fadd double %71, %72
   %74 = fptosi double %73 to i32
-  %75 = getelementptr inbounds i8, ptr %27, i64 112
+  %75 = getelementptr inbounds nuw i8, ptr %27, i64 112
   %76 = load i32, ptr %75, align 8
   %77 = sext i32 %76 to i64
   %78 = uitofp i64 %77 to double
@@ -2033,7 +2033,7 @@ Abc_Clock.exit:                                   ; preds = %0, %5
   %80 = sitofp i32 %74 to double
   %81 = fadd double %79, %80
   %82 = fptosi double %81 to i32
-  %83 = getelementptr inbounds i8, ptr %27, i64 128
+  %83 = getelementptr inbounds nuw i8, ptr %27, i64 128
   %84 = load i32, ptr %83, align 8
   %85 = sext i32 %84 to i64
   %86 = uitofp i64 %85 to double
@@ -2041,7 +2041,7 @@ Abc_Clock.exit:                                   ; preds = %0, %5
   %88 = sitofp i32 %82 to double
   %89 = fadd double %87, %88
   %90 = fptosi double %89 to i32
-  %91 = getelementptr inbounds i8, ptr %27, i64 144
+  %91 = getelementptr inbounds nuw i8, ptr %27, i64 144
   %92 = load i32, ptr %91, align 8
   %93 = sext i32 %92 to i64
   %94 = uitofp i64 %93 to double
@@ -2049,7 +2049,7 @@ Abc_Clock.exit:                                   ; preds = %0, %5
   %96 = sitofp i32 %90 to double
   %97 = fadd double %95, %96
   %98 = fptosi double %97 to i32
-  %99 = getelementptr inbounds i8, ptr %27, i64 160
+  %99 = getelementptr inbounds nuw i8, ptr %27, i64 160
   %100 = load i32, ptr %99, align 8
   %101 = sext i32 %100 to i64
   %102 = uitofp i64 %101 to double
@@ -2057,7 +2057,7 @@ Abc_Clock.exit:                                   ; preds = %0, %5
   %104 = sitofp i32 %98 to double
   %105 = fadd double %103, %104
   %106 = fptosi double %105 to i32
-  %107 = getelementptr inbounds i8, ptr %27, i64 192
+  %107 = getelementptr inbounds nuw i8, ptr %27, i64 192
   %108 = load i32, ptr %107, align 8
   %109 = sext i32 %108 to i64
   %110 = uitofp i64 %109 to double
@@ -2065,7 +2065,7 @@ Abc_Clock.exit:                                   ; preds = %0, %5
   %112 = sitofp i32 %106 to double
   %113 = fadd double %111, %112
   %114 = fptosi double %113 to i32
-  %115 = getelementptr inbounds i8, ptr %27, i64 176
+  %115 = getelementptr inbounds nuw i8, ptr %27, i64 176
   %116 = load i32, ptr %115, align 8
   %117 = sext i32 %116 to i64
   %118 = uitofp i64 %117 to double
@@ -2083,7 +2083,7 @@ Psr_ManMemory.exit:                               ; preds = %25, %10
   call void @llvm.assume(i1 %24)
   %.val4.i.i.i.i = load ptr, ptr %14, align 8
   %124 = load ptr, ptr %.val4.i.i.i.i, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 8
   %126 = load ptr, ptr %125, align 8
   %127 = call i32 @Abc_NamMemUsed(ptr noundef %126) #17
   %128 = add nsw i32 %127, %.0.lcssa.i
@@ -2098,7 +2098,7 @@ Psr_ManMemory.exit:                               ; preds = %25, %10
 134:                                              ; preds = %Psr_ManMemory.exit
   %135 = load i64, ptr %1, align 8
   %136 = mul nsw i64 %135, 1000000
-  %137 = getelementptr inbounds i8, ptr %1, i64 8
+  %137 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %138 = load i64, ptr %137, align 8
   %139 = sdiv i64 %138, 1000
   %140 = add nsw i64 %139, %136
@@ -2141,9 +2141,9 @@ define internal fastcc void @Psr_ManVecFree(ptr nocapture noundef nonnull %0) un
 5:                                                ; preds = %.lr.ph, %Psr_NtkFree.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Psr_NtkFree.exit ]
   %.val6 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds ptr, ptr %.val6, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw ptr, ptr %.val6, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %11, label %10
@@ -2153,8 +2153,8 @@ define internal fastcc void @Psr_ManVecFree(ptr nocapture noundef nonnull %0) un
   br label %11
 
 11:                                               ; preds = %10, %5
-  %12 = getelementptr inbounds i8, ptr %7, i64 16
-  %13 = getelementptr inbounds i8, ptr %7, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %14 = load ptr, ptr %13, align 8
   %.not.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i, label %Vec_IntErase.exit.i, label %15
@@ -2165,11 +2165,11 @@ define internal fastcc void @Psr_ManVecFree(ptr nocapture noundef nonnull %0) un
   br label %Vec_IntErase.exit.i
 
 Vec_IntErase.exit.i:                              ; preds = %15, %11
-  %16 = getelementptr inbounds i8, ptr %7, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i32 0, ptr %16, align 4
   store i32 0, ptr %12, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 32
-  %18 = getelementptr inbounds i8, ptr %7, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %19 = load ptr, ptr %18, align 8
   %.not.i19.i = icmp eq ptr %19, null
   br i1 %.not.i19.i, label %Vec_IntErase.exit20.i, label %20
@@ -2180,11 +2180,11 @@ Vec_IntErase.exit.i:                              ; preds = %15, %11
   br label %Vec_IntErase.exit20.i
 
 Vec_IntErase.exit20.i:                            ; preds = %20, %Vec_IntErase.exit.i
-  %21 = getelementptr inbounds i8, ptr %7, i64 36
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 36
   store i32 0, ptr %21, align 4
   store i32 0, ptr %17, align 8
-  %22 = getelementptr inbounds i8, ptr %7, i64 48
-  %23 = getelementptr inbounds i8, ptr %7, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %24 = load ptr, ptr %23, align 8
   %.not.i21.i = icmp eq ptr %24, null
   br i1 %.not.i21.i, label %Vec_IntErase.exit22.i, label %25
@@ -2195,11 +2195,11 @@ Vec_IntErase.exit20.i:                            ; preds = %20, %Vec_IntErase.e
   br label %Vec_IntErase.exit22.i
 
 Vec_IntErase.exit22.i:                            ; preds = %25, %Vec_IntErase.exit20.i
-  %26 = getelementptr inbounds i8, ptr %7, i64 52
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 52
   store i32 0, ptr %26, align 4
   store i32 0, ptr %22, align 8
-  %27 = getelementptr inbounds i8, ptr %7, i64 64
-  %28 = getelementptr inbounds i8, ptr %7, i64 72
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 64
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %29 = load ptr, ptr %28, align 8
   %.not.i23.i = icmp eq ptr %29, null
   br i1 %.not.i23.i, label %Vec_IntErase.exit24.i, label %30
@@ -2210,11 +2210,11 @@ Vec_IntErase.exit22.i:                            ; preds = %25, %Vec_IntErase.e
   br label %Vec_IntErase.exit24.i
 
 Vec_IntErase.exit24.i:                            ; preds = %30, %Vec_IntErase.exit22.i
-  %31 = getelementptr inbounds i8, ptr %7, i64 68
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 68
   store i32 0, ptr %31, align 4
   store i32 0, ptr %27, align 8
-  %32 = getelementptr inbounds i8, ptr %7, i64 80
-  %33 = getelementptr inbounds i8, ptr %7, i64 88
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 80
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %34 = load ptr, ptr %33, align 8
   %.not.i25.i = icmp eq ptr %34, null
   br i1 %.not.i25.i, label %Vec_IntErase.exit26.i, label %35
@@ -2225,11 +2225,11 @@ Vec_IntErase.exit24.i:                            ; preds = %30, %Vec_IntErase.e
   br label %Vec_IntErase.exit26.i
 
 Vec_IntErase.exit26.i:                            ; preds = %35, %Vec_IntErase.exit24.i
-  %36 = getelementptr inbounds i8, ptr %7, i64 84
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 84
   store i32 0, ptr %36, align 4
   store i32 0, ptr %32, align 8
-  %37 = getelementptr inbounds i8, ptr %7, i64 96
-  %38 = getelementptr inbounds i8, ptr %7, i64 104
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %39 = load ptr, ptr %38, align 8
   %.not.i27.i = icmp eq ptr %39, null
   br i1 %.not.i27.i, label %Vec_IntErase.exit28.i, label %40
@@ -2240,11 +2240,11 @@ Vec_IntErase.exit26.i:                            ; preds = %35, %Vec_IntErase.e
   br label %Vec_IntErase.exit28.i
 
 Vec_IntErase.exit28.i:                            ; preds = %40, %Vec_IntErase.exit26.i
-  %41 = getelementptr inbounds i8, ptr %7, i64 100
+  %41 = getelementptr inbounds nuw i8, ptr %7, i64 100
   store i32 0, ptr %41, align 4
   store i32 0, ptr %37, align 8
-  %42 = getelementptr inbounds i8, ptr %7, i64 112
-  %43 = getelementptr inbounds i8, ptr %7, i64 120
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 112
+  %43 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %44 = load ptr, ptr %43, align 8
   %.not.i29.i = icmp eq ptr %44, null
   br i1 %.not.i29.i, label %Vec_IntErase.exit30.i, label %45
@@ -2255,11 +2255,11 @@ Vec_IntErase.exit28.i:                            ; preds = %40, %Vec_IntErase.e
   br label %Vec_IntErase.exit30.i
 
 Vec_IntErase.exit30.i:                            ; preds = %45, %Vec_IntErase.exit28.i
-  %46 = getelementptr inbounds i8, ptr %7, i64 116
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 116
   store i32 0, ptr %46, align 4
   store i32 0, ptr %42, align 8
-  %47 = getelementptr inbounds i8, ptr %7, i64 128
-  %48 = getelementptr inbounds i8, ptr %7, i64 136
+  %47 = getelementptr inbounds nuw i8, ptr %7, i64 128
+  %48 = getelementptr inbounds nuw i8, ptr %7, i64 136
   %49 = load ptr, ptr %48, align 8
   %.not.i31.i = icmp eq ptr %49, null
   br i1 %.not.i31.i, label %Vec_IntErase.exit32.i, label %50
@@ -2270,11 +2270,11 @@ Vec_IntErase.exit30.i:                            ; preds = %45, %Vec_IntErase.e
   br label %Vec_IntErase.exit32.i
 
 Vec_IntErase.exit32.i:                            ; preds = %50, %Vec_IntErase.exit30.i
-  %51 = getelementptr inbounds i8, ptr %7, i64 132
+  %51 = getelementptr inbounds nuw i8, ptr %7, i64 132
   store i32 0, ptr %51, align 4
   store i32 0, ptr %47, align 8
-  %52 = getelementptr inbounds i8, ptr %7, i64 144
-  %53 = getelementptr inbounds i8, ptr %7, i64 152
+  %52 = getelementptr inbounds nuw i8, ptr %7, i64 144
+  %53 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %54 = load ptr, ptr %53, align 8
   %.not.i33.i = icmp eq ptr %54, null
   br i1 %.not.i33.i, label %Vec_IntErase.exit34.i, label %55
@@ -2285,11 +2285,11 @@ Vec_IntErase.exit32.i:                            ; preds = %50, %Vec_IntErase.e
   br label %Vec_IntErase.exit34.i
 
 Vec_IntErase.exit34.i:                            ; preds = %55, %Vec_IntErase.exit32.i
-  %56 = getelementptr inbounds i8, ptr %7, i64 148
+  %56 = getelementptr inbounds nuw i8, ptr %7, i64 148
   store i32 0, ptr %56, align 4
   store i32 0, ptr %52, align 8
-  %57 = getelementptr inbounds i8, ptr %7, i64 160
-  %58 = getelementptr inbounds i8, ptr %7, i64 168
+  %57 = getelementptr inbounds nuw i8, ptr %7, i64 160
+  %58 = getelementptr inbounds nuw i8, ptr %7, i64 168
   %59 = load ptr, ptr %58, align 8
   %.not.i35.i = icmp eq ptr %59, null
   br i1 %.not.i35.i, label %Vec_IntErase.exit36.i, label %60
@@ -2300,11 +2300,11 @@ Vec_IntErase.exit34.i:                            ; preds = %55, %Vec_IntErase.e
   br label %Vec_IntErase.exit36.i
 
 Vec_IntErase.exit36.i:                            ; preds = %60, %Vec_IntErase.exit34.i
-  %61 = getelementptr inbounds i8, ptr %7, i64 164
+  %61 = getelementptr inbounds nuw i8, ptr %7, i64 164
   store i32 0, ptr %61, align 4
   store i32 0, ptr %57, align 8
-  %62 = getelementptr inbounds i8, ptr %7, i64 176
-  %63 = getelementptr inbounds i8, ptr %7, i64 184
+  %62 = getelementptr inbounds nuw i8, ptr %7, i64 176
+  %63 = getelementptr inbounds nuw i8, ptr %7, i64 184
   %64 = load ptr, ptr %63, align 8
   %.not.i37.i = icmp eq ptr %64, null
   br i1 %.not.i37.i, label %Vec_IntErase.exit38.i, label %65
@@ -2315,11 +2315,11 @@ Vec_IntErase.exit36.i:                            ; preds = %60, %Vec_IntErase.e
   br label %Vec_IntErase.exit38.i
 
 Vec_IntErase.exit38.i:                            ; preds = %65, %Vec_IntErase.exit36.i
-  %66 = getelementptr inbounds i8, ptr %7, i64 180
+  %66 = getelementptr inbounds nuw i8, ptr %7, i64 180
   store i32 0, ptr %66, align 4
   store i32 0, ptr %62, align 8
-  %67 = getelementptr inbounds i8, ptr %7, i64 192
-  %68 = getelementptr inbounds i8, ptr %7, i64 200
+  %67 = getelementptr inbounds nuw i8, ptr %7, i64 192
+  %68 = getelementptr inbounds nuw i8, ptr %7, i64 200
   %69 = load ptr, ptr %68, align 8
   %.not.i39.i = icmp eq ptr %69, null
   br i1 %.not.i39.i, label %Vec_IntErase.exit40.i, label %70
@@ -2330,10 +2330,10 @@ Vec_IntErase.exit38.i:                            ; preds = %65, %Vec_IntErase.e
   br label %Vec_IntErase.exit40.i
 
 Vec_IntErase.exit40.i:                            ; preds = %70, %Vec_IntErase.exit38.i
-  %71 = getelementptr inbounds i8, ptr %7, i64 196
+  %71 = getelementptr inbounds nuw i8, ptr %7, i64 196
   store i32 0, ptr %71, align 4
   store i32 0, ptr %67, align 8
-  %72 = getelementptr inbounds i8, ptr %7, i64 216
+  %72 = getelementptr inbounds nuw i8, ptr %7, i64 216
   %73 = load ptr, ptr %72, align 8
   %.not.i41.i = icmp eq ptr %73, null
   br i1 %.not.i41.i, label %Psr_NtkFree.exit, label %74
@@ -2351,7 +2351,7 @@ Psr_NtkFree.exit:                                 ; preds = %Vec_IntErase.exit40
   br i1 %76, label %5, label %.critedge, !llvm.loop !13
 
 .critedge:                                        ; preds = %Psr_NtkFree.exit, %1
-  %77 = getelementptr inbounds i8, ptr %0, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %78 = load ptr, ptr %77, align 8
   %.not.i7 = icmp eq ptr %78, null
   br i1 %.not.i7, label %Vec_PtrFree.exit, label %79
@@ -2412,7 +2412,7 @@ define internal fastcc i32 @Psr_ManReadName(ptr nocapture noundef nonnull %0) un
   ]
 
 Psr_ManIsSpace.exit.thread.i:                     ; preds = %3, %3, %3
-  %5 = getelementptr inbounds i8, ptr %4, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1
   br label %.backedge
 
 .backedge:                                        ; preds = %Psr_ManIsSpace.exit.thread.i, %Psr_ManSkipToChar.exit.i
@@ -2422,19 +2422,19 @@ Psr_ManIsSpace.exit.thread.i:                     ; preds = %3, %3, %3
 
 .lr.ph.i.i:                                       ; preds = %3, %.lr.ph.i.i
   %6 = phi ptr [ %7, %.lr.ph.i.i ], [ %4, %3 ]
-  %7 = getelementptr inbounds i8, ptr %6, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store ptr %7, ptr %2, align 8
   %.val.val.i.i = load i8, ptr %7, align 1
   %.not.i.i = icmp eq i8 %.val.val.i.i, 10
   br i1 %.not.i.i, label %Psr_ManSkipToChar.exit.i, label %.lr.ph.i.i, !llvm.loop !7
 
 Psr_ManSkipToChar.exit.i:                         ; preds = %.lr.ph.i.i
-  %8 = getelementptr inbounds i8, ptr %6, i64 2
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 2
   br label %.backedge
 
 .lr.ph.i14.i:                                     ; preds = %3, %.lr.ph.i14.i
   %9 = phi ptr [ %10, %.lr.ph.i14.i ], [ %4, %3 ]
-  %10 = getelementptr inbounds i8, ptr %9, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store ptr %10, ptr %2, align 8
   %.val.val.i15.i = load i8, ptr %10, align 1
   %.not.i16.i = icmp eq i8 %.val.val.i15.i, 10
@@ -2454,7 +2454,7 @@ Psr_ManSkipToChar.exit.i:                         ; preds = %.lr.ph.i.i
   ]
 
 12:                                               ; preds = %.preheader
-  %13 = getelementptr inbounds i8, ptr %11, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store ptr %13, ptr %2, align 8
   %.val.val.pre = load i8, ptr %13, align 1
   br label %.preheader, !llvm.loop !14
@@ -2464,7 +2464,7 @@ Psr_ManSkipToChar.exit.i:                         ; preds = %.lr.ph.i.i
   br i1 %14, label %Psr_ManSkipSpaces.exit.thread, label %15
 
 15:                                               ; preds = %.critedge
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 @Abc_NamStrFindOrAddLim(ptr noundef %17, ptr noundef nonnull %4, ptr noundef nonnull %11, ptr noundef null) #17
   br label %Psr_ManSkipSpaces.exit.thread
@@ -2488,17 +2488,17 @@ declare ptr @Abc_NamRef(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @Psr_ManReadList(ptr nocapture noundef nonnull initializes((76, 80)) %0, ptr nocapture noundef %1, i32 noundef range(i32 1, 4) %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 72
-  %5 = getelementptr inbounds i8, ptr %0, i64 76
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 0, ptr %5, align 4
   %6 = tail call fastcc i32 @Psr_ManReadName(ptr noundef %0)
   %.not17 = icmp eq i32 %6, 0
   br i1 %.not17, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 80
-  %7 = getelementptr inbounds i8, ptr %1, i64 4
-  %.phi.trans.insert.i11 = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.phi.trans.insert.i11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %8
 
 8:                                                ; preds = %.lr.ph, %Vec_IntPush.exit16
@@ -2639,7 +2639,7 @@ Vec_IntPush.exit16:                               ; preds = %.Vec_IntGrow.exit10
   br i1 %69, label %70, label %72
 
 70:                                               ; preds = %._crit_edge
-  %71 = getelementptr inbounds i8, ptr %0, i64 156
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 156
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(22) %71, ptr noundef nonnull align 1 dereferenceable(22) @.str.41, i64 22, i1 false)
   br label %72
 
@@ -2657,14 +2657,14 @@ define internal fastcc void @Vec_IntAppend(ptr nocapture noundef %0, ptr nocaptu
 
 .lr.ph:                                           ; preds = %2
   %5 = getelementptr i8, ptr %1, i64 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %7
 
 7:                                                ; preds = %.lr.ph, %Vec_IntPush.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Vec_IntPush.exit ]
   %.val6 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds i32, ptr %.val6, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %.val6, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4
   %10 = load i32, ptr %6, align 4
   %11 = load i32, ptr %0, align 8
@@ -2740,7 +2740,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @Psr_NtkAddBox(ptr nocapture noundef %0, i32 noundef %1, i32 noundef range(i32 0, 3) %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 192
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %6 = getelementptr i8, ptr %0, i64 196
   %.val13 = load i32, ptr %6, align 4
   %7 = and i32 %.val13, 1
@@ -2753,7 +2753,7 @@ define internal fastcc void @Psr_NtkAddBox(ptr nocapture noundef %0, i32 noundef
   br i1 %10, label %11, label %.Vec_IntGrow.exit10_crit_edge.i
 
 .Vec_IntGrow.exit10_crit_edge.i:                  ; preds = %8
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 200
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 200
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %Vec_IntPush.exit
 
@@ -2762,7 +2762,7 @@ define internal fastcc void @Psr_NtkAddBox(ptr nocapture noundef %0, i32 noundef
   br i1 %12, label %13, label %21
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %0, i64 200
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %15 = load ptr, ptr %14, align 8
   %.not9.i.i = icmp eq ptr %15, null
   br i1 %.not9.i.i, label %18, label %16
@@ -2783,7 +2783,7 @@ Vec_IntGrow.exit.i:                               ; preds = %18, %16
 
 21:                                               ; preds = %11
   %22 = shl nuw nsw i32 %.val13, 1
-  %23 = getelementptr inbounds i8, ptr %0, i64 200
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %24 = load ptr, ptr %23, align 8
   %.not9.i9.i = icmp eq ptr %24, null
   %25 = zext nneg i32 %22 to i64
@@ -2817,15 +2817,15 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 38:                                               ; preds = %Vec_IntPush.exit, %4
   %.val12 = phi i32 [ %.val12.pre, %Vec_IntPush.exit ], [ %.val13, %4 ]
-  %39 = getelementptr inbounds i8, ptr %0, i64 208
-  %40 = getelementptr inbounds i8, ptr %0, i64 212
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 212
   %41 = load i32, ptr %40, align 4
   %42 = load i32, ptr %39, align 8
   %43 = icmp eq i32 %41, %42
   br i1 %43, label %44, label %.Vec_IntGrow.exit10_crit_edge.i14
 
 .Vec_IntGrow.exit10_crit_edge.i14:                ; preds = %38
-  %.phi.trans.insert.i15 = getelementptr inbounds i8, ptr %0, i64 216
+  %.phi.trans.insert.i15 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %.pre.i16 = load ptr, ptr %.phi.trans.insert.i15, align 8
   br label %Vec_IntPush.exit20
 
@@ -2834,7 +2834,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %45, label %46, label %54
 
 46:                                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %0, i64 216
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %48 = load ptr, ptr %47, align 8
   %.not9.i.i18 = icmp eq ptr %48, null
   br i1 %.not9.i.i18, label %51, label %49
@@ -2855,7 +2855,7 @@ Vec_IntGrow.exit.i19:                             ; preds = %51, %49
 
 54:                                               ; preds = %44
   %55 = shl nuw nsw i32 %41, 1
-  %56 = getelementptr inbounds i8, ptr %0, i64 216
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %57 = load ptr, ptr %56, align 8
   %.not9.i9.i17 = icmp eq ptr %57, null
   %58 = zext nneg i32 %55 to i64
@@ -2893,7 +2893,7 @@ Vec_IntPush.exit20:                               ; preds = %.Vec_IntGrow.exit10
   br i1 %75, label %76, label %.Vec_IntGrow.exit10_crit_edge.i21
 
 .Vec_IntGrow.exit10_crit_edge.i21:                ; preds = %Vec_IntPush.exit20
-  %.phi.trans.insert.i22 = getelementptr inbounds i8, ptr %0, i64 200
+  %.phi.trans.insert.i22 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %.pre.i23 = load ptr, ptr %.phi.trans.insert.i22, align 8
   br label %Vec_IntPush.exit27
 
@@ -2902,7 +2902,7 @@ Vec_IntPush.exit20:                               ; preds = %.Vec_IntGrow.exit10
   br i1 %77, label %78, label %86
 
 78:                                               ; preds = %76
-  %79 = getelementptr inbounds i8, ptr %0, i64 200
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %80 = load ptr, ptr %79, align 8
   %.not9.i.i25 = icmp eq ptr %80, null
   br i1 %.not9.i.i25, label %83, label %81
@@ -2923,7 +2923,7 @@ Vec_IntGrow.exit.i26:                             ; preds = %83, %81
 
 86:                                               ; preds = %76
   %87 = shl nuw nsw i32 %73, 1
-  %88 = getelementptr inbounds i8, ptr %0, i64 200
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %89 = load ptr, ptr %88, align 8
   %.not9.i9.i24 = icmp eq ptr %89, null
   %90 = zext nneg i32 %87 to i64
@@ -2958,7 +2958,7 @@ Vec_IntPush.exit27:                               ; preds = %.Vec_IntGrow.exit10
   br i1 %105, label %106, label %.Vec_IntGrow.exit10_crit_edge.i28
 
 .Vec_IntGrow.exit10_crit_edge.i28:                ; preds = %Vec_IntPush.exit27
-  %.phi.trans.insert.i29 = getelementptr inbounds i8, ptr %0, i64 200
+  %.phi.trans.insert.i29 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %.pre.i30 = load ptr, ptr %.phi.trans.insert.i29, align 8
   br label %Vec_IntPush.exit34
 
@@ -2967,7 +2967,7 @@ Vec_IntPush.exit27:                               ; preds = %.Vec_IntGrow.exit10
   br i1 %107, label %108, label %116
 
 108:                                              ; preds = %106
-  %109 = getelementptr inbounds i8, ptr %0, i64 200
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %110 = load ptr, ptr %109, align 8
   %.not9.i.i32 = icmp eq ptr %110, null
   br i1 %.not9.i.i32, label %113, label %111
@@ -2988,7 +2988,7 @@ Vec_IntGrow.exit.i33:                             ; preds = %113, %111
 
 116:                                              ; preds = %106
   %117 = shl nuw nsw i32 %103, 1
-  %118 = getelementptr inbounds i8, ptr %0, i64 200
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %119 = load ptr, ptr %118, align 8
   %.not9.i9.i31 = icmp eq ptr %119, null
   %120 = zext nneg i32 %117 to i64
@@ -3023,7 +3023,7 @@ Vec_IntPush.exit34:                               ; preds = %.Vec_IntGrow.exit10
   br i1 %135, label %136, label %.Vec_IntGrow.exit10_crit_edge.i35
 
 .Vec_IntGrow.exit10_crit_edge.i35:                ; preds = %Vec_IntPush.exit34
-  %.phi.trans.insert.i36 = getelementptr inbounds i8, ptr %0, i64 200
+  %.phi.trans.insert.i36 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %.pre.i37 = load ptr, ptr %.phi.trans.insert.i36, align 8
   br label %Vec_IntPush.exit41
 
@@ -3032,7 +3032,7 @@ Vec_IntPush.exit34:                               ; preds = %.Vec_IntGrow.exit10
   br i1 %137, label %138, label %146
 
 138:                                              ; preds = %136
-  %139 = getelementptr inbounds i8, ptr %0, i64 200
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %140 = load ptr, ptr %139, align 8
   %.not9.i.i39 = icmp eq ptr %140, null
   br i1 %.not9.i.i39, label %143, label %141
@@ -3053,7 +3053,7 @@ Vec_IntGrow.exit.i40:                             ; preds = %143, %141
 
 146:                                              ; preds = %136
   %147 = shl nuw nsw i32 %133, 1
-  %148 = getelementptr inbounds i8, ptr %0, i64 200
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %149 = load ptr, ptr %148, align 8
   %.not9.i9.i38 = icmp eq ptr %149, null
   %150 = zext nneg i32 %147 to i64

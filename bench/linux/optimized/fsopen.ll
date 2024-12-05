@@ -17,12 +17,12 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @fscontext_read(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 200
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 104
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
-  %10 = tail call i32 @mutex_lock_interruptible(ptr noundef %9) #6
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %10 = tail call i32 @mutex_lock_interruptible(ptr noundef nonnull %9) #6
   %11 = icmp slt i32 %10, 0
   br i1 %11, label %12, label %14
 
@@ -31,25 +31,25 @@ define internal range(i64 -2147483648, 2147483648) i64 @fscontext_read(ptr nocap
   br label %52
 
 14:                                               ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %8, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %16 = load i8, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %8, i64 5
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 5
   %18 = load i8, ptr %17, align 1
   %19 = icmp eq i8 %16, %18
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %14
-  tail call void @mutex_unlock(ptr noundef %9) #6
+  tail call void @mutex_unlock(ptr noundef nonnull %9) #6
   br label %52
 
 21:                                               ; preds = %14
   %22 = and i8 %18, 7
   %23 = zext nneg i8 %22 to i32
-  %24 = getelementptr inbounds i8, ptr %8, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %25 = zext nneg i8 %22 to i64
   %26 = getelementptr [8 x ptr], ptr %24, i64 0, i64 %25
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %8, i64 6
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 6
   %29 = load i8, ptr %28, align 2
   %30 = zext i8 %29 to i32
   %31 = shl nuw nsw i32 1, %23
@@ -62,7 +62,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @fscontext_read(ptr nocap
   store i8 %36, ptr %28, align 2
   %37 = add i8 %18, 1
   store i8 %37, ptr %17, align 1
-  tail call void @mutex_unlock(ptr noundef %9) #6
+  tail call void @mutex_unlock(ptr noundef nonnull %9) #6
   %38 = tail call i64 @strlen(ptr noundef %27) #6
   %39 = shl i64 %38, 32
   %40 = ashr exact i64 %39, 32
@@ -100,7 +100,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @fscontext_read(ptr nocap
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @fscontext_release(ptr nocapture readnone %0, ptr nocapture noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 200
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %7, label %6
@@ -116,9 +116,9 @@ define internal noundef i32 @fscontext_release(ptr nocapture readnone %0, ptr no
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i64 @__x64_sys_fsopen(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 112
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load i64, ptr %4, align 8
   %6 = tail call fastcc i64 @__se_sys_fsopen(i64 noundef %3, i64 noundef %5)
   ret i64 %6
@@ -161,24 +161,24 @@ define internal fastcc i64 @__se_sys_fsopen(i64 noundef %0, i64 noundef %1) unna
   br label %43
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %17, i64 148
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 148
   %23 = load i32, ptr %22, align 4
   %24 = and i32 %23, -65281
   store i32 %24, ptr %22, align 4
   %25 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
   %26 = tail call noalias noundef align 8 dereferenceable_or_null(80) ptr @kmalloc_trace(ptr noundef %25, i32 noundef 3520, i64 noundef 80) #7
-  %27 = getelementptr inbounds i8, ptr %17, i64 104
+  %27 = getelementptr inbounds nuw i8, ptr %17, i64 104
   store ptr %26, ptr %27, align 8
   %28 = icmp eq ptr %26, null
   br i1 %28, label %42, label %29
 
 29:                                               ; preds = %21
   store volatile i32 1, ptr %26, align 8
-  %30 = getelementptr inbounds i8, ptr %17, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 48
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %26, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %33, ptr %34, align 8
   %35 = icmp eq i32 %4, 0
   %36 = select i1 %35, i32 2, i32 524290
@@ -205,10 +205,10 @@ define internal fastcc i64 @__se_sys_fsopen(i64 noundef %0, i64 noundef %1) unna
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i64 @__ia32_sys_fsopen(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 4294967295
   %8 = tail call fastcc i64 @__se_sys_fsopen(i64 noundef %4, i64 noundef %7)
@@ -217,11 +217,11 @@ define dso_local i64 @__ia32_sys_fsopen(ptr nocapture noundef readonly %0) local
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_fspick(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 112
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %7 = load i64, ptr %6, align 8
   %8 = tail call fastcc i64 @__se_sys_fspick(i64 noundef %3, i64 noundef %5, i64 noundef %7), !range !9
   ret i64 %8
@@ -260,7 +260,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_fspick(i
 24:                                               ; preds = %11
   %25 = load ptr, ptr %4, align 8
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %4, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %26, %28
   br i1 %29, label %30, label %56
@@ -276,25 +276,25 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_fspick(i
   br label %56
 
 36:                                               ; preds = %30
-  %37 = getelementptr inbounds i8, ptr %31, i64 148
+  %37 = getelementptr inbounds nuw i8, ptr %31, i64 148
   %38 = load i32, ptr %37, align 4
   %39 = and i32 %38, -65281
   %40 = or disjoint i32 %39, 1024
   store i32 %40, ptr %37, align 4
   %41 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
   %42 = call noalias noundef align 8 dereferenceable_or_null(80) ptr @kmalloc_trace(ptr noundef %41, i32 noundef 3520, i64 noundef 80) #7
-  %43 = getelementptr inbounds i8, ptr %31, i64 104
+  %43 = getelementptr inbounds nuw i8, ptr %31, i64 104
   store ptr %42, ptr %43, align 8
   %44 = icmp eq ptr %42, null
   br i1 %44, label %55, label %45
 
 45:                                               ; preds = %36
   store volatile i32 1, ptr %42, align 8
-  %46 = getelementptr inbounds i8, ptr %31, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %31, i64 40
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 48
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %42, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr %49, ptr %50, align 8
   call void @path_put(ptr noundef nonnull %4) #6
   %51 = shl nuw nsw i32 %7, 19
@@ -325,13 +325,13 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_fspick(i
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_fspick(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 4294967295
-  %8 = getelementptr inbounds i8, ptr %0, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 4294967295
   %11 = tail call fastcc i64 @__se_sys_fspick(i64 noundef %4, i64 noundef %7, i64 noundef %10), !range !9
@@ -340,15 +340,15 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_fspick(ptr n
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_fsconfig(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 112
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load i64, ptr %10, align 8
   %12 = tail call fastcc i64 @__se_sys_fsconfig(i64 noundef %3, i64 noundef %5, i64 noundef %7, i64 noundef %9, i64 noundef %11), !range !9
   ret i64 %12
@@ -440,13 +440,13 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_fsconfig
   br i1 %56, label %155, label %57
 
 57:                                               ; preds = %52
-  %58 = getelementptr inbounds i8, ptr %55, i64 176
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 176
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %59, @fscontext_fops
   br i1 %60, label %61, label %148
 
 61:                                               ; preds = %57
-  %62 = getelementptr inbounds i8, ptr %55, i64 200
+  %62 = getelementptr inbounds nuw i8, ptr %55, i64 200
   %63 = load ptr, ptr %62, align 8
   %64 = load ptr, ptr %63, align 8
   %65 = icmp eq ptr %64, @legacy_fs_context_ops
@@ -481,15 +481,15 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_fsconfig
   ]
 
 78:                                               ; preds = %77
-  %79 = getelementptr inbounds i8, ptr %6, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i8 1, ptr %79, align 8
   br label %124
 
 80:                                               ; preds = %77
-  %81 = getelementptr inbounds i8, ptr %6, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i8 2, ptr %81, align 8
   %82 = tail call ptr @strndup_user(ptr noundef %10, i64 noundef 256) #6
-  %83 = getelementptr inbounds i8, ptr %6, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %82, ptr %83, align 8
   %84 = icmp ugt ptr %82, inttoptr (i64 -4096 to ptr)
   br i1 %84, label %85, label %88
@@ -501,19 +501,19 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_fsconfig
 
 88:                                               ; preds = %80
   %89 = tail call i64 @strlen(ptr noundef %82) #6
-  %90 = getelementptr inbounds i8, ptr %6, i64 24
+  %90 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 %89, ptr %90, align 8
   br label %124
 
 91:                                               ; preds = %77
-  %92 = getelementptr inbounds i8, ptr %6, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i8 3, ptr %92, align 8
   %93 = shl i64 %4, 32
   %94 = ashr exact i64 %93, 32
-  %95 = getelementptr inbounds i8, ptr %6, i64 24
+  %95 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 %94, ptr %95, align 8
   %96 = tail call ptr @memdup_user_nul(ptr noundef %10, i64 noundef %94) #6
-  %97 = getelementptr inbounds i8, ptr %6, i64 16
+  %97 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %96, ptr %97, align 8
   %98 = icmp ugt ptr %96, inttoptr (i64 -4096 to ptr)
   br i1 %98, label %99, label %124
@@ -528,10 +528,10 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_fsconfig
 
 103:                                              ; preds = %102, %77
   %104 = phi i32 [ 0, %77 ], [ 16384, %102 ]
-  %105 = getelementptr inbounds i8, ptr %6, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i8 4, ptr %105, align 8
   %106 = tail call ptr @getname_flags(ptr noundef %10, i32 noundef %104, ptr noundef null) #6
-  %107 = getelementptr inbounds i8, ptr %6, i64 16
+  %107 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %106, ptr %107, align 8
   %108 = icmp ugt ptr %106, inttoptr (i64 -4096 to ptr)
   br i1 %108, label %109, label %112
@@ -542,37 +542,37 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_fsconfig
   br label %145
 
 112:                                              ; preds = %103
-  %113 = getelementptr inbounds i8, ptr %6, i64 32
+  %113 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i32 %11, ptr %113, align 8
   %114 = load ptr, ptr %106, align 8
   %115 = tail call i64 @strlen(ptr noundef %114) #6
-  %116 = getelementptr inbounds i8, ptr %6, i64 24
+  %116 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 %115, ptr %116, align 8
   br label %124
 
 117:                                              ; preds = %77
-  %118 = getelementptr inbounds i8, ptr %6, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i8 5, ptr %118, align 8
   %119 = tail call ptr @fget(i32 noundef %11) #6
-  %120 = getelementptr inbounds i8, ptr %6, i64 16
+  %120 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %119, ptr %120, align 8
   %121 = icmp eq ptr %119, null
   br i1 %121, label %145, label %122
 
 122:                                              ; preds = %117
-  %123 = getelementptr inbounds i8, ptr %6, i64 32
+  %123 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i32 %11, ptr %123, align 8
   br label %124
 
 124:                                              ; preds = %122, %112, %91, %88, %78, %77
-  %125 = getelementptr inbounds i8, ptr %63, i64 8
-  %126 = tail call i32 @mutex_lock_interruptible(ptr noundef %125) #6
+  %125 = getelementptr inbounds nuw i8, ptr %63, i64 8
+  %126 = tail call i32 @mutex_lock_interruptible(ptr noundef nonnull %125) #6
   %127 = icmp eq i32 %126, 0
   br i1 %127, label %128, label %130
 
 128:                                              ; preds = %124
   %129 = call fastcc i32 @vfs_fsconfig_locked(ptr noundef %63, i32 noundef %8, ptr noundef nonnull %6)
-  call void @mutex_unlock(ptr noundef %125) #6
+  call void @mutex_unlock(ptr noundef nonnull %125) #6
   br label %130
 
 130:                                              ; preds = %128, %124
@@ -586,13 +586,13 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_fsconfig
   ]
 
 132:                                              ; preds = %130, %130
-  %133 = getelementptr inbounds i8, ptr %6, i64 16
+  %133 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %134 = load ptr, ptr %133, align 8
   call void @kfree(ptr noundef %134) #6
   br label %145
 
 135:                                              ; preds = %130, %130
-  %136 = getelementptr inbounds i8, ptr %6, i64 16
+  %136 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %137 = load ptr, ptr %136, align 8
   %138 = icmp eq ptr %137, null
   br i1 %138, label %145, label %139
@@ -602,7 +602,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_fsconfig
   br label %145
 
 140:                                              ; preds = %130
-  %141 = getelementptr inbounds i8, ptr %6, i64 16
+  %141 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %142 = load ptr, ptr %141, align 8
   %143 = icmp eq ptr %142, null
   br i1 %143, label %145, label %144
@@ -639,19 +639,19 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_fsconfig
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_fsconfig(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 4294967295
-  %8 = getelementptr inbounds i8, ptr %0, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 4294967295
-  %11 = getelementptr inbounds i8, ptr %0, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %12 = load i64, ptr %11, align 8
   %13 = and i64 %12, 4294967295
-  %14 = getelementptr inbounds i8, ptr %0, i64 112
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %15 = load i64, ptr %14, align 8
   %16 = and i64 %15, 4294967295
   %17 = tail call fastcc i64 @__se_sys_fsconfig(i64 noundef %4, i64 noundef %7, i64 noundef %10, i64 noundef %13, i64 noundef %16), !range !9
@@ -746,7 +746,7 @@ define internal fastcc i32 @vfs_fsconfig_locked(ptr noundef %0, i32 noundef %1, 
   br i1 %5, label %6, label %vfs_cmd_create.exit
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 148
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %8 = load i32, ptr %7, align 4
   switch i32 %1, label %91 [
     i32 6, label %9
@@ -773,9 +773,9 @@ define internal fastcc i32 @vfs_fsconfig_locked(ptr noundef %0, i32 noundef %1, 
   br i1 %19, label %20, label %30
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %0, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 112
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 112
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i32 @security_sb_kern_mount(ptr noundef %24) #6
   %26 = icmp eq i32 %25, 0
@@ -786,8 +786,8 @@ define internal fastcc i32 @vfs_fsconfig_locked(ptr noundef %0, i32 noundef %1, 
   br label %30
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %24, i64 112
-  tail call void @up_write(ptr noundef %29) #6
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 112
+  tail call void @up_write(ptr noundef nonnull %29) #6
   br label %30
 
 30:                                               ; preds = %28, %27, %14
@@ -823,9 +823,9 @@ define internal fastcc i32 @vfs_fsconfig_locked(ptr noundef %0, i32 noundef %1, 
   br i1 %49, label %50, label %60
 
 50:                                               ; preds = %44
-  %51 = getelementptr inbounds i8, ptr %0, i64 64
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 112
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 112
   %54 = load ptr, ptr %53, align 8
   %55 = tail call i32 @security_sb_kern_mount(ptr noundef %54) #6
   %56 = icmp eq i32 %55, 0
@@ -836,8 +836,8 @@ define internal fastcc i32 @vfs_fsconfig_locked(ptr noundef %0, i32 noundef %1, 
   br label %60
 
 58:                                               ; preds = %50
-  %59 = getelementptr inbounds i8, ptr %54, i64 112
-  tail call void @up_write(ptr noundef %59) #6
+  %59 = getelementptr inbounds nuw i8, ptr %54, i64 112
+  tail call void @up_write(ptr noundef nonnull %59) #6
   br label %60
 
 60:                                               ; preds = %58, %57, %44
@@ -857,11 +857,11 @@ define internal fastcc i32 @vfs_fsconfig_locked(ptr noundef %0, i32 noundef %1, 
 69:                                               ; preds = %66
   %70 = or i32 %8, 1280
   store i32 %70, ptr %7, align 4
-  %71 = getelementptr inbounds i8, ptr %0, i64 64
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 112
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 112
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 1072
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 1072
   %76 = load ptr, ptr %75, align 16
   %77 = tail call zeroext i1 @ns_capable(ptr noundef %76, i32 noundef 21) #6
   br i1 %77, label %82, label %78
@@ -874,10 +874,10 @@ define internal fastcc i32 @vfs_fsconfig_locked(ptr noundef %0, i32 noundef %1, 
   br label %vfs_cmd_create.exit
 
 82:                                               ; preds = %69
-  %83 = getelementptr inbounds i8, ptr %74, i64 112
-  tail call void @down_write(ptr noundef %83) #6
+  %83 = getelementptr inbounds nuw i8, ptr %74, i64 112
+  tail call void @down_write(ptr noundef nonnull %83) #6
   %84 = tail call i32 @reconfigure_super(ptr noundef %0) #6
-  tail call void @up_write(ptr noundef %83) #6
+  tail call void @up_write(ptr noundef nonnull %83) #6
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %90, label %86
 

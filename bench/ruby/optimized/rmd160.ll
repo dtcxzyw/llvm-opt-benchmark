@@ -11,19 +11,19 @@ define weak i64 @ruby_abi_version() local_unnamed_addr #0 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef i32 @rb_Digest_RMD160_Init(ptr nocapture noundef writeonly initializes((0, 28), (92, 96)) %0) local_unnamed_addr #1 {
   store i32 1732584193, ptr %0, align 4
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 -271733879, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -1732584194, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 271733878, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 -1009589776, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 20
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %7, align 4
   store i32 0, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 92
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i32 0, ptr %8, align 4
   ret i32 1
 }
@@ -31,13 +31,13 @@ define noundef i32 @rb_Digest_RMD160_Init(ptr nocapture noundef writeonly initia
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @rb_Digest_RMD160_Transform(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
   %3 = load i32, ptr %0, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i32, ptr %10, align 4
   %12 = xor i32 %7, %5
   %13 = xor i32 %12, %9
@@ -49,7 +49,7 @@ define void @rb_Digest_RMD160_Transform(ptr nocapture noundef %0, ptr nocapture 
   %19 = tail call i32 @llvm.fshl.i32(i32 %7, i32 %7, i32 10)
   %20 = xor i32 %19, %5
   %21 = xor i32 %20, %18
-  %22 = getelementptr inbounds i8, ptr %1, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %23 = load i32, ptr %22, align 4
   %24 = add i32 %23, %11
   %25 = add i32 %24, %21
@@ -58,7 +58,7 @@ define void @rb_Digest_RMD160_Transform(ptr nocapture noundef %0, ptr nocapture 
   %28 = tail call i32 @llvm.fshl.i32(i32 %5, i32 %5, i32 10)
   %29 = xor i32 %18, %28
   %30 = xor i32 %29, %27
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load i32, ptr %31, align 4
   %33 = add i32 %32, %9
   %34 = add i32 %33, %30
@@ -67,7 +67,7 @@ define void @rb_Digest_RMD160_Transform(ptr nocapture noundef %0, ptr nocapture 
   %37 = tail call i32 @llvm.fshl.i32(i32 %18, i32 %18, i32 10)
   %38 = xor i32 %27, %37
   %39 = xor i32 %38, %36
-  %40 = getelementptr inbounds i8, ptr %1, i64 12
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %41 = load i32, ptr %40, align 4
   %42 = add i32 %41, %19
   %43 = add i32 %42, %39
@@ -76,7 +76,7 @@ define void @rb_Digest_RMD160_Transform(ptr nocapture noundef %0, ptr nocapture 
   %46 = tail call i32 @llvm.fshl.i32(i32 %27, i32 %27, i32 10)
   %47 = xor i32 %36, %46
   %48 = xor i32 %47, %45
-  %49 = getelementptr inbounds i8, ptr %1, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %50 = load i32, ptr %49, align 4
   %51 = add i32 %50, %28
   %52 = add i32 %51, %48
@@ -85,7 +85,7 @@ define void @rb_Digest_RMD160_Transform(ptr nocapture noundef %0, ptr nocapture 
   %55 = tail call i32 @llvm.fshl.i32(i32 %36, i32 %36, i32 10)
   %56 = xor i32 %45, %55
   %57 = xor i32 %56, %54
-  %58 = getelementptr inbounds i8, ptr %1, i64 20
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %59 = load i32, ptr %58, align 4
   %60 = add i32 %37, %59
   %61 = add i32 %60, %57
@@ -94,7 +94,7 @@ define void @rb_Digest_RMD160_Transform(ptr nocapture noundef %0, ptr nocapture 
   %64 = tail call i32 @llvm.fshl.i32(i32 %45, i32 %45, i32 10)
   %65 = xor i32 %54, %64
   %66 = xor i32 %65, %63
-  %67 = getelementptr inbounds i8, ptr %1, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %68 = load i32, ptr %67, align 4
   %69 = add i32 %46, %68
   %70 = add i32 %69, %66
@@ -103,7 +103,7 @@ define void @rb_Digest_RMD160_Transform(ptr nocapture noundef %0, ptr nocapture 
   %73 = tail call i32 @llvm.fshl.i32(i32 %54, i32 %54, i32 10)
   %74 = xor i32 %63, %73
   %75 = xor i32 %74, %72
-  %76 = getelementptr inbounds i8, ptr %1, i64 28
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %77 = load i32, ptr %76, align 4
   %78 = add i32 %55, %77
   %79 = add i32 %78, %75
@@ -112,7 +112,7 @@ define void @rb_Digest_RMD160_Transform(ptr nocapture noundef %0, ptr nocapture 
   %82 = tail call i32 @llvm.fshl.i32(i32 %63, i32 %63, i32 10)
   %83 = xor i32 %72, %82
   %84 = xor i32 %83, %81
-  %85 = getelementptr inbounds i8, ptr %1, i64 32
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %86 = load i32, ptr %85, align 4
   %87 = add i32 %64, %86
   %88 = add i32 %87, %84
@@ -121,7 +121,7 @@ define void @rb_Digest_RMD160_Transform(ptr nocapture noundef %0, ptr nocapture 
   %91 = tail call i32 @llvm.fshl.i32(i32 %72, i32 %72, i32 10)
   %92 = xor i32 %81, %91
   %93 = xor i32 %92, %90
-  %94 = getelementptr inbounds i8, ptr %1, i64 36
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %95 = load i32, ptr %94, align 4
   %96 = add i32 %73, %95
   %97 = add i32 %96, %93
@@ -130,7 +130,7 @@ define void @rb_Digest_RMD160_Transform(ptr nocapture noundef %0, ptr nocapture 
   %100 = tail call i32 @llvm.fshl.i32(i32 %81, i32 %81, i32 10)
   %101 = xor i32 %90, %100
   %102 = xor i32 %101, %99
-  %103 = getelementptr inbounds i8, ptr %1, i64 40
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %104 = load i32, ptr %103, align 4
   %105 = add i32 %82, %104
   %106 = add i32 %105, %102
@@ -139,7 +139,7 @@ define void @rb_Digest_RMD160_Transform(ptr nocapture noundef %0, ptr nocapture 
   %109 = tail call i32 @llvm.fshl.i32(i32 %90, i32 %90, i32 10)
   %110 = xor i32 %99, %109
   %111 = xor i32 %110, %108
-  %112 = getelementptr inbounds i8, ptr %1, i64 44
+  %112 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %113 = load i32, ptr %112, align 4
   %114 = add i32 %91, %113
   %115 = add i32 %114, %111
@@ -148,7 +148,7 @@ define void @rb_Digest_RMD160_Transform(ptr nocapture noundef %0, ptr nocapture 
   %118 = tail call i32 @llvm.fshl.i32(i32 %99, i32 %99, i32 10)
   %119 = xor i32 %108, %118
   %120 = xor i32 %119, %117
-  %121 = getelementptr inbounds i8, ptr %1, i64 48
+  %121 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %122 = load i32, ptr %121, align 4
   %123 = add i32 %100, %122
   %124 = add i32 %123, %120
@@ -157,7 +157,7 @@ define void @rb_Digest_RMD160_Transform(ptr nocapture noundef %0, ptr nocapture 
   %127 = tail call i32 @llvm.fshl.i32(i32 %108, i32 %108, i32 10)
   %128 = xor i32 %117, %127
   %129 = xor i32 %128, %126
-  %130 = getelementptr inbounds i8, ptr %1, i64 52
+  %130 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %131 = load i32, ptr %130, align 4
   %132 = add i32 %109, %131
   %133 = add i32 %132, %129
@@ -166,7 +166,7 @@ define void @rb_Digest_RMD160_Transform(ptr nocapture noundef %0, ptr nocapture 
   %136 = tail call i32 @llvm.fshl.i32(i32 %117, i32 %117, i32 10)
   %137 = xor i32 %126, %136
   %138 = xor i32 %137, %135
-  %139 = getelementptr inbounds i8, ptr %1, i64 56
+  %139 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %140 = load i32, ptr %139, align 4
   %141 = add i32 %118, %140
   %142 = add i32 %141, %138
@@ -175,7 +175,7 @@ define void @rb_Digest_RMD160_Transform(ptr nocapture noundef %0, ptr nocapture 
   %145 = tail call i32 @llvm.fshl.i32(i32 %126, i32 %126, i32 10)
   %146 = xor i32 %135, %145
   %147 = xor i32 %146, %144
-  %148 = getelementptr inbounds i8, ptr %1, i64 60
+  %148 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %149 = load i32, ptr %148, align 4
   %150 = add i32 %127, %149
   %151 = add i32 %150, %147
@@ -1528,20 +1528,20 @@ define void @rb_Digest_RMD160_Transform(ptr nocapture noundef %0, ptr nocapture 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @rb_Digest_RMD160_Update(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = alloca [16 x i32], align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = zext i32 %6 to i64
   %8 = add i64 %2, %7
   %9 = lshr i64 %8, 32
   %10 = trunc nuw i64 %9 to i32
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i32, ptr %11, align 4
   %13 = add i32 %12, %10
   store i32 %13, ptr %11, align 4
   %14 = trunc i64 %2 to i32
   %15 = add i32 %6, %14
   store i32 %15, ptr %5, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 92
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %17 = load i32, ptr %16, align 4
   %18 = zext i32 %17 to i64
   %19 = add i64 %2, %18
@@ -1549,8 +1549,8 @@ define void @rb_Digest_RMD160_Update(ptr nocapture noundef %0, ptr nocapture nou
   br i1 %20, label %21, label %26
 
 21:                                               ; preds = %3
-  %22 = getelementptr inbounds i8, ptr %0, i64 28
-  %23 = getelementptr inbounds i8, ptr %22, i64 %18
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 %18
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr align 1 %1, i64 %2, i1 false)
   %24 = load i32, ptr %16, align 4
   %25 = add i32 %24, %14
@@ -1559,15 +1559,15 @@ define void @rb_Digest_RMD160_Update(ptr nocapture noundef %0, ptr nocapture nou
 
 26:                                               ; preds = %3
   %27 = sub i32 64, %17
-  %28 = getelementptr inbounds i8, ptr %0, i64 28
-  %29 = getelementptr inbounds i8, ptr %28, i64 %18
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 %18
   %30 = zext i32 %27 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %29, ptr align 1 %1, i64 %30, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, ptr noundef nonnull align 4 dereferenceable(64) %28, i64 64, i1 false)
   call void @rb_Digest_RMD160_Transform(ptr noundef nonnull %0, ptr noundef nonnull %4)
   %31 = sub i64 %2, %30
   %32 = lshr i64 %31, 6
-  %invariant.gep = getelementptr inbounds i8, ptr %1, i64 %30
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %1, i64 %30
   %.not = icmp ult i64 %31, 64
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -1575,7 +1575,7 @@ define void @rb_Digest_RMD160_Update(ptr nocapture noundef %0, ptr nocapture nou
   %.035 = phi i32 [ %35, %.lr.ph ], [ 0, %26 ]
   %33 = shl i32 %.035, 6
   %34 = zext i32 %33 to i64
-  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %34
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, ptr noundef nonnull align 1 dereferenceable(64) %gep, i64 64, i1 false)
   call void @rb_Digest_RMD160_Transform(ptr noundef %0, ptr noundef nonnull %4)
   %35 = add i32 %.035, 1
@@ -1593,8 +1593,8 @@ define void @rb_Digest_RMD160_Update(ptr nocapture noundef %0, ptr nocapture nou
   %40 = trunc i64 %31 to i32
   %41 = and i32 %40, 63
   store i32 %41, ptr %16, align 4
-  %42 = getelementptr inbounds i8, ptr %1, i64 %.0.lcssa
-  %43 = getelementptr inbounds i8, ptr %42, i64 %30
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 %.0.lcssa
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 %30
   %44 = and i64 %31, 63
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %28, ptr align 1 %43, i64 %44, i1 false)
   br label %45
@@ -1612,16 +1612,16 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define noundef i32 @rb_Digest_RMD160_Finish(ptr nocapture noundef %0, ptr noundef writeonly %1) local_unnamed_addr #3 {
   %3 = alloca [16 x i32], align 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 28
-  %5 = getelementptr inbounds i8, ptr %0, i64 92
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %6 = load i32, ptr %5, align 4
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds [64 x i8], ptr %4, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 0, i64 %7
   store i8 -128, ptr %8, align 1
   %9 = load i32, ptr %5, align 4
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds i8, ptr %4, i64 %10
-  %12 = getelementptr inbounds i8, ptr %11, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 %10
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %13 = sub i32 63, %9
   %14 = zext i32 %13 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %12, i8 0, i64 %14, i1 false)
@@ -1636,15 +1636,15 @@ define noundef i32 @rb_Digest_RMD160_Finish(ptr nocapture noundef %0, ptr nounde
   br label %18
 
 18:                                               ; preds = %17, %2
-  %19 = getelementptr inbounds i8, ptr %0, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %20 = load i32, ptr %19, align 4
   %21 = shl i32 %20, 3
-  %22 = getelementptr inbounds i8, ptr %3, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i32 %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load i32, ptr %23, align 4
   %25 = tail call i32 @llvm.fshl.i32(i32 %24, i32 %20, i32 3)
-  %26 = getelementptr inbounds i8, ptr %3, i64 60
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 60
   store i32 %25, ptr %26, align 4
   call void @rb_Digest_RMD160_Transform(ptr noundef nonnull %0, ptr noundef nonnull %3)
   %.not = icmp eq ptr %1, null
@@ -1653,28 +1653,28 @@ define noundef i32 @rb_Digest_RMD160_Finish(ptr nocapture noundef %0, ptr nounde
 .preheader:                                       ; preds = %18, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %18 ]
   %27 = lshr exact i64 %indvars.iv, 2
-  %28 = getelementptr inbounds [5 x i32], ptr %0, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw [5 x i32], ptr %0, i64 0, i64 %27
   %29 = load i32, ptr %28, align 4
   %30 = trunc i32 %29 to i8
-  %31 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   store i8 %30, ptr %31, align 1
   %32 = load i32, ptr %28, align 4
   %33 = lshr i32 %32, 8
   %34 = trunc i32 %33 to i8
   %35 = or disjoint i64 %indvars.iv, 1
-  %36 = getelementptr inbounds i8, ptr %1, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 %35
   store i8 %34, ptr %36, align 1
   %37 = load i32, ptr %28, align 4
   %38 = lshr i32 %37, 16
   %39 = trunc i32 %38 to i8
   %40 = or disjoint i64 %indvars.iv, 2
-  %41 = getelementptr inbounds i8, ptr %1, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 %40
   store i8 %39, ptr %41, align 1
   %42 = load i32, ptr %28, align 4
   %43 = lshr i32 %42, 24
   %44 = trunc nuw i32 %43 to i8
   %45 = or disjoint i64 %indvars.iv, 3
-  %46 = getelementptr inbounds i8, ptr %1, i64 %45
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 %45
   store i8 %44, ptr %46, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %47 = icmp samesign ult i64 %indvars.iv, 16

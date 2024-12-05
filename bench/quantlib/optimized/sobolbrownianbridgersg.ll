@@ -102,12 +102,12 @@ define internal fastcc void @_ZN8QuantLib12_GLOBAL__N_115setNextSequenceERNS_26S
 entry:
   %output = alloca %"class.std::vector", align 8
   %vtable = load ptr, ptr %gen, align 8, !tbaa !17
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef double %0(ptr noundef nonnull align 8 dereferenceable(288) %gen)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %output) #12
   %vtable1 = load ptr, ptr %gen, align 8, !tbaa !17
-  %vfn2 = getelementptr inbounds i8, ptr %vtable1, i64 32
+  %vfn2 = getelementptr inbounds nuw i8, ptr %vtable1, i64 32
   %1 = load ptr, ptr %vfn2, align 8
   %call3 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(288) %gen)
   %cmp.i.i = icmp ugt i64 %call3, 1152921504606846975
@@ -151,7 +151,7 @@ invoke.cont:                                      ; preds = %if.end.i.i.i.i.i.i.
 for.cond:                                         ; preds = %invoke.cont31, %invoke.cont
   %i.0 = phi i64 [ 0, %invoke.cont ], [ %inc, %invoke.cont31 ]
   %vtable4 = load ptr, ptr %gen, align 8, !tbaa !17
-  %vfn5 = getelementptr inbounds i8, ptr %vtable4, i64 40
+  %vfn5 = getelementptr inbounds nuw i8, ptr %vtable4, i64 40
   %3 = load ptr, ptr %vfn5, align 8
   %call8 = invoke noundef i64 %3(ptr noundef nonnull align 8 dereferenceable(288) %gen)
           to label %invoke.cont7 unwind label %lpad6
@@ -185,7 +185,7 @@ lpad6:                                            ; preds = %for.body, %for.cond
 
 for.body:                                         ; preds = %invoke.cont7
   %vtable9 = load ptr, ptr %gen, align 8, !tbaa !17
-  %vfn10 = getelementptr inbounds i8, ptr %vtable9, i64 16
+  %vfn10 = getelementptr inbounds nuw i8, ptr %vtable9, i64 16
   %7 = load ptr, ptr %vfn10, align 8
   %call12 = invoke noundef double %7(ptr noundef nonnull align 8 dereferenceable(288) %gen, ptr noundef nonnull align 8 dereferenceable(24) %output)
           to label %invoke.cont11 unwind label %lpad6
@@ -195,7 +195,7 @@ invoke.cont11:                                    ; preds = %for.body
   %9 = load ptr, ptr %_M_finish.i.i7.i, align 8, !tbaa !19
   %10 = load ptr, ptr %seq, align 8, !tbaa !19
   %vtable21 = load ptr, ptr %gen, align 8, !tbaa !17
-  %vfn22 = getelementptr inbounds i8, ptr %vtable21, i64 32
+  %vfn22 = getelementptr inbounds nuw i8, ptr %vtable21, i64 32
   %11 = load ptr, ptr %vfn22, align 8
   %call25 = invoke noundef i64 %11(ptr noundef nonnull align 8 dereferenceable(288) %gen)
           to label %invoke.cont24 unwind label %lpad23

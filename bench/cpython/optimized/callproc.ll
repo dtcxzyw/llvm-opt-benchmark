@@ -1141,11 +1141,11 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %pffi_type = getelementptr inbounds i8, ptr %call, i64 16
+  %pffi_type = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr null, ptr %pffi_type, align 16
-  %tag = getelementptr inbounds i8, ptr %call, i64 24
+  %tag = getelementptr inbounds nuw i8, ptr %call, i64 24
   store i8 0, ptr %tag, align 8
-  %value = getelementptr inbounds i8, ptr %call, i64 32
+  %value = getelementptr inbounds nuw i8, ptr %call, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %value, i8 0, i64 24, i1 false)
   tail call void @PyObject_GC_Track(ptr noundef nonnull %call) #10
   br label %return
@@ -1170,7 +1170,7 @@ entry:
 if.end:                                           ; preds = %entry
   %call = tail call ptr @PyType_stgdict(ptr noundef nonnull %obj) #10
   %cmp1 = icmp eq ptr %call, null
-  %ffi_type_pointer = getelementptr inbounds i8, ptr %call, i64 72
+  %ffi_type_pointer = getelementptr inbounds nuw i8, ptr %call, i64 72
   %spec.select = select i1 %cmp1, ptr @ffi_type_sint32, ptr %ffi_type_pointer
   br label %return
 
@@ -1324,12 +1324,12 @@ cond.end.thread:                                  ; preds = %if.end
   br i1 %cmp589106, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %cond.end.thread
-  %ob_item114 = getelementptr inbounds i8, ptr %argtuple, i64 24
-  %ob_item10115 = getelementptr inbounds i8, ptr %argtypes, i64 24
+  %ob_item114 = getelementptr inbounds nuw i8, ptr %argtuple, i64 24
+  %ob_item10115 = getelementptr inbounds nuw i8, ptr %argtypes, i64 24
   br label %for.body
 
 for.body.us.preheader:                            ; preds = %cond.end
-  %ob_item = getelementptr inbounds i8, ptr %argtuple, i64 24
+  %ob_item = getelementptr inbounds nuw i8, ptr %argtuple, i64 24
   br label %for.body.us
 
 for.body.us:                                      ; preds = %for.body.us.preheader, %for.inc.us
@@ -1425,7 +1425,7 @@ if.else31:                                        ; preds = %for.end
 if.end.i62:                                       ; preds = %if.else31
   %call.i = tail call ptr @PyType_stgdict(ptr noundef nonnull %restype) #10
   %cmp1.i = icmp eq ptr %call.i, null
-  %ffi_type_pointer.i = getelementptr inbounds i8, ptr %call.i, i64 72
+  %ffi_type_pointer.i = getelementptr inbounds nuw i8, ptr %call.i, i64 72
   %spec.select.i = select i1 %cmp1.i, ptr @ffi_type_sint32, ptr %ffi_type_pointer.i
   br label %if.end33
 
@@ -1445,10 +1445,10 @@ for.body51:                                       ; preds = %if.end33, %for.inc6
   %16 = load ptr, ptr %arrayidx52, align 16
   %arrayidx53 = getelementptr ptr, ptr %15, i64 %i.193
   store ptr %16, ptr %arrayidx53, align 8
-  %type = getelementptr inbounds i8, ptr %16, i64 10
+  %type = getelementptr inbounds nuw i8, ptr %16, i64 10
   %17 = load i16, ptr %type, align 2
   %cmp55 = icmp eq i16 %17, 13
-  %value = getelementptr inbounds i8, ptr %arrayidx52, i64 16
+  %value = getelementptr inbounds nuw i8, ptr %arrayidx52, i64 16
   br i1 %cmp55, label %if.then57, label %for.inc65
 
 if.then57:                                        ; preds = %for.body51
@@ -1599,7 +1599,7 @@ if.then9.i:                                       ; preds = %if.end5.i
   br i1 %cmp589109, label %for.body79.preheader, label %return
 
 if.end11.i:                                       ; preds = %if.end5.i
-  %getfunc.i = getelementptr inbounds i8, ptr %call6.i, i64 112
+  %getfunc.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 112
   %31 = load ptr, ptr %getfunc.i, align 8
   %tobool.not.i = icmp eq ptr %31, null
   br i1 %tobool.not.i, label %if.else.i73, label %land.lhs.true.i71
@@ -1611,12 +1611,12 @@ land.lhs.true.i71:                                ; preds = %if.end11.i
 
 if.then14.i75:                                    ; preds = %land.lhs.true.i71
   %32 = load ptr, ptr %getfunc.i, align 8
-  %size.i = getelementptr inbounds i8, ptr %call6.i, i64 48
+  %size.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 48
   %33 = load i64, ptr %size.i, align 8
   %call16.i = call ptr %32(ptr noundef nonnull %13, i64 noundef %33) #10
   %34 = load ptr, ptr %getfunc.i, align 8
   %call18.i = call ptr @_ctypes_get_fielddesc(ptr noundef nonnull @.str.50) #10
-  %getfunc19.i = getelementptr inbounds i8, ptr %call18.i, i64 16
+  %getfunc19.i = getelementptr inbounds nuw i8, ptr %call18.i, i64 16
   %35 = load ptr, ptr %getfunc19.i, align 8
   %cmp20.i = icmp eq ptr %34, %35
   br i1 %cmp20.i, label %if.then22.i76, label %if.end25.i
@@ -1727,25 +1727,25 @@ declare ptr @PyObject_CallOneArg(ptr noundef, ptr noundef) local_unnamed_addr #1
 define internal fastcc range(i32 -1, 1) i32 @ConvParam(ptr noundef %obj, i64 noundef range(i64 -9223372036854775807, 1025) %index, ptr nocapture noundef initializes((8, 16)) %pa) unnamed_addr #0 {
 entry:
   %arg = alloca ptr, align 8
-  %keep = getelementptr inbounds i8, ptr %pa, i64 8
+  %keep = getelementptr inbounds nuw i8, ptr %pa, i64 8
   store ptr null, ptr %keep, align 8
   %call = tail call ptr @PyObject_stgdict(ptr noundef %obj) #10
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %if.end5, label %if.then
 
 if.then:                                          ; preds = %entry
-  %paramfunc = getelementptr inbounds i8, ptr %call, i64 120
+  %paramfunc = getelementptr inbounds nuw i8, ptr %call, i64 120
   %0 = load ptr, ptr %paramfunc, align 8
   %call1 = tail call ptr %0(ptr noundef %obj) #10
   %cmp = icmp eq ptr %call1, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then
-  %pffi_type = getelementptr inbounds i8, ptr %call1, i64 16
+  %pffi_type = getelementptr inbounds nuw i8, ptr %call1, i64 16
   %1 = load ptr, ptr %pffi_type, align 16
   store ptr %1, ptr %pa, align 16
-  %value = getelementptr inbounds i8, ptr %pa, i64 16
-  %value3 = getelementptr inbounds i8, ptr %call1, i64 32
+  %value = getelementptr inbounds nuw i8, ptr %pa, i64 16
+  %value3 = getelementptr inbounds nuw i8, ptr %call1, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %value, ptr noundef nonnull align 16 dereferenceable(16) %value3, i64 16, i1 false)
   store ptr %call1, ptr %keep, align 8
   br label %return
@@ -1758,7 +1758,7 @@ if.end5:                                          ; preds = %entry
   br i1 %cmp.i50.not, label %if.then8, label %if.end16
 
 if.then8:                                         ; preds = %if.end5
-  %pffi_type10 = getelementptr inbounds i8, ptr %obj, i64 16
+  %pffi_type10 = getelementptr inbounds nuw i8, ptr %obj, i64 16
   %4 = load ptr, ptr %pffi_type10, align 16
   store ptr %4, ptr %pa, align 16
   %5 = load i32, ptr %obj, align 8
@@ -1772,8 +1772,8 @@ if.end.i.i:                                       ; preds = %if.then8
 
 _Py_NewRef.exit:                                  ; preds = %if.then8, %if.end.i.i
   store ptr %obj, ptr %keep, align 8
-  %value14 = getelementptr inbounds i8, ptr %pa, i64 16
-  %value15 = getelementptr inbounds i8, ptr %obj, i64 32
+  %value14 = getelementptr inbounds nuw i8, ptr %pa, i64 16
+  %value15 = getelementptr inbounds nuw i8, ptr %obj, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %value14, ptr noundef nonnull align 16 dereferenceable(16) %value15, i64 16, i1 false)
   br label %return
 
@@ -1783,7 +1783,7 @@ if.end16:                                         ; preds = %if.end5
 
 if.then18:                                        ; preds = %if.end16
   store ptr @ffi_type_pointer, ptr %pa, align 16
-  %value20 = getelementptr inbounds i8, ptr %pa, i64 16
+  %value20 = getelementptr inbounds nuw i8, ptr %pa, i64 16
   store ptr null, ptr %value20, align 16
   br label %return
 
@@ -1798,7 +1798,7 @@ if.then25:                                        ; preds = %if.end21
   store ptr @ffi_type_sint32, ptr %pa, align 16
   %call27 = tail call i64 @PyLong_AsUnsignedLong(ptr noundef %obj) #10
   %conv = trunc i64 %call27 to i32
-  %value28 = getelementptr inbounds i8, ptr %pa, i64 16
+  %value28 = getelementptr inbounds nuw i8, ptr %pa, i64 16
   store i32 %conv, ptr %value28, align 16
   %cmp30 = icmp eq i32 %conv, -1
   br i1 %cmp30, label %land.lhs.true, label %return
@@ -1834,7 +1834,7 @@ if.end47:                                         ; preds = %if.end21
 if.then51:                                        ; preds = %if.end47
   store ptr @ffi_type_pointer, ptr %pa, align 16
   %call53 = tail call ptr @PyBytes_AsString(ptr noundef %obj) #10
-  %value54 = getelementptr inbounds i8, ptr %pa, i64 16
+  %value54 = getelementptr inbounds nuw i8, ptr %pa, i64 16
   store ptr %call53, ptr %value54, align 16
   %10 = load i32, ptr %obj, align 8
   %add.i.i56 = add i32 %10, 1
@@ -1857,7 +1857,7 @@ if.end57:                                         ; preds = %if.end47
 if.then61:                                        ; preds = %if.end57
   store ptr @ffi_type_pointer, ptr %pa, align 16
   %call63 = tail call ptr @PyUnicode_AsWideCharString(ptr noundef %obj, ptr noundef null) #10
-  %value64 = getelementptr inbounds i8, ptr %pa, i64 16
+  %value64 = getelementptr inbounds nuw i8, ptr %pa, i64 16
   store ptr %call63, ptr %value64, align 16
   %cmp66 = icmp eq ptr %call63, null
   br i1 %cmp66, label %return, label %if.end69
@@ -2072,7 +2072,7 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp.i.i.not, label %if.else24, label %if.then15
 
 if.then15:                                        ; preds = %if.else
-  %tp_name = getelementptr inbounds i8, ptr %cls, i64 24
+  %tp_name = getelementptr inbounds nuw i8, ptr %cls, i64 24
   %6 = load ptr, ptr %tp_name, align 8
   %call17 = call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.57, ptr noundef %6) #10
   %PyCPointer_Type.val = load ptr, ptr getelementptr inbounds (i8, ptr @PyCPointer_Type, i64 8), align 8
@@ -2223,7 +2223,7 @@ if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %typ, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %args.i)
   store ptr %0, ptr %args.i, align 16
-  %arrayinit.element.i = getelementptr inbounds i8, ptr %args.i, i64 8
+  %arrayinit.element.i = getelementptr inbounds nuw i8, ptr %args.i, i64 8
   store ptr %0, ptr %arrayinit.element.i, align 8
   %call.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 31864), ptr noundef nonnull %args.i, i64 noundef -9223372036854775806, ptr noundef null) #10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %args.i)
@@ -2311,7 +2311,7 @@ if.then3:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %entry, %if.end
   %dict.018 = phi ptr [ %call1, %if.end ], [ %call, %entry ]
-  %ndim = getelementptr inbounds i8, ptr %dict.018, i64 176
+  %ndim = getelementptr inbounds nuw i8, ptr %dict.018, i64 176
   %1 = load i32, ptr %ndim, align 8
   %conv = sext i32 %1 to i64
   %call5 = tail call ptr @PyTuple_New(i64 noundef %conv) #10
@@ -2324,8 +2324,8 @@ for.cond.preheader:                               ; preds = %if.end4
   br i1 %cmp1220, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %shape14 = getelementptr inbounds i8, ptr %dict.018, i64 184
-  %ob_item.i = getelementptr inbounds i8, ptr %call5, i64 24
+  %shape14 = getelementptr inbounds nuw i8, ptr %dict.018, i64 184
+  %ob_item.i = getelementptr inbounds nuw i8, ptr %call5, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -2364,7 +2364,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %return
 
 if.end18:                                         ; preds = %for.end
-  %format = getelementptr inbounds i8, ptr %dict.018, i64 168
+  %format = getelementptr inbounds nuw i8, ptr %dict.018, i64 168
   %8 = load ptr, ptr %format, align 8
   %9 = load i32, ptr %ndim, align 8
   %call20 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.63, ptr noundef %8, i32 noundef %9, ptr noundef nonnull %call5) #10
@@ -2397,7 +2397,7 @@ if.then2:                                         ; preds = %if.end
 
 if.end3:                                          ; preds = %if.end
   %2 = load i64, ptr %size, align 8
-  %size4 = getelementptr inbounds i8, ptr %call1, i64 48
+  %size4 = getelementptr inbounds nuw i8, ptr %call1, i64 48
   %3 = load i64, ptr %size4, align 8
   %cmp5 = icmp slt i64 %2, %3
   br i1 %cmp5, label %if.then6, label %if.end9
@@ -2409,7 +2409,7 @@ if.then6:                                         ; preds = %if.end3
 
 if.end9:                                          ; preds = %if.end3
   %5 = load ptr, ptr %obj, align 8
-  %b_needsfree = getelementptr inbounds i8, ptr %5, i64 24
+  %b_needsfree = getelementptr inbounds nuw i8, ptr %5, i64 24
   %6 = load i32, ptr %b_needsfree, align 8
   %cmp10 = icmp eq i32 %6, 0
   br i1 %cmp10, label %if.then11, label %if.end13
@@ -2424,14 +2424,14 @@ if.end13:                                         ; preds = %if.end9
   br i1 %cmp14, label %if.then15, label %if.end16
 
 if.then15:                                        ; preds = %if.end13
-  %b_size = getelementptr inbounds i8, ptr %5, i64 40
+  %b_size = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i64 %2, ptr %b_size, align 8
   br label %return
 
 if.end16:                                         ; preds = %if.end13
-  %b_ptr = getelementptr inbounds i8, ptr %5, i64 16
+  %b_ptr = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %b_ptr, align 16
-  %b_value = getelementptr inbounds i8, ptr %5, i64 80
+  %b_value = getelementptr inbounds nuw i8, ptr %5, i64 80
   %cmp17.not = icmp eq ptr %8, %b_value
   br i1 %cmp17.not, label %if.then18, label %if.else
 
@@ -2446,16 +2446,16 @@ if.then21:                                        ; preds = %if.then18
 
 if.end23:                                         ; preds = %if.then18
   %9 = load ptr, ptr %obj, align 8
-  %b_ptr24 = getelementptr inbounds i8, ptr %9, i64 16
+  %b_ptr24 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %10 = load ptr, ptr %b_ptr24, align 16
-  %b_size25 = getelementptr inbounds i8, ptr %9, i64 40
+  %b_size25 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %11 = load i64, ptr %b_size25, align 8
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %call19, ptr align 1 %10, i64 %11, i1 false)
   %12 = load ptr, ptr %obj, align 8
-  %b_ptr26 = getelementptr inbounds i8, ptr %12, i64 16
+  %b_ptr26 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %call19, ptr %b_ptr26, align 16
   %13 = load i64, ptr %size, align 8
-  %b_size27 = getelementptr inbounds i8, ptr %12, i64 40
+  %b_size27 = getelementptr inbounds nuw i8, ptr %12, i64 40
   store i64 %13, ptr %b_size27, align 8
   br label %return
 
@@ -2470,10 +2470,10 @@ if.then32:                                        ; preds = %if.else
 
 if.end34:                                         ; preds = %if.else
   %14 = load ptr, ptr %obj, align 8
-  %b_ptr35 = getelementptr inbounds i8, ptr %14, i64 16
+  %b_ptr35 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %call30, ptr %b_ptr35, align 16
   %15 = load i64, ptr %size, align 8
-  %b_size36 = getelementptr inbounds i8, ptr %14, i64 40
+  %b_size36 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store i64 %15, ptr %b_size36, align 8
   br label %return
 
@@ -2508,7 +2508,7 @@ if.then1:                                         ; preds = %if.end
 
 if.end5:                                          ; preds = %if.then1
   %2 = load ptr, ptr %name2, align 8
-  %ob_sval.i = getelementptr inbounds i8, ptr %2, i64 32
+  %ob_sval.i = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.pre = load ptr, ptr %name, align 8
   br label %if.end7
 
@@ -2636,7 +2636,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %align = getelementptr inbounds i8, ptr %call, i64 56
+  %align = getelementptr inbounds nuw i8, ptr %call, i64 56
   %0 = load i64, ptr %align, align 8
   %call1 = tail call ptr @PyLong_FromSsize_t(i64 noundef %0) #10
   br label %return
@@ -2647,7 +2647,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool3.not, label %if.end7, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %align5 = getelementptr inbounds i8, ptr %call2, i64 56
+  %align5 = getelementptr inbounds nuw i8, ptr %call2, i64 56
   %1 = load i64, ptr %align5, align 8
   %call6 = tail call ptr @PyLong_FromSsize_t(i64 noundef %1) #10
   br label %return
@@ -2670,7 +2670,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %size = getelementptr inbounds i8, ptr %call, i64 48
+  %size = getelementptr inbounds nuw i8, ptr %call, i64 48
   %0 = load i64, ptr %size, align 8
   %call1 = tail call ptr @PyLong_FromSsize_t(i64 noundef %0) #10
   br label %return
@@ -2687,7 +2687,7 @@ PyObject_TypeCheck.exit:                          ; preds = %if.end
   br i1 %tobool3.i.not, label %if.end6, label %if.then4
 
 if.then4:                                         ; preds = %if.end, %PyObject_TypeCheck.exit
-  %b_size = getelementptr inbounds i8, ptr %obj, i64 40
+  %b_size = getelementptr inbounds nuw i8, ptr %obj, i64 40
   %2 = load i64, ptr %b_size, align 8
   %call5 = tail call ptr @PyLong_FromSsize_t(i64 noundef %2) #10
   br label %return
@@ -2745,7 +2745,7 @@ if.then11:                                        ; preds = %PyObject_TypeCheck.
   %4 = load ptr, ptr %obj, align 8
   %5 = getelementptr i8, ptr %4, i64 8
   %.val = load ptr, ptr %5, align 8
-  %tp_name = getelementptr inbounds i8, ptr %.val, i64 24
+  %tp_name = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %6 = load ptr, ptr %tp_name, align 8
   %call13 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %3, ptr noundef nonnull @.str.76, ptr noundef %6) #10
   br label %return
@@ -2757,11 +2757,11 @@ if.end14:                                         ; preds = %if.end8, %PyObject_
   br i1 %cmp.i, label %return, label %if.end18
 
 if.end18:                                         ; preds = %if.end14
-  %pffi_type.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %pffi_type.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store ptr null, ptr %pffi_type.i, align 16
-  %tag.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %tag.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store i8 0, ptr %tag.i, align 8
-  %value.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %value.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %value.i, i8 0, i64 24, i1 false)
   call void @PyObject_GC_Track(ptr noundef nonnull %call.i) #10
   store i8 80, ptr %tag.i, align 8
@@ -2779,9 +2779,9 @@ if.end.i.i:                                       ; preds = %if.end18
 
 _Py_NewRef.exit:                                  ; preds = %if.end18, %if.end.i.i
   %10 = phi ptr [ %8, %if.end18 ], [ %.pre, %if.end.i.i ]
-  %obj20 = getelementptr inbounds i8, ptr %call.i, i64 48
+  %obj20 = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   store ptr %8, ptr %obj20, align 16
-  %b_ptr = getelementptr inbounds i8, ptr %10, i64 16
+  %b_ptr = getelementptr inbounds nuw i8, ptr %10, i64 16
   %11 = load ptr, ptr %b_ptr, align 16
   %add.ptr = getelementptr i8, ptr %11, i64 %offset.0
   store ptr %add.ptr, ptr %value.i, align 16
@@ -2816,7 +2816,7 @@ if.end:                                           ; preds = %entry, %PyObject_Ty
   br i1 %cmp, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %b_ptr = getelementptr inbounds i8, ptr %obj, i64 16
+  %b_ptr = getelementptr inbounds nuw i8, ptr %obj, i64 16
   %2 = load ptr, ptr %b_ptr, align 16
   %call4 = tail call ptr @PyLong_FromVoidPtr(ptr noundef %2) #10
   br label %return
@@ -2974,7 +2974,7 @@ entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
   tail call void @PyObject_GC_UnTrack(ptr noundef %self) #10
-  %obj.i = getelementptr inbounds i8, ptr %self, i64 48
+  %obj.i = getelementptr inbounds nuw i8, ptr %self, i64 48
   %1 = load ptr, ptr %obj.i, align 8
   %cmp.not.i = icmp eq ptr %1, null
   br i1 %cmp.not.i, label %PyCArg_clear.exit, label %if.then.i
@@ -2997,7 +2997,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %PyCArg_clear.exit
 
 PyCArg_clear.exit:                                ; preds = %entry, %if.then.i, %if.end.i.i, %if.then1.i.i
-  %tp_free = getelementptr inbounds i8, ptr %self.val, i64 320
+  %tp_free = getelementptr inbounds nuw i8, ptr %self.val, i64 320
   %4 = load ptr, ptr %tp_free, align 8
   tail call void %4(ptr noundef nonnull %self) #10
   %5 = load i64, ptr %self.val, align 8
@@ -3033,7 +3033,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool3.not, label %do.body6, label %return
 
 do.body6:                                         ; preds = %if.then, %entry
-  %obj = getelementptr inbounds i8, ptr %self, i64 48
+  %obj = getelementptr inbounds nuw i8, ptr %self, i64 48
   %1 = load ptr, ptr %obj, align 16
   %tobool7.not = icmp eq ptr %1, null
   br i1 %tobool7.not, label %do.end16, label %if.then8
@@ -3054,7 +3054,7 @@ return:                                           ; preds = %if.then8, %if.then,
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @PyCArg_clear(ptr nocapture noundef %self) #0 {
 entry:
-  %obj = getelementptr inbounds i8, ptr %self, i64 48
+  %obj = getelementptr inbounds nuw i8, ptr %self, i64 48
   %0 = load ptr, ptr %obj, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %do.end, label %if.then
@@ -3083,7 +3083,7 @@ do.end:                                           ; preds = %entry, %if.then, %i
 ; Function Attrs: nounwind uwtable
 define internal ptr @PyCArg_repr(ptr noundef %self) #0 {
 entry:
-  %tag = getelementptr inbounds i8, ptr %self, i64 24
+  %tag = getelementptr inbounds nuw i8, ptr %self, i64 24
   %0 = load i8, ptr %tag, align 8
   switch i8 %0, label %sw.default [
     i8 98, label %sw.bb
@@ -3106,7 +3106,7 @@ entry:
 
 sw.bb:                                            ; preds = %entry, %entry
   %conv2 = zext nneg i8 %0 to i32
-  %value = getelementptr inbounds i8, ptr %self, i64 32
+  %value = getelementptr inbounds nuw i8, ptr %self, i64 32
   %1 = load i8, ptr %value, align 16
   %conv3 = sext i8 %1 to i32
   %call = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.33, i32 noundef %conv2, i32 noundef %conv3) #10
@@ -3114,7 +3114,7 @@ sw.bb:                                            ; preds = %entry, %entry
 
 sw.bb4:                                           ; preds = %entry, %entry
   %conv6 = zext nneg i8 %0 to i32
-  %value7 = getelementptr inbounds i8, ptr %self, i64 32
+  %value7 = getelementptr inbounds nuw i8, ptr %self, i64 32
   %2 = load i16, ptr %value7, align 16
   %conv8 = sext i16 %2 to i32
   %call9 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.33, i32 noundef %conv6, i32 noundef %conv8) #10
@@ -3122,33 +3122,33 @@ sw.bb4:                                           ; preds = %entry, %entry
 
 sw.bb10:                                          ; preds = %entry, %entry
   %conv12 = zext nneg i8 %0 to i32
-  %value13 = getelementptr inbounds i8, ptr %self, i64 32
+  %value13 = getelementptr inbounds nuw i8, ptr %self, i64 32
   %3 = load i32, ptr %value13, align 16
   %call14 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.33, i32 noundef %conv12, i32 noundef %3) #10
   br label %return
 
 sw.bb15:                                          ; preds = %entry, %entry
   %conv17 = zext nneg i8 %0 to i32
-  %value18 = getelementptr inbounds i8, ptr %self, i64 32
+  %value18 = getelementptr inbounds nuw i8, ptr %self, i64 32
   %4 = load i64, ptr %value18, align 16
   %call19 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.34, i32 noundef %conv17, i64 noundef %4) #10
   br label %return
 
 sw.bb20:                                          ; preds = %entry, %entry
   %conv22 = zext nneg i8 %0 to i32
-  %value23 = getelementptr inbounds i8, ptr %self, i64 32
+  %value23 = getelementptr inbounds nuw i8, ptr %self, i64 32
   %5 = load i64, ptr %value23, align 16
   %call24 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.35, i32 noundef %conv22, i64 noundef %5) #10
   br label %return
 
 cond.true:                                        ; preds = %entry
-  %value29 = getelementptr inbounds i8, ptr %self, i64 32
+  %value29 = getelementptr inbounds nuw i8, ptr %self, i64 32
   %6 = load float, ptr %value29, align 16
   %conv30 = fpext float %6 to double
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
-  %value31 = getelementptr inbounds i8, ptr %self, i64 32
+  %value31 = getelementptr inbounds nuw i8, ptr %self, i64 32
   %7 = load double, ptr %value31, align 16
   br label %cond.end
 
@@ -3178,7 +3178,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %return
 
 sw.bb38:                                          ; preds = %entry
-  %value39 = getelementptr inbounds i8, ptr %self, i64 32
+  %value39 = getelementptr inbounds nuw i8, ptr %self, i64 32
   %11 = load i8, ptr %value39, align 16
   %cmp.i31 = icmp sgt i8 %11, -1
   br i1 %cmp.i31, label %land.lhs.true.i, label %if.else
@@ -3214,7 +3214,7 @@ if.else:                                          ; preds = %switch.early.test, 
 
 sw.bb52:                                          ; preds = %entry, %entry, %entry
   %conv54 = zext nneg i8 %0 to i32
-  %value55 = getelementptr inbounds i8, ptr %self, i64 32
+  %value55 = getelementptr inbounds nuw i8, ptr %self, i64 32
   %14 = load ptr, ptr %value55, align 16
   %call56 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.39, i32 noundef %conv54, ptr noundef %14) #10
   br label %return

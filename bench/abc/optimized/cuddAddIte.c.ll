@@ -5,7 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define ptr @Cudd_addIte(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 448
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %6
 
 6:                                                ; preds = %6, %4
@@ -21,13 +21,13 @@ define ptr @Cudd_addIte(ptr noundef initializes((448, 452)) %0, ptr noundef %1, 
 
 ; Function Attrs: nounwind uwtable
 define ptr @cuddAddIteRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %1, %6
   br i1 %7, label %123, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %1, %10
   br i1 %11, label %123, label %addVarToConst.exit
@@ -52,10 +52,10 @@ addVarToConst.exit:                               ; preds = %8
   br i1 %20, label %27, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %0, i64 312
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %23 = load ptr, ptr %22, align 8
   %24 = zext i32 %19 to i64
-  %25 = getelementptr inbounds i32, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw i32, ptr %23, i64 %24
   %26 = load i32, ptr %25, align 4
   br label %27
 
@@ -66,10 +66,10 @@ addVarToConst.exit:                               ; preds = %8
   br i1 %30, label %37, label %31
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %0, i64 312
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %33 = load ptr, ptr %32, align 8
   %34 = zext i32 %29 to i64
-  %35 = getelementptr inbounds i32, ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw i32, ptr %33, i64 %34
   %36 = load i32, ptr %35, align 4
   br label %37
 
@@ -80,10 +80,10 @@ addVarToConst.exit:                               ; preds = %8
   br i1 %40, label %47, label %41
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %0, i64 312
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %43 = load ptr, ptr %42, align 8
   %44 = zext i32 %39 to i64
-  %45 = getelementptr inbounds i32, ptr %43, i64 %44
+  %45 = getelementptr inbounds nuw i32, ptr %43, i64 %44
   %46 = load i32, ptr %45, align 4
   br label %47
 
@@ -94,13 +94,13 @@ addVarToConst.exit:                               ; preds = %8
   br i1 %50, label %51, label %.critedge
 
 51:                                               ; preds = %47
-  %52 = getelementptr inbounds i8, ptr %1, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %53, %6
   br i1 %54, label %55, label %61
 
 55:                                               ; preds = %51
-  %56 = getelementptr inbounds i8, ptr %1, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %57 = load ptr, ptr %56, align 8
   %58 = icmp eq ptr %57, %10
   br i1 %58, label %59, label %61
@@ -114,7 +114,7 @@ addVarToConst.exit:                               ; preds = %8
   br i1 %62, label %63, label %.critedge
 
 63:                                               ; preds = %61
-  %64 = getelementptr inbounds i8, ptr %1, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %65 = load ptr, ptr %64, align 8
   %66 = icmp eq ptr %65, %6
   br i1 %66, label %67, label %.critedge
@@ -134,9 +134,9 @@ addVarToConst.exit:                               ; preds = %8
 
 71:                                               ; preds = %70
   %72 = load i32, ptr %1, align 8
-  %73 = getelementptr inbounds i8, ptr %1, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %1, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %76 = load ptr, ptr %75, align 8
   br label %77
 
@@ -150,9 +150,9 @@ addVarToConst.exit:                               ; preds = %8
 
 79:                                               ; preds = %77
   %80 = load i32, ptr %spec.select, align 8
-  %81 = getelementptr inbounds i8, ptr %spec.select, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %spec.select, i64 16
   %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %spec.select, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %spec.select, i64 24
   %84 = load ptr, ptr %83, align 8
   br label %85
 
@@ -165,9 +165,9 @@ addVarToConst.exit:                               ; preds = %8
 
 87:                                               ; preds = %85
   %88 = load i32, ptr %.0133, align 8
-  %89 = getelementptr inbounds i8, ptr %.0133, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %.0133, i64 16
   %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %.0133, i64 24
+  %91 = getelementptr inbounds nuw i8, ptr %.0133, i64 24
   %92 = load ptr, ptr %91, align 8
   br label %93
 
@@ -183,7 +183,7 @@ addVarToConst.exit:                               ; preds = %8
   %97 = ptrtoint ptr %94 to i64
   %98 = and i64 %97, -2
   %99 = inttoptr i64 %98 to ptr
-  %100 = getelementptr inbounds i8, ptr %99, i64 4
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 4
   %101 = load i32, ptr %100, align 4
   %102 = add i32 %101, 1
   store i32 %102, ptr %100, align 4
@@ -199,7 +199,7 @@ addVarToConst.exit:                               ; preds = %8
   %107 = ptrtoint ptr %103 to i64
   %108 = and i64 %107, -2
   %109 = inttoptr i64 %108 to ptr
-  %110 = getelementptr inbounds i8, ptr %109, i64 4
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 4
   %111 = load i32, ptr %110, align 4
   %112 = add i32 %111, 1
   store i32 %112, ptr %110, align 4
@@ -234,13 +234,13 @@ addVarToConst.exit:                               ; preds = %8
 
 ; Function Attrs: nounwind uwtable
 define ptr @Cudd_addIteConstant(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %1, %6
   br i1 %7, label %96, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %1, %10
   br i1 %11, label %96, label %addVarToConst.exit
@@ -269,10 +269,10 @@ addVarToConst.exit:                               ; preds = %8
   br i1 %23, label %30, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %0, i64 312
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %26 = load ptr, ptr %25, align 8
   %27 = zext i32 %22 to i64
-  %28 = getelementptr inbounds i32, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw i32, ptr %26, i64 %27
   %29 = load i32, ptr %28, align 4
   br label %30
 
@@ -281,10 +281,10 @@ addVarToConst.exit:                               ; preds = %8
   br i1 %17, label %38, label %32
 
 32:                                               ; preds = %30
-  %33 = getelementptr inbounds i8, ptr %0, i64 312
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %34 = load ptr, ptr %33, align 8
   %35 = zext i32 %16 to i64
-  %36 = getelementptr inbounds i32, ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw i32, ptr %34, i64 %35
   %37 = load i32, ptr %36, align 4
   br label %38
 
@@ -295,10 +295,10 @@ addVarToConst.exit:                               ; preds = %8
   br i1 %41, label %48, label %42
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %0, i64 312
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %44 = load ptr, ptr %43, align 8
   %45 = zext i32 %40 to i64
-  %46 = getelementptr inbounds i32, ptr %44, i64 %45
+  %46 = getelementptr inbounds nuw i32, ptr %44, i64 %45
   %47 = load i32, ptr %46, align 4
   br label %48
 
@@ -309,14 +309,14 @@ addVarToConst.exit:                               ; preds = %8
   br i1 %51, label %52, label %62
 
 52:                                               ; preds = %48
-  %53 = getelementptr inbounds i8, ptr %1, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %54 = load ptr, ptr %53, align 8
   %55 = load i32, ptr %54, align 8
   %56 = icmp eq i32 %55, 2147483647
   br i1 %56, label %57, label %62
 
 57:                                               ; preds = %52
-  %58 = getelementptr inbounds i8, ptr %1, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %59 = load ptr, ptr %58, align 8
   %60 = load i32, ptr %59, align 8
   %61 = icmp eq i32 %60, 2147483647
@@ -332,9 +332,9 @@ addVarToConst.exit:                               ; preds = %8
   br i1 %.not83, label %70, label %65
 
 65:                                               ; preds = %64
-  %66 = getelementptr inbounds i8, ptr %1, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %1, i64 24
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %69 = load ptr, ptr %68, align 8
   br label %70
 
@@ -346,9 +346,9 @@ addVarToConst.exit:                               ; preds = %8
   br i1 %71, label %72, label %77
 
 72:                                               ; preds = %70
-  %73 = getelementptr inbounds i8, ptr %spec.select, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %spec.select, i64 16
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %spec.select, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %spec.select, i64 24
   %76 = load ptr, ptr %75, align 8
   br label %77
 
@@ -359,9 +359,9 @@ addVarToConst.exit:                               ; preds = %8
   br i1 %78, label %79, label %84
 
 79:                                               ; preds = %77
-  %80 = getelementptr inbounds i8, ptr %.0103, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %.0103, i64 16
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %.0103, i64 24
+  %82 = getelementptr inbounds nuw i8, ptr %.0103, i64 24
   %83 = load ptr, ptr %82, align 8
   br label %84
 
@@ -406,7 +406,7 @@ declare void @cuddCacheInsert(ptr noundef, i64 noundef, ptr noundef, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define ptr @Cudd_addEvalConst(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %1, %5
   br i1 %6, label %common.ret83, label %7
@@ -417,33 +417,33 @@ define ptr @Cudd_addEvalConst(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0
   br i1 %9, label %common.ret83, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %1, %12
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %0, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %16 = load ptr, ptr %15, align 8
   br label %common.ret83
 
 17:                                               ; preds = %10
   %18 = load i32, ptr %1, align 8
   %19 = icmp eq i32 %18, 2147483647
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 312
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 312
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %19, label %._crit_edge, label %20
 
 20:                                               ; preds = %17
   %21 = zext i32 %18 to i64
-  %22 = getelementptr inbounds i32, ptr %.pre, i64 %21
+  %22 = getelementptr inbounds nuw i32, ptr %.pre, i64 %21
   %23 = load i32, ptr %22, align 4
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %17, %20
   %24 = phi i32 [ %23, %20 ], [ 2147483647, %17 ]
   %25 = zext i32 %8 to i64
-  %26 = getelementptr inbounds i32, ptr %.pre, i64 %25
+  %26 = getelementptr inbounds nuw i32, ptr %.pre, i64 %25
   %27 = load i32, ptr %26, align 4
   %28 = tail call ptr @cuddConstantLookup(ptr noundef nonnull %0, i64 noundef 102, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %2) #3
   %.not = icmp eq ptr %28, null
@@ -454,9 +454,9 @@ define ptr @Cudd_addEvalConst(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0
   br i1 %.not78, label %35, label %30
 
 30:                                               ; preds = %29
-  %31 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %34 = load ptr, ptr %33, align 8
   br label %35
 
@@ -467,9 +467,9 @@ define ptr @Cudd_addEvalConst(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0
   br i1 %.not79, label %41, label %36
 
 36:                                               ; preds = %35
-  %37 = getelementptr inbounds i8, ptr %2, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %2, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %40 = load ptr, ptr %39, align 8
   br label %41
 
@@ -531,7 +531,7 @@ declare void @cuddCacheInsert2(ptr noundef, ptr noundef, ptr noundef, ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define ptr @Cudd_addCmpl(ptr noundef initializes((448, 452)) %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 448
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %4
 
 4:                                                ; preds = %4, %2
@@ -552,9 +552,9 @@ define ptr @cuddAddCmplRecur(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   br i1 %4, label %5, label %11
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %1, %7
   %. = select i1 %10, ptr %9, ptr %7
@@ -566,9 +566,9 @@ define ptr @cuddAddCmplRecur(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   br i1 %.not, label %13, label %48
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr @cuddAddCmplRecur(ptr noundef nonnull %0, ptr noundef %15)
   %19 = icmp eq ptr %18, null
@@ -578,7 +578,7 @@ define ptr @cuddAddCmplRecur(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   %21 = ptrtoint ptr %18 to i64
   %22 = and i64 %21, -2
   %23 = inttoptr i64 %22 to ptr
-  %24 = getelementptr inbounds i8, ptr %23, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %25 = load i32, ptr %24, align 4
   %26 = add i32 %25, 1
   store i32 %26, ptr %24, align 4
@@ -594,7 +594,7 @@ define ptr @cuddAddCmplRecur(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   %31 = ptrtoint ptr %27 to i64
   %32 = and i64 %31, -2
   %33 = inttoptr i64 %32 to ptr
-  %34 = getelementptr inbounds i8, ptr %33, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %35 = load i32, ptr %34, align 4
   %36 = add i32 %35, 1
   store i32 %36, ptr %34, align 4
@@ -639,7 +639,7 @@ define range(i32 0, 2) i32 @Cudd_addLeq(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %7, label %8, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %5
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 56
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %26
 
@@ -649,22 +649,22 @@ define range(i32 0, 2) i32 @Cudd_addLeq(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %10, label %11, label %18
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %1, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load double, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %2, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %15 = load double, ptr %14, align 8
   %16 = fcmp ole double %13, %15
   %17 = zext i1 %16 to i32
   br label %85
 
 18:                                               ; preds = %8
-  %19 = getelementptr inbounds i8, ptr %0, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %1, %20
   br i1 %21, label %85, label %22
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %0, i64 56
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %1, %24
   br i1 %25, label %85, label %26
@@ -675,7 +675,7 @@ define range(i32 0, 2) i32 @Cudd_addLeq(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %28, label %85, label %29
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %0, i64 64
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %2, %31
   br i1 %32, label %85, label %33
@@ -686,7 +686,7 @@ define range(i32 0, 2) i32 @Cudd_addLeq(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not, label %40, label %35
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds i8, ptr %0, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %34, %37
   %39 = zext i1 %38 to i32
@@ -698,10 +698,10 @@ define range(i32 0, 2) i32 @Cudd_addLeq(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %42, label %49, label %43
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %0, i64 312
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %45 = load ptr, ptr %44, align 8
   %46 = zext i32 %41 to i64
-  %47 = getelementptr inbounds i32, ptr %45, i64 %46
+  %47 = getelementptr inbounds nuw i32, ptr %45, i64 %46
   %48 = load i32, ptr %47, align 4
   br label %49
 
@@ -712,10 +712,10 @@ define range(i32 0, 2) i32 @Cudd_addLeq(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %52, label %59, label %53
 
 53:                                               ; preds = %49
-  %54 = getelementptr inbounds i8, ptr %0, i64 312
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %55 = load ptr, ptr %54, align 8
   %56 = zext i32 %51 to i64
-  %57 = getelementptr inbounds i32, ptr %55, i64 %56
+  %57 = getelementptr inbounds nuw i32, ptr %55, i64 %56
   %58 = load i32, ptr %57, align 4
   br label %59
 
@@ -725,9 +725,9 @@ define range(i32 0, 2) i32 @Cudd_addLeq(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not60, label %66, label %61
 
 61:                                               ; preds = %59
-  %62 = getelementptr inbounds i8, ptr %1, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %1, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %65 = load ptr, ptr %64, align 8
   br label %66
 
@@ -738,9 +738,9 @@ define range(i32 0, 2) i32 @Cudd_addLeq(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not61, label %72, label %67
 
 67:                                               ; preds = %66
-  %68 = getelementptr inbounds i8, ptr %2, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %2, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %71 = load ptr, ptr %70, align 8
   br label %72
 
@@ -757,7 +757,7 @@ define range(i32 0, 2) i32 @Cudd_addLeq(ptr noundef %0, ptr noundef %1, ptr noun
 
 76:                                               ; preds = %74, %72
   %77 = phi i32 [ 0, %72 ], [ %75, %74 ]
-  %78 = getelementptr inbounds i8, ptr %0, i64 40
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %79 = load ptr, ptr %78, align 8
   %80 = ptrtoint ptr %79 to i64
   %81 = xor i32 %77, 1

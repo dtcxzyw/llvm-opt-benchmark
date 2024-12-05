@@ -34,24 +34,24 @@ define dso_local noundef zeroext i1 @page_vma_mapped_walk(ptr noundef %0) local_
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %23, label %14
 
 14:                                               ; preds = %1
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %23
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %0, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %.loopexit10, label %22
@@ -61,14 +61,14 @@ define dso_local noundef zeroext i1 @page_vma_mapped_walk(ptr noundef %0) local_
   br label %.loopexit10
 
 23:                                               ; preds = %14, %1
-  %24 = getelementptr inbounds i8, ptr %8, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %25 = load i64, ptr %24, align 8
   %26 = and i64 %25, 4194304
   %27 = icmp eq i64 %26, 0
   br i1 %27, label %57, label %28, !prof !5
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds i8, ptr %0, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %33, label %32
@@ -78,21 +78,21 @@ define dso_local noundef zeroext i1 @page_vma_mapped_walk(ptr noundef %0) local_
   br label %.loopexit10
 
 33:                                               ; preds = %28
-  %34 = getelementptr inbounds i8, ptr %8, i64 136
+  %34 = getelementptr inbounds nuw i8, ptr %8, i64 136
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 168
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 168
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 40
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 872
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 872
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 40
   %45 = load i32, ptr %44, align 8
   %46 = zext nneg i32 %45 to i64
   %47 = shl i64 4096, %46
-  %48 = getelementptr inbounds i8, ptr %0, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %49 = load i64, ptr %48, align 8
   %50 = tail call ptr @huge_pte_offset(ptr noundef %10, i64 noundef %49, i64 noundef %47) #6
   store ptr %50, ptr %29, align 8
@@ -102,7 +102,7 @@ define dso_local noundef zeroext i1 @page_vma_mapped_walk(ptr noundef %0) local_
 52:                                               ; preds = %33
   %.val = load i32, ptr %44, align 8
   %53 = tail call fastcc ptr @huge_pte_lock(i32 %.val, ptr noundef %10, ptr noundef nonnull %50)
-  %54 = getelementptr inbounds i8, ptr %0, i64 56
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %53, ptr %54, align 8
   %55 = tail call fastcc zeroext i1 @check_pte(ptr noundef %0)
   br i1 %55, label %.loopexit10, label %56
@@ -113,29 +113,29 @@ define dso_local noundef zeroext i1 @page_vma_mapped_walk(ptr noundef %0) local_
 
 57:                                               ; preds = %23
   store ptr null, ptr %6, align 8, !annotation !6
-  %58 = getelementptr inbounds i8, ptr %0, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %59 = load i64, ptr %58, align 8
   %60 = icmp eq i64 %59, 1
   br i1 %60, label %61, label %65
 
 61:                                               ; preds = %57
-  %62 = getelementptr inbounds i8, ptr %0, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %63 = load i64, ptr %62, align 8
   %64 = add i64 %63, 4096
   br label %._crit_edge
 
 65:                                               ; preds = %57
-  %66 = getelementptr inbounds i8, ptr %0, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %67 = load i64, ptr %66, align 8
   %68 = add i64 %67, %59
   %69 = load i64, ptr %8, align 8
-  %70 = getelementptr inbounds i8, ptr %8, i64 128
+  %70 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %71 = load i64, ptr %70, align 8
   %72 = sub i64 %68, %71
   %73 = shl i64 %72, 12
   %74 = add i64 %73, %69
   %75 = icmp ult i64 %74, %69
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %8, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br i1 %75, label %._crit_edge, label %76
 
@@ -145,16 +145,16 @@ define dso_local noundef zeroext i1 @page_vma_mapped_walk(ptr noundef %0) local_
 
 ._crit_edge:                                      ; preds = %76, %65, %61
   %77 = phi i64 [ %64, %61 ], [ %.pre, %65 ], [ %spec.select, %76 ]
-  %78 = getelementptr inbounds i8, ptr %0, i64 48
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %79 = load ptr, ptr %78, align 8
   %80 = icmp eq ptr %79, null
   br i1 %80, label %81, label %.loopexit9
 
 81:                                               ; preds = %255, %._crit_edge
-  %82 = getelementptr inbounds i8, ptr %10, i64 128
-  %83 = getelementptr inbounds i8, ptr %0, i64 32
-  %84 = getelementptr inbounds i8, ptr %0, i64 64
-  %85 = getelementptr inbounds i8, ptr %0, i64 56
+  %82 = getelementptr inbounds nuw i8, ptr %10, i64 128
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %.thread
 
 .thread:                                          ; preds = %.thread.backedge, %81
@@ -263,12 +263,12 @@ define dso_local noundef zeroext i1 @page_vma_mapped_walk(ptr noundef %0) local_
   %159 = and i32 %158, 1
   %160 = icmp eq i32 %159, 0
   %161 = load ptr, ptr %7, align 8
-  %162 = getelementptr inbounds i8, ptr %161, i64 16
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 16
   %163 = load ptr, ptr %162, align 8
   br i1 %160, label %168, label %164
 
 164:                                              ; preds = %157
-  %165 = call ptr @__pte_offset_map_lock(ptr noundef %163, ptr noundef %150, i64 noundef %123, ptr noundef %85) #6
+  %165 = call ptr @__pte_offset_map_lock(ptr noundef %163, ptr noundef %150, i64 noundef %123, ptr noundef nonnull %85) #6
   store ptr %165, ptr %78, align 8
   %166 = load ptr, ptr %85, align 8
   store ptr %166, ptr %6, align 8
@@ -324,7 +324,7 @@ define dso_local noundef zeroext i1 @page_vma_mapped_walk(ptr noundef %0) local_
   %190 = load volatile i64, ptr %189, align 8
   store volatile i64 %190, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %191 = getelementptr inbounds i8, ptr %0, i64 64
+  %191 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %192 = load i32, ptr %191, align 8
   %193 = and i32 %192, 2
   %194 = icmp eq i32 %193, 0
@@ -382,7 +382,7 @@ define dso_local noundef zeroext i1 @page_vma_mapped_walk(ptr noundef %0) local_
   br i1 %225, label %.loopexit10, label %.loopexit9
 
 .loopexit9:                                       ; preds = %182, %176, %195, %201, %220, %212, %._crit_edge
-  %226 = getelementptr inbounds i8, ptr %0, i64 32
+  %226 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %227 = load i64, ptr %226, align 8
   br label %228
 
@@ -400,7 +400,7 @@ define dso_local noundef zeroext i1 @page_vma_mapped_walk(ptr noundef %0) local_
 
 235:                                              ; preds = %232
   %236 = load ptr, ptr %7, align 8
-  %237 = getelementptr inbounds i8, ptr %236, i64 32
+  %237 = getelementptr inbounds nuw i8, ptr %236, i64 32
   %238 = load i64, ptr %237, align 8
   %239 = and i64 %238, 4194304
   %240 = icmp eq i64 %239, 0
@@ -411,7 +411,7 @@ define dso_local noundef zeroext i1 @page_vma_mapped_walk(ptr noundef %0) local_
   br label %242
 
 242:                                              ; preds = %241, %235, %232
-  %243 = getelementptr inbounds i8, ptr %0, i64 56
+  %243 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %244 = load ptr, ptr %243, align 8
   %245 = icmp eq ptr %244, null
   br i1 %245, label %.loopexit10, label %246
@@ -426,7 +426,7 @@ define dso_local noundef zeroext i1 @page_vma_mapped_walk(ptr noundef %0) local_
   br i1 %249, label %250, label %256
 
 250:                                              ; preds = %247
-  %251 = getelementptr inbounds i8, ptr %0, i64 56
+  %251 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %252 = load ptr, ptr %251, align 8
   %253 = icmp eq ptr %252, null
   br i1 %253, label %255, label %254
@@ -455,7 +455,7 @@ define dso_local noundef zeroext i1 @page_vma_mapped_walk(ptr noundef %0) local_
 
 262:                                              ; preds = %256
   %263 = getelementptr i8, ptr %257, i64 8
-  %264 = getelementptr inbounds i8, ptr %0, i64 56
+  %264 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %265 = load ptr, ptr %264, align 8
   %266 = icmp eq ptr %265, null
   br i1 %266, label %267, label %.loopexit
@@ -487,15 +487,15 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
 define internal fastcc void @not_found(ptr nocapture noundef readonly %0) unnamed_addr #3 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %13, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 4194304
   %11 = icmp eq i64 %10, 0
@@ -506,7 +506,7 @@ define internal fastcc void @not_found(ptr nocapture noundef readonly %0) unname
   br label %13
 
 13:                                               ; preds = %12, %5, %1
-  %14 = getelementptr inbounds i8, ptr %0, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %18, label %17
@@ -541,7 +541,7 @@ define internal fastcc noundef ptr @huge_pte_lock(i32 %.40.val, ptr noundef %0, 
   br label %20
 
 18:                                               ; preds = %2
-  %19 = getelementptr inbounds i8, ptr %0, i64 172
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 172
   br label %20
 
 20:                                               ; preds = %18, %4
@@ -553,13 +553,13 @@ define internal fastcc noundef ptr @huge_pte_lock(i32 %.40.val, ptr noundef %0, 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc zeroext i1 @check_pte(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
   %2 = alloca i64, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   %5 = load volatile i64, ptr %4, align 8
   store volatile i64 %5, ptr %2, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 2
   %9 = icmp eq i32 %8, 0
@@ -611,7 +611,7 @@ define internal fastcc zeroext i1 @check_pte(ptr nocapture noundef readonly %0) 
   %36 = phi i64 [ %27, %25 ], [ %34, %30 ]
   %37 = load i64, ptr %0, align 8
   %38 = sub i64 %36, %37
-  %39 = getelementptr inbounds i8, ptr %0, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load i64, ptr %39, align 8
   %41 = icmp ult i64 %38, %40
   br label %.thread
@@ -628,27 +628,27 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 define dso_local noundef range(i32 0, 2) i32 @page_mapped_in_vma(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca %struct.page_vma_mapped_walk, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #6
-  %4 = getelementptr inbounds i8, ptr %3, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i64 0, ptr %4, align 8, !annotation !6
   %5 = load i64, ptr @vmemmap_base, align 8
   %6 = ptrtoint ptr %0 to i64
   %7 = sub i64 %6, %5
   %8 = ashr exact i64 %7, 6
   store i64 %8, ptr %3, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 32
-  %13 = getelementptr inbounds i8, ptr %3, i64 48
-  %14 = getelementptr inbounds i8, ptr %3, i64 56
-  %15 = getelementptr inbounds i8, ptr %3, i64 64
-  %16 = getelementptr inbounds i8, ptr %3, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(32) %16, i8 0, i64 24, i1 false)
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, i8 0, i64 24, i1 false)
   store i32 1, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load i64, ptr %17, align 8
   %19 = load volatile i64, ptr %0, align 8
   %20 = and i64 %19, 64
@@ -656,14 +656,14 @@ define dso_local noundef range(i32 0, 2) i32 @page_mapped_in_vma(ptr noundef %0,
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %2
-  %23 = getelementptr inbounds i8, ptr %0, i64 100
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %24 = load i32, ptr %23, align 4
   %25 = zext i32 %24 to i64
   br label %26
 
 26:                                               ; preds = %22, %2
   %27 = phi i64 [ %25, %22 ], [ 1, %2 ]
-  %28 = getelementptr inbounds i8, ptr %1, i64 128
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %29 = load i64, ptr %28, align 8
   %30 = icmp ugt i64 %29, %18
   br i1 %30, label %41, label %31
@@ -677,7 +677,7 @@ define dso_local noundef range(i32 0, 2) i32 @page_mapped_in_vma(ptr noundef %0,
   br i1 %36, label %.thread, label %37
 
 37:                                               ; preds = %31
-  %38 = getelementptr inbounds i8, ptr %1, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %39 = load i64, ptr %38, align 8
   %40 = icmp ult i64 %35, %39
   br i1 %40, label %47, label %.thread
@@ -709,7 +709,7 @@ define dso_local noundef range(i32 0, 2) i32 @page_mapped_in_vma(ptr noundef %0,
 
 55:                                               ; preds = %52
   %56 = load ptr, ptr %11, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 32
   %58 = load i64, ptr %57, align 8
   %59 = and i64 %58, 4194304
   %60 = icmp eq i64 %59, 0

@@ -34,7 +34,7 @@ define range(i32 -2147483648, 1) i32 @ompi_coll_tuned_exscan_intra_check_forced_
   %6 = call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_tuned_component, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 0, ptr noundef %5, i32 noundef 0, i32 noundef 4, i32 noundef 4, i32 noundef 5, ptr noundef nonnull @coll_tuned_exscan_forced_algorithm) #4
   store i32 %6, ptr %0, align 4
   %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i8, ptr @opal_uses_threads, align 1
   %10 = trunc i8 %9 to i1
   br i1 %10, label %11, label %14
@@ -58,7 +58,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %11, %14
 
 19:                                               ; preds = %opal_thread_add_fetch_32.exit
   %20 = load ptr, ptr %7, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 48
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %22, align 8
   %.not6.i = icmp eq ptr %23, null
@@ -68,7 +68,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %11, %14
   %24 = phi ptr [ %26, %.lr.ph.i ], [ %23, %19 ]
   %.07.i = phi ptr [ %25, %.lr.ph.i ], [ %22, %19 ]
   call void %24(ptr noundef nonnull %7) #4
-  %25 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %26 = load ptr, ptr %25, align 8
   %.not.i = icmp eq ptr %26, null
   br i1 %.not.i, label %opal_obj_run_destructors.exit.loopexit, label %.lr.ph.i, !llvm.loop !4

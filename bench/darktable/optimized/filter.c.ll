@@ -65,10 +65,10 @@ define noundef i32 @position(ptr nocapture noundef readnone %0) local_unnamed_ad
 ; Function Attrs: nounwind uwtable
 define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_unnamed_addr #1 {
   %2 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0(i64 noundef 24) #8
-  %3 = getelementptr inbounds i8, ptr %0, i64 280
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store ptr %2, ptr %3, align 8, !tbaa !6
   %4 = tail call ptr @gtk_box_new(i32 noundef 0, i32 noundef 0) #7
-  %5 = getelementptr inbounds i8, ptr %0, i64 416
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store ptr %4, ptr %5, align 8, !tbaa !13
   tail call void @gtk_widget_set_valign(ptr noundef %4, i32 noundef 3) #7
   %6 = tail call ptr @dtgtk_button_new(ptr noundef nonnull @dtgtk_cairo_paint_filtering_menu, i32 noundef 0, ptr noundef null) #7
@@ -88,7 +88,7 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   %16 = load ptr, ptr %2, align 8, !tbaa !14
   tail call void @gtk_box_pack_start(ptr noundef %15, ptr noundef %16, i32 noundef 0, i32 noundef 0, i32 noundef 0) #7
   %17 = tail call ptr @gtk_box_new(i32 noundef 0, i32 noundef 0) #7
-  %18 = getelementptr inbounds i8, ptr %2, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %17, ptr %18, align 8, !tbaa !16
   tail call void @gtk_widget_set_name(ptr noundef %17, ptr noundef nonnull @.str.4) #7
   %19 = load ptr, ptr %5, align 8, !tbaa !13
@@ -101,7 +101,7 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   %25 = tail call ptr @g_type_check_instance_cast(ptr noundef %24, i64 noundef %11) #7
   tail call void @gtk_box_pack_start(ptr noundef %25, ptr noundef %23, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
   %26 = tail call ptr @gtk_label_new(ptr noundef nonnull @.str.6) #7
-  %27 = getelementptr inbounds i8, ptr %2, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %26, ptr %27, align 8, !tbaa !17
   %28 = tail call i64 @gtk_label_get_type() #9
   %29 = tail call ptr @g_type_check_instance_cast(ptr noundef %26, i64 noundef %28) #7
@@ -111,21 +111,21 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   %32 = load ptr, ptr %27, align 8, !tbaa !17
   tail call void @gtk_box_pack_start(ptr noundef %31, ptr noundef %32, i32 noundef 1, i32 noundef 0, i32 noundef 0) #7
   %33 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 80), align 8, !tbaa !18
-  %34 = getelementptr inbounds i8, ptr %33, i64 304
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 304
   store ptr %0, ptr %34, align 8, !tbaa !28
-  %35 = getelementptr inbounds i8, ptr %33, i64 312
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 312
   store ptr @_lib_filter_get_filter_box, ptr %35, align 8, !tbaa !42
-  %36 = getelementptr inbounds i8, ptr %33, i64 320
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 320
   store ptr @_lib_filter_get_sort_box, ptr %36, align 8, !tbaa !43
-  %37 = getelementptr inbounds i8, ptr %33, i64 328
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 328
   store ptr @_lib_filter_get_count, ptr %37, align 8, !tbaa !44
-  %38 = getelementptr inbounds i8, ptr %33, i64 376
+  %38 = getelementptr inbounds nuw i8, ptr %33, i64 376
   %39 = load ptr, ptr %38, align 8, !tbaa !45
   %40 = icmp eq ptr %39, null
   br i1 %40, label %44, label %41
 
 41:                                               ; preds = %1
-  %42 = getelementptr inbounds i8, ptr %33, i64 384
+  %42 = getelementptr inbounds nuw i8, ptr %33, i64 384
   %43 = load ptr, ptr %42, align 8, !tbaa !46
   tail call void %43(ptr noundef nonnull %39) #7
   br label %44
@@ -174,7 +174,7 @@ declare i64 @gtk_label_get_type() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal ptr @_lib_filter_get_filter_box(ptr nocapture noundef readonly %0) #6 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 280
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8, !tbaa !6
   %4 = load ptr, ptr %3, align 8, !tbaa !14
   ret ptr %4
@@ -182,25 +182,25 @@ define internal ptr @_lib_filter_get_filter_box(ptr nocapture noundef readonly %
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal ptr @_lib_filter_get_sort_box(ptr nocapture noundef readonly %0) #6 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 280
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8, !tbaa !6
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !16
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal ptr @_lib_filter_get_count(ptr nocapture noundef readonly %0) #6 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 280
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8, !tbaa !6
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !17
   ret ptr %5
 }
 
 ; Function Attrs: nounwind uwtable
 define void @gui_cleanup(ptr nocapture noundef %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 280
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8, !tbaa !6
   tail call void @g_free(ptr noundef %3) #7
   store ptr null, ptr %2, align 8, !tbaa !6

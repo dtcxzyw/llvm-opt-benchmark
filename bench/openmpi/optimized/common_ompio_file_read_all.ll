@@ -49,7 +49,7 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   store i32 0, ptr %9, align 4
   store i64 0, ptr %10, align 8
   store ptr @ompi_request_null, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %14 = load ptr, ptr %13, align 8
   %15 = call i32 @mca_common_ompio_decode_datatype(ptr noundef %0, ptr noundef %3, i32 noundef %2, ptr noundef %1, ptr noundef nonnull %10, ptr noundef %14, ptr noundef nonnull %7, ptr noundef nonnull %6) #10
   %.not = icmp eq i32 %15, 0
@@ -61,12 +61,12 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
 
 17:                                               ; preds = %16
   %18 = load i64, ptr %10, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %18, ptr %19, align 8
   br label %20
 
 20:                                               ; preds = %17, %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 456
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %22 = load ptr, ptr %21, align 8
   %23 = call i32 %22(ptr noundef nonnull @.str, i32 noundef 15) #10
   %24 = icmp eq i32 %23, -200
@@ -79,10 +79,10 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   br i1 %.not772, label %28, label %.thread.thread.thread.thread
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %0, i64 432
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %30 = load ptr, ptr %29, align 8
   %31 = load i32, ptr %30, align 4
-  %32 = getelementptr inbounds i8, ptr %0, i64 440
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %33 = load i32, ptr %32, align 8
   %34 = sext i32 %33 to i64
   %35 = shl nsw i64 %34, 3
@@ -95,7 +95,7 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   br label %.thread.thread.thread.thread
 
 39:                                               ; preds = %28
-  %40 = getelementptr inbounds i8, ptr %0, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %41 = load ptr, ptr %40, align 8
   %42 = call i32 @ompi_fcoll_base_coll_allgather_array(ptr noundef nonnull %10, i32 noundef 1, ptr noundef nonnull @ompi_mpi_long, ptr noundef nonnull %36, i32 noundef 1, ptr noundef nonnull @ompi_mpi_long, i32 noundef 0, ptr noundef nonnull %30, i32 noundef %33, ptr noundef %41) #10
   %.not773 = icmp eq i32 %42, 0
@@ -113,7 +113,7 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.06211147 = phi i64 [ 0, %.lr.ph.preheader ], [ %47, %.lr.ph ]
-  %45 = getelementptr inbounds i64, ptr %36, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw i64, ptr %36, i64 %indvars.iv
   %46 = load i64, ptr %45, align 8
   %47 = add nsw i64 %46, %.06211147
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -124,7 +124,7 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   %.1694.lcssa = phi i32 [ 0, %.preheader1043 ], [ %43, %.lr.ph ]
   %.0621.lcssa = phi i64 [ 0, %.preheader1043 ], [ %47, %.lr.ph ]
   call void @free(ptr noundef nonnull %36) #10
-  %48 = getelementptr inbounds i8, ptr %0, i64 448
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %49 = load ptr, ptr %48, align 8
   %50 = load i64, ptr %10, align 8
   %51 = call i32 %49(ptr noundef nonnull %0, i64 noundef %50, ptr noundef nonnull %8, ptr noundef nonnull %9) #10
@@ -177,11 +177,11 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   %74 = phi i32 [ 0, %.lr.ph1152.preheader ], [ %78, %.lr.ph1152 ]
   %indvars.iv1410 = phi i64 [ 1, %.lr.ph1152.preheader ], [ %indvars.iv.next1411, %.lr.ph1152 ]
   %.06451150 = phi i32 [ %71, %.lr.ph1152.preheader ], [ %77, %.lr.ph1152 ]
-  %75 = getelementptr inbounds i32, ptr %56, i64 %indvars.iv1410
+  %75 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv1410
   %76 = load i32, ptr %75, align 4
   %77 = add i32 %76, %.06451150
   %78 = add nsw i32 %73, %74
-  %79 = getelementptr inbounds i32, ptr %67, i64 %indvars.iv1410
+  %79 = getelementptr inbounds nuw i32, ptr %67, i64 %indvars.iv1410
   store i32 %78, ptr %79, align 4
   %indvars.iv.next1411 = add nuw nsw i64 %indvars.iv1410, 1
   %exitcond1414.not = icmp eq i64 %indvars.iv.next1411, %wide.trip.count1413
@@ -208,7 +208,7 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   %.1652 = phi ptr [ %83, %80 ], [ null, %._crit_edge1153 ]
   %87 = load ptr, ptr %8, align 8
   %88 = load i32, ptr %9, align 4
-  %89 = getelementptr inbounds i8, ptr %0, i64 264
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %90 = load ptr, ptr %89, align 8
   %91 = load ptr, ptr %29, align 8
   %92 = load ptr, ptr %40, align 8
@@ -246,7 +246,7 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   br label %106
 
 106:                                              ; preds = %105, %103
-  %107 = getelementptr inbounds i8, ptr %0, i64 144
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %108 = load i32, ptr %107, align 8
   %109 = sext i32 %108 to i64
   %110 = sitofp i64 %.0621.lcssa to double
@@ -254,7 +254,7 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   %112 = fdiv double %110, %111
   %113 = call double @llvm.ceil.f64(double %112)
   %114 = fptosi double %113 to i32
-  %115 = getelementptr inbounds i8, ptr %0, i64 20
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %116 = load i32, ptr %115, align 4
   %117 = icmp eq i32 %31, %116
   br i1 %117, label %118, label %.loopexit1041
@@ -338,7 +338,7 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
 
 .lr.ph1161:                                       ; preds = %.lr.ph1161.preheader, %.lr.ph1161
   %indvars.iv1420 = phi i64 [ 0, %.lr.ph1161.preheader ], [ %indvars.iv.next1421, %.lr.ph1161 ]
-  %147 = getelementptr inbounds ptr, ptr %145, i64 %indvars.iv1420
+  %147 = getelementptr inbounds nuw ptr, ptr %145, i64 %indvars.iv1420
   store ptr @ompi_mpi_datatype_null, ptr %147, align 8
   %indvars.iv.next1421 = add nuw nsw i64 %indvars.iv1420, 1
   %exitcond1424.not = icmp eq i64 %indvars.iv.next1421, %wide.trip.count1423
@@ -356,11 +356,11 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   br i1 %148, label %.lr.ph1252, label %.loopexit1032
 
 .lr.ph1252:                                       ; preds = %.loopexit1041
-  %149 = getelementptr inbounds i8, ptr %0, i64 296
-  %150 = getelementptr inbounds i8, ptr %0, i64 304
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %.not780 = icmp eq ptr %.1620, null
   %151 = add nsw i32 %114, -1
-  %152 = getelementptr inbounds i8, ptr %0, i64 360
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %153 = zext nneg i32 %151 to i64
   %wide.trip.count1485 = zext nneg i32 %114 to i64
   br label %154
@@ -404,7 +404,7 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
 .lr.ph1163:                                       ; preds = %.preheader1037, %167
   %162 = phi i32 [ %168, %167 ], [ %.pre1496, %.preheader1037 ]
   %indvars.iv1425 = phi i64 [ %indvars.iv.next1426, %167 ], [ 0, %.preheader1037 ]
-  %163 = getelementptr inbounds ptr, ptr %.1620, i64 %indvars.iv1425
+  %163 = getelementptr inbounds nuw ptr, ptr %.1620, i64 %indvars.iv1425
   %164 = load ptr, ptr %163, align 8
   %.not799 = icmp eq ptr %164, @ompi_mpi_datatype_null
   br i1 %.not799, label %167, label %165
@@ -441,9 +441,9 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
 
 .lr.ph1167:                                       ; preds = %.loopexit1038, %174
   %indvars.iv1428 = phi i64 [ %indvars.iv.next1429, %174 ], [ 0, %.loopexit1038 ]
-  %178 = getelementptr inbounds i32, ptr %.1643, i64 %indvars.iv1428
+  %178 = getelementptr inbounds nuw i32, ptr %.1643, i64 %indvars.iv1428
   store i32 1, ptr %178, align 4
-  %179 = getelementptr inbounds ptr, ptr %.1636, i64 %indvars.iv1428
+  %179 = getelementptr inbounds nuw ptr, ptr %.1636, i64 %indvars.iv1428
   %180 = load ptr, ptr %179, align 8
   %.not797 = icmp eq ptr %180, null
   br i1 %.not797, label %182, label %181
@@ -454,7 +454,7 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   br label %182
 
 182:                                              ; preds = %181, %.lr.ph1167
-  %183 = getelementptr inbounds ptr, ptr %.1634, i64 %indvars.iv1428
+  %183 = getelementptr inbounds nuw ptr, ptr %.1634, i64 %indvars.iv1428
   %184 = load ptr, ptr %183, align 8
   %.not798 = icmp eq ptr %184, null
   br i1 %.not798, label %186, label %185
@@ -556,7 +556,7 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
 
 211:                                              ; preds = %209
   %indvars.iv.next1432 = add nuw nsw i64 %indvars.iv1431, 1
-  %212 = getelementptr inbounds i32, ptr %56, i64 %indvars.iv.next1432
+  %212 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv.next1432
   %213 = load i32, ptr %212, align 4
   %214 = add nsw i32 %213, %.06631170
   %exitcond1435.not = icmp eq i64 %indvars.iv.next1432, %wide.trip.count1434
@@ -602,7 +602,7 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   %233 = getelementptr inbounds %struct.iovec, ptr %.1652, i64 %232
   %234 = load ptr, ptr %233, align 8
   %235 = ptrtoint ptr %234 to i64
-  %236 = getelementptr inbounds i8, ptr %233, i64 8
+  %236 = getelementptr inbounds nuw i8, ptr %233, i64 8
   %237 = load i64, ptr %236, align 8
   %238 = add i64 %237, %.1680.neg1184
   %239 = add i64 %238, %235
@@ -679,14 +679,14 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   %281 = getelementptr i8, ptr %280, i64 -4
   store i32 %273, ptr %281, align 4
   %sext1537 = shl i64 %indvars.iv1436, 32
-  %282 = ashr exact i64 %sext1537, 32
-  %283 = getelementptr inbounds i32, ptr %.1624, i64 %282
+  %282 = ashr exact i64 %sext1537, 30
+  %283 = getelementptr inbounds i8, ptr %.1624, i64 %282
   %284 = load i32, ptr %283, align 4
   %285 = sext i32 %284 to i64
   %286 = getelementptr inbounds %struct.iovec, ptr %.1652, i64 %285
   %287 = load ptr, ptr %286, align 8
   %288 = ptrtoint ptr %287 to i64
-  %289 = getelementptr inbounds i8, ptr %286, i64 8
+  %289 = getelementptr inbounds nuw i8, ptr %286, i64 8
   %290 = load i64, ptr %289, align 8
   %291 = add i64 %290, %.1680.neg1184
   %292 = add i64 %291, %288
@@ -871,13 +871,13 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
 .preheader1030:                                   ; preds = %.preheader1030.preheader, %._crit_edge1194
   %indvars.iv1444 = phi i64 [ 0, %.preheader1030.preheader ], [ %indvars.iv.next1445, %._crit_edge1194 ]
   %.06701197 = phi i32 [ 0, %.preheader1030.preheader ], [ %.1671.lcssa, %._crit_edge1194 ]
-  %399 = getelementptr inbounds i32, ptr %.1643, i64 %indvars.iv1444
+  %399 = getelementptr inbounds nuw i32, ptr %.1643, i64 %indvars.iv1444
   %400 = load i32, ptr %399, align 4
   %401 = icmp sgt i32 %400, 0
   br i1 %401, label %.lr.ph1193, label %._crit_edge1194
 
 .lr.ph1193:                                       ; preds = %.preheader1030
-  %402 = getelementptr inbounds ptr, ptr %.1636, i64 %indvars.iv1444
+  %402 = getelementptr inbounds nuw ptr, ptr %.1636, i64 %indvars.iv1444
   %403 = load ptr, ptr %402, align 8
   %wide.trip.count1442 = zext nneg i32 %400 to i64
   br label %404
@@ -885,7 +885,7 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
 404:                                              ; preds = %.lr.ph1193, %404
   %indvars.iv1439 = phi i64 [ 0, %.lr.ph1193 ], [ %indvars.iv.next1440, %404 ]
   %.16711192 = phi i32 [ %.06701197, %.lr.ph1193 ], [ %spec.select, %404 ]
-  %405 = getelementptr inbounds i32, ptr %403, i64 %indvars.iv1439
+  %405 = getelementptr inbounds nuw i32, ptr %403, i64 %indvars.iv1439
   %406 = load i32, ptr %405, align 4
   %407 = icmp sgt i32 %406, 0
   %408 = zext i1 %407 to i32
@@ -932,15 +932,15 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
 .preheader1029:                                   ; preds = %.preheader1029.preheader, %._crit_edge1205
   %indvars.iv1454 = phi i64 [ 0, %.preheader1029.preheader ], [ %indvars.iv.next1455, %._crit_edge1205 ]
   %.06371208 = phi i32 [ 0, %.preheader1029.preheader ], [ %.1638.lcssa, %._crit_edge1205 ]
-  %421 = getelementptr inbounds i32, ptr %.1643, i64 %indvars.iv1454
+  %421 = getelementptr inbounds nuw i32, ptr %.1643, i64 %indvars.iv1454
   %422 = load i32, ptr %421, align 4
   %423 = icmp sgt i32 %422, 0
   br i1 %423, label %.lr.ph1204, label %._crit_edge1205
 
 .lr.ph1204:                                       ; preds = %.preheader1029
-  %424 = getelementptr inbounds ptr, ptr %.1636, i64 %indvars.iv1454
+  %424 = getelementptr inbounds nuw ptr, ptr %.1636, i64 %indvars.iv1454
   %425 = load ptr, ptr %424, align 8
-  %426 = getelementptr inbounds ptr, ptr %.1634, i64 %indvars.iv1454
+  %426 = getelementptr inbounds nuw ptr, ptr %.1634, i64 %indvars.iv1454
   %wide.trip.count1452 = zext nneg i32 %422 to i64
   %427 = trunc nuw nsw i64 %indvars.iv1454 to i32
   br label %428
@@ -948,7 +948,7 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
 428:                                              ; preds = %.lr.ph1204, %442
   %indvars.iv1449 = phi i64 [ 0, %.lr.ph1204 ], [ %indvars.iv.next1450, %442 ]
   %.16381203 = phi i32 [ %.06371208, %.lr.ph1204 ], [ %.2639, %442 ]
-  %429 = getelementptr inbounds i32, ptr %425, i64 %indvars.iv1449
+  %429 = getelementptr inbounds nuw i32, ptr %425, i64 %indvars.iv1449
   %430 = load i32, ptr %429, align 4
   %431 = icmp sgt i32 %430, 0
   br i1 %431, label %432, label %442
@@ -957,12 +957,12 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   %433 = zext nneg i32 %430 to i64
   %434 = sext i32 %.16381203 to i64
   %435 = getelementptr inbounds %struct.mca_io_ompio_local_io_array, ptr %413, i64 %434
-  %436 = getelementptr inbounds i8, ptr %435, i64 8
+  %436 = getelementptr inbounds nuw i8, ptr %435, i64 8
   store i64 %433, ptr %436, align 8
-  %437 = getelementptr inbounds i8, ptr %435, i64 16
+  %437 = getelementptr inbounds nuw i8, ptr %435, i64 16
   store i32 %427, ptr %437, align 8
   %438 = load ptr, ptr %426, align 8
-  %439 = getelementptr inbounds i64, ptr %438, i64 %indvars.iv1449
+  %439 = getelementptr inbounds nuw i64, ptr %438, i64 %indvars.iv1449
   %440 = load i64, ptr %439, align 8
   store i64 %440, ptr %435, align 8
   %441 = add nsw i32 %.16381203, 1
@@ -1030,11 +1030,11 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   %464 = getelementptr inbounds %struct.mca_io_ompio_local_io_array, ptr %413, i64 %446
   %465 = load i64, ptr %464, align 8
   %466 = inttoptr i64 %465 to ptr
-  %467 = getelementptr inbounds i8, ptr %460, i64 8
+  %467 = getelementptr inbounds nuw i8, ptr %460, i64 8
   store ptr %466, ptr %467, align 8
   %468 = getelementptr inbounds %struct.mca_io_ompio_local_io_array, ptr %413, i64 %446, i32 1
   %469 = load i64, ptr %468, align 8
-  %470 = getelementptr inbounds i8, ptr %460, i64 16
+  %470 = getelementptr inbounds nuw i8, ptr %460, i64 16
   store i64 %469, ptr %470, align 8
   %471 = load i64, ptr %447, align 8
   %472 = getelementptr inbounds i8, ptr %.1632, i64 %471
@@ -1055,7 +1055,7 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   %476 = sext i32 %475 to i64
   %477 = getelementptr inbounds %struct.mca_io_ompio_local_io_array, ptr %413, i64 %476
   %478 = load i64, ptr %477, align 8
-  %479 = getelementptr inbounds i8, ptr %477, i64 8
+  %479 = getelementptr inbounds nuw i8, ptr %477, i64 8
   %480 = load i64, ptr %479, align 8
   %481 = add nsw i64 %480, %478
   %482 = load i32, ptr %473, align 4
@@ -1066,7 +1066,7 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   br i1 %486, label %487, label %497
 
 487:                                              ; preds = %.lr.ph1217
-  %488 = getelementptr inbounds i8, ptr %484, i64 8
+  %488 = getelementptr inbounds nuw i8, ptr %484, i64 8
   %489 = load i64, ptr %488, align 8
   %490 = load ptr, ptr %149, align 8
   %491 = load i32, ptr %150, align 8
@@ -1122,7 +1122,7 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
 ._crit_edge1218.thread:                           ; preds = %463, %._crit_edge1218
   %.14.lcssa1544 = phi i32 [ %smax1467, %._crit_edge1218 ], [ 1, %463 ]
   %524 = load ptr, ptr %152, align 8
-  %525 = getelementptr inbounds i8, ptr %524, i64 16
+  %525 = getelementptr inbounds nuw i8, ptr %524, i64 16
   %526 = load ptr, ptr %525, align 8
   %527 = call i64 %526(ptr noundef nonnull %0) #10
   %528 = icmp slt i64 %527, 0
@@ -1152,7 +1152,7 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
 
 .lr.ph1221:                                       ; preds = %.lr.ph1221.preheader, %558
   %indvars.iv1470 = phi i64 [ 0, %.lr.ph1221.preheader ], [ %indvars.iv.next1471, %558 ]
-  %537 = getelementptr inbounds i32, ptr %418, i64 %indvars.iv1470
+  %537 = getelementptr inbounds nuw i32, ptr %418, i64 %indvars.iv1470
   %538 = load i32, ptr %537, align 4
   %539 = sext i32 %538 to i64
   %540 = getelementptr inbounds %struct.mca_io_ompio_local_io_array, ptr %413, i64 %539, i32 2
@@ -1194,19 +1194,19 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
 
 .lr.ph1225:                                       ; preds = %._crit_edge1222, %581
   %indvars.iv1476 = phi i64 [ %indvars.iv.next1477, %581 ], [ 0, %._crit_edge1222 ]
-  %560 = getelementptr inbounds ptr, ptr %.1618, i64 %indvars.iv1476
+  %560 = getelementptr inbounds nuw ptr, ptr %.1618, i64 %indvars.iv1476
   store ptr @ompi_request_null, ptr %560, align 8
-  %561 = getelementptr inbounds i32, ptr %.1643, i64 %indvars.iv1476
+  %561 = getelementptr inbounds nuw i32, ptr %.1643, i64 %indvars.iv1476
   %562 = load i32, ptr %561, align 4
   %563 = icmp sgt i32 %562, 0
   br i1 %563, label %564, label %581
 
 564:                                              ; preds = %.lr.ph1225
-  %565 = getelementptr inbounds ptr, ptr %.1636, i64 %indvars.iv1476
+  %565 = getelementptr inbounds nuw ptr, ptr %.1636, i64 %indvars.iv1476
   %566 = load ptr, ptr %565, align 8
-  %567 = getelementptr inbounds ptr, ptr %.1634, i64 %indvars.iv1476
+  %567 = getelementptr inbounds nuw ptr, ptr %.1634, i64 %indvars.iv1476
   %568 = load ptr, ptr %567, align 8
-  %569 = getelementptr inbounds ptr, ptr %.1620, i64 %indvars.iv1476
+  %569 = getelementptr inbounds nuw ptr, ptr %.1620, i64 %indvars.iv1476
   %570 = call i32 @ompi_datatype_create_hindexed(i32 noundef %562, ptr noundef %566, ptr noundef %568, ptr noundef nonnull @ompi_mpi_byte, ptr noundef %569) #10
   %.val = load ptr, ptr %569, align 8
   %571 = call i32 @opal_datatype_commit(ptr noundef %.val) #10
@@ -1219,7 +1219,7 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
 574:                                              ; preds = %564
   %575 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 88), align 8
   %576 = load ptr, ptr %29, align 8
-  %577 = getelementptr inbounds i32, ptr %576, i64 %indvars.iv1476
+  %577 = getelementptr inbounds nuw i32, ptr %576, i64 %indvars.iv1476
   %578 = load i32, ptr %577, align 4
   %579 = load ptr, ptr %40, align 8
   %580 = call i32 %575(ptr noundef %.1632, i64 noundef 1, ptr noundef nonnull %572, i32 noundef %578, i32 noundef 123, i32 noundef 4, ptr noundef %579, ptr noundef nonnull %560) #10
@@ -1555,7 +1555,7 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   br label %671
 
 671:                                              ; preds = %670, %669
-  %672 = getelementptr inbounds i8, ptr %0, i64 20
+  %672 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %673 = load i32, ptr %672, align 4
   %674 = icmp eq i32 %.0616855916959980, %673
   br i1 %674, label %675, label %722
@@ -1589,7 +1589,7 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   br i1 %.not812, label %695, label %.preheader1028
 
 .preheader1028:                                   ; preds = %681
-  %682 = getelementptr inbounds i8, ptr %0, i64 440
+  %682 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %683 = load i32, ptr %682, align 8
   %684 = icmp sgt i32 %683, 0
   br i1 %684, label %.lr.ph1285, label %._crit_edge1286
@@ -1597,7 +1597,7 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
 .lr.ph1285:                                       ; preds = %.preheader1028, %690
   %685 = phi i32 [ %691, %690 ], [ %683, %.preheader1028 ]
   %indvars.iv1487 = phi i64 [ %indvars.iv.next1488, %690 ], [ 0, %.preheader1028 ]
-  %686 = getelementptr inbounds ptr, ptr %.0619853918957982, i64 %indvars.iv1487
+  %686 = getelementptr inbounds nuw ptr, ptr %.0619853918957982, i64 %indvars.iv1487
   %687 = load ptr, ptr %686, align 8
   %.not819 = icmp eq ptr %687, @ompi_mpi_datatype_null
   br i1 %.not819, label %690, label %688
@@ -1637,7 +1637,7 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   br i1 %.not814, label %709, label %.preheader1027
 
 .preheader1027:                                   ; preds = %697
-  %698 = getelementptr inbounds i8, ptr %0, i64 440
+  %698 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %699 = load i32, ptr %698, align 8
   %700 = icmp sgt i32 %699, 0
   br i1 %700, label %.lr.ph1289, label %._crit_edge1290
@@ -1645,7 +1645,7 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
 .lr.ph1289:                                       ; preds = %.preheader1027, %705
   %701 = phi i32 [ %706, %705 ], [ %699, %.preheader1027 ]
   %indvars.iv1490 = phi i64 [ %indvars.iv.next1491, %705 ], [ 0, %.preheader1027 ]
-  %702 = getelementptr inbounds ptr, ptr %.0635848922953986, i64 %indvars.iv1490
+  %702 = getelementptr inbounds nuw ptr, ptr %.0635848922953986, i64 %indvars.iv1490
   %703 = load ptr, ptr %702, align 8
   %.not818 = icmp eq ptr %703, null
   br i1 %.not818, label %705, label %704
@@ -1672,7 +1672,7 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   br i1 %.not815, label %720, label %.preheader
 
 .preheader:                                       ; preds = %709
-  %710 = getelementptr inbounds i8, ptr %0, i64 440
+  %710 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %711 = load i32, ptr %710, align 8
   %712 = icmp slt i32 %.17, %711
   br i1 %712, label %.lr.ph1292, label %._crit_edge1293
@@ -1680,7 +1680,7 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
 .lr.ph1292:                                       ; preds = %.preheader, %717
   %713 = phi i32 [ %718, %717 ], [ %711, %.preheader ]
   %indvars.iv1493 = phi i64 [ %indvars.iv.next1494, %717 ], [ 0, %.preheader ]
-  %714 = getelementptr inbounds ptr, ptr %.0633849921954985, i64 %indvars.iv1493
+  %714 = getelementptr inbounds nuw ptr, ptr %.0633849921954985, i64 %indvars.iv1493
   %715 = load ptr, ptr %714, align 8
   %.not817 = icmp eq ptr %715, null
   br i1 %.not817, label %717, label %716
@@ -1762,7 +1762,7 @@ define internal fastcc void @read_heap_sort(ptr nocapture noundef nonnull readon
 
 .lr.ph:                                           ; preds = %10, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %10 ]
-  %12 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
   %13 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %13, ptr %12, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1796,13 +1796,13 @@ define internal fastcc void @read_heap_sort(ptr nocapture noundef nonnull readon
 20:                                               ; preds = %17
   %21 = or disjoint i32 %18, 1
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds i32, ptr %7, i64 %22
+  %23 = getelementptr inbounds nuw i32, ptr %7, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = sext i32 %24 to i64
   %26 = getelementptr inbounds %struct.mca_io_ompio_local_io_array, ptr %0, i64 %25
   %27 = load i64, ptr %26, align 8
   %28 = zext nneg i32 %.0108132 to i64
-  %29 = getelementptr inbounds i32, ptr %7, i64 %28
+  %29 = getelementptr inbounds nuw i32, ptr %7, i64 %28
   %30 = load i32, ptr %29, align 4
   %31 = sext i32 %30 to i64
   %32 = getelementptr inbounds %struct.mca_io_ompio_local_io_array, ptr %0, i64 %31
@@ -1820,13 +1820,13 @@ define internal fastcc void @read_heap_sort(ptr nocapture noundef nonnull readon
 
 37:                                               ; preds = %36
   %38 = zext nneg i32 %19 to i64
-  %39 = getelementptr inbounds i32, ptr %7, i64 %38
+  %39 = getelementptr inbounds nuw i32, ptr %7, i64 %38
   %40 = load i32, ptr %39, align 4
   %41 = sext i32 %40 to i64
   %42 = getelementptr inbounds %struct.mca_io_ompio_local_io_array, ptr %0, i64 %41
   %43 = load i64, ptr %42, align 8
   %44 = zext nneg i32 %.0104 to i64
-  %45 = getelementptr inbounds i32, ptr %7, i64 %44
+  %45 = getelementptr inbounds nuw i32, ptr %7, i64 %44
   %46 = load i32, ptr %45, align 4
   %47 = sext i32 %46 to i64
   %48 = getelementptr inbounds %struct.mca_io_ompio_local_io_array, ptr %0, i64 %47
@@ -1842,10 +1842,10 @@ define internal fastcc void @read_heap_sort(ptr nocapture noundef nonnull readon
 
 52:                                               ; preds = %51
   %53 = zext nneg i32 %.1105 to i64
-  %54 = getelementptr inbounds i32, ptr %7, i64 %53
+  %54 = getelementptr inbounds nuw i32, ptr %7, i64 %53
   %55 = load i32, ptr %54, align 4
   %56 = zext nneg i32 %.0108132 to i64
-  %57 = getelementptr inbounds i32, ptr %7, i64 %56
+  %57 = getelementptr inbounds nuw i32, ptr %7, i64 %56
   %58 = load i32, ptr %57, align 4
   store i32 %58, ptr %54, align 4
   store i32 %55, ptr %57, align 4
@@ -1855,7 +1855,7 @@ define internal fastcc void @read_heap_sort(ptr nocapture noundef nonnull readon
   %indvars.iv142 = phi i64 [ %16, %.lr.ph138.preheader ], [ %indvars.iv.next143, %104 ]
   %indvars144 = trunc i64 %indvars.iv142 to i32
   %59 = load i32, ptr %7, align 4
-  %60 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv142
+  %60 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv142
   %61 = load i32, ptr %60, align 4
   store i32 %61, ptr %7, align 4
   store i32 %59, ptr %60, align 4
@@ -1930,7 +1930,7 @@ define internal fastcc void @read_heap_sort(ptr nocapture noundef nonnull readon
 
 104:                                              ; preds = %96
   %105 = load i32, ptr %60, align 4
-  %106 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv142
+  %106 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv142
   store i32 %105, ptr %106, align 4
   %107 = icmp sgt i64 %indvars.iv142, 1
   br i1 %107, label %.lr.ph138, label %._crit_edge139, !llvm.loop !27

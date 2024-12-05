@@ -67,7 +67,7 @@ define hidden void @_ZN9CardTable20initialize_card_sizeEv() local_unnamed_addr #
   %4 = lshr i32 %2, 3
   store i32 %4, ptr @_ZN9CardTable19_card_size_in_wordsE, align 4
   store i32 3, ptr %1, align 8
-  %.sroa.21.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.21.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i, align 8
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @.str, i32 noundef %2)
   ret void
@@ -78,7 +78,7 @@ define linkonce_odr hidden void @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %.sroa.0.0.copyload = load i32, ptr %0, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.21.0.copyload = load ptr, ptr %.sroa.21.0..sroa_idx, align 8
   call void @_ZN13GCLogPrecious6vwriteE15LogTargetHandlePKcP13__va_list_tag(i32 %.sroa.0.0.copyload, ptr %.sroa.21.0.copyload, ptr noundef %1, ptr noundef nonnull %3) #15
   call void @llvm.va_end.p0(ptr nonnull %3)
@@ -88,14 +88,14 @@ define linkonce_odr hidden void @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
 define hidden void @_ZN9CardTableC2E9MemRegion(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((0, 88)) %0, ptr %1, i64 %2) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV9CardTable, i64 16), ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %2, ptr %.sroa.2.0..sroa_idx, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
   store i64 %6, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 56, i1 false)
   ret void
 }
@@ -104,21 +104,21 @@ define hidden void @_ZN9CardTableC2E9MemRegion(ptr nocapture noundef nonnull wri
 define hidden void @_ZN9CardTable10initializeEPvS0_(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((32, 88)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.ThreadCritical, align 1
   %5 = alloca %class.ReservedSpace, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = load i32, ptr @_ZN9CardTable19_card_size_in_wordsE, align 4
   %10 = zext i32 %9 to i64
   %11 = udiv i64 %8, %10
   %12 = load i64, ptr @_ZN6OSInfo26_vm_allocation_granularityE, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load i64, ptr %13, align 8
   %15 = tail call noundef i64 @llvm.umax.i64(i64 %14, i64 %12)
   %16 = add i64 %11, -1
   %17 = add i64 %16, %15
   %18 = sub i64 0, %15
   %19 = and i64 %17, %18
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %19, ptr %20, align 8
   %21 = load ptr, ptr %6, align 8
   %22 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
@@ -143,7 +143,7 @@ define hidden void @_ZN9CardTable10initializeEPvS0_(ptr nocapture noundef nonnul
 _ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit: ; preds = %3, %28
   %29 = phi ptr [ %24, %3 ], [ %.pre, %28 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  %30 = getelementptr inbounds i8, ptr %5, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %31 = load i64, ptr %30, align 8
   %32 = load i64, ptr %13, align 8
   call void @_ZN2os16trace_page_sizesEPKcmmS1_mm(ptr noundef nonnull @.str.4, i64 noundef %11, i64 noundef %11, ptr noundef %29, i64 noundef %31, i64 noundef %32) #15
@@ -158,7 +158,7 @@ _ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit: ; preds = %3, %28
 
 35:                                               ; preds = %34, %_ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit
   %36 = phi ptr [ %.pre11, %34 ], [ %33, %_ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit ]
-  %37 = getelementptr inbounds i8, ptr %0, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %36, ptr %37, align 8
   %38 = ptrtoint ptr %21 to i64
   %39 = load i32, ptr @_ZN9CardTable11_card_shiftE, align 4
@@ -166,17 +166,17 @@ _ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit: ; preds = %3, %28
   %41 = lshr i64 %38, %40
   %42 = sub i64 0, %41
   %43 = getelementptr inbounds i8, ptr %36, i64 %42
-  %44 = getelementptr inbounds i8, ptr %0, i64 48
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %43, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 56
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %1, ptr %45, align 8
-  %.sroa.24.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 64
+  %.sroa.24.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 0, ptr %.sroa.24.0..sroa_idx.i, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 72
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %2, ptr %46, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 80
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 0, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %47 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_8ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %47 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_8ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not8 = icmp eq ptr %47, null
   br i1 %.not8, label %49, label %48
 
@@ -185,7 +185,7 @@ _ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit: ; preds = %3, %28
   br label %49
 
 49:                                               ; preds = %35, %48
-  %50 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_8ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %50 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_8ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not9 = icmp eq ptr %50, null
   br i1 %.not9, label %61, label %51
 
@@ -203,7 +203,7 @@ _ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit: ; preds = %3, %28
   br label %61
 
 61:                                               ; preds = %49, %51
-  %62 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_8ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %62 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_8ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not10 = icmp eq ptr %62, null
   br i1 %.not10, label %66, label %63
 
@@ -225,13 +225,13 @@ declare void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef, ptr noundef) 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN9CardTable25initialize_covered_regionEPvS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((56, 88)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %1, ptr %4, align 8
-  %.sroa.24.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 64
+  %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 0, ptr %.sroa.24.0..sroa_idx, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %2, ptr %5, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 80
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
   ret void
 }
@@ -247,14 +247,14 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_8ELS1_0ELS1_0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden { ptr, i64 } @_ZNK9CardTable13committed_forE9MemRegion(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0, ptr %1, i64 %2) local_unnamed_addr #4 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %1 to i64
   %7 = load i32, ptr @_ZN9CardTable11_card_shiftE, align 4
   %8 = zext nneg i32 %7 to i64
   %9 = lshr i64 %6, %8
   %10 = getelementptr inbounds i8, ptr %5, i64 %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i64, ptr %11, align 8
   %13 = ptrtoint ptr %10 to i64
   %14 = sub i64 0, %12
@@ -269,7 +269,7 @@ define hidden { ptr, i64 } @_ZNK9CardTable13committed_forE9MemRegion(ptr nocaptu
   %21 = ptrtoint ptr %20 to i64
   %22 = lshr i64 %21, %8
   %23 = getelementptr inbounds i8, ptr %5, i64 %22
-  %24 = getelementptr inbounds i8, ptr %23, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 1
   %25 = ptrtoint ptr %24 to i64
   %26 = add i64 %12, -1
   %27 = add i64 %26, %25
@@ -279,13 +279,13 @@ define hidden { ptr, i64 } @_ZNK9CardTable13committed_forE9MemRegion(ptr nocaptu
 
 30:                                               ; preds = %3, %18
   %31 = phi ptr [ %29, %18 ], [ %16, %3 ]
-  %32 = getelementptr inbounds i8, ptr %0, i64 56
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %1, %33
   br i1 %34, label %35, label %46
 
 35:                                               ; preds = %30
-  %36 = getelementptr inbounds i8, ptr %0, i64 72
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %37 = load ptr, ptr %36, align 8
   %38 = ptrtoint ptr %37 to i64
   %39 = lshr i64 %38, %8
@@ -309,24 +309,24 @@ define hidden { ptr, i64 } @_ZNK9CardTable13committed_forE9MemRegion(ptr nocaptu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9CardTable21resize_covered_regionE9MemRegion(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, ptr %1, i64 %2) local_unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp ne ptr %1, %5
   %7 = zext i1 %6 to i32
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = zext i1 %6 to i64
-  %10 = getelementptr inbounds [2 x %class.MemRegion], ptr %8, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [2 x %class.MemRegion], ptr %8, i64 0, i64 %9
   %.sroa.01.0.copyload = load ptr, ptr %10, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %.sroa.01.0.copyload to i64
   %14 = load i32, ptr @_ZN9CardTable11_card_shiftE, align 4
   %15 = zext nneg i32 %14 to i64
   %16 = lshr i64 %13, %15
   %17 = getelementptr inbounds i8, ptr %12, i64 %16
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load i64, ptr %18, align 8
   %20 = ptrtoint ptr %17 to i64
   %21 = sub i64 0, %19
@@ -341,7 +341,7 @@ define hidden void @_ZN9CardTable21resize_covered_regionE9MemRegion(ptr nocaptur
   %28 = ptrtoint ptr %27 to i64
   %29 = lshr i64 %28, %15
   %30 = getelementptr inbounds i8, ptr %12, i64 %29
-  %31 = getelementptr inbounds i8, ptr %30, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 1
   %32 = ptrtoint ptr %31 to i64
   %33 = add i64 %19, -1
   %34 = add i64 %33, %32
@@ -356,7 +356,7 @@ define hidden void @_ZN9CardTable21resize_covered_regionE9MemRegion(ptr nocaptur
   br i1 %40, label %41, label %_ZNK9CardTable13committed_forE9MemRegion.exit
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %0, i64 72
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %43 = load ptr, ptr %42, align 8
   %44 = ptrtoint ptr %43 to i64
   %45 = lshr i64 %44, %15
@@ -390,7 +390,7 @@ _ZNK9CardTable13committed_forE9MemRegion.exit:    ; preds = %37, %41
   %65 = ptrtoint ptr %64 to i64
   %66 = lshr i64 %65, %15
   %67 = getelementptr inbounds i8, ptr %12, i64 %66
-  %68 = getelementptr inbounds i8, ptr %67, i64 1
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 1
   %69 = ptrtoint ptr %68 to i64
   %70 = add i64 %19, -1
   %71 = add i64 %70, %69
@@ -405,7 +405,7 @@ _ZNK9CardTable13committed_forE9MemRegion.exit:    ; preds = %37, %41
   br i1 %77, label %78, label %_ZNK9CardTable13committed_forE9MemRegion.exit13
 
 78:                                               ; preds = %74
-  %79 = getelementptr inbounds i8, ptr %0, i64 72
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %80 = load ptr, ptr %79, align 8
   %81 = ptrtoint ptr %80 to i64
   %82 = lshr i64 %81, %15
@@ -430,7 +430,7 @@ _ZNK9CardTable13committed_forE9MemRegion.exit13:  ; preds = %74, %78
   br i1 %94, label %95, label %99
 
 95:                                               ; preds = %93
-  %96 = getelementptr inbounds ptr, ptr %23, i64 %54
+  %96 = getelementptr inbounds nuw ptr, ptr %23, i64 %54
   %97 = sub nuw nsw i64 %91, %54
   %98 = shl nuw i64 %97, 3
   tail call void @_ZN2os21commit_memory_or_exitEPcmmbPKc(ptr noundef %96, i64 noundef %98, i64 noundef %19, i1 noundef zeroext false, ptr noundef nonnull @.str.9) #15
@@ -438,14 +438,14 @@ _ZNK9CardTable13committed_forE9MemRegion.exit13:  ; preds = %74, %78
   br label %104
 
 99:                                               ; preds = %93
-  %100 = getelementptr inbounds ptr, ptr %60, i64 %91
+  %100 = getelementptr inbounds nuw ptr, ptr %60, i64 %91
   %101 = sub nuw nsw i64 %54, %91
   %102 = shl nuw i64 %101, 3
   %103 = tail call noundef zeroext i1 @_ZN2os15uncommit_memoryEPcmb(ptr noundef %100, i64 noundef %102, i1 noundef zeroext false) #15
   br label %104
 
 104:                                              ; preds = %99, %95
-  %105 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_8ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %105 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_8ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not = icmp eq ptr %105, null
   br i1 %.not, label %107, label %106
 
@@ -454,7 +454,7 @@ _ZNK9CardTable13committed_forE9MemRegion.exit13:  ; preds = %74, %78
   br label %107
 
 107:                                              ; preds = %104, %106
-  %108 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_8ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %108 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_8ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not35 = icmp eq ptr %108, null
   br i1 %.not35, label %116, label %109
 
@@ -469,19 +469,19 @@ _ZNK9CardTable13committed_forE9MemRegion.exit13:  ; preds = %74, %78
   br label %116
 
 116:                                              ; preds = %107, %109
-  %117 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_8ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %117 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_8ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not36 = icmp eq ptr %117, null
   br i1 %.not36, label %122, label %118
 
 118:                                              ; preds = %116
-  %119 = getelementptr inbounds ptr, ptr %60, i64 %91
+  %119 = getelementptr inbounds nuw ptr, ptr %60, i64 %91
   %120 = getelementptr inbounds i8, ptr %119, i64 -8
   %121 = ptrtoint ptr %120 to i64
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_8ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.12, i64 noundef %59, i64 noundef %121)
   br label %122
 
 122:                                              ; preds = %116, %118
-  %123 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_8ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %123 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_8ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not37 = icmp eq ptr %123, null
   br i1 %.not37, label %140, label %124
 
@@ -505,7 +505,7 @@ _ZNK9CardTable13committed_forE9MemRegion.exit13:  ; preds = %74, %78
   br label %140
 
 140:                                              ; preds = %122, %124
-  %141 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_8ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %141 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_8ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not38 = icmp eq ptr %141, null
   br i1 %.not38, label %154, label %142
 
@@ -516,7 +516,7 @@ _ZNK9CardTable13committed_forE9MemRegion.exit13:  ; preds = %74, %78
   %146 = load i32, ptr @_ZN9CardTable11_card_shiftE, align 4
   %147 = zext nneg i32 %146 to i64
   %148 = shl i64 %145, %147
-  %149 = getelementptr inbounds ptr, ptr %60, i64 %91
+  %149 = getelementptr inbounds nuw ptr, ptr %60, i64 %91
   %150 = getelementptr inbounds i8, ptr %149, i64 -8
   %151 = ptrtoint ptr %150 to i64
   %152 = sub i64 %151, %144
@@ -537,7 +537,7 @@ declare noundef zeroext i1 @_ZN2os15uncommit_memoryEPcmb(ptr noundef, i64 nounde
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN9CardTable15dirty_MemRegionE9MemRegion(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0, ptr %1, i64 %2) local_unnamed_addr #6 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %1 to i64
   %7 = load i32, ptr @_ZN9CardTable11_card_shiftE, align 4
@@ -549,7 +549,7 @@ define hidden void @_ZN9CardTable15dirty_MemRegionE9MemRegion(ptr nocapture noun
   %13 = ptrtoint ptr %12 to i64
   %14 = lshr i64 %13, %8
   %15 = getelementptr inbounds i8, ptr %5, i64 %14
-  %16 = getelementptr inbounds i8, ptr %15, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1
   %17 = ptrtoint ptr %16 to i64
   %18 = ptrtoint ptr %10 to i64
   %19 = sub i64 %17, %18
@@ -559,13 +559,13 @@ define hidden void @_ZN9CardTable15dirty_MemRegionE9MemRegion(ptr nocapture noun
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN9CardTable15clear_MemRegionE9MemRegion(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0, ptr %1, i64 %2) local_unnamed_addr #6 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %1, %5
   br i1 %6, label %7, label %15
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load ptr, ptr %8, align 8
   %10 = ptrtoint ptr %1 to i64
   %11 = load i32, ptr @_ZN9CardTable11_card_shiftE, align 4
@@ -576,14 +576,14 @@ define hidden void @_ZN9CardTable15clear_MemRegionE9MemRegion(ptr nocapture noun
 
 15:                                               ; preds = %3
   %16 = getelementptr inbounds i8, ptr %1, i64 -8
-  %17 = getelementptr inbounds i8, ptr %0, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %18 = load ptr, ptr %17, align 8
   %19 = ptrtoint ptr %16 to i64
   %20 = load i32, ptr @_ZN9CardTable11_card_shiftE, align 4
   %21 = zext nneg i32 %20 to i64
   %22 = lshr i64 %19, %21
   %23 = getelementptr inbounds i8, ptr %18, i64 %22
-  %24 = getelementptr inbounds i8, ptr %23, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 1
   br label %25
 
 25:                                               ; preds = %15, %7
@@ -595,7 +595,7 @@ define hidden void @_ZN9CardTable15clear_MemRegionE9MemRegion(ptr nocapture noun
   %29 = ptrtoint ptr %28 to i64
   %30 = lshr i64 %29, %.pre-phi
   %31 = getelementptr inbounds i8, ptr %26, i64 %30
-  %32 = getelementptr inbounds i8, ptr %31, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 1
   %33 = ptrtoint ptr %32 to i64
   %34 = ptrtoint ptr %.0 to i64
   %35 = sub i64 %33, %34
@@ -614,14 +614,14 @@ define hidden noundef i64 @_ZN9CardTable27ct_max_alignment_constraintEv() local_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK9CardTable8print_onEP12outputStream(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = ptrtoint ptr %4 to i64
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 %7
   %9 = ptrtoint ptr %8 to i64
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load ptr, ptr %10, align 8
   %12 = ptrtoint ptr %11 to i64
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.15, i64 noundef %5, i64 noundef %9, i64 noundef %12) #15

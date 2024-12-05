@@ -110,7 +110,7 @@ define dso_local i64 @FSE_readNCount_bmi2(ptr nocapture noundef writeonly %0, pt
   %.2156.i4 = phi i32 [ %38, %.lr.ph ], [ %.0154.i, %33 ]
   %38 = add i32 %.2156.i4, 36
   %.not185.i = icmp ugt ptr %.2.i6, %28
-  %39 = getelementptr inbounds i8, ptr %.2.i6, i64 3
+  %39 = getelementptr inbounds nuw i8, ptr %.2.i6, i64 3
   %40 = ptrtoint ptr %.2.i6 to i64
   %.neg186.i = sub i64 %40, %29
   %.tr.neg187.i = trunc i64 %.neg186.i to i32
@@ -149,13 +149,13 @@ define dso_local i64 @FSE_readNCount_bmi2(ptr nocapture noundef writeonly %0, pt
   %.not174.i = icmp ugt ptr %.2.i.lcssa, %28
   %57 = lshr i32 %55, 3
   %58 = zext nneg i32 %57 to i64
-  %59 = getelementptr inbounds i8, ptr %.2.i.lcssa, i64 %58
+  %59 = getelementptr inbounds nuw i8, ptr %.2.i.lcssa, i64 %58
   %.not175.i = icmp ugt ptr %59, %30
   %or.cond = select i1 %.not174.i, i1 %.not175.i, i1 false
   br i1 %or.cond, label %62, label %._crit_edge13
 
 ._crit_edge13:                                    ; preds = %56
-  %60 = getelementptr inbounds i8, ptr %.2.i.lcssa, i64 %58
+  %60 = getelementptr inbounds nuw i8, ptr %.2.i.lcssa, i64 %58
   %61 = and i32 %55, 7
   br label %66
 
@@ -211,7 +211,7 @@ define dso_local i64 @FSE_readNCount_bmi2(ptr nocapture noundef writeonly %0, pt
   %84 = trunc i32 %81 to i16
   %85 = add nuw i32 %.1155.i, 1
   %86 = zext i32 %.1155.i to i64
-  %87 = getelementptr inbounds i16, ptr %0, i64 %86
+  %87 = getelementptr inbounds nuw i16, ptr %0, i64 %86
   store i16 %84, ptr %87, align 2
   %88 = icmp ne i32 %81, 0
   %89 = icmp slt i32 %.2137.i, %.0138.i
@@ -334,7 +334,7 @@ define dso_local range(i64 1, 0) i64 @HUF_readStats_wksp(ptr noundef %0, i64 nou
   br i1 %.not91.i, label %20, label %HUF_readStats_body_default.exit
 
 20:                                               ; preds = %19
-  %21 = getelementptr inbounds i8, ptr %5, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %.not100.i = icmp eq i64 %16, 0
   br i1 %.not100.i, label %.loopexit94.thread.i, label %.lr.ph.i
 
@@ -345,15 +345,15 @@ define dso_local range(i64 1, 0) i64 @HUF_readStats_wksp(ptr noundef %0, i64 nou
 .lr.ph.i:                                         ; preds = %20, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %20 ]
   %22 = lshr exact i64 %indvars.iv.i, 1
-  %23 = getelementptr inbounds i8, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 %22
   %24 = load i8, ptr %23, align 1
   %25 = lshr i8 %24, 4
-  %26 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
   store i8 %25, ptr %26, align 1
   %27 = load i8, ptr %23, align 1
   %28 = and i8 %27, 15
   %29 = or disjoint i64 %indvars.iv.i, 1
-  %30 = getelementptr inbounds i8, ptr %0, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 %29
   store i8 %28, ptr %30, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %31 = icmp ult i64 %indvars.iv.next.i, %16
@@ -365,7 +365,7 @@ define dso_local range(i64 1, 0) i64 @HUF_readStats_wksp(ptr noundef %0, i64 nou
 
 33:                                               ; preds = %32
   %34 = add i64 %1, -1
-  %35 = getelementptr inbounds i8, ptr %5, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %36 = tail call i64 @FSE_decompress_wksp_bmi2(ptr noundef %0, i64 noundef %34, ptr noundef nonnull %35, i64 noundef %13, i32 noundef 6, ptr noundef %7, i64 noundef %8, i32 noundef 0) #8
   %37 = icmp ult i64 %36, -119
   br i1 %37, label %.loopexit94.i, label %HUF_readStats_body_default.exit
@@ -381,14 +381,14 @@ define dso_local range(i64 1, 0) i64 @HUF_readStats_wksp(ptr noundef %0, i64 nou
   %38 = phi i64 [ %53, %42 ], [ 0, %.loopexit94.i ]
   %.07698.i = phi i32 [ %51, %42 ], [ 0, %.loopexit94.i ]
   %.08097.i = phi i32 [ %52, %42 ], [ 0, %.loopexit94.i ]
-  %39 = getelementptr inbounds i8, ptr %0, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 %38
   %40 = load i8, ptr %39, align 1
   %41 = icmp ugt i8 %40, 12
   br i1 %41, label %HUF_readStats_body_default.exit, label %42
 
 42:                                               ; preds = %.lr.ph99.i
   %43 = zext nneg i8 %40 to i64
-  %44 = getelementptr inbounds i32, ptr %2, i64 %43
+  %44 = getelementptr inbounds nuw i32, ptr %2, i64 %43
   %45 = load i32, ptr %44, align 4
   %46 = add i32 %45, 1
   store i32 %46, ptr %44, align 4
@@ -429,11 +429,11 @@ define dso_local range(i64 1, 0) i64 @HUF_readStats_wksp(ptr noundef %0, i64 nou
   %70 = getelementptr inbounds i8, ptr %0, i64 %.078.i
   store i8 %69, ptr %70, align 1
   %71 = zext nneg i32 %68 to i64
-  %72 = getelementptr inbounds i32, ptr %2, i64 %71
+  %72 = getelementptr inbounds nuw i32, ptr %2, i64 %71
   %73 = load i32, ptr %72, align 4
   %74 = add i32 %73, 1
   store i32 %74, ptr %72, align 4
-  %75 = getelementptr inbounds i8, ptr %2, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %76 = load i32, ptr %75, align 4
   %77 = icmp ugt i32 %76, 1
   %78 = and i32 %76, 1

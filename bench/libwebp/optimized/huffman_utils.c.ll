@@ -39,14 +39,14 @@ define hidden i32 @VP8LBuildHuffmanTable(ptr noundef %0, i32 noundef %1, ptr noc
   br i1 %or.cond, label %52, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = sext i32 %6 to i64
   %15 = getelementptr inbounds %struct.HuffmanCode, ptr %13, i64 %14
   %16 = load ptr, ptr %11, align 8
-  %17 = getelementptr inbounds i8, ptr %11, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %18 = load i32, ptr %17, align 8
   %19 = sext i32 %18 to i64
   %20 = getelementptr inbounds %struct.HuffmanCode, ptr %16, i64 %19
@@ -60,7 +60,7 @@ define hidden i32 @VP8LBuildHuffmanTable(ptr noundef %0, i32 noundef %1, ptr noc
 
 24:                                               ; preds = %21
   %25 = tail call i32 @llvm.smax.i32(i32 %6, i32 %18)
-  %26 = getelementptr inbounds i8, ptr %22, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store i32 %25, ptr %26, align 8
   %27 = sext i32 %25 to i64
   %28 = tail call ptr @WebPSafeMalloc(i64 noundef %27, i64 noundef 4) #5
@@ -73,12 +73,12 @@ define hidden i32 @VP8LBuildHuffmanTable(ptr noundef %0, i32 noundef %1, ptr noc
   br label %52
 
 31:                                               ; preds = %24
-  %32 = getelementptr inbounds i8, ptr %22, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %28, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %22, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store ptr null, ptr %33, align 8
   %34 = load ptr, ptr %10, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store ptr %22, ptr %35, align 8
   store ptr %22, ptr %10, align 8
   br label %36
@@ -89,7 +89,7 @@ define hidden i32 @VP8LBuildHuffmanTable(ptr noundef %0, i32 noundef %1, ptr noc
   br i1 %38, label %39, label %43
 
 39:                                               ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %37, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %41 = load ptr, ptr %40, align 8
   %42 = call fastcc i32 @BuildHuffmanTable(ptr noundef %41, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %5)
   br label %52
@@ -102,7 +102,7 @@ define hidden i32 @VP8LBuildHuffmanTable(ptr noundef %0, i32 noundef %1, ptr noc
 
 47:                                               ; preds = %43
   %48 = load ptr, ptr %10, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load ptr, ptr %49, align 8
   %51 = tail call fastcc i32 @BuildHuffmanTable(ptr noundef %50, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %45)
   tail call void @WebPSafeFree(ptr noundef nonnull %45) #5
@@ -128,7 +128,7 @@ define internal fastcc i32 @BuildHuffmanTable(ptr noundef %0, i32 noundef %1, pt
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %13 ]
-  %10 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4
   %12 = icmp sgt i32 %11, 15
   br i1 %12, label %ReplicateValue.exit, label %13
@@ -153,7 +153,7 @@ define internal fastcc i32 @BuildHuffmanTable(ptr noundef %0, i32 noundef %1, pt
   br i1 %19, label %ReplicateValue.exit, label %20
 
 20:                                               ; preds = %._crit_edge
-  %21 = getelementptr inbounds i8, ptr %7, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 0, ptr %21, align 4
   br label %31
 
@@ -167,14 +167,14 @@ define internal fastcc i32 @BuildHuffmanTable(ptr noundef %0, i32 noundef %1, pt
 
 .lr.ph209.split.us:                               ; preds = %.lr.ph209, %30
   %indvars.iv304 = phi i64 [ %indvars.iv.next305, %30 ], [ 0, %.lr.ph209 ]
-  %22 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv304
+  %22 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv304
   %23 = load i32, ptr %22, align 4
   %24 = icmp sgt i32 %23, 0
   br i1 %24, label %25, label %30
 
 25:                                               ; preds = %.lr.ph209.split.us
   %26 = zext nneg i32 %23 to i64
-  %27 = getelementptr inbounds [16 x i32], ptr %7, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw [16 x i32], ptr %7, i64 0, i64 %26
   %28 = load i32, ptr %27, align 4
   %29 = add nsw i32 %28, 1
   store i32 %29, ptr %27, align 4
@@ -187,7 +187,7 @@ define internal fastcc i32 @BuildHuffmanTable(ptr noundef %0, i32 noundef %1, pt
 
 31:                                               ; preds = %20, %37
   %indvars.iv295 = phi i64 [ 1, %20 ], [ %indvars.iv.next296, %37 ]
-  %32 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 %indvars.iv295
+  %32 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 0, i64 %indvars.iv295
   %33 = load i32, ptr %32, align 4
   %34 = trunc nuw nsw i64 %indvars.iv295 to i32
   %35 = shl nuw nsw i32 1, %34
@@ -195,25 +195,25 @@ define internal fastcc i32 @BuildHuffmanTable(ptr noundef %0, i32 noundef %1, pt
   br i1 %36, label %ReplicateValue.exit, label %37
 
 37:                                               ; preds = %31
-  %38 = getelementptr inbounds [16 x i32], ptr %7, i64 0, i64 %indvars.iv295
+  %38 = getelementptr inbounds nuw [16 x i32], ptr %7, i64 0, i64 %indvars.iv295
   %39 = load i32, ptr %38, align 4
   %40 = add nsw i32 %39, %33
   %indvars.iv.next296 = add nuw nsw i64 %indvars.iv295, 1
-  %41 = getelementptr inbounds [16 x i32], ptr %7, i64 0, i64 %indvars.iv.next296
+  %41 = getelementptr inbounds nuw [16 x i32], ptr %7, i64 0, i64 %indvars.iv.next296
   store i32 %40, ptr %41, align 4
   %exitcond298.not = icmp eq i64 %indvars.iv.next296, 15
   br i1 %exitcond298.not, label %.preheader195, label %31, !llvm.loop !7
 
 .lr.ph209.split:                                  ; preds = %.lr.ph209, %54
   %indvars.iv299 = phi i64 [ %indvars.iv.next300, %54 ], [ 0, %.lr.ph209 ]
-  %42 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv299
+  %42 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv299
   %43 = load i32, ptr %42, align 4
   %44 = icmp sgt i32 %43, 0
   br i1 %44, label %45, label %54
 
 45:                                               ; preds = %.lr.ph209.split
   %46 = zext nneg i32 %43 to i64
-  %47 = getelementptr inbounds [16 x i32], ptr %7, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw [16 x i32], ptr %7, i64 0, i64 %46
   %48 = load i32, ptr %47, align 4
   %.not162 = icmp slt i32 %48, %3
   br i1 %.not162, label %49, label %ReplicateValue.exit
@@ -233,7 +233,7 @@ define internal fastcc i32 @BuildHuffmanTable(ptr noundef %0, i32 noundef %1, pt
   br i1 %exitcond303.not, label %._crit_edge210, label %.lr.ph209.split, !llvm.loop !6
 
 ._crit_edge210:                                   ; preds = %54, %30, %.preheader195
-  %55 = getelementptr inbounds i8, ptr %7, i64 60
+  %55 = getelementptr inbounds nuw i8, ptr %7, i64 60
   %56 = load i32, ptr %55, align 4
   %57 = icmp eq i32 %56, 1
   br i1 %57, label %58, label %65
@@ -273,7 +273,7 @@ define internal fastcc i32 @BuildHuffmanTable(ptr noundef %0, i32 noundef %1, pt
   %.0133218.us = phi i32 [ %72, %74 ], [ 1, %.lr.ph225 ]
   %.0135217.us = phi i32 [ %75, %74 ], [ 1, %.lr.ph225 ]
   %69 = shl nuw i32 %.0133218.us, 1
-  %70 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 %indvars.iv317
+  %70 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 0, i64 %indvars.iv317
   %71 = load i32, ptr %70, align 4
   %72 = sub nsw i32 %69, %71
   %73 = icmp slt i32 %72, 0
@@ -312,7 +312,7 @@ define internal fastcc i32 @BuildHuffmanTable(ptr noundef %0, i32 noundef %1, pt
   %.0137216 = phi i32 [ %.2139.lcssa, %.loopexit ], [ 0, %.lr.ph225 ]
   %79 = shl nuw i32 %.0133218, 1
   %80 = add nsw i32 %79, %.0135217
-  %81 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 %indvars.iv312
+  %81 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 0, i64 %indvars.iv312
   %82 = load i32, ptr %81, align 4
   %83 = sub nsw i32 %79, %82
   %84 = icmp slt i32 %83, 0
@@ -338,7 +338,7 @@ define internal fastcc i32 @BuildHuffmanTable(ptr noundef %0, i32 noundef %1, pt
   %93 = getelementptr inbounds i16, ptr %4, i64 %indvars.iv309
   %94 = load i16, ptr %93, align 2
   %95 = zext i32 %.2139211 to i64
-  %96 = getelementptr inbounds %struct.HuffmanCode, ptr %0, i64 %95
+  %96 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %0, i64 %95
   %.sroa.24.0.insert.ext = zext i16 %94 to i32
   %.sroa.24.0.insert.shift = shl nuw i32 %.sroa.24.0.insert.ext, 16
   %.sroa.02.0.insert.insert = or disjoint i32 %.sroa.24.0.insert.shift, %.sroa.02.0.insert.ext
@@ -435,14 +435,14 @@ NextTableBitSize.exit.us:                         ; preds = %.lr.ph239.split.us
   %127 = sext i32 %.1131235.us to i64
   %128 = getelementptr inbounds %struct.HuffmanCode, ptr %.1238.us, i64 %127
   %129 = zext nneg i32 %125 to i64
-  %130 = getelementptr inbounds %struct.HuffmanCode, ptr %0, i64 %129
+  %130 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %0, i64 %129
   store i8 15, ptr %130, align 2
   %131 = ptrtoint ptr %128 to i64
   %132 = sub i64 %131, %77
   %133 = lshr exact i64 %132, 2
   %134 = sub nsw i64 %133, %129
   %135 = trunc i64 %134 to i16
-  %136 = getelementptr inbounds i8, ptr %130, i64 2
+  %136 = getelementptr inbounds nuw i8, ptr %130, i64 2
   store i16 %135, ptr %136, align 2
   br label %138
 
@@ -459,7 +459,7 @@ NextTableBitSize.exit.us:                         ; preds = %.lr.ph239.split.us
   %141 = load i16, ptr %140, align 2
   %142 = lshr i32 %.4141234.us, %1
   %143 = zext i32 %142 to i64
-  %144 = getelementptr inbounds %struct.HuffmanCode, ptr %.2189.us, i64 %143
+  %144 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %.2189.us, i64 %143
   %.sroa.21.0.insert.ext.us = zext i16 %141 to i32
   %.sroa.21.0.insert.shift.us = shl nuw i32 %.sroa.21.0.insert.ext.us, 16
   %.sroa.0.0.insert.insert.us = or disjoint i32 %.sroa.21.0.insert.shift.us, %.sroa.0.0.insert.ext
@@ -549,14 +549,14 @@ GetNextKey.exit170.us:                            ; preds = %151
 .thread180:                                       ; preds = %._crit_edge.loopexit.i
   %173 = trunc i32 %.010.lcssa.ph.i to i8
   %174 = zext nneg i32 %160 to i64
-  %175 = getelementptr inbounds %struct.HuffmanCode, ptr %0, i64 %174
+  %175 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %0, i64 %174
   store i8 %173, ptr %175, align 2
   %176 = ptrtoint ptr %162 to i64
   %177 = sub i64 %176, %77
   %178 = lshr exact i64 %177, 2
   %179 = sub nsw i64 %178, %174
   %180 = trunc i64 %179 to i16
-  %181 = getelementptr inbounds i8, ptr %175, i64 2
+  %181 = getelementptr inbounds nuw i8, ptr %175, i64 2
   store i16 %180, ptr %181, align 2
   br label %183
 
@@ -573,7 +573,7 @@ GetNextKey.exit170.us:                            ; preds = %151
   %186 = load i16, ptr %185, align 2
   %187 = lshr i32 %.4141234, %1
   %188 = zext i32 %187 to i64
-  %189 = getelementptr inbounds %struct.HuffmanCode, ptr %.2189, i64 %188
+  %189 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %.2189, i64 %188
   %.sroa.21.0.insert.ext = zext i16 %186 to i32
   %.sroa.21.0.insert.shift = shl nuw i32 %.sroa.21.0.insert.ext, 16
   %.sroa.0.0.insert.insert = or disjoint i32 %.sroa.21.0.insert.shift, %.sroa.0.0.insert.ext
@@ -650,9 +650,9 @@ ReplicateValue.exit:                              ; preds = %.lr.ph, %31, %45, %
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @VP8LHuffmanTablesAllocate(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr null, ptr %4, align 8
   %5 = sext i32 %0 to i64
   %6 = tail call ptr @WebPSafeMalloc(i64 noundef %5, i64 noundef 4) #5
@@ -661,9 +661,9 @@ define hidden range(i32 0, 2) i32 @VP8LHuffmanTablesAllocate(i32 noundef %0, ptr
   br i1 %7, label %11, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %6, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 %0, ptr %10, align 8
   br label %11
 
@@ -678,7 +678,7 @@ define hidden void @VP8LHuffmanTablesDeallocate(ptr noundef %0) local_unnamed_ad
   br i1 %2, label %.loopexit, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
   tail call void @WebPSafeFree(ptr noundef %6) #5
@@ -689,7 +689,7 @@ define hidden void @VP8LHuffmanTablesDeallocate(ptr noundef %0) local_unnamed_ad
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.014 = phi ptr [ %8, %.lr.ph ], [ %5, %3 ]
-  %7 = getelementptr inbounds i8, ptr %.014, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %.014, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %.014, align 8
   tail call void @WebPSafeFree(ptr noundef %9) #5

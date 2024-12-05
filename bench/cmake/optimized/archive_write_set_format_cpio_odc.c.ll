@@ -30,7 +30,7 @@ define dso_local range(i32 -30, 1) i32 @archive_write_set_format_cpio_odc(ptr no
   br i1 %3, label %23, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 312
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %9, label %7
@@ -49,24 +49,24 @@ define dso_local range(i32 -30, 1) i32 @archive_write_set_format_cpio_odc(ptr no
   br label %23
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 248
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store ptr %10, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 256
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store ptr @.str.2, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 272
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store ptr @archive_write_odc_options, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 288
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store ptr @archive_write_odc_header, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 296
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store ptr @archive_write_odc_data, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 280
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store ptr @archive_write_odc_finish_entry, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 304
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store ptr @archive_write_odc_close, ptr %20, align 8
   store ptr @archive_write_odc_free, ptr %5, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 65537, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr @.str.3, ptr %22, align 8
   br label %23
 
@@ -84,7 +84,7 @@ declare void @archive_set_error(ptr noundef, i32 noundef, ptr noundef, ...) loca
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -30, 1) i32 @archive_write_odc_options(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 248
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(11) @.str.4) #13
   %7 = icmp eq i32 %6, 0
@@ -100,14 +100,14 @@ define internal range(i32 -30, 1) i32 @archive_write_odc_options(ptr noundef %0,
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %10, %8
-  %14 = getelementptr inbounds i8, ptr %0, i64 256
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %15 = load ptr, ptr %14, align 8
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.5, ptr noundef %15) #11
   br label %19
 
 16:                                               ; preds = %10
   %17 = tail call ptr @archive_string_conversion_to_charset(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 0) #11
-  %18 = getelementptr inbounds i8, ptr %5, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %17, ptr %18, align 8
   %.not = icmp eq ptr %17, null
   %. = select i1 %.not, i32 -30, i32 0
@@ -136,27 +136,27 @@ define internal range(i32 -30, 1) i32 @archive_write_odc_header(ptr noundef %0, 
   br label %46
 
 11:                                               ; preds = %7, %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 248
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %get_sconv.exit
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %13, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %19 = load i32, ptr %18, align 8
   %.not.i = icmp eq i32 %19, 0
   br i1 %.not.i, label %20, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %17
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %13, i64 48
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %13, i64 48
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %get_sconv.exit
 
 20:                                               ; preds = %17
   %21 = tail call ptr @archive_string_default_conversion_for_write(ptr noundef nonnull %0) #11
-  %22 = getelementptr inbounds i8, ptr %13, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 48
   store ptr %21, ptr %22, align 8
   store i32 1, ptr %18, align 8
   br label %get_sconv.exit
@@ -219,7 +219,7 @@ get_sconv.exit:                                   ; preds = %11, %._crit_edge.i,
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @archive_write_odc_data(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 248
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %5, align 8
   %spec.select = tail call i64 @llvm.umin.i64(i64 %2, i64 %6)
@@ -235,7 +235,7 @@ define internal i64 @archive_write_odc_data(ptr noundef %0, ptr noundef %1, i64 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @archive_write_odc_finish_entry(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 248
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8
   %4 = load i64, ptr %3, align 8
   %5 = tail call i32 @__archive_write_nulls(ptr noundef %0, i64 noundef %4) #11
@@ -255,9 +255,9 @@ define internal range(i32 -30, 1) i32 @archive_write_odc_close(ptr noundef %0) #
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define internal noundef i32 @archive_write_odc_free(ptr nocapture noundef %0) #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 248
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8
   tail call void @free(ptr noundef %5) #11
   tail call void @free(ptr noundef %3) #11
@@ -289,27 +289,27 @@ define internal fastcc range(i32 -30, 1) i32 @write_header(ptr noundef %0, ptr n
   %4 = alloca ptr, align 8
   %5 = alloca [76 x i8], align 16
   %6 = alloca i64, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 248
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %get_sconv.exit
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %8, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %14 = load i32, ptr %13, align 8
   %.not.i = icmp eq i32 %14, 0
   br i1 %.not.i, label %15, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %12
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %8, i64 48
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %8, i64 48
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %get_sconv.exit
 
 15:                                               ; preds = %12
   %16 = tail call ptr @archive_string_default_conversion_for_write(ptr noundef nonnull %0) #11
-  %17 = getelementptr inbounds i8, ptr %8, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr %16, ptr %17, align 8
   store i32 1, ptr %13, align 8
   br label %get_sconv.exit
@@ -342,7 +342,7 @@ get_sconv.exit:                                   ; preds = %2, %._crit_edge.i, 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(76) %5, i8 0, i64 76, i1 false)
   %29 = call fastcc i64 @format_octal_recursive(i64 noundef 29127, ptr noundef nonnull %5, i32 noundef 6)
   %30 = call i64 @archive_entry_dev(ptr noundef %1) #11
-  %31 = getelementptr inbounds i8, ptr %5, i64 6
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 6
   %..i = call i64 @llvm.umin.i64(i64 %30, i64 262143)
   %32 = call fastcc i64 @format_octal_recursive(i64 noundef %..i, ptr noundef nonnull %31, i32 noundef 6)
   %33 = call i64 @archive_entry_ino64(ptr noundef %1) #11
@@ -355,18 +355,18 @@ get_sconv.exit:                                   ; preds = %2, %._crit_edge.i, 
   br i1 %37, label %42, label %.preheader.i
 
 .preheader.i:                                     ; preds = %35
-  %38 = getelementptr inbounds i8, ptr %8, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %39 = load i64, ptr %38, align 8
   %.not41.i = icmp eq i64 %39, 0
   br i1 %.not41.i, label %._crit_edge.i63, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %40 = getelementptr inbounds i8, ptr %8, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %41 = load ptr, ptr %40, align 8
   br label %49
 
 42:                                               ; preds = %35
-  %43 = getelementptr inbounds i8, ptr %8, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %44 = load i64, ptr %43, align 8
   %45 = add nsw i64 %44, 1
   store i64 %45, ptr %43, align 8
@@ -386,23 +386,23 @@ get_sconv.exit:                                   ; preds = %2, %._crit_edge.i, 
   br i1 %52, label %53, label %47
 
 53:                                               ; preds = %49
-  %54 = getelementptr inbounds i8, ptr %50, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %55 = load i32, ptr %54, align 8
   br label %synthesize_ino_value.exit
 
 ._crit_edge.i63:                                  ; preds = %47, %.preheader.i
-  %56 = getelementptr inbounds i8, ptr %8, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %57 = load i64, ptr %56, align 8
   %58 = add nsw i64 %57, 1
   store i64 %58, ptr %56, align 8
   %59 = trunc i64 %58 to i32
-  %60 = getelementptr inbounds i8, ptr %8, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %61 = load i64, ptr %60, align 8
   %.not.i64 = icmp ugt i64 %61, %39
   br i1 %.not.i64, label %._crit_edge._crit_edge.i, label %62
 
 ._crit_edge._crit_edge.i:                         ; preds = %._crit_edge.i63
-  %.phi.trans.insert.i66 = getelementptr inbounds i8, ptr %8, i64 16
+  %.phi.trans.insert.i66 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %.pre.i67 = load ptr, ptr %.phi.trans.insert.i66, align 8
   br label %71
 
@@ -410,7 +410,7 @@ get_sconv.exit:                                   ; preds = %2, %._crit_edge.i, 
   %63 = icmp ult i64 %61, 512
   %64 = shl i64 %61, 1
   %spec.select.i = select i1 %63, i64 512, i64 %64
-  %65 = getelementptr inbounds i8, ptr %8, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %66 = load ptr, ptr %65, align 8
   %67 = shl i64 %spec.select.i, 4
   %68 = call ptr @realloc(ptr noundef %66, i64 noundef %67) #15
@@ -426,7 +426,7 @@ get_sconv.exit:                                   ; preds = %2, %._crit_edge.i, 
 71:                                               ; preds = %70, %._crit_edge._crit_edge.i
   %72 = phi i64 [ %39, %._crit_edge._crit_edge.i ], [ %.pre43.i, %70 ]
   %73 = phi ptr [ %.pre.i67, %._crit_edge._crit_edge.i ], [ %68, %70 ]
-  %74 = getelementptr inbounds i8, ptr %8, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %75 = getelementptr inbounds %struct.anon, ptr %73, i64 %72
   store i64 %33, ptr %75, align 8
   %76 = load ptr, ptr %74, align 8
@@ -458,23 +458,23 @@ synthesize_ino_value.exit.thread:                 ; preds = %62, %synthesize_ino
 .thread:                                          ; preds = %27, %82
   %.0.i65111113 = phi i32 [ %.0.i65, %82 ], [ 0, %27 ]
   %85 = zext nneg i32 %.0.i65111113 to i64
-  %86 = getelementptr inbounds i8, ptr %5, i64 12
+  %86 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %87 = call fastcc i64 @format_octal_recursive(i64 noundef %85, ptr noundef nonnull %86, i32 noundef 6)
   %88 = call i32 @archive_entry_mode(ptr noundef %1) #11
-  %89 = getelementptr inbounds i8, ptr %5, i64 18
+  %89 = getelementptr inbounds nuw i8, ptr %5, i64 18
   %90 = call i32 @llvm.umin.i32(i32 %88, i32 262143)
   %..i74 = zext nneg i32 %90 to i64
   %91 = call fastcc i64 @format_octal_recursive(i64 noundef %..i74, ptr noundef nonnull %89, i32 noundef 6)
   %92 = call i64 @archive_entry_uid(ptr noundef %1) #11
-  %93 = getelementptr inbounds i8, ptr %5, i64 24
+  %93 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %..i78 = call i64 @llvm.umin.i64(i64 %92, i64 262143)
   %94 = call fastcc i64 @format_octal_recursive(i64 noundef %..i78, ptr noundef nonnull %93, i32 noundef 6)
   %95 = call i64 @archive_entry_gid(ptr noundef %1) #11
-  %96 = getelementptr inbounds i8, ptr %5, i64 30
+  %96 = getelementptr inbounds nuw i8, ptr %5, i64 30
   %..i82 = call i64 @llvm.umin.i64(i64 %95, i64 262143)
   %97 = call fastcc i64 @format_octal_recursive(i64 noundef %..i82, ptr noundef nonnull %96, i32 noundef 6)
   %98 = call i32 @archive_entry_nlink(ptr noundef %1) #11
-  %99 = getelementptr inbounds i8, ptr %5, i64 36
+  %99 = getelementptr inbounds nuw i8, ptr %5, i64 36
   %100 = call i32 @llvm.umin.i32(i32 %98, i32 262143)
   %..i86 = zext nneg i32 %100 to i64
   %101 = call fastcc i64 @format_octal_recursive(i64 noundef %..i86, ptr noundef nonnull %99, i32 noundef 6)
@@ -489,25 +489,25 @@ synthesize_ino_value.exit.thread:                 ; preds = %62, %synthesize_ino
 
 107:                                              ; preds = %104, %.thread
   %108 = call i64 @archive_entry_rdev(ptr noundef %1) #11
-  %109 = getelementptr inbounds i8, ptr %5, i64 42
+  %109 = getelementptr inbounds nuw i8, ptr %5, i64 42
   %..i90 = call i64 @llvm.umin.i64(i64 %108, i64 262143)
   %110 = call fastcc i64 @format_octal_recursive(i64 noundef %..i90, ptr noundef nonnull %109, i32 noundef 6)
   br label %114
 
 111:                                              ; preds = %104
-  %112 = getelementptr inbounds i8, ptr %5, i64 42
+  %112 = getelementptr inbounds nuw i8, ptr %5, i64 42
   %113 = call fastcc i64 @format_octal_recursive(i64 noundef 0, ptr noundef nonnull %112, i32 noundef 6)
   br label %114
 
 114:                                              ; preds = %111, %107
   %115 = call i64 @archive_entry_mtime(ptr noundef %1) #11
-  %116 = getelementptr inbounds i8, ptr %5, i64 48
+  %116 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %..i94 = call i64 @llvm.umin.i64(i64 %115, i64 8589934591)
   %117 = call fastcc i64 @format_octal_recursive(i64 noundef %..i94, ptr noundef nonnull %116, i32 noundef 11)
   %118 = shl i64 %28, 32
   %sext = add i64 %118, 4294967296
   %119 = ashr exact i64 %sext, 32
-  %120 = getelementptr inbounds i8, ptr %5, i64 59
+  %120 = getelementptr inbounds nuw i8, ptr %5, i64 59
   %..i98 = call i64 @llvm.umin.i64(i64 %119, i64 262143)
   %121 = call fastcc i64 @format_octal_recursive(i64 noundef %..i98, ptr noundef nonnull %120, i32 noundef 6)
   %122 = call i32 @archive_entry_filetype(ptr noundef %1) #11
@@ -563,7 +563,7 @@ synthesize_ino_value.exit.thread:                 ; preds = %62, %synthesize_ino
 
 145:                                              ; preds = %143, %141
   %.sink117 = phi i64 [ %144, %143 ], [ %142, %141 ]
-  %146 = getelementptr inbounds i8, ptr %5, i64 65
+  %146 = getelementptr inbounds nuw i8, ptr %5, i64 65
   %..i106 = call i64 @llvm.umin.i64(i64 %.sink117, i64 8589934591)
   %147 = call fastcc i64 @format_octal_recursive(i64 noundef %..i106, ptr noundef nonnull %146, i32 noundef 11)
   %.0.in = icmp ult i64 %.sink117, 8589934592
@@ -655,7 +655,7 @@ common.ret9:                                      ; preds = %3, %5
   ret i64 %common.ret9.op
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %7 = add nsw i32 %2, -1
   %8 = tail call fastcc i64 @format_octal_recursive(i64 noundef %0, ptr noundef %6, i32 noundef %7)
   %9 = trunc i64 %8 to i8

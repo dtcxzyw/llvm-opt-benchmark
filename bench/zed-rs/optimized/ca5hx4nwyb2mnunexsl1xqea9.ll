@@ -323,11 +323,11 @@ _ZN5serde3ser12SerializeMap15serialize_entry17hd74bd8a0ff6e3844E.exit: ; preds =
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h45797abdfbb43c9fE.llvm.12664348367457638102"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 4 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [12 x i8], align 4
-  %4 = getelementptr inbounds i8, ptr %1, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %5 = load float, ptr %4, align 4, !alias.scope !9, !noalias !12, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   call void @"_ZN157_$LT$palette..hsl..Hsl$LT$S$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$GT$$GT$20from_color_unclamped17h8ab857a54755fae5E"(ptr noalias nocapture noundef nonnull sret([12 x i8]) align 4 dereferenceable(12) %0, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %3)
-  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store float %5, ptr %6, align 4
   ret void
 }
@@ -336,10 +336,10 @@ define hidden void @"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$a
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17he4aefb679668930bE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !4, !align !14, !noundef !4
-  %5 = getelementptr inbounds i8, ptr %4, i64 4
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !15
-  %7 = getelementptr inbounds i8, ptr %4, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store ptr %7, ptr %3, align 8, !noalias !15
   %8 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field4_finish17hd819415f03a2bc8bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8864566ca2df49740c222121536a8dcf.10, i64 noundef 4, ptr noalias noundef nonnull readonly align 1 @anon.8864566ca2df49740c222121536a8dcf.11, i64 noundef 1, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.8864566ca2df49740c222121536a8dcf.8, ptr noalias noundef nonnull readonly align 1 @anon.8864566ca2df49740c222121536a8dcf.12, i64 noundef 1, ptr noundef nonnull readonly align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.8864566ca2df49740c222121536a8dcf.8, ptr noalias noundef nonnull readonly align 1 @anon.8864566ca2df49740c222121536a8dcf.13, i64 noundef 1, ptr noundef nonnull readonly align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.8864566ca2df49740c222121536a8dcf.8, ptr noalias noundef nonnull readonly align 1 @anon.8864566ca2df49740c222121536a8dcf.14, i64 noundef 1, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.8864566ca2df49740c222121536a8dcf.9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !15
@@ -368,16 +368,16 @@ define internal fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..
   ret void
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !20
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he6d9552f574ddec7E"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8)
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load i64, ptr %9, align 8, !range !29, !noalias !20, !noundef !4
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6b6e2bd102696678E.exit", label %12
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %2, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %14 = load i64, ptr %13, align 8, !noalias !20, !noundef !4
   %15 = icmp eq i64 %14, 0
   br i1 %15, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6b6e2bd102696678E.exit", label %16
@@ -392,11 +392,11 @@ define internal fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..
   br label %"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17hb5d24f7143fd9503E.exit"
 
 18:                                               ; preds = %1
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8, !alias.scope !33, !nonnull !4, !noundef !4
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %23 = load i64, ptr %22, align 8, !alias.scope !33, !noundef !4
   invoke void @"_ZN4core3ptr55drop_in_place$LT$$u5b$serde_json..value..Value$u5d$$GT$17h6eb36321ad487cc1E.llvm.2471798985521550805"(ptr noalias noundef nonnull align 8 %21, i64 noundef %23) #20
           to label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e7292f2ee640e21E.llvm.2471798985521550805.exit.i" unwind label %24, !noalias !30
@@ -444,13 +444,13 @@ define internal fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Optio
 6:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !60
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he6d9552f574ddec7E"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load i64, ptr %7, align 8, !range !29, !noalias !60, !noundef !4
   %9 = icmp eq i64 %8, 0
   br i1 %9, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6b6e2bd102696678E.exit", label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %2, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %12 = load i64, ptr %11, align 8, !noalias !60, !noundef !4
   %13 = icmp eq i64 %12, 0
   br i1 %13, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6b6e2bd102696678E.exit", label %14
@@ -476,9 +476,9 @@ define internal fastcc void @"_ZN4core3ptr96drop_in_place$LT$core..option..Optio
 
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !69)
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !alias.scope !72, !nonnull !4, !noundef !4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !alias.scope !72, !noundef !4
   invoke void @"_ZN4core3ptr55drop_in_place$LT$$u5b$serde_json..value..Value$u5d$$GT$17h6eb36321ad487cc1E.llvm.2471798985521550805"(ptr noalias noundef nonnull align 8 %6, i64 noundef %8) #20
           to label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e7292f2ee640e21E.llvm.2471798985521550805.exit.i" unwind label %9, !noalias !69
@@ -514,9 +514,9 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17he24fb2b9020d9140E"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %4, i64 noundef %2, i1 noundef zeroext false)
   %5 = load i64, ptr %4, align 8, !range !85, !noundef !4
   %trunc = trunc nuw i64 %5 to i1
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load i64, ptr %6, align 8, !range !29, !noundef !4
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br i1 %trunc, label %11, label %9
 
 9:                                                ; preds = %3
@@ -524,9 +524,9 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull align 1 %1, i64 %2, i1 false)
   store i64 %7, ptr %0, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %10, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %2, ptr %.sroa.6.0..sroa_idx, align 8
   ret void
 
@@ -539,9 +539,9 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN76_$LT$palette..alpha..alpha..Alpha$LT$C$C$T$GT$$u20$as$u20$palette..Clamp$GT$5clamp17h7dc4bfb5eb57489bE.llvm.12664348367457638102"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 4 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %.sroa.05.0.copyload = load i32, ptr %1, align 4
-  %.sroa.46.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 4
+  %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.46.0.copyload = load float, ptr %.sroa.46.0..sroa_idx, align 4
-  %.sroa.57.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.57.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.57.0.copyload = load float, ptr %.sroa.57.0..sroa_idx, align 4
   %3 = fcmp olt float %.sroa.46.0.copyload, 0.000000e+00
   %.sroa.0.0.i.i.i = select i1 %3, float 0.000000e+00, float %.sroa.46.0.copyload
@@ -551,18 +551,18 @@ define hidden void @"_ZN76_$LT$palette..alpha..alpha..Alpha$LT$C$C$T$GT$$u20$as$
   %.sroa.0.0.i.i9.i = select i1 %5, float 0.000000e+00, float %.sroa.57.0.copyload
   %6 = fcmp ogt float %.sroa.0.0.i.i9.i, 1.000000e+00
   %.sroa.0.1.i.i10.i = select i1 %6, float 1.000000e+00, float %.sroa.0.0.i.i9.i
-  %7 = getelementptr inbounds i8, ptr %1, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %8 = load float, ptr %7, align 4, !noundef !4
   %9 = fcmp olt float %8, 0.000000e+00
   %.sroa.0.0.i.i = select i1 %9, float 0.000000e+00, float %8
   %10 = fcmp ogt float %.sroa.0.0.i.i, 1.000000e+00
   %.sroa.0.1.i.i = select i1 %10, float 1.000000e+00, float %.sroa.0.0.i.i
   store i32 %.sroa.05.0.copyload, ptr %0, align 4
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store float %.sroa.0.1.i.i.i, ptr %.sroa.4.0..sroa_idx, align 4
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store float %.sroa.0.1.i.i10.i, ptr %.sroa.5.0..sroa_idx, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store float %.sroa.0.1.i.i, ptr %11, align 4
   ret void
 }
@@ -575,10 +575,10 @@ define hidden void @"_ZN94_$LT$T$u20$as$u20$palette..convert..from_into_color_un
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN96_$LT$palette..alpha..alpha..Alpha$LT$C$C$A$GT$$u20$as$u20$palette..alpha..WithAlpha$LT$A$GT$$GT$5split17h4be2fd01e2733f32E.llvm.12664348367457638102"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 4 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = load float, ptr %3, align 4, !noundef !4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store float %4, ptr %5, align 4
   ret void
 }
@@ -595,11 +595,11 @@ define void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr dead_on_u
   br i1 %trunc, label %26, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %6, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %.sroa.04.0.copyload = load float, ptr %9, align 4
-  %.sroa.55.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.55.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.55.0.copyload = load ptr, ptr %.sroa.55.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.sroa.6.0.copyload = load float, ptr %.sroa.6.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   %10 = ptrtoint ptr %.sroa.55.0.copyload to i64
@@ -609,16 +609,16 @@ define void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr dead_on_u
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4)
   store float %.sroa.04.0.copyload, ptr %4, align 4, !noalias !87
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %11, ptr %.sroa.2.0..sroa_idx, align 4, !noalias !87
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %13, ptr %.sroa.3.0..sroa_idx, align 4, !noalias !87
   call void @"_ZN157_$LT$palette..hsl..Hsl$LT$S$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$GT$$GT$20from_color_unclamped17h8ab857a54755fae5E"(ptr noalias nocapture noundef nonnull sret([12 x i8]) align 4 dereferenceable(16) %5, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %4), !noalias !90
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
   %.sroa.05.0.copyload.i12 = load float, ptr %5, align 4, !alias.scope !92, !noalias !95
-  %.sroa.46.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
+  %.sroa.46.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.46.0.copyload.i = load float, ptr %.sroa.46.0..sroa_idx.i, align 4, !alias.scope !92, !noalias !95
-  %.sroa.57.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.57.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.57.0.copyload.i = load float, ptr %.sroa.57.0..sroa_idx.i, align 4, !alias.scope !92, !noalias !95
   %14 = fcmp olt float %.sroa.46.0.copyload.i, 0.000000e+00
   %.sroa.0.0.i.i.i.i = select i1 %14, float 0.000000e+00, float %.sroa.46.0.copyload.i
@@ -638,15 +638,15 @@ define void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr dead_on_u
   %22 = fmul float %21, 3.600000e+02
   %23 = fsub float %.sroa.05.0.copyload.i12, %22
   %24 = fdiv float %23, 3.600000e+02
-  %25 = getelementptr inbounds i8, ptr %0, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @_ZN4gpui5color4hsla17hfd6ef7d9290f9bf6E(ptr noalias nocapture noundef nonnull sret([16 x i8]) align 4 dereferenceable(16) %25, float noundef %24, float noundef %.sroa.0.1.i.i.i.i, float noundef %.sroa.0.1.i.i10.i.i, float noundef %.sroa.0.1.i.i.i)
   br label %30
 
 26:                                               ; preds = %3
-  %27 = getelementptr inbounds i8, ptr %6, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %28 = load ptr, ptr %27, align 8, !nonnull !4, !noundef !4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %28, ptr %29, align 8
   br label %30
 
@@ -658,9 +658,9 @@ define void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr dead_on_u
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN5theme6schema17ThemeStyleContent16syntax_overrides17hd9daf79ba21835efE(ptr dead_on_unwind noalias nocapture noundef writable sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(3392) %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
-  %5 = getelementptr inbounds i8, ptr %1, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %6 = load i64, ptr %5, align 8, !noundef !4
   %7 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, [2 x i64] }, { i64, [2 x i64] }, i16, i8, [5 x i8] }, i64 }, ptr %4, i64 %6
   tail call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17hcb0cc52ad9e55ca1E.llvm.2061910352662810519"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noundef nonnull %4, ptr noundef nonnull %7)
@@ -863,9 +863,9 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %98, label %105, label %99
 
 99:                                               ; preds = %2
-  %100 = getelementptr inbounds i8, ptr %1, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %..val = load ptr, ptr %100, align 8, !nonnull !4, !noundef !4
-  %101 = getelementptr inbounds i8, ptr %1, i64 16
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %..val281 = load i64, ptr %101, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %96), !noalias !97
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %96, ptr noalias noundef nonnull readonly align 1 %..val, i64 noundef %..val281), !noalias !97
@@ -874,12 +874,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i", label %.thread.i
 
 .thread.i:                                        ; preds = %99
-  %103 = getelementptr inbounds i8, ptr %96, i64 4
+  %103 = getelementptr inbounds nuw i8, ptr %96, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.5, ptr noundef nonnull align 4 dereferenceable(16) %103, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hac2d2f1c4c5103b8E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i": ; preds = %99
-  %104 = getelementptr inbounds i8, ptr %96, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %96, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %104), !noalias !97
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hac2d2f1c4c5103b8E.exit"
 
@@ -890,15 +890,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 
 105:                                              ; preds = %2, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hac2d2f1c4c5103b8E.exit"
   %.sroa.0.0 = phi i32 [ %.sroa.0.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hac2d2f1c4c5103b8E.exit" ], [ 0, %2 ]
-  %106 = getelementptr inbounds i8, ptr %1, i64 1464
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 1464
   %107 = load i64, ptr %106, align 8, !range !29, !noundef !4
   %108 = icmp eq i64 %107, -9223372036854775808
   br i1 %108, label %115, label %109
 
 109:                                              ; preds = %105
-  %110 = getelementptr inbounds i8, ptr %1, i64 1472
+  %110 = getelementptr inbounds nuw i8, ptr %1, i64 1472
   %.187.val = load ptr, ptr %110, align 8, !nonnull !4, !noundef !4
-  %111 = getelementptr inbounds i8, ptr %1, i64 1480
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 1480
   %.187.val282 = load i64, ptr %111, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %95), !noalias !100
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %95, ptr noalias noundef nonnull readonly align 1 %.187.val, i64 noundef %.187.val282), !noalias !100
@@ -907,12 +907,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i374, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i376", label %.thread.i375
 
 .thread.i375:                                     ; preds = %109
-  %113 = getelementptr inbounds i8, ptr %95, i64 4
+  %113 = getelementptr inbounds nuw i8, ptr %95, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.5777, ptr noundef nonnull align 4 dereferenceable(16) %113, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h74a000d7fe6d75ceE.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i376": ; preds = %109
-  %114 = getelementptr inbounds i8, ptr %95, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %95, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %114), !noalias !100
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h74a000d7fe6d75ceE.exit"
 
@@ -924,15 +924,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 115:                                              ; preds = %105, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h74a000d7fe6d75ceE.exit"
   %.sroa.0775.0 = phi i32 [ %.sroa.0775.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h74a000d7fe6d75ceE.exit" ], [ 0, %105 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6)
-  %116 = getelementptr inbounds i8, ptr %1, i64 24
+  %116 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %117 = load i64, ptr %116, align 8, !range !29, !noundef !4
   %118 = icmp eq i64 %117, -9223372036854775808
   br i1 %118, label %125, label %119
 
 119:                                              ; preds = %115
-  %120 = getelementptr inbounds i8, ptr %1, i64 32
+  %120 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.188.val = load ptr, ptr %120, align 8, !nonnull !4, !noundef !4
-  %121 = getelementptr inbounds i8, ptr %1, i64 40
+  %121 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.188.val283 = load i64, ptr %121, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %94), !noalias !103
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %94, ptr noalias noundef nonnull readonly align 1 %.188.val, i64 noundef %.188.val283), !noalias !103
@@ -941,12 +941,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i377, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i379", label %.thread.i378
 
 .thread.i378:                                     ; preds = %119
-  %123 = getelementptr inbounds i8, ptr %94, i64 4
+  %123 = getelementptr inbounds nuw i8, ptr %94, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6, ptr noundef nonnull align 4 dereferenceable(16) %123, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hcf9bbed04d179058E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i379": ; preds = %119
-  %124 = getelementptr inbounds i8, ptr %94, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %94, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %124), !noalias !103
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hcf9bbed04d179058E.exit"
 
@@ -958,15 +958,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 125:                                              ; preds = %115, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hcf9bbed04d179058E.exit"
   %.sroa.0653.0 = phi i32 [ %.sroa.0653.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hcf9bbed04d179058E.exit" ], [ 0, %115 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6655)
-  %126 = getelementptr inbounds i8, ptr %1, i64 48
+  %126 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %127 = load i64, ptr %126, align 8, !range !29, !noundef !4
   %128 = icmp eq i64 %127, -9223372036854775808
   br i1 %128, label %135, label %129
 
 129:                                              ; preds = %125
-  %130 = getelementptr inbounds i8, ptr %1, i64 56
+  %130 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.189.val = load ptr, ptr %130, align 8, !nonnull !4, !noundef !4
-  %131 = getelementptr inbounds i8, ptr %1, i64 64
+  %131 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %.189.val284 = load i64, ptr %131, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %93), !noalias !106
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %93, ptr noalias noundef nonnull readonly align 1 %.189.val, i64 noundef %.189.val284), !noalias !106
@@ -975,12 +975,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i380, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i382", label %.thread.i381
 
 .thread.i381:                                     ; preds = %129
-  %133 = getelementptr inbounds i8, ptr %93, i64 4
+  %133 = getelementptr inbounds nuw i8, ptr %93, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6655, ptr noundef nonnull align 4 dereferenceable(16) %133, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h91bfab4d9956c198E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i382": ; preds = %129
-  %134 = getelementptr inbounds i8, ptr %93, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %93, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %134), !noalias !106
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h91bfab4d9956c198E.exit"
 
@@ -992,15 +992,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 135:                                              ; preds = %125, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h91bfab4d9956c198E.exit"
   %.sroa.0654.0 = phi i32 [ %.sroa.0654.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h91bfab4d9956c198E.exit" ], [ 0, %125 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6657)
-  %136 = getelementptr inbounds i8, ptr %1, i64 72
+  %136 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %137 = load i64, ptr %136, align 8, !range !29, !noundef !4
   %138 = icmp eq i64 %137, -9223372036854775808
   br i1 %138, label %145, label %139
 
 139:                                              ; preds = %135
-  %140 = getelementptr inbounds i8, ptr %1, i64 80
+  %140 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %.190.val = load ptr, ptr %140, align 8, !nonnull !4, !noundef !4
-  %141 = getelementptr inbounds i8, ptr %1, i64 88
+  %141 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %.190.val285 = load i64, ptr %141, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %92), !noalias !109
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %92, ptr noalias noundef nonnull readonly align 1 %.190.val, i64 noundef %.190.val285), !noalias !109
@@ -1009,12 +1009,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i383, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i385", label %.thread.i384
 
 .thread.i384:                                     ; preds = %139
-  %143 = getelementptr inbounds i8, ptr %92, i64 4
+  %143 = getelementptr inbounds nuw i8, ptr %92, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6657, ptr noundef nonnull align 4 dereferenceable(16) %143, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h1f7d054bb01248ceE.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i385": ; preds = %139
-  %144 = getelementptr inbounds i8, ptr %92, i64 8
+  %144 = getelementptr inbounds nuw i8, ptr %92, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %144), !noalias !109
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h1f7d054bb01248ceE.exit"
 
@@ -1026,15 +1026,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 145:                                              ; preds = %135, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h1f7d054bb01248ceE.exit"
   %.sroa.0656.0 = phi i32 [ %.sroa.0656.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h1f7d054bb01248ceE.exit" ], [ 0, %135 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6659)
-  %146 = getelementptr inbounds i8, ptr %1, i64 96
+  %146 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %147 = load i64, ptr %146, align 8, !range !29, !noundef !4
   %148 = icmp eq i64 %147, -9223372036854775808
   br i1 %148, label %155, label %149
 
 149:                                              ; preds = %145
-  %150 = getelementptr inbounds i8, ptr %1, i64 104
+  %150 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %.191.val = load ptr, ptr %150, align 8, !nonnull !4, !noundef !4
-  %151 = getelementptr inbounds i8, ptr %1, i64 112
+  %151 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %.191.val286 = load i64, ptr %151, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %91), !noalias !112
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %91, ptr noalias noundef nonnull readonly align 1 %.191.val, i64 noundef %.191.val286), !noalias !112
@@ -1043,12 +1043,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i386, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i388", label %.thread.i387
 
 .thread.i387:                                     ; preds = %149
-  %153 = getelementptr inbounds i8, ptr %91, i64 4
+  %153 = getelementptr inbounds nuw i8, ptr %91, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6659, ptr noundef nonnull align 4 dereferenceable(16) %153, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hbb23b5310207b922E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i388": ; preds = %149
-  %154 = getelementptr inbounds i8, ptr %91, i64 8
+  %154 = getelementptr inbounds nuw i8, ptr %91, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %154), !noalias !112
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hbb23b5310207b922E.exit"
 
@@ -1060,15 +1060,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 155:                                              ; preds = %145, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hbb23b5310207b922E.exit"
   %.sroa.0658.0 = phi i32 [ %.sroa.0658.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hbb23b5310207b922E.exit" ], [ 0, %145 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6661)
-  %156 = getelementptr inbounds i8, ptr %1, i64 120
+  %156 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %157 = load i64, ptr %156, align 8, !range !29, !noundef !4
   %158 = icmp eq i64 %157, -9223372036854775808
   br i1 %158, label %165, label %159
 
 159:                                              ; preds = %155
-  %160 = getelementptr inbounds i8, ptr %1, i64 128
+  %160 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %.192.val = load ptr, ptr %160, align 8, !nonnull !4, !noundef !4
-  %161 = getelementptr inbounds i8, ptr %1, i64 136
+  %161 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %.192.val287 = load i64, ptr %161, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %90), !noalias !115
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %90, ptr noalias noundef nonnull readonly align 1 %.192.val, i64 noundef %.192.val287), !noalias !115
@@ -1077,12 +1077,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i389, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i391", label %.thread.i390
 
 .thread.i390:                                     ; preds = %159
-  %163 = getelementptr inbounds i8, ptr %90, i64 4
+  %163 = getelementptr inbounds nuw i8, ptr %90, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6661, ptr noundef nonnull align 4 dereferenceable(16) %163, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h392e5e2a37b74ee4E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i391": ; preds = %159
-  %164 = getelementptr inbounds i8, ptr %90, i64 8
+  %164 = getelementptr inbounds nuw i8, ptr %90, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %164), !noalias !115
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h392e5e2a37b74ee4E.exit"
 
@@ -1094,15 +1094,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 165:                                              ; preds = %155, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h392e5e2a37b74ee4E.exit"
   %.sroa.0660.0 = phi i32 [ %.sroa.0660.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h392e5e2a37b74ee4E.exit" ], [ 0, %155 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6663)
-  %166 = getelementptr inbounds i8, ptr %1, i64 144
+  %166 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %167 = load i64, ptr %166, align 8, !range !29, !noundef !4
   %168 = icmp eq i64 %167, -9223372036854775808
   br i1 %168, label %175, label %169
 
 169:                                              ; preds = %165
-  %170 = getelementptr inbounds i8, ptr %1, i64 152
+  %170 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %.193.val = load ptr, ptr %170, align 8, !nonnull !4, !noundef !4
-  %171 = getelementptr inbounds i8, ptr %1, i64 160
+  %171 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %.193.val288 = load i64, ptr %171, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %89), !noalias !118
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %89, ptr noalias noundef nonnull readonly align 1 %.193.val, i64 noundef %.193.val288), !noalias !118
@@ -1111,12 +1111,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i392, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i394", label %.thread.i393
 
 .thread.i393:                                     ; preds = %169
-  %173 = getelementptr inbounds i8, ptr %89, i64 4
+  %173 = getelementptr inbounds nuw i8, ptr %89, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6663, ptr noundef nonnull align 4 dereferenceable(16) %173, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17he3ec22b32b7d2966E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i394": ; preds = %169
-  %174 = getelementptr inbounds i8, ptr %89, i64 8
+  %174 = getelementptr inbounds nuw i8, ptr %89, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %174), !noalias !118
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17he3ec22b32b7d2966E.exit"
 
@@ -1128,15 +1128,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 175:                                              ; preds = %165, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17he3ec22b32b7d2966E.exit"
   %.sroa.0662.0 = phi i32 [ %.sroa.0662.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17he3ec22b32b7d2966E.exit" ], [ 0, %165 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6665)
-  %176 = getelementptr inbounds i8, ptr %1, i64 168
+  %176 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %177 = load i64, ptr %176, align 8, !range !29, !noundef !4
   %178 = icmp eq i64 %177, -9223372036854775808
   br i1 %178, label %185, label %179
 
 179:                                              ; preds = %175
-  %180 = getelementptr inbounds i8, ptr %1, i64 176
+  %180 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %.194.val = load ptr, ptr %180, align 8, !nonnull !4, !noundef !4
-  %181 = getelementptr inbounds i8, ptr %1, i64 184
+  %181 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %.194.val289 = load i64, ptr %181, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %88), !noalias !121
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %88, ptr noalias noundef nonnull readonly align 1 %.194.val, i64 noundef %.194.val289), !noalias !121
@@ -1145,12 +1145,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i395, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i397", label %.thread.i396
 
 .thread.i396:                                     ; preds = %179
-  %183 = getelementptr inbounds i8, ptr %88, i64 4
+  %183 = getelementptr inbounds nuw i8, ptr %88, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6665, ptr noundef nonnull align 4 dereferenceable(16) %183, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h8de912848b3bb21fE.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i397": ; preds = %179
-  %184 = getelementptr inbounds i8, ptr %88, i64 8
+  %184 = getelementptr inbounds nuw i8, ptr %88, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %184), !noalias !121
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h8de912848b3bb21fE.exit"
 
@@ -1162,15 +1162,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 185:                                              ; preds = %175, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h8de912848b3bb21fE.exit"
   %.sroa.0664.0 = phi i32 [ %.sroa.0664.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h8de912848b3bb21fE.exit" ], [ 0, %175 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6667)
-  %186 = getelementptr inbounds i8, ptr %1, i64 192
+  %186 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %187 = load i64, ptr %186, align 8, !range !29, !noundef !4
   %188 = icmp eq i64 %187, -9223372036854775808
   br i1 %188, label %195, label %189
 
 189:                                              ; preds = %185
-  %190 = getelementptr inbounds i8, ptr %1, i64 200
+  %190 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %.195.val = load ptr, ptr %190, align 8, !nonnull !4, !noundef !4
-  %191 = getelementptr inbounds i8, ptr %1, i64 208
+  %191 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %.195.val290 = load i64, ptr %191, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %87), !noalias !124
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %87, ptr noalias noundef nonnull readonly align 1 %.195.val, i64 noundef %.195.val290), !noalias !124
@@ -1179,12 +1179,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i398, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i400", label %.thread.i399
 
 .thread.i399:                                     ; preds = %189
-  %193 = getelementptr inbounds i8, ptr %87, i64 4
+  %193 = getelementptr inbounds nuw i8, ptr %87, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6667, ptr noundef nonnull align 4 dereferenceable(16) %193, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h4ca129b59fb6ddf3E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i400": ; preds = %189
-  %194 = getelementptr inbounds i8, ptr %87, i64 8
+  %194 = getelementptr inbounds nuw i8, ptr %87, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %194), !noalias !124
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h4ca129b59fb6ddf3E.exit"
 
@@ -1196,15 +1196,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 195:                                              ; preds = %185, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h4ca129b59fb6ddf3E.exit"
   %.sroa.0666.0 = phi i32 [ %.sroa.0666.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h4ca129b59fb6ddf3E.exit" ], [ 0, %185 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6669)
-  %196 = getelementptr inbounds i8, ptr %1, i64 216
+  %196 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %197 = load i64, ptr %196, align 8, !range !29, !noundef !4
   %198 = icmp eq i64 %197, -9223372036854775808
   br i1 %198, label %205, label %199
 
 199:                                              ; preds = %195
-  %200 = getelementptr inbounds i8, ptr %1, i64 224
+  %200 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %.196.val = load ptr, ptr %200, align 8, !nonnull !4, !noundef !4
-  %201 = getelementptr inbounds i8, ptr %1, i64 232
+  %201 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %.196.val291 = load i64, ptr %201, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %86), !noalias !127
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %86, ptr noalias noundef nonnull readonly align 1 %.196.val, i64 noundef %.196.val291), !noalias !127
@@ -1213,12 +1213,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i401, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i403", label %.thread.i402
 
 .thread.i402:                                     ; preds = %199
-  %203 = getelementptr inbounds i8, ptr %86, i64 4
+  %203 = getelementptr inbounds nuw i8, ptr %86, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6669, ptr noundef nonnull align 4 dereferenceable(16) %203, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h4d0195bdee0131eeE.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i403": ; preds = %199
-  %204 = getelementptr inbounds i8, ptr %86, i64 8
+  %204 = getelementptr inbounds nuw i8, ptr %86, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %204), !noalias !127
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h4d0195bdee0131eeE.exit"
 
@@ -1230,15 +1230,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 205:                                              ; preds = %195, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h4d0195bdee0131eeE.exit"
   %.sroa.0668.0 = phi i32 [ %.sroa.0668.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h4d0195bdee0131eeE.exit" ], [ 0, %195 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6671)
-  %206 = getelementptr inbounds i8, ptr %1, i64 240
+  %206 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %207 = load i64, ptr %206, align 8, !range !29, !noundef !4
   %208 = icmp eq i64 %207, -9223372036854775808
   br i1 %208, label %215, label %209
 
 209:                                              ; preds = %205
-  %210 = getelementptr inbounds i8, ptr %1, i64 248
+  %210 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %.197.val = load ptr, ptr %210, align 8, !nonnull !4, !noundef !4
-  %211 = getelementptr inbounds i8, ptr %1, i64 256
+  %211 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %.197.val292 = load i64, ptr %211, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %85), !noalias !130
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %85, ptr noalias noundef nonnull readonly align 1 %.197.val, i64 noundef %.197.val292), !noalias !130
@@ -1247,12 +1247,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i404, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i406", label %.thread.i405
 
 .thread.i405:                                     ; preds = %209
-  %213 = getelementptr inbounds i8, ptr %85, i64 4
+  %213 = getelementptr inbounds nuw i8, ptr %85, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6671, ptr noundef nonnull align 4 dereferenceable(16) %213, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h57d6a1d4b61bc5c3E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i406": ; preds = %209
-  %214 = getelementptr inbounds i8, ptr %85, i64 8
+  %214 = getelementptr inbounds nuw i8, ptr %85, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %214), !noalias !130
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h57d6a1d4b61bc5c3E.exit"
 
@@ -1264,15 +1264,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 215:                                              ; preds = %205, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h57d6a1d4b61bc5c3E.exit"
   %.sroa.0670.0 = phi i32 [ %.sroa.0670.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h57d6a1d4b61bc5c3E.exit" ], [ 0, %205 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6673)
-  %216 = getelementptr inbounds i8, ptr %1, i64 264
+  %216 = getelementptr inbounds nuw i8, ptr %1, i64 264
   %217 = load i64, ptr %216, align 8, !range !29, !noundef !4
   %218 = icmp eq i64 %217, -9223372036854775808
   br i1 %218, label %225, label %219
 
 219:                                              ; preds = %215
-  %220 = getelementptr inbounds i8, ptr %1, i64 272
+  %220 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %.198.val = load ptr, ptr %220, align 8, !nonnull !4, !noundef !4
-  %221 = getelementptr inbounds i8, ptr %1, i64 280
+  %221 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %.198.val293 = load i64, ptr %221, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %84), !noalias !133
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %84, ptr noalias noundef nonnull readonly align 1 %.198.val, i64 noundef %.198.val293), !noalias !133
@@ -1281,12 +1281,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i407, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i409", label %.thread.i408
 
 .thread.i408:                                     ; preds = %219
-  %223 = getelementptr inbounds i8, ptr %84, i64 4
+  %223 = getelementptr inbounds nuw i8, ptr %84, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6673, ptr noundef nonnull align 4 dereferenceable(16) %223, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h1feb20b93375dc32E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i409": ; preds = %219
-  %224 = getelementptr inbounds i8, ptr %84, i64 8
+  %224 = getelementptr inbounds nuw i8, ptr %84, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %224), !noalias !133
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h1feb20b93375dc32E.exit"
 
@@ -1298,15 +1298,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 225:                                              ; preds = %215, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h1feb20b93375dc32E.exit"
   %.sroa.0672.0 = phi i32 [ %.sroa.0672.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h1feb20b93375dc32E.exit" ], [ 0, %215 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6675)
-  %226 = getelementptr inbounds i8, ptr %1, i64 288
+  %226 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %227 = load i64, ptr %226, align 8, !range !29, !noundef !4
   %228 = icmp eq i64 %227, -9223372036854775808
   br i1 %228, label %235, label %229
 
 229:                                              ; preds = %225
-  %230 = getelementptr inbounds i8, ptr %1, i64 296
+  %230 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %.199.val = load ptr, ptr %230, align 8, !nonnull !4, !noundef !4
-  %231 = getelementptr inbounds i8, ptr %1, i64 304
+  %231 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %.199.val294 = load i64, ptr %231, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %83), !noalias !136
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %83, ptr noalias noundef nonnull readonly align 1 %.199.val, i64 noundef %.199.val294), !noalias !136
@@ -1315,12 +1315,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i410, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i412", label %.thread.i411
 
 .thread.i411:                                     ; preds = %229
-  %233 = getelementptr inbounds i8, ptr %83, i64 4
+  %233 = getelementptr inbounds nuw i8, ptr %83, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6675, ptr noundef nonnull align 4 dereferenceable(16) %233, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h2cb5bcdf5713a9bcE.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i412": ; preds = %229
-  %234 = getelementptr inbounds i8, ptr %83, i64 8
+  %234 = getelementptr inbounds nuw i8, ptr %83, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %234), !noalias !136
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h2cb5bcdf5713a9bcE.exit"
 
@@ -1332,15 +1332,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 235:                                              ; preds = %225, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h2cb5bcdf5713a9bcE.exit"
   %.sroa.0674.0 = phi i32 [ %.sroa.0674.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h2cb5bcdf5713a9bcE.exit" ], [ 0, %225 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6677)
-  %236 = getelementptr inbounds i8, ptr %1, i64 312
+  %236 = getelementptr inbounds nuw i8, ptr %1, i64 312
   %237 = load i64, ptr %236, align 8, !range !29, !noundef !4
   %238 = icmp eq i64 %237, -9223372036854775808
   br i1 %238, label %245, label %239
 
 239:                                              ; preds = %235
-  %240 = getelementptr inbounds i8, ptr %1, i64 320
+  %240 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %.200.val = load ptr, ptr %240, align 8, !nonnull !4, !noundef !4
-  %241 = getelementptr inbounds i8, ptr %1, i64 328
+  %241 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %.200.val295 = load i64, ptr %241, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %82), !noalias !139
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %82, ptr noalias noundef nonnull readonly align 1 %.200.val, i64 noundef %.200.val295), !noalias !139
@@ -1349,12 +1349,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i413, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i415", label %.thread.i414
 
 .thread.i414:                                     ; preds = %239
-  %243 = getelementptr inbounds i8, ptr %82, i64 4
+  %243 = getelementptr inbounds nuw i8, ptr %82, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6677, ptr noundef nonnull align 4 dereferenceable(16) %243, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17he3ea7eadff1b2cd8E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i415": ; preds = %239
-  %244 = getelementptr inbounds i8, ptr %82, i64 8
+  %244 = getelementptr inbounds nuw i8, ptr %82, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %244), !noalias !139
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17he3ea7eadff1b2cd8E.exit"
 
@@ -1366,15 +1366,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 245:                                              ; preds = %235, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17he3ea7eadff1b2cd8E.exit"
   %.sroa.0676.0 = phi i32 [ %.sroa.0676.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17he3ea7eadff1b2cd8E.exit" ], [ 0, %235 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6679)
-  %246 = getelementptr inbounds i8, ptr %1, i64 336
+  %246 = getelementptr inbounds nuw i8, ptr %1, i64 336
   %247 = load i64, ptr %246, align 8, !range !29, !noundef !4
   %248 = icmp eq i64 %247, -9223372036854775808
   br i1 %248, label %255, label %249
 
 249:                                              ; preds = %245
-  %250 = getelementptr inbounds i8, ptr %1, i64 344
+  %250 = getelementptr inbounds nuw i8, ptr %1, i64 344
   %.201.val = load ptr, ptr %250, align 8, !nonnull !4, !noundef !4
-  %251 = getelementptr inbounds i8, ptr %1, i64 352
+  %251 = getelementptr inbounds nuw i8, ptr %1, i64 352
   %.201.val296 = load i64, ptr %251, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %81), !noalias !142
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %81, ptr noalias noundef nonnull readonly align 1 %.201.val, i64 noundef %.201.val296), !noalias !142
@@ -1383,12 +1383,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i416, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i418", label %.thread.i417
 
 .thread.i417:                                     ; preds = %249
-  %253 = getelementptr inbounds i8, ptr %81, i64 4
+  %253 = getelementptr inbounds nuw i8, ptr %81, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6679, ptr noundef nonnull align 4 dereferenceable(16) %253, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h79878c482edb5c8cE.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i418": ; preds = %249
-  %254 = getelementptr inbounds i8, ptr %81, i64 8
+  %254 = getelementptr inbounds nuw i8, ptr %81, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %254), !noalias !142
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h79878c482edb5c8cE.exit"
 
@@ -1400,15 +1400,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 255:                                              ; preds = %245, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h79878c482edb5c8cE.exit"
   %.sroa.0678.0 = phi i32 [ %.sroa.0678.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h79878c482edb5c8cE.exit" ], [ 0, %245 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6681)
-  %256 = getelementptr inbounds i8, ptr %1, i64 360
+  %256 = getelementptr inbounds nuw i8, ptr %1, i64 360
   %257 = load i64, ptr %256, align 8, !range !29, !noundef !4
   %258 = icmp eq i64 %257, -9223372036854775808
   br i1 %258, label %265, label %259
 
 259:                                              ; preds = %255
-  %260 = getelementptr inbounds i8, ptr %1, i64 368
+  %260 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %.202.val = load ptr, ptr %260, align 8, !nonnull !4, !noundef !4
-  %261 = getelementptr inbounds i8, ptr %1, i64 376
+  %261 = getelementptr inbounds nuw i8, ptr %1, i64 376
   %.202.val297 = load i64, ptr %261, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %80), !noalias !145
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %80, ptr noalias noundef nonnull readonly align 1 %.202.val, i64 noundef %.202.val297), !noalias !145
@@ -1417,12 +1417,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i419, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i421", label %.thread.i420
 
 .thread.i420:                                     ; preds = %259
-  %263 = getelementptr inbounds i8, ptr %80, i64 4
+  %263 = getelementptr inbounds nuw i8, ptr %80, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6681, ptr noundef nonnull align 4 dereferenceable(16) %263, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17he50392f900392e29E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i421": ; preds = %259
-  %264 = getelementptr inbounds i8, ptr %80, i64 8
+  %264 = getelementptr inbounds nuw i8, ptr %80, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %264), !noalias !145
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17he50392f900392e29E.exit"
 
@@ -1434,15 +1434,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 265:                                              ; preds = %255, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17he50392f900392e29E.exit"
   %.sroa.0680.0 = phi i32 [ %.sroa.0680.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17he50392f900392e29E.exit" ], [ 0, %255 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6683)
-  %266 = getelementptr inbounds i8, ptr %1, i64 384
+  %266 = getelementptr inbounds nuw i8, ptr %1, i64 384
   %267 = load i64, ptr %266, align 8, !range !29, !noundef !4
   %268 = icmp eq i64 %267, -9223372036854775808
   br i1 %268, label %275, label %269
 
 269:                                              ; preds = %265
-  %270 = getelementptr inbounds i8, ptr %1, i64 392
+  %270 = getelementptr inbounds nuw i8, ptr %1, i64 392
   %.203.val = load ptr, ptr %270, align 8, !nonnull !4, !noundef !4
-  %271 = getelementptr inbounds i8, ptr %1, i64 400
+  %271 = getelementptr inbounds nuw i8, ptr %1, i64 400
   %.203.val298 = load i64, ptr %271, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %79), !noalias !148
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %79, ptr noalias noundef nonnull readonly align 1 %.203.val, i64 noundef %.203.val298), !noalias !148
@@ -1451,12 +1451,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i422, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i424", label %.thread.i423
 
 .thread.i423:                                     ; preds = %269
-  %273 = getelementptr inbounds i8, ptr %79, i64 4
+  %273 = getelementptr inbounds nuw i8, ptr %79, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6683, ptr noundef nonnull align 4 dereferenceable(16) %273, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h3a55fbe3029c9abcE.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i424": ; preds = %269
-  %274 = getelementptr inbounds i8, ptr %79, i64 8
+  %274 = getelementptr inbounds nuw i8, ptr %79, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %274), !noalias !148
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h3a55fbe3029c9abcE.exit"
 
@@ -1468,15 +1468,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 275:                                              ; preds = %265, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h3a55fbe3029c9abcE.exit"
   %.sroa.0682.0 = phi i32 [ %.sroa.0682.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h3a55fbe3029c9abcE.exit" ], [ 0, %265 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6685)
-  %276 = getelementptr inbounds i8, ptr %1, i64 408
+  %276 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %277 = load i64, ptr %276, align 8, !range !29, !noundef !4
   %278 = icmp eq i64 %277, -9223372036854775808
   br i1 %278, label %285, label %279
 
 279:                                              ; preds = %275
-  %280 = getelementptr inbounds i8, ptr %1, i64 416
+  %280 = getelementptr inbounds nuw i8, ptr %1, i64 416
   %.204.val = load ptr, ptr %280, align 8, !nonnull !4, !noundef !4
-  %281 = getelementptr inbounds i8, ptr %1, i64 424
+  %281 = getelementptr inbounds nuw i8, ptr %1, i64 424
   %.204.val299 = load i64, ptr %281, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %78), !noalias !151
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %78, ptr noalias noundef nonnull readonly align 1 %.204.val, i64 noundef %.204.val299), !noalias !151
@@ -1485,12 +1485,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i425, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i427", label %.thread.i426
 
 .thread.i426:                                     ; preds = %279
-  %283 = getelementptr inbounds i8, ptr %78, i64 4
+  %283 = getelementptr inbounds nuw i8, ptr %78, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6685, ptr noundef nonnull align 4 dereferenceable(16) %283, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hc4c83c51af96be78E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i427": ; preds = %279
-  %284 = getelementptr inbounds i8, ptr %78, i64 8
+  %284 = getelementptr inbounds nuw i8, ptr %78, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %284), !noalias !151
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hc4c83c51af96be78E.exit"
 
@@ -1502,15 +1502,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 285:                                              ; preds = %275, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hc4c83c51af96be78E.exit"
   %.sroa.0684.0 = phi i32 [ %.sroa.0684.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hc4c83c51af96be78E.exit" ], [ 0, %275 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6687)
-  %286 = getelementptr inbounds i8, ptr %1, i64 432
+  %286 = getelementptr inbounds nuw i8, ptr %1, i64 432
   %287 = load i64, ptr %286, align 8, !range !29, !noundef !4
   %288 = icmp eq i64 %287, -9223372036854775808
   br i1 %288, label %295, label %289
 
 289:                                              ; preds = %285
-  %290 = getelementptr inbounds i8, ptr %1, i64 440
+  %290 = getelementptr inbounds nuw i8, ptr %1, i64 440
   %.205.val = load ptr, ptr %290, align 8, !nonnull !4, !noundef !4
-  %291 = getelementptr inbounds i8, ptr %1, i64 448
+  %291 = getelementptr inbounds nuw i8, ptr %1, i64 448
   %.205.val300 = load i64, ptr %291, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %77), !noalias !154
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %77, ptr noalias noundef nonnull readonly align 1 %.205.val, i64 noundef %.205.val300), !noalias !154
@@ -1519,12 +1519,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i428, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i430", label %.thread.i429
 
 .thread.i429:                                     ; preds = %289
-  %293 = getelementptr inbounds i8, ptr %77, i64 4
+  %293 = getelementptr inbounds nuw i8, ptr %77, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6687, ptr noundef nonnull align 4 dereferenceable(16) %293, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h2124af199d3ec91dE.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i430": ; preds = %289
-  %294 = getelementptr inbounds i8, ptr %77, i64 8
+  %294 = getelementptr inbounds nuw i8, ptr %77, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %294), !noalias !154
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h2124af199d3ec91dE.exit"
 
@@ -1536,15 +1536,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 295:                                              ; preds = %285, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h2124af199d3ec91dE.exit"
   %.sroa.0686.0 = phi i32 [ %.sroa.0686.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h2124af199d3ec91dE.exit" ], [ 0, %285 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6689)
-  %296 = getelementptr inbounds i8, ptr %1, i64 456
+  %296 = getelementptr inbounds nuw i8, ptr %1, i64 456
   %297 = load i64, ptr %296, align 8, !range !29, !noundef !4
   %298 = icmp eq i64 %297, -9223372036854775808
   br i1 %298, label %305, label %299
 
 299:                                              ; preds = %295
-  %300 = getelementptr inbounds i8, ptr %1, i64 464
+  %300 = getelementptr inbounds nuw i8, ptr %1, i64 464
   %.206.val = load ptr, ptr %300, align 8, !nonnull !4, !noundef !4
-  %301 = getelementptr inbounds i8, ptr %1, i64 472
+  %301 = getelementptr inbounds nuw i8, ptr %1, i64 472
   %.206.val301 = load i64, ptr %301, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %76), !noalias !157
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %76, ptr noalias noundef nonnull readonly align 1 %.206.val, i64 noundef %.206.val301), !noalias !157
@@ -1553,12 +1553,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i431, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i433", label %.thread.i432
 
 .thread.i432:                                     ; preds = %299
-  %303 = getelementptr inbounds i8, ptr %76, i64 4
+  %303 = getelementptr inbounds nuw i8, ptr %76, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6689, ptr noundef nonnull align 4 dereferenceable(16) %303, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h797b426f9cd9428fE.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i433": ; preds = %299
-  %304 = getelementptr inbounds i8, ptr %76, i64 8
+  %304 = getelementptr inbounds nuw i8, ptr %76, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %304), !noalias !157
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h797b426f9cd9428fE.exit"
 
@@ -1570,15 +1570,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 305:                                              ; preds = %295, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h797b426f9cd9428fE.exit"
   %.sroa.0688.0 = phi i32 [ %.sroa.0688.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h797b426f9cd9428fE.exit" ], [ 0, %295 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6691)
-  %306 = getelementptr inbounds i8, ptr %1, i64 480
+  %306 = getelementptr inbounds nuw i8, ptr %1, i64 480
   %307 = load i64, ptr %306, align 8, !range !29, !noundef !4
   %308 = icmp eq i64 %307, -9223372036854775808
   br i1 %308, label %315, label %309
 
 309:                                              ; preds = %305
-  %310 = getelementptr inbounds i8, ptr %1, i64 488
+  %310 = getelementptr inbounds nuw i8, ptr %1, i64 488
   %.207.val = load ptr, ptr %310, align 8, !nonnull !4, !noundef !4
-  %311 = getelementptr inbounds i8, ptr %1, i64 496
+  %311 = getelementptr inbounds nuw i8, ptr %1, i64 496
   %.207.val302 = load i64, ptr %311, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %75), !noalias !160
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %75, ptr noalias noundef nonnull readonly align 1 %.207.val, i64 noundef %.207.val302), !noalias !160
@@ -1587,12 +1587,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i434, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i436", label %.thread.i435
 
 .thread.i435:                                     ; preds = %309
-  %313 = getelementptr inbounds i8, ptr %75, i64 4
+  %313 = getelementptr inbounds nuw i8, ptr %75, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6691, ptr noundef nonnull align 4 dereferenceable(16) %313, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h1287ece6afb267e6E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i436": ; preds = %309
-  %314 = getelementptr inbounds i8, ptr %75, i64 8
+  %314 = getelementptr inbounds nuw i8, ptr %75, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %314), !noalias !160
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h1287ece6afb267e6E.exit"
 
@@ -1604,15 +1604,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 315:                                              ; preds = %305, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h1287ece6afb267e6E.exit"
   %.sroa.0690.0 = phi i32 [ %.sroa.0690.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h1287ece6afb267e6E.exit" ], [ 0, %305 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6693)
-  %316 = getelementptr inbounds i8, ptr %1, i64 504
+  %316 = getelementptr inbounds nuw i8, ptr %1, i64 504
   %317 = load i64, ptr %316, align 8, !range !29, !noundef !4
   %318 = icmp eq i64 %317, -9223372036854775808
   br i1 %318, label %325, label %319
 
 319:                                              ; preds = %315
-  %320 = getelementptr inbounds i8, ptr %1, i64 512
+  %320 = getelementptr inbounds nuw i8, ptr %1, i64 512
   %.208.val = load ptr, ptr %320, align 8, !nonnull !4, !noundef !4
-  %321 = getelementptr inbounds i8, ptr %1, i64 520
+  %321 = getelementptr inbounds nuw i8, ptr %1, i64 520
   %.208.val303 = load i64, ptr %321, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %74), !noalias !163
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %74, ptr noalias noundef nonnull readonly align 1 %.208.val, i64 noundef %.208.val303), !noalias !163
@@ -1621,12 +1621,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i437, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i439", label %.thread.i438
 
 .thread.i438:                                     ; preds = %319
-  %323 = getelementptr inbounds i8, ptr %74, i64 4
+  %323 = getelementptr inbounds nuw i8, ptr %74, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6693, ptr noundef nonnull align 4 dereferenceable(16) %323, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h39ca6c28b893bf38E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i439": ; preds = %319
-  %324 = getelementptr inbounds i8, ptr %74, i64 8
+  %324 = getelementptr inbounds nuw i8, ptr %74, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %324), !noalias !163
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h39ca6c28b893bf38E.exit"
 
@@ -1638,15 +1638,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 325:                                              ; preds = %315, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h39ca6c28b893bf38E.exit"
   %.sroa.0692.0 = phi i32 [ %.sroa.0692.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h39ca6c28b893bf38E.exit" ], [ 0, %315 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6695)
-  %326 = getelementptr inbounds i8, ptr %1, i64 528
+  %326 = getelementptr inbounds nuw i8, ptr %1, i64 528
   %327 = load i64, ptr %326, align 8, !range !29, !noundef !4
   %328 = icmp eq i64 %327, -9223372036854775808
   br i1 %328, label %335, label %329
 
 329:                                              ; preds = %325
-  %330 = getelementptr inbounds i8, ptr %1, i64 536
+  %330 = getelementptr inbounds nuw i8, ptr %1, i64 536
   %.209.val = load ptr, ptr %330, align 8, !nonnull !4, !noundef !4
-  %331 = getelementptr inbounds i8, ptr %1, i64 544
+  %331 = getelementptr inbounds nuw i8, ptr %1, i64 544
   %.209.val304 = load i64, ptr %331, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %73), !noalias !166
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %73, ptr noalias noundef nonnull readonly align 1 %.209.val, i64 noundef %.209.val304), !noalias !166
@@ -1655,12 +1655,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i440, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i442", label %.thread.i441
 
 .thread.i441:                                     ; preds = %329
-  %333 = getelementptr inbounds i8, ptr %73, i64 4
+  %333 = getelementptr inbounds nuw i8, ptr %73, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6695, ptr noundef nonnull align 4 dereferenceable(16) %333, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h5c83a9b4d9805c96E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i442": ; preds = %329
-  %334 = getelementptr inbounds i8, ptr %73, i64 8
+  %334 = getelementptr inbounds nuw i8, ptr %73, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %334), !noalias !166
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h5c83a9b4d9805c96E.exit"
 
@@ -1672,15 +1672,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 335:                                              ; preds = %325, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h5c83a9b4d9805c96E.exit"
   %.sroa.0694.0 = phi i32 [ %.sroa.0694.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h5c83a9b4d9805c96E.exit" ], [ 0, %325 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6697)
-  %336 = getelementptr inbounds i8, ptr %1, i64 552
+  %336 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %337 = load i64, ptr %336, align 8, !range !29, !noundef !4
   %338 = icmp eq i64 %337, -9223372036854775808
   br i1 %338, label %345, label %339
 
 339:                                              ; preds = %335
-  %340 = getelementptr inbounds i8, ptr %1, i64 560
+  %340 = getelementptr inbounds nuw i8, ptr %1, i64 560
   %.210.val = load ptr, ptr %340, align 8, !nonnull !4, !noundef !4
-  %341 = getelementptr inbounds i8, ptr %1, i64 568
+  %341 = getelementptr inbounds nuw i8, ptr %1, i64 568
   %.210.val305 = load i64, ptr %341, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %72), !noalias !169
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %72, ptr noalias noundef nonnull readonly align 1 %.210.val, i64 noundef %.210.val305), !noalias !169
@@ -1689,12 +1689,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i443, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i445", label %.thread.i444
 
 .thread.i444:                                     ; preds = %339
-  %343 = getelementptr inbounds i8, ptr %72, i64 4
+  %343 = getelementptr inbounds nuw i8, ptr %72, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6697, ptr noundef nonnull align 4 dereferenceable(16) %343, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hd1f3f0f6ad83a8c4E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i445": ; preds = %339
-  %344 = getelementptr inbounds i8, ptr %72, i64 8
+  %344 = getelementptr inbounds nuw i8, ptr %72, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %344), !noalias !169
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hd1f3f0f6ad83a8c4E.exit"
 
@@ -1706,15 +1706,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 345:                                              ; preds = %335, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hd1f3f0f6ad83a8c4E.exit"
   %.sroa.0696.0 = phi i32 [ %.sroa.0696.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hd1f3f0f6ad83a8c4E.exit" ], [ 0, %335 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6699)
-  %346 = getelementptr inbounds i8, ptr %1, i64 576
+  %346 = getelementptr inbounds nuw i8, ptr %1, i64 576
   %347 = load i64, ptr %346, align 8, !range !29, !noundef !4
   %348 = icmp eq i64 %347, -9223372036854775808
   br i1 %348, label %355, label %349
 
 349:                                              ; preds = %345
-  %350 = getelementptr inbounds i8, ptr %1, i64 584
+  %350 = getelementptr inbounds nuw i8, ptr %1, i64 584
   %.211.val = load ptr, ptr %350, align 8, !nonnull !4, !noundef !4
-  %351 = getelementptr inbounds i8, ptr %1, i64 592
+  %351 = getelementptr inbounds nuw i8, ptr %1, i64 592
   %.211.val306 = load i64, ptr %351, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %71), !noalias !172
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %71, ptr noalias noundef nonnull readonly align 1 %.211.val, i64 noundef %.211.val306), !noalias !172
@@ -1723,12 +1723,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i446, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i448", label %.thread.i447
 
 .thread.i447:                                     ; preds = %349
-  %353 = getelementptr inbounds i8, ptr %71, i64 4
+  %353 = getelementptr inbounds nuw i8, ptr %71, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6699, ptr noundef nonnull align 4 dereferenceable(16) %353, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h35bff1e60846b600E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i448": ; preds = %349
-  %354 = getelementptr inbounds i8, ptr %71, i64 8
+  %354 = getelementptr inbounds nuw i8, ptr %71, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %354), !noalias !172
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h35bff1e60846b600E.exit"
 
@@ -1740,15 +1740,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 355:                                              ; preds = %345, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h35bff1e60846b600E.exit"
   %.sroa.0698.0 = phi i32 [ %.sroa.0698.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h35bff1e60846b600E.exit" ], [ 0, %345 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6701)
-  %356 = getelementptr inbounds i8, ptr %1, i64 600
+  %356 = getelementptr inbounds nuw i8, ptr %1, i64 600
   %357 = load i64, ptr %356, align 8, !range !29, !noundef !4
   %358 = icmp eq i64 %357, -9223372036854775808
   br i1 %358, label %365, label %359
 
 359:                                              ; preds = %355
-  %360 = getelementptr inbounds i8, ptr %1, i64 608
+  %360 = getelementptr inbounds nuw i8, ptr %1, i64 608
   %.212.val = load ptr, ptr %360, align 8, !nonnull !4, !noundef !4
-  %361 = getelementptr inbounds i8, ptr %1, i64 616
+  %361 = getelementptr inbounds nuw i8, ptr %1, i64 616
   %.212.val307 = load i64, ptr %361, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %70), !noalias !175
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %70, ptr noalias noundef nonnull readonly align 1 %.212.val, i64 noundef %.212.val307), !noalias !175
@@ -1757,12 +1757,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i449, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i451", label %.thread.i450
 
 .thread.i450:                                     ; preds = %359
-  %363 = getelementptr inbounds i8, ptr %70, i64 4
+  %363 = getelementptr inbounds nuw i8, ptr %70, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6701, ptr noundef nonnull align 4 dereferenceable(16) %363, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hc3b4176ff4dcb918E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i451": ; preds = %359
-  %364 = getelementptr inbounds i8, ptr %70, i64 8
+  %364 = getelementptr inbounds nuw i8, ptr %70, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %364), !noalias !175
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hc3b4176ff4dcb918E.exit"
 
@@ -1774,15 +1774,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 365:                                              ; preds = %355, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hc3b4176ff4dcb918E.exit"
   %.sroa.0700.0 = phi i32 [ %.sroa.0700.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hc3b4176ff4dcb918E.exit" ], [ 0, %355 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6703)
-  %366 = getelementptr inbounds i8, ptr %1, i64 624
+  %366 = getelementptr inbounds nuw i8, ptr %1, i64 624
   %367 = load i64, ptr %366, align 8, !range !29, !noundef !4
   %368 = icmp eq i64 %367, -9223372036854775808
   br i1 %368, label %375, label %369
 
 369:                                              ; preds = %365
-  %370 = getelementptr inbounds i8, ptr %1, i64 632
+  %370 = getelementptr inbounds nuw i8, ptr %1, i64 632
   %.213.val = load ptr, ptr %370, align 8, !nonnull !4, !noundef !4
-  %371 = getelementptr inbounds i8, ptr %1, i64 640
+  %371 = getelementptr inbounds nuw i8, ptr %1, i64 640
   %.213.val308 = load i64, ptr %371, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %69), !noalias !178
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %69, ptr noalias noundef nonnull readonly align 1 %.213.val, i64 noundef %.213.val308), !noalias !178
@@ -1791,12 +1791,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i452, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i454", label %.thread.i453
 
 .thread.i453:                                     ; preds = %369
-  %373 = getelementptr inbounds i8, ptr %69, i64 4
+  %373 = getelementptr inbounds nuw i8, ptr %69, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6703, ptr noundef nonnull align 4 dereferenceable(16) %373, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h22a9b410b4e18e37E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i454": ; preds = %369
-  %374 = getelementptr inbounds i8, ptr %69, i64 8
+  %374 = getelementptr inbounds nuw i8, ptr %69, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %374), !noalias !178
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h22a9b410b4e18e37E.exit"
 
@@ -1808,15 +1808,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 375:                                              ; preds = %365, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h22a9b410b4e18e37E.exit"
   %.sroa.0702.0 = phi i32 [ %.sroa.0702.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h22a9b410b4e18e37E.exit" ], [ 0, %365 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6705)
-  %376 = getelementptr inbounds i8, ptr %1, i64 648
+  %376 = getelementptr inbounds nuw i8, ptr %1, i64 648
   %377 = load i64, ptr %376, align 8, !range !29, !noundef !4
   %378 = icmp eq i64 %377, -9223372036854775808
   br i1 %378, label %385, label %379
 
 379:                                              ; preds = %375
-  %380 = getelementptr inbounds i8, ptr %1, i64 656
+  %380 = getelementptr inbounds nuw i8, ptr %1, i64 656
   %.214.val = load ptr, ptr %380, align 8, !nonnull !4, !noundef !4
-  %381 = getelementptr inbounds i8, ptr %1, i64 664
+  %381 = getelementptr inbounds nuw i8, ptr %1, i64 664
   %.214.val309 = load i64, ptr %381, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %68), !noalias !181
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %68, ptr noalias noundef nonnull readonly align 1 %.214.val, i64 noundef %.214.val309), !noalias !181
@@ -1825,12 +1825,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i455, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i457", label %.thread.i456
 
 .thread.i456:                                     ; preds = %379
-  %383 = getelementptr inbounds i8, ptr %68, i64 4
+  %383 = getelementptr inbounds nuw i8, ptr %68, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6705, ptr noundef nonnull align 4 dereferenceable(16) %383, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hbafae833848be411E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i457": ; preds = %379
-  %384 = getelementptr inbounds i8, ptr %68, i64 8
+  %384 = getelementptr inbounds nuw i8, ptr %68, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %384), !noalias !181
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hbafae833848be411E.exit"
 
@@ -1842,15 +1842,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 385:                                              ; preds = %375, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hbafae833848be411E.exit"
   %.sroa.0704.0 = phi i32 [ %.sroa.0704.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hbafae833848be411E.exit" ], [ 0, %375 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6707)
-  %386 = getelementptr inbounds i8, ptr %1, i64 672
+  %386 = getelementptr inbounds nuw i8, ptr %1, i64 672
   %387 = load i64, ptr %386, align 8, !range !29, !noundef !4
   %388 = icmp eq i64 %387, -9223372036854775808
   br i1 %388, label %395, label %389
 
 389:                                              ; preds = %385
-  %390 = getelementptr inbounds i8, ptr %1, i64 680
+  %390 = getelementptr inbounds nuw i8, ptr %1, i64 680
   %.215.val = load ptr, ptr %390, align 8, !nonnull !4, !noundef !4
-  %391 = getelementptr inbounds i8, ptr %1, i64 688
+  %391 = getelementptr inbounds nuw i8, ptr %1, i64 688
   %.215.val310 = load i64, ptr %391, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %67), !noalias !184
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %67, ptr noalias noundef nonnull readonly align 1 %.215.val, i64 noundef %.215.val310), !noalias !184
@@ -1859,12 +1859,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i458, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i460", label %.thread.i459
 
 .thread.i459:                                     ; preds = %389
-  %393 = getelementptr inbounds i8, ptr %67, i64 4
+  %393 = getelementptr inbounds nuw i8, ptr %67, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6707, ptr noundef nonnull align 4 dereferenceable(16) %393, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hb3646efd8d02c438E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i460": ; preds = %389
-  %394 = getelementptr inbounds i8, ptr %67, i64 8
+  %394 = getelementptr inbounds nuw i8, ptr %67, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %394), !noalias !184
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hb3646efd8d02c438E.exit"
 
@@ -1876,15 +1876,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 395:                                              ; preds = %385, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hb3646efd8d02c438E.exit"
   %.sroa.0706.0 = phi i32 [ %.sroa.0706.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hb3646efd8d02c438E.exit" ], [ 0, %385 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6709)
-  %396 = getelementptr inbounds i8, ptr %1, i64 696
+  %396 = getelementptr inbounds nuw i8, ptr %1, i64 696
   %397 = load i64, ptr %396, align 8, !range !29, !noundef !4
   %398 = icmp eq i64 %397, -9223372036854775808
   br i1 %398, label %405, label %399
 
 399:                                              ; preds = %395
-  %400 = getelementptr inbounds i8, ptr %1, i64 704
+  %400 = getelementptr inbounds nuw i8, ptr %1, i64 704
   %.216.val = load ptr, ptr %400, align 8, !nonnull !4, !noundef !4
-  %401 = getelementptr inbounds i8, ptr %1, i64 712
+  %401 = getelementptr inbounds nuw i8, ptr %1, i64 712
   %.216.val311 = load i64, ptr %401, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %66), !noalias !187
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %66, ptr noalias noundef nonnull readonly align 1 %.216.val, i64 noundef %.216.val311), !noalias !187
@@ -1893,12 +1893,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i461, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i463", label %.thread.i462
 
 .thread.i462:                                     ; preds = %399
-  %403 = getelementptr inbounds i8, ptr %66, i64 4
+  %403 = getelementptr inbounds nuw i8, ptr %66, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6709, ptr noundef nonnull align 4 dereferenceable(16) %403, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h879991bb9176d89eE.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i463": ; preds = %399
-  %404 = getelementptr inbounds i8, ptr %66, i64 8
+  %404 = getelementptr inbounds nuw i8, ptr %66, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %404), !noalias !187
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h879991bb9176d89eE.exit"
 
@@ -1910,15 +1910,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 405:                                              ; preds = %395, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h879991bb9176d89eE.exit"
   %.sroa.0708.0 = phi i32 [ %.sroa.0708.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h879991bb9176d89eE.exit" ], [ 0, %395 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6711)
-  %406 = getelementptr inbounds i8, ptr %1, i64 720
+  %406 = getelementptr inbounds nuw i8, ptr %1, i64 720
   %407 = load i64, ptr %406, align 8, !range !29, !noundef !4
   %408 = icmp eq i64 %407, -9223372036854775808
   br i1 %408, label %415, label %409
 
 409:                                              ; preds = %405
-  %410 = getelementptr inbounds i8, ptr %1, i64 728
+  %410 = getelementptr inbounds nuw i8, ptr %1, i64 728
   %.217.val = load ptr, ptr %410, align 8, !nonnull !4, !noundef !4
-  %411 = getelementptr inbounds i8, ptr %1, i64 736
+  %411 = getelementptr inbounds nuw i8, ptr %1, i64 736
   %.217.val312 = load i64, ptr %411, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %65), !noalias !190
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %65, ptr noalias noundef nonnull readonly align 1 %.217.val, i64 noundef %.217.val312), !noalias !190
@@ -1927,12 +1927,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i464, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i466", label %.thread.i465
 
 .thread.i465:                                     ; preds = %409
-  %413 = getelementptr inbounds i8, ptr %65, i64 4
+  %413 = getelementptr inbounds nuw i8, ptr %65, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6711, ptr noundef nonnull align 4 dereferenceable(16) %413, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hc1e1bec4972b97b0E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i466": ; preds = %409
-  %414 = getelementptr inbounds i8, ptr %65, i64 8
+  %414 = getelementptr inbounds nuw i8, ptr %65, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %414), !noalias !190
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hc1e1bec4972b97b0E.exit"
 
@@ -1944,15 +1944,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 415:                                              ; preds = %405, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hc1e1bec4972b97b0E.exit"
   %.sroa.0710.0 = phi i32 [ %.sroa.0710.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hc1e1bec4972b97b0E.exit" ], [ 0, %405 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6713)
-  %416 = getelementptr inbounds i8, ptr %1, i64 744
+  %416 = getelementptr inbounds nuw i8, ptr %1, i64 744
   %417 = load i64, ptr %416, align 8, !range !29, !noundef !4
   %418 = icmp eq i64 %417, -9223372036854775808
   br i1 %418, label %425, label %419
 
 419:                                              ; preds = %415
-  %420 = getelementptr inbounds i8, ptr %1, i64 752
+  %420 = getelementptr inbounds nuw i8, ptr %1, i64 752
   %.218.val = load ptr, ptr %420, align 8, !nonnull !4, !noundef !4
-  %421 = getelementptr inbounds i8, ptr %1, i64 760
+  %421 = getelementptr inbounds nuw i8, ptr %1, i64 760
   %.218.val313 = load i64, ptr %421, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %64), !noalias !193
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %64, ptr noalias noundef nonnull readonly align 1 %.218.val, i64 noundef %.218.val313), !noalias !193
@@ -1961,12 +1961,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i467, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i469", label %.thread.i468
 
 .thread.i468:                                     ; preds = %419
-  %423 = getelementptr inbounds i8, ptr %64, i64 4
+  %423 = getelementptr inbounds nuw i8, ptr %64, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6713, ptr noundef nonnull align 4 dereferenceable(16) %423, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h3ad749e5cae6e498E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i469": ; preds = %419
-  %424 = getelementptr inbounds i8, ptr %64, i64 8
+  %424 = getelementptr inbounds nuw i8, ptr %64, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %424), !noalias !193
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h3ad749e5cae6e498E.exit"
 
@@ -1978,15 +1978,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 425:                                              ; preds = %415, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h3ad749e5cae6e498E.exit"
   %.sroa.0712.0 = phi i32 [ %.sroa.0712.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h3ad749e5cae6e498E.exit" ], [ 0, %415 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6715)
-  %426 = getelementptr inbounds i8, ptr %1, i64 768
+  %426 = getelementptr inbounds nuw i8, ptr %1, i64 768
   %427 = load i64, ptr %426, align 8, !range !29, !noundef !4
   %428 = icmp eq i64 %427, -9223372036854775808
   br i1 %428, label %435, label %429
 
 429:                                              ; preds = %425
-  %430 = getelementptr inbounds i8, ptr %1, i64 776
+  %430 = getelementptr inbounds nuw i8, ptr %1, i64 776
   %.219.val = load ptr, ptr %430, align 8, !nonnull !4, !noundef !4
-  %431 = getelementptr inbounds i8, ptr %1, i64 784
+  %431 = getelementptr inbounds nuw i8, ptr %1, i64 784
   %.219.val314 = load i64, ptr %431, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %63), !noalias !196
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %63, ptr noalias noundef nonnull readonly align 1 %.219.val, i64 noundef %.219.val314), !noalias !196
@@ -1995,12 +1995,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i470, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i472", label %.thread.i471
 
 .thread.i471:                                     ; preds = %429
-  %433 = getelementptr inbounds i8, ptr %63, i64 4
+  %433 = getelementptr inbounds nuw i8, ptr %63, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6715, ptr noundef nonnull align 4 dereferenceable(16) %433, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h06bd878b4a55feb1E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i472": ; preds = %429
-  %434 = getelementptr inbounds i8, ptr %63, i64 8
+  %434 = getelementptr inbounds nuw i8, ptr %63, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %434), !noalias !196
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h06bd878b4a55feb1E.exit"
 
@@ -2012,15 +2012,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 435:                                              ; preds = %425, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h06bd878b4a55feb1E.exit"
   %.sroa.0714.0 = phi i32 [ %.sroa.0714.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h06bd878b4a55feb1E.exit" ], [ 0, %425 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6717)
-  %436 = getelementptr inbounds i8, ptr %1, i64 792
+  %436 = getelementptr inbounds nuw i8, ptr %1, i64 792
   %437 = load i64, ptr %436, align 8, !range !29, !noundef !4
   %438 = icmp eq i64 %437, -9223372036854775808
   br i1 %438, label %445, label %439
 
 439:                                              ; preds = %435
-  %440 = getelementptr inbounds i8, ptr %1, i64 800
+  %440 = getelementptr inbounds nuw i8, ptr %1, i64 800
   %.220.val = load ptr, ptr %440, align 8, !nonnull !4, !noundef !4
-  %441 = getelementptr inbounds i8, ptr %1, i64 808
+  %441 = getelementptr inbounds nuw i8, ptr %1, i64 808
   %.220.val315 = load i64, ptr %441, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %62), !noalias !199
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %62, ptr noalias noundef nonnull readonly align 1 %.220.val, i64 noundef %.220.val315), !noalias !199
@@ -2029,12 +2029,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i473, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i475", label %.thread.i474
 
 .thread.i474:                                     ; preds = %439
-  %443 = getelementptr inbounds i8, ptr %62, i64 4
+  %443 = getelementptr inbounds nuw i8, ptr %62, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6717, ptr noundef nonnull align 4 dereferenceable(16) %443, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hcfdd3a1dc7a9bcfcE.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i475": ; preds = %439
-  %444 = getelementptr inbounds i8, ptr %62, i64 8
+  %444 = getelementptr inbounds nuw i8, ptr %62, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %444), !noalias !199
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hcfdd3a1dc7a9bcfcE.exit"
 
@@ -2046,15 +2046,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 445:                                              ; preds = %435, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hcfdd3a1dc7a9bcfcE.exit"
   %.sroa.0716.0 = phi i32 [ %.sroa.0716.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hcfdd3a1dc7a9bcfcE.exit" ], [ 0, %435 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6719)
-  %446 = getelementptr inbounds i8, ptr %1, i64 816
+  %446 = getelementptr inbounds nuw i8, ptr %1, i64 816
   %447 = load i64, ptr %446, align 8, !range !29, !noundef !4
   %448 = icmp eq i64 %447, -9223372036854775808
   br i1 %448, label %455, label %449
 
 449:                                              ; preds = %445
-  %450 = getelementptr inbounds i8, ptr %1, i64 824
+  %450 = getelementptr inbounds nuw i8, ptr %1, i64 824
   %.221.val = load ptr, ptr %450, align 8, !nonnull !4, !noundef !4
-  %451 = getelementptr inbounds i8, ptr %1, i64 832
+  %451 = getelementptr inbounds nuw i8, ptr %1, i64 832
   %.221.val316 = load i64, ptr %451, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %61), !noalias !202
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %61, ptr noalias noundef nonnull readonly align 1 %.221.val, i64 noundef %.221.val316), !noalias !202
@@ -2063,12 +2063,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i476, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i478", label %.thread.i477
 
 .thread.i477:                                     ; preds = %449
-  %453 = getelementptr inbounds i8, ptr %61, i64 4
+  %453 = getelementptr inbounds nuw i8, ptr %61, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6719, ptr noundef nonnull align 4 dereferenceable(16) %453, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hf7edf992d0677a2aE.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i478": ; preds = %449
-  %454 = getelementptr inbounds i8, ptr %61, i64 8
+  %454 = getelementptr inbounds nuw i8, ptr %61, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %454), !noalias !202
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hf7edf992d0677a2aE.exit"
 
@@ -2080,15 +2080,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 455:                                              ; preds = %445, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hf7edf992d0677a2aE.exit"
   %.sroa.0718.0 = phi i32 [ %.sroa.0718.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hf7edf992d0677a2aE.exit" ], [ 0, %445 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6721)
-  %456 = getelementptr inbounds i8, ptr %1, i64 840
+  %456 = getelementptr inbounds nuw i8, ptr %1, i64 840
   %457 = load i64, ptr %456, align 8, !range !29, !noundef !4
   %458 = icmp eq i64 %457, -9223372036854775808
   br i1 %458, label %465, label %459
 
 459:                                              ; preds = %455
-  %460 = getelementptr inbounds i8, ptr %1, i64 848
+  %460 = getelementptr inbounds nuw i8, ptr %1, i64 848
   %.222.val = load ptr, ptr %460, align 8, !nonnull !4, !noundef !4
-  %461 = getelementptr inbounds i8, ptr %1, i64 856
+  %461 = getelementptr inbounds nuw i8, ptr %1, i64 856
   %.222.val317 = load i64, ptr %461, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %60), !noalias !205
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %60, ptr noalias noundef nonnull readonly align 1 %.222.val, i64 noundef %.222.val317), !noalias !205
@@ -2097,12 +2097,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i479, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i481", label %.thread.i480
 
 .thread.i480:                                     ; preds = %459
-  %463 = getelementptr inbounds i8, ptr %60, i64 4
+  %463 = getelementptr inbounds nuw i8, ptr %60, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6721, ptr noundef nonnull align 4 dereferenceable(16) %463, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h5a5cbac540edf62aE.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i481": ; preds = %459
-  %464 = getelementptr inbounds i8, ptr %60, i64 8
+  %464 = getelementptr inbounds nuw i8, ptr %60, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %464), !noalias !205
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h5a5cbac540edf62aE.exit"
 
@@ -2114,15 +2114,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 465:                                              ; preds = %455, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h5a5cbac540edf62aE.exit"
   %.sroa.0720.0 = phi i32 [ %.sroa.0720.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h5a5cbac540edf62aE.exit" ], [ 0, %455 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6723)
-  %466 = getelementptr inbounds i8, ptr %1, i64 864
+  %466 = getelementptr inbounds nuw i8, ptr %1, i64 864
   %467 = load i64, ptr %466, align 8, !range !29, !noundef !4
   %468 = icmp eq i64 %467, -9223372036854775808
   br i1 %468, label %475, label %469
 
 469:                                              ; preds = %465
-  %470 = getelementptr inbounds i8, ptr %1, i64 872
+  %470 = getelementptr inbounds nuw i8, ptr %1, i64 872
   %.223.val = load ptr, ptr %470, align 8, !nonnull !4, !noundef !4
-  %471 = getelementptr inbounds i8, ptr %1, i64 880
+  %471 = getelementptr inbounds nuw i8, ptr %1, i64 880
   %.223.val318 = load i64, ptr %471, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %59), !noalias !208
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %59, ptr noalias noundef nonnull readonly align 1 %.223.val, i64 noundef %.223.val318), !noalias !208
@@ -2131,12 +2131,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i482, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i484", label %.thread.i483
 
 .thread.i483:                                     ; preds = %469
-  %473 = getelementptr inbounds i8, ptr %59, i64 4
+  %473 = getelementptr inbounds nuw i8, ptr %59, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6723, ptr noundef nonnull align 4 dereferenceable(16) %473, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h92c7bcc14c27f6adE.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i484": ; preds = %469
-  %474 = getelementptr inbounds i8, ptr %59, i64 8
+  %474 = getelementptr inbounds nuw i8, ptr %59, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %474), !noalias !208
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h92c7bcc14c27f6adE.exit"
 
@@ -2148,15 +2148,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 475:                                              ; preds = %465, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h92c7bcc14c27f6adE.exit"
   %.sroa.0722.0 = phi i32 [ %.sroa.0722.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h92c7bcc14c27f6adE.exit" ], [ 0, %465 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6725)
-  %476 = getelementptr inbounds i8, ptr %1, i64 888
+  %476 = getelementptr inbounds nuw i8, ptr %1, i64 888
   %477 = load i64, ptr %476, align 8, !range !29, !noundef !4
   %478 = icmp eq i64 %477, -9223372036854775808
   br i1 %478, label %485, label %479
 
 479:                                              ; preds = %475
-  %480 = getelementptr inbounds i8, ptr %1, i64 896
+  %480 = getelementptr inbounds nuw i8, ptr %1, i64 896
   %.224.val = load ptr, ptr %480, align 8, !nonnull !4, !noundef !4
-  %481 = getelementptr inbounds i8, ptr %1, i64 904
+  %481 = getelementptr inbounds nuw i8, ptr %1, i64 904
   %.224.val319 = load i64, ptr %481, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %58), !noalias !211
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %58, ptr noalias noundef nonnull readonly align 1 %.224.val, i64 noundef %.224.val319), !noalias !211
@@ -2165,12 +2165,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i485, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i487", label %.thread.i486
 
 .thread.i486:                                     ; preds = %479
-  %483 = getelementptr inbounds i8, ptr %58, i64 4
+  %483 = getelementptr inbounds nuw i8, ptr %58, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6725, ptr noundef nonnull align 4 dereferenceable(16) %483, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hd576ab925aea01f5E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i487": ; preds = %479
-  %484 = getelementptr inbounds i8, ptr %58, i64 8
+  %484 = getelementptr inbounds nuw i8, ptr %58, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %484), !noalias !211
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hd576ab925aea01f5E.exit"
 
@@ -2182,15 +2182,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 485:                                              ; preds = %475, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hd576ab925aea01f5E.exit"
   %.sroa.0724.0 = phi i32 [ %.sroa.0724.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hd576ab925aea01f5E.exit" ], [ 0, %475 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6727)
-  %486 = getelementptr inbounds i8, ptr %1, i64 912
+  %486 = getelementptr inbounds nuw i8, ptr %1, i64 912
   %487 = load i64, ptr %486, align 8, !range !29, !noundef !4
   %488 = icmp eq i64 %487, -9223372036854775808
   br i1 %488, label %495, label %489
 
 489:                                              ; preds = %485
-  %490 = getelementptr inbounds i8, ptr %1, i64 920
+  %490 = getelementptr inbounds nuw i8, ptr %1, i64 920
   %.225.val = load ptr, ptr %490, align 8, !nonnull !4, !noundef !4
-  %491 = getelementptr inbounds i8, ptr %1, i64 928
+  %491 = getelementptr inbounds nuw i8, ptr %1, i64 928
   %.225.val320 = load i64, ptr %491, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %57), !noalias !214
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %57, ptr noalias noundef nonnull readonly align 1 %.225.val, i64 noundef %.225.val320), !noalias !214
@@ -2199,12 +2199,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i488, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i490", label %.thread.i489
 
 .thread.i489:                                     ; preds = %489
-  %493 = getelementptr inbounds i8, ptr %57, i64 4
+  %493 = getelementptr inbounds nuw i8, ptr %57, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6727, ptr noundef nonnull align 4 dereferenceable(16) %493, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17ha7a0d4673478f0c0E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i490": ; preds = %489
-  %494 = getelementptr inbounds i8, ptr %57, i64 8
+  %494 = getelementptr inbounds nuw i8, ptr %57, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %494), !noalias !214
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17ha7a0d4673478f0c0E.exit"
 
@@ -2216,15 +2216,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 495:                                              ; preds = %485, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17ha7a0d4673478f0c0E.exit"
   %.sroa.0726.0 = phi i32 [ %.sroa.0726.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17ha7a0d4673478f0c0E.exit" ], [ 0, %485 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6729)
-  %496 = getelementptr inbounds i8, ptr %1, i64 936
+  %496 = getelementptr inbounds nuw i8, ptr %1, i64 936
   %497 = load i64, ptr %496, align 8, !range !29, !noundef !4
   %498 = icmp eq i64 %497, -9223372036854775808
   br i1 %498, label %505, label %499
 
 499:                                              ; preds = %495
-  %500 = getelementptr inbounds i8, ptr %1, i64 944
+  %500 = getelementptr inbounds nuw i8, ptr %1, i64 944
   %.226.val = load ptr, ptr %500, align 8, !nonnull !4, !noundef !4
-  %501 = getelementptr inbounds i8, ptr %1, i64 952
+  %501 = getelementptr inbounds nuw i8, ptr %1, i64 952
   %.226.val321 = load i64, ptr %501, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %56), !noalias !217
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %56, ptr noalias noundef nonnull readonly align 1 %.226.val, i64 noundef %.226.val321), !noalias !217
@@ -2233,12 +2233,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i491, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i493", label %.thread.i492
 
 .thread.i492:                                     ; preds = %499
-  %503 = getelementptr inbounds i8, ptr %56, i64 4
+  %503 = getelementptr inbounds nuw i8, ptr %56, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6729, ptr noundef nonnull align 4 dereferenceable(16) %503, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h5ceb120b1d67658fE.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i493": ; preds = %499
-  %504 = getelementptr inbounds i8, ptr %56, i64 8
+  %504 = getelementptr inbounds nuw i8, ptr %56, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %504), !noalias !217
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h5ceb120b1d67658fE.exit"
 
@@ -2250,15 +2250,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 505:                                              ; preds = %495, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h5ceb120b1d67658fE.exit"
   %.sroa.0728.0 = phi i32 [ %.sroa.0728.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h5ceb120b1d67658fE.exit" ], [ 0, %495 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6731)
-  %506 = getelementptr inbounds i8, ptr %1, i64 960
+  %506 = getelementptr inbounds nuw i8, ptr %1, i64 960
   %507 = load i64, ptr %506, align 8, !range !29, !noundef !4
   %508 = icmp eq i64 %507, -9223372036854775808
   br i1 %508, label %515, label %509
 
 509:                                              ; preds = %505
-  %510 = getelementptr inbounds i8, ptr %1, i64 968
+  %510 = getelementptr inbounds nuw i8, ptr %1, i64 968
   %.227.val = load ptr, ptr %510, align 8, !nonnull !4, !noundef !4
-  %511 = getelementptr inbounds i8, ptr %1, i64 976
+  %511 = getelementptr inbounds nuw i8, ptr %1, i64 976
   %.227.val322 = load i64, ptr %511, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %55), !noalias !220
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %55, ptr noalias noundef nonnull readonly align 1 %.227.val, i64 noundef %.227.val322), !noalias !220
@@ -2267,12 +2267,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i494, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i496", label %.thread.i495
 
 .thread.i495:                                     ; preds = %509
-  %513 = getelementptr inbounds i8, ptr %55, i64 4
+  %513 = getelementptr inbounds nuw i8, ptr %55, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6731, ptr noundef nonnull align 4 dereferenceable(16) %513, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h809d2c9ecf88ed87E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i496": ; preds = %509
-  %514 = getelementptr inbounds i8, ptr %55, i64 8
+  %514 = getelementptr inbounds nuw i8, ptr %55, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %514), !noalias !220
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h809d2c9ecf88ed87E.exit"
 
@@ -2283,15 +2283,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 
 515:                                              ; preds = %505, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h809d2c9ecf88ed87E.exit"
   %.sroa.0730.0 = phi i32 [ %.sroa.0730.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h809d2c9ecf88ed87E.exit" ], [ 0, %505 ]
-  %516 = getelementptr inbounds i8, ptr %1, i64 984
+  %516 = getelementptr inbounds nuw i8, ptr %1, i64 984
   %517 = load i64, ptr %516, align 8, !range !29, !noundef !4
   %518 = icmp eq i64 %517, -9223372036854775808
   br i1 %518, label %.thread, label %519
 
 519:                                              ; preds = %515
-  %520 = getelementptr inbounds i8, ptr %1, i64 992
+  %520 = getelementptr inbounds nuw i8, ptr %1, i64 992
   %.228.val = load ptr, ptr %520, align 8, !nonnull !4, !noundef !4
-  %521 = getelementptr inbounds i8, ptr %1, i64 1000
+  %521 = getelementptr inbounds nuw i8, ptr %1, i64 1000
   %.228.val323 = load i64, ptr %521, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %54), !noalias !223
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %54, ptr noalias noundef nonnull readonly align 1 %.228.val, i64 noundef %.228.val323), !noalias !223
@@ -2300,7 +2300,7 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i497, label %.thread854, label %527
 
 .thread854:                                       ; preds = %519
-  %523 = getelementptr inbounds i8, ptr %54, i64 8
+  %523 = getelementptr inbounds nuw i8, ptr %54, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %523), !noalias !223
   br label %.thread.sink.split
 
@@ -2315,20 +2315,20 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   %.sroa.0732.0 = phi i32 [ %.sroa.0.0, %515 ], [ %.sroa.0732.0.ph, %.thread.sink.split ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.3, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.5.sink, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.7)
-  %524 = getelementptr inbounds i8, ptr %1, i64 1032
+  %524 = getelementptr inbounds nuw i8, ptr %1, i64 1032
   %525 = load i64, ptr %524, align 8, !range !29, !noundef !4
   %526 = icmp eq i64 %525, -9223372036854775808
   br i1 %526, label %.thread858, label %529
 
 527:                                              ; preds = %519
-  %528 = getelementptr inbounds i8, ptr %54, i64 4
+  %528 = getelementptr inbounds nuw i8, ptr %54, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.5847, ptr noundef nonnull align 4 dereferenceable(16) %528, i64 16, i1 false)
   br label %.thread.sink.split
 
 529:                                              ; preds = %.thread
-  %530 = getelementptr inbounds i8, ptr %1, i64 1040
+  %530 = getelementptr inbounds nuw i8, ptr %1, i64 1040
   %.229.val = load ptr, ptr %530, align 8, !nonnull !4, !noundef !4
-  %531 = getelementptr inbounds i8, ptr %1, i64 1048
+  %531 = getelementptr inbounds nuw i8, ptr %1, i64 1048
   %.229.val324 = load i64, ptr %531, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %53), !noalias !226
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %53, ptr noalias noundef nonnull readonly align 1 %.229.val, i64 noundef %.229.val324), !noalias !226
@@ -2337,7 +2337,7 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i500, label %533, label %544
 
 533:                                              ; preds = %529
-  %534 = getelementptr inbounds i8, ptr %53, i64 8
+  %534 = getelementptr inbounds nuw i8, ptr %53, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %534), !noalias !226
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %53), !noalias !226
   call void @llvm.experimental.noalias.scope.decl(metadata !229)
@@ -2345,15 +2345,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 
 .thread858:                                       ; preds = %.thread, %533
   call void @llvm.experimental.noalias.scope.decl(metadata !232)
-  %535 = getelementptr inbounds i8, ptr %1, i64 1008
+  %535 = getelementptr inbounds nuw i8, ptr %1, i64 1008
   %536 = load i64, ptr %535, align 8, !range !29, !alias.scope !235, !noalias !236, !noundef !4
   %537 = icmp eq i64 %536, -9223372036854775808
   br i1 %537, label %"_ZN4core6option15Option$LT$T$GT$7or_else17hb704012a7384154fE.exit", label %538
 
 538:                                              ; preds = %.thread858
-  %539 = getelementptr inbounds i8, ptr %1, i64 1016
+  %539 = getelementptr inbounds nuw i8, ptr %1, i64 1016
   %.val.i.i = load ptr, ptr %539, align 8, !alias.scope !235, !noalias !236, !nonnull !4, !noundef !4
-  %540 = getelementptr inbounds i8, ptr %1, i64 1024
+  %540 = getelementptr inbounds nuw i8, ptr %1, i64 1024
   %.val1.i.i = load i64, ptr %540, align 8, !alias.scope !235, !noalias !236, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %52), !noalias !240
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %52, ptr noalias noundef nonnull readonly align 1 %.val.i.i, i64 noundef %.val1.i.i), !noalias !240
@@ -2362,12 +2362,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i.i.i, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i.i.i", label %.thread.i.i.i
 
 .thread.i.i.i:                                    ; preds = %538
-  %542 = getelementptr inbounds i8, ptr %52, i64 4
+  %542 = getelementptr inbounds nuw i8, ptr %52, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.7, ptr noundef nonnull align 4 dereferenceable(16) %542, i64 16, i1 false), !noalias !243
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6d65720cb5b5ba09E.exit.i.i"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i.i.i": ; preds = %538
-  %543 = getelementptr inbounds i8, ptr %52, i64 8
+  %543 = getelementptr inbounds nuw i8, ptr %52, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %543), !noalias !240
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6d65720cb5b5ba09E.exit.i.i"
 
@@ -2377,7 +2377,7 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17hb704012a7384154fE.exit"
 
 544:                                              ; preds = %529
-  %545 = getelementptr inbounds i8, ptr %53, i64 4
+  %545 = getelementptr inbounds nuw i8, ptr %53, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.7, ptr noundef nonnull align 4 dereferenceable(16) %545, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %53), !noalias !226
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17hb704012a7384154fE.exit"
@@ -2385,15 +2385,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 "_ZN4core6option15Option$LT$T$GT$7or_else17hb704012a7384154fE.exit": ; preds = %.thread858, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6d65720cb5b5ba09E.exit.i.i", %544
   %.sroa.0735.1 = phi i32 [ 1, %544 ], [ %.sroa.0735.0, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6d65720cb5b5ba09E.exit.i.i" ], [ 0, %.thread858 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6742)
-  %546 = getelementptr inbounds i8, ptr %1, i64 1056
+  %546 = getelementptr inbounds nuw i8, ptr %1, i64 1056
   %547 = load i64, ptr %546, align 8, !range !29, !noundef !4
   %548 = icmp eq i64 %547, -9223372036854775808
   br i1 %548, label %555, label %549
 
 549:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17hb704012a7384154fE.exit"
-  %550 = getelementptr inbounds i8, ptr %1, i64 1064
+  %550 = getelementptr inbounds nuw i8, ptr %1, i64 1064
   %.230.val = load ptr, ptr %550, align 8, !nonnull !4, !noundef !4
-  %551 = getelementptr inbounds i8, ptr %1, i64 1072
+  %551 = getelementptr inbounds nuw i8, ptr %1, i64 1072
   %.230.val325 = load i64, ptr %551, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %51), !noalias !244
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %51, ptr noalias noundef nonnull readonly align 1 %.230.val, i64 noundef %.230.val325), !noalias !244
@@ -2402,12 +2402,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i504, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i506", label %.thread.i505
 
 .thread.i505:                                     ; preds = %549
-  %553 = getelementptr inbounds i8, ptr %51, i64 4
+  %553 = getelementptr inbounds nuw i8, ptr %51, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6742, ptr noundef nonnull align 4 dereferenceable(16) %553, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hd5ed3660c5b8a8c7E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i506": ; preds = %549
-  %554 = getelementptr inbounds i8, ptr %51, i64 8
+  %554 = getelementptr inbounds nuw i8, ptr %51, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %554), !noalias !244
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hd5ed3660c5b8a8c7E.exit"
 
@@ -2419,15 +2419,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 555:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17hb704012a7384154fE.exit", %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hd5ed3660c5b8a8c7E.exit"
   %.sroa.0741.0 = phi i32 [ %.sroa.0741.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hd5ed3660c5b8a8c7E.exit" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17hb704012a7384154fE.exit" ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6744)
-  %556 = getelementptr inbounds i8, ptr %1, i64 1080
+  %556 = getelementptr inbounds nuw i8, ptr %1, i64 1080
   %557 = load i64, ptr %556, align 8, !range !29, !noundef !4
   %558 = icmp eq i64 %557, -9223372036854775808
   br i1 %558, label %565, label %559
 
 559:                                              ; preds = %555
-  %560 = getelementptr inbounds i8, ptr %1, i64 1088
+  %560 = getelementptr inbounds nuw i8, ptr %1, i64 1088
   %.231.val = load ptr, ptr %560, align 8, !nonnull !4, !noundef !4
-  %561 = getelementptr inbounds i8, ptr %1, i64 1096
+  %561 = getelementptr inbounds nuw i8, ptr %1, i64 1096
   %.231.val326 = load i64, ptr %561, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %50), !noalias !247
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %50, ptr noalias noundef nonnull readonly align 1 %.231.val, i64 noundef %.231.val326), !noalias !247
@@ -2436,12 +2436,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i507, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i509", label %.thread.i508
 
 .thread.i508:                                     ; preds = %559
-  %563 = getelementptr inbounds i8, ptr %50, i64 4
+  %563 = getelementptr inbounds nuw i8, ptr %50, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6744, ptr noundef nonnull align 4 dereferenceable(16) %563, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17he79435f521e27bd0E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i509": ; preds = %559
-  %564 = getelementptr inbounds i8, ptr %50, i64 8
+  %564 = getelementptr inbounds nuw i8, ptr %50, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %564), !noalias !247
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17he79435f521e27bd0E.exit"
 
@@ -2453,15 +2453,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 565:                                              ; preds = %555, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17he79435f521e27bd0E.exit"
   %.sroa.0743.0 = phi i32 [ %.sroa.0743.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17he79435f521e27bd0E.exit" ], [ 0, %555 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6746)
-  %566 = getelementptr inbounds i8, ptr %1, i64 1104
+  %566 = getelementptr inbounds nuw i8, ptr %1, i64 1104
   %567 = load i64, ptr %566, align 8, !range !29, !noundef !4
   %568 = icmp eq i64 %567, -9223372036854775808
   br i1 %568, label %575, label %569
 
 569:                                              ; preds = %565
-  %570 = getelementptr inbounds i8, ptr %1, i64 1112
+  %570 = getelementptr inbounds nuw i8, ptr %1, i64 1112
   %.232.val = load ptr, ptr %570, align 8, !nonnull !4, !noundef !4
-  %571 = getelementptr inbounds i8, ptr %1, i64 1120
+  %571 = getelementptr inbounds nuw i8, ptr %1, i64 1120
   %.232.val327 = load i64, ptr %571, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %49), !noalias !250
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %49, ptr noalias noundef nonnull readonly align 1 %.232.val, i64 noundef %.232.val327), !noalias !250
@@ -2470,12 +2470,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i510, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i512", label %.thread.i511
 
 .thread.i511:                                     ; preds = %569
-  %573 = getelementptr inbounds i8, ptr %49, i64 4
+  %573 = getelementptr inbounds nuw i8, ptr %49, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6746, ptr noundef nonnull align 4 dereferenceable(16) %573, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h23a0ec6f79b9e997E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i512": ; preds = %569
-  %574 = getelementptr inbounds i8, ptr %49, i64 8
+  %574 = getelementptr inbounds nuw i8, ptr %49, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %574), !noalias !250
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h23a0ec6f79b9e997E.exit"
 
@@ -2487,15 +2487,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 575:                                              ; preds = %565, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h23a0ec6f79b9e997E.exit"
   %.sroa.0745.0 = phi i32 [ %.sroa.0745.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h23a0ec6f79b9e997E.exit" ], [ 0, %565 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6748)
-  %576 = getelementptr inbounds i8, ptr %1, i64 1128
+  %576 = getelementptr inbounds nuw i8, ptr %1, i64 1128
   %577 = load i64, ptr %576, align 8, !range !29, !noundef !4
   %578 = icmp eq i64 %577, -9223372036854775808
   br i1 %578, label %585, label %579
 
 579:                                              ; preds = %575
-  %580 = getelementptr inbounds i8, ptr %1, i64 1136
+  %580 = getelementptr inbounds nuw i8, ptr %1, i64 1136
   %.233.val = load ptr, ptr %580, align 8, !nonnull !4, !noundef !4
-  %581 = getelementptr inbounds i8, ptr %1, i64 1144
+  %581 = getelementptr inbounds nuw i8, ptr %1, i64 1144
   %.233.val328 = load i64, ptr %581, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %48), !noalias !253
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %48, ptr noalias noundef nonnull readonly align 1 %.233.val, i64 noundef %.233.val328), !noalias !253
@@ -2504,12 +2504,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i513, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i515", label %.thread.i514
 
 .thread.i514:                                     ; preds = %579
-  %583 = getelementptr inbounds i8, ptr %48, i64 4
+  %583 = getelementptr inbounds nuw i8, ptr %48, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6748, ptr noundef nonnull align 4 dereferenceable(16) %583, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h9fd96afb9508f1cfE.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i515": ; preds = %579
-  %584 = getelementptr inbounds i8, ptr %48, i64 8
+  %584 = getelementptr inbounds nuw i8, ptr %48, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %584), !noalias !253
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h9fd96afb9508f1cfE.exit"
 
@@ -2521,15 +2521,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 585:                                              ; preds = %575, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h9fd96afb9508f1cfE.exit"
   %.sroa.0747.0 = phi i32 [ %.sroa.0747.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h9fd96afb9508f1cfE.exit" ], [ 0, %575 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6750)
-  %586 = getelementptr inbounds i8, ptr %1, i64 1152
+  %586 = getelementptr inbounds nuw i8, ptr %1, i64 1152
   %587 = load i64, ptr %586, align 8, !range !29, !noundef !4
   %588 = icmp eq i64 %587, -9223372036854775808
   br i1 %588, label %595, label %589
 
 589:                                              ; preds = %585
-  %590 = getelementptr inbounds i8, ptr %1, i64 1160
+  %590 = getelementptr inbounds nuw i8, ptr %1, i64 1160
   %.234.val = load ptr, ptr %590, align 8, !nonnull !4, !noundef !4
-  %591 = getelementptr inbounds i8, ptr %1, i64 1168
+  %591 = getelementptr inbounds nuw i8, ptr %1, i64 1168
   %.234.val329 = load i64, ptr %591, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %47), !noalias !256
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %47, ptr noalias noundef nonnull readonly align 1 %.234.val, i64 noundef %.234.val329), !noalias !256
@@ -2538,12 +2538,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i516, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i518", label %.thread.i517
 
 .thread.i517:                                     ; preds = %589
-  %593 = getelementptr inbounds i8, ptr %47, i64 4
+  %593 = getelementptr inbounds nuw i8, ptr %47, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6750, ptr noundef nonnull align 4 dereferenceable(16) %593, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17he3921366a19f7175E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i518": ; preds = %589
-  %594 = getelementptr inbounds i8, ptr %47, i64 8
+  %594 = getelementptr inbounds nuw i8, ptr %47, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %594), !noalias !256
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17he3921366a19f7175E.exit"
 
@@ -2555,15 +2555,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 595:                                              ; preds = %585, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17he3921366a19f7175E.exit"
   %.sroa.0749.0 = phi i32 [ %.sroa.0749.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17he3921366a19f7175E.exit" ], [ 0, %585 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6752)
-  %596 = getelementptr inbounds i8, ptr %1, i64 1176
+  %596 = getelementptr inbounds nuw i8, ptr %1, i64 1176
   %597 = load i64, ptr %596, align 8, !range !29, !noundef !4
   %598 = icmp eq i64 %597, -9223372036854775808
   br i1 %598, label %605, label %599
 
 599:                                              ; preds = %595
-  %600 = getelementptr inbounds i8, ptr %1, i64 1184
+  %600 = getelementptr inbounds nuw i8, ptr %1, i64 1184
   %.235.val = load ptr, ptr %600, align 8, !nonnull !4, !noundef !4
-  %601 = getelementptr inbounds i8, ptr %1, i64 1192
+  %601 = getelementptr inbounds nuw i8, ptr %1, i64 1192
   %.235.val330 = load i64, ptr %601, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %46), !noalias !259
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %46, ptr noalias noundef nonnull readonly align 1 %.235.val, i64 noundef %.235.val330), !noalias !259
@@ -2572,12 +2572,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i519, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i521", label %.thread.i520
 
 .thread.i520:                                     ; preds = %599
-  %603 = getelementptr inbounds i8, ptr %46, i64 4
+  %603 = getelementptr inbounds nuw i8, ptr %46, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6752, ptr noundef nonnull align 4 dereferenceable(16) %603, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hba222eceb5d8d106E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i521": ; preds = %599
-  %604 = getelementptr inbounds i8, ptr %46, i64 8
+  %604 = getelementptr inbounds nuw i8, ptr %46, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %604), !noalias !259
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hba222eceb5d8d106E.exit"
 
@@ -2589,15 +2589,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 605:                                              ; preds = %595, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hba222eceb5d8d106E.exit"
   %.sroa.0751.0 = phi i32 [ %.sroa.0751.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hba222eceb5d8d106E.exit" ], [ 0, %595 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6754)
-  %606 = getelementptr inbounds i8, ptr %1, i64 1200
+  %606 = getelementptr inbounds nuw i8, ptr %1, i64 1200
   %607 = load i64, ptr %606, align 8, !range !29, !noundef !4
   %608 = icmp eq i64 %607, -9223372036854775808
   br i1 %608, label %615, label %609
 
 609:                                              ; preds = %605
-  %610 = getelementptr inbounds i8, ptr %1, i64 1208
+  %610 = getelementptr inbounds nuw i8, ptr %1, i64 1208
   %.236.val = load ptr, ptr %610, align 8, !nonnull !4, !noundef !4
-  %611 = getelementptr inbounds i8, ptr %1, i64 1216
+  %611 = getelementptr inbounds nuw i8, ptr %1, i64 1216
   %.236.val331 = load i64, ptr %611, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %45), !noalias !262
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %45, ptr noalias noundef nonnull readonly align 1 %.236.val, i64 noundef %.236.val331), !noalias !262
@@ -2606,12 +2606,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i522, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i524", label %.thread.i523
 
 .thread.i523:                                     ; preds = %609
-  %613 = getelementptr inbounds i8, ptr %45, i64 4
+  %613 = getelementptr inbounds nuw i8, ptr %45, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6754, ptr noundef nonnull align 4 dereferenceable(16) %613, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h189d8b9ad9259c4cE.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i524": ; preds = %609
-  %614 = getelementptr inbounds i8, ptr %45, i64 8
+  %614 = getelementptr inbounds nuw i8, ptr %45, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %614), !noalias !262
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h189d8b9ad9259c4cE.exit"
 
@@ -2623,15 +2623,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 615:                                              ; preds = %605, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h189d8b9ad9259c4cE.exit"
   %.sroa.0753.0 = phi i32 [ %.sroa.0753.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h189d8b9ad9259c4cE.exit" ], [ 0, %605 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6756)
-  %616 = getelementptr inbounds i8, ptr %1, i64 1224
+  %616 = getelementptr inbounds nuw i8, ptr %1, i64 1224
   %617 = load i64, ptr %616, align 8, !range !29, !noundef !4
   %618 = icmp eq i64 %617, -9223372036854775808
   br i1 %618, label %625, label %619
 
 619:                                              ; preds = %615
-  %620 = getelementptr inbounds i8, ptr %1, i64 1232
+  %620 = getelementptr inbounds nuw i8, ptr %1, i64 1232
   %.237.val = load ptr, ptr %620, align 8, !nonnull !4, !noundef !4
-  %621 = getelementptr inbounds i8, ptr %1, i64 1240
+  %621 = getelementptr inbounds nuw i8, ptr %1, i64 1240
   %.237.val332 = load i64, ptr %621, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %44), !noalias !265
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %44, ptr noalias noundef nonnull readonly align 1 %.237.val, i64 noundef %.237.val332), !noalias !265
@@ -2640,12 +2640,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i525, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i527", label %.thread.i526
 
 .thread.i526:                                     ; preds = %619
-  %623 = getelementptr inbounds i8, ptr %44, i64 4
+  %623 = getelementptr inbounds nuw i8, ptr %44, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6756, ptr noundef nonnull align 4 dereferenceable(16) %623, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h067e30267cdd231eE.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i527": ; preds = %619
-  %624 = getelementptr inbounds i8, ptr %44, i64 8
+  %624 = getelementptr inbounds nuw i8, ptr %44, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %624), !noalias !265
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h067e30267cdd231eE.exit"
 
@@ -2657,15 +2657,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 625:                                              ; preds = %615, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h067e30267cdd231eE.exit"
   %.sroa.0755.0 = phi i32 [ %.sroa.0755.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h067e30267cdd231eE.exit" ], [ 0, %615 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6758)
-  %626 = getelementptr inbounds i8, ptr %1, i64 1248
+  %626 = getelementptr inbounds nuw i8, ptr %1, i64 1248
   %627 = load i64, ptr %626, align 8, !range !29, !noundef !4
   %628 = icmp eq i64 %627, -9223372036854775808
   br i1 %628, label %635, label %629
 
 629:                                              ; preds = %625
-  %630 = getelementptr inbounds i8, ptr %1, i64 1256
+  %630 = getelementptr inbounds nuw i8, ptr %1, i64 1256
   %.238.val = load ptr, ptr %630, align 8, !nonnull !4, !noundef !4
-  %631 = getelementptr inbounds i8, ptr %1, i64 1264
+  %631 = getelementptr inbounds nuw i8, ptr %1, i64 1264
   %.238.val333 = load i64, ptr %631, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %43), !noalias !268
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %43, ptr noalias noundef nonnull readonly align 1 %.238.val, i64 noundef %.238.val333), !noalias !268
@@ -2674,12 +2674,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i528, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i530", label %.thread.i529
 
 .thread.i529:                                     ; preds = %629
-  %633 = getelementptr inbounds i8, ptr %43, i64 4
+  %633 = getelementptr inbounds nuw i8, ptr %43, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6758, ptr noundef nonnull align 4 dereferenceable(16) %633, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h3245d1ea06d80216E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i530": ; preds = %629
-  %634 = getelementptr inbounds i8, ptr %43, i64 8
+  %634 = getelementptr inbounds nuw i8, ptr %43, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %634), !noalias !268
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h3245d1ea06d80216E.exit"
 
@@ -2691,15 +2691,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 635:                                              ; preds = %625, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h3245d1ea06d80216E.exit"
   %.sroa.0757.0 = phi i32 [ %.sroa.0757.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h3245d1ea06d80216E.exit" ], [ 0, %625 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6760)
-  %636 = getelementptr inbounds i8, ptr %1, i64 1272
+  %636 = getelementptr inbounds nuw i8, ptr %1, i64 1272
   %637 = load i64, ptr %636, align 8, !range !29, !noundef !4
   %638 = icmp eq i64 %637, -9223372036854775808
   br i1 %638, label %645, label %639
 
 639:                                              ; preds = %635
-  %640 = getelementptr inbounds i8, ptr %1, i64 1280
+  %640 = getelementptr inbounds nuw i8, ptr %1, i64 1280
   %.239.val = load ptr, ptr %640, align 8, !nonnull !4, !noundef !4
-  %641 = getelementptr inbounds i8, ptr %1, i64 1288
+  %641 = getelementptr inbounds nuw i8, ptr %1, i64 1288
   %.239.val334 = load i64, ptr %641, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %42), !noalias !271
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %42, ptr noalias noundef nonnull readonly align 1 %.239.val, i64 noundef %.239.val334), !noalias !271
@@ -2708,12 +2708,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i531, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i533", label %.thread.i532
 
 .thread.i532:                                     ; preds = %639
-  %643 = getelementptr inbounds i8, ptr %42, i64 4
+  %643 = getelementptr inbounds nuw i8, ptr %42, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6760, ptr noundef nonnull align 4 dereferenceable(16) %643, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h5dd9f94b8db4cc72E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i533": ; preds = %639
-  %644 = getelementptr inbounds i8, ptr %42, i64 8
+  %644 = getelementptr inbounds nuw i8, ptr %42, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %644), !noalias !271
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h5dd9f94b8db4cc72E.exit"
 
@@ -2725,15 +2725,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 645:                                              ; preds = %635, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h5dd9f94b8db4cc72E.exit"
   %.sroa.0759.0 = phi i32 [ %.sroa.0759.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h5dd9f94b8db4cc72E.exit" ], [ 0, %635 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6762)
-  %646 = getelementptr inbounds i8, ptr %1, i64 1296
+  %646 = getelementptr inbounds nuw i8, ptr %1, i64 1296
   %647 = load i64, ptr %646, align 8, !range !29, !noundef !4
   %648 = icmp eq i64 %647, -9223372036854775808
   br i1 %648, label %655, label %649
 
 649:                                              ; preds = %645
-  %650 = getelementptr inbounds i8, ptr %1, i64 1304
+  %650 = getelementptr inbounds nuw i8, ptr %1, i64 1304
   %.240.val = load ptr, ptr %650, align 8, !nonnull !4, !noundef !4
-  %651 = getelementptr inbounds i8, ptr %1, i64 1312
+  %651 = getelementptr inbounds nuw i8, ptr %1, i64 1312
   %.240.val335 = load i64, ptr %651, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %41), !noalias !274
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %41, ptr noalias noundef nonnull readonly align 1 %.240.val, i64 noundef %.240.val335), !noalias !274
@@ -2742,12 +2742,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i534, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i536", label %.thread.i535
 
 .thread.i535:                                     ; preds = %649
-  %653 = getelementptr inbounds i8, ptr %41, i64 4
+  %653 = getelementptr inbounds nuw i8, ptr %41, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6762, ptr noundef nonnull align 4 dereferenceable(16) %653, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hb918c43bdcb9ad82E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i536": ; preds = %649
-  %654 = getelementptr inbounds i8, ptr %41, i64 8
+  %654 = getelementptr inbounds nuw i8, ptr %41, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %654), !noalias !274
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hb918c43bdcb9ad82E.exit"
 
@@ -2759,15 +2759,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 655:                                              ; preds = %645, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hb918c43bdcb9ad82E.exit"
   %.sroa.0761.0 = phi i32 [ %.sroa.0761.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hb918c43bdcb9ad82E.exit" ], [ 0, %645 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6764)
-  %656 = getelementptr inbounds i8, ptr %1, i64 1320
+  %656 = getelementptr inbounds nuw i8, ptr %1, i64 1320
   %657 = load i64, ptr %656, align 8, !range !29, !noundef !4
   %658 = icmp eq i64 %657, -9223372036854775808
   br i1 %658, label %665, label %659
 
 659:                                              ; preds = %655
-  %660 = getelementptr inbounds i8, ptr %1, i64 1328
+  %660 = getelementptr inbounds nuw i8, ptr %1, i64 1328
   %.241.val = load ptr, ptr %660, align 8, !nonnull !4, !noundef !4
-  %661 = getelementptr inbounds i8, ptr %1, i64 1336
+  %661 = getelementptr inbounds nuw i8, ptr %1, i64 1336
   %.241.val336 = load i64, ptr %661, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %40), !noalias !277
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %40, ptr noalias noundef nonnull readonly align 1 %.241.val, i64 noundef %.241.val336), !noalias !277
@@ -2776,12 +2776,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i537, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i539", label %.thread.i538
 
 .thread.i538:                                     ; preds = %659
-  %663 = getelementptr inbounds i8, ptr %40, i64 4
+  %663 = getelementptr inbounds nuw i8, ptr %40, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6764, ptr noundef nonnull align 4 dereferenceable(16) %663, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h715a842a8c89d26eE.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i539": ; preds = %659
-  %664 = getelementptr inbounds i8, ptr %40, i64 8
+  %664 = getelementptr inbounds nuw i8, ptr %40, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %664), !noalias !277
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h715a842a8c89d26eE.exit"
 
@@ -2793,15 +2793,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 665:                                              ; preds = %655, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h715a842a8c89d26eE.exit"
   %.sroa.0763.0 = phi i32 [ %.sroa.0763.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h715a842a8c89d26eE.exit" ], [ 0, %655 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6766)
-  %666 = getelementptr inbounds i8, ptr %1, i64 1344
+  %666 = getelementptr inbounds nuw i8, ptr %1, i64 1344
   %667 = load i64, ptr %666, align 8, !range !29, !noundef !4
   %668 = icmp eq i64 %667, -9223372036854775808
   br i1 %668, label %675, label %669
 
 669:                                              ; preds = %665
-  %670 = getelementptr inbounds i8, ptr %1, i64 1352
+  %670 = getelementptr inbounds nuw i8, ptr %1, i64 1352
   %.242.val = load ptr, ptr %670, align 8, !nonnull !4, !noundef !4
-  %671 = getelementptr inbounds i8, ptr %1, i64 1360
+  %671 = getelementptr inbounds nuw i8, ptr %1, i64 1360
   %.242.val337 = load i64, ptr %671, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %39), !noalias !280
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %39, ptr noalias noundef nonnull readonly align 1 %.242.val, i64 noundef %.242.val337), !noalias !280
@@ -2810,12 +2810,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i540, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i542", label %.thread.i541
 
 .thread.i541:                                     ; preds = %669
-  %673 = getelementptr inbounds i8, ptr %39, i64 4
+  %673 = getelementptr inbounds nuw i8, ptr %39, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6766, ptr noundef nonnull align 4 dereferenceable(16) %673, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h618003a958e966d3E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i542": ; preds = %669
-  %674 = getelementptr inbounds i8, ptr %39, i64 8
+  %674 = getelementptr inbounds nuw i8, ptr %39, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %674), !noalias !280
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h618003a958e966d3E.exit"
 
@@ -2827,15 +2827,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 675:                                              ; preds = %665, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h618003a958e966d3E.exit"
   %.sroa.0765.0 = phi i32 [ %.sroa.0765.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h618003a958e966d3E.exit" ], [ 0, %665 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6768)
-  %676 = getelementptr inbounds i8, ptr %1, i64 1368
+  %676 = getelementptr inbounds nuw i8, ptr %1, i64 1368
   %677 = load i64, ptr %676, align 8, !range !29, !noundef !4
   %678 = icmp eq i64 %677, -9223372036854775808
   br i1 %678, label %685, label %679
 
 679:                                              ; preds = %675
-  %680 = getelementptr inbounds i8, ptr %1, i64 1376
+  %680 = getelementptr inbounds nuw i8, ptr %1, i64 1376
   %.243.val = load ptr, ptr %680, align 8, !nonnull !4, !noundef !4
-  %681 = getelementptr inbounds i8, ptr %1, i64 1384
+  %681 = getelementptr inbounds nuw i8, ptr %1, i64 1384
   %.243.val338 = load i64, ptr %681, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %38), !noalias !283
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %38, ptr noalias noundef nonnull readonly align 1 %.243.val, i64 noundef %.243.val338), !noalias !283
@@ -2844,12 +2844,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i543, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i545", label %.thread.i544
 
 .thread.i544:                                     ; preds = %679
-  %683 = getelementptr inbounds i8, ptr %38, i64 4
+  %683 = getelementptr inbounds nuw i8, ptr %38, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6768, ptr noundef nonnull align 4 dereferenceable(16) %683, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h4484398b8df32362E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i545": ; preds = %679
-  %684 = getelementptr inbounds i8, ptr %38, i64 8
+  %684 = getelementptr inbounds nuw i8, ptr %38, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %684), !noalias !283
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h4484398b8df32362E.exit"
 
@@ -2861,15 +2861,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 685:                                              ; preds = %675, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h4484398b8df32362E.exit"
   %.sroa.0767.0 = phi i32 [ %.sroa.0767.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h4484398b8df32362E.exit" ], [ 0, %675 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6770)
-  %686 = getelementptr inbounds i8, ptr %1, i64 1392
+  %686 = getelementptr inbounds nuw i8, ptr %1, i64 1392
   %687 = load i64, ptr %686, align 8, !range !29, !noundef !4
   %688 = icmp eq i64 %687, -9223372036854775808
   br i1 %688, label %695, label %689
 
 689:                                              ; preds = %685
-  %690 = getelementptr inbounds i8, ptr %1, i64 1400
+  %690 = getelementptr inbounds nuw i8, ptr %1, i64 1400
   %.244.val = load ptr, ptr %690, align 8, !nonnull !4, !noundef !4
-  %691 = getelementptr inbounds i8, ptr %1, i64 1408
+  %691 = getelementptr inbounds nuw i8, ptr %1, i64 1408
   %.244.val339 = load i64, ptr %691, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %37), !noalias !286
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %37, ptr noalias noundef nonnull readonly align 1 %.244.val, i64 noundef %.244.val339), !noalias !286
@@ -2878,12 +2878,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i546, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i548", label %.thread.i547
 
 .thread.i547:                                     ; preds = %689
-  %693 = getelementptr inbounds i8, ptr %37, i64 4
+  %693 = getelementptr inbounds nuw i8, ptr %37, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6770, ptr noundef nonnull align 4 dereferenceable(16) %693, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h6dc163edd3c197aaE.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i548": ; preds = %689
-  %694 = getelementptr inbounds i8, ptr %37, i64 8
+  %694 = getelementptr inbounds nuw i8, ptr %37, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %694), !noalias !286
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h6dc163edd3c197aaE.exit"
 
@@ -2895,15 +2895,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 695:                                              ; preds = %685, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h6dc163edd3c197aaE.exit"
   %.sroa.0769.0 = phi i32 [ %.sroa.0769.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h6dc163edd3c197aaE.exit" ], [ 0, %685 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6772)
-  %696 = getelementptr inbounds i8, ptr %1, i64 1416
+  %696 = getelementptr inbounds nuw i8, ptr %1, i64 1416
   %697 = load i64, ptr %696, align 8, !range !29, !noundef !4
   %698 = icmp eq i64 %697, -9223372036854775808
   br i1 %698, label %705, label %699
 
 699:                                              ; preds = %695
-  %700 = getelementptr inbounds i8, ptr %1, i64 1424
+  %700 = getelementptr inbounds nuw i8, ptr %1, i64 1424
   %.245.val = load ptr, ptr %700, align 8, !nonnull !4, !noundef !4
-  %701 = getelementptr inbounds i8, ptr %1, i64 1432
+  %701 = getelementptr inbounds nuw i8, ptr %1, i64 1432
   %.245.val340 = load i64, ptr %701, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %36), !noalias !289
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %36, ptr noalias noundef nonnull readonly align 1 %.245.val, i64 noundef %.245.val340), !noalias !289
@@ -2912,12 +2912,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i549, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i551", label %.thread.i550
 
 .thread.i550:                                     ; preds = %699
-  %703 = getelementptr inbounds i8, ptr %36, i64 4
+  %703 = getelementptr inbounds nuw i8, ptr %36, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6772, ptr noundef nonnull align 4 dereferenceable(16) %703, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h6ba58bb2d8be7ab1E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i551": ; preds = %699
-  %704 = getelementptr inbounds i8, ptr %36, i64 8
+  %704 = getelementptr inbounds nuw i8, ptr %36, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %704), !noalias !289
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h6ba58bb2d8be7ab1E.exit"
 
@@ -2929,15 +2929,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 705:                                              ; preds = %695, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h6ba58bb2d8be7ab1E.exit"
   %.sroa.0771.0 = phi i32 [ %.sroa.0771.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h6ba58bb2d8be7ab1E.exit" ], [ 0, %695 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6774)
-  %706 = getelementptr inbounds i8, ptr %1, i64 1440
+  %706 = getelementptr inbounds nuw i8, ptr %1, i64 1440
   %707 = load i64, ptr %706, align 8, !range !29, !noundef !4
   %708 = icmp eq i64 %707, -9223372036854775808
   br i1 %708, label %715, label %709
 
 709:                                              ; preds = %705
-  %710 = getelementptr inbounds i8, ptr %1, i64 1448
+  %710 = getelementptr inbounds nuw i8, ptr %1, i64 1448
   %.246.val = load ptr, ptr %710, align 8, !nonnull !4, !noundef !4
-  %711 = getelementptr inbounds i8, ptr %1, i64 1456
+  %711 = getelementptr inbounds nuw i8, ptr %1, i64 1456
   %.246.val341 = load i64, ptr %711, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %35), !noalias !292
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %35, ptr noalias noundef nonnull readonly align 1 %.246.val, i64 noundef %.246.val341), !noalias !292
@@ -2946,12 +2946,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i552, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i554", label %.thread.i553
 
 .thread.i553:                                     ; preds = %709
-  %713 = getelementptr inbounds i8, ptr %35, i64 4
+  %713 = getelementptr inbounds nuw i8, ptr %35, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6774, ptr noundef nonnull align 4 dereferenceable(16) %713, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17ha7cbef6e66d15e62E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i554": ; preds = %709
-  %714 = getelementptr inbounds i8, ptr %35, i64 8
+  %714 = getelementptr inbounds nuw i8, ptr %35, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %714), !noalias !292
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17ha7cbef6e66d15e62E.exit"
 
@@ -2963,15 +2963,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 715:                                              ; preds = %705, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17ha7cbef6e66d15e62E.exit"
   %.sroa.0773.0 = phi i32 [ %.sroa.0773.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17ha7cbef6e66d15e62E.exit" ], [ 0, %705 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6780)
-  %716 = getelementptr inbounds i8, ptr %1, i64 1488
+  %716 = getelementptr inbounds nuw i8, ptr %1, i64 1488
   %717 = load i64, ptr %716, align 8, !range !29, !noundef !4
   %718 = icmp eq i64 %717, -9223372036854775808
   br i1 %718, label %725, label %719
 
 719:                                              ; preds = %715
-  %720 = getelementptr inbounds i8, ptr %1, i64 1496
+  %720 = getelementptr inbounds nuw i8, ptr %1, i64 1496
   %.247.val = load ptr, ptr %720, align 8, !nonnull !4, !noundef !4
-  %721 = getelementptr inbounds i8, ptr %1, i64 1504
+  %721 = getelementptr inbounds nuw i8, ptr %1, i64 1504
   %.247.val342 = load i64, ptr %721, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %34), !noalias !295
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %34, ptr noalias noundef nonnull readonly align 1 %.247.val, i64 noundef %.247.val342), !noalias !295
@@ -2980,12 +2980,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i555, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i557", label %.thread.i556
 
 .thread.i556:                                     ; preds = %719
-  %723 = getelementptr inbounds i8, ptr %34, i64 4
+  %723 = getelementptr inbounds nuw i8, ptr %34, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6780, ptr noundef nonnull align 4 dereferenceable(16) %723, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h6c686a243045295dE.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i557": ; preds = %719
-  %724 = getelementptr inbounds i8, ptr %34, i64 8
+  %724 = getelementptr inbounds nuw i8, ptr %34, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %724), !noalias !295
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h6c686a243045295dE.exit"
 
@@ -2996,15 +2996,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 
 725:                                              ; preds = %715, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h6c686a243045295dE.exit"
   %.sroa.0779.0 = phi i32 [ %.sroa.0779.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h6c686a243045295dE.exit" ], [ 0, %715 ]
-  %726 = getelementptr inbounds i8, ptr %1, i64 1512
+  %726 = getelementptr inbounds nuw i8, ptr %1, i64 1512
   %727 = load i64, ptr %726, align 8, !range !29, !noundef !4
   %728 = icmp eq i64 %727, -9223372036854775808
   br i1 %728, label %.thread865, label %729
 
 729:                                              ; preds = %725
-  %730 = getelementptr inbounds i8, ptr %1, i64 1520
+  %730 = getelementptr inbounds nuw i8, ptr %1, i64 1520
   %.248.val = load ptr, ptr %730, align 8, !nonnull !4, !noundef !4
-  %731 = getelementptr inbounds i8, ptr %1, i64 1528
+  %731 = getelementptr inbounds nuw i8, ptr %1, i64 1528
   %.248.val343 = load i64, ptr %731, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %33), !noalias !298
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %33, ptr noalias noundef nonnull readonly align 1 %.248.val, i64 noundef %.248.val343), !noalias !298
@@ -3013,7 +3013,7 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i558, label %.thread869, label %737
 
 .thread869:                                       ; preds = %729
-  %733 = getelementptr inbounds i8, ptr %33, i64 8
+  %733 = getelementptr inbounds nuw i8, ptr %33, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %733), !noalias !298
   br label %.thread865.sink.split
 
@@ -3028,20 +3028,20 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   %.sroa.0781.0 = phi i32 [ %.sroa.0775.0, %725 ], [ %.sroa.0781.0.ph, %.thread865.sink.split ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.3783, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.5777.sink, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6786)
-  %734 = getelementptr inbounds i8, ptr %1, i64 1536
+  %734 = getelementptr inbounds nuw i8, ptr %1, i64 1536
   %735 = load i64, ptr %734, align 8, !range !29, !noundef !4
   %736 = icmp eq i64 %735, -9223372036854775808
   br i1 %736, label %745, label %739
 
 737:                                              ; preds = %729
-  %738 = getelementptr inbounds i8, ptr %33, i64 4
+  %738 = getelementptr inbounds nuw i8, ptr %33, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.5850, ptr noundef nonnull align 4 dereferenceable(16) %738, i64 16, i1 false)
   br label %.thread865.sink.split
 
 739:                                              ; preds = %.thread865
-  %740 = getelementptr inbounds i8, ptr %1, i64 1544
+  %740 = getelementptr inbounds nuw i8, ptr %1, i64 1544
   %.251.val = load ptr, ptr %740, align 8, !nonnull !4, !noundef !4
-  %741 = getelementptr inbounds i8, ptr %1, i64 1552
+  %741 = getelementptr inbounds nuw i8, ptr %1, i64 1552
   %.251.val344 = load i64, ptr %741, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %32), !noalias !301
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %32, ptr noalias noundef nonnull readonly align 1 %.251.val, i64 noundef %.251.val344), !noalias !301
@@ -3050,12 +3050,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i561, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i563", label %.thread.i562
 
 .thread.i562:                                     ; preds = %739
-  %743 = getelementptr inbounds i8, ptr %32, i64 4
+  %743 = getelementptr inbounds nuw i8, ptr %32, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6786, ptr noundef nonnull align 4 dereferenceable(16) %743, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h843b2a10e24d03e6E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i563": ; preds = %739
-  %744 = getelementptr inbounds i8, ptr %32, i64 8
+  %744 = getelementptr inbounds nuw i8, ptr %32, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %744), !noalias !301
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h843b2a10e24d03e6E.exit"
 
@@ -3067,15 +3067,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 745:                                              ; preds = %.thread865, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h843b2a10e24d03e6E.exit"
   %.sroa.0785.0 = phi i32 [ %.sroa.0785.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h843b2a10e24d03e6E.exit" ], [ 0, %.thread865 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6788)
-  %746 = getelementptr inbounds i8, ptr %1, i64 1584
+  %746 = getelementptr inbounds nuw i8, ptr %1, i64 1584
   %747 = load i64, ptr %746, align 8, !range !29, !noundef !4
   %748 = icmp eq i64 %747, -9223372036854775808
   br i1 %748, label %755, label %749
 
 749:                                              ; preds = %745
-  %750 = getelementptr inbounds i8, ptr %1, i64 1592
+  %750 = getelementptr inbounds nuw i8, ptr %1, i64 1592
   %.252.val = load ptr, ptr %750, align 8, !nonnull !4, !noundef !4
-  %751 = getelementptr inbounds i8, ptr %1, i64 1600
+  %751 = getelementptr inbounds nuw i8, ptr %1, i64 1600
   %.252.val345 = load i64, ptr %751, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %31), !noalias !304
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %31, ptr noalias noundef nonnull readonly align 1 %.252.val, i64 noundef %.252.val345), !noalias !304
@@ -3084,12 +3084,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i564, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i566", label %.thread.i565
 
 .thread.i565:                                     ; preds = %749
-  %753 = getelementptr inbounds i8, ptr %31, i64 4
+  %753 = getelementptr inbounds nuw i8, ptr %31, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6788, ptr noundef nonnull align 4 dereferenceable(16) %753, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h736df39ad756023bE.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i566": ; preds = %749
-  %754 = getelementptr inbounds i8, ptr %31, i64 8
+  %754 = getelementptr inbounds nuw i8, ptr %31, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %754), !noalias !304
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h736df39ad756023bE.exit"
 
@@ -3101,15 +3101,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 755:                                              ; preds = %745, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h736df39ad756023bE.exit"
   %.sroa.0787.0 = phi i32 [ %.sroa.0787.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h736df39ad756023bE.exit" ], [ 0, %745 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6790)
-  %756 = getelementptr inbounds i8, ptr %1, i64 1560
+  %756 = getelementptr inbounds nuw i8, ptr %1, i64 1560
   %757 = load i64, ptr %756, align 8, !range !29, !noundef !4
   %758 = icmp eq i64 %757, -9223372036854775808
   br i1 %758, label %765, label %759
 
 759:                                              ; preds = %755
-  %760 = getelementptr inbounds i8, ptr %1, i64 1568
+  %760 = getelementptr inbounds nuw i8, ptr %1, i64 1568
   %.253.val = load ptr, ptr %760, align 8, !nonnull !4, !noundef !4
-  %761 = getelementptr inbounds i8, ptr %1, i64 1576
+  %761 = getelementptr inbounds nuw i8, ptr %1, i64 1576
   %.253.val346 = load i64, ptr %761, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %30), !noalias !307
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %30, ptr noalias noundef nonnull readonly align 1 %.253.val, i64 noundef %.253.val346), !noalias !307
@@ -3118,12 +3118,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i567, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i569", label %.thread.i568
 
 .thread.i568:                                     ; preds = %759
-  %763 = getelementptr inbounds i8, ptr %30, i64 4
+  %763 = getelementptr inbounds nuw i8, ptr %30, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6790, ptr noundef nonnull align 4 dereferenceable(16) %763, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h6fe077448cb1b20fE.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i569": ; preds = %759
-  %764 = getelementptr inbounds i8, ptr %30, i64 8
+  %764 = getelementptr inbounds nuw i8, ptr %30, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %764), !noalias !307
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h6fe077448cb1b20fE.exit"
 
@@ -3135,15 +3135,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 765:                                              ; preds = %755, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h6fe077448cb1b20fE.exit"
   %.sroa.0789.0 = phi i32 [ %.sroa.0789.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h6fe077448cb1b20fE.exit" ], [ 0, %755 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6792)
-  %766 = getelementptr inbounds i8, ptr %1, i64 1608
+  %766 = getelementptr inbounds nuw i8, ptr %1, i64 1608
   %767 = load i64, ptr %766, align 8, !range !29, !noundef !4
   %768 = icmp eq i64 %767, -9223372036854775808
   br i1 %768, label %775, label %769
 
 769:                                              ; preds = %765
-  %770 = getelementptr inbounds i8, ptr %1, i64 1616
+  %770 = getelementptr inbounds nuw i8, ptr %1, i64 1616
   %.254.val = load ptr, ptr %770, align 8, !nonnull !4, !noundef !4
-  %771 = getelementptr inbounds i8, ptr %1, i64 1624
+  %771 = getelementptr inbounds nuw i8, ptr %1, i64 1624
   %.254.val347 = load i64, ptr %771, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %29), !noalias !310
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %29, ptr noalias noundef nonnull readonly align 1 %.254.val, i64 noundef %.254.val347), !noalias !310
@@ -3152,12 +3152,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i570, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i572", label %.thread.i571
 
 .thread.i571:                                     ; preds = %769
-  %773 = getelementptr inbounds i8, ptr %29, i64 4
+  %773 = getelementptr inbounds nuw i8, ptr %29, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6792, ptr noundef nonnull align 4 dereferenceable(16) %773, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hf47c894063fbce6eE.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i572": ; preds = %769
-  %774 = getelementptr inbounds i8, ptr %29, i64 8
+  %774 = getelementptr inbounds nuw i8, ptr %29, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %774), !noalias !310
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hf47c894063fbce6eE.exit"
 
@@ -3169,15 +3169,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 775:                                              ; preds = %765, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hf47c894063fbce6eE.exit"
   %.sroa.0791.0 = phi i32 [ %.sroa.0791.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hf47c894063fbce6eE.exit" ], [ 0, %765 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6794)
-  %776 = getelementptr inbounds i8, ptr %1, i64 1632
+  %776 = getelementptr inbounds nuw i8, ptr %1, i64 1632
   %777 = load i64, ptr %776, align 8, !range !29, !noundef !4
   %778 = icmp eq i64 %777, -9223372036854775808
   br i1 %778, label %785, label %779
 
 779:                                              ; preds = %775
-  %780 = getelementptr inbounds i8, ptr %1, i64 1640
+  %780 = getelementptr inbounds nuw i8, ptr %1, i64 1640
   %.255.val = load ptr, ptr %780, align 8, !nonnull !4, !noundef !4
-  %781 = getelementptr inbounds i8, ptr %1, i64 1648
+  %781 = getelementptr inbounds nuw i8, ptr %1, i64 1648
   %.255.val348 = load i64, ptr %781, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %28), !noalias !313
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %28, ptr noalias noundef nonnull readonly align 1 %.255.val, i64 noundef %.255.val348), !noalias !313
@@ -3186,12 +3186,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i573, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i575", label %.thread.i574
 
 .thread.i574:                                     ; preds = %779
-  %783 = getelementptr inbounds i8, ptr %28, i64 4
+  %783 = getelementptr inbounds nuw i8, ptr %28, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6794, ptr noundef nonnull align 4 dereferenceable(16) %783, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hce2fc39da3267990E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i575": ; preds = %779
-  %784 = getelementptr inbounds i8, ptr %28, i64 8
+  %784 = getelementptr inbounds nuw i8, ptr %28, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %784), !noalias !313
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hce2fc39da3267990E.exit"
 
@@ -3203,15 +3203,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 785:                                              ; preds = %775, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hce2fc39da3267990E.exit"
   %.sroa.0793.0 = phi i32 [ %.sroa.0793.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hce2fc39da3267990E.exit" ], [ 0, %775 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6796)
-  %786 = getelementptr inbounds i8, ptr %1, i64 1656
+  %786 = getelementptr inbounds nuw i8, ptr %1, i64 1656
   %787 = load i64, ptr %786, align 8, !range !29, !noundef !4
   %788 = icmp eq i64 %787, -9223372036854775808
   br i1 %788, label %795, label %789
 
 789:                                              ; preds = %785
-  %790 = getelementptr inbounds i8, ptr %1, i64 1664
+  %790 = getelementptr inbounds nuw i8, ptr %1, i64 1664
   %.256.val = load ptr, ptr %790, align 8, !nonnull !4, !noundef !4
-  %791 = getelementptr inbounds i8, ptr %1, i64 1672
+  %791 = getelementptr inbounds nuw i8, ptr %1, i64 1672
   %.256.val349 = load i64, ptr %791, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %27), !noalias !316
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %27, ptr noalias noundef nonnull readonly align 1 %.256.val, i64 noundef %.256.val349), !noalias !316
@@ -3220,12 +3220,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i576, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i578", label %.thread.i577
 
 .thread.i577:                                     ; preds = %789
-  %793 = getelementptr inbounds i8, ptr %27, i64 4
+  %793 = getelementptr inbounds nuw i8, ptr %27, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6796, ptr noundef nonnull align 4 dereferenceable(16) %793, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h454736c3635650dfE.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i578": ; preds = %789
-  %794 = getelementptr inbounds i8, ptr %27, i64 8
+  %794 = getelementptr inbounds nuw i8, ptr %27, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %794), !noalias !316
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h454736c3635650dfE.exit"
 
@@ -3237,15 +3237,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 795:                                              ; preds = %785, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h454736c3635650dfE.exit"
   %.sroa.0795.0 = phi i32 [ %.sroa.0795.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h454736c3635650dfE.exit" ], [ 0, %785 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6798)
-  %796 = getelementptr inbounds i8, ptr %1, i64 1680
+  %796 = getelementptr inbounds nuw i8, ptr %1, i64 1680
   %797 = load i64, ptr %796, align 8, !range !29, !noundef !4
   %798 = icmp eq i64 %797, -9223372036854775808
   br i1 %798, label %805, label %799
 
 799:                                              ; preds = %795
-  %800 = getelementptr inbounds i8, ptr %1, i64 1688
+  %800 = getelementptr inbounds nuw i8, ptr %1, i64 1688
   %.257.val = load ptr, ptr %800, align 8, !nonnull !4, !noundef !4
-  %801 = getelementptr inbounds i8, ptr %1, i64 1696
+  %801 = getelementptr inbounds nuw i8, ptr %1, i64 1696
   %.257.val350 = load i64, ptr %801, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %26), !noalias !319
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %26, ptr noalias noundef nonnull readonly align 1 %.257.val, i64 noundef %.257.val350), !noalias !319
@@ -3254,12 +3254,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i579, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i581", label %.thread.i580
 
 .thread.i580:                                     ; preds = %799
-  %803 = getelementptr inbounds i8, ptr %26, i64 4
+  %803 = getelementptr inbounds nuw i8, ptr %26, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6798, ptr noundef nonnull align 4 dereferenceable(16) %803, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h338aa976bcfc3043E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i581": ; preds = %799
-  %804 = getelementptr inbounds i8, ptr %26, i64 8
+  %804 = getelementptr inbounds nuw i8, ptr %26, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %804), !noalias !319
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h338aa976bcfc3043E.exit"
 
@@ -3271,15 +3271,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 805:                                              ; preds = %795, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h338aa976bcfc3043E.exit"
   %.sroa.0797.0 = phi i32 [ %.sroa.0797.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h338aa976bcfc3043E.exit" ], [ 0, %795 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6800)
-  %806 = getelementptr inbounds i8, ptr %1, i64 1704
+  %806 = getelementptr inbounds nuw i8, ptr %1, i64 1704
   %807 = load i64, ptr %806, align 8, !range !29, !noundef !4
   %808 = icmp eq i64 %807, -9223372036854775808
   br i1 %808, label %815, label %809
 
 809:                                              ; preds = %805
-  %810 = getelementptr inbounds i8, ptr %1, i64 1712
+  %810 = getelementptr inbounds nuw i8, ptr %1, i64 1712
   %.258.val = load ptr, ptr %810, align 8, !nonnull !4, !noundef !4
-  %811 = getelementptr inbounds i8, ptr %1, i64 1720
+  %811 = getelementptr inbounds nuw i8, ptr %1, i64 1720
   %.258.val351 = load i64, ptr %811, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %25), !noalias !322
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %25, ptr noalias noundef nonnull readonly align 1 %.258.val, i64 noundef %.258.val351), !noalias !322
@@ -3288,12 +3288,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i582, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i584", label %.thread.i583
 
 .thread.i583:                                     ; preds = %809
-  %813 = getelementptr inbounds i8, ptr %25, i64 4
+  %813 = getelementptr inbounds nuw i8, ptr %25, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6800, ptr noundef nonnull align 4 dereferenceable(16) %813, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h06bb8d6ba77c3a39E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i584": ; preds = %809
-  %814 = getelementptr inbounds i8, ptr %25, i64 8
+  %814 = getelementptr inbounds nuw i8, ptr %25, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %814), !noalias !322
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h06bb8d6ba77c3a39E.exit"
 
@@ -3305,15 +3305,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 815:                                              ; preds = %805, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h06bb8d6ba77c3a39E.exit"
   %.sroa.0799.0 = phi i32 [ %.sroa.0799.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h06bb8d6ba77c3a39E.exit" ], [ 0, %805 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6802)
-  %816 = getelementptr inbounds i8, ptr %1, i64 1728
+  %816 = getelementptr inbounds nuw i8, ptr %1, i64 1728
   %817 = load i64, ptr %816, align 8, !range !29, !noundef !4
   %818 = icmp eq i64 %817, -9223372036854775808
   br i1 %818, label %825, label %819
 
 819:                                              ; preds = %815
-  %820 = getelementptr inbounds i8, ptr %1, i64 1736
+  %820 = getelementptr inbounds nuw i8, ptr %1, i64 1736
   %.259.val = load ptr, ptr %820, align 8, !nonnull !4, !noundef !4
-  %821 = getelementptr inbounds i8, ptr %1, i64 1744
+  %821 = getelementptr inbounds nuw i8, ptr %1, i64 1744
   %.259.val352 = load i64, ptr %821, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %24), !noalias !325
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %24, ptr noalias noundef nonnull readonly align 1 %.259.val, i64 noundef %.259.val352), !noalias !325
@@ -3322,12 +3322,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i585, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i587", label %.thread.i586
 
 .thread.i586:                                     ; preds = %819
-  %823 = getelementptr inbounds i8, ptr %24, i64 4
+  %823 = getelementptr inbounds nuw i8, ptr %24, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6802, ptr noundef nonnull align 4 dereferenceable(16) %823, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h5a428d93a1f3d8c5E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i587": ; preds = %819
-  %824 = getelementptr inbounds i8, ptr %24, i64 8
+  %824 = getelementptr inbounds nuw i8, ptr %24, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %824), !noalias !325
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h5a428d93a1f3d8c5E.exit"
 
@@ -3339,15 +3339,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 825:                                              ; preds = %815, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h5a428d93a1f3d8c5E.exit"
   %.sroa.0801.0 = phi i32 [ %.sroa.0801.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h5a428d93a1f3d8c5E.exit" ], [ 0, %815 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6804)
-  %826 = getelementptr inbounds i8, ptr %1, i64 1752
+  %826 = getelementptr inbounds nuw i8, ptr %1, i64 1752
   %827 = load i64, ptr %826, align 8, !range !29, !noundef !4
   %828 = icmp eq i64 %827, -9223372036854775808
   br i1 %828, label %835, label %829
 
 829:                                              ; preds = %825
-  %830 = getelementptr inbounds i8, ptr %1, i64 1760
+  %830 = getelementptr inbounds nuw i8, ptr %1, i64 1760
   %.260.val = load ptr, ptr %830, align 8, !nonnull !4, !noundef !4
-  %831 = getelementptr inbounds i8, ptr %1, i64 1768
+  %831 = getelementptr inbounds nuw i8, ptr %1, i64 1768
   %.260.val353 = load i64, ptr %831, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %23), !noalias !328
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %23, ptr noalias noundef nonnull readonly align 1 %.260.val, i64 noundef %.260.val353), !noalias !328
@@ -3356,12 +3356,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i588, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i590", label %.thread.i589
 
 .thread.i589:                                     ; preds = %829
-  %833 = getelementptr inbounds i8, ptr %23, i64 4
+  %833 = getelementptr inbounds nuw i8, ptr %23, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6804, ptr noundef nonnull align 4 dereferenceable(16) %833, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17he59c15de53b9fa08E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i590": ; preds = %829
-  %834 = getelementptr inbounds i8, ptr %23, i64 8
+  %834 = getelementptr inbounds nuw i8, ptr %23, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %834), !noalias !328
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17he59c15de53b9fa08E.exit"
 
@@ -3373,15 +3373,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 835:                                              ; preds = %825, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17he59c15de53b9fa08E.exit"
   %.sroa.0803.0 = phi i32 [ %.sroa.0803.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17he59c15de53b9fa08E.exit" ], [ 0, %825 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6806)
-  %836 = getelementptr inbounds i8, ptr %1, i64 1776
+  %836 = getelementptr inbounds nuw i8, ptr %1, i64 1776
   %837 = load i64, ptr %836, align 8, !range !29, !noundef !4
   %838 = icmp eq i64 %837, -9223372036854775808
   br i1 %838, label %845, label %839
 
 839:                                              ; preds = %835
-  %840 = getelementptr inbounds i8, ptr %1, i64 1784
+  %840 = getelementptr inbounds nuw i8, ptr %1, i64 1784
   %.261.val = load ptr, ptr %840, align 8, !nonnull !4, !noundef !4
-  %841 = getelementptr inbounds i8, ptr %1, i64 1792
+  %841 = getelementptr inbounds nuw i8, ptr %1, i64 1792
   %.261.val354 = load i64, ptr %841, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22), !noalias !331
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %22, ptr noalias noundef nonnull readonly align 1 %.261.val, i64 noundef %.261.val354), !noalias !331
@@ -3390,12 +3390,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i591, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i593", label %.thread.i592
 
 .thread.i592:                                     ; preds = %839
-  %843 = getelementptr inbounds i8, ptr %22, i64 4
+  %843 = getelementptr inbounds nuw i8, ptr %22, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6806, ptr noundef nonnull align 4 dereferenceable(16) %843, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h8584e16f44bca102E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i593": ; preds = %839
-  %844 = getelementptr inbounds i8, ptr %22, i64 8
+  %844 = getelementptr inbounds nuw i8, ptr %22, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %844), !noalias !331
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h8584e16f44bca102E.exit"
 
@@ -3407,15 +3407,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 845:                                              ; preds = %835, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h8584e16f44bca102E.exit"
   %.sroa.0805.0 = phi i32 [ %.sroa.0805.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h8584e16f44bca102E.exit" ], [ 0, %835 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6808)
-  %846 = getelementptr inbounds i8, ptr %1, i64 1800
+  %846 = getelementptr inbounds nuw i8, ptr %1, i64 1800
   %847 = load i64, ptr %846, align 8, !range !29, !noundef !4
   %848 = icmp eq i64 %847, -9223372036854775808
   br i1 %848, label %855, label %849
 
 849:                                              ; preds = %845
-  %850 = getelementptr inbounds i8, ptr %1, i64 1808
+  %850 = getelementptr inbounds nuw i8, ptr %1, i64 1808
   %.262.val = load ptr, ptr %850, align 8, !nonnull !4, !noundef !4
-  %851 = getelementptr inbounds i8, ptr %1, i64 1816
+  %851 = getelementptr inbounds nuw i8, ptr %1, i64 1816
   %.262.val355 = load i64, ptr %851, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21), !noalias !334
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %21, ptr noalias noundef nonnull readonly align 1 %.262.val, i64 noundef %.262.val355), !noalias !334
@@ -3424,12 +3424,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i594, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i596", label %.thread.i595
 
 .thread.i595:                                     ; preds = %849
-  %853 = getelementptr inbounds i8, ptr %21, i64 4
+  %853 = getelementptr inbounds nuw i8, ptr %21, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6808, ptr noundef nonnull align 4 dereferenceable(16) %853, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hf1dfe8f26980e21eE.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i596": ; preds = %849
-  %854 = getelementptr inbounds i8, ptr %21, i64 8
+  %854 = getelementptr inbounds nuw i8, ptr %21, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %854), !noalias !334
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hf1dfe8f26980e21eE.exit"
 
@@ -3441,15 +3441,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 855:                                              ; preds = %845, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hf1dfe8f26980e21eE.exit"
   %.sroa.0807.0 = phi i32 [ %.sroa.0807.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hf1dfe8f26980e21eE.exit" ], [ 0, %845 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6810)
-  %856 = getelementptr inbounds i8, ptr %1, i64 1824
+  %856 = getelementptr inbounds nuw i8, ptr %1, i64 1824
   %857 = load i64, ptr %856, align 8, !range !29, !noundef !4
   %858 = icmp eq i64 %857, -9223372036854775808
   br i1 %858, label %865, label %859
 
 859:                                              ; preds = %855
-  %860 = getelementptr inbounds i8, ptr %1, i64 1832
+  %860 = getelementptr inbounds nuw i8, ptr %1, i64 1832
   %.263.val = load ptr, ptr %860, align 8, !nonnull !4, !noundef !4
-  %861 = getelementptr inbounds i8, ptr %1, i64 1840
+  %861 = getelementptr inbounds nuw i8, ptr %1, i64 1840
   %.263.val356 = load i64, ptr %861, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20), !noalias !337
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %20, ptr noalias noundef nonnull readonly align 1 %.263.val, i64 noundef %.263.val356), !noalias !337
@@ -3458,12 +3458,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i597, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i599", label %.thread.i598
 
 .thread.i598:                                     ; preds = %859
-  %863 = getelementptr inbounds i8, ptr %20, i64 4
+  %863 = getelementptr inbounds nuw i8, ptr %20, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6810, ptr noundef nonnull align 4 dereferenceable(16) %863, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h0966a1036f87ca77E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i599": ; preds = %859
-  %864 = getelementptr inbounds i8, ptr %20, i64 8
+  %864 = getelementptr inbounds nuw i8, ptr %20, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %864), !noalias !337
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h0966a1036f87ca77E.exit"
 
@@ -3475,15 +3475,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 865:                                              ; preds = %855, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h0966a1036f87ca77E.exit"
   %.sroa.0809.0 = phi i32 [ %.sroa.0809.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h0966a1036f87ca77E.exit" ], [ 0, %855 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6812)
-  %866 = getelementptr inbounds i8, ptr %1, i64 1848
+  %866 = getelementptr inbounds nuw i8, ptr %1, i64 1848
   %867 = load i64, ptr %866, align 8, !range !29, !noundef !4
   %868 = icmp eq i64 %867, -9223372036854775808
   br i1 %868, label %875, label %869
 
 869:                                              ; preds = %865
-  %870 = getelementptr inbounds i8, ptr %1, i64 1856
+  %870 = getelementptr inbounds nuw i8, ptr %1, i64 1856
   %.264.val = load ptr, ptr %870, align 8, !nonnull !4, !noundef !4
-  %871 = getelementptr inbounds i8, ptr %1, i64 1864
+  %871 = getelementptr inbounds nuw i8, ptr %1, i64 1864
   %.264.val357 = load i64, ptr %871, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19), !noalias !340
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %19, ptr noalias noundef nonnull readonly align 1 %.264.val, i64 noundef %.264.val357), !noalias !340
@@ -3492,12 +3492,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i600, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i602", label %.thread.i601
 
 .thread.i601:                                     ; preds = %869
-  %873 = getelementptr inbounds i8, ptr %19, i64 4
+  %873 = getelementptr inbounds nuw i8, ptr %19, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6812, ptr noundef nonnull align 4 dereferenceable(16) %873, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hd4627b69bc412028E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i602": ; preds = %869
-  %874 = getelementptr inbounds i8, ptr %19, i64 8
+  %874 = getelementptr inbounds nuw i8, ptr %19, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %874), !noalias !340
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hd4627b69bc412028E.exit"
 
@@ -3509,15 +3509,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 875:                                              ; preds = %865, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hd4627b69bc412028E.exit"
   %.sroa.0811.0 = phi i32 [ %.sroa.0811.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hd4627b69bc412028E.exit" ], [ 0, %865 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6814)
-  %876 = getelementptr inbounds i8, ptr %1, i64 1872
+  %876 = getelementptr inbounds nuw i8, ptr %1, i64 1872
   %877 = load i64, ptr %876, align 8, !range !29, !noundef !4
   %878 = icmp eq i64 %877, -9223372036854775808
   br i1 %878, label %885, label %879
 
 879:                                              ; preds = %875
-  %880 = getelementptr inbounds i8, ptr %1, i64 1880
+  %880 = getelementptr inbounds nuw i8, ptr %1, i64 1880
   %.265.val = load ptr, ptr %880, align 8, !nonnull !4, !noundef !4
-  %881 = getelementptr inbounds i8, ptr %1, i64 1888
+  %881 = getelementptr inbounds nuw i8, ptr %1, i64 1888
   %.265.val358 = load i64, ptr %881, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18), !noalias !343
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %18, ptr noalias noundef nonnull readonly align 1 %.265.val, i64 noundef %.265.val358), !noalias !343
@@ -3526,12 +3526,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i603, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i605", label %.thread.i604
 
 .thread.i604:                                     ; preds = %879
-  %883 = getelementptr inbounds i8, ptr %18, i64 4
+  %883 = getelementptr inbounds nuw i8, ptr %18, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6814, ptr noundef nonnull align 4 dereferenceable(16) %883, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h05008c6187c85c96E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i605": ; preds = %879
-  %884 = getelementptr inbounds i8, ptr %18, i64 8
+  %884 = getelementptr inbounds nuw i8, ptr %18, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %884), !noalias !343
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h05008c6187c85c96E.exit"
 
@@ -3543,15 +3543,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 885:                                              ; preds = %875, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h05008c6187c85c96E.exit"
   %.sroa.0813.0 = phi i32 [ %.sroa.0813.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h05008c6187c85c96E.exit" ], [ 0, %875 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6816)
-  %886 = getelementptr inbounds i8, ptr %1, i64 1896
+  %886 = getelementptr inbounds nuw i8, ptr %1, i64 1896
   %887 = load i64, ptr %886, align 8, !range !29, !noundef !4
   %888 = icmp eq i64 %887, -9223372036854775808
   br i1 %888, label %895, label %889
 
 889:                                              ; preds = %885
-  %890 = getelementptr inbounds i8, ptr %1, i64 1904
+  %890 = getelementptr inbounds nuw i8, ptr %1, i64 1904
   %.266.val = load ptr, ptr %890, align 8, !nonnull !4, !noundef !4
-  %891 = getelementptr inbounds i8, ptr %1, i64 1912
+  %891 = getelementptr inbounds nuw i8, ptr %1, i64 1912
   %.266.val359 = load i64, ptr %891, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17), !noalias !346
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %17, ptr noalias noundef nonnull readonly align 1 %.266.val, i64 noundef %.266.val359), !noalias !346
@@ -3560,12 +3560,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i606, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i608", label %.thread.i607
 
 .thread.i607:                                     ; preds = %889
-  %893 = getelementptr inbounds i8, ptr %17, i64 4
+  %893 = getelementptr inbounds nuw i8, ptr %17, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6816, ptr noundef nonnull align 4 dereferenceable(16) %893, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hf45dbed60f1d5617E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i608": ; preds = %889
-  %894 = getelementptr inbounds i8, ptr %17, i64 8
+  %894 = getelementptr inbounds nuw i8, ptr %17, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %894), !noalias !346
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hf45dbed60f1d5617E.exit"
 
@@ -3577,15 +3577,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 895:                                              ; preds = %885, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hf45dbed60f1d5617E.exit"
   %.sroa.0815.0 = phi i32 [ %.sroa.0815.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hf45dbed60f1d5617E.exit" ], [ 0, %885 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6818)
-  %896 = getelementptr inbounds i8, ptr %1, i64 1920
+  %896 = getelementptr inbounds nuw i8, ptr %1, i64 1920
   %897 = load i64, ptr %896, align 8, !range !29, !noundef !4
   %898 = icmp eq i64 %897, -9223372036854775808
   br i1 %898, label %905, label %899
 
 899:                                              ; preds = %895
-  %900 = getelementptr inbounds i8, ptr %1, i64 1928
+  %900 = getelementptr inbounds nuw i8, ptr %1, i64 1928
   %.267.val = load ptr, ptr %900, align 8, !nonnull !4, !noundef !4
-  %901 = getelementptr inbounds i8, ptr %1, i64 1936
+  %901 = getelementptr inbounds nuw i8, ptr %1, i64 1936
   %.267.val360 = load i64, ptr %901, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16), !noalias !349
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %16, ptr noalias noundef nonnull readonly align 1 %.267.val, i64 noundef %.267.val360), !noalias !349
@@ -3594,12 +3594,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i609, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i611", label %.thread.i610
 
 .thread.i610:                                     ; preds = %899
-  %903 = getelementptr inbounds i8, ptr %16, i64 4
+  %903 = getelementptr inbounds nuw i8, ptr %16, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6818, ptr noundef nonnull align 4 dereferenceable(16) %903, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h11b1ca8fed6c05fcE.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i611": ; preds = %899
-  %904 = getelementptr inbounds i8, ptr %16, i64 8
+  %904 = getelementptr inbounds nuw i8, ptr %16, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %904), !noalias !349
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h11b1ca8fed6c05fcE.exit"
 
@@ -3611,15 +3611,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 905:                                              ; preds = %895, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h11b1ca8fed6c05fcE.exit"
   %.sroa.0817.0 = phi i32 [ %.sroa.0817.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h11b1ca8fed6c05fcE.exit" ], [ 0, %895 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6820)
-  %906 = getelementptr inbounds i8, ptr %1, i64 1944
+  %906 = getelementptr inbounds nuw i8, ptr %1, i64 1944
   %907 = load i64, ptr %906, align 8, !range !29, !noundef !4
   %908 = icmp eq i64 %907, -9223372036854775808
   br i1 %908, label %915, label %909
 
 909:                                              ; preds = %905
-  %910 = getelementptr inbounds i8, ptr %1, i64 1952
+  %910 = getelementptr inbounds nuw i8, ptr %1, i64 1952
   %.268.val = load ptr, ptr %910, align 8, !nonnull !4, !noundef !4
-  %911 = getelementptr inbounds i8, ptr %1, i64 1960
+  %911 = getelementptr inbounds nuw i8, ptr %1, i64 1960
   %.268.val361 = load i64, ptr %911, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15), !noalias !352
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %15, ptr noalias noundef nonnull readonly align 1 %.268.val, i64 noundef %.268.val361), !noalias !352
@@ -3628,12 +3628,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i612, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i614", label %.thread.i613
 
 .thread.i613:                                     ; preds = %909
-  %913 = getelementptr inbounds i8, ptr %15, i64 4
+  %913 = getelementptr inbounds nuw i8, ptr %15, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6820, ptr noundef nonnull align 4 dereferenceable(16) %913, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h36d175a916c275ecE.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i614": ; preds = %909
-  %914 = getelementptr inbounds i8, ptr %15, i64 8
+  %914 = getelementptr inbounds nuw i8, ptr %15, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %914), !noalias !352
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h36d175a916c275ecE.exit"
 
@@ -3645,15 +3645,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 915:                                              ; preds = %905, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h36d175a916c275ecE.exit"
   %.sroa.0819.0 = phi i32 [ %.sroa.0819.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h36d175a916c275ecE.exit" ], [ 0, %905 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6822)
-  %916 = getelementptr inbounds i8, ptr %1, i64 1968
+  %916 = getelementptr inbounds nuw i8, ptr %1, i64 1968
   %917 = load i64, ptr %916, align 8, !range !29, !noundef !4
   %918 = icmp eq i64 %917, -9223372036854775808
   br i1 %918, label %925, label %919
 
 919:                                              ; preds = %915
-  %920 = getelementptr inbounds i8, ptr %1, i64 1976
+  %920 = getelementptr inbounds nuw i8, ptr %1, i64 1976
   %.269.val = load ptr, ptr %920, align 8, !nonnull !4, !noundef !4
-  %921 = getelementptr inbounds i8, ptr %1, i64 1984
+  %921 = getelementptr inbounds nuw i8, ptr %1, i64 1984
   %.269.val362 = load i64, ptr %921, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14), !noalias !355
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %14, ptr noalias noundef nonnull readonly align 1 %.269.val, i64 noundef %.269.val362), !noalias !355
@@ -3662,12 +3662,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i615, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i617", label %.thread.i616
 
 .thread.i616:                                     ; preds = %919
-  %923 = getelementptr inbounds i8, ptr %14, i64 4
+  %923 = getelementptr inbounds nuw i8, ptr %14, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6822, ptr noundef nonnull align 4 dereferenceable(16) %923, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h9bb585f8272b3719E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i617": ; preds = %919
-  %924 = getelementptr inbounds i8, ptr %14, i64 8
+  %924 = getelementptr inbounds nuw i8, ptr %14, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %924), !noalias !355
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h9bb585f8272b3719E.exit"
 
@@ -3679,15 +3679,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 925:                                              ; preds = %915, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h9bb585f8272b3719E.exit"
   %.sroa.0821.0 = phi i32 [ %.sroa.0821.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h9bb585f8272b3719E.exit" ], [ 0, %915 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6824)
-  %926 = getelementptr inbounds i8, ptr %1, i64 1992
+  %926 = getelementptr inbounds nuw i8, ptr %1, i64 1992
   %927 = load i64, ptr %926, align 8, !range !29, !noundef !4
   %928 = icmp eq i64 %927, -9223372036854775808
   br i1 %928, label %935, label %929
 
 929:                                              ; preds = %925
-  %930 = getelementptr inbounds i8, ptr %1, i64 2000
+  %930 = getelementptr inbounds nuw i8, ptr %1, i64 2000
   %.270.val = load ptr, ptr %930, align 8, !nonnull !4, !noundef !4
-  %931 = getelementptr inbounds i8, ptr %1, i64 2008
+  %931 = getelementptr inbounds nuw i8, ptr %1, i64 2008
   %.270.val363 = load i64, ptr %931, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13), !noalias !358
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 1 %.270.val, i64 noundef %.270.val363), !noalias !358
@@ -3696,12 +3696,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i618, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i620", label %.thread.i619
 
 .thread.i619:                                     ; preds = %929
-  %933 = getelementptr inbounds i8, ptr %13, i64 4
+  %933 = getelementptr inbounds nuw i8, ptr %13, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6824, ptr noundef nonnull align 4 dereferenceable(16) %933, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h906d7312b7186fd0E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i620": ; preds = %929
-  %934 = getelementptr inbounds i8, ptr %13, i64 8
+  %934 = getelementptr inbounds nuw i8, ptr %13, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %934), !noalias !358
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h906d7312b7186fd0E.exit"
 
@@ -3713,15 +3713,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 935:                                              ; preds = %925, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h906d7312b7186fd0E.exit"
   %.sroa.0823.0 = phi i32 [ %.sroa.0823.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h906d7312b7186fd0E.exit" ], [ 0, %925 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6826)
-  %936 = getelementptr inbounds i8, ptr %1, i64 2016
+  %936 = getelementptr inbounds nuw i8, ptr %1, i64 2016
   %937 = load i64, ptr %936, align 8, !range !29, !noundef !4
   %938 = icmp eq i64 %937, -9223372036854775808
   br i1 %938, label %945, label %939
 
 939:                                              ; preds = %935
-  %940 = getelementptr inbounds i8, ptr %1, i64 2024
+  %940 = getelementptr inbounds nuw i8, ptr %1, i64 2024
   %.271.val = load ptr, ptr %940, align 8, !nonnull !4, !noundef !4
-  %941 = getelementptr inbounds i8, ptr %1, i64 2032
+  %941 = getelementptr inbounds nuw i8, ptr %1, i64 2032
   %.271.val364 = load i64, ptr %941, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12), !noalias !361
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %12, ptr noalias noundef nonnull readonly align 1 %.271.val, i64 noundef %.271.val364), !noalias !361
@@ -3730,12 +3730,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i621, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i623", label %.thread.i622
 
 .thread.i622:                                     ; preds = %939
-  %943 = getelementptr inbounds i8, ptr %12, i64 4
+  %943 = getelementptr inbounds nuw i8, ptr %12, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6826, ptr noundef nonnull align 4 dereferenceable(16) %943, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h9554ae11564ac963E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i623": ; preds = %939
-  %944 = getelementptr inbounds i8, ptr %12, i64 8
+  %944 = getelementptr inbounds nuw i8, ptr %12, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %944), !noalias !361
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h9554ae11564ac963E.exit"
 
@@ -3747,15 +3747,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 945:                                              ; preds = %935, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h9554ae11564ac963E.exit"
   %.sroa.0825.0 = phi i32 [ %.sroa.0825.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h9554ae11564ac963E.exit" ], [ 0, %935 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6828)
-  %946 = getelementptr inbounds i8, ptr %1, i64 2040
+  %946 = getelementptr inbounds nuw i8, ptr %1, i64 2040
   %947 = load i64, ptr %946, align 8, !range !29, !noundef !4
   %948 = icmp eq i64 %947, -9223372036854775808
   br i1 %948, label %955, label %949
 
 949:                                              ; preds = %945
-  %950 = getelementptr inbounds i8, ptr %1, i64 2048
+  %950 = getelementptr inbounds nuw i8, ptr %1, i64 2048
   %.272.val = load ptr, ptr %950, align 8, !nonnull !4, !noundef !4
-  %951 = getelementptr inbounds i8, ptr %1, i64 2056
+  %951 = getelementptr inbounds nuw i8, ptr %1, i64 2056
   %.272.val365 = load i64, ptr %951, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11), !noalias !364
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %11, ptr noalias noundef nonnull readonly align 1 %.272.val, i64 noundef %.272.val365), !noalias !364
@@ -3764,12 +3764,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i624, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i626", label %.thread.i625
 
 .thread.i625:                                     ; preds = %949
-  %953 = getelementptr inbounds i8, ptr %11, i64 4
+  %953 = getelementptr inbounds nuw i8, ptr %11, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6828, ptr noundef nonnull align 4 dereferenceable(16) %953, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h032cbe603fb6a94fE.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i626": ; preds = %949
-  %954 = getelementptr inbounds i8, ptr %11, i64 8
+  %954 = getelementptr inbounds nuw i8, ptr %11, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %954), !noalias !364
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h032cbe603fb6a94fE.exit"
 
@@ -3781,15 +3781,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 955:                                              ; preds = %945, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h032cbe603fb6a94fE.exit"
   %.sroa.0827.0 = phi i32 [ %.sroa.0827.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h032cbe603fb6a94fE.exit" ], [ 0, %945 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6830)
-  %956 = getelementptr inbounds i8, ptr %1, i64 2064
+  %956 = getelementptr inbounds nuw i8, ptr %1, i64 2064
   %957 = load i64, ptr %956, align 8, !range !29, !noundef !4
   %958 = icmp eq i64 %957, -9223372036854775808
   br i1 %958, label %965, label %959
 
 959:                                              ; preds = %955
-  %960 = getelementptr inbounds i8, ptr %1, i64 2072
+  %960 = getelementptr inbounds nuw i8, ptr %1, i64 2072
   %.273.val = load ptr, ptr %960, align 8, !nonnull !4, !noundef !4
-  %961 = getelementptr inbounds i8, ptr %1, i64 2080
+  %961 = getelementptr inbounds nuw i8, ptr %1, i64 2080
   %.273.val366 = load i64, ptr %961, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !367
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 1 %.273.val, i64 noundef %.273.val366), !noalias !367
@@ -3798,12 +3798,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i627, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i629", label %.thread.i628
 
 .thread.i628:                                     ; preds = %959
-  %963 = getelementptr inbounds i8, ptr %10, i64 4
+  %963 = getelementptr inbounds nuw i8, ptr %10, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6830, ptr noundef nonnull align 4 dereferenceable(16) %963, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h7ee0991459ff908cE.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i629": ; preds = %959
-  %964 = getelementptr inbounds i8, ptr %10, i64 8
+  %964 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %964), !noalias !367
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h7ee0991459ff908cE.exit"
 
@@ -3815,15 +3815,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 965:                                              ; preds = %955, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h7ee0991459ff908cE.exit"
   %.sroa.0829.0 = phi i32 [ %.sroa.0829.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h7ee0991459ff908cE.exit" ], [ 0, %955 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6832)
-  %966 = getelementptr inbounds i8, ptr %1, i64 2088
+  %966 = getelementptr inbounds nuw i8, ptr %1, i64 2088
   %967 = load i64, ptr %966, align 8, !range !29, !noundef !4
   %968 = icmp eq i64 %967, -9223372036854775808
   br i1 %968, label %975, label %969
 
 969:                                              ; preds = %965
-  %970 = getelementptr inbounds i8, ptr %1, i64 2096
+  %970 = getelementptr inbounds nuw i8, ptr %1, i64 2096
   %.274.val = load ptr, ptr %970, align 8, !nonnull !4, !noundef !4
-  %971 = getelementptr inbounds i8, ptr %1, i64 2104
+  %971 = getelementptr inbounds nuw i8, ptr %1, i64 2104
   %.274.val367 = load i64, ptr %971, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !370
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 1 %.274.val, i64 noundef %.274.val367), !noalias !370
@@ -3832,12 +3832,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i630, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i632", label %.thread.i631
 
 .thread.i631:                                     ; preds = %969
-  %973 = getelementptr inbounds i8, ptr %9, i64 4
+  %973 = getelementptr inbounds nuw i8, ptr %9, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6832, ptr noundef nonnull align 4 dereferenceable(16) %973, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h4c73988bc04fe71bE.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i632": ; preds = %969
-  %974 = getelementptr inbounds i8, ptr %9, i64 8
+  %974 = getelementptr inbounds nuw i8, ptr %9, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %974), !noalias !370
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h4c73988bc04fe71bE.exit"
 
@@ -3849,15 +3849,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 975:                                              ; preds = %965, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h4c73988bc04fe71bE.exit"
   %.sroa.0831.0 = phi i32 [ %.sroa.0831.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h4c73988bc04fe71bE.exit" ], [ 0, %965 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6834)
-  %976 = getelementptr inbounds i8, ptr %1, i64 2112
+  %976 = getelementptr inbounds nuw i8, ptr %1, i64 2112
   %977 = load i64, ptr %976, align 8, !range !29, !noundef !4
   %978 = icmp eq i64 %977, -9223372036854775808
   br i1 %978, label %985, label %979
 
 979:                                              ; preds = %975
-  %980 = getelementptr inbounds i8, ptr %1, i64 2120
+  %980 = getelementptr inbounds nuw i8, ptr %1, i64 2120
   %.275.val = load ptr, ptr %980, align 8, !nonnull !4, !noundef !4
-  %981 = getelementptr inbounds i8, ptr %1, i64 2128
+  %981 = getelementptr inbounds nuw i8, ptr %1, i64 2128
   %.275.val368 = load i64, ptr %981, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !373
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 1 %.275.val, i64 noundef %.275.val368), !noalias !373
@@ -3866,12 +3866,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i633, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i635", label %.thread.i634
 
 .thread.i634:                                     ; preds = %979
-  %983 = getelementptr inbounds i8, ptr %8, i64 4
+  %983 = getelementptr inbounds nuw i8, ptr %8, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6834, ptr noundef nonnull align 4 dereferenceable(16) %983, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h5cff234032dc3e26E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i635": ; preds = %979
-  %984 = getelementptr inbounds i8, ptr %8, i64 8
+  %984 = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %984), !noalias !373
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h5cff234032dc3e26E.exit"
 
@@ -3883,15 +3883,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 985:                                              ; preds = %975, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h5cff234032dc3e26E.exit"
   %.sroa.0833.0 = phi i32 [ %.sroa.0833.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h5cff234032dc3e26E.exit" ], [ 0, %975 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6836)
-  %986 = getelementptr inbounds i8, ptr %1, i64 2136
+  %986 = getelementptr inbounds nuw i8, ptr %1, i64 2136
   %987 = load i64, ptr %986, align 8, !range !29, !noundef !4
   %988 = icmp eq i64 %987, -9223372036854775808
   br i1 %988, label %995, label %989
 
 989:                                              ; preds = %985
-  %990 = getelementptr inbounds i8, ptr %1, i64 2144
+  %990 = getelementptr inbounds nuw i8, ptr %1, i64 2144
   %.276.val = load ptr, ptr %990, align 8, !nonnull !4, !noundef !4
-  %991 = getelementptr inbounds i8, ptr %1, i64 2152
+  %991 = getelementptr inbounds nuw i8, ptr %1, i64 2152
   %.276.val369 = load i64, ptr %991, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !376
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 1 %.276.val, i64 noundef %.276.val369), !noalias !376
@@ -3900,12 +3900,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i636, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i638", label %.thread.i637
 
 .thread.i637:                                     ; preds = %989
-  %993 = getelementptr inbounds i8, ptr %7, i64 4
+  %993 = getelementptr inbounds nuw i8, ptr %7, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6836, ptr noundef nonnull align 4 dereferenceable(16) %993, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h054edf5b1684377cE.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i638": ; preds = %989
-  %994 = getelementptr inbounds i8, ptr %7, i64 8
+  %994 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %994), !noalias !376
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h054edf5b1684377cE.exit"
 
@@ -3917,15 +3917,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 995:                                              ; preds = %985, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h054edf5b1684377cE.exit"
   %.sroa.0835.0 = phi i32 [ %.sroa.0835.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h054edf5b1684377cE.exit" ], [ 0, %985 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6838)
-  %996 = getelementptr inbounds i8, ptr %1, i64 2160
+  %996 = getelementptr inbounds nuw i8, ptr %1, i64 2160
   %997 = load i64, ptr %996, align 8, !range !29, !noundef !4
   %998 = icmp eq i64 %997, -9223372036854775808
   br i1 %998, label %1005, label %999
 
 999:                                              ; preds = %995
-  %1000 = getelementptr inbounds i8, ptr %1, i64 2168
+  %1000 = getelementptr inbounds nuw i8, ptr %1, i64 2168
   %.277.val = load ptr, ptr %1000, align 8, !nonnull !4, !noundef !4
-  %1001 = getelementptr inbounds i8, ptr %1, i64 2176
+  %1001 = getelementptr inbounds nuw i8, ptr %1, i64 2176
   %.277.val370 = load i64, ptr %1001, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !379
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 1 %.277.val, i64 noundef %.277.val370), !noalias !379
@@ -3934,12 +3934,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i639, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i641", label %.thread.i640
 
 .thread.i640:                                     ; preds = %999
-  %1003 = getelementptr inbounds i8, ptr %6, i64 4
+  %1003 = getelementptr inbounds nuw i8, ptr %6, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6838, ptr noundef nonnull align 4 dereferenceable(16) %1003, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h6b0d42de3162edcaE.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i641": ; preds = %999
-  %1004 = getelementptr inbounds i8, ptr %6, i64 8
+  %1004 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %1004), !noalias !379
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h6b0d42de3162edcaE.exit"
 
@@ -3951,15 +3951,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 1005:                                             ; preds = %995, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h6b0d42de3162edcaE.exit"
   %.sroa.0837.0 = phi i32 [ %.sroa.0837.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h6b0d42de3162edcaE.exit" ], [ 0, %995 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6840)
-  %1006 = getelementptr inbounds i8, ptr %1, i64 2184
+  %1006 = getelementptr inbounds nuw i8, ptr %1, i64 2184
   %1007 = load i64, ptr %1006, align 8, !range !29, !noundef !4
   %1008 = icmp eq i64 %1007, -9223372036854775808
   br i1 %1008, label %1015, label %1009
 
 1009:                                             ; preds = %1005
-  %1010 = getelementptr inbounds i8, ptr %1, i64 2192
+  %1010 = getelementptr inbounds nuw i8, ptr %1, i64 2192
   %.278.val = load ptr, ptr %1010, align 8, !nonnull !4, !noundef !4
-  %1011 = getelementptr inbounds i8, ptr %1, i64 2200
+  %1011 = getelementptr inbounds nuw i8, ptr %1, i64 2200
   %.278.val371 = load i64, ptr %1011, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !382
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 1 %.278.val, i64 noundef %.278.val371), !noalias !382
@@ -3968,12 +3968,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i642, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i644", label %.thread.i643
 
 .thread.i643:                                     ; preds = %1009
-  %1013 = getelementptr inbounds i8, ptr %5, i64 4
+  %1013 = getelementptr inbounds nuw i8, ptr %5, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6840, ptr noundef nonnull align 4 dereferenceable(16) %1013, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h490d989edc09c59aE.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i644": ; preds = %1009
-  %1014 = getelementptr inbounds i8, ptr %5, i64 8
+  %1014 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %1014), !noalias !382
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h490d989edc09c59aE.exit"
 
@@ -3985,15 +3985,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 1015:                                             ; preds = %1005, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h490d989edc09c59aE.exit"
   %.sroa.0839.0 = phi i32 [ %.sroa.0839.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h490d989edc09c59aE.exit" ], [ 0, %1005 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6842)
-  %1016 = getelementptr inbounds i8, ptr %1, i64 2208
+  %1016 = getelementptr inbounds nuw i8, ptr %1, i64 2208
   %1017 = load i64, ptr %1016, align 8, !range !29, !noundef !4
   %1018 = icmp eq i64 %1017, -9223372036854775808
   br i1 %1018, label %1025, label %1019
 
 1019:                                             ; preds = %1015
-  %1020 = getelementptr inbounds i8, ptr %1, i64 2216
+  %1020 = getelementptr inbounds nuw i8, ptr %1, i64 2216
   %.279.val = load ptr, ptr %1020, align 8, !nonnull !4, !noundef !4
-  %1021 = getelementptr inbounds i8, ptr %1, i64 2224
+  %1021 = getelementptr inbounds nuw i8, ptr %1, i64 2224
   %.279.val372 = load i64, ptr %1021, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !385
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 1 %.279.val, i64 noundef %.279.val372), !noalias !385
@@ -4002,12 +4002,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i645, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i647", label %.thread.i646
 
 .thread.i646:                                     ; preds = %1019
-  %1023 = getelementptr inbounds i8, ptr %4, i64 4
+  %1023 = getelementptr inbounds nuw i8, ptr %4, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6842, ptr noundef nonnull align 4 dereferenceable(16) %1023, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hcaf43046bc2ac448E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i647": ; preds = %1019
-  %1024 = getelementptr inbounds i8, ptr %4, i64 8
+  %1024 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %1024), !noalias !385
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hcaf43046bc2ac448E.exit"
 
@@ -4019,15 +4019,15 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 1025:                                             ; preds = %1015, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hcaf43046bc2ac448E.exit"
   %.sroa.0841.0 = phi i32 [ %.sroa.0841.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hcaf43046bc2ac448E.exit" ], [ 0, %1015 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6844)
-  %1026 = getelementptr inbounds i8, ptr %1, i64 2232
+  %1026 = getelementptr inbounds nuw i8, ptr %1, i64 2232
   %1027 = load i64, ptr %1026, align 8, !range !29, !noundef !4
   %1028 = icmp eq i64 %1027, -9223372036854775808
   br i1 %1028, label %1035, label %1029
 
 1029:                                             ; preds = %1025
-  %1030 = getelementptr inbounds i8, ptr %1, i64 2240
+  %1030 = getelementptr inbounds nuw i8, ptr %1, i64 2240
   %.280.val = load ptr, ptr %1030, align 8, !nonnull !4, !noundef !4
-  %1031 = getelementptr inbounds i8, ptr %1, i64 2248
+  %1031 = getelementptr inbounds nuw i8, ptr %1, i64 2248
   %.280.val373 = load i64, ptr %1031, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !388
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 1 %.280.val, i64 noundef %.280.val373), !noalias !388
@@ -4036,12 +4036,12 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
   br i1 %trunc.i648, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i650", label %.thread.i649
 
 .thread.i649:                                     ; preds = %1029
-  %1033 = getelementptr inbounds i8, ptr %3, i64 4
+  %1033 = getelementptr inbounds nuw i8, ptr %3, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6844, ptr noundef nonnull align 4 dereferenceable(16) %1033, i64 16, i1 false)
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h24fccd612cb29e3eE.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i650": ; preds = %1029
-  %1034 = getelementptr inbounds i8, ptr %3, i64 8
+  %1034 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %1034), !noalias !388
   br label %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h24fccd612cb29e3eE.exit"
 
@@ -4053,375 +4053,375 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 1035:                                             ; preds = %1025, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h24fccd612cb29e3eE.exit"
   %.sroa.0843.0 = phi i32 [ %.sroa.0843.1, %"_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h24fccd612cb29e3eE.exit" ], [ 0, %1025 ]
   store i32 %.sroa.0.0, ptr %0, align 4
-  %.sroa.5.0..sroa_idx652 = getelementptr inbounds i8, ptr %0, i64 4
+  %.sroa.5.0..sroa_idx652 = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.5.0..sroa_idx652, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.5, i64 16, i1 false)
-  %1036 = getelementptr inbounds i8, ptr %0, i64 20
+  %1036 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %.sroa.0653.0, ptr %1036, align 4
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6, i64 16, i1 false)
-  %1037 = getelementptr inbounds i8, ptr %0, i64 40
+  %1037 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %.sroa.0654.0, ptr %1037, align 4
-  %.sroa.6655.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 44
+  %.sroa.6655.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6655.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6655, i64 16, i1 false)
-  %1038 = getelementptr inbounds i8, ptr %0, i64 60
+  %1038 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 %.sroa.0656.0, ptr %1038, align 4
-  %.sroa.6657.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 64
+  %.sroa.6657.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6657.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6657, i64 16, i1 false)
-  %1039 = getelementptr inbounds i8, ptr %0, i64 80
+  %1039 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 %.sroa.0658.0, ptr %1039, align 4
-  %.sroa.6659.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 84
+  %.sroa.6659.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 84
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6659.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6659, i64 16, i1 false)
-  %1040 = getelementptr inbounds i8, ptr %0, i64 100
+  %1040 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store i32 %.sroa.0660.0, ptr %1040, align 4
-  %.sroa.6661.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 104
+  %.sroa.6661.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6661.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6661, i64 16, i1 false)
-  %1041 = getelementptr inbounds i8, ptr %0, i64 120
+  %1041 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 %.sroa.0662.0, ptr %1041, align 4
-  %.sroa.6663.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 124
+  %.sroa.6663.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 124
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6663.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6663, i64 16, i1 false)
-  %1042 = getelementptr inbounds i8, ptr %0, i64 140
+  %1042 = getelementptr inbounds nuw i8, ptr %0, i64 140
   store i32 %.sroa.0664.0, ptr %1042, align 4
-  %.sroa.6665.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 144
+  %.sroa.6665.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6665.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6665, i64 16, i1 false)
-  %1043 = getelementptr inbounds i8, ptr %0, i64 160
+  %1043 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i32 %.sroa.0666.0, ptr %1043, align 4
-  %.sroa.6667.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 164
+  %.sroa.6667.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 164
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6667.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6667, i64 16, i1 false)
-  %1044 = getelementptr inbounds i8, ptr %0, i64 180
+  %1044 = getelementptr inbounds nuw i8, ptr %0, i64 180
   store i32 %.sroa.0668.0, ptr %1044, align 4
-  %.sroa.6669.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 184
+  %.sroa.6669.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 184
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6669.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6669, i64 16, i1 false)
-  %1045 = getelementptr inbounds i8, ptr %0, i64 200
+  %1045 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store i32 %.sroa.0670.0, ptr %1045, align 4
-  %.sroa.6671.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 204
+  %.sroa.6671.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 204
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6671.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6671, i64 16, i1 false)
-  %1046 = getelementptr inbounds i8, ptr %0, i64 220
+  %1046 = getelementptr inbounds nuw i8, ptr %0, i64 220
   store i32 %.sroa.0672.0, ptr %1046, align 4
-  %.sroa.6673.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 224
+  %.sroa.6673.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 224
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6673.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6673, i64 16, i1 false)
-  %1047 = getelementptr inbounds i8, ptr %0, i64 240
+  %1047 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store i32 %.sroa.0674.0, ptr %1047, align 4
-  %.sroa.6675.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 244
+  %.sroa.6675.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 244
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6675.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6675, i64 16, i1 false)
-  %1048 = getelementptr inbounds i8, ptr %0, i64 260
+  %1048 = getelementptr inbounds nuw i8, ptr %0, i64 260
   store i32 %.sroa.0676.0, ptr %1048, align 4
-  %.sroa.6677.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 264
+  %.sroa.6677.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 264
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6677.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6677, i64 16, i1 false)
-  %1049 = getelementptr inbounds i8, ptr %0, i64 280
+  %1049 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store i32 %.sroa.0678.0, ptr %1049, align 4
-  %.sroa.6679.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 284
+  %.sroa.6679.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 284
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6679.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6679, i64 16, i1 false)
-  %1050 = getelementptr inbounds i8, ptr %0, i64 300
+  %1050 = getelementptr inbounds nuw i8, ptr %0, i64 300
   store i32 %.sroa.0680.0, ptr %1050, align 4
-  %.sroa.6681.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 304
+  %.sroa.6681.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 304
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6681.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6681, i64 16, i1 false)
-  %1051 = getelementptr inbounds i8, ptr %0, i64 320
+  %1051 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store i32 %.sroa.0682.0, ptr %1051, align 4
-  %.sroa.6683.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 324
+  %.sroa.6683.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 324
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6683.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6683, i64 16, i1 false)
-  %1052 = getelementptr inbounds i8, ptr %0, i64 340
+  %1052 = getelementptr inbounds nuw i8, ptr %0, i64 340
   store i32 %.sroa.0684.0, ptr %1052, align 4
-  %.sroa.6685.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 344
+  %.sroa.6685.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 344
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6685.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6685, i64 16, i1 false)
-  %1053 = getelementptr inbounds i8, ptr %0, i64 360
+  %1053 = getelementptr inbounds nuw i8, ptr %0, i64 360
   store i32 %.sroa.0686.0, ptr %1053, align 4
-  %.sroa.6687.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 364
+  %.sroa.6687.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 364
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6687.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6687, i64 16, i1 false)
-  %1054 = getelementptr inbounds i8, ptr %0, i64 380
+  %1054 = getelementptr inbounds nuw i8, ptr %0, i64 380
   store i32 %.sroa.0688.0, ptr %1054, align 4
-  %.sroa.6689.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 384
+  %.sroa.6689.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 384
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6689.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6689, i64 16, i1 false)
-  %1055 = getelementptr inbounds i8, ptr %0, i64 400
+  %1055 = getelementptr inbounds nuw i8, ptr %0, i64 400
   store i32 %.sroa.0690.0, ptr %1055, align 4
-  %.sroa.6691.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 404
+  %.sroa.6691.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 404
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6691.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6691, i64 16, i1 false)
-  %1056 = getelementptr inbounds i8, ptr %0, i64 420
+  %1056 = getelementptr inbounds nuw i8, ptr %0, i64 420
   store i32 %.sroa.0692.0, ptr %1056, align 4
-  %.sroa.6693.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 424
+  %.sroa.6693.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 424
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6693.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6693, i64 16, i1 false)
-  %1057 = getelementptr inbounds i8, ptr %0, i64 440
+  %1057 = getelementptr inbounds nuw i8, ptr %0, i64 440
   store i32 %.sroa.0694.0, ptr %1057, align 4
-  %.sroa.6695.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 444
+  %.sroa.6695.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 444
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6695.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6695, i64 16, i1 false)
-  %1058 = getelementptr inbounds i8, ptr %0, i64 460
+  %1058 = getelementptr inbounds nuw i8, ptr %0, i64 460
   store i32 %.sroa.0696.0, ptr %1058, align 4
-  %.sroa.6697.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 464
+  %.sroa.6697.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 464
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6697.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6697, i64 16, i1 false)
-  %1059 = getelementptr inbounds i8, ptr %0, i64 480
+  %1059 = getelementptr inbounds nuw i8, ptr %0, i64 480
   store i32 %.sroa.0698.0, ptr %1059, align 4
-  %.sroa.6699.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 484
+  %.sroa.6699.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 484
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6699.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6699, i64 16, i1 false)
-  %1060 = getelementptr inbounds i8, ptr %0, i64 500
+  %1060 = getelementptr inbounds nuw i8, ptr %0, i64 500
   store i32 %.sroa.0700.0, ptr %1060, align 4
-  %.sroa.6701.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 504
+  %.sroa.6701.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 504
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6701.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6701, i64 16, i1 false)
-  %1061 = getelementptr inbounds i8, ptr %0, i64 520
+  %1061 = getelementptr inbounds nuw i8, ptr %0, i64 520
   store i32 %.sroa.0702.0, ptr %1061, align 4
-  %.sroa.6703.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 524
+  %.sroa.6703.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 524
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6703.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6703, i64 16, i1 false)
-  %1062 = getelementptr inbounds i8, ptr %0, i64 540
+  %1062 = getelementptr inbounds nuw i8, ptr %0, i64 540
   store i32 %.sroa.0704.0, ptr %1062, align 4
-  %.sroa.6705.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 544
+  %.sroa.6705.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 544
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6705.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6705, i64 16, i1 false)
-  %1063 = getelementptr inbounds i8, ptr %0, i64 560
+  %1063 = getelementptr inbounds nuw i8, ptr %0, i64 560
   store i32 %.sroa.0706.0, ptr %1063, align 4
-  %.sroa.6707.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 564
+  %.sroa.6707.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 564
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6707.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6707, i64 16, i1 false)
-  %1064 = getelementptr inbounds i8, ptr %0, i64 580
+  %1064 = getelementptr inbounds nuw i8, ptr %0, i64 580
   store i32 %.sroa.0708.0, ptr %1064, align 4
-  %.sroa.6709.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 584
+  %.sroa.6709.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 584
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6709.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6709, i64 16, i1 false)
-  %1065 = getelementptr inbounds i8, ptr %0, i64 600
+  %1065 = getelementptr inbounds nuw i8, ptr %0, i64 600
   store i32 %.sroa.0710.0, ptr %1065, align 4
-  %.sroa.6711.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 604
+  %.sroa.6711.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 604
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6711.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6711, i64 16, i1 false)
-  %1066 = getelementptr inbounds i8, ptr %0, i64 620
+  %1066 = getelementptr inbounds nuw i8, ptr %0, i64 620
   store i32 %.sroa.0712.0, ptr %1066, align 4
-  %.sroa.6713.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 624
+  %.sroa.6713.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 624
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6713.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6713, i64 16, i1 false)
-  %1067 = getelementptr inbounds i8, ptr %0, i64 640
+  %1067 = getelementptr inbounds nuw i8, ptr %0, i64 640
   store i32 %.sroa.0714.0, ptr %1067, align 4
-  %.sroa.6715.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 644
+  %.sroa.6715.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 644
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6715.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6715, i64 16, i1 false)
-  %1068 = getelementptr inbounds i8, ptr %0, i64 660
+  %1068 = getelementptr inbounds nuw i8, ptr %0, i64 660
   store i32 %.sroa.0716.0, ptr %1068, align 4
-  %.sroa.6717.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 664
+  %.sroa.6717.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 664
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6717.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6717, i64 16, i1 false)
-  %1069 = getelementptr inbounds i8, ptr %0, i64 680
+  %1069 = getelementptr inbounds nuw i8, ptr %0, i64 680
   store i32 %.sroa.0718.0, ptr %1069, align 4
-  %.sroa.6719.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 684
+  %.sroa.6719.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 684
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6719.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6719, i64 16, i1 false)
-  %1070 = getelementptr inbounds i8, ptr %0, i64 700
+  %1070 = getelementptr inbounds nuw i8, ptr %0, i64 700
   store i32 %.sroa.0720.0, ptr %1070, align 4
-  %.sroa.6721.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 704
+  %.sroa.6721.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 704
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6721.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6721, i64 16, i1 false)
-  %1071 = getelementptr inbounds i8, ptr %0, i64 720
+  %1071 = getelementptr inbounds nuw i8, ptr %0, i64 720
   store i32 %.sroa.0722.0, ptr %1071, align 4
-  %.sroa.6723.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 724
+  %.sroa.6723.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 724
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6723.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6723, i64 16, i1 false)
-  %1072 = getelementptr inbounds i8, ptr %0, i64 740
+  %1072 = getelementptr inbounds nuw i8, ptr %0, i64 740
   store i32 %.sroa.0724.0, ptr %1072, align 4
-  %.sroa.6725.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 744
+  %.sroa.6725.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 744
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6725.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6725, i64 16, i1 false)
-  %1073 = getelementptr inbounds i8, ptr %0, i64 760
+  %1073 = getelementptr inbounds nuw i8, ptr %0, i64 760
   store i32 %.sroa.0726.0, ptr %1073, align 4
-  %.sroa.6727.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 764
+  %.sroa.6727.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 764
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6727.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6727, i64 16, i1 false)
-  %1074 = getelementptr inbounds i8, ptr %0, i64 780
+  %1074 = getelementptr inbounds nuw i8, ptr %0, i64 780
   store i32 %.sroa.0728.0, ptr %1074, align 4
-  %.sroa.6729.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 784
+  %.sroa.6729.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 784
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6729.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6729, i64 16, i1 false)
-  %1075 = getelementptr inbounds i8, ptr %0, i64 800
+  %1075 = getelementptr inbounds nuw i8, ptr %0, i64 800
   store i32 %.sroa.0730.0, ptr %1075, align 4
-  %.sroa.6731.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 804
+  %.sroa.6731.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 804
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6731.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6731, i64 16, i1 false)
-  %1076 = getelementptr inbounds i8, ptr %0, i64 820
+  %1076 = getelementptr inbounds nuw i8, ptr %0, i64 820
   store i32 %.sroa.0732.0, ptr %1076, align 4
-  %.sroa.3.0..sroa_idx734 = getelementptr inbounds i8, ptr %0, i64 824
+  %.sroa.3.0..sroa_idx734 = getelementptr inbounds nuw i8, ptr %0, i64 824
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.3.0..sroa_idx734, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.3, i64 16, i1 false)
-  %1077 = getelementptr inbounds i8, ptr %0, i64 840
+  %1077 = getelementptr inbounds nuw i8, ptr %0, i64 840
   store i32 %.sroa.0735.1, ptr %1077, align 4
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 844
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 844
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.7, i64 16, i1 false)
-  %1078 = getelementptr inbounds i8, ptr %0, i64 860
+  %1078 = getelementptr inbounds nuw i8, ptr %0, i64 860
   store i32 %.sroa.0741.0, ptr %1078, align 4
-  %.sroa.6742.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 864
+  %.sroa.6742.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 864
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6742.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6742, i64 16, i1 false)
-  %1079 = getelementptr inbounds i8, ptr %0, i64 880
+  %1079 = getelementptr inbounds nuw i8, ptr %0, i64 880
   store i32 %.sroa.0743.0, ptr %1079, align 4
-  %.sroa.6744.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 884
+  %.sroa.6744.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 884
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6744.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6744, i64 16, i1 false)
-  %1080 = getelementptr inbounds i8, ptr %0, i64 900
+  %1080 = getelementptr inbounds nuw i8, ptr %0, i64 900
   store i32 %.sroa.0745.0, ptr %1080, align 4
-  %.sroa.6746.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 904
+  %.sroa.6746.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 904
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6746.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6746, i64 16, i1 false)
-  %1081 = getelementptr inbounds i8, ptr %0, i64 920
+  %1081 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store i32 %.sroa.0747.0, ptr %1081, align 4
-  %.sroa.6748.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 924
+  %.sroa.6748.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 924
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6748.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6748, i64 16, i1 false)
-  %1082 = getelementptr inbounds i8, ptr %0, i64 940
+  %1082 = getelementptr inbounds nuw i8, ptr %0, i64 940
   store i32 %.sroa.0749.0, ptr %1082, align 4
-  %.sroa.6750.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 944
+  %.sroa.6750.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 944
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6750.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6750, i64 16, i1 false)
-  %1083 = getelementptr inbounds i8, ptr %0, i64 960
+  %1083 = getelementptr inbounds nuw i8, ptr %0, i64 960
   store i32 %.sroa.0751.0, ptr %1083, align 4
-  %.sroa.6752.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 964
+  %.sroa.6752.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 964
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6752.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6752, i64 16, i1 false)
-  %1084 = getelementptr inbounds i8, ptr %0, i64 980
+  %1084 = getelementptr inbounds nuw i8, ptr %0, i64 980
   store i32 %.sroa.0753.0, ptr %1084, align 4
-  %.sroa.6754.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 984
+  %.sroa.6754.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 984
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6754.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6754, i64 16, i1 false)
-  %1085 = getelementptr inbounds i8, ptr %0, i64 1000
+  %1085 = getelementptr inbounds nuw i8, ptr %0, i64 1000
   store i32 %.sroa.0755.0, ptr %1085, align 4
-  %.sroa.6756.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1004
+  %.sroa.6756.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1004
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6756.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6756, i64 16, i1 false)
-  %1086 = getelementptr inbounds i8, ptr %0, i64 1020
+  %1086 = getelementptr inbounds nuw i8, ptr %0, i64 1020
   store i32 %.sroa.0757.0, ptr %1086, align 4
-  %.sroa.6758.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1024
+  %.sroa.6758.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1024
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6758.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6758, i64 16, i1 false)
-  %1087 = getelementptr inbounds i8, ptr %0, i64 1040
+  %1087 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   store i32 %.sroa.0759.0, ptr %1087, align 4
-  %.sroa.6760.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1044
+  %.sroa.6760.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1044
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6760.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6760, i64 16, i1 false)
-  %1088 = getelementptr inbounds i8, ptr %0, i64 1060
+  %1088 = getelementptr inbounds nuw i8, ptr %0, i64 1060
   store i32 %.sroa.0761.0, ptr %1088, align 4
-  %.sroa.6762.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1064
+  %.sroa.6762.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1064
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6762.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6762, i64 16, i1 false)
-  %1089 = getelementptr inbounds i8, ptr %0, i64 1080
+  %1089 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   store i32 %.sroa.0763.0, ptr %1089, align 4
-  %.sroa.6764.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1084
+  %.sroa.6764.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1084
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6764.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6764, i64 16, i1 false)
-  %1090 = getelementptr inbounds i8, ptr %0, i64 1100
+  %1090 = getelementptr inbounds nuw i8, ptr %0, i64 1100
   store i32 %.sroa.0765.0, ptr %1090, align 4
-  %.sroa.6766.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1104
+  %.sroa.6766.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6766.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6766, i64 16, i1 false)
-  %1091 = getelementptr inbounds i8, ptr %0, i64 1120
+  %1091 = getelementptr inbounds nuw i8, ptr %0, i64 1120
   store i32 %.sroa.0767.0, ptr %1091, align 4
-  %.sroa.6768.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1124
+  %.sroa.6768.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1124
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6768.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6768, i64 16, i1 false)
-  %1092 = getelementptr inbounds i8, ptr %0, i64 1140
+  %1092 = getelementptr inbounds nuw i8, ptr %0, i64 1140
   store i32 %.sroa.0769.0, ptr %1092, align 4
-  %.sroa.6770.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1144
+  %.sroa.6770.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6770.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6770, i64 16, i1 false)
-  %1093 = getelementptr inbounds i8, ptr %0, i64 1160
+  %1093 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   store i32 %.sroa.0771.0, ptr %1093, align 4
-  %.sroa.6772.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1164
+  %.sroa.6772.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1164
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6772.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6772, i64 16, i1 false)
-  %1094 = getelementptr inbounds i8, ptr %0, i64 1180
+  %1094 = getelementptr inbounds nuw i8, ptr %0, i64 1180
   store i32 %.sroa.0773.0, ptr %1094, align 4
-  %.sroa.6774.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1184
+  %.sroa.6774.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1184
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6774.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6774, i64 16, i1 false)
-  %1095 = getelementptr inbounds i8, ptr %0, i64 1200
+  %1095 = getelementptr inbounds nuw i8, ptr %0, i64 1200
   store i32 %.sroa.0775.0, ptr %1095, align 4
-  %.sroa.5777.0..sroa_idx778 = getelementptr inbounds i8, ptr %0, i64 1204
+  %.sroa.5777.0..sroa_idx778 = getelementptr inbounds nuw i8, ptr %0, i64 1204
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.5777.0..sroa_idx778, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.5777, i64 16, i1 false)
-  %1096 = getelementptr inbounds i8, ptr %0, i64 1220
+  %1096 = getelementptr inbounds nuw i8, ptr %0, i64 1220
   store i32 %.sroa.0779.0, ptr %1096, align 4
-  %.sroa.6780.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1224
+  %.sroa.6780.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1224
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6780.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6780, i64 16, i1 false)
-  %1097 = getelementptr inbounds i8, ptr %0, i64 1240
+  %1097 = getelementptr inbounds nuw i8, ptr %0, i64 1240
   store i32 %.sroa.0781.0, ptr %1097, align 4
-  %.sroa.3783.0..sroa_idx784 = getelementptr inbounds i8, ptr %0, i64 1244
+  %.sroa.3783.0..sroa_idx784 = getelementptr inbounds nuw i8, ptr %0, i64 1244
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.3783.0..sroa_idx784, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.3783, i64 16, i1 false)
-  %1098 = getelementptr inbounds i8, ptr %0, i64 1260
+  %1098 = getelementptr inbounds nuw i8, ptr %0, i64 1260
   store i32 %.sroa.0785.0, ptr %1098, align 4
-  %.sroa.6786.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1264
+  %.sroa.6786.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1264
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6786.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6786, i64 16, i1 false)
-  %1099 = getelementptr inbounds i8, ptr %0, i64 1280
+  %1099 = getelementptr inbounds nuw i8, ptr %0, i64 1280
   store i32 %.sroa.0789.0, ptr %1099, align 4
-  %.sroa.6790.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1284
+  %.sroa.6790.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1284
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6790.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6790, i64 16, i1 false)
-  %1100 = getelementptr inbounds i8, ptr %0, i64 1300
+  %1100 = getelementptr inbounds nuw i8, ptr %0, i64 1300
   store i32 %.sroa.0791.0, ptr %1100, align 4
-  %.sroa.6792.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1304
+  %.sroa.6792.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1304
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6792.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6792, i64 16, i1 false)
-  %1101 = getelementptr inbounds i8, ptr %0, i64 1320
+  %1101 = getelementptr inbounds nuw i8, ptr %0, i64 1320
   store i32 %.sroa.0793.0, ptr %1101, align 4
-  %.sroa.6794.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1324
+  %.sroa.6794.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1324
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6794.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6794, i64 16, i1 false)
-  %1102 = getelementptr inbounds i8, ptr %0, i64 1340
+  %1102 = getelementptr inbounds nuw i8, ptr %0, i64 1340
   store i32 %.sroa.0787.0, ptr %1102, align 4
-  %.sroa.6788.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1344
+  %.sroa.6788.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1344
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6788.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6788, i64 16, i1 false)
-  %1103 = getelementptr inbounds i8, ptr %0, i64 1360
+  %1103 = getelementptr inbounds nuw i8, ptr %0, i64 1360
   store i32 %.sroa.0795.0, ptr %1103, align 4
-  %.sroa.6796.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1364
+  %.sroa.6796.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1364
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6796.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6796, i64 16, i1 false)
-  %1104 = getelementptr inbounds i8, ptr %0, i64 1380
+  %1104 = getelementptr inbounds nuw i8, ptr %0, i64 1380
   store i32 %.sroa.0797.0, ptr %1104, align 4
-  %.sroa.6798.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1384
+  %.sroa.6798.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1384
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6798.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6798, i64 16, i1 false)
-  %1105 = getelementptr inbounds i8, ptr %0, i64 1400
+  %1105 = getelementptr inbounds nuw i8, ptr %0, i64 1400
   store i32 %.sroa.0799.0, ptr %1105, align 4
-  %.sroa.6800.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1404
+  %.sroa.6800.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1404
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6800.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6800, i64 16, i1 false)
-  %1106 = getelementptr inbounds i8, ptr %0, i64 1420
+  %1106 = getelementptr inbounds nuw i8, ptr %0, i64 1420
   store i32 %.sroa.0801.0, ptr %1106, align 4
-  %.sroa.6802.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1424
+  %.sroa.6802.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1424
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6802.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6802, i64 16, i1 false)
-  %1107 = getelementptr inbounds i8, ptr %0, i64 1440
+  %1107 = getelementptr inbounds nuw i8, ptr %0, i64 1440
   store i32 %.sroa.0803.0, ptr %1107, align 4
-  %.sroa.6804.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1444
+  %.sroa.6804.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1444
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6804.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6804, i64 16, i1 false)
-  %1108 = getelementptr inbounds i8, ptr %0, i64 1460
+  %1108 = getelementptr inbounds nuw i8, ptr %0, i64 1460
   store i32 %.sroa.0805.0, ptr %1108, align 4
-  %.sroa.6806.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1464
+  %.sroa.6806.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1464
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6806.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6806, i64 16, i1 false)
-  %1109 = getelementptr inbounds i8, ptr %0, i64 1480
+  %1109 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   store i32 %.sroa.0807.0, ptr %1109, align 4
-  %.sroa.6808.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1484
+  %.sroa.6808.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1484
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6808.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6808, i64 16, i1 false)
-  %1110 = getelementptr inbounds i8, ptr %0, i64 1500
+  %1110 = getelementptr inbounds nuw i8, ptr %0, i64 1500
   store i32 %.sroa.0809.0, ptr %1110, align 4
-  %.sroa.6810.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1504
+  %.sroa.6810.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1504
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6810.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6810, i64 16, i1 false)
-  %1111 = getelementptr inbounds i8, ptr %0, i64 1520
+  %1111 = getelementptr inbounds nuw i8, ptr %0, i64 1520
   store i32 %.sroa.0811.0, ptr %1111, align 4
-  %.sroa.6812.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1524
+  %.sroa.6812.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1524
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6812.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6812, i64 16, i1 false)
-  %1112 = getelementptr inbounds i8, ptr %0, i64 1540
+  %1112 = getelementptr inbounds nuw i8, ptr %0, i64 1540
   store i32 %.sroa.0813.0, ptr %1112, align 4
-  %.sroa.6814.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1544
+  %.sroa.6814.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1544
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6814.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6814, i64 16, i1 false)
-  %1113 = getelementptr inbounds i8, ptr %0, i64 1560
+  %1113 = getelementptr inbounds nuw i8, ptr %0, i64 1560
   store i32 %.sroa.0815.0, ptr %1113, align 4
-  %.sroa.6816.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1564
+  %.sroa.6816.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1564
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6816.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6816, i64 16, i1 false)
-  %1114 = getelementptr inbounds i8, ptr %0, i64 1580
+  %1114 = getelementptr inbounds nuw i8, ptr %0, i64 1580
   store i32 %.sroa.0817.0, ptr %1114, align 4
-  %.sroa.6818.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1584
+  %.sroa.6818.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1584
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6818.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6818, i64 16, i1 false)
-  %1115 = getelementptr inbounds i8, ptr %0, i64 1600
+  %1115 = getelementptr inbounds nuw i8, ptr %0, i64 1600
   store i32 %.sroa.0819.0, ptr %1115, align 4
-  %.sroa.6820.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1604
+  %.sroa.6820.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1604
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6820.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6820, i64 16, i1 false)
-  %1116 = getelementptr inbounds i8, ptr %0, i64 1620
+  %1116 = getelementptr inbounds nuw i8, ptr %0, i64 1620
   store i32 %.sroa.0821.0, ptr %1116, align 4
-  %.sroa.6822.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1624
+  %.sroa.6822.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1624
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6822.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6822, i64 16, i1 false)
-  %1117 = getelementptr inbounds i8, ptr %0, i64 1640
+  %1117 = getelementptr inbounds nuw i8, ptr %0, i64 1640
   store i32 %.sroa.0823.0, ptr %1117, align 4
-  %.sroa.6824.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1644
+  %.sroa.6824.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1644
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6824.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6824, i64 16, i1 false)
-  %1118 = getelementptr inbounds i8, ptr %0, i64 1660
+  %1118 = getelementptr inbounds nuw i8, ptr %0, i64 1660
   store i32 %.sroa.0825.0, ptr %1118, align 4
-  %.sroa.6826.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1664
+  %.sroa.6826.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1664
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6826.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6826, i64 16, i1 false)
-  %1119 = getelementptr inbounds i8, ptr %0, i64 1680
+  %1119 = getelementptr inbounds nuw i8, ptr %0, i64 1680
   store i32 %.sroa.0827.0, ptr %1119, align 4
-  %.sroa.6828.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1684
+  %.sroa.6828.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1684
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6828.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6828, i64 16, i1 false)
-  %1120 = getelementptr inbounds i8, ptr %0, i64 1700
+  %1120 = getelementptr inbounds nuw i8, ptr %0, i64 1700
   store i32 %.sroa.0829.0, ptr %1120, align 4
-  %.sroa.6830.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1704
+  %.sroa.6830.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1704
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6830.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6830, i64 16, i1 false)
-  %1121 = getelementptr inbounds i8, ptr %0, i64 1720
+  %1121 = getelementptr inbounds nuw i8, ptr %0, i64 1720
   store i32 %.sroa.0831.0, ptr %1121, align 4
-  %.sroa.6832.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1724
+  %.sroa.6832.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1724
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6832.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6832, i64 16, i1 false)
-  %1122 = getelementptr inbounds i8, ptr %0, i64 1740
+  %1122 = getelementptr inbounds nuw i8, ptr %0, i64 1740
   store i32 %.sroa.0833.0, ptr %1122, align 4
-  %.sroa.6834.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1744
+  %.sroa.6834.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1744
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6834.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6834, i64 16, i1 false)
-  %1123 = getelementptr inbounds i8, ptr %0, i64 1760
+  %1123 = getelementptr inbounds nuw i8, ptr %0, i64 1760
   store i32 %.sroa.0835.0, ptr %1123, align 4
-  %.sroa.6836.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1764
+  %.sroa.6836.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1764
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6836.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6836, i64 16, i1 false)
-  %1124 = getelementptr inbounds i8, ptr %0, i64 1780
+  %1124 = getelementptr inbounds nuw i8, ptr %0, i64 1780
   store i32 %.sroa.0837.0, ptr %1124, align 4
-  %.sroa.6838.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1784
+  %.sroa.6838.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1784
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6838.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6838, i64 16, i1 false)
-  %1125 = getelementptr inbounds i8, ptr %0, i64 1800
+  %1125 = getelementptr inbounds nuw i8, ptr %0, i64 1800
   store i32 %.sroa.0839.0, ptr %1125, align 4
-  %.sroa.6840.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1804
+  %.sroa.6840.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1804
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6840.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6840, i64 16, i1 false)
-  %1126 = getelementptr inbounds i8, ptr %0, i64 1820
+  %1126 = getelementptr inbounds nuw i8, ptr %0, i64 1820
   store i32 %.sroa.0841.0, ptr %1126, align 4
-  %.sroa.6842.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1824
+  %.sroa.6842.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1824
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6842.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6842, i64 16, i1 false)
-  %1127 = getelementptr inbounds i8, ptr %0, i64 1840
+  %1127 = getelementptr inbounds nuw i8, ptr %0, i64 1840
   store i32 %.sroa.0843.0, ptr %1127, align 4
-  %.sroa.6844.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1844
+  %.sroa.6844.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1844
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6844.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6844, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.6844)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.6842)
@@ -4607,9 +4607,9 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
   br i1 %46, label %53, label %47
 
 47:                                               ; preds = %2
-  %48 = getelementptr inbounds i8, ptr %1, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %..val = load ptr, ptr %48, align 8, !nonnull !4, !noundef !4
-  %49 = getelementptr inbounds i8, ptr %1, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %..val125 = load i64, ptr %49, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %44), !noalias !391
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %44, ptr noalias noundef nonnull readonly align 1 %..val, i64 noundef %..val125), !noalias !391
@@ -4618,12 +4618,12 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
   br i1 %trunc.i, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i", label %.thread.i
 
 .thread.i:                                        ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %44, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %44, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6, ptr noundef nonnull align 4 dereferenceable(16) %51, i64 16, i1 false)
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hf50460c22cc04cceE.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i": ; preds = %47
-  %52 = getelementptr inbounds i8, ptr %44, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %44, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %52), !noalias !391
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hf50460c22cc04cceE.exit"
 
@@ -4635,15 +4635,15 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
 53:                                               ; preds = %2, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hf50460c22cc04cceE.exit"
   %.sroa.0.0 = phi i32 [ %.sroa.0.1, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hf50460c22cc04cceE.exit" ], [ 0, %2 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6291)
-  %54 = getelementptr inbounds i8, ptr %1, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %55 = load i64, ptr %54, align 8, !range !29, !noundef !4
   %56 = icmp eq i64 %55, -9223372036854775808
   br i1 %56, label %63, label %57
 
 57:                                               ; preds = %53
-  %58 = getelementptr inbounds i8, ptr %1, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.84.val = load ptr, ptr %58, align 8, !nonnull !4, !noundef !4
-  %59 = getelementptr inbounds i8, ptr %1, i64 40
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.84.val126 = load i64, ptr %59, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %43), !noalias !394
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %43, ptr noalias noundef nonnull readonly align 1 %.84.val, i64 noundef %.84.val126), !noalias !394
@@ -4652,12 +4652,12 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
   br i1 %trunc.i167, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i169", label %.thread.i168
 
 .thread.i168:                                     ; preds = %57
-  %61 = getelementptr inbounds i8, ptr %43, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %43, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6291, ptr noundef nonnull align 4 dereferenceable(16) %61, i64 16, i1 false)
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h3b3b2c31a70a4455E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i169": ; preds = %57
-  %62 = getelementptr inbounds i8, ptr %43, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %43, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %62), !noalias !394
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h3b3b2c31a70a4455E.exit"
 
@@ -4669,15 +4669,15 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
 63:                                               ; preds = %53, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h3b3b2c31a70a4455E.exit"
   %.sroa.0290.0 = phi i32 [ %.sroa.0290.1, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h3b3b2c31a70a4455E.exit" ], [ 0, %53 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6293)
-  %64 = getelementptr inbounds i8, ptr %1, i64 48
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %65 = load i64, ptr %64, align 8, !range !29, !noundef !4
   %66 = icmp eq i64 %65, -9223372036854775808
   br i1 %66, label %73, label %67
 
 67:                                               ; preds = %63
-  %68 = getelementptr inbounds i8, ptr %1, i64 56
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.85.val = load ptr, ptr %68, align 8, !nonnull !4, !noundef !4
-  %69 = getelementptr inbounds i8, ptr %1, i64 64
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %.85.val127 = load i64, ptr %69, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %42), !noalias !397
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %42, ptr noalias noundef nonnull readonly align 1 %.85.val, i64 noundef %.85.val127), !noalias !397
@@ -4686,12 +4686,12 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
   br i1 %trunc.i170, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i172", label %.thread.i171
 
 .thread.i171:                                     ; preds = %67
-  %71 = getelementptr inbounds i8, ptr %42, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %42, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6293, ptr noundef nonnull align 4 dereferenceable(16) %71, i64 16, i1 false)
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h52ad2fb5715afcdbE.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i172": ; preds = %67
-  %72 = getelementptr inbounds i8, ptr %42, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %42, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %72), !noalias !397
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h52ad2fb5715afcdbE.exit"
 
@@ -4703,15 +4703,15 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
 73:                                               ; preds = %63, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h52ad2fb5715afcdbE.exit"
   %.sroa.0292.0 = phi i32 [ %.sroa.0292.1, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h52ad2fb5715afcdbE.exit" ], [ 0, %63 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6295)
-  %74 = getelementptr inbounds i8, ptr %1, i64 72
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %75 = load i64, ptr %74, align 8, !range !29, !noundef !4
   %76 = icmp eq i64 %75, -9223372036854775808
   br i1 %76, label %83, label %77
 
 77:                                               ; preds = %73
-  %78 = getelementptr inbounds i8, ptr %1, i64 80
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %.86.val = load ptr, ptr %78, align 8, !nonnull !4, !noundef !4
-  %79 = getelementptr inbounds i8, ptr %1, i64 88
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %.86.val128 = load i64, ptr %79, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %41), !noalias !400
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %41, ptr noalias noundef nonnull readonly align 1 %.86.val, i64 noundef %.86.val128), !noalias !400
@@ -4720,12 +4720,12 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
   br i1 %trunc.i173, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i175", label %.thread.i174
 
 .thread.i174:                                     ; preds = %77
-  %81 = getelementptr inbounds i8, ptr %41, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %41, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6295, ptr noundef nonnull align 4 dereferenceable(16) %81, i64 16, i1 false)
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h3755e5344aa55448E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i175": ; preds = %77
-  %82 = getelementptr inbounds i8, ptr %41, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %41, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %82), !noalias !400
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h3755e5344aa55448E.exit"
 
@@ -4737,15 +4737,15 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
 83:                                               ; preds = %73, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h3755e5344aa55448E.exit"
   %.sroa.0294.0 = phi i32 [ %.sroa.0294.1, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h3755e5344aa55448E.exit" ], [ 0, %73 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6297)
-  %84 = getelementptr inbounds i8, ptr %1, i64 96
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %85 = load i64, ptr %84, align 8, !range !29, !noundef !4
   %86 = icmp eq i64 %85, -9223372036854775808
   br i1 %86, label %93, label %87
 
 87:                                               ; preds = %83
-  %88 = getelementptr inbounds i8, ptr %1, i64 104
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %.87.val = load ptr, ptr %88, align 8, !nonnull !4, !noundef !4
-  %89 = getelementptr inbounds i8, ptr %1, i64 112
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %.87.val129 = load i64, ptr %89, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %40), !noalias !403
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %40, ptr noalias noundef nonnull readonly align 1 %.87.val, i64 noundef %.87.val129), !noalias !403
@@ -4754,12 +4754,12 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
   br i1 %trunc.i176, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i178", label %.thread.i177
 
 .thread.i177:                                     ; preds = %87
-  %91 = getelementptr inbounds i8, ptr %40, i64 4
+  %91 = getelementptr inbounds nuw i8, ptr %40, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6297, ptr noundef nonnull align 4 dereferenceable(16) %91, i64 16, i1 false)
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h8b6b4860b15e3a08E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i178": ; preds = %87
-  %92 = getelementptr inbounds i8, ptr %40, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %40, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %92), !noalias !403
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h8b6b4860b15e3a08E.exit"
 
@@ -4771,15 +4771,15 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
 93:                                               ; preds = %83, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h8b6b4860b15e3a08E.exit"
   %.sroa.0296.0 = phi i32 [ %.sroa.0296.1, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h8b6b4860b15e3a08E.exit" ], [ 0, %83 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6299)
-  %94 = getelementptr inbounds i8, ptr %1, i64 120
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %95 = load i64, ptr %94, align 8, !range !29, !noundef !4
   %96 = icmp eq i64 %95, -9223372036854775808
   br i1 %96, label %103, label %97
 
 97:                                               ; preds = %93
-  %98 = getelementptr inbounds i8, ptr %1, i64 128
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %.88.val = load ptr, ptr %98, align 8, !nonnull !4, !noundef !4
-  %99 = getelementptr inbounds i8, ptr %1, i64 136
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %.88.val130 = load i64, ptr %99, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %39), !noalias !406
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %39, ptr noalias noundef nonnull readonly align 1 %.88.val, i64 noundef %.88.val130), !noalias !406
@@ -4788,12 +4788,12 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
   br i1 %trunc.i179, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i181", label %.thread.i180
 
 .thread.i180:                                     ; preds = %97
-  %101 = getelementptr inbounds i8, ptr %39, i64 4
+  %101 = getelementptr inbounds nuw i8, ptr %39, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6299, ptr noundef nonnull align 4 dereferenceable(16) %101, i64 16, i1 false)
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hcac7b21b729763cbE.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i181": ; preds = %97
-  %102 = getelementptr inbounds i8, ptr %39, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %39, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %102), !noalias !406
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hcac7b21b729763cbE.exit"
 
@@ -4805,15 +4805,15 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
 103:                                              ; preds = %93, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hcac7b21b729763cbE.exit"
   %.sroa.0298.0 = phi i32 [ %.sroa.0298.1, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hcac7b21b729763cbE.exit" ], [ 0, %93 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6301)
-  %104 = getelementptr inbounds i8, ptr %1, i64 144
+  %104 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %105 = load i64, ptr %104, align 8, !range !29, !noundef !4
   %106 = icmp eq i64 %105, -9223372036854775808
   br i1 %106, label %113, label %107
 
 107:                                              ; preds = %103
-  %108 = getelementptr inbounds i8, ptr %1, i64 152
+  %108 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %.89.val = load ptr, ptr %108, align 8, !nonnull !4, !noundef !4
-  %109 = getelementptr inbounds i8, ptr %1, i64 160
+  %109 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %.89.val131 = load i64, ptr %109, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %38), !noalias !409
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %38, ptr noalias noundef nonnull readonly align 1 %.89.val, i64 noundef %.89.val131), !noalias !409
@@ -4822,12 +4822,12 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
   br i1 %trunc.i182, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i184", label %.thread.i183
 
 .thread.i183:                                     ; preds = %107
-  %111 = getelementptr inbounds i8, ptr %38, i64 4
+  %111 = getelementptr inbounds nuw i8, ptr %38, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6301, ptr noundef nonnull align 4 dereferenceable(16) %111, i64 16, i1 false)
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hfc2c3347666abac4E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i184": ; preds = %107
-  %112 = getelementptr inbounds i8, ptr %38, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %38, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %112), !noalias !409
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hfc2c3347666abac4E.exit"
 
@@ -4839,15 +4839,15 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
 113:                                              ; preds = %103, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hfc2c3347666abac4E.exit"
   %.sroa.0300.0 = phi i32 [ %.sroa.0300.1, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hfc2c3347666abac4E.exit" ], [ 0, %103 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6303)
-  %114 = getelementptr inbounds i8, ptr %1, i64 168
+  %114 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %115 = load i64, ptr %114, align 8, !range !29, !noundef !4
   %116 = icmp eq i64 %115, -9223372036854775808
   br i1 %116, label %123, label %117
 
 117:                                              ; preds = %113
-  %118 = getelementptr inbounds i8, ptr %1, i64 176
+  %118 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %.90.val = load ptr, ptr %118, align 8, !nonnull !4, !noundef !4
-  %119 = getelementptr inbounds i8, ptr %1, i64 184
+  %119 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %.90.val132 = load i64, ptr %119, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %37), !noalias !412
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %37, ptr noalias noundef nonnull readonly align 1 %.90.val, i64 noundef %.90.val132), !noalias !412
@@ -4856,12 +4856,12 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
   br i1 %trunc.i185, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i187", label %.thread.i186
 
 .thread.i186:                                     ; preds = %117
-  %121 = getelementptr inbounds i8, ptr %37, i64 4
+  %121 = getelementptr inbounds nuw i8, ptr %37, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6303, ptr noundef nonnull align 4 dereferenceable(16) %121, i64 16, i1 false)
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17ha2d2a30bfd0c86a3E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i187": ; preds = %117
-  %122 = getelementptr inbounds i8, ptr %37, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %37, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %122), !noalias !412
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17ha2d2a30bfd0c86a3E.exit"
 
@@ -4873,15 +4873,15 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
 123:                                              ; preds = %113, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17ha2d2a30bfd0c86a3E.exit"
   %.sroa.0302.0 = phi i32 [ %.sroa.0302.1, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17ha2d2a30bfd0c86a3E.exit" ], [ 0, %113 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6305)
-  %124 = getelementptr inbounds i8, ptr %1, i64 192
+  %124 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %125 = load i64, ptr %124, align 8, !range !29, !noundef !4
   %126 = icmp eq i64 %125, -9223372036854775808
   br i1 %126, label %133, label %127
 
 127:                                              ; preds = %123
-  %128 = getelementptr inbounds i8, ptr %1, i64 200
+  %128 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %.91.val = load ptr, ptr %128, align 8, !nonnull !4, !noundef !4
-  %129 = getelementptr inbounds i8, ptr %1, i64 208
+  %129 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %.91.val133 = load i64, ptr %129, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %36), !noalias !415
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %36, ptr noalias noundef nonnull readonly align 1 %.91.val, i64 noundef %.91.val133), !noalias !415
@@ -4890,12 +4890,12 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
   br i1 %trunc.i188, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i190", label %.thread.i189
 
 .thread.i189:                                     ; preds = %127
-  %131 = getelementptr inbounds i8, ptr %36, i64 4
+  %131 = getelementptr inbounds nuw i8, ptr %36, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6305, ptr noundef nonnull align 4 dereferenceable(16) %131, i64 16, i1 false)
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h5561c91d702e7391E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i190": ; preds = %127
-  %132 = getelementptr inbounds i8, ptr %36, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %36, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %132), !noalias !415
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h5561c91d702e7391E.exit"
 
@@ -4907,15 +4907,15 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
 133:                                              ; preds = %123, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h5561c91d702e7391E.exit"
   %.sroa.0304.0 = phi i32 [ %.sroa.0304.1, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h5561c91d702e7391E.exit" ], [ 0, %123 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6307)
-  %134 = getelementptr inbounds i8, ptr %1, i64 216
+  %134 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %135 = load i64, ptr %134, align 8, !range !29, !noundef !4
   %136 = icmp eq i64 %135, -9223372036854775808
   br i1 %136, label %143, label %137
 
 137:                                              ; preds = %133
-  %138 = getelementptr inbounds i8, ptr %1, i64 224
+  %138 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %.92.val = load ptr, ptr %138, align 8, !nonnull !4, !noundef !4
-  %139 = getelementptr inbounds i8, ptr %1, i64 232
+  %139 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %.92.val134 = load i64, ptr %139, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %35), !noalias !418
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %35, ptr noalias noundef nonnull readonly align 1 %.92.val, i64 noundef %.92.val134), !noalias !418
@@ -4924,12 +4924,12 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
   br i1 %trunc.i191, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i193", label %.thread.i192
 
 .thread.i192:                                     ; preds = %137
-  %141 = getelementptr inbounds i8, ptr %35, i64 4
+  %141 = getelementptr inbounds nuw i8, ptr %35, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6307, ptr noundef nonnull align 4 dereferenceable(16) %141, i64 16, i1 false)
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h0c3953d7350deabdE.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i193": ; preds = %137
-  %142 = getelementptr inbounds i8, ptr %35, i64 8
+  %142 = getelementptr inbounds nuw i8, ptr %35, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %142), !noalias !418
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h0c3953d7350deabdE.exit"
 
@@ -4941,15 +4941,15 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
 143:                                              ; preds = %133, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h0c3953d7350deabdE.exit"
   %.sroa.0306.0 = phi i32 [ %.sroa.0306.1, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h0c3953d7350deabdE.exit" ], [ 0, %133 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6309)
-  %144 = getelementptr inbounds i8, ptr %1, i64 240
+  %144 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %145 = load i64, ptr %144, align 8, !range !29, !noundef !4
   %146 = icmp eq i64 %145, -9223372036854775808
   br i1 %146, label %153, label %147
 
 147:                                              ; preds = %143
-  %148 = getelementptr inbounds i8, ptr %1, i64 248
+  %148 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %.93.val = load ptr, ptr %148, align 8, !nonnull !4, !noundef !4
-  %149 = getelementptr inbounds i8, ptr %1, i64 256
+  %149 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %.93.val135 = load i64, ptr %149, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %34), !noalias !421
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %34, ptr noalias noundef nonnull readonly align 1 %.93.val, i64 noundef %.93.val135), !noalias !421
@@ -4958,12 +4958,12 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
   br i1 %trunc.i194, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i196", label %.thread.i195
 
 .thread.i195:                                     ; preds = %147
-  %151 = getelementptr inbounds i8, ptr %34, i64 4
+  %151 = getelementptr inbounds nuw i8, ptr %34, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6309, ptr noundef nonnull align 4 dereferenceable(16) %151, i64 16, i1 false)
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h220ad47cc5ddb21cE.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i196": ; preds = %147
-  %152 = getelementptr inbounds i8, ptr %34, i64 8
+  %152 = getelementptr inbounds nuw i8, ptr %34, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %152), !noalias !421
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h220ad47cc5ddb21cE.exit"
 
@@ -4975,15 +4975,15 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
 153:                                              ; preds = %143, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h220ad47cc5ddb21cE.exit"
   %.sroa.0308.0 = phi i32 [ %.sroa.0308.1, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h220ad47cc5ddb21cE.exit" ], [ 0, %143 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6311)
-  %154 = getelementptr inbounds i8, ptr %1, i64 264
+  %154 = getelementptr inbounds nuw i8, ptr %1, i64 264
   %155 = load i64, ptr %154, align 8, !range !29, !noundef !4
   %156 = icmp eq i64 %155, -9223372036854775808
   br i1 %156, label %163, label %157
 
 157:                                              ; preds = %153
-  %158 = getelementptr inbounds i8, ptr %1, i64 272
+  %158 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %.94.val = load ptr, ptr %158, align 8, !nonnull !4, !noundef !4
-  %159 = getelementptr inbounds i8, ptr %1, i64 280
+  %159 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %.94.val136 = load i64, ptr %159, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %33), !noalias !424
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %33, ptr noalias noundef nonnull readonly align 1 %.94.val, i64 noundef %.94.val136), !noalias !424
@@ -4992,12 +4992,12 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
   br i1 %trunc.i197, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i199", label %.thread.i198
 
 .thread.i198:                                     ; preds = %157
-  %161 = getelementptr inbounds i8, ptr %33, i64 4
+  %161 = getelementptr inbounds nuw i8, ptr %33, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6311, ptr noundef nonnull align 4 dereferenceable(16) %161, i64 16, i1 false)
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h89746d013939d7ebE.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i199": ; preds = %157
-  %162 = getelementptr inbounds i8, ptr %33, i64 8
+  %162 = getelementptr inbounds nuw i8, ptr %33, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %162), !noalias !424
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h89746d013939d7ebE.exit"
 
@@ -5009,15 +5009,15 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
 163:                                              ; preds = %153, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h89746d013939d7ebE.exit"
   %.sroa.0310.0 = phi i32 [ %.sroa.0310.1, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h89746d013939d7ebE.exit" ], [ 0, %153 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6313)
-  %164 = getelementptr inbounds i8, ptr %1, i64 288
+  %164 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %165 = load i64, ptr %164, align 8, !range !29, !noundef !4
   %166 = icmp eq i64 %165, -9223372036854775808
   br i1 %166, label %173, label %167
 
 167:                                              ; preds = %163
-  %168 = getelementptr inbounds i8, ptr %1, i64 296
+  %168 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %.95.val = load ptr, ptr %168, align 8, !nonnull !4, !noundef !4
-  %169 = getelementptr inbounds i8, ptr %1, i64 304
+  %169 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %.95.val137 = load i64, ptr %169, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %32), !noalias !427
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %32, ptr noalias noundef nonnull readonly align 1 %.95.val, i64 noundef %.95.val137), !noalias !427
@@ -5026,12 +5026,12 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
   br i1 %trunc.i200, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i202", label %.thread.i201
 
 .thread.i201:                                     ; preds = %167
-  %171 = getelementptr inbounds i8, ptr %32, i64 4
+  %171 = getelementptr inbounds nuw i8, ptr %32, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6313, ptr noundef nonnull align 4 dereferenceable(16) %171, i64 16, i1 false)
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h55b106e9a3c3cfecE.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i202": ; preds = %167
-  %172 = getelementptr inbounds i8, ptr %32, i64 8
+  %172 = getelementptr inbounds nuw i8, ptr %32, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %172), !noalias !427
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h55b106e9a3c3cfecE.exit"
 
@@ -5043,15 +5043,15 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
 173:                                              ; preds = %163, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h55b106e9a3c3cfecE.exit"
   %.sroa.0312.0 = phi i32 [ %.sroa.0312.1, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h55b106e9a3c3cfecE.exit" ], [ 0, %163 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6315)
-  %174 = getelementptr inbounds i8, ptr %1, i64 312
+  %174 = getelementptr inbounds nuw i8, ptr %1, i64 312
   %175 = load i64, ptr %174, align 8, !range !29, !noundef !4
   %176 = icmp eq i64 %175, -9223372036854775808
   br i1 %176, label %183, label %177
 
 177:                                              ; preds = %173
-  %178 = getelementptr inbounds i8, ptr %1, i64 320
+  %178 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %.96.val = load ptr, ptr %178, align 8, !nonnull !4, !noundef !4
-  %179 = getelementptr inbounds i8, ptr %1, i64 328
+  %179 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %.96.val138 = load i64, ptr %179, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %31), !noalias !430
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %31, ptr noalias noundef nonnull readonly align 1 %.96.val, i64 noundef %.96.val138), !noalias !430
@@ -5060,12 +5060,12 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
   br i1 %trunc.i203, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i205", label %.thread.i204
 
 .thread.i204:                                     ; preds = %177
-  %181 = getelementptr inbounds i8, ptr %31, i64 4
+  %181 = getelementptr inbounds nuw i8, ptr %31, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6315, ptr noundef nonnull align 4 dereferenceable(16) %181, i64 16, i1 false)
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h7035948774ebdfd0E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i205": ; preds = %177
-  %182 = getelementptr inbounds i8, ptr %31, i64 8
+  %182 = getelementptr inbounds nuw i8, ptr %31, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %182), !noalias !430
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h7035948774ebdfd0E.exit"
 
@@ -5077,15 +5077,15 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
 183:                                              ; preds = %173, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h7035948774ebdfd0E.exit"
   %.sroa.0314.0 = phi i32 [ %.sroa.0314.1, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h7035948774ebdfd0E.exit" ], [ 0, %173 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6317)
-  %184 = getelementptr inbounds i8, ptr %1, i64 336
+  %184 = getelementptr inbounds nuw i8, ptr %1, i64 336
   %185 = load i64, ptr %184, align 8, !range !29, !noundef !4
   %186 = icmp eq i64 %185, -9223372036854775808
   br i1 %186, label %193, label %187
 
 187:                                              ; preds = %183
-  %188 = getelementptr inbounds i8, ptr %1, i64 344
+  %188 = getelementptr inbounds nuw i8, ptr %1, i64 344
   %.97.val = load ptr, ptr %188, align 8, !nonnull !4, !noundef !4
-  %189 = getelementptr inbounds i8, ptr %1, i64 352
+  %189 = getelementptr inbounds nuw i8, ptr %1, i64 352
   %.97.val139 = load i64, ptr %189, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %30), !noalias !433
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %30, ptr noalias noundef nonnull readonly align 1 %.97.val, i64 noundef %.97.val139), !noalias !433
@@ -5094,12 +5094,12 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
   br i1 %trunc.i206, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i208", label %.thread.i207
 
 .thread.i207:                                     ; preds = %187
-  %191 = getelementptr inbounds i8, ptr %30, i64 4
+  %191 = getelementptr inbounds nuw i8, ptr %30, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6317, ptr noundef nonnull align 4 dereferenceable(16) %191, i64 16, i1 false)
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hf6efaa68db68b822E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i208": ; preds = %187
-  %192 = getelementptr inbounds i8, ptr %30, i64 8
+  %192 = getelementptr inbounds nuw i8, ptr %30, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %192), !noalias !433
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hf6efaa68db68b822E.exit"
 
@@ -5111,15 +5111,15 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
 193:                                              ; preds = %183, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hf6efaa68db68b822E.exit"
   %.sroa.0316.0 = phi i32 [ %.sroa.0316.1, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hf6efaa68db68b822E.exit" ], [ 0, %183 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6319)
-  %194 = getelementptr inbounds i8, ptr %1, i64 360
+  %194 = getelementptr inbounds nuw i8, ptr %1, i64 360
   %195 = load i64, ptr %194, align 8, !range !29, !noundef !4
   %196 = icmp eq i64 %195, -9223372036854775808
   br i1 %196, label %203, label %197
 
 197:                                              ; preds = %193
-  %198 = getelementptr inbounds i8, ptr %1, i64 368
+  %198 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %.98.val = load ptr, ptr %198, align 8, !nonnull !4, !noundef !4
-  %199 = getelementptr inbounds i8, ptr %1, i64 376
+  %199 = getelementptr inbounds nuw i8, ptr %1, i64 376
   %.98.val140 = load i64, ptr %199, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %29), !noalias !436
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %29, ptr noalias noundef nonnull readonly align 1 %.98.val, i64 noundef %.98.val140), !noalias !436
@@ -5128,12 +5128,12 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
   br i1 %trunc.i209, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i211", label %.thread.i210
 
 .thread.i210:                                     ; preds = %197
-  %201 = getelementptr inbounds i8, ptr %29, i64 4
+  %201 = getelementptr inbounds nuw i8, ptr %29, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6319, ptr noundef nonnull align 4 dereferenceable(16) %201, i64 16, i1 false)
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h1a6e4f42dc5cadc3E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i211": ; preds = %197
-  %202 = getelementptr inbounds i8, ptr %29, i64 8
+  %202 = getelementptr inbounds nuw i8, ptr %29, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %202), !noalias !436
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h1a6e4f42dc5cadc3E.exit"
 
@@ -5145,15 +5145,15 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
 203:                                              ; preds = %193, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h1a6e4f42dc5cadc3E.exit"
   %.sroa.0318.0 = phi i32 [ %.sroa.0318.1, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h1a6e4f42dc5cadc3E.exit" ], [ 0, %193 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6321)
-  %204 = getelementptr inbounds i8, ptr %1, i64 384
+  %204 = getelementptr inbounds nuw i8, ptr %1, i64 384
   %205 = load i64, ptr %204, align 8, !range !29, !noundef !4
   %206 = icmp eq i64 %205, -9223372036854775808
   br i1 %206, label %213, label %207
 
 207:                                              ; preds = %203
-  %208 = getelementptr inbounds i8, ptr %1, i64 392
+  %208 = getelementptr inbounds nuw i8, ptr %1, i64 392
   %.99.val = load ptr, ptr %208, align 8, !nonnull !4, !noundef !4
-  %209 = getelementptr inbounds i8, ptr %1, i64 400
+  %209 = getelementptr inbounds nuw i8, ptr %1, i64 400
   %.99.val141 = load i64, ptr %209, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %28), !noalias !439
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %28, ptr noalias noundef nonnull readonly align 1 %.99.val, i64 noundef %.99.val141), !noalias !439
@@ -5162,12 +5162,12 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
   br i1 %trunc.i212, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i214", label %.thread.i213
 
 .thread.i213:                                     ; preds = %207
-  %211 = getelementptr inbounds i8, ptr %28, i64 4
+  %211 = getelementptr inbounds nuw i8, ptr %28, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6321, ptr noundef nonnull align 4 dereferenceable(16) %211, i64 16, i1 false)
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hccb77060968789d3E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i214": ; preds = %207
-  %212 = getelementptr inbounds i8, ptr %28, i64 8
+  %212 = getelementptr inbounds nuw i8, ptr %28, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %212), !noalias !439
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hccb77060968789d3E.exit"
 
@@ -5179,15 +5179,15 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
 213:                                              ; preds = %203, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hccb77060968789d3E.exit"
   %.sroa.0320.0 = phi i32 [ %.sroa.0320.1, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hccb77060968789d3E.exit" ], [ 0, %203 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6323)
-  %214 = getelementptr inbounds i8, ptr %1, i64 408
+  %214 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %215 = load i64, ptr %214, align 8, !range !29, !noundef !4
   %216 = icmp eq i64 %215, -9223372036854775808
   br i1 %216, label %223, label %217
 
 217:                                              ; preds = %213
-  %218 = getelementptr inbounds i8, ptr %1, i64 416
+  %218 = getelementptr inbounds nuw i8, ptr %1, i64 416
   %.100.val = load ptr, ptr %218, align 8, !nonnull !4, !noundef !4
-  %219 = getelementptr inbounds i8, ptr %1, i64 424
+  %219 = getelementptr inbounds nuw i8, ptr %1, i64 424
   %.100.val142 = load i64, ptr %219, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %27), !noalias !442
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %27, ptr noalias noundef nonnull readonly align 1 %.100.val, i64 noundef %.100.val142), !noalias !442
@@ -5196,12 +5196,12 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
   br i1 %trunc.i215, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i217", label %.thread.i216
 
 .thread.i216:                                     ; preds = %217
-  %221 = getelementptr inbounds i8, ptr %27, i64 4
+  %221 = getelementptr inbounds nuw i8, ptr %27, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6323, ptr noundef nonnull align 4 dereferenceable(16) %221, i64 16, i1 false)
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h4365366857f5d9f2E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i217": ; preds = %217
-  %222 = getelementptr inbounds i8, ptr %27, i64 8
+  %222 = getelementptr inbounds nuw i8, ptr %27, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %222), !noalias !442
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h4365366857f5d9f2E.exit"
 
@@ -5213,15 +5213,15 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
 223:                                              ; preds = %213, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h4365366857f5d9f2E.exit"
   %.sroa.0322.0 = phi i32 [ %.sroa.0322.1, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h4365366857f5d9f2E.exit" ], [ 0, %213 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6325)
-  %224 = getelementptr inbounds i8, ptr %1, i64 432
+  %224 = getelementptr inbounds nuw i8, ptr %1, i64 432
   %225 = load i64, ptr %224, align 8, !range !29, !noundef !4
   %226 = icmp eq i64 %225, -9223372036854775808
   br i1 %226, label %233, label %227
 
 227:                                              ; preds = %223
-  %228 = getelementptr inbounds i8, ptr %1, i64 440
+  %228 = getelementptr inbounds nuw i8, ptr %1, i64 440
   %.101.val = load ptr, ptr %228, align 8, !nonnull !4, !noundef !4
-  %229 = getelementptr inbounds i8, ptr %1, i64 448
+  %229 = getelementptr inbounds nuw i8, ptr %1, i64 448
   %.101.val143 = load i64, ptr %229, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %26), !noalias !445
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %26, ptr noalias noundef nonnull readonly align 1 %.101.val, i64 noundef %.101.val143), !noalias !445
@@ -5230,12 +5230,12 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
   br i1 %trunc.i218, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i220", label %.thread.i219
 
 .thread.i219:                                     ; preds = %227
-  %231 = getelementptr inbounds i8, ptr %26, i64 4
+  %231 = getelementptr inbounds nuw i8, ptr %26, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6325, ptr noundef nonnull align 4 dereferenceable(16) %231, i64 16, i1 false)
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17he4e9f9e3435e1863E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i220": ; preds = %227
-  %232 = getelementptr inbounds i8, ptr %26, i64 8
+  %232 = getelementptr inbounds nuw i8, ptr %26, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %232), !noalias !445
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17he4e9f9e3435e1863E.exit"
 
@@ -5247,15 +5247,15 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
 233:                                              ; preds = %223, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17he4e9f9e3435e1863E.exit"
   %.sroa.0324.0 = phi i32 [ %.sroa.0324.1, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17he4e9f9e3435e1863E.exit" ], [ 0, %223 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6327)
-  %234 = getelementptr inbounds i8, ptr %1, i64 456
+  %234 = getelementptr inbounds nuw i8, ptr %1, i64 456
   %235 = load i64, ptr %234, align 8, !range !29, !noundef !4
   %236 = icmp eq i64 %235, -9223372036854775808
   br i1 %236, label %243, label %237
 
 237:                                              ; preds = %233
-  %238 = getelementptr inbounds i8, ptr %1, i64 464
+  %238 = getelementptr inbounds nuw i8, ptr %1, i64 464
   %.102.val = load ptr, ptr %238, align 8, !nonnull !4, !noundef !4
-  %239 = getelementptr inbounds i8, ptr %1, i64 472
+  %239 = getelementptr inbounds nuw i8, ptr %1, i64 472
   %.102.val144 = load i64, ptr %239, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %25), !noalias !448
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %25, ptr noalias noundef nonnull readonly align 1 %.102.val, i64 noundef %.102.val144), !noalias !448
@@ -5264,12 +5264,12 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
   br i1 %trunc.i221, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i223", label %.thread.i222
 
 .thread.i222:                                     ; preds = %237
-  %241 = getelementptr inbounds i8, ptr %25, i64 4
+  %241 = getelementptr inbounds nuw i8, ptr %25, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6327, ptr noundef nonnull align 4 dereferenceable(16) %241, i64 16, i1 false)
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h6604f07baeb01802E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i223": ; preds = %237
-  %242 = getelementptr inbounds i8, ptr %25, i64 8
+  %242 = getelementptr inbounds nuw i8, ptr %25, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %242), !noalias !448
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h6604f07baeb01802E.exit"
 
@@ -5281,15 +5281,15 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
 243:                                              ; preds = %233, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h6604f07baeb01802E.exit"
   %.sroa.0326.0 = phi i32 [ %.sroa.0326.1, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h6604f07baeb01802E.exit" ], [ 0, %233 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6329)
-  %244 = getelementptr inbounds i8, ptr %1, i64 480
+  %244 = getelementptr inbounds nuw i8, ptr %1, i64 480
   %245 = load i64, ptr %244, align 8, !range !29, !noundef !4
   %246 = icmp eq i64 %245, -9223372036854775808
   br i1 %246, label %253, label %247
 
 247:                                              ; preds = %243
-  %248 = getelementptr inbounds i8, ptr %1, i64 488
+  %248 = getelementptr inbounds nuw i8, ptr %1, i64 488
   %.103.val = load ptr, ptr %248, align 8, !nonnull !4, !noundef !4
-  %249 = getelementptr inbounds i8, ptr %1, i64 496
+  %249 = getelementptr inbounds nuw i8, ptr %1, i64 496
   %.103.val145 = load i64, ptr %249, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %24), !noalias !451
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %24, ptr noalias noundef nonnull readonly align 1 %.103.val, i64 noundef %.103.val145), !noalias !451
@@ -5298,12 +5298,12 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
   br i1 %trunc.i224, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i226", label %.thread.i225
 
 .thread.i225:                                     ; preds = %247
-  %251 = getelementptr inbounds i8, ptr %24, i64 4
+  %251 = getelementptr inbounds nuw i8, ptr %24, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6329, ptr noundef nonnull align 4 dereferenceable(16) %251, i64 16, i1 false)
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h3f9d1d8e8df7ec45E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i226": ; preds = %247
-  %252 = getelementptr inbounds i8, ptr %24, i64 8
+  %252 = getelementptr inbounds nuw i8, ptr %24, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %252), !noalias !451
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h3f9d1d8e8df7ec45E.exit"
 
@@ -5315,15 +5315,15 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
 253:                                              ; preds = %243, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h3f9d1d8e8df7ec45E.exit"
   %.sroa.0328.0 = phi i32 [ %.sroa.0328.1, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h3f9d1d8e8df7ec45E.exit" ], [ 0, %243 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6331)
-  %254 = getelementptr inbounds i8, ptr %1, i64 504
+  %254 = getelementptr inbounds nuw i8, ptr %1, i64 504
   %255 = load i64, ptr %254, align 8, !range !29, !noundef !4
   %256 = icmp eq i64 %255, -9223372036854775808
   br i1 %256, label %263, label %257
 
 257:                                              ; preds = %253
-  %258 = getelementptr inbounds i8, ptr %1, i64 512
+  %258 = getelementptr inbounds nuw i8, ptr %1, i64 512
   %.104.val = load ptr, ptr %258, align 8, !nonnull !4, !noundef !4
-  %259 = getelementptr inbounds i8, ptr %1, i64 520
+  %259 = getelementptr inbounds nuw i8, ptr %1, i64 520
   %.104.val146 = load i64, ptr %259, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %23), !noalias !454
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %23, ptr noalias noundef nonnull readonly align 1 %.104.val, i64 noundef %.104.val146), !noalias !454
@@ -5332,12 +5332,12 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
   br i1 %trunc.i227, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i229", label %.thread.i228
 
 .thread.i228:                                     ; preds = %257
-  %261 = getelementptr inbounds i8, ptr %23, i64 4
+  %261 = getelementptr inbounds nuw i8, ptr %23, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6331, ptr noundef nonnull align 4 dereferenceable(16) %261, i64 16, i1 false)
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h1c34c0c10dcddffbE.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i229": ; preds = %257
-  %262 = getelementptr inbounds i8, ptr %23, i64 8
+  %262 = getelementptr inbounds nuw i8, ptr %23, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %262), !noalias !454
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h1c34c0c10dcddffbE.exit"
 
@@ -5349,15 +5349,15 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
 263:                                              ; preds = %253, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h1c34c0c10dcddffbE.exit"
   %.sroa.0330.0 = phi i32 [ %.sroa.0330.1, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h1c34c0c10dcddffbE.exit" ], [ 0, %253 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6333)
-  %264 = getelementptr inbounds i8, ptr %1, i64 528
+  %264 = getelementptr inbounds nuw i8, ptr %1, i64 528
   %265 = load i64, ptr %264, align 8, !range !29, !noundef !4
   %266 = icmp eq i64 %265, -9223372036854775808
   br i1 %266, label %273, label %267
 
 267:                                              ; preds = %263
-  %268 = getelementptr inbounds i8, ptr %1, i64 536
+  %268 = getelementptr inbounds nuw i8, ptr %1, i64 536
   %.105.val = load ptr, ptr %268, align 8, !nonnull !4, !noundef !4
-  %269 = getelementptr inbounds i8, ptr %1, i64 544
+  %269 = getelementptr inbounds nuw i8, ptr %1, i64 544
   %.105.val147 = load i64, ptr %269, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22), !noalias !457
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %22, ptr noalias noundef nonnull readonly align 1 %.105.val, i64 noundef %.105.val147), !noalias !457
@@ -5366,12 +5366,12 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
   br i1 %trunc.i230, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i232", label %.thread.i231
 
 .thread.i231:                                     ; preds = %267
-  %271 = getelementptr inbounds i8, ptr %22, i64 4
+  %271 = getelementptr inbounds nuw i8, ptr %22, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6333, ptr noundef nonnull align 4 dereferenceable(16) %271, i64 16, i1 false)
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h9589746a8cf24df4E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i232": ; preds = %267
-  %272 = getelementptr inbounds i8, ptr %22, i64 8
+  %272 = getelementptr inbounds nuw i8, ptr %22, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %272), !noalias !457
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h9589746a8cf24df4E.exit"
 
@@ -5383,15 +5383,15 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
 273:                                              ; preds = %263, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h9589746a8cf24df4E.exit"
   %.sroa.0332.0 = phi i32 [ %.sroa.0332.1, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h9589746a8cf24df4E.exit" ], [ 0, %263 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6335)
-  %274 = getelementptr inbounds i8, ptr %1, i64 552
+  %274 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %275 = load i64, ptr %274, align 8, !range !29, !noundef !4
   %276 = icmp eq i64 %275, -9223372036854775808
   br i1 %276, label %283, label %277
 
 277:                                              ; preds = %273
-  %278 = getelementptr inbounds i8, ptr %1, i64 560
+  %278 = getelementptr inbounds nuw i8, ptr %1, i64 560
   %.106.val = load ptr, ptr %278, align 8, !nonnull !4, !noundef !4
-  %279 = getelementptr inbounds i8, ptr %1, i64 568
+  %279 = getelementptr inbounds nuw i8, ptr %1, i64 568
   %.106.val148 = load i64, ptr %279, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21), !noalias !460
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %21, ptr noalias noundef nonnull readonly align 1 %.106.val, i64 noundef %.106.val148), !noalias !460
@@ -5400,12 +5400,12 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
   br i1 %trunc.i233, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i235", label %.thread.i234
 
 .thread.i234:                                     ; preds = %277
-  %281 = getelementptr inbounds i8, ptr %21, i64 4
+  %281 = getelementptr inbounds nuw i8, ptr %21, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6335, ptr noundef nonnull align 4 dereferenceable(16) %281, i64 16, i1 false)
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h95f43ce7da1dfa1fE.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i235": ; preds = %277
-  %282 = getelementptr inbounds i8, ptr %21, i64 8
+  %282 = getelementptr inbounds nuw i8, ptr %21, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %282), !noalias !460
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h95f43ce7da1dfa1fE.exit"
 
@@ -5417,15 +5417,15 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
 283:                                              ; preds = %273, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h95f43ce7da1dfa1fE.exit"
   %.sroa.0334.0 = phi i32 [ %.sroa.0334.1, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h95f43ce7da1dfa1fE.exit" ], [ 0, %273 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6337)
-  %284 = getelementptr inbounds i8, ptr %1, i64 576
+  %284 = getelementptr inbounds nuw i8, ptr %1, i64 576
   %285 = load i64, ptr %284, align 8, !range !29, !noundef !4
   %286 = icmp eq i64 %285, -9223372036854775808
   br i1 %286, label %293, label %287
 
 287:                                              ; preds = %283
-  %288 = getelementptr inbounds i8, ptr %1, i64 584
+  %288 = getelementptr inbounds nuw i8, ptr %1, i64 584
   %.107.val = load ptr, ptr %288, align 8, !nonnull !4, !noundef !4
-  %289 = getelementptr inbounds i8, ptr %1, i64 592
+  %289 = getelementptr inbounds nuw i8, ptr %1, i64 592
   %.107.val149 = load i64, ptr %289, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20), !noalias !463
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %20, ptr noalias noundef nonnull readonly align 1 %.107.val, i64 noundef %.107.val149), !noalias !463
@@ -5434,12 +5434,12 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
   br i1 %trunc.i236, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i238", label %.thread.i237
 
 .thread.i237:                                     ; preds = %287
-  %291 = getelementptr inbounds i8, ptr %20, i64 4
+  %291 = getelementptr inbounds nuw i8, ptr %20, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6337, ptr noundef nonnull align 4 dereferenceable(16) %291, i64 16, i1 false)
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h787d0b9e06596c68E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i238": ; preds = %287
-  %292 = getelementptr inbounds i8, ptr %20, i64 8
+  %292 = getelementptr inbounds nuw i8, ptr %20, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %292), !noalias !463
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h787d0b9e06596c68E.exit"
 
@@ -5451,15 +5451,15 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
 293:                                              ; preds = %283, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h787d0b9e06596c68E.exit"
   %.sroa.0336.0 = phi i32 [ %.sroa.0336.1, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h787d0b9e06596c68E.exit" ], [ 0, %283 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6339)
-  %294 = getelementptr inbounds i8, ptr %1, i64 600
+  %294 = getelementptr inbounds nuw i8, ptr %1, i64 600
   %295 = load i64, ptr %294, align 8, !range !29, !noundef !4
   %296 = icmp eq i64 %295, -9223372036854775808
   br i1 %296, label %303, label %297
 
 297:                                              ; preds = %293
-  %298 = getelementptr inbounds i8, ptr %1, i64 608
+  %298 = getelementptr inbounds nuw i8, ptr %1, i64 608
   %.108.val = load ptr, ptr %298, align 8, !nonnull !4, !noundef !4
-  %299 = getelementptr inbounds i8, ptr %1, i64 616
+  %299 = getelementptr inbounds nuw i8, ptr %1, i64 616
   %.108.val150 = load i64, ptr %299, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19), !noalias !466
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %19, ptr noalias noundef nonnull readonly align 1 %.108.val, i64 noundef %.108.val150), !noalias !466
@@ -5468,12 +5468,12 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
   br i1 %trunc.i239, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i241", label %.thread.i240
 
 .thread.i240:                                     ; preds = %297
-  %301 = getelementptr inbounds i8, ptr %19, i64 4
+  %301 = getelementptr inbounds nuw i8, ptr %19, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6339, ptr noundef nonnull align 4 dereferenceable(16) %301, i64 16, i1 false)
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h227263fe652c2097E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i241": ; preds = %297
-  %302 = getelementptr inbounds i8, ptr %19, i64 8
+  %302 = getelementptr inbounds nuw i8, ptr %19, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %302), !noalias !466
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h227263fe652c2097E.exit"
 
@@ -5485,15 +5485,15 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
 303:                                              ; preds = %293, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h227263fe652c2097E.exit"
   %.sroa.0338.0 = phi i32 [ %.sroa.0338.1, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h227263fe652c2097E.exit" ], [ 0, %293 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6341)
-  %304 = getelementptr inbounds i8, ptr %1, i64 624
+  %304 = getelementptr inbounds nuw i8, ptr %1, i64 624
   %305 = load i64, ptr %304, align 8, !range !29, !noundef !4
   %306 = icmp eq i64 %305, -9223372036854775808
   br i1 %306, label %313, label %307
 
 307:                                              ; preds = %303
-  %308 = getelementptr inbounds i8, ptr %1, i64 632
+  %308 = getelementptr inbounds nuw i8, ptr %1, i64 632
   %.109.val = load ptr, ptr %308, align 8, !nonnull !4, !noundef !4
-  %309 = getelementptr inbounds i8, ptr %1, i64 640
+  %309 = getelementptr inbounds nuw i8, ptr %1, i64 640
   %.109.val151 = load i64, ptr %309, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18), !noalias !469
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %18, ptr noalias noundef nonnull readonly align 1 %.109.val, i64 noundef %.109.val151), !noalias !469
@@ -5502,12 +5502,12 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
   br i1 %trunc.i242, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i244", label %.thread.i243
 
 .thread.i243:                                     ; preds = %307
-  %311 = getelementptr inbounds i8, ptr %18, i64 4
+  %311 = getelementptr inbounds nuw i8, ptr %18, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6341, ptr noundef nonnull align 4 dereferenceable(16) %311, i64 16, i1 false)
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hcbf6be3a02004290E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i244": ; preds = %307
-  %312 = getelementptr inbounds i8, ptr %18, i64 8
+  %312 = getelementptr inbounds nuw i8, ptr %18, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %312), !noalias !469
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hcbf6be3a02004290E.exit"
 
@@ -5519,15 +5519,15 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
 313:                                              ; preds = %303, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hcbf6be3a02004290E.exit"
   %.sroa.0340.0 = phi i32 [ %.sroa.0340.1, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hcbf6be3a02004290E.exit" ], [ 0, %303 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6343)
-  %314 = getelementptr inbounds i8, ptr %1, i64 648
+  %314 = getelementptr inbounds nuw i8, ptr %1, i64 648
   %315 = load i64, ptr %314, align 8, !range !29, !noundef !4
   %316 = icmp eq i64 %315, -9223372036854775808
   br i1 %316, label %323, label %317
 
 317:                                              ; preds = %313
-  %318 = getelementptr inbounds i8, ptr %1, i64 656
+  %318 = getelementptr inbounds nuw i8, ptr %1, i64 656
   %.110.val = load ptr, ptr %318, align 8, !nonnull !4, !noundef !4
-  %319 = getelementptr inbounds i8, ptr %1, i64 664
+  %319 = getelementptr inbounds nuw i8, ptr %1, i64 664
   %.110.val152 = load i64, ptr %319, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17), !noalias !472
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %17, ptr noalias noundef nonnull readonly align 1 %.110.val, i64 noundef %.110.val152), !noalias !472
@@ -5536,12 +5536,12 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
   br i1 %trunc.i245, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i247", label %.thread.i246
 
 .thread.i246:                                     ; preds = %317
-  %321 = getelementptr inbounds i8, ptr %17, i64 4
+  %321 = getelementptr inbounds nuw i8, ptr %17, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6343, ptr noundef nonnull align 4 dereferenceable(16) %321, i64 16, i1 false)
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h45fbe7b2d6da3bb1E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i247": ; preds = %317
-  %322 = getelementptr inbounds i8, ptr %17, i64 8
+  %322 = getelementptr inbounds nuw i8, ptr %17, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %322), !noalias !472
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h45fbe7b2d6da3bb1E.exit"
 
@@ -5553,15 +5553,15 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
 323:                                              ; preds = %313, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h45fbe7b2d6da3bb1E.exit"
   %.sroa.0342.0 = phi i32 [ %.sroa.0342.1, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h45fbe7b2d6da3bb1E.exit" ], [ 0, %313 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6345)
-  %324 = getelementptr inbounds i8, ptr %1, i64 672
+  %324 = getelementptr inbounds nuw i8, ptr %1, i64 672
   %325 = load i64, ptr %324, align 8, !range !29, !noundef !4
   %326 = icmp eq i64 %325, -9223372036854775808
   br i1 %326, label %333, label %327
 
 327:                                              ; preds = %323
-  %328 = getelementptr inbounds i8, ptr %1, i64 680
+  %328 = getelementptr inbounds nuw i8, ptr %1, i64 680
   %.111.val = load ptr, ptr %328, align 8, !nonnull !4, !noundef !4
-  %329 = getelementptr inbounds i8, ptr %1, i64 688
+  %329 = getelementptr inbounds nuw i8, ptr %1, i64 688
   %.111.val153 = load i64, ptr %329, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16), !noalias !475
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %16, ptr noalias noundef nonnull readonly align 1 %.111.val, i64 noundef %.111.val153), !noalias !475
@@ -5570,12 +5570,12 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
   br i1 %trunc.i248, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i250", label %.thread.i249
 
 .thread.i249:                                     ; preds = %327
-  %331 = getelementptr inbounds i8, ptr %16, i64 4
+  %331 = getelementptr inbounds nuw i8, ptr %16, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6345, ptr noundef nonnull align 4 dereferenceable(16) %331, i64 16, i1 false)
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h9f74b17d808c517dE.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i250": ; preds = %327
-  %332 = getelementptr inbounds i8, ptr %16, i64 8
+  %332 = getelementptr inbounds nuw i8, ptr %16, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %332), !noalias !475
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h9f74b17d808c517dE.exit"
 
@@ -5587,15 +5587,15 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
 333:                                              ; preds = %323, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h9f74b17d808c517dE.exit"
   %.sroa.0344.0 = phi i32 [ %.sroa.0344.1, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h9f74b17d808c517dE.exit" ], [ 0, %323 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6347)
-  %334 = getelementptr inbounds i8, ptr %1, i64 696
+  %334 = getelementptr inbounds nuw i8, ptr %1, i64 696
   %335 = load i64, ptr %334, align 8, !range !29, !noundef !4
   %336 = icmp eq i64 %335, -9223372036854775808
   br i1 %336, label %343, label %337
 
 337:                                              ; preds = %333
-  %338 = getelementptr inbounds i8, ptr %1, i64 704
+  %338 = getelementptr inbounds nuw i8, ptr %1, i64 704
   %.112.val = load ptr, ptr %338, align 8, !nonnull !4, !noundef !4
-  %339 = getelementptr inbounds i8, ptr %1, i64 712
+  %339 = getelementptr inbounds nuw i8, ptr %1, i64 712
   %.112.val154 = load i64, ptr %339, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15), !noalias !478
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %15, ptr noalias noundef nonnull readonly align 1 %.112.val, i64 noundef %.112.val154), !noalias !478
@@ -5604,12 +5604,12 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
   br i1 %trunc.i251, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i253", label %.thread.i252
 
 .thread.i252:                                     ; preds = %337
-  %341 = getelementptr inbounds i8, ptr %15, i64 4
+  %341 = getelementptr inbounds nuw i8, ptr %15, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6347, ptr noundef nonnull align 4 dereferenceable(16) %341, i64 16, i1 false)
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h4503f6c449c276ecE.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i253": ; preds = %337
-  %342 = getelementptr inbounds i8, ptr %15, i64 8
+  %342 = getelementptr inbounds nuw i8, ptr %15, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %342), !noalias !478
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h4503f6c449c276ecE.exit"
 
@@ -5621,15 +5621,15 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
 343:                                              ; preds = %333, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h4503f6c449c276ecE.exit"
   %.sroa.0346.0 = phi i32 [ %.sroa.0346.1, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h4503f6c449c276ecE.exit" ], [ 0, %333 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6349)
-  %344 = getelementptr inbounds i8, ptr %1, i64 720
+  %344 = getelementptr inbounds nuw i8, ptr %1, i64 720
   %345 = load i64, ptr %344, align 8, !range !29, !noundef !4
   %346 = icmp eq i64 %345, -9223372036854775808
   br i1 %346, label %353, label %347
 
 347:                                              ; preds = %343
-  %348 = getelementptr inbounds i8, ptr %1, i64 728
+  %348 = getelementptr inbounds nuw i8, ptr %1, i64 728
   %.113.val = load ptr, ptr %348, align 8, !nonnull !4, !noundef !4
-  %349 = getelementptr inbounds i8, ptr %1, i64 736
+  %349 = getelementptr inbounds nuw i8, ptr %1, i64 736
   %.113.val155 = load i64, ptr %349, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14), !noalias !481
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %14, ptr noalias noundef nonnull readonly align 1 %.113.val, i64 noundef %.113.val155), !noalias !481
@@ -5638,12 +5638,12 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
   br i1 %trunc.i254, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i256", label %.thread.i255
 
 .thread.i255:                                     ; preds = %347
-  %351 = getelementptr inbounds i8, ptr %14, i64 4
+  %351 = getelementptr inbounds nuw i8, ptr %14, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6349, ptr noundef nonnull align 4 dereferenceable(16) %351, i64 16, i1 false)
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h293669cfc35bdea1E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i256": ; preds = %347
-  %352 = getelementptr inbounds i8, ptr %14, i64 8
+  %352 = getelementptr inbounds nuw i8, ptr %14, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %352), !noalias !481
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h293669cfc35bdea1E.exit"
 
@@ -5655,15 +5655,15 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
 353:                                              ; preds = %343, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h293669cfc35bdea1E.exit"
   %.sroa.0348.0 = phi i32 [ %.sroa.0348.1, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h293669cfc35bdea1E.exit" ], [ 0, %343 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6351)
-  %354 = getelementptr inbounds i8, ptr %1, i64 744
+  %354 = getelementptr inbounds nuw i8, ptr %1, i64 744
   %355 = load i64, ptr %354, align 8, !range !29, !noundef !4
   %356 = icmp eq i64 %355, -9223372036854775808
   br i1 %356, label %363, label %357
 
 357:                                              ; preds = %353
-  %358 = getelementptr inbounds i8, ptr %1, i64 752
+  %358 = getelementptr inbounds nuw i8, ptr %1, i64 752
   %.114.val = load ptr, ptr %358, align 8, !nonnull !4, !noundef !4
-  %359 = getelementptr inbounds i8, ptr %1, i64 760
+  %359 = getelementptr inbounds nuw i8, ptr %1, i64 760
   %.114.val156 = load i64, ptr %359, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13), !noalias !484
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 1 %.114.val, i64 noundef %.114.val156), !noalias !484
@@ -5672,12 +5672,12 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
   br i1 %trunc.i257, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i259", label %.thread.i258
 
 .thread.i258:                                     ; preds = %357
-  %361 = getelementptr inbounds i8, ptr %13, i64 4
+  %361 = getelementptr inbounds nuw i8, ptr %13, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6351, ptr noundef nonnull align 4 dereferenceable(16) %361, i64 16, i1 false)
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hbc090dbc8c7e5945E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i259": ; preds = %357
-  %362 = getelementptr inbounds i8, ptr %13, i64 8
+  %362 = getelementptr inbounds nuw i8, ptr %13, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %362), !noalias !484
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hbc090dbc8c7e5945E.exit"
 
@@ -5689,15 +5689,15 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
 363:                                              ; preds = %353, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hbc090dbc8c7e5945E.exit"
   %.sroa.0350.0 = phi i32 [ %.sroa.0350.1, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hbc090dbc8c7e5945E.exit" ], [ 0, %353 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6353)
-  %364 = getelementptr inbounds i8, ptr %1, i64 768
+  %364 = getelementptr inbounds nuw i8, ptr %1, i64 768
   %365 = load i64, ptr %364, align 8, !range !29, !noundef !4
   %366 = icmp eq i64 %365, -9223372036854775808
   br i1 %366, label %373, label %367
 
 367:                                              ; preds = %363
-  %368 = getelementptr inbounds i8, ptr %1, i64 776
+  %368 = getelementptr inbounds nuw i8, ptr %1, i64 776
   %.115.val = load ptr, ptr %368, align 8, !nonnull !4, !noundef !4
-  %369 = getelementptr inbounds i8, ptr %1, i64 784
+  %369 = getelementptr inbounds nuw i8, ptr %1, i64 784
   %.115.val157 = load i64, ptr %369, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12), !noalias !487
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %12, ptr noalias noundef nonnull readonly align 1 %.115.val, i64 noundef %.115.val157), !noalias !487
@@ -5706,12 +5706,12 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
   br i1 %trunc.i260, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i262", label %.thread.i261
 
 .thread.i261:                                     ; preds = %367
-  %371 = getelementptr inbounds i8, ptr %12, i64 4
+  %371 = getelementptr inbounds nuw i8, ptr %12, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6353, ptr noundef nonnull align 4 dereferenceable(16) %371, i64 16, i1 false)
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h903104616dc25761E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i262": ; preds = %367
-  %372 = getelementptr inbounds i8, ptr %12, i64 8
+  %372 = getelementptr inbounds nuw i8, ptr %12, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %372), !noalias !487
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h903104616dc25761E.exit"
 
@@ -5723,15 +5723,15 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
 373:                                              ; preds = %363, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h903104616dc25761E.exit"
   %.sroa.0352.0 = phi i32 [ %.sroa.0352.1, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h903104616dc25761E.exit" ], [ 0, %363 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6355)
-  %374 = getelementptr inbounds i8, ptr %1, i64 792
+  %374 = getelementptr inbounds nuw i8, ptr %1, i64 792
   %375 = load i64, ptr %374, align 8, !range !29, !noundef !4
   %376 = icmp eq i64 %375, -9223372036854775808
   br i1 %376, label %383, label %377
 
 377:                                              ; preds = %373
-  %378 = getelementptr inbounds i8, ptr %1, i64 800
+  %378 = getelementptr inbounds nuw i8, ptr %1, i64 800
   %.116.val = load ptr, ptr %378, align 8, !nonnull !4, !noundef !4
-  %379 = getelementptr inbounds i8, ptr %1, i64 808
+  %379 = getelementptr inbounds nuw i8, ptr %1, i64 808
   %.116.val158 = load i64, ptr %379, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11), !noalias !490
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %11, ptr noalias noundef nonnull readonly align 1 %.116.val, i64 noundef %.116.val158), !noalias !490
@@ -5740,12 +5740,12 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
   br i1 %trunc.i263, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i265", label %.thread.i264
 
 .thread.i264:                                     ; preds = %377
-  %381 = getelementptr inbounds i8, ptr %11, i64 4
+  %381 = getelementptr inbounds nuw i8, ptr %11, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6355, ptr noundef nonnull align 4 dereferenceable(16) %381, i64 16, i1 false)
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h615e04b985617ae8E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i265": ; preds = %377
-  %382 = getelementptr inbounds i8, ptr %11, i64 8
+  %382 = getelementptr inbounds nuw i8, ptr %11, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %382), !noalias !490
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h615e04b985617ae8E.exit"
 
@@ -5757,15 +5757,15 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
 383:                                              ; preds = %373, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h615e04b985617ae8E.exit"
   %.sroa.0354.0 = phi i32 [ %.sroa.0354.1, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h615e04b985617ae8E.exit" ], [ 0, %373 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6357)
-  %384 = getelementptr inbounds i8, ptr %1, i64 816
+  %384 = getelementptr inbounds nuw i8, ptr %1, i64 816
   %385 = load i64, ptr %384, align 8, !range !29, !noundef !4
   %386 = icmp eq i64 %385, -9223372036854775808
   br i1 %386, label %393, label %387
 
 387:                                              ; preds = %383
-  %388 = getelementptr inbounds i8, ptr %1, i64 824
+  %388 = getelementptr inbounds nuw i8, ptr %1, i64 824
   %.117.val = load ptr, ptr %388, align 8, !nonnull !4, !noundef !4
-  %389 = getelementptr inbounds i8, ptr %1, i64 832
+  %389 = getelementptr inbounds nuw i8, ptr %1, i64 832
   %.117.val159 = load i64, ptr %389, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !493
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 1 %.117.val, i64 noundef %.117.val159), !noalias !493
@@ -5774,12 +5774,12 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
   br i1 %trunc.i266, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i268", label %.thread.i267
 
 .thread.i267:                                     ; preds = %387
-  %391 = getelementptr inbounds i8, ptr %10, i64 4
+  %391 = getelementptr inbounds nuw i8, ptr %10, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6357, ptr noundef nonnull align 4 dereferenceable(16) %391, i64 16, i1 false)
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h13b75f3a9a73d64aE.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i268": ; preds = %387
-  %392 = getelementptr inbounds i8, ptr %10, i64 8
+  %392 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %392), !noalias !493
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h13b75f3a9a73d64aE.exit"
 
@@ -5791,15 +5791,15 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
 393:                                              ; preds = %383, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h13b75f3a9a73d64aE.exit"
   %.sroa.0356.0 = phi i32 [ %.sroa.0356.1, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h13b75f3a9a73d64aE.exit" ], [ 0, %383 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6359)
-  %394 = getelementptr inbounds i8, ptr %1, i64 840
+  %394 = getelementptr inbounds nuw i8, ptr %1, i64 840
   %395 = load i64, ptr %394, align 8, !range !29, !noundef !4
   %396 = icmp eq i64 %395, -9223372036854775808
   br i1 %396, label %403, label %397
 
 397:                                              ; preds = %393
-  %398 = getelementptr inbounds i8, ptr %1, i64 848
+  %398 = getelementptr inbounds nuw i8, ptr %1, i64 848
   %.118.val = load ptr, ptr %398, align 8, !nonnull !4, !noundef !4
-  %399 = getelementptr inbounds i8, ptr %1, i64 856
+  %399 = getelementptr inbounds nuw i8, ptr %1, i64 856
   %.118.val160 = load i64, ptr %399, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !496
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 1 %.118.val, i64 noundef %.118.val160), !noalias !496
@@ -5808,12 +5808,12 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
   br i1 %trunc.i269, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i271", label %.thread.i270
 
 .thread.i270:                                     ; preds = %397
-  %401 = getelementptr inbounds i8, ptr %9, i64 4
+  %401 = getelementptr inbounds nuw i8, ptr %9, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6359, ptr noundef nonnull align 4 dereferenceable(16) %401, i64 16, i1 false)
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h796bc0f37276d2a8E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i271": ; preds = %397
-  %402 = getelementptr inbounds i8, ptr %9, i64 8
+  %402 = getelementptr inbounds nuw i8, ptr %9, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %402), !noalias !496
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h796bc0f37276d2a8E.exit"
 
@@ -5825,15 +5825,15 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
 403:                                              ; preds = %393, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h796bc0f37276d2a8E.exit"
   %.sroa.0358.0 = phi i32 [ %.sroa.0358.1, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h796bc0f37276d2a8E.exit" ], [ 0, %393 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6361)
-  %404 = getelementptr inbounds i8, ptr %1, i64 864
+  %404 = getelementptr inbounds nuw i8, ptr %1, i64 864
   %405 = load i64, ptr %404, align 8, !range !29, !noundef !4
   %406 = icmp eq i64 %405, -9223372036854775808
   br i1 %406, label %413, label %407
 
 407:                                              ; preds = %403
-  %408 = getelementptr inbounds i8, ptr %1, i64 872
+  %408 = getelementptr inbounds nuw i8, ptr %1, i64 872
   %.119.val = load ptr, ptr %408, align 8, !nonnull !4, !noundef !4
-  %409 = getelementptr inbounds i8, ptr %1, i64 880
+  %409 = getelementptr inbounds nuw i8, ptr %1, i64 880
   %.119.val161 = load i64, ptr %409, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !499
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 1 %.119.val, i64 noundef %.119.val161), !noalias !499
@@ -5842,12 +5842,12 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
   br i1 %trunc.i272, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i274", label %.thread.i273
 
 .thread.i273:                                     ; preds = %407
-  %411 = getelementptr inbounds i8, ptr %8, i64 4
+  %411 = getelementptr inbounds nuw i8, ptr %8, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6361, ptr noundef nonnull align 4 dereferenceable(16) %411, i64 16, i1 false)
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h187df5eb9a6501ddE.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i274": ; preds = %407
-  %412 = getelementptr inbounds i8, ptr %8, i64 8
+  %412 = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %412), !noalias !499
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h187df5eb9a6501ddE.exit"
 
@@ -5859,15 +5859,15 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
 413:                                              ; preds = %403, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h187df5eb9a6501ddE.exit"
   %.sroa.0360.0 = phi i32 [ %.sroa.0360.1, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h187df5eb9a6501ddE.exit" ], [ 0, %403 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6363)
-  %414 = getelementptr inbounds i8, ptr %1, i64 888
+  %414 = getelementptr inbounds nuw i8, ptr %1, i64 888
   %415 = load i64, ptr %414, align 8, !range !29, !noundef !4
   %416 = icmp eq i64 %415, -9223372036854775808
   br i1 %416, label %423, label %417
 
 417:                                              ; preds = %413
-  %418 = getelementptr inbounds i8, ptr %1, i64 896
+  %418 = getelementptr inbounds nuw i8, ptr %1, i64 896
   %.120.val = load ptr, ptr %418, align 8, !nonnull !4, !noundef !4
-  %419 = getelementptr inbounds i8, ptr %1, i64 904
+  %419 = getelementptr inbounds nuw i8, ptr %1, i64 904
   %.120.val162 = load i64, ptr %419, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !502
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 1 %.120.val, i64 noundef %.120.val162), !noalias !502
@@ -5876,12 +5876,12 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
   br i1 %trunc.i275, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i277", label %.thread.i276
 
 .thread.i276:                                     ; preds = %417
-  %421 = getelementptr inbounds i8, ptr %7, i64 4
+  %421 = getelementptr inbounds nuw i8, ptr %7, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6363, ptr noundef nonnull align 4 dereferenceable(16) %421, i64 16, i1 false)
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h290daf950a16077aE.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i277": ; preds = %417
-  %422 = getelementptr inbounds i8, ptr %7, i64 8
+  %422 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %422), !noalias !502
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h290daf950a16077aE.exit"
 
@@ -5893,15 +5893,15 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
 423:                                              ; preds = %413, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h290daf950a16077aE.exit"
   %.sroa.0362.0 = phi i32 [ %.sroa.0362.1, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h290daf950a16077aE.exit" ], [ 0, %413 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6365)
-  %424 = getelementptr inbounds i8, ptr %1, i64 912
+  %424 = getelementptr inbounds nuw i8, ptr %1, i64 912
   %425 = load i64, ptr %424, align 8, !range !29, !noundef !4
   %426 = icmp eq i64 %425, -9223372036854775808
   br i1 %426, label %433, label %427
 
 427:                                              ; preds = %423
-  %428 = getelementptr inbounds i8, ptr %1, i64 920
+  %428 = getelementptr inbounds nuw i8, ptr %1, i64 920
   %.121.val = load ptr, ptr %428, align 8, !nonnull !4, !noundef !4
-  %429 = getelementptr inbounds i8, ptr %1, i64 928
+  %429 = getelementptr inbounds nuw i8, ptr %1, i64 928
   %.121.val163 = load i64, ptr %429, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !505
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 1 %.121.val, i64 noundef %.121.val163), !noalias !505
@@ -5910,12 +5910,12 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
   br i1 %trunc.i278, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i280", label %.thread.i279
 
 .thread.i279:                                     ; preds = %427
-  %431 = getelementptr inbounds i8, ptr %6, i64 4
+  %431 = getelementptr inbounds nuw i8, ptr %6, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6365, ptr noundef nonnull align 4 dereferenceable(16) %431, i64 16, i1 false)
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hbed570ce7b15f88eE.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i280": ; preds = %427
-  %432 = getelementptr inbounds i8, ptr %6, i64 8
+  %432 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %432), !noalias !505
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hbed570ce7b15f88eE.exit"
 
@@ -5927,15 +5927,15 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
 433:                                              ; preds = %423, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hbed570ce7b15f88eE.exit"
   %.sroa.0364.0 = phi i32 [ %.sroa.0364.1, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17hbed570ce7b15f88eE.exit" ], [ 0, %423 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6367)
-  %434 = getelementptr inbounds i8, ptr %1, i64 936
+  %434 = getelementptr inbounds nuw i8, ptr %1, i64 936
   %435 = load i64, ptr %434, align 8, !range !29, !noundef !4
   %436 = icmp eq i64 %435, -9223372036854775808
   br i1 %436, label %443, label %437
 
 437:                                              ; preds = %433
-  %438 = getelementptr inbounds i8, ptr %1, i64 944
+  %438 = getelementptr inbounds nuw i8, ptr %1, i64 944
   %.122.val = load ptr, ptr %438, align 8, !nonnull !4, !noundef !4
-  %439 = getelementptr inbounds i8, ptr %1, i64 952
+  %439 = getelementptr inbounds nuw i8, ptr %1, i64 952
   %.122.val164 = load i64, ptr %439, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !508
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 1 %.122.val, i64 noundef %.122.val164), !noalias !508
@@ -5944,12 +5944,12 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
   br i1 %trunc.i281, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i283", label %.thread.i282
 
 .thread.i282:                                     ; preds = %437
-  %441 = getelementptr inbounds i8, ptr %5, i64 4
+  %441 = getelementptr inbounds nuw i8, ptr %5, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6367, ptr noundef nonnull align 4 dereferenceable(16) %441, i64 16, i1 false)
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h6877cff48f9d3f01E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i283": ; preds = %437
-  %442 = getelementptr inbounds i8, ptr %5, i64 8
+  %442 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %442), !noalias !508
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h6877cff48f9d3f01E.exit"
 
@@ -5961,15 +5961,15 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
 443:                                              ; preds = %433, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h6877cff48f9d3f01E.exit"
   %.sroa.0366.0 = phi i32 [ %.sroa.0366.1, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h6877cff48f9d3f01E.exit" ], [ 0, %433 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6369)
-  %444 = getelementptr inbounds i8, ptr %1, i64 960
+  %444 = getelementptr inbounds nuw i8, ptr %1, i64 960
   %445 = load i64, ptr %444, align 8, !range !29, !noundef !4
   %446 = icmp eq i64 %445, -9223372036854775808
   br i1 %446, label %453, label %447
 
 447:                                              ; preds = %443
-  %448 = getelementptr inbounds i8, ptr %1, i64 968
+  %448 = getelementptr inbounds nuw i8, ptr %1, i64 968
   %.123.val = load ptr, ptr %448, align 8, !nonnull !4, !noundef !4
-  %449 = getelementptr inbounds i8, ptr %1, i64 976
+  %449 = getelementptr inbounds nuw i8, ptr %1, i64 976
   %.123.val165 = load i64, ptr %449, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !511
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 1 %.123.val, i64 noundef %.123.val165), !noalias !511
@@ -5978,12 +5978,12 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
   br i1 %trunc.i284, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i286", label %.thread.i285
 
 .thread.i285:                                     ; preds = %447
-  %451 = getelementptr inbounds i8, ptr %4, i64 4
+  %451 = getelementptr inbounds nuw i8, ptr %4, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6369, ptr noundef nonnull align 4 dereferenceable(16) %451, i64 16, i1 false)
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17ha11d9ca230a86b13E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i286": ; preds = %447
-  %452 = getelementptr inbounds i8, ptr %4, i64 8
+  %452 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %452), !noalias !511
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17ha11d9ca230a86b13E.exit"
 
@@ -5995,15 +5995,15 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
 453:                                              ; preds = %443, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17ha11d9ca230a86b13E.exit"
   %.sroa.0368.0 = phi i32 [ %.sroa.0368.1, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17ha11d9ca230a86b13E.exit" ], [ 0, %443 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6371)
-  %454 = getelementptr inbounds i8, ptr %1, i64 984
+  %454 = getelementptr inbounds nuw i8, ptr %1, i64 984
   %455 = load i64, ptr %454, align 8, !range !29, !noundef !4
   %456 = icmp eq i64 %455, -9223372036854775808
   br i1 %456, label %463, label %457
 
 457:                                              ; preds = %453
-  %458 = getelementptr inbounds i8, ptr %1, i64 992
+  %458 = getelementptr inbounds nuw i8, ptr %1, i64 992
   %.124.val = load ptr, ptr %458, align 8, !nonnull !4, !noundef !4
-  %459 = getelementptr inbounds i8, ptr %1, i64 1000
+  %459 = getelementptr inbounds nuw i8, ptr %1, i64 1000
   %.124.val166 = load i64, ptr %459, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !514
   call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 1 %.124.val, i64 noundef %.124.val166), !noalias !514
@@ -6012,12 +6012,12 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
   br i1 %trunc.i287, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i289", label %.thread.i288
 
 .thread.i288:                                     ; preds = %457
-  %461 = getelementptr inbounds i8, ptr %3, i64 4
+  %461 = getelementptr inbounds nuw i8, ptr %3, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6371, ptr noundef nonnull align 4 dereferenceable(16) %461, i64 16, i1 false)
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h13cb9372610160bcE.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i289": ; preds = %457
-  %462 = getelementptr inbounds i8, ptr %3, i64 8
+  %462 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %462), !noalias !514
   br label %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h13cb9372610160bcE.exit"
 
@@ -6029,171 +6029,171 @@ define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2
 463:                                              ; preds = %453, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h13cb9372610160bcE.exit"
   %.sroa.0370.0 = phi i32 [ %.sroa.0370.1, %"_ZN5theme6schema19StatusColorsContent24status_colors_refinement28_$u7b$$u7b$closure$u7d$$u7d$17h13cb9372610160bcE.exit" ], [ 0, %453 ]
   store i32 %.sroa.0.0, ptr %0, align 4
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6, i64 16, i1 false)
-  %464 = getelementptr inbounds i8, ptr %0, i64 20
+  %464 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %.sroa.0290.0, ptr %464, align 4
-  %.sroa.6291.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.6291.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6291.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6291, i64 16, i1 false)
-  %465 = getelementptr inbounds i8, ptr %0, i64 40
+  %465 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %.sroa.0292.0, ptr %465, align 4
-  %.sroa.6293.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 44
+  %.sroa.6293.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6293.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6293, i64 16, i1 false)
-  %466 = getelementptr inbounds i8, ptr %0, i64 60
+  %466 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 %.sroa.0294.0, ptr %466, align 4
-  %.sroa.6295.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 64
+  %.sroa.6295.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6295.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6295, i64 16, i1 false)
-  %467 = getelementptr inbounds i8, ptr %0, i64 80
+  %467 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 %.sroa.0296.0, ptr %467, align 4
-  %.sroa.6297.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 84
+  %.sroa.6297.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 84
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6297.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6297, i64 16, i1 false)
-  %468 = getelementptr inbounds i8, ptr %0, i64 100
+  %468 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store i32 %.sroa.0298.0, ptr %468, align 4
-  %.sroa.6299.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 104
+  %.sroa.6299.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6299.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6299, i64 16, i1 false)
-  %469 = getelementptr inbounds i8, ptr %0, i64 120
+  %469 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 %.sroa.0300.0, ptr %469, align 4
-  %.sroa.6301.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 124
+  %.sroa.6301.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 124
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6301.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6301, i64 16, i1 false)
-  %470 = getelementptr inbounds i8, ptr %0, i64 140
+  %470 = getelementptr inbounds nuw i8, ptr %0, i64 140
   store i32 %.sroa.0302.0, ptr %470, align 4
-  %.sroa.6303.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 144
+  %.sroa.6303.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6303.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6303, i64 16, i1 false)
-  %471 = getelementptr inbounds i8, ptr %0, i64 160
+  %471 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i32 %.sroa.0304.0, ptr %471, align 4
-  %.sroa.6305.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 164
+  %.sroa.6305.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 164
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6305.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6305, i64 16, i1 false)
-  %472 = getelementptr inbounds i8, ptr %0, i64 180
+  %472 = getelementptr inbounds nuw i8, ptr %0, i64 180
   store i32 %.sroa.0306.0, ptr %472, align 4
-  %.sroa.6307.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 184
+  %.sroa.6307.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 184
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6307.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6307, i64 16, i1 false)
-  %473 = getelementptr inbounds i8, ptr %0, i64 200
+  %473 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store i32 %.sroa.0308.0, ptr %473, align 4
-  %.sroa.6309.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 204
+  %.sroa.6309.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 204
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6309.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6309, i64 16, i1 false)
-  %474 = getelementptr inbounds i8, ptr %0, i64 220
+  %474 = getelementptr inbounds nuw i8, ptr %0, i64 220
   store i32 %.sroa.0310.0, ptr %474, align 4
-  %.sroa.6311.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 224
+  %.sroa.6311.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 224
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6311.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6311, i64 16, i1 false)
-  %475 = getelementptr inbounds i8, ptr %0, i64 240
+  %475 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store i32 %.sroa.0312.0, ptr %475, align 4
-  %.sroa.6313.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 244
+  %.sroa.6313.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 244
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6313.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6313, i64 16, i1 false)
-  %476 = getelementptr inbounds i8, ptr %0, i64 260
+  %476 = getelementptr inbounds nuw i8, ptr %0, i64 260
   store i32 %.sroa.0314.0, ptr %476, align 4
-  %.sroa.6315.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 264
+  %.sroa.6315.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 264
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6315.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6315, i64 16, i1 false)
-  %477 = getelementptr inbounds i8, ptr %0, i64 280
+  %477 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store i32 %.sroa.0316.0, ptr %477, align 4
-  %.sroa.6317.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 284
+  %.sroa.6317.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 284
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6317.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6317, i64 16, i1 false)
-  %478 = getelementptr inbounds i8, ptr %0, i64 300
+  %478 = getelementptr inbounds nuw i8, ptr %0, i64 300
   store i32 %.sroa.0318.0, ptr %478, align 4
-  %.sroa.6319.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 304
+  %.sroa.6319.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 304
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6319.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6319, i64 16, i1 false)
-  %479 = getelementptr inbounds i8, ptr %0, i64 320
+  %479 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store i32 %.sroa.0320.0, ptr %479, align 4
-  %.sroa.6321.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 324
+  %.sroa.6321.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 324
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6321.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6321, i64 16, i1 false)
-  %480 = getelementptr inbounds i8, ptr %0, i64 340
+  %480 = getelementptr inbounds nuw i8, ptr %0, i64 340
   store i32 %.sroa.0322.0, ptr %480, align 4
-  %.sroa.6323.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 344
+  %.sroa.6323.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 344
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6323.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6323, i64 16, i1 false)
-  %481 = getelementptr inbounds i8, ptr %0, i64 360
+  %481 = getelementptr inbounds nuw i8, ptr %0, i64 360
   store i32 %.sroa.0324.0, ptr %481, align 4
-  %.sroa.6325.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 364
+  %.sroa.6325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 364
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6325.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6325, i64 16, i1 false)
-  %482 = getelementptr inbounds i8, ptr %0, i64 380
+  %482 = getelementptr inbounds nuw i8, ptr %0, i64 380
   store i32 %.sroa.0326.0, ptr %482, align 4
-  %.sroa.6327.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 384
+  %.sroa.6327.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 384
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6327.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6327, i64 16, i1 false)
-  %483 = getelementptr inbounds i8, ptr %0, i64 400
+  %483 = getelementptr inbounds nuw i8, ptr %0, i64 400
   store i32 %.sroa.0328.0, ptr %483, align 4
-  %.sroa.6329.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 404
+  %.sroa.6329.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 404
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6329.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6329, i64 16, i1 false)
-  %484 = getelementptr inbounds i8, ptr %0, i64 420
+  %484 = getelementptr inbounds nuw i8, ptr %0, i64 420
   store i32 %.sroa.0330.0, ptr %484, align 4
-  %.sroa.6331.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 424
+  %.sroa.6331.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 424
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6331.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6331, i64 16, i1 false)
-  %485 = getelementptr inbounds i8, ptr %0, i64 440
+  %485 = getelementptr inbounds nuw i8, ptr %0, i64 440
   store i32 %.sroa.0332.0, ptr %485, align 4
-  %.sroa.6333.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 444
+  %.sroa.6333.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 444
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6333.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6333, i64 16, i1 false)
-  %486 = getelementptr inbounds i8, ptr %0, i64 460
+  %486 = getelementptr inbounds nuw i8, ptr %0, i64 460
   store i32 %.sroa.0334.0, ptr %486, align 4
-  %.sroa.6335.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 464
+  %.sroa.6335.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 464
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6335.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6335, i64 16, i1 false)
-  %487 = getelementptr inbounds i8, ptr %0, i64 480
+  %487 = getelementptr inbounds nuw i8, ptr %0, i64 480
   store i32 %.sroa.0336.0, ptr %487, align 4
-  %.sroa.6337.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 484
+  %.sroa.6337.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 484
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6337.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6337, i64 16, i1 false)
-  %488 = getelementptr inbounds i8, ptr %0, i64 500
+  %488 = getelementptr inbounds nuw i8, ptr %0, i64 500
   store i32 %.sroa.0338.0, ptr %488, align 4
-  %.sroa.6339.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 504
+  %.sroa.6339.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 504
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6339.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6339, i64 16, i1 false)
-  %489 = getelementptr inbounds i8, ptr %0, i64 520
+  %489 = getelementptr inbounds nuw i8, ptr %0, i64 520
   store i32 %.sroa.0340.0, ptr %489, align 4
-  %.sroa.6341.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 524
+  %.sroa.6341.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 524
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6341.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6341, i64 16, i1 false)
-  %490 = getelementptr inbounds i8, ptr %0, i64 540
+  %490 = getelementptr inbounds nuw i8, ptr %0, i64 540
   store i32 %.sroa.0342.0, ptr %490, align 4
-  %.sroa.6343.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 544
+  %.sroa.6343.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 544
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6343.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6343, i64 16, i1 false)
-  %491 = getelementptr inbounds i8, ptr %0, i64 560
+  %491 = getelementptr inbounds nuw i8, ptr %0, i64 560
   store i32 %.sroa.0344.0, ptr %491, align 4
-  %.sroa.6345.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 564
+  %.sroa.6345.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 564
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6345.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6345, i64 16, i1 false)
-  %492 = getelementptr inbounds i8, ptr %0, i64 580
+  %492 = getelementptr inbounds nuw i8, ptr %0, i64 580
   store i32 %.sroa.0346.0, ptr %492, align 4
-  %.sroa.6347.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 584
+  %.sroa.6347.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 584
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6347.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6347, i64 16, i1 false)
-  %493 = getelementptr inbounds i8, ptr %0, i64 600
+  %493 = getelementptr inbounds nuw i8, ptr %0, i64 600
   store i32 %.sroa.0348.0, ptr %493, align 4
-  %.sroa.6349.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 604
+  %.sroa.6349.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 604
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6349.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6349, i64 16, i1 false)
-  %494 = getelementptr inbounds i8, ptr %0, i64 620
+  %494 = getelementptr inbounds nuw i8, ptr %0, i64 620
   store i32 %.sroa.0350.0, ptr %494, align 4
-  %.sroa.6351.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 624
+  %.sroa.6351.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 624
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6351.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6351, i64 16, i1 false)
-  %495 = getelementptr inbounds i8, ptr %0, i64 640
+  %495 = getelementptr inbounds nuw i8, ptr %0, i64 640
   store i32 %.sroa.0352.0, ptr %495, align 4
-  %.sroa.6353.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 644
+  %.sroa.6353.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 644
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6353.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6353, i64 16, i1 false)
-  %496 = getelementptr inbounds i8, ptr %0, i64 660
+  %496 = getelementptr inbounds nuw i8, ptr %0, i64 660
   store i32 %.sroa.0354.0, ptr %496, align 4
-  %.sroa.6355.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 664
+  %.sroa.6355.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 664
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6355.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6355, i64 16, i1 false)
-  %497 = getelementptr inbounds i8, ptr %0, i64 680
+  %497 = getelementptr inbounds nuw i8, ptr %0, i64 680
   store i32 %.sroa.0356.0, ptr %497, align 4
-  %.sroa.6357.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 684
+  %.sroa.6357.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 684
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6357.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6357, i64 16, i1 false)
-  %498 = getelementptr inbounds i8, ptr %0, i64 700
+  %498 = getelementptr inbounds nuw i8, ptr %0, i64 700
   store i32 %.sroa.0358.0, ptr %498, align 4
-  %.sroa.6359.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 704
+  %.sroa.6359.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 704
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6359.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6359, i64 16, i1 false)
-  %499 = getelementptr inbounds i8, ptr %0, i64 720
+  %499 = getelementptr inbounds nuw i8, ptr %0, i64 720
   store i32 %.sroa.0360.0, ptr %499, align 4
-  %.sroa.6361.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 724
+  %.sroa.6361.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 724
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6361.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6361, i64 16, i1 false)
-  %500 = getelementptr inbounds i8, ptr %0, i64 740
+  %500 = getelementptr inbounds nuw i8, ptr %0, i64 740
   store i32 %.sroa.0362.0, ptr %500, align 4
-  %.sroa.6363.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 744
+  %.sroa.6363.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 744
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6363.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6363, i64 16, i1 false)
-  %501 = getelementptr inbounds i8, ptr %0, i64 760
+  %501 = getelementptr inbounds nuw i8, ptr %0, i64 760
   store i32 %.sroa.0364.0, ptr %501, align 4
-  %.sroa.6365.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 764
+  %.sroa.6365.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 764
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6365.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6365, i64 16, i1 false)
-  %502 = getelementptr inbounds i8, ptr %0, i64 780
+  %502 = getelementptr inbounds nuw i8, ptr %0, i64 780
   store i32 %.sroa.0366.0, ptr %502, align 4
-  %.sroa.6367.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 784
+  %.sroa.6367.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 784
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6367.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6367, i64 16, i1 false)
-  %503 = getelementptr inbounds i8, ptr %0, i64 800
+  %503 = getelementptr inbounds nuw i8, ptr %0, i64 800
   store i32 %.sroa.0368.0, ptr %503, align 4
-  %.sroa.6369.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 804
+  %.sroa.6369.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 804
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6369.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6369, i64 16, i1 false)
-  %504 = getelementptr inbounds i8, ptr %0, i64 820
+  %504 = getelementptr inbounds nuw i8, ptr %0, i64 820
   store i32 %.sroa.0370.0, ptr %504, align 4
-  %.sroa.6371.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 824
+  %.sroa.6371.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 824
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6371.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6371, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.6371)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.6369)
@@ -6247,9 +6247,9 @@ define void @"_ZN73_$LT$theme..schema..FontWeightContent$u20$as$u20$schemars..Js
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17he24fb2b9020d9140E"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, i64 noundef 17, i1 noundef zeroext false), !noalias !517
   %3 = load i64, ptr %2, align 8, !range !85, !noalias !517, !noundef !4
   %trunc.i = trunc nuw i64 %3 to i1
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i64, ptr %4, align 8, !range !29, !noalias !517, !noundef !4
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br i1 %trunc.i, label %7, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h688d451feb156e8cE.llvm.12664348367457638102.exit"
 
 7:                                                ; preds = %1
@@ -6262,9 +6262,9 @@ define void @"_ZN73_$LT$theme..schema..FontWeightContent$u20$as$u20$schemars..Js
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !517
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %9, ptr noundef nonnull align 1 dereferenceable(17) @anon.8864566ca2df49740c222121536a8dcf.16.llvm.12664348367457638102, i64 17, i1 false), !noalias !521
   store i64 %5, ptr %0, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %9, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 17, ptr %.sroa.5.0..sroa_idx, align 8
   ret void
 }
@@ -6283,73 +6283,73 @@ define void @"_ZN73_$LT$theme..schema..FontWeightContent$u20$as$u20$schemars..Js
 
 "_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$$GT$17h2b1aea1fca1c802dE.exit": ; preds = %2
   store i64 -9223372036854775806, ptr %4, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 100, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store i64 -9223372036854775806, ptr %6, align 8
-  %.sroa.43.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 80
+  %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 80
   store i64 0, ptr %.sroa.43.0..sroa_idx, align 8
-  %.sroa.43.sroa.4.0..sroa.43.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %4, i64 88
+  %.sroa.43.sroa.4.0..sroa.43.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 88
   store i64 200, ptr %.sroa.43.sroa.4.0..sroa.43.0..sroa_idx.sroa_idx, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 144
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 144
   store i64 -9223372036854775806, ptr %7, align 8
-  %.sroa.46.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 152
+  %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %.sroa.46.0..sroa_idx, align 8
-  %.sroa.46.sroa.4.0..sroa.46.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %4, i64 160
+  %.sroa.46.sroa.4.0..sroa.46.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 160
   store i64 300, ptr %.sroa.46.sroa.4.0..sroa.46.0..sroa_idx.sroa_idx, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 216
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 216
   store i64 -9223372036854775806, ptr %8, align 8
-  %.sroa.49.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 224
+  %.sroa.49.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 224
   store i64 0, ptr %.sroa.49.0..sroa_idx, align 8
-  %.sroa.49.sroa.4.0..sroa.49.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %4, i64 232
+  %.sroa.49.sroa.4.0..sroa.49.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 232
   store i64 400, ptr %.sroa.49.sroa.4.0..sroa.49.0..sroa_idx.sroa_idx, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 288
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 288
   store i64 -9223372036854775806, ptr %9, align 8
-  %.sroa.412.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 296
+  %.sroa.412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 296
   store i64 0, ptr %.sroa.412.0..sroa_idx, align 8
-  %.sroa.412.sroa.4.0..sroa.412.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %4, i64 304
+  %.sroa.412.sroa.4.0..sroa.412.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 304
   store i64 500, ptr %.sroa.412.sroa.4.0..sroa.412.0..sroa_idx.sroa_idx, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 360
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 360
   store i64 -9223372036854775806, ptr %10, align 8
-  %.sroa.415.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 368
+  %.sroa.415.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 368
   store i64 0, ptr %.sroa.415.0..sroa_idx, align 8
-  %.sroa.415.sroa.4.0..sroa.415.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %4, i64 376
+  %.sroa.415.sroa.4.0..sroa.415.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 376
   store i64 600, ptr %.sroa.415.sroa.4.0..sroa.415.0..sroa_idx.sroa_idx, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 432
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 432
   store i64 -9223372036854775806, ptr %11, align 8
-  %.sroa.418.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 440
+  %.sroa.418.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 440
   store i64 0, ptr %.sroa.418.0..sroa_idx, align 8
-  %.sroa.418.sroa.4.0..sroa.418.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %4, i64 448
+  %.sroa.418.sroa.4.0..sroa.418.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 448
   store i64 700, ptr %.sroa.418.sroa.4.0..sroa.418.0..sroa_idx.sroa_idx, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 504
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 504
   store i64 -9223372036854775806, ptr %12, align 8
-  %.sroa.421.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 512
+  %.sroa.421.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 512
   store i64 0, ptr %.sroa.421.0..sroa_idx, align 8
-  %.sroa.421.sroa.4.0..sroa.421.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %4, i64 520
+  %.sroa.421.sroa.4.0..sroa.421.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 520
   store i64 800, ptr %.sroa.421.sroa.4.0..sroa.421.0..sroa_idx.sroa_idx, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 576
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 576
   store i64 -9223372036854775806, ptr %13, align 8
-  %.sroa.424.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 584
+  %.sroa.424.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 584
   store i64 0, ptr %.sroa.424.0..sroa_idx, align 8
-  %.sroa.424.sroa.4.0..sroa.424.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %4, i64 592
+  %.sroa.424.sroa.4.0..sroa.424.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 592
   store i64 900, ptr %.sroa.424.sroa.4.0..sroa.424.0..sroa_idx.sroa_idx, align 8
   store i64 -9223372036854775808, ptr %0, align 8
-  %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 9, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
-  %.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  %.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %4, ptr %.sroa.0.sroa.5.0..sroa_idx, align 8
-  %.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
+  %.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 9, ptr %.sroa.0.sroa.6.0..sroa_idx, align 8
-  %.sroa.0.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
+  %.sroa.0.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 -9223372036854775808, ptr %.sroa.0.sroa.7.0..sroa_idx, align 8
-  %.sroa.0.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 72
+  %.sroa.0.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 -9223372036854775807, ptr %.sroa.0.sroa.8.0..sroa_idx, align 8
-  %.sroa.0.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 96
+  %.sroa.0.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i64 -9223372036854775803, ptr %.sroa.0.sroa.9.0..sroa_idx, align 8
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 168
-  %.sroa.14.sroa.5.0..sroa.14.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 232
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %.sroa.14.sroa.5.0..sroa.14.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 232
   store i64 0, ptr %.sroa.14.sroa.5.0..sroa.14.0..sroa_idx.sroa_idx, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.8.0..sroa_idx, i8 0, i64 56, i1 false)
   ret void
@@ -6363,18 +6363,18 @@ define void @"_ZN73_$LT$theme..schema..FontWeightContent$u20$as$u20$schemars..Js
 define noundef zeroext i1 @_ZN5theme6schema21HighlightStyleContent8is_empty17h246c12c42802b724E(ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %0) unnamed_addr #5 {
   %2 = load i64, ptr %0, align 8, !range !29, !noundef !4
   %3 = icmp eq i64 %2, -9223372036854775808
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8, !range !29
   %6 = icmp eq i64 %5, -9223372036854775808
   %or.cond = select i1 %3, i1 %6, i1 false
-  %7 = getelementptr inbounds i8, ptr %0, i64 50
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 50
   %8 = load i8, ptr %7, align 2, !range !522
   %9 = icmp eq i8 %8, 3
   %or.cond5 = select i1 %or.cond, i1 %9, i1 false
   br i1 %or.cond5, label %10, label %13
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load i16, ptr %11, align 8, !range !523, !noundef !4
   %.not = icmp eq i16 %12, 99
   br label %13
@@ -6387,11 +6387,11 @@ define noundef zeroext i1 @_ZN5theme6schema21HighlightStyleContent8is_empty17h24
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN78_$LT$theme..styles..system..SystemColors$u20$as$u20$core..default..Default$GT$7default17hb1917e90c39f4e7fE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([64 x i8]) align 4 dereferenceable(64) %0) unnamed_addr #0 {
   tail call void @_ZN4gpui5color4hsla17hfd6ef7d9290f9bf6E(ptr noalias nocapture noundef nonnull sret([16 x i8]) align 4 dereferenceable(16) %0, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00)
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4gpui5color4hsla17hfd6ef7d9290f9bf6E(ptr noalias nocapture noundef nonnull sret([16 x i8]) align 4 dereferenceable(16) %2, float noundef 0x3F8C779A60000000, float noundef 0x3FE947AE20000000, float noundef 0x3FE4CCCCC0000000, float noundef 1.000000e+00)
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZN4gpui5color4hsla17hfd6ef7d9290f9bf6E(ptr noalias nocapture noundef nonnull sret([16 x i8]) align 4 dereferenceable(16) %3, float noundef 0x3FBD2F1AA0000000, float noundef 0x3FEC28F5C0000000, float noundef 0x3FE428F5C0000000, float noundef 1.000000e+00)
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @_ZN4gpui5color4hsla17hfd6ef7d9290f9bf6E(ptr noalias nocapture noundef nonnull sret([16 x i8]) align 4 dereferenceable(16) %4, float noundef 0x3FD4083120000000, float noundef 0x3FDF5C2900000000, float noundef 0x3FE19999A0000000, float noundef 1.000000e+00)
   ret void
 }
@@ -6415,9 +6415,9 @@ define void @"_ZN5theme6schema1_83_$LT$impl$u20$schemars..JsonSchema$u20$for$u20
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17he24fb2b9020d9140E"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, i64 noundef 17, i1 noundef zeroext false), !noalias !524
   %3 = load i64, ptr %2, align 8, !range !85, !noalias !524, !noundef !4
   %trunc.i = trunc nuw i64 %3 to i1
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i64, ptr %4, align 8, !range !29, !noalias !524, !noundef !4
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br i1 %trunc.i, label %7, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h688d451feb156e8cE.llvm.12664348367457638102.exit"
 
 7:                                                ; preds = %1
@@ -6430,18 +6430,18 @@ define void @"_ZN5theme6schema1_83_$LT$impl$u20$schemars..JsonSchema$u20$for$u20
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !524
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %9, ptr noundef nonnull align 1 dereferenceable(17) @anon.8864566ca2df49740c222121536a8dcf.19.llvm.12664348367457638102, i64 17, i1 false), !noalias !528
   store i64 %5, ptr %0, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %9, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 17, ptr %.sroa.5.0..sroa_idx, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @"_ZN5theme6schema1_83_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$theme..schema..AppearanceContent$GT$9schema_id17hae191f98afd6f18cE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #6 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @anon.8864566ca2df49740c222121536a8dcf.20.llvm.12664348367457638102, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 32, ptr %3, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   ret void
@@ -6509,27 +6509,27 @@ define void @"_ZN5theme6schema1_83_$LT$impl$u20$schemars..JsonSchema$u20$for$u20
 
 "_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$$GT$17h2b1aea1fca1c802dE.exit": ; preds = %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %13, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false)
-  %23 = getelementptr inbounds i8, ptr %13, i64 72
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %23, ptr noundef nonnull align 8 dereferenceable(72) %3, i64 72, i1 false)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
   store i64 -9223372036854775808, ptr %0, align 8
-  %.sroa.0.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.0.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 2, ptr %.sroa.0.sroa.0.sroa.4.0..sroa_idx, align 8
-  %.sroa.0.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  %.sroa.0.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %13, ptr %.sroa.0.sroa.0.sroa.5.0..sroa_idx, align 8
-  %.sroa.0.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
+  %.sroa.0.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 2, ptr %.sroa.0.sroa.0.sroa.6.0..sroa_idx, align 8
-  %.sroa.0.sroa.0.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
+  %.sroa.0.sroa.0.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 -9223372036854775808, ptr %.sroa.0.sroa.0.sroa.7.0..sroa_idx, align 8
-  %.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 72
+  %.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 -9223372036854775808, ptr %.sroa.0.sroa.6.0..sroa_idx, align 8
-  %.sroa.0.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 80
+  %.sroa.0.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %6, ptr %.sroa.0.sroa.7.0..sroa_idx, align 8
-  %.sroa.0.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 96
+  %.sroa.0.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i64 -9223372036854775803, ptr %.sroa.0.sroa.9.0..sroa_idx, align 8
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 168
-  %.sroa.14.sroa.5.0..sroa.14.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 232
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %.sroa.14.sroa.5.0..sroa.14.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 232
   store i64 0, ptr %.sroa.14.sroa.5.0..sroa.14.0..sroa_idx.sroa_idx, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.8.0..sroa_idx, i8 0, i64 56, i1 false)
   ret void
@@ -6563,9 +6563,9 @@ define void @"_ZN5theme6schema1_89_$LT$impl$u20$schemars..JsonSchema$u20$for$u20
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17he24fb2b9020d9140E"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, i64 noundef 23, i1 noundef zeroext false), !noalias !529
   %3 = load i64, ptr %2, align 8, !range !85, !noalias !529, !noundef !4
   %trunc.i = trunc nuw i64 %3 to i1
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i64, ptr %4, align 8, !range !29, !noalias !529, !noundef !4
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br i1 %trunc.i, label %7, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h688d451feb156e8cE.llvm.12664348367457638102.exit"
 
 7:                                                ; preds = %1
@@ -6578,18 +6578,18 @@ define void @"_ZN5theme6schema1_89_$LT$impl$u20$schemars..JsonSchema$u20$for$u20
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !529
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %9, ptr noundef nonnull align 1 dereferenceable(23) @anon.8864566ca2df49740c222121536a8dcf.24.llvm.12664348367457638102, i64 23, i1 false), !noalias !533
   store i64 %5, ptr %0, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %9, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 23, ptr %.sroa.5.0..sroa_idx, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @"_ZN5theme6schema1_89_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$theme..schema..WindowBackgroundContent$GT$9schema_id17hf163154ae0c66ba0E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #6 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @anon.8864566ca2df49740c222121536a8dcf.25.llvm.12664348367457638102, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 38, ptr %3, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   ret void
@@ -6676,49 +6676,49 @@ define void @"_ZN5theme6schema1_89_$LT$impl$u20$schemars..JsonSchema$u20$for$u20
 
 30:                                               ; preds = %27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %16, ptr noundef nonnull align 8 dereferenceable(72) %6, i64 72, i1 false)
-  %31 = getelementptr inbounds i8, ptr %16, i64 72
+  %31 = getelementptr inbounds nuw i8, ptr %16, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %31, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false)
-  %32 = getelementptr inbounds i8, ptr %16, i64 144
+  %32 = getelementptr inbounds nuw i8, ptr %16, i64 144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %32, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %3)
-  %33 = getelementptr inbounds i8, ptr %3, i64 168
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 168
   store ptr null, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %3, i64 72
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store i64 -9223372036854775807, ptr %34, align 8
   store i64 -9223372036854775808, ptr %3, align 8
-  %35 = getelementptr inbounds i8, ptr %3, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 -9223372036854775808, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %3, i64 96
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 96
   store i64 -9223372036854775803, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %3, i64 176
-  %38 = getelementptr inbounds i8, ptr %3, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 176
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %37, i8 0, i64 40, i1 false)
   store i64 -9223372036854775808, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %3, i64 216
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 216
   store ptr null, ptr %39, align 8
-  %.sroa.517.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 232
+  %.sroa.517.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 232
   store i64 0, ptr %.sroa.517.0..sroa_idx, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  %.sroa.0.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 96
+  %.sroa.0.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0.sroa.9.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(72) %36, i64 72, i1 false)
-  %.sroa.0.sroa.0.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 48
+  %.sroa.0.sroa.0.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.sroa.0.sroa.7.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %38, i64 24, i1 false)
-  %.sroa.14.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 216
+  %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 216
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.14.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %39, i64 24, i1 false)
-  %.sroa.0.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 24
+  %.sroa.0.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 3, ptr %.sroa.0.sroa.0.sroa.4.0..sroa_idx, align 8
-  %.sroa.0.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 32
+  %.sroa.0.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %16, ptr %.sroa.0.sroa.0.sroa.5.0..sroa_idx, align 8
-  %.sroa.0.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 40
+  %.sroa.0.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i64 3, ptr %.sroa.0.sroa.0.sroa.6.0..sroa_idx, align 8
-  %.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 72
+  %.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 72
   store i64 -9223372036854775808, ptr %.sroa.0.sroa.6.0..sroa_idx, align 8
-  %.sroa.0.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 80
+  %.sroa.0.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 80
   store ptr %9, ptr %.sroa.0.sroa.7.0..sroa_idx, align 8
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 168
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 168
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.8.0..sroa_idx, i8 0, i64 48, i1 false)
   invoke void @_ZN8schemars8_private8metadata15add_description17h2020263e0882e09cE(ptr noalias nocapture noundef nonnull sret([240 x i8]) align 8 dereferenceable(240) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(240) %7, ptr noalias noundef nonnull readonly align 1 @anon.8864566ca2df49740c222121536a8dcf.29, i64 noundef 40)
           to label %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$$GT$17h2b1aea1fca1c802dE.exit" unwind label %43
@@ -6779,9 +6779,9 @@ define void @"_ZN5theme6schema1_84_$LT$impl$u20$schemars..JsonSchema$u20$for$u20
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17he24fb2b9020d9140E"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, i64 noundef 18, i1 noundef zeroext false), !noalias !534
   %3 = load i64, ptr %2, align 8, !range !85, !noalias !534, !noundef !4
   %trunc.i = trunc nuw i64 %3 to i1
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i64, ptr %4, align 8, !range !29, !noalias !534, !noundef !4
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br i1 %trunc.i, label %7, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h688d451feb156e8cE.llvm.12664348367457638102.exit"
 
 7:                                                ; preds = %1
@@ -6794,18 +6794,18 @@ define void @"_ZN5theme6schema1_84_$LT$impl$u20$schemars..JsonSchema$u20$for$u20
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !534
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %9, ptr noundef nonnull align 1 dereferenceable(18) @anon.8864566ca2df49740c222121536a8dcf.32, i64 18, i1 false), !noalias !538
   store i64 %5, ptr %0, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %9, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 18, ptr %.sroa.5.0..sroa_idx, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @"_ZN5theme6schema1_84_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$theme..schema..ThemeFamilyContent$GT$9schema_id17h0a1ce26a00932fbfE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #6 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @anon.8864566ca2df49740c222121536a8dcf.33, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 33, ptr %3, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   ret void
@@ -6837,24 +6837,24 @@ define void @"_ZN5theme6schema1_84_$LT$impl$u20$schemars..JsonSchema$u20$for$u20
 
 14:                                               ; preds = %2
   store i8 2, ptr %9, align 1
-  %15 = getelementptr inbounds i8, ptr %6, i64 168
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 168
   store ptr null, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 72
   store i64 -9223372036854775808, ptr %16, align 8
-  %.sroa.42.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 80
+  %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 80
   store ptr %9, ptr %.sroa.42.0..sroa_idx, align 8
   store i64 -9223372036854775808, ptr %6, align 8
-  %17 = getelementptr inbounds i8, ptr %6, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 -9223372036854775808, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 96
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 96
   store i64 -9223372036854775803, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %6, i64 176
-  %20 = getelementptr inbounds i8, ptr %6, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 176
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %19, i8 0, i64 40, i1 false)
   store i64 -9223372036854775808, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %6, i64 216
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 216
   store ptr null, ptr %21, align 8
-  %.sroa.3221.216..sroa_idx = getelementptr inbounds i8, ptr %6, i64 232
+  %.sroa.3221.216..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 232
   store i64 0, ptr %.sroa.3221.216..sroa_idx, align 8
   %22 = invoke noundef align 8 dereferenceable(104) ptr @_ZN8schemars6schema12SchemaObject6object17h5adaef6fb6e7c63fE(ptr noalias noundef nonnull align 8 dereferenceable(240) %6)
           to label %23 unwind label %12
@@ -6937,9 +6937,9 @@ define void @"_ZN5theme6schema1_78_$LT$impl$u20$schemars..JsonSchema$u20$for$u20
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17he24fb2b9020d9140E"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, i64 noundef 12, i1 noundef zeroext false), !noalias !539
   %3 = load i64, ptr %2, align 8, !range !85, !noalias !539, !noundef !4
   %trunc.i = trunc nuw i64 %3 to i1
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i64, ptr %4, align 8, !range !29, !noalias !539, !noundef !4
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br i1 %trunc.i, label %7, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h688d451feb156e8cE.llvm.12664348367457638102.exit"
 
 7:                                                ; preds = %1
@@ -6952,18 +6952,18 @@ define void @"_ZN5theme6schema1_78_$LT$impl$u20$schemars..JsonSchema$u20$for$u20
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !539
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %9, ptr noundef nonnull align 1 dereferenceable(12) @anon.8864566ca2df49740c222121536a8dcf.39.llvm.12664348367457638102, i64 12, i1 false), !noalias !543
   store i64 %5, ptr %0, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %9, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 12, ptr %.sroa.5.0..sroa_idx, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @"_ZN5theme6schema1_78_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$theme..schema..ThemeContent$GT$9schema_id17h87391f13d7592d6eE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #6 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @anon.8864566ca2df49740c222121536a8dcf.40.llvm.12664348367457638102, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 27, ptr %3, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   ret void
@@ -6995,24 +6995,24 @@ define void @"_ZN5theme6schema1_78_$LT$impl$u20$schemars..JsonSchema$u20$for$u20
 
 14:                                               ; preds = %2
   store i8 2, ptr %9, align 1
-  %15 = getelementptr inbounds i8, ptr %6, i64 168
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 168
   store ptr null, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 72
   store i64 -9223372036854775808, ptr %16, align 8
-  %.sroa.42.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 80
+  %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 80
   store ptr %9, ptr %.sroa.42.0..sroa_idx, align 8
   store i64 -9223372036854775808, ptr %6, align 8
-  %17 = getelementptr inbounds i8, ptr %6, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 -9223372036854775808, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 96
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 96
   store i64 -9223372036854775803, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %6, i64 176
-  %20 = getelementptr inbounds i8, ptr %6, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 176
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %19, i8 0, i64 40, i1 false)
   store i64 -9223372036854775808, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %6, i64 216
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 216
   store ptr null, ptr %21, align 8
-  %.sroa.3221.216..sroa_idx = getelementptr inbounds i8, ptr %6, i64 232
+  %.sroa.3221.216..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 232
   store i64 0, ptr %.sroa.3221.216..sroa_idx, align 8
   %22 = invoke noundef align 8 dereferenceable(104) ptr @_ZN8schemars6schema12SchemaObject6object17h5adaef6fb6e7c63fE(ptr noalias noundef nonnull align 8 dereferenceable(240) %6)
           to label %23 unwind label %12
@@ -7083,9 +7083,9 @@ define void @"_ZN5theme6schema1_83_$LT$impl$u20$schemars..JsonSchema$u20$for$u20
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17he24fb2b9020d9140E"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, i64 noundef 17, i1 noundef zeroext false), !noalias !544
   %3 = load i64, ptr %2, align 8, !range !85, !noalias !544, !noundef !4
   %trunc.i = trunc nuw i64 %3 to i1
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i64, ptr %4, align 8, !range !29, !noalias !544, !noundef !4
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br i1 %trunc.i, label %7, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h688d451feb156e8cE.llvm.12664348367457638102.exit"
 
 7:                                                ; preds = %1
@@ -7098,18 +7098,18 @@ define void @"_ZN5theme6schema1_83_$LT$impl$u20$schemars..JsonSchema$u20$for$u20
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !544
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %9, ptr noundef nonnull align 1 dereferenceable(17) @anon.8864566ca2df49740c222121536a8dcf.49.llvm.12664348367457638102, i64 17, i1 false), !noalias !548
   store i64 %5, ptr %0, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %9, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 17, ptr %.sroa.5.0..sroa_idx, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @"_ZN5theme6schema1_83_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$theme..schema..ThemeStyleContent$GT$9schema_id17h6316316928debef5E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #6 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @anon.8864566ca2df49740c222121536a8dcf.50.llvm.12664348367457638102, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 32, ptr %3, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   ret void
@@ -7149,371 +7149,371 @@ define void @"_ZN5theme6schema1_83_$LT$impl$u20$schemars..JsonSchema$u20$for$u20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.137.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !549
   store i64 0, ptr %7, align 8, !noalias !549
-  %28 = getelementptr inbounds i8, ptr %7, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %28, align 8, !noalias !549
-  %29 = getelementptr inbounds i8, ptr %7, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %29, align 8, !noalias !549
   call void @llvm.lifetime.start.p0(i64 2256, ptr nonnull %6), !noalias !549
   store i64 -9223372036854775808, ptr %6, align 8, !noalias !549
-  %30 = getelementptr inbounds i8, ptr %6, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 -9223372036854775808, ptr %30, align 8, !noalias !549
-  %31 = getelementptr inbounds i8, ptr %6, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i64 -9223372036854775808, ptr %31, align 8, !noalias !549
-  %32 = getelementptr inbounds i8, ptr %6, i64 72
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 72
   store i64 -9223372036854775808, ptr %32, align 8, !noalias !549
-  %33 = getelementptr inbounds i8, ptr %6, i64 96
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 96
   store i64 -9223372036854775808, ptr %33, align 8, !noalias !549
-  %34 = getelementptr inbounds i8, ptr %6, i64 120
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 120
   store i64 -9223372036854775808, ptr %34, align 8, !noalias !549
-  %35 = getelementptr inbounds i8, ptr %6, i64 144
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 144
   store i64 -9223372036854775808, ptr %35, align 8, !noalias !549
-  %36 = getelementptr inbounds i8, ptr %6, i64 168
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 168
   store i64 -9223372036854775808, ptr %36, align 8, !noalias !549
-  %37 = getelementptr inbounds i8, ptr %6, i64 192
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 192
   store i64 -9223372036854775808, ptr %37, align 8, !noalias !549
-  %38 = getelementptr inbounds i8, ptr %6, i64 216
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 216
   store i64 -9223372036854775808, ptr %38, align 8, !noalias !549
-  %39 = getelementptr inbounds i8, ptr %6, i64 240
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 240
   store i64 -9223372036854775808, ptr %39, align 8, !noalias !549
-  %40 = getelementptr inbounds i8, ptr %6, i64 264
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 264
   store i64 -9223372036854775808, ptr %40, align 8, !noalias !549
-  %41 = getelementptr inbounds i8, ptr %6, i64 288
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 288
   store i64 -9223372036854775808, ptr %41, align 8, !noalias !549
-  %42 = getelementptr inbounds i8, ptr %6, i64 312
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 312
   store i64 -9223372036854775808, ptr %42, align 8, !noalias !549
-  %43 = getelementptr inbounds i8, ptr %6, i64 336
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 336
   store i64 -9223372036854775808, ptr %43, align 8, !noalias !549
-  %44 = getelementptr inbounds i8, ptr %6, i64 360
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 360
   store i64 -9223372036854775808, ptr %44, align 8, !noalias !549
-  %45 = getelementptr inbounds i8, ptr %6, i64 384
+  %45 = getelementptr inbounds nuw i8, ptr %6, i64 384
   store i64 -9223372036854775808, ptr %45, align 8, !noalias !549
-  %46 = getelementptr inbounds i8, ptr %6, i64 408
+  %46 = getelementptr inbounds nuw i8, ptr %6, i64 408
   store i64 -9223372036854775808, ptr %46, align 8, !noalias !549
-  %47 = getelementptr inbounds i8, ptr %6, i64 432
+  %47 = getelementptr inbounds nuw i8, ptr %6, i64 432
   store i64 -9223372036854775808, ptr %47, align 8, !noalias !549
-  %48 = getelementptr inbounds i8, ptr %6, i64 456
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 456
   store i64 -9223372036854775808, ptr %48, align 8, !noalias !549
-  %49 = getelementptr inbounds i8, ptr %6, i64 480
+  %49 = getelementptr inbounds nuw i8, ptr %6, i64 480
   store i64 -9223372036854775808, ptr %49, align 8, !noalias !549
-  %50 = getelementptr inbounds i8, ptr %6, i64 504
+  %50 = getelementptr inbounds nuw i8, ptr %6, i64 504
   store i64 -9223372036854775808, ptr %50, align 8, !noalias !549
-  %51 = getelementptr inbounds i8, ptr %6, i64 528
+  %51 = getelementptr inbounds nuw i8, ptr %6, i64 528
   store i64 -9223372036854775808, ptr %51, align 8, !noalias !549
-  %52 = getelementptr inbounds i8, ptr %6, i64 552
+  %52 = getelementptr inbounds nuw i8, ptr %6, i64 552
   store i64 -9223372036854775808, ptr %52, align 8, !noalias !549
-  %53 = getelementptr inbounds i8, ptr %6, i64 576
+  %53 = getelementptr inbounds nuw i8, ptr %6, i64 576
   store i64 -9223372036854775808, ptr %53, align 8, !noalias !549
-  %54 = getelementptr inbounds i8, ptr %6, i64 600
+  %54 = getelementptr inbounds nuw i8, ptr %6, i64 600
   store i64 -9223372036854775808, ptr %54, align 8, !noalias !549
-  %55 = getelementptr inbounds i8, ptr %6, i64 624
+  %55 = getelementptr inbounds nuw i8, ptr %6, i64 624
   store i64 -9223372036854775808, ptr %55, align 8, !noalias !549
-  %56 = getelementptr inbounds i8, ptr %6, i64 648
+  %56 = getelementptr inbounds nuw i8, ptr %6, i64 648
   store i64 -9223372036854775808, ptr %56, align 8, !noalias !549
-  %57 = getelementptr inbounds i8, ptr %6, i64 672
+  %57 = getelementptr inbounds nuw i8, ptr %6, i64 672
   store i64 -9223372036854775808, ptr %57, align 8, !noalias !549
-  %58 = getelementptr inbounds i8, ptr %6, i64 696
+  %58 = getelementptr inbounds nuw i8, ptr %6, i64 696
   store i64 -9223372036854775808, ptr %58, align 8, !noalias !549
-  %59 = getelementptr inbounds i8, ptr %6, i64 720
+  %59 = getelementptr inbounds nuw i8, ptr %6, i64 720
   store i64 -9223372036854775808, ptr %59, align 8, !noalias !549
-  %60 = getelementptr inbounds i8, ptr %6, i64 744
+  %60 = getelementptr inbounds nuw i8, ptr %6, i64 744
   store i64 -9223372036854775808, ptr %60, align 8, !noalias !549
-  %61 = getelementptr inbounds i8, ptr %6, i64 768
+  %61 = getelementptr inbounds nuw i8, ptr %6, i64 768
   store i64 -9223372036854775808, ptr %61, align 8, !noalias !549
-  %62 = getelementptr inbounds i8, ptr %6, i64 792
+  %62 = getelementptr inbounds nuw i8, ptr %6, i64 792
   store i64 -9223372036854775808, ptr %62, align 8, !noalias !549
-  %63 = getelementptr inbounds i8, ptr %6, i64 816
+  %63 = getelementptr inbounds nuw i8, ptr %6, i64 816
   store i64 -9223372036854775808, ptr %63, align 8, !noalias !549
-  %64 = getelementptr inbounds i8, ptr %6, i64 840
+  %64 = getelementptr inbounds nuw i8, ptr %6, i64 840
   store i64 -9223372036854775808, ptr %64, align 8, !noalias !549
-  %65 = getelementptr inbounds i8, ptr %6, i64 864
+  %65 = getelementptr inbounds nuw i8, ptr %6, i64 864
   store i64 -9223372036854775808, ptr %65, align 8, !noalias !549
-  %66 = getelementptr inbounds i8, ptr %6, i64 888
+  %66 = getelementptr inbounds nuw i8, ptr %6, i64 888
   store i64 -9223372036854775808, ptr %66, align 8, !noalias !549
-  %67 = getelementptr inbounds i8, ptr %6, i64 912
+  %67 = getelementptr inbounds nuw i8, ptr %6, i64 912
   store i64 -9223372036854775808, ptr %67, align 8, !noalias !549
-  %68 = getelementptr inbounds i8, ptr %6, i64 936
+  %68 = getelementptr inbounds nuw i8, ptr %6, i64 936
   store i64 -9223372036854775808, ptr %68, align 8, !noalias !549
-  %69 = getelementptr inbounds i8, ptr %6, i64 960
+  %69 = getelementptr inbounds nuw i8, ptr %6, i64 960
   store i64 -9223372036854775808, ptr %69, align 8, !noalias !549
-  %70 = getelementptr inbounds i8, ptr %6, i64 984
+  %70 = getelementptr inbounds nuw i8, ptr %6, i64 984
   store i64 -9223372036854775808, ptr %70, align 8, !noalias !549
-  %71 = getelementptr inbounds i8, ptr %6, i64 1008
+  %71 = getelementptr inbounds nuw i8, ptr %6, i64 1008
   store i64 -9223372036854775808, ptr %71, align 8, !noalias !549
-  %72 = getelementptr inbounds i8, ptr %6, i64 1032
+  %72 = getelementptr inbounds nuw i8, ptr %6, i64 1032
   store i64 -9223372036854775808, ptr %72, align 8, !noalias !549
-  %73 = getelementptr inbounds i8, ptr %6, i64 1056
+  %73 = getelementptr inbounds nuw i8, ptr %6, i64 1056
   store i64 -9223372036854775808, ptr %73, align 8, !noalias !549
-  %74 = getelementptr inbounds i8, ptr %6, i64 1080
+  %74 = getelementptr inbounds nuw i8, ptr %6, i64 1080
   store i64 -9223372036854775808, ptr %74, align 8, !noalias !549
-  %75 = getelementptr inbounds i8, ptr %6, i64 1104
+  %75 = getelementptr inbounds nuw i8, ptr %6, i64 1104
   store i64 -9223372036854775808, ptr %75, align 8, !noalias !549
-  %76 = getelementptr inbounds i8, ptr %6, i64 1128
+  %76 = getelementptr inbounds nuw i8, ptr %6, i64 1128
   store i64 -9223372036854775808, ptr %76, align 8, !noalias !549
-  %77 = getelementptr inbounds i8, ptr %6, i64 1152
+  %77 = getelementptr inbounds nuw i8, ptr %6, i64 1152
   store i64 -9223372036854775808, ptr %77, align 8, !noalias !549
-  %78 = getelementptr inbounds i8, ptr %6, i64 1176
+  %78 = getelementptr inbounds nuw i8, ptr %6, i64 1176
   store i64 -9223372036854775808, ptr %78, align 8, !noalias !549
-  %79 = getelementptr inbounds i8, ptr %6, i64 1200
+  %79 = getelementptr inbounds nuw i8, ptr %6, i64 1200
   store i64 -9223372036854775808, ptr %79, align 8, !noalias !549
-  %80 = getelementptr inbounds i8, ptr %6, i64 1224
+  %80 = getelementptr inbounds nuw i8, ptr %6, i64 1224
   store i64 -9223372036854775808, ptr %80, align 8, !noalias !549
-  %81 = getelementptr inbounds i8, ptr %6, i64 1248
+  %81 = getelementptr inbounds nuw i8, ptr %6, i64 1248
   store i64 -9223372036854775808, ptr %81, align 8, !noalias !549
-  %82 = getelementptr inbounds i8, ptr %6, i64 1272
+  %82 = getelementptr inbounds nuw i8, ptr %6, i64 1272
   store i64 -9223372036854775808, ptr %82, align 8, !noalias !549
-  %83 = getelementptr inbounds i8, ptr %6, i64 1296
+  %83 = getelementptr inbounds nuw i8, ptr %6, i64 1296
   store i64 -9223372036854775808, ptr %83, align 8, !noalias !549
-  %84 = getelementptr inbounds i8, ptr %6, i64 1320
+  %84 = getelementptr inbounds nuw i8, ptr %6, i64 1320
   store i64 -9223372036854775808, ptr %84, align 8, !noalias !549
-  %85 = getelementptr inbounds i8, ptr %6, i64 1344
+  %85 = getelementptr inbounds nuw i8, ptr %6, i64 1344
   store i64 -9223372036854775808, ptr %85, align 8, !noalias !549
-  %86 = getelementptr inbounds i8, ptr %6, i64 1368
+  %86 = getelementptr inbounds nuw i8, ptr %6, i64 1368
   store i64 -9223372036854775808, ptr %86, align 8, !noalias !549
-  %87 = getelementptr inbounds i8, ptr %6, i64 1392
+  %87 = getelementptr inbounds nuw i8, ptr %6, i64 1392
   store i64 -9223372036854775808, ptr %87, align 8, !noalias !549
-  %88 = getelementptr inbounds i8, ptr %6, i64 1416
+  %88 = getelementptr inbounds nuw i8, ptr %6, i64 1416
   store i64 -9223372036854775808, ptr %88, align 8, !noalias !549
-  %89 = getelementptr inbounds i8, ptr %6, i64 1440
+  %89 = getelementptr inbounds nuw i8, ptr %6, i64 1440
   store i64 -9223372036854775808, ptr %89, align 8, !noalias !549
-  %90 = getelementptr inbounds i8, ptr %6, i64 1464
+  %90 = getelementptr inbounds nuw i8, ptr %6, i64 1464
   store i64 -9223372036854775808, ptr %90, align 8, !noalias !549
-  %91 = getelementptr inbounds i8, ptr %6, i64 1488
+  %91 = getelementptr inbounds nuw i8, ptr %6, i64 1488
   store i64 -9223372036854775808, ptr %91, align 8, !noalias !549
-  %92 = getelementptr inbounds i8, ptr %6, i64 1512
+  %92 = getelementptr inbounds nuw i8, ptr %6, i64 1512
   store i64 -9223372036854775808, ptr %92, align 8, !noalias !549
-  %93 = getelementptr inbounds i8, ptr %6, i64 1536
+  %93 = getelementptr inbounds nuw i8, ptr %6, i64 1536
   store i64 -9223372036854775808, ptr %93, align 8, !noalias !549
-  %94 = getelementptr inbounds i8, ptr %6, i64 1560
+  %94 = getelementptr inbounds nuw i8, ptr %6, i64 1560
   store i64 -9223372036854775808, ptr %94, align 8, !noalias !549
-  %95 = getelementptr inbounds i8, ptr %6, i64 1584
+  %95 = getelementptr inbounds nuw i8, ptr %6, i64 1584
   store i64 -9223372036854775808, ptr %95, align 8, !noalias !549
-  %96 = getelementptr inbounds i8, ptr %6, i64 1608
+  %96 = getelementptr inbounds nuw i8, ptr %6, i64 1608
   store i64 -9223372036854775808, ptr %96, align 8, !noalias !549
-  %97 = getelementptr inbounds i8, ptr %6, i64 1632
+  %97 = getelementptr inbounds nuw i8, ptr %6, i64 1632
   store i64 -9223372036854775808, ptr %97, align 8, !noalias !549
-  %98 = getelementptr inbounds i8, ptr %6, i64 1656
+  %98 = getelementptr inbounds nuw i8, ptr %6, i64 1656
   store i64 -9223372036854775808, ptr %98, align 8, !noalias !549
-  %99 = getelementptr inbounds i8, ptr %6, i64 1680
+  %99 = getelementptr inbounds nuw i8, ptr %6, i64 1680
   store i64 -9223372036854775808, ptr %99, align 8, !noalias !549
-  %100 = getelementptr inbounds i8, ptr %6, i64 1704
+  %100 = getelementptr inbounds nuw i8, ptr %6, i64 1704
   store i64 -9223372036854775808, ptr %100, align 8, !noalias !549
-  %101 = getelementptr inbounds i8, ptr %6, i64 1728
+  %101 = getelementptr inbounds nuw i8, ptr %6, i64 1728
   store i64 -9223372036854775808, ptr %101, align 8, !noalias !549
-  %102 = getelementptr inbounds i8, ptr %6, i64 1752
+  %102 = getelementptr inbounds nuw i8, ptr %6, i64 1752
   store i64 -9223372036854775808, ptr %102, align 8, !noalias !549
-  %103 = getelementptr inbounds i8, ptr %6, i64 1776
+  %103 = getelementptr inbounds nuw i8, ptr %6, i64 1776
   store i64 -9223372036854775808, ptr %103, align 8, !noalias !549
-  %104 = getelementptr inbounds i8, ptr %6, i64 1800
+  %104 = getelementptr inbounds nuw i8, ptr %6, i64 1800
   store i64 -9223372036854775808, ptr %104, align 8, !noalias !549
-  %105 = getelementptr inbounds i8, ptr %6, i64 1824
+  %105 = getelementptr inbounds nuw i8, ptr %6, i64 1824
   store i64 -9223372036854775808, ptr %105, align 8, !noalias !549
-  %106 = getelementptr inbounds i8, ptr %6, i64 1848
+  %106 = getelementptr inbounds nuw i8, ptr %6, i64 1848
   store i64 -9223372036854775808, ptr %106, align 8, !noalias !549
-  %107 = getelementptr inbounds i8, ptr %6, i64 1872
+  %107 = getelementptr inbounds nuw i8, ptr %6, i64 1872
   store i64 -9223372036854775808, ptr %107, align 8, !noalias !549
-  %108 = getelementptr inbounds i8, ptr %6, i64 1896
+  %108 = getelementptr inbounds nuw i8, ptr %6, i64 1896
   store i64 -9223372036854775808, ptr %108, align 8, !noalias !549
-  %109 = getelementptr inbounds i8, ptr %6, i64 1920
+  %109 = getelementptr inbounds nuw i8, ptr %6, i64 1920
   store i64 -9223372036854775808, ptr %109, align 8, !noalias !549
-  %110 = getelementptr inbounds i8, ptr %6, i64 1944
+  %110 = getelementptr inbounds nuw i8, ptr %6, i64 1944
   store i64 -9223372036854775808, ptr %110, align 8, !noalias !549
-  %111 = getelementptr inbounds i8, ptr %6, i64 1968
+  %111 = getelementptr inbounds nuw i8, ptr %6, i64 1968
   store i64 -9223372036854775808, ptr %111, align 8, !noalias !549
-  %112 = getelementptr inbounds i8, ptr %6, i64 1992
+  %112 = getelementptr inbounds nuw i8, ptr %6, i64 1992
   store i64 -9223372036854775808, ptr %112, align 8, !noalias !549
-  %113 = getelementptr inbounds i8, ptr %6, i64 2016
+  %113 = getelementptr inbounds nuw i8, ptr %6, i64 2016
   store i64 -9223372036854775808, ptr %113, align 8, !noalias !549
-  %114 = getelementptr inbounds i8, ptr %6, i64 2040
+  %114 = getelementptr inbounds nuw i8, ptr %6, i64 2040
   store i64 -9223372036854775808, ptr %114, align 8, !noalias !549
-  %115 = getelementptr inbounds i8, ptr %6, i64 2064
+  %115 = getelementptr inbounds nuw i8, ptr %6, i64 2064
   store i64 -9223372036854775808, ptr %115, align 8, !noalias !549
-  %116 = getelementptr inbounds i8, ptr %6, i64 2088
+  %116 = getelementptr inbounds nuw i8, ptr %6, i64 2088
   store i64 -9223372036854775808, ptr %116, align 8, !noalias !549
-  %117 = getelementptr inbounds i8, ptr %6, i64 2112
+  %117 = getelementptr inbounds nuw i8, ptr %6, i64 2112
   store i64 -9223372036854775808, ptr %117, align 8, !noalias !549
-  %118 = getelementptr inbounds i8, ptr %6, i64 2136
+  %118 = getelementptr inbounds nuw i8, ptr %6, i64 2136
   store i64 -9223372036854775808, ptr %118, align 8, !noalias !549
-  %119 = getelementptr inbounds i8, ptr %6, i64 2160
+  %119 = getelementptr inbounds nuw i8, ptr %6, i64 2160
   store i64 -9223372036854775808, ptr %119, align 8, !noalias !549
-  %120 = getelementptr inbounds i8, ptr %6, i64 2184
+  %120 = getelementptr inbounds nuw i8, ptr %6, i64 2184
   store i64 -9223372036854775808, ptr %120, align 8, !noalias !549
-  %121 = getelementptr inbounds i8, ptr %6, i64 2208
+  %121 = getelementptr inbounds nuw i8, ptr %6, i64 2208
   store i64 -9223372036854775808, ptr %121, align 8, !noalias !549
-  %122 = getelementptr inbounds i8, ptr %6, i64 2232
+  %122 = getelementptr inbounds nuw i8, ptr %6, i64 2232
   store i64 -9223372036854775808, ptr %122, align 8, !noalias !549
   call void @llvm.lifetime.start.p0(i64 1008, ptr nonnull %5), !noalias !549
   store i64 -9223372036854775808, ptr %5, align 8, !noalias !549
-  %.sroa.137.0..sroa_idx229.i = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.137.0..sroa_idx229.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.0..sroa_idx229.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.i, i64 16, i1 false), !noalias !549
-  %123 = getelementptr inbounds i8, ptr %5, i64 24
+  %123 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 -9223372036854775808, ptr %123, align 8, !noalias !549
-  %.sroa.137.0..sroa_idx230.i = getelementptr inbounds i8, ptr %5, i64 32
+  %.sroa.137.0..sroa_idx230.i = getelementptr inbounds nuw i8, ptr %5, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.0..sroa_idx230.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.i, i64 16, i1 false), !noalias !549
-  %124 = getelementptr inbounds i8, ptr %5, i64 48
+  %124 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store i64 -9223372036854775808, ptr %124, align 8, !noalias !549
-  %.sroa.137.0..sroa_idx231.i = getelementptr inbounds i8, ptr %5, i64 56
+  %.sroa.137.0..sroa_idx231.i = getelementptr inbounds nuw i8, ptr %5, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.0..sroa_idx231.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.i, i64 16, i1 false), !noalias !549
-  %125 = getelementptr inbounds i8, ptr %5, i64 72
+  %125 = getelementptr inbounds nuw i8, ptr %5, i64 72
   store i64 -9223372036854775808, ptr %125, align 8, !noalias !549
-  %.sroa.137.0..sroa_idx232.i = getelementptr inbounds i8, ptr %5, i64 80
+  %.sroa.137.0..sroa_idx232.i = getelementptr inbounds nuw i8, ptr %5, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.0..sroa_idx232.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.i, i64 16, i1 false), !noalias !549
-  %126 = getelementptr inbounds i8, ptr %5, i64 96
+  %126 = getelementptr inbounds nuw i8, ptr %5, i64 96
   store i64 -9223372036854775808, ptr %126, align 8, !noalias !549
-  %.sroa.137.0..sroa_idx233.i = getelementptr inbounds i8, ptr %5, i64 104
+  %.sroa.137.0..sroa_idx233.i = getelementptr inbounds nuw i8, ptr %5, i64 104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.0..sroa_idx233.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.i, i64 16, i1 false), !noalias !549
-  %127 = getelementptr inbounds i8, ptr %5, i64 120
+  %127 = getelementptr inbounds nuw i8, ptr %5, i64 120
   store i64 -9223372036854775808, ptr %127, align 8, !noalias !549
-  %.sroa.137.0..sroa_idx234.i = getelementptr inbounds i8, ptr %5, i64 128
+  %.sroa.137.0..sroa_idx234.i = getelementptr inbounds nuw i8, ptr %5, i64 128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.0..sroa_idx234.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.i, i64 16, i1 false), !noalias !549
-  %128 = getelementptr inbounds i8, ptr %5, i64 144
+  %128 = getelementptr inbounds nuw i8, ptr %5, i64 144
   store i64 -9223372036854775808, ptr %128, align 8, !noalias !549
-  %.sroa.137.0..sroa_idx235.i = getelementptr inbounds i8, ptr %5, i64 152
+  %.sroa.137.0..sroa_idx235.i = getelementptr inbounds nuw i8, ptr %5, i64 152
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.0..sroa_idx235.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.i, i64 16, i1 false), !noalias !549
-  %129 = getelementptr inbounds i8, ptr %5, i64 168
+  %129 = getelementptr inbounds nuw i8, ptr %5, i64 168
   store i64 -9223372036854775808, ptr %129, align 8, !noalias !549
-  %.sroa.137.0..sroa_idx236.i = getelementptr inbounds i8, ptr %5, i64 176
+  %.sroa.137.0..sroa_idx236.i = getelementptr inbounds nuw i8, ptr %5, i64 176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.0..sroa_idx236.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.i, i64 16, i1 false), !noalias !549
-  %130 = getelementptr inbounds i8, ptr %5, i64 192
+  %130 = getelementptr inbounds nuw i8, ptr %5, i64 192
   store i64 -9223372036854775808, ptr %130, align 8, !noalias !549
-  %.sroa.137.0..sroa_idx237.i = getelementptr inbounds i8, ptr %5, i64 200
+  %.sroa.137.0..sroa_idx237.i = getelementptr inbounds nuw i8, ptr %5, i64 200
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.0..sroa_idx237.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.i, i64 16, i1 false), !noalias !549
-  %131 = getelementptr inbounds i8, ptr %5, i64 216
+  %131 = getelementptr inbounds nuw i8, ptr %5, i64 216
   store i64 -9223372036854775808, ptr %131, align 8, !noalias !549
-  %.sroa.137.0..sroa_idx238.i = getelementptr inbounds i8, ptr %5, i64 224
+  %.sroa.137.0..sroa_idx238.i = getelementptr inbounds nuw i8, ptr %5, i64 224
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.0..sroa_idx238.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.i, i64 16, i1 false), !noalias !549
-  %132 = getelementptr inbounds i8, ptr %5, i64 240
+  %132 = getelementptr inbounds nuw i8, ptr %5, i64 240
   store i64 -9223372036854775808, ptr %132, align 8, !noalias !549
-  %.sroa.137.0..sroa_idx239.i = getelementptr inbounds i8, ptr %5, i64 248
+  %.sroa.137.0..sroa_idx239.i = getelementptr inbounds nuw i8, ptr %5, i64 248
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.0..sroa_idx239.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.i, i64 16, i1 false), !noalias !549
-  %133 = getelementptr inbounds i8, ptr %5, i64 264
+  %133 = getelementptr inbounds nuw i8, ptr %5, i64 264
   store i64 -9223372036854775808, ptr %133, align 8, !noalias !549
-  %.sroa.137.0..sroa_idx240.i = getelementptr inbounds i8, ptr %5, i64 272
+  %.sroa.137.0..sroa_idx240.i = getelementptr inbounds nuw i8, ptr %5, i64 272
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.0..sroa_idx240.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.i, i64 16, i1 false), !noalias !549
-  %134 = getelementptr inbounds i8, ptr %5, i64 288
+  %134 = getelementptr inbounds nuw i8, ptr %5, i64 288
   store i64 -9223372036854775808, ptr %134, align 8, !noalias !549
-  %.sroa.137.0..sroa_idx241.i = getelementptr inbounds i8, ptr %5, i64 296
+  %.sroa.137.0..sroa_idx241.i = getelementptr inbounds nuw i8, ptr %5, i64 296
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.0..sroa_idx241.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.i, i64 16, i1 false), !noalias !549
-  %135 = getelementptr inbounds i8, ptr %5, i64 312
+  %135 = getelementptr inbounds nuw i8, ptr %5, i64 312
   store i64 -9223372036854775808, ptr %135, align 8, !noalias !549
-  %.sroa.137.0..sroa_idx242.i = getelementptr inbounds i8, ptr %5, i64 320
+  %.sroa.137.0..sroa_idx242.i = getelementptr inbounds nuw i8, ptr %5, i64 320
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.0..sroa_idx242.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.i, i64 16, i1 false), !noalias !549
-  %136 = getelementptr inbounds i8, ptr %5, i64 336
+  %136 = getelementptr inbounds nuw i8, ptr %5, i64 336
   store i64 -9223372036854775808, ptr %136, align 8, !noalias !549
-  %.sroa.137.0..sroa_idx243.i = getelementptr inbounds i8, ptr %5, i64 344
+  %.sroa.137.0..sroa_idx243.i = getelementptr inbounds nuw i8, ptr %5, i64 344
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.0..sroa_idx243.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.i, i64 16, i1 false), !noalias !549
-  %137 = getelementptr inbounds i8, ptr %5, i64 360
+  %137 = getelementptr inbounds nuw i8, ptr %5, i64 360
   store i64 -9223372036854775808, ptr %137, align 8, !noalias !549
-  %.sroa.137.0..sroa_idx244.i = getelementptr inbounds i8, ptr %5, i64 368
+  %.sroa.137.0..sroa_idx244.i = getelementptr inbounds nuw i8, ptr %5, i64 368
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.0..sroa_idx244.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.i, i64 16, i1 false), !noalias !549
-  %138 = getelementptr inbounds i8, ptr %5, i64 384
+  %138 = getelementptr inbounds nuw i8, ptr %5, i64 384
   store i64 -9223372036854775808, ptr %138, align 8, !noalias !549
-  %.sroa.137.0..sroa_idx245.i = getelementptr inbounds i8, ptr %5, i64 392
+  %.sroa.137.0..sroa_idx245.i = getelementptr inbounds nuw i8, ptr %5, i64 392
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.0..sroa_idx245.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.i, i64 16, i1 false), !noalias !549
-  %139 = getelementptr inbounds i8, ptr %5, i64 408
+  %139 = getelementptr inbounds nuw i8, ptr %5, i64 408
   store i64 -9223372036854775808, ptr %139, align 8, !noalias !549
-  %.sroa.137.0..sroa_idx246.i = getelementptr inbounds i8, ptr %5, i64 416
+  %.sroa.137.0..sroa_idx246.i = getelementptr inbounds nuw i8, ptr %5, i64 416
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.0..sroa_idx246.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.i, i64 16, i1 false), !noalias !549
-  %140 = getelementptr inbounds i8, ptr %5, i64 432
+  %140 = getelementptr inbounds nuw i8, ptr %5, i64 432
   store i64 -9223372036854775808, ptr %140, align 8, !noalias !549
-  %.sroa.137.0..sroa_idx247.i = getelementptr inbounds i8, ptr %5, i64 440
+  %.sroa.137.0..sroa_idx247.i = getelementptr inbounds nuw i8, ptr %5, i64 440
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.0..sroa_idx247.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.i, i64 16, i1 false), !noalias !549
-  %141 = getelementptr inbounds i8, ptr %5, i64 456
+  %141 = getelementptr inbounds nuw i8, ptr %5, i64 456
   store i64 -9223372036854775808, ptr %141, align 8, !noalias !549
-  %.sroa.137.0..sroa_idx248.i = getelementptr inbounds i8, ptr %5, i64 464
+  %.sroa.137.0..sroa_idx248.i = getelementptr inbounds nuw i8, ptr %5, i64 464
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.0..sroa_idx248.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.i, i64 16, i1 false), !noalias !549
-  %142 = getelementptr inbounds i8, ptr %5, i64 480
+  %142 = getelementptr inbounds nuw i8, ptr %5, i64 480
   store i64 -9223372036854775808, ptr %142, align 8, !noalias !549
-  %.sroa.137.0..sroa_idx249.i = getelementptr inbounds i8, ptr %5, i64 488
+  %.sroa.137.0..sroa_idx249.i = getelementptr inbounds nuw i8, ptr %5, i64 488
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.0..sroa_idx249.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.i, i64 16, i1 false), !noalias !549
-  %143 = getelementptr inbounds i8, ptr %5, i64 504
+  %143 = getelementptr inbounds nuw i8, ptr %5, i64 504
   store i64 -9223372036854775808, ptr %143, align 8, !noalias !549
-  %.sroa.137.0..sroa_idx250.i = getelementptr inbounds i8, ptr %5, i64 512
+  %.sroa.137.0..sroa_idx250.i = getelementptr inbounds nuw i8, ptr %5, i64 512
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.0..sroa_idx250.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.i, i64 16, i1 false), !noalias !549
-  %144 = getelementptr inbounds i8, ptr %5, i64 528
+  %144 = getelementptr inbounds nuw i8, ptr %5, i64 528
   store i64 -9223372036854775808, ptr %144, align 8, !noalias !549
-  %.sroa.137.0..sroa_idx251.i = getelementptr inbounds i8, ptr %5, i64 536
+  %.sroa.137.0..sroa_idx251.i = getelementptr inbounds nuw i8, ptr %5, i64 536
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.0..sroa_idx251.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.i, i64 16, i1 false), !noalias !549
-  %145 = getelementptr inbounds i8, ptr %5, i64 552
+  %145 = getelementptr inbounds nuw i8, ptr %5, i64 552
   store i64 -9223372036854775808, ptr %145, align 8, !noalias !549
-  %.sroa.137.0..sroa_idx252.i = getelementptr inbounds i8, ptr %5, i64 560
+  %.sroa.137.0..sroa_idx252.i = getelementptr inbounds nuw i8, ptr %5, i64 560
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.0..sroa_idx252.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.i, i64 16, i1 false), !noalias !549
-  %146 = getelementptr inbounds i8, ptr %5, i64 576
+  %146 = getelementptr inbounds nuw i8, ptr %5, i64 576
   store i64 -9223372036854775808, ptr %146, align 8, !noalias !549
-  %.sroa.137.0..sroa_idx253.i = getelementptr inbounds i8, ptr %5, i64 584
+  %.sroa.137.0..sroa_idx253.i = getelementptr inbounds nuw i8, ptr %5, i64 584
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.0..sroa_idx253.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.i, i64 16, i1 false), !noalias !549
-  %147 = getelementptr inbounds i8, ptr %5, i64 600
+  %147 = getelementptr inbounds nuw i8, ptr %5, i64 600
   store i64 -9223372036854775808, ptr %147, align 8, !noalias !549
-  %.sroa.137.0..sroa_idx254.i = getelementptr inbounds i8, ptr %5, i64 608
+  %.sroa.137.0..sroa_idx254.i = getelementptr inbounds nuw i8, ptr %5, i64 608
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.0..sroa_idx254.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.i, i64 16, i1 false), !noalias !549
-  %148 = getelementptr inbounds i8, ptr %5, i64 624
+  %148 = getelementptr inbounds nuw i8, ptr %5, i64 624
   store i64 -9223372036854775808, ptr %148, align 8, !noalias !549
-  %.sroa.137.0..sroa_idx255.i = getelementptr inbounds i8, ptr %5, i64 632
+  %.sroa.137.0..sroa_idx255.i = getelementptr inbounds nuw i8, ptr %5, i64 632
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.0..sroa_idx255.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.i, i64 16, i1 false), !noalias !549
-  %149 = getelementptr inbounds i8, ptr %5, i64 648
+  %149 = getelementptr inbounds nuw i8, ptr %5, i64 648
   store i64 -9223372036854775808, ptr %149, align 8, !noalias !549
-  %.sroa.137.0..sroa_idx256.i = getelementptr inbounds i8, ptr %5, i64 656
+  %.sroa.137.0..sroa_idx256.i = getelementptr inbounds nuw i8, ptr %5, i64 656
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.0..sroa_idx256.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.i, i64 16, i1 false), !noalias !549
-  %150 = getelementptr inbounds i8, ptr %5, i64 672
+  %150 = getelementptr inbounds nuw i8, ptr %5, i64 672
   store i64 -9223372036854775808, ptr %150, align 8, !noalias !549
-  %.sroa.137.0..sroa_idx257.i = getelementptr inbounds i8, ptr %5, i64 680
+  %.sroa.137.0..sroa_idx257.i = getelementptr inbounds nuw i8, ptr %5, i64 680
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.0..sroa_idx257.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.i, i64 16, i1 false), !noalias !549
-  %151 = getelementptr inbounds i8, ptr %5, i64 696
+  %151 = getelementptr inbounds nuw i8, ptr %5, i64 696
   store i64 -9223372036854775808, ptr %151, align 8, !noalias !549
-  %.sroa.137.0..sroa_idx258.i = getelementptr inbounds i8, ptr %5, i64 704
+  %.sroa.137.0..sroa_idx258.i = getelementptr inbounds nuw i8, ptr %5, i64 704
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.0..sroa_idx258.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.i, i64 16, i1 false), !noalias !549
-  %152 = getelementptr inbounds i8, ptr %5, i64 720
+  %152 = getelementptr inbounds nuw i8, ptr %5, i64 720
   store i64 -9223372036854775808, ptr %152, align 8, !noalias !549
-  %.sroa.137.0..sroa_idx259.i = getelementptr inbounds i8, ptr %5, i64 728
+  %.sroa.137.0..sroa_idx259.i = getelementptr inbounds nuw i8, ptr %5, i64 728
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.0..sroa_idx259.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.i, i64 16, i1 false), !noalias !549
-  %153 = getelementptr inbounds i8, ptr %5, i64 744
+  %153 = getelementptr inbounds nuw i8, ptr %5, i64 744
   store i64 -9223372036854775808, ptr %153, align 8, !noalias !549
-  %.sroa.137.0..sroa_idx260.i = getelementptr inbounds i8, ptr %5, i64 752
+  %.sroa.137.0..sroa_idx260.i = getelementptr inbounds nuw i8, ptr %5, i64 752
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.0..sroa_idx260.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.i, i64 16, i1 false), !noalias !549
-  %154 = getelementptr inbounds i8, ptr %5, i64 768
+  %154 = getelementptr inbounds nuw i8, ptr %5, i64 768
   store i64 -9223372036854775808, ptr %154, align 8, !noalias !549
-  %.sroa.137.0..sroa_idx261.i = getelementptr inbounds i8, ptr %5, i64 776
+  %.sroa.137.0..sroa_idx261.i = getelementptr inbounds nuw i8, ptr %5, i64 776
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.0..sroa_idx261.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.i, i64 16, i1 false), !noalias !549
-  %155 = getelementptr inbounds i8, ptr %5, i64 792
+  %155 = getelementptr inbounds nuw i8, ptr %5, i64 792
   store i64 -9223372036854775808, ptr %155, align 8, !noalias !549
-  %.sroa.137.0..sroa_idx262.i = getelementptr inbounds i8, ptr %5, i64 800
+  %.sroa.137.0..sroa_idx262.i = getelementptr inbounds nuw i8, ptr %5, i64 800
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.0..sroa_idx262.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.i, i64 16, i1 false), !noalias !549
-  %156 = getelementptr inbounds i8, ptr %5, i64 816
+  %156 = getelementptr inbounds nuw i8, ptr %5, i64 816
   store i64 -9223372036854775808, ptr %156, align 8, !noalias !549
-  %.sroa.137.0..sroa_idx263.i = getelementptr inbounds i8, ptr %5, i64 824
+  %.sroa.137.0..sroa_idx263.i = getelementptr inbounds nuw i8, ptr %5, i64 824
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.0..sroa_idx263.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.i, i64 16, i1 false), !noalias !549
-  %157 = getelementptr inbounds i8, ptr %5, i64 840
+  %157 = getelementptr inbounds nuw i8, ptr %5, i64 840
   store i64 -9223372036854775808, ptr %157, align 8, !noalias !549
-  %.sroa.137.0..sroa_idx264.i = getelementptr inbounds i8, ptr %5, i64 848
+  %.sroa.137.0..sroa_idx264.i = getelementptr inbounds nuw i8, ptr %5, i64 848
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.0..sroa_idx264.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.i, i64 16, i1 false), !noalias !549
-  %158 = getelementptr inbounds i8, ptr %5, i64 864
+  %158 = getelementptr inbounds nuw i8, ptr %5, i64 864
   store i64 -9223372036854775808, ptr %158, align 8, !noalias !549
-  %.sroa.137.0..sroa_idx265.i = getelementptr inbounds i8, ptr %5, i64 872
+  %.sroa.137.0..sroa_idx265.i = getelementptr inbounds nuw i8, ptr %5, i64 872
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.0..sroa_idx265.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.i, i64 16, i1 false), !noalias !549
-  %159 = getelementptr inbounds i8, ptr %5, i64 888
+  %159 = getelementptr inbounds nuw i8, ptr %5, i64 888
   store i64 -9223372036854775808, ptr %159, align 8, !noalias !549
-  %.sroa.137.0..sroa_idx266.i = getelementptr inbounds i8, ptr %5, i64 896
+  %.sroa.137.0..sroa_idx266.i = getelementptr inbounds nuw i8, ptr %5, i64 896
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.0..sroa_idx266.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.i, i64 16, i1 false), !noalias !549
-  %160 = getelementptr inbounds i8, ptr %5, i64 912
+  %160 = getelementptr inbounds nuw i8, ptr %5, i64 912
   store i64 -9223372036854775808, ptr %160, align 8, !noalias !549
-  %.sroa.137.0..sroa_idx267.i = getelementptr inbounds i8, ptr %5, i64 920
+  %.sroa.137.0..sroa_idx267.i = getelementptr inbounds nuw i8, ptr %5, i64 920
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.0..sroa_idx267.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.i, i64 16, i1 false), !noalias !549
-  %161 = getelementptr inbounds i8, ptr %5, i64 936
+  %161 = getelementptr inbounds nuw i8, ptr %5, i64 936
   store i64 -9223372036854775808, ptr %161, align 8, !noalias !549
-  %.sroa.137.0..sroa_idx268.i = getelementptr inbounds i8, ptr %5, i64 944
+  %.sroa.137.0..sroa_idx268.i = getelementptr inbounds nuw i8, ptr %5, i64 944
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.0..sroa_idx268.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.i, i64 16, i1 false), !noalias !549
-  %162 = getelementptr inbounds i8, ptr %5, i64 960
+  %162 = getelementptr inbounds nuw i8, ptr %5, i64 960
   store i64 -9223372036854775808, ptr %162, align 8, !noalias !549
-  %.sroa.137.0..sroa_idx269.i = getelementptr inbounds i8, ptr %5, i64 968
+  %.sroa.137.0..sroa_idx269.i = getelementptr inbounds nuw i8, ptr %5, i64 968
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.0..sroa_idx269.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.i, i64 16, i1 false), !noalias !549
-  %163 = getelementptr inbounds i8, ptr %5, i64 984
+  %163 = getelementptr inbounds nuw i8, ptr %5, i64 984
   store i64 -9223372036854775808, ptr %163, align 8, !noalias !549
-  %.sroa.137.0..sroa_idx270.i = getelementptr inbounds i8, ptr %5, i64 992
+  %.sroa.137.0..sroa_idx270.i = getelementptr inbounds nuw i8, ptr %5, i64 992
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.0..sroa_idx270.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.137.i, i64 16, i1 false), !noalias !549
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !549
   store i64 0, ptr %4, align 8, !noalias !549
-  %164 = getelementptr inbounds i8, ptr %4, i64 8
+  %164 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %164, align 8, !noalias !549
-  %165 = getelementptr inbounds i8, ptr %4, i64 16
+  %165 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %165, align 8, !noalias !549
   %166 = load i64, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", align 8, !range !85, !noalias !552, !noundef !4
   %trunc.i.i.i.i.i = trunc nuw i64 %166 to i1
@@ -7566,32 +7566,32 @@ common.resume:                                    ; preds = %"_ZN4core3ptr45drop
 "_ZN75_$LT$theme..schema..ThemeStyleContent$u20$as$u20$core..default..Default$GT$7default17hcc353850ef1f3bccE.exit": ; preds = %2, %.noexc.i
   %.sroa.0.0.i.i.i2.i.i = phi ptr [ %167, %.noexc.i ], [ getelementptr inbounds (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %2 ]
   %177 = load i64, ptr %.sroa.0.0.i.i.i2.i.i, align 8, !noalias !561, !noundef !4
-  %178 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i2.i.i, i64 8
+  %178 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i2.i.i, i64 8
   %179 = load i64, ptr %178, align 8, !noalias !561, !noundef !4
   %180 = add i64 %177, 1
   store i64 %180, ptr %.sroa.0.0.i.i.i2.i.i, align 8, !noalias !561
-  %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %26, i64 80
+  %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %26, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7.0..sroa_idx.i, i8 0, i64 24, i1 false), !alias.scope !549
-  %181 = getelementptr inbounds i8, ptr %26, i64 3384
+  %181 = getelementptr inbounds nuw i8, ptr %26, i64 3384
   store i8 3, ptr %181, align 8, !alias.scope !549
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3392) %26, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
-  %182 = getelementptr inbounds i8, ptr %26, i64 120
+  %182 = getelementptr inbounds nuw i8, ptr %26, i64 120
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2256) %182, ptr noundef nonnull align 8 dereferenceable(2256) %6, i64 2256, i1 false)
-  %183 = getelementptr inbounds i8, ptr %26, i64 2376
+  %183 = getelementptr inbounds nuw i8, ptr %26, i64 2376
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1008) %183, ptr noundef nonnull align 8 dereferenceable(1008) %5, i64 1008, i1 false)
-  %184 = getelementptr inbounds i8, ptr %26, i64 24
+  %184 = getelementptr inbounds nuw i8, ptr %26, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %184, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  %185 = getelementptr inbounds i8, ptr %26, i64 48
+  %185 = getelementptr inbounds nuw i8, ptr %26, i64 48
   store i64 0, ptr %185, align 8, !alias.scope !549
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %26, i64 56
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %26, i64 56
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !549
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %26, i64 64
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %26, i64 64
   store i64 0, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !549
-  %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %26, i64 72
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %26, i64 72
   store ptr @anon.8864566ca2df49740c222121536a8dcf.15, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !549
-  %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %26, i64 104
+  %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %26, i64 104
   store i64 %177, ptr %.sroa.8.0..sroa_idx.i, align 8, !alias.scope !549
-  %.sroa.9.0..sroa_idx.i = getelementptr inbounds i8, ptr %26, i64 112
+  %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %26, i64 112
   store i64 %179, ptr %.sroa.9.0..sroa_idx.i, align 8, !alias.scope !549
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !549
   call void @llvm.lifetime.end.p0(i64 1008, ptr nonnull %5), !noalias !549
@@ -7629,24 +7629,24 @@ common.resume:                                    ; preds = %"_ZN4core3ptr45drop
 194:                                              ; preds = %"_ZN75_$LT$theme..schema..ThemeStyleContent$u20$as$u20$core..default..Default$GT$7default17hcc353850ef1f3bccE.exit"
   store i8 2, ptr %187, align 1
   store i64 -9223372036854775803, ptr %11, align 8
-  %195 = getelementptr inbounds i8, ptr %25, i64 96
+  %195 = getelementptr inbounds nuw i8, ptr %25, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %195, ptr noundef nonnull align 8 dereferenceable(72) %11, i64 72, i1 false)
-  %196 = getelementptr inbounds i8, ptr %25, i64 168
+  %196 = getelementptr inbounds nuw i8, ptr %25, i64 168
   store ptr null, ptr %196, align 8
-  %197 = getelementptr inbounds i8, ptr %25, i64 72
+  %197 = getelementptr inbounds nuw i8, ptr %25, i64 72
   store i64 -9223372036854775808, ptr %197, align 8
-  %.sroa.42.0..sroa_idx = getelementptr inbounds i8, ptr %25, i64 80
+  %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 80
   store ptr %187, ptr %.sroa.42.0..sroa_idx, align 8
   store i64 -9223372036854775808, ptr %25, align 8
-  %198 = getelementptr inbounds i8, ptr %25, i64 24
+  %198 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store i64 -9223372036854775808, ptr %198, align 8
-  %199 = getelementptr inbounds i8, ptr %25, i64 176
-  %200 = getelementptr inbounds i8, ptr %25, i64 48
+  %199 = getelementptr inbounds nuw i8, ptr %25, i64 176
+  %200 = getelementptr inbounds nuw i8, ptr %25, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %199, i8 0, i64 40, i1 false)
   store i64 -9223372036854775808, ptr %200, align 8
-  %201 = getelementptr inbounds i8, ptr %25, i64 216
+  %201 = getelementptr inbounds nuw i8, ptr %25, i64 216
   store ptr null, ptr %201, align 8
-  %.sroa.3147.216..sroa_idx = getelementptr inbounds i8, ptr %25, i64 232
+  %.sroa.3147.216..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 232
   store i64 0, ptr %.sroa.3147.216..sroa_idx, align 8
   %202 = invoke noundef align 8 dereferenceable(104) ptr @_ZN8schemars6schema12SchemaObject6object17h5adaef6fb6e7c63fE(ptr noalias noundef nonnull align 8 dereferenceable(240) %25)
           to label %203 unwind label %192
@@ -7682,9 +7682,9 @@ common.resume:                                    ; preds = %"_ZN4core3ptr45drop
 209:                                              ; preds = %208
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   store i64 0, ptr %10, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %.sroa.3.0..sroa_idx, align 8
   invoke void @"_ZN8schemars8_private30MaybeSerializeWrapper$LT$T$GT$14maybe_to_value17h811cc5b2a3f816e8E"(ptr noalias nocapture noundef nonnull sret([72 x i8]) align 8 dereferenceable(72) %11, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %10)
           to label %212 unwind label %263
@@ -7714,9 +7714,9 @@ common.resume:                                    ; preds = %"_ZN4core3ptr45drop
 215:                                              ; preds = %214
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   store i64 0, ptr %9, align 8
-  %.sroa.26.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
+  %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.26.0..sroa_idx, align 8
-  %.sroa.37.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 16
+  %.sroa.37.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 0, ptr %.sroa.37.0..sroa_idx, align 8
   invoke void @"_ZN8schemars8_private30MaybeSerializeWrapper$LT$T$GT$14maybe_to_value17h656899095e9c4553E"(ptr noalias nocapture noundef nonnull sret([72 x i8]) align 8 dereferenceable(72) %11, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %9)
           to label %218 unwind label %258
@@ -7778,23 +7778,23 @@ _ZN4core3ops8function6FnOnce9call_once17h8e1d13566dcc4f6cE.exit.i: ; preds = %22
 228:                                              ; preds = %.noexc30, %222
   %.sroa.0.0.i.i.i2.i = phi ptr [ %224, %.noexc30 ], [ getelementptr inbounds (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %222 ]
   %229 = load i64, ptr %.sroa.0.0.i.i.i2.i, align 8, !noalias !571, !noundef !4
-  %230 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i2.i, i64 8
+  %230 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i2.i, i64 8
   %231 = load i64, ptr %230, align 8, !noalias !571, !noundef !4
   %232 = add i64 %229, 1
   store i64 %232, ptr %.sroa.0.0.i.i.i2.i, align 8, !noalias !571
-  %.sroa.552.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 32
+  %.sroa.552.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 32
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.552.0..sroa_idx, i8 0, i64 24, i1 false)
   store i64 0, ptr %8, align 8
-  %.sroa.2.0..sroa_idx49 = getelementptr inbounds i8, ptr %8, i64 8
+  %.sroa.2.0..sroa_idx49 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.2.0..sroa_idx49, align 8
-  %.sroa.3.0..sroa_idx50 = getelementptr inbounds i8, ptr %8, i64 16
+  %.sroa.3.0..sroa_idx50 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 0, ptr %.sroa.3.0..sroa_idx50, align 8
-  %.sroa.451.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 24
+  %.sroa.451.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr @anon.8864566ca2df49740c222121536a8dcf.15, ptr %.sroa.451.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 56
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 56
   store i64 %229, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.753.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 64
+  %.sroa.753.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 64
   store i64 %231, ptr %.sroa.753.0..sroa_idx, align 8
   invoke void @"_ZN8schemars8_private30MaybeSerializeWrapper$LT$T$GT$14maybe_to_value17h6f158989cbfd7cd2E"(ptr noalias nocapture noundef nonnull sret([72 x i8]) align 8 dereferenceable(72) %11, ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %8)
           to label %233 unwind label %254
@@ -7951,9 +7951,9 @@ define void @"_ZN5theme6schema1_84_$LT$impl$u20$schemars..JsonSchema$u20$for$u20
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17he24fb2b9020d9140E"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, i64 noundef 18, i1 noundef zeroext false), !noalias !588
   %3 = load i64, ptr %2, align 8, !range !85, !noalias !588, !noundef !4
   %trunc.i = trunc nuw i64 %3 to i1
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i64, ptr %4, align 8, !range !29, !noalias !588, !noundef !4
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br i1 %trunc.i, label %7, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h688d451feb156e8cE.llvm.12664348367457638102.exit"
 
 7:                                                ; preds = %1
@@ -7966,18 +7966,18 @@ define void @"_ZN5theme6schema1_84_$LT$impl$u20$schemars..JsonSchema$u20$for$u20
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !588
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %9, ptr noundef nonnull align 1 dereferenceable(18) @anon.8864566ca2df49740c222121536a8dcf.57, i64 18, i1 false), !noalias !592
   store i64 %5, ptr %0, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %9, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 18, ptr %.sroa.5.0..sroa_idx, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @"_ZN5theme6schema1_84_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$theme..schema..ThemeColorsContent$GT$9schema_id17hc54061ed678f153cE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #6 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @anon.8864566ca2df49740c222121536a8dcf.58, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 33, ptr %3, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   ret void
@@ -8341,191 +8341,191 @@ define void @"_ZN5theme6schema1_84_$LT$impl$u20$schemars..JsonSchema$u20$for$u20
   %355 = alloca [2256 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 2256, ptr nonnull %355)
   store i64 -9223372036854775808, ptr %355, align 8
-  %356 = getelementptr inbounds i8, ptr %355, i64 24
+  %356 = getelementptr inbounds nuw i8, ptr %355, i64 24
   store i64 -9223372036854775808, ptr %356, align 8
-  %357 = getelementptr inbounds i8, ptr %355, i64 48
+  %357 = getelementptr inbounds nuw i8, ptr %355, i64 48
   store i64 -9223372036854775808, ptr %357, align 8
-  %358 = getelementptr inbounds i8, ptr %355, i64 72
+  %358 = getelementptr inbounds nuw i8, ptr %355, i64 72
   store i64 -9223372036854775808, ptr %358, align 8
-  %359 = getelementptr inbounds i8, ptr %355, i64 96
+  %359 = getelementptr inbounds nuw i8, ptr %355, i64 96
   store i64 -9223372036854775808, ptr %359, align 8
-  %360 = getelementptr inbounds i8, ptr %355, i64 120
+  %360 = getelementptr inbounds nuw i8, ptr %355, i64 120
   store i64 -9223372036854775808, ptr %360, align 8
-  %361 = getelementptr inbounds i8, ptr %355, i64 144
+  %361 = getelementptr inbounds nuw i8, ptr %355, i64 144
   store i64 -9223372036854775808, ptr %361, align 8
-  %362 = getelementptr inbounds i8, ptr %355, i64 168
+  %362 = getelementptr inbounds nuw i8, ptr %355, i64 168
   store i64 -9223372036854775808, ptr %362, align 8
-  %363 = getelementptr inbounds i8, ptr %355, i64 192
+  %363 = getelementptr inbounds nuw i8, ptr %355, i64 192
   store i64 -9223372036854775808, ptr %363, align 8
-  %364 = getelementptr inbounds i8, ptr %355, i64 216
+  %364 = getelementptr inbounds nuw i8, ptr %355, i64 216
   store i64 -9223372036854775808, ptr %364, align 8
-  %365 = getelementptr inbounds i8, ptr %355, i64 240
+  %365 = getelementptr inbounds nuw i8, ptr %355, i64 240
   store i64 -9223372036854775808, ptr %365, align 8
-  %366 = getelementptr inbounds i8, ptr %355, i64 264
+  %366 = getelementptr inbounds nuw i8, ptr %355, i64 264
   store i64 -9223372036854775808, ptr %366, align 8
-  %367 = getelementptr inbounds i8, ptr %355, i64 288
+  %367 = getelementptr inbounds nuw i8, ptr %355, i64 288
   store i64 -9223372036854775808, ptr %367, align 8
-  %368 = getelementptr inbounds i8, ptr %355, i64 312
+  %368 = getelementptr inbounds nuw i8, ptr %355, i64 312
   store i64 -9223372036854775808, ptr %368, align 8
-  %369 = getelementptr inbounds i8, ptr %355, i64 336
+  %369 = getelementptr inbounds nuw i8, ptr %355, i64 336
   store i64 -9223372036854775808, ptr %369, align 8
-  %370 = getelementptr inbounds i8, ptr %355, i64 360
+  %370 = getelementptr inbounds nuw i8, ptr %355, i64 360
   store i64 -9223372036854775808, ptr %370, align 8
-  %371 = getelementptr inbounds i8, ptr %355, i64 384
+  %371 = getelementptr inbounds nuw i8, ptr %355, i64 384
   store i64 -9223372036854775808, ptr %371, align 8
-  %372 = getelementptr inbounds i8, ptr %355, i64 408
+  %372 = getelementptr inbounds nuw i8, ptr %355, i64 408
   store i64 -9223372036854775808, ptr %372, align 8
-  %373 = getelementptr inbounds i8, ptr %355, i64 432
+  %373 = getelementptr inbounds nuw i8, ptr %355, i64 432
   store i64 -9223372036854775808, ptr %373, align 8
-  %374 = getelementptr inbounds i8, ptr %355, i64 456
+  %374 = getelementptr inbounds nuw i8, ptr %355, i64 456
   store i64 -9223372036854775808, ptr %374, align 8
-  %375 = getelementptr inbounds i8, ptr %355, i64 480
+  %375 = getelementptr inbounds nuw i8, ptr %355, i64 480
   store i64 -9223372036854775808, ptr %375, align 8
-  %376 = getelementptr inbounds i8, ptr %355, i64 504
+  %376 = getelementptr inbounds nuw i8, ptr %355, i64 504
   store i64 -9223372036854775808, ptr %376, align 8
-  %377 = getelementptr inbounds i8, ptr %355, i64 528
+  %377 = getelementptr inbounds nuw i8, ptr %355, i64 528
   store i64 -9223372036854775808, ptr %377, align 8
-  %378 = getelementptr inbounds i8, ptr %355, i64 552
+  %378 = getelementptr inbounds nuw i8, ptr %355, i64 552
   store i64 -9223372036854775808, ptr %378, align 8
-  %379 = getelementptr inbounds i8, ptr %355, i64 576
+  %379 = getelementptr inbounds nuw i8, ptr %355, i64 576
   store i64 -9223372036854775808, ptr %379, align 8
-  %380 = getelementptr inbounds i8, ptr %355, i64 600
+  %380 = getelementptr inbounds nuw i8, ptr %355, i64 600
   store i64 -9223372036854775808, ptr %380, align 8
-  %381 = getelementptr inbounds i8, ptr %355, i64 624
+  %381 = getelementptr inbounds nuw i8, ptr %355, i64 624
   store i64 -9223372036854775808, ptr %381, align 8
-  %382 = getelementptr inbounds i8, ptr %355, i64 648
+  %382 = getelementptr inbounds nuw i8, ptr %355, i64 648
   store i64 -9223372036854775808, ptr %382, align 8
-  %383 = getelementptr inbounds i8, ptr %355, i64 672
+  %383 = getelementptr inbounds nuw i8, ptr %355, i64 672
   store i64 -9223372036854775808, ptr %383, align 8
-  %384 = getelementptr inbounds i8, ptr %355, i64 696
+  %384 = getelementptr inbounds nuw i8, ptr %355, i64 696
   store i64 -9223372036854775808, ptr %384, align 8
-  %385 = getelementptr inbounds i8, ptr %355, i64 720
+  %385 = getelementptr inbounds nuw i8, ptr %355, i64 720
   store i64 -9223372036854775808, ptr %385, align 8
-  %386 = getelementptr inbounds i8, ptr %355, i64 744
+  %386 = getelementptr inbounds nuw i8, ptr %355, i64 744
   store i64 -9223372036854775808, ptr %386, align 8
-  %387 = getelementptr inbounds i8, ptr %355, i64 768
+  %387 = getelementptr inbounds nuw i8, ptr %355, i64 768
   store i64 -9223372036854775808, ptr %387, align 8
-  %388 = getelementptr inbounds i8, ptr %355, i64 792
+  %388 = getelementptr inbounds nuw i8, ptr %355, i64 792
   store i64 -9223372036854775808, ptr %388, align 8
-  %389 = getelementptr inbounds i8, ptr %355, i64 816
+  %389 = getelementptr inbounds nuw i8, ptr %355, i64 816
   store i64 -9223372036854775808, ptr %389, align 8
-  %390 = getelementptr inbounds i8, ptr %355, i64 840
+  %390 = getelementptr inbounds nuw i8, ptr %355, i64 840
   store i64 -9223372036854775808, ptr %390, align 8
-  %391 = getelementptr inbounds i8, ptr %355, i64 864
+  %391 = getelementptr inbounds nuw i8, ptr %355, i64 864
   store i64 -9223372036854775808, ptr %391, align 8
-  %392 = getelementptr inbounds i8, ptr %355, i64 888
+  %392 = getelementptr inbounds nuw i8, ptr %355, i64 888
   store i64 -9223372036854775808, ptr %392, align 8
-  %393 = getelementptr inbounds i8, ptr %355, i64 912
+  %393 = getelementptr inbounds nuw i8, ptr %355, i64 912
   store i64 -9223372036854775808, ptr %393, align 8
-  %394 = getelementptr inbounds i8, ptr %355, i64 936
+  %394 = getelementptr inbounds nuw i8, ptr %355, i64 936
   store i64 -9223372036854775808, ptr %394, align 8
-  %395 = getelementptr inbounds i8, ptr %355, i64 960
+  %395 = getelementptr inbounds nuw i8, ptr %355, i64 960
   store i64 -9223372036854775808, ptr %395, align 8
-  %396 = getelementptr inbounds i8, ptr %355, i64 984
+  %396 = getelementptr inbounds nuw i8, ptr %355, i64 984
   store i64 -9223372036854775808, ptr %396, align 8
-  %397 = getelementptr inbounds i8, ptr %355, i64 1008
+  %397 = getelementptr inbounds nuw i8, ptr %355, i64 1008
   store i64 -9223372036854775808, ptr %397, align 8
-  %398 = getelementptr inbounds i8, ptr %355, i64 1032
+  %398 = getelementptr inbounds nuw i8, ptr %355, i64 1032
   store i64 -9223372036854775808, ptr %398, align 8
-  %399 = getelementptr inbounds i8, ptr %355, i64 1056
+  %399 = getelementptr inbounds nuw i8, ptr %355, i64 1056
   store i64 -9223372036854775808, ptr %399, align 8
-  %400 = getelementptr inbounds i8, ptr %355, i64 1080
+  %400 = getelementptr inbounds nuw i8, ptr %355, i64 1080
   store i64 -9223372036854775808, ptr %400, align 8
-  %401 = getelementptr inbounds i8, ptr %355, i64 1104
+  %401 = getelementptr inbounds nuw i8, ptr %355, i64 1104
   store i64 -9223372036854775808, ptr %401, align 8
-  %402 = getelementptr inbounds i8, ptr %355, i64 1128
+  %402 = getelementptr inbounds nuw i8, ptr %355, i64 1128
   store i64 -9223372036854775808, ptr %402, align 8
-  %403 = getelementptr inbounds i8, ptr %355, i64 1152
+  %403 = getelementptr inbounds nuw i8, ptr %355, i64 1152
   store i64 -9223372036854775808, ptr %403, align 8
-  %404 = getelementptr inbounds i8, ptr %355, i64 1176
+  %404 = getelementptr inbounds nuw i8, ptr %355, i64 1176
   store i64 -9223372036854775808, ptr %404, align 8
-  %405 = getelementptr inbounds i8, ptr %355, i64 1200
+  %405 = getelementptr inbounds nuw i8, ptr %355, i64 1200
   store i64 -9223372036854775808, ptr %405, align 8
-  %406 = getelementptr inbounds i8, ptr %355, i64 1224
+  %406 = getelementptr inbounds nuw i8, ptr %355, i64 1224
   store i64 -9223372036854775808, ptr %406, align 8
-  %407 = getelementptr inbounds i8, ptr %355, i64 1248
+  %407 = getelementptr inbounds nuw i8, ptr %355, i64 1248
   store i64 -9223372036854775808, ptr %407, align 8
-  %408 = getelementptr inbounds i8, ptr %355, i64 1272
+  %408 = getelementptr inbounds nuw i8, ptr %355, i64 1272
   store i64 -9223372036854775808, ptr %408, align 8
-  %409 = getelementptr inbounds i8, ptr %355, i64 1296
+  %409 = getelementptr inbounds nuw i8, ptr %355, i64 1296
   store i64 -9223372036854775808, ptr %409, align 8
-  %410 = getelementptr inbounds i8, ptr %355, i64 1320
+  %410 = getelementptr inbounds nuw i8, ptr %355, i64 1320
   store i64 -9223372036854775808, ptr %410, align 8
-  %411 = getelementptr inbounds i8, ptr %355, i64 1344
+  %411 = getelementptr inbounds nuw i8, ptr %355, i64 1344
   store i64 -9223372036854775808, ptr %411, align 8
-  %412 = getelementptr inbounds i8, ptr %355, i64 1368
+  %412 = getelementptr inbounds nuw i8, ptr %355, i64 1368
   store i64 -9223372036854775808, ptr %412, align 8
-  %413 = getelementptr inbounds i8, ptr %355, i64 1392
+  %413 = getelementptr inbounds nuw i8, ptr %355, i64 1392
   store i64 -9223372036854775808, ptr %413, align 8
-  %414 = getelementptr inbounds i8, ptr %355, i64 1416
+  %414 = getelementptr inbounds nuw i8, ptr %355, i64 1416
   store i64 -9223372036854775808, ptr %414, align 8
-  %415 = getelementptr inbounds i8, ptr %355, i64 1440
+  %415 = getelementptr inbounds nuw i8, ptr %355, i64 1440
   store i64 -9223372036854775808, ptr %415, align 8
-  %416 = getelementptr inbounds i8, ptr %355, i64 1464
+  %416 = getelementptr inbounds nuw i8, ptr %355, i64 1464
   store i64 -9223372036854775808, ptr %416, align 8
-  %417 = getelementptr inbounds i8, ptr %355, i64 1488
+  %417 = getelementptr inbounds nuw i8, ptr %355, i64 1488
   store i64 -9223372036854775808, ptr %417, align 8
-  %418 = getelementptr inbounds i8, ptr %355, i64 1512
+  %418 = getelementptr inbounds nuw i8, ptr %355, i64 1512
   store i64 -9223372036854775808, ptr %418, align 8
-  %419 = getelementptr inbounds i8, ptr %355, i64 1536
+  %419 = getelementptr inbounds nuw i8, ptr %355, i64 1536
   store i64 -9223372036854775808, ptr %419, align 8
-  %420 = getelementptr inbounds i8, ptr %355, i64 1560
+  %420 = getelementptr inbounds nuw i8, ptr %355, i64 1560
   store i64 -9223372036854775808, ptr %420, align 8
-  %421 = getelementptr inbounds i8, ptr %355, i64 1584
+  %421 = getelementptr inbounds nuw i8, ptr %355, i64 1584
   store i64 -9223372036854775808, ptr %421, align 8
-  %422 = getelementptr inbounds i8, ptr %355, i64 1608
+  %422 = getelementptr inbounds nuw i8, ptr %355, i64 1608
   store i64 -9223372036854775808, ptr %422, align 8
-  %423 = getelementptr inbounds i8, ptr %355, i64 1632
+  %423 = getelementptr inbounds nuw i8, ptr %355, i64 1632
   store i64 -9223372036854775808, ptr %423, align 8
-  %424 = getelementptr inbounds i8, ptr %355, i64 1656
+  %424 = getelementptr inbounds nuw i8, ptr %355, i64 1656
   store i64 -9223372036854775808, ptr %424, align 8
-  %425 = getelementptr inbounds i8, ptr %355, i64 1680
+  %425 = getelementptr inbounds nuw i8, ptr %355, i64 1680
   store i64 -9223372036854775808, ptr %425, align 8
-  %426 = getelementptr inbounds i8, ptr %355, i64 1704
+  %426 = getelementptr inbounds nuw i8, ptr %355, i64 1704
   store i64 -9223372036854775808, ptr %426, align 8
-  %427 = getelementptr inbounds i8, ptr %355, i64 1728
+  %427 = getelementptr inbounds nuw i8, ptr %355, i64 1728
   store i64 -9223372036854775808, ptr %427, align 8
-  %428 = getelementptr inbounds i8, ptr %355, i64 1752
+  %428 = getelementptr inbounds nuw i8, ptr %355, i64 1752
   store i64 -9223372036854775808, ptr %428, align 8
-  %429 = getelementptr inbounds i8, ptr %355, i64 1776
+  %429 = getelementptr inbounds nuw i8, ptr %355, i64 1776
   store i64 -9223372036854775808, ptr %429, align 8
-  %430 = getelementptr inbounds i8, ptr %355, i64 1800
+  %430 = getelementptr inbounds nuw i8, ptr %355, i64 1800
   store i64 -9223372036854775808, ptr %430, align 8
-  %431 = getelementptr inbounds i8, ptr %355, i64 1824
+  %431 = getelementptr inbounds nuw i8, ptr %355, i64 1824
   store i64 -9223372036854775808, ptr %431, align 8
-  %432 = getelementptr inbounds i8, ptr %355, i64 1848
+  %432 = getelementptr inbounds nuw i8, ptr %355, i64 1848
   store i64 -9223372036854775808, ptr %432, align 8
-  %433 = getelementptr inbounds i8, ptr %355, i64 1872
+  %433 = getelementptr inbounds nuw i8, ptr %355, i64 1872
   store i64 -9223372036854775808, ptr %433, align 8
-  %434 = getelementptr inbounds i8, ptr %355, i64 1896
+  %434 = getelementptr inbounds nuw i8, ptr %355, i64 1896
   store i64 -9223372036854775808, ptr %434, align 8
-  %435 = getelementptr inbounds i8, ptr %355, i64 1920
+  %435 = getelementptr inbounds nuw i8, ptr %355, i64 1920
   store i64 -9223372036854775808, ptr %435, align 8
-  %436 = getelementptr inbounds i8, ptr %355, i64 1944
+  %436 = getelementptr inbounds nuw i8, ptr %355, i64 1944
   store i64 -9223372036854775808, ptr %436, align 8
-  %437 = getelementptr inbounds i8, ptr %355, i64 1968
+  %437 = getelementptr inbounds nuw i8, ptr %355, i64 1968
   store i64 -9223372036854775808, ptr %437, align 8
-  %438 = getelementptr inbounds i8, ptr %355, i64 1992
+  %438 = getelementptr inbounds nuw i8, ptr %355, i64 1992
   store i64 -9223372036854775808, ptr %438, align 8
-  %439 = getelementptr inbounds i8, ptr %355, i64 2016
+  %439 = getelementptr inbounds nuw i8, ptr %355, i64 2016
   store i64 -9223372036854775808, ptr %439, align 8
-  %440 = getelementptr inbounds i8, ptr %355, i64 2040
+  %440 = getelementptr inbounds nuw i8, ptr %355, i64 2040
   store i64 -9223372036854775808, ptr %440, align 8
-  %441 = getelementptr inbounds i8, ptr %355, i64 2064
+  %441 = getelementptr inbounds nuw i8, ptr %355, i64 2064
   store i64 -9223372036854775808, ptr %441, align 8
-  %442 = getelementptr inbounds i8, ptr %355, i64 2088
+  %442 = getelementptr inbounds nuw i8, ptr %355, i64 2088
   store i64 -9223372036854775808, ptr %442, align 8
-  %443 = getelementptr inbounds i8, ptr %355, i64 2112
+  %443 = getelementptr inbounds nuw i8, ptr %355, i64 2112
   store i64 -9223372036854775808, ptr %443, align 8
-  %444 = getelementptr inbounds i8, ptr %355, i64 2136
+  %444 = getelementptr inbounds nuw i8, ptr %355, i64 2136
   store i64 -9223372036854775808, ptr %444, align 8
-  %445 = getelementptr inbounds i8, ptr %355, i64 2160
+  %445 = getelementptr inbounds nuw i8, ptr %355, i64 2160
   store i64 -9223372036854775808, ptr %445, align 8
-  %446 = getelementptr inbounds i8, ptr %355, i64 2184
+  %446 = getelementptr inbounds nuw i8, ptr %355, i64 2184
   store i64 -9223372036854775808, ptr %446, align 8
-  %447 = getelementptr inbounds i8, ptr %355, i64 2208
+  %447 = getelementptr inbounds nuw i8, ptr %355, i64 2208
   store i64 -9223372036854775808, ptr %447, align 8
-  %448 = getelementptr inbounds i8, ptr %355, i64 2232
+  %448 = getelementptr inbounds nuw i8, ptr %355, i64 2232
   store i64 -9223372036854775808, ptr %448, align 8
   call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %354)
   %449 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
@@ -8841,28 +8841,28 @@ define void @"_ZN5theme6schema1_84_$LT$impl$u20$schemars..JsonSchema$u20$for$u20
 458:                                              ; preds = %2
   store i8 2, ptr %450, align 1
   store i64 -9223372036854775803, ptr %97, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %354, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %354, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.97, i64 16, i1 false)
-  %459 = getelementptr inbounds i8, ptr %354, i64 96
+  %459 = getelementptr inbounds nuw i8, ptr %354, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %459, ptr noundef nonnull align 8 dereferenceable(72) %97, i64 72, i1 false)
-  %.sroa.10.48..sroa_idx = getelementptr inbounds i8, ptr %354, i64 56
+  %.sroa.10.48..sroa_idx = getelementptr inbounds nuw i8, ptr %354, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10.48..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.97, i64 16, i1 false)
-  %460 = getelementptr inbounds i8, ptr %354, i64 168
+  %460 = getelementptr inbounds nuw i8, ptr %354, i64 168
   store ptr null, ptr %460, align 8
-  %461 = getelementptr inbounds i8, ptr %354, i64 72
+  %461 = getelementptr inbounds nuw i8, ptr %354, i64 72
   store i64 -9223372036854775808, ptr %461, align 8
-  %.sroa.42.0..sroa_idx = getelementptr inbounds i8, ptr %354, i64 80
+  %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %354, i64 80
   store ptr %450, ptr %.sroa.42.0..sroa_idx, align 8
   store i64 -9223372036854775808, ptr %354, align 8
-  %462 = getelementptr inbounds i8, ptr %354, i64 24
+  %462 = getelementptr inbounds nuw i8, ptr %354, i64 24
   store i64 -9223372036854775808, ptr %462, align 8
-  %463 = getelementptr inbounds i8, ptr %354, i64 176
-  %464 = getelementptr inbounds i8, ptr %354, i64 48
+  %463 = getelementptr inbounds nuw i8, ptr %354, i64 176
+  %464 = getelementptr inbounds nuw i8, ptr %354, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %463, i8 0, i64 40, i1 false)
   store i64 -9223372036854775808, ptr %464, align 8
-  %465 = getelementptr inbounds i8, ptr %354, i64 216
+  %465 = getelementptr inbounds nuw i8, ptr %354, i64 216
   store ptr null, ptr %465, align 8
-  %.sroa.31578.216..sroa_idx = getelementptr inbounds i8, ptr %354, i64 232
+  %.sroa.31578.216..sroa_idx = getelementptr inbounds nuw i8, ptr %354, i64 232
   store i64 0, ptr %.sroa.31578.216..sroa_idx, align 8
   %466 = invoke noundef align 8 dereferenceable(104) ptr @_ZN8schemars6schema12SchemaObject6object17h5adaef6fb6e7c63fE(ptr noalias noundef nonnull align 8 dereferenceable(240) %354)
           to label %467 unwind label %456
@@ -11902,13 +11902,13 @@ define void @"_ZN5theme6schema1_84_$LT$impl$u20$schemars..JsonSchema$u20$for$u20
 1098:                                             ; preds = %1095
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !596
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he6d9552f574ddec7E"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %397)
-  %1099 = getelementptr inbounds i8, ptr %3, i64 8
+  %1099 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %1100 = load i64, ptr %1099, align 8, !range !29, !noalias !596, !noundef !4
   %1101 = icmp eq i64 %1100, 0
   br i1 %1101, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6b6e2bd102696678E.exit.i", label %1102
 
 1102:                                             ; preds = %1098
-  %1103 = getelementptr inbounds i8, ptr %3, i64 16
+  %1103 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %1104 = load i64, ptr %1103, align 8, !noalias !596, !noundef !4
   %1105 = icmp eq i64 %1104, 0
   br i1 %1105, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6b6e2bd102696678E.exit.i", label %1106
@@ -13642,9 +13642,9 @@ define void @"_ZN5theme6schema1_85_$LT$impl$u20$schemars..JsonSchema$u20$for$u20
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17he24fb2b9020d9140E"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, i64 noundef 19, i1 noundef zeroext false), !noalias !884
   %3 = load i64, ptr %2, align 8, !range !85, !noalias !884, !noundef !4
   %trunc.i = trunc nuw i64 %3 to i1
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i64, ptr %4, align 8, !range !29, !noalias !884, !noundef !4
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br i1 %trunc.i, label %7, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h688d451feb156e8cE.llvm.12664348367457638102.exit"
 
 7:                                                ; preds = %1
@@ -13657,18 +13657,18 @@ define void @"_ZN5theme6schema1_85_$LT$impl$u20$schemars..JsonSchema$u20$for$u20
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !884
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %9, ptr noundef nonnull align 1 dereferenceable(19) @anon.8864566ca2df49740c222121536a8dcf.222, i64 19, i1 false), !noalias !888
   store i64 %5, ptr %0, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %9, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 19, ptr %.sroa.5.0..sroa_idx, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @"_ZN5theme6schema1_85_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$theme..schema..StatusColorsContent$GT$9schema_id17h0d1113d8e1a6caf4E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #6 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @anon.8864566ca2df49740c222121536a8dcf.223, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 34, ptr %3, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   ret void
@@ -13821,87 +13821,87 @@ define void @"_ZN5theme6schema1_85_$LT$impl$u20$schemars..JsonSchema$u20$for$u20
   %145 = alloca [1008 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 1008, ptr nonnull %145)
   store i64 -9223372036854775808, ptr %145, align 8
-  %146 = getelementptr inbounds i8, ptr %145, i64 24
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 24
   store i64 -9223372036854775808, ptr %146, align 8
-  %147 = getelementptr inbounds i8, ptr %145, i64 48
+  %147 = getelementptr inbounds nuw i8, ptr %145, i64 48
   store i64 -9223372036854775808, ptr %147, align 8
-  %148 = getelementptr inbounds i8, ptr %145, i64 72
+  %148 = getelementptr inbounds nuw i8, ptr %145, i64 72
   store i64 -9223372036854775808, ptr %148, align 8
-  %149 = getelementptr inbounds i8, ptr %145, i64 96
+  %149 = getelementptr inbounds nuw i8, ptr %145, i64 96
   store i64 -9223372036854775808, ptr %149, align 8
-  %150 = getelementptr inbounds i8, ptr %145, i64 120
+  %150 = getelementptr inbounds nuw i8, ptr %145, i64 120
   store i64 -9223372036854775808, ptr %150, align 8
-  %151 = getelementptr inbounds i8, ptr %145, i64 144
+  %151 = getelementptr inbounds nuw i8, ptr %145, i64 144
   store i64 -9223372036854775808, ptr %151, align 8
-  %152 = getelementptr inbounds i8, ptr %145, i64 168
+  %152 = getelementptr inbounds nuw i8, ptr %145, i64 168
   store i64 -9223372036854775808, ptr %152, align 8
-  %153 = getelementptr inbounds i8, ptr %145, i64 192
+  %153 = getelementptr inbounds nuw i8, ptr %145, i64 192
   store i64 -9223372036854775808, ptr %153, align 8
-  %154 = getelementptr inbounds i8, ptr %145, i64 216
+  %154 = getelementptr inbounds nuw i8, ptr %145, i64 216
   store i64 -9223372036854775808, ptr %154, align 8
-  %155 = getelementptr inbounds i8, ptr %145, i64 240
+  %155 = getelementptr inbounds nuw i8, ptr %145, i64 240
   store i64 -9223372036854775808, ptr %155, align 8
-  %156 = getelementptr inbounds i8, ptr %145, i64 264
+  %156 = getelementptr inbounds nuw i8, ptr %145, i64 264
   store i64 -9223372036854775808, ptr %156, align 8
-  %157 = getelementptr inbounds i8, ptr %145, i64 288
+  %157 = getelementptr inbounds nuw i8, ptr %145, i64 288
   store i64 -9223372036854775808, ptr %157, align 8
-  %158 = getelementptr inbounds i8, ptr %145, i64 312
+  %158 = getelementptr inbounds nuw i8, ptr %145, i64 312
   store i64 -9223372036854775808, ptr %158, align 8
-  %159 = getelementptr inbounds i8, ptr %145, i64 336
+  %159 = getelementptr inbounds nuw i8, ptr %145, i64 336
   store i64 -9223372036854775808, ptr %159, align 8
-  %160 = getelementptr inbounds i8, ptr %145, i64 360
+  %160 = getelementptr inbounds nuw i8, ptr %145, i64 360
   store i64 -9223372036854775808, ptr %160, align 8
-  %161 = getelementptr inbounds i8, ptr %145, i64 384
+  %161 = getelementptr inbounds nuw i8, ptr %145, i64 384
   store i64 -9223372036854775808, ptr %161, align 8
-  %162 = getelementptr inbounds i8, ptr %145, i64 408
+  %162 = getelementptr inbounds nuw i8, ptr %145, i64 408
   store i64 -9223372036854775808, ptr %162, align 8
-  %163 = getelementptr inbounds i8, ptr %145, i64 432
+  %163 = getelementptr inbounds nuw i8, ptr %145, i64 432
   store i64 -9223372036854775808, ptr %163, align 8
-  %164 = getelementptr inbounds i8, ptr %145, i64 456
+  %164 = getelementptr inbounds nuw i8, ptr %145, i64 456
   store i64 -9223372036854775808, ptr %164, align 8
-  %165 = getelementptr inbounds i8, ptr %145, i64 480
+  %165 = getelementptr inbounds nuw i8, ptr %145, i64 480
   store i64 -9223372036854775808, ptr %165, align 8
-  %166 = getelementptr inbounds i8, ptr %145, i64 504
+  %166 = getelementptr inbounds nuw i8, ptr %145, i64 504
   store i64 -9223372036854775808, ptr %166, align 8
-  %167 = getelementptr inbounds i8, ptr %145, i64 528
+  %167 = getelementptr inbounds nuw i8, ptr %145, i64 528
   store i64 -9223372036854775808, ptr %167, align 8
-  %168 = getelementptr inbounds i8, ptr %145, i64 552
+  %168 = getelementptr inbounds nuw i8, ptr %145, i64 552
   store i64 -9223372036854775808, ptr %168, align 8
-  %169 = getelementptr inbounds i8, ptr %145, i64 576
+  %169 = getelementptr inbounds nuw i8, ptr %145, i64 576
   store i64 -9223372036854775808, ptr %169, align 8
-  %170 = getelementptr inbounds i8, ptr %145, i64 600
+  %170 = getelementptr inbounds nuw i8, ptr %145, i64 600
   store i64 -9223372036854775808, ptr %170, align 8
-  %171 = getelementptr inbounds i8, ptr %145, i64 624
+  %171 = getelementptr inbounds nuw i8, ptr %145, i64 624
   store i64 -9223372036854775808, ptr %171, align 8
-  %172 = getelementptr inbounds i8, ptr %145, i64 648
+  %172 = getelementptr inbounds nuw i8, ptr %145, i64 648
   store i64 -9223372036854775808, ptr %172, align 8
-  %173 = getelementptr inbounds i8, ptr %145, i64 672
+  %173 = getelementptr inbounds nuw i8, ptr %145, i64 672
   store i64 -9223372036854775808, ptr %173, align 8
-  %174 = getelementptr inbounds i8, ptr %145, i64 696
+  %174 = getelementptr inbounds nuw i8, ptr %145, i64 696
   store i64 -9223372036854775808, ptr %174, align 8
-  %175 = getelementptr inbounds i8, ptr %145, i64 720
+  %175 = getelementptr inbounds nuw i8, ptr %145, i64 720
   store i64 -9223372036854775808, ptr %175, align 8
-  %176 = getelementptr inbounds i8, ptr %145, i64 744
+  %176 = getelementptr inbounds nuw i8, ptr %145, i64 744
   store i64 -9223372036854775808, ptr %176, align 8
-  %177 = getelementptr inbounds i8, ptr %145, i64 768
+  %177 = getelementptr inbounds nuw i8, ptr %145, i64 768
   store i64 -9223372036854775808, ptr %177, align 8
-  %178 = getelementptr inbounds i8, ptr %145, i64 792
+  %178 = getelementptr inbounds nuw i8, ptr %145, i64 792
   store i64 -9223372036854775808, ptr %178, align 8
-  %179 = getelementptr inbounds i8, ptr %145, i64 816
+  %179 = getelementptr inbounds nuw i8, ptr %145, i64 816
   store i64 -9223372036854775808, ptr %179, align 8
-  %180 = getelementptr inbounds i8, ptr %145, i64 840
+  %180 = getelementptr inbounds nuw i8, ptr %145, i64 840
   store i64 -9223372036854775808, ptr %180, align 8
-  %181 = getelementptr inbounds i8, ptr %145, i64 864
+  %181 = getelementptr inbounds nuw i8, ptr %145, i64 864
   store i64 -9223372036854775808, ptr %181, align 8
-  %182 = getelementptr inbounds i8, ptr %145, i64 888
+  %182 = getelementptr inbounds nuw i8, ptr %145, i64 888
   store i64 -9223372036854775808, ptr %182, align 8
-  %183 = getelementptr inbounds i8, ptr %145, i64 912
+  %183 = getelementptr inbounds nuw i8, ptr %145, i64 912
   store i64 -9223372036854775808, ptr %183, align 8
-  %184 = getelementptr inbounds i8, ptr %145, i64 936
+  %184 = getelementptr inbounds nuw i8, ptr %145, i64 936
   store i64 -9223372036854775808, ptr %184, align 8
-  %185 = getelementptr inbounds i8, ptr %145, i64 960
+  %185 = getelementptr inbounds nuw i8, ptr %145, i64 960
   store i64 -9223372036854775808, ptr %185, align 8
-  %186 = getelementptr inbounds i8, ptr %145, i64 984
+  %186 = getelementptr inbounds nuw i8, ptr %145, i64 984
   store i64 -9223372036854775808, ptr %186, align 8
   call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %144)
   %187 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
@@ -14021,24 +14021,24 @@ define void @"_ZN5theme6schema1_85_$LT$impl$u20$schemars..JsonSchema$u20$for$u20
 195:                                              ; preds = %2
   store i8 2, ptr %188, align 1
   store i64 -9223372036854775803, ptr %45, align 8
-  %196 = getelementptr inbounds i8, ptr %144, i64 96
+  %196 = getelementptr inbounds nuw i8, ptr %144, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %196, ptr noundef nonnull align 8 dereferenceable(72) %45, i64 72, i1 false)
-  %197 = getelementptr inbounds i8, ptr %144, i64 168
+  %197 = getelementptr inbounds nuw i8, ptr %144, i64 168
   store ptr null, ptr %197, align 8
-  %198 = getelementptr inbounds i8, ptr %144, i64 72
+  %198 = getelementptr inbounds nuw i8, ptr %144, i64 72
   store i64 -9223372036854775808, ptr %198, align 8
-  %.sroa.42.0..sroa_idx = getelementptr inbounds i8, ptr %144, i64 80
+  %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %144, i64 80
   store ptr %188, ptr %.sroa.42.0..sroa_idx, align 8
   store i64 -9223372036854775808, ptr %144, align 8
-  %199 = getelementptr inbounds i8, ptr %144, i64 24
+  %199 = getelementptr inbounds nuw i8, ptr %144, i64 24
   store i64 -9223372036854775808, ptr %199, align 8
-  %200 = getelementptr inbounds i8, ptr %144, i64 176
-  %201 = getelementptr inbounds i8, ptr %144, i64 48
+  %200 = getelementptr inbounds nuw i8, ptr %144, i64 176
+  %201 = getelementptr inbounds nuw i8, ptr %144, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %200, i8 0, i64 40, i1 false)
   store i64 -9223372036854775808, ptr %201, align 8
-  %202 = getelementptr inbounds i8, ptr %144, i64 216
+  %202 = getelementptr inbounds nuw i8, ptr %144, i64 216
   store ptr null, ptr %202, align 8
-  %.sroa.31270.216..sroa_idx = getelementptr inbounds i8, ptr %144, i64 232
+  %.sroa.31270.216..sroa_idx = getelementptr inbounds nuw i8, ptr %144, i64 232
   store i64 0, ptr %.sroa.31270.216..sroa_idx, align 8
   %203 = invoke noundef align 8 dereferenceable(104) ptr @_ZN8schemars6schema12SchemaObject6object17h5adaef6fb6e7c63fE(ptr noalias noundef nonnull align 8 dereferenceable(240) %144)
           to label %204 unwind label %193
@@ -16175,9 +16175,9 @@ define void @"_ZN5theme6schema1_79_$LT$impl$u20$schemars..JsonSchema$u20$for$u20
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17he24fb2b9020d9140E"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, i64 noundef 13, i1 noundef zeroext false), !noalias !1015
   %3 = load i64, ptr %2, align 8, !range !85, !noalias !1015, !noundef !4
   %trunc.i = trunc nuw i64 %3 to i1
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i64, ptr %4, align 8, !range !29, !noalias !1015, !noundef !4
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br i1 %trunc.i, label %7, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h688d451feb156e8cE.llvm.12664348367457638102.exit"
 
 7:                                                ; preds = %1
@@ -16190,18 +16190,18 @@ define void @"_ZN5theme6schema1_79_$LT$impl$u20$schemars..JsonSchema$u20$for$u20
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !1015
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %9, ptr noundef nonnull align 1 dereferenceable(13) @anon.8864566ca2df49740c222121536a8dcf.281.llvm.12664348367457638102, i64 13, i1 false), !noalias !1019
   store i64 %5, ptr %0, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %9, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 13, ptr %.sroa.5.0..sroa_idx, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @"_ZN5theme6schema1_79_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$theme..schema..AccentContent$GT$9schema_id17h2f4d60b23f59ed5fE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #6 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @anon.8864566ca2df49740c222121536a8dcf.282.llvm.12664348367457638102, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 28, ptr %3, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   ret void
@@ -16244,9 +16244,9 @@ define void @"_ZN5theme6schema1_84_$LT$impl$u20$schemars..JsonSchema$u20$for$u20
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17he24fb2b9020d9140E"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, i64 noundef 18, i1 noundef zeroext false), !noalias !1020
   %3 = load i64, ptr %2, align 8, !range !85, !noalias !1020, !noundef !4
   %trunc.i = trunc nuw i64 %3 to i1
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i64, ptr %4, align 8, !range !29, !noalias !1020, !noundef !4
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br i1 %trunc.i, label %7, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h688d451feb156e8cE.llvm.12664348367457638102.exit"
 
 7:                                                ; preds = %1
@@ -16259,18 +16259,18 @@ define void @"_ZN5theme6schema1_84_$LT$impl$u20$schemars..JsonSchema$u20$for$u20
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !1020
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %9, ptr noundef nonnull align 1 dereferenceable(18) @anon.8864566ca2df49740c222121536a8dcf.284.llvm.12664348367457638102, i64 18, i1 false), !noalias !1024
   store i64 %5, ptr %0, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %9, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 18, ptr %.sroa.5.0..sroa_idx, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @"_ZN5theme6schema1_84_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$theme..schema..PlayerColorContent$GT$9schema_id17h362c08c570743d01E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #6 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @anon.8864566ca2df49740c222121536a8dcf.285.llvm.12664348367457638102, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 33, ptr %3, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   ret void
@@ -16300,24 +16300,24 @@ define void @"_ZN5theme6schema1_84_$LT$impl$u20$schemars..JsonSchema$u20$for$u20
 
 13:                                               ; preds = %2
   store i8 2, ptr %8, align 1
-  %14 = getelementptr inbounds i8, ptr %6, i64 168
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 168
   store ptr null, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 72
   store i64 -9223372036854775808, ptr %15, align 8
-  %.sroa.42.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 80
+  %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 80
   store ptr %8, ptr %.sroa.42.0..sroa_idx, align 8
   store i64 -9223372036854775808, ptr %6, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 -9223372036854775808, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %6, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 96
   store i64 -9223372036854775803, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 176
-  %19 = getelementptr inbounds i8, ptr %6, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 176
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %18, i8 0, i64 40, i1 false)
   store i64 -9223372036854775808, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %6, i64 216
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 216
   store ptr null, ptr %20, align 8
-  %.sroa.3221.216..sroa_idx = getelementptr inbounds i8, ptr %6, i64 232
+  %.sroa.3221.216..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 232
   store i64 0, ptr %.sroa.3221.216..sroa_idx, align 8
   %21 = invoke noundef align 8 dereferenceable(104) ptr @_ZN8schemars6schema12SchemaObject6object17h5adaef6fb6e7c63fE(ptr noalias noundef nonnull align 8 dereferenceable(240) %6)
           to label %22 unwind label %11
@@ -16386,9 +16386,9 @@ define void @"_ZN5theme6schema1_82_$LT$impl$u20$schemars..JsonSchema$u20$for$u20
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17he24fb2b9020d9140E"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, i64 noundef 16, i1 noundef zeroext false), !noalias !1025
   %3 = load i64, ptr %2, align 8, !range !85, !noalias !1025, !noundef !4
   %trunc.i = trunc nuw i64 %3 to i1
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i64, ptr %4, align 8, !range !29, !noalias !1025, !noundef !4
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br i1 %trunc.i, label %7, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h688d451feb156e8cE.llvm.12664348367457638102.exit"
 
 7:                                                ; preds = %1
@@ -16401,18 +16401,18 @@ define void @"_ZN5theme6schema1_82_$LT$impl$u20$schemars..JsonSchema$u20$for$u20
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !1025
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %9, ptr noundef nonnull align 1 dereferenceable(16) @anon.8864566ca2df49740c222121536a8dcf.289.llvm.12664348367457638102, i64 16, i1 false), !noalias !1029
   store i64 %5, ptr %0, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %9, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 16, ptr %.sroa.5.0..sroa_idx, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @"_ZN5theme6schema1_82_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$theme..schema..FontStyleContent$GT$9schema_id17h87d9fa3f869b314fE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #6 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @anon.8864566ca2df49740c222121536a8dcf.290.llvm.12664348367457638102, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 31, ptr %3, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   ret void
@@ -16496,30 +16496,30 @@ define void @"_ZN5theme6schema1_82_$LT$impl$u20$schemars..JsonSchema$u20$for$u20
 
 "_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$$GT$17h2b1aea1fca1c802dE.exit": ; preds = %25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %14, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false)
-  %28 = getelementptr inbounds i8, ptr %14, i64 72
+  %28 = getelementptr inbounds nuw i8, ptr %14, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %28, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false)
-  %29 = getelementptr inbounds i8, ptr %14, i64 144
+  %29 = getelementptr inbounds nuw i8, ptr %14, i64 144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %29, ptr noundef nonnull align 8 dereferenceable(72) %3, i64 72, i1 false)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5)
   store i64 -9223372036854775808, ptr %0, align 8
-  %.sroa.0.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.0.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 3, ptr %.sroa.0.sroa.0.sroa.4.0..sroa_idx, align 8
-  %.sroa.0.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  %.sroa.0.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %14, ptr %.sroa.0.sroa.0.sroa.5.0..sroa_idx, align 8
-  %.sroa.0.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
+  %.sroa.0.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 3, ptr %.sroa.0.sroa.0.sroa.6.0..sroa_idx, align 8
-  %.sroa.0.sroa.0.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
+  %.sroa.0.sroa.0.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 -9223372036854775808, ptr %.sroa.0.sroa.0.sroa.7.0..sroa_idx, align 8
-  %.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 72
+  %.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 -9223372036854775808, ptr %.sroa.0.sroa.6.0..sroa_idx, align 8
-  %.sroa.0.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 80
+  %.sroa.0.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %7, ptr %.sroa.0.sroa.7.0..sroa_idx, align 8
-  %.sroa.0.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 96
+  %.sroa.0.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i64 -9223372036854775803, ptr %.sroa.0.sroa.9.0..sroa_idx, align 8
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 168
-  %.sroa.14.sroa.5.0..sroa.14.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 232
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %.sroa.14.sroa.5.0..sroa.14.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 232
   store i64 0, ptr %.sroa.14.sroa.5.0..sroa.14.0..sroa_idx.sroa_idx, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.8.0..sroa_idx, i8 0, i64 56, i1 false)
   ret void
@@ -16565,9 +16565,9 @@ define void @"_ZN5theme6schema1_87_$LT$impl$u20$schemars..JsonSchema$u20$for$u20
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17he24fb2b9020d9140E"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, i64 noundef 21, i1 noundef zeroext false), !noalias !1030
   %3 = load i64, ptr %2, align 8, !range !85, !noalias !1030, !noundef !4
   %trunc.i = trunc nuw i64 %3 to i1
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i64, ptr %4, align 8, !range !29, !noalias !1030, !noundef !4
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br i1 %trunc.i, label %7, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h688d451feb156e8cE.llvm.12664348367457638102.exit"
 
 7:                                                ; preds = %1
@@ -16580,18 +16580,18 @@ define void @"_ZN5theme6schema1_87_$LT$impl$u20$schemars..JsonSchema$u20$for$u20
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !1030
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %9, ptr noundef nonnull align 1 dereferenceable(21) @anon.8864566ca2df49740c222121536a8dcf.295.llvm.12664348367457638102, i64 21, i1 false), !noalias !1034
   store i64 %5, ptr %0, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %9, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 21, ptr %.sroa.5.0..sroa_idx, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @"_ZN5theme6schema1_87_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$theme..schema..HighlightStyleContent$GT$9schema_id17h8a82665464e69f9aE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #6 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @anon.8864566ca2df49740c222121536a8dcf.296.llvm.12664348367457638102, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 36, ptr %3, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   ret void
@@ -16615,11 +16615,11 @@ define void @"_ZN5theme6schema1_87_$LT$impl$u20$schemars..JsonSchema$u20$for$u20
   %16 = alloca [56 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %16)
   store i64 -9223372036854775808, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store i64 -9223372036854775808, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %16, i64 50
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 50
   store i8 3, ptr %18, align 2
-  %19 = getelementptr inbounds i8, ptr %16, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 48
   store i16 99, ptr %19, align 8
   call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %15)
   %20 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
@@ -16659,24 +16659,24 @@ define void @"_ZN5theme6schema1_87_$LT$impl$u20$schemars..JsonSchema$u20$for$u20
 28:                                               ; preds = %2
   store i8 2, ptr %21, align 1
   store i64 -9223372036854775803, ptr %6, align 8
-  %29 = getelementptr inbounds i8, ptr %15, i64 96
+  %29 = getelementptr inbounds nuw i8, ptr %15, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %29, ptr noundef nonnull align 8 dereferenceable(72) %6, i64 72, i1 false)
-  %30 = getelementptr inbounds i8, ptr %15, i64 168
+  %30 = getelementptr inbounds nuw i8, ptr %15, i64 168
   store ptr null, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %15, i64 72
+  %31 = getelementptr inbounds nuw i8, ptr %15, i64 72
   store i64 -9223372036854775808, ptr %31, align 8
-  %.sroa.42.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 80
+  %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 80
   store ptr %21, ptr %.sroa.42.0..sroa_idx, align 8
   store i64 -9223372036854775808, ptr %15, align 8
-  %32 = getelementptr inbounds i8, ptr %15, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store i64 -9223372036854775808, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %15, i64 176
-  %34 = getelementptr inbounds i8, ptr %15, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %15, i64 176
+  %34 = getelementptr inbounds nuw i8, ptr %15, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %33, i8 0, i64 40, i1 false)
   store i64 -9223372036854775808, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %15, i64 216
+  %35 = getelementptr inbounds nuw i8, ptr %15, i64 216
   store ptr null, ptr %35, align 8
-  %.sroa.3140.216..sroa_idx = getelementptr inbounds i8, ptr %15, i64 232
+  %.sroa.3140.216..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 232
   store i64 0, ptr %.sroa.3140.216..sroa_idx, align 8
   %36 = invoke noundef align 8 dereferenceable(104) ptr @_ZN8schemars6schema12SchemaObject6object17h5adaef6fb6e7c63fE(ptr noalias noundef nonnull align 8 dereferenceable(240) %15)
           to label %37 unwind label %26
@@ -16750,12 +16750,12 @@ define void @"_ZN5theme6schema1_87_$LT$impl$u20$schemars..JsonSchema$u20$for$u20
   br i1 %52, label %56, label %switch.lookup
 
 switch.lookup:                                    ; preds = %50
-  %.sroa.4.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.4.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %53 = zext nneg i8 %51 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZN5theme6schema1_87_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$theme..schema..HighlightStyleContent$GT$11json_schema17h15e6cdf0b5b0ddd7E", i64 0, i64 %53
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN5theme6schema1_87_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$theme..schema..HighlightStyleContent$GT$11json_schema17h15e6cdf0b5b0ddd7E", i64 0, i64 %53
   %switch.load = load ptr, ptr %switch.gep, align 8
   %54 = zext nneg i8 %51 to i64
-  %switch.gep58 = getelementptr inbounds [3 x i64], ptr @"switch.table._ZN5theme6schema1_87_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$theme..schema..HighlightStyleContent$GT$11json_schema17h15e6cdf0b5b0ddd7E.149", i64 0, i64 %54
+  %switch.gep58 = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN5theme6schema1_87_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$theme..schema..HighlightStyleContent$GT$11json_schema17h15e6cdf0b5b0ddd7E.149", i64 0, i64 %54
   %switch.load59 = load i64, ptr %switch.gep58, align 8
   invoke void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h688d451feb156e8cE.llvm.16403958082728167663"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %.sroa.4.0..sroa_idx.i.i.i.i.i.i, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.load59)
           to label %56 unwind label %73

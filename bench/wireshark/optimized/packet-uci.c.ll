@@ -499,7 +499,7 @@ define internal range(i32 4, 260) i32 @get_uci_pdu_len(ptr nocapture readnone %0
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_uci_pdu(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.109) #2
   %7 = load ptr, ptr %5, align 8

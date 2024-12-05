@@ -185,7 +185,7 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   %15 = alloca %struct.ata_port_info, align 8
   %16 = alloca [2 x ptr], align 16
   %17 = alloca i8, align 1
-  %18 = getelementptr inbounds i8, ptr %1, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %19 = load i64, ptr %18, align 8
   %20 = trunc i64 %19 to i32
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %15) #13
@@ -194,19 +194,19 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef align 16 dereferenceable(48) %22, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #13
   store ptr %15, ptr %16, align 16
-  %23 = getelementptr inbounds i8, ptr %16, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr null, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 184
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %25 = load i1, ptr @ahci_init_one.__print_once, align 1
   br i1 %25, label %27, label %26
 
 26:                                               ; preds = %2
   store i1 true, ptr @ahci_init_one.__print_once, align 1
-  call void @ata_print_version(ptr noundef %24, ptr noundef nonnull @.str.2) #13
+  call void @ata_print_version(ptr noundef nonnull %24, ptr noundef nonnull @.str.2) #13
   br label %27
 
 27:                                               ; preds = %26, %2
-  %28 = getelementptr inbounds i8, ptr %0, i64 60
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %29 = load i16, ptr %28, align 4
   %30 = icmp ne i16 %29, 4523
   %31 = load i32, ptr @marvell_enable, align 4
@@ -219,19 +219,19 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %35, label %36, label %49
 
 36:                                               ; preds = %34
-  %37 = getelementptr inbounds i8, ptr %0, i64 62
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 62
   %38 = load i16, ptr %37, align 2
   %39 = icmp eq i16 %38, 3461
   br i1 %39, label %40, label %.thread42
 
 40:                                               ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %0, i64 64
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %42 = load i16, ptr %41, align 8
   %43 = icmp eq i16 %42, 4203
   br i1 %43, label %44, label %.thread42
 
 44:                                               ; preds = %40
-  %45 = getelementptr inbounds i8, ptr %0, i64 66
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 66
   %46 = load i16, ptr %45, align 2
   %47 = icmp eq i16 %46, -13431
   br i1 %47, label %48, label %.thread42
@@ -247,7 +247,7 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %51, label %52, label %53
 
 52:                                               ; preds = %49
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %24, ptr noundef nonnull @.str.4) #14
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %24, ptr noundef nonnull @.str.4) #14
   %.pr = load i16, ptr %28, align 4
   br label %53
 
@@ -261,21 +261,21 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   ]
 
 55:                                               ; preds = %53
-  %56 = getelementptr inbounds i8, ptr %0, i64 62
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 62
   %57 = load i16, ptr %56, align 2
   %58 = icmp eq i16 %57, -13306
   %spec.select = select i1 %58, i32 0, i32 5
   br label %.thread42
 
 59:                                               ; preds = %53
-  %60 = getelementptr inbounds i8, ptr %0, i64 62
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 62
   %61 = load i16, ptr %60, align 2
   %62 = icmp eq i16 %61, -32768
   %spec.select34 = select i1 %62, i32 2, i32 5
   br label %.thread42
 
 63:                                               ; preds = %53
-  %64 = getelementptr inbounds i8, ptr %0, i64 62
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 62
   %65 = load i16, ptr %64, align 2
   %66 = icmp eq i16 %65, -24548
   %67 = select i1 %66, i32 0, i32 5
@@ -284,7 +284,7 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   br label %.thread42
 
 70:                                               ; preds = %53
-  %71 = getelementptr inbounds i8, ptr %0, i64 62
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 62
   %72 = load i16, ptr %71, align 2
   %73 = icmp eq i16 %72, 31240
   %74 = select i1 %73, i32 0, i32 5
@@ -302,7 +302,7 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %80, label %81, label %93
 
 81:                                               ; preds = %78
-  %82 = getelementptr inbounds i8, ptr %0, i64 62
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 62
   %83 = load i16, ptr %82, align 2
   %84 = and i16 %83, -2
   %85 = icmp eq i16 %84, 9810
@@ -318,7 +318,7 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %90, label %92, label %91
 
 91:                                               ; preds = %86
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %24, ptr noundef nonnull @.str.5) #14
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %24, ptr noundef nonnull @.str.5) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %17) #13
   br label %.thread33
 
@@ -339,12 +339,12 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   br label %.thread33
 
 97:                                               ; preds = %93
-  %98 = call noalias noundef dereferenceable_or_null(312) ptr @devm_kmalloc(ptr noundef %24, i64 noundef 312, i32 noundef 3520) #15
+  %98 = call noalias noundef dereferenceable_or_null(312) ptr @devm_kmalloc(ptr noundef nonnull %24, i64 noundef 312, i32 noundef 3520) #15
   %99 = icmp eq ptr %98, null
   br i1 %99, label %.thread33, label %100
 
 100:                                              ; preds = %97
-  %101 = getelementptr inbounds i8, ptr %15, i64 40
+  %101 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %102 = load ptr, ptr %101, align 8
   %103 = ptrtoint ptr %102 to i64
   %104 = load i32, ptr %98, align 8
@@ -357,7 +357,7 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   ]
 
 107:                                              ; preds = %100
-  %108 = getelementptr inbounds i8, ptr %0, i64 72
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %109 = load i8, ptr %108, align 8
   %110 = add i8 %109, 95
   %111 = icmp ult i8 %110, 2
@@ -368,7 +368,7 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   br label %.sink.split
 
 114:                                              ; preds = %100
-  %115 = getelementptr inbounds i8, ptr %0, i64 72
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %116 = load i8, ptr %115, align 8
   %117 = icmp ugt i8 %116, 63
   br i1 %117, label %118, label %120
@@ -392,15 +392,15 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %14) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %14, i8 0, i64 9, i1 false), !annotation !5
   %121 = call ptr @dmi_first_match(ptr noundef nonnull @ahci_sb600_enable_64bit.sysids) #13
-  %122 = getelementptr inbounds i8, ptr %0, i64 16
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 216
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 216
   %125 = load i8, ptr %124, align 8
   %126 = icmp eq i8 %125, 0
   br i1 %126, label %127, label %154
 
 127:                                              ; preds = %120
-  %128 = getelementptr inbounds i8, ptr %0, i64 56
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %129 = load i32, ptr %128, align 8
   %130 = icmp eq i32 %129, 144
   %131 = icmp ne ptr %121, null
@@ -408,7 +408,7 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %132, label %133, label %154
 
 133:                                              ; preds = %127
-  %134 = getelementptr inbounds i8, ptr %121, i64 336
+  %134 = getelementptr inbounds nuw i8, ptr %121, i64 336
   %135 = load ptr, ptr %134, align 8
   %136 = icmp eq ptr %135, null
   br i1 %136, label %149, label %137
@@ -425,15 +425,15 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %145, label %149, label %146
 
 146:                                              ; preds = %137
-  %147 = getelementptr inbounds i8, ptr %121, i64 8
+  %147 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %148 = load ptr, ptr %147, align 8
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %24, ptr noundef nonnull @.str.22, ptr noundef %148) #14
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %24, ptr noundef nonnull @.str.22, ptr noundef %148) #14
   br label %154
 
 149:                                              ; preds = %137, %133
-  %150 = getelementptr inbounds i8, ptr %121, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %151 = load ptr, ptr %150, align 8
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %24, ptr noundef nonnull @.str.23, ptr noundef %151) #14
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %24, ptr noundef nonnull @.str.23, ptr noundef %151) #14
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %14) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #13
@@ -455,16 +455,16 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   %157 = zext nneg i32 %75 to i64
   %158 = getelementptr ptr, ptr %156, i64 %157
   %159 = load ptr, ptr %158, align 8
-  %160 = getelementptr inbounds i8, ptr %98, i64 8
+  %160 = getelementptr inbounds nuw i8, ptr %98, i64 8
   store ptr %159, ptr %160, align 8
   %161 = load i16, ptr %28, align 4
   %162 = icmp eq i16 %161, -32634
   br i1 %162, label %163, label %.thread
 
 163:                                              ; preds = %155
-  %164 = getelementptr inbounds i8, ptr %0, i64 920
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %165 = getelementptr [11 x %struct.resource], ptr %164, i64 0, i64 %157
-  %166 = getelementptr inbounds i8, ptr %165, i64 8
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 8
   %167 = load i64, ptr %166, align 8
   %168 = icmp eq i64 %167, 0
   br i1 %168, label %.thread, label %169
@@ -490,7 +490,7 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   %183 = getelementptr i8, ptr %182, i64 2048
   %184 = call i64 asm sideeffect "movq $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %183) #13, !srcloc !7
   %185 = trunc i64 %184 to i32
-  %186 = getelementptr inbounds i8, ptr %98, i64 184
+  %186 = getelementptr inbounds nuw i8, ptr %98, i64 184
   br label %187
 
 187:                                              ; preds = %203, %181
@@ -527,15 +527,15 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %208, label %.thread, label %209
 
 209:                                              ; preds = %206
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %24, ptr noundef nonnull @.str.24, i32 noundef %207) #14
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %24, ptr noundef nonnull @.str.25) #14
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %24, ptr noundef nonnull @.str.24, i32 noundef %207) #14
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %24, ptr noundef nonnull @.str.25) #14
   %210 = load i32, ptr %98, align 8
   %211 = or i32 %210, 32
   store i32 %211, ptr %98, align 8
   br label %.thread
 
 .thread:                                          ; preds = %163, %209, %206, %176, %169, %155
-  %212 = call i32 @sysfs_add_file_to_group(ptr noundef %24, ptr noundef nonnull @dev_attr_remapped_nvme, ptr noundef null) #13
+  %212 = call i32 @sysfs_add_file_to_group(ptr noundef nonnull %24, ptr noundef nonnull @dev_attr_remapped_nvme, ptr noundef null) #13
   %213 = call ptr @pci_match_id(ptr noundef nonnull @ahci_broken_devslp.ids, ptr noundef %0) #13
   %214 = icmp eq ptr %213, null
   br i1 %214, label %218, label %215
@@ -552,7 +552,7 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %220, label %221, label %229
 
 221:                                              ; preds = %218
-  %222 = getelementptr inbounds i8, ptr %0, i64 62
+  %222 = getelementptr inbounds nuw i8, ptr %0, i64 62
   %223 = load i16, ptr %222, align 2
   switch i16 %223, label %.thread31 [
     i16 4454, label %225
@@ -565,8 +565,8 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
 225:                                              ; preds = %224, %221
   %226 = phi ptr [ @.str.29, %224 ], [ @.str.28, %221 ]
   %227 = phi i32 [ 15, %224 ], [ 63, %221 ]
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %24, ptr noundef nonnull %226) #14
-  %228 = getelementptr inbounds i8, ptr %98, i64 40
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %24, ptr noundef nonnull %226) #14
+  %228 = getelementptr inbounds nuw i8, ptr %98, i64 40
   store i32 %227, ptr %228, align 8
   %.pr30 = load i16, ptr %28, align 4
   br label %229
@@ -577,14 +577,14 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %231, label %232, label %.thread31
 
 232:                                              ; preds = %229
-  %233 = getelementptr inbounds i8, ptr %0, i64 62
+  %233 = getelementptr inbounds nuw i8, ptr %0, i64 62
   %234 = load i16, ptr %233, align 2
   %235 = icmp eq i16 %234, 9057
   br i1 %235, label %236, label %.thread31
 
 236:                                              ; preds = %232
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %24, ptr noundef nonnull @.str.30) #14
-  %237 = getelementptr inbounds i8, ptr %98, i64 40
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %24, ptr noundef nonnull @.str.30) #14
+  %237 = getelementptr inbounds nuw i8, ptr %98, i64 40
   store i32 1, ptr %237, align 8
   br label %.thread31
 
@@ -595,18 +595,18 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %240, label %247, label %241
 
 241:                                              ; preds = %.thread31
-  %242 = getelementptr inbounds i8, ptr %0, i64 62
+  %242 = getelementptr inbounds nuw i8, ptr %0, i64 62
   %243 = load i16, ptr %242, align 2
   %244 = icmp eq i16 %243, 24865
-  %245 = getelementptr inbounds i8, ptr %98, i64 4
+  %245 = getelementptr inbounds nuw i8, ptr %98, i64 4
   %246 = select i1 %244, i32 3, i32 15
   store i32 %246, ptr %245, align 4
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %24, ptr noundef nonnull @.str.31) #14
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %24, ptr noundef nonnull @.str.31) #14
   br label %247
 
 247:                                              ; preds = %241, %.thread31
-  call void @ahci_save_initial_config(ptr noundef %24, ptr noundef nonnull %98) #13
-  %248 = getelementptr inbounds i8, ptr %98, i64 16
+  call void @ahci_save_initial_config(ptr noundef nonnull %24, ptr noundef nonnull %98) #13
+  %248 = getelementptr inbounds nuw i8, ptr %98, i64 16
   %249 = load i32, ptr %248, align 8
   %250 = and i32 %249, 1073741824
   %251 = icmp eq i32 %250, 0
@@ -641,10 +641,10 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %266, label %280, label %267
 
 267:                                              ; preds = %264
-  %268 = getelementptr inbounds i8, ptr %265, i64 336
+  %268 = getelementptr inbounds nuw i8, ptr %265, i64 336
   %269 = load ptr, ptr %268, align 8
   %270 = ptrtoint ptr %269 to i64
-  %271 = getelementptr inbounds i8, ptr %0, i64 56
+  %271 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %272 = load i32, ptr %271, align 8
   %273 = lshr i32 %272, 3
   %274 = and i32 %273, 31
@@ -656,7 +656,7 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   %278 = load i64, ptr %15, align 8
   %279 = or i64 %278, 2048
   store i64 %279, ptr %15, align 8
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %24, ptr noundef nonnull @.str.6) #14
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %24, ptr noundef nonnull @.str.6) #14
   br label %280
 
 280:                                              ; preds = %277, %267, %264
@@ -678,7 +678,7 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   %286 = load i32, ptr %8, align 4
   %287 = load i32, ptr %9, align 4
   %288 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 9, ptr noundef nonnull @.str.21, i32 noundef %285, i32 noundef %286, i32 noundef %287) #13
-  %289 = getelementptr inbounds i8, ptr %281, i64 336
+  %289 = getelementptr inbounds nuw i8, ptr %281, i64 336
   %290 = load ptr, ptr %289, align 8
   %291 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef %290) #13
   %292 = icmp slt i32 %291, 0
@@ -692,7 +692,7 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   %294 = load i64, ptr %15, align 8
   %295 = or i64 %294, 4
   store i64 %295, ptr %15, align 8
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %24, ptr noundef nonnull @.str.7) #14
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %24, ptr noundef nonnull @.str.7) #14
   br label %297
 
 296:                                              ; preds = %280
@@ -717,13 +717,13 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
 
 300:                                              ; preds = %297
   %301 = load ptr, ptr %122, align 8
-  %302 = getelementptr inbounds i8, ptr %301, i64 216
+  %302 = getelementptr inbounds nuw i8, ptr %301, i64 216
   %303 = load i8, ptr %302, align 8
   %304 = icmp eq i8 %303, 0
   br i1 %304, label %305, label %322
 
 305:                                              ; preds = %300
-  %306 = getelementptr inbounds i8, ptr %0, i64 56
+  %306 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %307 = load i32, ptr %306, align 8
   %308 = icmp eq i32 %307, 250
   br i1 %308, label %309, label %322
@@ -734,7 +734,7 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   %312 = load i32, ptr %4, align 4
   %313 = load i32, ptr %5, align 4
   %314 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 9, ptr noundef nonnull @.str.21, i32 noundef %311, i32 noundef %312, i32 noundef %313) #13
-  %315 = getelementptr inbounds i8, ptr %298, i64 336
+  %315 = getelementptr inbounds nuw i8, ptr %298, i64 336
   %316 = load ptr, ptr %315, align 8
   %317 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef %316) #13
   %318 = icmp slt i32 %317, 0
@@ -748,7 +748,7 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   %320 = load i32, ptr %98, align 8
   %321 = or i32 %320, 1024
   store i32 %321, ptr %98, align 8
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %24, ptr noundef nonnull @.str.8) #14
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %24, ptr noundef nonnull @.str.8) #14
   br label %323
 
 322:                                              ; preds = %305, %300, %297
@@ -764,12 +764,12 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %325, label %345, label %326
 
 326:                                              ; preds = %323
-  %327 = getelementptr inbounds i8, ptr %324, i64 336
+  %327 = getelementptr inbounds nuw i8, ptr %324, i64 336
   %328 = load ptr, ptr %327, align 8
   %329 = ptrtoint ptr %328 to i64
   %330 = trunc i64 %329 to i32
   %331 = load ptr, ptr %122, align 8
-  %332 = getelementptr inbounds i8, ptr %331, i64 216
+  %332 = getelementptr inbounds nuw i8, ptr %331, i64 216
   %333 = load i8, ptr %332, align 8
   %334 = zext i8 %333 to i32
   %335 = lshr i32 %330, 8
@@ -777,7 +777,7 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %336, label %337, label %345
 
 337:                                              ; preds = %326
-  %338 = getelementptr inbounds i8, ptr %0, i64 56
+  %338 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %339 = load i32, ptr %338, align 8
   %340 = and i32 %330, 255
   %341 = icmp eq i32 %339, %340
@@ -787,7 +787,7 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   %343 = load i32, ptr %98, align 8
   %344 = or i32 %343, 2048
   store i32 %344, ptr %98, align 8
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %24, ptr noundef nonnull @.str.9) #14
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %24, ptr noundef nonnull @.str.9) #14
   br label %345
 
 345:                                              ; preds = %342, %337, %326, %323
@@ -796,15 +796,15 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %347, label %355, label %348
 
 348:                                              ; preds = %345
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %24, ptr noundef nonnull @.str.51) #14
-  %349 = getelementptr inbounds i8, ptr %98, i64 32
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %24, ptr noundef nonnull @.str.51) #14
+  %349 = getelementptr inbounds nuw i8, ptr %98, i64 32
   %350 = load i32, ptr %349, align 8
   %351 = and i32 %350, -952828160
   %352 = icmp eq i32 %351, -952828160
   br i1 %352, label %353, label %355
 
 353:                                              ; preds = %348
-  %354 = getelementptr inbounds i8, ptr %98, i64 28
+  %354 = getelementptr inbounds nuw i8, ptr %98, i64 28
   store i32 7, ptr %354, align 4
   store i32 -952828158, ptr %248, align 8
   br label %355
@@ -813,17 +813,17 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   %356 = load i32, ptr %248, align 8
   %357 = and i32 %356, 31
   %358 = add nuw nsw i32 %357, 1
-  %359 = getelementptr inbounds i8, ptr %98, i64 28
+  %359 = getelementptr inbounds nuw i8, ptr %98, i64 28
   %360 = load i32, ptr %359, align 4
   %361 = call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %360, i32 -1) #16, !srcloc !11
   %362 = add i32 %361, 1
   %363 = call i32 @llvm.smax.i32(i32 %358, i32 %362)
-  %364 = call ptr @ata_host_alloc_pinfo(ptr noundef %24, ptr noundef nonnull %16, i32 noundef %363) #13
+  %364 = call ptr @ata_host_alloc_pinfo(ptr noundef nonnull %24, ptr noundef nonnull %16, i32 noundef %363) #13
   %365 = icmp eq ptr %364, null
   br i1 %365, label %.thread33, label %366
 
 366:                                              ; preds = %355
-  %367 = getelementptr inbounds i8, ptr %364, i64 32
+  %367 = getelementptr inbounds nuw i8, ptr %364, i64 32
   store ptr %98, ptr %367, align 8
   %368 = load i32, ptr %98, align 8
   %369 = and i32 %368, 32
@@ -848,7 +848,7 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %381, label %382, label %386
 
 382:                                              ; preds = %376
-  %383 = getelementptr inbounds i8, ptr %98, i64 304
+  %383 = getelementptr inbounds nuw i8, ptr %98, i64 304
   store ptr @ahci_get_irq_vector, ptr %383, align 8
   %384 = load i32, ptr %98, align 8
   %385 = or i32 %384, 1048576
@@ -876,7 +876,7 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
 
 .critedge:                                        ; preds = %382, %388, %.critedge29, %391
   %394 = call i32 @pci_irq_vector(ptr noundef %0, i32 noundef 0) #13
-  %395 = getelementptr inbounds i8, ptr %98, i64 272
+  %395 = getelementptr inbounds nuw i8, ptr %98, i64 272
   store i32 %394, ptr %395, align 8
   %396 = load i32, ptr %248, align 8
   %397 = and i32 %396, 134217728
@@ -887,14 +887,14 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %401, label %402, label %406
 
 402:                                              ; preds = %.critedge
-  %403 = getelementptr inbounds i8, ptr %364, i64 48
+  %403 = getelementptr inbounds nuw i8, ptr %364, i64 48
   %404 = load i64, ptr %403, align 8
   %405 = or i64 %404, 4
   store i64 %405, ptr %403, align 8
   br label %407
 
 406:                                              ; preds = %.critedge
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %24, ptr noundef nonnull @.str.10) #14
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %24, ptr noundef nonnull @.str.10) #14
   br label %407
 
 407:                                              ; preds = %406, %402
@@ -904,7 +904,7 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %410, label %411, label %415
 
 411:                                              ; preds = %407
-  %412 = getelementptr inbounds i8, ptr %364, i64 48
+  %412 = getelementptr inbounds nuw i8, ptr %364, i64 48
   %413 = load i64, ptr %412, align 8
   %414 = or i64 %413, 16
   store i64 %414, ptr %412, align 8
@@ -918,21 +918,21 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %418, label %419, label %423
 
 419:                                              ; preds = %415
-  %420 = getelementptr inbounds i8, ptr %364, i64 48
+  %420 = getelementptr inbounds nuw i8, ptr %364, i64 48
   %421 = load i64, ptr %420, align 8
   %422 = or i64 %421, 32
   store i64 %422, ptr %420, align 8
   br label %423
 
 423:                                              ; preds = %419, %415
-  %424 = getelementptr inbounds i8, ptr %98, i64 20
+  %424 = getelementptr inbounds nuw i8, ptr %98, i64 20
   %425 = load i32, ptr %424, align 4
   %426 = and i32 %425, 8
   %427 = icmp eq i32 %426, 0
   br i1 %427, label %428, label %432
 
 428:                                              ; preds = %423
-  %429 = getelementptr inbounds i8, ptr %364, i64 48
+  %429 = getelementptr inbounds nuw i8, ptr %364, i64 48
   %430 = load i64, ptr %429, align 8
   %431 = or i64 %430, 64
   store i64 %431, ptr %429, align 8
@@ -949,14 +949,14 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   br label %438
 
 438:                                              ; preds = %436, %432
-  %439 = getelementptr inbounds i8, ptr %364, i64 24
+  %439 = getelementptr inbounds nuw i8, ptr %364, i64 24
   %440 = load i32, ptr %439, align 8
   %441 = icmp eq i32 %440, 0
   br i1 %441, label %.loopexit38, label %442
 
 442:                                              ; preds = %438
-  %443 = getelementptr inbounds i8, ptr %364, i64 112
-  %444 = getelementptr inbounds i8, ptr %98, i64 180
+  %443 = getelementptr inbounds nuw i8, ptr %364, i64 112
+  %444 = getelementptr inbounds nuw i8, ptr %98, i64 180
   br label %445
 
 445:                                              ; preds = %480, %442
@@ -965,13 +965,13 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   %448 = getelementptr [0 x ptr], ptr %443, i64 0, i64 %447
   %449 = load ptr, ptr %448, align 8
   call void @ata_port_pbar_desc(ptr noundef %449, i32 noundef %75, i64 noundef -1, ptr noundef nonnull @.str.11) #13
-  %450 = getelementptr inbounds i8, ptr %449, i64 44
+  %450 = getelementptr inbounds nuw i8, ptr %449, i64 44
   %451 = load i32, ptr %450, align 4
   %452 = shl i32 %451, 7
   %453 = add i32 %452, 256
   %454 = zext i32 %453 to i64
   call void @ata_port_pbar_desc(ptr noundef %449, i32 noundef %75, i64 noundef %454, ptr noundef nonnull @.str.12) #13
-  %455 = getelementptr inbounds i8, ptr %449, i64 24
+  %455 = getelementptr inbounds nuw i8, ptr %449, i64 24
   %456 = load i64, ptr %455, align 8
   %457 = and i64 %456, 2097152
   %458 = icmp eq i64 %457, 0
@@ -979,7 +979,7 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
 
 459:                                              ; preds = %445
   %460 = load i32, ptr %444, align 4
-  %461 = getelementptr inbounds i8, ptr %449, i64 15880
+  %461 = getelementptr inbounds nuw i8, ptr %449, i64 15880
   store i32 %460, ptr %461, align 8
   br label %462
 
@@ -997,7 +997,7 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %470, label %471, label %473
 
 471:                                              ; preds = %466
-  %472 = getelementptr inbounds i8, ptr %449, i64 15820
+  %472 = getelementptr inbounds nuw i8, ptr %449, i64 15820
   store i32 %469, ptr %472, align 4
   br label %473
 
@@ -1009,7 +1009,7 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %477, label %478, label %480
 
 478:                                              ; preds = %473
-  %479 = getelementptr inbounds i8, ptr %449, i64 8
+  %479 = getelementptr inbounds nuw i8, ptr %449, i64 8
   store ptr @ata_dummy_port_ops, ptr %479, align 8
   br label %480
 
@@ -1020,11 +1020,11 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %483, label %445, label %.loopexit38, !llvm.loop !12
 
 .loopexit38:                                      ; preds = %480, %438
-  %484 = getelementptr inbounds i8, ptr %364, i64 8
+  %484 = getelementptr inbounds nuw i8, ptr %364, i64 8
   %485 = load ptr, ptr %484, align 8
   %486 = getelementptr i8, ptr %485, i64 -168
   %487 = load ptr, ptr %486, align 8
-  %488 = getelementptr inbounds i8, ptr %487, i64 216
+  %488 = getelementptr inbounds nuw i8, ptr %487, i64 216
   %489 = load i8, ptr %488, align 8
   %490 = icmp eq i8 %489, 0
   br i1 %490, label %491, label %505
@@ -1044,9 +1044,9 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   %499 = getelementptr i8, ptr %364, i64 120
   %500 = load ptr, ptr %499, align 8
   call void (ptr, ptr, ...) @_dev_info(ptr noundef %485, ptr noundef nonnull @.str.54) #14
-  %501 = getelementptr inbounds i8, ptr %500, i64 8
+  %501 = getelementptr inbounds nuw i8, ptr %500, i64 8
   store ptr @ahci_p5wdh_ops, ptr %501, align 8
-  %502 = getelementptr inbounds i8, ptr %500, i64 9008
+  %502 = getelementptr inbounds nuw i8, ptr %500, i64 9008
   %503 = load i32, ptr %502, align 16
   %504 = or i32 %503, 12
   store i32 %504, ptr %502, align 16
@@ -1058,12 +1058,12 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %507, label %.loopexit37, label %508
 
 508:                                              ; preds = %505
-  %509 = getelementptr inbounds i8, ptr %506, i64 336
+  %509 = getelementptr inbounds nuw i8, ptr %506, i64 336
   %510 = load ptr, ptr %509, align 8
   %511 = ptrtoint ptr %510 to i64
   %512 = trunc i64 %511 to i32
   %513 = load ptr, ptr %484, align 8
-  %514 = getelementptr inbounds i8, ptr %506, i64 8
+  %514 = getelementptr inbounds nuw i8, ptr %506, i64 8
   %515 = load ptr, ptr %514, align 8
   call void (ptr, ptr, ...) @_dev_info(ptr noundef %513, ptr noundef nonnull @.str.56, i32 noundef %512, ptr noundef %515) #14
   %516 = load i32, ptr %439, align 8
@@ -1071,7 +1071,7 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %517, label %.loopexit37, label %518
 
 518:                                              ; preds = %508
-  %519 = getelementptr inbounds i8, ptr %364, i64 112
+  %519 = getelementptr inbounds nuw i8, ptr %364, i64 112
   br label %520
 
 520:                                              ; preds = %.loopexit36, %518
@@ -1091,7 +1091,7 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
 
 .preheader:                                       ; preds = %.preheader35, %.preheader
   %530 = phi ptr [ %534, %.preheader ], [ %528, %.preheader35 ]
-  %531 = getelementptr inbounds i8, ptr %530, i64 48
+  %531 = getelementptr inbounds nuw i8, ptr %530, i64 48
   %532 = load i32, ptr %531, align 16
   %533 = or i32 %532, %512
   store i32 %533, ptr %531, align 16
@@ -1124,7 +1124,7 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
 
 548:                                              ; preds = %543, %.loopexit37
   %549 = phi i32 [ %547, %543 ], [ 32, %.loopexit37 ]
-  %550 = getelementptr inbounds i8, ptr %0, i64 128
+  %550 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %551 = load i64, ptr %550, align 8
   %552 = add i64 %551, -1
   %553 = icmp ult i64 %552, 4294967294
@@ -1136,16 +1136,16 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   %557 = shl nsw i64 -1, %556
   %558 = xor i64 %557, -1
   %559 = select i1 %555, i64 -1, i64 %558
-  %560 = call i32 @dma_set_mask(ptr noundef %24, i64 noundef %559) #13
+  %560 = call i32 @dma_set_mask(ptr noundef nonnull %24, i64 noundef %559) #13
   %561 = icmp eq i32 %560, 0
   br i1 %561, label %562, label %564
 
 562:                                              ; preds = %554
-  %563 = call i32 @dma_set_coherent_mask(ptr noundef %24, i64 noundef %559) #13
+  %563 = call i32 @dma_set_coherent_mask(ptr noundef nonnull %24, i64 noundef %559) #13
   br label %565
 
 564:                                              ; preds = %554
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %24, ptr noundef nonnull @.str.57) #14
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %24, ptr noundef nonnull @.str.57) #14
   br label %.thread33
 
 565:                                              ; preds = %548, %562
@@ -1162,7 +1162,7 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %570, label %571, label %.thread33
 
 571:                                              ; preds = %568
-  %572 = getelementptr inbounds i8, ptr %0, i64 616
+  %572 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %573 = load volatile i32, ptr %572, align 4
   %574 = icmp eq i32 %573, 0
   br i1 %574, label %.thread33, label %.lr.ph, !prof !16
@@ -1170,7 +1170,7 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
 .lr.ph:                                           ; preds = %571, %581
   %575 = phi i32 [ %582, %581 ], [ %573, %571 ]
   %576 = add i32 %575, -1
-  %577 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %572, i32 %576, ptr elementtype(i32) %572, i32 %575) #13, !srcloc !17
+  %577 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %572, i32 %576, ptr nonnull elementtype(i32) %572, i32 %575) #13, !srcloc !17
   %578 = extractvalue { i8, i32 } %577, 0
   %579 = icmp ult i8 %578, 2
   call void @llvm.assume(i1 %579)
@@ -1191,10 +1191,10 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @ahci_remove_one(ptr noundef %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 184
-  tail call void @sysfs_remove_file_from_group(ptr noundef %2, ptr noundef nonnull @dev_attr_remapped_nvme, ptr noundef null) #13
-  %3 = getelementptr inbounds i8, ptr %0, i64 616
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %3, ptr elementtype(i32) %3) #13, !srcloc !21
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  tail call void @sysfs_remove_file_from_group(ptr noundef nonnull %2, ptr noundef nonnull @dev_attr_remapped_nvme, ptr noundef null) #13
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 616
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %3, ptr nonnull elementtype(i32) %3) #13, !srcloc !21
   tail call void @ata_pci_remove_one(ptr noundef %0) #13
   ret void
 }
@@ -1301,9 +1301,9 @@ declare dso_local void @ata_port_pbar_desc(ptr noundef, i32 noundef, i64 noundef
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @ahci_pci_reset_controller(ptr noundef %0) unnamed_addr #2 align 16 {
   %2 = alloca i16, align 2
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @ahci_reset_controller(ptr noundef %0) #13
   %8 = icmp eq i32 %7, 0
@@ -1323,7 +1323,7 @@ define internal fastcc i32 @ahci_pci_reset_controller(ptr noundef %0) unnamed_ad
   br i1 %15, label %16, label %33
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %11, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %18 = load i64, ptr %17, align 8
   %19 = trunc i64 %18 to i32
   %20 = icmp ugt i32 %19, 17
@@ -1333,7 +1333,7 @@ define internal fastcc i32 @ahci_pci_reset_controller(ptr noundef %0) unnamed_ad
   %22 = call i32 @pci_read_config_word(ptr noundef %10, i32 noundef 146, ptr noundef nonnull %2) #13
   %23 = load i16, ptr %2, align 2
   %24 = zext i16 %23 to i32
-  %25 = getelementptr inbounds i8, ptr %6, i64 28
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 28
   %26 = load i32, ptr %25, align 4
   %27 = and i32 %26, %24
   %28 = icmp eq i32 %27, %26
@@ -1356,7 +1356,7 @@ define internal fastcc i32 @ahci_pci_reset_controller(ptr noundef %0) unnamed_ad
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @ahci_pci_init_controller(ptr noundef nonnull %0) unnamed_addr #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 16
@@ -1364,12 +1364,12 @@ define internal fastcc void @ahci_pci_init_controller(ptr noundef nonnull %0) un
   br i1 %6, label %23, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr i8, ptr %9, i64 -122
   %11 = load i16, ptr %10, align 2
   %12 = icmp eq i16 %11, 24865
-  %13 = getelementptr inbounds i8, ptr %3, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr i8, ptr %14, i64 256
   %16 = select i1 %12, i64 256, i64 512
@@ -1393,7 +1393,7 @@ define internal fastcc void @ahci_pci_init_controller(ptr noundef nonnull %0) un
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @ahci_pci_print_info(ptr noundef nonnull %0) unnamed_addr #2 align 16 {
   %2 = alloca i16, align 2
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 -184
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #13
@@ -1434,19 +1434,19 @@ define internal i32 @ahci_avn_hardreset(ptr noundef %0, ptr nocapture noundef wr
   %5 = alloca i8, align 1
   %6 = alloca i16, align 2
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 924
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 924
   %9 = load i32, ptr %8, align 4
   %10 = and i32 %9, 1
   %11 = icmp eq i32 %10, 0
   %12 = select i1 %11, ptr @sata_deb_timing_normal, ptr @sata_deb_timing_hotplug
   %13 = load ptr, ptr %0, align 64
-  %14 = getelementptr inbounds i8, ptr %13, i64 15888
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 15888
   %15 = load ptr, ptr %14, align 16
-  %16 = getelementptr inbounds i8, ptr %13, i64 14776
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 14776
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %15, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr i8, ptr %21, i64 64
   %23 = load volatile i64, ptr @jiffies, align 64
@@ -1455,16 +1455,16 @@ define internal i32 @ahci_avn_hardreset(ptr noundef %0, ptr nocapture noundef wr
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !5
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #13
   store i8 0, ptr %5, align 1, !annotation !5
-  %25 = getelementptr inbounds i8, ptr %19, i64 288
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 288
   %26 = load ptr, ptr %25, align 8
   %27 = tail call i32 %26(ptr noundef %13) #13
-  %28 = getelementptr inbounds i8, ptr %13, i64 44
-  %29 = getelementptr inbounds i8, ptr %0, i64 1152
-  %30 = getelementptr inbounds i8, ptr %4, i64 9
-  %31 = getelementptr inbounds i8, ptr %0, i64 1160
-  %32 = getelementptr inbounds i8, ptr %4, i64 20
-  %33 = getelementptr inbounds i8, ptr %4, i64 21
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %13, i64 44
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 1152
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 9
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 1160
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 21
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %35
 
 35:                                               ; preds = %74, %3
@@ -1476,13 +1476,13 @@ define internal i32 @ahci_avn_hardreset(ptr noundef %0, ptr nocapture noundef wr
   store i32 0, ptr %7, align 4, !annotation !5
   %38 = load i32, ptr %28, align 4
   %39 = load ptr, ptr %16, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr i8, ptr %41, i64 -184
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   %43 = load ptr, ptr %29, align 64
   %44 = load ptr, ptr %43, align 64
-  %45 = getelementptr inbounds i8, ptr %44, i64 168
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 168
   %46 = load i8, ptr %45, align 8
   store i8 %46, ptr %30, align 1
   %47 = load i32, ptr %31, align 8
@@ -1504,26 +1504,26 @@ define internal i32 @ahci_avn_hardreset(ptr noundef %0, ptr nocapture noundef wr
 
 56:                                               ; preds = %52
   %57 = load ptr, ptr %0, align 64
-  %58 = getelementptr inbounds i8, ptr %57, i64 14728
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 14728
   %59 = load i32, ptr %58, align 8
   %60 = icmp eq i32 %59, 0
   br i1 %60, label %61, label %65
 
 61:                                               ; preds = %56
-  %62 = getelementptr inbounds i8, ptr %57, i64 14720
+  %62 = getelementptr inbounds nuw i8, ptr %57, i64 14720
   %63 = load ptr, ptr %62, align 64
   %64 = icmp eq ptr %63, null
   br i1 %64, label %70, label %65
 
 65:                                               ; preds = %61, %56
-  %66 = getelementptr inbounds i8, ptr %57, i64 36
+  %66 = getelementptr inbounds nuw i8, ptr %57, i64 36
   %67 = load i32, ptr %66, align 4
   %68 = load i32, ptr %34, align 8
   %69 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.13, i32 noundef %67, i32 noundef %68, i32 noundef %38) #14
   br label %74
 
 70:                                               ; preds = %61
-  %71 = getelementptr inbounds i8, ptr %57, i64 36
+  %71 = getelementptr inbounds nuw i8, ptr %57, i64 36
   %72 = load i32, ptr %71, align 4
   %73 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.14, i32 noundef %72, i32 noundef %38) #14
   br label %74
@@ -1553,7 +1553,7 @@ define internal i32 @ahci_avn_hardreset(ptr noundef %0, ptr nocapture noundef wr
   br i1 %37, label %35, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %74, %.thread
-  %86 = getelementptr inbounds i8, ptr %19, i64 280
+  %86 = getelementptr inbounds nuw i8, ptr %19, i64 280
   %87 = load ptr, ptr %86, align 8
   call void %87(ptr noundef %13) #13
   %88 = load i8, ptr %5, align 1, !range !24, !noundef !25
@@ -1602,22 +1602,22 @@ declare dso_local i32 @ahci_dev_classify(ptr noundef) local_unnamed_addr #1
 define internal i32 @ahci_vt8251_hardreset(ptr noundef %0, ptr nocapture readnone %1, i64 noundef %2) #2 align 16 {
   %4 = alloca i8, align 1
   %5 = load ptr, ptr %0, align 64
-  %6 = getelementptr inbounds i8, ptr %5, i64 14776
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 14776
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #13
   store i8 0, ptr %4, align 1, !annotation !5
-  %10 = getelementptr inbounds i8, ptr %9, i64 288
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 288
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 %11(ptr noundef %5) #13
-  %13 = getelementptr inbounds i8, ptr %0, i64 924
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 924
   %14 = load i32, ptr %13, align 4
   %15 = and i32 %14, 1
   %16 = icmp eq i32 %15, 0
   %17 = select i1 %16, ptr @sata_deb_timing_normal, ptr @sata_deb_timing_hotplug
   %18 = call i32 @sata_link_hardreset(ptr noundef %0, ptr noundef nonnull %17, i64 noundef %2, ptr noundef nonnull %4, ptr noundef null) #13
-  %19 = getelementptr inbounds i8, ptr %9, i64 280
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 280
   %20 = load ptr, ptr %19, align 8
   call void %20(ptr noundef %5) #13
   %21 = load i8, ptr %4, align 1, !range !24, !noundef !25
@@ -1650,11 +1650,11 @@ declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) loca
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @remapped_nvme_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #2 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 120
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 184
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 184
   %9 = load i32, ptr %8, align 8
   %10 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.27, i32 noundef %9) #13
   %11 = sext i32 %10 to i64
@@ -1678,7 +1678,7 @@ declare dso_local i32 @pci_alloc_irq_vectors(ptr noundef, i32 noundef, i32 nound
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @ahci_get_irq_vector(ptr nocapture noundef readonly %0, i32 noundef %1) #2 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 -184
   %6 = tail call i32 @pci_irq_vector(ptr noundef %5, i32 noundef %1) #13
@@ -1693,45 +1693,45 @@ define internal i32 @ahci_p5wdh_hardreset(ptr noundef %0, ptr nocapture readnone
   %4 = alloca %struct.ata_taskfile, align 8
   %5 = alloca i8, align 1
   %6 = load ptr, ptr %0, align 64
-  %7 = getelementptr inbounds i8, ptr %6, i64 15888
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 15888
   %8 = load ptr, ptr %7, align 16
-  %9 = getelementptr inbounds i8, ptr %6, i64 14776
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 14776
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr i8, ptr %14, i64 64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #13
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #13
   store i8 0, ptr %5, align 1, !annotation !5
-  %16 = getelementptr inbounds i8, ptr %12, i64 288
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 288
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 %17(ptr noundef %6) #13
-  %19 = getelementptr inbounds i8, ptr %0, i64 1152
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 1152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   %20 = load ptr, ptr %19, align 64
   %21 = load ptr, ptr %20, align 64
-  %22 = getelementptr inbounds i8, ptr %21, i64 168
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 168
   %23 = load i8, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %4, i64 9
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 9
   store i8 %23, ptr %24, align 1
-  %25 = getelementptr inbounds i8, ptr %0, i64 1160
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   %26 = load i32, ptr %25, align 8
   %27 = icmp eq i32 %26, 0
-  %28 = getelementptr inbounds i8, ptr %4, i64 20
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %29 = select i1 %27, i8 -96, i8 -80
   store i8 %29, ptr %28, align 4
-  %30 = getelementptr inbounds i8, ptr %4, i64 21
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 21
   store i8 -128, ptr %30, align 1
   call void @ata_tf_to_fis(ptr noundef nonnull %4, i8 noundef zeroext 0, i32 noundef 0, ptr noundef %15) #13
-  %31 = getelementptr inbounds i8, ptr %0, i64 924
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 924
   %32 = load i32, ptr %31, align 4
   %33 = and i32 %32, 1
   %34 = icmp eq i32 %33, 0
   %35 = select i1 %34, ptr @sata_deb_timing_normal, ptr @sata_deb_timing_hotplug
   %36 = call i32 @sata_link_hardreset(ptr noundef %0, ptr noundef nonnull %35, i64 noundef %2, ptr noundef nonnull %5, ptr noundef null) #13
-  %37 = getelementptr inbounds i8, ptr %12, i64 280
+  %37 = getelementptr inbounds nuw i8, ptr %12, i64 280
   %38 = load ptr, ptr %37, align 8
   call void %38(ptr noundef %6) #13
   %39 = load i8, ptr %5, align 1, !range !24, !noundef !25
@@ -1829,7 +1829,7 @@ declare dso_local void @ata_pci_shutdown_one(ptr noundef) local_unnamed_addr #1
 define internal noundef range(i32 -5, 1) i32 @ahci_pci_device_suspend(ptr noundef %0) #2 align 16 {
   %2 = getelementptr i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 1024
@@ -1841,7 +1841,7 @@ define internal noundef range(i32 -5, 1) i32 @ahci_pci_device_suspend(ptr nounde
   br label %17
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr i8, ptr %12, i64 4
   %14 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %13) #13, !srcloc !6
@@ -1890,15 +1890,15 @@ define internal i32 @ahci_pci_device_resume(ptr noundef %0) #2 align 16 {
   br label %22
 
 22:                                               ; preds = %21, %17, %13, %9, %1
-  %23 = getelementptr inbounds i8, ptr %0, i64 216
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %24 = load i32, ptr %23, align 8
   %25 = icmp eq i32 %24, 2
   br i1 %25, label %26, label %78
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %5, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %5, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %30 = load ptr, ptr %29, align 8
   %31 = tail call i32 @ahci_reset_controller(ptr noundef %5) #13
   %32 = icmp eq i32 %31, 0
@@ -1918,7 +1918,7 @@ define internal i32 @ahci_pci_device_resume(ptr noundef %0) #2 align 16 {
   br i1 %39, label %40, label %57
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %35, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %42 = load i64, ptr %41, align 8
   %43 = trunc i64 %42 to i32
   %44 = icmp ugt i32 %43, 17
@@ -1928,7 +1928,7 @@ define internal i32 @ahci_pci_device_resume(ptr noundef %0) #2 align 16 {
   %46 = call i32 @pci_read_config_word(ptr noundef %34, i32 noundef 146, ptr noundef nonnull %2) #13
   %47 = load i16, ptr %2, align 2
   %48 = zext i16 %47 to i32
-  %49 = getelementptr inbounds i8, ptr %30, i64 28
+  %49 = getelementptr inbounds nuw i8, ptr %30, i64 28
   %50 = load i32, ptr %49, align 4
   %51 = and i32 %50, %48
   %52 = icmp eq i32 %51, %50
@@ -1954,7 +1954,7 @@ define internal i32 @ahci_pci_device_resume(ptr noundef %0) #2 align 16 {
   %64 = getelementptr i8, ptr %63, i64 -122
   %65 = load i16, ptr %64, align 2
   %66 = icmp eq i16 %65, 24865
-  %67 = getelementptr inbounds i8, ptr %58, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr i8, ptr %68, i64 256
   %70 = select i1 %66, i64 256, i64 512
@@ -1987,9 +1987,9 @@ ahci_pci_reset_controller.exit:                   ; preds = %26, %78
 define internal noundef i32 @ahci_pci_device_runtime_suspend(ptr nocapture noundef readonly %0) #2 align 16 {
   %2 = getelementptr i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr i8, ptr %7, i64 4
   %9 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %8) #13, !srcloc !6
@@ -2004,9 +2004,9 @@ define internal i32 @ahci_pci_device_runtime_resume(ptr nocapture noundef readon
   %2 = alloca i16, align 2
   %3 = getelementptr i8, ptr %0, i64 120
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 @ahci_reset_controller(ptr noundef %4) #13
   %10 = icmp eq i32 %9, 0
@@ -2026,7 +2026,7 @@ define internal i32 @ahci_pci_device_runtime_resume(ptr nocapture noundef readon
   br i1 %17, label %18, label %35
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %13, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %20 = load i64, ptr %19, align 8
   %21 = trunc i64 %20 to i32
   %22 = icmp ugt i32 %21, 17
@@ -2036,7 +2036,7 @@ define internal i32 @ahci_pci_device_runtime_resume(ptr nocapture noundef readon
   %24 = call i32 @pci_read_config_word(ptr noundef %12, i32 noundef 146, ptr noundef nonnull %2) #13
   %25 = load i16, ptr %2, align 2
   %26 = zext i16 %25 to i32
-  %27 = getelementptr inbounds i8, ptr %8, i64 28
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 28
   %28 = load i32, ptr %27, align 4
   %29 = and i32 %28, %26
   %30 = icmp eq i32 %29, %28
@@ -2062,7 +2062,7 @@ define internal i32 @ahci_pci_device_runtime_resume(ptr nocapture noundef readon
   %42 = getelementptr i8, ptr %41, i64 -122
   %43 = load i16, ptr %42, align 2
   %44 = icmp eq i16 %43, 24865
-  %45 = getelementptr inbounds i8, ptr %36, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr i8, ptr %46, i64 256
   %48 = select i1 %44, i64 256, i64 512

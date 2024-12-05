@@ -16,13 +16,13 @@ entry:
   %new_f = alloca ptr, align 8
   store i32 0, ptr %century, align 4
   store i32 0, ptr %relyear, align 4
-  %tm_year = getelementptr inbounds i8, ptr %tm, i64 20
-  %tm_wday125 = getelementptr inbounds i8, ptr %tm, i64 24
-  %tm_hour101 = getelementptr inbounds i8, ptr %tm, i64 8
-  %tm_min = getelementptr inbounds i8, ptr %tm, i64 4
-  %tm_mon69 = getelementptr inbounds i8, ptr %tm, i64 16
-  %tm_yday = getelementptr inbounds i8, ptr %tm, i64 28
-  %tm_mday = getelementptr inbounds i8, ptr %tm, i64 12
+  %tm_year = getelementptr inbounds nuw i8, ptr %tm, i64 20
+  %tm_wday125 = getelementptr inbounds nuw i8, ptr %tm, i64 24
+  %tm_hour101 = getelementptr inbounds nuw i8, ptr %tm, i64 8
+  %tm_min = getelementptr inbounds nuw i8, ptr %tm, i64 4
+  %tm_mon69 = getelementptr inbounds nuw i8, ptr %tm, i64 16
+  %tm_yday = getelementptr inbounds nuw i8, ptr %tm, i64 28
+  %tm_mday = getelementptr inbounds nuw i8, ptr %tm, i64 12
   br label %while.cond.outer
 
 while.cond.outer:                                 ; preds = %sw.epilog256, %entry
@@ -66,7 +66,7 @@ land.rhs:                                         ; preds = %for.cond.preheader,
   br i1 %tobool14.not, label %if.end22, label %for.inc
 
 for.inc:                                          ; preds = %land.rhs
-  %incdec.ptr = getelementptr inbounds i8, ptr %s.addr.1130, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %s.addr.1130, i64 1
   %8 = load i8, ptr %incdec.ptr, align 1
   %tobool7.not = icmp eq i8 %8, 0
   br i1 %tobool7.not, label %if.end22, label %land.rhs, !llvm.loop !4
@@ -76,19 +76,19 @@ if.else:                                          ; preds = %if.then
   br i1 %cmp17.not, label %if.else20, label %return
 
 if.else20:                                        ; preds = %if.else
-  %incdec.ptr21 = getelementptr inbounds i8, ptr %s.addr.0, i64 1
+  %incdec.ptr21 = getelementptr inbounds nuw i8, ptr %s.addr.0, i64 1
   br label %if.end22
 
 if.end22:                                         ; preds = %for.inc, %land.rhs, %for.cond.preheader, %if.else20
   %s.addr.2 = phi ptr [ %incdec.ptr21, %if.else20 ], [ %s.addr.0, %for.cond.preheader ], [ %incdec.ptr, %for.inc ], [ %s.addr.1130, %land.rhs ]
-  %incdec.ptr23 = getelementptr inbounds i8, ptr %f.addr.0, i64 1
+  %incdec.ptr23 = getelementptr inbounds nuw i8, ptr %f.addr.0, i64 1
   br label %while.cond, !llvm.loop !6
 
 if.end24:                                         ; preds = %while.cond
-  %incdec.ptr25 = getelementptr inbounds i8, ptr %f.addr.0, i64 1
+  %incdec.ptr25 = getelementptr inbounds nuw i8, ptr %f.addr.0, i64 1
   %9 = load i8, ptr %incdec.ptr25, align 1
   %cmp27 = icmp eq i8 %9, 43
-  %incdec.ptr30 = getelementptr inbounds i8, ptr %f.addr.0, i64 2
+  %incdec.ptr30 = getelementptr inbounds nuw i8, ptr %f.addr.0, i64 2
   %spec.select = select i1 %cmp27, ptr %incdec.ptr30, ptr %incdec.ptr25
   %call32 = tail call ptr @__ctype_b_loc() #6
   %10 = load ptr, ptr %call32, align 8
@@ -111,7 +111,7 @@ if.end43:                                         ; preds = %if.end24, %if.then3
   %15 = phi i8 [ %.pre, %if.then39 ], [ %11, %if.end24 ]
   %f.addr.2 = phi ptr [ %14, %if.then39 ], [ %spec.select, %if.end24 ]
   %w.0 = phi i32 [ %conv41, %if.then39 ], [ -1, %if.end24 ]
-  %incdec.ptr44 = getelementptr inbounds i8, ptr %f.addr.2, i64 1
+  %incdec.ptr44 = getelementptr inbounds nuw i8, ptr %f.addr.2, i64 1
   switch i8 %15, label %return [
     i8 97, label %symbolic_range
     i8 65, label %symbolic_range
@@ -203,7 +203,7 @@ land.rhs75:                                       ; preds = %land.rhs75.lr.ph, %
   br i1 %tobool82.not, label %sw.epilog256, label %for.inc85
 
 for.inc85:                                        ; preds = %land.rhs75
-  %incdec.ptr86 = getelementptr inbounds i8, ptr %s.addr.4133, i64 1
+  %incdec.ptr86 = getelementptr inbounds nuw i8, ptr %s.addr.4133, i64 1
   %21 = load i8, ptr %incdec.ptr86, align 1
   %tobool74.not = icmp eq i8 %21, 0
   br i1 %tobool74.not, label %sw.epilog256, label %land.rhs75, !llvm.loop !7
@@ -281,7 +281,7 @@ sw.bb140:                                         ; preds = %if.end43
   br label %numeric_digits
 
 sw.bb145:                                         ; preds = %if.end43
-  %incdec.ptr146 = getelementptr inbounds i8, ptr %s.addr.0, i64 1
+  %incdec.ptr146 = getelementptr inbounds nuw i8, ptr %s.addr.0, i64 1
   %24 = load i8, ptr %s.addr.0, align 1
   %cmp148.not = icmp eq i8 %24, 37
   br i1 %cmp148.not, label %sw.epilog256, label %return
@@ -321,7 +321,7 @@ land.rhs165:                                      ; preds = %land.rhs165.prehead
 for.body174:                                      ; preds = %land.rhs165
   %conv167 = sext i8 %31 to i32
   %mul = mul nsw i32 %29, 10
-  %incdec.ptr175 = getelementptr inbounds i8, ptr %s.addr.5137, i64 1
+  %incdec.ptr175 = getelementptr inbounds nuw i8, ptr %s.addr.5137, i64 1
   %add177 = add nsw i32 %conv167, -48
   %sub = add i32 %add177, %mul
   store i32 %sub, ptr %dest.2, align 4
@@ -353,11 +353,11 @@ numeric_digits:                                   ; preds = %sw.bb140, %sw.bb138
   ]
 
 if.then191:                                       ; preds = %numeric_digits
-  %incdec.ptr192 = getelementptr inbounds i8, ptr %s.addr.0, i64 1
+  %incdec.ptr192 = getelementptr inbounds nuw i8, ptr %s.addr.0, i64 1
   br label %if.end200
 
 if.then197:                                       ; preds = %numeric_digits
-  %incdec.ptr198 = getelementptr inbounds i8, ptr %s.addr.0, i64 1
+  %incdec.ptr198 = getelementptr inbounds nuw i8, ptr %s.addr.0, i64 1
   br label %if.end200
 
 if.end200:                                        ; preds = %numeric_digits, %if.then197, %if.then191
@@ -393,7 +393,7 @@ land.rhs213:                                      ; preds = %if.end209, %for.bod
 for.body222:                                      ; preds = %land.rhs213
   %conv215 = sext i8 %42 to i32
   %mul223 = mul nsw i32 %40, 10
-  %incdec.ptr224 = getelementptr inbounds i8, ptr %s.addr.7142, i64 1
+  %incdec.ptr224 = getelementptr inbounds nuw i8, ptr %s.addr.7142, i64 1
   %add226 = add nsw i32 %conv215, -48
   %sub227 = add i32 %add226, %mul223
   store i32 %sub227, ptr %dest.1, align 4

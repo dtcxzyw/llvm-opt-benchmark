@@ -20,8 +20,8 @@ define internal void @ompi_op_base_2buff_max_int8_t(ptr nocapture noundef readon
   %9 = load i8, ptr %.01116, align 1
   %. = tail call i8 @llvm.smax.i8(i8 %8, i8 %9)
   store i8 %., ptr %.017, align 1
-  %10 = getelementptr inbounds i8, ptr %.017, i64 1
-  %11 = getelementptr inbounds i8, ptr %.01116, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.017, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.01116, i64 1
   %12 = add nsw i32 %.01215, -1
   %13 = icmp samesign ugt i32 %.01215, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !4
@@ -44,8 +44,8 @@ define internal void @ompi_op_base_2buff_max_uint8_t(ptr nocapture noundef reado
   %9 = load i8, ptr %.01116, align 1
   %. = tail call i8 @llvm.umax.i8(i8 %8, i8 %9)
   store i8 %., ptr %.017, align 1
-  %10 = getelementptr inbounds i8, ptr %.017, i64 1
-  %11 = getelementptr inbounds i8, ptr %.01116, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.017, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.01116, i64 1
   %12 = add nsw i32 %.01215, -1
   %13 = icmp samesign ugt i32 %.01215, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !6
@@ -68,8 +68,8 @@ define internal void @ompi_op_base_2buff_max_int16_t(ptr nocapture noundef reado
   %9 = load i16, ptr %.01116, align 2
   %. = tail call i16 @llvm.smax.i16(i16 %8, i16 %9)
   store i16 %., ptr %.017, align 2
-  %10 = getelementptr inbounds i8, ptr %.017, i64 2
-  %11 = getelementptr inbounds i8, ptr %.01116, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %.017, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %.01116, i64 2
   %12 = add nsw i32 %.01215, -1
   %13 = icmp samesign ugt i32 %.01215, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !7
@@ -92,8 +92,8 @@ define internal void @ompi_op_base_2buff_max_uint16_t(ptr nocapture noundef read
   %9 = load i16, ptr %.01116, align 2
   %. = tail call i16 @llvm.umax.i16(i16 %8, i16 %9)
   store i16 %., ptr %.017, align 2
-  %10 = getelementptr inbounds i8, ptr %.017, i64 2
-  %11 = getelementptr inbounds i8, ptr %.01116, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %.017, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %.01116, i64 2
   %12 = add nsw i32 %.01215, -1
   %13 = icmp samesign ugt i32 %.01215, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !8
@@ -116,8 +116,8 @@ define internal void @ompi_op_base_2buff_max_int32_t(ptr nocapture noundef reado
   %9 = load i32, ptr %.01116, align 4
   %. = tail call i32 @llvm.smax.i32(i32 %8, i32 %9)
   store i32 %., ptr %.017, align 4
-  %10 = getelementptr inbounds i8, ptr %.017, i64 4
-  %11 = getelementptr inbounds i8, ptr %.01116, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %.017, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.01116, i64 4
   %12 = add nsw i32 %.01215, -1
   %13 = icmp samesign ugt i32 %.01215, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !9
@@ -140,8 +140,8 @@ define internal void @ompi_op_base_2buff_max_uint32_t(ptr nocapture noundef read
   %9 = load i32, ptr %.01116, align 4
   %. = tail call i32 @llvm.umax.i32(i32 %8, i32 %9)
   store i32 %., ptr %.017, align 4
-  %10 = getelementptr inbounds i8, ptr %.017, i64 4
-  %11 = getelementptr inbounds i8, ptr %.01116, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %.017, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.01116, i64 4
   %12 = add nsw i32 %.01215, -1
   %13 = icmp samesign ugt i32 %.01215, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !10
@@ -164,8 +164,8 @@ define internal void @ompi_op_base_2buff_max_int64_t(ptr nocapture noundef reado
   %9 = load i64, ptr %.01116, align 8
   %. = tail call i64 @llvm.smax.i64(i64 %8, i64 %9)
   store i64 %., ptr %.017, align 8
-  %10 = getelementptr inbounds i8, ptr %.017, i64 8
-  %11 = getelementptr inbounds i8, ptr %.01116, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.017, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.01116, i64 8
   %12 = add nsw i32 %.01215, -1
   %13 = icmp samesign ugt i32 %.01215, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !11
@@ -188,8 +188,8 @@ define internal void @ompi_op_base_2buff_max_uint64_t(ptr nocapture noundef read
   %9 = load i64, ptr %.01116, align 8
   %. = tail call i64 @llvm.umax.i64(i64 %8, i64 %9)
   store i64 %., ptr %.017, align 8
-  %10 = getelementptr inbounds i8, ptr %.017, i64 8
-  %11 = getelementptr inbounds i8, ptr %.01116, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.017, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.01116, i64 8
   %12 = add nsw i32 %.01215, -1
   %13 = icmp samesign ugt i32 %.01215, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !12
@@ -212,8 +212,8 @@ define internal void @ompi_op_base_2buff_max_fortran_integer(ptr nocapture nound
   %9 = load i32, ptr %.01116, align 4
   %. = tail call i32 @llvm.smax.i32(i32 %8, i32 %9)
   store i32 %., ptr %.017, align 4
-  %10 = getelementptr inbounds i8, ptr %.017, i64 4
-  %11 = getelementptr inbounds i8, ptr %.01116, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %.017, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.01116, i64 4
   %12 = add nsw i32 %.01215, -1
   %13 = icmp samesign ugt i32 %.01215, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !13
@@ -236,8 +236,8 @@ define internal void @ompi_op_base_2buff_max_fortran_integer1(ptr nocapture noun
   %9 = load i8, ptr %.01116, align 1
   %. = tail call i8 @llvm.smax.i8(i8 %8, i8 %9)
   store i8 %., ptr %.017, align 1
-  %10 = getelementptr inbounds i8, ptr %.017, i64 1
-  %11 = getelementptr inbounds i8, ptr %.01116, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.017, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.01116, i64 1
   %12 = add nsw i32 %.01215, -1
   %13 = icmp samesign ugt i32 %.01215, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !14
@@ -260,8 +260,8 @@ define internal void @ompi_op_base_2buff_max_fortran_integer2(ptr nocapture noun
   %9 = load i16, ptr %.01116, align 2
   %. = tail call i16 @llvm.smax.i16(i16 %8, i16 %9)
   store i16 %., ptr %.017, align 2
-  %10 = getelementptr inbounds i8, ptr %.017, i64 2
-  %11 = getelementptr inbounds i8, ptr %.01116, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %.017, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %.01116, i64 2
   %12 = add nsw i32 %.01215, -1
   %13 = icmp samesign ugt i32 %.01215, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !15
@@ -284,8 +284,8 @@ define internal void @ompi_op_base_2buff_max_fortran_integer4(ptr nocapture noun
   %9 = load i32, ptr %.01116, align 4
   %. = tail call i32 @llvm.smax.i32(i32 %8, i32 %9)
   store i32 %., ptr %.017, align 4
-  %10 = getelementptr inbounds i8, ptr %.017, i64 4
-  %11 = getelementptr inbounds i8, ptr %.01116, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %.017, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.01116, i64 4
   %12 = add nsw i32 %.01215, -1
   %13 = icmp samesign ugt i32 %.01215, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !16
@@ -308,8 +308,8 @@ define internal void @ompi_op_base_2buff_max_fortran_integer8(ptr nocapture noun
   %9 = load i64, ptr %.01116, align 8
   %. = tail call i64 @llvm.smax.i64(i64 %8, i64 %9)
   store i64 %., ptr %.017, align 8
-  %10 = getelementptr inbounds i8, ptr %.017, i64 8
-  %11 = getelementptr inbounds i8, ptr %.01116, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.017, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.01116, i64 8
   %12 = add nsw i32 %.01215, -1
   %13 = icmp samesign ugt i32 %.01215, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !17
@@ -333,8 +333,8 @@ define internal void @ompi_op_base_2buff_max_short_float(ptr nocapture noundef r
   %10 = fcmp ogt half %8, %9
   %. = select i1 %10, half %8, half %9
   store half %., ptr %.017, align 2
-  %11 = getelementptr inbounds i8, ptr %.017, i64 2
-  %12 = getelementptr inbounds i8, ptr %.01116, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %.017, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %.01116, i64 2
   %13 = add nsw i32 %.01215, -1
   %14 = icmp samesign ugt i32 %.01215, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !18
@@ -358,8 +358,8 @@ define internal void @ompi_op_base_2buff_max_float(ptr nocapture noundef readonl
   %10 = fcmp ogt float %8, %9
   %. = select i1 %10, float %8, float %9
   store float %., ptr %.017, align 4
-  %11 = getelementptr inbounds i8, ptr %.017, i64 4
-  %12 = getelementptr inbounds i8, ptr %.01116, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.017, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.01116, i64 4
   %13 = add nsw i32 %.01215, -1
   %14 = icmp samesign ugt i32 %.01215, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !19
@@ -383,8 +383,8 @@ define internal void @ompi_op_base_2buff_max_double(ptr nocapture noundef readon
   %10 = fcmp ogt double %8, %9
   %. = select i1 %10, double %8, double %9
   store double %., ptr %.017, align 8
-  %11 = getelementptr inbounds i8, ptr %.017, i64 8
-  %12 = getelementptr inbounds i8, ptr %.01116, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.017, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.01116, i64 8
   %13 = add nsw i32 %.01215, -1
   %14 = icmp samesign ugt i32 %.01215, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !20
@@ -408,8 +408,8 @@ define internal void @ompi_op_base_2buff_max_fortran_real(ptr nocapture noundef 
   %10 = fcmp ogt float %8, %9
   %. = select i1 %10, float %8, float %9
   store float %., ptr %.017, align 4
-  %11 = getelementptr inbounds i8, ptr %.017, i64 4
-  %12 = getelementptr inbounds i8, ptr %.01116, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.017, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.01116, i64 4
   %13 = add nsw i32 %.01215, -1
   %14 = icmp samesign ugt i32 %.01215, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !21
@@ -433,8 +433,8 @@ define internal void @ompi_op_base_2buff_max_fortran_real4(ptr nocapture noundef
   %10 = fcmp ogt float %8, %9
   %. = select i1 %10, float %8, float %9
   store float %., ptr %.017, align 4
-  %11 = getelementptr inbounds i8, ptr %.017, i64 4
-  %12 = getelementptr inbounds i8, ptr %.01116, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.017, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.01116, i64 4
   %13 = add nsw i32 %.01215, -1
   %14 = icmp samesign ugt i32 %.01215, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !22
@@ -458,8 +458,8 @@ define internal void @ompi_op_base_2buff_max_fortran_real8(ptr nocapture noundef
   %10 = fcmp ogt double %8, %9
   %. = select i1 %10, double %8, double %9
   store double %., ptr %.017, align 8
-  %11 = getelementptr inbounds i8, ptr %.017, i64 8
-  %12 = getelementptr inbounds i8, ptr %.01116, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.017, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.01116, i64 8
   %13 = add nsw i32 %.01215, -1
   %14 = icmp samesign ugt i32 %.01215, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !23
@@ -483,8 +483,8 @@ define internal void @ompi_op_base_2buff_max_fortran_real16(ptr nocapture nounde
   %10 = fcmp ogt x86_fp80 %8, %9
   %. = select i1 %10, x86_fp80 %8, x86_fp80 %9
   store x86_fp80 %., ptr %.017, align 16
-  %11 = getelementptr inbounds i8, ptr %.017, i64 16
-  %12 = getelementptr inbounds i8, ptr %.01116, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %.017, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %.01116, i64 16
   %13 = add nsw i32 %.01215, -1
   %14 = icmp samesign ugt i32 %.01215, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !24
@@ -508,8 +508,8 @@ define internal void @ompi_op_base_2buff_max_fortran_double_precision(ptr nocapt
   %10 = fcmp ogt double %8, %9
   %. = select i1 %10, double %8, double %9
   store double %., ptr %.017, align 8
-  %11 = getelementptr inbounds i8, ptr %.017, i64 8
-  %12 = getelementptr inbounds i8, ptr %.01116, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.017, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.01116, i64 8
   %13 = add nsw i32 %.01215, -1
   %14 = icmp samesign ugt i32 %.01215, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !25
@@ -533,8 +533,8 @@ define internal void @ompi_op_base_2buff_max_long_double(ptr nocapture noundef r
   %10 = fcmp ogt x86_fp80 %8, %9
   %. = select i1 %10, x86_fp80 %8, x86_fp80 %9
   store x86_fp80 %., ptr %.017, align 16
-  %11 = getelementptr inbounds i8, ptr %.017, i64 16
-  %12 = getelementptr inbounds i8, ptr %.01116, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %.017, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %.01116, i64 16
   %13 = add nsw i32 %.01215, -1
   %14 = icmp samesign ugt i32 %.01215, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !26
@@ -557,8 +557,8 @@ define internal void @ompi_op_base_2buff_max_long(ptr nocapture noundef readonly
   %9 = load i64, ptr %.01116, align 8
   %. = tail call i64 @llvm.smax.i64(i64 %8, i64 %9)
   store i64 %., ptr %.017, align 8
-  %10 = getelementptr inbounds i8, ptr %.017, i64 8
-  %11 = getelementptr inbounds i8, ptr %.01116, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.017, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.01116, i64 8
   %12 = add nsw i32 %.01215, -1
   %13 = icmp samesign ugt i32 %.01215, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !27
@@ -581,8 +581,8 @@ define internal void @ompi_op_base_2buff_max_unsigned_long(ptr nocapture noundef
   %9 = load i64, ptr %.01116, align 8
   %. = tail call i64 @llvm.umax.i64(i64 %8, i64 %9)
   store i64 %., ptr %.017, align 8
-  %10 = getelementptr inbounds i8, ptr %.017, i64 8
-  %11 = getelementptr inbounds i8, ptr %.01116, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.017, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.01116, i64 8
   %12 = add nsw i32 %.01215, -1
   %13 = icmp samesign ugt i32 %.01215, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !28
@@ -605,8 +605,8 @@ define internal void @ompi_op_base_2buff_min_int8_t(ptr nocapture noundef readon
   %9 = load i8, ptr %.01116, align 1
   %. = tail call i8 @llvm.smin.i8(i8 %8, i8 %9)
   store i8 %., ptr %.017, align 1
-  %10 = getelementptr inbounds i8, ptr %.017, i64 1
-  %11 = getelementptr inbounds i8, ptr %.01116, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.017, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.01116, i64 1
   %12 = add nsw i32 %.01215, -1
   %13 = icmp samesign ugt i32 %.01215, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !29
@@ -629,8 +629,8 @@ define internal void @ompi_op_base_2buff_min_uint8_t(ptr nocapture noundef reado
   %9 = load i8, ptr %.01116, align 1
   %. = tail call i8 @llvm.umin.i8(i8 %8, i8 %9)
   store i8 %., ptr %.017, align 1
-  %10 = getelementptr inbounds i8, ptr %.017, i64 1
-  %11 = getelementptr inbounds i8, ptr %.01116, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.017, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.01116, i64 1
   %12 = add nsw i32 %.01215, -1
   %13 = icmp samesign ugt i32 %.01215, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !30
@@ -653,8 +653,8 @@ define internal void @ompi_op_base_2buff_min_int16_t(ptr nocapture noundef reado
   %9 = load i16, ptr %.01116, align 2
   %. = tail call i16 @llvm.smin.i16(i16 %8, i16 %9)
   store i16 %., ptr %.017, align 2
-  %10 = getelementptr inbounds i8, ptr %.017, i64 2
-  %11 = getelementptr inbounds i8, ptr %.01116, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %.017, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %.01116, i64 2
   %12 = add nsw i32 %.01215, -1
   %13 = icmp samesign ugt i32 %.01215, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !31
@@ -677,8 +677,8 @@ define internal void @ompi_op_base_2buff_min_uint16_t(ptr nocapture noundef read
   %9 = load i16, ptr %.01116, align 2
   %. = tail call i16 @llvm.umin.i16(i16 %8, i16 %9)
   store i16 %., ptr %.017, align 2
-  %10 = getelementptr inbounds i8, ptr %.017, i64 2
-  %11 = getelementptr inbounds i8, ptr %.01116, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %.017, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %.01116, i64 2
   %12 = add nsw i32 %.01215, -1
   %13 = icmp samesign ugt i32 %.01215, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !32
@@ -701,8 +701,8 @@ define internal void @ompi_op_base_2buff_min_int32_t(ptr nocapture noundef reado
   %9 = load i32, ptr %.01116, align 4
   %. = tail call i32 @llvm.smin.i32(i32 %8, i32 %9)
   store i32 %., ptr %.017, align 4
-  %10 = getelementptr inbounds i8, ptr %.017, i64 4
-  %11 = getelementptr inbounds i8, ptr %.01116, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %.017, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.01116, i64 4
   %12 = add nsw i32 %.01215, -1
   %13 = icmp samesign ugt i32 %.01215, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !33
@@ -725,8 +725,8 @@ define internal void @ompi_op_base_2buff_min_uint32_t(ptr nocapture noundef read
   %9 = load i32, ptr %.01116, align 4
   %. = tail call i32 @llvm.umin.i32(i32 %8, i32 %9)
   store i32 %., ptr %.017, align 4
-  %10 = getelementptr inbounds i8, ptr %.017, i64 4
-  %11 = getelementptr inbounds i8, ptr %.01116, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %.017, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.01116, i64 4
   %12 = add nsw i32 %.01215, -1
   %13 = icmp samesign ugt i32 %.01215, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !34
@@ -749,8 +749,8 @@ define internal void @ompi_op_base_2buff_min_int64_t(ptr nocapture noundef reado
   %9 = load i64, ptr %.01116, align 8
   %. = tail call i64 @llvm.smin.i64(i64 %8, i64 %9)
   store i64 %., ptr %.017, align 8
-  %10 = getelementptr inbounds i8, ptr %.017, i64 8
-  %11 = getelementptr inbounds i8, ptr %.01116, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.017, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.01116, i64 8
   %12 = add nsw i32 %.01215, -1
   %13 = icmp samesign ugt i32 %.01215, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !35
@@ -773,8 +773,8 @@ define internal void @ompi_op_base_2buff_min_uint64_t(ptr nocapture noundef read
   %9 = load i64, ptr %.01116, align 8
   %. = tail call i64 @llvm.umin.i64(i64 %8, i64 %9)
   store i64 %., ptr %.017, align 8
-  %10 = getelementptr inbounds i8, ptr %.017, i64 8
-  %11 = getelementptr inbounds i8, ptr %.01116, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.017, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.01116, i64 8
   %12 = add nsw i32 %.01215, -1
   %13 = icmp samesign ugt i32 %.01215, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !36
@@ -797,8 +797,8 @@ define internal void @ompi_op_base_2buff_min_fortran_integer(ptr nocapture nound
   %9 = load i32, ptr %.01116, align 4
   %. = tail call i32 @llvm.smin.i32(i32 %8, i32 %9)
   store i32 %., ptr %.017, align 4
-  %10 = getelementptr inbounds i8, ptr %.017, i64 4
-  %11 = getelementptr inbounds i8, ptr %.01116, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %.017, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.01116, i64 4
   %12 = add nsw i32 %.01215, -1
   %13 = icmp samesign ugt i32 %.01215, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !37
@@ -821,8 +821,8 @@ define internal void @ompi_op_base_2buff_min_fortran_integer1(ptr nocapture noun
   %9 = load i8, ptr %.01116, align 1
   %. = tail call i8 @llvm.smin.i8(i8 %8, i8 %9)
   store i8 %., ptr %.017, align 1
-  %10 = getelementptr inbounds i8, ptr %.017, i64 1
-  %11 = getelementptr inbounds i8, ptr %.01116, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.017, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.01116, i64 1
   %12 = add nsw i32 %.01215, -1
   %13 = icmp samesign ugt i32 %.01215, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !38
@@ -845,8 +845,8 @@ define internal void @ompi_op_base_2buff_min_fortran_integer2(ptr nocapture noun
   %9 = load i16, ptr %.01116, align 2
   %. = tail call i16 @llvm.smin.i16(i16 %8, i16 %9)
   store i16 %., ptr %.017, align 2
-  %10 = getelementptr inbounds i8, ptr %.017, i64 2
-  %11 = getelementptr inbounds i8, ptr %.01116, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %.017, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %.01116, i64 2
   %12 = add nsw i32 %.01215, -1
   %13 = icmp samesign ugt i32 %.01215, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !39
@@ -869,8 +869,8 @@ define internal void @ompi_op_base_2buff_min_fortran_integer4(ptr nocapture noun
   %9 = load i32, ptr %.01116, align 4
   %. = tail call i32 @llvm.smin.i32(i32 %8, i32 %9)
   store i32 %., ptr %.017, align 4
-  %10 = getelementptr inbounds i8, ptr %.017, i64 4
-  %11 = getelementptr inbounds i8, ptr %.01116, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %.017, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.01116, i64 4
   %12 = add nsw i32 %.01215, -1
   %13 = icmp samesign ugt i32 %.01215, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !40
@@ -893,8 +893,8 @@ define internal void @ompi_op_base_2buff_min_fortran_integer8(ptr nocapture noun
   %9 = load i64, ptr %.01116, align 8
   %. = tail call i64 @llvm.smin.i64(i64 %8, i64 %9)
   store i64 %., ptr %.017, align 8
-  %10 = getelementptr inbounds i8, ptr %.017, i64 8
-  %11 = getelementptr inbounds i8, ptr %.01116, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.017, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.01116, i64 8
   %12 = add nsw i32 %.01215, -1
   %13 = icmp samesign ugt i32 %.01215, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !41
@@ -918,8 +918,8 @@ define internal void @ompi_op_base_2buff_min_short_float(ptr nocapture noundef r
   %10 = fcmp olt half %8, %9
   %. = select i1 %10, half %8, half %9
   store half %., ptr %.017, align 2
-  %11 = getelementptr inbounds i8, ptr %.017, i64 2
-  %12 = getelementptr inbounds i8, ptr %.01116, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %.017, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %.01116, i64 2
   %13 = add nsw i32 %.01215, -1
   %14 = icmp samesign ugt i32 %.01215, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !42
@@ -943,8 +943,8 @@ define internal void @ompi_op_base_2buff_min_float(ptr nocapture noundef readonl
   %10 = fcmp olt float %8, %9
   %. = select i1 %10, float %8, float %9
   store float %., ptr %.017, align 4
-  %11 = getelementptr inbounds i8, ptr %.017, i64 4
-  %12 = getelementptr inbounds i8, ptr %.01116, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.017, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.01116, i64 4
   %13 = add nsw i32 %.01215, -1
   %14 = icmp samesign ugt i32 %.01215, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !43
@@ -968,8 +968,8 @@ define internal void @ompi_op_base_2buff_min_double(ptr nocapture noundef readon
   %10 = fcmp olt double %8, %9
   %. = select i1 %10, double %8, double %9
   store double %., ptr %.017, align 8
-  %11 = getelementptr inbounds i8, ptr %.017, i64 8
-  %12 = getelementptr inbounds i8, ptr %.01116, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.017, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.01116, i64 8
   %13 = add nsw i32 %.01215, -1
   %14 = icmp samesign ugt i32 %.01215, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !44
@@ -993,8 +993,8 @@ define internal void @ompi_op_base_2buff_min_fortran_real(ptr nocapture noundef 
   %10 = fcmp olt float %8, %9
   %. = select i1 %10, float %8, float %9
   store float %., ptr %.017, align 4
-  %11 = getelementptr inbounds i8, ptr %.017, i64 4
-  %12 = getelementptr inbounds i8, ptr %.01116, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.017, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.01116, i64 4
   %13 = add nsw i32 %.01215, -1
   %14 = icmp samesign ugt i32 %.01215, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !45
@@ -1018,8 +1018,8 @@ define internal void @ompi_op_base_2buff_min_fortran_real4(ptr nocapture noundef
   %10 = fcmp olt float %8, %9
   %. = select i1 %10, float %8, float %9
   store float %., ptr %.017, align 4
-  %11 = getelementptr inbounds i8, ptr %.017, i64 4
-  %12 = getelementptr inbounds i8, ptr %.01116, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.017, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.01116, i64 4
   %13 = add nsw i32 %.01215, -1
   %14 = icmp samesign ugt i32 %.01215, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !46
@@ -1043,8 +1043,8 @@ define internal void @ompi_op_base_2buff_min_fortran_real8(ptr nocapture noundef
   %10 = fcmp olt double %8, %9
   %. = select i1 %10, double %8, double %9
   store double %., ptr %.017, align 8
-  %11 = getelementptr inbounds i8, ptr %.017, i64 8
-  %12 = getelementptr inbounds i8, ptr %.01116, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.017, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.01116, i64 8
   %13 = add nsw i32 %.01215, -1
   %14 = icmp samesign ugt i32 %.01215, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !47
@@ -1068,8 +1068,8 @@ define internal void @ompi_op_base_2buff_min_fortran_real16(ptr nocapture nounde
   %10 = fcmp olt x86_fp80 %8, %9
   %. = select i1 %10, x86_fp80 %8, x86_fp80 %9
   store x86_fp80 %., ptr %.017, align 16
-  %11 = getelementptr inbounds i8, ptr %.017, i64 16
-  %12 = getelementptr inbounds i8, ptr %.01116, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %.017, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %.01116, i64 16
   %13 = add nsw i32 %.01215, -1
   %14 = icmp samesign ugt i32 %.01215, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !48
@@ -1093,8 +1093,8 @@ define internal void @ompi_op_base_2buff_min_fortran_double_precision(ptr nocapt
   %10 = fcmp olt double %8, %9
   %. = select i1 %10, double %8, double %9
   store double %., ptr %.017, align 8
-  %11 = getelementptr inbounds i8, ptr %.017, i64 8
-  %12 = getelementptr inbounds i8, ptr %.01116, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.017, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.01116, i64 8
   %13 = add nsw i32 %.01215, -1
   %14 = icmp samesign ugt i32 %.01215, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !49
@@ -1118,8 +1118,8 @@ define internal void @ompi_op_base_2buff_min_long_double(ptr nocapture noundef r
   %10 = fcmp olt x86_fp80 %8, %9
   %. = select i1 %10, x86_fp80 %8, x86_fp80 %9
   store x86_fp80 %., ptr %.017, align 16
-  %11 = getelementptr inbounds i8, ptr %.017, i64 16
-  %12 = getelementptr inbounds i8, ptr %.01116, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %.017, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %.01116, i64 16
   %13 = add nsw i32 %.01215, -1
   %14 = icmp samesign ugt i32 %.01215, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !50
@@ -1142,8 +1142,8 @@ define internal void @ompi_op_base_2buff_min_long(ptr nocapture noundef readonly
   %9 = load i64, ptr %.01116, align 8
   %. = tail call i64 @llvm.smin.i64(i64 %8, i64 %9)
   store i64 %., ptr %.017, align 8
-  %10 = getelementptr inbounds i8, ptr %.017, i64 8
-  %11 = getelementptr inbounds i8, ptr %.01116, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.017, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.01116, i64 8
   %12 = add nsw i32 %.01215, -1
   %13 = icmp samesign ugt i32 %.01215, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !51
@@ -1166,8 +1166,8 @@ define internal void @ompi_op_base_2buff_min_unsigned_long(ptr nocapture noundef
   %9 = load i64, ptr %.01116, align 8
   %. = tail call i64 @llvm.umin.i64(i64 %8, i64 %9)
   store i64 %., ptr %.017, align 8
-  %10 = getelementptr inbounds i8, ptr %.017, i64 8
-  %11 = getelementptr inbounds i8, ptr %.01116, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.017, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.01116, i64 8
   %12 = add nsw i32 %.01215, -1
   %13 = icmp samesign ugt i32 %.01215, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !52
@@ -1186,9 +1186,9 @@ define internal void @ompi_op_base_2buff_sum_int8_t(ptr nocapture noundef readon
   %.010 = phi ptr [ %10, %.lr.ph ], [ %1, %5 ]
   %.069 = phi ptr [ %8, %.lr.ph ], [ %0, %5 ]
   %.078 = phi i32 [ %13, %.lr.ph ], [ %6, %5 ]
-  %8 = getelementptr inbounds i8, ptr %.069, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %.069, i64 1
   %9 = load i8, ptr %.069, align 1
-  %10 = getelementptr inbounds i8, ptr %.010, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.010, i64 1
   %11 = load i8, ptr %.010, align 1
   %12 = add i8 %11, %9
   store i8 %12, ptr %.010, align 1
@@ -1210,9 +1210,9 @@ define internal void @ompi_op_base_2buff_sum_uint8_t(ptr nocapture noundef reado
   %.010 = phi ptr [ %10, %.lr.ph ], [ %1, %5 ]
   %.069 = phi ptr [ %8, %.lr.ph ], [ %0, %5 ]
   %.078 = phi i32 [ %13, %.lr.ph ], [ %6, %5 ]
-  %8 = getelementptr inbounds i8, ptr %.069, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %.069, i64 1
   %9 = load i8, ptr %.069, align 1
-  %10 = getelementptr inbounds i8, ptr %.010, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.010, i64 1
   %11 = load i8, ptr %.010, align 1
   %12 = add i8 %11, %9
   store i8 %12, ptr %.010, align 1
@@ -1234,9 +1234,9 @@ define internal void @ompi_op_base_2buff_sum_int16_t(ptr nocapture noundef reado
   %.010 = phi ptr [ %10, %.lr.ph ], [ %1, %5 ]
   %.069 = phi ptr [ %8, %.lr.ph ], [ %0, %5 ]
   %.078 = phi i32 [ %13, %.lr.ph ], [ %6, %5 ]
-  %8 = getelementptr inbounds i8, ptr %.069, i64 2
+  %8 = getelementptr inbounds nuw i8, ptr %.069, i64 2
   %9 = load i16, ptr %.069, align 2
-  %10 = getelementptr inbounds i8, ptr %.010, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %.010, i64 2
   %11 = load i16, ptr %.010, align 2
   %12 = add i16 %11, %9
   store i16 %12, ptr %.010, align 2
@@ -1258,9 +1258,9 @@ define internal void @ompi_op_base_2buff_sum_uint16_t(ptr nocapture noundef read
   %.010 = phi ptr [ %10, %.lr.ph ], [ %1, %5 ]
   %.069 = phi ptr [ %8, %.lr.ph ], [ %0, %5 ]
   %.078 = phi i32 [ %13, %.lr.ph ], [ %6, %5 ]
-  %8 = getelementptr inbounds i8, ptr %.069, i64 2
+  %8 = getelementptr inbounds nuw i8, ptr %.069, i64 2
   %9 = load i16, ptr %.069, align 2
-  %10 = getelementptr inbounds i8, ptr %.010, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %.010, i64 2
   %11 = load i16, ptr %.010, align 2
   %12 = add i16 %11, %9
   store i16 %12, ptr %.010, align 2
@@ -1282,9 +1282,9 @@ define internal void @ompi_op_base_2buff_sum_int32_t(ptr nocapture noundef reado
   %.010 = phi ptr [ %10, %.lr.ph ], [ %1, %5 ]
   %.069 = phi ptr [ %8, %.lr.ph ], [ %0, %5 ]
   %.078 = phi i32 [ %13, %.lr.ph ], [ %6, %5 ]
-  %8 = getelementptr inbounds i8, ptr %.069, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %.069, i64 4
   %9 = load i32, ptr %.069, align 4
-  %10 = getelementptr inbounds i8, ptr %.010, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %.010, i64 4
   %11 = load i32, ptr %.010, align 4
   %12 = add nsw i32 %11, %9
   store i32 %12, ptr %.010, align 4
@@ -1306,9 +1306,9 @@ define internal void @ompi_op_base_2buff_sum_uint32_t(ptr nocapture noundef read
   %.010 = phi ptr [ %10, %.lr.ph ], [ %1, %5 ]
   %.069 = phi ptr [ %8, %.lr.ph ], [ %0, %5 ]
   %.078 = phi i32 [ %13, %.lr.ph ], [ %6, %5 ]
-  %8 = getelementptr inbounds i8, ptr %.069, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %.069, i64 4
   %9 = load i32, ptr %.069, align 4
-  %10 = getelementptr inbounds i8, ptr %.010, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %.010, i64 4
   %11 = load i32, ptr %.010, align 4
   %12 = add i32 %11, %9
   store i32 %12, ptr %.010, align 4
@@ -1330,9 +1330,9 @@ define internal void @ompi_op_base_2buff_sum_int64_t(ptr nocapture noundef reado
   %.010 = phi ptr [ %10, %.lr.ph ], [ %1, %5 ]
   %.069 = phi ptr [ %8, %.lr.ph ], [ %0, %5 ]
   %.078 = phi i32 [ %13, %.lr.ph ], [ %6, %5 ]
-  %8 = getelementptr inbounds i8, ptr %.069, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.069, i64 8
   %9 = load i64, ptr %.069, align 8
-  %10 = getelementptr inbounds i8, ptr %.010, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.010, i64 8
   %11 = load i64, ptr %.010, align 8
   %12 = add nsw i64 %11, %9
   store i64 %12, ptr %.010, align 8
@@ -1354,9 +1354,9 @@ define internal void @ompi_op_base_2buff_sum_uint64_t(ptr nocapture noundef read
   %.010 = phi ptr [ %10, %.lr.ph ], [ %1, %5 ]
   %.069 = phi ptr [ %8, %.lr.ph ], [ %0, %5 ]
   %.078 = phi i32 [ %13, %.lr.ph ], [ %6, %5 ]
-  %8 = getelementptr inbounds i8, ptr %.069, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.069, i64 8
   %9 = load i64, ptr %.069, align 8
-  %10 = getelementptr inbounds i8, ptr %.010, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.010, i64 8
   %11 = load i64, ptr %.010, align 8
   %12 = add i64 %11, %9
   store i64 %12, ptr %.010, align 8
@@ -1378,9 +1378,9 @@ define internal void @ompi_op_base_2buff_sum_fortran_integer(ptr nocapture nound
   %.010 = phi ptr [ %10, %.lr.ph ], [ %1, %5 ]
   %.069 = phi ptr [ %8, %.lr.ph ], [ %0, %5 ]
   %.078 = phi i32 [ %13, %.lr.ph ], [ %6, %5 ]
-  %8 = getelementptr inbounds i8, ptr %.069, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %.069, i64 4
   %9 = load i32, ptr %.069, align 4
-  %10 = getelementptr inbounds i8, ptr %.010, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %.010, i64 4
   %11 = load i32, ptr %.010, align 4
   %12 = add nsw i32 %11, %9
   store i32 %12, ptr %.010, align 4
@@ -1402,9 +1402,9 @@ define internal void @ompi_op_base_2buff_sum_fortran_integer1(ptr nocapture noun
   %.010 = phi ptr [ %10, %.lr.ph ], [ %1, %5 ]
   %.069 = phi ptr [ %8, %.lr.ph ], [ %0, %5 ]
   %.078 = phi i32 [ %13, %.lr.ph ], [ %6, %5 ]
-  %8 = getelementptr inbounds i8, ptr %.069, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %.069, i64 1
   %9 = load i8, ptr %.069, align 1
-  %10 = getelementptr inbounds i8, ptr %.010, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.010, i64 1
   %11 = load i8, ptr %.010, align 1
   %12 = add i8 %11, %9
   store i8 %12, ptr %.010, align 1
@@ -1426,9 +1426,9 @@ define internal void @ompi_op_base_2buff_sum_fortran_integer2(ptr nocapture noun
   %.010 = phi ptr [ %10, %.lr.ph ], [ %1, %5 ]
   %.069 = phi ptr [ %8, %.lr.ph ], [ %0, %5 ]
   %.078 = phi i32 [ %13, %.lr.ph ], [ %6, %5 ]
-  %8 = getelementptr inbounds i8, ptr %.069, i64 2
+  %8 = getelementptr inbounds nuw i8, ptr %.069, i64 2
   %9 = load i16, ptr %.069, align 2
-  %10 = getelementptr inbounds i8, ptr %.010, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %.010, i64 2
   %11 = load i16, ptr %.010, align 2
   %12 = add i16 %11, %9
   store i16 %12, ptr %.010, align 2
@@ -1450,9 +1450,9 @@ define internal void @ompi_op_base_2buff_sum_fortran_integer4(ptr nocapture noun
   %.010 = phi ptr [ %10, %.lr.ph ], [ %1, %5 ]
   %.069 = phi ptr [ %8, %.lr.ph ], [ %0, %5 ]
   %.078 = phi i32 [ %13, %.lr.ph ], [ %6, %5 ]
-  %8 = getelementptr inbounds i8, ptr %.069, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %.069, i64 4
   %9 = load i32, ptr %.069, align 4
-  %10 = getelementptr inbounds i8, ptr %.010, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %.010, i64 4
   %11 = load i32, ptr %.010, align 4
   %12 = add nsw i32 %11, %9
   store i32 %12, ptr %.010, align 4
@@ -1474,9 +1474,9 @@ define internal void @ompi_op_base_2buff_sum_fortran_integer8(ptr nocapture noun
   %.010 = phi ptr [ %10, %.lr.ph ], [ %1, %5 ]
   %.069 = phi ptr [ %8, %.lr.ph ], [ %0, %5 ]
   %.078 = phi i32 [ %13, %.lr.ph ], [ %6, %5 ]
-  %8 = getelementptr inbounds i8, ptr %.069, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.069, i64 8
   %9 = load i64, ptr %.069, align 8
-  %10 = getelementptr inbounds i8, ptr %.010, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.010, i64 8
   %11 = load i64, ptr %.010, align 8
   %12 = add nsw i64 %11, %9
   store i64 %12, ptr %.010, align 8
@@ -1498,9 +1498,9 @@ define internal void @ompi_op_base_2buff_sum_short_float(ptr nocapture noundef r
   %.010 = phi ptr [ %10, %.lr.ph ], [ %1, %5 ]
   %.069 = phi ptr [ %8, %.lr.ph ], [ %0, %5 ]
   %.078 = phi i32 [ %13, %.lr.ph ], [ %6, %5 ]
-  %8 = getelementptr inbounds i8, ptr %.069, i64 2
+  %8 = getelementptr inbounds nuw i8, ptr %.069, i64 2
   %9 = load half, ptr %.069, align 2
-  %10 = getelementptr inbounds i8, ptr %.010, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %.010, i64 2
   %11 = load half, ptr %.010, align 2
   %12 = fadd half %9, %11
   store half %12, ptr %.010, align 2
@@ -1522,9 +1522,9 @@ define internal void @ompi_op_base_2buff_sum_float(ptr nocapture noundef readonl
   %.010 = phi ptr [ %10, %.lr.ph ], [ %1, %5 ]
   %.069 = phi ptr [ %8, %.lr.ph ], [ %0, %5 ]
   %.078 = phi i32 [ %13, %.lr.ph ], [ %6, %5 ]
-  %8 = getelementptr inbounds i8, ptr %.069, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %.069, i64 4
   %9 = load float, ptr %.069, align 4
-  %10 = getelementptr inbounds i8, ptr %.010, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %.010, i64 4
   %11 = load float, ptr %.010, align 4
   %12 = fadd float %9, %11
   store float %12, ptr %.010, align 4
@@ -1546,9 +1546,9 @@ define internal void @ompi_op_base_2buff_sum_double(ptr nocapture noundef readon
   %.010 = phi ptr [ %10, %.lr.ph ], [ %1, %5 ]
   %.069 = phi ptr [ %8, %.lr.ph ], [ %0, %5 ]
   %.078 = phi i32 [ %13, %.lr.ph ], [ %6, %5 ]
-  %8 = getelementptr inbounds i8, ptr %.069, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.069, i64 8
   %9 = load double, ptr %.069, align 8
-  %10 = getelementptr inbounds i8, ptr %.010, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.010, i64 8
   %11 = load double, ptr %.010, align 8
   %12 = fadd double %9, %11
   store double %12, ptr %.010, align 8
@@ -1570,9 +1570,9 @@ define internal void @ompi_op_base_2buff_sum_fortran_real(ptr nocapture noundef 
   %.010 = phi ptr [ %10, %.lr.ph ], [ %1, %5 ]
   %.069 = phi ptr [ %8, %.lr.ph ], [ %0, %5 ]
   %.078 = phi i32 [ %13, %.lr.ph ], [ %6, %5 ]
-  %8 = getelementptr inbounds i8, ptr %.069, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %.069, i64 4
   %9 = load float, ptr %.069, align 4
-  %10 = getelementptr inbounds i8, ptr %.010, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %.010, i64 4
   %11 = load float, ptr %.010, align 4
   %12 = fadd float %9, %11
   store float %12, ptr %.010, align 4
@@ -1594,9 +1594,9 @@ define internal void @ompi_op_base_2buff_sum_fortran_real4(ptr nocapture noundef
   %.010 = phi ptr [ %10, %.lr.ph ], [ %1, %5 ]
   %.069 = phi ptr [ %8, %.lr.ph ], [ %0, %5 ]
   %.078 = phi i32 [ %13, %.lr.ph ], [ %6, %5 ]
-  %8 = getelementptr inbounds i8, ptr %.069, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %.069, i64 4
   %9 = load float, ptr %.069, align 4
-  %10 = getelementptr inbounds i8, ptr %.010, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %.010, i64 4
   %11 = load float, ptr %.010, align 4
   %12 = fadd float %9, %11
   store float %12, ptr %.010, align 4
@@ -1618,9 +1618,9 @@ define internal void @ompi_op_base_2buff_sum_fortran_real8(ptr nocapture noundef
   %.010 = phi ptr [ %10, %.lr.ph ], [ %1, %5 ]
   %.069 = phi ptr [ %8, %.lr.ph ], [ %0, %5 ]
   %.078 = phi i32 [ %13, %.lr.ph ], [ %6, %5 ]
-  %8 = getelementptr inbounds i8, ptr %.069, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.069, i64 8
   %9 = load double, ptr %.069, align 8
-  %10 = getelementptr inbounds i8, ptr %.010, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.010, i64 8
   %11 = load double, ptr %.010, align 8
   %12 = fadd double %9, %11
   store double %12, ptr %.010, align 8
@@ -1642,9 +1642,9 @@ define internal void @ompi_op_base_2buff_sum_fortran_real16(ptr nocapture nounde
   %.010 = phi ptr [ %10, %.lr.ph ], [ %1, %5 ]
   %.069 = phi ptr [ %8, %.lr.ph ], [ %0, %5 ]
   %.078 = phi i32 [ %13, %.lr.ph ], [ %6, %5 ]
-  %8 = getelementptr inbounds i8, ptr %.069, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %.069, i64 16
   %9 = load x86_fp80, ptr %.069, align 16
-  %10 = getelementptr inbounds i8, ptr %.010, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %.010, i64 16
   %11 = load x86_fp80, ptr %.010, align 16
   %12 = fadd x86_fp80 %9, %11
   store x86_fp80 %12, ptr %.010, align 16
@@ -1666,9 +1666,9 @@ define internal void @ompi_op_base_2buff_sum_fortran_double_precision(ptr nocapt
   %.010 = phi ptr [ %10, %.lr.ph ], [ %1, %5 ]
   %.069 = phi ptr [ %8, %.lr.ph ], [ %0, %5 ]
   %.078 = phi i32 [ %13, %.lr.ph ], [ %6, %5 ]
-  %8 = getelementptr inbounds i8, ptr %.069, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.069, i64 8
   %9 = load double, ptr %.069, align 8
-  %10 = getelementptr inbounds i8, ptr %.010, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.010, i64 8
   %11 = load double, ptr %.010, align 8
   %12 = fadd double %9, %11
   store double %12, ptr %.010, align 8
@@ -1690,9 +1690,9 @@ define internal void @ompi_op_base_2buff_sum_long_double(ptr nocapture noundef r
   %.010 = phi ptr [ %10, %.lr.ph ], [ %1, %5 ]
   %.069 = phi ptr [ %8, %.lr.ph ], [ %0, %5 ]
   %.078 = phi i32 [ %13, %.lr.ph ], [ %6, %5 ]
-  %8 = getelementptr inbounds i8, ptr %.069, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %.069, i64 16
   %9 = load x86_fp80, ptr %.069, align 16
-  %10 = getelementptr inbounds i8, ptr %.010, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %.010, i64 16
   %11 = load x86_fp80, ptr %.010, align 16
   %12 = fadd x86_fp80 %9, %11
   store x86_fp80 %12, ptr %.010, align 16
@@ -1718,15 +1718,15 @@ define internal void @ompi_op_base_2buff_sum_c_short_float_complex(ptr nocapture
   %9 = load half, ptr %.014, align 2
   %10 = fadd half %8, %9
   store half %10, ptr %.014, align 2
-  %11 = getelementptr inbounds i8, ptr %.01013, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %.01013, i64 2
   %12 = load half, ptr %11, align 2
-  %13 = getelementptr inbounds i8, ptr %.014, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %.014, i64 2
   %14 = load half, ptr %13, align 2
   %15 = fadd half %12, %14
   store half %15, ptr %13, align 2
   %16 = add nsw i32 %.01112, -1
-  %17 = getelementptr inbounds i8, ptr %.01013, i64 4
-  %18 = getelementptr inbounds i8, ptr %.014, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %.01013, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %.014, i64 4
   %19 = icmp samesign ugt i32 %.01112, 1
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !75
 
@@ -1744,13 +1744,13 @@ define internal void @ompi_op_base_2buff_sum_c_float_complex(ptr nocapture nound
   %.010 = phi ptr [ %12, %.lr.ph ], [ %1, %5 ]
   %.069 = phi ptr [ %8, %.lr.ph ], [ %0, %5 ]
   %.078 = phi i32 [ %18, %.lr.ph ], [ %6, %5 ]
-  %8 = getelementptr inbounds i8, ptr %.069, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.069, i64 8
   %9 = load float, ptr %.069, align 4
-  %10 = getelementptr inbounds i8, ptr %.069, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %.069, i64 4
   %11 = load float, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %.010, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.010, i64 8
   %13 = load float, ptr %.010, align 4
-  %14 = getelementptr inbounds i8, ptr %.010, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.010, i64 4
   %15 = load float, ptr %14, align 4
   %16 = fadd float %9, %13
   %17 = fadd float %11, %15
@@ -1774,13 +1774,13 @@ define internal void @ompi_op_base_2buff_sum_c_double_complex(ptr nocapture noun
   %.010 = phi ptr [ %12, %.lr.ph ], [ %1, %5 ]
   %.069 = phi ptr [ %8, %.lr.ph ], [ %0, %5 ]
   %.078 = phi i32 [ %18, %.lr.ph ], [ %6, %5 ]
-  %8 = getelementptr inbounds i8, ptr %.069, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %.069, i64 16
   %9 = load double, ptr %.069, align 8
-  %10 = getelementptr inbounds i8, ptr %.069, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.069, i64 8
   %11 = load double, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %.010, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %.010, i64 16
   %13 = load double, ptr %.010, align 8
-  %14 = getelementptr inbounds i8, ptr %.010, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.010, i64 8
   %15 = load double, ptr %14, align 8
   %16 = fadd double %9, %13
   %17 = fadd double %11, %15
@@ -1804,13 +1804,13 @@ define internal void @ompi_op_base_2buff_sum_c_long_double_complex(ptr nocapture
   %.010 = phi ptr [ %12, %.lr.ph ], [ %1, %5 ]
   %.069 = phi ptr [ %8, %.lr.ph ], [ %0, %5 ]
   %.078 = phi i32 [ %18, %.lr.ph ], [ %6, %5 ]
-  %8 = getelementptr inbounds i8, ptr %.069, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %.069, i64 32
   %9 = load x86_fp80, ptr %.069, align 16
-  %10 = getelementptr inbounds i8, ptr %.069, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %.069, i64 16
   %11 = load x86_fp80, ptr %10, align 16
-  %12 = getelementptr inbounds i8, ptr %.010, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %.010, i64 32
   %13 = load x86_fp80, ptr %.010, align 16
-  %14 = getelementptr inbounds i8, ptr %.010, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %.010, i64 16
   %15 = load x86_fp80, ptr %14, align 16
   %16 = fadd x86_fp80 %9, %13
   %17 = fadd x86_fp80 %11, %15
@@ -1834,9 +1834,9 @@ define internal void @ompi_op_base_2buff_sum_long(ptr nocapture noundef readonly
   %.010 = phi ptr [ %10, %.lr.ph ], [ %1, %5 ]
   %.069 = phi ptr [ %8, %.lr.ph ], [ %0, %5 ]
   %.078 = phi i32 [ %13, %.lr.ph ], [ %6, %5 ]
-  %8 = getelementptr inbounds i8, ptr %.069, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.069, i64 8
   %9 = load i64, ptr %.069, align 8
-  %10 = getelementptr inbounds i8, ptr %.010, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.010, i64 8
   %11 = load i64, ptr %.010, align 8
   %12 = add nsw i64 %11, %9
   store i64 %12, ptr %.010, align 8
@@ -1858,9 +1858,9 @@ define internal void @ompi_op_base_2buff_sum_unsigned_long(ptr nocapture noundef
   %.010 = phi ptr [ %10, %.lr.ph ], [ %1, %5 ]
   %.069 = phi ptr [ %8, %.lr.ph ], [ %0, %5 ]
   %.078 = phi i32 [ %13, %.lr.ph ], [ %6, %5 ]
-  %8 = getelementptr inbounds i8, ptr %.069, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.069, i64 8
   %9 = load i64, ptr %.069, align 8
-  %10 = getelementptr inbounds i8, ptr %.010, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.010, i64 8
   %11 = load i64, ptr %.010, align 8
   %12 = add i64 %11, %9
   store i64 %12, ptr %.010, align 8
@@ -1882,9 +1882,9 @@ define internal void @ompi_op_base_2buff_prod_int8_t(ptr nocapture noundef reado
   %.010 = phi ptr [ %10, %.lr.ph ], [ %1, %5 ]
   %.069 = phi ptr [ %8, %.lr.ph ], [ %0, %5 ]
   %.078 = phi i32 [ %13, %.lr.ph ], [ %6, %5 ]
-  %8 = getelementptr inbounds i8, ptr %.069, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %.069, i64 1
   %9 = load i8, ptr %.069, align 1
-  %10 = getelementptr inbounds i8, ptr %.010, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.010, i64 1
   %11 = load i8, ptr %.010, align 1
   %12 = mul i8 %11, %9
   store i8 %12, ptr %.010, align 1
@@ -1906,9 +1906,9 @@ define internal void @ompi_op_base_2buff_prod_uint8_t(ptr nocapture noundef read
   %.010 = phi ptr [ %10, %.lr.ph ], [ %1, %5 ]
   %.069 = phi ptr [ %8, %.lr.ph ], [ %0, %5 ]
   %.078 = phi i32 [ %13, %.lr.ph ], [ %6, %5 ]
-  %8 = getelementptr inbounds i8, ptr %.069, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %.069, i64 1
   %9 = load i8, ptr %.069, align 1
-  %10 = getelementptr inbounds i8, ptr %.010, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.010, i64 1
   %11 = load i8, ptr %.010, align 1
   %12 = mul i8 %11, %9
   store i8 %12, ptr %.010, align 1
@@ -1930,9 +1930,9 @@ define internal void @ompi_op_base_2buff_prod_int16_t(ptr nocapture noundef read
   %.010 = phi ptr [ %10, %.lr.ph ], [ %1, %5 ]
   %.069 = phi ptr [ %8, %.lr.ph ], [ %0, %5 ]
   %.078 = phi i32 [ %13, %.lr.ph ], [ %6, %5 ]
-  %8 = getelementptr inbounds i8, ptr %.069, i64 2
+  %8 = getelementptr inbounds nuw i8, ptr %.069, i64 2
   %9 = load i16, ptr %.069, align 2
-  %10 = getelementptr inbounds i8, ptr %.010, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %.010, i64 2
   %11 = load i16, ptr %.010, align 2
   %12 = mul i16 %11, %9
   store i16 %12, ptr %.010, align 2
@@ -1954,9 +1954,9 @@ define internal void @ompi_op_base_2buff_prod_uint16_t(ptr nocapture noundef rea
   %.010 = phi ptr [ %10, %.lr.ph ], [ %1, %5 ]
   %.069 = phi ptr [ %8, %.lr.ph ], [ %0, %5 ]
   %.078 = phi i32 [ %13, %.lr.ph ], [ %6, %5 ]
-  %8 = getelementptr inbounds i8, ptr %.069, i64 2
+  %8 = getelementptr inbounds nuw i8, ptr %.069, i64 2
   %9 = load i16, ptr %.069, align 2
-  %10 = getelementptr inbounds i8, ptr %.010, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %.010, i64 2
   %11 = load i16, ptr %.010, align 2
   %12 = mul i16 %11, %9
   store i16 %12, ptr %.010, align 2
@@ -1978,9 +1978,9 @@ define internal void @ompi_op_base_2buff_prod_int32_t(ptr nocapture noundef read
   %.010 = phi ptr [ %10, %.lr.ph ], [ %1, %5 ]
   %.069 = phi ptr [ %8, %.lr.ph ], [ %0, %5 ]
   %.078 = phi i32 [ %13, %.lr.ph ], [ %6, %5 ]
-  %8 = getelementptr inbounds i8, ptr %.069, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %.069, i64 4
   %9 = load i32, ptr %.069, align 4
-  %10 = getelementptr inbounds i8, ptr %.010, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %.010, i64 4
   %11 = load i32, ptr %.010, align 4
   %12 = mul nsw i32 %11, %9
   store i32 %12, ptr %.010, align 4
@@ -2002,9 +2002,9 @@ define internal void @ompi_op_base_2buff_prod_uint32_t(ptr nocapture noundef rea
   %.010 = phi ptr [ %10, %.lr.ph ], [ %1, %5 ]
   %.069 = phi ptr [ %8, %.lr.ph ], [ %0, %5 ]
   %.078 = phi i32 [ %13, %.lr.ph ], [ %6, %5 ]
-  %8 = getelementptr inbounds i8, ptr %.069, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %.069, i64 4
   %9 = load i32, ptr %.069, align 4
-  %10 = getelementptr inbounds i8, ptr %.010, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %.010, i64 4
   %11 = load i32, ptr %.010, align 4
   %12 = mul i32 %11, %9
   store i32 %12, ptr %.010, align 4
@@ -2026,9 +2026,9 @@ define internal void @ompi_op_base_2buff_prod_int64_t(ptr nocapture noundef read
   %.010 = phi ptr [ %10, %.lr.ph ], [ %1, %5 ]
   %.069 = phi ptr [ %8, %.lr.ph ], [ %0, %5 ]
   %.078 = phi i32 [ %13, %.lr.ph ], [ %6, %5 ]
-  %8 = getelementptr inbounds i8, ptr %.069, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.069, i64 8
   %9 = load i64, ptr %.069, align 8
-  %10 = getelementptr inbounds i8, ptr %.010, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.010, i64 8
   %11 = load i64, ptr %.010, align 8
   %12 = mul nsw i64 %11, %9
   store i64 %12, ptr %.010, align 8
@@ -2050,9 +2050,9 @@ define internal void @ompi_op_base_2buff_prod_uint64_t(ptr nocapture noundef rea
   %.010 = phi ptr [ %10, %.lr.ph ], [ %1, %5 ]
   %.069 = phi ptr [ %8, %.lr.ph ], [ %0, %5 ]
   %.078 = phi i32 [ %13, %.lr.ph ], [ %6, %5 ]
-  %8 = getelementptr inbounds i8, ptr %.069, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.069, i64 8
   %9 = load i64, ptr %.069, align 8
-  %10 = getelementptr inbounds i8, ptr %.010, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.010, i64 8
   %11 = load i64, ptr %.010, align 8
   %12 = mul i64 %11, %9
   store i64 %12, ptr %.010, align 8
@@ -2074,9 +2074,9 @@ define internal void @ompi_op_base_2buff_prod_fortran_integer(ptr nocapture noun
   %.010 = phi ptr [ %10, %.lr.ph ], [ %1, %5 ]
   %.069 = phi ptr [ %8, %.lr.ph ], [ %0, %5 ]
   %.078 = phi i32 [ %13, %.lr.ph ], [ %6, %5 ]
-  %8 = getelementptr inbounds i8, ptr %.069, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %.069, i64 4
   %9 = load i32, ptr %.069, align 4
-  %10 = getelementptr inbounds i8, ptr %.010, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %.010, i64 4
   %11 = load i32, ptr %.010, align 4
   %12 = mul nsw i32 %11, %9
   store i32 %12, ptr %.010, align 4
@@ -2098,9 +2098,9 @@ define internal void @ompi_op_base_2buff_prod_fortran_integer1(ptr nocapture nou
   %.010 = phi ptr [ %10, %.lr.ph ], [ %1, %5 ]
   %.069 = phi ptr [ %8, %.lr.ph ], [ %0, %5 ]
   %.078 = phi i32 [ %13, %.lr.ph ], [ %6, %5 ]
-  %8 = getelementptr inbounds i8, ptr %.069, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %.069, i64 1
   %9 = load i8, ptr %.069, align 1
-  %10 = getelementptr inbounds i8, ptr %.010, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.010, i64 1
   %11 = load i8, ptr %.010, align 1
   %12 = mul i8 %11, %9
   store i8 %12, ptr %.010, align 1
@@ -2122,9 +2122,9 @@ define internal void @ompi_op_base_2buff_prod_fortran_integer2(ptr nocapture nou
   %.010 = phi ptr [ %10, %.lr.ph ], [ %1, %5 ]
   %.069 = phi ptr [ %8, %.lr.ph ], [ %0, %5 ]
   %.078 = phi i32 [ %13, %.lr.ph ], [ %6, %5 ]
-  %8 = getelementptr inbounds i8, ptr %.069, i64 2
+  %8 = getelementptr inbounds nuw i8, ptr %.069, i64 2
   %9 = load i16, ptr %.069, align 2
-  %10 = getelementptr inbounds i8, ptr %.010, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %.010, i64 2
   %11 = load i16, ptr %.010, align 2
   %12 = mul i16 %11, %9
   store i16 %12, ptr %.010, align 2
@@ -2146,9 +2146,9 @@ define internal void @ompi_op_base_2buff_prod_fortran_integer4(ptr nocapture nou
   %.010 = phi ptr [ %10, %.lr.ph ], [ %1, %5 ]
   %.069 = phi ptr [ %8, %.lr.ph ], [ %0, %5 ]
   %.078 = phi i32 [ %13, %.lr.ph ], [ %6, %5 ]
-  %8 = getelementptr inbounds i8, ptr %.069, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %.069, i64 4
   %9 = load i32, ptr %.069, align 4
-  %10 = getelementptr inbounds i8, ptr %.010, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %.010, i64 4
   %11 = load i32, ptr %.010, align 4
   %12 = mul nsw i32 %11, %9
   store i32 %12, ptr %.010, align 4
@@ -2170,9 +2170,9 @@ define internal void @ompi_op_base_2buff_prod_fortran_integer8(ptr nocapture nou
   %.010 = phi ptr [ %10, %.lr.ph ], [ %1, %5 ]
   %.069 = phi ptr [ %8, %.lr.ph ], [ %0, %5 ]
   %.078 = phi i32 [ %13, %.lr.ph ], [ %6, %5 ]
-  %8 = getelementptr inbounds i8, ptr %.069, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.069, i64 8
   %9 = load i64, ptr %.069, align 8
-  %10 = getelementptr inbounds i8, ptr %.010, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.010, i64 8
   %11 = load i64, ptr %.010, align 8
   %12 = mul nsw i64 %11, %9
   store i64 %12, ptr %.010, align 8
@@ -2194,9 +2194,9 @@ define internal void @ompi_op_base_2buff_prod_short_float(ptr nocapture noundef 
   %.010 = phi ptr [ %10, %.lr.ph ], [ %1, %5 ]
   %.069 = phi ptr [ %8, %.lr.ph ], [ %0, %5 ]
   %.078 = phi i32 [ %13, %.lr.ph ], [ %6, %5 ]
-  %8 = getelementptr inbounds i8, ptr %.069, i64 2
+  %8 = getelementptr inbounds nuw i8, ptr %.069, i64 2
   %9 = load half, ptr %.069, align 2
-  %10 = getelementptr inbounds i8, ptr %.010, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %.010, i64 2
   %11 = load half, ptr %.010, align 2
   %12 = fmul half %9, %11
   store half %12, ptr %.010, align 2
@@ -2218,9 +2218,9 @@ define internal void @ompi_op_base_2buff_prod_float(ptr nocapture noundef readon
   %.010 = phi ptr [ %10, %.lr.ph ], [ %1, %5 ]
   %.069 = phi ptr [ %8, %.lr.ph ], [ %0, %5 ]
   %.078 = phi i32 [ %13, %.lr.ph ], [ %6, %5 ]
-  %8 = getelementptr inbounds i8, ptr %.069, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %.069, i64 4
   %9 = load float, ptr %.069, align 4
-  %10 = getelementptr inbounds i8, ptr %.010, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %.010, i64 4
   %11 = load float, ptr %.010, align 4
   %12 = fmul float %9, %11
   store float %12, ptr %.010, align 4
@@ -2242,9 +2242,9 @@ define internal void @ompi_op_base_2buff_prod_double(ptr nocapture noundef reado
   %.010 = phi ptr [ %10, %.lr.ph ], [ %1, %5 ]
   %.069 = phi ptr [ %8, %.lr.ph ], [ %0, %5 ]
   %.078 = phi i32 [ %13, %.lr.ph ], [ %6, %5 ]
-  %8 = getelementptr inbounds i8, ptr %.069, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.069, i64 8
   %9 = load double, ptr %.069, align 8
-  %10 = getelementptr inbounds i8, ptr %.010, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.010, i64 8
   %11 = load double, ptr %.010, align 8
   %12 = fmul double %9, %11
   store double %12, ptr %.010, align 8
@@ -2266,9 +2266,9 @@ define internal void @ompi_op_base_2buff_prod_fortran_real(ptr nocapture noundef
   %.010 = phi ptr [ %10, %.lr.ph ], [ %1, %5 ]
   %.069 = phi ptr [ %8, %.lr.ph ], [ %0, %5 ]
   %.078 = phi i32 [ %13, %.lr.ph ], [ %6, %5 ]
-  %8 = getelementptr inbounds i8, ptr %.069, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %.069, i64 4
   %9 = load float, ptr %.069, align 4
-  %10 = getelementptr inbounds i8, ptr %.010, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %.010, i64 4
   %11 = load float, ptr %.010, align 4
   %12 = fmul float %9, %11
   store float %12, ptr %.010, align 4
@@ -2290,9 +2290,9 @@ define internal void @ompi_op_base_2buff_prod_fortran_real4(ptr nocapture nounde
   %.010 = phi ptr [ %10, %.lr.ph ], [ %1, %5 ]
   %.069 = phi ptr [ %8, %.lr.ph ], [ %0, %5 ]
   %.078 = phi i32 [ %13, %.lr.ph ], [ %6, %5 ]
-  %8 = getelementptr inbounds i8, ptr %.069, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %.069, i64 4
   %9 = load float, ptr %.069, align 4
-  %10 = getelementptr inbounds i8, ptr %.010, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %.010, i64 4
   %11 = load float, ptr %.010, align 4
   %12 = fmul float %9, %11
   store float %12, ptr %.010, align 4
@@ -2314,9 +2314,9 @@ define internal void @ompi_op_base_2buff_prod_fortran_real8(ptr nocapture nounde
   %.010 = phi ptr [ %10, %.lr.ph ], [ %1, %5 ]
   %.069 = phi ptr [ %8, %.lr.ph ], [ %0, %5 ]
   %.078 = phi i32 [ %13, %.lr.ph ], [ %6, %5 ]
-  %8 = getelementptr inbounds i8, ptr %.069, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.069, i64 8
   %9 = load double, ptr %.069, align 8
-  %10 = getelementptr inbounds i8, ptr %.010, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.010, i64 8
   %11 = load double, ptr %.010, align 8
   %12 = fmul double %9, %11
   store double %12, ptr %.010, align 8
@@ -2338,9 +2338,9 @@ define internal void @ompi_op_base_2buff_prod_fortran_real16(ptr nocapture nound
   %.010 = phi ptr [ %10, %.lr.ph ], [ %1, %5 ]
   %.069 = phi ptr [ %8, %.lr.ph ], [ %0, %5 ]
   %.078 = phi i32 [ %13, %.lr.ph ], [ %6, %5 ]
-  %8 = getelementptr inbounds i8, ptr %.069, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %.069, i64 16
   %9 = load x86_fp80, ptr %.069, align 16
-  %10 = getelementptr inbounds i8, ptr %.010, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %.010, i64 16
   %11 = load x86_fp80, ptr %.010, align 16
   %12 = fmul x86_fp80 %9, %11
   store x86_fp80 %12, ptr %.010, align 16
@@ -2362,9 +2362,9 @@ define internal void @ompi_op_base_2buff_prod_fortran_double_precision(ptr nocap
   %.010 = phi ptr [ %10, %.lr.ph ], [ %1, %5 ]
   %.069 = phi ptr [ %8, %.lr.ph ], [ %0, %5 ]
   %.078 = phi i32 [ %13, %.lr.ph ], [ %6, %5 ]
-  %8 = getelementptr inbounds i8, ptr %.069, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.069, i64 8
   %9 = load double, ptr %.069, align 8
-  %10 = getelementptr inbounds i8, ptr %.010, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.010, i64 8
   %11 = load double, ptr %.010, align 8
   %12 = fmul double %9, %11
   store double %12, ptr %.010, align 8
@@ -2386,9 +2386,9 @@ define internal void @ompi_op_base_2buff_prod_long_double(ptr nocapture noundef 
   %.010 = phi ptr [ %10, %.lr.ph ], [ %1, %5 ]
   %.069 = phi ptr [ %8, %.lr.ph ], [ %0, %5 ]
   %.078 = phi i32 [ %13, %.lr.ph ], [ %6, %5 ]
-  %8 = getelementptr inbounds i8, ptr %.069, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %.069, i64 16
   %9 = load x86_fp80, ptr %.069, align 16
-  %10 = getelementptr inbounds i8, ptr %.010, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %.010, i64 16
   %11 = load x86_fp80, ptr %.010, align 16
   %12 = fmul x86_fp80 %9, %11
   store x86_fp80 %12, ptr %.010, align 16
@@ -2414,10 +2414,10 @@ define internal void @ompi_op_base_2buff_prod_c_short_float_complex(ptr nocaptur
   %9 = fpext half %8 to float
   %10 = load half, ptr %.01718, align 2
   %11 = fpext half %10 to float
-  %12 = getelementptr inbounds i8, ptr %.01619, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %.01619, i64 2
   %13 = load half, ptr %12, align 2
   %14 = fpext half %13 to float
-  %15 = getelementptr inbounds i8, ptr %.01718, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %.01718, i64 2
   %16 = load half, ptr %15, align 2
   %17 = fpext half %16 to float
   %18 = fneg float %17
@@ -2430,8 +2430,8 @@ define internal void @ompi_op_base_2buff_prod_c_short_float_complex(ptr nocaptur
   store half %21, ptr %.01718, align 2
   store half %24, ptr %15, align 2
   %25 = add nsw i32 %.020, -1
-  %26 = getelementptr inbounds i8, ptr %.01619, i64 4
-  %27 = getelementptr inbounds i8, ptr %.01718, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %.01619, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %.01718, i64 4
   %28 = icmp samesign ugt i32 %.020, 1
   br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !103
 
@@ -2449,13 +2449,13 @@ define internal void @ompi_op_base_2buff_prod_c_float_complex(ptr nocapture noun
   %.010 = phi i32 [ %30, %27 ], [ %6, %5 ]
   %.069 = phi ptr [ %12, %27 ], [ %1, %5 ]
   %.078 = phi ptr [ %8, %27 ], [ %0, %5 ]
-  %8 = getelementptr inbounds i8, ptr %.078, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.078, i64 8
   %9 = load float, ptr %.078, align 4
-  %10 = getelementptr inbounds i8, ptr %.078, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %.078, i64 4
   %11 = load float, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %.069, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.069, i64 8
   %13 = load float, ptr %.069, align 4
-  %14 = getelementptr inbounds i8, ptr %.069, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.069, i64 4
   %15 = load float, ptr %14, align 4
   %16 = fmul float %9, %13
   %17 = fmul float %11, %15
@@ -2499,13 +2499,13 @@ define internal void @ompi_op_base_2buff_prod_c_double_complex(ptr nocapture nou
   %.010 = phi ptr [ %12, %29 ], [ %1, %5 ]
   %.069 = phi ptr [ %8, %29 ], [ %0, %5 ]
   %.078 = phi i32 [ %32, %29 ], [ %6, %5 ]
-  %8 = getelementptr inbounds i8, ptr %.069, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %.069, i64 16
   %9 = load double, ptr %.069, align 8
-  %10 = getelementptr inbounds i8, ptr %.069, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.069, i64 8
   %11 = load double, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %.010, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %.010, i64 16
   %13 = load double, ptr %.010, align 8
-  %14 = getelementptr inbounds i8, ptr %.010, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.010, i64 8
   %15 = load double, ptr %14, align 8
   %16 = fmul double %9, %13
   %17 = fmul double %11, %15
@@ -2549,13 +2549,13 @@ define internal void @ompi_op_base_2buff_prod_c_long_double_complex(ptr nocaptur
   %.010 = phi ptr [ %12, %29 ], [ %1, %5 ]
   %.069 = phi ptr [ %8, %29 ], [ %0, %5 ]
   %.078 = phi i32 [ %32, %29 ], [ %6, %5 ]
-  %8 = getelementptr inbounds i8, ptr %.069, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %.069, i64 32
   %9 = load x86_fp80, ptr %.069, align 16
-  %10 = getelementptr inbounds i8, ptr %.069, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %.069, i64 16
   %11 = load x86_fp80, ptr %10, align 16
-  %12 = getelementptr inbounds i8, ptr %.010, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %.010, i64 32
   %13 = load x86_fp80, ptr %.010, align 16
-  %14 = getelementptr inbounds i8, ptr %.010, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %.010, i64 16
   %15 = load x86_fp80, ptr %14, align 16
   %16 = fmul x86_fp80 %9, %13
   %17 = fmul x86_fp80 %11, %15
@@ -2599,9 +2599,9 @@ define internal void @ompi_op_base_2buff_prod_long(ptr nocapture noundef readonl
   %.010 = phi ptr [ %10, %.lr.ph ], [ %1, %5 ]
   %.069 = phi ptr [ %8, %.lr.ph ], [ %0, %5 ]
   %.078 = phi i32 [ %13, %.lr.ph ], [ %6, %5 ]
-  %8 = getelementptr inbounds i8, ptr %.069, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.069, i64 8
   %9 = load i64, ptr %.069, align 8
-  %10 = getelementptr inbounds i8, ptr %.010, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.010, i64 8
   %11 = load i64, ptr %.010, align 8
   %12 = mul nsw i64 %11, %9
   store i64 %12, ptr %.010, align 8
@@ -2623,9 +2623,9 @@ define internal void @ompi_op_base_2buff_prod_unsigned_long(ptr nocapture nounde
   %.010 = phi ptr [ %10, %.lr.ph ], [ %1, %5 ]
   %.069 = phi ptr [ %8, %.lr.ph ], [ %0, %5 ]
   %.078 = phi i32 [ %13, %.lr.ph ], [ %6, %5 ]
-  %8 = getelementptr inbounds i8, ptr %.069, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.069, i64 8
   %9 = load i64, ptr %.069, align 8
-  %10 = getelementptr inbounds i8, ptr %.010, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.010, i64 8
   %11 = load i64, ptr %.010, align 8
   %12 = mul i64 %11, %9
   store i64 %12, ptr %.010, align 8
@@ -2660,8 +2660,8 @@ define internal void @ompi_op_base_2buff_land_int8_t(ptr nocapture noundef reado
 13:                                               ; preds = %9, %.lr.ph
   %14 = phi i8 [ 0, %.lr.ph ], [ %12, %9 ]
   store i8 %14, ptr %.013, align 1
-  %15 = getelementptr inbounds i8, ptr %.013, i64 1
-  %16 = getelementptr inbounds i8, ptr %.0912, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %.013, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.0912, i64 1
   %17 = add nsw i32 %.01011, -1
   %18 = icmp sgt i32 %.01011, 1
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !110
@@ -2693,8 +2693,8 @@ define internal void @ompi_op_base_2buff_land_uint8_t(ptr nocapture noundef read
 13:                                               ; preds = %9, %.lr.ph
   %14 = phi i8 [ 0, %.lr.ph ], [ %12, %9 ]
   store i8 %14, ptr %.013, align 1
-  %15 = getelementptr inbounds i8, ptr %.013, i64 1
-  %16 = getelementptr inbounds i8, ptr %.0912, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %.013, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.0912, i64 1
   %17 = add nsw i32 %.01011, -1
   %18 = icmp sgt i32 %.01011, 1
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !111
@@ -2726,8 +2726,8 @@ define internal void @ompi_op_base_2buff_land_int16_t(ptr nocapture noundef read
 13:                                               ; preds = %9, %.lr.ph
   %14 = phi i16 [ 0, %.lr.ph ], [ %12, %9 ]
   store i16 %14, ptr %.013, align 2
-  %15 = getelementptr inbounds i8, ptr %.013, i64 2
-  %16 = getelementptr inbounds i8, ptr %.0912, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %.013, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %.0912, i64 2
   %17 = add nsw i32 %.01011, -1
   %18 = icmp sgt i32 %.01011, 1
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !112
@@ -2759,8 +2759,8 @@ define internal void @ompi_op_base_2buff_land_uint16_t(ptr nocapture noundef rea
 13:                                               ; preds = %9, %.lr.ph
   %14 = phi i16 [ 0, %.lr.ph ], [ %12, %9 ]
   store i16 %14, ptr %.013, align 2
-  %15 = getelementptr inbounds i8, ptr %.013, i64 2
-  %16 = getelementptr inbounds i8, ptr %.0912, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %.013, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %.0912, i64 2
   %17 = add nsw i32 %.01011, -1
   %18 = icmp sgt i32 %.01011, 1
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !113
@@ -2792,8 +2792,8 @@ define internal void @ompi_op_base_2buff_land_int32_t(ptr nocapture noundef read
 13:                                               ; preds = %9, %.lr.ph
   %14 = phi i32 [ 0, %.lr.ph ], [ %12, %9 ]
   store i32 %14, ptr %.013, align 4
-  %15 = getelementptr inbounds i8, ptr %.013, i64 4
-  %16 = getelementptr inbounds i8, ptr %.0912, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %.013, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %.0912, i64 4
   %17 = add nsw i32 %.01011, -1
   %18 = icmp sgt i32 %.01011, 1
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !114
@@ -2825,8 +2825,8 @@ define internal void @ompi_op_base_2buff_land_uint32_t(ptr nocapture noundef rea
 13:                                               ; preds = %9, %.lr.ph
   %14 = phi i32 [ 0, %.lr.ph ], [ %12, %9 ]
   store i32 %14, ptr %.013, align 4
-  %15 = getelementptr inbounds i8, ptr %.013, i64 4
-  %16 = getelementptr inbounds i8, ptr %.0912, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %.013, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %.0912, i64 4
   %17 = add nsw i32 %.01011, -1
   %18 = icmp sgt i32 %.01011, 1
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !115
@@ -2858,8 +2858,8 @@ define internal void @ompi_op_base_2buff_land_int64_t(ptr nocapture noundef read
 13:                                               ; preds = %9, %.lr.ph
   %14 = phi i64 [ 0, %.lr.ph ], [ %12, %9 ]
   store i64 %14, ptr %.013, align 8
-  %15 = getelementptr inbounds i8, ptr %.013, i64 8
-  %16 = getelementptr inbounds i8, ptr %.0912, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.013, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.0912, i64 8
   %17 = add nsw i32 %.01011, -1
   %18 = icmp sgt i32 %.01011, 1
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !116
@@ -2891,8 +2891,8 @@ define internal void @ompi_op_base_2buff_land_uint64_t(ptr nocapture noundef rea
 13:                                               ; preds = %9, %.lr.ph
   %14 = phi i64 [ 0, %.lr.ph ], [ %12, %9 ]
   store i64 %14, ptr %.013, align 8
-  %15 = getelementptr inbounds i8, ptr %.013, i64 8
-  %16 = getelementptr inbounds i8, ptr %.0912, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.013, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.0912, i64 8
   %17 = add nsw i32 %.01011, -1
   %18 = icmp sgt i32 %.01011, 1
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !117
@@ -2924,8 +2924,8 @@ define internal void @ompi_op_base_2buff_land_fortran_logical(ptr nocapture noun
 13:                                               ; preds = %9, %.lr.ph
   %14 = phi i32 [ 0, %.lr.ph ], [ %12, %9 ]
   store i32 %14, ptr %.013, align 4
-  %15 = getelementptr inbounds i8, ptr %.013, i64 4
-  %16 = getelementptr inbounds i8, ptr %.0912, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %.013, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %.0912, i64 4
   %17 = add nsw i32 %.01011, -1
   %18 = icmp sgt i32 %.01011, 1
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !118
@@ -2956,8 +2956,8 @@ define internal void @ompi_op_base_2buff_land_bool(ptr nocapture noundef readonl
 13:                                               ; preds = %10, %.lr.ph
   %14 = phi i8 [ 0, %.lr.ph ], [ %12, %10 ]
   store i8 %14, ptr %.013, align 1
-  %15 = getelementptr inbounds i8, ptr %.013, i64 1
-  %16 = getelementptr inbounds i8, ptr %.0912, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %.013, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.0912, i64 1
   %17 = add nsw i32 %.01011, -1
   %18 = icmp sgt i32 %.01011, 1
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !119
@@ -2989,8 +2989,8 @@ define internal void @ompi_op_base_2buff_land_long(ptr nocapture noundef readonl
 13:                                               ; preds = %9, %.lr.ph
   %14 = phi i64 [ 0, %.lr.ph ], [ %12, %9 ]
   store i64 %14, ptr %.013, align 8
-  %15 = getelementptr inbounds i8, ptr %.013, i64 8
-  %16 = getelementptr inbounds i8, ptr %.0912, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.013, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.0912, i64 8
   %17 = add nsw i32 %.01011, -1
   %18 = icmp sgt i32 %.01011, 1
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !120
@@ -3022,8 +3022,8 @@ define internal void @ompi_op_base_2buff_land_unsigned_long(ptr nocapture nounde
 13:                                               ; preds = %9, %.lr.ph
   %14 = phi i64 [ 0, %.lr.ph ], [ %12, %9 ]
   store i64 %14, ptr %.013, align 8
-  %15 = getelementptr inbounds i8, ptr %.013, i64 8
-  %16 = getelementptr inbounds i8, ptr %.0912, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.013, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.0912, i64 8
   %17 = add nsw i32 %.01011, -1
   %18 = icmp sgt i32 %.01011, 1
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !121
@@ -3046,8 +3046,8 @@ define internal void @ompi_op_base_2buff_band_int8_t(ptr nocapture noundef reado
   %9 = load i8, ptr %.0912, align 1
   %10 = and i8 %9, %8
   store i8 %10, ptr %.013, align 1
-  %11 = getelementptr inbounds i8, ptr %.013, i64 1
-  %12 = getelementptr inbounds i8, ptr %.0912, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.013, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.0912, i64 1
   %13 = add nsw i32 %.01011, -1
   %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !122
@@ -3070,8 +3070,8 @@ define internal void @ompi_op_base_2buff_band_uint8_t(ptr nocapture noundef read
   %9 = load i8, ptr %.0912, align 1
   %10 = and i8 %9, %8
   store i8 %10, ptr %.013, align 1
-  %11 = getelementptr inbounds i8, ptr %.013, i64 1
-  %12 = getelementptr inbounds i8, ptr %.0912, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.013, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.0912, i64 1
   %13 = add nsw i32 %.01011, -1
   %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !123
@@ -3094,8 +3094,8 @@ define internal void @ompi_op_base_2buff_band_int16_t(ptr nocapture noundef read
   %9 = load i16, ptr %.0912, align 2
   %10 = and i16 %9, %8
   store i16 %10, ptr %.013, align 2
-  %11 = getelementptr inbounds i8, ptr %.013, i64 2
-  %12 = getelementptr inbounds i8, ptr %.0912, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %.013, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %.0912, i64 2
   %13 = add nsw i32 %.01011, -1
   %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !124
@@ -3118,8 +3118,8 @@ define internal void @ompi_op_base_2buff_band_uint16_t(ptr nocapture noundef rea
   %9 = load i16, ptr %.0912, align 2
   %10 = and i16 %9, %8
   store i16 %10, ptr %.013, align 2
-  %11 = getelementptr inbounds i8, ptr %.013, i64 2
-  %12 = getelementptr inbounds i8, ptr %.0912, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %.013, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %.0912, i64 2
   %13 = add nsw i32 %.01011, -1
   %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !125
@@ -3142,8 +3142,8 @@ define internal void @ompi_op_base_2buff_band_int32_t(ptr nocapture noundef read
   %9 = load i32, ptr %.0912, align 4
   %10 = and i32 %9, %8
   store i32 %10, ptr %.013, align 4
-  %11 = getelementptr inbounds i8, ptr %.013, i64 4
-  %12 = getelementptr inbounds i8, ptr %.0912, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.013, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.0912, i64 4
   %13 = add nsw i32 %.01011, -1
   %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !126
@@ -3166,8 +3166,8 @@ define internal void @ompi_op_base_2buff_band_uint32_t(ptr nocapture noundef rea
   %9 = load i32, ptr %.0912, align 4
   %10 = and i32 %9, %8
   store i32 %10, ptr %.013, align 4
-  %11 = getelementptr inbounds i8, ptr %.013, i64 4
-  %12 = getelementptr inbounds i8, ptr %.0912, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.013, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.0912, i64 4
   %13 = add nsw i32 %.01011, -1
   %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !127
@@ -3190,8 +3190,8 @@ define internal void @ompi_op_base_2buff_band_int64_t(ptr nocapture noundef read
   %9 = load i64, ptr %.0912, align 8
   %10 = and i64 %9, %8
   store i64 %10, ptr %.013, align 8
-  %11 = getelementptr inbounds i8, ptr %.013, i64 8
-  %12 = getelementptr inbounds i8, ptr %.0912, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.013, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.0912, i64 8
   %13 = add nsw i32 %.01011, -1
   %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !128
@@ -3214,8 +3214,8 @@ define internal void @ompi_op_base_2buff_band_uint64_t(ptr nocapture noundef rea
   %9 = load i64, ptr %.0912, align 8
   %10 = and i64 %9, %8
   store i64 %10, ptr %.013, align 8
-  %11 = getelementptr inbounds i8, ptr %.013, i64 8
-  %12 = getelementptr inbounds i8, ptr %.0912, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.013, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.0912, i64 8
   %13 = add nsw i32 %.01011, -1
   %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !129
@@ -3238,8 +3238,8 @@ define internal void @ompi_op_base_2buff_band_fortran_integer(ptr nocapture noun
   %9 = load i32, ptr %.0912, align 4
   %10 = and i32 %9, %8
   store i32 %10, ptr %.013, align 4
-  %11 = getelementptr inbounds i8, ptr %.013, i64 4
-  %12 = getelementptr inbounds i8, ptr %.0912, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.013, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.0912, i64 4
   %13 = add nsw i32 %.01011, -1
   %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !130
@@ -3262,8 +3262,8 @@ define internal void @ompi_op_base_2buff_band_fortran_integer1(ptr nocapture nou
   %9 = load i8, ptr %.0912, align 1
   %10 = and i8 %9, %8
   store i8 %10, ptr %.013, align 1
-  %11 = getelementptr inbounds i8, ptr %.013, i64 1
-  %12 = getelementptr inbounds i8, ptr %.0912, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.013, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.0912, i64 1
   %13 = add nsw i32 %.01011, -1
   %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !131
@@ -3286,8 +3286,8 @@ define internal void @ompi_op_base_2buff_band_fortran_integer2(ptr nocapture nou
   %9 = load i16, ptr %.0912, align 2
   %10 = and i16 %9, %8
   store i16 %10, ptr %.013, align 2
-  %11 = getelementptr inbounds i8, ptr %.013, i64 2
-  %12 = getelementptr inbounds i8, ptr %.0912, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %.013, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %.0912, i64 2
   %13 = add nsw i32 %.01011, -1
   %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !132
@@ -3310,8 +3310,8 @@ define internal void @ompi_op_base_2buff_band_fortran_integer4(ptr nocapture nou
   %9 = load i32, ptr %.0912, align 4
   %10 = and i32 %9, %8
   store i32 %10, ptr %.013, align 4
-  %11 = getelementptr inbounds i8, ptr %.013, i64 4
-  %12 = getelementptr inbounds i8, ptr %.0912, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.013, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.0912, i64 4
   %13 = add nsw i32 %.01011, -1
   %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !133
@@ -3334,8 +3334,8 @@ define internal void @ompi_op_base_2buff_band_fortran_integer8(ptr nocapture nou
   %9 = load i64, ptr %.0912, align 8
   %10 = and i64 %9, %8
   store i64 %10, ptr %.013, align 8
-  %11 = getelementptr inbounds i8, ptr %.013, i64 8
-  %12 = getelementptr inbounds i8, ptr %.0912, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.013, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.0912, i64 8
   %13 = add nsw i32 %.01011, -1
   %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !134
@@ -3358,8 +3358,8 @@ define internal void @ompi_op_base_2buff_band_byte(ptr nocapture noundef readonl
   %9 = load i8, ptr %.0912, align 1
   %10 = and i8 %9, %8
   store i8 %10, ptr %.013, align 1
-  %11 = getelementptr inbounds i8, ptr %.013, i64 1
-  %12 = getelementptr inbounds i8, ptr %.0912, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.013, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.0912, i64 1
   %13 = add nsw i32 %.01011, -1
   %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !135
@@ -3382,8 +3382,8 @@ define internal void @ompi_op_base_2buff_band_long(ptr nocapture noundef readonl
   %9 = load i64, ptr %.0912, align 8
   %10 = and i64 %9, %8
   store i64 %10, ptr %.013, align 8
-  %11 = getelementptr inbounds i8, ptr %.013, i64 8
-  %12 = getelementptr inbounds i8, ptr %.0912, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.013, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.0912, i64 8
   %13 = add nsw i32 %.01011, -1
   %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !136
@@ -3406,8 +3406,8 @@ define internal void @ompi_op_base_2buff_band_unsigned_long(ptr nocapture nounde
   %9 = load i64, ptr %.0912, align 8
   %10 = and i64 %9, %8
   store i64 %10, ptr %.013, align 8
-  %11 = getelementptr inbounds i8, ptr %.013, i64 8
-  %12 = getelementptr inbounds i8, ptr %.0912, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.013, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.0912, i64 8
   %13 = add nsw i32 %.01011, -1
   %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !137
@@ -3439,8 +3439,8 @@ define internal void @ompi_op_base_2buff_lor_int8_t(ptr nocapture noundef readon
 13:                                               ; preds = %9, %.lr.ph
   %14 = phi i8 [ 1, %.lr.ph ], [ %12, %9 ]
   store i8 %14, ptr %.013, align 1
-  %15 = getelementptr inbounds i8, ptr %.013, i64 1
-  %16 = getelementptr inbounds i8, ptr %.0912, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %.013, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.0912, i64 1
   %17 = add nsw i32 %.01011, -1
   %18 = icmp sgt i32 %.01011, 1
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !138
@@ -3472,8 +3472,8 @@ define internal void @ompi_op_base_2buff_lor_uint8_t(ptr nocapture noundef reado
 13:                                               ; preds = %9, %.lr.ph
   %14 = phi i8 [ 1, %.lr.ph ], [ %12, %9 ]
   store i8 %14, ptr %.013, align 1
-  %15 = getelementptr inbounds i8, ptr %.013, i64 1
-  %16 = getelementptr inbounds i8, ptr %.0912, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %.013, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.0912, i64 1
   %17 = add nsw i32 %.01011, -1
   %18 = icmp sgt i32 %.01011, 1
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !139
@@ -3505,8 +3505,8 @@ define internal void @ompi_op_base_2buff_lor_int16_t(ptr nocapture noundef reado
 13:                                               ; preds = %9, %.lr.ph
   %14 = phi i16 [ 1, %.lr.ph ], [ %12, %9 ]
   store i16 %14, ptr %.013, align 2
-  %15 = getelementptr inbounds i8, ptr %.013, i64 2
-  %16 = getelementptr inbounds i8, ptr %.0912, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %.013, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %.0912, i64 2
   %17 = add nsw i32 %.01011, -1
   %18 = icmp sgt i32 %.01011, 1
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !140
@@ -3538,8 +3538,8 @@ define internal void @ompi_op_base_2buff_lor_uint16_t(ptr nocapture noundef read
 13:                                               ; preds = %9, %.lr.ph
   %14 = phi i16 [ 1, %.lr.ph ], [ %12, %9 ]
   store i16 %14, ptr %.013, align 2
-  %15 = getelementptr inbounds i8, ptr %.013, i64 2
-  %16 = getelementptr inbounds i8, ptr %.0912, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %.013, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %.0912, i64 2
   %17 = add nsw i32 %.01011, -1
   %18 = icmp sgt i32 %.01011, 1
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !141
@@ -3571,8 +3571,8 @@ define internal void @ompi_op_base_2buff_lor_int32_t(ptr nocapture noundef reado
 13:                                               ; preds = %9, %.lr.ph
   %14 = phi i32 [ 1, %.lr.ph ], [ %12, %9 ]
   store i32 %14, ptr %.013, align 4
-  %15 = getelementptr inbounds i8, ptr %.013, i64 4
-  %16 = getelementptr inbounds i8, ptr %.0912, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %.013, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %.0912, i64 4
   %17 = add nsw i32 %.01011, -1
   %18 = icmp sgt i32 %.01011, 1
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !142
@@ -3604,8 +3604,8 @@ define internal void @ompi_op_base_2buff_lor_uint32_t(ptr nocapture noundef read
 13:                                               ; preds = %9, %.lr.ph
   %14 = phi i32 [ 1, %.lr.ph ], [ %12, %9 ]
   store i32 %14, ptr %.013, align 4
-  %15 = getelementptr inbounds i8, ptr %.013, i64 4
-  %16 = getelementptr inbounds i8, ptr %.0912, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %.013, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %.0912, i64 4
   %17 = add nsw i32 %.01011, -1
   %18 = icmp sgt i32 %.01011, 1
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !143
@@ -3637,8 +3637,8 @@ define internal void @ompi_op_base_2buff_lor_int64_t(ptr nocapture noundef reado
 13:                                               ; preds = %9, %.lr.ph
   %14 = phi i64 [ 1, %.lr.ph ], [ %12, %9 ]
   store i64 %14, ptr %.013, align 8
-  %15 = getelementptr inbounds i8, ptr %.013, i64 8
-  %16 = getelementptr inbounds i8, ptr %.0912, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.013, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.0912, i64 8
   %17 = add nsw i32 %.01011, -1
   %18 = icmp sgt i32 %.01011, 1
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !144
@@ -3670,8 +3670,8 @@ define internal void @ompi_op_base_2buff_lor_uint64_t(ptr nocapture noundef read
 13:                                               ; preds = %9, %.lr.ph
   %14 = phi i64 [ 1, %.lr.ph ], [ %12, %9 ]
   store i64 %14, ptr %.013, align 8
-  %15 = getelementptr inbounds i8, ptr %.013, i64 8
-  %16 = getelementptr inbounds i8, ptr %.0912, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.013, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.0912, i64 8
   %17 = add nsw i32 %.01011, -1
   %18 = icmp sgt i32 %.01011, 1
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !145
@@ -3703,8 +3703,8 @@ define internal void @ompi_op_base_2buff_lor_fortran_logical(ptr nocapture nound
 13:                                               ; preds = %9, %.lr.ph
   %14 = phi i32 [ 1, %.lr.ph ], [ %12, %9 ]
   store i32 %14, ptr %.013, align 4
-  %15 = getelementptr inbounds i8, ptr %.013, i64 4
-  %16 = getelementptr inbounds i8, ptr %.0912, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %.013, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %.0912, i64 4
   %17 = add nsw i32 %.01011, -1
   %18 = icmp sgt i32 %.01011, 1
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !146
@@ -3735,8 +3735,8 @@ define internal void @ompi_op_base_2buff_lor_bool(ptr nocapture noundef readonly
 13:                                               ; preds = %10, %.lr.ph
   %14 = phi i8 [ 1, %.lr.ph ], [ %12, %10 ]
   store i8 %14, ptr %.013, align 1
-  %15 = getelementptr inbounds i8, ptr %.013, i64 1
-  %16 = getelementptr inbounds i8, ptr %.0912, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %.013, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.0912, i64 1
   %17 = add nsw i32 %.01011, -1
   %18 = icmp sgt i32 %.01011, 1
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !147
@@ -3768,8 +3768,8 @@ define internal void @ompi_op_base_2buff_lor_long(ptr nocapture noundef readonly
 13:                                               ; preds = %9, %.lr.ph
   %14 = phi i64 [ 1, %.lr.ph ], [ %12, %9 ]
   store i64 %14, ptr %.013, align 8
-  %15 = getelementptr inbounds i8, ptr %.013, i64 8
-  %16 = getelementptr inbounds i8, ptr %.0912, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.013, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.0912, i64 8
   %17 = add nsw i32 %.01011, -1
   %18 = icmp sgt i32 %.01011, 1
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !148
@@ -3801,8 +3801,8 @@ define internal void @ompi_op_base_2buff_lor_unsigned_long(ptr nocapture noundef
 13:                                               ; preds = %9, %.lr.ph
   %14 = phi i64 [ 1, %.lr.ph ], [ %12, %9 ]
   store i64 %14, ptr %.013, align 8
-  %15 = getelementptr inbounds i8, ptr %.013, i64 8
-  %16 = getelementptr inbounds i8, ptr %.0912, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.013, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.0912, i64 8
   %17 = add nsw i32 %.01011, -1
   %18 = icmp sgt i32 %.01011, 1
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !149
@@ -3825,8 +3825,8 @@ define internal void @ompi_op_base_2buff_bor_int8_t(ptr nocapture noundef readon
   %9 = load i8, ptr %.0912, align 1
   %10 = or i8 %9, %8
   store i8 %10, ptr %.013, align 1
-  %11 = getelementptr inbounds i8, ptr %.013, i64 1
-  %12 = getelementptr inbounds i8, ptr %.0912, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.013, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.0912, i64 1
   %13 = add nsw i32 %.01011, -1
   %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !150
@@ -3849,8 +3849,8 @@ define internal void @ompi_op_base_2buff_bor_uint8_t(ptr nocapture noundef reado
   %9 = load i8, ptr %.0912, align 1
   %10 = or i8 %9, %8
   store i8 %10, ptr %.013, align 1
-  %11 = getelementptr inbounds i8, ptr %.013, i64 1
-  %12 = getelementptr inbounds i8, ptr %.0912, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.013, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.0912, i64 1
   %13 = add nsw i32 %.01011, -1
   %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !151
@@ -3873,8 +3873,8 @@ define internal void @ompi_op_base_2buff_bor_int16_t(ptr nocapture noundef reado
   %9 = load i16, ptr %.0912, align 2
   %10 = or i16 %9, %8
   store i16 %10, ptr %.013, align 2
-  %11 = getelementptr inbounds i8, ptr %.013, i64 2
-  %12 = getelementptr inbounds i8, ptr %.0912, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %.013, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %.0912, i64 2
   %13 = add nsw i32 %.01011, -1
   %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !152
@@ -3897,8 +3897,8 @@ define internal void @ompi_op_base_2buff_bor_uint16_t(ptr nocapture noundef read
   %9 = load i16, ptr %.0912, align 2
   %10 = or i16 %9, %8
   store i16 %10, ptr %.013, align 2
-  %11 = getelementptr inbounds i8, ptr %.013, i64 2
-  %12 = getelementptr inbounds i8, ptr %.0912, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %.013, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %.0912, i64 2
   %13 = add nsw i32 %.01011, -1
   %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !153
@@ -3921,8 +3921,8 @@ define internal void @ompi_op_base_2buff_bor_int32_t(ptr nocapture noundef reado
   %9 = load i32, ptr %.0912, align 4
   %10 = or i32 %9, %8
   store i32 %10, ptr %.013, align 4
-  %11 = getelementptr inbounds i8, ptr %.013, i64 4
-  %12 = getelementptr inbounds i8, ptr %.0912, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.013, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.0912, i64 4
   %13 = add nsw i32 %.01011, -1
   %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !154
@@ -3945,8 +3945,8 @@ define internal void @ompi_op_base_2buff_bor_uint32_t(ptr nocapture noundef read
   %9 = load i32, ptr %.0912, align 4
   %10 = or i32 %9, %8
   store i32 %10, ptr %.013, align 4
-  %11 = getelementptr inbounds i8, ptr %.013, i64 4
-  %12 = getelementptr inbounds i8, ptr %.0912, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.013, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.0912, i64 4
   %13 = add nsw i32 %.01011, -1
   %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !155
@@ -3969,8 +3969,8 @@ define internal void @ompi_op_base_2buff_bor_int64_t(ptr nocapture noundef reado
   %9 = load i64, ptr %.0912, align 8
   %10 = or i64 %9, %8
   store i64 %10, ptr %.013, align 8
-  %11 = getelementptr inbounds i8, ptr %.013, i64 8
-  %12 = getelementptr inbounds i8, ptr %.0912, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.013, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.0912, i64 8
   %13 = add nsw i32 %.01011, -1
   %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !156
@@ -3993,8 +3993,8 @@ define internal void @ompi_op_base_2buff_bor_uint64_t(ptr nocapture noundef read
   %9 = load i64, ptr %.0912, align 8
   %10 = or i64 %9, %8
   store i64 %10, ptr %.013, align 8
-  %11 = getelementptr inbounds i8, ptr %.013, i64 8
-  %12 = getelementptr inbounds i8, ptr %.0912, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.013, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.0912, i64 8
   %13 = add nsw i32 %.01011, -1
   %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !157
@@ -4017,8 +4017,8 @@ define internal void @ompi_op_base_2buff_bor_fortran_integer(ptr nocapture nound
   %9 = load i32, ptr %.0912, align 4
   %10 = or i32 %9, %8
   store i32 %10, ptr %.013, align 4
-  %11 = getelementptr inbounds i8, ptr %.013, i64 4
-  %12 = getelementptr inbounds i8, ptr %.0912, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.013, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.0912, i64 4
   %13 = add nsw i32 %.01011, -1
   %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !158
@@ -4041,8 +4041,8 @@ define internal void @ompi_op_base_2buff_bor_fortran_integer1(ptr nocapture noun
   %9 = load i8, ptr %.0912, align 1
   %10 = or i8 %9, %8
   store i8 %10, ptr %.013, align 1
-  %11 = getelementptr inbounds i8, ptr %.013, i64 1
-  %12 = getelementptr inbounds i8, ptr %.0912, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.013, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.0912, i64 1
   %13 = add nsw i32 %.01011, -1
   %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !159
@@ -4065,8 +4065,8 @@ define internal void @ompi_op_base_2buff_bor_fortran_integer2(ptr nocapture noun
   %9 = load i16, ptr %.0912, align 2
   %10 = or i16 %9, %8
   store i16 %10, ptr %.013, align 2
-  %11 = getelementptr inbounds i8, ptr %.013, i64 2
-  %12 = getelementptr inbounds i8, ptr %.0912, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %.013, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %.0912, i64 2
   %13 = add nsw i32 %.01011, -1
   %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !160
@@ -4089,8 +4089,8 @@ define internal void @ompi_op_base_2buff_bor_fortran_integer4(ptr nocapture noun
   %9 = load i32, ptr %.0912, align 4
   %10 = or i32 %9, %8
   store i32 %10, ptr %.013, align 4
-  %11 = getelementptr inbounds i8, ptr %.013, i64 4
-  %12 = getelementptr inbounds i8, ptr %.0912, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.013, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.0912, i64 4
   %13 = add nsw i32 %.01011, -1
   %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !161
@@ -4113,8 +4113,8 @@ define internal void @ompi_op_base_2buff_bor_fortran_integer8(ptr nocapture noun
   %9 = load i64, ptr %.0912, align 8
   %10 = or i64 %9, %8
   store i64 %10, ptr %.013, align 8
-  %11 = getelementptr inbounds i8, ptr %.013, i64 8
-  %12 = getelementptr inbounds i8, ptr %.0912, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.013, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.0912, i64 8
   %13 = add nsw i32 %.01011, -1
   %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !162
@@ -4137,8 +4137,8 @@ define internal void @ompi_op_base_2buff_bor_byte(ptr nocapture noundef readonly
   %9 = load i8, ptr %.0912, align 1
   %10 = or i8 %9, %8
   store i8 %10, ptr %.013, align 1
-  %11 = getelementptr inbounds i8, ptr %.013, i64 1
-  %12 = getelementptr inbounds i8, ptr %.0912, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.013, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.0912, i64 1
   %13 = add nsw i32 %.01011, -1
   %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !163
@@ -4161,8 +4161,8 @@ define internal void @ompi_op_base_2buff_bor_long(ptr nocapture noundef readonly
   %9 = load i64, ptr %.0912, align 8
   %10 = or i64 %9, %8
   store i64 %10, ptr %.013, align 8
-  %11 = getelementptr inbounds i8, ptr %.013, i64 8
-  %12 = getelementptr inbounds i8, ptr %.0912, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.013, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.0912, i64 8
   %13 = add nsw i32 %.01011, -1
   %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !164
@@ -4185,8 +4185,8 @@ define internal void @ompi_op_base_2buff_bor_unsigned_long(ptr nocapture noundef
   %9 = load i64, ptr %.0912, align 8
   %10 = or i64 %9, %8
   store i64 %10, ptr %.013, align 8
-  %11 = getelementptr inbounds i8, ptr %.013, i64 8
-  %12 = getelementptr inbounds i8, ptr %.0912, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.013, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.0912, i64 8
   %13 = add nsw i32 %.01011, -1
   %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !165
@@ -4212,8 +4212,8 @@ define internal void @ompi_op_base_2buff_lxor_int8_t(ptr nocapture noundef reado
   %10 = xor i1 %.not, %.not11
   %11 = zext i1 %10 to i8
   store i8 %11, ptr %.014, align 1
-  %12 = getelementptr inbounds i8, ptr %.014, i64 1
-  %13 = getelementptr inbounds i8, ptr %.0913, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.014, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.0913, i64 1
   %14 = add nsw i32 %.01012, -1
   %15 = icmp samesign ugt i32 %.01012, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !166
@@ -4239,8 +4239,8 @@ define internal void @ompi_op_base_2buff_lxor_uint8_t(ptr nocapture noundef read
   %10 = xor i1 %.not, %.not11
   %11 = zext i1 %10 to i8
   store i8 %11, ptr %.014, align 1
-  %12 = getelementptr inbounds i8, ptr %.014, i64 1
-  %13 = getelementptr inbounds i8, ptr %.0913, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.014, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.0913, i64 1
   %14 = add nsw i32 %.01012, -1
   %15 = icmp samesign ugt i32 %.01012, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !167
@@ -4266,8 +4266,8 @@ define internal void @ompi_op_base_2buff_lxor_int16_t(ptr nocapture noundef read
   %10 = xor i1 %.not, %.not11
   %11 = zext i1 %10 to i16
   store i16 %11, ptr %.014, align 2
-  %12 = getelementptr inbounds i8, ptr %.014, i64 2
-  %13 = getelementptr inbounds i8, ptr %.0913, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %.014, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %.0913, i64 2
   %14 = add nsw i32 %.01012, -1
   %15 = icmp samesign ugt i32 %.01012, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !168
@@ -4293,8 +4293,8 @@ define internal void @ompi_op_base_2buff_lxor_uint16_t(ptr nocapture noundef rea
   %10 = xor i1 %.not, %.not11
   %11 = zext i1 %10 to i16
   store i16 %11, ptr %.014, align 2
-  %12 = getelementptr inbounds i8, ptr %.014, i64 2
-  %13 = getelementptr inbounds i8, ptr %.0913, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %.014, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %.0913, i64 2
   %14 = add nsw i32 %.01012, -1
   %15 = icmp samesign ugt i32 %.01012, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !169
@@ -4320,8 +4320,8 @@ define internal void @ompi_op_base_2buff_lxor_int32_t(ptr nocapture noundef read
   %10 = xor i1 %.not, %.not11
   %11 = zext i1 %10 to i32
   store i32 %11, ptr %.014, align 4
-  %12 = getelementptr inbounds i8, ptr %.014, i64 4
-  %13 = getelementptr inbounds i8, ptr %.0913, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.014, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %.0913, i64 4
   %14 = add nsw i32 %.01012, -1
   %15 = icmp samesign ugt i32 %.01012, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !170
@@ -4347,8 +4347,8 @@ define internal void @ompi_op_base_2buff_lxor_uint32_t(ptr nocapture noundef rea
   %10 = xor i1 %.not, %.not11
   %11 = zext i1 %10 to i32
   store i32 %11, ptr %.014, align 4
-  %12 = getelementptr inbounds i8, ptr %.014, i64 4
-  %13 = getelementptr inbounds i8, ptr %.0913, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.014, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %.0913, i64 4
   %14 = add nsw i32 %.01012, -1
   %15 = icmp samesign ugt i32 %.01012, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !171
@@ -4374,8 +4374,8 @@ define internal void @ompi_op_base_2buff_lxor_int64_t(ptr nocapture noundef read
   %10 = xor i1 %.not, %.not11
   %11 = zext i1 %10 to i64
   store i64 %11, ptr %.014, align 8
-  %12 = getelementptr inbounds i8, ptr %.014, i64 8
-  %13 = getelementptr inbounds i8, ptr %.0913, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.014, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.0913, i64 8
   %14 = add nsw i32 %.01012, -1
   %15 = icmp samesign ugt i32 %.01012, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !172
@@ -4401,8 +4401,8 @@ define internal void @ompi_op_base_2buff_lxor_uint64_t(ptr nocapture noundef rea
   %10 = xor i1 %.not, %.not11
   %11 = zext i1 %10 to i64
   store i64 %11, ptr %.014, align 8
-  %12 = getelementptr inbounds i8, ptr %.014, i64 8
-  %13 = getelementptr inbounds i8, ptr %.0913, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.014, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.0913, i64 8
   %14 = add nsw i32 %.01012, -1
   %15 = icmp samesign ugt i32 %.01012, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !173
@@ -4428,8 +4428,8 @@ define internal void @ompi_op_base_2buff_lxor_fortran_logical(ptr nocapture noun
   %10 = xor i1 %.not, %.not11
   %11 = zext i1 %10 to i32
   store i32 %11, ptr %.014, align 4
-  %12 = getelementptr inbounds i8, ptr %.014, i64 4
-  %13 = getelementptr inbounds i8, ptr %.0913, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.014, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %.0913, i64 4
   %14 = add nsw i32 %.01012, -1
   %15 = icmp samesign ugt i32 %.01012, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !174
@@ -4453,8 +4453,8 @@ define internal void @ompi_op_base_2buff_lxor_bool(ptr nocapture noundef readonl
   %10 = xor i8 %9, %8
   %11 = and i8 %10, 1
   store i8 %11, ptr %.013, align 1
-  %12 = getelementptr inbounds i8, ptr %.013, i64 1
-  %13 = getelementptr inbounds i8, ptr %.0912, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.013, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.0912, i64 1
   %14 = add nsw i32 %.01011, -1
   %15 = icmp samesign ugt i32 %.01011, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !175
@@ -4480,8 +4480,8 @@ define internal void @ompi_op_base_2buff_lxor_long(ptr nocapture noundef readonl
   %10 = xor i1 %.not, %.not11
   %11 = zext i1 %10 to i64
   store i64 %11, ptr %.014, align 8
-  %12 = getelementptr inbounds i8, ptr %.014, i64 8
-  %13 = getelementptr inbounds i8, ptr %.0913, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.014, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.0913, i64 8
   %14 = add nsw i32 %.01012, -1
   %15 = icmp samesign ugt i32 %.01012, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !176
@@ -4507,8 +4507,8 @@ define internal void @ompi_op_base_2buff_lxor_unsigned_long(ptr nocapture nounde
   %10 = xor i1 %.not, %.not11
   %11 = zext i1 %10 to i64
   store i64 %11, ptr %.014, align 8
-  %12 = getelementptr inbounds i8, ptr %.014, i64 8
-  %13 = getelementptr inbounds i8, ptr %.0913, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.014, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.0913, i64 8
   %14 = add nsw i32 %.01012, -1
   %15 = icmp samesign ugt i32 %.01012, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !177
@@ -4531,8 +4531,8 @@ define internal void @ompi_op_base_2buff_bxor_int8_t(ptr nocapture noundef reado
   %9 = load i8, ptr %.0912, align 1
   %10 = xor i8 %9, %8
   store i8 %10, ptr %.013, align 1
-  %11 = getelementptr inbounds i8, ptr %.013, i64 1
-  %12 = getelementptr inbounds i8, ptr %.0912, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.013, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.0912, i64 1
   %13 = add nsw i32 %.01011, -1
   %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !178
@@ -4555,8 +4555,8 @@ define internal void @ompi_op_base_2buff_bxor_uint8_t(ptr nocapture noundef read
   %9 = load i8, ptr %.0912, align 1
   %10 = xor i8 %9, %8
   store i8 %10, ptr %.013, align 1
-  %11 = getelementptr inbounds i8, ptr %.013, i64 1
-  %12 = getelementptr inbounds i8, ptr %.0912, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.013, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.0912, i64 1
   %13 = add nsw i32 %.01011, -1
   %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !179
@@ -4579,8 +4579,8 @@ define internal void @ompi_op_base_2buff_bxor_int16_t(ptr nocapture noundef read
   %9 = load i16, ptr %.0912, align 2
   %10 = xor i16 %9, %8
   store i16 %10, ptr %.013, align 2
-  %11 = getelementptr inbounds i8, ptr %.013, i64 2
-  %12 = getelementptr inbounds i8, ptr %.0912, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %.013, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %.0912, i64 2
   %13 = add nsw i32 %.01011, -1
   %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !180
@@ -4603,8 +4603,8 @@ define internal void @ompi_op_base_2buff_bxor_uint16_t(ptr nocapture noundef rea
   %9 = load i16, ptr %.0912, align 2
   %10 = xor i16 %9, %8
   store i16 %10, ptr %.013, align 2
-  %11 = getelementptr inbounds i8, ptr %.013, i64 2
-  %12 = getelementptr inbounds i8, ptr %.0912, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %.013, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %.0912, i64 2
   %13 = add nsw i32 %.01011, -1
   %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !181
@@ -4627,8 +4627,8 @@ define internal void @ompi_op_base_2buff_bxor_int32_t(ptr nocapture noundef read
   %9 = load i32, ptr %.0912, align 4
   %10 = xor i32 %9, %8
   store i32 %10, ptr %.013, align 4
-  %11 = getelementptr inbounds i8, ptr %.013, i64 4
-  %12 = getelementptr inbounds i8, ptr %.0912, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.013, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.0912, i64 4
   %13 = add nsw i32 %.01011, -1
   %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !182
@@ -4651,8 +4651,8 @@ define internal void @ompi_op_base_2buff_bxor_uint32_t(ptr nocapture noundef rea
   %9 = load i32, ptr %.0912, align 4
   %10 = xor i32 %9, %8
   store i32 %10, ptr %.013, align 4
-  %11 = getelementptr inbounds i8, ptr %.013, i64 4
-  %12 = getelementptr inbounds i8, ptr %.0912, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.013, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.0912, i64 4
   %13 = add nsw i32 %.01011, -1
   %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !183
@@ -4675,8 +4675,8 @@ define internal void @ompi_op_base_2buff_bxor_int64_t(ptr nocapture noundef read
   %9 = load i64, ptr %.0912, align 8
   %10 = xor i64 %9, %8
   store i64 %10, ptr %.013, align 8
-  %11 = getelementptr inbounds i8, ptr %.013, i64 8
-  %12 = getelementptr inbounds i8, ptr %.0912, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.013, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.0912, i64 8
   %13 = add nsw i32 %.01011, -1
   %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !184
@@ -4699,8 +4699,8 @@ define internal void @ompi_op_base_2buff_bxor_uint64_t(ptr nocapture noundef rea
   %9 = load i64, ptr %.0912, align 8
   %10 = xor i64 %9, %8
   store i64 %10, ptr %.013, align 8
-  %11 = getelementptr inbounds i8, ptr %.013, i64 8
-  %12 = getelementptr inbounds i8, ptr %.0912, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.013, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.0912, i64 8
   %13 = add nsw i32 %.01011, -1
   %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !185
@@ -4723,8 +4723,8 @@ define internal void @ompi_op_base_2buff_bxor_fortran_integer(ptr nocapture noun
   %9 = load i32, ptr %.0912, align 4
   %10 = xor i32 %9, %8
   store i32 %10, ptr %.013, align 4
-  %11 = getelementptr inbounds i8, ptr %.013, i64 4
-  %12 = getelementptr inbounds i8, ptr %.0912, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.013, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.0912, i64 4
   %13 = add nsw i32 %.01011, -1
   %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !186
@@ -4747,8 +4747,8 @@ define internal void @ompi_op_base_2buff_bxor_fortran_integer1(ptr nocapture nou
   %9 = load i8, ptr %.0912, align 1
   %10 = xor i8 %9, %8
   store i8 %10, ptr %.013, align 1
-  %11 = getelementptr inbounds i8, ptr %.013, i64 1
-  %12 = getelementptr inbounds i8, ptr %.0912, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.013, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.0912, i64 1
   %13 = add nsw i32 %.01011, -1
   %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !187
@@ -4771,8 +4771,8 @@ define internal void @ompi_op_base_2buff_bxor_fortran_integer2(ptr nocapture nou
   %9 = load i16, ptr %.0912, align 2
   %10 = xor i16 %9, %8
   store i16 %10, ptr %.013, align 2
-  %11 = getelementptr inbounds i8, ptr %.013, i64 2
-  %12 = getelementptr inbounds i8, ptr %.0912, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %.013, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %.0912, i64 2
   %13 = add nsw i32 %.01011, -1
   %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !188
@@ -4795,8 +4795,8 @@ define internal void @ompi_op_base_2buff_bxor_fortran_integer4(ptr nocapture nou
   %9 = load i32, ptr %.0912, align 4
   %10 = xor i32 %9, %8
   store i32 %10, ptr %.013, align 4
-  %11 = getelementptr inbounds i8, ptr %.013, i64 4
-  %12 = getelementptr inbounds i8, ptr %.0912, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.013, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.0912, i64 4
   %13 = add nsw i32 %.01011, -1
   %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !189
@@ -4819,8 +4819,8 @@ define internal void @ompi_op_base_2buff_bxor_fortran_integer8(ptr nocapture nou
   %9 = load i64, ptr %.0912, align 8
   %10 = xor i64 %9, %8
   store i64 %10, ptr %.013, align 8
-  %11 = getelementptr inbounds i8, ptr %.013, i64 8
-  %12 = getelementptr inbounds i8, ptr %.0912, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.013, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.0912, i64 8
   %13 = add nsw i32 %.01011, -1
   %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !190
@@ -4843,8 +4843,8 @@ define internal void @ompi_op_base_2buff_bxor_byte(ptr nocapture noundef readonl
   %9 = load i8, ptr %.0912, align 1
   %10 = xor i8 %9, %8
   store i8 %10, ptr %.013, align 1
-  %11 = getelementptr inbounds i8, ptr %.013, i64 1
-  %12 = getelementptr inbounds i8, ptr %.0912, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.013, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.0912, i64 1
   %13 = add nsw i32 %.01011, -1
   %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !191
@@ -4867,8 +4867,8 @@ define internal void @ompi_op_base_2buff_bxor_long(ptr nocapture noundef readonl
   %9 = load i64, ptr %.0912, align 8
   %10 = xor i64 %9, %8
   store i64 %10, ptr %.013, align 8
-  %11 = getelementptr inbounds i8, ptr %.013, i64 8
-  %12 = getelementptr inbounds i8, ptr %.0912, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.013, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.0912, i64 8
   %13 = add nsw i32 %.01011, -1
   %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !192
@@ -4891,8 +4891,8 @@ define internal void @ompi_op_base_2buff_bxor_unsigned_long(ptr nocapture nounde
   %9 = load i64, ptr %.0912, align 8
   %10 = xor i64 %9, %8
   store i64 %10, ptr %.013, align 8
-  %11 = getelementptr inbounds i8, ptr %.013, i64 8
-  %12 = getelementptr inbounds i8, ptr %.0912, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.013, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.0912, i64 8
   %13 = add nsw i32 %.01011, -1
   %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !193
@@ -4918,9 +4918,9 @@ define internal void @ompi_op_base_2buff_maxloc_2real(ptr nocapture noundef read
 
 11:                                               ; preds = %.lr.ph
   store float %8, ptr %.027, align 4
-  %12 = getelementptr inbounds i8, ptr %.01926, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.01926, i64 4
   %13 = load float, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %.027, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.027, i64 4
   store float %13, ptr %14, align 4
   br label %23
 
@@ -4929,9 +4929,9 @@ define internal void @ompi_op_base_2buff_maxloc_2real(ptr nocapture noundef read
   br i1 %16, label %17, label %23
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %.027, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %.027, i64 4
   %19 = load float, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %.01926, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %.01926, i64 4
   %21 = load float, ptr %20, align 4
   %22 = fcmp olt float %19, %21
   %. = select i1 %22, float %19, float %21
@@ -4940,8 +4940,8 @@ define internal void @ompi_op_base_2buff_maxloc_2real(ptr nocapture noundef read
 
 23:                                               ; preds = %11, %17, %15
   %24 = add nsw i32 %.02025, -1
-  %25 = getelementptr inbounds i8, ptr %.01926, i64 8
-  %26 = getelementptr inbounds i8, ptr %.027, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.01926, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.027, i64 8
   %27 = icmp sgt i32 %.02025, 1
   br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !194
 
@@ -4966,9 +4966,9 @@ define internal void @ompi_op_base_2buff_maxloc_2double_precision(ptr nocapture 
 
 11:                                               ; preds = %.lr.ph
   store double %8, ptr %.027, align 8
-  %12 = getelementptr inbounds i8, ptr %.01926, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.01926, i64 8
   %13 = load double, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %.027, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.027, i64 8
   store double %13, ptr %14, align 8
   br label %23
 
@@ -4977,9 +4977,9 @@ define internal void @ompi_op_base_2buff_maxloc_2double_precision(ptr nocapture 
   br i1 %16, label %17, label %23
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %.027, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.027, i64 8
   %19 = load double, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %.01926, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.01926, i64 8
   %21 = load double, ptr %20, align 8
   %22 = fcmp olt double %19, %21
   %. = select i1 %22, double %19, double %21
@@ -4988,8 +4988,8 @@ define internal void @ompi_op_base_2buff_maxloc_2double_precision(ptr nocapture 
 
 23:                                               ; preds = %11, %17, %15
   %24 = add nsw i32 %.02025, -1
-  %25 = getelementptr inbounds i8, ptr %.01926, i64 16
-  %26 = getelementptr inbounds i8, ptr %.027, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %.01926, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %.027, i64 16
   %27 = icmp sgt i32 %.02025, 1
   br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !195
 
@@ -5014,9 +5014,9 @@ define internal void @ompi_op_base_2buff_maxloc_2integer(ptr nocapture noundef r
 
 11:                                               ; preds = %.lr.ph
   store i32 %8, ptr %.027, align 4
-  %12 = getelementptr inbounds i8, ptr %.01926, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.01926, i64 4
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %.027, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.027, i64 4
   store i32 %13, ptr %14, align 4
   br label %22
 
@@ -5025,9 +5025,9 @@ define internal void @ompi_op_base_2buff_maxloc_2integer(ptr nocapture noundef r
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %.027, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %.027, i64 4
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %.01926, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %.01926, i64 4
   %21 = load i32, ptr %20, align 4
   %. = tail call i32 @llvm.smin.i32(i32 %19, i32 %21)
   store i32 %., ptr %18, align 4
@@ -5035,8 +5035,8 @@ define internal void @ompi_op_base_2buff_maxloc_2integer(ptr nocapture noundef r
 
 22:                                               ; preds = %11, %17, %15
   %23 = add nsw i32 %.02025, -1
-  %24 = getelementptr inbounds i8, ptr %.01926, i64 8
-  %25 = getelementptr inbounds i8, ptr %.027, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.01926, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.027, i64 8
   %26 = icmp sgt i32 %.02025, 1
   br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !196
 
@@ -5061,9 +5061,9 @@ define internal void @ompi_op_base_2buff_maxloc_float_int(ptr nocapture noundef 
 
 11:                                               ; preds = %.lr.ph
   store float %8, ptr %.027, align 4
-  %12 = getelementptr inbounds i8, ptr %.01926, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.01926, i64 4
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %.027, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.027, i64 4
   store i32 %13, ptr %14, align 4
   br label %22
 
@@ -5072,9 +5072,9 @@ define internal void @ompi_op_base_2buff_maxloc_float_int(ptr nocapture noundef 
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %.027, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %.027, i64 4
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %.01926, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %.01926, i64 4
   %21 = load i32, ptr %20, align 4
   %. = tail call i32 @llvm.smin.i32(i32 %19, i32 %21)
   store i32 %., ptr %18, align 4
@@ -5082,8 +5082,8 @@ define internal void @ompi_op_base_2buff_maxloc_float_int(ptr nocapture noundef 
 
 22:                                               ; preds = %11, %17, %15
   %23 = add nsw i32 %.02025, -1
-  %24 = getelementptr inbounds i8, ptr %.01926, i64 8
-  %25 = getelementptr inbounds i8, ptr %.027, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.01926, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.027, i64 8
   %26 = icmp sgt i32 %.02025, 1
   br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !197
 
@@ -5108,9 +5108,9 @@ define internal void @ompi_op_base_2buff_maxloc_double_int(ptr nocapture noundef
 
 11:                                               ; preds = %.lr.ph
   store double %8, ptr %.027, align 8
-  %12 = getelementptr inbounds i8, ptr %.01926, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.01926, i64 8
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %.027, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.027, i64 8
   store i32 %13, ptr %14, align 8
   br label %22
 
@@ -5119,9 +5119,9 @@ define internal void @ompi_op_base_2buff_maxloc_double_int(ptr nocapture noundef
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %.027, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.027, i64 8
   %19 = load i32, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %.01926, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.01926, i64 8
   %21 = load i32, ptr %20, align 8
   %. = tail call i32 @llvm.smin.i32(i32 %19, i32 %21)
   store i32 %., ptr %18, align 8
@@ -5129,8 +5129,8 @@ define internal void @ompi_op_base_2buff_maxloc_double_int(ptr nocapture noundef
 
 22:                                               ; preds = %11, %17, %15
   %23 = add nsw i32 %.02025, -1
-  %24 = getelementptr inbounds i8, ptr %.01926, i64 16
-  %25 = getelementptr inbounds i8, ptr %.027, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %.01926, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %.027, i64 16
   %26 = icmp sgt i32 %.02025, 1
   br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !198
 
@@ -5155,9 +5155,9 @@ define internal void @ompi_op_base_2buff_maxloc_long_int(ptr nocapture noundef r
 
 11:                                               ; preds = %.lr.ph
   store i64 %8, ptr %.027, align 8
-  %12 = getelementptr inbounds i8, ptr %.01926, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.01926, i64 8
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %.027, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.027, i64 8
   store i32 %13, ptr %14, align 8
   br label %22
 
@@ -5166,9 +5166,9 @@ define internal void @ompi_op_base_2buff_maxloc_long_int(ptr nocapture noundef r
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %.027, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.027, i64 8
   %19 = load i32, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %.01926, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.01926, i64 8
   %21 = load i32, ptr %20, align 8
   %. = tail call i32 @llvm.smin.i32(i32 %19, i32 %21)
   store i32 %., ptr %18, align 8
@@ -5176,8 +5176,8 @@ define internal void @ompi_op_base_2buff_maxloc_long_int(ptr nocapture noundef r
 
 22:                                               ; preds = %11, %17, %15
   %23 = add nsw i32 %.02025, -1
-  %24 = getelementptr inbounds i8, ptr %.01926, i64 16
-  %25 = getelementptr inbounds i8, ptr %.027, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %.01926, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %.027, i64 16
   %26 = icmp sgt i32 %.02025, 1
   br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !199
 
@@ -5202,9 +5202,9 @@ define internal void @ompi_op_base_2buff_maxloc_2int(ptr nocapture noundef reado
 
 11:                                               ; preds = %.lr.ph
   store i32 %8, ptr %.027, align 4
-  %12 = getelementptr inbounds i8, ptr %.01926, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.01926, i64 4
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %.027, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.027, i64 4
   store i32 %13, ptr %14, align 4
   br label %22
 
@@ -5213,9 +5213,9 @@ define internal void @ompi_op_base_2buff_maxloc_2int(ptr nocapture noundef reado
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %.027, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %.027, i64 4
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %.01926, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %.01926, i64 4
   %21 = load i32, ptr %20, align 4
   %. = tail call i32 @llvm.smin.i32(i32 %19, i32 %21)
   store i32 %., ptr %18, align 4
@@ -5223,8 +5223,8 @@ define internal void @ompi_op_base_2buff_maxloc_2int(ptr nocapture noundef reado
 
 22:                                               ; preds = %11, %17, %15
   %23 = add nsw i32 %.02025, -1
-  %24 = getelementptr inbounds i8, ptr %.01926, i64 8
-  %25 = getelementptr inbounds i8, ptr %.027, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.01926, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.027, i64 8
   %26 = icmp sgt i32 %.02025, 1
   br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !200
 
@@ -5249,9 +5249,9 @@ define internal void @ompi_op_base_2buff_maxloc_short_int(ptr nocapture noundef 
 
 11:                                               ; preds = %.lr.ph
   store i16 %8, ptr %.027, align 4
-  %12 = getelementptr inbounds i8, ptr %.01926, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.01926, i64 4
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %.027, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.027, i64 4
   store i32 %13, ptr %14, align 4
   br label %22
 
@@ -5260,9 +5260,9 @@ define internal void @ompi_op_base_2buff_maxloc_short_int(ptr nocapture noundef 
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %.027, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %.027, i64 4
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %.01926, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %.01926, i64 4
   %21 = load i32, ptr %20, align 4
   %. = tail call i32 @llvm.smin.i32(i32 %19, i32 %21)
   store i32 %., ptr %18, align 4
@@ -5270,8 +5270,8 @@ define internal void @ompi_op_base_2buff_maxloc_short_int(ptr nocapture noundef 
 
 22:                                               ; preds = %11, %17, %15
   %23 = add nsw i32 %.02025, -1
-  %24 = getelementptr inbounds i8, ptr %.01926, i64 8
-  %25 = getelementptr inbounds i8, ptr %.027, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.01926, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.027, i64 8
   %26 = icmp sgt i32 %.02025, 1
   br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !201
 
@@ -5296,9 +5296,9 @@ define internal void @ompi_op_base_2buff_maxloc_long_double_int(ptr nocapture no
 
 11:                                               ; preds = %.lr.ph
   store x86_fp80 %8, ptr %.027, align 16
-  %12 = getelementptr inbounds i8, ptr %.01926, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %.01926, i64 16
   %13 = load i32, ptr %12, align 16
-  %14 = getelementptr inbounds i8, ptr %.027, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %.027, i64 16
   store i32 %13, ptr %14, align 16
   br label %22
 
@@ -5307,9 +5307,9 @@ define internal void @ompi_op_base_2buff_maxloc_long_double_int(ptr nocapture no
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %.027, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %.027, i64 16
   %19 = load i32, ptr %18, align 16
-  %20 = getelementptr inbounds i8, ptr %.01926, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %.01926, i64 16
   %21 = load i32, ptr %20, align 16
   %. = tail call i32 @llvm.smin.i32(i32 %19, i32 %21)
   store i32 %., ptr %18, align 16
@@ -5317,8 +5317,8 @@ define internal void @ompi_op_base_2buff_maxloc_long_double_int(ptr nocapture no
 
 22:                                               ; preds = %11, %17, %15
   %23 = add nsw i32 %.02025, -1
-  %24 = getelementptr inbounds i8, ptr %.01926, i64 32
-  %25 = getelementptr inbounds i8, ptr %.027, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %.01926, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %.027, i64 32
   %26 = icmp sgt i32 %.02025, 1
   br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !202
 
@@ -5343,9 +5343,9 @@ define internal void @ompi_op_base_2buff_minloc_2real(ptr nocapture noundef read
 
 11:                                               ; preds = %.lr.ph
   store float %8, ptr %.027, align 4
-  %12 = getelementptr inbounds i8, ptr %.01926, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.01926, i64 4
   %13 = load float, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %.027, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.027, i64 4
   store float %13, ptr %14, align 4
   br label %23
 
@@ -5354,9 +5354,9 @@ define internal void @ompi_op_base_2buff_minloc_2real(ptr nocapture noundef read
   br i1 %16, label %17, label %23
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %.027, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %.027, i64 4
   %19 = load float, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %.01926, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %.01926, i64 4
   %21 = load float, ptr %20, align 4
   %22 = fcmp olt float %19, %21
   %. = select i1 %22, float %19, float %21
@@ -5365,8 +5365,8 @@ define internal void @ompi_op_base_2buff_minloc_2real(ptr nocapture noundef read
 
 23:                                               ; preds = %11, %17, %15
   %24 = add nsw i32 %.02025, -1
-  %25 = getelementptr inbounds i8, ptr %.01926, i64 8
-  %26 = getelementptr inbounds i8, ptr %.027, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.01926, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.027, i64 8
   %27 = icmp sgt i32 %.02025, 1
   br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !203
 
@@ -5391,9 +5391,9 @@ define internal void @ompi_op_base_2buff_minloc_2double_precision(ptr nocapture 
 
 11:                                               ; preds = %.lr.ph
   store double %8, ptr %.027, align 8
-  %12 = getelementptr inbounds i8, ptr %.01926, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.01926, i64 8
   %13 = load double, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %.027, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.027, i64 8
   store double %13, ptr %14, align 8
   br label %23
 
@@ -5402,9 +5402,9 @@ define internal void @ompi_op_base_2buff_minloc_2double_precision(ptr nocapture 
   br i1 %16, label %17, label %23
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %.027, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.027, i64 8
   %19 = load double, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %.01926, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.01926, i64 8
   %21 = load double, ptr %20, align 8
   %22 = fcmp olt double %19, %21
   %. = select i1 %22, double %19, double %21
@@ -5413,8 +5413,8 @@ define internal void @ompi_op_base_2buff_minloc_2double_precision(ptr nocapture 
 
 23:                                               ; preds = %11, %17, %15
   %24 = add nsw i32 %.02025, -1
-  %25 = getelementptr inbounds i8, ptr %.01926, i64 16
-  %26 = getelementptr inbounds i8, ptr %.027, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %.01926, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %.027, i64 16
   %27 = icmp sgt i32 %.02025, 1
   br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !204
 
@@ -5439,9 +5439,9 @@ define internal void @ompi_op_base_2buff_minloc_2integer(ptr nocapture noundef r
 
 11:                                               ; preds = %.lr.ph
   store i32 %8, ptr %.027, align 4
-  %12 = getelementptr inbounds i8, ptr %.01926, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.01926, i64 4
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %.027, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.027, i64 4
   store i32 %13, ptr %14, align 4
   br label %22
 
@@ -5450,9 +5450,9 @@ define internal void @ompi_op_base_2buff_minloc_2integer(ptr nocapture noundef r
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %.027, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %.027, i64 4
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %.01926, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %.01926, i64 4
   %21 = load i32, ptr %20, align 4
   %. = tail call i32 @llvm.smin.i32(i32 %19, i32 %21)
   store i32 %., ptr %18, align 4
@@ -5460,8 +5460,8 @@ define internal void @ompi_op_base_2buff_minloc_2integer(ptr nocapture noundef r
 
 22:                                               ; preds = %11, %17, %15
   %23 = add nsw i32 %.02025, -1
-  %24 = getelementptr inbounds i8, ptr %.01926, i64 8
-  %25 = getelementptr inbounds i8, ptr %.027, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.01926, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.027, i64 8
   %26 = icmp sgt i32 %.02025, 1
   br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !205
 
@@ -5486,9 +5486,9 @@ define internal void @ompi_op_base_2buff_minloc_float_int(ptr nocapture noundef 
 
 11:                                               ; preds = %.lr.ph
   store float %8, ptr %.027, align 4
-  %12 = getelementptr inbounds i8, ptr %.01926, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.01926, i64 4
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %.027, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.027, i64 4
   store i32 %13, ptr %14, align 4
   br label %22
 
@@ -5497,9 +5497,9 @@ define internal void @ompi_op_base_2buff_minloc_float_int(ptr nocapture noundef 
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %.027, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %.027, i64 4
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %.01926, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %.01926, i64 4
   %21 = load i32, ptr %20, align 4
   %. = tail call i32 @llvm.smin.i32(i32 %19, i32 %21)
   store i32 %., ptr %18, align 4
@@ -5507,8 +5507,8 @@ define internal void @ompi_op_base_2buff_minloc_float_int(ptr nocapture noundef 
 
 22:                                               ; preds = %11, %17, %15
   %23 = add nsw i32 %.02025, -1
-  %24 = getelementptr inbounds i8, ptr %.01926, i64 8
-  %25 = getelementptr inbounds i8, ptr %.027, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.01926, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.027, i64 8
   %26 = icmp sgt i32 %.02025, 1
   br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !206
 
@@ -5533,9 +5533,9 @@ define internal void @ompi_op_base_2buff_minloc_double_int(ptr nocapture noundef
 
 11:                                               ; preds = %.lr.ph
   store double %8, ptr %.027, align 8
-  %12 = getelementptr inbounds i8, ptr %.01926, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.01926, i64 8
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %.027, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.027, i64 8
   store i32 %13, ptr %14, align 8
   br label %22
 
@@ -5544,9 +5544,9 @@ define internal void @ompi_op_base_2buff_minloc_double_int(ptr nocapture noundef
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %.027, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.027, i64 8
   %19 = load i32, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %.01926, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.01926, i64 8
   %21 = load i32, ptr %20, align 8
   %. = tail call i32 @llvm.smin.i32(i32 %19, i32 %21)
   store i32 %., ptr %18, align 8
@@ -5554,8 +5554,8 @@ define internal void @ompi_op_base_2buff_minloc_double_int(ptr nocapture noundef
 
 22:                                               ; preds = %11, %17, %15
   %23 = add nsw i32 %.02025, -1
-  %24 = getelementptr inbounds i8, ptr %.01926, i64 16
-  %25 = getelementptr inbounds i8, ptr %.027, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %.01926, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %.027, i64 16
   %26 = icmp sgt i32 %.02025, 1
   br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !207
 
@@ -5580,9 +5580,9 @@ define internal void @ompi_op_base_2buff_minloc_long_int(ptr nocapture noundef r
 
 11:                                               ; preds = %.lr.ph
   store i64 %8, ptr %.027, align 8
-  %12 = getelementptr inbounds i8, ptr %.01926, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.01926, i64 8
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %.027, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.027, i64 8
   store i32 %13, ptr %14, align 8
   br label %22
 
@@ -5591,9 +5591,9 @@ define internal void @ompi_op_base_2buff_minloc_long_int(ptr nocapture noundef r
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %.027, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.027, i64 8
   %19 = load i32, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %.01926, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.01926, i64 8
   %21 = load i32, ptr %20, align 8
   %. = tail call i32 @llvm.smin.i32(i32 %19, i32 %21)
   store i32 %., ptr %18, align 8
@@ -5601,8 +5601,8 @@ define internal void @ompi_op_base_2buff_minloc_long_int(ptr nocapture noundef r
 
 22:                                               ; preds = %11, %17, %15
   %23 = add nsw i32 %.02025, -1
-  %24 = getelementptr inbounds i8, ptr %.01926, i64 16
-  %25 = getelementptr inbounds i8, ptr %.027, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %.01926, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %.027, i64 16
   %26 = icmp sgt i32 %.02025, 1
   br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !208
 
@@ -5627,9 +5627,9 @@ define internal void @ompi_op_base_2buff_minloc_2int(ptr nocapture noundef reado
 
 11:                                               ; preds = %.lr.ph
   store i32 %8, ptr %.027, align 4
-  %12 = getelementptr inbounds i8, ptr %.01926, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.01926, i64 4
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %.027, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.027, i64 4
   store i32 %13, ptr %14, align 4
   br label %22
 
@@ -5638,9 +5638,9 @@ define internal void @ompi_op_base_2buff_minloc_2int(ptr nocapture noundef reado
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %.027, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %.027, i64 4
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %.01926, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %.01926, i64 4
   %21 = load i32, ptr %20, align 4
   %. = tail call i32 @llvm.smin.i32(i32 %19, i32 %21)
   store i32 %., ptr %18, align 4
@@ -5648,8 +5648,8 @@ define internal void @ompi_op_base_2buff_minloc_2int(ptr nocapture noundef reado
 
 22:                                               ; preds = %11, %17, %15
   %23 = add nsw i32 %.02025, -1
-  %24 = getelementptr inbounds i8, ptr %.01926, i64 8
-  %25 = getelementptr inbounds i8, ptr %.027, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.01926, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.027, i64 8
   %26 = icmp sgt i32 %.02025, 1
   br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !209
 
@@ -5674,9 +5674,9 @@ define internal void @ompi_op_base_2buff_minloc_short_int(ptr nocapture noundef 
 
 11:                                               ; preds = %.lr.ph
   store i16 %8, ptr %.027, align 4
-  %12 = getelementptr inbounds i8, ptr %.01926, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.01926, i64 4
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %.027, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.027, i64 4
   store i32 %13, ptr %14, align 4
   br label %22
 
@@ -5685,9 +5685,9 @@ define internal void @ompi_op_base_2buff_minloc_short_int(ptr nocapture noundef 
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %.027, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %.027, i64 4
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %.01926, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %.01926, i64 4
   %21 = load i32, ptr %20, align 4
   %. = tail call i32 @llvm.smin.i32(i32 %19, i32 %21)
   store i32 %., ptr %18, align 4
@@ -5695,8 +5695,8 @@ define internal void @ompi_op_base_2buff_minloc_short_int(ptr nocapture noundef 
 
 22:                                               ; preds = %11, %17, %15
   %23 = add nsw i32 %.02025, -1
-  %24 = getelementptr inbounds i8, ptr %.01926, i64 8
-  %25 = getelementptr inbounds i8, ptr %.027, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.01926, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.027, i64 8
   %26 = icmp sgt i32 %.02025, 1
   br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !210
 
@@ -5721,9 +5721,9 @@ define internal void @ompi_op_base_2buff_minloc_long_double_int(ptr nocapture no
 
 11:                                               ; preds = %.lr.ph
   store x86_fp80 %8, ptr %.027, align 16
-  %12 = getelementptr inbounds i8, ptr %.01926, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %.01926, i64 16
   %13 = load i32, ptr %12, align 16
-  %14 = getelementptr inbounds i8, ptr %.027, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %.027, i64 16
   store i32 %13, ptr %14, align 16
   br label %22
 
@@ -5732,9 +5732,9 @@ define internal void @ompi_op_base_2buff_minloc_long_double_int(ptr nocapture no
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %.027, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %.027, i64 16
   %19 = load i32, ptr %18, align 16
-  %20 = getelementptr inbounds i8, ptr %.01926, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %.01926, i64 16
   %21 = load i32, ptr %20, align 16
   %. = tail call i32 @llvm.smin.i32(i32 %19, i32 %21)
   store i32 %., ptr %18, align 16
@@ -5742,8 +5742,8 @@ define internal void @ompi_op_base_2buff_minloc_long_double_int(ptr nocapture no
 
 22:                                               ; preds = %11, %17, %15
   %23 = add nsw i32 %.02025, -1
-  %24 = getelementptr inbounds i8, ptr %.01926, i64 32
-  %25 = getelementptr inbounds i8, ptr %.027, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %.01926, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %.027, i64 32
   %26 = icmp sgt i32 %.02025, 1
   br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !211
 
@@ -5766,9 +5766,9 @@ define internal void @ompi_op_base_3buff_max_int8_t(ptr noalias nocapture nounde
   %10 = load i8, ptr %.01320, align 1
   %. = tail call i8 @llvm.smax.i8(i8 %9, i8 %10)
   store i8 %., ptr %.021, align 1
-  %11 = getelementptr inbounds i8, ptr %.021, i64 1
-  %12 = getelementptr inbounds i8, ptr %.01419, i64 1
-  %13 = getelementptr inbounds i8, ptr %.01320, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.021, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.01419, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.01320, i64 1
   %14 = add nsw i32 %.01518, -1
   %15 = icmp samesign ugt i32 %.01518, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !212
@@ -5792,9 +5792,9 @@ define internal void @ompi_op_base_3buff_max_uint8_t(ptr noalias nocapture nound
   %10 = load i8, ptr %.01320, align 1
   %. = tail call i8 @llvm.umax.i8(i8 %9, i8 %10)
   store i8 %., ptr %.021, align 1
-  %11 = getelementptr inbounds i8, ptr %.021, i64 1
-  %12 = getelementptr inbounds i8, ptr %.01419, i64 1
-  %13 = getelementptr inbounds i8, ptr %.01320, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.021, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.01419, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.01320, i64 1
   %14 = add nsw i32 %.01518, -1
   %15 = icmp samesign ugt i32 %.01518, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !213
@@ -5818,9 +5818,9 @@ define internal void @ompi_op_base_3buff_max_int16_t(ptr noalias nocapture nound
   %10 = load i16, ptr %.01320, align 2
   %. = tail call i16 @llvm.smax.i16(i16 %9, i16 %10)
   store i16 %., ptr %.021, align 2
-  %11 = getelementptr inbounds i8, ptr %.021, i64 2
-  %12 = getelementptr inbounds i8, ptr %.01419, i64 2
-  %13 = getelementptr inbounds i8, ptr %.01320, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %.021, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %.01419, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %.01320, i64 2
   %14 = add nsw i32 %.01518, -1
   %15 = icmp samesign ugt i32 %.01518, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !214
@@ -5844,9 +5844,9 @@ define internal void @ompi_op_base_3buff_max_uint16_t(ptr noalias nocapture noun
   %10 = load i16, ptr %.01320, align 2
   %. = tail call i16 @llvm.umax.i16(i16 %9, i16 %10)
   store i16 %., ptr %.021, align 2
-  %11 = getelementptr inbounds i8, ptr %.021, i64 2
-  %12 = getelementptr inbounds i8, ptr %.01419, i64 2
-  %13 = getelementptr inbounds i8, ptr %.01320, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %.021, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %.01419, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %.01320, i64 2
   %14 = add nsw i32 %.01518, -1
   %15 = icmp samesign ugt i32 %.01518, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !215
@@ -5870,9 +5870,9 @@ define internal void @ompi_op_base_3buff_max_int32_t(ptr noalias nocapture nound
   %10 = load i32, ptr %.01320, align 4
   %. = tail call i32 @llvm.smax.i32(i32 %9, i32 %10)
   store i32 %., ptr %.021, align 4
-  %11 = getelementptr inbounds i8, ptr %.021, i64 4
-  %12 = getelementptr inbounds i8, ptr %.01419, i64 4
-  %13 = getelementptr inbounds i8, ptr %.01320, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.021, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.01419, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %.01320, i64 4
   %14 = add nsw i32 %.01518, -1
   %15 = icmp samesign ugt i32 %.01518, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !216
@@ -5896,9 +5896,9 @@ define internal void @ompi_op_base_3buff_max_uint32_t(ptr noalias nocapture noun
   %10 = load i32, ptr %.01320, align 4
   %. = tail call i32 @llvm.umax.i32(i32 %9, i32 %10)
   store i32 %., ptr %.021, align 4
-  %11 = getelementptr inbounds i8, ptr %.021, i64 4
-  %12 = getelementptr inbounds i8, ptr %.01419, i64 4
-  %13 = getelementptr inbounds i8, ptr %.01320, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.021, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.01419, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %.01320, i64 4
   %14 = add nsw i32 %.01518, -1
   %15 = icmp samesign ugt i32 %.01518, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !217
@@ -5922,9 +5922,9 @@ define internal void @ompi_op_base_3buff_max_int64_t(ptr noalias nocapture nound
   %10 = load i64, ptr %.01320, align 8
   %. = tail call i64 @llvm.smax.i64(i64 %9, i64 %10)
   store i64 %., ptr %.021, align 8
-  %11 = getelementptr inbounds i8, ptr %.021, i64 8
-  %12 = getelementptr inbounds i8, ptr %.01419, i64 8
-  %13 = getelementptr inbounds i8, ptr %.01320, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.021, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.01419, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.01320, i64 8
   %14 = add nsw i32 %.01518, -1
   %15 = icmp samesign ugt i32 %.01518, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !218
@@ -5948,9 +5948,9 @@ define internal void @ompi_op_base_3buff_max_uint64_t(ptr noalias nocapture noun
   %10 = load i64, ptr %.01320, align 8
   %. = tail call i64 @llvm.umax.i64(i64 %9, i64 %10)
   store i64 %., ptr %.021, align 8
-  %11 = getelementptr inbounds i8, ptr %.021, i64 8
-  %12 = getelementptr inbounds i8, ptr %.01419, i64 8
-  %13 = getelementptr inbounds i8, ptr %.01320, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.021, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.01419, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.01320, i64 8
   %14 = add nsw i32 %.01518, -1
   %15 = icmp samesign ugt i32 %.01518, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !219
@@ -5974,9 +5974,9 @@ define internal void @ompi_op_base_3buff_max_fortran_integer(ptr noalias nocaptu
   %10 = load i32, ptr %.01320, align 4
   %. = tail call i32 @llvm.smax.i32(i32 %9, i32 %10)
   store i32 %., ptr %.021, align 4
-  %11 = getelementptr inbounds i8, ptr %.021, i64 4
-  %12 = getelementptr inbounds i8, ptr %.01419, i64 4
-  %13 = getelementptr inbounds i8, ptr %.01320, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.021, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.01419, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %.01320, i64 4
   %14 = add nsw i32 %.01518, -1
   %15 = icmp samesign ugt i32 %.01518, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !220
@@ -6000,9 +6000,9 @@ define internal void @ompi_op_base_3buff_max_fortran_integer1(ptr noalias nocapt
   %10 = load i8, ptr %.01320, align 1
   %. = tail call i8 @llvm.smax.i8(i8 %9, i8 %10)
   store i8 %., ptr %.021, align 1
-  %11 = getelementptr inbounds i8, ptr %.021, i64 1
-  %12 = getelementptr inbounds i8, ptr %.01419, i64 1
-  %13 = getelementptr inbounds i8, ptr %.01320, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.021, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.01419, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.01320, i64 1
   %14 = add nsw i32 %.01518, -1
   %15 = icmp samesign ugt i32 %.01518, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !221
@@ -6026,9 +6026,9 @@ define internal void @ompi_op_base_3buff_max_fortran_integer2(ptr noalias nocapt
   %10 = load i16, ptr %.01320, align 2
   %. = tail call i16 @llvm.smax.i16(i16 %9, i16 %10)
   store i16 %., ptr %.021, align 2
-  %11 = getelementptr inbounds i8, ptr %.021, i64 2
-  %12 = getelementptr inbounds i8, ptr %.01419, i64 2
-  %13 = getelementptr inbounds i8, ptr %.01320, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %.021, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %.01419, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %.01320, i64 2
   %14 = add nsw i32 %.01518, -1
   %15 = icmp samesign ugt i32 %.01518, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !222
@@ -6052,9 +6052,9 @@ define internal void @ompi_op_base_3buff_max_fortran_integer4(ptr noalias nocapt
   %10 = load i32, ptr %.01320, align 4
   %. = tail call i32 @llvm.smax.i32(i32 %9, i32 %10)
   store i32 %., ptr %.021, align 4
-  %11 = getelementptr inbounds i8, ptr %.021, i64 4
-  %12 = getelementptr inbounds i8, ptr %.01419, i64 4
-  %13 = getelementptr inbounds i8, ptr %.01320, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.021, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.01419, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %.01320, i64 4
   %14 = add nsw i32 %.01518, -1
   %15 = icmp samesign ugt i32 %.01518, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !223
@@ -6078,9 +6078,9 @@ define internal void @ompi_op_base_3buff_max_fortran_integer8(ptr noalias nocapt
   %10 = load i64, ptr %.01320, align 8
   %. = tail call i64 @llvm.smax.i64(i64 %9, i64 %10)
   store i64 %., ptr %.021, align 8
-  %11 = getelementptr inbounds i8, ptr %.021, i64 8
-  %12 = getelementptr inbounds i8, ptr %.01419, i64 8
-  %13 = getelementptr inbounds i8, ptr %.01320, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.021, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.01419, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.01320, i64 8
   %14 = add nsw i32 %.01518, -1
   %15 = icmp samesign ugt i32 %.01518, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !224
@@ -6105,9 +6105,9 @@ define internal void @ompi_op_base_3buff_max_short_float(ptr noalias nocapture n
   %11 = fcmp ogt half %9, %10
   %. = select i1 %11, half %9, half %10
   store half %., ptr %.021, align 2
-  %12 = getelementptr inbounds i8, ptr %.021, i64 2
-  %13 = getelementptr inbounds i8, ptr %.01419, i64 2
-  %14 = getelementptr inbounds i8, ptr %.01320, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %.021, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %.01419, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %.01320, i64 2
   %15 = add nsw i32 %.01518, -1
   %16 = icmp samesign ugt i32 %.01518, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !225
@@ -6132,9 +6132,9 @@ define internal void @ompi_op_base_3buff_max_float(ptr noalias nocapture noundef
   %11 = fcmp ogt float %9, %10
   %. = select i1 %11, float %9, float %10
   store float %., ptr %.021, align 4
-  %12 = getelementptr inbounds i8, ptr %.021, i64 4
-  %13 = getelementptr inbounds i8, ptr %.01419, i64 4
-  %14 = getelementptr inbounds i8, ptr %.01320, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.021, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %.01419, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.01320, i64 4
   %15 = add nsw i32 %.01518, -1
   %16 = icmp samesign ugt i32 %.01518, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !226
@@ -6159,9 +6159,9 @@ define internal void @ompi_op_base_3buff_max_double(ptr noalias nocapture nounde
   %11 = fcmp ogt double %9, %10
   %. = select i1 %11, double %9, double %10
   store double %., ptr %.021, align 8
-  %12 = getelementptr inbounds i8, ptr %.021, i64 8
-  %13 = getelementptr inbounds i8, ptr %.01419, i64 8
-  %14 = getelementptr inbounds i8, ptr %.01320, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.021, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.01419, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.01320, i64 8
   %15 = add nsw i32 %.01518, -1
   %16 = icmp samesign ugt i32 %.01518, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !227
@@ -6186,9 +6186,9 @@ define internal void @ompi_op_base_3buff_max_fortran_real(ptr noalias nocapture 
   %11 = fcmp ogt float %9, %10
   %. = select i1 %11, float %9, float %10
   store float %., ptr %.021, align 4
-  %12 = getelementptr inbounds i8, ptr %.021, i64 4
-  %13 = getelementptr inbounds i8, ptr %.01419, i64 4
-  %14 = getelementptr inbounds i8, ptr %.01320, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.021, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %.01419, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.01320, i64 4
   %15 = add nsw i32 %.01518, -1
   %16 = icmp samesign ugt i32 %.01518, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !228
@@ -6213,9 +6213,9 @@ define internal void @ompi_op_base_3buff_max_fortran_real4(ptr noalias nocapture
   %11 = fcmp ogt float %9, %10
   %. = select i1 %11, float %9, float %10
   store float %., ptr %.021, align 4
-  %12 = getelementptr inbounds i8, ptr %.021, i64 4
-  %13 = getelementptr inbounds i8, ptr %.01419, i64 4
-  %14 = getelementptr inbounds i8, ptr %.01320, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.021, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %.01419, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.01320, i64 4
   %15 = add nsw i32 %.01518, -1
   %16 = icmp samesign ugt i32 %.01518, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !229
@@ -6240,9 +6240,9 @@ define internal void @ompi_op_base_3buff_max_fortran_real8(ptr noalias nocapture
   %11 = fcmp ogt double %9, %10
   %. = select i1 %11, double %9, double %10
   store double %., ptr %.021, align 8
-  %12 = getelementptr inbounds i8, ptr %.021, i64 8
-  %13 = getelementptr inbounds i8, ptr %.01419, i64 8
-  %14 = getelementptr inbounds i8, ptr %.01320, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.021, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.01419, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.01320, i64 8
   %15 = add nsw i32 %.01518, -1
   %16 = icmp samesign ugt i32 %.01518, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !230
@@ -6267,9 +6267,9 @@ define internal void @ompi_op_base_3buff_max_fortran_real16(ptr noalias nocaptur
   %11 = fcmp ogt x86_fp80 %9, %10
   %. = select i1 %11, x86_fp80 %9, x86_fp80 %10
   store x86_fp80 %., ptr %.021, align 16
-  %12 = getelementptr inbounds i8, ptr %.021, i64 16
-  %13 = getelementptr inbounds i8, ptr %.01419, i64 16
-  %14 = getelementptr inbounds i8, ptr %.01320, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %.021, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %.01419, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %.01320, i64 16
   %15 = add nsw i32 %.01518, -1
   %16 = icmp samesign ugt i32 %.01518, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !231
@@ -6294,9 +6294,9 @@ define internal void @ompi_op_base_3buff_max_fortran_double_precision(ptr noalia
   %11 = fcmp ogt double %9, %10
   %. = select i1 %11, double %9, double %10
   store double %., ptr %.021, align 8
-  %12 = getelementptr inbounds i8, ptr %.021, i64 8
-  %13 = getelementptr inbounds i8, ptr %.01419, i64 8
-  %14 = getelementptr inbounds i8, ptr %.01320, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.021, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.01419, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.01320, i64 8
   %15 = add nsw i32 %.01518, -1
   %16 = icmp samesign ugt i32 %.01518, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !232
@@ -6321,9 +6321,9 @@ define internal void @ompi_op_base_3buff_max_long_double(ptr noalias nocapture n
   %11 = fcmp ogt x86_fp80 %9, %10
   %. = select i1 %11, x86_fp80 %9, x86_fp80 %10
   store x86_fp80 %., ptr %.021, align 16
-  %12 = getelementptr inbounds i8, ptr %.021, i64 16
-  %13 = getelementptr inbounds i8, ptr %.01419, i64 16
-  %14 = getelementptr inbounds i8, ptr %.01320, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %.021, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %.01419, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %.01320, i64 16
   %15 = add nsw i32 %.01518, -1
   %16 = icmp samesign ugt i32 %.01518, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !233
@@ -6347,9 +6347,9 @@ define internal void @ompi_op_base_3buff_max_long(ptr noalias nocapture noundef 
   %10 = load i64, ptr %.01320, align 8
   %. = tail call i64 @llvm.smax.i64(i64 %9, i64 %10)
   store i64 %., ptr %.021, align 8
-  %11 = getelementptr inbounds i8, ptr %.021, i64 8
-  %12 = getelementptr inbounds i8, ptr %.01419, i64 8
-  %13 = getelementptr inbounds i8, ptr %.01320, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.021, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.01419, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.01320, i64 8
   %14 = add nsw i32 %.01518, -1
   %15 = icmp samesign ugt i32 %.01518, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !234
@@ -6373,9 +6373,9 @@ define internal void @ompi_op_base_3buff_max_unsigned_long(ptr noalias nocapture
   %10 = load i64, ptr %.01320, align 8
   %. = tail call i64 @llvm.umax.i64(i64 %9, i64 %10)
   store i64 %., ptr %.021, align 8
-  %11 = getelementptr inbounds i8, ptr %.021, i64 8
-  %12 = getelementptr inbounds i8, ptr %.01419, i64 8
-  %13 = getelementptr inbounds i8, ptr %.01320, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.021, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.01419, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.01320, i64 8
   %14 = add nsw i32 %.01518, -1
   %15 = icmp samesign ugt i32 %.01518, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !235
@@ -6399,9 +6399,9 @@ define internal void @ompi_op_base_3buff_min_int8_t(ptr noalias nocapture nounde
   %10 = load i8, ptr %.01320, align 1
   %. = tail call i8 @llvm.smin.i8(i8 %9, i8 %10)
   store i8 %., ptr %.021, align 1
-  %11 = getelementptr inbounds i8, ptr %.021, i64 1
-  %12 = getelementptr inbounds i8, ptr %.01419, i64 1
-  %13 = getelementptr inbounds i8, ptr %.01320, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.021, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.01419, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.01320, i64 1
   %14 = add nsw i32 %.01518, -1
   %15 = icmp samesign ugt i32 %.01518, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !236
@@ -6425,9 +6425,9 @@ define internal void @ompi_op_base_3buff_min_uint8_t(ptr noalias nocapture nound
   %10 = load i8, ptr %.01320, align 1
   %. = tail call i8 @llvm.umin.i8(i8 %9, i8 %10)
   store i8 %., ptr %.021, align 1
-  %11 = getelementptr inbounds i8, ptr %.021, i64 1
-  %12 = getelementptr inbounds i8, ptr %.01419, i64 1
-  %13 = getelementptr inbounds i8, ptr %.01320, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.021, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.01419, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.01320, i64 1
   %14 = add nsw i32 %.01518, -1
   %15 = icmp samesign ugt i32 %.01518, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !237
@@ -6451,9 +6451,9 @@ define internal void @ompi_op_base_3buff_min_int16_t(ptr noalias nocapture nound
   %10 = load i16, ptr %.01320, align 2
   %. = tail call i16 @llvm.smin.i16(i16 %9, i16 %10)
   store i16 %., ptr %.021, align 2
-  %11 = getelementptr inbounds i8, ptr %.021, i64 2
-  %12 = getelementptr inbounds i8, ptr %.01419, i64 2
-  %13 = getelementptr inbounds i8, ptr %.01320, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %.021, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %.01419, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %.01320, i64 2
   %14 = add nsw i32 %.01518, -1
   %15 = icmp samesign ugt i32 %.01518, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !238
@@ -6477,9 +6477,9 @@ define internal void @ompi_op_base_3buff_min_uint16_t(ptr noalias nocapture noun
   %10 = load i16, ptr %.01320, align 2
   %. = tail call i16 @llvm.umin.i16(i16 %9, i16 %10)
   store i16 %., ptr %.021, align 2
-  %11 = getelementptr inbounds i8, ptr %.021, i64 2
-  %12 = getelementptr inbounds i8, ptr %.01419, i64 2
-  %13 = getelementptr inbounds i8, ptr %.01320, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %.021, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %.01419, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %.01320, i64 2
   %14 = add nsw i32 %.01518, -1
   %15 = icmp samesign ugt i32 %.01518, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !239
@@ -6503,9 +6503,9 @@ define internal void @ompi_op_base_3buff_min_int32_t(ptr noalias nocapture nound
   %10 = load i32, ptr %.01320, align 4
   %. = tail call i32 @llvm.smin.i32(i32 %9, i32 %10)
   store i32 %., ptr %.021, align 4
-  %11 = getelementptr inbounds i8, ptr %.021, i64 4
-  %12 = getelementptr inbounds i8, ptr %.01419, i64 4
-  %13 = getelementptr inbounds i8, ptr %.01320, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.021, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.01419, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %.01320, i64 4
   %14 = add nsw i32 %.01518, -1
   %15 = icmp samesign ugt i32 %.01518, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !240
@@ -6529,9 +6529,9 @@ define internal void @ompi_op_base_3buff_min_uint32_t(ptr noalias nocapture noun
   %10 = load i32, ptr %.01320, align 4
   %. = tail call i32 @llvm.umin.i32(i32 %9, i32 %10)
   store i32 %., ptr %.021, align 4
-  %11 = getelementptr inbounds i8, ptr %.021, i64 4
-  %12 = getelementptr inbounds i8, ptr %.01419, i64 4
-  %13 = getelementptr inbounds i8, ptr %.01320, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.021, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.01419, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %.01320, i64 4
   %14 = add nsw i32 %.01518, -1
   %15 = icmp samesign ugt i32 %.01518, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !241
@@ -6555,9 +6555,9 @@ define internal void @ompi_op_base_3buff_min_int64_t(ptr noalias nocapture nound
   %10 = load i64, ptr %.01320, align 8
   %. = tail call i64 @llvm.smin.i64(i64 %9, i64 %10)
   store i64 %., ptr %.021, align 8
-  %11 = getelementptr inbounds i8, ptr %.021, i64 8
-  %12 = getelementptr inbounds i8, ptr %.01419, i64 8
-  %13 = getelementptr inbounds i8, ptr %.01320, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.021, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.01419, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.01320, i64 8
   %14 = add nsw i32 %.01518, -1
   %15 = icmp samesign ugt i32 %.01518, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !242
@@ -6581,9 +6581,9 @@ define internal void @ompi_op_base_3buff_min_uint64_t(ptr noalias nocapture noun
   %10 = load i64, ptr %.01320, align 8
   %. = tail call i64 @llvm.umin.i64(i64 %9, i64 %10)
   store i64 %., ptr %.021, align 8
-  %11 = getelementptr inbounds i8, ptr %.021, i64 8
-  %12 = getelementptr inbounds i8, ptr %.01419, i64 8
-  %13 = getelementptr inbounds i8, ptr %.01320, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.021, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.01419, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.01320, i64 8
   %14 = add nsw i32 %.01518, -1
   %15 = icmp samesign ugt i32 %.01518, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !243
@@ -6607,9 +6607,9 @@ define internal void @ompi_op_base_3buff_min_fortran_integer(ptr noalias nocaptu
   %10 = load i32, ptr %.01320, align 4
   %. = tail call i32 @llvm.smin.i32(i32 %9, i32 %10)
   store i32 %., ptr %.021, align 4
-  %11 = getelementptr inbounds i8, ptr %.021, i64 4
-  %12 = getelementptr inbounds i8, ptr %.01419, i64 4
-  %13 = getelementptr inbounds i8, ptr %.01320, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.021, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.01419, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %.01320, i64 4
   %14 = add nsw i32 %.01518, -1
   %15 = icmp samesign ugt i32 %.01518, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !244
@@ -6633,9 +6633,9 @@ define internal void @ompi_op_base_3buff_min_fortran_integer1(ptr noalias nocapt
   %10 = load i8, ptr %.01320, align 1
   %. = tail call i8 @llvm.smin.i8(i8 %9, i8 %10)
   store i8 %., ptr %.021, align 1
-  %11 = getelementptr inbounds i8, ptr %.021, i64 1
-  %12 = getelementptr inbounds i8, ptr %.01419, i64 1
-  %13 = getelementptr inbounds i8, ptr %.01320, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.021, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.01419, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.01320, i64 1
   %14 = add nsw i32 %.01518, -1
   %15 = icmp samesign ugt i32 %.01518, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !245
@@ -6659,9 +6659,9 @@ define internal void @ompi_op_base_3buff_min_fortran_integer2(ptr noalias nocapt
   %10 = load i16, ptr %.01320, align 2
   %. = tail call i16 @llvm.smin.i16(i16 %9, i16 %10)
   store i16 %., ptr %.021, align 2
-  %11 = getelementptr inbounds i8, ptr %.021, i64 2
-  %12 = getelementptr inbounds i8, ptr %.01419, i64 2
-  %13 = getelementptr inbounds i8, ptr %.01320, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %.021, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %.01419, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %.01320, i64 2
   %14 = add nsw i32 %.01518, -1
   %15 = icmp samesign ugt i32 %.01518, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !246
@@ -6685,9 +6685,9 @@ define internal void @ompi_op_base_3buff_min_fortran_integer4(ptr noalias nocapt
   %10 = load i32, ptr %.01320, align 4
   %. = tail call i32 @llvm.smin.i32(i32 %9, i32 %10)
   store i32 %., ptr %.021, align 4
-  %11 = getelementptr inbounds i8, ptr %.021, i64 4
-  %12 = getelementptr inbounds i8, ptr %.01419, i64 4
-  %13 = getelementptr inbounds i8, ptr %.01320, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.021, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.01419, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %.01320, i64 4
   %14 = add nsw i32 %.01518, -1
   %15 = icmp samesign ugt i32 %.01518, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !247
@@ -6711,9 +6711,9 @@ define internal void @ompi_op_base_3buff_min_fortran_integer8(ptr noalias nocapt
   %10 = load i64, ptr %.01320, align 8
   %. = tail call i64 @llvm.smin.i64(i64 %9, i64 %10)
   store i64 %., ptr %.021, align 8
-  %11 = getelementptr inbounds i8, ptr %.021, i64 8
-  %12 = getelementptr inbounds i8, ptr %.01419, i64 8
-  %13 = getelementptr inbounds i8, ptr %.01320, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.021, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.01419, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.01320, i64 8
   %14 = add nsw i32 %.01518, -1
   %15 = icmp samesign ugt i32 %.01518, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !248
@@ -6738,9 +6738,9 @@ define internal void @ompi_op_base_3buff_min_short_float(ptr noalias nocapture n
   %11 = fcmp olt half %9, %10
   %. = select i1 %11, half %9, half %10
   store half %., ptr %.021, align 2
-  %12 = getelementptr inbounds i8, ptr %.021, i64 2
-  %13 = getelementptr inbounds i8, ptr %.01419, i64 2
-  %14 = getelementptr inbounds i8, ptr %.01320, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %.021, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %.01419, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %.01320, i64 2
   %15 = add nsw i32 %.01518, -1
   %16 = icmp samesign ugt i32 %.01518, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !249
@@ -6765,9 +6765,9 @@ define internal void @ompi_op_base_3buff_min_float(ptr noalias nocapture noundef
   %11 = fcmp olt float %9, %10
   %. = select i1 %11, float %9, float %10
   store float %., ptr %.021, align 4
-  %12 = getelementptr inbounds i8, ptr %.021, i64 4
-  %13 = getelementptr inbounds i8, ptr %.01419, i64 4
-  %14 = getelementptr inbounds i8, ptr %.01320, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.021, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %.01419, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.01320, i64 4
   %15 = add nsw i32 %.01518, -1
   %16 = icmp samesign ugt i32 %.01518, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !250
@@ -6792,9 +6792,9 @@ define internal void @ompi_op_base_3buff_min_double(ptr noalias nocapture nounde
   %11 = fcmp olt double %9, %10
   %. = select i1 %11, double %9, double %10
   store double %., ptr %.021, align 8
-  %12 = getelementptr inbounds i8, ptr %.021, i64 8
-  %13 = getelementptr inbounds i8, ptr %.01419, i64 8
-  %14 = getelementptr inbounds i8, ptr %.01320, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.021, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.01419, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.01320, i64 8
   %15 = add nsw i32 %.01518, -1
   %16 = icmp samesign ugt i32 %.01518, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !251
@@ -6819,9 +6819,9 @@ define internal void @ompi_op_base_3buff_min_fortran_real(ptr noalias nocapture 
   %11 = fcmp olt float %9, %10
   %. = select i1 %11, float %9, float %10
   store float %., ptr %.021, align 4
-  %12 = getelementptr inbounds i8, ptr %.021, i64 4
-  %13 = getelementptr inbounds i8, ptr %.01419, i64 4
-  %14 = getelementptr inbounds i8, ptr %.01320, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.021, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %.01419, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.01320, i64 4
   %15 = add nsw i32 %.01518, -1
   %16 = icmp samesign ugt i32 %.01518, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !252
@@ -6846,9 +6846,9 @@ define internal void @ompi_op_base_3buff_min_fortran_real4(ptr noalias nocapture
   %11 = fcmp olt float %9, %10
   %. = select i1 %11, float %9, float %10
   store float %., ptr %.021, align 4
-  %12 = getelementptr inbounds i8, ptr %.021, i64 4
-  %13 = getelementptr inbounds i8, ptr %.01419, i64 4
-  %14 = getelementptr inbounds i8, ptr %.01320, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.021, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %.01419, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.01320, i64 4
   %15 = add nsw i32 %.01518, -1
   %16 = icmp samesign ugt i32 %.01518, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !253
@@ -6873,9 +6873,9 @@ define internal void @ompi_op_base_3buff_min_fortran_real8(ptr noalias nocapture
   %11 = fcmp olt double %9, %10
   %. = select i1 %11, double %9, double %10
   store double %., ptr %.021, align 8
-  %12 = getelementptr inbounds i8, ptr %.021, i64 8
-  %13 = getelementptr inbounds i8, ptr %.01419, i64 8
-  %14 = getelementptr inbounds i8, ptr %.01320, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.021, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.01419, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.01320, i64 8
   %15 = add nsw i32 %.01518, -1
   %16 = icmp samesign ugt i32 %.01518, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !254
@@ -6900,9 +6900,9 @@ define internal void @ompi_op_base_3buff_min_fortran_real16(ptr noalias nocaptur
   %11 = fcmp olt x86_fp80 %9, %10
   %. = select i1 %11, x86_fp80 %9, x86_fp80 %10
   store x86_fp80 %., ptr %.021, align 16
-  %12 = getelementptr inbounds i8, ptr %.021, i64 16
-  %13 = getelementptr inbounds i8, ptr %.01419, i64 16
-  %14 = getelementptr inbounds i8, ptr %.01320, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %.021, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %.01419, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %.01320, i64 16
   %15 = add nsw i32 %.01518, -1
   %16 = icmp samesign ugt i32 %.01518, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !255
@@ -6927,9 +6927,9 @@ define internal void @ompi_op_base_3buff_min_fortran_double_precision(ptr noalia
   %11 = fcmp olt double %9, %10
   %. = select i1 %11, double %9, double %10
   store double %., ptr %.021, align 8
-  %12 = getelementptr inbounds i8, ptr %.021, i64 8
-  %13 = getelementptr inbounds i8, ptr %.01419, i64 8
-  %14 = getelementptr inbounds i8, ptr %.01320, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.021, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.01419, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.01320, i64 8
   %15 = add nsw i32 %.01518, -1
   %16 = icmp samesign ugt i32 %.01518, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !256
@@ -6954,9 +6954,9 @@ define internal void @ompi_op_base_3buff_min_long_double(ptr noalias nocapture n
   %11 = fcmp olt x86_fp80 %9, %10
   %. = select i1 %11, x86_fp80 %9, x86_fp80 %10
   store x86_fp80 %., ptr %.021, align 16
-  %12 = getelementptr inbounds i8, ptr %.021, i64 16
-  %13 = getelementptr inbounds i8, ptr %.01419, i64 16
-  %14 = getelementptr inbounds i8, ptr %.01320, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %.021, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %.01419, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %.01320, i64 16
   %15 = add nsw i32 %.01518, -1
   %16 = icmp samesign ugt i32 %.01518, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !257
@@ -6980,9 +6980,9 @@ define internal void @ompi_op_base_3buff_min_long(ptr noalias nocapture noundef 
   %10 = load i64, ptr %.01320, align 8
   %. = tail call i64 @llvm.smin.i64(i64 %9, i64 %10)
   store i64 %., ptr %.021, align 8
-  %11 = getelementptr inbounds i8, ptr %.021, i64 8
-  %12 = getelementptr inbounds i8, ptr %.01419, i64 8
-  %13 = getelementptr inbounds i8, ptr %.01320, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.021, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.01419, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.01320, i64 8
   %14 = add nsw i32 %.01518, -1
   %15 = icmp samesign ugt i32 %.01518, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !258
@@ -7006,9 +7006,9 @@ define internal void @ompi_op_base_3buff_min_unsigned_long(ptr noalias nocapture
   %10 = load i64, ptr %.01320, align 8
   %. = tail call i64 @llvm.umin.i64(i64 %9, i64 %10)
   store i64 %., ptr %.021, align 8
-  %11 = getelementptr inbounds i8, ptr %.021, i64 8
-  %12 = getelementptr inbounds i8, ptr %.01419, i64 8
-  %13 = getelementptr inbounds i8, ptr %.01320, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.021, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.01419, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.01320, i64 8
   %14 = add nsw i32 %.01518, -1
   %15 = icmp samesign ugt i32 %.01518, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !259
@@ -7028,12 +7028,12 @@ define internal void @ompi_op_base_3buff_sum_int8_t(ptr noalias nocapture nounde
   %.0813 = phi ptr [ %11, %.lr.ph ], [ %1, %6 ]
   %.0912 = phi ptr [ %9, %.lr.ph ], [ %0, %6 ]
   %.01011 = phi i32 [ %15, %.lr.ph ], [ %7, %6 ]
-  %9 = getelementptr inbounds i8, ptr %.0912, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %.0912, i64 1
   %10 = load i8, ptr %.0912, align 1
-  %11 = getelementptr inbounds i8, ptr %.0813, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.0813, i64 1
   %12 = load i8, ptr %.0813, align 1
   %13 = add i8 %12, %10
-  %14 = getelementptr inbounds i8, ptr %.014, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.014, i64 1
   store i8 %13, ptr %.014, align 1
   %15 = add nsw i32 %.01011, -1
   %16 = icmp samesign ugt i32 %.01011, 1
@@ -7054,12 +7054,12 @@ define internal void @ompi_op_base_3buff_sum_uint8_t(ptr noalias nocapture nound
   %.0813 = phi ptr [ %11, %.lr.ph ], [ %1, %6 ]
   %.0912 = phi ptr [ %9, %.lr.ph ], [ %0, %6 ]
   %.01011 = phi i32 [ %15, %.lr.ph ], [ %7, %6 ]
-  %9 = getelementptr inbounds i8, ptr %.0912, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %.0912, i64 1
   %10 = load i8, ptr %.0912, align 1
-  %11 = getelementptr inbounds i8, ptr %.0813, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.0813, i64 1
   %12 = load i8, ptr %.0813, align 1
   %13 = add i8 %12, %10
-  %14 = getelementptr inbounds i8, ptr %.014, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.014, i64 1
   store i8 %13, ptr %.014, align 1
   %15 = add nsw i32 %.01011, -1
   %16 = icmp samesign ugt i32 %.01011, 1
@@ -7080,12 +7080,12 @@ define internal void @ompi_op_base_3buff_sum_int16_t(ptr noalias nocapture nound
   %.0813 = phi ptr [ %11, %.lr.ph ], [ %1, %6 ]
   %.0912 = phi ptr [ %9, %.lr.ph ], [ %0, %6 ]
   %.01011 = phi i32 [ %15, %.lr.ph ], [ %7, %6 ]
-  %9 = getelementptr inbounds i8, ptr %.0912, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %.0912, i64 2
   %10 = load i16, ptr %.0912, align 2
-  %11 = getelementptr inbounds i8, ptr %.0813, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %.0813, i64 2
   %12 = load i16, ptr %.0813, align 2
   %13 = add i16 %12, %10
-  %14 = getelementptr inbounds i8, ptr %.014, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %.014, i64 2
   store i16 %13, ptr %.014, align 2
   %15 = add nsw i32 %.01011, -1
   %16 = icmp samesign ugt i32 %.01011, 1
@@ -7106,12 +7106,12 @@ define internal void @ompi_op_base_3buff_sum_uint16_t(ptr noalias nocapture noun
   %.0813 = phi ptr [ %11, %.lr.ph ], [ %1, %6 ]
   %.0912 = phi ptr [ %9, %.lr.ph ], [ %0, %6 ]
   %.01011 = phi i32 [ %15, %.lr.ph ], [ %7, %6 ]
-  %9 = getelementptr inbounds i8, ptr %.0912, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %.0912, i64 2
   %10 = load i16, ptr %.0912, align 2
-  %11 = getelementptr inbounds i8, ptr %.0813, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %.0813, i64 2
   %12 = load i16, ptr %.0813, align 2
   %13 = add i16 %12, %10
-  %14 = getelementptr inbounds i8, ptr %.014, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %.014, i64 2
   store i16 %13, ptr %.014, align 2
   %15 = add nsw i32 %.01011, -1
   %16 = icmp samesign ugt i32 %.01011, 1
@@ -7132,12 +7132,12 @@ define internal void @ompi_op_base_3buff_sum_int32_t(ptr noalias nocapture nound
   %.0813 = phi ptr [ %11, %.lr.ph ], [ %1, %6 ]
   %.0912 = phi ptr [ %9, %.lr.ph ], [ %0, %6 ]
   %.01011 = phi i32 [ %15, %.lr.ph ], [ %7, %6 ]
-  %9 = getelementptr inbounds i8, ptr %.0912, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %.0912, i64 4
   %10 = load i32, ptr %.0912, align 4
-  %11 = getelementptr inbounds i8, ptr %.0813, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.0813, i64 4
   %12 = load i32, ptr %.0813, align 4
   %13 = add nsw i32 %12, %10
-  %14 = getelementptr inbounds i8, ptr %.014, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.014, i64 4
   store i32 %13, ptr %.014, align 4
   %15 = add nsw i32 %.01011, -1
   %16 = icmp samesign ugt i32 %.01011, 1
@@ -7158,12 +7158,12 @@ define internal void @ompi_op_base_3buff_sum_uint32_t(ptr noalias nocapture noun
   %.0813 = phi ptr [ %11, %.lr.ph ], [ %1, %6 ]
   %.0912 = phi ptr [ %9, %.lr.ph ], [ %0, %6 ]
   %.01011 = phi i32 [ %15, %.lr.ph ], [ %7, %6 ]
-  %9 = getelementptr inbounds i8, ptr %.0912, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %.0912, i64 4
   %10 = load i32, ptr %.0912, align 4
-  %11 = getelementptr inbounds i8, ptr %.0813, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.0813, i64 4
   %12 = load i32, ptr %.0813, align 4
   %13 = add i32 %12, %10
-  %14 = getelementptr inbounds i8, ptr %.014, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.014, i64 4
   store i32 %13, ptr %.014, align 4
   %15 = add nsw i32 %.01011, -1
   %16 = icmp samesign ugt i32 %.01011, 1
@@ -7184,12 +7184,12 @@ define internal void @ompi_op_base_3buff_sum_int64_t(ptr noalias nocapture nound
   %.0813 = phi ptr [ %11, %.lr.ph ], [ %1, %6 ]
   %.0912 = phi ptr [ %9, %.lr.ph ], [ %0, %6 ]
   %.01011 = phi i32 [ %15, %.lr.ph ], [ %7, %6 ]
-  %9 = getelementptr inbounds i8, ptr %.0912, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.0912, i64 8
   %10 = load i64, ptr %.0912, align 8
-  %11 = getelementptr inbounds i8, ptr %.0813, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.0813, i64 8
   %12 = load i64, ptr %.0813, align 8
   %13 = add nsw i64 %12, %10
-  %14 = getelementptr inbounds i8, ptr %.014, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.014, i64 8
   store i64 %13, ptr %.014, align 8
   %15 = add nsw i32 %.01011, -1
   %16 = icmp samesign ugt i32 %.01011, 1
@@ -7210,12 +7210,12 @@ define internal void @ompi_op_base_3buff_sum_uint64_t(ptr noalias nocapture noun
   %.0813 = phi ptr [ %11, %.lr.ph ], [ %1, %6 ]
   %.0912 = phi ptr [ %9, %.lr.ph ], [ %0, %6 ]
   %.01011 = phi i32 [ %15, %.lr.ph ], [ %7, %6 ]
-  %9 = getelementptr inbounds i8, ptr %.0912, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.0912, i64 8
   %10 = load i64, ptr %.0912, align 8
-  %11 = getelementptr inbounds i8, ptr %.0813, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.0813, i64 8
   %12 = load i64, ptr %.0813, align 8
   %13 = add i64 %12, %10
-  %14 = getelementptr inbounds i8, ptr %.014, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.014, i64 8
   store i64 %13, ptr %.014, align 8
   %15 = add nsw i32 %.01011, -1
   %16 = icmp samesign ugt i32 %.01011, 1
@@ -7236,12 +7236,12 @@ define internal void @ompi_op_base_3buff_sum_fortran_integer(ptr noalias nocaptu
   %.0813 = phi ptr [ %11, %.lr.ph ], [ %1, %6 ]
   %.0912 = phi ptr [ %9, %.lr.ph ], [ %0, %6 ]
   %.01011 = phi i32 [ %15, %.lr.ph ], [ %7, %6 ]
-  %9 = getelementptr inbounds i8, ptr %.0912, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %.0912, i64 4
   %10 = load i32, ptr %.0912, align 4
-  %11 = getelementptr inbounds i8, ptr %.0813, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.0813, i64 4
   %12 = load i32, ptr %.0813, align 4
   %13 = add nsw i32 %12, %10
-  %14 = getelementptr inbounds i8, ptr %.014, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.014, i64 4
   store i32 %13, ptr %.014, align 4
   %15 = add nsw i32 %.01011, -1
   %16 = icmp samesign ugt i32 %.01011, 1
@@ -7262,12 +7262,12 @@ define internal void @ompi_op_base_3buff_sum_fortran_integer1(ptr noalias nocapt
   %.0813 = phi ptr [ %11, %.lr.ph ], [ %1, %6 ]
   %.0912 = phi ptr [ %9, %.lr.ph ], [ %0, %6 ]
   %.01011 = phi i32 [ %15, %.lr.ph ], [ %7, %6 ]
-  %9 = getelementptr inbounds i8, ptr %.0912, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %.0912, i64 1
   %10 = load i8, ptr %.0912, align 1
-  %11 = getelementptr inbounds i8, ptr %.0813, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.0813, i64 1
   %12 = load i8, ptr %.0813, align 1
   %13 = add i8 %12, %10
-  %14 = getelementptr inbounds i8, ptr %.014, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.014, i64 1
   store i8 %13, ptr %.014, align 1
   %15 = add nsw i32 %.01011, -1
   %16 = icmp samesign ugt i32 %.01011, 1
@@ -7288,12 +7288,12 @@ define internal void @ompi_op_base_3buff_sum_fortran_integer2(ptr noalias nocapt
   %.0813 = phi ptr [ %11, %.lr.ph ], [ %1, %6 ]
   %.0912 = phi ptr [ %9, %.lr.ph ], [ %0, %6 ]
   %.01011 = phi i32 [ %15, %.lr.ph ], [ %7, %6 ]
-  %9 = getelementptr inbounds i8, ptr %.0912, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %.0912, i64 2
   %10 = load i16, ptr %.0912, align 2
-  %11 = getelementptr inbounds i8, ptr %.0813, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %.0813, i64 2
   %12 = load i16, ptr %.0813, align 2
   %13 = add i16 %12, %10
-  %14 = getelementptr inbounds i8, ptr %.014, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %.014, i64 2
   store i16 %13, ptr %.014, align 2
   %15 = add nsw i32 %.01011, -1
   %16 = icmp samesign ugt i32 %.01011, 1
@@ -7314,12 +7314,12 @@ define internal void @ompi_op_base_3buff_sum_fortran_integer4(ptr noalias nocapt
   %.0813 = phi ptr [ %11, %.lr.ph ], [ %1, %6 ]
   %.0912 = phi ptr [ %9, %.lr.ph ], [ %0, %6 ]
   %.01011 = phi i32 [ %15, %.lr.ph ], [ %7, %6 ]
-  %9 = getelementptr inbounds i8, ptr %.0912, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %.0912, i64 4
   %10 = load i32, ptr %.0912, align 4
-  %11 = getelementptr inbounds i8, ptr %.0813, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.0813, i64 4
   %12 = load i32, ptr %.0813, align 4
   %13 = add nsw i32 %12, %10
-  %14 = getelementptr inbounds i8, ptr %.014, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.014, i64 4
   store i32 %13, ptr %.014, align 4
   %15 = add nsw i32 %.01011, -1
   %16 = icmp samesign ugt i32 %.01011, 1
@@ -7340,12 +7340,12 @@ define internal void @ompi_op_base_3buff_sum_fortran_integer8(ptr noalias nocapt
   %.0813 = phi ptr [ %11, %.lr.ph ], [ %1, %6 ]
   %.0912 = phi ptr [ %9, %.lr.ph ], [ %0, %6 ]
   %.01011 = phi i32 [ %15, %.lr.ph ], [ %7, %6 ]
-  %9 = getelementptr inbounds i8, ptr %.0912, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.0912, i64 8
   %10 = load i64, ptr %.0912, align 8
-  %11 = getelementptr inbounds i8, ptr %.0813, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.0813, i64 8
   %12 = load i64, ptr %.0813, align 8
   %13 = add nsw i64 %12, %10
-  %14 = getelementptr inbounds i8, ptr %.014, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.014, i64 8
   store i64 %13, ptr %.014, align 8
   %15 = add nsw i32 %.01011, -1
   %16 = icmp samesign ugt i32 %.01011, 1
@@ -7366,12 +7366,12 @@ define internal void @ompi_op_base_3buff_sum_short_float(ptr noalias nocapture n
   %.0813 = phi ptr [ %11, %.lr.ph ], [ %1, %6 ]
   %.0912 = phi ptr [ %9, %.lr.ph ], [ %0, %6 ]
   %.01011 = phi i32 [ %15, %.lr.ph ], [ %7, %6 ]
-  %9 = getelementptr inbounds i8, ptr %.0912, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %.0912, i64 2
   %10 = load half, ptr %.0912, align 2
-  %11 = getelementptr inbounds i8, ptr %.0813, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %.0813, i64 2
   %12 = load half, ptr %.0813, align 2
   %13 = fadd half %10, %12
-  %14 = getelementptr inbounds i8, ptr %.014, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %.014, i64 2
   store half %13, ptr %.014, align 2
   %15 = add nsw i32 %.01011, -1
   %16 = icmp samesign ugt i32 %.01011, 1
@@ -7392,12 +7392,12 @@ define internal void @ompi_op_base_3buff_sum_float(ptr noalias nocapture noundef
   %.0813 = phi ptr [ %11, %.lr.ph ], [ %1, %6 ]
   %.0912 = phi ptr [ %9, %.lr.ph ], [ %0, %6 ]
   %.01011 = phi i32 [ %15, %.lr.ph ], [ %7, %6 ]
-  %9 = getelementptr inbounds i8, ptr %.0912, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %.0912, i64 4
   %10 = load float, ptr %.0912, align 4
-  %11 = getelementptr inbounds i8, ptr %.0813, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.0813, i64 4
   %12 = load float, ptr %.0813, align 4
   %13 = fadd float %10, %12
-  %14 = getelementptr inbounds i8, ptr %.014, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.014, i64 4
   store float %13, ptr %.014, align 4
   %15 = add nsw i32 %.01011, -1
   %16 = icmp samesign ugt i32 %.01011, 1
@@ -7418,12 +7418,12 @@ define internal void @ompi_op_base_3buff_sum_double(ptr noalias nocapture nounde
   %.0813 = phi ptr [ %11, %.lr.ph ], [ %1, %6 ]
   %.0912 = phi ptr [ %9, %.lr.ph ], [ %0, %6 ]
   %.01011 = phi i32 [ %15, %.lr.ph ], [ %7, %6 ]
-  %9 = getelementptr inbounds i8, ptr %.0912, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.0912, i64 8
   %10 = load double, ptr %.0912, align 8
-  %11 = getelementptr inbounds i8, ptr %.0813, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.0813, i64 8
   %12 = load double, ptr %.0813, align 8
   %13 = fadd double %10, %12
-  %14 = getelementptr inbounds i8, ptr %.014, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.014, i64 8
   store double %13, ptr %.014, align 8
   %15 = add nsw i32 %.01011, -1
   %16 = icmp samesign ugt i32 %.01011, 1
@@ -7444,12 +7444,12 @@ define internal void @ompi_op_base_3buff_sum_fortran_real(ptr noalias nocapture 
   %.0813 = phi ptr [ %11, %.lr.ph ], [ %1, %6 ]
   %.0912 = phi ptr [ %9, %.lr.ph ], [ %0, %6 ]
   %.01011 = phi i32 [ %15, %.lr.ph ], [ %7, %6 ]
-  %9 = getelementptr inbounds i8, ptr %.0912, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %.0912, i64 4
   %10 = load float, ptr %.0912, align 4
-  %11 = getelementptr inbounds i8, ptr %.0813, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.0813, i64 4
   %12 = load float, ptr %.0813, align 4
   %13 = fadd float %10, %12
-  %14 = getelementptr inbounds i8, ptr %.014, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.014, i64 4
   store float %13, ptr %.014, align 4
   %15 = add nsw i32 %.01011, -1
   %16 = icmp samesign ugt i32 %.01011, 1
@@ -7470,12 +7470,12 @@ define internal void @ompi_op_base_3buff_sum_fortran_real4(ptr noalias nocapture
   %.0813 = phi ptr [ %11, %.lr.ph ], [ %1, %6 ]
   %.0912 = phi ptr [ %9, %.lr.ph ], [ %0, %6 ]
   %.01011 = phi i32 [ %15, %.lr.ph ], [ %7, %6 ]
-  %9 = getelementptr inbounds i8, ptr %.0912, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %.0912, i64 4
   %10 = load float, ptr %.0912, align 4
-  %11 = getelementptr inbounds i8, ptr %.0813, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.0813, i64 4
   %12 = load float, ptr %.0813, align 4
   %13 = fadd float %10, %12
-  %14 = getelementptr inbounds i8, ptr %.014, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.014, i64 4
   store float %13, ptr %.014, align 4
   %15 = add nsw i32 %.01011, -1
   %16 = icmp samesign ugt i32 %.01011, 1
@@ -7496,12 +7496,12 @@ define internal void @ompi_op_base_3buff_sum_fortran_real8(ptr noalias nocapture
   %.0813 = phi ptr [ %11, %.lr.ph ], [ %1, %6 ]
   %.0912 = phi ptr [ %9, %.lr.ph ], [ %0, %6 ]
   %.01011 = phi i32 [ %15, %.lr.ph ], [ %7, %6 ]
-  %9 = getelementptr inbounds i8, ptr %.0912, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.0912, i64 8
   %10 = load double, ptr %.0912, align 8
-  %11 = getelementptr inbounds i8, ptr %.0813, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.0813, i64 8
   %12 = load double, ptr %.0813, align 8
   %13 = fadd double %10, %12
-  %14 = getelementptr inbounds i8, ptr %.014, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.014, i64 8
   store double %13, ptr %.014, align 8
   %15 = add nsw i32 %.01011, -1
   %16 = icmp samesign ugt i32 %.01011, 1
@@ -7522,12 +7522,12 @@ define internal void @ompi_op_base_3buff_sum_fortran_real16(ptr noalias nocaptur
   %.0813 = phi ptr [ %11, %.lr.ph ], [ %1, %6 ]
   %.0912 = phi ptr [ %9, %.lr.ph ], [ %0, %6 ]
   %.01011 = phi i32 [ %15, %.lr.ph ], [ %7, %6 ]
-  %9 = getelementptr inbounds i8, ptr %.0912, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %.0912, i64 16
   %10 = load x86_fp80, ptr %.0912, align 16
-  %11 = getelementptr inbounds i8, ptr %.0813, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %.0813, i64 16
   %12 = load x86_fp80, ptr %.0813, align 16
   %13 = fadd x86_fp80 %10, %12
-  %14 = getelementptr inbounds i8, ptr %.014, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %.014, i64 16
   store x86_fp80 %13, ptr %.014, align 16
   %15 = add nsw i32 %.01011, -1
   %16 = icmp samesign ugt i32 %.01011, 1
@@ -7548,12 +7548,12 @@ define internal void @ompi_op_base_3buff_sum_fortran_double_precision(ptr noalia
   %.0813 = phi ptr [ %11, %.lr.ph ], [ %1, %6 ]
   %.0912 = phi ptr [ %9, %.lr.ph ], [ %0, %6 ]
   %.01011 = phi i32 [ %15, %.lr.ph ], [ %7, %6 ]
-  %9 = getelementptr inbounds i8, ptr %.0912, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.0912, i64 8
   %10 = load double, ptr %.0912, align 8
-  %11 = getelementptr inbounds i8, ptr %.0813, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.0813, i64 8
   %12 = load double, ptr %.0813, align 8
   %13 = fadd double %10, %12
-  %14 = getelementptr inbounds i8, ptr %.014, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.014, i64 8
   store double %13, ptr %.014, align 8
   %15 = add nsw i32 %.01011, -1
   %16 = icmp samesign ugt i32 %.01011, 1
@@ -7574,12 +7574,12 @@ define internal void @ompi_op_base_3buff_sum_long_double(ptr noalias nocapture n
   %.0813 = phi ptr [ %11, %.lr.ph ], [ %1, %6 ]
   %.0912 = phi ptr [ %9, %.lr.ph ], [ %0, %6 ]
   %.01011 = phi i32 [ %15, %.lr.ph ], [ %7, %6 ]
-  %9 = getelementptr inbounds i8, ptr %.0912, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %.0912, i64 16
   %10 = load x86_fp80, ptr %.0912, align 16
-  %11 = getelementptr inbounds i8, ptr %.0813, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %.0813, i64 16
   %12 = load x86_fp80, ptr %.0813, align 16
   %13 = fadd x86_fp80 %10, %12
-  %14 = getelementptr inbounds i8, ptr %.014, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %.014, i64 16
   store x86_fp80 %13, ptr %.014, align 16
   %15 = add nsw i32 %.01011, -1
   %16 = icmp samesign ugt i32 %.01011, 1
@@ -7604,17 +7604,17 @@ define internal void @ompi_op_base_3buff_sum_c_short_float_complex(ptr noalias n
   %10 = load half, ptr %.01419, align 2
   %11 = fadd half %9, %10
   store half %11, ptr %.020, align 2
-  %12 = getelementptr inbounds i8, ptr %.01518, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %.01518, i64 2
   %13 = load half, ptr %12, align 2
-  %14 = getelementptr inbounds i8, ptr %.01419, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %.01419, i64 2
   %15 = load half, ptr %14, align 2
   %16 = fadd half %13, %15
-  %17 = getelementptr inbounds i8, ptr %.020, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %.020, i64 2
   store half %16, ptr %17, align 2
   %18 = add nsw i32 %.01617, -1
-  %19 = getelementptr inbounds i8, ptr %.01518, i64 4
-  %20 = getelementptr inbounds i8, ptr %.01419, i64 4
-  %21 = getelementptr inbounds i8, ptr %.020, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %.01518, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %.01419, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %.020, i64 4
   %22 = icmp samesign ugt i32 %.01617, 1
   br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !282
 
@@ -7633,18 +7633,18 @@ define internal void @ompi_op_base_3buff_sum_c_float_complex(ptr noalias nocaptu
   %.0813 = phi ptr [ %13, %.lr.ph ], [ %1, %6 ]
   %.0912 = phi ptr [ %9, %.lr.ph ], [ %0, %6 ]
   %.01011 = phi i32 [ %21, %.lr.ph ], [ %7, %6 ]
-  %9 = getelementptr inbounds i8, ptr %.0912, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.0912, i64 8
   %10 = load float, ptr %.0912, align 4
-  %11 = getelementptr inbounds i8, ptr %.0912, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.0912, i64 4
   %12 = load float, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %.0813, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.0813, i64 8
   %14 = load float, ptr %.0813, align 4
-  %15 = getelementptr inbounds i8, ptr %.0813, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %.0813, i64 4
   %16 = load float, ptr %15, align 4
   %17 = fadd float %10, %14
   %18 = fadd float %12, %16
-  %19 = getelementptr inbounds i8, ptr %.014, i64 8
-  %20 = getelementptr inbounds i8, ptr %.014, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %.014, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.014, i64 4
   store float %17, ptr %.014, align 4
   store float %18, ptr %20, align 4
   %21 = add nsw i32 %.01011, -1
@@ -7666,18 +7666,18 @@ define internal void @ompi_op_base_3buff_sum_c_double_complex(ptr noalias nocapt
   %.0813 = phi ptr [ %13, %.lr.ph ], [ %1, %6 ]
   %.0912 = phi ptr [ %9, %.lr.ph ], [ %0, %6 ]
   %.01011 = phi i32 [ %21, %.lr.ph ], [ %7, %6 ]
-  %9 = getelementptr inbounds i8, ptr %.0912, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %.0912, i64 16
   %10 = load double, ptr %.0912, align 8
-  %11 = getelementptr inbounds i8, ptr %.0912, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.0912, i64 8
   %12 = load double, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %.0813, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %.0813, i64 16
   %14 = load double, ptr %.0813, align 8
-  %15 = getelementptr inbounds i8, ptr %.0813, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.0813, i64 8
   %16 = load double, ptr %15, align 8
   %17 = fadd double %10, %14
   %18 = fadd double %12, %16
-  %19 = getelementptr inbounds i8, ptr %.014, i64 16
-  %20 = getelementptr inbounds i8, ptr %.014, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %.014, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %.014, i64 8
   store double %17, ptr %.014, align 8
   store double %18, ptr %20, align 8
   %21 = add nsw i32 %.01011, -1
@@ -7699,18 +7699,18 @@ define internal void @ompi_op_base_3buff_sum_c_long_double_complex(ptr noalias n
   %.0813 = phi ptr [ %13, %.lr.ph ], [ %1, %6 ]
   %.0912 = phi ptr [ %9, %.lr.ph ], [ %0, %6 ]
   %.01011 = phi i32 [ %21, %.lr.ph ], [ %7, %6 ]
-  %9 = getelementptr inbounds i8, ptr %.0912, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %.0912, i64 32
   %10 = load x86_fp80, ptr %.0912, align 16
-  %11 = getelementptr inbounds i8, ptr %.0912, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %.0912, i64 16
   %12 = load x86_fp80, ptr %11, align 16
-  %13 = getelementptr inbounds i8, ptr %.0813, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %.0813, i64 32
   %14 = load x86_fp80, ptr %.0813, align 16
-  %15 = getelementptr inbounds i8, ptr %.0813, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %.0813, i64 16
   %16 = load x86_fp80, ptr %15, align 16
   %17 = fadd x86_fp80 %10, %14
   %18 = fadd x86_fp80 %12, %16
-  %19 = getelementptr inbounds i8, ptr %.014, i64 32
-  %20 = getelementptr inbounds i8, ptr %.014, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %.014, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %.014, i64 16
   store x86_fp80 %17, ptr %.014, align 16
   store x86_fp80 %18, ptr %20, align 16
   %21 = add nsw i32 %.01011, -1
@@ -7732,12 +7732,12 @@ define internal void @ompi_op_base_3buff_sum_long(ptr noalias nocapture noundef 
   %.0813 = phi ptr [ %11, %.lr.ph ], [ %1, %6 ]
   %.0912 = phi ptr [ %9, %.lr.ph ], [ %0, %6 ]
   %.01011 = phi i32 [ %15, %.lr.ph ], [ %7, %6 ]
-  %9 = getelementptr inbounds i8, ptr %.0912, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.0912, i64 8
   %10 = load i64, ptr %.0912, align 8
-  %11 = getelementptr inbounds i8, ptr %.0813, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.0813, i64 8
   %12 = load i64, ptr %.0813, align 8
   %13 = add nsw i64 %12, %10
-  %14 = getelementptr inbounds i8, ptr %.014, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.014, i64 8
   store i64 %13, ptr %.014, align 8
   %15 = add nsw i32 %.01011, -1
   %16 = icmp samesign ugt i32 %.01011, 1
@@ -7758,12 +7758,12 @@ define internal void @ompi_op_base_3buff_sum_unsigned_long(ptr noalias nocapture
   %.0813 = phi ptr [ %11, %.lr.ph ], [ %1, %6 ]
   %.0912 = phi ptr [ %9, %.lr.ph ], [ %0, %6 ]
   %.01011 = phi i32 [ %15, %.lr.ph ], [ %7, %6 ]
-  %9 = getelementptr inbounds i8, ptr %.0912, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.0912, i64 8
   %10 = load i64, ptr %.0912, align 8
-  %11 = getelementptr inbounds i8, ptr %.0813, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.0813, i64 8
   %12 = load i64, ptr %.0813, align 8
   %13 = add i64 %12, %10
-  %14 = getelementptr inbounds i8, ptr %.014, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.014, i64 8
   store i64 %13, ptr %.014, align 8
   %15 = add nsw i32 %.01011, -1
   %16 = icmp samesign ugt i32 %.01011, 1
@@ -7784,12 +7784,12 @@ define internal void @ompi_op_base_3buff_prod_int8_t(ptr noalias nocapture nound
   %.0813 = phi ptr [ %11, %.lr.ph ], [ %1, %6 ]
   %.0912 = phi ptr [ %9, %.lr.ph ], [ %0, %6 ]
   %.01011 = phi i32 [ %15, %.lr.ph ], [ %7, %6 ]
-  %9 = getelementptr inbounds i8, ptr %.0912, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %.0912, i64 1
   %10 = load i8, ptr %.0912, align 1
-  %11 = getelementptr inbounds i8, ptr %.0813, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.0813, i64 1
   %12 = load i8, ptr %.0813, align 1
   %13 = mul i8 %12, %10
-  %14 = getelementptr inbounds i8, ptr %.014, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.014, i64 1
   store i8 %13, ptr %.014, align 1
   %15 = add nsw i32 %.01011, -1
   %16 = icmp samesign ugt i32 %.01011, 1
@@ -7810,12 +7810,12 @@ define internal void @ompi_op_base_3buff_prod_uint8_t(ptr noalias nocapture noun
   %.0813 = phi ptr [ %11, %.lr.ph ], [ %1, %6 ]
   %.0912 = phi ptr [ %9, %.lr.ph ], [ %0, %6 ]
   %.01011 = phi i32 [ %15, %.lr.ph ], [ %7, %6 ]
-  %9 = getelementptr inbounds i8, ptr %.0912, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %.0912, i64 1
   %10 = load i8, ptr %.0912, align 1
-  %11 = getelementptr inbounds i8, ptr %.0813, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.0813, i64 1
   %12 = load i8, ptr %.0813, align 1
   %13 = mul i8 %12, %10
-  %14 = getelementptr inbounds i8, ptr %.014, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.014, i64 1
   store i8 %13, ptr %.014, align 1
   %15 = add nsw i32 %.01011, -1
   %16 = icmp samesign ugt i32 %.01011, 1
@@ -7836,12 +7836,12 @@ define internal void @ompi_op_base_3buff_prod_int16_t(ptr noalias nocapture noun
   %.0813 = phi ptr [ %11, %.lr.ph ], [ %1, %6 ]
   %.0912 = phi ptr [ %9, %.lr.ph ], [ %0, %6 ]
   %.01011 = phi i32 [ %15, %.lr.ph ], [ %7, %6 ]
-  %9 = getelementptr inbounds i8, ptr %.0912, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %.0912, i64 2
   %10 = load i16, ptr %.0912, align 2
-  %11 = getelementptr inbounds i8, ptr %.0813, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %.0813, i64 2
   %12 = load i16, ptr %.0813, align 2
   %13 = mul i16 %12, %10
-  %14 = getelementptr inbounds i8, ptr %.014, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %.014, i64 2
   store i16 %13, ptr %.014, align 2
   %15 = add nsw i32 %.01011, -1
   %16 = icmp samesign ugt i32 %.01011, 1
@@ -7862,12 +7862,12 @@ define internal void @ompi_op_base_3buff_prod_uint16_t(ptr noalias nocapture nou
   %.0813 = phi ptr [ %11, %.lr.ph ], [ %1, %6 ]
   %.0912 = phi ptr [ %9, %.lr.ph ], [ %0, %6 ]
   %.01011 = phi i32 [ %15, %.lr.ph ], [ %7, %6 ]
-  %9 = getelementptr inbounds i8, ptr %.0912, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %.0912, i64 2
   %10 = load i16, ptr %.0912, align 2
-  %11 = getelementptr inbounds i8, ptr %.0813, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %.0813, i64 2
   %12 = load i16, ptr %.0813, align 2
   %13 = mul i16 %12, %10
-  %14 = getelementptr inbounds i8, ptr %.014, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %.014, i64 2
   store i16 %13, ptr %.014, align 2
   %15 = add nsw i32 %.01011, -1
   %16 = icmp samesign ugt i32 %.01011, 1
@@ -7888,12 +7888,12 @@ define internal void @ompi_op_base_3buff_prod_int32_t(ptr noalias nocapture noun
   %.0813 = phi ptr [ %11, %.lr.ph ], [ %1, %6 ]
   %.0912 = phi ptr [ %9, %.lr.ph ], [ %0, %6 ]
   %.01011 = phi i32 [ %15, %.lr.ph ], [ %7, %6 ]
-  %9 = getelementptr inbounds i8, ptr %.0912, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %.0912, i64 4
   %10 = load i32, ptr %.0912, align 4
-  %11 = getelementptr inbounds i8, ptr %.0813, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.0813, i64 4
   %12 = load i32, ptr %.0813, align 4
   %13 = mul nsw i32 %12, %10
-  %14 = getelementptr inbounds i8, ptr %.014, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.014, i64 4
   store i32 %13, ptr %.014, align 4
   %15 = add nsw i32 %.01011, -1
   %16 = icmp samesign ugt i32 %.01011, 1
@@ -7914,12 +7914,12 @@ define internal void @ompi_op_base_3buff_prod_uint32_t(ptr noalias nocapture nou
   %.0813 = phi ptr [ %11, %.lr.ph ], [ %1, %6 ]
   %.0912 = phi ptr [ %9, %.lr.ph ], [ %0, %6 ]
   %.01011 = phi i32 [ %15, %.lr.ph ], [ %7, %6 ]
-  %9 = getelementptr inbounds i8, ptr %.0912, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %.0912, i64 4
   %10 = load i32, ptr %.0912, align 4
-  %11 = getelementptr inbounds i8, ptr %.0813, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.0813, i64 4
   %12 = load i32, ptr %.0813, align 4
   %13 = mul i32 %12, %10
-  %14 = getelementptr inbounds i8, ptr %.014, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.014, i64 4
   store i32 %13, ptr %.014, align 4
   %15 = add nsw i32 %.01011, -1
   %16 = icmp samesign ugt i32 %.01011, 1
@@ -7940,12 +7940,12 @@ define internal void @ompi_op_base_3buff_prod_int64_t(ptr noalias nocapture noun
   %.0813 = phi ptr [ %11, %.lr.ph ], [ %1, %6 ]
   %.0912 = phi ptr [ %9, %.lr.ph ], [ %0, %6 ]
   %.01011 = phi i32 [ %15, %.lr.ph ], [ %7, %6 ]
-  %9 = getelementptr inbounds i8, ptr %.0912, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.0912, i64 8
   %10 = load i64, ptr %.0912, align 8
-  %11 = getelementptr inbounds i8, ptr %.0813, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.0813, i64 8
   %12 = load i64, ptr %.0813, align 8
   %13 = mul nsw i64 %12, %10
-  %14 = getelementptr inbounds i8, ptr %.014, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.014, i64 8
   store i64 %13, ptr %.014, align 8
   %15 = add nsw i32 %.01011, -1
   %16 = icmp samesign ugt i32 %.01011, 1
@@ -7966,12 +7966,12 @@ define internal void @ompi_op_base_3buff_prod_uint64_t(ptr noalias nocapture nou
   %.0813 = phi ptr [ %11, %.lr.ph ], [ %1, %6 ]
   %.0912 = phi ptr [ %9, %.lr.ph ], [ %0, %6 ]
   %.01011 = phi i32 [ %15, %.lr.ph ], [ %7, %6 ]
-  %9 = getelementptr inbounds i8, ptr %.0912, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.0912, i64 8
   %10 = load i64, ptr %.0912, align 8
-  %11 = getelementptr inbounds i8, ptr %.0813, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.0813, i64 8
   %12 = load i64, ptr %.0813, align 8
   %13 = mul i64 %12, %10
-  %14 = getelementptr inbounds i8, ptr %.014, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.014, i64 8
   store i64 %13, ptr %.014, align 8
   %15 = add nsw i32 %.01011, -1
   %16 = icmp samesign ugt i32 %.01011, 1
@@ -7992,12 +7992,12 @@ define internal void @ompi_op_base_3buff_prod_fortran_integer(ptr noalias nocapt
   %.0813 = phi ptr [ %11, %.lr.ph ], [ %1, %6 ]
   %.0912 = phi ptr [ %9, %.lr.ph ], [ %0, %6 ]
   %.01011 = phi i32 [ %15, %.lr.ph ], [ %7, %6 ]
-  %9 = getelementptr inbounds i8, ptr %.0912, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %.0912, i64 4
   %10 = load i32, ptr %.0912, align 4
-  %11 = getelementptr inbounds i8, ptr %.0813, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.0813, i64 4
   %12 = load i32, ptr %.0813, align 4
   %13 = mul nsw i32 %12, %10
-  %14 = getelementptr inbounds i8, ptr %.014, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.014, i64 4
   store i32 %13, ptr %.014, align 4
   %15 = add nsw i32 %.01011, -1
   %16 = icmp samesign ugt i32 %.01011, 1
@@ -8018,12 +8018,12 @@ define internal void @ompi_op_base_3buff_prod_fortran_integer1(ptr noalias nocap
   %.0813 = phi ptr [ %11, %.lr.ph ], [ %1, %6 ]
   %.0912 = phi ptr [ %9, %.lr.ph ], [ %0, %6 ]
   %.01011 = phi i32 [ %15, %.lr.ph ], [ %7, %6 ]
-  %9 = getelementptr inbounds i8, ptr %.0912, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %.0912, i64 1
   %10 = load i8, ptr %.0912, align 1
-  %11 = getelementptr inbounds i8, ptr %.0813, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.0813, i64 1
   %12 = load i8, ptr %.0813, align 1
   %13 = mul i8 %12, %10
-  %14 = getelementptr inbounds i8, ptr %.014, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.014, i64 1
   store i8 %13, ptr %.014, align 1
   %15 = add nsw i32 %.01011, -1
   %16 = icmp samesign ugt i32 %.01011, 1
@@ -8044,12 +8044,12 @@ define internal void @ompi_op_base_3buff_prod_fortran_integer2(ptr noalias nocap
   %.0813 = phi ptr [ %11, %.lr.ph ], [ %1, %6 ]
   %.0912 = phi ptr [ %9, %.lr.ph ], [ %0, %6 ]
   %.01011 = phi i32 [ %15, %.lr.ph ], [ %7, %6 ]
-  %9 = getelementptr inbounds i8, ptr %.0912, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %.0912, i64 2
   %10 = load i16, ptr %.0912, align 2
-  %11 = getelementptr inbounds i8, ptr %.0813, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %.0813, i64 2
   %12 = load i16, ptr %.0813, align 2
   %13 = mul i16 %12, %10
-  %14 = getelementptr inbounds i8, ptr %.014, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %.014, i64 2
   store i16 %13, ptr %.014, align 2
   %15 = add nsw i32 %.01011, -1
   %16 = icmp samesign ugt i32 %.01011, 1
@@ -8070,12 +8070,12 @@ define internal void @ompi_op_base_3buff_prod_fortran_integer4(ptr noalias nocap
   %.0813 = phi ptr [ %11, %.lr.ph ], [ %1, %6 ]
   %.0912 = phi ptr [ %9, %.lr.ph ], [ %0, %6 ]
   %.01011 = phi i32 [ %15, %.lr.ph ], [ %7, %6 ]
-  %9 = getelementptr inbounds i8, ptr %.0912, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %.0912, i64 4
   %10 = load i32, ptr %.0912, align 4
-  %11 = getelementptr inbounds i8, ptr %.0813, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.0813, i64 4
   %12 = load i32, ptr %.0813, align 4
   %13 = mul nsw i32 %12, %10
-  %14 = getelementptr inbounds i8, ptr %.014, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.014, i64 4
   store i32 %13, ptr %.014, align 4
   %15 = add nsw i32 %.01011, -1
   %16 = icmp samesign ugt i32 %.01011, 1
@@ -8096,12 +8096,12 @@ define internal void @ompi_op_base_3buff_prod_fortran_integer8(ptr noalias nocap
   %.0813 = phi ptr [ %11, %.lr.ph ], [ %1, %6 ]
   %.0912 = phi ptr [ %9, %.lr.ph ], [ %0, %6 ]
   %.01011 = phi i32 [ %15, %.lr.ph ], [ %7, %6 ]
-  %9 = getelementptr inbounds i8, ptr %.0912, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.0912, i64 8
   %10 = load i64, ptr %.0912, align 8
-  %11 = getelementptr inbounds i8, ptr %.0813, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.0813, i64 8
   %12 = load i64, ptr %.0813, align 8
   %13 = mul nsw i64 %12, %10
-  %14 = getelementptr inbounds i8, ptr %.014, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.014, i64 8
   store i64 %13, ptr %.014, align 8
   %15 = add nsw i32 %.01011, -1
   %16 = icmp samesign ugt i32 %.01011, 1
@@ -8122,12 +8122,12 @@ define internal void @ompi_op_base_3buff_prod_short_float(ptr noalias nocapture 
   %.0813 = phi ptr [ %11, %.lr.ph ], [ %1, %6 ]
   %.0912 = phi ptr [ %9, %.lr.ph ], [ %0, %6 ]
   %.01011 = phi i32 [ %15, %.lr.ph ], [ %7, %6 ]
-  %9 = getelementptr inbounds i8, ptr %.0912, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %.0912, i64 2
   %10 = load half, ptr %.0912, align 2
-  %11 = getelementptr inbounds i8, ptr %.0813, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %.0813, i64 2
   %12 = load half, ptr %.0813, align 2
   %13 = fmul half %10, %12
-  %14 = getelementptr inbounds i8, ptr %.014, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %.014, i64 2
   store half %13, ptr %.014, align 2
   %15 = add nsw i32 %.01011, -1
   %16 = icmp samesign ugt i32 %.01011, 1
@@ -8148,12 +8148,12 @@ define internal void @ompi_op_base_3buff_prod_float(ptr noalias nocapture nounde
   %.0813 = phi ptr [ %11, %.lr.ph ], [ %1, %6 ]
   %.0912 = phi ptr [ %9, %.lr.ph ], [ %0, %6 ]
   %.01011 = phi i32 [ %15, %.lr.ph ], [ %7, %6 ]
-  %9 = getelementptr inbounds i8, ptr %.0912, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %.0912, i64 4
   %10 = load float, ptr %.0912, align 4
-  %11 = getelementptr inbounds i8, ptr %.0813, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.0813, i64 4
   %12 = load float, ptr %.0813, align 4
   %13 = fmul float %10, %12
-  %14 = getelementptr inbounds i8, ptr %.014, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.014, i64 4
   store float %13, ptr %.014, align 4
   %15 = add nsw i32 %.01011, -1
   %16 = icmp samesign ugt i32 %.01011, 1
@@ -8174,12 +8174,12 @@ define internal void @ompi_op_base_3buff_prod_double(ptr noalias nocapture nound
   %.0813 = phi ptr [ %11, %.lr.ph ], [ %1, %6 ]
   %.0912 = phi ptr [ %9, %.lr.ph ], [ %0, %6 ]
   %.01011 = phi i32 [ %15, %.lr.ph ], [ %7, %6 ]
-  %9 = getelementptr inbounds i8, ptr %.0912, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.0912, i64 8
   %10 = load double, ptr %.0912, align 8
-  %11 = getelementptr inbounds i8, ptr %.0813, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.0813, i64 8
   %12 = load double, ptr %.0813, align 8
   %13 = fmul double %10, %12
-  %14 = getelementptr inbounds i8, ptr %.014, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.014, i64 8
   store double %13, ptr %.014, align 8
   %15 = add nsw i32 %.01011, -1
   %16 = icmp samesign ugt i32 %.01011, 1
@@ -8200,12 +8200,12 @@ define internal void @ompi_op_base_3buff_prod_fortran_real(ptr noalias nocapture
   %.0813 = phi ptr [ %11, %.lr.ph ], [ %1, %6 ]
   %.0912 = phi ptr [ %9, %.lr.ph ], [ %0, %6 ]
   %.01011 = phi i32 [ %15, %.lr.ph ], [ %7, %6 ]
-  %9 = getelementptr inbounds i8, ptr %.0912, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %.0912, i64 4
   %10 = load float, ptr %.0912, align 4
-  %11 = getelementptr inbounds i8, ptr %.0813, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.0813, i64 4
   %12 = load float, ptr %.0813, align 4
   %13 = fmul float %10, %12
-  %14 = getelementptr inbounds i8, ptr %.014, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.014, i64 4
   store float %13, ptr %.014, align 4
   %15 = add nsw i32 %.01011, -1
   %16 = icmp samesign ugt i32 %.01011, 1
@@ -8226,12 +8226,12 @@ define internal void @ompi_op_base_3buff_prod_fortran_real4(ptr noalias nocaptur
   %.0813 = phi ptr [ %11, %.lr.ph ], [ %1, %6 ]
   %.0912 = phi ptr [ %9, %.lr.ph ], [ %0, %6 ]
   %.01011 = phi i32 [ %15, %.lr.ph ], [ %7, %6 ]
-  %9 = getelementptr inbounds i8, ptr %.0912, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %.0912, i64 4
   %10 = load float, ptr %.0912, align 4
-  %11 = getelementptr inbounds i8, ptr %.0813, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.0813, i64 4
   %12 = load float, ptr %.0813, align 4
   %13 = fmul float %10, %12
-  %14 = getelementptr inbounds i8, ptr %.014, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.014, i64 4
   store float %13, ptr %.014, align 4
   %15 = add nsw i32 %.01011, -1
   %16 = icmp samesign ugt i32 %.01011, 1
@@ -8252,12 +8252,12 @@ define internal void @ompi_op_base_3buff_prod_fortran_real8(ptr noalias nocaptur
   %.0813 = phi ptr [ %11, %.lr.ph ], [ %1, %6 ]
   %.0912 = phi ptr [ %9, %.lr.ph ], [ %0, %6 ]
   %.01011 = phi i32 [ %15, %.lr.ph ], [ %7, %6 ]
-  %9 = getelementptr inbounds i8, ptr %.0912, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.0912, i64 8
   %10 = load double, ptr %.0912, align 8
-  %11 = getelementptr inbounds i8, ptr %.0813, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.0813, i64 8
   %12 = load double, ptr %.0813, align 8
   %13 = fmul double %10, %12
-  %14 = getelementptr inbounds i8, ptr %.014, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.014, i64 8
   store double %13, ptr %.014, align 8
   %15 = add nsw i32 %.01011, -1
   %16 = icmp samesign ugt i32 %.01011, 1
@@ -8278,12 +8278,12 @@ define internal void @ompi_op_base_3buff_prod_fortran_real16(ptr noalias nocaptu
   %.0813 = phi ptr [ %11, %.lr.ph ], [ %1, %6 ]
   %.0912 = phi ptr [ %9, %.lr.ph ], [ %0, %6 ]
   %.01011 = phi i32 [ %15, %.lr.ph ], [ %7, %6 ]
-  %9 = getelementptr inbounds i8, ptr %.0912, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %.0912, i64 16
   %10 = load x86_fp80, ptr %.0912, align 16
-  %11 = getelementptr inbounds i8, ptr %.0813, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %.0813, i64 16
   %12 = load x86_fp80, ptr %.0813, align 16
   %13 = fmul x86_fp80 %10, %12
-  %14 = getelementptr inbounds i8, ptr %.014, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %.014, i64 16
   store x86_fp80 %13, ptr %.014, align 16
   %15 = add nsw i32 %.01011, -1
   %16 = icmp samesign ugt i32 %.01011, 1
@@ -8304,12 +8304,12 @@ define internal void @ompi_op_base_3buff_prod_fortran_double_precision(ptr noali
   %.0813 = phi ptr [ %11, %.lr.ph ], [ %1, %6 ]
   %.0912 = phi ptr [ %9, %.lr.ph ], [ %0, %6 ]
   %.01011 = phi i32 [ %15, %.lr.ph ], [ %7, %6 ]
-  %9 = getelementptr inbounds i8, ptr %.0912, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.0912, i64 8
   %10 = load double, ptr %.0912, align 8
-  %11 = getelementptr inbounds i8, ptr %.0813, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.0813, i64 8
   %12 = load double, ptr %.0813, align 8
   %13 = fmul double %10, %12
-  %14 = getelementptr inbounds i8, ptr %.014, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.014, i64 8
   store double %13, ptr %.014, align 8
   %15 = add nsw i32 %.01011, -1
   %16 = icmp samesign ugt i32 %.01011, 1
@@ -8330,12 +8330,12 @@ define internal void @ompi_op_base_3buff_prod_long_double(ptr noalias nocapture 
   %.0813 = phi ptr [ %11, %.lr.ph ], [ %1, %6 ]
   %.0912 = phi ptr [ %9, %.lr.ph ], [ %0, %6 ]
   %.01011 = phi i32 [ %15, %.lr.ph ], [ %7, %6 ]
-  %9 = getelementptr inbounds i8, ptr %.0912, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %.0912, i64 16
   %10 = load x86_fp80, ptr %.0912, align 16
-  %11 = getelementptr inbounds i8, ptr %.0813, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %.0813, i64 16
   %12 = load x86_fp80, ptr %.0813, align 16
   %13 = fmul x86_fp80 %10, %12
-  %14 = getelementptr inbounds i8, ptr %.014, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %.014, i64 16
   store x86_fp80 %13, ptr %.014, align 16
   %15 = add nsw i32 %.01011, -1
   %16 = icmp samesign ugt i32 %.01011, 1
@@ -8360,10 +8360,10 @@ define internal void @ompi_op_base_3buff_prod_c_short_float_complex(ptr noalias 
   %10 = fpext half %9 to float
   %11 = load half, ptr %.01823, align 2
   %12 = fpext half %11 to float
-  %13 = getelementptr inbounds i8, ptr %.01922, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %.01922, i64 2
   %14 = load half, ptr %13, align 2
   %15 = fpext half %14 to float
-  %16 = getelementptr inbounds i8, ptr %.01823, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %.01823, i64 2
   %17 = load half, ptr %16, align 2
   %18 = fpext half %17 to float
   %19 = fneg float %18
@@ -8374,12 +8374,12 @@ define internal void @ompi_op_base_3buff_prod_c_short_float_complex(ptr noalias 
   %23 = fmul float %12, %15
   %24 = tail call float @llvm.fmuladd.f32(float %10, float %18, float %23)
   %25 = fptrunc float %24 to half
-  %26 = getelementptr inbounds i8, ptr %.024, i64 2
+  %26 = getelementptr inbounds nuw i8, ptr %.024, i64 2
   store half %25, ptr %26, align 2
   %27 = add nsw i32 %.02021, -1
-  %28 = getelementptr inbounds i8, ptr %.01922, i64 4
-  %29 = getelementptr inbounds i8, ptr %.01823, i64 4
-  %30 = getelementptr inbounds i8, ptr %.024, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %.01922, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %.01823, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %.024, i64 4
   %31 = icmp samesign ugt i32 %.02021, 1
   br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !310
 
@@ -8398,13 +8398,13 @@ define internal void @ompi_op_base_3buff_prod_c_float_complex(ptr noalias nocapt
   %.0813 = phi ptr [ %31, %28 ], [ %2, %6 ]
   %.0912 = phi ptr [ %13, %28 ], [ %1, %6 ]
   %.01011 = phi ptr [ %9, %28 ], [ %0, %6 ]
-  %9 = getelementptr inbounds i8, ptr %.01011, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.01011, i64 8
   %10 = load float, ptr %.01011, align 4
-  %11 = getelementptr inbounds i8, ptr %.01011, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.01011, i64 4
   %12 = load float, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %.0912, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.0912, i64 8
   %14 = load float, ptr %.0912, align 4
-  %15 = getelementptr inbounds i8, ptr %.0912, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %.0912, i64 4
   %16 = load float, ptr %15, align 4
   %17 = fmul float %10, %14
   %18 = fmul float %12, %16
@@ -8428,8 +8428,8 @@ define internal void @ompi_op_base_3buff_prod_c_float_complex(ptr noalias nocapt
 28:                                               ; preds = %26, %24, %.lr.ph
   %29 = phi float [ %21, %.lr.ph ], [ %21, %24 ], [ %.sroa.0.0.vec.extract, %26 ]
   %30 = phi float [ %22, %.lr.ph ], [ %22, %24 ], [ %.sroa.0.4.vec.extract, %26 ]
-  %31 = getelementptr inbounds i8, ptr %.0813, i64 8
-  %32 = getelementptr inbounds i8, ptr %.0813, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %.0813, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.0813, i64 4
   store float %29, ptr %.0813, align 4
   store float %30, ptr %32, align 4
   %33 = add nsw i32 %.014, -1
@@ -8451,13 +8451,13 @@ define internal void @ompi_op_base_3buff_prod_c_double_complex(ptr noalias nocap
   %.0813 = phi ptr [ %13, %30 ], [ %1, %6 ]
   %.0912 = phi ptr [ %9, %30 ], [ %0, %6 ]
   %.01011 = phi i32 [ %35, %30 ], [ %7, %6 ]
-  %9 = getelementptr inbounds i8, ptr %.0912, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %.0912, i64 16
   %10 = load double, ptr %.0912, align 8
-  %11 = getelementptr inbounds i8, ptr %.0912, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.0912, i64 8
   %12 = load double, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %.0813, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %.0813, i64 16
   %14 = load double, ptr %.0813, align 8
-  %15 = getelementptr inbounds i8, ptr %.0813, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.0813, i64 8
   %16 = load double, ptr %15, align 8
   %17 = fmul double %10, %14
   %18 = fmul double %12, %16
@@ -8481,8 +8481,8 @@ define internal void @ompi_op_base_3buff_prod_c_double_complex(ptr noalias nocap
 30:                                               ; preds = %26, %24, %.lr.ph
   %31 = phi double [ %21, %.lr.ph ], [ %21, %24 ], [ %28, %26 ]
   %32 = phi double [ %22, %.lr.ph ], [ %22, %24 ], [ %29, %26 ]
-  %33 = getelementptr inbounds i8, ptr %.014, i64 16
-  %34 = getelementptr inbounds i8, ptr %.014, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %.014, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %.014, i64 8
   store double %31, ptr %.014, align 8
   store double %32, ptr %34, align 8
   %35 = add nsw i32 %.01011, -1
@@ -8504,13 +8504,13 @@ define internal void @ompi_op_base_3buff_prod_c_long_double_complex(ptr noalias 
   %.0813 = phi ptr [ %13, %30 ], [ %1, %6 ]
   %.0912 = phi ptr [ %9, %30 ], [ %0, %6 ]
   %.01011 = phi i32 [ %35, %30 ], [ %7, %6 ]
-  %9 = getelementptr inbounds i8, ptr %.0912, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %.0912, i64 32
   %10 = load x86_fp80, ptr %.0912, align 16
-  %11 = getelementptr inbounds i8, ptr %.0912, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %.0912, i64 16
   %12 = load x86_fp80, ptr %11, align 16
-  %13 = getelementptr inbounds i8, ptr %.0813, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %.0813, i64 32
   %14 = load x86_fp80, ptr %.0813, align 16
-  %15 = getelementptr inbounds i8, ptr %.0813, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %.0813, i64 16
   %16 = load x86_fp80, ptr %15, align 16
   %17 = fmul x86_fp80 %10, %14
   %18 = fmul x86_fp80 %12, %16
@@ -8534,8 +8534,8 @@ define internal void @ompi_op_base_3buff_prod_c_long_double_complex(ptr noalias 
 30:                                               ; preds = %26, %24, %.lr.ph
   %31 = phi x86_fp80 [ %21, %.lr.ph ], [ %21, %24 ], [ %28, %26 ]
   %32 = phi x86_fp80 [ %22, %.lr.ph ], [ %22, %24 ], [ %29, %26 ]
-  %33 = getelementptr inbounds i8, ptr %.014, i64 32
-  %34 = getelementptr inbounds i8, ptr %.014, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %.014, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %.014, i64 16
   store x86_fp80 %31, ptr %.014, align 16
   store x86_fp80 %32, ptr %34, align 16
   %35 = add nsw i32 %.01011, -1
@@ -8557,12 +8557,12 @@ define internal void @ompi_op_base_3buff_prod_long(ptr noalias nocapture noundef
   %.0813 = phi ptr [ %11, %.lr.ph ], [ %1, %6 ]
   %.0912 = phi ptr [ %9, %.lr.ph ], [ %0, %6 ]
   %.01011 = phi i32 [ %15, %.lr.ph ], [ %7, %6 ]
-  %9 = getelementptr inbounds i8, ptr %.0912, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.0912, i64 8
   %10 = load i64, ptr %.0912, align 8
-  %11 = getelementptr inbounds i8, ptr %.0813, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.0813, i64 8
   %12 = load i64, ptr %.0813, align 8
   %13 = mul nsw i64 %12, %10
-  %14 = getelementptr inbounds i8, ptr %.014, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.014, i64 8
   store i64 %13, ptr %.014, align 8
   %15 = add nsw i32 %.01011, -1
   %16 = icmp samesign ugt i32 %.01011, 1
@@ -8583,12 +8583,12 @@ define internal void @ompi_op_base_3buff_prod_unsigned_long(ptr noalias nocaptur
   %.0813 = phi ptr [ %11, %.lr.ph ], [ %1, %6 ]
   %.0912 = phi ptr [ %9, %.lr.ph ], [ %0, %6 ]
   %.01011 = phi i32 [ %15, %.lr.ph ], [ %7, %6 ]
-  %9 = getelementptr inbounds i8, ptr %.0912, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.0912, i64 8
   %10 = load i64, ptr %.0912, align 8
-  %11 = getelementptr inbounds i8, ptr %.0813, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.0813, i64 8
   %12 = load i64, ptr %.0813, align 8
   %13 = mul i64 %12, %10
-  %14 = getelementptr inbounds i8, ptr %.014, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.014, i64 8
   store i64 %13, ptr %.014, align 8
   %15 = add nsw i32 %.01011, -1
   %16 = icmp samesign ugt i32 %.01011, 1
@@ -8622,9 +8622,9 @@ define internal void @ompi_op_base_3buff_land_int8_t(ptr noalias nocapture nound
 14:                                               ; preds = %10, %.lr.ph
   %15 = phi i8 [ 0, %.lr.ph ], [ %13, %10 ]
   store i8 %15, ptr %.017, align 1
-  %16 = getelementptr inbounds i8, ptr %.017, i64 1
-  %17 = getelementptr inbounds i8, ptr %.01215, i64 1
-  %18 = getelementptr inbounds i8, ptr %.01116, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.017, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.01215, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %.01116, i64 1
   %19 = add nsw i32 %.01314, -1
   %20 = icmp sgt i32 %.01314, 1
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !316
@@ -8657,9 +8657,9 @@ define internal void @ompi_op_base_3buff_land_uint8_t(ptr noalias nocapture noun
 14:                                               ; preds = %10, %.lr.ph
   %15 = phi i8 [ 0, %.lr.ph ], [ %13, %10 ]
   store i8 %15, ptr %.017, align 1
-  %16 = getelementptr inbounds i8, ptr %.017, i64 1
-  %17 = getelementptr inbounds i8, ptr %.01215, i64 1
-  %18 = getelementptr inbounds i8, ptr %.01116, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.017, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.01215, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %.01116, i64 1
   %19 = add nsw i32 %.01314, -1
   %20 = icmp sgt i32 %.01314, 1
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !317
@@ -8692,9 +8692,9 @@ define internal void @ompi_op_base_3buff_land_int16_t(ptr noalias nocapture noun
 14:                                               ; preds = %10, %.lr.ph
   %15 = phi i16 [ 0, %.lr.ph ], [ %13, %10 ]
   store i16 %15, ptr %.017, align 2
-  %16 = getelementptr inbounds i8, ptr %.017, i64 2
-  %17 = getelementptr inbounds i8, ptr %.01215, i64 2
-  %18 = getelementptr inbounds i8, ptr %.01116, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %.017, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %.01215, i64 2
+  %18 = getelementptr inbounds nuw i8, ptr %.01116, i64 2
   %19 = add nsw i32 %.01314, -1
   %20 = icmp sgt i32 %.01314, 1
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !318
@@ -8727,9 +8727,9 @@ define internal void @ompi_op_base_3buff_land_uint16_t(ptr noalias nocapture nou
 14:                                               ; preds = %10, %.lr.ph
   %15 = phi i16 [ 0, %.lr.ph ], [ %13, %10 ]
   store i16 %15, ptr %.017, align 2
-  %16 = getelementptr inbounds i8, ptr %.017, i64 2
-  %17 = getelementptr inbounds i8, ptr %.01215, i64 2
-  %18 = getelementptr inbounds i8, ptr %.01116, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %.017, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %.01215, i64 2
+  %18 = getelementptr inbounds nuw i8, ptr %.01116, i64 2
   %19 = add nsw i32 %.01314, -1
   %20 = icmp sgt i32 %.01314, 1
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !319
@@ -8762,9 +8762,9 @@ define internal void @ompi_op_base_3buff_land_int32_t(ptr noalias nocapture noun
 14:                                               ; preds = %10, %.lr.ph
   %15 = phi i32 [ 0, %.lr.ph ], [ %13, %10 ]
   store i32 %15, ptr %.017, align 4
-  %16 = getelementptr inbounds i8, ptr %.017, i64 4
-  %17 = getelementptr inbounds i8, ptr %.01215, i64 4
-  %18 = getelementptr inbounds i8, ptr %.01116, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %.017, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %.01215, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %.01116, i64 4
   %19 = add nsw i32 %.01314, -1
   %20 = icmp sgt i32 %.01314, 1
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !320
@@ -8797,9 +8797,9 @@ define internal void @ompi_op_base_3buff_land_uint32_t(ptr noalias nocapture nou
 14:                                               ; preds = %10, %.lr.ph
   %15 = phi i32 [ 0, %.lr.ph ], [ %13, %10 ]
   store i32 %15, ptr %.017, align 4
-  %16 = getelementptr inbounds i8, ptr %.017, i64 4
-  %17 = getelementptr inbounds i8, ptr %.01215, i64 4
-  %18 = getelementptr inbounds i8, ptr %.01116, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %.017, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %.01215, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %.01116, i64 4
   %19 = add nsw i32 %.01314, -1
   %20 = icmp sgt i32 %.01314, 1
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !321
@@ -8832,9 +8832,9 @@ define internal void @ompi_op_base_3buff_land_int64_t(ptr noalias nocapture noun
 14:                                               ; preds = %10, %.lr.ph
   %15 = phi i64 [ 0, %.lr.ph ], [ %13, %10 ]
   store i64 %15, ptr %.017, align 8
-  %16 = getelementptr inbounds i8, ptr %.017, i64 8
-  %17 = getelementptr inbounds i8, ptr %.01215, i64 8
-  %18 = getelementptr inbounds i8, ptr %.01116, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.017, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.01215, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.01116, i64 8
   %19 = add nsw i32 %.01314, -1
   %20 = icmp sgt i32 %.01314, 1
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !322
@@ -8867,9 +8867,9 @@ define internal void @ompi_op_base_3buff_land_uint64_t(ptr noalias nocapture nou
 14:                                               ; preds = %10, %.lr.ph
   %15 = phi i64 [ 0, %.lr.ph ], [ %13, %10 ]
   store i64 %15, ptr %.017, align 8
-  %16 = getelementptr inbounds i8, ptr %.017, i64 8
-  %17 = getelementptr inbounds i8, ptr %.01215, i64 8
-  %18 = getelementptr inbounds i8, ptr %.01116, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.017, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.01215, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.01116, i64 8
   %19 = add nsw i32 %.01314, -1
   %20 = icmp sgt i32 %.01314, 1
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !323
@@ -8902,9 +8902,9 @@ define internal void @ompi_op_base_3buff_land_fortran_logical(ptr noalias nocapt
 14:                                               ; preds = %10, %.lr.ph
   %15 = phi i32 [ 0, %.lr.ph ], [ %13, %10 ]
   store i32 %15, ptr %.017, align 4
-  %16 = getelementptr inbounds i8, ptr %.017, i64 4
-  %17 = getelementptr inbounds i8, ptr %.01215, i64 4
-  %18 = getelementptr inbounds i8, ptr %.01116, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %.017, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %.01215, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %.01116, i64 4
   %19 = add nsw i32 %.01314, -1
   %20 = icmp sgt i32 %.01314, 1
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !324
@@ -8936,9 +8936,9 @@ define internal void @ompi_op_base_3buff_land_bool(ptr noalias nocapture noundef
 14:                                               ; preds = %11, %.lr.ph
   %15 = phi i8 [ 0, %.lr.ph ], [ %13, %11 ]
   store i8 %15, ptr %.017, align 1
-  %16 = getelementptr inbounds i8, ptr %.017, i64 1
-  %17 = getelementptr inbounds i8, ptr %.01215, i64 1
-  %18 = getelementptr inbounds i8, ptr %.01116, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.017, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.01215, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %.01116, i64 1
   %19 = add nsw i32 %.01314, -1
   %20 = icmp sgt i32 %.01314, 1
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !325
@@ -8971,9 +8971,9 @@ define internal void @ompi_op_base_3buff_land_long(ptr noalias nocapture noundef
 14:                                               ; preds = %10, %.lr.ph
   %15 = phi i64 [ 0, %.lr.ph ], [ %13, %10 ]
   store i64 %15, ptr %.017, align 8
-  %16 = getelementptr inbounds i8, ptr %.017, i64 8
-  %17 = getelementptr inbounds i8, ptr %.01215, i64 8
-  %18 = getelementptr inbounds i8, ptr %.01116, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.017, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.01215, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.01116, i64 8
   %19 = add nsw i32 %.01314, -1
   %20 = icmp sgt i32 %.01314, 1
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !326
@@ -9006,9 +9006,9 @@ define internal void @ompi_op_base_3buff_land_unsigned_long(ptr noalias nocaptur
 14:                                               ; preds = %10, %.lr.ph
   %15 = phi i64 [ 0, %.lr.ph ], [ %13, %10 ]
   store i64 %15, ptr %.017, align 8
-  %16 = getelementptr inbounds i8, ptr %.017, i64 8
-  %17 = getelementptr inbounds i8, ptr %.01215, i64 8
-  %18 = getelementptr inbounds i8, ptr %.01116, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.017, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.01215, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.01116, i64 8
   %19 = add nsw i32 %.01314, -1
   %20 = icmp sgt i32 %.01314, 1
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !327
@@ -9032,9 +9032,9 @@ define internal void @ompi_op_base_3buff_band_int8_t(ptr noalias nocapture nound
   %10 = load i8, ptr %.01116, align 1
   %11 = and i8 %10, %9
   store i8 %11, ptr %.017, align 1
-  %12 = getelementptr inbounds i8, ptr %.017, i64 1
-  %13 = getelementptr inbounds i8, ptr %.01215, i64 1
-  %14 = getelementptr inbounds i8, ptr %.01116, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.017, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.01215, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.01116, i64 1
   %15 = add nsw i32 %.01314, -1
   %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !328
@@ -9058,9 +9058,9 @@ define internal void @ompi_op_base_3buff_band_uint8_t(ptr noalias nocapture noun
   %10 = load i8, ptr %.01116, align 1
   %11 = and i8 %10, %9
   store i8 %11, ptr %.017, align 1
-  %12 = getelementptr inbounds i8, ptr %.017, i64 1
-  %13 = getelementptr inbounds i8, ptr %.01215, i64 1
-  %14 = getelementptr inbounds i8, ptr %.01116, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.017, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.01215, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.01116, i64 1
   %15 = add nsw i32 %.01314, -1
   %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !329
@@ -9084,9 +9084,9 @@ define internal void @ompi_op_base_3buff_band_int16_t(ptr noalias nocapture noun
   %10 = load i16, ptr %.01116, align 2
   %11 = and i16 %10, %9
   store i16 %11, ptr %.017, align 2
-  %12 = getelementptr inbounds i8, ptr %.017, i64 2
-  %13 = getelementptr inbounds i8, ptr %.01215, i64 2
-  %14 = getelementptr inbounds i8, ptr %.01116, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %.017, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %.01215, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %.01116, i64 2
   %15 = add nsw i32 %.01314, -1
   %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !330
@@ -9110,9 +9110,9 @@ define internal void @ompi_op_base_3buff_band_uint16_t(ptr noalias nocapture nou
   %10 = load i16, ptr %.01116, align 2
   %11 = and i16 %10, %9
   store i16 %11, ptr %.017, align 2
-  %12 = getelementptr inbounds i8, ptr %.017, i64 2
-  %13 = getelementptr inbounds i8, ptr %.01215, i64 2
-  %14 = getelementptr inbounds i8, ptr %.01116, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %.017, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %.01215, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %.01116, i64 2
   %15 = add nsw i32 %.01314, -1
   %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !331
@@ -9136,9 +9136,9 @@ define internal void @ompi_op_base_3buff_band_int32_t(ptr noalias nocapture noun
   %10 = load i32, ptr %.01116, align 4
   %11 = and i32 %10, %9
   store i32 %11, ptr %.017, align 4
-  %12 = getelementptr inbounds i8, ptr %.017, i64 4
-  %13 = getelementptr inbounds i8, ptr %.01215, i64 4
-  %14 = getelementptr inbounds i8, ptr %.01116, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.017, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %.01215, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.01116, i64 4
   %15 = add nsw i32 %.01314, -1
   %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !332
@@ -9162,9 +9162,9 @@ define internal void @ompi_op_base_3buff_band_uint32_t(ptr noalias nocapture nou
   %10 = load i32, ptr %.01116, align 4
   %11 = and i32 %10, %9
   store i32 %11, ptr %.017, align 4
-  %12 = getelementptr inbounds i8, ptr %.017, i64 4
-  %13 = getelementptr inbounds i8, ptr %.01215, i64 4
-  %14 = getelementptr inbounds i8, ptr %.01116, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.017, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %.01215, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.01116, i64 4
   %15 = add nsw i32 %.01314, -1
   %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !333
@@ -9188,9 +9188,9 @@ define internal void @ompi_op_base_3buff_band_int64_t(ptr noalias nocapture noun
   %10 = load i64, ptr %.01116, align 8
   %11 = and i64 %10, %9
   store i64 %11, ptr %.017, align 8
-  %12 = getelementptr inbounds i8, ptr %.017, i64 8
-  %13 = getelementptr inbounds i8, ptr %.01215, i64 8
-  %14 = getelementptr inbounds i8, ptr %.01116, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.017, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.01215, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.01116, i64 8
   %15 = add nsw i32 %.01314, -1
   %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !334
@@ -9214,9 +9214,9 @@ define internal void @ompi_op_base_3buff_band_uint64_t(ptr noalias nocapture nou
   %10 = load i64, ptr %.01116, align 8
   %11 = and i64 %10, %9
   store i64 %11, ptr %.017, align 8
-  %12 = getelementptr inbounds i8, ptr %.017, i64 8
-  %13 = getelementptr inbounds i8, ptr %.01215, i64 8
-  %14 = getelementptr inbounds i8, ptr %.01116, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.017, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.01215, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.01116, i64 8
   %15 = add nsw i32 %.01314, -1
   %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !335
@@ -9240,9 +9240,9 @@ define internal void @ompi_op_base_3buff_band_fortran_integer(ptr noalias nocapt
   %10 = load i32, ptr %.01116, align 4
   %11 = and i32 %10, %9
   store i32 %11, ptr %.017, align 4
-  %12 = getelementptr inbounds i8, ptr %.017, i64 4
-  %13 = getelementptr inbounds i8, ptr %.01215, i64 4
-  %14 = getelementptr inbounds i8, ptr %.01116, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.017, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %.01215, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.01116, i64 4
   %15 = add nsw i32 %.01314, -1
   %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !336
@@ -9266,9 +9266,9 @@ define internal void @ompi_op_base_3buff_band_fortran_integer1(ptr noalias nocap
   %10 = load i8, ptr %.01116, align 1
   %11 = and i8 %10, %9
   store i8 %11, ptr %.017, align 1
-  %12 = getelementptr inbounds i8, ptr %.017, i64 1
-  %13 = getelementptr inbounds i8, ptr %.01215, i64 1
-  %14 = getelementptr inbounds i8, ptr %.01116, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.017, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.01215, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.01116, i64 1
   %15 = add nsw i32 %.01314, -1
   %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !337
@@ -9292,9 +9292,9 @@ define internal void @ompi_op_base_3buff_band_fortran_integer2(ptr noalias nocap
   %10 = load i16, ptr %.01116, align 2
   %11 = and i16 %10, %9
   store i16 %11, ptr %.017, align 2
-  %12 = getelementptr inbounds i8, ptr %.017, i64 2
-  %13 = getelementptr inbounds i8, ptr %.01215, i64 2
-  %14 = getelementptr inbounds i8, ptr %.01116, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %.017, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %.01215, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %.01116, i64 2
   %15 = add nsw i32 %.01314, -1
   %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !338
@@ -9318,9 +9318,9 @@ define internal void @ompi_op_base_3buff_band_fortran_integer4(ptr noalias nocap
   %10 = load i32, ptr %.01116, align 4
   %11 = and i32 %10, %9
   store i32 %11, ptr %.017, align 4
-  %12 = getelementptr inbounds i8, ptr %.017, i64 4
-  %13 = getelementptr inbounds i8, ptr %.01215, i64 4
-  %14 = getelementptr inbounds i8, ptr %.01116, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.017, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %.01215, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.01116, i64 4
   %15 = add nsw i32 %.01314, -1
   %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !339
@@ -9344,9 +9344,9 @@ define internal void @ompi_op_base_3buff_band_fortran_integer8(ptr noalias nocap
   %10 = load i64, ptr %.01116, align 8
   %11 = and i64 %10, %9
   store i64 %11, ptr %.017, align 8
-  %12 = getelementptr inbounds i8, ptr %.017, i64 8
-  %13 = getelementptr inbounds i8, ptr %.01215, i64 8
-  %14 = getelementptr inbounds i8, ptr %.01116, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.017, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.01215, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.01116, i64 8
   %15 = add nsw i32 %.01314, -1
   %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !340
@@ -9370,9 +9370,9 @@ define internal void @ompi_op_base_3buff_band_byte(ptr noalias nocapture noundef
   %10 = load i8, ptr %.01116, align 1
   %11 = and i8 %10, %9
   store i8 %11, ptr %.017, align 1
-  %12 = getelementptr inbounds i8, ptr %.017, i64 1
-  %13 = getelementptr inbounds i8, ptr %.01215, i64 1
-  %14 = getelementptr inbounds i8, ptr %.01116, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.017, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.01215, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.01116, i64 1
   %15 = add nsw i32 %.01314, -1
   %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !341
@@ -9396,9 +9396,9 @@ define internal void @ompi_op_base_3buff_band_long(ptr noalias nocapture noundef
   %10 = load i64, ptr %.01116, align 8
   %11 = and i64 %10, %9
   store i64 %11, ptr %.017, align 8
-  %12 = getelementptr inbounds i8, ptr %.017, i64 8
-  %13 = getelementptr inbounds i8, ptr %.01215, i64 8
-  %14 = getelementptr inbounds i8, ptr %.01116, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.017, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.01215, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.01116, i64 8
   %15 = add nsw i32 %.01314, -1
   %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !342
@@ -9422,9 +9422,9 @@ define internal void @ompi_op_base_3buff_band_unsigned_long(ptr noalias nocaptur
   %10 = load i64, ptr %.01116, align 8
   %11 = and i64 %10, %9
   store i64 %11, ptr %.017, align 8
-  %12 = getelementptr inbounds i8, ptr %.017, i64 8
-  %13 = getelementptr inbounds i8, ptr %.01215, i64 8
-  %14 = getelementptr inbounds i8, ptr %.01116, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.017, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.01215, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.01116, i64 8
   %15 = add nsw i32 %.01314, -1
   %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !343
@@ -9457,9 +9457,9 @@ define internal void @ompi_op_base_3buff_lor_int8_t(ptr noalias nocapture nounde
 14:                                               ; preds = %10, %.lr.ph
   %15 = phi i8 [ 1, %.lr.ph ], [ %13, %10 ]
   store i8 %15, ptr %.017, align 1
-  %16 = getelementptr inbounds i8, ptr %.017, i64 1
-  %17 = getelementptr inbounds i8, ptr %.01215, i64 1
-  %18 = getelementptr inbounds i8, ptr %.01116, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.017, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.01215, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %.01116, i64 1
   %19 = add nsw i32 %.01314, -1
   %20 = icmp sgt i32 %.01314, 1
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !344
@@ -9492,9 +9492,9 @@ define internal void @ompi_op_base_3buff_lor_uint8_t(ptr noalias nocapture nound
 14:                                               ; preds = %10, %.lr.ph
   %15 = phi i8 [ 1, %.lr.ph ], [ %13, %10 ]
   store i8 %15, ptr %.017, align 1
-  %16 = getelementptr inbounds i8, ptr %.017, i64 1
-  %17 = getelementptr inbounds i8, ptr %.01215, i64 1
-  %18 = getelementptr inbounds i8, ptr %.01116, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.017, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.01215, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %.01116, i64 1
   %19 = add nsw i32 %.01314, -1
   %20 = icmp sgt i32 %.01314, 1
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !345
@@ -9527,9 +9527,9 @@ define internal void @ompi_op_base_3buff_lor_int16_t(ptr noalias nocapture nound
 14:                                               ; preds = %10, %.lr.ph
   %15 = phi i16 [ 1, %.lr.ph ], [ %13, %10 ]
   store i16 %15, ptr %.017, align 2
-  %16 = getelementptr inbounds i8, ptr %.017, i64 2
-  %17 = getelementptr inbounds i8, ptr %.01215, i64 2
-  %18 = getelementptr inbounds i8, ptr %.01116, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %.017, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %.01215, i64 2
+  %18 = getelementptr inbounds nuw i8, ptr %.01116, i64 2
   %19 = add nsw i32 %.01314, -1
   %20 = icmp sgt i32 %.01314, 1
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !346
@@ -9562,9 +9562,9 @@ define internal void @ompi_op_base_3buff_lor_uint16_t(ptr noalias nocapture noun
 14:                                               ; preds = %10, %.lr.ph
   %15 = phi i16 [ 1, %.lr.ph ], [ %13, %10 ]
   store i16 %15, ptr %.017, align 2
-  %16 = getelementptr inbounds i8, ptr %.017, i64 2
-  %17 = getelementptr inbounds i8, ptr %.01215, i64 2
-  %18 = getelementptr inbounds i8, ptr %.01116, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %.017, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %.01215, i64 2
+  %18 = getelementptr inbounds nuw i8, ptr %.01116, i64 2
   %19 = add nsw i32 %.01314, -1
   %20 = icmp sgt i32 %.01314, 1
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !347
@@ -9597,9 +9597,9 @@ define internal void @ompi_op_base_3buff_lor_int32_t(ptr noalias nocapture nound
 14:                                               ; preds = %10, %.lr.ph
   %15 = phi i32 [ 1, %.lr.ph ], [ %13, %10 ]
   store i32 %15, ptr %.017, align 4
-  %16 = getelementptr inbounds i8, ptr %.017, i64 4
-  %17 = getelementptr inbounds i8, ptr %.01215, i64 4
-  %18 = getelementptr inbounds i8, ptr %.01116, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %.017, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %.01215, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %.01116, i64 4
   %19 = add nsw i32 %.01314, -1
   %20 = icmp sgt i32 %.01314, 1
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !348
@@ -9632,9 +9632,9 @@ define internal void @ompi_op_base_3buff_lor_uint32_t(ptr noalias nocapture noun
 14:                                               ; preds = %10, %.lr.ph
   %15 = phi i32 [ 1, %.lr.ph ], [ %13, %10 ]
   store i32 %15, ptr %.017, align 4
-  %16 = getelementptr inbounds i8, ptr %.017, i64 4
-  %17 = getelementptr inbounds i8, ptr %.01215, i64 4
-  %18 = getelementptr inbounds i8, ptr %.01116, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %.017, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %.01215, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %.01116, i64 4
   %19 = add nsw i32 %.01314, -1
   %20 = icmp sgt i32 %.01314, 1
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !349
@@ -9667,9 +9667,9 @@ define internal void @ompi_op_base_3buff_lor_int64_t(ptr noalias nocapture nound
 14:                                               ; preds = %10, %.lr.ph
   %15 = phi i64 [ 1, %.lr.ph ], [ %13, %10 ]
   store i64 %15, ptr %.017, align 8
-  %16 = getelementptr inbounds i8, ptr %.017, i64 8
-  %17 = getelementptr inbounds i8, ptr %.01215, i64 8
-  %18 = getelementptr inbounds i8, ptr %.01116, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.017, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.01215, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.01116, i64 8
   %19 = add nsw i32 %.01314, -1
   %20 = icmp sgt i32 %.01314, 1
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !350
@@ -9702,9 +9702,9 @@ define internal void @ompi_op_base_3buff_lor_uint64_t(ptr noalias nocapture noun
 14:                                               ; preds = %10, %.lr.ph
   %15 = phi i64 [ 1, %.lr.ph ], [ %13, %10 ]
   store i64 %15, ptr %.017, align 8
-  %16 = getelementptr inbounds i8, ptr %.017, i64 8
-  %17 = getelementptr inbounds i8, ptr %.01215, i64 8
-  %18 = getelementptr inbounds i8, ptr %.01116, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.017, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.01215, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.01116, i64 8
   %19 = add nsw i32 %.01314, -1
   %20 = icmp sgt i32 %.01314, 1
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !351
@@ -9737,9 +9737,9 @@ define internal void @ompi_op_base_3buff_lor_fortran_logical(ptr noalias nocaptu
 14:                                               ; preds = %10, %.lr.ph
   %15 = phi i32 [ 1, %.lr.ph ], [ %13, %10 ]
   store i32 %15, ptr %.017, align 4
-  %16 = getelementptr inbounds i8, ptr %.017, i64 4
-  %17 = getelementptr inbounds i8, ptr %.01215, i64 4
-  %18 = getelementptr inbounds i8, ptr %.01116, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %.017, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %.01215, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %.01116, i64 4
   %19 = add nsw i32 %.01314, -1
   %20 = icmp sgt i32 %.01314, 1
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !352
@@ -9771,9 +9771,9 @@ define internal void @ompi_op_base_3buff_lor_bool(ptr noalias nocapture noundef 
 14:                                               ; preds = %11, %.lr.ph
   %15 = phi i8 [ 1, %.lr.ph ], [ %13, %11 ]
   store i8 %15, ptr %.017, align 1
-  %16 = getelementptr inbounds i8, ptr %.017, i64 1
-  %17 = getelementptr inbounds i8, ptr %.01215, i64 1
-  %18 = getelementptr inbounds i8, ptr %.01116, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.017, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.01215, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %.01116, i64 1
   %19 = add nsw i32 %.01314, -1
   %20 = icmp sgt i32 %.01314, 1
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !353
@@ -9806,9 +9806,9 @@ define internal void @ompi_op_base_3buff_lor_long(ptr noalias nocapture noundef 
 14:                                               ; preds = %10, %.lr.ph
   %15 = phi i64 [ 1, %.lr.ph ], [ %13, %10 ]
   store i64 %15, ptr %.017, align 8
-  %16 = getelementptr inbounds i8, ptr %.017, i64 8
-  %17 = getelementptr inbounds i8, ptr %.01215, i64 8
-  %18 = getelementptr inbounds i8, ptr %.01116, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.017, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.01215, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.01116, i64 8
   %19 = add nsw i32 %.01314, -1
   %20 = icmp sgt i32 %.01314, 1
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !354
@@ -9841,9 +9841,9 @@ define internal void @ompi_op_base_3buff_lor_unsigned_long(ptr noalias nocapture
 14:                                               ; preds = %10, %.lr.ph
   %15 = phi i64 [ 1, %.lr.ph ], [ %13, %10 ]
   store i64 %15, ptr %.017, align 8
-  %16 = getelementptr inbounds i8, ptr %.017, i64 8
-  %17 = getelementptr inbounds i8, ptr %.01215, i64 8
-  %18 = getelementptr inbounds i8, ptr %.01116, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.017, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.01215, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.01116, i64 8
   %19 = add nsw i32 %.01314, -1
   %20 = icmp sgt i32 %.01314, 1
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !355
@@ -9867,9 +9867,9 @@ define internal void @ompi_op_base_3buff_bor_int8_t(ptr noalias nocapture nounde
   %10 = load i8, ptr %.01116, align 1
   %11 = or i8 %10, %9
   store i8 %11, ptr %.017, align 1
-  %12 = getelementptr inbounds i8, ptr %.017, i64 1
-  %13 = getelementptr inbounds i8, ptr %.01215, i64 1
-  %14 = getelementptr inbounds i8, ptr %.01116, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.017, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.01215, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.01116, i64 1
   %15 = add nsw i32 %.01314, -1
   %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !356
@@ -9893,9 +9893,9 @@ define internal void @ompi_op_base_3buff_bor_uint8_t(ptr noalias nocapture nound
   %10 = load i8, ptr %.01116, align 1
   %11 = or i8 %10, %9
   store i8 %11, ptr %.017, align 1
-  %12 = getelementptr inbounds i8, ptr %.017, i64 1
-  %13 = getelementptr inbounds i8, ptr %.01215, i64 1
-  %14 = getelementptr inbounds i8, ptr %.01116, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.017, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.01215, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.01116, i64 1
   %15 = add nsw i32 %.01314, -1
   %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !357
@@ -9919,9 +9919,9 @@ define internal void @ompi_op_base_3buff_bor_int16_t(ptr noalias nocapture nound
   %10 = load i16, ptr %.01116, align 2
   %11 = or i16 %10, %9
   store i16 %11, ptr %.017, align 2
-  %12 = getelementptr inbounds i8, ptr %.017, i64 2
-  %13 = getelementptr inbounds i8, ptr %.01215, i64 2
-  %14 = getelementptr inbounds i8, ptr %.01116, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %.017, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %.01215, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %.01116, i64 2
   %15 = add nsw i32 %.01314, -1
   %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !358
@@ -9945,9 +9945,9 @@ define internal void @ompi_op_base_3buff_bor_uint16_t(ptr noalias nocapture noun
   %10 = load i16, ptr %.01116, align 2
   %11 = or i16 %10, %9
   store i16 %11, ptr %.017, align 2
-  %12 = getelementptr inbounds i8, ptr %.017, i64 2
-  %13 = getelementptr inbounds i8, ptr %.01215, i64 2
-  %14 = getelementptr inbounds i8, ptr %.01116, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %.017, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %.01215, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %.01116, i64 2
   %15 = add nsw i32 %.01314, -1
   %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !359
@@ -9971,9 +9971,9 @@ define internal void @ompi_op_base_3buff_bor_int32_t(ptr noalias nocapture nound
   %10 = load i32, ptr %.01116, align 4
   %11 = or i32 %10, %9
   store i32 %11, ptr %.017, align 4
-  %12 = getelementptr inbounds i8, ptr %.017, i64 4
-  %13 = getelementptr inbounds i8, ptr %.01215, i64 4
-  %14 = getelementptr inbounds i8, ptr %.01116, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.017, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %.01215, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.01116, i64 4
   %15 = add nsw i32 %.01314, -1
   %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !360
@@ -9997,9 +9997,9 @@ define internal void @ompi_op_base_3buff_bor_uint32_t(ptr noalias nocapture noun
   %10 = load i32, ptr %.01116, align 4
   %11 = or i32 %10, %9
   store i32 %11, ptr %.017, align 4
-  %12 = getelementptr inbounds i8, ptr %.017, i64 4
-  %13 = getelementptr inbounds i8, ptr %.01215, i64 4
-  %14 = getelementptr inbounds i8, ptr %.01116, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.017, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %.01215, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.01116, i64 4
   %15 = add nsw i32 %.01314, -1
   %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !361
@@ -10023,9 +10023,9 @@ define internal void @ompi_op_base_3buff_bor_int64_t(ptr noalias nocapture nound
   %10 = load i64, ptr %.01116, align 8
   %11 = or i64 %10, %9
   store i64 %11, ptr %.017, align 8
-  %12 = getelementptr inbounds i8, ptr %.017, i64 8
-  %13 = getelementptr inbounds i8, ptr %.01215, i64 8
-  %14 = getelementptr inbounds i8, ptr %.01116, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.017, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.01215, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.01116, i64 8
   %15 = add nsw i32 %.01314, -1
   %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !362
@@ -10049,9 +10049,9 @@ define internal void @ompi_op_base_3buff_bor_uint64_t(ptr noalias nocapture noun
   %10 = load i64, ptr %.01116, align 8
   %11 = or i64 %10, %9
   store i64 %11, ptr %.017, align 8
-  %12 = getelementptr inbounds i8, ptr %.017, i64 8
-  %13 = getelementptr inbounds i8, ptr %.01215, i64 8
-  %14 = getelementptr inbounds i8, ptr %.01116, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.017, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.01215, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.01116, i64 8
   %15 = add nsw i32 %.01314, -1
   %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !363
@@ -10075,9 +10075,9 @@ define internal void @ompi_op_base_3buff_bor_fortran_integer(ptr noalias nocaptu
   %10 = load i32, ptr %.01116, align 4
   %11 = or i32 %10, %9
   store i32 %11, ptr %.017, align 4
-  %12 = getelementptr inbounds i8, ptr %.017, i64 4
-  %13 = getelementptr inbounds i8, ptr %.01215, i64 4
-  %14 = getelementptr inbounds i8, ptr %.01116, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.017, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %.01215, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.01116, i64 4
   %15 = add nsw i32 %.01314, -1
   %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !364
@@ -10101,9 +10101,9 @@ define internal void @ompi_op_base_3buff_bor_fortran_integer1(ptr noalias nocapt
   %10 = load i8, ptr %.01116, align 1
   %11 = or i8 %10, %9
   store i8 %11, ptr %.017, align 1
-  %12 = getelementptr inbounds i8, ptr %.017, i64 1
-  %13 = getelementptr inbounds i8, ptr %.01215, i64 1
-  %14 = getelementptr inbounds i8, ptr %.01116, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.017, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.01215, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.01116, i64 1
   %15 = add nsw i32 %.01314, -1
   %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !365
@@ -10127,9 +10127,9 @@ define internal void @ompi_op_base_3buff_bor_fortran_integer2(ptr noalias nocapt
   %10 = load i16, ptr %.01116, align 2
   %11 = or i16 %10, %9
   store i16 %11, ptr %.017, align 2
-  %12 = getelementptr inbounds i8, ptr %.017, i64 2
-  %13 = getelementptr inbounds i8, ptr %.01215, i64 2
-  %14 = getelementptr inbounds i8, ptr %.01116, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %.017, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %.01215, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %.01116, i64 2
   %15 = add nsw i32 %.01314, -1
   %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !366
@@ -10153,9 +10153,9 @@ define internal void @ompi_op_base_3buff_bor_fortran_integer4(ptr noalias nocapt
   %10 = load i32, ptr %.01116, align 4
   %11 = or i32 %10, %9
   store i32 %11, ptr %.017, align 4
-  %12 = getelementptr inbounds i8, ptr %.017, i64 4
-  %13 = getelementptr inbounds i8, ptr %.01215, i64 4
-  %14 = getelementptr inbounds i8, ptr %.01116, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.017, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %.01215, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.01116, i64 4
   %15 = add nsw i32 %.01314, -1
   %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !367
@@ -10179,9 +10179,9 @@ define internal void @ompi_op_base_3buff_bor_fortran_integer8(ptr noalias nocapt
   %10 = load i64, ptr %.01116, align 8
   %11 = or i64 %10, %9
   store i64 %11, ptr %.017, align 8
-  %12 = getelementptr inbounds i8, ptr %.017, i64 8
-  %13 = getelementptr inbounds i8, ptr %.01215, i64 8
-  %14 = getelementptr inbounds i8, ptr %.01116, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.017, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.01215, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.01116, i64 8
   %15 = add nsw i32 %.01314, -1
   %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !368
@@ -10205,9 +10205,9 @@ define internal void @ompi_op_base_3buff_bor_byte(ptr noalias nocapture noundef 
   %10 = load i8, ptr %.01116, align 1
   %11 = or i8 %10, %9
   store i8 %11, ptr %.017, align 1
-  %12 = getelementptr inbounds i8, ptr %.017, i64 1
-  %13 = getelementptr inbounds i8, ptr %.01215, i64 1
-  %14 = getelementptr inbounds i8, ptr %.01116, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.017, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.01215, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.01116, i64 1
   %15 = add nsw i32 %.01314, -1
   %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !369
@@ -10231,9 +10231,9 @@ define internal void @ompi_op_base_3buff_bor_long(ptr noalias nocapture noundef 
   %10 = load i64, ptr %.01116, align 8
   %11 = or i64 %10, %9
   store i64 %11, ptr %.017, align 8
-  %12 = getelementptr inbounds i8, ptr %.017, i64 8
-  %13 = getelementptr inbounds i8, ptr %.01215, i64 8
-  %14 = getelementptr inbounds i8, ptr %.01116, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.017, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.01215, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.01116, i64 8
   %15 = add nsw i32 %.01314, -1
   %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !370
@@ -10257,9 +10257,9 @@ define internal void @ompi_op_base_3buff_bor_unsigned_long(ptr noalias nocapture
   %10 = load i64, ptr %.01116, align 8
   %11 = or i64 %10, %9
   store i64 %11, ptr %.017, align 8
-  %12 = getelementptr inbounds i8, ptr %.017, i64 8
-  %13 = getelementptr inbounds i8, ptr %.01215, i64 8
-  %14 = getelementptr inbounds i8, ptr %.01116, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.017, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.01215, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.01116, i64 8
   %15 = add nsw i32 %.01314, -1
   %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !371
@@ -10286,9 +10286,9 @@ define internal void @ompi_op_base_3buff_lxor_int8_t(ptr noalias nocapture nound
   %11 = xor i1 %.not, %.not14
   %12 = zext i1 %11 to i8
   store i8 %12, ptr %.018, align 1
-  %13 = getelementptr inbounds i8, ptr %.018, i64 1
-  %14 = getelementptr inbounds i8, ptr %.01216, i64 1
-  %15 = getelementptr inbounds i8, ptr %.01117, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.018, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.01216, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %.01117, i64 1
   %16 = add nsw i32 %.01315, -1
   %17 = icmp samesign ugt i32 %.01315, 1
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !372
@@ -10315,9 +10315,9 @@ define internal void @ompi_op_base_3buff_lxor_uint8_t(ptr noalias nocapture noun
   %11 = xor i1 %.not, %.not14
   %12 = zext i1 %11 to i8
   store i8 %12, ptr %.018, align 1
-  %13 = getelementptr inbounds i8, ptr %.018, i64 1
-  %14 = getelementptr inbounds i8, ptr %.01216, i64 1
-  %15 = getelementptr inbounds i8, ptr %.01117, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.018, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.01216, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %.01117, i64 1
   %16 = add nsw i32 %.01315, -1
   %17 = icmp samesign ugt i32 %.01315, 1
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !373
@@ -10344,9 +10344,9 @@ define internal void @ompi_op_base_3buff_lxor_int16_t(ptr noalias nocapture noun
   %11 = xor i1 %.not, %.not14
   %12 = zext i1 %11 to i16
   store i16 %12, ptr %.018, align 2
-  %13 = getelementptr inbounds i8, ptr %.018, i64 2
-  %14 = getelementptr inbounds i8, ptr %.01216, i64 2
-  %15 = getelementptr inbounds i8, ptr %.01117, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %.018, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %.01216, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %.01117, i64 2
   %16 = add nsw i32 %.01315, -1
   %17 = icmp samesign ugt i32 %.01315, 1
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !374
@@ -10373,9 +10373,9 @@ define internal void @ompi_op_base_3buff_lxor_uint16_t(ptr noalias nocapture nou
   %11 = xor i1 %.not, %.not14
   %12 = zext i1 %11 to i16
   store i16 %12, ptr %.018, align 2
-  %13 = getelementptr inbounds i8, ptr %.018, i64 2
-  %14 = getelementptr inbounds i8, ptr %.01216, i64 2
-  %15 = getelementptr inbounds i8, ptr %.01117, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %.018, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %.01216, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %.01117, i64 2
   %16 = add nsw i32 %.01315, -1
   %17 = icmp samesign ugt i32 %.01315, 1
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !375
@@ -10402,9 +10402,9 @@ define internal void @ompi_op_base_3buff_lxor_int32_t(ptr noalias nocapture noun
   %11 = xor i1 %.not, %.not14
   %12 = zext i1 %11 to i32
   store i32 %12, ptr %.018, align 4
-  %13 = getelementptr inbounds i8, ptr %.018, i64 4
-  %14 = getelementptr inbounds i8, ptr %.01216, i64 4
-  %15 = getelementptr inbounds i8, ptr %.01117, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %.018, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.01216, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %.01117, i64 4
   %16 = add nsw i32 %.01315, -1
   %17 = icmp samesign ugt i32 %.01315, 1
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !376
@@ -10431,9 +10431,9 @@ define internal void @ompi_op_base_3buff_lxor_uint32_t(ptr noalias nocapture nou
   %11 = xor i1 %.not, %.not14
   %12 = zext i1 %11 to i32
   store i32 %12, ptr %.018, align 4
-  %13 = getelementptr inbounds i8, ptr %.018, i64 4
-  %14 = getelementptr inbounds i8, ptr %.01216, i64 4
-  %15 = getelementptr inbounds i8, ptr %.01117, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %.018, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.01216, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %.01117, i64 4
   %16 = add nsw i32 %.01315, -1
   %17 = icmp samesign ugt i32 %.01315, 1
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !377
@@ -10460,9 +10460,9 @@ define internal void @ompi_op_base_3buff_lxor_int64_t(ptr noalias nocapture noun
   %11 = xor i1 %.not, %.not14
   %12 = zext i1 %11 to i64
   store i64 %12, ptr %.018, align 8
-  %13 = getelementptr inbounds i8, ptr %.018, i64 8
-  %14 = getelementptr inbounds i8, ptr %.01216, i64 8
-  %15 = getelementptr inbounds i8, ptr %.01117, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.018, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.01216, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.01117, i64 8
   %16 = add nsw i32 %.01315, -1
   %17 = icmp samesign ugt i32 %.01315, 1
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !378
@@ -10489,9 +10489,9 @@ define internal void @ompi_op_base_3buff_lxor_uint64_t(ptr noalias nocapture nou
   %11 = xor i1 %.not, %.not14
   %12 = zext i1 %11 to i64
   store i64 %12, ptr %.018, align 8
-  %13 = getelementptr inbounds i8, ptr %.018, i64 8
-  %14 = getelementptr inbounds i8, ptr %.01216, i64 8
-  %15 = getelementptr inbounds i8, ptr %.01117, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.018, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.01216, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.01117, i64 8
   %16 = add nsw i32 %.01315, -1
   %17 = icmp samesign ugt i32 %.01315, 1
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !379
@@ -10518,9 +10518,9 @@ define internal void @ompi_op_base_3buff_lxor_fortran_logical(ptr noalias nocapt
   %11 = xor i1 %.not, %.not14
   %12 = zext i1 %11 to i32
   store i32 %12, ptr %.018, align 4
-  %13 = getelementptr inbounds i8, ptr %.018, i64 4
-  %14 = getelementptr inbounds i8, ptr %.01216, i64 4
-  %15 = getelementptr inbounds i8, ptr %.01117, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %.018, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.01216, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %.01117, i64 4
   %16 = add nsw i32 %.01315, -1
   %17 = icmp samesign ugt i32 %.01315, 1
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !380
@@ -10545,9 +10545,9 @@ define internal void @ompi_op_base_3buff_lxor_bool(ptr noalias nocapture noundef
   %11 = xor i8 %10, %9
   %12 = and i8 %11, 1
   store i8 %12, ptr %.017, align 1
-  %13 = getelementptr inbounds i8, ptr %.017, i64 1
-  %14 = getelementptr inbounds i8, ptr %.01215, i64 1
-  %15 = getelementptr inbounds i8, ptr %.01116, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.017, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.01215, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %.01116, i64 1
   %16 = add nsw i32 %.01314, -1
   %17 = icmp samesign ugt i32 %.01314, 1
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !381
@@ -10574,9 +10574,9 @@ define internal void @ompi_op_base_3buff_lxor_long(ptr noalias nocapture noundef
   %11 = xor i1 %.not, %.not14
   %12 = zext i1 %11 to i64
   store i64 %12, ptr %.018, align 8
-  %13 = getelementptr inbounds i8, ptr %.018, i64 8
-  %14 = getelementptr inbounds i8, ptr %.01216, i64 8
-  %15 = getelementptr inbounds i8, ptr %.01117, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.018, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.01216, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.01117, i64 8
   %16 = add nsw i32 %.01315, -1
   %17 = icmp samesign ugt i32 %.01315, 1
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !382
@@ -10603,9 +10603,9 @@ define internal void @ompi_op_base_3buff_lxor_unsigned_long(ptr noalias nocaptur
   %11 = xor i1 %.not, %.not14
   %12 = zext i1 %11 to i64
   store i64 %12, ptr %.018, align 8
-  %13 = getelementptr inbounds i8, ptr %.018, i64 8
-  %14 = getelementptr inbounds i8, ptr %.01216, i64 8
-  %15 = getelementptr inbounds i8, ptr %.01117, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.018, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.01216, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.01117, i64 8
   %16 = add nsw i32 %.01315, -1
   %17 = icmp samesign ugt i32 %.01315, 1
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !383
@@ -10629,9 +10629,9 @@ define internal void @ompi_op_base_3buff_bxor_int8_t(ptr noalias nocapture nound
   %10 = load i8, ptr %.01116, align 1
   %11 = xor i8 %10, %9
   store i8 %11, ptr %.017, align 1
-  %12 = getelementptr inbounds i8, ptr %.017, i64 1
-  %13 = getelementptr inbounds i8, ptr %.01215, i64 1
-  %14 = getelementptr inbounds i8, ptr %.01116, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.017, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.01215, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.01116, i64 1
   %15 = add nsw i32 %.01314, -1
   %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !384
@@ -10655,9 +10655,9 @@ define internal void @ompi_op_base_3buff_bxor_uint8_t(ptr noalias nocapture noun
   %10 = load i8, ptr %.01116, align 1
   %11 = xor i8 %10, %9
   store i8 %11, ptr %.017, align 1
-  %12 = getelementptr inbounds i8, ptr %.017, i64 1
-  %13 = getelementptr inbounds i8, ptr %.01215, i64 1
-  %14 = getelementptr inbounds i8, ptr %.01116, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.017, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.01215, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.01116, i64 1
   %15 = add nsw i32 %.01314, -1
   %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !385
@@ -10681,9 +10681,9 @@ define internal void @ompi_op_base_3buff_bxor_int16_t(ptr noalias nocapture noun
   %10 = load i16, ptr %.01116, align 2
   %11 = xor i16 %10, %9
   store i16 %11, ptr %.017, align 2
-  %12 = getelementptr inbounds i8, ptr %.017, i64 2
-  %13 = getelementptr inbounds i8, ptr %.01215, i64 2
-  %14 = getelementptr inbounds i8, ptr %.01116, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %.017, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %.01215, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %.01116, i64 2
   %15 = add nsw i32 %.01314, -1
   %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !386
@@ -10707,9 +10707,9 @@ define internal void @ompi_op_base_3buff_bxor_uint16_t(ptr noalias nocapture nou
   %10 = load i16, ptr %.01116, align 2
   %11 = xor i16 %10, %9
   store i16 %11, ptr %.017, align 2
-  %12 = getelementptr inbounds i8, ptr %.017, i64 2
-  %13 = getelementptr inbounds i8, ptr %.01215, i64 2
-  %14 = getelementptr inbounds i8, ptr %.01116, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %.017, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %.01215, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %.01116, i64 2
   %15 = add nsw i32 %.01314, -1
   %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !387
@@ -10733,9 +10733,9 @@ define internal void @ompi_op_base_3buff_bxor_int32_t(ptr noalias nocapture noun
   %10 = load i32, ptr %.01116, align 4
   %11 = xor i32 %10, %9
   store i32 %11, ptr %.017, align 4
-  %12 = getelementptr inbounds i8, ptr %.017, i64 4
-  %13 = getelementptr inbounds i8, ptr %.01215, i64 4
-  %14 = getelementptr inbounds i8, ptr %.01116, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.017, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %.01215, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.01116, i64 4
   %15 = add nsw i32 %.01314, -1
   %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !388
@@ -10759,9 +10759,9 @@ define internal void @ompi_op_base_3buff_bxor_uint32_t(ptr noalias nocapture nou
   %10 = load i32, ptr %.01116, align 4
   %11 = xor i32 %10, %9
   store i32 %11, ptr %.017, align 4
-  %12 = getelementptr inbounds i8, ptr %.017, i64 4
-  %13 = getelementptr inbounds i8, ptr %.01215, i64 4
-  %14 = getelementptr inbounds i8, ptr %.01116, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.017, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %.01215, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.01116, i64 4
   %15 = add nsw i32 %.01314, -1
   %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !389
@@ -10785,9 +10785,9 @@ define internal void @ompi_op_base_3buff_bxor_int64_t(ptr noalias nocapture noun
   %10 = load i64, ptr %.01116, align 8
   %11 = xor i64 %10, %9
   store i64 %11, ptr %.017, align 8
-  %12 = getelementptr inbounds i8, ptr %.017, i64 8
-  %13 = getelementptr inbounds i8, ptr %.01215, i64 8
-  %14 = getelementptr inbounds i8, ptr %.01116, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.017, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.01215, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.01116, i64 8
   %15 = add nsw i32 %.01314, -1
   %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !390
@@ -10811,9 +10811,9 @@ define internal void @ompi_op_base_3buff_bxor_uint64_t(ptr noalias nocapture nou
   %10 = load i64, ptr %.01116, align 8
   %11 = xor i64 %10, %9
   store i64 %11, ptr %.017, align 8
-  %12 = getelementptr inbounds i8, ptr %.017, i64 8
-  %13 = getelementptr inbounds i8, ptr %.01215, i64 8
-  %14 = getelementptr inbounds i8, ptr %.01116, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.017, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.01215, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.01116, i64 8
   %15 = add nsw i32 %.01314, -1
   %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !391
@@ -10837,9 +10837,9 @@ define internal void @ompi_op_base_3buff_bxor_fortran_integer(ptr noalias nocapt
   %10 = load i32, ptr %.01116, align 4
   %11 = xor i32 %10, %9
   store i32 %11, ptr %.017, align 4
-  %12 = getelementptr inbounds i8, ptr %.017, i64 4
-  %13 = getelementptr inbounds i8, ptr %.01215, i64 4
-  %14 = getelementptr inbounds i8, ptr %.01116, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.017, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %.01215, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.01116, i64 4
   %15 = add nsw i32 %.01314, -1
   %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !392
@@ -10863,9 +10863,9 @@ define internal void @ompi_op_base_3buff_bxor_fortran_integer1(ptr noalias nocap
   %10 = load i8, ptr %.01116, align 1
   %11 = xor i8 %10, %9
   store i8 %11, ptr %.017, align 1
-  %12 = getelementptr inbounds i8, ptr %.017, i64 1
-  %13 = getelementptr inbounds i8, ptr %.01215, i64 1
-  %14 = getelementptr inbounds i8, ptr %.01116, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.017, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.01215, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.01116, i64 1
   %15 = add nsw i32 %.01314, -1
   %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !393
@@ -10889,9 +10889,9 @@ define internal void @ompi_op_base_3buff_bxor_fortran_integer2(ptr noalias nocap
   %10 = load i16, ptr %.01116, align 2
   %11 = xor i16 %10, %9
   store i16 %11, ptr %.017, align 2
-  %12 = getelementptr inbounds i8, ptr %.017, i64 2
-  %13 = getelementptr inbounds i8, ptr %.01215, i64 2
-  %14 = getelementptr inbounds i8, ptr %.01116, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %.017, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %.01215, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %.01116, i64 2
   %15 = add nsw i32 %.01314, -1
   %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !394
@@ -10915,9 +10915,9 @@ define internal void @ompi_op_base_3buff_bxor_fortran_integer4(ptr noalias nocap
   %10 = load i32, ptr %.01116, align 4
   %11 = xor i32 %10, %9
   store i32 %11, ptr %.017, align 4
-  %12 = getelementptr inbounds i8, ptr %.017, i64 4
-  %13 = getelementptr inbounds i8, ptr %.01215, i64 4
-  %14 = getelementptr inbounds i8, ptr %.01116, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.017, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %.01215, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.01116, i64 4
   %15 = add nsw i32 %.01314, -1
   %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !395
@@ -10941,9 +10941,9 @@ define internal void @ompi_op_base_3buff_bxor_fortran_integer8(ptr noalias nocap
   %10 = load i64, ptr %.01116, align 8
   %11 = xor i64 %10, %9
   store i64 %11, ptr %.017, align 8
-  %12 = getelementptr inbounds i8, ptr %.017, i64 8
-  %13 = getelementptr inbounds i8, ptr %.01215, i64 8
-  %14 = getelementptr inbounds i8, ptr %.01116, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.017, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.01215, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.01116, i64 8
   %15 = add nsw i32 %.01314, -1
   %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !396
@@ -10967,9 +10967,9 @@ define internal void @ompi_op_base_3buff_bxor_byte(ptr noalias nocapture noundef
   %10 = load i8, ptr %.01116, align 1
   %11 = xor i8 %10, %9
   store i8 %11, ptr %.017, align 1
-  %12 = getelementptr inbounds i8, ptr %.017, i64 1
-  %13 = getelementptr inbounds i8, ptr %.01215, i64 1
-  %14 = getelementptr inbounds i8, ptr %.01116, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.017, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.01215, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.01116, i64 1
   %15 = add nsw i32 %.01314, -1
   %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !397
@@ -10993,9 +10993,9 @@ define internal void @ompi_op_base_3buff_bxor_long(ptr noalias nocapture noundef
   %10 = load i64, ptr %.01116, align 8
   %11 = xor i64 %10, %9
   store i64 %11, ptr %.017, align 8
-  %12 = getelementptr inbounds i8, ptr %.017, i64 8
-  %13 = getelementptr inbounds i8, ptr %.01215, i64 8
-  %14 = getelementptr inbounds i8, ptr %.01116, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.017, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.01215, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.01116, i64 8
   %15 = add nsw i32 %.01314, -1
   %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !398
@@ -11019,9 +11019,9 @@ define internal void @ompi_op_base_3buff_bxor_unsigned_long(ptr noalias nocaptur
   %10 = load i64, ptr %.01116, align 8
   %11 = xor i64 %10, %9
   store i64 %11, ptr %.017, align 8
-  %12 = getelementptr inbounds i8, ptr %.017, i64 8
-  %13 = getelementptr inbounds i8, ptr %.01215, i64 8
-  %14 = getelementptr inbounds i8, ptr %.01116, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.017, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.01215, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.01116, i64 8
   %15 = add nsw i32 %.01314, -1
   %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !399
@@ -11048,19 +11048,19 @@ define internal void @ompi_op_base_3buff_maxloc_2real(ptr noalias nocapture noun
 
 12:                                               ; preds = %.lr.ph
   store float %9, ptr %.037, align 4
-  %13 = getelementptr inbounds i8, ptr %.02835, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %.02835, i64 4
   %14 = load float, ptr %13, align 4
   br label %25
 
 15:                                               ; preds = %.lr.ph
   %16 = fcmp oeq float %9, %10
-  %17 = getelementptr inbounds i8, ptr %.02736, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %.02736, i64 4
   br i1 %16, label %18, label %23
 
 18:                                               ; preds = %15
   store float %9, ptr %.037, align 4
   %19 = load float, ptr %17, align 4
-  %20 = getelementptr inbounds i8, ptr %.02835, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %.02835, i64 4
   %21 = load float, ptr %20, align 4
   %22 = fcmp olt float %19, %21
   %. = select i1 %22, float %19, float %21
@@ -11073,12 +11073,12 @@ define internal void @ompi_op_base_3buff_maxloc_2real(ptr noalias nocapture noun
 
 25:                                               ; preds = %12, %23, %18
   %.sink = phi float [ %14, %12 ], [ %24, %23 ], [ %., %18 ]
-  %26 = getelementptr inbounds i8, ptr %.037, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %.037, i64 4
   store float %.sink, ptr %26, align 4
   %27 = add nsw i32 %.02934, -1
-  %28 = getelementptr inbounds i8, ptr %.02835, i64 8
-  %29 = getelementptr inbounds i8, ptr %.02736, i64 8
-  %30 = getelementptr inbounds i8, ptr %.037, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.02835, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.02736, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %.037, i64 8
   %31 = icmp sgt i32 %.02934, 1
   br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !400
 
@@ -11104,19 +11104,19 @@ define internal void @ompi_op_base_3buff_maxloc_2double_precision(ptr noalias no
 
 12:                                               ; preds = %.lr.ph
   store double %9, ptr %.037, align 8
-  %13 = getelementptr inbounds i8, ptr %.02835, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.02835, i64 8
   %14 = load double, ptr %13, align 8
   br label %25
 
 15:                                               ; preds = %.lr.ph
   %16 = fcmp oeq double %9, %10
-  %17 = getelementptr inbounds i8, ptr %.02736, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.02736, i64 8
   br i1 %16, label %18, label %23
 
 18:                                               ; preds = %15
   store double %9, ptr %.037, align 8
   %19 = load double, ptr %17, align 8
-  %20 = getelementptr inbounds i8, ptr %.02835, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.02835, i64 8
   %21 = load double, ptr %20, align 8
   %22 = fcmp olt double %19, %21
   %. = select i1 %22, double %19, double %21
@@ -11129,12 +11129,12 @@ define internal void @ompi_op_base_3buff_maxloc_2double_precision(ptr noalias no
 
 25:                                               ; preds = %12, %23, %18
   %.sink = phi double [ %14, %12 ], [ %24, %23 ], [ %., %18 ]
-  %26 = getelementptr inbounds i8, ptr %.037, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.037, i64 8
   store double %.sink, ptr %26, align 8
   %27 = add nsw i32 %.02934, -1
-  %28 = getelementptr inbounds i8, ptr %.02835, i64 16
-  %29 = getelementptr inbounds i8, ptr %.02736, i64 16
-  %30 = getelementptr inbounds i8, ptr %.037, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %.02835, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %.02736, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %.037, i64 16
   %31 = icmp sgt i32 %.02934, 1
   br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !401
 
@@ -11160,19 +11160,19 @@ define internal void @ompi_op_base_3buff_maxloc_2integer(ptr noalias nocapture n
 
 12:                                               ; preds = %.lr.ph
   store i32 %9, ptr %.037, align 4
-  %13 = getelementptr inbounds i8, ptr %.02835, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %.02835, i64 4
   %14 = load i32, ptr %13, align 4
   br label %24
 
 15:                                               ; preds = %.lr.ph
   %16 = icmp eq i32 %9, %10
-  %17 = getelementptr inbounds i8, ptr %.02736, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %.02736, i64 4
   br i1 %16, label %18, label %22
 
 18:                                               ; preds = %15
   store i32 %9, ptr %.037, align 4
   %19 = load i32, ptr %17, align 4
-  %20 = getelementptr inbounds i8, ptr %.02835, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %.02835, i64 4
   %21 = load i32, ptr %20, align 4
   %. = tail call i32 @llvm.smin.i32(i32 %19, i32 %21)
   br label %24
@@ -11184,12 +11184,12 @@ define internal void @ompi_op_base_3buff_maxloc_2integer(ptr noalias nocapture n
 
 24:                                               ; preds = %12, %22, %18
   %.sink = phi i32 [ %14, %12 ], [ %23, %22 ], [ %., %18 ]
-  %25 = getelementptr inbounds i8, ptr %.037, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %.037, i64 4
   store i32 %.sink, ptr %25, align 4
   %26 = add nsw i32 %.02934, -1
-  %27 = getelementptr inbounds i8, ptr %.02835, i64 8
-  %28 = getelementptr inbounds i8, ptr %.02736, i64 8
-  %29 = getelementptr inbounds i8, ptr %.037, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.02835, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.02736, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.037, i64 8
   %30 = icmp sgt i32 %.02934, 1
   br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !402
 
@@ -11215,19 +11215,19 @@ define internal void @ompi_op_base_3buff_maxloc_float_int(ptr noalias nocapture 
 
 12:                                               ; preds = %.lr.ph
   store float %9, ptr %.037, align 4
-  %13 = getelementptr inbounds i8, ptr %.02835, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %.02835, i64 4
   %14 = load i32, ptr %13, align 4
   br label %24
 
 15:                                               ; preds = %.lr.ph
   %16 = fcmp oeq float %9, %10
-  %17 = getelementptr inbounds i8, ptr %.02736, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %.02736, i64 4
   br i1 %16, label %18, label %22
 
 18:                                               ; preds = %15
   store float %9, ptr %.037, align 4
   %19 = load i32, ptr %17, align 4
-  %20 = getelementptr inbounds i8, ptr %.02835, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %.02835, i64 4
   %21 = load i32, ptr %20, align 4
   %. = tail call i32 @llvm.smin.i32(i32 %19, i32 %21)
   br label %24
@@ -11239,12 +11239,12 @@ define internal void @ompi_op_base_3buff_maxloc_float_int(ptr noalias nocapture 
 
 24:                                               ; preds = %12, %22, %18
   %.sink = phi i32 [ %14, %12 ], [ %23, %22 ], [ %., %18 ]
-  %25 = getelementptr inbounds i8, ptr %.037, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %.037, i64 4
   store i32 %.sink, ptr %25, align 4
   %26 = add nsw i32 %.02934, -1
-  %27 = getelementptr inbounds i8, ptr %.02835, i64 8
-  %28 = getelementptr inbounds i8, ptr %.02736, i64 8
-  %29 = getelementptr inbounds i8, ptr %.037, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.02835, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.02736, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.037, i64 8
   %30 = icmp sgt i32 %.02934, 1
   br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !403
 
@@ -11270,19 +11270,19 @@ define internal void @ompi_op_base_3buff_maxloc_double_int(ptr noalias nocapture
 
 12:                                               ; preds = %.lr.ph
   store double %9, ptr %.037, align 8
-  %13 = getelementptr inbounds i8, ptr %.02835, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.02835, i64 8
   %14 = load i32, ptr %13, align 8
   br label %24
 
 15:                                               ; preds = %.lr.ph
   %16 = fcmp oeq double %9, %10
-  %17 = getelementptr inbounds i8, ptr %.02736, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.02736, i64 8
   br i1 %16, label %18, label %22
 
 18:                                               ; preds = %15
   store double %9, ptr %.037, align 8
   %19 = load i32, ptr %17, align 8
-  %20 = getelementptr inbounds i8, ptr %.02835, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.02835, i64 8
   %21 = load i32, ptr %20, align 8
   %. = tail call i32 @llvm.smin.i32(i32 %19, i32 %21)
   br label %24
@@ -11294,12 +11294,12 @@ define internal void @ompi_op_base_3buff_maxloc_double_int(ptr noalias nocapture
 
 24:                                               ; preds = %12, %22, %18
   %.sink = phi i32 [ %14, %12 ], [ %23, %22 ], [ %., %18 ]
-  %25 = getelementptr inbounds i8, ptr %.037, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.037, i64 8
   store i32 %.sink, ptr %25, align 8
   %26 = add nsw i32 %.02934, -1
-  %27 = getelementptr inbounds i8, ptr %.02835, i64 16
-  %28 = getelementptr inbounds i8, ptr %.02736, i64 16
-  %29 = getelementptr inbounds i8, ptr %.037, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %.02835, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %.02736, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %.037, i64 16
   %30 = icmp sgt i32 %.02934, 1
   br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !404
 
@@ -11325,19 +11325,19 @@ define internal void @ompi_op_base_3buff_maxloc_long_int(ptr noalias nocapture n
 
 12:                                               ; preds = %.lr.ph
   store i64 %9, ptr %.037, align 8
-  %13 = getelementptr inbounds i8, ptr %.02835, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.02835, i64 8
   %14 = load i32, ptr %13, align 8
   br label %24
 
 15:                                               ; preds = %.lr.ph
   %16 = icmp eq i64 %9, %10
-  %17 = getelementptr inbounds i8, ptr %.02736, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.02736, i64 8
   br i1 %16, label %18, label %22
 
 18:                                               ; preds = %15
   store i64 %9, ptr %.037, align 8
   %19 = load i32, ptr %17, align 8
-  %20 = getelementptr inbounds i8, ptr %.02835, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.02835, i64 8
   %21 = load i32, ptr %20, align 8
   %. = tail call i32 @llvm.smin.i32(i32 %19, i32 %21)
   br label %24
@@ -11349,12 +11349,12 @@ define internal void @ompi_op_base_3buff_maxloc_long_int(ptr noalias nocapture n
 
 24:                                               ; preds = %12, %22, %18
   %.sink = phi i32 [ %14, %12 ], [ %23, %22 ], [ %., %18 ]
-  %25 = getelementptr inbounds i8, ptr %.037, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.037, i64 8
   store i32 %.sink, ptr %25, align 8
   %26 = add nsw i32 %.02934, -1
-  %27 = getelementptr inbounds i8, ptr %.02835, i64 16
-  %28 = getelementptr inbounds i8, ptr %.02736, i64 16
-  %29 = getelementptr inbounds i8, ptr %.037, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %.02835, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %.02736, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %.037, i64 16
   %30 = icmp sgt i32 %.02934, 1
   br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !405
 
@@ -11380,19 +11380,19 @@ define internal void @ompi_op_base_3buff_maxloc_2int(ptr noalias nocapture nound
 
 12:                                               ; preds = %.lr.ph
   store i32 %9, ptr %.037, align 4
-  %13 = getelementptr inbounds i8, ptr %.02835, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %.02835, i64 4
   %14 = load i32, ptr %13, align 4
   br label %24
 
 15:                                               ; preds = %.lr.ph
   %16 = icmp eq i32 %9, %10
-  %17 = getelementptr inbounds i8, ptr %.02736, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %.02736, i64 4
   br i1 %16, label %18, label %22
 
 18:                                               ; preds = %15
   store i32 %9, ptr %.037, align 4
   %19 = load i32, ptr %17, align 4
-  %20 = getelementptr inbounds i8, ptr %.02835, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %.02835, i64 4
   %21 = load i32, ptr %20, align 4
   %. = tail call i32 @llvm.smin.i32(i32 %19, i32 %21)
   br label %24
@@ -11404,12 +11404,12 @@ define internal void @ompi_op_base_3buff_maxloc_2int(ptr noalias nocapture nound
 
 24:                                               ; preds = %12, %22, %18
   %.sink = phi i32 [ %14, %12 ], [ %23, %22 ], [ %., %18 ]
-  %25 = getelementptr inbounds i8, ptr %.037, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %.037, i64 4
   store i32 %.sink, ptr %25, align 4
   %26 = add nsw i32 %.02934, -1
-  %27 = getelementptr inbounds i8, ptr %.02835, i64 8
-  %28 = getelementptr inbounds i8, ptr %.02736, i64 8
-  %29 = getelementptr inbounds i8, ptr %.037, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.02835, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.02736, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.037, i64 8
   %30 = icmp sgt i32 %.02934, 1
   br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !406
 
@@ -11435,19 +11435,19 @@ define internal void @ompi_op_base_3buff_maxloc_short_int(ptr noalias nocapture 
 
 12:                                               ; preds = %.lr.ph
   store i16 %9, ptr %.037, align 4
-  %13 = getelementptr inbounds i8, ptr %.02835, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %.02835, i64 4
   %14 = load i32, ptr %13, align 4
   br label %24
 
 15:                                               ; preds = %.lr.ph
   %16 = icmp eq i16 %9, %10
-  %17 = getelementptr inbounds i8, ptr %.02736, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %.02736, i64 4
   br i1 %16, label %18, label %22
 
 18:                                               ; preds = %15
   store i16 %9, ptr %.037, align 4
   %19 = load i32, ptr %17, align 4
-  %20 = getelementptr inbounds i8, ptr %.02835, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %.02835, i64 4
   %21 = load i32, ptr %20, align 4
   %. = tail call i32 @llvm.smin.i32(i32 %19, i32 %21)
   br label %24
@@ -11459,12 +11459,12 @@ define internal void @ompi_op_base_3buff_maxloc_short_int(ptr noalias nocapture 
 
 24:                                               ; preds = %12, %22, %18
   %.sink = phi i32 [ %14, %12 ], [ %23, %22 ], [ %., %18 ]
-  %25 = getelementptr inbounds i8, ptr %.037, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %.037, i64 4
   store i32 %.sink, ptr %25, align 4
   %26 = add nsw i32 %.02934, -1
-  %27 = getelementptr inbounds i8, ptr %.02835, i64 8
-  %28 = getelementptr inbounds i8, ptr %.02736, i64 8
-  %29 = getelementptr inbounds i8, ptr %.037, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.02835, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.02736, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.037, i64 8
   %30 = icmp sgt i32 %.02934, 1
   br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !407
 
@@ -11490,19 +11490,19 @@ define internal void @ompi_op_base_3buff_maxloc_long_double_int(ptr noalias noca
 
 12:                                               ; preds = %.lr.ph
   store x86_fp80 %9, ptr %.037, align 16
-  %13 = getelementptr inbounds i8, ptr %.02835, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %.02835, i64 16
   %14 = load i32, ptr %13, align 16
   br label %24
 
 15:                                               ; preds = %.lr.ph
   %16 = fcmp oeq x86_fp80 %9, %10
-  %17 = getelementptr inbounds i8, ptr %.02736, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %.02736, i64 16
   br i1 %16, label %18, label %22
 
 18:                                               ; preds = %15
   store x86_fp80 %9, ptr %.037, align 16
   %19 = load i32, ptr %17, align 16
-  %20 = getelementptr inbounds i8, ptr %.02835, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %.02835, i64 16
   %21 = load i32, ptr %20, align 16
   %. = tail call i32 @llvm.smin.i32(i32 %19, i32 %21)
   br label %24
@@ -11514,12 +11514,12 @@ define internal void @ompi_op_base_3buff_maxloc_long_double_int(ptr noalias noca
 
 24:                                               ; preds = %12, %22, %18
   %.sink = phi i32 [ %14, %12 ], [ %23, %22 ], [ %., %18 ]
-  %25 = getelementptr inbounds i8, ptr %.037, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %.037, i64 16
   store i32 %.sink, ptr %25, align 16
   %26 = add nsw i32 %.02934, -1
-  %27 = getelementptr inbounds i8, ptr %.02835, i64 32
-  %28 = getelementptr inbounds i8, ptr %.02736, i64 32
-  %29 = getelementptr inbounds i8, ptr %.037, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.02835, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.02736, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %.037, i64 32
   %30 = icmp sgt i32 %.02934, 1
   br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !408
 
@@ -11545,19 +11545,19 @@ define internal void @ompi_op_base_3buff_minloc_2real(ptr noalias nocapture noun
 
 12:                                               ; preds = %.lr.ph
   store float %9, ptr %.037, align 4
-  %13 = getelementptr inbounds i8, ptr %.02835, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %.02835, i64 4
   %14 = load float, ptr %13, align 4
   br label %25
 
 15:                                               ; preds = %.lr.ph
   %16 = fcmp oeq float %9, %10
-  %17 = getelementptr inbounds i8, ptr %.02736, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %.02736, i64 4
   br i1 %16, label %18, label %23
 
 18:                                               ; preds = %15
   store float %9, ptr %.037, align 4
   %19 = load float, ptr %17, align 4
-  %20 = getelementptr inbounds i8, ptr %.02835, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %.02835, i64 4
   %21 = load float, ptr %20, align 4
   %22 = fcmp olt float %19, %21
   %. = select i1 %22, float %19, float %21
@@ -11570,12 +11570,12 @@ define internal void @ompi_op_base_3buff_minloc_2real(ptr noalias nocapture noun
 
 25:                                               ; preds = %12, %23, %18
   %.sink = phi float [ %14, %12 ], [ %24, %23 ], [ %., %18 ]
-  %26 = getelementptr inbounds i8, ptr %.037, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %.037, i64 4
   store float %.sink, ptr %26, align 4
   %27 = add nsw i32 %.02934, -1
-  %28 = getelementptr inbounds i8, ptr %.02835, i64 8
-  %29 = getelementptr inbounds i8, ptr %.02736, i64 8
-  %30 = getelementptr inbounds i8, ptr %.037, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.02835, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.02736, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %.037, i64 8
   %31 = icmp sgt i32 %.02934, 1
   br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !409
 
@@ -11601,19 +11601,19 @@ define internal void @ompi_op_base_3buff_minloc_2double_precision(ptr noalias no
 
 12:                                               ; preds = %.lr.ph
   store double %9, ptr %.037, align 8
-  %13 = getelementptr inbounds i8, ptr %.02835, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.02835, i64 8
   %14 = load double, ptr %13, align 8
   br label %25
 
 15:                                               ; preds = %.lr.ph
   %16 = fcmp oeq double %9, %10
-  %17 = getelementptr inbounds i8, ptr %.02736, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.02736, i64 8
   br i1 %16, label %18, label %23
 
 18:                                               ; preds = %15
   store double %9, ptr %.037, align 8
   %19 = load double, ptr %17, align 8
-  %20 = getelementptr inbounds i8, ptr %.02835, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.02835, i64 8
   %21 = load double, ptr %20, align 8
   %22 = fcmp olt double %19, %21
   %. = select i1 %22, double %19, double %21
@@ -11626,12 +11626,12 @@ define internal void @ompi_op_base_3buff_minloc_2double_precision(ptr noalias no
 
 25:                                               ; preds = %12, %23, %18
   %.sink = phi double [ %14, %12 ], [ %24, %23 ], [ %., %18 ]
-  %26 = getelementptr inbounds i8, ptr %.037, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.037, i64 8
   store double %.sink, ptr %26, align 8
   %27 = add nsw i32 %.02934, -1
-  %28 = getelementptr inbounds i8, ptr %.02835, i64 16
-  %29 = getelementptr inbounds i8, ptr %.02736, i64 16
-  %30 = getelementptr inbounds i8, ptr %.037, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %.02835, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %.02736, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %.037, i64 16
   %31 = icmp sgt i32 %.02934, 1
   br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !410
 
@@ -11657,19 +11657,19 @@ define internal void @ompi_op_base_3buff_minloc_2integer(ptr noalias nocapture n
 
 12:                                               ; preds = %.lr.ph
   store i32 %9, ptr %.037, align 4
-  %13 = getelementptr inbounds i8, ptr %.02835, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %.02835, i64 4
   %14 = load i32, ptr %13, align 4
   br label %24
 
 15:                                               ; preds = %.lr.ph
   %16 = icmp eq i32 %9, %10
-  %17 = getelementptr inbounds i8, ptr %.02736, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %.02736, i64 4
   br i1 %16, label %18, label %22
 
 18:                                               ; preds = %15
   store i32 %9, ptr %.037, align 4
   %19 = load i32, ptr %17, align 4
-  %20 = getelementptr inbounds i8, ptr %.02835, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %.02835, i64 4
   %21 = load i32, ptr %20, align 4
   %. = tail call i32 @llvm.smin.i32(i32 %19, i32 %21)
   br label %24
@@ -11681,12 +11681,12 @@ define internal void @ompi_op_base_3buff_minloc_2integer(ptr noalias nocapture n
 
 24:                                               ; preds = %12, %22, %18
   %.sink = phi i32 [ %14, %12 ], [ %23, %22 ], [ %., %18 ]
-  %25 = getelementptr inbounds i8, ptr %.037, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %.037, i64 4
   store i32 %.sink, ptr %25, align 4
   %26 = add nsw i32 %.02934, -1
-  %27 = getelementptr inbounds i8, ptr %.02835, i64 8
-  %28 = getelementptr inbounds i8, ptr %.02736, i64 8
-  %29 = getelementptr inbounds i8, ptr %.037, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.02835, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.02736, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.037, i64 8
   %30 = icmp sgt i32 %.02934, 1
   br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !411
 
@@ -11712,19 +11712,19 @@ define internal void @ompi_op_base_3buff_minloc_float_int(ptr noalias nocapture 
 
 12:                                               ; preds = %.lr.ph
   store float %9, ptr %.037, align 4
-  %13 = getelementptr inbounds i8, ptr %.02835, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %.02835, i64 4
   %14 = load i32, ptr %13, align 4
   br label %24
 
 15:                                               ; preds = %.lr.ph
   %16 = fcmp oeq float %9, %10
-  %17 = getelementptr inbounds i8, ptr %.02736, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %.02736, i64 4
   br i1 %16, label %18, label %22
 
 18:                                               ; preds = %15
   store float %9, ptr %.037, align 4
   %19 = load i32, ptr %17, align 4
-  %20 = getelementptr inbounds i8, ptr %.02835, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %.02835, i64 4
   %21 = load i32, ptr %20, align 4
   %. = tail call i32 @llvm.smin.i32(i32 %19, i32 %21)
   br label %24
@@ -11736,12 +11736,12 @@ define internal void @ompi_op_base_3buff_minloc_float_int(ptr noalias nocapture 
 
 24:                                               ; preds = %12, %22, %18
   %.sink = phi i32 [ %14, %12 ], [ %23, %22 ], [ %., %18 ]
-  %25 = getelementptr inbounds i8, ptr %.037, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %.037, i64 4
   store i32 %.sink, ptr %25, align 4
   %26 = add nsw i32 %.02934, -1
-  %27 = getelementptr inbounds i8, ptr %.02835, i64 8
-  %28 = getelementptr inbounds i8, ptr %.02736, i64 8
-  %29 = getelementptr inbounds i8, ptr %.037, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.02835, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.02736, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.037, i64 8
   %30 = icmp sgt i32 %.02934, 1
   br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !412
 
@@ -11767,19 +11767,19 @@ define internal void @ompi_op_base_3buff_minloc_double_int(ptr noalias nocapture
 
 12:                                               ; preds = %.lr.ph
   store double %9, ptr %.037, align 8
-  %13 = getelementptr inbounds i8, ptr %.02835, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.02835, i64 8
   %14 = load i32, ptr %13, align 8
   br label %24
 
 15:                                               ; preds = %.lr.ph
   %16 = fcmp oeq double %9, %10
-  %17 = getelementptr inbounds i8, ptr %.02736, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.02736, i64 8
   br i1 %16, label %18, label %22
 
 18:                                               ; preds = %15
   store double %9, ptr %.037, align 8
   %19 = load i32, ptr %17, align 8
-  %20 = getelementptr inbounds i8, ptr %.02835, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.02835, i64 8
   %21 = load i32, ptr %20, align 8
   %. = tail call i32 @llvm.smin.i32(i32 %19, i32 %21)
   br label %24
@@ -11791,12 +11791,12 @@ define internal void @ompi_op_base_3buff_minloc_double_int(ptr noalias nocapture
 
 24:                                               ; preds = %12, %22, %18
   %.sink = phi i32 [ %14, %12 ], [ %23, %22 ], [ %., %18 ]
-  %25 = getelementptr inbounds i8, ptr %.037, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.037, i64 8
   store i32 %.sink, ptr %25, align 8
   %26 = add nsw i32 %.02934, -1
-  %27 = getelementptr inbounds i8, ptr %.02835, i64 16
-  %28 = getelementptr inbounds i8, ptr %.02736, i64 16
-  %29 = getelementptr inbounds i8, ptr %.037, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %.02835, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %.02736, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %.037, i64 16
   %30 = icmp sgt i32 %.02934, 1
   br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !413
 
@@ -11822,19 +11822,19 @@ define internal void @ompi_op_base_3buff_minloc_long_int(ptr noalias nocapture n
 
 12:                                               ; preds = %.lr.ph
   store i64 %9, ptr %.037, align 8
-  %13 = getelementptr inbounds i8, ptr %.02835, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.02835, i64 8
   %14 = load i32, ptr %13, align 8
   br label %24
 
 15:                                               ; preds = %.lr.ph
   %16 = icmp eq i64 %9, %10
-  %17 = getelementptr inbounds i8, ptr %.02736, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.02736, i64 8
   br i1 %16, label %18, label %22
 
 18:                                               ; preds = %15
   store i64 %9, ptr %.037, align 8
   %19 = load i32, ptr %17, align 8
-  %20 = getelementptr inbounds i8, ptr %.02835, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.02835, i64 8
   %21 = load i32, ptr %20, align 8
   %. = tail call i32 @llvm.smin.i32(i32 %19, i32 %21)
   br label %24
@@ -11846,12 +11846,12 @@ define internal void @ompi_op_base_3buff_minloc_long_int(ptr noalias nocapture n
 
 24:                                               ; preds = %12, %22, %18
   %.sink = phi i32 [ %14, %12 ], [ %23, %22 ], [ %., %18 ]
-  %25 = getelementptr inbounds i8, ptr %.037, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.037, i64 8
   store i32 %.sink, ptr %25, align 8
   %26 = add nsw i32 %.02934, -1
-  %27 = getelementptr inbounds i8, ptr %.02835, i64 16
-  %28 = getelementptr inbounds i8, ptr %.02736, i64 16
-  %29 = getelementptr inbounds i8, ptr %.037, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %.02835, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %.02736, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %.037, i64 16
   %30 = icmp sgt i32 %.02934, 1
   br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !414
 
@@ -11877,19 +11877,19 @@ define internal void @ompi_op_base_3buff_minloc_2int(ptr noalias nocapture nound
 
 12:                                               ; preds = %.lr.ph
   store i32 %9, ptr %.037, align 4
-  %13 = getelementptr inbounds i8, ptr %.02835, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %.02835, i64 4
   %14 = load i32, ptr %13, align 4
   br label %24
 
 15:                                               ; preds = %.lr.ph
   %16 = icmp eq i32 %9, %10
-  %17 = getelementptr inbounds i8, ptr %.02736, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %.02736, i64 4
   br i1 %16, label %18, label %22
 
 18:                                               ; preds = %15
   store i32 %9, ptr %.037, align 4
   %19 = load i32, ptr %17, align 4
-  %20 = getelementptr inbounds i8, ptr %.02835, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %.02835, i64 4
   %21 = load i32, ptr %20, align 4
   %. = tail call i32 @llvm.smin.i32(i32 %19, i32 %21)
   br label %24
@@ -11901,12 +11901,12 @@ define internal void @ompi_op_base_3buff_minloc_2int(ptr noalias nocapture nound
 
 24:                                               ; preds = %12, %22, %18
   %.sink = phi i32 [ %14, %12 ], [ %23, %22 ], [ %., %18 ]
-  %25 = getelementptr inbounds i8, ptr %.037, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %.037, i64 4
   store i32 %.sink, ptr %25, align 4
   %26 = add nsw i32 %.02934, -1
-  %27 = getelementptr inbounds i8, ptr %.02835, i64 8
-  %28 = getelementptr inbounds i8, ptr %.02736, i64 8
-  %29 = getelementptr inbounds i8, ptr %.037, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.02835, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.02736, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.037, i64 8
   %30 = icmp sgt i32 %.02934, 1
   br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !415
 
@@ -11932,19 +11932,19 @@ define internal void @ompi_op_base_3buff_minloc_short_int(ptr noalias nocapture 
 
 12:                                               ; preds = %.lr.ph
   store i16 %9, ptr %.037, align 4
-  %13 = getelementptr inbounds i8, ptr %.02835, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %.02835, i64 4
   %14 = load i32, ptr %13, align 4
   br label %24
 
 15:                                               ; preds = %.lr.ph
   %16 = icmp eq i16 %9, %10
-  %17 = getelementptr inbounds i8, ptr %.02736, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %.02736, i64 4
   br i1 %16, label %18, label %22
 
 18:                                               ; preds = %15
   store i16 %9, ptr %.037, align 4
   %19 = load i32, ptr %17, align 4
-  %20 = getelementptr inbounds i8, ptr %.02835, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %.02835, i64 4
   %21 = load i32, ptr %20, align 4
   %. = tail call i32 @llvm.smin.i32(i32 %19, i32 %21)
   br label %24
@@ -11956,12 +11956,12 @@ define internal void @ompi_op_base_3buff_minloc_short_int(ptr noalias nocapture 
 
 24:                                               ; preds = %12, %22, %18
   %.sink = phi i32 [ %14, %12 ], [ %23, %22 ], [ %., %18 ]
-  %25 = getelementptr inbounds i8, ptr %.037, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %.037, i64 4
   store i32 %.sink, ptr %25, align 4
   %26 = add nsw i32 %.02934, -1
-  %27 = getelementptr inbounds i8, ptr %.02835, i64 8
-  %28 = getelementptr inbounds i8, ptr %.02736, i64 8
-  %29 = getelementptr inbounds i8, ptr %.037, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.02835, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.02736, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.037, i64 8
   %30 = icmp sgt i32 %.02934, 1
   br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !416
 
@@ -11987,19 +11987,19 @@ define internal void @ompi_op_base_3buff_minloc_long_double_int(ptr noalias noca
 
 12:                                               ; preds = %.lr.ph
   store x86_fp80 %9, ptr %.037, align 16
-  %13 = getelementptr inbounds i8, ptr %.02835, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %.02835, i64 16
   %14 = load i32, ptr %13, align 16
   br label %24
 
 15:                                               ; preds = %.lr.ph
   %16 = fcmp oeq x86_fp80 %9, %10
-  %17 = getelementptr inbounds i8, ptr %.02736, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %.02736, i64 16
   br i1 %16, label %18, label %22
 
 18:                                               ; preds = %15
   store x86_fp80 %9, ptr %.037, align 16
   %19 = load i32, ptr %17, align 16
-  %20 = getelementptr inbounds i8, ptr %.02835, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %.02835, i64 16
   %21 = load i32, ptr %20, align 16
   %. = tail call i32 @llvm.smin.i32(i32 %19, i32 %21)
   br label %24
@@ -12011,12 +12011,12 @@ define internal void @ompi_op_base_3buff_minloc_long_double_int(ptr noalias noca
 
 24:                                               ; preds = %12, %22, %18
   %.sink = phi i32 [ %14, %12 ], [ %23, %22 ], [ %., %18 ]
-  %25 = getelementptr inbounds i8, ptr %.037, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %.037, i64 16
   store i32 %.sink, ptr %25, align 16
   %26 = add nsw i32 %.02934, -1
-  %27 = getelementptr inbounds i8, ptr %.02835, i64 32
-  %28 = getelementptr inbounds i8, ptr %.02736, i64 32
-  %29 = getelementptr inbounds i8, ptr %.037, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.02835, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.02736, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %.037, i64 32
   %30 = icmp sgt i32 %.02934, 1
   br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !417
 

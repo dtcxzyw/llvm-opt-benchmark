@@ -24,7 +24,7 @@ define hidden i32 @WebPParseHeaders(ptr noundef %0) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   store i32 0, ptr %3, align 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = call fastcc i32 @ParseHeadersInternal(ptr noundef %4, i64 noundef %6, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %3, ptr noundef null, ptr noundef nonnull %0)
   store volatile i32 %7, ptr %2, align 4
@@ -68,7 +68,7 @@ define internal fastcc range(i32 0, 8) i32 @ParseHeadersInternal(ptr noundef %0,
   br i1 %.not, label %17, label %14
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %7, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %16 = load i32, ptr %15, align 8
   br label %17
 
@@ -80,27 +80,27 @@ define internal fastcc range(i32 0, 8) i32 @ParseHeadersInternal(ptr noundef %0,
   br i1 %or.cond, label %ParseRIFF.exit.thread, label %21
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %13, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %22, i8 0, i64 56, i1 false)
   store ptr %0, ptr %13, align 8
-  %23 = getelementptr inbounds i8, ptr %13, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 %1, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %13, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @.str.1, i64 4)
   %.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not.i, label %25, label %ParseRIFF.exit.thread132
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %bcmp15.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %26, ptr noundef nonnull dereferenceable(4) @.str.2, i64 4)
   %.not16.i = icmp eq i32 %bcmp15.i, 0
   br i1 %.not16.i, label %27, label %ParseRIFF.exit.thread
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %0, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.val.i.i = load i16, ptr %28, align 1
   %29 = zext i16 %.val.i.i to i32
-  %30 = getelementptr inbounds i8, ptr %0, i64 6
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %.val3.i.i = load i16, ptr %30, align 1
   %31 = zext i16 %.val3.i.i to i32
   %32 = shl nuw i32 %31, 16
@@ -119,7 +119,7 @@ define internal fastcc range(i32 0, 8) i32 @ParseHeadersInternal(ptr noundef %0,
 
 ParseRIFF.exit:                                   ; preds = %35
   store i64 %36, ptr %24, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 12
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store ptr %39, ptr %9, align 8
   %40 = add i64 %1, -12
   store i64 %40, ptr %10, align 8
@@ -135,7 +135,7 @@ ParseRIFF.exit.thread132:                         ; preds = %21, %ParseRIFF.exit
   br i1 %.not.i92.not, label %45, label %ParseVP8X.exit.thread115
 
 45:                                               ; preds = %ParseRIFF.exit.thread132
-  %46 = getelementptr inbounds i8, ptr %44, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %.val.i.i94 = load i32, ptr %46, align 1
   %.not26.i = icmp eq i32 %.val.i.i94, 10
   br i1 %.not26.i, label %47, label %ParseRIFF.exit.thread
@@ -145,19 +145,19 @@ ParseRIFF.exit.thread132:                         ; preds = %21, %ParseRIFF.exit
   br i1 %48, label %ParseRIFF.exit.thread, label %49
 
 49:                                               ; preds = %47
-  %50 = getelementptr inbounds i8, ptr %44, i64 12
+  %50 = getelementptr inbounds nuw i8, ptr %44, i64 12
   %.val.i29.i = load i16, ptr %50, align 1
   %51 = zext i16 %.val.i29.i to i32
-  %52 = getelementptr inbounds i8, ptr %44, i64 14
+  %52 = getelementptr inbounds nuw i8, ptr %44, i64 14
   %53 = load i8, ptr %52, align 1
   %54 = zext i8 %53 to i32
   %55 = shl nuw nsw i32 %54, 16
   %56 = or disjoint i32 %55, %51
   %57 = add nuw nsw i32 %56, 1
-  %58 = getelementptr inbounds i8, ptr %44, i64 15
+  %58 = getelementptr inbounds nuw i8, ptr %44, i64 15
   %.val.i30.i = load i16, ptr %58, align 1
   %59 = zext i16 %.val.i30.i to i32
-  %60 = getelementptr inbounds i8, ptr %44, i64 17
+  %60 = getelementptr inbounds nuw i8, ptr %44, i64 17
   %61 = load i8, ptr %60, align 1
   %62 = zext i8 %61 to i32
   %63 = shl nuw nsw i32 %62, 16
@@ -170,7 +170,7 @@ ParseRIFF.exit.thread132:                         ; preds = %21, %ParseRIFF.exit
 ParseVP8X.exit:                                   ; preds = %49
   %67 = getelementptr i8, ptr %44, i64 8
   %.val.i27.i = load i32, ptr %67, align 1
-  %68 = getelementptr inbounds i8, ptr %44, i64 18
+  %68 = getelementptr inbounds nuw i8, ptr %44, i64 18
   store ptr %68, ptr %9, align 8
   %69 = add i64 %42, -18
   store i64 %69, ptr %10, align 8
@@ -230,8 +230,8 @@ ParseVP8X.exit.thread115:                         ; preds = %ParseRIFF.exit.thre
   br i1 %.not79, label %86, label %90
 
 86:                                               ; preds = %82, %85
-  %87 = getelementptr inbounds i8, ptr %13, i64 32
-  %88 = getelementptr inbounds i8, ptr %13, i64 40
+  %87 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %88 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %89 = call fastcc i32 @ParseOptionalChunks(ptr noundef %9, ptr noundef %10, i64 noundef %43, ptr noundef %87, ptr noundef %88)
   %.not80 = icmp eq i32 %89, 0
   br i1 %.not80, label %._crit_edge, label %124
@@ -242,8 +242,8 @@ ParseVP8X.exit.thread115:                         ; preds = %ParseRIFF.exit.thre
 
 90:                                               ; preds = %._crit_edge, %85, %84
   %91 = phi i64 [ %.pre, %._crit_edge ], [ 0, %85 ], [ %43, %84 ]
-  %92 = getelementptr inbounds i8, ptr %13, i64 48
-  %93 = getelementptr inbounds i8, ptr %13, i64 64
+  %92 = getelementptr inbounds nuw i8, ptr %13, i64 48
+  %93 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %94 = call fastcc i32 @ParseVP8Header(ptr noundef %9, ptr noundef %10, i32 noundef %18, i64 noundef %91, ptr noundef %92, ptr noundef %93)
   %.not81 = icmp eq i32 %94, 0
   br i1 %.not81, label %95, label %124
@@ -310,7 +310,7 @@ thread-pre-split:                                 ; preds = %98, %99
   %120 = ptrtoint ptr %113 to i64
   %121 = ptrtoint ptr %119 to i64
   %122 = sub i64 %120, %121
-  %123 = getelementptr inbounds i8, ptr %7, i64 24
+  %123 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 %122, ptr %123, align 8
   br label %126
 
@@ -325,7 +325,7 @@ thread-pre-split:                                 ; preds = %98, %99
   br i1 %.not76, label %134, label %127
 
 127:                                              ; preds = %126
-  %128 = getelementptr inbounds i8, ptr %13, i64 32
+  %128 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %129 = load ptr, ptr %128, align 8
   %130 = icmp ne ptr %129, null
   %131 = zext i1 %130 to i32
@@ -388,17 +388,17 @@ define ptr @WebPDecodeRGBInto(ptr noundef %0, i64 noundef %1, ptr noundef %2, i6
   br i1 %.not.i, label %DecodeIntoRGBABuffer.exit, label %11
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %12, i8 0, i64 104, i1 false)
   store ptr %7, ptr %6, align 8
   store i32 0, ptr %7, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %2, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %7, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 %4, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %7, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i64 %3, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 1, ptr %16, align 4
   %17 = call fastcc i32 @DecodeInto(ptr noundef %0, i64 noundef %1, ptr noundef %6)
   %.not9.i = icmp eq i32 %17, 0
@@ -427,17 +427,17 @@ define ptr @WebPDecodeRGBAInto(ptr noundef %0, i64 noundef %1, ptr noundef %2, i
   br i1 %.not.i, label %DecodeIntoRGBABuffer.exit, label %11
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %12, i8 0, i64 104, i1 false)
   store ptr %7, ptr %6, align 8
   store i32 1, ptr %7, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %2, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %7, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 %4, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %7, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i64 %3, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 1, ptr %16, align 4
   %17 = call fastcc i32 @DecodeInto(ptr noundef %0, i64 noundef %1, ptr noundef %6)
   %.not9.i = icmp eq i32 %17, 0
@@ -466,17 +466,17 @@ define ptr @WebPDecodeARGBInto(ptr noundef %0, i64 noundef %1, ptr noundef %2, i
   br i1 %.not.i, label %DecodeIntoRGBABuffer.exit, label %11
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %12, i8 0, i64 104, i1 false)
   store ptr %7, ptr %6, align 8
   store i32 4, ptr %7, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %2, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %7, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 %4, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %7, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i64 %3, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 1, ptr %16, align 4
   %17 = call fastcc i32 @DecodeInto(ptr noundef %0, i64 noundef %1, ptr noundef %6)
   %.not9.i = icmp eq i32 %17, 0
@@ -505,17 +505,17 @@ define ptr @WebPDecodeBGRInto(ptr noundef %0, i64 noundef %1, ptr noundef %2, i6
   br i1 %.not.i, label %DecodeIntoRGBABuffer.exit, label %11
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %12, i8 0, i64 104, i1 false)
   store ptr %7, ptr %6, align 8
   store i32 2, ptr %7, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %2, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %7, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 %4, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %7, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i64 %3, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 1, ptr %16, align 4
   %17 = call fastcc i32 @DecodeInto(ptr noundef %0, i64 noundef %1, ptr noundef %6)
   %.not9.i = icmp eq i32 %17, 0
@@ -544,17 +544,17 @@ define ptr @WebPDecodeBGRAInto(ptr noundef %0, i64 noundef %1, ptr noundef %2, i
   br i1 %.not.i, label %DecodeIntoRGBABuffer.exit, label %11
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %12, i8 0, i64 104, i1 false)
   store ptr %7, ptr %6, align 8
   store i32 3, ptr %7, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %2, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %7, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 %4, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %7, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i64 %3, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 1, ptr %16, align 4
   %17 = call fastcc i32 @DecodeInto(ptr noundef %0, i64 noundef %1, ptr noundef %6)
   %.not9.i = icmp eq i32 %17, 0
@@ -581,29 +581,29 @@ define ptr @WebPDecodeYUVInto(ptr noundef %0, i64 noundef %1, ptr noundef %2, i6
   br i1 %.not, label %30, label %17
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %12, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %18, i8 0, i64 104, i1 false)
   store ptr %13, ptr %12, align 8
   store i32 11, ptr %13, align 8
-  %19 = getelementptr inbounds i8, ptr %13, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %2, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %13, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 48
   store i32 %4, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %13, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 64
   store i64 %3, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %13, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store ptr %5, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %13, i64 52
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 52
   store i32 %7, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %13, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %13, i64 72
   store i64 %6, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %13, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr %8, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %13, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %13, i64 56
   store i32 %10, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %13, i64 80
+  %27 = getelementptr inbounds nuw i8, ptr %13, i64 80
   store i64 %9, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %13, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 1, ptr %28, align 4
   %29 = call fastcc i32 @DecodeInto(ptr noundef %0, i64 noundef %1, ptr noundef %12)
   %.not14 = icmp eq i32 %29, 0
@@ -622,9 +622,9 @@ define internal fastcc i32 @DecodeInto(ptr noundef %0, i64 noundef %1, ptr nound
   %6 = alloca %struct.VP8Io, align 8
   %7 = alloca %struct.WebPHeaderStructure, align 8
   store ptr %0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 1, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
@@ -666,17 +666,17 @@ WebPParseHeaders.exit:                            ; preds = %12, %16, %17
 
 20:                                               ; preds = %18
   %21 = load ptr, ptr %7, align 8
-  %22 = getelementptr inbounds i8, ptr %7, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %23 = load i64, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %21, i64 %23
-  %25 = getelementptr inbounds i8, ptr %6, i64 104
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 104
   store ptr %24, ptr %25, align 8
   %26 = load i64, ptr %8, align 8
   %27 = sub i64 %26, %23
-  %28 = getelementptr inbounds i8, ptr %6, i64 96
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 96
   store i64 %27, ptr %28, align 8
   call void @WebPInitCustomIo(ptr noundef nonnull %2, ptr noundef nonnull %6) #10
-  %29 = getelementptr inbounds i8, ptr %7, i64 64
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %30 = load i32, ptr %29, align 8
   %.not45 = icmp eq i32 %30, 0
   br i1 %.not45, label %31, label %61
@@ -687,13 +687,13 @@ WebPParseHeaders.exit:                            ; preds = %12, %16, %17
   br i1 %33, label %91, label %34
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %7, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %32, i64 2968
+  %37 = getelementptr inbounds nuw i8, ptr %32, i64 2968
   store ptr %36, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %7, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %39 = load i64, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %32, i64 2976
+  %40 = getelementptr inbounds nuw i8, ptr %32, i64 2976
   store i64 %39, ptr %40, align 8
   %41 = call i32 @VP8GetHeaders(ptr noundef nonnull %32, ptr noundef nonnull %6) #10
   %.not46 = icmp eq i32 %41, 0
@@ -701,9 +701,9 @@ WebPParseHeaders.exit:                            ; preds = %12, %16, %17
 
 42:                                               ; preds = %34
   %43 = load i32, ptr %6, align 8
-  %44 = getelementptr inbounds i8, ptr %6, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %45 = load i32, ptr %44, align 4
-  %46 = getelementptr inbounds i8, ptr %2, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %47 = load ptr, ptr %46, align 8
   %48 = load ptr, ptr %2, align 8
   %49 = call i32 @WebPAllocateDecBuffer(i32 noundef %43, i32 noundef %45, ptr noundef %47, ptr noundef %48) #10
@@ -715,7 +715,7 @@ WebPParseHeaders.exit:                            ; preds = %12, %16, %17
   %53 = load i32, ptr %6, align 8
   %54 = load i32, ptr %44, align 4
   %55 = call i32 @VP8GetThreadMethod(ptr noundef %52, ptr noundef nonnull %7, i32 noundef %53, i32 noundef %54) #10
-  %56 = getelementptr inbounds i8, ptr %32, i64 200
+  %56 = getelementptr inbounds nuw i8, ptr %32, i64 200
   store i32 %55, ptr %56, align 8
   %57 = load ptr, ptr %46, align 8
   call void @VP8InitDithering(ptr noundef %57, ptr noundef nonnull %32) #10
@@ -744,9 +744,9 @@ WebPParseHeaders.exit:                            ; preds = %12, %16, %17
 
 66:                                               ; preds = %64
   %67 = load i32, ptr %6, align 8
-  %68 = getelementptr inbounds i8, ptr %6, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %69 = load i32, ptr %68, align 4
-  %70 = getelementptr inbounds i8, ptr %2, i64 40
+  %70 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %71 = load ptr, ptr %70, align 8
   %72 = load ptr, ptr %2, align 8
   %73 = call i32 @WebPAllocateDecBuffer(i32 noundef %67, i32 noundef %69, ptr noundef %71, ptr noundef %72) #10
@@ -778,13 +778,13 @@ WebPParseHeaders.exit:                            ; preds = %12, %16, %17
   br label %91
 
 82:                                               ; preds = %79
-  %83 = getelementptr inbounds i8, ptr %2, i64 40
+  %83 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %84 = load ptr, ptr %83, align 8
   %.not51 = icmp eq ptr %84, null
   br i1 %.not51, label %91, label %85
 
 85:                                               ; preds = %82
-  %86 = getelementptr inbounds i8, ptr %84, i64 48
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 48
   %87 = load i32, ptr %86, align 4
   %.not52 = icmp eq i32 %87, 0
   br i1 %.not52, label %91, label %88
@@ -811,22 +811,22 @@ define ptr @WebPDecodeRGB(ptr noundef %0, i64 noundef %1, ptr noundef writeonly 
   br i1 %.not.i, label %Decode.exit, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %10, i8 0, i64 104, i1 false)
   store ptr %7, ptr %6, align 8
   store i32 0, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 4
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
   %13 = icmp eq ptr %0, null
   br i1 %13, label %WebPGetInfo.exit.thread.i, label %GetFeatures.exit.i.i
 
 GetFeatures.exit.i.i:                             ; preds = %9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %5, i8 0, i64 40, i1 false)
-  %14 = getelementptr inbounds i8, ptr %5, i64 4
-  %15 = getelementptr inbounds i8, ptr %5, i64 8
-  %16 = getelementptr inbounds i8, ptr %5, i64 12
-  %17 = getelementptr inbounds i8, ptr %5, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %18 = call fastcc i32 @ParseHeadersInternal(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef %16, ptr noundef nonnull %17, ptr noundef null)
   %.not.i.i = icmp eq i32 %18, 0
   br i1 %.not.i.i, label %19, label %WebPGetInfo.exit.thread.i
@@ -862,7 +862,7 @@ WebPGetInfo.exit.thread.i:                        ; preds = %GetFeatures.exit.i.
   br i1 %.not18.i, label %27, label %Decode.exit
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %7, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %29 = load ptr, ptr %28, align 8
   br label %Decode.exit
 
@@ -885,22 +885,22 @@ define ptr @WebPDecodeRGBA(ptr noundef %0, i64 noundef %1, ptr noundef writeonly
   br i1 %.not.i, label %Decode.exit, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %10, i8 0, i64 104, i1 false)
   store ptr %7, ptr %6, align 8
   store i32 1, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 4
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
   %13 = icmp eq ptr %0, null
   br i1 %13, label %WebPGetInfo.exit.thread.i, label %GetFeatures.exit.i.i
 
 GetFeatures.exit.i.i:                             ; preds = %9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %5, i8 0, i64 40, i1 false)
-  %14 = getelementptr inbounds i8, ptr %5, i64 4
-  %15 = getelementptr inbounds i8, ptr %5, i64 8
-  %16 = getelementptr inbounds i8, ptr %5, i64 12
-  %17 = getelementptr inbounds i8, ptr %5, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %18 = call fastcc i32 @ParseHeadersInternal(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef %16, ptr noundef nonnull %17, ptr noundef null)
   %.not.i.i = icmp eq i32 %18, 0
   br i1 %.not.i.i, label %19, label %WebPGetInfo.exit.thread.i
@@ -936,7 +936,7 @@ WebPGetInfo.exit.thread.i:                        ; preds = %GetFeatures.exit.i.
   br i1 %.not18.i, label %27, label %Decode.exit
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %7, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %29 = load ptr, ptr %28, align 8
   br label %Decode.exit
 
@@ -959,22 +959,22 @@ define ptr @WebPDecodeARGB(ptr noundef %0, i64 noundef %1, ptr noundef writeonly
   br i1 %.not.i, label %Decode.exit, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %10, i8 0, i64 104, i1 false)
   store ptr %7, ptr %6, align 8
   store i32 4, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 4
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
   %13 = icmp eq ptr %0, null
   br i1 %13, label %WebPGetInfo.exit.thread.i, label %GetFeatures.exit.i.i
 
 GetFeatures.exit.i.i:                             ; preds = %9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %5, i8 0, i64 40, i1 false)
-  %14 = getelementptr inbounds i8, ptr %5, i64 4
-  %15 = getelementptr inbounds i8, ptr %5, i64 8
-  %16 = getelementptr inbounds i8, ptr %5, i64 12
-  %17 = getelementptr inbounds i8, ptr %5, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %18 = call fastcc i32 @ParseHeadersInternal(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef %16, ptr noundef nonnull %17, ptr noundef null)
   %.not.i.i = icmp eq i32 %18, 0
   br i1 %.not.i.i, label %19, label %WebPGetInfo.exit.thread.i
@@ -1010,7 +1010,7 @@ WebPGetInfo.exit.thread.i:                        ; preds = %GetFeatures.exit.i.
   br i1 %.not18.i, label %27, label %Decode.exit
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %7, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %29 = load ptr, ptr %28, align 8
   br label %Decode.exit
 
@@ -1033,22 +1033,22 @@ define ptr @WebPDecodeBGR(ptr noundef %0, i64 noundef %1, ptr noundef writeonly 
   br i1 %.not.i, label %Decode.exit, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %10, i8 0, i64 104, i1 false)
   store ptr %7, ptr %6, align 8
   store i32 2, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 4
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
   %13 = icmp eq ptr %0, null
   br i1 %13, label %WebPGetInfo.exit.thread.i, label %GetFeatures.exit.i.i
 
 GetFeatures.exit.i.i:                             ; preds = %9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %5, i8 0, i64 40, i1 false)
-  %14 = getelementptr inbounds i8, ptr %5, i64 4
-  %15 = getelementptr inbounds i8, ptr %5, i64 8
-  %16 = getelementptr inbounds i8, ptr %5, i64 12
-  %17 = getelementptr inbounds i8, ptr %5, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %18 = call fastcc i32 @ParseHeadersInternal(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef %16, ptr noundef nonnull %17, ptr noundef null)
   %.not.i.i = icmp eq i32 %18, 0
   br i1 %.not.i.i, label %19, label %WebPGetInfo.exit.thread.i
@@ -1084,7 +1084,7 @@ WebPGetInfo.exit.thread.i:                        ; preds = %GetFeatures.exit.i.
   br i1 %.not18.i, label %27, label %Decode.exit
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %7, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %29 = load ptr, ptr %28, align 8
   br label %Decode.exit
 
@@ -1107,22 +1107,22 @@ define ptr @WebPDecodeBGRA(ptr noundef %0, i64 noundef %1, ptr noundef writeonly
   br i1 %.not.i, label %Decode.exit, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %10, i8 0, i64 104, i1 false)
   store ptr %7, ptr %6, align 8
   store i32 3, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 4
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
   %13 = icmp eq ptr %0, null
   br i1 %13, label %WebPGetInfo.exit.thread.i, label %GetFeatures.exit.i.i
 
 GetFeatures.exit.i.i:                             ; preds = %9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %5, i8 0, i64 40, i1 false)
-  %14 = getelementptr inbounds i8, ptr %5, i64 4
-  %15 = getelementptr inbounds i8, ptr %5, i64 8
-  %16 = getelementptr inbounds i8, ptr %5, i64 12
-  %17 = getelementptr inbounds i8, ptr %5, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %18 = call fastcc i32 @ParseHeadersInternal(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef %16, ptr noundef nonnull %17, ptr noundef null)
   %.not.i.i = icmp eq i32 %18, 0
   br i1 %.not.i.i, label %19, label %WebPGetInfo.exit.thread.i
@@ -1158,7 +1158,7 @@ WebPGetInfo.exit.thread.i:                        ; preds = %GetFeatures.exit.i.
   br i1 %.not18.i, label %27, label %Decode.exit
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %7, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %29 = load ptr, ptr %28, align 8
   br label %Decode.exit
 
@@ -1192,22 +1192,22 @@ define ptr @WebPDecodeYUV(ptr noundef %0, i64 noundef %1, ptr noundef writeonly 
   br i1 %.not.i, label %Decode.exit.thread, label %19
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %10, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %20, i8 0, i64 104, i1 false)
   store ptr %11, ptr %10, align 8
   store i32 11, ptr %11, align 8
-  %21 = getelementptr inbounds i8, ptr %11, i64 4
-  %22 = getelementptr inbounds i8, ptr %11, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
   %23 = icmp eq ptr %0, null
   br i1 %23, label %WebPGetInfo.exit.thread.i, label %GetFeatures.exit.i.i
 
 GetFeatures.exit.i.i:                             ; preds = %19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %9, i8 0, i64 40, i1 false)
-  %24 = getelementptr inbounds i8, ptr %9, i64 4
-  %25 = getelementptr inbounds i8, ptr %9, i64 8
-  %26 = getelementptr inbounds i8, ptr %9, i64 12
-  %27 = getelementptr inbounds i8, ptr %9, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %9, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %28 = call fastcc i32 @ParseHeadersInternal(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef %26, ptr noundef nonnull %27, ptr noundef null)
   %.not.i.i = icmp eq i32 %28, 0
   br i1 %.not.i.i, label %29, label %WebPGetInfo.exit.thread.i
@@ -1249,7 +1249,7 @@ Decode.exit.thread:                               ; preds = %17, %35, %WebPGetIn
 
 Decode.exit:                                      ; preds = %35
   call void @WebPCopyDecBuffer(ptr noundef nonnull %11, ptr noundef nonnull %12) #10
-  %37 = getelementptr inbounds i8, ptr %11, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %38 = load ptr, ptr %37, align 8
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %11)
@@ -1257,16 +1257,16 @@ Decode.exit:                                      ; preds = %35
   br i1 %.not, label %48, label %39
 
 39:                                               ; preds = %Decode.exit
-  %40 = getelementptr inbounds i8, ptr %12, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %41 = load ptr, ptr %40, align 8
   store ptr %41, ptr %4, align 8
-  %42 = getelementptr inbounds i8, ptr %12, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %43 = load ptr, ptr %42, align 8
   store ptr %43, ptr %5, align 8
-  %44 = getelementptr inbounds i8, ptr %12, i64 48
+  %44 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %45 = load i32, ptr %44, align 8
   store i32 %45, ptr %6, align 4
-  %46 = getelementptr inbounds i8, ptr %12, i64 52
+  %46 = getelementptr inbounds nuw i8, ptr %12, i64 52
   %47 = load i32, ptr %46, align 4
   store i32 %47, ptr %7, align 4
   br label %48
@@ -1284,10 +1284,10 @@ define range(i32 0, 2) i32 @WebPGetInfo(ptr noundef %0, i64 noundef %1, ptr noun
 
 GetFeatures.exit:                                 ; preds = %4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %5, i8 0, i64 40, i1 false)
-  %7 = getelementptr inbounds i8, ptr %5, i64 4
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 12
-  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %11 = call fastcc i32 @ParseHeadersInternal(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %9, ptr noundef nonnull %10, ptr noundef null)
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %12, label %GetFeatures.exit.thread
@@ -1324,7 +1324,7 @@ define range(i32 0, 2) i32 @WebPInitDecoderConfigInternal(ptr noundef %0, i32 no
   br i1 %or.cond, label %7, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(240) %0, i8 0, i64 240, i1 false)
   %6 = tail call i32 @WebPInitDecBufferInternal(ptr noundef nonnull %5, i32 noundef 521) #10
   %.not6 = icmp ne i32 %6, 0
@@ -1348,10 +1348,10 @@ define range(i32 0, 8) i32 @WebPGetFeaturesInternal(ptr noundef %0, i64 noundef 
 
 7:                                                ; preds = %4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %2, i8 0, i64 40, i1 false)
-  %8 = getelementptr inbounds i8, ptr %2, i64 4
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
-  %11 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %12 = tail call fastcc i32 @ParseHeadersInternal(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %10, ptr noundef nonnull %11, ptr noundef null)
   br label %GetFeatures.exit
 
@@ -1371,10 +1371,10 @@ define i32 @WebPDecode(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unn
 
 GetFeatures.exit:                                 ; preds = %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %2, i8 0, i64 40, i1 false)
-  %8 = getelementptr inbounds i8, ptr %2, i64 4
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
-  %11 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %12 = tail call fastcc i32 @ParseHeadersInternal(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %10, ptr noundef nonnull %11, ptr noundef null)
   switch i32 %12, label %13 [
     i32 0, label %14
@@ -1385,12 +1385,12 @@ GetFeatures.exit:                                 ; preds = %3
   br label %GetFeatures.exit.thread
 
 14:                                               ; preds = %GetFeatures.exit
-  %15 = getelementptr inbounds i8, ptr %4, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %15, i8 0, i64 104, i1 false)
-  %16 = getelementptr inbounds i8, ptr %2, i64 160
-  %17 = getelementptr inbounds i8, ptr %4, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 160
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr %18, ptr %4, align 8
   %19 = tail call i32 @WebPAvoidSlowMemory(ptr noundef nonnull %18, ptr noundef nonnull %2) #10
   %.not24 = icmp eq i32 %19, 0
@@ -1405,10 +1405,10 @@ GetFeatures.exit:                                 ; preds = %3
   %23 = load i32, ptr %18, align 8
   store i32 %23, ptr %5, align 8
   %24 = load i32, ptr %2, align 8
-  %25 = getelementptr inbounds i8, ptr %5, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %24, ptr %25, align 4
   %26 = load i32, ptr %8, align 4
-  %27 = getelementptr inbounds i8, ptr %5, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %26, ptr %27, align 8
   store ptr %5, ptr %4, align 8
   %28 = call fastcc i32 @DecodeInto(ptr noundef nonnull %0, i64 noundef %1, ptr noundef %4)
@@ -1471,28 +1471,28 @@ define hidden range(i32 0, 2) i32 @WebPIoInitFromOptions(ptr noundef readonly %0
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = load i32, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge, label %9
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 4
   %12 = icmp ne i32 %11, 0
   %13 = zext i1 %12 to i32
-  %14 = getelementptr inbounds i8, ptr %1, i64 116
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 116
   store i32 %13, ptr %14, align 4
   br i1 %12, label %15, label %37
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %0, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load i32, ptr %22, align 4
   %24 = icmp ugt i32 %2, 10
   %25 = and i32 %21, -2
@@ -1522,7 +1522,7 @@ define hidden range(i32 0, 2) i32 @WebPIoInitFromOptions(ptr noundef readonly %0
   br i1 %narrow.i.not, label %92, label %37
 
 .critedge:                                        ; preds = %3
-  %36 = getelementptr inbounds i8, ptr %1, i64 116
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 116
   store i32 0, ptr %36, align 4
   br label %37
 
@@ -1531,36 +1531,36 @@ define hidden range(i32 0, 2) i32 @WebPIoInitFromOptions(ptr noundef readonly %0
   %.059 = phi i32 [ %.1, %15 ], [ 0, %9 ], [ 0, %.critedge ]
   %.058 = phi i32 [ %17, %15 ], [ %6, %9 ], [ %6, %.critedge ]
   %.0 = phi i32 [ %19, %15 ], [ %8, %9 ], [ %8, %.critedge ]
-  %38 = getelementptr inbounds i8, ptr %1, i64 120
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store i32 %.060, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %1, i64 128
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store i32 %.059, ptr %39, align 8
   %40 = add nsw i32 %.058, %.060
-  %41 = getelementptr inbounds i8, ptr %1, i64 124
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 124
   store i32 %40, ptr %41, align 4
   %42 = add nsw i32 %.0, %.059
-  %43 = getelementptr inbounds i8, ptr %1, i64 132
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 132
   store i32 %42, ptr %43, align 4
-  %44 = getelementptr inbounds i8, ptr %1, i64 12
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 %.058, ptr %44, align 4
-  %45 = getelementptr inbounds i8, ptr %1, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 %.0, ptr %45, align 8
   br i1 %.not, label %.thread72, label %46
 
 46:                                               ; preds = %37
-  %47 = getelementptr inbounds i8, ptr %0, i64 28
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %48 = load i32, ptr %47, align 4
   %49 = icmp ne i32 %48, 0
   %50 = zext i1 %49 to i32
-  %51 = getelementptr inbounds i8, ptr %1, i64 136
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 136
   store i32 %50, ptr %51, align 8
   br i1 %49, label %52, label %67
 
 52:                                               ; preds = %46
-  %53 = getelementptr inbounds i8, ptr %0, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %54 = load i32, ptr %53, align 4
   store i32 %54, ptr %4, align 4
-  %55 = getelementptr inbounds i8, ptr %0, i64 36
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %56 = load i32, ptr %55, align 4
   store i32 %56, ptr %5, align 4
   %57 = call i32 @WebPRescalerGetScaledDimensions(i32 noundef %.058, i32 noundef %.0, ptr noundef nonnull %4, ptr noundef nonnull %5) #10
@@ -1569,21 +1569,21 @@ define hidden range(i32 0, 2) i32 @WebPIoInitFromOptions(ptr noundef readonly %0
 
 58:                                               ; preds = %52
   %59 = load i32, ptr %4, align 4
-  %60 = getelementptr inbounds i8, ptr %1, i64 140
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 140
   store i32 %59, ptr %60, align 4
   %61 = load i32, ptr %5, align 4
-  %62 = getelementptr inbounds i8, ptr %1, i64 144
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 144
   store i32 %61, ptr %62, align 8
   %.pr.pre = load i32, ptr %51, align 8
   %63 = icmp eq i32 %.pr.pre, 0
   br label %67
 
 .thread72:                                        ; preds = %37
-  %64 = getelementptr inbounds i8, ptr %1, i64 136
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 136
   store i32 0, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %1, i64 112
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 112
   store i32 0, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %1, i64 88
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 88
   store i32 1, ptr %66, align 8
   br label %92
 
@@ -1592,18 +1592,18 @@ define hidden range(i32 0, 2) i32 @WebPIoInitFromOptions(ptr noundef readonly %0
   %68 = load i32, ptr %0, align 4
   %69 = icmp ne i32 %68, 0
   %70 = zext i1 %69 to i32
-  %71 = getelementptr inbounds i8, ptr %1, i64 112
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 112
   store i32 %70, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %0, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %73 = load i32, ptr %72, align 4
   %.not68 = icmp eq i32 %73, 0
   %74 = zext i1 %.not68 to i32
-  %75 = getelementptr inbounds i8, ptr %1, i64 88
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 88
   store i32 %74, ptr %75, align 8
   br i1 %.pr, label %92, label %76
 
 76:                                               ; preds = %67
-  %77 = getelementptr inbounds i8, ptr %1, i64 140
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 140
   %78 = load i32, ptr %77, align 4
   %79 = mul nsw i32 %6, 3
   %80 = sdiv i32 %79, 4
@@ -1611,7 +1611,7 @@ define hidden range(i32 0, 2) i32 @WebPIoInitFromOptions(ptr noundef readonly %0
   br i1 %81, label %82, label %89
 
 82:                                               ; preds = %76
-  %83 = getelementptr inbounds i8, ptr %1, i64 144
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %84 = load i32, ptr %83, align 8
   %85 = mul nsw i32 %8, 3
   %86 = sdiv i32 %85, 4
@@ -1651,10 +1651,10 @@ define internal fastcc range(i32 0, 8) i32 @ParseOptionalChunks(ptr nocapture no
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %27
   %.03044.us = phi ptr [ %28, %27 ], [ %6, %.lr.ph ]
   %.03242.us = phi i64 [ %29, %27 ], [ %7, %.lr.ph ]
-  %9 = getelementptr inbounds i8, ptr %.03044.us, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %.03044.us, i64 4
   %.val.i.us = load i16, ptr %9, align 1
   %10 = zext i16 %.val.i.us to i32
-  %11 = getelementptr inbounds i8, ptr %.03044.us, i64 6
+  %11 = getelementptr inbounds nuw i8, ptr %.03044.us, i64 6
   %.val3.i.us = load i16, ptr %11, align 1
   %12 = zext i16 %.val3.i.us to i32
   %13 = shl nuw i32 %12, 16
@@ -1685,14 +1685,14 @@ define internal fastcc range(i32 0, 8) i32 @ParseOptionalChunks(ptr nocapture no
   br i1 %.not40.us, label %24, label %27
 
 24:                                               ; preds = %23
-  %25 = getelementptr inbounds i8, ptr %.03044.us, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.03044.us, i64 8
   store ptr %25, ptr %3, align 8
   %26 = zext i32 %14 to i64
   store i64 %26, ptr %4, align 8
   br label %27
 
 27:                                               ; preds = %24, %23
-  %28 = getelementptr inbounds i8, ptr %.03044.us, i64 %21
+  %28 = getelementptr inbounds nuw i8, ptr %.03044.us, i64 %21
   %29 = sub i64 %.03242.us, %21
   store ptr %28, ptr %0, align 8
   store i64 %29, ptr %1, align 8
@@ -1703,10 +1703,10 @@ define internal fastcc range(i32 0, 8) i32 @ParseOptionalChunks(ptr nocapture no
   %.03044 = phi ptr [ %54, %53 ], [ %6, %.lr.ph ]
   %.03143 = phi i32 [ %41, %53 ], [ 22, %.lr.ph ]
   %.03242 = phi i64 [ %55, %53 ], [ %7, %.lr.ph ]
-  %31 = getelementptr inbounds i8, ptr %.03044, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %.03044, i64 4
   %.val.i = load i16, ptr %31, align 1
   %32 = zext i16 %.val.i to i32
-  %33 = getelementptr inbounds i8, ptr %.03044, i64 6
+  %33 = getelementptr inbounds nuw i8, ptr %.03044, i64 6
   %.val3.i = load i16, ptr %33, align 1
   %34 = zext i16 %.val3.i to i32
   %35 = shl nuw i32 %34, 16
@@ -1743,14 +1743,14 @@ define internal fastcc range(i32 0, 8) i32 @ParseOptionalChunks(ptr nocapture no
   br i1 %.not40, label %50, label %53
 
 50:                                               ; preds = %49
-  %51 = getelementptr inbounds i8, ptr %.03044, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %.03044, i64 8
   store ptr %51, ptr %3, align 8
   %52 = zext i32 %36 to i64
   store i64 %52, ptr %4, align 8
   br label %53
 
 53:                                               ; preds = %50, %49
-  %54 = getelementptr inbounds i8, ptr %.03044, i64 %47
+  %54 = getelementptr inbounds nuw i8, ptr %.03044, i64 %47
   %55 = sub i64 %.03242, %47
   store ptr %54, ptr %0, align 8
   store i64 %55, ptr %1, align 8
@@ -1779,10 +1779,10 @@ define internal fastcc range(i32 0, 8) i32 @ParseVP8Header(ptr nocapture noundef
   br i1 %or.cond, label %12, label %30
 
 12:                                               ; preds = %11
-  %13 = getelementptr inbounds i8, ptr %7, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %.val.i = load i16, ptr %13, align 1
   %14 = zext i16 %.val.i to i64
-  %15 = getelementptr inbounds i8, ptr %7, i64 6
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 6
   %.val3.i = load i16, ptr %15, align 1
   %16 = zext i16 %.val3.i to i64
   %17 = shl nuw nsw i64 %16, 16
@@ -1803,7 +1803,7 @@ define internal fastcc range(i32 0, 8) i32 @ParseVP8Header(ptr nocapture noundef
 25:                                               ; preds = %22
   store i64 %18, ptr %4, align 8
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %27, ptr %0, align 8
   %28 = load i64, ptr %1, align 8
   %29 = add i64 %28, -8

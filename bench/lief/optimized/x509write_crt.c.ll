@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden void @mbedtls_x509write_crt_init(ptr noundef initializes((0, 112)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %0, i8 0, i64 112, i1 false)
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @mbedtls_mpi_init(ptr noundef nonnull %2) #8
   store i32 2, ptr %0, align 8
   ret void
@@ -27,13 +27,13 @@ declare void @mbedtls_mpi_init(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @mbedtls_x509write_crt_free(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @mbedtls_mpi_free(ptr noundef nonnull %2) #8
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @mbedtls_asn1_free_named_data_list(ptr noundef nonnull %3) #8
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @mbedtls_asn1_free_named_data_list(ptr noundef nonnull %4) #8
-  %5 = getelementptr inbounds i8, ptr %0, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @mbedtls_asn1_free_named_data_list(ptr noundef nonnull %5) #8
   tail call void @mbedtls_platform_zeroize(ptr noundef %0, i64 noundef 112) #8
   ret void
@@ -53,28 +53,28 @@ define hidden void @mbedtls_x509write_crt_set_version(ptr nocapture noundef writ
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @mbedtls_x509write_crt_set_md_alg(ptr nocapture noundef writeonly initializes((64, 68)) %0, i32 noundef %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @mbedtls_x509write_crt_set_subject_key(ptr nocapture noundef writeonly initializes((32, 40)) %0, ptr noundef %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @mbedtls_x509write_crt_set_issuer_key(ptr nocapture noundef writeonly initializes((40, 48)) %0, ptr noundef %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_x509write_crt_set_subject_name(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = tail call i32 @mbedtls_x509_string_to_names(ptr noundef nonnull %3, ptr noundef %1) #8
   ret i32 %4
 }
@@ -83,14 +83,14 @@ declare i32 @mbedtls_x509_string_to_names(ptr noundef, ptr noundef) local_unname
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_x509write_crt_set_issuer_name(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = tail call i32 @mbedtls_x509_string_to_names(ptr noundef nonnull %3, ptr noundef %1) #8
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_x509write_crt_set_serial(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = tail call i32 @mbedtls_mpi_copy(ptr noundef nonnull %3, ptr noundef %1) #8
   ret i32 %4
 }
@@ -109,13 +109,13 @@ define hidden range(i32 -10240, 1) i32 @mbedtls_x509write_crt_set_validity(ptr n
   br i1 %.not8, label %7, label %14
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 68
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %9 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %1, i64 noundef 15) #8
-  %10 = getelementptr inbounds i8, ptr %0, i64 84
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %11 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %2, i64 noundef 15) #8
-  %12 = getelementptr inbounds i8, ptr %0, i64 82
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 82
   store i8 90, ptr %12, align 2
-  %13 = getelementptr inbounds i8, ptr %0, i64 98
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 98
   store i8 90, ptr %13, align 2
   br label %14
 
@@ -132,7 +132,7 @@ declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocaptu
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_x509write_crt_set_extension(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 104
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %8 = tail call i32 @mbedtls_x509_set_extension(ptr noundef nonnull %7, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, i64 noundef %5) #8
   ret i32 %8
 }
@@ -143,7 +143,7 @@ declare i32 @mbedtls_x509_set_extension(ptr noundef, ptr noundef, i64 noundef, i
 define hidden i32 @mbedtls_x509write_crt_set_basic_constraints(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [9 x i8], align 1
   %5 = alloca ptr, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 9
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 9
   store ptr %6, ptr %5, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %4, i8 0, i64 9, i1 false)
   %7 = icmp ne i32 %1, 0
@@ -196,7 +196,7 @@ define hidden i32 @mbedtls_x509write_crt_set_basic_constraints(ptr noundef %0, i
   %33 = add nuw nsw i64 %31, %32
   %34 = sub nsw i64 0, %33
   %35 = getelementptr inbounds i8, ptr %6, i64 %34
-  %36 = getelementptr inbounds i8, ptr %0, i64 104
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %37 = call i32 @mbedtls_x509_set_extension(ptr noundef nonnull %36, ptr noundef nonnull @.str, i64 noundef 3, i32 noundef %1, ptr noundef nonnull %35, i64 noundef %33) #8
   br label %38
 
@@ -223,12 +223,12 @@ define hidden i32 @mbedtls_x509write_crt_set_subject_key_identifier(ptr noundef 
 define internal fastcc i32 @mbedtls_x509write_crt_set_key_identifier(ptr noundef %0, i32 noundef range(i32 0, 2) %1, i8 noundef zeroext range(i8 4, -127) %2) unnamed_addr #0 {
   %4 = alloca [2068 x i8], align 16
   %5 = alloca ptr, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 2068
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 2068
   store ptr %6, ptr %5, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2068) %4, i8 0, i64 2068, i1 false)
   %.not = icmp eq i32 %1, 0
   %.in.v = select i1 %.not, i64 32, i64 40
-  %.in = getelementptr inbounds i8, ptr %0, i64 %.in.v
+  %.in = getelementptr inbounds nuw i8, ptr %0, i64 %.in.v
   %7 = load ptr, ptr %.in, align 8
   %8 = call i32 @mbedtls_pk_write_pubkey(ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef %7) #8
   %9 = icmp slt i32 %8, 0
@@ -238,7 +238,7 @@ define internal fastcc i32 @mbedtls_x509write_crt_set_key_identifier(ptr noundef
   %11 = zext nneg i32 %8 to i64
   %12 = sub nsw i64 0, %11
   %13 = getelementptr inbounds i8, ptr %6, i64 %12
-  %14 = getelementptr inbounds i8, ptr %4, i64 2048
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 2048
   %15 = call i32 @mbedtls_sha1(ptr noundef nonnull %13, i64 noundef %11, ptr noundef nonnull %14) #8
   %.not44 = icmp eq i32 %15, 0
   br i1 %.not44, label %16, label %46
@@ -278,14 +278,14 @@ define internal fastcc i32 @mbedtls_x509write_crt_set_key_identifier(ptr noundef
   %36 = add nuw nsw i64 %34, %35
   %37 = sub nsw i64 0, %36
   %38 = getelementptr inbounds i8, ptr %6, i64 %37
-  %39 = getelementptr inbounds i8, ptr %0, i64 104
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %40 = call i32 @mbedtls_x509_set_extension(ptr noundef nonnull %39, ptr noundef nonnull @.str.5, i64 noundef 3, i32 noundef 0, ptr noundef nonnull %38, i64 noundef %36) #8
   br label %46
 
 41:                                               ; preds = %22
   %42 = sub nsw i64 0, %25
   %43 = getelementptr inbounds i8, ptr %6, i64 %42
-  %44 = getelementptr inbounds i8, ptr %0, i64 104
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %45 = call i32 @mbedtls_x509_set_extension(ptr noundef nonnull %44, ptr noundef nonnull @.str.6, i64 noundef 3, i32 noundef 0, ptr noundef nonnull %43, i64 noundef %25) #8
   br label %46
 
@@ -311,13 +311,13 @@ define hidden i32 @mbedtls_x509write_crt_set_key_usage(ptr noundef %0, i32 nound
   br i1 %.not, label %7, label %22
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %3, i64 5
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 5
   store ptr %8, ptr %5, align 8
   %9 = trunc i32 %1 to i8
   store i8 %9, ptr %4, align 1
   %10 = lshr i32 %1, 8
   %11 = trunc nuw i32 %10 to i8
-  %12 = getelementptr inbounds i8, ptr %4, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 %11, ptr %12, align 1
   %13 = call i32 @mbedtls_asn1_write_named_bitstring(ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef 9) #8
   %14 = icmp slt i32 %13, 0
@@ -331,7 +331,7 @@ define hidden i32 @mbedtls_x509write_crt_set_key_usage(ptr noundef %0, i32 nound
 17:                                               ; preds = %15
   %18 = load ptr, ptr %5, align 8
   %19 = zext nneg i32 %13 to i64
-  %20 = getelementptr inbounds i8, ptr %0, i64 104
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %21 = call i32 @mbedtls_x509_set_extension(ptr noundef nonnull %20, ptr noundef nonnull @.str.1, i64 noundef 3, i32 noundef 1, ptr noundef %18, i64 noundef %19) #8
   br label %22
 
@@ -349,7 +349,7 @@ define hidden i32 @mbedtls_x509write_crt_set_ns_cert_type(ptr noundef %0, i8 nou
   %5 = alloca ptr, align 8
   store i8 %1, ptr %3, align 1
   store i32 0, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %4, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store ptr %6, ptr %5, align 8
   %7 = call i32 @mbedtls_asn1_write_named_bitstring(ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %3, i64 noundef 8) #8
   %8 = add i32 %7, -5
@@ -359,7 +359,7 @@ define hidden i32 @mbedtls_x509write_crt_set_ns_cert_type(ptr noundef %0, i8 nou
 9:                                                ; preds = %2
   %10 = load ptr, ptr %5, align 8
   %11 = zext nneg i32 %7 to i64
-  %12 = getelementptr inbounds i8, ptr %0, i64 104
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %13 = call i32 @mbedtls_x509_set_extension(ptr noundef nonnull %12, ptr noundef nonnull @.str.2, i64 noundef 9, i32 noundef 0, ptr noundef %10, i64 noundef %11) #8
   br label %14
 
@@ -380,7 +380,7 @@ define hidden i32 @mbedtls_x509write_crt_der(ptr noundef %0, ptr noundef %1, i64
   store i64 0, ptr %7, align 8
   %13 = getelementptr inbounds i8, ptr %1, i64 %2
   store ptr %13, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 @mbedtls_pk_can_do(ptr noundef %15, i32 noundef 1) #8
   %.not = icmp eq i32 %16, 0
@@ -394,7 +394,7 @@ define hidden i32 @mbedtls_x509write_crt_der(ptr noundef %0, ptr noundef %1, i64
 
 20:                                               ; preds = %17, %5
   %.0 = phi i32 [ 1, %5 ], [ 4, %17 ]
-  %21 = getelementptr inbounds i8, ptr %0, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %22 = load i32, ptr %21, align 8
   %23 = call i32 @mbedtls_oid_get_oid_by_sig_alg(i32 noundef %.0, i32 noundef %22, ptr noundef nonnull %6, ptr noundef nonnull %7) #8
   %.not190 = icmp eq i32 %23, 0
@@ -406,7 +406,7 @@ define hidden i32 @mbedtls_x509write_crt_der(ptr noundef %0, ptr noundef %1, i64
   br i1 %26, label %27, label %53
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %0, i64 104
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %29 = load ptr, ptr %28, align 8
   %30 = call i32 @mbedtls_x509_write_extensions(ptr noundef nonnull %8, ptr noundef %1, ptr noundef %29) #8
   %31 = icmp slt i32 %30, 0
@@ -448,7 +448,7 @@ define hidden i32 @mbedtls_x509write_crt_der(ptr noundef %0, ptr noundef %1, i64
 53:                                               ; preds = %24, %48
   %54 = phi ptr [ %.pre, %48 ], [ %13, %24 ]
   %.0139 = phi i64 [ %52, %48 ], [ 0, %24 ]
-  %55 = getelementptr inbounds i8, ptr %0, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %56 = load ptr, ptr %55, align 8
   %57 = ptrtoint ptr %54 to i64
   %58 = ptrtoint ptr %1 to i64
@@ -463,7 +463,7 @@ define hidden i32 @mbedtls_x509write_crt_der(ptr noundef %0, ptr noundef %1, i64
   %65 = sub nsw i64 0, %63
   %66 = getelementptr inbounds i8, ptr %64, i64 %65
   store ptr %66, ptr %8, align 8
-  %67 = getelementptr inbounds i8, ptr %0, i64 48
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %68 = load ptr, ptr %67, align 8
   %69 = call i32 @mbedtls_x509_write_names(ptr noundef nonnull %8, ptr noundef %1, ptr noundef %68) #8
   %70 = icmp slt i32 %69, 0
@@ -473,13 +473,13 @@ define hidden i32 @mbedtls_x509write_crt_der(ptr noundef %0, ptr noundef %1, i64
   %72 = add nuw nsw i64 %.0139, %63
   %73 = zext nneg i32 %69 to i64
   %74 = add nuw nsw i64 %72, %73
-  %75 = getelementptr inbounds i8, ptr %0, i64 84
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %76 = call fastcc i32 @x509_write_time(ptr noundef %8, ptr noundef %1, ptr noundef nonnull %75)
   %77 = icmp slt i32 %76, 0
   br i1 %77, label %174, label %78
 
 78:                                               ; preds = %71
-  %79 = getelementptr inbounds i8, ptr %0, i64 68
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %80 = call fastcc i32 @x509_write_time(ptr noundef %8, ptr noundef %1, ptr noundef nonnull %79)
   %81 = icmp slt i32 %80, 0
   br i1 %81, label %174, label %82
@@ -497,7 +497,7 @@ define hidden i32 @mbedtls_x509write_crt_der(ptr noundef %0, ptr noundef %1, i64
   br i1 %88, label %174, label %89
 
 89:                                               ; preds = %86
-  %90 = getelementptr inbounds i8, ptr %0, i64 56
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %91 = load ptr, ptr %90, align 8
   %92 = call i32 @mbedtls_x509_write_names(ptr noundef nonnull %8, ptr noundef %1, ptr noundef %91) #8
   %93 = icmp slt i32 %92, 0
@@ -511,7 +511,7 @@ define hidden i32 @mbedtls_x509write_crt_der(ptr noundef %0, ptr noundef %1, i64
   br i1 %98, label %174, label %99
 
 99:                                               ; preds = %94
-  %100 = getelementptr inbounds i8, ptr %0, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %101 = call i32 @mbedtls_asn1_write_mpi(ptr noundef nonnull %8, ptr noundef %1, ptr noundef nonnull %100) #8
   %102 = icmp slt i32 %101, 0
   br i1 %102, label %174, label %103
@@ -648,19 +648,19 @@ define internal fastcc i32 @x509_write_time(ptr noundef nonnull %0, ptr noundef 
   br i1 %7, label %8, label %29
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %2, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %10 = load i8, ptr %9, align 1
   %11 = icmp eq i8 %10, 48
   br i1 %11, label %12, label %29
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %2, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %14 = load i8, ptr %13, align 1
   %15 = icmp slt i8 %14, 53
   br i1 %15, label %16, label %29
 
 16:                                               ; preds = %3, %12
-  %17 = getelementptr inbounds i8, ptr %2, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %18 = tail call i32 @mbedtls_asn1_write_raw_buffer(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %17, i64 noundef 13) #8
   %19 = icmp slt i32 %18, 0
   br i1 %19, label %41, label %20

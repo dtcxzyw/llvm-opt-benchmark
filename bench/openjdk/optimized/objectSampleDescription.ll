@@ -58,7 +58,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN24ObjectDescriptionBuilderC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((0, 1), (104, 112)) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i64 0, ptr %2, align 8
   store i8 0, ptr %0, align 8
   ret void
@@ -66,7 +66,7 @@ define hidden void @_ZN24ObjectDescriptionBuilderC2Ev(ptr nocapture noundef nonn
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN24ObjectDescriptionBuilder5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((0, 1), (104, 112)) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i64 0, ptr %2, align 8
   store i8 0, ptr %0, align 8
   ret void
@@ -76,7 +76,7 @@ define hidden void @_ZN24ObjectDescriptionBuilder5resetEv(ptr nocapture noundef 
 define hidden void @_ZN24ObjectDescriptionBuilder9write_intEi(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = alloca [20 x i8], align 16
   %4 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %3, i64 noundef 20, ptr noundef nonnull @.str, i32 noundef %1) #10
-  %5 = getelementptr inbounds i8, ptr %0, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 98
   br i1 %7, label %_ZN24ObjectDescriptionBuilder10write_textEPKc.exit, label %.preheader.i
@@ -94,12 +94,12 @@ define hidden void @_ZN24ObjectDescriptionBuilder9write_intEi(ptr nocapture noun
   br i1 %11, label %12, label %.critedge.i
 
 12:                                               ; preds = %.lr.ph.i
-  %13 = getelementptr inbounds [100 x i8], ptr %0, i64 0, i64 %9
+  %13 = getelementptr inbounds nuw [100 x i8], ptr %0, i64 0, i64 %9
   store i8 %10, ptr %13, align 1
   %14 = load i64, ptr %5, align 8
   %15 = add i64 %14, 1
   store i64 %15, ptr %5, align 8
-  %16 = getelementptr inbounds i8, ptr %.07.i, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.07.i, i64 1
   %17 = load i8, ptr %16, align 1
   %.not.i = icmp eq i8 %17, 0
   br i1 %.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !6
@@ -110,11 +110,11 @@ define hidden void @_ZN24ObjectDescriptionBuilder9write_intEi(ptr nocapture noun
   br i1 %18, label %19, label %.critedge.thread.i
 
 19:                                               ; preds = %.critedge.i
-  %20 = getelementptr inbounds i8, ptr %0, i64 95
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 95
   store i8 46, ptr %20, align 1
-  %21 = getelementptr inbounds i8, ptr %0, i64 96
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i8 46, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 97
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 97
   store i8 46, ptr %22, align 1
   br label %.critedge.thread.i
 
@@ -132,7 +132,7 @@ declare i32 @jio_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unna
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN24ObjectDescriptionBuilder10write_textEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 98
   br i1 %5, label %22, label %.preheader
@@ -150,12 +150,12 @@ define hidden void @_ZN24ObjectDescriptionBuilder10write_textEPKc(ptr nocapture 
   br i1 %9, label %10, label %.critedge
 
 10:                                               ; preds = %.lr.ph
-  %11 = getelementptr inbounds [100 x i8], ptr %0, i64 0, i64 %7
+  %11 = getelementptr inbounds nuw [100 x i8], ptr %0, i64 0, i64 %7
   store i8 %8, ptr %11, align 1
   %12 = load i64, ptr %3, align 8
   %13 = add i64 %12, 1
   store i64 %13, ptr %3, align 8
-  %14 = getelementptr inbounds i8, ptr %.07, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.07, i64 1
   %15 = load i8, ptr %14, align 1
   %.not = icmp eq i8 %15, 0
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !6
@@ -166,11 +166,11 @@ define hidden void @_ZN24ObjectDescriptionBuilder10write_textEPKc(ptr nocapture 
   br i1 %16, label %17, label %.critedge.thread
 
 17:                                               ; preds = %.critedge
-  %18 = getelementptr inbounds i8, ptr %0, i64 95
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 95
   store i8 46, ptr %18, align 1
-  %19 = getelementptr inbounds i8, ptr %0, i64 96
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i8 46, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 97
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 97
   store i8 46, ptr %20, align 1
   br label %.critedge.thread
 
@@ -220,11 +220,11 @@ declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocaptu
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN23ObjectSampleDescriptionC2EP7oopDesc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) initializes((8, 9), (112, 128)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i64 0, ptr %4, align 8
   store i8 0, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 120
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %1, ptr %5, align 8
   ret void
 }
@@ -258,8 +258,8 @@ define hidden void @_ZN23ObjectSampleDescription17print_descriptionEP12outputStr
   br label %_ZN23ObjectSampleDescription22write_object_to_bufferEv.exit
 
 _ZN23ObjectSampleDescription22write_object_to_bufferEv.exit: ; preds = %2, %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 112
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i64 0, ptr %8, align 8
   store i8 0, ptr %7, align 8
   tail call void @_ZN23ObjectSampleDescription20write_object_detailsEv(ptr noundef nonnull align 8 dereferenceable(128) %0)
@@ -279,8 +279,8 @@ define hidden void @_ZN23ObjectSampleDescription22write_object_to_bufferEv(ptr n
   br label %_ZN23ObjectSampleDescription18ensure_initializedEv.exit
 
 _ZN23ObjectSampleDescription18ensure_initializedEv.exit: ; preds = %1, %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 112
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i64 0, ptr %7, align 8
   store i8 0, ptr %6, align 8
   tail call void @_ZN23ObjectSampleDescription20write_object_detailsEv(ptr noundef nonnull align 8 dereferenceable(128) %0)
@@ -299,8 +299,8 @@ define hidden noundef ptr @_ZN23ObjectSampleDescription11descriptionEv(ptr nocap
   br label %_ZN23ObjectSampleDescription22write_object_to_bufferEv.exit
 
 _ZN23ObjectSampleDescription22write_object_to_bufferEv.exit: ; preds = %1, %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 112
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i64 0, ptr %7, align 8
   store i8 0, ptr %6, align 8
   tail call void @_ZN23ObjectSampleDescription20write_object_detailsEv(ptr noundef nonnull align 8 dereferenceable(128) %0)
@@ -322,8 +322,8 @@ _ZN24ObjectDescriptionBuilder11descriptionEv.exit: ; preds = %_ZN23ObjectSampleD
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN23ObjectSampleDescription10write_textEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(128) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, 98
   br i1 %6, label %_ZN24ObjectDescriptionBuilder10write_textEPKc.exit, label %.preheader.i
@@ -341,12 +341,12 @@ define hidden void @_ZN23ObjectSampleDescription10write_textEPKc(ptr nocapture n
   br i1 %10, label %11, label %.critedge.i
 
 11:                                               ; preds = %.lr.ph.i
-  %12 = getelementptr inbounds [100 x i8], ptr %3, i64 0, i64 %8
+  %12 = getelementptr inbounds nuw [100 x i8], ptr %3, i64 0, i64 %8
   store i8 %9, ptr %12, align 1
   %13 = load i64, ptr %4, align 8
   %14 = add i64 %13, 1
   store i64 %14, ptr %4, align 8
-  %15 = getelementptr inbounds i8, ptr %.07.i, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %.07.i, i64 1
   %16 = load i8, ptr %15, align 1
   %.not.i = icmp eq i8 %16, 0
   br i1 %.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !6
@@ -357,11 +357,11 @@ define hidden void @_ZN23ObjectSampleDescription10write_textEPKc(ptr nocapture n
   br i1 %17, label %18, label %.critedge.thread.i
 
 18:                                               ; preds = %.critedge.i
-  %19 = getelementptr inbounds i8, ptr %0, i64 103
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 103
   store i8 46, ptr %19, align 1
-  %20 = getelementptr inbounds i8, ptr %0, i64 104
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i8 46, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 105
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 46, ptr %21, align 1
   br label %.critedge.thread.i
 
@@ -378,10 +378,10 @@ _ZN24ObjectDescriptionBuilder10write_textEPKc.exit: ; preds = %2, %.critedge.thr
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN23ObjectSampleDescription9write_intEi(ptr nocapture noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = alloca [20 x i8], align 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3)
   %5 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %3, i64 noundef 20, ptr noundef nonnull @.str, i32 noundef %1) #10
-  %6 = getelementptr inbounds i8, ptr %0, i64 112
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %7 = load i64, ptr %6, align 8
   %8 = icmp eq i64 %7, 98
   br i1 %8, label %_ZN24ObjectDescriptionBuilder9write_intEi.exit, label %.preheader.i.i
@@ -399,12 +399,12 @@ define hidden void @_ZN23ObjectSampleDescription9write_intEi(ptr nocapture nound
   br i1 %12, label %13, label %.critedge.i.i
 
 13:                                               ; preds = %.lr.ph.i.i
-  %14 = getelementptr inbounds [100 x i8], ptr %4, i64 0, i64 %10
+  %14 = getelementptr inbounds nuw [100 x i8], ptr %4, i64 0, i64 %10
   store i8 %11, ptr %14, align 1
   %15 = load i64, ptr %6, align 8
   %16 = add i64 %15, 1
   store i64 %16, ptr %6, align 8
-  %17 = getelementptr inbounds i8, ptr %.07.i.i, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 1
   %18 = load i8, ptr %17, align 1
   %.not.i.i = icmp eq i8 %18, 0
   br i1 %.not.i.i, label %.critedge.i.i, label %.lr.ph.i.i, !llvm.loop !6
@@ -415,11 +415,11 @@ define hidden void @_ZN23ObjectSampleDescription9write_intEi(ptr nocapture nound
   br i1 %19, label %20, label %.critedge.thread.i.i
 
 20:                                               ; preds = %.critedge.i.i
-  %21 = getelementptr inbounds i8, ptr %0, i64 103
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 103
   store i8 46, ptr %21, align 1
-  %22 = getelementptr inbounds i8, ptr %0, i64 104
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i8 46, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 105
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 46, ptr %23, align 1
   br label %.critedge.thread.i.i
 
@@ -438,11 +438,11 @@ _ZN24ObjectDescriptionBuilder9write_intEi.exit:   ; preds = %2, %.critedge.threa
 define hidden void @_ZN23ObjectSampleDescription20write_object_detailsEv(ptr nocapture noundef nonnull align 8 dereferenceable(128) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca [20 x i8], align 16
   %3 = alloca %class.fieldDescriptor, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 120
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
   %6 = load i8, ptr @UseCompressedClassPointers, align 1
   %7 = trunc i8 %6 to i1
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br i1 %7, label %9, label %19
 
 9:                                                ; preds = %1
@@ -464,10 +464,10 @@ define hidden void @_ZN23ObjectSampleDescription20write_object_detailsEv(ptr noc
 _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %19, %9
   %.0.i.i = phi ptr [ %18, %9 ], [ %20, %19 ]
   %21 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 16), align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 20
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 20
   %23 = load i32, ptr %22, align 4
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds i8, ptr %.0.i.i, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, %21
   br i1 %27, label %_ZNK7oopDesc4is_aEP5Klass.exit.thread, label %28
@@ -494,7 +494,7 @@ _ZNK7oopDesc4is_aEP5Klass.exit.thread26:          ; preds = %_ZNK7oopDesc4is_aEP
   %31 = phi ptr [ %.pre, %_ZNK7oopDesc4is_aEP5Klass.exit._ZNK7oopDesc4is_aEP5Klass.exit.thread26_crit_edge ], [ %5, %28 ]
   %32 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 264), align 8
   %33 = trunc i8 %30 to i1
-  %34 = getelementptr inbounds i8, ptr %31, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
   br i1 %33, label %35, label %45
 
 35:                                               ; preds = %_ZNK7oopDesc4is_aEP5Klass.exit.thread26
@@ -515,10 +515,10 @@ _ZNK7oopDesc4is_aEP5Klass.exit.thread26:          ; preds = %_ZNK7oopDesc4is_aEP
 
 _ZNK7oopDesc5klassEv.exit.i2:                     ; preds = %45, %35
   %.0.i.i3 = phi ptr [ %44, %35 ], [ %46, %45 ]
-  %47 = getelementptr inbounds i8, ptr %32, i64 20
+  %47 = getelementptr inbounds nuw i8, ptr %32, i64 20
   %48 = load i32, ptr %47, align 4
   %49 = zext i32 %48 to i64
-  %50 = getelementptr inbounds i8, ptr %.0.i.i3, i64 %49
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i3, i64 %49
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, %32
   br i1 %52, label %_ZNK7oopDesc4is_aEP5Klass.exit6.thread, label %53
@@ -545,7 +545,7 @@ _ZNK7oopDesc4is_aEP5Klass.exit6.thread29:         ; preds = %_ZNK7oopDesc4is_aEP
   %56 = phi ptr [ %.pre37, %_ZNK7oopDesc4is_aEP5Klass.exit6._ZNK7oopDesc4is_aEP5Klass.exit6.thread29_crit_edge ], [ %31, %53 ]
   %57 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 288), align 8
   %58 = trunc i8 %55 to i1
-  %59 = getelementptr inbounds i8, ptr %56, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 8
   br i1 %58, label %60, label %70
 
 60:                                               ; preds = %_ZNK7oopDesc4is_aEP5Klass.exit6.thread29
@@ -566,10 +566,10 @@ _ZNK7oopDesc4is_aEP5Klass.exit6.thread29:         ; preds = %_ZNK7oopDesc4is_aEP
 
 _ZNK7oopDesc5klassEv.exit.i7:                     ; preds = %70, %60
   %.0.i.i8 = phi ptr [ %69, %60 ], [ %71, %70 ]
-  %72 = getelementptr inbounds i8, ptr %57, i64 20
+  %72 = getelementptr inbounds nuw i8, ptr %57, i64 20
   %73 = load i32, ptr %72, align 4
   %74 = zext i32 %73 to i64
-  %75 = getelementptr inbounds i8, ptr %.0.i.i8, i64 %74
+  %75 = getelementptr inbounds nuw i8, ptr %.0.i.i8, i64 %74
   %76 = load ptr, ptr %75, align 8
   %77 = icmp eq ptr %76, %57
   br i1 %77, label %_ZNK7oopDesc4is_aEP5Klass.exit11.thread, label %78
@@ -594,8 +594,8 @@ _ZNK7oopDesc4is_aEP5Klass.exit11.thread:          ; preds = %_ZNK7oopDesc5klassE
   br i1 %.not.i, label %_ZN23ObjectSampleDescription23write_thread_group_nameEv.exit, label %82
 
 82:                                               ; preds = %_ZNK7oopDesc4is_aEP5Klass.exit11.thread
-  %83 = getelementptr inbounds i8, ptr %0, i64 8
-  %84 = getelementptr inbounds i8, ptr %0, i64 112
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %85 = load i64, ptr %84, align 8
   %86 = icmp eq i64 %85, 98
   br i1 %86, label %_ZN23ObjectSampleDescription23write_thread_group_nameEv.exit, label %.lr.ph.i.i.i
@@ -608,13 +608,13 @@ _ZNK7oopDesc4is_aEP5Klass.exit11.thread:          ; preds = %_ZNK7oopDesc5klassE
   br i1 %89, label %90, label %.critedge.i.i.i
 
 90:                                               ; preds = %.lr.ph.i.i.i
-  %91 = getelementptr inbounds [100 x i8], ptr %83, i64 0, i64 %87
+  %91 = getelementptr inbounds nuw [100 x i8], ptr %83, i64 0, i64 %87
   store i8 %88, ptr %91, align 1
   %92 = load i64, ptr %84, align 8
   %93 = add i64 %92, 1
   store i64 %93, ptr %84, align 8
   %.07.i.i.add.i = add nuw nsw i64 %.07.i.i.idx.i, 1
-  %.ptr.i = getelementptr inbounds i8, ptr @.str.7, i64 %.07.i.i.add.i
+  %.ptr.i = getelementptr inbounds nuw i8, ptr @.str.7, i64 %.07.i.i.add.i
   %94 = load i8, ptr %.ptr.i, align 1
   %exitcond.i = icmp eq i64 %.07.i.i.add.i, 14
   br i1 %exitcond.i, label %.critedge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !6
@@ -625,11 +625,11 @@ _ZNK7oopDesc4is_aEP5Klass.exit11.thread:          ; preds = %_ZNK7oopDesc5klassE
   br i1 %95, label %96, label %_ZN23ObjectSampleDescription10write_textEPKc.exit.i
 
 96:                                               ; preds = %.critedge.i.i.i
-  %97 = getelementptr inbounds i8, ptr %0, i64 103
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 103
   store i8 46, ptr %97, align 1
-  %98 = getelementptr inbounds i8, ptr %0, i64 104
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i8 46, ptr %98, align 8
-  %99 = getelementptr inbounds i8, ptr %0, i64 105
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 46, ptr %99, align 1
   br label %_ZN23ObjectSampleDescription10write_textEPKc.exit.i
 
@@ -653,12 +653,12 @@ _ZN23ObjectSampleDescription10write_textEPKc.exit.i: ; preds = %96, %.critedge.i
   br i1 %105, label %106, label %.critedge.i.i6.i
 
 106:                                              ; preds = %.lr.ph.i.i4.i
-  %107 = getelementptr inbounds [100 x i8], ptr %83, i64 0, i64 %103
+  %107 = getelementptr inbounds nuw [100 x i8], ptr %83, i64 0, i64 %103
   store i8 %104, ptr %107, align 1
   %108 = load i64, ptr %84, align 8
   %109 = add i64 %108, 1
   store i64 %109, ptr %84, align 8
-  %110 = getelementptr inbounds i8, ptr %.07.i.i5.i, i64 1
+  %110 = getelementptr inbounds nuw i8, ptr %.07.i.i5.i, i64 1
   %111 = load i8, ptr %110, align 1
   %.not.i.i10.i = icmp eq i8 %111, 0
   br i1 %.not.i.i10.i, label %.critedge.i.i6.i, label %.lr.ph.i.i4.i, !llvm.loop !6
@@ -669,11 +669,11 @@ _ZN23ObjectSampleDescription10write_textEPKc.exit.i: ; preds = %96, %.critedge.i
   br i1 %112, label %113, label %.critedge.thread.i.i8.i
 
 113:                                              ; preds = %.critedge.i.i6.i
-  %114 = getelementptr inbounds i8, ptr %0, i64 103
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 103
   store i8 46, ptr %114, align 1
-  %115 = getelementptr inbounds i8, ptr %0, i64 104
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i8 46, ptr %115, align 8
-  %116 = getelementptr inbounds i8, ptr %0, i64 105
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 46, ptr %116, align 1
   br label %.critedge.thread.i.i8.i
 
@@ -687,12 +687,12 @@ _ZNK7oopDesc4is_aEP5Klass.exit11.thread32:        ; preds = %_ZNK7oopDesc4is_aEP
   %118 = phi i8 [ %.pre40, %_ZNK7oopDesc4is_aEP5Klass.exit11._ZNK7oopDesc4is_aEP5Klass.exit11.thread32_crit_edge ], [ %55, %78 ]
   %119 = phi ptr [ %.pre41, %_ZNK7oopDesc4is_aEP5Klass.exit11._ZNK7oopDesc4is_aEP5Klass.exit11.thread32_crit_edge ], [ %56, %78 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
-  %120 = getelementptr inbounds i8, ptr %3, i64 4
+  %120 = getelementptr inbounds nuw i8, ptr %3, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(22) %120, i8 0, i64 22, i1 false)
-  %121 = getelementptr inbounds i8, ptr %3, i64 32
+  %121 = getelementptr inbounds nuw i8, ptr %3, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %121, i8 0, i64 16, i1 false)
   %122 = trunc i8 %118 to i1
-  %123 = getelementptr inbounds i8, ptr %119, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %119, i64 8
   br i1 %122, label %124, label %134
 
 124:                                              ; preds = %_ZNK7oopDesc4is_aEP5Klass.exit11.thread32
@@ -713,7 +713,7 @@ _ZNK7oopDesc4is_aEP5Klass.exit11.thread32:        ; preds = %_ZNK7oopDesc4is_aEP
 
 _ZNK7oopDesc5klassEv.exit.i12:                    ; preds = %134, %124
   %.0.i.i13 = phi ptr [ %133, %124 ], [ %135, %134 ]
-  %136 = getelementptr inbounds i8, ptr %.0.i.i13, i64 12
+  %136 = getelementptr inbounds nuw i8, ptr %.0.i.i13, i64 12
   %137 = load i32, ptr %136, align 4
   %138 = icmp slt i32 %137, 5
   br i1 %138, label %139, label %_ZN23ObjectSampleDescription13read_int_sizeEPi.exit.thread
@@ -732,7 +732,7 @@ _ZN23ObjectSampleDescription13read_int_sizeEPi.exit.thread: ; preds = %139, %_ZN
 
 143:                                              ; preds = %139
   %144 = load ptr, ptr %4, align 8
-  %.sroa.1.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.1.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.1.0.copyload.i.i = load i32, ptr %.sroa.1.0..sroa_idx.i.i, align 8
   %145 = ptrtoint ptr %144 to i64
   %146 = sext i32 %.sroa.1.0.copyload.i.i to i64
@@ -745,8 +745,8 @@ _ZN23ObjectSampleDescription13read_int_sizeEPi.exit.thread: ; preds = %139, %_ZN
   br i1 %150, label %151, label %_ZN23ObjectSampleDescription23write_thread_group_nameEv.exit
 
 151:                                              ; preds = %143
-  %152 = getelementptr inbounds i8, ptr %0, i64 8
-  %153 = getelementptr inbounds i8, ptr %0, i64 112
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %154 = load i64, ptr %153, align 8
   %155 = icmp eq i64 %154, 98
   br i1 %155, label %_ZN23ObjectSampleDescription10write_textEPKc.exit.i20, label %.lr.ph.i.i.i16
@@ -759,13 +759,13 @@ _ZN23ObjectSampleDescription13read_int_sizeEPi.exit.thread: ; preds = %139, %_ZN
   br i1 %158, label %159, label %.critedge.i.i.i18
 
 159:                                              ; preds = %.lr.ph.i.i.i16
-  %160 = getelementptr inbounds [100 x i8], ptr %152, i64 0, i64 %156
+  %160 = getelementptr inbounds nuw [100 x i8], ptr %152, i64 0, i64 %156
   store i8 %157, ptr %160, align 1
   %161 = load i64, ptr %153, align 8
   %162 = add i64 %161, 1
   store i64 %162, ptr %153, align 8
   %.07.i.i.add.i21 = add nuw nsw i64 %.07.i.i.idx.i17, 1
-  %.ptr.i22 = getelementptr inbounds i8, ptr @.str.9, i64 %.07.i.i.add.i21
+  %.ptr.i22 = getelementptr inbounds nuw i8, ptr @.str.9, i64 %.07.i.i.add.i21
   %163 = load i8, ptr %.ptr.i22, align 1
   %exitcond.i23 = icmp eq i64 %.07.i.i.add.i21, 6
   br i1 %exitcond.i23, label %.critedge.i.i.i18, label %.lr.ph.i.i.i16, !llvm.loop !6
@@ -776,11 +776,11 @@ _ZN23ObjectSampleDescription13read_int_sizeEPi.exit.thread: ; preds = %139, %_ZN
   br i1 %164, label %165, label %.critedge.thread.i.i.i
 
 165:                                              ; preds = %.critedge.i.i.i18
-  %166 = getelementptr inbounds i8, ptr %0, i64 103
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 103
   store i8 46, ptr %166, align 1
-  %167 = getelementptr inbounds i8, ptr %0, i64 104
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i8 46, ptr %167, align 8
-  %168 = getelementptr inbounds i8, ptr %0, i64 105
+  %168 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 46, ptr %168, align 1
   br label %.critedge.thread.i.i.i
 
@@ -809,12 +809,12 @@ _ZN23ObjectSampleDescription10write_textEPKc.exit.i20: ; preds = %.critedge.thre
   br i1 %176, label %177, label %.critedge.i.i.i.i
 
 177:                                              ; preds = %.lr.ph.i.i.i.i
-  %178 = getelementptr inbounds [100 x i8], ptr %152, i64 0, i64 %174
+  %178 = getelementptr inbounds nuw [100 x i8], ptr %152, i64 0, i64 %174
   store i8 %175, ptr %178, align 1
   %179 = load i64, ptr %153, align 8
   %180 = add i64 %179, 1
   store i64 %180, ptr %153, align 8
-  %181 = getelementptr inbounds i8, ptr %.07.i.i.i.i, i64 1
+  %181 = getelementptr inbounds nuw i8, ptr %.07.i.i.i.i, i64 1
   %182 = load i8, ptr %181, align 1
   %.not.i.i.i.i = icmp eq i8 %182, 0
   br i1 %.not.i.i.i.i, label %.critedge.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !6
@@ -825,11 +825,11 @@ _ZN23ObjectSampleDescription10write_textEPKc.exit.i20: ; preds = %.critedge.thre
   br i1 %183, label %184, label %.critedge.thread.i.i.i.i
 
 184:                                              ; preds = %.critedge.i.i.i.i
-  %185 = getelementptr inbounds i8, ptr %0, i64 103
+  %185 = getelementptr inbounds nuw i8, ptr %0, i64 103
   store i8 46, ptr %185, align 1
-  %186 = getelementptr inbounds i8, ptr %0, i64 104
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i8 46, ptr %186, align 8
-  %187 = getelementptr inbounds i8, ptr %0, i64 105
+  %187 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 46, ptr %187, align 1
   br label %.critedge.thread.i.i.i.i
 
@@ -849,7 +849,7 @@ _ZN23ObjectSampleDescription23write_thread_group_nameEv.exit: ; preds = %_ZN23Ob
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN23ObjectSampleDescription16write_class_nameEv(ptr nocapture noundef nonnull align 8 dereferenceable(128) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr @_ZN15java_lang_Class13_klass_offsetE, align 4
   %5 = tail call noundef ptr @_ZNK7oopDesc14metadata_fieldEi(ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef %4) #10
@@ -866,8 +866,8 @@ define hidden void @_ZN23ObjectSampleDescription16write_class_nameEv(ptr nocaptu
   %11 = load ptr, ptr %2, align 8
   %12 = tail call noundef zeroext i8 @_ZN15java_lang_Class14primitive_typeEP7oopDesc(ptr noundef %11) #10
   %13 = tail call noundef ptr @_Z9type2name9BasicType(i8 noundef zeroext %12) #10
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 112
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %16 = load i64, ptr %15, align 8
   %17 = icmp eq i64 %16, 98
   br i1 %17, label %_ZN23ObjectSampleDescription10write_textEPKc.exit, label %.preheader.i.i
@@ -885,12 +885,12 @@ define hidden void @_ZN23ObjectSampleDescription16write_class_nameEv(ptr nocaptu
   br i1 %21, label %22, label %.critedge.i.i
 
 22:                                               ; preds = %.lr.ph.i.i
-  %23 = getelementptr inbounds [100 x i8], ptr %14, i64 0, i64 %19
+  %23 = getelementptr inbounds nuw [100 x i8], ptr %14, i64 0, i64 %19
   store i8 %20, ptr %23, align 1
   %24 = load i64, ptr %15, align 8
   %25 = add i64 %24, 1
   store i64 %25, ptr %15, align 8
-  %26 = getelementptr inbounds i8, ptr %.07.i.i, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 1
   %27 = load i8, ptr %26, align 1
   %.not.i.i = icmp eq i8 %27, 0
   br i1 %.not.i.i, label %.critedge.i.i, label %.lr.ph.i.i, !llvm.loop !6
@@ -901,11 +901,11 @@ define hidden void @_ZN23ObjectSampleDescription16write_class_nameEv(ptr nocaptu
   br i1 %28, label %29, label %.critedge.thread.i.i
 
 29:                                               ; preds = %.critedge.i.i
-  %30 = getelementptr inbounds i8, ptr %0, i64 103
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 103
   store i8 46, ptr %30, align 1
-  %31 = getelementptr inbounds i8, ptr %0, i64 104
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i8 46, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 105
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 46, ptr %32, align 1
   br label %.critedge.thread.i.i
 
@@ -916,27 +916,27 @@ define hidden void @_ZN23ObjectSampleDescription16write_class_nameEv(ptr nocaptu
   br label %_ZN23ObjectSampleDescription10write_textEPKc.exit
 
 34:                                               ; preds = %1
-  %35 = getelementptr inbounds i8, ptr %5, i64 12
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %36 = load i32, ptr %35, align 4
   %37 = icmp slt i32 %36, 5
   br i1 %37, label %38, label %_ZN23ObjectSampleDescription10write_textEPKc.exit
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %5, i64 164
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 164
   %.sroa.0.0.copyload.i.i = load i32, ptr %39, align 4
   %40 = and i32 %.sroa.0.0.copyload.i.i, 67108864
   %.not30 = icmp eq i32 %40, 0
   br i1 %.not30, label %41, label %_ZN23ObjectSampleDescription10write_textEPKc.exit
 
 41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %5, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %43 = load ptr, ptr %42, align 8
   %.not = icmp eq ptr %43, null
   br i1 %.not, label %_ZN23ObjectSampleDescription10write_textEPKc.exit, label %44
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %0, i64 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 112
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %47 = load i64, ptr %46, align 8
   %48 = icmp eq i64 %47, 98
   br i1 %48, label %_ZN23ObjectSampleDescription10write_textEPKc.exit19, label %.lr.ph.i.i12
@@ -949,13 +949,13 @@ define hidden void @_ZN23ObjectSampleDescription16write_class_nameEv(ptr nocaptu
   br i1 %51, label %52, label %.critedge.i.i14
 
 52:                                               ; preds = %.lr.ph.i.i12
-  %53 = getelementptr inbounds [100 x i8], ptr %45, i64 0, i64 %49
+  %53 = getelementptr inbounds nuw [100 x i8], ptr %45, i64 0, i64 %49
   store i8 %50, ptr %53, align 1
   %54 = load i64, ptr %46, align 8
   %55 = add i64 %54, 1
   store i64 %55, ptr %46, align 8
   %.07.i.i13.add = add nuw nsw i64 %.07.i.i13.idx, 1
-  %.ptr = getelementptr inbounds i8, ptr @.str.6, i64 %.07.i.i13.add
+  %.ptr = getelementptr inbounds nuw i8, ptr @.str.6, i64 %.07.i.i13.add
   %56 = load i8, ptr %.ptr, align 1
   %exitcond = icmp eq i64 %.07.i.i13.add, 12
   br i1 %exitcond, label %.critedge.i.i14, label %.lr.ph.i.i12, !llvm.loop !6
@@ -966,11 +966,11 @@ define hidden void @_ZN23ObjectSampleDescription16write_class_nameEv(ptr nocaptu
   br i1 %57, label %58, label %.critedge.thread.i.i16
 
 58:                                               ; preds = %.critedge.i.i14
-  %59 = getelementptr inbounds i8, ptr %0, i64 103
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 103
   store i8 46, ptr %59, align 1
-  %60 = getelementptr inbounds i8, ptr %0, i64 104
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i8 46, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 105
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 46, ptr %61, align 1
   br label %.critedge.thread.i.i16
 
@@ -998,12 +998,12 @@ _ZN23ObjectSampleDescription10write_textEPKc.exit19: ; preds = %44, %.critedge.t
   br i1 %69, label %70, label %.critedge.i.i24
 
 70:                                               ; preds = %.lr.ph.i.i22
-  %71 = getelementptr inbounds [100 x i8], ptr %45, i64 0, i64 %67
+  %71 = getelementptr inbounds nuw [100 x i8], ptr %45, i64 0, i64 %67
   store i8 %68, ptr %71, align 1
   %72 = load i64, ptr %46, align 8
   %73 = add i64 %72, 1
   store i64 %73, ptr %46, align 8
-  %74 = getelementptr inbounds i8, ptr %.07.i.i23, i64 1
+  %74 = getelementptr inbounds nuw i8, ptr %.07.i.i23, i64 1
   %75 = load i8, ptr %74, align 1
   %.not.i.i28 = icmp eq i8 %75, 0
   br i1 %.not.i.i28, label %.critedge.i.i24, label %.lr.ph.i.i22, !llvm.loop !6
@@ -1014,11 +1014,11 @@ _ZN23ObjectSampleDescription10write_textEPKc.exit19: ; preds = %44, %.critedge.t
   br i1 %76, label %77, label %.critedge.thread.i.i26
 
 77:                                               ; preds = %.critedge.i.i24
-  %78 = getelementptr inbounds i8, ptr %0, i64 103
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 103
   store i8 46, ptr %78, align 1
-  %79 = getelementptr inbounds i8, ptr %0, i64 104
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i8 46, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %0, i64 105
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 46, ptr %80, align 1
   br label %.critedge.thread.i.i26
 
@@ -1034,7 +1034,7 @@ _ZN23ObjectSampleDescription10write_textEPKc.exit: ; preds = %.critedge.thread.i
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN23ObjectSampleDescription17write_thread_nameEv(ptr nocapture noundef nonnull align 8 dereferenceable(128) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef ptr @_ZN16java_lang_Thread4nameEP7oopDesc(ptr noundef %3) #10
   %.not = icmp eq ptr %4, null
@@ -1046,8 +1046,8 @@ define hidden void @_ZN23ObjectSampleDescription17write_thread_nameEv(ptr nocapt
   br i1 %.not6, label %_ZN23ObjectSampleDescription10write_textEPKc.exit15, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 112
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %10 = load i64, ptr %9, align 8
   %11 = icmp eq i64 %10, 98
   br i1 %11, label %_ZN23ObjectSampleDescription10write_textEPKc.exit15, label %.lr.ph.i.i
@@ -1060,13 +1060,13 @@ define hidden void @_ZN23ObjectSampleDescription17write_thread_nameEv(ptr nocapt
   br i1 %14, label %15, label %.critedge.i.i
 
 15:                                               ; preds = %.lr.ph.i.i
-  %16 = getelementptr inbounds [100 x i8], ptr %8, i64 0, i64 %12
+  %16 = getelementptr inbounds nuw [100 x i8], ptr %8, i64 0, i64 %12
   store i8 %13, ptr %16, align 1
   %17 = load i64, ptr %9, align 8
   %18 = add i64 %17, 1
   store i64 %18, ptr %9, align 8
   %.07.i.i.add = add nuw nsw i64 %.07.i.i.idx, 1
-  %.ptr = getelementptr inbounds i8, ptr @.str.8, i64 %.07.i.i.add
+  %.ptr = getelementptr inbounds nuw i8, ptr @.str.8, i64 %.07.i.i.add
   %19 = load i8, ptr %.ptr, align 1
   %exitcond = icmp eq i64 %.07.i.i.add, 13
   br i1 %exitcond, label %.critedge.i.i, label %.lr.ph.i.i, !llvm.loop !6
@@ -1077,11 +1077,11 @@ define hidden void @_ZN23ObjectSampleDescription17write_thread_nameEv(ptr nocapt
   br i1 %20, label %21, label %_ZN23ObjectSampleDescription10write_textEPKc.exit
 
 21:                                               ; preds = %.critedge.i.i
-  %22 = getelementptr inbounds i8, ptr %0, i64 103
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 103
   store i8 46, ptr %22, align 1
-  %23 = getelementptr inbounds i8, ptr %0, i64 104
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i8 46, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 105
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 46, ptr %24, align 1
   br label %_ZN23ObjectSampleDescription10write_textEPKc.exit
 
@@ -1105,12 +1105,12 @@ _ZN23ObjectSampleDescription10write_textEPKc.exit: ; preds = %.critedge.i.i, %21
   br i1 %30, label %31, label %.critedge.i.i10
 
 31:                                               ; preds = %.lr.ph.i.i8
-  %32 = getelementptr inbounds [100 x i8], ptr %8, i64 0, i64 %28
+  %32 = getelementptr inbounds nuw [100 x i8], ptr %8, i64 0, i64 %28
   store i8 %29, ptr %32, align 1
   %33 = load i64, ptr %9, align 8
   %34 = add i64 %33, 1
   store i64 %34, ptr %9, align 8
-  %35 = getelementptr inbounds i8, ptr %.07.i.i9, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %.07.i.i9, i64 1
   %36 = load i8, ptr %35, align 1
   %.not.i.i14 = icmp eq i8 %36, 0
   br i1 %.not.i.i14, label %.critedge.i.i10, label %.lr.ph.i.i8, !llvm.loop !6
@@ -1121,11 +1121,11 @@ _ZN23ObjectSampleDescription10write_textEPKc.exit: ; preds = %.critedge.i.i, %21
   br i1 %37, label %38, label %.critedge.thread.i.i12
 
 38:                                               ; preds = %.critedge.i.i10
-  %39 = getelementptr inbounds i8, ptr %0, i64 103
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 103
   store i8 46, ptr %39, align 1
-  %40 = getelementptr inbounds i8, ptr %0, i64 104
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i8 46, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 105
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 46, ptr %41, align 1
   br label %.critedge.thread.i.i12
 
@@ -1141,15 +1141,15 @@ _ZN23ObjectSampleDescription10write_textEPKc.exit15: ; preds = %7, %.critedge.th
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN23ObjectSampleDescription23write_thread_group_nameEv(ptr nocapture noundef nonnull align 8 dereferenceable(128) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef ptr @_ZN21java_lang_ThreadGroup4nameEP7oopDesc(ptr noundef %3) #10
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %_ZN23ObjectSampleDescription10write_textEPKc.exit11, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 112
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %8 = load i64, ptr %7, align 8
   %9 = icmp eq i64 %8, 98
   br i1 %9, label %_ZN23ObjectSampleDescription10write_textEPKc.exit11, label %.lr.ph.i.i
@@ -1162,13 +1162,13 @@ define hidden void @_ZN23ObjectSampleDescription23write_thread_group_nameEv(ptr 
   br i1 %12, label %13, label %.critedge.i.i
 
 13:                                               ; preds = %.lr.ph.i.i
-  %14 = getelementptr inbounds [100 x i8], ptr %6, i64 0, i64 %10
+  %14 = getelementptr inbounds nuw [100 x i8], ptr %6, i64 0, i64 %10
   store i8 %11, ptr %14, align 1
   %15 = load i64, ptr %7, align 8
   %16 = add i64 %15, 1
   store i64 %16, ptr %7, align 8
   %.07.i.i.add = add nuw nsw i64 %.07.i.i.idx, 1
-  %.ptr = getelementptr inbounds i8, ptr @.str.7, i64 %.07.i.i.add
+  %.ptr = getelementptr inbounds nuw i8, ptr @.str.7, i64 %.07.i.i.add
   %17 = load i8, ptr %.ptr, align 1
   %exitcond = icmp eq i64 %.07.i.i.add, 14
   br i1 %exitcond, label %.critedge.i.i, label %.lr.ph.i.i, !llvm.loop !6
@@ -1179,11 +1179,11 @@ define hidden void @_ZN23ObjectSampleDescription23write_thread_group_nameEv(ptr 
   br i1 %18, label %19, label %_ZN23ObjectSampleDescription10write_textEPKc.exit
 
 19:                                               ; preds = %.critedge.i.i
-  %20 = getelementptr inbounds i8, ptr %0, i64 103
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 103
   store i8 46, ptr %20, align 1
-  %21 = getelementptr inbounds i8, ptr %0, i64 104
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i8 46, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 105
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 46, ptr %22, align 1
   br label %_ZN23ObjectSampleDescription10write_textEPKc.exit
 
@@ -1207,12 +1207,12 @@ _ZN23ObjectSampleDescription10write_textEPKc.exit: ; preds = %.critedge.i.i, %19
   br i1 %28, label %29, label %.critedge.i.i6
 
 29:                                               ; preds = %.lr.ph.i.i4
-  %30 = getelementptr inbounds [100 x i8], ptr %6, i64 0, i64 %26
+  %30 = getelementptr inbounds nuw [100 x i8], ptr %6, i64 0, i64 %26
   store i8 %27, ptr %30, align 1
   %31 = load i64, ptr %7, align 8
   %32 = add i64 %31, 1
   store i64 %32, ptr %7, align 8
-  %33 = getelementptr inbounds i8, ptr %.07.i.i5, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %.07.i.i5, i64 1
   %34 = load i8, ptr %33, align 1
   %.not.i.i10 = icmp eq i8 %34, 0
   br i1 %.not.i.i10, label %.critedge.i.i6, label %.lr.ph.i.i4, !llvm.loop !6
@@ -1223,11 +1223,11 @@ _ZN23ObjectSampleDescription10write_textEPKc.exit: ; preds = %.critedge.i.i, %19
   br i1 %35, label %36, label %.critedge.thread.i.i8
 
 36:                                               ; preds = %.critedge.i.i6
-  %37 = getelementptr inbounds i8, ptr %0, i64 103
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 103
   store i8 46, ptr %37, align 1
-  %38 = getelementptr inbounds i8, ptr %0, i64 104
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i8 46, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 105
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 46, ptr %39, align 1
   br label %.critedge.thread.i.i8
 
@@ -1244,15 +1244,15 @@ _ZN23ObjectSampleDescription10write_textEPKc.exit11: ; preds = %5, %.critedge.th
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN23ObjectSampleDescription13read_int_sizeEPi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %class.fieldDescriptor, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(22) %4, i8 0, i64 22, i1 false)
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  %6 = getelementptr inbounds i8, ptr %0, i64 120
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %7 = load ptr, ptr %6, align 8
   %8 = load i8, ptr @UseCompressedClassPointers, align 1
   %9 = trunc i8 %8 to i1
-  %10 = getelementptr inbounds i8, ptr %7, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br i1 %9, label %11, label %21
 
 11:                                               ; preds = %2
@@ -1273,7 +1273,7 @@ define hidden noundef zeroext i1 @_ZN23ObjectSampleDescription13read_int_sizeEPi
 
 _ZNK7oopDesc5klassEv.exit:                        ; preds = %11, %21
   %.0.i = phi ptr [ %20, %11 ], [ %22, %21 ]
-  %23 = getelementptr inbounds i8, ptr %.0.i, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i, i64 12
   %24 = load i32, ptr %23, align 4
   %25 = icmp slt i32 %24, 5
   br i1 %25, label %26, label %37
@@ -1287,7 +1287,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %11, %21
 
 30:                                               ; preds = %26
   %31 = load ptr, ptr %6, align 8
-  %.sroa.1.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.1.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.1.0.copyload.i = load i32, ptr %.sroa.1.0..sroa_idx.i, align 8
   %32 = ptrtoint ptr %31 to i64
   %33 = sext i32 %.sroa.1.0.copyload.i to i64
@@ -1310,8 +1310,8 @@ define hidden void @_ZN23ObjectSampleDescription10write_sizeEi(ptr nocapture nou
   br i1 %4, label %5, label %43
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 112
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %8 = load i64, ptr %7, align 8
   %9 = icmp eq i64 %8, 98
   br i1 %9, label %_ZN23ObjectSampleDescription10write_textEPKc.exit, label %.lr.ph.i.i
@@ -1324,13 +1324,13 @@ define hidden void @_ZN23ObjectSampleDescription10write_sizeEi(ptr nocapture nou
   br i1 %12, label %13, label %.critedge.i.i
 
 13:                                               ; preds = %.lr.ph.i.i
-  %14 = getelementptr inbounds [100 x i8], ptr %6, i64 0, i64 %10
+  %14 = getelementptr inbounds nuw [100 x i8], ptr %6, i64 0, i64 %10
   store i8 %11, ptr %14, align 1
   %15 = load i64, ptr %7, align 8
   %16 = add i64 %15, 1
   store i64 %16, ptr %7, align 8
   %.07.i.i.add = add nuw nsw i64 %.07.i.i.idx, 1
-  %.ptr = getelementptr inbounds i8, ptr @.str.9, i64 %.07.i.i.add
+  %.ptr = getelementptr inbounds nuw i8, ptr @.str.9, i64 %.07.i.i.add
   %17 = load i8, ptr %.ptr, align 1
   %exitcond = icmp eq i64 %.07.i.i.add, 6
   br i1 %exitcond, label %.critedge.i.i, label %.lr.ph.i.i, !llvm.loop !6
@@ -1341,11 +1341,11 @@ define hidden void @_ZN23ObjectSampleDescription10write_sizeEi(ptr nocapture nou
   br i1 %18, label %19, label %.critedge.thread.i.i
 
 19:                                               ; preds = %.critedge.i.i
-  %20 = getelementptr inbounds i8, ptr %0, i64 103
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 103
   store i8 46, ptr %20, align 1
-  %21 = getelementptr inbounds i8, ptr %0, i64 104
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i8 46, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 105
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 46, ptr %22, align 1
   br label %.critedge.thread.i.i
 
@@ -1374,12 +1374,12 @@ _ZN23ObjectSampleDescription10write_textEPKc.exit: ; preds = %5, %.critedge.thre
   br i1 %30, label %31, label %.critedge.i.i.i
 
 31:                                               ; preds = %.lr.ph.i.i.i
-  %32 = getelementptr inbounds [100 x i8], ptr %6, i64 0, i64 %28
+  %32 = getelementptr inbounds nuw [100 x i8], ptr %6, i64 0, i64 %28
   store i8 %29, ptr %32, align 1
   %33 = load i64, ptr %7, align 8
   %34 = add i64 %33, 1
   store i64 %34, ptr %7, align 8
-  %35 = getelementptr inbounds i8, ptr %.07.i.i.i, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %.07.i.i.i, i64 1
   %36 = load i8, ptr %35, align 1
   %.not.i.i.i = icmp eq i8 %36, 0
   br i1 %.not.i.i.i, label %.critedge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !6
@@ -1390,11 +1390,11 @@ _ZN23ObjectSampleDescription10write_textEPKc.exit: ; preds = %5, %.critedge.thre
   br i1 %37, label %38, label %.critedge.thread.i.i.i
 
 38:                                               ; preds = %.critedge.i.i.i
-  %39 = getelementptr inbounds i8, ptr %0, i64 103
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 103
   store i8 46, ptr %39, align 1
-  %40 = getelementptr inbounds i8, ptr %0, i64 104
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i8 46, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 105
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 46, ptr %41, align 1
   br label %.critedge.thread.i.i.i
 

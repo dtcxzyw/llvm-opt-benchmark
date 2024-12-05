@@ -60,7 +60,7 @@ define hidden void @OGLPaints_ResetPaint(ptr noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   tail call void @OGLRenderQueue_CheckPreviousOp(i32 noundef -1) #6
-  %4 = getelementptr inbounds i8, ptr %0, i64 36
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %5 = load i8, ptr %4, align 4
   %.not = icmp eq i8 %5, 0
   br i1 %.not, label %8, label %6
@@ -71,7 +71,7 @@ define hidden void @OGLPaints_ResetPaint(ptr noundef %0) local_unnamed_addr #0 {
   br label %8
 
 8:                                                ; preds = %6, %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i32, ptr %9, align 8
   switch i32 %10, label %18 [
     i32 2, label %.sink.split
@@ -113,7 +113,7 @@ define hidden void @OGLPaints_ResetPaint(ptr noundef %0) local_unnamed_addr #0 {
   br label %22
 
 22:                                               ; preds = %20, %18
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load float, ptr %23, align 8
   %25 = tail call float @llvm.fmuladd.f32(float %24, float 2.550000e+02, float 5.000000e-01)
   %26 = fptoui float %25 to i8
@@ -121,9 +121,9 @@ define hidden void @OGLPaints_ResetPaint(ptr noundef %0) local_unnamed_addr #0 {
   tail call void %27(i8 noundef zeroext %26, i8 noundef zeroext %26, i8 noundef zeroext %26, i8 noundef zeroext %26) #6
   %28 = zext i8 %26 to i32
   %29 = mul nuw i32 %28, 16843009
-  %30 = getelementptr inbounds i8, ptr %0, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %29, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 28
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(4) %31, i8 %26, i64 4, i1 false)
   store i8 0, ptr %4, align 4
   store i32 -1, ptr %9, align 8
@@ -144,7 +144,7 @@ define hidden void @OGLPaints_SetColor(ptr noundef %0, i32 noundef %1) local_unn
   br i1 %3, label %27, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 1
   br i1 %7, label %8, label %9
@@ -154,9 +154,9 @@ define hidden void @OGLPaints_SetColor(ptr noundef %0, i32 noundef %1) local_unn
   br label %9
 
 9:                                                ; preds = %8, %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %12 = load i32, ptr %11, align 4
   %.not = icmp eq i32 %12, 2
   br i1 %.not, label %16, label %13
@@ -167,7 +167,7 @@ define hidden void @OGLPaints_SetColor(ptr noundef %0, i32 noundef %1) local_unn
   br label %20
 
 16:                                               ; preds = %9
-  %17 = getelementptr inbounds i8, ptr %0, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %18 = load i32, ptr %17, align 4
   %19 = xor i32 %18, %1
   br label %20
@@ -182,15 +182,15 @@ define hidden void @OGLPaints_SetColor(ptr noundef %0, i32 noundef %1) local_unn
   %.030 = trunc i32 %.030.in to i8
   %21 = load ptr, ptr @j2d_glColor4ub, align 8
   tail call void %21(i8 noundef zeroext %.030, i8 noundef zeroext %.029, i8 noundef zeroext %.028, i8 noundef zeroext %.0) #6
-  %22 = getelementptr inbounds i8, ptr %0, i64 28
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 %.030, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 29
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 29
   store i8 %.029, ptr %23, align 1
-  %24 = getelementptr inbounds i8, ptr %0, i64 30
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 30
   store i8 %.028, ptr %24, align 2
-  %25 = getelementptr inbounds i8, ptr %0, i64 31
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 31
   store i8 %.0, ptr %25, align 1
-  %26 = getelementptr inbounds i8, ptr %0, i64 36
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i8 0, ptr %26, align 4
   store i32 1, ptr %5, align 8
   br label %27
@@ -210,14 +210,14 @@ define hidden void @OGLPaints_SetGradientPaint(ptr noundef %0, i8 noundef zeroex
 13:                                               ; preds = %8
   tail call void @OGLPaints_ResetPaint(ptr noundef nonnull %0)
   store double %3, ptr %10, align 16
-  %14 = getelementptr inbounds i8, ptr %10, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store double %4, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %10, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store double 0.000000e+00, ptr %15, align 16
-  %16 = getelementptr inbounds i8, ptr %10, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store double %5, ptr %16, align 8
   store i32 %6, ptr %11, align 4
-  %17 = getelementptr inbounds i8, ptr %11, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 %7, ptr %17, align 4
   %.not = icmp eq i8 %1, 0
   br i1 %.not, label %21, label %18
@@ -230,7 +230,7 @@ define hidden void @OGLPaints_SetGradientPaint(ptr noundef %0, i8 noundef zeroex
   br label %26
 
 21:                                               ; preds = %13
-  %22 = getelementptr inbounds i8, ptr %0, i64 52
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %23 = load i32, ptr %22, align 4
   %.not14 = icmp eq i32 %23, 8448
   br i1 %.not14, label %26, label %24
@@ -291,9 +291,9 @@ define hidden void @OGLPaints_SetGradientPaint(ptr noundef %0, i8 noundef zeroex
   br label %49
 
 49:                                               ; preds = %47, %37
-  %50 = getelementptr inbounds i8, ptr %0, i64 36
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i8 %1, ptr %50, align 4
-  %51 = getelementptr inbounds i8, ptr %0, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 2, ptr %51, align 8
   br label %52
 
@@ -316,18 +316,18 @@ define hidden void @OGLPaints_SetTexturePaint(ptr noundef %0, i8 noundef zeroext
 17:                                               ; preds = %10
   tail call void @OGLPaints_ResetPaint(ptr noundef nonnull %0)
   store double %4, ptr %11, align 16
-  %18 = getelementptr inbounds i8, ptr %11, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store double %5, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %11, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store double 0.000000e+00, ptr %19, align 16
-  %20 = getelementptr inbounds i8, ptr %11, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store double %6, ptr %20, align 8
   store double %7, ptr %12, align 16
-  %21 = getelementptr inbounds i8, ptr %12, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store double %8, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %12, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store double 0.000000e+00, ptr %22, align 16
-  %23 = getelementptr inbounds i8, ptr %12, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store double %9, ptr %23, align 8
   %.not29 = icmp eq i8 %1, 0
   br i1 %.not29, label %27, label %24
@@ -340,7 +340,7 @@ define hidden void @OGLPaints_SetTexturePaint(ptr noundef %0, i8 noundef zeroext
   br label %32
 
 27:                                               ; preds = %17
-  %28 = getelementptr inbounds i8, ptr %0, i64 52
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %29 = load i32, ptr %28, align 4
   %.not30 = icmp eq i32 %29, 8448
   br i1 %.not30, label %32, label %30
@@ -359,17 +359,17 @@ define hidden void @OGLPaints_SetTexturePaint(ptr noundef %0, i8 noundef zeroext
   %35 = load ptr, ptr @j2d_glEnable, align 8
   tail call void %35(i32 noundef 3169) #6
   %36 = load ptr, ptr @j2d_glBindTexture, align 8
-  %37 = getelementptr inbounds i8, ptr %13, i64 100
+  %37 = getelementptr inbounds nuw i8, ptr %13, i64 100
   %38 = load i32, ptr %37, align 4
   tail call void %36(i32 noundef 3553, i32 noundef %38) #6
-  %39 = getelementptr inbounds i8, ptr %13, i64 116
+  %39 = getelementptr inbounds nuw i8, ptr %13, i64 116
   %40 = load i32, ptr %39, align 4
   %.not31 = icmp eq i32 %40, %14
   br i1 %.not31, label %47, label %41
 
 41:                                               ; preds = %32
   %42 = load ptr, ptr @j2d_glTexParameteri, align 8
-  %43 = getelementptr inbounds i8, ptr %13, i64 112
+  %43 = getelementptr inbounds nuw i8, ptr %13, i64 112
   %44 = load i32, ptr %43, align 8
   tail call void %42(i32 noundef %44, i32 noundef 10240, i32 noundef %14) #6
   %45 = load ptr, ptr @j2d_glTexParameteri, align 8
@@ -399,9 +399,9 @@ define hidden void @OGLPaints_SetTexturePaint(ptr noundef %0, i8 noundef zeroext
   br label %56
 
 56:                                               ; preds = %54, %47
-  %57 = getelementptr inbounds i8, ptr %0, i64 36
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i8 %1, ptr %57, align 4
-  %58 = getelementptr inbounds i8, ptr %0, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 5, ptr %58, align 8
   br label %59
 
@@ -437,7 +437,7 @@ define hidden void @OGLPaints_SetLinearGradientPaint(ptr noundef %0, ptr noundef
 
 22:                                               ; preds = %20, %14
   %23 = zext nneg i32 %.2 to i64
-  %24 = getelementptr inbounds [32 x i32], ptr @linearGradPrograms, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw [32 x i32], ptr @linearGradPrograms, i64 0, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %30
@@ -458,9 +458,9 @@ define hidden void @OGLPaints_SetLinearGradientPaint(ptr noundef %0, ptr noundef
   %35 = load ptr, ptr @j2d_glGetUniformLocationARB, align 8
   %36 = tail call i32 %35(i32 noundef %31, ptr noundef nonnull @.str.1) #6
   %37 = load ptr, ptr @j2d_glUniform1fARB, align 8
-  %38 = getelementptr inbounds i8, ptr %1, i64 88
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %39 = load i32, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %1, i64 96
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %41 = load i32, ptr %40, align 8
   %42 = add nsw i32 %41, %39
   %43 = sitofp i32 %42 to float
@@ -473,9 +473,9 @@ define hidden void @OGLPaints_SetLinearGradientPaint(ptr noundef %0, ptr noundef
   br label %46
 
 46:                                               ; preds = %44, %30
-  %47 = getelementptr inbounds i8, ptr %0, i64 36
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i8 %2, ptr %47, align 4
-  %48 = getelementptr inbounds i8, ptr %0, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 3, ptr %48, align 8
   br label %49
 
@@ -539,11 +539,11 @@ define internal fastcc void @OGLPaints_SetMultiGradientPaint(i32 noundef %0, i32
   %31 = phi float [ %.pre, %.lr.ph.preheader ], [ %33, %.lr.ph ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %32 = getelementptr inbounds float, ptr %2, i64 %indvars.iv.next
+  %32 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv.next
   %33 = load float, ptr %32, align 4
   %34 = fsub float %33, %31
   %35 = fdiv float 1.000000e+00, %34
-  %36 = getelementptr inbounds [11 x float], ptr %5, i64 0, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [11 x float], ptr %5, i64 0, i64 %indvars.iv
   store float %35, ptr %36, align 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !6
@@ -601,7 +601,7 @@ define hidden void @OGLPaints_SetRadialGradientPaint(ptr noundef %0, ptr noundef
 
 26:                                               ; preds = %24, %18
   %27 = zext nneg i32 %.2 to i64
-  %28 = getelementptr inbounds [32 x i32], ptr @radialGradPrograms, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw [32 x i32], ptr @radialGradPrograms, i64 0, i64 %27
   %29 = load i32, ptr %28, align 4
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %31, label %34
@@ -623,9 +623,9 @@ define hidden void @OGLPaints_SetRadialGradientPaint(ptr noundef %0, ptr noundef
   %40 = tail call i32 %39(i32 noundef %35, ptr noundef nonnull @.str.3) #6
   %41 = load ptr, ptr @j2d_glUniform3fARB, align 8
   tail call void %41(i32 noundef %40, float noundef %9, float noundef %10, float noundef %11) #6
-  %42 = getelementptr inbounds i8, ptr %1, i64 88
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %43 = load i32, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %1, i64 96
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %45 = load i32, ptr %44, align 8
   %46 = add nsw i32 %45, %43
   %47 = sitofp i32 %46 to float
@@ -644,9 +644,9 @@ define hidden void @OGLPaints_SetRadialGradientPaint(ptr noundef %0, ptr noundef
   br label %56
 
 56:                                               ; preds = %54, %34
-  %57 = getelementptr inbounds i8, ptr %0, i64 36
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i8 %2, ptr %57, align 4
-  %58 = getelementptr inbounds i8, ptr %0, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 4, ptr %58, align 8
   br label %59
 
@@ -679,13 +679,13 @@ sub_0:                                            ; preds = %11
   br i1 %.not34, label %sub_1, label %.tail
 
 sub_1:                                            ; preds = %sub_0
-  %15 = getelementptr inbounds i8, ptr %13, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 1
   %16 = load i8, ptr %15, align 1
   %.not35 = icmp eq i8 %16, 84
   br i1 %.not35, label %sub_2, label %.tail
 
 sub_2:                                            ; preds = %sub_1
-  %17 = getelementptr inbounds i8, ptr %13, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 2
   %18 = load i8, ptr %17, align 1
   %19 = icmp eq i8 %18, 73
   %20 = select i1 %19, ptr @.str.11, ptr @.str.7

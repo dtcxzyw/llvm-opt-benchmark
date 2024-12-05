@@ -24,13 +24,13 @@ define dso_local range(i32 -97, 1) i32 @uv_inet_ntop(i32 noundef %0, ptr nocaptu
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   %10 = load i8, ptr %1, align 1
   %11 = zext i8 %10 to i32
-  %12 = getelementptr inbounds i8, ptr %1, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i32
-  %15 = getelementptr inbounds i8, ptr %1, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i32
-  %18 = getelementptr inbounds i8, ptr %1, i64 3
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
   %21 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 16, ptr noundef nonnull @inet_ntop4.fmt, i32 noundef %11, i32 noundef %14, i32 noundef %17, i32 noundef %20) #9
@@ -57,7 +57,7 @@ inet_ntop4.exit:                                  ; preds = %9, %24
 
 27:                                               ; preds = %27, %26
   %indvars.iv.i = phi i64 [ 0, %26 ], [ %indvars.iv.next.i, %27 ]
-  %28 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i32
   %indvars.iv.tr.i = trunc i64 %indvars.iv.i to i32
@@ -67,7 +67,7 @@ inet_ntop4.exit:                                  ; preds = %9, %24
   %34 = shl nuw nsw i32 %30, %33
   %35 = lshr i64 %indvars.iv.i, 1
   %36 = and i64 %35, 2147483647
-  %37 = getelementptr inbounds [8 x i32], ptr %7, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i32], ptr %7, i64 0, i64 %36
   %38 = load i32, ptr %37, align 4
   %39 = or i32 %34, %38
   store i32 %39, ptr %37, align 4
@@ -81,7 +81,7 @@ inet_ntop4.exit:                                  ; preds = %9, %24
   %.sroa.8.0103.i = phi i32 [ %.sroa.8.1.i, %51 ], [ 0, %27 ]
   %.sroa.037.0102.i = phi i32 [ %.sroa.037.2.i, %51 ], [ -1, %27 ]
   %.sroa.14.0101.i = phi i32 [ %.sroa.14.2.i, %51 ], [ 0, %27 ]
-  %40 = getelementptr inbounds [8 x i32], ptr %7, i64 0, i64 %indvars.iv137.i
+  %40 = getelementptr inbounds nuw [8 x i32], ptr %7, i64 0, i64 %indvars.iv137.i
   %41 = load i32, ptr %40, align 4
   %42 = icmp eq i32 %41, 0
   %43 = icmp eq i32 %.sroa.0.0104.i, -1
@@ -137,9 +137,9 @@ inet_ntop4.exit:                                  ; preds = %9, %24
   %58 = add nsw i32 %spec.select.i, %.sroa.14.3.fr.i
   %59 = icmp eq i32 %spec.select.i, 0
   %60 = icmp eq i32 %.sroa.14.3.fr.i, 7
-  %61 = getelementptr inbounds i8, ptr %7, i64 28
+  %61 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %62 = icmp eq i32 %.sroa.14.3.fr.i, 5
-  %63 = getelementptr inbounds i8, ptr %7, i64 20
+  %63 = getelementptr inbounds nuw i8, ptr %7, i64 20
   br i1 %59, label %.split.i, label %.split.us.preheader.i
 
 .split.us.preheader.i:                            ; preds = %56
@@ -155,13 +155,13 @@ inet_ntop4.exit:                                  ; preds = %9, %24
   br i1 %.not78.us.i.us, label %.thread.us.i.us, label %67
 
 67:                                               ; preds = %.split.us.i.us
-  %68 = getelementptr inbounds i8, ptr %.071106.us.i.us, i64 1
+  %68 = getelementptr inbounds nuw i8, ptr %.071106.us.i.us, i64 1
   store i8 58, ptr %.071106.us.i.us, align 1
   br label %.thread.us.i.us
 
 .thread.us.i.us:                                  ; preds = %67, %.split.us.i.us
   %.395.us.i.us = phi ptr [ %68, %67 ], [ %.071106.us.i.us, %.split.us.i.us ]
-  %69 = getelementptr inbounds [8 x i32], ptr %7, i64 0, i64 %indvars.iv141.i.us
+  %69 = getelementptr inbounds nuw [8 x i32], ptr %7, i64 0, i64 %indvars.iv141.i.us
   %70 = load i32, ptr %69, align 4
   %71 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.395.us.i.us, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %70) #9
   %72 = sext i32 %71 to i64
@@ -183,13 +183,13 @@ inet_ntop4.exit:                                  ; preds = %9, %24
   br i1 %.not78.us.i, label %.thread.us.i, label %76
 
 76:                                               ; preds = %75
-  %77 = getelementptr inbounds i8, ptr %.071106.us.i, i64 1
+  %77 = getelementptr inbounds nuw i8, ptr %.071106.us.i, i64 1
   store i8 58, ptr %.071106.us.i, align 1
   br label %.thread.us.i
 
 .thread.us.i:                                     ; preds = %76, %75
   %.395.us.i = phi ptr [ %77, %76 ], [ %.071106.us.i, %75 ]
-  %78 = getelementptr inbounds [8 x i32], ptr %7, i64 0, i64 %indvars.iv141.i
+  %78 = getelementptr inbounds nuw [8 x i32], ptr %7, i64 0, i64 %indvars.iv141.i
   %79 = load i32, ptr %78, align 4
   %80 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.395.us.i, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %79) #9
   %81 = sext i32 %80 to i64
@@ -201,7 +201,7 @@ inet_ntop4.exit:                                  ; preds = %9, %24
   br i1 %84, label %85, label %87
 
 85:                                               ; preds = %83
-  %86 = getelementptr inbounds i8, ptr %.071106.us.i, i64 1
+  %86 = getelementptr inbounds nuw i8, ptr %.071106.us.i, i64 1
   store i8 58, ptr %.071106.us.i, align 1
   br label %87
 
@@ -234,14 +234,14 @@ inet_ntop4.exit:                                  ; preds = %9, %24
   br i1 %92, label %.thread.us114.i, label %94
 
 94:                                               ; preds = %93
-  %95 = getelementptr inbounds i8, ptr %.071106.us109.i, i64 1
+  %95 = getelementptr inbounds nuw i8, ptr %.071106.us109.i, i64 1
   store i8 58, ptr %.071106.us109.i, align 1
   %96 = icmp eq i64 %indvars.iv153.i, 6
   br i1 %96, label %.split118.us.i, label %.thread.us114.i
 
 .thread.us114.i:                                  ; preds = %94, %93
   %.395.us115.i = phi ptr [ %95, %94 ], [ %.071106.us109.i, %93 ]
-  %97 = getelementptr inbounds [8 x i32], ptr %7, i64 0, i64 %indvars.iv153.i
+  %97 = getelementptr inbounds nuw [8 x i32], ptr %7, i64 0, i64 %indvars.iv153.i
   %98 = load i32, ptr %97, align 4
   %99 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.395.us115.i, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %98) #9
   %100 = sext i32 %99 to i64
@@ -252,7 +252,7 @@ inet_ntop4.exit:                                  ; preds = %9, %24
   br i1 %92, label %103, label %105
 
 103:                                              ; preds = %102
-  %104 = getelementptr inbounds i8, ptr %.071106.us109.i, i64 1
+  %104 = getelementptr inbounds nuw i8, ptr %.071106.us109.i, i64 1
   store i8 58, ptr %.071106.us109.i, align 1
   br label %105
 
@@ -273,7 +273,7 @@ inet_ntop4.exit:                                  ; preds = %9, %24
   br i1 %107, label %109, label %148
 
 109:                                              ; preds = %108
-  %110 = getelementptr inbounds i8, ptr %.071106.i, i64 1
+  %110 = getelementptr inbounds nuw i8, ptr %.071106.i, i64 1
   store i8 58, ptr %.071106.i, align 1
   br label %148
 
@@ -281,7 +281,7 @@ inet_ntop4.exit:                                  ; preds = %9, %24
   br i1 %107, label %.thread.i, label %112
 
 112:                                              ; preds = %111
-  %113 = getelementptr inbounds i8, ptr %.071106.i, i64 1
+  %113 = getelementptr inbounds nuw i8, ptr %.071106.i, i64 1
   store i8 58, ptr %.071106.i, align 1
   %114 = icmp eq i64 %indvars.iv145.i, 6
   br i1 %114, label %115, label %.thread.i
@@ -300,7 +300,7 @@ inet_ntop4.exit:                                  ; preds = %9, %24
 
 .split118.us.i:                                   ; preds = %118, %115, %94
   %.us-phi119.i = phi ptr [ %95, %94 ], [ %113, %115 ], [ %113, %118 ]
-  %121 = getelementptr inbounds i8, ptr %1, i64 12
+  %121 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %122 = ptrtoint ptr %.us-phi119.i to i64
   %123 = ptrtoint ptr %6 to i64
   %.neg.i = sub i64 %123, %122
@@ -308,13 +308,13 @@ inet_ntop4.exit:                                  ; preds = %9, %24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %125 = load i8, ptr %121, align 1
   %126 = zext i8 %125 to i32
-  %127 = getelementptr inbounds i8, ptr %1, i64 13
+  %127 = getelementptr inbounds nuw i8, ptr %1, i64 13
   %128 = load i8, ptr %127, align 1
   %129 = zext i8 %128 to i32
-  %130 = getelementptr inbounds i8, ptr %1, i64 14
+  %130 = getelementptr inbounds nuw i8, ptr %1, i64 14
   %131 = load i8, ptr %130, align 1
   %132 = zext i8 %131 to i32
-  %133 = getelementptr inbounds i8, ptr %1, i64 15
+  %133 = getelementptr inbounds nuw i8, ptr %1, i64 15
   %134 = load i8, ptr %133, align 1
   %135 = zext i8 %134 to i32
   %136 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 16, ptr noundef nonnull @inet_ntop4.fmt, i32 noundef %126, i32 noundef %129, i32 noundef %132, i32 noundef %135) #9
@@ -337,7 +337,7 @@ inet_ntop4.exit.i:                                ; preds = %.split118.us.i
 
 .thread.i:                                        ; preds = %118, %112, %111
   %.395.i = phi ptr [ %113, %118 ], [ %113, %112 ], [ %.071106.i, %111 ]
-  %143 = getelementptr inbounds [8 x i32], ptr %7, i64 0, i64 %indvars.iv145.i
+  %143 = getelementptr inbounds nuw [8 x i32], ptr %7, i64 0, i64 %indvars.iv145.i
   %144 = load i32, ptr %143, align 4
   %145 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.395.i, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %144) #9
   %146 = sext i32 %145 to i64
@@ -357,13 +357,13 @@ inet_ntop4.exit.i:                                ; preds = %.split118.us.i
   br i1 %or.cond88.i, label %150, label %152
 
 150:                                              ; preds = %.loopexit.i
-  %151 = getelementptr inbounds i8, ptr %.172.i, i64 1
+  %151 = getelementptr inbounds nuw i8, ptr %.172.i, i64 1
   store i8 58, ptr %.172.i, align 1
   br label %152
 
 152:                                              ; preds = %150, %.loopexit.i
   %.4.i = phi ptr [ %151, %150 ], [ %.172.i, %.loopexit.i ]
-  %153 = getelementptr inbounds i8, ptr %.4.i, i64 1
+  %153 = getelementptr inbounds nuw i8, ptr %.4.i, i64 1
   store i8 0, ptr %.4.i, align 1
   %154 = ptrtoint ptr %153 to i64
   %155 = ptrtoint ptr %6 to i64
@@ -417,7 +417,7 @@ define dso_local range(i32 -97, 1) i32 @uv_inet_pton(i32 noundef %0, ptr noundef
   %.01940.i = phi ptr [ %.1.i, %38 ], [ %6, %11 ]
   %.02039.i = phi i32 [ %.121.i, %38 ], [ 0, %11 ]
   %.02238.i = phi i32 [ %.123.i, %38 ], [ 0, %11 ]
-  %15 = getelementptr inbounds i8, ptr %.pn.i, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %.pn.i, i64 1
   %16 = sext i8 %14 to i32
   %memchr.i = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @inet_pton4.digits, i32 %16, i64 11)
   %.not28.i = icmp eq ptr %memchr.i, null
@@ -459,7 +459,7 @@ define dso_local range(i32 -97, 1) i32 @uv_inet_pton(i32 noundef %0, ptr noundef
   br i1 %or.cond32.i, label %inet_pton4.exit, label %36
 
 36:                                               ; preds = %32
-  %37 = getelementptr inbounds i8, ptr %.01940.i, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %.01940.i, i64 1
   store i8 0, ptr %37, align 1
   br label %38
 
@@ -511,13 +511,13 @@ inet_pton4.exit:                                  ; preds = %17, %28, %32, %11, 
   %.019 = phi ptr [ %7, %52 ], [ %1, %44 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  %56 = getelementptr inbounds i8, ptr %5, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %57 = load i8, ptr %.019, align 1
   %58 = icmp eq i8 %57, 58
   br i1 %58, label %59, label %.outer.i.preheader
 
 59:                                               ; preds = %55
-  %.019.sroa.phi = getelementptr inbounds i8, ptr %.019, i64 1
+  %.019.sroa.phi = getelementptr inbounds nuw i8, ptr %.019, i64 1
   %60 = load i8, ptr %.019.sroa.phi, align 1
   %.not.i27 = icmp eq i8 %60, 58
   br i1 %.not.i27, label %.outer.i.preheader, label %inet_pton6.exit
@@ -543,7 +543,7 @@ inet_pton4.exit:                                  ; preds = %17, %28, %32, %11, 
   %.063.i = phi i32 [ %74, %.thread.i ], [ 0, %.outer103.i ]
   %.062.i = phi i32 [ %73, %.thread.i ], [ %.062.ph106.i, %.outer103.i ]
   %.1.i24 = phi ptr [ %62, %.thread.i ], [ %.067.ph104.i, %.outer103.i ]
-  %62 = getelementptr inbounds i8, ptr %.1.i24, i64 1
+  %62 = getelementptr inbounds nuw i8, ptr %.1.i24, i64 1
   %63 = load i8, ptr %.1.i24, align 1
   %64 = sext i8 %63 to i32
   %.not76.i = icmp eq i8 %63, 0
@@ -623,7 +623,7 @@ inet_pton4.exit:                                  ; preds = %17, %28, %32, %11, 
   %.01940.i.i = phi ptr [ %.1.i.i, %114 ], [ %4, %87 ]
   %.02039.i.i = phi i32 [ %.121.i.i, %114 ], [ 0, %87 ]
   %.02238.i.i = phi i32 [ %.123.i.i, %114 ], [ 0, %87 ]
-  %91 = getelementptr inbounds i8, ptr %.pn.i.i, i64 1
+  %91 = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 1
   %92 = sext i8 %90 to i32
   %memchr.i.i = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @inet_pton4.digits, i32 %92, i64 11)
   %.not28.i.i = icmp eq ptr %memchr.i.i, null
@@ -665,7 +665,7 @@ inet_pton4.exit:                                  ; preds = %17, %28, %32, %11, 
   br i1 %or.cond32.i.i, label %inet_pton4.exit.thread.i, label %112
 
 112:                                              ; preds = %108
-  %113 = getelementptr inbounds i8, ptr %.01940.i.i, i64 1
+  %113 = getelementptr inbounds nuw i8, ptr %.01940.i.i, i64 1
   store i8 0, ptr %113, align 1
   br label %114
 
@@ -698,14 +698,14 @@ inet_pton4.exit.thread.i:                         ; preds = %108, %104, %93, %._
   br i1 %.not83.i, label %128, label %120
 
 120:                                              ; preds = %119
-  %121 = getelementptr inbounds i8, ptr %.065.ptr.ptr.le140.i, i64 2
+  %121 = getelementptr inbounds nuw i8, ptr %.065.ptr.ptr.le140.i, i64 2
   %122 = icmp ugt ptr %121, %56
   br i1 %122, label %inet_pton6.exit, label %123
 
 123:                                              ; preds = %120
   %124 = lshr i32 %.062.i, 8
   %125 = trunc i32 %124 to i8
-  %126 = getelementptr inbounds i8, ptr %.065.ptr.ptr.le140.i, i64 1
+  %126 = getelementptr inbounds nuw i8, ptr %.065.ptr.ptr.le140.i, i64 1
   store i8 %125, ptr %.065.ptr.ptr.le140.i, align 1
   %127 = trunc i32 %.062.i to i8
   store i8 %127, ptr %126, align 1

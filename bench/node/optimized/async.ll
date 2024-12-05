@@ -11,8 +11,8 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -2147483647, -2147483648) i32 @uv_async_init(ptr noundef %loop, ptr noundef %handle, ptr noundef %async_cb) local_unnamed_addr #0 {
 entry:
-  %async_io_watcher.i = getelementptr inbounds i8, ptr %loop, i64 456
-  %fd.i = getelementptr inbounds i8, ptr %loop, i64 504
+  %async_io_watcher.i = getelementptr inbounds nuw i8, ptr %loop, i64 456
+  %fd.i = getelementptr inbounds nuw i8, ptr %loop, i64 504
   %0 = load i32, ptr %fd.i, align 8
   %cmp.not.i = icmp eq i32 %0, -1
   br i1 %cmp.not.i, label %if.end.i, label %do.body
@@ -25,7 +25,7 @@ if.end.i:                                         ; preds = %entry
 if.end4.i:                                        ; preds = %if.end.i
   tail call void @uv__io_init(ptr noundef nonnull %async_io_watcher.i, ptr noundef nonnull @uv__async_io, i32 noundef %call.i) #7
   tail call void @uv__io_start(ptr noundef nonnull %loop, ptr noundef nonnull %async_io_watcher.i, i32 noundef 1) #7
-  %async_wfd.i = getelementptr inbounds i8, ptr %loop, i64 512
+  %async_wfd.i = getelementptr inbounds nuw i8, ptr %loop, i64 512
   store i32 -1, ptr %async_wfd.i, align 8
   br label %do.body
 
@@ -37,35 +37,35 @@ uv__async_start.exit:                             ; preds = %if.end.i
   br i1 %tobool.not, label %do.body, label %return
 
 do.body:                                          ; preds = %entry, %if.end4.i, %uv__async_start.exit
-  %loop1 = getelementptr inbounds i8, ptr %handle, i64 8
+  %loop1 = getelementptr inbounds nuw i8, ptr %handle, i64 8
   store ptr %loop, ptr %loop1, align 8
-  %type = getelementptr inbounds i8, ptr %handle, i64 16
+  %type = getelementptr inbounds nuw i8, ptr %handle, i64 16
   store i32 1, ptr %type, align 8
-  %flags = getelementptr inbounds i8, ptr %handle, i64 88
+  %flags = getelementptr inbounds nuw i8, ptr %handle, i64 88
   store i32 8, ptr %flags, align 8
-  %handle_queue = getelementptr inbounds i8, ptr %loop, i64 16
-  %handle_queue2 = getelementptr inbounds i8, ptr %handle, i64 32
+  %handle_queue = getelementptr inbounds nuw i8, ptr %loop, i64 16
+  %handle_queue2 = getelementptr inbounds nuw i8, ptr %handle, i64 32
   store ptr %handle_queue, ptr %handle_queue2, align 8
-  %prev.i = getelementptr inbounds i8, ptr %loop, i64 24
+  %prev.i = getelementptr inbounds nuw i8, ptr %loop, i64 24
   %2 = load ptr, ptr %prev.i, align 8
-  %prev1.i = getelementptr inbounds i8, ptr %handle, i64 40
+  %prev1.i = getelementptr inbounds nuw i8, ptr %handle, i64 40
   store ptr %2, ptr %prev1.i, align 8
   store ptr %handle_queue2, ptr %2, align 8
   store ptr %handle_queue2, ptr %prev.i, align 8
-  %next_closing = getelementptr inbounds i8, ptr %handle, i64 80
+  %next_closing = getelementptr inbounds nuw i8, ptr %handle, i64 80
   store ptr null, ptr %next_closing, align 8
-  %async_cb3 = getelementptr inbounds i8, ptr %handle, i64 96
+  %async_cb3 = getelementptr inbounds nuw i8, ptr %handle, i64 96
   store ptr %async_cb, ptr %async_cb3, align 8
-  %pending = getelementptr inbounds i8, ptr %handle, i64 120
+  %pending = getelementptr inbounds nuw i8, ptr %handle, i64 120
   store i32 0, ptr %pending, align 8
-  %u = getelementptr inbounds i8, ptr %handle, i64 48
+  %u = getelementptr inbounds nuw i8, ptr %handle, i64 48
   store i32 0, ptr %u, align 8
-  %async_handles = getelementptr inbounds i8, ptr %loop, i64 432
-  %queue = getelementptr inbounds i8, ptr %handle, i64 104
+  %async_handles = getelementptr inbounds nuw i8, ptr %loop, i64 432
+  %queue = getelementptr inbounds nuw i8, ptr %handle, i64 104
   store ptr %async_handles, ptr %queue, align 8
-  %prev.i17 = getelementptr inbounds i8, ptr %loop, i64 440
+  %prev.i17 = getelementptr inbounds nuw i8, ptr %loop, i64 440
   %3 = load ptr, ptr %prev.i17, align 8
-  %prev1.i18 = getelementptr inbounds i8, ptr %handle, i64 112
+  %prev1.i18 = getelementptr inbounds nuw i8, ptr %handle, i64 112
   store ptr %3, ptr %prev1.i18, align 8
   store ptr %queue, ptr %3, align 8
   store ptr %queue, ptr %prev.i17, align 8
@@ -83,7 +83,7 @@ if.end7:                                          ; preds = %do.body
 
 do.body13:                                        ; preds = %if.end7
   %5 = load ptr, ptr %loop1, align 8
-  %active_handles = getelementptr inbounds i8, ptr %5, i64 8
+  %active_handles = getelementptr inbounds nuw i8, ptr %5, i64 8
   %6 = load i32, ptr %active_handles, align 8
   %inc = add i32 %6, 1
   store i32 %inc, ptr %active_handles, align 8
@@ -97,8 +97,8 @@ return:                                           ; preds = %do.body, %do.body13
 ; Function Attrs: nofree nounwind uwtable
 define dso_local noundef i32 @uv_async_send(ptr nocapture noundef %handle) local_unnamed_addr #1 {
 entry:
-  %pending1 = getelementptr inbounds i8, ptr %handle, i64 120
-  %u = getelementptr inbounds i8, ptr %handle, i64 48
+  %pending1 = getelementptr inbounds nuw i8, ptr %handle, i64 120
+  %u = getelementptr inbounds nuw i8, ptr %handle, i64 48
   %0 = load atomic i32, ptr %pending1 monotonic, align 4
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %return
@@ -110,15 +110,15 @@ if.end:                                           ; preds = %entry
   br i1 %cmp5, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %if.end
-  %loop = getelementptr inbounds i8, ptr %handle, i64 8
+  %loop = getelementptr inbounds nuw i8, ptr %handle, i64 8
   %3 = load ptr, ptr %loop, align 8
-  %async_wfd.i = getelementptr inbounds i8, ptr %3, i64 512
+  %async_wfd.i = getelementptr inbounds nuw i8, ptr %3, i64 512
   %4 = load i32, ptr %async_wfd.i, align 8
   %cmp.i = icmp eq i32 %4, -1
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then6
-  %fd1.i = getelementptr inbounds i8, ptr %3, i64 504
+  %fd1.i = getelementptr inbounds nuw i8, ptr %3, i64 504
   %5 = load i32, ptr %fd1.i, align 8
   br label %if.end.i
 
@@ -163,8 +163,8 @@ return:                                           ; preds = %entry, %if.end7
 ; Function Attrs: nounwind uwtable
 define hidden void @uv__async_close(ptr nocapture noundef %handle) local_unnamed_addr #0 {
 entry:
-  %pending1.i = getelementptr inbounds i8, ptr %handle, i64 120
-  %u.i = getelementptr inbounds i8, ptr %handle, i64 48
+  %pending1.i = getelementptr inbounds nuw i8, ptr %handle, i64 120
+  %u.i = getelementptr inbounds nuw i8, ptr %handle, i64 48
   store atomic i32 1, ptr %pending1.i seq_cst, align 4
   br label %for.body.i
 
@@ -189,15 +189,15 @@ for.end.i:                                        ; preds = %if.end.i
   br label %for.body.i.backedge
 
 uv__async_spin.exit:                              ; preds = %for.body.i
-  %queue = getelementptr inbounds i8, ptr %handle, i64 104
+  %queue = getelementptr inbounds nuw i8, ptr %handle, i64 104
   %1 = load ptr, ptr %queue, align 8
-  %prev.i = getelementptr inbounds i8, ptr %handle, i64 112
+  %prev.i = getelementptr inbounds nuw i8, ptr %handle, i64 112
   %2 = load ptr, ptr %prev.i, align 8
   store ptr %1, ptr %2, align 8
   %3 = load ptr, ptr %prev.i, align 8
-  %prev4.i = getelementptr inbounds i8, ptr %1, i64 8
+  %prev4.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %3, ptr %prev4.i, align 8
-  %flags = getelementptr inbounds i8, ptr %handle, i64 88
+  %flags = getelementptr inbounds nuw i8, ptr %handle, i64 88
   %4 = load i32, ptr %flags, align 8
   %and = and i32 %4, 4
   %cmp = icmp eq i32 %and, 0
@@ -211,9 +211,9 @@ if.end:                                           ; preds = %uv__async_spin.exit
   br i1 %cmp5.not, label %do.end9, label %do.body7
 
 do.body7:                                         ; preds = %if.end
-  %loop = getelementptr inbounds i8, ptr %handle, i64 8
+  %loop = getelementptr inbounds nuw i8, ptr %handle, i64 8
   %5 = load ptr, ptr %loop, align 8
-  %active_handles = getelementptr inbounds i8, ptr %5, i64 8
+  %active_handles = getelementptr inbounds nuw i8, ptr %5, i64 8
   %6 = load i32, ptr %active_handles, align 8
   %dec = add i32 %6, -1
   store i32 %dec, ptr %active_handles, align 8
@@ -227,32 +227,32 @@ do.end9:                                          ; preds = %if.end, %do.body7, 
 define hidden void @uv__async_stop(ptr noundef %loop) local_unnamed_addr #0 {
 entry:
   %queue = alloca %struct.uv__queue, align 8
-  %async_io_watcher = getelementptr inbounds i8, ptr %loop, i64 456
-  %fd = getelementptr inbounds i8, ptr %loop, i64 504
+  %async_io_watcher = getelementptr inbounds nuw i8, ptr %loop, i64 456
+  %fd = getelementptr inbounds nuw i8, ptr %loop, i64 504
   %0 = load i32, ptr %fd, align 8
   %cmp = icmp eq i32 %0, -1
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %async_handles = getelementptr inbounds i8, ptr %loop, i64 432
+  %async_handles = getelementptr inbounds nuw i8, ptr %loop, i64 432
   %1 = load ptr, ptr %async_handles, align 8
   %cmp.i.not.i = icmp eq ptr %async_handles, %1
   br i1 %cmp.i.not.i, label %uv__queue_move.exit.thread, label %uv__queue_move.exit
 
 uv__queue_move.exit.thread:                       ; preds = %if.end
   store ptr %queue, ptr %queue, align 8
-  %prev.i.i = getelementptr inbounds i8, ptr %queue, i64 8
+  %prev.i.i = getelementptr inbounds nuw i8, ptr %queue, i64 8
   store ptr %queue, ptr %prev.i.i, align 8
   br label %while.end
 
 uv__queue_move.exit:                              ; preds = %if.end
-  %prev.i4.i = getelementptr inbounds i8, ptr %loop, i64 440
+  %prev.i4.i = getelementptr inbounds nuw i8, ptr %loop, i64 440
   %2 = load ptr, ptr %prev.i4.i, align 8
-  %prev1.i.i = getelementptr inbounds i8, ptr %queue, i64 8
+  %prev1.i.i = getelementptr inbounds nuw i8, ptr %queue, i64 8
   store ptr %2, ptr %prev1.i.i, align 8
   store ptr %queue, ptr %2, align 8
   store ptr %1, ptr %queue, align 8
-  %prev4.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %prev4.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3 = load ptr, ptr %prev4.i.i, align 8
   store ptr %3, ptr %prev.i4.i, align 8
   store ptr %async_handles, ptr %3, align 8
@@ -262,7 +262,7 @@ uv__queue_move.exit:                              ; preds = %if.end
   br i1 %cmp.i.not16, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %uv__queue_move.exit
-  %prev.i14 = getelementptr inbounds i8, ptr %loop, i64 440
+  %prev.i14 = getelementptr inbounds nuw i8, ptr %loop, i64 440
   br label %while.body
 
 while.cond.loopexit:                              ; preds = %for.body.i
@@ -273,18 +273,18 @@ while.cond.loopexit:                              ; preds = %for.body.i
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.loopexit
   %5 = phi ptr [ %.pre, %while.body.lr.ph ], [ %4, %while.cond.loopexit ]
   %6 = load ptr, ptr %5, align 8
-  %prev.i = getelementptr inbounds i8, ptr %5, i64 8
+  %prev.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %prev.i, align 8
   store ptr %6, ptr %7, align 8
   %8 = load ptr, ptr %prev.i, align 8
-  %prev4.i = getelementptr inbounds i8, ptr %6, i64 8
+  %prev4.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %prev4.i, align 8
   store ptr %async_handles, ptr %5, align 8
   %9 = load ptr, ptr %prev.i14, align 8
   store ptr %9, ptr %prev.i, align 8
   store ptr %5, ptr %9, align 8
   store ptr %5, ptr %prev.i14, align 8
-  %pending1.i = getelementptr inbounds i8, ptr %5, i64 16
+  %pending1.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   %u.i = getelementptr inbounds i8, ptr %5, i64 -56
   store atomic i32 1, ptr %pending1.i seq_cst, align 4
   br label %for.body.i
@@ -310,7 +310,7 @@ for.end.i:                                        ; preds = %if.end.i
   br label %for.body.i.backedge
 
 while.end:                                        ; preds = %while.cond.loopexit, %uv__queue_move.exit.thread, %uv__queue_move.exit
-  %async_wfd = getelementptr inbounds i8, ptr %loop, i64 512
+  %async_wfd = getelementptr inbounds nuw i8, ptr %loop, i64 512
   %11 = load i32, ptr %async_wfd, align 8
   %cmp3.not = icmp eq i32 %11, -1
   br i1 %cmp3.not, label %if.end14, label %if.then4
@@ -347,32 +347,32 @@ declare void @uv__io_stop(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 define hidden range(i32 -2147483647, -2147483648) i32 @uv__async_fork(ptr noundef %loop) local_unnamed_addr #0 {
 entry:
   %queue = alloca %struct.uv__queue, align 8
-  %async_io_watcher = getelementptr inbounds i8, ptr %loop, i64 456
-  %fd = getelementptr inbounds i8, ptr %loop, i64 504
+  %async_io_watcher = getelementptr inbounds nuw i8, ptr %loop, i64 456
+  %fd = getelementptr inbounds nuw i8, ptr %loop, i64 504
   %0 = load i32, ptr %fd, align 8
   %cmp = icmp eq i32 %0, -1
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %async_handles = getelementptr inbounds i8, ptr %loop, i64 432
+  %async_handles = getelementptr inbounds nuw i8, ptr %loop, i64 432
   %1 = load ptr, ptr %async_handles, align 8
   %cmp.i.not.i = icmp eq ptr %async_handles, %1
   br i1 %cmp.i.not.i, label %uv__queue_move.exit.thread, label %uv__queue_move.exit
 
 uv__queue_move.exit.thread:                       ; preds = %if.end
   store ptr %queue, ptr %queue, align 8
-  %prev.i.i = getelementptr inbounds i8, ptr %queue, i64 8
+  %prev.i.i = getelementptr inbounds nuw i8, ptr %queue, i64 8
   store ptr %queue, ptr %prev.i.i, align 8
   br label %while.end
 
 uv__queue_move.exit:                              ; preds = %if.end
-  %prev.i4.i = getelementptr inbounds i8, ptr %loop, i64 440
+  %prev.i4.i = getelementptr inbounds nuw i8, ptr %loop, i64 440
   %2 = load ptr, ptr %prev.i4.i, align 8
-  %prev1.i.i = getelementptr inbounds i8, ptr %queue, i64 8
+  %prev1.i.i = getelementptr inbounds nuw i8, ptr %queue, i64 8
   store ptr %2, ptr %prev1.i.i, align 8
   store ptr %queue, ptr %2, align 8
   store ptr %1, ptr %queue, align 8
-  %prev4.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %prev4.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3 = load ptr, ptr %prev4.i.i, align 8
   store ptr %3, ptr %prev.i4.i, align 8
   store ptr %async_handles, ptr %3, align 8
@@ -382,24 +382,24 @@ uv__queue_move.exit:                              ; preds = %if.end
   br i1 %cmp.i.not17, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %uv__queue_move.exit
-  %prev.i16 = getelementptr inbounds i8, ptr %loop, i64 440
+  %prev.i16 = getelementptr inbounds nuw i8, ptr %loop, i64 440
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
   %4 = phi ptr [ %.pre, %while.body.lr.ph ], [ %9, %while.body ]
   %5 = load ptr, ptr %4, align 8
-  %prev.i = getelementptr inbounds i8, ptr %4, i64 8
+  %prev.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %prev.i, align 8
   store ptr %5, ptr %6, align 8
   %7 = load ptr, ptr %prev.i, align 8
-  %prev4.i = getelementptr inbounds i8, ptr %5, i64 8
+  %prev4.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %prev4.i, align 8
   store ptr %async_handles, ptr %4, align 8
   %8 = load ptr, ptr %prev.i16, align 8
   store ptr %8, ptr %prev.i, align 8
   store ptr %4, ptr %8, align 8
   store ptr %4, ptr %prev.i16, align 8
-  %pending = getelementptr inbounds i8, ptr %4, i64 16
+  %pending = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %pending, align 8
   %u = getelementptr inbounds i8, ptr %4, i64 -56
   store i32 0, ptr %u, align 8
@@ -408,7 +408,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp.i.not, label %while.end, label %while.body
 
 while.end:                                        ; preds = %while.body, %uv__queue_move.exit.thread, %uv__queue_move.exit
-  %async_wfd = getelementptr inbounds i8, ptr %loop, i64 512
+  %async_wfd = getelementptr inbounds nuw i8, ptr %loop, i64 512
   %10 = load i32, ptr %async_wfd, align 8
   %cmp3.not = icmp eq i32 %10, -1
   br i1 %cmp3.not, label %if.end.i, label %if.then4
@@ -474,7 +474,7 @@ define internal void @uv__async_io(ptr noundef %loop, ptr nocapture noundef read
 entry:
   %buf = alloca [1024 x i8], align 16
   %queue = alloca %struct.uv__queue, align 8
-  %fd = getelementptr inbounds i8, ptr %w, i64 48
+  %fd = getelementptr inbounds nuw i8, ptr %w, i64 48
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %entry
@@ -501,19 +501,19 @@ if.end13:                                         ; preds = %if.end3
   unreachable
 
 for.end:                                          ; preds = %if.end3, %for.cond
-  %async_handles = getelementptr inbounds i8, ptr %loop, i64 432
+  %async_handles = getelementptr inbounds nuw i8, ptr %loop, i64 432
   %2 = load ptr, ptr %async_handles, align 8
   %cmp.i.not.i = icmp eq ptr %async_handles, %2
   br i1 %cmp.i.not.i, label %while.end, label %uv__queue_move.exit
 
 uv__queue_move.exit:                              ; preds = %for.end
-  %prev.i4.i = getelementptr inbounds i8, ptr %loop, i64 440
+  %prev.i4.i = getelementptr inbounds nuw i8, ptr %loop, i64 440
   %3 = load ptr, ptr %prev.i4.i, align 8
-  %prev1.i.i = getelementptr inbounds i8, ptr %queue, i64 8
+  %prev1.i.i = getelementptr inbounds nuw i8, ptr %queue, i64 8
   store ptr %3, ptr %prev1.i.i, align 8
   store ptr %queue, ptr %3, align 8
   store ptr %2, ptr %queue, align 8
-  %prev4.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %prev4.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %prev4.i.i, align 8
   store ptr %4, ptr %prev.i4.i, align 8
   store ptr %async_handles, ptr %4, align 8
@@ -523,25 +523,25 @@ uv__queue_move.exit:                              ; preds = %for.end
   br i1 %cmp.i.not10, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %uv__queue_move.exit
-  %prev.i9 = getelementptr inbounds i8, ptr %loop, i64 440
+  %prev.i9 = getelementptr inbounds nuw i8, ptr %loop, i64 440
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
   %5 = phi ptr [ %.pre, %while.body.lr.ph ], [ %12, %while.cond.backedge ]
   %add.ptr = getelementptr inbounds i8, ptr %5, i64 -104
   %6 = load ptr, ptr %5, align 8
-  %prev.i = getelementptr inbounds i8, ptr %5, i64 8
+  %prev.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %prev.i, align 8
   store ptr %6, ptr %7, align 8
   %8 = load ptr, ptr %prev.i, align 8
-  %prev4.i = getelementptr inbounds i8, ptr %6, i64 8
+  %prev4.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %prev4.i, align 8
   store ptr %async_handles, ptr %5, align 8
   %9 = load ptr, ptr %prev.i9, align 8
   store ptr %9, ptr %prev.i, align 8
   store ptr %5, ptr %9, align 8
   store ptr %5, ptr %prev.i9, align 8
-  %pending17 = getelementptr inbounds i8, ptr %5, i64 16
+  %pending17 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %10 = atomicrmw xchg ptr %pending17, i32 0 seq_cst, align 4
   %cmp18 = icmp eq i32 %10, 0
   br i1 %cmp18, label %while.cond.backedge, label %if.end20

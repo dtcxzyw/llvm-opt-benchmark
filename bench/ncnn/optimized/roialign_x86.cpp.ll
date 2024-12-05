@@ -48,7 +48,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn12ROIAlign_x867forwardERK
   %13 = load i64, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %17 = load ptr, ptr %2, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %19 = load i32, ptr %18, align 8
@@ -79,13 +79,13 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn12ROIAlign_x867forwardERK
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %38 = load float, ptr %37, align 8
   %39 = fmul fast float %38, %36
-  %40 = getelementptr inbounds i8, ptr %35, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %41 = load float, ptr %40, align 4
   %42 = fmul fast float %41, %38
-  %43 = getelementptr inbounds i8, ptr %35, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %44 = load float, ptr %43, align 4
   %45 = fmul fast float %44, %38
-  %46 = getelementptr inbounds i8, ptr %35, i64 12
+  %46 = getelementptr inbounds nuw i8, ptr %35, i64 12
   %47 = load float, ptr %46, align 4
   %48 = fmul fast float %47, %38
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -177,14 +177,14 @@ _ZNSt12_Vector_baseIN4ncnn7PreCalcIfEESaIS2_EEC2EmRKS3_.exit.thread.i: ; preds =
   %94 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %93, ptr %94, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %92, i8 0, i64 32, i1 false)
-  %95 = getelementptr inbounds i8, ptr %92, i64 32
+  %95 = getelementptr inbounds nuw i8, ptr %92, i64 32
   %96 = icmp eq i64 %89, 1
   br i1 %96, label %.loopexit, label %.lr.ph.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %.noexc380, %.lr.ph.i.i.i.i.i.i.i.i.i
   %.06.i.i.i.i.i.i.i.i.i = phi ptr [ %97, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %95, %.noexc380 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.06.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(32) %92, i64 32, i1 false)
-  %97 = getelementptr inbounds i8, ptr %.06.i.i.i.i.i.i.i.i.i, i64 32
+  %97 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %97, %93
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !4
 
@@ -388,7 +388,7 @@ _ZNSt12_Vector_baseIN4ncnn7PreCalcIfEESaIS2_EEC2EmRKS3_.exit.thread.i: ; preds =
   %212 = sitofp i32 %166 to float
   %213 = fdiv fast float %.0265.lcssa, %212
   %214 = select fast i1 %165, float 0.000000e+00, float %213
-  %215 = getelementptr inbounds float, ptr %.0277527, i64 %indvars.iv570
+  %215 = getelementptr inbounds nuw float, ptr %.0277527, i64 %indvars.iv570
   store float %214, ptr %215, align 4
   %216 = load i32, ptr %18, align 8
   %217 = sext i32 %216 to i64
@@ -474,14 +474,14 @@ _ZNSt12_Vector_baseIN4ncnn7PreCalcIfEESaIS2_EEC2EmRKS3_.exit.thread.i396: ; pred
   %252 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %251, ptr %252, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %250, i8 0, i64 32, i1 false)
-  %253 = getelementptr inbounds i8, ptr %250, i64 32
+  %253 = getelementptr inbounds nuw i8, ptr %250, i64 32
   %254 = icmp eq i64 %247, 1
   br i1 %254, label %.loopexit475, label %.lr.ph.i.i.i.i.i.i.i.i.i392
 
 .lr.ph.i.i.i.i.i.i.i.i.i392:                      ; preds = %.noexc398, %.lr.ph.i.i.i.i.i.i.i.i.i392
   %.06.i.i.i.i.i.i.i.i.i393 = phi ptr [ %255, %.lr.ph.i.i.i.i.i.i.i.i.i392 ], [ %253, %.noexc398 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.06.i.i.i.i.i.i.i.i.i393, ptr noundef nonnull align 4 dereferenceable(32) %250, i64 32, i1 false)
-  %255 = getelementptr inbounds i8, ptr %.06.i.i.i.i.i.i.i.i.i393, i64 32
+  %255 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i.i.i393, i64 32
   %.not.i.i.i.i.i.i.i.i.i394 = icmp eq ptr %255, %251
   br i1 %.not.i.i.i.i.i.i.i.i.i394, label %.loopexit475, label %.lr.ph.i.i.i.i.i.i.i.i.i392, !llvm.loop !4
 
@@ -618,7 +618,7 @@ _ZNSt12_Vector_baseIN4ncnn7PreCalcIfEESaIS2_EEC2EmRKS3_.exit.thread.i396: ; pred
 ._crit_edge484.split.us.us.us:                    ; preds = %._crit_edge.us.us.us
   %325 = add i32 %239, %.1258488.us.us
   %326 = fmul fast float %321, %264
-  %327 = getelementptr inbounds float, ptr %.0259499, i64 %indvars.iv558
+  %327 = getelementptr inbounds nuw float, ptr %.0259499, i64 %indvars.iv558
   store float %326, ptr %327, align 4
   %indvars.iv.next559 = add nuw nsw i64 %indvars.iv558, 1
   %328 = load i32, ptr %18, align 8
@@ -628,7 +628,7 @@ _ZNSt12_Vector_baseIN4ncnn7PreCalcIfEESaIS2_EEC2EmRKS3_.exit.thread.i396: ; pred
 
 .preheader473.us:                                 ; preds = %.preheader473.lr.ph.split.us, %.preheader473.us
   %indvars.iv551 = phi i64 [ %indvars.iv.next552, %.preheader473.us ], [ 0, %.preheader473.lr.ph.split.us ]
-  %331 = getelementptr inbounds float, ptr %.0259499, i64 %indvars.iv551
+  %331 = getelementptr inbounds nuw float, ptr %.0259499, i64 %indvars.iv551
   store float 0.000000e+00, ptr %331, align 4
   %indvars.iv.next552 = add nuw nsw i64 %indvars.iv551, 1
   %332 = load i32, ptr %18, align 8
@@ -638,7 +638,7 @@ _ZNSt12_Vector_baseIN4ncnn7PreCalcIfEESaIS2_EEC2EmRKS3_.exit.thread.i396: ; pred
 
 .preheader473:                                    ; preds = %.preheader473.lr.ph, %.preheader473
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader473 ], [ 0, %.preheader473.lr.ph ]
-  %335 = getelementptr inbounds float, ptr %.0259499, i64 %indvars.iv
+  %335 = getelementptr inbounds nuw float, ptr %.0259499, i64 %indvars.iv
   store float 0.000000e+00, ptr %335, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %336 = load i32, ptr %18, align 8
@@ -823,19 +823,19 @@ define linkonce_odr hidden void @_ZN4ncnn42original_pre_calc_for_bilinear_interp
   %91 = load ptr, ptr %9, align 8
   %92 = getelementptr inbounds %"struct.ncnn::PreCalc", ptr %91, i64 %indvars.iv
   store i32 %83, ptr %92, align 4
-  %.sroa.2.0..sroa_idx.us.us = getelementptr inbounds i8, ptr %92, i64 4
+  %.sroa.2.0..sroa_idx.us.us = getelementptr inbounds nuw i8, ptr %92, i64 4
   store i32 %84, ptr %.sroa.2.0..sroa_idx.us.us, align 4
-  %.sroa.3.0..sroa_idx.us.us = getelementptr inbounds i8, ptr %92, i64 8
+  %.sroa.3.0..sroa_idx.us.us = getelementptr inbounds nuw i8, ptr %92, i64 8
   store i32 %85, ptr %.sroa.3.0..sroa_idx.us.us, align 4
-  %.sroa.4.0..sroa_idx.us.us = getelementptr inbounds i8, ptr %92, i64 12
+  %.sroa.4.0..sroa_idx.us.us = getelementptr inbounds nuw i8, ptr %92, i64 12
   store i32 %86, ptr %.sroa.4.0..sroa_idx.us.us, align 4
-  %.sroa.5.0..sroa_idx.us.us = getelementptr inbounds i8, ptr %92, i64 16
+  %.sroa.5.0..sroa_idx.us.us = getelementptr inbounds nuw i8, ptr %92, i64 16
   store float %87, ptr %.sroa.5.0..sroa_idx.us.us, align 4
-  %.sroa.6.0..sroa_idx.us.us = getelementptr inbounds i8, ptr %92, i64 20
+  %.sroa.6.0..sroa_idx.us.us = getelementptr inbounds nuw i8, ptr %92, i64 20
   store float %88, ptr %.sroa.6.0..sroa_idx.us.us, align 4
-  %.sroa.7.0..sroa_idx.us.us = getelementptr inbounds i8, ptr %92, i64 24
+  %.sroa.7.0..sroa_idx.us.us = getelementptr inbounds nuw i8, ptr %92, i64 24
   store float %89, ptr %.sroa.7.0..sroa_idx.us.us, align 4
-  %.sroa.8.0..sroa_idx.us.us = getelementptr inbounds i8, ptr %92, i64 28
+  %.sroa.8.0..sroa_idx.us.us = getelementptr inbounds nuw i8, ptr %92, i64 28
   store float %90, ptr %.sroa.8.0..sroa_idx.us.us, align 4
   %93 = add nuw nsw i32 %.080139.us.us, 1
   %exitcond.not = icmp eq i32 %93, %50
@@ -960,19 +960,19 @@ define linkonce_odr hidden void @_ZN4ncnn44detectron2_pre_calc_for_bilinear_inte
   %70 = load ptr, ptr %12, align 8
   %71 = getelementptr inbounds %"struct.ncnn::PreCalc", ptr %70, i64 %indvars.iv
   store i32 %66, ptr %71, align 4
-  %.sroa.2.0..sroa_idx.us.us.us.us.us.us = getelementptr inbounds i8, ptr %71, i64 4
+  %.sroa.2.0..sroa_idx.us.us.us.us.us.us = getelementptr inbounds nuw i8, ptr %71, i64 4
   store i32 %67, ptr %.sroa.2.0..sroa_idx.us.us.us.us.us.us, align 4
-  %.sroa.3.0..sroa_idx.us.us.us.us.us.us = getelementptr inbounds i8, ptr %71, i64 8
+  %.sroa.3.0..sroa_idx.us.us.us.us.us.us = getelementptr inbounds nuw i8, ptr %71, i64 8
   store i32 %68, ptr %.sroa.3.0..sroa_idx.us.us.us.us.us.us, align 4
-  %.sroa.4.0..sroa_idx.us.us.us.us.us.us = getelementptr inbounds i8, ptr %71, i64 12
+  %.sroa.4.0..sroa_idx.us.us.us.us.us.us = getelementptr inbounds nuw i8, ptr %71, i64 12
   store i32 %69, ptr %.sroa.4.0..sroa_idx.us.us.us.us.us.us, align 4
-  %.sroa.5.0..sroa_idx.us.us.us.us.us.us = getelementptr inbounds i8, ptr %71, i64 16
+  %.sroa.5.0..sroa_idx.us.us.us.us.us.us = getelementptr inbounds nuw i8, ptr %71, i64 16
   store float %62, ptr %.sroa.5.0..sroa_idx.us.us.us.us.us.us, align 4
-  %.sroa.6.0..sroa_idx.us.us.us.us.us.us = getelementptr inbounds i8, ptr %71, i64 20
+  %.sroa.6.0..sroa_idx.us.us.us.us.us.us = getelementptr inbounds nuw i8, ptr %71, i64 20
   store float %63, ptr %.sroa.6.0..sroa_idx.us.us.us.us.us.us, align 4
-  %.sroa.7.0..sroa_idx.us.us.us.us.us.us = getelementptr inbounds i8, ptr %71, i64 24
+  %.sroa.7.0..sroa_idx.us.us.us.us.us.us = getelementptr inbounds nuw i8, ptr %71, i64 24
   store float %64, ptr %.sroa.7.0..sroa_idx.us.us.us.us.us.us, align 4
-  %.sroa.8.0..sroa_idx.us.us.us.us.us.us = getelementptr inbounds i8, ptr %71, i64 28
+  %.sroa.8.0..sroa_idx.us.us.us.us.us.us = getelementptr inbounds nuw i8, ptr %71, i64 28
   store float %65, ptr %.sroa.8.0..sroa_idx.us.us.us.us.us.us, align 4
   br label %75
 

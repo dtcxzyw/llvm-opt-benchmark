@@ -18,7 +18,7 @@ define noundef ptr @strpbrk(ptr noundef readonly %0, ptr noundef readonly %1) lo
   br i1 %.not8, label %7, label %._crit_edge
 
 7:                                                ; preds = %.lr.ph
-  %8 = getelementptr inbounds i8, ptr %.0610, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %.0610, i64 1
   %9 = load i8, ptr %8, align 1
   %.not = icmp eq i8 %9, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6

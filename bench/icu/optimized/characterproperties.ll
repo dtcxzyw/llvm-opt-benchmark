@@ -49,8 +49,8 @@ if.end:                                           ; preds = %entry
 if.then2:                                         ; preds = %if.end
   %add = add nsw i32 %prop, -4078
   %idxprom = zext nneg i32 %add to i64
-  %arrayidx = getelementptr inbounds [43 x %"struct.(anonymous namespace)::Inclusion"], ptr @_ZN12_GLOBAL__N_111gInclusionsE, i64 0, i64 %idxprom
-  %fInitOnce = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %arrayidx = getelementptr inbounds nuw [43 x %"struct.(anonymous namespace)::Inclusion"], ptr @_ZN12_GLOBAL__N_111gInclusionsE, i64 0, i64 %idxprom
+  %fInitOnce = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %2 = load atomic i32, ptr %fInitOnce acquire, align 8
   %cmp.not.i = icmp eq i32 %2, 2
   br i1 %cmp.not.i, label %if.else.i, label %land.lhs.true.i
@@ -157,7 +157,7 @@ for.inc28.i:                                      ; preds = %for.inc.i, %for.con
   br i1 %exitcond32.not.i, label %for.end30.i, label %for.body.i, !llvm.loop !6
 
 for.end30.i:                                      ; preds = %for.inc28.i, %for.cond.preheader.i
-  %fFlags.i.i = getelementptr inbounds i8, ptr %call3.i, i64 32
+  %fFlags.i.i = getelementptr inbounds nuw i8, ptr %call3.i, i64 32
   %5 = load i8, ptr %fFlags.i.i, align 8
   %6 = and i8 %5, 1
   %tobool35.not.i = icmp eq i8 %6, 0
@@ -186,13 +186,13 @@ eh.resume.i:                                      ; preds = %lpad4.i, %lpad.i
 _ZN12_GLOBAL__N_120initIntPropInclusionE9UPropertyR10UErrorCode.exit: ; preds = %if.then4.i, %cleanup.thread.i, %invoke.cont40.i, %delete.notnull.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %intPropIncl.i)
   %7 = load i32, ptr %errorCode, align 4
-  %fErrCode.i = getelementptr inbounds i8, ptr %arrayidx, i64 12
+  %fErrCode.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 12
   store i32 %7, ptr %fErrCode.i, align 4
   tail call void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) %fInitOnce)
   br label %_ZN6icu_7513umtx_initOnceI9UPropertyEEvRNS_9UInitOnceEPFvT_R10UErrorCodeES4_S6_.exit
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.then2
-  %fErrCode5.i = getelementptr inbounds i8, ptr %arrayidx, i64 12
+  %fErrCode5.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 12
   %8 = load i32, ptr %fErrCode5.i, align 4
   %cmp.i9.i = icmp slt i32 %8, 1
   br i1 %cmp.i9.i, label %_ZN6icu_7513umtx_initOnceI9UPropertyEEvRNS_9UInitOnceEPFvT_R10UErrorCodeES4_S6_.exit, label %if.then8.i
@@ -236,8 +236,8 @@ if.then2:                                         ; preds = %if.end
 
 if.end3:                                          ; preds = %if.end
   %idxprom = zext nneg i32 %src to i64
-  %arrayidx = getelementptr inbounds [43 x %"struct.(anonymous namespace)::Inclusion"], ptr @_ZN12_GLOBAL__N_111gInclusionsE, i64 0, i64 %idxprom
-  %fInitOnce = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %arrayidx = getelementptr inbounds nuw [43 x %"struct.(anonymous namespace)::Inclusion"], ptr @_ZN12_GLOBAL__N_111gInclusionsE, i64 0, i64 %idxprom
+  %fInitOnce = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %1 = load atomic i32, ptr %fInitOnce acquire, align 8
   %cmp.not.i = icmp eq i32 %1, 2
   br i1 %cmp.not.i, label %if.else.i, label %land.lhs.true.i
@@ -279,13 +279,13 @@ lpad.i:                                           ; preds = %new.notnull.i
 if.end3.i:                                        ; preds = %new.notnull.i
   store ptr %call.i, ptr %incl.i, align 8
   store ptr %call.i, ptr %sa.i, align 8
-  %add.i = getelementptr inbounds i8, ptr %sa.i, i64 8
+  %add.i = getelementptr inbounds nuw i8, ptr %sa.i, i64 8
   store ptr @_ZN12_GLOBAL__N_18_set_addEP4USeti, ptr %add.i, align 8
-  %addRange.i = getelementptr inbounds i8, ptr %sa.i, i64 16
+  %addRange.i = getelementptr inbounds nuw i8, ptr %sa.i, i64 16
   store ptr @_ZN12_GLOBAL__N_113_set_addRangeEP4USetii, ptr %addRange.i, align 8
-  %addString.i = getelementptr inbounds i8, ptr %sa.i, i64 24
+  %addString.i = getelementptr inbounds nuw i8, ptr %sa.i, i64 24
   store ptr @_ZN12_GLOBAL__N_114_set_addStringEP4USetPKDsi, ptr %addString.i, align 8
-  %remove.i = getelementptr inbounds i8, ptr %sa.i, i64 32
+  %remove.i = getelementptr inbounds nuw i8, ptr %sa.i, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %remove.i, i8 0, i64 16, i1 false)
   switch i32 %src, label %delete.notnull.i.sink.split.i [
     i32 1, label %sw.bb.i
@@ -423,7 +423,7 @@ sw.epilog.i:                                      ; preds = %sw.bb85.invoke.i, %
   br i1 %cmp.i49.i, label %if.end90.i, label %delete.notnull.i.i
 
 if.end90.i:                                       ; preds = %sw.epilog.i
-  %fFlags.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %fFlags.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   %13 = load i8, ptr %fFlags.i.i, align 8
   %14 = and i8 %13, 1
   %tobool93.not.i = icmp eq i8 %14, 0
@@ -457,13 +457,13 @@ _ZN12_GLOBAL__N_113initInclusionE15UPropertySourceR10UErrorCode.exit: ; preds = 
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %incl.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %sa.i)
   %15 = load i32, ptr %errorCode, align 4
-  %fErrCode.i = getelementptr inbounds i8, ptr %arrayidx, i64 12
+  %fErrCode.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 12
   store i32 %15, ptr %fErrCode.i, align 4
   call void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) %fInitOnce)
   br label %_ZN6icu_7513umtx_initOnceI15UPropertySourceEEvRNS_9UInitOnceEPFvT_R10UErrorCodeES4_S6_.exit
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.end3
-  %fErrCode5.i = getelementptr inbounds i8, ptr %arrayidx, i64 12
+  %fErrCode5.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 12
   %16 = load i32, ptr %fErrCode5.i, align 4
   %cmp.i9.i = icmp slt i32 %16, 1
   br i1 %cmp.i9.i, label %_ZN6icu_7513umtx_initOnceI15UPropertySourceEEvRNS_9UInitOnceEPFvT_R10UErrorCodeES4_S6_.exit, label %if.then8.i
@@ -501,7 +501,7 @@ if.then2:                                         ; preds = %if.end
 if.end3:                                          ; preds = %if.end
   tail call void @umtx_lock_75(ptr noundef nonnull @_ZN12_GLOBAL__N_17cpMutexE)
   %idxprom = zext nneg i32 %property to i64
-  %arrayidx = getelementptr inbounds [75 x ptr], ptr @_ZN12_GLOBAL__N_14setsE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [75 x ptr], ptr @_ZN12_GLOBAL__N_14setsE, i64 0, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8
   %cmp4 = icmp eq ptr %1, null
   br i1 %cmp4, label %if.then5, label %if.end9
@@ -569,13 +569,13 @@ lpad8.i:                                          ; preds = %lpad8.loopexit.spli
 
 if.end14.i:                                       ; preds = %invoke.cont9.i
   store ptr %call1.i, ptr %sa.i, align 8
-  %add.i = getelementptr inbounds i8, ptr %sa.i, i64 8
+  %add.i = getelementptr inbounds nuw i8, ptr %sa.i, i64 8
   store ptr @_ZN12_GLOBAL__N_18_set_addEP4USeti, ptr %add.i, align 8
-  %addRange.i = getelementptr inbounds i8, ptr %sa.i, i64 16
+  %addRange.i = getelementptr inbounds nuw i8, ptr %sa.i, i64 16
   store ptr @_ZN12_GLOBAL__N_113_set_addRangeEP4USetii, ptr %addRange.i, align 8
-  %addString.i = getelementptr inbounds i8, ptr %sa.i, i64 24
+  %addString.i = getelementptr inbounds nuw i8, ptr %sa.i, i64 24
   store ptr @_ZN12_GLOBAL__N_114_set_addStringEP4USetPKDsi, ptr %addString.i, align 8
-  %remove.i = getelementptr inbounds i8, ptr %sa.i, i64 32
+  %remove.i = getelementptr inbounds nuw i8, ptr %sa.i, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %remove.i, i8 0, i64 16, i1 false)
   invoke void @_ZNK6icu_7510EmojiProps10addStringsEPK9USetAdder9UPropertyR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %call10.i, ptr noundef nonnull %sa.i, i32 noundef range(i32 0, 75) %property, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont17.i unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.i
@@ -742,7 +742,7 @@ if.end3:                                          ; preds = %if.end
   tail call void @umtx_lock_75(ptr noundef nonnull @_ZN12_GLOBAL__N_17cpMutexE)
   %sub = add nsw i32 %property, -4096
   %idxprom = zext nneg i32 %sub to i64
-  %arrayidx = getelementptr inbounds [25 x ptr], ptr @_ZN12_GLOBAL__N_14mapsE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [25 x ptr], ptr @_ZN12_GLOBAL__N_14mapsE, i64 0, i64 %idxprom
   %2 = load ptr, ptr %arrayidx, align 8
   %cmp4 = icmp eq ptr %2, null
   br i1 %cmp4, label %if.then5, label %if.end10
@@ -960,7 +960,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %delete.end
   %__begin1.0.idx12 = phi i64 [ 0, %entry ], [ %__begin1.0.add, %delete.end ]
-  %__begin1.0.ptr13 = getelementptr inbounds i8, ptr @_ZN12_GLOBAL__N_111gInclusionsE, i64 %__begin1.0.idx12
+  %__begin1.0.ptr13 = getelementptr inbounds nuw i8, ptr @_ZN12_GLOBAL__N_111gInclusionsE, i64 %__begin1.0.idx12
   %0 = load ptr, ptr %__begin1.0.ptr13, align 16
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -972,7 +972,7 @@ delete.notnull:                                   ; preds = %for.body
 
 delete.end:                                       ; preds = %delete.notnull, %for.body
   store ptr null, ptr %__begin1.0.ptr13, align 16
-  %fInitOnce = getelementptr inbounds i8, ptr %__begin1.0.ptr13, i64 8
+  %fInitOnce = getelementptr inbounds nuw i8, ptr %__begin1.0.ptr13, i64 8
   store atomic i32 0, ptr %fInitOnce seq_cst, align 8
   %__begin1.0.add = add nuw nsw i64 %__begin1.0.idx12, 16
   %cmp.not = icmp eq i64 %__begin1.0.add, 688
@@ -980,7 +980,7 @@ delete.end:                                       ; preds = %delete.notnull, %fo
 
 for.body4:                                        ; preds = %delete.end, %delete.end7
   %indvars.iv = phi i64 [ %indvars.iv.next, %delete.end7 ], [ 0, %delete.end ]
-  %arrayidx = getelementptr inbounds [75 x ptr], ptr @_ZN12_GLOBAL__N_14setsE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [75 x ptr], ptr @_ZN12_GLOBAL__N_14setsE, i64 0, i64 %indvars.iv
   %1 = load ptr, ptr %arrayidx, align 8
   %isnull5 = icmp eq ptr %1, null
   br i1 %isnull5, label %delete.end7, label %delete.notnull6
@@ -998,7 +998,7 @@ delete.end7:                                      ; preds = %delete.notnull6, %f
 
 for.body15:                                       ; preds = %delete.end7, %for.body15
   %indvars.iv17 = phi i64 [ %indvars.iv.next18, %for.body15 ], [ 0, %delete.end7 ]
-  %arrayidx17 = getelementptr inbounds [25 x ptr], ptr @_ZN12_GLOBAL__N_14mapsE, i64 0, i64 %indvars.iv17
+  %arrayidx17 = getelementptr inbounds nuw [25 x ptr], ptr @_ZN12_GLOBAL__N_14mapsE, i64 0, i64 %indvars.iv17
   %2 = load ptr, ptr %arrayidx17, align 8
   tail call void @ucptrie_close_75(ptr noundef %2)
   store ptr null, ptr %arrayidx17, align 8

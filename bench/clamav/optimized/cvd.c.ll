@@ -172,7 +172,7 @@ define noalias noundef ptr @cl_cvdparse(ptr noundef %0) local_unnamed_addr #0 {
 
 13:                                               ; preds = %10
   %14 = tail call i32 @atoi(ptr nocapture noundef nonnull %11) #18
-  %15 = getelementptr inbounds i8, ptr %5, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %14, ptr %15, align 8
   tail call void @free(ptr noundef nonnull %11) #19
   %16 = tail call ptr @cli_strtok(ptr noundef %0, i32 noundef 3, ptr noundef nonnull @.str.3) #19
@@ -187,7 +187,7 @@ define noalias noundef ptr @cl_cvdparse(ptr noundef %0) local_unnamed_addr #0 {
 
 18:                                               ; preds = %13
   %19 = tail call i32 @atoi(ptr nocapture noundef nonnull %16) #18
-  %20 = getelementptr inbounds i8, ptr %5, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %19, ptr %20, align 4
   tail call void @free(ptr noundef nonnull %16) #19
   %21 = tail call ptr @cli_strtok(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.3) #19
@@ -202,11 +202,11 @@ define noalias noundef ptr @cl_cvdparse(ptr noundef %0) local_unnamed_addr #0 {
 
 23:                                               ; preds = %18
   %24 = tail call i32 @atoi(ptr nocapture noundef nonnull %21) #18
-  %25 = getelementptr inbounds i8, ptr %5, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %24, ptr %25, align 8
   tail call void @free(ptr noundef nonnull %21) #19
   %26 = tail call ptr @cli_strtok(ptr noundef %0, i32 noundef 5, ptr noundef nonnull @.str.3) #19
-  %27 = getelementptr inbounds i8, ptr %5, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %26, ptr %27, align 8
   %.not54 = icmp eq ptr %26, null
   br i1 %.not54, label %28, label %29
@@ -219,7 +219,7 @@ define noalias noundef ptr @cl_cvdparse(ptr noundef %0) local_unnamed_addr #0 {
 
 29:                                               ; preds = %23
   %30 = tail call ptr @cli_strtok(ptr noundef %0, i32 noundef 6, ptr noundef nonnull @.str.3) #19
-  %31 = getelementptr inbounds i8, ptr %5, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %30, ptr %31, align 8
   %.not55 = icmp eq ptr %30, null
   br i1 %.not55, label %32, label %33
@@ -233,7 +233,7 @@ define noalias noundef ptr @cl_cvdparse(ptr noundef %0) local_unnamed_addr #0 {
 
 33:                                               ; preds = %29
   %34 = tail call ptr @cli_strtok(ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.3) #19
-  %35 = getelementptr inbounds i8, ptr %5, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %34, ptr %35, align 8
   %.not56 = icmp eq ptr %34, null
   br i1 %.not56, label %36, label %37
@@ -249,7 +249,7 @@ define noalias noundef ptr @cl_cvdparse(ptr noundef %0) local_unnamed_addr #0 {
 37:                                               ; preds = %33
   %38 = tail call ptr @cli_strtok(ptr noundef %0, i32 noundef 8, ptr noundef nonnull @.str.3) #19
   %.not57 = icmp eq ptr %38, null
-  %39 = getelementptr inbounds i8, ptr %5, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 48
   br i1 %.not57, label %42, label %40
 
 40:                                               ; preds = %37
@@ -311,7 +311,7 @@ define noalias noundef ptr @cl_cvdhead(ptr noundef %0) local_unnamed_addr #0 {
 11:                                               ; preds = %6
   %12 = tail call i32 @fclose(ptr noundef nonnull %3)
   %13 = and i64 %7, 4294967295
-  %14 = getelementptr inbounds [513 x i8], ptr %2, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [513 x i8], ptr %2, i64 0, i64 %13
   store i8 0, ptr %14, align 1
   %15 = call ptr @strpbrk(ptr noundef nonnull %2, ptr noundef nonnull @.str.15) #18
   %.not22 = icmp eq ptr %15, null
@@ -332,7 +332,7 @@ define noalias noundef ptr @cl_cvdhead(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.critedge2
   %indvars.iv = phi i64 [ %19, %.lr.ph.preheader ], [ %indvars.iv.next, %.critedge2 ]
-  %20 = getelementptr inbounds [513 x i8], ptr %2, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [513 x i8], ptr %2, i64 0, i64 %indvars.iv
   %21 = load i8, ptr %20, align 1
   switch i8 %21, label %.critedge [
     i8 32, label %.critedge2
@@ -371,13 +371,13 @@ declare ptr @strpbrk(ptr noundef, ptr nocapture noundef) local_unnamed_addr #1
 define void @cl_cvdfree(ptr nocapture noundef %0) local_unnamed_addr #7 {
   %2 = load ptr, ptr %0, align 8
   tail call void @free(ptr noundef %2) #19
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   tail call void @free(ptr noundef %4) #19
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   tail call void @free(ptr noundef %6) #19
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
   tail call void @free(ptr noundef %8) #19
   tail call void @free(ptr noundef %0) #19
@@ -405,7 +405,7 @@ define range(i32 0, 27) i32 @cl_cvdverify(ptr noundef %0) local_unnamed_addr #0 
   br label %18
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %6, i64 1112
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1112
   store ptr null, ptr %10, align 8
   %11 = tail call i32 @cli_strbcasestr(ptr noundef %0, ptr noundef nonnull @.str.18) #19
   %.not16 = icmp eq i32 %11, 0
@@ -439,7 +439,7 @@ define range(i32 0, 27) i32 @cli_cvdload(ptr noundef %0, ptr noundef %1, ptr nou
   %9 = alloca %struct.cl_cvd, align 8
   %10 = alloca i64, align 8
   %11 = alloca %struct.cli_dbio, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 64
   store ptr null, ptr %12, align 8
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.20) #19
   %13 = call fastcc i32 @cli_cvdverify(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %4)
@@ -485,9 +485,9 @@ define range(i32 0, 27) i32 @cli_cvdload(ptr noundef %0, ptr noundef %1, ptr nou
   br label %.loopexit
 
 34:                                               ; preds = %27
-  %35 = getelementptr inbounds i8, ptr %9, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %36 = load i32, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %8, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %38 = load i32, ptr %37, align 8
   %39 = icmp ugt i32 %36, %38
   br i1 %39, label %40, label %41
@@ -518,7 +518,7 @@ define range(i32 0, 27) i32 @cli_cvdload(ptr noundef %0, ptr noundef %1, ptr nou
 
 47:                                               ; preds = %45
   %48 = call i64 @time(ptr noundef nonnull %10) #19
-  %49 = getelementptr inbounds i8, ptr %8, i64 48
+  %49 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %50 = load i32, ptr %49, align 8
   %51 = zext i32 %50 to i64
   %52 = load i64, ptr %10, align 8
@@ -547,17 +547,17 @@ define range(i32 0, 27) i32 @cli_cvdload(ptr noundef %0, ptr noundef %1, ptr nou
   br label %61
 
 61:                                               ; preds = %.sink.split, %58, %55
-  %62 = getelementptr inbounds i8, ptr %8, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %63 = load i32, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %1, i64 12
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 %63, ptr %64, align 4
   %65 = load i32, ptr %49, align 8
-  %66 = getelementptr inbounds i8, ptr %1, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 %65, ptr %66, align 4
   br label %67
 
 67:                                               ; preds = %61, %45
-  %68 = getelementptr inbounds i8, ptr %8, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %69 = load i32, ptr %68, align 8
   %70 = call i32 @cl_retflevel() #19
   %71 = icmp ugt i32 %69, %70
@@ -572,7 +572,7 @@ define range(i32 0, 27) i32 @cli_cvdload(ptr noundef %0, ptr noundef %1, ptr nou
 
 73:                                               ; preds = %72, %67
   %74 = call i32 @fileno(ptr noundef %0) #19
-  %75 = getelementptr inbounds i8, ptr %11, i64 60
+  %75 = getelementptr inbounds nuw i8, ptr %11, i64 60
   store i32 0, ptr %75, align 4
   %76 = icmp eq i32 %4, 2
   %. = select i1 %76, i32 65536, i32 64
@@ -582,44 +582,44 @@ define range(i32 0, 27) i32 @cli_cvdload(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not94, label %79, label %.loopexit
 
 79:                                               ; preds = %73
-  %80 = getelementptr inbounds i8, ptr %1, i64 240
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %81 = load ptr, ptr %80, align 8
   %.not95 = icmp eq ptr %81, null
   br i1 %.not95, label %104, label %82
 
 82:                                               ; preds = %79
-  %83 = getelementptr inbounds i8, ptr %81, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %81, i64 24
   %84 = load ptr, ptr %83, align 8
   %.not96 = icmp eq ptr %84, null
   br i1 %.not96, label %104, label %85
 
 85:                                               ; preds = %82
-  %86 = getelementptr inbounds i8, ptr %84, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %87 = load i32, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %8, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %89 = load i32, ptr %88, align 8
   %.not97 = icmp eq i32 %87, %89
   br i1 %.not97, label %90, label %104
 
 90:                                               ; preds = %85
-  %91 = getelementptr inbounds i8, ptr %84, i64 12
+  %91 = getelementptr inbounds nuw i8, ptr %84, i64 12
   %92 = load i32, ptr %91, align 4
-  %93 = getelementptr inbounds i8, ptr %8, i64 12
+  %93 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %94 = load i32, ptr %93, align 4
   %.not98 = icmp eq i32 %92, %94
   br i1 %.not98, label %95, label %104
 
 95:                                               ; preds = %90
-  %96 = getelementptr inbounds i8, ptr %84, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %97 = load i32, ptr %96, align 8
   %98 = load i32, ptr %68, align 8
   %.not99 = icmp eq i32 %97, %98
   br i1 %.not99, label %99, label %104
 
 99:                                               ; preds = %95
-  %100 = getelementptr inbounds i8, ptr %84, i64 48
+  %100 = getelementptr inbounds nuw i8, ptr %84, i64 48
   %101 = load i32, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %8, i64 48
+  %102 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %103 = load i32, ptr %102, align 8
   %.not100 = icmp eq i32 %101, %103
   br i1 %.not100, label %105, label %104
@@ -629,7 +629,7 @@ define range(i32 0, 27) i32 @cli_cvdload(ptr noundef %0, ptr noundef %1, ptr nou
   br label %.loopexit
 
 105:                                              ; preds = %99
-  %106 = getelementptr inbounds i8, ptr %81, i64 32
+  %106 = getelementptr inbounds nuw i8, ptr %81, i64 32
   %107 = load ptr, ptr %106, align 8
   %.not101 = icmp eq ptr %107, null
   br i1 %.not101, label %108, label %109
@@ -648,22 +648,22 @@ define range(i32 0, 27) i32 @cli_cvdload(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not102104, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %109
-  %112 = getelementptr inbounds i8, ptr %1, i64 256
+  %112 = getelementptr inbounds nuw i8, ptr %1, i64 256
   br label %113
 
 113:                                              ; preds = %.lr.ph, %132
   %114 = phi ptr [ %111, %.lr.ph ], [ %134, %132 ]
-  %115 = getelementptr inbounds i8, ptr %114, i64 32
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 32
   %116 = load ptr, ptr %115, align 8
   store ptr %116, ptr %80, align 8
   %117 = load ptr, ptr %112, align 8
   %118 = load ptr, ptr %114, align 8
   call void @mpool_free(ptr noundef %117, ptr noundef %118) #19
   %119 = load ptr, ptr %112, align 8
-  %120 = getelementptr inbounds i8, ptr %114, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %121 = load ptr, ptr %120, align 8
   call void @mpool_free(ptr noundef %119, ptr noundef %121) #19
-  %122 = getelementptr inbounds i8, ptr %114, i64 24
+  %122 = getelementptr inbounds nuw i8, ptr %114, i64 24
   %123 = load ptr, ptr %122, align 8
   %.not103 = icmp eq ptr %123, null
   br i1 %.not103, label %132, label %124
@@ -671,13 +671,13 @@ define range(i32 0, 27) i32 @cli_cvdload(ptr noundef %0, ptr noundef %1, ptr nou
 124:                                              ; preds = %113
   %125 = load ptr, ptr %123, align 8
   call void @free(ptr noundef %125) #19
-  %126 = getelementptr inbounds i8, ptr %123, i64 24
+  %126 = getelementptr inbounds nuw i8, ptr %123, i64 24
   %127 = load ptr, ptr %126, align 8
   call void @free(ptr noundef %127) #19
-  %128 = getelementptr inbounds i8, ptr %123, i64 32
+  %128 = getelementptr inbounds nuw i8, ptr %123, i64 32
   %129 = load ptr, ptr %128, align 8
   call void @free(ptr noundef %129) #19
-  %130 = getelementptr inbounds i8, ptr %123, i64 40
+  %130 = getelementptr inbounds nuw i8, ptr %123, i64 40
   %131 = load ptr, ptr %130, align 8
   call void @free(ptr noundef %131) #19
   call void @free(ptr noundef nonnull %123) #19
@@ -710,13 +710,13 @@ define internal fastcc range(i32 0, 21) i32 @cli_cvdverify(ptr noundef %0, ptr n
   br label %54
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %4, i64 512
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 512
   store i8 0, ptr %9, align 16
   br label %10
 
 10:                                               ; preds = %8, %.critedge2
   %indvars.iv = phi i64 [ 511, %8 ], [ %indvars.iv.next, %.critedge2 ]
-  %11 = getelementptr inbounds [513 x i8], ptr %4, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [513 x i8], ptr %4, i64 0, i64 %indvars.iv
   %12 = load i8, ptr %11, align 1
   switch i8 %12, label %.critedge [
     i8 32, label %.critedge2
@@ -749,13 +749,13 @@ define internal fastcc range(i32 0, 21) i32 @cli_cvdverify(ptr noundef %0, ptr n
 19:                                               ; preds = %18
   %20 = load ptr, ptr %14, align 8
   call void @free(ptr noundef %20) #19
-  %21 = getelementptr inbounds i8, ptr %14, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %22 = load ptr, ptr %21, align 8
   call void @free(ptr noundef %22) #19
-  %23 = getelementptr inbounds i8, ptr %14, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %24 = load ptr, ptr %23, align 8
   call void @free(ptr noundef %24) #19
-  %25 = getelementptr inbounds i8, ptr %14, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %26 = load ptr, ptr %25, align 8
   call void @free(ptr noundef %26) #19
   call void @free(ptr noundef nonnull %14) #19
@@ -770,13 +770,13 @@ define internal fastcc range(i32 0, 21) i32 @cli_cvdverify(ptr noundef %0, ptr n
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.84) #19
   %31 = load ptr, ptr %14, align 8
   call void @free(ptr noundef %31) #19
-  %32 = getelementptr inbounds i8, ptr %14, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %33 = load ptr, ptr %32, align 8
   call void @free(ptr noundef %33) #19
-  %34 = getelementptr inbounds i8, ptr %14, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %35 = load ptr, ptr %34, align 8
   call void @free(ptr noundef %35) #19
-  %36 = getelementptr inbounds i8, ptr %14, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %37 = load ptr, ptr %36, align 8
   call void @free(ptr noundef %37) #19
   call void @free(ptr noundef nonnull %14) #19
@@ -784,7 +784,7 @@ define internal fastcc range(i32 0, 21) i32 @cli_cvdverify(ptr noundef %0, ptr n
 
 38:                                               ; preds = %27
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.85, ptr noundef nonnull %28) #19
-  %39 = getelementptr inbounds i8, ptr %14, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %40 = load ptr, ptr %39, align 8
   %41 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(1) %40, i64 noundef 32) #18
   %.not35 = icmp eq i32 %41, 0
@@ -796,17 +796,17 @@ define internal fastcc range(i32 0, 21) i32 @cli_cvdverify(ptr noundef %0, ptr n
   %43 = load ptr, ptr %14, align 8
   call void @free(ptr noundef %43) #19
   call void @free(ptr noundef %40) #19
-  %44 = getelementptr inbounds i8, ptr %14, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %45 = load ptr, ptr %44, align 8
   call void @free(ptr noundef %45) #19
-  %46 = getelementptr inbounds i8, ptr %14, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %47 = load ptr, ptr %46, align 8
   call void @free(ptr noundef %47) #19
   call void @free(ptr noundef nonnull %14) #19
   br label %54
 
 48:                                               ; preds = %38
-  %49 = getelementptr inbounds i8, ptr %14, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %50 = load ptr, ptr %49, align 8
   %51 = call i32 @cli_versig(ptr noundef nonnull %28, ptr noundef %50) #19
   %.not36 = icmp eq i32 %51, 0
@@ -904,13 +904,13 @@ define internal fastcc range(i32 0, 27) i32 @cli_tgzload(i32 noundef %0, ptr nou
   br label %cli_tgzload_cleanup.exit
 
 33:                                               ; preds = %24
-  %34 = getelementptr inbounds i8, ptr %4, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %34, align 8
   br label %46
 
 35:                                               ; preds = %23
   %36 = call noalias ptr @fdopen(i32 noundef %20, ptr noundef nonnull @.str.12) #19
-  %37 = getelementptr inbounds i8, ptr %4, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %36, ptr %37, align 8
   %38 = icmp eq ptr %36, null
   br i1 %38, label %39, label %45
@@ -931,10 +931,10 @@ define internal fastcc range(i32 0, 27) i32 @cli_tgzload(i32 noundef %0, ptr nou
   br label %46
 
 46:                                               ; preds = %45, %33
-  %47 = getelementptr inbounds i8, ptr %4, i64 52
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 52
   store i32 32769, ptr %47, align 4
   %48 = call noalias dereferenceable_or_null(32769) ptr @malloc(i64 noundef 32769) #20
-  %49 = getelementptr inbounds i8, ptr %4, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %48, ptr %49, align 8
   %.not137 = icmp eq ptr %48, null
   br i1 %.not137, label %50, label %65
@@ -951,7 +951,7 @@ define internal fastcc range(i32 0, 27) i32 @cli_tgzload(i32 noundef %0, ptr nou
   br label %58
 
 54:                                               ; preds = %50
-  %55 = getelementptr inbounds i8, ptr %4, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %56 = load ptr, ptr %55, align 8
   %57 = call i32 @fclose(ptr noundef %56)
   store ptr null, ptr %55, align 8
@@ -968,7 +968,7 @@ define internal fastcc range(i32 0, 27) i32 @cli_tgzload(i32 noundef %0, ptr nou
   br label %61
 
 61:                                               ; preds = %60, %58
-  %62 = getelementptr inbounds i8, ptr %4, i64 64
+  %62 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %63 = load ptr, ptr %62, align 8
   %.not12.i = icmp eq ptr %63, null
   br i1 %.not12.i, label %cli_tgzload_cleanup.exit, label %64
@@ -979,21 +979,21 @@ define internal fastcc range(i32 0, 27) i32 @cli_tgzload(i32 noundef %0, ptr nou
   br label %cli_tgzload_cleanup.exit
 
 65:                                               ; preds = %46
-  %66 = getelementptr inbounds i8, ptr %4, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr null, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %4, i64 48
+  %67 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i32 1, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %4, i64 40
+  %68 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %48, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %4, i64 8
-  %70 = getelementptr inbounds i8, ptr %8, i64 100
-  %71 = getelementptr inbounds i8, ptr %9, i64 156
-  %72 = getelementptr inbounds i8, ptr %9, i64 124
-  %73 = getelementptr inbounds i8, ptr %7, i64 12
-  %74 = getelementptr inbounds i8, ptr %4, i64 16
-  %75 = getelementptr inbounds i8, ptr %4, i64 56
-  %76 = getelementptr inbounds i8, ptr %4, i64 64
-  %77 = getelementptr inbounds i8, ptr %4, i64 20
+  %69 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %8, i64 100
+  %71 = getelementptr inbounds nuw i8, ptr %9, i64 156
+  %72 = getelementptr inbounds nuw i8, ptr %9, i64 124
+  %73 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %74 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  %76 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %77 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %.not143 = icmp eq ptr %5, null
   br label %78
 
@@ -1336,7 +1336,7 @@ define internal fastcc range(i32 0, 27) i32 @cli_tgzload(i32 noundef %0, ptr nou
   br i1 %.not185, label %.critedge, label %207
 
 207:                                              ; preds = %.preheader
-  %208 = getelementptr inbounds i8, ptr %.0217, i64 32
+  %208 = getelementptr inbounds nuw i8, ptr %.0217, i64 32
   %209 = load ptr, ptr %208, align 8
   %.not184 = icmp eq ptr %209, null
   br i1 %.not184, label %.critedge194, label %.preheader
@@ -1384,7 +1384,7 @@ define internal fastcc range(i32 0, 27) i32 @cli_tgzload(i32 noundef %0, ptr nou
   br i1 %.not186, label %237, label %223
 
 223:                                              ; preds = %.critedge
-  %224 = getelementptr inbounds i8, ptr %.0217, i64 16
+  %224 = getelementptr inbounds nuw i8, ptr %.0217, i64 16
   %225 = load i64, ptr %224, align 8
   %226 = zext i32 %222 to i64
   %.not187 = icmp eq i64 %225, %226
@@ -1408,7 +1408,7 @@ define internal fastcc range(i32 0, 27) i32 @cli_tgzload(i32 noundef %0, ptr nou
   br label %cli_tgzload_cleanup.exit
 
 233:                                              ; preds = %228
-  %234 = getelementptr inbounds i8, ptr %.0217, i64 8
+  %234 = getelementptr inbounds nuw i8, ptr %.0217, i64 8
   %235 = load ptr, ptr %234, align 8
   %bcmp189 = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %235, ptr noundef nonnull dereferenceable(32) %11, i64 32)
   %.not190 = icmp eq i32 %bcmp189, 0
@@ -1578,10 +1578,10 @@ define range(i32 -1, 21) i32 @cl_cvdunpack(ptr noundef %0, ptr noundef %1, i1 no
   br i1 %.not115.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
-  %48 = getelementptr inbounds i8, ptr %5, i64 100
-  %49 = getelementptr inbounds i8, ptr %6, i64 156
-  %50 = getelementptr inbounds i8, ptr %6, i64 124
-  %51 = getelementptr inbounds i8, ptr %4, i64 12
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 100
+  %49 = getelementptr inbounds nuw i8, ptr %6, i64 156
+  %50 = getelementptr inbounds nuw i8, ptr %6, i64 124
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 12
   br label %54
 
 52:                                               ; preds = %44
@@ -1793,7 +1793,7 @@ define range(i32 0, 21) i32 @cl_cvdgetage(ptr noundef %0, ptr nocapture noundef 
   br label %.thread
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %7, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, 61440
   %16 = icmp eq i32 %15, 16384
@@ -1817,7 +1817,7 @@ define range(i32 0, 21) i32 @cl_cvdgetage(ptr noundef %0, ptr nocapture noundef 
 
 .sink.split.i:                                    ; preds = %21
   %23 = call i64 @time(ptr noundef nonnull %6) #19
-  %24 = getelementptr inbounds i8, ptr %5, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %25 = load i32, ptr %24, align 8
   %26 = zext i32 %25 to i64
   %27 = load i64, ptr %6, align 8
@@ -1874,7 +1874,7 @@ sub_0:                                            ; preds = %36
   br i1 %.not76150151, label %.loopexit, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %.tail.thread
-  %45 = getelementptr inbounds i8, ptr %3, i64 48
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 48
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer
@@ -1890,25 +1890,25 @@ sub_0:                                            ; preds = %36
   br i1 %.not77, label %.backedge, label %sub_0140
 
 sub_0140:                                         ; preds = %47
-  %50 = getelementptr inbounds i8, ptr %48, i64 19
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 19
   %51 = load i8, ptr %50, align 1
   %.not154 = icmp eq i8 %51, 46
   br i1 %.not154, label %.tail139, label %.tail143.thread
 
 .tail139:                                         ; preds = %sub_0140
-  %52 = getelementptr inbounds i8, ptr %48, i64 20
+  %52 = getelementptr inbounds nuw i8, ptr %48, i64 20
   %53 = load i8, ptr %52, align 1
   %54 = icmp eq i8 %53, 0
   br i1 %54, label %.backedge, label %sub_1145
 
 sub_1145:                                         ; preds = %.tail139
-  %55 = getelementptr inbounds i8, ptr %48, i64 20
+  %55 = getelementptr inbounds nuw i8, ptr %48, i64 20
   %56 = load i8, ptr %55, align 1
   %.not156 = icmp eq i8 %56, 46
   br i1 %.not156, label %.tail143, label %.tail143.thread
 
 .tail143:                                         ; preds = %sub_1145
-  %57 = getelementptr inbounds i8, ptr %48, i64 21
+  %57 = getelementptr inbounds nuw i8, ptr %48, i64 21
   %58 = load i8, ptr %57, align 1
   %59 = icmp eq i8 %58, 0
   br i1 %59, label %.backedge, label %.tail143.thread
@@ -2229,14 +2229,14 @@ define internal fastcc void @cli_tgzload_cleanup(i32 noundef range(i32 0, 2) %0,
   br label %10
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 @fclose(ptr noundef %8)
   store ptr null, ptr %7, align 8
   br label %10
 
 10:                                               ; preds = %6, %3
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load ptr, ptr %11, align 8
   %.not11 = icmp eq ptr %12, null
   br i1 %.not11, label %14, label %13
@@ -2247,7 +2247,7 @@ define internal fastcc void @cli_tgzload_cleanup(i32 noundef range(i32 0, 2) %0,
   br label %14
 
 14:                                               ; preds = %13, %10
-  %15 = getelementptr inbounds i8, ptr %1, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %16 = load ptr, ptr %15, align 8
   %.not12 = icmp eq ptr %16, null
   br i1 %.not12, label %18, label %17

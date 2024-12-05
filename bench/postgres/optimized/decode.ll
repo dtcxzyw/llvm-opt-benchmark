@@ -24,28 +24,28 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local void @LogicalDecodingProcessRecord(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.XLogRecordBuffer, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 104
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 68
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 68
   %15 = load i32, ptr %14, align 4
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %21, label %16
 
 16:                                               ; preds = %2
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %13, i64 44
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 44
   %20 = load i32, ptr %19, align 4
   tail call void @ReorderBufferAssignChild(ptr noundef %18, i32 noundef %15, i32 noundef %20, i64 noundef %7) #7
   %.pre = load ptr, ptr %12, align 8
@@ -53,7 +53,7 @@ define dso_local void @LogicalDecodingProcessRecord(ptr noundef %0, ptr noundef 
 
 21:                                               ; preds = %16, %2
   %22 = phi ptr [ %.pre, %16 ], [ %13, %2 ]
-  %23 = getelementptr inbounds i8, ptr %22, i64 57
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 57
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i64
   %26 = getelementptr [0 x %struct.RmgrData], ptr @RmgrTable, i64 0, i64 %25
@@ -66,7 +66,7 @@ define dso_local void @LogicalDecodingProcessRecord(ptr noundef %0, ptr noundef 
   br label %GetRmgr.exit
 
 GetRmgr.exit:                                     ; preds = %21, %28
-  %.sroa.1.0..sroa_idx13 = getelementptr inbounds i8, ptr %26, i64 56
+  %.sroa.1.0..sroa_idx13 = getelementptr inbounds nuw i8, ptr %26, i64 56
   %.sroa.1.0.copyload14 = load ptr, ptr %.sroa.1.0..sroa_idx13, align 8
   %.not12 = icmp eq ptr %.sroa.1.0.copyload14, null
   br i1 %.not12, label %30, label %29
@@ -76,10 +76,10 @@ GetRmgr.exit:                                     ; preds = %21, %28
   br label %36
 
 30:                                               ; preds = %GetRmgr.exit
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %12, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 44
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 44
   %35 = load i32, ptr %34, align 4
   tail call void @ReorderBufferProcessXid(ptr noundef %32, i32 noundef %35, i64 noundef %7) #7
   br label %36
@@ -97,18 +97,18 @@ declare void @ReorderBufferProcessXid(ptr noundef, i32 noundef, i64 noundef) loc
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @xlog_decode(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 104
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %10 = load i8, ptr %9, align 8
   %11 = and i8 %10, -16
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 44
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 44
   %15 = load i32, ptr %14, align 4
   %16 = load i64, ptr %1, align 8
   tail call void @ReorderBufferProcessXid(ptr noundef %13, i32 noundef %15, i64 noundef %16) #7
@@ -138,11 +138,11 @@ define dso_local void @xlog_decode(ptr nocapture noundef readonly %0, ptr nocapt
 
 21:                                               ; preds = %2
   %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 104
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 104
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 72
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 72
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 20
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %28 = load i32, ptr %27, align 4
   %29 = icmp slt i32 %28, 2
   br i1 %29, label %30, label %37
@@ -184,15 +184,15 @@ define dso_local void @xact_decode(ptr noundef %0, ptr nocapture noundef readonl
   %3 = alloca %struct.xl_xact_parsed_commit, align 8
   %4 = alloca %struct.xl_xact_parsed_abort, align 8
   %5 = alloca %struct.xl_xact_parsed_commit, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 104
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 104
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %15 = load i8, ptr %14, align 8
   %16 = tail call i32 @SnapBuildCurrentState(ptr noundef %7) #7
   %17 = icmp slt i32 %16, 1
@@ -215,22 +215,22 @@ define dso_local void @xact_decode(ptr noundef %0, ptr nocapture noundef readonl
 
 22:                                               ; preds = %18, %18
   %23 = load ptr, ptr %12, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 72
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %10, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 104
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 104
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 56
   %30 = load i8, ptr %29, align 8
   call void @ParseCommitRecord(i8 noundef zeroext %30, ptr noundef %25, ptr noundef nonnull %3) #7
-  %31 = getelementptr inbounds i8, ptr %3, i64 80
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %32 = load i32, ptr %31, align 8
   %.not59 = icmp eq i32 %32, 0
   br i1 %.not59, label %33, label %37
 
 33:                                               ; preds = %22
   %34 = load ptr, ptr %12, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 44
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 44
   %36 = load i32, ptr %35, align 4
   br label %37
 
@@ -240,14 +240,14 @@ define dso_local void @xact_decode(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %38, label %39, label %FilterPrepare.exit
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds i8, ptr %3, i64 84
-  %41 = getelementptr inbounds i8, ptr %0, i64 281
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 84
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 281
   %42 = load i8, ptr %41, align 1
   %43 = trunc i8 %42 to i1
   br i1 %43, label %44, label %FilterPrepare.exit
 
 44:                                               ; preds = %39
-  %45 = getelementptr inbounds i8, ptr %0, i64 112
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %46 = load ptr, ptr %45, align 8
   %47 = icmp eq ptr %46, null
   br i1 %47, label %FilterPrepare.exit, label %48
@@ -260,28 +260,28 @@ define dso_local void @xact_decode(ptr noundef %0, ptr nocapture noundef readonl
 FilterPrepare.exit:                               ; preds = %48, %44, %39, %37
   %.052 = phi i1 [ false, %37 ], [ %50, %48 ], [ false, %39 ], [ true, %44 ]
   %51 = load ptr, ptr %10, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 104
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 104
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 64
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 64
   %55 = load i16, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %3, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %57 = load i32, ptr %56, align 8
   %58 = and i32 %57, 32
   %.not.i = icmp eq i32 %58, 0
-  %59 = getelementptr inbounds i8, ptr %3, i64 312
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 312
   %60 = load i64, ptr %59, align 8
   %.052.in.i.idx.sroa.sel.idx.sroa.sel.idx = select i1 %.not.i, i64 0, i64 320
-  %.052.in.i.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds i8, ptr %3, i64 %.052.in.i.idx.sroa.sel.idx.sroa.sel.idx
+  %.052.in.i.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %3, i64 %.052.in.i.idx.sroa.sel.idx.sroa.sel.idx
   %.051.i = select i1 %.not.i, i64 0, i64 %60
   %.052.i = load i64, ptr %.052.in.i.idx.sroa.sel.idx.sroa.sel, align 8
   %61 = load ptr, ptr %6, align 8
   %62 = load i64, ptr %1, align 8
-  %63 = getelementptr inbounds i8, ptr %3, i64 20
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %64 = load i32, ptr %63, align 4
-  %65 = getelementptr inbounds i8, ptr %3, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %66 = load ptr, ptr %65, align 8
   call void @SnapBuildCommitTxn(ptr noundef %61, i64 noundef %62, i32 noundef %.0, i32 noundef %64, ptr noundef %66, i32 noundef %57) #7
-  %67 = getelementptr inbounds i8, ptr %3, i64 12
+  %67 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %68 = load i32, ptr %67, align 4
   %.val.i = load i64, ptr %1, align 8
   %69 = load ptr, ptr %6, align 8
@@ -293,15 +293,15 @@ FilterPrepare.exit:                               ; preds = %48, %44, %39, %37
   br i1 %.not.i.i, label %77, label %72
 
 72:                                               ; preds = %71
-  %73 = getelementptr inbounds i8, ptr %0, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 88
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 88
   %76 = load i32, ptr %75, align 8
   %.not10.i.i = icmp eq i32 %68, %76
   br i1 %.not10.i.i, label %77, label %.preheader.i
 
 77:                                               ; preds = %72, %71
-  %78 = getelementptr inbounds i8, ptr %0, i64 96
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %79 = load ptr, ptr %78, align 8
   %80 = icmp eq ptr %79, null
   br i1 %80, label %FilterByOrigin.exit.thread.i.i, label %FilterByOrigin.exit.i.i
@@ -311,7 +311,7 @@ FilterByOrigin.exit.i.i:                          ; preds = %77
   br i1 %81, label %.preheader.i, label %FilterByOrigin.exit.thread.i.i
 
 FilterByOrigin.exit.thread.i.i:                   ; preds = %FilterByOrigin.exit.i.i, %77
-  %82 = getelementptr inbounds i8, ptr %0, i64 40
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %83 = load i8, ptr %82, align 8
   %84 = trunc i8 %83 to i1
   br i1 %84, label %88, label %DecodeTXNNeedSkip.exit.preheader.i
@@ -322,11 +322,11 @@ DecodeTXNNeedSkip.exit.preheader.i:               ; preds = %FilterByOrigin.exit
   br i1 %86, label %.lr.ph.i, label %DecodeTXNNeedSkip.exit._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %DecodeTXNNeedSkip.exit.preheader.i
-  %87 = getelementptr inbounds i8, ptr %1, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %DecodeTXNNeedSkip.exit.i
 
 88:                                               ; preds = %FilterByOrigin.exit.thread.i.i
-  %89 = getelementptr inbounds i8, ptr %0, i64 301
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 301
   store i8 1, ptr %89, align 1
   br label %.preheader.i
 
@@ -373,14 +373,14 @@ DecodeTXNNeedSkip.exit.i:                         ; preds = %DecodeTXNNeedSkip.e
 DecodeTXNNeedSkip.exit._crit_edge.i:              ; preds = %DecodeTXNNeedSkip.exit.i, %DecodeTXNNeedSkip.exit.preheader.i
   %111 = load ptr, ptr %8, align 8
   %112 = load i64, ptr %1, align 8
-  %113 = getelementptr inbounds i8, ptr %1, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %114 = load i64, ptr %113, align 8
   br i1 %.052, label %115, label %119
 
 115:                                              ; preds = %DecodeTXNNeedSkip.exit._crit_edge.i
   %116 = load ptr, ptr %6, align 8
   %117 = call i64 @SnapBuildGetTwoPhaseAt(ptr noundef %116) #7
-  %118 = getelementptr inbounds i8, ptr %3, i64 84
+  %118 = getelementptr inbounds nuw i8, ptr %3, i64 84
   call void @ReorderBufferFinishPrepared(ptr noundef %111, i32 noundef %.0, i64 noundef %112, i64 noundef %114, i64 noundef %117, i64 noundef %.052.i, i16 noundef zeroext %55, i64 noundef %.051.i, ptr noundef nonnull %118, i1 noundef zeroext true) #7
   br label %120
 
@@ -394,22 +394,22 @@ DecodeTXNNeedSkip.exit._crit_edge.i:              ; preds = %DecodeTXNNeedSkip.e
 
 121:                                              ; preds = %18, %18
   %122 = load ptr, ptr %12, align 8
-  %123 = getelementptr inbounds i8, ptr %122, i64 72
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 72
   %124 = load ptr, ptr %123, align 8
   %125 = load ptr, ptr %10, align 8
-  %126 = getelementptr inbounds i8, ptr %125, i64 104
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 104
   %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 56
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 56
   %129 = load i8, ptr %128, align 8
   call void @ParseAbortRecord(i8 noundef zeroext %129, ptr noundef %124, ptr noundef nonnull %4) #7
-  %130 = getelementptr inbounds i8, ptr %4, i64 64
+  %130 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %131 = load i32, ptr %130, align 8
   %.not58 = icmp eq i32 %131, 0
   br i1 %.not58, label %132, label %136
 
 132:                                              ; preds = %121
   %133 = load ptr, ptr %12, align 8
-  %134 = getelementptr inbounds i8, ptr %133, i64 44
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 44
   %135 = load i32, ptr %134, align 4
   br label %136
 
@@ -419,14 +419,14 @@ DecodeTXNNeedSkip.exit._crit_edge.i:              ; preds = %DecodeTXNNeedSkip.e
   br i1 %137, label %138, label %FilterPrepare.exit61
 
 138:                                              ; preds = %136
-  %139 = getelementptr inbounds i8, ptr %4, i64 68
-  %140 = getelementptr inbounds i8, ptr %0, i64 281
+  %139 = getelementptr inbounds nuw i8, ptr %4, i64 68
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 281
   %141 = load i8, ptr %140, align 1
   %142 = trunc i8 %141 to i1
   br i1 %142, label %143, label %FilterPrepare.exit61
 
 143:                                              ; preds = %138
-  %144 = getelementptr inbounds i8, ptr %0, i64 112
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %145 = load ptr, ptr %144, align 8
   %146 = icmp eq ptr %145, null
   br i1 %146, label %FilterPrepare.exit61, label %147
@@ -439,21 +439,21 @@ DecodeTXNNeedSkip.exit._crit_edge.i:              ; preds = %DecodeTXNNeedSkip.e
 FilterPrepare.exit61:                             ; preds = %147, %143, %138, %136
   %.054 = phi i1 [ false, %136 ], [ %149, %147 ], [ false, %138 ], [ true, %143 ]
   %150 = load ptr, ptr %10, align 8
-  %151 = getelementptr inbounds i8, ptr %150, i64 104
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 104
   %152 = load ptr, ptr %151, align 8
-  %153 = getelementptr inbounds i8, ptr %152, i64 64
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 64
   %154 = load i16, ptr %153, align 8
-  %155 = getelementptr inbounds i8, ptr %4, i64 8
+  %155 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %156 = load i32, ptr %155, align 8
   %157 = and i32 %156, 32
   %.not.i62 = icmp eq i32 %157, 0
-  %158 = getelementptr inbounds i8, ptr %4, i64 272
+  %158 = getelementptr inbounds nuw i8, ptr %4, i64 272
   %159 = load i64, ptr %158, align 8
   %.032.in.i.idx.sroa.sel.idx.sroa.sel.idx = select i1 %.not.i62, i64 0, i64 280
-  %.032.in.i.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds i8, ptr %4, i64 %.032.in.i.idx.sroa.sel.idx.sroa.sel.idx
+  %.032.in.i.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %4, i64 %.032.in.i.idx.sroa.sel.idx.sroa.sel.idx
   %.031.i = select i1 %.not.i62, i64 0, i64 %159
   %.032.i = load i64, ptr %.032.in.i.idx.sroa.sel.idx.sroa.sel, align 8
-  %160 = getelementptr inbounds i8, ptr %4, i64 12
+  %160 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %161 = load i32, ptr %160, align 4
   %.val.i63 = load i64, ptr %1, align 8
   %162 = load ptr, ptr %6, align 8
@@ -465,15 +465,15 @@ FilterPrepare.exit61:                             ; preds = %147, %143, %138, %1
   br i1 %.not.i.i64, label %170, label %165
 
 165:                                              ; preds = %164
-  %166 = getelementptr inbounds i8, ptr %0, i64 8
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %167 = load ptr, ptr %166, align 8
-  %168 = getelementptr inbounds i8, ptr %167, i64 88
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 88
   %169 = load i32, ptr %168, align 8
   %.not10.i.i65 = icmp eq i32 %161, %169
   br i1 %.not10.i.i65, label %170, label %.preheader.i66
 
 170:                                              ; preds = %165, %164
-  %171 = getelementptr inbounds i8, ptr %0, i64 96
+  %171 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %172 = load ptr, ptr %171, align 8
   %173 = icmp eq ptr %172, null
   br i1 %173, label %FilterByOrigin.exit.thread.i.i72, label %FilterByOrigin.exit.i.i71
@@ -483,13 +483,13 @@ FilterByOrigin.exit.i.i71:                        ; preds = %170
   br i1 %174, label %.preheader.i66, label %FilterByOrigin.exit.thread.i.i72
 
 FilterByOrigin.exit.thread.i.i72:                 ; preds = %FilterByOrigin.exit.i.i71, %170
-  %175 = getelementptr inbounds i8, ptr %0, i64 40
+  %175 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %176 = load i8, ptr %175, align 8
   %177 = trunc i8 %176 to i1
   br i1 %177, label %178, label %DecodeTXNNeedSkip.exit.i73
 
 178:                                              ; preds = %FilterByOrigin.exit.thread.i.i72
-  %179 = getelementptr inbounds i8, ptr %0, i64 301
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 301
   store i8 1, ptr %179, align 1
   br label %.preheader.i66
 
@@ -497,21 +497,21 @@ DecodeTXNNeedSkip.exit.i73:                       ; preds = %FilterByOrigin.exit
   br i1 %.054, label %184, label %.preheader.i66
 
 .preheader.i66:                                   ; preds = %DecodeTXNNeedSkip.exit.i73, %178, %FilterByOrigin.exit.i.i71, %165, %FilterPrepare.exit61
-  %180 = getelementptr inbounds i8, ptr %4, i64 20
+  %180 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %181 = load i32, ptr %180, align 4
   %182 = icmp sgt i32 %181, 0
   br i1 %182, label %.lr.ph.i68, label %._crit_edge.i67
 
 .lr.ph.i68:                                       ; preds = %.preheader.i66
-  %183 = getelementptr inbounds i8, ptr %4, i64 24
+  %183 = getelementptr inbounds nuw i8, ptr %4, i64 24
   br label %190
 
 184:                                              ; preds = %DecodeTXNNeedSkip.exit.i73
   %185 = load ptr, ptr %8, align 8
   %186 = load i64, ptr %1, align 8
-  %187 = getelementptr inbounds i8, ptr %1, i64 8
+  %187 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %188 = load i64, ptr %187, align 8
-  %189 = getelementptr inbounds i8, ptr %4, i64 68
+  %189 = getelementptr inbounds nuw i8, ptr %4, i64 68
   call void @ReorderBufferFinishPrepared(ptr noundef %185, i32 noundef %.053, i64 noundef %186, i64 noundef %188, i64 noundef 0, i64 noundef %.032.i, i16 noundef zeroext %154, i64 noundef %.031.i, ptr noundef nonnull %189, i1 noundef zeroext false) #7
   br label %DecodeAbort.exit
 
@@ -522,7 +522,7 @@ DecodeTXNNeedSkip.exit.i73:                       ; preds = %FilterByOrigin.exit
   %193 = getelementptr i32, ptr %192, i64 %indvars.iv.i69
   %194 = load i32, ptr %193, align 4
   %195 = load ptr, ptr %10, align 8
-  %196 = getelementptr inbounds i8, ptr %195, i64 48
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 48
   %197 = load i64, ptr %196, align 8
   call void @ReorderBufferAbort(ptr noundef %191, i32 noundef %194, i64 noundef %197, i64 noundef %.032.i) #7
   %indvars.iv.next.i70 = add nuw nsw i64 %indvars.iv.i69, 1
@@ -534,7 +534,7 @@ DecodeTXNNeedSkip.exit.i73:                       ; preds = %FilterByOrigin.exit
 ._crit_edge.i67:                                  ; preds = %190, %.preheader.i66
   %201 = load ptr, ptr %8, align 8
   %202 = load ptr, ptr %10, align 8
-  %203 = getelementptr inbounds i8, ptr %202, i64 48
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 48
   %204 = load i64, ptr %203, align 8
   call void @ReorderBufferAbort(ptr noundef %201, i32 noundef %.053, i64 noundef %204, i64 noundef %.032.i) #7
   br label %DecodeAbort.exit
@@ -545,12 +545,12 @@ DecodeAbort.exit:                                 ; preds = %184, %._crit_edge.i
 
 205:                                              ; preds = %18
   %206 = load ptr, ptr %12, align 8
-  %207 = getelementptr inbounds i8, ptr %206, i64 44
+  %207 = getelementptr inbounds nuw i8, ptr %206, i64 44
   %208 = load i32, ptr %207, align 4
-  %209 = getelementptr inbounds i8, ptr %206, i64 72
+  %209 = getelementptr inbounds nuw i8, ptr %206, i64 72
   %210 = load ptr, ptr %209, align 8
   %.not = icmp eq i32 %208, 0
-  %211 = getelementptr inbounds i8, ptr %0, i64 40
+  %211 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %212 = load i8, ptr %211, align 8
   %213 = trunc i8 %212 to i1
   br i1 %.not, label %223, label %214
@@ -562,7 +562,7 @@ DecodeAbort.exit:                                 ; preds = %184, %._crit_edge.i
   %216 = load i64, ptr %1, align 8
   %217 = load i32, ptr %210, align 4
   %218 = sext i32 %217 to i64
-  %219 = getelementptr inbounds i8, ptr %210, i64 4
+  %219 = getelementptr inbounds nuw i8, ptr %210, i64 4
   tail call void @ReorderBufferAddInvalidations(ptr noundef %9, i32 noundef %208, i64 noundef %216, i64 noundef %218, ptr noundef nonnull %219) #7
   br label %220
 
@@ -578,30 +578,30 @@ DecodeAbort.exit:                                 ; preds = %184, %._crit_edge.i
 224:                                              ; preds = %223
   %225 = load ptr, ptr %8, align 8
   %226 = load i32, ptr %210, align 4
-  %227 = getelementptr inbounds i8, ptr %210, i64 4
+  %227 = getelementptr inbounds nuw i8, ptr %210, i64 4
   tail call void @ReorderBufferImmediateInvalidation(ptr noundef %225, i32 noundef %226, ptr noundef nonnull %227) #7
   br label %DecodeCommit.exit
 
 228:                                              ; preds = %18
   %229 = load ptr, ptr %12, align 8
-  %230 = getelementptr inbounds i8, ptr %229, i64 72
+  %230 = getelementptr inbounds nuw i8, ptr %229, i64 72
   %231 = load ptr, ptr %230, align 8
   %232 = load ptr, ptr %10, align 8
-  %233 = getelementptr inbounds i8, ptr %232, i64 104
+  %233 = getelementptr inbounds nuw i8, ptr %232, i64 104
   %234 = load ptr, ptr %233, align 8
-  %235 = getelementptr inbounds i8, ptr %234, i64 56
+  %235 = getelementptr inbounds nuw i8, ptr %234, i64 56
   %236 = load i8, ptr %235, align 8
   call void @ParsePrepareRecord(i8 noundef zeroext %236, ptr noundef %231, ptr noundef nonnull %5) #7
-  %237 = getelementptr inbounds i8, ptr %5, i64 80
+  %237 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %238 = load i32, ptr %237, align 8
-  %239 = getelementptr inbounds i8, ptr %5, i64 84
-  %240 = getelementptr inbounds i8, ptr %0, i64 281
+  %239 = getelementptr inbounds nuw i8, ptr %5, i64 84
+  %240 = getelementptr inbounds nuw i8, ptr %0, i64 281
   %241 = load i8, ptr %240, align 1
   %242 = trunc i8 %241 to i1
   br i1 %242, label %243, label %FilterPrepare.exit75.thread
 
 243:                                              ; preds = %228
-  %244 = getelementptr inbounds i8, ptr %0, i64 112
+  %244 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %245 = load ptr, ptr %244, align 8
   %246 = icmp eq ptr %245, null
   br i1 %246, label %FilterPrepare.exit75.thread89, label %FilterPrepare.exit75
@@ -620,21 +620,21 @@ FilterPrepare.exit75.thread:                      ; preds = %FilterPrepare.exit7
 FilterPrepare.exit75.thread89:                    ; preds = %243, %FilterPrepare.exit75
   %250 = phi i32 [ %238, %243 ], [ %.pre94, %FilterPrepare.exit75 ]
   %251 = load ptr, ptr %6, align 8
-  %252 = getelementptr inbounds i8, ptr %5, i64 312
+  %252 = getelementptr inbounds nuw i8, ptr %5, i64 312
   %253 = load i64, ptr %252, align 8
   %254 = load i64, ptr %5, align 8
   %255 = load ptr, ptr %10, align 8
-  %256 = getelementptr inbounds i8, ptr %255, i64 104
+  %256 = getelementptr inbounds nuw i8, ptr %255, i64 104
   %257 = load ptr, ptr %256, align 8
-  %258 = getelementptr inbounds i8, ptr %257, i64 64
+  %258 = getelementptr inbounds nuw i8, ptr %257, i64 64
   %259 = load i16, ptr %258, align 8
-  %260 = getelementptr inbounds i8, ptr %5, i64 320
+  %260 = getelementptr inbounds nuw i8, ptr %5, i64 320
   %261 = load i64, ptr %260, align 8
   %.not.i76 = icmp eq i64 %261, 0
   %spec.select.i = select i1 %.not.i76, i64 %254, i64 %261
   %262 = load ptr, ptr %8, align 8
   %263 = load i64, ptr %1, align 8
-  %264 = getelementptr inbounds i8, ptr %1, i64 8
+  %264 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %265 = load i64, ptr %264, align 8
   %266 = call zeroext i1 @ReorderBufferRememberPrepareInfo(ptr noundef %262, i32 noundef %250, i64 noundef %263, i64 noundef %265, i64 noundef %spec.select.i, i16 noundef zeroext %259, i64 noundef %253) #7
   br i1 %266, label %267, label %DecodeCommit.exit
@@ -650,7 +650,7 @@ FilterPrepare.exit75.thread89:                    ; preds = %243, %FilterPrepare
   br label %DecodeCommit.exit
 
 272:                                              ; preds = %267
-  %273 = getelementptr inbounds i8, ptr %5, i64 12
+  %273 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %274 = load i32, ptr %273, align 4
   %.val.i77 = load i64, ptr %1, align 8
   %275 = load ptr, ptr %6, align 8
@@ -662,15 +662,15 @@ FilterPrepare.exit75.thread89:                    ; preds = %243, %FilterPrepare
   br i1 %.not.i.i78, label %283, label %278
 
 278:                                              ; preds = %277
-  %279 = getelementptr inbounds i8, ptr %0, i64 8
+  %279 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %280 = load ptr, ptr %279, align 8
-  %281 = getelementptr inbounds i8, ptr %280, i64 88
+  %281 = getelementptr inbounds nuw i8, ptr %280, i64 88
   %282 = load i32, ptr %281, align 8
   %.not10.i.i79 = icmp eq i32 %274, %282
   br i1 %.not10.i.i79, label %283, label %297
 
 283:                                              ; preds = %278, %277
-  %284 = getelementptr inbounds i8, ptr %0, i64 96
+  %284 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %285 = load ptr, ptr %284, align 8
   %286 = icmp eq ptr %285, null
   br i1 %286, label %FilterByOrigin.exit.thread.i.i81, label %FilterByOrigin.exit.i.i80
@@ -680,23 +680,23 @@ FilterByOrigin.exit.i.i80:                        ; preds = %283
   br i1 %287, label %297, label %FilterByOrigin.exit.thread.i.i81
 
 FilterByOrigin.exit.thread.i.i81:                 ; preds = %FilterByOrigin.exit.i.i80, %283
-  %288 = getelementptr inbounds i8, ptr %0, i64 40
+  %288 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %289 = load i8, ptr %288, align 8
   %290 = trunc i8 %289 to i1
   br i1 %290, label %295, label %DecodeTXNNeedSkip.exit.preheader.i82
 
 DecodeTXNNeedSkip.exit.preheader.i82:             ; preds = %FilterByOrigin.exit.thread.i.i81
-  %291 = getelementptr inbounds i8, ptr %5, i64 20
+  %291 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %292 = load i32, ptr %291, align 4
   %293 = icmp sgt i32 %292, 0
   br i1 %293, label %.lr.ph.i84, label %DecodeTXNNeedSkip.exit._crit_edge.i83
 
 .lr.ph.i84:                                       ; preds = %DecodeTXNNeedSkip.exit.preheader.i82
-  %294 = getelementptr inbounds i8, ptr %5, i64 24
+  %294 = getelementptr inbounds nuw i8, ptr %5, i64 24
   br label %DecodeTXNNeedSkip.exit.i85
 
 295:                                              ; preds = %FilterByOrigin.exit.thread.i.i81
-  %296 = getelementptr inbounds i8, ptr %0, i64 301
+  %296 = getelementptr inbounds nuw i8, ptr %0, i64 301
   store i8 1, ptr %296, align 1
   br label %297
 
@@ -759,18 +759,18 @@ declare void @ParsePrepareRecord(i8 noundef zeroext, ptr noundef, ptr noundef) l
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @standby_decode(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 104
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %10 = load i8, ptr %9, align 8
   %11 = and i8 %10, -16
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 44
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 44
   %15 = load i32, ptr %14, align 4
   %16 = load i64, ptr %1, align 8
   tail call void @ReorderBufferProcessXid(ptr noundef %13, i32 noundef %15, i64 noundef %16) #7
@@ -782,12 +782,12 @@ define dso_local void @standby_decode(ptr nocapture noundef readonly %0, ptr noc
 
 17:                                               ; preds = %2
   %18 = load ptr, ptr %7, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 72
   %20 = load ptr, ptr %19, align 8
   %21 = load i64, ptr %1, align 8
   tail call void @SnapBuildProcessRunningXacts(ptr noundef %4, i64 noundef %21, ptr noundef %20) #7
   %22 = load ptr, ptr %12, align 8
-  %23 = getelementptr inbounds i8, ptr %20, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %24 = load i32, ptr %23, align 4
   tail call void @ReorderBufferAbortOld(ptr noundef %22, i32 noundef %24) #7
   br label %29
@@ -810,17 +810,17 @@ declare void @ReorderBufferAbortOld(ptr noundef, i32 noundef) local_unnamed_addr
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @heap2_decode(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %8 = load i8, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 44
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 44
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = load i64, ptr %1, align 8
   tail call void @ReorderBufferProcessXid(ptr noundef %14, i32 noundef %10, i64 noundef %15) #7
@@ -829,7 +829,7 @@ define dso_local void @heap2_decode(ptr noundef %0, ptr nocapture noundef readon
   br i1 %17, label %36, label %18
 
 18:                                               ; preds = %2
-  %19 = getelementptr inbounds i8, ptr %0, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %20 = load i8, ptr %19, align 8
   %21 = trunc i8 %20 to i1
   br i1 %21, label %36, label %22
@@ -859,9 +859,9 @@ define dso_local void @heap2_decode(ptr noundef %0, ptr nocapture noundef readon
 
 29:                                               ; preds = %22
   %30 = load ptr, ptr %3, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 104
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 104
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 72
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 72
   %34 = load ptr, ptr %33, align 8
   %35 = load i64, ptr %1, align 8
   tail call void @SnapBuildProcessNewCid(ptr noundef %12, i32 noundef %10, i64 noundef %35, ptr noundef %34) #7
@@ -880,11 +880,11 @@ declare zeroext i1 @SnapBuildProcessChange(ptr noundef, i32 noundef, i64 noundef
 define internal fastcc void @DecodeMultiInsert(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca %struct.RelFileLocator, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 104
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %10 = load ptr, ptr %9, align 8
   %11 = load i8, ptr %10, align 2
   %12 = and i8 %11, 8
@@ -893,37 +893,37 @@ define internal fastcc void @DecodeMultiInsert(ptr noundef %0, ptr nocapture nou
 
 13:                                               ; preds = %2
   call void @XLogRecGetBlockTag(ptr noundef nonnull %6, i8 noundef zeroext 0, ptr noundef nonnull %4, ptr noundef null, ptr noundef null) #7
-  %14 = getelementptr inbounds i8, ptr %4, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 88
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 88
   %19 = load i32, ptr %18, align 8
   %.not50 = icmp eq i32 %15, %19
   br i1 %.not50, label %20, label %.loopexit
 
 20:                                               ; preds = %13
-  %21 = getelementptr inbounds i8, ptr %0, i64 96
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %FilterByOrigin.exit.thread, label %FilterByOrigin.exit
 
 FilterByOrigin.exit:                              ; preds = %20
   %24 = load ptr, ptr %7, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 64
   %26 = load i16, ptr %25, align 8
   %27 = call zeroext i1 @filter_by_origin_cb_wrapper(ptr noundef nonnull %0, i16 noundef zeroext %26) #7
   br i1 %27, label %.loopexit, label %FilterByOrigin.exit.thread
 
 FilterByOrigin.exit.thread:                       ; preds = %20, %FilterByOrigin.exit
   %28 = call ptr @XLogRecGetBlockData(ptr noundef nonnull %6, i8 noundef zeroext 0, ptr noundef nonnull %3) #7
-  %29 = getelementptr inbounds i8, ptr %10, i64 2
+  %29 = getelementptr inbounds nuw i8, ptr %10, i64 2
   %30 = load i16, ptr %29, align 2
   %.not56 = icmp eq i16 %30, 0
   br i1 %.not56, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %FilterByOrigin.exit.thread
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %32
 
 32:                                               ; preds = %.lr.ph, %._crit_edge
@@ -931,14 +931,14 @@ FilterByOrigin.exit.thread:                       ; preds = %20, %FilterByOrigin
   %.04953 = phi ptr [ %28, %.lr.ph ], [ %82, %._crit_edge ]
   %33 = load ptr, ptr %31, align 8
   %34 = call ptr @ReorderBufferGetChange(ptr noundef %33) #7
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i32 0, ptr %35, align 8
   %36 = load ptr, ptr %7, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 64
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 64
   %38 = load i16, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %34, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %34, i64 24
   store i16 %38, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %34, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %34, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %40, ptr noundef nonnull align 4 dereferenceable(12) %4, i64 12, i1 false)
   %41 = ptrtoint ptr %.04953 to i64
   %42 = add i64 %41, 1
@@ -949,17 +949,17 @@ FilterByOrigin.exit.thread:                       ; preds = %20, %FilterByOrigin
   %47 = load ptr, ptr %31, align 8
   %48 = zext i16 %46 to i64
   %49 = call ptr @ReorderBufferGetTupleBuf(ptr noundef %47, i64 noundef %48) #7
-  %50 = getelementptr inbounds i8, ptr %34, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %34, i64 56
   store ptr %49, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %49, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %49, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %49, i64 4
   store i16 -1, ptr %53, align 2
-  %54 = getelementptr inbounds i8, ptr %49, i64 6
+  %54 = getelementptr inbounds nuw i8, ptr %49, i64 6
   store i16 -1, ptr %54, align 2
-  %55 = getelementptr inbounds i8, ptr %49, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store i16 0, ptr %55, align 2
-  %56 = getelementptr inbounds i8, ptr %49, i64 12
+  %56 = getelementptr inbounds nuw i8, ptr %49, i64 12
   store i32 0, ptr %56, align 4
   %57 = zext i16 %46 to i32
   %58 = add nuw nsw i32 %57, 23
@@ -968,17 +968,17 @@ FilterByOrigin.exit.thread:                       ; preds = %20, %FilterByOrigin
   %59 = load ptr, ptr %51, align 8
   %60 = getelementptr i8, ptr %59, i64 23
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %60, ptr align 1 %45, i64 %48, i1 false)
-  %61 = getelementptr inbounds i8, ptr %44, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %62 = load i16, ptr %61, align 2
-  %63 = getelementptr inbounds i8, ptr %52, i64 20
+  %63 = getelementptr inbounds nuw i8, ptr %52, i64 20
   store i16 %62, ptr %63, align 4
-  %64 = getelementptr inbounds i8, ptr %44, i64 2
+  %64 = getelementptr inbounds nuw i8, ptr %44, i64 2
   %65 = load i16, ptr %64, align 2
-  %66 = getelementptr inbounds i8, ptr %52, i64 18
+  %66 = getelementptr inbounds nuw i8, ptr %52, i64 18
   store i16 %65, ptr %66, align 2
-  %67 = getelementptr inbounds i8, ptr %44, i64 6
+  %67 = getelementptr inbounds nuw i8, ptr %44, i64 6
   %68 = load i8, ptr %67, align 2
-  %69 = getelementptr inbounds i8, ptr %52, i64 22
+  %69 = getelementptr inbounds nuw i8, ptr %52, i64 22
   store i8 %68, ptr %69, align 2
   %70 = load i8, ptr %10, align 2
   %71 = and i8 %70, 2
@@ -995,11 +995,11 @@ FilterByOrigin.exit.thread:                       ; preds = %20, %FilterByOrigin
 
 ._crit_edge:                                      ; preds = %72, %32
   %.sink = phi i8 [ 0, %32 ], [ %spec.select, %72 ]
-  %76 = getelementptr inbounds i8, ptr %34, i64 44
+  %76 = getelementptr inbounds nuw i8, ptr %34, i64 44
   store i8 %.sink, ptr %76, align 4
   %77 = load ptr, ptr %31, align 8
   %78 = load ptr, ptr %7, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 44
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 44
   %80 = load i32, ptr %79, align 4
   %81 = load i64, ptr %1, align 8
   call void @ReorderBufferQueueChange(ptr noundef %77, i32 noundef %80, i64 noundef %81, ptr noundef nonnull %34, i1 noundef zeroext false) #7
@@ -1019,17 +1019,17 @@ declare void @SnapBuildProcessNewCid(ptr noundef, i32 noundef, i64 noundef, ptr 
 define dso_local void @heap_decode(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct.RelFileLocator, align 4
   %4 = alloca i64, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 104
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %10 = load i8, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 44
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 44
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
   %17 = load i64, ptr %1, align 8
   tail call void @ReorderBufferProcessXid(ptr noundef %16, i32 noundef %12, i64 noundef %17) #7
@@ -1038,7 +1038,7 @@ define dso_local void @heap_decode(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %19, label %145, label %20
 
 20:                                               ; preds = %2
-  %21 = getelementptr inbounds i8, ptr %0, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = load i8, ptr %21, align 8
   %23 = trunc i8 %22 to i1
   br i1 %23, label %145, label %24
@@ -1075,29 +1075,29 @@ define dso_local void @heap_decode(ptr noundef %0, ptr nocapture noundef readonl
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %35 = load ptr, ptr %5, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 104
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 104
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 72
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 72
   %39 = load ptr, ptr %38, align 8
   call void @XLogRecGetBlockTag(ptr noundef %35, i8 noundef zeroext 0, ptr noundef nonnull %3, ptr noundef null, ptr noundef null) #7
-  %40 = getelementptr inbounds i8, ptr %3, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %41 = load i32, ptr %40, align 4
-  %42 = getelementptr inbounds i8, ptr %0, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 88
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 88
   %45 = load i32, ptr %44, align 8
   %.not.i = icmp eq i32 %41, %45
   br i1 %.not.i, label %46, label %DecodeUpdate.exit
 
 46:                                               ; preds = %34
-  %47 = getelementptr inbounds i8, ptr %0, i64 96
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, null
   br i1 %49, label %FilterByOrigin.exit.thread.i, label %FilterByOrigin.exit.i
 
 FilterByOrigin.exit.i:                            ; preds = %46
   %50 = load ptr, ptr %36, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 64
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 64
   %52 = load i16, ptr %51, align 8
   %53 = call zeroext i1 @filter_by_origin_cb_wrapper(ptr noundef nonnull %0, i16 noundef zeroext %52) #7
   br i1 %53, label %DecodeUpdate.exit, label %FilterByOrigin.exit.thread.i
@@ -1105,16 +1105,16 @@ FilterByOrigin.exit.i:                            ; preds = %46
 FilterByOrigin.exit.thread.i:                     ; preds = %FilterByOrigin.exit.i, %46
   %54 = load ptr, ptr %15, align 8
   %55 = call ptr @ReorderBufferGetChange(ptr noundef %54) #7
-  %56 = getelementptr inbounds i8, ptr %55, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store i32 1, ptr %56, align 8
   %57 = load ptr, ptr %36, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 64
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 64
   %59 = load i16, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %55, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %55, i64 24
   store i16 %59, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %55, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %55, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %61, ptr noundef nonnull align 4 dereferenceable(12) %3, i64 12, i1 false)
-  %62 = getelementptr inbounds i8, ptr %39, i64 7
+  %62 = getelementptr inbounds nuw i8, ptr %39, i64 7
   %63 = load i8, ptr %62, align 1
   %64 = and i8 %63, 16
   %.not32.i = icmp eq i8 %64, 0
@@ -1126,7 +1126,7 @@ FilterByOrigin.exit.thread.i:                     ; preds = %FilterByOrigin.exit
   %68 = add i64 %67, -5
   %69 = load ptr, ptr %15, align 8
   %70 = call ptr @ReorderBufferGetTupleBuf(ptr noundef %69, i64 noundef %68) #7
-  %71 = getelementptr inbounds i8, ptr %55, i64 56
+  %71 = getelementptr inbounds nuw i8, ptr %55, i64 56
   store ptr %70, ptr %71, align 8
   %72 = load i64, ptr %4, align 8
   %73 = shl i64 %72, 32
@@ -1135,31 +1135,31 @@ FilterByOrigin.exit.thread.i:                     ; preds = %FilterByOrigin.exit
   %75 = trunc nsw i64 %74 to i32
   %76 = add i32 %75, 23
   store i32 %76, ptr %70, align 8
-  %77 = getelementptr inbounds i8, ptr %70, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %70, i64 4
+  %79 = getelementptr inbounds nuw i8, ptr %70, i64 4
   store i16 -1, ptr %79, align 2
-  %80 = getelementptr inbounds i8, ptr %70, i64 6
+  %80 = getelementptr inbounds nuw i8, ptr %70, i64 6
   store i16 -1, ptr %80, align 2
-  %81 = getelementptr inbounds i8, ptr %70, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %70, i64 8
   store i16 0, ptr %81, align 2
-  %82 = getelementptr inbounds i8, ptr %70, i64 12
+  %82 = getelementptr inbounds nuw i8, ptr %70, i64 12
   store i32 0, ptr %82, align 4
   %.sroa.0.0.copyload.i.i = load i16, ptr %66, align 1
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %66, i64 2
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %66, i64 2
   %.sroa.2.0.copyload.i.i = load i16, ptr %.sroa.2.0..sroa_idx.i.i, align 1
-  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %66, i64 4
+  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %66, i64 4
   %.sroa.3.0.copyload.i.i = load i8, ptr %.sroa.3.0..sroa_idx.i.i, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(23) %78, i8 0, i64 23, i1 false)
   %83 = load ptr, ptr %77, align 8
   %84 = getelementptr i8, ptr %83, i64 23
   %85 = getelementptr i8, ptr %66, i64 5
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %84, ptr readonly align 1 %85, i64 %74, i1 false)
-  %86 = getelementptr inbounds i8, ptr %78, i64 20
+  %86 = getelementptr inbounds nuw i8, ptr %78, i64 20
   store i16 %.sroa.2.0.copyload.i.i, ptr %86, align 4
-  %87 = getelementptr inbounds i8, ptr %78, i64 18
+  %87 = getelementptr inbounds nuw i8, ptr %78, i64 18
   store i16 %.sroa.0.0.copyload.i.i, ptr %87, align 2
-  %88 = getelementptr inbounds i8, ptr %78, i64 22
+  %88 = getelementptr inbounds nuw i8, ptr %78, i64 22
   store i8 %.sroa.3.0.copyload.i.i, ptr %88, align 2
   %.pre.i = load i8, ptr %62, align 1
   br label %89
@@ -1172,16 +1172,16 @@ FilterByOrigin.exit.thread.i:                     ; preds = %FilterByOrigin.exit
 
 92:                                               ; preds = %89
   %93 = load ptr, ptr %36, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 72
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 72
   %95 = load ptr, ptr %94, align 8
   %96 = getelementptr i8, ptr %95, i64 14
-  %97 = getelementptr inbounds i8, ptr %93, i64 80
+  %97 = getelementptr inbounds nuw i8, ptr %93, i64 80
   %98 = load i32, ptr %97, align 8
   %99 = zext i32 %98 to i64
   %100 = add nsw i64 %99, -19
   %101 = load ptr, ptr %15, align 8
   %102 = call ptr @ReorderBufferGetTupleBuf(ptr noundef %101, i64 noundef %100) #7
-  %103 = getelementptr inbounds i8, ptr %55, i64 48
+  %103 = getelementptr inbounds nuw i8, ptr %55, i64 48
   store ptr %102, ptr %103, align 8
   %104 = shl nuw i64 %99, 32
   %sext.i34.i = add i64 %104, -81604378624
@@ -1189,15 +1189,15 @@ FilterByOrigin.exit.thread.i:                     ; preds = %FilterByOrigin.exit
   %106 = trunc nsw i64 %105 to i32
   %107 = add i32 %106, 23
   store i32 %107, ptr %102, align 8
-  %108 = getelementptr inbounds i8, ptr %102, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %102, i64 16
   %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %102, i64 4
+  %110 = getelementptr inbounds nuw i8, ptr %102, i64 4
   store i16 -1, ptr %110, align 2
-  %111 = getelementptr inbounds i8, ptr %102, i64 6
+  %111 = getelementptr inbounds nuw i8, ptr %102, i64 6
   store i16 -1, ptr %111, align 2
-  %112 = getelementptr inbounds i8, ptr %102, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %102, i64 8
   store i16 0, ptr %112, align 2
-  %113 = getelementptr inbounds i8, ptr %102, i64 12
+  %113 = getelementptr inbounds nuw i8, ptr %102, i64 12
   store i32 0, ptr %113, align 4
   %.sroa.0.0.copyload.i35.i = load i16, ptr %96, align 1
   %.sroa.2.0..sroa_idx.i36.i = getelementptr i8, ptr %95, i64 16
@@ -1209,20 +1209,20 @@ FilterByOrigin.exit.thread.i:                     ; preds = %FilterByOrigin.exit
   %115 = getelementptr i8, ptr %114, i64 23
   %116 = getelementptr i8, ptr %95, i64 19
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %115, ptr readonly align 1 %116, i64 %105, i1 false)
-  %117 = getelementptr inbounds i8, ptr %109, i64 20
+  %117 = getelementptr inbounds nuw i8, ptr %109, i64 20
   store i16 %.sroa.2.0.copyload.i37.i, ptr %117, align 4
-  %118 = getelementptr inbounds i8, ptr %109, i64 18
+  %118 = getelementptr inbounds nuw i8, ptr %109, i64 18
   store i16 %.sroa.0.0.copyload.i35.i, ptr %118, align 2
-  %119 = getelementptr inbounds i8, ptr %109, i64 22
+  %119 = getelementptr inbounds nuw i8, ptr %109, i64 22
   store i8 %.sroa.3.0.copyload.i39.i, ptr %119, align 2
   br label %120
 
 120:                                              ; preds = %92, %89
-  %121 = getelementptr inbounds i8, ptr %55, i64 44
+  %121 = getelementptr inbounds nuw i8, ptr %55, i64 44
   store i8 1, ptr %121, align 4
   %122 = load ptr, ptr %15, align 8
   %123 = load ptr, ptr %36, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 44
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 44
   %125 = load i32, ptr %124, align 4
   %126 = load i64, ptr %1, align 8
   call void @ReorderBufferQueueChange(ptr noundef %122, i32 noundef %125, i64 noundef %126, ptr noundef nonnull %55, i1 noundef zeroext false) #7
@@ -1283,13 +1283,13 @@ default.unreachable:                              ; preds = %24
 define internal fastcc void @DecodeInsert(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca %struct.RelFileLocator, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 104
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 2
   %12 = load i8, ptr %11, align 2
   %13 = and i8 %12, 8
   %.not = icmp eq i8 %13, 0
@@ -1297,51 +1297,51 @@ define internal fastcc void @DecodeInsert(ptr noundef %0, ptr nocapture noundef 
 
 14:                                               ; preds = %2
   call void @XLogRecGetBlockTag(ptr noundef nonnull %6, i8 noundef zeroext 0, ptr noundef nonnull %4, ptr noundef null, ptr noundef null) #7
-  %15 = getelementptr inbounds i8, ptr %4, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 88
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 88
   %20 = load i32, ptr %19, align 8
   %.not25 = icmp eq i32 %16, %20
   br i1 %.not25, label %21, label %73
 
 21:                                               ; preds = %14
-  %22 = getelementptr inbounds i8, ptr %0, i64 96
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %FilterByOrigin.exit.thread, label %FilterByOrigin.exit
 
 FilterByOrigin.exit:                              ; preds = %21
   %25 = load ptr, ptr %7, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 64
   %27 = load i16, ptr %26, align 8
   %28 = call zeroext i1 @filter_by_origin_cb_wrapper(ptr noundef nonnull %0, i16 noundef zeroext %27) #7
   br i1 %28, label %73, label %FilterByOrigin.exit.thread
 
 FilterByOrigin.exit.thread:                       ; preds = %21, %FilterByOrigin.exit
-  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %30 = load ptr, ptr %29, align 8
   %31 = call ptr @ReorderBufferGetChange(ptr noundef %30) #7
   %32 = load i8, ptr %11, align 2
   %33 = shl i8 %32, 1
   %34 = and i8 %33, 8
   %spec.select = zext nneg i8 %34 to i32
-  %35 = getelementptr inbounds i8, ptr %31, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i32 %spec.select, ptr %35, align 8
   %36 = load ptr, ptr %7, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 64
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 64
   %38 = load i16, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %31, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %31, i64 24
   store i16 %38, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %31, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %31, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %40, ptr noundef nonnull align 4 dereferenceable(12) %4, i64 12, i1 false)
   %41 = call ptr @XLogRecGetBlockData(ptr noundef nonnull %6, i8 noundef zeroext 0, ptr noundef nonnull %3) #7
   %42 = load i64, ptr %3, align 8
   %43 = add i64 %42, -5
   %44 = load ptr, ptr %29, align 8
   %45 = call ptr @ReorderBufferGetTupleBuf(ptr noundef %44, i64 noundef %43) #7
-  %46 = getelementptr inbounds i8, ptr %31, i64 56
+  %46 = getelementptr inbounds nuw i8, ptr %31, i64 56
   store ptr %45, ptr %46, align 8
   %47 = load i64, ptr %3, align 8
   %48 = shl i64 %47, 32
@@ -1350,37 +1350,37 @@ FilterByOrigin.exit.thread:                       ; preds = %21, %FilterByOrigin
   %50 = trunc nsw i64 %49 to i32
   %51 = add i32 %50, 23
   store i32 %51, ptr %45, align 8
-  %52 = getelementptr inbounds i8, ptr %45, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %45, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %45, i64 4
   store i16 -1, ptr %54, align 2
-  %55 = getelementptr inbounds i8, ptr %45, i64 6
+  %55 = getelementptr inbounds nuw i8, ptr %45, i64 6
   store i16 -1, ptr %55, align 2
-  %56 = getelementptr inbounds i8, ptr %45, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i16 0, ptr %56, align 2
-  %57 = getelementptr inbounds i8, ptr %45, i64 12
+  %57 = getelementptr inbounds nuw i8, ptr %45, i64 12
   store i32 0, ptr %57, align 4
   %.sroa.0.0.copyload.i = load i16, ptr %41, align 1
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %41, i64 2
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %41, i64 2
   %.sroa.2.0.copyload.i = load i16, ptr %.sroa.2.0..sroa_idx.i, align 1
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %41, i64 4
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %41, i64 4
   %.sroa.3.0.copyload.i = load i8, ptr %.sroa.3.0..sroa_idx.i, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(23) %53, i8 0, i64 23, i1 false)
   %58 = load ptr, ptr %52, align 8
   %59 = getelementptr i8, ptr %58, i64 23
   %60 = getelementptr i8, ptr %41, i64 5
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %59, ptr readonly align 1 %60, i64 %49, i1 false)
-  %61 = getelementptr inbounds i8, ptr %53, i64 20
+  %61 = getelementptr inbounds nuw i8, ptr %53, i64 20
   store i16 %.sroa.2.0.copyload.i, ptr %61, align 4
-  %62 = getelementptr inbounds i8, ptr %53, i64 18
+  %62 = getelementptr inbounds nuw i8, ptr %53, i64 18
   store i16 %.sroa.0.0.copyload.i, ptr %62, align 2
-  %63 = getelementptr inbounds i8, ptr %53, i64 22
+  %63 = getelementptr inbounds nuw i8, ptr %53, i64 22
   store i8 %.sroa.3.0.copyload.i, ptr %63, align 2
-  %64 = getelementptr inbounds i8, ptr %31, i64 44
+  %64 = getelementptr inbounds nuw i8, ptr %31, i64 44
   store i8 1, ptr %64, align 4
   %65 = load ptr, ptr %29, align 8
   %66 = load ptr, ptr %7, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 44
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 44
   %68 = load i32, ptr %67, align 4
   %69 = load i64, ptr %1, align 8
   %70 = load i8, ptr %11, align 2
@@ -1396,52 +1396,52 @@ FilterByOrigin.exit.thread:                       ; preds = %21, %FilterByOrigin
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @DecodeDelete(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = alloca %struct.RelFileLocator, align 4
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 104
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 104
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %9 = load ptr, ptr %8, align 8
   call void @XLogRecGetBlockTag(ptr noundef %5, i8 noundef zeroext 0, ptr noundef nonnull %3, ptr noundef null, ptr noundef null) #7
-  %10 = getelementptr inbounds i8, ptr %3, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 88
   %15 = load i32, ptr %14, align 8
   %.not = icmp eq i32 %11, %15
   br i1 %.not, label %16, label %71
 
 16:                                               ; preds = %2
-  %17 = getelementptr inbounds i8, ptr %0, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %FilterByOrigin.exit.thread, label %FilterByOrigin.exit
 
 FilterByOrigin.exit:                              ; preds = %16
   %20 = load ptr, ptr %6, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 64
   %22 = load i16, ptr %21, align 8
   %23 = call zeroext i1 @filter_by_origin_cb_wrapper(ptr noundef nonnull %0, i16 noundef zeroext %22) #7
   br i1 %23, label %71, label %FilterByOrigin.exit.thread
 
 FilterByOrigin.exit.thread:                       ; preds = %16, %FilterByOrigin.exit
-  %24 = getelementptr inbounds i8, ptr %0, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = load ptr, ptr %24, align 8
   %26 = call ptr @ReorderBufferGetChange(ptr noundef %25) #7
-  %27 = getelementptr inbounds i8, ptr %9, i64 7
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 7
   %28 = load i8, ptr %27, align 1
   %29 = and i8 %28, 8
   %.not26 = icmp eq i8 %29, 0
   %spec.select = select i1 %.not26, i32 2, i32 10
-  %30 = getelementptr inbounds i8, ptr %26, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i32 %spec.select, ptr %30, align 8
   %31 = load ptr, ptr %6, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 64
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 64
   %33 = load i16, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %26, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %26, i64 24
   store i16 %33, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %26, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %26, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %35, ptr noundef nonnull align 4 dereferenceable(12) %3, i64 12, i1 false)
   %36 = load i8, ptr %27, align 1
   %37 = and i8 %36, 6
@@ -1450,13 +1450,13 @@ FilterByOrigin.exit.thread:                       ; preds = %16, %FilterByOrigin
 
 38:                                               ; preds = %FilterByOrigin.exit.thread
   %39 = load ptr, ptr %6, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 80
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 80
   %41 = load i32, ptr %40, align 8
   %42 = zext i32 %41 to i64
   %43 = add nsw i64 %42, -13
   %44 = load ptr, ptr %24, align 8
   %45 = call ptr @ReorderBufferGetTupleBuf(ptr noundef %44, i64 noundef %43) #7
-  %46 = getelementptr inbounds i8, ptr %26, i64 48
+  %46 = getelementptr inbounds nuw i8, ptr %26, i64 48
   store ptr %45, ptr %46, align 8
   %47 = getelementptr i8, ptr %9, i64 8
   %48 = shl nuw i64 %42, 32
@@ -1465,15 +1465,15 @@ FilterByOrigin.exit.thread:                       ; preds = %16, %FilterByOrigin
   %50 = trunc nsw i64 %49 to i32
   %51 = add i32 %50, 23
   store i32 %51, ptr %45, align 8
-  %52 = getelementptr inbounds i8, ptr %45, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %45, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %45, i64 4
   store i16 -1, ptr %54, align 2
-  %55 = getelementptr inbounds i8, ptr %45, i64 6
+  %55 = getelementptr inbounds nuw i8, ptr %45, i64 6
   store i16 -1, ptr %55, align 2
-  %56 = getelementptr inbounds i8, ptr %45, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i16 0, ptr %56, align 2
-  %57 = getelementptr inbounds i8, ptr %45, i64 12
+  %57 = getelementptr inbounds nuw i8, ptr %45, i64 12
   store i32 0, ptr %57, align 4
   %.sroa.0.0.copyload.i = load i16, ptr %47, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr i8, ptr %9, i64 10
@@ -1485,20 +1485,20 @@ FilterByOrigin.exit.thread:                       ; preds = %16, %FilterByOrigin
   %59 = getelementptr i8, ptr %58, i64 23
   %60 = getelementptr i8, ptr %9, i64 13
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %59, ptr readonly align 1 %60, i64 %49, i1 false)
-  %61 = getelementptr inbounds i8, ptr %53, i64 20
+  %61 = getelementptr inbounds nuw i8, ptr %53, i64 20
   store i16 %.sroa.2.0.copyload.i, ptr %61, align 4
-  %62 = getelementptr inbounds i8, ptr %53, i64 18
+  %62 = getelementptr inbounds nuw i8, ptr %53, i64 18
   store i16 %.sroa.0.0.copyload.i, ptr %62, align 2
-  %63 = getelementptr inbounds i8, ptr %53, i64 22
+  %63 = getelementptr inbounds nuw i8, ptr %53, i64 22
   store i8 %.sroa.3.0.copyload.i, ptr %63, align 2
   br label %64
 
 64:                                               ; preds = %38, %FilterByOrigin.exit.thread
-  %65 = getelementptr inbounds i8, ptr %26, i64 44
+  %65 = getelementptr inbounds nuw i8, ptr %26, i64 44
   store i8 1, ptr %65, align 4
   %66 = load ptr, ptr %24, align 8
   %67 = load ptr, ptr %6, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 44
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 44
   %69 = load i32, ptr %68, align 4
   %70 = load i64, ptr %1, align 8
   call void @ReorderBufferQueueChange(ptr noundef %66, i32 noundef %69, i64 noundef %70, ptr noundef nonnull %26, i1 noundef zeroext false) #7
@@ -1510,51 +1510,51 @@ FilterByOrigin.exit.thread:                       ; preds = %16, %FilterByOrigin
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @DecodeTruncate(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 88
   %13 = load i32, ptr %12, align 8
   %.not = icmp eq i32 %9, %13
   br i1 %.not, label %14, label %57
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %0, i64 96
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %FilterByOrigin.exit.thread, label %FilterByOrigin.exit
 
 FilterByOrigin.exit:                              ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %6, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %19 = load i16, ptr %18, align 8
   %20 = tail call zeroext i1 @filter_by_origin_cb_wrapper(ptr noundef nonnull %0, i16 noundef zeroext %19) #7
   br i1 %20, label %57, label %FilterByOrigin.exit.thread
 
 FilterByOrigin.exit.thread:                       ; preds = %14, %FilterByOrigin.exit
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = tail call ptr @ReorderBufferGetChange(ptr noundef %22) #7
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i32 11, ptr %24, align 8
   %25 = load ptr, ptr %5, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 64
   %27 = load i16, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %23, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 24
   store i16 %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %8, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %30 = load i8, ptr %29, align 4
   %31 = and i8 %30, 1
   %.not26 = icmp eq i8 %31, 0
   br i1 %.not26, label %34, label %32
 
 32:                                               ; preds = %FilterByOrigin.exit.thread
-  %33 = getelementptr inbounds i8, ptr %23, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %23, i64 40
   store i8 1, ptr %33, align 8
   %.pre = load i8, ptr %29, align 4
   br label %34
@@ -1566,29 +1566,29 @@ FilterByOrigin.exit.thread:                       ; preds = %14, %FilterByOrigin
   br i1 %.not27, label %39, label %37
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %23, i64 41
+  %38 = getelementptr inbounds nuw i8, ptr %23, i64 41
   store i8 1, ptr %38, align 1
   br label %39
 
 39:                                               ; preds = %37, %34
-  %40 = getelementptr inbounds i8, ptr %8, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %41 = load i32, ptr %40, align 4
   %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds i8, ptr %23, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %23, i64 32
   store i64 %42, ptr %43, align 8
   %44 = load ptr, ptr %21, align 8
   %45 = load i32, ptr %40, align 4
   %46 = tail call ptr @ReorderBufferGetRelids(ptr noundef %44, i32 noundef %45) #7
-  %47 = getelementptr inbounds i8, ptr %23, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %23, i64 48
   store ptr %46, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %8, i64 12
+  %48 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %49 = load i32, ptr %40, align 4
   %50 = zext i32 %49 to i64
   %51 = shl nuw nsw i64 %50, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %46, ptr nonnull align 4 %48, i64 %51, i1 false)
   %52 = load ptr, ptr %21, align 8
   %53 = load ptr, ptr %5, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 44
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 44
   %55 = load i32, ptr %54, align 4
   %56 = load i64, ptr %1, align 8
   tail call void @ReorderBufferQueueChange(ptr noundef %52, i32 noundef %55, i64 noundef %56, ptr noundef nonnull %23, i1 noundef zeroext false) #7
@@ -1601,50 +1601,50 @@ FilterByOrigin.exit.thread:                       ; preds = %14, %FilterByOrigin
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @DecodeSpecConfirm(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = alloca %struct.RelFileLocator, align 4
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   call void @XLogRecGetBlockTag(ptr noundef %5, i8 noundef zeroext 0, ptr noundef nonnull %3, ptr noundef null, ptr noundef null) #7
-  %6 = getelementptr inbounds i8, ptr %3, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 88
   %11 = load i32, ptr %10, align 8
   %.not = icmp eq i32 %7, %11
   br i1 %.not, label %12, label %36
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %5, i64 104
-  %14 = getelementptr inbounds i8, ptr %0, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 104
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %FilterByOrigin.exit.thread, label %FilterByOrigin.exit
 
 FilterByOrigin.exit:                              ; preds = %12
   %17 = load ptr, ptr %13, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 64
   %19 = load i16, ptr %18, align 8
   %20 = call zeroext i1 @filter_by_origin_cb_wrapper(ptr noundef nonnull %0, i16 noundef zeroext %19) #7
   br i1 %20, label %36, label %FilterByOrigin.exit.thread
 
 FilterByOrigin.exit.thread:                       ; preds = %12, %FilterByOrigin.exit
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = call ptr @ReorderBufferGetChange(ptr noundef %22) #7
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i32 9, ptr %24, align 8
   %25 = load ptr, ptr %13, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 64
   %27 = load i16, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %23, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 24
   store i16 %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %23, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %29, ptr noundef nonnull align 4 dereferenceable(12) %3, i64 12, i1 false)
-  %30 = getelementptr inbounds i8, ptr %23, i64 44
+  %30 = getelementptr inbounds nuw i8, ptr %23, i64 44
   store i8 1, ptr %30, align 4
   %31 = load ptr, ptr %21, align 8
   %32 = load ptr, ptr %13, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 44
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 44
   %34 = load i32, ptr %33, align 4
   %35 = load i64, ptr %1, align 8
   call void @ReorderBufferQueueChange(ptr noundef %31, i32 noundef %34, i64 noundef %35, ptr noundef %23, i1 noundef zeroext false) #7
@@ -1656,18 +1656,18 @@ FilterByOrigin.exit.thread:                       ; preds = %12, %FilterByOrigin
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @logicalmsg_decode(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 104
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 44
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 44
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %8, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %12 = load i8, ptr %11, align 8
   %13 = and i8 %12, -16
-  %14 = getelementptr inbounds i8, ptr %8, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %15 = load i16, ptr %14, align 8
   %.not = icmp eq i8 %13, 0
   br i1 %.not, label %20, label %16
@@ -1681,7 +1681,7 @@ define dso_local void @logicalmsg_decode(ptr noundef %0, ptr nocapture noundef r
   unreachable
 
 20:                                               ; preds = %2
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = load i64, ptr %1, align 8
   tail call void @ReorderBufferProcessXid(ptr noundef %22, i32 noundef %10, i64 noundef %23) #7
@@ -1691,18 +1691,18 @@ define dso_local void @logicalmsg_decode(ptr noundef %0, ptr nocapture noundef r
 
 26:                                               ; preds = %20
   %27 = load ptr, ptr %7, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 72
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 72
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 88
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 88
   %34 = load i32, ptr %33, align 8
   %.not38 = icmp eq i32 %30, %34
   br i1 %.not38, label %35, label %76
 
 35:                                               ; preds = %26
-  %36 = getelementptr inbounds i8, ptr %0, i64 96
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
   br i1 %38, label %FilterByOrigin.exit.thread, label %FilterByOrigin.exit
@@ -1712,7 +1712,7 @@ FilterByOrigin.exit:                              ; preds = %35
   br i1 %39, label %76, label %FilterByOrigin.exit.thread
 
 FilterByOrigin.exit.thread:                       ; preds = %35, %FilterByOrigin.exit
-  %40 = getelementptr inbounds i8, ptr %29, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %41 = load i8, ptr %40, align 4
   %42 = trunc i8 %41 to i1
   br i1 %42, label %43, label %46
@@ -1742,7 +1742,7 @@ FilterByOrigin.exit.thread:                       ; preds = %35, %FilterByOrigin
   br i1 %53, label %76, label %54
 
 54:                                               ; preds = %46, %51
-  %55 = getelementptr inbounds i8, ptr %0, i64 40
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %56 = load i8, ptr %55, align 8
   %57 = trunc i8 %56 to i1
   %58 = load i8, ptr %40, align 4
@@ -1753,7 +1753,7 @@ FilterByOrigin.exit.thread:                       ; preds = %35, %FilterByOrigin
   br i1 %59, label %76, label %61
 
 61:                                               ; preds = %60
-  %62 = getelementptr inbounds i8, ptr %0, i64 301
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 301
   store i8 1, ptr %62, align 1
   br label %76
 
@@ -1770,12 +1770,12 @@ FilterByOrigin.exit.thread:                       ; preds = %35, %FilterByOrigin
   %.pre-phi = phi i1 [ %.pre42, %64 ], [ true, %63 ]
   %.0 = phi ptr [ %65, %64 ], [ null, %63 ]
   %67 = load ptr, ptr %21, align 8
-  %68 = getelementptr inbounds i8, ptr %1, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %69 = load i64, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %29, i64 24
-  %71 = getelementptr inbounds i8, ptr %29, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %29, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %72 = load i64, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %29, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %74 = load i64, ptr %73, align 8
   %75 = getelementptr i8, ptr %70, i64 %74
   tail call void @ReorderBufferQueueMessage(ptr noundef %67, i32 noundef %10, ptr noundef %.0, i64 noundef %69, i1 noundef zeroext %.pre-phi, ptr noundef nonnull %70, i64 noundef %72, ptr noundef %75) #7

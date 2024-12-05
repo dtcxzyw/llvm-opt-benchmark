@@ -34,14 +34,14 @@ for.cond67.preheader:                             ; preds = %for.inc64
 for.body:                                         ; preds = %entry, %for.inc64
   %indvars.iv333 = phi i64 [ 0, %entry ], [ %indvars.iv.next334, %for.inc64 ]
   %num_failed.0322 = phi i32 [ 0, %entry ], [ %add44, %for.inc64 ]
-  %arrayidx = getelementptr inbounds [10 x i32], ptr @test_values, i64 0, i64 %indvars.iv333
+  %arrayidx = getelementptr inbounds nuw [10 x i32], ptr @test_values, i64 0, i64 %indvars.iv333
   %3 = load i32, ptr %arrayidx, align 4
   br label %for.body10
 
 for.body10:                                       ; preds = %for.body, %if.else.i187
   %indvars.iv = phi i64 [ 0, %for.body ], [ %indvars.iv.next, %if.else.i187 ]
   %num_failed.1319 = phi i32 [ %num_failed.0322, %for.body ], [ %add44, %if.else.i187 ]
-  %arrayidx12 = getelementptr inbounds [10 x i32], ptr @test_values, i64 0, i64 %indvars.iv
+  %arrayidx12 = getelementptr inbounds nuw [10 x i32], ptr @test_values, i64 0, i64 %indvars.iv
   %4 = load i32, ptr %arrayidx12, align 4
   %cmp13 = icmp ult i32 %3, %4
   %xor.i = xor i32 %4, %3

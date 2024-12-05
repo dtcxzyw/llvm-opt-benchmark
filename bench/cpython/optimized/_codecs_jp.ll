@@ -87,10 +87,10 @@ declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #1
 define internal void @_cjk_free(ptr noundef %mod) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %mod) #9
-  %mapping_list = getelementptr inbounds i8, ptr %call.i, i64 8
+  %mapping_list = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   %0 = load ptr, ptr %mapping_list, align 8
   tail call void @PyMem_Free(ptr noundef %0) #9
-  %codec_list = getelementptr inbounds i8, ptr %call.i, i64 16
+  %codec_list = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   %1 = load ptr, ptr %codec_list, align 8
   tail call void @PyMem_Free(ptr noundef %1) #9
   ret void
@@ -119,13 +119,13 @@ if.end:                                           ; preds = %entry
 
 if.end4:                                          ; preds = %if.end
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %self) #9
-  %num_codecs = getelementptr inbounds i8, ptr %call.i, i64 4
+  %num_codecs = getelementptr inbounds nuw i8, ptr %call.i, i64 4
   %4 = load i32, ptr %num_codecs, align 4
   %cmp68 = icmp sgt i32 %4, 0
   br i1 %cmp68, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end4
-  %codec_list = getelementptr inbounds i8, ptr %call.i, i64 16
+  %codec_list = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   %5 = load ptr, ptr %codec_list, align 8
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %for.body
@@ -178,7 +178,7 @@ if.end.i31.i:                                     ; preds = %if.then3.i
   br i1 %cmp.i33.i, label %return.sink.split.i, label %return
 
 if.end4.i:                                        ; preds = %if.end.i.i.i.i, %if.end.i19.i
-  %cjk_module.i.i = getelementptr inbounds i8, ptr %call.i17.i, i64 8
+  %cjk_module.i.i = getelementptr inbounds nuw i8, ptr %call.i17.i, i64 8
   store ptr %self, ptr %cjk_module.i.i, align 8
   %call5.i = tail call ptr @PyCapsule_New(ptr noundef nonnull %call.i17.i, ptr noundef nonnull @.str.5, ptr noundef nonnull @destroy_codec_capsule) #9
   %cmp6.i = icmp eq ptr %call5.i, null
@@ -256,7 +256,7 @@ declare ptr @PyCapsule_New(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 define internal void @destroy_codec_capsule(ptr noundef %capsule) #0 {
 entry:
   %call = tail call ptr @PyCapsule_GetPointer(ptr noundef %capsule, ptr noundef nonnull @.str.5) #9
-  %cjk_module = getelementptr inbounds i8, ptr %call, i64 8
+  %cjk_module = getelementptr inbounds nuw i8, ptr %call, i64 8
   %0 = load ptr, ptr %cjk_module, align 8
   %1 = load i64, ptr %0, align 8
   %2 = and i64 %1, 2147483648
@@ -300,16 +300,16 @@ entry:
   %call.i.i = tail call ptr @PyModule_GetState(ptr noundef %module) #9
   store i32 11, ptr %call.i.i, align 8
   %call.i8.i = tail call ptr @PyMem_Calloc(i64 noundef 11, i64 noundef 24) #9
-  %mapping_list.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  %mapping_list.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   store ptr %call.i8.i, ptr %mapping_list.i.i, align 8
   %cmp.i.i = icmp eq ptr %call.i8.i, null
   br i1 %cmp.i.i, label %register_maps.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   store ptr @.str.9, ptr %call.i8.i, align 8
-  %.compoundliteral.sroa.2.0.arrayidx.sroa_idx.i.i = getelementptr inbounds i8, ptr %call.i8.i, i64 8
+  %.compoundliteral.sroa.2.0.arrayidx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %call.i8.i, i64 8
   store ptr null, ptr %.compoundliteral.sroa.2.0.arrayidx.sroa_idx.i.i, align 8
-  %.compoundliteral.sroa.3.0.arrayidx.sroa_idx.i.i = getelementptr inbounds i8, ptr %call.i8.i, i64 16
+  %.compoundliteral.sroa.3.0.arrayidx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %call.i8.i, i64 16
   store ptr @jisx0208_decmap, ptr %.compoundliteral.sroa.3.0.arrayidx.sroa_idx.i.i, align 8
   %0 = load ptr, ptr %mapping_list.i.i, align 8
   %arrayidx6.i.i = getelementptr i8, ptr %0, i64 24
@@ -381,25 +381,25 @@ if.end.i:                                         ; preds = %entry
   store ptr @cp932ext_encmap, ptr %.compoundliteral79.sroa.2.0.arrayidx78.sroa_idx.i.i, align 8
   %.compoundliteral79.sroa.3.0.arrayidx78.sroa_idx.i.i = getelementptr i8, ptr %9, i64 256
   store ptr @cp932ext_decmap, ptr %.compoundliteral79.sroa.3.0.arrayidx78.sroa_idx.i.i, align 8
-  %num_codecs.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 4
+  %num_codecs.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 4
   store i32 7, ptr %num_codecs.i.i, align 4
   %call.i9.i = tail call ptr @PyMem_Calloc(i64 noundef 7, i64 noundef 80) #9
-  %codec_list.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
+  %codec_list.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 16
   store ptr %call.i9.i, ptr %codec_list.i.i, align 8
   %cmp.i10.i = icmp eq ptr %call.i9.i, null
   br i1 %cmp.i10.i, label %register_maps.exit, label %if.end.i11.i
 
 if.end.i11.i:                                     ; preds = %if.end.i
   store ptr @.str.28, ptr %call.i9.i, align 8
-  %.compoundliteral.sroa.2.0.arrayidx.sroa_idx.i12.i = getelementptr inbounds i8, ptr %call.i9.i, i64 8
-  %.compoundliteral.sroa.4.0.arrayidx.sroa_idx.i.i = getelementptr inbounds i8, ptr %call.i9.i, i64 24
+  %.compoundliteral.sroa.2.0.arrayidx.sroa_idx.i12.i = getelementptr inbounds nuw i8, ptr %call.i9.i, i64 8
+  %.compoundliteral.sroa.4.0.arrayidx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %call.i9.i, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.compoundliteral.sroa.2.0.arrayidx.sroa_idx.i12.i, i8 0, i64 16, i1 false)
   store ptr @shift_jis_encode, ptr %.compoundliteral.sroa.4.0.arrayidx.sroa_idx.i.i, align 8
-  %.compoundliteral.sroa.5.0.arrayidx.sroa_idx.i.i = getelementptr inbounds i8, ptr %call.i9.i, i64 32
-  %.compoundliteral.sroa.7.0.arrayidx.sroa_idx.i.i = getelementptr inbounds i8, ptr %call.i9.i, i64 48
+  %.compoundliteral.sroa.5.0.arrayidx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %call.i9.i, i64 32
+  %.compoundliteral.sroa.7.0.arrayidx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %call.i9.i, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.compoundliteral.sroa.5.0.arrayidx.sroa_idx.i.i, i8 0, i64 16, i1 false)
   store ptr @shift_jis_decode, ptr %.compoundliteral.sroa.7.0.arrayidx.sroa_idx.i.i, align 8
-  %.compoundliteral.sroa.8.0.arrayidx.sroa_idx.i.i = getelementptr inbounds i8, ptr %call.i9.i, i64 56
+  %.compoundliteral.sroa.8.0.arrayidx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %call.i9.i, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.compoundliteral.sroa.8.0.arrayidx.sroa_idx.i.i, i8 0, i64 24, i1 false)
   %10 = load ptr, ptr %codec_list.i.i, align 8
   %arrayidx6.i13.i = getelementptr i8, ptr %10, i64 80
@@ -504,12 +504,12 @@ add_codecs.exit.i:                                ; preds = %for.body.i.i, %if.e
   br i1 %cmp620.i, label %for.body.lr.ph.i, label %register_maps.exit
 
 for.body.lr.ph.i:                                 ; preds = %add_codecs.exit.i
-  %21 = getelementptr inbounds i8, ptr %mhname.i, i64 1
-  %22 = getelementptr inbounds i8, ptr %mhname.i, i64 2
-  %23 = getelementptr inbounds i8, ptr %mhname.i, i64 3
-  %24 = getelementptr inbounds i8, ptr %mhname.i, i64 4
-  %25 = getelementptr inbounds i8, ptr %mhname.i, i64 5
-  %add.ptr7.i = getelementptr inbounds i8, ptr %mhname.i, i64 6
+  %21 = getelementptr inbounds nuw i8, ptr %mhname.i, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %mhname.i, i64 2
+  %23 = getelementptr inbounds nuw i8, ptr %mhname.i, i64 3
+  %24 = getelementptr inbounds nuw i8, ptr %mhname.i, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %mhname.i, i64 5
+  %add.ptr7.i = getelementptr inbounds nuw i8, ptr %mhname.i, i64 6
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
@@ -655,14 +655,14 @@ if.then60:                                        ; preds = %do.body51
 
 land.lhs.true64:                                  ; preds = %if.then60
   %and = and i32 %retval.0.i, 255
-  %bottom = getelementptr inbounds i8, ptr %arrayidx61, i64 8
+  %bottom = getelementptr inbounds nuw i8, ptr %arrayidx61, i64 8
   %12 = load i8, ptr %bottom, align 8
   %conv68 = zext i8 %12 to i32
   %cmp69.not = icmp samesign ult i32 %and, %conv68
   br i1 %cmp69.not, label %if.else97, label %land.lhs.true71
 
 land.lhs.true71:                                  ; preds = %land.lhs.true64
-  %top = getelementptr inbounds i8, ptr %arrayidx61, i64 9
+  %top = getelementptr inbounds nuw i8, ptr %arrayidx61, i64 9
   %13 = load i8, ptr %top, align 1
   %conv76 = zext i8 %13 to i32
   %cmp77.not = icmp samesign ugt i32 %and, %conv76
@@ -823,14 +823,14 @@ if.end119:                                        ; preds = %if.end61
   br i1 %cmp121.not, label %return, label %land.lhs.true123
 
 land.lhs.true123:                                 ; preds = %if.end119
-  %bottom = getelementptr inbounds i8, ptr %arrayidx120, i64 8
+  %bottom = getelementptr inbounds nuw i8, ptr %arrayidx120, i64 8
   %7 = load i8, ptr %bottom, align 8
   %conv127 = zext i8 %7 to i64
   %cmp128.not = icmp ult i8 %add99, %7
   br i1 %cmp128.not, label %return, label %land.lhs.true130
 
 land.lhs.true130:                                 ; preds = %land.lhs.true123
-  %top = getelementptr inbounds i8, ptr %arrayidx120, i64 9
+  %top = getelementptr inbounds nuw i8, ptr %arrayidx120, i64 9
   %8 = load i8, ptr %top, align 1
   %cmp135.not = icmp ugt i8 %add99, %8
   br i1 %cmp135.not, label %return, label %land.lhs.true137
@@ -966,14 +966,14 @@ do.end89:                                         ; preds = %do.body84
 
 land.lhs.true93:                                  ; preds = %do.end89
   %and = and i32 %retval.0.i, 255
-  %bottom = getelementptr inbounds i8, ptr %arrayidx90, i64 8
+  %bottom = getelementptr inbounds nuw i8, ptr %arrayidx90, i64 8
   %16 = load i8, ptr %bottom, align 8
   %conv97 = zext i8 %16 to i32
   %cmp98.not = icmp samesign ult i32 %and, %conv97
   br i1 %cmp98.not, label %if.else138, label %land.lhs.true100
 
 land.lhs.true100:                                 ; preds = %land.lhs.true93
-  %top = getelementptr inbounds i8, ptr %arrayidx90, i64 9
+  %top = getelementptr inbounds nuw i8, ptr %arrayidx90, i64 9
   %17 = load i8, ptr %top, align 1
   %conv105 = zext i8 %17 to i32
   %cmp106.not = icmp samesign ugt i32 %and, %conv105
@@ -1003,14 +1003,14 @@ if.else138:                                       ; preds = %land.lhs.true108, %
 
 land.lhs.true145:                                 ; preds = %if.else138
   %and146 = and i32 %retval.0.i, 255
-  %bottom150 = getelementptr inbounds i8, ptr %arrayidx141, i64 8
+  %bottom150 = getelementptr inbounds nuw i8, ptr %arrayidx141, i64 8
   %21 = load i8, ptr %bottom150, align 8
   %conv151 = zext i8 %21 to i32
   %cmp152.not = icmp samesign ult i32 %and146, %conv151
   br i1 %cmp152.not, label %if.else230, label %land.lhs.true154
 
 land.lhs.true154:                                 ; preds = %land.lhs.true145
-  %top159 = getelementptr inbounds i8, ptr %arrayidx141, i64 9
+  %top159 = getelementptr inbounds nuw i8, ptr %arrayidx141, i64 9
   %22 = load i8, ptr %top159, align 1
   %conv160 = zext i8 %22 to i32
   %cmp161.not = icmp samesign ugt i32 %and146, %conv160
@@ -1162,14 +1162,14 @@ do.end67:                                         ; preds = %do.body62
 
 land.lhs.true72:                                  ; preds = %do.end67
   %conv73 = zext i8 %4 to i64
-  %bottom = getelementptr inbounds i8, ptr %arrayidx69, i64 8
+  %bottom = getelementptr inbounds nuw i8, ptr %arrayidx69, i64 8
   %6 = load i8, ptr %bottom, align 8
   %conv76 = zext i8 %6 to i64
   %cmp77.not = icmp ult i8 %4, %6
   br i1 %cmp77.not, label %if.else109, label %land.lhs.true79
 
 land.lhs.true79:                                  ; preds = %land.lhs.true72
-  %top = getelementptr inbounds i8, ptr %arrayidx69, i64 9
+  %top = getelementptr inbounds nuw i8, ptr %arrayidx69, i64 9
   %7 = load i8, ptr %top, align 1
   %cmp84.not = icmp ugt i8 %4, %7
   br i1 %cmp84.not, label %if.else109, label %land.lhs.true86
@@ -1229,14 +1229,14 @@ land.lhs.true187:                                 ; preds = %if.end141
   %cond179 = select i1 %cmp164, i8 %sub177, i8 %cond160
   %add180 = add i8 %cond179, 33
   %conv188 = zext i8 %add180 to i64
-  %bottom191 = getelementptr inbounds i8, ptr %arrayidx183, i64 8
+  %bottom191 = getelementptr inbounds nuw i8, ptr %arrayidx183, i64 8
   %11 = load i8, ptr %bottom191, align 8
   %conv192 = zext i8 %11 to i64
   %cmp193.not = icmp ult i8 %add180, %11
   br i1 %cmp193.not, label %return, label %land.lhs.true195
 
 land.lhs.true195:                                 ; preds = %land.lhs.true187
-  %top199 = getelementptr inbounds i8, ptr %arrayidx183, i64 9
+  %top199 = getelementptr inbounds nuw i8, ptr %arrayidx183, i64 9
   %12 = load i8, ptr %top199, align 1
   %cmp201.not = icmp ugt i8 %add180, %12
   br i1 %cmp201.not, label %return, label %land.lhs.true203
@@ -1358,14 +1358,14 @@ if.end18:                                         ; preds = %if.end14
 
 land.lhs.true:                                    ; preds = %if.end18
   %and = and i32 %retval.0.i, 255
-  %bottom = getelementptr inbounds i8, ptr %arrayidx19, i64 8
+  %bottom = getelementptr inbounds nuw i8, ptr %arrayidx19, i64 8
   %10 = load i8, ptr %bottom, align 8
   %conv25 = zext i8 %10 to i32
   %cmp26.not = icmp samesign ult i32 %and, %conv25
   br i1 %cmp26.not, label %if.else, label %land.lhs.true28
 
 land.lhs.true28:                                  ; preds = %land.lhs.true
-  %top = getelementptr inbounds i8, ptr %arrayidx19, i64 9
+  %top = getelementptr inbounds nuw i8, ptr %arrayidx19, i64 9
   %11 = load i8, ptr %top, align 1
   %conv33 = zext i8 %11 to i32
   %cmp34.not = icmp samesign ugt i32 %and, %conv33
@@ -1546,14 +1546,14 @@ land.lhs.true59:                                  ; preds = %do.end52
   %8 = load i8, ptr %arrayidx54, align 1
   %9 = xor i8 %8, -128
   %xor61 = zext i8 %9 to i64
-  %bottom = getelementptr inbounds i8, ptr %arrayidx56, i64 8
+  %bottom = getelementptr inbounds nuw i8, ptr %arrayidx56, i64 8
   %10 = load i8, ptr %bottom, align 8
   %conv66 = zext i8 %10 to i64
   %cmp67.not = icmp ult i8 %9, %10
   br i1 %cmp67.not, label %return, label %land.lhs.true69
 
 land.lhs.true69:                                  ; preds = %land.lhs.true59
-  %top = getelementptr inbounds i8, ptr %arrayidx56, i64 9
+  %top = getelementptr inbounds nuw i8, ptr %arrayidx56, i64 9
   %11 = load i8, ptr %top, align 1
   %cmp77.not = icmp ugt i8 %9, %11
   br i1 %cmp77.not, label %return, label %land.lhs.true79
@@ -1599,14 +1599,14 @@ if.else137:                                       ; preds = %do.end120
 land.lhs.true145:                                 ; preds = %if.else137
   %15 = xor i8 %13, -128
   %xor147 = zext i8 %15 to i64
-  %bottom152 = getelementptr inbounds i8, ptr %arrayidx141, i64 8
+  %bottom152 = getelementptr inbounds nuw i8, ptr %arrayidx141, i64 8
   %16 = load i8, ptr %bottom152, align 8
   %conv153 = zext i8 %16 to i64
   %cmp154.not = icmp ult i8 %15, %16
   br i1 %cmp154.not, label %return, label %land.lhs.true156
 
 land.lhs.true156:                                 ; preds = %land.lhs.true145
-  %top163 = getelementptr inbounds i8, ptr %arrayidx141, i64 9
+  %top163 = getelementptr inbounds nuw i8, ptr %arrayidx141, i64 9
   %17 = load i8, ptr %top163, align 1
   %cmp165.not = icmp ugt i8 %15, %17
   br i1 %cmp165.not, label %return, label %land.lhs.true167
@@ -1638,7 +1638,7 @@ entry:
 
 while.body.lr.ph:                                 ; preds = %entry
   %and150 = and i32 %flags, 1
-  %config240 = getelementptr inbounds i8, ptr %codec, i64 8
+  %config240 = getelementptr inbounds nuw i8, ptr %codec, i64 8
   %tobool.not = icmp eq i32 %and150, 0
   br label %while.body
 
@@ -1785,14 +1785,14 @@ if.else105:                                       ; preds = %if.then63, %if.else
 
 land.lhs.true109:                                 ; preds = %if.else105
   %and = and i32 %retval.0.i.fr, 255
-  %bottom = getelementptr inbounds i8, ptr %arrayidx106, i64 8
+  %bottom = getelementptr inbounds nuw i8, ptr %arrayidx106, i64 8
   %14 = load i8, ptr %bottom, align 8
   %conv113 = zext i8 %14 to i32
   %cmp114.not = icmp samesign ult i32 %and, %conv113
   br i1 %cmp114.not, label %if.else182, label %land.lhs.true116
 
 land.lhs.true116:                                 ; preds = %land.lhs.true109
-  %top = getelementptr inbounds i8, ptr %arrayidx106, i64 9
+  %top = getelementptr inbounds nuw i8, ptr %arrayidx106, i64 9
   %15 = load i8, ptr %top, align 1
   %conv121 = zext i8 %15 to i32
   %cmp122.not = icmp samesign ugt i32 %and, %conv121
@@ -1867,14 +1867,14 @@ if.else182:                                       ; preds = %land.lhs.true124, %
 
 land.lhs.true189:                                 ; preds = %if.else182
   %and190 = and i32 %retval.0.i.fr, 255
-  %bottom194 = getelementptr inbounds i8, ptr %arrayidx185, i64 8
+  %bottom194 = getelementptr inbounds nuw i8, ptr %arrayidx185, i64 8
   %21 = load i8, ptr %bottom194, align 8
   %conv195 = zext i8 %21 to i32
   %cmp196.not = icmp samesign ult i32 %and190, %conv195
   br i1 %cmp196.not, label %return, label %land.lhs.true198
 
 land.lhs.true198:                                 ; preds = %land.lhs.true189
-  %top203 = getelementptr inbounds i8, ptr %arrayidx185, i64 9
+  %top203 = getelementptr inbounds nuw i8, ptr %arrayidx185, i64 9
   %22 = load i8, ptr %top203, align 1
   %conv204 = zext i8 %22 to i32
   %cmp205.not = icmp samesign ugt i32 %and190, %conv204
@@ -1918,14 +1918,14 @@ if.else247:                                       ; preds = %if.then239
 
 land.lhs.true255:                                 ; preds = %if.else247
   %and257 = and i32 %retval.0.i.fr, 255
-  %bottom262 = getelementptr inbounds i8, ptr %arrayidx251, i64 8
+  %bottom262 = getelementptr inbounds nuw i8, ptr %arrayidx251, i64 8
   %26 = load i8, ptr %bottom262, align 8
   %conv263 = zext i8 %26 to i32
   %cmp264.not = icmp samesign ult i32 %and257, %conv263
   br i1 %cmp264.not, label %return, label %land.lhs.true266
 
 land.lhs.true266:                                 ; preds = %land.lhs.true255
-  %top273 = getelementptr inbounds i8, ptr %arrayidx251, i64 9
+  %top273 = getelementptr inbounds nuw i8, ptr %arrayidx251, i64 9
   %27 = load i8, ptr %top273, align 1
   %conv274 = zext i8 %27 to i32
   %cmp275.not = icmp samesign ugt i32 %and257, %conv274
@@ -2020,12 +2020,12 @@ entry:
   br i1 %cmp193, label %while.body.lr.ph, label %return
 
 while.body.lr.ph:                                 ; preds = %entry
-  %config482 = getelementptr inbounds i8, ptr %codec, i64 8
-  %maxchar = getelementptr inbounds i8, ptr %writer, i64 20
-  %size = getelementptr inbounds i8, ptr %writer, i64 24
-  %pos = getelementptr inbounds i8, ptr %writer, i64 32
-  %kind = getelementptr inbounds i8, ptr %writer, i64 16
-  %data = getelementptr inbounds i8, ptr %writer, i64 8
+  %config482 = getelementptr inbounds nuw i8, ptr %codec, i64 8
+  %maxchar = getelementptr inbounds nuw i8, ptr %writer, i64 20
+  %size = getelementptr inbounds nuw i8, ptr %writer, i64 24
+  %pos = getelementptr inbounds nuw i8, ptr %writer, i64 32
+  %kind = getelementptr inbounds nuw i8, ptr %writer, i64 16
+  %data = getelementptr inbounds nuw i8, ptr %writer, i64 8
   %.pre = load ptr, ptr %inbuf, align 8
   br label %while.body
 
@@ -2177,14 +2177,14 @@ if.else239:                                       ; preds = %lor.lhs.false198, %
 
 land.lhs.true243:                                 ; preds = %if.else239
   %conv244 = zext i8 %add147 to i64
-  %bottom = getelementptr inbounds i8, ptr %arrayidx240, i64 8
+  %bottom = getelementptr inbounds nuw i8, ptr %arrayidx240, i64 8
   %9 = load i8, ptr %bottom, align 8
   %conv247 = zext i8 %9 to i64
   %cmp248.not = icmp ult i8 %add147, %9
   br i1 %cmp248.not, label %if.else280, label %land.lhs.true250
 
 land.lhs.true250:                                 ; preds = %land.lhs.true243
-  %top = getelementptr inbounds i8, ptr %arrayidx240, i64 9
+  %top = getelementptr inbounds nuw i8, ptr %arrayidx240, i64 9
   %10 = load i8, ptr %top, align 1
   %cmp255.not = icmp ugt i8 %add147, %10
   br i1 %cmp255.not, label %if.else280, label %land.lhs.true257
@@ -2210,14 +2210,14 @@ if.else280:                                       ; preds = %land.lhs.true257, %
 
 land.lhs.true286:                                 ; preds = %if.else280
   %conv287 = zext i8 %add147 to i64
-  %bottom290 = getelementptr inbounds i8, ptr %arrayidx282, i64 8
+  %bottom290 = getelementptr inbounds nuw i8, ptr %arrayidx282, i64 8
   %13 = load i8, ptr %bottom290, align 8
   %conv291 = zext i8 %13 to i64
   %cmp292.not = icmp ult i8 %add147, %13
   br i1 %cmp292.not, label %if.else325, label %land.lhs.true294
 
 land.lhs.true294:                                 ; preds = %land.lhs.true286
-  %top298 = getelementptr inbounds i8, ptr %arrayidx282, i64 9
+  %top298 = getelementptr inbounds nuw i8, ptr %arrayidx282, i64 9
   %14 = load i8, ptr %top298, align 1
   %cmp300.not = icmp ugt i8 %add147, %14
   br i1 %cmp300.not, label %if.else325, label %land.lhs.true302
@@ -2243,14 +2243,14 @@ if.else325:                                       ; preds = %land.lhs.true302, %
 
 land.lhs.true331:                                 ; preds = %if.else325
   %conv332 = zext i8 %add147 to i64
-  %bottom335 = getelementptr inbounds i8, ptr %arrayidx327, i64 8
+  %bottom335 = getelementptr inbounds nuw i8, ptr %arrayidx327, i64 8
   %17 = load i8, ptr %bottom335, align 8
   %conv336 = zext i8 %17 to i64
   %cmp337.not = icmp ult i8 %add147, %17
   br i1 %cmp337.not, label %if.else370, label %land.lhs.true339
 
 land.lhs.true339:                                 ; preds = %land.lhs.true331
-  %top343 = getelementptr inbounds i8, ptr %arrayidx327, i64 9
+  %top343 = getelementptr inbounds nuw i8, ptr %arrayidx327, i64 9
   %18 = load i8, ptr %top343, align 1
   %cmp345.not = icmp ugt i8 %add147, %18
   br i1 %cmp345.not, label %if.else370, label %land.lhs.true347
@@ -2277,14 +2277,14 @@ if.else370:                                       ; preds = %land.lhs.true347, %
 
 land.lhs.true376:                                 ; preds = %if.else370
   %conv377 = zext i8 %add147 to i64
-  %bottom380 = getelementptr inbounds i8, ptr %arrayidx372, i64 8
+  %bottom380 = getelementptr inbounds nuw i8, ptr %arrayidx372, i64 8
   %21 = load i8, ptr %bottom380, align 8
   %conv381 = zext i8 %21 to i64
   %cmp382.not = icmp ult i8 %add147, %21
   br i1 %cmp382.not, label %return, label %land.lhs.true384
 
 land.lhs.true384:                                 ; preds = %land.lhs.true376
-  %top388 = getelementptr inbounds i8, ptr %arrayidx372, i64 9
+  %top388 = getelementptr inbounds nuw i8, ptr %arrayidx372, i64 9
   %22 = load i8, ptr %top388, align 1
   %cmp390.not = icmp ugt i8 %add147, %22
   br i1 %cmp390.not, label %return, label %land.lhs.true392
@@ -2409,14 +2409,14 @@ if.else501:                                       ; preds = %if.else456
   br i1 %cmp505.not, label %if.else546, label %land.lhs.true507
 
 land.lhs.true507:                                 ; preds = %if.else501
-  %bottom511 = getelementptr inbounds i8, ptr %arrayidx503, i64 8
+  %bottom511 = getelementptr inbounds nuw i8, ptr %arrayidx503, i64 8
   %37 = load i8, ptr %bottom511, align 8
   %conv512 = zext i8 %37 to i32
   %cmp513.not = icmp ult i8 %add147, %37
   br i1 %cmp513.not, label %if.else546, label %land.lhs.true515
 
 land.lhs.true515:                                 ; preds = %land.lhs.true507
-  %top519 = getelementptr inbounds i8, ptr %arrayidx503, i64 9
+  %top519 = getelementptr inbounds nuw i8, ptr %arrayidx503, i64 9
   %38 = load i8, ptr %top519, align 1
   %cmp521.not = icmp ugt i8 %add147, %38
   br i1 %cmp521.not, label %if.else546, label %land.lhs.true523
@@ -2442,14 +2442,14 @@ if.else546:                                       ; preds = %land.lhs.true523, %
   br i1 %cmp550.not, label %return, label %land.lhs.true552
 
 land.lhs.true552:                                 ; preds = %if.else546
-  %bottom556 = getelementptr inbounds i8, ptr %arrayidx548, i64 8
+  %bottom556 = getelementptr inbounds nuw i8, ptr %arrayidx548, i64 8
   %41 = load i8, ptr %bottom556, align 8
   %conv557 = zext i8 %41 to i32
   %cmp558.not = icmp ult i8 %add147, %41
   br i1 %cmp558.not, label %return, label %land.lhs.true560
 
 land.lhs.true560:                                 ; preds = %land.lhs.true552
-  %top564 = getelementptr inbounds i8, ptr %arrayidx548, i64 9
+  %top564 = getelementptr inbounds nuw i8, ptr %arrayidx548, i64 9
   %42 = load i8, ptr %top564, align 1
   %cmp566.not = icmp ugt i8 %add147, %42
   br i1 %cmp566.not, label %return, label %land.lhs.true568
@@ -2493,7 +2493,7 @@ entry:
 
 while.body.lr.ph:                                 ; preds = %entry
   %and101 = and i32 %flags, 1
-  %config229 = getelementptr inbounds i8, ptr %codec, i64 8
+  %config229 = getelementptr inbounds nuw i8, ptr %codec, i64 8
   %tobool.not = icmp eq i32 %and101, 0
   br label %while.body
 
@@ -2590,14 +2590,14 @@ if.else56:                                        ; preds = %if.then17, %if.else
 
 land.lhs.true60:                                  ; preds = %if.else56
   %and = and i32 %retval.0.i, 255
-  %bottom = getelementptr inbounds i8, ptr %arrayidx57, i64 8
+  %bottom = getelementptr inbounds nuw i8, ptr %arrayidx57, i64 8
   %11 = load i8, ptr %bottom, align 8
   %conv64 = zext i8 %11 to i32
   %cmp65.not = icmp samesign ult i32 %and, %conv64
   br i1 %cmp65.not, label %if.else133, label %land.lhs.true67
 
 land.lhs.true67:                                  ; preds = %land.lhs.true60
-  %top = getelementptr inbounds i8, ptr %arrayidx57, i64 9
+  %top = getelementptr inbounds nuw i8, ptr %arrayidx57, i64 9
   %12 = load i8, ptr %top, align 1
   %conv72 = zext i8 %12 to i32
   %cmp73.not = icmp samesign ugt i32 %and, %conv72
@@ -2662,7 +2662,7 @@ for.end.i:                                        ; preds = %for.inc.i, %if.else
   br i1 %cmp24.i, label %find_pairencmap.exit, label %return
 
 find_pairencmap.exit:                             ; preds = %for.end.i
-  %code.i = getelementptr inbounds i8, ptr %arrayidx22.i, i64 4
+  %code.i = getelementptr inbounds nuw i8, ptr %arrayidx22.i, i64 4
   %16 = load i16, ptr %code.i, align 4
   %cmp106 = icmp eq i16 %16, -3
   br i1 %cmp106, label %return, label %if.end292
@@ -2736,7 +2736,7 @@ for.end.i136:                                     ; preds = %for.inc.i130, %if.e
   br i1 %cmp24.i140, label %find_pairencmap.exit146, label %if.then121
 
 find_pairencmap.exit146:                          ; preds = %for.end.i136
-  %code.i143 = getelementptr inbounds i8, ptr %arrayidx22.i139, i64 4
+  %code.i143 = getelementptr inbounds nuw i8, ptr %arrayidx22.i139, i64 4
   %22 = load i16, ptr %code.i143, align 4
   %cmp119 = icmp eq i16 %22, -3
   br i1 %cmp119, label %if.then121, label %if.end292
@@ -2754,14 +2754,14 @@ if.else133:                                       ; preds = %land.lhs.true75, %l
 
 land.lhs.true140:                                 ; preds = %if.else133
   %and141 = and i32 %retval.0.i, 255
-  %bottom145 = getelementptr inbounds i8, ptr %arrayidx136, i64 8
+  %bottom145 = getelementptr inbounds nuw i8, ptr %arrayidx136, i64 8
   %24 = load i8, ptr %bottom145, align 8
   %conv146 = zext i8 %24 to i32
   %cmp147.not = icmp samesign ult i32 %and141, %conv146
   br i1 %cmp147.not, label %if.else176, label %land.lhs.true149
 
 land.lhs.true149:                                 ; preds = %land.lhs.true140
-  %top154 = getelementptr inbounds i8, ptr %arrayidx136, i64 9
+  %top154 = getelementptr inbounds nuw i8, ptr %arrayidx136, i64 9
   %25 = load i8, ptr %top154, align 1
   %conv155 = zext i8 %25 to i32
   %cmp156.not = icmp samesign ugt i32 %and141, %conv155
@@ -2827,14 +2827,14 @@ if.else236:                                       ; preds = %if.then228
 
 land.lhs.true244:                                 ; preds = %if.else236
   %and246 = and i32 %retval.0.i, 255
-  %bottom251 = getelementptr inbounds i8, ptr %arrayidx240, i64 8
+  %bottom251 = getelementptr inbounds nuw i8, ptr %arrayidx240, i64 8
   %33 = load i8, ptr %bottom251, align 8
   %conv252 = zext i8 %33 to i32
   %cmp253.not = icmp samesign ult i32 %and246, %conv252
   br i1 %cmp253.not, label %return, label %land.lhs.true255
 
 land.lhs.true255:                                 ; preds = %land.lhs.true244
-  %top262 = getelementptr inbounds i8, ptr %arrayidx240, i64 9
+  %top262 = getelementptr inbounds nuw i8, ptr %arrayidx240, i64 9
   %34 = load i8, ptr %top262, align 1
   %conv263 = zext i8 %34 to i32
   %cmp264.not = icmp samesign ugt i32 %and246, %conv263
@@ -2906,12 +2906,12 @@ entry:
   br i1 %cmp178, label %while.body.lr.ph, label %return
 
 while.body.lr.ph:                                 ; preds = %entry
-  %config = getelementptr inbounds i8, ptr %codec, i64 8
-  %maxchar = getelementptr inbounds i8, ptr %writer, i64 20
-  %size = getelementptr inbounds i8, ptr %writer, i64 24
-  %pos = getelementptr inbounds i8, ptr %writer, i64 32
-  %kind = getelementptr inbounds i8, ptr %writer, i64 16
-  %data = getelementptr inbounds i8, ptr %writer, i64 8
+  %config = getelementptr inbounds nuw i8, ptr %codec, i64 8
+  %maxchar = getelementptr inbounds nuw i8, ptr %writer, i64 20
+  %size = getelementptr inbounds nuw i8, ptr %writer, i64 24
+  %pos = getelementptr inbounds nuw i8, ptr %writer, i64 32
+  %kind = getelementptr inbounds nuw i8, ptr %writer, i64 16
+  %data = getelementptr inbounds nuw i8, ptr %writer, i64 8
   %.pre = load ptr, ptr %inbuf, align 8
   br label %while.body
 
@@ -2995,14 +2995,14 @@ if.else78:                                        ; preds = %do.end52
   br i1 %cmp80.not, label %if.else119, label %land.lhs.true82
 
 land.lhs.true82:                                  ; preds = %if.else78
-  %bottom = getelementptr inbounds i8, ptr %arrayidx79, i64 8
+  %bottom = getelementptr inbounds nuw i8, ptr %arrayidx79, i64 8
   %11 = load i8, ptr %bottom, align 8
   %conv86 = zext i8 %11 to i32
   %cmp87.not = icmp ult i8 %7, %11
   br i1 %cmp87.not, label %if.else119, label %land.lhs.true89
 
 land.lhs.true89:                                  ; preds = %land.lhs.true82
-  %top = getelementptr inbounds i8, ptr %arrayidx79, i64 9
+  %top = getelementptr inbounds nuw i8, ptr %arrayidx79, i64 9
   %12 = load i8, ptr %top, align 1
   %cmp94.not = icmp ugt i8 %7, %12
   br i1 %cmp94.not, label %if.else119, label %land.lhs.true96
@@ -3028,14 +3028,14 @@ if.else119:                                       ; preds = %land.lhs.true96, %l
   br i1 %cmp123.not, label %if.else168, label %land.lhs.true125
 
 land.lhs.true125:                                 ; preds = %if.else119
-  %bottom129 = getelementptr inbounds i8, ptr %arrayidx121, i64 8
+  %bottom129 = getelementptr inbounds nuw i8, ptr %arrayidx121, i64 8
   %15 = load i8, ptr %bottom129, align 8
   %conv130 = zext i8 %15 to i32
   %cmp131.not = icmp ult i8 %7, %15
   br i1 %cmp131.not, label %if.else168, label %land.lhs.true133
 
 land.lhs.true133:                                 ; preds = %land.lhs.true125
-  %top137 = getelementptr inbounds i8, ptr %arrayidx121, i64 9
+  %top137 = getelementptr inbounds nuw i8, ptr %arrayidx121, i64 9
   %16 = load i8, ptr %top137, align 1
   %cmp139.not = icmp ugt i8 %7, %16
   br i1 %cmp139.not, label %if.else168, label %land.lhs.true141
@@ -3062,14 +3062,14 @@ if.else168:                                       ; preds = %land.lhs.true141, %
   br i1 %cmp172.not, label %return, label %land.lhs.true174
 
 land.lhs.true174:                                 ; preds = %if.else168
-  %bottom178 = getelementptr inbounds i8, ptr %arrayidx170, i64 8
+  %bottom178 = getelementptr inbounds nuw i8, ptr %arrayidx170, i64 8
   %19 = load i8, ptr %bottom178, align 8
   %conv179 = zext i8 %19 to i32
   %cmp180.not = icmp ult i8 %7, %19
   br i1 %cmp180.not, label %return, label %land.lhs.true182
 
 land.lhs.true182:                                 ; preds = %land.lhs.true174
-  %top186 = getelementptr inbounds i8, ptr %arrayidx170, i64 9
+  %top186 = getelementptr inbounds nuw i8, ptr %arrayidx170, i64 9
   %20 = load i8, ptr %top186, align 1
   %cmp188.not = icmp ugt i8 %7, %20
   br i1 %cmp188.not, label %return, label %land.lhs.true190
@@ -3167,14 +3167,14 @@ if.else352:                                       ; preds = %if.else336
   br i1 %cmp356.not, label %if.else397, label %land.lhs.true358
 
 land.lhs.true358:                                 ; preds = %if.else352
-  %bottom362 = getelementptr inbounds i8, ptr %arrayidx354, i64 8
+  %bottom362 = getelementptr inbounds nuw i8, ptr %arrayidx354, i64 8
   %32 = load i8, ptr %bottom362, align 8
   %conv363 = zext i8 %32 to i32
   %cmp364.not = icmp ult i8 %23, %32
   br i1 %cmp364.not, label %if.else397, label %land.lhs.true366
 
 land.lhs.true366:                                 ; preds = %land.lhs.true358
-  %top370 = getelementptr inbounds i8, ptr %arrayidx354, i64 9
+  %top370 = getelementptr inbounds nuw i8, ptr %arrayidx354, i64 9
   %33 = load i8, ptr %top370, align 1
   %cmp372.not = icmp ugt i8 %23, %33
   br i1 %cmp372.not, label %if.else397, label %land.lhs.true374
@@ -3200,14 +3200,14 @@ if.else397:                                       ; preds = %land.lhs.true374, %
   br i1 %cmp401.not, label %if.else442, label %land.lhs.true403
 
 land.lhs.true403:                                 ; preds = %if.else397
-  %bottom407 = getelementptr inbounds i8, ptr %arrayidx399, i64 8
+  %bottom407 = getelementptr inbounds nuw i8, ptr %arrayidx399, i64 8
   %36 = load i8, ptr %bottom407, align 8
   %conv408 = zext i8 %36 to i32
   %cmp409.not = icmp ult i8 %23, %36
   br i1 %cmp409.not, label %if.else442, label %land.lhs.true411
 
 land.lhs.true411:                                 ; preds = %land.lhs.true403
-  %top415 = getelementptr inbounds i8, ptr %arrayidx399, i64 9
+  %top415 = getelementptr inbounds nuw i8, ptr %arrayidx399, i64 9
   %37 = load i8, ptr %top415, align 1
   %cmp417.not = icmp ugt i8 %23, %37
   br i1 %cmp417.not, label %if.else442, label %land.lhs.true419
@@ -3233,14 +3233,14 @@ if.else442:                                       ; preds = %land.lhs.true419, %
   br i1 %cmp446.not, label %if.else492, label %land.lhs.true448
 
 land.lhs.true448:                                 ; preds = %if.else442
-  %bottom452 = getelementptr inbounds i8, ptr %arrayidx444, i64 8
+  %bottom452 = getelementptr inbounds nuw i8, ptr %arrayidx444, i64 8
   %40 = load i8, ptr %bottom452, align 8
   %conv453 = zext i8 %40 to i32
   %cmp454.not = icmp ult i8 %23, %40
   br i1 %cmp454.not, label %if.else492, label %land.lhs.true456
 
 land.lhs.true456:                                 ; preds = %land.lhs.true448
-  %top460 = getelementptr inbounds i8, ptr %arrayidx444, i64 9
+  %top460 = getelementptr inbounds nuw i8, ptr %arrayidx444, i64 9
   %41 = load i8, ptr %top460, align 1
   %cmp462.not = icmp ugt i8 %23, %41
   br i1 %cmp462.not, label %if.else492, label %land.lhs.true464
@@ -3267,14 +3267,14 @@ if.else492:                                       ; preds = %land.lhs.true464, %
   br i1 %cmp496.not, label %return, label %land.lhs.true498
 
 land.lhs.true498:                                 ; preds = %if.else492
-  %bottom502 = getelementptr inbounds i8, ptr %arrayidx494, i64 8
+  %bottom502 = getelementptr inbounds nuw i8, ptr %arrayidx494, i64 8
   %44 = load i8, ptr %bottom502, align 8
   %conv503 = zext i8 %44 to i32
   %cmp504.not = icmp ult i8 %23, %44
   br i1 %cmp504.not, label %return, label %land.lhs.true506
 
 land.lhs.true506:                                 ; preds = %land.lhs.true498
-  %top510 = getelementptr inbounds i8, ptr %arrayidx494, i64 9
+  %top510 = getelementptr inbounds nuw i8, ptr %arrayidx494, i64 9
   %45 = load i8, ptr %top510, align 1
   %cmp512.not = icmp ugt i8 %23, %45
   br i1 %cmp512.not, label %return, label %land.lhs.true514
@@ -3423,7 +3423,7 @@ for.end:                                          ; preds = %if.then, %if.else, 
   br i1 %cmp24, label %if.then26, label %return
 
 if.then26:                                        ; preds = %for.end
-  %code = getelementptr inbounds i8, ptr %arrayidx22, i64 4
+  %code = getelementptr inbounds nuw i8, ptr %arrayidx22, i64 4
   %2 = load i16, ptr %code, align 4
   br label %return
 

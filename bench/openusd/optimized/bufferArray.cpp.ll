@@ -44,7 +44,7 @@ $_ZTISt23enable_shared_from_thisIN32pxrInternal_v0_24__pxrReserved__13HdBufferAr
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN32pxrInternal_v0_24__pxrReserved__13HdBufferArrayC2ERKNS_7TfTokenES1_j(ptr nocapture noundef nonnull align 8 dereferenceable(140) initializes((0, 25), (32, 140)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__13HdBufferArrayE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -180,13 +180,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit2: ; preds = %_ZN32pxrInte
 
 34:                                               ; preds = %32
   %35 = load ptr, ptr %23, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %23) #17
   br label %_ZSt8_DestroyISt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyISt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEEEvPT_.exit.i.i.i.i: ; preds = %34, %32, %.lr.ph.i.i.i.i
-  %38 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 16
   %.not.i.i.i.i = icmp eq ptr %38, %21
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPSt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !4
 
@@ -209,7 +209,7 @@ _ZSt8_DestroyIPSt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRan
   br label %_ZNSt6vectorISt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEESaIS3_EED2Ev.exit
 
 _ZNSt6vectorISt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEESaIS3_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEES3_EvT_S5_RSaIT0_E.exit.i, %40
-  %46 = getelementptr inbounds i8, ptr %0, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %47 = load ptr, ptr %46, align 8
   %.not.i.i.i.i3 = icmp eq ptr %47, null
   br i1 %.not.i.i.i.i3, label %_ZNSt23enable_shared_from_thisIN32pxrInternal_v0_24__pxrReserved__13HdBufferArrayEED2Ev.exit, label %48
@@ -237,7 +237,7 @@ _ZNSt6vectorISt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRange
 
 58:                                               ; preds = %56
   %59 = load ptr, ptr %47, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 24
   %61 = load ptr, ptr %60, align 8
   tail call void %61(ptr noundef nonnull align 8 dereferenceable(16) %47) #17
   br label %_ZNSt23enable_shared_from_thisIN32pxrInternal_v0_24__pxrReserved__13HdBufferArrayEED2Ev.exit
@@ -369,7 +369,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_weak_add_refEv.exit.i
 
 51:                                               ; preds = %49
   %52 = load ptr, ptr %40, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %54 = load ptr, ptr %53, align 8
   tail call void %54(ptr noundef nonnull align 8 dereferenceable(16) %40) #17
   br label %_ZNSt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEEaSIS1_EENSt9enable_ifIXsr13is_assignableIRSt10__weak_ptrIS1_LN9__gnu_cxx12_Lock_policyE2EERKSt10shared_ptrIT_EEE5valueERS2_E4typeESE_.exit
@@ -379,7 +379,7 @@ _ZNSt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEEaSIS1_EE
   %55 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %10) #17
   %56 = load ptr, ptr %1, align 8
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 128
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 128
   %59 = load ptr, ptr %58, align 8
   tail call void %59(ptr noundef nonnull align 8 dereferenceable(8) %56, ptr noundef nonnull %0)
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -474,7 +474,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_weak_add_refEv.exit.i
 
 38:                                               ; preds = %36
   %39 = load ptr, ptr %27, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %41 = load ptr, ptr %40, align 8
   tail call void %41(ptr noundef nonnull align 8 dereferenceable(16) %27) #17
   br label %_ZNSt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEEaSERKS2_.exit
@@ -513,7 +513,7 @@ _ZNSt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEEaSERKS2_
 
 56:                                               ; preds = %54
   %57 = load ptr, ptr %45, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %59 = load ptr, ptr %58, align 8
   tail call void %59(ptr noundef nonnull align 8 dereferenceable(16) %45) #17
   br label %_ZNSt10__weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit
@@ -657,13 +657,13 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %2
 
 23:                                               ; preds = %21
   %24 = load ptr, ptr %12, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = load ptr, ptr %25, align 8
   tail call void %26(ptr noundef nonnull align 8 dereferenceable(16) %12) #17
   br label %_ZSt8_DestroyISt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEEEvPT_.exit.i.i.i.i.i
 
 _ZSt8_DestroyISt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEEEvPT_.exit.i.i.i.i.i: ; preds = %23, %21, %.lr.ph.i.i.i.i.i
-  %27 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i = icmp eq ptr %27, %10
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPSt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEES3_EvT_S5_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !4
 
@@ -693,10 +693,10 @@ _ZNSt6vectorISt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRange
   br i1 %.not18, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %31
-  %.sroa.2.0..sroa_idx.i7 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sroa.3.0..sroa_idx.i8 = getelementptr inbounds i8, ptr %3, i64 16
-  %.sroa.4.0..sroa_idx.i9 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sroa.5.0..sroa_idx.i10 = getelementptr inbounds i8, ptr %3, i64 32
+  %.sroa.2.0..sroa_idx.i7 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sroa.3.0..sroa_idx.i8 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %.sroa.4.0..sroa_idx.i9 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sroa.5.0..sroa_idx.i10 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 40
   br label %42
 
@@ -704,7 +704,7 @@ _ZNSt6vectorISt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRange
   %.sroa.0.019 = phi ptr [ %39, %.lr.ph ], [ %.sroa.0.1, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorISt10shared_ptrINS_18HdBufferArrayRangeEESaIS4_EELb0EEppEv.exit ]
   %43 = load ptr, ptr %.sroa.0.019, align 8
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 128
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 128
   %46 = load ptr, ptr %45, align 8
   invoke void %46(ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull %0)
           to label %47 unwind label %.loopexit
@@ -725,7 +725,7 @@ _ZNSt6vectorISt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRange
           to label %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorISt10shared_ptrINS_18HdBufferArrayRangeEESaIS4_EELb0EEppEv.exit unwind label %.loopexit
 
 50:                                               ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %.sroa.0.019, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %.sroa.0.019, i64 16
   br label %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorISt10shared_ptrINS_18HdBufferArrayRangeEESaIS4_EELb0EEppEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorISt10shared_ptrINS_18HdBufferArrayRangeEESaIS4_EELb0EEppEv.exit: ; preds = %49, %50
@@ -842,8 +842,8 @@ _ZNKSt6vectorISt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRang
   %32 = load ptr, ptr %31, align 8, !alias.scope !10, !noalias !7
   store ptr %32, ptr %30, align 8, !alias.scope !7, !noalias !10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i, i8 0, i64 16, i1 false), !alias.scope !10, !noalias !7
-  %33 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
-  %34 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
   %.not.i.i.i = icmp eq ptr %33, %5
   br i1 %.not.i.i.i, label %_ZNSt6vectorISt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %.lr.ph.i.i.i, !llvm.loop !12
 
@@ -862,7 +862,7 @@ _ZNSt12_Vector_baseISt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArr
   store ptr %26, ptr %0, align 8
   %39 = getelementptr inbounds %"class.std::weak_ptr.0", ptr %27, i64 %1
   store ptr %39, ptr %4, align 8
-  %40 = getelementptr inbounds %"class.std::weak_ptr.0", ptr %26, i64 %24
+  %40 = getelementptr inbounds nuw %"class.std::weak_ptr.0", ptr %26, i64 %24
   store ptr %40, ptr %11, align 8
   br label %41
 
@@ -933,8 +933,8 @@ _ZNSt12_Vector_baseISt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArr
   br label %_ZSt10_ConstructISt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEEJRKSt10shared_ptrIS2_EEEvPT_DpOT0_.exit.i.i.i.i.i
 
 _ZSt10_ConstructISt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEEJRKSt10shared_ptrIS2_EEEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %29, %26, %.lr.ph.i.i.i.i.i
-  %31 = getelementptr inbounds i8, ptr %.sroa.04.08.i.i.i.i.i, i64 16
-  %32 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i = icmp eq ptr %31, %2
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorISt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEESaIS3_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIS2_ES_ISA_SaISA_EEEEEEPS3_mT_SH_.exit.loopexit, label %.lr.ph.i.i.i.i.i, !llvm.loop !13
 
@@ -979,13 +979,13 @@ _ZNSt6vectorISt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRange
 
 48:                                               ; preds = %46
   %49 = load ptr, ptr %37, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %51 = load ptr, ptr %50, align 8
   tail call void %51(ptr noundef nonnull align 8 dereferenceable(16) %37) #17
   br label %_ZSt8_DestroyISt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEEEvPT_.exit.i.i.i
 
 _ZSt8_DestroyISt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEEEvPT_.exit.i.i.i: ; preds = %48, %46, %.lr.ph.i.i.i
-  %52 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 16
   %.not.i.i.i = icmp eq ptr %52, %35
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIPSt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEES3_EvT_S5_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !4
 
@@ -1081,15 +1081,15 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_weak_add_refEv.exit.i
 
 90:                                               ; preds = %88
   %91 = load ptr, ptr %79, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 24
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 24
   %93 = load ptr, ptr %92, align 8
   tail call void %93(ptr noundef nonnull align 8 dereferenceable(16) %79) #17
   br label %_ZNSt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEEaSIS1_EENSt9enable_ifIXsr13is_assignableIRSt10__weak_ptrIS1_LN9__gnu_cxx12_Lock_policyE2EERKSt10shared_ptrIT_EEE5valueERS2_E4typeESE_.exit.i.i.i.i.i
 
 _ZNSt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEEaSIS1_EENSt9enable_ifIXsr13is_assignableIRSt10__weak_ptrIS1_LN9__gnu_cxx12_Lock_policyE2EERKSt10shared_ptrIT_EEE5valueERS2_E4typeESE_.exit.i.i.i.i.i: ; preds = %90, %88, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_weak_add_refEv.exit.i.i.i.i.i.i.i.i
   store ptr %70, ptr %69, align 8
-  %94 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 16
-  %95 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 16
   %96 = add nsw i64 %.012.i.i.i.i.i, -1
   %97 = icmp sgt i64 %.012.i.i.i.i.i, 1
   br i1 %97, label %.lr.ph.i.i.i.i.i18, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEESt6vectorIS5_SaIS5_EEEEPSt8weak_ptrIS4_EET0_T_SG_SF_.exit.loopexit, !llvm.loop !14
@@ -1134,13 +1134,13 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIN32pxrInternal_v0_24__
 
 111:                                              ; preds = %109
   %112 = load ptr, ptr %100, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 24
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 24
   %114 = load ptr, ptr %113, align 8
   tail call void %114(ptr noundef nonnull align 8 dereferenceable(16) %100) #17
   br label %_ZSt8_DestroyISt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyISt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEEEvPT_.exit.i.i.i.i: ; preds = %111, %109, %.lr.ph.i.i.i.i
-  %115 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 16
+  %115 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 16
   %.not.i.i.i.i = icmp eq ptr %115, %98
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPSt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !4
 
@@ -1210,15 +1210,15 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_weak_add_refEv.exit.i
 
 141:                                              ; preds = %139
   %142 = load ptr, ptr %130, align 8
-  %143 = getelementptr inbounds i8, ptr %142, i64 24
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 24
   %144 = load ptr, ptr %143, align 8
   tail call void %144(ptr noundef nonnull align 8 dereferenceable(16) %130) #17
   br label %_ZNSt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEEaSIS1_EENSt9enable_ifIXsr13is_assignableIRSt10__weak_ptrIS1_LN9__gnu_cxx12_Lock_policyE2EERKSt10shared_ptrIT_EEE5valueERS2_E4typeESE_.exit.i.i.i.i.i36
 
 _ZNSt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEEaSIS1_EENSt9enable_ifIXsr13is_assignableIRSt10__weak_ptrIS1_LN9__gnu_cxx12_Lock_policyE2EERKSt10shared_ptrIT_EEE5valueERS2_E4typeESE_.exit.i.i.i.i.i36: ; preds = %141, %139, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_weak_add_refEv.exit.i.i.i.i.i.i.i.i32
   store ptr %121, ptr %120, align 8
-  %145 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i29, i64 16
-  %146 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i28, i64 16
+  %145 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i29, i64 16
+  %146 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i28, i64 16
   %147 = add nsw i64 %.012.i.i.i.i.i27, -1
   %148 = icmp sgt i64 %.012.i.i.i.i.i27, 1
   br i1 %148, label %.lr.ph.i.i.i.i.i26, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEESt6vectorIS5_SaIS5_EEEEPSt8weak_ptrIS4_EET0_T_SG_SF_.exit37.loopexit, !llvm.loop !14
@@ -1261,8 +1261,8 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIN32pxrInternal_v0_24__
   br label %_ZSt10_ConstructISt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEEJRKSt10shared_ptrIS2_EEEvPT_DpOT0_.exit.i.i.i.i
 
 _ZSt10_ConstructISt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEEJRKSt10shared_ptrIS2_EEEvPT_DpOT0_.exit.i.i.i.i: ; preds = %160, %157, %.lr.ph.i.i.i.i38
-  %162 = getelementptr inbounds i8, ptr %.sroa.04.08.i.i.i.i, i64 16
-  %163 = getelementptr inbounds i8, ptr %.09.i.i.i.i, i64 16
+  %162 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i, i64 16
+  %163 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i, i64 16
   %.not.i.i.i.i41 = icmp eq ptr %162, %2
   br i1 %.not.i.i.i.i41, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEESt6vectorIS5_SaIS5_EEEEPSt8weak_ptrIS4_ESD_ET0_T_SG_SF_RSaIT1_E.exit, label %.lr.ph.i.i.i.i38, !llvm.loop !13
 

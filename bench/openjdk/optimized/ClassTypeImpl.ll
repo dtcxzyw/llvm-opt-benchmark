@@ -44,7 +44,7 @@ define internal noundef zeroext i8 @superclass(ptr noundef %0, ptr noundef %1) #
 6:                                                ; preds = %2
   tail call void @createLocalRefSpace(ptr noundef %3, i32 noundef 1) #2
   %7 = load ptr, ptr @gdata, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 528
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 528
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 2
   %.not12 = icmp eq i32 %10, 0
@@ -57,12 +57,12 @@ define internal noundef zeroext i8 @superclass(ptr noundef %0, ptr noundef %1) #
 
 12:                                               ; preds = %6, %11
   %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 80
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr %15(ptr noundef nonnull %3, ptr noundef %4) #2
   %17 = tail call zeroext i16 @outStream_writeObjectRef(ptr noundef nonnull %3, ptr noundef %1, ptr noundef %16) #2
   %18 = load ptr, ptr @gdata, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 528
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 528
   %20 = load i32, ptr %19, align 8
   %21 = and i32 %20, 2
   %.not13 = icmp eq i32 %21, 0
@@ -75,7 +75,7 @@ define internal noundef zeroext i8 @superclass(ptr noundef %0, ptr noundef %1) #
 
 23:                                               ; preds = %12, %22
   %24 = load ptr, ptr %3, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 160
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 160
   %26 = load ptr, ptr %25, align 8
   %27 = tail call ptr %26(ptr noundef nonnull %3, ptr noundef null) #2
   br label %28
@@ -128,7 +128,7 @@ jdwpTag.exit.thread.i:                            ; preds = %16
   br label %isReferenceTag.exit.i
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %18, i64 17
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 17
   %22 = load i8, ptr %21, align 1
   %.not13.i.i = icmp eq i8 %22, 0
   %.pr206218.i = load i8, ptr %17, align 1
@@ -157,7 +157,7 @@ jdwpTag.exit.i:                                   ; preds = %23
   br i1 %.not.i203.i, label %isReferenceTag.exit.i, label %jdwpTag.exit.i.jdwpTag.exit.thread212.i_crit_edge
 
 jdwpTag.exit.i.jdwpTag.exit.thread212.i_crit_edge: ; preds = %jdwpTag.exit.i
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pr.pre.pre.i, i64 17
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pr.pre.pre.i, i64 17
   %.pre = load i8, ptr %.phi.trans.insert, align 1
   br label %jdwpTag.exit.thread212.i
 
@@ -185,7 +185,7 @@ switch.hole_check:                                ; preds = %switch.early.test.i
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %29 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [26 x i8], ptr @switch.table.setValues, i64 0, i64 %29
+  %switch.gep = getelementptr inbounds nuw [26 x i8], ptr @switch.table.setValues, i64 0, i64 %29
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %isReferenceTag.exit.i
 
@@ -207,7 +207,7 @@ isReferenceTag.exit.i:                            ; preds = %switch.lookup, %20,
 31:                                               ; preds = %isReferenceTag.exit.i, %isReferenceTag.exit.i
   %32 = call ptr @inStream_readObjectRef(ptr noundef %4, ptr noundef %0) #2
   %33 = load ptr, ptr @gdata, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 528
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 528
   %35 = load i32, ptr %34, align 8
   %36 = and i32 %35, 2
   %.not199.i = icmp eq i32 %36, 0
@@ -220,11 +220,11 @@ isReferenceTag.exit.i:                            ; preds = %switch.lookup, %20,
 
 38:                                               ; preds = %37, %31
   %39 = load ptr, ptr %4, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 1232
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 1232
   %41 = load ptr, ptr %40, align 8
   call void %41(ptr noundef nonnull %4, ptr noundef %5, ptr noundef %12, ptr noundef %32) #2
   %42 = load ptr, ptr @gdata, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 528
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 528
   %44 = load i32, ptr %43, align 8
   %45 = and i32 %44, 2
   %.not200.i = icmp eq i32 %45, 0
@@ -233,7 +233,7 @@ isReferenceTag.exit.i:                            ; preds = %switch.lookup, %20,
 46:                                               ; preds = %isReferenceTag.exit.i
   %47 = call signext i8 @inStream_readByte(ptr noundef %0) #2
   %48 = load ptr, ptr @gdata, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 528
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 528
   %50 = load i32, ptr %49, align 8
   %51 = and i32 %50, 2
   %.not194.i = icmp eq i32 %51, 0
@@ -246,7 +246,7 @@ isReferenceTag.exit.i:                            ; preds = %switch.lookup, %20,
 
 53:                                               ; preds = %52, %46
   %54 = load ptr, ptr %4, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 1248
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 1248
   %56 = load ptr, ptr %55, align 8
   call void %56(ptr noundef nonnull %4, ptr noundef %5, ptr noundef %12, i8 noundef signext %47) #2
   br label %134
@@ -254,7 +254,7 @@ isReferenceTag.exit.i:                            ; preds = %switch.lookup, %20,
 57:                                               ; preds = %isReferenceTag.exit.i
   %58 = call zeroext i16 @inStream_readChar(ptr noundef %0) #2
   %59 = load ptr, ptr @gdata, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 528
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 528
   %61 = load i32, ptr %60, align 8
   %62 = and i32 %61, 2
   %.not193.i = icmp eq i32 %62, 0
@@ -267,7 +267,7 @@ isReferenceTag.exit.i:                            ; preds = %switch.lookup, %20,
 
 64:                                               ; preds = %63, %57
   %65 = load ptr, ptr %4, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 1256
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 1256
   %67 = load ptr, ptr %66, align 8
   call void %67(ptr noundef nonnull %4, ptr noundef %5, ptr noundef %12, i16 noundef zeroext %58) #2
   br label %134
@@ -275,7 +275,7 @@ isReferenceTag.exit.i:                            ; preds = %switch.lookup, %20,
 68:                                               ; preds = %isReferenceTag.exit.i
   %69 = call float @inStream_readFloat(ptr noundef %0) #2
   %70 = load ptr, ptr @gdata, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 528
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 528
   %72 = load i32, ptr %71, align 8
   %73 = and i32 %72, 2
   %.not192.i = icmp eq i32 %73, 0
@@ -288,7 +288,7 @@ isReferenceTag.exit.i:                            ; preds = %switch.lookup, %20,
 
 75:                                               ; preds = %74, %68
   %76 = load ptr, ptr %4, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 1288
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 1288
   %78 = load ptr, ptr %77, align 8
   call void %78(ptr noundef nonnull %4, ptr noundef %5, ptr noundef %12, float noundef %69) #2
   br label %134
@@ -296,7 +296,7 @@ isReferenceTag.exit.i:                            ; preds = %switch.lookup, %20,
 79:                                               ; preds = %isReferenceTag.exit.i
   %80 = call double @inStream_readDouble(ptr noundef %0) #2
   %81 = load ptr, ptr @gdata, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 528
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 528
   %83 = load i32, ptr %82, align 8
   %84 = and i32 %83, 2
   %.not190.i = icmp eq i32 %84, 0
@@ -309,7 +309,7 @@ isReferenceTag.exit.i:                            ; preds = %switch.lookup, %20,
 
 86:                                               ; preds = %85, %79
   %87 = load ptr, ptr %4, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 1296
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 1296
   %89 = load ptr, ptr %88, align 8
   call void %89(ptr noundef nonnull %4, ptr noundef %5, ptr noundef %12, double noundef %80) #2
   br label %134
@@ -317,7 +317,7 @@ isReferenceTag.exit.i:                            ; preds = %switch.lookup, %20,
 90:                                               ; preds = %isReferenceTag.exit.i
   %91 = call i32 @inStream_readInt(ptr noundef %0) #2
   %92 = load ptr, ptr @gdata, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 528
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 528
   %94 = load i32, ptr %93, align 8
   %95 = and i32 %94, 2
   %.not187.i = icmp eq i32 %95, 0
@@ -330,7 +330,7 @@ isReferenceTag.exit.i:                            ; preds = %switch.lookup, %20,
 
 97:                                               ; preds = %96, %90
   %98 = load ptr, ptr %4, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 1272
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 1272
   %100 = load ptr, ptr %99, align 8
   call void %100(ptr noundef nonnull %4, ptr noundef %5, ptr noundef %12, i32 noundef %91) #2
   br label %134
@@ -338,7 +338,7 @@ isReferenceTag.exit.i:                            ; preds = %switch.lookup, %20,
 101:                                              ; preds = %isReferenceTag.exit.i
   %102 = call i64 @inStream_readLong(ptr noundef %0) #2
   %103 = load ptr, ptr @gdata, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 528
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 528
   %105 = load i32, ptr %104, align 8
   %106 = and i32 %105, 2
   %.not185.i = icmp eq i32 %106, 0
@@ -351,7 +351,7 @@ isReferenceTag.exit.i:                            ; preds = %switch.lookup, %20,
 
 108:                                              ; preds = %107, %101
   %109 = load ptr, ptr %4, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 1280
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 1280
   %111 = load ptr, ptr %110, align 8
   call void %111(ptr noundef nonnull %4, ptr noundef %5, ptr noundef %12, i64 noundef %102) #2
   br label %134
@@ -359,7 +359,7 @@ isReferenceTag.exit.i:                            ; preds = %switch.lookup, %20,
 112:                                              ; preds = %isReferenceTag.exit.i
   %113 = call signext i16 @inStream_readShort(ptr noundef %0) #2
   %114 = load ptr, ptr @gdata, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 528
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 528
   %116 = load i32, ptr %115, align 8
   %117 = and i32 %116, 2
   %.not182.i = icmp eq i32 %117, 0
@@ -372,7 +372,7 @@ isReferenceTag.exit.i:                            ; preds = %switch.lookup, %20,
 
 119:                                              ; preds = %118, %112
   %120 = load ptr, ptr %4, align 8
-  %121 = getelementptr inbounds i8, ptr %120, i64 1264
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 1264
   %122 = load ptr, ptr %121, align 8
   call void %122(ptr noundef nonnull %4, ptr noundef %5, ptr noundef %12, i16 noundef signext %113) #2
   br label %134
@@ -380,7 +380,7 @@ isReferenceTag.exit.i:                            ; preds = %switch.lookup, %20,
 123:                                              ; preds = %isReferenceTag.exit.i
   %124 = call zeroext i8 @inStream_readBoolean(ptr noundef %0) #2
   %125 = load ptr, ptr @gdata, align 8
-  %126 = getelementptr inbounds i8, ptr %125, i64 528
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 528
   %127 = load i32, ptr %126, align 8
   %128 = and i32 %127, 2
   %.not181.i = icmp eq i32 %128, 0
@@ -393,14 +393,14 @@ isReferenceTag.exit.i:                            ; preds = %switch.lookup, %20,
 
 130:                                              ; preds = %129, %123
   %131 = load ptr, ptr %4, align 8
-  %132 = getelementptr inbounds i8, ptr %131, i64 1240
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 1240
   %133 = load ptr, ptr %132, align 8
   call void %133(ptr noundef nonnull %4, ptr noundef %5, ptr noundef %12, i8 noundef zeroext %124) #2
   br label %134
 
 134:                                              ; preds = %130, %119, %108, %97, %86, %75, %64, %53, %isReferenceTag.exit.i
   %135 = load ptr, ptr @gdata, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 528
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 528
   %137 = load i32, ptr %136, align 8
   %138 = and i32 %137, 2
   %.not195.i = icmp eq i32 %138, 0
@@ -414,7 +414,7 @@ isReferenceTag.exit.i:                            ; preds = %switch.lookup, %20,
 
 readStaticFieldValue.exit:                        ; preds = %38, %134, %.sink.split.i
   %139 = load ptr, ptr %4, align 8
-  %140 = getelementptr inbounds i8, ptr %139, i64 120
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 120
   %141 = load ptr, ptr %140, align 8
   %142 = call ptr %141(ptr noundef nonnull %4) #2
   %.not196.i = icmp ne ptr %142, null
@@ -427,7 +427,7 @@ readStaticFieldValue.exit:                        ; preds = %38, %134, %.sink.sp
 
 readStaticFieldValue.exit._crit_edge:             ; preds = %.lr.ph, %14, %readStaticFieldValue.exit, %10
   %145 = load ptr, ptr @gdata, align 8
-  %146 = getelementptr inbounds i8, ptr %145, i64 528
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 528
   %147 = load i32, ptr %146, align 8
   %148 = and i32 %147, 2
   %.not27 = icmp eq i32 %148, 0
@@ -440,7 +440,7 @@ readStaticFieldValue.exit._crit_edge:             ; preds = %.lr.ph, %14, %readS
 
 150:                                              ; preds = %readStaticFieldValue.exit._crit_edge, %149
   %151 = load ptr, ptr %4, align 8
-  %152 = getelementptr inbounds i8, ptr %151, i64 160
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 160
   %153 = load ptr, ptr %152, align 8
   %154 = call ptr %153(ptr noundef nonnull %4, ptr noundef null) #2
   br label %155

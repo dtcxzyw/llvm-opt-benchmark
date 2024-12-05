@@ -33,13 +33,13 @@ for.body:                                         ; preds = %entry, %for.inc28
   %test_num.036 = phi i32 [ 0, %entry ], [ %inc, %for.inc28 ]
   %ok.035 = phi i32 [ 1, %entry ], [ %.us-phi, %for.inc28 ]
   %__begin1.0.idx34 = phi i64 [ 0, %entry ], [ %__begin1.0.add, %for.inc28 ]
-  %__begin1.0.ptr37 = getelementptr inbounds i8, ptr @_ZL16kRIPEMDTestCases, i64 %__begin1.0.idx34
+  %__begin1.0.ptr37 = getelementptr inbounds nuw i8, ptr @_ZL16kRIPEMDTestCases, i64 %__begin1.0.idx34
   %inc = add nuw nsw i32 %test_num.036, 1
   %0 = load ptr, ptr %__begin1.0.ptr37, align 16
   %call = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #10
   %call.fr = freeze i64 %call
   %cmp929.not = icmp eq i64 %call.fr, 0
-  %expected = getelementptr inbounds i8, ptr %__begin1.0.ptr37, i64 8
+  %expected = getelementptr inbounds nuw i8, ptr %__begin1.0.ptr37, i64 8
   br i1 %cmp929.not, label %if.end17, label %for.body3.us
 
 for.body3.us:                                     ; preds = %for.body, %for.inc.us

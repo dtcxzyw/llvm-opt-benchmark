@@ -50,7 +50,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @nvme_subsys_register_ctrl(ptr noundef %n, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %subsys1 = getelementptr inbounds i8, ptr %n, i64 7928
+  %subsys1 = getelementptr inbounds nuw i8, ptr %n, i64 7928
   %0 = load ptr, ptr %subsys1, align 8
   %call.i = tail call ptr @pcie_sriov_get_pf(ptr noundef %n) #7
   %call1.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 647, ptr noundef nonnull @__func__.nvme_sctrl) #7
@@ -60,26 +60,26 @@ entry:
   br i1 %cmp.i.not.i, label %nvme_sctrl.exit.thread, label %nvme_sctrl.exit
 
 nvme_sctrl.exit.thread:                           ; preds = %entry
-  %params60 = getelementptr inbounds i8, ptr %n, i64 7248
+  %params60 = getelementptr inbounds nuw i8, ptr %n, i64 7248
   br label %for.cond.preheader
 
 nvme_sctrl.exit:                                  ; preds = %entry
   %call3.i = tail call zeroext i16 @pcie_sriov_vf_number(ptr noundef nonnull %n) #7
   %n.val.pre = load ptr, ptr %1, align 8
   %2 = icmp eq ptr %n.val.pre, null
-  %params = getelementptr inbounds i8, ptr %n, i64 7248
+  %params = getelementptr inbounds nuw i8, ptr %n, i64 7248
   br i1 %2, label %for.cond.preheader, label %if.then
 
 for.cond.preheader:                               ; preds = %nvme_sctrl.exit.thread, %nvme_sctrl.exit
   %params64 = phi ptr [ %params60, %nvme_sctrl.exit.thread ], [ %params, %nvme_sctrl.exit ]
-  %sriov_max_vfs65 = getelementptr inbounds i8, ptr %n, i64 7287
+  %sriov_max_vfs65 = getelementptr inbounds nuw i8, ptr %n, i64 7287
   %3 = load i8, ptr %sriov_max_vfs65, align 1
   %conv66 = zext i8 %3 to i32
-  %ctrls = getelementptr inbounds i8, ptr %0, i64 544
+  %ctrls = getelementptr inbounds nuw i8, ptr %0, i64 544
   br label %for.body
 
 if.then:                                          ; preds = %nvme_sctrl.exit
-  %sec.i = getelementptr inbounds i8, ptr %call1.i, i64 27800
+  %sec.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 27800
   %idxprom.i = zext i16 %call3.i to i64
   %arrayidx.i = getelementptr [127 x %struct.NvmeSecCtrlEntry], ptr %sec.i, i64 0, i64 %idxprom.i
   %4 = load i16, ptr %arrayidx.i, align 1
@@ -111,8 +111,8 @@ if.end13:                                         ; preds = %for.body
 
 for.body.lr.ph.i:                                 ; preds = %if.end13
   %8 = load ptr, ptr %subsys1, align 8
-  %ctrls.i = getelementptr inbounds i8, ptr %8, i64 544
-  %sec.i30 = getelementptr inbounds i8, ptr %n, i64 27800
+  %ctrls.i = getelementptr inbounds nuw i8, ptr %8, i64 544
+  %sec.i30 = getelementptr inbounds nuw i8, ptr %n, i64 27800
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -152,8 +152,8 @@ if.then17:                                        ; preds = %nvme_subsys_reserve
 
 for.body.lr.ph.i34:                               ; preds = %if.then17
   %12 = load ptr, ptr %subsys1, align 8
-  %sec.i36 = getelementptr inbounds i8, ptr %n, i64 27800
-  %ctrls.i37 = getelementptr inbounds i8, ptr %12, i64 544
+  %sec.i36 = getelementptr inbounds nuw i8, ptr %n, i64 27800
+  %ctrls.i37 = getelementptr inbounds nuw i8, ptr %12, i64 544
   br label %for.body.i38
 
 for.body.i38:                                     ; preds = %for.inc.i43, %for.body.lr.ph.i34
@@ -195,7 +195,7 @@ nvme_subsys_unreserve_cntlids.exit:               ; preds = %for.inc.i43, %if.th
 if.end19:                                         ; preds = %nvme_subsys_reserve_cntlids.exit, %if.then
   %params63 = phi ptr [ %params, %if.then ], [ %params64, %nvme_subsys_reserve_cntlids.exit ]
   %cntlid.0 = phi i32 [ %conv4, %if.then ], [ %6, %nvme_subsys_reserve_cntlids.exit ]
-  %serial = getelementptr inbounds i8, ptr %0, i64 536
+  %serial = getelementptr inbounds nuw i8, ptr %0, i64 536
   %18 = load ptr, ptr %serial, align 8
   %tobool20.not = icmp eq ptr %18, null
   %19 = load ptr, ptr %params63, align 16
@@ -216,11 +216,11 @@ if.then32:                                        ; preds = %if.else26
   br label %return
 
 if.end34:                                         ; preds = %if.else26, %if.then21
-  %ctrls35 = getelementptr inbounds i8, ptr %0, i64 544
+  %ctrls35 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %idxprom36 = zext nneg i32 %cntlid.0 to i64
   %arrayidx37 = getelementptr [256 x ptr], ptr %ctrls35, i64 0, i64 %idxprom36
   store ptr %n, ptr %arrayidx37, align 8
-  %namespaces = getelementptr inbounds i8, ptr %0, i64 2592
+  %namespaces = getelementptr inbounds nuw i8, ptr %0, i64 2592
   br label %for.body42
 
 for.body42:                                       ; preds = %if.end34, %for.inc54
@@ -231,13 +231,13 @@ for.body42:                                       ; preds = %if.end34, %for.inc5
   br i1 %tobool45.not, label %for.inc54, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body42
-  %shared = getelementptr inbounds i8, ptr %20, i64 8657
+  %shared = getelementptr inbounds nuw i8, ptr %20, i64 8657
   %21 = load i8, ptr %shared, align 1
   %tobool47 = trunc i8 %21 to i1
   br i1 %tobool47, label %land.lhs.true49, label %for.inc54
 
 land.lhs.true49:                                  ; preds = %land.lhs.true
-  %params46 = getelementptr inbounds i8, ptr %20, i64 8656
+  %params46 = getelementptr inbounds nuw i8, ptr %20, i64 8656
   %22 = load i8, ptr %params46, align 8
   %tobool51 = trunc i8 %22 to i1
   br i1 %tobool51, label %for.inc54, label %if.then52
@@ -271,8 +271,8 @@ entry:
   %0 = getelementptr i8, ptr %n, i64 2232
   %n.val = load ptr, ptr %0, align 8
   %cmp.i.not = icmp eq ptr %n.val, null
-  %ctrls1 = getelementptr inbounds i8, ptr %subsys, i64 544
-  %cntlid2 = getelementptr inbounds i8, ptr %n, i64 7416
+  %ctrls1 = getelementptr inbounds nuw i8, ptr %subsys, i64 544
+  %cntlid2 = getelementptr inbounds nuw i8, ptr %n, i64 7416
   %1 = load i16, ptr %cntlid2, align 8
   %idxprom3 = zext i16 %1 to i64
   %arrayidx4 = getelementptr [256 x ptr], ptr %ctrls1, i64 0, i64 %idxprom3
@@ -284,16 +284,16 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   store ptr null, ptr %arrayidx4, align 8
-  %sriov_max_vfs.i = getelementptr inbounds i8, ptr %n, i64 7287
+  %sriov_max_vfs.i = getelementptr inbounds nuw i8, ptr %n, i64 7287
   %2 = load i8, ptr %sriov_max_vfs.i, align 1
   %cmp10.not.i = icmp eq i8 %2, 0
   br i1 %cmp10.not.i, label %if.end, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.else
-  %subsys1.i = getelementptr inbounds i8, ptr %n, i64 7928
+  %subsys1.i = getelementptr inbounds nuw i8, ptr %n, i64 7928
   %3 = load ptr, ptr %subsys1.i, align 8
-  %sec.i = getelementptr inbounds i8, ptr %n, i64 27800
-  %ctrls.i = getelementptr inbounds i8, ptr %3, i64 544
+  %sec.i = getelementptr inbounds nuw i8, ptr %n, i64 27800
+  %ctrls.i = getelementptr inbounds nuw i8, ptr %3, i64 544
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -329,7 +329,7 @@ for.inc.i:                                        ; preds = %if.end.i, %for.body
   br i1 %cmp.i6, label %for.body.i, label %if.end, !llvm.loop !8
 
 if.end:                                           ; preds = %for.inc.i, %if.else, %if.then
-  %cntlid5 = getelementptr inbounds i8, ptr %n, i64 7416
+  %cntlid5 = getelementptr inbounds nuw i8, ptr %n, i64 7416
   store i16 -1, ptr %cntlid5, align 8
   ret void
 }
@@ -365,15 +365,15 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @nvme_subsys_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.10, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #7
-  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
+  %categories = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 4
   store i64 %or.i, ptr %categories, align 8
-  %realize = getelementptr inbounds i8, ptr %call.i, i64 144
+  %realize = getelementptr inbounds nuw i8, ptr %call.i, i64 144
   store ptr @nvme_subsys_realize, ptr %realize, align 8
-  %desc = getelementptr inbounds i8, ptr %call.i, i64 112
+  %desc = getelementptr inbounds nuw i8, ptr %call.i, i64 112
   store ptr @.str.9, ptr %desc, align 8
-  %hotpluggable = getelementptr inbounds i8, ptr %call.i, i64 129
+  %hotpluggable = getelementptr inbounds nuw i8, ptr %call.i, i64 129
   store i8 0, ptr %hotpluggable, align 1
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @nvme_subsystem_props) #7
   ret void
@@ -383,31 +383,31 @@ entry:
 define internal void @nvme_subsys_realize(ptr noundef %dev, ptr noundef %errp) #0 {
 entry:
   %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str, i32 noundef 210, ptr noundef nonnull @__func__.nvme_subsys_realize) #7
-  %bus = getelementptr inbounds i8, ptr %call, i64 160
-  %id = getelementptr inbounds i8, ptr %dev, i64 40
+  %bus = getelementptr inbounds nuw i8, ptr %call, i64 160
+  %id = getelementptr inbounds nuw i8, ptr %dev, i64 40
   %0 = load ptr, ptr %id, align 8
   tail call void @qbus_init(ptr noundef nonnull %bus, i64 noundef 120, ptr noundef nonnull @.str.11, ptr noundef %dev, ptr noundef %0) #7
-  %params.i = getelementptr inbounds i8, ptr %call, i64 12800
+  %params.i = getelementptr inbounds nuw i8, ptr %call, i64 12800
   %1 = load ptr, ptr %params.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %cond.false.i, label %cond.end.i
 
 cond.false.i:                                     ; preds = %entry
-  %id.i = getelementptr inbounds i8, ptr %call, i64 40
+  %id.i = getelementptr inbounds nuw i8, ptr %call, i64 40
   %2 = load ptr, ptr %id.i, align 8
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.false.i, %entry
   %cond.i = phi ptr [ %2, %cond.false.i ], [ %1, %entry ]
-  %subnqn.i = getelementptr inbounds i8, ptr %call, i64 280
+  %subnqn.i = getelementptr inbounds nuw i8, ptr %call, i64 280
   %call.i = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %subnqn.i, i64 noundef 256, ptr noundef nonnull @.str.12, ptr noundef %cond.i) #7
-  %fdp.i = getelementptr inbounds i8, ptr %call, i64 12808
+  %fdp.i = getelementptr inbounds nuw i8, ptr %call, i64 12808
   %3 = load i8, ptr %fdp.i, align 8
   %tobool5.i = trunc i8 %3 to i1
   br i1 %tobool5.i, label %land.lhs.true.i, label %nvme_subsys_setup.exit
 
 land.lhs.true.i:                                  ; preds = %cond.end.i
-  %runs.i.i = getelementptr inbounds i8, ptr %call, i64 12816
+  %runs.i.i = getelementptr inbounds nuw i8, ptr %call, i64 12816
   %4 = load i64, ptr %runs.i.i, align 8
   %tobool.not.i.i = icmp eq i64 %4, 0
   br i1 %tobool.not.i.i, label %if.then.i.i, label %if.end.i.i
@@ -417,9 +417,9 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i
   br label %nvme_subsys_setup.exit
 
 if.end.i.i:                                       ; preds = %land.lhs.true.i
-  %runs6.i.i = getelementptr inbounds i8, ptr %call, i64 12752
+  %runs6.i.i = getelementptr inbounds nuw i8, ptr %call, i64 12752
   store i64 %4, ptr %runs6.i.i, align 8
-  %nrg.i.i = getelementptr inbounds i8, ptr %call, i64 12828
+  %nrg.i.i = getelementptr inbounds nuw i8, ptr %call, i64 12828
   %5 = load i32, ptr %nrg.i.i, align 4
   %tobool9.not.i.i = icmp eq i32 %5, 0
   br i1 %tobool9.not.i.i, label %if.then10.i.i, label %if.end11.i.i
@@ -430,9 +430,9 @@ if.then10.i.i:                                    ; preds = %if.end.i.i
 
 if.end11.i.i:                                     ; preds = %if.end.i.i
   %conv.i.i = trunc i32 %5 to i16
-  %nrg16.i.i = getelementptr inbounds i8, ptr %call, i64 12746
+  %nrg16.i.i = getelementptr inbounds nuw i8, ptr %call, i64 12746
   store i16 %conv.i.i, ptr %nrg16.i.i, align 2
-  %nruh.i.i = getelementptr inbounds i8, ptr %call, i64 12824
+  %nruh.i.i = getelementptr inbounds nuw i8, ptr %call, i64 12824
   %6 = load i16, ptr %nruh.i.i, align 8
   %7 = add i16 %6, -129
   %or.cond.i.i = icmp ult i16 %7, -128
@@ -443,9 +443,9 @@ if.then25.i.i:                                    ; preds = %if.end11.i.i
   br label %nvme_subsys_setup.exit
 
 if.end26.i.i:                                     ; preds = %if.end11.i.i
-  %nruh31.i.i = getelementptr inbounds i8, ptr %call, i64 12744
+  %nruh31.i.i = getelementptr inbounds nuw i8, ptr %call, i64 12744
   store i16 %6, ptr %nruh31.i.i, align 8
-  %rgif.i.i = getelementptr inbounds i8, ptr %call, i64 12748
+  %rgif.i.i = getelementptr inbounds nuw i8, ptr %call, i64 12748
   switch i16 %conv.i.i, label %while.body.i.i.i [
     i16 1, label %nvme_calc_rgif.exit.thread.i.i
     i16 0, label %nvme_calc_rgif.exit.i.i
@@ -481,7 +481,7 @@ if.then37.i.i:                                    ; preds = %nvme_calc_rgif.exit
 if.end44.i.i:                                     ; preds = %nvme_calc_rgif.exit.i.i, %nvme_calc_rgif.exit.thread.i.i
   %conv47.i.i = zext nneg i16 %6 to i64
   %call48.i.i = tail call noalias ptr @g_malloc_n(i64 noundef %conv47.i.i, i64 noundef 40) #10
-  %ruhs.i.i = getelementptr inbounds i8, ptr %call, i64 12792
+  %ruhs.i.i = getelementptr inbounds nuw i8, ptr %call, i64 12792
   store ptr %call48.i.i, ptr %ruhs.i.i, align 8
   %9 = load i16, ptr %nruh31.i.i, align 8
   %cmp5432.not.i.i = icmp eq i16 %9, 0
@@ -492,7 +492,7 @@ for.body.i.i:                                     ; preds = %if.end44.i.i, %for.
   %10 = load ptr, ptr %ruhs.i.i, align 8
   %arrayidx.i.i = getelementptr %struct.NvmeRuHandle, ptr %10, i64 %indvars.iv.i.i
   store i8 1, ptr %arrayidx.i.i, align 8
-  %.compoundliteral.sroa.3.0.arrayidx.sroa_idx.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 1
+  %.compoundliteral.sroa.3.0.arrayidx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.compoundliteral.sroa.3.0.arrayidx.sroa_idx.i.i, i8 0, i64 39, i1 false)
   %11 = load i16, ptr %nrg16.i.i, align 2
   %conv60.i.i = zext i16 %11 to i64
@@ -507,7 +507,7 @@ for.body.i.i:                                     ; preds = %if.end44.i.i, %for.
   br i1 %cmp54.i.i, label %for.body.i.i, label %nvme_subsys_setup_fdp.exit.i, !llvm.loop !11
 
 nvme_subsys_setup_fdp.exit.i:                     ; preds = %for.body.i.i, %if.end44.i.i
-  %enabled.i.i = getelementptr inbounds i8, ptr %call, i64 12784
+  %enabled.i.i = getelementptr inbounds nuw i8, ptr %call, i64 12784
   store i8 1, ptr %enabled.i.i, align 8
   br label %nvme_subsys_setup.exit
 

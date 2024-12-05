@@ -26,7 +26,7 @@ define void @PaUtil_DebugPrint(ptr nocapture noundef readonly %0, ...) local_unn
 6:                                                ; preds = %1
   call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 @vsnprintf(ptr noundef nonnull %2, i64 noundef 2048, ptr noundef %0, ptr noundef nonnull %3) #4
-  %8 = getelementptr inbounds i8, ptr %2, i64 2047
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 2047
   store i8 0, ptr %8, align 1
   %9 = load ptr, ptr @userCB, align 8
   call void %9(ptr noundef nonnull %2) #4

@@ -52,7 +52,7 @@ $_ZN9LogPrefixILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = 
 define hidden void @_Z20recorderthread_entryP10JavaThreadS0_(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
   %3 = alloca %class.JfrRecorderService, align 8
   %4 = tail call noundef nonnull align 8 dereferenceable(21) ptr @_ZN17JfrRecorderThread8post_boxEv() #4
-  %5 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %5 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not19 = icmp eq ptr %5, null
   br i1 %.not19, label %7, label %6
 
@@ -61,10 +61,10 @@ define hidden void @_Z20recorderthread_entryP10JavaThreadS0_(ptr noundef %0, ptr
   br label %7
 
 7:                                                ; preds = %2, %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 928
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !6
-  %9 = getelementptr inbounds i8, ptr %0, i64 1092
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1092
   store volatile i32 4, ptr %9, align 4
   call void @_ZN18JfrRecorderServiceC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #4
   %10 = load ptr, ptr @JfrMsg_lock, align 8
@@ -134,7 +134,7 @@ _ZN13MutexUnlockerD2Ev.exit:                      ; preds = %24, %27, %25, %21
   br i1 %.not14.not, label %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit, label %29, !llvm.loop !7
 
 29:                                               ; preds = %_ZN13MutexUnlockerD2Ev.exit
-  %30 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %30 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not20 = icmp eq ptr %30, null
   br i1 %.not20, label %32, label %31
 
@@ -162,7 +162,7 @@ _ZN13MonitorLockerD2Ev.exit:                      ; preds = %32, %33
   br label %37
 
 37:                                               ; preds = %36, %_ZN13MonitorLockerD2Ev.exit
-  %38 = getelementptr inbounds i8, ptr %0, i64 1096
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %39 = load volatile i64, ptr %38, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !6
   %40 = and i64 %39, 1
@@ -174,7 +174,7 @@ _ZN13MonitorLockerD2Ev.exit:                      ; preds = %32, %33
   br label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i
 
 _ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i: ; preds = %41, %37
-  %42 = getelementptr inbounds i8, ptr %0, i64 1088
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   %43 = load volatile i32, ptr %42, align 8
   %44 = and i32 %43, 12
   %.not.i.i.i = icmp eq i32 %44, 0

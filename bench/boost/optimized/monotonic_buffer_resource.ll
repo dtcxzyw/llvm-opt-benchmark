@@ -234,7 +234,7 @@ _ZN5boost9container3pmr15memory_resource10deallocateEPvmm.exit.i.i.i: ; preds = 
   %8 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !22
   %10 = load ptr, ptr %4, align 8, !tbaa !13
-  %11 = getelementptr inbounds i8, ptr %10, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load ptr, ptr %11, align 8
   invoke void %12(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %.0.i.i.i, i64 noundef %9, i64 noundef 16)
           to label %_ZN5boost9container3pmr15memory_resource10deallocateEPvmm.exit.i.i.i unwind label %13
@@ -279,7 +279,7 @@ _ZN5boost9container3pmr15memory_resource10deallocateEPvmm.exit.i.i: ; preds = %6
   %8 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !22
   %10 = load ptr, ptr %4, align 8, !tbaa !13
-  %11 = getelementptr inbounds i8, ptr %10, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load ptr, ptr %11, align 8
   invoke void %12(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %.0.i.i, i64 noundef %9, i64 noundef 16)
           to label %_ZN5boost9container3pmr15memory_resource10deallocateEPvmm.exit.i.i unwind label %13
@@ -451,7 +451,7 @@ _ZN5boost9container3pmr11block_slist8allocateEm.exit: ; preds = %_ZN5boost9conta
   %37 = load ptr, ptr %36, align 8, !tbaa !21
   %38 = add nuw i64 %32, 16
   %39 = load ptr, ptr %37, align 8, !tbaa !13
-  %40 = getelementptr inbounds i8, ptr %39, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load ptr, ptr %40, align 8
   %42 = tail call noundef ptr %41(ptr noundef nonnull align 8 dereferenceable(8) %37, i64 noundef %38, i64 noundef 16)
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8

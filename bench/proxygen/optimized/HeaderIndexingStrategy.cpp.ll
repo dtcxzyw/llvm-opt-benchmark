@@ -138,20 +138,20 @@ while.cond8.preheader.i.i:                        ; preds = %if.end3.i.i, %if.en
 
 while.cond8.i.i:                                  ; preds = %while.body10.i.i, %while.cond8.preheader.i.i
   %i.1.i.i = phi ptr [ %incdec.ptr.i.i, %while.body10.i.i ], [ %i.043.i.i, %while.cond8.preheader.i.i ]
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %i.1.i.i, i64 2
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %i.1.i.i, i64 2
   %3 = load i8, ptr %arrayidx.i.i, align 1
   %cmp.i.i.i11 = icmp eq i8 %3, 103
   br i1 %cmp.i.i.i11, label %for.cond.i.i, label %while.body10.i.i
 
 while.body10.i.i:                                 ; preds = %while.cond8.i.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %i.1.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %i.1.i.i, i64 1
   %cmp11.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i1.i
   br i1 %cmp11.i.i, label %sw.epilog, label %while.cond8.i.i, !llvm.loop !5
 
 for.cond.i.i:                                     ; preds = %while.cond8.i.i, %if.end30.i.i
   %j.0.i.i = phi i64 [ %inc31.i.i, %if.end30.i.i ], [ 0, %while.cond8.i.i ]
-  %arrayidx14.i.i = getelementptr inbounds i8, ptr %i.1.i.i, i64 %j.0.i.i
-  %arrayidx.i31.i.i = getelementptr inbounds i8, ptr @.str, i64 %j.0.i.i
+  %arrayidx14.i.i = getelementptr inbounds nuw i8, ptr %i.1.i.i, i64 %j.0.i.i
+  %arrayidx.i31.i.i = getelementptr inbounds nuw i8, ptr @.str, i64 %j.0.i.i
   %4 = load i8, ptr %arrayidx14.i.i, align 1
   %5 = load i8, ptr %arrayidx.i31.i.i, align 1
   %cmp.i32.i.i = icmp eq i8 %4, %5
@@ -164,7 +164,7 @@ if.then17.i.i:                                    ; preds = %for.cond.i.i
 land.rhs.i.i:                                     ; preds = %if.then17.i.i, %while.body26.i.i
   %skip.239.i.i = phi i64 [ %inc.i.i, %while.body26.i.i ], [ 1, %if.then17.i.i ]
   %sub22.i.i = sub nuw nsw i64 2, %skip.239.i.i
-  %arrayidx.i33.i.i = getelementptr inbounds i8, ptr @.str, i64 %sub22.i.i
+  %arrayidx.i33.i.i = getelementptr inbounds nuw i8, ptr @.str, i64 %sub22.i.i
   %6 = load i8, ptr %arrayidx.i33.i.i, align 1
   %cmp.i34.i.i = icmp eq i8 %6, 103
   br i1 %cmp.i34.i.i, label %if.end28.i.i, label %while.body26.i.i

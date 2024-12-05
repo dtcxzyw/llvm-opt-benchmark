@@ -98,7 +98,7 @@ if.end.i:                                         ; preds = %if.then10
 
 do.body.preheader.i:                              ; preds = %if.end.i
   %sub.ptr.rhs.cast.i = ptrtoint ptr %buf.i to i64
-  %add.ptr5.i = getelementptr inbounds i8, ptr %buf.i, i64 128
+  %add.ptr5.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 128
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i, %do.body.preheader.i
@@ -138,7 +138,7 @@ if.end11:                                         ; preds = %if.end3
 
 do.body.preheader.i13:                            ; preds = %if.end11
   %sub.ptr.rhs.cast.i14 = ptrtoint ptr %buf.i4 to i64
-  %add.ptr5.i15 = getelementptr inbounds i8, ptr %buf.i4, i64 128
+  %add.ptr5.i15 = getelementptr inbounds nuw i8, ptr %buf.i4, i64 128
   br label %do.body.i16
 
 do.body.i16:                                      ; preds = %do.body.i16, %do.body.preheader.i13
@@ -204,7 +204,7 @@ if.then2.i:                                       ; preds = %if.end.i
 fetchErrorName.exit:                              ; preds = %if.end.i, %if.then2.i
   %3 = phi ptr [ %calloc.i, %if.then2.i ], [ %2, %if.end.i ]
   %idxprom.i = zext nneg i32 %err to i64
-  %arrayidx.i = getelementptr inbounds ptr, ptr %3, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %3, i64 %idxprom.i
   %4 = sext i32 %err to i64
   %5 = getelementptr ptr, ptr %1, i64 %4
   %arrayidx7.i = getelementptr i8, ptr %5, i64 1024
@@ -260,7 +260,7 @@ if.end23:                                         ; preds = %if.then4, %if.end18
 
 if.then26:                                        ; preds = %if.end23
   %10 = load ptr, ptr @gErrMessages, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %10, i64 %idxprom.i
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %10, i64 %idxprom.i
   store ptr %msg.1, ptr %arrayidx, align 8
   br label %return
 

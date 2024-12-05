@@ -17,19 +17,19 @@ entry:
   %call = tail call ptr @g_string_new(ptr noundef nonnull @.str) #2
   call void @disas_initialize_debug_target(ptr noundef nonnull %s, ptr noundef %cpu) #2
   store ptr @disas_gstring_printf, ptr %s, align 8
-  %stream = getelementptr inbounds i8, ptr %s, i64 8
+  %stream = getelementptr inbounds nuw i8, ptr %s, i64 8
   store ptr %call, ptr %stream, align 8
   br i1 %is_physical, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %read_memory_func = getelementptr inbounds i8, ptr %s, i64 80
+  %read_memory_func = getelementptr inbounds nuw i8, ptr %s, i64 80
   store ptr @physical_read_memory, ptr %read_memory_func, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %buffer_vma = getelementptr inbounds i8, ptr %s, i64 128
+  %buffer_vma = getelementptr inbounds nuw i8, ptr %s, i64 128
   store i64 %pc, ptr %buffer_vma, align 8
-  %print_insn = getelementptr inbounds i8, ptr %s, i64 104
+  %print_insn = getelementptr inbounds nuw i8, ptr %s, i64 104
   %0 = load ptr, ptr %print_insn, align 8
   %tobool9.not = icmp eq ptr %0, null
   br i1 %tobool9.not, label %cleanup, label %for.cond.preheader
@@ -39,8 +39,8 @@ for.cond.preheader:                               ; preds = %if.end
   br i1 %cmp1312, label %for.body.lr.ph, label %cleanup.thread
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %len.i = getelementptr inbounds i8, ptr %call, i64 8
-  %allocated_len.i = getelementptr inbounds i8, ptr %call, i64 16
+  %len.i = getelementptr inbounds nuw i8, ptr %call, i64 8
+  %allocated_len.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end21
@@ -109,9 +109,9 @@ declare i32 @disas_gstring_printf(ptr noundef, ptr noundef, ...) #1
 define internal range(i32 0, 6) i32 @physical_read_memory(i64 noundef %memaddr, ptr noundef %myaddr, i32 noundef %length, ptr nocapture noundef readonly %info) #0 {
 entry:
   %conv = sext i32 %length to i64
-  %cpu = getelementptr inbounds i8, ptr %info, i64 208
+  %cpu = getelementptr inbounds nuw i8, ptr %info, i64 208
   %0 = load ptr, ptr %cpu, align 8
-  %as = getelementptr inbounds i8, ptr %0, i64 528
+  %as = getelementptr inbounds nuw i8, ptr %0, i64 528
   %1 = load ptr, ptr %as, align 16
   %call13.i = tail call i32 @address_space_read_full(ptr noundef %1, i64 noundef %memaddr, i32 1, ptr noundef %myaddr, i64 noundef %conv) #2
   %result.i.1.fr = freeze i32 %call13.i

@@ -46,10 +46,10 @@ do.body1:                                         ; preds = %entry
   unreachable
 
 do.end4:                                          ; preds = %entry
-  %0 = getelementptr inbounds i8, ptr %sigstk, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %sigstk, i64 8
   store i64 0, ptr %0, align 8
   store ptr %call, ptr %sigstk, align 8
-  %ss_size = getelementptr inbounds i8, ptr %sigstk, i64 16
+  %ss_size = getelementptr inbounds nuw i8, ptr %sigstk, i64 16
   store i64 65536, ptr %ss_size, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %old_sigstk, i8 0, i64 24, i1 false)
   %call6 = call i32 @sigaltstack(ptr noundef nonnull %sigstk, ptr noundef nonnull %old_sigstk) #5
@@ -62,9 +62,9 @@ do.body10:                                        ; preds = %do.end4
 
 do.end16:                                         ; preds = %do.end4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %sa, i8 0, i64 152, i1 false)
-  %sa_mask = getelementptr inbounds i8, ptr %sa, i64 8
+  %sa_mask = getelementptr inbounds nuw i8, ptr %sa, i64 8
   %call17 = call i32 @sigemptyset(ptr noundef nonnull %sa_mask) #5
-  %sa_flags = getelementptr inbounds i8, ptr %sa, i64 136
+  %sa_flags = getelementptr inbounds nuw i8, ptr %sa, i64 136
   store i32 134217728, ptr %sa_flags, align 8
   store ptr @_ZN4absl18debugging_internal12_GLOBAL__N_118EmptySignalHandlerEi, ptr %sa, align 8
   %call19 = call i32 @sigaction(i32 noundef 10, ptr noundef nonnull %sa, ptr noundef nonnull %old_sa1) #5
@@ -122,7 +122,7 @@ do.body5.i:                                       ; preds = %do.body.i
   unreachable
 
 if.end9.i:                                        ; preds = %for.body.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %begin.07.i, i64 1
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %begin.07.i, i64 1
   %dec.i = add nsw i32 %usage_count.06.i, -1
   %cmp.i = icmp ugt i32 %usage_count.06.i, 1
   br i1 %cmp.i, label %for.body.i, label %do.body10.i, !llvm.loop !5
@@ -157,7 +157,7 @@ do.body5.i15:                                     ; preds = %do.body.i13
   unreachable
 
 if.end9.i16:                                      ; preds = %for.body.i9
-  %add.ptr.i17 = getelementptr inbounds i8, ptr %begin.07.i10, i64 1
+  %add.ptr.i17 = getelementptr inbounds nuw i8, ptr %begin.07.i10, i64 1
   %dec.i18 = add nsw i32 %usage_count.06.i11, -1
   %cmp.i19 = icmp ugt i32 %usage_count.06.i11, 1
   br i1 %cmp.i19, label %for.body.i9, label %do.body10.i20, !llvm.loop !5
@@ -169,14 +169,14 @@ do.body10.i20:                                    ; preds = %if.end9.i16
 _ZN4absl18debugging_internal12_GLOBAL__N_119GetStackConsumptionEPKv.exit21: ; preds = %do.body.i13
   %3 = load ptr, ptr %old_sigstk, align 8
   %cmp85 = icmp eq ptr %3, null
-  %ss_size86 = getelementptr inbounds i8, ptr %old_sigstk, i64 16
+  %ss_size86 = getelementptr inbounds nuw i8, ptr %old_sigstk, i64 16
   %4 = load i64, ptr %ss_size86, align 8
   %cmp87 = icmp eq i64 %4, 0
   %or.cond = select i1 %cmp85, i1 %cmp87, i1 false
   br i1 %or.cond, label %land.lhs.true88, label %do.body94
 
 land.lhs.true88:                                  ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_119GetStackConsumptionEPKv.exit21
-  %ss_flags89 = getelementptr inbounds i8, ptr %old_sigstk, i64 8
+  %ss_flags89 = getelementptr inbounds nuw i8, ptr %old_sigstk, i64 8
   %5 = load i32, ptr %ss_flags89, align 8
   %and = and i32 %5, 2
   %tobool.not = icmp eq i32 %and, 0

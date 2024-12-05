@@ -71,7 +71,7 @@ define weak_odr void @_ZNK10OpenSubdiv6v3_6_03Bfr16Parameterization14GetVertexCo
 
 28:                                               ; preds = %27, %17, %12, %5
   %.sink = phi float [ -1.000000e+00, %27 ], [ %26, %17 ], [ %16, %12 ], [ %11, %5 ]
-  %29 = getelementptr inbounds i8, ptr %2, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store float %.sink, ptr %29, align 4
   ret void
 }
@@ -95,27 +95,27 @@ define weak_odr void @_ZNK10OpenSubdiv6v3_6_03Bfr16Parameterization12GetEdgeCoor
 
 7:                                                ; preds = %6
   store float %2, ptr %3, align 4
-  %8 = getelementptr inbounds i8, ptr %3, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store float 0.000000e+00, ptr %8, align 4
   br label %58
 
 9:                                                ; preds = %6
   store float 1.000000e+00, ptr %3, align 4
-  %10 = getelementptr inbounds i8, ptr %3, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store float %2, ptr %10, align 4
   br label %58
 
 11:                                               ; preds = %6
   %12 = fsub float 1.000000e+00, %2
   store float %12, ptr %3, align 4
-  %13 = getelementptr inbounds i8, ptr %3, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store float 1.000000e+00, ptr %13, align 4
   br label %58
 
 14:                                               ; preds = %6
   store float 0.000000e+00, ptr %3, align 4
   %15 = fsub float 1.000000e+00, %2
-  %16 = getelementptr inbounds i8, ptr %3, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store float %15, ptr %16, align 4
   br label %58
 
@@ -128,21 +128,21 @@ define weak_odr void @_ZNK10OpenSubdiv6v3_6_03Bfr16Parameterization12GetEdgeCoor
 
 18:                                               ; preds = %17
   store float %2, ptr %3, align 4
-  %19 = getelementptr inbounds i8, ptr %3, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store float 0.000000e+00, ptr %19, align 4
   br label %58
 
 20:                                               ; preds = %17
   %21 = fsub float 1.000000e+00, %2
   store float %21, ptr %3, align 4
-  %22 = getelementptr inbounds i8, ptr %3, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store float %2, ptr %22, align 4
   br label %58
 
 23:                                               ; preds = %17
   store float 0.000000e+00, ptr %3, align 4
   %24 = fsub float 1.000000e+00, %2
-  %25 = getelementptr inbounds i8, ptr %3, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store float %24, ptr %25, align 4
   br label %58
 
@@ -161,7 +161,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr16Parameterization14GetVertexCoordIfEEviPT_.exit: ; p
   %34 = zext i8 %33 to i32
   %35 = sdiv i32 %1, %34
   %36 = sitofp i32 %35 to float
-  %37 = getelementptr inbounds i8, ptr %3, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store float %36, ptr %37, align 4
   %38 = fadd float %2, %32
   store float %38, ptr %3, align 4
@@ -183,7 +183,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr16Parameterization14GetVertexCoordIfEEviPT_.exit36: ;
   %50 = zext i8 %49 to i32
   %51 = sdiv i32 %43, %50
   %52 = sitofp i32 %51 to float
-  %53 = getelementptr inbounds i8, ptr %3, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %54 = fsub float 1.000000e+00, %2
   %55 = fadd float %54, %52
   store float %55, ptr %53, align 4
@@ -191,7 +191,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr16Parameterization14GetVertexCoordIfEEviPT_.exit36: ;
 
 56:                                               ; preds = %4
   store float -1.000000e+00, ptr %3, align 4
-  %57 = getelementptr inbounds i8, ptr %3, i64 4
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store float -1.000000e+00, ptr %57, align 4
   br label %58
 
@@ -205,7 +205,7 @@ define weak_odr void @_ZNK10OpenSubdiv6v3_6_03Bfr16Parameterization14GetCenterCo
   %4 = icmp eq i8 %3, 1
   %.sink5 = select i1 %4, float 0x3FD5555560000000, float 5.000000e-01
   store float %.sink5, ptr %1, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store float %.sink5, ptr %5, align 4
   ret void
 }
@@ -256,7 +256,7 @@ define weak_odr void @_ZNK10OpenSubdiv6v3_6_03Bfr16Parameterization14GetVertexCo
 
 28:                                               ; preds = %27, %17, %12, %5
   %.sink = phi double [ -1.000000e+00, %27 ], [ %26, %17 ], [ %16, %12 ], [ %11, %5 ]
-  %29 = getelementptr inbounds i8, ptr %2, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store double %.sink, ptr %29, align 8
   ret void
 }
@@ -280,27 +280,27 @@ define weak_odr void @_ZNK10OpenSubdiv6v3_6_03Bfr16Parameterization12GetEdgeCoor
 
 7:                                                ; preds = %6
   store double %2, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store double 0.000000e+00, ptr %8, align 8
   br label %58
 
 9:                                                ; preds = %6
   store double 1.000000e+00, ptr %3, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store double %2, ptr %10, align 8
   br label %58
 
 11:                                               ; preds = %6
   %12 = fsub double 1.000000e+00, %2
   store double %12, ptr %3, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store double 1.000000e+00, ptr %13, align 8
   br label %58
 
 14:                                               ; preds = %6
   store double 0.000000e+00, ptr %3, align 8
   %15 = fsub double 1.000000e+00, %2
-  %16 = getelementptr inbounds i8, ptr %3, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store double %15, ptr %16, align 8
   br label %58
 
@@ -313,21 +313,21 @@ define weak_odr void @_ZNK10OpenSubdiv6v3_6_03Bfr16Parameterization12GetEdgeCoor
 
 18:                                               ; preds = %17
   store double %2, ptr %3, align 8
-  %19 = getelementptr inbounds i8, ptr %3, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store double 0.000000e+00, ptr %19, align 8
   br label %58
 
 20:                                               ; preds = %17
   %21 = fsub double 1.000000e+00, %2
   store double %21, ptr %3, align 8
-  %22 = getelementptr inbounds i8, ptr %3, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store double %2, ptr %22, align 8
   br label %58
 
 23:                                               ; preds = %17
   store double 0.000000e+00, ptr %3, align 8
   %24 = fsub double 1.000000e+00, %2
-  %25 = getelementptr inbounds i8, ptr %3, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store double %24, ptr %25, align 8
   br label %58
 
@@ -346,7 +346,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr16Parameterization14GetVertexCoordIdEEviPT_.exit: ; p
   %34 = zext i8 %33 to i32
   %35 = sdiv i32 %1, %34
   %36 = sitofp i32 %35 to double
-  %37 = getelementptr inbounds i8, ptr %3, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store double %36, ptr %37, align 8
   %38 = fadd double %2, %32
   store double %38, ptr %3, align 8
@@ -368,7 +368,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr16Parameterization14GetVertexCoordIdEEviPT_.exit36: ;
   %50 = zext i8 %49 to i32
   %51 = sdiv i32 %43, %50
   %52 = sitofp i32 %51 to double
-  %53 = getelementptr inbounds i8, ptr %3, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %54 = fsub double 1.000000e+00, %2
   %55 = fadd double %54, %52
   store double %55, ptr %53, align 8
@@ -376,7 +376,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr16Parameterization14GetVertexCoordIdEEviPT_.exit36: ;
 
 56:                                               ; preds = %4
   store double -1.000000e+00, ptr %3, align 8
-  %57 = getelementptr inbounds i8, ptr %3, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store double -1.000000e+00, ptr %57, align 8
   br label %58
 
@@ -390,7 +390,7 @@ define weak_odr void @_ZNK10OpenSubdiv6v3_6_03Bfr16Parameterization14GetCenterCo
   %4 = icmp eq i8 %3, 1
   %.sink5 = select i1 %4, double 0x3FD5555560000000, double 5.000000e-01
   store double %.sink5, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store double %.sink5, ptr %5, align 8
   ret void
 }
@@ -399,7 +399,7 @@ define weak_odr void @_ZNK10OpenSubdiv6v3_6_03Bfr16Parameterization14GetCenterCo
 define weak_odr noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr16Parameterization21convertCoordToSubFaceIfEEibPKT_PS4_(ptr noundef nonnull align 2 dereferenceable(4) %0, i1 noundef zeroext %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 comdat align 2 {
   %5 = load float, ptr %2, align 4
   %6 = fptosi float %5 to i32
-  %7 = getelementptr inbounds i8, ptr %2, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %8 = load float, ptr %7, align 4
   %9 = fptosi float %8 to i32
   %10 = sitofp i32 %6 to float
@@ -417,7 +417,7 @@ define weak_odr noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr16Parameterization21conv
   %.023.sink = select i1 %1, float %18, float %.023
   %.0.sink = select i1 %1, float %19, float %.0
   store float %.023.sink, ptr %3, align 4
-  %20 = getelementptr inbounds i8, ptr %3, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store float %.0.sink, ptr %20, align 4
   %21 = zext i1 %16 to i32
   %.024 = add nsw i32 %21, %9
@@ -441,7 +441,7 @@ define weak_odr void @_ZNK10OpenSubdiv6v3_6_03Bfr16Parameterization21convertSubF
   %11 = sitofp i32 %9 to float
   %12 = load float, ptr %3, align 4
   %13 = sitofp i32 %10 to float
-  %14 = getelementptr inbounds i8, ptr %3, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 4
   br i1 %1, label %15, label %19
 
 15:                                               ; preds = %5
@@ -460,7 +460,7 @@ define weak_odr void @_ZNK10OpenSubdiv6v3_6_03Bfr16Parameterization21convertSubF
 
 23:                                               ; preds = %19, %15
   %.sink = phi float [ %18, %15 ], [ %22, %19 ]
-  %24 = getelementptr inbounds i8, ptr %4, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store float %.sink, ptr %24, align 4
   ret void
 }
@@ -472,7 +472,7 @@ declare float @llvm.fmuladd.f32(float, float, float) #2
 define weak_odr noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr16Parameterization21convertCoordToSubFaceIdEEibPKT_PS4_(ptr noundef nonnull align 2 dereferenceable(4) %0, i1 noundef zeroext %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 comdat align 2 {
   %5 = load double, ptr %2, align 8
   %6 = fptosi double %5 to i32
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load double, ptr %7, align 8
   %9 = fptosi double %8 to i32
   %10 = sitofp i32 %6 to double
@@ -490,7 +490,7 @@ define weak_odr noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr16Parameterization21conv
   %.023.sink = select i1 %1, double %18, double %.023
   %.0.sink = select i1 %1, double %19, double %.0
   store double %.023.sink, ptr %3, align 8
-  %20 = getelementptr inbounds i8, ptr %3, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store double %.0.sink, ptr %20, align 8
   %21 = zext i1 %16 to i32
   %.024 = add nsw i32 %21, %9
@@ -514,7 +514,7 @@ define weak_odr void @_ZNK10OpenSubdiv6v3_6_03Bfr16Parameterization21convertSubF
   %11 = sitofp i32 %9 to double
   %12 = load double, ptr %3, align 8
   %13 = sitofp i32 %10 to double
-  %14 = getelementptr inbounds i8, ptr %3, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br i1 %1, label %15, label %19
 
 15:                                               ; preds = %5
@@ -533,7 +533,7 @@ define weak_odr void @_ZNK10OpenSubdiv6v3_6_03Bfr16Parameterization21convertSubF
 
 23:                                               ; preds = %19, %15
   %.sink = phi double [ %18, %15 ], [ %22, %19 ]
-  %24 = getelementptr inbounds i8, ptr %4, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store double %.sink, ptr %24, align 8
   ret void
 }

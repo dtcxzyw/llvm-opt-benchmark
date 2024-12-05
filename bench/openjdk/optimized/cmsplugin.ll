@@ -66,33 +66,33 @@ define hidden noundef i32 @_cmsAdjustEndianess32(i32 noundef %0) local_unnamed_a
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_cmsAdjustEndianess64(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
   %3 = load i8, ptr %1, align 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 7
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 7
   store i8 %3, ptr %4, align 1
-  %5 = getelementptr inbounds i8, ptr %1, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %6 = load i8, ptr %5, align 1
-  %7 = getelementptr inbounds i8, ptr %0, i64 6
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 6
   store i8 %6, ptr %7, align 1
-  %8 = getelementptr inbounds i8, ptr %1, i64 2
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %9 = load i8, ptr %8, align 1
-  %10 = getelementptr inbounds i8, ptr %0, i64 5
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 5
   store i8 %9, ptr %10, align 1
-  %11 = getelementptr inbounds i8, ptr %1, i64 3
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %12 = load i8, ptr %11, align 1
-  %13 = getelementptr inbounds i8, ptr %0, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 %12, ptr %13, align 1
-  %14 = getelementptr inbounds i8, ptr %1, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %15 = load i8, ptr %14, align 1
-  %16 = getelementptr inbounds i8, ptr %0, i64 3
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 3
   store i8 %15, ptr %16, align 1
-  %17 = getelementptr inbounds i8, ptr %1, i64 5
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %18 = load i8, ptr %17, align 1
-  %19 = getelementptr inbounds i8, ptr %0, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i8 %18, ptr %19, align 1
-  %20 = getelementptr inbounds i8, ptr %1, i64 6
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %21 = load i8, ptr %20, align 1
-  %22 = getelementptr inbounds i8, ptr %0, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %21, ptr %22, align 1
-  %23 = getelementptr inbounds i8, ptr %1, i64 7
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 7
   %24 = load i8, ptr %23, align 1
   store i8 %24, ptr %0, align 1
   ret void
@@ -101,7 +101,7 @@ define hidden void @_cmsAdjustEndianess64(ptr nocapture noundef writeonly initia
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @_cmsReadUInt8Number(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #2 {
   %3 = alloca i8, align 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 280
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %5 = load ptr, ptr %4, align 8
   %6 = call i32 %5(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 1, i32 noundef 1) #12
   %.not = icmp eq i32 %6, 1
@@ -124,7 +124,7 @@ define hidden range(i32 0, 2) i32 @_cmsReadUInt8Number(ptr noundef %0, ptr nound
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @_cmsReadUInt16Number(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #2 {
   %3 = alloca i16, align 2
-  %4 = getelementptr inbounds i8, ptr %0, i64 280
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %5 = load ptr, ptr %4, align 8
   %6 = call i32 %5(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 2, i32 noundef 1) #12
   %.not = icmp eq i32 %6, 1
@@ -154,7 +154,7 @@ define hidden range(i32 0, 2) i32 @_cmsReadUInt16Array(ptr noundef %0, i32 nound
 
 .lr.ph:                                           ; preds = %3
   %.not = icmp eq ptr %2, null
-  %6 = getelementptr inbounds i8, ptr %0, i64 280
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 280
   br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
@@ -188,7 +188,7 @@ _cmsReadUInt16Number.exit.thread:                 ; preds = %.lr.ph.split
   br label %.loopexit
 
 _cmsReadUInt16Number.exit:                        ; preds = %.lr.ph.split
-  %12 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
   %13 = load i16, ptr %5, align 2
   %.sroa.0.0.insert.insert.i.i = call noundef i16 @llvm.bswap.i16(i16 %13)
   store i16 %.sroa.0.0.insert.insert.i.i, ptr %12, align 2
@@ -205,7 +205,7 @@ _cmsReadUInt16Number.exit:                        ; preds = %.lr.ph.split
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @_cmsReadUInt32Number(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #2 {
   %3 = alloca i32, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 280
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %5 = load ptr, ptr %4, align 8
   %6 = call i32 %5(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 4, i32 noundef 1) #12
   %.not = icmp eq i32 %6, 1
@@ -229,7 +229,7 @@ define hidden range(i32 0, 2) i32 @_cmsReadUInt32Number(ptr noundef %0, ptr noun
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @_cmsReadFloat32Number(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #2 {
   %3 = alloca %union.typeConverter, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 280
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %5 = load ptr, ptr %4, align 8
   %6 = call i32 %5(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 4, i32 noundef 1) #12
   %.not = icmp eq i32 %6, 1
@@ -274,7 +274,7 @@ declare float @llvm.fabs.f32(float) #3
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @_cmsReadUInt64Number(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #2 {
   %3 = alloca i64, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 280
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %5 = load ptr, ptr %4, align 8
   %6 = call i32 %5(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 8, i32 noundef 1) #12
   %.not = icmp eq i32 %6, 1
@@ -286,33 +286,33 @@ define hidden range(i32 0, 2) i32 @_cmsReadUInt64Number(ptr noundef %0, ptr noun
 
 8:                                                ; preds = %7
   %9 = load i8, ptr %3, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 7
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 7
   store i8 %9, ptr %10, align 1
-  %11 = getelementptr inbounds i8, ptr %3, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %12 = load i8, ptr %11, align 1
-  %13 = getelementptr inbounds i8, ptr %1, i64 6
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 6
   store i8 %12, ptr %13, align 1
-  %14 = getelementptr inbounds i8, ptr %3, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %15 = load i8, ptr %14, align 2
-  %16 = getelementptr inbounds i8, ptr %1, i64 5
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 5
   store i8 %15, ptr %16, align 1
-  %17 = getelementptr inbounds i8, ptr %3, i64 3
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 3
   %18 = load i8, ptr %17, align 1
-  %19 = getelementptr inbounds i8, ptr %1, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i8 %18, ptr %19, align 1
-  %20 = getelementptr inbounds i8, ptr %3, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %21 = load i8, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %1, i64 3
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 3
   store i8 %21, ptr %22, align 1
-  %23 = getelementptr inbounds i8, ptr %3, i64 5
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 5
   %24 = load i8, ptr %23, align 1
-  %25 = getelementptr inbounds i8, ptr %1, i64 2
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i8 %24, ptr %25, align 1
-  %26 = getelementptr inbounds i8, ptr %3, i64 6
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 6
   %27 = load i8, ptr %26, align 2
-  %28 = getelementptr inbounds i8, ptr %1, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 %27, ptr %28, align 1
-  %29 = getelementptr inbounds i8, ptr %3, i64 7
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 7
   %30 = load i8, ptr %29, align 1
   store i8 %30, ptr %1, align 1
   br label %31
@@ -325,7 +325,7 @@ define hidden range(i32 0, 2) i32 @_cmsReadUInt64Number(ptr noundef %0, ptr noun
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @_cmsRead15Fixed16Number(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #2 {
   %3 = alloca i32, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 280
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %5 = load ptr, ptr %4, align 8
   %6 = call i32 %5(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 4, i32 noundef 1) #12
   %.not = icmp eq i32 %6, 1
@@ -358,7 +358,7 @@ define hidden noundef double @_cms15Fixed16toDouble(i32 noundef %0) local_unname
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @_cmsReadXYZNumber(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #2 {
   %3 = alloca %struct.cmsEncodedXYZNumber, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 280
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %5 = load ptr, ptr %4, align 8
   %6 = call i32 %5(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 12, i32 noundef 1) #12
   %.not = icmp eq i32 %6, 1
@@ -374,19 +374,19 @@ define hidden range(i32 0, 2) i32 @_cmsReadXYZNumber(ptr noundef %0, ptr noundef
   %10 = sitofp i32 %.sroa.0.0.insert.insert.i to double
   %11 = fmul double %10, 0x3EF0000000000000
   store double %11, ptr %1, align 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %13 = load i32, ptr %12, align 4
   %.sroa.0.0.insert.insert.i8 = call noundef i32 @llvm.bswap.i32(i32 %13)
   %14 = sitofp i32 %.sroa.0.0.insert.insert.i8 to double
   %15 = fmul double %14, 0x3EF0000000000000
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store double %15, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %3, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %18 = load i32, ptr %17, align 4
   %.sroa.0.0.insert.insert.i9 = call noundef i32 @llvm.bswap.i32(i32 %18)
   %19 = sitofp i32 %.sroa.0.0.insert.insert.i9 to double
   %20 = fmul double %19, 0x3EF0000000000000
-  %21 = getelementptr inbounds i8, ptr %1, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store double %20, ptr %21, align 8
   br label %22
 
@@ -399,7 +399,7 @@ define hidden range(i32 0, 2) i32 @_cmsReadXYZNumber(ptr noundef %0, ptr noundef
 define hidden range(i32 0, 2) i32 @_cmsWriteUInt8Number(ptr noundef %0, i8 noundef zeroext %1) local_unnamed_addr #2 {
   %3 = alloca i8, align 1
   store i8 %1, ptr %3, align 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 312
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %5 = load ptr, ptr %4, align 8
   %6 = call i32 %5(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %3) #12
   %.not = icmp eq i32 %6, 1
@@ -412,7 +412,7 @@ define hidden range(i32 0, 2) i32 @_cmsWriteUInt16Number(ptr noundef %0, i16 nou
   %3 = alloca i16, align 2
   %.sroa.0.0.insert.insert.i = tail call noundef i16 @llvm.bswap.i16(i16 %1)
   store i16 %.sroa.0.0.insert.insert.i, ptr %3, align 2
-  %4 = getelementptr inbounds i8, ptr %0, i64 312
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %5 = load ptr, ptr %4, align 8
   %6 = call i32 %5(ptr noundef %0, i32 noundef 2, ptr noundef nonnull %3) #12
   %.not = icmp eq i32 %6, 1
@@ -427,7 +427,7 @@ define hidden range(i32 0, 2) i32 @_cmsWriteUInt16Array(ptr noundef %0, i32 noun
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 312
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %wide.trip.count = zext i32 %1 to i64
   br label %7
 
@@ -438,7 +438,7 @@ define hidden range(i32 0, 2) i32 @_cmsWriteUInt16Array(ptr noundef %0, i32 noun
 
 7:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
-  %8 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
   %9 = load i16, ptr %8, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4)
   %.sroa.0.0.insert.insert.i.i = call noundef i16 @llvm.bswap.i16(i16 %9)
@@ -459,7 +459,7 @@ define hidden range(i32 0, 2) i32 @_cmsWriteUInt32Number(ptr noundef %0, i32 nou
   %3 = alloca i32, align 4
   %.sroa.0.0.insert.insert.i = tail call noundef i32 @llvm.bswap.i32(i32 %1)
   store i32 %.sroa.0.0.insert.insert.i, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 312
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %5 = load ptr, ptr %4, align 8
   %6 = call i32 %5(ptr noundef %0, i32 noundef 4, ptr noundef nonnull %3) #12
   %.not = icmp eq i32 %6, 1
@@ -473,7 +473,7 @@ define hidden range(i32 0, 2) i32 @_cmsWriteFloat32Number(ptr noundef %0, float 
   %.cast = bitcast float %1 to i32
   %.sroa.0.0.insert.insert.i = tail call noundef i32 @llvm.bswap.i32(i32 %.cast)
   store i32 %.sroa.0.0.insert.insert.i, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 312
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %5 = load ptr, ptr %4, align 8
   %6 = call i32 %5(ptr noundef %0, i32 noundef 4, ptr noundef nonnull %3) #12
   %.not = icmp eq i32 %6, 1
@@ -485,36 +485,36 @@ define hidden range(i32 0, 2) i32 @_cmsWriteFloat32Number(ptr noundef %0, float 
 define hidden range(i32 0, 2) i32 @_cmsWriteUInt64Number(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
   %3 = alloca i64, align 8
   %4 = load i8, ptr %1, align 1
-  %5 = getelementptr inbounds i8, ptr %3, i64 7
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 7
   store i8 %4, ptr %5, align 1
-  %6 = getelementptr inbounds i8, ptr %1, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %7 = load i8, ptr %6, align 1
-  %8 = getelementptr inbounds i8, ptr %3, i64 6
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 6
   store i8 %7, ptr %8, align 2
-  %9 = getelementptr inbounds i8, ptr %1, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %10 = load i8, ptr %9, align 1
-  %11 = getelementptr inbounds i8, ptr %3, i64 5
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 5
   store i8 %10, ptr %11, align 1
-  %12 = getelementptr inbounds i8, ptr %1, i64 3
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %13 = load i8, ptr %12, align 1
-  %14 = getelementptr inbounds i8, ptr %3, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i8 %13, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %1, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %16 = load i8, ptr %15, align 1
-  %17 = getelementptr inbounds i8, ptr %3, i64 3
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 3
   store i8 %16, ptr %17, align 1
-  %18 = getelementptr inbounds i8, ptr %1, i64 5
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %19 = load i8, ptr %18, align 1
-  %20 = getelementptr inbounds i8, ptr %3, i64 2
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 %19, ptr %20, align 2
-  %21 = getelementptr inbounds i8, ptr %1, i64 6
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %22 = load i8, ptr %21, align 1
-  %23 = getelementptr inbounds i8, ptr %3, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %22, ptr %23, align 1
-  %24 = getelementptr inbounds i8, ptr %1, i64 7
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 7
   %25 = load i8, ptr %24, align 1
   store i8 %25, ptr %3, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 312
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %27 = load ptr, ptr %26, align 8
   %28 = call i32 %27(ptr noundef %0, i32 noundef 8, ptr noundef nonnull %3) #12
   %.not = icmp eq i32 %28, 1
@@ -530,7 +530,7 @@ define hidden range(i32 0, 2) i32 @_cmsWrite15Fixed16Number(ptr noundef %0, doub
   %6 = fptosi double %5 to i32
   %.sroa.0.0.insert.insert.i = tail call noundef i32 @llvm.bswap.i32(i32 %6)
   store i32 %.sroa.0.0.insert.insert.i, ptr %3, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 312
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %8 = load ptr, ptr %7, align 8
   %9 = call i32 %8(ptr noundef %0, i32 noundef 4, ptr noundef nonnull %3) #12
   %.not = icmp eq i32 %9, 1
@@ -555,23 +555,23 @@ define hidden i32 @_cmsWriteXYZNumber(ptr noundef %0, ptr nocapture noundef read
   %7 = fptosi double %6 to i32
   %.sroa.0.0.insert.insert.i = tail call noundef i32 @llvm.bswap.i32(i32 %7)
   store i32 %.sroa.0.0.insert.insert.i, ptr %3, align 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8
   %10 = tail call double @llvm.fmuladd.f64(double %9, double 6.553600e+04, double 5.000000e-01)
   %11 = tail call double @llvm.floor.f64(double %10)
   %12 = fptosi double %11 to i32
   %.sroa.0.0.insert.insert.i5 = tail call noundef i32 @llvm.bswap.i32(i32 %12)
-  %13 = getelementptr inbounds i8, ptr %3, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %.sroa.0.0.insert.insert.i5, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load double, ptr %14, align 8
   %16 = tail call double @llvm.fmuladd.f64(double %15, double 6.553600e+04, double 5.000000e-01)
   %17 = tail call double @llvm.floor.f64(double %16)
   %18 = fptosi double %17 to i32
   %.sroa.0.0.insert.insert.i6 = tail call noundef i32 @llvm.bswap.i32(i32 %18)
-  %19 = getelementptr inbounds i8, ptr %3, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %.sroa.0.0.insert.insert.i6, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 312
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %21 = load ptr, ptr %20, align 8
   %22 = call i32 %21(ptr noundef %0, i32 noundef 12, ptr noundef nonnull %3) #12
   ret i32 %22
@@ -602,47 +602,47 @@ declare double @llvm.floor.f64(double) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_cmsDecodeDateTimeNumber(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 36)) %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 10
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %4 = load i16, ptr %3, align 2
   %.sroa.0.0.insert.insert.i = tail call noundef i16 @llvm.bswap.i16(i16 %4)
   %5 = zext i16 %.sroa.0.0.insert.insert.i to i32
   store i32 %5, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i16, ptr %6, align 2
   %.sroa.0.0.insert.insert.i15 = tail call noundef i16 @llvm.bswap.i16(i16 %7)
   %8 = zext i16 %.sroa.0.0.insert.insert.i15 to i32
-  %9 = getelementptr inbounds i8, ptr %1, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %8, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 6
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %11 = load i16, ptr %10, align 2
   %.sroa.0.0.insert.insert.i16 = tail call noundef i16 @llvm.bswap.i16(i16 %11)
   %12 = zext i16 %.sroa.0.0.insert.insert.i16 to i32
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %15 = load i16, ptr %14, align 2
   %.sroa.0.0.insert.insert.i17 = tail call noundef i16 @llvm.bswap.i16(i16 %15)
   %16 = zext i16 %.sroa.0.0.insert.insert.i17 to i32
-  %17 = getelementptr inbounds i8, ptr %1, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 %16, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 2
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %19 = load i16, ptr %18, align 2
   %.sroa.0.0.insert.insert.i18 = tail call noundef i16 @llvm.bswap.i16(i16 %19)
   %20 = zext i16 %.sroa.0.0.insert.insert.i18 to i32
   %21 = add nsw i32 %20, -1
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 %21, ptr %22, align 8
   %23 = load i16, ptr %0, align 2
   %.sroa.0.0.insert.insert.i19 = tail call noundef i16 @llvm.bswap.i16(i16 %23)
   %24 = zext i16 %.sroa.0.0.insert.insert.i19 to i32
   %25 = add nsw i32 %24, -1900
-  %26 = getelementptr inbounds i8, ptr %1, i64 20
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 20
   store i32 %25, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %1, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 -1, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 28
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 -1, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %1, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 0, ptr %29, align 8
   ret void
 }
@@ -652,34 +652,34 @@ define hidden void @_cmsEncodeDateTimeNumber(ptr nocapture noundef writeonly ini
   %3 = load i32, ptr %1, align 8
   %4 = trunc i32 %3 to i16
   %.sroa.0.0.insert.insert.i = tail call noundef i16 @llvm.bswap.i16(i16 %4)
-  %5 = getelementptr inbounds i8, ptr %0, i64 10
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 10
   store i16 %.sroa.0.0.insert.insert.i, ptr %5, align 2
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = trunc i32 %7 to i16
   %.sroa.0.0.insert.insert.i12 = tail call noundef i16 @llvm.bswap.i16(i16 %8)
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 %.sroa.0.0.insert.insert.i12, ptr %9, align 2
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = trunc i32 %11 to i16
   %.sroa.0.0.insert.insert.i13 = tail call noundef i16 @llvm.bswap.i16(i16 %12)
-  %13 = getelementptr inbounds i8, ptr %0, i64 6
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 6
   store i16 %.sroa.0.0.insert.insert.i13, ptr %13, align 2
-  %14 = getelementptr inbounds i8, ptr %1, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = trunc i32 %15 to i16
   %.sroa.0.0.insert.insert.i14 = tail call noundef i16 @llvm.bswap.i16(i16 %16)
-  %17 = getelementptr inbounds i8, ptr %0, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i16 %.sroa.0.0.insert.insert.i14, ptr %17, align 2
-  %18 = getelementptr inbounds i8, ptr %1, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load i32, ptr %18, align 8
   %20 = trunc i32 %19 to i16
   %21 = add i16 %20, 1
   %.sroa.0.0.insert.insert.i15 = tail call noundef i16 @llvm.bswap.i16(i16 %21)
-  %22 = getelementptr inbounds i8, ptr %0, i64 2
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 %.sroa.0.0.insert.insert.i15, ptr %22, align 2
-  %23 = getelementptr inbounds i8, ptr %1, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %24 = load i32, ptr %23, align 4
   %25 = trunc i32 %24 to i16
   %26 = add i16 %25, 1900
@@ -691,7 +691,7 @@ define hidden void @_cmsEncodeDateTimeNumber(ptr nocapture noundef writeonly ini
 ; Function Attrs: nounwind uwtable
 define hidden i32 @_cmsReadTypeBase(ptr noundef %0) local_unnamed_addr #2 {
   %2 = alloca %struct._cmsTagBase, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 280
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %4 = load ptr, ptr %3, align 8
   %5 = call i32 %4(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 8, i32 noundef 1) #12
   %.not = icmp eq i32 %5, 1
@@ -706,9 +706,9 @@ define hidden i32 @_cmsWriteTypeBase(ptr noundef %0, i32 noundef %1) local_unnam
   %3 = alloca %struct._cmsTagBase, align 4
   %.sroa.0.0.insert.insert.i = tail call noundef i32 @llvm.bswap.i32(i32 %1)
   store i32 %.sroa.0.0.insert.insert.i, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %3, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 312
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %6 = load ptr, ptr %5, align 8
   %7 = call i32 %6(ptr noundef %0, i32 noundef 8, ptr noundef nonnull %3) #12
   ret i32 %7
@@ -720,7 +720,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @_cmsReadAlignment(ptr noundef %0) local_unnamed_addr #2 {
   %2 = alloca [4 x i8], align 1
-  %3 = getelementptr inbounds i8, ptr %0, i64 304
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 %4(ptr noundef %0) #12
   %6 = add i32 %5, 3
@@ -734,7 +734,7 @@ define hidden range(i32 0, 2) i32 @_cmsReadAlignment(ptr noundef %0) local_unnam
   br i1 %11, label %18, label %12
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %0, i64 280
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %14 = load ptr, ptr %13, align 8
   %15 = call i32 %14(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef %8, i32 noundef 1) #12
   %16 = icmp eq i32 %15, 1
@@ -749,7 +749,7 @@ define hidden range(i32 0, 2) i32 @_cmsReadAlignment(ptr noundef %0) local_unnam
 ; Function Attrs: nounwind uwtable
 define hidden i32 @_cmsWriteAlignment(ptr noundef %0) local_unnamed_addr #2 {
   %2 = alloca [4 x i8], align 1
-  %3 = getelementptr inbounds i8, ptr %0, i64 304
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 %4(ptr noundef %0) #12
   %6 = add i32 %5, 3
@@ -765,7 +765,7 @@ define hidden i32 @_cmsWriteAlignment(ptr noundef %0) local_unnamed_addr #2 {
 12:                                               ; preds = %10
   %13 = zext nneg i32 %8 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %2, i8 0, i64 %13, i1 false)
-  %14 = getelementptr inbounds i8, ptr %0, i64 312
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %15 = load ptr, ptr %14, align 8
   %16 = call i32 %15(ptr noundef nonnull %0, i32 noundef %8, ptr noundef nonnull %2) #12
   br label %17
@@ -797,11 +797,11 @@ define hidden i32 @_cmsIOPrintf(ptr noundef %0, ptr nocapture noundef readonly %
   br label %9
 
 9:                                                ; preds = %.preheader, %8
-  %10 = getelementptr inbounds i8, ptr %.0, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   br label %.preheader, !llvm.loop !9
 
 11:                                               ; preds = %.preheader
-  %12 = getelementptr inbounds i8, ptr %0, i64 312
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %13 = load ptr, ptr %12, align 8
   %14 = call i32 %13(ptr noundef %0, i32 noundef %5, ptr noundef nonnull %4) #12
   br label %15
@@ -843,19 +843,19 @@ define hidden ptr @_cmsPluginMalloc(ptr noundef %0, i32 noundef %1) local_unname
 _cmsGetContext.exit:                              ; preds = %6, %7
   %.08.ph.i = phi ptr [ %.0.i, %7 ], [ @globalContext, %6 ]
   %9 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @_cmsContextPoolHeadMutex) #12
-  %10 = getelementptr inbounds i8, ptr %.08.ph.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.08.ph.i, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %17, label %18
 
 _cmsGetContext.exit.thread:                       ; preds = %2
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @globalContext, i64 8), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @globalContext, i64 8), align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.thread, label %18
 
 .thread:                                          ; preds = %_cmsGetContext.exit.thread
   %15 = tail call ptr @_cmsCreateSubAlloc(ptr noundef null, i32 noundef 2048) #12
-  store ptr %15, ptr getelementptr inbounds (i8, ptr @globalContext, i64 8), align 8
+  store ptr %15, ptr getelementptr inbounds nuw (i8, ptr @globalContext, i64 8), align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %21, label %18
 
@@ -930,7 +930,7 @@ define hidden range(i32 0, 2) i32 @cmsPluginTHR(ptr noundef %0, ptr noundef %1) 
   br label %.loopexit
 
 5:                                                ; preds = %.lr.ph
-  %6 = getelementptr inbounds i8, ptr %.053, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %.053, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = icmp ugt i32 %7, 2160
   br i1 %8, label %9, label %10
@@ -940,7 +940,7 @@ define hidden range(i32 0, 2) i32 @cmsPluginTHR(ptr noundef %0, ptr noundef %1) 
   br label %.loopexit
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %.053, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.053, i64 8
   %12 = load i32, ptr %11, align 8
   switch i32 %12, label %37 [
     i32 1835363656, label %13
@@ -1022,7 +1022,7 @@ define hidden range(i32 0, 2) i32 @cmsPluginTHR(ptr noundef %0, ptr noundef %1) 
   br label %.loopexit
 
 38:                                               ; preds = %13, %15, %17, %19, %21, %23, %25, %27, %29, %31, %33, %35
-  %39 = getelementptr inbounds i8, ptr %.053, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.053, i64 16
   %40 = load ptr, ptr %39, align 8
   %.not = icmp eq ptr %40, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
@@ -1114,15 +1114,15 @@ define hidden ptr @_cmsContextGetClientChunk(ptr noundef %0, i32 noundef %1) loc
 
 _cmsGetContext.exit:                              ; preds = %6, %.sink.split.i
   %.08.i = phi ptr [ @globalContext, %6 ], [ %.08.ph.i, %.sink.split.i ]
-  %14 = getelementptr inbounds i8, ptr %.08.i, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %.08.i, i64 16
   %15 = zext nneg i32 %1 to i64
-  %16 = getelementptr inbounds [16 x ptr], ptr %14, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw [16 x ptr], ptr %14, i64 0, i64 %15
   %17 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %18, label %21
 
 18:                                               ; preds = %_cmsGetContext.exit
-  %19 = getelementptr inbounds [16 x ptr], ptr getelementptr inbounds (i8, ptr @globalContext, i64 16), i64 0, i64 %15
+  %19 = getelementptr inbounds nuw [16 x ptr], ptr getelementptr inbounds (i8, ptr @globalContext, i64 16), i64 0, i64 %15
   %20 = load ptr, ptr %19, align 8
   br label %21
 
@@ -1146,30 +1146,30 @@ define hidden ptr @cmsCreateContext(ptr noundef %0, ptr noundef %1) local_unname
   br i1 %7, label %8, label %16
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = getelementptr inbounds i8, ptr %.010.i, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %.010.i, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp ult i32 %10, 2161
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %.010.i, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.010.i, i64 8
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, 1835363656
   br i1 %15, label %_cmsFindMemoryPlugin.exit, label %16
 
 16:                                               ; preds = %12, %8, %.lr.ph.i
-  %17 = getelementptr inbounds i8, ptr %.010.i, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %.010.i, i64 16
   %18 = load ptr, ptr %17, align 8
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %_cmsFindMemoryPlugin.exit, label %.lr.ph.i, !llvm.loop !12
 
 _cmsFindMemoryPlugin.exit:                        ; preds = %12, %16, %2
   %.0.lcssa.i = phi ptr [ null, %2 ], [ %.010.i, %12 ], [ null, %16 ]
-  %19 = getelementptr inbounds i8, ptr %5, i64 144
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 144
   call void @_cmsInstallAllocFunctions(ptr noundef %.0.lcssa.i, ptr noundef nonnull %19) #12
-  %20 = getelementptr inbounds i8, ptr %5, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %1, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %5, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr %19, ptr %21, align 8
   %22 = call ptr @_cmsMalloc(ptr noundef nonnull %5, i32 noundef 192) #12
   %23 = icmp eq ptr %22, null
@@ -1177,31 +1177,31 @@ _cmsFindMemoryPlugin.exit:                        ; preds = %12, %16, %2
 
 24:                                               ; preds = %_cmsFindMemoryPlugin.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %22, i8 0, i64 192, i1 false)
-  %25 = getelementptr inbounds i8, ptr %22, i64 144
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %25, ptr noundef nonnull align 8 dereferenceable(48) %19, i64 48, i1 false)
   %26 = call i32 @pthread_mutex_lock(ptr noundef nonnull @_cmsContextPoolHeadMutex) #12
   %27 = load ptr, ptr @_cmsContextPoolHead, align 8
   store ptr %27, ptr %22, align 8
   store ptr %22, ptr @_cmsContextPoolHead, align 8
   %28 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @_cmsContextPoolHeadMutex) #12
-  %29 = getelementptr inbounds i8, ptr %22, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store ptr %1, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %22, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %22, i64 48
   store ptr %25, ptr %30, align 8
   %31 = call ptr @_cmsCreateSubAlloc(ptr noundef nonnull %22, i32 noundef 176) #12
-  %32 = getelementptr inbounds i8, ptr %22, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %31, ptr %32, align 8
   %33 = icmp eq ptr %31, null
   br i1 %33, label %34, label %50
 
 34:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %4)
-  %35 = getelementptr inbounds i8, ptr %4, i64 144
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %35, ptr noundef nonnull align 8 dereferenceable(48) %25, i64 48, i1 false)
   %36 = load ptr, ptr %29, align 8
-  %37 = getelementptr inbounds i8, ptr %4, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %36, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %4, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr %35, ptr %38, align 8
   call void @cmsUnregisterPluginsTHR(ptr noundef nonnull %22)
   %39 = load ptr, ptr %32, align 8
@@ -1263,12 +1263,12 @@ cmsDeleteContext.exit:                            ; preds = %.preheader.i, %.loo
 
 52:                                               ; preds = %50
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %3)
-  %53 = getelementptr inbounds i8, ptr %3, i64 144
+  %53 = getelementptr inbounds nuw i8, ptr %3, i64 144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %53, ptr noundef nonnull align 8 dereferenceable(48) %25, i64 48, i1 false)
   %54 = load ptr, ptr %29, align 8
-  %55 = getelementptr inbounds i8, ptr %3, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %54, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %3, i64 48
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %53, ptr %56, align 8
   call void @cmsUnregisterPluginsTHR(ptr noundef nonnull %22)
   %57 = load ptr, ptr %32, align 8
@@ -1341,17 +1341,17 @@ define hidden void @cmsDeleteContext(ptr noundef %0) local_unnamed_addr #2 {
   br label %27
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %2, i64 144
-  %10 = getelementptr inbounds i8, ptr %0, i64 144
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 144
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(48) %10, i64 48, i1 false)
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %2, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr %9, ptr %14, align 8
   call void @cmsUnregisterPluginsTHR(ptr noundef nonnull %0)
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %18, label %17
@@ -1454,7 +1454,7 @@ _cmsGetContext.exit:                              ; preds = %2, %.sink.split.i
   br i1 %.not, label %12, label %15
 
 12:                                               ; preds = %_cmsGetContext.exit
-  %13 = getelementptr inbounds i8, ptr %.08.i, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %.08.i, i64 16
   %14 = load ptr, ptr %13, align 8
   br label %15
 
@@ -1465,32 +1465,32 @@ _cmsGetContext.exit:                              ; preds = %2, %.sink.split.i
   br i1 %18, label %.loopexit, label %19
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %17, i64 144
-  %21 = getelementptr inbounds i8, ptr %.08.i, i64 144
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 144
+  %21 = getelementptr inbounds nuw i8, ptr %.08.i, i64 144
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef nonnull align 8 dereferenceable(48) %21, i64 48, i1 false)
   %22 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @_cmsContextPoolHeadMutex) #12
   %23 = load ptr, ptr @_cmsContextPoolHead, align 8
   store ptr %23, ptr %17, align 8
   store ptr %17, ptr @_cmsContextPoolHead, align 8
   %24 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @_cmsContextPoolHeadMutex) #12
-  %25 = getelementptr inbounds i8, ptr %17, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr %16, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %17, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %17, i64 48
   store ptr %20, ptr %26, align 8
   %27 = tail call ptr @_cmsCreateSubAlloc(ptr noundef nonnull %17, i32 noundef 176) #12
-  %28 = getelementptr inbounds i8, ptr %17, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %27, ptr %28, align 8
   %29 = icmp eq ptr %27, null
   br i1 %29, label %30, label %46
 
 30:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %4)
-  %31 = getelementptr inbounds i8, ptr %4, i64 144
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %31, ptr noundef nonnull align 8 dereferenceable(48) %20, i64 48, i1 false)
   %32 = load ptr, ptr %25, align 8
-  %33 = getelementptr inbounds i8, ptr %4, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %4, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr %31, ptr %34, align 8
   call void @cmsUnregisterPluginsTHR(ptr noundef nonnull %17)
   %35 = load ptr, ptr %28, align 8
@@ -1546,7 +1546,7 @@ cmsDeleteContext.exit:                            ; preds = %.preheader.i, %.loo
   tail call void @_cmsAllocTransformPluginChunk(ptr noundef nonnull %17, ptr noundef nonnull %.08.i) #12
   tail call void @_cmsAllocMutexPluginChunk(ptr noundef nonnull %17, ptr noundef nonnull %.08.i) #12
   tail call void @_cmsAllocParallelizationPluginChunk(ptr noundef nonnull %17, ptr noundef nonnull %.08.i) #12
-  %47 = getelementptr inbounds i8, ptr %.08.i, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %.08.i, i64 16
   br label %49
 
 48:                                               ; preds = %49
@@ -1556,19 +1556,19 @@ cmsDeleteContext.exit:                            ; preds = %.preheader.i, %.loo
 
 49:                                               ; preds = %46, %48
   %indvars.iv = phi i64 [ 1, %46 ], [ %indvars.iv.next, %48 ]
-  %50 = getelementptr inbounds [16 x ptr], ptr %47, i64 0, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [16 x ptr], ptr %47, i64 0, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, null
   br i1 %52, label %53, label %48
 
 53:                                               ; preds = %49
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %3)
-  %54 = getelementptr inbounds i8, ptr %3, i64 144
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %54, ptr noundef nonnull align 8 dereferenceable(48) %20, i64 48, i1 false)
   %55 = load ptr, ptr %25, align 8
-  %56 = getelementptr inbounds i8, ptr %3, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %55, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %3, i64 48
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %54, ptr %57, align 8
   call void @cmsUnregisterPluginsTHR(ptr noundef nonnull %17)
   %58 = load ptr, ptr %28, align 8
@@ -1643,7 +1643,7 @@ define hidden ptr @cmsGetContextUserData(ptr noundef readnone %0) local_unnamed_
 
 _cmsGetContext.exit.i:                            ; preds = %.sink.split.i.i, %1
   %.08.i.i = phi ptr [ @globalContext, %1 ], [ %.08.ph.i.i, %.sink.split.i.i ]
-  %9 = getelementptr inbounds i8, ptr %.08.i.i, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %.08.i.i, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %10, null
   %11 = load ptr, ptr getelementptr inbounds (i8, ptr @globalContext, i64 16), align 8

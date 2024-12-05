@@ -45,11 +45,11 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %key.coerce1, i64 %key.coerce0
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %key.coerce1, i64 %key.coerce0
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.07.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.07.i, i64 1
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
   br i1 %cmp.not.i, label %return, label %for.body.i
 
@@ -58,7 +58,7 @@ for.body.i:                                       ; preds = %if.end3, %for.cond.
   %0 = load i8, ptr %__begin2.07.i, align 1
   %conv.i.i = zext i8 %0 to i64
   %div1.i.i.i = lshr i64 %conv.i.i, 6
-  %arrayidx.i.i = getelementptr inbounds [4 x i64], ptr @_ZN9grpc_core12_GLOBAL__N_123g_legal_header_key_bitsE, i64 0, i64 %div1.i.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [4 x i64], ptr @_ZN9grpc_core12_GLOBAL__N_123g_legal_header_key_bitsE, i64 0, i64 %div1.i.i.i
   %1 = load i64, ptr %arrayidx.i.i, align 8
   %rem.i.i.i = and i64 %conv.i.i, 63
   %shl.i.i.i = shl nuw i64 1, %rem.i.i.i
@@ -83,7 +83,7 @@ do.body:                                          ; preds = %entry
 
 switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i8 %result to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN9grpc_core30ValidateMetadataResultToStringENS_22ValidateMetadataResultE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN9grpc_core30ValidateMetadataResultToStringENS_22ValidateMetadataResultE, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -96,11 +96,11 @@ define void @_Z33grpc_validate_header_key_is_legalRK10grpc_slice(ptr noalias sre
 entry:
   %0 = load ptr, ptr %slice, align 8
   %tobool.not.i = icmp eq ptr %0, null
-  %bytes.i = getelementptr inbounds i8, ptr %slice, i64 16
+  %bytes.i = getelementptr inbounds nuw i8, ptr %slice, i64 16
   %1 = load ptr, ptr %bytes.i, align 8
-  %bytes2.i = getelementptr inbounds i8, ptr %slice, i64 9
+  %bytes2.i = getelementptr inbounds nuw i8, ptr %slice, i64 9
   %cond.i = select i1 %tobool.not.i, ptr %bytes2.i, ptr %1
-  %data6.i = getelementptr inbounds i8, ptr %slice, i64 8
+  %data6.i = getelementptr inbounds nuw i8, ptr %slice, i64 8
   %2 = load i64, ptr %data6.i, align 8
   %conv.i = and i64 %2, 255
   %cond11.i = select i1 %tobool.not.i, i64 %conv.i, i64 %2
@@ -112,11 +112,11 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.i, label %_ZN9grpc_core30ValidateMetadataResultToStringENS_22ValidateMetadataResultE.exit.i, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %cond.i, i64 %cond11.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i, i64 %cond11.i
   br label %for.body.i.i
 
 for.cond.i.i:                                     ; preds = %for.body.i.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin2.07.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__begin2.07.i.i, i64 1
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
   br i1 %cmp.not.i.i, label %if.then.i, label %for.body.i.i
 
@@ -125,7 +125,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i, %if.e
   %3 = load i8, ptr %__begin2.07.i.i, align 1
   %conv.i.i.i = zext i8 %3 to i64
   %div1.i.i.i.i = lshr i64 %conv.i.i.i, 6
-  %arrayidx.i.i.i = getelementptr inbounds [4 x i64], ptr @_ZN9grpc_core12_GLOBAL__N_123g_legal_header_key_bitsE, i64 0, i64 %div1.i.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [4 x i64], ptr @_ZN9grpc_core12_GLOBAL__N_123g_legal_header_key_bitsE, i64 0, i64 %div1.i.i.i.i
   %4 = load i64, ptr %arrayidx.i.i.i, align 8
   %rem.i.i.i.i = and i64 %conv.i.i.i, 63
   %shl.i.i.i.i = shl nuw i64 1, %rem.i.i.i.i
@@ -157,11 +157,11 @@ entry:
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
   %0 = load ptr, ptr %slice, align 8, !noalias !10
   %tobool.not.i.i = icmp eq ptr %0, null
-  %bytes.i.i = getelementptr inbounds i8, ptr %slice, i64 16
+  %bytes.i.i = getelementptr inbounds nuw i8, ptr %slice, i64 16
   %1 = load ptr, ptr %bytes.i.i, align 8, !noalias !10
-  %bytes2.i.i = getelementptr inbounds i8, ptr %slice, i64 9
+  %bytes2.i.i = getelementptr inbounds nuw i8, ptr %slice, i64 9
   %cond.i.i = select i1 %tobool.not.i.i, ptr %bytes2.i.i, ptr %1
-  %data6.i.i = getelementptr inbounds i8, ptr %slice, i64 8
+  %data6.i.i = getelementptr inbounds nuw i8, ptr %slice, i64 8
   %2 = load i64, ptr %data6.i.i, align 8, !noalias !10
   %conv.i.i = and i64 %2, 255
   %cond11.i.i = select i1 %tobool.not.i.i, i64 %conv.i.i, i64 %2
@@ -173,11 +173,11 @@ if.end.i.i:                                       ; preds = %entry
   br i1 %cmp.i.i, label %invoke.cont, label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %if.end.i.i
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i, i64 %cond11.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i, i64 %cond11.i.i
   br label %for.body.i.i.i
 
 for.cond.i.i.i:                                   ; preds = %for.body.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__begin2.07.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.07.i.i.i, i64 1
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr.i.i.i.i
   br i1 %cmp.not.i.i.i, label %_ZN4absl12lts_202308026StatusD2Ev.exit, label %for.body.i.i.i
 
@@ -186,7 +186,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i, %if
   %3 = load i8, ptr %__begin2.07.i.i.i, align 1, !noalias !10
   %conv.i.i.i.i = zext i8 %3 to i64
   %div1.i.i.i.i.i = lshr i64 %conv.i.i.i.i, 6
-  %arrayidx.i.i.i.i = getelementptr inbounds [4 x i64], ptr @_ZN9grpc_core12_GLOBAL__N_123g_legal_header_key_bitsE, i64 0, i64 %div1.i.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [4 x i64], ptr @_ZN9grpc_core12_GLOBAL__N_123g_legal_header_key_bitsE, i64 0, i64 %div1.i.i.i.i.i
   %4 = load i64, ptr %arrayidx.i.i.i.i, align 8, !noalias !10
   %rem.i.i.i.i.i = and i64 %conv.i.i.i.i, 63
   %shl.i.i.i.i.i = shl nuw i64 1, %rem.i.i.i.i.i
@@ -228,11 +228,11 @@ define void @_Z42grpc_validate_header_nonbin_value_is_legalRK10grpc_slice(ptr no
 entry:
   %0 = load ptr, ptr %slice, align 8
   %tobool.not.i = icmp eq ptr %0, null
-  %bytes.i = getelementptr inbounds i8, ptr %slice, i64 16
+  %bytes.i = getelementptr inbounds nuw i8, ptr %slice, i64 16
   %1 = load ptr, ptr %bytes.i, align 8
-  %bytes2.i = getelementptr inbounds i8, ptr %slice, i64 9
+  %bytes2.i = getelementptr inbounds nuw i8, ptr %slice, i64 9
   %cond.i = select i1 %tobool.not.i, ptr %bytes2.i, ptr %1
-  %data6.i = getelementptr inbounds i8, ptr %slice, i64 8
+  %data6.i = getelementptr inbounds nuw i8, ptr %slice, i64 8
   %2 = load i64, ptr %data6.i, align 8
   %conv.i = and i64 %2, 255
   %cond11.i = select i1 %tobool.not.i, i64 %conv.i, i64 %2
@@ -241,7 +241,7 @@ entry:
   br i1 %cmp.not6.i, label %if.then.i, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.07.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.07.i, i64 1
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
   br i1 %cmp.not.i, label %if.then.i, label %for.body.i
 
@@ -250,7 +250,7 @@ for.body.i:                                       ; preds = %entry, %for.cond.i
   %3 = load i8, ptr %__begin2.07.i, align 1
   %conv.i.i = zext i8 %3 to i64
   %div1.i.i.i = lshr i64 %conv.i.i, 6
-  %arrayidx.i.i = getelementptr inbounds [4 x i64], ptr @_ZN12_GLOBAL__N_133g_legal_header_non_bin_value_bitsE, i64 0, i64 %div1.i.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [4 x i64], ptr @_ZN12_GLOBAL__N_133g_legal_header_non_bin_value_bitsE, i64 0, i64 %div1.i.i.i
   %4 = load i64, ptr %arrayidx.i.i, align 8
   %rem.i.i.i = and i64 %conv.i.i, 63
   %shl.i.i.i = shl nuw i64 1, %rem.i.i.i
@@ -276,11 +276,11 @@ entry:
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
   %0 = load ptr, ptr %slice, align 8, !noalias !21
   %tobool.not.i.i = icmp eq ptr %0, null
-  %bytes.i.i = getelementptr inbounds i8, ptr %slice, i64 16
+  %bytes.i.i = getelementptr inbounds nuw i8, ptr %slice, i64 16
   %1 = load ptr, ptr %bytes.i.i, align 8, !noalias !21
-  %bytes2.i.i = getelementptr inbounds i8, ptr %slice, i64 9
+  %bytes2.i.i = getelementptr inbounds nuw i8, ptr %slice, i64 9
   %cond.i.i = select i1 %tobool.not.i.i, ptr %bytes2.i.i, ptr %1
-  %data6.i.i = getelementptr inbounds i8, ptr %slice, i64 8
+  %data6.i.i = getelementptr inbounds nuw i8, ptr %slice, i64 8
   %2 = load i64, ptr %data6.i.i, align 8, !noalias !21
   %conv.i.i = and i64 %2, 255
   %cond11.i.i = select i1 %tobool.not.i.i, i64 %conv.i.i, i64 %2
@@ -289,7 +289,7 @@ entry:
   br i1 %cmp.not6.i.i, label %_ZN4absl12lts_202308026StatusD2Ev.exit, label %for.body.i.i
 
 for.cond.i.i:                                     ; preds = %for.body.i.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin2.07.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__begin2.07.i.i, i64 1
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
   br i1 %cmp.not.i.i, label %_ZN4absl12lts_202308026StatusD2Ev.exit, label %for.body.i.i
 
@@ -298,7 +298,7 @@ for.body.i.i:                                     ; preds = %entry, %for.cond.i.
   %3 = load i8, ptr %__begin2.07.i.i, align 1, !noalias !21
   %conv.i.i.i = zext i8 %3 to i64
   %div1.i.i.i.i = lshr i64 %conv.i.i.i, 6
-  %arrayidx.i.i.i = getelementptr inbounds [4 x i64], ptr @_ZN12_GLOBAL__N_133g_legal_header_non_bin_value_bitsE, i64 0, i64 %div1.i.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [4 x i64], ptr @_ZN12_GLOBAL__N_133g_legal_header_non_bin_value_bitsE, i64 0, i64 %div1.i.i.i.i
   %4 = load i64, ptr %arrayidx.i.i.i, align 8, !noalias !21
   %rem.i.i.i.i = and i64 %conv.i.i.i, 63
   %shl.i.i.i.i = shl nuw i64 1, %rem.i.i.i.i
@@ -336,7 +336,7 @@ define noundef range(i32 0, 2) i32 @_Z30grpc_is_binary_header_internalRK10grpc_s
 entry:
   %0 = load ptr, ptr %slice, align 8
   %tobool.not = icmp eq ptr %0, null
-  %data6 = getelementptr inbounds i8, ptr %slice, i64 8
+  %data6 = getelementptr inbounds nuw i8, ptr %slice, i64 8
   %1 = load i64, ptr %data6, align 8
   %conv = and i64 %1, 255
   %cond11 = select i1 %tobool.not, i64 %conv, i64 %1
@@ -344,8 +344,8 @@ entry:
   br i1 %cmp.i, label %_Z25grpc_key_is_binary_headerPKhm.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %bytes2 = getelementptr inbounds i8, ptr %slice, i64 9
-  %bytes = getelementptr inbounds i8, ptr %slice, i64 16
+  %bytes2 = getelementptr inbounds nuw i8, ptr %slice, i64 9
+  %bytes = getelementptr inbounds nuw i8, ptr %slice, i64 16
   %2 = load ptr, ptr %bytes, align 8
   %cond = select i1 %tobool.not, ptr %bytes2, ptr %2
   %add.ptr.i = getelementptr inbounds i8, ptr %cond, i64 %cond11
@@ -365,7 +365,7 @@ define range(i32 0, 2) i32 @grpc_is_binary_header(ptr nocapture noundef readonly
 entry:
   %0 = load ptr, ptr %slice, align 8
   %tobool.not.i = icmp eq ptr %0, null
-  %data6.i = getelementptr inbounds i8, ptr %slice, i64 8
+  %data6.i = getelementptr inbounds nuw i8, ptr %slice, i64 8
   %1 = load i64, ptr %data6.i, align 8
   %conv.i = and i64 %1, 255
   %cond11.i = select i1 %tobool.not.i, i64 %conv.i, i64 %1
@@ -373,8 +373,8 @@ entry:
   br i1 %cmp.i.i, label %_Z30grpc_is_binary_header_internalRK10grpc_slice.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  %bytes2.i = getelementptr inbounds i8, ptr %slice, i64 9
-  %bytes.i = getelementptr inbounds i8, ptr %slice, i64 16
+  %bytes2.i = getelementptr inbounds nuw i8, ptr %slice, i64 9
+  %bytes.i = getelementptr inbounds nuw i8, ptr %slice, i64 16
   %2 = load ptr, ptr %bytes.i, align 8
   %cond.i = select i1 %tobool.not.i, ptr %bytes2.i, ptr %2
   %add.ptr.i.i = getelementptr inbounds i8, ptr %cond.i, i64 %cond11.i

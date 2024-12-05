@@ -123,9 +123,9 @@ define hidden noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture n
 
 34:                                               ; preds = %33
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #5
-  %35 = getelementptr inbounds i8, ptr %3, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %38 = load i32, ptr %37, align 4
   %39 = load i32, ptr %36, align 4
   %.sroa.2.0.insert.ext.i = zext i32 %39 to i64
@@ -188,14 +188,14 @@ define hidden noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture n
           to label %.preheader unwind label %.loopexit.split-lp
 
 .preheader:                                       ; preds = %58
-  %60 = getelementptr inbounds i8, ptr %8, i64 8
-  %61 = getelementptr inbounds i8, ptr %8, i64 16
-  %62 = getelementptr inbounds i8, ptr %9, i64 16
-  %63 = getelementptr inbounds i8, ptr %9, i64 20
-  %64 = getelementptr inbounds i8, ptr %9, i64 8
-  %65 = getelementptr inbounds i8, ptr %12, i64 16
-  %66 = getelementptr inbounds i8, ptr %12, i64 20
-  %67 = getelementptr inbounds i8, ptr %12, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %9, i64 20
+  %64 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %12, i64 20
+  %67 = getelementptr inbounds nuw i8, ptr %12, i64 8
   br label %68
 
 68:                                               ; preds = %.preheader, %80

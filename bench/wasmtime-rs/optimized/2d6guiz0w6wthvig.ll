@@ -44,7 +44,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
           to label %15 unwind label %12, !noalias !3
 
 15:                                               ; preds = %14
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8, !noalias !3, !nonnull !6, !align !7, !noundef !6
   invoke void @"_ZN65_$LT$proc_macro2..Ident$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hfee7303479077cc8E"(ptr nonnull align 8 %17, ptr nonnull align 8 %4)
           to label %18 unwind label %12, !noalias !3
@@ -82,14 +82,14 @@ define hidden void @"_ZN15wiggle_generate8wasmtime13generate_func28_$u7b$$u7b$cl
   %8 = alloca i64, align 8
   store i64 %2, ptr %8, align 8
   store ptr %8, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17h0516a742b2dd93cdE", ptr %9, align 8
   call void @_ZN4core3fmt9Arguments6new_v117he168207f928597d2E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %5, ptr nonnull align 8 @anon.389debbece966da0c804bc9f1edf11c6.1, i64 1, ptr nonnull align 8 %4, i64 1)
   call void @_ZN5alloc3fmt6format17h7750bf553f062d8cE(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %6, ptr nonnull align 8 %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  %10 = getelementptr inbounds i8, ptr %7, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !6, !noundef !6
-  %12 = getelementptr inbounds i8, ptr %7, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %13 = load i64, ptr %12, align 8, !noundef !6
   %14 = invoke i32 @_ZN11proc_macro24Span9call_site17h0fb38b1401486909E()
           to label %17 unwind label %15
@@ -123,13 +123,13 @@ define hidden void @"_ZN15wiggle_generate8wasmtime13generate_func28_$u7b$$u7b$cl
   %5 = alloca { { i64, [3 x i64] }, {} }, align 8
   %6 = alloca { { i64, [3 x i64] }, {} }, align 8
   %7 = load ptr, ptr %1, align 8, !nonnull !6, !align !7, !noundef !6
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i64, ptr %8, align 8, !noundef !6
   %10 = icmp ult i64 %2, %9
   br i1 %10, label %11, label %15, !prof !8
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %13 = load ptr, ptr %12, align 8, !nonnull !6, !noundef !6
   %14 = load i8, ptr %3, align 1, !range !9, !noundef !6
   call void @_ZN15wiggle_generate5names9wasm_type17h5152ee481af4db12E(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %6, i8 %14)

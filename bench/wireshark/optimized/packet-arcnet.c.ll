@@ -121,7 +121,7 @@ define internal noundef i32 @arcnet_to_str(ptr nocapture noundef readonly %0, pt
   store i8 48, ptr %1, align 1
   %5 = getelementptr i8, ptr %1, i64 2
   store i8 120, ptr %4, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @bytes_to_hexstr(ptr noundef %5, ptr noundef %7, i64 noundef 1) #3
   store i8 0, ptr %8, align 1
@@ -206,48 +206,48 @@ declare ptr @bytes_to_hexstr(ptr noundef, ptr noundef, i64 noundef) local_unname
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_arcnet_common(ptr noundef %0, ptr noundef initializes((112, 160), (208, 256)) %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.20) #3
   %8 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %8, i32 noundef 25, ptr noundef nonnull @.str.20) #3
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #3
   %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #3
-  %11 = getelementptr inbounds i8, ptr %1, i64 112
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %12 = load i32, ptr @arcnet_address_type, align 4
   %13 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 0, i32 noundef 1) #3
   store i32 %12, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 116
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 116
   store i32 1, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %1, i64 120
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store ptr %13, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 128
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store ptr null, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 208
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 208
   store i32 %12, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 212
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 212
   store i32 1, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %1, i64 216
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 216
   store ptr %13, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 224
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 224
   store ptr null, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 136
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %22 = load i32, ptr @arcnet_address_type, align 4
   %23 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 1, i32 noundef 1) #3
   store i32 %22, ptr %21, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 140
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 140
   store i32 1, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %1, i64 144
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 144
   store ptr %23, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 152
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 152
   store ptr null, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 232
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 232
   store i32 %22, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 236
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 236
   store i32 1, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %1, i64 240
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 240
   store ptr %23, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 248
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 248
   store ptr null, ptr %30, align 8
   %31 = load i32, ptr @proto_arcnet, align 4
   %32 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %31, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #3

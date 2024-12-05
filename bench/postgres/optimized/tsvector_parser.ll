@@ -16,29 +16,29 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local noundef ptr @init_tsvector_parser(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @palloc(i64 noundef 48) #7
   store ptr %0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 32, ptr %6, align 8
   %7 = tail call ptr @palloc(i64 noundef 32) #7
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %7, ptr %8, align 8
   %9 = tail call i32 @pg_database_encoding_max_length() #7
-  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store i32 %9, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %4, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %12 = trunc i32 %1 to i8
   %13 = and i8 %12, 1
   store i8 %13, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 33
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 33
   %15 = lshr i8 %12, 1
   %16 = and i8 %15, 1
   store i8 %16, ptr %14, align 1
-  %17 = getelementptr inbounds i8, ptr %4, i64 34
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 34
   %18 = lshr i8 %12, 2
   %19 = and i8 %18, 1
   store i8 %19, ptr %17, align 2
-  %20 = getelementptr inbounds i8, ptr %4, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %2, ptr %20, align 8
   ret ptr %4
 }
@@ -55,7 +55,7 @@ define dso_local void @reset_tsvector_parser(ptr nocapture noundef writeonly ini
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @close_tsvector_parser(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   tail call void @pfree(ptr noundef %3) #7
   tail call void @pfree(ptr noundef %0) #7
@@ -66,12 +66,12 @@ declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 34
-  %10 = getelementptr inbounds i8, ptr %0, i64 28
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 34
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %.outer
 
 .outer:                                           ; preds = %488, %6
@@ -149,17 +149,17 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   br i1 %37, label %38, label %50
 
 38:                                               ; preds = %30, %30, %30, %30, %30, %30, %35
-  %39 = getelementptr inbounds i8, ptr %0, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %40 = load ptr, ptr %39, align 8
   %41 = tail call zeroext i1 @errsave_start(ptr noundef %40, ptr noundef null) #7
   br i1 %41, label %42, label %prssyntaxerror.exit
 
 42:                                               ; preds = %38
   %43 = tail call i32 @errcode(i32 noundef 16801924) #7
-  %44 = getelementptr inbounds i8, ptr %0, i64 33
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 33
   %45 = load i8, ptr %44, align 1
   %46 = trunc i8 %45 to i1
-  %47 = getelementptr inbounds i8, ptr %0, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %48 = load ptr, ptr %47, align 8
   %.str.4..str.5.i = select i1 %46, ptr @.str.4, ptr @.str.5
   %49 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.4..str.5.i, ptr noundef %48) #7
@@ -189,14 +189,14 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   br i1 %63, label %64, label %73
 
 64:                                               ; preds = %60
-  %65 = getelementptr inbounds i8, ptr %0, i64 40
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %66 = load ptr, ptr %65, align 8
   %67 = tail call zeroext i1 @errsave_start(ptr noundef %66, ptr noundef null) #7
   br i1 %67, label %68, label %prssyntaxerror.exit
 
 68:                                               ; preds = %64
   %69 = tail call i32 @errcode(i32 noundef 16801924) #7
-  %70 = getelementptr inbounds i8, ptr %0, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %71 = load ptr, ptr %70, align 8
   %72 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef %71) #7
   tail call void @errsave_finish(ptr noundef %66, ptr noundef nonnull @.str.1, i32 noundef 222, ptr noundef nonnull @__func__.gettoken_tsvector) #7
@@ -321,17 +321,17 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   br i1 %136, label %137, label %149
 
 137:                                              ; preds = %134
-  %138 = getelementptr inbounds i8, ptr %0, i64 40
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %139 = load ptr, ptr %138, align 8
   %140 = tail call zeroext i1 @errsave_start(ptr noundef %139, ptr noundef null) #7
   br i1 %140, label %141, label %prssyntaxerror.exit
 
 141:                                              ; preds = %137
   %142 = tail call i32 @errcode(i32 noundef 16801924) #7
-  %143 = getelementptr inbounds i8, ptr %0, i64 33
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 33
   %144 = load i8, ptr %143, align 1
   %145 = trunc i8 %144 to i1
-  %146 = getelementptr inbounds i8, ptr %0, i64 8
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %147 = load ptr, ptr %146, align 8
   %.str.4..str.5.i408 = select i1 %145, ptr @.str.4, ptr @.str.5
   %148 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.4..str.5.i408, ptr noundef %147) #7
@@ -397,17 +397,17 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   br i1 %170, label %171, label %183
 
 171:                                              ; preds = %169
-  %172 = getelementptr inbounds i8, ptr %0, i64 40
+  %172 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %173 = load ptr, ptr %172, align 8
   %174 = tail call zeroext i1 @errsave_start(ptr noundef %173, ptr noundef null) #7
   br i1 %174, label %175, label %prssyntaxerror.exit
 
 175:                                              ; preds = %171
   %176 = tail call i32 @errcode(i32 noundef 16801924) #7
-  %177 = getelementptr inbounds i8, ptr %0, i64 33
+  %177 = getelementptr inbounds nuw i8, ptr %0, i64 33
   %178 = load i8, ptr %177, align 1
   %179 = trunc i8 %178 to i1
-  %180 = getelementptr inbounds i8, ptr %0, i64 8
+  %180 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %181 = load ptr, ptr %180, align 8
   %.str.4..str.5.i410 = select i1 %179, ptr @.str.4, ptr @.str.5
   %182 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.4..str.5.i410, ptr noundef %181) #7
@@ -522,17 +522,17 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   br i1 %229, label %230, label %242
 
 230:                                              ; preds = %228, %.thread
-  %231 = getelementptr inbounds i8, ptr %0, i64 40
+  %231 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %232 = load ptr, ptr %231, align 8
   %233 = tail call zeroext i1 @errsave_start(ptr noundef %232, ptr noundef null) #7
   br i1 %233, label %234, label %prssyntaxerror.exit
 
 234:                                              ; preds = %230
   %235 = tail call i32 @errcode(i32 noundef 16801924) #7
-  %236 = getelementptr inbounds i8, ptr %0, i64 33
+  %236 = getelementptr inbounds nuw i8, ptr %0, i64 33
   %237 = load i8, ptr %236, align 1
   %238 = trunc i8 %237 to i1
-  %239 = getelementptr inbounds i8, ptr %0, i64 8
+  %239 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %240 = load ptr, ptr %239, align 8
   %.str.4..str.5.i412 = select i1 %238, ptr @.str.4, ptr @.str.5
   %241 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.4..str.5.i412, ptr noundef %240) #7
@@ -657,17 +657,17 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   br i1 %311, label %312, label %324
 
 312:                                              ; preds = %309
-  %313 = getelementptr inbounds i8, ptr %0, i64 40
+  %313 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %314 = load ptr, ptr %313, align 8
   %315 = tail call zeroext i1 @errsave_start(ptr noundef %314, ptr noundef null) #7
   br i1 %315, label %316, label %prssyntaxerror.exit
 
 316:                                              ; preds = %312
   %317 = tail call i32 @errcode(i32 noundef 16801924) #7
-  %318 = getelementptr inbounds i8, ptr %0, i64 33
+  %318 = getelementptr inbounds nuw i8, ptr %0, i64 33
   %319 = load i8, ptr %318, align 1
   %320 = trunc i8 %319 to i1
-  %321 = getelementptr inbounds i8, ptr %0, i64 8
+  %321 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %322 = load ptr, ptr %321, align 8
   %.str.4..str.5.i414 = select i1 %320, ptr @.str.4, ptr @.str.5
   %323 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.4..str.5.i414, ptr noundef %322) #7
@@ -827,14 +827,14 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   br i1 %391, label %392, label %401
 
 392:                                              ; preds = %379
-  %393 = getelementptr inbounds i8, ptr %0, i64 40
+  %393 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %394 = load ptr, ptr %393, align 8
   %395 = tail call zeroext i1 @errsave_start(ptr noundef %394, ptr noundef null) #7
   br i1 %395, label %396, label %prssyntaxerror.exit
 
 396:                                              ; preds = %392
   %397 = tail call i32 @errcode(i32 noundef 16801924) #7
-  %398 = getelementptr inbounds i8, ptr %0, i64 8
+  %398 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %399 = load ptr, ptr %398, align 8
   %400 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef %399) #7
   tail call void @errsave_finish(ptr noundef %394, ptr noundef nonnull @.str.1, i32 noundef 340, ptr noundef nonnull @__func__.gettoken_tsvector) #7
@@ -846,17 +846,17 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   br label %488
 
 403:                                              ; preds = %365
-  %404 = getelementptr inbounds i8, ptr %0, i64 40
+  %404 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %405 = load ptr, ptr %404, align 8
   %406 = tail call zeroext i1 @errsave_start(ptr noundef %405, ptr noundef null) #7
   br i1 %406, label %407, label %prssyntaxerror.exit
 
 407:                                              ; preds = %403
   %408 = tail call i32 @errcode(i32 noundef 16801924) #7
-  %409 = getelementptr inbounds i8, ptr %0, i64 33
+  %409 = getelementptr inbounds nuw i8, ptr %0, i64 33
   %410 = load i8, ptr %409, align 1
   %411 = trunc i8 %410 to i1
-  %412 = getelementptr inbounds i8, ptr %0, i64 8
+  %412 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %413 = load ptr, ptr %412, align 8
   %.str.4..str.5.i416 = select i1 %411, ptr @.str.4, ptr @.str.5
   %414 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.4..str.5.i416, ptr noundef %413) #7
@@ -888,17 +888,17 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   br i1 %.not371, label %435, label %423
 
 423:                                              ; preds = %418
-  %424 = getelementptr inbounds i8, ptr %0, i64 40
+  %424 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %425 = load ptr, ptr %424, align 8
   %426 = tail call zeroext i1 @errsave_start(ptr noundef %425, ptr noundef null) #7
   br i1 %426, label %427, label %prssyntaxerror.exit
 
 427:                                              ; preds = %423
   %428 = tail call i32 @errcode(i32 noundef 16801924) #7
-  %429 = getelementptr inbounds i8, ptr %0, i64 33
+  %429 = getelementptr inbounds nuw i8, ptr %0, i64 33
   %430 = load i8, ptr %429, align 1
   %431 = trunc i8 %430 to i1
-  %432 = getelementptr inbounds i8, ptr %0, i64 8
+  %432 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %433 = load ptr, ptr %432, align 8
   %.str.4..str.5.i418 = select i1 %431, ptr @.str.4, ptr @.str.5
   %434 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.4..str.5.i418, ptr noundef %433) #7
@@ -1058,17 +1058,17 @@ declare i32 @pg_mblen(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @prssyntaxerror(ptr nocapture noundef readonly %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = tail call zeroext i1 @errsave_start(ptr noundef %3, ptr noundef null) #7
   br i1 %4, label %5, label %13
 
 5:                                                ; preds = %1
   %6 = tail call i32 @errcode(i32 noundef 16801924) #7
-  %7 = getelementptr inbounds i8, ptr %0, i64 33
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 33
   %8 = load i8, ptr %7, align 1
   %9 = trunc i8 %8 to i1
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %.str.4..str.5 = select i1 %9, ptr @.str.4, ptr @.str.5
   %12 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.4..str.5, ptr noundef %11) #7

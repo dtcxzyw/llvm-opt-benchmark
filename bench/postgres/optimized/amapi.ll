@@ -65,13 +65,13 @@ define dso_local noundef ptr @GetIndexAmRoutineByAmId(i32 noundef %0, i1 noundef
   unreachable
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 22
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 22
   %13 = load i8, ptr %12, align 2
   %14 = zext i8 %13 to i64
   %15 = getelementptr i8, ptr %11, i64 %14
-  %16 = getelementptr inbounds i8, ptr %15, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 72
   %17 = load i8, ptr %16, align 4
   %.not19 = icmp eq i8 %17, 105
   br i1 %.not19, label %24, label %18
@@ -83,13 +83,13 @@ define dso_local noundef ptr @GetIndexAmRoutineByAmId(i32 noundef %0, i1 noundef
   %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
   tail call void @llvm.assume(i1 %20)
   %21 = tail call i32 @errcode(i32 noundef 325) #4
-  %22 = getelementptr inbounds i8, ptr %15, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %23 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull %22, ptr noundef nonnull @.str.4) #4
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 84, ptr noundef nonnull @__func__.GetIndexAmRoutineByAmId) #4
   unreachable
 
 24:                                               ; preds = %9
-  %25 = getelementptr inbounds i8, ptr %15, i64 68
+  %25 = getelementptr inbounds nuw i8, ptr %15, i64 68
   %26 = load i32, ptr %25, align 4
   %.not20 = icmp eq i32 %26, 0
   br i1 %.not20, label %27, label %33
@@ -101,7 +101,7 @@ define dso_local noundef ptr @GetIndexAmRoutineByAmId(i32 noundef %0, i1 noundef
   %29 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
   tail call void @llvm.assume(i1 %29)
   %30 = tail call i32 @errcode(i32 noundef 325) #4
-  %31 = getelementptr inbounds i8, ptr %15, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %32 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef nonnull %31) #4
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 100, ptr noundef nonnull @__func__.GetIndexAmRoutineByAmId) #4
   unreachable
@@ -144,7 +144,7 @@ declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @amvalidate(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
   %5 = and i64 %3, 4294967295
@@ -160,17 +160,17 @@ define dso_local range(i64 0, 2) i64 @amvalidate(ptr nocapture noundef readonly 
   unreachable
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 22
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 22
   %14 = load i8, ptr %13, align 2
   %15 = zext i8 %14 to i64
   %16 = getelementptr i8, ptr %12, i64 %15
-  %17 = getelementptr inbounds i8, ptr %16, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %18 = load i32, ptr %17, align 4
   tail call void @ReleaseSysCache(ptr noundef nonnull %6) #4
   %19 = tail call ptr @GetIndexAmRoutineByAmId(i32 noundef %18, i1 noundef zeroext false)
-  %20 = getelementptr inbounds i8, ptr %19, i64 120
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 120
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %26

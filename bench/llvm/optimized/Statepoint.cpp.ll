@@ -50,7 +50,7 @@ define dso_local void @_ZN4llvm34parseStatepointDirectivesFromAttrsENS_13Attribu
   store ptr %1, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 0, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 0, ptr %9, align 8
   %10 = call ptr @_ZNK4llvm13AttributeList19getAttributeAtIndexEjNS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef -1, ptr nonnull @.str, i64 13) #3
   store ptr %10, ptr %6, align 8

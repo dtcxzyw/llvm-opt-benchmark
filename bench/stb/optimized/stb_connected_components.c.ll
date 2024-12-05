@@ -21,7 +21,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i32 0, 2) i32 @stbcc_query_grid_node_connection(ptr nocapture noundef readonly %g, i32 noundef %x1, i32 noundef %y1, i32 noundef %x2, i32 noundef %y2) local_unnamed_addr #0 {
 entry:
-  %clump_for_node = getelementptr inbounds i8, ptr %g, i64 131092
+  %clump_for_node = getelementptr inbounds nuw i8, ptr %g, i64 131092
   %idxprom = sext i32 %y1 to i64
   %idxprom1 = sext i32 %x1 to i64
   %arrayidx2 = getelementptr inbounds [1024 x [1024 x i16]], ptr %clump_for_node, i64 0, i64 %idxprom, i64 %idxprom1
@@ -40,7 +40,7 @@ if.end:                                           ; preds = %entry
   %shr9 = ashr i32 %x2, 5
   %shr8 = ashr i32 %y1, 5
   %shr = ashr i32 %x1, 5
-  %cluster = getelementptr inbounds i8, ptr %g, i64 2228244
+  %cluster = getelementptr inbounds nuw i8, ptr %g, i64 2228244
   %idxprom15 = sext i32 %shr8 to i64
   %idxprom17 = sext i32 %shr to i64
   %clump.idx = mul nsw i64 %idxprom15, 139392
@@ -49,7 +49,7 @@ if.end:                                           ; preds = %entry
   %3 = getelementptr i8, ptr %2, i64 %clump.idx10
   %clump = getelementptr i8, ptr %3, i64 4
   %idxprom19 = zext i16 %0 to i64
-  %arrayidx20 = getelementptr inbounds [512 x %struct.stbcc__clump], ptr %clump, i64 0, i64 %idxprom19
+  %arrayidx20 = getelementptr inbounds nuw [512 x %struct.stbcc__clump], ptr %clump, i64 0, i64 %idxprom19
   %label1.sroa.0.0.copyload = load i32, ptr %arrayidx20, align 4
   %idxprom22 = sext i32 %shr10 to i64
   %idxprom24 = sext i32 %shr9 to i64
@@ -59,7 +59,7 @@ if.end:                                           ; preds = %entry
   %5 = getelementptr i8, ptr %4, i64 %clump26.idx12
   %clump26 = getelementptr i8, ptr %5, i64 4
   %idxprom27 = zext i16 %1 to i64
-  %arrayidx28 = getelementptr inbounds [512 x %struct.stbcc__clump], ptr %clump26, i64 0, i64 %idxprom27
+  %arrayidx28 = getelementptr inbounds nuw [512 x %struct.stbcc__clump], ptr %clump26, i64 0, i64 %idxprom27
   %label2.sroa.0.0.copyload = load i32, ptr %arrayidx28, align 4
   %cmp30 = icmp eq i32 %label1.sroa.0.0.copyload, %label2.sroa.0.0.copyload
   %. = zext i1 %cmp30 to i32
@@ -76,7 +76,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i32 0, 2) i32 @stbcc_query_grid_open(ptr nocapture noundef readonly %g, i32 noundef %x, i32 noundef %y) local_unnamed_addr #0 {
 entry:
-  %map = getelementptr inbounds i8, ptr %g, i64 20
+  %map = getelementptr inbounds nuw i8, ptr %g, i64 20
   %idxprom = sext i32 %y to i64
   %shr = ashr i32 %x, 3
   %idxprom1 = sext i32 %shr to i64
@@ -92,7 +92,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @stbcc_get_unique_id(ptr nocapture noundef readonly %g, i32 noundef %x, i32 noundef %y) local_unnamed_addr #0 {
 entry:
-  %clump_for_node = getelementptr inbounds i8, ptr %g, i64 131092
+  %clump_for_node = getelementptr inbounds nuw i8, ptr %g, i64 131092
   %idxprom = sext i32 %y to i64
   %idxprom1 = sext i32 %x to i64
   %arrayidx2 = getelementptr inbounds [1024 x [1024 x i16]], ptr %clump_for_node, i64 0, i64 %idxprom, i64 %idxprom1
@@ -111,7 +111,7 @@ if.end:                                           ; preds = %entry
   %2 = getelementptr i8, ptr %1, i64 %clump.idx
   %clump = getelementptr i8, ptr %2, i64 %clump.idx5
   %idxprom9 = zext i16 %0 to i64
-  %arrayidx10 = getelementptr inbounds [512 x %struct.stbcc__clump], ptr %clump, i64 0, i64 %idxprom9
+  %arrayidx10 = getelementptr inbounds nuw [512 x %struct.stbcc__clump], ptr %clump, i64 0, i64 %idxprom9
   %3 = load i32, ptr %arrayidx10, align 4
   br label %return
 
@@ -123,7 +123,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
 define i32 @stbcc__clump_find(ptr nocapture noundef %g, i32 %n.coerce) local_unnamed_addr #2 {
 entry:
-  %cluster = getelementptr inbounds i8, ptr %g, i64 2228244
+  %cluster = getelementptr inbounds nuw i8, ptr %g, i64 2228244
   %bf.lshr = lshr i32 %n.coerce, 22
   %bf.lshr3 = lshr i32 %n.coerce, 12
   %bf.clear = and i32 %bf.lshr3, 1023
@@ -131,11 +131,11 @@ entry:
   %narrow10 = mul nuw nsw i32 %bf.clear, 4356
   %narrow11 = add nuw nsw i32 %narrow10, %narrow
   %0 = zext nneg i32 %narrow11 to i64
-  %1 = getelementptr inbounds i8, ptr %cluster, i64 %0
-  %clump = getelementptr inbounds i8, ptr %1, i64 4
+  %1 = getelementptr inbounds nuw i8, ptr %cluster, i64 %0
+  %clump = getelementptr inbounds nuw i8, ptr %1, i64 4
   %bf.clear7 = and i32 %n.coerce, 4095
   %idxprom8 = zext nneg i32 %bf.clear7 to i64
-  %arrayidx9 = getelementptr inbounds [512 x %struct.stbcc__clump], ptr %clump, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds nuw [512 x %struct.stbcc__clump], ptr %clump, i64 0, i64 %idxprom8
   %2 = load i32, ptr %arrayidx9, align 4
   %cmp = icmp eq i32 %2, %n.coerce
   br i1 %cmp, label %common.ret13, label %if.end
@@ -154,15 +154,15 @@ if.end:                                           ; preds = %entry
 define void @stbcc__clump_union(ptr nocapture noundef %g, i64 %m.coerce0, i32 %m.coerce1, i32 noundef %x, i32 noundef %y, i32 noundef %idx) local_unnamed_addr #2 {
 entry:
   %m.sroa.2.0.extract.shift = lshr i64 %m.coerce0, 32
-  %cluster = getelementptr inbounds i8, ptr %g, i64 2228244
+  %cluster = getelementptr inbounds nuw i8, ptr %g, i64 2228244
   %idxprom1 = and i64 %m.coerce0, 4294967295
   %clump.idx = mul nuw nsw i64 %m.sroa.2.0.extract.shift, 139392
   %clump.idx8 = mul nuw nsw i64 %idxprom1, 4356
-  %0 = getelementptr inbounds i8, ptr %cluster, i64 %clump.idx
-  %1 = getelementptr inbounds i8, ptr %0, i64 %clump.idx8
-  %clump = getelementptr inbounds i8, ptr %1, i64 4
+  %0 = getelementptr inbounds nuw i8, ptr %cluster, i64 %clump.idx
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 %clump.idx8
+  %clump = getelementptr inbounds nuw i8, ptr %1, i64 4
   %idxprom3 = zext i32 %m.coerce1 to i64
-  %arrayidx4 = getelementptr inbounds [512 x %struct.stbcc__clump], ptr %clump, i64 0, i64 %idxprom3
+  %arrayidx4 = getelementptr inbounds nuw [512 x %struct.stbcc__clump], ptr %clump, i64 0, i64 %idxprom3
   %idxprom6 = sext i32 %y to i64
   %idxprom8 = sext i32 %x to i64
   %clump10.idx = mul nsw i64 %idxprom6, 139392
@@ -187,11 +187,11 @@ if.end:                                           ; preds = %entry
   %narrow14 = mul nuw nsw i32 %bf.clear, 4356
   %narrow15 = add nuw nsw i32 %narrow14, %narrow
   %6 = zext nneg i32 %narrow15 to i64
-  %7 = getelementptr inbounds i8, ptr %cluster, i64 %6
-  %clump29 = getelementptr inbounds i8, ptr %7, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %cluster, i64 %6
+  %clump29 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %bf.clear31 = and i32 %call, 4095
   %idxprom32 = zext nneg i32 %bf.clear31 to i64
-  %arrayidx33 = getelementptr inbounds [512 x %struct.stbcc__clump], ptr %clump29, i64 0, i64 %idxprom32
+  %arrayidx33 = getelementptr inbounds nuw [512 x %struct.stbcc__clump], ptr %clump29, i64 0, i64 %idxprom32
   store i32 %call19, ptr %arrayidx33, align 4
   br label %return
 
@@ -202,7 +202,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
 define void @stbcc__build_connected_components_for_clumps(ptr nocapture noundef %g) local_unnamed_addr #2 {
 entry:
-  %cluster4 = getelementptr inbounds i8, ptr %g, i64 2228244
+  %cluster4 = getelementptr inbounds nuw i8, ptr %g, i64 2228244
   br label %for.cond1.preheader
 
 for.cond1.preheader:                              ; preds = %entry, %for.inc25
@@ -211,13 +211,13 @@ for.cond1.preheader:                              ; preds = %entry, %for.inc25
   br label %for.body3
 
 for.cond28.preheader:                             ; preds = %for.inc25
-  %invariant.gep = getelementptr inbounds i8, ptr %g, i64 2228248
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %g, i64 2228248
   br label %for.cond32.preheader
 
 for.body3:                                        ; preds = %for.cond1.preheader, %for.inc22
   %indvars.iv83 = phi i64 [ 0, %for.cond1.preheader ], [ %indvars.iv.next84, %for.inc22 ]
-  %arrayidx6 = getelementptr inbounds [32 x [32 x %struct.stbcc__cluster]], ptr %cluster4, i64 0, i64 %indvars.iv87, i64 %indvars.iv83
-  %num_edge_clumps = getelementptr inbounds i8, ptr %arrayidx6, i64 2
+  %arrayidx6 = getelementptr inbounds nuw [32 x [32 x %struct.stbcc__cluster]], ptr %cluster4, i64 0, i64 %indvars.iv87, i64 %indvars.iv83
+  %num_edge_clumps = getelementptr inbounds nuw i8, ptr %arrayidx6, i64 2
   %1 = load i8, ptr %num_edge_clumps, align 2
   %cmp861.not = icmp eq i8 %1, 0
   br i1 %cmp861.not, label %for.inc22, label %for.body10.lr.ph
@@ -225,7 +225,7 @@ for.body3:                                        ; preds = %for.cond1.preheader
 for.body10.lr.ph:                                 ; preds = %for.body3
   %2 = shl nuw nsw i64 %indvars.iv83, 12
   %3 = add nuw nsw i64 %2, %0
-  %clump = getelementptr inbounds i8, ptr %arrayidx6, i64 4
+  %clump = getelementptr inbounds nuw i8, ptr %arrayidx6, i64 4
   %4 = zext i8 %1 to i64
   br label %for.body10
 
@@ -233,7 +233,7 @@ for.body10:                                       ; preds = %for.body10.lr.ph, %
   %indvars.iv = phi i64 [ 0, %for.body10.lr.ph ], [ %indvars.iv.next, %for.body10 ]
   %bf.set19120 = or i64 %indvars.iv, %3
   %bf.set19 = trunc i64 %bf.set19120 to i32
-  %arrayidx21 = getelementptr inbounds [512 x %struct.stbcc__clump], ptr %clump, i64 0, i64 %indvars.iv
+  %arrayidx21 = getelementptr inbounds nuw [512 x %struct.stbcc__clump], ptr %clump, i64 0, i64 %indvars.iv
   store i32 %bf.set19, ptr %arrayidx21, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp8 = icmp samesign ult i64 %indvars.iv.next, %4
@@ -252,44 +252,44 @@ for.inc25:                                        ; preds = %for.inc22
 for.cond32.preheader:                             ; preds = %for.cond28.preheader, %for.inc86
   %indvars.iv102 = phi i64 [ 0, %for.cond28.preheader ], [ %indvars.iv.next103, %for.inc86 ]
   %clump.idx.i = mul nuw nsw i64 %indvars.iv102, 139392
-  %gep75 = getelementptr inbounds i8, ptr %invariant.gep, i64 %clump.idx.i
+  %gep75 = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %clump.idx.i
   br label %for.body35
 
 for.body35:                                       ; preds = %for.cond32.preheader, %for.inc83
   %indvars.iv98 = phi i64 [ 0, %for.cond32.preheader ], [ %indvars.iv.next99, %for.inc83 ]
-  %arrayidx41 = getelementptr inbounds [32 x [32 x %struct.stbcc__cluster]], ptr %cluster4, i64 0, i64 %indvars.iv102, i64 %indvars.iv98
-  %num_edge_clumps43 = getelementptr inbounds i8, ptr %arrayidx41, i64 2
+  %arrayidx41 = getelementptr inbounds nuw [32 x [32 x %struct.stbcc__cluster]], ptr %cluster4, i64 0, i64 %indvars.iv102, i64 %indvars.iv98
+  %num_edge_clumps43 = getelementptr inbounds nuw i8, ptr %arrayidx41, i64 2
   %5 = load i8, ptr %num_edge_clumps43, align 2
   %cmp4569.not = icmp eq i8 %5, 0
   br i1 %cmp4569.not, label %for.inc83, label %for.body47.lr.ph
 
 for.body47.lr.ph:                                 ; preds = %for.body35
-  %clump49 = getelementptr inbounds i8, ptr %arrayidx41, i64 4
-  %adjacency_storage = getelementptr inbounds i8, ptr %arrayidx41, i64 4100
+  %clump49 = getelementptr inbounds nuw i8, ptr %arrayidx41, i64 4
+  %adjacency_storage = getelementptr inbounds nuw i8, ptr %arrayidx41, i64 4100
   %clump.idx8.i = mul nuw nsw i64 %indvars.iv98, 4356
-  %gep73 = getelementptr inbounds i8, ptr %gep75, i64 %clump.idx8.i
+  %gep73 = getelementptr inbounds nuw i8, ptr %gep75, i64 %clump.idx8.i
   br label %for.body47
 
 for.body47:                                       ; preds = %for.body47.lr.ph, %for.inc80
   %6 = phi i8 [ %5, %for.body47.lr.ph ], [ %16, %for.inc80 ]
   %indvars.iv95 = phi i64 [ 0, %for.body47.lr.ph ], [ %indvars.iv.next96, %for.inc80 ]
-  %arrayidx51 = getelementptr inbounds [512 x %struct.stbcc__clump], ptr %clump49, i64 0, i64 %indvars.iv95
-  %adjacent_clump_list_index = getelementptr inbounds i8, ptr %arrayidx51, i64 6
+  %arrayidx51 = getelementptr inbounds nuw [512 x %struct.stbcc__clump], ptr %clump49, i64 0, i64 %indvars.iv95
+  %adjacent_clump_list_index = getelementptr inbounds nuw i8, ptr %arrayidx51, i64 6
   %7 = load i8, ptr %adjacent_clump_list_index, align 2
   %idxprom53 = zext i8 %7 to i64
-  %arrayidx54 = getelementptr inbounds [128 x %struct.stbcc__relative_clumpid], ptr %adjacency_storage, i64 0, i64 %idxprom53
-  %num_adjacent = getelementptr inbounds i8, ptr %arrayidx51, i64 4
+  %arrayidx54 = getelementptr inbounds nuw [128 x %struct.stbcc__relative_clumpid], ptr %adjacency_storage, i64 0, i64 %idxprom53
+  %num_adjacent = getelementptr inbounds nuw i8, ptr %arrayidx51, i64 4
   %8 = load i8, ptr %num_adjacent, align 4
   %cmp5766.not = icmp eq i8 %8, 0
   br i1 %cmp5766.not, label %for.inc80, label %for.body59.lr.ph
 
 for.body59.lr.ph:                                 ; preds = %for.body47
-  %arrayidx4.i = getelementptr inbounds [512 x %struct.stbcc__clump], ptr %gep73, i64 0, i64 %indvars.iv95
+  %arrayidx4.i = getelementptr inbounds nuw [512 x %struct.stbcc__clump], ptr %gep73, i64 0, i64 %indvars.iv95
   br label %for.body59
 
 for.body59:                                       ; preds = %for.body59.lr.ph, %stbcc__clump_union.exit
   %indvars.iv92 = phi i64 [ 0, %for.body59.lr.ph ], [ %indvars.iv.next93, %stbcc__clump_union.exit ]
-  %arrayidx62 = getelementptr inbounds %struct.stbcc__relative_clumpid, ptr %arrayidx54, i64 %indvars.iv92
+  %arrayidx62 = getelementptr inbounds nuw %struct.stbcc__relative_clumpid, ptr %arrayidx54, i64 %indvars.iv92
   %bf.load63 = load i16, ptr %arrayidx62, align 2
   %bf.clear64 = and i16 %bf.load63, 4095
   %bf.shl69 = shl i16 %bf.load63, 2
@@ -307,7 +307,7 @@ for.body59:                                       ; preds = %for.body59.lr.ph, %
   %10 = getelementptr i8, ptr %9, i64 %clump10.idx10.i
   %clump10.i = getelementptr i8, ptr %10, i64 4
   %idxprom11.i = zext nneg i16 %bf.clear64 to i64
-  %arrayidx12.i = getelementptr inbounds [512 x %struct.stbcc__clump], ptr %clump10.i, i64 0, i64 %idxprom11.i
+  %arrayidx12.i = getelementptr inbounds nuw [512 x %struct.stbcc__clump], ptr %clump10.i, i64 0, i64 %idxprom11.i
   %11 = load i32, ptr %arrayidx4.i, align 4
   %call.i = tail call i32 @stbcc__clump_find(ptr noundef nonnull %g, i32 %11)
   %12 = load i32, ptr %arrayidx12.i, align 4
@@ -323,10 +323,10 @@ if.end.i:                                         ; preds = %for.body59
   %narrow14.i = mul nuw nsw i32 %bf.clear.i, 4356
   %narrow15.i = add nuw nsw i32 %narrow14.i, %narrow.i
   %13 = zext nneg i32 %narrow15.i to i64
-  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %13
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %13
   %bf.clear31.i = and i32 %call.i, 4095
   %idxprom32.i = zext nneg i32 %bf.clear31.i to i64
-  %arrayidx33.i = getelementptr inbounds [512 x %struct.stbcc__clump], ptr %gep, i64 0, i64 %idxprom32.i
+  %arrayidx33.i = getelementptr inbounds nuw [512 x %struct.stbcc__clump], ptr %gep, i64 0, i64 %idxprom32.i
   store i32 %call19.i, ptr %arrayidx33.i, align 4
   br label %stbcc__clump_union.exit
 
@@ -363,13 +363,13 @@ for.cond93.preheader:                             ; preds = %for.inc86, %for.inc
   %18 = mul nuw nsw i64 %indvars.iv113, 139392
   %19 = or disjoint i64 %18, 2
   %20 = shl nuw nsw i64 %indvars.iv113, 22
-  %invariant.gep122 = getelementptr inbounds i8, ptr %cluster4, i64 %19
+  %invariant.gep122 = getelementptr inbounds nuw i8, ptr %cluster4, i64 %19
   br label %for.body96
 
 for.body96:                                       ; preds = %for.cond93.preheader, %for.inc130
   %indvars.iv106 = phi i64 [ 0, %for.cond93.preheader ], [ %indvars.iv.next107, %for.inc130 ]
   %21 = mul nuw nsw i64 %indvars.iv106, 4356
-  %gep123 = getelementptr inbounds i8, ptr %invariant.gep122, i64 %21
+  %gep123 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %21
   %22 = load i8, ptr %gep123, align 2
   %cmp10678.not = icmp eq i8 %22, 0
   br i1 %cmp10678.not, label %for.inc130, label %for.body108.lr.ph
@@ -409,19 +409,19 @@ define void @stbcc__build_all_connections_for_cluster(ptr nocapture noundef %g, 
 entry:
   %connected = alloca [64 x [8 x i8]], align 16
   %num_adj = alloca [512 x i8], align 16
-  %cluster1 = getelementptr inbounds i8, ptr %g, i64 2228244
+  %cluster1 = getelementptr inbounds nuw i8, ptr %g, i64 2228244
   %idxprom = sext i32 %cy to i64
   %idxprom2 = sext i32 %cx to i64
   %arrayidx3 = getelementptr inbounds [32 x [32 x %struct.stbcc__cluster]], ptr %cluster1, i64 0, i64 %idxprom, i64 %idxprom2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %num_adj, i8 0, i64 512, i1 false)
   %mul = shl nsw i32 %cx, 5
   %mul4 = shl nsw i32 %cy, 5
-  %rebuild_adjacency = getelementptr inbounds i8, ptr %arrayidx3, i64 3
+  %rebuild_adjacency = getelementptr inbounds nuw i8, ptr %arrayidx3, i64 3
   store i8 0, ptr %rebuild_adjacency, align 1
-  %cw = getelementptr inbounds i8, ptr %g, i64 8
-  %ch = getelementptr inbounds i8, ptr %g, i64 12
-  %map = getelementptr inbounds i8, ptr %g, i64 20
-  %clump_for_node = getelementptr inbounds i8, ptr %g, i64 131092
+  %cw = getelementptr inbounds nuw i8, ptr %g, i64 8
+  %ch = getelementptr inbounds nuw i8, ptr %g, i64 12
+  %map = getelementptr inbounds nuw i8, ptr %g, i64 20
+  %clump_for_node = getelementptr inbounds nuw i8, ptr %g, i64 131092
   %0 = sext i32 %mul to i64
   %1 = sext i32 %mul4 to i64
   br label %switch.lookup
@@ -430,22 +430,22 @@ switch.lookup:                                    ; preds = %for.inc99, %entry
   %total.086 = phi i32 [ 0, %entry ], [ %total.1, %for.inc99 ]
   %m.085 = phi i32 [ 0, %entry ], [ %inc100, %for.inc99 ]
   %2 = zext nneg i32 %m.085 to i64
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table.stbcc__build_all_connections_for_cluster, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table.stbcc__build_all_connections_for_cluster, i64 0, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i32 %m.085 to i64
-  %switch.gep103 = getelementptr inbounds [4 x i32], ptr @switch.table.stbcc__build_all_connections_for_cluster.1, i64 0, i64 %3
+  %switch.gep103 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.stbcc__build_all_connections_for_cluster.1, i64 0, i64 %3
   %switch.load104 = load i32, ptr %switch.gep103, align 4
   %4 = zext nneg i32 %m.085 to i64
-  %switch.gep105 = getelementptr inbounds [4 x i32], ptr @switch.table.stbcc__build_all_connections_for_cluster.2, i64 0, i64 %4
+  %switch.gep105 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.stbcc__build_all_connections_for_cluster.2, i64 0, i64 %4
   %switch.load106 = load i32, ptr %switch.gep105, align 4
   %5 = zext nneg i32 %m.085 to i64
-  %switch.gep107 = getelementptr inbounds [4 x i64], ptr @switch.table.stbcc__build_all_connections_for_cluster.3, i64 0, i64 %5
+  %switch.gep107 = getelementptr inbounds nuw [4 x i64], ptr @switch.table.stbcc__build_all_connections_for_cluster.3, i64 0, i64 %5
   %switch.load108 = load i64, ptr %switch.gep107, align 8
   %6 = zext nneg i32 %m.085 to i64
-  %switch.gep109 = getelementptr inbounds [4 x i64], ptr @switch.table.stbcc__build_all_connections_for_cluster.4, i64 0, i64 %6
+  %switch.gep109 = getelementptr inbounds nuw [4 x i64], ptr @switch.table.stbcc__build_all_connections_for_cluster.4, i64 0, i64 %6
   %switch.load110 = load i64, ptr %switch.gep109, align 8
   %7 = zext nneg i32 %m.085 to i64
-  %switch.gep111 = getelementptr inbounds [4 x i64], ptr @switch.table.stbcc__build_all_connections_for_cluster.5, i64 0, i64 %7
+  %switch.gep111 = getelementptr inbounds nuw [4 x i64], ptr @switch.table.stbcc__build_all_connections_for_cluster.5, i64 0, i64 %7
   %switch.load112 = load i64, ptr %switch.gep111, align 8
   %add = add nsw i32 %switch.load104, %cx
   %cmp13 = icmp slt i32 %add, 0
@@ -518,7 +518,7 @@ if.then50:                                        ; preds = %land.lhs.true
   %conv68 = zext i16 %21 to i32
   %shr69 = lshr i32 %conv68, 3
   %idxprom70 = zext nneg i32 %shr69 to i64
-  %arrayidx71 = getelementptr inbounds [64 x [8 x i8]], ptr %connected, i64 0, i64 %idxprom66, i64 %idxprom70
+  %arrayidx71 = getelementptr inbounds nuw [64 x [8 x i8]], ptr %connected, i64 0, i64 %idxprom66, i64 %idxprom70
   %22 = load i8, ptr %arrayidx71, align 1
   %conv72 = zext i8 %22 to i32
   %and74 = and i32 %conv68, 7
@@ -531,7 +531,7 @@ if.then79:                                        ; preds = %if.then50
   %23 = trunc nuw i32 %shl75 to i8
   %conv90 = or i8 %22, %23
   store i8 %conv90, ptr %arrayidx71, align 1
-  %arrayidx92 = getelementptr inbounds [512 x i8], ptr %num_adj, i64 0, i64 %idxprom66
+  %arrayidx92 = getelementptr inbounds nuw [512 x i8], ptr %num_adj, i64 0, i64 %idxprom66
   %24 = load i8, ptr %arrayidx92, align 1
   %inc = add i8 %24, 1
   store i8 %inc, ptr %arrayidx92, align 1
@@ -553,7 +553,7 @@ for.inc99:                                        ; preds = %if.end95, %switch.l
   br i1 %exitcond99.not, label %for.end101, label %switch.lookup, !llvm.loop !16
 
 for.end101:                                       ; preds = %for.inc99
-  %num_edge_clumps = getelementptr inbounds i8, ptr %arrayidx3, i64 2
+  %num_edge_clumps = getelementptr inbounds nuw i8, ptr %arrayidx3, i64 2
   %25 = load i8, ptr %num_edge_clumps, align 2
   %conv102 = zext i8 %25 to i32
   %shl103 = shl nuw nsw i32 %conv102, 2
@@ -579,26 +579,26 @@ if.end126:                                        ; preds = %if.else115, %if.els
   br i1 %cmp13088.not, label %for.end154, label %for.body132.lr.ph
 
 for.body132.lr.ph:                                ; preds = %if.end126
-  %clump = getelementptr inbounds i8, ptr %arrayidx3, i64 4
+  %clump = getelementptr inbounds nuw i8, ptr %arrayidx3, i64 4
   %26 = zext i8 %25 to i64
   br label %for.body132
 
 for.body132:                                      ; preds = %for.body132.lr.ph, %for.body132
   %indvars.iv100 = phi i64 [ 0, %for.body132.lr.ph ], [ %indvars.iv.next101, %for.body132 ]
   %total.489 = phi i32 [ 0, %for.body132.lr.ph ], [ %add151, %for.body132 ]
-  %arrayidx134 = getelementptr inbounds [512 x i8], ptr %num_adj, i64 0, i64 %indvars.iv100
+  %arrayidx134 = getelementptr inbounds nuw [512 x i8], ptr %num_adj, i64 0, i64 %indvars.iv100
   %27 = load i8, ptr %arrayidx134, align 1
   %conv135 = zext i8 %27 to i32
   %add136 = add nuw nsw i32 %extra.0, %conv135
   %spec.store.select = tail call i32 @llvm.umin.i32(i32 %add136, i32 64)
   %conv141 = trunc i32 %total.489 to i8
-  %arrayidx143 = getelementptr inbounds [512 x %struct.stbcc__clump], ptr %clump, i64 0, i64 %indvars.iv100
-  %adjacent_clump_list_index = getelementptr inbounds i8, ptr %arrayidx143, i64 6
+  %arrayidx143 = getelementptr inbounds nuw [512 x %struct.stbcc__clump], ptr %clump, i64 0, i64 %indvars.iv100
+  %adjacent_clump_list_index = getelementptr inbounds nuw i8, ptr %arrayidx143, i64 6
   store i8 %conv141, ptr %adjacent_clump_list_index, align 2
   %conv144 = trunc nuw nsw i32 %spec.store.select to i8
-  %max_adjacent = getelementptr inbounds i8, ptr %arrayidx143, i64 5
+  %max_adjacent = getelementptr inbounds nuw i8, ptr %arrayidx143, i64 5
   store i8 %conv144, ptr %max_adjacent, align 1
-  %num_adjacent = getelementptr inbounds i8, ptr %arrayidx143, i64 4
+  %num_adjacent = getelementptr inbounds nuw i8, ptr %arrayidx143, i64 4
   store i8 0, ptr %num_adjacent, align 4
   %add151 = add nuw nsw i32 %spec.store.select, %total.489
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
@@ -627,7 +627,7 @@ entry:
   br i1 %cmp, label %for.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %cw = getelementptr inbounds i8, ptr %g, i64 8
+  %cw = getelementptr inbounds nuw i8, ptr %g, i64 8
   %0 = load i32, ptr %cw, align 4
   %cmp2 = icmp sge i32 %cx, %0
   %cmp4 = icmp slt i32 %cy, 0
@@ -635,7 +635,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %or.cond, label %for.end, label %lor.lhs.false5
 
 lor.lhs.false5:                                   ; preds = %lor.lhs.false
-  %ch = getelementptr inbounds i8, ptr %g, i64 12
+  %ch = getelementptr inbounds nuw i8, ptr %g, i64 12
   %1 = load i32, ptr %ch, align 4
   %cmp6.not = icmp slt i32 %cy, %1
   br i1 %cmp6.not, label %if.end, label %for.end
@@ -689,9 +689,9 @@ if.end39:                                         ; preds = %if.else29, %if.end2
   %j.0 = phi i64 [ 0, %if.then28 ], [ 31, %if.then34 ], [ 0, %if.end24 ], [ 0, %if.else29 ]
   %step_y.0 = phi i64 [ 1, %if.then28 ], [ 0, %if.then34 ], [ 1, %if.end24 ], [ 0, %if.else29 ]
   %step_x.0 = phi i64 [ 0, %if.then28 ], [ 1, %if.then34 ], [ 0, %if.end24 ], [ 1, %if.else29 ]
-  %map = getelementptr inbounds i8, ptr %g, i64 20
-  %clump_for_node = getelementptr inbounds i8, ptr %g, i64 131092
-  %cluster24.i = getelementptr inbounds i8, ptr %g, i64 2228244
+  %map = getelementptr inbounds nuw i8, ptr %g, i64 20
+  %clump_for_node = getelementptr inbounds nuw i8, ptr %g, i64 131092
+  %cluster24.i = getelementptr inbounds nuw i8, ptr %g, i64 2228244
   %conv.i = trunc i32 %dx to i16
   %bf.value12.i = shl i16 %conv.i, 12
   %bf.shl.i = and i16 %bf.value12.i, 12288
@@ -712,7 +712,7 @@ for.body:                                         ; preds = %if.end39, %if.end12
   %10 = add nuw nsw i64 %indvars.iv77, %7
   %shr = lshr i64 %10, 3
   %idxprom45 = and i64 %shr, 536870911
-  %arrayidx46 = getelementptr inbounds [1024 x [128 x i8]], ptr %map, i64 0, i64 %9, i64 %idxprom45
+  %arrayidx46 = getelementptr inbounds nuw [1024 x [128 x i8]], ptr %map, i64 0, i64 %9, i64 %idxprom45
   %11 = load i8, ptr %arrayidx46, align 1
   %conv = zext i8 %11 to i32
   %12 = trunc nuw nsw i64 %indvars.iv77 to i32
@@ -738,7 +738,7 @@ land.lhs.true:                                    ; preds = %for.body
   br i1 %tobool66.not, label %if.end124, label %if.then67
 
 if.then67:                                        ; preds = %land.lhs.true
-  %arrayidx73 = getelementptr inbounds [1024 x [1024 x i16]], ptr %clump_for_node, i64 0, i64 %9, i64 %10
+  %arrayidx73 = getelementptr inbounds nuw [1024 x [1024 x i16]], ptr %clump_for_node, i64 0, i64 %9, i64 %10
   %17 = load i16, ptr %arrayidx73, align 2
   %arrayidx82 = getelementptr inbounds [1024 x [1024 x i16]], ptr %clump_for_node, i64 0, i64 %13, i64 %14
   %18 = load i16, ptr %arrayidx82, align 2
@@ -746,7 +746,7 @@ if.then67:                                        ; preds = %land.lhs.true
   %conv85 = zext i16 %18 to i32
   %shr86 = lshr i32 %conv85, 3
   %idxprom87 = zext nneg i32 %shr86 to i64
-  %arrayidx88 = getelementptr inbounds [64 x [8 x i8]], ptr %connected, i64 0, i64 %idxprom83, i64 %idxprom87
+  %arrayidx88 = getelementptr inbounds nuw [64 x [8 x i8]], ptr %connected, i64 0, i64 %idxprom83, i64 %idxprom87
   %19 = load i8, ptr %arrayidx88, align 1
   %conv89 = zext i8 %19 to i32
   %and91 = and i32 %conv85, 7
@@ -763,33 +763,33 @@ if.then96:                                        ; preds = %if.then67
   %shr1.i = lshr i64 %9, 5
   %idxprom25.i = and i64 %shr1.i, 134217727
   %idxprom27.i = and i64 %shr.i, 134217727
-  %arrayidx28.i = getelementptr inbounds [32 x [32 x %struct.stbcc__cluster]], ptr %cluster24.i, i64 0, i64 %idxprom25.i, i64 %idxprom27.i
-  %clump29.i = getelementptr inbounds i8, ptr %arrayidx28.i, i64 4
-  %arrayidx31.i = getelementptr inbounds [512 x %struct.stbcc__clump], ptr %clump29.i, i64 0, i64 %idxprom83
-  %num_adjacent.i = getelementptr inbounds i8, ptr %arrayidx31.i, i64 4
+  %arrayidx28.i = getelementptr inbounds nuw [32 x [32 x %struct.stbcc__cluster]], ptr %cluster24.i, i64 0, i64 %idxprom25.i, i64 %idxprom27.i
+  %clump29.i = getelementptr inbounds nuw i8, ptr %arrayidx28.i, i64 4
+  %arrayidx31.i = getelementptr inbounds nuw [512 x %struct.stbcc__clump], ptr %clump29.i, i64 0, i64 %idxprom83
+  %num_adjacent.i = getelementptr inbounds nuw i8, ptr %arrayidx31.i, i64 4
   %21 = load i8, ptr %num_adjacent.i, align 4
-  %max_adjacent.i = getelementptr inbounds i8, ptr %arrayidx31.i, i64 5
+  %max_adjacent.i = getelementptr inbounds nuw i8, ptr %arrayidx31.i, i64 5
   %22 = load i8, ptr %max_adjacent.i, align 1
   %cmp.i = icmp eq i8 %21, %22
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then96
-  %rebuild_adjacency.i = getelementptr inbounds i8, ptr %arrayidx28.i, i64 3
+  %rebuild_adjacency.i = getelementptr inbounds nuw i8, ptr %arrayidx28.i, i64 3
   store i8 1, ptr %rebuild_adjacency.i, align 1
   br label %stbcc__add_clump_connection.exit
 
 if.else.i:                                        ; preds = %if.then96
   %bf.value.i = and i16 %18, 4095
   %bf.set21.i.reass = or disjoint i16 %bf.value.i, %invariant.op
-  %adjacency_storage.i = getelementptr inbounds i8, ptr %arrayidx28.i, i64 4100
-  %adjacent_clump_list_index.i = getelementptr inbounds i8, ptr %arrayidx31.i, i64 6
+  %adjacency_storage.i = getelementptr inbounds nuw i8, ptr %arrayidx28.i, i64 4100
+  %adjacent_clump_list_index.i = getelementptr inbounds nuw i8, ptr %arrayidx31.i, i64 6
   %23 = load i8, ptr %adjacent_clump_list_index.i, align 2
   %idxprom40.i = zext i8 %23 to i64
-  %arrayidx41.i = getelementptr inbounds [128 x %struct.stbcc__relative_clumpid], ptr %adjacency_storage.i, i64 0, i64 %idxprom40.i
+  %arrayidx41.i = getelementptr inbounds nuw [128 x %struct.stbcc__relative_clumpid], ptr %adjacency_storage.i, i64 0, i64 %idxprom40.i
   %inc.i = add i8 %21, 1
   store i8 %inc.i, ptr %num_adjacent.i, align 4
   %idxprom43.i = zext i8 %21 to i64
-  %arrayidx44.i = getelementptr inbounds %struct.stbcc__relative_clumpid, ptr %arrayidx41.i, i64 %idxprom43.i
+  %arrayidx44.i = getelementptr inbounds nuw %struct.stbcc__relative_clumpid, ptr %arrayidx41.i, i64 %idxprom43.i
   store i16 %bf.set21.i.reass, ptr %arrayidx44.i, align 2
   br label %stbcc__add_clump_connection.exit
 
@@ -816,7 +816,7 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %if.end9
 
 land.lhs.true:                                    ; preds = %entry
-  %cw = getelementptr inbounds i8, ptr %g, i64 8
+  %cw = getelementptr inbounds nuw i8, ptr %g, i64 8
   %0 = load i32, ptr %cw, align 4
   %cmp1 = icmp slt i32 %cx, %0
   %cmp3 = icmp sgt i32 %cy, -1
@@ -824,7 +824,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %or.cond, label %land.lhs.true4, label %if.end9
 
 land.lhs.true4:                                   ; preds = %land.lhs.true
-  %ch = getelementptr inbounds i8, ptr %g, i64 12
+  %ch = getelementptr inbounds nuw i8, ptr %g, i64 12
   %1 = load i32, ptr %ch, align 4
   %cmp5 = icmp slt i32 %cy, %1
   br i1 %cmp5, label %if.then, label %if.end9
@@ -854,7 +854,7 @@ if.end9:                                          ; preds = %if.then, %if.then8,
 define void @stbcc_update_grid(ptr nocapture noundef %g, i32 noundef %x, i32 noundef %y, i32 noundef %solid) local_unnamed_addr #2 {
 entry:
   %tobool.not = icmp eq i32 %solid, 0
-  %map = getelementptr inbounds i8, ptr %g, i64 20
+  %map = getelementptr inbounds nuw i8, ptr %g, i64 20
   %idxprom = sext i32 %y to i64
   %shr = ashr i32 %x, 3
   %idxprom1 = sext i32 %shr to i64
@@ -881,7 +881,7 @@ if.end19:                                         ; preds = %entry
   tail call void @stbcc__remove_connections_to_adjacent_cluster(ptr noundef nonnull %g, i32 noundef %shr20, i32 noundef %add23, i32 noundef 0, i32 noundef -1)
   %and26 = and i32 %x, 7
   %shl27 = shl nuw nsw i32 1, %and26
-  %map28 = getelementptr inbounds i8, ptr %g, i64 20
+  %map28 = getelementptr inbounds nuw i8, ptr %g, i64 20
   %idxprom29 = sext i32 %y to i64
   %shr31 = ashr i32 %x, 3
   %idxprom32 = sext i32 %shr31 to i64
@@ -899,7 +899,7 @@ if.end19:                                         ; preds = %entry
   br i1 %cmp.i, label %land.lhs.true.i, label %stbcc__add_connections_to_adjacent_cluster_with_rebuild.exit
 
 land.lhs.true.i:                                  ; preds = %if.end19
-  %cw.i = getelementptr inbounds i8, ptr %g, i64 8
+  %cw.i = getelementptr inbounds nuw i8, ptr %g, i64 8
   %5 = load i32, ptr %cw.i, align 4
   %cmp1.i = icmp sle i32 %shr20, %5
   %cmp3.i = icmp sgt i32 %shr21, -1
@@ -907,7 +907,7 @@ land.lhs.true.i:                                  ; preds = %if.end19
   br i1 %or.cond.i, label %land.lhs.true4.i, label %land.lhs.true.i48
 
 land.lhs.true4.i:                                 ; preds = %land.lhs.true.i
-  %ch.i = getelementptr inbounds i8, ptr %g, i64 12
+  %ch.i = getelementptr inbounds nuw i8, ptr %g, i64 12
   %6 = load i32, ptr %ch.i, align 4
   %cmp5.i = icmp slt i32 %shr21, %6
   br i1 %cmp5.i, label %if.then.i, label %land.lhs.true.i48
@@ -934,7 +934,7 @@ stbcc__add_connections_to_adjacent_cluster_with_rebuild.exit: ; preds = %if.end1
   br i1 %cmp.i47, label %land.lhs.true.i48, label %stbcc__add_connections_to_adjacent_cluster_with_rebuild.exit100
 
 land.lhs.true.i48:                                ; preds = %if.then8.i, %if.then.i, %land.lhs.true4.i, %land.lhs.true.i, %stbcc__add_connections_to_adjacent_cluster_with_rebuild.exit
-  %cw.i49 = getelementptr inbounds i8, ptr %g, i64 8
+  %cw.i49 = getelementptr inbounds nuw i8, ptr %g, i64 8
   %10 = load i32, ptr %cw.i49, align 4
   %cmp1.i50 = icmp slt i32 %add, %10
   %cmp3.i51 = icmp sgt i32 %shr21, -1
@@ -942,7 +942,7 @@ land.lhs.true.i48:                                ; preds = %if.then8.i, %if.the
   br i1 %or.cond.i52, label %land.lhs.true4.i53, label %stbcc__add_connections_to_adjacent_cluster_with_rebuild.exit64
 
 land.lhs.true4.i53:                               ; preds = %land.lhs.true.i48
-  %ch.i54 = getelementptr inbounds i8, ptr %g, i64 12
+  %ch.i54 = getelementptr inbounds nuw i8, ptr %g, i64 12
   %11 = load i32, ptr %ch.i54, align 4
   %cmp5.i55 = icmp slt i32 %shr21, %11
   br i1 %cmp5.i55, label %if.then.i56, label %stbcc__add_connections_to_adjacent_cluster_with_rebuild.exit64
@@ -976,7 +976,7 @@ land.lhs.true.i66:                                ; preds = %stbcc__add_connecti
   br i1 %or.cond.i70, label %land.lhs.true4.i71, label %land.lhs.true.i84
 
 land.lhs.true4.i71:                               ; preds = %land.lhs.true.i66
-  %ch.i72 = getelementptr inbounds i8, ptr %g, i64 12
+  %ch.i72 = getelementptr inbounds nuw i8, ptr %g, i64 12
   %16 = load i32, ptr %ch.i72, align 4
   %cmp5.i73.not = icmp sgt i32 %shr21, %16
   br i1 %cmp5.i73.not, label %land.lhs.true.i84, label %if.then.i74
@@ -1006,7 +1006,7 @@ land.lhs.true.i84:                                ; preds = %land.lhs.true.i66, 
   br i1 %or.cond.i88, label %land.lhs.true4.i89, label %stbcc__add_connections_to_adjacent_cluster_with_rebuild.exit100
 
 land.lhs.true4.i89:                               ; preds = %land.lhs.true.i84
-  %ch.i90 = getelementptr inbounds i8, ptr %g, i64 12
+  %ch.i90 = getelementptr inbounds nuw i8, ptr %g, i64 12
   %21 = load i32, ptr %ch.i90, align 4
   %cmp5.i91 = icmp slt i32 %add23, %21
   br i1 %cmp5.i91, label %if.then.i92, label %stbcc__add_connections_to_adjacent_cluster_with_rebuild.exit100
@@ -1029,7 +1029,7 @@ if.then8.i99:                                     ; preds = %if.then.i92
   br label %stbcc__add_connections_to_adjacent_cluster_with_rebuild.exit100
 
 stbcc__add_connections_to_adjacent_cluster_with_rebuild.exit100: ; preds = %stbcc__add_connections_to_adjacent_cluster_with_rebuild.exit64, %stbcc__add_connections_to_adjacent_cluster_with_rebuild.exit, %land.lhs.true.i84, %land.lhs.true4.i89, %if.then.i92, %if.then8.i99
-  %in_batched_update = getelementptr inbounds i8, ptr %g, i64 16
+  %in_batched_update = getelementptr inbounds nuw i8, ptr %g, i64 16
   %25 = load i32, ptr %in_batched_update, align 4
   %tobool53.not = icmp eq i32 %25, 0
   br i1 %tobool53.not, label %if.then54, label %if.end55
@@ -1053,7 +1053,7 @@ entry:
   br i1 %cmp, label %for.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %cw = getelementptr inbounds i8, ptr %g, i64 8
+  %cw = getelementptr inbounds nuw i8, ptr %g, i64 8
   %0 = load i32, ptr %cw, align 4
   %cmp2 = icmp sge i32 %cx, %0
   %cmp4 = icmp slt i32 %cy, 0
@@ -1061,7 +1061,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %or.cond, label %for.end, label %lor.lhs.false5
 
 lor.lhs.false5:                                   ; preds = %lor.lhs.false
-  %ch = getelementptr inbounds i8, ptr %g, i64 12
+  %ch = getelementptr inbounds nuw i8, ptr %g, i64 12
   %1 = load i32, ptr %ch, align 4
   %cmp6.not = icmp slt i32 %cy, %1
   br i1 %cmp6.not, label %if.end, label %for.end
@@ -1103,9 +1103,9 @@ if.end35:                                         ; preds = %if.else25, %if.end2
   %j.0 = phi i64 [ 0, %if.then24 ], [ 31, %if.then30 ], [ 0, %if.end20 ], [ 0, %if.else25 ]
   %step_y.0 = phi i64 [ 1, %if.then24 ], [ 0, %if.then30 ], [ 1, %if.end20 ], [ 0, %if.else25 ]
   %step_x.0 = phi i64 [ 0, %if.then24 ], [ 1, %if.then30 ], [ 0, %if.end20 ], [ 1, %if.else25 ]
-  %map = getelementptr inbounds i8, ptr %g, i64 20
-  %clump_for_node = getelementptr inbounds i8, ptr %g, i64 131092
-  %cluster24.i = getelementptr inbounds i8, ptr %g, i64 2228244
+  %map = getelementptr inbounds nuw i8, ptr %g, i64 20
+  %clump_for_node = getelementptr inbounds nuw i8, ptr %g, i64 131092
+  %cluster24.i = getelementptr inbounds nuw i8, ptr %g, i64 2228244
   %conv4830.i = shl i32 %dx, 30
   %conv48.i = ashr exact i32 %conv4830.i, 30
   %conv6031.i = shl i32 %dy, 30
@@ -1124,7 +1124,7 @@ for.body:                                         ; preds = %if.end35, %if.end10
   %7 = add nuw nsw i64 %indvars.iv71, %4
   %shr = lshr i64 %7, 3
   %idxprom39 = and i64 %shr, 536870911
-  %arrayidx40 = getelementptr inbounds [1024 x [128 x i8]], ptr %map, i64 0, i64 %6, i64 %idxprom39
+  %arrayidx40 = getelementptr inbounds nuw [1024 x [128 x i8]], ptr %map, i64 0, i64 %6, i64 %idxprom39
   %8 = load i8, ptr %arrayidx40, align 1
   %conv = zext i8 %8 to i32
   %9 = trunc nuw nsw i64 %indvars.iv71 to i32
@@ -1150,7 +1150,7 @@ land.lhs.true:                                    ; preds = %for.body
   br i1 %tobool59.not, label %if.end108, label %if.then60
 
 if.then60:                                        ; preds = %land.lhs.true
-  %arrayidx66 = getelementptr inbounds [1024 x [1024 x i16]], ptr %clump_for_node, i64 0, i64 %6, i64 %7
+  %arrayidx66 = getelementptr inbounds nuw [1024 x [1024 x i16]], ptr %clump_for_node, i64 0, i64 %6, i64 %7
   %14 = load i16, ptr %arrayidx66, align 2
   %arrayidx75 = getelementptr inbounds [1024 x [1024 x i16]], ptr %clump_for_node, i64 0, i64 %10, i64 %11
   %15 = load i16, ptr %arrayidx75, align 2
@@ -1158,7 +1158,7 @@ if.then60:                                        ; preds = %land.lhs.true
   %conv78 = zext i16 %15 to i32
   %shr79 = lshr i32 %conv78, 3
   %idxprom80 = zext nneg i32 %shr79 to i64
-  %arrayidx81 = getelementptr inbounds [64 x [8 x i8]], ptr %disconnected, i64 0, i64 %idxprom76, i64 %idxprom80
+  %arrayidx81 = getelementptr inbounds nuw [64 x [8 x i8]], ptr %disconnected, i64 0, i64 %idxprom76, i64 %idxprom80
   %16 = load i8, ptr %arrayidx81, align 1
   %conv82 = zext i8 %16 to i32
   %and84 = and i32 %conv78, 7
@@ -1175,15 +1175,15 @@ if.then89:                                        ; preds = %if.then60
   %shr1.i = lshr i64 %6, 5
   %idxprom25.i = and i64 %shr1.i, 134217727
   %idxprom27.i = and i64 %shr.i, 134217727
-  %arrayidx28.i = getelementptr inbounds [32 x [32 x %struct.stbcc__cluster]], ptr %cluster24.i, i64 0, i64 %idxprom25.i, i64 %idxprom27.i
-  %clump29.i = getelementptr inbounds i8, ptr %arrayidx28.i, i64 4
-  %arrayidx31.i = getelementptr inbounds [512 x %struct.stbcc__clump], ptr %clump29.i, i64 0, i64 %idxprom76
-  %adjacency_storage.i = getelementptr inbounds i8, ptr %arrayidx28.i, i64 4100
-  %adjacent_clump_list_index.i = getelementptr inbounds i8, ptr %arrayidx31.i, i64 6
+  %arrayidx28.i = getelementptr inbounds nuw [32 x [32 x %struct.stbcc__cluster]], ptr %cluster24.i, i64 0, i64 %idxprom25.i, i64 %idxprom27.i
+  %clump29.i = getelementptr inbounds nuw i8, ptr %arrayidx28.i, i64 4
+  %arrayidx31.i = getelementptr inbounds nuw [512 x %struct.stbcc__clump], ptr %clump29.i, i64 0, i64 %idxprom76
+  %adjacency_storage.i = getelementptr inbounds nuw i8, ptr %arrayidx28.i, i64 4100
+  %adjacent_clump_list_index.i = getelementptr inbounds nuw i8, ptr %arrayidx31.i, i64 6
   %18 = load i8, ptr %adjacent_clump_list_index.i, align 2
   %idxprom32.i = zext i8 %18 to i64
-  %arrayidx33.i = getelementptr inbounds [128 x %struct.stbcc__relative_clumpid], ptr %adjacency_storage.i, i64 0, i64 %idxprom32.i
-  %num_adjacent.i = getelementptr inbounds i8, ptr %arrayidx31.i, i64 4
+  %arrayidx33.i = getelementptr inbounds nuw [128 x %struct.stbcc__relative_clumpid], ptr %adjacency_storage.i, i64 0, i64 %idxprom32.i
+  %num_adjacent.i = getelementptr inbounds nuw i8, ptr %arrayidx31.i, i64 4
   %19 = load i8, ptr %num_adjacent.i, align 4
   %cmp35.not.i = icmp eq i8 %19, 0
   br i1 %cmp35.not.i, label %if.end108, label %for.body.lr.ph.i
@@ -1194,7 +1194,7 @@ for.body.lr.ph.i:                                 ; preds = %if.then89
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %arrayidx40.i = getelementptr inbounds %struct.stbcc__relative_clumpid, ptr %arrayidx33.i, i64 %indvars.iv.i
+  %arrayidx40.i = getelementptr inbounds nuw %struct.stbcc__relative_clumpid, ptr %arrayidx33.i, i64 %indvars.iv.i
   %bf.load41.i = load i16, ptr %arrayidx40.i, align 2
   %20 = xor i16 %bf.load41.i, %15
   %21 = and i16 %20, 4095
@@ -1221,11 +1221,11 @@ for.inc.i:                                        ; preds = %land.lhs.true57.i, 
 
 if.then72.i:                                      ; preds = %land.lhs.true57.i
   %idxprom73.i = and i64 %indvars.iv.i, 4294967295
-  %arrayidx74.i = getelementptr inbounds %struct.stbcc__relative_clumpid, ptr %arrayidx33.i, i64 %idxprom73.i
+  %arrayidx74.i = getelementptr inbounds nuw %struct.stbcc__relative_clumpid, ptr %arrayidx33.i, i64 %idxprom73.i
   %dec.i = add i8 %19, -1
   store i8 %dec.i, ptr %num_adjacent.i, align 4
   %idxprom76.i = zext i8 %dec.i to i64
-  %arrayidx77.i = getelementptr inbounds %struct.stbcc__relative_clumpid, ptr %arrayidx33.i, i64 %idxprom76.i
+  %arrayidx77.i = getelementptr inbounds nuw %struct.stbcc__relative_clumpid, ptr %arrayidx33.i, i64 %idxprom76.i
   %22 = load i16, ptr %arrayidx77.i, align 2
   store i16 %22, ptr %arrayidx74.i, align 2
   br label %if.end108
@@ -1255,7 +1255,7 @@ for.cond2.preheader:                              ; preds = %entry, %for.inc15
 
 for.cond18.preheader:                             ; preds = %for.inc15
   %mul1 = shl i32 %cy, 5
-  %map = getelementptr inbounds i8, ptr %g, i64 20
+  %map = getelementptr inbounds nuw i8, ptr %g, i64 20
   %0 = sext i32 %mul1 to i64
   %.pre = or disjoint i64 %0, 31
   br label %for.body21
@@ -1263,9 +1263,9 @@ for.cond18.preheader:                             ; preds = %for.inc15
 for.body4:                                        ; preds = %for.cond2.preheader, %for.body4
   %indvars.iv = phi i64 [ 0, %for.cond2.preheader ], [ %indvars.iv.next, %for.body4 ]
   %conv = trunc i64 %indvars.iv to i8
-  %arrayidx6 = getelementptr inbounds [32 x [32 x %struct.stbcc__tinypoint]], ptr %cbi, i64 0, i64 %indvars.iv320, i64 %indvars.iv
+  %arrayidx6 = getelementptr inbounds nuw [32 x [32 x %struct.stbcc__tinypoint]], ptr %cbi, i64 0, i64 %indvars.iv320, i64 %indvars.iv
   store i8 %conv, ptr %arrayidx6, align 2
-  %y14 = getelementptr inbounds i8, ptr %arrayidx6, i64 1
+  %y14 = getelementptr inbounds nuw i8, ptr %arrayidx6, i64 1
   store i8 %conv8, ptr %y14, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
@@ -1277,7 +1277,7 @@ for.inc15:                                        ; preds = %for.body4
   br i1 %exitcond323.not, label %for.cond18.preheader, label %for.cond2.preheader, !llvm.loop !22
 
 for.cond101.preheader:                            ; preds = %for.inc98
-  %label105 = getelementptr inbounds i8, ptr %cbi, i64 2048
+  %label105 = getelementptr inbounds nuw i8, ptr %cbi, i64 2048
   br label %for.body104
 
 for.body21:                                       ; preds = %for.cond18.preheader, %for.inc98
@@ -1333,9 +1333,9 @@ if.end.i:                                         ; preds = %if.then51
   %p.sroa.3.0.extract.trunc.i = zext nneg i16 %p.sroa.3.0.extract.shift.i to i64
   %10 = and i16 %call.i, 255
   %idxprom13.i = zext nneg i16 %10 to i64
-  %arrayidx14.i = getelementptr inbounds [32 x [32 x %struct.stbcc__tinypoint]], ptr %cbi, i64 0, i64 %p.sroa.3.0.extract.trunc.i, i64 %idxprom13.i
+  %arrayidx14.i = getelementptr inbounds nuw [32 x [32 x %struct.stbcc__tinypoint]], ptr %cbi, i64 0, i64 %p.sroa.3.0.extract.trunc.i, i64 %idxprom13.i
   store i8 %q.sroa.0.0.extract.trunc.i, ptr %arrayidx14.i, align 2
-  %q.sroa.3.0.arrayidx14.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx14.i, i64 1
+  %q.sroa.3.0.arrayidx14.sroa_idx.i = getelementptr inbounds nuw i8, ptr %arrayidx14.i, i64 1
   store i8 %q.sroa.3.0.extract.trunc.i, ptr %q.sroa.3.0.arrayidx14.sroa_idx.i, align 1
   br label %for.inc53
 
@@ -1395,9 +1395,9 @@ if.end.i260:                                      ; preds = %if.then92
   %p.sroa.3.0.extract.trunc.i263 = zext nneg i16 %p.sroa.3.0.extract.shift.i254 to i64
   %16 = and i16 %call.i253, 255
   %idxprom13.i264 = zext nneg i16 %16 to i64
-  %arrayidx14.i265 = getelementptr inbounds [32 x [32 x %struct.stbcc__tinypoint]], ptr %cbi, i64 0, i64 %p.sroa.3.0.extract.trunc.i263, i64 %idxprom13.i264
+  %arrayidx14.i265 = getelementptr inbounds nuw [32 x [32 x %struct.stbcc__tinypoint]], ptr %cbi, i64 0, i64 %p.sroa.3.0.extract.trunc.i263, i64 %idxprom13.i264
   store i8 %q.sroa.0.0.extract.trunc.i262, ptr %arrayidx14.i265, align 2
-  %q.sroa.3.0.arrayidx14.sroa_idx.i266 = getelementptr inbounds i8, ptr %arrayidx14.i265, i64 1
+  %q.sroa.3.0.arrayidx14.sroa_idx.i266 = getelementptr inbounds nuw i8, ptr %arrayidx14.i265, i64 1
   store i8 %q.sroa.3.0.extract.trunc.i261, ptr %q.sroa.3.0.arrayidx14.sroa_idx.i266, align 1
   br label %for.inc95
 
@@ -1412,13 +1412,13 @@ for.inc98:                                        ; preds = %for.inc95
   br i1 %exitcond333.not, label %for.cond101.preheader, label %for.body21, !llvm.loop !25
 
 for.cond116.preheader:                            ; preds = %for.body104
-  %arrayidx121 = getelementptr inbounds i8, ptr %cbi, i64 4032
+  %arrayidx121 = getelementptr inbounds nuw i8, ptr %cbi, i64 4032
   br label %for.body119
 
 for.body104:                                      ; preds = %for.cond101.preheader, %for.body104
   %indvars.iv334 = phi i64 [ 0, %for.cond101.preheader ], [ %indvars.iv.next335, %for.body104 ]
-  %arrayidx107 = getelementptr inbounds [32 x [32 x i16]], ptr %label105, i64 0, i64 %indvars.iv334
-  %arrayidx108 = getelementptr inbounds i8, ptr %arrayidx107, i64 62
+  %arrayidx107 = getelementptr inbounds nuw [32 x [32 x i16]], ptr %label105, i64 0, i64 %indvars.iv334
+  %arrayidx108 = getelementptr inbounds nuw i8, ptr %arrayidx107, i64 62
   store i16 512, ptr %arrayidx108, align 2
   store i16 512, ptr %arrayidx107, align 2
   %indvars.iv.next335 = add nuw nsw i64 %indvars.iv334, 1
@@ -1434,9 +1434,9 @@ for.cond131.preheader:                            ; preds = %for.body119
 
 for.body119:                                      ; preds = %for.cond116.preheader, %for.body119
   %indvars.iv338 = phi i64 [ 0, %for.cond116.preheader ], [ %indvars.iv.next339, %for.body119 ]
-  %arrayidx123 = getelementptr inbounds [32 x i16], ptr %arrayidx121, i64 0, i64 %indvars.iv338
+  %arrayidx123 = getelementptr inbounds nuw [32 x i16], ptr %arrayidx121, i64 0, i64 %indvars.iv338
   store i16 512, ptr %arrayidx123, align 2
-  %arrayidx127 = getelementptr inbounds [32 x i16], ptr %label105, i64 0, i64 %indvars.iv338
+  %arrayidx127 = getelementptr inbounds nuw [32 x i16], ptr %label105, i64 0, i64 %indvars.iv338
   store i16 512, ptr %arrayidx127, align 2
   %indvars.iv.next339 = add nuw nsw i64 %indvars.iv338, 1
   %exitcond341.not = icmp eq i64 %indvars.iv.next339, 32
@@ -1480,21 +1480,21 @@ if.else:                                          ; preds = %if.then149
 if.then185:                                       ; preds = %if.else
   %p.sroa.3.0.extract.trunc.i269 = zext nneg i16 %p.sroa.5.0.extract.shift to i64
   %idxprom3.i = zext nneg i16 %p.sroa.0.0.extract.trunc.mask to i64
-  %arrayidx4.i = getelementptr inbounds [32 x [32 x %struct.stbcc__tinypoint]], ptr %cbi, i64 0, i64 %p.sroa.3.0.extract.trunc.i269, i64 %idxprom3.i
+  %arrayidx4.i = getelementptr inbounds nuw [32 x [32 x %struct.stbcc__tinypoint]], ptr %cbi, i64 0, i64 %p.sroa.3.0.extract.trunc.i269, i64 %idxprom3.i
   store i8 0, ptr %arrayidx4.i, align 2
   %conv6.i = trunc i64 %indvars.iv342 to i8
-  %y14.i = getelementptr inbounds i8, ptr %arrayidx4.i, i64 1
+  %y14.i = getelementptr inbounds nuw i8, ptr %arrayidx4.i, i64 1
   store i8 %conv6.i, ptr %y14.i, align 1
-  %arrayidx20.i = getelementptr inbounds [32 x [32 x %struct.stbcc__tinypoint]], ptr %cbi, i64 0, i64 %indvars.iv342, i64 0
+  %arrayidx20.i = getelementptr inbounds nuw [32 x [32 x %struct.stbcc__tinypoint]], ptr %cbi, i64 0, i64 %indvars.iv342, i64 0
   store i8 0, ptr %arrayidx20.i, align 2
-  %y28.i = getelementptr inbounds i8, ptr %arrayidx20.i, i64 1
+  %y28.i = getelementptr inbounds nuw i8, ptr %arrayidx20.i, i64 1
   store i8 %conv6.i, ptr %y28.i, align 1
   br label %if.end195.sink.split
 
 if.end195.sink.split:                             ; preds = %if.then149, %if.then185
   %inc160 = add nsw i32 %label.0303, 1
   %conv161 = trunc i32 %label.0303 to i16
-  %arrayidx164 = getelementptr inbounds [32 x [32 x i16]], ptr %label105, i64 0, i64 %indvars.iv342
+  %arrayidx164 = getelementptr inbounds nuw [32 x [32 x i16]], ptr %label105, i64 0, i64 %indvars.iv342
   store i16 %conv161, ptr %arrayidx164, align 2
   br label %if.end195
 
@@ -1528,14 +1528,14 @@ if.else230:                                       ; preds = %if.then210
 if.then250:                                       ; preds = %if.else230
   %p.sroa.3.0.extract.trunc.i271 = zext nneg i16 %p211.sroa.5.0.extract.shift to i64
   %idxprom3.i272 = zext nneg i16 %p211.sroa.0.0.extract.trunc.mask to i64
-  %arrayidx4.i273 = getelementptr inbounds [32 x [32 x %struct.stbcc__tinypoint]], ptr %cbi, i64 0, i64 %p.sroa.3.0.extract.trunc.i271, i64 %idxprom3.i272
+  %arrayidx4.i273 = getelementptr inbounds nuw [32 x [32 x %struct.stbcc__tinypoint]], ptr %cbi, i64 0, i64 %p.sroa.3.0.extract.trunc.i271, i64 %idxprom3.i272
   store i8 31, ptr %arrayidx4.i273, align 2
   %conv6.i274 = trunc i64 %indvars.iv342 to i8
-  %y14.i275 = getelementptr inbounds i8, ptr %arrayidx4.i273, i64 1
+  %y14.i275 = getelementptr inbounds nuw i8, ptr %arrayidx4.i273, i64 1
   store i8 %conv6.i274, ptr %y14.i275, align 1
-  %arrayidx20.i277 = getelementptr inbounds [32 x [32 x %struct.stbcc__tinypoint]], ptr %cbi, i64 0, i64 %indvars.iv342, i64 31
+  %arrayidx20.i277 = getelementptr inbounds nuw [32 x [32 x %struct.stbcc__tinypoint]], ptr %cbi, i64 0, i64 %indvars.iv342, i64 31
   store i8 31, ptr %arrayidx20.i277, align 2
-  %y28.i278 = getelementptr inbounds i8, ptr %arrayidx20.i277, i64 1
+  %y28.i278 = getelementptr inbounds nuw i8, ptr %arrayidx20.i277, i64 1
   store i8 %conv6.i274, ptr %y28.i278, align 1
   br label %for.inc261.sink.split
 
@@ -1544,7 +1544,7 @@ for.inc261.sink.split:                            ; preds = %if.then210, %if.the
   %conv252 = trunc i32 %label.1 to i16
   %29 = shl nuw nsw i64 %indvars.iv342, 6
   %30 = or disjoint i64 %29, 62
-  %arrayidx257 = getelementptr inbounds i8, ptr %label105, i64 %30
+  %arrayidx257 = getelementptr inbounds nuw i8, ptr %label105, i64 %30
   store i16 %conv252, ptr %arrayidx257, align 2
   br label %for.inc261
 
@@ -1595,20 +1595,20 @@ if.then322:                                       ; preds = %if.else302
   %p.sroa.3.0.extract.trunc.i280 = zext nneg i16 %p.sroa.3.0.extract.shift.i279 to i64
   %conv.i = trunc i64 %indvars.iv347 to i8
   %idxprom3.i281 = zext nneg i16 %p283.sroa.0.0.extract.trunc.mask to i64
-  %arrayidx4.i282 = getelementptr inbounds [32 x [32 x %struct.stbcc__tinypoint]], ptr %cbi, i64 0, i64 %p.sroa.3.0.extract.trunc.i280, i64 %idxprom3.i281
+  %arrayidx4.i282 = getelementptr inbounds nuw [32 x [32 x %struct.stbcc__tinypoint]], ptr %cbi, i64 0, i64 %p.sroa.3.0.extract.trunc.i280, i64 %idxprom3.i281
   store i8 %conv.i, ptr %arrayidx4.i282, align 2
-  %y14.i283 = getelementptr inbounds i8, ptr %arrayidx4.i282, i64 1
+  %y14.i283 = getelementptr inbounds nuw i8, ptr %arrayidx4.i282, i64 1
   store i8 0, ptr %y14.i283, align 1
-  %arrayidx20.i284 = getelementptr inbounds [32 x [32 x %struct.stbcc__tinypoint]], ptr %cbi, i64 0, i64 0, i64 %indvars.iv347
+  %arrayidx20.i284 = getelementptr inbounds nuw [32 x [32 x %struct.stbcc__tinypoint]], ptr %cbi, i64 0, i64 0, i64 %indvars.iv347
   store i8 %conv.i, ptr %arrayidx20.i284, align 2
-  %y28.i285 = getelementptr inbounds i8, ptr %arrayidx20.i284, i64 1
+  %y28.i285 = getelementptr inbounds nuw i8, ptr %arrayidx20.i284, i64 1
   store i8 0, ptr %y28.i285, align 1
   br label %if.end332.sink.split
 
 if.end332.sink.split:                             ; preds = %if.then282, %if.then322
   %inc295 = add nsw i32 %label.3305, 1
   %conv296 = trunc i32 %label.3305 to i16
-  %arrayidx301 = getelementptr inbounds [32 x i16], ptr %label105, i64 0, i64 %indvars.iv347
+  %arrayidx301 = getelementptr inbounds nuw [32 x i16], ptr %label105, i64 0, i64 %indvars.iv347
   store i16 %conv296, ptr %arrayidx301, align 2
   br label %if.end332
 
@@ -1644,20 +1644,20 @@ if.then387:                                       ; preds = %if.else367
   %p.sroa.3.0.extract.trunc.i287 = zext nneg i16 %p348.sroa.5.0.extract.shift to i64
   %conv.i288 = trunc i64 %indvars.iv347 to i8
   %idxprom3.i289 = zext nneg i16 %p348.sroa.0.0.extract.trunc.mask to i64
-  %arrayidx4.i290 = getelementptr inbounds [32 x [32 x %struct.stbcc__tinypoint]], ptr %cbi, i64 0, i64 %p.sroa.3.0.extract.trunc.i287, i64 %idxprom3.i289
+  %arrayidx4.i290 = getelementptr inbounds nuw [32 x [32 x %struct.stbcc__tinypoint]], ptr %cbi, i64 0, i64 %p.sroa.3.0.extract.trunc.i287, i64 %idxprom3.i289
   store i8 %conv.i288, ptr %arrayidx4.i290, align 2
-  %y14.i291 = getelementptr inbounds i8, ptr %arrayidx4.i290, i64 1
+  %y14.i291 = getelementptr inbounds nuw i8, ptr %arrayidx4.i290, i64 1
   store i8 31, ptr %y14.i291, align 1
-  %arrayidx20.i293 = getelementptr inbounds [32 x [32 x %struct.stbcc__tinypoint]], ptr %cbi, i64 0, i64 31, i64 %indvars.iv347
+  %arrayidx20.i293 = getelementptr inbounds nuw [32 x [32 x %struct.stbcc__tinypoint]], ptr %cbi, i64 0, i64 31, i64 %indvars.iv347
   store i8 %conv.i288, ptr %arrayidx20.i293, align 2
-  %y28.i294 = getelementptr inbounds i8, ptr %arrayidx20.i293, i64 1
+  %y28.i294 = getelementptr inbounds nuw i8, ptr %arrayidx20.i293, i64 1
   store i8 31, ptr %y28.i294, align 1
   br label %for.inc398.sink.split
 
 for.inc398.sink.split:                            ; preds = %if.then347, %if.then387
   %inc388 = add nsw i32 %label.4, 1
   %conv389 = trunc i32 %label.4 to i16
-  %arrayidx394 = getelementptr inbounds [32 x i16], ptr %arrayidx121, i64 0, i64 %indvars.iv347
+  %arrayidx394 = getelementptr inbounds nuw [32 x i16], ptr %arrayidx121, i64 0, i64 %indvars.iv347
   store i16 %conv389, ptr %arrayidx394, align 2
   br label %for.inc398
 
@@ -1668,12 +1668,12 @@ for.inc398:                                       ; preds = %for.inc398.sink.spl
   br i1 %exitcond351.not, label %for.end400, label %for.body267, !llvm.loop !29
 
 for.end400:                                       ; preds = %for.inc398
-  %cluster = getelementptr inbounds i8, ptr %g, i64 2228244
+  %cluster = getelementptr inbounds nuw i8, ptr %g, i64 2228244
   %idxprom401 = sext i32 %cy to i64
   %idxprom403 = sext i32 %cx to i64
   %arrayidx404 = getelementptr inbounds [32 x [32 x %struct.stbcc__cluster]], ptr %cluster, i64 0, i64 %idxprom401, i64 %idxprom403
   %conv405 = trunc i32 %label.5 to i8
-  %num_edge_clumps = getelementptr inbounds i8, ptr %arrayidx404, i64 2
+  %num_edge_clumps = getelementptr inbounds nuw i8, ptr %arrayidx404, i64 2
   store i8 %conv405, ptr %num_edge_clumps, align 2
   br label %for.cond410.preheader
 
@@ -1686,14 +1686,14 @@ for.cond410.preheader:                            ; preds = %for.end400, %for.in
 for.body413:                                      ; preds = %for.cond410.preheader, %for.inc460
   %indvars.iv352 = phi i64 [ 1, %for.cond410.preheader ], [ %indvars.iv.next353, %for.inc460 ]
   %label.7307 = phi i32 [ %label.6309, %for.cond410.preheader ], [ %label.8, %for.inc460 ]
-  %arrayidx419 = getelementptr inbounds [32 x [32 x %struct.stbcc__tinypoint]], ptr %cbi, i64 0, i64 %indvars.iv357, i64 %indvars.iv352
+  %arrayidx419 = getelementptr inbounds nuw [32 x [32 x %struct.stbcc__tinypoint]], ptr %cbi, i64 0, i64 %indvars.iv357, i64 %indvars.iv352
   %p414.sroa.0.0.copyload = load i8, ptr %arrayidx419, align 2
   %40 = zext i8 %p414.sroa.0.0.copyload to i64
   %cmp422 = icmp eq i64 %indvars.iv352, %40
   br i1 %cmp422, label %land.lhs.true424, label %for.inc460
 
 land.lhs.true424:                                 ; preds = %for.body413
-  %p414.sroa.2.0.arrayidx419.sroa_idx = getelementptr inbounds i8, ptr %arrayidx419, i64 1
+  %p414.sroa.2.0.arrayidx419.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx419, i64 1
   %p414.sroa.2.0.copyload = load i8, ptr %p414.sroa.2.0.arrayidx419.sroa_idx, align 1
   %41 = zext i8 %p414.sroa.2.0.copyload to i64
   %cmp427 = icmp eq i64 %indvars.iv357, %41
@@ -1716,7 +1716,7 @@ if.then429:                                       ; preds = %land.lhs.true424
   %.sink = select i1 %tobool443.not, i16 %conv446, i16 512
   %inc445 = zext i1 %tobool443.not to i32
   %label.8.ph = add nsw i32 %label.7307, %inc445
-  %arrayidx457 = getelementptr inbounds [32 x [32 x i16]], ptr %label105, i64 0, i64 %indvars.iv357, i64 %indvars.iv352
+  %arrayidx457 = getelementptr inbounds nuw [32 x [32 x i16]], ptr %label105, i64 0, i64 %indvars.iv357, i64 %indvars.iv352
   store i16 %.sink, ptr %arrayidx457, align 2
   br label %for.inc460
 
@@ -1767,9 +1767,9 @@ if.then485:                                       ; preds = %for.body473
 
 if.then500:                                       ; preds = %if.then485
   %idxprom506 = zext nneg i16 %p474.sroa.0.0.extract.trunc.mask to i64
-  %arrayidx507 = getelementptr inbounds [32 x [32 x i16]], ptr %label105, i64 0, i64 %p474.sroa.3.0.extract.trunc, i64 %idxprom506
+  %arrayidx507 = getelementptr inbounds nuw [32 x [32 x i16]], ptr %label105, i64 0, i64 %p474.sroa.3.0.extract.trunc, i64 %idxprom506
   %54 = load i16, ptr %arrayidx507, align 2
-  %arrayidx512 = getelementptr inbounds [32 x [32 x i16]], ptr %label105, i64 0, i64 %indvars.iv367, i64 %indvars.iv362
+  %arrayidx512 = getelementptr inbounds nuw [32 x [32 x i16]], ptr %label105, i64 0, i64 %indvars.iv367, i64 %indvars.iv362
   store i16 %54, ptr %arrayidx512, align 2
   br label %if.end514
 
@@ -1790,7 +1790,7 @@ for.end536:                                       ; preds = %for.inc534
   br i1 %cmp539312, label %for.body541.lr.ph, label %for.cond550.preheader
 
 for.body541.lr.ph:                                ; preds = %for.end536
-  %clump = getelementptr inbounds i8, ptr %arrayidx404, i64 4
+  %clump = getelementptr inbounds nuw i8, ptr %arrayidx404, i64 4
   %wide.trip.count = zext nneg i32 %label.8 to i64
   br label %for.body541
 
@@ -1801,15 +1801,15 @@ for.cond550.preheader:                            ; preds = %for.body541, %for.e
   %58 = getelementptr i8, ptr %g, i64 %55
   %59 = getelementptr i8, ptr %58, i64 %57
   %60 = getelementptr i8, ptr %59, i64 131092
-  %invariant.gep = getelementptr inbounds i8, ptr %cbi, i64 2048
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %cbi, i64 2048
   br label %for.cond554.preheader
 
 for.body541:                                      ; preds = %for.body541.lr.ph, %for.body541
   %indvars.iv372 = phi i64 [ 0, %for.body541.lr.ph ], [ %indvars.iv.next373, %for.body541 ]
-  %arrayidx543 = getelementptr inbounds [512 x %struct.stbcc__clump], ptr %clump, i64 0, i64 %indvars.iv372
-  %num_adjacent = getelementptr inbounds i8, ptr %arrayidx543, i64 4
+  %arrayidx543 = getelementptr inbounds nuw [512 x %struct.stbcc__clump], ptr %clump, i64 0, i64 %indvars.iv372
+  %num_adjacent = getelementptr inbounds nuw i8, ptr %arrayidx543, i64 4
   store i8 0, ptr %num_adjacent, align 4
-  %max_adjacent = getelementptr inbounds i8, ptr %arrayidx543, i64 5
+  %max_adjacent = getelementptr inbounds nuw i8, ptr %arrayidx543, i64 5
   store i8 0, ptr %max_adjacent, align 1
   %indvars.iv.next373 = add nuw nsw i64 %indvars.iv372, 1
   %exitcond376.not = icmp eq i64 %indvars.iv.next373, %wide.trip.count
@@ -1839,7 +1839,7 @@ for.body582.lr.ph:                                ; preds = %for.end574
   %bf.value584 = shl i32 %cy, 22
   %bf.value.masked = and i32 %bf.value, 4190208
   %bf.set587 = or disjoint i32 %bf.value.masked, %bf.value584
-  %clump592 = getelementptr inbounds i8, ptr %arrayidx404, i64 4
+  %clump592 = getelementptr inbounds nuw i8, ptr %arrayidx404, i64 4
   %65 = zext i8 %63 to i64
   %66 = sext i16 %64 to i64
   br label %for.body582
@@ -1849,14 +1849,14 @@ for.body582:                                      ; preds = %for.body582.lr.ph, 
   %67 = trunc nuw nsw i64 %indvars.iv384 to i32
   %bf.value589 = and i32 %67, 4095
   %bf.set591 = or disjoint i32 %bf.value589, %bf.set587
-  %arrayidx594 = getelementptr inbounds [512 x %struct.stbcc__clump], ptr %clump592, i64 0, i64 %indvars.iv384
+  %arrayidx594 = getelementptr inbounds nuw [512 x %struct.stbcc__clump], ptr %clump592, i64 0, i64 %indvars.iv384
   store i32 %bf.set591, ptr %arrayidx594, align 4
   %indvars.iv.next385 = add nuw nsw i64 %indvars.iv384, 1
   %cmp580 = icmp slt i64 %indvars.iv.next385, %66
   br i1 %cmp580, label %for.body582, label %for.end597, !llvm.loop !36
 
 for.end597:                                       ; preds = %for.body582, %for.end574
-  %rebuild_adjacency = getelementptr inbounds i8, ptr %arrayidx404, i64 3
+  %rebuild_adjacency = getelementptr inbounds nuw i8, ptr %arrayidx404, i64 3
   store i8 1, ptr %rebuild_adjacency, align 1
   ret void
 }
@@ -1864,7 +1864,7 @@ for.end597:                                       ; preds = %for.body582, %for.e
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @stbcc_update_batch_begin(ptr nocapture noundef writeonly initializes((16, 20)) %g) local_unnamed_addr #5 {
 entry:
-  %in_batched_update = getelementptr inbounds i8, ptr %g, i64 16
+  %in_batched_update = getelementptr inbounds nuw i8, ptr %g, i64 16
   store i32 1, ptr %in_batched_update, align 4
   ret void
 }
@@ -1872,7 +1872,7 @@ entry:
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
 define void @stbcc_update_batch_end(ptr nocapture noundef initializes((16, 20)) %g) local_unnamed_addr #2 {
 entry:
-  %in_batched_update = getelementptr inbounds i8, ptr %g, i64 16
+  %in_batched_update = getelementptr inbounds nuw i8, ptr %g, i64 16
   store i32 0, ptr %in_batched_update, align 4
   tail call void @stbcc__build_connected_components_for_clumps(ptr noundef %g)
   ret void
@@ -1888,22 +1888,22 @@ entry:
 define void @stbcc_init_grid(ptr nocapture noundef initializes((0, 20)) %g, ptr nocapture noundef readonly %map, i32 noundef %w, i32 noundef %h) local_unnamed_addr #2 {
 entry:
   store i32 %w, ptr %g, align 4
-  %h2 = getelementptr inbounds i8, ptr %g, i64 4
+  %h2 = getelementptr inbounds nuw i8, ptr %g, i64 4
   store i32 %h, ptr %h2, align 4
   %shr = ashr i32 %w, 5
-  %cw = getelementptr inbounds i8, ptr %g, i64 8
+  %cw = getelementptr inbounds nuw i8, ptr %g, i64 8
   store i32 %shr, ptr %cw, align 4
   %shr3 = ashr i32 %h, 5
-  %ch = getelementptr inbounds i8, ptr %g, i64 12
+  %ch = getelementptr inbounds nuw i8, ptr %g, i64 12
   store i32 %shr3, ptr %ch, align 4
-  %in_batched_update = getelementptr inbounds i8, ptr %g, i64 16
+  %in_batched_update = getelementptr inbounds nuw i8, ptr %g, i64 16
   store i32 0, ptr %in_batched_update, align 4
   %cmp51 = icmp sgt i32 %h, 0
   br i1 %cmp51, label %for.cond4.preheader.lr.ph, label %for.cond27.preheader
 
 for.cond4.preheader.lr.ph:                        ; preds = %entry
   %cmp548 = icmp sgt i32 %w, 0
-  %map15 = getelementptr inbounds i8, ptr %g, i64 20
+  %map15 = getelementptr inbounds nuw i8, ptr %g, i64 20
   br i1 %cmp548, label %for.cond4.preheader.us.preheader, label %for.cond27.preheader
 
 for.cond4.preheader.us.preheader:                 ; preds = %for.cond4.preheader.lr.ph
@@ -1919,7 +1919,7 @@ for.cond4.preheader.us:                           ; preds = %for.cond4.preheader
 
 for.end.us:                                       ; preds = %for.body9.us
   %3 = lshr exact i64 %indvars.iv66, 3
-  %arrayidx20.us = getelementptr inbounds [1024 x [128 x i8]], ptr %map15, i64 0, i64 %indvars.iv71, i64 %3
+  %arrayidx20.us = getelementptr inbounds nuw [1024 x [128 x i8]], ptr %map15, i64 0, i64 %indvars.iv71, i64 %3
   store i8 %c.1.us, ptr %arrayidx20.us, align 1
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 8
   %cmp5.us = icmp samesign ult i64 %indvars.iv.next67, %0
@@ -2027,27 +2027,27 @@ define void @stbcc__add_clump_connection(ptr nocapture noundef %g, i32 noundef %
 entry:
   %shr = ashr i32 %x1, 5
   %shr1 = ashr i32 %y1, 5
-  %clump_for_node = getelementptr inbounds i8, ptr %g, i64 131092
+  %clump_for_node = getelementptr inbounds nuw i8, ptr %g, i64 131092
   %idxprom = sext i32 %y1 to i64
   %idxprom4 = sext i32 %x1 to i64
   %arrayidx5 = getelementptr inbounds [1024 x [1024 x i16]], ptr %clump_for_node, i64 0, i64 %idxprom, i64 %idxprom4
   %0 = load i16, ptr %arrayidx5, align 2
-  %cluster24 = getelementptr inbounds i8, ptr %g, i64 2228244
+  %cluster24 = getelementptr inbounds nuw i8, ptr %g, i64 2228244
   %idxprom25 = sext i32 %shr1 to i64
   %idxprom27 = sext i32 %shr to i64
   %arrayidx28 = getelementptr inbounds [32 x [32 x %struct.stbcc__cluster]], ptr %cluster24, i64 0, i64 %idxprom25, i64 %idxprom27
-  %clump29 = getelementptr inbounds i8, ptr %arrayidx28, i64 4
+  %clump29 = getelementptr inbounds nuw i8, ptr %arrayidx28, i64 4
   %idxprom30 = zext i16 %0 to i64
-  %arrayidx31 = getelementptr inbounds [512 x %struct.stbcc__clump], ptr %clump29, i64 0, i64 %idxprom30
-  %num_adjacent = getelementptr inbounds i8, ptr %arrayidx31, i64 4
+  %arrayidx31 = getelementptr inbounds nuw [512 x %struct.stbcc__clump], ptr %clump29, i64 0, i64 %idxprom30
+  %num_adjacent = getelementptr inbounds nuw i8, ptr %arrayidx31, i64 4
   %1 = load i8, ptr %num_adjacent, align 4
-  %max_adjacent = getelementptr inbounds i8, ptr %arrayidx31, i64 5
+  %max_adjacent = getelementptr inbounds nuw i8, ptr %arrayidx31, i64 5
   %2 = load i8, ptr %max_adjacent, align 1
   %cmp = icmp eq i8 %1, %2
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %rebuild_adjacency = getelementptr inbounds i8, ptr %arrayidx28, i64 3
+  %rebuild_adjacency = getelementptr inbounds nuw i8, ptr %arrayidx28, i64 3
   store i8 1, ptr %rebuild_adjacency, align 1
   br label %if.end
 
@@ -2066,15 +2066,15 @@ if.else:                                          ; preds = %entry
   %conv16 = trunc i32 %sub15 to i16
   %bf.value18 = shl i16 %conv16, 14
   %bf.set21 = or disjoint i16 %bf.set14, %bf.value18
-  %adjacency_storage = getelementptr inbounds i8, ptr %arrayidx28, i64 4100
-  %adjacent_clump_list_index = getelementptr inbounds i8, ptr %arrayidx31, i64 6
+  %adjacency_storage = getelementptr inbounds nuw i8, ptr %arrayidx28, i64 4100
+  %adjacent_clump_list_index = getelementptr inbounds nuw i8, ptr %arrayidx31, i64 6
   %4 = load i8, ptr %adjacent_clump_list_index, align 2
   %idxprom40 = zext i8 %4 to i64
-  %arrayidx41 = getelementptr inbounds [128 x %struct.stbcc__relative_clumpid], ptr %adjacency_storage, i64 0, i64 %idxprom40
+  %arrayidx41 = getelementptr inbounds nuw [128 x %struct.stbcc__relative_clumpid], ptr %adjacency_storage, i64 0, i64 %idxprom40
   %inc = add i8 %1, 1
   store i8 %inc, ptr %num_adjacent, align 4
   %idxprom43 = zext i8 %1 to i64
-  %arrayidx44 = getelementptr inbounds %struct.stbcc__relative_clumpid, ptr %arrayidx41, i64 %idxprom43
+  %arrayidx44 = getelementptr inbounds nuw %struct.stbcc__relative_clumpid, ptr %arrayidx41, i64 %idxprom43
   store i16 %bf.set21, ptr %arrayidx44, align 2
   br label %if.end
 
@@ -2087,7 +2087,7 @@ define void @stbcc__remove_clump_connection(ptr nocapture noundef %g, i32 nounde
 entry:
   %shr = ashr i32 %x1, 5
   %shr1 = ashr i32 %y1, 5
-  %clump_for_node = getelementptr inbounds i8, ptr %g, i64 131092
+  %clump_for_node = getelementptr inbounds nuw i8, ptr %g, i64 131092
   %idxprom = sext i32 %y1 to i64
   %idxprom4 = sext i32 %x1 to i64
   %arrayidx5 = getelementptr inbounds [1024 x [1024 x i16]], ptr %clump_for_node, i64 0, i64 %idxprom, i64 %idxprom4
@@ -2096,19 +2096,19 @@ entry:
   %idxprom9 = sext i32 %x2 to i64
   %arrayidx10 = getelementptr inbounds [1024 x [1024 x i16]], ptr %clump_for_node, i64 0, i64 %idxprom7, i64 %idxprom9
   %1 = load i16, ptr %arrayidx10, align 2
-  %cluster24 = getelementptr inbounds i8, ptr %g, i64 2228244
+  %cluster24 = getelementptr inbounds nuw i8, ptr %g, i64 2228244
   %idxprom25 = sext i32 %shr1 to i64
   %idxprom27 = sext i32 %shr to i64
   %arrayidx28 = getelementptr inbounds [32 x [32 x %struct.stbcc__cluster]], ptr %cluster24, i64 0, i64 %idxprom25, i64 %idxprom27
-  %clump29 = getelementptr inbounds i8, ptr %arrayidx28, i64 4
+  %clump29 = getelementptr inbounds nuw i8, ptr %arrayidx28, i64 4
   %idxprom30 = zext i16 %0 to i64
-  %arrayidx31 = getelementptr inbounds [512 x %struct.stbcc__clump], ptr %clump29, i64 0, i64 %idxprom30
-  %adjacency_storage = getelementptr inbounds i8, ptr %arrayidx28, i64 4100
-  %adjacent_clump_list_index = getelementptr inbounds i8, ptr %arrayidx31, i64 6
+  %arrayidx31 = getelementptr inbounds nuw [512 x %struct.stbcc__clump], ptr %clump29, i64 0, i64 %idxprom30
+  %adjacency_storage = getelementptr inbounds nuw i8, ptr %arrayidx28, i64 4100
+  %adjacent_clump_list_index = getelementptr inbounds nuw i8, ptr %arrayidx31, i64 6
   %2 = load i8, ptr %adjacent_clump_list_index, align 2
   %idxprom32 = zext i8 %2 to i64
-  %arrayidx33 = getelementptr inbounds [128 x %struct.stbcc__relative_clumpid], ptr %adjacency_storage, i64 0, i64 %idxprom32
-  %num_adjacent = getelementptr inbounds i8, ptr %arrayidx31, i64 4
+  %arrayidx33 = getelementptr inbounds nuw [128 x %struct.stbcc__relative_clumpid], ptr %adjacency_storage, i64 0, i64 %idxprom32
+  %num_adjacent = getelementptr inbounds nuw i8, ptr %arrayidx31, i64 4
   %3 = load i8, ptr %num_adjacent, align 4
   %cmp35.not = icmp eq i8 %3, 0
   br i1 %cmp35.not, label %if.end78, label %for.body.lr.ph
@@ -2125,7 +2125,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx40 = getelementptr inbounds %struct.stbcc__relative_clumpid, ptr %arrayidx33, i64 %indvars.iv
+  %arrayidx40 = getelementptr inbounds nuw %struct.stbcc__relative_clumpid, ptr %arrayidx33, i64 %indvars.iv
   %bf.load41 = load i16, ptr %arrayidx40, align 2
   %4 = xor i16 %bf.load41, %1
   %5 = and i16 %4, 4095
@@ -2152,11 +2152,11 @@ for.inc:                                          ; preds = %for.body, %land.lhs
 
 if.then72:                                        ; preds = %land.lhs.true57
   %idxprom73 = and i64 %indvars.iv, 4294967295
-  %arrayidx74 = getelementptr inbounds %struct.stbcc__relative_clumpid, ptr %arrayidx33, i64 %idxprom73
+  %arrayidx74 = getelementptr inbounds nuw %struct.stbcc__relative_clumpid, ptr %arrayidx33, i64 %idxprom73
   %dec = add i8 %3, -1
   store i8 %dec, ptr %num_adjacent, align 4
   %idxprom76 = zext i8 %dec to i64
-  %arrayidx77 = getelementptr inbounds %struct.stbcc__relative_clumpid, ptr %arrayidx33, i64 %idxprom76
+  %arrayidx77 = getelementptr inbounds nuw %struct.stbcc__relative_clumpid, ptr %arrayidx33, i64 %idxprom76
   %6 = load i16, ptr %arrayidx77, align 2
   store i16 %6, ptr %arrayidx74, align 2
   br label %if.end78
@@ -2172,7 +2172,7 @@ entry:
   %idxprom1 = sext i32 %x to i64
   %arrayidx2 = getelementptr inbounds [32 x [32 x %struct.stbcc__tinypoint]], ptr %cbi, i64 0, i64 %idxprom, i64 %idxprom1
   %p.sroa.0.0.copyload = load i8, ptr %arrayidx2, align 2
-  %p.sroa.4.0.arrayidx2.sroa_idx = getelementptr inbounds i8, ptr %arrayidx2, i64 1
+  %p.sroa.4.0.arrayidx2.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx2, i64 1
   %p.sroa.4.0.copyload = load i8, ptr %p.sroa.4.0.arrayidx2.sroa_idx, align 1
   %conv = zext i8 %p.sroa.0.0.copyload to i32
   %cmp = icmp eq i32 %x, %conv
@@ -2219,9 +2219,9 @@ if.end:                                           ; preds = %entry
   %p.sroa.3.0.extract.trunc = zext nneg i16 %p.sroa.3.0.extract.shift to i64
   %2 = and i16 %call, 255
   %idxprom13 = zext nneg i16 %2 to i64
-  %arrayidx14 = getelementptr inbounds [32 x [32 x %struct.stbcc__tinypoint]], ptr %cbi, i64 0, i64 %p.sroa.3.0.extract.trunc, i64 %idxprom13
+  %arrayidx14 = getelementptr inbounds nuw [32 x [32 x %struct.stbcc__tinypoint]], ptr %cbi, i64 0, i64 %p.sroa.3.0.extract.trunc, i64 %idxprom13
   store i8 %q.sroa.0.0.extract.trunc, ptr %arrayidx14, align 2
-  %q.sroa.3.0.arrayidx14.sroa_idx = getelementptr inbounds i8, ptr %arrayidx14, i64 1
+  %q.sroa.3.0.arrayidx14.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx14, i64 1
   store i8 %q.sroa.3.0.extract.trunc, ptr %q.sroa.3.0.arrayidx14.sroa_idx, align 1
   br label %return
 
@@ -2237,16 +2237,16 @@ entry:
   %conv = trunc i32 %x to i8
   %0 = and i16 %p.coerce, 255
   %idxprom3 = zext nneg i16 %0 to i64
-  %arrayidx4 = getelementptr inbounds [32 x [32 x %struct.stbcc__tinypoint]], ptr %cbi, i64 0, i64 %p.sroa.3.0.extract.trunc, i64 %idxprom3
+  %arrayidx4 = getelementptr inbounds nuw [32 x [32 x %struct.stbcc__tinypoint]], ptr %cbi, i64 0, i64 %p.sroa.3.0.extract.trunc, i64 %idxprom3
   store i8 %conv, ptr %arrayidx4, align 2
   %conv6 = trunc i32 %y to i8
-  %y14 = getelementptr inbounds i8, ptr %arrayidx4, i64 1
+  %y14 = getelementptr inbounds nuw i8, ptr %arrayidx4, i64 1
   store i8 %conv6, ptr %y14, align 1
   %idxprom17 = sext i32 %y to i64
   %idxprom19 = sext i32 %x to i64
   %arrayidx20 = getelementptr inbounds [32 x [32 x %struct.stbcc__tinypoint]], ptr %cbi, i64 0, i64 %idxprom17, i64 %idxprom19
   store i8 %conv, ptr %arrayidx20, align 2
-  %y28 = getelementptr inbounds i8, ptr %arrayidx20, i64 1
+  %y28 = getelementptr inbounds nuw i8, ptr %arrayidx20, i64 1
   store i8 %conv6, ptr %y28, align 1
   ret void
 }

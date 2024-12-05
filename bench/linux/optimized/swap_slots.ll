@@ -161,13 +161,13 @@ define internal noundef range(i32 -12, 1) i32 @alloc_swap_slot_cache(i32 noundef
   %11 = load i64, ptr %10, align 8
   %12 = add i64 %11, ptrtoint (ptr @swp_slots to i64)
   %13 = inttoptr i64 %12 to ptr
-  %14 = getelementptr inbounds i8, ptr %13, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %21
 
 17:                                               ; preds = %8
-  %18 = getelementptr inbounds i8, ptr %13, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %22, label %21
@@ -184,19 +184,19 @@ define internal noundef range(i32 -12, 1) i32 @alloc_swap_slot_cache(i32 noundef
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %13, i64 8
-  tail call void @__mutex_init(ptr noundef %26, ptr noundef nonnull @.str.3, ptr noundef nonnull @alloc_swap_slot_cache.__key) #3
-  %27 = getelementptr inbounds i8, ptr %13, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  tail call void @__mutex_init(ptr noundef nonnull %26, ptr noundef nonnull @.str.3, ptr noundef nonnull @alloc_swap_slot_cache.__key) #3
+  %27 = getelementptr inbounds nuw i8, ptr %13, i64 56
   store i32 0, ptr %27, align 8
   store i8 1, ptr %13, align 8
   br label %28
 
 28:                                               ; preds = %25, %22
-  %29 = getelementptr inbounds i8, ptr %13, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %13, i64 48
   store i32 0, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %13, i64 52
+  %30 = getelementptr inbounds nuw i8, ptr %13, i64 52
   store i32 0, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %13, i64 72
+  %31 = getelementptr inbounds nuw i8, ptr %13, i64 72
   store i32 0, ptr %31, align 8
   tail call void asm sideeffect "mfence", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !18
   store ptr %2, ptr %14, align 8
@@ -233,14 +233,14 @@ define dso_local void @free_swap_slot(i64 %0) local_unnamed_addr #0 align 16 {
   br i1 %8, label %9, label %34, !prof !20
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %4, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %34, label %13, !prof !21
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %4, i64 56
-  tail call void @_raw_spin_lock_irq(ptr noundef %14) #3
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  tail call void @_raw_spin_lock_irq(ptr noundef nonnull %14) #3
   %15 = load i1, ptr @swap_slot_cache_active, align 1
   %16 = load i8, ptr @swap_slot_cache_enabled, align 1, !range !16
   %17 = icmp ne i8 %16, 0
@@ -253,11 +253,11 @@ define dso_local void @free_swap_slot(i64 %0) local_unnamed_addr #0 align 16 {
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %19, %13
-  tail call void @_raw_spin_unlock_irq(ptr noundef %14) #3
+  tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %14) #3
   br label %34
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %4, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %25 = load i32, ptr %24, align 8
   %26 = icmp sgt i32 %25, 63
   br i1 %26, label %27, label %28
@@ -275,7 +275,7 @@ define dso_local void @free_swap_slot(i64 %0) local_unnamed_addr #0 align 16 {
   %32 = sext i32 %29 to i64
   %33 = getelementptr %struct.swp_entry_t, ptr %30, i64 %32
   store i64 %0, ptr %33, align 8
-  tail call void @_raw_spin_unlock_irq(ptr noundef %14) #3
+  tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %14) #3
   br label %35
 
 34:                                               ; preds = %22, %9, %1
@@ -360,21 +360,21 @@ define dso_local i64 @folio_alloc_swap(ptr noundef %0) local_unnamed_addr #0 ali
   br i1 %.pre, label %.thread8, label %.thread9, !prof !24
 
 .thread8:                                         ; preds = %20, %.loopexit
-  %39 = getelementptr inbounds i8, ptr %8, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
   br i1 %41, label %.thread9, label %42, !prof !21
 
 42:                                               ; preds = %.thread8
-  %43 = getelementptr inbounds i8, ptr %8, i64 8
-  tail call void @mutex_lock(ptr noundef %43) #3
+  %43 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  tail call void @mutex_lock(ptr noundef nonnull %43) #3
   %44 = load ptr, ptr %39, align 8
   %45 = icmp eq ptr %44, null
   br i1 %45, label %.critedge.thread, label %46
 
 46:                                               ; preds = %42
-  %47 = getelementptr inbounds i8, ptr %8, i64 48
-  %48 = getelementptr inbounds i8, ptr %8, i64 52
+  %47 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %8, i64 52
   %.pr = load i32, ptr %47, align 8
   %49 = icmp eq i32 %.pr, 0
   br i1 %49, label %50, label %.critedge
@@ -398,7 +398,7 @@ define dso_local i64 @folio_alloc_swap(ptr noundef %0) local_unnamed_addr #0 ali
   br label %.critedge
 
 .critedge.thread:                                 ; preds = %50, %55, %42
-  tail call void @mutex_unlock(ptr noundef %43) #3
+  tail call void @mutex_unlock(ptr noundef nonnull %43) #3
   br label %.thread9
 
 .critedge:                                        ; preds = %46, %..critedge5_crit_edge
@@ -414,7 +414,7 @@ define dso_local i64 @folio_alloc_swap(ptr noundef %0) local_unnamed_addr #0 ali
   %64 = load i32, ptr %47, align 8
   %65 = add i32 %64, -1
   store i32 %65, ptr %47, align 8
-  tail call void @mutex_unlock(ptr noundef %43) #3
+  tail call void @mutex_unlock(ptr noundef nonnull %43) #3
   %66 = icmp eq i64 %62, 0
   br i1 %66, label %.thread9, label %68
 
@@ -441,20 +441,20 @@ define internal fastcc void @drain_slots_cache_cpu(i32 noundef %0, i1 noundef ze
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, ptrtoint (ptr @swp_slots to i64)
   %7 = inttoptr i64 %6 to ptr
-  %8 = getelementptr inbounds i8, ptr %7, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %25, label %11
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
-  tail call void @mutex_lock(ptr noundef %12) #3
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  tail call void @mutex_lock(ptr noundef nonnull %12) #3
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %7, i64 52
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 52
   %15 = load i32, ptr %14, align 4
   %16 = sext i32 %15 to i64
   %17 = getelementptr %struct.swp_entry_t, ptr %13, i64 %16
-  %18 = getelementptr inbounds i8, ptr %7, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %19 = load i32, ptr %18, align 8
   tail call void @swapcache_free_entries(ptr noundef %17, i32 noundef %19) #3
   store i32 0, ptr %14, align 4
@@ -472,20 +472,20 @@ define internal fastcc void @drain_slots_cache_cpu(i32 noundef %0, i1 noundef ze
   br label %24
 
 24:                                               ; preds = %23, %20, %11
-  tail call void @mutex_unlock(ptr noundef %12) #3
+  tail call void @mutex_unlock(ptr noundef nonnull %12) #3
   br label %25
 
 25:                                               ; preds = %24, %2
-  %26 = getelementptr inbounds i8, ptr %7, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %40, label %29
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %7, i64 56
-  tail call void @_raw_spin_lock_irq(ptr noundef %30) #3
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 56
+  tail call void @_raw_spin_lock_irq(ptr noundef nonnull %30) #3
   %31 = load ptr, ptr %26, align 8
-  %32 = getelementptr inbounds i8, ptr %7, i64 72
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %33 = load i32, ptr %32, align 8
   tail call void @swapcache_free_entries(ptr noundef %31, i32 noundef %33) #3
   store i32 0, ptr %32, align 8
@@ -502,7 +502,7 @@ define internal fastcc void @drain_slots_cache_cpu(i32 noundef %0, i1 noundef ze
 
 38:                                               ; preds = %37, %34, %29
   %39 = phi ptr [ %35, %37 ], [ null, %34 ], [ null, %29 ]
-  tail call void @_raw_spin_unlock_irq(ptr noundef %30) #3
+  tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %30) #3
   tail call void @kvfree(ptr noundef %39) #3
   br label %40
 

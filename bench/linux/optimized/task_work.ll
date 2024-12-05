@@ -19,7 +19,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -3, 1) i32 @task_work_add(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 1968
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1968
   %5 = load volatile ptr, ptr %4, align 16
   %6 = icmp eq ptr %5, @work_exited
   br i1 %6, label %.loopexit, label %.preheader, !prof !5
@@ -27,7 +27,7 @@ define dso_local noundef range(i32 -3, 1) i32 @task_work_add(ptr noundef %0, ptr
 .preheader:                                       ; preds = %3, %12
   %7 = phi ptr [ %13, %12 ], [ %5, %3 ]
   store ptr %7, ptr %1, align 8
-  %8 = tail call { i8, ptr } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %4, ptr %1, ptr elementtype(i64) %4, ptr %7) #3, !srcloc !6
+  %8 = tail call { i8, ptr } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4, ptr %1, ptr nonnull elementtype(i64) %4, ptr %7) #3, !srcloc !6
   %9 = extractvalue { i8, ptr } %8, 0
   %10 = icmp ult i8 %9, 2
   tail call void @llvm.assume(i1 %10)
@@ -101,14 +101,14 @@ declare void @llvm.assume(i1 noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @task_work_cancel_match(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 1968
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1968
   %5 = load volatile ptr, ptr %4, align 16
   %6 = icmp eq ptr %5, null
   br i1 %6, label %30, label %7, !prof !16
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 2060
-  %9 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %8) #3
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 2060
+  %9 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %8) #3
   %10 = load volatile ptr, ptr %4, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.loopexit, label %.preheader
@@ -144,7 +144,7 @@ define dso_local noundef ptr @task_work_cancel_match(ptr noundef %0, ptr nocaptu
 
 .loopexit:                                        ; preds = %25, %17, %7
   %29 = phi ptr [ null, %7 ], [ %13, %17 ], [ null, %25 ]
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %8, i64 noundef %9) #3
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %8, i64 noundef %9) #3
   br label %30
 
 30:                                               ; preds = %.loopexit, %3
@@ -160,14 +160,14 @@ declare dso_local void @_raw_spin_unlock_irqrestore(ptr noundef, i64 noundef) lo
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @task_work_cancel(ptr noundef %0, ptr noundef readnone %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1968
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1968
   %4 = load volatile ptr, ptr %3, align 16
   %5 = icmp eq ptr %4, null
   br i1 %5, label %31, label %6, !prof !16
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 2060
-  %8 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %7) #3
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2060
+  %8 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %7) #3
   %9 = load volatile ptr, ptr %3, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.loopexit, label %.preheader
@@ -175,7 +175,7 @@ define dso_local ptr @task_work_cancel(ptr noundef %0, ptr noundef readnone %1) 
 .preheader:                                       ; preds = %6, %26
   %11 = phi ptr [ %28, %26 ], [ %3, %6 ]
   %12 = phi ptr [ %27, %26 ], [ %9, %6 ]
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, %1
   br i1 %15, label %18, label %16
@@ -205,7 +205,7 @@ define dso_local ptr @task_work_cancel(ptr noundef %0, ptr noundef readnone %1) 
 
 .loopexit:                                        ; preds = %26, %18, %6
   %30 = phi ptr [ null, %6 ], [ %12, %18 ], [ null, %26 ]
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %7, i64 noundef %8) #3
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %7, i64 noundef %8) #3
   br label %31
 
 31:                                               ; preds = %.loopexit, %2
@@ -217,9 +217,9 @@ define dso_local ptr @task_work_cancel(ptr noundef %0, ptr noundef readnone %1) 
 define dso_local void @task_work_run() local_unnamed_addr #0 align 16 {
   %1 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #4, !srcloc !19
   %2 = inttoptr i64 %1 to ptr
-  %3 = getelementptr inbounds i8, ptr %2, i64 1968
-  %4 = getelementptr inbounds i8, ptr %2, i64 44
-  %5 = getelementptr inbounds i8, ptr %2, i64 2060
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 1968
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 2060
   br label %6
 
 6:                                                ; preds = %35, %0
@@ -238,7 +238,7 @@ define dso_local void @task_work_run() local_unnamed_addr #0 align 16 {
   br i1 %14, label %.thread, label %15
 
 15:                                               ; preds = %11
-  %16 = tail call { i8, ptr } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %3, ptr nonnull @work_exited, ptr elementtype(i64) %3, ptr null) #3, !srcloc !20
+  %16 = tail call { i8, ptr } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, ptr nonnull @work_exited, ptr nonnull elementtype(i64) %3, ptr null) #3, !srcloc !20
   %17 = extractvalue { i8, ptr } %16, 0
   %18 = icmp ult i8 %17, 2
   tail call void @llvm.assume(i1 %18)
@@ -246,7 +246,7 @@ define dso_local void @task_work_run() local_unnamed_addr #0 align 16 {
   br i1 %19, label %24, label %.thread, !prof !7
 
 .thread1:                                         ; preds = %8
-  %20 = tail call { i8, ptr } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %3, ptr null, ptr elementtype(i64) %3, ptr nonnull %9) #3, !srcloc !20
+  %20 = tail call { i8, ptr } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, ptr null, ptr nonnull elementtype(i64) %3, ptr nonnull %9) #3, !srcloc !20
   %21 = extractvalue { i8, ptr } %20, 0
   %22 = icmp ult i8 %21, 2
   tail call void @llvm.assume(i1 %22)
@@ -259,14 +259,14 @@ define dso_local void @task_work_run() local_unnamed_addr #0 align 16 {
   br label %8, !llvm.loop !21
 
 27:                                               ; preds = %.thread1
-  tail call void @_raw_spin_lock_irq(ptr noundef %5) #3
-  tail call void @_raw_spin_unlock_irq(ptr noundef %5) #3
+  tail call void @_raw_spin_lock_irq(ptr noundef nonnull %5) #3
+  tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %5) #3
   br label %28
 
 28:                                               ; preds = %28, %27
   %29 = phi ptr [ %9, %27 ], [ %30, %28 ]
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %29, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %32 = load ptr, ptr %31, align 8
   tail call void %32(ptr noundef nonnull %29) #3
   %33 = tail call i32 @__SCT__cond_resched() #3

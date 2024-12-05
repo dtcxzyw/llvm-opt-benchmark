@@ -84,7 +84,7 @@ define dso_local void @rtc_time64_to_tm(i64 noundef %0, ptr nocapture noundef wr
   %5 = trunc i64 %3 to i32
   %6 = add i32 %5, 4
   %7 = srem i32 %6, 7
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 %7, ptr %8, align 4
   %9 = shl i32 %5, 2
   %10 = add i32 %9, 2877875
@@ -131,47 +131,47 @@ define dso_local void @rtc_time64_to_tm(i64 noundef %0, ptr nocapture noundef wr
   %43 = add nsw i32 %41, -1900
   %44 = add nsw i32 %43, %17
   %45 = add nsw i32 %44, %42
-  %46 = getelementptr inbounds i8, ptr %1, i64 20
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 20
   store i32 %45, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %1, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 %36, ptr %47, align 4
-  %48 = getelementptr inbounds i8, ptr %1, i64 12
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 %40, ptr %48, align 4
   %49 = add nuw nsw i32 %37, 1
-  %50 = getelementptr inbounds i8, ptr %1, i64 28
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %49, ptr %50, align 4
   %51 = udiv i32 %38, 3600
-  %52 = getelementptr inbounds i8, ptr %1, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %51, ptr %52, align 4
   %53 = mul i32 %51, -3600
   %54 = add i32 %53, %38
   %55 = udiv i32 %54, 60
-  %56 = getelementptr inbounds i8, ptr %1, i64 4
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %55, ptr %56, align 4
   %57 = mul i32 %55, -60
   %58 = add i32 %57, %54
   store i32 %58, ptr %1, align 4
-  %59 = getelementptr inbounds i8, ptr %1, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 0, ptr %59, align 4
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
 define dso_local range(i32 -22, 1) i32 @rtc_valid_tm(ptr nocapture noundef readonly %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 20
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
   %4 = add i32 %3, -2147481748
   %5 = icmp ult i32 %4, -2147481678
   br i1 %5, label %47, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 4
   %9 = icmp ugt i32 %8, 11
   br i1 %9, label %47, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %12 = load i32, ptr %11, align 4
   %13 = icmp slt i32 %12, 1
   br i1 %13, label %47, label %14
@@ -204,13 +204,13 @@ define dso_local range(i32 -22, 1) i32 @rtc_valid_tm(ptr nocapture noundef reado
   br i1 %34, label %47, label %35
 
 35:                                               ; preds = %27
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = load i32, ptr %36, align 4
   %38 = icmp ugt i32 %37, 23
   br i1 %38, label %47, label %39
 
 39:                                               ; preds = %35
-  %40 = getelementptr inbounds i8, ptr %0, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %41 = load i32, ptr %40, align 4
   %42 = icmp ugt i32 %41, 59
   br i1 %42, label %47, label %43
@@ -228,17 +228,17 @@ define dso_local range(i32 -22, 1) i32 @rtc_valid_tm(ptr nocapture noundef reado
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i64 @rtc_tm_to_time64(ptr nocapture noundef readonly %0) #3 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 20
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
   %4 = add i32 %3, 1900
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 4
   %7 = add i32 %6, 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = load i32, ptr %0, align 4
   %15 = tail call i64 @mktime64(i32 noundef %4, i32 noundef %7, i32 noundef %9, i32 noundef %11, i32 noundef %13, i32 noundef %14) #5
@@ -250,17 +250,17 @@ declare dso_local i64 @mktime64(i32 noundef, i32 noundef, i32 noundef, i32 nound
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i64 @rtc_tm_to_ktime(ptr nocapture noundef readonly byval(%struct.rtc_time) align 8 %0) #3 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 20
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
   %4 = add i32 %3, 1900
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = add i32 %6, 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = load i32, ptr %0, align 8
   %15 = tail call i64 @mktime64(i32 noundef %4, i32 noundef %7, i32 noundef %9, i32 noundef %11, i32 noundef %13, i32 noundef %14) #5
@@ -283,7 +283,7 @@ define dso_local void @rtc_ktime_to_tm(ptr dead_on_unwind noalias nocapture writ
   %11 = trunc i64 %9 to i32
   %12 = add i32 %11, 4
   %13 = srem i32 %12, 7
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %13, ptr %14, align 4
   %15 = shl i32 %11, 2
   %16 = add i32 %15, 2877875
@@ -330,27 +330,27 @@ define dso_local void @rtc_ktime_to_tm(ptr dead_on_unwind noalias nocapture writ
   %49 = add nsw i32 %47, -1900
   %50 = add nsw i32 %49, %23
   %51 = add nsw i32 %50, %48
-  %52 = getelementptr inbounds i8, ptr %0, i64 20
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %51, ptr %52, align 4
-  %53 = getelementptr inbounds i8, ptr %0, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %42, ptr %53, align 4
-  %54 = getelementptr inbounds i8, ptr %0, i64 12
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %46, ptr %54, align 4
   %55 = add nuw nsw i32 %43, 1
-  %56 = getelementptr inbounds i8, ptr %0, i64 28
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %55, ptr %56, align 4
   %57 = udiv i32 %44, 3600
-  %58 = getelementptr inbounds i8, ptr %0, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %57, ptr %58, align 4
   %59 = mul i32 %57, -3600
   %60 = add i32 %59, %44
   %61 = udiv i32 %60, 60
-  %62 = getelementptr inbounds i8, ptr %0, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %61, ptr %62, align 4
   %63 = mul i32 %61, -60
   %64 = add i32 %63, %60
   store i32 %64, ptr %0, align 4
-  %65 = getelementptr inbounds i8, ptr %0, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %65, align 4
   ret void
 }

@@ -69,14 +69,14 @@ declare i32 @poll(ptr noundef, i64 noundef, i32 noundef) #0
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_Z34grpc_register_event_engine_factoryPK24grpc_event_engine_vtableb(ptr noundef %vtable, i1 noundef zeroext %add_at_head) local_unnamed_addr #3 {
 entry:
-  %name7 = getelementptr inbounds i8, ptr %vtable, i64 224
+  %name7 = getelementptr inbounds nuw i8, ptr %vtable, i64 224
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %i.014 = phi i64 [ 0, %entry ], [ %inc, %for.inc ]
   %last_null.013 = phi ptr [ null, %entry ], [ %last_null.1, %for.inc ]
   %first_null.012 = phi ptr [ null, %entry ], [ %first_null.2, %for.inc ]
-  %arrayidx = getelementptr inbounds [11 x ptr], ptr @_ZL9g_vtables, i64 0, i64 %i.014
+  %arrayidx = getelementptr inbounds nuw [11 x ptr], ptr @_ZL9g_vtables, i64 0, i64 %i.014
   %0 = load ptr, ptr %arrayidx, align 8
   %cmp1 = icmp eq ptr %0, null
   br i1 %cmp1, label %if.then, label %if.else
@@ -87,7 +87,7 @@ if.then:                                          ; preds = %for.body
   br label %for.inc
 
 if.else:                                          ; preds = %for.body
-  %name = getelementptr inbounds i8, ptr %0, i64 224
+  %name = getelementptr inbounds nuw i8, ptr %0, i64 224
   %1 = load ptr, ptr %name, align 8
   %2 = load ptr, ptr %name7, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %2) #17
@@ -118,7 +118,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 define noundef ptr @_Z27grpc_get_poll_strategy_namev() local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr @_ZL14g_event_engine, align 8
-  %name = getelementptr inbounds i8, ptr %0, i64 224
+  %name = getelementptr inbounds nuw i8, ptr %0, i64 224
   %1 = load ptr, ptr %name, align 8
   ret ptr %1
 }
@@ -128,7 +128,7 @@ define void @_Z22grpc_event_engine_initv() local_unnamed_addr #6 {
 entry:
   tail call void @gpr_once_init(ptr noundef nonnull @_ZL15g_choose_engine, ptr noundef nonnull @"_ZZ22grpc_event_engine_initvEN3$_08__invokeEv")
   %0 = load ptr, ptr @_ZL14g_event_engine, align 8
-  %init_engine = getelementptr inbounds i8, ptr %0, i64 240
+  %init_engine = getelementptr inbounds nuw i8, ptr %0, i64 240
   %1 = load ptr, ptr %init_engine, align 8
   tail call void %1()
   ret void
@@ -140,7 +140,7 @@ declare void @gpr_once_init(ptr noundef, ptr noundef) local_unnamed_addr #0
 define void @_Z26grpc_event_engine_shutdownv() local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr @_ZL14g_event_engine, align 8
-  %shutdown_engine = getelementptr inbounds i8, ptr %0, i64 256
+  %shutdown_engine = getelementptr inbounds nuw i8, ptr %0, i64 256
   %1 = load ptr, ptr %shutdown_engine, align 8
   tail call void %1()
   ret void
@@ -154,7 +154,7 @@ entry:
 
 land.rhs:                                         ; preds = %entry
   %0 = load ptr, ptr @_ZL14g_event_engine, align 8
-  %can_track_err = getelementptr inbounds i8, ptr %0, i64 8
+  %can_track_err = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load i8, ptr %can_track_err, align 8
   %tobool = trunc i8 %1 to i1
   br label %land.end
@@ -174,7 +174,7 @@ entry:
   br i1 %cmp.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
-  %run_in_background = getelementptr inbounds i8, ptr %0, i64 9
+  %run_in_background = getelementptr inbounds nuw i8, ptr %0, i64 9
   %1 = load i8, ptr %run_in_background, align 1
   %tobool = trunc i8 %1 to i1
   br label %land.end
@@ -188,7 +188,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 define noundef ptr @_Z14grpc_fd_createiPKcb(i32 noundef %fd, ptr noundef %name, i1 noundef zeroext %track_err) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr @_ZL14g_event_engine, align 8
-  %fd_create = getelementptr inbounds i8, ptr %0, i64 16
+  %fd_create = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load ptr, ptr %fd_create, align 8
   br i1 %track_err, label %land.rhs, label %land.end
 
@@ -198,7 +198,7 @@ land.rhs:                                         ; preds = %entry
 
 land.rhs.i:                                       ; preds = %land.rhs
   %2 = load ptr, ptr @_ZL14g_event_engine, align 8
-  %can_track_err.i = getelementptr inbounds i8, ptr %2, i64 8
+  %can_track_err.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load i8, ptr %can_track_err.i, align 8
   %tobool.i = trunc i8 %3 to i1
   br label %land.end
@@ -213,7 +213,7 @@ land.end:                                         ; preds = %land.rhs.i, %land.r
 define noundef i32 @_Z18grpc_fd_wrapped_fdP7grpc_fd(ptr noundef %fd) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr @_ZL14g_event_engine, align 8
-  %fd_wrapped_fd = getelementptr inbounds i8, ptr %0, i64 24
+  %fd_wrapped_fd = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1 = load ptr, ptr %fd_wrapped_fd, align 8
   %call = tail call noundef i32 %1(ptr noundef %fd)
   ret i32 %call
@@ -223,7 +223,7 @@ entry:
 define void @_Z14grpc_fd_orphanP7grpc_fdP12grpc_closurePiPKc(ptr noundef %fd, ptr noundef %on_done, ptr noundef %release_fd, ptr noundef %reason) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr @_ZL14g_event_engine, align 8
-  %fd_orphan = getelementptr inbounds i8, ptr %0, i64 32
+  %fd_orphan = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1 = load ptr, ptr %fd_orphan, align 8
   tail call void %1(ptr noundef %fd, ptr noundef %on_done, ptr noundef %release_fd, ptr noundef %reason)
   ret void
@@ -233,7 +233,7 @@ entry:
 define void @_Z25grpc_fd_set_pre_allocatedP7grpc_fd(ptr noundef %fd) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr @_ZL14g_event_engine, align 8
-  %fd_set_pre_allocated = getelementptr inbounds i8, ptr %0, i64 272
+  %fd_set_pre_allocated = getelementptr inbounds nuw i8, ptr %0, i64 272
   %1 = load ptr, ptr %fd_set_pre_allocated, align 8
   tail call void %1(ptr noundef %fd)
   ret void
@@ -244,7 +244,7 @@ define void @_Z16grpc_fd_shutdownP7grpc_fdN4absl12lts_202308026StatusE(ptr nound
 entry:
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
   %0 = load ptr, ptr @_ZL14g_event_engine, align 8
-  %fd_shutdown = getelementptr inbounds i8, ptr %0, i64 40
+  %fd_shutdown = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1 = load ptr, ptr %fd_shutdown, align 8
   %2 = load i64, ptr %why, align 8
   store i64 %2, ptr %agg.tmp, align 8
@@ -318,7 +318,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 define noundef zeroext i1 @_Z19grpc_fd_is_shutdownP7grpc_fd(ptr noundef %fd) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr @_ZL14g_event_engine, align 8
-  %fd_is_shutdown = getelementptr inbounds i8, ptr %0, i64 96
+  %fd_is_shutdown = getelementptr inbounds nuw i8, ptr %0, i64 96
   %1 = load ptr, ptr %fd_is_shutdown, align 8
   %call = tail call noundef zeroext i1 %1(ptr noundef %fd)
   ret i1 %call
@@ -328,7 +328,7 @@ entry:
 define void @_Z22grpc_fd_notify_on_readP7grpc_fdP12grpc_closure(ptr noundef %fd, ptr noundef %closure) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr @_ZL14g_event_engine, align 8
-  %fd_notify_on_read = getelementptr inbounds i8, ptr %0, i64 48
+  %fd_notify_on_read = getelementptr inbounds nuw i8, ptr %0, i64 48
   %1 = load ptr, ptr %fd_notify_on_read, align 8
   tail call void %1(ptr noundef %fd, ptr noundef %closure)
   ret void
@@ -338,7 +338,7 @@ entry:
 define void @_Z23grpc_fd_notify_on_writeP7grpc_fdP12grpc_closure(ptr noundef %fd, ptr noundef %closure) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr @_ZL14g_event_engine, align 8
-  %fd_notify_on_write = getelementptr inbounds i8, ptr %0, i64 56
+  %fd_notify_on_write = getelementptr inbounds nuw i8, ptr %0, i64 56
   %1 = load ptr, ptr %fd_notify_on_write, align 8
   tail call void %1(ptr noundef %fd, ptr noundef %closure)
   ret void
@@ -348,7 +348,7 @@ entry:
 define void @_Z23grpc_fd_notify_on_errorP7grpc_fdP12grpc_closure(ptr noundef %fd, ptr noundef %closure) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr @_ZL14g_event_engine, align 8
-  %fd_notify_on_error = getelementptr inbounds i8, ptr %0, i64 64
+  %fd_notify_on_error = getelementptr inbounds nuw i8, ptr %0, i64 64
   %1 = load ptr, ptr %fd_notify_on_error, align 8
   tail call void %1(ptr noundef %fd, ptr noundef %closure)
   ret void
@@ -358,7 +358,7 @@ entry:
 define void @_Z20grpc_fd_set_readableP7grpc_fd(ptr noundef %fd) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr @_ZL14g_event_engine, align 8
-  %fd_set_readable = getelementptr inbounds i8, ptr %0, i64 72
+  %fd_set_readable = getelementptr inbounds nuw i8, ptr %0, i64 72
   %1 = load ptr, ptr %fd_set_readable, align 8
   tail call void %1(ptr noundef %fd)
   ret void
@@ -368,7 +368,7 @@ entry:
 define void @_Z20grpc_fd_set_writableP7grpc_fd(ptr noundef %fd) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr @_ZL14g_event_engine, align 8
-  %fd_set_writable = getelementptr inbounds i8, ptr %0, i64 80
+  %fd_set_writable = getelementptr inbounds nuw i8, ptr %0, i64 80
   %1 = load ptr, ptr %fd_set_writable, align 8
   tail call void %1(ptr noundef %fd)
   ret void
@@ -378,7 +378,7 @@ entry:
 define void @_Z17grpc_fd_set_errorP7grpc_fd(ptr noundef %fd) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr @_ZL14g_event_engine, align 8
-  %fd_set_error = getelementptr inbounds i8, ptr %0, i64 88
+  %fd_set_error = getelementptr inbounds nuw i8, ptr %0, i64 88
   %1 = load ptr, ptr %fd_set_error, align 8
   tail call void %1(ptr noundef %fd)
   ret void
@@ -388,7 +388,7 @@ entry:
 define void @_Z19grpc_pollset_add_fdP12grpc_pollsetP7grpc_fd(ptr noundef %pollset, ptr noundef %fd) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr @_ZL14g_event_engine, align 8
-  %pollset_add_fd = getelementptr inbounds i8, ptr %0, i64 144
+  %pollset_add_fd = getelementptr inbounds nuw i8, ptr %0, i64 144
   %1 = load ptr, ptr %pollset_add_fd, align 8
   tail call void %1(ptr noundef %pollset, ptr noundef %fd)
   ret void
@@ -410,7 +410,7 @@ entry:
 define internal void @_ZL12pollset_initP12grpc_pollsetPPl(ptr noundef %pollset, ptr noundef %mu) #6 {
 entry:
   %0 = load ptr, ptr @_ZL14g_event_engine, align 8
-  %pollset_init = getelementptr inbounds i8, ptr %0, i64 104
+  %pollset_init = getelementptr inbounds nuw i8, ptr %0, i64 104
   %1 = load ptr, ptr %pollset_init, align 8
   tail call void %1(ptr noundef %pollset, ptr noundef %mu)
   ret void
@@ -420,7 +420,7 @@ entry:
 define internal void @_ZL16pollset_shutdownP12grpc_pollsetP12grpc_closure(ptr noundef %pollset, ptr noundef %closure) #6 {
 entry:
   %0 = load ptr, ptr @_ZL14g_event_engine, align 8
-  %pollset_shutdown = getelementptr inbounds i8, ptr %0, i64 112
+  %pollset_shutdown = getelementptr inbounds nuw i8, ptr %0, i64 112
   %1 = load ptr, ptr %pollset_shutdown, align 8
   tail call void %1(ptr noundef %pollset, ptr noundef %closure)
   ret void
@@ -430,7 +430,7 @@ entry:
 define internal void @_ZL15pollset_destroyP12grpc_pollset(ptr noundef %pollset) #6 {
 entry:
   %0 = load ptr, ptr @_ZL14g_event_engine, align 8
-  %pollset_destroy = getelementptr inbounds i8, ptr %0, i64 120
+  %pollset_destroy = getelementptr inbounds nuw i8, ptr %0, i64 120
   %1 = load ptr, ptr %pollset_destroy, align 8
   tail call void %1(ptr noundef %pollset)
   ret void
@@ -440,7 +440,7 @@ entry:
 define internal void @_ZL12pollset_workP12grpc_pollsetPP19grpc_pollset_workerN9grpc_core9TimestampE(ptr noalias sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef %pollset, ptr noundef %worker, i64 %deadline.coerce) #6 {
 entry:
   %0 = load ptr, ptr @_ZL14g_event_engine, align 8
-  %pollset_work = getelementptr inbounds i8, ptr %0, i64 128
+  %pollset_work = getelementptr inbounds nuw i8, ptr %0, i64 128
   %1 = load ptr, ptr %pollset_work, align 8
   tail call void %1(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef %pollset, ptr noundef %worker, i64 %deadline.coerce)
   ret void
@@ -450,7 +450,7 @@ entry:
 define internal void @_ZL12pollset_kickP12grpc_pollsetP19grpc_pollset_worker(ptr noalias sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef %pollset, ptr noundef %specific_worker) #6 {
 entry:
   %0 = load ptr, ptr @_ZL14g_event_engine, align 8
-  %pollset_kick = getelementptr inbounds i8, ptr %0, i64 136
+  %pollset_kick = getelementptr inbounds nuw i8, ptr %0, i64 136
   %1 = load ptr, ptr %pollset_kick, align 8
   tail call void %1(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef %pollset, ptr noundef %specific_worker)
   ret void
@@ -468,7 +468,7 @@ entry:
 define internal noundef ptr @_ZL18pollset_set_createv() #6 {
 entry:
   %0 = load ptr, ptr @_ZL14g_event_engine, align 8
-  %pollset_set_create = getelementptr inbounds i8, ptr %0, i64 152
+  %pollset_set_create = getelementptr inbounds nuw i8, ptr %0, i64 152
   %1 = load ptr, ptr %pollset_set_create, align 8
   %call = tail call noundef ptr %1()
   ret ptr %call
@@ -478,7 +478,7 @@ entry:
 define internal void @_ZL19pollset_set_destroyP16grpc_pollset_set(ptr noundef %pollset_set) #6 {
 entry:
   %0 = load ptr, ptr @_ZL14g_event_engine, align 8
-  %pollset_set_destroy = getelementptr inbounds i8, ptr %0, i64 160
+  %pollset_set_destroy = getelementptr inbounds nuw i8, ptr %0, i64 160
   %1 = load ptr, ptr %pollset_set_destroy, align 8
   tail call void %1(ptr noundef %pollset_set)
   ret void
@@ -488,7 +488,7 @@ entry:
 define internal void @_ZL23pollset_set_add_pollsetP16grpc_pollset_setP12grpc_pollset(ptr noundef %pollset_set, ptr noundef %pollset) #6 {
 entry:
   %0 = load ptr, ptr @_ZL14g_event_engine, align 8
-  %pollset_set_add_pollset = getelementptr inbounds i8, ptr %0, i64 168
+  %pollset_set_add_pollset = getelementptr inbounds nuw i8, ptr %0, i64 168
   %1 = load ptr, ptr %pollset_set_add_pollset, align 8
   tail call void %1(ptr noundef %pollset_set, ptr noundef %pollset)
   ret void
@@ -498,7 +498,7 @@ entry:
 define internal void @_ZL23pollset_set_del_pollsetP16grpc_pollset_setP12grpc_pollset(ptr noundef %pollset_set, ptr noundef %pollset) #6 {
 entry:
   %0 = load ptr, ptr @_ZL14g_event_engine, align 8
-  %pollset_set_del_pollset = getelementptr inbounds i8, ptr %0, i64 176
+  %pollset_set_del_pollset = getelementptr inbounds nuw i8, ptr %0, i64 176
   %1 = load ptr, ptr %pollset_set_del_pollset, align 8
   tail call void %1(ptr noundef %pollset_set, ptr noundef %pollset)
   ret void
@@ -508,7 +508,7 @@ entry:
 define internal void @_ZL27pollset_set_add_pollset_setP16grpc_pollset_setS0_(ptr noundef %bag, ptr noundef %item) #6 {
 entry:
   %0 = load ptr, ptr @_ZL14g_event_engine, align 8
-  %pollset_set_add_pollset_set = getelementptr inbounds i8, ptr %0, i64 184
+  %pollset_set_add_pollset_set = getelementptr inbounds nuw i8, ptr %0, i64 184
   %1 = load ptr, ptr %pollset_set_add_pollset_set, align 8
   tail call void %1(ptr noundef %bag, ptr noundef %item)
   ret void
@@ -518,7 +518,7 @@ entry:
 define internal void @_ZL27pollset_set_del_pollset_setP16grpc_pollset_setS0_(ptr noundef %bag, ptr noundef %item) #6 {
 entry:
   %0 = load ptr, ptr @_ZL14g_event_engine, align 8
-  %pollset_set_del_pollset_set = getelementptr inbounds i8, ptr %0, i64 192
+  %pollset_set_del_pollset_set = getelementptr inbounds nuw i8, ptr %0, i64 192
   %1 = load ptr, ptr %pollset_set_del_pollset_set, align 8
   tail call void %1(ptr noundef %bag, ptr noundef %item)
   ret void
@@ -528,7 +528,7 @@ entry:
 define void @_Z23grpc_pollset_set_add_fdP16grpc_pollset_setP7grpc_fd(ptr noundef %pollset_set, ptr noundef %fd) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr @_ZL14g_event_engine, align 8
-  %pollset_set_add_fd = getelementptr inbounds i8, ptr %0, i64 200
+  %pollset_set_add_fd = getelementptr inbounds nuw i8, ptr %0, i64 200
   %1 = load ptr, ptr %pollset_set_add_fd, align 8
   tail call void %1(ptr noundef %pollset_set, ptr noundef %fd)
   ret void
@@ -538,7 +538,7 @@ entry:
 define void @_Z23grpc_pollset_set_del_fdP16grpc_pollset_setP7grpc_fd(ptr noundef %pollset_set, ptr noundef %fd) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr @_ZL14g_event_engine, align 8
-  %pollset_set_del_fd = getelementptr inbounds i8, ptr %0, i64 208
+  %pollset_set_del_fd = getelementptr inbounds nuw i8, ptr %0, i64 208
   %1 = load ptr, ptr %pollset_set_del_fd, align 8
   tail call void %1(ptr noundef %pollset_set, ptr noundef %fd)
   ret void
@@ -548,7 +548,7 @@ entry:
 define noundef zeroext i1 @_Z36grpc_is_any_background_poller_threadv() local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr @_ZL14g_event_engine, align 8
-  %is_any_background_poller_thread = getelementptr inbounds i8, ptr %0, i64 216
+  %is_any_background_poller_thread = getelementptr inbounds nuw i8, ptr %0, i64 216
   %1 = load ptr, ptr %is_any_background_poller_thread, align 8
   %call = tail call noundef zeroext i1 %1()
   ret i1 %call
@@ -559,7 +559,7 @@ define noundef zeroext i1 @_Z37grpc_add_closure_to_background_pollerP12grpc_clos
 entry:
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
   %0 = load ptr, ptr @_ZL14g_event_engine, align 8
-  %add_closure_to_background_poller = getelementptr inbounds i8, ptr %0, i64 264
+  %add_closure_to_background_poller = getelementptr inbounds nuw i8, ptr %0, i64 264
   %1 = load ptr, ptr %add_closure_to_background_poller, align 8
   %2 = load i64, ptr %error, align 8
   store i64 %2, ptr %agg.tmp, align 8
@@ -608,7 +608,7 @@ lpad:                                             ; preds = %_ZN4absl12lts_20230
 define void @_Z32grpc_shutdown_background_closurev() local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr @_ZL14g_event_engine, align 8
-  %shutdown_background_closure = getelementptr inbounds i8, ptr %0, i64 248
+  %shutdown_background_closure = getelementptr inbounds nuw i8, ptr %0, i64 248
   %1 = load ptr, ptr %shutdown_background_closure, align 8
   tail call void %1()
   ret void
@@ -641,26 +641,26 @@ if.end.i.i:                                       ; preds = %entry
 
 _ZN9grpc_core10ConfigVars3GetEv.exit.i:           ; preds = %if.end.i.i, %entry
   %retval.0.i.i = phi ptr [ %call1.i.i, %if.end.i.i ], [ %atomic-temp.i.0.i.i.i, %entry ]
-  %poll_strategy_.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 104
+  %poll_strategy_.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 104
   %call.i.i = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %poll_strategy_.i.i) #19
   %1 = extractvalue { i64, ptr } %call.i.i, 0
   store i64 %1, ptr %value.i, align 8
-  %2 = getelementptr inbounds i8, ptr %value.i, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %value.i, i64 8
   %3 = extractvalue { i64, ptr } %call.i.i, 1
   store ptr %3, ptr %2, align 8
   store i64 %1, ptr %ref.tmp.i, align 8, !alias.scope !6
-  %input_text.sroa.2.0.text_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %input_text.sroa.2.0.text_.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store ptr %3, ptr %input_text.sroa.2.0.text_.sroa_idx.i.i.i, align 8, !alias.scope !6
-  %delimiter_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
+  %delimiter_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   store i8 44, ptr %delimiter_.i.i.i, align 8, !alias.scope !6
   store i64 0, ptr %__begin2.i, align 8, !alias.scope !9
-  %state_.i.i.i = getelementptr inbounds i8, ptr %__begin2.i, i64 8
+  %state_.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i, i64 8
   store i32 0, ptr %state_.i.i.i, align 8, !alias.scope !9
-  %curr_.i.i.i = getelementptr inbounds i8, ptr %__begin2.i, i64 16
+  %curr_.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %curr_.i.i.i, i8 0, i64 16, i1 false), !alias.scope !9
-  %splitter_.i.i.i = getelementptr inbounds i8, ptr %__begin2.i, i64 32
+  %splitter_.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i, i64 32
   store ptr %ref.tmp.i, ptr %splitter_.i.i.i, align 8, !alias.scope !9
-  %delimiter_.i.i4.i = getelementptr inbounds i8, ptr %__begin2.i, i64 40
+  %delimiter_.i.i4.i = getelementptr inbounds nuw i8, ptr %__begin2.i, i64 40
   store i8 44, ptr %delimiter_.i.i4.i, align 8, !alias.scope !9
   %cmp.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
@@ -698,7 +698,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i.i: ; preds =
   %sub.i.i.i.i.i = sub nuw i64 %1, %6
   %.sroa.speculated.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i)
   store i64 %.sroa.speculated.i.i.i.i.i, ptr %curr_.i.i.i, align 8, !alias.scope !9
-  %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %__begin2.i, i64 24
+  %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i, i64 24
   store ptr %add.ptr15.i.i.i.i, ptr %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i.i, align 8, !alias.scope !9
   %add.i.i.i.i = add i64 %6, %4
   %add21.i.i.i.i = add i64 %add.i.i.i.i, %.sroa.speculated.i.i.i.i.i
@@ -717,7 +717,7 @@ _ZNK4absl12lts_2023080216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyE
   br i1 %.not.i10.i, label %for.body.lr.ph.i, label %for.end.i
 
 for.body.lr.ph.i:                                 ; preds = %_ZNK4absl12lts_2023080216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE5beginEv.exit.i
-  %trial.sroa.2.0.call5.sroa_idx.i = getelementptr inbounds i8, ptr %__begin2.i, i64 24
+  %trial.sroa.2.0.call5.sroa_idx.i = getelementptr inbounds nuw i8, ptr %__begin2.i, i64 24
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN4absl12lts_2023080216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit.i, %for.body.lr.ph.i
@@ -731,13 +731,13 @@ for.body.i:                                       ; preds = %_ZN4absl12lts_20230
 
 for.body.us.i.i:                                  ; preds = %for.body.i, %for.inc.us.i.i
   %i.019.us.i.i = phi i64 [ %inc.us.i.i, %for.inc.us.i.i ], [ 0, %for.body.i ]
-  %arrayidx.us.i.i = getelementptr inbounds [11 x ptr], ptr @_ZL9g_vtables, i64 0, i64 %i.019.us.i.i
+  %arrayidx.us.i.i = getelementptr inbounds nuw [11 x ptr], ptr @_ZL9g_vtables, i64 0, i64 %i.019.us.i.i
   %8 = load ptr, ptr %arrayidx.us.i.i, align 8
   %cmp1.not.us.i.i = icmp eq ptr %8, null
   br i1 %cmp1.not.us.i.i, label %for.inc.us.i.i, label %land.lhs.true.us.i.i
 
 land.lhs.true.us.i.i:                             ; preds = %for.body.us.i.i
-  %name.us.i.i = getelementptr inbounds i8, ptr %8, i64 224
+  %name.us.i.i = getelementptr inbounds nuw i8, ptr %8, i64 224
   %9 = load ptr, ptr %name.us.i.i, align 8
   %call.i.i.us.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #19
   %bcmp.i.i.us.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %trial.sroa.2.0.copyload.i, ptr noundef nonnull dereferenceable(3) @.str.3, i64 3)
@@ -754,12 +754,12 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5.i.us.i.i: ; preds = %lor.rhs.thr
   br i1 %cmp.i.i7.i.us.i.i, label %land.lhs.true4.us.i.i, label %for.inc.us.i.i
 
 land.lhs.true4.us.i.i:                            ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5.i.us.i.i
-  %check_engine_available.us.i.i = getelementptr inbounds i8, ptr %8, i64 232
+  %check_engine_available.us.i.i = getelementptr inbounds nuw i8, ptr %8, i64 232
   %10 = load ptr, ptr %check_engine_available.us.i.i, align 8
   br label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.us.i.i
 
 land.lhs.true4.thread.us.i.i:                     ; preds = %land.lhs.true.us.i.i
-  %check_engine_available11.us.i.i = getelementptr inbounds i8, ptr %8, i64 232
+  %check_engine_available11.us.i.i = getelementptr inbounds nuw i8, ptr %8, i64 232
   %11 = load ptr, ptr %check_engine_available11.us.i.i, align 8
   %cmp.i12.us.i.i = icmp eq i64 %call.i.i.us.i.i, 3
   br i1 %cmp.i12.us.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.us.i.i, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.us.i.i
@@ -783,20 +783,20 @@ for.inc.us.i.i:                                   ; preds = %_ZSteqIcSt11char_tr
 
 for.body.us20.i.i:                                ; preds = %for.body.i, %for.inc.us29.i.i
   %i.019.us21.i.i = phi i64 [ %inc.us30.i.i, %for.inc.us29.i.i ], [ %engine.coerce0.fr.i.i, %for.body.i ]
-  %arrayidx.us22.i.i = getelementptr inbounds [11 x ptr], ptr @_ZL9g_vtables, i64 0, i64 %i.019.us21.i.i
+  %arrayidx.us22.i.i = getelementptr inbounds nuw [11 x ptr], ptr @_ZL9g_vtables, i64 0, i64 %i.019.us21.i.i
   %15 = load ptr, ptr %arrayidx.us22.i.i, align 8
   %cmp1.not.us23.i.i = icmp eq ptr %15, null
   br i1 %cmp1.not.us23.i.i, label %for.inc.us29.i.i, label %land.lhs.true.us24.i.i
 
 land.lhs.true.us24.i.i:                           ; preds = %for.body.us20.i.i
-  %name.us25.i.i = getelementptr inbounds i8, ptr %15, i64 224
+  %name.us25.i.i = getelementptr inbounds nuw i8, ptr %15, i64 224
   %16 = load ptr, ptr %name.us25.i.i, align 8
   %char0.i.i = load i8, ptr %16, align 1
   %cmp.i2.i.us.i.i = icmp eq i8 %char0.i.i, 0
   br i1 %cmp.i2.i.us.i.i, label %land.rhs.i3.i.us.i.i, label %for.inc.us29.i.i
 
 land.rhs.i3.i.us.i.i:                             ; preds = %land.lhs.true.us24.i.i
-  %check_engine_available15.us.i.i = getelementptr inbounds i8, ptr %15, i64 232
+  %check_engine_available15.us.i.i = getelementptr inbounds nuw i8, ptr %15, i64 232
   %17 = load ptr, ptr %check_engine_available15.us.i.i, align 8
   %call11.us28.i.i = call noundef zeroext i1 %17(i1 noundef zeroext true)
   br i1 %call11.us28.i.i, label %if.then.i.i, label %for.inc.us29.i.i
@@ -808,13 +808,13 @@ for.inc.us29.i.i:                                 ; preds = %land.rhs.i3.i.us.i.
 
 for.body.i.i:                                     ; preds = %for.body.i, %for.inc.i.i
   %i.019.i.i = phi i64 [ %inc.i.i, %for.inc.i.i ], [ 0, %for.body.i ]
-  %arrayidx.i.i = getelementptr inbounds [11 x ptr], ptr @_ZL9g_vtables, i64 0, i64 %i.019.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [11 x ptr], ptr @_ZL9g_vtables, i64 0, i64 %i.019.i.i
   %18 = load ptr, ptr %arrayidx.i.i, align 8
   %cmp1.not.i.i = icmp eq ptr %18, null
   br i1 %cmp1.not.i.i, label %for.inc.i.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %for.body.i.i
-  %name.i.i = getelementptr inbounds i8, ptr %18, i64 224
+  %name.i.i = getelementptr inbounds nuw i8, ptr %18, i64 224
   %19 = load ptr, ptr %name.i.i, align 8
   %call.i.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #19
   %cmp.i2.i.i.i = icmp eq i64 %engine.coerce0.fr.i.i, %call.i.i.i.i
@@ -826,17 +826,17 @@ land.rhs.i3.i.i.i:                                ; preds = %land.lhs.true.i.i
   br i1 %cmp.i.i7.i.i.i, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.i.i, label %for.inc.i.i
 
 _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.i.i: ; preds = %land.rhs.i3.i.i.i
-  %check_engine_available.i.i = getelementptr inbounds i8, ptr %18, i64 232
+  %check_engine_available.i.i = getelementptr inbounds nuw i8, ptr %18, i64 232
   %20 = load ptr, ptr %check_engine_available.i.i, align 8
   %call11.i.i = call noundef zeroext i1 %20(i1 noundef zeroext true)
   br i1 %call11.i.i, label %if.then.i.i, label %for.inc.i.i
 
 if.then.i.i:                                      ; preds = %land.rhs.i3.i.us.i.i, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.us.i.i, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.i.i
   %.us-phi.i.i = phi i64 [ %i.019.i.i, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.i.i ], [ %i.019.us.i.i, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.us.i.i ], [ %i.019.us21.i.i, %land.rhs.i3.i.us.i.i ]
-  %arrayidx.le.i.i = getelementptr inbounds [11 x ptr], ptr @_ZL9g_vtables, i64 0, i64 %.us-phi.i.i
+  %arrayidx.le.i.i = getelementptr inbounds nuw [11 x ptr], ptr @_ZL9g_vtables, i64 0, i64 %.us-phi.i.i
   %21 = load ptr, ptr %arrayidx.le.i.i, align 8
   store ptr %21, ptr @_ZL14g_event_engine, align 8
-  %name13.i.i = getelementptr inbounds i8, ptr %21, i64 224
+  %name13.i.i = getelementptr inbounds nuw i8, ptr %21, i64 224
   %22 = load ptr, ptr %name13.i.i, align 8
   call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.1, i32 noundef 113, i32 noundef 0, ptr noundef nonnull @.str.2, ptr noundef %22)
   br label %_ZL10try_engineSt17basic_string_viewIcSt11char_traitsIcEE.exit.i
@@ -864,7 +864,7 @@ if.then.i16.i:                                    ; preds = %for.inc.i
 if.end.i13.i:                                     ; preds = %for.inc.i
   %25 = load ptr, ptr %splitter_.i.i.i, align 8
   %retval.sroa.0.0.copyload.i.i.i = load i64, ptr %25, align 8
-  %retval.sroa.2.0.text_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %25, i64 8
+  %retval.sroa.2.0.text_.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %25, i64 8
   %retval.sroa.2.0.copyload.i.i.i = load ptr, ptr %retval.sroa.2.0.text_.sroa_idx.i.i.i, align 8
   %26 = load i64, ptr %__begin2.i, align 8
   %call3.i.i = call { i64, ptr } @_ZNK4absl12lts_202308026ByChar4FindESt17basic_string_viewIcSt11char_traitsIcEEm(ptr noundef nonnull align 1 dereferenceable(1) %delimiter_.i.i4.i, i64 %retval.sroa.0.0.copyload.i.i.i, ptr %retval.sroa.2.0.copyload.i.i.i, i64 noundef %26)
@@ -924,7 +924,7 @@ invoke.cont.i:                                    ; preds = %if.then9.i
   %call16.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14.i) #19
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i)
   store ptr %call16.i, ptr %ref.tmp.i.i, align 8, !noalias !17
-  %dispatcher_.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
+  %dispatcher_.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIPKcEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i.i, align 8, !noalias !17
   invoke void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp11.i, ptr nonnull @.str, i64 44, ptr nonnull %ref.tmp.i.i, i64 1)
           to label %invoke.cont18.i unwind label %lpad17.i
@@ -987,14 +987,14 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
 entry:
   %agg.tmp = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %agg.tmp3.sroa.0.0.copyload = load i64, ptr %__t, align 8
-  %agg.tmp3.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %__t, i64 8
+  %agg.tmp3.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %__t, i64 8
   %agg.tmp3.sroa.2.0.copyload = load ptr, ptr %agg.tmp3.sroa.2.0..sroa_idx, align 8
   %call = tail call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %agg.tmp3.sroa.0.0.copyload, ptr %agg.tmp3.sroa.2.0.copyload) #19
   %0 = extractvalue { i64, ptr } %call, 0
   %1 = extractvalue { i64, ptr } %call, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i64 %0, ptr %1) #19
   %2 = load i64, ptr %agg.tmp, align 8
-  %3 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
   %4 = load ptr, ptr %3, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 %2, ptr %4, ptr noundef nonnull align 1 dereferenceable(1) %__a)
   ret void

@@ -86,7 +86,7 @@ define void @LAPACKE_ctp_trans(i32 noundef %0, i8 noundef signext %1, i8 noundef
   %58 = phi i32 [ 0, %48 ], [ %73, %56 ]
   %59 = getelementptr { float, float }, ptr %55, i64 %57
   %60 = load float, ptr %59, align 4
-  %61 = getelementptr inbounds i8, ptr %59, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %62 = load float, ptr %61, align 4
   %63 = add nsw i32 %58, %50
   %64 = add i32 %33, %58
@@ -96,7 +96,7 @@ define void @LAPACKE_ctp_trans(i32 noundef %0, i8 noundef signext %1, i8 noundef
   %68 = add nsw i32 %63, %67
   %69 = sext i32 %68 to i64
   %70 = getelementptr inbounds { float, float }, ptr %5, i64 %69
-  %71 = getelementptr inbounds i8, ptr %70, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 4
   store float %60, ptr %70, align 4
   store float %62, ptr %71, align 4
   %72 = add nuw nsw i64 %57, 1
@@ -126,7 +126,7 @@ define void @LAPACKE_ctp_trans(i32 noundef %0, i8 noundef signext %1, i8 noundef
   %90 = sext i32 %89 to i64
   %91 = getelementptr inbounds { float, float }, ptr %4, i64 %90
   %92 = load float, ptr %91, align 4
-  %93 = getelementptr inbounds i8, ptr %91, i64 4
+  %93 = getelementptr inbounds nuw i8, ptr %91, i64 4
   %94 = load float, ptr %93, align 4
   %95 = add nuw nsw i64 %87, 1
   %96 = mul i64 %95, %87
@@ -134,8 +134,8 @@ define void @LAPACKE_ctp_trans(i32 noundef %0, i8 noundef signext %1, i8 noundef
   %98 = lshr i32 %97, 1
   %99 = add nuw nsw i32 %98, %78
   %100 = zext nneg i32 %99 to i64
-  %101 = getelementptr inbounds { float, float }, ptr %5, i64 %100
-  %102 = getelementptr inbounds i8, ptr %101, i64 4
+  %101 = getelementptr inbounds nuw { float, float }, ptr %5, i64 %100
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 4
   store float %92, ptr %101, align 4
   store float %94, ptr %102, align 4
   %exitcond.not = icmp eq i64 %95, %44

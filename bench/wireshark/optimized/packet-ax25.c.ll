@@ -140,10 +140,10 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ax25(ptr noundef %0, ptr noundef initializes((112, 160), (208, 256)) %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 408
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noalias ptr @wmem_alloc(ptr noundef %6, i64 noundef 80) #2
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @col_set_str(ptr noundef %9, i32 noundef 34, ptr noundef nonnull @.str.51) #2
   %10 = load ptr, ptr %8, align 8
@@ -154,42 +154,42 @@ define internal i32 @dissect_ax25(ptr noundef %0, ptr noundef initializes((112, 
   %14 = tail call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #2
   %15 = load i32, ptr @hf_ax25_dst, align 4
   %16 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %15, ptr noundef %0, i32 noundef 0, i32 noundef 7, i32 noundef 0) #2
-  %17 = getelementptr inbounds i8, ptr %1, i64 136
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %18 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 0, i32 noundef 7) #2
   store i32 10, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 140
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 140
   store i32 7, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %1, i64 144
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 144
   store ptr %18, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 152
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 152
   store ptr null, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 232
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 232
   store i32 10, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 236
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 236
   store i32 7, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %1, i64 240
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 240
   store ptr %18, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 248
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 248
   store ptr null, ptr %25, align 8
   %26 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 6) #2
   %27 = load i32, ptr @hf_ax25_src, align 4
   %28 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %27, ptr noundef %0, i32 noundef 7, i32 noundef 7, i32 noundef 0) #2
-  %29 = getelementptr inbounds i8, ptr %1, i64 112
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %30 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 7, i32 noundef 7) #2
   store i32 10, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 116
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 116
   store i32 7, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %1, i64 120
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store ptr %30, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 128
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store ptr null, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 208
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 208
   store i32 10, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 212
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 212
   store i32 7, ptr %35, align 4
-  %36 = getelementptr inbounds i8, ptr %1, i64 216
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 216
   store ptr %30, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %1, i64 224
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 224
   store ptr null, ptr %37, align 8
   %38 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 13) #2
   %39 = load ptr, ptr %5, align 8

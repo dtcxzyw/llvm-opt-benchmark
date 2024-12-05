@@ -59,7 +59,7 @@ _ZN5boost3log11v2_mt_posix19attribute_value_set14implementation6createEm.exit: ;
   store ptr %8, ptr %12, align 8, !tbaa !11
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr %9, ptr %13, align 8, !tbaa !20
-  %scevgep.i.i.i = getelementptr inbounds i8, ptr %5, i64 64
+  %scevgep.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %scevgep.i.i.i, i8 0, i64 256, i1 false)
   store ptr %5, ptr %0, align 8, !tbaa !21
   ret void
@@ -106,7 +106,7 @@ _ZN5boost3log11v2_mt_posix19attribute_value_set14implementation6createERKNS1_13a
   store ptr %20, ptr %27, align 8, !tbaa !11
   %28 = getelementptr inbounds nuw i8, ptr %17, i64 56
   store ptr %21, ptr %28, align 8, !tbaa !20
-  %scevgep.i.i.i = getelementptr inbounds i8, ptr %17, i64 64
+  %scevgep.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %scevgep.i.i.i, i8 0, i64 256, i1 false)
   store ptr %17, ptr %0, align 8, !tbaa !21
   ret void
@@ -193,7 +193,7 @@ _ZN5boost3log11v2_mt_posix19attribute_value_set14implementation6createEmPNS1_13a
   store ptr %30, ptr %37, align 8, !tbaa !11
   %38 = getelementptr inbounds nuw i8, ptr %27, i64 56
   store ptr %31, ptr %38, align 8, !tbaa !20
-  %scevgep.i.i = getelementptr inbounds i8, ptr %27, i64 64
+  %scevgep.i.i = getelementptr inbounds nuw i8, ptr %27, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %scevgep.i.i, i8 0, i64 256, i1 false)
   %39 = load ptr, ptr %0, align 8, !tbaa !21
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 40
@@ -213,7 +213,7 @@ _ZN5boost3log11v2_mt_posix19attribute_value_set14implementation6createEmPNS1_13a
   br i1 %.not.i.i.i, label %49, label %46
 
 46:                                               ; preds = %.lr.ph.i
-  %47 = getelementptr inbounds i8, ptr %45, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %48 = atomicrmw add ptr %47, i32 1 acq_rel, align 4
   br label %49
 
@@ -351,7 +351,7 @@ _ZN5boost3log11v2_mt_posix19attribute_value_set14implementation6createEmPNS1_13a
   store ptr %19, ptr %24, align 8, !tbaa !11
   %25 = getelementptr inbounds nuw i8, ptr %16, i64 56
   store ptr %20, ptr %25, align 8, !tbaa !20
-  %scevgep.i.i = getelementptr inbounds i8, ptr %16, i64 64
+  %scevgep.i.i = getelementptr inbounds nuw i8, ptr %16, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %scevgep.i.i, i8 0, i64 256, i1 false)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -370,7 +370,7 @@ _ZN5boost3log11v2_mt_posix19attribute_value_set14implementation6createEmPNS1_13a
   br i1 %.not.i.i.i, label %35, label %32
 
 32:                                               ; preds = %.lr.ph.i
-  %33 = getelementptr inbounds i8, ptr %31, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %34 = atomicrmw add ptr %33, i32 1 acq_rel, align 4
   br label %35
 
@@ -446,14 +446,14 @@ define void @_ZN5boost3log11v2_mt_posix19attribute_value_setD2Ev(ptr nocapture n
   br i1 %.not.i.i.i.i3.i.i.i.i, label %_ZNK5boost3log11v2_mt_posix19attribute_value_set14implementation8disposerclEPNS2_4nodeE.exit.i.i.i, label %15
 
 15:                                               ; preds = %14
-  %16 = getelementptr inbounds i8, ptr %13, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %17 = atomicrmw add ptr %16, i32 -1 acq_rel, align 4
   %18 = icmp eq i32 %17, 1
   br i1 %18, label %19, label %_ZNK5boost3log11v2_mt_posix19attribute_value_set14implementation8disposerclEPNS2_4nodeE.exit.i.i.i
 
 19:                                               ; preds = %15
   %20 = load ptr, ptr %13, align 8, !tbaa !3
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(12) %13) #12
   br label %_ZNK5boost3log11v2_mt_posix19attribute_value_set14implementation8disposerclEPNS2_4nodeE.exit.i.i.i
@@ -462,14 +462,14 @@ define void @_ZN5boost3log11v2_mt_posix19attribute_value_setD2Ev(ptr nocapture n
   br i1 %.not.i.i.i.i3.i.i.i.i, label %_ZN5boost3log11v2_mt_posix19attribute_value_set4nodeD2Ev.exit4.i.i.i.i, label %24
 
 24:                                               ; preds = %23
-  %25 = getelementptr inbounds i8, ptr %13, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %26 = atomicrmw add ptr %25, i32 -1 acq_rel, align 4
   %27 = icmp eq i32 %26, 1
   br i1 %27, label %28, label %_ZN5boost3log11v2_mt_posix19attribute_value_set4nodeD2Ev.exit4.i.i.i.i
 
 28:                                               ; preds = %24
   %29 = load ptr, ptr %13, align 8, !tbaa !3
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
   tail call void %31(ptr noundef nonnull align 8 dereferenceable(12) %13) #12
   br label %_ZN5boost3log11v2_mt_posix19attribute_value_set4nodeD2Ev.exit4.i.i.i.i
@@ -678,7 +678,7 @@ define void @_ZN5boost3log11v2_mt_posix19attribute_value_set6insertENS1_14attrib
   %.fca.0.extract = extractvalue { ptr, i8 } %6, 0
   %.fca.1.extract = extractvalue { ptr, i8 } %6, 1
   store ptr %.fca.0.extract, ptr %0, align 8, !tbaa !54
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !54
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.fca.1.extract, ptr %7, align 8, !tbaa !56
@@ -733,7 +733,7 @@ _ZN5boost3log11v2_mt_posix19attribute_value_set14implementation14find_in_bucketE
   br i1 %.not.i.i, label %_ZN5boost3log11v2_mt_posix15attribute_valueC2ERKS2_.exit, label %18
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %17, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %20 = atomicrmw add ptr %19, i32 1 acq_rel, align 4
   br label %_ZN5boost3log11v2_mt_posix15attribute_valueC2ERKS2_.exit
 
@@ -820,14 +820,14 @@ _ZN5boost3log11v2_mt_posix15attribute_valueD2Ev.exit: ; preds = %32, %41, %44, %
   br i1 %.not.i.i, label %_ZN5boost3log11v2_mt_posix15attribute_valueD2Ev.exit10, label %55
 
 55:                                               ; preds = %53
-  %56 = getelementptr inbounds i8, ptr %17, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %57 = atomicrmw add ptr %56, i32 -1 acq_rel, align 4
   %58 = icmp eq i32 %57, 1
   br i1 %58, label %59, label %_ZN5boost3log11v2_mt_posix15attribute_valueD2Ev.exit10
 
 59:                                               ; preds = %55
   %60 = load ptr, ptr %17, align 8, !tbaa !3
-  %61 = getelementptr inbounds i8, ptr %60, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = load ptr, ptr %61, align 8
   tail call void %62(ptr noundef nonnull align 8 dereferenceable(12) %17) #12
   br label %_ZN5boost3log11v2_mt_posix15attribute_valueD2Ev.exit10
@@ -914,7 +914,7 @@ _ZN5boost3log11v2_mt_posix13attribute_set14implementation14find_in_bucketENS1_14
   %29 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i, i64 24
   %30 = load ptr, ptr %29, align 8, !tbaa !66, !noalias !68
   %31 = load ptr, ptr %30, align 8, !tbaa !3, !noalias !68
-  %32 = getelementptr inbounds i8, ptr %31, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load ptr, ptr %32, align 8, !noalias !68
   call void %33(ptr dead_on_unwind nonnull writable sret(%"class.boost::log::v2_mt_posix::attribute_value") align 8 %5, ptr noundef nonnull align 8 dereferenceable(12) %30)
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1003,7 +1003,7 @@ _ZN5boost3log11v2_mt_posix15attribute_valueD2Ev.exit: ; preds = %47, %56, %59, %
   br i1 %.not.i.i33, label %_ZN5boost3log11v2_mt_posix15attribute_valueD2Ev.exit34, label %71
 
 71:                                               ; preds = %68
-  %72 = getelementptr inbounds i8, ptr %70, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %73 = atomicrmw add ptr %72, i32 -1 acq_rel, align 4
   %74 = icmp eq i32 %73, 1
   br i1 %74, label %_ZN5boost3log11v2_mt_posix15attribute_valueD2Ev.exit34.sink.split, label %_ZN5boost3log11v2_mt_posix15attribute_valueD2Ev.exit34
@@ -1056,7 +1056,7 @@ _ZN5boost3log11v2_mt_posix13attribute_set14implementation14find_in_bucketENS1_14
   %97 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i40, i64 24
   %98 = load ptr, ptr %97, align 8, !tbaa !66, !noalias !74
   %99 = load ptr, ptr %98, align 8, !tbaa !3, !noalias !74
-  %100 = getelementptr inbounds i8, ptr %99, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 16
   %101 = load ptr, ptr %100, align 8, !noalias !74
   call void %101(ptr dead_on_unwind nonnull writable sret(%"class.boost::log::v2_mt_posix::attribute_value") align 8 %6, ptr noundef nonnull align 8 dereferenceable(12) %98)
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1145,7 +1145,7 @@ _ZN5boost3log11v2_mt_posix15attribute_valueD2Ev.exit53: ; preds = %115, %124, %1
   br i1 %.not.i.i54, label %_ZN5boost3log11v2_mt_posix15attribute_valueD2Ev.exit34, label %139
 
 139:                                              ; preds = %136
-  %140 = getelementptr inbounds i8, ptr %138, i64 8
+  %140 = getelementptr inbounds nuw i8, ptr %138, i64 8
   %141 = atomicrmw add ptr %140, i32 -1 acq_rel, align 4
   %142 = icmp eq i32 %141, 1
   br i1 %142, label %_ZN5boost3log11v2_mt_posix15attribute_valueD2Ev.exit34.sink.split, label %_ZN5boost3log11v2_mt_posix15attribute_valueD2Ev.exit34
@@ -1198,7 +1198,7 @@ _ZN5boost3log11v2_mt_posix13attribute_set14implementation14find_in_bucketENS1_14
   %165 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i61, i64 24
   %166 = load ptr, ptr %165, align 8, !tbaa !66, !noalias !80
   %167 = load ptr, ptr %166, align 8, !tbaa !3, !noalias !80
-  %168 = getelementptr inbounds i8, ptr %167, i64 16
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 16
   %169 = load ptr, ptr %168, align 8, !noalias !80
   call void %169(ptr dead_on_unwind nonnull writable sret(%"class.boost::log::v2_mt_posix::attribute_value") align 8 %7, ptr noundef nonnull align 8 dereferenceable(12) %166)
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1287,7 +1287,7 @@ _ZN5boost3log11v2_mt_posix15attribute_valueD2Ev.exit74: ; preds = %183, %192, %1
   br i1 %.not.i.i75, label %_ZN5boost3log11v2_mt_posix15attribute_valueD2Ev.exit34, label %207
 
 207:                                              ; preds = %204
-  %208 = getelementptr inbounds i8, ptr %206, i64 8
+  %208 = getelementptr inbounds nuw i8, ptr %206, i64 8
   %209 = atomicrmw add ptr %208, i32 -1 acq_rel, align 4
   %210 = icmp eq i32 %209, 1
   br i1 %210, label %_ZN5boost3log11v2_mt_posix15attribute_valueD2Ev.exit34.sink.split, label %_ZN5boost3log11v2_mt_posix15attribute_valueD2Ev.exit34
@@ -1304,7 +1304,7 @@ _ZN5boost3log11v2_mt_posix15attribute_valueD2Ev.exit34.sink.split: ; preds = %20
   %.sink123 = phi ptr [ %70, %71 ], [ %138, %139 ], [ %206, %207 ]
   %.pn.ph = phi { ptr, i32 } [ %69, %71 ], [ %137, %139 ], [ %205, %207 ]
   %213 = load ptr, ptr %.sink123, align 8, !tbaa !3
-  %214 = getelementptr inbounds i8, ptr %213, i64 8
+  %214 = getelementptr inbounds nuw i8, ptr %213, i64 8
   %215 = load ptr, ptr %214, align 8
   call void %215(ptr noundef nonnull align 8 dereferenceable(12) %.sink123) #12
   br label %_ZN5boost3log11v2_mt_posix15attribute_valueD2Ev.exit34
@@ -1376,7 +1376,7 @@ _ZN5boost3log11v2_mt_posix19attribute_value_set14implementation14find_in_bucketE
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.022.029, i64 24
   %31 = load ptr, ptr %30, align 8, !tbaa !66, !noalias !88
   %32 = load ptr, ptr %31, align 8, !tbaa !3, !noalias !88
-  %33 = getelementptr inbounds i8, ptr %32, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load ptr, ptr %33, align 8, !noalias !88
   call void %34(ptr dead_on_unwind nonnull writable sret(%"class.boost::log::v2_mt_posix::attribute_value") align 8 %3, ptr noundef nonnull align 8 dereferenceable(12) %31)
   %35 = load ptr, ptr %7, align 8, !tbaa !11
@@ -1468,14 +1468,14 @@ _ZN5boost3log11v2_mt_posix15attribute_valueD2Ev.exit: ; preds = %46, %54, %57, %
   br i1 %.not.i.i14, label %_ZN5boost3log11v2_mt_posix15attribute_valueD2Ev.exit15, label %70
 
 70:                                               ; preds = %67
-  %71 = getelementptr inbounds i8, ptr %69, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %72 = atomicrmw add ptr %71, i32 -1 acq_rel, align 4
   %73 = icmp eq i32 %72, 1
   br i1 %73, label %74, label %_ZN5boost3log11v2_mt_posix15attribute_valueD2Ev.exit15
 
 74:                                               ; preds = %70
   %75 = load ptr, ptr %69, align 8, !tbaa !3
-  %76 = getelementptr inbounds i8, ptr %75, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %77 = load ptr, ptr %76, align 8
   call void %77(ptr noundef nonnull align 8 dereferenceable(12) %69) #12
   br label %_ZN5boost3log11v2_mt_posix15attribute_valueD2Ev.exit15

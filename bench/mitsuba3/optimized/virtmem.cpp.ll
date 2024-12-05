@@ -110,7 +110,7 @@ declare i32 @mprotect(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr 
 define dso_local noundef i32 @_ZN6asmjit9_abi_1_107VirtMem16allocDualMappingEPNS1_11DualMappingEmNS1_11MemoryFlagsE(ptr nocapture noundef writeonly initializes((0, 16)) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.asmjit::_abi_1_10::VirtMem::AnonymousMemory", align 8
   %5 = alloca %"class.asmjit::_abi_1_10::VirtMem::AnonymousMemory", align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = icmp slt i64 %1, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   br i1 %7, label %8, label %11
@@ -132,14 +132,14 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_107VirtMem16allocDualMappingEPNS
 16:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %4) #14
   store i32 -1, ptr %4, align 8, !tbaa !8
-  %17 = getelementptr inbounds i8, ptr %4, i64 4
-  %18 = getelementptr inbounds i8, ptr %4, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %17, i8 0, i64 20, i1 false)
   store i8 32, ptr %18, align 8, !tbaa !14
-  %19 = getelementptr inbounds i8, ptr %4, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 135, ptr %19, align 8, !tbaa !14
-  %20 = getelementptr inbounds i8, ptr %4, i64 40
-  %21 = getelementptr inbounds i8, ptr %4, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %20, ptr %21, align 8, !tbaa !14
   store i8 0, ptr %20, align 8, !tbaa !14
   %22 = load atomic i32, ptr @_ZZN6asmjit9_abi_1_107VirtMem4infoEvE17vmInfoInitialized.0 seq_cst, align 4
@@ -214,7 +214,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_107VirtMem16allocDualMappingEPNS
   %63 = load i8, ptr %18, align 8, !tbaa !14
   %64 = icmp ugt i8 %63, 30
   %65 = load ptr, ptr %21, align 8
-  %66 = getelementptr inbounds i8, ptr %4, i64 9
+  %66 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %67 = select i1 %64, ptr %65, ptr %66
   %68 = invoke i32 @shm_unlink(ptr noundef %67)
           to label %79 unwind label %76
@@ -223,7 +223,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_107VirtMem16allocDualMappingEPNS
   %70 = load i8, ptr %18, align 8, !tbaa !14
   %71 = icmp ugt i8 %70, 30
   %72 = load ptr, ptr %21, align 8
-  %73 = getelementptr inbounds i8, ptr %4, i64 9
+  %73 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %74 = select i1 %71, ptr %72, ptr %73
   %75 = call i32 @unlink(ptr noundef %74) #14
   br label %79
@@ -274,14 +274,14 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_107VirtMem16allocDualMappingEPNS
   %96 = phi i1 [ true, %11 ], [ %94, %92 ]
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %5) #14
   store i32 -1, ptr %5, align 8, !tbaa !8
-  %97 = getelementptr inbounds i8, ptr %5, i64 4
-  %98 = getelementptr inbounds i8, ptr %5, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %98 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %97, i8 0, i64 20, i1 false)
   store i8 32, ptr %98, align 8, !tbaa !14
-  %99 = getelementptr inbounds i8, ptr %5, i64 24
+  %99 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 135, ptr %99, align 8, !tbaa !14
-  %100 = getelementptr inbounds i8, ptr %5, i64 40
-  %101 = getelementptr inbounds i8, ptr %5, i64 32
+  %100 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %101 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %100, ptr %101, align 8, !tbaa !14
   store i8 0, ptr %100, align 8, !tbaa !14
   %102 = call noundef i32 @_ZN6asmjit9_abi_1_107VirtMem15AnonymousMemory4openEb(ptr noundef nonnull align 8 dereferenceable(176) %5, i1 noundef zeroext %96) #14
@@ -353,7 +353,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_107VirtMem16allocDualMappingEPNS
   %142 = load i8, ptr %98, align 8, !tbaa !14
   %143 = icmp ugt i8 %142, 30
   %144 = load ptr, ptr %101, align 8
-  %145 = getelementptr inbounds i8, ptr %5, i64 9
+  %145 = getelementptr inbounds nuw i8, ptr %5, i64 9
   %146 = select i1 %143, ptr %144, ptr %145
   %147 = invoke i32 @shm_unlink(ptr noundef %146)
           to label %158 unwind label %155
@@ -362,7 +362,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_107VirtMem16allocDualMappingEPNS
   %149 = load i8, ptr %98, align 8, !tbaa !14
   %150 = icmp ugt i8 %149, 30
   %151 = load ptr, ptr %101, align 8
-  %152 = getelementptr inbounds i8, ptr %5, i64 9
+  %152 = getelementptr inbounds nuw i8, ptr %5, i64 9
   %153 = select i1 %150, ptr %151, ptr %152
   %154 = call i32 @unlink(ptr noundef %153) #14
   br label %158
@@ -434,9 +434,9 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_107VirtMem15AnonymousM
 16:                                               ; preds = %13, %2
   %17 = ptrtoint ptr %0 to i64
   %18 = and i64 %17, 1431655760
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
-  %21 = getelementptr inbounds i8, ptr %0, i64 9
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 9
   br i1 %1, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %16, %52
@@ -516,7 +516,7 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_107VirtMem15AnonymousM
           to label %80 unwind label %.split5
 
 .split7.us:                                       ; preds = %46
-  %79 = getelementptr inbounds i8, ptr %0, i64 4
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 2, ptr %79, align 4, !tbaa !18
   br label %.loopexit
 
@@ -526,7 +526,7 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_107VirtMem15AnonymousM
   br i1 %81, label %82, label %84, !prof !7
 
 82:                                               ; preds = %80
-  %83 = getelementptr inbounds i8, ptr %0, i64 4
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 1, ptr %83, align 4, !tbaa !18
   br label %.loopexit
 
@@ -601,7 +601,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN6asmjit9_abi_1_107VirtMem18rele
 7:                                                ; preds = %6, %2
   %8 = phi i32 [ 2, %6 ], [ 0, %2 ]
   %9 = load ptr, ptr %0, align 8, !tbaa !19
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !21
   %12 = icmp eq ptr %9, %11
   br i1 %12, label %20, label %13

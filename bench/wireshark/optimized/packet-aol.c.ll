@@ -240,7 +240,7 @@ define internal range(i32 6, 65542) i32 @get_aol_pdu_len(ptr nocapture readnone 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_aol_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca ptr, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.77) #2
   %8 = load ptr, ptr %6, align 8
@@ -411,7 +411,7 @@ define internal i32 @dissect_aol_pdu(ptr noundef %0, ptr noundef %1, ptr noundef
 
 143:                                              ; preds = %142
   %144 = load i32, ptr @hf_aol_token, align 4
-  %145 = getelementptr inbounds i8, ptr %1, i64 408
+  %145 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %146 = load ptr, ptr %145, align 8
   %147 = call ptr @proto_tree_add_item_ret_string(ptr noundef %12, i32 noundef %144, ptr noundef %0, i32 noundef %37, i32 noundef 2, i32 noundef 0, ptr noundef %146, ptr noundef nonnull %5) #2
   %148 = load ptr, ptr %6, align 8

@@ -37,7 +37,7 @@ define dso_local range(i32 -1, 2) i32 @Curl_parsenetrc(ptr noundef %0, ptr nocap
   %14 = load ptr, ptr %7, align 8
   %15 = icmp eq ptr %14, null
   %or.cond.not38 = select i1 %13, i1 true, i1 %15
-  %16 = getelementptr inbounds i8, ptr %6, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %17 = load ptr, ptr %16, align 8
   %.not26 = icmp eq ptr %17, null
   %or.cond35 = select i1 %or.cond.not38, i1 true, i1 %.not26
@@ -160,7 +160,7 @@ define internal fastcc range(i32 -1, 2) i32 @parsenetrc(ptr noundef %0, ptr noca
   ]
 
 .critedge5:                                       ; preds = %20, %20
-  %22 = getelementptr inbounds i8, ptr %.1110, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %.1110, i64 1
   br label %20, !llvm.loop !5
 
 .preheader:                                       ; preds = %20, %26
@@ -177,12 +177,12 @@ define internal fastcc range(i32 -1, 2) i32 @parsenetrc(ptr noundef %0, ptr noca
   br i1 %spec.select, label %26, label %.critedge187
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %.0105, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.0105, i64 1
   %.pr = load i8, ptr %27, align 1
   br label %.preheader, !llvm.loop !7
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %.1110, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %.1110, i64 1
   %30 = load i8, ptr %29, align 1
   %.not163.not290302 = icmp eq i8 %30, 0
   br i1 %.not163.not290302, label %.thread, label %.lr.ph
@@ -229,7 +229,7 @@ define internal fastcc range(i32 -1, 2) i32 @parsenetrc(ptr noundef %0, ptr noca
   ]
 
 40:                                               ; preds = %39
-  %41 = getelementptr inbounds i8, ptr %.2107291, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %.2107291, i64 1
   %42 = load i8, ptr %41, align 1
   %.not163.not = icmp eq i8 %42, 0
   br i1 %.not163.not, label %.thread, label %32, !llvm.loop !8
@@ -237,15 +237,15 @@ define internal fastcc range(i32 -1, 2) i32 @parsenetrc(ptr noundef %0, ptr noca
 .outer:                                           ; preds = %39, %35, %36, %37, %38
   %.1 = phi i8 [ 0, %35 ], [ 0, %38 ], [ 0, %37 ], [ 0, %36 ], [ %.0102292, %39 ]
   %.0 = phi i8 [ %33, %35 ], [ 9, %38 ], [ 13, %37 ], [ 10, %36 ], [ %33, %39 ]
-  %43 = getelementptr inbounds i8, ptr %.0100.ph305, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %.0100.ph305, i64 1
   store i8 %.0, ptr %.0100.ph305, align 1
-  %44 = getelementptr inbounds i8, ptr %.2107291, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %.2107291, i64 1
   %45 = load i8, ptr %44, align 1
   %.not163.not290 = icmp eq i8 %45, 0
   br i1 %.not163.not290, label %.thread, label %.lr.ph, !llvm.loop !8
 
 46:                                               ; preds = %39
-  %47 = getelementptr inbounds i8, ptr %.2107291, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %.2107291, i64 1
   br label %.critedge187
 
 .critedge187:                                     ; preds = %24, %.preheader, %.preheader, %46
@@ -406,7 +406,7 @@ default.unreachable443:                           ; preds = %54
   %.2120 = phi i32 [ %.1119, %55 ], [ %.1119, %57 ], [ %.1119, %59 ], [ %.1119, %61 ], [ %.1119, %62 ], [ %.1119, %76 ], [ %.1119, %70 ], [ %68, %66 ], [ %.1119, %82 ], [ 0, %80 ], [ %.1119, %88 ], [ %.1119, %91 ], [ %.1119, %93 ], [ %spec.select194, %95 ]
   %.3114 = phi ptr [ %.1112, %55 ], [ %.1112, %57 ], [ %.1112, %59 ], [ %.1112, %61 ], [ %.1112, %62 ], [ %78, %76 ], [ %.1112, %70 ], [ %.1112, %66 ], [ %.1112, %82 ], [ %.1112, %80 ], [ %.1112, %88 ], [ %.1112, %91 ], [ %.1112, %93 ], [ %.1112, %95 ]
   %.4 = phi i32 [ %.2, %55 ], [ %.2, %57 ], [ %spec.select189, %59 ], [ %.2, %61 ], [ %.2., %62 ], [ %.2, %76 ], [ %.2, %70 ], [ %.2, %66 ], [ %.2, %82 ], [ %.2, %80 ], [ %.2, %88 ], [ %.2, %91 ], [ %.2, %93 ], [ %.2, %95 ]
-  %98 = getelementptr inbounds i8, ptr %.1106, i64 1
+  %98 = getelementptr inbounds nuw i8, ptr %.1106, i64 1
   br label %19, !llvm.loop !9
 
 .critedge.split:                                  ; preds = %.outer212.split, %52

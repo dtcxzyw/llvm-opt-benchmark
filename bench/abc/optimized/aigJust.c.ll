@@ -73,14 +73,14 @@ define range(i32 0, 2) i32 @Aig_NtkFindSatAssign_rec(ptr nocapture noundef reado
   %27 = zext i1 %.not69 to i32
   %28 = shl nsw i32 %.val74, 1
   %29 = or disjoint i32 %28, %27
-  %30 = getelementptr inbounds i8, ptr %3, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = load i32, ptr %3, align 8
   %33 = icmp eq i32 %31, %32
   br i1 %33, label %34, label %.Vec_IntGrow.exit10_crit_edge.i
 
 .Vec_IntGrow.exit10_crit_edge.i:                  ; preds = %26
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %Vec_IntPush.exit
 
@@ -89,7 +89,7 @@ define range(i32 0, 2) i32 @Aig_NtkFindSatAssign_rec(ptr nocapture noundef reado
   br i1 %35, label %36, label %44
 
 36:                                               ; preds = %34
-  %37 = getelementptr inbounds i8, ptr %3, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %38 = load ptr, ptr %37, align 8
   %.not9.i.i = icmp eq ptr %38, null
   br i1 %.not9.i.i, label %41, label %39
@@ -110,7 +110,7 @@ Vec_IntGrow.exit.i:                               ; preds = %41, %39
 
 44:                                               ; preds = %34
   %45 = shl nuw nsw i32 %31, 1
-  %46 = getelementptr inbounds i8, ptr %3, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %47 = load ptr, ptr %46, align 8
   %.not9.i9.i = icmp eq ptr %47, null
   %48 = zext nneg i32 %45 to i64
@@ -186,7 +186,7 @@ tailrecurse.backedge:                             ; preds = %71, %89, %109
   br i1 %.not.i, label %83, label %.thread106
 
 83:                                               ; preds = %81
-  %84 = getelementptr inbounds i8, ptr %65, i64 24
+  %84 = getelementptr inbounds nuw i8, ptr %65, i64 24
   %85 = load i64, ptr %84, align 8
   %86 = trunc i64 %85 to i32
   %87 = lshr i32 %86, 4
@@ -208,7 +208,7 @@ tailrecurse.backedge:                             ; preds = %71, %89, %109
   br i1 %.not.i94, label %.thread, label %tailrecurse.backedge
 
 .thread:                                          ; preds = %89
-  %97 = getelementptr inbounds i8, ptr %93, i64 24
+  %97 = getelementptr inbounds nuw i8, ptr %93, i64 24
   %98 = load i64, ptr %97, align 8
   %99 = trunc i64 %98 to i32
   %100 = lshr i32 %99, 4
@@ -230,7 +230,7 @@ tailrecurse.backedge:                             ; preds = %71, %89, %109
   br i1 %.not.i94110, label %109, label %.thread105
 
 109:                                              ; preds = %.thread106
-  %110 = getelementptr inbounds i8, ptr %105, i64 24
+  %110 = getelementptr inbounds nuw i8, ptr %105, i64 24
   %111 = load i64, ptr %110, align 8
   %112 = trunc i64 %111 to i32
   %113 = lshr i32 %112, 4
@@ -267,7 +267,7 @@ define range(i32 0, 2) i32 @Aig_ObjFindSatAssign(ptr noundef %0, ptr nocapture n
 .preheader:                                       ; preds = %tailrecurse, %4
   %.tr19.lcssa = phi ptr [ %1, %4 ], [ %11, %tailrecurse ]
   %.tr20.lcssa = phi i32 [ %2, %4 ], [ %14, %tailrecurse ]
-  %7 = getelementptr inbounds i8, ptr %3, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 4
   br label %19
 
 tailrecurse:                                      ; preds = %4, %tailrecurse
@@ -422,7 +422,7 @@ define range(i32 0, 4) i32 @Aig_ObjTerSimulate(ptr noundef %0, ptr nocapture nou
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %.val14 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds i32, ptr %.val14, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i32, ptr %.val14, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4
   %12 = ashr i32 %11, 1
   %.val15 = load ptr, ptr %7, align 8
@@ -431,7 +431,7 @@ define range(i32 0, 4) i32 @Aig_ObjTerSimulate(ptr noundef %0, ptr nocapture nou
   %14 = sext i32 %12 to i64
   %15 = getelementptr inbounds ptr, ptr %.val15.val, i64 %14
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load i64, ptr %17, align 8
   %19 = shl i32 %11, 4
   %20 = and i32 %19, 16
@@ -441,7 +441,7 @@ define range(i32 0, 4) i32 @Aig_ObjTerSimulate(ptr noundef %0, ptr nocapture nou
   %24 = or disjoint i64 %22, %23
   store i64 %24, ptr %17, align 8
   %.val = load i32, ptr %8, align 8
-  %25 = getelementptr inbounds i8, ptr %16, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store i32 %.val, ptr %25, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val13 = load i32, ptr %4, align 4
@@ -466,7 +466,7 @@ define void @Aig_ManJustExperiment(ptr noundef %0) local_unnamed_addr #0 {
 6:                                                ; preds = %1
   %7 = load i64, ptr %3, align 8
   %.neg86 = mul i64 %7, -1000000
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load i64, ptr %8, align 8
   %.neg = sdiv i64 %9, -1000
   %.neg87 = add i64 %.neg, %.neg86
@@ -476,11 +476,11 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   %.0.i.neg = phi i64 [ %.neg87, %6 ], [ 1, %1 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %10 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #12
-  %11 = getelementptr inbounds i8, ptr %10, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 0, ptr %11, align 4
   store i32 100, ptr %10, align 8
   %12 = call noalias dereferenceable_or_null(400) ptr @malloc(i64 noundef 400) #12
-  %13 = getelementptr inbounds i8, ptr %10, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %12, ptr %13, align 8
   %14 = call ptr @Aig_ManPackStart(ptr noundef %0) #13
   %15 = call ptr @Aig_ManPackConstNodes(ptr noundef %14) #13
@@ -502,7 +502,7 @@ Aig_ManObj.exit:                                  ; preds = %Aig_ManObj.exit.lr.
   %.04694 = phi i32 [ 0, %Aig_ManObj.exit.lr.ph ], [ %.147, %66 ]
   %.04893 = phi i32 [ 0, %Aig_ManObj.exit.lr.ph ], [ %.149, %66 ]
   %.val55 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i32, ptr %.val55, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i32, ptr %.val55, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4
   %.val56 = load ptr, ptr %19, align 8, !nonnull !7, !noundef !7
   %22 = getelementptr i8, ptr %.val56, i64 8
@@ -510,7 +510,7 @@ Aig_ManObj.exit:                                  ; preds = %Aig_ManObj.exit.lr.
   %23 = sext i32 %21 to i64
   %24 = getelementptr inbounds ptr, ptr %.val.i, i64 %23
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load i64, ptr %26, align 8
   %28 = and i64 %27, 8
   %.not = icmp eq i64 %28, 0
@@ -666,7 +666,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge, %71
 82:                                               ; preds = %Vec_IntFree.exit
   %83 = load i64, ptr %2, align 8
   %84 = mul nsw i64 %83, 1000000
-  %85 = getelementptr inbounds i8, ptr %2, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %86 = load i64, ptr %85, align 8
   %87 = sdiv i64 %86, 1000
   %88 = add nsw i64 %87, %84
@@ -682,7 +682,7 @@ Abc_Clock.exit79:                                 ; preds = %Vec_IntFree.exit, %
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.3, double noundef %91)
   call void @Aig_ManCleanMarkAB(ptr noundef nonnull %0) #13
   call void @Aig_ManPackStop(ptr noundef %14) #13
-  %92 = getelementptr inbounds i8, ptr %15, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %93 = load ptr, ptr %92, align 8
   %.not.i80 = icmp eq ptr %93, null
   br i1 %.not.i80, label %Vec_IntFree.exit81, label %94

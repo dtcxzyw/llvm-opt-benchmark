@@ -415,26 +415,26 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
   %5 = alloca [2 x i8], align 2
   %6 = alloca %struct.DISASMED, align 8
   %7 = alloca [128 x i8], align 16
-  %8 = getelementptr inbounds i8, ptr %2, i64 35
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 35
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(29) %8, i8 0, i64 29, i1 false)
-  %9 = getelementptr inbounds i8, ptr %6, i64 4
-  %10 = getelementptr inbounds i8, ptr %6, i64 20
-  %11 = getelementptr inbounds i8, ptr %6, i64 56
-  %12 = getelementptr inbounds i8, ptr %6, i64 12
-  %13 = getelementptr inbounds i8, ptr %6, i64 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 60
-  %15 = getelementptr inbounds i8, ptr %6, i64 72
-  %16 = getelementptr inbounds i8, ptr %6, i64 76
-  %17 = getelementptr inbounds i8, ptr %6, i64 84
-  %18 = getelementptr inbounds i8, ptr %6, i64 24
-  %19 = getelementptr inbounds i8, ptr %6, i64 28
-  %20 = getelementptr inbounds i8, ptr %6, i64 40
-  %21 = getelementptr inbounds i8, ptr %6, i64 44
-  %22 = getelementptr inbounds i8, ptr %6, i64 52
-  %23 = getelementptr inbounds i8, ptr %6, i64 2
-  %24 = getelementptr inbounds i8, ptr %6, i64 32
-  %25 = getelementptr inbounds i8, ptr %6, i64 48
-  %26 = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 60
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 76
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 84
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 44
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 52
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %6, i8 0, i64 120, i1 false)
   br label %.backedge.i
 
@@ -481,10 +481,10 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
   %50 = load i8, ptr %.0509.i, align 1
   %51 = zext i8 %50 to i16
   store i16 %51, ptr %6, align 8
-  %52 = getelementptr inbounds i8, ptr %.0509.i, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %.0509.i, i64 1
   %53 = zext nneg i32 %.0539.i to i64
   %54 = zext i8 %50 to i64
-  %55 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %53, i64 %54, i32 4
+  %55 = getelementptr inbounds nuw [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %53, i64 %54, i32 4
   %56 = load i32, ptr %55, align 4
   %57 = trunc i32 %56 to i16
   store i16 %57, ptr %23, align 2
@@ -509,7 +509,7 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
   br label %.backedge.i.backedge
 
 61:                                               ; preds = %49
-  %62 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %53, i64 %54
+  %62 = getelementptr inbounds nuw [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %53, i64 %54
   %63 = load i32, ptr %62, align 4
   %64 = add i32 %63, -8
   %or.cond629.i = icmp ult i32 %64, 6
@@ -521,7 +521,7 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
 
 66:                                               ; preds = %61
   %67 = zext nneg i32 %63 to i64
-  %68 = getelementptr inbounds [14 x i8], ptr getelementptr inbounds (i8, ptr @regmap, i64 28), i64 0, i64 %67
+  %68 = getelementptr inbounds nuw [14 x i8], ptr getelementptr inbounds (i8, ptr @regmap, i64 28), i64 0, i64 %67
   %69 = load i8, ptr %68, align 1
   %70 = zext i8 %69 to i32
   store i32 %70, ptr %26, align 8
@@ -548,7 +548,7 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
 
 79:                                               ; preds = %77
   %80 = load i8, ptr %.0509.i, align 1
-  %81 = getelementptr inbounds i8, ptr %.0509.i, i64 1
+  %81 = getelementptr inbounds nuw i8, ptr %.0509.i, i64 1
   %82 = icmp ugt i8 %80, -65
   br i1 %82, label %83, label %109
 
@@ -556,7 +556,7 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
   %84 = and i8 %80, 63
   %85 = zext nneg i32 %74 to i64
   %86 = zext nneg i8 %84 to i64
-  %87 = getelementptr inbounds [8 x [64 x %struct.anon.0]], ptr @x87_st, i64 0, i64 %85, i64 %86
+  %87 = getelementptr inbounds nuw [8 x [64 x %struct.anon.0]], ptr @x87_st, i64 0, i64 %85, i64 %86
   %88 = load i32, ptr %87, align 8
   %89 = trunc i32 %88 to i16
   store i16 %89, ptr %23, align 2
@@ -565,7 +565,7 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
   br i1 %91, label %.loopexit, label %92
 
 92:                                               ; preds = %83
-  %93 = getelementptr inbounds i8, ptr %87, i64 4
+  %93 = getelementptr inbounds nuw i8, ptr %87, i64 4
   %94 = load i32, ptr %93, align 4
   switch i32 %94, label %107 [
     i32 2, label %95
@@ -581,21 +581,21 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
   %.1524.i = phi i32 [ %.0523.i, %92 ], [ 1, %95 ]
   %97 = xor i32 %.1524.i, 1
   %98 = zext nneg i32 %97 to i64
-  %99 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %18, i64 0, i64 %98
+  %99 = getelementptr inbounds nuw [3 x %struct.DIS_ARGS], ptr %18, i64 0, i64 %98
   store i32 3, ptr %99, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
   store i32 46, ptr %100, align 8
   br label %101
 
 101:                                              ; preds = %96, %92
   %.2525.i = phi i32 [ %.0523.i, %92 ], [ %.1524.i, %96 ]
   %102 = zext nneg i32 %.2525.i to i64
-  %103 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %18, i64 0, i64 %102
+  %103 = getelementptr inbounds nuw [3 x %struct.DIS_ARGS], ptr %18, i64 0, i64 %102
   store i32 3, ptr %103, align 8
   %104 = and i8 %80, 7
   %narrow.i = add nuw nsw i8 %104, 46
   %105 = zext nneg i8 %narrow.i to i32
-  %106 = getelementptr inbounds i8, ptr %103, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %103, i64 8
   store i32 %105, ptr %106, align 8
   br label %108
 
@@ -615,7 +615,7 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
   %113 = and i8 %80, 7
   %114 = zext nneg i32 %74 to i64
   %115 = zext nneg i8 %112 to i64
-  %116 = getelementptr inbounds [8 x [8 x %struct.anon.1]], ptr @x87_mrm, i64 0, i64 %114, i64 %115
+  %116 = getelementptr inbounds nuw [8 x [8 x %struct.anon.1]], ptr @x87_mrm, i64 0, i64 %114, i64 %115
   %117 = load i32, ptr %116, align 8
   %118 = trunc i32 %117 to i16
   store i16 %118, ptr %23, align 2
@@ -624,7 +624,7 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
   br i1 %120, label %.loopexit, label %121
 
 121:                                              ; preds = %109
-  %122 = getelementptr inbounds i8, ptr %116, i64 4
+  %122 = getelementptr inbounds nuw i8, ptr %116, i64 4
   %123 = load i32, ptr %122, align 4
   store i32 %123, ptr %19, align 4
   store i32 4, ptr %18, align 8
@@ -642,7 +642,7 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
 
 128:                                              ; preds = %126
   %129 = load i8, ptr %81, align 1
-  %130 = getelementptr inbounds i8, ptr %.0509.i, i64 2
+  %130 = getelementptr inbounds nuw i8, ptr %.0509.i, i64 2
   %131 = lshr i8 %129, 6
   %132 = lshr i8 %129, 3
   %133 = and i8 %132, 7
@@ -650,7 +650,7 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
   %135 = shl nuw nsw i8 1, %131
   store i8 %135, ptr %25, align 8
   %136 = zext nneg i8 %134 to i64
-  %137 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds (i8, ptr @mrm_regmap, i64 16), i64 0, i64 %136
+  %137 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds (i8, ptr @mrm_regmap, i64 16), i64 0, i64 %136
   %138 = load i8, ptr %137, align 1
   %139 = zext i8 %138 to i32
   %140 = icmp eq i8 %138, 5
@@ -660,7 +660,7 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
   %spec.select630.i = select i1 %or.cond.i, i8 2, i8 %110
   store i32 %spec.select.i, ptr %21, align 4
   %142 = zext nneg i8 %133 to i64
-  %143 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds (i8, ptr @mrm_regmap, i64 16), i64 0, i64 %142
+  %143 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds (i8, ptr @mrm_regmap, i64 16), i64 0, i64 %142
   %144 = load i8, ptr %143, align 1
   %145 = zext i8 %144 to i32
   store i32 %145, ptr %20, align 8
@@ -682,7 +682,7 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
 152:                                              ; preds = %150
   store i8 1, ptr %25, align 8
   %153 = zext nneg i8 %113 to i64
-  %154 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds (i8, ptr @mrm_regmap, i64 16), i64 0, i64 %153
+  %154 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds (i8, ptr @mrm_regmap, i64 16), i64 0, i64 %153
   %155 = load i8, ptr %154, align 1
   %156 = zext i8 %155 to i32
   br label %157
@@ -725,7 +725,7 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
 162:                                              ; preds = %.lr.ph764.i
   %163 = add i32 %.2512761.i, -1
   %164 = load i8, ptr %.2762.i, align 1
-  %165 = getelementptr inbounds i8, ptr %.2762.i, i64 1
+  %165 = getelementptr inbounds nuw i8, ptr %.2762.i, i64 1
   %166 = zext i8 %164 to i32
   %167 = shl nuw nsw i32 %.0528760.i, 3
   %168 = shl nuw i32 %166, %167
@@ -747,10 +747,10 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
 173:                                              ; preds = %171
   store i8 1, ptr %25, align 8
   %174 = zext nneg i8 %113 to i64
-  %175 = getelementptr inbounds [8 x %struct.anon.2], ptr @mrm_regmapw, i64 0, i64 %174
+  %175 = getelementptr inbounds nuw [8 x %struct.anon.2], ptr @mrm_regmapw, i64 0, i64 %174
   %176 = load i32, ptr %175, align 8
   store i32 %176, ptr %20, align 8
-  %177 = getelementptr inbounds i8, ptr %175, i64 4
+  %177 = getelementptr inbounds nuw i8, ptr %175, i64 4
   %178 = load i32, ptr %177, align 4
   store i32 %178, ptr %21, align 4
   %179 = zext nneg i8 %110 to i32
@@ -773,7 +773,7 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
 181:                                              ; preds = %.lr.ph757.i
   %182 = add i32 %.4514754.i, -1
   %183 = load i8, ptr %.4755.i, align 1
-  %184 = getelementptr inbounds i8, ptr %.4755.i, i64 1
+  %184 = getelementptr inbounds nuw i8, ptr %.4755.i, i64 1
   %185 = zext i8 %183 to i32
   %186 = shl nuw nsw i32 %.1529753.i, 3
   %187 = shl nuw nsw i32 %185, %186
@@ -792,7 +792,7 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
 190:                                              ; preds = %.backedge.i
   %191 = zext nneg i32 %.0539.i to i64
   %192 = zext nneg i16 %39 to i64
-  %193 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %191, i64 %192
+  %193 = getelementptr inbounds nuw [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %191, i64 %192
   %194 = load i32, ptr %193, align 4
   switch i32 %194, label %501 [
     i32 12, label %195
@@ -827,7 +827,7 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
   ]
 
 195:                                              ; preds = %190, %190, %190, %190, %190, %190
-  %196 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %191, i64 %192, i32 1
+  %196 = getelementptr inbounds nuw [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %191, i64 %192, i32 1
   %197 = load i32, ptr %196, align 4
   %198 = icmp eq i32 %197, 2
   br i1 %198, label %200, label %199
@@ -837,7 +837,7 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
   unreachable
 
 200:                                              ; preds = %195, %190, %190, %190, %190
-  %201 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %191, i64 %192, i32 1
+  %201 = getelementptr inbounds nuw [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %191, i64 %192, i32 1
   %202 = load i32, ptr %201, align 4
   %switch.i = icmp ult i32 %202, 2
   br i1 %switch.i, label %203, label %204
@@ -847,7 +847,7 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
   unreachable
 
 204:                                              ; preds = %200, %190, %190, %190, %190
-  %205 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %191, i64 %192, i32 1
+  %205 = getelementptr inbounds nuw [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %191, i64 %192, i32 1
   %206 = load i32, ptr %205, align 4
   %207 = icmp ult i32 %206, 6
   br i1 %207, label %209, label %208
@@ -877,7 +877,7 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
   %220 = phi i32 [ %211, %210 ], [ %206, %209 ]
   %221 = zext nneg i32 %220 to i64
   %222 = zext nneg i32 %194 to i64
-  %223 = getelementptr inbounds [4 x [14 x i8]], ptr @regmap, i64 0, i64 %221, i64 %222
+  %223 = getelementptr inbounds nuw [4 x [14 x i8]], ptr @regmap, i64 0, i64 %221, i64 %222
   %224 = load i8, ptr %223, align 1
   %225 = zext i8 %224 to i32
   store i32 %225, ptr %24, align 8
@@ -885,7 +885,7 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
   br label %.backedge.i.backedge
 
 226:                                              ; preds = %190
-  %227 = getelementptr inbounds i8, ptr %193, i64 4
+  %227 = getelementptr inbounds nuw i8, ptr %193, i64 4
   %228 = load i32, ptr %227, align 4
   switch i32 %228, label %229 [
     i32 7, label %234
@@ -920,7 +920,7 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
 244:                                              ; preds = %190, %190
   %245 = add nsw i32 %194, -26
   store i32 %245, ptr %18, align 8
-  %246 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %191, i64 %192, i32 1
+  %246 = getelementptr inbounds nuw [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %191, i64 %192, i32 1
   %247 = load i32, ptr %246, align 4
   %248 = icmp ult i32 %247, 7
   br i1 %248, label %250, label %249
@@ -932,7 +932,7 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
 250:                                              ; preds = %244
   %251 = zext nneg i32 %247 to i64
   %252 = zext nneg i32 %33 to i64
-  %253 = getelementptr inbounds [8 x [2 x i8]], ptr @sizemap, i64 0, i64 %251, i64 %252
+  %253 = getelementptr inbounds nuw [8 x [2 x i8]], ptr @sizemap, i64 0, i64 %251, i64 %252
   %254 = load i8, ptr %253, align 1
   %255 = zext i8 %254 to i32
   %.not615.i = icmp eq i8 %254, -1
@@ -968,7 +968,7 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
 260:                                              ; preds = %.lr.ph749.i
   %261 = add i32 %.5515746.i, -1
   %262 = load i8, ptr %.5747.i, align 1
-  %263 = getelementptr inbounds i8, ptr %.5747.i, i64 1
+  %263 = getelementptr inbounds nuw i8, ptr %.5747.i, i64 1
   %264 = zext i8 %262 to i64
   %265 = shl nuw nsw i64 %indvars.iv.i, 3
   %266 = shl i64 %264, %265
@@ -1002,7 +1002,7 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
 
 277:                                              ; preds = %275
   %278 = load i8, ptr %.0509.i, align 1
-  %279 = getelementptr inbounds i8, ptr %.0509.i, i64 1
+  %279 = getelementptr inbounds nuw i8, ptr %.0509.i, i64 1
   %280 = lshr i8 %278, 6
   %281 = lshr i8 %278, 3
   %282 = and i8 %281, 7
@@ -1029,10 +1029,10 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
   %.0546.i = phi i8 [ %280, %286 ], [ %280, %285 ], [ 3, %284 ], [ 3, %277 ], [ 3, %277 ]
   %.0536.i = phi ptr [ @mrm_regmap, %286 ], [ @mrm_sregmap, %285 ], [ @mrm_dregmap, %284 ], [ @mrm_cregmap, %277 ], [ @mrm_cregmap, %277 ]
   %288 = zext nneg i32 %.4527.i to i64
-  %289 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %18, i64 0, i64 %288
-  %290 = getelementptr inbounds i8, ptr %289, i64 4
+  %289 = getelementptr inbounds nuw [3 x %struct.DIS_ARGS], ptr %18, i64 0, i64 %288
+  %290 = getelementptr inbounds nuw i8, ptr %289, i64 4
   store i32 0, ptr %290, align 4
-  %291 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %191, i64 %192, i32 1
+  %291 = getelementptr inbounds nuw [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %191, i64 %192, i32 1
   %292 = load i32, ptr %291, align 4
   switch i32 %292, label %297 [
     i32 3, label %.sink.split971.i
@@ -1070,14 +1070,14 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
   %303 = phi i32 [ %42, %287 ], [ %.ph975.i, %.sink.split971.i ]
   %304 = xor i32 %.4527.i, 1
   %305 = zext nneg i32 %304 to i64
-  %306 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %18, i64 0, i64 %305
+  %306 = getelementptr inbounds nuw [3 x %struct.DIS_ARGS], ptr %18, i64 0, i64 %305
   store i32 3, ptr %306, align 8
   %307 = zext nneg i32 %299 to i64
   %308 = zext nneg i8 %282 to i64
-  %309 = getelementptr inbounds [8 x i8], ptr %.0536.i, i64 %307, i64 %308
+  %309 = getelementptr inbounds nuw [8 x i8], ptr %.0536.i, i64 %307, i64 %308
   %310 = load i8, ptr %309, align 1
   %311 = zext i8 %310 to i32
-  %312 = getelementptr inbounds i8, ptr %306, i64 8
+  %312 = getelementptr inbounds nuw i8, ptr %306, i64 8
   store i32 %311, ptr %312, align 8
   %313 = icmp eq i8 %310, 54
   br i1 %313, label %.loopexit, label %314
@@ -1108,10 +1108,10 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
   store i32 3, ptr %289, align 8
   %323 = zext nneg i32 %319 to i64
   %324 = zext nneg i8 %283 to i64
-  %325 = getelementptr inbounds [3 x [8 x i8]], ptr @mrm_regmap, i64 0, i64 %323, i64 %324
+  %325 = getelementptr inbounds nuw [3 x [8 x i8]], ptr @mrm_regmap, i64 0, i64 %323, i64 %324
   %326 = load i8, ptr %325, align 1
   %327 = zext i8 %326 to i32
-  %328 = getelementptr inbounds i8, ptr %289, i64 8
+  %328 = getelementptr inbounds nuw i8, ptr %289, i64 8
   store i32 %327, ptr %328, align 8
   %329 = icmp eq i32 %194, 21
   br i1 %329, label %330, label %348
@@ -1127,8 +1127,8 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
 
 333:                                              ; preds = %330
   %334 = zext nneg i16 %.mask614.i to i64
-  %335 = getelementptr inbounds [27 x [8 x %struct.anon.3]], ptr @extra_1a, i64 0, i64 %334, i64 %308
-  %336 = getelementptr inbounds i8, ptr %335, i64 4
+  %335 = getelementptr inbounds nuw [27 x [8 x %struct.anon.3]], ptr @extra_1a, i64 0, i64 %334, i64 %308
+  %336 = getelementptr inbounds nuw i8, ptr %335, i64 4
   %337 = load i32, ptr %336, align 4
   %338 = load i32, ptr %19, align 4
   %339 = add i32 %338, %337
@@ -1179,20 +1179,20 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
 
 359:                                              ; preds = %357
   %360 = load i8, ptr %279, align 1
-  %361 = getelementptr inbounds i8, ptr %.0509.i, i64 2
+  %361 = getelementptr inbounds nuw i8, ptr %.0509.i, i64 2
   %362 = lshr i8 %360, 6
   %363 = lshr i8 %360, 3
   %364 = and i8 %363, 7
   %365 = and i8 %360, 7
   %366 = shl nuw nsw i8 1, %362
-  %367 = getelementptr inbounds i8, ptr %289, i64 16
-  %368 = getelementptr inbounds i8, ptr %289, i64 24
+  %367 = getelementptr inbounds nuw i8, ptr %289, i64 16
+  %368 = getelementptr inbounds nuw i8, ptr %289, i64 24
   store i8 %366, ptr %368, align 8
   %369 = zext nneg i8 %365 to i64
-  %370 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds (i8, ptr @mrm_regmap, i64 16), i64 0, i64 %369
+  %370 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds (i8, ptr @mrm_regmap, i64 16), i64 0, i64 %369
   %371 = load i8, ptr %370, align 1
   %372 = zext i8 %371 to i32
-  %373 = getelementptr inbounds i8, ptr %289, i64 20
+  %373 = getelementptr inbounds nuw i8, ptr %289, i64 20
   %374 = icmp eq i8 %371, 5
   %375 = icmp eq i8 %.0546.i, 0
   %or.cond14.i = select i1 %374, i1 %375, i1 false
@@ -1200,7 +1200,7 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
   %spec.select633.i = select i1 %or.cond14.i, i8 2, i8 %.0546.i
   store i32 %spec.select632.i, ptr %373, align 4
   %376 = zext nneg i8 %364 to i64
-  %377 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds (i8, ptr @mrm_regmap, i64 16), i64 0, i64 %376
+  %377 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds (i8, ptr @mrm_regmap, i64 16), i64 0, i64 %376
   %378 = load i8, ptr %377, align 1
   %379 = zext i8 %378 to i32
   store i32 %379, ptr %367, align 8
@@ -1222,10 +1222,10 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
   br i1 %or.cond17.i, label %393, label %387
 
 387:                                              ; preds = %384
-  %388 = getelementptr inbounds i8, ptr %289, i64 24
+  %388 = getelementptr inbounds nuw i8, ptr %289, i64 24
   store i8 1, ptr %388, align 8
   %389 = zext nneg i8 %283 to i64
-  %390 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds (i8, ptr @mrm_regmap, i64 16), i64 0, i64 %389
+  %390 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds (i8, ptr @mrm_regmap, i64 16), i64 0, i64 %389
   %391 = load i8, ptr %390, align 1
   %392 = zext i8 %391 to i32
   br label %393
@@ -1233,9 +1233,9 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
 393:                                              ; preds = %387, %384
   %.sink.i = phi i32 [ %392, %387 ], [ 54, %384 ]
   %.3549.i = phi i8 [ %.0546.i, %387 ], [ 2, %384 ]
-  %394 = getelementptr inbounds i8, ptr %289, i64 16
+  %394 = getelementptr inbounds nuw i8, ptr %289, i64 16
   store i32 %.sink.i, ptr %394, align 8
-  %395 = getelementptr inbounds i8, ptr %289, i64 20
+  %395 = getelementptr inbounds nuw i8, ptr %289, i64 20
   store i32 54, ptr %395, align 4
   br label %396
 
@@ -1263,7 +1263,7 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
   %.3531735.i = phi i32 [ %408, %.lr.ph739.i ], [ 0, %.lr.ph739.preheader.split.i ]
   %.0537734.i = phi i64 [ %407, %.lr.ph739.i ], [ 0, %.lr.ph739.preheader.split.i ]
   %401 = load i8, ptr %.7737.i, align 1
-  %402 = getelementptr inbounds i8, ptr %.7737.i, i64 1
+  %402 = getelementptr inbounds nuw i8, ptr %.7737.i, i64 1
   %403 = zext i8 %401 to i32
   %404 = shl nuw nsw i32 %.3531735.i, 3
   %405 = shl nuw i32 %403, %404
@@ -1292,22 +1292,22 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
   br i1 %or.cond20.i, label %.thread865.i, label %420
 
 .thread865.i:                                     ; preds = %416
-  %419 = getelementptr inbounds i8, ptr %289, i64 16
+  %419 = getelementptr inbounds nuw i8, ptr %289, i64 16
   store i32 54, ptr %419, align 8
   br label %.lr.ph729.preheader.i
 
 420:                                              ; preds = %416
-  %421 = getelementptr inbounds i8, ptr %289, i64 24
+  %421 = getelementptr inbounds nuw i8, ptr %289, i64 24
   store i8 1, ptr %421, align 8
   %422 = zext nneg i8 %283 to i64
-  %423 = getelementptr inbounds [8 x %struct.anon.2], ptr @mrm_regmapw, i64 0, i64 %422
+  %423 = getelementptr inbounds nuw [8 x %struct.anon.2], ptr @mrm_regmapw, i64 0, i64 %422
   %424 = load i32, ptr %423, align 8
-  %425 = getelementptr inbounds i8, ptr %423, i64 4
+  %425 = getelementptr inbounds nuw i8, ptr %423, i64 4
   %426 = load i32, ptr %425, align 4
-  %427 = getelementptr inbounds i8, ptr %289, i64 20
+  %427 = getelementptr inbounds nuw i8, ptr %289, i64 20
   store i32 %426, ptr %427, align 4
   %428 = zext nneg i8 %.0546.i to i32
-  %429 = getelementptr inbounds i8, ptr %289, i64 16
+  %429 = getelementptr inbounds nuw i8, ptr %289, i64 16
   store i32 %424, ptr %429, align 8
   br i1 %417, label %._crit_edge730.i, label %.lr.ph729.preheader.i
 
@@ -1326,7 +1326,7 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
   %.4532725.i = phi i32 [ %439, %.lr.ph729.i ], [ 0, %.lr.ph729.preheader.split.i ]
   %.1538724.i = phi i64 [ %438, %.lr.ph729.i ], [ 0, %.lr.ph729.preheader.split.i ]
   %432 = load i8, ptr %.9727.i, align 1
-  %433 = getelementptr inbounds i8, ptr %.9727.i, i64 1
+  %433 = getelementptr inbounds nuw i8, ptr %.9727.i, i64 1
   %434 = zext i8 %432 to i32
   %435 = shl nuw nsw i32 %.4532725.i, 3
   %436 = shl nuw nsw i32 %434, %435
@@ -1359,7 +1359,7 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
   %.sink977.i = phi i32 [ %415, %._crit_edge740.i ], [ %446, %._crit_edge730.i ], [ 0, %396 ]
   %.8518.i = phi i32 [ %400, %._crit_edge740.i ], [ %.9519.lcssa.i, %._crit_edge730.i ], [ %.6516.i, %396 ]
   %.8.i = phi ptr [ %scevgep845.i, %._crit_edge740.i ], [ %.9.lcssa.i, %._crit_edge730.i ], [ %.6.i, %396 ]
-  %447 = getelementptr inbounds i8, ptr %289, i64 28
+  %447 = getelementptr inbounds nuw i8, ptr %289, i64 28
   store i32 %.sink977.i, ptr %447, align 4
   %.off636.i = add i32 %194, -21
   %switch637.i = icmp ult i32 %.off636.i, 2
@@ -1376,8 +1376,8 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
 
 451:                                              ; preds = %448
   %452 = zext nneg i16 %.mask.i to i64
-  %453 = getelementptr inbounds [27 x [8 x %struct.anon.3]], ptr @extra_1a, i64 0, i64 %452, i64 %308
-  %454 = getelementptr inbounds i8, ptr %453, i64 4
+  %453 = getelementptr inbounds nuw [27 x [8 x %struct.anon.3]], ptr @extra_1a, i64 0, i64 %452, i64 %308
+  %454 = getelementptr inbounds nuw i8, ptr %453, i64 4
   %455 = load i32, ptr %454, align 4
   %456 = load i32, ptr %19, align 4
   %457 = add i32 %456, %455
@@ -1414,7 +1414,7 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
 
 472:                                              ; preds = %190
   store i32 4, ptr %18, align 8
-  %473 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %191, i64 %192, i32 1
+  %473 = getelementptr inbounds nuw [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %191, i64 %192, i32 1
   %474 = load i32, ptr %473, align 4
   switch i32 %474, label %475 [
     i32 0, label %476
@@ -1427,7 +1427,7 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
 
 476:                                              ; preds = %472, %472
   %477 = zext nneg i32 %38 to i64
-  %478 = getelementptr inbounds [2 x i8], ptr getelementptr inbounds (i8, ptr @sizemap, i64 10), i64 0, i64 %477
+  %478 = getelementptr inbounds nuw [2 x i8], ptr getelementptr inbounds (i8, ptr @sizemap, i64 10), i64 0, i64 %477
   %479 = load i8, ptr %478, align 1
   %480 = zext i8 %479 to i32
   %.not605.i = icmp eq i8 %479, -1
@@ -1440,7 +1440,7 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
 482:                                              ; preds = %476
   %483 = zext nneg i32 %474 to i64
   %484 = zext nneg i32 %37 to i64
-  %485 = getelementptr inbounds [8 x [2 x i8]], ptr @sizemap, i64 0, i64 %483, i64 %484
+  %485 = getelementptr inbounds nuw [8 x [2 x i8]], ptr @sizemap, i64 0, i64 %483, i64 %484
   %486 = load i8, ptr %485, align 1
   %.not606.i = icmp eq i8 %486, -1
   br i1 %.not606.i, label %487, label %488
@@ -1473,7 +1473,7 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
 492:                                              ; preds = %.lr.ph720.i
   %493 = add i32 %.10520717.i, -1
   %494 = load i8, ptr %.10718.i, align 1
-  %495 = getelementptr inbounds i8, ptr %.10718.i, i64 1
+  %495 = getelementptr inbounds nuw i8, ptr %.10718.i, i64 1
   %496 = zext i8 %494 to i32
   %497 = shl nuw nsw i32 %.5533716.i, 3
   %498 = shl i32 %496, %497
@@ -1498,7 +1498,7 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
   store i8 %503, ptr %10, align 4
   %504 = zext nneg i32 %.0539.i to i64
   %505 = zext nneg i16 %44 to i64
-  %506 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %504, i64 %505, i32 2
+  %506 = getelementptr inbounds nuw [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %504, i64 %505, i32 2
   %507 = load i32, ptr %506, align 4
   switch i32 %507, label %592 [
     i32 30, label %508
@@ -1516,9 +1516,9 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
 
 509:                                              ; preds = %502
   %510 = zext i8 %503 to i64
-  %511 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %18, i64 0, i64 %510
+  %511 = getelementptr inbounds nuw [3 x %struct.DIS_ARGS], ptr %18, i64 0, i64 %510
   store i32 1, ptr %511, align 8
-  %512 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %504, i64 %505, i32 3
+  %512 = getelementptr inbounds nuw [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %504, i64 %505, i32 3
   %513 = load i32, ptr %512, align 4
   switch i32 %513, label %514 [
     i32 5, label %515
@@ -1532,17 +1532,17 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
 515:                                              ; preds = %509, %509
   %516 = zext nneg i32 %513 to i64
   %517 = zext nneg i32 %40 to i64
-  %518 = getelementptr inbounds [8 x [2 x i8]], ptr @sizemap, i64 0, i64 %516, i64 %517
+  %518 = getelementptr inbounds nuw [8 x [2 x i8]], ptr @sizemap, i64 0, i64 %516, i64 %517
   %519 = load i8, ptr %518, align 1
   %520 = zext i8 %519 to i32
   %521 = lshr i32 %520, 1
   %.idx596.i = shl nuw nsw i64 %510, 5
   %.offs597.i = or disjoint i64 %.idx596.i, 4
-  %522 = getelementptr inbounds i8, ptr %18, i64 %.offs597.i
+  %522 = getelementptr inbounds nuw i8, ptr %18, i64 %.offs597.i
   store i32 %521, ptr %522, align 4
   %.not768.i = icmp eq i8 %519, 0
   %.pre854.i = or disjoint i64 %.idx596.i, 16
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %18, i64 %.pre854.i
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %18, i64 %.pre854.i
   br i1 %.not768.i, label %.._crit_edge713.i_crit_edge, label %.lr.ph712.i
 
 .._crit_edge713.i_crit_edge:                      ; preds = %515
@@ -1559,7 +1559,7 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
 523:                                              ; preds = %.lr.ph712.i
   %524 = add i32 %.11521709.i, -1
   %525 = load i8, ptr %.11710.i, align 1
-  %526 = getelementptr inbounds i8, ptr %.11710.i, i64 1
+  %526 = getelementptr inbounds nuw i8, ptr %.11710.i, i64 1
   %527 = zext i8 %525 to i32
   %528 = shl nuw nsw i32 %.6534708.i, 3
   %529 = shl i32 %527, %528
@@ -1577,7 +1577,7 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
   %.11.lcssa.i = phi ptr [ %.0509.i, %.._crit_edge713.i_crit_edge ], [ %526, %523 ]
   %535 = shl nuw nsw i32 %520, 3
   %536 = sub nsw i32 64, %535
-  %537 = getelementptr inbounds i8, ptr %18, i64 %.pre854.i
+  %537 = getelementptr inbounds nuw i8, ptr %18, i64 %.pre854.i
   %538 = zext i32 %536 to i64
   %539 = shl i64 %534, %538
   %540 = ashr exact i64 %539, %538
@@ -1586,7 +1586,7 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
   br label %.backedge.i.backedge
 
 541:                                              ; preds = %502, %502, %502
-  %542 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %504, i64 %505, i32 3
+  %542 = getelementptr inbounds nuw [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %504, i64 %505, i32 3
   %543 = load i32, ptr %542, align 4
   %544 = icmp ult i32 %543, 6
   br i1 %544, label %546, label %545
@@ -1597,7 +1597,7 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
 
 546:                                              ; preds = %541
   %547 = zext i8 %503 to i64
-  %548 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %18, i64 0, i64 %547
+  %548 = getelementptr inbounds nuw [3 x %struct.DIS_ARGS], ptr %18, i64 0, i64 %547
   store i32 3, ptr %548, align 8
   %.not592.i = icmp eq i32 %543, 5
   %.not593.i = icmp eq i32 %41, 0
@@ -1606,33 +1606,33 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
   %551 = select i1 %.not592.i, i32 %549, i32 %543
   %552 = zext nneg i32 %551 to i64
   %553 = zext nneg i32 %507 to i64
-  %554 = getelementptr inbounds [4 x [14 x i8]], ptr @regmap, i64 0, i64 %552, i64 %553
+  %554 = getelementptr inbounds nuw [4 x [14 x i8]], ptr @regmap, i64 0, i64 %552, i64 %553
   %555 = load i8, ptr %554, align 1
   %556 = zext i8 %555 to i32
   %.idx594.i = shl nuw nsw i64 %547, 5
   %.offs595.i = or disjoint i64 %.idx594.i, 8
-  %557 = getelementptr inbounds i8, ptr %18, i64 %.offs595.i
+  %557 = getelementptr inbounds nuw i8, ptr %18, i64 %.offs595.i
   store i32 %556, ptr %557, align 8
   store i32 4, ptr %9, align 4
   br label %.backedge.i.backedge
 
 558:                                              ; preds = %502
   %559 = zext i8 %503 to i64
-  %560 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %18, i64 0, i64 %559
+  %560 = getelementptr inbounds nuw [3 x %struct.DIS_ARGS], ptr %18, i64 0, i64 %559
   store i32 1, ptr %560, align 8
   %.idx.i = shl nuw nsw i64 %559, 5
   %.offs.i = or disjoint i64 %.idx.i, 4
-  %561 = getelementptr inbounds i8, ptr %18, i64 %.offs.i
+  %561 = getelementptr inbounds nuw i8, ptr %18, i64 %.offs.i
   store i32 1, ptr %561, align 4
   %.offs591.i = or disjoint i64 %.idx.i, 16
-  %562 = getelementptr inbounds i8, ptr %18, i64 %.offs591.i
+  %562 = getelementptr inbounds nuw i8, ptr %18, i64 %.offs591.i
   store i64 1, ptr %562, align 8
   store i32 4, ptr %9, align 4
   br label %.backedge.i.backedge
 
 563:                                              ; preds = %502
   store i32 4, ptr %11, align 8
-  %564 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %504, i64 %505, i32 3
+  %564 = getelementptr inbounds nuw [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %504, i64 %505, i32 3
   %565 = load i32, ptr %564, align 4
   switch i32 %565, label %566 [
     i32 0, label %567
@@ -1645,7 +1645,7 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
 
 567:                                              ; preds = %563, %563
   %568 = zext nneg i32 %43 to i64
-  %569 = getelementptr inbounds [2 x i8], ptr getelementptr inbounds (i8, ptr @sizemap, i64 10), i64 0, i64 %568
+  %569 = getelementptr inbounds nuw [2 x i8], ptr getelementptr inbounds (i8, ptr @sizemap, i64 10), i64 0, i64 %568
   %570 = load i8, ptr %569, align 1
   %571 = zext i8 %570 to i32
   %.not.i = icmp eq i8 %570, -1
@@ -1658,7 +1658,7 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
 573:                                              ; preds = %567
   %574 = zext nneg i32 %565 to i64
   %575 = zext nneg i32 %42 to i64
-  %576 = getelementptr inbounds [8 x [2 x i8]], ptr @sizemap, i64 0, i64 %574, i64 %575
+  %576 = getelementptr inbounds nuw [8 x [2 x i8]], ptr @sizemap, i64 0, i64 %574, i64 %575
   %577 = load i8, ptr %576, align 1
   %.not588.i = icmp eq i8 %577, -1
   br i1 %.not588.i, label %578, label %579
@@ -1691,7 +1691,7 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
 583:                                              ; preds = %.lr.ph.i
   %584 = add i32 %.12522705.i, -1
   %585 = load i8, ptr %.12706.i, align 1
-  %586 = getelementptr inbounds i8, ptr %.12706.i, i64 1
+  %586 = getelementptr inbounds nuw i8, ptr %.12706.i, i64 1
   %587 = zext i8 %585 to i32
   %588 = shl nuw nsw i32 %.7535704.i, 3
   %589 = shl i32 %587, %588
@@ -1756,7 +1756,7 @@ default.unreachable.i:                            ; preds = %.backedge.i
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5)
   store i16 0, ptr %5, align 2
   %597 = zext i16 %28 to i64
-  %598 = getelementptr inbounds [287 x ptr], ptr @mnemonic, i64 0, i64 %597
+  %598 = getelementptr inbounds nuw [287 x ptr], ptr @mnemonic, i64 0, i64 %597
   %599 = load ptr, ptr %598, align 8
   %600 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %599) #10
   %601 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #11
@@ -1766,7 +1766,7 @@ default.unreachable.i:                            ; preds = %.backedge.i
 603:                                              ; preds = %698, %596
   %indvars.iv.i45 = phi i64 [ 0, %596 ], [ %indvars.iv.next.i46, %698 ]
   %.06980.i = phi ptr [ %602, %596 ], [ %.170.i, %698 ]
-  %604 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %18, i64 0, i64 %indvars.iv.i45
+  %604 = getelementptr inbounds nuw [3 x %struct.DIS_ARGS], ptr %18, i64 0, i64 %indvars.iv.i45
   %605 = load i32, ptr %604, align 8
   switch i32 %605, label %698 [
     i32 4, label %629
@@ -1776,7 +1776,7 @@ default.unreachable.i:                            ; preds = %.backedge.i
   ]
 
 606:                                              ; preds = %603, %603
-  %607 = getelementptr inbounds i8, ptr %604, i64 16
+  %607 = getelementptr inbounds nuw i8, ptr %604, i64 16
   %608 = load i64, ptr %607, align 8
   %609 = icmp sgt i64 %608, -1
   br i1 %609, label %610, label %614
@@ -1796,10 +1796,10 @@ default.unreachable.i:                            ; preds = %.backedge.i
   br label %698
 
 620:                                              ; preds = %603
-  %621 = getelementptr inbounds i8, ptr %604, i64 8
+  %621 = getelementptr inbounds nuw i8, ptr %604, i64 8
   %622 = load i32, ptr %621, align 8
   %623 = zext i32 %622 to i64
-  %624 = getelementptr inbounds [55 x ptr], ptr @x86regs, i64 0, i64 %623
+  %624 = getelementptr inbounds nuw [55 x ptr], ptr @x86regs, i64 0, i64 %623
   %625 = load ptr, ptr %624, align 8
   %626 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.06980.i, ptr noundef nonnull dereferenceable(1) @.str.26, ptr noundef nonnull %5, ptr noundef %625) #10
   %627 = sext i32 %626 to i64
@@ -1807,10 +1807,10 @@ default.unreachable.i:                            ; preds = %.backedge.i
   br label %698
 
 629:                                              ; preds = %603
-  %630 = getelementptr inbounds i8, ptr %604, i64 4
+  %630 = getelementptr inbounds nuw i8, ptr %604, i64 4
   %631 = load i32, ptr %630, align 4
   %632 = zext i32 %631 to i64
-  %633 = getelementptr inbounds [7 x ptr], ptr @dis_size, i64 0, i64 %632
+  %633 = getelementptr inbounds nuw [7 x ptr], ptr @dis_size, i64 0, i64 %632
   %634 = load ptr, ptr %633, align 8
   %635 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.06980.i, ptr noundef nonnull dereferenceable(1) @.str.28, ptr noundef nonnull %5, ptr noundef %634) #10
   %636 = sext i32 %635 to i64
@@ -1821,7 +1821,7 @@ default.unreachable.i:                            ; preds = %.backedge.i
 
 639:                                              ; preds = %629
   %640 = zext i32 %638 to i64
-  %641 = getelementptr inbounds [55 x ptr], ptr @x86regs, i64 0, i64 %640
+  %641 = getelementptr inbounds nuw [55 x ptr], ptr @x86regs, i64 0, i64 %640
   %642 = load ptr, ptr %641, align 8
   %643 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %637, ptr noundef nonnull dereferenceable(1) @.str.29, ptr noundef %642) #10
   %644 = sext i32 %643 to i64
@@ -1830,16 +1830,16 @@ default.unreachable.i:                            ; preds = %.backedge.i
 
 646:                                              ; preds = %639, %629
   %.2.i = phi ptr [ %645, %639 ], [ %637, %629 ]
-  %647 = getelementptr inbounds i8, ptr %.2.i, i64 1
+  %647 = getelementptr inbounds nuw i8, ptr %.2.i, i64 1
   store i8 91, ptr %.2.i, align 1
   store i8 0, ptr %647, align 1
-  %648 = getelementptr inbounds i8, ptr %604, i64 16
+  %648 = getelementptr inbounds nuw i8, ptr %604, i64 16
   %649 = load i32, ptr %648, align 8
   %.not77.i = icmp eq i32 %649, 54
   br i1 %.not77.i, label %670, label %650
 
 650:                                              ; preds = %646
-  %651 = getelementptr inbounds i8, ptr %604, i64 24
+  %651 = getelementptr inbounds nuw i8, ptr %604, i64 24
   %652 = load i8, ptr %651, align 8
   switch i8 %652, label %662 [
     i8 1, label %653
@@ -1848,7 +1848,7 @@ default.unreachable.i:                            ; preds = %.backedge.i
 
 653:                                              ; preds = %650
   %654 = zext i32 %649 to i64
-  %655 = getelementptr inbounds [55 x ptr], ptr @x86regs, i64 0, i64 %654
+  %655 = getelementptr inbounds nuw [55 x ptr], ptr @x86regs, i64 0, i64 %654
   %656 = load ptr, ptr %655, align 8
   %stpcpy.i = call ptr @stpcpy(ptr nonnull %647, ptr %656)
   %657 = ptrtoint ptr %stpcpy.i to i64
@@ -1862,7 +1862,7 @@ default.unreachable.i:                            ; preds = %.backedge.i
 662:                                              ; preds = %650
   %663 = zext i8 %652 to i32
   %664 = zext i32 %649 to i64
-  %665 = getelementptr inbounds [55 x ptr], ptr @x86regs, i64 0, i64 %664
+  %665 = getelementptr inbounds nuw [55 x ptr], ptr @x86regs, i64 0, i64 %664
   %666 = load ptr, ptr %665, align 8
   %667 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %647, ptr noundef nonnull dereferenceable(1) @.str.32, ptr noundef %666, i32 noundef %663) #10
   %668 = sext i32 %667 to i64
@@ -1872,14 +1872,14 @@ default.unreachable.i:                            ; preds = %.backedge.i
 670:                                              ; preds = %662, %653, %650, %646
   %.3.i49 = phi ptr [ %669, %662 ], [ %647, %650 ], [ %661, %653 ], [ %647, %646 ]
   %.0.i50 = phi ptr [ @.str.31, %662 ], [ @.str.27, %650 ], [ @.str.31, %653 ], [ @.str.27, %646 ]
-  %671 = getelementptr inbounds i8, ptr %604, i64 20
+  %671 = getelementptr inbounds nuw i8, ptr %604, i64 20
   %672 = load i32, ptr %671, align 4
   %.not78.i = icmp eq i32 %672, 54
   br i1 %.not78.i, label %680, label %673
 
 673:                                              ; preds = %670
   %674 = zext i32 %672 to i64
-  %675 = getelementptr inbounds [55 x ptr], ptr @x86regs, i64 0, i64 %674
+  %675 = getelementptr inbounds nuw [55 x ptr], ptr @x86regs, i64 0, i64 %674
   %676 = load ptr, ptr %675, align 8
   %677 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.3.i49, ptr noundef nonnull dereferenceable(1) @.str.33, ptr noundef nonnull %.0.i50, ptr noundef %676) #10
   %678 = sext i32 %677 to i64
@@ -1889,7 +1889,7 @@ default.unreachable.i:                            ; preds = %.backedge.i
 680:                                              ; preds = %673, %670
   %.4.i = phi ptr [ %679, %673 ], [ %.3.i49, %670 ]
   %.1.i51 = phi ptr [ @.str.31, %673 ], [ %.0.i50, %670 ]
-  %681 = getelementptr inbounds i8, ptr %604, i64 28
+  %681 = getelementptr inbounds nuw i8, ptr %604, i64 28
   %682 = load i32, ptr %681, align 4
   %.not79.i = icmp eq i32 %682, 0
   br i1 %.not79.i, label %696, label %683
@@ -1916,7 +1916,7 @@ default.unreachable.i:                            ; preds = %.backedge.i
 
 696:                                              ; preds = %692, %687, %680
   %.5.i = phi ptr [ %691, %687 ], [ %695, %692 ], [ %.4.i, %680 ]
-  %697 = getelementptr inbounds i8, ptr %.5.i, i64 1
+  %697 = getelementptr inbounds nuw i8, ptr %.5.i, i64 1
   store i8 93, ptr %.5.i, align 1
   store i8 0, ptr %697, align 1
   br label %698
@@ -1944,28 +1944,28 @@ spam_x86.exit:                                    ; preds = %698
   %703 = phi i16 [ %.pre, %spam_x86.exit ], [ %28, %595 ]
   store i16 %703, ptr %2, align 2
   %704 = trunc i32 %702 to i8
-  %705 = getelementptr inbounds i8, ptr %2, i64 2
+  %705 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store i8 %704, ptr %705, align 2
   %706 = trunc i32 %701 to i8
-  %707 = getelementptr inbounds i8, ptr %2, i64 3
+  %707 = getelementptr inbounds nuw i8, ptr %2, i64 3
   store i8 %706, ptr %707, align 1
   %708 = trunc i32 %700 to i8
-  %709 = getelementptr inbounds i8, ptr %2, i64 4
+  %709 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i8 %708, ptr %709, align 2
-  %710 = getelementptr inbounds i8, ptr %2, i64 5
+  %710 = getelementptr inbounds nuw i8, ptr %2, i64 5
   br label %711
 
 711:                                              ; preds = %699, %746
   %indvars.iv = phi i64 [ 0, %699 ], [ %indvars.iv.next, %746 ]
-  %712 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %18, i64 0, i64 %indvars.iv
+  %712 = getelementptr inbounds nuw [3 x %struct.DIS_ARGS], ptr %18, i64 0, i64 %indvars.iv
   %713 = load i32, ptr %712, align 8
   %714 = trunc i32 %713 to i8
-  %715 = getelementptr inbounds [3 x [10 x i8]], ptr %710, i64 0, i64 %indvars.iv
+  %715 = getelementptr inbounds nuw [3 x [10 x i8]], ptr %710, i64 0, i64 %indvars.iv
   store i8 %714, ptr %715, align 1
-  %716 = getelementptr inbounds i8, ptr %712, i64 4
+  %716 = getelementptr inbounds nuw i8, ptr %712, i64 4
   %717 = load i32, ptr %716, align 4
   %718 = trunc i32 %717 to i8
-  %719 = getelementptr inbounds i8, ptr %715, i64 1
+  %719 = getelementptr inbounds nuw i8, ptr %715, i64 1
   store i8 %718, ptr %719, align 1
   switch i32 %713, label %739 [
     i32 4, label %720
@@ -1973,38 +1973,38 @@ spam_x86.exit:                                    ; preds = %698
   ]
 
 720:                                              ; preds = %711
-  %721 = getelementptr inbounds i8, ptr %712, i64 16
+  %721 = getelementptr inbounds nuw i8, ptr %712, i64 16
   %722 = load i32, ptr %721, align 8
   %723 = trunc i32 %722 to i8
-  %724 = getelementptr inbounds i8, ptr %715, i64 2
+  %724 = getelementptr inbounds nuw i8, ptr %715, i64 2
   store i8 %723, ptr %724, align 1
-  %725 = getelementptr inbounds i8, ptr %712, i64 20
+  %725 = getelementptr inbounds nuw i8, ptr %712, i64 20
   %726 = load i32, ptr %725, align 4
   %727 = trunc i32 %726 to i8
-  %728 = getelementptr inbounds i8, ptr %715, i64 3
+  %728 = getelementptr inbounds nuw i8, ptr %715, i64 3
   store i8 %727, ptr %728, align 1
-  %729 = getelementptr inbounds i8, ptr %712, i64 24
+  %729 = getelementptr inbounds nuw i8, ptr %712, i64 24
   %730 = load i8, ptr %729, align 8
-  %731 = getelementptr inbounds i8, ptr %715, i64 4
+  %731 = getelementptr inbounds nuw i8, ptr %715, i64 4
   store i8 %730, ptr %731, align 1
-  %732 = getelementptr inbounds i8, ptr %715, i64 5
+  %732 = getelementptr inbounds nuw i8, ptr %715, i64 5
   store i8 0, ptr %732, align 1
-  %733 = getelementptr inbounds i8, ptr %712, i64 28
+  %733 = getelementptr inbounds nuw i8, ptr %712, i64 28
   %734 = load i32, ptr %733, align 4
   br label %746
 
 735:                                              ; preds = %711
-  %736 = getelementptr inbounds i8, ptr %712, i64 8
+  %736 = getelementptr inbounds nuw i8, ptr %712, i64 8
   %737 = load i32, ptr %736, align 8
   %738 = trunc i32 %737 to i8
   store i8 %738, ptr %719, align 1
   br label %739
 
 739:                                              ; preds = %735, %711
-  %740 = getelementptr inbounds i8, ptr %712, i64 16
+  %740 = getelementptr inbounds nuw i8, ptr %712, i64 16
   %741 = load i64, ptr %740, align 8
   %742 = trunc i64 %741 to i32
-  %743 = getelementptr inbounds i8, ptr %715, i64 2
+  %743 = getelementptr inbounds nuw i8, ptr %715, i64 2
   store i32 %742, ptr %743, align 1
   %744 = lshr i64 %741, 32
   %745 = trunc nuw i64 %744 to i32
@@ -2012,7 +2012,7 @@ spam_x86.exit:                                    ; preds = %698
 
 746:                                              ; preds = %720, %739
   %.sink = phi i32 [ %734, %720 ], [ %745, %739 ]
-  %747 = getelementptr inbounds i8, ptr %715, i64 6
+  %747 = getelementptr inbounds nuw i8, ptr %715, i64 6
   store i32 %.sink, ptr %747, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -2031,7 +2031,7 @@ declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @disasmbuf(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.DISASM_RESULT, align 2
-  %5 = getelementptr inbounds i8, ptr %4, i64 35
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(29) %5, i8 0, i64 29, i1 false)
   %.not19 = icmp eq i32 %1, 0
   br i1 %.not19, label %.critedge, label %.lr.ph.preheader

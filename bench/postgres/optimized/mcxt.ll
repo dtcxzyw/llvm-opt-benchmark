@@ -61,7 +61,7 @@ define dso_local void @MemoryContextInit() local_unnamed_addr #0 {
   store ptr %1, ptr @CurrentMemoryContext, align 8
   %2 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %1, ptr noundef nonnull @.str.1, i64 noundef 8192, i64 noundef 8192, i64 noundef 8192) #16
   store ptr %2, ptr @ErrorContext, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 5
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 5
   store i8 1, ptr %3, align 1
   ret void
 }
@@ -71,14 +71,14 @@ declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @MemoryContextAllowInCriticalSection(ptr nocapture noundef writeonly initializes((5, 6)) %0, i1 noundef zeroext %1) local_unnamed_addr #2 {
   %3 = zext i1 %1 to i8
-  %4 = getelementptr inbounds i8, ptr %0, i64 5
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 5
   store i8 %3, ptr %4, align 1
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @MemoryContextReset(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -88,24 +88,24 @@ define dso_local void @MemoryContextReset(ptr noundef %0) local_unnamed_addr #0 
   br label %5
 
 5:                                                ; preds = %4, %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i8, ptr %6, align 4
   %8 = trunc i8 %7 to i1
   br i1 %8, label %23, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load ptr, ptr %10, align 8
   %.not5.i.i = icmp eq ptr %11, null
   br i1 %.not5.i.i, label %MemoryContextResetOnly.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %9, %.lr.ph.i.i
   %12 = phi ptr [ %18, %.lr.ph.i.i ], [ %11, %9 ]
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr %10, align 8
   %15 = load ptr, ptr %12, align 8
-  %16 = getelementptr inbounds i8, ptr %12, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %17 = load ptr, ptr %16, align 8
   tail call void %15(ptr noundef %17) #16
   %18 = load ptr, ptr %10, align 8
@@ -113,9 +113,9 @@ define dso_local void @MemoryContextReset(ptr noundef %0) local_unnamed_addr #0 
   br i1 %.not.i.i, label %MemoryContextResetOnly.exit, label %.lr.ph.i.i, !llvm.loop !5
 
 MemoryContextResetOnly.exit:                      ; preds = %.lr.ph.i.i, %9
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef nonnull %0) #16
   store i8 1, ptr %6, align 4
@@ -127,14 +127,14 @@ MemoryContextResetOnly.exit:                      ; preds = %.lr.ph.i.i, %9
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @MemoryContextDeleteChildren(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not4 = icmp eq ptr %3, null
   br i1 %.not4, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %MemoryContextSetParent.exit
   %4 = phi ptr [ %39, %MemoryContextSetParent.exit ], [ %3, %1 ]
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %MemoryContextDelete.exit, label %7
@@ -144,18 +144,18 @@ define dso_local void @MemoryContextDeleteChildren(ptr nocapture noundef readonl
   br label %MemoryContextDelete.exit
 
 MemoryContextDelete.exit:                         ; preds = %.lr.ph, %7
-  %8 = getelementptr inbounds i8, ptr %4, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %9 = load ptr, ptr %8, align 8
   %.not5.i = icmp eq ptr %9, null
   br i1 %.not5.i, label %MemoryContextCallResetCallbacks.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %MemoryContextDelete.exit, %.lr.ph.i
   %10 = phi ptr [ %16, %.lr.ph.i ], [ %9, %MemoryContextDelete.exit ]
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8
   store ptr %12, ptr %8, align 8
   %13 = load ptr, ptr %10, align 8
-  %14 = getelementptr inbounds i8, ptr %10, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %15 = load ptr, ptr %14, align 8
   tail call void %13(ptr noundef %15) #16
   %16 = load ptr, ptr %8, align 8
@@ -163,26 +163,26 @@ MemoryContextDelete.exit:                         ; preds = %.lr.ph, %7
   br i1 %.not.i3, label %MemoryContextCallResetCallbacks.exit, label %.lr.ph.i, !llvm.loop !5
 
 MemoryContextCallResetCallbacks.exit:             ; preds = %.lr.ph.i, %MemoryContextDelete.exit
-  %17 = getelementptr inbounds i8, ptr %4, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %MemoryContextSetParent.exit, label %20
 
 20:                                               ; preds = %MemoryContextCallResetCallbacks.exit
-  %21 = getelementptr inbounds i8, ptr %4, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %22 = load ptr, ptr %21, align 8
   %.not30.i = icmp eq ptr %22, null
-  %23 = getelementptr inbounds i8, ptr %4, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %24 = load ptr, ptr %23, align 8
   br i1 %.not30.i, label %27, label %25
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %22, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 48
   store ptr %24, ptr %26, align 8
   br label %29
 
 27:                                               ; preds = %20
-  %28 = getelementptr inbounds i8, ptr %18, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %18, i64 32
   store ptr %24, ptr %28, align 8
   br label %29
 
@@ -192,7 +192,7 @@ MemoryContextCallResetCallbacks.exit:             ; preds = %.lr.ph.i, %MemoryCo
 
 30:                                               ; preds = %29
   %31 = load ptr, ptr %21, align 8
-  %32 = getelementptr inbounds i8, ptr %24, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %24, i64 40
   store ptr %31, ptr %32, align 8
   br label %33
 
@@ -202,11 +202,11 @@ MemoryContextCallResetCallbacks.exit:             ; preds = %.lr.ph.i, %MemoryCo
   br label %MemoryContextSetParent.exit
 
 MemoryContextSetParent.exit:                      ; preds = %MemoryContextCallResetCallbacks.exit, %33
-  %34 = getelementptr inbounds i8, ptr %4, i64 64
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store ptr null, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %4, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %38 = load ptr, ptr %37, align 8
   tail call void %38(ptr noundef nonnull %4) #16
   %39 = load ptr, ptr %2, align 8
@@ -219,24 +219,24 @@ MemoryContextSetParent.exit:                      ; preds = %MemoryContextCallRe
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @MemoryContextResetOnly(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i8, ptr %2, align 4
   %4 = trunc i8 %3 to i1
   br i1 %4, label %19, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load ptr, ptr %6, align 8
   %.not5.i = icmp eq ptr %7, null
   br i1 %.not5.i, label %MemoryContextCallResetCallbacks.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %5, %.lr.ph.i
   %8 = phi ptr [ %14, %.lr.ph.i ], [ %7, %5 ]
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %6, align 8
   %11 = load ptr, ptr %8, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void %11(ptr noundef %13) #16
   %14 = load ptr, ptr %6, align 8
@@ -244,9 +244,9 @@ define dso_local void @MemoryContextResetOnly(ptr noundef %0) local_unnamed_addr
   br i1 %.not.i, label %MemoryContextCallResetCallbacks.exit, label %.lr.ph.i, !llvm.loop !5
 
 MemoryContextCallResetCallbacks.exit:             ; preds = %.lr.ph.i, %5
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load ptr, ptr %17, align 8
   tail call void %18(ptr noundef nonnull %0) #16
   store i8 1, ptr %2, align 4
@@ -258,7 +258,7 @@ MemoryContextCallResetCallbacks.exit:             ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @MemoryContextResetChildren(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.05 = load ptr, ptr %2, align 8
   %.not6 = icmp eq ptr %.05, null
   br i1 %.not6, label %._crit_edge, label %.lr.ph
@@ -266,24 +266,24 @@ define dso_local void @MemoryContextResetChildren(ptr nocapture noundef readonly
 .lr.ph:                                           ; preds = %1, %MemoryContextResetOnly.exit
   %.07 = phi ptr [ %.0, %MemoryContextResetOnly.exit ], [ %.05, %1 ]
   tail call void @MemoryContextResetChildren(ptr noundef nonnull %.07)
-  %3 = getelementptr inbounds i8, ptr %.07, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %.07, i64 4
   %4 = load i8, ptr %3, align 4
   %5 = trunc i8 %4 to i1
   br i1 %5, label %MemoryContextResetOnly.exit, label %6
 
 6:                                                ; preds = %.lr.ph
-  %7 = getelementptr inbounds i8, ptr %.07, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %.07, i64 72
   %8 = load ptr, ptr %7, align 8
   %.not5.i.i = icmp eq ptr %8, null
   br i1 %.not5.i.i, label %MemoryContextCallResetCallbacks.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %6, %.lr.ph.i.i
   %9 = phi ptr [ %15, %.lr.ph.i.i ], [ %8, %6 ]
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %7, align 8
   %12 = load ptr, ptr %9, align 8
-  %13 = getelementptr inbounds i8, ptr %9, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %14 = load ptr, ptr %13, align 8
   tail call void %12(ptr noundef %14) #16
   %15 = load ptr, ptr %7, align 8
@@ -291,16 +291,16 @@ define dso_local void @MemoryContextResetChildren(ptr nocapture noundef readonly
   br i1 %.not.i.i, label %MemoryContextCallResetCallbacks.exit.i, label %.lr.ph.i.i, !llvm.loop !5
 
 MemoryContextCallResetCallbacks.exit.i:           ; preds = %.lr.ph.i.i, %6
-  %16 = getelementptr inbounds i8, ptr %.07, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load ptr, ptr %18, align 8
   tail call void %19(ptr noundef nonnull %.07) #16
   store i8 1, ptr %3, align 4
   br label %MemoryContextResetOnly.exit
 
 MemoryContextResetOnly.exit:                      ; preds = %.lr.ph, %MemoryContextCallResetCallbacks.exit.i
-  %20 = getelementptr inbounds i8, ptr %.07, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %.07, i64 48
   %.0 = load ptr, ptr %20, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
@@ -311,7 +311,7 @@ MemoryContextResetOnly.exit:                      ; preds = %.lr.ph, %MemoryCont
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @MemoryContextDelete(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -321,18 +321,18 @@ define dso_local void @MemoryContextDelete(ptr noundef %0) local_unnamed_addr #0
   br label %5
 
 5:                                                ; preds = %4, %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load ptr, ptr %6, align 8
   %.not5.i = icmp eq ptr %7, null
   br i1 %.not5.i, label %MemoryContextCallResetCallbacks.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %5, %.lr.ph.i
   %8 = phi ptr [ %14, %.lr.ph.i ], [ %7, %5 ]
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %6, align 8
   %11 = load ptr, ptr %8, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void %11(ptr noundef %13) #16
   %14 = load ptr, ptr %6, align 8
@@ -340,26 +340,26 @@ define dso_local void @MemoryContextDelete(ptr noundef %0) local_unnamed_addr #0
   br i1 %.not.i, label %MemoryContextCallResetCallbacks.exit, label %.lr.ph.i, !llvm.loop !5
 
 MemoryContextCallResetCallbacks.exit:             ; preds = %.lr.ph.i, %5
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %MemoryContextSetParent.exit, label %18
 
 18:                                               ; preds = %MemoryContextCallResetCallbacks.exit
-  %19 = getelementptr inbounds i8, ptr %0, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %20 = load ptr, ptr %19, align 8
   %.not30.i = icmp eq ptr %20, null
-  %21 = getelementptr inbounds i8, ptr %0, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %22 = load ptr, ptr %21, align 8
   br i1 %.not30.i, label %25, label %23
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds i8, ptr %20, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 48
   store ptr %22, ptr %24, align 8
   br label %27
 
 25:                                               ; preds = %18
-  %26 = getelementptr inbounds i8, ptr %16, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr %22, ptr %26, align 8
   br label %27
 
@@ -369,7 +369,7 @@ MemoryContextCallResetCallbacks.exit:             ; preds = %.lr.ph.i, %5
 
 28:                                               ; preds = %27
   %29 = load ptr, ptr %19, align 8
-  %30 = getelementptr inbounds i8, ptr %22, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %22, i64 40
   store ptr %29, ptr %30, align 8
   br label %31
 
@@ -379,11 +379,11 @@ MemoryContextCallResetCallbacks.exit:             ; preds = %.lr.ph.i, %5
   br label %MemoryContextSetParent.exit
 
 MemoryContextSetParent.exit:                      ; preds = %MemoryContextCallResetCallbacks.exit, %31
-  %32 = getelementptr inbounds i8, ptr %0, i64 64
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr null, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %36 = load ptr, ptr %35, align 8
   tail call void %36(ptr noundef nonnull %0) #16
   ret void
@@ -391,7 +391,7 @@ MemoryContextSetParent.exit:                      ; preds = %MemoryContextCallRe
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @MemoryContextSetParent(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %1, %4
   br i1 %5, label %30, label %6
@@ -401,20 +401,20 @@ define dso_local void @MemoryContextSetParent(ptr noundef %0, ptr noundef %1) lo
   br i1 %.not, label %20, label %7
 
 7:                                                ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
   %.not30 = icmp eq ptr %9, null
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load ptr, ptr %10, align 8
   br i1 %.not30, label %14, label %12
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %9, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store ptr %11, ptr %13, align 8
   br label %16
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %4, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %11, ptr %15, align 8
   br label %16
 
@@ -424,27 +424,27 @@ define dso_local void @MemoryContextSetParent(ptr noundef %0, ptr noundef %1) lo
 
 17:                                               ; preds = %16
   %18 = load ptr, ptr %8, align 8
-  %19 = getelementptr inbounds i8, ptr %11, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 40
   store ptr %18, ptr %19, align 8
   br label %20
 
 20:                                               ; preds = %16, %17, %6
   %.not32 = icmp eq ptr %1, null
-  %21 = getelementptr inbounds i8, ptr %0, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br i1 %.not32, label %29, label %22
 
 22:                                               ; preds = %20
   store ptr %1, ptr %3, align 8
   store ptr null, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %24, ptr %25, align 8
   %.not33 = icmp eq ptr %24, null
   br i1 %.not33, label %28, label %26
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %24, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 40
   store ptr %0, ptr %27, align 8
   br label %28
 
@@ -463,19 +463,19 @@ define dso_local void @MemoryContextSetParent(ptr noundef %0, ptr noundef %1) lo
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @MemoryContextRegisterResetCallback(ptr nocapture noundef initializes((4, 5)) %0, ptr noundef initializes((16, 24)) %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %4, ptr %5, align 8
   store ptr %1, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 0, ptr %6, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @MemoryContextSetIdentifier(ptr nocapture noundef writeonly initializes((64, 72)) %0, ptr noundef %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8
   ret void
 }
@@ -504,22 +504,22 @@ define dso_local i64 @GetMemoryChunkSpace(ptr noundef %0) local_unnamed_addr #0 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local ptr @MemoryContextGetParent(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @MemoryContextIsEmpty(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %10
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %8 = load ptr, ptr %7, align 8
   %9 = tail call zeroext i1 %8(ptr noundef nonnull %0) #16
   br label %10
@@ -531,12 +531,12 @@ define dso_local zeroext i1 @MemoryContextIsEmpty(ptr noundef %0) local_unnamed_
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define dso_local i64 @MemoryContextMemAllocated(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #6 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   br i1 %1, label %5, label %.loopexit
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.08 = load ptr, ptr %6, align 8
   %.not9 = icmp eq ptr %.08, null
   br i1 %.not9, label %.loopexit, label %.lr.ph
@@ -546,7 +546,7 @@ define dso_local i64 @MemoryContextMemAllocated(ptr nocapture noundef readonly %
   %.110 = phi i64 [ %8, %.lr.ph ], [ %4, %5 ]
   %7 = tail call i64 @MemoryContextMemAllocated(ptr noundef nonnull %.011, i1 noundef zeroext true)
   %8 = add i64 %7, %.110
-  %9 = getelementptr inbounds i8, ptr %.011, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %.011, i64 48
   %.0 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
@@ -571,14 +571,14 @@ define internal fastcc void @MemoryContextStatsInternal(ptr noundef %0, i32 noun
   %7 = alloca i32, align 4
   %8 = alloca %struct.MemoryContextCounters, align 8
   store i32 %1, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %12 = load ptr, ptr %11, align 8
   %13 = select i1 %2, ptr @MemoryContextStatsPrint, ptr null
   call void %12(ptr noundef %0, ptr noundef %13, ptr noundef nonnull %7, ptr noundef %4, i1 noundef zeroext %5) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false)
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.03439 = load ptr, ptr %14, align 8
   %.not40 = icmp eq ptr %.03439, null
   br i1 %.not40, label %._crit_edge, label %.lr.ph
@@ -600,7 +600,7 @@ define internal fastcc void @MemoryContextStatsInternal(ptr noundef %0, i32 noun
   br label %20
 
 20:                                               ; preds = %18, %19
-  %21 = getelementptr inbounds i8, ptr %.03442, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %.03442, i64 48
   %22 = add i32 %.03341, 1
   %.034 = load ptr, ptr %21, align 8
   %.not = icmp eq ptr %.034, null
@@ -634,12 +634,12 @@ define internal fastcc void @MemoryContextStatsInternal(ptr noundef %0, i32 noun
 ._crit_edge46:                                    ; preds = %.lr.ph45, %.preheader
   %31 = load ptr, ptr @stderr, align 8
   %32 = sub i32 %.033.lcssa, %3
-  %33 = getelementptr inbounds i8, ptr %8, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %34 = load i64, ptr %33, align 8
   %35 = load i64, ptr %8, align 8
-  %36 = getelementptr inbounds i8, ptr %8, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %37 = load i64, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %8, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %39 = load i64, ptr %38, align 8
   %40 = sub i64 %34, %37
   %41 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %31, ptr noundef nonnull @.str.15, i32 noundef %32, i64 noundef %34, i64 noundef %35, i64 noundef %37, i64 noundef %39, i64 noundef %40) #16
@@ -654,12 +654,12 @@ define internal fastcc void @MemoryContextStatsInternal(ptr noundef %0, i32 noun
   %46 = call i32 @errhidecontext(i1 noundef zeroext true) #16
   %47 = load i32, ptr %7, align 4
   %48 = sub i32 %.033.lcssa, %3
-  %49 = getelementptr inbounds i8, ptr %8, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %50 = load i64, ptr %49, align 8
   %51 = load i64, ptr %8, align 8
-  %52 = getelementptr inbounds i8, ptr %8, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %53 = load i64, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %8, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %55 = load i64, ptr %54, align 8
   %56 = sub i64 %50, %53
   %57 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.16, i32 noundef %47, i32 noundef %48, i64 noundef %50, i64 noundef %51, i64 noundef %53, i64 noundef %55, i64 noundef %56) #16
@@ -675,21 +675,21 @@ define internal fastcc void @MemoryContextStatsInternal(ptr noundef %0, i32 noun
   %61 = load i64, ptr %4, align 8
   %62 = add i64 %61, %60
   store i64 %62, ptr %4, align 8
-  %63 = getelementptr inbounds i8, ptr %8, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %64 = load i64, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %4, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %66 = load i64, ptr %65, align 8
   %67 = add i64 %66, %64
   store i64 %67, ptr %65, align 8
-  %68 = getelementptr inbounds i8, ptr %8, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %69 = load i64, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %4, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %71 = load i64, ptr %70, align 8
   %72 = add i64 %71, %69
   store i64 %72, ptr %70, align 8
-  %73 = getelementptr inbounds i8, ptr %8, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %74 = load i64, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %4, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %76 = load i64, ptr %75, align 8
   %77 = add i64 %76, %74
   store i64 %77, ptr %75, align 8
@@ -706,12 +706,12 @@ define dso_local void @MemoryContextStats(ptr noundef %0) local_unnamed_addr #0 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   call fastcc void @MemoryContextStatsInternal(ptr noundef %0, i32 noundef 0, i1 noundef zeroext true, i32 noundef 100, ptr noundef nonnull %2, i1 noundef zeroext true)
   %3 = load ptr, ptr @stderr, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = load i64, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = sub i64 %5, %8
   %12 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %3, ptr noundef nonnull @.str.2, i64 noundef %5, i64 noundef %6, i64 noundef %8, i64 noundef %10, i64 noundef %11) #16
@@ -728,12 +728,12 @@ define dso_local void @MemoryContextStatsDetail(ptr noundef %0, i32 noundef %1, 
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr @stderr, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = load i64, ptr %4, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %13 = load i64, ptr %12, align 8
   %14 = sub i64 %8, %11
   %15 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %6, ptr noundef nonnull @.str.2, i64 noundef %8, i64 noundef %9, i64 noundef %11, i64 noundef %13, i64 noundef %14) #16
@@ -746,12 +746,12 @@ define dso_local void @MemoryContextStatsDetail(ptr noundef %0, i32 noundef %1, 
 18:                                               ; preds = %16
   %19 = call i32 @errhidestmt(i1 noundef zeroext true) #16
   %20 = call i32 @errhidecontext(i1 noundef zeroext true) #16
-  %21 = getelementptr inbounds i8, ptr %4, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %22 = load i64, ptr %21, align 8
   %23 = load i64, ptr %4, align 8
-  %24 = getelementptr inbounds i8, ptr %4, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %4, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %27 = load i64, ptr %26, align 8
   %28 = sub i64 %22, %25
   %29 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i64 noundef %22, i64 noundef %23, i64 noundef %25, i64 noundef %27, i64 noundef %28) #16
@@ -780,51 +780,51 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @MemoryContextCreate(ptr noundef initializes((0, 5), (8, 80)) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #3 {
   store i32 %1, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 1, ptr %6, align 4
   %7 = zext i32 %2 to i64
   %8 = getelementptr [8 x %struct.MemoryContextMethods], ptr @mcxt_methods, i64 0, i64 %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %3, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   store ptr %4, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.not = icmp eq ptr %3, null
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   br i1 %.not, label %26, label %15
 
 15:                                               ; preds = %5
-  %16 = getelementptr inbounds i8, ptr %3, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %17, ptr %18, align 8
   %.not26 = icmp eq ptr %17, null
   br i1 %.not26, label %21, label %19
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %17, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 40
   store ptr %0, ptr %20, align 8
   br label %21
 
 21:                                               ; preds = %19, %15
   store ptr %0, ptr %16, align 8
-  %22 = getelementptr inbounds i8, ptr %3, i64 5
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 5
   %23 = load i8, ptr %22, align 1
-  %24 = getelementptr inbounds i8, ptr %0, i64 5
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %25 = and i8 %23, 1
   store i8 %25, ptr %24, align 1
   br label %29
 
 26:                                               ; preds = %5
-  %27 = getelementptr inbounds i8, ptr %0, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr null, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 5
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 5
   store i8 0, ptr %28, align 1
   br label %29
 
@@ -845,7 +845,7 @@ define dso_local noalias noundef ptr @MemoryContextAllocationFailure(ptr nocaptu
   tail call void @llvm.assume(i1 %8)
   %9 = tail call i32 @errcode(i32 noundef 8389) #16
   %10 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5) #16
-  %11 = getelementptr inbounds i8, ptr %0, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.6, i64 noundef %1, ptr noundef %12) #16
   tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 1042, ptr noundef nonnull @__func__.MemoryContextAllocationFailure) #16
@@ -872,9 +872,9 @@ define dso_local void @MemoryContextSizeFailure(ptr nocapture noundef readnone %
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @MemoryContextAlloc(ptr noundef initializes((4, 5)) %0, i64 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 0, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr %6(ptr noundef %0, i64 noundef %1, i32 noundef 0) #16
@@ -883,9 +883,9 @@ define dso_local ptr @MemoryContextAlloc(ptr noundef initializes((4, 5)) %0, i64
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @MemoryContextAllocZero(ptr noundef initializes((4, 5)) %0, i64 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 0, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr %6(ptr noundef %0, i64 noundef %1, i32 noundef 0) #16
@@ -942,9 +942,9 @@ define dso_local ptr @MemoryContextAllocExtended(ptr noundef %0, i64 noundef %1,
   unreachable
 
 12:                                               ; preds = %7, %5
-  %13 = getelementptr inbounds i8, ptr %0, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 0, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %15, align 8
   %17 = tail call ptr %16(ptr noundef %0, i64 noundef %1, i32 noundef %2) #16
@@ -1016,9 +1016,9 @@ define dso_local void @ProcessLogMemoryContextInterrupt() local_unnamed_addr #0 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @palloc(i64 noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @CurrentMemoryContext, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i8 0, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr %6(ptr noundef %2, i64 noundef %0, i32 noundef 0) #16
@@ -1028,9 +1028,9 @@ define dso_local ptr @palloc(i64 noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @palloc0(i64 noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @CurrentMemoryContext, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i8 0, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr %6(ptr noundef %2, i64 noundef %0, i32 noundef 0) #16
@@ -1068,9 +1068,9 @@ define dso_local ptr @palloc0(i64 noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @palloc_extended(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @CurrentMemoryContext, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i8 0, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr %7(ptr noundef %3, i64 noundef %0, i32 noundef %1) #16
@@ -1243,9 +1243,9 @@ define dso_local ptr @repalloc0(ptr noundef %0, i64 noundef %1, i64 noundef %2) 
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @MemoryContextAllocHuge(ptr noundef initializes((4, 5)) %0, i64 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 0, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr %6(ptr noundef %0, i64 noundef %1, i32 noundef 1) #16
@@ -1267,9 +1267,9 @@ define dso_local ptr @repalloc_huge(ptr noundef %0, i64 noundef %1) local_unname
 define dso_local ptr @MemoryContextStrdup(ptr noundef initializes((4, 5)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
   %4 = add i64 %3, 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr %8(ptr noundef %0, i64 noundef %4, i32 noundef 0) #16
@@ -1288,9 +1288,9 @@ define dso_local ptr @pstrdup(ptr nocapture noundef readonly %0) local_unnamed_a
   %2 = load ptr, ptr @CurrentMemoryContext, align 8
   %3 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #18
   %4 = add i64 %3, 1
-  %5 = getelementptr inbounds i8, ptr %2, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i8 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr %8(ptr noundef %2, i64 noundef %4, i32 noundef 0) #16
@@ -1303,9 +1303,9 @@ define dso_local ptr @pnstrdup(ptr nocapture noundef readonly %0, i64 noundef %1
   %3 = tail call i64 @strnlen(ptr noundef %0, i64 noundef %1) #18
   %4 = add i64 %3, 1
   %5 = load ptr, ptr @CurrentMemoryContext, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i8 0, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr %9(ptr noundef %5, i64 noundef %4, i32 noundef 0) #16
@@ -1342,9 +1342,9 @@ define dso_local ptr @pchomp(ptr nocapture noundef readonly %0) local_unnamed_ad
   %7 = tail call i64 @strnlen(ptr noundef readonly %0, i64 noundef %.0.lcssa) #18
   %8 = add i64 %7, 1
   %9 = load ptr, ptr @CurrentMemoryContext, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i8 0, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %9, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr %13(ptr noundef %9, i64 noundef %8, i32 noundef 0) #16
@@ -1464,9 +1464,9 @@ declare i64 @AlignedAllocGetChunkSpace(ptr noundef) #1
 define internal void @MemoryContextStatsPrint(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i1 noundef zeroext %3) #0 {
   %5 = alloca [110 x i8], align 16
   %6 = load i32, ptr %1, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %.thread, label %11

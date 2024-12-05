@@ -263,7 +263,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden void @recent_free_column_width_info(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 176
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8
   tail call void @g_list_free_full(ptr noundef %3, ptr noundef nonnull @free_col_width_data) #13
   store ptr null, ptr %2, align 8
@@ -282,7 +282,7 @@ define internal void @free_col_width_data(ptr noundef %0) #0 {
 define hidden void @window_geom_free(ptr noundef %0) #0 {
   %2 = load ptr, ptr %0, align 8
   tail call void @g_free(ptr noundef %2) #13
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   tail call void @g_free(ptr noundef %4) #13
   tail call void @g_free(ptr noundef nonnull %0) #13
@@ -456,7 +456,7 @@ define hidden void @recent_add_cfilter(ptr noundef %0, ptr noundef %1) local_unn
   br i1 %21, label %25, label %22
 
 22:                                               ; preds = %.lr.ph
-  %23 = getelementptr inbounds i8, ptr %.02230, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.02230, i64 8
   %24 = load ptr, ptr %23, align 8
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %.thread, label %.lr.ph, !llvm.loop !4
@@ -567,7 +567,7 @@ define hidden range(i32 0, 2) i32 @write_recent() local_unnamed_addr #0 {
   br label %33
 
 33:                                               ; preds = %31, %30, %28
-  %34 = getelementptr inbounds i8, ptr %.018.us.i.i, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %.018.us.i.i, i64 8
   %35 = load ptr, ptr %34, align 8
   %.not.us.i.i = icmp eq ptr %35, null
   br i1 %.not.us.i.i, label %cfilter_recent_write_all_list.exit.i, label %.lr.ph.split.us.i.i, !llvm.loop !6
@@ -716,7 +716,7 @@ declare ptr @get_profile_name() local_unnamed_addr #1
 define internal fastcc void @write_recent_enum(ptr nocapture noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.65, ptr noundef %1) #13
   %7 = tail call i64 @fwrite(ptr nonnull @.str.67, i64 10, i64 1, ptr nonnull %0)
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not28 = icmp eq ptr %9, null
   br i1 %.not28, label %._crit_edge, label %.lr.ph
@@ -1561,7 +1561,7 @@ define internal range(i32 0, 3) i32 @read_set_recent_pair_static(ptr noundef %0,
   br label %268
 
 228:                                              ; preds = %224
-  %229 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 176), align 8
+  %229 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 176), align 8
   tail call void @g_list_free_full(ptr noundef %229, ptr noundef nonnull @free_col_width_data) #13
   store ptr null, ptr getelementptr inbounds (i8, ptr @recent, i64 176), align 8
   %230 = tail call ptr @g_list_first(ptr noundef nonnull %222) #13
@@ -1571,7 +1571,7 @@ define internal range(i32 0, 3) i32 @read_set_recent_pair_static(ptr noundef %0,
 .lr.ph:                                           ; preds = %228, %246
   %.0107139 = phi ptr [ %249, %246 ], [ %230, %228 ]
   %231 = tail call noalias dereferenceable_or_null(8) ptr @g_malloc_n(i64 noundef 1, i64 noundef 8) #14
-  %232 = getelementptr inbounds i8, ptr %.0107139, i64 8
+  %232 = getelementptr inbounds nuw i8, ptr %.0107139, i64 8
   %233 = load ptr, ptr %232, align 8
   %234 = load ptr, ptr %233, align 8
   %235 = call i64 @strtol(ptr noundef %234, ptr noundef nonnull %6, i32 noundef 0) #13
@@ -1601,9 +1601,9 @@ define internal range(i32 0, 3) i32 @read_set_recent_pair_static(ptr noundef %0,
 
 246:                                              ; preds = %240, %243
   %.sink = phi i8 [ %245, %243 ], [ %241, %240 ]
-  %247 = getelementptr inbounds i8, ptr %231, i64 4
+  %247 = getelementptr inbounds nuw i8, ptr %231, i64 4
   store i8 %.sink, ptr %247, align 4
-  %248 = getelementptr inbounds i8, ptr %233, i64 8
+  %248 = getelementptr inbounds nuw i8, ptr %233, i64 8
   %249 = load ptr, ptr %248, align 8
   %250 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 176), align 8
   %251 = tail call ptr @g_list_append(ptr noundef %250, ptr noundef nonnull %231) #13
@@ -2019,7 +2019,7 @@ define hidden range(i32 0, 2) i32 @recent_read_profile_static(ptr nocapture noun
 
 13:                                               ; preds = %11
   tail call void @g_list_free_full(ptr noundef nonnull %12, ptr noundef nonnull @free_col_width_data) #13
-  store ptr null, ptr getelementptr inbounds (i8, ptr @recent, i64 176), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 176), align 8
   br label %14
 
 14:                                               ; preds = %13, %11
@@ -2220,7 +2220,7 @@ define internal range(i32 0, 2) i32 @read_set_recent_pair_dynamic(ptr noundef %0
   br i1 %26, label %30, label %27
 
 27:                                               ; preds = %.lr.ph.i
-  %28 = getelementptr inbounds i8, ptr %.02230.i, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.02230.i, i64 8
   %29 = load ptr, ptr %28, align 8
   %.not.i = icmp eq ptr %29, null
   br i1 %.not.i, label %.thread.i, label %.lr.ph.i, !llvm.loop !4
@@ -2262,7 +2262,7 @@ recent_add_cfilter.exit:                          ; preds = %34, %18, %9, %38, %
 define hidden void @recent_insert_column(i32 noundef %0) local_unnamed_addr #0 {
   %2 = tail call noalias dereferenceable_or_null(8) ptr @g_malloc_n(i64 noundef 1, i64 noundef 8) #14
   store i32 -1, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %2, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i8 0, ptr %3, align 4
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 176), align 8
   %5 = tail call ptr @g_list_insert(ptr noundef %4, ptr noundef nonnull %2, i32 noundef %0) #13
@@ -2343,7 +2343,7 @@ define hidden signext i8 @recent_get_column_xalign(i32 noundef %0) local_unnamed
   br i1 %.not, label %7, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %6 = load i8, ptr %5, align 4
   br label %7
 
@@ -2360,7 +2360,7 @@ define hidden void @recent_set_column_xalign(i32 noundef %0, i8 noundef signext 
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %4, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 %1, ptr %6, align 4
   br label %7
 
@@ -2379,9 +2379,9 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
 define hidden void @recent_cleanup() local_unnamed_addr #0 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 176), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 176), align 8
   tail call void @g_list_free_full(ptr noundef %1, ptr noundef nonnull @free_col_width_data) #13
-  store ptr null, ptr getelementptr inbounds (i8, ptr @recent, i64 176), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 176), align 8
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 144), align 8
   tail call void @g_free(ptr noundef %2) #13
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 152), align 8
@@ -2443,7 +2443,7 @@ define internal void @cfilter_recent_write_all_hash_callback(ptr noundef %0, ptr
   br label %12
 
 12:                                               ; preds = %10, %9, %7
-  %13 = getelementptr inbounds i8, ptr %.018.us.i, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.018.us.i, i64 8
   %14 = load ptr, ptr %13, align 8
   %.not.us.i = icmp eq ptr %14, null
   br i1 %.not.us.i, label %cfilter_recent_write_all_list.exit, label %.lr.ph.split.us.i, !llvm.loop !6
@@ -2470,7 +2470,7 @@ define internal void @cfilter_recent_write_all_hash_callback(ptr noundef %0, ptr
   br label %21
 
 21:                                               ; preds = %19, %18, %16
-  %22 = getelementptr inbounds i8, ptr %.018.i, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %.018.i, i64 8
   %23 = load ptr, ptr %22, align 8
   %.not.i = icmp eq ptr %23, null
   br i1 %.not.i, label %cfilter_recent_write_all_list.exit, label %.lr.ph.split.i, !llvm.loop !6
@@ -2485,31 +2485,31 @@ define internal void @write_recent_geom(ptr nocapture readnone %0, ptr nocapture
   %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.146, ptr noundef %4) #13
   %6 = tail call i64 @fwrite(ptr nonnull @.str.147, i64 20, i64 1, ptr %2)
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %9 = load i32, ptr %8, align 4
   %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.148, ptr noundef %7, i32 noundef %9) #13
   %11 = load ptr, ptr %1, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load i32, ptr %12, align 8
   %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.149, ptr noundef %11, i32 noundef %13) #13
   %15 = load ptr, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load i32, ptr %16, align 8
   %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.150, ptr noundef %15, i32 noundef %17) #13
   %19 = load ptr, ptr %1, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %21 = load i32, ptr %20, align 4
   %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.151, ptr noundef %19, i32 noundef %21) #13
   %23 = tail call i64 @fwrite(ptr nonnull @.str.132, i64 36, i64 1, ptr %2)
   %24 = load ptr, ptr %1, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 36
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %26, 1
   %28 = select i1 %27, ptr @.str.133, ptr @.str.134
   %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.152, ptr noundef %24, ptr noundef nonnull %28) #13
   %30 = tail call i64 @fwrite(ptr nonnull @.str.153, i64 39, i64 1, ptr %2)
   %31 = load ptr, ptr %1, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %33 = load ptr, ptr %32, align 8
   %34 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.154, ptr noundef %31, ptr noundef %33) #13
   ret void
@@ -2571,23 +2571,23 @@ window_splitter_save.exit:                        ; preds = %6, %8
   br i1 %.not5.i, label %sub_0, label %window_geom_load.exit
 
 window_geom_load.exit:                            ; preds = %18
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %20, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 8
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %20, i64 12
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 12
   %.sroa.6.0.copyload = load i32, ptr %.sroa.6.0..sroa_idx, align 4
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %20, i64 16
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 16
   %.sroa.8.0.copyload = load i32, ptr %.sroa.8.0..sroa_idx, align 8
-  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %20, i64 20
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 20
   %.sroa.10.0.copyload = load i32, ptr %.sroa.10.0..sroa_idx, align 4
-  %.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %20, i64 24
+  %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 24
   %.sroa.13.0.copyload = load i32, ptr %.sroa.13.0..sroa_idx, align 8
-  %.sroa.15.0..sroa_idx = getelementptr inbounds i8, ptr %20, i64 28
+  %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 28
   %.sroa.15.0.copyload = load i32, ptr %.sroa.15.0..sroa_idx, align 4
-  %.sroa.17.0..sroa_idx = getelementptr inbounds i8, ptr %20, i64 32
+  %.sroa.17.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 32
   %.sroa.17.0.copyload = load i32, ptr %.sroa.17.0..sroa_idx, align 8
-  %.sroa.18.0..sroa_idx = getelementptr inbounds i8, ptr %20, i64 36
+  %.sroa.18.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 36
   %.sroa.18.0.copyload = load i32, ptr %.sroa.18.0..sroa_idx, align 4
-  %.sroa.19.0..sroa_idx = getelementptr inbounds i8, ptr %20, i64 40
+  %.sroa.19.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 40
   %.sroa.19.0.copyload = load ptr, ptr %.sroa.19.0..sroa_idx, align 8
   br label %sub_0
 
@@ -2608,7 +2608,7 @@ sub_0:                                            ; preds = %window_geom_load.ex
   ]
 
 .tail:                                            ; preds = %sub_0
-  %22 = getelementptr inbounds i8, ptr %1, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %23 = load i8, ptr %22, align 1
   %24 = icmp eq i8 %23, 0
   br i1 %24, label %25, label %.tail54.thread
@@ -2619,7 +2619,7 @@ sub_0:                                            ; preds = %window_geom_load.ex
   br label %56
 
 .tail54:                                          ; preds = %sub_0
-  %28 = getelementptr inbounds i8, ptr %1, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %29 = load i8, ptr %28, align 1
   %30 = icmp eq i8 %29, 0
   br i1 %30, label %31, label %.tail54.thread
@@ -2690,23 +2690,23 @@ sub_0:                                            ; preds = %window_geom_load.ex
 
 window_geom_save.exit:                            ; preds = %56, %58
   %60 = tail call noalias dereferenceable_or_null(48) ptr @g_malloc_n(i64 noundef 1, i64 noundef 48) #14
-  %.sroa.3.0..sroa_idx20 = getelementptr inbounds i8, ptr %60, i64 8
+  %.sroa.3.0..sroa_idx20 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store i32 %.sroa.3.1, ptr %.sroa.3.0..sroa_idx20, align 8
-  %.sroa.6.0..sroa_idx22 = getelementptr inbounds i8, ptr %60, i64 12
+  %.sroa.6.0..sroa_idx22 = getelementptr inbounds nuw i8, ptr %60, i64 12
   store i32 %.sroa.6.1, ptr %.sroa.6.0..sroa_idx22, align 4
-  %.sroa.8.0..sroa_idx24 = getelementptr inbounds i8, ptr %60, i64 16
+  %.sroa.8.0..sroa_idx24 = getelementptr inbounds nuw i8, ptr %60, i64 16
   store i32 %.sroa.8.1, ptr %.sroa.8.0..sroa_idx24, align 8
-  %.sroa.10.0..sroa_idx26 = getelementptr inbounds i8, ptr %60, i64 20
+  %.sroa.10.0..sroa_idx26 = getelementptr inbounds nuw i8, ptr %60, i64 20
   store i32 %.sroa.10.1, ptr %.sroa.10.0..sroa_idx26, align 4
-  %.sroa.13.0..sroa_idx28 = getelementptr inbounds i8, ptr %60, i64 24
+  %.sroa.13.0..sroa_idx28 = getelementptr inbounds nuw i8, ptr %60, i64 24
   store i32 %.sroa.13.1, ptr %.sroa.13.0..sroa_idx28, align 8
-  %.sroa.15.0..sroa_idx30 = getelementptr inbounds i8, ptr %60, i64 28
+  %.sroa.15.0..sroa_idx30 = getelementptr inbounds nuw i8, ptr %60, i64 28
   store i32 %.sroa.15.1, ptr %.sroa.15.0..sroa_idx30, align 4
-  %.sroa.17.0..sroa_idx32 = getelementptr inbounds i8, ptr %60, i64 32
+  %.sroa.17.0..sroa_idx32 = getelementptr inbounds nuw i8, ptr %60, i64 32
   store i32 %.sroa.17.0, ptr %.sroa.17.0..sroa_idx32, align 8
-  %.sroa.18.0..sroa_idx34 = getelementptr inbounds i8, ptr %60, i64 36
+  %.sroa.18.0..sroa_idx34 = getelementptr inbounds nuw i8, ptr %60, i64 36
   store i32 %.sroa.18.0, ptr %.sroa.18.0..sroa_idx34, align 4
-  %.sroa.19.0..sroa_idx36 = getelementptr inbounds i8, ptr %60, i64 40
+  %.sroa.19.0..sroa_idx36 = getelementptr inbounds nuw i8, ptr %60, i64 40
   store ptr %.sroa.19.1, ptr %.sroa.19.0..sroa_idx36, align 8
   %61 = tail call noalias ptr @g_strdup(ptr noundef %0) #13
   store ptr %61, ptr %60, align 8

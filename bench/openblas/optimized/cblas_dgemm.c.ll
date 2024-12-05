@@ -21,9 +21,9 @@ define void @cblas_dgemm(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 nou
   store double %11, ptr %16, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %17) #3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #3
-  %19 = getelementptr inbounds i8, ptr %17, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store ptr %15, ptr %19, align 8, !tbaa !7
-  %20 = getelementptr inbounds i8, ptr %17, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 40
   store ptr %16, ptr %20, align 8, !tbaa !11
   store i32 0, ptr %18, align 4, !tbaa !12
   switch i32 %0, label %thread-pre-split.thread [
@@ -44,27 +44,27 @@ thread-pre-split:                                 ; preds = %14, %21
   %.sink56 = phi i32 [ %2, %21 ], [ %1, %14 ]
   %.sink46 = phi i32 [ %1, %21 ], [ %2, %14 ]
   %22 = sext i32 %.sink76 to i64
-  %23 = getelementptr inbounds i8, ptr %17, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 48
   store i64 %22, ptr %23, align 8, !tbaa !14
   %24 = sext i32 %.sink73 to i64
-  %25 = getelementptr inbounds i8, ptr %17, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 56
   store i64 %24, ptr %25, align 8, !tbaa !15
   %26 = sext i32 %5 to i64
-  %27 = getelementptr inbounds i8, ptr %17, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %17, i64 64
   store i64 %26, ptr %27, align 8, !tbaa !16
   store ptr %.sink68, ptr %17, align 8, !tbaa !17
-  %28 = getelementptr inbounds i8, ptr %17, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %.sink66, ptr %28, align 8, !tbaa !18
-  %29 = getelementptr inbounds i8, ptr %17, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr %12, ptr %29, align 8, !tbaa !19
   %30 = sext i32 %.sink64 to i64
-  %31 = getelementptr inbounds i8, ptr %17, i64 72
+  %31 = getelementptr inbounds nuw i8, ptr %17, i64 72
   store i64 %30, ptr %31, align 8, !tbaa !20
   %32 = sext i32 %.sink61 to i64
-  %33 = getelementptr inbounds i8, ptr %17, i64 80
+  %33 = getelementptr inbounds nuw i8, ptr %17, i64 80
   store i64 %32, ptr %33, align 8, !tbaa !21
   %34 = sext i32 %13 to i64
-  %35 = getelementptr inbounds i8, ptr %17, i64 88
+  %35 = getelementptr inbounds nuw i8, ptr %17, i64 88
   store i64 %34, ptr %35, align 8, !tbaa !22
   %36 = icmp ne i32 %.sink56, 111
   %37 = sext i1 %36 to i32
@@ -160,9 +160,9 @@ thread-pre-split.thread:                          ; preds = %14, %thread-pre-spl
   %111 = load i32, ptr @blas_cpu_number, align 4
   %112 = sext i32 %111 to i64
   %113 = select i1 %110, i64 %112, i64 1
-  %114 = getelementptr inbounds i8, ptr %17, i64 112
+  %114 = getelementptr inbounds nuw i8, ptr %17, i64 112
   store i64 %113, ptr %114, align 8, !tbaa !24
-  %115 = getelementptr inbounds i8, ptr %17, i64 104
+  %115 = getelementptr inbounds nuw i8, ptr %17, i64 104
   store ptr null, ptr %115, align 8, !tbaa !25
   %116 = icmp eq i64 %113, 1
   %117 = shl nsw i32 %51, 2

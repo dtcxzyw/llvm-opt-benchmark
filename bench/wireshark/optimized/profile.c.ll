@@ -60,20 +60,20 @@ define hidden ptr @get_profile_parent(ptr noundef readonly %0) local_unnamed_add
   br i1 %10, label %11, label %19
 
 11:                                               ; preds = %.lr.ph
-  %12 = getelementptr inbounds i8, ptr %7, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 3
   br i1 %14, label %.loopexit, label %15
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %7, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %.loopexit, label %19
 
 19:                                               ; preds = %15, %.lr.ph
   %.3 = phi ptr [ %.227, %.lr.ph ], [ %17, %15 ]
-  %20 = getelementptr inbounds i8, ptr %.11726, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.11726, i64 8
   %21 = load ptr, ptr %20, align 8
   %.not20 = icmp eq ptr %21, null
   br i1 %.not20, label %._crit_edge, label %.lr.ph, !llvm.loop !4
@@ -134,7 +134,7 @@ profile_name_is_valid.exit:                       ; preds = %12
   br label %161
 
 profile_name_is_valid.exit.thread:                ; preds = %.lr.ph, %12, %profile_name_is_valid.exit
-  %17 = getelementptr inbounds i8, ptr %.06990, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.06990, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
@@ -152,7 +152,7 @@ profile_name_is_valid.exit.thread:                ; preds = %.lr.ph, %12, %profi
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @g_strchug(ptr noundef %23) #5
   %25 = call ptr @g_strchomp(ptr noundef %24) #5
-  %26 = getelementptr inbounds i8, ptr %22, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %27 = load i32, ptr %26, align 8
   %28 = icmp eq i32 %27, 5
   br i1 %28, label %29, label %65
@@ -175,14 +175,14 @@ profile_name_is_valid.exit.thread:                ; preds = %.lr.ph, %12, %profi
 
 40:                                               ; preds = %29
   store i32 2, ptr %26, align 8
-  %41 = getelementptr inbounds i8, ptr %22, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %42 = load ptr, ptr %41, align 8
   %.not85 = icmp eq ptr %42, null
   br i1 %.not85, label %61, label %43
 
 43:                                               ; preds = %40
   %44 = load ptr, ptr %22, align 8
-  %45 = getelementptr inbounds i8, ptr %22, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %46 = load i32, ptr %45, align 8
   %47 = icmp ne i32 %46, 0
   %48 = call i32 @copy_persconffile_profile(ptr noundef %44, ptr noundef nonnull %42, i1 noundef zeroext %47, ptr noundef nonnull %3, ptr noundef nonnull %1, ptr noundef nonnull %2) #5
@@ -214,7 +214,7 @@ profile_name_is_valid.exit.thread:                ; preds = %.lr.ph, %12, %profi
   br label %65
 
 65:                                               ; preds = %61, %.lr.ph94
-  %66 = getelementptr inbounds i8, ptr %.17092, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %.17092, i64 8
   %67 = load ptr, ptr %66, align 8
   %.not75 = icmp eq ptr %67, null
   br i1 %.not75, label %._crit_edge95, label %.lr.ph94, !llvm.loop !8
@@ -231,7 +231,7 @@ profile_name_is_valid.exit.thread:                ; preds = %.lr.ph, %12, %profi
   %71 = load ptr, ptr %70, align 8
   %72 = call ptr @g_strchug(ptr noundef %71) #5
   %73 = call ptr @g_strchomp(ptr noundef %72) #5
-  %74 = getelementptr inbounds i8, ptr %70, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %75 = load i32, ptr %74, align 8
   switch i32 %75, label %120 [
     i32 3, label %76
@@ -242,7 +242,7 @@ profile_name_is_valid.exit.thread:                ; preds = %.lr.ph, %12, %profi
   %77 = load ptr, ptr %70, align 8
   %78 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %77, ptr noundef nonnull dereferenceable(8) @.str.3) #6
   %.not82 = icmp eq i32 %78, 0
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %70, i64 28
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %70, i64 28
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   %79 = icmp eq i32 %.pre, 0
   br i1 %.not82, label %96, label %80
@@ -267,7 +267,7 @@ profile_name_is_valid.exit.thread:                ; preds = %.lr.ph, %12, %profi
 
 91:                                               ; preds = %84, %81
   store i32 2, ptr %74, align 8
-  %92 = getelementptr inbounds i8, ptr %70, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %93 = load ptr, ptr %92, align 8
   call void @g_free(ptr noundef %93) #5
   %94 = load ptr, ptr %70, align 8
@@ -279,9 +279,9 @@ profile_name_is_valid.exit.thread:                ; preds = %.lr.ph, %12, %profi
   br i1 %79, label %120, label %.thread
 
 .thread:                                          ; preds = %80, %96
-  %97 = getelementptr inbounds i8, ptr %70, i64 28
+  %97 = getelementptr inbounds nuw i8, ptr %70, i64 28
   store i32 2, ptr %74, align 8
-  %98 = getelementptr inbounds i8, ptr %70, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %99 = load ptr, ptr %98, align 8
   call void @g_free(ptr noundef %99) #5
   %100 = load ptr, ptr %70, align 8
@@ -291,7 +291,7 @@ profile_name_is_valid.exit.thread:                ; preds = %.lr.ph, %12, %profi
   br label %120
 
 102:                                              ; preds = %.lr.ph99
-  %103 = getelementptr inbounds i8, ptr %70, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %104 = load ptr, ptr %103, align 8
   %105 = load ptr, ptr %70, align 8
   %106 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %104, ptr noundef nonnull dereferenceable(1) %105) #6
@@ -321,7 +321,7 @@ profile_name_is_valid.exit.thread:                ; preds = %.lr.ph, %12, %profi
   br label %120
 
 120:                                              ; preds = %.lr.ph99, %119, %102, %91, %.thread, %96
-  %121 = getelementptr inbounds i8, ptr %.297, i64 8
+  %121 = getelementptr inbounds nuw i8, ptr %.297, i64 8
   %122 = load ptr, ptr %121, align 8
   %.not76 = icmp eq ptr %122, null
   br i1 %.not76, label %._crit_edge100, label %.lr.ph99, !llvm.loop !9
@@ -344,7 +344,7 @@ profile_name_is_valid.exit.thread:                ; preds = %.lr.ph, %12, %profi
   %.068103 = phi i32 [ %.1, %144 ], [ 0, %.lr.ph110 ]
   %.071102 = phi ptr [ %146, %144 ], [ %127, %.lr.ph110 ]
   %128 = load ptr, ptr %.071102, align 8
-  %129 = getelementptr inbounds i8, ptr %128, i64 20
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 20
   %130 = load i32, ptr %129, align 4
   %.not80 = icmp eq i32 %130, 0
   br i1 %.not80, label %131, label %144
@@ -357,7 +357,7 @@ profile_name_is_valid.exit.thread:                ; preds = %.lr.ph, %12, %profi
   br i1 %135, label %144, label %136
 
 136:                                              ; preds = %131
-  %137 = getelementptr inbounds i8, ptr %128, i64 8
+  %137 = getelementptr inbounds nuw i8, ptr %128, i64 8
   %138 = load ptr, ptr %137, align 8
   %139 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull dereferenceable(1) %138) #6
   %140 = icmp eq i32 %139, 0
@@ -372,7 +372,7 @@ profile_name_is_valid.exit.thread:                ; preds = %.lr.ph, %12, %profi
 
 144:                                              ; preds = %131, %141, %136, %.lr.ph105
   %.1 = phi i32 [ %.068103, %.lr.ph105 ], [ 1, %141 ], [ %.068103, %136 ], [ 1, %131 ]
-  %145 = getelementptr inbounds i8, ptr %.071102, i64 8
+  %145 = getelementptr inbounds nuw i8, ptr %.071102, i64 8
   %146 = load ptr, ptr %145, align 8
   %.not78 = icmp eq ptr %146, null
   br i1 %.not78, label %._crit_edge106, label %.lr.ph105, !llvm.loop !10
@@ -398,7 +398,7 @@ profile_name_is_valid.exit.thread:                ; preds = %.lr.ph, %12, %profi
   br label %158
 
 158:                                              ; preds = %._crit_edge106.thread, %151, %._crit_edge106
-  %159 = getelementptr inbounds i8, ptr %.3108, i64 8
+  %159 = getelementptr inbounds nuw i8, ptr %.3108, i64 8
   %160 = load ptr, ptr %159, align 8
   %.not77 = icmp eq ptr %160, null
   br i1 %.not77, label %._crit_edge111, label %.lr.ph110, !llvm.loop !11
@@ -474,7 +474,7 @@ define hidden void @copy_profile_list() local_unnamed_addr #0 {
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
   tail call void @g_free(ptr noundef %5) #5
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @g_free(ptr noundef %7) #5
   tail call void @g_free(ptr noundef nonnull %4) #5
@@ -494,31 +494,31 @@ empty_profile_list.exit:                          ; preds = %.lr.ph15.i, %0
   %.010 = phi ptr [ %30, %.lr.ph ], [ %1, %empty_profile_list.exit ]
   %10 = load ptr, ptr %.010, align 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %10, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %10, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %10, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %10, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %19 = load i32, ptr %18, align 8
   %20 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #8
   %21 = tail call noalias ptr @g_strdup(ptr noundef %11) #5
   store ptr %21, ptr %20, align 8
   %22 = tail call noalias ptr @g_strdup(ptr noundef %13) #5
-  %23 = getelementptr inbounds i8, ptr %20, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %22, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %20, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i32 %15, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %20, i64 20
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 20
   store i32 %17, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %20, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 %19, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %20, i64 28
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 28
   store i32 0, ptr %27, align 4
   %28 = tail call ptr @g_list_append(ptr noundef %9, ptr noundef nonnull %20) #5
   store ptr %28, ptr @current_profiles, align 8
-  %29 = getelementptr inbounds i8, ptr %.010, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.010, i64 8
   %30 = load ptr, ptr %29, align 8
   %.not = icmp eq ptr %30, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
@@ -534,15 +534,15 @@ define hidden ptr @add_to_profile_list(ptr noundef %0, ptr noundef %1, i32 nound
   %9 = tail call noalias ptr @g_strdup(ptr noundef %0) #5
   store ptr %9, ptr %8, align 8
   %10 = tail call noalias ptr @g_strdup(ptr noundef %1) #5
-  %11 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 %2, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i32 %3, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %8, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 %4, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %8, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 28
   store i32 %5, ptr %15, align 4
   %16 = tail call ptr @g_list_append(ptr noundef %7, ptr noundef nonnull %8) #5
   store ptr %16, ptr @edited_profiles, align 8
@@ -558,7 +558,7 @@ define hidden void @remove_from_profile_list(ptr noundef %0) local_unnamed_addr 
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
   tail call void @g_free(ptr noundef %4) #5
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @g_free(ptr noundef %6) #5
   tail call void @g_free(ptr noundef nonnull %3) #5
@@ -584,7 +584,7 @@ thread-pre-split:                                 ; preds = %1
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
   tail call void @g_free(ptr noundef %5) #5
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @g_free(ptr noundef %7) #5
   tail call void @g_free(ptr noundef nonnull %4) #5
@@ -609,7 +609,7 @@ thread-pre-split:                                 ; preds = %1
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %12, align 8
   tail call void @g_free(ptr noundef %13) #5
-  %14 = getelementptr inbounds i8, ptr %12, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load ptr, ptr %14, align 8
   tail call void @g_free(ptr noundef %15) #5
   tail call void @g_free(ptr noundef nonnull %12) #5
@@ -632,15 +632,15 @@ define hidden void @init_profile_list() local_unnamed_addr #0 {
   %3 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.3) #5
   store ptr %3, ptr %2, align 8
   %4 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.3) #5
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %4, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 0, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %2, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 0, ptr %9, align 4
   %10 = tail call ptr @g_list_append(ptr noundef %1, ptr noundef nonnull %2) #5
   store ptr %10, ptr @edited_profiles, align 8
@@ -696,20 +696,20 @@ define hidden void @init_profile_list() local_unnamed_addr #0 {
   %30 = tail call noalias ptr @g_strdup(ptr noundef %27) #5
   store ptr %30, ptr %29, align 8
   %31 = tail call noalias ptr @g_strdup(ptr noundef %27) #5
-  %32 = getelementptr inbounds i8, ptr %29, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr %31, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %29, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store i32 2, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %29, i64 20
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 20
   store i32 0, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %29, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %29, i64 24
   store i32 0, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %29, i64 28
+  %36 = getelementptr inbounds nuw i8, ptr %29, i64 28
   store i32 0, ptr %36, align 4
   %37 = tail call ptr @g_list_append(ptr noundef %28, ptr noundef nonnull %29) #5
   store ptr %37, ptr @edited_profiles, align 8
   %38 = tail call ptr @g_list_last(ptr noundef %37) #5
-  %39 = getelementptr inbounds i8, ptr %.056, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %.056, i64 8
   %40 = load ptr, ptr %39, align 8
   %.not48 = icmp eq ptr %40, null
   br i1 %.not48, label %._crit_edge59, label %.lr.ph58, !llvm.loop !16
@@ -767,20 +767,20 @@ define hidden void @init_profile_list() local_unnamed_addr #0 {
   %59 = tail call noalias ptr @g_strdup(ptr noundef %56) #5
   store ptr %59, ptr %58, align 8
   %60 = tail call noalias ptr @g_strdup(ptr noundef %56) #5
-  %61 = getelementptr inbounds i8, ptr %58, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store ptr %60, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %58, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %58, i64 16
   store i32 2, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %58, i64 20
+  %63 = getelementptr inbounds nuw i8, ptr %58, i64 20
   store i32 1, ptr %63, align 4
-  %64 = getelementptr inbounds i8, ptr %58, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %58, i64 24
   store i32 1, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %58, i64 28
+  %65 = getelementptr inbounds nuw i8, ptr %58, i64 28
   store i32 0, ptr %65, align 4
   %66 = tail call ptr @g_list_append(ptr noundef %57, ptr noundef nonnull %58) #5
   store ptr %66, ptr @edited_profiles, align 8
   %67 = tail call ptr @g_list_last(ptr noundef %66) #5
-  %68 = getelementptr inbounds i8, ptr %.166, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %.166, i64 8
   %69 = load ptr, ptr %68, align 8
   %.not51 = icmp eq ptr %69, null
   br i1 %.not51, label %._crit_edge69, label %.lr.ph68, !llvm.loop !18

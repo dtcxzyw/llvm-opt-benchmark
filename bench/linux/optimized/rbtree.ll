@@ -37,7 +37,7 @@ define dso_local void @__rb_erase_color(ptr noundef %0, ptr noundef %1, ptr noca
 4:                                                ; preds = %59, %3
   %5 = phi ptr [ %0, %3 ], [ %61, %59 ]
   %6 = phi ptr [ null, %3 ], [ %5, %59 ]
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %6, %8
   br i1 %9, label %96, label %10
@@ -49,7 +49,7 @@ define dso_local void @__rb_erase_color(ptr noundef %0, ptr noundef %1, ptr noca
   br i1 %13, label %14, label %32
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %8, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %16 = load ptr, ptr %15, align 8
   store volatile ptr %16, ptr %7, align 8
   store volatile ptr %5, ptr %15, align 8
@@ -66,10 +66,10 @@ define dso_local void @__rb_erase_color(ptr noundef %0, ptr noundef %1, ptr noca
 
 23:                                               ; preds = %14
   %24 = inttoptr i64 %20 to ptr
-  %25 = getelementptr inbounds i8, ptr %24, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, %5
-  %28 = getelementptr inbounds i8, ptr %24, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %29 = select i1 %27, ptr %25, ptr %28
   br label %30
 
@@ -81,7 +81,7 @@ define dso_local void @__rb_erase_color(ptr noundef %0, ptr noundef %1, ptr noca
 
 32:                                               ; preds = %30, %10
   %33 = phi ptr [ %8, %10 ], [ %16, %30 ]
-  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %41, label %37
@@ -93,7 +93,7 @@ define dso_local void @__rb_erase_color(ptr noundef %0, ptr noundef %1, ptr noca
   br i1 %40, label %.loopexit, label %41
 
 41:                                               ; preds = %37, %32
-  %42 = getelementptr inbounds i8, ptr %33, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
   br i1 %44, label %49, label %45
@@ -128,8 +128,8 @@ define dso_local void @__rb_erase_color(ptr noundef %0, ptr noundef %1, ptr noca
   br label %4, !llvm.loop !5
 
 62:                                               ; preds = %45
-  %63 = getelementptr inbounds i8, ptr %33, i64 16
-  %64 = getelementptr inbounds i8, ptr %43, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %65 = load ptr, ptr %64, align 8
   store volatile ptr %65, ptr %63, align 8
   store volatile ptr %33, ptr %64, align 8
@@ -150,7 +150,7 @@ define dso_local void @__rb_erase_color(ptr noundef %0, ptr noundef %1, ptr noca
 .loopexit:                                        ; preds = %37, %70
   %71 = phi ptr [ %43, %70 ], [ %33, %37 ]
   %72 = phi ptr [ %33, %70 ], [ %35, %37 ]
-  %73 = getelementptr inbounds i8, ptr %71, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %74 = load ptr, ptr %73, align 8
   store volatile ptr %74, ptr %7, align 8
   store volatile ptr %5, ptr %73, align 8
@@ -178,10 +178,10 @@ define dso_local void @__rb_erase_color(ptr noundef %0, ptr noundef %1, ptr noca
 
 87:                                               ; preds = %83
   %88 = inttoptr i64 %85 to ptr
-  %89 = getelementptr inbounds i8, ptr %88, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 16
   %90 = load ptr, ptr %89, align 8
   %91 = icmp eq ptr %90, %5
-  %92 = getelementptr inbounds i8, ptr %88, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %93 = select i1 %91, ptr %89, ptr %92
   br label %94
 
@@ -192,7 +192,7 @@ define dso_local void @__rb_erase_color(ptr noundef %0, ptr noundef %1, ptr noca
   br label %.loopexit15
 
 96:                                               ; preds = %4
-  %97 = getelementptr inbounds i8, ptr %5, i64 16
+  %97 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %98 = load ptr, ptr %97, align 8
   %99 = load i64, ptr %98, align 8
   %100 = and i64 %99, 1
@@ -200,7 +200,7 @@ define dso_local void @__rb_erase_color(ptr noundef %0, ptr noundef %1, ptr noca
   br i1 %101, label %102, label %120
 
 102:                                              ; preds = %96
-  %103 = getelementptr inbounds i8, ptr %98, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %104 = load ptr, ptr %103, align 8
   store volatile ptr %104, ptr %97, align 8
   store volatile ptr %5, ptr %103, align 8
@@ -217,10 +217,10 @@ define dso_local void @__rb_erase_color(ptr noundef %0, ptr noundef %1, ptr noca
 
 111:                                              ; preds = %102
   %112 = inttoptr i64 %108 to ptr
-  %113 = getelementptr inbounds i8, ptr %112, i64 16
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 16
   %114 = load ptr, ptr %113, align 8
   %115 = icmp eq ptr %114, %5
-  %116 = getelementptr inbounds i8, ptr %112, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %117 = select i1 %115, ptr %113, ptr %116
   br label %118
 
@@ -232,7 +232,7 @@ define dso_local void @__rb_erase_color(ptr noundef %0, ptr noundef %1, ptr noca
 
 120:                                              ; preds = %118, %96
   %121 = phi ptr [ %98, %96 ], [ %104, %118 ]
-  %122 = getelementptr inbounds i8, ptr %121, i64 16
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 16
   %123 = load ptr, ptr %122, align 8
   %124 = icmp eq ptr %123, null
   br i1 %124, label %129, label %125
@@ -244,7 +244,7 @@ define dso_local void @__rb_erase_color(ptr noundef %0, ptr noundef %1, ptr noca
   br i1 %128, label %.loopexit16, label %129
 
 129:                                              ; preds = %125, %120
-  %130 = getelementptr inbounds i8, ptr %121, i64 8
+  %130 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %131 = load ptr, ptr %130, align 8
   %132 = icmp eq ptr %131, null
   br i1 %132, label %137, label %133
@@ -274,8 +274,8 @@ define dso_local void @__rb_erase_color(ptr noundef %0, ptr noundef %1, ptr noca
   br i1 %146, label %.loopexit15, label %59
 
 147:                                              ; preds = %133
-  %148 = getelementptr inbounds i8, ptr %121, i64 8
-  %149 = getelementptr inbounds i8, ptr %131, i64 16
+  %148 = getelementptr inbounds nuw i8, ptr %121, i64 8
+  %149 = getelementptr inbounds nuw i8, ptr %131, i64 16
   %150 = load ptr, ptr %149, align 8
   store volatile ptr %150, ptr %148, align 8
   store volatile ptr %121, ptr %149, align 8
@@ -296,7 +296,7 @@ define dso_local void @__rb_erase_color(ptr noundef %0, ptr noundef %1, ptr noca
 .loopexit16:                                      ; preds = %125, %155
   %156 = phi ptr [ %131, %155 ], [ %121, %125 ]
   %157 = phi ptr [ %121, %155 ], [ %123, %125 ]
-  %158 = getelementptr inbounds i8, ptr %156, i64 8
+  %158 = getelementptr inbounds nuw i8, ptr %156, i64 8
   %159 = load ptr, ptr %158, align 8
   store volatile ptr %159, ptr %97, align 8
   store volatile ptr %5, ptr %158, align 8
@@ -324,10 +324,10 @@ define dso_local void @__rb_erase_color(ptr noundef %0, ptr noundef %1, ptr noca
 
 172:                                              ; preds = %168
   %173 = inttoptr i64 %170 to ptr
-  %174 = getelementptr inbounds i8, ptr %173, i64 16
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 16
   %175 = load ptr, ptr %174, align 8
   %176 = icmp eq ptr %175, %5
-  %177 = getelementptr inbounds i8, ptr %173, i64 8
+  %177 = getelementptr inbounds nuw i8, ptr %173, i64 8
   %178 = select i1 %176, ptr %174, ptr %177
   br label %179
 
@@ -363,7 +363,7 @@ define dso_local void @rb_insert_color(ptr noundef %0, ptr noundef %1) #1 align 
 
 12:                                               ; preds = %.preheader
   %13 = inttoptr i64 %9 to ptr
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, %8
   br i1 %16, label %64, label %17
@@ -390,13 +390,13 @@ define dso_local void @rb_insert_color(ptr noundef %0, ptr noundef %1) #1 align 
   br i1 %27, label %.loopexit13, label %.preheader, !prof !8, !llvm.loop !9
 
 28:                                               ; preds = %19, %17
-  %29 = getelementptr inbounds i8, ptr %8, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %7, %30
   br i1 %31, label %32, label %42
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %7, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %34 = load ptr, ptr %33, align 8
   store volatile ptr %34, ptr %29, align 8
   store volatile ptr %8, ptr %33, align 8
@@ -411,16 +411,16 @@ define dso_local void @rb_insert_color(ptr noundef %0, ptr noundef %1) #1 align 
 38:                                               ; preds = %36, %32
   %39 = ptrtoint ptr %7 to i64
   store i64 %39, ptr %8, align 8
-  %40 = getelementptr inbounds i8, ptr %7, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %41 = load ptr, ptr %40, align 8
   br label %42
 
 42:                                               ; preds = %38, %28
   %43 = phi ptr [ %7, %38 ], [ %8, %28 ]
   %44 = phi ptr [ %41, %38 ], [ %30, %28 ]
-  %45 = getelementptr inbounds i8, ptr %13, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store volatile ptr %44, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %43, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store volatile ptr %13, ptr %46, align 8
   %47 = icmp eq ptr %44, null
   br i1 %47, label %50, label %48
@@ -441,7 +441,7 @@ define dso_local void @rb_insert_color(ptr noundef %0, ptr noundef %1) #1 align 
   br i1 %55, label %63, label %56
 
 56:                                               ; preds = %50
-  %57 = getelementptr inbounds i8, ptr %53, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %58 = load ptr, ptr %57, align 8
   %59 = icmp eq ptr %58, %13
   br i1 %59, label %60, label %61
@@ -451,7 +451,7 @@ define dso_local void @rb_insert_color(ptr noundef %0, ptr noundef %1) #1 align 
   br label %.loopexit
 
 61:                                               ; preds = %56
-  %62 = getelementptr inbounds i8, ptr %53, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store volatile ptr %43, ptr %62, align 8
   br label %.loopexit
 
@@ -460,7 +460,7 @@ define dso_local void @rb_insert_color(ptr noundef %0, ptr noundef %1) #1 align 
   br label %.loopexit
 
 64:                                               ; preds = %12
-  %65 = getelementptr inbounds i8, ptr %13, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %66 = load ptr, ptr %65, align 8
   %67 = icmp eq ptr %66, null
   br i1 %67, label %72, label %68
@@ -472,14 +472,14 @@ define dso_local void @rb_insert_color(ptr noundef %0, ptr noundef %1) #1 align 
   br i1 %71, label %23, label %72
 
 72:                                               ; preds = %68, %64
-  %73 = getelementptr inbounds i8, ptr %13, i64 8
-  %74 = getelementptr inbounds i8, ptr %8, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %75 = load ptr, ptr %74, align 8
   %76 = icmp eq ptr %7, %75
   br i1 %76, label %77, label %87
 
 77:                                               ; preds = %72
-  %78 = getelementptr inbounds i8, ptr %7, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %79 = load ptr, ptr %78, align 8
   store volatile ptr %79, ptr %74, align 8
   store volatile ptr %8, ptr %78, align 8
@@ -494,7 +494,7 @@ define dso_local void @rb_insert_color(ptr noundef %0, ptr noundef %1) #1 align 
 83:                                               ; preds = %81, %77
   %84 = ptrtoint ptr %7 to i64
   store i64 %84, ptr %8, align 8
-  %85 = getelementptr inbounds i8, ptr %7, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %86 = load ptr, ptr %85, align 8
   br label %87
 
@@ -502,7 +502,7 @@ define dso_local void @rb_insert_color(ptr noundef %0, ptr noundef %1) #1 align 
   %88 = phi ptr [ %7, %83 ], [ %8, %72 ]
   %89 = phi ptr [ %86, %83 ], [ %75, %72 ]
   store volatile ptr %89, ptr %73, align 8
-  %90 = getelementptr inbounds i8, ptr %88, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %88, i64 16
   store volatile ptr %13, ptr %90, align 8
   %91 = icmp eq ptr %89, null
   br i1 %91, label %94, label %92
@@ -523,7 +523,7 @@ define dso_local void @rb_insert_color(ptr noundef %0, ptr noundef %1) #1 align 
   br i1 %99, label %107, label %100
 
 100:                                              ; preds = %94
-  %101 = getelementptr inbounds i8, ptr %97, i64 16
+  %101 = getelementptr inbounds nuw i8, ptr %97, i64 16
   %102 = load ptr, ptr %101, align 8
   %103 = icmp eq ptr %102, %13
   br i1 %103, label %104, label %105
@@ -533,7 +533,7 @@ define dso_local void @rb_insert_color(ptr noundef %0, ptr noundef %1) #1 align 
   br label %.loopexit
 
 105:                                              ; preds = %100
-  %106 = getelementptr inbounds i8, ptr %97, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %97, i64 8
   store volatile ptr %88, ptr %106, align 8
   br label %.loopexit
 
@@ -547,9 +547,9 @@ define dso_local void @rb_insert_color(ptr noundef %0, ptr noundef %1) #1 align 
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
 define dso_local void @rb_erase(ptr noundef readonly %0, ptr noundef %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %26
@@ -562,10 +562,10 @@ define dso_local void @rb_erase(ptr noundef readonly %0, ptr noundef %1) #1 alig
   br i1 %12, label %19, label %13
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, %0
-  %17 = getelementptr inbounds i8, ptr %11, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %18 = select i1 %16, ptr %14, ptr %17
   br label %19
 
@@ -597,7 +597,7 @@ define dso_local void @rb_erase(ptr noundef readonly %0, ptr noundef %1) #1 alig
   br i1 %32, label %40, label %33
 
 33:                                               ; preds = %28
-  %34 = getelementptr inbounds i8, ptr %31, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, %0
   br i1 %36, label %37, label %38
@@ -607,7 +607,7 @@ define dso_local void @rb_erase(ptr noundef readonly %0, ptr noundef %1) #1 alig
   br label %.thread
 
 38:                                               ; preds = %33
-  %39 = getelementptr inbounds i8, ptr %31, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store volatile ptr %6, ptr %39, align 8
   br label %.thread
 
@@ -616,13 +616,13 @@ define dso_local void @rb_erase(ptr noundef readonly %0, ptr noundef %1) #1 alig
   br label %.thread
 
 41:                                               ; preds = %26
-  %42 = getelementptr inbounds i8, ptr %4, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
   br i1 %44, label %45, label %.preheader20
 
 45:                                               ; preds = %41
-  %46 = getelementptr inbounds i8, ptr %4, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %47 = load ptr, ptr %46, align 8
   %.pre99 = ptrtoint ptr %4 to i64
   br label %61
@@ -630,15 +630,15 @@ define dso_local void @rb_erase(ptr noundef readonly %0, ptr noundef %1) #1 alig
 .preheader20:                                     ; preds = %41, %.preheader20
   %48 = phi ptr [ %51, %.preheader20 ], [ %43, %41 ]
   %49 = phi ptr [ %48, %.preheader20 ], [ %4, %41 ]
-  %50 = getelementptr inbounds i8, ptr %48, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, null
   br i1 %52, label %53, label %.preheader20, !llvm.loop !10
 
 53:                                               ; preds = %.preheader20
-  %54 = getelementptr inbounds i8, ptr %48, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %49, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %49, i64 16
   store volatile ptr %55, ptr %56, align 8
   store volatile ptr %4, ptr %54, align 8
   %57 = load i64, ptr %4, align 8
@@ -655,7 +655,7 @@ define dso_local void @rb_erase(ptr noundef readonly %0, ptr noundef %1) #1 alig
   %63 = phi ptr [ %49, %53 ], [ %4, %45 ]
   %64 = phi ptr [ %48, %53 ], [ %4, %45 ]
   %65 = phi ptr [ %55, %53 ], [ %47, %45 ]
-  %66 = getelementptr inbounds i8, ptr %64, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 16
   store volatile ptr %62, ptr %66, align 8
   %67 = load i64, ptr %62, align 8
   %68 = and i64 %67, 1
@@ -668,10 +668,10 @@ define dso_local void @rb_erase(ptr noundef readonly %0, ptr noundef %1) #1 alig
 
 73:                                               ; preds = %61
   %74 = inttoptr i64 %71 to ptr
-  %75 = getelementptr inbounds i8, ptr %74, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %76 = load ptr, ptr %75, align 8
   %77 = icmp eq ptr %76, %0
-  %78 = getelementptr inbounds i8, ptr %74, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %79 = select i1 %77, ptr %75, ptr %78
   br label %80
 
@@ -707,7 +707,7 @@ define dso_local void @rb_erase(ptr noundef readonly %0, ptr noundef %1) #1 alig
 .preheader:                                       ; preds = %93, %150
   %96 = phi ptr [ %152, %150 ], [ %94, %93 ]
   %97 = phi ptr [ %96, %150 ], [ null, %93 ]
-  %98 = getelementptr inbounds i8, ptr %96, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %99 = load ptr, ptr %98, align 8
   %100 = icmp eq ptr %97, %99
   br i1 %100, label %186, label %101
@@ -719,7 +719,7 @@ define dso_local void @rb_erase(ptr noundef readonly %0, ptr noundef %1) #1 alig
   br i1 %104, label %105, label %123
 
 105:                                              ; preds = %101
-  %106 = getelementptr inbounds i8, ptr %99, i64 16
+  %106 = getelementptr inbounds nuw i8, ptr %99, i64 16
   %107 = load ptr, ptr %106, align 8
   store volatile ptr %107, ptr %98, align 8
   store volatile ptr %96, ptr %106, align 8
@@ -736,10 +736,10 @@ define dso_local void @rb_erase(ptr noundef readonly %0, ptr noundef %1) #1 alig
 
 114:                                              ; preds = %105
   %115 = inttoptr i64 %111 to ptr
-  %116 = getelementptr inbounds i8, ptr %115, i64 16
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 16
   %117 = load ptr, ptr %116, align 8
   %118 = icmp eq ptr %117, %96
-  %119 = getelementptr inbounds i8, ptr %115, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %120 = select i1 %118, ptr %116, ptr %119
   br label %121
 
@@ -750,7 +750,7 @@ define dso_local void @rb_erase(ptr noundef readonly %0, ptr noundef %1) #1 alig
 
 123:                                              ; preds = %121, %101
   %124 = phi ptr [ %99, %101 ], [ %107, %121 ]
-  %125 = getelementptr inbounds i8, ptr %124, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 8
   %126 = load ptr, ptr %125, align 8
   %127 = icmp eq ptr %126, null
   br i1 %127, label %132, label %128
@@ -762,7 +762,7 @@ define dso_local void @rb_erase(ptr noundef readonly %0, ptr noundef %1) #1 alig
   br i1 %131, label %.loopexit, label %132
 
 132:                                              ; preds = %128, %123
-  %133 = getelementptr inbounds i8, ptr %124, i64 16
+  %133 = getelementptr inbounds nuw i8, ptr %124, i64 16
   %134 = load ptr, ptr %133, align 8
   %135 = icmp eq ptr %134, null
   br i1 %135, label %140, label %136
@@ -797,8 +797,8 @@ define dso_local void @rb_erase(ptr noundef readonly %0, ptr noundef %1) #1 alig
   br label %.preheader, !llvm.loop !5
 
 153:                                              ; preds = %136
-  %154 = getelementptr inbounds i8, ptr %124, i64 16
-  %155 = getelementptr inbounds i8, ptr %134, i64 8
+  %154 = getelementptr inbounds nuw i8, ptr %124, i64 16
+  %155 = getelementptr inbounds nuw i8, ptr %134, i64 8
   %156 = load ptr, ptr %155, align 8
   store volatile ptr %156, ptr %154, align 8
   store volatile ptr %124, ptr %155, align 8
@@ -815,7 +815,7 @@ define dso_local void @rb_erase(ptr noundef readonly %0, ptr noundef %1) #1 alig
 .loopexit:                                        ; preds = %128, %158, %153
   %161 = phi ptr [ %134, %158 ], [ %134, %153 ], [ %124, %128 ]
   %162 = phi ptr [ %124, %158 ], [ %124, %153 ], [ %126, %128 ]
-  %163 = getelementptr inbounds i8, ptr %161, i64 16
+  %163 = getelementptr inbounds nuw i8, ptr %161, i64 16
   %164 = load ptr, ptr %163, align 8
   store volatile ptr %164, ptr %98, align 8
   store volatile ptr %96, ptr %163, align 8
@@ -843,7 +843,7 @@ define dso_local void @rb_erase(ptr noundef readonly %0, ptr noundef %1) #1 alig
   br i1 %177, label %185, label %178
 
 178:                                              ; preds = %173
-  %179 = getelementptr inbounds i8, ptr %176, i64 16
+  %179 = getelementptr inbounds nuw i8, ptr %176, i64 16
   %180 = load ptr, ptr %179, align 8
   %181 = icmp eq ptr %180, %96
   br i1 %181, label %182, label %183
@@ -853,7 +853,7 @@ define dso_local void @rb_erase(ptr noundef readonly %0, ptr noundef %1) #1 alig
   br label %.thread
 
 183:                                              ; preds = %178
-  %184 = getelementptr inbounds i8, ptr %176, i64 8
+  %184 = getelementptr inbounds nuw i8, ptr %176, i64 8
   store volatile ptr %161, ptr %184, align 8
   br label %.thread
 
@@ -862,7 +862,7 @@ define dso_local void @rb_erase(ptr noundef readonly %0, ptr noundef %1) #1 alig
   br label %.thread
 
 186:                                              ; preds = %.preheader
-  %187 = getelementptr inbounds i8, ptr %96, i64 16
+  %187 = getelementptr inbounds nuw i8, ptr %96, i64 16
   %188 = load ptr, ptr %187, align 8
   %189 = load i64, ptr %188, align 8
   %190 = and i64 %189, 1
@@ -870,7 +870,7 @@ define dso_local void @rb_erase(ptr noundef readonly %0, ptr noundef %1) #1 alig
   br i1 %191, label %192, label %210
 
 192:                                              ; preds = %186
-  %193 = getelementptr inbounds i8, ptr %188, i64 8
+  %193 = getelementptr inbounds nuw i8, ptr %188, i64 8
   %194 = load ptr, ptr %193, align 8
   store volatile ptr %194, ptr %187, align 8
   store volatile ptr %96, ptr %193, align 8
@@ -887,10 +887,10 @@ define dso_local void @rb_erase(ptr noundef readonly %0, ptr noundef %1) #1 alig
 
 201:                                              ; preds = %192
   %202 = inttoptr i64 %198 to ptr
-  %203 = getelementptr inbounds i8, ptr %202, i64 16
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 16
   %204 = load ptr, ptr %203, align 8
   %205 = icmp eq ptr %204, %96
-  %206 = getelementptr inbounds i8, ptr %202, i64 8
+  %206 = getelementptr inbounds nuw i8, ptr %202, i64 8
   %207 = select i1 %205, ptr %203, ptr %206
   br label %208
 
@@ -901,7 +901,7 @@ define dso_local void @rb_erase(ptr noundef readonly %0, ptr noundef %1) #1 alig
 
 210:                                              ; preds = %208, %186
   %211 = phi ptr [ %188, %186 ], [ %194, %208 ]
-  %212 = getelementptr inbounds i8, ptr %211, i64 16
+  %212 = getelementptr inbounds nuw i8, ptr %211, i64 16
   %213 = load ptr, ptr %212, align 8
   %214 = icmp eq ptr %213, null
   br i1 %214, label %219, label %215
@@ -913,7 +913,7 @@ define dso_local void @rb_erase(ptr noundef readonly %0, ptr noundef %1) #1 alig
   br i1 %218, label %.loopexit19, label %219
 
 219:                                              ; preds = %215, %210
-  %220 = getelementptr inbounds i8, ptr %211, i64 8
+  %220 = getelementptr inbounds nuw i8, ptr %211, i64 8
   %221 = load ptr, ptr %220, align 8
   %222 = icmp eq ptr %221, null
   br i1 %222, label %227, label %223
@@ -943,8 +943,8 @@ define dso_local void @rb_erase(ptr noundef readonly %0, ptr noundef %1) #1 alig
   br i1 %236, label %.thread, label %150
 
 237:                                              ; preds = %223
-  %238 = getelementptr inbounds i8, ptr %211, i64 8
-  %239 = getelementptr inbounds i8, ptr %221, i64 16
+  %238 = getelementptr inbounds nuw i8, ptr %211, i64 8
+  %239 = getelementptr inbounds nuw i8, ptr %221, i64 16
   %240 = load ptr, ptr %239, align 8
   store volatile ptr %240, ptr %238, align 8
   store volatile ptr %211, ptr %239, align 8
@@ -961,7 +961,7 @@ define dso_local void @rb_erase(ptr noundef readonly %0, ptr noundef %1) #1 alig
 .loopexit19:                                      ; preds = %215, %242, %237
   %245 = phi ptr [ %221, %242 ], [ %221, %237 ], [ %211, %215 ]
   %246 = phi ptr [ %211, %242 ], [ %211, %237 ], [ %213, %215 ]
-  %247 = getelementptr inbounds i8, ptr %245, i64 8
+  %247 = getelementptr inbounds nuw i8, ptr %245, i64 8
   %248 = load ptr, ptr %247, align 8
   store volatile ptr %248, ptr %187, align 8
   store volatile ptr %96, ptr %247, align 8
@@ -989,7 +989,7 @@ define dso_local void @rb_erase(ptr noundef readonly %0, ptr noundef %1) #1 alig
   br i1 %261, label %269, label %262
 
 262:                                              ; preds = %257
-  %263 = getelementptr inbounds i8, ptr %260, i64 16
+  %263 = getelementptr inbounds nuw i8, ptr %260, i64 16
   %264 = load ptr, ptr %263, align 8
   %265 = icmp eq ptr %264, %96
   br i1 %265, label %266, label %267
@@ -999,7 +999,7 @@ define dso_local void @rb_erase(ptr noundef readonly %0, ptr noundef %1) #1 alig
   br label %.thread
 
 267:                                              ; preds = %262
-  %268 = getelementptr inbounds i8, ptr %260, i64 8
+  %268 = getelementptr inbounds nuw i8, ptr %260, i64 8
   store volatile ptr %245, ptr %268, align 8
   br label %.thread
 
@@ -1033,7 +1033,7 @@ define dso_local void @__rb_insert_augmented(ptr noundef %0, ptr noundef %1, ptr
 
 13:                                               ; preds = %.preheader
   %14 = inttoptr i64 %10 to ptr
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, %9
   br i1 %17, label %65, label %18
@@ -1060,13 +1060,13 @@ define dso_local void @__rb_insert_augmented(ptr noundef %0, ptr noundef %1, ptr
   br i1 %28, label %.loopexit15, label %.preheader, !prof !8, !llvm.loop !9
 
 29:                                               ; preds = %20, %18
-  %30 = getelementptr inbounds i8, ptr %9, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %8, %31
   br i1 %32, label %33, label %43
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %8, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %35 = load ptr, ptr %34, align 8
   store volatile ptr %35, ptr %30, align 8
   store volatile ptr %9, ptr %34, align 8
@@ -1082,16 +1082,16 @@ define dso_local void @__rb_insert_augmented(ptr noundef %0, ptr noundef %1, ptr
   %40 = ptrtoint ptr %8 to i64
   store i64 %40, ptr %9, align 8
   tail call void %2(ptr noundef nonnull %9, ptr noundef %8) #4
-  %41 = getelementptr inbounds i8, ptr %8, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %42 = load ptr, ptr %41, align 8
   br label %43
 
 43:                                               ; preds = %39, %29
   %44 = phi ptr [ %8, %39 ], [ %9, %29 ]
   %45 = phi ptr [ %42, %39 ], [ %31, %29 ]
-  %46 = getelementptr inbounds i8, ptr %14, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store volatile ptr %45, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %44, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store volatile ptr %14, ptr %47, align 8
   %48 = icmp eq ptr %45, null
   br i1 %48, label %51, label %49
@@ -1112,10 +1112,10 @@ define dso_local void @__rb_insert_augmented(ptr noundef %0, ptr noundef %1, ptr
 
 56:                                               ; preds = %51
   %57 = inttoptr i64 %53 to ptr
-  %58 = getelementptr inbounds i8, ptr %57, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %59, %14
-  %61 = getelementptr inbounds i8, ptr %57, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %62 = select i1 %60, ptr %58, ptr %61
   br label %63
 
@@ -1126,7 +1126,7 @@ define dso_local void @__rb_insert_augmented(ptr noundef %0, ptr noundef %1, ptr
   br label %.loopexit
 
 65:                                               ; preds = %13
-  %66 = getelementptr inbounds i8, ptr %14, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %67 = load ptr, ptr %66, align 8
   %68 = icmp eq ptr %67, null
   br i1 %68, label %73, label %69
@@ -1138,14 +1138,14 @@ define dso_local void @__rb_insert_augmented(ptr noundef %0, ptr noundef %1, ptr
   br i1 %72, label %24, label %73
 
 73:                                               ; preds = %69, %65
-  %74 = getelementptr inbounds i8, ptr %14, i64 8
-  %75 = getelementptr inbounds i8, ptr %9, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %76 = load ptr, ptr %75, align 8
   %77 = icmp eq ptr %8, %76
   br i1 %77, label %78, label %88
 
 78:                                               ; preds = %73
-  %79 = getelementptr inbounds i8, ptr %8, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %80 = load ptr, ptr %79, align 8
   store volatile ptr %80, ptr %75, align 8
   store volatile ptr %9, ptr %79, align 8
@@ -1161,7 +1161,7 @@ define dso_local void @__rb_insert_augmented(ptr noundef %0, ptr noundef %1, ptr
   %85 = ptrtoint ptr %8 to i64
   store i64 %85, ptr %9, align 8
   tail call void %2(ptr noundef nonnull %9, ptr noundef %8) #4
-  %86 = getelementptr inbounds i8, ptr %8, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %87 = load ptr, ptr %86, align 8
   br label %88
 
@@ -1169,7 +1169,7 @@ define dso_local void @__rb_insert_augmented(ptr noundef %0, ptr noundef %1, ptr
   %89 = phi ptr [ %8, %84 ], [ %9, %73 ]
   %90 = phi ptr [ %87, %84 ], [ %76, %73 ]
   store volatile ptr %90, ptr %74, align 8
-  %91 = getelementptr inbounds i8, ptr %89, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %89, i64 16
   store volatile ptr %14, ptr %91, align 8
   %92 = icmp eq ptr %90, null
   br i1 %92, label %95, label %93
@@ -1190,10 +1190,10 @@ define dso_local void @__rb_insert_augmented(ptr noundef %0, ptr noundef %1, ptr
 
 100:                                              ; preds = %95
   %101 = inttoptr i64 %97 to ptr
-  %102 = getelementptr inbounds i8, ptr %101, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 16
   %103 = load ptr, ptr %102, align 8
   %104 = icmp eq ptr %103, %14
-  %105 = getelementptr inbounds i8, ptr %101, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %101, i64 8
   %106 = select i1 %104, ptr %102, ptr %105
   br label %107
 
@@ -1215,7 +1215,7 @@ define dso_local ptr @rb_first(ptr nocapture noundef readonly %0) #2 align 16 {
 
 .preheader:                                       ; preds = %1, %.preheader
   %4 = phi ptr [ %6, %.preheader ], [ %2, %1 ]
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.loopexit, label %.preheader, !llvm.loop !12
@@ -1233,7 +1233,7 @@ define dso_local ptr @rb_last(ptr nocapture noundef readonly %0) #2 align 16 {
 
 .preheader:                                       ; preds = %1, %.preheader
   %4 = phi ptr [ %6, %.preheader ], [ %2, %1 ]
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.loopexit, label %.preheader, !llvm.loop !13
@@ -1251,14 +1251,14 @@ define dso_local ptr @rb_next(ptr noundef %0) #2 align 16 {
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.preheader, label %.preheader1
 
 .preheader1:                                      ; preds = %5, %.preheader1
   %9 = phi ptr [ %11, %.preheader1 ], [ %7, %5 ]
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %.loopexit, label %.preheader1, !llvm.loop !14
@@ -1272,7 +1272,7 @@ define dso_local ptr @rb_next(ptr noundef %0) #2 align 16 {
   br i1 %17, label %.loopexit, label %18
 
 18:                                               ; preds = %.preheader
-  %19 = getelementptr inbounds i8, ptr %16, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %13, %20
   br i1 %21, label %.preheader, label %.loopexit, !llvm.loop !15
@@ -1290,14 +1290,14 @@ define dso_local ptr @rb_prev(ptr noundef %0) #2 align 16 {
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.preheader, label %.preheader1
 
 .preheader1:                                      ; preds = %5, %.preheader1
   %9 = phi ptr [ %11, %.preheader1 ], [ %7, %5 ]
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %.loopexit, label %.preheader1, !llvm.loop !16
@@ -1311,7 +1311,7 @@ define dso_local ptr @rb_prev(ptr noundef %0) #2 align 16 {
   br i1 %17, label %.loopexit, label %18
 
 18:                                               ; preds = %.preheader
-  %19 = getelementptr inbounds i8, ptr %16, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %13, %20
   br i1 %21, label %.preheader, label %.loopexit, !llvm.loop !17
@@ -1325,7 +1325,7 @@ define dso_local ptr @rb_prev(ptr noundef %0) #2 align 16 {
 define dso_local void @rb_replace_node(ptr noundef readonly %0, ptr noundef initializes((0, 24)) %1, ptr noundef %2) #1 align 16 {
   %4 = load i64, ptr %0, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(24) %1, ptr noundef align 8 dereferenceable(24) %0, i64 24, i1 false)
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %13, label %8
@@ -1339,7 +1339,7 @@ define dso_local void @rb_replace_node(ptr noundef readonly %0, ptr noundef init
   br label %13
 
 13:                                               ; preds = %8, %3
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %22, label %17
@@ -1359,10 +1359,10 @@ define dso_local void @rb_replace_node(ptr noundef readonly %0, ptr noundef init
 
 25:                                               ; preds = %22
   %26 = inttoptr i64 %23 to ptr
-  %27 = getelementptr inbounds i8, ptr %26, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, %0
-  %30 = getelementptr inbounds i8, ptr %26, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %31 = select i1 %29, ptr %27, ptr %30
   br label %32
 
@@ -1379,7 +1379,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define dso_local void @rb_replace_node_rcu(ptr noundef readonly %0, ptr noundef initializes((0, 24)) %1, ptr noundef %2) #0 align 16 {
   %4 = load i64, ptr %0, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(24) %1, ptr noundef align 8 dereferenceable(24) %0, i64 24, i1 false)
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %13, label %8
@@ -1393,7 +1393,7 @@ define dso_local void @rb_replace_node_rcu(ptr noundef readonly %0, ptr noundef 
   br label %13
 
 13:                                               ; preds = %8, %3
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %22, label %17
@@ -1413,11 +1413,11 @@ define dso_local void @rb_replace_node_rcu(ptr noundef readonly %0, ptr noundef 
 
 25:                                               ; preds = %22
   %26 = inttoptr i64 %23 to ptr
-  %27 = getelementptr inbounds i8, ptr %26, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, %0
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4
-  %30 = getelementptr inbounds i8, ptr %26, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %31 = select i1 %29, ptr %27, ptr %30
   br label %33
 
@@ -1444,26 +1444,26 @@ define dso_local ptr @rb_next_postorder(ptr noundef readonly %0) #2 align 16 {
   br i1 %7, label %.loopexit, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, %0
   br i1 %11, label %12, label %.loopexit
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %6, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %12, %.preheader.backedge
   %16 = phi ptr [ %.be, %.preheader.backedge ], [ %14, %12 ]
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %.preheader.backedge
 
 20:                                               ; preds = %.preheader
-  %21 = getelementptr inbounds i8, ptr %16, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %.loopexit, label %.preheader.backedge
@@ -1485,13 +1485,13 @@ define dso_local ptr @rb_first_postorder(ptr nocapture noundef readonly %0) #2 a
 
 .preheader:                                       ; preds = %1, %.preheader.backedge
   %4 = phi ptr [ %.be, %.preheader.backedge ], [ %2, %1 ]
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %.preheader.backedge
 
 8:                                                ; preds = %.preheader
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.loopexit, label %.preheader.backedge

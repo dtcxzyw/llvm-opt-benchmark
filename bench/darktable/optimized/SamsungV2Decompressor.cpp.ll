@@ -81,13 +81,13 @@ $_ZZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKczE3buf = comdat an
 define hidden void @_ZN8rawspeed21SamsungV2DecompressorC2ERKNS_8RawImageENS_10ByteStreamEj(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 16), (40, 60)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef readonly byval(%"class.rawspeed::ByteStream") align 8 %2, i32 noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
   %6 = load ptr, ptr %1, align 8, !tbaa !6
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !12
   %9 = icmp eq ptr %8, null
   br i1 %9, label %19, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !13
   %13 = icmp eq i8 %12, 0
   br i1 %13, label %17, label %14
@@ -104,29 +104,29 @@ define hidden void @_ZN8rawspeed21SamsungV2DecompressorC2ERKNS_8RawImageENS_10By
 
 19:                                               ; preds = %17, %14, %4
   store ptr %6, ptr %0, align 8, !tbaa !6
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %8, ptr %20, align 8, !tbaa !12
-  %21 = getelementptr inbounds i8, ptr %0, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr null, ptr %21, align 8, !tbaa !16
-  %22 = getelementptr inbounds i8, ptr %0, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 0, ptr %22, align 8, !tbaa !18
-  %23 = getelementptr inbounds i8, ptr %0, i64 52
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 57005, ptr %23, align 4, !tbaa !19
-  %24 = getelementptr inbounds i8, ptr %0, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 0, ptr %24, align 8, !tbaa !22
-  %25 = getelementptr inbounds i8, ptr %6, i64 584
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 584
   %26 = load i32, ptr %25, align 8, !tbaa !24
   %27 = icmp eq i32 %26, 1
   br i1 %27, label %28, label %36
 
 28:                                               ; preds = %19
-  %29 = getelementptr inbounds i8, ptr %6, i64 548
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 548
   %30 = load i32, ptr %29, align 4, !tbaa !85
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %36
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %6, i64 588
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 588
   %34 = load i32, ptr %33, align 4, !tbaa !86
   %35 = icmp eq i32 %34, 2
   br i1 %35, label %40, label %36
@@ -157,11 +157,11 @@ define hidden void @_ZN8rawspeed21SamsungV2DecompressorC2ERKNS_8RawImageENS_10By
   unreachable
 
 43:                                               ; preds = %40, %40
-  %44 = getelementptr inbounds i8, ptr %2, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %45 = load i32, ptr %44, align 8, !tbaa !22
   %46 = zext i32 %45 to i64
   %47 = add nuw nsw i64 %46, 16
-  %48 = getelementptr inbounds i8, ptr %2, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %49 = load i32, ptr %48, align 8, !tbaa !18
   %50 = zext i32 %49 to i64
   %51 = icmp samesign ugt i64 %47, %50
@@ -193,7 +193,7 @@ define hidden void @_ZN8rawspeed21SamsungV2DecompressorC2ERKNS_8RawImageENS_10By
   %64 = load ptr, ptr %2, align 8, !tbaa !16, !nonnull !87, !noundef !87
   %65 = icmp sgt i32 %59, -1
   tail call void @llvm.assume(i1 %65)
-  %66 = getelementptr inbounds i8, ptr %64, i64 %46
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 %46
   store i32 0, ptr %5, align 4
   %67 = icmp samesign ult i32 %59, 4
   br i1 %67, label %68, label %72
@@ -212,7 +212,7 @@ define hidden void @_ZN8rawspeed21SamsungV2DecompressorC2ERKNS_8RawImageENS_10By
   %74 = lshr i32 %73, 8
   %75 = and i32 %74, 15
   %76 = add nuw nsw i32 %75, 1
-  %77 = getelementptr inbounds i8, ptr %0, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %76, ptr %77, align 8, !tbaa !88
   %78 = icmp eq i32 %76, %3
   br i1 %78, label %85, label %79
@@ -240,32 +240,32 @@ define hidden void @_ZN8rawspeed21SamsungV2DecompressorC2ERKNS_8RawImageENS_10By
 
 87:                                               ; preds = %85
   %88 = add nsw i32 %59, -4
-  %89 = getelementptr inbounds i8, ptr %66, i64 4
+  %89 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %90 = zext nneg i32 %88 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %5, ptr nonnull align 1 %89, i64 %90, i1 false)
   %.0..0..0..0. = load i32, ptr %5, align 4
   %91 = lshr i32 %.0..0..0..0., 16
-  %92 = getelementptr inbounds i8, ptr %0, i64 20
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %91, ptr %92, align 4, !tbaa !96
   %93 = and i32 %.0..0..0..0., 65535
-  %94 = getelementptr inbounds i8, ptr %0, i64 24
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %93, ptr %94, align 8, !tbaa !97
   br label %105
 
 95:                                               ; preds = %85
-  %96 = getelementptr inbounds i8, ptr %66, i64 4
+  %96 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %97 = load i32, ptr %96, align 1
   %98 = lshr i32 %97, 16
-  %99 = getelementptr inbounds i8, ptr %0, i64 20
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %98, ptr %99, align 4, !tbaa !96
   %100 = and i32 %97, 65535
-  %101 = getelementptr inbounds i8, ptr %0, i64 24
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %100, ptr %101, align 8, !tbaa !97
   %102 = icmp samesign ult i32 %59, 12
   br i1 %102, label %105, label %103
 
 103:                                              ; preds = %95
-  %104 = getelementptr inbounds i8, ptr %66, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %66, i64 8
   br label %117
 
 105:                                              ; preds = %95, %87
@@ -280,7 +280,7 @@ define hidden void @_ZN8rawspeed21SamsungV2DecompressorC2ERKNS_8RawImageENS_10By
   %113 = icmp ult i32 %112, 5
   tail call void @llvm.assume(i1 %113)
   %114 = zext nneg i32 %109 to i64
-  %115 = getelementptr inbounds i8, ptr %66, i64 %114
+  %115 = getelementptr inbounds nuw i8, ptr %66, i64 %114
   %116 = zext nneg i32 %112 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %5, ptr nonnull align 1 %115, i64 %116, i1 false)
   br label %117
@@ -309,13 +309,13 @@ define hidden void @_ZN8rawspeed21SamsungV2DecompressorC2ERKNS_8RawImageENS_10By
   br label %189
 
 130:                                              ; preds = %117
-  %131 = getelementptr inbounds i8, ptr %0, i64 28
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %124, ptr %131, align 4, !tbaa !98
   %132 = icmp samesign ult i32 %59, 16
   br i1 %132, label %135, label %133
 
 133:                                              ; preds = %130
-  %134 = getelementptr inbounds i8, ptr %66, i64 12
+  %134 = getelementptr inbounds nuw i8, ptr %66, i64 12
   br label %144
 
 135:                                              ; preds = %130
@@ -327,7 +327,7 @@ define hidden void @_ZN8rawspeed21SamsungV2DecompressorC2ERKNS_8RawImageENS_10By
   %140 = icmp ult i32 %139, 5
   tail call void @llvm.assume(i1 %140)
   %141 = zext nneg i32 %136 to i64
-  %142 = getelementptr inbounds i8, ptr %66, i64 %141
+  %142 = getelementptr inbounds nuw i8, ptr %66, i64 %141
   %143 = zext nneg i32 %139 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %5, ptr nonnull align 1 %142, i64 %143, i1 false)
   br label %144
@@ -337,7 +337,7 @@ define hidden void @_ZN8rawspeed21SamsungV2DecompressorC2ERKNS_8RawImageENS_10By
   %146 = load i32, ptr %145, align 1
   %147 = trunc i32 %146 to i16
   %148 = and i16 %147, 16383
-  %149 = getelementptr inbounds i8, ptr %0, i64 32
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 %148, ptr %149, align 8, !tbaa !99
   %150 = icmp ult i32 %120, 65536
   br i1 %150, label %160, label %151
@@ -361,13 +361,13 @@ define hidden void @_ZN8rawspeed21SamsungV2DecompressorC2ERKNS_8RawImageENS_10By
   unreachable
 
 162:                                              ; preds = %151
-  %163 = getelementptr inbounds i8, ptr %6, i64 40
+  %163 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %164 = load i32, ptr %163, align 8, !tbaa !100
   %165 = icmp eq i32 %119, %164
   br i1 %165, label %166, label %170
 
 166:                                              ; preds = %162
-  %167 = getelementptr inbounds i8, ptr %6, i64 44
+  %167 = getelementptr inbounds nuw i8, ptr %6, i64 44
   %168 = load i32, ptr %167, align 4, !tbaa !101
   %169 = icmp eq i32 %118, %168
   br i1 %169, label %172, label %170
@@ -396,8 +396,8 @@ define hidden void @_ZN8rawspeed21SamsungV2DecompressorC2ERKNS_8RawImageENS_10By
 179:                                              ; preds = %172
   %180 = icmp samesign ugt i32 %59, 15
   tail call void @llvm.assume(i1 %180)
-  %181 = getelementptr inbounds i8, ptr %64, i64 16
-  %182 = getelementptr inbounds i8, ptr %2, i64 12
+  %181 = getelementptr inbounds nuw i8, ptr %64, i64 16
+  %182 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %183 = load i32, ptr %182, align 4, !tbaa !19, !noalias !102
   %184 = zext i32 %183 to i64
   %185 = shl nuw i64 %184, 32
@@ -465,13 +465,13 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8rawspeed27AbstractSamsungDecompressorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !12
   %4 = icmp eq ptr %3, null
   br i1 %4, label %29, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load atomic i64, ptr %6 acquire, align 8
   %8 = icmp eq i64 %7, 4294967297
   %9 = trunc i64 %7 to i32
@@ -479,14 +479,14 @@ define linkonce_odr hidden void @_ZN8rawspeed27AbstractSamsungDecompressorD2Ev(p
 
 10:                                               ; preds = %5
   store i32 0, ptr %6, align 8, !tbaa !105
-  %11 = getelementptr inbounds i8, ptr %3, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %11, align 4, !tbaa !107
   %12 = load ptr, ptr %3, align 8, !tbaa !108
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(16) %3) #15
   %15 = load ptr, ptr %3, align 8, !tbaa !108
-  %16 = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %3) #15
   br label %29
@@ -525,10 +525,10 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
   %5 = alloca <16 x i16>, align 32
   %6 = alloca %"struct.std::array.50", align 2
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load i32, ptr %9, align 8, !tbaa !18
-  %11 = getelementptr inbounds i8, ptr %0, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = load i32, ptr %11, align 8, !tbaa !22
   %13 = icmp samesign uge i32 %10, %12
   tail call void @llvm.assume(i1 %13)
@@ -538,8 +538,8 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
   tail call void @llvm.assume(i1 %15)
   %16 = and i32 %12, 15
   %17 = icmp eq i32 %16, 0
-  %.30..30..30..30..sroa_idx = getelementptr inbounds i8, ptr %5, i64 30
-  %.28..28..28..28..sroa_idx = getelementptr inbounds i8, ptr %5, i64 28
+  %.30..30..30..30..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 30
+  %.28..28..28..28..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 28
   br i1 %17, label %24, label %18
 
 18:                                               ; preds = %2
@@ -575,7 +575,7 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
   %34 = load ptr, ptr %8, align 8, !tbaa !16, !nonnull !87, !noundef !87
   %35 = icmp sgt i32 %26, -1
   tail call void @llvm.assume(i1 %35)
-  %36 = getelementptr inbounds i8, ptr %34, i64 %27
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 %27
   store i32 0, ptr %7, align 4
   %37 = icmp samesign ult i32 %26, 4
   br i1 %37, label %38, label %39
@@ -585,21 +585,21 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
   unreachable
 
 39:                                               ; preds = %33
-  %40 = getelementptr inbounds i8, ptr %0, i64 64
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 7, ptr %40, align 8, !tbaa !111
-  %41 = getelementptr inbounds i8, ptr %0, i64 68
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %41, align 4, !tbaa !112
   %42 = icmp ult i32 %1, 2
   %43 = select i1 %42, i32 7, i32 4
-  %44 = getelementptr inbounds i8, ptr %0, i64 72
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %45 = insertelement <4 x i32> poison, i32 %43, i64 0
   %46 = shufflevector <4 x i32> %45, <4 x i32> poison, <4 x i32> zeroinitializer
   store <4 x i32> %46, ptr %44, align 8, !tbaa !14
-  %47 = getelementptr inbounds i8, ptr %0, i64 88
-  %48 = getelementptr inbounds i8, ptr %0, i64 92
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i32 %43, ptr %48, align 4, !tbaa !14
   store i32 %43, ptr %47, align 8, !tbaa !14
-  %49 = getelementptr inbounds i8, ptr %0, i64 20
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %50 = load i32, ptr %49, align 4, !tbaa !96
   %51 = icmp sgt i32 %50, 15
   tail call void @llvm.assume(i1 %51)
@@ -607,13 +607,13 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
   %53 = icmp eq i32 %52, 0
   tail call void @llvm.assume(i1 %53)
   %54 = load ptr, ptr %0, align 8, !tbaa !6
-  %55 = getelementptr inbounds i8, ptr %54, i64 560
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 560
   %56 = load ptr, ptr %55, align 8, !tbaa !113, !noalias !87, !nonnull !87, !noundef !87
-  %57 = getelementptr inbounds i8, ptr %54, i64 584
-  %58 = getelementptr inbounds i8, ptr %54, i64 600
-  %59 = getelementptr inbounds i8, ptr %54, i64 604
-  %60 = getelementptr inbounds i8, ptr %54, i64 48
-  %61 = getelementptr inbounds i8, ptr %0, i64 28
+  %57 = getelementptr inbounds nuw i8, ptr %54, i64 584
+  %58 = getelementptr inbounds nuw i8, ptr %54, i64 600
+  %59 = getelementptr inbounds nuw i8, ptr %54, i64 604
+  %60 = getelementptr inbounds nuw i8, ptr %54, i64 48
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %62 = load i32, ptr %61, align 4, !tbaa !98, !noalias !87
   %63 = and i32 %62, 4
   %64 = add nuw nsw i32 %26, 8
@@ -624,46 +624,46 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
   %69 = add nsw i32 %1, -2
   %70 = add nsw i32 %1, -1
   %71 = icmp sgt i32 %1, -1
-  %72 = getelementptr inbounds i8, ptr %0, i64 32
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %73 = and i32 %62, 1
   %74 = icmp eq i32 %73, 0
   %75 = and i32 %1, 1
   %76 = icmp eq i32 %75, 0
-  %77 = getelementptr inbounds i8, ptr %0, i64 16
-  %78 = getelementptr inbounds i8, ptr %3, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %79 = load i32, ptr %77, align 8
   %80 = icmp ult i32 %79, 17
   %81 = shl nsw i32 -1, %79
   %82 = xor i32 %81, -1
   %83 = getelementptr i8, ptr %56, i64 28
   %84 = zext nneg i32 %50 to i64
-  %85 = getelementptr inbounds i8, ptr %4, i64 2
-  %86 = getelementptr inbounds i8, ptr %4, i64 4
-  %87 = getelementptr inbounds i8, ptr %4, i64 6
-  %88 = getelementptr inbounds i8, ptr %4, i64 8
-  %89 = getelementptr inbounds i8, ptr %4, i64 10
-  %90 = getelementptr inbounds i8, ptr %4, i64 12
-  %91 = getelementptr inbounds i8, ptr %4, i64 14
-  %92 = getelementptr inbounds i8, ptr %4, i64 16
-  %93 = getelementptr inbounds i8, ptr %4, i64 18
-  %.4..4..4..4..sroa_idx = getelementptr inbounds i8, ptr %5, i64 4
-  %94 = getelementptr inbounds i8, ptr %4, i64 20
-  %.8..8..8..8..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
-  %95 = getelementptr inbounds i8, ptr %4, i64 22
-  %.12..12..12..12..sroa_idx = getelementptr inbounds i8, ptr %5, i64 12
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
-  %.16..16..16..16..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
-  %97 = getelementptr inbounds i8, ptr %4, i64 26
-  %.20..20..20..20..sroa_idx = getelementptr inbounds i8, ptr %5, i64 20
-  %98 = getelementptr inbounds i8, ptr %4, i64 28
-  %.24..24..24..24..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
-  %.6..6..6..6..sroa_idx = getelementptr inbounds i8, ptr %5, i64 6
-  %.10..10..10..10..sroa_idx = getelementptr inbounds i8, ptr %5, i64 10
-  %.14..14..14..14..sroa_idx = getelementptr inbounds i8, ptr %5, i64 14
-  %.18..18..18..18..sroa_idx = getelementptr inbounds i8, ptr %5, i64 18
-  %.22..22..22..22..sroa_idx = getelementptr inbounds i8, ptr %5, i64 22
-  %.26..26..26..26..sroa_idx = getelementptr inbounds i8, ptr %5, i64 26
-  %99 = getelementptr inbounds i8, ptr %4, i64 30
+  %85 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  %86 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %4, i64 6
+  %88 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %4, i64 10
+  %90 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %91 = getelementptr inbounds nuw i8, ptr %4, i64 14
+  %92 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %4, i64 18
+  %.4..4..4..4..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %94 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  %.8..8..8..8..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %4, i64 22
+  %.12..12..12..12..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %.16..16..16..16..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %97 = getelementptr inbounds nuw i8, ptr %4, i64 26
+  %.20..20..20..20..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 20
+  %98 = getelementptr inbounds nuw i8, ptr %4, i64 28
+  %.24..24..24..24..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %.6..6..6..6..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 6
+  %.10..10..10..10..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 10
+  %.14..14..14..14..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 14
+  %.18..18..18..18..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 18
+  %.22..22..22..22..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 22
+  %.26..26..26..26..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 26
+  %99 = getelementptr inbounds nuw i8, ptr %4, i64 30
   %100 = insertelement <16 x i32> poison, i32 %82, i64 0
   %101 = shufflevector <16 x i32> %100, <16 x i32> poison, <16 x i32> zeroinitializer
   %102 = select i1 %76, i32 %70, i32 %69
@@ -676,26 +676,26 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
   %109 = shl nuw nsw i32 %75, 1
   %110 = xor i32 %109, 2
   %111 = zext nneg i32 %110 to i64
-  %112 = getelementptr inbounds [3 x %"struct.std::array.0"], ptr %44, i64 0, i64 %111
-  %113 = getelementptr inbounds i8, ptr %112, i64 4
+  %112 = getelementptr inbounds nuw [3 x %"struct.std::array.0"], ptr %44, i64 0, i64 %111
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 4
   %114 = zext nneg i32 %75 to i64
-  %115 = getelementptr inbounds [3 x %"struct.std::array.0"], ptr %44, i64 0, i64 %114
-  %116 = getelementptr inbounds i8, ptr %115, i64 4
-  %.6..6..6..6..sroa_idx209 = getelementptr inbounds i8, ptr %5, i64 6
-  %.10..10..10..10..sroa_idx211 = getelementptr inbounds i8, ptr %5, i64 10
-  %.14..14..14..14..sroa_idx213 = getelementptr inbounds i8, ptr %5, i64 14
-  %.18..18..18..18..sroa_idx215 = getelementptr inbounds i8, ptr %5, i64 18
-  %.22..22..22..22..sroa_idx217 = getelementptr inbounds i8, ptr %5, i64 22
-  %.26..26..26..26..sroa_idx219 = getelementptr inbounds i8, ptr %5, i64 26
-  %.30..30..30..30..sroa_idx221 = getelementptr inbounds i8, ptr %5, i64 30
-  %.4..4..4..4..sroa_idx208 = getelementptr inbounds i8, ptr %5, i64 4
-  %.8..8..8..8..sroa_idx210 = getelementptr inbounds i8, ptr %5, i64 8
-  %.12..12..12..12..sroa_idx212 = getelementptr inbounds i8, ptr %5, i64 12
-  %.16..16..16..16..sroa_idx214 = getelementptr inbounds i8, ptr %5, i64 16
-  %.20..20..20..20..sroa_idx216 = getelementptr inbounds i8, ptr %5, i64 20
-  %.24..24..24..24..sroa_idx218 = getelementptr inbounds i8, ptr %5, i64 24
-  %.28..28..28..28..sroa_idx220 = getelementptr inbounds i8, ptr %5, i64 28
-  %.2..sroa_idx = getelementptr inbounds i8, ptr %5, i64 2
+  %115 = getelementptr inbounds nuw [3 x %"struct.std::array.0"], ptr %44, i64 0, i64 %114
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 4
+  %.6..6..6..6..sroa_idx209 = getelementptr inbounds nuw i8, ptr %5, i64 6
+  %.10..10..10..10..sroa_idx211 = getelementptr inbounds nuw i8, ptr %5, i64 10
+  %.14..14..14..14..sroa_idx213 = getelementptr inbounds nuw i8, ptr %5, i64 14
+  %.18..18..18..18..sroa_idx215 = getelementptr inbounds nuw i8, ptr %5, i64 18
+  %.22..22..22..22..sroa_idx217 = getelementptr inbounds nuw i8, ptr %5, i64 22
+  %.26..26..26..26..sroa_idx219 = getelementptr inbounds nuw i8, ptr %5, i64 26
+  %.30..30..30..30..sroa_idx221 = getelementptr inbounds nuw i8, ptr %5, i64 30
+  %.4..4..4..4..sroa_idx208 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %.8..8..8..8..sroa_idx210 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.12..12..12..12..sroa_idx212 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %.16..16..16..16..sroa_idx214 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.20..20..20..20..sroa_idx216 = getelementptr inbounds nuw i8, ptr %5, i64 20
+  %.24..24..24..24..sroa_idx218 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %.28..28..28..28..sroa_idx220 = getelementptr inbounds nuw i8, ptr %5, i64 28
+  %.2..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 2
   br label %131
 
 117:                                              ; preds = %984
@@ -778,7 +778,7 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
 
 166:                                              ; preds = %163
   %167 = zext nneg i32 %133 to i64
-  %168 = getelementptr inbounds i8, ptr %36, i64 %167
+  %168 = getelementptr inbounds nuw i8, ptr %36, i64 %167
   br label %181
 
 169:                                              ; preds = %163
@@ -798,7 +798,7 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
   %177 = icmp ult i32 %176, 5
   tail call void @llvm.assume(i1 %177), !noalias !117
   %178 = zext nneg i32 %173 to i64
-  %179 = getelementptr inbounds i8, ptr %36, i64 %178
+  %179 = getelementptr inbounds nuw i8, ptr %36, i64 %178
   %180 = zext nneg i32 %176 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %7, ptr nonnull align 1 %179, i64 %180, i1 false), !noalias !117
   br label %181
@@ -825,7 +825,7 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
   br i1 %197, label %202, label %198
 
 198:                                              ; preds = %190
-  %199 = getelementptr inbounds [3 x i32], ptr @_ZZN8rawspeed21SamsungV2Decompressor21prepareBaselineValuesERNS_16BitStreamerMSB32EiiE9scalevals, i64 0, i64 %194
+  %199 = getelementptr inbounds nuw [3 x i32], ptr @_ZZN8rawspeed21SamsungV2Decompressor21prepareBaselineValuesERNS_16BitStreamerMSB32EiiE9scalevals, i64 0, i64 %194
   %200 = load i32, ptr %199, align 4, !tbaa !14, !noalias !117
   %201 = add nsw i32 %200, %136
   br label %239
@@ -841,7 +841,7 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
 
 207:                                              ; preds = %204
   %208 = zext nneg i32 %191 to i64
-  %209 = getelementptr inbounds i8, ptr %36, i64 %208
+  %209 = getelementptr inbounds nuw i8, ptr %36, i64 %208
   br label %222
 
 210:                                              ; preds = %204
@@ -861,7 +861,7 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
   %218 = icmp ult i32 %217, 5
   tail call void @llvm.assume(i1 %218), !noalias !117
   %219 = zext nneg i32 %214 to i64
-  %220 = getelementptr inbounds i8, ptr %36, i64 %219
+  %220 = getelementptr inbounds nuw i8, ptr %36, i64 %219
   %221 = zext nneg i32 %217 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %7, ptr nonnull align 1 %220, i64 %221, i1 false), !noalias !117
   br label %222
@@ -917,7 +917,7 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
 
 256:                                              ; preds = %253
   %257 = zext nneg i32 %248 to i64
-  %258 = getelementptr inbounds i8, ptr %36, i64 %257
+  %258 = getelementptr inbounds nuw i8, ptr %36, i64 %257
   br label %271
 
 259:                                              ; preds = %253
@@ -937,7 +937,7 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
   %267 = icmp ult i32 %266, 5
   tail call void @llvm.assume(i1 %267), !noalias !117
   %268 = zext nneg i32 %263 to i64
-  %269 = getelementptr inbounds i8, ptr %36, i64 %268
+  %269 = getelementptr inbounds nuw i8, ptr %36, i64 %268
   %270 = zext nneg i32 %266 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %7, ptr nonnull align 1 %269, i64 %270, i1 false), !noalias !117
   br label %271
@@ -971,7 +971,7 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
 
 289:                                              ; preds = %286
   %290 = zext nneg i32 %248 to i64
-  %291 = getelementptr inbounds i8, ptr %36, i64 %290
+  %291 = getelementptr inbounds nuw i8, ptr %36, i64 %290
   br label %308
 
 292:                                              ; preds = %286
@@ -991,7 +991,7 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
   %300 = icmp ult i32 %299, 5
   tail call void @llvm.assume(i1 %300), !noalias !117
   %301 = zext nneg i32 %296 to i64
-  %302 = getelementptr inbounds i8, ptr %36, i64 %301
+  %302 = getelementptr inbounds nuw i8, ptr %36, i64 %301
   %303 = zext nneg i32 %299 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %7, ptr nonnull align 1 %302, i64 %303, i1 false), !noalias !117
   br label %308
@@ -1023,7 +1023,7 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
 
 321:                                              ; preds = %318
   %322 = zext nneg i32 %248 to i64
-  %323 = getelementptr inbounds i8, ptr %36, i64 %322
+  %323 = getelementptr inbounds nuw i8, ptr %36, i64 %322
   br label %336
 
 324:                                              ; preds = %318
@@ -1043,7 +1043,7 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
   %332 = icmp ult i32 %331, 5
   tail call void @llvm.assume(i1 %332), !noalias !117
   %333 = zext nneg i32 %328 to i64
-  %334 = getelementptr inbounds i8, ptr %36, i64 %333
+  %334 = getelementptr inbounds nuw i8, ptr %36, i64 %333
   %335 = zext nneg i32 %331 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %7, ptr nonnull align 1 %334, i64 %335, i1 false), !noalias !117
   br label %336
@@ -1140,13 +1140,13 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
   %395 = add nuw nsw i32 %394, %142
   %396 = icmp ule i32 %395, %146
   %397 = zext nneg i32 %394 to i64
-  %398 = getelementptr inbounds i16, ptr %56, i64 %397
+  %398 = getelementptr inbounds nuw i16, ptr %56, i64 %397
   %399 = icmp ugt i32 %143, %106
   %400 = mul nsw i32 %145, %106
   %401 = add nuw nsw i32 %400, %142
   %402 = icmp ule i32 %401, %146
   %403 = zext nneg i32 %400 to i64
-  %404 = getelementptr inbounds i16, ptr %56, i64 %403
+  %404 = getelementptr inbounds nuw i16, ptr %56, i64 %403
   %405 = add i32 %387, %103
   %invariant.op = or disjoint i64 %132, 1
   %406 = add i32 %387, %107
@@ -1171,9 +1171,9 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
   tail call void @llvm.assume(i1 %393)
   tail call void @llvm.assume(i1 %396)
   %417 = zext nneg i32 %411 to i64
-  %418 = getelementptr inbounds i16, ptr %398, i64 %417
+  %418 = getelementptr inbounds nuw i16, ptr %398, i64 %417
   %419 = load i16, ptr %418, align 2, !tbaa !120
-  %420 = getelementptr inbounds [16 x i16], ptr %6, i64 0, i64 %408
+  %420 = getelementptr inbounds nuw [16 x i16], ptr %6, i64 0, i64 %408
   store i16 %419, ptr %420, align 2, !tbaa !120
   %421 = or disjoint i64 %408, 1
   %.reass = or i64 %408, %invariant.op
@@ -1193,9 +1193,9 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
   tail call void @llvm.assume(i1 %399)
   tail call void @llvm.assume(i1 %402)
   %429 = zext nneg i32 %423 to i64
-  %430 = getelementptr inbounds i16, ptr %404, i64 %429
+  %430 = getelementptr inbounds nuw i16, ptr %404, i64 %429
   %431 = load i16, ptr %430, align 2, !tbaa !120
-  %432 = getelementptr inbounds [16 x i16], ptr %6, i64 0, i64 %421
+  %432 = getelementptr inbounds nuw [16 x i16], ptr %6, i64 0, i64 %421
   store i16 %431, ptr %432, align 2, !tbaa !120
   %433 = add nuw nsw i64 %408, 2
   %434 = icmp eq i64 %433, 16
@@ -1248,22 +1248,22 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
   %461 = icmp samesign ule i32 %460, %146
   tail call void @llvm.assume(i1 %461)
   %462 = zext nneg i32 %459 to i64
-  %463 = getelementptr inbounds i16, ptr %56, i64 %462
+  %463 = getelementptr inbounds nuw i16, ptr %56, i64 %462
   %464 = zext nneg i32 %448 to i64
-  %465 = getelementptr inbounds i16, ptr %463, i64 %464
+  %465 = getelementptr inbounds nuw i16, ptr %463, i64 %464
   %466 = load i16, ptr %465, align 2, !tbaa !120
   %467 = zext i16 %466 to i32
   %468 = icmp samesign ugt i32 %142, %453
   tail call void @llvm.assume(i1 %468)
   %469 = zext nneg i32 %453 to i64
-  %470 = getelementptr inbounds i16, ptr %463, i64 %469
+  %470 = getelementptr inbounds nuw i16, ptr %463, i64 %469
   %471 = load i16, ptr %470, align 2, !tbaa !120
   %472 = zext i16 %471 to i32
   %473 = add nuw nsw i32 %467, 1
   %474 = add nuw nsw i32 %473, %472
   %475 = lshr i32 %474, 1
   %476 = trunc nuw i32 %475 to i16
-  %477 = getelementptr inbounds [16 x i16], ptr %6, i64 0, i64 %435
+  %477 = getelementptr inbounds nuw [16 x i16], ptr %6, i64 0, i64 %435
   store i16 %476, ptr %477, align 2, !tbaa !120
   %478 = add nuw nsw i64 %435, 1
   %479 = icmp eq i64 %478, 16
@@ -1294,7 +1294,7 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
 
 490:                                              ; preds = %487
   %491 = zext nneg i32 %362 to i64
-  %492 = getelementptr inbounds i8, ptr %36, i64 %491
+  %492 = getelementptr inbounds nuw i8, ptr %36, i64 %491
   br label %505
 
 493:                                              ; preds = %487
@@ -1314,7 +1314,7 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
   %501 = icmp ult i32 %500, 5
   tail call void @llvm.assume(i1 %501), !noalias !123
   %502 = zext nneg i32 %497 to i64
-  %503 = getelementptr inbounds i8, ptr %36, i64 %502
+  %503 = getelementptr inbounds nuw i8, ptr %36, i64 %502
   %504 = zext nneg i32 %500 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %7, ptr nonnull align 1 %503, i64 %504, i1 false), !noalias !123
   br label %505
@@ -1352,7 +1352,7 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
 
 527:                                              ; preds = %524
   %528 = zext nneg i32 %521 to i64
-  %529 = getelementptr inbounds i8, ptr %36, i64 %528
+  %529 = getelementptr inbounds nuw i8, ptr %36, i64 %528
   br label %542
 
 530:                                              ; preds = %524
@@ -1372,7 +1372,7 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
   %538 = icmp ult i32 %537, 5
   tail call void @llvm.assume(i1 %538), !noalias !123
   %539 = zext nneg i32 %534 to i64
-  %540 = getelementptr inbounds i8, ptr %36, i64 %539
+  %540 = getelementptr inbounds nuw i8, ptr %36, i64 %539
   %541 = zext nneg i32 %537 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %7, ptr nonnull align 1 %540, i64 %541, i1 false), !noalias !123
   br label %542
@@ -1406,7 +1406,7 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
 
 563:                                              ; preds = %560
   %564 = zext nneg i32 %552 to i64
-  %565 = getelementptr inbounds i8, ptr %36, i64 %564
+  %565 = getelementptr inbounds nuw i8, ptr %36, i64 %564
   br label %577
 
 566:                                              ; preds = %560
@@ -1422,7 +1422,7 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
   %573 = icmp ult i32 %572, 5
   tail call void @llvm.assume(i1 %573), !noalias !123
   %574 = zext nneg i32 %569 to i64
-  %575 = getelementptr inbounds i8, ptr %36, i64 %574
+  %575 = getelementptr inbounds nuw i8, ptr %36, i64 %574
   %576 = zext nneg i32 %572 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %7, ptr nonnull align 1 %575, i64 %576, i1 false), !noalias !123
   br label %577
@@ -1456,7 +1456,7 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
 
 598:                                              ; preds = %595
   %599 = zext nneg i32 %587 to i64
-  %600 = getelementptr inbounds i8, ptr %36, i64 %599
+  %600 = getelementptr inbounds nuw i8, ptr %36, i64 %599
   br label %612
 
 601:                                              ; preds = %595
@@ -1472,7 +1472,7 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
   %608 = icmp ult i32 %607, 5
   tail call void @llvm.assume(i1 %608), !noalias !123
   %609 = zext nneg i32 %604 to i64
-  %610 = getelementptr inbounds i8, ptr %36, i64 %609
+  %610 = getelementptr inbounds nuw i8, ptr %36, i64 %609
   %611 = zext nneg i32 %607 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %7, ptr nonnull align 1 %610, i64 %611, i1 false), !noalias !123
   br label %612
@@ -1506,7 +1506,7 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
 
 633:                                              ; preds = %630
   %634 = zext nneg i32 %622 to i64
-  %635 = getelementptr inbounds i8, ptr %36, i64 %634
+  %635 = getelementptr inbounds nuw i8, ptr %36, i64 %634
   br label %647
 
 636:                                              ; preds = %630
@@ -1522,7 +1522,7 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
   %643 = icmp ult i32 %642, 5
   tail call void @llvm.assume(i1 %643), !noalias !123
   %644 = zext nneg i32 %639 to i64
-  %645 = getelementptr inbounds i8, ptr %36, i64 %644
+  %645 = getelementptr inbounds nuw i8, ptr %36, i64 %644
   %646 = zext nneg i32 %642 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %7, ptr nonnull align 1 %645, i64 %646, i1 false), !noalias !123
   br label %647
@@ -1576,7 +1576,7 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
 
 673:                                              ; preds = %670
   %674 = zext nneg i32 %892 to i64
-  %675 = getelementptr inbounds i8, ptr %36, i64 %674
+  %675 = getelementptr inbounds nuw i8, ptr %36, i64 %674
   br label %687
 
 676:                                              ; preds = %670
@@ -1592,7 +1592,7 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
   %683 = icmp ult i32 %682, 5
   tail call void @llvm.assume(i1 %683), !noalias !123
   %684 = zext nneg i32 %679 to i64
-  %685 = getelementptr inbounds i8, ptr %36, i64 %684
+  %685 = getelementptr inbounds nuw i8, ptr %36, i64 %684
   %686 = zext nneg i32 %682 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %7, ptr nonnull align 1 %685, i64 %686, i1 false), !noalias !123
   br label %687
@@ -1661,7 +1661,7 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
 
 723:                                              ; preds = %720
   %724 = zext nneg i32 %714 to i64
-  %725 = getelementptr inbounds i8, ptr %36, i64 %724
+  %725 = getelementptr inbounds nuw i8, ptr %36, i64 %724
   br label %737
 
 726:                                              ; preds = %720
@@ -1677,7 +1677,7 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
   %733 = icmp ult i32 %732, 5
   tail call void @llvm.assume(i1 %733), !noalias !123
   %734 = zext nneg i32 %729 to i64
-  %735 = getelementptr inbounds i8, ptr %36, i64 %734
+  %735 = getelementptr inbounds nuw i8, ptr %36, i64 %734
   %736 = zext nneg i32 %732 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %7, ptr nonnull align 1 %735, i64 %736, i1 false), !noalias !123
   br label %737
@@ -1756,7 +1756,7 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
 
 781:                                              ; preds = %778
   %782 = zext nneg i32 %770 to i64
-  %783 = getelementptr inbounds i8, ptr %36, i64 %782
+  %783 = getelementptr inbounds nuw i8, ptr %36, i64 %782
   br label %795
 
 784:                                              ; preds = %778
@@ -1772,7 +1772,7 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
   %791 = icmp ult i32 %790, 5
   tail call void @llvm.assume(i1 %791), !noalias !123
   %792 = zext nneg i32 %787 to i64
-  %793 = getelementptr inbounds i8, ptr %36, i64 %792
+  %793 = getelementptr inbounds nuw i8, ptr %36, i64 %792
   %794 = zext nneg i32 %790 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %7, ptr nonnull align 1 %793, i64 %794, i1 false), !noalias !123
   br label %795
@@ -1874,7 +1874,7 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
 
 856:                                              ; preds = %853
   %857 = zext nneg i32 %657 to i64
-  %858 = getelementptr inbounds i8, ptr %36, i64 %857
+  %858 = getelementptr inbounds nuw i8, ptr %36, i64 %857
   br label %871
 
 859:                                              ; preds = %853
@@ -1894,7 +1894,7 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
   %867 = icmp ult i32 %866, 5
   tail call void @llvm.assume(i1 %867), !noalias !123
   %868 = zext nneg i32 %863 to i64
-  %869 = getelementptr inbounds i8, ptr %36, i64 %868
+  %869 = getelementptr inbounds nuw i8, ptr %36, i64 %868
   %870 = zext nneg i32 %866 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %7, ptr nonnull align 1 %869, i64 %870, i1 false), !noalias !123
   br label %871
@@ -1963,7 +1963,7 @@ default.unreachable150:                           ; preds = %774, %716, %666, %6
   %910 = phi i64 [ %899, %897 ], [ %961, %960 ]
   %911 = lshr i64 %907, 2
   %912 = and i64 %911, 1073741823
-  %913 = getelementptr inbounds [4 x i32], ptr %3, i64 0, i64 %912
+  %913 = getelementptr inbounds nuw [4 x i32], ptr %3, i64 0, i64 %912
   %914 = load i32, ptr %913, align 4, !tbaa !14, !noalias !123
   %915 = icmp eq i32 %914, 0
   br i1 %915, label %960, label %916
@@ -1985,7 +1985,7 @@ default.unreachable150:                           ; preds = %774, %716, %666, %6
 
 924:                                              ; preds = %921
   %925 = zext nneg i32 %908 to i64
-  %926 = getelementptr inbounds i8, ptr %36, i64 %925
+  %926 = getelementptr inbounds nuw i8, ptr %36, i64 %925
   br label %939
 
 927:                                              ; preds = %921
@@ -2005,7 +2005,7 @@ default.unreachable150:                           ; preds = %774, %716, %666, %6
   %935 = icmp ult i32 %934, 5
   tail call void @llvm.assume(i1 %935), !noalias !123
   %936 = zext nneg i32 %931 to i64
-  %937 = getelementptr inbounds i8, ptr %36, i64 %936
+  %937 = getelementptr inbounds nuw i8, ptr %36, i64 %936
   %938 = zext nneg i32 %934 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %7, ptr nonnull align 1 %937, i64 %938, i1 false), !noalias !123
   br label %939
@@ -2041,7 +2041,7 @@ default.unreachable150:                           ; preds = %774, %716, %666, %6
   %962 = phi i32 [ %909, %906 ], [ %955, %948 ]
   %963 = phi i32 [ %908, %906 ], [ %949, %948 ]
   %964 = phi i16 [ 0, %906 ], [ %959, %948 ]
-  %965 = getelementptr inbounds [16 x i16], ptr %4, i64 0, i64 %907
+  %965 = getelementptr inbounds nuw [16 x i16], ptr %4, i64 0, i64 %907
   store i16 %964, ptr %965, align 2, !tbaa !120, !noalias !123
   %966 = add nuw nsw i64 %907, 1
   %967 = icmp eq i64 %966, 16
@@ -2114,9 +2114,9 @@ default.unreachable150:                           ; preds = %774, %716, %666, %6
   %1003 = add nuw nsw i32 %1002, %142
   %1004 = icmp ule i32 %1003, %146
   %1005 = zext nneg i32 %1002 to i64
-  %1006 = getelementptr inbounds i16, ptr %56, i64 %1005
+  %1006 = getelementptr inbounds nuw i16, ptr %56, i64 %1005
   %1007 = zext nneg i32 %142 to i64
-  %1008 = getelementptr inbounds i16, ptr %1006, i64 %132
+  %1008 = getelementptr inbounds nuw i16, ptr %1006, i64 %132
   %1009 = or disjoint i64 %132, 15
   %1010 = icmp samesign ult i64 %1009, %1007
   %.0..0..0..0. = load <16 x i16>, ptr %5, align 32, !tbaa !120
@@ -2151,7 +2151,7 @@ default.unreachable150:                           ; preds = %774, %716, %666, %6
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN8rawspeed21SamsungV2Decompressor10decompressEv(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8, !tbaa !97
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.preheader, label %.loopexit
@@ -2171,10 +2171,10 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor10decompressEv(ptr nocapt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !108
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #15
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !13
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %11, label %8
@@ -2196,7 +2196,7 @@ define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_pol
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr %0, align 8, !tbaa !108
-  %18 = getelementptr inbounds i8, ptr %17, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load ptr, ptr %18, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(16) %0) #15
   br label %20

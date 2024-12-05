@@ -13,15 +13,15 @@ define range(i32 -1, 1) i32 @mkdir(ptr noundef %0, i32 noundef %1) local_unnamed
   %6 = xor i32 %5, -1
   %7 = and i32 %1, %6
   store ptr %0, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %8, i8 0, i64 41, i1 false)
   %10 = call i32 @inode_find(ptr noundef nonnull %3) #4
   %11 = icmp sgt i32 %10, -1
   br i1 %11, label %12, label %35
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %3, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %14 = load ptr, ptr %8, align 8
   store ptr %14, ptr %4, align 8
   %15 = load ptr, ptr %13, align 8
@@ -30,20 +30,20 @@ define range(i32 -1, 1) i32 @mkdir(ptr noundef %0, i32 noundef %1) local_unnamed
   br i1 %17, label %48, label %18
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %14, i64 26
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 26
   %20 = load i16, ptr %19, align 2
   %21 = and i16 %20, 15
   %22 = icmp eq i16 %21, 3
   br i1 %22, label %23, label %48
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds i8, ptr %14, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %25 = load ptr, ptr %24, align 8
   %.not = icmp eq ptr %25, null
   br i1 %.not, label %48, label %26
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %25, i64 168
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 168
   %28 = load ptr, ptr %27, align 8
   %.not21 = icmp eq ptr %28, null
   br i1 %.not21, label %48, label %29

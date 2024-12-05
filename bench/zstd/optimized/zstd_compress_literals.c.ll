@@ -47,7 +47,7 @@ default.unreachable16:                            ; preds = %do.end17
   unreachable
 
 sw.epilog:                                        ; preds = %sw.bb24, %sw.bb20, %sw.bb
-  %add.ptr = getelementptr inbounds i8, ptr %dst, i64 %conv5
+  %add.ptr = getelementptr inbounds nuw i8, ptr %dst, i64 %conv5
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr align 1 %src, i64 %srcSize, i1 false)
   br label %return
 
@@ -100,7 +100,7 @@ default.unreachable12:                            ; preds = %entry
 sw.epilog:                                        ; preds = %sw.bb10, %sw.bb6, %sw.bb
   %3 = load i8, ptr %src, align 1
   %idxprom = zext nneg i32 %add3 to i64
-  %arrayidx14 = getelementptr inbounds i8, ptr %dst, i64 %idxprom
+  %arrayidx14 = getelementptr inbounds nuw i8, ptr %dst, i64 %idxprom
   store i8 %3, ptr %arrayidx14, align 1
   %add15 = add nuw nsw i32 %add3, 1
   %conv16 = zext nneg i32 %add15 to i64
@@ -163,12 +163,12 @@ default.unreachable121:                           ; preds = %if.end90, %do.end17
   unreachable
 
 sw.epilog.i:                                      ; preds = %sw.bb24.i, %sw.bb20.i, %sw.bb.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %dst, i64 %conv5.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %dst, i64 %conv5.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr readonly align 1 %src, i64 %srcSize, i1 false)
   br label %return
 
 if.end:                                           ; preds = %entry
-  %repeatMode = getelementptr inbounds i8, ptr %prevHuf, i64 2056
+  %repeatMode = getelementptr inbounds nuw i8, ptr %prevHuf, i64 2056
   %2 = load i32, ptr %repeatMode, align 8
   %sub.i = sub nsw i32 9, %strategy
   %cond.i = tail call i32 @llvm.smin.i32(i32 %sub.i, i32 3)
@@ -218,7 +218,7 @@ sw.bb24.i74:                                      ; preds = %do.end17.i73
   br label %sw.epilog.i77
 
 sw.epilog.i77:                                    ; preds = %sw.bb24.i74, %sw.bb20.i80, %sw.bb.i83
-  %add.ptr.i78 = getelementptr inbounds i8, ptr %dst, i64 %conv5.i70
+  %add.ptr.i78 = getelementptr inbounds nuw i8, ptr %dst, i64 %conv5.i70
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i78, ptr readonly align 1 %src, i64 %srcSize, i1 false)
   br label %return
 
@@ -245,7 +245,7 @@ do.end29:                                         ; preds = %do.body15
   %or.cond = select i1 %cmp2.i, i1 %cmp47, i1 false
   %narrow = or i1 %cmp5, %or.cond
   %cond52 = select i1 %narrow, ptr @HUF_compress1X_repeat, ptr @HUF_compress4X_repeat
-  %add.ptr = getelementptr inbounds i8, ptr %dst, i64 %add3
+  %add.ptr = getelementptr inbounds nuw i8, ptr %dst, i64 %add3
   %sub = sub nuw i64 %dstCapacity, %add3
   %call53 = call i64 %cond52(ptr noundef nonnull %add.ptr, i64 noundef %sub, ptr noundef %src, i64 noundef %srcSize, i32 noundef 255, i32 noundef 11, ptr noundef %entropyWorkspace, i64 noundef %entropyWorkspaceSize, ptr noundef nonnull %nextHuf, ptr noundef nonnull %repeat, i32 noundef %or44) #5, !callees !4
   %6 = load i32, ptr %repeat, align 4
@@ -303,7 +303,7 @@ sw.bb24.i101:                                     ; preds = %do.end17.i100
   br label %sw.epilog.i104
 
 sw.epilog.i104:                                   ; preds = %sw.bb24.i101, %sw.bb20.i107, %sw.bb.i110
-  %add.ptr.i105 = getelementptr inbounds i8, ptr %dst, i64 %conv5.i97
+  %add.ptr.i105 = getelementptr inbounds nuw i8, ptr %dst, i64 %conv5.i97
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i105, ptr readonly align 1 %src, i64 %srcSize, i1 false)
   br label %return
 
@@ -327,7 +327,7 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %lor.lhs.false79, %for.cond.i
   %p.05.i = phi i64 [ %inc.i, %for.cond.i ], [ 1, %lor.lhs.false79 ]
-  %arrayidx1.i = getelementptr inbounds i8, ptr %src, i64 %p.05.i
+  %arrayidx1.i = getelementptr inbounds nuw i8, ptr %src, i64 %p.05.i
   %13 = load i8, ptr %arrayidx1.i, align 1
   %cmp3.not.i = icmp eq i8 %13, %12
   br i1 %cmp3.not.i, label %for.cond.i, label %if.end85
@@ -341,7 +341,7 @@ if.end85:                                         ; preds = %for.body.i, %if.end
   br i1 %cmp56.not, label %if.then88, label %if.end90
 
 if.then88:                                        ; preds = %if.end85
-  %repeatMode89 = getelementptr inbounds i8, ptr %nextHuf, i64 2056
+  %repeatMode89 = getelementptr inbounds nuw i8, ptr %nextHuf, i64 2056
   store i32 1, ptr %repeatMode89, align 8
   br label %if.end90
 
@@ -366,7 +366,7 @@ sw.bb:                                            ; preds = %if.end90
   store i16 %conv.i116, ptr %dst, align 1
   %shr.i117 = lshr i32 %add101, 16
   %conv1.i = trunc i32 %shr.i117 to i8
-  %arrayidx.i = getelementptr inbounds i8, ptr %dst, i64 2
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %dst, i64 2
   store i8 %conv1.i, ptr %arrayidx.i, align 1
   br label %do.end122
 
@@ -392,7 +392,7 @@ sw.bb111:                                         ; preds = %if.end90
   store i32 %add119, ptr %dst, align 1
   %shr = lshr i64 %call53, 10
   %conv120 = trunc i64 %shr to i8
-  %arrayidx = getelementptr inbounds i8, ptr %dst, i64 4
+  %arrayidx = getelementptr inbounds nuw i8, ptr %dst, i64 4
   store i8 %conv120, ptr %arrayidx, align 1
   br label %do.end122
 

@@ -106,7 +106,7 @@ define internal i32 @dissect_teredo(ptr noundef %0, ptr noundef %1, ptr noundef 
   %8 = sext i32 %spec.store.select to i64
   %9 = getelementptr [4 x %struct.e_teredohdr], ptr @dissect_teredo.teredohstruct, i64 0, i64 %8
   store ptr %9, ptr @dissect_teredo.teredoh, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_set_str(ptr noundef %11, i32 noundef 34, ptr noundef nonnull @.str.28) #2
   %12 = load ptr, ptr %10, align 8
@@ -117,7 +117,7 @@ define internal i32 @dissect_teredo(ptr noundef %0, ptr noundef %1, ptr noundef 
   %16 = tail call ptr @proto_item_add_subtree(ptr noundef %14, i32 noundef %15) #2
   %17 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0) #2
   %18 = load ptr, ptr @dissect_teredo.teredoh, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 14
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 14
   store i16 %17, ptr %19, align 2
   %20 = icmp eq i16 %17, 1
   br i1 %20, label %21, label %67
@@ -128,11 +128,11 @@ define internal i32 @dissect_teredo(ptr noundef %0, ptr noundef %1, ptr noundef 
   store i16 1, ptr %18, align 4
   %22 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #2
   %23 = zext i8 %22 to i32
-  %24 = getelementptr inbounds i8, ptr %18, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 2
   store i8 %22, ptr %24, align 2
   %25 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 3) #2
   %26 = zext i8 %25 to i32
-  %27 = getelementptr inbounds i8, ptr %18, i64 3
+  %27 = getelementptr inbounds nuw i8, ptr %18, i64 3
   store i8 %25, ptr %27, align 1
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %55, label %28
@@ -185,16 +185,16 @@ define internal i32 @dissect_teredo(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 parse_teredo_auth.exit:                           ; preds = %48, %55
   %.2.i = phi i32 [ %54, %48 ], [ %57, %55 ]
-  %58 = getelementptr inbounds i8, ptr %18, i64 4
+  %58 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %59 = add nsw i32 %.2.i, -9
   %60 = tail call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %58, i32 noundef %59, i64 noundef 8) #2
   %61 = add nsw i32 %.2.i, -1
   %62 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %61) #2
-  %63 = getelementptr inbounds i8, ptr %18, i64 12
+  %63 = getelementptr inbounds nuw i8, ptr %18, i64 12
   store i8 %62, ptr %63, align 4
   %64 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.2.i) #2
   %65 = load ptr, ptr @dissect_teredo.teredoh, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 14
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 14
   store i16 %64, ptr %66, align 2
   br label %68
 
@@ -226,7 +226,7 @@ parse_teredo_auth.exit:                           ; preds = %48, %55
   %.0.i26 = phi ptr [ %77, %73 ], [ null, %72 ]
   %79 = add nuw nsw i32 %.0, 2
   %80 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %79) #2
-  %81 = getelementptr inbounds i8, ptr %70, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %70, i64 16
   store i16 %80, ptr %81, align 4
   %.not26.i = icmp eq ptr %.0.i26, null
   br i1 %.not26.i, label %.thread.i, label %85
@@ -234,7 +234,7 @@ parse_teredo_auth.exit:                           ; preds = %48, %55
 .thread.i:                                        ; preds = %78
   %82 = add nuw nsw i32 %.0, 4
   %83 = tail call i32 @tvb_get_ipv4(ptr noundef %0, i32 noundef %82) #2
-  %84 = getelementptr inbounds i8, ptr %70, i64 20
+  %84 = getelementptr inbounds nuw i8, ptr %70, i64 20
   store i32 %83, ptr %84, align 4
   br label %parse_teredo_orig.exit
 
@@ -245,7 +245,7 @@ parse_teredo_auth.exit:                           ; preds = %48, %55
   %89 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %.0.i26, i32 noundef %86, ptr noundef %0, i32 noundef %79, i32 noundef 2, i32 noundef %88) #2
   %90 = add nuw nsw i32 %.0, 4
   %91 = tail call i32 @tvb_get_ipv4(ptr noundef %0, i32 noundef %90) #2
-  %92 = getelementptr inbounds i8, ptr %70, i64 20
+  %92 = getelementptr inbounds nuw i8, ptr %70, i64 20
   store i32 %91, ptr %92, align 4
   %93 = load i32, ptr @hf_teredo_orig_addr, align 4
   %94 = xor i32 %91, -1
@@ -260,9 +260,9 @@ parse_teredo_orig.exit:                           ; preds = %.thread.i, %85
   %.1 = phi i32 [ %96, %parse_teredo_orig.exit ], [ %.0, %68 ]
   %98 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.1) #2
   %99 = load ptr, ptr @dissect_teredo.teredoh, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 13
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 13
   store i8 %98, ptr %100, align 1
-  %101 = getelementptr inbounds i8, ptr %99, i64 14
+  %101 = getelementptr inbounds nuw i8, ptr %99, i64 14
   %102 = load i16, ptr %101, align 2
   %103 = zext i16 %102 to i32
   %104 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.1) #2

@@ -94,7 +94,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   store ptr %call, ptr %this, align 8
-  %m_stream = getelementptr inbounds i8, ptr %this, i64 8
+  %m_stream = getelementptr inbounds nuw i8, ptr %this, i64 8
   invoke void @_ZN4YAML15ostream_wrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(57) %m_stream)
           to label %invoke.cont3 unwind label %lpad2
 
@@ -156,7 +156,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   store ptr %call, ptr %this, align 8
-  %m_stream = getelementptr inbounds i8, ptr %this, i64 8
+  %m_stream = getelementptr inbounds nuw i8, ptr %this, i64 8
   invoke void @_ZN4YAML15ostream_wrapperC1ERSo(ptr noundef nonnull align 8 dereferenceable(57) %m_stream, ptr noundef nonnull align 8 dereferenceable(8) %stream)
           to label %invoke.cont3 unwind label %lpad2
 
@@ -185,7 +185,7 @@ declare void @_ZN4YAML15ostream_wrapperC1ERSo(ptr noundef nonnull align 8 derefe
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN4YAML7EmitterD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_stream = getelementptr inbounds i8, ptr %this, i64 8
+  %m_stream = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN4YAML15ostream_wrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(57) %m_stream) #15
   %0 = load ptr, ptr %this, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -207,14 +207,14 @@ declare void @_ZN4YAML15ostream_wrapperD1Ev(ptr noundef nonnull align 8 derefere
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef ptr @_ZNK4YAML7Emitter5c_strEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %m_pStream.i = getelementptr inbounds i8, ptr %this, i64 32
+  %m_pStream.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_pStream.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.else.i, label %_ZNK4YAML15ostream_wrapper3strEv.exit
 
 if.else.i:                                        ; preds = %entry
-  %m_stream = getelementptr inbounds i8, ptr %this, i64 8
-  %m_pos.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_stream = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %m_pos.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %1 = load i64, ptr %m_pos.i, align 8
   %2 = load ptr, ptr %m_stream, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 %1
@@ -230,7 +230,7 @@ _ZNK4YAML15ostream_wrapper3strEv.exit:            ; preds = %entry, %if.else.i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i64 @_ZNK4YAML7Emitter4sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) local_unnamed_addr #8 align 2 {
 entry:
-  %m_pos.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_pos.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %m_pos.i, align 8
   ret i64 %0
 }
@@ -248,7 +248,7 @@ entry:
 define void @_ZNK4YAML7Emitter12GetLastErrorB5cxx11Ev(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %m_lastError.i = getelementptr inbounds i8, ptr %0, i64 8
+  %m_lastError.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %m_lastError.i)
   ret void
 }
@@ -454,7 +454,7 @@ sw.bb8:                                           ; preds = %if.end
 
 _ZN4YAML7Emitter11EmitNewlineEv.exit:             ; preds = %if.end
   tail call void @_ZN4YAML7Emitter11PrepareNodeENS_15EmitterNodeType5valueE(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef 0)
-  %m_stream.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_stream.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %m_stream.i, ptr noundef nonnull @.str.1, i64 noundef 1)
   %4 = load ptr, ptr %this, align 8
   tail call void @_ZN4YAML12EmitterState13SetNonContentEv(ptr noundef nonnull align 8 dereferenceable(224) %4)
@@ -493,7 +493,7 @@ if.then4:                                         ; preds = %if.end
 
 invoke.cont:                                      ; preds = %if.then4
   store i8 0, ptr %2, align 8
-  %m_lastError.i = getelementptr inbounds i8, ptr %2, i64 8
+  %m_lastError.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %call.i5 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_lastError.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont9 unwind label %lpad8
 
@@ -514,13 +514,13 @@ lpad8:                                            ; preds = %invoke.cont
   br label %eh.resume
 
 if.end10:                                         ; preds = %if.end
-  %m_hasAnchor.i = getelementptr inbounds i8, ptr %2, i64 208
+  %m_hasAnchor.i = getelementptr inbounds nuw i8, ptr %2, i64 208
   %5 = load i8, ptr %m_hasAnchor.i, align 8
   %tobool.i = trunc i8 %5 to i1
   br i1 %tobool.i, label %if.then17, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end10
-  %m_hasTag.i = getelementptr inbounds i8, ptr %2, i64 210
+  %m_hasTag.i = getelementptr inbounds nuw i8, ptr %2, i64 210
   %6 = load i8, ptr %m_hasTag.i, align 2
   %tobool.i6 = trunc i8 %6 to i1
   br i1 %tobool.i6, label %if.then17, label %if.end28
@@ -532,7 +532,7 @@ if.then17:                                        ; preds = %lor.lhs.false, %if.
 
 invoke.cont23:                                    ; preds = %if.then17
   store i8 0, ptr %2, align 8
-  %m_lastError.i7 = getelementptr inbounds i8, ptr %2, i64 8
+  %m_lastError.i7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %call.i8 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_lastError.i7, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20)
           to label %invoke.cont25 unwind label %lpad24
 
@@ -553,8 +553,8 @@ lpad24:                                           ; preds = %invoke.cont23
   br label %eh.resume
 
 if.end28:                                         ; preds = %lor.lhs.false
-  %m_stream = getelementptr inbounds i8, ptr %this, i64 8
-  %m_col.i = getelementptr inbounds i8, ptr %this, i64 56
+  %m_stream = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %m_col.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %9 = load i64, ptr %m_col.i, align 8
   %cmp30.not = icmp eq i64 %9, 0
   br i1 %cmp30.not, label %if.end34, label %if.then31
@@ -604,7 +604,7 @@ if.then4:                                         ; preds = %if.end
 
 invoke.cont:                                      ; preds = %if.then4
   store i8 0, ptr %2, align 8
-  %m_lastError.i = getelementptr inbounds i8, ptr %2, i64 8
+  %m_lastError.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %call.i5 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_lastError.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont9 unwind label %lpad8
 
@@ -625,13 +625,13 @@ lpad8:                                            ; preds = %invoke.cont
   br label %eh.resume
 
 if.end10:                                         ; preds = %if.end
-  %m_hasAnchor.i = getelementptr inbounds i8, ptr %2, i64 208
+  %m_hasAnchor.i = getelementptr inbounds nuw i8, ptr %2, i64 208
   %5 = load i8, ptr %m_hasAnchor.i, align 8
   %tobool.i = trunc i8 %5 to i1
   br i1 %tobool.i, label %if.then17, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end10
-  %m_hasTag.i = getelementptr inbounds i8, ptr %2, i64 210
+  %m_hasTag.i = getelementptr inbounds nuw i8, ptr %2, i64 210
   %6 = load i8, ptr %m_hasTag.i, align 2
   %tobool.i6 = trunc i8 %6 to i1
   br i1 %tobool.i6, label %if.then17, label %if.end28
@@ -643,7 +643,7 @@ if.then17:                                        ; preds = %lor.lhs.false, %if.
 
 invoke.cont23:                                    ; preds = %if.then17
   store i8 0, ptr %2, align 8
-  %m_lastError.i7 = getelementptr inbounds i8, ptr %2, i64 8
+  %m_lastError.i7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %call.i8 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_lastError.i7, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20)
           to label %invoke.cont25 unwind label %lpad24
 
@@ -664,8 +664,8 @@ lpad24:                                           ; preds = %invoke.cont23
   br label %eh.resume
 
 if.end28:                                         ; preds = %lor.lhs.false
-  %m_stream = getelementptr inbounds i8, ptr %this, i64 8
-  %m_col.i = getelementptr inbounds i8, ptr %this, i64 56
+  %m_stream = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %m_col.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %9 = load i64, ptr %m_col.i, align 8
   %cmp30.not = icmp eq i64 %9, 0
   br i1 %cmp30.not, label %if.end34, label %if.then31
@@ -735,8 +735,8 @@ if.end10:                                         ; preds = %if.then7, %if.end
   br i1 %cmp14, label %if.then15, label %if.end44
 
 if.then15:                                        ; preds = %if.end10
-  %m_stream = getelementptr inbounds i8, ptr %this, i64 8
-  %m_comment.i = getelementptr inbounds i8, ptr %this, i64 64
+  %m_stream = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %m_comment.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %5 = load i8, ptr %m_comment.i, align 8
   %tobool.i = trunc i8 %5 to i1
   br i1 %tobool.i, label %if.then17, label %if.end20
@@ -747,9 +747,9 @@ if.then17:                                        ; preds = %if.then15
 
 if.end20:                                         ; preds = %if.then17, %if.then15
   %6 = load ptr, ptr %this, align 8
-  %m_curIndent.i = getelementptr inbounds i8, ptr %6, i64 200
+  %m_curIndent.i = getelementptr inbounds nuw i8, ptr %6, i64 200
   %7 = load i64, ptr %m_curIndent.i, align 8
-  %m_col.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %m_col.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %8 = load i64, ptr %m_col.i.i, align 8
   %cmp3.i = icmp ult i64 %8, %7
   br i1 %cmp3.i, label %while.body.i, label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit
@@ -775,19 +775,19 @@ if.else:                                          ; preds = %_ZN4YAMLlsERNS_15os
 
 land.lhs.true:                                    ; preds = %if.else
   %11 = load ptr, ptr %this, align 8
-  %m_hasAnchor.i = getelementptr inbounds i8, ptr %11, i64 208
+  %m_hasAnchor.i = getelementptr inbounds nuw i8, ptr %11, i64 208
   %12 = load i8, ptr %m_hasAnchor.i, align 8
   %tobool.i1 = trunc i8 %12 to i1
   br i1 %tobool.i1, label %if.end41, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %land.lhs.true
-  %m_hasTag.i = getelementptr inbounds i8, ptr %11, i64 210
+  %m_hasTag.i = getelementptr inbounds nuw i8, ptr %11, i64 210
   %13 = load i8, ptr %m_hasTag.i, align 2
   %tobool2.i = trunc i8 %13 to i1
   br i1 %tobool2.i, label %if.end41, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
 
 _ZNK4YAML12EmitterState12HasBegunNodeEv.exit:     ; preds = %lor.lhs.false.i
-  %m_hasNonContent.i = getelementptr inbounds i8, ptr %11, i64 211
+  %m_hasNonContent.i = getelementptr inbounds nuw i8, ptr %11, i64 211
   %14 = load i8, ptr %m_hasNonContent.i, align 1
   %tobool3.i = trunc i8 %14 to i1
   br i1 %tobool3.i, label %if.end41, label %if.end41.sink.split
@@ -856,8 +856,8 @@ if.end10:                                         ; preds = %if.then7, %if.end
   br i1 %cmp14, label %if.then15, label %if.end44
 
 if.then15:                                        ; preds = %if.end10
-  %m_stream = getelementptr inbounds i8, ptr %this, i64 8
-  %m_comment.i = getelementptr inbounds i8, ptr %this, i64 64
+  %m_stream = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %m_comment.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %5 = load i8, ptr %m_comment.i, align 8
   %tobool.i = trunc i8 %5 to i1
   br i1 %tobool.i, label %if.then17, label %if.end20
@@ -868,9 +868,9 @@ if.then17:                                        ; preds = %if.then15
 
 if.end20:                                         ; preds = %if.then17, %if.then15
   %6 = load ptr, ptr %this, align 8
-  %m_curIndent.i = getelementptr inbounds i8, ptr %6, i64 200
+  %m_curIndent.i = getelementptr inbounds nuw i8, ptr %6, i64 200
   %7 = load i64, ptr %m_curIndent.i, align 8
-  %m_col.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %m_col.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %8 = load i64, ptr %m_col.i.i, align 8
   %cmp3.i = icmp ult i64 %8, %7
   br i1 %cmp3.i, label %while.body.i, label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit
@@ -896,19 +896,19 @@ if.else:                                          ; preds = %_ZN4YAMLlsERNS_15os
 
 land.lhs.true:                                    ; preds = %if.else
   %11 = load ptr, ptr %this, align 8
-  %m_hasAnchor.i = getelementptr inbounds i8, ptr %11, i64 208
+  %m_hasAnchor.i = getelementptr inbounds nuw i8, ptr %11, i64 208
   %12 = load i8, ptr %m_hasAnchor.i, align 8
   %tobool.i1 = trunc i8 %12 to i1
   br i1 %tobool.i1, label %if.end41, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %land.lhs.true
-  %m_hasTag.i = getelementptr inbounds i8, ptr %11, i64 210
+  %m_hasTag.i = getelementptr inbounds nuw i8, ptr %11, i64 210
   %13 = load i8, ptr %m_hasTag.i, align 2
   %tobool2.i = trunc i8 %13 to i1
   br i1 %tobool2.i, label %if.end41, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
 
 _ZNK4YAML12EmitterState12HasBegunNodeEv.exit:     ; preds = %lor.lhs.false.i
-  %m_hasNonContent.i = getelementptr inbounds i8, ptr %11, i64 211
+  %m_hasNonContent.i = getelementptr inbounds nuw i8, ptr %11, i64 211
   %14 = load i8, ptr %m_hasNonContent.i, align 1
   %tobool3.i = trunc i8 %14 to i1
   br i1 %tobool3.i, label %if.end41, label %if.end41.sink.split
@@ -949,7 +949,7 @@ invoke.cont5:                                     ; preds = %invoke.cont
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont5
-  %content.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
+  %content.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %content.i) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(68) %ref.tmp) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #15
@@ -969,7 +969,7 @@ lpad4:                                            ; preds = %invoke.cont
 lpad6:                                            ; preds = %invoke.cont5
   %2 = landingpad { ptr, i32 }
           cleanup
-  %content.i3 = getelementptr inbounds i8, ptr %ref.tmp, i64 32
+  %content.i3 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %content.i3) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(68) %ref.tmp) #15
   br label %ehcleanup
@@ -995,7 +995,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @_ZN4YAML7Emitter11PrepareNodeENS_15EmitterNodeType5valueE(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef 0)
-  %m_stream = getelementptr inbounds i8, ptr %this, i64 8
+  %m_stream = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %m_stream, ptr noundef nonnull @.str.1, i64 noundef 1)
   %2 = load ptr, ptr %this, align 8
   tail call void @_ZN4YAML12EmitterState13SetNonContentEv(ptr noundef nonnull align 8 dereferenceable(224) %2)
@@ -1031,7 +1031,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %doublePrecision = getelementptr inbounds i8, ptr %precision, i64 4
+  %doublePrecision = getelementptr inbounds nuw i8, ptr %precision, i64 4
   %2 = load i32, ptr %doublePrecision, align 4
   %cmp4 = icmp sgt i32 %2, -1
   br i1 %cmp4, label %if.then5, label %if.end11
@@ -1130,7 +1130,7 @@ if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %this, align 8
   %call2 = tail call noundef i64 @_ZNK4YAML12EmitterState18CurGroupChildCountEv(ptr noundef nonnull align 8 dereferenceable(224) %0)
   %cmp3.not = icmp eq i64 %call2, 0
-  %m_col.i = getelementptr inbounds i8, ptr %this, i64 56
+  %m_col.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %1 = load i64, ptr %m_col.i, align 8
   %cmp5.not = icmp eq i64 %1, 0
   %or.cond = select i1 %cmp3.not, i1 true, i1 %cmp5.not
@@ -1152,15 +1152,15 @@ if.end7:                                          ; preds = %if.then6, %if.end
 
 sw.bb8:                                           ; preds = %if.end7, %if.end7, %if.end7, %if.end7
   %2 = load ptr, ptr %this, align 8
-  %m_hasAnchor.i = getelementptr inbounds i8, ptr %2, i64 208
+  %m_hasAnchor.i = getelementptr inbounds nuw i8, ptr %2, i64 208
   %3 = load i8, ptr %m_hasAnchor.i, align 8
   %tobool.i = trunc i8 %3 to i1
-  %m_hasTag.i = getelementptr inbounds i8, ptr %2, i64 210
+  %m_hasTag.i = getelementptr inbounds nuw i8, ptr %2, i64 210
   %4 = load i8, ptr %m_hasTag.i, align 2
   %tobool2.i = trunc i8 %4 to i1
   %5 = select i1 %tobool.i, i1 true, i1 %tobool2.i
-  %m_stream.i = getelementptr inbounds i8, ptr %this, i64 8
-  %m_comment.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %m_stream.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %m_comment.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %6 = load i8, ptr %m_comment.i.i, align 8
   %tobool.i.i = trunc i8 %6 to i1
   br i1 %tobool.i.i, label %if.then.i, label %if.end.i
@@ -1181,25 +1181,25 @@ if.then6.i:                                       ; preds = %if.end.i
 
 sw.bb12:                                          ; preds = %if.end7, %if.end7
   %8 = load ptr, ptr %this, align 8
-  %m_hasAnchor.i2 = getelementptr inbounds i8, ptr %8, i64 208
+  %m_hasAnchor.i2 = getelementptr inbounds nuw i8, ptr %8, i64 208
   %9 = load i8, ptr %m_hasAnchor.i2, align 8
   %tobool.i3 = trunc i8 %9 to i1
   br i1 %tobool.i3, label %if.then16, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %sw.bb12
-  %m_hasTag.i4 = getelementptr inbounds i8, ptr %8, i64 210
+  %m_hasTag.i4 = getelementptr inbounds nuw i8, ptr %8, i64 210
   %10 = load i8, ptr %m_hasTag.i4, align 2
   %tobool2.i5 = trunc i8 %10 to i1
   br i1 %tobool2.i5, label %if.then16, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
 
 _ZNK4YAML12EmitterState12HasBegunNodeEv.exit:     ; preds = %lor.lhs.false.i
-  %m_hasNonContent.i = getelementptr inbounds i8, ptr %8, i64 211
+  %m_hasNonContent.i = getelementptr inbounds nuw i8, ptr %8, i64 211
   %11 = load i8, ptr %m_hasNonContent.i, align 1
   %tobool3.i = trunc i8 %11 to i1
   br i1 %tobool3.i, label %if.then16, label %sw.epilog
 
 if.then16:                                        ; preds = %sw.bb12, %lor.lhs.false.i, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
-  %m_stream17 = getelementptr inbounds i8, ptr %this, i64 8
+  %m_stream17 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %m_stream17, ptr noundef nonnull @.str.1, i64 noundef 1)
   br label %sw.epilog
 
@@ -1215,26 +1215,26 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %call2 = tail call noundef i64 @_ZNK4YAML12EmitterState10LastIndentEv(ptr noundef nonnull align 8 dereferenceable(224) %0)
   %1 = load ptr, ptr %this, align 8
-  %m_hasAnchor.i = getelementptr inbounds i8, ptr %1, i64 208
+  %m_hasAnchor.i = getelementptr inbounds nuw i8, ptr %1, i64 208
   %2 = load i8, ptr %m_hasAnchor.i, align 8
   %tobool.i = trunc i8 %2 to i1
   br i1 %tobool.i, label %if.end21, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %m_hasTag.i = getelementptr inbounds i8, ptr %1, i64 210
+  %m_hasTag.i = getelementptr inbounds nuw i8, ptr %1, i64 210
   %3 = load i8, ptr %m_hasTag.i, align 2
   %tobool2.i = trunc i8 %3 to i1
   br i1 %tobool2.i, label %if.end21, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
 
 _ZNK4YAML12EmitterState12HasBegunNodeEv.exit:     ; preds = %lor.lhs.false.i
-  %m_hasNonContent.i = getelementptr inbounds i8, ptr %1, i64 211
+  %m_hasNonContent.i = getelementptr inbounds nuw i8, ptr %1, i64 211
   %4 = load i8, ptr %m_hasNonContent.i, align 1
   %tobool3.i = trunc i8 %4 to i1
   br i1 %tobool3.i, label %if.end21, label %if.then
 
 if.then:                                          ; preds = %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
-  %m_stream = getelementptr inbounds i8, ptr %this, i64 8
-  %m_comment.i = getelementptr inbounds i8, ptr %this, i64 64
+  %m_stream = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %m_comment.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %5 = load i8, ptr %m_comment.i, align 8
   %tobool.i2 = trunc i8 %5 to i1
   br i1 %tobool.i2, label %if.then7, label %if.end
@@ -1244,7 +1244,7 @@ if.then7:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then7, %if.then
-  %m_col.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %m_col.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %6 = load i64, ptr %m_col.i.i, align 8
   %cmp3.i = icmp ult i64 %6, %call2
   br i1 %cmp3.i, label %while.body.i, label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit
@@ -1276,10 +1276,10 @@ if.end21:                                         ; preds = %_ZN4YAMLlsERNS_15os
 
 sw.bb22:                                          ; preds = %if.end21, %if.end21, %if.end21, %if.end21
   %9 = load ptr, ptr %this, align 8
-  %m_hasAnchor.i3 = getelementptr inbounds i8, ptr %9, i64 208
+  %m_hasAnchor.i3 = getelementptr inbounds nuw i8, ptr %9, i64 208
   %10 = load i8, ptr %m_hasAnchor.i3, align 8
   %tobool.i4 = trunc i8 %10 to i1
-  %m_hasTag.i5 = getelementptr inbounds i8, ptr %9, i64 210
+  %m_hasTag.i5 = getelementptr inbounds nuw i8, ptr %9, i64 210
   %11 = load i8, ptr %m_hasTag.i5, align 2
   %tobool2.i6 = trunc i8 %11 to i1
   %12 = select i1 %tobool.i4, i1 true, i1 %tobool2.i6
@@ -1292,8 +1292,8 @@ lor.rhs:                                          ; preds = %sw.bb22
 
 lor.end:                                          ; preds = %lor.rhs, %sw.bb22
   %13 = phi i1 [ true, %sw.bb22 ], [ %cmp29, %lor.rhs ]
-  %m_stream.i = getelementptr inbounds i8, ptr %this, i64 8
-  %m_comment.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %m_stream.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %m_comment.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %14 = load i8, ptr %m_comment.i.i, align 8
   %tobool.i.i = trunc i8 %14 to i1
   br i1 %tobool.i.i, label %if.then.i, label %if.end.i
@@ -1303,7 +1303,7 @@ if.then.i:                                        ; preds = %lor.end
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %lor.end
-  %m_col.i.i7 = getelementptr inbounds i8, ptr %this, i64 56
+  %m_col.i.i7 = getelementptr inbounds nuw i8, ptr %this, i64 56
   %15 = load i64, ptr %m_col.i.i7, align 8
   %cmp.not.i = icmp ne i64 %15, 0
   %brmerge.not.i = and i1 %13, %cmp.not.i
@@ -1338,7 +1338,7 @@ entry:
   %ch.addr.i.i.i = alloca i8, align 1
   %ch.addr.i.i = alloca i8, align 1
   %0 = load ptr, ptr %this, align 8
-  %m_curIndent.i = getelementptr inbounds i8, ptr %0, i64 200
+  %m_curIndent.i = getelementptr inbounds nuw i8, ptr %0, i64 200
   %1 = load i64, ptr %m_curIndent.i, align 8
   %call5 = tail call noundef i64 @_ZNK4YAML12EmitterState14CurGroupIndentEv(ptr noundef nonnull align 8 dereferenceable(224) %0)
   %add = add i64 %call5, %1
@@ -1347,10 +1347,10 @@ entry:
 
 if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %this, align 8
-  %m_hasAnchor.i = getelementptr inbounds i8, ptr %2, i64 208
+  %m_hasAnchor.i = getelementptr inbounds nuw i8, ptr %2, i64 208
   %3 = load i8, ptr %m_hasAnchor.i, align 8
   %tobool.i = trunc i8 %3 to i1
-  %m_hasTag.i = getelementptr inbounds i8, ptr %2, i64 210
+  %m_hasTag.i = getelementptr inbounds nuw i8, ptr %2, i64 210
   %4 = load i8, ptr %m_hasTag.i, align 2
   %tobool2.i = trunc i8 %4 to i1
   %5 = select i1 %tobool.i, i1 true, i1 %tobool2.i
@@ -1362,19 +1362,19 @@ if.then9:                                         ; preds = %if.end
   br i1 %cmp13.not, label %lor.lhs.false, label %if.then15
 
 lor.lhs.false:                                    ; preds = %if.then9
-  %m_comment.i = getelementptr inbounds i8, ptr %this, i64 64
+  %m_comment.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %6 = load i8, ptr %m_comment.i, align 8
   %tobool.i3 = trunc i8 %6 to i1
   br i1 %tobool.i3, label %if.then15, label %if.end18
 
 if.then15:                                        ; preds = %lor.lhs.false, %if.then9
-  %m_stream16 = getelementptr inbounds i8, ptr %this, i64 8
+  %m_stream16 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %m_stream16, ptr noundef nonnull @.str.1, i64 noundef 1)
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then15, %lor.lhs.false
-  %m_stream19 = getelementptr inbounds i8, ptr %this, i64 8
-  %m_col.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %m_stream19 = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %m_col.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %7 = load i64, ptr %m_col.i.i, align 8
   %cmp3.i = icmp ult i64 %7, %1
   br i1 %cmp3.i, label %while.body.i, label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit
@@ -1404,15 +1404,15 @@ if.end23:                                         ; preds = %_ZN4YAMLlsERNS_15os
 
 sw.bb24:                                          ; preds = %if.end23, %if.end23, %if.end23, %if.end23
   %9 = load ptr, ptr %this, align 8
-  %m_hasAnchor.i4 = getelementptr inbounds i8, ptr %9, i64 208
+  %m_hasAnchor.i4 = getelementptr inbounds nuw i8, ptr %9, i64 208
   %10 = load i8, ptr %m_hasAnchor.i4, align 8
   %tobool.i5 = trunc i8 %10 to i1
-  %m_hasTag.i6 = getelementptr inbounds i8, ptr %9, i64 210
+  %m_hasTag.i6 = getelementptr inbounds nuw i8, ptr %9, i64 210
   %11 = load i8, ptr %m_hasTag.i6, align 2
   %tobool2.i7 = trunc i8 %11 to i1
   %12 = select i1 %tobool.i5, i1 true, i1 %tobool2.i7
-  %m_stream.i = getelementptr inbounds i8, ptr %this, i64 8
-  %m_comment.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %m_stream.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %m_comment.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %13 = load i8, ptr %m_comment.i.i, align 8
   %tobool.i.i = trunc i8 %13 to i1
   br i1 %tobool.i.i, label %if.then.i, label %if.end.i
@@ -1422,7 +1422,7 @@ if.then.i:                                        ; preds = %sw.bb24
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %sw.bb24
-  %m_col.i.i8 = getelementptr inbounds i8, ptr %this, i64 56
+  %m_col.i.i8 = getelementptr inbounds nuw i8, ptr %this, i64 56
   %14 = load i64, ptr %m_col.i.i8, align 8
   %cmp.not.i = icmp ne i64 %14, 0
   %brmerge.not.i = and i1 %12, %cmp.not.i
@@ -1449,23 +1449,23 @@ while.body.i.i:                                   ; preds = %if.end9.i, %while.b
 
 sw.bb31:                                          ; preds = %if.end23
   %17 = load ptr, ptr %this, align 8
-  %m_hasAnchor.i9 = getelementptr inbounds i8, ptr %17, i64 208
+  %m_hasAnchor.i9 = getelementptr inbounds nuw i8, ptr %17, i64 208
   %18 = load i8, ptr %m_hasAnchor.i9, align 8
   %tobool.i10 = trunc i8 %18 to i1
-  %m_hasTag.i11 = getelementptr inbounds i8, ptr %17, i64 210
+  %m_hasTag.i11 = getelementptr inbounds nuw i8, ptr %17, i64 210
   %19 = load i8, ptr %m_hasTag.i11, align 2
   %tobool2.i12 = trunc i8 %19 to i1
   %20 = select i1 %tobool.i10, i1 true, i1 %tobool2.i12
   br i1 %20, label %sw.epilog.sink.split, label %lor.lhs.false35
 
 lor.lhs.false35:                                  ; preds = %sw.bb31
-  %m_comment.i13 = getelementptr inbounds i8, ptr %this, i64 64
+  %m_comment.i13 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %21 = load i8, ptr %m_comment.i13, align 8
   %tobool.i14 = trunc i8 %21 to i1
   br i1 %tobool.i14, label %sw.epilog.sink.split, label %sw.epilog
 
 sw.epilog.sink.split:                             ; preds = %sw.bb31, %lor.lhs.false35, %if.end23
-  %m_stream39 = getelementptr inbounds i8, ptr %this, i64 8
+  %m_stream39 = getelementptr inbounds nuw i8, ptr %this, i64 8
   call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %m_stream39, ptr noundef nonnull @.str.1, i64 noundef 1)
   br label %sw.epilog
 
@@ -1484,7 +1484,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else15
 
 if.then:                                          ; preds = %entry
-  %m_mapKeyFmt.i = getelementptr inbounds i8, ptr %1, i64 104
+  %m_mapKeyFmt.i = getelementptr inbounds nuw i8, ptr %1, i64 104
   %2 = load i32, ptr %m_mapKeyFmt.i, align 4
   %cmp6 = icmp eq i32 %2, 34
   br i1 %cmp6, label %if.then7, label %if.end
@@ -1534,7 +1534,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else23
 
 if.then:                                          ; preds = %entry
-  %m_mapKeyFmt.i = getelementptr inbounds i8, ptr %1, i64 104
+  %m_mapKeyFmt.i = getelementptr inbounds nuw i8, ptr %1, i64 104
   %2 = load i32, ptr %m_mapKeyFmt.i, align 4
   %cmp6 = icmp eq i32 %2, 34
   br i1 %cmp6, label %if.then7, label %if.end
@@ -1588,8 +1588,8 @@ if.end30:                                         ; preds = %if.then27, %if.else
 define void @_ZN4YAML7Emitter15SpaceOrIndentToEbm(ptr noundef nonnull align 8 dereferenceable(72) %this, i1 noundef zeroext %requireSpace, i64 noundef %indent) local_unnamed_addr #3 align 2 {
 entry:
   %ch.addr.i.i = alloca i8, align 1
-  %m_stream = getelementptr inbounds i8, ptr %this, i64 8
-  %m_comment.i = getelementptr inbounds i8, ptr %this, i64 64
+  %m_stream = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %m_comment.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load i8, ptr %m_comment.i, align 8
   %tobool.i = trunc i8 %0 to i1
   br i1 %tobool.i, label %if.then, label %if.end
@@ -1599,7 +1599,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %m_col.i = getelementptr inbounds i8, ptr %this, i64 56
+  %m_col.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %1 = load i64, ptr %m_col.i, align 8
   %cmp.not = icmp ne i64 %1, 0
   %brmerge.not = and i1 %requireSpace, %cmp.not
@@ -1644,26 +1644,26 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %call2 = tail call noundef i64 @_ZNK4YAML12EmitterState10LastIndentEv(ptr noundef nonnull align 8 dereferenceable(224) %0)
   %1 = load ptr, ptr %this, align 8
-  %m_hasAnchor.i = getelementptr inbounds i8, ptr %1, i64 208
+  %m_hasAnchor.i = getelementptr inbounds nuw i8, ptr %1, i64 208
   %2 = load i8, ptr %m_hasAnchor.i, align 8
   %tobool.i = trunc i8 %2 to i1
   br i1 %tobool.i, label %if.end21, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %m_hasTag.i = getelementptr inbounds i8, ptr %1, i64 210
+  %m_hasTag.i = getelementptr inbounds nuw i8, ptr %1, i64 210
   %3 = load i8, ptr %m_hasTag.i, align 2
   %tobool2.i = trunc i8 %3 to i1
   br i1 %tobool2.i, label %if.end21, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
 
 _ZNK4YAML12EmitterState12HasBegunNodeEv.exit:     ; preds = %lor.lhs.false.i
-  %m_hasNonContent.i = getelementptr inbounds i8, ptr %1, i64 211
+  %m_hasNonContent.i = getelementptr inbounds nuw i8, ptr %1, i64 211
   %4 = load i8, ptr %m_hasNonContent.i, align 1
   %tobool3.i = trunc i8 %4 to i1
   br i1 %tobool3.i, label %if.end21, label %if.then
 
 if.then:                                          ; preds = %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
-  %m_stream = getelementptr inbounds i8, ptr %this, i64 8
-  %m_comment.i = getelementptr inbounds i8, ptr %this, i64 64
+  %m_stream = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %m_comment.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %5 = load i8, ptr %m_comment.i, align 8
   %tobool.i2 = trunc i8 %5 to i1
   br i1 %tobool.i2, label %if.then7, label %if.end
@@ -1673,7 +1673,7 @@ if.then7:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then7, %if.then
-  %m_col.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %m_col.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %6 = load i64, ptr %m_col.i.i, align 8
   %cmp3.i = icmp ult i64 %6, %call2
   br i1 %cmp3.i, label %while.body.i, label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit
@@ -1705,10 +1705,10 @@ if.end21:                                         ; preds = %_ZN4YAMLlsERNS_15os
 
 sw.bb22:                                          ; preds = %if.end21, %if.end21, %if.end21, %if.end21
   %9 = load ptr, ptr %this, align 8
-  %m_hasAnchor.i3 = getelementptr inbounds i8, ptr %9, i64 208
+  %m_hasAnchor.i3 = getelementptr inbounds nuw i8, ptr %9, i64 208
   %10 = load i8, ptr %m_hasAnchor.i3, align 8
   %tobool.i4 = trunc i8 %10 to i1
-  %m_hasTag.i5 = getelementptr inbounds i8, ptr %9, i64 210
+  %m_hasTag.i5 = getelementptr inbounds nuw i8, ptr %9, i64 210
   %11 = load i8, ptr %m_hasTag.i5, align 2
   %tobool2.i6 = trunc i8 %11 to i1
   %12 = select i1 %tobool.i4, i1 true, i1 %tobool2.i6
@@ -1721,8 +1721,8 @@ lor.rhs:                                          ; preds = %sw.bb22
 
 lor.end:                                          ; preds = %lor.rhs, %sw.bb22
   %13 = phi i1 [ true, %sw.bb22 ], [ %cmp29, %lor.rhs ]
-  %m_stream.i = getelementptr inbounds i8, ptr %this, i64 8
-  %m_comment.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %m_stream.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %m_comment.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %14 = load i8, ptr %m_comment.i.i, align 8
   %tobool.i.i = trunc i8 %14 to i1
   br i1 %tobool.i.i, label %if.then.i, label %if.end.i
@@ -1732,7 +1732,7 @@ if.then.i:                                        ; preds = %lor.end
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %lor.end
-  %m_col.i.i7 = getelementptr inbounds i8, ptr %this, i64 56
+  %m_col.i.i7 = getelementptr inbounds nuw i8, ptr %this, i64 56
   %15 = load i64, ptr %m_col.i.i7, align 8
   %cmp.not.i = icmp ne i64 %15, 0
   %brmerge.not.i = and i1 %13, %cmp.not.i
@@ -1769,26 +1769,26 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %call2 = tail call noundef i64 @_ZNK4YAML12EmitterState10LastIndentEv(ptr noundef nonnull align 8 dereferenceable(224) %0)
   %1 = load ptr, ptr %this, align 8
-  %m_hasAnchor.i = getelementptr inbounds i8, ptr %1, i64 208
+  %m_hasAnchor.i = getelementptr inbounds nuw i8, ptr %1, i64 208
   %2 = load i8, ptr %m_hasAnchor.i, align 8
   %tobool.i = trunc i8 %2 to i1
   br i1 %tobool.i, label %if.end21, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %m_hasTag.i = getelementptr inbounds i8, ptr %1, i64 210
+  %m_hasTag.i = getelementptr inbounds nuw i8, ptr %1, i64 210
   %3 = load i8, ptr %m_hasTag.i, align 2
   %tobool2.i = trunc i8 %3 to i1
   br i1 %tobool2.i, label %if.end21, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
 
 _ZNK4YAML12EmitterState12HasBegunNodeEv.exit:     ; preds = %lor.lhs.false.i
-  %m_hasNonContent.i = getelementptr inbounds i8, ptr %1, i64 211
+  %m_hasNonContent.i = getelementptr inbounds nuw i8, ptr %1, i64 211
   %4 = load i8, ptr %m_hasNonContent.i, align 1
   %tobool3.i = trunc i8 %4 to i1
   br i1 %tobool3.i, label %if.end21, label %if.then
 
 if.then:                                          ; preds = %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
-  %m_stream = getelementptr inbounds i8, ptr %this, i64 8
-  %m_comment.i = getelementptr inbounds i8, ptr %this, i64 64
+  %m_stream = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %m_comment.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %5 = load i8, ptr %m_comment.i, align 8
   %tobool.i2 = trunc i8 %5 to i1
   br i1 %tobool.i2, label %if.then7, label %if.end
@@ -1798,7 +1798,7 @@ if.then7:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then7, %if.then
-  %m_col.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %m_col.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %6 = load i64, ptr %m_col.i.i, align 8
   %cmp3.i = icmp ult i64 %6, %call2
   br i1 %cmp3.i, label %while.body.i, label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit
@@ -1830,10 +1830,10 @@ if.end21:                                         ; preds = %_ZN4YAMLlsERNS_15os
 
 sw.bb22:                                          ; preds = %if.end21, %if.end21, %if.end21, %if.end21
   %9 = load ptr, ptr %this, align 8
-  %m_hasAnchor.i3 = getelementptr inbounds i8, ptr %9, i64 208
+  %m_hasAnchor.i3 = getelementptr inbounds nuw i8, ptr %9, i64 208
   %10 = load i8, ptr %m_hasAnchor.i3, align 8
   %tobool.i4 = trunc i8 %10 to i1
-  %m_hasTag.i5 = getelementptr inbounds i8, ptr %9, i64 210
+  %m_hasTag.i5 = getelementptr inbounds nuw i8, ptr %9, i64 210
   %11 = load i8, ptr %m_hasTag.i5, align 2
   %tobool2.i6 = trunc i8 %11 to i1
   %12 = select i1 %tobool.i4, i1 true, i1 %tobool2.i6
@@ -1846,8 +1846,8 @@ lor.rhs:                                          ; preds = %sw.bb22
 
 lor.end:                                          ; preds = %lor.rhs, %sw.bb22
   %13 = phi i1 [ true, %sw.bb22 ], [ %cmp29, %lor.rhs ]
-  %m_stream.i = getelementptr inbounds i8, ptr %this, i64 8
-  %m_comment.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %m_stream.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %m_comment.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %14 = load i8, ptr %m_comment.i.i, align 8
   %tobool.i.i = trunc i8 %14 to i1
   br i1 %tobool.i.i, label %if.then.i, label %if.end.i
@@ -1857,7 +1857,7 @@ if.then.i:                                        ; preds = %lor.end
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %lor.end
-  %m_col.i.i7 = getelementptr inbounds i8, ptr %this, i64 56
+  %m_col.i.i7 = getelementptr inbounds nuw i8, ptr %this, i64 56
   %15 = load i64, ptr %m_col.i.i7, align 8
   %cmp.not.i = icmp ne i64 %15, 0
   %brmerge.not.i = and i1 %13, %cmp.not.i
@@ -1894,26 +1894,26 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %call2 = tail call noundef i64 @_ZNK4YAML12EmitterState10LastIndentEv(ptr noundef nonnull align 8 dereferenceable(224) %0)
   %1 = load ptr, ptr %this, align 8
-  %m_hasAnchor.i = getelementptr inbounds i8, ptr %1, i64 208
+  %m_hasAnchor.i = getelementptr inbounds nuw i8, ptr %1, i64 208
   %2 = load i8, ptr %m_hasAnchor.i, align 8
   %tobool.i = trunc i8 %2 to i1
   br i1 %tobool.i, label %if.end14, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %m_hasTag.i = getelementptr inbounds i8, ptr %1, i64 210
+  %m_hasTag.i = getelementptr inbounds nuw i8, ptr %1, i64 210
   %3 = load i8, ptr %m_hasTag.i, align 2
   %tobool2.i = trunc i8 %3 to i1
   br i1 %tobool2.i, label %if.end14, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
 
 _ZNK4YAML12EmitterState12HasBegunNodeEv.exit:     ; preds = %lor.lhs.false.i
-  %m_hasNonContent.i = getelementptr inbounds i8, ptr %1, i64 211
+  %m_hasNonContent.i = getelementptr inbounds nuw i8, ptr %1, i64 211
   %4 = load i8, ptr %m_hasNonContent.i, align 1
   %tobool3.i = trunc i8 %4 to i1
   br i1 %tobool3.i, label %if.end14, label %if.then
 
 if.then:                                          ; preds = %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
-  %m_stream = getelementptr inbounds i8, ptr %this, i64 8
-  %m_comment.i = getelementptr inbounds i8, ptr %this, i64 64
+  %m_stream = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %m_comment.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %5 = load i8, ptr %m_comment.i, align 8
   %tobool.i2 = trunc i8 %5 to i1
   br i1 %tobool.i2, label %if.then7, label %if.end
@@ -1923,7 +1923,7 @@ if.then7:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then7, %if.then
-  %m_col.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %m_col.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %6 = load i64, ptr %m_col.i.i, align 8
   %cmp3.i = icmp ult i64 %6, %call2
   br i1 %cmp3.i, label %while.body.i, label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit
@@ -1951,10 +1951,10 @@ if.end14:                                         ; preds = %entry, %lor.lhs.fal
 
 sw.bb15:                                          ; preds = %if.end14, %if.end14, %if.end14, %if.end14
   %8 = load ptr, ptr %this, align 8
-  %m_hasAnchor.i3 = getelementptr inbounds i8, ptr %8, i64 208
+  %m_hasAnchor.i3 = getelementptr inbounds nuw i8, ptr %8, i64 208
   %9 = load i8, ptr %m_hasAnchor.i3, align 8
   %tobool.i4 = trunc i8 %9 to i1
-  %m_hasTag.i5 = getelementptr inbounds i8, ptr %8, i64 210
+  %m_hasTag.i5 = getelementptr inbounds nuw i8, ptr %8, i64 210
   %10 = load i8, ptr %m_hasTag.i5, align 2
   %tobool2.i6 = trunc i8 %10 to i1
   %11 = select i1 %tobool.i4, i1 true, i1 %tobool2.i6
@@ -1967,8 +1967,8 @@ lor.rhs:                                          ; preds = %sw.bb15
 
 lor.end:                                          ; preds = %lor.rhs, %sw.bb15
   %12 = phi i1 [ true, %sw.bb15 ], [ %cmp, %lor.rhs ]
-  %m_stream.i = getelementptr inbounds i8, ptr %this, i64 8
-  %m_comment.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %m_stream.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %m_comment.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %13 = load i8, ptr %m_comment.i.i, align 8
   %tobool.i.i = trunc i8 %13 to i1
   br i1 %tobool.i.i, label %if.then.i, label %if.end.i
@@ -1978,7 +1978,7 @@ if.then.i:                                        ; preds = %lor.end
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %lor.end
-  %m_col.i.i7 = getelementptr inbounds i8, ptr %this, i64 56
+  %m_col.i.i7 = getelementptr inbounds nuw i8, ptr %this, i64 56
   %14 = load i64, ptr %m_col.i.i7, align 8
   %cmp.not.i = icmp ne i64 %14, 0
   %brmerge.not.i = and i1 %12, %cmp.not.i
@@ -2015,26 +2015,26 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %call2 = tail call noundef i64 @_ZNK4YAML12EmitterState10LastIndentEv(ptr noundef nonnull align 8 dereferenceable(224) %0)
   %1 = load ptr, ptr %this, align 8
-  %m_hasAnchor.i = getelementptr inbounds i8, ptr %1, i64 208
+  %m_hasAnchor.i = getelementptr inbounds nuw i8, ptr %1, i64 208
   %2 = load i8, ptr %m_hasAnchor.i, align 8
   %tobool.i = trunc i8 %2 to i1
   br i1 %tobool.i, label %if.end21, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %m_hasTag.i = getelementptr inbounds i8, ptr %1, i64 210
+  %m_hasTag.i = getelementptr inbounds nuw i8, ptr %1, i64 210
   %3 = load i8, ptr %m_hasTag.i, align 2
   %tobool2.i = trunc i8 %3 to i1
   br i1 %tobool2.i, label %if.end21, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
 
 _ZNK4YAML12EmitterState12HasBegunNodeEv.exit:     ; preds = %lor.lhs.false.i
-  %m_hasNonContent.i = getelementptr inbounds i8, ptr %1, i64 211
+  %m_hasNonContent.i = getelementptr inbounds nuw i8, ptr %1, i64 211
   %4 = load i8, ptr %m_hasNonContent.i, align 1
   %tobool3.i = trunc i8 %4 to i1
   br i1 %tobool3.i, label %if.end21, label %if.then
 
 if.then:                                          ; preds = %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
-  %m_stream = getelementptr inbounds i8, ptr %this, i64 8
-  %m_comment.i = getelementptr inbounds i8, ptr %this, i64 64
+  %m_stream = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %m_comment.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %5 = load i8, ptr %m_comment.i, align 8
   %tobool.i2 = trunc i8 %5 to i1
   br i1 %tobool.i2, label %if.then7, label %if.end
@@ -2044,7 +2044,7 @@ if.then7:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then7, %if.then
-  %m_col.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %m_col.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %6 = load i64, ptr %m_col.i.i, align 8
   %cmp3.i = icmp ult i64 %6, %call2
   br i1 %cmp3.i, label %while.body.i, label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit
@@ -2060,7 +2060,7 @@ while.body.i:                                     ; preds = %if.end, %while.body
 
 _ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit: ; preds = %while.body.i, %if.end
   %8 = load ptr, ptr %this, align 8
-  %m_hasAlias.i = getelementptr inbounds i8, ptr %8, i64 209
+  %m_hasAlias.i = getelementptr inbounds nuw i8, ptr %8, i64 209
   %9 = load i8, ptr %m_hasAlias.i, align 1
   %tobool.i3 = trunc i8 %9 to i1
   br i1 %tobool.i3, label %if.then15, label %if.end18
@@ -2083,10 +2083,10 @@ if.end21:                                         ; preds = %entry, %lor.lhs.fal
 
 sw.bb22:                                          ; preds = %if.end21, %if.end21, %if.end21, %if.end21
   %10 = load ptr, ptr %this, align 8
-  %m_hasAnchor.i4 = getelementptr inbounds i8, ptr %10, i64 208
+  %m_hasAnchor.i4 = getelementptr inbounds nuw i8, ptr %10, i64 208
   %11 = load i8, ptr %m_hasAnchor.i4, align 8
   %tobool.i5 = trunc i8 %11 to i1
-  %m_hasTag.i6 = getelementptr inbounds i8, ptr %10, i64 210
+  %m_hasTag.i6 = getelementptr inbounds nuw i8, ptr %10, i64 210
   %12 = load i8, ptr %m_hasTag.i6, align 2
   %tobool2.i7 = trunc i8 %12 to i1
   %13 = select i1 %tobool.i5, i1 true, i1 %tobool2.i7
@@ -2099,8 +2099,8 @@ lor.rhs:                                          ; preds = %sw.bb22
 
 lor.end:                                          ; preds = %lor.rhs, %sw.bb22
   %14 = phi i1 [ true, %sw.bb22 ], [ %cmp, %lor.rhs ]
-  %m_stream.i = getelementptr inbounds i8, ptr %this, i64 8
-  %m_comment.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %m_stream.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %m_comment.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %15 = load i8, ptr %m_comment.i.i, align 8
   %tobool.i.i = trunc i8 %15 to i1
   br i1 %tobool.i.i, label %if.then.i, label %if.end.i
@@ -2110,7 +2110,7 @@ if.then.i:                                        ; preds = %lor.end
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %lor.end
-  %m_col.i.i8 = getelementptr inbounds i8, ptr %this, i64 56
+  %m_col.i.i8 = getelementptr inbounds nuw i8, ptr %this, i64 56
   %16 = load i64, ptr %m_col.i.i8, align 8
   %cmp.not.i = icmp ne i64 %16, 0
   %brmerge.not.i = and i1 %14, %cmp.not.i
@@ -2145,7 +2145,7 @@ entry:
   %ch.addr.i.i.i = alloca i8, align 1
   %ch.addr.i.i = alloca i8, align 1
   %0 = load ptr, ptr %this, align 8
-  %m_curIndent.i = getelementptr inbounds i8, ptr %0, i64 200
+  %m_curIndent.i = getelementptr inbounds nuw i8, ptr %0, i64 200
   %1 = load i64, ptr %m_curIndent.i, align 8
   %call5 = tail call noundef i64 @_ZNK4YAML12EmitterState18CurGroupChildCountEv(ptr noundef nonnull align 8 dereferenceable(224) %0)
   %cmp = icmp eq i32 %child, 0
@@ -2153,10 +2153,10 @@ entry:
 
 if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %this, align 8
-  %m_hasAnchor.i = getelementptr inbounds i8, ptr %2, i64 208
+  %m_hasAnchor.i = getelementptr inbounds nuw i8, ptr %2, i64 208
   %3 = load i8, ptr %m_hasAnchor.i, align 8
   %tobool.i = trunc i8 %3 to i1
-  %m_hasTag.i = getelementptr inbounds i8, ptr %2, i64 210
+  %m_hasTag.i = getelementptr inbounds nuw i8, ptr %2, i64 210
   %4 = load i8, ptr %m_hasTag.i, align 2
   %tobool2.i = trunc i8 %4 to i1
   %5 = select i1 %tobool.i, i1 true, i1 %tobool2.i
@@ -2167,13 +2167,13 @@ if.then9:                                         ; preds = %if.end
   br i1 %cmp10.not, label %if.end13, label %if.then11
 
 if.then11:                                        ; preds = %if.then9
-  %m_stream = getelementptr inbounds i8, ptr %this, i64 8
+  %m_stream = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %m_stream, ptr noundef nonnull @.str.1, i64 noundef 1)
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then11, %if.then9
-  %m_stream14 = getelementptr inbounds i8, ptr %this, i64 8
-  %m_comment.i = getelementptr inbounds i8, ptr %this, i64 64
+  %m_stream14 = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %m_comment.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %6 = load i8, ptr %m_comment.i, align 8
   %tobool.i3 = trunc i8 %6 to i1
   br i1 %tobool.i3, label %if.then16, label %if.end19
@@ -2183,7 +2183,7 @@ if.then16:                                        ; preds = %if.end13
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then16, %if.end13
-  %m_col.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %m_col.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %7 = load i64, ptr %m_col.i.i, align 8
   %cmp3.i = icmp ult i64 %7, %1
   br i1 %cmp3.i, label %while.body.i, label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit
@@ -2213,8 +2213,8 @@ if.end24:                                         ; preds = %_ZN4YAMLlsERNS_15os
 
 sw.bb25:                                          ; preds = %if.end24, %if.end24, %if.end24, %if.end24
   %add = add i64 %1, 1
-  %m_stream.i = getelementptr inbounds i8, ptr %this, i64 8
-  %m_comment.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %m_stream.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %m_comment.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %9 = load i8, ptr %m_comment.i.i, align 8
   %tobool.i.i = trunc i8 %9 to i1
   br i1 %tobool.i.i, label %if.then.i, label %if.end.i
@@ -2224,7 +2224,7 @@ if.then.i:                                        ; preds = %sw.bb25
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %sw.bb25
-  %m_col.i.i4 = getelementptr inbounds i8, ptr %this, i64 56
+  %m_col.i.i4 = getelementptr inbounds nuw i8, ptr %this, i64 56
   %10 = load i64, ptr %m_col.i.i4, align 8
   %cmp.not.i.not = icmp eq i64 %10, 0
   br i1 %cmp.not.i.not, label %if.end9.i, label %if.then6.i
@@ -2250,17 +2250,17 @@ while.body.i.i:                                   ; preds = %if.end9.i, %while.b
 
 sw.bb26:                                          ; preds = %if.end24, %if.end24
   %13 = load ptr, ptr %this, align 8
-  %m_hasAnchor.i5 = getelementptr inbounds i8, ptr %13, i64 208
+  %m_hasAnchor.i5 = getelementptr inbounds nuw i8, ptr %13, i64 208
   %14 = load i8, ptr %m_hasAnchor.i5, align 8
   %tobool.i6 = trunc i8 %14 to i1
-  %m_hasTag.i7 = getelementptr inbounds i8, ptr %13, i64 210
+  %m_hasTag.i7 = getelementptr inbounds nuw i8, ptr %13, i64 210
   %15 = load i8, ptr %m_hasTag.i7, align 2
   %tobool2.i8 = trunc i8 %15 to i1
   %16 = select i1 %tobool.i6, i1 true, i1 %tobool2.i8
   br i1 %16, label %if.then30, label %sw.epilog
 
 if.then30:                                        ; preds = %sw.bb26
-  %m_stream31 = getelementptr inbounds i8, ptr %this, i64 8
+  %m_stream31 = getelementptr inbounds nuw i8, ptr %this, i64 8
   call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %m_stream31, ptr noundef nonnull @.str.1, i64 noundef 1)
   br label %sw.epilog
 
@@ -2273,7 +2273,7 @@ define void @_ZN4YAML7Emitter24BlockMapPrepareSimpleKeyENS_15EmitterNodeType5val
 entry:
   %ch.addr.i.i.i = alloca i8, align 1
   %0 = load ptr, ptr %this, align 8
-  %m_curIndent.i = getelementptr inbounds i8, ptr %0, i64 200
+  %m_curIndent.i = getelementptr inbounds nuw i8, ptr %0, i64 200
   %1 = load i64, ptr %m_curIndent.i, align 8
   %call5 = tail call noundef i64 @_ZNK4YAML12EmitterState18CurGroupChildCountEv(ptr noundef nonnull align 8 dereferenceable(224) %0)
   %cmp = icmp eq i32 %child, 0
@@ -2281,19 +2281,19 @@ entry:
 
 if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %this, align 8
-  %m_hasAnchor.i = getelementptr inbounds i8, ptr %2, i64 208
+  %m_hasAnchor.i = getelementptr inbounds nuw i8, ptr %2, i64 208
   %3 = load i8, ptr %m_hasAnchor.i, align 8
   %tobool.i = trunc i8 %3 to i1
   br i1 %tobool.i, label %if.end14, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end
-  %m_hasTag.i = getelementptr inbounds i8, ptr %2, i64 210
+  %m_hasTag.i = getelementptr inbounds nuw i8, ptr %2, i64 210
   %4 = load i8, ptr %m_hasTag.i, align 2
   %tobool2.i = trunc i8 %4 to i1
   br i1 %tobool2.i, label %if.end14, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
 
 _ZNK4YAML12EmitterState12HasBegunNodeEv.exit:     ; preds = %lor.lhs.false.i
-  %m_hasNonContent.i = getelementptr inbounds i8, ptr %2, i64 211
+  %m_hasNonContent.i = getelementptr inbounds nuw i8, ptr %2, i64 211
   %5 = load i8, ptr %m_hasNonContent.i, align 1
   %tobool3.i = trunc i8 %5 to i1
   %cmp10 = icmp eq i64 %call5, 0
@@ -2301,7 +2301,7 @@ _ZNK4YAML12EmitterState12HasBegunNodeEv.exit:     ; preds = %lor.lhs.false.i
   br i1 %or.cond.not, label %if.end14, label %if.then11
 
 if.then11:                                        ; preds = %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
-  %m_stream = getelementptr inbounds i8, ptr %this, i64 8
+  %m_stream = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %m_stream, ptr noundef nonnull @.str.1, i64 noundef 1)
   br label %if.end14
 
@@ -2315,15 +2315,15 @@ if.end14:                                         ; preds = %if.end, %lor.lhs.fa
 
 sw.bb15:                                          ; preds = %if.end14, %if.end14, %if.end14, %if.end14
   %6 = load ptr, ptr %this, align 8
-  %m_hasAnchor.i2 = getelementptr inbounds i8, ptr %6, i64 208
+  %m_hasAnchor.i2 = getelementptr inbounds nuw i8, ptr %6, i64 208
   %7 = load i8, ptr %m_hasAnchor.i2, align 8
   %tobool.i3 = trunc i8 %7 to i1
-  %m_hasTag.i4 = getelementptr inbounds i8, ptr %6, i64 210
+  %m_hasTag.i4 = getelementptr inbounds nuw i8, ptr %6, i64 210
   %8 = load i8, ptr %m_hasTag.i4, align 2
   %tobool2.i5 = trunc i8 %8 to i1
   %9 = select i1 %tobool.i3, i1 true, i1 %tobool2.i5
-  %m_stream.i = getelementptr inbounds i8, ptr %this, i64 8
-  %m_comment.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %m_stream.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %m_comment.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %10 = load i8, ptr %m_comment.i.i, align 8
   %tobool.i.i = trunc i8 %10 to i1
   br i1 %tobool.i.i, label %if.then.i, label %if.end.i
@@ -2333,7 +2333,7 @@ if.then.i:                                        ; preds = %sw.bb15
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %sw.bb15
-  %m_col.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %m_col.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %11 = load i64, ptr %m_col.i.i, align 8
   %cmp.not.i = icmp ne i64 %11, 0
   %brmerge.not.i = and i1 %9, %cmp.not.i
@@ -2369,25 +2369,25 @@ entry:
   %ch.addr.i.i.i = alloca i8, align 1
   %ch.addr.i.i = alloca i8, align 1
   %0 = load ptr, ptr %this, align 8
-  %m_curIndent.i = getelementptr inbounds i8, ptr %0, i64 200
+  %m_curIndent.i = getelementptr inbounds nuw i8, ptr %0, i64 200
   %1 = load i64, ptr %m_curIndent.i, align 8
   %cmp = icmp eq i32 %child, 0
   br i1 %cmp, label %sw.epilog, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_hasAnchor.i = getelementptr inbounds i8, ptr %0, i64 208
+  %m_hasAnchor.i = getelementptr inbounds nuw i8, ptr %0, i64 208
   %2 = load i8, ptr %m_hasAnchor.i, align 8
   %tobool.i = trunc i8 %2 to i1
-  %m_hasTag.i = getelementptr inbounds i8, ptr %0, i64 210
+  %m_hasTag.i = getelementptr inbounds nuw i8, ptr %0, i64 210
   %3 = load i8, ptr %m_hasTag.i, align 2
   %tobool2.i = trunc i8 %3 to i1
   %4 = select i1 %tobool.i, i1 true, i1 %tobool2.i
   br i1 %4, label %if.end12, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  %m_stream = getelementptr inbounds i8, ptr %this, i64 8
+  %m_stream = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %m_stream, ptr noundef nonnull @.str.1, i64 noundef 1)
-  %m_col.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %m_col.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %5 = load i64, ptr %m_col.i.i, align 8
   %cmp3.i = icmp ult i64 %5, %1
   br i1 %cmp3.i, label %while.body.i, label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit
@@ -2417,8 +2417,8 @@ if.end12:                                         ; preds = %_ZN4YAMLlsERNS_15os
 
 sw.bb13:                                          ; preds = %if.end12, %if.end12, %if.end12, %if.end12
   %add = add i64 %1, 1
-  %m_stream.i = getelementptr inbounds i8, ptr %this, i64 8
-  %m_comment.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %m_stream.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %m_comment.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %7 = load i8, ptr %m_comment.i.i, align 8
   %tobool.i.i = trunc i8 %7 to i1
   br i1 %tobool.i.i, label %if.then.i, label %if.end.i
@@ -2428,7 +2428,7 @@ if.then.i:                                        ; preds = %sw.bb13
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %sw.bb13
-  %m_col.i.i4 = getelementptr inbounds i8, ptr %this, i64 56
+  %m_col.i.i4 = getelementptr inbounds nuw i8, ptr %this, i64 56
   %8 = load i64, ptr %m_col.i.i4, align 8
   %cmp.not.i.not = icmp eq i64 %8, 0
   br i1 %cmp.not.i.not, label %if.end9.i, label %if.then6.i
@@ -2454,24 +2454,24 @@ while.body.i.i:                                   ; preds = %if.end9.i, %while.b
 
 sw.bb14:                                          ; preds = %if.end12, %if.end12
   %11 = load ptr, ptr %this, align 8
-  %m_hasAnchor.i5 = getelementptr inbounds i8, ptr %11, i64 208
+  %m_hasAnchor.i5 = getelementptr inbounds nuw i8, ptr %11, i64 208
   %12 = load i8, ptr %m_hasAnchor.i5, align 8
   %tobool.i6 = trunc i8 %12 to i1
-  %m_hasTag.i7 = getelementptr inbounds i8, ptr %11, i64 210
+  %m_hasTag.i7 = getelementptr inbounds nuw i8, ptr %11, i64 210
   %13 = load i8, ptr %m_hasTag.i7, align 2
   %tobool2.i8 = trunc i8 %13 to i1
   %14 = select i1 %tobool.i6, i1 true, i1 %tobool2.i8
   br i1 %14, label %if.then18, label %if.end21
 
 if.then18:                                        ; preds = %sw.bb14
-  %m_stream19 = getelementptr inbounds i8, ptr %this, i64 8
+  %m_stream19 = getelementptr inbounds nuw i8, ptr %this, i64 8
   call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %m_stream19, ptr noundef nonnull @.str.1, i64 noundef 1)
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then18, %sw.bb14
   %add22 = add i64 %1, 1
-  %m_stream.i10 = getelementptr inbounds i8, ptr %this, i64 8
-  %m_comment.i.i11 = getelementptr inbounds i8, ptr %this, i64 64
+  %m_stream.i10 = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %m_comment.i.i11 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %15 = load i8, ptr %m_comment.i.i11, align 8
   %tobool.i.i12 = trunc i8 %15 to i1
   br i1 %tobool.i.i12, label %if.then.i22, label %if.end.i13
@@ -2481,7 +2481,7 @@ if.then.i22:                                      ; preds = %if.end21
   br label %if.end.i13
 
 if.end.i13:                                       ; preds = %if.then.i22, %if.end21
-  %m_col.i.i14 = getelementptr inbounds i8, ptr %this, i64 56
+  %m_col.i.i14 = getelementptr inbounds nuw i8, ptr %this, i64 56
   %16 = load i64, ptr %m_col.i.i14, align 8
   %cmp.not.i15.not = icmp eq i64 %16, 0
   br i1 %cmp.not.i15.not, label %if.end9.i16, label %if.then6.i20
@@ -2514,41 +2514,41 @@ define void @_ZN4YAML7Emitter29BlockMapPrepareSimpleKeyValueENS_15EmitterNodeTyp
 entry:
   %ch.addr.i.i.i = alloca i8, align 1
   %0 = load ptr, ptr %this, align 8
-  %m_curIndent.i = getelementptr inbounds i8, ptr %0, i64 200
+  %m_curIndent.i = getelementptr inbounds nuw i8, ptr %0, i64 200
   %1 = load i64, ptr %m_curIndent.i, align 8
   %call5 = tail call noundef i64 @_ZNK4YAML12EmitterState14CurGroupIndentEv(ptr noundef nonnull align 8 dereferenceable(224) %0)
   %add = add i64 %call5, %1
   %2 = load ptr, ptr %this, align 8
-  %m_hasAnchor.i = getelementptr inbounds i8, ptr %2, i64 208
+  %m_hasAnchor.i = getelementptr inbounds nuw i8, ptr %2, i64 208
   %3 = load i8, ptr %m_hasAnchor.i, align 8
   %tobool.i = trunc i8 %3 to i1
   br i1 %tobool.i, label %if.end16, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %m_hasTag.i = getelementptr inbounds i8, ptr %2, i64 210
+  %m_hasTag.i = getelementptr inbounds nuw i8, ptr %2, i64 210
   %4 = load i8, ptr %m_hasTag.i, align 2
   %tobool2.i = trunc i8 %4 to i1
   br i1 %tobool2.i, label %if.end16, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
 
 _ZNK4YAML12EmitterState12HasBegunNodeEv.exit:     ; preds = %lor.lhs.false.i
-  %m_hasNonContent.i = getelementptr inbounds i8, ptr %2, i64 211
+  %m_hasNonContent.i = getelementptr inbounds nuw i8, ptr %2, i64 211
   %5 = load i8, ptr %m_hasNonContent.i, align 1
   %tobool3.i = trunc i8 %5 to i1
   br i1 %tobool3.i, label %if.end16, label %if.then
 
 if.then:                                          ; preds = %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
-  %m_hasAlias.i = getelementptr inbounds i8, ptr %2, i64 209
+  %m_hasAlias.i = getelementptr inbounds nuw i8, ptr %2, i64 209
   %6 = load i8, ptr %m_hasAlias.i, align 1
   %tobool.i1 = trunc i8 %6 to i1
   br i1 %tobool.i1, label %if.then12, label %if.end
 
 if.then12:                                        ; preds = %if.then
-  %m_stream = getelementptr inbounds i8, ptr %this, i64 8
+  %m_stream = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %m_stream, ptr noundef nonnull @.str.13, i64 noundef 1)
   br label %if.end
 
 if.end:                                           ; preds = %if.then12, %if.then
-  %m_stream14 = getelementptr inbounds i8, ptr %this, i64 8
+  %m_stream14 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %m_stream14, ptr noundef nonnull @.str.12, i64 noundef 1)
   br label %if.end16
 
@@ -2563,8 +2563,8 @@ if.end16:                                         ; preds = %entry, %lor.lhs.fal
   ]
 
 sw.bb17:                                          ; preds = %if.end16, %if.end16, %if.end16, %if.end16
-  %m_stream.i = getelementptr inbounds i8, ptr %this, i64 8
-  %m_comment.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %m_stream.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %m_comment.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %7 = load i8, ptr %m_comment.i.i, align 8
   %tobool.i.i = trunc i8 %7 to i1
   br i1 %tobool.i.i, label %if.then.i, label %if.end.i
@@ -2574,7 +2574,7 @@ if.then.i:                                        ; preds = %sw.bb17
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %sw.bb17
-  %m_col.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %m_col.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %8 = load i64, ptr %m_col.i.i, align 8
   %cmp.not.i.not = icmp eq i64 %8, 0
   br i1 %cmp.not.i.not, label %if.end9.i, label %if.then6.i
@@ -2599,7 +2599,7 @@ while.body.i.i:                                   ; preds = %if.end9.i, %while.b
   br i1 %cmp.i.i, label %while.body.i.i, label %sw.epilog, !llvm.loop !4
 
 sw.bb18:                                          ; preds = %if.end16, %if.end16
-  %m_stream19 = getelementptr inbounds i8, ptr %this, i64 8
+  %m_stream19 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %m_stream19, ptr noundef nonnull @.str.1, i64 noundef 1)
   br label %sw.epilog
 
@@ -2611,7 +2611,7 @@ sw.epilog:                                        ; preds = %while.body.i.i, %if
 define void @_ZNK4YAML7Emitter21PrepareIntegralStreamERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(128) %stream) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %m_intFmt.i = getelementptr inbounds i8, ptr %0, i64 64
+  %m_intFmt.i = getelementptr inbounds nuw i8, ptr %0, i64 64
   %1 = load i32, ptr %m_intFmt.i, align 4
   switch i32 %1, label %sw.epilog [
     i32 21, label %sw.bb
@@ -2620,18 +2620,18 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %add.ptr = getelementptr inbounds i8, ptr %stream, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %stream, i64 16
   %call3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef nonnull @_ZSt3decRSt8ios_base)
   br label %sw.epilog
 
 sw.bb4:                                           ; preds = %entry
-  %add.ptr5 = getelementptr inbounds i8, ptr %stream, i64 16
+  %add.ptr5 = getelementptr inbounds nuw i8, ptr %stream, i64 16
   %call6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr5, ptr noundef nonnull @.str.15)
   %call8 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr5, ptr noundef nonnull @_ZSt3hexRSt8ios_base)
   br label %sw.epilog
 
 sw.bb9:                                           ; preds = %entry
-  %add.ptr10 = getelementptr inbounds i8, ptr %stream, i64 16
+  %add.ptr10 = getelementptr inbounds nuw i8, ptr %stream, i64 16
   %call11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr10, ptr noundef nonnull @.str.16)
   %call13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr10, ptr noundef nonnull @_ZSt3octRSt8ios_base)
   br label %sw.epilog
@@ -2645,7 +2645,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(216) ptr @_ZSt3decRSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %__base) #3 comdat {
 entry:
-  %_M_flags.i = getelementptr inbounds i8, ptr %__base, i64 24
+  %_M_flags.i = getelementptr inbounds nuw i8, ptr %__base, i64 24
   %0 = load i32, ptr %_M_flags.i, align 8
   %and.i.i.i = and i32 %0, -75
   %or.i.i.i = or disjoint i32 %and.i.i.i, 2
@@ -2658,7 +2658,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIc
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(216) ptr @_ZSt3hexRSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %__base) #3 comdat {
 entry:
-  %_M_flags.i = getelementptr inbounds i8, ptr %__base, i64 24
+  %_M_flags.i = getelementptr inbounds nuw i8, ptr %__base, i64 24
   %0 = load i32, ptr %_M_flags.i, align 8
   %and.i.i.i = and i32 %0, -75
   %or.i.i.i = or disjoint i32 %and.i.i.i, 8
@@ -2669,7 +2669,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(216) ptr @_ZSt3octRSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %__base) #3 comdat {
 entry:
-  %_M_flags.i = getelementptr inbounds i8, ptr %__base, i64 24
+  %_M_flags.i = getelementptr inbounds nuw i8, ptr %__base, i64 24
   %0 = load i32, ptr %_M_flags.i, align 8
   %and.i.i.i = and i32 %0, -75
   %or.i.i.i = or disjoint i32 %and.i.i.i, 64
@@ -2706,13 +2706,13 @@ entry:
   br i1 %tobool.i.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %m_charset.i = getelementptr inbounds i8, ptr %0, i64 40
+  %m_charset.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   %2 = load i32, ptr %m_charset.i, align 4
   %switch.selectcmp.i = icmp eq i32 %2, 5
   %switch.select.i = select i1 %switch.selectcmp.i, i32 2, i32 0
   %switch.selectcmp1.i = icmp eq i32 %2, 4
   %switch.select2.i = select i1 %switch.selectcmp1.i, i32 1, i32 %switch.select.i
-  %m_strFmt.i = getelementptr inbounds i8, ptr %0, i64 44
+  %m_strFmt.i = getelementptr inbounds nuw i8, ptr %0, i64 44
   %3 = load i32, ptr %m_strFmt.i, align 4
   %call10 = tail call noundef i32 @_ZNK4YAML12EmitterState16CurGroupFlowTypeEv(ptr noundef nonnull align 8 dereferenceable(224) %0)
   %call11 = tail call noundef i32 @_ZN4YAML5Utils19ComputeStringFormatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13EMITTER_MANIPENS_8FlowType5valueEb(ptr noundef nonnull align 8 dereferenceable(32) %str, i32 noundef %3, i32 noundef %call10, i1 noundef zeroext %switch.selectcmp1.i)
@@ -2739,26 +2739,26 @@ if.end19:                                         ; preds = %if.then15, %lor.lhs
   ]
 
 sw.bb:                                            ; preds = %if.end19
-  %m_stream = getelementptr inbounds i8, ptr %this, i64 8
+  %m_stream = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN4YAML15ostream_wrapper5writeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(57) %m_stream, ptr noundef nonnull align 8 dereferenceable(32) %str)
   br label %sw.epilog
 
 sw.bb21:                                          ; preds = %if.end19
-  %m_stream22 = getelementptr inbounds i8, ptr %this, i64 8
+  %m_stream22 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call23 = tail call noundef zeroext i1 @_ZN4YAML5Utils23WriteSingleQuotedStringERNS_15ostream_wrapperERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(57) %m_stream22, ptr noundef nonnull align 8 dereferenceable(32) %str)
   br label %sw.epilog
 
 sw.bb24:                                          ; preds = %if.end19
-  %m_stream25 = getelementptr inbounds i8, ptr %this, i64 8
+  %m_stream25 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call26 = tail call noundef zeroext i1 @_ZN4YAML5Utils23WriteDoubleQuotedStringERNS_15ostream_wrapperERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_14StringEscaping5valueE(ptr noundef nonnull align 8 dereferenceable(57) %m_stream25, ptr noundef nonnull align 8 dereferenceable(32) %str, i32 noundef %switch.select2.i)
   br label %sw.epilog
 
 sw.bb27:                                          ; preds = %if.end19
-  %m_stream28 = getelementptr inbounds i8, ptr %this, i64 8
+  %m_stream28 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %5 = load ptr, ptr %this, align 8
-  %m_curIndent.i = getelementptr inbounds i8, ptr %5, i64 200
+  %m_curIndent.i = getelementptr inbounds nuw i8, ptr %5, i64 200
   %6 = load i64, ptr %m_curIndent.i, align 8
-  %m_indent.i = getelementptr inbounds i8, ptr %5, i64 72
+  %m_indent.i = getelementptr inbounds nuw i8, ptr %5, i64 72
   %7 = load i64, ptr %m_indent.i, align 8
   %add = add i64 %7, %6
   %call35 = tail call noundef zeroext i1 @_ZN4YAML5Utils18WriteLiteralStringERNS_15ostream_wrapperERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull align 8 dereferenceable(57) %m_stream28, ptr noundef nonnull align 8 dereferenceable(32) %str, i64 noundef %add)
@@ -2788,7 +2788,7 @@ declare noundef zeroext i1 @_ZN4YAML5Utils18WriteLiteralStringERNS_15ostream_wra
 define noundef i64 @_ZNK4YAML7Emitter17GetFloatPrecisionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %m_floatPrecision.i = getelementptr inbounds i8, ptr %0, i64 112
+  %m_floatPrecision.i = getelementptr inbounds nuw i8, ptr %0, i64 112
   %1 = load i64, ptr %m_floatPrecision.i, align 8
   ret i64 %1
 }
@@ -2797,7 +2797,7 @@ entry:
 define noundef i64 @_ZNK4YAML7Emitter18GetDoublePrecisionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %m_doublePrecision.i = getelementptr inbounds i8, ptr %0, i64 120
+  %m_doublePrecision.i = getelementptr inbounds nuw i8, ptr %0, i64 120
   %1 = load i64, ptr %m_doublePrecision.i, align 8
   ret i64 %1
 }
@@ -2806,20 +2806,20 @@ entry:
 define noundef nonnull ptr @_ZNK4YAML7Emitter19ComputeFullBoolNameEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i1 noundef zeroext %b) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %m_boolLengthFmt.i = getelementptr inbounds i8, ptr %0, i64 52
+  %m_boolLengthFmt.i = getelementptr inbounds nuw i8, ptr %0, i64 52
   %1 = load i32, ptr %m_boolLengthFmt.i, align 4
   %cmp = icmp eq i32 %1, 20
   br i1 %cmp, label %cond.end.thread, label %cond.end
 
 cond.end.thread:                                  ; preds = %entry
-  %m_boolCaseFmt.i13 = getelementptr inbounds i8, ptr %0, i64 56
+  %m_boolCaseFmt.i13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %2 = load i32, ptr %m_boolCaseFmt.i13, align 4
   br label %sw.bb
 
 cond.end:                                         ; preds = %entry
-  %m_boolFmt.i = getelementptr inbounds i8, ptr %0, i64 48
+  %m_boolFmt.i = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %m_boolFmt.i, align 4
-  %m_boolCaseFmt.i = getelementptr inbounds i8, ptr %0, i64 56
+  %m_boolCaseFmt.i = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i32, ptr %m_boolCaseFmt.i, align 4
   switch i32 %3, label %sw.epilog42 [
     i32 13, label %sw.bb
@@ -2898,7 +2898,7 @@ return:                                           ; preds = %sw.epilog42, %sw.bb
 define noundef nonnull ptr @_ZNK4YAML7Emitter15ComputeNullNameEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %m_nullFmt.i = getelementptr inbounds i8, ptr %0, i64 60
+  %m_nullFmt.i = getelementptr inbounds nuw i8, ptr %0, i64 60
   %1 = load i32, ptr %m_nullFmt.i, align 4
   %switch.tableidx = add i32 %1, -9
   %2 = icmp ult i32 %switch.tableidx, 3
@@ -2906,7 +2906,7 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4YAML7Emitter5WriteERKNS_5_NullE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4YAML7Emitter5WriteERKNS_5_NullE, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %return
 
@@ -2929,20 +2929,20 @@ entry:
 if.end:                                           ; preds = %entry
   tail call void @_ZN4YAML7Emitter11PrepareNodeENS_15EmitterNodeType5valueE(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef 2)
   %2 = load ptr, ptr %this, align 8
-  %m_boolLengthFmt.i.i = getelementptr inbounds i8, ptr %2, i64 52
+  %m_boolLengthFmt.i.i = getelementptr inbounds nuw i8, ptr %2, i64 52
   %3 = load i32, ptr %m_boolLengthFmt.i.i, align 4
   %cmp.i = icmp eq i32 %3, 20
   br i1 %cmp.i, label %cond.end.thread.i, label %cond.end.i
 
 cond.end.thread.i:                                ; preds = %if.end
-  %m_boolCaseFmt.i13.i = getelementptr inbounds i8, ptr %2, i64 56
+  %m_boolCaseFmt.i13.i = getelementptr inbounds nuw i8, ptr %2, i64 56
   %4 = load i32, ptr %m_boolCaseFmt.i13.i, align 4
   br label %sw.bb.i
 
 cond.end.i:                                       ; preds = %if.end
-  %m_boolFmt.i.i = getelementptr inbounds i8, ptr %2, i64 48
+  %m_boolFmt.i.i = getelementptr inbounds nuw i8, ptr %2, i64 48
   %5 = load i32, ptr %m_boolFmt.i.i, align 4
-  %m_boolCaseFmt.i.i = getelementptr inbounds i8, ptr %2, i64 56
+  %m_boolCaseFmt.i.i = getelementptr inbounds nuw i8, ptr %2, i64 56
   %6 = load i32, ptr %m_boolCaseFmt.i.i, align 4
   switch i32 %5, label %sw.epilog42.i [
     i32 13, label %sw.bb.i
@@ -3017,7 +3017,7 @@ _ZNK4YAML7Emitter19ComputeFullBoolNameEb.exit:    ; preds = %sw.bb9.i, %sw.bb11.
   br i1 %cmp.i, label %if.then5, label %if.else
 
 if.then5:                                         ; preds = %_ZNK4YAML7Emitter19ComputeFullBoolNameEb.exit
-  %m_stream = getelementptr inbounds i8, ptr %this, i64 8
+  %m_stream = getelementptr inbounds nuw i8, ptr %this, i64 8
   %8 = load i8, ptr %retval.0.i, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ch.addr.i)
   store i8 %8, ptr %ch.addr.i, align 1
@@ -3032,7 +3032,7 @@ if.else:                                          ; preds = %sw.bb36.i, %sw.bb33
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.else
-  %m_stream7 = getelementptr inbounds i8, ptr %this, i64 8
+  %m_stream7 = getelementptr inbounds nuw i8, ptr %this, i64 8
   invoke void @_ZN4YAML15ostream_wrapper5writeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(57) %m_stream7, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont10 unwind label %lpad9
 
@@ -3076,9 +3076,9 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @_ZN4YAML7Emitter11PrepareNodeENS_15EmitterNodeType5valueE(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef 2)
-  %m_stream = getelementptr inbounds i8, ptr %this, i64 8
+  %m_stream = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load ptr, ptr %this, align 8
-  %m_charset.i = getelementptr inbounds i8, ptr %2, i64 40
+  %m_charset.i = getelementptr inbounds nuw i8, ptr %2, i64 40
   %3 = load i32, ptr %m_charset.i, align 4
   %switch.selectcmp.i = icmp eq i32 %3, 5
   %switch.select.i = select i1 %switch.selectcmp.i, i32 2, i32 0
@@ -3108,13 +3108,13 @@ entry:
   br i1 %tobool.i.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %m_hasAnchor.i = getelementptr inbounds i8, ptr %0, i64 208
+  %m_hasAnchor.i = getelementptr inbounds nuw i8, ptr %0, i64 208
   %2 = load i8, ptr %m_hasAnchor.i, align 8
   %tobool.i = trunc i8 %2 to i1
   br i1 %tobool.i, label %if.then7, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %m_hasTag.i = getelementptr inbounds i8, ptr %0, i64 210
+  %m_hasTag.i = getelementptr inbounds nuw i8, ptr %0, i64 210
   %3 = load i8, ptr %m_hasTag.i, align 2
   %tobool.i5 = trunc i8 %3 to i1
   br i1 %tobool.i5, label %if.then7, label %if.end13
@@ -3126,7 +3126,7 @@ if.then7:                                         ; preds = %lor.lhs.false, %if.
 
 invoke.cont:                                      ; preds = %if.then7
   store i8 0, ptr %0, align 8
-  %m_lastError.i = getelementptr inbounds i8, ptr %0, i64 8
+  %m_lastError.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %call.i6 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_lastError.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont12 unwind label %lpad11
 
@@ -3148,7 +3148,7 @@ lpad11:                                           ; preds = %invoke.cont
 
 if.end13:                                         ; preds = %lor.lhs.false
   tail call void @_ZN4YAML7Emitter11PrepareNodeENS_15EmitterNodeType5valueE(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef 2)
-  %m_stream = getelementptr inbounds i8, ptr %this, i64 8
+  %m_stream = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call14 = tail call noundef zeroext i1 @_ZN4YAML5Utils10WriteAliasERNS_15ostream_wrapperERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(57) %m_stream, ptr noundef nonnull align 8 dereferenceable(32) %alias)
   %6 = load ptr, ptr %this, align 8
   br i1 %call14, label %if.end26, label %if.then15
@@ -3160,7 +3160,7 @@ if.then15:                                        ; preds = %if.end13
 
 invoke.cont21:                                    ; preds = %if.then15
   store i8 0, ptr %6, align 8
-  %m_lastError.i7 = getelementptr inbounds i8, ptr %6, i64 8
+  %m_lastError.i7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %call.i8 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_lastError.i7, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18)
           to label %invoke.cont23 unwind label %lpad22
 
@@ -3213,7 +3213,7 @@ entry:
   br i1 %tobool.i.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %m_hasAnchor.i = getelementptr inbounds i8, ptr %0, i64 208
+  %m_hasAnchor.i = getelementptr inbounds nuw i8, ptr %0, i64 208
   %2 = load i8, ptr %m_hasAnchor.i, align 8
   %tobool.i = trunc i8 %2 to i1
   br i1 %tobool.i, label %if.then4, label %if.end10
@@ -3225,7 +3225,7 @@ if.then4:                                         ; preds = %if.end
 
 invoke.cont:                                      ; preds = %if.then4
   store i8 0, ptr %0, align 8
-  %m_lastError.i = getelementptr inbounds i8, ptr %0, i64 8
+  %m_lastError.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %call.i5 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_lastError.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont9 unwind label %lpad8
 
@@ -3247,7 +3247,7 @@ lpad8:                                            ; preds = %invoke.cont
 
 if.end10:                                         ; preds = %if.end
   tail call void @_ZN4YAML7Emitter11PrepareNodeENS_15EmitterNodeType5valueE(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef 1)
-  %m_stream = getelementptr inbounds i8, ptr %this, i64 8
+  %m_stream = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call11 = tail call noundef zeroext i1 @_ZN4YAML5Utils11WriteAnchorERNS_15ostream_wrapperERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(57) %m_stream, ptr noundef nonnull align 8 dereferenceable(32) %anchor)
   %5 = load ptr, ptr %this, align 8
   br i1 %call11, label %if.end23, label %if.then12
@@ -3259,7 +3259,7 @@ if.then12:                                        ; preds = %if.end10
 
 invoke.cont18:                                    ; preds = %if.then12
   store i8 0, ptr %5, align 8
-  %m_lastError.i6 = getelementptr inbounds i8, ptr %5, i64 8
+  %m_lastError.i6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %call.i7 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_lastError.i6, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15)
           to label %invoke.cont20 unwind label %lpad19
 
@@ -3310,7 +3310,7 @@ entry:
   br i1 %tobool.i.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %m_hasTag.i = getelementptr inbounds i8, ptr %0, i64 210
+  %m_hasTag.i = getelementptr inbounds nuw i8, ptr %0, i64 210
   %2 = load i8, ptr %m_hasTag.i, align 2
   %tobool.i = trunc i8 %2 to i1
   br i1 %tobool.i, label %if.then4, label %if.end10
@@ -3322,7 +3322,7 @@ if.then4:                                         ; preds = %if.end
 
 invoke.cont:                                      ; preds = %if.then4
   store i8 0, ptr %0, align 8
-  %m_lastError.i = getelementptr inbounds i8, ptr %0, i64 8
+  %m_lastError.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %call.i10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_lastError.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont9 unwind label %lpad8
 
@@ -3344,10 +3344,10 @@ lpad8:                                            ; preds = %invoke.cont
 
 if.end10:                                         ; preds = %if.end
   tail call void @_ZN4YAML7Emitter11PrepareNodeENS_15EmitterNodeType5valueE(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef 1)
-  %type = getelementptr inbounds i8, ptr %tag, i64 64
+  %type = getelementptr inbounds nuw i8, ptr %tag, i64 64
   %5 = load i32, ptr %type, align 8
-  %m_stream21 = getelementptr inbounds i8, ptr %this, i64 8
-  %content22 = getelementptr inbounds i8, ptr %tag, i64 32
+  %m_stream21 = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %content22 = getelementptr inbounds nuw i8, ptr %tag, i64 32
   switch i32 %5, label %if.end26 [
     i32 0, label %if.then11
     i32 1, label %if.then15
@@ -3373,7 +3373,7 @@ if.then27:                                        ; preds = %if.then15, %if.then
 
 invoke.cont33:                                    ; preds = %if.then27
   store i8 0, ptr %6, align 8
-  %m_lastError.i11 = getelementptr inbounds i8, ptr %6, i64 8
+  %m_lastError.i11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %call.i12 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_lastError.i11, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp30)
           to label %invoke.cont35 unwind label %lpad34
 
@@ -3428,7 +3428,7 @@ invoke.cont:                                      ; preds = %entry
           to label %.noexc unwind label %lpad2
 
 .noexc:                                           ; preds = %invoke.cont
-  %content.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %content.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %content.i, ptr noundef nonnull align 8 dereferenceable(32) %content)
           to label %invoke.cont3 unwind label %lpad.i
 
@@ -3439,7 +3439,7 @@ lpad.i:                                           ; preds = %.noexc
   br label %lpad2.body
 
 invoke.cont3:                                     ; preds = %.noexc
-  %type.i = getelementptr inbounds i8, ptr %agg.result, i64 64
+  %type.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 64
   store i32 1, ptr %type.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #15
@@ -3477,15 +3477,15 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @_ZN4YAML7Emitter11PrepareNodeENS_15EmitterNodeType5valueE(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef 0)
-  %m_stream = getelementptr inbounds i8, ptr %this, i64 8
-  %m_col.i = getelementptr inbounds i8, ptr %this, i64 56
+  %m_stream = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %m_col.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %2 = load i64, ptr %m_col.i, align 8
   %cmp.not = icmp eq i64 %2, 0
   %.pre2 = load ptr, ptr %this, align 8
   br i1 %cmp.not, label %if.end8, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %m_preCommentIndent.i = getelementptr inbounds i8, ptr %.pre2, i64 80
+  %m_preCommentIndent.i = getelementptr inbounds nuw i8, ptr %.pre2, i64 80
   %3 = load i64, ptr %m_preCommentIndent.i, align 8
   %cmp3.not.i = icmp eq i64 %3, 0
   br i1 %cmp3.not.i, label %if.end8, label %for.body.i
@@ -3506,7 +3506,7 @@ if.end8.loopexit:                                 ; preds = %for.body.i
 
 if.end8:                                          ; preds = %if.end8.loopexit, %if.then3, %if.end
   %4 = phi ptr [ %.pre, %if.end8.loopexit ], [ %.pre2, %if.then3 ], [ %.pre2, %if.end ]
-  %m_postCommentIndent.i = getelementptr inbounds i8, ptr %4, i64 88
+  %m_postCommentIndent.i = getelementptr inbounds nuw i8, ptr %4, i64 88
   %5 = load i64, ptr %m_postCommentIndent.i, align 8
   %call13 = call noundef zeroext i1 @_ZN4YAML5Utils12WriteCommentERNS_15ostream_wrapperERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull align 8 dereferenceable(57) %m_stream, ptr noundef nonnull align 8 dereferenceable(32) %comment, i64 noundef %5)
   %6 = load ptr, ptr %this, align 8
@@ -3532,7 +3532,7 @@ entry:
 if.end:                                           ; preds = %entry
   tail call void @_ZN4YAML7Emitter11PrepareNodeENS_15EmitterNodeType5valueE(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef 2)
   %3 = load ptr, ptr %this, align 8
-  %m_nullFmt.i.i = getelementptr inbounds i8, ptr %3, i64 60
+  %m_nullFmt.i.i = getelementptr inbounds nuw i8, ptr %3, i64 60
   %4 = load i32, ptr %m_nullFmt.i.i, align 4
   %switch.tableidx = add i32 %4, -9
   %5 = icmp ult i32 %switch.tableidx, 3
@@ -3540,7 +3540,7 @@ if.end:                                           ; preds = %entry
 
 switch.lookup:                                    ; preds = %if.end
   %6 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4YAML7Emitter5WriteERKNS_5_NullE, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4YAML7Emitter5WriteERKNS_5_NullE, i64 0, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZNK4YAML7Emitter15ComputeNullNameEv.exit
 
@@ -3551,7 +3551,7 @@ _ZNK4YAML7Emitter15ComputeNullNameEv.exit:        ; preds = %if.end, %switch.loo
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNK4YAML7Emitter15ComputeNullNameEv.exit
-  %m_stream = getelementptr inbounds i8, ptr %this, i64 8
+  %m_stream = getelementptr inbounds nuw i8, ptr %this, i64 8
   invoke void @_ZN4YAML15ostream_wrapper5writeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(57) %m_stream, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont5 unwind label %lpad4
 
@@ -3601,7 +3601,7 @@ invoke.cont5:                                     ; preds = %invoke.cont
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont5
-  %content.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
+  %content.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %content.i) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(68) %ref.tmp) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #15
@@ -3624,7 +3624,7 @@ lpad4:                                            ; preds = %invoke.cont
 lpad6:                                            ; preds = %invoke.cont5
   %4 = landingpad { ptr, i32 }
           cleanup
-  %content.i3 = getelementptr inbounds i8, ptr %ref.tmp, i64 32
+  %content.i3 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %content.i3) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(68) %ref.tmp) #15
   br label %ehcleanup
@@ -3641,7 +3641,7 @@ ehcleanup8:                                       ; preds = %ehcleanup, %lpad
 
 if.end:                                           ; preds = %invoke.cont7
   call void @_ZN4YAML7Emitter11PrepareNodeENS_15EmitterNodeType5valueE(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef 2)
-  %m_stream = getelementptr inbounds i8, ptr %this, i64 8
+  %m_stream = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call10 = call noundef zeroext i1 @_ZN4YAML5Utils11WriteBinaryERNS_15ostream_wrapperERKNS_6BinaryE(ptr noundef nonnull align 8 dereferenceable(57) %m_stream, ptr noundef nonnull align 8 dereferenceable(40) %binary)
   %5 = load ptr, ptr %this, align 8
   call void @_ZN4YAML12EmitterState13StartedScalarEv(ptr noundef nonnull align 8 dereferenceable(224) %5)
@@ -3665,7 +3665,7 @@ invoke.cont:                                      ; preds = %entry
           to label %.noexc unwind label %lpad2
 
 .noexc:                                           ; preds = %invoke.cont
-  %content.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %content.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %content.i, ptr noundef nonnull align 8 dereferenceable(32) %content)
           to label %invoke.cont3 unwind label %lpad.i
 
@@ -3676,7 +3676,7 @@ lpad.i:                                           ; preds = %.noexc
   br label %lpad2.body
 
 invoke.cont3:                                     ; preds = %.noexc
-  %type.i = getelementptr inbounds i8, ptr %agg.result, i64 64
+  %type.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 64
   store i32 2, ptr %type.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #15

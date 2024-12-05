@@ -167,7 +167,7 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5boost4urls3urlC2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN5boost4urls13url_view_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(192) %2) #22
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
@@ -202,7 +202,7 @@ define void @_ZN5boost4urls3urlC2ENS_4core17basic_string_viewIcEE(ptr noundef no
 
 _ZNO5boost6system6resultINS_4urls8url_viewENS0_10error_codeEE5valueIS3_EENSt9enable_ifIXsr3std21is_move_constructibleIT_EE5valueES3_E4typeERKNS_15source_locationE.exit: ; preds = %3
   call void @_ZN5boost4urls8url_viewC2ERKNS0_13url_view_baseE(ptr noundef nonnull align 8 dereferenceable(192) %4, ptr noundef nonnull align 8 dereferenceable(200) %5) #22
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @_ZN5boost4urls13url_view_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(192) %14) #22
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 200
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
@@ -221,7 +221,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5boost4urls3urlC2EOS1_(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(216) %1) unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @_ZN5boost4urls8url_baseC2ERKNS0_6detail8url_implE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(171) %3) #22
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5boost4urls3urlE, i64 16), ptr %0, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 200
@@ -234,13 +234,13 @@ define void @_ZN5boost4urls3urlC2EOS1_(ptr noundef nonnull align 8 dereferenceab
   store i64 %8, ptr %9, align 8, !tbaa !28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   store ptr @.str.13, ptr %3, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(154) %.sroa.4.0..sroa_idx, i8 0, i64 154, i1 false)
-  %.sroa.57.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 180
+  %.sroa.57.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 180
   store i32 0, ptr %.sroa.57.0..sroa_idx, align 4
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 184
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 184
   store i16 0, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 186
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 186
   store i8 1, ptr %.sroa.7.0..sroa_idx, align 2
   ret void
 }
@@ -260,8 +260,8 @@ _ZN5boost4urls3url10deallocateEPc.exit:           ; preds = %2
   br label %5
 
 5:                                                ; preds = %_ZN5boost4urls3url10deallocateEPc.exit, %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(171) %7, ptr noundef nonnull align 8 dereferenceable(171) %6, i64 171, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %9 = load ptr, ptr %8, align 8, !tbaa !6
@@ -272,13 +272,13 @@ _ZN5boost4urls3url10deallocateEPc.exit:           ; preds = %2
   store i64 %11, ptr %12, align 8, !tbaa !28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   store ptr @.str.13, ptr %6, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(154) %.sroa.4.0..sroa_idx, i8 0, i64 154, i1 false)
-  %.sroa.57.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 180
+  %.sroa.57.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 180
   store i32 0, ptr %.sroa.57.0..sroa_idx, align 4
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 184
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 184
   store i16 0, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 186
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 186
   store i8 1, ptr %.sroa.7.0..sroa_idx, align 2
   ret ptr %0
 }
@@ -306,14 +306,14 @@ define void @_ZN5boost4urls3url10clear_implEv(ptr nocapture noundef nonnull alig
   br i1 %.not, label %7, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(154) %.sroa.4.0..sroa_idx, i8 0, i64 154, i1 false)
-  %.sroa.51.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 180
+  %.sroa.51.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 180
   store i32 0, ptr %.sroa.51.0..sroa_idx, align 4
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 184
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i16 0, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 186
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 186
   store i8 1, ptr %.sroa.7.0..sroa_idx, align 2
   store i8 0, ptr %3, align 1, !tbaa !29
   %6 = load ptr, ptr %2, align 8, !tbaa !6
@@ -364,7 +364,7 @@ define void @_ZN5boost4urls3url12reserve_implEmRNS0_8url_base4op_tE(ptr nocaptur
   %20 = add nuw nsw i64 %spec.select, 1
   %21 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %20) #24
   store i64 %spec.select, ptr %11, align 8, !tbaa !28
-  %22 = getelementptr inbounds i8, ptr %0, i64 192
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %23 = load ptr, ptr %22, align 8, !tbaa !31
   %24 = tail call noundef i64 @_ZNK5boost4urls6detail8url_impl6offsetEi(ptr noundef nonnull align 8 dereferenceable(171) %23, i32 noundef 7) #22
   %25 = add i64 %24, 1
@@ -384,7 +384,7 @@ define void @_ZN5boost4urls3url12reserve_implEmRNS0_8url_base4op_tE(ptr nocaptur
 31:                                               ; preds = %28, %16
   %.sink = phi ptr [ %30, %28 ], [ %21, %16 ]
   store ptr %.sink, ptr %14, align 8, !tbaa !6
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sink, ptr %32, align 8, !tbaa !30
   br label %33
 
@@ -429,15 +429,15 @@ define void @_ZN5boost4urls3url4swapERS1_(ptr noundef nonnull align 8 dereferenc
   %13 = load i64, ptr %11, align 8, !tbaa !35
   store i64 %13, ptr %10, align 8, !tbaa !35
   store i64 %12, ptr %11, align 8, !tbaa !35
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
-  %15 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %3, ptr noundef nonnull align 8 dereferenceable(176) %14, i64 176, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(171) %14, ptr noundef nonnull align 8 dereferenceable(171) %15, i64 171, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(171) %15, ptr noundef nonnull align 8 dereferenceable(171) %3, i64 171, i1 false)
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %3)
-  %16 = getelementptr inbounds i8, ptr %0, i64 192
-  %17 = getelementptr inbounds i8, ptr %1, i64 192
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %18 = load ptr, ptr %16, align 8, !tbaa !34
   %19 = load ptr, ptr %17, align 8, !tbaa !34
   store ptr %19, ptr %16, align 8, !tbaa !34
@@ -579,7 +579,7 @@ define linkonce_odr hidden void @_ZN5boost6detail19with_throw_locationINS_6syste
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !tbaa.struct !40
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !tbaa.struct !41
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6detail19with_throw_locationINS_6system12system_errorEEE, i64 16), ptr %0, align 8, !tbaa !3
   ret void
@@ -862,7 +862,7 @@ define linkonce_odr hidden void @_ZNK5boost6system10error_code7messageB5cxx11Ev(
   %9 = load ptr, ptr %8, align 8, !tbaa !45, !noalias !47
   %10 = load i32, ptr %1, align 8, !tbaa !50, !noalias !47
   %11 = load ptr, ptr %9, align 8, !tbaa !3, !noalias !47
-  %12 = getelementptr inbounds i8, ptr %11, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load ptr, ptr %12, align 8, !noalias !47
   tail call void %13(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %9, i32 noundef %10)
   br label %37
@@ -928,7 +928,7 @@ _ZNK5boost6system10error_code8categoryEv.exit.thread: ; preds = %2
   %32 = load ptr, ptr %31, align 8, !tbaa !29
   %33 = load i32, ptr %1, align 8, !tbaa !29
   %34 = load ptr, ptr %32, align 8, !tbaa !3
-  %35 = getelementptr inbounds i8, ptr %34, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %36 = load ptr, ptr %35, align 8
   tail call void %36(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(52) %32, i32 noundef %33)
   br label %37
@@ -960,7 +960,7 @@ define linkonce_odr hidden void @_ZNK5boost6system10error_code9to_stringB5cxx11E
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !45
   %13 = load ptr, ptr %12, align 8, !tbaa !3
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(8) %12) #22
   %17 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #22

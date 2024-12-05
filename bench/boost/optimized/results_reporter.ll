@@ -307,7 +307,7 @@ _ZN5boost9unit_test16results_reporter12_GLOBAL__N_19s_rr_implEv.exit.i1: ; preds
 _ZN5boost9unit_test16results_reporter10set_formatEPNS1_6formatE.exit.sink.split: ; preds = %_ZN5boost9unit_test16results_reporter12_GLOBAL__N_19s_rr_implEv.exit.i1, %_ZN5boost9unit_test16results_reporter12_GLOBAL__N_19s_rr_implEv.exit.i
   %.sink7 = phi ptr [ %15, %_ZN5boost9unit_test16results_reporter12_GLOBAL__N_19s_rr_implEv.exit.i ], [ %28, %_ZN5boost9unit_test16results_reporter12_GLOBAL__N_19s_rr_implEv.exit.i1 ]
   %30 = load ptr, ptr %.sink7, align 8, !tbaa !14
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
   tail call void %32(ptr noundef nonnull align 8 dereferenceable(8) %.sink7) #9
   br label %_ZN5boost9unit_test16results_reporter10set_formatEPNS1_6formatE.exit
@@ -354,7 +354,7 @@ _ZN5boost9unit_test16results_reporter12_GLOBAL__N_19s_rr_implEv.exit: ; preds = 
 
 14:                                               ; preds = %_ZN5boost9unit_test16results_reporter12_GLOBAL__N_19s_rr_implEv.exit
   %15 = load ptr, ptr %12, align 8, !tbaa !14
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %12) #9
   br label %_ZN5boost10scoped_ptrINS_9unit_test16results_reporter6formatEE5resetEPS3_.exit
@@ -412,7 +412,7 @@ _ZN5boost9unit_test16results_reporter12_GLOBAL__N_19s_rr_implEv.exit: ; preds = 
 
 19:                                               ; preds = %17
   %20 = tail call noundef nonnull align 8 dereferenceable(400) ptr @_ZN5boost9unit_test9framework17master_test_suiteEv()
-  %21 = getelementptr inbounds i8, ptr %20, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 56
   %22 = load i64, ptr %21, align 8, !tbaa !39
   br label %23
 
@@ -557,7 +557,7 @@ _ZN5boost9unit_test16results_reporter12_GLOBAL__N_19s_rr_implEv.exit18: ; preds 
 _ZN5boost9unit_test16results_reporter12_GLOBAL__N_19s_rr_implEv.exit20: ; preds = %_ZN5boost9unit_test16results_reporter12_GLOBAL__N_19s_rr_implEv.exit18, %75, %78
   %82 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test16results_reporter12_GLOBAL__N_19s_rr_implEvE8the_inst, i64 8), align 8, !tbaa !13
   %83 = load ptr, ptr %72, align 8, !tbaa !14
-  %84 = getelementptr inbounds i8, ptr %83, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
   %85 = load ptr, ptr %84, align 8
   tail call void %85(ptr noundef nonnull align 8 dereferenceable(8) %72, ptr noundef nonnull align 8 dereferenceable(8) %82)
   switch i32 %.0, label %121 [
@@ -619,7 +619,7 @@ _ZN5boost9unit_test16results_reporter12_GLOBAL__N_19s_rr_implEv.exit22: ; preds 
 _ZN5boost9unit_test16results_reporter12_GLOBAL__N_19s_rr_implEv.exit24: ; preds = %_ZN5boost9unit_test16results_reporter12_GLOBAL__N_19s_rr_implEv.exit22, %100, %103
   %107 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test16results_reporter12_GLOBAL__N_19s_rr_implEvE8the_inst, i64 8), align 8, !tbaa !13
   %108 = load ptr, ptr %96, align 8, !tbaa !14
-  %109 = getelementptr inbounds i8, ptr %108, i64 48
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 48
   %110 = load ptr, ptr %109, align 8
   tail call void %110(ptr noundef nonnull align 8 dereferenceable(8) %96, ptr noundef nonnull align 8 dereferenceable(280) %97, ptr noundef nonnull align 8 dereferenceable(8) %107)
   br label %121
@@ -704,7 +704,7 @@ _ZN5boost9unit_test16results_reporter12_GLOBAL__N_19s_rr_implEv.exit28: ; preds 
 _ZN5boost9unit_test16results_reporter12_GLOBAL__N_19s_rr_implEv.exit30: ; preds = %_ZN5boost9unit_test16results_reporter12_GLOBAL__N_19s_rr_implEv.exit28, %134, %137
   %141 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test16results_reporter12_GLOBAL__N_19s_rr_implEvE8the_inst, i64 8), align 8, !tbaa !13
   %142 = load ptr, ptr %131, align 8, !tbaa !14
-  %143 = getelementptr inbounds i8, ptr %142, i64 24
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 24
   %144 = load ptr, ptr %143, align 8
   tail call void %144(ptr noundef nonnull align 8 dereferenceable(8) %131, ptr noundef nonnull align 8 dereferenceable(8) %141)
   %145 = load atomic i8, ptr @_ZGVZN5boost9unit_test16results_reporter12_GLOBAL__N_19s_rr_implEvE8the_inst acquire, align 8
@@ -798,7 +798,7 @@ define internal void @_ZN5boost9unit_test16results_reporter12_GLOBAL__N_121resul
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %3, align 8, !tbaa !14
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %3) #9
   br label %_ZN5boost10scoped_ptrINS_9unit_test16results_reporter6formatEED2Ev.exit
@@ -875,13 +875,13 @@ define internal void @_ZN5boost9unit_test16results_reporter12_GLOBAL__N_121resul
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !13
   %7 = load ptr, ptr %4, align 8, !tbaa !14
-  %8 = getelementptr inbounds i8, ptr %7, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load ptr, ptr %8, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(280) %1, ptr noundef nonnull align 8 dereferenceable(8) %6)
   %10 = load ptr, ptr %3, align 8, !tbaa !38
   %11 = load ptr, ptr %5, align 8, !tbaa !13
   %12 = load ptr, ptr %10, align 8, !tbaa !14
-  %13 = getelementptr inbounds i8, ptr %12, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(280) %1, ptr noundef nonnull align 8 dereferenceable(8) %11)
   ret void
@@ -891,11 +891,11 @@ define internal void @_ZN5boost9unit_test16results_reporter12_GLOBAL__N_121resul
 define internal noundef zeroext i1 @_ZN5boost9unit_test16results_reporter12_GLOBAL__N_121results_reporter_impl16test_suite_startERKNS0_10test_suiteE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(384) %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !38
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !13
   %8 = load ptr, ptr %4, align 8, !tbaa !14
-  %9 = getelementptr inbounds i8, ptr %8, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(280) %5, ptr noundef nonnull align 8 dereferenceable(8) %7)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -905,7 +905,7 @@ define internal noundef zeroext i1 @_ZN5boost9unit_test16results_reporter12_GLOB
 
 14:                                               ; preds = %2
   %15 = load ptr, ptr @_ZN5boost9unit_test12_GLOBAL__N_117results_collectorE, align 8, !tbaa !16
-  %16 = getelementptr inbounds i8, ptr %1, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %17 = load i64, ptr %16, align 8, !tbaa !39
   %18 = tail call noundef nonnull align 8 dereferenceable(107) ptr @_ZNK5boost9unit_test19results_collector_t7resultsEm(ptr noundef nonnull align 8 dereferenceable(8) %15, i64 noundef %17)
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 105
@@ -917,7 +917,7 @@ define internal noundef zeroext i1 @_ZN5boost9unit_test16results_reporter12_GLOB
   %23 = load ptr, ptr %3, align 8, !tbaa !38
   %24 = load ptr, ptr %6, align 8, !tbaa !13
   %25 = load ptr, ptr %23, align 8, !tbaa !14
-  %26 = getelementptr inbounds i8, ptr %25, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %27 = load ptr, ptr %26, align 8
   tail call void %27(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(280) %5, ptr noundef nonnull align 8 dereferenceable(8) %24)
   br label %28
@@ -931,11 +931,11 @@ define internal noundef zeroext i1 @_ZN5boost9unit_test16results_reporter12_GLOB
 define internal void @_ZN5boost9unit_test16results_reporter12_GLOBAL__N_121results_reporter_impl17test_suite_finishERKNS0_10test_suiteE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(384) %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !38
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !13
   %8 = load ptr, ptr %4, align 8, !tbaa !14
-  %9 = getelementptr inbounds i8, ptr %8, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(280) %5, ptr noundef nonnull align 8 dereferenceable(8) %7)
   ret void
@@ -951,7 +951,7 @@ define internal void @_ZN5boost9unit_test16results_reporter12_GLOBAL__N_121resul
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %3, align 8, !tbaa !14
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %3) #9
   br label %_ZN5boost10scoped_ptrINS_9unit_test16results_reporter6formatEED2Ev.exit.i

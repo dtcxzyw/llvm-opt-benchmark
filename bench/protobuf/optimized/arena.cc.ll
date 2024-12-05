@@ -80,20 +80,20 @@ define noundef ptr @_ZN6google8protobuf8internal15ThreadSafeArena22GetSerialAren
 entry:
   %ref.tmp10.i = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %0 = tail call noundef nonnull align 32 dereferenceable(24) ptr @llvm.threadlocal.address.p0(ptr align 32 @_ZN6google8protobuf8internal15ThreadSafeArena13thread_cache_E)
-  %first_owner_ = getelementptr inbounds i8, ptr %this, i64 40
+  %first_owner_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %1 = load ptr, ptr %first_owner_, align 8
   %cmp = icmp eq ptr %0, %1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %first_arena_ = getelementptr inbounds i8, ptr %this, i64 48
+  %first_arena_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   br label %return
 
 if.end:                                           ; preds = %entry
-  %head_.i = getelementptr inbounds i8, ptr %this, i64 32
+  %head_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %2 = load atomic i64, ptr %head_.i acquire, align 8
   %atomic-temp.i.0.i.i = inttoptr i64 %2 to ptr
-  %capacity.i.i4.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i, i64 8
+  %capacity.i.i4.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i.i, i64 8
   %3 = load i32, ptr %capacity.i.i4.i, align 8
   %cmp.i5.i = icmp eq i32 %3, 0
   br i1 %cmp.i5.i, label %if.then3, label %for.body.i
@@ -102,8 +102,8 @@ for.body.i:                                       ; preds = %if.end, %"_ZZN6goog
   %serial.1 = phi ptr [ %serial.2, %"_ZZN6google8protobuf8internal15ThreadSafeArena22GetSerialArenaFallbackEmENK3$_0clEPKNS2_16SerialArenaChunkE.exit.i" ], [ null, %if.end ]
   %4 = phi i32 [ %11, %"_ZZN6google8protobuf8internal15ThreadSafeArena22GetSerialArenaFallbackEmENK3$_0clEPKNS2_16SerialArenaChunkE.exit.i" ], [ %3, %if.end ]
   %chunk.06.i = phi ptr [ %10, %"_ZZN6google8protobuf8internal15ThreadSafeArena22GetSerialArenaFallbackEmENK3$_0clEPKNS2_16SerialArenaChunkE.exit.i" ], [ %atomic-temp.i.0.i.i, %if.end ]
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %chunk.06.i, i64 16
-  %size.i.i.i.i.i = getelementptr inbounds i8, ptr %chunk.06.i, i64 12
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %chunk.06.i, i64 16
+  %size.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %chunk.06.i, i64 12
   %5 = load atomic i32, ptr %size.i.i.i.i.i monotonic, align 4
   %cmp9.not.i.i = icmp eq i32 %5, 0
   br i1 %cmp9.not.i.i, label %"_ZZN6google8protobuf8internal15ThreadSafeArena22GetSerialArenaFallbackEmENK3$_0clEPKNS2_16SerialArenaChunkE.exit.i", label %for.body.i.preheader.i
@@ -120,7 +120,7 @@ for.cond.i.i:                                     ; preds = %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.cond.i.i, %for.body.i.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.i.preheader.i ], [ %indvars.iv.next.i, %for.cond.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds %"struct.std::atomic.23", ptr %add.ptr.i.i.i.i.i, i64 %indvars.iv.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw %"struct.std::atomic.23", ptr %add.ptr.i.i.i.i.i, i64 %indvars.iv.i
   %7 = load atomic i64, ptr %arrayidx.i.i.i monotonic, align 8
   %atomic-temp.i.0.i.i.i = inttoptr i64 %7 to ptr
   %cmp6.i.i = icmp eq ptr %0, %atomic-temp.i.0.i.i.i
@@ -131,7 +131,7 @@ if.then.i.i:                                      ; preds = %for.body.i.i
   %mul.i.i.i.i.i = shl nuw nsw i64 %conv.i.i.i, 3
   %8 = getelementptr i8, ptr %chunk.06.i, i64 %mul.i.i.i.i.i
   %add.ptr.i.i.i.i = getelementptr i8, ptr %8, i64 16
-  %arrayidx.i6.i.i = getelementptr inbounds %"struct.std::atomic.25", ptr %add.ptr.i.i.i.i, i64 %indvars.iv.i
+  %arrayidx.i6.i.i = getelementptr inbounds nuw %"struct.std::atomic.25", ptr %add.ptr.i.i.i.i, i64 %indvars.iv.i
   %9 = load atomic i64, ptr %arrayidx.i6.i.i monotonic, align 8
   %atomic-temp.i.0.i7.i.i = inttoptr i64 %9 to ptr
   br label %"_ZZN6google8protobuf8internal15ThreadSafeArena22GetSerialArenaFallbackEmENK3$_0clEPKNS2_16SerialArenaChunkE.exit.i"
@@ -139,7 +139,7 @@ if.then.i.i:                                      ; preds = %for.body.i.i
 "_ZZN6google8protobuf8internal15ThreadSafeArena22GetSerialArenaFallbackEmENK3$_0clEPKNS2_16SerialArenaChunkE.exit.i": ; preds = %for.cond.i.i, %if.then.i.i, %for.body.i
   %serial.2 = phi ptr [ %serial.1, %for.body.i ], [ %atomic-temp.i.0.i7.i.i, %if.then.i.i ], [ %serial.1, %for.cond.i.i ]
   %10 = load ptr, ptr %chunk.06.i, align 8
-  %capacity.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
+  %capacity.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   %11 = load i32, ptr %capacity.i.i.i, align 8
   %cmp.i.i = icmp eq i32 %11, 0
   br i1 %cmp.i.i, label %"_ZNK6google8protobuf8internal15ThreadSafeArena25WalkConstSerialArenaChunkIZNS2_22GetSerialArenaFallbackEmE3$_0EEvT_.exit", label %for.body.i, !llvm.loop !6
@@ -149,7 +149,7 @@ if.then.i.i:                                      ; preds = %for.body.i.i
   br i1 %tobool.not, label %if.then3, label %return
 
 if.then3:                                         ; preds = %if.end, %"_ZNK6google8protobuf8internal15ThreadSafeArena25WalkConstSerialArenaChunkIZNS2_22GetSerialArenaFallbackEmE3$_0EEvT_.exit"
-  %alloc_policy_ = getelementptr inbounds i8, ptr %this, i64 8
+  %alloc_policy_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %12 = load i64, ptr %alloc_policy_, align 8
   %and.i = and i64 %12, -8
   %add = add i64 %n, 96
@@ -159,7 +159,7 @@ if.then3:                                         ; preds = %if.end, %"_ZNK6goog
 
 if.end.i:                                         ; preds = %if.then3
   %13 = inttoptr i64 %and.i to ptr
-  %policy.sroa.5.0.policy_ptr.sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 16
+  %policy.sroa.5.0.policy_ptr.sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 16
   %policy.sroa.5.0.copyload.i = load ptr, ptr %policy.sroa.5.0.policy_ptr.sroa_idx.i, align 8
   %cmp.not.i.i = icmp ugt i64 %add, -25
   br i1 %cmp.not.i.i, label %while.body.i, label %while.end.i
@@ -175,11 +175,11 @@ while.end.i.thread:                               ; preds = %if.end.i.thread
 
 while.body.i:                                     ; preds = %if.end.i.thread, %if.end.i
   %call.i.i = tail call noundef nonnull ptr @_ZN4absl12lts_2023080212log_internal17MakeCheckOpStringImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc(i64 noundef %add, i64 noundef -25, ptr noundef nonnull @.str.4)
-  %call11.i = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i) #28
+  %call11.i = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i) #27
   %14 = extractvalue { i64, ptr } %call11.i, 0
   %15 = extractvalue { i64, ptr } %call11.i, 1
-  call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp10.i, ptr noundef nonnull @.str, i32 noundef 74, i64 %14, ptr %15) #29
-  call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp10.i) #30
+  call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp10.i, ptr noundef nonnull @.str, i32 noundef 74, i64 %14, ptr %15) #28
+  call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp10.i) #29
   unreachable
 
 while.end.i:                                      ; preds = %if.end.i
@@ -191,7 +191,7 @@ while.end.i:                                      ; preds = %if.end.i
 
 if.then16.i:                                      ; preds = %while.end.i.thread, %while.end.i
   %.sroa.speculated.i21 = phi i64 [ %.sroa.speculated.i18, %while.end.i.thread ], [ %.sroa.speculated.i, %while.end.i ]
-  %call.i7.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.sroa.speculated.i21) #31
+  %call.i7.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.sroa.speculated.i21) #30
   br label %_ZN6google8protobuf8internalL14AllocateMemoryEPKNS1_16AllocationPolicyEmm.exit
 
 if.end18.i:                                       ; preds = %while.end.i
@@ -202,43 +202,43 @@ _ZN6google8protobuf8internalL14AllocateMemoryEPKNS1_16AllocationPolicyEmm.exit: 
   %.sroa.speculated.i20 = phi i64 [ %.sroa.speculated.i21, %if.then16.i ], [ %.sroa.speculated.i, %if.end18.i ]
   %call.i7.pn.i = phi ptr [ %call.i7.i, %if.then16.i ], [ %call20.i, %if.end18.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp10.i)
-  %size3.i.i = getelementptr inbounds i8, ptr %call.i7.pn.i, i64 16
+  %size3.i.i = getelementptr inbounds nuw i8, ptr %call.i7.pn.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i7.pn.i, i8 0, i64 16, i1 false)
   store i64 %.sroa.speculated.i20, ptr %size3.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %call.i7.pn.i, i64 24
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call.i7.pn.i, i64 120
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %call.i7.pn.i, i64 24
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %call.i7.pn.i, i64 120
   store ptr %add.ptr.i.i.i, ptr %add.ptr.i.i, align 8
-  %limit_.i.i = getelementptr inbounds i8, ptr %call.i7.pn.i, i64 32
+  %limit_.i.i = getelementptr inbounds nuw i8, ptr %call.i7.pn.i, i64 32
   %and.i.i.i = and i64 %.sroa.speculated.i20, -8
   %add.ptr.i.i.i.i3 = getelementptr inbounds i8, ptr %call.i7.pn.i, i64 %and.i.i.i
   store ptr %add.ptr.i.i.i.i3, ptr %limit_.i.i, align 8
-  %prefetch_ptr_.i.i = getelementptr inbounds i8, ptr %call.i7.pn.i, i64 40
+  %prefetch_ptr_.i.i = getelementptr inbounds nuw i8, ptr %call.i7.pn.i, i64 40
   store ptr %add.ptr.i.i.i, ptr %prefetch_ptr_.i.i, align 8
-  %prefetch_limit_.i.i = getelementptr inbounds i8, ptr %call.i7.pn.i, i64 48
+  %prefetch_limit_.i.i = getelementptr inbounds nuw i8, ptr %call.i7.pn.i, i64 48
   store ptr %add.ptr.i.i.i.i3, ptr %prefetch_limit_.i.i, align 8
-  %string_block_.i.i = getelementptr inbounds i8, ptr %call.i7.pn.i, i64 56
-  %head_.i.i = getelementptr inbounds i8, ptr %call.i7.pn.i, i64 72
+  %string_block_.i.i = getelementptr inbounds nuw i8, ptr %call.i7.pn.i, i64 56
+  %head_.i.i = getelementptr inbounds nuw i8, ptr %call.i7.pn.i, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %string_block_.i.i, i8 0, i64 16, i1 false)
   store ptr %call.i7.pn.i, ptr %head_.i.i, align 8
-  %space_used_.i.i = getelementptr inbounds i8, ptr %call.i7.pn.i, i64 80
+  %space_used_.i.i = getelementptr inbounds nuw i8, ptr %call.i7.pn.i, i64 80
   store i64 0, ptr %space_used_.i.i, align 8
-  %space_allocated_.i.i = getelementptr inbounds i8, ptr %call.i7.pn.i, i64 88
+  %space_allocated_.i.i = getelementptr inbounds nuw i8, ptr %call.i7.pn.i, i64 88
   store i64 %.sroa.speculated.i20, ptr %space_allocated_.i.i, align 8
-  %parent_.i.i = getelementptr inbounds i8, ptr %call.i7.pn.i, i64 96
+  %parent_.i.i = getelementptr inbounds nuw i8, ptr %call.i7.pn.i, i64 96
   store ptr %this, ptr %parent_.i.i, align 8
-  %cached_block_length_.i.i = getelementptr inbounds i8, ptr %call.i7.pn.i, i64 104
+  %cached_block_length_.i.i = getelementptr inbounds nuw i8, ptr %call.i7.pn.i, i64 104
   store i8 0, ptr %cached_block_length_.i.i, align 8
-  %cached_blocks_.i.i = getelementptr inbounds i8, ptr %call.i7.pn.i, i64 112
+  %cached_blocks_.i.i = getelementptr inbounds nuw i8, ptr %call.i7.pn.i, i64 112
   store ptr null, ptr %cached_blocks_.i.i, align 8
   tail call void @_ZN6google8protobuf8internal15ThreadSafeArena14AddSerialArenaEPvPNS1_11SerialArenaE(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull %0, ptr noundef nonnull %add.ptr.i.i)
   br label %return
 
 return:                                           ; preds = %"_ZNK6google8protobuf8internal15ThreadSafeArena25WalkConstSerialArenaChunkIZNS2_22GetSerialArenaFallbackEmE3$_0EEvT_.exit", %_ZN6google8protobuf8internalL14AllocateMemoryEPKNS1_16AllocationPolicyEmm.exit, %if.then
   %serial.0.sink = phi ptr [ %first_arena_, %if.then ], [ %add.ptr.i.i, %_ZN6google8protobuf8internalL14AllocateMemoryEPKNS1_16AllocationPolicyEmm.exit ], [ %serial.2, %"_ZNK6google8protobuf8internal15ThreadSafeArena25WalkConstSerialArenaChunkIZNS2_22GetSerialArenaFallbackEmE3$_0EEvT_.exit" ]
-  %last_serial_arena.i4 = getelementptr inbounds i8, ptr %0, i64 16
+  %last_serial_arena.i4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %serial.0.sink, ptr %last_serial_arena.i4, align 16
   %16 = load i64, ptr %this, align 8
-  %last_lifecycle_id_seen.i5 = getelementptr inbounds i8, ptr %0, i64 8
+  %last_lifecycle_id_seen.i5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %16, ptr %last_lifecycle_id_seen.i5, align 8
   ret ptr %serial.0.sink
 }
@@ -248,7 +248,7 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal11SerialAren
 entry:
   %0 = load atomic i64, ptr %this monotonic, align 8
   %add.i = add i64 %0, %n
-  %limit_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %limit_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %limit_.i, align 8
   %2 = ptrtoint ptr %1 to i64
   %cmp.i.not = icmp ugt i64 %add.i, %2
@@ -257,7 +257,7 @@ entry:
 if.end.i:                                         ; preds = %entry
   %3 = inttoptr i64 %add.i to ptr
   store atomic i64 %add.i, ptr %this monotonic, align 8
-  %prefetch_ptr_.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %prefetch_ptr_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %4 = load ptr, ptr %prefetch_ptr_.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %add.i
@@ -265,7 +265,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end.i
-  %prefetch_limit_.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %prefetch_limit_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %5 = load ptr, ptr %prefetch_limit_.i.i, align 8
   %cmp3.i.i = icmp ult ptr %4, %5
   br i1 %cmp3.i.i, label %if.then4.i.i, label %return
@@ -273,7 +273,7 @@ if.end.i.i:                                       ; preds = %if.end.i
 if.then4.i.i:                                     ; preds = %if.end.i.i
   %cmp.i8.i = icmp ugt ptr %4, %3
   %.sroa.speculated12.i = select i1 %cmp.i8.i, ptr %4, ptr %3
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %.sroa.speculated12.i, i64 1024
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %.sroa.speculated12.i, i64 1024
   %cmp.i9.i = icmp ult ptr %add.ptr.i.i, %5
   %.sroa.speculated.i = select i1 %cmp.i9.i, ptr %add.ptr.i.i, ptr %5
   %cmp8.i13.i = icmp ult ptr %.sroa.speculated12.i, %.sroa.speculated.i
@@ -285,8 +285,8 @@ _ZN6google8protobuf8internal11SerialArena20MaybeAllocateAlignedEmPPv.exit.thread
 
 for.body.i.i:                                     ; preds = %if.then4.i.i, %for.body.i.i
   %prefetch_ptr.i.014.i = phi ptr [ %add.ptr9.i.i, %for.body.i.i ], [ %.sroa.speculated12.i, %if.then4.i.i ]
-  tail call void asm sideeffect "prefetchw ($0)", "r,~{dirflag},~{fpsr},~{flags}"(ptr %prefetch_ptr.i.014.i) #28, !srcloc !7
-  %add.ptr9.i.i = getelementptr inbounds i8, ptr %prefetch_ptr.i.014.i, i64 64
+  tail call void asm sideeffect "prefetchw ($0)", "r,~{dirflag},~{fpsr},~{flags}"(ptr %prefetch_ptr.i.014.i) #27, !srcloc !7
+  %add.ptr9.i.i = getelementptr inbounds nuw i8, ptr %prefetch_ptr.i.014.i, i64 64
   %cmp8.i.i = icmp ult ptr %add.ptr9.i.i, %.sroa.speculated.i
   br i1 %cmp8.i.i, label %for.body.i.i, label %_ZN6google8protobuf8internal11SerialArena20MaybeAllocateAlignedEmPPv.exit, !llvm.loop !8
 
@@ -295,22 +295,22 @@ _ZN6google8protobuf8internal11SerialArena20MaybeAllocateAlignedEmPPv.exit: ; pre
   br label %return
 
 if.end:                                           ; preds = %entry
-  %head_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %head_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %6 = load atomic i64, ptr %head_.i.i.i monotonic, align 8
   %atomic-temp.i.0.i.i.i.i = inttoptr i64 %6 to ptr
-  %size.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i.i, i64 16
+  %size.i.i.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i.i.i.i, i64 16
   %7 = load i64, ptr %size.i.i.i, align 8
   %cmp.i.i.i = icmp eq i64 %7, 0
   br i1 %cmp.i.i.i, label %_ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end
-  %cleanup_nodes.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i.i, i64 8
+  %cleanup_nodes.i.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i.i.i.i, i64 8
   store ptr %1, ptr %cleanup_nodes.i.i, align 8
   %8 = load atomic i64, ptr %this monotonic, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i.i, i64 24
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i.i.i.i, i64 24
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %add.ptr.i.i.i to i64
   %sub.ptr.sub.i.i2 = sub i64 %8, %sub.ptr.rhs.cast.i.i
-  %space_used_.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %space_used_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %9 = load atomic i64, ptr %space_used_.i.i.i monotonic, align 8
   %add.i.i.i = add i64 %sub.ptr.sub.i.i2, %9
   store atomic i64 %add.i.i.i, ptr %space_used_.i.i.i monotonic, align 8
@@ -319,33 +319,33 @@ if.then.i.i:                                      ; preds = %if.end
 
 _ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit.i: ; preds = %if.then.i.i, %if.end
   %10 = phi i64 [ %.pre.i.i, %if.then.i.i ], [ 0, %if.end ]
-  %parent_.i.i = getelementptr inbounds i8, ptr %this, i64 72
+  %parent_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %11 = load ptr, ptr %parent_.i.i, align 8
-  %alloc_policy_.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
+  %alloc_policy_.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   %12 = load i64, ptr %alloc_policy_.i.i.i, align 8
   %and.i.i.i.i = and i64 %12, -8
   %13 = inttoptr i64 %and.i.i.i.i to ptr
   %call8.i.i = tail call fastcc { ptr, i64 } @_ZN6google8protobuf8internalL14AllocateMemoryEPKNS1_16AllocationPolicyEmm(ptr noundef %13, i64 noundef %10, i64 noundef %n)
   %14 = extractvalue { ptr, i64 } %call8.i.i, 0
   %15 = extractvalue { ptr, i64 } %call8.i.i, 1
-  %space_allocated_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %space_allocated_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %16 = load atomic i64, ptr %space_allocated_.i.i.i monotonic, align 8
   %add.i15.i.i = add i64 %16, %15
   store atomic i64 %add.i15.i.i, ptr %space_allocated_.i.i.i monotonic, align 8
   store ptr %atomic-temp.i.0.i.i.i.i, ptr %14, align 8
-  %cleanup_nodes.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
+  %cleanup_nodes.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr null, ptr %cleanup_nodes.i.i.i, align 8
-  %size3.i.i.i = getelementptr inbounds i8, ptr %14, i64 16
+  %size3.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i64 %15, ptr %size3.i.i.i, align 8
-  %add.ptr.i16.i.i = getelementptr inbounds i8, ptr %14, i64 24
+  %add.ptr.i16.i.i = getelementptr inbounds nuw i8, ptr %14, i64 24
   %and.i.i.i = and i64 %15, -8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 %and.i.i.i
   %17 = ptrtoint ptr %add.ptr.i16.i.i to i64
   store atomic i64 %17, ptr %this monotonic, align 8
-  %prefetch_ptr_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %prefetch_ptr_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %add.ptr.i16.i.i, ptr %prefetch_ptr_.i.i.i, align 8
   store ptr %add.ptr.i.i.i.i, ptr %limit_.i, align 8
-  %prefetch_limit_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %prefetch_limit_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %add.ptr.i.i.i.i, ptr %prefetch_limit_.i.i.i, align 8
   %18 = ptrtoint ptr %14 to i64
   store atomic i64 %18, ptr %head_.i.i.i release, align 8
@@ -365,7 +365,7 @@ if.then4.i.i.i:                                   ; preds = %_ZN6google8protobuf
   %21 = inttoptr i64 %add.i.i to ptr
   %cmp.i8.i.i = icmp ugt ptr %add.ptr.i16.i.i, %21
   %.sroa.speculated12.i.i = select i1 %cmp.i8.i.i, ptr %add.ptr.i16.i.i, ptr %21
-  %add.ptr.i.i7.i = getelementptr inbounds i8, ptr %.sroa.speculated12.i.i, i64 1024
+  %add.ptr.i.i7.i = getelementptr inbounds nuw i8, ptr %.sroa.speculated12.i.i, i64 1024
   %cmp.i9.i.i = icmp ult ptr %add.ptr.i.i7.i, %add.ptr.i.i.i.i
   %.sroa.speculated.i.i = select i1 %cmp.i9.i.i, ptr %add.ptr.i.i7.i, ptr %add.ptr.i.i.i.i
   %cmp8.i13.i.i = icmp ult ptr %.sroa.speculated12.i.i, %.sroa.speculated.i.i
@@ -373,8 +373,8 @@ if.then4.i.i.i:                                   ; preds = %_ZN6google8protobuf
 
 for.body.i.i.i:                                   ; preds = %if.then4.i.i.i, %for.body.i.i.i
   %prefetch_ptr.i.014.i.i = phi ptr [ %add.ptr9.i.i.i, %for.body.i.i.i ], [ %.sroa.speculated12.i.i, %if.then4.i.i.i ]
-  tail call void asm sideeffect "prefetchw ($0)", "r,~{dirflag},~{fpsr},~{flags}"(ptr %prefetch_ptr.i.014.i.i) #28, !srcloc !7
-  %add.ptr9.i.i.i = getelementptr inbounds i8, ptr %prefetch_ptr.i.014.i.i, i64 64
+  tail call void asm sideeffect "prefetchw ($0)", "r,~{dirflag},~{fpsr},~{flags}"(ptr %prefetch_ptr.i.014.i.i) #27, !srcloc !7
+  %add.ptr9.i.i.i = getelementptr inbounds nuw i8, ptr %prefetch_ptr.i.014.i.i, i64 64
   %cmp8.i.i.i = icmp ult ptr %add.ptr9.i.i.i, %.sroa.speculated.i.i
   br i1 %cmp8.i.i.i, label %for.body.i.i.i, label %for.end.i.i.i, !llvm.loop !8
 
@@ -407,16 +407,16 @@ if.end.i:                                         ; preds = %entry
   %sub.i = add i64 %n, -1
   %0 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i, i1 false)
   %sub2.i = sub nuw nsw i64 60, %0
-  %cached_block_length_.i = getelementptr inbounds i8, ptr %this, i64 80
+  %cached_block_length_.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %1 = load i8, ptr %cached_block_length_.i, align 8
   %conv3.i = zext i8 %1 to i64
   %cmp4.i.not = icmp samesign ult i64 %sub2.i, %conv3.i
   br i1 %cmp4.i.not, label %if.end7.i, label %if.end
 
 if.end7.i:                                        ; preds = %if.end.i
-  %cached_blocks_.i = getelementptr inbounds i8, ptr %this, i64 88
+  %cached_blocks_.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %2 = load ptr, ptr %cached_blocks_.i, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %2, i64 %sub2.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %2, i64 %sub2.i
   %3 = load ptr, ptr %arrayidx.i, align 8
   %cmp8.i = icmp eq ptr %3, null
   br i1 %cmp8.i, label %if.end, label %_ZN6google8protobuf8internal11SerialArena26TryAllocateFromCachedBlockEm.exit
@@ -429,7 +429,7 @@ _ZN6google8protobuf8internal11SerialArena26TryAllocateFromCachedBlockEm.exit: ; 
 if.end:                                           ; preds = %entry, %if.end.i, %if.end7.i
   %5 = load atomic i64, ptr %this monotonic, align 8
   %add.i = add i64 %5, %n
-  %limit_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %limit_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %6 = load ptr, ptr %limit_.i, align 8
   %7 = ptrtoint ptr %6 to i64
   %cmp.i10.not = icmp ugt i64 %add.i, %7
@@ -439,7 +439,7 @@ if.end.i11:                                       ; preds = %if.end
   %atomic-temp.i.0.i.i.i = inttoptr i64 %5 to ptr
   %8 = inttoptr i64 %add.i to ptr
   store atomic i64 %add.i, ptr %this monotonic, align 8
-  %prefetch_ptr_.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %prefetch_ptr_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %9 = load ptr, ptr %prefetch_ptr_.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %add.i
@@ -447,7 +447,7 @@ if.end.i11:                                       ; preds = %if.end
   br i1 %cmp.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end.i11
-  %prefetch_limit_.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %prefetch_limit_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %10 = load ptr, ptr %prefetch_limit_.i.i, align 8
   %cmp3.i.i = icmp ult ptr %9, %10
   br i1 %cmp3.i.i, label %if.then4.i.i, label %return
@@ -455,7 +455,7 @@ if.end.i.i:                                       ; preds = %if.end.i11
 if.then4.i.i:                                     ; preds = %if.end.i.i
   %cmp.i8.i = icmp ugt ptr %9, %8
   %.sroa.speculated12.i = select i1 %cmp.i8.i, ptr %9, ptr %8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %.sroa.speculated12.i, i64 1024
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %.sroa.speculated12.i, i64 1024
   %cmp.i9.i = icmp ult ptr %add.ptr.i.i, %10
   %.sroa.speculated.i = select i1 %cmp.i9.i, ptr %add.ptr.i.i, ptr %10
   %cmp8.i13.i = icmp ult ptr %.sroa.speculated12.i, %.sroa.speculated.i
@@ -467,8 +467,8 @@ _ZN6google8protobuf8internal11SerialArena20MaybeAllocateAlignedEmPPv.exit.thread
 
 for.body.i.i:                                     ; preds = %if.then4.i.i, %for.body.i.i
   %prefetch_ptr.i.014.i = phi ptr [ %add.ptr9.i.i, %for.body.i.i ], [ %.sroa.speculated12.i, %if.then4.i.i ]
-  tail call void asm sideeffect "prefetchw ($0)", "r,~{dirflag},~{fpsr},~{flags}"(ptr %prefetch_ptr.i.014.i) #28, !srcloc !7
-  %add.ptr9.i.i = getelementptr inbounds i8, ptr %prefetch_ptr.i.014.i, i64 64
+  tail call void asm sideeffect "prefetchw ($0)", "r,~{dirflag},~{fpsr},~{flags}"(ptr %prefetch_ptr.i.014.i) #27, !srcloc !7
+  %add.ptr9.i.i = getelementptr inbounds nuw i8, ptr %prefetch_ptr.i.014.i, i64 64
   %cmp8.i.i = icmp ult ptr %add.ptr9.i.i, %.sroa.speculated.i
   br i1 %cmp8.i.i, label %for.body.i.i, label %_ZN6google8protobuf8internal11SerialArena20MaybeAllocateAlignedEmPPv.exit, !llvm.loop !8
 
@@ -477,22 +477,22 @@ _ZN6google8protobuf8internal11SerialArena20MaybeAllocateAlignedEmPPv.exit: ; pre
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %head_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %head_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %11 = load atomic i64, ptr %head_.i.i.i monotonic, align 8
   %atomic-temp.i.0.i.i.i.i = inttoptr i64 %11 to ptr
-  %size.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i.i, i64 16
+  %size.i.i.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i.i.i.i, i64 16
   %12 = load i64, ptr %size.i.i.i, align 8
   %cmp.i.i.i = icmp eq i64 %12, 0
   br i1 %cmp.i.i.i, label %_ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end5
-  %cleanup_nodes.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i.i, i64 8
+  %cleanup_nodes.i.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i.i.i.i, i64 8
   store ptr %6, ptr %cleanup_nodes.i.i, align 8
   %13 = load atomic i64, ptr %this monotonic, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i.i, i64 24
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i.i.i.i, i64 24
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %add.ptr.i.i.i to i64
   %sub.ptr.sub.i.i12 = sub i64 %13, %sub.ptr.rhs.cast.i.i
-  %space_used_.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %space_used_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %14 = load atomic i64, ptr %space_used_.i.i.i monotonic, align 8
   %add.i.i.i = add i64 %sub.ptr.sub.i.i12, %14
   store atomic i64 %add.i.i.i, ptr %space_used_.i.i.i monotonic, align 8
@@ -501,33 +501,33 @@ if.then.i.i:                                      ; preds = %if.end5
 
 _ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit.i: ; preds = %if.then.i.i, %if.end5
   %15 = phi i64 [ %.pre.i.i, %if.then.i.i ], [ 0, %if.end5 ]
-  %parent_.i.i = getelementptr inbounds i8, ptr %this, i64 72
+  %parent_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %16 = load ptr, ptr %parent_.i.i, align 8
-  %alloc_policy_.i.i.i = getelementptr inbounds i8, ptr %16, i64 8
+  %alloc_policy_.i.i.i = getelementptr inbounds nuw i8, ptr %16, i64 8
   %17 = load i64, ptr %alloc_policy_.i.i.i, align 8
   %and.i.i.i.i = and i64 %17, -8
   %18 = inttoptr i64 %and.i.i.i.i to ptr
   %call8.i.i = tail call fastcc { ptr, i64 } @_ZN6google8protobuf8internalL14AllocateMemoryEPKNS1_16AllocationPolicyEmm(ptr noundef %18, i64 noundef %15, i64 noundef %n)
   %19 = extractvalue { ptr, i64 } %call8.i.i, 0
   %20 = extractvalue { ptr, i64 } %call8.i.i, 1
-  %space_allocated_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %space_allocated_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %21 = load atomic i64, ptr %space_allocated_.i.i.i monotonic, align 8
   %add.i15.i.i = add i64 %21, %20
   store atomic i64 %add.i15.i.i, ptr %space_allocated_.i.i.i monotonic, align 8
   store ptr %atomic-temp.i.0.i.i.i.i, ptr %19, align 8
-  %cleanup_nodes.i.i.i = getelementptr inbounds i8, ptr %19, i64 8
+  %cleanup_nodes.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr null, ptr %cleanup_nodes.i.i.i, align 8
-  %size3.i.i.i = getelementptr inbounds i8, ptr %19, i64 16
+  %size3.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i64 %20, ptr %size3.i.i.i, align 8
-  %add.ptr.i16.i.i = getelementptr inbounds i8, ptr %19, i64 24
+  %add.ptr.i16.i.i = getelementptr inbounds nuw i8, ptr %19, i64 24
   %and.i.i.i = and i64 %20, -8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 %and.i.i.i
   %22 = ptrtoint ptr %add.ptr.i16.i.i to i64
   store atomic i64 %22, ptr %this monotonic, align 8
-  %prefetch_ptr_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %prefetch_ptr_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %add.ptr.i16.i.i, ptr %prefetch_ptr_.i.i.i, align 8
   store ptr %add.ptr.i.i.i.i, ptr %limit_.i, align 8
-  %prefetch_limit_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %prefetch_limit_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %add.ptr.i.i.i.i, ptr %prefetch_limit_.i.i.i, align 8
   %23 = ptrtoint ptr %19 to i64
   store atomic i64 %23, ptr %head_.i.i.i release, align 8
@@ -547,7 +547,7 @@ if.then4.i.i.i:                                   ; preds = %_ZN6google8protobuf
   %26 = inttoptr i64 %add.i.i to ptr
   %cmp.i8.i.i = icmp ugt ptr %add.ptr.i16.i.i, %26
   %.sroa.speculated12.i.i = select i1 %cmp.i8.i.i, ptr %add.ptr.i16.i.i, ptr %26
-  %add.ptr.i.i7.i = getelementptr inbounds i8, ptr %.sroa.speculated12.i.i, i64 1024
+  %add.ptr.i.i7.i = getelementptr inbounds nuw i8, ptr %.sroa.speculated12.i.i, i64 1024
   %cmp.i9.i.i = icmp ult ptr %add.ptr.i.i7.i, %add.ptr.i.i.i.i
   %.sroa.speculated.i.i = select i1 %cmp.i9.i.i, ptr %add.ptr.i.i7.i, ptr %add.ptr.i.i.i.i
   %cmp8.i13.i.i = icmp ult ptr %.sroa.speculated12.i.i, %.sroa.speculated.i.i
@@ -555,8 +555,8 @@ if.then4.i.i.i:                                   ; preds = %_ZN6google8protobuf
 
 for.body.i.i.i:                                   ; preds = %if.then4.i.i.i, %for.body.i.i.i
   %prefetch_ptr.i.014.i.i = phi ptr [ %add.ptr9.i.i.i, %for.body.i.i.i ], [ %.sroa.speculated12.i.i, %if.then4.i.i.i ]
-  tail call void asm sideeffect "prefetchw ($0)", "r,~{dirflag},~{fpsr},~{flags}"(ptr %prefetch_ptr.i.014.i.i) #28, !srcloc !7
-  %add.ptr9.i.i.i = getelementptr inbounds i8, ptr %prefetch_ptr.i.014.i.i, i64 64
+  tail call void asm sideeffect "prefetchw ($0)", "r,~{dirflag},~{fpsr},~{flags}"(ptr %prefetch_ptr.i.014.i.i) #27, !srcloc !7
+  %add.ptr9.i.i.i = getelementptr inbounds nuw i8, ptr %prefetch_ptr.i.014.i.i, i64 64
   %cmp8.i.i.i = icmp ult ptr %add.ptr9.i.i.i, %.sroa.speculated.i.i
   br i1 %cmp8.i.i.i, label %for.body.i.i.i, label %for.end.i.i.i, !llvm.loop !8
 
@@ -578,174 +578,262 @@ return:                                           ; preds = %_ZN6google8protobuf
 define void @_ZN6google8protobuf8internal11SerialArena25PeekCleanupListForTestingEv(ptr noalias nocapture sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
-  %head_.i = getelementptr inbounds i8, ptr %this, i64 48
+  %head_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load atomic i64, ptr %head_.i monotonic, align 8
   %atomic-temp.i.0.i.i = inttoptr i64 %0 to ptr
-  %size.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i, i64 16
+  %size.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i.i, i64 16
   %1 = load i64, ptr %size.i, align 8
   %cmp.i = icmp eq i64 %1, 0
   br i1 %cmp.i, label %nrvo.skipdtor, label %invoke.cont4
 
-lpad.loopexit:                                    ; preds = %invoke.cont7
-  %lpad.loopexit12 = landingpad { ptr, i32 }
+lpad.loopexit:                                    ; preds = %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i.i.i37
+  %lpad.loopexit59 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
-lpad.loopexit.split-lp:                           ; preds = %invoke.cont4
-  %lpad.loopexit.split-lp13 = landingpad { ptr, i32 }
+lpad.loopexit.split-lp.loopexit:                  ; preds = %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i.i.i
+  %lpad.loopexit61 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
-lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit12, %lpad.loopexit ], [ %lpad.loopexit.split-lp13, %lpad.loopexit.split-lp ]
-  %2 = load ptr, ptr %agg.result, align 8
-  %tobool.not.i.i.i = icmp eq ptr %2, null
+lpad.loopexit.split-lp.loopexit.split-lp:         ; preds = %if.then.i.i.i.i.i.i54, %if.then.i.i.i.i.i.i
+  %2 = phi ptr [ %18, %if.then.i.i.i.i.i.i54 ], [ %9, %if.then.i.i.i.i.i.i ]
+  %lpad.loopexit.split-lp62 = landingpad { ptr, i32 }
+          cleanup
+  br label %lpad
+
+lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit
+  %3 = phi ptr [ %18, %lpad.loopexit ], [ %9, %lpad.loopexit.split-lp.loopexit ], [ %2, %lpad.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit59, %lpad.loopexit ], [ %lpad.loopexit61, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp62, %lpad.loopexit.split-lp.loopexit.split-lp ]
+  %tobool.not.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPvSaIS0_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %lpad
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #32
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #31
   br label %_ZNSt6vectorIPvSaIS0_EED2Ev.exit
 
 _ZNSt6vectorIPvSaIS0_EED2Ev.exit:                 ; preds = %lpad, %if.then.i.i.i
   resume { ptr, i32 } %lpad.phi
 
 invoke.cont4:                                     ; preds = %entry
-  %limit_ = getelementptr inbounds i8, ptr %this, i64 8
-  %3 = load ptr, ptr %limit_, align 8
+  %limit_ = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %4 = load ptr, ptr %limit_, align 8
   %and.i = and i64 %1, -8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i, i64 %and.i
-  invoke fastcc void @"_ZZN6google8protobuf8internal11SerialArena25PeekCleanupListForTestingEvENK3$_0clEPKcS5_"(ptr nonnull %agg.result, ptr noundef %3, ptr noundef %add.ptr.i.i)
-          to label %for.cond unwind label %lpad.loopexit.split-lp
+  %cmp.not1.i = icmp eq ptr %4, %add.ptr.i.i
+  br i1 %cmp.not1.i, label %"_ZZN6google8protobuf8internal11SerialArena25PeekCleanupListForTestingEvENK3$_0clEPKcS5_.exit", label %while.body.lr.ph.i
 
-for.cond:                                         ; preds = %invoke.cont4, %invoke.cont7
-  %b.0.in = phi ptr [ %b.0, %invoke.cont7 ], [ %atomic-temp.i.0.i.i, %invoke.cont4 ]
-  %b.0 = load ptr, ptr %b.0.in, align 8
+while.body.lr.ph.i:                               ; preds = %invoke.cont4
+  %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
+  br label %while.body.i
+
+while.body.i:                                     ; preds = %_ZN6google8protobuf8internal7cleanup8PeekNodeEPKvRSt6vectorIPvSaIS6_EE.exit.i, %while.body.lr.ph.i
+  %5 = phi ptr [ null, %while.body.lr.ph.i ], [ %11, %_ZN6google8protobuf8internal7cleanup8PeekNodeEPKvRSt6vectorIPvSaIS6_EE.exit.i ]
+  %pos.addr.02.i = phi ptr [ %4, %while.body.lr.ph.i ], [ %add.ptr.i, %_ZN6google8protobuf8internal7cleanup8PeekNodeEPKvRSt6vectorIPvSaIS6_EE.exit.i ]
+  %elem.0.copyload.i.i = load i64, ptr %pos.addr.02.i, align 1
+  %and.i.i = and i64 %elem.0.copyload.i.i, -4
+  %6 = inttoptr i64 %and.i.i to ptr
+  %7 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %5, %7
+  br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i, label %if.then.i.i.i.i
+
+if.then.i.i.i.i:                                  ; preds = %while.body.i
+  store ptr %6, ptr %5, align 8
+  %8 = load ptr, ptr %_M_finish.i.i.i.i, align 8
+  %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i.i, align 8
+  br label %_ZN6google8protobuf8internal7cleanup8PeekNodeEPKvRSt6vectorIPvSaIS6_EE.exit.i
+
+if.else.i.i.i.i:                                  ; preds = %while.body.i
+  %9 = load ptr, ptr %agg.result, align 8
+  %sub.ptr.lhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %5 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %9 to i64
+  %sub.ptr.sub.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i
+  %cmp.i.i.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i.i.i, 9223372036854775800
+  br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i.i.i
+
+if.then.i.i.i.i.i.i:                              ; preds = %if.else.i.i.i.i
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #32
+          to label %.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp
+
+.noexc:                                           ; preds = %if.then.i.i.i.i.i.i
+  unreachable
+
+_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i
+  %sub.ptr.div.i.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i, 3
+  %.sroa.speculated.i.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i, i64 1)
+  %add.i.i.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i.i
+  %cmp7.i.i.i.i.i.i = icmp ult i64 %add.i.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i.i
+  %10 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i, i64 1152921504606846975)
+  %cond.i.i.i.i.i.i = select i1 %cmp7.i.i.i.i.i.i, i64 1152921504606846975, i64 %10
+  %cmp.not.i.i.i.i.i.i = icmp ne i64 %cond.i.i.i.i.i.i, 0
+  tail call void @llvm.assume(i1 %cmp.not.i.i.i.i.i.i)
+  %mul.i.i.i.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i.i.i.i, 3
+  %call5.i.i.i.i.i.i.i.i9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i.i) #33
+          to label %call5.i.i.i.i.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
+
+call5.i.i.i.i.i.i.i.i.noexc:                      ; preds = %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i9, i64 %sub.ptr.sub.i.i.i.i.i.i.i
+  store ptr %6, ptr %add.ptr.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i.i.i, 0
+  br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i.i.i.i
+
+if.then.i.i.i.i.i.i.i.i:                          ; preds = %call5.i.i.i.i.i.i.i.i.noexc
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i.i.i.i.i9, ptr align 8 %9, i64 %sub.ptr.sub.i.i.i.i.i.i.i, i1 false)
+  br label %_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i.i.i.i
+
+_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %call5.i.i.i.i.i.i.i.i.noexc
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i, i64 8
+  %tobool.not.i.i.i.i.i.i = icmp eq ptr %9, null
+  br i1 %tobool.not.i.i.i.i.i.i, label %_ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i.i, label %if.then.i18.i.i.i.i.i
+
+if.then.i18.i.i.i.i.i:                            ; preds = %_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i.i.i.i
+  tail call void @_ZdlPv(ptr noundef nonnull %9) #31
+  br label %_ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i.i
+
+_ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i.i: ; preds = %if.then.i18.i.i.i.i.i, %_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i.i.i.i
+  store ptr %call5.i.i.i.i.i.i.i.i9, ptr %agg.result, align 8
+  store ptr %incdec.ptr.i.i.i.i.i, ptr %_M_finish.i.i.i.i, align 8
+  %add.ptr19.i.i.i.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i.i.i9, i64 %cond.i.i.i.i.i.i
+  store ptr %add.ptr19.i.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8
+  br label %_ZN6google8protobuf8internal7cleanup8PeekNodeEPKvRSt6vectorIPvSaIS6_EE.exit.i
+
+_ZN6google8protobuf8internal7cleanup8PeekNodeEPKvRSt6vectorIPvSaIS6_EE.exit.i: ; preds = %_ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i.i, %if.then.i.i.i.i
+  %11 = phi ptr [ %incdec.ptr.i.i.i.i, %if.then.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %_ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i.i ]
+  %and1.i.i = and i64 %elem.0.copyload.i.i, 3
+  %and1.off.i.i = add nsw i64 %and1.i.i, -1
+  %switch.i.i = icmp ult i64 %and1.off.i.i, 2
+  %..i.i = select i1 %switch.i.i, i64 8, i64 16
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %pos.addr.02.i, i64 %..i.i
+  %cmp.not.i = icmp eq ptr %add.ptr.i, %add.ptr.i.i
+  br i1 %cmp.not.i, label %"_ZZN6google8protobuf8internal11SerialArena25PeekCleanupListForTestingEvENK3$_0clEPKcS5_.exit", label %while.body.i, !llvm.loop !9
+
+"_ZZN6google8protobuf8internal11SerialArena25PeekCleanupListForTestingEvENK3$_0clEPKcS5_.exit": ; preds = %_ZN6google8protobuf8internal7cleanup8PeekNodeEPKvRSt6vectorIPvSaIS6_EE.exit.i, %invoke.cont4
+  %.pre.i1769 = phi ptr [ null, %invoke.cont4 ], [ %11, %_ZN6google8protobuf8internal7cleanup8PeekNodeEPKvRSt6vectorIPvSaIS6_EE.exit.i ]
+  %b.064 = load ptr, ptr %atomic-temp.i.0.i.i, align 8
+  %tobool.not65 = icmp eq ptr %b.064, null
+  br i1 %tobool.not65, label %nrvo.skipdtor, label %invoke.cont7.lr.ph
+
+invoke.cont7.lr.ph:                               ; preds = %"_ZZN6google8protobuf8internal11SerialArena25PeekCleanupListForTestingEvENK3$_0clEPKcS5_.exit"
+  %_M_finish.i.i.i.i15 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  %_M_end_of_storage.i.i.i.i16 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
+  br label %invoke.cont7
+
+invoke.cont7:                                     ; preds = %invoke.cont7.lr.ph, %"_ZZN6google8protobuf8internal11SerialArena25PeekCleanupListForTestingEvENK3$_0clEPKcS5_.exit58"
+  %.pre.i17 = phi ptr [ %.pre.i1769, %invoke.cont7.lr.ph ], [ %.pre.i1768, %"_ZZN6google8protobuf8internal11SerialArena25PeekCleanupListForTestingEvENK3$_0clEPKcS5_.exit58" ]
+  %b.066 = phi ptr [ %b.064, %invoke.cont7.lr.ph ], [ %b.0, %"_ZZN6google8protobuf8internal11SerialArena25PeekCleanupListForTestingEvENK3$_0clEPKcS5_.exit58" ]
+  %cleanup_nodes = getelementptr inbounds nuw i8, ptr %b.066, i64 8
+  %12 = load ptr, ptr %cleanup_nodes, align 8
+  %size.i10 = getelementptr inbounds nuw i8, ptr %b.066, i64 16
+  %13 = load i64, ptr %size.i10, align 8
+  %and.i11 = and i64 %13, -8
+  %add.ptr.i.i12 = getelementptr inbounds i8, ptr %b.066, i64 %and.i11
+  %cmp.not1.i13 = icmp eq ptr %12, %add.ptr.i.i12
+  br i1 %cmp.not1.i13, label %"_ZZN6google8protobuf8internal11SerialArena25PeekCleanupListForTestingEvENK3$_0clEPKcS5_.exit58", label %while.body.i18
+
+while.body.i18:                                   ; preds = %invoke.cont7, %_ZN6google8protobuf8internal7cleanup8PeekNodeEPKvRSt6vectorIPvSaIS6_EE.exit.i25
+  %14 = phi ptr [ %20, %_ZN6google8protobuf8internal7cleanup8PeekNodeEPKvRSt6vectorIPvSaIS6_EE.exit.i25 ], [ %.pre.i17, %invoke.cont7 ]
+  %pos.addr.02.i19 = phi ptr [ %add.ptr.i30, %_ZN6google8protobuf8internal7cleanup8PeekNodeEPKvRSt6vectorIPvSaIS6_EE.exit.i25 ], [ %12, %invoke.cont7 ]
+  %elem.0.copyload.i.i20 = load i64, ptr %pos.addr.02.i19, align 1
+  %and.i.i21 = and i64 %elem.0.copyload.i.i20, -4
+  %15 = inttoptr i64 %and.i.i21 to ptr
+  %16 = load ptr, ptr %_M_end_of_storage.i.i.i.i16, align 8
+  %cmp.not.i.i.i.i22 = icmp eq ptr %14, %16
+  br i1 %cmp.not.i.i.i.i22, label %if.else.i.i.i.i32, label %if.then.i.i.i.i23
+
+if.then.i.i.i.i23:                                ; preds = %while.body.i18
+  store ptr %15, ptr %14, align 8
+  %17 = load ptr, ptr %_M_finish.i.i.i.i15, align 8
+  %incdec.ptr.i.i.i.i24 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  store ptr %incdec.ptr.i.i.i.i24, ptr %_M_finish.i.i.i.i15, align 8
+  br label %_ZN6google8protobuf8internal7cleanup8PeekNodeEPKvRSt6vectorIPvSaIS6_EE.exit.i25
+
+if.else.i.i.i.i32:                                ; preds = %while.body.i18
+  %18 = load ptr, ptr %agg.result, align 8
+  %sub.ptr.lhs.cast.i.i.i.i.i.i.i33 = ptrtoint ptr %14 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i.i.i34 = ptrtoint ptr %18 to i64
+  %sub.ptr.sub.i.i.i.i.i.i.i35 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i33, %sub.ptr.rhs.cast.i.i.i.i.i.i.i34
+  %cmp.i.i.i.i.i.i36 = icmp eq i64 %sub.ptr.sub.i.i.i.i.i.i.i35, 9223372036854775800
+  br i1 %cmp.i.i.i.i.i.i36, label %if.then.i.i.i.i.i.i54, label %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i.i.i37
+
+if.then.i.i.i.i.i.i54:                            ; preds = %if.else.i.i.i.i32
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #32
+          to label %.noexc55 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
+
+.noexc55:                                         ; preds = %if.then.i.i.i.i.i.i54
+  unreachable
+
+_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i.i.i37: ; preds = %if.else.i.i.i.i32
+  %sub.ptr.div.i.i.i.i.i.i.i38 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i35, 3
+  %.sroa.speculated.i.i.i.i.i.i39 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i38, i64 1)
+  %add.i.i.i.i.i.i40 = add nsw i64 %.sroa.speculated.i.i.i.i.i.i39, %sub.ptr.div.i.i.i.i.i.i.i38
+  %cmp7.i.i.i.i.i.i41 = icmp ult i64 %add.i.i.i.i.i.i40, %sub.ptr.div.i.i.i.i.i.i.i38
+  %19 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i40, i64 1152921504606846975)
+  %cond.i.i.i.i.i.i42 = select i1 %cmp7.i.i.i.i.i.i41, i64 1152921504606846975, i64 %19
+  %cmp.not.i.i.i.i.i.i43 = icmp ne i64 %cond.i.i.i.i.i.i42, 0
+  tail call void @llvm.assume(i1 %cmp.not.i.i.i.i.i.i43)
+  %mul.i.i.i.i.i.i.i.i44 = shl nuw nsw i64 %cond.i.i.i.i.i.i42, 3
+  %call5.i.i.i.i.i.i.i.i57 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i.i44) #33
+          to label %call5.i.i.i.i.i.i.i.i.noexc56 unwind label %lpad.loopexit
+
+call5.i.i.i.i.i.i.i.i.noexc56:                    ; preds = %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i.i.i37
+  %add.ptr.i.i.i.i.i45 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i57, i64 %sub.ptr.sub.i.i.i.i.i.i.i35
+  store ptr %15, ptr %add.ptr.i.i.i.i.i45, align 8
+  %cmp.i.i.i.i.i.i.i.i46 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i.i.i35, 0
+  br i1 %cmp.i.i.i.i.i.i.i.i46, label %if.then.i.i.i.i.i.i.i.i53, label %_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i.i.i.i47
+
+if.then.i.i.i.i.i.i.i.i53:                        ; preds = %call5.i.i.i.i.i.i.i.i.noexc56
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i.i.i.i.i57, ptr align 8 %18, i64 %sub.ptr.sub.i.i.i.i.i.i.i35, i1 false)
+  br label %_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i.i.i.i47
+
+_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i.i.i.i47: ; preds = %if.then.i.i.i.i.i.i.i.i53, %call5.i.i.i.i.i.i.i.i.noexc56
+  %incdec.ptr.i.i.i.i.i48 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i45, i64 8
+  %tobool.not.i.i.i.i.i.i49 = icmp eq ptr %18, null
+  br i1 %tobool.not.i.i.i.i.i.i49, label %_ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i.i51, label %if.then.i18.i.i.i.i.i50
+
+if.then.i18.i.i.i.i.i50:                          ; preds = %_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i.i.i.i47
+  tail call void @_ZdlPv(ptr noundef nonnull %18) #31
+  br label %_ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i.i51
+
+_ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i.i51: ; preds = %if.then.i18.i.i.i.i.i50, %_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i.i.i.i47
+  store ptr %call5.i.i.i.i.i.i.i.i57, ptr %agg.result, align 8
+  store ptr %incdec.ptr.i.i.i.i.i48, ptr %_M_finish.i.i.i.i15, align 8
+  %add.ptr19.i.i.i.i.i52 = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i.i.i57, i64 %cond.i.i.i.i.i.i42
+  store ptr %add.ptr19.i.i.i.i.i52, ptr %_M_end_of_storage.i.i.i.i16, align 8
+  br label %_ZN6google8protobuf8internal7cleanup8PeekNodeEPKvRSt6vectorIPvSaIS6_EE.exit.i25
+
+_ZN6google8protobuf8internal7cleanup8PeekNodeEPKvRSt6vectorIPvSaIS6_EE.exit.i25: ; preds = %_ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i.i51, %if.then.i.i.i.i23
+  %20 = phi ptr [ %incdec.ptr.i.i.i.i24, %if.then.i.i.i.i23 ], [ %incdec.ptr.i.i.i.i.i48, %_ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i.i51 ]
+  %and1.i.i26 = and i64 %elem.0.copyload.i.i20, 3
+  %and1.off.i.i27 = add nsw i64 %and1.i.i26, -1
+  %switch.i.i28 = icmp ult i64 %and1.off.i.i27, 2
+  %..i.i29 = select i1 %switch.i.i28, i64 8, i64 16
+  %add.ptr.i30 = getelementptr inbounds nuw i8, ptr %pos.addr.02.i19, i64 %..i.i29
+  %cmp.not.i31 = icmp eq ptr %add.ptr.i30, %add.ptr.i.i12
+  br i1 %cmp.not.i31, label %"_ZZN6google8protobuf8internal11SerialArena25PeekCleanupListForTestingEvENK3$_0clEPKcS5_.exit58", label %while.body.i18, !llvm.loop !9
+
+"_ZZN6google8protobuf8internal11SerialArena25PeekCleanupListForTestingEvENK3$_0clEPKcS5_.exit58": ; preds = %_ZN6google8protobuf8internal7cleanup8PeekNodeEPKvRSt6vectorIPvSaIS6_EE.exit.i25, %invoke.cont7
+  %.pre.i1768 = phi ptr [ %.pre.i17, %invoke.cont7 ], [ %20, %_ZN6google8protobuf8internal7cleanup8PeekNodeEPKvRSt6vectorIPvSaIS6_EE.exit.i25 ]
+  %b.0 = load ptr, ptr %b.066, align 8
   %tobool.not = icmp eq ptr %b.0, null
   br i1 %tobool.not, label %nrvo.skipdtor, label %invoke.cont7
 
-invoke.cont7:                                     ; preds = %for.cond
-  %cleanup_nodes = getelementptr inbounds i8, ptr %b.0, i64 8
-  %4 = load ptr, ptr %cleanup_nodes, align 8
-  %size.i9 = getelementptr inbounds i8, ptr %b.0, i64 16
-  %5 = load i64, ptr %size.i9, align 8
-  %and.i10 = and i64 %5, -8
-  %add.ptr.i.i11 = getelementptr inbounds i8, ptr %b.0, i64 %and.i10
-  invoke fastcc void @"_ZZN6google8protobuf8internal11SerialArena25PeekCleanupListForTestingEvENK3$_0clEPKcS5_"(ptr %agg.result, ptr noundef %4, ptr noundef nonnull %add.ptr.i.i11)
-          to label %for.cond unwind label %lpad.loopexit
-
-nrvo.skipdtor:                                    ; preds = %for.cond, %entry
+nrvo.skipdtor:                                    ; preds = %"_ZZN6google8protobuf8internal11SerialArena25PeekCleanupListForTestingEvENK3$_0clEPKcS5_.exit58", %"_ZZN6google8protobuf8internal11SerialArena25PeekCleanupListForTestingEvENK3$_0clEPKcS5_.exit", %entry
   ret void
 }
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN6google8protobuf8internal11SerialArena25PeekCleanupListForTestingEvENK3$_0clEPKcS5_"(ptr nocapture %this.0.val, ptr noundef readonly %pos, ptr noundef readnone %end) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %cmp.not1 = icmp eq ptr %pos, %end
-  br i1 %cmp.not1, label %while.end, label %while.body.lr.ph
-
-while.body.lr.ph:                                 ; preds = %entry
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 8
-  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 16
-  %.pre = load ptr, ptr %_M_finish.i.i.i, align 8
-  br label %while.body
-
-while.body:                                       ; preds = %while.body.lr.ph, %_ZN6google8protobuf8internal7cleanup8PeekNodeEPKvRSt6vectorIPvSaIS6_EE.exit
-  %0 = phi ptr [ %.pre, %while.body.lr.ph ], [ %6, %_ZN6google8protobuf8internal7cleanup8PeekNodeEPKvRSt6vectorIPvSaIS6_EE.exit ]
-  %pos.addr.02 = phi ptr [ %pos, %while.body.lr.ph ], [ %add.ptr, %_ZN6google8protobuf8internal7cleanup8PeekNodeEPKvRSt6vectorIPvSaIS6_EE.exit ]
-  %elem.0.copyload.i = load i64, ptr %pos.addr.02, align 1
-  %and.i = and i64 %elem.0.copyload.i, -4
-  %1 = inttoptr i64 %and.i to ptr
-  %2 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %0, %2
-  br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
-
-if.then.i.i.i:                                    ; preds = %while.body
-  store ptr %1, ptr %0, align 8
-  %3 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8
-  br label %_ZN6google8protobuf8internal7cleanup8PeekNodeEPKvRSt6vectorIPvSaIS6_EE.exit
-
-if.else.i.i.i:                                    ; preds = %while.body
-  %4 = load ptr, ptr %this.0.val, align 8
-  %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %4 to i64
-  %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
-  %cmp.i.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i.i, 9223372036854775800
-  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i.i
-
-if.then.i.i.i.i.i:                                ; preds = %if.else.i.i.i
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #33
-  unreachable
-
-_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i.i: ; preds = %if.else.i.i.i
-  %sub.ptr.div.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i, 3
-  %.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i, i64 1)
-  %add.i.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i
-  %cmp7.i.i.i.i.i = icmp ult i64 %add.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i
-  %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i, i64 1152921504606846975)
-  %cond.i.i.i.i.i = select i1 %cmp7.i.i.i.i.i, i64 1152921504606846975, i64 %5
-  %cmp.not.i.i.i.i.i = icmp eq i64 %cond.i.i.i.i.i, 0
-  br i1 %cmp.not.i.i.i.i.i, label %_ZNSt12_Vector_baseIPvSaIS0_EE11_M_allocateEm.exit.i.i.i.i, label %cond.true.i.i.i.i.i
-
-cond.true.i.i.i.i.i:                              ; preds = %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i.i
-  %mul.i.i.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i.i.i, 3
-  %call5.i.i.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i) #34
-  br label %_ZNSt12_Vector_baseIPvSaIS0_EE11_M_allocateEm.exit.i.i.i.i
-
-_ZNSt12_Vector_baseIPvSaIS0_EE11_M_allocateEm.exit.i.i.i.i: ; preds = %cond.true.i.i.i.i.i, %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i.i
-  %cond.i10.i.i.i.i = phi ptr [ %call5.i.i.i.i.i.i.i, %cond.true.i.i.i.i.i ], [ null, %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i.i ]
-  %add.ptr.i.i.i.i = getelementptr inbounds ptr, ptr %cond.i10.i.i.i.i, i64 %sub.ptr.div.i.i.i.i.i.i
-  store ptr %1, ptr %add.ptr.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i.i.i
-
-if.then.i.i.i.i.i.i.i:                            ; preds = %_ZNSt12_Vector_baseIPvSaIS0_EE11_M_allocateEm.exit.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i.i, ptr align 8 %4, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
-  br label %_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i.i.i
-
-_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIPvSaIS0_EE11_M_allocateEm.exit.i.i.i.i
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i, i64 8
-  %tobool.not.i.i.i.i.i = icmp eq ptr %4, null
-  br i1 %tobool.not.i.i.i.i.i, label %_ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i, label %if.then.i18.i.i.i.i
-
-if.then.i18.i.i.i.i:                              ; preds = %_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %4) #32
-  br label %_ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i
-
-_ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i: ; preds = %if.then.i18.i.i.i.i, %_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i.i.i
-  store ptr %cond.i10.i.i.i.i, ptr %this.0.val, align 8
-  store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i, align 8
-  %add.ptr19.i.i.i.i = getelementptr inbounds ptr, ptr %cond.i10.i.i.i.i, i64 %cond.i.i.i.i.i
-  store ptr %add.ptr19.i.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
-  br label %_ZN6google8protobuf8internal7cleanup8PeekNodeEPKvRSt6vectorIPvSaIS6_EE.exit
-
-_ZN6google8protobuf8internal7cleanup8PeekNodeEPKvRSt6vectorIPvSaIS6_EE.exit: ; preds = %if.then.i.i.i, %_ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i
-  %6 = phi ptr [ %incdec.ptr.i.i.i, %if.then.i.i.i ], [ %incdec.ptr.i.i.i.i, %_ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i ]
-  %and1.i = and i64 %elem.0.copyload.i, 3
-  %and1.off.i = add nsw i64 %and1.i, -1
-  %switch.i = icmp ult i64 %and1.off.i, 2
-  %..i = select i1 %switch.i, i64 8, i64 16
-  %add.ptr = getelementptr inbounds i8, ptr %pos.addr.02, i64 %..i
-  %cmp.not = icmp eq ptr %add.ptr, %end
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !9
-
-while.end:                                        ; preds = %_ZN6google8protobuf8internal7cleanup8PeekNodeEPKvRSt6vectorIPvSaIS6_EE.exit, %entry
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf8internal15ThreadSafeArena25PeekCleanupListForTestingEv(ptr noalias nocapture sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf8internal15ThreadSafeArena25PeekCleanupListForTestingEv(ptr noalias nocapture sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %this) local_unnamed_addr #3 align 2 {
 entry:
   %0 = tail call noundef nonnull align 32 dereferenceable(24) ptr @llvm.threadlocal.address.p0(ptr align 32 @_ZN6google8protobuf8internal15ThreadSafeArena13thread_cache_E)
-  %last_lifecycle_id_seen.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %last_lifecycle_id_seen.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load i64, ptr %last_lifecycle_id_seen.i.i, align 8
   %2 = load i64, ptr %this, align 8
   %cmp.i.not.i = icmp eq i64 %1, %2
-  %last_serial_arena.i.i = getelementptr inbounds i8, ptr %0, i64 16
+  %last_serial_arena.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %last_serial_arena.i.i, align 16
   br i1 %cmp.i.not.i, label %_ZN6google8protobuf8internal15ThreadSafeArena14GetSerialArenaEv.exit, label %if.then.i
 
@@ -755,64 +843,7 @@ if.then.i:                                        ; preds = %entry
 
 _ZN6google8protobuf8internal15ThreadSafeArena14GetSerialArenaEv.exit: ; preds = %entry, %if.then.i
   %arena.1.i = phi ptr [ %call2.i, %if.then.i ], [ %3, %entry ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false), !alias.scope !10
-  %head_.i.i = getelementptr inbounds i8, ptr %arena.1.i, i64 48
-  %4 = load atomic i64, ptr %head_.i.i monotonic, align 8, !noalias !10
-  %atomic-temp.i.0.i.i.i = inttoptr i64 %4 to ptr
-  %size.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i, i64 16
-  %5 = load i64, ptr %size.i.i, align 8, !noalias !10
-  %cmp.i.i = icmp eq i64 %5, 0
-  br i1 %cmp.i.i, label %_ZN6google8protobuf8internal11SerialArena25PeekCleanupListForTestingEv.exit, label %invoke.cont4.i
-
-lpad.loopexit.i:                                  ; preds = %invoke.cont7.i
-  %lpad.loopexit12.i = landingpad { ptr, i32 }
-          cleanup
-  br label %lpad.i
-
-lpad.loopexit.split-lp.i:                         ; preds = %invoke.cont4.i
-  %lpad.loopexit.split-lp13.i = landingpad { ptr, i32 }
-          cleanup
-  br label %lpad.i
-
-lpad.i:                                           ; preds = %lpad.loopexit.split-lp.i, %lpad.loopexit.i
-  %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit12.i, %lpad.loopexit.i ], [ %lpad.loopexit.split-lp13.i, %lpad.loopexit.split-lp.i ]
-  %6 = load ptr, ptr %agg.result, align 8, !alias.scope !10
-  %tobool.not.i.i.i.i = icmp eq ptr %6, null
-  br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIPvSaIS0_EED2Ev.exit.i, label %if.then.i.i.i.i
-
-if.then.i.i.i.i:                                  ; preds = %lpad.i
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #32, !noalias !10
-  br label %_ZNSt6vectorIPvSaIS0_EED2Ev.exit.i
-
-_ZNSt6vectorIPvSaIS0_EED2Ev.exit.i:               ; preds = %if.then.i.i.i.i, %lpad.i
-  resume { ptr, i32 } %lpad.phi.i
-
-invoke.cont4.i:                                   ; preds = %_ZN6google8protobuf8internal15ThreadSafeArena14GetSerialArenaEv.exit
-  %limit_.i = getelementptr inbounds i8, ptr %arena.1.i, i64 8
-  %7 = load ptr, ptr %limit_.i, align 8, !noalias !10
-  %and.i.i = and i64 %5, -8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i, i64 %and.i.i
-  invoke fastcc void @"_ZZN6google8protobuf8internal11SerialArena25PeekCleanupListForTestingEvENK3$_0clEPKcS5_"(ptr nonnull align 8 %agg.result, ptr noundef %7, ptr noundef %add.ptr.i.i.i)
-          to label %for.cond.i unwind label %lpad.loopexit.split-lp.i
-
-for.cond.i:                                       ; preds = %invoke.cont4.i, %invoke.cont7.i
-  %b.0.in.i = phi ptr [ %b.0.i, %invoke.cont7.i ], [ %atomic-temp.i.0.i.i.i, %invoke.cont4.i ]
-  %b.0.i = load ptr, ptr %b.0.in.i, align 8, !noalias !10
-  %tobool.not.i = icmp eq ptr %b.0.i, null
-  br i1 %tobool.not.i, label %_ZN6google8protobuf8internal11SerialArena25PeekCleanupListForTestingEv.exit, label %invoke.cont7.i
-
-invoke.cont7.i:                                   ; preds = %for.cond.i
-  %cleanup_nodes.i = getelementptr inbounds i8, ptr %b.0.i, i64 8
-  %8 = load ptr, ptr %cleanup_nodes.i, align 8, !noalias !10
-  %size.i9.i = getelementptr inbounds i8, ptr %b.0.i, i64 16
-  %9 = load i64, ptr %size.i9.i, align 8, !noalias !10
-  %and.i10.i = and i64 %9, -8
-  %add.ptr.i.i11.i = getelementptr inbounds i8, ptr %b.0.i, i64 %and.i10.i
-  invoke fastcc void @"_ZZN6google8protobuf8internal11SerialArena25PeekCleanupListForTestingEvENK3$_0clEPKcS5_"(ptr align 8 %agg.result, ptr noundef %8, ptr noundef nonnull %add.ptr.i.i11.i)
-          to label %for.cond.i unwind label %lpad.loopexit.i
-
-_ZN6google8protobuf8internal11SerialArena25PeekCleanupListForTestingEv.exit: ; preds = %for.cond.i, %_ZN6google8protobuf8internal15ThreadSafeArena14GetSerialArenaEv.exit
+  tail call void @_ZN6google8protobuf8internal11SerialArena25PeekCleanupListForTestingEv(ptr sret(%"class.std::vector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(96) %arena.1.i)
   ret void
 }
 
@@ -820,11 +851,11 @@ _ZN6google8protobuf8internal11SerialArena25PeekCleanupListForTestingEv.exit: ; p
 define noundef ptr @_ZN6google8protobuf8internal15ThreadSafeArena14GetSerialArenaEv(ptr noundef nonnull align 8 dereferenceable(144) %this) local_unnamed_addr #3 align 2 {
 entry:
   %0 = tail call noundef nonnull align 32 dereferenceable(24) ptr @llvm.threadlocal.address.p0(ptr align 32 @_ZN6google8protobuf8internal15ThreadSafeArena13thread_cache_E)
-  %last_lifecycle_id_seen.i = getelementptr inbounds i8, ptr %0, i64 8
+  %last_lifecycle_id_seen.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load i64, ptr %last_lifecycle_id_seen.i, align 8
   %2 = load i64, ptr %this, align 8
   %cmp.i.not = icmp eq i64 %1, %2
-  %last_serial_arena.i = getelementptr inbounds i8, ptr %0, i64 16
+  %last_serial_arena.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %last_serial_arena.i, align 16
   br i1 %cmp.i.not, label %if.end, label %if.then
 
@@ -840,33 +871,33 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef nonnull ptr @_ZN6google8protobuf8internal11SerialArena3NewENS1_8SizedPtrERNS1_15ThreadSafeArenaE(ptr initializes((0, 24)) %mem.coerce0, i64 %mem.coerce1, ptr noundef nonnull align 8 dereferenceable(144) %parent) local_unnamed_addr #4 align 2 {
 entry:
-  %size3.i = getelementptr inbounds i8, ptr %mem.coerce0, i64 16
+  %size3.i = getelementptr inbounds nuw i8, ptr %mem.coerce0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mem.coerce0, i8 0, i64 16, i1 false)
   store i64 %mem.coerce1, ptr %size3.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %mem.coerce0, i64 24
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %mem.coerce0, i64 120
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %mem.coerce0, i64 24
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %mem.coerce0, i64 120
   store ptr %add.ptr.i.i, ptr %add.ptr.i, align 8
-  %limit_.i = getelementptr inbounds i8, ptr %mem.coerce0, i64 32
+  %limit_.i = getelementptr inbounds nuw i8, ptr %mem.coerce0, i64 32
   %and.i.i = and i64 %mem.coerce1, -8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %mem.coerce0, i64 %and.i.i
   store ptr %add.ptr.i.i.i, ptr %limit_.i, align 8
-  %prefetch_ptr_.i = getelementptr inbounds i8, ptr %mem.coerce0, i64 40
+  %prefetch_ptr_.i = getelementptr inbounds nuw i8, ptr %mem.coerce0, i64 40
   store ptr %add.ptr.i.i, ptr %prefetch_ptr_.i, align 8
-  %prefetch_limit_.i = getelementptr inbounds i8, ptr %mem.coerce0, i64 48
+  %prefetch_limit_.i = getelementptr inbounds nuw i8, ptr %mem.coerce0, i64 48
   store ptr %add.ptr.i.i.i, ptr %prefetch_limit_.i, align 8
-  %string_block_.i = getelementptr inbounds i8, ptr %mem.coerce0, i64 56
-  %head_.i = getelementptr inbounds i8, ptr %mem.coerce0, i64 72
+  %string_block_.i = getelementptr inbounds nuw i8, ptr %mem.coerce0, i64 56
+  %head_.i = getelementptr inbounds nuw i8, ptr %mem.coerce0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %string_block_.i, i8 0, i64 16, i1 false)
   store ptr %mem.coerce0, ptr %head_.i, align 8
-  %space_used_.i = getelementptr inbounds i8, ptr %mem.coerce0, i64 80
+  %space_used_.i = getelementptr inbounds nuw i8, ptr %mem.coerce0, i64 80
   store i64 0, ptr %space_used_.i, align 8
-  %space_allocated_.i = getelementptr inbounds i8, ptr %mem.coerce0, i64 88
+  %space_allocated_.i = getelementptr inbounds nuw i8, ptr %mem.coerce0, i64 88
   store i64 %mem.coerce1, ptr %space_allocated_.i, align 8
-  %parent_.i = getelementptr inbounds i8, ptr %mem.coerce0, i64 96
+  %parent_.i = getelementptr inbounds nuw i8, ptr %mem.coerce0, i64 96
   store ptr %parent, ptr %parent_.i, align 8
-  %cached_block_length_.i = getelementptr inbounds i8, ptr %mem.coerce0, i64 104
+  %cached_block_length_.i = getelementptr inbounds nuw i8, ptr %mem.coerce0, i64 104
   store i8 0, ptr %cached_block_length_.i, align 8
-  %cached_blocks_.i = getelementptr inbounds i8, ptr %mem.coerce0, i64 112
+  %cached_blocks_.i = getelementptr inbounds nuw i8, ptr %mem.coerce0, i64 112
   store ptr null, ptr %cached_blocks_.i, align 8
   ret ptr %add.ptr.i
 }
@@ -874,24 +905,24 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN6google8protobuf8internal11SerialArena23AllocateAlignedFallbackEm(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this, i64 noundef %n) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %head_.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %head_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load atomic i64, ptr %head_.i.i monotonic, align 8
   %atomic-temp.i.0.i.i.i = inttoptr i64 %0 to ptr
-  %size.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i, i64 16
+  %size.i.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i.i.i, i64 16
   %1 = load i64, ptr %size.i.i, align 8
   %cmp.i.i = icmp eq i64 %1, 0
   br i1 %cmp.i.i, label %_ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %limit_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %limit_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load ptr, ptr %limit_.i, align 8
-  %cleanup_nodes.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i, i64 8
+  %cleanup_nodes.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i.i.i, i64 8
   store ptr %2, ptr %cleanup_nodes.i, align 8
   %3 = load atomic i64, ptr %this monotonic, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i, i64 24
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i.i.i, i64 24
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr.i.i to i64
   %sub.ptr.sub.i = sub i64 %3, %sub.ptr.rhs.cast.i
-  %space_used_.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %space_used_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %4 = load atomic i64, ptr %space_used_.i.i monotonic, align 8
   %add.i.i = add i64 %sub.ptr.sub.i, %4
   store atomic i64 %add.i.i, ptr %space_used_.i.i monotonic, align 8
@@ -900,34 +931,34 @@ if.then.i:                                        ; preds = %entry
 
 _ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit: ; preds = %entry, %if.then.i
   %5 = phi i64 [ %.pre.i, %if.then.i ], [ 0, %entry ]
-  %parent_.i = getelementptr inbounds i8, ptr %this, i64 72
+  %parent_.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %6 = load ptr, ptr %parent_.i, align 8
-  %alloc_policy_.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  %alloc_policy_.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %7 = load i64, ptr %alloc_policy_.i.i, align 8
   %and.i.i.i = and i64 %7, -8
   %8 = inttoptr i64 %and.i.i.i to ptr
   %call8.i = tail call fastcc { ptr, i64 } @_ZN6google8protobuf8internalL14AllocateMemoryEPKNS1_16AllocationPolicyEmm(ptr noundef %8, i64 noundef %5, i64 noundef %n)
   %9 = extractvalue { ptr, i64 } %call8.i, 0
   %10 = extractvalue { ptr, i64 } %call8.i, 1
-  %space_allocated_.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %space_allocated_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %11 = load atomic i64, ptr %space_allocated_.i.i monotonic, align 8
   %add.i15.i = add i64 %11, %10
   store atomic i64 %add.i15.i, ptr %space_allocated_.i.i monotonic, align 8
   store ptr %atomic-temp.i.0.i.i.i, ptr %9, align 8
-  %cleanup_nodes.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  %cleanup_nodes.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr null, ptr %cleanup_nodes.i.i, align 8
-  %size3.i.i = getelementptr inbounds i8, ptr %9, i64 16
+  %size3.i.i = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 %10, ptr %size3.i.i, align 8
-  %add.ptr.i16.i = getelementptr inbounds i8, ptr %9, i64 24
+  %add.ptr.i16.i = getelementptr inbounds nuw i8, ptr %9, i64 24
   %and.i.i = and i64 %10, -8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %9, i64 %and.i.i
   %12 = ptrtoint ptr %add.ptr.i16.i to i64
   store atomic i64 %12, ptr %this monotonic, align 8
-  %prefetch_ptr_.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %prefetch_ptr_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %add.ptr.i16.i, ptr %prefetch_ptr_.i.i, align 8
-  %limit_.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %limit_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %add.ptr.i.i.i, ptr %limit_.i.i, align 8
-  %prefetch_limit_.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %prefetch_limit_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %add.ptr.i.i.i, ptr %prefetch_limit_.i.i, align 8
   %13 = ptrtoint ptr %9 to i64
   store atomic i64 %13, ptr %head_.i.i release, align 8
@@ -947,7 +978,7 @@ if.then4.i.i:                                     ; preds = %_ZN6google8protobuf
   %16 = inttoptr i64 %add.i to ptr
   %cmp.i8.i = icmp ugt ptr %add.ptr.i16.i, %16
   %.sroa.speculated12.i = select i1 %cmp.i8.i, ptr %add.ptr.i16.i, ptr %16
-  %add.ptr.i.i7 = getelementptr inbounds i8, ptr %.sroa.speculated12.i, i64 1024
+  %add.ptr.i.i7 = getelementptr inbounds nuw i8, ptr %.sroa.speculated12.i, i64 1024
   %cmp.i9.i = icmp ult ptr %add.ptr.i.i7, %add.ptr.i.i.i
   %.sroa.speculated.i = select i1 %cmp.i9.i, ptr %add.ptr.i.i7, ptr %add.ptr.i.i.i
   %cmp8.i13.i = icmp ult ptr %.sroa.speculated12.i, %.sroa.speculated.i
@@ -955,8 +986,8 @@ if.then4.i.i:                                     ; preds = %_ZN6google8protobuf
 
 for.body.i.i:                                     ; preds = %if.then4.i.i, %for.body.i.i
   %prefetch_ptr.i.014.i = phi ptr [ %add.ptr9.i.i, %for.body.i.i ], [ %.sroa.speculated12.i, %if.then4.i.i ]
-  tail call void asm sideeffect "prefetchw ($0)", "r,~{dirflag},~{fpsr},~{flags}"(ptr %prefetch_ptr.i.014.i) #28, !srcloc !7
-  %add.ptr9.i.i = getelementptr inbounds i8, ptr %prefetch_ptr.i.014.i, i64 64
+  tail call void asm sideeffect "prefetchw ($0)", "r,~{dirflag},~{fpsr},~{flags}"(ptr %prefetch_ptr.i.014.i) #27, !srcloc !7
+  %add.ptr9.i.i = getelementptr inbounds nuw i8, ptr %prefetch_ptr.i.014.i, i64 64
   %cmp8.i.i = icmp ult ptr %add.ptr9.i.i, %.sroa.speculated.i
   br i1 %cmp8.i.i, label %for.body.i.i, label %for.end.i.i, !llvm.loop !8
 
@@ -973,7 +1004,7 @@ _ZN6google8protobuf8internal11SerialArena20MaybeAllocateAlignedEmPPv.exit: ; pre
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull ptr @_ZN6google8protobuf8internal11SerialArena31AllocateFromStringBlockFallbackEv(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %string_block_ = getelementptr inbounds i8, ptr %this, i64 32
+  %string_block_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load atomic i64, ptr %string_block_ monotonic, align 8
   %atomic-temp.i.0.i = inttoptr i64 %0 to ptr
   %tobool.not = icmp eq i64 %0, 0
@@ -982,28 +1013,28 @@ entry:
 if.end:                                           ; preds = %entry
   %1 = load atomic i64, ptr %this monotonic, align 8
   %add.i16 = add i64 %1, 256
-  %limit_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %limit_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load ptr, ptr %limit_.i, align 8
   %3 = ptrtoint ptr %2 to i64
   %cmp.i.not = icmp ugt i64 %add.i16, %3
   br i1 %cmp.i.not, label %entry.split.i, label %if.end.i
 
 if.end.thread:                                    ; preds = %entry
-  %allocated_size_.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i, i64 8
+  %allocated_size_.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i, i64 8
   %bf.load.i = load i32, ptr %allocated_size_.i, align 8
   %bf.lshr.i = lshr i32 %bf.load.i, 1
   %conv.i = zext nneg i32 %bf.lshr.i to i64
-  %space_used_.i = getelementptr inbounds i8, ptr %this, i64 56
+  %space_used_.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %4 = load atomic i64, ptr %space_used_.i monotonic, align 8
   %sub.i = add i64 %4, -16
   %add.i = add i64 %sub.i, %conv.i
   store atomic i64 %add.i, ptr %space_used_.i monotonic, align 8
-  %next_size_.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i, i64 12
+  %next_size_.i.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i, i64 12
   %5 = load i32, ptr %next_size_.i.i, align 4
   %conv.i.i = zext i32 %5 to i64
   %6 = load atomic i64, ptr %this monotonic, align 8
   %add.i1645 = add i64 %6, %conv.i.i
-  %limit_.i46 = getelementptr inbounds i8, ptr %this, i64 8
+  %limit_.i46 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %7 = load ptr, ptr %limit_.i46, align 8
   %8 = ptrtoint ptr %7 to i64
   %cmp.i.not47 = icmp ugt i64 %add.i1645, %8
@@ -1016,7 +1047,7 @@ if.end.i:                                         ; preds = %if.end.thread, %if.
   %atomic-temp.i.0.i.i.i = inttoptr i64 %9 to ptr
   %10 = inttoptr i64 %add.i1649 to ptr
   store atomic i64 %add.i1649, ptr %this monotonic, align 8
-  %prefetch_ptr_.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %prefetch_ptr_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %11 = load ptr, ptr %prefetch_ptr_.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %add.i1649
@@ -1024,7 +1055,7 @@ if.end.i:                                         ; preds = %if.end.thread, %if.
   br i1 %cmp.i.i, label %if.then6, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end.i
-  %prefetch_limit_.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %prefetch_limit_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %12 = load ptr, ptr %prefetch_limit_.i.i, align 8
   %cmp3.i.i = icmp ult ptr %11, %12
   br i1 %cmp3.i.i, label %if.then4.i.i, label %if.then6
@@ -1032,7 +1063,7 @@ if.end.i.i:                                       ; preds = %if.end.i
 if.then4.i.i:                                     ; preds = %if.end.i.i
   %cmp.i8.i = icmp ugt ptr %11, %10
   %.sroa.speculated12.i = select i1 %cmp.i8.i, ptr %11, ptr %10
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %.sroa.speculated12.i, i64 1024
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %.sroa.speculated12.i, i64 1024
   %cmp.i9.i = icmp ult ptr %add.ptr.i.i, %12
   %.sroa.speculated.i = select i1 %cmp.i9.i, ptr %add.ptr.i.i, ptr %12
   %cmp8.i13.i = icmp ult ptr %.sroa.speculated12.i, %.sroa.speculated.i
@@ -1040,8 +1071,8 @@ if.then4.i.i:                                     ; preds = %if.end.i.i
 
 for.body.i.i:                                     ; preds = %if.then4.i.i, %for.body.i.i
   %prefetch_ptr.i.014.i = phi ptr [ %add.ptr9.i.i, %for.body.i.i ], [ %.sroa.speculated12.i, %if.then4.i.i ]
-  tail call void asm sideeffect "prefetchw ($0)", "r,~{dirflag},~{fpsr},~{flags}"(ptr %prefetch_ptr.i.014.i) #28, !srcloc !7
-  %add.ptr9.i.i = getelementptr inbounds i8, ptr %prefetch_ptr.i.014.i, i64 64
+  tail call void asm sideeffect "prefetchw ($0)", "r,~{dirflag},~{fpsr},~{flags}"(ptr %prefetch_ptr.i.014.i) #27, !srcloc !7
+  %add.ptr9.i.i = getelementptr inbounds nuw i8, ptr %prefetch_ptr.i.014.i, i64 64
   %cmp8.i.i = icmp ult ptr %add.ptr9.i.i, %.sroa.speculated.i
   br i1 %cmp8.i.i, label %for.body.i.i, label %if.then6.sink.split, !llvm.loop !8
 
@@ -1051,7 +1082,7 @@ if.then6.sink.split:                              ; preds = %for.body.i.i, %if.t
   br label %if.then6
 
 if.then6:                                         ; preds = %if.then6.sink.split, %if.end.i.i, %if.end.i
-  %space_used_.i17 = getelementptr inbounds i8, ptr %this, i64 56
+  %space_used_.i17 = getelementptr inbounds nuw i8, ptr %this, i64 56
   %13 = load atomic i64, ptr %space_used_.i17 monotonic, align 8
   %add.i18 = sub i64 %13, %phi.call48
   store atomic i64 %add.i18, ptr %space_used_.i17 monotonic, align 8
@@ -1064,21 +1095,21 @@ if.then6:                                         ; preds = %if.then6.sink.split
   %bf.value.i.sink.in.i = sub i32 %conv.i19, %rem.i5.pn.i
   %bf.value.i.sink.i = shl i32 %bf.value.i.sink.in.i, 1
   store ptr %atomic-temp.i.0.i, ptr %atomic-temp.i.0.i.i.i, align 8
-  %14 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i.i.i, i64 8
   store i32 %bf.value.i.sink.i, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i.i.i, i64 12
   store i32 %.sroa.speculated.sink.i, ptr %15, align 4
   br label %if.end10
 
 entry.split.i:                                    ; preds = %if.end
-  %call68.i = tail call noalias noundef nonnull dereferenceable(240) ptr @_Znwm(i64 noundef 240) #31
+  %call68.i = tail call noalias noundef nonnull dereferenceable(240) ptr @_Znwm(i64 noundef 240) #30
   store ptr null, ptr %call68.i, align 8
-  %heap_allocated_.i.i = getelementptr inbounds i8, ptr %call68.i, i64 8
+  %heap_allocated_.i.i = getelementptr inbounds nuw i8, ptr %call68.i, i64 8
   store i32 481, ptr %heap_allocated_.i.i, align 8
   br label %_ZN6google8protobuf8internal11StringBlock3NewEPS2_.exit
 
 if.then.i:                                        ; preds = %if.end.thread
-  %next_size_.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i, i64 12
+  %next_size_.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i, i64 12
   %16 = load i32, ptr %next_size_.i, align 4
   %mul.i23 = shl i32 %16, 1
   %.sroa.speculated.i24 = tail call i32 @llvm.umin.i32(i32 %mul.i23, i32 8192)
@@ -1086,9 +1117,9 @@ if.then.i:                                        ; preds = %if.end.thread
   %rem.i.i = xor i32 %17, 16
   %sub2.i.i = sub i32 %16, %rem.i.i
   %conv10.i = zext i32 %sub2.i.i to i64
-  %call611.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %conv10.i) #31
+  %call611.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %conv10.i) #30
   store ptr %atomic-temp.i.0.i, ptr %call611.i, align 8
-  %heap_allocated_.i12.i = getelementptr inbounds i8, ptr %call611.i, i64 8
+  %heap_allocated_.i12.i = getelementptr inbounds nuw i8, ptr %call611.i, i64 8
   %bf.value.i.i = shl i32 %sub2.i.i, 1
   %bf.set4.i.i = or disjoint i32 %bf.value.i.i, 1
   store i32 %bf.set4.i.i, ptr %heap_allocated_.i12.i, align 8
@@ -1100,9 +1131,9 @@ _ZN6google8protobuf8internal11StringBlock3NewEPS2_.exit: ; preds = %entry.split.
   %bf.load.i28 = phi i64 [ 240, %entry.split.i ], [ %19, %if.then.i ]
   %call68.sink.i = phi ptr [ %call68.i, %entry.split.i ], [ %call611.i, %if.then.i ]
   %.sink.i = phi i32 [ 256, %entry.split.i ], [ %.sroa.speculated.i24, %if.then.i ]
-  %next_size_.i.i26 = getelementptr inbounds i8, ptr %call68.sink.i, i64 12
+  %next_size_.i.i26 = getelementptr inbounds nuw i8, ptr %call68.sink.i, i64 12
   store i32 %.sink.i, ptr %next_size_.i.i26, align 4
-  %space_allocated_.i = getelementptr inbounds i8, ptr %this, i64 64
+  %space_allocated_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %20 = load atomic i64, ptr %space_allocated_.i monotonic, align 8
   %add.i31 = add i64 %20, %bf.load.i28
   store atomic i64 %add.i31, ptr %space_allocated_.i monotonic, align 8
@@ -1112,14 +1143,14 @@ if.end10:                                         ; preds = %_ZN6google8protobuf
   %new_sb.0 = phi ptr [ %atomic-temp.i.0.i.i.i, %if.then6 ], [ %call68.sink.i, %_ZN6google8protobuf8internal11StringBlock3NewEPS2_.exit ]
   %21 = ptrtoint ptr %new_sb.0 to i64
   store atomic i64 %21, ptr %string_block_ release, align 8
-  %allocated_size_.i32 = getelementptr inbounds i8, ptr %new_sb.0, i64 8
+  %allocated_size_.i32 = getelementptr inbounds nuw i8, ptr %new_sb.0, i64 8
   %bf.load.i33 = load i32, ptr %allocated_size_.i32, align 8
   %bf.lshr.i34 = lshr i32 %bf.load.i33, 1
   %conv.i35 = zext nneg i32 %bf.lshr.i34 to i64
   %sub13 = add nsw i64 %conv.i35, -48
-  %string_block_unused_ = getelementptr inbounds i8, ptr %this, i64 40
+  %string_block_unused_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   store atomic i64 %sub13, ptr %string_block_unused_ monotonic, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %new_sb.0, i64 16
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %new_sb.0, i64 16
   %add.ptr2.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %sub13
   ret ptr %add.ptr2.i
 }
@@ -1134,13 +1165,13 @@ entry:
   %switch = and i1 %cmp.i69, %cmp1.i71
   %spec.select = select i1 %switch, i64 16, i64 8
   %cond.i8 = select i1 %cmp.i4, i64 0, i64 %spec.select
-  %head_.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %parent_.i = getelementptr inbounds i8, ptr %this, i64 72
-  %limit_.i43 = getelementptr inbounds i8, ptr %this, i64 8
-  %space_used_.i.i = getelementptr inbounds i8, ptr %this, i64 56
-  %space_allocated_.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  %prefetch_ptr_.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %prefetch_limit_.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %head_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %parent_.i = getelementptr inbounds nuw i8, ptr %this, i64 72
+  %limit_.i43 = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %space_used_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
+  %space_allocated_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
+  %prefetch_ptr_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %prefetch_limit_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %add.i.i46 = add i64 %align, -1
   %not.i.i = sub i64 0, %align
   br i1 %cmp.i, label %tailrecurse.us, label %entry.split
@@ -1152,17 +1183,17 @@ tailrecurse.us:                                   ; preds = %entry, %_ZN6google8
   %add.us = add i64 %and.i37.us, %cond.i8
   %0 = load atomic i64, ptr %head_.i.i monotonic, align 8
   %atomic-temp.i.0.i.i.i.us = inttoptr i64 %0 to ptr
-  %size.i.i.us = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i.us, i64 16
+  %size.i.i.us = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i.i.i.us, i64 16
   %1 = load i64, ptr %size.i.i.us, align 8
   %cmp.i.i.us = icmp eq i64 %1, 0
   br i1 %cmp.i.i.us, label %_ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit.us, label %if.then.i42.us
 
 if.then.i42.us:                                   ; preds = %tailrecurse.us
   %2 = load ptr, ptr %limit_.i43, align 8
-  %cleanup_nodes.i.us = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i.us, i64 8
+  %cleanup_nodes.i.us = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i.i.i.us, i64 8
   store ptr %2, ptr %cleanup_nodes.i.us, align 8
   %3 = load atomic i64, ptr %this monotonic, align 8
-  %add.ptr.i.i.us = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i.us, i64 24
+  %add.ptr.i.i.us = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i.i.i.us, i64 24
   %sub.ptr.rhs.cast.i.us = ptrtoint ptr %add.ptr.i.i.us to i64
   %sub.ptr.sub.i44.us = sub i64 %3, %sub.ptr.rhs.cast.i.us
   %4 = load atomic i64, ptr %space_used_.i.i monotonic, align 8
@@ -1174,7 +1205,7 @@ if.then.i42.us:                                   ; preds = %tailrecurse.us
 _ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit.us: ; preds = %tailrecurse.us, %if.then.i42.us
   %5 = phi i64 [ %.pre.i.us, %if.then.i42.us ], [ 0, %tailrecurse.us ]
   %6 = load ptr, ptr %parent_.i, align 8
-  %alloc_policy_.i.i.us = getelementptr inbounds i8, ptr %6, i64 8
+  %alloc_policy_.i.i.us = getelementptr inbounds nuw i8, ptr %6, i64 8
   %7 = load i64, ptr %alloc_policy_.i.i.us, align 8
   %and.i.i.i.us = and i64 %7, -8
   %8 = inttoptr i64 %and.i.i.i.us to ptr
@@ -1185,11 +1216,11 @@ _ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit.us: ; preds =
   %add.i15.i.us = add i64 %11, %10
   store atomic i64 %add.i15.i.us, ptr %space_allocated_.i.i monotonic, align 8
   store ptr %atomic-temp.i.0.i.i.i.us, ptr %9, align 8
-  %cleanup_nodes.i.i.us = getelementptr inbounds i8, ptr %9, i64 8
+  %cleanup_nodes.i.i.us = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr null, ptr %cleanup_nodes.i.i.us, align 8
-  %size3.i.i.us = getelementptr inbounds i8, ptr %9, i64 16
+  %size3.i.i.us = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 %10, ptr %size3.i.i.us, align 8
-  %add.ptr.i16.i.us = getelementptr inbounds i8, ptr %9, i64 24
+  %add.ptr.i16.i.us = getelementptr inbounds nuw i8, ptr %9, i64 24
   %and.i.i.us = and i64 %10, -8
   %add.ptr.i.i.i.us = getelementptr inbounds i8, ptr %9, i64 %and.i.i.us
   %12 = ptrtoint ptr %add.ptr.i16.i.us to i64
@@ -1218,17 +1249,17 @@ tailrecurse:                                      ; preds = %_ZN6google8protobuf
   %add.reass = add i64 %n.tr, %invariant.op
   %16 = load atomic i64, ptr %head_.i.i monotonic, align 8
   %atomic-temp.i.0.i.i.i = inttoptr i64 %16 to ptr
-  %size.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i, i64 16
+  %size.i.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i.i.i, i64 16
   %17 = load i64, ptr %size.i.i, align 8
   %cmp.i.i = icmp eq i64 %17, 0
   br i1 %cmp.i.i, label %_ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit, label %if.then.i42
 
 if.then.i42:                                      ; preds = %tailrecurse
   %18 = load ptr, ptr %limit_.i43, align 8
-  %cleanup_nodes.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i, i64 8
+  %cleanup_nodes.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i.i.i, i64 8
   store ptr %18, ptr %cleanup_nodes.i, align 8
   %19 = load atomic i64, ptr %this monotonic, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i, i64 24
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i.i.i, i64 24
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr.i.i to i64
   %sub.ptr.sub.i44 = sub i64 %19, %sub.ptr.rhs.cast.i
   %20 = load atomic i64, ptr %space_used_.i.i monotonic, align 8
@@ -1240,7 +1271,7 @@ if.then.i42:                                      ; preds = %tailrecurse
 _ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit: ; preds = %tailrecurse, %if.then.i42
   %21 = phi i64 [ %.pre.i, %if.then.i42 ], [ 0, %tailrecurse ]
   %22 = load ptr, ptr %parent_.i, align 8
-  %alloc_policy_.i.i = getelementptr inbounds i8, ptr %22, i64 8
+  %alloc_policy_.i.i = getelementptr inbounds nuw i8, ptr %22, i64 8
   %23 = load i64, ptr %alloc_policy_.i.i, align 8
   %and.i.i.i = and i64 %23, -8
   %24 = inttoptr i64 %and.i.i.i to ptr
@@ -1251,11 +1282,11 @@ _ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit: ; preds = %t
   %add.i15.i = add i64 %27, %26
   store atomic i64 %add.i15.i, ptr %space_allocated_.i.i monotonic, align 8
   store ptr %atomic-temp.i.0.i.i.i, ptr %25, align 8
-  %cleanup_nodes.i.i = getelementptr inbounds i8, ptr %25, i64 8
+  %cleanup_nodes.i.i = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr null, ptr %cleanup_nodes.i.i, align 8
-  %size3.i.i = getelementptr inbounds i8, ptr %25, i64 16
+  %size3.i.i = getelementptr inbounds nuw i8, ptr %25, i64 16
   store i64 %26, ptr %size3.i.i, align 8
-  %add.ptr.i16.i = getelementptr inbounds i8, ptr %25, i64 24
+  %add.ptr.i16.i = getelementptr inbounds nuw i8, ptr %25, i64 24
   %and.i.i = and i64 %26, -8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %25, i64 %and.i.i
   %28 = ptrtoint ptr %add.ptr.i16.i to i64
@@ -1310,10 +1341,10 @@ if.then4.i88:                                     ; preds = %if.end.i
 
 for.body.i92:                                     ; preds = %if.then4.i88, %for.body.i92
   %prefetch_limit.i.069 = phi ptr [ %add.ptr11.i, %for.body.i92 ], [ %.sroa.speculated62, %if.then4.i88 ]
-  tail call void asm sideeffect "prefetchw ($0)", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %prefetch_limit.i.069) #28, !srcloc !7
+  tail call void asm sideeffect "prefetchw ($0)", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %prefetch_limit.i.069) #27, !srcloc !7
   %add.ptr11.i = getelementptr inbounds i8, ptr %prefetch_limit.i.069, i64 -64
   %cmp10.i = icmp ugt ptr %add.ptr11.i, %.sroa.speculated59
-  br i1 %cmp10.i, label %for.body.i92, label %for.end.i91.loopexit, !llvm.loop !13
+  br i1 %cmp10.i, label %for.body.i92, label %for.end.i91.loopexit, !llvm.loop !10
 
 for.end.i91.loopexit:                             ; preds = %for.body.i92
   %.pre.pre = load ptr, ptr %limit_.i43, align 8
@@ -1344,7 +1375,7 @@ sw.bb2.i99:                                       ; preds = %_ZN6google8protobuf
 
 sw.default.i98:                                   ; preds = %_ZN6google8protobuf8internal11SerialArena22MaybePrefetchBackwardsEPKc.exit
   store i64 %.us-phi, ptr %35, align 1
-  %n7.i.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %35, i64 8
+  %n7.i.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %destructor, ptr %n7.i.sroa.2.0..sroa_idx, align 1
   br label %_ZN6google8protobuf8internal7cleanup10CreateNodeENS2_3TagEPvPKvPFvS4_E.exit
 
@@ -1361,7 +1392,7 @@ _ZN6google8protobuf8internal7cleanup10CreateNodeENS2_3TagEPvPKvPFvS4_E.exit: ; p
 if.then4.i:                                       ; preds = %_ZN6google8protobuf8internal7cleanup10CreateNodeENS2_3TagEPvPKvPFvS4_E.exit
   %cmp.i51 = icmp ugt ptr %36, %34
   %.sroa.speculated56 = select i1 %cmp.i51, ptr %36, ptr %34
-  %add.ptr.i29 = getelementptr inbounds i8, ptr %.sroa.speculated56, i64 1024
+  %add.ptr.i29 = getelementptr inbounds nuw i8, ptr %.sroa.speculated56, i64 1024
   %cmp.i53 = icmp ult ptr %add.ptr.i29, %37
   %.sroa.speculated = select i1 %cmp.i53, ptr %add.ptr.i29, ptr %37
   %cmp8.i70 = icmp ult ptr %.sroa.speculated56, %.sroa.speculated
@@ -1369,8 +1400,8 @@ if.then4.i:                                       ; preds = %_ZN6google8protobuf
 
 for.body.i:                                       ; preds = %if.then4.i, %for.body.i
   %prefetch_ptr.i.071 = phi ptr [ %add.ptr9.i, %for.body.i ], [ %.sroa.speculated56, %if.then4.i ]
-  tail call void asm sideeffect "prefetchw ($0)", "r,~{dirflag},~{fpsr},~{flags}"(ptr %prefetch_ptr.i.071) #28, !srcloc !7
-  %add.ptr9.i = getelementptr inbounds i8, ptr %prefetch_ptr.i.071, i64 64
+  tail call void asm sideeffect "prefetchw ($0)", "r,~{dirflag},~{fpsr},~{flags}"(ptr %prefetch_ptr.i.071) #27, !srcloc !7
+  %add.ptr9.i = getelementptr inbounds nuw i8, ptr %prefetch_ptr.i.071, i64 64
   %cmp8.i = icmp ult ptr %add.ptr9.i, %.sroa.speculated
   br i1 %cmp8.i, label %for.body.i, label %for.end.i, !llvm.loop !8
 
@@ -1393,24 +1424,24 @@ entry:
   %switch = and i1 %cmp.i16, %cmp1.i18
   %spec.select = select i1 %switch, i64 16, i64 8
   %cond.i = select i1 %cmp.i, i64 0, i64 %spec.select
-  %head_.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %head_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load atomic i64, ptr %head_.i.i monotonic, align 8
   %atomic-temp.i.0.i.i.i = inttoptr i64 %0 to ptr
-  %size.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i, i64 16
+  %size.i.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i.i.i, i64 16
   %1 = load i64, ptr %size.i.i, align 8
   %cmp.i.i = icmp eq i64 %1, 0
   br i1 %cmp.i.i, label %if.end.i26, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %limit_.i18 = getelementptr inbounds i8, ptr %this, i64 8
+  %limit_.i18 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load ptr, ptr %limit_.i18, align 8
-  %cleanup_nodes.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i, i64 8
+  %cleanup_nodes.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i.i.i, i64 8
   store ptr %2, ptr %cleanup_nodes.i, align 8
   %3 = load atomic i64, ptr %this monotonic, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i, i64 24
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i.i.i, i64 24
   %sub.ptr.rhs.cast.i19 = ptrtoint ptr %add.ptr.i.i to i64
   %sub.ptr.sub.i20 = sub i64 %3, %sub.ptr.rhs.cast.i19
-  %space_used_.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %space_used_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %4 = load atomic i64, ptr %space_used_.i.i monotonic, align 8
   %add.i.i = add i64 %sub.ptr.sub.i20, %4
   store atomic i64 %add.i.i, ptr %space_used_.i.i monotonic, align 8
@@ -1419,34 +1450,34 @@ if.then.i:                                        ; preds = %entry
 
 if.end.i26:                                       ; preds = %if.then.i, %entry
   %5 = phi i64 [ %.pre.i, %if.then.i ], [ 0, %entry ]
-  %parent_.i = getelementptr inbounds i8, ptr %this, i64 72
+  %parent_.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %6 = load ptr, ptr %parent_.i, align 8
-  %alloc_policy_.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  %alloc_policy_.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %7 = load i64, ptr %alloc_policy_.i.i, align 8
   %and.i.i.i = and i64 %7, -8
   %8 = inttoptr i64 %and.i.i.i to ptr
   %call8.i = tail call fastcc { ptr, i64 } @_ZN6google8protobuf8internalL14AllocateMemoryEPKNS1_16AllocationPolicyEmm(ptr noundef %8, i64 noundef %5, i64 noundef %cond.i)
   %9 = extractvalue { ptr, i64 } %call8.i, 0
   %10 = extractvalue { ptr, i64 } %call8.i, 1
-  %space_allocated_.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %space_allocated_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %11 = load atomic i64, ptr %space_allocated_.i.i monotonic, align 8
   %add.i15.i = add i64 %11, %10
   store atomic i64 %add.i15.i, ptr %space_allocated_.i.i monotonic, align 8
   store ptr %atomic-temp.i.0.i.i.i, ptr %9, align 8
-  %cleanup_nodes.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  %cleanup_nodes.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr null, ptr %cleanup_nodes.i.i, align 8
-  %size3.i.i = getelementptr inbounds i8, ptr %9, i64 16
+  %size3.i.i = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 %10, ptr %size3.i.i, align 8
-  %add.ptr.i16.i = getelementptr inbounds i8, ptr %9, i64 24
+  %add.ptr.i16.i = getelementptr inbounds nuw i8, ptr %9, i64 24
   %and.i.i = and i64 %10, -8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %9, i64 %and.i.i
   %12 = ptrtoint ptr %add.ptr.i16.i to i64
   store atomic i64 %12, ptr %this monotonic, align 8
-  %prefetch_ptr_.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %prefetch_ptr_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %add.ptr.i16.i, ptr %prefetch_ptr_.i.i, align 8
-  %limit_.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %limit_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %add.ptr.i.i.i, ptr %limit_.i.i, align 8
-  %prefetch_limit_.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %prefetch_limit_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %add.ptr.i.i.i, ptr %prefetch_limit_.i.i, align 8
   %13 = ptrtoint ptr %9 to i64
   store atomic i64 %13, ptr %head_.i.i release, align 8
@@ -1472,10 +1503,10 @@ if.then4.i:                                       ; preds = %if.end.i26
 
 for.body.i:                                       ; preds = %if.then4.i, %for.body.i
   %prefetch_limit.i.028 = phi ptr [ %add.ptr11.i, %for.body.i ], [ %.sroa.speculated25, %if.then4.i ]
-  tail call void asm sideeffect "prefetchw ($0)", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %prefetch_limit.i.028) #28, !srcloc !7
+  tail call void asm sideeffect "prefetchw ($0)", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %prefetch_limit.i.028) #27, !srcloc !7
   %add.ptr11.i = getelementptr inbounds i8, ptr %prefetch_limit.i.028, i64 -64
   %cmp10.i = icmp ugt ptr %add.ptr11.i, %.sroa.speculated
-  br i1 %cmp10.i, label %for.body.i, label %for.end.i.loopexit, !llvm.loop !13
+  br i1 %cmp10.i, label %for.body.i, label %for.end.i.loopexit, !llvm.loop !10
 
 for.end.i.loopexit:                               ; preds = %for.body.i
   %.pre.pre = load ptr, ptr %limit_.i.i, align 8
@@ -1507,7 +1538,7 @@ sw.bb2.i33:                                       ; preds = %_ZN6google8protobuf
 
 sw.default.i32:                                   ; preds = %_ZN6google8protobuf8internal11SerialArena22MaybePrefetchBackwardsEPKc.exit
   store i64 %15, ptr %14, align 1
-  %n7.i.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 8
+  %n7.i.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %destructor, ptr %n7.i.sroa.2.0..sroa_idx, align 1
   br label %_ZN6google8protobuf8internal7cleanup10CreateNodeENS2_3TagEPvPKvPFvS4_E.exit
 
@@ -1518,16 +1549,16 @@ _ZN6google8protobuf8internal7cleanup10CreateNodeENS2_3TagEPvPKvPFvS4_E.exit: ; p
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef i64 @_ZNK6google8protobuf8internal11SerialArena9SpaceUsedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %string_block_ = getelementptr inbounds i8, ptr %this, i64 32
+  %string_block_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load atomic i64, ptr %string_block_ acquire, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %atomic-temp.i.0.i = inttoptr i64 %0 to ptr
-  %string_block_unused_ = getelementptr inbounds i8, ptr %this, i64 40
+  %string_block_unused_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %1 = load atomic i64, ptr %string_block_unused_ monotonic, align 8
-  %allocated_size_.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i, i64 8
+  %allocated_size_.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i, i64 8
   %bf.load.i = load i32, ptr %allocated_size_.i, align 8
   %bf.lshr.i = lshr i32 %bf.load.i, 1
   %conv.i = zext nneg i32 %bf.lshr.i to i64
@@ -1537,21 +1568,21 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %space_used.0 = phi i64 [ %sub, %if.then ], [ 0, %entry ]
-  %head_ = getelementptr inbounds i8, ptr %this, i64 48
+  %head_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %2 = load atomic i64, ptr %head_ acquire, align 8
   %atomic-temp.i.0.i9 = inttoptr i64 %2 to ptr
-  %size.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i9, i64 16
+  %size.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i9, i64 16
   %3 = load i64, ptr %size.i, align 8
   %cmp.i = icmp eq i64 %3, 0
   br i1 %cmp.i, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end
   %4 = load atomic i64, ptr %this monotonic, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i9, i64 24
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i9, i64 24
   %sub.ptr.rhs.cast = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.sub = sub i64 %4, %sub.ptr.rhs.cast
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %3, i64 %sub.ptr.sub)
-  %space_used_ = getelementptr inbounds i8, ptr %this, i64 56
+  %space_used_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %5 = load atomic i64, ptr %space_used_ monotonic, align 8
   %add11 = add i64 %5, %space_used.0
   %add13 = add i64 %add11, %.sroa.speculated
@@ -1566,22 +1597,22 @@ return:                                           ; preds = %if.end, %if.end7
 define noundef i64 @_ZN6google8protobuf8internal11SerialArena16FreeStringBlocksEPNS1_11StringBlockEm(ptr noundef %string_block, i64 noundef %unused_bytes) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load ptr, ptr %string_block, align 8
-  %allocated_size_.i.i = getelementptr inbounds i8, ptr %string_block, i64 8
+  %allocated_size_.i.i = getelementptr inbounds nuw i8, ptr %string_block, i64 8
   %bf.load.i.i = load i32, ptr %allocated_size_.i.i, align 8
   %bf.lshr.i.i = lshr i32 %bf.load.i.i, 1
   %conv.i.i = zext nneg i32 %bf.lshr.i.i to i64
   %add.ptr2.i.i = getelementptr i8, ptr %string_block, i64 %conv.i.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %string_block, i64 16
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %string_block, i64 16
   %add.ptr2.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %unused_bytes
   %cmp.not28 = icmp eq ptr %add.ptr2.i, %add.ptr2.i.i
   br i1 %cmp.not28, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
   %s.029 = phi ptr [ %incdec.ptr, %for.body ], [ %add.ptr2.i, %entry ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s.029) #28
-  %incdec.ptr = getelementptr inbounds i8, ptr %s.029, i64 32
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s.029) #27
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %s.029, i64 32
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr2.i.i
-  br i1 %cmp.not, label %for.end.loopexit, label %for.body, !llvm.loop !14
+  br i1 %cmp.not, label %for.end.loopexit, label %for.body, !llvm.loop !11
 
 for.end.loopexit:                                 ; preds = %for.body
   %bf.load.i.pre = load i32, ptr %allocated_size_.i.i, align 8
@@ -1595,7 +1626,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
 if.end.i:                                         ; preds = %for.end
   %bf.lshr.i.i13 = lshr i32 %bf.load.i, 1
   %conv.i.i14 = zext nneg i32 %bf.lshr.i.i13 to i64
-  tail call void @_ZdlPv(ptr noundef nonnull %string_block) #28
+  tail call void @_ZdlPv(ptr noundef nonnull %string_block) #27
   br label %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit
 
 _ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit: ; preds = %for.end, %if.end.i
@@ -1607,7 +1638,7 @@ while.body:                                       ; preds = %_ZN6google8protobuf
   %next.034 = phi ptr [ %1, %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit27 ], [ %0, %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit ]
   %deallocated.033 = phi i64 [ %add, %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit27 ], [ %retval.0.i, %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit ]
   %1 = load ptr, ptr %next.034, align 8
-  %allocated_size_.i.i15 = getelementptr inbounds i8, ptr %next.034, i64 8
+  %allocated_size_.i.i15 = getelementptr inbounds nuw i8, ptr %next.034, i64 8
   %bf.load.i.i16 = load i32, ptr %allocated_size_.i.i15, align 8
   %bf.lshr.i.i17 = lshr i32 %bf.load.i.i16, 1
   %conv.i.i18 = zext nneg i32 %bf.lshr.i.i17 to i64
@@ -1616,13 +1647,13 @@ while.body:                                       ; preds = %_ZN6google8protobuf
   br i1 %cmp9.not30, label %for.end14, label %for.body10.preheader
 
 for.body10.preheader:                             ; preds = %while.body
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %next.034, i64 16
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %next.034, i64 16
   br label %for.body10
 
 for.body10:                                       ; preds = %for.body10.preheader, %for.body10
   %__begin3.031 = phi ptr [ %incdec.ptr13, %for.body10 ], [ %add.ptr.i.i, %for.body10.preheader ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__begin3.031) #28
-  %incdec.ptr13 = getelementptr inbounds i8, ptr %__begin3.031, i64 32
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__begin3.031) #27
+  %incdec.ptr13 = getelementptr inbounds nuw i8, ptr %__begin3.031, i64 32
   %cmp9.not = icmp eq ptr %incdec.ptr13, %add.ptr2.i.i19
   br i1 %cmp9.not, label %for.end14.loopexit, label %for.body10
 
@@ -1638,14 +1669,14 @@ for.end14:                                        ; preds = %for.end14.loopexit,
 if.end.i24:                                       ; preds = %for.end14
   %bf.lshr.i.i25 = lshr i32 %bf.load.i21, 1
   %conv.i.i26 = zext nneg i32 %bf.lshr.i.i25 to i64
-  tail call void @_ZdlPv(ptr noundef nonnull %next.034) #28
+  tail call void @_ZdlPv(ptr noundef nonnull %next.034) #27
   br label %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit27
 
 _ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit27: ; preds = %for.end14, %if.end.i24
   %retval.0.i23 = phi i64 [ %conv.i.i26, %if.end.i24 ], [ 0, %for.end14 ]
   %add = add i64 %retval.0.i23, %deallocated.033
   %cmp4.not = icmp eq ptr %1, null
-  br i1 %cmp4.not, label %while.end, label %while.body, !llvm.loop !15
+  br i1 %cmp4.not, label %while.end, label %while.body, !llvm.loop !12
 
 while.end:                                        ; preds = %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit27, %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit
   %deallocated.0.lcssa = phi i64 [ %retval.0.i, %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit ], [ %add, %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit27 ]
@@ -1658,28 +1689,28 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6google8protobuf8internal11SerialArena11CleanupListEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %head_.i = getelementptr inbounds i8, ptr %this, i64 48
+  %head_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load atomic i64, ptr %head_.i monotonic, align 8
   %atomic-temp.i.0.i.i = inttoptr i64 %0 to ptr
-  %size.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i, i64 16
+  %size.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i.i, i64 16
   %1 = load i64, ptr %size.i, align 8
   %cmp.i = icmp eq i64 %1, 0
   br i1 %cmp.i, label %do.end, label %if.end
 
 if.end:                                           ; preds = %entry
-  %limit_ = getelementptr inbounds i8, ptr %this, i64 8
+  %limit_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load ptr, ptr %limit_, align 8
-  %cleanup_nodes = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i, i64 8
+  %cleanup_nodes = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i.i, i64 8
   store ptr %2, ptr %cleanup_nodes, align 8
   br label %do.body
 
 do.body:                                          ; preds = %while.end, %if.end
   %b.0 = phi ptr [ %atomic-temp.i.0.i.i, %if.end ], [ %13, %while.end ]
-  %size.i12 = getelementptr inbounds i8, ptr %b.0, i64 16
+  %size.i12 = getelementptr inbounds nuw i8, ptr %b.0, i64 16
   %3 = load i64, ptr %size.i12, align 8
   %and.i13 = and i64 %3, -8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %b.0, i64 %and.i13
-  %cleanup_nodes4 = getelementptr inbounds i8, ptr %b.0, i64 8
+  %cleanup_nodes4 = getelementptr inbounds nuw i8, ptr %b.0, i64 8
   %4 = load ptr, ptr %cleanup_nodes4, align 8
   %cmp14 = icmp ult ptr %4, %add.ptr.i.i
   br i1 %cmp14, label %while.body, label %while.end
@@ -1698,7 +1729,7 @@ while.body:                                       ; preds = %do.body, %_ZN6googl
 sw.bb.i:                                          ; preds = %while.body
   %sub.i = add i64 %elem.i.0.copyload, -1
   %5 = inttoptr i64 %sub.i to ptr
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #27
   br label %_ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit
 
 sw.bb1.i:                                         ; preds = %while.body
@@ -1717,14 +1748,14 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #30
+  tail call void @__clang_call_terminate(ptr %10) #29
   unreachable
 
 default.unreachable16:                            ; preds = %while.body
   unreachable
 
 sw.default.i:                                     ; preds = %while.body, %while.body
-  %destructor.i = getelementptr inbounds i8, ptr %it.015, i64 8
+  %destructor.i = getelementptr inbounds nuw i8, ptr %it.015, i64 8
   %11 = load ptr, ptr %destructor.i, align 8
   %12 = inttoptr i64 %elem.i.0.copyload to ptr
   tail call void %11(ptr noundef %12)
@@ -1732,14 +1763,14 @@ sw.default.i:                                     ; preds = %while.body, %while.
 
 _ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit: ; preds = %if.then.i, %sw.bb1.i, %sw.default.i, %sw.bb.i
   %retval.i.0 = phi i64 [ 16, %sw.default.i ], [ 8, %sw.bb.i ], [ 8, %sw.bb1.i ], [ 8, %if.then.i ]
-  %add.ptr = getelementptr inbounds i8, ptr %it.015, i64 %retval.i.0
+  %add.ptr = getelementptr inbounds nuw i8, ptr %it.015, i64 %retval.i.0
   %cmp = icmp ult ptr %add.ptr, %add.ptr.i.i
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !16
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !13
 
 while.end:                                        ; preds = %_ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit, %do.body
   %13 = load ptr, ptr %b.0, align 8
   %tobool.not = icmp eq ptr %13, null
-  br i1 %tobool.not, label %do.end, label %do.body, !llvm.loop !17
+  br i1 %tobool.not, label %do.end, label %do.body, !llvm.loop !14
 
 do.end:                                           ; preds = %while.end, %entry
   ret void
@@ -1754,21 +1785,21 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN6google8protobuf8internal15ThreadSafeArenaC2Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((8, 16), (24, 32), (48, 120)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %mutex_ = getelementptr inbounds i8, ptr %this, i64 24
-  %first_arena_ = getelementptr inbounds i8, ptr %this, i64 48
-  %head_.i = getelementptr inbounds i8, ptr %this, i64 96
+  %mutex_ = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %first_arena_ = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %head_.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %first_arena_, i8 0, i64 48, i1 false)
-  %0 = getelementptr inbounds i8, ptr %this, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 0, ptr %0, align 8
   store i64 0, ptr %mutex_, align 8
   store ptr @_ZZN6google8protobuf8internal12_GLOBAL__N_116SentryArenaBlockEvE17kSentryArenaBlock, ptr %head_.i, align 8
-  %space_used_.i = getelementptr inbounds i8, ptr %this, i64 104
-  %parent_.i = getelementptr inbounds i8, ptr %this, i64 120
+  %space_used_.i = getelementptr inbounds nuw i8, ptr %this, i64 104
+  %parent_.i = getelementptr inbounds nuw i8, ptr %this, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %space_used_.i, i8 0, i64 16, i1 false)
   store ptr %this, ptr %parent_.i, align 8
-  %cached_block_length_.i = getelementptr inbounds i8, ptr %this, i64 128
+  %cached_block_length_.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   store i8 0, ptr %cached_block_length_.i, align 8
-  %cached_blocks_.i = getelementptr inbounds i8, ptr %this, i64 136
+  %cached_blocks_.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   store ptr null, ptr %cached_blocks_.i, align 8
   %1 = tail call noundef nonnull align 32 dereferenceable(24) ptr @llvm.threadlocal.address.p0(ptr align 32 @_ZN6google8protobuf8internal15ThreadSafeArena13thread_cache_E)
   %2 = load i64, ptr %1, align 32
@@ -1783,18 +1814,18 @@ monotonic.i.i.i:                                  ; preds = %invoke.cont
 
 invoke.cont2:                                     ; preds = %monotonic.i.i.i, %invoke.cont
   %id.0.i.i = phi i64 [ %mul.i.i, %monotonic.i.i.i ], [ %2, %invoke.cont ]
-  %head_ = getelementptr inbounds i8, ptr %this, i64 32
+  %head_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %add.i.i = add i64 %id.0.i.i, 1
   store i64 %add.i.i, ptr %1, align 32
   store i64 %id.0.i.i, ptr %this, align 8
   store atomic i64 ptrtoint (ptr @_ZN6google8protobuf8internalL17kSentryArenaChunkE to i64), ptr %head_ monotonic, align 8
-  %first_owner_.i = getelementptr inbounds i8, ptr %this, i64 40
+  %first_owner_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %1, ptr %first_owner_.i, align 8
-  %space_allocated_.i.i = getelementptr inbounds i8, ptr %this, i64 112
+  %space_allocated_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   %4 = load atomic i64, ptr %space_allocated_.i.i monotonic, align 8
-  %last_serial_arena.i.i = getelementptr inbounds i8, ptr %1, i64 16
+  %last_serial_arena.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %first_arena_, ptr %last_serial_arena.i.i, align 16
-  %last_lifecycle_id_seen.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %last_lifecycle_id_seen.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %id.0.i.i, ptr %last_lifecycle_id_seen.i.i, align 8
   ret void
 }
@@ -1818,16 +1849,16 @@ _ZN6google8protobuf8internal15ThreadSafeArena18GetNextLifeCycleIdEv.exit: ; pred
   %add.i = add i64 %id.0.i, 1
   store i64 %add.i, ptr %0, align 32
   store i64 %id.0.i, ptr %this, align 8
-  %head_ = getelementptr inbounds i8, ptr %this, i64 32
+  %head_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   store atomic i64 ptrtoint (ptr @_ZN6google8protobuf8internalL17kSentryArenaChunkE to i64), ptr %head_ monotonic, align 8
-  %first_owner_ = getelementptr inbounds i8, ptr %this, i64 40
+  %first_owner_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %0, ptr %first_owner_, align 8
-  %first_arena_ = getelementptr inbounds i8, ptr %this, i64 48
-  %space_allocated_.i = getelementptr inbounds i8, ptr %this, i64 112
+  %first_arena_ = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %space_allocated_.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   %3 = load atomic i64, ptr %space_allocated_.i monotonic, align 8
-  %last_serial_arena.i = getelementptr inbounds i8, ptr %0, i64 16
+  %last_serial_arena.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %first_arena_, ptr %last_serial_arena.i, align 16
-  %last_lifecycle_id_seen.i = getelementptr inbounds i8, ptr %0, i64 8
+  %last_lifecycle_id_seen.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %id.0.i, ptr %last_lifecycle_id_seen.i, align 8
   ret void
 }
@@ -1838,7 +1869,7 @@ declare void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 deref
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN6google8protobuf8internal15ThreadSafeArenaC2EPcm(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 16), (24, 40), (48, 120)) %this, ptr noundef %mem, i64 noundef %size) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mutex_ = getelementptr inbounds i8, ptr %this, i64 24
+  %mutex_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %cmp.i = icmp eq ptr %mem, null
   %cmp2.i = icmp ult i64 %size, 25
   %or.cond.i = or i1 %cmp.i, %cmp2.i
@@ -1847,40 +1878,40 @@ entry:
   br i1 %or.cond.i, label %invoke.cont, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %alloc_policy_ = getelementptr inbounds i8, ptr %this, i64 8
+  %alloc_policy_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 1, ptr %alloc_policy_, align 8
-  %size3.i.i = getelementptr inbounds i8, ptr %mem, i64 16
+  %size3.i.i = getelementptr inbounds nuw i8, ptr %mem, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mem, i8 0, i64 16, i1 false)
   store i64 %size, ptr %size3.i.i, align 8
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.end.i, %entry
   %retval.0.i = phi ptr [ %mem, %if.end.i ], [ @_ZZN6google8protobuf8internal12_GLOBAL__N_116SentryArenaBlockEvE17kSentryArenaBlock, %entry ]
-  %first_arena_ = getelementptr inbounds i8, ptr %this, i64 48
-  %head_.i = getelementptr inbounds i8, ptr %this, i64 96
+  %first_arena_ = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %head_.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %first_arena_, i8 0, i64 48, i1 false)
   store ptr %retval.0.i, ptr %head_.i, align 8
-  %space_used_.i = getelementptr inbounds i8, ptr %this, i64 104
+  %space_used_.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   store i64 0, ptr %space_used_.i, align 8
-  %space_allocated_.i = getelementptr inbounds i8, ptr %this, i64 112
-  %size.i = getelementptr inbounds i8, ptr %retval.0.i, i64 16
+  %space_allocated_.i = getelementptr inbounds nuw i8, ptr %this, i64 112
+  %size.i = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 16
   %0 = load i64, ptr %size.i, align 8
   store i64 %0, ptr %space_allocated_.i, align 8
-  %parent_.i = getelementptr inbounds i8, ptr %this, i64 120
+  %parent_.i = getelementptr inbounds nuw i8, ptr %this, i64 120
   store ptr %this, ptr %parent_.i, align 8
-  %cached_block_length_.i = getelementptr inbounds i8, ptr %this, i64 128
+  %cached_block_length_.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   store i8 0, ptr %cached_block_length_.i, align 8
-  %cached_blocks_.i = getelementptr inbounds i8, ptr %this, i64 136
+  %cached_blocks_.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   store ptr null, ptr %cached_blocks_.i, align 8
   %1 = load i64, ptr %size.i, align 8
   %cmp.i.i = icmp eq i64 %1, 0
   br i1 %cmp.i.i, label %invoke.cont2, label %if.end.i1
 
 if.end.i1:                                        ; preds = %invoke.cont
-  %prefetch_limit_.i = getelementptr inbounds i8, ptr %this, i64 72
-  %prefetch_ptr_.i = getelementptr inbounds i8, ptr %this, i64 64
-  %limit_.i = getelementptr inbounds i8, ptr %this, i64 56
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %retval.0.i, i64 24
+  %prefetch_limit_.i = getelementptr inbounds nuw i8, ptr %this, i64 72
+  %prefetch_ptr_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
+  %limit_.i = getelementptr inbounds nuw i8, ptr %this, i64 56
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 24
   %and.i.i = and i64 %1, -8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %retval.0.i, i64 %and.i.i
   %2 = ptrtoint ptr %add.ptr.i.i to i64
@@ -1904,17 +1935,17 @@ monotonic.i.i.i:                                  ; preds = %invoke.cont2
 
 invoke.cont3:                                     ; preds = %monotonic.i.i.i, %invoke.cont2
   %id.0.i.i = phi i64 [ %mul.i.i, %monotonic.i.i.i ], [ %4, %invoke.cont2 ]
-  %head_ = getelementptr inbounds i8, ptr %this, i64 32
+  %head_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %add.i.i = add i64 %id.0.i.i, 1
   store i64 %add.i.i, ptr %3, align 32
   store i64 %id.0.i.i, ptr %this, align 8
   store atomic i64 ptrtoint (ptr @_ZN6google8protobuf8internalL17kSentryArenaChunkE to i64), ptr %head_ monotonic, align 8
-  %first_owner_.i = getelementptr inbounds i8, ptr %this, i64 40
+  %first_owner_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %3, ptr %first_owner_.i, align 8
   %6 = load atomic i64, ptr %space_allocated_.i monotonic, align 8
-  %last_serial_arena.i.i = getelementptr inbounds i8, ptr %3, i64 16
+  %last_serial_arena.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %first_arena_, ptr %last_serial_arena.i.i, align 16
-  %last_lifecycle_id_seen.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %last_lifecycle_id_seen.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %id.0.i.i, ptr %last_lifecycle_id_seen.i.i, align 8
   ret void
 }
@@ -1928,11 +1959,11 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %alloc_policy_ = getelementptr inbounds i8, ptr %this, i64 8
+  %alloc_policy_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %alloc_policy_, align 8
   %storemerge.i.i = or i64 %0, 1
   store i64 %storemerge.i.i, ptr %alloc_policy_, align 8
-  %size3.i = getelementptr inbounds i8, ptr %buf, i64 16
+  %size3.i = getelementptr inbounds nuw i8, ptr %buf, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %buf, i8 0, i64 16, i1 false)
   store i64 %size, ptr %size3.i, align 8
   br label %return
@@ -1945,21 +1976,21 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6google8protobuf8internal15ThreadSafeArenaC2EPvmRKNS1_16AllocationPolicyE(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 16), (24, 40)) %this, ptr noundef %mem, i64 noundef %size, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %policy) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %alloc_policy_ = getelementptr inbounds i8, ptr %this, i64 8
-  %mutex_ = getelementptr inbounds i8, ptr %this, i64 24
+  %alloc_policy_ = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %mutex_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mutex_, i8 0, i64 16, i1 false)
   %0 = load i64, ptr %policy, align 8
   %cmp.i.i = icmp eq i64 %0, 256
-  %max_block_size.i.i = getelementptr inbounds i8, ptr %policy, i64 8
+  %max_block_size.i.i = getelementptr inbounds nuw i8, ptr %policy, i64 8
   %1 = load i64, ptr %max_block_size.i.i, align 8
   %cmp2.i.i = icmp eq i64 %1, 32768
   %or.cond.i.i = select i1 %cmp.i.i, i1 %cmp2.i.i, i1 false
-  %block_alloc.i.i = getelementptr inbounds i8, ptr %policy, i64 16
+  %block_alloc.i.i = getelementptr inbounds nuw i8, ptr %policy, i64 16
   %2 = load ptr, ptr %block_alloc.i.i, align 8
   %cmp4.i.i = icmp eq ptr %2, null
   %or.cond1.i.i = select i1 %or.cond.i.i, i1 %cmp4.i.i, i1 false
-  %block_dealloc.i.i = getelementptr inbounds i8, ptr %policy, i64 24
+  %block_dealloc.i.i = getelementptr inbounds nuw i8, ptr %policy, i64 24
   %3 = load ptr, ptr %block_dealloc.i.i, align 8
   %cmp5.i.i = icmp eq ptr %3, null
   %or.cond10.i = select i1 %or.cond1.i.i, i1 %cmp5.i.i, i1 false
@@ -1981,7 +2012,7 @@ if.then5.i:                                       ; preds = %while.end.i
   br i1 %cmp4.i.i, label %if.then16.i.i, label %if.end18.i.i
 
 if.then16.i.i:                                    ; preds = %if.then5.i
-  %call.i7.i.i2 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.sroa.speculated.i.i) #31
+  %call.i7.i.i2 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.sroa.speculated.i.i) #30
           to label %invoke.cont.sink.split unwind label %lpad
 
 if.end18.i.i:                                     ; preds = %if.then5.i
@@ -1995,38 +2026,38 @@ invoke.cont.sink.split.sink.split:                ; preds = %while.end.i, %if.th
 invoke.cont.sink.split:                           ; preds = %invoke.cont.sink.split.sink.split, %if.then16.i.i, %if.end18.i.i
   %mem.sroa.0.0.i.sink5 = phi ptr [ %call.i7.i.i2, %if.then16.i.i ], [ %call20.i.i3, %if.end18.i.i ], [ %mem, %invoke.cont.sink.split.sink.split ]
   %mem.sroa.3.0.i.sink = phi i64 [ %.sroa.speculated.i.i, %if.then16.i.i ], [ %.sroa.speculated.i.i, %if.end18.i.i ], [ %size, %invoke.cont.sink.split.sink.split ]
-  %size3.i.i = getelementptr inbounds i8, ptr %mem.sroa.0.0.i.sink5, i64 16
+  %size3.i.i = getelementptr inbounds nuw i8, ptr %mem.sroa.0.0.i.sink5, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mem.sroa.0.0.i.sink5, i8 0, i64 16, i1 false)
   store i64 %mem.sroa.3.0.i.sink, ptr %size3.i.i, align 8
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %invoke.cont.sink.split, %if.then.i
   %retval.0.i = phi ptr [ @_ZZN6google8protobuf8internal12_GLOBAL__N_116SentryArenaBlockEvE17kSentryArenaBlock, %if.then.i ], [ %mem.sroa.0.0.i.sink5, %invoke.cont.sink.split ]
-  %first_arena_ = getelementptr inbounds i8, ptr %this, i64 48
-  %head_.i = getelementptr inbounds i8, ptr %this, i64 96
+  %first_arena_ = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %head_.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %first_arena_, i8 0, i64 48, i1 false)
   store ptr %retval.0.i, ptr %head_.i, align 8
-  %space_used_.i = getelementptr inbounds i8, ptr %this, i64 104
+  %space_used_.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   store i64 0, ptr %space_used_.i, align 8
-  %space_allocated_.i = getelementptr inbounds i8, ptr %this, i64 112
-  %size.i = getelementptr inbounds i8, ptr %retval.0.i, i64 16
+  %space_allocated_.i = getelementptr inbounds nuw i8, ptr %this, i64 112
+  %size.i = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 16
   %4 = load i64, ptr %size.i, align 8
   store i64 %4, ptr %space_allocated_.i, align 8
-  %parent_.i = getelementptr inbounds i8, ptr %this, i64 120
+  %parent_.i = getelementptr inbounds nuw i8, ptr %this, i64 120
   store ptr %this, ptr %parent_.i, align 8
-  %cached_block_length_.i = getelementptr inbounds i8, ptr %this, i64 128
+  %cached_block_length_.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   store i8 0, ptr %cached_block_length_.i, align 8
-  %cached_blocks_.i = getelementptr inbounds i8, ptr %this, i64 136
+  %cached_blocks_.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   store ptr null, ptr %cached_blocks_.i, align 8
   %5 = load i64, ptr %size.i, align 8
   %cmp.i.i4 = icmp eq i64 %5, 0
   br i1 %cmp.i.i4, label %invoke.cont2, label %if.end.i
 
 if.end.i:                                         ; preds = %invoke.cont
-  %prefetch_limit_.i = getelementptr inbounds i8, ptr %this, i64 72
-  %prefetch_ptr_.i = getelementptr inbounds i8, ptr %this, i64 64
-  %limit_.i = getelementptr inbounds i8, ptr %this, i64 56
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %retval.0.i, i64 24
+  %prefetch_limit_.i = getelementptr inbounds nuw i8, ptr %this, i64 72
+  %prefetch_ptr_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
+  %limit_.i = getelementptr inbounds nuw i8, ptr %this, i64 56
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 24
   %and.i.i = and i64 %5, -8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %retval.0.i, i64 %and.i.i
   %6 = ptrtoint ptr %add.ptr.i.i to i64
@@ -2046,7 +2077,7 @@ invoke.cont3:                                     ; preds = %invoke.cont2
 lpad:                                             ; preds = %if.end18.i.i, %if.then16.i.i, %invoke.cont2
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %mutex_) #28
+  tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %mutex_) #27
   resume { ptr, i32 } %7
 }
 
@@ -2055,15 +2086,15 @@ define noundef ptr @_ZN6google8protobuf8internal15ThreadSafeArena10FirstBlockEPv
 entry:
   %0 = load i64, ptr %policy, align 8
   %cmp.i = icmp eq i64 %0, 256
-  %max_block_size.i = getelementptr inbounds i8, ptr %policy, i64 8
+  %max_block_size.i = getelementptr inbounds nuw i8, ptr %policy, i64 8
   %1 = load i64, ptr %max_block_size.i, align 8
   %cmp2.i = icmp eq i64 %1, 32768
   %or.cond.i = select i1 %cmp.i, i1 %cmp2.i, i1 false
-  %block_alloc.i = getelementptr inbounds i8, ptr %policy, i64 16
+  %block_alloc.i = getelementptr inbounds nuw i8, ptr %policy, i64 16
   %2 = load ptr, ptr %block_alloc.i, align 8
   %cmp4.i = icmp eq ptr %2, null
   %or.cond1.i = select i1 %or.cond.i, i1 %cmp4.i, i1 false
-  %block_dealloc.i = getelementptr inbounds i8, ptr %policy, i64 24
+  %block_dealloc.i = getelementptr inbounds nuw i8, ptr %policy, i64 24
   %3 = load ptr, ptr %block_dealloc.i, align 8
   %cmp5.i = icmp eq ptr %3, null
   %or.cond10 = select i1 %or.cond1.i, i1 %cmp5.i, i1 false
@@ -2076,11 +2107,11 @@ if.then:                                          ; preds = %entry
   br i1 %or.cond.i8, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
-  %alloc_policy_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %alloc_policy_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load i64, ptr %alloc_policy_.i, align 8
   %storemerge.i.i.i = or i64 %4, 1
   store i64 %storemerge.i.i.i, ptr %alloc_policy_.i, align 8
-  %size3.i.i = getelementptr inbounds i8, ptr %buf, i64 16
+  %size3.i.i = getelementptr inbounds nuw i8, ptr %buf, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %buf, i8 0, i64 16, i1 false)
   store i64 %size, ptr %size3.i.i, align 8
   br label %return
@@ -2095,7 +2126,7 @@ if.then5:                                         ; preds = %while.end
   br i1 %cmp4.i, label %if.then16.i, label %if.end18.i
 
 if.then16.i:                                      ; preds = %if.then5
-  %call.i7.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.sroa.speculated.i) #31
+  %call.i7.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.sroa.speculated.i) #30
   br label %if.end9
 
 if.end18.i:                                       ; preds = %if.then5
@@ -2103,7 +2134,7 @@ if.end18.i:                                       ; preds = %if.then5
   br label %if.end9
 
 if.else:                                          ; preds = %while.end
-  %alloc_policy_ = getelementptr inbounds i8, ptr %this, i64 8
+  %alloc_policy_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %5 = load i64, ptr %alloc_policy_, align 8
   %storemerge.i.i = or i64 %5, 1
   store i64 %storemerge.i.i, ptr %alloc_policy_, align 8
@@ -2112,7 +2143,7 @@ if.else:                                          ; preds = %while.end
 if.end9:                                          ; preds = %if.end18.i, %if.then16.i, %if.else
   %mem.sroa.0.0 = phi ptr [ %buf, %if.else ], [ %call.i7.i, %if.then16.i ], [ %call20.i, %if.end18.i ]
   %mem.sroa.3.0 = phi i64 [ %size, %if.else ], [ %.sroa.speculated.i, %if.then16.i ], [ %.sroa.speculated.i, %if.end18.i ]
-  %size3.i = getelementptr inbounds i8, ptr %mem.sroa.0.0, i64 16
+  %size3.i = getelementptr inbounds nuw i8, ptr %mem.sroa.0.0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mem.sroa.0.0, i8 0, i64 16, i1 false)
   store i64 %mem.sroa.3.0, ptr %size3.i, align 8
   br label %return
@@ -2142,28 +2173,28 @@ _ZN6google8protobuf8internal15ThreadSafeArena4InitEv.exit: ; preds = %entry, %mo
   %add.i.i = add i64 %id.0.i.i, 1
   store i64 %add.i.i, ptr %0, align 32
   store i64 %id.0.i.i, ptr %this, align 8
-  %head_.i = getelementptr inbounds i8, ptr %this, i64 32
+  %head_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store atomic i64 ptrtoint (ptr @_ZN6google8protobuf8internalL17kSentryArenaChunkE to i64), ptr %head_.i monotonic, align 8
-  %first_owner_.i = getelementptr inbounds i8, ptr %this, i64 40
+  %first_owner_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %0, ptr %first_owner_.i, align 8
-  %first_arena_.i = getelementptr inbounds i8, ptr %this, i64 48
-  %space_allocated_.i.i = getelementptr inbounds i8, ptr %this, i64 112
+  %first_arena_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %space_allocated_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   %3 = load atomic i64, ptr %space_allocated_.i.i monotonic, align 8
-  %last_serial_arena.i.i = getelementptr inbounds i8, ptr %0, i64 16
+  %last_serial_arena.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %first_arena_.i, ptr %last_serial_arena.i.i, align 16
-  %last_lifecycle_id_seen.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %last_lifecycle_id_seen.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %id.0.i.i, ptr %last_lifecycle_id_seen.i.i, align 8
   %4 = load i64, ptr %policy, align 8
   %cmp.i = icmp eq i64 %4, 256
-  %max_block_size.i = getelementptr inbounds i8, ptr %policy, i64 8
+  %max_block_size.i = getelementptr inbounds nuw i8, ptr %policy, i64 8
   %5 = load i64, ptr %max_block_size.i, align 8
   %cmp2.i = icmp eq i64 %5, 32768
   %or.cond.i = select i1 %cmp.i, i1 %cmp2.i, i1 false
-  %block_alloc.i = getelementptr inbounds i8, ptr %policy, i64 16
+  %block_alloc.i = getelementptr inbounds nuw i8, ptr %policy, i64 16
   %6 = load ptr, ptr %block_alloc.i, align 8
   %cmp4.i = icmp eq ptr %6, null
   %or.cond1.i = select i1 %or.cond.i, i1 %cmp4.i, i1 false
-  %block_dealloc.i = getelementptr inbounds i8, ptr %policy, i64 24
+  %block_dealloc.i = getelementptr inbounds nuw i8, ptr %policy, i64 24
   %7 = load ptr, ptr %block_dealloc.i, align 8
   %cmp5.i = icmp eq ptr %7, null
   %or.cond = select i1 %or.cond1.i, i1 %cmp5.i, i1 false
@@ -2172,7 +2203,7 @@ _ZN6google8protobuf8internal15ThreadSafeArena4InitEv.exit: ; preds = %entry, %mo
 if.end:                                           ; preds = %_ZN6google8protobuf8internal15ThreadSafeArena4InitEv.exit
   %8 = load atomic i64, ptr %first_arena_.i monotonic, align 8
   %add.i = add i64 %8, 32
-  %limit_.i = getelementptr inbounds i8, ptr %this, i64 56
+  %limit_.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %9 = load ptr, ptr %limit_.i, align 8
   %10 = ptrtoint ptr %9 to i64
   %cmp.i2.not = icmp ugt i64 %add.i, %10
@@ -2182,7 +2213,7 @@ if.end.i:                                         ; preds = %if.end
   %atomic-temp.i.0.i.i.i = inttoptr i64 %8 to ptr
   %11 = inttoptr i64 %add.i to ptr
   store atomic i64 %add.i, ptr %first_arena_.i monotonic, align 8
-  %prefetch_ptr_.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %prefetch_ptr_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %12 = load ptr, ptr %prefetch_ptr_.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %add.i
@@ -2190,7 +2221,7 @@ if.end.i:                                         ; preds = %if.end
   br i1 %cmp.i.i3, label %if.end9, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end.i
-  %prefetch_limit_.i.i = getelementptr inbounds i8, ptr %this, i64 72
+  %prefetch_limit_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %13 = load ptr, ptr %prefetch_limit_.i.i, align 8
   %cmp3.i.i = icmp ult ptr %12, %13
   br i1 %cmp3.i.i, label %if.then4.i.i, label %if.end9
@@ -2198,7 +2229,7 @@ if.end.i.i:                                       ; preds = %if.end.i
 if.then4.i.i:                                     ; preds = %if.end.i.i
   %cmp.i8.i = icmp ugt ptr %12, %11
   %.sroa.speculated12.i = select i1 %cmp.i8.i, ptr %12, ptr %11
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %.sroa.speculated12.i, i64 1024
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %.sroa.speculated12.i, i64 1024
   %cmp.i9.i = icmp ult ptr %add.ptr.i.i, %13
   %.sroa.speculated.i = select i1 %cmp.i9.i, ptr %add.ptr.i.i, ptr %13
   %cmp8.i13.i = icmp ult ptr %.sroa.speculated12.i, %.sroa.speculated.i
@@ -2206,24 +2237,24 @@ if.then4.i.i:                                     ; preds = %if.end.i.i
 
 for.body.i.i:                                     ; preds = %if.then4.i.i, %for.body.i.i
   %prefetch_ptr.i.014.i = phi ptr [ %add.ptr9.i.i, %for.body.i.i ], [ %.sroa.speculated12.i, %if.then4.i.i ]
-  tail call void asm sideeffect "prefetchw ($0)", "r,~{dirflag},~{fpsr},~{flags}"(ptr %prefetch_ptr.i.014.i) #28, !srcloc !7
-  %add.ptr9.i.i = getelementptr inbounds i8, ptr %prefetch_ptr.i.014.i, i64 64
+  tail call void asm sideeffect "prefetchw ($0)", "r,~{dirflag},~{fpsr},~{flags}"(ptr %prefetch_ptr.i.014.i) #27, !srcloc !7
+  %add.ptr9.i.i = getelementptr inbounds nuw i8, ptr %prefetch_ptr.i.014.i, i64 64
   %cmp8.i.i = icmp ult ptr %add.ptr9.i.i, %.sroa.speculated.i
   br i1 %cmp8.i.i, label %for.body.i.i, label %if.end9.sink.split, !llvm.loop !8
 
 if.then3:                                         ; preds = %if.end
-  call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp4, ptr noundef nonnull @.str, i32 noundef 567) #29
+  call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp4, ptr noundef nonnull @.str, i32 noundef 567) #28
   %call7 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2023080212log_internal10LogMessagelsILi39EEERS2_RAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp4, ptr noundef nonnull align 1 dereferenceable(39) @.str.1)
           to label %invoke.cont6 unwind label %lpad
 
 invoke.cont6:                                     ; preds = %if.then3
-  call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp4) #30
+  call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp4) #29
   unreachable
 
 lpad:                                             ; preds = %if.then3
   %14 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp4) #30
+  call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp4) #29
   unreachable
 
 if.end9.sink.split:                               ; preds = %for.body.i.i, %if.then4.i.i
@@ -2233,7 +2264,7 @@ if.end9.sink.split:                               ; preds = %for.body.i.i, %if.t
 
 if.end9:                                          ; preds = %if.end9.sink.split, %if.end.i.i, %if.end.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %atomic-temp.i.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %policy, i64 32, i1 false)
-  %alloc_policy_ = getelementptr inbounds i8, ptr %this, i64 8
+  %alloc_policy_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %15 = load i64, ptr %alloc_policy_, align 8
   %and.i = and i64 %15, 7
   %or.i = or i64 %and.i, %8
@@ -2253,9 +2284,9 @@ entry:
 
 if.then:                                          ; preds = %entry
   %policy.sroa.0.0.copyload = load i64, ptr %policy_ptr, align 8
-  %policy.sroa.3.0.policy_ptr.sroa_idx = getelementptr inbounds i8, ptr %policy_ptr, i64 8
+  %policy.sroa.3.0.policy_ptr.sroa_idx = getelementptr inbounds nuw i8, ptr %policy_ptr, i64 8
   %policy.sroa.3.0.copyload = load i64, ptr %policy.sroa.3.0.policy_ptr.sroa_idx, align 8
-  %policy.sroa.5.0.policy_ptr.sroa_idx = getelementptr inbounds i8, ptr %policy_ptr, i64 16
+  %policy.sroa.5.0.policy_ptr.sroa_idx = getelementptr inbounds nuw i8, ptr %policy_ptr, i64 16
   %policy.sroa.5.0.copyload = load ptr, ptr %policy.sroa.5.0.policy_ptr.sroa_idx, align 8
   br label %if.end
 
@@ -2268,11 +2299,11 @@ if.end:                                           ; preds = %if.then, %entry
 
 while.body:                                       ; preds = %if.end
   %call.i = tail call noundef nonnull ptr @_ZN4absl12lts_2023080212log_internal17MakeCheckOpStringImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc(i64 noundef %min_bytes, i64 noundef -25, ptr noundef nonnull @.str.4)
-  %call11 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %call.i) #28
+  %call11 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %call.i) #27
   %0 = extractvalue { i64, ptr } %call11, 0
   %1 = extractvalue { i64, ptr } %call11, 1
-  call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp10, ptr noundef nonnull @.str, i32 noundef 74, i64 %0, ptr %1) #29
-  call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp10) #30
+  call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp10, ptr noundef nonnull @.str, i32 noundef 74, i64 %0, ptr %1) #28
+  call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp10) #29
   unreachable
 
 while.end:                                        ; preds = %if.end
@@ -2286,7 +2317,7 @@ while.end:                                        ; preds = %if.end
   br i1 %cmp15, label %if.then16, label %if.end18
 
 if.then16:                                        ; preds = %while.end
-  %call.i7 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.sroa.speculated) #31
+  %call.i7 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.sroa.speculated) #30
   br label %return
 
 if.end18:                                         ; preds = %while.end
@@ -2309,7 +2340,7 @@ declare void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalC1EPKci(ptr n
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2023080212log_internal10LogMessagelsILi39EEERS2_RAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 dereferenceable(39) %buf) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #28
+  %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #27
   tail call void @_ZN4absl12lts_2023080212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 %call.i.i, ptr nonnull %buf)
   ret ptr %this
 }
@@ -2345,16 +2376,16 @@ entry:
   %0 = shl nuw nsw i64 %conv, 6
   %1 = tail call i64 @llvm.umin.i64(i64 %0, i64 4032)
   %add.i.i5 = add nuw nsw i64 %1, 64
-  %call.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %add.i.i5) #31
+  %call.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %add.i.i5) #30
   %2 = trunc nuw nsw i64 %add.i.i5 to i32
   %3 = add nsw i32 %2, -16
   %4 = lshr exact i32 %3, 4
   store ptr null, ptr %call.i, align 8
-  %capacity2.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %capacity2.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i32 %4, ptr %capacity2.i.i, align 8
-  %size3.i.i = getelementptr inbounds i8, ptr %call.i, i64 12
+  %size3.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 12
   store i32 1, ptr %size3.i.i, align 4
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store ptr %id, ptr %add.ptr.i.i.i, align 8
   %scevgep.i = getelementptr i8, ptr %call.i, i64 24
   %5 = add nsw i32 %4, -1
@@ -2374,31 +2405,31 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6google8protobuf8internal15ThreadSafeArena14AddSerialArenaEPvPNS1_11SerialArenaE(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %id, ptr noundef %serial) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %head_ = getelementptr inbounds i8, ptr %this, i64 32
+  %head_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load atomic i64, ptr %head_ acquire, align 8
   %atomic-temp.i.0.i = inttoptr i64 %0 to ptr
-  %capacity.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i, i64 8
+  %capacity.i.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i, i64 8
   %1 = load i32, ptr %capacity.i.i, align 8
   %cmp.i = icmp eq i32 %1, 0
   br i1 %cmp.i, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %size.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i, i64 12
+  %size.i.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i, i64 12
   %2 = atomicrmw add ptr %size.i.i, i32 1 monotonic, align 4
   %cmp.not.i = icmp ult i32 %2, %1
   br i1 %cmp.not.i, label %_ZN6google8protobuf8internal15ThreadSafeArena16SerialArenaChunk6insertEPvPNS1_11SerialArenaE.exit.thread, label %_ZN6google8protobuf8internal15ThreadSafeArena16SerialArenaChunk6insertEPvPNS1_11SerialArenaE.exit
 
 _ZN6google8protobuf8internal15ThreadSafeArena16SerialArenaChunk6insertEPvPNS1_11SerialArenaE.exit.thread: ; preds = %land.lhs.true
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i, i64 16
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i, i64 16
   %idxprom.i.i = zext i32 %2 to i64
-  %arrayidx.i.i = getelementptr inbounds %"struct.std::atomic.23", ptr %add.ptr.i.i.i, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw %"struct.std::atomic.23", ptr %add.ptr.i.i.i, i64 %idxprom.i.i
   %3 = ptrtoint ptr %id to i64
   store atomic i64 %3, ptr %arrayidx.i.i monotonic, align 8
   %conv.i.i = zext i32 %1 to i64
   %mul.i.i.i.i = shl nuw nsw i64 %conv.i.i, 3
   %4 = getelementptr i8, ptr %atomic-temp.i.0.i, i64 %mul.i.i.i.i
   %add.ptr.i.i12.i = getelementptr i8, ptr %4, i64 16
-  %arrayidx.i14.i = getelementptr inbounds %"struct.std::atomic.25", ptr %add.ptr.i.i12.i, i64 %idxprom.i.i
+  %arrayidx.i14.i = getelementptr inbounds nuw %"struct.std::atomic.25", ptr %add.ptr.i.i12.i, i64 %idxprom.i.i
   %5 = ptrtoint ptr %serial to i64
   store atomic i64 %5, ptr %arrayidx.i14.i release, align 8
   br label %cleanup.cont
@@ -2408,7 +2439,7 @@ _ZN6google8protobuf8internal15ThreadSafeArena16SerialArenaChunk6insertEPvPNS1_11
   br label %if.end
 
 if.end:                                           ; preds = %_ZN6google8protobuf8internal15ThreadSafeArena16SerialArenaChunk6insertEPvPNS1_11SerialArenaE.exit, %entry
-  %mutex_ = getelementptr inbounds i8, ptr %this, i64 24
+  %mutex_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %mutex_)
   %6 = load atomic i64, ptr %head_ acquire, align 8
   %atomic-temp.i.0.i14 = inttoptr i64 %6 to ptr
@@ -2420,24 +2451,24 @@ if.end.invoke.cont11_crit_edge:                   ; preds = %if.end
   br label %invoke.cont11
 
 if.then6:                                         ; preds = %if.end
-  %size.i.i15 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i14, i64 12
+  %size.i.i15 = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i14, i64 12
   %7 = atomicrmw add ptr %size.i.i15, i32 1 monotonic, align 4
-  %capacity.i.i16 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i14, i64 8
+  %capacity.i.i16 = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i14, i64 8
   %8 = load i32, ptr %capacity.i.i16, align 8
   %cmp.not.i17 = icmp ult i32 %7, %8
   br i1 %cmp.not.i17, label %invoke.cont.thread, label %invoke.cont
 
 invoke.cont.thread:                               ; preds = %if.then6
-  %add.ptr.i.i.i20 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i14, i64 16
+  %add.ptr.i.i.i20 = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i14, i64 16
   %idxprom.i.i21 = zext i32 %7 to i64
-  %arrayidx.i.i22 = getelementptr inbounds %"struct.std::atomic.23", ptr %add.ptr.i.i.i20, i64 %idxprom.i.i21
+  %arrayidx.i.i22 = getelementptr inbounds nuw %"struct.std::atomic.23", ptr %add.ptr.i.i.i20, i64 %idxprom.i.i21
   %9 = ptrtoint ptr %id to i64
   store atomic i64 %9, ptr %arrayidx.i.i22 monotonic, align 8
   %conv.i.i23 = zext i32 %8 to i64
   %mul.i.i.i.i24 = shl nuw nsw i64 %conv.i.i23, 3
   %10 = getelementptr i8, ptr %atomic-temp.i.0.i14, i64 %mul.i.i.i.i24
   %add.ptr.i.i12.i25 = getelementptr i8, ptr %10, i64 16
-  %arrayidx.i14.i26 = getelementptr inbounds %"struct.std::atomic.25", ptr %add.ptr.i.i12.i25, i64 %idxprom.i.i21
+  %arrayidx.i14.i26 = getelementptr inbounds nuw %"struct.std::atomic.25", ptr %add.ptr.i.i12.i25, i64 %idxprom.i.i21
   %11 = ptrtoint ptr %serial to i64
   store atomic i64 %11, ptr %arrayidx.i14.i26 release, align 8
   br label %cleanup
@@ -2456,7 +2487,7 @@ terminate.lpad.i:                                 ; preds = %lpad
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #30
+  tail call void @__clang_call_terminate(ptr %14) #29
   unreachable
 
 _ZN4absl12lts_202308029MutexLockD2Ev.exit:        ; preds = %lpad
@@ -2469,18 +2500,18 @@ invoke.cont11:                                    ; preds = %if.end.invoke.cont1
   %16 = shl nuw nsw i64 %conv.i, 6
   %17 = tail call i64 @llvm.umin.i64(i64 %16, i64 4032)
   %add.i.i5.i = add nuw nsw i64 %17, 64
-  %call.i.i28 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %add.i.i5.i) #31
+  %call.i.i28 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %add.i.i5.i) #30
           to label %invoke.cont15 unwind label %lpad
 
 invoke.cont15:                                    ; preds = %invoke.cont11
   %18 = trunc nuw nsw i64 %add.i.i5.i to i32
   %19 = add nsw i32 %18, -16
   %20 = lshr exact i32 %19, 4
-  %capacity2.i.i.i = getelementptr inbounds i8, ptr %call.i.i28, i64 8
+  %capacity2.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i28, i64 8
   store i32 %20, ptr %capacity2.i.i.i, align 8
-  %size3.i.i.i = getelementptr inbounds i8, ptr %call.i.i28, i64 12
+  %size3.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i28, i64 12
   store i32 1, ptr %size3.i.i.i, align 4
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i28, i64 16
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i28, i64 16
   store ptr %id, ptr %add.ptr.i.i.i.i, align 8
   %scevgep.i.i = getelementptr i8, ptr %call.i.i28, i64 24
   %21 = add nsw i32 %20, -1
@@ -2507,7 +2538,7 @@ terminate.lpad.i29:                               ; preds = %cleanup
   %27 = landingpad { ptr, i32 }
           catch ptr null
   %28 = extractvalue { ptr, i32 } %27, 0
-  tail call void @__clang_call_terminate(ptr %28) #30
+  tail call void @__clang_call_terminate(ptr %28) #29
   unreachable
 
 cleanup.cont:                                     ; preds = %cleanup, %_ZN6google8protobuf8internal15ThreadSafeArena16SerialArenaChunk6insertEPvPNS1_11SerialArenaE.exit.thread
@@ -2529,7 +2560,7 @@ invoke.cont:                                      ; preds = %entry
 invoke.cont3:                                     ; preds = %invoke.cont
   %0 = extractvalue { ptr, i64 } %call, 0
   %1 = extractvalue { ptr, i64 } %call, 1
-  %alloc_policy_ = getelementptr inbounds i8, ptr %this, i64 8
+  %alloc_policy_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i64, ptr %alloc_policy_, align 8
   %and.i.i = and i64 %2, 1
   %tobool.i.not = icmp ne i64 %and.i.i, 0
@@ -2544,7 +2575,7 @@ if.then6:                                         ; preds = %invoke.cont3
 
 _ZN6google8protobuf8internal14GetDeallocatorC2EPKNS1_16AllocationPolicyEPm.exit: ; preds = %if.then6
   %3 = inttoptr i64 %and.i to ptr
-  %block_dealloc.i = getelementptr inbounds i8, ptr %3, i64 24
+  %block_dealloc.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   %4 = load ptr, ptr %block_dealloc.i, align 8
   %tobool.not.i3 = icmp eq ptr %4, null
   br i1 %tobool.not.i3, label %if.else.i, label %if.then.i
@@ -2554,29 +2585,29 @@ if.then.i:                                        ; preds = %_ZN6google8protobuf
           to label %if.end12 unwind label %terminate.lpad
 
 if.else.i:                                        ; preds = %if.then6, %_ZN6google8protobuf8internal14GetDeallocatorC2EPKNS1_16AllocationPolicyEPm.exit
-  tail call void @_ZdlPv(ptr noundef %0) #28
+  tail call void @_ZdlPv(ptr noundef %0) #27
   br label %if.end12
 
 if.end12:                                         ; preds = %if.else.i, %if.then.i, %invoke.cont3
-  %mutex_ = getelementptr inbounds i8, ptr %this, i64 24
-  tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %mutex_) #28
+  %mutex_ = getelementptr inbounds nuw i8, ptr %this, i64 24
+  tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %mutex_) #27
   ret void
 
 terminate.lpad:                                   ; preds = %if.then.i, %invoke.cont, %entry
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  tail call void @__clang_call_terminate(ptr %6) #30
+  tail call void @__clang_call_terminate(ptr %6) #29
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6google8protobuf8internal15ThreadSafeArena11CleanupListEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %head_.i = getelementptr inbounds i8, ptr %this, i64 32
+  %head_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load atomic i64, ptr %head_.i monotonic, align 8
   %atomic-temp.i.0.i.i = inttoptr i64 %0 to ptr
-  %capacity.i.i3.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i, i64 8
+  %capacity.i.i3.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i.i, i64 8
   %1 = load i32, ptr %capacity.i.i3.i, align 8
   %cmp.i4.i = icmp eq i32 %1, 0
   br i1 %cmp.i4.i, label %"_ZN6google8protobuf8internal15ThreadSafeArena20WalkSerialArenaChunkIZNS2_11CleanupListEvE3$_0EEvT_.exit", label %while.body.i
@@ -2589,7 +2620,7 @@ while.body.i:                                     ; preds = %entry, %"_ZZN6googl
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %conv.i.i.i, 3
   %4 = getelementptr i8, ptr %chunk.05.i, i64 %mul.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i = getelementptr i8, ptr %4, i64 16
-  %size.i.i.i.i.i = getelementptr inbounds i8, ptr %chunk.05.i, i64 12
+  %size.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %chunk.05.i, i64 12
   %5 = load atomic i32, ptr %size.i.i.i.i.i monotonic, align 4
   %cmp.i.i.not4.i.i = icmp eq i32 %5, 0
   br i1 %cmp.i.i.not4.i.i, label %"_ZZN6google8protobuf8internal15ThreadSafeArena11CleanupListEvENK3$_0clEPNS2_16SerialArenaChunkE.exit.i", label %for.body.preheader.i.i
@@ -2606,28 +2637,28 @@ for.body.i.i:                                     ; preds = %_ZN6google8protobuf
   %incdec.ptr.i.ptr.i.i = getelementptr i8, ptr %add.ptr.i.i.i.i.i, i64 %it.sroa.0.0.add.i.i
   %6 = load atomic i64, ptr %incdec.ptr.i.ptr.i.i monotonic, align 8
   %atomic-temp.i.0.i.i.i = inttoptr i64 %6 to ptr
-  %head_.i.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i, i64 48
+  %head_.i.i.i.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i.i.i, i64 48
   %7 = load atomic i64, ptr %head_.i.i.i.i monotonic, align 8
   %atomic-temp.i.0.i.i.i.i.i = inttoptr i64 %7 to ptr
-  %size.i.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i.i.i, i64 16
+  %size.i.i.i.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i.i.i.i.i, i64 16
   %8 = load i64, ptr %size.i.i.i.i, align 8
   %cmp.i.i1.i.i = icmp eq i64 %8, 0
   br i1 %cmp.i.i1.i.i, label %_ZN6google8protobuf8internal11SerialArena11CleanupListEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %for.body.i.i
-  %limit_.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i, i64 8
+  %limit_.i.i.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i.i.i, i64 8
   %9 = load ptr, ptr %limit_.i.i.i, align 8
-  %cleanup_nodes.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i.i.i, i64 8
+  %cleanup_nodes.i.i.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i.i.i.i.i, i64 8
   store ptr %9, ptr %cleanup_nodes.i.i.i, align 8
   br label %do.body.i.i.i
 
 do.body.i.i.i:                                    ; preds = %while.end.i.i.i, %if.end.i.i.i
   %b.0.i.i.i = phi ptr [ %atomic-temp.i.0.i.i.i.i.i, %if.end.i.i.i ], [ %20, %while.end.i.i.i ]
-  %size.i12.i.i.i = getelementptr inbounds i8, ptr %b.0.i.i.i, i64 16
+  %size.i12.i.i.i = getelementptr inbounds nuw i8, ptr %b.0.i.i.i, i64 16
   %10 = load i64, ptr %size.i12.i.i.i, align 8
   %and.i13.i.i.i = and i64 %10, -8
   %add.ptr.i.i.i2.i.i = getelementptr inbounds i8, ptr %b.0.i.i.i, i64 %and.i13.i.i.i
-  %cleanup_nodes4.i.i.i = getelementptr inbounds i8, ptr %b.0.i.i.i, i64 8
+  %cleanup_nodes4.i.i.i = getelementptr inbounds nuw i8, ptr %b.0.i.i.i, i64 8
   %11 = load ptr, ptr %cleanup_nodes4.i.i.i, align 8
   %cmp14.i.i.i = icmp ult ptr %11, %add.ptr.i.i.i2.i.i
   br i1 %cmp14.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i
@@ -2646,7 +2677,7 @@ while.body.i.i.i:                                 ; preds = %do.body.i.i.i, %_ZN
 sw.bb.i.i.i.i:                                    ; preds = %while.body.i.i.i
   %sub.i.i.i.i = add i64 %elem.i.0.copyload.i.i.i, -1
   %12 = inttoptr i64 %sub.i.i.i.i to ptr
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #27
   br label %_ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit.i.i.i
 
 sw.bb1.i.i.i.i:                                   ; preds = %while.body.i.i.i
@@ -2665,7 +2696,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  tail call void @__clang_call_terminate(ptr %17) #30
+  tail call void @__clang_call_terminate(ptr %17) #29
   unreachable
 
 while.body.i.i.i.unreachabledefault:              ; preds = %while.body.i.i.i
@@ -2675,7 +2706,7 @@ default.unreachable:                              ; preds = %while.body.i4
   unreachable
 
 sw.default.i.i.i.i:                               ; preds = %while.body.i.i.i, %while.body.i.i.i
-  %destructor.i.i.i.i = getelementptr inbounds i8, ptr %it.015.i.i.i, i64 8
+  %destructor.i.i.i.i = getelementptr inbounds nuw i8, ptr %it.015.i.i.i, i64 8
   %18 = load ptr, ptr %destructor.i.i.i.i, align 8
   %19 = inttoptr i64 %elem.i.0.copyload.i.i.i to ptr
   tail call void %18(ptr noundef %19)
@@ -2683,48 +2714,48 @@ sw.default.i.i.i.i:                               ; preds = %while.body.i.i.i, %
 
 _ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit.i.i.i: ; preds = %sw.default.i.i.i.i, %if.then.i.i.i.i, %sw.bb1.i.i.i.i, %sw.bb.i.i.i.i
   %retval.i.0.i.i.i = phi i64 [ 16, %sw.default.i.i.i.i ], [ 8, %sw.bb.i.i.i.i ], [ 8, %sw.bb1.i.i.i.i ], [ 8, %if.then.i.i.i.i ]
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %it.015.i.i.i, i64 %retval.i.0.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %it.015.i.i.i, i64 %retval.i.0.i.i.i
   %cmp.i.i.i = icmp ult ptr %add.ptr.i.i.i, %add.ptr.i.i.i2.i.i
-  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i, !llvm.loop !16
+  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i, !llvm.loop !13
 
 while.end.i.i.i:                                  ; preds = %_ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit.i.i.i, %do.body.i.i.i
   %20 = load ptr, ptr %b.0.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %20, null
-  br i1 %tobool.not.i.i.i, label %_ZN6google8protobuf8internal11SerialArena11CleanupListEv.exit.i.i, label %do.body.i.i.i, !llvm.loop !17
+  br i1 %tobool.not.i.i.i, label %_ZN6google8protobuf8internal11SerialArena11CleanupListEv.exit.i.i, label %do.body.i.i.i, !llvm.loop !14
 
 _ZN6google8protobuf8internal11SerialArena11CleanupListEv.exit.i.i: ; preds = %while.end.i.i.i, %for.body.i.i
   %cmp.i.i.not.i.i = icmp eq i64 %it.sroa.0.0.add.i.i, 0
-  br i1 %cmp.i.i.not.i.i, label %"_ZZN6google8protobuf8internal15ThreadSafeArena11CleanupListEvENK3$_0clEPNS2_16SerialArenaChunkE.exit.i", label %for.body.i.i, !llvm.loop !18
+  br i1 %cmp.i.i.not.i.i, label %"_ZZN6google8protobuf8internal15ThreadSafeArena11CleanupListEvENK3$_0clEPNS2_16SerialArenaChunkE.exit.i", label %for.body.i.i, !llvm.loop !15
 
 "_ZZN6google8protobuf8internal15ThreadSafeArena11CleanupListEvENK3$_0clEPNS2_16SerialArenaChunkE.exit.i": ; preds = %_ZN6google8protobuf8internal11SerialArena11CleanupListEv.exit.i.i, %while.body.i
-  %capacity.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %capacity.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %21 = load i32, ptr %capacity.i.i.i, align 8
   %cmp.i.i = icmp eq i32 %21, 0
-  br i1 %cmp.i.i, label %"_ZN6google8protobuf8internal15ThreadSafeArena20WalkSerialArenaChunkIZNS2_11CleanupListEvE3$_0EEvT_.exit", label %while.body.i, !llvm.loop !19
+  br i1 %cmp.i.i, label %"_ZN6google8protobuf8internal15ThreadSafeArena20WalkSerialArenaChunkIZNS2_11CleanupListEvE3$_0EEvT_.exit", label %while.body.i, !llvm.loop !16
 
 "_ZN6google8protobuf8internal15ThreadSafeArena20WalkSerialArenaChunkIZNS2_11CleanupListEvE3$_0EEvT_.exit": ; preds = %"_ZZN6google8protobuf8internal15ThreadSafeArena11CleanupListEvENK3$_0clEPNS2_16SerialArenaChunkE.exit.i", %entry
-  %head_.i.i = getelementptr inbounds i8, ptr %this, i64 96
+  %head_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   %22 = load atomic i64, ptr %head_.i.i monotonic, align 8
   %atomic-temp.i.0.i.i.i1 = inttoptr i64 %22 to ptr
-  %size.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i1, i64 16
+  %size.i.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i.i.i1, i64 16
   %23 = load i64, ptr %size.i.i, align 8
   %cmp.i.i2 = icmp eq i64 %23, 0
   br i1 %cmp.i.i2, label %_ZN6google8protobuf8internal11SerialArena11CleanupListEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %"_ZN6google8protobuf8internal15ThreadSafeArena20WalkSerialArenaChunkIZNS2_11CleanupListEvE3$_0EEvT_.exit"
-  %limit_.i = getelementptr inbounds i8, ptr %this, i64 56
+  %limit_.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %24 = load ptr, ptr %limit_.i, align 8
-  %cleanup_nodes.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i1, i64 8
+  %cleanup_nodes.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i.i.i1, i64 8
   store ptr %24, ptr %cleanup_nodes.i, align 8
   br label %do.body.i
 
 do.body.i:                                        ; preds = %while.end.i, %if.end.i
   %b.0.i = phi ptr [ %atomic-temp.i.0.i.i.i1, %if.end.i ], [ %35, %while.end.i ]
-  %size.i12.i = getelementptr inbounds i8, ptr %b.0.i, i64 16
+  %size.i12.i = getelementptr inbounds nuw i8, ptr %b.0.i, i64 16
   %25 = load i64, ptr %size.i12.i, align 8
   %and.i13.i = and i64 %25, -8
   %add.ptr.i.i.i3 = getelementptr inbounds i8, ptr %b.0.i, i64 %and.i13.i
-  %cleanup_nodes4.i = getelementptr inbounds i8, ptr %b.0.i, i64 8
+  %cleanup_nodes4.i = getelementptr inbounds nuw i8, ptr %b.0.i, i64 8
   %26 = load ptr, ptr %cleanup_nodes4.i, align 8
   %cmp14.i = icmp ult ptr %26, %add.ptr.i.i.i3
   br i1 %cmp14.i, label %while.body.i4, label %while.end.i
@@ -2743,7 +2774,7 @@ while.body.i4:                                    ; preds = %do.body.i, %_ZN6goo
 sw.bb.i.i:                                        ; preds = %while.body.i4
   %sub.i.i = add i64 %elem.i.0.copyload.i, -1
   %27 = inttoptr i64 %sub.i.i to ptr
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #27
   br label %_ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit.i
 
 sw.bb1.i.i:                                       ; preds = %while.body.i4
@@ -2762,11 +2793,11 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  tail call void @__clang_call_terminate(ptr %32) #30
+  tail call void @__clang_call_terminate(ptr %32) #29
   unreachable
 
 sw.default.i.i:                                   ; preds = %while.body.i4, %while.body.i4
-  %destructor.i.i = getelementptr inbounds i8, ptr %it.015.i, i64 8
+  %destructor.i.i = getelementptr inbounds nuw i8, ptr %it.015.i, i64 8
   %33 = load ptr, ptr %destructor.i.i, align 8
   %34 = inttoptr i64 %elem.i.0.copyload.i to ptr
   tail call void %33(ptr noundef %34)
@@ -2774,14 +2805,14 @@ sw.default.i.i:                                   ; preds = %while.body.i4, %whi
 
 _ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit.i: ; preds = %sw.default.i.i, %if.then.i.i, %sw.bb1.i.i, %sw.bb.i.i
   %retval.i.0.i = phi i64 [ 16, %sw.default.i.i ], [ 8, %sw.bb.i.i ], [ 8, %sw.bb1.i.i ], [ 8, %if.then.i.i ]
-  %add.ptr.i = getelementptr inbounds i8, ptr %it.015.i, i64 %retval.i.0.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %it.015.i, i64 %retval.i.0.i
   %cmp.i = icmp ult ptr %add.ptr.i, %add.ptr.i.i.i3
-  br i1 %cmp.i, label %while.body.i4, label %while.end.i, !llvm.loop !16
+  br i1 %cmp.i, label %while.body.i4, label %while.end.i, !llvm.loop !13
 
 while.end.i:                                      ; preds = %_ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit.i, %do.body.i
   %35 = load ptr, ptr %b.0.i, align 8
   %tobool.not.i = icmp eq ptr %35, null
-  br i1 %tobool.not.i, label %_ZN6google8protobuf8internal11SerialArena11CleanupListEv.exit, label %do.body.i, !llvm.loop !17
+  br i1 %tobool.not.i, label %_ZN6google8protobuf8internal11SerialArena11CleanupListEv.exit, label %do.body.i, !llvm.loop !14
 
 _ZN6google8protobuf8internal11SerialArena11CleanupListEv.exit: ; preds = %while.end.i, %"_ZN6google8protobuf8internal15ThreadSafeArena20WalkSerialArenaChunkIZNS2_11CleanupListEvE3$_0EEvT_.exit"
   ret void
@@ -2789,8 +2820,8 @@ _ZN6google8protobuf8internal11SerialArena11CleanupListEv.exit: ; preds = %while.
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #14 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #28
-  tail call void @_ZSt9terminatev() #30
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #27
+  tail call void @_ZSt9terminatev() #29
   unreachable
 }
 
@@ -2802,7 +2833,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #15
 ; Function Attrs: mustprogress uwtable
 define { ptr, i64 } @_ZN6google8protobuf8internal15ThreadSafeArena4FreeEPm(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr nocapture noundef %space_allocated) local_unnamed_addr #3 align 2 {
 entry:
-  %alloc_policy_ = getelementptr inbounds i8, ptr %this, i64 8
+  %alloc_policy_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %alloc_policy_, align 8
   %and.i = and i64 %0, -8
   %tobool.not.i = icmp eq i64 %and.i, 0
@@ -2810,16 +2841,16 @@ entry:
 
 cond.true.i:                                      ; preds = %entry
   %1 = inttoptr i64 %and.i to ptr
-  %block_dealloc.i = getelementptr inbounds i8, ptr %1, i64 24
+  %block_dealloc.i = getelementptr inbounds nuw i8, ptr %1, i64 24
   %2 = load ptr, ptr %block_dealloc.i, align 8
   br label %_ZN6google8protobuf8internal14GetDeallocatorC2EPKNS1_16AllocationPolicyEPm.exit
 
 _ZN6google8protobuf8internal14GetDeallocatorC2EPKNS1_16AllocationPolicyEPm.exit: ; preds = %entry, %cond.true.i
   %cond.i = phi ptr [ %2, %cond.true.i ], [ null, %entry ]
-  %head_.i = getelementptr inbounds i8, ptr %this, i64 32
+  %head_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %3 = load atomic i64, ptr %head_.i monotonic, align 8
   %atomic-temp.i.0.i.i = inttoptr i64 %3 to ptr
-  %capacity.i.i10.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i, i64 8
+  %capacity.i.i10.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i.i, i64 8
   %4 = load i32, ptr %capacity.i.i10.i, align 8
   %cmp.i11.i = icmp eq i32 %4, 0
   br i1 %cmp.i11.i, label %"_ZN6google8protobuf8internal15ThreadSafeArena20WalkSerialArenaChunkIZNS2_4FreeEPmE3$_0EEvT_.exit", label %while.body.i.preheader
@@ -2836,7 +2867,7 @@ while.body.i:                                     ; preds = %while.body.i.prehea
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %conv.i.i.i, 3
   %7 = getelementptr i8, ptr %chunk.012.i, i64 %mul.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i = getelementptr i8, ptr %7, i64 16
-  %size.i.i.i.i.i = getelementptr inbounds i8, ptr %chunk.012.i, i64 12
+  %size.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %chunk.012.i, i64 12
   %8 = load atomic i32, ptr %size.i.i.i.i.i monotonic, align 4
   %cmp.i.i.not12.i.i = icmp eq i32 %8, 0
   br i1 %cmp.i.i.not12.i.i, label %"_ZZN6google8protobuf8internal15ThreadSafeArena4FreeEPmENK3$_0clEPNS2_16SerialArenaChunkE.exit.i", label %for.body.lr.ph.i.i
@@ -2853,9 +2884,9 @@ for.body.i.i:                                     ; preds = %_ZNK6google8protobu
   %incdec.ptr.i.ptr.i.i = getelementptr i8, ptr %add.ptr.i.i.i.i.i, i64 %it.sroa.0.0.add.i.i
   %9 = load atomic i64, ptr %incdec.ptr.i.ptr.i.i monotonic, align 8
   %atomic-temp.i.0.i.i.i = inttoptr i64 %9 to ptr
-  %string_block_unused_.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i, i64 40
+  %string_block_unused_.i.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i.i.i, i64 40
   %10 = load atomic i64, ptr %string_block_unused_.i.i monotonic, align 8
-  %string_block_.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i, i64 32
+  %string_block_.i.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i.i.i, i64 32
   %11 = load atomic i64, ptr %string_block_.i.i monotonic, align 8
   %atomic-temp.i.0.i.i3.i = inttoptr i64 %11 to ptr
   %tobool.not.i.i = icmp eq i64 %11, 0
@@ -2863,22 +2894,22 @@ for.body.i.i:                                     ; preds = %_ZNK6google8protobu
 
 if.then.i.i:                                      ; preds = %for.body.i.i
   %12 = load ptr, ptr %atomic-temp.i.0.i.i3.i, align 8
-  %allocated_size_.i.i.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i3.i, i64 8
+  %allocated_size_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i.i3.i, i64 8
   %bf.load.i.i.i.i.i = load i32, ptr %allocated_size_.i.i.i.i.i, align 8
   %bf.lshr.i.i.i.i.i = lshr i32 %bf.load.i.i.i.i.i, 1
   %conv.i.i.i.i.i = zext nneg i32 %bf.lshr.i.i.i.i.i to i64
   %add.ptr2.i.i.i.i.i = getelementptr i8, ptr %atomic-temp.i.0.i.i3.i, i64 %conv.i.i.i.i.i
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i3.i, i64 16
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i.i3.i, i64 16
   %add.ptr2.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 %10
   %cmp.not28.i.i.i = icmp eq ptr %add.ptr2.i.i.i.i, %add.ptr2.i.i.i.i.i
   br i1 %cmp.not28.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %if.then.i.i, %for.body.i.i.i
   %s.029.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %add.ptr2.i.i.i.i, %if.then.i.i ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s.029.i.i.i) #28
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %s.029.i.i.i, i64 32
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s.029.i.i.i) #27
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %s.029.i.i.i, i64 32
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr2.i.i.i.i.i
-  br i1 %cmp.not.i.i.i, label %for.end.loopexit.i.i.i, label %for.body.i.i.i, !llvm.loop !14
+  br i1 %cmp.not.i.i.i, label %for.end.loopexit.i.i.i, label %for.body.i.i.i, !llvm.loop !11
 
 for.end.loopexit.i.i.i:                           ; preds = %for.body.i.i.i
   %bf.load.i.pre.i.i.i = load i32, ptr %allocated_size_.i.i.i.i.i, align 8
@@ -2892,7 +2923,7 @@ for.end.i.i.i:                                    ; preds = %for.end.loopexit.i.
 if.end.i.i.i.i:                                   ; preds = %for.end.i.i.i
   %bf.lshr.i.i13.i.i.i = lshr i32 %bf.load.i.i.i.i, 1
   %conv.i.i14.i.i.i = zext nneg i32 %bf.lshr.i.i13.i.i.i to i64
-  tail call void @_ZdlPv(ptr noundef nonnull %atomic-temp.i.0.i.i3.i) #28
+  tail call void @_ZdlPv(ptr noundef nonnull %atomic-temp.i.0.i.i3.i) #27
   br label %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit.i.i.i
 
 _ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit.i.i.i: ; preds = %if.end.i.i.i.i, %for.end.i.i.i
@@ -2904,7 +2935,7 @@ while.body.i.i4.i:                                ; preds = %_ZN6google8protobuf
   %next.034.i.i.i = phi ptr [ %13, %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit27.i.i.i ], [ %12, %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit.i.i.i ]
   %deallocated.033.i.i.i = phi i64 [ %add.i.i6.i, %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit27.i.i.i ], [ %retval.0.i.i.i.i, %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit.i.i.i ]
   %13 = load ptr, ptr %next.034.i.i.i, align 8
-  %allocated_size_.i.i15.i.i.i = getelementptr inbounds i8, ptr %next.034.i.i.i, i64 8
+  %allocated_size_.i.i15.i.i.i = getelementptr inbounds nuw i8, ptr %next.034.i.i.i, i64 8
   %bf.load.i.i16.i.i.i = load i32, ptr %allocated_size_.i.i15.i.i.i, align 8
   %bf.lshr.i.i17.i.i.i = lshr i32 %bf.load.i.i16.i.i.i, 1
   %conv.i.i18.i.i.i = zext nneg i32 %bf.lshr.i.i17.i.i.i to i64
@@ -2913,13 +2944,13 @@ while.body.i.i4.i:                                ; preds = %_ZN6google8protobuf
   br i1 %cmp9.not30.i.i.i, label %for.end14.i.i.i, label %for.body10.preheader.i.i.i
 
 for.body10.preheader.i.i.i:                       ; preds = %while.body.i.i4.i
-  %add.ptr.i.i.i.i5.i = getelementptr inbounds i8, ptr %next.034.i.i.i, i64 16
+  %add.ptr.i.i.i.i5.i = getelementptr inbounds nuw i8, ptr %next.034.i.i.i, i64 16
   br label %for.body10.i.i.i
 
 for.body10.i.i.i:                                 ; preds = %for.body10.i.i.i, %for.body10.preheader.i.i.i
   %__begin3.031.i.i.i = phi ptr [ %incdec.ptr13.i.i.i, %for.body10.i.i.i ], [ %add.ptr.i.i.i.i5.i, %for.body10.preheader.i.i.i ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__begin3.031.i.i.i) #28
-  %incdec.ptr13.i.i.i = getelementptr inbounds i8, ptr %__begin3.031.i.i.i, i64 32
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__begin3.031.i.i.i) #27
+  %incdec.ptr13.i.i.i = getelementptr inbounds nuw i8, ptr %__begin3.031.i.i.i, i64 32
   %cmp9.not.i.i.i = icmp eq ptr %incdec.ptr13.i.i.i, %add.ptr2.i.i19.i.i.i
   br i1 %cmp9.not.i.i.i, label %for.end14.loopexit.i.i.i, label %for.body10.i.i.i
 
@@ -2935,24 +2966,24 @@ for.end14.i.i.i:                                  ; preds = %for.end14.loopexit.
 if.end.i24.i.i.i:                                 ; preds = %for.end14.i.i.i
   %bf.lshr.i.i25.i.i.i = lshr i32 %bf.load.i21.i.i.i, 1
   %conv.i.i26.i.i.i = zext nneg i32 %bf.lshr.i.i25.i.i.i to i64
-  tail call void @_ZdlPv(ptr noundef nonnull %next.034.i.i.i) #28
+  tail call void @_ZdlPv(ptr noundef nonnull %next.034.i.i.i) #27
   br label %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit27.i.i.i
 
 _ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit27.i.i.i: ; preds = %if.end.i24.i.i.i, %for.end14.i.i.i
   %retval.0.i23.i.i.i = phi i64 [ %conv.i.i26.i.i.i, %if.end.i24.i.i.i ], [ 0, %for.end14.i.i.i ]
   %add.i.i6.i = add i64 %retval.0.i23.i.i.i, %deallocated.033.i.i.i
   %cmp4.not.i.i.i = icmp eq ptr %13, null
-  br i1 %cmp4.not.i.i.i, label %_ZN6google8protobuf8internal11SerialArena16FreeStringBlocksEv.exit.i, label %while.body.i.i4.i, !llvm.loop !15
+  br i1 %cmp4.not.i.i.i, label %_ZN6google8protobuf8internal11SerialArena16FreeStringBlocksEv.exit.i, label %while.body.i.i4.i, !llvm.loop !12
 
 _ZN6google8protobuf8internal11SerialArena16FreeStringBlocksEv.exit.i: ; preds = %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit27.i.i.i, %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit.i.i.i, %for.body.i.i
   %retval.0.i.i = phi i64 [ 0, %for.body.i.i ], [ %retval.0.i.i.i.i, %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit.i.i.i ], [ %add.i.i6.i, %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit27.i.i.i ]
   %14 = load i64, ptr %space_allocated, align 8
   %add.i.i = add i64 %14, %retval.0.i.i
   store i64 %add.i.i, ptr %space_allocated, align 8
-  %head_.i.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i, i64 48
+  %head_.i.i.i.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i.i.i, i64 48
   %15 = load atomic i64, ptr %head_.i.i.i.i monotonic, align 8
   %atomic-temp.i.0.i.i.i.i.i = inttoptr i64 %15 to ptr
-  %retval.sroa.4.0.in7.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i.i.i, i64 16
+  %retval.sroa.4.0.in7.i.i.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i.i.i.i.i, i64 16
   %retval.sroa.4.08.i.i.i = load i64, ptr %retval.sroa.4.0.in7.i.i.i, align 8
   %16 = load ptr, ptr %atomic-temp.i.0.i.i.i.i.i, align 8
   %tobool.not9.i.i.i = icmp eq ptr %16, null
@@ -2965,15 +2996,15 @@ while.body.us.i.i.i:                              ; preds = %while.body.lr.ph.i.
   %17 = phi ptr [ %19, %while.body.us.i.i.i ], [ %16, %while.body.lr.ph.i.i.i ]
   %retval.sroa.4.011.us.i.i.i = phi i64 [ %retval.sroa.4.0.us.i.i.i, %while.body.us.i.i.i ], [ %retval.sroa.4.08.i.i.i, %while.body.lr.ph.i.i.i ]
   %retval.sroa.0.010.us.i.i.i = phi ptr [ %17, %while.body.us.i.i.i ], [ %atomic-temp.i.0.i.i.i.i.i, %while.body.lr.ph.i.i.i ]
-  tail call void @_ZdlPv(ptr noundef nonnull %retval.sroa.0.010.us.i.i.i) #28
+  tail call void @_ZdlPv(ptr noundef nonnull %retval.sroa.0.010.us.i.i.i) #27
   %18 = load i64, ptr %space_allocated, align 8
   %add.i.us.i.i.i = add i64 %18, %retval.sroa.4.011.us.i.i.i
   store i64 %add.i.us.i.i.i, ptr %space_allocated, align 8
-  %retval.sroa.4.0.in.us.i.i.i = getelementptr inbounds i8, ptr %17, i64 16
+  %retval.sroa.4.0.in.us.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 16
   %retval.sroa.4.0.us.i.i.i = load i64, ptr %retval.sroa.4.0.in.us.i.i.i, align 8
   %19 = load ptr, ptr %17, align 8
   %tobool.not.us.i.i.i = icmp eq ptr %19, null
-  br i1 %tobool.not.us.i.i.i, label %_ZN6google8protobuf8internal11SerialArena4FreeINS1_14GetDeallocatorEEENS1_8SizedPtrET_.exit.i.i, label %while.body.us.i.i.i, !llvm.loop !20
+  br i1 %tobool.not.us.i.i.i, label %_ZN6google8protobuf8internal11SerialArena4FreeINS1_14GetDeallocatorEEENS1_8SizedPtrET_.exit.i.i, label %while.body.us.i.i.i, !llvm.loop !17
 
 while.body.i.i.i:                                 ; preds = %while.body.lr.ph.i.i.i, %while.body.i.i.i
   %20 = phi ptr [ %22, %while.body.i.i.i ], [ %16, %while.body.lr.ph.i.i.i ]
@@ -2983,11 +3014,11 @@ while.body.i.i.i:                                 ; preds = %while.body.lr.ph.i.
   %21 = load i64, ptr %space_allocated, align 8
   %add.i.i.i.i = add i64 %21, %retval.sroa.4.011.i.i.i
   store i64 %add.i.i.i.i, ptr %space_allocated, align 8
-  %retval.sroa.4.0.in.i.i.i = getelementptr inbounds i8, ptr %20, i64 16
+  %retval.sroa.4.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %20, i64 16
   %retval.sroa.4.0.i.i.i = load i64, ptr %retval.sroa.4.0.in.i.i.i, align 8
   %22 = load ptr, ptr %20, align 8
   %tobool.not.i.i.i = icmp eq ptr %22, null
-  br i1 %tobool.not.i.i.i, label %_ZN6google8protobuf8internal11SerialArena4FreeINS1_14GetDeallocatorEEENS1_8SizedPtrET_.exit.i.i, label %while.body.i.i.i, !llvm.loop !20
+  br i1 %tobool.not.i.i.i, label %_ZN6google8protobuf8internal11SerialArena4FreeINS1_14GetDeallocatorEEENS1_8SizedPtrET_.exit.i.i, label %while.body.i.i.i, !llvm.loop !17
 
 _ZN6google8protobuf8internal11SerialArena4FreeINS1_14GetDeallocatorEEENS1_8SizedPtrET_.exit.i.i: ; preds = %while.body.i.i.i, %while.body.us.i.i.i, %_ZN6google8protobuf8internal11SerialArena16FreeStringBlocksEv.exit.i
   %retval.sroa.0.0.lcssa.i.i.i = phi ptr [ %atomic-temp.i.0.i.i.i.i.i, %_ZN6google8protobuf8internal11SerialArena16FreeStringBlocksEv.exit.i ], [ %17, %while.body.us.i.i.i ], [ %20, %while.body.i.i.i ]
@@ -2999,7 +3030,7 @@ if.then.i.i.i:                                    ; preds = %_ZN6google8protobuf
   br label %_ZNK6google8protobuf8internal14GetDeallocatorclENS1_8SizedPtrE.exit.i.i
 
 if.else.i.i.i:                                    ; preds = %_ZN6google8protobuf8internal11SerialArena4FreeINS1_14GetDeallocatorEEENS1_8SizedPtrET_.exit.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %retval.sroa.0.0.lcssa.i.i.i) #28
+  tail call void @_ZdlPv(ptr noundef nonnull %retval.sroa.0.0.lcssa.i.i.i) #27
   br label %_ZNK6google8protobuf8internal14GetDeallocatorclENS1_8SizedPtrE.exit.i.i
 
 _ZNK6google8protobuf8internal14GetDeallocatorclENS1_8SizedPtrE.exit.i.i: ; preds = %if.else.i.i.i, %if.then.i.i.i
@@ -3007,25 +3038,25 @@ _ZNK6google8protobuf8internal14GetDeallocatorclENS1_8SizedPtrE.exit.i.i: ; preds
   %add.i.i.i = add i64 %23, %retval.sroa.4.0.lcssa.i.i.i
   store i64 %add.i.i.i, ptr %space_allocated, align 8
   %cmp.i.i.not.i.i = icmp eq i64 %it.sroa.0.0.add.i.i, 0
-  br i1 %cmp.i.i.not.i.i, label %"_ZZN6google8protobuf8internal15ThreadSafeArena4FreeEPmENK3$_0clEPNS2_16SerialArenaChunkE.exit.i", label %for.body.i.i, !llvm.loop !21
+  br i1 %cmp.i.i.not.i.i, label %"_ZZN6google8protobuf8internal15ThreadSafeArena4FreeEPmENK3$_0clEPNS2_16SerialArenaChunkE.exit.i", label %for.body.i.i, !llvm.loop !18
 
 "_ZZN6google8protobuf8internal15ThreadSafeArena4FreeEPmENK3$_0clEPNS2_16SerialArenaChunkE.exit.i": ; preds = %_ZNK6google8protobuf8internal14GetDeallocatorclENS1_8SizedPtrE.exit.i.i, %while.body.i
-  tail call void @_ZdlPv(ptr noundef nonnull %chunk.012.i) #28
-  %capacity.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  tail call void @_ZdlPv(ptr noundef nonnull %chunk.012.i) #27
+  %capacity.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %24 = load i32, ptr %capacity.i.i.i, align 8
   %cmp.i.i = icmp eq i32 %24, 0
-  br i1 %cmp.i.i, label %"_ZN6google8protobuf8internal15ThreadSafeArena20WalkSerialArenaChunkIZNS2_4FreeEPmE3$_0EEvT_.exit", label %while.body.i, !llvm.loop !22
+  br i1 %cmp.i.i, label %"_ZN6google8protobuf8internal15ThreadSafeArena20WalkSerialArenaChunkIZNS2_4FreeEPmE3$_0EEvT_.exit", label %while.body.i, !llvm.loop !19
 
 "_ZN6google8protobuf8internal15ThreadSafeArena20WalkSerialArenaChunkIZNS2_4FreeEPmE3$_0EEvT_.exit": ; preds = %"_ZZN6google8protobuf8internal15ThreadSafeArena4FreeEPmENK3$_0clEPNS2_16SerialArenaChunkE.exit.i", %_ZN6google8protobuf8internal14GetDeallocatorC2EPKNS1_16AllocationPolicyEPm.exit
-  %first_arena_ = getelementptr inbounds i8, ptr %this, i64 48
+  %first_arena_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %call2 = tail call noundef i64 @_ZN6google8protobuf8internal11SerialArena16FreeStringBlocksEv(ptr noundef nonnull align 8 dereferenceable(96) %first_arena_)
   %25 = load i64, ptr %space_allocated, align 8
   %add = add i64 %25, %call2
   store i64 %add, ptr %space_allocated, align 8
-  %head_.i.i = getelementptr inbounds i8, ptr %this, i64 96
+  %head_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   %26 = load atomic i64, ptr %head_.i.i monotonic, align 8
   %atomic-temp.i.0.i.i.i1 = inttoptr i64 %26 to ptr
-  %retval.sroa.4.0.in7.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i1, i64 16
+  %retval.sroa.4.0.in7.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i.i.i1, i64 16
   %retval.sroa.4.08.i = load i64, ptr %retval.sroa.4.0.in7.i, align 8
   %27 = load ptr, ptr %atomic-temp.i.0.i.i.i1, align 8
   %tobool.not9.i = icmp eq ptr %27, null
@@ -3039,15 +3070,15 @@ while.body.us.i:                                  ; preds = %while.body.lr.ph.i2
   %28 = phi ptr [ %30, %while.body.us.i ], [ %27, %while.body.lr.ph.i2 ]
   %retval.sroa.4.011.us.i = phi i64 [ %retval.sroa.4.0.us.i, %while.body.us.i ], [ %retval.sroa.4.08.i, %while.body.lr.ph.i2 ]
   %retval.sroa.0.010.us.i = phi ptr [ %28, %while.body.us.i ], [ %atomic-temp.i.0.i.i.i1, %while.body.lr.ph.i2 ]
-  tail call void @_ZdlPv(ptr noundef nonnull %retval.sroa.0.010.us.i) #28
+  tail call void @_ZdlPv(ptr noundef nonnull %retval.sroa.0.010.us.i) #27
   %29 = load i64, ptr %space_allocated, align 8
   %add.i.us.i = add i64 %29, %retval.sroa.4.011.us.i
   store i64 %add.i.us.i, ptr %space_allocated, align 8
-  %retval.sroa.4.0.in.us.i = getelementptr inbounds i8, ptr %28, i64 16
+  %retval.sroa.4.0.in.us.i = getelementptr inbounds nuw i8, ptr %28, i64 16
   %retval.sroa.4.0.us.i = load i64, ptr %retval.sroa.4.0.in.us.i, align 8
   %30 = load ptr, ptr %28, align 8
   %tobool.not.us.i = icmp eq ptr %30, null
-  br i1 %tobool.not.us.i, label %_ZN6google8protobuf8internal11SerialArena4FreeINS1_14GetDeallocatorEEENS1_8SizedPtrET_.exit, label %while.body.us.i, !llvm.loop !20
+  br i1 %tobool.not.us.i, label %_ZN6google8protobuf8internal11SerialArena4FreeINS1_14GetDeallocatorEEENS1_8SizedPtrET_.exit, label %while.body.us.i, !llvm.loop !17
 
 while.body.i4:                                    ; preds = %while.body.lr.ph.i2, %while.body.i4
   %31 = phi ptr [ %33, %while.body.i4 ], [ %27, %while.body.lr.ph.i2 ]
@@ -3057,11 +3088,11 @@ while.body.i4:                                    ; preds = %while.body.lr.ph.i2
   %32 = load i64, ptr %space_allocated, align 8
   %add.i.i5 = add i64 %32, %retval.sroa.4.011.i
   store i64 %add.i.i5, ptr %space_allocated, align 8
-  %retval.sroa.4.0.in.i = getelementptr inbounds i8, ptr %31, i64 16
+  %retval.sroa.4.0.in.i = getelementptr inbounds nuw i8, ptr %31, i64 16
   %retval.sroa.4.0.i = load i64, ptr %retval.sroa.4.0.in.i, align 8
   %33 = load ptr, ptr %31, align 8
   %tobool.not.i6 = icmp eq ptr %33, null
-  br i1 %tobool.not.i6, label %_ZN6google8protobuf8internal11SerialArena4FreeINS1_14GetDeallocatorEEENS1_8SizedPtrET_.exit, label %while.body.i4, !llvm.loop !20
+  br i1 %tobool.not.i6, label %_ZN6google8protobuf8internal11SerialArena4FreeINS1_14GetDeallocatorEEENS1_8SizedPtrET_.exit, label %while.body.i4, !llvm.loop !17
 
 _ZN6google8protobuf8internal11SerialArena4FreeINS1_14GetDeallocatorEEENS1_8SizedPtrET_.exit: ; preds = %while.body.i4, %while.body.us.i, %"_ZN6google8protobuf8internal15ThreadSafeArena20WalkSerialArenaChunkIZNS2_4FreeEPmE3$_0EEvT_.exit"
   %retval.sroa.0.0.lcssa.i = phi ptr [ %atomic-temp.i.0.i.i.i1, %"_ZN6google8protobuf8internal15ThreadSafeArena20WalkSerialArenaChunkIZNS2_4FreeEPmE3$_0EEvT_.exit" ], [ %28, %while.body.us.i ], [ %31, %while.body.i4 ]
@@ -3074,9 +3105,9 @@ _ZN6google8protobuf8internal11SerialArena4FreeINS1_14GetDeallocatorEEENS1_8Sized
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZN6google8protobuf8internal11SerialArena16FreeStringBlocksEv(ptr noundef nonnull align 8 dereferenceable(96) %this) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %string_block_unused_ = getelementptr inbounds i8, ptr %this, i64 40
+  %string_block_unused_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load atomic i64, ptr %string_block_unused_ monotonic, align 8
-  %string_block_ = getelementptr inbounds i8, ptr %this, i64 32
+  %string_block_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load atomic i64, ptr %string_block_ monotonic, align 8
   %atomic-temp.i.0.i = inttoptr i64 %1 to ptr
   %tobool.not = icmp eq i64 %1, 0
@@ -3084,22 +3115,22 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %atomic-temp.i.0.i, align 8
-  %allocated_size_.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i, i64 8
+  %allocated_size_.i.i.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i, i64 8
   %bf.load.i.i.i = load i32, ptr %allocated_size_.i.i.i, align 8
   %bf.lshr.i.i.i = lshr i32 %bf.load.i.i.i, 1
   %conv.i.i.i = zext nneg i32 %bf.lshr.i.i.i to i64
   %add.ptr2.i.i.i = getelementptr i8, ptr %atomic-temp.i.0.i, i64 %conv.i.i.i
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i, i64 16
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i, i64 16
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %0
   %cmp.not28.i = icmp eq ptr %add.ptr2.i.i, %add.ptr2.i.i.i
   br i1 %cmp.not28.i, label %for.end.i, label %for.body.i
 
 for.body.i:                                       ; preds = %if.then, %for.body.i
   %s.029.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %add.ptr2.i.i, %if.then ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s.029.i) #28
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %s.029.i, i64 32
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s.029.i) #27
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %s.029.i, i64 32
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr2.i.i.i
-  br i1 %cmp.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !14
+  br i1 %cmp.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !11
 
 for.end.loopexit.i:                               ; preds = %for.body.i
   %bf.load.i.pre.i = load i32, ptr %allocated_size_.i.i.i, align 8
@@ -3113,7 +3144,7 @@ for.end.i:                                        ; preds = %for.end.loopexit.i,
 if.end.i.i:                                       ; preds = %for.end.i
   %bf.lshr.i.i13.i = lshr i32 %bf.load.i.i, 1
   %conv.i.i14.i = zext nneg i32 %bf.lshr.i.i13.i to i64
-  tail call void @_ZdlPv(ptr noundef nonnull %atomic-temp.i.0.i) #28
+  tail call void @_ZdlPv(ptr noundef nonnull %atomic-temp.i.0.i) #27
   br label %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit.i
 
 _ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit.i: ; preds = %if.end.i.i, %for.end.i
@@ -3125,7 +3156,7 @@ while.body.i:                                     ; preds = %_ZN6google8protobuf
   %next.034.i = phi ptr [ %3, %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit27.i ], [ %2, %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit.i ]
   %deallocated.033.i = phi i64 [ %add.i, %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit27.i ], [ %retval.0.i.i, %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit.i ]
   %3 = load ptr, ptr %next.034.i, align 8
-  %allocated_size_.i.i15.i = getelementptr inbounds i8, ptr %next.034.i, i64 8
+  %allocated_size_.i.i15.i = getelementptr inbounds nuw i8, ptr %next.034.i, i64 8
   %bf.load.i.i16.i = load i32, ptr %allocated_size_.i.i15.i, align 8
   %bf.lshr.i.i17.i = lshr i32 %bf.load.i.i16.i, 1
   %conv.i.i18.i = zext nneg i32 %bf.lshr.i.i17.i to i64
@@ -3134,13 +3165,13 @@ while.body.i:                                     ; preds = %_ZN6google8protobuf
   br i1 %cmp9.not30.i, label %for.end14.i, label %for.body10.preheader.i
 
 for.body10.preheader.i:                           ; preds = %while.body.i
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %next.034.i, i64 16
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %next.034.i, i64 16
   br label %for.body10.i
 
 for.body10.i:                                     ; preds = %for.body10.i, %for.body10.preheader.i
   %__begin3.031.i = phi ptr [ %incdec.ptr13.i, %for.body10.i ], [ %add.ptr.i.i.i, %for.body10.preheader.i ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__begin3.031.i) #28
-  %incdec.ptr13.i = getelementptr inbounds i8, ptr %__begin3.031.i, i64 32
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__begin3.031.i) #27
+  %incdec.ptr13.i = getelementptr inbounds nuw i8, ptr %__begin3.031.i, i64 32
   %cmp9.not.i = icmp eq ptr %incdec.ptr13.i, %add.ptr2.i.i19.i
   br i1 %cmp9.not.i, label %for.end14.loopexit.i, label %for.body10.i
 
@@ -3156,14 +3187,14 @@ for.end14.i:                                      ; preds = %for.end14.loopexit.
 if.end.i24.i:                                     ; preds = %for.end14.i
   %bf.lshr.i.i25.i = lshr i32 %bf.load.i21.i, 1
   %conv.i.i26.i = zext nneg i32 %bf.lshr.i.i25.i to i64
-  tail call void @_ZdlPv(ptr noundef nonnull %next.034.i) #28
+  tail call void @_ZdlPv(ptr noundef nonnull %next.034.i) #27
   br label %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit27.i
 
 _ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit27.i: ; preds = %if.end.i24.i, %for.end14.i
   %retval.0.i23.i = phi i64 [ %conv.i.i26.i, %if.end.i24.i ], [ 0, %for.end14.i ]
   %add.i = add i64 %retval.0.i23.i, %deallocated.033.i
   %cmp4.not.i = icmp eq ptr %3, null
-  br i1 %cmp4.not.i, label %return, label %while.body.i, !llvm.loop !15
+  br i1 %cmp4.not.i, label %return, label %while.body.i, !llvm.loop !12
 
 return:                                           ; preds = %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit27.i, %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit.i, %entry
   %retval.0 = phi i64 [ 0, %entry ], [ %retval.0.i.i, %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit.i ], [ %add.i, %_ZN6google8protobuf8internal11StringBlock6DeleteEPS2_.exit27.i ]
@@ -3181,7 +3212,7 @@ entry:
   %1 = load i64, ptr %space_allocated, align 8
   %add = add i64 %1, %0
   store i64 %add, ptr %space_allocated, align 8
-  %alloc_policy_ = getelementptr inbounds i8, ptr %this, i64 8
+  %alloc_policy_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i64, ptr %alloc_policy_, align 8
   %3 = and i64 %2, -7
   %or.cond = icmp eq i64 %3, 0
@@ -3191,55 +3222,55 @@ if.then:                                          ; preds = %entry
   %4 = extractvalue { ptr, i64 } %call, 0
   %cmp7 = icmp ult i64 %2, 8
   %cond = select i1 %cmp7, i64 24, i64 56
-  %first_arena_ = getelementptr inbounds i8, ptr %this, i64 48
-  %size3.i = getelementptr inbounds i8, ptr %4, i64 16
+  %first_arena_ = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %size3.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   store i64 %0, ptr %size3.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 %cond
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %4, i64 %cond
   %and.i.i3 = and i64 %0, -8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %4, i64 %and.i.i3
   %5 = ptrtoint ptr %add.ptr.i.i to i64
   store atomic i64 %5, ptr %first_arena_ monotonic, align 8
-  %prefetch_ptr_.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %prefetch_ptr_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr %add.ptr.i.i, ptr %prefetch_ptr_.i.i, align 8
-  %limit_.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %limit_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr %add.ptr.i.i.i, ptr %limit_.i.i, align 8
-  %prefetch_limit_.i.i = getelementptr inbounds i8, ptr %this, i64 72
+  %prefetch_limit_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   store ptr %add.ptr.i.i.i, ptr %prefetch_limit_.i.i, align 8
-  %head_.i = getelementptr inbounds i8, ptr %this, i64 96
+  %head_.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   %6 = ptrtoint ptr %4 to i64
   store atomic i64 %6, ptr %head_.i monotonic, align 8
-  %space_used_.i = getelementptr inbounds i8, ptr %this, i64 104
+  %space_used_.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   store atomic i64 0, ptr %space_used_.i monotonic, align 8
   %7 = load i64, ptr %size3.i, align 8
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %first_arena_9 = getelementptr inbounds i8, ptr %this, i64 48
+  %first_arena_9 = getelementptr inbounds nuw i8, ptr %this, i64 48
   store atomic i64 ptrtoint (ptr @_ZZN6google8protobuf8internal12_GLOBAL__N_116SentryArenaBlockEvE17kSentryArenaBlock to i64), ptr %first_arena_9 monotonic, align 8
-  %prefetch_ptr_.i.i4 = getelementptr inbounds i8, ptr %this, i64 64
+  %prefetch_ptr_.i.i4 = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr @_ZZN6google8protobuf8internal12_GLOBAL__N_116SentryArenaBlockEvE17kSentryArenaBlock, ptr %prefetch_ptr_.i.i4, align 8
-  %limit_.i.i5 = getelementptr inbounds i8, ptr %this, i64 56
+  %limit_.i.i5 = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr @_ZZN6google8protobuf8internal12_GLOBAL__N_116SentryArenaBlockEvE17kSentryArenaBlock, ptr %limit_.i.i5, align 8
-  %prefetch_limit_.i.i6 = getelementptr inbounds i8, ptr %this, i64 72
+  %prefetch_limit_.i.i6 = getelementptr inbounds nuw i8, ptr %this, i64 72
   store ptr @_ZZN6google8protobuf8internal12_GLOBAL__N_116SentryArenaBlockEvE17kSentryArenaBlock, ptr %prefetch_limit_.i.i6, align 8
-  %head_.i7 = getelementptr inbounds i8, ptr %this, i64 96
+  %head_.i7 = getelementptr inbounds nuw i8, ptr %this, i64 96
   store atomic i64 ptrtoint (ptr @_ZZN6google8protobuf8internal12_GLOBAL__N_116SentryArenaBlockEvE17kSentryArenaBlock to i64), ptr %head_.i7 monotonic, align 8
-  %space_used_.i8 = getelementptr inbounds i8, ptr %this, i64 104
+  %space_used_.i8 = getelementptr inbounds nuw i8, ptr %this, i64 104
   store atomic i64 0, ptr %space_used_.i8 monotonic, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
   %.sink = phi i64 [ 0, %if.else ], [ %7, %if.then ]
-  %space_allocated_.i9 = getelementptr inbounds i8, ptr %this, i64 112
+  %space_allocated_.i9 = getelementptr inbounds nuw i8, ptr %this, i64 112
   store atomic i64 %.sink, ptr %space_allocated_.i9 monotonic, align 8
-  %cached_block_length_.i10 = getelementptr inbounds i8, ptr %this, i64 128
+  %cached_block_length_.i10 = getelementptr inbounds nuw i8, ptr %this, i64 128
   store i8 0, ptr %cached_block_length_.i10, align 8
-  %cached_blocks_.i11 = getelementptr inbounds i8, ptr %this, i64 136
+  %cached_blocks_.i11 = getelementptr inbounds nuw i8, ptr %this, i64 136
   store ptr null, ptr %cached_blocks_.i11, align 8
-  %string_block_.i12 = getelementptr inbounds i8, ptr %this, i64 80
+  %string_block_.i12 = getelementptr inbounds nuw i8, ptr %this, i64 80
   store atomic i64 0, ptr %string_block_.i12 monotonic, align 8
-  %string_block_unused_.i13 = getelementptr inbounds i8, ptr %this, i64 88
+  %string_block_unused_.i13 = getelementptr inbounds nuw i8, ptr %this, i64 88
   store atomic i64 0, ptr %string_block_unused_.i13 monotonic, align 8
   %8 = tail call noundef nonnull align 32 dereferenceable(24) ptr @llvm.threadlocal.address.p0(ptr align 32 @_ZN6google8protobuf8internal15ThreadSafeArena13thread_cache_E)
   %9 = load i64, ptr %8, align 32
@@ -3257,16 +3288,16 @@ _ZN6google8protobuf8internal15ThreadSafeArena4InitEv.exit: ; preds = %if.end, %m
   %add.i.i = add i64 %id.0.i.i, 1
   store i64 %add.i.i, ptr %8, align 32
   store i64 %id.0.i.i, ptr %this, align 8
-  %head_.i15 = getelementptr inbounds i8, ptr %this, i64 32
+  %head_.i15 = getelementptr inbounds nuw i8, ptr %this, i64 32
   store atomic i64 ptrtoint (ptr @_ZN6google8protobuf8internalL17kSentryArenaChunkE to i64), ptr %head_.i15 monotonic, align 8
-  %first_owner_.i = getelementptr inbounds i8, ptr %this, i64 40
+  %first_owner_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %8, ptr %first_owner_.i, align 8
-  %first_arena_.i = getelementptr inbounds i8, ptr %this, i64 48
-  %space_allocated_.i.i = getelementptr inbounds i8, ptr %this, i64 112
+  %first_arena_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %space_allocated_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   %11 = load atomic i64, ptr %space_allocated_.i.i monotonic, align 8
-  %last_serial_arena.i.i = getelementptr inbounds i8, ptr %8, i64 16
+  %last_serial_arena.i.i = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %first_arena_.i, ptr %last_serial_arena.i.i, align 16
-  %last_lifecycle_id_seen.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  %last_lifecycle_id_seen.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %id.0.i.i, ptr %last_lifecycle_id_seen.i.i, align 8
   %12 = load i64, ptr %space_allocated, align 8
   ret i64 %12
@@ -3276,11 +3307,11 @@ _ZN6google8protobuf8internal15ThreadSafeArena4InitEv.exit: ; preds = %if.end, %m
 define noundef ptr @_ZN6google8protobuf8internal15ThreadSafeArena26AllocateAlignedWithCleanupEmmPFvPvE(ptr noundef nonnull align 8 dereferenceable(144) %this, i64 noundef %n, i64 noundef %align, ptr noundef %destructor) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = tail call noundef nonnull align 32 dereferenceable(24) ptr @llvm.threadlocal.address.p0(ptr align 32 @_ZN6google8protobuf8internal15ThreadSafeArena13thread_cache_E)
-  %last_lifecycle_id_seen.i = getelementptr inbounds i8, ptr %0, i64 8
+  %last_lifecycle_id_seen.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load i64, ptr %last_lifecycle_id_seen.i, align 8
   %2 = load i64, ptr %this, align 8
   %cmp.i15 = icmp eq i64 %1, %2
-  %last_serial_arena.i = getelementptr inbounds i8, ptr %0, i64 16
+  %last_serial_arena.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %last_serial_arena.i, align 16
   %arena.0 = select i1 %cmp.i15, ptr %3, ptr undef
   br i1 %cmp.i15, label %if.then, label %if.else
@@ -3302,7 +3333,7 @@ if.then:                                          ; preds = %entry
   %spec.select = select i1 %switch, i64 16, i64 8
   %cond.i.i = select i1 %cmp.i.i, i64 0, i64 %spec.select
   %add6.i = add i64 %add.i, %cond.i.i
-  %limit_.i = getelementptr inbounds i8, ptr %3, i64 8
+  %limit_.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load ptr, ptr %limit_.i, align 8
   %7 = ptrtoint ptr %6 to i64
   %cmp.i = icmp ugt i64 %add6.i, %7
@@ -3323,7 +3354,7 @@ if.end.i:                                         ; preds = %if.then
   %spec.select33 = select i1 %switch32, i64 -16, i64 -8
   %add.ptr.i = getelementptr inbounds i8, ptr %6, i64 %spec.select33
   store ptr %add.ptr.i, ptr %limit_.i, align 8
-  %prefetch_limit_.i55 = getelementptr inbounds i8, ptr %3, i64 24
+  %prefetch_limit_.i55 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %9 = load ptr, ptr %prefetch_limit_.i55, align 8
   %sub.ptr.lhs.cast.i56 = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast.i57 = ptrtoint ptr %9 to i64
@@ -3332,7 +3363,7 @@ if.end.i:                                         ; preds = %if.then
   br i1 %cmp.i59, label %_ZN6google8protobuf8internal11SerialArena22MaybePrefetchBackwardsEPKc.exit, label %if.end.i60
 
 if.end.i60:                                       ; preds = %if.end.i
-  %prefetch_ptr_.i61 = getelementptr inbounds i8, ptr %3, i64 16
+  %prefetch_ptr_.i61 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load ptr, ptr %prefetch_ptr_.i61, align 8
   %cmp3.i62 = icmp ugt ptr %9, %10
   br i1 %cmp3.i62, label %if.then4.i63, label %_ZN6google8protobuf8internal11SerialArena22MaybePrefetchBackwardsEPKc.exit
@@ -3348,10 +3379,10 @@ if.then4.i63:                                     ; preds = %if.end.i60
 
 for.body.i67:                                     ; preds = %if.then4.i63, %for.body.i67
   %prefetch_limit.i.052 = phi ptr [ %add.ptr11.i, %for.body.i67 ], [ %.sroa.speculated49, %if.then4.i63 ]
-  tail call void asm sideeffect "prefetchw ($0)", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %prefetch_limit.i.052) #28, !srcloc !7
+  tail call void asm sideeffect "prefetchw ($0)", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %prefetch_limit.i.052) #27, !srcloc !7
   %add.ptr11.i = getelementptr inbounds i8, ptr %prefetch_limit.i.052, i64 -64
   %cmp10.i = icmp ugt ptr %add.ptr11.i, %.sroa.speculated46
-  br i1 %cmp10.i, label %for.body.i67, label %for.end.i66.loopexit, !llvm.loop !13
+  br i1 %cmp10.i, label %for.body.i67, label %for.end.i66.loopexit, !llvm.loop !10
 
 for.end.i66.loopexit:                             ; preds = %for.body.i67
   %.pre.pre = load ptr, ptr %limit_.i, align 8
@@ -3382,12 +3413,12 @@ sw.bb2.i74:                                       ; preds = %_ZN6google8protobuf
 
 sw.default.i73:                                   ; preds = %_ZN6google8protobuf8internal11SerialArena22MaybePrefetchBackwardsEPKc.exit
   store i64 %and.i.i, ptr %11, align 1
-  %n7.i.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 8
+  %n7.i.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %destructor, ptr %n7.i.sroa.2.0..sroa_idx, align 1
   br label %_ZN6google8protobuf8internal7cleanup10CreateNodeENS2_3TagEPvPKvPFvS4_E.exit
 
 _ZN6google8protobuf8internal7cleanup10CreateNodeENS2_3TagEPvPKvPFvS4_E.exit: ; preds = %sw.default.i73, %sw.bb2.i74, %sw.bb.i75
-  %prefetch_ptr_.i = getelementptr inbounds i8, ptr %arena.0, i64 16
+  %prefetch_ptr_.i = getelementptr inbounds nuw i8, ptr %arena.0, i64 16
   %12 = load ptr, ptr %prefetch_ptr_.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %add.i
@@ -3402,7 +3433,7 @@ if.end.i22:                                       ; preds = %_ZN6google8protobuf
 if.then4.i:                                       ; preds = %if.end.i22
   %cmp.i37 = icmp ugt ptr %12, %8
   %.sroa.speculated43 = select i1 %cmp.i37, ptr %12, ptr %8
-  %add.ptr.i24 = getelementptr inbounds i8, ptr %.sroa.speculated43, i64 1024
+  %add.ptr.i24 = getelementptr inbounds nuw i8, ptr %.sroa.speculated43, i64 1024
   %cmp.i40 = icmp ult ptr %add.ptr.i24, %13
   %.sroa.speculated = select i1 %cmp.i40, ptr %add.ptr.i24, ptr %13
   %cmp8.i53 = icmp ult ptr %.sroa.speculated43, %.sroa.speculated
@@ -3410,8 +3441,8 @@ if.then4.i:                                       ; preds = %if.end.i22
 
 for.body.i:                                       ; preds = %if.then4.i, %for.body.i
   %prefetch_ptr.i.054 = phi ptr [ %add.ptr9.i, %for.body.i ], [ %.sroa.speculated43, %if.then4.i ]
-  tail call void asm sideeffect "prefetchw ($0)", "r,~{dirflag},~{fpsr},~{flags}"(ptr %prefetch_ptr.i.054) #28, !srcloc !7
-  %add.ptr9.i = getelementptr inbounds i8, ptr %prefetch_ptr.i.054, i64 64
+  tail call void asm sideeffect "prefetchw ($0)", "r,~{dirflag},~{fpsr},~{flags}"(ptr %prefetch_ptr.i.054) #27, !srcloc !7
+  %add.ptr9.i = getelementptr inbounds nuw i8, ptr %prefetch_ptr.i.054, i64 64
   %cmp8.i = icmp ult ptr %add.ptr9.i, %.sroa.speculated
   br i1 %cmp8.i, label %for.body.i, label %for.end.i, !llvm.loop !8
 
@@ -3450,7 +3481,7 @@ entry:
   %spec.select = select i1 %switch, i64 16, i64 8
   %cond.i.i = select i1 %cmp.i.i, i64 0, i64 %spec.select
   %add6.i = add i64 %add.i, %cond.i.i
-  %limit_.i = getelementptr inbounds i8, ptr %call, i64 8
+  %limit_.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   %2 = load ptr, ptr %limit_.i, align 8
   %3 = ptrtoint ptr %2 to i64
   %cmp.i = icmp ugt i64 %add6.i, %3
@@ -3471,7 +3502,7 @@ if.end.i:                                         ; preds = %entry
   %spec.select30 = select i1 %switch29, i64 -16, i64 -8
   %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 %spec.select30
   store ptr %add.ptr.i, ptr %limit_.i, align 8
-  %prefetch_limit_.i47 = getelementptr inbounds i8, ptr %call, i64 24
+  %prefetch_limit_.i47 = getelementptr inbounds nuw i8, ptr %call, i64 24
   %5 = load ptr, ptr %prefetch_limit_.i47, align 8
   %sub.ptr.lhs.cast.i48 = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast.i49 = ptrtoint ptr %5 to i64
@@ -3480,7 +3511,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.i51, label %_ZN6google8protobuf8internal11SerialArena22MaybePrefetchBackwardsEPKc.exit, label %if.end.i52
 
 if.end.i52:                                       ; preds = %if.end.i
-  %prefetch_ptr_.i53 = getelementptr inbounds i8, ptr %call, i64 16
+  %prefetch_ptr_.i53 = getelementptr inbounds nuw i8, ptr %call, i64 16
   %6 = load ptr, ptr %prefetch_ptr_.i53, align 8
   %cmp3.i54 = icmp ugt ptr %5, %6
   br i1 %cmp3.i54, label %if.then4.i55, label %_ZN6google8protobuf8internal11SerialArena22MaybePrefetchBackwardsEPKc.exit
@@ -3496,10 +3527,10 @@ if.then4.i55:                                     ; preds = %if.end.i52
 
 for.body.i59:                                     ; preds = %if.then4.i55, %for.body.i59
   %prefetch_limit.i.049 = phi ptr [ %add.ptr11.i, %for.body.i59 ], [ %.sroa.speculated46, %if.then4.i55 ]
-  tail call void asm sideeffect "prefetchw ($0)", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %prefetch_limit.i.049) #28, !srcloc !7
+  tail call void asm sideeffect "prefetchw ($0)", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %prefetch_limit.i.049) #27, !srcloc !7
   %add.ptr11.i = getelementptr inbounds i8, ptr %prefetch_limit.i.049, i64 -64
   %cmp10.i = icmp ugt ptr %add.ptr11.i, %.sroa.speculated43
-  br i1 %cmp10.i, label %for.body.i59, label %for.end.i58.loopexit, !llvm.loop !13
+  br i1 %cmp10.i, label %for.body.i59, label %for.end.i58.loopexit, !llvm.loop !10
 
 for.end.i58.loopexit:                             ; preds = %for.body.i59
   %.pre.pre = load ptr, ptr %limit_.i, align 8
@@ -3530,12 +3561,12 @@ sw.bb2.i66:                                       ; preds = %_ZN6google8protobuf
 
 sw.default.i65:                                   ; preds = %_ZN6google8protobuf8internal11SerialArena22MaybePrefetchBackwardsEPKc.exit
   store i64 %and.i.i, ptr %7, align 1
-  %n7.i.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
+  %n7.i.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %destructor, ptr %n7.i.sroa.2.0..sroa_idx, align 1
   br label %_ZN6google8protobuf8internal7cleanup10CreateNodeENS2_3TagEPvPKvPFvS4_E.exit
 
 _ZN6google8protobuf8internal7cleanup10CreateNodeENS2_3TagEPvPKvPFvS4_E.exit: ; preds = %sw.default.i65, %sw.bb2.i66, %sw.bb.i67
-  %prefetch_ptr_.i = getelementptr inbounds i8, ptr %call, i64 16
+  %prefetch_ptr_.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   %8 = load ptr, ptr %prefetch_ptr_.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %add.i
@@ -3550,7 +3581,7 @@ if.end.i14:                                       ; preds = %_ZN6google8protobuf
 if.then4.i:                                       ; preds = %if.end.i14
   %cmp.i35 = icmp ugt ptr %8, %4
   %.sroa.speculated40 = select i1 %cmp.i35, ptr %8, ptr %4
-  %add.ptr.i16 = getelementptr inbounds i8, ptr %.sroa.speculated40, i64 1024
+  %add.ptr.i16 = getelementptr inbounds nuw i8, ptr %.sroa.speculated40, i64 1024
   %cmp.i37 = icmp ult ptr %add.ptr.i16, %9
   %.sroa.speculated = select i1 %cmp.i37, ptr %add.ptr.i16, ptr %9
   %cmp8.i50 = icmp ult ptr %.sroa.speculated40, %.sroa.speculated
@@ -3558,8 +3589,8 @@ if.then4.i:                                       ; preds = %if.end.i14
 
 for.body.i:                                       ; preds = %if.then4.i, %for.body.i
   %prefetch_ptr.i.051 = phi ptr [ %add.ptr9.i, %for.body.i ], [ %.sroa.speculated40, %if.then4.i ]
-  tail call void asm sideeffect "prefetchw ($0)", "r,~{dirflag},~{fpsr},~{flags}"(ptr %prefetch_ptr.i.051) #28, !srcloc !7
-  %add.ptr9.i = getelementptr inbounds i8, ptr %prefetch_ptr.i.051, i64 64
+  tail call void asm sideeffect "prefetchw ($0)", "r,~{dirflag},~{fpsr},~{flags}"(ptr %prefetch_ptr.i.051) #27, !srcloc !7
+  %add.ptr9.i = getelementptr inbounds nuw i8, ptr %prefetch_ptr.i.051, i64 64
   %cmp8.i = icmp ult ptr %add.ptr9.i, %.sroa.speculated
   br i1 %cmp8.i, label %for.body.i, label %for.end.i, !llvm.loop !8
 
@@ -3577,11 +3608,11 @@ _ZN6google8protobuf8internal11SerialArena26AllocateAlignedWithCleanupEmmPFvPvE.e
 define void @_ZN6google8protobuf8internal15ThreadSafeArena10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %elem, ptr noundef %cleanup) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = tail call noundef nonnull align 32 dereferenceable(24) ptr @llvm.threadlocal.address.p0(ptr align 32 @_ZN6google8protobuf8internal15ThreadSafeArena13thread_cache_E)
-  %last_lifecycle_id_seen.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %last_lifecycle_id_seen.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load i64, ptr %last_lifecycle_id_seen.i.i, align 8
   %2 = load i64, ptr %this, align 8
   %cmp.i.not.i = icmp eq i64 %1, %2
-  %last_serial_arena.i.i = getelementptr inbounds i8, ptr %0, i64 16
+  %last_serial_arena.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %last_serial_arena.i.i, align 16
   br i1 %cmp.i.not.i, label %_ZN6google8protobuf8internal15ThreadSafeArena14GetSerialArenaEv.exit, label %if.then.i20
 
@@ -3595,7 +3626,7 @@ _ZN6google8protobuf8internal15ThreadSafeArena14GetSerialArenaEv.exit: ; preds = 
   br i1 %cmp.i.i, label %_ZN6google8protobuf8internal7cleanup4SizeEPFvPvE.exit.i.thread, label %_ZN6google8protobuf8internal7cleanup4SizeEPFvPvE.exit.i
 
 _ZN6google8protobuf8internal7cleanup4SizeEPFvPvE.exit.i.thread: ; preds = %_ZN6google8protobuf8internal15ThreadSafeArena14GetSerialArenaEv.exit
-  %limit_.i29 = getelementptr inbounds i8, ptr %arena.1.i, i64 8
+  %limit_.i29 = getelementptr inbounds nuw i8, ptr %arena.1.i, i64 8
   %4 = load ptr, ptr %limit_.i29, align 8
   %5 = load atomic i64, ptr %arena.1.i monotonic, align 8
   br label %if.end.i
@@ -3605,7 +3636,7 @@ _ZN6google8protobuf8internal7cleanup4SizeEPFvPvE.exit.i: ; preds = %_ZN6google8p
   %cmp1.i18 = icmp ne ptr %cleanup, @_ZN6google8protobuf8internal7cleanup21arena_destruct_objectIN4absl12lts_202308024CordEEEvPv
   %switch = and i1 %cmp.i16, %cmp1.i18
   %spec.select = select i1 %switch, i64 16, i64 8
-  %limit_.i = getelementptr inbounds i8, ptr %arena.1.i, i64 8
+  %limit_.i = getelementptr inbounds nuw i8, ptr %arena.1.i, i64 8
   %6 = load ptr, ptr %limit_.i, align 8
   %7 = load atomic i64, ptr %arena.1.i monotonic, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %6 to i64
@@ -3628,7 +3659,7 @@ if.end.i:                                         ; preds = %_ZN6google8protobuf
   %spec.select19 = select i1 %switch18, i64 -16, i64 -8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %8, i64 %spec.select19
   store ptr %add.ptr.i.i, ptr %limit_.i34, align 8
-  %prefetch_limit_.i = getelementptr inbounds i8, ptr %arena.1.i, i64 24
+  %prefetch_limit_.i = getelementptr inbounds nuw i8, ptr %arena.1.i, i64 24
   %9 = load ptr, ptr %prefetch_limit_.i, align 8
   %sub.ptr.lhs.cast.i25 = ptrtoint ptr %add.ptr.i.i to i64
   %sub.ptr.rhs.cast.i26 = ptrtoint ptr %9 to i64
@@ -3637,7 +3668,7 @@ if.end.i:                                         ; preds = %_ZN6google8protobuf
   br i1 %cmp.i28, label %_ZN6google8protobuf8internal11SerialArena22MaybePrefetchBackwardsEPKc.exit, label %if.end.i29
 
 if.end.i29:                                       ; preds = %if.end.i
-  %prefetch_ptr_.i = getelementptr inbounds i8, ptr %arena.1.i, i64 16
+  %prefetch_ptr_.i = getelementptr inbounds nuw i8, ptr %arena.1.i, i64 16
   %10 = load ptr, ptr %prefetch_ptr_.i, align 8
   %cmp3.i = icmp ugt ptr %9, %10
   br i1 %cmp3.i, label %if.then4.i, label %_ZN6google8protobuf8internal11SerialArena22MaybePrefetchBackwardsEPKc.exit
@@ -3653,10 +3684,10 @@ if.then4.i:                                       ; preds = %if.end.i29
 
 for.body.i:                                       ; preds = %if.then4.i, %for.body.i
   %prefetch_limit.i.037 = phi ptr [ %add.ptr11.i, %for.body.i ], [ %.sroa.speculated27, %if.then4.i ]
-  tail call void asm sideeffect "prefetchw ($0)", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %prefetch_limit.i.037) #28, !srcloc !7
+  tail call void asm sideeffect "prefetchw ($0)", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %prefetch_limit.i.037) #27, !srcloc !7
   %add.ptr11.i = getelementptr inbounds i8, ptr %prefetch_limit.i.037, i64 -64
   %cmp10.i = icmp ugt ptr %add.ptr11.i, %.sroa.speculated
-  br i1 %cmp10.i, label %for.body.i, label %for.end.i.loopexit, !llvm.loop !13
+  br i1 %cmp10.i, label %for.body.i, label %for.end.i.loopexit, !llvm.loop !10
 
 for.end.i.loopexit:                               ; preds = %for.body.i
   %.pre.pre = load ptr, ptr %limit_.i34, align 8
@@ -3688,7 +3719,7 @@ sw.bb2.i34:                                       ; preds = %_ZN6google8protobuf
 
 sw.default.i33:                                   ; preds = %_ZN6google8protobuf8internal11SerialArena22MaybePrefetchBackwardsEPKc.exit
   store i64 %12, ptr %11, align 1
-  %n7.i.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 8
+  %n7.i.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %cleanup, ptr %n7.i.sroa.2.0..sroa_idx, align 1
   br label %_ZN6google8protobuf8internal11SerialArena10AddCleanupEPvPFvS3_E.exit
 
@@ -3700,11 +3731,11 @@ _ZN6google8protobuf8internal11SerialArena10AddCleanupEPvPFvS3_E.exit: ; preds = 
 define noundef nonnull ptr @_ZN6google8protobuf8internal15ThreadSafeArena23AllocateFromStringBlockEv(ptr noundef nonnull align 8 dereferenceable(144) %this) local_unnamed_addr #3 align 2 {
 entry:
   %0 = tail call noundef nonnull align 32 dereferenceable(24) ptr @llvm.threadlocal.address.p0(ptr align 32 @_ZN6google8protobuf8internal15ThreadSafeArena13thread_cache_E)
-  %last_lifecycle_id_seen.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %last_lifecycle_id_seen.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load i64, ptr %last_lifecycle_id_seen.i.i, align 8
   %2 = load i64, ptr %this, align 8
   %cmp.i.not.i = icmp eq i64 %1, %2
-  %last_serial_arena.i.i = getelementptr inbounds i8, ptr %0, i64 16
+  %last_serial_arena.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %last_serial_arena.i.i, align 16
   br i1 %cmp.i.not.i, label %_ZN6google8protobuf8internal15ThreadSafeArena14GetSerialArenaEv.exit, label %if.then.i
 
@@ -3714,7 +3745,7 @@ if.then.i:                                        ; preds = %entry
 
 _ZN6google8protobuf8internal15ThreadSafeArena14GetSerialArenaEv.exit: ; preds = %entry, %if.then.i
   %arena.1.i = phi ptr [ %call2.i8, %if.then.i ], [ %3, %entry ]
-  %string_block_unused_.i = getelementptr inbounds i8, ptr %arena.1.i, i64 40
+  %string_block_unused_.i = getelementptr inbounds nuw i8, ptr %arena.1.i, i64 40
   %4 = load atomic i64, ptr %string_block_unused_.i monotonic, align 8
   %cmp.i.not.not = icmp eq i64 %4, 0
   br i1 %cmp.i.not.not, label %if.end.i, label %_ZN6google8protobuf8internal11SerialArena19MaybeAllocateStringERPv.exit
@@ -3722,10 +3753,10 @@ _ZN6google8protobuf8internal15ThreadSafeArena14GetSerialArenaEv.exit: ; preds = 
 _ZN6google8protobuf8internal11SerialArena19MaybeAllocateStringERPv.exit: ; preds = %_ZN6google8protobuf8internal15ThreadSafeArena14GetSerialArenaEv.exit
   %sub.i = add i64 %4, -32
   store atomic i64 %sub.i, ptr %string_block_unused_.i monotonic, align 8
-  %string_block_.i = getelementptr inbounds i8, ptr %arena.1.i, i64 32
+  %string_block_.i = getelementptr inbounds nuw i8, ptr %arena.1.i, i64 32
   %5 = load atomic i64, ptr %string_block_.i monotonic, align 8
   %atomic-temp.i.0.i = inttoptr i64 %5 to ptr
-  %add.ptr.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i, i64 16
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i, i64 16
   %add.ptr2.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %sub.i
   br label %_ZN6google8protobuf8internal11SerialArena23AllocateFromStringBlockEv.exit
 
@@ -3741,12 +3772,12 @@ _ZN6google8protobuf8internal11SerialArena23AllocateFromStringBlockEv.exit: ; pre
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define noundef i64 @_ZNK6google8protobuf8internal15ThreadSafeArena14SpaceAllocatedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %this) local_unnamed_addr #16 align 2 {
 entry:
-  %space_allocated_.i = getelementptr inbounds i8, ptr %this, i64 112
+  %space_allocated_.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load atomic i64, ptr %space_allocated_.i monotonic, align 8
-  %head_.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %head_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load atomic i64, ptr %head_.i.i acquire, align 8
   %atomic-temp.i.0.i.i.i = inttoptr i64 %1 to ptr
-  %capacity.i.i3.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i, i64 8
+  %capacity.i.i3.i.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i.i.i, i64 8
   %2 = load i32, ptr %capacity.i.i3.i.i, align 8
   %cmp.i4.i.i = icmp eq i32 %2, 0
   br i1 %cmp.i4.i.i, label %"_ZNK6google8protobuf8internal15ThreadSafeArena26PerConstSerialArenaInChunkIZNKS2_14SpaceAllocatedEvE3$_0EEvT_.exit", label %for.body.i.i
@@ -3759,7 +3790,7 @@ for.body.i.i:                                     ; preds = %entry, %"_ZZNK6goog
   %mul.i.i.i.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i, 3
   %4 = getelementptr i8, ptr %chunk.05.i.i, i64 %mul.i.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr i8, ptr %4, i64 16
-  %size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %chunk.05.i.i, i64 12
+  %size.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %chunk.05.i.i, i64 12
   %5 = load atomic i32, ptr %size.i.i.i.i.i.i monotonic, align 4
   %.sroa.speculated.i.i.i.i.i = tail call noundef i32 @llvm.umin.i32(i32 %5, i32 %3)
   %conv6.i.i.i.i = zext i32 %.sroa.speculated.i.i.i.i.i to i64
@@ -3777,24 +3808,24 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i, %for.
 
 if.end.i.i.i:                                     ; preds = %for.body.i.i.i
   %atomic-temp.i.0.i.i.i.i = inttoptr i64 %6 to ptr
-  %space_allocated_.i.i.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i.i, i64 64
+  %space_allocated_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i.i.i.i, i64 64
   %7 = load atomic i64, ptr %space_allocated_.i.i.i.i.i monotonic, align 8
   %add.i.i.i.i = add i64 %7, %space_allocated.1
   br label %for.inc.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %if.end.i.i.i, %for.body.i.i.i
   %space_allocated.2 = phi i64 [ %space_allocated.1, %for.body.i.i.i ], [ %add.i.i.i.i, %if.end.i.i.i ]
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__begin4.07.i.i.i, i64 8
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__begin4.07.i.i.i, i64 8
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr.i.ptr.i.i.i
   br i1 %cmp.not.i.i.i, label %"_ZZNK6google8protobuf8internal15ThreadSafeArena26PerConstSerialArenaInChunkIZNKS2_14SpaceAllocatedEvE3$_0EEvT_ENKUlPKNS2_16SerialArenaChunkEE_clES8_.exit.i.i", label %for.body.i.i.i
 
 "_ZZNK6google8protobuf8internal15ThreadSafeArena26PerConstSerialArenaInChunkIZNKS2_14SpaceAllocatedEvE3$_0EEvT_ENKUlPKNS2_16SerialArenaChunkEE_clES8_.exit.i.i": ; preds = %for.inc.i.i.i, %for.body.i.i
   %space_allocated.3 = phi i64 [ %space_allocated.0, %for.body.i.i ], [ %space_allocated.2, %for.inc.i.i.i ]
   %8 = load ptr, ptr %chunk.05.i.i, align 8
-  %capacity.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  %capacity.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   %9 = load i32, ptr %capacity.i.i.i.i, align 8
   %cmp.i.i.i = icmp eq i32 %9, 0
-  br i1 %cmp.i.i.i, label %"_ZNK6google8protobuf8internal15ThreadSafeArena26PerConstSerialArenaInChunkIZNKS2_14SpaceAllocatedEvE3$_0EEvT_.exit", label %for.body.i.i, !llvm.loop !23
+  br i1 %cmp.i.i.i, label %"_ZNK6google8protobuf8internal15ThreadSafeArena26PerConstSerialArenaInChunkIZNKS2_14SpaceAllocatedEvE3$_0EEvT_.exit", label %for.body.i.i, !llvm.loop !20
 
 "_ZNK6google8protobuf8internal15ThreadSafeArena26PerConstSerialArenaInChunkIZNKS2_14SpaceAllocatedEvE3$_0EEvT_.exit": ; preds = %"_ZZNK6google8protobuf8internal15ThreadSafeArena26PerConstSerialArenaInChunkIZNKS2_14SpaceAllocatedEvE3$_0EEvT_ENKUlPKNS2_16SerialArenaChunkEE_clES8_.exit.i.i", %entry
   %space_allocated.4 = phi i64 [ %0, %entry ], [ %space_allocated.3, %"_ZZNK6google8protobuf8internal15ThreadSafeArena26PerConstSerialArenaInChunkIZNKS2_14SpaceAllocatedEvE3$_0EEvT_ENKUlPKNS2_16SerialArenaChunkEE_clES8_.exit.i.i" ]
@@ -3804,17 +3835,17 @@ for.inc.i.i.i:                                    ; preds = %if.end.i.i.i, %for.
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define noundef i64 @_ZNK6google8protobuf8internal15ThreadSafeArena9SpaceUsedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %this) local_unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %first_arena_ = getelementptr inbounds i8, ptr %this, i64 48
-  %string_block_.i = getelementptr inbounds i8, ptr %this, i64 80
+  %first_arena_ = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %string_block_.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %0 = load atomic i64, ptr %string_block_.i acquire, align 8
   %tobool.not.i = icmp eq i64 %0, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %atomic-temp.i.0.i.i = inttoptr i64 %0 to ptr
-  %string_block_unused_.i = getelementptr inbounds i8, ptr %this, i64 88
+  %string_block_unused_.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %1 = load atomic i64, ptr %string_block_unused_.i monotonic, align 8
-  %allocated_size_.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i, i64 8
+  %allocated_size_.i.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i.i, i64 8
   %bf.load.i.i = load i32, ptr %allocated_size_.i.i, align 8
   %bf.lshr.i.i = lshr i32 %bf.load.i.i, 1
   %conv.i.i = zext nneg i32 %bf.lshr.i.i to i64
@@ -3824,21 +3855,21 @@ if.then.i:                                        ; preds = %entry
 
 if.end.i:                                         ; preds = %if.then.i, %entry
   %space_used.0.i = phi i64 [ %sub.i, %if.then.i ], [ 0, %entry ]
-  %head_.i = getelementptr inbounds i8, ptr %this, i64 96
+  %head_.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   %2 = load atomic i64, ptr %head_.i acquire, align 8
   %atomic-temp.i.0.i9.i = inttoptr i64 %2 to ptr
-  %size.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i9.i, i64 16
+  %size.i.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i9.i, i64 16
   %3 = load i64, ptr %size.i.i, align 8
   %cmp.i.i = icmp eq i64 %3, 0
   br i1 %cmp.i.i, label %_ZNK6google8protobuf8internal11SerialArena9SpaceUsedEv.exit, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end.i
   %4 = load atomic i64, ptr %first_arena_ monotonic, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i9.i, i64 24
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i9.i, i64 24
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr.i.i to i64
   %sub.ptr.sub.i = sub i64 %4, %sub.ptr.rhs.cast.i
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %3, i64 %sub.ptr.sub.i)
-  %space_used_.i = getelementptr inbounds i8, ptr %this, i64 104
+  %space_used_.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   %5 = load atomic i64, ptr %space_used_.i monotonic, align 8
   %add11.i = add i64 %5, %space_used.0.i
   %add13.i = add i64 %add11.i, %.sroa.speculated.i
@@ -3846,10 +3877,10 @@ if.end7.i:                                        ; preds = %if.end.i
 
 _ZNK6google8protobuf8internal11SerialArena9SpaceUsedEv.exit: ; preds = %if.end.i, %if.end7.i
   %retval.0.i = phi i64 [ %add13.i, %if.end7.i ], [ %space_used.0.i, %if.end.i ]
-  %head_.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %head_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %6 = load atomic i64, ptr %head_.i.i acquire, align 8
   %atomic-temp.i.0.i.i.i = inttoptr i64 %6 to ptr
-  %capacity.i.i3.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i, i64 8
+  %capacity.i.i3.i.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i.i.i, i64 8
   %7 = load i32, ptr %capacity.i.i3.i.i, align 8
   %cmp.i4.i.i = icmp eq i32 %7, 0
   br i1 %cmp.i4.i.i, label %"_ZNK6google8protobuf8internal15ThreadSafeArena26PerConstSerialArenaInChunkIZNKS2_9SpaceUsedEvE3$_0EEvT_.exit", label %for.body.i.i
@@ -3862,7 +3893,7 @@ for.body.i.i:                                     ; preds = %_ZNK6google8protobu
   %mul.i.i.i.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i, 3
   %9 = getelementptr i8, ptr %chunk.05.i.i, i64 %mul.i.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr i8, ptr %9, i64 16
-  %size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %chunk.05.i.i, i64 12
+  %size.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %chunk.05.i.i, i64 12
   %10 = load atomic i32, ptr %size.i.i.i.i.i.i monotonic, align 4
   %.sroa.speculated.i.i.i.i.i = tail call noundef i32 @llvm.umin.i32(i32 %10, i32 %8)
   %conv6.i.i.i.i = zext i32 %.sroa.speculated.i.i.i.i.i to i64
@@ -3880,16 +3911,16 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i, %for.
   br i1 %cmp5.i.i.i, label %for.inc.i.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %for.body.i.i.i
-  %string_block_.i.i.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i.i, i64 32
+  %string_block_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i.i.i.i, i64 32
   %12 = load atomic i64, ptr %string_block_.i.i.i.i.i acquire, align 8
   %tobool.not.i.i.i.i.i = icmp eq i64 %12, 0
   br i1 %tobool.not.i.i.i.i.i, label %if.end.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end.i.i.i
   %atomic-temp.i.0.i.i.i.i.i.i = inttoptr i64 %12 to ptr
-  %string_block_unused_.i.i.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i.i, i64 40
+  %string_block_unused_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i.i.i.i, i64 40
   %13 = load atomic i64, ptr %string_block_unused_.i.i.i.i.i monotonic, align 8
-  %allocated_size_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i.i.i.i, i64 8
+  %allocated_size_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i.i.i.i.i.i, i64 8
   %bf.load.i.i.i.i.i.i = load i32, ptr %allocated_size_.i.i.i.i.i.i, align 8
   %bf.lshr.i.i.i.i.i.i = lshr i32 %bf.load.i.i.i.i.i.i, 1
   %conv.i.i.i.i.i.i = zext nneg i32 %bf.lshr.i.i.i.i.i.i to i64
@@ -3899,21 +3930,21 @@ if.then.i.i.i.i.i:                                ; preds = %if.end.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i.i.i, %if.end.i.i.i
   %space_used.0.i.i.i.i.i = phi i64 [ %sub.i.i.i.i.i, %if.then.i.i.i.i.i ], [ 0, %if.end.i.i.i ]
-  %head_.i.i.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i.i, i64 48
+  %head_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i.i.i.i, i64 48
   %14 = load atomic i64, ptr %head_.i.i.i.i.i acquire, align 8
   %atomic-temp.i.0.i9.i.i.i.i.i = inttoptr i64 %14 to ptr
-  %size.i.i.i5.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i9.i.i.i.i.i, i64 16
+  %size.i.i.i5.i.i.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i9.i.i.i.i.i, i64 16
   %15 = load i64, ptr %size.i.i.i5.i.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp eq i64 %15, 0
   br i1 %cmp.i.i.i.i.i.i, label %"_ZZNK6google8protobuf8internal15ThreadSafeArena9SpaceUsedEvENK3$_0clEPKNS1_11SerialArenaE.exit.i.i.i", label %if.end7.i.i.i.i.i
 
 if.end7.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i.i
   %16 = load atomic i64, ptr %atomic-temp.i.0.i.i.i.i monotonic, align 8
-  %add.ptr.i.i.i6.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i9.i.i.i.i.i, i64 24
+  %add.ptr.i.i.i6.i.i.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i9.i.i.i.i.i, i64 24
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %add.ptr.i.i.i6.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %16, %sub.ptr.rhs.cast.i.i.i.i.i
   %.sroa.speculated.i.i7.i.i.i = tail call i64 @llvm.umin.i64(i64 %15, i64 %sub.ptr.sub.i.i.i.i.i)
-  %space_used_.i.i.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i.i, i64 56
+  %space_used_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i.i.i.i, i64 56
   %17 = load atomic i64, ptr %space_used_.i.i.i.i.i monotonic, align 8
   %add11.i.i.i.i.i = add i64 %17, %space_used.0.i.i.i.i.i
   %add13.i.i.i.i.i = add i64 %add11.i.i.i.i.i, %.sroa.speculated.i.i7.i.i.i
@@ -3927,21 +3958,21 @@ if.end7.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %"_ZZNK6google8protobuf8internal15ThreadSafeArena9SpaceUsedEvENK3$_0clEPKNS1_11SerialArenaE.exit.i.i.i", %for.body.i.i.i
   %space_used.2 = phi i64 [ %space_used.1, %for.body.i.i.i ], [ %add.i.i.i.i, %"_ZZNK6google8protobuf8internal15ThreadSafeArena9SpaceUsedEvENK3$_0clEPKNS1_11SerialArenaE.exit.i.i.i" ]
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__begin4.010.i.i.i, i64 8
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__begin4.010.i.i.i, i64 8
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr.i.ptr.i.i.i
   br i1 %cmp.not.i.i.i, label %"_ZZNK6google8protobuf8internal15ThreadSafeArena26PerConstSerialArenaInChunkIZNKS2_9SpaceUsedEvE3$_0EEvT_ENKUlPKNS2_16SerialArenaChunkEE_clES8_.exit.i.i", label %for.body.i.i.i
 
 "_ZZNK6google8protobuf8internal15ThreadSafeArena26PerConstSerialArenaInChunkIZNKS2_9SpaceUsedEvE3$_0EEvT_ENKUlPKNS2_16SerialArenaChunkEE_clES8_.exit.i.i": ; preds = %for.inc.i.i.i, %for.body.i.i
   %space_used.3 = phi i64 [ %space_used.0, %for.body.i.i ], [ %space_used.2, %for.inc.i.i.i ]
   %18 = load ptr, ptr %chunk.05.i.i, align 8
-  %capacity.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 8
+  %capacity.i.i.i.i = getelementptr inbounds nuw i8, ptr %18, i64 8
   %19 = load i32, ptr %capacity.i.i.i.i, align 8
   %cmp.i.i.i = icmp eq i32 %19, 0
-  br i1 %cmp.i.i.i, label %"_ZNK6google8protobuf8internal15ThreadSafeArena26PerConstSerialArenaInChunkIZNKS2_9SpaceUsedEvE3$_0EEvT_.exit", label %for.body.i.i, !llvm.loop !24
+  br i1 %cmp.i.i.i, label %"_ZNK6google8protobuf8internal15ThreadSafeArena26PerConstSerialArenaInChunkIZNKS2_9SpaceUsedEvE3$_0EEvT_.exit", label %for.body.i.i, !llvm.loop !21
 
 "_ZNK6google8protobuf8internal15ThreadSafeArena26PerConstSerialArenaInChunkIZNKS2_9SpaceUsedEvE3$_0EEvT_.exit": ; preds = %"_ZZNK6google8protobuf8internal15ThreadSafeArena26PerConstSerialArenaInChunkIZNKS2_9SpaceUsedEvE3$_0EEvT_ENKUlPKNS2_16SerialArenaChunkEE_clES8_.exit.i.i", %_ZNK6google8protobuf8internal11SerialArena9SpaceUsedEv.exit
   %space_used.4 = phi i64 [ %retval.0.i, %_ZNK6google8protobuf8internal11SerialArena9SpaceUsedEv.exit ], [ %space_used.3, %"_ZZNK6google8protobuf8internal15ThreadSafeArena26PerConstSerialArenaInChunkIZNKS2_9SpaceUsedEvE3$_0EEvT_ENKUlPKNS2_16SerialArenaChunkEE_clES8_.exit.i.i" ]
-  %alloc_policy_ = getelementptr inbounds i8, ptr %this, i64 8
+  %alloc_policy_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %20 = load i64, ptr %alloc_policy_, align 8
   %tobool.not = icmp ult i64 %20, 8
   %cond.neg = select i1 %tobool.not, i64 0, i64 -32
@@ -3953,14 +3984,14 @@ for.inc.i.i.i:                                    ; preds = %"_ZZNK6google8proto
 define noundef ptr @_ZN6google8protobuf5Arena8AllocateEm(ptr noundef nonnull align 8 dereferenceable(144) %this, i64 noundef %n) local_unnamed_addr #3 align 2 {
 entry:
   %0 = tail call noundef nonnull align 32 dereferenceable(24) ptr @llvm.threadlocal.address.p0(ptr align 32 @_ZN6google8protobuf8internal15ThreadSafeArena13thread_cache_E)
-  %last_lifecycle_id_seen.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %last_lifecycle_id_seen.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load i64, ptr %last_lifecycle_id_seen.i.i, align 8
   %2 = load i64, ptr %this, align 8
   %cmp.i.i = icmp eq i64 %1, %2
   br i1 %cmp.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %last_serial_arena.i.i = getelementptr inbounds i8, ptr %0, i64 16
+  %last_serial_arena.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %last_serial_arena.i.i, align 16
   br label %_ZN6google8protobuf8internal15ThreadSafeArena15AllocateAlignedILNS1_16AllocationClientE0EEEPvm.exit
 
@@ -3978,14 +4009,14 @@ _ZN6google8protobuf8internal15ThreadSafeArena15AllocateAlignedILNS1_16Allocation
 define noundef ptr @_ZN6google8protobuf5Arena16AllocateForArrayEm(ptr noundef nonnull align 8 dereferenceable(144) %this, i64 noundef %n) local_unnamed_addr #3 align 2 {
 entry:
   %0 = tail call noundef nonnull align 32 dereferenceable(24) ptr @llvm.threadlocal.address.p0(ptr align 32 @_ZN6google8protobuf8internal15ThreadSafeArena13thread_cache_E)
-  %last_lifecycle_id_seen.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %last_lifecycle_id_seen.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load i64, ptr %last_lifecycle_id_seen.i.i, align 8
   %2 = load i64, ptr %this, align 8
   %cmp.i.i = icmp eq i64 %1, %2
   br i1 %cmp.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %last_serial_arena.i.i = getelementptr inbounds i8, ptr %0, i64 16
+  %last_serial_arena.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %last_serial_arena.i.i, align 16
   br label %_ZN6google8protobuf8internal15ThreadSafeArena15AllocateAlignedILNS1_16AllocationClientE1EEEPvm.exit
 
@@ -4007,82 +4038,24 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf5Arena25PeekCleanupListForTestingEv(ptr noalias nocapture sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf5Arena25PeekCleanupListForTestingEv(ptr noalias nocapture sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %this) local_unnamed_addr #3 align 2 {
 entry:
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
   %0 = tail call noundef nonnull align 32 dereferenceable(24) ptr @llvm.threadlocal.address.p0(ptr align 32 @_ZN6google8protobuf8internal15ThreadSafeArena13thread_cache_E)
-  %last_lifecycle_id_seen.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
-  %1 = load i64, ptr %last_lifecycle_id_seen.i.i.i, align 8, !noalias !25
-  %2 = load i64, ptr %this, align 8, !noalias !25
+  %last_lifecycle_id_seen.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %1 = load i64, ptr %last_lifecycle_id_seen.i.i.i, align 8, !noalias !22
+  %2 = load i64, ptr %this, align 8, !noalias !22
   %cmp.i.not.i.i = icmp eq i64 %1, %2
-  %last_serial_arena.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
-  %3 = load ptr, ptr %last_serial_arena.i.i.i, align 16, !noalias !25
-  br i1 %cmp.i.not.i.i, label %_ZN6google8protobuf8internal15ThreadSafeArena14GetSerialArenaEv.exit.i, label %if.then.i.i
+  %last_serial_arena.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3 = load ptr, ptr %last_serial_arena.i.i.i, align 16, !noalias !22
+  br i1 %cmp.i.not.i.i, label %_ZN6google8protobuf8internal15ThreadSafeArena25PeekCleanupListForTestingEv.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call2.i.i = tail call noundef ptr @_ZN6google8protobuf8internal15ThreadSafeArena22GetSerialArenaFallbackEm(ptr noundef nonnull align 8 dereferenceable(144) %this, i64 noundef 16), !noalias !25
-  br label %_ZN6google8protobuf8internal15ThreadSafeArena14GetSerialArenaEv.exit.i
+  %call2.i.i = tail call noundef ptr @_ZN6google8protobuf8internal15ThreadSafeArena22GetSerialArenaFallbackEm(ptr noundef nonnull align 8 dereferenceable(144) %this, i64 noundef 16), !noalias !22
+  br label %_ZN6google8protobuf8internal15ThreadSafeArena25PeekCleanupListForTestingEv.exit
 
-_ZN6google8protobuf8internal15ThreadSafeArena14GetSerialArenaEv.exit.i: ; preds = %if.then.i.i, %entry
+_ZN6google8protobuf8internal15ThreadSafeArena25PeekCleanupListForTestingEv.exit: ; preds = %entry, %if.then.i.i
   %arena.1.i.i = phi ptr [ %call2.i.i, %if.then.i.i ], [ %3, %entry ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false), !alias.scope !31
-  %head_.i.i.i = getelementptr inbounds i8, ptr %arena.1.i.i, i64 48
-  %4 = load atomic i64, ptr %head_.i.i.i monotonic, align 8, !noalias !31
-  %atomic-temp.i.0.i.i.i.i = inttoptr i64 %4 to ptr
-  %size.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i.i, i64 16
-  %5 = load i64, ptr %size.i.i.i, align 8, !noalias !31
-  %cmp.i.i.i = icmp eq i64 %5, 0
-  br i1 %cmp.i.i.i, label %_ZN6google8protobuf8internal15ThreadSafeArena25PeekCleanupListForTestingEv.exit, label %invoke.cont4.i.i
-
-lpad.loopexit.i.i:                                ; preds = %invoke.cont7.i.i
-  %lpad.loopexit12.i.i = landingpad { ptr, i32 }
-          cleanup
-  br label %lpad.i.i
-
-lpad.loopexit.split-lp.i.i:                       ; preds = %invoke.cont4.i.i
-  %lpad.loopexit.split-lp13.i.i = landingpad { ptr, i32 }
-          cleanup
-  br label %lpad.i.i
-
-lpad.i.i:                                         ; preds = %lpad.loopexit.split-lp.i.i, %lpad.loopexit.i.i
-  %lpad.phi.i.i = phi { ptr, i32 } [ %lpad.loopexit12.i.i, %lpad.loopexit.i.i ], [ %lpad.loopexit.split-lp13.i.i, %lpad.loopexit.split-lp.i.i ]
-  %6 = load ptr, ptr %agg.result, align 8, !alias.scope !31
-  %tobool.not.i.i.i.i.i = icmp eq ptr %6, null
-  br i1 %tobool.not.i.i.i.i.i, label %_ZNSt6vectorIPvSaIS0_EED2Ev.exit.i.i, label %if.then.i.i.i.i.i
-
-if.then.i.i.i.i.i:                                ; preds = %lpad.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #32, !noalias !31
-  br label %_ZNSt6vectorIPvSaIS0_EED2Ev.exit.i.i
-
-_ZNSt6vectorIPvSaIS0_EED2Ev.exit.i.i:             ; preds = %if.then.i.i.i.i.i, %lpad.i.i
-  resume { ptr, i32 } %lpad.phi.i.i
-
-invoke.cont4.i.i:                                 ; preds = %_ZN6google8protobuf8internal15ThreadSafeArena14GetSerialArenaEv.exit.i
-  %limit_.i.i = getelementptr inbounds i8, ptr %arena.1.i.i, i64 8
-  %7 = load ptr, ptr %limit_.i.i, align 8, !noalias !31
-  %and.i.i.i = and i64 %5, -8
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i.i, i64 %and.i.i.i
-  invoke fastcc void @"_ZZN6google8protobuf8internal11SerialArena25PeekCleanupListForTestingEvENK3$_0clEPKcS5_"(ptr nonnull align 8 %agg.result, ptr noundef %7, ptr noundef %add.ptr.i.i.i.i)
-          to label %for.cond.i.i unwind label %lpad.loopexit.split-lp.i.i
-
-for.cond.i.i:                                     ; preds = %invoke.cont4.i.i, %invoke.cont7.i.i
-  %b.0.in.i.i = phi ptr [ %b.0.i.i, %invoke.cont7.i.i ], [ %atomic-temp.i.0.i.i.i.i, %invoke.cont4.i.i ]
-  %b.0.i.i = load ptr, ptr %b.0.in.i.i, align 8, !noalias !31
-  %tobool.not.i.i = icmp eq ptr %b.0.i.i, null
-  br i1 %tobool.not.i.i, label %_ZN6google8protobuf8internal15ThreadSafeArena25PeekCleanupListForTestingEv.exit, label %invoke.cont7.i.i
-
-invoke.cont7.i.i:                                 ; preds = %for.cond.i.i
-  %cleanup_nodes.i.i = getelementptr inbounds i8, ptr %b.0.i.i, i64 8
-  %8 = load ptr, ptr %cleanup_nodes.i.i, align 8, !noalias !31
-  %size.i9.i.i = getelementptr inbounds i8, ptr %b.0.i.i, i64 16
-  %9 = load i64, ptr %size.i9.i.i, align 8, !noalias !31
-  %and.i10.i.i = and i64 %9, -8
-  %add.ptr.i.i11.i.i = getelementptr inbounds i8, ptr %b.0.i.i, i64 %and.i10.i.i
-  invoke fastcc void @"_ZZN6google8protobuf8internal11SerialArena25PeekCleanupListForTestingEvENK3$_0clEPKcS5_"(ptr align 8 %agg.result, ptr noundef %8, ptr noundef nonnull %add.ptr.i.i11.i.i)
-          to label %for.cond.i.i unwind label %lpad.loopexit.i.i
-
-_ZN6google8protobuf8internal15ThreadSafeArena25PeekCleanupListForTestingEv.exit: ; preds = %for.cond.i.i, %_ZN6google8protobuf8internal15ThreadSafeArena14GetSerialArenaEv.exit.i
+  tail call void @_ZN6google8protobuf8internal11SerialArena25PeekCleanupListForTestingEv(ptr sret(%"class.std::vector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(96) %arena.1.i.i)
   ret void
 }
 
@@ -4101,7 +4074,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #19
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf8internal7cleanup21arena_destruct_objectINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPv(ptr noundef %object) #6 comdat {
 entry:
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %object) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %object) #27
   ret void
 }
 
@@ -4121,7 +4094,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #30
+  tail call void @__clang_call_terminate(ptr %3) #29
   unreachable
 
 _ZN4absl12lts_202308024CordD2Ev.exit:             ; preds = %entry, %if.then.i
@@ -4157,18 +4130,15 @@ declare i64 @llvm.ctlz.i64(i64, i1 immarg) #20
 define internal void @_GLOBAL__sub_I_arena.cc() #22 section ".text.startup" {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #28
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #27
   ret void
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #23
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #24
-
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #25
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #23
@@ -4177,13 +4147,13 @@ declare i64 @llvm.umin.i64(i64, i64) #23
 declare i64 @llvm.umax.i64(i64, i64) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #26
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #26
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #27
+declare void @llvm.assume(i1 noundef) #26
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4209,17 +4179,16 @@ attributes #20 = { mustprogress nocallback nofree nosync nounwind speculatable w
 attributes #21 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #22 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #23 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #24 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #25 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #26 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #27 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #28 = { nounwind }
-attributes #29 = { cold }
-attributes #30 = { noreturn nounwind }
-attributes #31 = { allocsize(0) }
-attributes #32 = { builtin nounwind }
-attributes #33 = { noreturn }
-attributes #34 = { builtin allocsize(0) }
+attributes #24 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #25 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #26 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #27 = { nounwind }
+attributes #28 = { cold }
+attributes #29 = { noreturn nounwind }
+attributes #30 = { allocsize(0) }
+attributes #31 = { builtin nounwind }
+attributes #32 = { noreturn }
+attributes #33 = { builtin allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
@@ -4233,9 +4202,9 @@ attributes #34 = { builtin allocsize(0) }
 !7 = !{i64 5932476}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
-!10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZN6google8protobuf8internal11SerialArena25PeekCleanupListForTestingEv: %agg.result"}
-!12 = distinct !{!12, !"_ZN6google8protobuf8internal11SerialArena25PeekCleanupListForTestingEv"}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
@@ -4245,13 +4214,6 @@ attributes #34 = { builtin allocsize(0) }
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
-!25 = !{!26}
-!26 = distinct !{!26, !27, !"_ZN6google8protobuf8internal15ThreadSafeArena25PeekCleanupListForTestingEv: %agg.result"}
-!27 = distinct !{!27, !"_ZN6google8protobuf8internal15ThreadSafeArena25PeekCleanupListForTestingEv"}
-!28 = !{!29}
-!29 = distinct !{!29, !30, !"_ZN6google8protobuf8internal11SerialArena25PeekCleanupListForTestingEv: %agg.result"}
-!30 = distinct !{!30, !"_ZN6google8protobuf8internal11SerialArena25PeekCleanupListForTestingEv"}
-!31 = !{!29, !26}
+!22 = !{!23}
+!23 = distinct !{!23, !24, !"_ZN6google8protobuf8internal15ThreadSafeArena25PeekCleanupListForTestingEv: %agg.result"}
+!24 = distinct !{!24, !"_ZN6google8protobuf8internal15ThreadSafeArena25PeekCleanupListForTestingEv"}

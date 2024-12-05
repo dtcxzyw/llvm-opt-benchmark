@@ -23,7 +23,7 @@ define hidden range(i32 0, 10) i32 @lexbor_mem_init(ptr noundef %0, i64 noundef 
 6:                                                ; preds = %4
   %.biased.i = add i64 %1, 7
   %7 = and i64 %.biased.i, -8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %7, ptr %8, align 8
   %9 = tail call ptr @lexbor_calloc(i64 noundef 1, i64 noundef 40) #6
   %10 = icmp eq ptr %9, null
@@ -41,9 +41,9 @@ lexbor_mem_chunk_make.exit.thread:                ; preds = %6
   %16 = select i1 %15, i64 0, i64 %12
   %spec.select.i.i = add i64 %16, %7
   %.sink.i.i = select i1 %13, i64 %spec.select.i.i, i64 %12
-  %17 = getelementptr inbounds i8, ptr %9, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 %.sink.i.i, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %9, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 0, ptr %18, align 8
   %19 = tail call ptr @lexbor_malloc(i64 noundef %.sink.i.i) #6
   store ptr %19, ptr %9, align 8
@@ -62,9 +62,9 @@ lexbor_mem_chunk_make.exit:                       ; preds = %11
 
 23:                                               ; preds = %lexbor_mem_chunk_make.exit.thread14, %lexbor_mem_chunk_make.exit
   %.0.i16 = phi ptr [ %9, %lexbor_mem_chunk_make.exit.thread14 ], [ %21, %lexbor_mem_chunk_make.exit ]
-  %24 = getelementptr inbounds i8, ptr %0, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 1, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0.i16, ptr %25, align 8
   br label %26
 
@@ -82,7 +82,7 @@ define hidden ptr @lexbor_mem_chunk_make(ptr nocapture noundef readonly %0, i64 
 5:                                                ; preds = %2
   %.biased.i.i = add i64 %1, 7
   %6 = and i64 %.biased.i.i, -8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = icmp ugt i64 %6, %8
   %10 = xor i64 %6, -1
@@ -90,9 +90,9 @@ define hidden ptr @lexbor_mem_chunk_make(ptr nocapture noundef readonly %0, i64 
   %12 = select i1 %11, i64 0, i64 %8
   %spec.select.i = add i64 %12, %6
   %.sink.i = select i1 %9, i64 %spec.select.i, i64 %8
-  %13 = getelementptr inbounds i8, ptr %3, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %.sink.i, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %14, align 8
   %15 = tail call ptr @lexbor_malloc(i64 noundef %.sink.i) #6
   store ptr %15, ptr %3, align 8
@@ -115,7 +115,7 @@ define hidden void @lexbor_mem_clean(ptr noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not15 = icmp eq ptr %6, null
   br i1 %.not15, label %._crit_edge, label %.lr.ph
@@ -127,21 +127,21 @@ define hidden void @lexbor_mem_clean(ptr noundef %0) local_unnamed_addr #0 {
   %9 = tail call ptr @lexbor_free(ptr noundef %8) #6
   store ptr %9, ptr %.016, align 8
   %10 = tail call ptr @lexbor_free(ptr noundef nonnull %.016) #6
-  %11 = getelementptr inbounds i8, ptr %7, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %12 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.0.lcssa = phi ptr [ %4, %3 ], [ %7, %.lr.ph ]
-  %13 = getelementptr inbounds i8, ptr %.0.lcssa, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 24
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %.0.lcssa, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 8
   store i64 0, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
   store ptr %16, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 1, ptr %17, align 8
   br label %18
 
@@ -163,7 +163,7 @@ define hidden ptr @lexbor_mem_destroy(ptr noundef %0, i1 noundef zeroext %1) loc
 
 .preheader:                                       ; preds = %4, %lexbor_mem_chunk_destroy.exit
   %.01216 = phi ptr [ %7, %lexbor_mem_chunk_destroy.exit ], [ %5, %4 ]
-  %6 = getelementptr inbounds i8, ptr %.01216, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %.01216, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %.01216, align 8
   %.not.i = icmp eq ptr %8, null
@@ -228,7 +228,7 @@ define hidden ptr @lexbor_mem_chunk_destroy(ptr noundef readnone %0, ptr noundef
 define hidden ptr @lexbor_mem_chunk_init(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 24)) %1, i64 noundef %2) local_unnamed_addr #0 {
   %.biased.i = add i64 %2, 7
   %4 = and i64 %.biased.i, -8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = icmp ugt i64 %4, %6
   %8 = xor i64 %4, -1
@@ -236,9 +236,9 @@ define hidden ptr @lexbor_mem_chunk_init(ptr nocapture noundef readonly %0, ptr 
   %10 = select i1 %9, i64 0, i64 %6
   %spec.select = add i64 %4, %10
   %.sink = select i1 %7, i64 %spec.select, i64 %6
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %.sink, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 0, ptr %12, align 8
   %13 = tail call ptr @lexbor_malloc(i64 noundef %.sink) #6
   store ptr %13, ptr %1, align 8
@@ -256,16 +256,16 @@ define hidden ptr @lexbor_mem_alloc(ptr nocapture noundef %0, i64 noundef %1) lo
   %.biased.i = add i64 %1, 7
   %5 = and i64 %.biased.i, -8
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %8, %5
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load i64, ptr %10, align 8
   %12 = icmp ugt i64 %9, %11
   br i1 %12, label %13, label %46
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load i64, ptr %14, align 8
   %16 = icmp eq i64 %15, -1
   br i1 %16, label %55, label %17
@@ -276,7 +276,7 @@ define hidden ptr @lexbor_mem_alloc(ptr nocapture noundef %0, i64 noundef %1) lo
   br i1 %19, label %lexbor_mem_chunk_make.exit, label %20
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load i64, ptr %21, align 8
   %23 = icmp ugt i64 %5, %22
   %24 = xor i64 %5, -1
@@ -284,9 +284,9 @@ define hidden ptr @lexbor_mem_alloc(ptr nocapture noundef %0, i64 noundef %1) lo
   %26 = select i1 %25, i64 0, i64 %22
   %spec.select.i.i = add i64 %26, %5
   %.sink.i.i = select i1 %23, i64 %spec.select.i.i, i64 %22
-  %27 = getelementptr inbounds i8, ptr %18, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i64 %.sink.i.i, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %18, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 0, ptr %28, align 8
   %29 = tail call ptr @lexbor_malloc(i64 noundef %.sink.i.i) #6
   store ptr %29, ptr %18, align 8
@@ -300,25 +300,25 @@ define hidden ptr @lexbor_mem_alloc(ptr nocapture noundef %0, i64 noundef %1) lo
 lexbor_mem_chunk_make.exit:                       ; preds = %17, %20, %31
   %.0.i = phi ptr [ %32, %31 ], [ null, %17 ], [ %18, %20 ]
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
   store ptr %.0.i, ptr %34, align 8
   %35 = load ptr, ptr %0, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
   br i1 %38, label %55, label %39
 
 39:                                               ; preds = %lexbor_mem_chunk_make.exit
-  %40 = getelementptr inbounds i8, ptr %37, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 32
   store ptr %35, ptr %40, align 8
   %41 = load ptr, ptr %0, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %43 = load ptr, ptr %42, align 8
   store ptr %43, ptr %0, align 8
   %44 = load i64, ptr %14, align 8
   %45 = add i64 %44, 1
   store i64 %45, ptr %14, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %43, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %43, i64 8
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   %.pre22 = add i64 %.pre, %5
   br label %46
@@ -326,11 +326,11 @@ lexbor_mem_chunk_make.exit:                       ; preds = %17, %20, %31
 46:                                               ; preds = %39, %4
   %.pre-phi = phi i64 [ %.pre22, %39 ], [ %9, %4 ]
   %47 = phi ptr [ %43, %39 ], [ %6, %4 ]
-  %48 = getelementptr inbounds i8, ptr %47, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i64 %.pre-phi, ptr %48, align 8
   %49 = load ptr, ptr %0, align 8
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %49, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %52 = load i64, ptr %51, align 8
   %53 = sub i64 %52, %5
   %54 = getelementptr inbounds i8, ptr %50, i64 %53

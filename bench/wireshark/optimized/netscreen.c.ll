@@ -30,7 +30,7 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden range(i32 -1, 2) i32 @netscreen_open(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [128 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4)
-  %5 = getelementptr inbounds i8, ptr %4, i64 127
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 127
   store i8 0, ptr %5, align 1
   br label %6
 
@@ -85,18 +85,18 @@ define hidden range(i32 -1, 2) i32 @netscreen_open(ptr nocapture noundef %0, ptr
   br i1 %27, label %36, label %28
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %0, i64 144
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 0, ptr %29, align 8
   %30 = load i32, ptr @netscreen_file_type_subtype, align 4
-  %31 = getelementptr inbounds i8, ptr %0, i64 20
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %30, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 112
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @netscreen_read, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 120
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr @netscreen_seek_read, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 148
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 1, ptr %35, align 4
   br label %36
 
@@ -160,10 +160,10 @@ netscreen_seek_next_packet.exit:                  ; preds = %19, %21
   br i1 %.not, label %37, label %29
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %0, i64 144
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %31 = load i32, ptr %30, align 8
   %32 = icmp eq i32 %31, 0
-  %33 = getelementptr inbounds i8, ptr %1, i64 72
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %34 = load i32, ptr %33, align 8
   br i1 %32, label %.sink.split, label %35
 
@@ -188,7 +188,7 @@ netscreen_seek_next_packet.exit:                  ; preds = %19, %21
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 2) i32 @netscreen_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca [128 x i8], align 16
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i64 @file_seek(ptr noundef %9, i64 noundef %1, i32 noundef 0, ptr noundef %4) #7
   %11 = icmp eq i64 %10, -1
@@ -251,9 +251,9 @@ define internal fastcc range(i32 -1, 2) i32 @parse_netscreen_packet(ptr noundef 
   %14 = alloca [13 x i8], align 1
   store i32 0, ptr %1, align 8
   %15 = tail call ptr @wtap_block_create(i32 noundef 5) #7
-  %16 = getelementptr inbounds i8, ptr %1, i64 232
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 232
   store ptr %15, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 3, ptr %17, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %13, i8 0, i64 13, i1 false)
@@ -281,19 +281,19 @@ define internal fastcc range(i32 -1, 2) i32 @parse_netscreen_packet(ptr noundef 
 27:                                               ; preds = %22
   %28 = load i32, ptr %8, align 4
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %29, ptr %30, align 8
   %31 = load i32, ptr %9, align 4
   %32 = mul i32 %31, 100000000
-  %33 = getelementptr inbounds i8, ptr %1, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 64
-  %35 = getelementptr inbounds i8, ptr %1, i64 68
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 68
   store i32 %23, ptr %35, align 4
   %36 = zext nneg i32 %23 to i64
   call void @ws_buffer_assure_space(ptr noundef %2, i64 noundef %36) #7
   %37 = load ptr, ptr %2, align 8
-  %38 = getelementptr inbounds i8, ptr %2, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %39 = load i64, ptr %38, align 8
   %40 = getelementptr i8, ptr %37, i64 %39
   %41 = call ptr @file_gets(ptr noundef nonnull %3, i32 noundef 128, ptr noundef %0) #7
@@ -545,7 +545,7 @@ info_line.exit:                                   ; preds = %95
   %141 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %14, i64 noundef 13, ptr noundef nonnull @.str.12, i32 noundef %125, i32 noundef %128, i32 noundef %131, i32 noundef %134, i32 noundef %137, i32 noundef %140) #7
   %142 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) %13, i64 noundef 12) #8
   %143 = icmp eq i32 %142, 0
-  %144 = getelementptr inbounds i8, ptr %1, i64 72
+  %144 = getelementptr inbounds nuw i8, ptr %1, i64 72
   br i1 %143, label %145, label %146
 
 145:                                              ; preds = %123
@@ -557,12 +557,12 @@ info_line.exit:                                   ; preds = %95
   br label %151
 
 147:                                              ; preds = %._crit_edge
-  %148 = getelementptr inbounds i8, ptr %1, i64 72
+  %148 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i32 4, ptr %148, align 8
   br label %151
 
 149:                                              ; preds = %._crit_edge
-  %150 = getelementptr inbounds i8, ptr %1, i64 72
+  %150 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i32 1, ptr %150, align 8
   br label %151
 

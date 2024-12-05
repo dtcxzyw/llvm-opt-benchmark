@@ -1694,13 +1694,13 @@ define hidden zeroext i16 @be_chan_type(ptr noundef %0, ptr noundef %1, ptr noun
 
 switch.lookup:                                    ; preds = %85
   %89 = zext nneg i32 %switch.tableidx199 to i64
-  %switch.gep = getelementptr inbounds [7 x ptr], ptr @switch.table.be_chan_type, i64 0, i64 %89
+  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.be_chan_type, i64 0, i64 %89
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %91
 
 switch.lookup198:                                 ; preds = %87
   %90 = zext nneg i32 %switch.tableidx199 to i64
-  %switch.gep200 = getelementptr inbounds [16 x ptr], ptr @switch.table.be_chan_type.1, i64 0, i64 %90
+  %switch.gep200 = getelementptr inbounds nuw [16 x ptr], ptr @switch.table.be_chan_type.1, i64 0, i64 %90
   %switch.load201 = load ptr, ptr %switch.gep200, align 8
   br label %91
 
@@ -2494,13 +2494,13 @@ define internal noundef zeroext i16 @be_l3_info(ptr noundef %0, ptr noundef %1, 
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %22, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %25 = load ptr, ptr %24, align 8
   %.not5.i = icmp eq ptr %25, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %26
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %25, i64 28
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 28
   %28 = load i32, ptr %27, align 4
   %29 = or i32 %28, 1
   store i32 %29, ptr %27, align 4
@@ -2523,13 +2523,13 @@ proto_item_set_hidden.exit:                       ; preds = %20, %23, %26
   br i1 %.not.i48, label %proto_item_set_hidden.exit50, label %38
 
 38:                                               ; preds = %36
-  %39 = getelementptr inbounds i8, ptr %37, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %40 = load ptr, ptr %39, align 8
   %.not5.i49 = icmp eq ptr %40, null
   br i1 %.not5.i49, label %proto_item_set_hidden.exit50, label %41
 
 41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %40, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 28
   %43 = load i32, ptr %42, align 4
   %44 = or i32 %43, 1
   store i32 %44, ptr %42, align 4
@@ -3480,13 +3480,13 @@ define internal zeroext i16 @be_aoip_trans_lay_add(ptr noundef %0, ptr noundef %
   %.sink43 = select i1 %switch, i32 4, i32 16
   %.sink = select i1 %switch, ptr %8, ptr %10
   store i32 %.sink44, ptr %9, align 8
-  %25 = getelementptr inbounds i8, ptr %9, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %.sink43, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %9, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %.sink, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 80
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 50
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 50
   %30 = load i16, ptr %29, align 2
   %31 = and i16 %30, 8
   %32 = icmp eq i16 %31, 0
@@ -3496,7 +3496,7 @@ define internal zeroext i16 @be_aoip_trans_lay_add(ptr noundef %0, ptr noundef %
 
 34:                                               ; preds = %20
   %35 = zext i16 %24 to i32
-  %36 = getelementptr inbounds i8, ptr %2, i64 20
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %37 = load i32, ptr %36, align 4
   call void @rtp_add_address(ptr noundef nonnull %2, i32 noundef 3, ptr noundef nonnull %9, i32 noundef %35, i32 noundef 0, ptr noundef nonnull @.str.736, i32 noundef %37, i32 noundef 0, ptr noundef null) #3
   %38 = add nuw nsw i32 %35, 1
@@ -4047,13 +4047,13 @@ define hidden void @bssmap_perf_loc_abort(ptr noundef %0, ptr noundef %1, ptr no
 define hidden void @proto_register_gsm_a_bssmap() local_unnamed_addr #1 {
   %1 = alloca [370 x ptr], align 16
   store ptr @ett_bssmap_msg, ptr %1, align 16
-  %2 = getelementptr inbounds i8, ptr %1, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @ett_cell_list, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr @ett_dlci, ptr %3, align 16
-  %4 = getelementptr inbounds i8, ptr %1, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr @ett_codec_lst, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr @ett_bss_to_bss_info, ptr %5, align 16
   br label %6
 
@@ -4112,7 +4112,7 @@ define internal i32 @dissect_bssmap(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %3, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %8 = load ptr, ptr %7, align 8
   %.not66 = icmp eq ptr %8, null
   br i1 %.not66, label %9, label %10
@@ -4122,7 +4122,7 @@ define internal i32 @dissect_bssmap(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 10:                                               ; preds = %9, %6
   %.0 = phi ptr [ %3, %6 ], [ null, %9 ]
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void @col_append_str(ptr noundef %12, i32 noundef 25, ptr noundef nonnull @.str.1062) #3
   %13 = load i32, ptr @dissect_bssmap.tap_current, align 4
@@ -4142,7 +4142,7 @@ define internal i32 @dissect_bssmap(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not67, label %29, label %22
 
 22:                                               ; preds = %10
-  %23 = getelementptr inbounds i8, ptr %.0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %24 = load ptr, ptr %23, align 8
   %.not68 = icmp eq ptr %24, null
   br i1 %.not68, label %25, label %29
@@ -4185,7 +4185,7 @@ define internal i32 @dissect_bssmap(ptr noundef %0, ptr noundef %1, ptr noundef 
   %.061 = phi ptr [ %37, %34 ], [ %44, %38 ]
   %49 = load ptr, ptr @dissect_bssmap.tap_p, align 8
   store i8 0, ptr %49, align 4
-  %50 = getelementptr inbounds i8, ptr %49, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 1
   store i8 %19, ptr %50, align 1
   %51 = load i32, ptr @gsm_a_tap, align 4
   call void @tap_queue_packet(i32 noundef %51, ptr noundef nonnull %1, ptr noundef nonnull %49) #3
@@ -4217,9 +4217,9 @@ define internal i32 @dissect_bssmap(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not67, label %.critedge, label %66
 
 66:                                               ; preds = %65
-  %67 = getelementptr inbounds i8, ptr %.0, i64 40
+  %67 = getelementptr inbounds nuw i8, ptr %.0, i64 40
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 80
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 80
   %70 = load i32, ptr %69, align 8
   %71 = and i32 %70, 52480
   %72 = icmp eq i32 %71, 52480
@@ -4231,7 +4231,7 @@ define internal i32 @dissect_bssmap(ptr noundef %0, ptr noundef %1, ptr noundef 
   %75 = zext i8 %74 to i32
   %76 = or i32 %75, 52720
   %77 = load ptr, ptr %67, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 80
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 80
   store i32 %76, ptr %78, align 8
   br label %79
 

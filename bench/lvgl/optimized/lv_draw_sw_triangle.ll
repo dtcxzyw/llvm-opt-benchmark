@@ -25,11 +25,11 @@ define void @lv_draw_sw_triangle(ptr noundef %0, ptr noundef %1) local_unnamed_a
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #5
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %13 = load float, ptr %12, align 8, !tbaa !3
-  %14 = getelementptr inbounds i8, ptr %1, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %15 = load float, ptr %14, align 8, !tbaa !3
   %16 = fcmp olt float %13, %15
   %. = select i1 %16, float %13, float %15
-  %17 = getelementptr inbounds i8, ptr %1, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %18 = load float, ptr %17, align 8, !tbaa !3
   %19 = fcmp olt float %., %18
   %20 = select i1 %19, float %., float %18
@@ -37,11 +37,11 @@ define void @lv_draw_sw_triangle(ptr noundef %0, ptr noundef %1) local_unnamed_a
   store i32 %21, ptr %3, align 4, !tbaa !8
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %23 = load float, ptr %22, align 4, !tbaa !11
-  %24 = getelementptr inbounds i8, ptr %1, i64 76
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %25 = load float, ptr %24, align 4, !tbaa !11
   %26 = fcmp olt float %23, %25
   %.158 = select i1 %26, float %23, float %25
-  %27 = getelementptr inbounds i8, ptr %1, i64 84
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %28 = load float, ptr %27, align 4, !tbaa !11
   %29 = fcmp olt float %.158, %28
   %30 = select i1 %29, float %.158, float %28
@@ -78,10 +78,10 @@ define void @lv_draw_sw_triangle(ptr noundef %0, ptr noundef %1) local_unnamed_a
 50:                                               ; preds = %46
   %51 = call i64 @lv_point_from_precise(ptr noundef nonnull %12) #5
   store i64 %51, ptr %5, align 16
-  %52 = getelementptr inbounds i8, ptr %5, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %53 = call i64 @lv_point_from_precise(ptr noundef nonnull %14) #5
   store i64 %53, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %5, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %55 = call i64 @lv_point_from_precise(ptr noundef nonnull %17) #5
   store i64 %55, ptr %54, align 16
   br label %96
@@ -94,18 +94,18 @@ define void @lv_draw_sw_triangle(ptr noundef %0, ptr noundef %1) local_unnamed_a
 59:                                               ; preds = %56
   %60 = call i64 @lv_point_from_precise(ptr noundef nonnull %12) #5
   store i64 %60, ptr %5, align 16
-  %61 = getelementptr inbounds i8, ptr %5, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %62 = call i64 @lv_point_from_precise(ptr noundef nonnull %17) #5
   store i64 %62, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %5, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %64 = call i64 @lv_point_from_precise(ptr noundef nonnull %14) #5
   store i64 %64, ptr %63, align 16
   br label %96
 
 65:                                               ; preds = %56
   %66 = fcmp oeq float %48, %57
-  %67 = getelementptr inbounds i8, ptr %5, i64 8
-  %68 = getelementptr inbounds i8, ptr %5, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br i1 %66, label %69, label %73
 
 69:                                               ; preds = %65
@@ -126,7 +126,7 @@ define void @lv_draw_sw_triangle(ptr noundef %0, ptr noundef %1) local_unnamed_a
   store i64 %76, ptr %68, align 16
   %77 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %78 = load i32, ptr %77, align 4, !tbaa !18
-  %79 = getelementptr inbounds i8, ptr %5, i64 12
+  %79 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %80 = load i32, ptr %79, align 4, !tbaa !18
   %81 = icmp sgt i32 %78, %80
   %82 = lshr i64 %76, 32
@@ -136,14 +136,14 @@ define void @lv_draw_sw_triangle(ptr noundef %0, ptr noundef %1) local_unnamed_a
 84:                                               ; preds = %73
   call void @lv_point_swap(ptr noundef nonnull %5, ptr noundef nonnull %67) #5
   %.pre = load i32, ptr %77, align 4, !tbaa !18
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 20
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 20
   %.pre182 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !18
   br label %85
 
 85:                                               ; preds = %84, %73
   %86 = phi i32 [ %.pre182, %84 ], [ %83, %73 ]
   %87 = phi i32 [ %.pre, %84 ], [ %78, %73 ]
-  %88 = getelementptr inbounds i8, ptr %5, i64 20
+  %88 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %89 = icmp sgt i32 %87, %86
   br i1 %89, label %90, label %91
 
@@ -164,8 +164,8 @@ define void @lv_draw_sw_triangle(ptr noundef %0, ptr noundef %1) local_unnamed_a
 96:                                               ; preds = %59, %91, %95, %69, %50
   %97 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %98 = load i32, ptr %97, align 4, !tbaa !18
-  %99 = getelementptr inbounds i8, ptr %5, i64 8
-  %100 = getelementptr inbounds i8, ptr %5, i64 12
+  %99 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %101 = load i32, ptr %100, align 4, !tbaa !18
   %102 = icmp sgt i32 %98, %101
   br i1 %102, label %103, label %104
@@ -182,8 +182,8 @@ define void @lv_draw_sw_triangle(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %107 = load i32, ptr %99, align 8, !tbaa !20
   %108 = load i32, ptr %5, align 16, !tbaa !20
   %109 = sub nsw i32 %107, %108
-  %110 = getelementptr inbounds i8, ptr %5, i64 16
-  %111 = getelementptr inbounds i8, ptr %5, i64 20
+  %110 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %111 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %112 = load i32, ptr %111, align 4, !tbaa !18
   %113 = sub nsw i32 %112, %106
   %114 = mul nsw i32 %113, %109
@@ -194,7 +194,7 @@ define void @lv_draw_sw_triangle(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %117 = add i32 %.neg156, %114
   %118 = icmp sgt i32 %117, -1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #5
-  %119 = getelementptr inbounds i8, ptr %6, i64 16
+  %119 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %119, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #5
@@ -224,9 +224,9 @@ define void @lv_draw_sw_triangle(ptr noundef %0, ptr noundef %1) local_unnamed_a
 
 132:                                              ; preds = %131, %130
   store ptr %7, ptr %6, align 16, !tbaa !21
-  %133 = getelementptr inbounds i8, ptr %6, i64 8
+  %133 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %133, align 8, !tbaa !21
-  %134 = getelementptr inbounds i8, ptr %6, i64 16
+  %134 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %9, ptr %134, align 16, !tbaa !21
   %135 = call i32 @lv_area_get_width(ptr noundef nonnull %4) #5
   %.fr177 = freeze i32 %135
@@ -391,14 +391,14 @@ define void @lv_draw_sw_triangle(ptr noundef %0, ptr noundef %1) local_unnamed_a
 
 215:                                              ; preds = %.lr.ph.us.us, %227
   %indvars.iv = phi i64 [ 0, %.lr.ph.us.us ], [ %indvars.iv.next, %227 ]
-  %216 = getelementptr inbounds i8, ptr %178, i64 %indvars.iv
+  %216 = getelementptr inbounds nuw i8, ptr %178, i64 %indvars.iv
   %217 = load i8, ptr %216, align 1, !tbaa !25
   %218 = icmp ult i8 %217, -3
   br i1 %218, label %219, label %227
 
 219:                                              ; preds = %215
   %220 = zext i8 %217 to i16
-  %221 = getelementptr inbounds i8, ptr %137, i64 %indvars.iv
+  %221 = getelementptr inbounds nuw i8, ptr %137, i64 %indvars.iv
   %222 = load i8, ptr %221, align 1, !tbaa !25
   %223 = zext i8 %222 to i16
   %224 = mul nuw i16 %223, %220

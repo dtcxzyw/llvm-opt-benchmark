@@ -42,22 +42,22 @@ declare void @_ZN9grpc_core9TraceFlagC1EbPKc(ptr noundef nonnull align 8 derefer
 define void @_ZN9grpc_core12BdpEstimatorC2ESt17basic_string_viewIcSt11char_traitsIcEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 72)) %this, i64 %name.coerce0, ptr %name.coerce1) unnamed_addr #3 align 2 {
 entry:
   store i64 0, ptr %this, align 8
-  %estimate_ = getelementptr inbounds i8, ptr %this, i64 8
+  %estimate_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 65536, ptr %estimate_, align 8
-  %ping_start_time_ = getelementptr inbounds i8, ptr %this, i64 16
+  %ping_start_time_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %call = tail call { i64, i64 } @gpr_time_0(i32 noundef 0)
   %0 = extractvalue { i64, i64 } %call, 0
   store i64 %0, ptr %ping_start_time_, align 8
-  %1 = getelementptr inbounds i8, ptr %this, i64 24
+  %1 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = extractvalue { i64, i64 } %call, 1
   store i64 %2, ptr %1, align 8
-  %inter_ping_delay_ = getelementptr inbounds i8, ptr %this, i64 32
+  %inter_ping_delay_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i64 100, ptr %inter_ping_delay_, align 8
-  %stable_estimate_count_ = getelementptr inbounds i8, ptr %this, i64 40
-  %name_ = getelementptr inbounds i8, ptr %this, i64 56
+  %stable_estimate_count_ = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %name_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stable_estimate_count_, i8 0, i64 16, i1 false)
   store i64 %name.coerce0, ptr %name_, align 8
-  %name.sroa.2.0.name_.sroa_idx = getelementptr inbounds i8, ptr %this, i64 64
+  %name.sroa.2.0.name_.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr %name.coerce1, ptr %name.sroa.2.0.name_.sroa_idx, align 8
   ret void
 }
@@ -79,9 +79,9 @@ entry:
   %call = tail call { i64, i64 } @gpr_now(i32 noundef 0)
   %0 = extractvalue { i64, i64 } %call, 0
   %1 = extractvalue { i64, i64 } %call, 1
-  %ping_start_time_ = getelementptr inbounds i8, ptr %this, i64 16
+  %ping_start_time_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %agg.tmp2.sroa.0.0.copyload = load i64, ptr %ping_start_time_, align 8
-  %agg.tmp2.sroa.2.0.ping_start_time_.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
+  %agg.tmp2.sroa.2.0.ping_start_time_.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 24
   %agg.tmp2.sroa.2.0.copyload = load i64, ptr %agg.tmp2.sroa.2.0.ping_start_time_.sroa_idx, align 8
   %call3 = tail call { i64, i64 } @gpr_time_sub(i64 %0, i64 %1, i64 %agg.tmp2.sroa.0.0.copyload, i64 %agg.tmp2.sroa.2.0.copyload)
   %2 = extractvalue { i64, i64 } %call3, 0
@@ -95,25 +95,25 @@ entry:
   %conv5 = sitofp i64 %5 to double
   %div = fdiv double %conv5, %4
   %cond = select i1 %cmp, double %div, double 0.000000e+00
-  %inter_ping_delay_ = getelementptr inbounds i8, ptr %this, i64 32
+  %inter_ping_delay_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %6 = load i64, ptr %inter_ping_delay_, align 8
-  %7 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_bdp_estimator_trace, i64 16) monotonic, align 8
+  %7 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @grpc_bdp_estimator_trace, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %7 to i1
   br i1 %tobool.i.i.i, label %if.then, label %do.body
 
 if.then:                                          ; preds = %entry
-  %name_ = getelementptr inbounds i8, ptr %this, i64 56
+  %name_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
   %agg.tmp3.sroa.0.0.copyload.i = load i64, ptr %name_, align 8
-  %agg.tmp3.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 64
+  %agg.tmp3.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %agg.tmp3.sroa.2.0.copyload.i = load ptr, ptr %agg.tmp3.sroa.2.0..sroa_idx.i, align 8
   %call.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %agg.tmp3.sroa.0.0.copyload.i, ptr %agg.tmp3.sroa.2.0.copyload.i) #11
   %8 = extractvalue { i64, ptr } %call.i, 0
   %9 = extractvalue { i64, ptr } %call.i, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i64 %8, ptr %9) #11
   %10 = load i64, ptr %agg.tmp.i, align 8
-  %11 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %agg.tmp.i, i64 8
   %12 = load ptr, ptr %11, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i64 %10, ptr %12, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8)
           to label %invoke.cont unwind label %lpad
@@ -122,10 +122,10 @@ invoke.cont:                                      ; preds = %if.then
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
   %call9 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #11
   %13 = load i64, ptr %this, align 8
-  %estimate_ = getelementptr inbounds i8, ptr %this, i64 8
+  %estimate_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %14 = load i64, ptr %estimate_, align 8
   %div11 = fdiv double %cond, 1.250000e+05
-  %bw_est_ = getelementptr inbounds i8, ptr %this, i64 48
+  %bw_est_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %15 = load double, ptr %bw_est_, align 8
   %div12 = fdiv double %15, 1.250000e+05
   invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.2, i32 noundef 50, i32 noundef 1, ptr noundef nonnull @.str.3, ptr noundef %call9, i64 noundef %13, i64 noundef %14, double noundef %4, double noundef %div11, double noundef %div12)
@@ -148,7 +148,7 @@ lpad13:                                           ; preds = %invoke.cont
   br label %eh.resume
 
 do.body:                                          ; preds = %entry, %invoke.cont14
-  %ping_state_ = getelementptr inbounds i8, ptr %this, i64 44
+  %ping_state_ = getelementptr inbounds nuw i8, ptr %this, i64 44
   %18 = load i32, ptr %ping_state_, align 4
   %cmp15.not = icmp eq i32 %18, 2
   br i1 %cmp15.not, label %do.end, label %if.then17
@@ -159,7 +159,7 @@ if.then17:                                        ; preds = %do.body
 
 do.end:                                           ; preds = %do.body
   %19 = load i64, ptr %this, align 8
-  %estimate_20 = getelementptr inbounds i8, ptr %this, i64 8
+  %estimate_20 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %20 = load i64, ptr %estimate_20, align 8
   %mul = shl nsw i64 %20, 1
   %div21 = sdiv i64 %mul, 3
@@ -167,7 +167,7 @@ do.end:                                           ; preds = %do.body
   br i1 %cmp22, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %do.end
-  %bw_est_23 = getelementptr inbounds i8, ptr %this, i64 48
+  %bw_est_23 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %21 = load double, ptr %bw_est_23, align 8
   %cmp24 = fcmp ogt double %cond, %21
   br i1 %cmp24, label %if.then25, label %if.else
@@ -176,23 +176,23 @@ if.then25:                                        ; preds = %land.lhs.true
   %.sroa.speculated = call i64 @llvm.smax.i64(i64 %19, i64 %mul)
   store i64 %.sroa.speculated, ptr %estimate_20, align 8
   store double %cond, ptr %bw_est_23, align 8
-  %22 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_bdp_estimator_trace, i64 16) monotonic, align 8
+  %22 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @grpc_bdp_estimator_trace, i64 16) monotonic, align 8
   %tobool.i.i.i11 = trunc i8 %22 to i1
   br i1 %tobool.i.i.i11, label %if.then35, label %if.end47
 
 if.then35:                                        ; preds = %if.then25
-  %name_37 = getelementptr inbounds i8, ptr %this, i64 56
+  %name_37 = getelementptr inbounds nuw i8, ptr %this, i64 56
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp38) #11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i12)
   %agg.tmp3.sroa.0.0.copyload.i13 = load i64, ptr %name_37, align 8
-  %agg.tmp3.sroa.2.0..sroa_idx.i14 = getelementptr inbounds i8, ptr %this, i64 64
+  %agg.tmp3.sroa.2.0..sroa_idx.i14 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %agg.tmp3.sroa.2.0.copyload.i15 = load ptr, ptr %agg.tmp3.sroa.2.0..sroa_idx.i14, align 8
   %call.i16 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %agg.tmp3.sroa.0.0.copyload.i13, ptr %agg.tmp3.sroa.2.0.copyload.i15) #11
   %23 = extractvalue { i64, ptr } %call.i16, 0
   %24 = extractvalue { i64, ptr } %call.i16, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i12, i64 %23, ptr %24) #11
   %25 = load i64, ptr %agg.tmp.i12, align 8
-  %26 = getelementptr inbounds i8, ptr %agg.tmp.i12, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %agg.tmp.i12, i64 8
   %27 = load ptr, ptr %26, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp36, i64 %25, ptr %27, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp38)
           to label %invoke.cont40 unwind label %lpad39
@@ -236,7 +236,7 @@ if.else:                                          ; preds = %land.lhs.true, %do.
   br i1 %cmp.i18, label %if.then55, label %if.end73
 
 if.then55:                                        ; preds = %if.else
-  %stable_estimate_count_ = getelementptr inbounds i8, ptr %this, i64 40
+  %stable_estimate_count_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %33 = load i32, ptr %stable_estimate_count_, align 8
   %inc = add nsw i32 %33, 1
   store i32 %inc, ptr %stable_estimate_count_, align 8
@@ -266,25 +266,25 @@ if.end73:                                         ; preds = %if.end73.sink.split
   br i1 %cmp.i19.not, label %if.end97, label %if.then78
 
 if.then78:                                        ; preds = %if.end73
-  %stable_estimate_count_79 = getelementptr inbounds i8, ptr %this, i64 40
+  %stable_estimate_count_79 = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i32 0, ptr %stable_estimate_count_79, align 8
-  %35 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_bdp_estimator_trace, i64 16) monotonic, align 8
+  %35 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @grpc_bdp_estimator_trace, i64 16) monotonic, align 8
   %tobool.i.i.i20 = trunc i8 %35 to i1
   br i1 %tobool.i.i.i20, label %if.then82, label %if.end97
 
 if.then82:                                        ; preds = %if.then78
-  %name_84 = getelementptr inbounds i8, ptr %this, i64 56
+  %name_84 = getelementptr inbounds nuw i8, ptr %this, i64 56
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp85) #11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i21)
   %agg.tmp3.sroa.0.0.copyload.i22 = load i64, ptr %name_84, align 8
-  %agg.tmp3.sroa.2.0..sroa_idx.i23 = getelementptr inbounds i8, ptr %this, i64 64
+  %agg.tmp3.sroa.2.0..sroa_idx.i23 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %agg.tmp3.sroa.2.0.copyload.i24 = load ptr, ptr %agg.tmp3.sroa.2.0..sroa_idx.i23, align 8
   %call.i25 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %agg.tmp3.sroa.0.0.copyload.i22, ptr %agg.tmp3.sroa.2.0.copyload.i24) #11
   %36 = extractvalue { i64, ptr } %call.i25, 0
   %37 = extractvalue { i64, ptr } %call.i25, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i21, i64 %36, ptr %37) #11
   %38 = load i64, ptr %agg.tmp.i21, align 8
-  %39 = getelementptr inbounds i8, ptr %agg.tmp.i21, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %agg.tmp.i21, i64 8
   %40 = load ptr, ptr %39, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp83, i64 %38, ptr %40, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp85)
           to label %invoke.cont87 unwind label %lpad86

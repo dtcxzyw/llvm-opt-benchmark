@@ -43,7 +43,7 @@ define zeroext range(i8 0, 33) i8 @lv_color_format_get_bpp(i32 noundef %0) local
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [33 x i8], ptr @switch.table.lv_color_format_get_bpp, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [33 x i8], ptr @switch.table.lv_color_format_get_bpp, i64 0, i64 %3
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %4
 
@@ -403,7 +403,7 @@ define zeroext range(i8 0, 5) i8 @lv_color_format_get_size(i32 noundef %0) local
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [33 x i8], ptr @switch.table.lv_color_format_get_size, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [33 x i8], ptr @switch.table.lv_color_format_get_size, i64 0, i64 %3
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %lv_color_format_get_bpp.exit
 
@@ -622,11 +622,11 @@ define zeroext i8 @lv_color16_luminance(i16 %0) local_unnamed_addr #1 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define zeroext i8 @lv_color24_luminance(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 2
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %3 = load i8, ptr %2, align 1, !tbaa !10
   %4 = zext i8 %3 to i32
   %5 = mul nuw nsw i32 %4, 77
-  %6 = getelementptr inbounds i8, ptr %0, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %7 = load i8, ptr %6, align 1, !tbaa !10
   %8 = zext i8 %7 to i32
   %9 = mul nuw nsw i32 %8, 151

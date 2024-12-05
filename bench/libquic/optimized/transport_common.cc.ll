@@ -93,7 +93,7 @@ invoke.cont7:                                     ; preds = %invoke.cont4
   br label %if.end
 
 if.end:                                           ; preds = %invoke.cont, %invoke.cont7
-  %ai_socktype = getelementptr inbounds i8, ptr %hint, i64 8
+  %ai_socktype = getelementptr inbounds nuw i8, ptr %hint, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %hint, i8 0, i64 48, i1 false)
   store i32 1, ptr %ai_socktype, align 8
   %call9 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %hostname) #13
@@ -113,11 +113,11 @@ if.then14:                                        ; preds = %invoke.cont11
 
 if.end18:                                         ; preds = %invoke.cont11
   %2 = load ptr, ptr %result, align 8
-  %ai_family19 = getelementptr inbounds i8, ptr %2, i64 4
+  %ai_family19 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %3 = load i32, ptr %ai_family19, align 4
-  %ai_socktype20 = getelementptr inbounds i8, ptr %2, i64 8
+  %ai_socktype20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i32, ptr %ai_socktype20, align 8
-  %ai_protocol = getelementptr inbounds i8, ptr %2, i64 12
+  %ai_protocol = getelementptr inbounds nuw i8, ptr %2, i64 12
   %5 = load i32, ptr %ai_protocol, align 4
   %call21 = call i32 @socket(i32 noundef %3, i32 noundef %4, i32 noundef %5) #13
   store i32 %call21, ptr %out_sock, align 4
@@ -126,7 +126,7 @@ if.end18:                                         ; preds = %invoke.cont11
 
 if.end25:                                         ; preds = %if.end18
   %6 = load ptr, ptr %result, align 8
-  %ai_family26 = getelementptr inbounds i8, ptr %6, i64 4
+  %ai_family26 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %7 = load i32, ptr %ai_family26, align 4
   switch i32 %7, label %sw.epilog [
     i32 2, label %sw.epilog.sink.split
@@ -139,12 +139,12 @@ sw.bb32:                                          ; preds = %if.end25
 sw.epilog.sink.split:                             ; preds = %if.end25, %sw.bb32
   %.sink15 = phi i64 [ 8, %sw.bb32 ], [ 4, %if.end25 ]
   %.str.4.sink = phi ptr [ @.str.4, %sw.bb32 ], [ @.str.3, %if.end25 ]
-  %ai_addr33 = getelementptr inbounds i8, ptr %6, i64 24
+  %ai_addr33 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load ptr, ptr %ai_addr33, align 8
   %9 = load ptr, ptr @stderr, align 8
-  %sin6_addr = getelementptr inbounds i8, ptr %8, i64 %.sink15
+  %sin6_addr = getelementptr inbounds nuw i8, ptr %8, i64 %.sink15
   %call36 = call ptr @inet_ntop(i32 noundef %7, ptr noundef nonnull %sin6_addr, ptr noundef nonnull %buf, i32 noundef 256) #13
-  %sin6_port = getelementptr inbounds i8, ptr %8, i64 2
+  %sin6_port = getelementptr inbounds nuw i8, ptr %8, i64 2
   %10 = load i16, ptr %sin6_port, align 2
   %call37 = call zeroext i16 @ntohs(i16 noundef zeroext %10) #15
   %conv38 = zext i16 %call37 to i32
@@ -154,9 +154,9 @@ sw.epilog.sink.split:                             ; preds = %if.end25, %sw.bb32
 sw.epilog:                                        ; preds = %sw.epilog.sink.split, %if.end25
   %11 = load i32, ptr %out_sock, align 4
   %12 = load ptr, ptr %result, align 8
-  %ai_addr41 = getelementptr inbounds i8, ptr %12, i64 24
+  %ai_addr41 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %13 = load ptr, ptr %ai_addr41, align 8
-  %ai_addrlen = getelementptr inbounds i8, ptr %12, i64 16
+  %ai_addrlen = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i32, ptr %ai_addrlen, align 8
   %call43 = invoke i32 @connect(i32 noundef %11, ptr noundef %13, i32 noundef %14)
           to label %invoke.cont42 unwind label %lpad
@@ -241,16 +241,16 @@ entry:
   %cli_addr = alloca %struct.sockaddr_in6, align 4
   %cli_addr_len = alloca i32, align 4
   store i32 28, ptr %cli_addr_len, align 4
-  %0 = getelementptr inbounds i8, ptr %addr, i64 4
+  %0 = getelementptr inbounds nuw i8, ptr %addr, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %0, i8 0, i64 24, i1 false)
   store i16 10, ptr %addr, align 4
-  %sin6_addr = getelementptr inbounds i8, ptr %addr, i64 8
+  %sin6_addr = getelementptr inbounds nuw i8, ptr %addr, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %sin6_addr, ptr noundef nonnull align 4 dereferenceable(16) @in6addr_any, i64 16, i1 false)
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %port) #13
   %call1 = tail call i32 @atoi(ptr nocapture noundef %call) #16
   %conv = trunc i32 %call1 to i16
   %call2 = tail call zeroext i16 @htons(i16 noundef zeroext %conv) #15
-  %sin6_port = getelementptr inbounds i8, ptr %addr, i64 2
+  %sin6_port = getelementptr inbounds nuw i8, ptr %addr, i64 2
   store i16 %call2, ptr %sin6_port, align 2
   %call5 = tail call i32 @socket(i32 noundef 10, i32 noundef 1, i32 noundef 0) #13
   %cmp = icmp slt i32 %call5, 0

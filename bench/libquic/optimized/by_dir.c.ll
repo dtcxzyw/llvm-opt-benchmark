@@ -51,9 +51,9 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %dirs = getelementptr inbounds i8, ptr %call, i64 8
+  %dirs = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr null, ptr %dirs, align 8
-  %method_data = getelementptr inbounds i8, ptr %lu, i64 16
+  %method_data = getelementptr inbounds nuw i8, ptr %lu, i64 16
   store ptr %call, ptr %method_data, align 8
   br label %return
 
@@ -65,9 +65,9 @@ return:                                           ; preds = %entry, %if.end4, %i
 ; Function Attrs: nounwind uwtable
 define internal void @free_dir(ptr nocapture noundef readonly %lu) #1 {
 entry:
-  %method_data = getelementptr inbounds i8, ptr %lu, i64 16
+  %method_data = getelementptr inbounds nuw i8, ptr %lu, i64 16
   %0 = load ptr, ptr %method_data, align 8
-  %dirs = getelementptr inbounds i8, ptr %0, i64 8
+  %dirs = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %dirs, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -93,7 +93,7 @@ if.end5:                                          ; preds = %if.then3, %if.end
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @dir_ctrl(ptr nocapture noundef readonly %ctx, i32 noundef %cmd, ptr noundef %argp, i64 noundef %argl, ptr nocapture readnone %retp) #1 {
 entry:
-  %method_data = getelementptr inbounds i8, ptr %ctx, i64 16
+  %method_data = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %method_data, align 8
   %cond = icmp eq i32 %cmd, 2
   br i1 %cond, label %sw.bb, label %sw.epilog
@@ -141,13 +141,13 @@ entry:
   %htmp = alloca %struct.lookup_dir_hashes_st, align 8
   %st = alloca %struct.stat, align 8
   %cmp = icmp eq ptr %name, null
-  %.sink.sroa.gep134 = getelementptr inbounds i8, ptr %data, i64 136
-  %.sink118.sroa.gep135 = getelementptr inbounds i8, ptr %data, i64 120
+  %.sink.sroa.gep134 = getelementptr inbounds nuw i8, ptr %data, i64 136
+  %.sink118.sroa.gep135 = getelementptr inbounds nuw i8, ptr %data, i64 120
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %.sink118.sroa.gep = getelementptr inbounds i8, ptr %data, i64 176
-  %.sink.sroa.gep = getelementptr inbounds i8, ptr %data, i64 216
+  %.sink118.sroa.gep = getelementptr inbounds nuw i8, ptr %data, i64 176
+  %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %data, i64 216
   store i32 %type, ptr %stmp, align 8
   %cmp2 = icmp eq i32 %type, 1
   br i1 %cmp2, label %if.end14, label %if.else
@@ -166,7 +166,7 @@ if.end14:                                         ; preds = %if.else, %if.end
   %postfix.0 = phi ptr [ @.str.2, %if.end ], [ @.str.3, %if.else ]
   store ptr %.sink118.sroa.phi, ptr %data, align 8
   store ptr %name, ptr %.sink.sroa.phi, align 8
-  %data11 = getelementptr inbounds i8, ptr %stmp, i64 8
+  %data11 = getelementptr inbounds nuw i8, ptr %stmp, i64 8
   store ptr %data, ptr %data11, align 8
   %call = call ptr @BUF_MEM_new() #13
   %cmp15 = icmp eq ptr %call, null
@@ -177,15 +177,15 @@ if.then16:                                        ; preds = %if.end14
   br label %return
 
 if.end17:                                         ; preds = %if.end14
-  %method_data = getelementptr inbounds i8, ptr %xl, i64 16
+  %method_data = getelementptr inbounds nuw i8, ptr %xl, i64 16
   %0 = load ptr, ptr %method_data, align 8
   %call18 = call i64 @X509_NAME_hash(ptr noundef nonnull %name) #13
   %call19 = call i64 @X509_NAME_hash_old(ptr noundef nonnull %name) #13
-  %dirs = getelementptr inbounds i8, ptr %0, i64 8
+  %dirs = getelementptr inbounds nuw i8, ptr %0, i64 8
   %cmp38 = icmp eq i32 %type, 2
-  %data61 = getelementptr inbounds i8, ptr %call, i64 8
-  %max62 = getelementptr inbounds i8, ptr %call, i64 16
-  %store_ctx = getelementptr inbounds i8, ptr %xl, i64 24
+  %data61 = getelementptr inbounds nuw i8, ptr %call, i64 8
+  %max62 = getelementptr inbounds nuw i8, ptr %call, i64 16
+  %store_ctx = getelementptr inbounds nuw i8, ptr %xl, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %if.end17, %for.inc152
@@ -224,7 +224,7 @@ if.end37:                                         ; preds = %for.body26
   br i1 %cmp38, label %land.lhs.true, label %if.end51
 
 land.lhs.true:                                    ; preds = %if.end37
-  %hashes = getelementptr inbounds i8, ptr %call28, i64 16
+  %hashes = getelementptr inbounds nuw i8, ptr %call28, i64 16
   %5 = load ptr, ptr %hashes, align 8
   %tobool40.not = icmp eq ptr %5, null
   br i1 %tobool40.not, label %if.end51, label %if.then41
@@ -241,7 +241,7 @@ if.then45:                                        ; preds = %if.then41
   %7 = load ptr, ptr %hashes, align 8
   %8 = load i64, ptr %idx, align 8
   %call47 = call ptr @sk_value(ptr noundef %7, i64 noundef %8) #13
-  %suffix = getelementptr inbounds i8, ptr %call47, i64 8
+  %suffix = getelementptr inbounds nuw i8, ptr %call47, i64 8
   %9 = load i32, ptr %suffix, align 8
   br label %if.end49
 
@@ -264,7 +264,7 @@ if.end51:                                         ; preds = %if.end37, %land.lhs
   br i1 %cmp6985, label %for.end, label %if.end72.lr.ph
 
 if.end72.lr.ph:                                   ; preds = %if.end51
-  %dir_type87 = getelementptr inbounds i8, ptr %call28, i64 8
+  %dir_type87 = getelementptr inbounds nuw i8, ptr %call28, i64 8
   br i1 %cmp2, label %if.end72.us, label %if.end72.lr.ph.split
 
 if.end72.us:                                      ; preds = %if.end72.lr.ph, %if.end94.us
@@ -323,10 +323,10 @@ if.end72:                                         ; preds = %if.end72.lr.ph.spli
 for.end:                                          ; preds = %if.end72, %if.end94.us92, %if.end72.us90, %if.end94.us, %if.end72.us, %if.end51
   %k.2.lcssa = phi i32 [ %k.1, %if.end51 ], [ %k.286.us, %if.end72.us ], [ %inc.us, %if.end94.us ], [ %k.286.us91, %if.end72.us90 ], [ %inc.us93, %if.end94.us92 ], [ %inc, %if.end72 ]
   %30 = load ptr, ptr %store_ctx, align 8
-  %objs_lock = getelementptr inbounds i8, ptr %30, i64 16
+  %objs_lock = getelementptr inbounds nuw i8, ptr %30, i64 16
   call void @CRYPTO_MUTEX_lock_write(ptr noundef nonnull %objs_lock) #13
   %31 = load ptr, ptr %store_ctx, align 8
-  %objs = getelementptr inbounds i8, ptr %31, i64 8
+  %objs = getelementptr inbounds nuw i8, ptr %31, i64 8
   %32 = load ptr, ptr %objs, align 8
   %call96 = call i32 @sk_find(ptr noundef %32, ptr noundef nonnull %idx, ptr noundef nonnull %stmp) #13
   %tobool97.not = icmp eq i32 %call96, 0
@@ -334,7 +334,7 @@ for.end:                                          ; preds = %if.end72, %if.end94
 
 if.then98:                                        ; preds = %for.end
   %33 = load ptr, ptr %store_ctx, align 8
-  %objs100 = getelementptr inbounds i8, ptr %33, i64 8
+  %objs100 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %34 = load ptr, ptr %objs100, align 8
   %35 = load i64, ptr %idx, align 8
   %call101 = call ptr @sk_value(ptr noundef %34, i64 noundef %35) #13
@@ -343,7 +343,7 @@ if.then98:                                        ; preds = %for.end
 if.end102:                                        ; preds = %if.then98, %for.end
   %tmp.0 = phi ptr [ %call101, %if.then98 ], [ null, %for.end ]
   %36 = load ptr, ptr %store_ctx, align 8
-  %objs_lock104 = getelementptr inbounds i8, ptr %36, i64 16
+  %objs_lock104 = getelementptr inbounds nuw i8, ptr %36, i64 16
   call void @CRYPTO_MUTEX_unlock(ptr noundef nonnull %objs_lock104) #13
   br i1 %cmp38, label %if.then107, label %if.end141
 
@@ -354,7 +354,7 @@ if.then107:                                       ; preds = %if.end102
 
 if.then109:                                       ; preds = %if.then107
   store i64 %indvars.iv.sroa.phi.sroa.speculated, ptr %htmp, align 8
-  %hashes111 = getelementptr inbounds i8, ptr %call28, i64 16
+  %hashes111 = getelementptr inbounds nuw i8, ptr %call28, i64 16
   %37 = load ptr, ptr %hashes111, align 8
   %call112 = call i32 @sk_find(ptr noundef %37, ptr noundef nonnull %idx, ptr noundef nonnull %htmp) #13
   %tobool113.not = icmp eq i32 %call112, 0
@@ -378,7 +378,7 @@ if.then124:                                       ; preds = %if.then120
 
 if.end125:                                        ; preds = %if.then120
   store i64 %indvars.iv.sroa.phi.sroa.speculated, ptr %call121, align 8
-  %suffix127 = getelementptr inbounds i8, ptr %call121, i64 8
+  %suffix127 = getelementptr inbounds nuw i8, ptr %call121, i64 8
   store i32 %k.2.lcssa, ptr %suffix127, align 8
   %40 = load ptr, ptr %hashes111, align 8
   %call129 = call i64 @sk_push(ptr noundef %40, ptr noundef nonnull %call121) #13
@@ -392,7 +392,7 @@ if.then131:                                       ; preds = %if.end125
 
 if.else133:                                       ; preds = %if.then107, %if.end118
   %hent.269 = phi ptr [ %call116, %if.end118 ], [ %hent.1, %if.then107 ]
-  %suffix134 = getelementptr inbounds i8, ptr %hent.269, i64 8
+  %suffix134 = getelementptr inbounds nuw i8, ptr %hent.269, i64 8
   %41 = load i32, ptr %suffix134, align 8
   %cmp135 = icmp slt i32 %41, %k.2.lcssa
   br i1 %cmp135, label %if.then137, label %if.end140
@@ -412,8 +412,8 @@ if.end141:                                        ; preds = %if.end140, %if.end1
 if.then144:                                       ; preds = %if.end141
   %42 = load i32, ptr %tmp.0, align 8
   store i32 %42, ptr %ret, align 8
-  %data147 = getelementptr inbounds i8, ptr %ret, i64 8
-  %data148 = getelementptr inbounds i8, ptr %tmp.0, i64 8
+  %data147 = getelementptr inbounds nuw i8, ptr %ret, i64 8
+  %data148 = getelementptr inbounds nuw i8, ptr %tmp.0, i64 8
   %43 = load i64, ptr %data148, align 8
   store i64 %43, ptr %data147, align 8
   br label %if.then157
@@ -453,7 +453,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %hashes = getelementptr inbounds i8, ptr %ent, i64 16
+  %hashes = getelementptr inbounds nuw i8, ptr %ent, i64 16
   %1 = load ptr, ptr %hashes, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %if.end5, label %if.then3
@@ -493,7 +493,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool.not, label %if.then, label %do.body.preheader
 
 do.body.preheader:                                ; preds = %lor.lhs.false
-  %dirs = getelementptr inbounds i8, ptr %ctx, i64 8
+  %dirs = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   br label %do.body
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
@@ -501,7 +501,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   br label %return
 
 do.bodythread-pre-split:                          ; preds = %do.cond
-  %incdec.ptr = getelementptr inbounds i8, ptr %p.0, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %p.0, i64 1
   %.pr = load i8, ptr %incdec.ptr, align 1
   br label %do.body
 
@@ -515,7 +515,7 @@ do.body:                                          ; preds = %do.body.preheader, 
   ]
 
 if.then7:                                         ; preds = %do.body, %do.body
-  %add.ptr = getelementptr inbounds i8, ptr %p.0, i64 1
+  %add.ptr = getelementptr inbounds nuw i8, ptr %p.0, i64 1
   %sub.ptr.lhs.cast = ptrtoint ptr %p.0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %s.0 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
@@ -577,10 +577,10 @@ if.end42:                                         ; preds = %if.then35, %if.end3
   br i1 %tobool44.not, label %return, label %if.end46
 
 if.end46:                                         ; preds = %if.end42
-  %dir_type = getelementptr inbounds i8, ptr %call43, i64 8
+  %dir_type = getelementptr inbounds nuw i8, ptr %call43, i64 8
   store i32 %type, ptr %dir_type, align 8
   %call47 = tail call ptr @sk_new(ptr noundef nonnull @by_dir_hash_cmp) #13
-  %hashes = getelementptr inbounds i8, ptr %call43, i64 16
+  %hashes = getelementptr inbounds nuw i8, ptr %call43, i64 16
   store ptr %call47, ptr %hashes, align 8
   %add = add i64 %sub.ptr.sub, 1
   %call48 = tail call noalias ptr @malloc(i64 noundef %add) #12
@@ -617,7 +617,7 @@ if.end56:                                         ; preds = %lor.lhs.false52
   br i1 %tobool62.not, label %if.then63, label %do.cond
 
 if.then63:                                        ; preds = %if.end56
-  %hashes.le = getelementptr inbounds i8, ptr %call43, i64 16
+  %hashes.le = getelementptr inbounds nuw i8, ptr %call43, i64 16
   %9 = load ptr, ptr %call43, align 8
   %tobool.not.i36 = icmp eq ptr %9, null
   br i1 %tobool.not.i36, label %if.end.i38, label %if.then.i37

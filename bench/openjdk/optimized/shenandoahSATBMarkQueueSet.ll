@@ -52,7 +52,7 @@ declare void @_ZN16SATBMarkQueueSetC2EPN10BufferNode9AllocatorE(ptr noundef nonn
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef nonnull align 8 dereferenceable(17) ptr @_ZNK26ShenandoahSATBMarkQueueSet21satb_queue_for_threadEP6Thread(ptr nocapture nonnull readnone align 8 %0, ptr noundef readnone %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   ret ptr %3
 }
 
@@ -65,7 +65,7 @@ define hidden void @_ZN26ShenandoahSATBMarkQueueSet6filterER13SATBMarkQueue(ptr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN16SATBMarkQueueSet12apply_filterI31ShenandoahSATBMarkQueueFilterFnEEvT_R13SATBMarkQueue(ptr noundef nonnull align 8 dereferenceable(393) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(17) %2) local_unnamed_addr #0 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %66, label %7
@@ -79,8 +79,8 @@ define linkonce_odr hidden void @_ZN16SATBMarkQueueSet12apply_filterI31Shenandoa
   br i1 %12, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %7
-  %13 = getelementptr inbounds ptr, ptr %5, i64 %9
-  %14 = getelementptr inbounds i8, ptr %1, i64 2248
+  %13 = getelementptr inbounds nuw ptr, ptr %5, i64 %9
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 2248
   %.pre31 = load i64, ptr @_ZN20ShenandoahHeapRegion20RegionSizeBytesShiftE, align 8
   br label %15
 
@@ -92,7 +92,7 @@ define linkonce_odr hidden void @_ZN16SATBMarkQueueSet12apply_filterI31Shenandoa
   %18 = load ptr, ptr %14, align 8
   %19 = ptrtoint ptr %17 to i64
   %20 = lshr i64 %19, %16
-  %21 = getelementptr inbounds i8, ptr %18, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 56
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds ptr, ptr %22, i64 %20
   %24 = load ptr, ptr %23, align 8
@@ -100,7 +100,7 @@ define linkonce_odr hidden void @_ZN16SATBMarkQueueSet12apply_filterI31Shenandoa
   br i1 %.not.i.i.i, label %_ZNK31ShenandoahSATBMarkQueueFilterFnclEPKv.exit, label %_ZNK31ShenandoahSATBMarkQueueFilterFnclEPKv.exit.thread
 
 _ZNK31ShenandoahSATBMarkQueueFilterFnclEPKv.exit: ; preds = %15
-  %25 = getelementptr inbounds i8, ptr %18, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = ptrtoint ptr %26 to i64
   %28 = sub i64 %19, %27
@@ -109,10 +109,10 @@ _ZNK31ShenandoahSATBMarkQueueFilterFnclEPKv.exit: ; preds = %15
   %31 = load i32, ptr %18, align 8
   %32 = zext nneg i32 %31 to i64
   %33 = lshr i64 %30, %32
-  %34 = getelementptr inbounds i8, ptr %18, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %35 = load ptr, ptr %34, align 8
   %36 = lshr i64 %33, 6
-  %37 = getelementptr inbounds i64, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw i64, ptr %35, i64 %36
   %38 = load i64, ptr %37, align 8
   %39 = and i64 %33, 63
   %40 = shl nuw i64 1, %39
@@ -141,7 +141,7 @@ _ZNK31ShenandoahSATBMarkQueueFilterFnclEPKv.exit24: ; preds = %44
   %52 = and i64 %51, 4611686018427387902
   %53 = lshr i64 %52, %32
   %54 = lshr i64 %53, 6
-  %55 = getelementptr inbounds i64, ptr %35, i64 %54
+  %55 = getelementptr inbounds nuw i64, ptr %35, i64 %54
   %56 = load i64, ptr %55, align 8
   %57 = and i64 %53, 63
   %58 = shl nuw i64 1, %57
@@ -157,7 +157,7 @@ _ZNK31ShenandoahSATBMarkQueueFilterFnclEPKv.exit24.thread: ; preds = %44, %_ZNK3
 _ZNK31ShenandoahSATBMarkQueueFilterFnclEPKv.exit.thread: ; preds = %.preheader, %15, %_ZNK31ShenandoahSATBMarkQueueFilterFnclEPKv.exit, %_ZNK31ShenandoahSATBMarkQueueFilterFnclEPKv.exit24.thread
   %60 = phi i64 [ %16, %_ZNK31ShenandoahSATBMarkQueueFilterFnclEPKv.exit ], [ %.pre, %_ZNK31ShenandoahSATBMarkQueueFilterFnclEPKv.exit24.thread ], [ %16, %15 ], [ %16, %.preheader ]
   %.2 = phi ptr [ %.01928, %_ZNK31ShenandoahSATBMarkQueueFilterFnclEPKv.exit ], [ %42, %_ZNK31ShenandoahSATBMarkQueueFilterFnclEPKv.exit24.thread ], [ %.01928, %15 ], [ %42, %.preheader ]
-  %61 = getelementptr inbounds i8, ptr %.029, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %.029, i64 8
   %62 = icmp ult ptr %61, %.2
   br i1 %62, label %15, label %._crit_edge, !llvm.loop !8
 

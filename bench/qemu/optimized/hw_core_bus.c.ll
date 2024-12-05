@@ -64,7 +64,7 @@ if.then:                                          ; preds = %entry
 
 if.end3:                                          ; preds = %if.then, %entry
   %call.i.i = tail call ptr @get_ptr_rcu_reader() #5
-  %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
+  %depth.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 12
   %0 = load i32, ptr %depth.i.i, align 4
   %inc.i.i = add i32 %0, 1
   store i32 %inc.i.i, ptr %depth.i.i, align 4
@@ -80,7 +80,7 @@ while.end.i.i:                                    ; preds = %if.end3
   br label %rcu_read_auto_lock.exit
 
 rcu_read_auto_lock.exit:                          ; preds = %if.end3, %while.end.i.i
-  %children = getelementptr inbounds i8, ptr %bus, i64 80
+  %children = getelementptr inbounds nuw i8, ptr %bus, i64 80
   %2 = load atomic i64, ptr %children monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !6
   %tobool7.not31 = icmp eq i64 %2, 0
@@ -89,14 +89,14 @@ rcu_read_auto_lock.exit:                          ; preds = %if.end3, %while.end
 for.body8:                                        ; preds = %rcu_read_auto_lock.exit, %while.end17
   %kid.032.in = phi i64 [ %4, %while.end17 ], [ %2, %rcu_read_auto_lock.exit ]
   %kid.032 = inttoptr i64 %kid.032.in to ptr
-  %child = getelementptr inbounds i8, ptr %kid.032, i64 16
+  %child = getelementptr inbounds nuw i8, ptr %kid.032, i64 16
   %3 = load ptr, ptr %child, align 8
   %call9 = tail call i32 @qdev_walk_children(ptr noundef %3, ptr noundef %pre_devfn, ptr noundef %pre_busfn, ptr noundef %post_devfn, ptr noundef %post_busfn, ptr noundef %opaque) #5
   %cmp = icmp slt i32 %call9, 0
   br i1 %cmp, label %if.then.i.i, label %while.end17
 
 while.end17:                                      ; preds = %for.body8
-  %sibling = getelementptr inbounds i8, ptr %kid.032, i64 32
+  %sibling = getelementptr inbounds nuw i8, ptr %kid.032, i64 32
   %4 = load atomic i64, ptr %sibling monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !7
   %tobool7.not = icmp eq i64 %4, 0
@@ -104,7 +104,7 @@ while.end17:                                      ; preds = %for.body8
 
 for.inc19:                                        ; preds = %while.end17, %rcu_read_auto_lock.exit
   %call.i.i16 = tail call ptr @get_ptr_rcu_reader() #5
-  %depth.i.i17 = getelementptr inbounds i8, ptr %call.i.i16, i64 12
+  %depth.i.i17 = getelementptr inbounds nuw i8, ptr %call.i.i16, i64 12
   %5 = load i32, ptr %depth.i.i17, align 4
   %cmp.not.i.i18 = icmp eq i32 %5, 0
   br i1 %cmp.not.i.i18, label %if.else.i.i, label %if.end.i.i
@@ -123,7 +123,7 @@ while.end.i.i19:                                  ; preds = %if.end.i.i
   store atomic i64 0, ptr %call.i.i16 release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
   fence seq_cst
-  %waiting.i.i = getelementptr inbounds i8, ptr %call.i.i16, i64 8
+  %waiting.i.i = getelementptr inbounds nuw i8, ptr %call.i.i16, i64 8
   %6 = load atomic i8, ptr %waiting.i.i monotonic, align 8
   %tobool.i.i = trunc i8 %6 to i1
   br i1 %tobool.i.i, label %while.end21.i.i, label %for.end20
@@ -135,7 +135,7 @@ while.end21.i.i:                                  ; preds = %while.end.i.i19
 
 if.then.i.i:                                      ; preds = %for.body8
   %call.i.i.i.i = tail call ptr @get_ptr_rcu_reader() #5
-  %depth.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 12
+  %depth.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   %7 = load i32, ptr %depth.i.i.i.i, align 4
   %cmp.not.i.i.i.i = icmp eq i32 %7, 0
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i, label %if.end.i.i.i.i
@@ -154,7 +154,7 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
   fence seq_cst
-  %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
+  %waiting.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 8
   %8 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %8 to i1
   br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %return
@@ -215,7 +215,7 @@ declare void @object_initialize(ptr noundef, i64 noundef, ptr noundef) local_unn
 define internal fastcc void @qbus_init_internal(ptr noundef %bus, ptr noundef %parent, ptr noundef %name) unnamed_addr #0 {
 entry:
   %call = tail call ptr @object_get_typename(ptr noundef %bus) #5
-  %parent1 = getelementptr inbounds i8, ptr %bus, i64 40
+  %parent1 = getelementptr inbounds nuw i8, ptr %bus, i64 40
   store ptr %parent, ptr %parent1, align 8
   %tobool.not = icmp eq ptr %name, null
   br i1 %tobool.not, label %if.else, label %if.then
@@ -229,13 +229,13 @@ if.else:                                          ; preds = %entry
   br i1 %tobool5.not, label %if.else14, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.else
-  %id = getelementptr inbounds i8, ptr %parent, i64 40
+  %id = getelementptr inbounds nuw i8, ptr %parent, i64 40
   %0 = load ptr, ptr %id, align 8
   %tobool7.not = icmp eq ptr %0, null
   br i1 %tobool7.not, label %if.else14, label %if.then8
 
 if.then8:                                         ; preds = %land.lhs.true
-  %num_child_bus = getelementptr inbounds i8, ptr %parent, i64 120
+  %num_child_bus = getelementptr inbounds nuw i8, ptr %parent, i64 120
   %1 = load i32, ptr %num_child_bus, align 8
   %call12 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.5, ptr noundef nonnull %0, i32 noundef %1) #5
   br label %if.end29.sink.split
@@ -243,12 +243,12 @@ if.then8:                                         ; preds = %land.lhs.true
 if.else14:                                        ; preds = %land.lhs.true, %if.else
   %call.i = tail call ptr @object_get_class(ptr noundef nonnull %bus) #5
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 316, ptr noundef nonnull @__func__.BUS_GET_CLASS) #5
-  %automatic_ids = getelementptr inbounds i8, ptr %call1.i, i64 156
+  %automatic_ids = getelementptr inbounds nuw i8, ptr %call1.i, i64 156
   %2 = load i32, ptr %automatic_ids, align 4
   %inc = add i32 %2, 1
   store i32 %inc, ptr %automatic_ids, align 4
   %call16 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.5, ptr noundef %call, i32 noundef %2) #5
-  %name17 = getelementptr inbounds i8, ptr %bus, i64 48
+  %name17 = getelementptr inbounds nuw i8, ptr %bus, i64 48
   store ptr %call16, ptr %name17, align 8
   %3 = load i8, ptr %call16, align 1
   %tobool19.not35 = icmp eq i8 %3, 0
@@ -272,7 +272,7 @@ for.body:                                         ; preds = %if.else14, %for.bod
 
 if.end29.sink.split:                              ; preds = %if.then, %if.then8
   %call12.sink = phi ptr [ %call12, %if.then8 ], [ %call2, %if.then ]
-  %name13 = getelementptr inbounds i8, ptr %bus, i64 48
+  %name13 = getelementptr inbounds nuw i8, ptr %bus, i64 48
   store ptr %call12.sink, ptr %name13, align 8
   br label %if.end29
 
@@ -282,33 +282,33 @@ if.end29:                                         ; preds = %for.body, %if.end29
   br i1 %tobool31.not, label %if.else57, label %do.body
 
 do.body:                                          ; preds = %if.end29
-  %child_bus = getelementptr inbounds i8, ptr %7, i64 112
+  %child_bus = getelementptr inbounds nuw i8, ptr %7, i64 112
   %8 = load ptr, ptr %child_bus, align 8
-  %sibling = getelementptr inbounds i8, ptr %bus, i64 96
+  %sibling = getelementptr inbounds nuw i8, ptr %bus, i64 96
   store ptr %8, ptr %sibling, align 8
   %cmp.not = icmp eq ptr %8, null
   br i1 %cmp.not, label %if.end42, label %if.then35
 
 if.then35:                                        ; preds = %do.body
-  %le_prev = getelementptr inbounds i8, ptr %8, i64 104
+  %le_prev = getelementptr inbounds nuw i8, ptr %8, i64 104
   store ptr %sibling, ptr %le_prev, align 8
   %.pre = load ptr, ptr %parent1, align 8
   br label %if.end42
 
 if.end42:                                         ; preds = %if.then35, %do.body
   %9 = phi ptr [ %.pre, %if.then35 ], [ %7, %do.body ]
-  %child_bus44 = getelementptr inbounds i8, ptr %9, i64 112
+  %child_bus44 = getelementptr inbounds nuw i8, ptr %9, i64 112
   store ptr %bus, ptr %child_bus44, align 8
   %10 = load ptr, ptr %parent1, align 8
-  %child_bus47 = getelementptr inbounds i8, ptr %10, i64 112
-  %le_prev50 = getelementptr inbounds i8, ptr %bus, i64 104
+  %child_bus47 = getelementptr inbounds nuw i8, ptr %10, i64 112
+  %le_prev50 = getelementptr inbounds nuw i8, ptr %bus, i64 104
   store ptr %child_bus47, ptr %le_prev50, align 8
-  %num_child_bus52 = getelementptr inbounds i8, ptr %10, i64 120
+  %num_child_bus52 = getelementptr inbounds nuw i8, ptr %10, i64 120
   %11 = load i32, ptr %num_child_bus52, align 8
   %inc53 = add i32 %11, 1
   store i32 %inc53, ptr %num_child_bus52, align 8
   %12 = load ptr, ptr %parent1, align 8
-  %name55 = getelementptr inbounds i8, ptr %bus, i64 48
+  %name55 = getelementptr inbounds nuw i8, ptr %bus, i64 48
   %13 = load ptr, ptr %name55, align 8
   %call56 = tail call ptr @object_property_add_child(ptr noundef %12, ptr noundef %13, ptr noundef nonnull %bus) #5
   tail call void @object_unref(ptr noundef nonnull %bus) #5
@@ -404,11 +404,11 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @qbus_initfn(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #5
-  %children = getelementptr inbounds i8, ptr %call.i, i64 80
+  %children = getelementptr inbounds nuw i8, ptr %call.i, i64 80
   store ptr null, ptr %children, align 8
-  %tql_prev = getelementptr inbounds i8, ptr %call.i, i64 88
+  %tql_prev = getelementptr inbounds nuw i8, ptr %call.i, i64 88
   store ptr %children, ptr %tql_prev, align 8
-  %hotplug_handler = getelementptr inbounds i8, ptr %call.i, i64 56
+  %hotplug_handler = getelementptr inbounds nuw i8, ptr %call.i, i64 56
   %call3 = tail call ptr @object_property_add_link(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str, ptr noundef nonnull %hotplug_handler, ptr noundef nonnull @object_property_allow_set_link, i32 noundef 0) #5
   %call4 = tail call ptr @object_property_add_bool(ptr noundef %obj, ptr noundef nonnull @.str.2, ptr noundef nonnull @bus_get_realized, ptr noundef nonnull @bus_set_realized) #5
   ret void
@@ -418,7 +418,7 @@ entry:
 define internal void @qbus_finalize(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #5
-  %name = getelementptr inbounds i8, ptr %call.i, i64 48
+  %name = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   %0 = load ptr, ptr %name, align 8
   tail call void @g_free(ptr noundef %0) #5
   ret void
@@ -429,17 +429,17 @@ define internal void @bus_class_init(ptr noundef %class, ptr nocapture readnone 
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %class, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 316, ptr noundef nonnull @__func__.BUS_CLASS) #5
   %call.i6 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %class, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 22, ptr noundef nonnull @__func__.RESETTABLE_CLASS) #5
-  %unparent = getelementptr inbounds i8, ptr %class, i64 80
+  %unparent = getelementptr inbounds nuw i8, ptr %class, i64 80
   store ptr @bus_unparent, ptr %unparent, align 8
-  %get_fw_dev_path = getelementptr inbounds i8, ptr %call.i, i64 112
+  %get_fw_dev_path = getelementptr inbounds nuw i8, ptr %call.i, i64 112
   store ptr @default_bus_get_fw_dev_path, ptr %get_fw_dev_path, align 8
-  %get_state = getelementptr inbounds i8, ptr %call.i6, i64 136
+  %get_state = getelementptr inbounds nuw i8, ptr %call.i6, i64 136
   store ptr @bus_get_reset_state, ptr %get_state, align 8
-  %child_foreach = getelementptr inbounds i8, ptr %call.i6, i64 152
+  %child_foreach = getelementptr inbounds nuw i8, ptr %call.i6, i64 152
   store ptr @bus_reset_child_foreach, ptr %child_foreach, align 8
-  %reset = getelementptr inbounds i8, ptr %call.i, i64 120
+  %reset = getelementptr inbounds nuw i8, ptr %call.i, i64 120
   store ptr @bus_phases_reset, ptr %reset, align 8
-  %get_transitional_function = getelementptr inbounds i8, ptr %call.i6, i64 144
+  %get_transitional_function = getelementptr inbounds nuw i8, ptr %call.i6, i64 144
   store ptr @bus_get_transitional_reset, ptr %get_transitional_function, align 8
   ret void
 }
@@ -454,7 +454,7 @@ declare ptr @object_property_add_bool(ptr noundef, ptr noundef, ptr noundef, ptr
 define internal zeroext i1 @bus_get_realized(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #5
-  %realized = getelementptr inbounds i8, ptr %call.i, i64 68
+  %realized = getelementptr inbounds nuw i8, ptr %call.i, i64 68
   %0 = load i8, ptr %realized, align 4
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -466,7 +466,7 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #5
   %call.i15 = tail call ptr @object_get_class(ptr noundef %call.i) #5
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i15, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 316, ptr noundef nonnull @__func__.BUS_GET_CLASS) #5
-  %realized = getelementptr inbounds i8, ptr %call.i, i64 68
+  %realized = getelementptr inbounds nuw i8, ptr %call.i, i64 68
   %0 = load i8, ptr %realized, align 4
   %tobool2 = trunc i8 %0 to i1
   br i1 %value, label %land.lhs.true, label %land.lhs.true7
@@ -475,7 +475,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool2, label %if.end30, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %realize = getelementptr inbounds i8, ptr %call1.i, i64 136
+  %realize = getelementptr inbounds nuw i8, ptr %call1.i, i64 136
   %1 = load ptr, ptr %realize, align 8
   %tobool3.not = icmp eq ptr %1, null
   br i1 %tobool3.not, label %if.end30, label %if.then4
@@ -489,7 +489,7 @@ land.lhs.true7:                                   ; preds = %entry
 
 if.then10:                                        ; preds = %land.lhs.true7
   %call.i.i = tail call ptr @get_ptr_rcu_reader() #5
-  %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
+  %depth.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 12
   %2 = load i32, ptr %depth.i.i, align 4
   %inc.i.i = add i32 %2, 1
   store i32 %inc.i.i, ptr %depth.i.i, align 4
@@ -505,7 +505,7 @@ while.end.i.i:                                    ; preds = %if.then10
   br label %rcu_read_auto_lock.exit
 
 rcu_read_auto_lock.exit:                          ; preds = %if.then10, %while.end.i.i
-  %children = getelementptr inbounds i8, ptr %call.i, i64 80
+  %children = getelementptr inbounds nuw i8, ptr %call.i, i64 80
   %4 = load atomic i64, ptr %children monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !12
   %tobool14.not20 = icmp eq i64 %4, 0
@@ -514,10 +514,10 @@ rcu_read_auto_lock.exit:                          ; preds = %if.then10, %while.e
 for.body15:                                       ; preds = %rcu_read_auto_lock.exit, %for.body15
   %kid.0.in21 = phi i64 [ %6, %for.body15 ], [ %4, %rcu_read_auto_lock.exit ]
   %kid.0 = inttoptr i64 %kid.0.in21 to ptr
-  %child = getelementptr inbounds i8, ptr %kid.0, i64 16
+  %child = getelementptr inbounds nuw i8, ptr %kid.0, i64 16
   %5 = load ptr, ptr %child, align 8
   tail call void @qdev_unrealize(ptr noundef %5) #5
-  %sibling = getelementptr inbounds i8, ptr %kid.0, i64 32
+  %sibling = getelementptr inbounds nuw i8, ptr %kid.0, i64 32
   %6 = load atomic i64, ptr %sibling monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !13
   %tobool14.not = icmp eq i64 %6, 0
@@ -525,7 +525,7 @@ for.body15:                                       ; preds = %rcu_read_auto_lock.
 
 for.inc23:                                        ; preds = %for.body15, %rcu_read_auto_lock.exit
   %call.i.i16 = tail call ptr @get_ptr_rcu_reader() #5
-  %depth.i.i17 = getelementptr inbounds i8, ptr %call.i.i16, i64 12
+  %depth.i.i17 = getelementptr inbounds nuw i8, ptr %call.i.i16, i64 12
   %7 = load i32, ptr %depth.i.i17, align 4
   %cmp.not.i.i18 = icmp eq i32 %7, 0
   br i1 %cmp.not.i.i18, label %if.else.i.i, label %if.end.i.i
@@ -544,7 +544,7 @@ while.end.i.i19:                                  ; preds = %if.end.i.i
   store atomic i64 0, ptr %call.i.i16 release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
   fence seq_cst
-  %waiting.i.i = getelementptr inbounds i8, ptr %call.i.i16, i64 8
+  %waiting.i.i = getelementptr inbounds nuw i8, ptr %call.i.i16, i64 8
   %8 = load atomic i8, ptr %waiting.i.i monotonic, align 8
   %tobool.i.i = trunc i8 %8 to i1
   br i1 %tobool.i.i, label %while.end21.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
@@ -555,7 +555,7 @@ while.end21.i.i:                                  ; preds = %while.end.i.i19
   br label %glib_autoptr_cleanup_RCUReadAuto.exit
 
 glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %while.end21.i.i, %while.end.i.i19, %if.end.i.i
-  %unrealize = getelementptr inbounds i8, ptr %call1.i, i64 144
+  %unrealize = getelementptr inbounds nuw i8, ptr %call1.i, i64 144
   %9 = load ptr, ptr %unrealize, align 8
   %tobool25.not = icmp eq ptr %9, null
   br i1 %tobool25.not, label %if.end30, label %if.then26
@@ -566,7 +566,7 @@ if.then26:                                        ; preds = %glib_autoptr_cleanu
 
 if.end30:                                         ; preds = %land.lhs.true, %land.lhs.true7, %if.then26, %glib_autoptr_cleanup_RCUReadAuto.exit, %if.then, %if.then4
   %frombool = zext i1 %value to i8
-  %realized32 = getelementptr inbounds i8, ptr %call.i, i64 68
+  %realized32 = getelementptr inbounds nuw i8, ptr %call.i, i64 68
   store i8 %frombool, ptr %realized32, align 4
   ret void
 }
@@ -579,13 +579,13 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 define internal void @bus_unparent(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #5
-  %parent = getelementptr inbounds i8, ptr %call.i, i64 40
+  %parent = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   %0 = load ptr, ptr %parent, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %entry
-  %children = getelementptr inbounds i8, ptr %call.i, i64 80
+  %children = getelementptr inbounds nuw i8, ptr %call.i, i64 80
   %1 = load ptr, ptr %children, align 8
   %cmp.not12 = icmp eq ptr %1, null
   br i1 %cmp.not12, label %do.body, label %while.body
@@ -596,7 +596,7 @@ if.else:                                          ; preds = %entry
 
 while.body:                                       ; preds = %while.cond.preheader, %while.body
   %2 = phi ptr [ %4, %while.body ], [ %1, %while.cond.preheader ]
-  %child = getelementptr inbounds i8, ptr %2, i64 16
+  %child = getelementptr inbounds nuw i8, ptr %2, i64 16
   %3 = load ptr, ptr %child, align 8
   tail call void @object_unparent(ptr noundef %3) #5
   %4 = load ptr, ptr %children, align 8
@@ -604,15 +604,15 @@ while.body:                                       ; preds = %while.cond.preheade
   br i1 %cmp.not, label %do.body, label %while.body, !llvm.loop !15
 
 do.body:                                          ; preds = %while.body, %while.cond.preheader
-  %sibling = getelementptr inbounds i8, ptr %call.i, i64 96
+  %sibling = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   %5 = load ptr, ptr %sibling, align 8
   %cmp1.not = icmp eq ptr %5, null
-  %le_prev12.phi.trans.insert = getelementptr inbounds i8, ptr %call.i, i64 104
+  %le_prev12.phi.trans.insert = getelementptr inbounds nuw i8, ptr %call.i, i64 104
   %.pre13 = load ptr, ptr %le_prev12.phi.trans.insert, align 8
   br i1 %cmp1.not, label %if.end8, label %if.then2
 
 if.then2:                                         ; preds = %do.body
-  %le_prev7 = getelementptr inbounds i8, ptr %5, i64 104
+  %le_prev7 = getelementptr inbounds nuw i8, ptr %5, i64 104
   store ptr %.pre13, ptr %le_prev7, align 8
   %.pre = load ptr, ptr %sibling, align 8
   br label %if.end8
@@ -622,7 +622,7 @@ if.end8:                                          ; preds = %do.body, %if.then2
   store ptr %6, ptr %.pre13, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sibling, i8 0, i64 16, i1 false)
   %7 = load ptr, ptr %parent, align 8
-  %num_child_bus = getelementptr inbounds i8, ptr %7, i64 120
+  %num_child_bus = getelementptr inbounds nuw i8, ptr %7, i64 120
   %8 = load i32, ptr %num_child_bus, align 8
   %dec = add i32 %8, -1
   store i32 %dec, ptr %num_child_bus, align 8
@@ -642,7 +642,7 @@ entry:
 define internal nonnull ptr @bus_get_reset_state(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #5
-  %reset = getelementptr inbounds i8, ptr %call.i, i64 112
+  %reset = getelementptr inbounds nuw i8, ptr %call.i, i64 112
   ret ptr %reset
 }
 
@@ -651,7 +651,7 @@ define internal void @bus_reset_child_foreach(ptr noundef %obj, ptr nocapture no
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #5
   %call.i.i = tail call ptr @get_ptr_rcu_reader() #5
-  %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
+  %depth.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 12
   %0 = load i32, ptr %depth.i.i, align 4
   %inc.i.i = add i32 %0, 1
   store i32 %inc.i.i, ptr %depth.i.i, align 4
@@ -667,7 +667,7 @@ while.end.i.i:                                    ; preds = %entry
   br label %rcu_read_auto_lock.exit
 
 rcu_read_auto_lock.exit:                          ; preds = %entry, %while.end.i.i
-  %children = getelementptr inbounds i8, ptr %call.i, i64 80
+  %children = getelementptr inbounds nuw i8, ptr %call.i, i64 80
   %2 = load atomic i64, ptr %children monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !16
   %tobool3.not7 = icmp eq i64 %2, 0
@@ -676,10 +676,10 @@ rcu_read_auto_lock.exit:                          ; preds = %entry, %while.end.i
 for.body4:                                        ; preds = %rcu_read_auto_lock.exit, %for.body4
   %kid.0.in8 = phi i64 [ %4, %for.body4 ], [ %2, %rcu_read_auto_lock.exit ]
   %kid.0 = inttoptr i64 %kid.0.in8 to ptr
-  %child = getelementptr inbounds i8, ptr %kid.0, i64 16
+  %child = getelementptr inbounds nuw i8, ptr %kid.0, i64 16
   %3 = load ptr, ptr %child, align 8
   tail call void %cb(ptr noundef %3, ptr noundef %opaque, i32 noundef %type) #5
-  %sibling = getelementptr inbounds i8, ptr %kid.0, i64 32
+  %sibling = getelementptr inbounds nuw i8, ptr %kid.0, i64 32
   %4 = load atomic i64, ptr %sibling monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !17
   %tobool3.not = icmp eq i64 %4, 0
@@ -687,7 +687,7 @@ for.body4:                                        ; preds = %rcu_read_auto_lock.
 
 for.inc12:                                        ; preds = %for.body4, %rcu_read_auto_lock.exit
   %call.i.i3 = tail call ptr @get_ptr_rcu_reader() #5
-  %depth.i.i4 = getelementptr inbounds i8, ptr %call.i.i3, i64 12
+  %depth.i.i4 = getelementptr inbounds nuw i8, ptr %call.i.i3, i64 12
   %5 = load i32, ptr %depth.i.i4, align 4
   %cmp.not.i.i5 = icmp eq i32 %5, 0
   br i1 %cmp.not.i.i5, label %if.else.i.i, label %if.end.i.i
@@ -706,7 +706,7 @@ while.end.i.i6:                                   ; preds = %if.end.i.i
   store atomic i64 0, ptr %call.i.i3 release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
   fence seq_cst
-  %waiting.i.i = getelementptr inbounds i8, ptr %call.i.i3, i64 8
+  %waiting.i.i = getelementptr inbounds nuw i8, ptr %call.i.i3, i64 8
   %6 = load atomic i8, ptr %waiting.i.i monotonic, align 8
   %tobool.i.i = trunc i8 %6 to i1
   br i1 %tobool.i.i, label %while.end21.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
@@ -725,7 +725,7 @@ define internal void @bus_phases_reset(ptr noundef %bus) #0 {
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %bus) #5
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 22, ptr noundef nonnull @__func__.RESETTABLE_GET_CLASS) #5
-  %phases = getelementptr inbounds i8, ptr %call1.i, i64 112
+  %phases = getelementptr inbounds nuw i8, ptr %call1.i, i64 112
   %0 = load ptr, ptr %phases, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -735,7 +735,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %hold = getelementptr inbounds i8, ptr %call1.i, i64 120
+  %hold = getelementptr inbounds nuw i8, ptr %call1.i, i64 120
   %1 = load ptr, ptr %hold, align 8
   %tobool4.not = icmp eq ptr %1, null
   br i1 %tobool4.not, label %if.end8, label %if.then5
@@ -745,7 +745,7 @@ if.then5:                                         ; preds = %if.end
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then5, %if.end
-  %exit = getelementptr inbounds i8, ptr %call1.i, i64 128
+  %exit = getelementptr inbounds nuw i8, ptr %call1.i, i64 128
   %2 = load ptr, ptr %exit, align 8
   %tobool10.not = icmp eq ptr %2, null
   br i1 %tobool10.not, label %if.end14, label %if.then11
@@ -763,7 +763,7 @@ define internal ptr @bus_get_transitional_reset(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %obj) #5
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 316, ptr noundef nonnull @__func__.BUS_GET_CLASS) #5
-  %reset = getelementptr inbounds i8, ptr %call1.i, i64 120
+  %reset = getelementptr inbounds nuw i8, ptr %call1.i, i64 120
   %0 = load ptr, ptr %reset, align 8
   %cmp.not = icmp eq ptr %0, @bus_phases_reset
   %.bus_transitional_reset = select i1 %cmp.not, ptr null, ptr @bus_transitional_reset
@@ -777,7 +777,7 @@ define internal void @bus_transitional_reset(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %obj) #5
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 316, ptr noundef nonnull @__func__.BUS_GET_CLASS) #5
-  %reset = getelementptr inbounds i8, ptr %call1.i, i64 120
+  %reset = getelementptr inbounds nuw i8, ptr %call1.i, i64 120
   %0 = load ptr, ptr %reset, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then

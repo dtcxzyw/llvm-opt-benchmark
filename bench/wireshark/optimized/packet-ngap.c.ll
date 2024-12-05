@@ -7389,9 +7389,9 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @dissect_ngap_SecondaryRATDataUsageReportTransfer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @proto_json, align 4
   %11 = tail call ptr @p_get_proto_data(ptr noundef %9, ptr noundef %7, i32 noundef %10, i32 noundef 0) #10
@@ -7400,7 +7400,7 @@ define hidden i32 @dissect_ngap_SecondaryRATDataUsageReportTransfer(ptr noundef 
 
 12:                                               ; preds = %5
   %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   tail call void @col_append_sep_str(ptr noundef %15, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str) #10
   br label %16
@@ -7505,9 +7505,9 @@ define hidden range(i32 -268435456, 268435456) i32 @dissect_ngap_SONConfiguratio
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_ngap_SONConfigurationTransfer_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_json, align 4
   %12 = call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #10
@@ -7516,7 +7516,7 @@ define hidden range(i32 -268435456, 268435456) i32 @dissect_ngap_SONConfiguratio
 
 13:                                               ; preds = %4
   %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   call void @col_append_sep_str(ptr noundef %16, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.717) #10
   br label %dissect_ngap_SONConfigurationTransfer.exit
@@ -7534,9 +7534,9 @@ define hidden range(i32 -268435456, 268435456) i32 @dissect_ngap_SourceNGRANNode
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_ngap_SourceNGRANNode_ToTargetNGRANNode_TransparentContainer_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_ngap, align 4
   %12 = call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #10
@@ -7546,7 +7546,7 @@ define hidden range(i32 -268435456, 268435456) i32 @dissect_ngap_SourceNGRANNode
 13:                                               ; preds = %4
   %14 = load ptr, ptr %9, align 8
   %15 = call noalias ptr @wmem_alloc0(ptr noundef %14, i64 noundef 72) #10
-  %16 = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store i32 -1, ptr %16, align 8
   %17 = load ptr, ptr %9, align 8
   %18 = load i32, ptr @proto_ngap, align 4
@@ -7555,7 +7555,7 @@ define hidden range(i32 -268435456, 268435456) i32 @dissect_ngap_SourceNGRANNode
 
 dissect_ngap_SourceNGRANNode_ToTargetNGRANNode_TransparentContainer.exit: ; preds = %4, %13
   %.0.i.i = phi ptr [ %12, %4 ], [ %15, %13 ]
-  %19 = getelementptr inbounds i8, ptr %.0.i.i, i64 29
+  %19 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 29
   store i8 1, ptr %19, align 1
   %20 = load i32, ptr @ett_ngap_SourceNGRANNode_ToTargetNGRANNode_TransparentContainer, align 4
   %21 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %20, ptr noundef nonnull @SourceNGRANNode_ToTargetNGRANNode_TransparentContainer_sequence) #10
@@ -7569,9 +7569,9 @@ define hidden range(i32 -268435456, 268435456) i32 @dissect_ngap_TargetNGRANNode
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_ngap_TargetNGRANNode_ToSourceNGRANNode_TransparentContainer_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_ngap, align 4
   %12 = call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #10
@@ -7581,7 +7581,7 @@ define hidden range(i32 -268435456, 268435456) i32 @dissect_ngap_TargetNGRANNode
 13:                                               ; preds = %4
   %14 = load ptr, ptr %9, align 8
   %15 = call noalias ptr @wmem_alloc0(ptr noundef %14, i64 noundef 72) #10
-  %16 = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store i32 -1, ptr %16, align 8
   %17 = load ptr, ptr %9, align 8
   %18 = load i32, ptr @proto_ngap, align 4
@@ -7590,7 +7590,7 @@ define hidden range(i32 -268435456, 268435456) i32 @dissect_ngap_TargetNGRANNode
 
 dissect_ngap_TargetNGRANNode_ToSourceNGRANNode_TransparentContainer.exit: ; preds = %4, %13
   %.0.i.i = phi ptr [ %12, %4 ], [ %15, %13 ]
-  %19 = getelementptr inbounds i8, ptr %.0.i.i, i64 29
+  %19 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 29
   store i8 2, ptr %19, align 1
   %20 = load i32, ptr @ett_ngap_TargetNGRANNode_ToSourceNGRANNode_TransparentContainer, align 4
   %21 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %20, ptr noundef nonnull @TargetNGRANNode_ToSourceNGRANNode_TransparentContainer_sequence) #10
@@ -9468,9 +9468,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DataCodingScheme_P
   br i1 %.not.i, label %dissect_ngap_DataCodingScheme.exit, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = load i32, ptr @proto_ngap, align 4
   %16 = call ptr @p_get_proto_data(ptr noundef %14, ptr noundef %12, i32 noundef %15, i32 noundef 0) #10
@@ -9480,7 +9480,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DataCodingScheme_P
 17:                                               ; preds = %10
   %18 = load ptr, ptr %13, align 8
   %19 = call noalias ptr @wmem_alloc0(ptr noundef %18, i64 noundef 72) #10
-  %20 = getelementptr inbounds i8, ptr %19, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store i32 -1, ptr %20, align 8
   %21 = load ptr, ptr %13, align 8
   %22 = load i32, ptr @proto_ngap, align 4
@@ -9489,14 +9489,14 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DataCodingScheme_P
 
 ngap_get_private_data.exit.i:                     ; preds = %17, %10
   %.0.i.i = phi ptr [ %16, %10 ], [ %19, %17 ]
-  %23 = getelementptr inbounds i8, ptr %6, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = load i32, ptr @ett_ngap_DataCodingScheme, align 4
   %26 = call ptr @proto_item_add_subtree(ptr noundef %24, i32 noundef %25) #10
   %27 = load ptr, ptr %5, align 8
   %28 = load ptr, ptr %11, align 8
   %29 = call zeroext i8 @dissect_cbs_data_coding_scheme(ptr noundef %27, ptr noundef %28, ptr noundef %26, i16 noundef zeroext 0) #10
-  %30 = getelementptr inbounds i8, ptr %.0.i.i, i64 28
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 28
   store i8 %29, ptr %30, align 4
   br label %dissect_ngap_DataCodingScheme.exit
 
@@ -9558,9 +9558,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_EUTRA_CGI_PDU(ptr 
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_EUTRA_CGI_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_ngap, align 4
   %12 = call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #10
@@ -9570,7 +9570,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_EUTRA_CGI_PDU(ptr 
 13:                                               ; preds = %4
   %14 = load ptr, ptr %9, align 8
   %15 = call noalias ptr @wmem_alloc0(ptr noundef %14, i64 noundef 72) #10
-  %16 = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store i32 -1, ptr %16, align 8
   %17 = load ptr, ptr %9, align 8
   %18 = load i32, ptr @proto_ngap, align 4
@@ -9579,7 +9579,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_EUTRA_CGI_PDU(ptr 
 
 dissect_ngap_EUTRA_CGI.exit:                      ; preds = %4, %13
   %.0.i.i = phi ptr [ %12, %4 ], [ %15, %13 ]
-  %19 = getelementptr inbounds i8, ptr %.0.i.i, i64 60
+  %19 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 60
   store i32 5, ptr %19, align 4
   %20 = load i32, ptr @ett_ngap_EUTRA_CGI, align 4
   %21 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %20, ptr noundef nonnull @EUTRA_CGI_sequence) #10
@@ -9616,9 +9616,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_GUAMI_PDU(ptr noun
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_GUAMI_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_ngap, align 4
   %12 = call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #10
@@ -9628,7 +9628,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_GUAMI_PDU(ptr noun
 13:                                               ; preds = %4
   %14 = load ptr, ptr %9, align 8
   %15 = call noalias ptr @wmem_alloc0(ptr noundef %14, i64 noundef 72) #10
-  %16 = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store i32 -1, ptr %16, align 8
   %17 = load ptr, ptr %9, align 8
   %18 = load i32, ptr @proto_ngap, align 4
@@ -9637,7 +9637,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_GUAMI_PDU(ptr noun
 
 dissect_ngap_GUAMI.exit:                          ; preds = %4, %13
   %.0.i.i = phi ptr [ %12, %4 ], [ %15, %13 ]
-  %19 = getelementptr inbounds i8, ptr %.0.i.i, i64 60
+  %19 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 60
   store i32 10, ptr %19, align 4
   %20 = load i32, ptr @ett_ngap_GUAMI, align 4
   %21 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %20, ptr noundef nonnull @GUAMI_sequence) #10
@@ -9651,9 +9651,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverType_PDU(p
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_HandoverType_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_ngap, align 4
   %12 = call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #10
@@ -9663,7 +9663,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverType_PDU(p
 13:                                               ; preds = %4
   %14 = load ptr, ptr %9, align 8
   %15 = call noalias ptr @wmem_alloc0(ptr noundef %14, i64 noundef 72) #10
-  %16 = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store i32 -1, ptr %16, align 8
   %17 = load ptr, ptr %9, align 8
   %18 = load i32, ptr @proto_ngap, align 4
@@ -9672,7 +9672,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverType_PDU(p
 
 dissect_ngap_HandoverType.exit:                   ; preds = %4, %13
   %.0.i.i = phi ptr [ %12, %4 ], [ %15, %13 ]
-  %19 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   %20 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 3, ptr noundef nonnull %19, i32 noundef 1, i32 noundef 1, ptr noundef null) #10
   %21 = add i32 %20, 7
   %22 = ashr i32 %21, 3
@@ -9785,12 +9785,12 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NASSecurityParamet
   br i1 %.not.i, label %dissect_ngap_NASSecurityParametersFromNGRAN.exit, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %6, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @ett_ngap_NASSecurityParametersFromNGRAN, align 4
   %14 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #10
   %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %17 = load ptr, ptr %16, align 8
   call void @de_nas_5gs_n1_mode_to_s1_mode_nas_transparent_cont(ptr noundef %15, ptr noundef %14, ptr noundef %17) #10
   br label %dissect_ngap_NASSecurityParametersFromNGRAN.exit
@@ -9826,13 +9826,13 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NGAP_Message_PDU(p
   br i1 %.not.i, label %dissect_ngap_NGAP_Message.exit, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %6, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @ett_ngap_NGAP_Message, align 4
   %14 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #10
   %15 = load ptr, ptr @ngap_handle, align 8
   %16 = load ptr, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %6, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = call i32 @call_dissector(ptr noundef %15, ptr noundef %16, ptr noundef %18, ptr noundef %14) #10
   br label %dissect_ngap_NGAP_Message.exit
@@ -9860,9 +9860,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NR_CGI_PDU(ptr nou
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_NR_CGI_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_ngap, align 4
   %12 = call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #10
@@ -9872,7 +9872,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NR_CGI_PDU(ptr nou
 13:                                               ; preds = %4
   %14 = load ptr, ptr %9, align 8
   %15 = call noalias ptr @wmem_alloc0(ptr noundef %14, i64 noundef 72) #10
-  %16 = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store i32 -1, ptr %16, align 8
   %17 = load ptr, ptr %9, align 8
   %18 = load i32, ptr @proto_ngap, align 4
@@ -9881,7 +9881,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NR_CGI_PDU(ptr nou
 
 dissect_ngap_NR_CGI.exit:                         ; preds = %4, %13
   %.0.i.i = phi ptr [ %12, %4 ], [ %15, %13 ]
-  %19 = getelementptr inbounds i8, ptr %.0.i.i, i64 60
+  %19 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 60
   store i32 7, ptr %19, align 4
   %20 = load i32, ptr @ett_ngap_NR_CGI, align 4
   %21 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %20, ptr noundef nonnull @NR_CGI_sequence) #10
@@ -9897,9 +9897,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NRPPa_PDU_PDU(ptr 
   call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %7 = load i32, ptr @hf_ngap_NRPPa_PDU_PDU, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %8 = getelementptr inbounds i8, ptr %6, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @proto_json, align 4
   %13 = call ptr @p_get_proto_data(ptr noundef %11, ptr noundef %9, i32 noundef %12, i32 noundef 0) #10
@@ -9908,7 +9908,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NRPPa_PDU_PDU(ptr 
 
 14:                                               ; preds = %4
   %15 = load ptr, ptr %8, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   call void @col_append_sep_str(ptr noundef %17, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.480) #10
   br label %18
@@ -10357,9 +10357,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RANStatusTransfer_
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_RANStatusTransfer_TransparentContainer_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_json, align 4
   %12 = call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #10
@@ -10368,7 +10368,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RANStatusTransfer_
 
 13:                                               ; preds = %4
   %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   call void @col_append_sep_str(ptr noundef %16, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.660) #10
   br label %dissect_ngap_RANStatusTransfer_TransparentContainer.exit
@@ -10388,9 +10388,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RAN_UE_NGAP_ID_PDU
   call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %7 = load i32, ptr @hf_ngap_RAN_UE_NGAP_ID_PDU, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  %8 = getelementptr inbounds i8, ptr %6, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @proto_ngap, align 4
   %13 = call ptr @p_get_proto_data(ptr noundef %11, ptr noundef %9, i32 noundef %12, i32 noundef 0) #10
@@ -10400,7 +10400,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RAN_UE_NGAP_ID_PDU
 14:                                               ; preds = %4
   %15 = load ptr, ptr %10, align 8
   %16 = call noalias ptr @wmem_alloc0(ptr noundef %15, i64 noundef 72) #10
-  %17 = getelementptr inbounds i8, ptr %16, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store i32 -1, ptr %17, align 8
   %18 = load ptr, ptr %10, align 8
   %19 = load i32, ptr @proto_ngap, align 4
@@ -10411,7 +10411,7 @@ dissect_ngap_RAN_UE_NGAP_ID.exit:                 ; preds = %4, %14
   %.0.i.i = phi ptr [ %13, %4 ], [ %16, %14 ]
   %20 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %6, ptr noundef %2, i32 noundef %7, i32 noundef 0, i32 noundef -1, ptr noundef nonnull %5, i32 noundef 0) #10
   %21 = load i32, ptr %5, align 4
-  %22 = getelementptr inbounds i8, ptr %.0.i.i, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 56
   store i32 %21, ptr %22, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %23 = add i32 %20, 7
@@ -10472,9 +10472,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RRCEstablishmentCa
   %7 = load i32, ptr @hf_ngap_RRCEstablishmentCause_PDU, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %8 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %6, ptr noundef %2, i32 noundef %7, i32 noundef 10, ptr noundef nonnull %5, i32 noundef 1, i32 noundef 2, ptr noundef null) #10
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %5, align 4
   %14 = call ptr @val_to_str_const(i32 noundef %13, ptr noundef nonnull @ngap_RRCEstablishmentCause_vals, ptr noundef nonnull @.str.3034) #10
@@ -10544,7 +10544,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_SerialNumber_PDU(p
   br i1 %.not.i, label %dissect_ngap_SerialNumber.exit, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %6, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @ett_ngap_SerialNumber, align 4
   %14 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #10
@@ -10656,9 +10656,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_TargetToSource_Tra
   call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %7 = load i32, ptr @hf_ngap_TargetToSource_TransparentContainer_PDU, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %8 = getelementptr inbounds i8, ptr %6, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @proto_json, align 4
   %13 = call ptr @p_get_proto_data(ptr noundef %11, ptr noundef %9, i32 noundef %12, i32 noundef 0) #10
@@ -10667,7 +10667,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_TargetToSource_Tra
 
 14:                                               ; preds = %4
   %15 = load ptr, ptr %8, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   call void @col_append_sep_str(ptr noundef %17, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.761) #10
   br label %18
@@ -10688,7 +10688,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_TargetToSource_Tra
 
 26:                                               ; preds = %24
   %27 = load ptr, ptr %8, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 408
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 408
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr @proto_ngap, align 4
   %31 = call ptr @p_get_proto_data(ptr noundef %29, ptr noundef %27, i32 noundef %30, i32 noundef 0) #10
@@ -10698,7 +10698,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_TargetToSource_Tra
 32:                                               ; preds = %26
   %33 = load ptr, ptr %28, align 8
   %34 = call noalias ptr @wmem_alloc0(ptr noundef %33, i64 noundef 72) #10
-  %35 = getelementptr inbounds i8, ptr %34, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   store i32 -1, ptr %35, align 8
   %36 = load ptr, ptr %28, align 8
   %37 = load i32, ptr @proto_ngap, align 4
@@ -10708,20 +10708,20 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_TargetToSource_Tra
 ngap_get_private_data.exit.i:                     ; preds = %32, %26
   %.0.i.i = phi ptr [ %31, %26 ], [ %34, %32 ]
   %38 = load ptr, ptr %8, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8
   call void @col_set_writable(ptr noundef %40, i32 noundef 25, i32 noundef 0) #10
-  %41 = getelementptr inbounds i8, ptr %6, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %42 = load ptr, ptr %41, align 8
   %43 = load i32, ptr @ett_ngap_TargetToSource_TransparentContainer, align 4
   %44 = call ptr @proto_item_add_subtree(ptr noundef %42, i32 noundef %43) #10
-  %45 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   %46 = load i32, ptr %45, align 8
   %47 = icmp eq i32 %46, 12
   br i1 %47, label %48, label %63
 
 48:                                               ; preds = %ngap_get_private_data.exit.i
-  %49 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   %50 = load i32, ptr %49, align 8
   switch i32 %50, label %67 [
     i32 0, label %51
@@ -10756,7 +10756,7 @@ ngap_get_private_data.exit.i:                     ; preds = %32, %26
 
 67:                                               ; preds = %63, %59, %55, %51, %48
   %68 = load ptr, ptr %8, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %70 = load ptr, ptr %69, align 8
   call void @col_set_writable(ptr noundef %70, i32 noundef 25, i32 noundef 1) #10
   br label %dissect_ngap_TargetToSource_TransparentContainer.exit
@@ -10958,9 +10958,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_WarningMessageCont
   br i1 %.not.i, label %dissect_ngap_WarningMessageContents.exit, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = load i32, ptr @proto_ngap, align 4
   %16 = call ptr @p_get_proto_data(ptr noundef %14, ptr noundef %12, i32 noundef %15, i32 noundef 0) #10
@@ -10970,7 +10970,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_WarningMessageCont
 17:                                               ; preds = %10
   %18 = load ptr, ptr %13, align 8
   %19 = call noalias ptr @wmem_alloc0(ptr noundef %18, i64 noundef 72) #10
-  %20 = getelementptr inbounds i8, ptr %19, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store i32 -1, ptr %20, align 8
   %21 = load ptr, ptr %13, align 8
   %22 = load i32, ptr @proto_ngap, align 4
@@ -10979,13 +10979,13 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_WarningMessageCont
 
 ngap_get_private_data.exit.i:                     ; preds = %17, %10
   %.0.i.i = phi ptr [ %16, %10 ], [ %19, %17 ]
-  %23 = getelementptr inbounds i8, ptr %6, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = load i32, ptr @ett_ngap_WarningMessageContents, align 4
   %26 = call ptr @proto_item_add_subtree(ptr noundef %24, i32 noundef %25) #10
   %27 = load ptr, ptr %5, align 8
   %28 = load ptr, ptr %11, align 8
-  %29 = getelementptr inbounds i8, ptr %.0.i.i, i64 28
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 28
   %30 = load i8, ptr %29, align 4
   %31 = load i32, ptr @hf_ngap_WarningMessageContents_nb_pages, align 4
   %32 = load i32, ptr @hf_ngap_WarningMessageContents_decoded_page, align 4
@@ -11005,7 +11005,7 @@ ngap_get_private_data.exit.i:                     ; preds = %17, %10
 
 .lr.ph.i.i:                                       ; preds = %38, %.thread.i.i
   %39 = phi i32 [ 15, %.thread.i.i ], [ %34, %38 ]
-  %40 = getelementptr inbounds i8, ptr %28, i64 408
+  %40 = getelementptr inbounds nuw i8, ptr %28, i64 408
   br label %41
 
 41:                                               ; preds = %53, %.lr.ph.i.i
@@ -11069,7 +11069,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_WarningType_PDU(pt
   br i1 %.not.i, label %dissect_ngap_WarningType.exit, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %6, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @ett_ngap_WarningType, align 4
   %14 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #10
@@ -11326,12 +11326,12 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_EN_DCSONConfigurat
   br i1 %.not.i, label %dissect_ngap_EN_DCSONConfigurationTransfer.exit, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %6, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @ett_ngap_EN_DCSONConfigurationTransfer, align 4
   %14 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #10
   %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = call i32 @dissect_s1ap_EN_DCSONConfigurationTransfer_PDU(ptr noundef %15, ptr noundef %17, ptr noundef %14, ptr noundef null) #10
   br label %dissect_ngap_EN_DCSONConfigurationTransfer.exit
@@ -12081,9 +12081,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_TargettoSource_Fai
   br i1 %.not.i, label %dissect_ngap_TargettoSource_Failure_TransparentContainer.exit, label %16
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %7, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 408
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 408
   %20 = load ptr, ptr %19, align 8
   %21 = load i32, ptr @proto_ngap, align 4
   %22 = call ptr @p_get_proto_data(ptr noundef %20, ptr noundef %18, i32 noundef %21, i32 noundef 0) #10
@@ -12093,7 +12093,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_TargettoSource_Fai
 23:                                               ; preds = %16
   %24 = load ptr, ptr %19, align 8
   %25 = call noalias ptr @wmem_alloc0(ptr noundef %24, i64 noundef 72) #10
-  %26 = getelementptr inbounds i8, ptr %25, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store i32 -1, ptr %26, align 8
   %27 = load ptr, ptr %19, align 8
   %28 = load i32, ptr @proto_ngap, align 4
@@ -12103,14 +12103,14 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_TargettoSource_Fai
 ngap_get_private_data.exit.i:                     ; preds = %23, %16
   %.0.i.i = phi ptr [ %22, %16 ], [ %25, %23 ]
   %29 = load ptr, ptr %17, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
   call void @col_set_writable(ptr noundef %31, i32 noundef 25, i32 noundef 0) #10
-  %32 = getelementptr inbounds i8, ptr %7, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %33 = load ptr, ptr %32, align 8
   %34 = load i32, ptr @ett_ngap_TargettoSource_Failure_TransparentContainer, align 4
   %35 = call ptr @proto_item_add_subtree(ptr noundef %33, i32 noundef %34) #10
-  %36 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   %37 = load i32, ptr %36, align 8
   %cond.i = icmp eq i32 %37, 0
   br i1 %cond.i, label %38, label %44
@@ -12128,7 +12128,7 @@ ngap_get_private_data.exit.i:                     ; preds = %23, %16
 
 44:                                               ; preds = %38, %ngap_get_private_data.exit.i
   %45 = load ptr, ptr %17, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load ptr, ptr %46, align 8
   call void @col_set_writable(ptr noundef %47, i32 noundef 25, i32 noundef 1) #10
   br label %dissect_ngap_TargettoSource_Failure_TransparentContainer.exit
@@ -12212,7 +12212,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_GlobalCable_ID_PDU
   br i1 %.not.i, label %dissect_ngap_GlobalCable_ID.exit, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %6, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @ett_ngap_GlobalCable_ID, align 4
   %14 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #10
@@ -12584,9 +12584,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PagingCause_PDU(pt
   %7 = load i32, ptr @hf_ngap_PagingCause_PDU, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %8 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %6, ptr noundef %2, i32 noundef %7, i32 noundef 1, ptr noundef nonnull %5, i32 noundef 1, i32 noundef 0, ptr noundef null) #10
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %5, align 4
   %14 = call ptr @val_to_str_const(i32 noundef %13, ptr noundef nonnull @ngap_PagingCause_vals, ptr noundef nonnull @.str.3034) #10
@@ -12922,9 +12922,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RAT_Information_PD
   %7 = load i32, ptr @hf_ngap_RAT_Information_PDU, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 -1, ptr %5, align 4
-  %8 = getelementptr inbounds i8, ptr %6, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @proto_ngap, align 4
   %13 = call ptr @p_get_proto_data(ptr noundef %11, ptr noundef %9, i32 noundef %12, i32 noundef 0) #10
@@ -12934,7 +12934,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RAT_Information_PD
 14:                                               ; preds = %4
   %15 = load ptr, ptr %10, align 8
   %16 = call noalias ptr @wmem_alloc0(ptr noundef %15, i64 noundef 72) #10
-  %17 = getelementptr inbounds i8, ptr %16, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store i32 -1, ptr %17, align 8
   %18 = load ptr, ptr %10, align 8
   %19 = load i32, ptr @proto_ngap, align 4
@@ -12949,7 +12949,7 @@ ngap_get_private_data.exit.i:                     ; preds = %14, %4
   br i1 %.not.i, label %dissect_ngap_RAT_Information.exit, label %22
 
 22:                                               ; preds = %ngap_get_private_data.exit.i
-  %23 = getelementptr inbounds i8, ptr %.0.i.i, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 40
   %24 = load ptr, ptr %23, align 8
   %25 = icmp ne ptr %24, null
   %26 = load i32, ptr %5, align 4
@@ -12958,7 +12958,7 @@ ngap_get_private_data.exit.i:                     ; preds = %14, %4
   br i1 %or.cond.i, label %.preheader.i, label %dissect_ngap_RAT_Information.exit
 
 .preheader.i:                                     ; preds = %22
-  %28 = getelementptr inbounds i8, ptr %24, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = call i32 @wmem_array_get_count(ptr noundef %29) #10
   %.not19.i = icmp eq i32 %30, 0
@@ -12969,7 +12969,7 @@ ngap_get_private_data.exit.i:                     ; preds = %14, %4
   %31 = call ptr @wmem_file_scope() #10
   %32 = call noalias ptr @wmem_alloc(ptr noundef %31, i64 noundef 8) #10
   %33 = load ptr, ptr %23, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = call ptr @wmem_array_index(ptr noundef %35, i32 noundef %.018.i) #10
   %37 = load i32, ptr %36, align 4
@@ -12980,12 +12980,12 @@ ngap_get_private_data.exit.i:                     ; preds = %14, %4
   %42 = zext i32 %41 to i64
   store i64 %42, ptr %32, align 8
   %43 = load ptr, ptr %.0.i.i, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 64
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 64
   %45 = load ptr, ptr %44, align 8
   %46 = call ptr @wmem_map_insert(ptr noundef %45, ptr noundef nonnull %32, ptr noundef nonnull inttoptr (i64 1 to ptr)) #10
   %47 = add nuw i32 %.018.i, 1
   %48 = load ptr, ptr %23, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load ptr, ptr %49, align 8
   %51 = call i32 @wmem_array_get_count(ptr noundef %50) #10
   %52 = icmp ult i32 %47, %51
@@ -13106,13 +13106,13 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UERadioCapabilityF
   br i1 %or.cond.i, label %13, label %dissect_ngap_UERadioCapabilityForPagingOfNB_IoT.exit
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %6, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @ett_ngap_UERadioCapabilityForPagingOfNB_IoT, align 4
   %17 = call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #10
   %18 = load ptr, ptr @lte_rrc_ue_radio_paging_info_nb_handle, align 8
   %19 = load ptr, ptr %5, align 8
-  %20 = getelementptr inbounds i8, ptr %6, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = call i32 @call_dissector(ptr noundef %18, ptr noundef %19, ptr noundef %21, ptr noundef %17) #10
   br label %dissect_ngap_UERadioCapabilityForPagingOfNB_IoT.exit
@@ -13141,9 +13141,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_AlternativeQoSPara
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_AlternativeQoSParaSetIndex_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_ngap, align 4
   %12 = call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #10
@@ -13153,7 +13153,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_AlternativeQoSPara
 13:                                               ; preds = %4
   %14 = load ptr, ptr %9, align 8
   %15 = call noalias ptr @wmem_alloc0(ptr noundef %14, i64 noundef 72) #10
-  %16 = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store i32 -1, ptr %16, align 8
   %17 = load ptr, ptr %9, align 8
   %18 = load i32, ptr @proto_ngap, align 4
@@ -13162,7 +13162,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_AlternativeQoSPara
 
 dissect_ngap_AlternativeQoSParaSetIndex.exit:     ; preds = %4, %13
   %.0.i.i = phi ptr [ %12, %4 ], [ %15, %13 ]
-  %19 = getelementptr inbounds i8, ptr %.0.i.i, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 32
   %20 = load i32, ptr %19, align 8
   %.not.i = icmp eq i32 %20, 0
   %..i = zext i1 %.not.i to i32
@@ -13327,12 +13327,12 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_BurstArrivalTime_P
   br i1 %.not.i, label %dissect_ngap_BurstArrivalTime.exit, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %6, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @ett_ngap_BurstArrivalTime, align 4
   %14 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #10
   %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = call i32 @dissect_nr_rrc_ReferenceTime_r16_PDU(ptr noundef %15, ptr noundef %17, ptr noundef %14, ptr noundef null) #10
   br label %dissect_ngap_BurstArrivalTime.exit
@@ -13592,9 +13592,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PagingCauseIndicat
   %7 = load i32, ptr @hf_ngap_PagingCauseIndicationForVoiceService_PDU, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %8 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %6, ptr noundef %2, i32 noundef %7, i32 noundef 1, ptr noundef nonnull %5, i32 noundef 1, i32 noundef 0, ptr noundef null) #10
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %5, align 4
   %14 = call ptr @val_to_str_const(i32 noundef %13, ptr noundef nonnull @ngap_PagingCauseIndicationForVoiceService_vals, ptr noundef nonnull @.str.3034) #10
@@ -13692,15 +13692,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_AMFConfigurationUp
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_AMFConfigurationUpdate_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 1, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -13710,7 +13710,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_AMFConfigurationUp
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -13719,7 +13719,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_AMFConfigurationUp
 
 dissect_ngap_AMFConfigurationUpdate.exit:         ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 1, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_AMFConfigurationUpdate, align 4
@@ -13735,15 +13735,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_AMFConfigurationUp
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_AMFConfigurationUpdateAcknowledge_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 2, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -13753,7 +13753,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_AMFConfigurationUp
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -13762,7 +13762,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_AMFConfigurationUp
 
 dissect_ngap_AMFConfigurationUpdateAcknowledge.exit: ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 2, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_AMFConfigurationUpdateAcknowledge, align 4
@@ -13778,15 +13778,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_AMFConfigurationUp
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_AMFConfigurationUpdateFailure_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 3, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -13796,7 +13796,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_AMFConfigurationUp
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -13805,7 +13805,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_AMFConfigurationUp
 
 dissect_ngap_AMFConfigurationUpdateFailure.exit:  ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 3, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_AMFConfigurationUpdateFailure, align 4
@@ -13821,15 +13821,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_AMFCPRelocationInd
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_AMFCPRelocationIndication_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 4, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -13839,7 +13839,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_AMFCPRelocationInd
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -13848,7 +13848,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_AMFCPRelocationInd
 
 dissect_ngap_AMFCPRelocationIndication.exit:      ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 4, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_AMFCPRelocationIndication, align 4
@@ -13864,15 +13864,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_AMFStatusIndicatio
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_AMFStatusIndication_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 5, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -13882,7 +13882,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_AMFStatusIndicatio
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -13891,7 +13891,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_AMFStatusIndicatio
 
 dissect_ngap_AMFStatusIndication.exit:            ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 5, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_AMFStatusIndication, align 4
@@ -13907,15 +13907,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionMo
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_BroadcastSessionModificationRequest_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 6, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -13925,7 +13925,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionMo
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -13934,7 +13934,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionMo
 
 dissect_ngap_BroadcastSessionModificationRequest.exit: ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 6, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_BroadcastSessionModificationRequest, align 4
@@ -13950,15 +13950,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionMo
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_BroadcastSessionModificationResponse_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 7, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -13968,7 +13968,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionMo
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -13977,7 +13977,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionMo
 
 dissect_ngap_BroadcastSessionModificationResponse.exit: ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 7, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_BroadcastSessionModificationResponse, align 4
@@ -13993,15 +13993,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionMo
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_BroadcastSessionModificationFailure_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 8, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -14011,7 +14011,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionMo
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -14020,7 +14020,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionMo
 
 dissect_ngap_BroadcastSessionModificationFailure.exit: ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 8, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_BroadcastSessionModificationFailure, align 4
@@ -14036,15 +14036,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionRe
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_BroadcastSessionReleaseRequest_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 9, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -14054,7 +14054,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionRe
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -14063,7 +14063,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionRe
 
 dissect_ngap_BroadcastSessionReleaseRequest.exit: ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 9, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_BroadcastSessionReleaseRequest, align 4
@@ -14079,15 +14079,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionRe
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_BroadcastSessionReleaseResponse_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 10, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -14097,7 +14097,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionRe
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -14106,7 +14106,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionRe
 
 dissect_ngap_BroadcastSessionReleaseResponse.exit: ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 10, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_BroadcastSessionReleaseResponse, align 4
@@ -14122,15 +14122,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionRe
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_BroadcastSessionReleaseRequired_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 11, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -14140,7 +14140,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionRe
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -14149,7 +14149,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionRe
 
 dissect_ngap_BroadcastSessionReleaseRequired.exit: ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 11, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_BroadcastSessionReleaseRequired, align 4
@@ -14165,15 +14165,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionSe
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_BroadcastSessionSetupRequest_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 12, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -14183,7 +14183,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionSe
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -14192,7 +14192,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionSe
 
 dissect_ngap_BroadcastSessionSetupRequest.exit:   ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 12, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_BroadcastSessionSetupRequest, align 4
@@ -14208,15 +14208,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionSe
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_BroadcastSessionSetupResponse_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 13, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -14226,7 +14226,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionSe
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -14235,7 +14235,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionSe
 
 dissect_ngap_BroadcastSessionSetupResponse.exit:  ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 13, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_BroadcastSessionSetupResponse, align 4
@@ -14251,15 +14251,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionSe
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_BroadcastSessionSetupFailure_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 14, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -14269,7 +14269,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionSe
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -14278,7 +14278,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionSe
 
 dissect_ngap_BroadcastSessionSetupFailure.exit:   ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 14, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_BroadcastSessionSetupFailure, align 4
@@ -14294,15 +14294,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_CellTrafficTrace_P
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_CellTrafficTrace_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 15, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -14312,7 +14312,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_CellTrafficTrace_P
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -14321,7 +14321,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_CellTrafficTrace_P
 
 dissect_ngap_CellTrafficTrace.exit:               ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 15, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_CellTrafficTrace, align 4
@@ -14337,15 +14337,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_ConnectionEstablis
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_ConnectionEstablishmentIndication_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 16, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -14355,7 +14355,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_ConnectionEstablis
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -14364,7 +14364,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_ConnectionEstablis
 
 dissect_ngap_ConnectionEstablishmentIndication.exit: ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 16, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_ConnectionEstablishmentIndication, align 4
@@ -14380,15 +14380,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DeactivateTrace_PD
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_DeactivateTrace_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 17, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -14398,7 +14398,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DeactivateTrace_PD
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -14407,7 +14407,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DeactivateTrace_PD
 
 dissect_ngap_DeactivateTrace.exit:                ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 17, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_DeactivateTrace, align 4
@@ -14423,15 +14423,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DistributionSetupR
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_DistributionSetupRequest_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 18, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -14441,7 +14441,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DistributionSetupR
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -14450,7 +14450,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DistributionSetupR
 
 dissect_ngap_DistributionSetupRequest.exit:       ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 18, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_DistributionSetupRequest, align 4
@@ -14466,15 +14466,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DistributionSetupR
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_DistributionSetupResponse_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 19, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -14484,7 +14484,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DistributionSetupR
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -14493,7 +14493,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DistributionSetupR
 
 dissect_ngap_DistributionSetupResponse.exit:      ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 19, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_DistributionSetupResponse, align 4
@@ -14509,15 +14509,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DistributionSetupF
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_DistributionSetupFailure_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 20, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -14527,7 +14527,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DistributionSetupF
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -14536,7 +14536,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DistributionSetupF
 
 dissect_ngap_DistributionSetupFailure.exit:       ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 20, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_DistributionSetupFailure, align 4
@@ -14552,15 +14552,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DistributionReleas
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_DistributionReleaseRequest_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 21, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -14570,7 +14570,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DistributionReleas
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -14579,7 +14579,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DistributionReleas
 
 dissect_ngap_DistributionReleaseRequest.exit:     ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 21, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_DistributionReleaseRequest, align 4
@@ -14595,15 +14595,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DistributionReleas
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_DistributionReleaseResponse_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 22, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -14613,7 +14613,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DistributionReleas
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -14622,7 +14622,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DistributionReleas
 
 dissect_ngap_DistributionReleaseResponse.exit:    ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 22, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_DistributionReleaseResponse, align 4
@@ -14637,19 +14637,19 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DownlinkNASTranspo
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_DownlinkNASTransport_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 384
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 384
   store i32 1, ptr %9, align 8
   %10 = call ptr @val_to_str_const(i32 noundef 23, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   call void @col_append_sep_str(ptr noundef %13, i32 noundef 25, ptr noundef null, ptr noundef %10) #10
   %14 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %14, ptr noundef nonnull @.str.3032, ptr noundef %10) #10
   %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 408
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 408
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr @proto_ngap, align 4
   %19 = call ptr @p_get_proto_data(ptr noundef %17, ptr noundef %15, i32 noundef %18, i32 noundef 0) #10
@@ -14659,7 +14659,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DownlinkNASTranspo
 20:                                               ; preds = %4
   %21 = load ptr, ptr %16, align 8
   %22 = call noalias ptr @wmem_alloc0(ptr noundef %21, i64 noundef 72) #10
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store i32 -1, ptr %23, align 8
   %24 = load ptr, ptr %16, align 8
   %25 = load i32, ptr @proto_ngap, align 4
@@ -14668,7 +14668,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DownlinkNASTranspo
 
 dissect_ngap_DownlinkNASTransport.exit:           ; preds = %4, %20
   %.0.i.i.i = phi ptr [ %19, %4 ], [ %22, %20 ]
-  %26 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %27 = load ptr, ptr %26, align 8
   store i32 23, ptr %27, align 4
   %28 = load i32, ptr @ett_ngap_DownlinkNASTransport, align 4
@@ -14684,15 +14684,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DownlinkNonUEAssoc
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_DownlinkNonUEAssociatedNRPPaTransport_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 24, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -14702,7 +14702,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DownlinkNonUEAssoc
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -14711,7 +14711,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DownlinkNonUEAssoc
 
 dissect_ngap_DownlinkNonUEAssociatedNRPPaTransport.exit: ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 24, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_DownlinkNonUEAssociatedNRPPaTransport, align 4
@@ -14727,15 +14727,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DownlinkRANConfigu
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_DownlinkRANConfigurationTransfer_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 25, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -14745,7 +14745,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DownlinkRANConfigu
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -14754,7 +14754,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DownlinkRANConfigu
 
 dissect_ngap_DownlinkRANConfigurationTransfer.exit: ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 25, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_DownlinkRANConfigurationTransfer, align 4
@@ -14770,15 +14770,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DownlinkRANEarlySt
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_DownlinkRANEarlyStatusTransfer_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 26, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -14788,7 +14788,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DownlinkRANEarlySt
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -14797,7 +14797,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DownlinkRANEarlySt
 
 dissect_ngap_DownlinkRANEarlyStatusTransfer.exit: ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 26, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_DownlinkRANEarlyStatusTransfer, align 4
@@ -14813,15 +14813,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DownlinkRANStatusT
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_DownlinkRANStatusTransfer_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 27, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -14831,7 +14831,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DownlinkRANStatusT
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -14840,7 +14840,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DownlinkRANStatusT
 
 dissect_ngap_DownlinkRANStatusTransfer.exit:      ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 27, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_DownlinkRANStatusTransfer, align 4
@@ -14856,15 +14856,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DownlinkUEAssociat
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_DownlinkUEAssociatedNRPPaTransport_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 28, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -14874,7 +14874,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DownlinkUEAssociat
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -14883,7 +14883,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DownlinkUEAssociat
 
 dissect_ngap_DownlinkUEAssociatedNRPPaTransport.exit: ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 28, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_DownlinkUEAssociatedNRPPaTransport, align 4
@@ -14899,15 +14899,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_ErrorIndication_PD
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_ErrorIndication_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 29, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -14917,7 +14917,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_ErrorIndication_PD
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -14926,7 +14926,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_ErrorIndication_PD
 
 dissect_ngap_ErrorIndication.exit:                ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 29, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_ErrorIndication, align 4
@@ -14942,15 +14942,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverCancel_PDU
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_HandoverCancel_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 30, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -14960,7 +14960,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverCancel_PDU
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -14969,7 +14969,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverCancel_PDU
 
 dissect_ngap_HandoverCancel.exit:                 ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 30, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_HandoverCancel, align 4
@@ -14985,15 +14985,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverCancelAckn
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_HandoverCancelAcknowledge_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 31, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -15003,7 +15003,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverCancelAckn
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -15012,7 +15012,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverCancelAckn
 
 dissect_ngap_HandoverCancelAcknowledge.exit:      ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 31, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_HandoverCancelAcknowledge, align 4
@@ -15028,15 +15028,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverNotify_PDU
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_HandoverNotify_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 32, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -15046,7 +15046,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverNotify_PDU
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -15055,7 +15055,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverNotify_PDU
 
 dissect_ngap_HandoverNotify.exit:                 ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 32, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_HandoverNotify, align 4
@@ -15071,15 +15071,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverRequired_P
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_HandoverRequired_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 33, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -15089,7 +15089,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverRequired_P
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -15098,7 +15098,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverRequired_P
 
 dissect_ngap_HandoverRequired.exit:               ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 33, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_HandoverRequired, align 4
@@ -15114,15 +15114,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverCommand_PD
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_HandoverCommand_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 34, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -15132,7 +15132,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverCommand_PD
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -15141,7 +15141,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverCommand_PD
 
 dissect_ngap_HandoverCommand.exit:                ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 34, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_HandoverCommand, align 4
@@ -15157,15 +15157,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverPreparatio
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_HandoverPreparationFailure_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 35, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -15175,7 +15175,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverPreparatio
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -15184,7 +15184,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverPreparatio
 
 dissect_ngap_HandoverPreparationFailure.exit:     ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 35, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_HandoverPreparationFailure, align 4
@@ -15199,19 +15199,19 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverRequest_PD
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_HandoverRequest_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 384
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 384
   store i32 1, ptr %9, align 8
   %10 = call ptr @val_to_str_const(i32 noundef 36, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   call void @col_append_sep_str(ptr noundef %13, i32 noundef 25, ptr noundef null, ptr noundef %10) #10
   %14 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %14, ptr noundef nonnull @.str.3032, ptr noundef %10) #10
   %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 408
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 408
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr @proto_ngap, align 4
   %19 = call ptr @p_get_proto_data(ptr noundef %17, ptr noundef %15, i32 noundef %18, i32 noundef 0) #10
@@ -15221,7 +15221,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverRequest_PD
 20:                                               ; preds = %4
   %21 = load ptr, ptr %16, align 8
   %22 = call noalias ptr @wmem_alloc0(ptr noundef %21, i64 noundef 72) #10
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store i32 -1, ptr %23, align 8
   %24 = load ptr, ptr %16, align 8
   %25 = load i32, ptr @proto_ngap, align 4
@@ -15230,7 +15230,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverRequest_PD
 
 dissect_ngap_HandoverRequest.exit:                ; preds = %4, %20
   %.0.i.i.i = phi ptr [ %19, %4 ], [ %22, %20 ]
-  %26 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %27 = load ptr, ptr %26, align 8
   store i32 36, ptr %27, align 4
   %28 = load i32, ptr @ett_ngap_HandoverRequest, align 4
@@ -15246,15 +15246,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverRequestAck
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_HandoverRequestAcknowledge_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 37, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -15264,7 +15264,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverRequestAck
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -15273,7 +15273,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverRequestAck
 
 dissect_ngap_HandoverRequestAcknowledge.exit:     ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 37, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_HandoverRequestAcknowledge, align 4
@@ -15289,15 +15289,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverFailure_PD
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_HandoverFailure_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 38, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -15307,7 +15307,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverFailure_PD
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -15316,7 +15316,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverFailure_PD
 
 dissect_ngap_HandoverFailure.exit:                ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 38, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_HandoverFailure, align 4
@@ -15332,15 +15332,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverSuccess_PD
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_HandoverSuccess_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 39, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -15350,7 +15350,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverSuccess_PD
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -15359,7 +15359,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverSuccess_PD
 
 dissect_ngap_HandoverSuccess.exit:                ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 39, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_HandoverSuccess, align 4
@@ -15375,15 +15375,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_InitialContextSetu
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_InitialContextSetupRequest_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 40, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -15393,7 +15393,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_InitialContextSetu
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -15402,7 +15402,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_InitialContextSetu
 
 dissect_ngap_InitialContextSetupRequest.exit:     ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 40, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_InitialContextSetupRequest, align 4
@@ -15418,15 +15418,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_InitialContextSetu
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_InitialContextSetupResponse_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 41, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -15436,7 +15436,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_InitialContextSetu
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -15445,7 +15445,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_InitialContextSetu
 
 dissect_ngap_InitialContextSetupResponse.exit:    ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 41, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_InitialContextSetupResponse, align 4
@@ -15461,15 +15461,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_InitialContextSetu
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_InitialContextSetupFailure_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 42, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -15479,7 +15479,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_InitialContextSetu
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -15488,7 +15488,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_InitialContextSetu
 
 dissect_ngap_InitialContextSetupFailure.exit:     ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 42, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_InitialContextSetupFailure, align 4
@@ -15503,19 +15503,19 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_InitialUEMessage_P
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_InitialUEMessage_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 384
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 384
   store i32 0, ptr %9, align 8
   %10 = call ptr @val_to_str_const(i32 noundef 43, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   call void @col_append_sep_str(ptr noundef %13, i32 noundef 25, ptr noundef null, ptr noundef %10) #10
   %14 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %14, ptr noundef nonnull @.str.3032, ptr noundef %10) #10
   %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 408
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 408
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr @proto_ngap, align 4
   %19 = call ptr @p_get_proto_data(ptr noundef %17, ptr noundef %15, i32 noundef %18, i32 noundef 0) #10
@@ -15525,7 +15525,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_InitialUEMessage_P
 20:                                               ; preds = %4
   %21 = load ptr, ptr %16, align 8
   %22 = call noalias ptr @wmem_alloc0(ptr noundef %21, i64 noundef 72) #10
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store i32 -1, ptr %23, align 8
   %24 = load ptr, ptr %16, align 8
   %25 = load i32, ptr @proto_ngap, align 4
@@ -15534,7 +15534,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_InitialUEMessage_P
 
 dissect_ngap_InitialUEMessage.exit:               ; preds = %4, %20
   %.0.i.i.i = phi ptr [ %19, %4 ], [ %22, %20 ]
-  %26 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %27 = load ptr, ptr %26, align 8
   store i32 43, ptr %27, align 4
   %28 = load i32, ptr @ett_ngap_InitialUEMessage, align 4
@@ -15550,15 +15550,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_LocationReport_PDU
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_LocationReport_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 44, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -15568,7 +15568,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_LocationReport_PDU
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -15577,7 +15577,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_LocationReport_PDU
 
 dissect_ngap_LocationReport.exit:                 ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 44, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_LocationReport, align 4
@@ -15593,15 +15593,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_LocationReportingC
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_LocationReportingControl_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 45, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -15611,7 +15611,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_LocationReportingC
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -15620,7 +15620,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_LocationReportingC
 
 dissect_ngap_LocationReportingControl.exit:       ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 45, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_LocationReportingControl, align 4
@@ -15636,15 +15636,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_LocationReportingF
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_LocationReportingFailureIndication_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 46, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -15654,7 +15654,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_LocationReportingF
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -15663,7 +15663,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_LocationReportingF
 
 dissect_ngap_LocationReportingFailureIndication.exit: ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 46, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_LocationReportingFailureIndication, align 4
@@ -15679,15 +15679,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionAc
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MulticastSessionActivationRequest_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 47, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -15697,7 +15697,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionAc
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -15706,7 +15706,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionAc
 
 dissect_ngap_MulticastSessionActivationRequest.exit: ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 47, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_MulticastSessionActivationRequest, align 4
@@ -15722,15 +15722,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionAc
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MulticastSessionActivationResponse_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 48, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -15740,7 +15740,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionAc
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -15749,7 +15749,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionAc
 
 dissect_ngap_MulticastSessionActivationResponse.exit: ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 48, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_MulticastSessionActivationResponse, align 4
@@ -15765,15 +15765,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionAc
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MulticastSessionActivationFailure_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 49, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -15783,7 +15783,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionAc
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -15792,7 +15792,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionAc
 
 dissect_ngap_MulticastSessionActivationFailure.exit: ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 49, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_MulticastSessionActivationFailure, align 4
@@ -15808,15 +15808,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionDe
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MulticastSessionDeactivationRequest_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 50, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -15826,7 +15826,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionDe
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -15835,7 +15835,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionDe
 
 dissect_ngap_MulticastSessionDeactivationRequest.exit: ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 50, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_MulticastSessionDeactivationRequest, align 4
@@ -15851,15 +15851,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionDe
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MulticastSessionDeactivationResponse_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 51, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -15869,7 +15869,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionDe
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -15878,7 +15878,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionDe
 
 dissect_ngap_MulticastSessionDeactivationResponse.exit: ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 51, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_MulticastSessionDeactivationResponse, align 4
@@ -15894,15 +15894,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionUp
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MulticastSessionUpdateRequest_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 52, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -15912,7 +15912,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionUp
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -15921,7 +15921,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionUp
 
 dissect_ngap_MulticastSessionUpdateRequest.exit:  ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 52, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_MulticastSessionUpdateRequest, align 4
@@ -15937,15 +15937,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionUp
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MulticastSessionUpdateResponse_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 53, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -15955,7 +15955,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionUp
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -15964,7 +15964,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionUp
 
 dissect_ngap_MulticastSessionUpdateResponse.exit: ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 53, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_MulticastSessionUpdateResponse, align 4
@@ -15980,15 +15980,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionUp
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MulticastSessionUpdateFailure_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 54, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -15998,7 +15998,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionUp
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -16007,7 +16007,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionUp
 
 dissect_ngap_MulticastSessionUpdateFailure.exit:  ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 54, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_MulticastSessionUpdateFailure, align 4
@@ -16023,15 +16023,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastGroupPagi
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MulticastGroupPaging_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 55, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -16041,7 +16041,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastGroupPagi
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -16050,7 +16050,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastGroupPagi
 
 dissect_ngap_MulticastGroupPaging.exit:           ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 55, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_MulticastGroupPaging, align 4
@@ -16066,15 +16066,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NASNonDeliveryIndi
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_NASNonDeliveryIndication_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 56, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -16084,7 +16084,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NASNonDeliveryIndi
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -16093,7 +16093,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NASNonDeliveryIndi
 
 dissect_ngap_NASNonDeliveryIndication.exit:       ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 56, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_NASNonDeliveryIndication, align 4
@@ -16109,15 +16109,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NGReset_PDU(ptr no
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_NGReset_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 57, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -16127,7 +16127,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NGReset_PDU(ptr no
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -16136,7 +16136,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NGReset_PDU(ptr no
 
 dissect_ngap_NGReset.exit:                        ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 57, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_NGReset, align 4
@@ -16152,15 +16152,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NGResetAcknowledge
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_NGResetAcknowledge_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 58, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -16170,7 +16170,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NGResetAcknowledge
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -16179,7 +16179,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NGResetAcknowledge
 
 dissect_ngap_NGResetAcknowledge.exit:             ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 58, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_NGResetAcknowledge, align 4
@@ -16195,15 +16195,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NGSetupRequest_PDU
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_NGSetupRequest_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 59, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -16213,7 +16213,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NGSetupRequest_PDU
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -16222,7 +16222,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NGSetupRequest_PDU
 
 dissect_ngap_NGSetupRequest.exit:                 ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 59, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_NGSetupRequest, align 4
@@ -16238,15 +16238,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NGSetupResponse_PD
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_NGSetupResponse_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 60, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -16256,7 +16256,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NGSetupResponse_PD
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -16265,7 +16265,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NGSetupResponse_PD
 
 dissect_ngap_NGSetupResponse.exit:                ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 60, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_NGSetupResponse, align 4
@@ -16281,15 +16281,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NGSetupFailure_PDU
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_NGSetupFailure_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 61, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -16299,7 +16299,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NGSetupFailure_PDU
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -16308,7 +16308,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NGSetupFailure_PDU
 
 dissect_ngap_NGSetupFailure.exit:                 ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 61, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_NGSetupFailure, align 4
@@ -16324,15 +16324,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_OverloadStart_PDU(
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_OverloadStart_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 62, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -16342,7 +16342,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_OverloadStart_PDU(
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -16351,7 +16351,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_OverloadStart_PDU(
 
 dissect_ngap_OverloadStart.exit:                  ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 62, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_OverloadStart, align 4
@@ -16367,15 +16367,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_OverloadStop_PDU(p
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_OverloadStop_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 63, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -16385,7 +16385,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_OverloadStop_PDU(p
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -16394,7 +16394,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_OverloadStop_PDU(p
 
 dissect_ngap_OverloadStop.exit:                   ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 63, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_OverloadStop, align 4
@@ -16410,15 +16410,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_Paging_PDU(ptr nou
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_Paging_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 64, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -16428,7 +16428,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_Paging_PDU(ptr nou
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -16437,7 +16437,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_Paging_PDU(ptr nou
 
 dissect_ngap_Paging.exit:                         ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 64, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_Paging, align 4
@@ -16453,15 +16453,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PathSwitchRequest_
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PathSwitchRequest_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 65, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -16471,7 +16471,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PathSwitchRequest_
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -16480,7 +16480,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PathSwitchRequest_
 
 dissect_ngap_PathSwitchRequest.exit:              ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 65, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_PathSwitchRequest, align 4
@@ -16496,15 +16496,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PathSwitchRequestA
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PathSwitchRequestAcknowledge_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 66, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -16514,7 +16514,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PathSwitchRequestA
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -16523,7 +16523,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PathSwitchRequestA
 
 dissect_ngap_PathSwitchRequestAcknowledge.exit:   ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 66, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_PathSwitchRequestAcknowledge, align 4
@@ -16539,15 +16539,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PathSwitchRequestF
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PathSwitchRequestFailure_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 67, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -16557,7 +16557,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PathSwitchRequestF
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -16566,7 +16566,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PathSwitchRequestF
 
 dissect_ngap_PathSwitchRequestFailure.exit:       ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 67, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_PathSwitchRequestFailure, align 4
@@ -16582,15 +16582,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceModifyRequest_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 68, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -16600,7 +16600,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -16609,7 +16609,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 
 dissect_ngap_PDUSessionResourceModifyRequest.exit: ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 68, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_PDUSessionResourceModifyRequest, align 4
@@ -16625,15 +16625,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceModifyResponse_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 69, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -16643,7 +16643,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -16652,7 +16652,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 
 dissect_ngap_PDUSessionResourceModifyResponse.exit: ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 69, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_PDUSessionResourceModifyResponse, align 4
@@ -16668,15 +16668,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceModifyIndication_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 70, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -16686,7 +16686,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -16695,7 +16695,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 
 dissect_ngap_PDUSessionResourceModifyIndication.exit: ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 70, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_PDUSessionResourceModifyIndication, align 4
@@ -16711,15 +16711,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceModifyConfirm_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 71, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -16729,7 +16729,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -16738,7 +16738,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 
 dissect_ngap_PDUSessionResourceModifyConfirm.exit: ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 71, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_PDUSessionResourceModifyConfirm, align 4
@@ -16754,15 +16754,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceNotify_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 72, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -16772,7 +16772,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -16781,7 +16781,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 
 dissect_ngap_PDUSessionResourceNotify.exit:       ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 72, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_PDUSessionResourceNotify, align 4
@@ -16797,15 +16797,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceReleaseCommand_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 73, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -16815,7 +16815,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -16824,7 +16824,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 
 dissect_ngap_PDUSessionResourceReleaseCommand.exit: ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 73, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_PDUSessionResourceReleaseCommand, align 4
@@ -16840,15 +16840,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceReleaseResponse_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 74, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -16858,7 +16858,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -16867,7 +16867,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 
 dissect_ngap_PDUSessionResourceReleaseResponse.exit: ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 74, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_PDUSessionResourceReleaseResponse, align 4
@@ -16883,15 +16883,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceSetupRequest_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 75, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -16901,7 +16901,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -16910,7 +16910,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 
 dissect_ngap_PDUSessionResourceSetupRequest.exit: ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 75, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_PDUSessionResourceSetupRequest, align 4
@@ -16926,15 +16926,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceSetupResponse_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 76, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -16944,7 +16944,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -16953,7 +16953,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 
 dissect_ngap_PDUSessionResourceSetupResponse.exit: ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 76, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_PDUSessionResourceSetupResponse, align 4
@@ -16969,15 +16969,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PrivateMessage_PDU
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PrivateMessage_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 77, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -16987,7 +16987,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PrivateMessage_PDU
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -16996,7 +16996,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PrivateMessage_PDU
 
 dissect_ngap_PrivateMessage.exit:                 ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 77, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_PrivateMessage, align 4
@@ -17012,15 +17012,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PWSCancelRequest_P
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PWSCancelRequest_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 78, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -17030,7 +17030,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PWSCancelRequest_P
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -17039,7 +17039,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PWSCancelRequest_P
 
 dissect_ngap_PWSCancelRequest.exit:               ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 78, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_PWSCancelRequest, align 4
@@ -17055,15 +17055,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PWSCancelResponse_
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PWSCancelResponse_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 79, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -17073,7 +17073,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PWSCancelResponse_
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -17082,7 +17082,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PWSCancelResponse_
 
 dissect_ngap_PWSCancelResponse.exit:              ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 79, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_PWSCancelResponse, align 4
@@ -17098,15 +17098,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PWSFailureIndicati
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PWSFailureIndication_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 80, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -17116,7 +17116,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PWSFailureIndicati
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -17125,7 +17125,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PWSFailureIndicati
 
 dissect_ngap_PWSFailureIndication.exit:           ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 80, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_PWSFailureIndication, align 4
@@ -17141,15 +17141,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PWSRestartIndicati
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PWSRestartIndication_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 81, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -17159,7 +17159,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PWSRestartIndicati
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -17168,7 +17168,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PWSRestartIndicati
 
 dissect_ngap_PWSRestartIndication.exit:           ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 81, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_PWSRestartIndication, align 4
@@ -17184,15 +17184,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RANConfigurationUp
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_RANConfigurationUpdate_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 82, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -17202,7 +17202,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RANConfigurationUp
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -17211,7 +17211,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RANConfigurationUp
 
 dissect_ngap_RANConfigurationUpdate.exit:         ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 82, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_RANConfigurationUpdate, align 4
@@ -17227,15 +17227,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RANConfigurationUp
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_RANConfigurationUpdateAcknowledge_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 83, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -17245,7 +17245,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RANConfigurationUp
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -17254,7 +17254,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RANConfigurationUp
 
 dissect_ngap_RANConfigurationUpdateAcknowledge.exit: ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 83, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_RANConfigurationUpdateAcknowledge, align 4
@@ -17270,15 +17270,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RANConfigurationUp
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_RANConfigurationUpdateFailure_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 84, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -17288,7 +17288,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RANConfigurationUp
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -17297,7 +17297,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RANConfigurationUp
 
 dissect_ngap_RANConfigurationUpdateFailure.exit:  ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 84, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_RANConfigurationUpdateFailure, align 4
@@ -17313,15 +17313,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RANCPRelocationInd
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_RANCPRelocationIndication_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 85, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -17331,7 +17331,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RANCPRelocationInd
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -17340,7 +17340,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RANCPRelocationInd
 
 dissect_ngap_RANCPRelocationIndication.exit:      ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 85, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_RANCPRelocationIndication, align 4
@@ -17356,15 +17356,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RerouteNASRequest_
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_RerouteNASRequest_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 86, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -17374,7 +17374,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RerouteNASRequest_
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -17383,7 +17383,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RerouteNASRequest_
 
 dissect_ngap_RerouteNASRequest.exit:              ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 86, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_RerouteNASRequest, align 4
@@ -17399,15 +17399,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RetrieveUEInformat
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_RetrieveUEInformation_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 87, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -17417,7 +17417,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RetrieveUEInformat
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -17426,7 +17426,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RetrieveUEInformat
 
 dissect_ngap_RetrieveUEInformation.exit:          ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 87, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_RetrieveUEInformation, align 4
@@ -17442,15 +17442,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RRCInactiveTransit
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_RRCInactiveTransitionReport_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 88, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -17460,7 +17460,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RRCInactiveTransit
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -17469,7 +17469,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RRCInactiveTransit
 
 dissect_ngap_RRCInactiveTransitionReport.exit:    ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 88, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_RRCInactiveTransitionReport, align 4
@@ -17485,15 +17485,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_SecondaryRATDataUs
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_SecondaryRATDataUsageReport_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 89, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -17503,7 +17503,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_SecondaryRATDataUs
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -17512,7 +17512,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_SecondaryRATDataUs
 
 dissect_ngap_SecondaryRATDataUsageReport.exit:    ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 89, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_SecondaryRATDataUsageReport, align 4
@@ -17528,15 +17528,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_TraceFailureIndica
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_TraceFailureIndication_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 90, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -17546,7 +17546,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_TraceFailureIndica
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -17555,7 +17555,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_TraceFailureIndica
 
 dissect_ngap_TraceFailureIndication.exit:         ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 90, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_TraceFailureIndication, align 4
@@ -17571,15 +17571,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_TraceStart_PDU(ptr
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_TraceStart_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 91, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -17589,7 +17589,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_TraceStart_PDU(ptr
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -17598,7 +17598,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_TraceStart_PDU(ptr
 
 dissect_ngap_TraceStart.exit:                     ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 91, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_TraceStart, align 4
@@ -17614,15 +17614,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextModificat
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UEContextModificationRequest_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 92, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -17632,7 +17632,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextModificat
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -17641,7 +17641,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextModificat
 
 dissect_ngap_UEContextModificationRequest.exit:   ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 92, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_UEContextModificationRequest, align 4
@@ -17657,15 +17657,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextModificat
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UEContextModificationResponse_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 93, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -17675,7 +17675,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextModificat
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -17684,7 +17684,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextModificat
 
 dissect_ngap_UEContextModificationResponse.exit:  ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 93, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_UEContextModificationResponse, align 4
@@ -17700,15 +17700,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextModificat
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UEContextModificationFailure_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 94, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -17718,7 +17718,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextModificat
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -17727,7 +17727,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextModificat
 
 dissect_ngap_UEContextModificationFailure.exit:   ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 94, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_UEContextModificationFailure, align 4
@@ -17743,15 +17743,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextReleaseCo
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UEContextReleaseCommand_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 95, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -17761,7 +17761,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextReleaseCo
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -17770,7 +17770,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextReleaseCo
 
 dissect_ngap_UEContextReleaseCommand.exit:        ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 95, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_UEContextReleaseCommand, align 4
@@ -17786,15 +17786,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextReleaseCo
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UEContextReleaseComplete_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 96, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -17804,7 +17804,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextReleaseCo
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -17813,7 +17813,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextReleaseCo
 
 dissect_ngap_UEContextReleaseComplete.exit:       ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 96, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_UEContextReleaseComplete, align 4
@@ -17829,15 +17829,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextReleaseRe
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UEContextReleaseRequest_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 97, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -17847,7 +17847,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextReleaseRe
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -17856,7 +17856,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextReleaseRe
 
 dissect_ngap_UEContextReleaseRequest.exit:        ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 97, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_UEContextReleaseRequest, align 4
@@ -17872,15 +17872,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextResumeReq
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UEContextResumeRequest_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 98, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -17890,7 +17890,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextResumeReq
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -17899,7 +17899,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextResumeReq
 
 dissect_ngap_UEContextResumeRequest.exit:         ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 98, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_UEContextResumeRequest, align 4
@@ -17915,15 +17915,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextResumeRes
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UEContextResumeResponse_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 99, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -17933,7 +17933,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextResumeRes
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -17942,7 +17942,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextResumeRes
 
 dissect_ngap_UEContextResumeResponse.exit:        ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 99, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_UEContextResumeResponse, align 4
@@ -17958,15 +17958,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextResumeFai
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UEContextResumeFailure_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 100, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -17976,7 +17976,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextResumeFai
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -17985,7 +17985,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextResumeFai
 
 dissect_ngap_UEContextResumeFailure.exit:         ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 100, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_UEContextResumeFailure, align 4
@@ -18001,15 +18001,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextSuspendRe
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UEContextSuspendRequest_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 101, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -18019,7 +18019,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextSuspendRe
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -18028,7 +18028,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextSuspendRe
 
 dissect_ngap_UEContextSuspendRequest.exit:        ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 101, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_UEContextSuspendRequest, align 4
@@ -18044,15 +18044,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextSuspendRe
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UEContextSuspendResponse_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 102, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -18062,7 +18062,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextSuspendRe
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -18071,7 +18071,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextSuspendRe
 
 dissect_ngap_UEContextSuspendResponse.exit:       ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 102, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_UEContextSuspendResponse, align 4
@@ -18087,15 +18087,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextSuspendFa
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UEContextSuspendFailure_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 103, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -18105,7 +18105,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextSuspendFa
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -18114,7 +18114,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextSuspendFa
 
 dissect_ngap_UEContextSuspendFailure.exit:        ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 103, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_UEContextSuspendFailure, align 4
@@ -18130,15 +18130,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEInformationTrans
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UEInformationTransfer_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 104, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -18148,7 +18148,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEInformationTrans
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -18157,7 +18157,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEInformationTrans
 
 dissect_ngap_UEInformationTransfer.exit:          ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 104, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_UEInformationTransfer, align 4
@@ -18173,15 +18173,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UERadioCapabilityC
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UERadioCapabilityCheckRequest_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 105, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -18191,7 +18191,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UERadioCapabilityC
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -18200,7 +18200,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UERadioCapabilityC
 
 dissect_ngap_UERadioCapabilityCheckRequest.exit:  ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 105, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_UERadioCapabilityCheckRequest, align 4
@@ -18216,15 +18216,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UERadioCapabilityC
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UERadioCapabilityCheckResponse_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 106, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -18234,7 +18234,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UERadioCapabilityC
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -18243,7 +18243,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UERadioCapabilityC
 
 dissect_ngap_UERadioCapabilityCheckResponse.exit: ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 106, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_UERadioCapabilityCheckResponse, align 4
@@ -18259,15 +18259,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UERadioCapabilityI
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UERadioCapabilityIDMappingRequest_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 107, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -18277,7 +18277,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UERadioCapabilityI
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -18286,7 +18286,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UERadioCapabilityI
 
 dissect_ngap_UERadioCapabilityIDMappingRequest.exit: ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 107, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_UERadioCapabilityIDMappingRequest, align 4
@@ -18302,15 +18302,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UERadioCapabilityI
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UERadioCapabilityIDMappingResponse_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 108, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -18320,7 +18320,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UERadioCapabilityI
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -18329,7 +18329,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UERadioCapabilityI
 
 dissect_ngap_UERadioCapabilityIDMappingResponse.exit: ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 108, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_UERadioCapabilityIDMappingResponse, align 4
@@ -18345,15 +18345,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UERadioCapabilityI
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UERadioCapabilityInfoIndication_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 109, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -18363,7 +18363,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UERadioCapabilityI
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -18372,7 +18372,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UERadioCapabilityI
 
 dissect_ngap_UERadioCapabilityInfoIndication.exit: ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 109, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_UERadioCapabilityInfoIndication, align 4
@@ -18388,15 +18388,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UETNLABindingRelea
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UETNLABindingReleaseRequest_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 110, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -18406,7 +18406,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UETNLABindingRelea
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -18415,7 +18415,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UETNLABindingRelea
 
 dissect_ngap_UETNLABindingReleaseRequest.exit:    ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 110, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_UETNLABindingReleaseRequest, align 4
@@ -18430,19 +18430,19 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UplinkNASTransport
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UplinkNASTransport_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 384
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 384
   store i32 0, ptr %9, align 8
   %10 = call ptr @val_to_str_const(i32 noundef 111, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   call void @col_append_sep_str(ptr noundef %13, i32 noundef 25, ptr noundef null, ptr noundef %10) #10
   %14 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %14, ptr noundef nonnull @.str.3032, ptr noundef %10) #10
   %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 408
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 408
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr @proto_ngap, align 4
   %19 = call ptr @p_get_proto_data(ptr noundef %17, ptr noundef %15, i32 noundef %18, i32 noundef 0) #10
@@ -18452,7 +18452,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UplinkNASTransport
 20:                                               ; preds = %4
   %21 = load ptr, ptr %16, align 8
   %22 = call noalias ptr @wmem_alloc0(ptr noundef %21, i64 noundef 72) #10
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store i32 -1, ptr %23, align 8
   %24 = load ptr, ptr %16, align 8
   %25 = load i32, ptr @proto_ngap, align 4
@@ -18461,7 +18461,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UplinkNASTransport
 
 dissect_ngap_UplinkNASTransport.exit:             ; preds = %4, %20
   %.0.i.i.i = phi ptr [ %19, %4 ], [ %22, %20 ]
-  %26 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %27 = load ptr, ptr %26, align 8
   store i32 111, ptr %27, align 4
   %28 = load i32, ptr @ett_ngap_UplinkNASTransport, align 4
@@ -18477,15 +18477,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UplinkNonUEAssocia
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UplinkNonUEAssociatedNRPPaTransport_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 112, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -18495,7 +18495,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UplinkNonUEAssocia
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -18504,7 +18504,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UplinkNonUEAssocia
 
 dissect_ngap_UplinkNonUEAssociatedNRPPaTransport.exit: ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 112, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_UplinkNonUEAssociatedNRPPaTransport, align 4
@@ -18520,15 +18520,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UplinkRANConfigura
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UplinkRANConfigurationTransfer_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 113, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -18538,7 +18538,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UplinkRANConfigura
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -18547,7 +18547,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UplinkRANConfigura
 
 dissect_ngap_UplinkRANConfigurationTransfer.exit: ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 113, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_UplinkRANConfigurationTransfer, align 4
@@ -18563,15 +18563,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UplinkRANEarlyStat
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UplinkRANEarlyStatusTransfer_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 114, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -18581,7 +18581,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UplinkRANEarlyStat
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -18590,7 +18590,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UplinkRANEarlyStat
 
 dissect_ngap_UplinkRANEarlyStatusTransfer.exit:   ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 114, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_UplinkRANEarlyStatusTransfer, align 4
@@ -18606,15 +18606,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UplinkRANStatusTra
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UplinkRANStatusTransfer_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 115, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -18624,7 +18624,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UplinkRANStatusTra
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -18633,7 +18633,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UplinkRANStatusTra
 
 dissect_ngap_UplinkRANStatusTransfer.exit:        ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 115, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_UplinkRANStatusTransfer, align 4
@@ -18649,15 +18649,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UplinkUEAssociated
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UplinkUEAssociatedNRPPaTransport_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 116, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -18667,7 +18667,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UplinkUEAssociated
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -18676,7 +18676,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UplinkUEAssociated
 
 dissect_ngap_UplinkUEAssociatedNRPPaTransport.exit: ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 116, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_UplinkUEAssociatedNRPPaTransport, align 4
@@ -18692,15 +18692,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_WriteReplaceWarnin
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_WriteReplaceWarningRequest_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 117, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -18710,7 +18710,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_WriteReplaceWarnin
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -18719,7 +18719,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_WriteReplaceWarnin
 
 dissect_ngap_WriteReplaceWarningRequest.exit:     ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 117, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_WriteReplaceWarningRequest, align 4
@@ -18735,15 +18735,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_WriteReplaceWarnin
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_WriteReplaceWarningResponse_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 118, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -18753,7 +18753,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_WriteReplaceWarnin
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -18762,7 +18762,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_WriteReplaceWarnin
 
 dissect_ngap_WriteReplaceWarningResponse.exit:    ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 118, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_WriteReplaceWarningResponse, align 4
@@ -18778,15 +18778,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UplinkRIMInformati
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UplinkRIMInformationTransfer_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 119, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -18796,7 +18796,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UplinkRIMInformati
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -18805,7 +18805,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UplinkRIMInformati
 
 dissect_ngap_UplinkRIMInformationTransfer.exit:   ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 119, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_UplinkRIMInformationTransfer, align 4
@@ -18821,15 +18821,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DownlinkRIMInforma
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_DownlinkRIMInformationTransfer_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 120, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3034) #10
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef %7) #10
   %12 = load ptr, ptr @top_tree, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.3032, ptr noundef %7) #10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_ngap, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %13, i32 noundef %16, i32 noundef 0) #10
@@ -18839,7 +18839,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DownlinkRIMInforma
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
   %20 = call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #10
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @proto_ngap, align 4
@@ -18848,7 +18848,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DownlinkRIMInforma
 
 dissect_ngap_DownlinkRIMInformationTransfer.exit: ; preds = %4, %18
   %.0.i.i.i = phi ptr [ %17, %4 ], [ %20, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %25 = load ptr, ptr %24, align 8
   store i32 120, ptr %25, align 4
   %26 = load i32, ptr @ett_ngap_DownlinkRIMInformationTransfer, align 4
@@ -18876,9 +18876,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceSetupResponseTransfer_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_json, align 4
   %12 = call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #10
@@ -18887,7 +18887,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 
 13:                                               ; preds = %4
   %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   call void @col_append_sep_str(ptr noundef %16, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.610) #10
   br label %dissect_ngap_PDUSessionResourceSetupResponseTransfer.exit
@@ -18905,9 +18905,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceSetupUnsuccessfulTransfer_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_json, align 4
   %12 = call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #10
@@ -18916,7 +18916,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 
 13:                                               ; preds = %4
   %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   call void @col_append_sep_str(ptr noundef %16, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.612) #10
   br label %dissect_ngap_PDUSessionResourceSetupUnsuccessfulTransfer.exit
@@ -18934,9 +18934,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceReleaseCommandTransfer_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_json, align 4
   %12 = call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #10
@@ -18945,7 +18945,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 
 13:                                               ; preds = %4
   %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   call void @col_append_sep_str(ptr noundef %16, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.580) #10
   br label %dissect_ngap_PDUSessionResourceReleaseCommandTransfer.exit
@@ -18963,9 +18963,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceReleaseResponseTransfer_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_json, align 4
   %12 = call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #10
@@ -18974,7 +18974,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 
 13:                                               ; preds = %4
   %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   call void @col_append_sep_str(ptr noundef %16, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.590) #10
   br label %dissect_ngap_PDUSessionResourceReleaseResponseTransfer.exit
@@ -18992,9 +18992,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceModifyRequestTransfer_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_json, align 4
   %12 = call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #10
@@ -19003,7 +19003,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 
 13:                                               ; preds = %4
   %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   call void @col_append_sep_str(ptr noundef %16, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.558) #10
   br label %dissect_ngap_PDUSessionResourceModifyRequestTransfer.exit
@@ -19021,9 +19021,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceModifyResponseTransfer_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_json, align 4
   %12 = call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #10
@@ -19032,7 +19032,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 
 13:                                               ; preds = %4
   %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   call void @col_append_sep_str(ptr noundef %16, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.560) #10
   br label %dissect_ngap_PDUSessionResourceModifyResponseTransfer.exit
@@ -19050,9 +19050,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceModifyUnsuccessfulTransfer_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_json, align 4
   %12 = call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #10
@@ -19061,7 +19061,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 
 13:                                               ; preds = %4
   %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   call void @col_append_sep_str(ptr noundef %16, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.572) #10
   br label %dissect_ngap_PDUSessionResourceModifyUnsuccessfulTransfer.exit
@@ -19079,9 +19079,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceNotifyTransfer_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_json, align 4
   %12 = call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #10
@@ -19090,7 +19090,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 
 13:                                               ; preds = %4
   %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   call void @col_append_sep_str(ptr noundef %16, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.578) #10
   br label %dissect_ngap_PDUSessionResourceNotifyTransfer.exit
@@ -19108,9 +19108,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceNotifyReleasedTransfer_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_json, align 4
   %12 = call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #10
@@ -19119,7 +19119,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 
 13:                                               ; preds = %4
   %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   call void @col_append_sep_str(ptr noundef %16, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.576) #10
   br label %dissect_ngap_PDUSessionResourceNotifyReleasedTransfer.exit
@@ -19137,9 +19137,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceModifyIndicationTransfer_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_json, align 4
   %12 = call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #10
@@ -19148,7 +19148,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 
 13:                                               ; preds = %4
   %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   call void @col_append_sep_str(ptr noundef %16, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.562) #10
   br label %dissect_ngap_PDUSessionResourceModifyIndicationTransfer.exit
@@ -19166,9 +19166,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceModifyConfirmTransfer_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_json, align 4
   %12 = call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #10
@@ -19177,7 +19177,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 
 13:                                               ; preds = %4
   %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   call void @col_append_sep_str(ptr noundef %16, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.554) #10
   br label %dissect_ngap_PDUSessionResourceModifyConfirmTransfer.exit
@@ -19195,9 +19195,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PathSwitchRequestT
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PathSwitchRequestTransfer_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_json, align 4
   %12 = call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #10
@@ -19206,7 +19206,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PathSwitchRequestT
 
 13:                                               ; preds = %4
   %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   call void @col_append_sep_str(ptr noundef %16, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.512) #10
   br label %dissect_ngap_PathSwitchRequestTransfer.exit
@@ -19224,9 +19224,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PathSwitchRequestS
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PathSwitchRequestSetupFailedTransfer_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_json, align 4
   %12 = call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #10
@@ -19235,7 +19235,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PathSwitchRequestS
 
 13:                                               ; preds = %4
   %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   call void @col_append_sep_str(ptr noundef %16, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.510) #10
   br label %dissect_ngap_PathSwitchRequestSetupFailedTransfer.exit
@@ -19253,9 +19253,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PathSwitchRequestA
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PathSwitchRequestAcknowledgeTransfer_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_json, align 4
   %12 = call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #10
@@ -19264,7 +19264,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PathSwitchRequestA
 
 13:                                               ; preds = %4
   %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   call void @col_append_sep_str(ptr noundef %16, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.508) #10
   br label %dissect_ngap_PathSwitchRequestAcknowledgeTransfer.exit
@@ -19282,9 +19282,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PathSwitchRequestU
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PathSwitchRequestUnsuccessfulTransfer_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_json, align 4
   %12 = call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #10
@@ -19293,7 +19293,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PathSwitchRequestU
 
 13:                                               ; preds = %4
   %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   call void @col_append_sep_str(ptr noundef %16, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.514) #10
   br label %dissect_ngap_PathSwitchRequestUnsuccessfulTransfer.exit
@@ -19311,9 +19311,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverRequiredTr
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_HandoverRequiredTransfer_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_json, align 4
   %12 = call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #10
@@ -19322,7 +19322,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverRequiredTr
 
 13:                                               ; preds = %4
   %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   call void @col_append_sep_str(ptr noundef %16, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.324) #10
   br label %dissect_ngap_HandoverRequiredTransfer.exit
@@ -19340,9 +19340,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverCommandTra
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_HandoverCommandTransfer_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_json, align 4
   %12 = call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #10
@@ -19351,7 +19351,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverCommandTra
 
 13:                                               ; preds = %4
   %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   call void @col_append_sep_str(ptr noundef %16, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.316) #10
   br label %dissect_ngap_HandoverCommandTransfer.exit
@@ -19369,9 +19369,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverPreparatio
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_HandoverPreparationUnsuccessfulTransfer_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_json, align 4
   %12 = call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #10
@@ -19380,7 +19380,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverPreparatio
 
 13:                                               ; preds = %4
   %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   call void @col_append_sep_str(ptr noundef %16, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.320) #10
   br label %dissect_ngap_HandoverPreparationUnsuccessfulTransfer.exit
@@ -19398,9 +19398,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverRequestAck
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_HandoverRequestAcknowledgeTransfer_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_json, align 4
   %12 = call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #10
@@ -19409,7 +19409,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverRequestAck
 
 13:                                               ; preds = %4
   %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   call void @col_append_sep_str(ptr noundef %16, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.322) #10
   br label %dissect_ngap_HandoverRequestAcknowledgeTransfer.exit
@@ -19427,9 +19427,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverResourceAl
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_HandoverResourceAllocationUnsuccessfulTransfer_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_json, align 4
   %12 = call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #10
@@ -19438,7 +19438,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverResourceAl
 
 13:                                               ; preds = %4
   %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   call void @col_append_sep_str(ptr noundef %16, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.326) #10
   br label %dissect_ngap_HandoverResourceAllocationUnsuccessfulTransfer.exit
@@ -19456,9 +19456,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_SecondaryRATDataUs
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_SecondaryRATDataUsageReportTransfer_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_json, align 4
   %12 = call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #10
@@ -19467,7 +19467,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_SecondaryRATDataUs
 
 13:                                               ; preds = %4
   %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   call void @col_append_sep_str(ptr noundef %16, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str) #10
   br label %dissect_ngap_SecondaryRATDataUsageReportTransfer.exit
@@ -19485,9 +19485,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceModifyIndicationUnsuccessfulTransfer_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_json, align 4
   %12 = call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #10
@@ -19496,7 +19496,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 
 13:                                               ; preds = %4
   %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   call void @col_append_sep_str(ptr noundef %16, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.556) #10
   br label %dissect_ngap_PDUSessionResourceModifyIndicationUnsuccessfulTransfer.exit
@@ -19514,9 +19514,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextResumeReq
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UEContextResumeRequestTransfer_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_json, align 4
   %12 = call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #10
@@ -19525,7 +19525,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextResumeReq
 
 13:                                               ; preds = %4
   %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   call void @col_append_sep_str(ptr noundef %16, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.787) #10
   br label %dissect_ngap_UEContextResumeRequestTransfer.exit
@@ -19543,9 +19543,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextResumeRes
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UEContextResumeResponseTransfer_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_json, align 4
   %12 = call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #10
@@ -19554,7 +19554,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextResumeRes
 
 13:                                               ; preds = %4
   %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   call void @col_append_sep_str(ptr noundef %16, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.789) #10
   br label %dissect_ngap_UEContextResumeResponseTransfer.exit
@@ -19572,9 +19572,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextSuspendRe
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UEContextSuspendRequestTransfer_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_json, align 4
   %12 = call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #10
@@ -19583,7 +19583,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextSuspendRe
 
 13:                                               ; preds = %4
   %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   call void @col_append_sep_str(ptr noundef %16, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.791) #10
   br label %dissect_ngap_UEContextSuspendRequestTransfer.exit
@@ -19601,9 +19601,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MBSSessionSetupOrM
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MBSSessionSetupOrModRequestTransfer_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_json, align 4
   %12 = call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #10
@@ -19612,7 +19612,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MBSSessionSetupOrM
 
 13:                                               ; preds = %4
   %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   call void @col_append_sep_str(ptr noundef %16, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.396) #10
   br label %dissect_ngap_MBSSessionSetupOrModRequestTransfer.exit
@@ -19630,9 +19630,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MBSSessionSetupOrM
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MBSSessionSetupOrModResponseTransfer_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_json, align 4
   %12 = call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #10
@@ -19641,7 +19641,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MBSSessionSetupOrM
 
 13:                                               ; preds = %4
   %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   call void @col_append_sep_str(ptr noundef %16, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.402) #10
   br label %dissect_ngap_MBSSessionSetupOrModResponseTransfer.exit
@@ -19659,9 +19659,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MBSSessionSetupOrM
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MBSSessionSetupOrModFailureTransfer_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_json, align 4
   %12 = call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #10
@@ -19670,7 +19670,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MBSSessionSetupOrM
 
 13:                                               ; preds = %4
   %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   call void @col_append_sep_str(ptr noundef %16, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.392) #10
   br label %dissect_ngap_MBSSessionSetupOrModFailureTransfer.exit
@@ -19688,9 +19688,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MBSSessionReleaseR
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MBSSessionReleaseResponseTransfer_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_json, align 4
   %12 = call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #10
@@ -19699,7 +19699,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MBSSessionReleaseR
 
 13:                                               ; preds = %4
   %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   call void @col_append_sep_str(ptr noundef %16, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.400) #10
   br label %dissect_ngap_MBSSessionReleaseResponseTransfer.exit
@@ -19919,12 +19919,12 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ngap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.57) #10
   %8 = load ptr, ptr %6, align 8
   tail call void @col_clear(ptr noundef %8, i32 noundef 25) #10
-  %9 = getelementptr inbounds i8, ptr %1, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noalias ptr @wmem_alloc(ptr noundef %10, i64 noundef 4) #10
   store i32 0, ptr %11, align 4
@@ -19942,7 +19942,7 @@ define internal i32 @dissect_ngap(ptr noundef %0, ptr noundef %1, ptr noundef %2
 19:                                               ; preds = %4
   %20 = load ptr, ptr %9, align 8
   %21 = tail call noalias ptr @wmem_alloc0(ptr noundef %20, i64 noundef 72) #10
-  %22 = getelementptr inbounds i8, ptr %21, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store i32 -1, ptr %22, align 8
   %23 = load ptr, ptr %9, align 8
   %24 = load i32, ptr @proto_ngap, align 4
@@ -19951,7 +19951,7 @@ define internal i32 @dissect_ngap(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 ngap_get_private_data.exit:                       ; preds = %4, %19
   %.0.i = phi ptr [ %18, %4 ], [ %21, %19 ]
-  %25 = getelementptr inbounds i8, ptr %.0.i, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i, i64 64
   store ptr %11, ptr %25, align 8
   %26 = load ptr, ptr %9, align 8
   %27 = load i32, ptr @proto_ngap, align 4
@@ -19962,7 +19962,7 @@ ngap_get_private_data.exit:                       ; preds = %4, %19
 29:                                               ; preds = %ngap_get_private_data.exit
   %30 = load ptr, ptr %9, align 8
   %31 = tail call noalias ptr @wmem_alloc0(ptr noundef %30, i64 noundef 72) #10
-  %32 = getelementptr inbounds i8, ptr %31, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   store i32 -1, ptr %32, align 8
   %33 = load ptr, ptr %9, align 8
   %34 = load i32, ptr @proto_ngap, align 4
@@ -19984,11 +19984,11 @@ ngap_get_private_data.exit39:                     ; preds = %ngap_get_private_da
   store ptr %40, ptr %.0.i38, align 8
   %41 = tail call ptr @wmem_file_scope() #10
   %42 = load ptr, ptr %.0.i38, align 8
-  %43 = getelementptr inbounds i8, ptr %1, i64 208
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %44 = load i32, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %1, i64 212
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 212
   %46 = load i32, ptr %45, align 4
-  %47 = getelementptr inbounds i8, ptr %1, i64 216
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %48 = load ptr, ptr %47, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, i8 0, i64 24, i1 false)
   store i32 %44, ptr %42, align 8
@@ -19998,31 +19998,31 @@ ngap_get_private_data.exit39:                     ; preds = %ngap_get_private_da
 50:                                               ; preds = %38
   %51 = sext i32 %46 to i64
   %52 = tail call noalias ptr @wmem_memdup(ptr noundef %41, ptr noundef %48, i64 noundef %51) #10
-  %53 = getelementptr inbounds i8, ptr %42, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store ptr %52, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %42, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr %52, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %42, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %42, i64 4
   store i32 %46, ptr %55, align 4
   br label %copy_address_wmem.exit
 
 copy_address_wmem.exit:                           ; preds = %38, %50
-  %56 = getelementptr inbounds i8, ptr %1, i64 284
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %57 = load i32, ptr %56, align 4
   %58 = load ptr, ptr %.0.i38, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 24
   store i32 %57, ptr %59, align 8
   %60 = load ptr, ptr %.0.i38, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 28
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 28
   store i32 -1, ptr %61, align 4
   %62 = tail call ptr @wmem_file_scope() #10
   %63 = load ptr, ptr %.0.i38, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 32
-  %65 = getelementptr inbounds i8, ptr %1, i64 232
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %66 = load i32, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %1, i64 236
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 236
   %68 = load i32, ptr %67, align 4
-  %69 = getelementptr inbounds i8, ptr %1, i64 240
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %70 = load ptr, ptr %69, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, i8 0, i64 24, i1 false)
   store i32 %66, ptr %64, align 8
@@ -20032,32 +20032,32 @@ copy_address_wmem.exit:                           ; preds = %38, %50
 72:                                               ; preds = %copy_address_wmem.exit
   %73 = sext i32 %68 to i64
   %74 = tail call noalias ptr @wmem_memdup(ptr noundef %62, ptr noundef %70, i64 noundef %73) #10
-  %75 = getelementptr inbounds i8, ptr %63, i64 48
+  %75 = getelementptr inbounds nuw i8, ptr %63, i64 48
   store ptr %74, ptr %75, align 8
-  %76 = getelementptr inbounds i8, ptr %63, i64 40
+  %76 = getelementptr inbounds nuw i8, ptr %63, i64 40
   store ptr %74, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %63, i64 36
+  %77 = getelementptr inbounds nuw i8, ptr %63, i64 36
   store i32 %68, ptr %77, align 4
   br label %copy_address_wmem.exit40
 
 copy_address_wmem.exit40:                         ; preds = %copy_address_wmem.exit, %72
-  %78 = getelementptr inbounds i8, ptr %1, i64 288
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %79 = load i32, ptr %78, align 8
   %80 = load ptr, ptr %.0.i38, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 56
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 56
   store i32 %79, ptr %81, align 8
   %82 = load ptr, ptr %.0.i38, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 60
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 60
   store i32 -1, ptr %83, align 4
   %84 = tail call ptr @wmem_file_scope() #10
   %85 = tail call noalias ptr @wmem_map_new(ptr noundef %84, ptr noundef nonnull @wmem_int64_hash, ptr noundef nonnull @g_int64_equal) #10
   %86 = load ptr, ptr %.0.i38, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 64
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 64
   store ptr %85, ptr %87, align 8
   %88 = tail call ptr @wmem_file_scope() #10
   %89 = tail call noalias ptr @wmem_tree_new(ptr noundef %88) #10
   %90 = load ptr, ptr %.0.i38, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 72
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 72
   store ptr %89, ptr %91, align 8
   %92 = load i32, ptr @proto_ngap, align 4
   %93 = load ptr, ptr %.0.i38, align 8
@@ -20081,7 +20081,7 @@ copy_address_wmem.exit40:                         ; preds = %copy_address_wmem.e
 define internal i32 @dissect_ngap_media_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 408
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr @proto_json, align 4
   %9 = tail call ptr @p_get_proto_data(ptr noundef %7, ptr noundef %1, i32 noundef %8, i32 noundef 0) #10
@@ -20091,7 +20091,7 @@ define internal i32 @dissect_ngap_media_type(ptr noundef %0, ptr noundef %1, ptr
   br i1 %or.cond, label %12, label %.thread161
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %3, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %14 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %.thread161, label %15
@@ -20135,13 +20135,13 @@ sub_0:                                            ; preds = %.thread
   br i1 %.not164, label %sub_1, label %.tail.thread
 
 sub_1:                                            ; preds = %sub_0
-  %34 = getelementptr inbounds i8, ptr %32, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 1
   %35 = load i8, ptr %34, align 1
   %.not165 = icmp eq i8 %35, 77
   br i1 %.not165, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
-  %36 = getelementptr inbounds i8, ptr %32, i64 2
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 2
   %37 = load i8, ptr %36, align 1
   %38 = icmp eq i8 %37, 0
   br i1 %38, label %39, label %.tail.thread
@@ -20310,7 +20310,7 @@ thread-pre-split:                                 ; preds = %.lr.ph, %41, %47, %
   br i1 %.not156, label %.thread161, label %105
 
 105:                                              ; preds = %103
-  %106 = getelementptr inbounds i8, ptr %1, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %107 = load ptr, ptr %106, align 8
   tail call void @col_append_sep_str(ptr noundef %107, i32 noundef 34, ptr noundef nonnull @.str.3970, ptr noundef nonnull @.str.57) #10
   %108 = load ptr, ptr @ngap_handle, align 8
@@ -20413,7 +20413,7 @@ define internal i32 @dissect_ngap_T_startTimeStamp(ptr noundef %0, i32 noundef %
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = call ptr @tvb_ntp_fmt_ts_sec(ptr noundef nonnull %8, i32 noundef 0) #10
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %11, ptr noundef nonnull @.str.3032, ptr noundef %12) #10
@@ -20433,7 +20433,7 @@ define internal i32 @dissect_ngap_T_endTimeStamp(ptr noundef %0, i32 noundef %1,
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = call ptr @tvb_ntp_fmt_ts_sec(ptr noundef nonnull %8, i32 noundef 0) #10
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %11, ptr noundef nonnull @.str.3032, ptr noundef %12) #10
@@ -20487,9 +20487,9 @@ define internal i32 @dissect_ngap_ProtocolExtensionField(ptr noundef %0, i32 nou
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ngap_ProtocolExtensionID(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @proto_ngap, align 4
   %11 = tail call ptr @p_get_proto_data(ptr noundef %9, ptr noundef %7, i32 noundef %10, i32 noundef 0) #10
@@ -20499,7 +20499,7 @@ define internal i32 @dissect_ngap_ProtocolExtensionID(ptr noundef %0, i32 nounde
 12:                                               ; preds = %5
   %13 = load ptr, ptr %8, align 8
   %14 = tail call noalias ptr @wmem_alloc0(ptr noundef %13, i64 noundef 72) #10
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i32 -1, ptr %15, align 8
   %16 = load ptr, ptr %8, align 8
   %17 = load i32, ptr @proto_ngap, align 4
@@ -20508,7 +20508,7 @@ define internal i32 @dissect_ngap_ProtocolExtensionID(ptr noundef %0, i32 nounde
 
 ngap_get_private_data.exit:                       ; preds = %5, %12
   %.0.i = phi ptr [ %11, %5 ], [ %14, %12 ]
-  %18 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %19 = tail call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 65535, ptr noundef nonnull %18, i32 noundef 0) #10
   ret i32 %19
 }
@@ -20534,7 +20534,7 @@ declare i32 @dissect_per_open_type_pdu_new(ptr noundef, i32 noundef, ptr noundef
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ProtocolExtensionFieldExtensionValue(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct._ngap_ctx_t, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 408
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr @proto_ngap, align 4
   %9 = tail call ptr @p_get_proto_data(ptr noundef %7, ptr noundef %1, i32 noundef %8, i32 noundef 0) #10
@@ -20544,7 +20544,7 @@ define internal i32 @dissect_ProtocolExtensionFieldExtensionValue(ptr noundef %0
 10:                                               ; preds = %4
   %11 = load ptr, ptr %6, align 8
   %12 = tail call noalias ptr @wmem_alloc0(ptr noundef %11, i64 noundef 72) #10
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store i32 -1, ptr %13, align 8
   %14 = load ptr, ptr %6, align 8
   %15 = load i32, ptr @proto_ngap, align 4
@@ -20553,20 +20553,20 @@ define internal i32 @dissect_ProtocolExtensionFieldExtensionValue(ptr noundef %0
 
 ngap_get_private_data.exit:                       ; preds = %4, %10
   %.0.i = phi ptr [ %9, %4 ], [ %12, %10 ]
-  %16 = getelementptr inbounds i8, ptr %.0.i, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %.0.i, i64 20
   %17 = load i32, ptr %16, align 4
   store i32 %17, ptr %5, align 4
-  %18 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %19 = load i32, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %5, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %19, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %.0.i, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %.0.i, i64 12
   %22 = load i32, ptr %21, align 4
-  %23 = getelementptr inbounds i8, ptr %5, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %22, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %25 = load i32, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %5, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %25, ptr %26, align 4
   %27 = load ptr, ptr @ngap_extension_dissector_table, align 8
   %28 = call i32 @dissector_try_uint_new(ptr noundef %27, i32 noundef %25, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 1, ptr noundef nonnull %5) #10
@@ -20624,9 +20624,9 @@ declare i32 @dissect_per_choice(ptr noundef, i32 noundef, ptr noundef, ptr nound
 define internal i32 @dissect_ngap_CauseRadioNetwork(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca i32, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 45, ptr noundef nonnull %6, i32 noundef 1, i32 noundef 12, ptr noundef null) #10
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %6, align 4
   %13 = call ptr @val_to_str_const(i32 noundef %12, ptr noundef nonnull @ngap_CauseRadioNetwork_vals, ptr noundef nonnull @.str.3034) #10
@@ -20638,9 +20638,9 @@ define internal i32 @dissect_ngap_CauseRadioNetwork(ptr noundef %0, i32 noundef 
 define internal i32 @dissect_ngap_CauseTransport(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca i32, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 2, ptr noundef nonnull %6, i32 noundef 1, i32 noundef 0, ptr noundef null) #10
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %6, align 4
   %13 = call ptr @val_to_str_const(i32 noundef %12, ptr noundef nonnull @ngap_CauseTransport_vals, ptr noundef nonnull @.str.3034) #10
@@ -20652,9 +20652,9 @@ define internal i32 @dissect_ngap_CauseTransport(ptr noundef %0, i32 noundef %1,
 define internal i32 @dissect_ngap_CauseNas(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca i32, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 4, ptr noundef nonnull %6, i32 noundef 1, i32 noundef 1, ptr noundef null) #10
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %6, align 4
   %13 = call ptr @val_to_str_const(i32 noundef %12, ptr noundef nonnull @ngap_CauseNas_vals, ptr noundef nonnull @.str.3034) #10
@@ -20666,9 +20666,9 @@ define internal i32 @dissect_ngap_CauseNas(ptr noundef %0, i32 noundef %1, ptr n
 define internal i32 @dissect_ngap_CauseProtocol(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca i32, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 7, ptr noundef nonnull %6, i32 noundef 1, i32 noundef 0, ptr noundef null) #10
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %6, align 4
   %13 = call ptr @val_to_str_const(i32 noundef %12, ptr noundef nonnull @ngap_CauseProtocol_vals, ptr noundef nonnull @.str.3034) #10
@@ -20680,9 +20680,9 @@ define internal i32 @dissect_ngap_CauseProtocol(ptr noundef %0, i32 noundef %1, 
 define internal i32 @dissect_ngap_CauseMisc(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca i32, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 6, ptr noundef nonnull %6, i32 noundef 1, i32 noundef 0, ptr noundef null) #10
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %6, align 4
   %13 = call ptr @val_to_str_const(i32 noundef %12, ptr noundef nonnull @ngap_CauseMisc_vals, ptr noundef nonnull @.str.3034) #10
@@ -20710,9 +20710,9 @@ define internal i32 @dissect_ngap_ProtocolIE_Field(ptr noundef %0, i32 noundef %
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ngap_ProtocolIE_ID(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @proto_ngap, align 4
   %11 = tail call ptr @p_get_proto_data(ptr noundef %9, ptr noundef %7, i32 noundef %10, i32 noundef 0) #10
@@ -20722,7 +20722,7 @@ define internal i32 @dissect_ngap_ProtocolIE_ID(ptr noundef %0, i32 noundef %1, 
 12:                                               ; preds = %5
   %13 = load ptr, ptr %8, align 8
   %14 = tail call noalias ptr @wmem_alloc0(ptr noundef %13, i64 noundef 72) #10
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i32 -1, ptr %15, align 8
   %16 = load ptr, ptr %8, align 8
   %17 = load i32, ptr @proto_ngap, align 4
@@ -20731,13 +20731,13 @@ define internal i32 @dissect_ngap_ProtocolIE_ID(ptr noundef %0, i32 noundef %1, 
 
 ngap_get_private_data.exit:                       ; preds = %5, %12
   %.0.i = phi ptr [ %11, %5 ], [ %14, %12 ]
-  %18 = getelementptr inbounds i8, ptr %.0.i, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %.0.i, i64 12
   %19 = tail call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 65535, ptr noundef nonnull %18, i32 noundef 0) #10
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %26, label %20
 
 20:                                               ; preds = %ngap_get_private_data.exit
-  %21 = getelementptr inbounds i8, ptr %2, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = tail call ptr @proto_item_get_parent_nth(ptr noundef %22, i32 noundef 2) #10
   %24 = load i32, ptr %18, align 4
@@ -20762,7 +20762,7 @@ declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) local_unnamed
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ProtocolIEFieldValue(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct._ngap_ctx_t, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 408
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr @proto_ngap, align 4
   %9 = tail call ptr @p_get_proto_data(ptr noundef %7, ptr noundef %1, i32 noundef %8, i32 noundef 0) #10
@@ -20772,7 +20772,7 @@ define internal i32 @dissect_ProtocolIEFieldValue(ptr noundef %0, ptr noundef %1
 10:                                               ; preds = %4
   %11 = load ptr, ptr %6, align 8
   %12 = tail call noalias ptr @wmem_alloc0(ptr noundef %11, i64 noundef 72) #10
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store i32 -1, ptr %13, align 8
   %14 = load ptr, ptr %6, align 8
   %15 = load i32, ptr @proto_ngap, align 4
@@ -20781,20 +20781,20 @@ define internal i32 @dissect_ProtocolIEFieldValue(ptr noundef %0, ptr noundef %1
 
 ngap_get_private_data.exit:                       ; preds = %4, %10
   %.0.i = phi ptr [ %9, %4 ], [ %12, %10 ]
-  %16 = getelementptr inbounds i8, ptr %.0.i, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %.0.i, i64 20
   %17 = load i32, ptr %16, align 4
   store i32 %17, ptr %5, align 4
-  %18 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %19 = load i32, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %5, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %19, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %.0.i, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %.0.i, i64 12
   %22 = load i32, ptr %21, align 4
-  %23 = getelementptr inbounds i8, ptr %5, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %22, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %25 = load i32, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %5, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %25, ptr %26, align 4
   %27 = load ptr, ptr @ngap_ies_dissector_table, align 8
   %28 = call i32 @dissector_try_uint_new(ptr noundef %27, i32 noundef %22, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %5) #10
@@ -20821,9 +20821,9 @@ define internal i32 @dissect_ngap_PLMNIdentity(ptr noundef %0, i32 noundef %1, p
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   store ptr null, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @proto_ngap, align 4
   %13 = tail call ptr @p_get_proto_data(ptr noundef %11, ptr noundef %9, i32 noundef %12, i32 noundef 0) #10
@@ -20833,7 +20833,7 @@ define internal i32 @dissect_ngap_PLMNIdentity(ptr noundef %0, i32 noundef %1, p
 14:                                               ; preds = %5
   %15 = load ptr, ptr %10, align 8
   %16 = tail call noalias ptr @wmem_alloc0(ptr noundef %15, i64 noundef 72) #10
-  %17 = getelementptr inbounds i8, ptr %16, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store i32 -1, ptr %17, align 8
   %18 = load ptr, ptr %10, align 8
   %19 = load i32, ptr @proto_ngap, align 4
@@ -20842,7 +20842,7 @@ define internal i32 @dissect_ngap_PLMNIdentity(ptr noundef %0, i32 noundef %1, p
 
 ngap_get_private_data.exit:                       ; preds = %5, %14
   %.0.i = phi ptr [ %13, %5 ], [ %16, %14 ]
-  %20 = getelementptr inbounds i8, ptr %.0.i, i64 60
+  %20 = getelementptr inbounds nuw i8, ptr %.0.i, i64 60
   %21 = load i32, ptr %20, align 4
   store i32 0, ptr %20, align 4
   %22 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef 3, i32 noundef 3, i32 noundef 0, ptr noundef nonnull %6) #10
@@ -20851,14 +20851,14 @@ ngap_get_private_data.exit:                       ; preds = %5, %14
   br i1 %.not, label %47, label %24
 
 24:                                               ; preds = %ngap_get_private_data.exit
-  %25 = getelementptr inbounds i8, ptr %2, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %26 = load ptr, ptr %25, align 8
   %27 = load i32, ptr @ett_ngap_PLMNIdentity, align 4
   %28 = call ptr @proto_item_add_subtree(ptr noundef %26, i32 noundef %27) #10
   %29 = load ptr, ptr %6, align 8
   %30 = load ptr, ptr %8, align 8
   %31 = call i32 @dissect_e212_mcc_mnc(ptr noundef %29, ptr noundef %30, ptr noundef %28, i32 noundef 0, i32 noundef %21, i32 noundef 0) #10
-  %32 = getelementptr inbounds i8, ptr %.0.i, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
   %33 = load ptr, ptr %32, align 8
   %.not16 = icmp eq ptr %33, null
   br i1 %.not16, label %40, label %34
@@ -20868,13 +20868,13 @@ ngap_get_private_data.exit:                       ; preds = %5, %14
   %36 = call i32 @tvb_get_ntoh24(ptr noundef %35, i32 noundef 0) #10
   store i32 %36, ptr %7, align 4
   %37 = load ptr, ptr %32, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8
   call void @wmem_array_append(ptr noundef %39, ptr noundef nonnull %7, i32 noundef 1) #10
   br label %47
 
 40:                                               ; preds = %24
-  %41 = getelementptr inbounds i8, ptr %.0.i, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %.0.i, i64 48
   %42 = load ptr, ptr %41, align 8
   %.not17 = icmp eq ptr %42, null
   br i1 %.not17, label %47, label %43
@@ -20943,7 +20943,7 @@ define internal i32 @dissect_ngap_RATRestrictionInformation(ptr noundef %0, i32 
   br i1 %.not, label %15, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_ngap_RATRestrictionInformation, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #10
@@ -20977,9 +20977,9 @@ define internal i32 @dissect_ngap_ForbiddenTACs(ptr noundef %0, i32 noundef %1, 
 define internal i32 @dissect_ngap_TAC(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_ngap, align 4
   %12 = tail call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #10
@@ -20989,7 +20989,7 @@ define internal i32 @dissect_ngap_TAC(ptr noundef %0, i32 noundef %1, ptr nounde
 13:                                               ; preds = %5
   %14 = load ptr, ptr %9, align 8
   %15 = tail call noalias ptr @wmem_alloc0(ptr noundef %14, i64 noundef 72) #10
-  %16 = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store i32 -1, ptr %16, align 8
   %17 = load ptr, ptr %9, align 8
   %18 = load i32, ptr @proto_ngap, align 4
@@ -21005,9 +21005,9 @@ ngap_get_private_data.exit:                       ; preds = %5, %13
 
 21:                                               ; preds = %ngap_get_private_data.exit
   %22 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %4, ptr noundef nonnull %20, i32 noundef 0, i32 noundef 3, i32 noundef 0) #10
-  %23 = getelementptr inbounds i8, ptr %2, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %22, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %.0.i, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
   %25 = load ptr, ptr %24, align 8
   %.not12 = icmp eq ptr %25, null
   br i1 %.not12, label %30, label %26
@@ -21020,7 +21020,7 @@ ngap_get_private_data.exit:                       ; preds = %5, %13
   br label %38
 
 30:                                               ; preds = %21
-  %31 = getelementptr inbounds i8, ptr %.0.i, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %.0.i, i64 48
   %32 = load ptr, ptr %31, align 8
   %.not13 = icmp eq ptr %32, null
   br i1 %.not13, label %38, label %33
@@ -21029,7 +21029,7 @@ ngap_get_private_data.exit:                       ; preds = %5, %13
   %34 = load ptr, ptr %6, align 8
   %35 = call i32 @tvb_get_ntoh24(ptr noundef %34, i32 noundef 0) #10
   %36 = load ptr, ptr %31, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
   store i32 %35, ptr %37, align 4
   br label %38
 
@@ -21137,9 +21137,9 @@ define internal i32 @dissect_ngap_CellIdListforMDT_NR(ptr noundef %0, i32 nounde
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ngap_NR_CGI(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @proto_ngap, align 4
   %11 = tail call ptr @p_get_proto_data(ptr noundef %9, ptr noundef %7, i32 noundef %10, i32 noundef 0) #10
@@ -21149,7 +21149,7 @@ define internal i32 @dissect_ngap_NR_CGI(ptr noundef %0, i32 noundef %1, ptr nou
 12:                                               ; preds = %5
   %13 = load ptr, ptr %8, align 8
   %14 = tail call noalias ptr @wmem_alloc0(ptr noundef %13, i64 noundef 72) #10
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i32 -1, ptr %15, align 8
   %16 = load ptr, ptr %8, align 8
   %17 = load i32, ptr @proto_ngap, align 4
@@ -21158,7 +21158,7 @@ define internal i32 @dissect_ngap_NR_CGI(ptr noundef %0, i32 noundef %1, ptr nou
 
 ngap_get_private_data.exit:                       ; preds = %5, %12
   %.0.i = phi ptr [ %11, %5 ], [ %14, %12 ]
-  %18 = getelementptr inbounds i8, ptr %.0.i, i64 60
+  %18 = getelementptr inbounds nuw i8, ptr %.0.i, i64 60
   store i32 7, ptr %18, align 4
   %19 = load i32, ptr @ett_ngap_NR_CGI, align 4
   %20 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %19, ptr noundef nonnull @NR_CGI_sequence) #10
@@ -21176,7 +21176,7 @@ define internal i32 @dissect_ngap_NRCellIdentity(ptr noundef %0, i32 noundef %1,
 
 9:                                                ; preds = %5
   %10 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %4, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 5, i32 noundef 0) #10
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %10, ptr %11, align 8
   br label %12
 
@@ -21204,9 +21204,9 @@ define internal i32 @dissect_ngap_TAIListforMDT(ptr noundef %0, i32 noundef %1, 
 define internal i32 @dissect_ngap_TAI(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca i64, align 8
   %7 = alloca [3 x %struct._wmem_tree_key_t], align 16
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @proto_ngap, align 4
   %13 = tail call ptr @p_get_proto_data(ptr noundef %11, ptr noundef %9, i32 noundef %12, i32 noundef 0) #10
@@ -21216,7 +21216,7 @@ define internal i32 @dissect_ngap_TAI(ptr noundef %0, i32 noundef %1, ptr nounde
 14:                                               ; preds = %5
   %15 = load ptr, ptr %10, align 8
   %16 = tail call noalias ptr @wmem_alloc0(ptr noundef %15, i64 noundef 72) #10
-  %17 = getelementptr inbounds i8, ptr %16, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store i32 -1, ptr %17, align 8
   %18 = load ptr, ptr %10, align 8
   %19 = load i32, ptr @proto_ngap, align 4
@@ -21225,20 +21225,20 @@ define internal i32 @dissect_ngap_TAI(ptr noundef %0, i32 noundef %1, ptr nounde
 
 ngap_get_private_data.exit:                       ; preds = %5, %14
   %.0.i = phi ptr [ %13, %5 ], [ %16, %14 ]
-  %20 = getelementptr inbounds i8, ptr %.0.i, i64 60
+  %20 = getelementptr inbounds nuw i8, ptr %.0.i, i64 60
   store i32 8, ptr %20, align 4
   %21 = load ptr, ptr %8, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 408
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 408
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noalias ptr @wmem_alloc0(ptr noundef %23, i64 noundef 8) #10
-  %25 = getelementptr inbounds i8, ptr %.0.i, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i, i64 48
   store ptr %24, ptr %25, align 8
   %26 = load i32, ptr @ett_ngap_TAI, align 4
   %27 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %26, ptr noundef nonnull @TAI_sequence) #10
   %28 = load ptr, ptr %8, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 80
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 80
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 50
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 50
   %32 = load i16, ptr %31, align 2
   %33 = and i16 %32, 8
   %.not = icmp eq i16 %33, 0
@@ -21250,13 +21250,13 @@ ngap_get_private_data.exit:                       ; preds = %5, %14
   br i1 %.not22, label %70, label %36
 
 36:                                               ; preds = %34
-  %37 = getelementptr inbounds i8, ptr %.0.i, i64 20
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i, i64 20
   %38 = load i32, ptr %37, align 4
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %40, label %70
 
 40:                                               ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %42 = load i32, ptr %41, align 8
   %43 = icmp eq i32 %42, 15
   br i1 %43, label %44, label %70
@@ -21265,12 +21265,12 @@ ngap_get_private_data.exit:                       ; preds = %5, %14
   %45 = load ptr, ptr %25, align 8
   %46 = load i32, ptr %45, align 4
   %47 = shl i32 %46, 24
-  %48 = getelementptr inbounds i8, ptr %45, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %49 = load i32, ptr %48, align 4
   %50 = or i32 %47, %49
   %51 = zext i32 %50 to i64
   store i64 %51, ptr %6, align 8
-  %52 = getelementptr inbounds i8, ptr %35, i64 64
+  %52 = getelementptr inbounds nuw i8, ptr %35, i64 64
   %53 = load ptr, ptr %52, align 8
   %54 = call ptr @wmem_map_lookup(ptr noundef %53, ptr noundef nonnull %6) #10
   %.not23 = icmp eq ptr %54, null
@@ -21279,24 +21279,24 @@ ngap_get_private_data.exit:                       ; preds = %5, %14
 55:                                               ; preds = %44
   %56 = call ptr @wmem_file_scope() #10
   %57 = call noalias ptr @wmem_alloc(ptr noundef %56, i64 noundef 4) #10
-  %58 = getelementptr inbounds i8, ptr %.0.i, i64 56
+  %58 = getelementptr inbounds nuw i8, ptr %.0.i, i64 56
   %59 = load i32, ptr %58, align 8
   store i32 %59, ptr %57, align 4
   store i32 1, ptr %7, align 16
-  %60 = getelementptr inbounds i8, ptr %7, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %57, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %7, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 1, ptr %61, align 16
   %62 = load ptr, ptr %8, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 20
-  %64 = getelementptr inbounds i8, ptr %7, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 20
+  %64 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %63, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %7, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i32 0, ptr %65, align 16
-  %66 = getelementptr inbounds i8, ptr %7, i64 40
+  %66 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr null, ptr %66, align 8
   %67 = load ptr, ptr %.0.i, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 72
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 72
   %69 = load ptr, ptr %68, align 8
   call void @wmem_tree_insert32_array(ptr noundef %69, ptr noundef nonnull %7, ptr noundef nonnull %57) #10
   br label %70
@@ -21337,7 +21337,7 @@ define internal i32 @dissect_ngap_MeasurementsToActivate(ptr noundef %0, i32 nou
   br i1 %.not, label %15, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_ngap_MeasurementsToActivate, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #10
@@ -21532,7 +21532,7 @@ define internal i32 @dissect_ngap_BluetoothName(ptr noundef %0, i32 noundef %1, 
   %7 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef -1, i32 noundef 1, i32 noundef 248, i32 noundef 0, ptr noundef nonnull %6) #10
   %8 = load ptr, ptr %6, align 8
   %9 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %4, ptr noundef %8, i32 noundef 0, i32 noundef -1, i32 noundef 2) #10
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %9, ptr %10, align 8
   ret i32 %7
 }
@@ -21576,7 +21576,7 @@ define internal i32 @dissect_ngap_WLANName(ptr noundef %0, i32 noundef %1, ptr n
   %7 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef -1, i32 noundef 1, i32 noundef 32, i32 noundef 0, ptr noundef nonnull %6) #10
   %8 = load ptr, ptr %6, align 8
   %9 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %4, ptr noundef %8, i32 noundef 0, i32 noundef -1, i32 noundef 2) #10
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %9, ptr %10, align 8
   ret i32 %7
 }
@@ -21591,7 +21591,7 @@ define internal i32 @dissect_ngap_MDT_Location_Information(ptr noundef %0, i32 n
   br i1 %.not, label %15, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_ngap_MDT_Location_Information, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #10
@@ -21783,12 +21783,12 @@ define internal i32 @dissect_ngap_MDTModeEutra(ptr noundef %0, i32 noundef %1, p
   br i1 %.not, label %18, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_ngap_MDTModeEutra, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #10
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @dissect_s1ap_MDTMode_PDU(ptr noundef %14, ptr noundef %16, ptr noundef %13, ptr noundef null) #10
   br label %18
@@ -21813,9 +21813,9 @@ define internal i32 @dissect_ngap_CellIdListforMDT_EUTRA(ptr noundef %0, i32 nou
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ngap_EUTRA_CGI(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @proto_ngap, align 4
   %11 = tail call ptr @p_get_proto_data(ptr noundef %9, ptr noundef %7, i32 noundef %10, i32 noundef 0) #10
@@ -21825,7 +21825,7 @@ define internal i32 @dissect_ngap_EUTRA_CGI(ptr noundef %0, i32 noundef %1, ptr 
 12:                                               ; preds = %5
   %13 = load ptr, ptr %8, align 8
   %14 = tail call noalias ptr @wmem_alloc0(ptr noundef %13, i64 noundef 72) #10
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i32 -1, ptr %15, align 8
   %16 = load ptr, ptr %8, align 8
   %17 = load i32, ptr @proto_ngap, align 4
@@ -21834,7 +21834,7 @@ define internal i32 @dissect_ngap_EUTRA_CGI(ptr noundef %0, i32 noundef %1, ptr 
 
 ngap_get_private_data.exit:                       ; preds = %5, %12
   %.0.i = phi ptr [ %11, %5 ], [ %14, %12 ]
-  %18 = getelementptr inbounds i8, ptr %.0.i, i64 60
+  %18 = getelementptr inbounds nuw i8, ptr %.0.i, i64 60
   store i32 5, ptr %18, align 4
   %19 = load i32, ptr @ett_ngap_EUTRA_CGI, align 4
   %20 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %19, ptr noundef nonnull @EUTRA_CGI_sequence) #10
@@ -21852,7 +21852,7 @@ define internal i32 @dissect_ngap_EUTRACellIdentity(ptr noundef %0, i32 noundef 
 
 9:                                                ; preds = %5
   %10 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %4, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 4, i32 noundef 0) #10
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %10, ptr %11, align 8
   br label %12
 
@@ -21893,9 +21893,9 @@ define internal i32 @dissect_ngap_XnTNLConfigurationInfo(ptr noundef %0, i32 nou
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ngap_GlobalRANNodeID(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca i32, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_ngap, align 4
   %12 = tail call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #10
@@ -21905,7 +21905,7 @@ define internal i32 @dissect_ngap_GlobalRANNodeID(ptr noundef %0, i32 noundef %1
 13:                                               ; preds = %5
   %14 = load ptr, ptr %9, align 8
   %15 = tail call noalias ptr @wmem_alloc0(ptr noundef %14, i64 noundef 72) #10
-  %16 = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store i32 -1, ptr %16, align 8
   %17 = load ptr, ptr %9, align 8
   %18 = load i32, ptr @proto_ngap, align 4
@@ -21921,23 +21921,23 @@ ngap_get_private_data.exit:                       ; preds = %5, %13
   br i1 %.not, label %addresses_equal.exit23, label %22
 
 22:                                               ; preds = %ngap_get_private_data.exit
-  %23 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %24 = load i32, ptr %23, align 8
   %25 = icmp eq i32 %24, 21
   br i1 %25, label %26, label %addresses_equal.exit23
 
 26:                                               ; preds = %22
   %27 = load ptr, ptr %7, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 208
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 208
   %29 = load i32, ptr %28, align 8
   %30 = load i32, ptr %21, align 8
   %31 = icmp eq i32 %29, %30
   br i1 %31, label %32, label %addresses_equal.exit
 
 32:                                               ; preds = %26
-  %33 = getelementptr inbounds i8, ptr %27, i64 212
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 212
   %34 = load i32, ptr %33, align 4
-  %35 = getelementptr inbounds i8, ptr %21, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %36 = load i32, ptr %35, align 4
   %37 = icmp eq i32 %34, %36
   br i1 %37, label %38, label %addresses_equal.exit
@@ -21947,9 +21947,9 @@ ngap_get_private_data.exit:                       ; preds = %5, %13
   br i1 %39, label %47, label %40
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds i8, ptr %27, i64 216
+  %41 = getelementptr inbounds nuw i8, ptr %27, i64 216
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %21, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %44 = load ptr, ptr %43, align 8
   %45 = sext i32 %34 to i64
   %bcmp.i = call i32 @bcmp(ptr %42, ptr %44, i64 %45)
@@ -21957,23 +21957,23 @@ ngap_get_private_data.exit:                       ; preds = %5, %13
   br i1 %46, label %47, label %addresses_equal.exit
 
 47:                                               ; preds = %40, %38
-  %48 = getelementptr inbounds i8, ptr %27, i64 284
+  %48 = getelementptr inbounds nuw i8, ptr %27, i64 284
   %49 = load i32, ptr %48, align 4
-  %50 = getelementptr inbounds i8, ptr %21, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %51 = load i32, ptr %50, align 8
   %52 = icmp eq i32 %49, %51
   br i1 %52, label %addresses_equal.exit23.sink.split, label %addresses_equal.exit
 
 addresses_equal.exit:                             ; preds = %40, %32, %26, %47
-  %53 = getelementptr inbounds i8, ptr %21, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %54 = load i32, ptr %53, align 8
   %55 = icmp eq i32 %29, %54
   br i1 %55, label %56, label %addresses_equal.exit23
 
 56:                                               ; preds = %addresses_equal.exit
-  %57 = getelementptr inbounds i8, ptr %27, i64 212
+  %57 = getelementptr inbounds nuw i8, ptr %27, i64 212
   %58 = load i32, ptr %57, align 4
-  %59 = getelementptr inbounds i8, ptr %21, i64 36
+  %59 = getelementptr inbounds nuw i8, ptr %21, i64 36
   %60 = load i32, ptr %59, align 4
   %61 = icmp eq i32 %58, %60
   br i1 %61, label %62, label %addresses_equal.exit23
@@ -21983,9 +21983,9 @@ addresses_equal.exit:                             ; preds = %40, %32, %26, %47
   br i1 %63, label %71, label %64
 
 64:                                               ; preds = %62
-  %65 = getelementptr inbounds i8, ptr %27, i64 216
+  %65 = getelementptr inbounds nuw i8, ptr %27, i64 216
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %21, i64 40
+  %67 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %68 = load ptr, ptr %67, align 8
   %69 = sext i32 %58 to i64
   %bcmp.i22 = call i32 @bcmp(ptr %66, ptr %68, i64 %69)
@@ -21993,9 +21993,9 @@ addresses_equal.exit:                             ; preds = %40, %32, %26, %47
   br i1 %70, label %71, label %addresses_equal.exit23
 
 71:                                               ; preds = %64, %62
-  %72 = getelementptr inbounds i8, ptr %27, i64 284
+  %72 = getelementptr inbounds nuw i8, ptr %27, i64 284
   %73 = load i32, ptr %72, align 4
-  %74 = getelementptr inbounds i8, ptr %21, i64 56
+  %74 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %75 = load i32, ptr %74, align 8
   %76 = icmp eq i32 %73, %75
   br i1 %76, label %addresses_equal.exit23.sink.split, label %addresses_equal.exit23
@@ -22003,7 +22003,7 @@ addresses_equal.exit:                             ; preds = %40, %32, %26, %47
 addresses_equal.exit23.sink.split:                ; preds = %71, %47
   %.sink29 = phi i64 [ 28, %47 ], [ 60, %71 ]
   %77 = load i32, ptr %6, align 4
-  %78 = getelementptr inbounds i8, ptr %21, i64 %.sink29
+  %78 = getelementptr inbounds nuw i8, ptr %21, i64 %.sink29
   store i32 %77, ptr %78, align 4
   br label %addresses_equal.exit23
 
@@ -22121,7 +22121,7 @@ define internal i32 @dissect_ngap_TransportLayerAddress(ptr noundef %0, i32 noun
   br i1 %.not, label %31, label %10
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @ett_ngap_TransportLayerAddress, align 4
   %14 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #10
@@ -22181,9 +22181,9 @@ define internal i32 @dissect_ngap_RRCContainer(ptr noundef %0, i32 noundef %1, p
   br i1 %.not, label %73, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr @proto_ngap, align 4
   %15 = call ptr @p_get_proto_data(ptr noundef %13, ptr noundef %11, i32 noundef %14, i32 noundef 0) #10
@@ -22193,7 +22193,7 @@ define internal i32 @dissect_ngap_RRCContainer(ptr noundef %0, i32 noundef %1, p
 16:                                               ; preds = %9
   %17 = load ptr, ptr %12, align 8
   %18 = call noalias ptr @wmem_alloc0(ptr noundef %17, i64 noundef 72) #10
-  %19 = getelementptr inbounds i8, ptr %18, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store i32 -1, ptr %19, align 8
   %20 = load ptr, ptr %12, align 8
   %21 = load i32, ptr @proto_ngap, align 4
@@ -22202,7 +22202,7 @@ define internal i32 @dissect_ngap_RRCContainer(ptr noundef %0, i32 noundef %1, p
 
 ngap_get_private_data.exit:                       ; preds = %9, %16
   %.0.i = phi ptr [ %15, %9 ], [ %18, %16 ]
-  %22 = getelementptr inbounds i8, ptr %.0.i, i64 29
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i, i64 29
   %23 = load i8, ptr %22, align 1
   %.off = add i8 %23, -1
   %switch = icmp ult i8 %.off, 2
@@ -22211,7 +22211,7 @@ ngap_get_private_data.exit:                       ; preds = %9, %16
 24:                                               ; preds = %ngap_get_private_data.exit
   %25 = load ptr, ptr @gbl_ngapSctpRange, align 8
   %26 = load ptr, ptr %10, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 288
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 288
   %28 = load i32, ptr %27, align 8
   %29 = call i32 @value_is_in_range(ptr noundef %25, i32 noundef %28) #10
   %.not41 = icmp eq i32 %29, 0
@@ -22219,22 +22219,22 @@ ngap_get_private_data.exit:                       ; preds = %9, %16
   br i1 %.not41, label %36, label %31
 
 31:                                               ; preds = %24
-  %32 = getelementptr inbounds i8, ptr %30, i64 208
-  %33 = getelementptr inbounds i8, ptr %30, i64 284
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 208
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 284
   %34 = load i32, ptr %33, align 4
   %35 = call fastcc i32 @ngap_get_ranmode_id(ptr noundef nonnull %32, i32 noundef %34, ptr noundef %30)
   br label %41
 
 36:                                               ; preds = %24
-  %37 = getelementptr inbounds i8, ptr %30, i64 232
-  %38 = getelementptr inbounds i8, ptr %30, i64 288
+  %37 = getelementptr inbounds nuw i8, ptr %30, i64 232
+  %38 = getelementptr inbounds nuw i8, ptr %30, i64 288
   %39 = load i32, ptr %38, align 8
   %40 = call fastcc i32 @ngap_get_ranmode_id(ptr noundef nonnull %37, i32 noundef %39, ptr noundef %30)
   br label %41
 
 41:                                               ; preds = %ngap_get_private_data.exit, %31, %36
   %.0 = phi i32 [ %35, %31 ], [ %40, %36 ], [ -1, %ngap_get_private_data.exit ]
-  %42 = getelementptr inbounds i8, ptr %2, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %43 = load ptr, ptr %42, align 8
   %44 = load i32, ptr @ett_ngap_RRCContainer, align 4
   %45 = call ptr @proto_item_add_subtree(ptr noundef %43, i32 noundef %44) #10
@@ -22326,7 +22326,7 @@ declare i32 @value_is_in_range(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @ngap_get_ranmode_id(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 408
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr @proto_ngap, align 4
   %7 = tail call ptr @p_get_proto_data(ptr noundef %5, ptr noundef %2, i32 noundef %6, i32 noundef 0) #10
@@ -22336,7 +22336,7 @@ define internal fastcc i32 @ngap_get_ranmode_id(ptr nocapture noundef readonly %
 8:                                                ; preds = %3
   %9 = load ptr, ptr %4, align 8
   %10 = tail call noalias ptr @wmem_alloc0(ptr noundef %9, i64 noundef 72) #10
-  %11 = getelementptr inbounds i8, ptr %10, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i32 -1, ptr %11, align 8
   %12 = load ptr, ptr %4, align 8
   %13 = load i32, ptr @proto_ngap, align 4
@@ -22356,9 +22356,9 @@ ngap_get_private_data.exit:                       ; preds = %3, %8
   br i1 %18, label %19, label %addresses_equal.exit
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %0, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %14, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i32 %21, %23
   br i1 %24, label %25, label %addresses_equal.exit
@@ -22368,9 +22368,9 @@ ngap_get_private_data.exit:                       ; preds = %3, %8
   br i1 %26, label %34, label %27
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %14, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = sext i32 %21 to i64
   %bcmp.i = tail call i32 @bcmp(ptr %29, ptr %31, i64 %32)
@@ -22378,21 +22378,21 @@ ngap_get_private_data.exit:                       ; preds = %3, %8
   br i1 %33, label %34, label %addresses_equal.exit
 
 34:                                               ; preds = %27, %25
-  %35 = getelementptr inbounds i8, ptr %14, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %36 = load i32, ptr %35, align 8
   %37 = icmp eq i32 %1, %36
   br i1 %37, label %addresses_equal.exit18.sink.split, label %addresses_equal.exit
 
 addresses_equal.exit:                             ; preds = %27, %19, %15, %34
-  %38 = getelementptr inbounds i8, ptr %14, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %39 = load i32, ptr %38, align 8
   %40 = icmp eq i32 %16, %39
   br i1 %40, label %41, label %addresses_equal.exit18
 
 41:                                               ; preds = %addresses_equal.exit
-  %42 = getelementptr inbounds i8, ptr %0, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %43 = load i32, ptr %42, align 4
-  %44 = getelementptr inbounds i8, ptr %14, i64 36
+  %44 = getelementptr inbounds nuw i8, ptr %14, i64 36
   %45 = load i32, ptr %44, align 4
   %46 = icmp eq i32 %43, %45
   br i1 %46, label %47, label %addresses_equal.exit18
@@ -22402,9 +22402,9 @@ addresses_equal.exit:                             ; preds = %27, %19, %15, %34
   br i1 %48, label %56, label %49
 
 49:                                               ; preds = %47
-  %50 = getelementptr inbounds i8, ptr %0, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %14, i64 40
+  %52 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %53 = load ptr, ptr %52, align 8
   %54 = sext i32 %43 to i64
   %bcmp.i17 = tail call i32 @bcmp(ptr %51, ptr %53, i64 %54)
@@ -22412,14 +22412,14 @@ addresses_equal.exit:                             ; preds = %27, %19, %15, %34
   br i1 %55, label %56, label %addresses_equal.exit18
 
 56:                                               ; preds = %49, %47
-  %57 = getelementptr inbounds i8, ptr %14, i64 56
+  %57 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %58 = load i32, ptr %57, align 8
   %59 = icmp eq i32 %1, %58
   br i1 %59, label %addresses_equal.exit18.sink.split, label %addresses_equal.exit18
 
 addresses_equal.exit18.sink.split:                ; preds = %56, %34
   %.sink23 = phi i64 [ 28, %34 ], [ 60, %56 ]
-  %60 = getelementptr inbounds i8, ptr %14, i64 %.sink23
+  %60 = getelementptr inbounds nuw i8, ptr %14, i64 %.sink23
   %61 = load i32, ptr %60, align 4
   br label %addresses_equal.exit18
 
@@ -22546,12 +22546,12 @@ define internal i32 @dissect_ngap_LastVisitedEUTRANCellInformation(ptr noundef %
   br i1 %.not, label %18, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_ngap_LastVisitedEUTRANCellInformation, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #10
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @dissect_s1ap_LastVisitedEUTRANCellInformation_PDU(ptr noundef %14, ptr noundef %16, ptr noundef %13, ptr noundef null) #10
   br label %18
@@ -22570,12 +22570,12 @@ define internal i32 @dissect_ngap_LastVisitedUTRANCellInformation(ptr noundef %0
   br i1 %.not, label %18, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_ngap_LastVisitedUTRANCellInformation, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #10
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @dissect_ranap_LastVisitedUTRANCell_Item_PDU(ptr noundef %14, ptr noundef %16, ptr noundef %13, ptr noundef null) #10
   br label %18
@@ -22594,12 +22594,12 @@ define internal i32 @dissect_ngap_LastVisitedGERANCellInformation(ptr noundef %0
   br i1 %.not, label %18, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_ngap_LastVisitedGERANCellInformation, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #10
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @dissect_s1ap_LastVisitedGERANCellInformation_PDU(ptr noundef %14, ptr noundef %16, ptr noundef %13, ptr noundef null) #10
   br label %18
@@ -23125,7 +23125,7 @@ define internal i32 @dissect_ngap_PeriodicRegistrationUpdateTimer(ptr noundef %0
   %11 = zext i8 %10 to i32
   %12 = load ptr, ptr %6, align 8
   %13 = call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %4, ptr noundef %12, i32 noundef 0, i32 noundef 1, i32 noundef %11) #10
-  %14 = getelementptr inbounds i8, ptr %2, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %13, ptr %14, align 8
   br label %15
 
@@ -23230,9 +23230,9 @@ define internal i32 @dissect_ngap_CriticalityDiagnostics(ptr noundef %0, i32 nou
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ngap_ProcedureCode(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @proto_ngap, align 4
   %11 = tail call ptr @p_get_proto_data(ptr noundef %9, ptr noundef %7, i32 noundef %10, i32 noundef 0) #10
@@ -23242,7 +23242,7 @@ define internal i32 @dissect_ngap_ProcedureCode(ptr noundef %0, i32 noundef %1, 
 12:                                               ; preds = %5
   %13 = load ptr, ptr %8, align 8
   %14 = tail call noalias ptr @wmem_alloc0(ptr noundef %13, i64 noundef 72) #10
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i32 -1, ptr %15, align 8
   %16 = load ptr, ptr %8, align 8
   %17 = load i32, ptr @proto_ngap, align 4
@@ -23251,7 +23251,7 @@ define internal i32 @dissect_ngap_ProcedureCode(ptr noundef %0, i32 noundef %1, 
 
 ngap_get_private_data.exit:                       ; preds = %5, %12
   %.0.i = phi ptr [ %11, %5 ], [ %14, %12 ]
-  %18 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %19 = tail call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 255, ptr noundef nonnull %18, i32 noundef 0) #10
   ret i32 %19
 }
@@ -23326,7 +23326,7 @@ define internal i32 @dissect_ngap_FiveG_TMSI(ptr noundef %0, i32 noundef %1, ptr
 
 9:                                                ; preds = %5
   %10 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %4, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 4, i32 noundef 0) #10
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %10, ptr %11, align 8
   %12 = load i32, ptr @hf_3gpp_tmsi, align 4
   %13 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %12, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #10
@@ -23334,13 +23334,13 @@ define internal i32 @dissect_ngap_FiveG_TMSI(ptr noundef %0, i32 noundef %1, ptr
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %14
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %13, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %16 = load ptr, ptr %15, align 8
   %.not5.i = icmp eq ptr %16, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %16, i64 28
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 28
   %19 = load i32, ptr %18, align 4
   %20 = or i32 %19, 1
   store i32 %20, ptr %18, align 4
@@ -23352,9 +23352,9 @@ proto_item_set_hidden.exit:                       ; preds = %17, %14, %9, %5
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ngap_GUAMI(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @proto_ngap, align 4
   %11 = tail call ptr @p_get_proto_data(ptr noundef %9, ptr noundef %7, i32 noundef %10, i32 noundef 0) #10
@@ -23364,7 +23364,7 @@ define internal i32 @dissect_ngap_GUAMI(ptr noundef %0, i32 noundef %1, ptr noun
 12:                                               ; preds = %5
   %13 = load ptr, ptr %8, align 8
   %14 = tail call noalias ptr @wmem_alloc0(ptr noundef %13, i64 noundef 72) #10
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i32 -1, ptr %15, align 8
   %16 = load ptr, ptr %8, align 8
   %17 = load i32, ptr @proto_ngap, align 4
@@ -23373,7 +23373,7 @@ define internal i32 @dissect_ngap_GUAMI(ptr noundef %0, i32 noundef %1, ptr noun
 
 ngap_get_private_data.exit:                       ; preds = %5, %12
   %.0.i = phi ptr [ %11, %5 ], [ %14, %12 ]
-  %18 = getelementptr inbounds i8, ptr %.0.i, i64 60
+  %18 = getelementptr inbounds nuw i8, ptr %.0.i, i64 60
   store i32 10, ptr %18, align 4
   %19 = load i32, ptr @ett_ngap_GUAMI, align 4
   %20 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %19, ptr noundef nonnull @GUAMI_sequence) #10
@@ -23511,9 +23511,9 @@ define internal i32 @dissect_ngap_NAS_PDU(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %.not, label %102, label %15
 
 15:                                               ; preds = %5
-  %16 = getelementptr inbounds i8, ptr %2, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 408
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 408
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr @proto_ngap, align 4
   %21 = call ptr @p_get_proto_data(ptr noundef %19, ptr noundef %17, i32 noundef %20, i32 noundef 0) #10
@@ -23523,7 +23523,7 @@ define internal i32 @dissect_ngap_NAS_PDU(ptr noundef %0, i32 noundef %1, ptr no
 22:                                               ; preds = %15
   %23 = load ptr, ptr %18, align 8
   %24 = call noalias ptr @wmem_alloc0(ptr noundef %23, i64 noundef 72) #10
-  %25 = getelementptr inbounds i8, ptr %24, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store i32 -1, ptr %25, align 8
   %26 = load ptr, ptr %18, align 8
   %27 = load i32, ptr @proto_ngap, align 4
@@ -23532,13 +23532,13 @@ define internal i32 @dissect_ngap_NAS_PDU(ptr noundef %0, i32 noundef %1, ptr no
 
 ngap_get_private_data.exit:                       ; preds = %15, %22
   %.0.i = phi ptr [ %21, %15 ], [ %24, %22 ]
-  %28 = getelementptr inbounds i8, ptr %.0.i, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i, i64 12
   %29 = load i32, ptr %28, align 4
   %30 = icmp eq i32 %29, 37
   br i1 %30, label %31, label %41
 
 31:                                               ; preds = %ngap_get_private_data.exit
-  %32 = getelementptr inbounds i8, ptr %2, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %33 = load ptr, ptr %32, align 8
   %34 = load i32, ptr @ett_ngap_NASC, align 4
   %35 = call ptr @proto_item_add_subtree(ptr noundef %33, i32 noundef %34) #10
@@ -23561,17 +23561,17 @@ ngap_get_private_data.exit:                       ; preds = %15, %22
   br i1 %.not41, label %102, label %43
 
 43:                                               ; preds = %41
-  %44 = getelementptr inbounds i8, ptr %2, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %45 = load ptr, ptr %44, align 8
   %46 = load i32, ptr @ett_ngap_NAS_PDU, align 4
   %47 = call ptr @proto_item_add_subtree(ptr noundef %45, i32 noundef %46) #10
   store volatile i32 %12, ptr %7, align 4
   store volatile i32 0, ptr %9, align 4
   call void @except_setup_try(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull @dissect_ngap_NAS_PDU.catch_spec, i64 noundef 1) #10
-  %48 = getelementptr inbounds i8, ptr %11, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %49 = call i32 @_setjmp(ptr noundef nonnull %48) #12
   %.not42 = icmp eq i32 %49, 0
-  %50 = getelementptr inbounds i8, ptr %11, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %.sink = select i1 %.not42, ptr null, ptr %50
   store volatile ptr %.sink, ptr %8, align 8
   %.0..0..0..0. = load volatile i32, ptr %9, align 4
@@ -23617,35 +23617,35 @@ ngap_get_private_data.exit:                       ; preds = %15, %22
 
 67:                                               ; preds = %66
   %.0..0..0..0.9 = load volatile ptr, ptr %8, align 8
-  %68 = getelementptr inbounds i8, ptr %.0..0..0..0.9, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.9, i64 8
   %69 = load volatile i64, ptr %68, align 8
   %70 = icmp eq i64 %69, 1
   br i1 %70, label %87, label %71
 
 71:                                               ; preds = %67
   %.0..0..0..0.10 = load volatile ptr, ptr %8, align 8
-  %72 = getelementptr inbounds i8, ptr %.0..0..0..0.10, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.10, i64 8
   %73 = load volatile i64, ptr %72, align 8
   %74 = icmp eq i64 %73, 4
   br i1 %74, label %87, label %75
 
 75:                                               ; preds = %71
   %.0..0..0..0.11 = load volatile ptr, ptr %8, align 8
-  %76 = getelementptr inbounds i8, ptr %.0..0..0..0.11, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.11, i64 8
   %77 = load volatile i64, ptr %76, align 8
   %78 = icmp eq i64 %77, 3
   br i1 %78, label %87, label %79
 
 79:                                               ; preds = %75
   %.0..0..0..0.12 = load volatile ptr, ptr %8, align 8
-  %80 = getelementptr inbounds i8, ptr %.0..0..0..0.12, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.12, i64 8
   %81 = load volatile i64, ptr %80, align 8
   %82 = icmp eq i64 %81, 2
   br i1 %82, label %87, label %83
 
 83:                                               ; preds = %79
   %.0..0..0..0.13 = load volatile ptr, ptr %8, align 8
-  %84 = getelementptr inbounds i8, ptr %.0..0..0..0.13, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.13, i64 8
   %85 = load volatile i64, ptr %84, align 8
   %86 = icmp eq i64 %85, 7
   br i1 %86, label %87, label %94
@@ -23656,10 +23656,10 @@ ngap_get_private_data.exit:                       ; preds = %15, %22
   store volatile i32 %88, ptr %9, align 4
   %89 = load ptr, ptr %16, align 8
   %.0..0..0..0.14 = load volatile ptr, ptr %8, align 8
-  %90 = getelementptr inbounds i8, ptr %.0..0..0..0.14, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.14, i64 8
   %91 = load volatile i64, ptr %90, align 8
   %.0..0..0..0.15 = load volatile ptr, ptr %8, align 8
-  %92 = getelementptr inbounds i8, ptr %.0..0..0..0.15, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.15, i64 16
   %93 = load volatile ptr, ptr %92, align 8
   call void @show_exception(ptr noundef %0, ptr noundef %89, ptr noundef %47, i64 noundef %91, ptr noundef %93) #10
   br label %94
@@ -23681,7 +23681,7 @@ ngap_get_private_data.exit:                       ; preds = %15, %22
   unreachable
 
 98:                                               ; preds = %96, %94
-  %99 = getelementptr inbounds i8, ptr %11, i64 40
+  %99 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %100 = load volatile ptr, ptr %99, align 8
   call void @except_free(ptr noundef %100) #10
   %101 = call ptr @except_pop() #10
@@ -23726,12 +23726,12 @@ define internal i32 @dissect_ngap_NGRANTraceID(ptr noundef %0, i32 noundef %1, p
   br i1 %.not, label %24, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_ngap_NGRANTraceID, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #10
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @dissect_e212_mcc_mnc(ptr noundef %14, ptr noundef %16, ptr noundef %13, i32 noundef 0, i32 noundef 0, i32 noundef 0) #10
   %18 = load i32, ptr @hf_ngap_NGRANTraceID_TraceID, align 4
@@ -24238,9 +24238,9 @@ define internal i32 @dissect_ngap_DRBStatusDL18(ptr noundef %0, i32 noundef %1, 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ngap_RAN_UE_NGAP_ID(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca i32, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_ngap, align 4
   %12 = tail call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #10
@@ -24250,7 +24250,7 @@ define internal i32 @dissect_ngap_RAN_UE_NGAP_ID(ptr noundef %0, i32 noundef %1,
 13:                                               ; preds = %5
   %14 = load ptr, ptr %9, align 8
   %15 = tail call noalias ptr @wmem_alloc0(ptr noundef %14, i64 noundef 72) #10
-  %16 = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store i32 -1, ptr %16, align 8
   %17 = load ptr, ptr %9, align 8
   %18 = load i32, ptr @proto_ngap, align 4
@@ -24261,7 +24261,7 @@ ngap_get_private_data.exit:                       ; preds = %5, %13
   %.0.i = phi ptr [ %12, %5 ], [ %15, %13 ]
   %19 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef -1, ptr noundef nonnull %6, i32 noundef 0) #10
   %20 = load i32, ptr %6, align 4
-  %21 = getelementptr inbounds i8, ptr %.0.i, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %.0.i, i64 56
   store i32 %20, ptr %21, align 8
   ret i32 %19
 }
@@ -24312,9 +24312,9 @@ define internal fastcc i32 @dissect_ngap_SourceToTarget_TransparentContainer(ptr
   %7 = alloca i32, align 4
   %8 = alloca %struct.except_stacknode, align 8
   %9 = alloca %struct.except_catch, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr @proto_json, align 4
   %15 = call ptr @p_get_proto_data(ptr noundef %13, ptr noundef %11, i32 noundef %14, i32 noundef 0) #10
@@ -24323,7 +24323,7 @@ define internal fastcc i32 @dissect_ngap_SourceToTarget_TransparentContainer(ptr
 
 16:                                               ; preds = %4
   %17 = load ptr, ptr %10, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   call void @col_append_sep_str(ptr noundef %19, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.727) #10
   br label %20
@@ -24344,7 +24344,7 @@ define internal fastcc i32 @dissect_ngap_SourceToTarget_TransparentContainer(ptr
 
 28:                                               ; preds = %26
   %29 = load ptr, ptr %10, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 408
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 408
   %31 = load ptr, ptr %30, align 8
   %32 = load i32, ptr @proto_ngap, align 4
   %33 = call ptr @p_get_proto_data(ptr noundef %31, ptr noundef %29, i32 noundef %32, i32 noundef 0) #10
@@ -24354,7 +24354,7 @@ define internal fastcc i32 @dissect_ngap_SourceToTarget_TransparentContainer(ptr
 34:                                               ; preds = %28
   %35 = load ptr, ptr %30, align 8
   %36 = call noalias ptr @wmem_alloc0(ptr noundef %35, i64 noundef 72) #10
-  %37 = getelementptr inbounds i8, ptr %36, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
   store i32 -1, ptr %37, align 8
   %38 = load ptr, ptr %30, align 8
   %39 = load i32, ptr @proto_ngap, align 4
@@ -24363,22 +24363,22 @@ define internal fastcc i32 @dissect_ngap_SourceToTarget_TransparentContainer(ptr
 
 ngap_get_private_data.exit:                       ; preds = %28, %34
   %.0.i = phi ptr [ %33, %28 ], [ %36, %34 ]
-  %40 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %41 = load i32, ptr %40, align 8
   %42 = load ptr, ptr %10, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load ptr, ptr %43, align 8
   call void @col_set_writable(ptr noundef %44, i32 noundef 25, i32 noundef 0) #10
-  %45 = getelementptr inbounds i8, ptr %1, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %46 = load ptr, ptr %45, align 8
   %47 = load i32, ptr @ett_ngap_SourceToTarget_TransparentContainer, align 4
   %48 = call ptr @proto_item_add_subtree(ptr noundef %46, i32 noundef %47) #10
   store volatile i32 0, ptr %7, align 4
   call void @except_setup_try(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull @dissect_ngap_SourceToTarget_TransparentContainer.catch_spec, i64 noundef 1) #10
-  %49 = getelementptr inbounds i8, ptr %9, i64 48
+  %49 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %50 = call i32 @_setjmp(ptr noundef nonnull %49) #12
   %.not43 = icmp eq i32 %50, 0
-  %51 = getelementptr inbounds i8, ptr %9, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.sink = select i1 %.not43, ptr null, ptr %51
   store volatile ptr %.sink, ptr %6, align 8
   %.0..0..0..0. = load volatile i32, ptr %7, align 4
@@ -24443,35 +24443,35 @@ ngap_get_private_data.exit:                       ; preds = %28, %34
 
 76:                                               ; preds = %75
   %.0..0..0..0.10 = load volatile ptr, ptr %6, align 8
-  %77 = getelementptr inbounds i8, ptr %.0..0..0..0.10, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.10, i64 8
   %78 = load volatile i64, ptr %77, align 8
   %79 = icmp eq i64 %78, 1
   br i1 %79, label %96, label %80
 
 80:                                               ; preds = %76
   %.0..0..0..0.11 = load volatile ptr, ptr %6, align 8
-  %81 = getelementptr inbounds i8, ptr %.0..0..0..0.11, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.11, i64 8
   %82 = load volatile i64, ptr %81, align 8
   %83 = icmp eq i64 %82, 4
   br i1 %83, label %96, label %84
 
 84:                                               ; preds = %80
   %.0..0..0..0.12 = load volatile ptr, ptr %6, align 8
-  %85 = getelementptr inbounds i8, ptr %.0..0..0..0.12, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.12, i64 8
   %86 = load volatile i64, ptr %85, align 8
   %87 = icmp eq i64 %86, 3
   br i1 %87, label %96, label %88
 
 88:                                               ; preds = %84
   %.0..0..0..0.13 = load volatile ptr, ptr %6, align 8
-  %89 = getelementptr inbounds i8, ptr %.0..0..0..0.13, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.13, i64 8
   %90 = load volatile i64, ptr %89, align 8
   %91 = icmp eq i64 %90, 2
   br i1 %91, label %96, label %92
 
 92:                                               ; preds = %88
   %.0..0..0..0.14 = load volatile ptr, ptr %6, align 8
-  %93 = getelementptr inbounds i8, ptr %.0..0..0..0.14, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.14, i64 8
   %94 = load volatile i64, ptr %93, align 8
   %95 = icmp eq i64 %94, 7
   br i1 %95, label %96, label %103
@@ -24482,10 +24482,10 @@ ngap_get_private_data.exit:                       ; preds = %28, %34
   store volatile i32 %97, ptr %7, align 4
   %98 = load ptr, ptr %10, align 8
   %.0..0..0..0.15 = load volatile ptr, ptr %6, align 8
-  %99 = getelementptr inbounds i8, ptr %.0..0..0..0.15, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.15, i64 8
   %100 = load volatile i64, ptr %99, align 8
   %.0..0..0..0.16 = load volatile ptr, ptr %6, align 8
-  %101 = getelementptr inbounds i8, ptr %.0..0..0..0.16, i64 16
+  %101 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.16, i64 16
   %102 = load volatile ptr, ptr %101, align 8
   call void @show_exception(ptr noundef %0, ptr noundef %98, ptr noundef %2, i64 noundef %100, ptr noundef %102) #10
   br label %103
@@ -24507,12 +24507,12 @@ ngap_get_private_data.exit:                       ; preds = %28, %34
   unreachable
 
 107:                                              ; preds = %105, %103
-  %108 = getelementptr inbounds i8, ptr %9, i64 40
+  %108 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %109 = load volatile ptr, ptr %108, align 8
   call void @except_free(ptr noundef %109) #10
   %110 = call ptr @except_pop() #10
   %111 = load ptr, ptr %10, align 8
-  %112 = getelementptr inbounds i8, ptr %111, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %113 = load ptr, ptr %112, align 8
   call void @col_set_writable(ptr noundef %113, i32 noundef 25, i32 noundef 1) #10
   br label %114
@@ -24529,9 +24529,9 @@ declare i32 @dissect_rrc_ToTargetRNC_Container_PDU(ptr noundef, ptr noundef, ptr
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ngap_SupportedTAItem(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @proto_ngap, align 4
   %11 = tail call ptr @p_get_proto_data(ptr noundef %9, ptr noundef %7, i32 noundef %10, i32 noundef 0) #10
@@ -24541,7 +24541,7 @@ define internal i32 @dissect_ngap_SupportedTAItem(ptr noundef %0, i32 noundef %1
 12:                                               ; preds = %5
   %13 = load ptr, ptr %8, align 8
   %14 = tail call noalias ptr @wmem_alloc0(ptr noundef %13, i64 noundef 72) #10
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i32 -1, ptr %15, align 8
   %16 = load ptr, ptr %8, align 8
   %17 = load i32, ptr @proto_ngap, align 4
@@ -24551,22 +24551,22 @@ define internal i32 @dissect_ngap_SupportedTAItem(ptr noundef %0, i32 noundef %1
 ngap_get_private_data.exit:                       ; preds = %5, %12
   %.0.i = phi ptr [ %11, %5 ], [ %14, %12 ]
   %18 = load ptr, ptr %6, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 80
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 80
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 50
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 50
   %22 = load i16, ptr %21, align 2
   %23 = and i16 %22, 8
   %.not = icmp eq i16 %23, 0
   br i1 %.not, label %24, label %42
 
 24:                                               ; preds = %ngap_get_private_data.exit
-  %25 = getelementptr inbounds i8, ptr %.0.i, i64 20
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i, i64 20
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %42
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %30 = load i32, ptr %29, align 8
   switch i32 %30, label %42 [
     i32 21, label %31
@@ -24574,24 +24574,24 @@ ngap_get_private_data.exit:                       ; preds = %5, %12
   ]
 
 31:                                               ; preds = %28, %28
-  %32 = getelementptr inbounds i8, ptr %18, i64 408
+  %32 = getelementptr inbounds nuw i8, ptr %18, i64 408
   %33 = load ptr, ptr %32, align 8
   %34 = tail call noalias ptr @wmem_alloc0(ptr noundef %33, i64 noundef 16) #10
-  %35 = getelementptr inbounds i8, ptr %.0.i, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
   store ptr %34, ptr %35, align 8
   %36 = load ptr, ptr %6, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 408
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 408
   %38 = load ptr, ptr %37, align 8
   %39 = tail call noalias ptr @wmem_array_new(ptr noundef %38, i64 noundef 4) #10
   %40 = load ptr, ptr %35, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store ptr %39, ptr %41, align 8
   br label %42
 
 42:                                               ; preds = %28, %31, %24, %ngap_get_private_data.exit
   %43 = load i32, ptr @ett_ngap_SupportedTAItem, align 4
   %44 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %43, ptr noundef nonnull @SupportedTAItem_sequence) #10
-  %45 = getelementptr inbounds i8, ptr %.0.i, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
   store ptr null, ptr %45, align 8
   ret i32 %44
 }
@@ -24635,9 +24635,9 @@ define internal i32 @dissect_ngap_TargeteNB_ID(ptr noundef %0, i32 noundef %1, p
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ngap_EPS_TAI(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @proto_ngap, align 4
   %11 = tail call ptr @p_get_proto_data(ptr noundef %9, ptr noundef %7, i32 noundef %10, i32 noundef 0) #10
@@ -24647,7 +24647,7 @@ define internal i32 @dissect_ngap_EPS_TAI(ptr noundef %0, i32 noundef %1, ptr no
 12:                                               ; preds = %5
   %13 = load ptr, ptr %8, align 8
   %14 = tail call noalias ptr @wmem_alloc0(ptr noundef %13, i64 noundef 72) #10
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i32 -1, ptr %15, align 8
   %16 = load ptr, ptr %8, align 8
   %17 = load i32, ptr @proto_ngap, align 4
@@ -24656,7 +24656,7 @@ define internal i32 @dissect_ngap_EPS_TAI(ptr noundef %0, i32 noundef %1, ptr no
 
 ngap_get_private_data.exit:                       ; preds = %5, %12
   %.0.i = phi ptr [ %11, %5 ], [ %14, %12 ]
-  %18 = getelementptr inbounds i8, ptr %.0.i, i64 60
+  %18 = getelementptr inbounds nuw i8, ptr %.0.i, i64 60
   store i32 6, ptr %18, align 4
   %19 = load i32, ptr @ett_ngap_EPS_TAI, align 4
   %20 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %19, ptr noundef nonnull @EPS_TAI_sequence) #10
@@ -24674,7 +24674,7 @@ define internal i32 @dissect_ngap_EPS_TAC(ptr noundef %0, i32 noundef %1, ptr no
 
 9:                                                ; preds = %5
   %10 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %4, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 2, i32 noundef 0) #10
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %10, ptr %11, align 8
   br label %12
 
@@ -24696,7 +24696,7 @@ define internal i32 @dissect_ngap_InterfacesToTrace(ptr noundef %0, i32 noundef 
   br i1 %.not, label %15, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_ngap_InterfacesToTrace, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #10
@@ -24748,9 +24748,9 @@ define internal fastcc i32 @dissect_ngap_UERadioCapability(ptr noundef %0, ptr n
   %8 = alloca i32, align 4
   %9 = alloca %struct.except_stacknode, align 8
   %10 = alloca %struct.except_catch, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = load i32, ptr @proto_json, align 4
   %16 = call ptr @p_get_proto_data(ptr noundef %14, ptr noundef %12, i32 noundef %15, i32 noundef 0) #10
@@ -24759,7 +24759,7 @@ define internal fastcc i32 @dissect_ngap_UERadioCapability(ptr noundef %0, ptr n
 
 17:                                               ; preds = %4
   %18 = load ptr, ptr %11, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
   call void @col_append_sep_str(ptr noundef %20, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.803) #10
   br label %21
@@ -24767,7 +24767,7 @@ define internal fastcc i32 @dissect_ngap_UERadioCapability(ptr noundef %0, ptr n
 21:                                               ; preds = %17, %4
   store ptr null, ptr %5, align 8
   %22 = load ptr, ptr %11, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 408
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 408
   %24 = load ptr, ptr %23, align 8
   %25 = load i32, ptr @proto_ngap, align 4
   %26 = call ptr @p_get_proto_data(ptr noundef %24, ptr noundef %22, i32 noundef %25, i32 noundef 0) #10
@@ -24777,7 +24777,7 @@ define internal fastcc i32 @dissect_ngap_UERadioCapability(ptr noundef %0, ptr n
 27:                                               ; preds = %21
   %28 = load ptr, ptr %23, align 8
   %29 = call noalias ptr @wmem_alloc0(ptr noundef %28, i64 noundef 72) #10
-  %30 = getelementptr inbounds i8, ptr %29, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   store i32 -1, ptr %30, align 8
   %31 = load ptr, ptr %23, align 8
   %32 = load i32, ptr @proto_ngap, align 4
@@ -24792,11 +24792,11 @@ ngap_get_private_data.exit:                       ; preds = %21, %27
   br i1 %.not40, label %107, label %35
 
 35:                                               ; preds = %ngap_get_private_data.exit
-  %36 = getelementptr inbounds i8, ptr %1, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %37 = load ptr, ptr %36, align 8
   %38 = load i32, ptr @ett_ngap_UERadioCapability, align 4
   %39 = call ptr @proto_item_add_subtree(ptr noundef %37, i32 noundef %38) #10
-  %40 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %41 = load i32, ptr %40, align 8
   %42 = icmp eq i32 %41, 265
   br i1 %42, label %50, label %43
@@ -24824,10 +24824,10 @@ ngap_get_private_data.exit:                       ; preds = %21, %27
 52:                                               ; preds = %50
   store volatile i32 0, ptr %8, align 4
   call void @except_setup_try(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull @dissect_ngap_UERadioCapability.catch_spec, i64 noundef 1) #10
-  %53 = getelementptr inbounds i8, ptr %10, i64 48
+  %53 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %54 = call i32 @_setjmp(ptr noundef nonnull %53) #12
   %.not42 = icmp eq i32 %54, 0
-  %55 = getelementptr inbounds i8, ptr %10, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %.sink = select i1 %.not42, ptr null, ptr %55
   store volatile ptr %.sink, ptr %7, align 8
   %.0..0..0..0. = load volatile i32, ptr %8, align 4
@@ -24873,35 +24873,35 @@ ngap_get_private_data.exit:                       ; preds = %21, %27
 
 71:                                               ; preds = %70
   %.0..0..0..0.12 = load volatile ptr, ptr %7, align 8
-  %72 = getelementptr inbounds i8, ptr %.0..0..0..0.12, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.12, i64 8
   %73 = load volatile i64, ptr %72, align 8
   %74 = icmp eq i64 %73, 1
   br i1 %74, label %91, label %75
 
 75:                                               ; preds = %71
   %.0..0..0..0.13 = load volatile ptr, ptr %7, align 8
-  %76 = getelementptr inbounds i8, ptr %.0..0..0..0.13, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.13, i64 8
   %77 = load volatile i64, ptr %76, align 8
   %78 = icmp eq i64 %77, 4
   br i1 %78, label %91, label %79
 
 79:                                               ; preds = %75
   %.0..0..0..0.14 = load volatile ptr, ptr %7, align 8
-  %80 = getelementptr inbounds i8, ptr %.0..0..0..0.14, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.14, i64 8
   %81 = load volatile i64, ptr %80, align 8
   %82 = icmp eq i64 %81, 3
   br i1 %82, label %91, label %83
 
 83:                                               ; preds = %79
   %.0..0..0..0.15 = load volatile ptr, ptr %7, align 8
-  %84 = getelementptr inbounds i8, ptr %.0..0..0..0.15, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.15, i64 8
   %85 = load volatile i64, ptr %84, align 8
   %86 = icmp eq i64 %85, 2
   br i1 %86, label %91, label %87
 
 87:                                               ; preds = %83
   %.0..0..0..0.16 = load volatile ptr, ptr %7, align 8
-  %88 = getelementptr inbounds i8, ptr %.0..0..0..0.16, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.16, i64 8
   %89 = load volatile i64, ptr %88, align 8
   %90 = icmp eq i64 %89, 7
   br i1 %90, label %91, label %99
@@ -24913,10 +24913,10 @@ ngap_get_private_data.exit:                       ; preds = %21, %27
   %93 = load ptr, ptr %5, align 8
   %94 = load ptr, ptr %11, align 8
   %.0..0..0..0.17 = load volatile ptr, ptr %7, align 8
-  %95 = getelementptr inbounds i8, ptr %.0..0..0..0.17, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.17, i64 8
   %96 = load volatile i64, ptr %95, align 8
   %.0..0..0..0.18 = load volatile ptr, ptr %7, align 8
-  %97 = getelementptr inbounds i8, ptr %.0..0..0..0.18, i64 16
+  %97 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.18, i64 16
   %98 = load volatile ptr, ptr %97, align 8
   call void @show_exception(ptr noundef %93, ptr noundef %94, ptr noundef %39, i64 noundef %96, ptr noundef %98) #10
   br label %99
@@ -24938,7 +24938,7 @@ ngap_get_private_data.exit:                       ; preds = %21, %27
   unreachable
 
 103:                                              ; preds = %101, %99
-  %104 = getelementptr inbounds i8, ptr %10, i64 40
+  %104 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %105 = load volatile ptr, ptr %104, align 8
   call void @except_free(ptr noundef %105) #10
   %106 = call ptr @except_pop() #10
@@ -24951,7 +24951,7 @@ ngap_get_private_data.exit:                       ; preds = %21, %27
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @ngap_is_nbiot_ue(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca [3 x %struct._wmem_tree_key_t], align 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 408
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr @proto_ngap, align 4
   %6 = tail call ptr @p_get_proto_data(ptr noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 0) #10
@@ -24961,7 +24961,7 @@ define internal fastcc range(i32 0, 2) i32 @ngap_is_nbiot_ue(ptr noundef %0) unn
 7:                                                ; preds = %1
   %8 = load ptr, ptr %3, align 8
   %9 = tail call noalias ptr @wmem_alloc0(ptr noundef %8, i64 noundef 72) #10
-  %10 = getelementptr inbounds i8, ptr %9, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i32 -1, ptr %10, align 8
   %11 = load ptr, ptr %3, align 8
   %12 = load i32, ptr @proto_ngap, align 4
@@ -24976,19 +24976,19 @@ ngap_get_private_data.exit:                       ; preds = %1, %7
 
 14:                                               ; preds = %ngap_get_private_data.exit
   store i32 1, ptr %2, align 16
-  %15 = getelementptr inbounds i8, ptr %.0.i, i64 56
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.0.i, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %15, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 1, ptr %17, align 16
-  %18 = getelementptr inbounds i8, ptr %0, i64 20
-  %19 = getelementptr inbounds i8, ptr %2, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %2, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 0, ptr %20, align 16
-  %21 = getelementptr inbounds i8, ptr %2, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr null, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %13, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @wmem_tree_lookup32_array_le(ptr noundef %23, ptr noundef nonnull %2) #10
   %.not9 = icmp eq ptr %24, null
@@ -25023,13 +25023,13 @@ define internal i32 @dissect_ngap_UERadioCapabilityForPagingOfNR(ptr noundef %0,
   br i1 %or.cond, label %12, label %22
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %2, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = load i32, ptr @ett_ngap_UERadioCapabilityForPagingOfNR, align 4
   %16 = call ptr @proto_item_add_subtree(ptr noundef %14, i32 noundef %15) #10
   %17 = load ptr, ptr @nr_rrc_ue_radio_paging_info_handle, align 8
   %18 = load ptr, ptr %6, align 8
-  %19 = getelementptr inbounds i8, ptr %2, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = call i32 @call_dissector(ptr noundef %17, ptr noundef %18, ptr noundef %20, ptr noundef %16) #10
   br label %22
@@ -25051,13 +25051,13 @@ define internal i32 @dissect_ngap_UERadioCapabilityForPagingOfEUTRA(ptr noundef 
   br i1 %or.cond, label %12, label %22
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %2, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = load i32, ptr @ett_ngap_UERadioCapabilityForPagingOfEUTRA, align 4
   %16 = call ptr @proto_item_add_subtree(ptr noundef %14, i32 noundef %15) #10
   %17 = load ptr, ptr @lte_rrc_ue_radio_paging_info_handle, align 8
   %18 = load ptr, ptr %6, align 8
-  %19 = getelementptr inbounds i8, ptr %2, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = call i32 @call_dissector(ptr noundef %17, ptr noundef %18, ptr noundef %20, ptr noundef %16) #10
   br label %22
@@ -25076,7 +25076,7 @@ define internal i32 @dissect_ngap_NRencryptionAlgorithms(ptr noundef %0, i32 nou
   br i1 %.not, label %15, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_ngap_NrencryptionAlgorithms, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #10
@@ -25098,7 +25098,7 @@ define internal i32 @dissect_ngap_NRintegrityProtectionAlgorithms(ptr noundef %0
   br i1 %.not, label %15, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_ngap_NrintegrityProtectionAlgorithms, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #10
@@ -25120,7 +25120,7 @@ define internal i32 @dissect_ngap_EUTRAencryptionAlgorithms(ptr noundef %0, i32 
   br i1 %.not, label %15, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_ngap_EUTRAencryptionAlgorithms, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #10
@@ -25142,7 +25142,7 @@ define internal i32 @dissect_ngap_EUTRAintegrityProtectionAlgorithms(ptr noundef
   br i1 %.not, label %15, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_ngap_EUTRAintegrityProtectionAlgorithms, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #10
@@ -25198,7 +25198,7 @@ define internal i32 @dissect_ngap_TimeStamp(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = call ptr @tvb_ntp_fmt_ts_sec(ptr noundef nonnull %8, i32 noundef 0) #10
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %11, ptr noundef nonnull @.str.3032, ptr noundef %12) #10
@@ -25219,7 +25219,7 @@ define internal i32 @dissect_ngap_PortNumber(ptr noundef %0, i32 noundef %1, ptr
 
 9:                                                ; preds = %5
   %10 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %4, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 2, i32 noundef 0) #10
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %10, ptr %11, align 8
   br label %12
 
@@ -25586,9 +25586,9 @@ define internal i32 @dissect_ngap_T_rIM_RSDetection(ptr noundef %0, i32 noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ngap_LAI(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @proto_ngap, align 4
   %11 = tail call ptr @p_get_proto_data(ptr noundef %9, ptr noundef %7, i32 noundef %10, i32 noundef 0) #10
@@ -25598,7 +25598,7 @@ define internal i32 @dissect_ngap_LAI(ptr noundef %0, i32 noundef %1, ptr nounde
 12:                                               ; preds = %5
   %13 = load ptr, ptr %8, align 8
   %14 = tail call noalias ptr @wmem_alloc0(ptr noundef %13, i64 noundef 72) #10
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i32 -1, ptr %15, align 8
   %16 = load ptr, ptr %8, align 8
   %17 = load i32, ptr @proto_ngap, align 4
@@ -25607,7 +25607,7 @@ define internal i32 @dissect_ngap_LAI(ptr noundef %0, i32 noundef %1, ptr nounde
 
 ngap_get_private_data.exit:                       ; preds = %5, %12
   %.0.i = phi ptr [ %11, %5 ], [ %14, %12 ]
-  %18 = getelementptr inbounds i8, ptr %.0.i, i64 60
+  %18 = getelementptr inbounds nuw i8, ptr %.0.i, i64 60
   store i32 1, ptr %18, align 4
   %19 = load i32, ptr @ett_ngap_LAI, align 4
   %20 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %19, ptr noundef nonnull @LAI_sequence) #10
@@ -25637,7 +25637,7 @@ define internal i32 @dissect_ngap_LAC(ptr noundef %0, i32 noundef %1, ptr nounde
 
 9:                                                ; preds = %5
   %10 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %4, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 2, i32 noundef 0) #10
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %10, ptr %11, align 8
   br label %12
 
@@ -25681,19 +25681,19 @@ define internal i32 @dissect_ngap_CoverageEnhancementLevel(ptr noundef %0, i32 n
   %19 = load i32, ptr @ngap_dissect_container, align 4
   %20 = icmp ne i32 %19, 0
   %or.cond = select i1 %18, i1 %20, i1 false
-  %.sink70.sroa.gep = getelementptr inbounds i8, ptr %11, i64 40
-  %.sink70.sroa.gep71 = getelementptr inbounds i8, ptr %11, i64 40
-  %.sink70.sroa.gep72 = getelementptr inbounds i8, ptr %15, i64 40
-  %.sink70.sroa.gep73 = getelementptr inbounds i8, ptr %15, i64 40
+  %.sink70.sroa.gep = getelementptr inbounds nuw i8, ptr %11, i64 40
+  %.sink70.sroa.gep71 = getelementptr inbounds nuw i8, ptr %11, i64 40
+  %.sink70.sroa.gep72 = getelementptr inbounds nuw i8, ptr %15, i64 40
+  %.sink70.sroa.gep73 = getelementptr inbounds nuw i8, ptr %15, i64 40
   br i1 %or.cond, label %21, label %138
 
 21:                                               ; preds = %5
-  %22 = getelementptr inbounds i8, ptr %2, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %23 = load ptr, ptr %22, align 8
   %24 = load i32, ptr @ett_ngap_CoverageEnhancementLevel, align 4
   %25 = call ptr @proto_item_add_subtree(ptr noundef %23, i32 noundef %24) #10
   store volatile i32 %16, ptr %7, align 4
-  %26 = getelementptr inbounds i8, ptr %2, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = call fastcc i32 @ngap_is_nbiot_ue(ptr noundef %27)
   %29 = icmp ne i32 %28, 0
@@ -25707,10 +25707,10 @@ define internal i32 @dissect_ngap_CoverageEnhancementLevel(ptr noundef %0, i32 n
 33:                                               ; preds = %21
   store volatile i32 0, ptr %9, align 4
   call void @except_setup_try(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull @dissect_ngap_CoverageEnhancementLevel.catch_spec, i64 noundef 1) #10
-  %34 = getelementptr inbounds i8, ptr %11, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %35 = call i32 @_setjmp(ptr noundef nonnull %34) #12
   %.not62 = icmp eq i32 %35, 0
-  %36 = getelementptr inbounds i8, ptr %11, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %.sink = select i1 %.not62, ptr null, ptr %36
   store volatile ptr %.sink, ptr %8, align 8
   %.0..0..0..0.23 = load volatile i32, ptr %9, align 4
@@ -25755,35 +25755,35 @@ define internal i32 @dissect_ngap_CoverageEnhancementLevel(ptr noundef %0, i32 n
 
 52:                                               ; preds = %51
   %.0..0..0..0.32 = load volatile ptr, ptr %8, align 8
-  %53 = getelementptr inbounds i8, ptr %.0..0..0..0.32, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.32, i64 8
   %54 = load volatile i64, ptr %53, align 8
   %55 = icmp eq i64 %54, 1
   br i1 %55, label %72, label %56
 
 56:                                               ; preds = %52
   %.0..0..0..0.33 = load volatile ptr, ptr %8, align 8
-  %57 = getelementptr inbounds i8, ptr %.0..0..0..0.33, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.33, i64 8
   %58 = load volatile i64, ptr %57, align 8
   %59 = icmp eq i64 %58, 4
   br i1 %59, label %72, label %60
 
 60:                                               ; preds = %56
   %.0..0..0..0.34 = load volatile ptr, ptr %8, align 8
-  %61 = getelementptr inbounds i8, ptr %.0..0..0..0.34, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.34, i64 8
   %62 = load volatile i64, ptr %61, align 8
   %63 = icmp eq i64 %62, 3
   br i1 %63, label %72, label %64
 
 64:                                               ; preds = %60
   %.0..0..0..0.35 = load volatile ptr, ptr %8, align 8
-  %65 = getelementptr inbounds i8, ptr %.0..0..0..0.35, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.35, i64 8
   %66 = load volatile i64, ptr %65, align 8
   %67 = icmp eq i64 %66, 2
   br i1 %67, label %72, label %68
 
 68:                                               ; preds = %64
   %.0..0..0..0.36 = load volatile ptr, ptr %8, align 8
-  %69 = getelementptr inbounds i8, ptr %.0..0..0..0.36, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.36, i64 8
   %70 = load volatile i64, ptr %69, align 8
   %71 = icmp eq i64 %70, 7
   br i1 %71, label %72, label %80
@@ -25795,10 +25795,10 @@ define internal i32 @dissect_ngap_CoverageEnhancementLevel(ptr noundef %0, i32 n
   %74 = load ptr, ptr %6, align 8
   %75 = load ptr, ptr %26, align 8
   %.0..0..0..0.37 = load volatile ptr, ptr %8, align 8
-  %76 = getelementptr inbounds i8, ptr %.0..0..0..0.37, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.37, i64 8
   %77 = load volatile i64, ptr %76, align 8
   %.0..0..0..0.38 = load volatile ptr, ptr %8, align 8
-  %78 = getelementptr inbounds i8, ptr %.0..0..0..0.38, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.38, i64 16
   %79 = load volatile ptr, ptr %78, align 8
   call void @show_exception(ptr noundef %74, ptr noundef %75, ptr noundef %25, i64 noundef %77, ptr noundef %79) #10
   br label %80
@@ -25822,10 +25822,10 @@ define internal i32 @dissect_ngap_CoverageEnhancementLevel(ptr noundef %0, i32 n
 84:                                               ; preds = %21
   store volatile i32 0, ptr %13, align 4
   call void @except_setup_try(ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull @dissect_ngap_CoverageEnhancementLevel.catch_spec.3101, i64 noundef 1) #10
-  %85 = getelementptr inbounds i8, ptr %15, i64 48
+  %85 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %86 = call i32 @_setjmp(ptr noundef nonnull %85) #12
   %.not = icmp eq i32 %86, 0
-  %87 = getelementptr inbounds i8, ptr %15, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %.sink67 = select i1 %.not, ptr null, ptr %87
   store volatile ptr %.sink67, ptr %12, align 8
   %.0..0..0..0. = load volatile i32, ptr %13, align 4
@@ -25870,35 +25870,35 @@ define internal i32 @dissect_ngap_CoverageEnhancementLevel(ptr noundef %0, i32 n
 
 103:                                              ; preds = %102
   %.0..0..0..0.14 = load volatile ptr, ptr %12, align 8
-  %104 = getelementptr inbounds i8, ptr %.0..0..0..0.14, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.14, i64 8
   %105 = load volatile i64, ptr %104, align 8
   %106 = icmp eq i64 %105, 1
   br i1 %106, label %123, label %107
 
 107:                                              ; preds = %103
   %.0..0..0..0.15 = load volatile ptr, ptr %12, align 8
-  %108 = getelementptr inbounds i8, ptr %.0..0..0..0.15, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.15, i64 8
   %109 = load volatile i64, ptr %108, align 8
   %110 = icmp eq i64 %109, 4
   br i1 %110, label %123, label %111
 
 111:                                              ; preds = %107
   %.0..0..0..0.16 = load volatile ptr, ptr %12, align 8
-  %112 = getelementptr inbounds i8, ptr %.0..0..0..0.16, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.16, i64 8
   %113 = load volatile i64, ptr %112, align 8
   %114 = icmp eq i64 %113, 3
   br i1 %114, label %123, label %115
 
 115:                                              ; preds = %111
   %.0..0..0..0.17 = load volatile ptr, ptr %12, align 8
-  %116 = getelementptr inbounds i8, ptr %.0..0..0..0.17, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.17, i64 8
   %117 = load volatile i64, ptr %116, align 8
   %118 = icmp eq i64 %117, 2
   br i1 %118, label %123, label %119
 
 119:                                              ; preds = %115
   %.0..0..0..0.18 = load volatile ptr, ptr %12, align 8
-  %120 = getelementptr inbounds i8, ptr %.0..0..0..0.18, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.18, i64 8
   %121 = load volatile i64, ptr %120, align 8
   %122 = icmp eq i64 %121, 7
   br i1 %122, label %123, label %131
@@ -25910,10 +25910,10 @@ define internal i32 @dissect_ngap_CoverageEnhancementLevel(ptr noundef %0, i32 n
   %125 = load ptr, ptr %6, align 8
   %126 = load ptr, ptr %26, align 8
   %.0..0..0..0.19 = load volatile ptr, ptr %12, align 8
-  %127 = getelementptr inbounds i8, ptr %.0..0..0..0.19, i64 8
+  %127 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.19, i64 8
   %128 = load volatile i64, ptr %127, align 8
   %.0..0..0..0.20 = load volatile ptr, ptr %12, align 8
-  %129 = getelementptr inbounds i8, ptr %.0..0..0..0.20, i64 16
+  %129 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.20, i64 16
   %130 = load volatile ptr, ptr %129, align 8
   call void @show_exception(ptr noundef %125, ptr noundef %126, ptr noundef %25, i64 noundef %128, ptr noundef %130) #10
   br label %131
@@ -26319,12 +26319,12 @@ define internal i32 @dissect_ngap_NRUERLFReportContainer(ptr noundef %0, i32 nou
   br i1 %.not, label %18, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_ngap_NRUERLFReportContainer, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #10
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @dissect_nr_rrc_nr_RLF_Report_r16_PDU(ptr noundef %14, ptr noundef %16, ptr noundef %13, ptr noundef null) #10
   br label %18
@@ -26343,12 +26343,12 @@ define internal i32 @dissect_ngap_LTEUERLFReportContainer(ptr noundef %0, i32 no
   br i1 %.not, label %18, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_ngap_LTEUERLFReportContainer, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #10
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @dissect_lte_rrc_RLF_Report_r9_PDU(ptr noundef %14, ptr noundef %16, ptr noundef %13, ptr noundef null) #10
   br label %18
@@ -26526,7 +26526,7 @@ define internal i32 @dissect_ngap_GlobalCable_ID(ptr noundef %0, i32 noundef %1,
   br i1 %.not, label %17, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_ngap_GlobalCable_ID, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #10
@@ -26825,12 +26825,12 @@ define internal i32 @dissect_ngap_T_successfulHOReportContainer(ptr noundef %0, 
   br i1 %.not, label %18, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_ngap_successfulHOReportContainer, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #10
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @dissect_nr_rrc_SuccessHO_Report_r17_PDU(ptr noundef %14, ptr noundef %16, ptr noundef %13, ptr noundef null) #10
   br label %18
@@ -27510,7 +27510,7 @@ define internal i32 @dissect_ngap_T_primaryRATRestriction(ptr noundef %0, i32 no
   br i1 %.not, label %15, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_ngap_primaryRATRestriction, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #10
@@ -27532,7 +27532,7 @@ define internal i32 @dissect_ngap_T_secondaryRATRestriction(ptr noundef %0, i32 
   br i1 %.not, label %15, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_ngap_secondaryRATRestriction, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #10
@@ -27579,12 +27579,12 @@ define internal i32 @dissect_ngap_BurstArrivalTime(ptr noundef %0, i32 noundef %
   br i1 %.not, label %18, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_ngap_BurstArrivalTime, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #10
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @dissect_nr_rrc_ReferenceTime_r16_PDU(ptr noundef %14, ptr noundef %16, ptr noundef %13, ptr noundef null) #10
   br label %18
@@ -27611,9 +27611,9 @@ define internal i32 @dissect_ngap_AlternativeQoSParaSetItem(ptr noundef %0, i32 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ngap_AlternativeQoSParaSetIndex(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @proto_ngap, align 4
   %11 = tail call ptr @p_get_proto_data(ptr noundef %9, ptr noundef %7, i32 noundef %10, i32 noundef 0) #10
@@ -27623,7 +27623,7 @@ define internal i32 @dissect_ngap_AlternativeQoSParaSetIndex(ptr noundef %0, i32
 12:                                               ; preds = %5
   %13 = load ptr, ptr %8, align 8
   %14 = tail call noalias ptr @wmem_alloc0(ptr noundef %13, i64 noundef 72) #10
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i32 -1, ptr %15, align 8
   %16 = load ptr, ptr %8, align 8
   %17 = load i32, ptr @proto_ngap, align 4
@@ -27632,7 +27632,7 @@ define internal i32 @dissect_ngap_AlternativeQoSParaSetIndex(ptr noundef %0, i32
 
 ngap_get_private_data.exit:                       ; preds = %5, %12
   %.0.i = phi ptr [ %11, %5 ], [ %14, %12 ]
-  %18 = getelementptr inbounds i8, ptr %.0.i, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
   %19 = load i32, ptr %18, align 8
   %.not = icmp eq i32 %19, 0
   %. = zext i1 %.not to i32
@@ -27650,12 +27650,12 @@ define internal i32 @dissect_ngap_NRMobilityHistoryReport(ptr noundef %0, i32 no
   br i1 %.not, label %18, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_ngap_NRMobilityHistoryReport, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #10
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @dissect_nr_rrc_VisitedCellInfoList_r16_PDU(ptr noundef %14, ptr noundef %16, ptr noundef %13, ptr noundef null) #10
   br label %18
@@ -27764,7 +27764,7 @@ define internal i32 @dissect_ngap_UpdateFeedback(ptr noundef %0, i32 noundef %1,
   br i1 %.not, label %15, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_ngap_UpdateFeedback, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #10
@@ -27992,9 +27992,9 @@ define internal fastcc i32 @dissect_ngap_PDUSessionResourceSetupRequestTransfer(
   %7 = alloca i32, align 4
   %8 = alloca %struct.except_stacknode, align 8
   %9 = alloca %struct.except_catch, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr @proto_json, align 4
   %15 = call ptr @p_get_proto_data(ptr noundef %13, ptr noundef %11, i32 noundef %14, i32 noundef 0) #10
@@ -28003,7 +28003,7 @@ define internal fastcc i32 @dissect_ngap_PDUSessionResourceSetupRequestTransfer(
 
 16:                                               ; preds = %4
   %17 = load ptr, ptr %10, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   call void @col_append_sep_str(ptr noundef %19, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.608) #10
   br label %20
@@ -28012,10 +28012,10 @@ define internal fastcc i32 @dissect_ngap_PDUSessionResourceSetupRequestTransfer(
   store volatile i32 0, ptr %5, align 4
   store volatile i32 0, ptr %7, align 4
   call void @except_setup_try(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull @dissect_ngap_PDUSessionResourceSetupRequestTransfer.catch_spec, i64 noundef 1) #10
-  %21 = getelementptr inbounds i8, ptr %9, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %22 = call i32 @_setjmp(ptr noundef nonnull %21) #12
   %.not32 = icmp eq i32 %22, 0
-  %23 = getelementptr inbounds i8, ptr %9, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.sink = select i1 %.not32, ptr null, ptr %23
   store volatile ptr %.sink, ptr %6, align 8
   %.0..0..0..0. = load volatile i32, ptr %7, align 4
@@ -28061,35 +28061,35 @@ define internal fastcc i32 @dissect_ngap_PDUSessionResourceSetupRequestTransfer(
 
 38:                                               ; preds = %37
   %.0..0..0..0.9 = load volatile ptr, ptr %6, align 8
-  %39 = getelementptr inbounds i8, ptr %.0..0..0..0.9, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.9, i64 8
   %40 = load volatile i64, ptr %39, align 8
   %41 = icmp eq i64 %40, 1
   br i1 %41, label %58, label %42
 
 42:                                               ; preds = %38
   %.0..0..0..0.10 = load volatile ptr, ptr %6, align 8
-  %43 = getelementptr inbounds i8, ptr %.0..0..0..0.10, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.10, i64 8
   %44 = load volatile i64, ptr %43, align 8
   %45 = icmp eq i64 %44, 4
   br i1 %45, label %58, label %46
 
 46:                                               ; preds = %42
   %.0..0..0..0.11 = load volatile ptr, ptr %6, align 8
-  %47 = getelementptr inbounds i8, ptr %.0..0..0..0.11, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.11, i64 8
   %48 = load volatile i64, ptr %47, align 8
   %49 = icmp eq i64 %48, 3
   br i1 %49, label %58, label %50
 
 50:                                               ; preds = %46
   %.0..0..0..0.12 = load volatile ptr, ptr %6, align 8
-  %51 = getelementptr inbounds i8, ptr %.0..0..0..0.12, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.12, i64 8
   %52 = load volatile i64, ptr %51, align 8
   %53 = icmp eq i64 %52, 2
   br i1 %53, label %58, label %54
 
 54:                                               ; preds = %50
   %.0..0..0..0.13 = load volatile ptr, ptr %6, align 8
-  %55 = getelementptr inbounds i8, ptr %.0..0..0..0.13, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.13, i64 8
   %56 = load volatile i64, ptr %55, align 8
   %57 = icmp eq i64 %56, 7
   br i1 %57, label %58, label %65
@@ -28100,10 +28100,10 @@ define internal fastcc i32 @dissect_ngap_PDUSessionResourceSetupRequestTransfer(
   store volatile i32 %59, ptr %7, align 4
   %60 = load ptr, ptr %10, align 8
   %.0..0..0..0.14 = load volatile ptr, ptr %6, align 8
-  %61 = getelementptr inbounds i8, ptr %.0..0..0..0.14, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.14, i64 8
   %62 = load volatile i64, ptr %61, align 8
   %.0..0..0..0.15 = load volatile ptr, ptr %6, align 8
-  %63 = getelementptr inbounds i8, ptr %.0..0..0..0.15, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.15, i64 16
   %64 = load volatile ptr, ptr %63, align 8
   call void @show_exception(ptr noundef %0, ptr noundef %60, ptr noundef %2, i64 noundef %62, ptr noundef %64) #10
   br label %65
@@ -28125,7 +28125,7 @@ define internal fastcc i32 @dissect_ngap_PDUSessionResourceSetupRequestTransfer(
   unreachable
 
 69:                                               ; preds = %67, %65
-  %70 = getelementptr inbounds i8, ptr %9, i64 40
+  %70 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %71 = load volatile ptr, ptr %70, align 8
   call void @except_free(ptr noundef %71) #10
   %72 = call ptr @except_pop() #10
@@ -28156,9 +28156,9 @@ define internal i32 @dissect_ngap_QosFlowNotifyList(ptr noundef %0, i32 noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ngap_QosFlowNotifyItem(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @proto_ngap, align 4
   %11 = tail call ptr @p_get_proto_data(ptr noundef %9, ptr noundef %7, i32 noundef %10, i32 noundef 0) #10
@@ -28168,7 +28168,7 @@ define internal i32 @dissect_ngap_QosFlowNotifyItem(ptr noundef %0, i32 noundef 
 12:                                               ; preds = %5
   %13 = load ptr, ptr %8, align 8
   %14 = tail call noalias ptr @wmem_alloc0(ptr noundef %13, i64 noundef 72) #10
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i32 -1, ptr %15, align 8
   %16 = load ptr, ptr %8, align 8
   %17 = load i32, ptr @proto_ngap, align 4
@@ -28177,7 +28177,7 @@ define internal i32 @dissect_ngap_QosFlowNotifyItem(ptr noundef %0, i32 noundef 
 
 ngap_get_private_data.exit:                       ; preds = %5, %12
   %.0.i = phi ptr [ %11, %5 ], [ %14, %12 ]
-  %18 = getelementptr inbounds i8, ptr %.0.i, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
   store i32 1, ptr %18, align 8
   %19 = load i32, ptr @ett_ngap_QosFlowNotifyItem, align 4
   %20 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %19, ptr noundef nonnull @QosFlowNotifyItem_sequence) #10
@@ -28343,9 +28343,9 @@ define internal i32 @dissect_ngap_UnsuccessfulOutcome(ptr noundef %0, i32 nounde
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ngap_InitiatingMessage_value(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @proto_ngap, align 4
   %11 = tail call ptr @p_get_proto_data(ptr noundef %9, ptr noundef %7, i32 noundef %10, i32 noundef 0) #10
@@ -28355,7 +28355,7 @@ define internal i32 @dissect_ngap_InitiatingMessage_value(ptr noundef %0, i32 no
 12:                                               ; preds = %5
   %13 = load ptr, ptr %8, align 8
   %14 = tail call noalias ptr @wmem_alloc0(ptr noundef %13, i64 noundef 72) #10
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i32 -1, ptr %15, align 8
   %16 = load ptr, ptr %8, align 8
   %17 = load i32, ptr @proto_ngap, align 4
@@ -28364,7 +28364,7 @@ define internal i32 @dissect_ngap_InitiatingMessage_value(ptr noundef %0, i32 no
 
 ngap_get_private_data.exit:                       ; preds = %5, %12
   %.0.i = phi ptr [ %11, %5 ], [ %14, %12 ]
-  %18 = getelementptr inbounds i8, ptr %.0.i, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %.0.i, i64 20
   store i32 0, ptr %18, align 4
   %19 = tail call i32 @dissect_per_open_type_pdu_new(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull @dissect_InitiatingMessageValue) #10
   ret i32 %19
@@ -28372,7 +28372,7 @@ ngap_get_private_data.exit:                       ; preds = %5, %12
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_InitiatingMessageValue(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 408
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr @proto_ngap, align 4
   %8 = tail call ptr @p_get_proto_data(ptr noundef %6, ptr noundef %1, i32 noundef %7, i32 noundef 0) #10
@@ -28382,7 +28382,7 @@ define internal i32 @dissect_InitiatingMessageValue(ptr noundef %0, ptr noundef 
 9:                                                ; preds = %4
   %10 = load ptr, ptr %5, align 8
   %11 = tail call noalias ptr @wmem_alloc0(ptr noundef %10, i64 noundef 72) #10
-  %12 = getelementptr inbounds i8, ptr %11, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i32 -1, ptr %12, align 8
   %13 = load ptr, ptr %5, align 8
   %14 = load i32, ptr @proto_ngap, align 4
@@ -28392,7 +28392,7 @@ define internal i32 @dissect_InitiatingMessageValue(ptr noundef %0, ptr noundef 
 ngap_get_private_data.exit:                       ; preds = %4, %9
   %.0.i = phi ptr [ %8, %4 ], [ %11, %9 ]
   %15 = load ptr, ptr @ngap_proc_imsg_dissector_table, align 8
-  %16 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = tail call i32 @dissector_try_uint_new(ptr noundef %15, i32 noundef %17, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 1, ptr noundef %3) #10
   %.not = icmp eq i32 %18, 0
@@ -28409,9 +28409,9 @@ ngap_get_private_data.exit:                       ; preds = %4, %9
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ngap_SuccessfulOutcome_value(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @proto_ngap, align 4
   %11 = tail call ptr @p_get_proto_data(ptr noundef %9, ptr noundef %7, i32 noundef %10, i32 noundef 0) #10
@@ -28421,7 +28421,7 @@ define internal i32 @dissect_ngap_SuccessfulOutcome_value(ptr noundef %0, i32 no
 12:                                               ; preds = %5
   %13 = load ptr, ptr %8, align 8
   %14 = tail call noalias ptr @wmem_alloc0(ptr noundef %13, i64 noundef 72) #10
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i32 -1, ptr %15, align 8
   %16 = load ptr, ptr %8, align 8
   %17 = load i32, ptr @proto_ngap, align 4
@@ -28430,7 +28430,7 @@ define internal i32 @dissect_ngap_SuccessfulOutcome_value(ptr noundef %0, i32 no
 
 ngap_get_private_data.exit:                       ; preds = %5, %12
   %.0.i = phi ptr [ %11, %5 ], [ %14, %12 ]
-  %18 = getelementptr inbounds i8, ptr %.0.i, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %.0.i, i64 20
   store i32 1, ptr %18, align 4
   %19 = tail call i32 @dissect_per_open_type_pdu_new(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull @dissect_SuccessfulOutcomeValue) #10
   ret i32 %19
@@ -28438,7 +28438,7 @@ ngap_get_private_data.exit:                       ; preds = %5, %12
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_SuccessfulOutcomeValue(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 408
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr @proto_ngap, align 4
   %8 = tail call ptr @p_get_proto_data(ptr noundef %6, ptr noundef %1, i32 noundef %7, i32 noundef 0) #10
@@ -28448,7 +28448,7 @@ define internal i32 @dissect_SuccessfulOutcomeValue(ptr noundef %0, ptr noundef 
 9:                                                ; preds = %4
   %10 = load ptr, ptr %5, align 8
   %11 = tail call noalias ptr @wmem_alloc0(ptr noundef %10, i64 noundef 72) #10
-  %12 = getelementptr inbounds i8, ptr %11, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i32 -1, ptr %12, align 8
   %13 = load ptr, ptr %5, align 8
   %14 = load i32, ptr @proto_ngap, align 4
@@ -28458,7 +28458,7 @@ define internal i32 @dissect_SuccessfulOutcomeValue(ptr noundef %0, ptr noundef 
 ngap_get_private_data.exit:                       ; preds = %4, %9
   %.0.i = phi ptr [ %8, %4 ], [ %11, %9 ]
   %15 = load ptr, ptr @ngap_proc_sout_dissector_table, align 8
-  %16 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = tail call i32 @dissector_try_uint_new(ptr noundef %15, i32 noundef %17, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 1, ptr noundef %3) #10
   %.not = icmp eq i32 %18, 0
@@ -28475,9 +28475,9 @@ ngap_get_private_data.exit:                       ; preds = %4, %9
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ngap_UnsuccessfulOutcome_value(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @proto_ngap, align 4
   %11 = tail call ptr @p_get_proto_data(ptr noundef %9, ptr noundef %7, i32 noundef %10, i32 noundef 0) #10
@@ -28487,7 +28487,7 @@ define internal i32 @dissect_ngap_UnsuccessfulOutcome_value(ptr noundef %0, i32 
 12:                                               ; preds = %5
   %13 = load ptr, ptr %8, align 8
   %14 = tail call noalias ptr @wmem_alloc0(ptr noundef %13, i64 noundef 72) #10
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i32 -1, ptr %15, align 8
   %16 = load ptr, ptr %8, align 8
   %17 = load i32, ptr @proto_ngap, align 4
@@ -28496,7 +28496,7 @@ define internal i32 @dissect_ngap_UnsuccessfulOutcome_value(ptr noundef %0, i32 
 
 ngap_get_private_data.exit:                       ; preds = %5, %12
   %.0.i = phi ptr [ %11, %5 ], [ %14, %12 ]
-  %18 = getelementptr inbounds i8, ptr %.0.i, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %.0.i, i64 20
   store i32 2, ptr %18, align 4
   %19 = tail call i32 @dissect_per_open_type_pdu_new(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull @dissect_UnsuccessfulOutcomeValue) #10
   ret i32 %19
@@ -28504,7 +28504,7 @@ ngap_get_private_data.exit:                       ; preds = %5, %12
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_UnsuccessfulOutcomeValue(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 408
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr @proto_ngap, align 4
   %8 = tail call ptr @p_get_proto_data(ptr noundef %6, ptr noundef %1, i32 noundef %7, i32 noundef 0) #10
@@ -28514,7 +28514,7 @@ define internal i32 @dissect_UnsuccessfulOutcomeValue(ptr noundef %0, ptr nounde
 9:                                                ; preds = %4
   %10 = load ptr, ptr %5, align 8
   %11 = tail call noalias ptr @wmem_alloc0(ptr noundef %10, i64 noundef 72) #10
-  %12 = getelementptr inbounds i8, ptr %11, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i32 -1, ptr %12, align 8
   %13 = load ptr, ptr %5, align 8
   %14 = load i32, ptr @proto_ngap, align 4
@@ -28524,7 +28524,7 @@ define internal i32 @dissect_UnsuccessfulOutcomeValue(ptr noundef %0, ptr nounde
 ngap_get_private_data.exit:                       ; preds = %4, %9
   %.0.i = phi ptr [ %8, %4 ], [ %11, %9 ]
   %15 = load ptr, ptr @ngap_proc_uout_dissector_table, align 8
-  %16 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = tail call i32 @dissector_try_uint_new(ptr noundef %15, i32 noundef %17, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 1, ptr noundef %3) #10
   %.not = icmp eq i32 %18, 0

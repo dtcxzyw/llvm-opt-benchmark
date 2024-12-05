@@ -145,7 +145,7 @@ define dso_local void @_ZN5clang29getClangFullRepositoryVersionB5cxx11Ev(ptr dea
   br label %_ZN4llvm11raw_ostreamlsEc.exit
 
 32:                                               ; preds = %25
-  %33 = getelementptr inbounds i8, ptr %27, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store ptr %33, ptr %26, align 8
   store i8 40, ptr %27, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit
@@ -179,7 +179,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %30, %32
   br label %_ZN4llvm11raw_ostreamlsEc.exit3
 
 48:                                               ; preds = %43
-  %49 = getelementptr inbounds i8, ptr %44, i64 1
+  %49 = getelementptr inbounds nuw i8, ptr %44, i64 1
   store ptr %49, ptr %26, align 8
   store i8 32, ptr %44, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit3
@@ -201,7 +201,7 @@ _ZN4llvm11raw_ostreamlsEc.exit3:                  ; preds = %48, %46, %41
   br label %_ZN4llvm11raw_ostreamlsEc.exit6
 
 58:                                               ; preds = %53
-  %59 = getelementptr inbounds i8, ptr %54, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %54, i64 1
   store ptr %59, ptr %26, align 8
   store i8 41, ptr %54, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit6
@@ -256,7 +256,7 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
 83:                                               ; preds = %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread
   store i16 10272, ptr %76, align 1
   %84 = load ptr, ptr %75, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 2
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 2
   store ptr %85, ptr %75, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -290,7 +290,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %81, %83
   br label %_ZN4llvm11raw_ostreamlsEc.exit9
 
 100:                                              ; preds = %90
-  %101 = getelementptr inbounds i8, ptr %95, i64 1
+  %101 = getelementptr inbounds nuw i8, ptr %95, i64 1
   store ptr %101, ptr %94, align 8
   store i8 32, ptr %95, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit9
@@ -311,7 +311,7 @@ _ZN4llvm11raw_ostreamlsEc.exit9:                  ; preds = %100, %98, %_ZN4llvm
   br label %_ZN4llvm11raw_ostreamlsEc.exit12
 
 111:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit9
-  %112 = getelementptr inbounds i8, ptr %106, i64 1
+  %112 = getelementptr inbounds nuw i8, ptr %106, i64 1
   store ptr %112, ptr %105, align 8
   store i8 41, ptr %106, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit12
@@ -421,7 +421,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %27, %29, %30
   %43 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %33, ptr noundef nonnull align 1 dereferenceable(18) @.str.3, i64 18, i1 false)
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 18
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 18
   store ptr %45, ptr %43, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -446,7 +446,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %40, %42
 55:                                               ; preds = %47
   store i8 32, ptr %51, align 1
   %56 = load ptr, ptr %50, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 1
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 1
   store ptr %57, ptr %50, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit5
 
@@ -515,7 +515,7 @@ define dso_local void @_ZN5clang22getClangFullCPPVersionB5cxx11Ev(ptr dead_on_un
 27:                                               ; preds = %1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %20, ptr noundef nonnull align 1 dereferenceable(15) @.str.5, i64 15, i1 false)
   %28 = load ptr, ptr %19, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 15
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 15
   store ptr %29, ptr %19, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -540,7 +540,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %25, %27
 39:                                               ; preds = %31
   store i8 32, ptr %35, align 1
   %40 = load ptr, ptr %34, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 1
   store ptr %41, ptr %34, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit3
 

@@ -155,11 +155,11 @@ define dso_local noundef i32 @p9_error_init() #0 align 16 {
   %4 = phi ptr [ %19, %17 ], [ @errmap, %0 ]
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #8
   %6 = trunc i64 %5 to i32
-  %7 = getelementptr inbounds i8, ptr %4, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %6, ptr %7, align 4
   %8 = tail call fastcc i32 @jhash(ptr noundef nonnull %3, i32 noundef %6)
   %9 = and i32 %8, 31
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %11 = zext nneg i32 %9 to i64
   %12 = getelementptr [32 x %struct.hlist_head], ptr @hash_errmap, i64 0, i64 %11
   %13 = load ptr, ptr %12, align 8
@@ -168,13 +168,13 @@ define dso_local noundef i32 @p9_error_init() #0 align 16 {
   br i1 %14, label %17, label %15
 
 15:                                               ; preds = %.preheader
-  %16 = getelementptr inbounds i8, ptr %13, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store volatile ptr %10, ptr %16, align 8
   br label %17
 
 17:                                               ; preds = %15, %.preheader
   store volatile ptr %10, ptr %12, align 8
-  %18 = getelementptr inbounds i8, ptr %4, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store volatile ptr %12, ptr %18, align 8
   %19 = getelementptr i8, ptr %4, i64 32
   %20 = load ptr, ptr %19, align 8
@@ -413,7 +413,7 @@ define dso_local range(i32 1, 0) i32 @p9_errstr2errno(ptr noundef %0, i32 nounde
 
 .preheader:                                       ; preds = %2, %20
   %12 = phi ptr [ %24, %20 ], [ %9, %2 ]
-  %13 = getelementptr inbounds i8, ptr %12, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, %1
   br i1 %15, label %16, label %20
@@ -425,7 +425,7 @@ define dso_local range(i32 1, 0) i32 @p9_errstr2errno(ptr noundef %0, i32 nounde
   br i1 %19, label %27, label %20
 
 20:                                               ; preds = %16, %.preheader
-  %21 = getelementptr inbounds i8, ptr %12, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   %24 = getelementptr i8, ptr %22, i64 -16
@@ -434,7 +434,7 @@ define dso_local range(i32 1, 0) i32 @p9_errstr2errno(ptr noundef %0, i32 nounde
   br i1 %26, label %.thread, label %.preheader, !llvm.loop !9
 
 27:                                               ; preds = %16
-  %28 = getelementptr inbounds i8, ptr %12, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %29 = load i32, ptr %28, align 8
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %.thread, label %33

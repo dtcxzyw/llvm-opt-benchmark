@@ -9,12 +9,12 @@ target triple = "x86_64-unknown-linux-gnu"
 define void @_ZN9grpc_core17TimeAveragedStatsC2Eddd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 56)) %this, double noundef %init_avg, double noundef %regress_weight, double noundef %persistence_factor) unnamed_addr #0 align 2 {
 entry:
   store double %init_avg, ptr %this, align 8
-  %regress_weight_ = getelementptr inbounds i8, ptr %this, i64 8
+  %regress_weight_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store double %regress_weight, ptr %regress_weight_, align 8
-  %persistence_factor_ = getelementptr inbounds i8, ptr %this, i64 16
+  %persistence_factor_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store double %persistence_factor, ptr %persistence_factor_, align 8
-  %batch_total_value_ = getelementptr inbounds i8, ptr %this, i64 24
-  %aggregate_weighted_avg_ = getelementptr inbounds i8, ptr %this, i64 48
+  %batch_total_value_ = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %aggregate_weighted_avg_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %batch_total_value_, i8 0, i64 24, i1 false)
   store double %init_avg, ptr %aggregate_weighted_avg_, align 8
   ret void
@@ -23,11 +23,11 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN9grpc_core17TimeAveragedStats9AddSampleEd(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, double noundef %value) local_unnamed_addr #1 align 2 {
 entry:
-  %batch_total_value_ = getelementptr inbounds i8, ptr %this, i64 24
+  %batch_total_value_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load double, ptr %batch_total_value_, align 8
   %add = fadd double %value, %0
   store double %add, ptr %batch_total_value_, align 8
-  %batch_num_samples_ = getelementptr inbounds i8, ptr %this, i64 32
+  %batch_num_samples_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load double, ptr %batch_num_samples_, align 8
   %inc = fadd double %1, 1.000000e+00
   store double %inc, ptr %batch_num_samples_, align 8
@@ -37,11 +37,11 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef double @_ZN9grpc_core17TimeAveragedStats13UpdateAverageEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %batch_total_value_ = getelementptr inbounds i8, ptr %this, i64 24
+  %batch_total_value_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load double, ptr %batch_total_value_, align 8
-  %batch_num_samples_ = getelementptr inbounds i8, ptr %this, i64 32
+  %batch_num_samples_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load double, ptr %batch_num_samples_, align 8
-  %regress_weight_ = getelementptr inbounds i8, ptr %this, i64 8
+  %regress_weight_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load double, ptr %regress_weight_, align 8
   %cmp = fcmp ogt double %2, 0.000000e+00
   %3 = load double, ptr %this, align 8
@@ -49,16 +49,16 @@ entry:
   %add = fadd double %1, %2
   %total_weight.0 = select i1 %cmp, double %add, double %1
   %weighted_sum.0 = select i1 %cmp, double %4, double %0
-  %persistence_factor_ = getelementptr inbounds i8, ptr %this, i64 16
+  %persistence_factor_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %5 = load double, ptr %persistence_factor_, align 8
   %cmp4 = fcmp ogt double %5, 0.000000e+00
   br i1 %cmp4, label %if.then5, label %if.end9
 
 if.then5:                                         ; preds = %entry
-  %aggregate_total_weight_ = getelementptr inbounds i8, ptr %this, i64 40
+  %aggregate_total_weight_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %6 = load double, ptr %aggregate_total_weight_, align 8
   %mul = fmul double %5, %6
-  %aggregate_weighted_avg_ = getelementptr inbounds i8, ptr %this, i64 48
+  %aggregate_weighted_avg_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %7 = load double, ptr %aggregate_weighted_avg_, align 8
   %8 = tail call double @llvm.fmuladd.f64(double %mul, double %7, double %weighted_sum.0)
   %add8 = fadd double %total_weight.0, %mul
@@ -70,9 +70,9 @@ if.end9:                                          ; preds = %if.then5, %entry
   %cmp10 = fcmp ogt double %total_weight.1, 0.000000e+00
   %div = fdiv double %weighted_sum.1, %total_weight.1
   %cond = select i1 %cmp10, double %div, double %3
-  %aggregate_weighted_avg_12 = getelementptr inbounds i8, ptr %this, i64 48
+  %aggregate_weighted_avg_12 = getelementptr inbounds nuw i8, ptr %this, i64 48
   store double %cond, ptr %aggregate_weighted_avg_12, align 8
-  %aggregate_total_weight_13 = getelementptr inbounds i8, ptr %this, i64 40
+  %aggregate_total_weight_13 = getelementptr inbounds nuw i8, ptr %this, i64 40
   store double %total_weight.1, ptr %aggregate_total_weight_13, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %batch_total_value_, i8 0, i64 16, i1 false)
   ret double %cond

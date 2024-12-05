@@ -109,12 +109,12 @@ declare double @densmatr_calcInnerProductLocal(ptr noundef byval(%struct.Qureg) 
 
 ; Function Attrs: nounwind uwtable
 define double @densmatr_calcFidelity(ptr noundef byval(%struct.Qureg) align 8 initializes((56, 72)) %0, ptr noundef byval(%struct.Qureg) align 8 %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
-  %5 = getelementptr inbounds i8, ptr %1, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %4, align 8
   %9 = tail call double @densmatr_calcFidelityLocal(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull byval(%struct.Qureg) align 8 %1) #14
@@ -125,12 +125,12 @@ declare double @densmatr_calcFidelityLocal(ptr noundef byval(%struct.Qureg) alig
 
 ; Function Attrs: nounwind uwtable
 define void @densmatr_initPureState(ptr noundef byval(%struct.Qureg) align 8 initializes((56, 72)) %0, ptr noundef byval(%struct.Qureg) align 8 %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
-  %5 = getelementptr inbounds i8, ptr %1, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %4, align 8
   tail call void @densmatr_initPureStateLocal(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull byval(%struct.Qureg) align 8 %1) #14
@@ -149,7 +149,7 @@ declare { double, double } @statevec_calcInnerProductLocal(ptr noundef byval(%st
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define double @densmatr_calcTotalProb(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %3, 63
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -158,7 +158,7 @@ define double @densmatr_calcTotalProb(ptr nocapture noundef readonly byval(%stru
   %4 = zext nneg i32 %3 to i64
   %5 = shl nuw i64 1, %4
   %6 = add nuw nsw i64 %5, 1
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
   %smax = tail call i64 @llvm.smax.i64(i64 %5, i64 1)
   br label %9
@@ -185,15 +185,15 @@ define double @densmatr_calcTotalProb(ptr nocapture noundef readonly byval(%stru
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define double @statevec_calcTotalProb(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
   %4 = icmp sgt i64 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
   br label %9
 
@@ -201,14 +201,14 @@ define double @statevec_calcTotalProb(ptr nocapture noundef readonly byval(%stru
   %.025 = phi double [ 0.000000e+00, %.lr.ph ], [ %21, %9 ]
   %.02124 = phi i64 [ 0, %.lr.ph ], [ %24, %9 ]
   %.02223 = phi double [ 0.000000e+00, %.lr.ph ], [ %23, %9 ]
-  %10 = getelementptr inbounds double, ptr %6, i64 %.02124
+  %10 = getelementptr inbounds nuw double, ptr %6, i64 %.02124
   %11 = load double, ptr %10, align 8
   %12 = fneg double %.02223
   %13 = tail call double @llvm.fmuladd.f64(double %11, double %11, double %12)
   %14 = fadd double %.025, %13
   %15 = fsub double %14, %.025
   %16 = fsub double %15, %13
-  %17 = getelementptr inbounds double, ptr %8, i64 %.02124
+  %17 = getelementptr inbounds nuw double, ptr %8, i64 %.02124
   %18 = load double, ptr %17, align 8
   %19 = fneg double %16
   %20 = tail call double @llvm.fmuladd.f64(double %18, double %18, double %19)
@@ -227,11 +227,11 @@ define double @statevec_calcTotalProb(ptr nocapture noundef readonly byval(%stru
 ; Function Attrs: nounwind uwtable
 define void @createQuESTEnv(ptr dead_on_unwind noalias writable sret(%struct.QuESTEnv) align 8 initializes((0, 20)) %0) local_unnamed_addr #0 {
   store i32 0, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 1, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %4, align 8
   tail call void @seedQuESTDefault(ptr noundef nonnull %0) #14
   ret void
@@ -251,7 +251,7 @@ define noundef i32 @syncQuESTSuccess(i32 noundef returned %0) local_unnamed_addr
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @destroyQuESTEnv(ptr nocapture noundef readonly byval(%struct.QuESTEnv) align 8 %0) local_unnamed_addr #6 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #14
   ret void
@@ -264,7 +264,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
 define void @reportQuESTEnv(ptr nocapture noundef readonly byval(%struct.QuESTEnv) align 8 %0) local_unnamed_addr #0 {
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   %puts1 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %3)
   %puts2 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
@@ -292,7 +292,7 @@ declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapt
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define double @statevec_getRealAmp(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i64 noundef %1) local_unnamed_addr #10 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds double, ptr %4, i64 %1
   %6 = load double, ptr %5, align 8
@@ -301,7 +301,7 @@ define double @statevec_getRealAmp(ptr nocapture noundef readonly byval(%struct.
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define double @statevec_getImagAmp(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i64 noundef %1) local_unnamed_addr #10 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds double, ptr %4, i64 %1
   %6 = load double, ptr %5, align 8
@@ -456,7 +456,7 @@ declare void @statevec_collapseToKnownProbOutcomeLocal(ptr noundef byval(%struct
 
 ; Function Attrs: nounwind uwtable
 define void @seedQuEST(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %7, label %6
@@ -479,17 +479,17 @@ define void @seedQuEST(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2)
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %12 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   %13 = load i64, ptr %12, align 8
   %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds i64, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %indvars.iv
   store i64 %13, ptr %15, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %2, ptr %16, align 8
   tail call void @init_by_array(ptr noundef %1, i32 noundef %2) #14
   ret void
@@ -526,12 +526,12 @@ declare void @statevec_swapQubitAmpsLocal(ptr noundef byval(%struct.Qureg) align
 
 ; Function Attrs: nounwind uwtable
 define void @densmatr_applyDiagonalOp(ptr noundef byval(%struct.Qureg) align 8 initializes((56, 72)) %0, ptr noundef byval(%struct.DiagonalOp) align 8 %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %4, align 8
   tail call void @densmatr_applyDiagonalOpLocal(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull byval(%struct.DiagonalOp) align 8 %1) #14

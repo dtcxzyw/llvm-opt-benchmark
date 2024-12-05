@@ -487,8 +487,8 @@ define internal void @img_draw_core(ptr noundef %0, ptr noundef %1, ptr nocaptur
   %229 = zext nneg i32 %219 to i64
   %230 = icmp sgt i32 %139, 0
   %231 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 97
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 98
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 97
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 98
   %wide.trip.count = zext nneg i32 %139 to i64
   br label %232
 
@@ -545,9 +545,9 @@ define internal void @img_draw_core(ptr noundef %0, ptr noundef %1, ptr nocaptur
 
 256:                                              ; preds = %.preheader322.us, %256
   %indvars.iv = phi i64 [ 0, %.preheader322.us ], [ %indvars.iv.next, %256 ]
-  %257 = getelementptr inbounds i8, ptr %.0276340.us, i64 %indvars.iv
+  %257 = getelementptr inbounds nuw i8, ptr %.0276340.us, i64 %indvars.iv
   %258 = load i8, ptr %257, align 1, !tbaa !23
-  %259 = getelementptr inbounds %struct.lv_color32_t, ptr %.0278339.us, i64 %indvars.iv
+  %259 = getelementptr inbounds nuw %struct.lv_color32_t, ptr %.0278339.us, i64 %indvars.iv
   %260 = getelementptr inbounds nuw i8, ptr %259, i64 2
   store i8 %258, ptr %260, align 1, !tbaa !56
   %261 = getelementptr inbounds nuw i8, ptr %259, i64 1
@@ -561,7 +561,7 @@ define internal void @img_draw_core(ptr noundef %0, ptr noundef %1, ptr nocaptur
   br i1 %exitcond354.not, label %._crit_edge.us, label %256, !llvm.loop !61
 
 ._crit_edge.us:                                   ; preds = %256
-  %264 = getelementptr inbounds %struct.lv_color32_t, ptr %.0278339.us, i64 %227
+  %264 = getelementptr inbounds nuw %struct.lv_color32_t, ptr %.0278339.us, i64 %227
   %265 = getelementptr inbounds nuw i8, ptr %.0276340.us, i64 %218
   %266 = add nuw nsw i32 %.0279338.us, 1
   %exitcond355.not = icmp eq i32 %266, %246
@@ -670,7 +670,7 @@ define internal void @img_draw_core(ptr noundef %0, ptr noundef %1, ptr nocaptur
 
 320:                                              ; preds = %.lr.ph342, %320
   %indvars.iv356 = phi i64 [ 0, %.lr.ph342 ], [ %indvars.iv.next357, %320 ]
-  %321 = getelementptr inbounds i16, ptr %175, i64 %indvars.iv356
+  %321 = getelementptr inbounds nuw i16, ptr %175, i64 %indvars.iv356
   %322 = load i16, ptr %321, align 2, !tbaa !66
   %323 = zext i16 %322 to i32
   %324 = lshr i32 %323, 11

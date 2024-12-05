@@ -124,7 +124,7 @@ define hidden zeroext range(i8 0, 2) i8 @GLXGC_IsGLXAvailable() local_unnamed_ad
   br i1 %25, label %26, label %30
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %20, i64 2
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 2
   %28 = load i8, ptr %27, align 1
   %29 = icmp sgt i8 %28, 50
   br i1 %29, label %GLXGC_InitGLX.exit, label %.thread.i
@@ -162,7 +162,7 @@ define hidden void @OGLGC_DestroyOGLGraphicsConfig(i64 noundef %0) local_unnamed
   br label %26
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %25, label %8
@@ -188,7 +188,7 @@ define hidden void @OGLGC_DestroyOGLGraphicsConfig(i64 noundef %0) local_unnamed
   br label %18
 
 18:                                               ; preds = %15, %10
-  %19 = getelementptr inbounds i8, ptr %9, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %20 = load i64, ptr %19, align 8
   %.not14.i = icmp eq i64 %20, 0
   br i1 %.not14.i, label %24, label %21
@@ -252,7 +252,7 @@ define hidden i64 @GLXGC_FindBestVisual(ptr nocapture noundef readnone %0, i32 n
   br label %19
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %12, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %17 = load i64, ptr %16, align 8
   %18 = tail call i32 @XFree(ptr noundef nonnull %12) #8
   tail call void (i32, i8, ptr, ...) @J2dTraceImpl(i32 noundef 3, i8 noundef zeroext 1, ptr noundef nonnull @.str.5, i64 noundef %17, i32 noundef %1) #8
@@ -302,7 +302,7 @@ define internal fastcc ptr @GLXGC_InitFBConfig(i32 noundef %0, i64 noundef range
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %77 ]
   %.0324 = phi ptr [ null, %.lr.ph ], [ %.2, %77 ]
   %.0342 = phi i32 [ 512, %.lr.ph ], [ %.135, %77 ]
-  %23 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr @j2d_glXGetVisualFromFBConfig, align 8
   %26 = load ptr, ptr @awt_display, align 8
@@ -311,7 +311,7 @@ define internal fastcc ptr @GLXGC_InitFBConfig(i32 noundef %0, i64 noundef range
   br i1 %28, label %77, label %29
 
 29:                                               ; preds = %22
-  %30 = getelementptr inbounds i8, ptr %27, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %31 = load i64, ptr %30, align 8
   %32 = call i32 @XFree(ptr noundef nonnull %27) #8
   %33 = icmp eq i64 %1, %31
@@ -548,13 +548,13 @@ define noundef i64 @Java_sun_java2d_opengl_GLXGraphicsConfig_getGLXConfigInfo(pt
   br label %102
 
 74:                                               ; preds = %65
-  %75 = getelementptr inbounds i8, ptr %66, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %66, i64 8
   store ptr %10, ptr %75, align 8
   store ptr %26, ptr %66, align 8
-  %76 = getelementptr inbounds i8, ptr %66, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %66, i64 16
   store i64 %32, ptr %76, align 8
   store ptr %66, ptr %calloc.i, align 8
-  %77 = getelementptr inbounds i8, ptr %calloc.i, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
   store i32 %62, ptr %77, align 8
   %78 = call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #9
   %79 = icmp eq ptr %78, null
@@ -582,7 +582,7 @@ define noundef i64 @Java_sun_java2d_opengl_GLXGraphicsConfig_getGLXConfigInfo(pt
   br label %90
 
 90:                                               ; preds = %87, %82
-  %91 = getelementptr inbounds i8, ptr %81, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %92 = load i64, ptr %91, align 8
   %.not14.i = icmp eq i64 %92, 0
   br i1 %.not14.i, label %96, label %93
@@ -603,11 +603,11 @@ GLXGC_DestroyOGLContext.exit:                     ; preds = %80, %96
 
 97:                                               ; preds = %74
   store i32 %spec.select, ptr %78, align 8
-  %98 = getelementptr inbounds i8, ptr %78, i64 4
+  %98 = getelementptr inbounds nuw i8, ptr %78, i64 4
   store i32 %3, ptr %98, align 4
-  %99 = getelementptr inbounds i8, ptr %78, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %78, i64 8
   store ptr %calloc.i, ptr %99, align 8
-  %100 = getelementptr inbounds i8, ptr %78, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %78, i64 16
   store ptr %10, ptr %100, align 8
   %101 = ptrtoint ptr %78 to i64
   br label %102
@@ -644,7 +644,7 @@ define void @Java_sun_java2d_opengl_GLXGraphicsConfig_initConfig(ptr noundef %0,
 
 11:                                               ; preds = %8
   %12 = inttoptr i64 %3 to ptr
-  %13 = getelementptr inbounds i8, ptr %5, i64 152
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 152
   store ptr %12, ptr %13, align 8
   br label %14
 
@@ -661,13 +661,13 @@ define i32 @Java_sun_java2d_opengl_GLXGraphicsConfig_getOGLCapabilities(ptr noca
 
 5:                                                ; preds = %3
   %6 = inttoptr i64 %2 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %13, label %10
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load i32, ptr %11, align 8
   br label %13
 

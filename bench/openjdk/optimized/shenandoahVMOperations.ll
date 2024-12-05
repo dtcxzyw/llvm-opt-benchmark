@@ -152,22 +152,22 @@ declare void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN21VM_ShenandoahInitMark4doitEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #1 align 2 {
   %2 = alloca %class.ShenandoahGCPauseMark, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   call void @_ZN21ShenandoahGCPauseMarkC1EjPKcN11SvcGCMarker11reason_typeE(ptr noundef nonnull align 8 dereferenceable(48) %2, i32 noundef %4, ptr noundef nonnull @.str, i32 noundef 2) #5
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   call void @_ZN22ShenandoahConcurrentGC15entry_init_markEv(ptr noundef nonnull align 8 dereferenceable(21) %6) #5
   %7 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   call void @_ZN14ShenandoahHeap34propagate_gc_state_to_java_threadsEv(ptr noundef nonnull align 8 dereferenceable(2657) %7) #5
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @_ZN23TraceMemoryManagerStatsD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #5
-  %9 = getelementptr inbounds i8, ptr %2, i64 14
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 14
   call void @_ZN17IsSTWGCActiveMarkD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #5
   call void @_ZN15VM_GC_Operation13notify_gc_endEv() #5
-  %10 = getelementptr inbounds i8, ptr %2, i64 13
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 13
   call void @_ZN13JvmtiGCMarkerD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #5
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @_ZN8GCIdMarkD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %11) #5
   ret void
 }
@@ -181,22 +181,22 @@ declare void @_ZN14ShenandoahHeap34propagate_gc_state_to_java_threadsEv(ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN31VM_ShenandoahFinalMarkStartEvac4doitEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #1 align 2 {
   %2 = alloca %class.ShenandoahGCPauseMark, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   call void @_ZN21ShenandoahGCPauseMarkC1EjPKcN11SvcGCMarker11reason_typeE(ptr noundef nonnull align 8 dereferenceable(48) %2, i32 noundef %4, ptr noundef nonnull @.str.4, i32 noundef 2) #5
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   call void @_ZN22ShenandoahConcurrentGC16entry_final_markEv(ptr noundef nonnull align 8 dereferenceable(21) %6) #5
   %7 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   call void @_ZN14ShenandoahHeap34propagate_gc_state_to_java_threadsEv(ptr noundef nonnull align 8 dereferenceable(2657) %7) #5
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @_ZN23TraceMemoryManagerStatsD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #5
-  %9 = getelementptr inbounds i8, ptr %2, i64 14
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 14
   call void @_ZN17IsSTWGCActiveMarkD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #5
   call void @_ZN15VM_GC_Operation13notify_gc_endEv() #5
-  %10 = getelementptr inbounds i8, ptr %2, i64 13
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 13
   call void @_ZN13JvmtiGCMarkerD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #5
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @_ZN8GCIdMarkD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %11) #5
   ret void
 }
@@ -206,24 +206,24 @@ declare void @_ZN22ShenandoahConcurrentGC16entry_final_markEv(ptr noundef nonnul
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19VM_ShenandoahFullGC4doitEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #1 align 2 {
   %2 = alloca %class.ShenandoahGCPauseMark, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   call void @_ZN21ShenandoahGCPauseMarkC1EjPKcN11SvcGCMarker11reason_typeE(ptr noundef nonnull align 8 dereferenceable(48) %2, i32 noundef %4, ptr noundef nonnull @.str.5, i32 noundef 1) #5
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %8 = load i32, ptr %7, align 4
   call void @_ZN16ShenandoahFullGC10entry_fullEN7GCCause5CauseE(ptr noundef nonnull align 8 dereferenceable(24) %6, i32 noundef %8) #5
   %9 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   call void @_ZN14ShenandoahHeap34propagate_gc_state_to_java_threadsEv(ptr noundef nonnull align 8 dereferenceable(2657) %9) #5
-  %10 = getelementptr inbounds i8, ptr %2, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @_ZN23TraceMemoryManagerStatsD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #5
-  %11 = getelementptr inbounds i8, ptr %2, i64 14
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 14
   call void @_ZN17IsSTWGCActiveMarkD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #5
   call void @_ZN15VM_GC_Operation13notify_gc_endEv() #5
-  %12 = getelementptr inbounds i8, ptr %2, i64 13
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 13
   call void @_ZN13JvmtiGCMarkerD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #5
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @_ZN8GCIdMarkD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %13) #5
   ret void
 }
@@ -233,22 +233,22 @@ declare void @_ZN16ShenandoahFullGC10entry_fullEN7GCCause5CauseE(ptr noundef non
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN26VM_ShenandoahDegeneratedGC4doitEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #1 align 2 {
   %2 = alloca %class.ShenandoahGCPauseMark, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   call void @_ZN21ShenandoahGCPauseMarkC1EjPKcN11SvcGCMarker11reason_typeE(ptr noundef nonnull align 8 dereferenceable(48) %2, i32 noundef %4, ptr noundef nonnull @.str.6, i32 noundef 2) #5
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   call void @_ZN17ShenandoahDegenGC17entry_degeneratedEv(ptr noundef nonnull align 8 dereferenceable(13) %6) #5
   %7 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   call void @_ZN14ShenandoahHeap34propagate_gc_state_to_java_threadsEv(ptr noundef nonnull align 8 dereferenceable(2657) %7) #5
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @_ZN23TraceMemoryManagerStatsD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #5
-  %9 = getelementptr inbounds i8, ptr %2, i64 14
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 14
   call void @_ZN17IsSTWGCActiveMarkD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #5
   call void @_ZN15VM_GC_Operation13notify_gc_endEv() #5
-  %10 = getelementptr inbounds i8, ptr %2, i64 13
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 13
   call void @_ZN13JvmtiGCMarkerD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #5
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @_ZN8GCIdMarkD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %11) #5
   ret void
 }
@@ -258,22 +258,22 @@ declare void @_ZN17ShenandoahDegenGC17entry_degeneratedEv(ptr noundef nonnull al
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN27VM_ShenandoahInitUpdateRefs4doitEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #1 align 2 {
   %2 = alloca %class.ShenandoahGCPauseMark, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   call void @_ZN21ShenandoahGCPauseMarkC1EjPKcN11SvcGCMarker11reason_typeE(ptr noundef nonnull align 8 dereferenceable(48) %2, i32 noundef %4, ptr noundef nonnull @.str.7, i32 noundef 2) #5
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   call void @_ZN22ShenandoahConcurrentGC21entry_init_updaterefsEv(ptr noundef nonnull align 8 dereferenceable(21) %6) #5
   %7 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   call void @_ZN14ShenandoahHeap34propagate_gc_state_to_java_threadsEv(ptr noundef nonnull align 8 dereferenceable(2657) %7) #5
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @_ZN23TraceMemoryManagerStatsD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #5
-  %9 = getelementptr inbounds i8, ptr %2, i64 14
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 14
   call void @_ZN17IsSTWGCActiveMarkD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #5
   call void @_ZN15VM_GC_Operation13notify_gc_endEv() #5
-  %10 = getelementptr inbounds i8, ptr %2, i64 13
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 13
   call void @_ZN13JvmtiGCMarkerD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #5
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @_ZN8GCIdMarkD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %11) #5
   ret void
 }
@@ -283,22 +283,22 @@ declare void @_ZN22ShenandoahConcurrentGC21entry_init_updaterefsEv(ptr noundef n
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN28VM_ShenandoahFinalUpdateRefs4doitEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #1 align 2 {
   %2 = alloca %class.ShenandoahGCPauseMark, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   call void @_ZN21ShenandoahGCPauseMarkC1EjPKcN11SvcGCMarker11reason_typeE(ptr noundef nonnull align 8 dereferenceable(48) %2, i32 noundef %4, ptr noundef nonnull @.str.8, i32 noundef 2) #5
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   call void @_ZN22ShenandoahConcurrentGC22entry_final_updaterefsEv(ptr noundef nonnull align 8 dereferenceable(21) %6) #5
   %7 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   call void @_ZN14ShenandoahHeap34propagate_gc_state_to_java_threadsEv(ptr noundef nonnull align 8 dereferenceable(2657) %7) #5
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @_ZN23TraceMemoryManagerStatsD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #5
-  %9 = getelementptr inbounds i8, ptr %2, i64 14
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 14
   call void @_ZN17IsSTWGCActiveMarkD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #5
   call void @_ZN15VM_GC_Operation13notify_gc_endEv() #5
-  %10 = getelementptr inbounds i8, ptr %2, i64 13
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 13
   call void @_ZN13JvmtiGCMarkerD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #5
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @_ZN8GCIdMarkD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %11) #5
   ret void
 }
@@ -308,22 +308,22 @@ declare void @_ZN22ShenandoahConcurrentGC22entry_final_updaterefsEv(ptr noundef 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN23VM_ShenandoahFinalRoots4doitEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #1 align 2 {
   %2 = alloca %class.ShenandoahGCPauseMark, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   call void @_ZN21ShenandoahGCPauseMarkC1EjPKcN11SvcGCMarker11reason_typeE(ptr noundef nonnull align 8 dereferenceable(48) %2, i32 noundef %4, ptr noundef nonnull @.str.9, i32 noundef 2) #5
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   call void @_ZN22ShenandoahConcurrentGC17entry_final_rootsEv(ptr noundef nonnull align 8 dereferenceable(21) %6) #5
   %7 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   call void @_ZN14ShenandoahHeap34propagate_gc_state_to_java_threadsEv(ptr noundef nonnull align 8 dereferenceable(2657) %7) #5
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @_ZN23TraceMemoryManagerStatsD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #5
-  %9 = getelementptr inbounds i8, ptr %2, i64 14
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 14
   call void @_ZN17IsSTWGCActiveMarkD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #5
   call void @_ZN15VM_GC_Operation13notify_gc_endEv() #5
-  %10 = getelementptr inbounds i8, ptr %2, i64 13
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 13
   call void @_ZN13JvmtiGCMarkerD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #5
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @_ZN8GCIdMarkD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %11) #5
   ret void
 }
@@ -352,11 +352,11 @@ declare void @_ZNK12VM_Operation14print_on_errorEP12outputStream(ptr noundef non
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK12VM_Operation4nameEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #5
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds [0 x ptr], ptr @_ZN12VM_Operation6_namesE, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN12VM_Operation6_namesE, i64 0, i64 %6
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
 }

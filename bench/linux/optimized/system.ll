@@ -49,7 +49,7 @@ define internal noundef i32 @system_pnp_probe(ptr noundef %0, ptr nocapture read
 .preheader5:                                      ; preds = %2, %21
   %7 = phi ptr [ %23, %21 ], [ %3, %2 ]
   %8 = phi i32 [ %22, %21 ], [ 0, %2 ]
-  %9 = getelementptr inbounds i8, ptr %7, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %10 = load i64, ptr %9, align 8
   %11 = and i64 %10, 268435456
   %12 = icmp eq i64 %11, 0
@@ -61,7 +61,7 @@ define internal noundef i32 @system_pnp_probe(ptr noundef %0, ptr nocapture read
   br i1 %15, label %21, label %16
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %7, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %18 = load i64, ptr %17, align 8
   %19 = icmp ult i64 %18, %14
   br i1 %19, label %21, label %20
@@ -79,7 +79,7 @@ define internal noundef i32 @system_pnp_probe(ptr noundef %0, ptr nocapture read
 .preheader:                                       ; preds = %.loopexit6, %32
   %25 = phi ptr [ %34, %32 ], [ %5, %.loopexit6 ]
   %26 = phi i32 [ %33, %32 ], [ 0, %.loopexit6 ]
-  %27 = getelementptr inbounds i8, ptr %25, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %28 = load i64, ptr %27, align 8
   %29 = and i64 %28, 268435456
   %30 = icmp eq i64 %29, 0
@@ -104,7 +104,7 @@ declare dso_local ptr @pnp_get_resource(ptr noundef, i64 noundef, i32 noundef) l
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @reserve_range(ptr noundef %0, ptr noundef nonnull %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #2 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %9
@@ -116,7 +116,7 @@ define internal fastcc void @reserve_range(ptr noundef %0, ptr noundef nonnull %
 9:                                                ; preds = %7, %3
   %10 = phi ptr [ %8, %7 ], [ %5, %3 ]
   %11 = load i64, ptr %1, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i64, ptr %12, align 8
   %14 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
   %15 = tail call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %14, i32 noundef 3264, i64 noundef 16) #7
@@ -134,7 +134,7 @@ define internal fastcc void @reserve_range(ptr noundef %0, ptr noundef nonnull %
   br i1 %23, label %28, label %24
 
 24:                                               ; preds = %17
-  %25 = getelementptr inbounds i8, ptr %22, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %26 = load i64, ptr %25, align 8
   %27 = and i64 %26, 2147483647
   store i64 %27, ptr %25, align 8

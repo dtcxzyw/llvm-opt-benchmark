@@ -16,13 +16,13 @@ $_ZN14GZipCompressorD0Ev = comdat any
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN10FileWriter11open_writerEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((20, 24)) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
   %7 = tail call noundef i32 @_ZN2os18create_binary_fileEPKcb(ptr noundef %3, i1 noundef zeroext %6) #3
-  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %7, ptr %8, align 4
   %9 = icmp slt i32 %7, 0
   br i1 %9, label %10, label %14
@@ -48,7 +48,7 @@ declare ptr @__errno_location() local_unnamed_addr #2
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN10FileWriterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV10FileWriter, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 20
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, -1
   br i1 %4, label %5, label %7
@@ -67,7 +67,7 @@ declare i32 @close(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN10FileWriterD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV10FileWriter, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 20
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, -1
   br i1 %4, label %5, label %_ZN10FileWriterD2Ev.exit
@@ -84,7 +84,7 @@ _ZN10FileWriterD2Ev.exit:                         ; preds = %1, %5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN10FileWriter9write_bufEPcm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 20
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = load i32, ptr %4, align 4
   %6 = tail call noundef zeroext i1 @_ZN2os5writeEiPKvm(i32 noundef %5, ptr noundef %1, i64 noundef %2) #3
   br i1 %6, label %11, label %7
@@ -104,11 +104,11 @@ declare noundef zeroext i1 @_ZN2os5writeEiPKvm(i32 noundef, ptr noundef, i64 nou
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN14GZipCompressor4initEmPmS0_(ptr nocapture noundef nonnull align 8 dereferenceable(25) initializes((16, 25)) %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = tail call noundef ptr @_ZN10ZipLibrary11init_paramsEmPmS0_i(i64 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %8) #3
   %10 = load i64, ptr %2, align 8
@@ -124,16 +124,16 @@ define hidden noundef ptr @_ZN14GZipCompressor8compressEPcmS0_mS0_mPm(ptr nocapt
   %9 = alloca ptr, align 8
   %10 = alloca [128 x i8], align 16
   store ptr null, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i8, ptr %11, align 8
   %13 = trunc i8 %12 to i1
   br i1 %13, label %14, label %21
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i64, ptr %15, align 8
   %17 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %10, i64 noundef 128, ptr noundef nonnull @.str, i64 noundef %16) #3
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load i32, ptr %18, align 8
   %20 = call noundef i64 @_ZN10ZipLibrary8compressEPcmS0_mS0_miS0_PPKc(ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, i32 noundef %19, ptr noundef nonnull %10, ptr noundef nonnull %9) #3
   store i64 %20, ptr %7, align 8
@@ -141,7 +141,7 @@ define hidden noundef ptr @_ZN14GZipCompressor8compressEPcmS0_mS0_mPm(ptr nocapt
   br label %25
 
 21:                                               ; preds = %8
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load i32, ptr %22, align 8
   %24 = call noundef i64 @_ZN10ZipLibrary8compressEPcmS0_mS0_miS0_PPKc(ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, i32 noundef %23, ptr noundef null, ptr noundef nonnull %9) #3
   store i64 %24, ptr %7, align 8

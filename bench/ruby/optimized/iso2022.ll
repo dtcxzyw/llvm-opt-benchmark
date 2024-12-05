@@ -75,7 +75,7 @@ define internal range(i64 0, 4) i64 @fun_so_iso2022jp_decoder(ptr nocapture noun
   br i1 %7, label %8, label %20
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %1, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %10 = load i8, ptr %9, align 1
   %11 = icmp eq i8 %10, 40
   %12 = getelementptr i8, ptr %1, i64 %2
@@ -114,12 +114,12 @@ define internal range(i64 0, 4) i64 @fun_so_iso2022jp_decoder(ptr nocapture noun
   store i8 %., ptr %3, align 1
   %23 = load i8, ptr %1, align 1
   %24 = or i8 %23, -128
-  %25 = getelementptr inbounds i8, ptr %3, i64 1
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %24, ptr %25, align 1
-  %26 = getelementptr inbounds i8, ptr %1, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %27 = load i8, ptr %26, align 1
   %28 = or i8 %27, -128
-  %29 = getelementptr inbounds i8, ptr %3, i64 2
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 %28, ptr %29, align 1
   br label %30
 
@@ -148,24 +148,24 @@ define internal i64 @fun_so_iso2022jp_encoder(ptr nocapture noundef %0, ptr noca
   br i1 %.not30, label %.thread36, label %.thread42
 
 .thread42:                                        ; preds = %.thread
-  %13 = getelementptr inbounds i8, ptr %3, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 27, ptr %3, align 1
-  %14 = getelementptr inbounds i8, ptr %3, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 36, ptr %13, align 1
   %. = select i1 %10, i8 64, i8 66
   %.45 = select i1 %10, i8 1, i8 2
   store i8 %., ptr %14, align 1
-  %.144 = getelementptr inbounds i8, ptr %3, i64 3
+  %.144 = getelementptr inbounds nuw i8, ptr %3, i64 3
   store i8 %.45, ptr %0, align 1
   br label %.thread36
 
 15:                                               ; preds = %7
-  %16 = getelementptr inbounds i8, ptr %3, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 27, ptr %3, align 1
-  %17 = getelementptr inbounds i8, ptr %3, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 40, ptr %16, align 1
   store i8 66, ptr %17, align 1
-  %.1 = getelementptr inbounds i8, ptr %3, i64 3
+  %.1 = getelementptr inbounds nuw i8, ptr %3, i64 3
   store i8 0, ptr %0, align 1
   br label %.thread39
 
@@ -173,21 +173,21 @@ define internal i64 @fun_so_iso2022jp_encoder(ptr nocapture noundef %0, ptr noca
   %.02741 = phi ptr [ %.1, %15 ], [ %3, %7 ]
   %18 = load i8, ptr %1, align 1
   %19 = and i8 %18, 127
-  %20 = getelementptr inbounds i8, ptr %.02741, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %.02741, i64 1
   store i8 %19, ptr %.02741, align 1
   br label %29
 
 .thread36:                                        ; preds = %.thread42, %.thread
   %.02738 = phi ptr [ %3, %.thread ], [ %.144, %.thread42 ]
-  %21 = getelementptr inbounds i8, ptr %1, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %22 = load i8, ptr %21, align 1
   %23 = and i8 %22, 127
-  %24 = getelementptr inbounds i8, ptr %.02738, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.02738, i64 1
   store i8 %23, ptr %.02738, align 1
-  %25 = getelementptr inbounds i8, ptr %1, i64 2
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %26 = load i8, ptr %25, align 1
   %27 = and i8 %26, 127
-  %28 = getelementptr inbounds i8, ptr %.02738, i64 2
+  %28 = getelementptr inbounds nuw i8, ptr %.02738, i64 2
   store i8 %27, ptr %24, align 1
   br label %29
 
@@ -206,9 +206,9 @@ define internal range(i64 0, 4) i64 @finish_iso2022jp_encoder(ptr nocapture noun
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %1, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 27, ptr %1, align 1
-  %8 = getelementptr inbounds i8, ptr %1, i64 2
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i8 40, ptr %7, align 1
   store i8 66, ptr %8, align 1
   store i8 0, ptr %0, align 1
@@ -229,12 +229,12 @@ define internal range(i64 0, 4) i64 @iso2022jp_encoder_reset_sequence_size(ptr n
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef i64 @fun_so_stateless_iso2022jp_to_eucjp(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly initializes((0, 2)) %3, i64 %4) #4 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %7 = load i8, ptr %6, align 1
   store i8 %7, ptr %3, align 1
-  %8 = getelementptr inbounds i8, ptr %1, i64 2
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %9 = load i8, ptr %8, align 1
-  %10 = getelementptr inbounds i8, ptr %3, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %9, ptr %10, align 1
   ret i64 2
 }
@@ -243,11 +243,11 @@ define internal noundef i64 @fun_so_stateless_iso2022jp_to_eucjp(ptr nocapture r
 define internal noundef i64 @fun_so_eucjp_to_stateless_iso2022jp(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly initializes((0, 3)) %3, i64 %4) #4 {
   store i8 -110, ptr %3, align 1
   %6 = load i8, ptr %1, align 1
-  %7 = getelementptr inbounds i8, ptr %3, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %6, ptr %7, align 1
-  %8 = getelementptr inbounds i8, ptr %1, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %9 = load i8, ptr %8, align 1
-  %10 = getelementptr inbounds i8, ptr %3, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 %9, ptr %10, align 1
   ret i64 3
 }
@@ -323,7 +323,7 @@ define internal range(i64 0, 3) i64 @fun_so_cp50221_decoder(ptr nocapture nounde
   ]
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %1, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %9 = load i8, ptr %8, align 1
   %10 = icmp eq i8 %9, 40
   %11 = getelementptr i8, ptr %1, i64 %2
@@ -384,17 +384,17 @@ define internal range(i64 0, 3) i64 @fun_so_cp50221_decoder(ptr nocapture nounde
   store i8 -114, ptr %3, align 1
   %29 = load i8, ptr %1, align 1
   %30 = or i8 %29, -128
-  %31 = getelementptr inbounds i8, ptr %3, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %30, ptr %31, align 1
   br label %38
 
 32:                                               ; preds = %25
   %33 = or i8 %6, -128
   store i8 %33, ptr %3, align 1
-  %34 = getelementptr inbounds i8, ptr %1, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %35 = load i8, ptr %34, align 1
   %36 = or i8 %35, -128
-  %37 = getelementptr inbounds i8, ptr %3, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %36, ptr %37, align 1
   br label %38
 
@@ -410,24 +410,24 @@ define internal i64 @fun_so_cp50220_encoder(ptr nocapture noundef %0, ptr nocapt
   br i1 %7, label %8, label %49
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %10 = load i8, ptr %9, align 1
   %11 = and i8 %10, 127
   %12 = shl i8 %10, 1
   %13 = zext i8 %12 to i64
   %14 = getelementptr i8, ptr @.str.7, i64 %13
   %15 = getelementptr i8, ptr %14, i64 -66
-  %16 = getelementptr inbounds i8, ptr %0, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %17 = load i8, ptr %16, align 1
   %.not = icmp eq i8 %17, 2
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %8
-  %19 = getelementptr inbounds i8, ptr %3, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 27, ptr %3, align 1
-  %20 = getelementptr inbounds i8, ptr %3, i64 2
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 36, ptr %19, align 1
-  %21 = getelementptr inbounds i8, ptr %3, i64 3
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 3
   store i8 66, ptr %20, align 1
   br label %22
 
@@ -436,7 +436,7 @@ define internal i64 @fun_so_cp50220_encoder(ptr nocapture noundef %0, ptr nocapt
   store i8 2, ptr %0, align 1
   %23 = getelementptr i8, ptr %14, i64 -65
   %24 = load i8, ptr %15, align 1
-  %25 = getelementptr inbounds i8, ptr %.1, i64 1
+  %25 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   store i8 %24, ptr %.1, align 1
   %26 = icmp eq i64 %2, 2
   br i1 %26, label %27, label %46
@@ -447,7 +447,7 @@ define internal i64 @fun_so_cp50220_encoder(ptr nocapture noundef %0, ptr nocapt
   br i1 %29, label %30, label %46
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %1, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %32 = load i8, ptr %31, align 1
   %33 = icmp eq i8 %32, -34
   br i1 %33, label %34, label %38
@@ -455,7 +455,7 @@ define internal i64 @fun_so_cp50220_encoder(ptr nocapture noundef %0, ptr nocapt
 34:                                               ; preds = %30
   %35 = load i8, ptr %23, align 1
   %36 = add i8 %35, 1
-  %37 = getelementptr inbounds i8, ptr %.1, i64 2
+  %37 = getelementptr inbounds nuw i8, ptr %.1, i64 2
   store i8 %36, ptr %25, align 1
   br label %119
 
@@ -469,13 +469,13 @@ define internal i64 @fun_so_cp50220_encoder(ptr nocapture noundef %0, ptr nocapt
 42:                                               ; preds = %38
   %43 = load i8, ptr %23, align 1
   %44 = add i8 %43, 2
-  %45 = getelementptr inbounds i8, ptr %.1, i64 2
+  %45 = getelementptr inbounds nuw i8, ptr %.1, i64 2
   store i8 %44, ptr %25, align 1
   br label %119
 
 46:                                               ; preds = %38, %27, %22
   %47 = load i8, ptr %23, align 1
-  %48 = getelementptr inbounds i8, ptr %.1, i64 2
+  %48 = getelementptr inbounds nuw i8, ptr %.1, i64 2
   store i8 %47, ptr %25, align 1
   br label %49
 
@@ -490,7 +490,7 @@ define internal i64 @fun_so_cp50220_encoder(ptr nocapture noundef %0, ptr nocapt
   %51 = load i8, ptr %1, align 1
   %52 = icmp eq i8 %51, -114
   %.028.idx.i = zext i1 %52 to i64
-  %.028.i = getelementptr inbounds i8, ptr %1, i64 %.028.idx.i
+  %.028.i = getelementptr inbounds nuw i8, ptr %1, i64 %.028.idx.i
   %.0.i = select i1 %52, i32 3, i32 2
   %53 = load i8, ptr %0, align 1
   %54 = zext i8 %53 to i32
@@ -503,19 +503,19 @@ define internal i64 @fun_so_cp50220_encoder(ptr nocapture noundef %0, ptr nocapt
   br i1 %.not36.i, label %.thread52.i, label %.thread62.i
 
 .thread62.i:                                      ; preds = %.thread.i
-  %56 = getelementptr inbounds i8, ptr %.066, i64 1
+  %56 = getelementptr inbounds nuw i8, ptr %.066, i64 1
   store i8 27, ptr %.066, align 1
-  %57 = getelementptr inbounds i8, ptr %.066, i64 2
+  %57 = getelementptr inbounds nuw i8, ptr %.066, i64 2
   store i8 40, ptr %56, align 1
   store i8 66, ptr %57, align 1
-  %.166.i = getelementptr inbounds i8, ptr %.066, i64 3
+  %.166.i = getelementptr inbounds nuw i8, ptr %.066, i64 3
   br label %.thread52.sink.split.i
 
 58:                                               ; preds = %50
-  %59 = getelementptr inbounds i8, ptr %.066, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %.066, i64 1
   store i8 27, ptr %.066, align 1
-  %60 = getelementptr inbounds i8, ptr %.066, i64 2
-  %.160.i = getelementptr inbounds i8, ptr %.066, i64 3
+  %60 = getelementptr inbounds nuw i8, ptr %.066, i64 2
+  %.160.i = getelementptr inbounds nuw i8, ptr %.066, i64 3
   br i1 %52, label %61, label %62
 
 61:                                               ; preds = %58
@@ -544,7 +544,7 @@ define internal i64 @fun_so_cp50220_encoder(ptr nocapture noundef %0, ptr nocapt
   %.0284056.i = phi ptr [ %.028.i, %63 ], [ %1, %.thread.i ], [ %.0284056.ph.i, %.thread52.sink.split.i ]
   %64 = load i8, ptr %.0284056.i, align 1
   %65 = and i8 %64, 127
-  %66 = getelementptr inbounds i8, ptr %.03057.i, i64 1
+  %66 = getelementptr inbounds nuw i8, ptr %.03057.i, i64 1
   store i8 %65, ptr %.03057.i, align 1
   br label %fun_so_cp5022x_encoder.exit
 
@@ -552,12 +552,12 @@ define internal i64 @fun_so_cp50220_encoder(ptr nocapture noundef %0, ptr nocapt
   %.03059.i = phi ptr [ %.066, %63 ], [ %.160.i, %62 ]
   %68 = load i8, ptr %.028.i, align 1
   %69 = and i8 %68, 127
-  %70 = getelementptr inbounds i8, ptr %.03059.i, i64 1
+  %70 = getelementptr inbounds nuw i8, ptr %.03059.i, i64 1
   store i8 %69, ptr %.03059.i, align 1
-  %71 = getelementptr inbounds i8, ptr %.028.i, i64 1
+  %71 = getelementptr inbounds nuw i8, ptr %.028.i, i64 1
   %72 = load i8, ptr %71, align 1
   %73 = and i8 %72, 127
-  %74 = getelementptr inbounds i8, ptr %.03059.i, i64 2
+  %74 = getelementptr inbounds nuw i8, ptr %.03059.i, i64 2
   store i8 %73, ptr %70, align 1
   br label %fun_so_cp5022x_encoder.exit
 
@@ -572,10 +572,10 @@ define internal i64 @fun_so_cp50220_encoder(ptr nocapture noundef %0, ptr nocapt
   br i1 %.not.i79, label %fun_so_cp5022x_encoder.exit90, label %79
 
 79:                                               ; preds = %.split67
-  %80 = getelementptr inbounds i8, ptr %.066, i64 1
+  %80 = getelementptr inbounds nuw i8, ptr %.066, i64 1
   store i8 27, ptr %.066, align 1
-  %81 = getelementptr inbounds i8, ptr %.066, i64 2
-  %.160.i80 = getelementptr inbounds i8, ptr %.066, i64 3
+  %81 = getelementptr inbounds nuw i8, ptr %.066, i64 2
+  %.160.i80 = getelementptr inbounds nuw i8, ptr %.066, i64 3
   store i8 36, ptr %80, align 1
   store i8 66, ptr %81, align 1
   store i8 2, ptr %0, align 1
@@ -586,17 +586,17 @@ fun_so_cp5022x_encoder.exit90:                    ; preds = %79, %.split67
   %82 = phi i8 [ %.pre, %79 ], [ %76, %.split67 ]
   %.03059.i81 = phi ptr [ %.160.i80, %79 ], [ %.066, %.split67 ]
   %83 = and i8 %82, 127
-  %84 = getelementptr inbounds i8, ptr %.03059.i81, i64 1
+  %84 = getelementptr inbounds nuw i8, ptr %.03059.i81, i64 1
   store i8 %83, ptr %.03059.i81, align 1
-  %85 = getelementptr inbounds i8, ptr %1, i64 1
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %86 = load i8, ptr %85, align 1
   %87 = and i8 %86, 127
-  %88 = getelementptr inbounds i8, ptr %.03059.i81, i64 2
+  %88 = getelementptr inbounds nuw i8, ptr %.03059.i81, i64 2
   store i8 %87, ptr %84, align 1
   br label %fun_so_cp5022x_encoder.exit
 
 89:                                               ; preds = %75
-  %90 = getelementptr inbounds i8, ptr %1, i64 1
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %91 = load i8, ptr %90, align 1
   %92 = zext i8 %91 to i64
   %93 = shl nuw nsw i64 %92, 1
@@ -618,11 +618,11 @@ fun_so_cp5022x_encoder.exit90:                    ; preds = %79, %.split67
   br i1 %.not73, label %105, label %101
 
 101:                                              ; preds = %99
-  %102 = getelementptr inbounds i8, ptr %.066, i64 1
+  %102 = getelementptr inbounds nuw i8, ptr %.066, i64 1
   store i8 27, ptr %.066, align 1
-  %103 = getelementptr inbounds i8, ptr %.066, i64 2
+  %103 = getelementptr inbounds nuw i8, ptr %.066, i64 2
   store i8 36, ptr %102, align 1
-  %104 = getelementptr inbounds i8, ptr %.066, i64 3
+  %104 = getelementptr inbounds nuw i8, ptr %.066, i64 3
   store i8 66, ptr %103, align 1
   store i8 2, ptr %0, align 1
   br label %105
@@ -631,18 +631,18 @@ fun_so_cp5022x_encoder.exit90:                    ; preds = %79, %.split67
   %.2 = phi ptr [ %104, %101 ], [ %.066, %99 ]
   %106 = getelementptr i8, ptr %94, i64 -321
   %107 = load i8, ptr %95, align 1
-  %108 = getelementptr inbounds i8, ptr %.2, i64 1
+  %108 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   store i8 %107, ptr %.2, align 1
   %109 = load i8, ptr %106, align 1
-  %110 = getelementptr inbounds i8, ptr %.2, i64 2
+  %110 = getelementptr inbounds nuw i8, ptr %.2, i64 2
   store i8 %109, ptr %108, align 1
   br label %119
 
 111:                                              ; preds = %89
-  %112 = getelementptr inbounds i8, ptr %0, i64 2
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i8 %91, ptr %112, align 1
   %113 = load i8, ptr %0, align 1
-  %114 = getelementptr inbounds i8, ptr %0, i64 1
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %113, ptr %114, align 1
   store i8 3, ptr %0, align 1
   br label %119
@@ -672,23 +672,23 @@ define internal i64 @finish_cp50220_encoder(ptr nocapture noundef %0, ptr nounde
   ]
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 2
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %7 = load i8, ptr %6, align 1
   %8 = shl i8 %7, 1
   %9 = zext i8 %8 to i64
   %10 = getelementptr i8, ptr @.str.7, i64 %9
   %11 = getelementptr i8, ptr %10, i64 -66
-  %12 = getelementptr inbounds i8, ptr %0, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %13 = load i8, ptr %12, align 1
   %.not = icmp eq i8 %13, 2
   br i1 %.not, label %18, label %14
 
 14:                                               ; preds = %5
-  %15 = getelementptr inbounds i8, ptr %1, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 27, ptr %1, align 1
-  %16 = getelementptr inbounds i8, ptr %1, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i8 36, ptr %15, align 1
-  %17 = getelementptr inbounds i8, ptr %1, i64 3
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 3
   store i8 66, ptr %16, align 1
   br label %18
 
@@ -696,20 +696,20 @@ define internal i64 @finish_cp50220_encoder(ptr nocapture noundef %0, ptr nounde
   %.1 = phi ptr [ %17, %14 ], [ %1, %5 ]
   %19 = getelementptr i8, ptr %10, i64 -65
   %20 = load i8, ptr %11, align 1
-  %21 = getelementptr inbounds i8, ptr %.1, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   store i8 %20, ptr %.1, align 1
   %22 = load i8, ptr %19, align 1
-  %23 = getelementptr inbounds i8, ptr %.1, i64 2
+  %23 = getelementptr inbounds nuw i8, ptr %.1, i64 2
   store i8 %22, ptr %21, align 1
   br label %24
 
 24:                                               ; preds = %3, %18
   %.021 = phi ptr [ %23, %18 ], [ %1, %3 ]
-  %25 = getelementptr inbounds i8, ptr %.021, i64 1
+  %25 = getelementptr inbounds nuw i8, ptr %.021, i64 1
   store i8 27, ptr %.021, align 1
-  %26 = getelementptr inbounds i8, ptr %.021, i64 2
+  %26 = getelementptr inbounds nuw i8, ptr %.021, i64 2
   store i8 40, ptr %25, align 1
-  %27 = getelementptr inbounds i8, ptr %.021, i64 3
+  %27 = getelementptr inbounds nuw i8, ptr %.021, i64 3
   store i8 66, ptr %26, align 1
   store i8 0, ptr %0, align 1
   %28 = ptrtoint ptr %27 to i64
@@ -731,7 +731,7 @@ define internal i64 @fun_so_cp5022x_encoder(ptr nocapture noundef %0, ptr nocapt
   %8 = load i8, ptr %1, align 1
   %9 = icmp eq i8 %8, -114
   %.028.idx = zext i1 %9 to i64
-  %.028 = getelementptr inbounds i8, ptr %1, i64 %.028.idx
+  %.028 = getelementptr inbounds nuw i8, ptr %1, i64 %.028.idx
   %.0 = select i1 %9, i32 3, i32 2
   %10 = load i8, ptr %0, align 1
   %11 = zext i8 %10 to i32
@@ -744,19 +744,19 @@ define internal i64 @fun_so_cp5022x_encoder(ptr nocapture noundef %0, ptr nocapt
   br i1 %.not36, label %.thread52, label %.thread62
 
 .thread62:                                        ; preds = %.thread
-  %13 = getelementptr inbounds i8, ptr %3, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 27, ptr %3, align 1
-  %14 = getelementptr inbounds i8, ptr %3, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 40, ptr %13, align 1
   store i8 66, ptr %14, align 1
-  %.166 = getelementptr inbounds i8, ptr %3, i64 3
+  %.166 = getelementptr inbounds nuw i8, ptr %3, i64 3
   br label %.thread52.sink.split
 
 15:                                               ; preds = %7
-  %16 = getelementptr inbounds i8, ptr %3, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 27, ptr %3, align 1
-  %17 = getelementptr inbounds i8, ptr %3, i64 2
-  %.160 = getelementptr inbounds i8, ptr %3, i64 3
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  %.160 = getelementptr inbounds nuw i8, ptr %3, i64 3
   br i1 %9, label %18, label %19
 
 18:                                               ; preds = %15
@@ -785,7 +785,7 @@ define internal i64 @fun_so_cp5022x_encoder(ptr nocapture noundef %0, ptr nocapt
   %.0284056 = phi ptr [ %.028, %20 ], [ %1, %.thread ], [ %.0284056.ph, %.thread52.sink.split ]
   %21 = load i8, ptr %.0284056, align 1
   %22 = and i8 %21, 127
-  %23 = getelementptr inbounds i8, ptr %.03057, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %.03057, i64 1
   store i8 %22, ptr %.03057, align 1
   br label %32
 
@@ -793,12 +793,12 @@ define internal i64 @fun_so_cp5022x_encoder(ptr nocapture noundef %0, ptr nocapt
   %.03059 = phi ptr [ %3, %20 ], [ %.160, %19 ]
   %25 = load i8, ptr %.028, align 1
   %26 = and i8 %25, 127
-  %27 = getelementptr inbounds i8, ptr %.03059, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.03059, i64 1
   store i8 %26, ptr %.03059, align 1
-  %28 = getelementptr inbounds i8, ptr %.028, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %.028, i64 1
   %29 = load i8, ptr %28, align 1
   %30 = and i8 %29, 127
-  %31 = getelementptr inbounds i8, ptr %.03059, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %.03059, i64 2
   store i8 %30, ptr %27, align 1
   br label %32
 

@@ -59,7 +59,7 @@ define dso_local range(i32 -1, 1) i32 @php_password_algo_register(ptr noundef %0
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #11
   %6 = tail call ptr %4(ptr noundef %0, i64 noundef %5, i1 noundef zeroext true) #12
   store ptr %1, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 13, ptr %7, align 8
   %8 = call ptr @zend_hash_add(ptr noundef nonnull @php_password_algos, ptr noundef %6, ptr noundef nonnull %3) #12
   %.not = icmp eq ptr %8, null
@@ -95,7 +95,7 @@ define internal ptr @php_password_bcrypt_hash(ptr noundef %0, ptr noundef %1) #0
   br i1 %.not106, label %.thread116, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load i8, ptr %8, align 8
   %10 = icmp eq i8 %9, 4
   br i1 %10, label %11, label %13
@@ -134,13 +134,13 @@ define internal ptr @php_password_bcrypt_hash(ptr noundef %0, ptr noundef %1) #0
   %22 = sext i32 %.in121 to i64
   %23 = call noalias ptr @_emalloc_48() #12
   store i32 1, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %23, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store i32 22, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %23, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 0, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %23, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store i64 17, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %23, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %28 = call i32 @php_random_bytes(ptr noundef nonnull %27, i64 noundef 17, i1 noundef zeroext true) #12
   %29 = icmp eq i32 %28, -1
   br i1 %29, label %30, label %39
@@ -168,31 +168,31 @@ define internal ptr @php_password_bcrypt_hash(ptr noundef %0, ptr noundef %1) #0
 39:                                               ; preds = %21
   %40 = call noalias ptr @_emalloc_48() #12
   store i32 1, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %40, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
   store i32 22, ptr %41, align 4
-  %42 = getelementptr inbounds i8, ptr %40, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store i64 0, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %40, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 16
   store i64 22, ptr %43, align 8
   %44 = load i64, ptr %26, align 8
-  %45 = getelementptr inbounds i8, ptr %40, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %46 = and i64 %44, 2147483648
   %.not.i.i.i = icmp eq i64 %46, 0
   br i1 %.not.i.i.i, label %47, label %86
 
 47:                                               ; preds = %39
   %48 = call ptr @php_base64_encode(ptr noundef nonnull %27, i64 noundef %44) #12
-  %49 = getelementptr inbounds i8, ptr %48, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %50 = load i64, ptr %49, align 8
   %51 = icmp ult i64 %50, 22
   br i1 %51, label %53, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %47
-  %52 = getelementptr inbounds i8, ptr %48, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %48, i64 24
   br label %63
 
 53:                                               ; preds = %47
-  %54 = getelementptr inbounds i8, ptr %48, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %55 = load i32, ptr %54, align 4
   %56 = and i32 %55, 64
   %.not48.i.i.i = icmp eq i32 %56, 0
@@ -213,7 +213,7 @@ define internal ptr @php_password_bcrypt_hash(ptr noundef %0, ptr noundef %1) #0
 
 63:                                               ; preds = %75, %.preheader.i.i.i
   %.04149.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %77, %75 ]
-  %64 = getelementptr inbounds [1 x i8], ptr %52, i64 0, i64 %.04149.i.i.i
+  %64 = getelementptr inbounds nuw [1 x i8], ptr %52, i64 0, i64 %.04149.i.i.i
   %65 = load i8, ptr %64, align 1
   switch i8 %65, label %74 [
     i8 43, label %75
@@ -221,7 +221,7 @@ define internal ptr @php_password_bcrypt_hash(ptr noundef %0, ptr noundef %1) #0
   ]
 
 66:                                               ; preds = %63
-  %67 = getelementptr inbounds i8, ptr %48, i64 4
+  %67 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %68 = load i32, ptr %67, align 4
   %69 = and i32 %68, 64
   %.not46.i.i.i = icmp eq i32 %69, 0
@@ -245,14 +245,14 @@ define internal ptr @php_password_bcrypt_hash(ptr noundef %0, ptr noundef %1) #0
 
 75:                                               ; preds = %74, %63
   %.sink.i.i.i = phi i8 [ %65, %74 ], [ 46, %63 ]
-  %76 = getelementptr inbounds i8, ptr %45, i64 %.04149.i.i.i
+  %76 = getelementptr inbounds nuw i8, ptr %45, i64 %.04149.i.i.i
   store i8 %.sink.i.i.i, ptr %76, align 1
   %77 = add nuw nsw i64 %.04149.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %77, 22
   br i1 %exitcond.not.i.i.i, label %78, label %63
 
 78:                                               ; preds = %75
-  %79 = getelementptr inbounds i8, ptr %48, i64 4
+  %79 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %80 = load i32, ptr %79, align 4
   %81 = and i32 %80, 64
   %.not44.i.i.i = icmp eq i32 %81, 0
@@ -316,7 +316,7 @@ php_password_salt_to64.exit.i.i:                  ; preds = %85, %84, %78
   br label %104
 
 104:                                              ; preds = %103, %98, %php_password_salt_to64.exit.i.i
-  %105 = getelementptr inbounds i8, ptr %40, i64 46
+  %105 = getelementptr inbounds nuw i8, ptr %40, i64 46
   store i8 0, ptr %105, align 1
   %106 = load i64, ptr %43, align 8
   %107 = getelementptr inbounds [1 x i8], ptr %45, i64 0, i64 %106
@@ -327,13 +327,13 @@ php_password_salt_to64.exit.i.i:                  ; preds = %85, %84, %78
   %111 = add i64 %110, 32
   %112 = call noalias ptr @_emalloc(i64 noundef %111) #13
   store i32 1, ptr %112, align 4
-  %113 = getelementptr inbounds i8, ptr %112, i64 4
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 4
   store i32 22, ptr %113, align 4
-  %114 = getelementptr inbounds i8, ptr %112, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %112, i64 8
   store i64 0, ptr %114, align 8
-  %115 = getelementptr inbounds i8, ptr %112, i64 16
+  %115 = getelementptr inbounds nuw i8, ptr %112, i64 16
   store i64 %109, ptr %115, align 8
-  %116 = getelementptr inbounds i8, ptr %112, i64 24
+  %116 = getelementptr inbounds nuw i8, ptr %112, i64 24
   %117 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %116, ptr noundef nonnull dereferenceable(1) @.str.11, ptr noundef nonnull %3, ptr noundef nonnull %45) #12
   %118 = load i64, ptr %43, align 8
   %119 = add i64 %118, %22
@@ -358,8 +358,8 @@ php_password_salt_to64.exit.i.i:                  ; preds = %85, %84, %78
   br label %129
 
 129:                                              ; preds = %123, %128, %104
-  %130 = getelementptr inbounds i8, ptr %0, i64 24
-  %131 = getelementptr inbounds i8, ptr %0, i64 16
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %132 = load i64, ptr %131, align 8
   %133 = trunc i64 %132 to i32
   %134 = load i64, ptr %115, align 8
@@ -388,13 +388,13 @@ php_password_salt_to64.exit.i.i:                  ; preds = %85, %84, %78
   br i1 %.not110, label %php_password_get_salt.exit.thread, label %146
 
 146:                                              ; preds = %145
-  %147 = getelementptr inbounds i8, ptr %136, i64 16
+  %147 = getelementptr inbounds nuw i8, ptr %136, i64 16
   %148 = load i64, ptr %147, align 8
   %149 = icmp ult i64 %148, 13
   br i1 %149, label %150, label %php_password_get_salt.exit.thread
 
 150:                                              ; preds = %146
-  %151 = getelementptr inbounds i8, ptr %136, i64 4
+  %151 = getelementptr inbounds nuw i8, ptr %136, i64 4
   %152 = load i32, ptr %151, align 4
   %153 = and i32 %152, 64
   %.not111 = icmp eq i32 %153, 0
@@ -420,12 +420,12 @@ php_password_get_salt.exit.thread:                ; preds = %95, %30, %38, %33, 
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @php_password_bcrypt_verify(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = trunc i64 %5 to i32
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8
   %10 = trunc i64 %9 to i32
   %11 = tail call ptr @php_crypt(ptr noundef nonnull %3, i32 noundef %6, ptr noundef nonnull %7, i32 noundef %10, i1 noundef zeroext true) #12
@@ -438,7 +438,7 @@ define internal zeroext i1 @php_password_bcrypt_verify(ptr noundef %0, ptr nound
   br i1 %14, label %15, label %23
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %11, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = and i32 %17, 64
   %.not26 = icmp eq i32 %18, 0
@@ -459,7 +459,7 @@ define internal zeroext i1 @php_password_bcrypt_verify(ptr noundef %0, ptr nound
 
 23:                                               ; preds = %12
   %24 = tail call i32 @php_safe_bcmp(ptr noundef nonnull %11, ptr noundef nonnull %1) #12
-  %25 = getelementptr inbounds i8, ptr %11, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %26 = load i32, ptr %25, align 4
   %27 = and i32 %26, 64
   %.not24 = icmp eq i32 %27, 0
@@ -491,25 +491,25 @@ define internal zeroext i1 @php_password_bcrypt_verify(ptr noundef %0, ptr nound
 define internal zeroext i1 @php_password_bcrypt_needs_rehash(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
   %3 = alloca i64, align 8
   store i64 12, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, 60
   br i1 %6, label %7, label %php_password_bcrypt_valid.exit.thread
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i8, ptr %8, align 1
   %10 = icmp eq i8 %9, 36
   br i1 %10, label %11, label %php_password_bcrypt_valid.exit.thread
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 25
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %13 = load i8, ptr %12, align 1
   %14 = icmp eq i8 %13, 50
   br i1 %14, label %php_password_bcrypt_valid.exit, label %php_password_bcrypt_valid.exit.thread
 
 php_password_bcrypt_valid.exit:                   ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %0, i64 26
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %16 = load i8, ptr %15, align 1
   %17 = icmp eq i8 %16, 121
   br i1 %17, label %18, label %php_password_bcrypt_valid.exit.thread
@@ -525,7 +525,7 @@ php_password_bcrypt_valid.exit:                   ; preds = %11
   br i1 %.not13, label %30, label %22
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %21, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %24 = load i8, ptr %23, align 8
   %25 = icmp eq i8 %24, 4
   br i1 %25, label %26, label %28
@@ -553,25 +553,25 @@ php_password_bcrypt_valid.exit.thread:            ; preds = %2, %7, %11, %php_pa
 define internal range(i32 -1, 1) i32 @php_password_bcrypt_get_info(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
   %3 = alloca i64, align 8
   store i64 12, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, 60
   br i1 %6, label %7, label %php_password_bcrypt_valid.exit.thread
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load i8, ptr %8, align 1
   %10 = icmp eq i8 %9, 36
   br i1 %10, label %11, label %php_password_bcrypt_valid.exit.thread
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %1, i64 25
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 25
   %13 = load i8, ptr %12, align 1
   %14 = icmp eq i8 %13, 50
   br i1 %14, label %php_password_bcrypt_valid.exit, label %php_password_bcrypt_valid.exit.thread
 
 php_password_bcrypt_valid.exit:                   ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %1, i64 26
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 26
   %16 = load i8, ptr %15, align 1
   %17 = icmp eq i8 %16, 121
   br i1 %17, label %18, label %php_password_bcrypt_valid.exit.thread
@@ -589,25 +589,25 @@ php_password_bcrypt_valid.exit.thread:            ; preds = %2, %7, %11, %php_pa
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @php_password_bcrypt_valid(ptr nocapture noundef readonly %0) #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
   %4 = icmp eq i64 %3, 60
   br i1 %4, label %5, label %17
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i8, ptr %6, align 1
   %8 = icmp eq i8 %7, 36
   br i1 %8, label %9, label %17
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 25
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %11 = load i8, ptr %10, align 1
   %12 = icmp eq i8 %11, 50
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 26
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %15 = load i8, ptr %14, align 1
   %16 = icmp eq i8 %15, 121
   br label %17
@@ -628,7 +628,7 @@ define hidden range(i32 -1, 1) i32 @zm_startup_password(i32 noundef %0, i32 noun
   %4 = load ptr, ptr @zend_string_init_interned, align 8
   %5 = tail call ptr %4(ptr noundef nonnull @.str.1, i64 noundef 2, i1 noundef zeroext true) #12
   store ptr @php_password_algo_bcrypt, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 13, ptr %6, align 8
   %7 = call ptr @zend_hash_add(ptr noundef nonnull @php_password_algos, ptr noundef %5, ptr noundef nonnull %3) #12
   %.not.i = icmp eq ptr %7, null
@@ -665,7 +665,7 @@ define dso_local ptr @php_password_algo_find(ptr noundef %0) local_unnamed_addr 
   br i1 %.not9, label %9, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
   %.not10 = icmp eq i8 %6, 13
   br i1 %.not10, label %7, label %9
@@ -687,13 +687,13 @@ define dso_local noalias noundef ptr @php_password_algo_extract_ident(ptr nounde
   br i1 %.not, label %21, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = icmp ult i64 %4, 3
   br i1 %5, label %21, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 25
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %8 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %7, i32 noundef 36) #11
   %.not65 = icmp eq ptr %8, null
   br i1 %.not65, label %21, label %9
@@ -706,13 +706,13 @@ define dso_local noalias noundef ptr @php_password_algo_extract_ident(ptr nounde
   %14 = add i64 %13, 32
   %15 = tail call noalias ptr @_emalloc(i64 noundef %14) #13
   store i32 1, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %15, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store i32 22, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %15, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 0, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %15, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i64 %12, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %15, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %19, ptr nonnull align 1 %7, i64 %12, i1 false)
   %20 = getelementptr inbounds [1 x i8], ptr %19, i64 0, i64 %12
   store i8 0, ptr %20, align 1
@@ -732,13 +732,13 @@ define dso_local ptr @php_password_algo_identify_ex(ptr noundef %0, ptr noundef 
   br i1 %.not.i, label %php_password_algo_extract_ident.exit.thread, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = icmp ult i64 %5, 3
   br i1 %6, label %php_password_algo_extract_ident.exit.thread, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 25
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %9 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %8, i32 noundef 36) #11
   %.not65.i = icmp eq ptr %9, null
   br i1 %.not65.i, label %php_password_algo_extract_ident.exit.thread, label %php_password_algo_extract_ident.exit
@@ -751,13 +751,13 @@ php_password_algo_extract_ident.exit:             ; preds = %7
   %14 = add i64 %13, 32
   %15 = tail call noalias ptr @_emalloc(i64 noundef %14) #13
   store i32 1, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %15, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store i32 22, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %15, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 0, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %15, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i64 %12, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %15, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %19, ptr nonnull align 1 %8, i64 %12, i1 false)
   %20 = getelementptr inbounds [1 x i8], ptr %19, i64 0, i64 %12
   store i8 0, ptr %20, align 1
@@ -766,7 +766,7 @@ php_password_algo_extract_ident.exit:             ; preds = %7
   br i1 %.not9.i, label %php_password_algo_find.exit, label %22
 
 22:                                               ; preds = %php_password_algo_extract_ident.exit
-  %23 = getelementptr inbounds i8, ptr %21, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %24 = load i8, ptr %23, align 8
   %.not10.i = icmp eq i8 %24, 13
   br i1 %.not10.i, label %25, label %php_password_algo_find.exit
@@ -809,7 +809,7 @@ php_password_algo_find.exit:                      ; preds = %php_password_algo_e
   br i1 %.not25, label %php_password_algo_extract_ident.exit.thread, label %39
 
 39:                                               ; preds = %38
-  %40 = getelementptr inbounds i8, ptr %.0.i28, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %.0.i28, i64 40
   %41 = load ptr, ptr %40, align 8
   %.not26 = icmp eq ptr %41, null
   br i1 %.not26, label %44, label %42
@@ -830,7 +830,7 @@ php_password_algo_extract_ident.exit.thread:      ; preds = %7, %2, %3, %44, %42
 define hidden void @zif_password_get_info(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct._zval_struct, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %cond = icmp eq i32 %6, 1
   br i1 %cond, label %8, label %7
@@ -840,8 +840,8 @@ define hidden void @zif_password_get_info(ptr noundef %0, ptr noundef %1) local_
   br label %.thread163
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %11 = load i8, ptr %10, align 8
   %12 = icmp eq i8 %11, 6
   br i1 %12, label %.thread152, label %14
@@ -867,24 +867,24 @@ define hidden void @zif_password_get_info(ptr noundef %0, ptr noundef %1) local_
 .thread156:                                       ; preds = %14, %.thread152
   %16 = call ptr @_zend_new_array_0() #12
   store ptr %16, ptr %1, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 775, ptr %17, align 8
   %18 = call ptr @_zend_new_array_0() #12
   store ptr %18, ptr %4, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 775, ptr %19, align 8
   %20 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %20, null
   br i1 %.not.i, label %.thread190, label %21
 
 21:                                               ; preds = %.thread156
-  %22 = getelementptr inbounds i8, ptr %20, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %23 = load i64, ptr %22, align 8
   %24 = icmp ult i64 %23, 3
   br i1 %24, label %.thread190, label %25
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %20, i64 25
+  %26 = getelementptr inbounds nuw i8, ptr %20, i64 25
   %27 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %26, i32 noundef 36) #11
   %.not65.i = icmp eq ptr %27, null
   br i1 %.not65.i, label %.thread190, label %php_password_algo_extract_ident.exit
@@ -897,13 +897,13 @@ php_password_algo_extract_ident.exit:             ; preds = %25
   %32 = add i64 %31, 32
   %33 = call noalias ptr @_emalloc(i64 noundef %32) #13
   store i32 1, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %33, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
   store i32 22, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %33, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store i64 0, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %33, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 16
   store i64 %30, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %33, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %37, ptr nonnull align 1 %26, i64 %30, i1 false)
   %38 = getelementptr inbounds [1 x i8], ptr %37, i64 0, i64 %30
   store i8 0, ptr %38, align 1
@@ -912,7 +912,7 @@ php_password_algo_extract_ident.exit:             ; preds = %25
   br i1 %.not9.i, label %.thread185, label %40
 
 40:                                               ; preds = %php_password_algo_extract_ident.exit
-  %41 = getelementptr inbounds i8, ptr %39, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %42 = load i8, ptr %41, align 8
   %.not10.i = icmp eq i8 %42, 13
   br i1 %.not10.i, label %php_password_algo_find.exit, label %.thread185
@@ -923,7 +923,7 @@ php_password_algo_find.exit:                      ; preds = %40
   br i1 %.not125, label %.thread185, label %44
 
 44:                                               ; preds = %php_password_algo_find.exit
-  %45 = getelementptr inbounds i8, ptr %43, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 40
   %46 = load ptr, ptr %45, align 8
   %.not126 = icmp eq ptr %46, null
   br i1 %.not126, label %61, label %47
@@ -973,13 +973,13 @@ php_password_algo_find.exit:                      ; preds = %40
   br i1 %.not.i137, label %php_password_algo_extract_ident.exit140, label %63
 
 63:                                               ; preds = %61
-  %64 = getelementptr inbounds i8, ptr %62, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %65 = load i64, ptr %64, align 8
   %66 = icmp ult i64 %65, 3
   br i1 %66, label %php_password_algo_extract_ident.exit140, label %67
 
 67:                                               ; preds = %63
-  %68 = getelementptr inbounds i8, ptr %62, i64 25
+  %68 = getelementptr inbounds nuw i8, ptr %62, i64 25
   %69 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %68, i32 noundef 36) #11
   %.not65.i138 = icmp eq ptr %69, null
   br i1 %.not65.i138, label %php_password_algo_extract_ident.exit140, label %70
@@ -992,13 +992,13 @@ php_password_algo_find.exit:                      ; preds = %40
   %75 = add i64 %74, 32
   %76 = call noalias ptr @_emalloc(i64 noundef %75) #13
   store i32 1, ptr %76, align 4
-  %77 = getelementptr inbounds i8, ptr %76, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 4
   store i32 22, ptr %77, align 4
-  %78 = getelementptr inbounds i8, ptr %76, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %76, i64 8
   store i64 0, ptr %78, align 8
-  %79 = getelementptr inbounds i8, ptr %76, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %76, i64 16
   store i64 %73, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %76, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %76, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %80, ptr nonnull align 1 %68, i64 %73, i1 false)
   %81 = getelementptr inbounds [1 x i8], ptr %80, i64 0, i64 %73
   store i8 0, ptr %81, align 1
@@ -1037,7 +1037,7 @@ php_password_algo_extract_ident.exit140:          ; preds = %61, %63, %67, %70
 93:                                               ; preds = %84, %92, %91, %php_password_algo_extract_ident.exit140
   %94 = load ptr, ptr %43, align 8
   call void @add_assoc_string_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.3, i64 noundef 8, ptr noundef %94) #12
-  %95 = getelementptr inbounds i8, ptr %43, i64 32
+  %95 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %96 = load ptr, ptr %95, align 8
   %.not132 = icmp eq ptr %96, null
   br i1 %.not132, label %100, label %97
@@ -1070,7 +1070,7 @@ define hidden void @zif_password_needs_rehash(ptr noundef %0, ptr nocapture noun
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   store i64 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, -2
   %or.cond.not = icmp eq i32 %8, 2
@@ -1081,8 +1081,8 @@ define hidden void @zif_password_needs_rehash(ptr noundef %0, ptr nocapture noun
   br label %.thread159
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 80
-  %12 = getelementptr inbounds i8, ptr %0, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %13 = load i8, ptr %12, align 8
   %14 = icmp eq i8 %13, 6
   br i1 %14, label %.critedge, label %16
@@ -1097,8 +1097,8 @@ define hidden void @zif_password_needs_rehash(ptr noundef %0, ptr nocapture noun
   br i1 %17, label %18, label %.thread159
 
 18:                                               ; preds = %16, %.critedge
-  %19 = getelementptr inbounds i8, ptr %0, i64 96
-  %20 = getelementptr inbounds i8, ptr %0, i64 104
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %21 = load i8, ptr %20, align 8
   switch i8 %21, label %27 [
     i8 6, label %22
@@ -1131,8 +1131,8 @@ define hidden void @zif_password_needs_rehash(ptr noundef %0, ptr nocapture noun
   br i1 %29, label %.thread171, label %30
 
 30:                                               ; preds = %.thread
-  %31 = getelementptr inbounds i8, ptr %0, i64 112
-  %32 = getelementptr inbounds i8, ptr %0, i64 120
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %33 = load i8, ptr %32, align 8
   %.not = icmp eq i8 %33, 7
   br i1 %.not, label %.thread181, label %.thread159
@@ -1158,7 +1158,7 @@ define hidden void @zif_password_needs_rehash(ptr noundef %0, ptr nocapture noun
   br i1 %.not151, label %38, label %40
 
 38:                                               ; preds = %.thread171
-  %39 = getelementptr inbounds i8, ptr %1, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %39, align 8
   br label %52
 
@@ -1169,17 +1169,17 @@ define hidden void @zif_password_needs_rehash(ptr noundef %0, ptr nocapture noun
   br i1 %.not152, label %45, label %43
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %1, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 3, ptr %44, align 8
   br label %52
 
 45:                                               ; preds = %40
-  %46 = getelementptr inbounds i8, ptr %42, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %47 = load ptr, ptr %46, align 8
   %48 = load ptr, ptr %3, align 8
   %49 = call zeroext i1 %47(ptr noundef %48, ptr noundef %.0138180) #12
   %50 = select i1 %49, i32 3, i32 2
-  %51 = getelementptr inbounds i8, ptr %1, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %50, ptr %51, align 8
   br label %52
 
@@ -1201,7 +1201,7 @@ define internal fastcc ptr @php_password_algo_find_zval(ptr noundef %0, i64 noun
   br i1 %.not9.i, label %php_password_algo_find.exit, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load i8, ptr %8, align 8
   %.not10.i = icmp eq i8 %9, 13
   br i1 %.not10.i, label %10, label %php_password_algo_find.exit
@@ -1221,22 +1221,22 @@ define internal fastcc ptr @php_password_algo_find_zval(ptr noundef %0, i64 noun
 13:                                               ; preds = %12
   %14 = tail call noalias ptr @_emalloc_32() #12
   store i32 1, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %14, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 22, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %14, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 0, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %14, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i64 7, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %14, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %18, ptr noundef nonnull align 1 dereferenceable(7) @.str.21, i64 7, i1 false)
-  %19 = getelementptr inbounds i8, ptr %14, i64 31
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 31
   store i8 0, ptr %19, align 1
   %20 = tail call ptr @zend_hash_find(ptr noundef nonnull @php_password_algos, ptr noundef nonnull %14) #12
   %.not9.i142 = icmp eq ptr %20, null
   br i1 %.not9.i142, label %php_password_algo_find.exit145, label %21
 
 21:                                               ; preds = %13
-  %22 = getelementptr inbounds i8, ptr %20, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %23 = load i8, ptr %22, align 8
   %.not10.i143 = icmp eq i8 %23, 13
   br i1 %.not10.i143, label %24, label %php_password_algo_find.exit145
@@ -1277,22 +1277,22 @@ php_password_algo_find.exit145:                   ; preds = %13, %21, %24
 37:                                               ; preds = %12
   %38 = tail call noalias ptr @_emalloc_40() #12
   store i32 1, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %38, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   store i32 22, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %38, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store i64 0, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %38, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 16
   store i64 8, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %38, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 24
   store i64 7235369726244254305, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %38, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %38, i64 32
   store i8 0, ptr %43, align 1
   %44 = tail call ptr @zend_hash_find(ptr noundef nonnull @php_password_algos, ptr noundef nonnull %38) #12
   %.not9.i147 = icmp eq ptr %44, null
   br i1 %.not9.i147, label %php_password_algo_find.exit150, label %45
 
 45:                                               ; preds = %37
-  %46 = getelementptr inbounds i8, ptr %44, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %47 = load i8, ptr %46, align 8
   %.not10.i148 = icmp eq i8 %47, 13
   br i1 %.not10.i148, label %48, label %php_password_algo_find.exit150
@@ -1342,7 +1342,7 @@ php_password_algo_find.exit:                      ; preds = %12, %10, %7, %5, %3
 define hidden void @zif_password_verify(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %6, 2
   br i1 %.not, label %8, label %7
@@ -1352,8 +1352,8 @@ define hidden void @zif_password_verify(ptr noundef %0, ptr nocapture noundef wr
   br label %.thread118
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %11 = load i8, ptr %10, align 8
   %12 = icmp eq i8 %11, 6
   br i1 %12, label %.critedge, label %14
@@ -1368,8 +1368,8 @@ define hidden void @zif_password_verify(ptr noundef %0, ptr nocapture noundef wr
   br i1 %15, label %16, label %.thread118
 
 16:                                               ; preds = %14, %.critedge
-  %17 = getelementptr inbounds i8, ptr %0, i64 96
-  %18 = getelementptr inbounds i8, ptr %0, i64 104
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %19 = load i8, ptr %18, align 8
   %20 = icmp eq i8 %19, 6
   br i1 %20, label %.thread114, label %22
@@ -1403,7 +1403,7 @@ define hidden void @zif_password_verify(ptr noundef %0, ptr nocapture noundef wr
   br i1 %.not99, label %34, label %26
 
 26:                                               ; preds = %.thread130
-  %27 = getelementptr inbounds i8, ptr %25, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %28 = load ptr, ptr %27, align 8
   %.not100 = icmp eq ptr %28, null
   br i1 %.not100, label %34, label %29
@@ -1417,7 +1417,7 @@ define hidden void @zif_password_verify(ptr noundef %0, ptr nocapture noundef wr
 
 34:                                               ; preds = %26, %29, %.thread130
   %35 = phi i32 [ 2, %.thread130 ], [ 3, %26 ], [ %33, %29 ]
-  %36 = getelementptr inbounds i8, ptr %1, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %35, ptr %36, align 8
   br label %37
 
@@ -1431,7 +1431,7 @@ define hidden void @zif_password_hash(ptr noundef %0, ptr nocapture noundef writ
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   store i64 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, -2
   %or.cond.not = icmp eq i32 %8, 2
@@ -1442,8 +1442,8 @@ define hidden void @zif_password_hash(ptr noundef %0, ptr nocapture noundef writ
   br label %.thread161
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 80
-  %12 = getelementptr inbounds i8, ptr %0, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %13 = load i8, ptr %12, align 8
   %14 = icmp eq i8 %13, 6
   br i1 %14, label %.critedge, label %16
@@ -1458,8 +1458,8 @@ define hidden void @zif_password_hash(ptr noundef %0, ptr nocapture noundef writ
   br i1 %17, label %18, label %.thread161
 
 18:                                               ; preds = %16, %.critedge
-  %19 = getelementptr inbounds i8, ptr %0, i64 96
-  %20 = getelementptr inbounds i8, ptr %0, i64 104
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %21 = load i8, ptr %20, align 8
   switch i8 %21, label %27 [
     i8 6, label %22
@@ -1492,8 +1492,8 @@ define hidden void @zif_password_hash(ptr noundef %0, ptr nocapture noundef writ
   br i1 %29, label %.thread173, label %30
 
 30:                                               ; preds = %.thread
-  %31 = getelementptr inbounds i8, ptr %0, i64 112
-  %32 = getelementptr inbounds i8, ptr %0, i64 120
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %33 = load i8, ptr %32, align 8
   %.not = icmp eq i8 %33, 7
   br i1 %.not, label %.thread183, label %.thread161
@@ -1526,7 +1526,7 @@ define hidden void @zif_password_hash(ptr noundef %0, ptr nocapture noundef writ
   br label %54
 
 41:                                               ; preds = %.thread173
-  %42 = getelementptr inbounds i8, ptr %37, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr %3, align 8
   %45 = call ptr %43(ptr noundef %44, ptr noundef %.0139182) #12
@@ -1551,7 +1551,7 @@ define hidden void @zif_password_hash(ptr noundef %0, ptr nocapture noundef writ
 
 52:                                               ; preds = %41
   store ptr %45, ptr %1, align 8
-  %53 = getelementptr inbounds i8, ptr %1, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 262, ptr %53, align 8
   br label %54
 
@@ -1565,7 +1565,7 @@ declare void @zend_throw_error(ptr noundef, ptr noundef, ...) local_unnamed_addr
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_password_algos(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %6, label %5
@@ -1577,12 +1577,12 @@ define hidden void @zif_password_algos(ptr nocapture noundef readonly %0, ptr no
 6:                                                ; preds = %2
   %7 = tail call ptr @_zend_new_array_0() #12
   store ptr %7, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 775, ptr %8, align 8
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @php_password_algos, i64 16), align 8
   %10 = load i32, ptr getelementptr inbounds (i8, ptr @php_password_algos, i64 24), align 8
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds %struct._Bucket, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw %struct._Bucket, ptr %9, i64 %11
   %13 = load i32, ptr getelementptr inbounds (i8, ptr @php_password_algos, i64 8), align 8
   %14 = and i32 %13, 4
   %.not22 = icmp eq i32 %14, 0
@@ -1592,15 +1592,15 @@ define hidden void @zif_password_algos(ptr nocapture noundef readonly %0, ptr no
 
 .lr.ph:                                           ; preds = %6, %29
   %.026 = phi ptr [ %30, %29 ], [ %9, %6 ]
-  %15 = getelementptr inbounds i8, ptr %.026, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.026, i64 8
   %16 = load i8, ptr %15, align 8
   %17 = icmp eq i8 %16, 0
   br i1 %17, label %29, label %18
 
 18:                                               ; preds = %.lr.ph
-  %19 = getelementptr inbounds i8, ptr %.026, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %.026, i64 24
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = load i32, ptr %21, align 4
   %23 = and i32 %22, 64
   %.not24 = icmp eq i32 %23, 0
@@ -1617,7 +1617,7 @@ define hidden void @zif_password_algos(ptr nocapture noundef readonly %0, ptr no
   br label %29
 
 29:                                               ; preds = %.lr.ph, %27
-  %30 = getelementptr inbounds i8, ptr %.026, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.026, i64 32
   %.not23 = icmp eq ptr %30, %12
   br i1 %.not23, label %.loopexit, label %.lr.ph
 

@@ -5,30 +5,30 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define i32 @Llb_ManComputeCommonQuant(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = sub nsw i32 %5, %7
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8
   %12 = sext i32 %1 to i64
   %13 = getelementptr inbounds ptr, ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = sext i32 %2 to i64
   %16 = getelementptr inbounds ptr, ptr %11, i64 %15
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %wide.trip.count = zext nneg i32 %8 to i64
   br label %18
 
 18:                                               ; preds = %.lr.ph, %.thread27
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread27 ]
   %.029 = phi i32 [ 0, %.lr.ph ], [ %.1, %.thread27 ]
-  %19 = getelementptr inbounds i8, ptr %14, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 %indvars.iv
   %20 = load i8, ptr %19, align 1
   switch i8 %20, label %.thread27 [
     i8 1, label %21
@@ -37,7 +37,7 @@ define i32 @Llb_ManComputeCommonQuant(ptr nocapture noundef readonly %0, i32 nou
 
 21:                                               ; preds = %18
   %22 = load ptr, ptr %16, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 %indvars.iv
   %24 = load i8, ptr %23, align 1
   switch i8 %24, label %.thread27 [
     i8 1, label %25
@@ -46,7 +46,7 @@ define i32 @Llb_ManComputeCommonQuant(ptr nocapture noundef readonly %0, i32 nou
 
 25:                                               ; preds = %21
   %26 = load ptr, ptr %17, align 8
-  %27 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4
   %29 = icmp eq i32 %28, 2
   %30 = add nsw i32 %.029, 2
@@ -55,7 +55,7 @@ define i32 @Llb_ManComputeCommonQuant(ptr nocapture noundef readonly %0, i32 nou
 
 31:                                               ; preds = %18
   %32 = load ptr, ptr %16, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 %indvars.iv
   %34 = load i8, ptr %33, align 1
   %35 = icmp eq i8 %34, 1
   br i1 %35, label %36, label %.thread27
@@ -77,19 +77,19 @@ define i32 @Llb_ManComputeCommonQuant(ptr nocapture noundef readonly %0, i32 nou
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define i32 @Llb_ManComputeBestQuant(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 12
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 2
   br i1 %4, label %.lr.ph56, label %._crit_edge
 
 .lr.ph56:                                         ; preds = %1
   %5 = add nsw i32 %3, -1
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = zext nneg i32 %5 to i64
   %wide.trip.count67 = zext nneg i32 %5 to i64
   br label %13
@@ -112,7 +112,7 @@ define i32 @Llb_ManComputeBestQuant(ptr nocapture noundef readonly %0) local_unn
 
 .lr.ph:                                           ; preds = %13
   %15 = load ptr, ptr %6, align 8
-  %16 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv64
+  %16 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv64
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %17, 0
   %19 = trunc nuw nsw i64 %indvars.iv64 to i32
@@ -122,7 +122,7 @@ define i32 @Llb_ManComputeBestQuant(ptr nocapture noundef readonly %0) local_unn
 .lr.ph.split:                                     ; preds = %.lr.ph
   %21 = load ptr, ptr %7, align 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i32, ptr %23, align 8
   %25 = icmp sgt i32 %17, %24
   br i1 %25, label %.loopexit, label %.lr.ph.split.split
@@ -131,7 +131,7 @@ define i32 @Llb_ManComputeBestQuant(ptr nocapture noundef readonly %0) local_unn
   %indvars.iv61 = phi i64 [ %indvars.iv.next62, %Llb_ManComputeCommonQuant.exit.thread ], [ %indvars.iv, %.lr.ph.split ]
   %.140 = phi i32 [ %.2, %Llb_ManComputeCommonQuant.exit.thread ], [ %.055, %.lr.ph.split ]
   %.12839 = phi i32 [ %.229, %Llb_ManComputeCommonQuant.exit.thread ], [ %.02753, %.lr.ph.split ]
-  %26 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv61
+  %26 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv61
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %27, 0
   %29 = icmp sgt i32 %27, %24
@@ -147,16 +147,16 @@ define i32 @Llb_ManComputeBestQuant(ptr nocapture noundef readonly %0) local_unn
 
 .lr.ph.i:                                         ; preds = %30
   %35 = load ptr, ptr %10, align 8
-  %36 = getelementptr inbounds ptr, ptr %35, i64 %indvars.iv64
+  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv64
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds ptr, ptr %35, i64 %indvars.iv61
+  %38 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv61
   %wide.trip.count.i = zext nneg i32 %33 to i64
   br label %39
 
 39:                                               ; preds = %.thread27.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %.thread27.i ]
   %.029.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %.thread27.i ]
-  %40 = getelementptr inbounds i8, ptr %37, i64 %indvars.iv.i
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 %indvars.iv.i
   %41 = load i8, ptr %40, align 1
   switch i8 %41, label %.thread27.i [
     i8 1, label %42
@@ -165,7 +165,7 @@ define i32 @Llb_ManComputeBestQuant(ptr nocapture noundef readonly %0) local_unn
 
 42:                                               ; preds = %39
   %43 = load ptr, ptr %38, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 %indvars.iv.i
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 %indvars.iv.i
   %45 = load i8, ptr %44, align 1
   switch i8 %45, label %.thread27.i [
     i8 1, label %46
@@ -174,7 +174,7 @@ define i32 @Llb_ManComputeBestQuant(ptr nocapture noundef readonly %0) local_unn
 
 46:                                               ; preds = %42
   %47 = load ptr, ptr %11, align 8
-  %48 = getelementptr inbounds i32, ptr %47, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv.i
   %49 = load i32, ptr %48, align 4
   %50 = icmp eq i32 %49, 2
   %51 = add nsw i32 %.029.i, 2
@@ -183,7 +183,7 @@ define i32 @Llb_ManComputeBestQuant(ptr nocapture noundef readonly %0) local_unn
 
 52:                                               ; preds = %39
   %53 = load ptr, ptr %38, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 %indvars.iv.i
   %55 = load i8, ptr %54, align 1
   %56 = icmp eq i8 %55, 1
   br i1 %56, label %57, label %.thread27.i
@@ -222,7 +222,7 @@ Llb_ManComputeCommonQuant.exit.thread:            ; preds = %Llb_ManComputeCommo
 
 ; Function Attrs: nounwind uwtable
 define ptr @Llb_ManComputeQuant(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 12
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = tail call ptr @Extra_ArrayAlloc(i32 noundef %3, i32 noundef %3, i32 noundef 4) #5
   %5 = load i32, ptr %2, align 4
@@ -236,7 +236,7 @@ define ptr @Llb_ManComputeQuant(ptr nocapture noundef readonly %0) local_unnamed
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader29
-  %9 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   br label %15
 
 .preheader:                                       ; preds = %._crit_edge
@@ -244,16 +244,16 @@ define ptr @Llb_ManComputeQuant(ptr nocapture noundef readonly %0) local_unnamed
   br i1 %10, label %.lr.ph36, label %._crit_edge37
 
 .lr.ph36:                                         ; preds = %.preheader
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %26
 
 15:                                               ; preds = %.lr.ph, %15
   %.030 = phi i32 [ 0, %.lr.ph ], [ %18, %15 ]
   %16 = load ptr, ptr %9, align 8
-  %17 = getelementptr inbounds float, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv
   store float 0.000000e+00, ptr %17, align 4
   %18 = add nuw nsw i32 %.030, 1
   %19 = load i32, ptr %2, align 4
@@ -285,7 +285,7 @@ define ptr @Llb_ManComputeQuant(ptr nocapture noundef readonly %0) local_unnamed
   br i1 %30, label %.lr.ph34, label %.loopexit
 
 .lr.ph34:                                         ; preds = %26
-  %31 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv45
+  %31 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv45
   br label %32
 
 32:                                               ; preds = %.lr.ph34, %Llb_ManComputeCommonQuant.exit
@@ -298,16 +298,16 @@ define ptr @Llb_ManComputeQuant(ptr nocapture noundef readonly %0) local_unnamed
 
 .lr.ph.i:                                         ; preds = %32
   %37 = load ptr, ptr %13, align 8
-  %38 = getelementptr inbounds ptr, ptr %37, i64 %indvars.iv45
+  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv45
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds ptr, ptr %37, i64 %indvars.iv42
+  %40 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv42
   %wide.trip.count.i = zext nneg i32 %35 to i64
   br label %41
 
 41:                                               ; preds = %.thread27.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %.thread27.i ]
   %.029.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %.thread27.i ]
-  %42 = getelementptr inbounds i8, ptr %39, i64 %indvars.iv.i
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 %indvars.iv.i
   %43 = load i8, ptr %42, align 1
   switch i8 %43, label %.thread27.i [
     i8 1, label %44
@@ -316,7 +316,7 @@ define ptr @Llb_ManComputeQuant(ptr nocapture noundef readonly %0) local_unnamed
 
 44:                                               ; preds = %41
   %45 = load ptr, ptr %40, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 %indvars.iv.i
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 %indvars.iv.i
   %47 = load i8, ptr %46, align 1
   switch i8 %47, label %.thread27.i [
     i8 1, label %48
@@ -325,7 +325,7 @@ define ptr @Llb_ManComputeQuant(ptr nocapture noundef readonly %0) local_unnamed
 
 48:                                               ; preds = %44
   %49 = load ptr, ptr %14, align 8
-  %50 = getelementptr inbounds i32, ptr %49, i64 %indvars.iv.i
+  %50 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv.i
   %51 = load i32, ptr %50, align 4
   %52 = icmp eq i32 %51, 2
   %53 = add nsw i32 %.029.i, 2
@@ -334,7 +334,7 @@ define ptr @Llb_ManComputeQuant(ptr nocapture noundef readonly %0) local_unnamed
 
 54:                                               ; preds = %41
   %55 = load ptr, ptr %40, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 %indvars.iv.i
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 %indvars.iv.i
   %57 = load i8, ptr %56, align 1
   %58 = icmp eq i8 %57, 1
   br i1 %58, label %59, label %.thread27.i
@@ -355,12 +355,12 @@ Llb_ManComputeCommonQuant.exit.loopexit:          ; preds = %.thread27.i
 
 Llb_ManComputeCommonQuant.exit:                   ; preds = %Llb_ManComputeCommonQuant.exit.loopexit, %32
   %.0.lcssa.i = phi float [ 0.000000e+00, %32 ], [ %61, %Llb_ManComputeCommonQuant.exit.loopexit ]
-  %62 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv42
+  %62 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv42
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds float, ptr %63, i64 %indvars.iv45
+  %64 = getelementptr inbounds nuw float, ptr %63, i64 %indvars.iv45
   store float %.0.lcssa.i, ptr %64, align 4
   %65 = load ptr, ptr %31, align 8
-  %66 = getelementptr inbounds float, ptr %65, i64 %indvars.iv42
+  %66 = getelementptr inbounds nuw float, ptr %65, i64 %indvars.iv42
   store float %.0.lcssa.i, ptr %66, align 4
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %67 = load i32, ptr %2, align 4
@@ -377,16 +377,16 @@ declare ptr @Extra_ArrayAlloc(i32 noundef, i32 noundef, i32 noundef) local_unnam
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define float @Llb_ManComputeCommonAttr(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = sub nsw i32 %5, %7
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8
   %12 = sext i32 %1 to i64
   %13 = getelementptr inbounds ptr, ptr %11, i64 %12
@@ -401,10 +401,10 @@ define float @Llb_ManComputeCommonAttr(ptr nocapture noundef readonly %0, i32 no
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
   %.025 = phi i32 [ 0, %.lr.ph ], [ %.1, %30 ]
   %.02024 = phi i32 [ 0, %.lr.ph ], [ %.121, %30 ]
-  %19 = getelementptr inbounds i8, ptr %14, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 %indvars.iv
   %20 = load i8, ptr %19, align 1
   %21 = icmp eq i8 %20, 1
-  %22 = getelementptr inbounds i8, ptr %17, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 %indvars.iv
   %23 = load i8, ptr %22, align 1
   %24 = icmp eq i8 %23, 1
   br i1 %21, label %25, label %28
@@ -444,18 +444,18 @@ define float @Llb_ManComputeCommonAttr(ptr nocapture noundef readonly %0, i32 no
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define i32 @Llb_ManComputeBestAttr(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 12
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 2
   br i1 %4, label %.lr.ph52, label %._crit_edge
 
 .lr.ph52:                                         ; preds = %1
   %5 = add nsw i32 %3, -1
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = zext nneg i32 %5 to i64
   %wide.trip.count62 = zext nneg i32 %5 to i64
   br label %12
@@ -478,7 +478,7 @@ define i32 @Llb_ManComputeBestAttr(ptr nocapture noundef readonly %0) local_unna
 
 .lr.ph:                                           ; preds = %12
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv59
+  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv59
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, 0
   %18 = trunc nuw nsw i64 %indvars.iv59 to i32
@@ -488,7 +488,7 @@ define i32 @Llb_ManComputeBestAttr(ptr nocapture noundef readonly %0) local_unna
 .lr.ph.split:                                     ; preds = %.lr.ph
   %20 = load ptr, ptr %7, align 8
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i32, ptr %22, align 8
   %24 = icmp sgt i32 %16, %23
   br i1 %24, label %.loopexit, label %.lr.ph.split.split
@@ -497,7 +497,7 @@ define i32 @Llb_ManComputeBestAttr(ptr nocapture noundef readonly %0) local_unna
   %indvars.iv56 = phi i64 [ %indvars.iv.next57, %62 ], [ %indvars.iv, %.lr.ph.split ]
   %.137 = phi i32 [ %.2, %62 ], [ %.051, %.lr.ph.split ]
   %.12834 = phi float [ %.229, %62 ], [ %.02749, %.lr.ph.split ]
-  %25 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv56
+  %25 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv56
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %26, 0
   %28 = icmp sgt i32 %26, %23
@@ -513,9 +513,9 @@ define i32 @Llb_ManComputeBestAttr(ptr nocapture noundef readonly %0) local_unna
 
 .lr.ph.i:                                         ; preds = %29
   %34 = load ptr, ptr %10, align 8
-  %35 = getelementptr inbounds ptr, ptr %34, i64 %indvars.iv59
+  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv59
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds ptr, ptr %34, i64 %indvars.iv56
+  %37 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv56
   %wide.trip.count.i = zext nneg i32 %32 to i64
   %38 = load ptr, ptr %37, align 8
   br label %39
@@ -524,10 +524,10 @@ define i32 @Llb_ManComputeBestAttr(ptr nocapture noundef readonly %0) local_unna
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %51 ]
   %.025.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %51 ]
   %.02024.i = phi i32 [ 0, %.lr.ph.i ], [ %.121.i, %51 ]
-  %40 = getelementptr inbounds i8, ptr %36, i64 %indvars.iv.i
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 %indvars.iv.i
   %41 = load i8, ptr %40, align 1
   %42 = icmp eq i8 %41, 1
-  %43 = getelementptr inbounds i8, ptr %38, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw i8, ptr %38, i64 %indvars.iv.i
   %44 = load i8, ptr %43, align 1
   %45 = icmp eq i8 %44, 1
   br i1 %42, label %46, label %49
@@ -584,7 +584,7 @@ Llb_ManComputeCommonAttr.exit:                    ; preds = %51, %29
 
 ; Function Attrs: nounwind uwtable
 define ptr @Llb_ManComputeAttr(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 12
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = tail call ptr @Extra_ArrayAlloc(i32 noundef %3, i32 noundef %3, i32 noundef 4) #5
   %5 = load i32, ptr %2, align 4
@@ -598,7 +598,7 @@ define ptr @Llb_ManComputeAttr(ptr nocapture noundef readonly %0) local_unnamed_
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader29
-  %9 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   br label %14
 
 .preheader:                                       ; preds = %._crit_edge
@@ -606,15 +606,15 @@ define ptr @Llb_ManComputeAttr(ptr nocapture noundef readonly %0) local_unnamed_
   br i1 %10, label %.lr.ph36, label %._crit_edge37
 
 .lr.ph36:                                         ; preds = %.preheader
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %25
 
 14:                                               ; preds = %.lr.ph, %14
   %.030 = phi i32 [ 0, %.lr.ph ], [ %17, %14 ]
   %15 = load ptr, ptr %9, align 8
-  %16 = getelementptr inbounds float, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv
   store float 0.000000e+00, ptr %16, align 4
   %17 = add nuw nsw i32 %.030, 1
   %18 = load i32, ptr %2, align 4
@@ -646,7 +646,7 @@ define ptr @Llb_ManComputeAttr(ptr nocapture noundef readonly %0) local_unnamed_
   br i1 %29, label %.lr.ph34, label %.loopexit
 
 .lr.ph34:                                         ; preds = %25
-  %30 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv45
+  %30 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv45
   br label %31
 
 31:                                               ; preds = %.lr.ph34, %Llb_ManComputeCommonAttr.exit
@@ -659,9 +659,9 @@ define ptr @Llb_ManComputeAttr(ptr nocapture noundef readonly %0) local_unnamed_
 
 .lr.ph.i:                                         ; preds = %31
   %36 = load ptr, ptr %13, align 8
-  %37 = getelementptr inbounds ptr, ptr %36, i64 %indvars.iv45
+  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv45
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds ptr, ptr %36, i64 %indvars.iv42
+  %39 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv42
   %wide.trip.count.i = zext nneg i32 %34 to i64
   %40 = load ptr, ptr %39, align 8
   br label %41
@@ -670,10 +670,10 @@ define ptr @Llb_ManComputeAttr(ptr nocapture noundef readonly %0) local_unnamed_
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %53 ]
   %.025.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %53 ]
   %.02024.i = phi i32 [ 0, %.lr.ph.i ], [ %.121.i, %53 ]
-  %42 = getelementptr inbounds i8, ptr %38, i64 %indvars.iv.i
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 %indvars.iv.i
   %43 = load i8, ptr %42, align 1
   %44 = icmp eq i8 %43, 1
-  %45 = getelementptr inbounds i8, ptr %40, i64 %indvars.iv.i
+  %45 = getelementptr inbounds nuw i8, ptr %40, i64 %indvars.iv.i
   %46 = load i8, ptr %45, align 1
   %47 = icmp eq i8 %46, 1
   br i1 %44, label %48, label %51
@@ -708,12 +708,12 @@ Llb_ManComputeCommonAttr.exit:                    ; preds = %53, %31
   %57 = sitofp i32 %56 to double
   %58 = fdiv double %55, %57
   %59 = fptrunc double %58 to float
-  %60 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv42
+  %60 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv42
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds float, ptr %61, i64 %indvars.iv45
+  %62 = getelementptr inbounds nuw float, ptr %61, i64 %indvars.iv45
   store float %59, ptr %62, align 4
   %63 = load ptr, ptr %30, align 8
-  %64 = getelementptr inbounds float, ptr %63, i64 %indvars.iv42
+  %64 = getelementptr inbounds nuw float, ptr %63, i64 %indvars.iv42
   store float %59, ptr %64, align 4
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %65 = load i32, ptr %2, align 4
@@ -728,7 +728,7 @@ Llb_ManComputeCommonAttr.exit:                    ; preds = %53, %31
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @Llb_MtrCombineSelectedColumns(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph, label %.._crit_edge_crit_edge
@@ -738,11 +738,11 @@ define void @Llb_MtrCombineSelectedColumns(ptr nocapture noundef readonly %0, i3
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = sext i32 %1 to i64
   %9 = sext i32 %2 to i64
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %12
 
 12:                                               ; preds = %.lr.ph, %54
@@ -750,7 +750,7 @@ define void @Llb_MtrCombineSelectedColumns(ptr nocapture noundef readonly %0, i3
   %13 = load ptr, ptr %7, align 8
   %14 = getelementptr inbounds ptr, ptr %13, i64 %8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 %indvars.iv
   %17 = load i8, ptr %16, align 1
   %18 = icmp eq i8 %17, 1
   br i1 %18, label %19, label %30
@@ -758,21 +758,21 @@ define void @Llb_MtrCombineSelectedColumns(ptr nocapture noundef readonly %0, i3
 19:                                               ; preds = %12
   %20 = getelementptr inbounds ptr, ptr %13, i64 %9
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 %indvars.iv
   %23 = load i8, ptr %22, align 1
   %24 = icmp eq i8 %23, 1
   br i1 %24, label %25, label %.thread
 
 25:                                               ; preds = %19
   %26 = load ptr, ptr %10, align 8
-  %27 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4
   %29 = add nsw i32 %28, -1
   store i32 %29, ptr %27, align 4
   %.pre = load ptr, ptr %7, align 8
   %.phi.trans.insert = getelementptr inbounds ptr, ptr %.pre, i64 %8
   %.pre31 = load ptr, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert32 = getelementptr inbounds i8, ptr %.pre31, i64 %indvars.iv
+  %.phi.trans.insert32 = getelementptr inbounds nuw i8, ptr %.pre31, i64 %indvars.iv
   %.pre33 = load i8, ptr %.phi.trans.insert32, align 1
   br label %30
 
@@ -780,14 +780,14 @@ define void @Llb_MtrCombineSelectedColumns(ptr nocapture noundef readonly %0, i3
   %31 = phi i8 [ %.pre33, %25 ], [ %17, %12 ]
   %32 = phi ptr [ %.pre31, %25 ], [ %15, %12 ]
   %33 = phi ptr [ %.pre, %25 ], [ %13, %12 ]
-  %34 = getelementptr inbounds i8, ptr %32, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 %indvars.iv
   %35 = icmp eq i8 %31, 0
   br i1 %35, label %36, label %.thread
 
 36:                                               ; preds = %30
   %37 = getelementptr inbounds ptr, ptr %33, i64 %9
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 %indvars.iv
   %40 = load i8, ptr %39, align 1
   %41 = icmp eq i8 %40, 1
   br i1 %41, label %42, label %.thread
@@ -806,7 +806,7 @@ define void @Llb_MtrCombineSelectedColumns(ptr nocapture noundef readonly %0, i3
   %47 = phi ptr [ %.pre34, %42 ], [ %33, %36 ], [ %33, %30 ], [ %13, %19 ]
   %48 = getelementptr inbounds ptr, ptr %47, i64 %9
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 %indvars.iv
   %51 = load i8, ptr %50, align 1
   %52 = icmp eq i8 %51, 1
   br i1 %52, label %53, label %54
@@ -824,7 +824,7 @@ define void @Llb_MtrCombineSelectedColumns(ptr nocapture noundef readonly %0, i3
 
 ._crit_edge:                                      ; preds = %54, %.._crit_edge_crit_edge
   %.pre-phi = phi i64 [ %.pre35, %.._crit_edge_crit_edge ], [ %9, %54 ]
-  %58 = getelementptr inbounds i8, ptr %0, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds i32, ptr %59, i64 %.pre-phi
   store i32 0, ptr %60, align 4
@@ -833,7 +833,7 @@ define void @Llb_MtrCombineSelectedColumns(ptr nocapture noundef readonly %0, i3
 
 ; Function Attrs: nounwind uwtable
 define void @Llb_ManClusterOne(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = sext i32 %1 to i64
   %7 = getelementptr inbounds ptr, ptr %5, i64 %6
@@ -842,15 +842,15 @@ define void @Llb_ManClusterOne(ptr nocapture noundef readonly %0, i32 noundef %1
   %10 = getelementptr inbounds ptr, ptr %5, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr @Llb_ManGroupsCombine(ptr noundef %8, ptr noundef %11) #5
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i32, ptr %13, align 8
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %.lr.ph.i, label %Llb_MtrCombineSelectedColumns.exit
 
 .lr.ph.i:                                         ; preds = %3
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %19
 
 19:                                               ; preds = %61, %.lr.ph.i
@@ -858,7 +858,7 @@ define void @Llb_ManClusterOne(ptr nocapture noundef readonly %0, i32 noundef %1
   %20 = load ptr, ptr %16, align 8
   %21 = getelementptr inbounds ptr, ptr %20, i64 %6
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 %indvars.iv.i
   %24 = load i8, ptr %23, align 1
   %25 = icmp eq i8 %24, 1
   br i1 %25, label %26, label %37
@@ -866,21 +866,21 @@ define void @Llb_ManClusterOne(ptr nocapture noundef readonly %0, i32 noundef %1
 26:                                               ; preds = %19
   %27 = getelementptr inbounds ptr, ptr %20, i64 %9
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 %indvars.iv.i
   %30 = load i8, ptr %29, align 1
   %31 = icmp eq i8 %30, 1
   br i1 %31, label %32, label %.thread.i
 
 32:                                               ; preds = %26
   %33 = load ptr, ptr %17, align 8
-  %34 = getelementptr inbounds i32, ptr %33, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv.i
   %35 = load i32, ptr %34, align 4
   %36 = add nsw i32 %35, -1
   store i32 %36, ptr %34, align 4
   %.pre.i = load ptr, ptr %16, align 8
   %.phi.trans.insert.i = getelementptr inbounds ptr, ptr %.pre.i, i64 %6
   %.pre31.i = load ptr, ptr %.phi.trans.insert.i, align 8
-  %.phi.trans.insert32.i = getelementptr inbounds i8, ptr %.pre31.i, i64 %indvars.iv.i
+  %.phi.trans.insert32.i = getelementptr inbounds nuw i8, ptr %.pre31.i, i64 %indvars.iv.i
   %.pre33.i = load i8, ptr %.phi.trans.insert32.i, align 1
   br label %37
 
@@ -888,14 +888,14 @@ define void @Llb_ManClusterOne(ptr nocapture noundef readonly %0, i32 noundef %1
   %38 = phi i8 [ %.pre33.i, %32 ], [ %24, %19 ]
   %39 = phi ptr [ %.pre31.i, %32 ], [ %22, %19 ]
   %40 = phi ptr [ %.pre.i, %32 ], [ %20, %19 ]
-  %41 = getelementptr inbounds i8, ptr %39, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 %indvars.iv.i
   %42 = icmp eq i8 %38, 0
   br i1 %42, label %43, label %.thread.i
 
 43:                                               ; preds = %37
   %44 = getelementptr inbounds ptr, ptr %40, i64 %9
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 %indvars.iv.i
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 %indvars.iv.i
   %47 = load i8, ptr %46, align 1
   %48 = icmp eq i8 %47, 1
   br i1 %48, label %49, label %.thread.i
@@ -914,7 +914,7 @@ define void @Llb_ManClusterOne(ptr nocapture noundef readonly %0, i32 noundef %1
   %54 = phi ptr [ %.pre34.i, %49 ], [ %40, %43 ], [ %40, %37 ], [ %20, %26 ]
   %55 = getelementptr inbounds ptr, ptr %54, i64 %9
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 %indvars.iv.i
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 %indvars.iv.i
   %58 = load i8, ptr %57, align 1
   %59 = icmp eq i8 %58, 1
   br i1 %59, label %60, label %61
@@ -931,7 +931,7 @@ define void @Llb_ManClusterOne(ptr nocapture noundef readonly %0, i32 noundef %1
   br i1 %64, label %19, label %Llb_MtrCombineSelectedColumns.exit, !llvm.loop !20
 
 Llb_MtrCombineSelectedColumns.exit:               ; preds = %61, %3
-  %65 = getelementptr inbounds i8, ptr %0, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds i32, ptr %66, i64 %9
   store i32 0, ptr %67, align 4
@@ -948,26 +948,26 @@ declare ptr @Llb_ManGroupsCombine(ptr noundef, ptr noundef) local_unnamed_addr #
 
 ; Function Attrs: nounwind uwtable
 define void @Llb_ManClusterCompress(ptr nocapture noundef %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 12
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %8
 
 8:                                                ; preds = %.lr.ph, %32
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %32 ]
   %.028 = phi i32 [ 0, %.lr.ph ], [ %.1, %32 ]
   %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   br i1 %12, label %16, label %20
 
@@ -978,7 +978,7 @@ define void @Llb_ManClusterCompress(ptr nocapture noundef %0) local_unnamed_addr
 17:                                               ; preds = %16
   tail call void @free(ptr noundef nonnull %15) #5
   %18 = load ptr, ptr %6, align 8
-  %19 = getelementptr inbounds ptr, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
   store ptr null, ptr %19, align 8
   br label %32
 
@@ -987,12 +987,12 @@ define void @Llb_ManClusterCompress(ptr nocapture noundef %0) local_unnamed_addr
   %22 = getelementptr inbounds ptr, ptr %13, i64 %21
   store ptr %15, ptr %22, align 8
   %23 = load ptr, ptr %5, align 8
-  %24 = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds ptr, ptr %23, i64 %21
   store ptr %25, ptr %26, align 8
   %27 = load ptr, ptr %7, align 8
-  %28 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4
   %30 = getelementptr inbounds i32, ptr %27, i64 %21
   store i32 %29, ptr %30, align 4
@@ -1018,14 +1018,14 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define void @Llb_ManCluster(ptr noundef %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 12
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %10
 
 10:                                               ; preds = %135, %1
@@ -1057,7 +1057,7 @@ define void @Llb_ManCluster(ptr noundef %0) local_unnamed_addr #1 {
 
 .lr.ph.i:                                         ; preds = %16
   %18 = load ptr, ptr %3, align 8
-  %19 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv64.i
+  %19 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv64.i
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %20, 0
   %22 = trunc nuw nsw i64 %indvars.iv64.i to i32
@@ -1067,7 +1067,7 @@ define void @Llb_ManCluster(ptr noundef %0) local_unnamed_addr #1 {
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i
   %24 = load ptr, ptr %4, align 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load i32, ptr %26, align 8
   %28 = icmp sgt i32 %20, %27
   br i1 %28, label %.loopexit.i, label %.lr.ph.split.split.i
@@ -1076,7 +1076,7 @@ define void @Llb_ManCluster(ptr noundef %0) local_unnamed_addr #1 {
   %indvars.iv61.i = phi i64 [ %indvars.iv.next62.i, %Llb_ManComputeCommonQuant.exit.thread.i ], [ %indvars.iv.i, %.lr.ph.split.i ]
   %.140.i = phi i32 [ %.2.i, %Llb_ManComputeCommonQuant.exit.thread.i ], [ %.055.i, %.lr.ph.split.i ]
   %.12839.i = phi i32 [ %.229.i, %Llb_ManComputeCommonQuant.exit.thread.i ], [ %.02753.i, %.lr.ph.split.i ]
-  %29 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv61.i
+  %29 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv61.i
   %30 = load i32, ptr %29, align 4
   %31 = icmp eq i32 %30, 0
   %32 = icmp sgt i32 %30, %27
@@ -1092,16 +1092,16 @@ define void @Llb_ManCluster(ptr noundef %0) local_unnamed_addr #1 {
 
 .lr.ph.i.i:                                       ; preds = %33
   %38 = load ptr, ptr %7, align 8
-  %39 = getelementptr inbounds ptr, ptr %38, i64 %indvars.iv64.i
+  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv64.i
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds ptr, ptr %38, i64 %indvars.iv61.i
+  %41 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv61.i
   %wide.trip.count.i.i = zext nneg i32 %36 to i64
   br label %42
 
 42:                                               ; preds = %.thread27.i.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %.thread27.i.i ]
   %.029.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %.1.i.i, %.thread27.i.i ]
-  %43 = getelementptr inbounds i8, ptr %40, i64 %indvars.iv.i.i
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 %indvars.iv.i.i
   %44 = load i8, ptr %43, align 1
   switch i8 %44, label %.thread27.i.i [
     i8 1, label %45
@@ -1110,7 +1110,7 @@ define void @Llb_ManCluster(ptr noundef %0) local_unnamed_addr #1 {
 
 45:                                               ; preds = %42
   %46 = load ptr, ptr %41, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 %indvars.iv.i.i
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 %indvars.iv.i.i
   %48 = load i8, ptr %47, align 1
   switch i8 %48, label %.thread27.i.i [
     i8 1, label %49
@@ -1119,7 +1119,7 @@ define void @Llb_ManCluster(ptr noundef %0) local_unnamed_addr #1 {
 
 49:                                               ; preds = %45
   %50 = load ptr, ptr %8, align 8
-  %51 = getelementptr inbounds i32, ptr %50, i64 %indvars.iv.i.i
+  %51 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv.i.i
   %52 = load i32, ptr %51, align 4
   %53 = icmp eq i32 %52, 2
   %54 = add nsw i32 %.029.i.i, 2
@@ -1128,7 +1128,7 @@ define void @Llb_ManCluster(ptr noundef %0) local_unnamed_addr #1 {
 
 55:                                               ; preds = %42
   %56 = load ptr, ptr %41, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 %indvars.iv.i.i
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 %indvars.iv.i.i
   %58 = load i8, ptr %57, align 1
   %59 = icmp eq i8 %58, 1
   br i1 %59, label %60, label %.thread27.i.i
@@ -1169,10 +1169,10 @@ Llb_ManComputeBestQuant.exit:                     ; preds = %.loopexit.i
   %69 = and i32 %.1.lcssa.i, 65535
   %70 = load ptr, ptr %9, align 8
   %71 = zext nneg i32 %68 to i64
-  %72 = getelementptr inbounds ptr, ptr %70, i64 %71
+  %72 = getelementptr inbounds nuw ptr, ptr %70, i64 %71
   %73 = load ptr, ptr %72, align 8
   %74 = zext nneg i32 %69 to i64
-  %75 = getelementptr inbounds ptr, ptr %70, i64 %74
+  %75 = getelementptr inbounds nuw ptr, ptr %70, i64 %74
   %76 = load ptr, ptr %75, align 8
   %77 = tail call ptr @Llb_ManGroupsCombine(ptr noundef %73, ptr noundef %76) #5
   %78 = load i32, ptr %5, align 8
@@ -1182,31 +1182,31 @@ Llb_ManComputeBestQuant.exit:                     ; preds = %.loopexit.i
 .lr.ph.i.i17:                                     ; preds = %67, %121
   %indvars.iv.i.i18 = phi i64 [ %indvars.iv.next.i.i19, %121 ], [ 0, %67 ]
   %80 = load ptr, ptr %7, align 8
-  %81 = getelementptr inbounds ptr, ptr %80, i64 %71
+  %81 = getelementptr inbounds nuw ptr, ptr %80, i64 %71
   %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 %indvars.iv.i.i18
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 %indvars.iv.i.i18
   %84 = load i8, ptr %83, align 1
   %85 = icmp eq i8 %84, 1
   br i1 %85, label %86, label %97
 
 86:                                               ; preds = %.lr.ph.i.i17
-  %87 = getelementptr inbounds ptr, ptr %80, i64 %74
+  %87 = getelementptr inbounds nuw ptr, ptr %80, i64 %74
   %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 %indvars.iv.i.i18
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 %indvars.iv.i.i18
   %90 = load i8, ptr %89, align 1
   %91 = icmp eq i8 %90, 1
   br i1 %91, label %92, label %.thread.i.i
 
 92:                                               ; preds = %86
   %93 = load ptr, ptr %8, align 8
-  %94 = getelementptr inbounds i32, ptr %93, i64 %indvars.iv.i.i18
+  %94 = getelementptr inbounds nuw i32, ptr %93, i64 %indvars.iv.i.i18
   %95 = load i32, ptr %94, align 4
   %96 = add nsw i32 %95, -1
   store i32 %96, ptr %94, align 4
   %.pre.i.i = load ptr, ptr %7, align 8
-  %.phi.trans.insert.i.i = getelementptr inbounds ptr, ptr %.pre.i.i, i64 %71
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw ptr, ptr %.pre.i.i, i64 %71
   %.pre31.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
-  %.phi.trans.insert32.i.i = getelementptr inbounds i8, ptr %.pre31.i.i, i64 %indvars.iv.i.i18
+  %.phi.trans.insert32.i.i = getelementptr inbounds nuw i8, ptr %.pre31.i.i, i64 %indvars.iv.i.i18
   %.pre33.i.i = load i8, ptr %.phi.trans.insert32.i.i, align 1
   br label %97
 
@@ -1214,14 +1214,14 @@ Llb_ManComputeBestQuant.exit:                     ; preds = %.loopexit.i
   %98 = phi i8 [ %.pre33.i.i, %92 ], [ %84, %.lr.ph.i.i17 ]
   %99 = phi ptr [ %.pre31.i.i, %92 ], [ %82, %.lr.ph.i.i17 ]
   %100 = phi ptr [ %.pre.i.i, %92 ], [ %80, %.lr.ph.i.i17 ]
-  %101 = getelementptr inbounds i8, ptr %99, i64 %indvars.iv.i.i18
+  %101 = getelementptr inbounds nuw i8, ptr %99, i64 %indvars.iv.i.i18
   %102 = icmp eq i8 %98, 0
   br i1 %102, label %103, label %.thread.i.i
 
 103:                                              ; preds = %97
-  %104 = getelementptr inbounds ptr, ptr %100, i64 %74
+  %104 = getelementptr inbounds nuw ptr, ptr %100, i64 %74
   %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 %indvars.iv.i.i18
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 %indvars.iv.i.i18
   %107 = load i8, ptr %106, align 1
   %108 = icmp eq i8 %107, 1
   br i1 %108, label %109, label %.thread.i.i
@@ -1229,7 +1229,7 @@ Llb_ManComputeBestQuant.exit:                     ; preds = %.loopexit.i
 109:                                              ; preds = %103
   store i8 1, ptr %101, align 1
   %110 = load ptr, ptr %3, align 8
-  %111 = getelementptr inbounds i32, ptr %110, i64 %71
+  %111 = getelementptr inbounds nuw i32, ptr %110, i64 %71
   %112 = load i32, ptr %111, align 4
   %113 = add nsw i32 %112, 1
   store i32 %113, ptr %111, align 4
@@ -1238,9 +1238,9 @@ Llb_ManComputeBestQuant.exit:                     ; preds = %.loopexit.i
 
 .thread.i.i:                                      ; preds = %109, %103, %97, %86
   %114 = phi ptr [ %.pre34.i.i, %109 ], [ %100, %103 ], [ %100, %97 ], [ %80, %86 ]
-  %115 = getelementptr inbounds ptr, ptr %114, i64 %74
+  %115 = getelementptr inbounds nuw ptr, ptr %114, i64 %74
   %116 = load ptr, ptr %115, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 %indvars.iv.i.i18
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 %indvars.iv.i.i18
   %118 = load i8, ptr %117, align 1
   %119 = icmp eq i8 %118, 1
   br i1 %119, label %120, label %121
@@ -1258,13 +1258,13 @@ Llb_ManComputeBestQuant.exit:                     ; preds = %.loopexit.i
 
 Llb_ManClusterOne.exit:                           ; preds = %121, %67
   %125 = load ptr, ptr %3, align 8
-  %126 = getelementptr inbounds i32, ptr %125, i64 %74
+  %126 = getelementptr inbounds nuw i32, ptr %125, i64 %74
   store i32 0, ptr %126, align 4
   %127 = load ptr, ptr %9, align 8
-  %128 = getelementptr inbounds ptr, ptr %127, i64 %71
+  %128 = getelementptr inbounds nuw ptr, ptr %127, i64 %71
   store ptr %77, ptr %128, align 8
   %129 = load ptr, ptr %9, align 8
-  %130 = getelementptr inbounds ptr, ptr %129, i64 %74
+  %130 = getelementptr inbounds nuw ptr, ptr %129, i64 %74
   store ptr null, ptr %130, align 8
   %131 = load i32, ptr %2, align 4
   %132 = icmp sgt i32 %131, 2
@@ -1292,11 +1292,11 @@ Llb_ManClusterOne.exit:                           ; preds = %121, %67
   %indvars.iv.i22 = phi i64 [ %indvars.iv.next.i23, %163 ], [ 0, %.critedge16 ]
   %.028.i = phi i32 [ %.1.i, %163 ], [ 0, %.critedge16 ]
   %140 = load ptr, ptr %9, align 8
-  %141 = getelementptr inbounds ptr, ptr %140, i64 %indvars.iv.i22
+  %141 = getelementptr inbounds nuw ptr, ptr %140, i64 %indvars.iv.i22
   %142 = load ptr, ptr %141, align 8
   %143 = icmp eq ptr %142, null
   %144 = load ptr, ptr %7, align 8
-  %145 = getelementptr inbounds ptr, ptr %144, i64 %indvars.iv.i22
+  %145 = getelementptr inbounds nuw ptr, ptr %144, i64 %indvars.iv.i22
   %146 = load ptr, ptr %145, align 8
   br i1 %143, label %147, label %151
 
@@ -1307,7 +1307,7 @@ Llb_ManClusterOne.exit:                           ; preds = %121, %67
 148:                                              ; preds = %147
   tail call void @free(ptr noundef nonnull %146) #5
   %149 = load ptr, ptr %7, align 8
-  %150 = getelementptr inbounds ptr, ptr %149, i64 %indvars.iv.i22
+  %150 = getelementptr inbounds nuw ptr, ptr %149, i64 %indvars.iv.i22
   store ptr null, ptr %150, align 8
   br label %163
 
@@ -1316,12 +1316,12 @@ Llb_ManClusterOne.exit:                           ; preds = %121, %67
   %153 = getelementptr inbounds ptr, ptr %144, i64 %152
   store ptr %146, ptr %153, align 8
   %154 = load ptr, ptr %9, align 8
-  %155 = getelementptr inbounds ptr, ptr %154, i64 %indvars.iv.i22
+  %155 = getelementptr inbounds nuw ptr, ptr %154, i64 %indvars.iv.i22
   %156 = load ptr, ptr %155, align 8
   %157 = getelementptr inbounds ptr, ptr %154, i64 %152
   store ptr %156, ptr %157, align 8
   %158 = load ptr, ptr %3, align 8
-  %159 = getelementptr inbounds i32, ptr %158, i64 %indvars.iv.i22
+  %159 = getelementptr inbounds nuw i32, ptr %158, i64 %indvars.iv.i22
   %160 = load i32, ptr %159, align 4
   %161 = getelementptr inbounds i32, ptr %158, i64 %152
   store i32 %160, ptr %161, align 4

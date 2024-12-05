@@ -34,21 +34,21 @@ $_ZN14VerilatedMutex6unlockEv = comdat any
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN16Vmycpu_top__SymsD2Ev(ptr noundef nonnull align 64 dereferenceable(19520) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 192
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   tail call void @_ZN20Vmycpu_top___024rootD1Ev(ptr noundef nonnull align 64 dereferenceable(19328) %2) #11
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   invoke void @_ZN9VlDeleter9deleteAllEv(ptr noundef nonnull align 8 dereferenceable(128) %3)
           to label %4 unwind label %22
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %5, ptr nonnull @.str, ptr nonnull @.str.1, i32 1731, ptr null)
   %7 = load ptr, ptr %6, align 8
   %.not.i.i.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIP11VlDeletableSaIS1_EED2Ev.exit.i, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = ptrtoint ptr %10 to i64
   %12 = ptrtoint ptr %7 to i64
@@ -63,7 +63,7 @@ _ZNSt6vectorIP11VlDeletableSaIS1_EED2Ev.exit.i:   ; preds = %8, %4
   br i1 %.not.i.i.i1.i, label %_ZN9VlDeleterD2Ev.exit, label %16
 
 16:                                               ; preds = %_ZNSt6vectorIP11VlDeletableSaIS1_EED2Ev.exit.i
-  %17 = getelementptr inbounds i8, ptr %14, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = ptrtoint ptr %18 to i64
   %20 = ptrtoint ptr %15 to i64
@@ -92,14 +92,14 @@ define linkonce_odr dso_local void @_ZN9VlDeleterD2Ev(ptr noundef nonnull align 
           to label %2 unwind label %20
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %3, ptr nonnull @.str, ptr nonnull @.str.1, i32 1731, ptr null)
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIP11VlDeletableSaIS1_EED2Ev.exit, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = ptrtoint ptr %5 to i64
@@ -114,7 +114,7 @@ _ZNSt6vectorIP11VlDeletableSaIS1_EED2Ev.exit:     ; preds = %2, %6
   br i1 %.not.i.i.i1, label %_ZNSt6vectorIP11VlDeletableSaIS1_EED2Ev.exit2, label %14
 
 14:                                               ; preds = %_ZNSt6vectorIP11VlDeletableSaIS1_EED2Ev.exit
-  %15 = getelementptr inbounds i8, ptr %12, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = ptrtoint ptr %16 to i64
   %18 = ptrtoint ptr %13 to i64
@@ -139,16 +139,16 @@ declare void @_ZN13VerilatedSymsD2Ev(ptr noundef nonnull align 8 dereferenceable
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN16Vmycpu_top__SymsC2EP16VerilatedContextPKcP10Vmycpu_top(ptr noundef nonnull align 64 dereferenceable(19520) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN13VerilatedSymsC2EP16VerilatedContext(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %3, ptr %5, align 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull align 8 dereferenceable(128) %6, ptr nonnull @.str, ptr nonnull @.str.1, i32 1729, ptr null)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %8, ptr nonnull @.str, ptr nonnull @.str.1, i32 1731, ptr null)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
-  %10 = getelementptr inbounds i8, ptr %0, i64 72
-  %11 = getelementptr inbounds i8, ptr %0, i64 192
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 192
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(81) %10, i8 0, i64 81, i1 false)
   invoke void @_ZN20Vmycpu_top___024rootC1EP16Vmycpu_top__SymsPKc(ptr noundef nonnull align 64 dereferenceable(19328) %11, ptr noundef nonnull %0, ptr noundef %2)
           to label %12 unwind label %27
@@ -193,7 +193,7 @@ define dso_local void @_ZN16Vmycpu_top__SymsC2EP16VerilatedContextPKcP10Vmycpu_t
   unreachable
 
 .loopexit:                                        ; preds = %.preheader.i.i.i, %21, %15
-  %24 = getelementptr inbounds i8, ptr %16, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %16, i64 56
   store i8 12, ptr %24, align 8
   %25 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(608) %16) #11
   invoke void @_ZN20Vmycpu_top___024root12__VconfigureEb(ptr noundef nonnull align 64 dereferenceable(19328) %11, i1 noundef zeroext true)
@@ -260,7 +260,7 @@ define linkonce_odr dso_local void @_ZN16VerilatedContext13timeprecisionEi(ptr n
 _ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit: ; preds = %.preheader.i.i, %2, %7
   %spec.select = tail call i32 @llvm.abs.i32(i32 %1, i1 true)
   %10 = trunc i32 %spec.select to i8
-  %11 = getelementptr inbounds i8, ptr %0, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 %10, ptr %11, align 8
   %12 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #11
   ret void

@@ -37,25 +37,25 @@ $_ZNSt6vectorIfSaIfEE17_M_default_appendEm = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN3gmx12AtomsBuilderC2EP7t_atomsP8t_symtab(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %1, align 8
   store i32 %6, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 20
-  %8 = getelementptr inbounds i8, ptr %1, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %9 = load i32, ptr %8, align 8
   store i32 %9, ptr %7, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 -1, ptr %11, align 4
   %12 = load i32, ptr %8, align 8
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %14, label %22
 
 14:                                               ; preds = %3
-  %15 = getelementptr inbounds i8, ptr %1, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %16 = load ptr, ptr %15, align 8
   %17 = zext nneg i32 %12 to i64
   %18 = getelementptr %struct.t_resinfo, ptr %16, i64 %17
@@ -76,7 +76,7 @@ define void @_ZN3gmx12AtomsBuilderD2Ev(ptr nocapture nonnull readnone align 8 %0
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN3gmx12AtomsBuilder12symtabStringEPPc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef readonly %1) local_unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %8, label %5
@@ -96,24 +96,24 @@ declare noundef ptr @_Z10put_symtabP8t_symtabPKc(ptr noundef, ptr noundef) local
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx12AtomsBuilder7reserveEii(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((16, 24)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = sext i32 %1 to i64
   %7 = load ptr, ptr %5, align 8
   %8 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 86, ptr noundef %7, i64 noundef range(i64 -2147483648, 2147483648) %6, i64 noundef 36)
   store ptr %8, ptr %5, align 8
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 87, ptr noundef %11, i64 noundef range(i64 -2147483648, 2147483648) %6, i64 noundef 8)
   store ptr %12, ptr %10, align 8
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %15 = sext i32 %2 to i64
   %16 = load ptr, ptr %14, align 8
   %17 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 88, ptr noundef %16, i64 noundef range(i64 -2147483648, 2147483648) %15, i64 noundef 32)
   store ptr %17, ptr %14, align 8
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 56
   %20 = load ptr, ptr %19, align 8
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %23, label %21
@@ -124,9 +124,9 @@ define void @_ZN3gmx12AtomsBuilder7reserveEii(ptr nocapture noundef nonnull alig
   br label %23
 
 23:                                               ; preds = %21, %3
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %1, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 20
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %2, ptr %25, align 4
   ret void
 }
@@ -138,11 +138,11 @@ define void @_ZN3gmx12AtomsBuilder10clearAtomsEv(ptr nocapture noundef nonnull a
   %2 = load ptr, ptr %0, align 8
   store i32 0, ptr %2, align 8
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i32 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 28
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 -1, ptr %6, align 4
   ret void
 }
@@ -156,7 +156,7 @@ define noundef i32 @_ZNK3gmx12AtomsBuilder16currentAtomCountEv(ptr nocapture nou
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN3gmx12AtomsBuilder20setNextResidueNumberEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((28, 32)) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 28
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %1, ptr %3, align 4
   ret void
 }
@@ -165,20 +165,20 @@ define void @_ZN3gmx12AtomsBuilder20setNextResidueNumberEi(ptr nocapture noundef
 define void @_ZN3gmx12AtomsBuilder7addAtomERK7t_atomsi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = sext i32 %2 to i64
   %9 = getelementptr inbounds %struct.t_atom, ptr %7, i64 %8
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = sext i32 %5 to i64
   %13 = getelementptr inbounds %struct.t_atom, ptr %11, i64 %12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %13, ptr noundef nonnull align 4 dereferenceable(36) %9, i64 36, i1 false)
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds ptr, ptr %15, i64 %8
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not.i = icmp eq ptr %19, null
   br i1 %.not.i, label %_ZN3gmx12AtomsBuilder12symtabStringEPPc.exit, label %20
@@ -191,25 +191,25 @@ define void @_ZN3gmx12AtomsBuilder7addAtomERK7t_atomsi(ptr nocapture noundef non
 _ZN3gmx12AtomsBuilder12symtabStringEPPc.exit:     ; preds = %3, %20
   %.0.i = phi ptr [ %22, %20 ], [ %17, %3 ]
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds ptr, ptr %25, i64 %12
   store ptr %.0.i, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %28 = load i32, ptr %27, align 8
   %29 = load ptr, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds %struct.t_atom, ptr %31, i64 %12, i32 7
   store i32 %28, ptr %32, align 4
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 56
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 56
   %35 = load ptr, ptr %34, align 8
   %.not = icmp eq ptr %35, null
   br i1 %.not, label %44, label %36
 
 36:                                               ; preds = %_ZN3gmx12AtomsBuilder12symtabStringEPPc.exit
-  %37 = getelementptr inbounds i8, ptr %1, i64 56
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %38 = load ptr, ptr %37, align 8
   %.not13 = icmp eq ptr %38, null
   br i1 %.not13, label %42, label %39
@@ -240,34 +240,34 @@ declare void @_Z24gmx_pdbinfo_init_defaultP9t_pdbinfo(ptr noundef) local_unnamed
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx12AtomsBuilder12startResidueERK9t_resinfo(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((24, 28)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 28
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, -1
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i32, ptr %7, align 8
   store i32 %8, ptr %3, align 4
   br label %9
 
 9:                                                ; preds = %6, %2
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %10, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %14 = load ptr, ptr %13, align 8
   %15 = sext i32 %12 to i64
   %16 = getelementptr inbounds %struct.t_resinfo, ptr %14, i64 %15
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   %17 = load i32, ptr %3, align 4
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds %struct.t_resinfo, ptr %20, i64 %15, i32 1
   store i32 %17, ptr %21, align 8
   %22 = load ptr, ptr %1, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8
   %.not.i = icmp eq ptr %24, null
   br i1 %.not.i, label %_ZN3gmx12AtomsBuilder12symtabStringEPPc.exit, label %25
@@ -280,17 +280,17 @@ define void @_ZN3gmx12AtomsBuilder12startResidueERK9t_resinfo(ptr nocapture noun
 _ZN3gmx12AtomsBuilder12symtabStringEPPc.exit:     ; preds = %9, %25
   %.0.i = phi ptr [ %27, %25 ], [ %22, %9 ]
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 48
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds %struct.t_resinfo, ptr %30, i64 %15
   store ptr %.0.i, ptr %31, align 8
   %32 = load i32, ptr %3, align 4
   %33 = add nsw i32 %32, 1
   store i32 %33, ptr %3, align 4
-  %34 = getelementptr inbounds i8, ptr %0, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %12, ptr %34, align 8
   %35 = load ptr, ptr %0, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 40
   %37 = load i32, ptr %36, align 8
   %38 = add nsw i32 %37, 1
   store i32 %38, ptr %36, align 8
@@ -299,34 +299,34 @@ _ZN3gmx12AtomsBuilder12symtabStringEPPc.exit:     ; preds = %9, %25
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx12AtomsBuilder13finishResidueERK9t_resinfo(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 28
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, -1
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i32, ptr %7, align 8
   store i32 %8, ptr %3, align 4
   br label %9
 
 9:                                                ; preds = %6, %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load i32, ptr %10, align 8
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %14 = load ptr, ptr %13, align 8
   %15 = sext i32 %11 to i64
   %16 = getelementptr inbounds %struct.t_resinfo, ptr %14, i64 %15
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   %17 = load i32, ptr %3, align 4
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds %struct.t_resinfo, ptr %20, i64 %15, i32 1
   store i32 %17, ptr %21, align 8
   %22 = load ptr, ptr %1, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8
   %.not.i = icmp eq ptr %24, null
   br i1 %.not.i, label %_ZN3gmx12AtomsBuilder12symtabStringEPPc.exit, label %25
@@ -339,7 +339,7 @@ define void @_ZN3gmx12AtomsBuilder13finishResidueERK9t_resinfo(ptr nocapture nou
 _ZN3gmx12AtomsBuilder12symtabStringEPPc.exit:     ; preds = %9, %25
   %.0.i = phi ptr [ %27, %25 ], [ %22, %9 ]
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 48
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds %struct.t_resinfo, ptr %30, i64 %15
   store ptr %.0.i, ptr %31, align 8
@@ -349,7 +349,7 @@ _ZN3gmx12AtomsBuilder12symtabStringEPPc.exit:     ; preds = %9, %25
   %34 = add nsw i32 %11, 1
   store i32 %34, ptr %10, align 8
   %35 = load ptr, ptr %0, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 40
   %37 = load i32, ptr %36, align 8
   %.not = icmp slt i32 %11, %37
   br i1 %.not, label %40, label %38
@@ -367,8 +367,8 @@ _ZN3gmx12AtomsBuilder12symtabStringEPPc.exit:     ; preds = %9, %25
 define void @_ZN3gmx12AtomsBuilder21discardCurrentResidueEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #8 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8
   %smin = tail call i32 @llvm.smin.i32(i32 %3, i32 1)
   %7 = add i32 %smin, -1
@@ -394,7 +394,7 @@ define void @_ZN3gmx12AtomsBuilder21discardCurrentResidueEv(ptr nocapture nounde
   store i32 %.0.lcssa, ptr %2, align 8
   %17 = load i32, ptr %5, align 8
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 40
   store i32 %17, ptr %19, align 8
   ret void
 }
@@ -405,15 +405,15 @@ define void @_ZN3gmx12AtomsBuilder10mergeAtomsERK7t_atoms(ptr nocapture noundef 
   %4 = load i32, ptr %3, align 8
   %5 = load i32, ptr %1, align 8
   %6 = add nsw i32 %5, %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = icmp sgt i32 %6, %8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 40
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 40
   %.pre = load i32, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert24 = getelementptr inbounds i8, ptr %1, i64 40
+  %.phi.trans.insert24 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.pre25 = load i32, ptr %.phi.trans.insert24, align 8
   %.pre28 = add nsw i32 %.pre25, %.pre
-  %10 = getelementptr inbounds i8, ptr %0, i64 20
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %11 = load i32, ptr %10, align 4
   %12 = icmp sgt i32 %.pre28, %11
   %or.cond = select i1 %9, i1 true, i1 %12
@@ -430,20 +430,20 @@ define void @_ZN3gmx12AtomsBuilder10mergeAtomsERK7t_atoms(ptr nocapture noundef 
   br i1 %15, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 48
-  %18 = getelementptr inbounds i8, ptr %0, i64 28
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
-  %21 = getelementptr inbounds i8, ptr %1, i64 16
-  %22 = getelementptr inbounds i8, ptr %1, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 56
   br label %23
 
 23:                                               ; preds = %.lr.ph, %_ZN3gmx12AtomsBuilder7addAtomERK7t_atomsi.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN3gmx12AtomsBuilder7addAtomERK7t_atomsi.exit ]
   %.021 = phi i32 [ -1, %.lr.ph ], [ %.1, %_ZN3gmx12AtomsBuilder7addAtomERK7t_atomsi.exit ]
   %24 = load ptr, ptr %16, align 8
-  %25 = getelementptr inbounds %struct.t_atom, ptr %24, i64 %indvars.iv, i32 7
+  %25 = getelementptr inbounds nuw %struct.t_atom, ptr %24, i64 %indvars.iv, i32 7
   %26 = load i32, ptr %25, align 4
   %.not = icmp eq i32 %26, %.021
   br i1 %.not, label %64, label %27
@@ -457,23 +457,23 @@ define void @_ZN3gmx12AtomsBuilder10mergeAtomsERK7t_atoms(ptr nocapture noundef 
   br i1 %32, label %33, label %36
 
 33:                                               ; preds = %27
-  %34 = getelementptr inbounds i8, ptr %30, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %35 = load i32, ptr %34, align 8
   store i32 %35, ptr %18, align 4
   br label %36
 
 36:                                               ; preds = %33, %27
   %37 = load ptr, ptr %0, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 40
   %39 = load i32, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %37, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 48
   %41 = load ptr, ptr %40, align 8
   %42 = sext i32 %39 to i64
   %43 = getelementptr inbounds %struct.t_resinfo, ptr %41, i64 %42
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull readonly align 8 dereferenceable(32) %30, i64 32, i1 false)
   %44 = load i32, ptr %18, align 4
   %45 = load ptr, ptr %0, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 48
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds %struct.t_resinfo, ptr %47, i64 %42, i32 1
   store i32 %44, ptr %48, align 8
@@ -490,7 +490,7 @@ define void @_ZN3gmx12AtomsBuilder10mergeAtomsERK7t_atoms(ptr nocapture noundef 
 _ZN3gmx12AtomsBuilder12startResidueERK9t_resinfo.exit: ; preds = %36, %51
   %.0.i.i = phi ptr [ %53, %51 ], [ %49, %36 ]
   %54 = load ptr, ptr %0, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 48
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 48
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds %struct.t_resinfo, ptr %56, i64 %42
   store ptr %.0.i.i, ptr %57, align 8
@@ -499,7 +499,7 @@ _ZN3gmx12AtomsBuilder12startResidueERK9t_resinfo.exit: ; preds = %36, %51
   store i32 %59, ptr %18, align 4
   store i32 %39, ptr %20, align 8
   %60 = load ptr, ptr %0, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 40
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 40
   %62 = load i32, ptr %61, align 8
   %63 = add nsw i32 %62, 1
   store i32 %63, ptr %61, align 8
@@ -511,14 +511,14 @@ _ZN3gmx12AtomsBuilder12startResidueERK9t_resinfo.exit: ; preds = %36, %51
   %.1 = phi i32 [ %26, %_ZN3gmx12AtomsBuilder12startResidueERK9t_resinfo.exit ], [ %.021, %23 ]
   %66 = load ptr, ptr %0, align 8
   %67 = load i32, ptr %66, align 8
-  %68 = getelementptr inbounds %struct.t_atom, ptr %65, i64 %indvars.iv
-  %69 = getelementptr inbounds i8, ptr %66, i64 8
+  %68 = getelementptr inbounds nuw %struct.t_atom, ptr %65, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %70 = load ptr, ptr %69, align 8
   %71 = sext i32 %67 to i64
   %72 = getelementptr inbounds %struct.t_atom, ptr %70, i64 %71
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %72, ptr noundef nonnull align 4 dereferenceable(36) %68, i64 36, i1 false)
   %73 = load ptr, ptr %21, align 8
-  %74 = getelementptr inbounds ptr, ptr %73, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv
   %75 = load ptr, ptr %74, align 8
   %76 = load ptr, ptr %19, align 8
   %.not.i.i18 = icmp eq ptr %76, null
@@ -532,18 +532,18 @@ _ZN3gmx12AtomsBuilder12startResidueERK9t_resinfo.exit: ; preds = %36, %51
 _ZN3gmx12AtomsBuilder12symtabStringEPPc.exit.i:   ; preds = %77, %64
   %.0.i.i19 = phi ptr [ %79, %77 ], [ %75, %64 ]
   %80 = load ptr, ptr %0, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds ptr, ptr %82, i64 %71
   store ptr %.0.i.i19, ptr %83, align 8
   %84 = load i32, ptr %20, align 8
   %85 = load ptr, ptr %0, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %87 = load ptr, ptr %86, align 8
   %88 = getelementptr inbounds %struct.t_atom, ptr %87, i64 %71, i32 7
   store i32 %84, ptr %88, align 4
   %89 = load ptr, ptr %0, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 56
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 56
   %91 = load ptr, ptr %90, align 8
   %.not.i = icmp eq ptr %91, null
   br i1 %.not.i, label %_ZN3gmx12AtomsBuilder7addAtomERK7t_atomsi.exit, label %92
@@ -554,7 +554,7 @@ _ZN3gmx12AtomsBuilder12symtabStringEPPc.exit.i:   ; preds = %77, %64
   br i1 %.not13.i, label %97, label %94
 
 94:                                               ; preds = %92
-  %95 = getelementptr inbounds %struct.t_pdbinfo, ptr %93, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw %struct.t_pdbinfo, ptr %93, i64 %indvars.iv
   %96 = getelementptr inbounds %struct.t_pdbinfo, ptr %91, i64 %71
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %96, ptr noundef nonnull align 4 dereferenceable(52) %95, i64 52, i1 false)
   br label %_ZN3gmx12AtomsBuilder7addAtomERK7t_atomsi.exit
@@ -607,7 +607,7 @@ _ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %2
   br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIcSaIcEEC2EmRKS0_.exit.thread.i, label %_ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i.i.i
 
 _ZNSt12_Vector_baseIcSaIcEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %17
 
 _ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i.i.i: ; preds = %_ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i
@@ -622,10 +622,10 @@ _ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i.i.i: ; preds = %_ZNSt6vec
 
 13:                                               ; preds = %_ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i.i.i
   store ptr %10, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %10, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %10, i64 %6
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 %6
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %15, ptr %16, align 8
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %10, i8 0, i64 %6, i1 false)
   br label %17
@@ -698,7 +698,7 @@ define void @_ZN3gmx12AtomsRemover16refreshAtomCountERK7t_atoms(ptr noundef nonn
   %4 = load i32, ptr %1, align 8
   %5 = sext i32 %4 to i64
   store i8 0, ptr %3, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %0, align 8
   %9 = ptrtoint ptr %7 to i64
@@ -735,9 +735,9 @@ define linkonce_odr void @_ZNSt6vectorIcSaIcEE14_M_fill_insertEN9__gnu_cxx17__no
   br i1 %.not, label %_ZSt4fillIPccEvT_S1_RKT0_.exit, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = ptrtoint ptr %7 to i64
   %11 = ptrtoint ptr %9 to i64
@@ -864,7 +864,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPcS0_SaIcEET0_T_S3_S2_RT1_.exit: ; pred
 _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit: ; preds = %60, %62
   store ptr %53, ptr %0, align 8
   store ptr %61, ptr %8, align 8
-  %63 = getelementptr inbounds i8, ptr %53, i64 %47
+  %63 = getelementptr inbounds nuw i8, ptr %53, i64 %47
   store ptr %63, ptr %6, align 8
   br label %_ZSt4fillIPccEvT_S1_RKT0_.exit
 
@@ -878,7 +878,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN3gmx12AtomsRemover7markAllEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #4 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not5.i.i.i.i = icmp eq ptr %2, %4
   br i1 %.not5.i.i.i.i, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEiEvT_S7_RKT0_.exit, label %.lr.ph.i.i.i.i
@@ -896,7 +896,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEiEvT_S7_RKT0_.exit
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN3gmx12AtomsRemover11markResidueERK7t_atomsib(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #8 align 2 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = sext i32 %2 to i64
   %8 = getelementptr inbounds %struct.t_atom, ptr %6, i64 %7, i32 7
@@ -953,14 +953,14 @@ define void @_ZN3gmx12AtomsRemover11markResidueERK7t_atomsib(ptr nocapture nound
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK3gmx12AtomsRemover20removeMarkedElementsEPSt6vectorINS_11BasicVectorIfEESaIS3_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = sdiv exact i64 %8, 12
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %0, align 8
   %13 = ptrtoint ptr %11 to i64
@@ -1021,7 +1021,7 @@ define void @_ZNK3gmx12AtomsRemover20removeMarkedElementsEPSt6vectorINS_11BasicV
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = ptrtoint ptr %4 to i64
@@ -1033,7 +1033,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm(p
 
 11:                                               ; preds = %2
   %12 = sub nuw i64 %1, %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
   %16 = sub i64 %15, %6
@@ -1074,8 +1074,8 @@ _ZNKSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds 
   %.012.i.i.i.i = phi ptr [ %32, %.lr.ph.i.i.i.i ], [ %29, %_ZNKSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE12_M_check_lenEmPKc.exit.i ]
   %.0911.i.i.i.i = phi ptr [ %31, %.lr.ph.i.i.i.i ], [ %5, %_ZNKSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE12_M_check_lenEmPKc.exit.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.012.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.0911.i.i.i.i, i64 12, i1 false), !alias.scope !11
-  %31 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 12
-  %32 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 12
+  %31 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 12
+  %32 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 12
   %.not.i.i.i.i = icmp eq ptr %31, %4
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !15
 
@@ -1089,9 +1089,9 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i: 
 
 _ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE13_M_deallocateEPS2_m.exit32.i: ; preds = %33, %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i
   store ptr %29, ptr %0, align 8
-  %34 = getelementptr inbounds %"class.gmx::BasicVector", ptr %30, i64 %12
+  %34 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %30, i64 %12
   store ptr %34, ptr %3, align 8
-  %35 = getelementptr inbounds %"class.gmx::BasicVector", ptr %29, i64 %27
+  %35 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %29, i64 %27
   store ptr %35, ptr %13, align 8
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_M_default_appendEm.exit
 
@@ -1117,14 +1117,14 @@ declare void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef, ptr nou
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK3gmx12AtomsRemover20removeMarkedElementsEPSt6vectorIfSaIfEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 2
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %0, align 8
   %13 = ptrtoint ptr %11 to i64
@@ -1217,14 +1217,14 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef 
   br i1 %.not, label %42, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 2
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = sub i64 %13, %7
@@ -1301,7 +1301,7 @@ _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit35: ; preds = %_ZNSt6vectorIf
   store ptr %31, ptr %0, align 8
   %40 = getelementptr inbounds float, ptr %32, i64 %1
   store ptr %40, ptr %4, align 8
-  %41 = getelementptr inbounds float, ptr %31, i64 %29
+  %41 = getelementptr inbounds nuw float, ptr %31, i64 %29
   store ptr %41, ptr %11, align 8
   br label %42
 
@@ -1317,21 +1317,21 @@ define void @_ZNK3gmx12AtomsRemover17removeMarkedAtomsEP7t_atoms(ptr nocapture n
   %5 = load ptr, ptr %3, align 8
   store i32 0, ptr %5, align 8
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i32 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 28
   store i32 -1, ptr %9, align 4
   %10 = icmp sgt i32 %4, 0
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 48
-  %13 = getelementptr inbounds i8, ptr %3, i64 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
-  %15 = getelementptr inbounds i8, ptr %1, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %16
 
@@ -1339,14 +1339,14 @@ define void @_ZNK3gmx12AtomsRemover17removeMarkedAtomsEP7t_atoms(ptr nocapture n
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %101 ]
   %.027 = phi i32 [ -1, %.lr.ph ], [ %.2, %101 ]
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %indvars.iv
   %19 = load i8, ptr %18, align 1
   %.not = icmp eq i8 %19, 0
   br i1 %.not, label %20, label %101
 
 20:                                               ; preds = %16
   %21 = load ptr, ptr %11, align 8
-  %22 = getelementptr inbounds %struct.t_atom, ptr %21, i64 %indvars.iv, i32 7
+  %22 = getelementptr inbounds nuw %struct.t_atom, ptr %21, i64 %indvars.iv, i32 7
   %23 = load i32, ptr %22, align 4
   %.not21 = icmp eq i32 %23, %.027
   br i1 %.not21, label %._crit_edge29, label %24
@@ -1364,23 +1364,23 @@ define void @_ZNK3gmx12AtomsRemover17removeMarkedAtomsEP7t_atoms(ptr nocapture n
   br i1 %29, label %30, label %33
 
 30:                                               ; preds = %24
-  %31 = getelementptr inbounds i8, ptr %27, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %32 = load i32, ptr %31, align 8
   store i32 %32, ptr %9, align 4
   br label %33
 
 33:                                               ; preds = %30, %24
   %34 = load ptr, ptr %3, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 40
   %36 = load i32, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %34, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 48
   %38 = load ptr, ptr %37, align 8
   %39 = sext i32 %36 to i64
   %40 = getelementptr inbounds %struct.t_resinfo, ptr %38, i64 %39
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull readonly align 8 dereferenceable(32) %27, i64 32, i1 false)
   %41 = load i32, ptr %9, align 4
   %42 = load ptr, ptr %3, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 48
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 48
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds %struct.t_resinfo, ptr %44, i64 %39, i32 1
   store i32 %41, ptr %45, align 8
@@ -1397,7 +1397,7 @@ define void @_ZNK3gmx12AtomsRemover17removeMarkedAtomsEP7t_atoms(ptr nocapture n
 _ZN3gmx12AtomsBuilder12startResidueERK9t_resinfo.exit: ; preds = %48, %33
   %.0.i.i = phi ptr [ %46, %33 ], [ %50, %48 ]
   %51 = load ptr, ptr %3, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 48
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 48
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds %struct.t_resinfo, ptr %53, i64 %39
   store ptr %.0.i.i, ptr %54, align 8
@@ -1406,7 +1406,7 @@ _ZN3gmx12AtomsBuilder12startResidueERK9t_resinfo.exit: ; preds = %48, %33
   store i32 %56, ptr %9, align 4
   store i32 %36, ptr %8, align 8
   %57 = load ptr, ptr %3, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 40
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 40
   %59 = load i32, ptr %58, align 8
   %60 = add nsw i32 %59, 1
   store i32 %60, ptr %58, align 8
@@ -1424,14 +1424,14 @@ _ZN3gmx12AtomsBuilder12startResidueERK9t_resinfo.exit: ; preds = %48, %33
   %65 = phi ptr [ %.pre, %._crit_edge29 ], [ %57, %_ZN3gmx12AtomsBuilder12startResidueERK9t_resinfo.exit ]
   %.1 = phi i32 [ %.027, %._crit_edge29 ], [ %23, %_ZN3gmx12AtomsBuilder12startResidueERK9t_resinfo.exit ]
   %66 = load i32, ptr %65, align 8
-  %67 = getelementptr inbounds %struct.t_atom, ptr %64, i64 %indvars.iv
-  %68 = getelementptr inbounds i8, ptr %65, i64 8
+  %67 = getelementptr inbounds nuw %struct.t_atom, ptr %64, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %69 = load ptr, ptr %68, align 8
   %70 = sext i32 %66 to i64
   %71 = getelementptr inbounds %struct.t_atom, ptr %69, i64 %70
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %71, ptr noundef nonnull align 4 dereferenceable(36) %67, i64 36, i1 false)
   %72 = load ptr, ptr %14, align 8
-  %73 = getelementptr inbounds ptr, ptr %72, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv
   %74 = load ptr, ptr %73, align 8
   %75 = load ptr, ptr %13, align 8
   %.not.i.i22 = icmp eq ptr %75, null
@@ -1449,18 +1449,18 @@ _ZN3gmx12AtomsBuilder12startResidueERK9t_resinfo.exit: ; preds = %48, %33
 _ZN3gmx12AtomsBuilder12symtabStringEPPc.exit.i:   ; preds = %._ZN3gmx12AtomsBuilder12symtabStringEPPc.exit.i_crit_edge, %63
   %79 = phi ptr [ %65, %63 ], [ %.pre31, %._ZN3gmx12AtomsBuilder12symtabStringEPPc.exit.i_crit_edge ]
   %.0.i.i23 = phi ptr [ %74, %63 ], [ %78, %._ZN3gmx12AtomsBuilder12symtabStringEPPc.exit.i_crit_edge ]
-  %80 = getelementptr inbounds i8, ptr %79, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
   %81 = load ptr, ptr %80, align 8
   %82 = getelementptr inbounds ptr, ptr %81, i64 %70
   store ptr %.0.i.i23, ptr %82, align 8
   %83 = load i32, ptr %8, align 8
   %84 = load ptr, ptr %3, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %86 = load ptr, ptr %85, align 8
   %87 = getelementptr inbounds %struct.t_atom, ptr %86, i64 %70, i32 7
   store i32 %83, ptr %87, align 4
   %88 = load ptr, ptr %3, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 56
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 56
   %90 = load ptr, ptr %89, align 8
   %.not.i = icmp eq ptr %90, null
   br i1 %.not.i, label %_ZN3gmx12AtomsBuilder7addAtomERK7t_atomsi.exit, label %91
@@ -1471,7 +1471,7 @@ _ZN3gmx12AtomsBuilder12symtabStringEPPc.exit.i:   ; preds = %._ZN3gmx12AtomsBuil
   br i1 %.not13.i, label %96, label %93
 
 93:                                               ; preds = %91
-  %94 = getelementptr inbounds %struct.t_pdbinfo, ptr %92, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw %struct.t_pdbinfo, ptr %92, i64 %indvars.iv
   %95 = getelementptr inbounds %struct.t_pdbinfo, ptr %90, i64 %70
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %95, ptr noundef nonnull align 4 dereferenceable(52) %94, i64 52, i1 false)
   br label %_ZN3gmx12AtomsBuilder7addAtomERK7t_atomsi.exit

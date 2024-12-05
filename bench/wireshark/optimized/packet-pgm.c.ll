@@ -397,7 +397,7 @@ define internal i32 @dissect_pgm(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %15, label %782, label %16
 
 16:                                               ; preds = %4
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call void @col_set_str(ptr noundef %18, i32 noundef 34, ptr noundef nonnull @.str.141) #6
   %19 = load ptr, ptr %17, align 8
@@ -406,7 +406,7 @@ define internal i32 @dissect_pgm(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %21 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %20, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.140) #6
   %22 = load i32, ptr @ett_pgm, align 4
   %23 = tail call ptr @proto_item_add_subtree(ptr noundef %21, i32 noundef %22) #6
-  %24 = getelementptr inbounds i8, ptr %1, i64 408
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %25 = load ptr, ptr %24, align 8
   %26 = tail call ptr @ptvcursor_new(ptr noundef %25, ptr noundef %23, ptr noundef %0, i32 noundef 0) #6
   %27 = load i32, ptr @hf_pgm_port, align 4
@@ -415,13 +415,13 @@ define internal i32 @dissect_pgm(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %29
 
 29:                                               ; preds = %16
-  %30 = getelementptr inbounds i8, ptr %28, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %31 = load ptr, ptr %30, align 8
   %.not5.i = icmp eq ptr %31, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %32
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %31, i64 28
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 28
   %34 = load i32, ptr %33, align 4
   %35 = or i32 %34, 1
   store i32 %35, ptr %33, align 4
@@ -434,13 +434,13 @@ proto_item_set_hidden.exit:                       ; preds = %16, %29, %32
   br i1 %.not.i194, label %proto_item_set_hidden.exit196, label %38
 
 38:                                               ; preds = %proto_item_set_hidden.exit
-  %39 = getelementptr inbounds i8, ptr %37, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %40 = load ptr, ptr %39, align 8
   %.not5.i195 = icmp eq ptr %40, null
   br i1 %.not5.i195, label %proto_item_set_hidden.exit196, label %41
 
 41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %40, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 28
   %43 = load i32, ptr %42, align 4
   %44 = or i32 %43, 1
   store i32 %44, ptr %42, align 4
@@ -450,12 +450,12 @@ proto_item_set_hidden.exit196:                    ; preds = %proto_item_set_hidd
   %45 = load i32, ptr @hf_pgm_main_sport, align 4
   %46 = call ptr @ptvcursor_add_ret_uint(ptr noundef %26, i32 noundef %45, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %8) #6
   %47 = load i32, ptr %8, align 4
-  %48 = getelementptr inbounds i8, ptr %1, i64 284
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 284
   store i32 %47, ptr %48, align 4
   %49 = load i32, ptr @hf_pgm_main_dport, align 4
   %50 = call ptr @ptvcursor_add_ret_uint(ptr noundef %26, i32 noundef %49, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %9) #6
   %51 = load i32, ptr %9, align 4
-  %52 = getelementptr inbounds i8, ptr %1, i64 288
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 288
   store i32 %51, ptr %52, align 8
   %53 = load i32, ptr @hf_pgm_main_type, align 4
   %54 = call ptr @ptvcursor_add_ret_uint(ptr noundef %26, i32 noundef %53, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %10) #6
@@ -585,7 +585,7 @@ optsstr.exit:                                     ; preds = %proto_item_set_hidd
   br i1 %or.cond193, label %136, label %129
 
 129:                                              ; preds = %125
-  %130 = getelementptr inbounds i8, ptr %12, i64 8
+  %130 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 %127, ptr %130, align 8
   %131 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 0, i32 noundef %127) #6
   store ptr %131, ptr %12, align 16

@@ -15,7 +15,7 @@ define hidden range(i32 0, 2) i32 @_pcre2_is_newline_8(ptr noundef readonly %0, 
 9:                                                ; preds = %5
   %10 = and i32 %7, 32
   %11 = icmp eq i32 %10, 0
-  %12 = getelementptr inbounds i8, ptr %0, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %13 = load i8, ptr %12, align 1
   %14 = and i8 %13, 63
   %15 = zext nneg i8 %14 to i32
@@ -37,7 +37,7 @@ define hidden range(i32 0, 2) i32 @_pcre2_is_newline_8(ptr noundef readonly %0, 
   %25 = and i32 %24, 61440
   %26 = shl nuw nsw i32 %15, 6
   %27 = or disjoint i32 %26, %25
-  %28 = getelementptr inbounds i8, ptr %0, i64 2
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %29 = load i8, ptr %28, align 1
   %30 = and i8 %29, 63
   %31 = zext nneg i8 %30 to i32
@@ -54,13 +54,13 @@ define hidden range(i32 0, 2) i32 @_pcre2_is_newline_8(ptr noundef readonly %0, 
   %38 = and i32 %37, 1835008
   %39 = shl nuw nsw i32 %15, 12
   %40 = or disjoint i32 %39, %38
-  %41 = getelementptr inbounds i8, ptr %0, i64 2
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %42 = load i8, ptr %41, align 1
   %43 = and i8 %42, 63
   %44 = zext nneg i8 %43 to i32
   %45 = shl nuw nsw i32 %44, 6
   %46 = or disjoint i32 %40, %45
-  %47 = getelementptr inbounds i8, ptr %0, i64 3
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %48 = load i8, ptr %47, align 1
   %49 = and i8 %48, 63
   %50 = zext nneg i8 %49 to i32
@@ -70,15 +70,15 @@ define hidden range(i32 0, 2) i32 @_pcre2_is_newline_8(ptr noundef readonly %0, 
 52:                                               ; preds = %33
   %53 = and i32 %7, 4
   %54 = icmp eq i32 %53, 0
-  %55 = getelementptr inbounds i8, ptr %0, i64 2
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %56 = load i8, ptr %55, align 1
   %57 = and i8 %56, 63
   %58 = zext nneg i8 %57 to i32
-  %59 = getelementptr inbounds i8, ptr %0, i64 3
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %60 = load i8, ptr %59, align 1
   %61 = and i8 %60, 63
   %62 = zext nneg i8 %61 to i32
-  %63 = getelementptr inbounds i8, ptr %0, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %64 = load i8, ptr %63, align 1
   %65 = and i8 %64, 63
   %66 = zext nneg i8 %65 to i32
@@ -107,7 +107,7 @@ define hidden range(i32 0, 2) i32 @_pcre2_is_newline_8(ptr noundef readonly %0, 
   %85 = or disjoint i32 %83, %84
   %86 = shl nuw nsw i32 %66, 6
   %87 = or disjoint i32 %85, %86
-  %88 = getelementptr inbounds i8, ptr %0, i64 5
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %89 = load i8, ptr %88, align 1
   %90 = and i8 %89, 63
   %91 = zext nneg i8 %90 to i32
@@ -131,7 +131,7 @@ define hidden range(i32 0, 2) i32 @_pcre2_is_newline_8(ptr noundef readonly %0, 
   br i1 %98, label %99, label %.sink.split
 
 99:                                               ; preds = %96
-  %100 = getelementptr inbounds i8, ptr %0, i64 1
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %101 = load i8, ptr %100, align 1
   %102 = icmp eq i8 %101, 10
   %103 = select i1 %102, i32 2, i32 1
@@ -154,7 +154,7 @@ define hidden range(i32 0, 2) i32 @_pcre2_is_newline_8(ptr noundef readonly %0, 
   br i1 %107, label %108, label %.sink.split
 
 108:                                              ; preds = %105
-  %109 = getelementptr inbounds i8, ptr %0, i64 1
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %110 = load i8, ptr %109, align 1
   %111 = icmp eq i8 %110, 10
   %112 = select i1 %111, i32 2, i32 1
@@ -199,7 +199,7 @@ define hidden range(i32 0, 2) i32 @_pcre2_was_newline_8(ptr noundef readonly %0,
 14:                                               ; preds = %12
   %15 = and i32 %8, 32
   %16 = icmp eq i32 %15, 0
-  %17 = getelementptr inbounds i8, ptr %.048, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.048, i64 1
   %18 = load i8, ptr %17, align 1
   %19 = and i8 %18, 63
   %20 = zext nneg i8 %19 to i32
@@ -221,7 +221,7 @@ define hidden range(i32 0, 2) i32 @_pcre2_was_newline_8(ptr noundef readonly %0,
   %30 = and i32 %29, 61440
   %31 = shl nuw nsw i32 %20, 6
   %32 = or disjoint i32 %31, %30
-  %33 = getelementptr inbounds i8, ptr %.048, i64 2
+  %33 = getelementptr inbounds nuw i8, ptr %.048, i64 2
   %34 = load i8, ptr %33, align 1
   %35 = and i8 %34, 63
   %36 = zext nneg i8 %35 to i32
@@ -238,13 +238,13 @@ define hidden range(i32 0, 2) i32 @_pcre2_was_newline_8(ptr noundef readonly %0,
   %43 = and i32 %42, 1835008
   %44 = shl nuw nsw i32 %20, 12
   %45 = or disjoint i32 %44, %43
-  %46 = getelementptr inbounds i8, ptr %.048, i64 2
+  %46 = getelementptr inbounds nuw i8, ptr %.048, i64 2
   %47 = load i8, ptr %46, align 1
   %48 = and i8 %47, 63
   %49 = zext nneg i8 %48 to i32
   %50 = shl nuw nsw i32 %49, 6
   %51 = or disjoint i32 %45, %50
-  %52 = getelementptr inbounds i8, ptr %.048, i64 3
+  %52 = getelementptr inbounds nuw i8, ptr %.048, i64 3
   %53 = load i8, ptr %52, align 1
   %54 = and i8 %53, 63
   %55 = zext nneg i8 %54 to i32
@@ -254,15 +254,15 @@ define hidden range(i32 0, 2) i32 @_pcre2_was_newline_8(ptr noundef readonly %0,
 57:                                               ; preds = %38
   %58 = and i32 %8, 4
   %59 = icmp eq i32 %58, 0
-  %60 = getelementptr inbounds i8, ptr %.048, i64 2
+  %60 = getelementptr inbounds nuw i8, ptr %.048, i64 2
   %61 = load i8, ptr %60, align 1
   %62 = and i8 %61, 63
   %63 = zext nneg i8 %62 to i32
-  %64 = getelementptr inbounds i8, ptr %.048, i64 3
+  %64 = getelementptr inbounds nuw i8, ptr %.048, i64 3
   %65 = load i8, ptr %64, align 1
   %66 = and i8 %65, 63
   %67 = zext nneg i8 %66 to i32
-  %68 = getelementptr inbounds i8, ptr %.048, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %.048, i64 4
   %69 = load i8, ptr %68, align 1
   %70 = and i8 %69, 63
   %71 = zext nneg i8 %70 to i32
@@ -291,7 +291,7 @@ define hidden range(i32 0, 2) i32 @_pcre2_was_newline_8(ptr noundef readonly %0,
   %90 = or disjoint i32 %88, %89
   %91 = shl nuw nsw i32 %71, 6
   %92 = or disjoint i32 %90, %91
-  %93 = getelementptr inbounds i8, ptr %.048, i64 5
+  %93 = getelementptr inbounds nuw i8, ptr %.048, i64 5
   %94 = load i8, ptr %93, align 1
   %95 = and i8 %94, 63
   %96 = zext nneg i8 %95 to i32

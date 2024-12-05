@@ -920,7 +920,7 @@ if.end21:                                         ; preds = %if.end17
   %1 = load i8, ptr %call18, align 1
   %cmp22 = icmp eq i8 %1, 45
   %spec.select33.idx = zext i1 %cmp22 to i64
-  %spec.select33 = getelementptr inbounds i8, ptr %call18, i64 %spec.select33.idx
+  %spec.select33 = getelementptr inbounds nuw i8, ptr %call18, i64 %spec.select33.idx
   %spec.select34 = select i1 %cmp22, ptr @.str.13, ptr @.str.9
   %call26 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %out, ptr noundef nonnull @.str.14, ptr noundef nonnull %spec.select, ptr noundef nonnull %spec.select34) #6
   %cmp27 = icmp slt i32 %call26, 1
@@ -980,7 +980,7 @@ if.end60.thread:                                  ; preds = %while.body, %if.the
   %7 = phi ptr [ @.str.9, %if.then53.if.end60.thread_crit_edge ], [ %use_sep.139, %while.body ]
   %conv63 = sext i8 %6 to i32
   %call64 = call i32 @tolower(i32 noundef %conv63) #7
-  %arrayidx65 = getelementptr inbounds i8, ptr %p.140, i64 1
+  %arrayidx65 = getelementptr inbounds nuw i8, ptr %p.140, i64 1
   %8 = load i8, ptr %arrayidx65, align 1
   %conv66 = sext i8 %8 to i32
   %call67 = call i32 @tolower(i32 noundef %conv66) #7
@@ -990,7 +990,7 @@ if.end60.thread:                                  ; preds = %while.body, %if.the
 
 if.end72:                                         ; preds = %if.end60.thread
   %inc73 = add nuw nsw i32 %bytes.141, 1
-  %add.ptr = getelementptr inbounds i8, ptr %p.140, i64 2
+  %add.ptr = getelementptr inbounds nuw i8, ptr %p.140, i64 2
   %9 = load i8, ptr %add.ptr, align 1
   %cmp47.not = icmp eq i8 %9, 0
   br i1 %cmp47.not, label %while.end, label %while.body, !llvm.loop !4
@@ -1014,7 +1014,7 @@ return:                                           ; preds = %if.end17, %entry, %
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @ffc_params_to_text(ptr noundef nonnull %out, ptr nocapture noundef nonnull readonly %ffc) unnamed_addr #1 {
 entry:
-  %nid = getelementptr inbounds i8, ptr %ffc, i64 52
+  %nid = getelementptr inbounds nuw i8, ptr %ffc, i64 52
   %0 = load i32, ptr %nid, align 4
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end9, label %if.then
@@ -1037,7 +1037,7 @@ if.end9:                                          ; preds = %entry
   br i1 %tobool.not, label %err, label %if.end12
 
 if.end12:                                         ; preds = %if.end9
-  %q = getelementptr inbounds i8, ptr %ffc, i64 8
+  %q = getelementptr inbounds nuw i8, ptr %ffc, i64 8
   %2 = load ptr, ptr %q, align 8
   %cmp13.not = icmp eq ptr %2, null
   br i1 %cmp13.not, label %if.end20, label %if.then14
@@ -1048,14 +1048,14 @@ if.then14:                                        ; preds = %if.end12
   br i1 %tobool17.not, label %err, label %if.end20
 
 if.end20:                                         ; preds = %if.then14, %if.end12
-  %g = getelementptr inbounds i8, ptr %ffc, i64 16
+  %g = getelementptr inbounds nuw i8, ptr %ffc, i64 16
   %3 = load ptr, ptr %g, align 8
   %call21 = tail call fastcc i32 @print_labeled_bignum(ptr noundef %out, ptr noundef nonnull @.str.24, ptr noundef %3)
   %tobool22.not = icmp eq i32 %call21, 0
   br i1 %tobool22.not, label %err, label %if.end24
 
 if.end24:                                         ; preds = %if.end20
-  %j = getelementptr inbounds i8, ptr %ffc, i64 24
+  %j = getelementptr inbounds nuw i8, ptr %ffc, i64 24
   %4 = load ptr, ptr %j, align 8
   %cmp25.not = icmp eq ptr %4, null
   br i1 %cmp25.not, label %if.end32, label %if.then26
@@ -1066,20 +1066,20 @@ if.then26:                                        ; preds = %if.end24
   br i1 %tobool29.not, label %err, label %if.end32
 
 if.end32:                                         ; preds = %if.then26, %if.end24
-  %seed = getelementptr inbounds i8, ptr %ffc, i64 32
+  %seed = getelementptr inbounds nuw i8, ptr %ffc, i64 32
   %5 = load ptr, ptr %seed, align 8
   %cmp33.not = icmp eq ptr %5, null
   br i1 %cmp33.not, label %if.end40, label %if.then34
 
 if.then34:                                        ; preds = %if.end32
-  %seedlen = getelementptr inbounds i8, ptr %ffc, i64 40
+  %seedlen = getelementptr inbounds nuw i8, ptr %ffc, i64 40
   %6 = load i64, ptr %seedlen, align 8
   %call36 = tail call fastcc i32 @print_labeled_buf(ptr noundef %out, ptr noundef nonnull @.str.26, ptr noundef nonnull %5, i64 noundef %6)
   %tobool37.not = icmp eq i32 %call36, 0
   br i1 %tobool37.not, label %err, label %if.end40
 
 if.end40:                                         ; preds = %if.then34, %if.end32
-  %gindex = getelementptr inbounds i8, ptr %ffc, i64 56
+  %gindex = getelementptr inbounds nuw i8, ptr %ffc, i64 56
   %7 = load i32, ptr %gindex, align 8
   %cmp41.not = icmp eq i32 %7, -1
   br i1 %cmp41.not, label %if.end48, label %if.then42
@@ -1090,7 +1090,7 @@ if.then42:                                        ; preds = %if.end40
   br i1 %cmp45, label %err, label %if.end48
 
 if.end48:                                         ; preds = %if.then42, %if.end40
-  %pcounter = getelementptr inbounds i8, ptr %ffc, i64 48
+  %pcounter = getelementptr inbounds nuw i8, ptr %ffc, i64 48
   %8 = load i32, ptr %pcounter, align 8
   %cmp49.not = icmp eq i32 %8, -1
   br i1 %cmp49.not, label %if.end56, label %if.then50
@@ -1101,7 +1101,7 @@ if.then50:                                        ; preds = %if.end48
   br i1 %cmp53, label %err, label %if.end56
 
 if.end56:                                         ; preds = %if.then50, %if.end48
-  %h = getelementptr inbounds i8, ptr %ffc, i64 60
+  %h = getelementptr inbounds nuw i8, ptr %ffc, i64 60
   %9 = load i32, ptr %h, align 4
   %cmp57.not = icmp eq i32 %9, 0
   br i1 %cmp57.not, label %return, label %if.then58
@@ -1598,14 +1598,14 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %type = getelementptr inbounds i8, ptr %key, i64 96
+  %type = getelementptr inbounds nuw i8, ptr %key, i64 96
   %0 = load i32, ptr %type, align 8
   %1 = icmp ult i32 %0, 4
   br i1 %1, label %switch.lookup, label %sw.epilog
 
 switch.lookup:                                    ; preds = %if.end
   %2 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.ecx_to_text, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.ecx_to_text, i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %sw.epilog
 
@@ -1616,7 +1616,7 @@ sw.epilog:                                        ; preds = %switch.lookup, %if.
   br i1 %cmp5.not, label %if.else, label %if.then6
 
 if.then6:                                         ; preds = %sw.epilog
-  %privkey = getelementptr inbounds i8, ptr %key, i64 80
+  %privkey = getelementptr inbounds nuw i8, ptr %key, i64 80
   %3 = load ptr, ptr %privkey, align 8
   %cmp7 = icmp eq ptr %3, null
   br i1 %cmp7, label %if.then8, label %if.end9
@@ -1634,7 +1634,7 @@ if.end9:                                          ; preds = %if.then6
 
 if.end12:                                         ; preds = %if.end9
   %4 = load ptr, ptr %privkey, align 8
-  %keylen = getelementptr inbounds i8, ptr %key, i64 88
+  %keylen = getelementptr inbounds nuw i8, ptr %key, i64 88
   %5 = load i64, ptr %keylen, align 8
   %call14 = tail call fastcc i32 @print_labeled_buf(ptr noundef %out, ptr noundef nonnull @.str.36, ptr noundef %4, i64 noundef %5)
   %tobool.not = icmp eq i32 %call14, 0
@@ -1646,7 +1646,7 @@ if.else:                                          ; preds = %sw.epilog
   br i1 %cmp18.not, label %if.end28, label %if.then19
 
 if.then19:                                        ; preds = %if.else
-  %haspubkey = getelementptr inbounds i8, ptr %key, i64 16
+  %haspubkey = getelementptr inbounds nuw i8, ptr %key, i64 16
   %bf.load = load i8, ptr %haspubkey, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool20.not = icmp eq i8 %bf.clear, 0
@@ -1664,8 +1664,8 @@ if.end22:                                         ; preds = %if.then19
   br i1 %cmp24, label %return, label %if.end28
 
 if.end28:                                         ; preds = %if.else, %if.end22, %if.end12
-  %pubkey = getelementptr inbounds i8, ptr %key, i64 17
-  %keylen29 = getelementptr inbounds i8, ptr %key, i64 88
+  %pubkey = getelementptr inbounds nuw i8, ptr %key, i64 17
+  %keylen29 = getelementptr inbounds nuw i8, ptr %key, i64 88
   %6 = load i64, ptr %keylen29, align 8
   %call30 = tail call fastcc i32 @print_labeled_buf(ptr noundef %out, ptr noundef nonnull @.str.39, ptr noundef nonnull %pubkey, i64 noundef %6)
   br label %return

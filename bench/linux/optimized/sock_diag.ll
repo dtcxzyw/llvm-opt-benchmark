@@ -65,7 +65,7 @@ module asm ".previous\09\09\09\09\09"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i64 @__sock_gen_cookie(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 88
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load volatile i64, ptr %2, align 8
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %5, label %28
@@ -79,7 +79,7 @@ define dso_local i64 @__sock_gen_cookie(ptr noundef %0) local_unnamed_addr #0 al
   br i1 %10, label %11, label %21, !prof !8
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %13 = load i64, ptr %12, align 8
   %14 = and i64 %13, 4095
   %15 = icmp eq i64 %14, 0
@@ -103,7 +103,7 @@ define dso_local i64 @__sock_gen_cookie(ptr noundef %0) local_unnamed_addr #0 al
 24:                                               ; preds = %21, %18
   %25 = phi i64 [ %20, %18 ], [ %23, %21 ]
   tail call void asm sideeffect " decq $0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %8, ptr elementtype(i64) %8) #11, !srcloc !11
-  %26 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %2, i64 %25, i64 0, ptr elementtype(i64) %2) #11, !srcloc !12
+  %26 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2, i64 %25, i64 0, ptr nonnull elementtype(i64) %2) #11, !srcloc !12
   %27 = load volatile i64, ptr %2, align 8
   br label %28
 
@@ -133,7 +133,7 @@ define dso_local range(i32 -116, 1) i32 @sock_diag_check_cookie(ptr noundef %0, 
 9:                                                ; preds = %5, %2
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #11, !srcloc !13
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !14
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %11 = load volatile i64, ptr %10, align 8
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %13, label %36
@@ -147,7 +147,7 @@ define dso_local range(i32 -116, 1) i32 @sock_diag_check_cookie(ptr noundef %0, 
   br i1 %18, label %19, label %29, !prof !8
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %16, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %21 = load i64, ptr %20, align 8
   %22 = and i64 %21, 4095
   %23 = icmp eq i64 %22, 0
@@ -171,7 +171,7 @@ define dso_local range(i32 -116, 1) i32 @sock_diag_check_cookie(ptr noundef %0, 
 32:                                               ; preds = %29, %26
   %33 = phi i64 [ %28, %26 ], [ %31, %29 ]
   tail call void asm sideeffect " decq $0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %16, ptr elementtype(i64) %16) #11, !srcloc !11
-  %34 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %10, i64 %33, i64 0, ptr elementtype(i64) %10) #11, !srcloc !12
+  %34 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %10, i64 %33, i64 0, ptr nonnull elementtype(i64) %10) #11, !srcloc !12
   %35 = load volatile i64, ptr %10, align 8
   br label %36
 
@@ -214,7 +214,7 @@ define dso_local range(i32 -116, 1) i32 @sock_diag_check_cookie(ptr noundef %0, 
 define dso_local void @sock_diag_save_cookie(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #0 align 16 {
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #11, !srcloc !13
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !14
-  %3 = getelementptr inbounds i8, ptr %0, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load volatile i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %6, label %29
@@ -228,7 +228,7 @@ define dso_local void @sock_diag_save_cookie(ptr noundef %0, ptr nocapture nound
   br i1 %11, label %12, label %22, !prof !8
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %9, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %14 = load i64, ptr %13, align 8
   %15 = and i64 %14, 4095
   %16 = icmp eq i64 %15, 0
@@ -252,7 +252,7 @@ define dso_local void @sock_diag_save_cookie(ptr noundef %0, ptr nocapture nound
 25:                                               ; preds = %22, %19
   %26 = phi i64 [ %21, %19 ], [ %24, %22 ]
   tail call void asm sideeffect " decq $0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %9, ptr elementtype(i64) %9) #11, !srcloc !11
-  %27 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %3, i64 %26, i64 0, ptr elementtype(i64) %3) #11, !srcloc !12
+  %27 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, i64 %26, i64 0, ptr nonnull elementtype(i64) %3) #11, !srcloc !12
   %28 = load volatile i64, ptr %3, align 8
   br label %29
 
@@ -311,15 +311,15 @@ define dso_local noundef range(i32 -90, 1) i32 @sock_diag_put_filterinfo(i1 noun
 
 7:                                                ; preds = %4
   tail call void @__rcu_read_lock() #11
-  %8 = getelementptr inbounds i8, ptr %1, i64 288
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %9 = load volatile ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %28, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %9, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %28, label %17
@@ -334,7 +334,7 @@ define dso_local noundef range(i32 -90, 1) i32 @sock_diag_put_filterinfo(i1 noun
 
 23:                                               ; preds = %17
   %24 = getelementptr i8, ptr %21, i64 4
-  %25 = getelementptr inbounds i8, ptr %15, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = zext nneg i32 %20 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %24, ptr align 4 %26, i64 %27, i1 false)
@@ -369,16 +369,16 @@ define dso_local void @sock_diag_broadcast_destroy(ptr noundef %0) local_unnamed
 
 6:                                                ; preds = %1
   store ptr %0, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 68719476704, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store volatile ptr %8, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store volatile ptr %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr @sock_diag_broadcast_destroy_work, ptr %10, align 8
   %11 = load ptr, ptr @broadcast_wq, align 8
-  %12 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %11, ptr noundef %7) #11
+  %12 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %11, ptr noundef nonnull %7) #11
   br label %13
 
 13:                                               ; preds = %6, %5
@@ -392,7 +392,7 @@ declare dso_local void @sk_destruct(ptr noundef) local_unnamed_addr #3
 define internal void @sock_diag_broadcast_destroy_work(ptr noundef %0) #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i16, ptr %4, align 8
   switch i16 %5, label %.thread [
     i16 2, label %6
@@ -400,13 +400,13 @@ define internal void @sock_diag_broadcast_destroy_work(ptr noundef %0) #0 align 
   ]
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %3, i64 514
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 514
   %8 = load i16, ptr %7, align 2
   %9 = icmp eq i16 %8, 3
   br i1 %9, label %.thread, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 516
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 516
   %12 = load i16, ptr %11, align 4
   %13 = icmp eq i16 %12, 17
   %14 = select i1 %13, i32 2, i32 0
@@ -414,13 +414,13 @@ define internal void @sock_diag_broadcast_destroy_work(ptr noundef %0) #0 align 
   br i1 %15, label %.thread5, label %26
 
 16:                                               ; preds = %1
-  %17 = getelementptr inbounds i8, ptr %3, i64 514
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 514
   %18 = load i16, ptr %17, align 2
   %19 = icmp eq i16 %18, 3
   br i1 %19, label %.thread, label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %3, i64 516
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 516
   %22 = load i16, ptr %21, align 4
   %23 = icmp eq i16 %22, 17
   %24 = select i1 %23, i32 4, i32 0
@@ -454,7 +454,7 @@ define internal void @sock_diag_broadcast_destroy_work(ptr noundef %0) #0 align 
   br i1 %37, label %52, label %38
 
 38:                                               ; preds = %32
-  %39 = getelementptr inbounds i8, ptr %36, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
   br i1 %41, label %52, label %42
@@ -466,11 +466,11 @@ define internal void @sock_diag_broadcast_destroy_work(ptr noundef %0) #0 align 
   br i1 %44, label %45, label %53
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %3, i64 48
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 3464
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 3464
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %30, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %30, i64 56
   store i32 %29, ptr %50, align 8
   %51 = tail call i32 @netlink_broadcast_filtered(ptr noundef %49, ptr noundef nonnull %30, i32 noundef 0, i32 noundef %29, i32 noundef 3264, ptr noundef null, ptr noundef null) #11
   br label %54
@@ -570,17 +570,17 @@ define dso_local void @sock_diag_unregister(ptr noundef readonly %0) #0 align 16
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @sock_diag_destroy(ptr noundef %0, i32 noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %6 = load ptr, ptr %5, align 16
   %7 = tail call zeroext i1 @ns_capable(ptr noundef %6, i32 noundef 12) #11
   br i1 %7, label %8, label %16
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 440
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 440
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %16, label %14
@@ -658,18 +658,18 @@ define internal range(i32 -12, 1) i32 @diag_net_init(ptr noundef %0) #0 align 16
   %2 = alloca %struct.netlink_kernel_cfg, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #11
   store i32 4, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 1, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @sock_diag_rcv, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr null, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr @sock_diag_bind, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %8 = call ptr @__netlink_kernel_create(ptr noundef %0, i32 noundef 4, ptr noundef null, ptr noundef nonnull %2) #11
-  %9 = getelementptr inbounds i8, ptr %0, i64 3464
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 3464
   store ptr %8, ptr %9, align 8
   %10 = icmp eq ptr %8, null
   %11 = select i1 %10, i32 -12, i32 0
@@ -679,7 +679,7 @@ define internal range(i32 -12, 1) i32 @diag_net_init(ptr noundef %0) #0 align 16
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @diag_net_exit(ptr nocapture noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 3464
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 3464
   %3 = load ptr, ptr %2, align 8
   tail call void @netlink_kernel_release(ptr noundef %3) #11
   store ptr null, ptr %2, align 8
@@ -727,7 +727,7 @@ declare dso_local i32 @netlink_rcv_skb(ptr noundef, ptr noundef) local_unnamed_a
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @sock_diag_rcv_msg(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i16, ptr %4, align 4
   switch i16 %5, label %54 [
     i16 18, label %6
@@ -797,12 +797,12 @@ define internal i32 @sock_diag_rcv_msg(ptr noundef %0, ptr noundef %1, ptr nocap
   ]
 
 42:                                               ; preds = %40
-  %43 = getelementptr inbounds i8, ptr %38, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %44 = load ptr, ptr %43, align 8
   br label %49
 
 45:                                               ; preds = %40
-  %46 = getelementptr inbounds i8, ptr %38, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq ptr %47, null
   br i1 %48, label %52, label %49

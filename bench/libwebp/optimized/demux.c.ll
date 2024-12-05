@@ -38,7 +38,7 @@ define ptr @WebPDemuxInternal(ptr noundef readonly %0, i32 noundef %1, ptr nound
   br i1 %11, label %118, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i64, ptr %13, align 8
   %15 = icmp eq i64 %14, 0
   br i1 %15, label %118, label %16
@@ -53,16 +53,16 @@ define ptr @WebPDemuxInternal(ptr noundef readonly %0, i32 noundef %1, ptr nound
   br i1 %.not.i, label %19, label %33
 
 19:                                               ; preds = %18
-  %20 = getelementptr inbounds i8, ptr %10, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %bcmp16.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %20, ptr noundef nonnull dereferenceable(4) @.str.1, i64 4)
   %.not17.i = icmp eq i32 %bcmp16.i, 0
   br i1 %.not17.i, label %21, label %33
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %10, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %.val.i.i = load i16, ptr %22, align 1
   %23 = zext i16 %.val.i.i to i32
-  %24 = getelementptr inbounds i8, ptr %10, i64 6
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 6
   %.val3.i.i = load i16, ptr %24, align 1
   %25 = zext i16 %.val3.i.i to i32
   %26 = shl nuw i32 %25, 16
@@ -97,51 +97,51 @@ define ptr @WebPDemuxInternal(ptr noundef readonly %0, i32 noundef %1, ptr nound
   br i1 %or.cond.i57, label %AddFrame.exit.thread.i, label %43
 
 43:                                               ; preds = %38
-  %44 = getelementptr inbounds i8, ptr %39, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %39, i64 40
   store i32 0, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %39, i64 60
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 60
   store i32 1, ptr %45, align 4
-  %46 = getelementptr inbounds i8, ptr %39, i64 64
+  %46 = getelementptr inbounds nuw i8, ptr %39, i64 64
   store i32 -1, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %39, i64 52
+  %47 = getelementptr inbounds nuw i8, ptr %39, i64 52
   store i32 -1, ptr %47, align 4
-  %48 = getelementptr inbounds i8, ptr %39, i64 56
+  %48 = getelementptr inbounds nuw i8, ptr %39, i64 56
   store i32 -1, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %39, i64 72
-  %50 = getelementptr inbounds i8, ptr %39, i64 80
+  %49 = getelementptr inbounds nuw i8, ptr %39, i64 72
+  %50 = getelementptr inbounds nuw i8, ptr %39, i64 80
   store ptr %49, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %39, i64 88
-  %52 = getelementptr inbounds i8, ptr %39, i64 96
+  %51 = getelementptr inbounds nuw i8, ptr %39, i64 88
+  %52 = getelementptr inbounds nuw i8, ptr %39, i64 96
   store ptr %51, ptr %52, align 8
   store i64 0, ptr %39, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %39, i64 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i64 %14, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %39, i64 16
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 16
   store i64 0, ptr %.sroa.8.0..sroa_idx, align 8
-  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %39, i64 24
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 24
   store i64 %14, ptr %.sroa.10.0..sroa_idx, align 8
-  %.sroa.16.0..sroa_idx = getelementptr inbounds i8, ptr %39, i64 32
+  %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 32
   store ptr %10, ptr %.sroa.16.0..sroa_idx, align 8
-  %53 = getelementptr inbounds i8, ptr %40, i64 40
+  %53 = getelementptr inbounds nuw i8, ptr %40, i64 40
   store i64 0, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %40, i64 48
+  %54 = getelementptr inbounds nuw i8, ptr %40, i64 48
   store i64 %14, ptr %54, align 8
   %55 = load i32, ptr %5, align 4
-  %56 = getelementptr inbounds i8, ptr %40, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store i32 %55, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %5, i64 4
+  %57 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %58 = load i32, ptr %57, align 4
-  %59 = getelementptr inbounds i8, ptr %40, i64 12
+  %59 = getelementptr inbounds nuw i8, ptr %40, i64 12
   store i32 %58, ptr %59, align 4
-  %60 = getelementptr inbounds i8, ptr %5, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %61 = load i32, ptr %60, align 4
-  %62 = getelementptr inbounds i8, ptr %40, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %63 = load i32, ptr %62, align 8
   %64 = or i32 %63, %61
   store i32 %64, ptr %62, align 8
-  %65 = getelementptr inbounds i8, ptr %40, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %40, i64 32
   store i32 1, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %40, i64 36
+  %66 = getelementptr inbounds nuw i8, ptr %40, i64 36
   store i32 1, ptr %66, align 4
   %67 = load ptr, ptr %50, align 8
   %68 = load ptr, ptr %67, align 8
@@ -149,7 +149,7 @@ define ptr @WebPDemuxInternal(ptr noundef readonly %0, i32 noundef %1, ptr nound
   br i1 %.not.i.i, label %72, label %69
 
 69:                                               ; preds = %43
-  %70 = getelementptr inbounds i8, ptr %68, i64 36
+  %70 = getelementptr inbounds nuw i8, ptr %68, i64 36
   %71 = load i32, ptr %70, align 4
   %.not9.i.i = icmp eq i32 %71, 0
   br i1 %.not9.i.i, label %AddFrame.exit.thread.i, label %72
@@ -166,7 +166,7 @@ CreateRawImageDemuxer.exit.thread:                ; preds = %35, %AddFrame.exit.
 
 72:                                               ; preds = %69, %43
   store ptr %40, ptr %67, align 8
-  %73 = getelementptr inbounds i8, ptr %40, i64 72
+  %73 = getelementptr inbounds nuw i8, ptr %40, i64 72
   store ptr null, ptr %73, align 8
   store ptr %73, ptr %50, align 8
   store i32 2, ptr %44, align 8
@@ -177,11 +177,11 @@ CreateRawImageDemuxer.exit.thread:                ; preds = %35, %AddFrame.exit.
   %76 = load i32, ptr %62, align 8
   %.not30.i = icmp eq i32 %76, 0
   %77 = select i1 %.not30.i, i32 0, i32 16
-  %78 = getelementptr inbounds i8, ptr %39, i64 48
+  %78 = getelementptr inbounds nuw i8, ptr %39, i64 48
   %79 = load i32, ptr %78, align 8
   %80 = or i32 %77, %79
   store i32 %80, ptr %78, align 8
-  %81 = getelementptr inbounds i8, ptr %39, i64 68
+  %81 = getelementptr inbounds nuw i8, ptr %39, i64 68
   store i32 1, ptr %81, align 4
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   br i1 %.not, label %118, label %82
@@ -212,38 +212,38 @@ ReadHeader.exit:                                  ; preds = %CreateRawImageDemux
   br i1 %89, label %118, label %90
 
 90:                                               ; preds = %.thread
-  %91 = getelementptr inbounds i8, ptr %88, i64 40
+  %91 = getelementptr inbounds nuw i8, ptr %88, i64 40
   store i32 0, ptr %91, align 8
-  %92 = getelementptr inbounds i8, ptr %88, i64 60
+  %92 = getelementptr inbounds nuw i8, ptr %88, i64 60
   store i32 1, ptr %92, align 4
-  %93 = getelementptr inbounds i8, ptr %88, i64 64
+  %93 = getelementptr inbounds nuw i8, ptr %88, i64 64
   store i32 -1, ptr %93, align 8
-  %94 = getelementptr inbounds i8, ptr %88, i64 52
+  %94 = getelementptr inbounds nuw i8, ptr %88, i64 52
   store i32 -1, ptr %94, align 4
-  %95 = getelementptr inbounds i8, ptr %88, i64 56
+  %95 = getelementptr inbounds nuw i8, ptr %88, i64 56
   store i32 -1, ptr %95, align 8
-  %96 = getelementptr inbounds i8, ptr %88, i64 72
-  %97 = getelementptr inbounds i8, ptr %88, i64 80
+  %96 = getelementptr inbounds nuw i8, ptr %88, i64 72
+  %97 = getelementptr inbounds nuw i8, ptr %88, i64 80
   store ptr %96, ptr %97, align 8
-  %98 = getelementptr inbounds i8, ptr %88, i64 88
-  %99 = getelementptr inbounds i8, ptr %88, i64 96
+  %98 = getelementptr inbounds nuw i8, ptr %88, i64 88
+  %99 = getelementptr inbounds nuw i8, ptr %88, i64 96
   store ptr %98, ptr %99, align 8
   store i64 12, ptr %88, align 8
-  %.sroa.5.0..sroa_idx67 = getelementptr inbounds i8, ptr %88, i64 8
+  %.sroa.5.0..sroa_idx67 = getelementptr inbounds nuw i8, ptr %88, i64 8
   store i64 %.sroa.10.1.ph111, ptr %.sroa.5.0..sroa_idx67, align 8
-  %.sroa.8.0..sroa_idx69 = getelementptr inbounds i8, ptr %88, i64 16
+  %.sroa.8.0..sroa_idx69 = getelementptr inbounds nuw i8, ptr %88, i64 16
   store i64 %31, ptr %.sroa.8.0..sroa_idx69, align 8
-  %.sroa.10.0..sroa_idx71 = getelementptr inbounds i8, ptr %88, i64 24
+  %.sroa.10.0..sroa_idx71 = getelementptr inbounds nuw i8, ptr %88, i64 24
   store i64 %.sroa.10.1.ph111, ptr %.sroa.10.0..sroa_idx71, align 8
-  %.sroa.16.0..sroa_idx76 = getelementptr inbounds i8, ptr %88, i64 32
+  %.sroa.16.0..sroa_idx76 = getelementptr inbounds nuw i8, ptr %88, i64 32
   store ptr %10, ptr %.sroa.16.0..sroa_idx76, align 8
-  %100 = getelementptr inbounds i8, ptr %10, i64 12
+  %100 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %bcmp121 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) @kMasterChunks, ptr noundef nonnull dereferenceable(4) %100, i64 4)
   %.not49122 = icmp eq i32 %bcmp121, 0
   br i1 %.not49122, label %._crit_edge, label %.lr.ph
 
 101:                                              ; preds = %.lr.ph
-  %102 = getelementptr inbounds i8, ptr %.035114123, i64 24
+  %102 = getelementptr inbounds nuw i8, ptr %.035114123, i64 24
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %102, ptr noundef nonnull dereferenceable(4) %100, i64 4)
   %.not49 = icmp eq i32 %bcmp, 0
   br i1 %.not49, label %._crit_edge, label %.lr.ph, !llvm.loop !4
@@ -267,7 +267,7 @@ ReadHeader.exit:                                  ; preds = %CreateRawImageDemux
   br i1 %.not50.not, label %108, label %.critedge
 
 108:                                              ; preds = %106
-  %109 = getelementptr inbounds i8, ptr %.035114.lcssa, i64 16
+  %109 = getelementptr inbounds nuw i8, ptr %.035114.lcssa, i64 16
   %110 = load ptr, ptr %109, align 8
   %111 = tail call i32 %110(ptr noundef nonnull %88) #13
   %.not51 = icmp eq i32 %111, 0
@@ -279,7 +279,7 @@ ReadHeader.exit:                                  ; preds = %CreateRawImageDemux
 
 .lr.ph:                                           ; preds = %90, %101
   %.035114123 = phi ptr [ %102, %101 ], [ @kMasterChunks, %90 ]
-  %112 = getelementptr inbounds i8, ptr %.035114123, i64 32
+  %112 = getelementptr inbounds nuw i8, ptr %.035114123, i64 32
   %113 = load ptr, ptr %112, align 8
   %.not48 = icmp eq ptr %113, null
   br i1 %.not48, label %.loopexit, label %101, !llvm.loop !4
@@ -313,28 +313,28 @@ define void @WebPDemuxDelete(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %2, label %12, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %.not15 = icmp eq ptr %5, null
   br i1 %.not15, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.01216 = phi ptr [ %7, %.lr.ph ], [ %5, %3 ]
-  %6 = getelementptr inbounds i8, ptr %.01216, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %.01216, i64 72
   %7 = load ptr, ptr %6, align 8
   tail call void @WebPSafeFree(ptr noundef nonnull %.01216) #13
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %9 = load ptr, ptr %8, align 8
   %.not1417 = icmp eq ptr %9, null
   br i1 %.not1417, label %._crit_edge21, label %.lr.ph20
 
 .lr.ph20:                                         ; preds = %._crit_edge, %.lr.ph20
   %.018 = phi ptr [ %11, %.lr.ph20 ], [ %9, %._crit_edge ]
-  %10 = getelementptr inbounds i8, ptr %.018, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %.018, i64 16
   %11 = load ptr, ptr %10, align 8
   tail call void @WebPSafeFree(ptr noundef nonnull %.018) #13
   %.not14 = icmp eq ptr %11, null
@@ -366,32 +366,32 @@ define i32 @WebPDemuxGetI(ptr noundef readonly %0, i32 noundef %1) local_unnamed
   ]
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i32, ptr %6, align 8
   br label %23
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 52
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %10 = load i32, ptr %9, align 4
   br label %23
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %13 = load i32, ptr %12, align 8
   br label %23
 
 14:                                               ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %0, i64 60
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %16 = load i32, ptr %15, align 4
   br label %23
 
 17:                                               ; preds = %4
-  %18 = getelementptr inbounds i8, ptr %0, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %19 = load i32, ptr %18, align 8
   br label %23
 
 20:                                               ; preds = %4
-  %21 = getelementptr inbounds i8, ptr %0, i64 68
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %22 = load i32, ptr %21, align 4
   br label %23
 
@@ -407,7 +407,7 @@ define range(i32 0, 2) i32 @WebPDemuxGetFrame(ptr noundef %0, i32 noundef %1, pt
 
 5:                                                ; preds = %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %2, i8 0, i64 72, i1 false)
-  %6 = getelementptr inbounds i8, ptr %2, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store ptr %0, ptr %6, align 8
   %7 = icmp eq ptr %0, null
   %8 = icmp slt i32 %1, 0
@@ -415,7 +415,7 @@ define range(i32 0, 2) i32 @WebPDemuxGetFrame(ptr noundef %0, i32 noundef %1, pt
   br i1 %or.cond.i, label %SetFrame.exit, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 68
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %11 = load i32, ptr %10, align 4
   %12 = icmp sgt i32 %1, %11
   br i1 %12, label %SetFrame.exit, label %13
@@ -427,31 +427,31 @@ define range(i32 0, 2) i32 @WebPDemuxGetFrame(ptr noundef %0, i32 noundef %1, pt
 
 15:                                               ; preds = %16, %13
   %.pn.i.i = phi ptr [ %0, %13 ], [ %.0.i.i, %16 ]
-  %.0.in.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 72
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 72
   %.0.i.i = load ptr, ptr %.0.in.i.i, align 8
   %.not.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not.i.i, label %SetFrame.exit, label %16
 
 16:                                               ; preds = %15
-  %17 = getelementptr inbounds i8, ptr %.0.i.i, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 32
   %18 = load i32, ptr %17, align 8
   %19 = icmp eq i32 %spec.select.i, %18
   br i1 %19, label %GetFrame.exit.i, label %15, !llvm.loop !8
 
 GetFrame.exit.i:                                  ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %.0.i.i, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 40
   %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %.0.i.i, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 48
   %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %.0.i.i, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 64
   %27 = load i64, ptr %26, align 8
   %.not.i.i.i = icmp eq i64 %27, 0
   br i1 %.not.i.i.i, label %GetFramePayload.exit.i.i, label %28
 
 28:                                               ; preds = %GetFrame.exit.i
-  %29 = getelementptr inbounds i8, ptr %.0.i.i, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 56
   %.not22.i.i.i = icmp eq i64 %23, 0
   %.pre.i.i.i = load i64, ptr %29, align 8
   %30 = add i64 %27, %.pre.i.i.i
@@ -471,46 +471,46 @@ GetFramePayload.exit.i.i:                         ; preds = %28, %GetFrame.exit.
   %37 = getelementptr inbounds i8, ptr %21, i64 %.018.i.i.i
   store i32 %spec.select.i, ptr %2, align 8
   %38 = load i32, ptr %10, align 4
-  %39 = getelementptr inbounds i8, ptr %2, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %38, ptr %39, align 4
   %40 = load i32, ptr %.0.i.i, align 8
-  %41 = getelementptr inbounds i8, ptr %2, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %40, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   %43 = load i32, ptr %42, align 4
-  %44 = getelementptr inbounds i8, ptr %2, i64 12
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %43, ptr %44, align 4
-  %45 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   %46 = load i32, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %2, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %46, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %.0.i.i, i64 12
+  %48 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
   %49 = load i32, ptr %48, align 4
-  %50 = getelementptr inbounds i8, ptr %2, i64 20
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 %49, ptr %50, align 4
-  %51 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   %52 = load i32, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %2, i64 56
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i32 %52, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %.0.i.i, i64 20
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 20
   %55 = load i32, ptr %54, align 4
-  %56 = getelementptr inbounds i8, ptr %2, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %55, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   %58 = load i32, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %2, i64 28
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 %58, ptr %59, align 4
-  %60 = getelementptr inbounds i8, ptr %.0.i.i, i64 28
+  %60 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 28
   %61 = load i32, ptr %60, align 4
-  %62 = getelementptr inbounds i8, ptr %2, i64 60
+  %62 = getelementptr inbounds nuw i8, ptr %2, i64 60
   store i32 %61, ptr %62, align 4
-  %63 = getelementptr inbounds i8, ptr %.0.i.i, i64 36
+  %63 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 36
   %64 = load i32, ptr %63, align 4
-  %65 = getelementptr inbounds i8, ptr %2, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %64, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %2, i64 40
+  %66 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr %37, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %2, i64 48
+  %67 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i64 %.030.i.i, ptr %67, align 8
   br label %SetFrame.exit
 
@@ -530,7 +530,7 @@ define range(i32 0, 2) i32 @WebPDemuxNextFrame(ptr noundef %0) local_unnamed_add
 3:                                                ; preds = %1
   %4 = load i32, ptr %0, align 8
   %5 = add nsw i32 %4, 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   %9 = icmp slt i32 %4, -1
@@ -538,7 +538,7 @@ define range(i32 0, 2) i32 @WebPDemuxNextFrame(ptr noundef %0) local_unnamed_add
   br i1 %or.cond.i, label %SetFrame.exit, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %7, i64 68
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 68
   %12 = load i32, ptr %11, align 4
   %.not = icmp slt i32 %4, %12
   br i1 %.not, label %13, label %SetFrame.exit
@@ -550,31 +550,31 @@ define range(i32 0, 2) i32 @WebPDemuxNextFrame(ptr noundef %0) local_unnamed_add
 
 15:                                               ; preds = %16, %13
   %.pn.i.i = phi ptr [ %7, %13 ], [ %.0.i.i, %16 ]
-  %.0.in.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 72
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 72
   %.0.i.i = load ptr, ptr %.0.in.i.i, align 8
   %.not.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not.i.i, label %SetFrame.exit, label %16
 
 16:                                               ; preds = %15
-  %17 = getelementptr inbounds i8, ptr %.0.i.i, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 32
   %18 = load i32, ptr %17, align 8
   %19 = icmp eq i32 %spec.select.i, %18
   br i1 %19, label %GetFrame.exit.i, label %15, !llvm.loop !8
 
 GetFrame.exit.i:                                  ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %7, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %.0.i.i, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 40
   %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %.0.i.i, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 48
   %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %.0.i.i, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 64
   %27 = load i64, ptr %26, align 8
   %.not.i.i.i = icmp eq i64 %27, 0
   br i1 %.not.i.i.i, label %GetFramePayload.exit.i.i, label %28
 
 28:                                               ; preds = %GetFrame.exit.i
-  %29 = getelementptr inbounds i8, ptr %.0.i.i, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 56
   %.not22.i.i.i = icmp eq i64 %23, 0
   %.pre.i.i.i = load i64, ptr %29, align 8
   %30 = add i64 %27, %.pre.i.i.i
@@ -594,46 +594,46 @@ GetFramePayload.exit.i.i:                         ; preds = %28, %GetFrame.exit.
   %37 = getelementptr inbounds i8, ptr %21, i64 %.018.i.i.i
   store i32 %spec.select.i, ptr %0, align 8
   %38 = load i32, ptr %11, align 4
-  %39 = getelementptr inbounds i8, ptr %0, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %38, ptr %39, align 4
   %40 = load i32, ptr %.0.i.i, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %40, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   %43 = load i32, ptr %42, align 4
-  %44 = getelementptr inbounds i8, ptr %0, i64 12
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %43, ptr %44, align 4
-  %45 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   %46 = load i32, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %46, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %.0.i.i, i64 12
+  %48 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
   %49 = load i32, ptr %48, align 4
-  %50 = getelementptr inbounds i8, ptr %0, i64 20
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %49, ptr %50, align 4
-  %51 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   %52 = load i32, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 56
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %52, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %.0.i.i, i64 20
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 20
   %55 = load i32, ptr %54, align 4
-  %56 = getelementptr inbounds i8, ptr %0, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %55, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   %58 = load i32, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 28
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %58, ptr %59, align 4
-  %60 = getelementptr inbounds i8, ptr %.0.i.i, i64 28
+  %60 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 28
   %61 = load i32, ptr %60, align 4
-  %62 = getelementptr inbounds i8, ptr %0, i64 60
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 %61, ptr %62, align 4
-  %63 = getelementptr inbounds i8, ptr %.0.i.i, i64 36
+  %63 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 36
   %64 = load i32, ptr %63, align 4
-  %65 = getelementptr inbounds i8, ptr %0, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %64, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %0, i64 40
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %37, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %0, i64 48
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %.030.i.i, ptr %67, align 8
   br label %SetFrame.exit
 
@@ -654,44 +654,44 @@ define range(i32 0, 2) i32 @WebPDemuxPrevFrame(ptr noundef %0) local_unnamed_add
 
 6:                                                ; preds = %3
   %7 = add nsw i32 %4, -1
-  %8 = getelementptr inbounds i8, ptr %0, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %SetFrame.exit, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %9, i64 68
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 68
   %13 = load i32, ptr %12, align 4
   %14 = icmp sgt i32 %7, %13
   br i1 %14, label %SetFrame.exit, label %.preheader
 
 .preheader:                                       ; preds = %11, %15
   %.pn.i.i = phi ptr [ %.0.i.i, %15 ], [ %9, %11 ]
-  %.0.in.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 72
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 72
   %.0.i.i = load ptr, ptr %.0.in.i.i, align 8
   %.not.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not.i.i, label %SetFrame.exit, label %15
 
 15:                                               ; preds = %.preheader
-  %16 = getelementptr inbounds i8, ptr %.0.i.i, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 32
   %17 = load i32, ptr %16, align 8
   %18 = icmp eq i32 %7, %17
   br i1 %18, label %GetFrame.exit.i, label %.preheader, !llvm.loop !8
 
 GetFrame.exit.i:                                  ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %9, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %.0.i.i, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 40
   %22 = load i64, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %.0.i.i, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 48
   %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %.0.i.i, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 64
   %26 = load i64, ptr %25, align 8
   %.not.i.i.i = icmp eq i64 %26, 0
   br i1 %.not.i.i.i, label %GetFramePayload.exit.i.i, label %27
 
 27:                                               ; preds = %GetFrame.exit.i
-  %28 = getelementptr inbounds i8, ptr %.0.i.i, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 56
   %.not22.i.i.i = icmp eq i64 %22, 0
   %.pre.i.i.i = load i64, ptr %28, align 8
   %29 = add i64 %26, %.pre.i.i.i
@@ -711,46 +711,46 @@ GetFramePayload.exit.i.i:                         ; preds = %27, %GetFrame.exit.
   %36 = getelementptr inbounds i8, ptr %20, i64 %.018.i.i.i
   store i32 %7, ptr %0, align 8
   %37 = load i32, ptr %12, align 4
-  %38 = getelementptr inbounds i8, ptr %0, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %37, ptr %38, align 4
   %39 = load i32, ptr %.0.i.i, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %39, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   %42 = load i32, ptr %41, align 4
-  %43 = getelementptr inbounds i8, ptr %0, i64 12
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %42, ptr %43, align 4
-  %44 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   %45 = load i32, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %45, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %.0.i.i, i64 12
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
   %48 = load i32, ptr %47, align 4
-  %49 = getelementptr inbounds i8, ptr %0, i64 20
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %48, ptr %49, align 4
-  %50 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   %51 = load i32, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 56
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %51, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %.0.i.i, i64 20
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 20
   %54 = load i32, ptr %53, align 4
-  %55 = getelementptr inbounds i8, ptr %0, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %54, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   %57 = load i32, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 28
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %57, ptr %58, align 4
-  %59 = getelementptr inbounds i8, ptr %.0.i.i, i64 28
+  %59 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 28
   %60 = load i32, ptr %59, align 4
-  %61 = getelementptr inbounds i8, ptr %0, i64 60
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 %60, ptr %61, align 4
-  %62 = getelementptr inbounds i8, ptr %.0.i.i, i64 36
+  %62 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 36
   %63 = load i32, ptr %62, align 4
-  %64 = getelementptr inbounds i8, ptr %0, i64 32
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %63, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 40
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %36, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %0, i64 48
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %.030.i.i, ptr %66, align 8
   br label %SetFrame.exit
 
@@ -771,7 +771,7 @@ define range(i32 0, 2) i32 @WebPDemuxGetChunk(ptr noundef %0, ptr noundef %1, i3
 
 6:                                                ; preds = %4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 48, i1 false)
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %0, ptr %7, align 8
   %8 = tail call fastcc i32 @SetChunk(ptr noundef %1, i32 noundef %2, ptr noundef %3)
   br label %9
@@ -783,7 +783,7 @@ define range(i32 0, 2) i32 @WebPDemuxGetChunk(ptr noundef %0, ptr noundef %1, i3
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc range(i32 0, 2) i32 @SetChunk(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #6 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   %7 = icmp eq ptr %0, null
@@ -793,9 +793,9 @@ define internal fastcc range(i32 0, 2) i32 @SetChunk(ptr noundef readonly %0, i3
   br i1 %or.cond3, label %ChunkCount.exit.thread, label %9
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %5, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %.011.i = load ptr, ptr %12, align 8
   %.not12.i = icmp eq ptr %.011.i, null
   br i1 %.not12.i, label %ChunkCount.exit.thread, label %.lr.ph.i
@@ -809,7 +809,7 @@ define internal fastcc range(i32 0, 2) i32 @SetChunk(ptr noundef readonly %0, i3
   %.not10.i = icmp eq i32 %bcmp.i, 0
   %15 = zext i1 %.not10.i to i32
   %spec.select.i = add nuw nsw i32 %.0913.i, %15
-  %16 = getelementptr inbounds i8, ptr %.014.i, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %.014.i, i64 16
   %.0.i = load ptr, ptr %16, align 8
   %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %ChunkCount.exit, label %.lr.ph.i, !llvm.loop !9
@@ -836,7 +836,7 @@ ChunkCount.exit:                                  ; preds = %.lr.ph.i
 .lr.ph.i32:                                       ; preds = %.lr.ph.i32.preheader, %.lr.ph.i32
   %spec.select.i3542 = phi i32 [ %spec.select.i35, %.lr.ph.i32 ], [ %22, %.lr.ph.i32.preheader ]
   %.016.i41 = phi ptr [ %.0.i36, %.lr.ph.i32 ], [ %.011.i, %.lr.ph.i32.preheader ]
-  %24 = getelementptr inbounds i8, ptr %.016.i41, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %.016.i41, i64 16
   %.0.i36 = load ptr, ptr %24, align 8, !nonnull !10, !noundef !10
   %25 = load i64, ptr %.0.i36, align 8
   %26 = getelementptr inbounds i8, ptr %11, i64 %25
@@ -851,15 +851,15 @@ GetChunk.exit:                                    ; preds = %.lr.ph.i32, %.lr.ph
   %29 = phi i64 [ %20, %.lr.ph.i32.preheader ], [ %25, %.lr.ph.i32 ]
   %.016.i.lcssa = phi ptr [ %.011.i, %.lr.ph.i32.preheader ], [ %.0.i36, %.lr.ph.i32 ]
   %30 = getelementptr inbounds i8, ptr %11, i64 %29
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
-  %32 = getelementptr inbounds i8, ptr %2, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %31, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %.016.i.lcssa, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %.016.i.lcssa, i64 8
   %34 = load i64, ptr %33, align 8
   %35 = add i64 %34, -8
-  %36 = getelementptr inbounds i8, ptr %2, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %35, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %2, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %spec.select.i, ptr %37, align 4
   store i32 %spec.select, ptr %2, align 8
   br label %ChunkCount.exit.thread
@@ -875,7 +875,7 @@ define range(i32 0, 2) i32 @WebPDemuxNextChunk(ptr noundef %0) local_unnamed_add
   br i1 %.not, label %9, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -8
   %6 = load i32, ptr %0, align 8
@@ -899,7 +899,7 @@ define range(i32 0, 2) i32 @WebPDemuxPrevChunk(ptr noundef %0) local_unnamed_add
   br i1 %4, label %5, label %11
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 -8
   %9 = add nsw i32 %3, -1
@@ -920,7 +920,7 @@ declare i32 @WebPGetFeaturesInternal(ptr noundef, i64 noundef, ptr noundef, i32 
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 3) i32 @ParseSingleImage(ptr nocapture noundef %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %59
@@ -951,53 +951,53 @@ define internal range(i32 0, 3) i32 @ParseSingleImage(ptr nocapture noundef %0) 
   br i1 %.not35, label %AddFrame.exit.thread, label %17
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %0, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %19 = load i32, ptr %18, align 8
   %20 = and i32 %19, 16
   %.not36 = icmp eq i32 %20, 0
   br i1 %.not36, label %21, label %27
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %13, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %23 = load i64, ptr %22, align 8
   %.not37 = icmp eq i64 %23, 0
   br i1 %.not37, label %27, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %13, i64 56
-  %26 = getelementptr inbounds i8, ptr %13, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %13, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i32 0, ptr %26, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
   br label %27
 
 27:                                               ; preds = %24, %21, %17
-  %28 = getelementptr inbounds i8, ptr %0, i64 44
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %29 = load i32, ptr %28, align 4
   %.not38 = icmp eq i32 %29, 0
   br i1 %.not38, label %30, label %49
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %13, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %32 = load i32, ptr %31, align 8
   %33 = icmp sgt i32 %32, 0
   br i1 %33, label %34, label %49
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %13, i64 12
+  %35 = getelementptr inbounds nuw i8, ptr %13, i64 12
   %36 = load i32, ptr %35, align 4
   %37 = icmp sgt i32 %36, 0
   br i1 %37, label %38, label %49
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %0, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 1, ptr %39, align 8
   %40 = load i32, ptr %31, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 52
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 %40, ptr %41, align 4
   %42 = load i32, ptr %35, align 4
-  %43 = getelementptr inbounds i8, ptr %0, i64 56
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %42, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %13, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %45 = load i32, ptr %44, align 8
   %.not39 = icmp eq i32 %45, 0
   %46 = select i1 %.not39, i32 0, i32 16
@@ -1007,24 +1007,24 @@ define internal range(i32 0, 3) i32 @ParseSingleImage(ptr nocapture noundef %0) 
   br label %49
 
 49:                                               ; preds = %38, %34, %30, %27
-  %50 = getelementptr inbounds i8, ptr %0, i64 80
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %51 = load ptr, ptr %50, align 8
   %52 = load ptr, ptr %51, align 8
   %.not.i = icmp eq ptr %52, null
   br i1 %.not.i, label %56, label %53
 
 53:                                               ; preds = %49
-  %54 = getelementptr inbounds i8, ptr %52, i64 36
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 36
   %55 = load i32, ptr %54, align 4
   %.not9.i = icmp eq i32 %55, 0
   br i1 %.not9.i, label %AddFrame.exit.thread, label %56
 
 56:                                               ; preds = %49, %53
   store ptr %13, ptr %51, align 8
-  %57 = getelementptr inbounds i8, ptr %13, i64 72
+  %57 = getelementptr inbounds nuw i8, ptr %13, i64 72
   store ptr null, ptr %57, align 8
   store ptr %57, ptr %50, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 68
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 1, ptr %58, align 4
   br label %59
 
@@ -1039,21 +1039,21 @@ AddFrame.exit.thread:                             ; preds = %53, %15
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal range(i32 0, 2) i32 @IsValidSimpleFormat(ptr nocapture noundef readonly %0) #8 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %26, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 52
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %9 = load i32, ptr %8, align 4
   %10 = icmp slt i32 %9, 1
   br i1 %10, label %26, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %13 = load i32, ptr %12, align 8
   %14 = icmp slt i32 %13, 1
   br i1 %14, label %26, label %15
@@ -1065,13 +1065,13 @@ define internal range(i32 0, 2) i32 @IsValidSimpleFormat(ptr nocapture noundef r
   br i1 %or.cond, label %26, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %3, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %20 = load i32, ptr %19, align 8
   %21 = icmp slt i32 %20, 1
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %3, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %24 = load i32, ptr %23, align 4
   %25 = icmp sgt i32 %24, 0
   %spec.select = zext i1 %25 to i32
@@ -1092,11 +1092,11 @@ define internal range(i32 0, 3) i32 @ParseVP8X(ptr nocapture noundef %0) #1 {
   br i1 %4, label %61, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 1, ptr %6, align 4
   %7 = add i64 %.val33, 4
   store i64 %7, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 %7
   %.val.i.i = load i32, ptr %10, align 1
@@ -1125,14 +1125,14 @@ define internal range(i32 0, 3) i32 @ParseVP8X(ptr nocapture noundef %0) #1 {
   %23 = getelementptr inbounds i8, ptr %9, i64 %11
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i32
-  %26 = getelementptr inbounds i8, ptr %0, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %25, ptr %26, align 8
   %27 = add i64 %.val33, 12
   store i64 %27, ptr %0, align 8
   %28 = getelementptr inbounds i8, ptr %9, i64 %27
   %.val.i.i39 = load i16, ptr %28, align 1
   %29 = zext i16 %.val.i.i39 to i32
-  %30 = getelementptr inbounds i8, ptr %28, i64 2
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 2
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i32
   %33 = shl nuw nsw i32 %32, 16
@@ -1140,12 +1140,12 @@ define internal range(i32 0, 3) i32 @ParseVP8X(ptr nocapture noundef %0) #1 {
   %35 = add i64 %.val33, 15
   store i64 %35, ptr %0, align 8
   %36 = add nuw nsw i32 %34, 1
-  %37 = getelementptr inbounds i8, ptr %0, i64 52
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 %36, ptr %37, align 4
   %38 = getelementptr inbounds i8, ptr %9, i64 %35
   %.val.i.i40 = load i16, ptr %38, align 1
   %39 = zext i16 %.val.i.i40 to i32
-  %40 = getelementptr inbounds i8, ptr %38, i64 2
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 2
   %41 = load i8, ptr %40, align 1
   %42 = zext i8 %41 to i32
   %43 = shl nuw nsw i32 %42, 16
@@ -1153,7 +1153,7 @@ define internal range(i32 0, 3) i32 @ParseVP8X(ptr nocapture noundef %0) #1 {
   %45 = add i64 %.val33, 18
   store i64 %45, ptr %0, align 8
   %46 = add nuw nsw i32 %44, 1
-  %47 = getelementptr inbounds i8, ptr %0, i64 56
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %46, ptr %47, align 8
   %umul = tail call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %36, i32 %46)
   %48 = extractvalue { i32, i1 } %umul, 1
@@ -1164,7 +1164,7 @@ define internal range(i32 0, 3) i32 @ParseVP8X(ptr nocapture noundef %0) #1 {
   %51 = zext i32 %50 to i64
   %52 = add i64 %45, %51
   store i64 %52, ptr %0, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 40
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 1, ptr %53, align 8
   %54 = sub i64 %.val36, %52
   %55 = icmp ugt i64 %54, 7
@@ -1186,31 +1186,31 @@ define internal range(i32 0, 3) i32 @ParseVP8X(ptr nocapture noundef %0) #1 {
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define internal range(i32 0, 2) i32 @IsValidExtendedFormat(ptr nocapture noundef readonly %0) #9 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 2
   %.not = icmp eq i32 %4, 0
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %CheckFrameBounds.exit.thread, label %10
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 52
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %12 = load i32, ptr %11, align 4
   %13 = icmp slt i32 %12, 1
   br i1 %13, label %CheckFrameBounds.exit.thread, label %14
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %0, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %16 = load i32, ptr %15, align 8
   %17 = icmp slt i32 %16, 1
   br i1 %17, label %CheckFrameBounds.exit.thread, label %18
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %0, i64 60
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %20 = load i32, ptr %19, align 4
   %21 = icmp slt i32 %20, 0
   br i1 %21, label %CheckFrameBounds.exit.thread, label %22
@@ -1230,7 +1230,7 @@ define internal range(i32 0, 2) i32 @IsValidExtendedFormat(ptr nocapture noundef
 
 .lr.ph:                                           ; preds = %29, %.preheader
   %.03968 = phi ptr [ %6, %.preheader ], [ %.166, %29 ]
-  %26 = getelementptr inbounds i8, ptr %.03968, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %.03968, i64 32
   %27 = load i32, ptr %26, align 8
   %28 = icmp sgt i32 %27, 1
   %or.cond51 = and i1 %.not, %28
@@ -1238,30 +1238,30 @@ define internal range(i32 0, 2) i32 @IsValidExtendedFormat(ptr nocapture noundef
 
 29:                                               ; preds = %.lr.ph, %CheckFrameBounds.exit
   %.166 = phi ptr [ %.03968, %.lr.ph ], [ %95, %CheckFrameBounds.exit ]
-  %30 = getelementptr inbounds i8, ptr %.166, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.166, i64 32
   %31 = load i32, ptr %30, align 8
   %32 = icmp eq i32 %31, %27
   br i1 %32, label %33, label %.lr.ph, !llvm.loop !11
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %.166, i64 40
-  %35 = getelementptr inbounds i8, ptr %.166, i64 56
+  %34 = getelementptr inbounds nuw i8, ptr %.166, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %.166, i64 56
   br i1 %or.cond51, label %CheckFrameBounds.exit.thread, label %36
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %.166, i64 36
+  %37 = getelementptr inbounds nuw i8, ptr %.166, i64 36
   %38 = load i32, ptr %37, align 4
   %.not45 = icmp eq i32 %38, 0
   br i1 %.not45, label %58, label %39
 
 39:                                               ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %.166, i64 64
+  %40 = getelementptr inbounds nuw i8, ptr %.166, i64 64
   %41 = load i64, ptr %40, align 8
   %42 = icmp eq i64 %41, 0
   br i1 %42, label %43, label %47
 
 43:                                               ; preds = %39
-  %44 = getelementptr inbounds i8, ptr %.166, i64 48
+  %44 = getelementptr inbounds nuw i8, ptr %.166, i64 48
   %45 = load i64, ptr %44, align 8
   %46 = icmp eq i64 %45, 0
   br i1 %46, label %CheckFrameBounds.exit.thread, label %.thread
@@ -1273,13 +1273,13 @@ define internal range(i32 0, 2) i32 @IsValidExtendedFormat(ptr nocapture noundef
   br i1 %50, label %CheckFrameBounds.exit.thread, label %.thread
 
 .thread:                                          ; preds = %43, %47
-  %51 = getelementptr inbounds i8, ptr %.166, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %.166, i64 8
   %52 = load i32, ptr %51, align 8
   %53 = icmp slt i32 %52, 1
   br i1 %53, label %CheckFrameBounds.exit.thread, label %54
 
 54:                                               ; preds = %.thread
-  %55 = getelementptr inbounds i8, ptr %.166, i64 12
+  %55 = getelementptr inbounds nuw i8, ptr %.166, i64 12
   %56 = load i32, ptr %55, align 4
   %57 = icmp slt i32 %56, 1
   br i1 %57, label %CheckFrameBounds.exit.thread, label %.thread70
@@ -1288,13 +1288,13 @@ define internal range(i32 0, 2) i32 @IsValidExtendedFormat(ptr nocapture noundef
   br i1 %23, label %59, label %CheckFrameBounds.exit.thread
 
 59:                                               ; preds = %58
-  %60 = getelementptr inbounds i8, ptr %.166, i64 64
+  %60 = getelementptr inbounds nuw i8, ptr %.166, i64 64
   %61 = load i64, ptr %60, align 8
   %.not46 = icmp eq i64 %61, 0
   br i1 %.not46, label %69, label %62
 
 62:                                               ; preds = %59
-  %63 = getelementptr inbounds i8, ptr %.166, i64 48
+  %63 = getelementptr inbounds nuw i8, ptr %.166, i64 48
   %64 = load i64, ptr %63, align 8
   %.not47 = icmp eq i64 %64, 0
   br i1 %.not47, label %69, label %65
@@ -1306,20 +1306,20 @@ define internal range(i32 0, 2) i32 @IsValidExtendedFormat(ptr nocapture noundef
   br i1 %68, label %CheckFrameBounds.exit.thread, label %69
 
 69:                                               ; preds = %65, %62, %59
-  %70 = getelementptr inbounds i8, ptr %.166, i64 72
+  %70 = getelementptr inbounds nuw i8, ptr %.166, i64 72
   %71 = load ptr, ptr %70, align 8
   %.not48 = icmp eq ptr %71, null
   br i1 %.not48, label %72, label %CheckFrameBounds.exit.thread
 
 72:                                               ; preds = %69
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.166, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.166, i64 8
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   %73 = icmp sgt i32 %.pre, 0
   br i1 %73, label %.thread70, label %CheckFrameBounds.exit
 
 .thread70:                                        ; preds = %54, %72
   %74 = phi i32 [ %.pre, %72 ], [ %52, %54 ]
-  %75 = getelementptr inbounds i8, ptr %.166, i64 12
+  %75 = getelementptr inbounds nuw i8, ptr %.166, i64 12
   %76 = load i32, ptr %75, align 4
   %77 = icmp sgt i32 %76, 0
   br i1 %77, label %78, label %CheckFrameBounds.exit
@@ -1333,7 +1333,7 @@ define internal range(i32 0, 2) i32 @IsValidExtendedFormat(ptr nocapture noundef
   br i1 %.not17.i, label %81, label %CheckFrameBounds.exit.thread
 
 81:                                               ; preds = %80
-  %82 = getelementptr inbounds i8, ptr %.166, i64 4
+  %82 = getelementptr inbounds nuw i8, ptr %.166, i64 4
   %83 = load i32, ptr %82, align 4
   %.not18.i = icmp eq i32 %83, 0
   %.not19.i = icmp eq i32 %74, %12
@@ -1347,7 +1347,7 @@ define internal range(i32 0, 2) i32 @IsValidExtendedFormat(ptr nocapture noundef
   br i1 %85, label %CheckFrameBounds.exit.thread, label %86
 
 86:                                               ; preds = %84
-  %87 = getelementptr inbounds i8, ptr %.166, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %.166, i64 4
   %88 = load i32, ptr %87, align 4
   %89 = icmp slt i32 %88, 0
   %90 = add nuw nsw i32 %79, %74
@@ -1359,7 +1359,7 @@ define internal range(i32 0, 2) i32 @IsValidExtendedFormat(ptr nocapture noundef
   br i1 %or.cond60, label %CheckFrameBounds.exit.thread, label %CheckFrameBounds.exit
 
 CheckFrameBounds.exit:                            ; preds = %86, %81, %72, %.thread70
-  %94 = getelementptr inbounds i8, ptr %.166, i64 72
+  %94 = getelementptr inbounds nuw i8, ptr %.166, i64 72
   %95 = load ptr, ptr %94, align 8
   %.not44 = icmp eq ptr %95, null
   br i1 %.not44, label %CheckFrameBounds.exit.thread, label %29, !llvm.loop !12
@@ -1383,19 +1383,19 @@ define internal fastcc range(i32 0, 3) i32 @StoreFrame(i32 noundef range(i32 -21
   br i1 %or.cond88, label %.thread, label %.preheader
 
 .preheader:                                       ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %2, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %12 = getelementptr i8, ptr %2, i64 16
-  %13 = getelementptr inbounds i8, ptr %3, i64 40
-  %14 = getelementptr inbounds i8, ptr %3, i64 48
-  %15 = getelementptr inbounds i8, ptr %3, i64 8
-  %16 = getelementptr inbounds i8, ptr %5, i64 4
-  %17 = getelementptr inbounds i8, ptr %3, i64 12
-  %18 = getelementptr inbounds i8, ptr %5, i64 8
-  %19 = getelementptr inbounds i8, ptr %3, i64 16
-  %20 = getelementptr inbounds i8, ptr %3, i64 32
-  %21 = getelementptr inbounds i8, ptr %3, i64 36
-  %22 = getelementptr inbounds i8, ptr %3, i64 56
-  %23 = getelementptr inbounds i8, ptr %3, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 36
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 64
   br label %24
 
 24:                                               ; preds = %.preheader, %65
@@ -1515,18 +1515,18 @@ define internal fastcc range(i32 0, 3) i32 @StoreFrame(i32 noundef range(i32 -21
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 3) i32 @ParseVP8XChunks(ptr nocapture noundef %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 2
   %5 = icmp ne i32 %4, 0
   %6 = getelementptr i8, ptr %0, i64 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = getelementptr i8, ptr %0, i64 16
-  %9 = getelementptr inbounds i8, ptr %0, i64 68
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
-  %11 = getelementptr inbounds i8, ptr %0, i64 64
-  %12 = getelementptr inbounds i8, ptr %0, i64 60
-  %13 = getelementptr inbounds i8, ptr %0, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %.pre = load i64, ptr %0, align 8
   br label %14
 
@@ -1637,7 +1637,7 @@ NewFrame.exit.i:                                  ; preds = %59
   %64 = getelementptr inbounds i8, ptr %62, i64 %63
   %.val.i.i.i = load i16, ptr %64, align 1
   %65 = zext i16 %.val.i.i.i to i32
-  %66 = getelementptr inbounds i8, ptr %64, i64 2
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 2
   %67 = load i8, ptr %66, align 1
   %68 = zext i8 %67 to i32
   %69 = add i64 %63, 3
@@ -1651,7 +1651,7 @@ NewFrame.exit.i:                                  ; preds = %59
   %75 = getelementptr inbounds i8, ptr %73, i64 %74
   %.val.i.i43.i = load i16, ptr %75, align 1
   %76 = zext i16 %.val.i.i43.i to i32
-  %77 = getelementptr inbounds i8, ptr %75, i64 2
+  %77 = getelementptr inbounds nuw i8, ptr %75, i64 2
   %78 = load i8, ptr %77, align 1
   %79 = zext i8 %78 to i32
   %80 = add i64 %74, 3
@@ -1659,14 +1659,14 @@ NewFrame.exit.i:                                  ; preds = %59
   %81 = shl nuw nsw i32 %79, 17
   %82 = shl nuw nsw i32 %76, 1
   %83 = or disjoint i32 %81, %82
-  %84 = getelementptr inbounds i8, ptr %60, i64 4
+  %84 = getelementptr inbounds nuw i8, ptr %60, i64 4
   store i32 %83, ptr %84, align 4
   %85 = load ptr, ptr %7, align 8
   %86 = load i64, ptr %0, align 8
   %87 = getelementptr inbounds i8, ptr %85, i64 %86
   %.val.i.i44.i = load i16, ptr %87, align 1
   %88 = zext i16 %.val.i.i44.i to i32
-  %89 = getelementptr inbounds i8, ptr %87, i64 2
+  %89 = getelementptr inbounds nuw i8, ptr %87, i64 2
   %90 = load i8, ptr %89, align 1
   %91 = zext i8 %90 to i32
   %92 = shl nuw nsw i32 %91, 16
@@ -1674,14 +1674,14 @@ NewFrame.exit.i:                                  ; preds = %59
   %94 = add i64 %86, 3
   store i64 %94, ptr %0, align 8
   %95 = add nuw nsw i32 %93, 1
-  %96 = getelementptr inbounds i8, ptr %60, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store i32 %95, ptr %96, align 8
   %97 = load ptr, ptr %7, align 8
   %98 = load i64, ptr %0, align 8
   %99 = getelementptr inbounds i8, ptr %97, i64 %98
   %.val.i.i45.i = load i16, ptr %99, align 1
   %100 = zext i16 %.val.i.i45.i to i32
-  %101 = getelementptr inbounds i8, ptr %99, i64 2
+  %101 = getelementptr inbounds nuw i8, ptr %99, i64 2
   %102 = load i8, ptr %101, align 1
   %103 = zext i8 %102 to i32
   %104 = shl nuw nsw i32 %103, 16
@@ -1689,21 +1689,21 @@ NewFrame.exit.i:                                  ; preds = %59
   %106 = add i64 %98, 3
   store i64 %106, ptr %0, align 8
   %107 = add nuw nsw i32 %105, 1
-  %108 = getelementptr inbounds i8, ptr %60, i64 12
+  %108 = getelementptr inbounds nuw i8, ptr %60, i64 12
   store i32 %107, ptr %108, align 4
   %109 = load ptr, ptr %7, align 8
   %110 = load i64, ptr %0, align 8
   %111 = getelementptr inbounds i8, ptr %109, i64 %110
   %.val.i.i46.i = load i16, ptr %111, align 1
   %112 = zext i16 %.val.i.i46.i to i32
-  %113 = getelementptr inbounds i8, ptr %111, i64 2
+  %113 = getelementptr inbounds nuw i8, ptr %111, i64 2
   %114 = load i8, ptr %113, align 1
   %115 = zext i8 %114 to i32
   %116 = shl nuw nsw i32 %115, 16
   %117 = or disjoint i32 %116, %112
   %118 = add i64 %110, 3
   store i64 %118, ptr %0, align 8
-  %119 = getelementptr inbounds i8, ptr %60, i64 20
+  %119 = getelementptr inbounds nuw i8, ptr %60, i64 20
   store i32 %117, ptr %119, align 4
   %120 = load ptr, ptr %7, align 8
   %121 = load i64, ptr %0, align 8
@@ -1713,11 +1713,11 @@ NewFrame.exit.i:                                  ; preds = %59
   store i64 %124, ptr %0, align 8
   %125 = zext i8 %123 to i32
   %126 = and i32 %125, 1
-  %127 = getelementptr inbounds i8, ptr %60, i64 24
+  %127 = getelementptr inbounds nuw i8, ptr %60, i64 24
   store i32 %126, ptr %127, align 8
   %128 = lshr i32 %125, 1
   %.lobit.i = and i32 %128, 1
-  %129 = getelementptr inbounds i8, ptr %60, i64 28
+  %129 = getelementptr inbounds nuw i8, ptr %60, i64 28
   store i32 %.lobit.i, ptr %129, align 4
   %130 = load i32, ptr %96, align 8
   %131 = sext i32 %130 to i64
@@ -1750,7 +1750,7 @@ NewFrame.exit.i:                                  ; preds = %59
   br i1 %or.cond.i, label %148, label %.thread.i
 
 148:                                              ; preds = %142
-  %149 = getelementptr inbounds i8, ptr %60, i64 32
+  %149 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %150 = load i32, ptr %149, align 8
   %151 = icmp sgt i32 %150, 0
   br i1 %151, label %152, label %.thread.i
@@ -1762,14 +1762,14 @@ NewFrame.exit.i:                                  ; preds = %59
   br i1 %.not.i.i, label %158, label %155
 
 155:                                              ; preds = %152
-  %156 = getelementptr inbounds i8, ptr %154, i64 36
+  %156 = getelementptr inbounds nuw i8, ptr %154, i64 36
   %157 = load i32, ptr %156, align 4
   %.not9.i.i = icmp eq i32 %157, 0
   br i1 %.not9.i.i, label %.thread.i, label %158
 
 158:                                              ; preds = %155, %152
   store ptr %60, ptr %153, align 8
-  %159 = getelementptr inbounds i8, ptr %60, i64 72
+  %159 = getelementptr inbounds nuw i8, ptr %60, i64 72
   store ptr null, ptr %159, align 8
   store ptr %159, ptr %10, align 8
   %160 = load i32, ptr %9, align 4
@@ -1823,11 +1823,11 @@ StoreChunk.exit:                                  ; preds = %.thread71
   %174 = add nuw i32 %.val.i.i65, 8
   store i64 %15, ptr %172, align 8
   %175 = zext i32 %174 to i64
-  %176 = getelementptr inbounds i8, ptr %172, i64 8
+  %176 = getelementptr inbounds nuw i8, ptr %172, i64 8
   store i64 %175, ptr %176, align 8
   %177 = load ptr, ptr %13, align 8
   store ptr %172, ptr %177, align 8
-  %178 = getelementptr inbounds i8, ptr %172, i64 16
+  %178 = getelementptr inbounds nuw i8, ptr %172, i64 16
   store ptr null, ptr %178, align 8
   store ptr %178, ptr %13, align 8
   %.pre76 = load i64, ptr %0, align 8

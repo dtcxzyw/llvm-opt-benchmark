@@ -19,13 +19,13 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local void @InitCompressorGzip(ptr nocapture noundef initializes((0, 24), (40, 72)) %0, ptr nocapture noundef readonly byval(%struct.pg_compress_specification) align 8 %1) local_unnamed_addr #0 {
   store ptr @ReadDataFromArchiveGzip, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @WriteDataToArchiveGzip, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @EndCompressorGzip, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %27, label %8
@@ -34,21 +34,21 @@ define dso_local void @InitCompressorGzip(ptr nocapture noundef initializes((0, 
   %9 = tail call ptr @pg_malloc0(i64 noundef 24) #10
   %10 = tail call ptr @pg_malloc(i64 noundef 112) #10
   store ptr %10, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 64
-  %12 = getelementptr inbounds i8, ptr %9, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   store i64 4096, ptr %12, align 8
   %13 = tail call ptr @pg_malloc(i64 noundef 4097) #10
-  %14 = getelementptr inbounds i8, ptr %9, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %13, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = load i32, ptr %15, align 8
   %17 = tail call i32 @deflateInit_(ptr noundef %10, i32 noundef %16, ptr noundef nonnull @.str, i32 noundef 112) #10
   %.not.i = icmp eq i32 %17, 0
   br i1 %.not.i, label %DeflateCompressorInit.exit, label %18
 
 18:                                               ; preds = %8
-  %19 = getelementptr inbounds i8, ptr %10, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %20 = load ptr, ptr %19, align 8
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef %20) #10
   tail call void @exit_nicely(i32 noundef 1) #11
@@ -56,13 +56,13 @@ define dso_local void @InitCompressorGzip(ptr nocapture noundef initializes((0, 
 
 DeflateCompressorInit.exit:                       ; preds = %8
   %21 = load ptr, ptr %14, align 8
-  %22 = getelementptr inbounds i8, ptr %10, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %21, ptr %22, align 8
   %23 = load i64, ptr %12, align 8
   %24 = trunc i64 %23 to i32
-  %25 = getelementptr inbounds i8, ptr %10, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i32 %24, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %9, ptr %26, align 8
   br label %27
 
@@ -75,7 +75,7 @@ define internal void @ReadDataFromArchiveGzip(ptr noundef %0, ptr nocapture noun
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = tail call ptr @pg_malloc(i64 noundef 112) #10
-  %6 = getelementptr inbounds i8, ptr %5, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   store i64 4096, ptr %4, align 8
   %7 = tail call ptr @pg_malloc(i64 noundef 4096) #10
@@ -86,7 +86,7 @@ define internal void @ReadDataFromArchiveGzip(ptr noundef %0, ptr nocapture noun
   br i1 %.not, label %.preheader, label %17
 
 .preheader:                                       ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = call i64 %11(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4) #10
   %.not4552 = icmp eq i64 %12, 0
@@ -94,18 +94,18 @@ define internal void @ReadDataFromArchiveGzip(ptr noundef %0, ptr nocapture noun
 
 ._crit_edge.thread:                               ; preds = %.preheader
   store ptr null, ptr %5, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %13, align 8
   br label %.lr.ph58
 
 .lr.ph54:                                         ; preds = %.preheader
-  %14 = getelementptr inbounds i8, ptr %5, i64 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 24
-  %16 = getelementptr inbounds i8, ptr %5, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 32
   br label %22
 
 17:                                               ; preds = %2
-  %18 = getelementptr inbounds i8, ptr %5, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %19 = load ptr, ptr %18, align 8
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef %19) #10
   tail call void @exit_nicely(i32 noundef 1) #11
@@ -136,7 +136,7 @@ define internal void @ReadDataFromArchiveGzip(ptr noundef %0, ptr nocapture noun
   br i1 %or.cond, label %27, label %30
 
 27:                                               ; preds = %.lr.ph
-  %28 = getelementptr inbounds i8, ptr %5, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %29 = load ptr, ptr %28, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.2, ptr noundef %29) #10
   call void @exit_nicely(i32 noundef 1) #11
@@ -159,13 +159,13 @@ define internal void @ReadDataFromArchiveGzip(ptr noundef %0, ptr nocapture noun
 ._crit_edge:                                      ; preds = %.loopexit
   %38 = icmp eq i32 %.1.lcssa, 1
   store ptr null, ptr %5, align 8
-  %39 = getelementptr inbounds i8, ptr %5, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %39, align 8
   br i1 %38, label %._crit_edge59, label %.lr.ph58
 
 .lr.ph58:                                         ; preds = %._crit_edge.thread, %._crit_edge
-  %40 = getelementptr inbounds i8, ptr %5, i64 24
-  %41 = getelementptr inbounds i8, ptr %5, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 32
   br label %42
 
 42:                                               ; preds = %.lr.ph58, %47
@@ -176,7 +176,7 @@ define internal void @ReadDataFromArchiveGzip(ptr noundef %0, ptr nocapture noun
   br i1 %or.cond3, label %44, label %47
 
 44:                                               ; preds = %42
-  %45 = getelementptr inbounds i8, ptr %5, i64 48
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %46 = load ptr, ptr %45, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.2, ptr noundef %46) #10
   call void @exit_nicely(i32 noundef 1) #11
@@ -201,7 +201,7 @@ define internal void @ReadDataFromArchiveGzip(ptr noundef %0, ptr nocapture noun
   br i1 %.not47, label %59, label %56
 
 56:                                               ; preds = %._crit_edge59
-  %57 = getelementptr inbounds i8, ptr %5, i64 48
+  %57 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %58 = load ptr, ptr %57, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %58) #10
   call void @exit_nicely(i32 noundef 1) #11
@@ -217,28 +217,28 @@ define internal void @ReadDataFromArchiveGzip(ptr noundef %0, ptr nocapture noun
 
 ; Function Attrs: nounwind uwtable
 define internal void @WriteDataToArchiveGzip(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   %8 = trunc i64 %3 to i32
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %8, ptr %10, align 8
   %11 = load ptr, ptr %5, align 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %11, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %12, i64 32
-  %16 = getelementptr inbounds i8, ptr %11, i64 16
-  %17 = getelementptr inbounds i8, ptr %12, i64 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 32
-  %19 = getelementptr inbounds i8, ptr %12, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 24
   br label %.split.i
 
 .split.i:                                         ; preds = %43, %4
   %20 = load ptr, ptr %11, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load i32, ptr %21, align 8
   %.not32.i = icmp eq i32 %22, 0
   br i1 %.not32.i, label %DeflateCompressorCommon.exit, label %23
@@ -249,7 +249,7 @@ define internal void @WriteDataToArchiveGzip(ptr noundef %0, ptr nocapture nound
   br i1 %25, label %.split31.us.i, label %28
 
 .split31.us.i:                                    ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %12, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %27 = load ptr, ptr %26, align 8
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.4, ptr noundef %27) #10
   tail call void @exit_nicely(i32 noundef 1) #11
@@ -294,7 +294,7 @@ DeflateCompressorCommon.exit:                     ; preds = %.split.i, %43
 
 ; Function Attrs: nounwind uwtable
 define internal void @EndCompressorGzip(ptr noundef %0, ptr nocapture noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %44, label %5
@@ -302,17 +302,17 @@ define internal void @EndCompressorGzip(ptr noundef %0, ptr nocapture noundef %1
 5:                                                ; preds = %2
   %6 = load ptr, ptr %4, align 8
   store ptr null, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %7, align 8
   %8 = load ptr, ptr %3, align 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %8, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 32
-  %13 = getelementptr inbounds i8, ptr %8, i64 16
-  %14 = getelementptr inbounds i8, ptr %9, i64 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 32
-  %16 = getelementptr inbounds i8, ptr %9, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 24
   br label %.split.us.i.i
 
 .split.us.i.i:                                    ; preds = %33, %5
@@ -354,7 +354,7 @@ define internal void @EndCompressorGzip(ptr noundef %0, ptr nocapture noundef %1
   br i1 %34, label %DeflateCompressorCommon.exit.i, label %.split.us.i.i, !llvm.loop !9
 
 .split31.us.i.i:                                  ; preds = %.split.us.i.i
-  %35 = getelementptr inbounds i8, ptr %9, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %36 = load ptr, ptr %35, align 8
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.4, ptr noundef %36) #10
   tail call void @exit_nicely(i32 noundef 1) #11
@@ -366,14 +366,14 @@ DeflateCompressorCommon.exit.i:                   ; preds = %33
   br i1 %.not.i, label %DeflateCompressorEnd.exit, label %38
 
 38:                                               ; preds = %DeflateCompressorCommon.exit.i
-  %39 = getelementptr inbounds i8, ptr %6, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %40 = load ptr, ptr %39, align 8
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.5, ptr noundef %40) #10
   tail call void @exit_nicely(i32 noundef 1) #11
   unreachable
 
 DeflateCompressorEnd.exit:                        ; preds = %DeflateCompressorCommon.exit.i
-  %41 = getelementptr inbounds i8, ptr %4, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %42 = load ptr, ptr %41, align 8
   tail call void @pg_free(ptr noundef %42) #10
   %43 = load ptr, ptr %4, align 8
@@ -392,25 +392,25 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @InitCompressFileHandleGzip(ptr nocapture noundef writeonly initializes((0, 112)) %0, ptr nocapture noundef readonly byval(%struct.pg_compress_specification) align 8 %1) local_unnamed_addr #2 {
   store ptr @Gzip_open, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @Gzip_open_write, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @Gzip_read, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr @Gzip_write, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr @Gzip_gets, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr @Gzip_getc, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr @Gzip_close, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr @Gzip_eof, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr @Gzip_get_error, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
-  %12 = getelementptr inbounds i8, ptr %0, i64 104
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr null, ptr %12, align 8
   ret void
 }
@@ -418,7 +418,7 @@ define dso_local void @InitCompressFileHandleGzip(ptr nocapture noundef writeonl
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @Gzip_open(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef %3) #0 {
   %5 = alloca [32 x i8], align 16
-  %6 = getelementptr inbounds i8, ptr %3, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %7 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %7, -1
   br i1 %.not, label %10, label %8
@@ -450,7 +450,7 @@ define internal noundef zeroext i1 @Gzip_open(ptr noundef %0, i32 noundef %1, pt
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %3, i64 104
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 104
   store ptr %.0, ptr %22, align 8
   br label %23
 
@@ -473,7 +473,7 @@ define internal zeroext i1 @Gzip_open_write(ptr noundef %0, ptr noundef %1, ptr 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @Gzip_read(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2, ptr nocapture noundef readonly %3) #0 {
   %5 = alloca i32, align 4
-  %6 = getelementptr inbounds i8, ptr %3, i64 104
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %7 = load ptr, ptr %6, align 8
   %8 = trunc i64 %1 to i32
   %9 = tail call i32 @gzread(ptr noundef %7, ptr noundef %0, i32 noundef %8) #10
@@ -518,7 +518,7 @@ define internal noundef zeroext i1 @Gzip_read(ptr noundef %0, i64 noundef %1, pt
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @Gzip_write(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %5 = load ptr, ptr %4, align 8
   %6 = trunc i64 %1 to i32
   %7 = tail call i32 @gzwrite(ptr noundef %5, ptr noundef %0, i32 noundef %6) #10
@@ -528,7 +528,7 @@ define internal zeroext i1 @Gzip_write(ptr noundef %0, i64 noundef %1, ptr nocap
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @Gzip_gets(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @gzgets(ptr noundef %5, ptr noundef %0, i32 noundef %1) #10
   ret ptr %6
@@ -536,7 +536,7 @@ define internal ptr @Gzip_gets(ptr noundef %0, i32 noundef %1, ptr nocapture nou
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, -1) i32 @Gzip_getc(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @__errno_location() #12
   store i32 0, ptr %4, align 4
@@ -547,11 +547,11 @@ define internal range(i32 0, -1) i32 @Gzip_getc(ptr nocapture noundef readonly %
 .thread:                                          ; preds = %1
   %6 = add i32 %5, -1
   store i32 %6, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %8, 1
   store i64 %9, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr i8, ptr %11, i64 1
   store ptr %12, ptr %10, align 8
@@ -588,7 +588,7 @@ define internal range(i32 0, -1) i32 @Gzip_getc(ptr nocapture noundef readonly %
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @Gzip_close(ptr nocapture noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   store ptr null, ptr %2, align 8
   %4 = tail call i32 @gzclose(ptr noundef %3) #10
@@ -598,7 +598,7 @@ define internal zeroext i1 @Gzip_close(ptr nocapture noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @Gzip_eof(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @gzeof(ptr noundef %3) #10
   %5 = icmp eq i32 %4, 1
@@ -608,7 +608,7 @@ define internal zeroext i1 @Gzip_eof(ptr nocapture noundef readonly %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal ptr @Gzip_get_error(ptr nocapture noundef readonly %0) #0 {
   %2 = alloca i32, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
   %5 = call ptr @gzerror(ptr noundef %4, ptr noundef nonnull %2) #10
   %6 = load i32, ptr %2, align 4

@@ -9,25 +9,25 @@ define i64 @lib_fread_unlocked(ptr noundef %0, i64 noundef %1, ptr noundef %2) l
   br i1 %.not, label %123, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %2, i64 192
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 192
   %6 = load i16, ptr %5, align 8
   %7 = and i16 %6, 1
   %8 = icmp eq i16 %7, 0
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %2, i64 194
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 194
   %11 = load i8, ptr %10, align 2
   %12 = or i8 %11, 2
   store i8 %12, ptr %10, align 2
   br label %123
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %2, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %15 = load ptr, ptr %14, align 8
   %16 = ptrtoint ptr %15 to i64
   %17 = trunc i64 %16 to i32
-  %18 = getelementptr inbounds i8, ptr %2, i64 195
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 195
   %19 = load i8, ptr %18, align 1
   %20 = icmp ne i8 %19, 0
   %21 = icmp ne i64 %1, 0
@@ -35,7 +35,7 @@ define i64 @lib_fread_unlocked(ptr noundef %0, i64 noundef %1, ptr noundef %2) l
   br i1 %22, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %13
-  %23 = getelementptr inbounds i8, ptr %2, i64 196
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 196
   br label %24
 
 24:                                               ; preds = %.lr.ph, %24
@@ -45,9 +45,9 @@ define i64 @lib_fread_unlocked(ptr noundef %0, i64 noundef %1, ptr noundef %2) l
   %26 = add i8 %25, -1
   store i8 %26, ptr %18, align 1
   %27 = zext i8 %26 to i64
-  %28 = getelementptr inbounds [2 x i8], ptr %23, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %23, i64 0, i64 %27
   %29 = load i8, ptr %28, align 1
-  %30 = getelementptr inbounds i8, ptr %.095144, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %.095144, i64 1
   store i8 %29, ptr %.095144, align 1
   %31 = add i64 %.0100143, -1
   %32 = load i8, ptr %18, align 1
@@ -59,7 +59,7 @@ define i64 @lib_fread_unlocked(ptr noundef %0, i64 noundef %1, ptr noundef %2) l
 ._crit_edge:                                      ; preds = %24, %13
   %.0100.lcssa = phi i64 [ %1, %13 ], [ %31, %24 ]
   %.095.lcssa = phi ptr [ %0, %13 ], [ %30, %24 ]
-  %36 = getelementptr inbounds i8, ptr %2, i64 96
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %37 = load ptr, ptr %36, align 8
   %.not111 = icmp eq ptr %37, null
   br i1 %.not111, label %.preheader, label %39
@@ -69,7 +69,7 @@ define i64 @lib_fread_unlocked(ptr noundef %0, i64 noundef %1, ptr noundef %2) l
   br i1 %.not112150, label %.thread133, label %.lr.ph153
 
 .lr.ph153:                                        ; preds = %.preheader
-  %38 = getelementptr inbounds i8, ptr %2, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 56
   br label %94
 
 39:                                               ; preds = %._crit_edge
@@ -82,10 +82,10 @@ define i64 @lib_fread_unlocked(ptr noundef %0, i64 noundef %1, ptr noundef %2) l
   br i1 %.not115146, label %.thread133, label %.lr.ph149
 
 .lr.ph149:                                        ; preds = %.preheader136
-  %42 = getelementptr inbounds i8, ptr %2, i64 120
-  %43 = getelementptr inbounds i8, ptr %2, i64 112
-  %44 = getelementptr inbounds i8, ptr %2, i64 104
-  %45 = getelementptr inbounds i8, ptr %2, i64 56
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 120
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 112
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 104
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 56
   br label %47
 
 46:                                               ; preds = %39
@@ -155,7 +155,7 @@ define i64 @lib_fread_unlocked(ptr noundef %0, i64 noundef %1, ptr noundef %2) l
   br i1 %75, label %.thread128, label %76
 
 76:                                               ; preds = %74
-  %77 = getelementptr inbounds i8, ptr %.2127, i64 %.096
+  %77 = getelementptr inbounds nuw i8, ptr %.2127, i64 %.096
   %78 = sub i64 %.3103126, %.096
   br label %93
 
@@ -186,7 +186,7 @@ define i64 @lib_fread_unlocked(ptr noundef %0, i64 noundef %1, ptr noundef %2) l
 
 90:                                               ; preds = %88
   %91 = load ptr, ptr %42, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 %.197
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 %.197
   store ptr %92, ptr %42, align 8
   br label %93
 
@@ -226,7 +226,7 @@ define i64 @lib_fread_unlocked(ptr noundef %0, i64 noundef %1, ptr noundef %2) l
   br i1 %105, label %.thread128, label %106
 
 106:                                              ; preds = %104
-  %107 = getelementptr inbounds i8, ptr %.4152, i64 %.298
+  %107 = getelementptr inbounds nuw i8, ptr %.4152, i64 %.298
   %108 = sub i64 %.5151, %.298
   %.not112 = icmp eq i64 %108, 0
   br i1 %.not112, label %.thread133, label %94, !llvm.loop !9
@@ -236,7 +236,7 @@ define i64 @lib_fread_unlocked(ptr noundef %0, i64 noundef %1, ptr noundef %2) l
   br i1 %110, label %.thread133, label %.thread128
 
 .thread133:                                       ; preds = %50, %93, %106, %.preheader136, %.preheader, %109
-  %111 = getelementptr inbounds i8, ptr %2, i64 194
+  %111 = getelementptr inbounds nuw i8, ptr %2, i64 194
   %112 = load i8, ptr %111, align 2
   %113 = and i8 %112, -2
   store i8 %113, ptr %111, align 2
@@ -244,7 +244,7 @@ define i64 @lib_fread_unlocked(ptr noundef %0, i64 noundef %1, ptr noundef %2) l
 
 .thread128:                                       ; preds = %88, %74, %104, %103, %87, %73, %109
   %.1101131 = phi i64 [ %.0100.lcssa, %109 ], [ %.5151, %103 ], [ %.3103126, %87 ], [ %.3103126, %73 ], [ %.5151, %104 ], [ %.3103126, %74 ], [ %.3103126, %88 ]
-  %114 = getelementptr inbounds i8, ptr %2, i64 194
+  %114 = getelementptr inbounds nuw i8, ptr %2, i64 194
   %115 = load i8, ptr %114, align 2
   %116 = or i8 %115, 1
   store i8 %116, ptr %114, align 2
@@ -256,7 +256,7 @@ define i64 @lib_fread_unlocked(ptr noundef %0, i64 noundef %1, ptr noundef %2) l
   br label %123
 
 119:                                              ; preds = %103, %87, %73, %46
-  %120 = getelementptr inbounds i8, ptr %2, i64 194
+  %120 = getelementptr inbounds nuw i8, ptr %2, i64 194
   %121 = load i8, ptr %120, align 2
   %122 = or i8 %121, 2
   store i8 %122, ptr %120, align 2

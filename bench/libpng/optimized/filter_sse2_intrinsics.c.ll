@@ -5,7 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @png_read_filter_row_sub3_sse2(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = icmp ugt i64 %5, 3
   br i1 %6, label %.lr.ph, label %._crit_edge
@@ -22,7 +22,7 @@ define void @png_read_filter_row_sub3_sse2(ptr nocapture noundef readonly %0, pt
   %12 = extractelement <4 x i32> %11, i64 0
   %.0.extract.trunc.i = trunc i32 %12 to i24
   store i24 %.0.extract.trunc.i, ptr %.02427, align 1
-  %13 = getelementptr inbounds i8, ptr %.02427, i64 3
+  %13 = getelementptr inbounds nuw i8, ptr %.02427, i64 3
   %14 = add i64 %.02328, -3
   %15 = icmp ugt i64 %14, 3
   br i1 %15, label %.lr.ph, label %._crit_edge.thread, !llvm.loop !4
@@ -51,7 +51,7 @@ define void @png_read_filter_row_sub3_sse2(ptr nocapture noundef readonly %0, pt
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @png_read_filter_row_sub4_sse2(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, 4
   %7 = icmp ugt i64 %6, 4
@@ -68,7 +68,7 @@ define void @png_read_filter_row_sub4_sse2(ptr nocapture noundef readonly %0, pt
   %12 = bitcast <16 x i8> %11 to <4 x i32>
   %13 = extractelement <4 x i32> %12, i64 0
   store i32 %13, ptr %.01215, align 1
-  %14 = getelementptr inbounds i8, ptr %.01215, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.01215, i64 4
   %15 = add i64 %.01314, -4
   %16 = icmp ugt i64 %15, 4
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !6
@@ -79,7 +79,7 @@ define void @png_read_filter_row_sub4_sse2(ptr nocapture noundef readonly %0, pt
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @png_read_filter_row_avg3_sse2(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = icmp ugt i64 %5, 3
   br i1 %6, label %.lr.ph, label %._crit_edge
@@ -108,8 +108,8 @@ define void @png_read_filter_row_avg3_sse2(ptr nocapture noundef readonly %0, pt
   %21 = extractelement <4 x i32> %20, i64 0
   %.0.extract.trunc.i = trunc i32 %21 to i24
   store i24 %.0.extract.trunc.i, ptr %.0130, align 1
-  %22 = getelementptr inbounds i8, ptr %.0120129, i64 3
-  %23 = getelementptr inbounds i8, ptr %.0130, i64 3
+  %22 = getelementptr inbounds nuw i8, ptr %.0120129, i64 3
+  %23 = getelementptr inbounds nuw i8, ptr %.0130, i64 3
   %24 = add i64 %.0122127, -3
   %25 = icmp ugt i64 %24, 3
   br i1 %25, label %.lr.ph, label %._crit_edge.thread, !llvm.loop !7
@@ -150,7 +150,7 @@ define void @png_read_filter_row_avg3_sse2(ptr nocapture noundef readonly %0, pt
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @png_read_filter_row_avg4_sse2(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, 4
   %7 = icmp ugt i64 %6, 4
@@ -179,8 +179,8 @@ define void @png_read_filter_row_avg4_sse2(ptr nocapture noundef readonly %0, pt
   %21 = bitcast <16 x i8> %19 to <4 x i32>
   %22 = extractelement <4 x i32> %21, i64 0
   store i32 %22, ptr %.067, align 1
-  %23 = getelementptr inbounds i8, ptr %.06265, i64 4
-  %24 = getelementptr inbounds i8, ptr %.067, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %.06265, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %.067, i64 4
   %25 = add i64 %.06364, -4
   %26 = icmp ugt i64 %25, 4
   br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !8
@@ -191,7 +191,7 @@ define void @png_read_filter_row_avg4_sse2(ptr nocapture noundef readonly %0, pt
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @png_read_filter_row_paeth3_sse2(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = icmp ugt i64 %5, 3
   br i1 %6, label %.lr.ph, label %._crit_edge
@@ -235,8 +235,8 @@ define void @png_read_filter_row_paeth3_sse2(ptr nocapture noundef readonly %0, 
   %35 = extractelement <4 x i32> %34, i64 0
   %.0.extract.trunc.i = trunc i32 %35 to i24
   store i24 %.0.extract.trunc.i, ptr %.0127, align 1
-  %36 = getelementptr inbounds i8, ptr %.0115126, i64 3
-  %37 = getelementptr inbounds i8, ptr %.0127, i64 3
+  %36 = getelementptr inbounds nuw i8, ptr %.0115126, i64 3
+  %37 = getelementptr inbounds nuw i8, ptr %.0127, i64 3
   %38 = add i64 %.0116125, -3
   %39 = icmp ugt i64 %38, 3
   br i1 %39, label %.lr.ph, label %._crit_edge.thread, !llvm.loop !9
@@ -294,7 +294,7 @@ define void @png_read_filter_row_paeth3_sse2(ptr nocapture noundef readonly %0, 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @png_read_filter_row_paeth4_sse2(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, 4
   %7 = icmp ugt i64 %6, 4
@@ -338,8 +338,8 @@ define void @png_read_filter_row_paeth4_sse2(ptr nocapture noundef readonly %0, 
   %35 = bitcast <16 x i8> %34 to <4 x i32>
   %36 = extractelement <4 x i32> %35, i64 0
   store i32 %36, ptr %.05966, align 1
-  %37 = getelementptr inbounds i8, ptr %.06164, i64 4
-  %38 = getelementptr inbounds i8, ptr %.05966, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %.06164, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %.05966, i64 4
   %39 = add i64 %.06263, -4
   %40 = icmp ugt i64 %39, 4
   br i1 %40, label %.lr.ph, label %._crit_edge, !llvm.loop !10

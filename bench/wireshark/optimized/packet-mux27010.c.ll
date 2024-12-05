@@ -352,7 +352,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_mux27010(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.159) #2
   %8 = load ptr, ptr %6, align 8
@@ -892,7 +892,7 @@ getControlChannelValues.exit:                     ; preds = %264, %276, %.thread
   br i1 %switch, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %349 = getelementptr inbounds i8, ptr %1, i64 272
+  %349 = getelementptr inbounds nuw i8, ptr %1, i64 272
   br label %350
 
 350:                                              ; preds = %.lr.ph, %383
@@ -957,7 +957,7 @@ getControlChannelValues.exit:                     ; preds = %264, %276, %.thread
 
 .loopexit:                                        ; preds = %383, %.preheader, %342
   %385 = load i32, ptr %5, align 4
-  %386 = getelementptr inbounds i8, ptr %1, i64 408
+  %386 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %387 = load ptr, ptr %386, align 8
   %388 = call ptr @tvb_get_string_enc(ptr noundef %387, ptr noundef %0, i32 noundef %.1, i32 noundef %385, i32 noundef 0) #2
   %389 = call ptr @g_strdelimit(ptr noundef %388, ptr noundef nonnull @.str.201, i8 noundef signext 32) #2

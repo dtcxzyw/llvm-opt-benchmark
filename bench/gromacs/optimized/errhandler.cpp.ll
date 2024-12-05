@@ -54,7 +54,7 @@ define void @_Z24tmpi_errors_are_fatal_fnPP10tmpi_comm_Pi(ptr noundef readnone %
 5:                                                ; preds = %2
   %spec.store.select.i = tail call i32 @llvm.umin.i32(i32 %4, i32 27)
   %6 = zext nneg i32 %spec.store.select.i to i64
-  %7 = getelementptr inbounds [28 x ptr], ptr @_ZL11tmpi_errmsg, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [28 x ptr], ptr @_ZL11tmpi_errmsg, i64 0, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %8, i64 noundef 256) #17
   br label %_Z17tMPI_Error_stringiPcPm.exit
@@ -85,7 +85,7 @@ define void @_Z21tmpi_errors_return_fnPP10tmpi_comm_Pi(ptr noundef readnone %0, 
 5:                                                ; preds = %2
   %spec.store.select.i = tail call i32 @llvm.umin.i32(i32 %4, i32 27)
   %6 = zext nneg i32 %spec.store.select.i to i64
-  %7 = getelementptr inbounds [28 x ptr], ptr @_ZL11tmpi_errmsg, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [28 x ptr], ptr @_ZL11tmpi_errmsg, i64 0, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %8, i64 noundef 256) #17
   br label %_Z17tMPI_Error_stringiPcPm.exit
@@ -115,11 +115,11 @@ define noundef i32 @_Z10tMPI_ErrorP10tmpi_comm_i(ptr noundef %0, i32 noundef %1)
   br i1 %.not, label %12, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 448
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %7 = load ptr, ptr %6, align 8
   store i32 %1, ptr %7, align 8
   %8 = load ptr, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void %10(ptr noundef nonnull %3, ptr noundef nonnull %4)
   %11 = load i32, ptr %4, align 4
@@ -138,7 +138,7 @@ define noundef i32 @_Z17tMPI_Error_stringiPcPm(i32 noundef %0, ptr noundef %1, p
 4:                                                ; preds = %3
   %spec.store.select = tail call i32 @llvm.umin.i32(i32 %0, i32 27)
   %5 = zext nneg i32 %spec.store.select to i64
-  %6 = getelementptr inbounds [28 x ptr], ptr @_ZL11tmpi_errmsg, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw [28 x ptr], ptr @_ZL11tmpi_errmsg, i64 0, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %7, i64 noundef 256) #17
   br label %14
@@ -187,7 +187,7 @@ define noundef i32 @_Z22tMPI_Create_errhandlerPPFvPP10tmpi_comm_PiEPP16tmpi_errh
 7:                                                ; preds = %2
   store i32 0, ptr %3, align 8
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %8, ptr %9, align 8
   ret i32 0
 }
@@ -213,14 +213,14 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef i32 @_Z24tMPI_Comm_set_errhandlerP10tmpi_comm_P16tmpi_errhandler_(ptr nocapture noundef writeonly initializes((448, 456)) %0, ptr noundef %1) local_unnamed_addr #14 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 448
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 448
   store ptr %1, ptr %3, align 8
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef i32 @_Z24tMPI_Comm_get_errhandlerP10tmpi_comm_PP16tmpi_errhandler_(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #15 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 448
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %1, align 8
   ret i32 0

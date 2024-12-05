@@ -147,18 +147,18 @@ define void @lv_gradient_color_calculate(ptr nocapture noundef readonly %0, i32 
 40:                                               ; preds = %.split.loop.exit
   %41 = add nsw i32 %39, -1
   %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr inbounds [2 x %struct.lv_gradient_stop_t], ptr %0, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw [2 x %struct.lv_gradient_stop_t], ptr %0, i64 0, i64 %42
   %.sroa.010.0.copyload = load i8, ptr %43, align 1, !tbaa !20
-  %.sroa.411.0..sroa_idx = getelementptr inbounds i8, ptr %43, i64 1
+  %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 1
   %.sroa.411.0.copyload = load i8, ptr %.sroa.411.0..sroa_idx, align 1, !tbaa !20
-  %.sroa.512.0..sroa_idx = getelementptr inbounds i8, ptr %43, i64 2
+  %.sroa.512.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 2
   %.sroa.512.0.copyload = load i8, ptr %.sroa.512.0..sroa_idx, align 1, !tbaa !20
   %44 = and i64 %indvars.iv, 255
-  %45 = getelementptr inbounds [2 x %struct.lv_gradient_stop_t], ptr %0, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw [2 x %struct.lv_gradient_stop_t], ptr %0, i64 0, i64 %44
   %.sroa.09.0.copyload = load i8, ptr %45, align 1, !tbaa !20
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %45, i64 1
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 1
   %.sroa.4.0.copyload = load i8, ptr %.sroa.4.0..sroa_idx, align 1, !tbaa !20
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %45, i64 2
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 2
   %.sroa.5.0.copyload = load i8, ptr %.sroa.5.0..sroa_idx, align 1, !tbaa !20
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %47 = load i8, ptr %46, align 1, !tbaa !13
@@ -262,8 +262,8 @@ define void @lv_gradient_init_stops(ptr nocapture noundef writeonly %0, ptr noca
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split.us
   %indvars.iv41 = phi i64 [ %indvars.iv.next42, %.lr.ph.split.us.split.us ], [ 0, %.lr.ph.split.us ]
-  %12 = getelementptr inbounds [2 x %struct.lv_gradient_stop_t], ptr %0, i64 0, i64 %indvars.iv41
-  %13 = getelementptr inbounds %struct.lv_color_t, ptr %1, i64 %indvars.iv41
+  %12 = getelementptr inbounds nuw [2 x %struct.lv_gradient_stop_t], ptr %0, i64 0, i64 %indvars.iv41
+  %13 = getelementptr inbounds nuw %struct.lv_color_t, ptr %1, i64 %indvars.iv41
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %12, ptr noundef nonnull align 1 dereferenceable(3) %13, i64 3, i1 false), !tbaa.struct !21
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 3
   store i8 -1, ptr %14, align 1, !tbaa !16
@@ -279,10 +279,10 @@ define void @lv_gradient_init_stops(ptr nocapture noundef writeonly %0, ptr noca
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split
   %indvars.iv36 = phi i64 [ %indvars.iv.next37, %.lr.ph.split.us.split ], [ 0, %.lr.ph.split.us ]
-  %20 = getelementptr inbounds [2 x %struct.lv_gradient_stop_t], ptr %0, i64 0, i64 %indvars.iv36
-  %21 = getelementptr inbounds %struct.lv_color_t, ptr %1, i64 %indvars.iv36
+  %20 = getelementptr inbounds nuw [2 x %struct.lv_gradient_stop_t], ptr %0, i64 0, i64 %indvars.iv36
+  %21 = getelementptr inbounds nuw %struct.lv_color_t, ptr %1, i64 %indvars.iv36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %20, ptr noundef nonnull align 1 dereferenceable(3) %21, i64 3, i1 false), !tbaa.struct !21
-  %22 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv36
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv36
   %23 = load i8, ptr %22, align 1, !tbaa !20
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 3
   store i8 %23, ptr %24, align 1, !tbaa !16
@@ -301,12 +301,12 @@ define void @lv_gradient_init_stops(ptr nocapture noundef writeonly %0, ptr noca
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.lr.ph.split.split.us
   %indvars.iv31 = phi i64 [ %indvars.iv.next32, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split ]
-  %30 = getelementptr inbounds [2 x %struct.lv_gradient_stop_t], ptr %0, i64 0, i64 %indvars.iv31
-  %31 = getelementptr inbounds %struct.lv_color_t, ptr %1, i64 %indvars.iv31
+  %30 = getelementptr inbounds nuw [2 x %struct.lv_gradient_stop_t], ptr %0, i64 0, i64 %indvars.iv31
+  %31 = getelementptr inbounds nuw %struct.lv_color_t, ptr %1, i64 %indvars.iv31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %30, ptr noundef nonnull align 1 dereferenceable(3) %31, i64 3, i1 false), !tbaa.struct !21
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 3
   store i8 -1, ptr %32, align 1, !tbaa !16
-  %33 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv31
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv31
   %34 = load i8, ptr %33, align 1, !tbaa !20
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 4
   store i8 %34, ptr %35, align 1, !tbaa !13
@@ -319,14 +319,14 @@ define void @lv_gradient_init_stops(ptr nocapture noundef writeonly %0, ptr noca
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %.lr.ph.split.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split.split ], [ 0, %.lr.ph.split ]
-  %36 = getelementptr inbounds [2 x %struct.lv_gradient_stop_t], ptr %0, i64 0, i64 %indvars.iv
-  %37 = getelementptr inbounds %struct.lv_color_t, ptr %1, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [2 x %struct.lv_gradient_stop_t], ptr %0, i64 0, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw %struct.lv_color_t, ptr %1, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %36, ptr noundef nonnull align 1 dereferenceable(3) %37, i64 3, i1 false), !tbaa.struct !21
-  %38 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %39 = load i8, ptr %38, align 1, !tbaa !20
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 3
   store i8 %39, ptr %40, align 1, !tbaa !16
-  %41 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   %42 = load i8, ptr %41, align 1, !tbaa !20
   %43 = getelementptr inbounds nuw i8, ptr %36, i64 4
   store i8 %42, ptr %43, align 1, !tbaa !13

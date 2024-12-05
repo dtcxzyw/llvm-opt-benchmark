@@ -76,7 +76,7 @@ define hidden void @extcap_printf_complex(ptr noundef readonly %0) local_unnamed
   br i1 %.not.i, label %extcap_get_complex_as_string.exit, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #9
   br label %extcap_get_complex_as_string.exit
@@ -94,7 +94,7 @@ define hidden noalias ptr @extcap_get_complex_as_string(ptr noundef readonly %0)
   br i1 %.not, label %6, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #9
   br label %6
@@ -115,7 +115,7 @@ declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #2
 define hidden noalias noundef ptr @extcap_parse_complex(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #10
   %4 = tail call noalias ptr @g_strdup(ptr noundef %1) #9
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %4, ptr %5, align 8
   store i32 %0, ptr %3, align 8
   ret ptr %3
@@ -130,7 +130,7 @@ define hidden range(i32 0, 2) i32 @extcap_compare_is_default(ptr noundef readonl
   br i1 %3, label %16, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   %8 = icmp eq ptr %1, null
@@ -138,9 +138,9 @@ define hidden range(i32 0, 2) i32 @extcap_compare_is_default(ptr noundef readonl
   br i1 %or.cond, label %16, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 @g_strcmp0(ptr noundef %11, ptr noundef %13) #9
   %15 = icmp eq i32 %14, 0
@@ -160,7 +160,7 @@ define hidden void @extcap_free_complex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %5, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @g_free(ptr noundef %4) #9
   br label %5
@@ -176,7 +176,7 @@ define hidden i32 @extcap_complex_get_int(ptr noundef readonly %0) local_unnamed
   br i1 %2, label %12, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
@@ -204,7 +204,7 @@ define hidden i32 @extcap_complex_get_uint(ptr noundef readonly %0) local_unname
   br i1 %2, label %12, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
@@ -232,7 +232,7 @@ define hidden i64 @extcap_complex_get_long(ptr noundef readonly %0) local_unname
   br i1 %2, label %11, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %11, label %7
@@ -257,7 +257,7 @@ define hidden double @extcap_complex_get_double(ptr noundef readonly %0) local_u
   br i1 %2, label %11, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %11, label %7
@@ -284,7 +284,7 @@ define hidden i32 @extcap_complex_get_bool(ptr noundef readonly %0) local_unname
   br i1 %2, label %matches_regex.exit, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %matches_regex.exit, label %7
@@ -330,7 +330,7 @@ define hidden ptr @extcap_complex_get_string(ptr noundef readonly %0) local_unna
   br i1 %.not, label %5, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   br label %5
 
@@ -345,70 +345,70 @@ define hidden void @extcap_free_arg(ptr noundef %0) #0 {
   br i1 %2, label %38, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @g_free(ptr noundef %5) #9
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   tail call void @g_free(ptr noundef %7) #9
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   tail call void @g_free(ptr noundef %9) #9
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8
   tail call void @g_free(ptr noundef %11) #9
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8
   tail call void @g_free(ptr noundef %13) #9
-  %14 = getelementptr inbounds i8, ptr %0, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %15 = load ptr, ptr %14, align 8
   tail call void @g_free(ptr noundef %15) #9
-  %16 = getelementptr inbounds i8, ptr %0, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %17 = load ptr, ptr %16, align 8
   tail call void @g_free(ptr noundef %17) #9
-  %18 = getelementptr inbounds i8, ptr %0, i64 120
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %19 = load ptr, ptr %18, align 8
   tail call void @g_free(ptr noundef %19) #9
-  %20 = getelementptr inbounds i8, ptr %0, i64 88
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %21 = load ptr, ptr %20, align 8
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %24, label %extcap_free_complex.exit
 
 extcap_free_complex.exit:                         ; preds = %3
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
   tail call void @g_free(ptr noundef %23) #9
   tail call void @g_free(ptr noundef nonnull %21) #9
   br label %24
 
 24:                                               ; preds = %extcap_free_complex.exit, %3
-  %25 = getelementptr inbounds i8, ptr %0, i64 96
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %26 = load ptr, ptr %25, align 8
   %.not21 = icmp eq ptr %26, null
   br i1 %.not21, label %29, label %extcap_free_complex.exit24
 
 extcap_free_complex.exit24:                       ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
   tail call void @g_free(ptr noundef %28) #9
   tail call void @g_free(ptr noundef nonnull %26) #9
   br label %29
 
 29:                                               ; preds = %extcap_free_complex.exit24, %24
-  %30 = getelementptr inbounds i8, ptr %0, i64 104
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %31 = load ptr, ptr %30, align 8
   %.not22 = icmp eq ptr %31, null
   br i1 %.not22, label %34, label %extcap_free_complex.exit26
 
 extcap_free_complex.exit26:                       ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %31, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8
   tail call void @g_free(ptr noundef %33) #9
   tail call void @g_free(ptr noundef nonnull %31) #9
   br label %34
 
 34:                                               ; preds = %extcap_free_complex.exit26, %29
-  %35 = getelementptr inbounds i8, ptr %0, i64 128
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %36 = load ptr, ptr %35, align 8
   tail call void @g_list_foreach(ptr noundef %36, ptr noundef nonnull @extcap_free_valuelist, ptr noundef null) #9
   %37 = load ptr, ptr %35, align 8
@@ -428,13 +428,13 @@ define internal void @extcap_free_valuelist(ptr noundef %0, ptr nocapture readno
   br i1 %3, label %extcap_free_value.exit, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @g_free(ptr noundef %6) #9
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   tail call void @g_free(ptr noundef %8) #9
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
   tail call void @g_free(ptr noundef %10) #9
   tail call void @g_free(ptr noundef nonnull %0) #9
@@ -452,31 +452,31 @@ define hidden void @extcap_free_toolbar_control(ptr noundef %0) local_unnamed_ad
   br i1 %2, label %21, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   tail call void @g_free(ptr noundef %5) #9
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   tail call void @g_free(ptr noundef %7) #9
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
   tail call void @g_free(ptr noundef %9) #9
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load ptr, ptr %10, align 8
   tail call void @g_free(ptr noundef %11) #9
-  %12 = getelementptr inbounds i8, ptr %0, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, 4
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %3
-  %16 = getelementptr inbounds i8, ptr %0, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %17 = load ptr, ptr %16, align 8
   tail call void @g_free(ptr noundef %17) #9
   br label %18
 
 18:                                               ; preds = %15, %3
-  %19 = getelementptr inbounds i8, ptr %0, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %20 = load ptr, ptr %19, align 8
   tail call void @g_list_free_full(ptr noundef %20, ptr noundef nonnull @extcap_free_toolbar_value) #9
   tail call void @g_free(ptr noundef nonnull %0) #9
@@ -494,10 +494,10 @@ define internal void @extcap_free_toolbar_value(ptr noundef %0) #0 {
   br i1 %2, label %8, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @g_free(ptr noundef %5) #9
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   tail call void @g_free(ptr noundef %7) #9
   tail call void @g_free(ptr noundef nonnull %0) #9
@@ -534,11 +534,11 @@ define hidden ptr @extcap_parse_args(ptr noundef %0) local_unnamed_addr #0 {
 
 9:                                                ; preds = %5
   %10 = tail call noalias dereferenceable_or_null(136) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 136) #10
-  %11 = getelementptr inbounds i8, ptr %10, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 80
   store i32 0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %10, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 56
   store i32 1, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr @g_hash_table_lookup(ptr noundef %14, ptr noundef nonnull inttoptr (i64 1 to ptr)) #9
   %16 = icmp eq ptr %15, null
@@ -569,7 +569,7 @@ define hidden ptr @extcap_parse_args(ptr noundef %0) local_unnamed_addr #0 {
 
 26:                                               ; preds = %21
   %27 = tail call noalias ptr @g_strdup(ptr noundef nonnull %23) #9
-  %28 = getelementptr inbounds i8, ptr %10, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %27, ptr %28, align 8
   %char0.i = load i8, ptr %27, align 1
   %29 = icmp eq i8 %char0.i, 0
@@ -591,7 +591,7 @@ define hidden ptr @extcap_parse_args(ptr noundef %0) local_unnamed_addr #0 {
 
 36:                                               ; preds = %31
   %37 = tail call noalias ptr @g_strdup(ptr noundef nonnull %33) #9
-  %38 = getelementptr inbounds i8, ptr %10, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %37, ptr %38, align 8
   %39 = load ptr, ptr %13, align 8
   %40 = tail call ptr @g_hash_table_lookup(ptr noundef %39, ptr noundef nonnull inttoptr (i64 9 to ptr)) #9
@@ -600,7 +600,7 @@ define hidden ptr @extcap_parse_args(ptr noundef %0) local_unnamed_addr #0 {
 
 41:                                               ; preds = %36
   %42 = tail call noalias ptr @g_strdup(ptr noundef nonnull %40) #9
-  %43 = getelementptr inbounds i8, ptr %10, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %42, ptr %43, align 8
   br label %44
 
@@ -612,7 +612,7 @@ define hidden ptr @extcap_parse_args(ptr noundef %0) local_unnamed_addr #0 {
 
 47:                                               ; preds = %44
   %48 = tail call noalias ptr @g_strdup(ptr noundef nonnull %46) #9
-  %49 = getelementptr inbounds i8, ptr %10, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr %48, ptr %49, align 8
   br label %50
 
@@ -633,7 +633,7 @@ define hidden ptr @extcap_parse_args(ptr noundef %0) local_unnamed_addr #0 {
 
 matches_regex.exit25:                             ; preds = %53, %55
   %.0.i24 = phi i32 [ %56, %55 ], [ 0, %53 ]
-  %57 = getelementptr inbounds i8, ptr %10, i64 48
+  %57 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store i32 %.0.i24, ptr %57, align 8
   br label %58
 
@@ -645,7 +645,7 @@ matches_regex.exit25:                             ; preds = %53, %55
 
 61:                                               ; preds = %58
   %62 = tail call noalias ptr @g_strdup(ptr noundef nonnull %60) #9
-  %63 = getelementptr inbounds i8, ptr %10, i64 40
+  %63 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store ptr %62, ptr %63, align 8
   br label %64
 
@@ -657,7 +657,7 @@ matches_regex.exit25:                             ; preds = %53, %55
 
 67:                                               ; preds = %64
   %68 = tail call noalias ptr @g_strdup(ptr noundef nonnull %66) #9
-  %69 = getelementptr inbounds i8, ptr %10, i64 64
+  %69 = getelementptr inbounds nuw i8, ptr %10, i64 64
   store ptr %68, ptr %69, align 8
   br label %70
 
@@ -669,7 +669,7 @@ matches_regex.exit25:                             ; preds = %53, %55
 
 73:                                               ; preds = %70
   %74 = tail call noalias ptr @g_strdup(ptr noundef nonnull %72) #9
-  %75 = getelementptr inbounds i8, ptr %10, i64 72
+  %75 = getelementptr inbounds nuw i8, ptr %10, i64 72
   store ptr %74, ptr %75, align 8
   br label %76
 
@@ -690,7 +690,7 @@ matches_regex.exit25:                             ; preds = %53, %55
 
 matches_regex.exit22:                             ; preds = %79, %81
   %.0.i21 = phi i32 [ %82, %81 ], [ 0, %79 ]
-  %83 = getelementptr inbounds i8, ptr %10, i64 52
+  %83 = getelementptr inbounds nuw i8, ptr %10, i64 52
   store i32 %.0.i21, ptr %83, align 4
   br label %84
 
@@ -818,7 +818,7 @@ matches_regex.exit19:                             ; preds = %136, %138
 
 matches_regex.exit:                               ; preds = %143, %145
   %.0.i16 = phi i32 [ %146, %145 ], [ 0, %143 ]
-  %147 = getelementptr inbounds i8, ptr %10, i64 60
+  %147 = getelementptr inbounds nuw i8, ptr %10, i64 60
   store i32 %.0.i16, ptr %147, align 4
   br label %148
 
@@ -842,19 +842,19 @@ matches_regex.exit:                               ; preds = %143, %145
   %157 = load i32, ptr %11, align 8
   %158 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #10
   %159 = tail call noalias ptr @g_strdup(ptr noundef nonnull %150) #9
-  %160 = getelementptr inbounds i8, ptr %158, i64 8
+  %160 = getelementptr inbounds nuw i8, ptr %158, i64 8
   store ptr %159, ptr %160, align 8
   store i32 %157, ptr %158, align 8
-  %161 = getelementptr inbounds i8, ptr %10, i64 88
+  %161 = getelementptr inbounds nuw i8, ptr %10, i64 88
   store ptr %158, ptr %161, align 8
   %162 = load i32, ptr %11, align 8
   %163 = getelementptr i8, ptr %152, i64 1
   %164 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #10
   %165 = tail call noalias ptr @g_strdup(ptr noundef %163) #9
-  %166 = getelementptr inbounds i8, ptr %164, i64 8
+  %166 = getelementptr inbounds nuw i8, ptr %164, i64 8
   store ptr %165, ptr %166, align 8
   store i32 %162, ptr %164, align 8
-  %167 = getelementptr inbounds i8, ptr %10, i64 96
+  %167 = getelementptr inbounds nuw i8, ptr %10, i64 96
   store ptr %164, ptr %167, align 8
   br label %168
 
@@ -874,10 +874,10 @@ matches_regex.exit:                               ; preds = %143, %145
 173:                                              ; preds = %171
   %174 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #10
   %175 = tail call noalias ptr @g_strdup(ptr noundef nonnull %170) #9
-  %176 = getelementptr inbounds i8, ptr %174, i64 8
+  %176 = getelementptr inbounds nuw i8, ptr %174, i64 8
   store ptr %175, ptr %176, align 8
   store i32 %172, ptr %174, align 8
-  %177 = getelementptr inbounds i8, ptr %10, i64 104
+  %177 = getelementptr inbounds nuw i8, ptr %10, i64 104
   store ptr %174, ptr %177, align 8
   br label %extcap_parse_arg_sentence.exit
 
@@ -904,11 +904,11 @@ matches_regex.exit:                               ; preds = %143, %145
 
 191:                                              ; preds = %185
   %192 = load ptr, ptr %186, align 8
-  %193 = getelementptr inbounds i8, ptr %192, i64 128
+  %193 = getelementptr inbounds nuw i8, ptr %192, i64 128
   %194 = load ptr, ptr %193, align 8
   %195 = tail call ptr @g_list_append(ptr noundef %194, ptr noundef nonnull %183) #9
   %196 = load ptr, ptr %186, align 8
-  %197 = getelementptr inbounds i8, ptr %196, i64 128
+  %197 = getelementptr inbounds nuw i8, ptr %196, i64 128
   store ptr %195, ptr %197, align 8
   br label %extcap_parse_arg_sentence.exit.thread
 
@@ -918,7 +918,7 @@ extcap_parse_arg_sentence.exit:                   ; preds = %171, %171, %168, %1
 
 extcap_parse_arg_sentence.exit.thread:            ; preds = %178, %182, %.lr.ph, %191, %188, %131, %154, %88, %35, %30, %25, %20, %17, %extcap_parse_arg_sentence.exit
   %.1 = phi ptr [ %198, %extcap_parse_arg_sentence.exit ], [ %.030, %17 ], [ %.030, %20 ], [ %.030, %25 ], [ %.030, %30 ], [ %.030, %35 ], [ %.030, %88 ], [ %.030, %154 ], [ %.030, %131 ], [ %.030, %188 ], [ %.030, %191 ], [ %.030, %.lr.ph ], [ %.030, %182 ], [ %.030, %178 ]
-  %199 = getelementptr inbounds i8, ptr %.01229, i64 8
+  %199 = getelementptr inbounds nuw i8, ptr %.01229, i64 8
   %200 = load ptr, ptr %199, align 8
   %.not = icmp eq ptr %200, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
@@ -989,7 +989,7 @@ define internal fastcc ptr @extcap_tokenize_sentences(ptr noundef %0) unnamed_ad
 
 20:                                               ; preds = %16
   %21 = call ptr @g_hash_table_new_full(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal, ptr noundef null, ptr noundef nonnull @g_free) #9
-  %22 = getelementptr inbounds i8, ptr %9, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %21, ptr %22, align 8
   %23 = call ptr @g_regex_new(ptr noundef nonnull @.str.8, i32 noundef 1, i32 noundef 0, ptr noundef null) #9
   %.not49.i = icmp eq ptr %23, null
@@ -1195,7 +1195,7 @@ define hidden ptr @extcap_parse_values(ptr noundef %0) local_unnamed_addr #0 {
 
 7:                                                ; preds = %5, %.lr.ph
   %.1 = phi ptr [ %6, %5 ], [ %.016, %.lr.ph ]
-  %8 = getelementptr inbounds i8, ptr %.01115, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.01115, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
@@ -1224,7 +1224,7 @@ define internal fastcc noundef ptr @extcap_parse_value_sentence(ptr noundef read
   br i1 %7, label %8, label %56
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr @g_hash_table_lookup(ptr noundef %10, ptr noundef nonnull inttoptr (i64 5 to ptr)) #9
   %12 = icmp eq ptr %11, null
@@ -1253,13 +1253,13 @@ define internal fastcc noundef ptr @extcap_parse_value_sentence(ptr noundef read
   br i1 %22, label %extcap_free_value.exit, label %29
 
 extcap_free_value.exit:                           ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %18, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %24 = load ptr, ptr %23, align 8
   call void @g_free(ptr noundef %24) #9
-  %25 = getelementptr inbounds i8, ptr %18, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %26 = load ptr, ptr %25, align 8
   call void @g_free(ptr noundef %26) #9
-  %27 = getelementptr inbounds i8, ptr %18, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %28 = load ptr, ptr %27, align 8
   call void @g_free(ptr noundef %28) #9
   call void @g_free(ptr noundef nonnull %18) #9
@@ -1267,7 +1267,7 @@ extcap_free_value.exit:                           ; preds = %17
 
 29:                                               ; preds = %17
   %30 = call noalias ptr @g_strdup(ptr noundef nonnull %21) #9
-  %31 = getelementptr inbounds i8, ptr %18, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %30, ptr %31, align 8
   %32 = load ptr, ptr %9, align 8
   %33 = call ptr @g_hash_table_lookup(ptr noundef %32, ptr noundef nonnull inttoptr (i64 3 to ptr)) #9
@@ -1280,7 +1280,7 @@ extcap_free_value.exit:                           ; preds = %17
 
 36:                                               ; preds = %29
   %37 = call noalias ptr @g_strdup(ptr noundef nonnull %33) #9
-  %38 = getelementptr inbounds i8, ptr %18, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr %37, ptr %38, align 8
   %39 = load ptr, ptr %9, align 8
   %40 = call ptr @g_hash_table_lookup(ptr noundef %39, ptr noundef nonnull inttoptr (i64 16 to ptr)) #9
@@ -1289,7 +1289,7 @@ extcap_free_value.exit:                           ; preds = %17
 
 41:                                               ; preds = %36
   %42 = call noalias ptr @g_strdup(ptr noundef nonnull %40) #9
-  %43 = getelementptr inbounds i8, ptr %18, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %18, i64 32
   store ptr %42, ptr %43, align 8
   br label %44
 
@@ -1301,7 +1301,7 @@ extcap_free_value.exit:                           ; preds = %17
 
 47:                                               ; preds = %44
   %48 = call fastcc i32 @matches_regex(ptr noundef nonnull %46)
-  %49 = getelementptr inbounds i8, ptr %18, i64 28
+  %49 = getelementptr inbounds nuw i8, ptr %18, i64 28
   store i32 %48, ptr %49, align 4
   br label %50
 
@@ -1313,7 +1313,7 @@ extcap_free_value.exit:                           ; preds = %17
 
 53:                                               ; preds = %50
   %54 = call fastcc i32 @matches_regex(ptr noundef nonnull %52)
-  %55 = getelementptr inbounds i8, ptr %18, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store i32 %54, ptr %55, align 8
   br label %56
 
@@ -1367,9 +1367,9 @@ define hidden ptr @extcap_parse_interfaces(ptr noundef %0, ptr noundef %1) local
 .thread.i:                                        ; preds = %19, %15
   %.035.i = phi i32 [ 3, %19 ], [ 4, %15 ]
   %22 = call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #10
-  %23 = getelementptr inbounds i8, ptr %22, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 40
   store i32 %.035.i, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %6, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = call ptr @g_hash_table_lookup(ptr noundef %25, ptr noundef nonnull inttoptr (i64 7 to ptr)) #9
   %27 = icmp eq ptr %26, null
@@ -1399,7 +1399,7 @@ define hidden ptr @extcap_parse_interfaces(ptr noundef %0, ptr noundef %1) local
 
 36:                                               ; preds = %29
   %37 = call noalias ptr @g_strdup(ptr noundef %32) #9
-  %38 = getelementptr inbounds i8, ptr %22, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %37, ptr %38, align 8
   %39 = load ptr, ptr %24, align 8
   %40 = call ptr @g_hash_table_lookup(ptr noundef %39, ptr noundef nonnull inttoptr (i64 21 to ptr)) #9
@@ -1408,7 +1408,7 @@ define hidden ptr @extcap_parse_interfaces(ptr noundef %0, ptr noundef %1) local
 
 41:                                               ; preds = %36
   %42 = call noalias ptr @g_strdup(ptr noundef nonnull %40) #9
-  %43 = getelementptr inbounds i8, ptr %22, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store ptr %42, ptr %43, align 8
   br label %44
 
@@ -1420,7 +1420,7 @@ define hidden ptr @extcap_parse_interfaces(ptr noundef %0, ptr noundef %1) local
 
 47:                                               ; preds = %44
   %48 = call noalias ptr @g_strdup(ptr noundef nonnull %46) #9
-  %49 = getelementptr inbounds i8, ptr %22, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store ptr %48, ptr %49, align 8
   br label %extcap_parse_interface_sentence.exit
 
@@ -1460,9 +1460,9 @@ extcap_parse_interface_sentence.exit:             ; preds = %47, %44
 
 68:                                               ; preds = %60
   %69 = call noalias dereferenceable_or_null(72) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 72) #10
-  %70 = getelementptr inbounds i8, ptr %69, i64 4
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
   store i32 0, ptr %70, align 4
-  %71 = getelementptr inbounds i8, ptr %6, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %72 = load ptr, ptr %71, align 8
   %73 = call ptr @g_hash_table_lookup(ptr noundef %72, ptr noundef nonnull inttoptr (i64 1 to ptr)) #9
   %74 = icmp eq ptr %73, null
@@ -1494,7 +1494,7 @@ extcap_parse_interface_sentence.exit:             ; preds = %47, %44
 
 85:                                               ; preds = %79
   %86 = call noalias ptr @g_strdup(ptr noundef nonnull %82) #9
-  %87 = getelementptr inbounds i8, ptr %69, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %69, i64 16
   store ptr %86, ptr %87, align 8
   %88 = load ptr, ptr %71, align 8
   %89 = call ptr @g_hash_table_lookup(ptr noundef %88, ptr noundef nonnull inttoptr (i64 20 to ptr)) #9
@@ -1503,7 +1503,7 @@ extcap_parse_interface_sentence.exit:             ; preds = %47, %44
 
 90:                                               ; preds = %85
   %91 = call noalias ptr @g_strdup(ptr noundef nonnull %89) #9
-  %92 = getelementptr inbounds i8, ptr %69, i64 24
+  %92 = getelementptr inbounds nuw i8, ptr %69, i64 24
   store ptr %91, ptr %92, align 8
   br label %93
 
@@ -1524,7 +1524,7 @@ extcap_parse_interface_sentence.exit:             ; preds = %47, %44
 
 matches_regex.exit.i:                             ; preds = %98, %96
   %.0.i.i = phi i32 [ %99, %98 ], [ 0, %96 ]
-  %100 = getelementptr inbounds i8, ptr %69, i64 32
+  %100 = getelementptr inbounds nuw i8, ptr %69, i64 32
   store i32 %.0.i.i, ptr %100, align 8
   br label %101
 
@@ -1532,12 +1532,12 @@ matches_regex.exit.i:                             ; preds = %98, %96
   %102 = load ptr, ptr %71, align 8
   %103 = call ptr @g_hash_table_lookup(ptr noundef %102, ptr noundef nonnull inttoptr (i64 9 to ptr)) #9
   %104 = call noalias ptr @g_strdup(ptr noundef %103) #9
-  %105 = getelementptr inbounds i8, ptr %69, i64 40
+  %105 = getelementptr inbounds nuw i8, ptr %69, i64 40
   store ptr %104, ptr %105, align 8
   %106 = load ptr, ptr %71, align 8
   %107 = call ptr @g_hash_table_lookup(ptr noundef %106, ptr noundef nonnull inttoptr (i64 10 to ptr)) #9
   %108 = call noalias ptr @g_strdup(ptr noundef %107) #9
-  %109 = getelementptr inbounds i8, ptr %69, i64 48
+  %109 = getelementptr inbounds nuw i8, ptr %69, i64 48
   store ptr %108, ptr %109, align 8
   %110 = load ptr, ptr %71, align 8
   %111 = call ptr @g_hash_table_lookup(ptr noundef %110, ptr noundef nonnull inttoptr (i64 4 to ptr)) #9
@@ -1610,7 +1610,7 @@ matches_regex.exit.i:                             ; preds = %98, %96
 
 147:                                              ; preds = %145, %142, %139, %136, %133, %128
   %.sink123.i = phi i32 [ 0, %145 ], [ 1, %133 ], [ 2, %136 ], [ 3, %139 ], [ 4, %142 ], [ 1, %128 ]
-  %148 = getelementptr inbounds i8, ptr %69, i64 8
+  %148 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store i32 %.sink123.i, ptr %148, align 8
   %149 = load ptr, ptr %71, align 8
   %150 = call ptr @g_hash_table_lookup(ptr noundef %149, ptr noundef nonnull inttoptr (i64 6 to ptr)) #9
@@ -1621,14 +1621,14 @@ matches_regex.exit.i:                             ; preds = %98, %96
 152:                                              ; preds = %147
   %153 = call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #10
   %154 = call noalias ptr @g_strdup(ptr noundef nonnull %150) #9
-  %155 = getelementptr inbounds i8, ptr %153, i64 8
+  %155 = getelementptr inbounds nuw i8, ptr %153, i64 8
   store ptr %154, ptr %155, align 8
   store i32 %.097.i, ptr %153, align 8
   br i1 %116, label %156, label %159
 
 156:                                              ; preds = %152
   %157 = call i32 @extcap_complex_get_bool(ptr noundef nonnull %153)
-  %158 = getelementptr inbounds i8, ptr %69, i64 56
+  %158 = getelementptr inbounds nuw i8, ptr %69, i64 56
   store i32 %157, ptr %158, align 8
   br label %extcap_free_complex.exit.i
 
@@ -1637,7 +1637,7 @@ matches_regex.exit.i:                             ; preds = %98, %96
 
 160:                                              ; preds = %159
   %161 = call noalias ptr @g_strdup(ptr noundef %154) #9
-  %162 = getelementptr inbounds i8, ptr %69, i64 56
+  %162 = getelementptr inbounds nuw i8, ptr %69, i64 56
   store ptr %161, ptr %162, align 8
   br label %extcap_free_complex.exit.i
 
@@ -1648,7 +1648,7 @@ extcap_free_complex.exit.i:                       ; preds = %160, %159, %156
   br label %212
 
 164:                                              ; preds = %65
-  %165 = getelementptr inbounds i8, ptr %6, i64 8
+  %165 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %166 = load ptr, ptr %165, align 8
   %167 = call ptr @g_hash_table_lookup(ptr noundef %166, ptr noundef nonnull inttoptr (i64 23 to ptr)) #9
   %168 = icmp eq ptr %167, null
@@ -1682,10 +1682,10 @@ extcap_free_complex.exit.i:                       ; preds = %160, %159, %156
   br i1 %183, label %extcap_free_toolbar_value.exit36, label %188
 
 extcap_free_toolbar_value.exit36:                 ; preds = %178
-  %184 = getelementptr inbounds i8, ptr %179, i64 8
+  %184 = getelementptr inbounds nuw i8, ptr %179, i64 8
   %185 = load ptr, ptr %184, align 8
   call void @g_free(ptr noundef %185) #9
-  %186 = getelementptr inbounds i8, ptr %179, i64 16
+  %186 = getelementptr inbounds nuw i8, ptr %179, i64 16
   %187 = load ptr, ptr %186, align 8
   call void @g_free(ptr noundef %187) #9
   call void @g_free(ptr noundef nonnull %179) #9
@@ -1693,7 +1693,7 @@ extcap_free_toolbar_value.exit36:                 ; preds = %178
 
 188:                                              ; preds = %178
   %189 = call noalias ptr @g_strdup(ptr noundef nonnull %182) #9
-  %190 = getelementptr inbounds i8, ptr %179, i64 8
+  %190 = getelementptr inbounds nuw i8, ptr %179, i64 8
   store ptr %189, ptr %190, align 8
   %191 = load ptr, ptr %165, align 8
   %192 = call ptr @g_hash_table_lookup(ptr noundef %191, ptr noundef nonnull inttoptr (i64 3 to ptr)) #9
@@ -1703,7 +1703,7 @@ extcap_free_toolbar_value.exit36:                 ; preds = %178
 extcap_free_toolbar_value.exit:                   ; preds = %188
   %194 = load ptr, ptr %190, align 8
   call void @g_free(ptr noundef %194) #9
-  %195 = getelementptr inbounds i8, ptr %179, i64 16
+  %195 = getelementptr inbounds nuw i8, ptr %179, i64 16
   %196 = load ptr, ptr %195, align 8
   call void @g_free(ptr noundef %196) #9
   call void @g_free(ptr noundef nonnull %179) #9
@@ -1711,7 +1711,7 @@ extcap_free_toolbar_value.exit:                   ; preds = %188
 
 197:                                              ; preds = %188
   %198 = call noalias ptr @g_strdup(ptr noundef nonnull %192) #9
-  %199 = getelementptr inbounds i8, ptr %179, i64 16
+  %199 = getelementptr inbounds nuw i8, ptr %179, i64 16
   store ptr %198, ptr %199, align 8
   %200 = load ptr, ptr %165, align 8
   %201 = call ptr @g_hash_table_lookup(ptr noundef %200, ptr noundef nonnull inttoptr (i64 6 to ptr)) #9
@@ -1729,13 +1729,13 @@ extcap_free_toolbar_value.exit:                   ; preds = %188
 
 matches_regex.exit:                               ; preds = %202, %204
   %.0.i35 = phi i32 [ %205, %204 ], [ 0, %202 ]
-  %206 = getelementptr inbounds i8, ptr %179, i64 24
+  %206 = getelementptr inbounds nuw i8, ptr %179, i64 24
   store i32 %.0.i35, ptr %206, align 8
   br label %207
 
 207:                                              ; preds = %matches_regex.exit, %197
   %208 = load ptr, ptr %173, align 8
-  %209 = getelementptr inbounds i8, ptr %208, i64 64
+  %209 = getelementptr inbounds nuw i8, ptr %208, i64 64
   %210 = load ptr, ptr %209, align 8
   %211 = call ptr @g_list_append(ptr noundef %210, ptr noundef nonnull %179) #9
   store ptr %211, ptr %209, align 8
@@ -1754,7 +1754,7 @@ extcap_parse_control_sentence.exit.thread:        ; preds = %75, %84, %113, %126
 
 extcap_parse_interface_sentence.exit.thread:      ; preds = %19, %34, %28, %extcap_parse_control_sentence.exit.thread, %extcap_parse_interface_sentence.exit, %212, %56, %51, %5
   %.1 = phi ptr [ %50, %extcap_parse_interface_sentence.exit ], [ %.043, %212 ], [ %.043, %56 ], [ %.043, %51 ], [ %.043, %5 ], [ %.043, %extcap_parse_control_sentence.exit.thread ], [ %.043, %28 ], [ %.043, %34 ], [ %.043, %19 ]
-  %215 = getelementptr inbounds i8, ptr %.02242, i64 8
+  %215 = getelementptr inbounds nuw i8, ptr %.02242, i64 8
   %216 = load ptr, ptr %215, align 8
   %.not = icmp eq ptr %216, null
   br i1 %.not, label %._crit_edge, label %5, !llvm.loop !9
@@ -1793,9 +1793,9 @@ define hidden ptr @extcap_parse_dlts(ptr noundef %0) local_unnamed_addr #0 {
 8:                                                ; preds = %5
   %9 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #10
   store i32 -1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
-  %11 = getelementptr inbounds i8, ptr %9, i64 16
-  %12 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr @g_hash_table_lookup(ptr noundef %13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #9
@@ -1851,7 +1851,7 @@ define hidden ptr @extcap_parse_dlts(ptr noundef %0) local_unnamed_addr #0 {
 
 extcap_parse_dlt_sentence.exit.thread:            ; preds = %5, %.lr.ph, %30, %24, %19, %16, %32
   %.1 = phi ptr [ %34, %32 ], [ %.017, %16 ], [ %.017, %19 ], [ %.017, %24 ], [ %.017, %30 ], [ %.017, %.lr.ph ], [ %.017, %5 ]
-  %35 = getelementptr inbounds i8, ptr %.01016, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %.01016, i64 8
   %36 = load ptr, ptr %35, align 8
   %.not = icmp eq ptr %36, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
@@ -1876,13 +1876,13 @@ define internal fastcc void @extcap_free_value(ptr noundef %0) unnamed_addr #0 {
   br i1 %2, label %10, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @g_free(ptr noundef %5) #9
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   tail call void @g_free(ptr noundef %7) #9
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   tail call void @g_free(ptr noundef %9) #9
   tail call void @g_free(ptr noundef nonnull %0) #9
@@ -1948,7 +1948,7 @@ define internal void @extcap_free_tokenized_sentence(ptr noundef %0, ptr nocaptu
 4:                                                ; preds = %2
   %5 = load ptr, ptr %0, align 8
   tail call void @g_free(ptr noundef %5) #9
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @g_hash_table_destroy(ptr noundef %7) #9
   tail call void @g_free(ptr noundef nonnull %0) #9

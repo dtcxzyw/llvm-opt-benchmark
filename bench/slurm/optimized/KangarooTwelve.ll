@@ -8,15 +8,15 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define i32 @KangarooTwelve_Initialize(ptr noundef initializes((432, 456)) %0, i64 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 432
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 432
   store i64 %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 448
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 448
   store i32 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 440
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 440
   store i64 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 452
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 452
   store i32 1, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 216
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %8 = tail call i32 @KeccakWidth1600_12rounds_SpongeInitialize(ptr noundef nonnull %7, i32 noundef 1344, i32 noundef 256) #3
   ret i32 %8
 }
@@ -28,16 +28,16 @@ define range(i32 0, 2) i32 @KangarooTwelve_Update(ptr noundef %0, ptr noundef %1
   %4 = alloca i8, align 1
   %5 = alloca [32 x i8], align 16
   %6 = alloca [32 x i8], align 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 452
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 452
   %8 = load i32, ptr %7, align 4
   %.not = icmp eq i32 %8, 1
   br i1 %.not, label %9, label %.loopexit
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 440
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %11 = load i64, ptr %10, align 8
   %12 = icmp eq i64 %11, 0
-  %13 = getelementptr inbounds i8, ptr %0, i64 448
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %14 = load i32, ptr %13, align 8
   br i1 %12, label %15, label %37
 
@@ -47,14 +47,14 @@ define range(i32 0, 2) i32 @KangarooTwelve_Update(ptr noundef %0, ptr noundef %1
   %18 = icmp ult i64 %2, %17
   %19 = trunc nuw i64 %2 to i32
   %20 = select i1 %18, i32 %19, i32 %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 216
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %22 = zext i32 %20 to i64
   %23 = tail call i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr noundef nonnull %21, ptr noundef %1, i64 noundef %22) #3
   %.not74 = icmp eq i32 %23, 0
   br i1 %.not74, label %24, label %.loopexit
 
 24:                                               ; preds = %15
-  %25 = getelementptr inbounds i8, ptr %1, i64 %22
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 %22
   %26 = sub i64 %2, %22
   %27 = load i32, ptr %13, align 8
   %28 = add i32 %27, %20
@@ -73,7 +73,7 @@ define range(i32 0, 2) i32 @KangarooTwelve_Update(ptr noundef %0, ptr noundef %1
   br i1 %.not75, label %.thread, label %.loopexit
 
 .thread:                                          ; preds = %31
-  %33 = getelementptr inbounds i8, ptr %0, i64 420
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 420
   %34 = load i32, ptr %33, align 4
   %35 = add i32 %34, 7
   %36 = and i32 %35, -8
@@ -96,7 +96,7 @@ define range(i32 0, 2) i32 @KangarooTwelve_Update(ptr noundef %0, ptr noundef %1
   br i1 %.not70, label %46, label %.loopexit
 
 46:                                               ; preds = %38
-  %47 = getelementptr inbounds i8, ptr %1, i64 %44
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 %44
   %48 = sub i64 %2, %44
   %49 = load i32, ptr %13, align 8
   %50 = add i32 %49, %43
@@ -119,7 +119,7 @@ define range(i32 0, 2) i32 @KangarooTwelve_Update(ptr noundef %0, ptr noundef %1
   br i1 %.not72, label %58, label %.loopexit
 
 58:                                               ; preds = %56
-  %59 = getelementptr inbounds i8, ptr %0, i64 216
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %60 = call i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr noundef nonnull %59, ptr noundef nonnull %5, i64 noundef 32) #3
   %.not73 = icmp eq i32 %60, 0
   br i1 %.not73, label %61, label %.loopexit
@@ -133,8 +133,8 @@ define range(i32 0, 2) i32 @KangarooTwelve_Update(ptr noundef %0, ptr noundef %1
 .lr.ph:                                           ; preds = %.thread, %61
   %.06199 = phi ptr [ %25, %.thread ], [ %.061, %61 ]
   %.06298 = phi i64 [ %26, %.thread ], [ %.062, %61 ]
-  %62 = getelementptr inbounds i8, ptr %0, i64 216
-  %63 = getelementptr inbounds i8, ptr %0, i64 448
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %64
 
 64:                                               ; preds = %.lr.ph, %83
@@ -152,7 +152,7 @@ define range(i32 0, 2) i32 @KangarooTwelve_Update(ptr noundef %0, ptr noundef %1
   br i1 %.not78, label %70, label %.loopexit
 
 70:                                               ; preds = %68
-  %71 = getelementptr inbounds i8, ptr %.184, i64 %65
+  %71 = getelementptr inbounds nuw i8, ptr %.184, i64 %65
   %72 = sub i64 %.16383, %65
   %73 = icmp ugt i64 %.16383, 8191
   br i1 %73, label %74, label %82
@@ -198,7 +198,7 @@ declare i32 @KeccakWidth1600_12rounds_SpongeSqueeze(ptr noundef, ptr noundef, i6
 define i32 @KangarooTwelve_Final(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [11 x i8], align 1
   %6 = alloca [32 x i8], align 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 452
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 452
   %8 = load i32, ptr %7, align 4
   %.not = icmp eq i32 %8, 1
   br i1 %.not, label %9, label %78
@@ -249,7 +249,7 @@ define i32 @KangarooTwelve_Final(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 right_encode.exit:                                ; preds = %.lr.ph22.i
   %.pre-phi.i = zext nneg i32 %13 to i64
   %24 = trunc i32 %13 to i8
-  %25 = getelementptr inbounds i8, ptr %5, i64 %.pre-phi.i
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 %.pre-phi.i
   store i8 %24, ptr %25, align 1
   br label %26
 
@@ -260,13 +260,13 @@ right_encode.exit:                                ; preds = %.lr.ph22.i
   br i1 %.not33, label %28, label %78
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %0, i64 440
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %30 = load i64, ptr %29, align 8
   %31 = icmp eq i64 %30, 0
   br i1 %31, label %69, label %32
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %0, i64 448
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %34 = load i32, ptr %33, align 8
   %.not34 = icmp eq i32 %34, 0
   br i1 %.not34, label %43, label %35
@@ -284,7 +284,7 @@ right_encode.exit:                                ; preds = %.lr.ph22.i
   br i1 %.not36, label %40, label %78
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds i8, ptr %0, i64 216
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %42 = call i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr noundef nonnull %41, ptr noundef nonnull %6, i64 noundef 32) #3
   %.not37 = icmp eq i32 %42, 0
   br i1 %.not37, label %._crit_edge, label %78
@@ -335,17 +335,17 @@ right_encode.exit56:                              ; preds = %.lr.ph22.i48, %43
   %.pre-phi26.i54 = phi i32 [ 1, %43 ], [ %46, %.lr.ph22.i48 ]
   %.pre-phi.i55 = zext i32 %.017.lcssa29.i53 to i64
   %58 = trunc i32 %.017.lcssa29.i53 to i8
-  %59 = getelementptr inbounds i8, ptr %5, i64 %.pre-phi.i55
+  %59 = getelementptr inbounds nuw i8, ptr %5, i64 %.pre-phi.i55
   store i8 %58, ptr %59, align 1
   %60 = add i32 %.pre-phi26.i54, 1
   %61 = zext i32 %.pre-phi26.i54 to i64
-  %62 = getelementptr inbounds [11 x i8], ptr %5, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw [11 x i8], ptr %5, i64 0, i64 %61
   store i8 -1, ptr %62, align 1
   %63 = add i32 %.pre-phi26.i54, 2
   %64 = zext i32 %60 to i64
-  %65 = getelementptr inbounds [11 x i8], ptr %5, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw [11 x i8], ptr %5, i64 0, i64 %64
   store i8 -1, ptr %65, align 1
-  %66 = getelementptr inbounds i8, ptr %0, i64 216
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %67 = zext i32 %63 to i64
   %68 = call i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr noundef nonnull %66, ptr noundef nonnull %5, i64 noundef %67) #3
   %.not38 = icmp eq i32 %68, 0
@@ -353,13 +353,13 @@ right_encode.exit56:                              ; preds = %.lr.ph22.i48, %43
 
 69:                                               ; preds = %right_encode.exit56, %28
   %.027 = phi i8 [ 7, %28 ], [ 6, %right_encode.exit56 ]
-  %70 = getelementptr inbounds i8, ptr %0, i64 216
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %71 = call i32 @KeccakWidth1600_12rounds_SpongeAbsorbLastFewBits(ptr noundef nonnull %70, i8 noundef zeroext %.027) #3
   %.not39 = icmp eq i32 %71, 0
   br i1 %.not39, label %72, label %78
 
 72:                                               ; preds = %69
-  %73 = getelementptr inbounds i8, ptr %0, i64 432
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %74 = load i64, ptr %73, align 8
   %.not40 = icmp eq i64 %74, 0
   br i1 %.not40, label %77, label %75
@@ -380,13 +380,13 @@ right_encode.exit56:                              ; preds = %.lr.ph22.i48, %43
 
 ; Function Attrs: nounwind uwtable
 define i32 @KangarooTwelve_Squeeze(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 452
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 452
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, 3
   br i1 %.not, label %6, label %9
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 216
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %8 = tail call i32 @KeccakWidth1600_12rounds_SpongeSqueeze(ptr noundef nonnull %7, ptr noundef %1, i64 noundef %2) #3
   br label %9
 
@@ -402,15 +402,15 @@ define i32 @KangarooTwelve(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 n
   br i1 %8, label %20, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %7, i64 432
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 432
   store i64 %3, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 448
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 448
   store i32 0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 440
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 440
   store i64 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 452
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 452
   store i32 1, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %7, i64 216
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 216
   %15 = call i32 @KeccakWidth1600_12rounds_SpongeInitialize(ptr noundef nonnull %14, i32 noundef 1344, i32 noundef 256) #3
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %16, label %20

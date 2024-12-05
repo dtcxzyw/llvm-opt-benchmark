@@ -18,11 +18,11 @@ define hidden noundef ptr @pj_robin(ptr noundef writeonly %0) local_unnamed_addr
   br i1 %.not, label %6, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 216
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store double 0.000000e+00, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @_ZL15robin_s_inverse5PJ_XYP8PJconsts, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr @_ZL15robin_s_forward5PJ_LPP8PJconsts, ptr %5, align 8
   br label %15
 
@@ -32,15 +32,15 @@ define hidden noundef ptr @pj_robin(ptr noundef writeonly %0) local_unnamed_addr
   br i1 %8, label %15, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %7, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @.str, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr @_ZL9des_robin, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 360
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 360
   store i32 1, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 380
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 380
   store i32 4, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %7, i64 384
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 384
   store i32 1, ptr %14, align 8
   br label %15
 
@@ -51,11 +51,11 @@ define hidden noundef ptr @pj_robin(ptr noundef writeonly %0) local_unnamed_addr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden noundef ptr @_Z34pj_projection_specific_setup_robinP8PJconsts(ptr noundef returned writeonly initializes((104, 120), (216, 224)) %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 216
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store double 0.000000e+00, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @_ZL15robin_s_inverse5PJ_XYP8PJconsts, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr @_ZL15robin_s_forward5PJ_LPP8PJconsts, ptr %4, align 8
   ret ptr %0
 }
@@ -125,11 +125,11 @@ define internal { double, double } @_ZL15robin_s_inverse5PJ_XYP8PJconsts(double 
   br label %.preheader, !llvm.loop !4
 
 36:                                               ; preds = %30
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %24, i64 4
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 4
   %.sroa.4.0.copyload = load float, ptr %.sroa.4.0..sroa_idx, align 4
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %24, i64 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 8
   %.sroa.6.0.copyload = load float, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %24, i64 12
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 12
   %.sroa.8.0.copyload = load float, ptr %.sroa.8.0..sroa_idx, align 4
   %37 = fsub double %7, %26
   %38 = fmul double %37, 5.000000e+00
@@ -180,13 +180,13 @@ define internal { double, double } @_ZL15robin_s_inverse5PJ_XYP8PJconsts(double 
   %69 = getelementptr inbounds [19 x %"struct.(anonymous namespace)::COEFS"], ptr @_ZL1X, i64 0, i64 %.0
   %70 = load float, ptr %69, align 16
   %71 = fpext float %70 to double
-  %72 = getelementptr inbounds i8, ptr %69, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %69, i64 4
   %73 = load float, ptr %72, align 4
   %74 = fpext float %73 to double
-  %75 = getelementptr inbounds i8, ptr %69, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %76 = load float, ptr %75, align 8
   %77 = fpext float %76 to double
-  %78 = getelementptr inbounds i8, ptr %69, i64 12
+  %78 = getelementptr inbounds nuw i8, ptr %69, i64 12
   %79 = load float, ptr %78, align 4
   %80 = fpext float %79 to double
   %81 = tail call double @llvm.fmuladd.f64(double %58, double %80, double %77)
@@ -201,7 +201,7 @@ define internal { double, double } @_ZL15robin_s_inverse5PJ_XYP8PJconsts(double 
   %88 = tail call i32 @proj_errno_set(ptr noundef %2, i32 noundef 2050)
   call void @_Z16proj_coord_errorv(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %4)
   %.sroa.041.0.copyload = load double, ptr %4, align 8
-  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.9.0.copyload = load double, ptr %.sroa.9.0..sroa_idx, align 8
   br label %89
 
@@ -235,16 +235,16 @@ define internal { double, double } @_ZL15robin_s_forward5PJ_LPP8PJconsts(double 
   %14 = uitofp nneg i64 %13 to double
   %15 = tail call double @llvm.fmuladd.f64(double %14, double 0xBFB657184AE74487, double %4)
   %16 = fmul double %15, 0x404CA5DC1A63C1F8
-  %17 = getelementptr inbounds [19 x %"struct.(anonymous namespace)::COEFS"], ptr @_ZL1X, i64 0, i64 %13
+  %17 = getelementptr inbounds nuw [19 x %"struct.(anonymous namespace)::COEFS"], ptr @_ZL1X, i64 0, i64 %13
   %18 = load float, ptr %17, align 16
   %19 = fpext float %18 to double
-  %20 = getelementptr inbounds i8, ptr %17, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %21 = load float, ptr %20, align 4
   %22 = fpext float %21 to double
-  %23 = getelementptr inbounds i8, ptr %17, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %24 = load float, ptr %23, align 8
   %25 = fpext float %24 to double
-  %26 = getelementptr inbounds i8, ptr %17, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %17, i64 12
   %27 = load float, ptr %26, align 4
   %28 = fpext float %27 to double
   %29 = tail call double @llvm.fmuladd.f64(double %16, double %28, double %25)
@@ -252,16 +252,16 @@ define internal { double, double } @_ZL15robin_s_forward5PJ_LPP8PJconsts(double 
   %31 = tail call double @llvm.fmuladd.f64(double %16, double %30, double %19)
   %32 = fmul double %31, 8.487000e-01
   %33 = fmul double %0, %32
-  %34 = getelementptr inbounds [19 x %"struct.(anonymous namespace)::COEFS"], ptr @_ZL1Y, i64 0, i64 %13
+  %34 = getelementptr inbounds nuw [19 x %"struct.(anonymous namespace)::COEFS"], ptr @_ZL1Y, i64 0, i64 %13
   %35 = load float, ptr %34, align 16
   %36 = fpext float %35 to double
-  %37 = getelementptr inbounds i8, ptr %34, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %38 = load float, ptr %37, align 4
   %39 = fpext float %38 to double
-  %40 = getelementptr inbounds i8, ptr %34, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %41 = load float, ptr %40, align 8
   %42 = fpext float %41 to double
-  %43 = getelementptr inbounds i8, ptr %34, i64 12
+  %43 = getelementptr inbounds nuw i8, ptr %34, i64 12
   %44 = load float, ptr %43, align 4
   %45 = fpext float %44 to double
   %46 = tail call double @llvm.fmuladd.f64(double %16, double %45, double %42)

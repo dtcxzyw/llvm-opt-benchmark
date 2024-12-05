@@ -127,7 +127,7 @@ define void @x11_get_display(ptr nocapture noundef writeonly %0, ptr noundef ini
   br label %15
 
 15:                                               ; preds = %14, %12
-  %16 = getelementptr inbounds i8, ptr %6, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 1
   tail call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %1, ptr noundef nonnull @.str.7, ptr noundef nonnull %16) #14
   call void @slurm_xfree(ptr noundef nonnull %3) #14
   %17 = load ptr, ptr %1, align 8
@@ -153,7 +153,7 @@ define void @x11_get_display(ptr nocapture noundef writeonly %0, ptr noundef ini
 
 26:                                               ; preds = %22
   store i8 0, ptr %23, align 1
-  %27 = getelementptr inbounds i8, ptr %23, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 1
   %28 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %27, i32 noundef 46) #16
   %.not20 = icmp eq ptr %28, null
   br i1 %.not20, label %30, label %29
@@ -206,31 +206,31 @@ define noundef ptr @x11_get_xauth() local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct.run_command_args_t, align 8
   store ptr null, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 10000, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i8 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 24
-  %11 = getelementptr inbounds i8, ptr %6, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr @.str.10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr @.str.11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr %1, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %14, i8 0, i64 17, i1 false)
   %15 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 80, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.14, i32 noundef 201, ptr noundef nonnull @__func__.x11_get_xauth) #14
   store ptr %15, ptr %2, align 8
   %16 = call ptr @xstrdup(ptr noundef nonnull @.str.11) #14
   store ptr %16, ptr %15, align 8
   %17 = call ptr @xstrdup(ptr noundef nonnull @.str.15) #14
-  %18 = getelementptr inbounds i8, ptr %15, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %17, ptr %18, align 8
   %19 = call ptr @getenv(ptr noundef nonnull @.str.5) #14
   %20 = call ptr @xstrdup(ptr noundef %19) #14
-  %21 = getelementptr inbounds i8, ptr %15, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr %20, ptr %21, align 8
   store ptr %15, ptr %10, align 8
   %22 = call ptr @run_command(ptr noundef nonnull %6) #14
@@ -272,8 +272,8 @@ define noundef ptr @x11_get_xauth() local_unnamed_addr #0 {
   unreachable
 
 40:                                               ; preds = %34, %26
-  %41 = getelementptr inbounds i8, ptr %4, i64 8
-  %42 = getelementptr inbounds i8, ptr %4, i64 12
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %43 = load i32, ptr %42, align 4
   %44 = load i32, ptr %41, align 8
   %45 = add i32 %43, 1
@@ -317,20 +317,20 @@ define i32 @x11_set_xauth(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(25) %7, ptr noundef nonnull align 16 dereferenceable(25) @__const.x11_set_xauth.template, i64 25, i1 false)
   store ptr null, ptr %8, align 8
   store ptr null, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %10, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store i32 10000, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %10, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i8 0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %10, i64 24
-  %15 = getelementptr inbounds i8, ptr %10, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr @.str.10, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %10, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store ptr @.str.11, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %10, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store ptr %4, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %10, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %18, i8 0, i64 17, i1 false)
   %19 = call i32 @gethostname(ptr noundef nonnull %9, i64 noundef 64) #14
   %.not = icmp eq i32 %19, 0
@@ -401,7 +401,7 @@ define i32 @x11_set_xauth(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2
   %.us-phi = phi i64 [ %33, %.lr.ph.split.us ], [ %40, %39 ]
   %.us-phi31 = phi i32 [ %34, %.lr.ph.split.us ], [ %41, %39 ]
   %49 = and i64 %.us-phi, 2147483647
-  %50 = getelementptr inbounds i8, ptr %.0.ph42, i64 %49
+  %50 = getelementptr inbounds nuw i8, ptr %.0.ph42, i64 %49
   %51 = sub nsw i32 %.022.ph40, %.us-phi31
   %52 = icmp sgt i32 %51, 0
   br i1 %52, label %53, label %.outer._crit_edge
@@ -427,17 +427,17 @@ define i32 @x11_set_xauth(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2
   %61 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 80, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.14, i32 noundef 269, ptr noundef nonnull @__func__.x11_set_xauth) #14
   store ptr %61, ptr %6, align 8
   store ptr @.str.11, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store ptr @.str.24, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %61, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 16
   store ptr @.str.25, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %61, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 24
   store ptr %0, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %61, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %61, i64 32
   store ptr @.str.26, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %61, i64 40
+  %66 = getelementptr inbounds nuw i8, ptr %61, i64 40
   store ptr %7, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %61, i64 48
+  %67 = getelementptr inbounds nuw i8, ptr %61, i64 48
   store ptr null, ptr %67, align 8
   store ptr %61, ptr %14, align 8
   %68 = call ptr @run_command(ptr noundef nonnull %10) #14
@@ -497,42 +497,42 @@ define i32 @x11_delete_xauth(ptr noundef %0, ptr noundef %1, i16 noundef zeroext
   %6 = alloca ptr, align 8
   %7 = alloca %struct.run_command_args_t, align 8
   store ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 10000, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %7, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i8 0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 24
-  %12 = getelementptr inbounds i8, ptr %7, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr @.str.10, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr @.str.11, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %7, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr %4, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %7, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %15, i8 0, i64 17, i1 false)
   %16 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 80, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.14, i32 noundef 307, ptr noundef nonnull @__func__.x11_delete_xauth) #14
   store ptr %16, ptr %6, align 8
   %17 = call ptr @xstrdup(ptr noundef nonnull @.str.11) #14
   store ptr %17, ptr %16, align 8
   %18 = call ptr @xstrdup(ptr noundef nonnull @.str.24) #14
-  %19 = getelementptr inbounds i8, ptr %16, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %18, ptr %19, align 8
   %20 = call ptr @xstrdup(ptr noundef nonnull @.str.25) #14
-  %21 = getelementptr inbounds i8, ptr %16, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %20, ptr %21, align 8
   %22 = call ptr @xstrdup(ptr noundef %0) #14
-  %23 = getelementptr inbounds i8, ptr %16, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store ptr %22, ptr %23, align 8
   %24 = call ptr @xstrdup(ptr noundef nonnull @.str.29) #14
-  %25 = getelementptr inbounds i8, ptr %16, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr %24, ptr %25, align 8
   %26 = zext i16 %2 to i32
   %27 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.30, ptr noundef %1, i32 noundef %26) #14
-  %28 = getelementptr inbounds i8, ptr %16, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store ptr %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %16, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %16, i64 48
   store ptr null, ptr %29, align 8
   store ptr %16, ptr %11, align 8
   %30 = call ptr @run_command(ptr noundef nonnull %7) #14

@@ -37,7 +37,7 @@ define range(i32 -22, 1) i32 @CVodeSetProjFn(ptr noundef %0, ptr noundef %1) loc
   br label %28
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i32, ptr %9, align 8
   %.not = icmp eq i32 %10, 2
   br i1 %.not, label %12, label %11
@@ -47,7 +47,7 @@ define range(i32 -22, 1) i32 @CVodeSetProjFn(ptr noundef %0, ptr noundef %1) loc
   br label %28
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 2520
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 2520
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %24
@@ -60,17 +60,17 @@ define range(i32 -22, 1) i32 @CVodeSetProjFn(ptr noundef %0, ptr noundef %1) loc
 
 cvProjSetDefaults.exit.i:                         ; preds = %16
   store i32 1, ptr %calloc.i, align 8
-  %18 = getelementptr inbounds i8, ptr %calloc.i, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 4
   store i32 1, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %calloc.i, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
   store i32 1, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %calloc.i, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 16
   store i64 1, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %calloc.i, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 32
   store i32 10, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %calloc.i, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 48
   store double 1.000000e-01, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %calloc.i, i64 56
+  %23 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 56
   store double 2.500000e-01, ptr %23, align 8
   br label %24
 
@@ -81,9 +81,9 @@ cvProjCreate.exit:                                ; preds = %16
 24:                                               ; preds = %cvProjSetDefaults.exit.i, %12
   %25 = phi ptr [ %calloc.i, %cvProjSetDefaults.exit.i ], [ %14, %12 ]
   store i32 0, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
   store ptr %1, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 2528
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 2528
   store i32 1, ptr %27, align 8
   br label %28
 
@@ -104,7 +104,7 @@ define range(i32 -56, 1) i32 @CVodeSetProjErrEst(ptr noundef %0, i32 noundef %1)
   br label %cvAccessProjMem.exit.thread
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 2520
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2520
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %cvAccessProjMem.exit
@@ -114,7 +114,7 @@ define range(i32 -56, 1) i32 @CVodeSetProjErrEst(ptr noundef %0, i32 noundef %1)
   br label %cvAccessProjMem.exit.thread
 
 cvAccessProjMem.exit:                             ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %7, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %1, ptr %10, align 4
   br label %cvAccessProjMem.exit.thread
 
@@ -133,7 +133,7 @@ define range(i32 -56, 1) i32 @CVodeSetProjFrequency(ptr noundef %0, i64 noundef 
   br label %cvAccessProjMem.exit.thread
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 2520
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2520
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %cvAccessProjMem.exit
@@ -144,18 +144,18 @@ define range(i32 -56, 1) i32 @CVodeSetProjFrequency(ptr noundef %0, i64 noundef 
 
 cvAccessProjMem.exit:                             ; preds = %5
   %10 = icmp slt i64 %1, 0
-  %11 = getelementptr inbounds i8, ptr %0, i64 2528
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 2528
   br i1 %10, label %12, label %14
 
 12:                                               ; preds = %cvAccessProjMem.exit
-  %13 = getelementptr inbounds i8, ptr %7, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 1, ptr %13, align 8
   store i32 1, ptr %11, align 8
   br label %cvAccessProjMem.exit.thread
 
 14:                                               ; preds = %cvAccessProjMem.exit
   %15 = icmp eq i64 %1, 0
-  %16 = getelementptr inbounds i8, ptr %7, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br i1 %15, label %17, label %18
 
 17:                                               ; preds = %14
@@ -183,7 +183,7 @@ define range(i32 -56, 1) i32 @CVodeSetMaxNumProjFails(ptr noundef %0, i32 nounde
   br label %cvAccessProjMem.exit.thread
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 2520
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2520
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %cvAccessProjMem.exit
@@ -194,7 +194,7 @@ define range(i32 -56, 1) i32 @CVodeSetMaxNumProjFails(ptr noundef %0, i32 nounde
 
 cvAccessProjMem.exit:                             ; preds = %5
   %10 = icmp slt i32 %1, 1
-  %11 = getelementptr inbounds i8, ptr %7, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 32
   br i1 %10, label %12, label %13
 
 12:                                               ; preds = %cvAccessProjMem.exit
@@ -220,7 +220,7 @@ define range(i32 -56, 1) i32 @CVodeSetEpsProj(ptr noundef %0, double noundef %1)
   br label %cvAccessProjMem.exit.thread
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 2520
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2520
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %cvAccessProjMem.exit
@@ -231,7 +231,7 @@ define range(i32 -56, 1) i32 @CVodeSetEpsProj(ptr noundef %0, double noundef %1)
 
 cvAccessProjMem.exit:                             ; preds = %5
   %10 = fcmp ugt double %1, 0.000000e+00
-  %11 = getelementptr inbounds i8, ptr %7, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 48
   br i1 %10, label %13, label %12
 
 12:                                               ; preds = %cvAccessProjMem.exit
@@ -257,7 +257,7 @@ define range(i32 -56, 1) i32 @CVodeSetProjFailEta(ptr noundef %0, double noundef
   br label %cvAccessProjMem.exit.thread
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 2520
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2520
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %cvAccessProjMem.exit
@@ -267,7 +267,7 @@ define range(i32 -56, 1) i32 @CVodeSetProjFailEta(ptr noundef %0, double noundef
   br label %cvAccessProjMem.exit.thread
 
 cvAccessProjMem.exit:                             ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %7, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store double 2.500000e-01, ptr %10, align 8
   br label %cvAccessProjMem.exit.thread
 
@@ -286,7 +286,7 @@ define range(i32 -56, 1) i32 @CVodeGetNumProjEvals(ptr noundef %0, ptr nocapture
   br label %cvAccessProjMem.exit.thread
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 2520
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2520
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %cvAccessProjMem.exit
@@ -296,7 +296,7 @@ define range(i32 -56, 1) i32 @CVodeGetNumProjEvals(ptr noundef %0, ptr nocapture
   br label %cvAccessProjMem.exit.thread
 
 cvAccessProjMem.exit:                             ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %7, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %11 = load i64, ptr %10, align 8
   store i64 %11, ptr %1, align 8
   br label %cvAccessProjMem.exit.thread
@@ -316,7 +316,7 @@ define range(i32 -56, 1) i32 @CVodeGetNumProjFails(ptr noundef %0, ptr nocapture
   br label %cvAccessProjMem.exit.thread
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 2520
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2520
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %cvAccessProjMem.exit
@@ -326,7 +326,7 @@ define range(i32 -56, 1) i32 @CVodeGetNumProjFails(ptr noundef %0, ptr nocapture
   br label %cvAccessProjMem.exit.thread
 
 cvAccessProjMem.exit:                             ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %7, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %11 = load i64, ptr %10, align 8
   store i64 %11, ptr %1, align 8
   br label %cvAccessProjMem.exit.thread
@@ -338,7 +338,7 @@ cvAccessProjMem.exit.thread:                      ; preds = %9, %4, %cvAccessPro
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -58, 4) i32 @cvDoProjection(ptr noundef %0, ptr nocapture noundef writeonly %1, double noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 2520
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 2520
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %9
@@ -348,39 +348,39 @@ define range(i32 -58, 4) i32 @cvDoProjection(ptr noundef %0, ptr nocapture nound
   br label %72
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 464
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %13 = load i32, ptr %12, align 4
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %.thread, label %14
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 472
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 456
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %18 = load ptr, ptr %17, align 8
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %18, ptr noundef %16) #8
   br label %.thread
 
 .thread:                                          ; preds = %9, %14
   %.04957 = phi ptr [ %16, %14 ], [ null, %9 ]
-  %19 = getelementptr inbounds i8, ptr %6, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 1032
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   %22 = load double, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 448
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %6, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %26 = load double, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %28 = load ptr, ptr %27, align 8
   %29 = tail call i32 %20(double noundef %22, ptr noundef %24, ptr noundef %11, double noundef %26, ptr noundef %.04957, ptr noundef %28) #8
-  %30 = getelementptr inbounds i8, ptr %6, i64 64
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %31 = load i64, ptr %30, align 8
   %32 = add nsw i64 %31, 1
   store i64 %32, ptr %30, align 8
-  %33 = getelementptr inbounds i8, ptr %6, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %33, align 8
   %34 = icmp eq i32 %29, 0
   br i1 %34, label %35, label %44
@@ -391,22 +391,22 @@ define range(i32 -58, 4) i32 @cvDoProjection(ptr noundef %0, ptr nocapture nound
   br i1 %.not55, label %42, label %37
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds i8, ptr %0, i64 440
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %39 = load ptr, ptr %38, align 8
   %40 = tail call double @N_VWrmsNorm(ptr noundef %.04957, ptr noundef %39) #8
-  %41 = getelementptr inbounds i8, ptr %0, i64 1368
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 1368
   store double %40, ptr %41, align 8
   br label %42
 
 42:                                               ; preds = %37, %35
-  %43 = getelementptr inbounds i8, ptr %0, i64 2532
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 2532
   store i32 1, ptr %43, align 4
   br label %72
 
 44:                                               ; preds = %.thread
   %45 = icmp slt i32 %29, 0
   %46 = icmp sgt i32 %29, 0
-  %47 = getelementptr inbounds i8, ptr %6, i64 72
+  %47 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %48 = load i64, ptr %47, align 8
   %49 = add nsw i64 %48, 1
   store i64 %49, ptr %47, align 8
@@ -417,12 +417,12 @@ define range(i32 -58, 4) i32 @cvDoProjection(ptr noundef %0, ptr nocapture nound
   %51 = load i32, ptr %3, align 4
   %52 = add nsw i32 %51, 1
   store i32 %52, ptr %3, align 4
-  %53 = getelementptr inbounds i8, ptr %0, i64 1480
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   store double 1.000000e+00, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 992
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 992
   %55 = load double, ptr %54, align 8
   %56 = tail call double @llvm.fabs.f64(double %55)
-  %57 = getelementptr inbounds i8, ptr %0, i64 1464
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 1464
   %58 = load double, ptr %57, align 8
   %59 = fmul double %58, 0x3FF000010C6F7A0B
   %60 = fcmp ugt double %56, %59
@@ -430,19 +430,19 @@ define range(i32 -58, 4) i32 @cvDoProjection(ptr noundef %0, ptr nocapture nound
 
 61:                                               ; preds = %50
   %62 = load i32, ptr %3, align 4
-  %63 = getelementptr inbounds i8, ptr %6, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %64 = load i32, ptr %63, align 8
   %65 = icmp eq i32 %62, %64
   %or.cond = and i1 %46, %65
   br i1 %or.cond, label %72, label %66
 
 66:                                               ; preds = %61
-  %67 = getelementptr inbounds i8, ptr %6, i64 56
+  %67 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %68 = load double, ptr %67, align 8
   %69 = fdiv double %58, %56
   %70 = fcmp ogt double %68, %69
   %. = select i1 %70, double %68, double %69
-  %71 = getelementptr inbounds i8, ptr %0, i64 1016
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 1016
   store double %., ptr %71, align 8
   store i32 8, ptr %1, align 4
   tail call void @cvRescale(ptr noundef nonnull %0) #8
@@ -470,11 +470,11 @@ define range(i32 -56, 1) i32 @cvProjInit(ptr noundef writeonly %0) local_unnamed
   br i1 %2, label %7, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   br label %7
 

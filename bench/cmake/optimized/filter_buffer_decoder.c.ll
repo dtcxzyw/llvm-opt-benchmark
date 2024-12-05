@@ -31,7 +31,7 @@ define dso_local i32 @lzma_raw_buffer_decode(ptr noundef %0, ptr noundef %1, ptr
 
 22:                                               ; preds = %19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %9, i8 0, i64 72, i1 false)
-  %23 = getelementptr inbounds i8, ptr %9, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 -1, ptr %23, align 8
   %24 = call i32 @lzma_raw_decoder_init(ptr noundef nonnull %9, ptr noundef %1, ptr noundef %0) #3
   %.not = icmp eq i32 %24, 0
@@ -40,7 +40,7 @@ define dso_local i32 @lzma_raw_buffer_decode(ptr noundef %0, ptr noundef %1, ptr
 25:                                               ; preds = %22
   %26 = load i64, ptr %3, align 8
   %27 = load i64, ptr %6, align 8
-  %28 = getelementptr inbounds i8, ptr %9, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr %9, align 8
   %31 = call i32 %29(ptr noundef %30, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i64 noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %6, i64 noundef %7, i32 noundef 3) #3

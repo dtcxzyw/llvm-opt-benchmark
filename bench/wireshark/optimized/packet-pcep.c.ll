@@ -1977,7 +1977,7 @@ define internal range(i32 0, 65536) i32 @get_pcep_message_len(ptr nocapture read
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_pcep_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.732) #2
   %7 = load ptr, ptr %5, align 8
@@ -2024,15 +2024,15 @@ define internal i32 @dissect_pcep_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
   %38 = zext nneg i8 %34 to i64
   %39 = getelementptr [46 x %struct.pcep_lut_t], ptr @dissect_pcep_obj_tree.obj_lut, i64 0, i64 %38
   %.sroa.0.0.copyload.i.i = load ptr, ptr %39, align 16
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %39, i64 24
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %39, i64 24
   %.sroa.7.0.copyload.i.i = load ptr, ptr %.sroa.7.0..sroa_idx.i.i, align 8
   %.not.i.i = icmp eq ptr %.sroa.0.0.copyload.i.i, null
   br i1 %.not.i.i, label %.thread.i.i, label %40
 
 40:                                               ; preds = %37
-  %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %39, i64 16
+  %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %39, i64 16
   %.sroa.6.0.copyload.i.i = load ptr, ptr %.sroa.6.0..sroa_idx.i.i, align 16
-  %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %39, i64 8
+  %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %39, i64 8
   %.sroa.5.0.copyload.i.i = load ptr, ptr %.sroa.5.0..sroa_idx.i.i, align 8
   %41 = load i32, ptr %.sroa.0.0.copyload.i.i, align 4
   %42 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %41, ptr noundef %0, i32 noundef %.08190.i.i, i32 noundef -1, i32 noundef 0) #2
@@ -3233,7 +3233,7 @@ define internal void @dissect_pcep_xro_obj(ptr noundef %0, ptr noundef %1, ptr n
 
 .preheader:                                       ; preds = %11
   %23 = add i32 %3, 4
-  %24 = getelementptr inbounds i8, ptr %1, i64 408
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %27
 
 25:                                               ; preds = %11
@@ -4381,7 +4381,7 @@ define internal fastcc void @dissect_subobj_ipv4(ptr noundef %0, ptr noundef %1,
 13:                                               ; preds = %7
   %14 = add i32 %3, 6
   %15 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %14) #2
-  %16 = getelementptr inbounds i8, ptr %1, i64 408
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %17 = load ptr, ptr %16, align 8
   %18 = add i32 %3, 2
   %19 = tail call ptr @tvb_address_to_str(ptr noundef %17, ptr noundef %2, i32 noundef 2, i32 noundef %18) #2
@@ -4491,7 +4491,7 @@ define internal fastcc void @dissect_subobj_ipv6(ptr noundef %0, ptr noundef %1,
 13:                                               ; preds = %7
   %14 = add i32 %3, 18
   %15 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %14) #2
-  %16 = getelementptr inbounds i8, ptr %1, i64 408
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %17 = load ptr, ptr %16, align 8
   %18 = add i32 %3, 2
   %19 = tail call ptr @tvb_address_to_str(ptr noundef %17, ptr noundef %2, i32 noundef 3, i32 noundef %18) #2
@@ -4674,7 +4674,7 @@ define internal fastcc void @dissect_subobj_unnumb_interfaceID(ptr noundef %0, p
 13:                                               ; preds = %7
   %14 = add i32 %3, 8
   %15 = tail call i32 @tvb_get_ntohl(ptr noundef %2, i32 noundef %14) #2
-  %16 = getelementptr inbounds i8, ptr %1, i64 408
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %17 = load ptr, ptr %16, align 8
   %18 = add i32 %3, 4
   %19 = tail call ptr @tvb_address_to_str(ptr noundef %17, ptr noundef %2, i32 noundef 2, i32 noundef %18) #2
@@ -4837,7 +4837,7 @@ define internal fastcc void @dissect_subobj_pksv4(ptr noundef %0, ptr noundef %1
 12:                                               ; preds = %6
   %13 = add i32 %3, 2
   %14 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %2, i32 noundef %13) #2
-  %15 = getelementptr inbounds i8, ptr %1, i64 408
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %16 = load ptr, ptr %15, align 8
   %17 = add i32 %3, 4
   %18 = tail call ptr @tvb_address_to_str(ptr noundef %16, ptr noundef %2, i32 noundef 2, i32 noundef %17) #2

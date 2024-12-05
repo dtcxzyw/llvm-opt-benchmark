@@ -111,16 +111,16 @@ define internal i32 @xhci_pci_suspend(ptr noundef %0, i1 noundef zeroext %1) #2 
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 552
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %7 = load ptr, ptr %6, align 8
   br label %8
 
 8:                                                ; preds = %5, %2
   %9 = phi ptr [ %7, %5 ], [ %0, %2 ]
-  %10 = getelementptr inbounds i8, ptr %9, i64 608
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 608
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr i8, ptr %11, i64 -184
-  %13 = getelementptr inbounds i8, ptr %9, i64 3096
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 3096
   %14 = load i64, ptr %13, align 8
   %15 = and i64 %14, 16384
   %16 = icmp eq i64 %15, 0
@@ -157,13 +157,13 @@ define internal i32 @xhci_pci_suspend(ptr noundef %0, i1 noundef zeroext %1) #2 
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %0, i64 552
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %33 = load ptr, ptr %32, align 8
   br label %34
 
 34:                                               ; preds = %31, %28
   %35 = phi ptr [ %33, %31 ], [ %0, %28 ]
-  %36 = getelementptr inbounds i8, ptr %35, i64 624
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 624
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr i8, ptr %37, i64 32932
   %39 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %38) #10, !srcloc !6
@@ -185,13 +185,13 @@ define internal i32 @xhci_pci_suspend(ptr noundef %0, i1 noundef zeroext %1) #2 
   br i1 %48, label %49, label %52
 
 49:                                               ; preds = %46
-  %50 = getelementptr inbounds i8, ptr %0, i64 552
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %51 = load ptr, ptr %50, align 8
   br label %52
 
 52:                                               ; preds = %49, %46
   %53 = phi ptr [ %51, %49 ], [ %0, %46 ]
-  %54 = getelementptr inbounds i8, ptr %53, i64 624
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 624
   br label %55
 
 55:                                               ; preds = %55, %52
@@ -223,7 +223,7 @@ define internal i32 @xhci_pci_suspend(ptr noundef %0, i1 noundef zeroext %1) #2 
   br i1 %70, label %79, label %71
 
 71:                                               ; preds = %.loopexit1
-  %72 = getelementptr inbounds i8, ptr %0, i64 352
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr i8, ptr %73, i64 49452
   %75 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %74) #10, !srcloc !6
@@ -234,9 +234,9 @@ define internal i32 @xhci_pci_suspend(ptr noundef %0, i1 noundef zeroext %1) #2 
   br label %79
 
 79:                                               ; preds = %71, %.loopexit1
-  %80 = tail call i32 @xhci_suspend(ptr noundef %10, i1 noundef zeroext %1) #10
+  %80 = tail call i32 @xhci_suspend(ptr noundef nonnull %10, i1 noundef zeroext %1) #10
   %81 = load ptr, ptr %10, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 340
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 340
   %83 = load i16, ptr %82, align 4
   %84 = and i16 %83, 4
   %85 = icmp eq i16 %84, 0
@@ -265,13 +265,13 @@ define internal i32 @xhci_pci_suspend(ptr noundef %0, i1 noundef zeroext %1) #2 
   br i1 %98, label %99, label %102
 
 99:                                               ; preds = %96
-  %100 = getelementptr inbounds i8, ptr %0, i64 552
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %101 = load ptr, ptr %100, align 8
   br label %102
 
 102:                                              ; preds = %99, %96
   %103 = phi ptr [ %101, %99 ], [ %0, %96 ]
-  %104 = getelementptr inbounds i8, ptr %103, i64 624
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 624
   br label %105
 
 105:                                              ; preds = %105, %102
@@ -303,7 +303,7 @@ define internal i32 @xhci_pci_resume(ptr noundef %0, i32 %1) #2 align 16 {
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 552
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %7 = load ptr, ptr %6, align 8
   br label %8
 
@@ -321,7 +321,7 @@ define internal i32 @xhci_pci_resume(ptr noundef %0, i32 %1) #2 align 16 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  %17 = getelementptr inbounds i8, ptr %9, i64 3096
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 3096
   %18 = load i64, ptr %17, align 8
   %19 = and i64 %18, 4194304
   %20 = icmp eq i64 %19, 0
@@ -333,13 +333,13 @@ define internal i32 @xhci_pci_resume(ptr noundef %0, i32 %1) #2 align 16 {
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %0, i64 552
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %26 = load ptr, ptr %25, align 8
   br label %27
 
 27:                                               ; preds = %24, %21
   %28 = phi ptr [ %26, %24 ], [ %0, %21 ]
-  %29 = getelementptr inbounds i8, ptr %28, i64 624
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 624
   br label %30
 
 30:                                               ; preds = %30, %27
@@ -376,13 +376,13 @@ define internal i32 @xhci_pci_resume(ptr noundef %0, i32 %1) #2 align 16 {
   br i1 %48, label %49, label %52
 
 49:                                               ; preds = %46
-  %50 = getelementptr inbounds i8, ptr %0, i64 552
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %51 = load ptr, ptr %50, align 8
   br label %52
 
 52:                                               ; preds = %49, %46
   %53 = phi ptr [ %51, %49 ], [ %0, %46 ]
-  %54 = getelementptr inbounds i8, ptr %53, i64 624
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 624
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr i8, ptr %55, i64 32932
   %57 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %56) #10, !srcloc !6
@@ -392,8 +392,8 @@ define internal i32 @xhci_pci_resume(ptr noundef %0, i32 %1) #2 align 16 {
   br label %60
 
 60:                                               ; preds = %52, %.loopexit
-  %61 = getelementptr inbounds i8, ptr %9, i64 608
-  %62 = tail call i32 @xhci_resume(ptr noundef %61, i32 %1) #10
+  %61 = getelementptr inbounds nuw i8, ptr %9, i64 608
+  %62 = tail call i32 @xhci_resume(ptr noundef nonnull %61, i32 %1) #10
   ret i32 %62
 }
 
@@ -404,29 +404,29 @@ define internal noundef i32 @xhci_pci_poweroff_late(ptr noundef %0, i1 noundef z
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 552
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %7 = load ptr, ptr %6, align 8
   br label %8
 
 8:                                                ; preds = %5, %2
   %9 = phi ptr [ %7, %5 ], [ %0, %2 ]
-  %10 = getelementptr inbounds i8, ptr %9, i64 608
-  %11 = getelementptr inbounds i8, ptr %9, i64 3096
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 608
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 3096
   %12 = load i64, ptr %11, align 8
   %13 = and i64 %12, 17592186044416
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %.loopexit, label %15
 
 15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %9, i64 656
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 656
   %17 = load i32, ptr %16, align 8
   %18 = and i32 %17, 2130706432
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %.loopexit, label %20
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %9, i64 3112
-  %22 = getelementptr inbounds i8, ptr %9, i64 968
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 3112
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 968
   br label %23
 
 23:                                               ; preds = %69, %20
@@ -440,15 +440,15 @@ define internal noundef i32 @xhci_pci_poweroff_late(ptr noundef %0, i1 noundef z
   br i1 %30, label %31, label %69
 
 31:                                               ; preds = %23
-  %32 = getelementptr inbounds i8, ptr %26, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %26, i64 12
+  %36 = getelementptr inbounds nuw i8, ptr %26, i64 12
   %37 = load i32, ptr %36, align 4
   %38 = trunc i32 %37 to i16
   %39 = add i16 %38, 1
-  %40 = tail call i32 @xhci_find_slot_id_by_port(ptr noundef %35, ptr noundef %10, i16 noundef zeroext %39) #10
+  %40 = tail call i32 @xhci_find_slot_id_by_port(ptr noundef %35, ptr noundef nonnull %10, i16 noundef zeroext %39) #10
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %47, label %42
 
@@ -463,9 +463,9 @@ define internal noundef i32 @xhci_pci_poweroff_late(ptr noundef %0, i1 noundef z
   %48 = load ptr, ptr %10, align 8
   %49 = load ptr, ptr %48, align 8
   %50 = load ptr, ptr %32, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load i32, ptr %53, align 8
   %55 = load i32, ptr %36, align 4
   %56 = add i32 %55, 1
@@ -473,9 +473,9 @@ define internal noundef i32 @xhci_pci_poweroff_late(ptr noundef %0, i1 noundef z
   br label %69
 
 57:                                               ; preds = %42
-  %58 = getelementptr inbounds i8, ptr %45, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 1296
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 1296
   %61 = load i8, ptr %60, align 8
   %62 = and i8 %61, 1
   %63 = icmp ne i8 %62, 0
@@ -509,17 +509,17 @@ define internal void @xhci_pci_shutdown(ptr noundef %0) #2 align 16 {
   br i1 %3, label %4, label %7
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 552
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %6 = load ptr, ptr %5, align 8
   br label %7
 
 7:                                                ; preds = %4, %1
   %8 = phi ptr [ %6, %4 ], [ %0, %1 ]
-  %9 = getelementptr inbounds i8, ptr %8, i64 608
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 608
   %10 = load ptr, ptr %0, align 8
   tail call void @xhci_shutdown(ptr noundef %0) #10
   %11 = load ptr, ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 344
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 344
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %24
@@ -531,14 +531,14 @@ define internal void @xhci_pci_shutdown(ptr noundef %0) #2 align 16 {
   %19 = load ptr, ptr %9, align 8
   %20 = tail call ptr @free_irq(i32 noundef %18, ptr noundef %19) #10
   tail call void @pci_free_irq_vectors(ptr noundef %17) #10
-  %21 = getelementptr inbounds i8, ptr %11, i64 340
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 340
   %22 = load i16, ptr %21, align 4
   %23 = and i16 %22, -5
   store i16 %23, ptr %21, align 4
   br label %24
 
 24:                                               ; preds = %15, %7
-  %25 = getelementptr inbounds i8, ptr %8, i64 3096
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 3096
   %26 = load i64, ptr %25, align 8
   %27 = and i64 %26, 262144
   %28 = icmp eq i64 %27, 0
@@ -560,13 +560,13 @@ define internal void @xhci_pci_stop(ptr noundef %0) #2 align 16 {
   br i1 %3, label %4, label %7
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 552
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %6 = load ptr, ptr %5, align 8
   br label %7
 
 7:                                                ; preds = %4, %1
   %8 = phi ptr [ %6, %4 ], [ %0, %1 ]
-  %9 = getelementptr inbounds i8, ptr %8, i64 608
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 608
   tail call void @xhci_stop(ptr noundef %0) #10
   %10 = tail call i32 @usb_hcd_is_primary_hcd(ptr noundef %0) #10
   %11 = icmp eq i32 %10, 0
@@ -574,7 +574,7 @@ define internal void @xhci_pci_stop(ptr noundef %0) #2 align 16 {
 
 12:                                               ; preds = %7
   %13 = load ptr, ptr %9, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 344
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 344
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %26
@@ -586,7 +586,7 @@ define internal void @xhci_pci_stop(ptr noundef %0) #2 align 16 {
   %21 = load ptr, ptr %9, align 8
   %22 = tail call ptr @free_irq(i32 noundef %20, ptr noundef %21) #10
   tail call void @pci_free_irq_vectors(ptr noundef %19) #10
-  %23 = getelementptr inbounds i8, ptr %13, i64 340
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 340
   %24 = load i16, ptr %23, align 4
   %25 = and i16 %24, -5
   store i16 %25, ptr %23, align 4
@@ -608,23 +608,23 @@ define internal i32 @xhci_pci_setup(ptr noundef %0) #2 align 16 {
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 552
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %8 = load ptr, ptr %7, align 8
   br label %9
 
 9:                                                ; preds = %6, %1
   %10 = phi ptr [ %8, %6 ], [ %0, %1 ]
-  %11 = getelementptr inbounds i8, ptr %10, i64 680
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 680
   %12 = load i8, ptr %11, align 8
   %13 = icmp eq i8 %12, 0
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %9
-  %15 = tail call i32 @pci_read_config_byte(ptr noundef %3, i32 noundef 96, ptr noundef %11) #10
+  %15 = tail call i32 @pci_read_config_byte(ptr noundef %3, i32 noundef 96, ptr noundef nonnull %11) #10
   br label %16
 
 16:                                               ; preds = %14, %9
-  %17 = getelementptr inbounds i8, ptr %10, i64 692
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 692
   store i32 40000, ptr %17, align 4
   %18 = tail call i32 @xhci_gen_setup(ptr noundef %0, ptr noundef nonnull @xhci_pci_quirks) #10
   %19 = icmp eq i32 %18, 0
@@ -636,7 +636,7 @@ define internal i32 @xhci_pci_setup(ptr noundef %0) #2 align 16 {
   br i1 %22, label %43, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %10, i64 3096
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 3096
   %25 = load i64, ptr %24, align 8
   %26 = and i64 %25, 1048576
   %27 = icmp eq i64 %26, 0
@@ -684,21 +684,21 @@ define internal i32 @xhci_pci_run(ptr noundef %0) #2 align 16 {
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 552
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %11 = load ptr, ptr %10, align 8
   br label %12
 
 12:                                               ; preds = %9, %4
   %13 = phi ptr [ %11, %9 ], [ %0, %4 ]
-  %14 = getelementptr inbounds i8, ptr %13, i64 608
-  %15 = getelementptr inbounds i8, ptr %13, i64 3096
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 608
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 3096
   %16 = load i64, ptr %15, align 8
   %17 = and i64 %16, 64
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %19, label %59
 
 19:                                               ; preds = %12
-  %20 = getelementptr inbounds i8, ptr %0, i64 344
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %21 = load i32, ptr %20, align 8
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %25, label %23
@@ -711,12 +711,12 @@ define internal i32 @xhci_pci_run(ptr noundef %0) #2 align 16 {
   store i32 0, ptr %20, align 8
   %26 = load volatile i32, ptr @__num_online_cpus, align 4
   %27 = add i32 %26, 1
-  %28 = getelementptr inbounds i8, ptr %13, i64 656
+  %28 = getelementptr inbounds nuw i8, ptr %13, i64 656
   %29 = load i32, ptr %28, align 8
   %30 = lshr i32 %29, 8
   %31 = and i32 %30, 2047
   %32 = tail call i32 @llvm.umin.i32(i32 %27, i32 %31)
-  %33 = getelementptr inbounds i8, ptr %13, i64 712
+  %33 = getelementptr inbounds nuw i8, ptr %13, i64 712
   store i32 %32, ptr %33, align 8
   %34 = tail call i32 @pci_alloc_irq_vectors(ptr noundef %6, i32 noundef 1, i32 noundef %32, i32 noundef 6) #10
   store i32 %34, ptr %33, align 8
@@ -724,7 +724,7 @@ define internal i32 @xhci_pci_run(ptr noundef %0) #2 align 16 {
   br i1 %35, label %36, label %37
 
 36:                                               ; preds = %25
-  tail call void (ptr, ptr, ptr, ...) @xhci_dbg_trace(ptr noundef %14, ptr noundef nonnull @trace_xhci_dbg_init, ptr noundef nonnull @.str.6) #10
+  tail call void (ptr, ptr, ptr, ...) @xhci_dbg_trace(ptr noundef nonnull %14, ptr noundef nonnull @trace_xhci_dbg_init, ptr noundef nonnull @.str.6) #10
   br label %59
 
 37:                                               ; preds = %25
@@ -735,7 +735,7 @@ define internal i32 @xhci_pci_run(ptr noundef %0) #2 align 16 {
   br i1 %41, label %42, label %53
 
 42:                                               ; preds = %37
-  %43 = getelementptr inbounds i8, ptr %0, i64 340
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 340
   %44 = load i16, ptr %43, align 4
   %45 = or i16 %44, 8
   store i16 %45, ptr %43, align 4
@@ -755,7 +755,7 @@ define internal i32 @xhci_pci_run(ptr noundef %0) #2 align 16 {
   %56 = and i40 %55, 8192
   %57 = icmp eq i40 %56, 0
   %58 = select i1 %57, ptr @.str.10, ptr @.str.9
-  tail call void (ptr, ptr, ptr, ...) @xhci_dbg_trace(ptr noundef %14, ptr noundef nonnull @trace_xhci_dbg_init, ptr noundef nonnull @.str.8, ptr noundef nonnull %58) #10
+  tail call void (ptr, ptr, ptr, ...) @xhci_dbg_trace(ptr noundef nonnull %14, ptr noundef nonnull @trace_xhci_dbg_init, ptr noundef nonnull @.str.8, ptr noundef nonnull %58) #10
   tail call void @pci_free_irq_vectors(ptr noundef %6) #10
   br label %59
 
@@ -772,24 +772,24 @@ define internal i32 @xhci_pci_run(ptr noundef %0) #2 align 16 {
   br label %89
 
 66:                                               ; preds = %59
-  %67 = getelementptr inbounds i8, ptr %0, i64 164
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %68 = load i8, ptr %67, align 1
   %69 = icmp eq i8 %68, 0
   br i1 %69, label %70, label %77
 
 70:                                               ; preds = %66
-  %71 = getelementptr inbounds i8, ptr %0, i64 304
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %72 = load ptr, ptr %71, align 8
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %0, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %75 = load i32, ptr %74, align 8
-  %76 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %67, i64 noundef 24, ptr noundef nonnull @.str.12, ptr noundef %73, i32 noundef %75) #10
+  %76 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %67, i64 noundef 24, ptr noundef nonnull @.str.12, ptr noundef %73, i32 noundef %75) #10
   %.pre = load i32, ptr %60, align 4
   br label %77
 
 77:                                               ; preds = %70, %66
   %78 = phi i32 [ %.pre, %70 ], [ %61, %66 ]
-  %79 = tail call i32 @request_threaded_irq(i32 noundef %78, ptr noundef nonnull @usb_hcd_irq, ptr noundef null, i64 noundef 128, ptr noundef %67, ptr noundef %0) #10
+  %79 = tail call i32 @request_threaded_irq(i32 noundef %78, ptr noundef nonnull @usb_hcd_irq, ptr noundef null, i64 noundef 128, ptr noundef nonnull %67, ptr noundef %0) #10
   %80 = icmp eq i32 %79, 0
   br i1 %80, label %85, label %81
 
@@ -802,7 +802,7 @@ define internal i32 @xhci_pci_run(ptr noundef %0) #2 align 16 {
 
 85:                                               ; preds = %77
   %86 = load i32, ptr %60, align 4
-  %87 = getelementptr inbounds i8, ptr %0, i64 344
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store i32 %86, ptr %87, align 8
   br label %.thread
 
@@ -817,7 +817,7 @@ define internal i32 @xhci_pci_run(ptr noundef %0) #2 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @xhci_pci_update_hub_device(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #2 align 16 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %.loopexit
@@ -828,22 +828,22 @@ define internal i32 @xhci_pci_update_hub_device(ptr noundef %0, ptr noundef %1, 
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 552
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %13 = load ptr, ptr %12, align 8
   br label %14
 
 14:                                               ; preds = %11, %8
   %15 = phi ptr [ %13, %11 ], [ %0, %8 ]
-  %16 = getelementptr inbounds i8, ptr %15, i64 3192
-  %17 = getelementptr inbounds i8, ptr %15, i64 3208
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 3192
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 3208
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, %0
   br i1 %19, label %20, label %.loopexit
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %1, i64 1264
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 1264
   %22 = load i32, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %15, i64 3200
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 3200
   %24 = load i32, ptr %23, align 8
   %25 = icmp ugt i32 %22, %24
   br i1 %25, label %28, label %26
@@ -853,8 +853,8 @@ define internal i32 @xhci_pci_update_hub_device(ptr noundef %0, ptr noundef %1, 
   br i1 %27, label %.preheader, label %.loopexit
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %1, i64 168
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %29, ptr noundef nonnull @.str.14) #11
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 168
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %29, ptr noundef nonnull @.str.14) #11
   br label %.loopexit
 
 .preheader:                                       ; preds = %26, %44
@@ -868,7 +868,7 @@ define internal i32 @xhci_pci_update_hub_device(ptr noundef %0, ptr noundef %1, 
   %35 = load ptr, ptr %16, align 8
   %36 = getelementptr ptr, ptr %35, i64 %30
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = trunc i32 %32 to i8
   %40 = load i8, ptr %38, align 8
   %41 = and i8 %39, 1
@@ -898,19 +898,19 @@ declare dso_local i32 @xhci_gen_setup(ptr noundef, ptr noundef) local_unnamed_ad
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @xhci_pci_quirks(ptr noundef %0, ptr noundef %1) #2 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -184
-  %4 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   %7 = getelementptr i8, ptr %5, i64 -104
   %8 = select i1 %6, ptr null, ptr %7
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr @pci_match_id(ptr noundef %10, ptr noundef %3) #10
   %12 = icmp eq ptr %11, null
   br i1 %12, label %23, label %13
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %11, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %15 = load i64, ptr %14, align 8
   %16 = icmp eq i64 %15, 0
   br i1 %16, label %23, label %17
@@ -918,7 +918,7 @@ define internal void @xhci_pci_quirks(ptr noundef %0, ptr noundef %1) #2 align 1
 17:                                               ; preds = %13
   %18 = inttoptr i64 %15 to ptr
   %19 = load i64, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 2488
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 2488
   %21 = load i64, ptr %20, align 8
   %22 = or i64 %21, %19
   store i64 %22, ptr %20, align 8
@@ -945,7 +945,7 @@ define internal void @xhci_pci_quirks(ptr noundef %0, ptr noundef %1) #2 align 1
   br i1 %33, label %34, label %.thread
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %1, i64 2488
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 2488
   %36 = load i64, ptr %35, align 8
   %37 = or i64 %36, 2
   store i64 %37, ptr %35, align 8
@@ -964,7 +964,7 @@ define internal void @xhci_pci_quirks(ptr noundef %0, ptr noundef %1) #2 align 1
   br i1 %40, label %41, label %.thread151
 
 41:                                               ; preds = %.thread
-  %42 = getelementptr inbounds i8, ptr %1, i64 2488
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 2488
   %43 = load i64, ptr %42, align 8
   %44 = or i64 %43, 131072
   store i64 %44, ptr %42, align 8
@@ -976,14 +976,14 @@ define internal void @xhci_pci_quirks(ptr noundef %0, ptr noundef %1) #2 align 1
   br i1 %47, label %.thread151, label %.thread4
 
 .thread151:                                       ; preds = %.thread, %41
-  %48 = getelementptr inbounds i8, ptr %1, i64 2488
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 2488
   %49 = load i64, ptr %48, align 8
   %50 = or i64 %49, 524288
   store i64 %50, ptr %48, align 8
   br label %.thread4
 
 .thread4:                                         ; preds = %27, %34, %41, %.thread151
-  %51 = getelementptr inbounds i8, ptr %1, i64 2488
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 2488
   %52 = load i64, ptr %51, align 8
   %53 = or i64 %52, 64
   store i64 %53, ptr %51, align 8
@@ -1008,7 +1008,7 @@ define internal void @xhci_pci_quirks(ptr noundef %0, ptr noundef %1) #2 align 1
   br i1 %61, label %62, label %.thread153
 
 62:                                               ; preds = %.thread6
-  %63 = getelementptr inbounds i8, ptr %1, i64 2488
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 2488
   %64 = load i64, ptr %63, align 8
   %65 = or i64 %64, 524288
   store i64 %65, ptr %63, align 8
@@ -1022,7 +1022,7 @@ define internal void @xhci_pci_quirks(ptr noundef %0, ptr noundef %1) #2 align 1
   br i1 %68, label %69, label %.thread205
 
 69:                                               ; preds = %.thread153
-  %70 = getelementptr inbounds i8, ptr %1, i64 2488
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 2488
   %71 = load i64, ptr %70, align 8
   %72 = or i64 %71, 1024
   store i64 %72, ptr %70, align 8
@@ -1035,7 +1035,7 @@ thread-pre-split12:                               ; preds = %69, %.thread4, %23,
   br i1 %74, label %75, label %79
 
 75:                                               ; preds = %thread-pre-split12
-  %76 = getelementptr inbounds i8, ptr %1, i64 2488
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 2488
   %77 = load i64, ptr %76, align 8
   %78 = or i64 %77, 4
   store i64 %78, ptr %76, align 8
@@ -1048,13 +1048,13 @@ thread-pre-split12:                               ; preds = %69, %.thread4, %23,
   br i1 %81, label %82, label %.thread37
 
 82:                                               ; preds = %79
-  %83 = getelementptr inbounds i8, ptr %1, i64 74
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 74
   %84 = load i16, ptr %83, align 2
   %85 = icmp eq i16 %84, 150
   br i1 %85, label %86, label %.thread156
 
 86:                                               ; preds = %82
-  %87 = getelementptr inbounds i8, ptr %1, i64 2488
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 2488
   %88 = load i64, ptr %87, align 8
   %89 = or i64 %88, 512
   store i64 %89, ptr %87, align 8
@@ -1067,7 +1067,7 @@ thread-pre-split12:                               ; preds = %69, %.thread4, %23,
   br i1 %91, label %92, label %96
 
 92:                                               ; preds = %.thread156
-  %93 = getelementptr inbounds i8, ptr %1, i64 2488
+  %93 = getelementptr inbounds nuw i8, ptr %1, i64 2488
   %94 = load i64, ptr %93, align 8
   %95 = or i64 %94, 8
   store i64 %95, ptr %93, align 8
@@ -1089,7 +1089,7 @@ thread-pre-split12:                               ; preds = %69, %.thread4, %23,
   ]
 
 .thread20:                                        ; preds = %98, %98, %98, %98
-  %101 = getelementptr inbounds i8, ptr %1, i64 2488
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 2488
   %102 = load i64, ptr %101, align 8
   %103 = or i64 %102, 1073741824
   store i64 %103, ptr %101, align 8
@@ -1108,7 +1108,7 @@ thread-pre-split12:                               ; preds = %69, %.thread4, %23,
   br i1 %107, label %108, label %.thread158
 
 108:                                              ; preds = %.thread23
-  %109 = getelementptr inbounds i8, ptr %1, i64 2488
+  %109 = getelementptr inbounds nuw i8, ptr %1, i64 2488
   %110 = load i64, ptr %109, align 8
   %111 = or i64 %110, 34359738368
   store i64 %111, ptr %109, align 8
@@ -1122,7 +1122,7 @@ thread-pre-split12:                               ; preds = %69, %.thread4, %23,
   br i1 %114, label %.thread28, label %.thread28.thread
 
 .thread28:                                        ; preds = %.thread158
-  %115 = getelementptr inbounds i8, ptr %1, i64 2488
+  %115 = getelementptr inbounds nuw i8, ptr %1, i64 2488
   %116 = load i64, ptr %115, align 8
   %117 = or i64 %116, 274877907072
   store i64 %117, ptr %115, align 8
@@ -1131,7 +1131,7 @@ thread-pre-split12:                               ; preds = %69, %.thread4, %23,
   br i1 %118, label %.thread28.thread, label %.thread37
 
 .thread28.thread:                                 ; preds = %.thread158, %.thread28
-  %119 = getelementptr inbounds i8, ptr %1, i64 2488
+  %119 = getelementptr inbounds nuw i8, ptr %1, i64 2488
   %120 = load i64, ptr %119, align 8
   %121 = or i64 %120, 1024
   store i64 %121, ptr %119, align 8
@@ -1174,7 +1174,7 @@ thread-pre-split:                                 ; preds = %.thread34
   br i1 %135, label %136, label %.thread65
 
 136:                                              ; preds = %.thread37
-  %137 = getelementptr inbounds i8, ptr %1, i64 2488
+  %137 = getelementptr inbounds nuw i8, ptr %1, i64 2488
   %138 = load i64, ptr %137, align 8
   %139 = or i64 %138, 38912
   store i64 %139, ptr %137, align 8
@@ -1189,9 +1189,9 @@ thread-pre-split:                                 ; preds = %.thread34
   br i1 %144, label %145, label %.thread165
 
 145:                                              ; preds = %141
-  %146 = getelementptr inbounds i8, ptr %1, i64 2488
+  %146 = getelementptr inbounds nuw i8, ptr %1, i64 2488
   %147 = load i64, ptr %146, align 8
-  %148 = getelementptr inbounds i8, ptr %1, i64 2500
+  %148 = getelementptr inbounds nuw i8, ptr %1, i64 2500
   store i32 64, ptr %148, align 4
   %149 = or i64 %147, 8480
   store i64 %149, ptr %146, align 8
@@ -1211,7 +1211,7 @@ thread-pre-split167:                              ; preds = %145
   ]
 
 152:                                              ; preds = %.thread165, %.thread165
-  %153 = getelementptr inbounds i8, ptr %1, i64 2488
+  %153 = getelementptr inbounds nuw i8, ptr %1, i64 2488
   %154 = load i64, ptr %153, align 8
   %155 = or i64 %154, 270336
   store i64 %155, ptr %153, align 8
@@ -1237,7 +1237,7 @@ thread-pre-split167:                              ; preds = %145
   ]
 
 .thread45:                                        ; preds = %.thread46, %.thread46, %.thread46, %.thread46, %.thread46, %.thread46, %.thread46, %.thread46
-  %158 = getelementptr inbounds i8, ptr %1, i64 2488
+  %158 = getelementptr inbounds nuw i8, ptr %1, i64 2488
   %159 = load i64, ptr %158, align 8
   %160 = or i64 %159, 1048576
   store i64 %160, ptr %158, align 8
@@ -1251,7 +1251,7 @@ thread-pre-split167:                              ; preds = %145
   br i1 %163, label %164, label %.thread170
 
 164:                                              ; preds = %.thread45.thread
-  %165 = getelementptr inbounds i8, ptr %1, i64 2488
+  %165 = getelementptr inbounds nuw i8, ptr %1, i64 2488
   %166 = load i64, ptr %165, align 8
   %167 = or i64 %166, 4194304
   store i64 %167, ptr %165, align 8
@@ -1272,7 +1272,7 @@ thread-pre-split172:                              ; preds = %164
   ]
 
 .thread53:                                        ; preds = %.thread170, %.thread170, %.thread170
-  %170 = getelementptr inbounds i8, ptr %1, i64 2488
+  %170 = getelementptr inbounds nuw i8, ptr %1, i64 2488
   %171 = load i64, ptr %170, align 8
   %172 = or i64 %171, 2147483648
   store i64 %172, ptr %170, align 8
@@ -1295,7 +1295,7 @@ thread-pre-split172:                              ; preds = %164
   ]
 
 175:                                              ; preds = %.thread56, %.thread56, %.thread56, %.thread56, %.thread56
-  %176 = getelementptr inbounds i8, ptr %1, i64 2488
+  %176 = getelementptr inbounds nuw i8, ptr %1, i64 2488
   %177 = load i64, ptr %176, align 8
   %178 = or i64 %177, 16777216
   store i64 %178, ptr %176, align 8
@@ -1311,7 +1311,7 @@ thread-pre-split172:                              ; preds = %164
   ]
 
 .thread61:                                        ; preds = %.thread174, %.thread174
-  %181 = getelementptr inbounds i8, ptr %1, i64 2488
+  %181 = getelementptr inbounds nuw i8, ptr %1, i64 2488
   %182 = load i64, ptr %181, align 8
   %183 = or i64 %182, 17592186044416
   store i64 %183, ptr %181, align 8
@@ -1340,7 +1340,7 @@ thread-pre-split172:                              ; preds = %164
   ]
 
 186:                                              ; preds = %.thread64, %.thread64, %.thread64, %.thread64, %.thread64, %.thread64, %.thread64, %.thread64, %.thread64, %.thread64, %.thread64
-  %187 = getelementptr inbounds i8, ptr %1, i64 2488
+  %187 = getelementptr inbounds nuw i8, ptr %1, i64 2488
   %188 = load i64, ptr %187, align 8
   %189 = or i64 %188, 8589934592
   store i64 %189, ptr %187, align 8
@@ -1359,7 +1359,7 @@ thread-pre-split172:                              ; preds = %164
   br i1 %195, label %196, label %.thread205
 
 196:                                              ; preds = %192
-  %197 = getelementptr inbounds i8, ptr %1, i64 2488
+  %197 = getelementptr inbounds nuw i8, ptr %1, i64 2488
   %198 = load i64, ptr %197, align 8
   %199 = or i64 %198, 525440
   store i64 %199, ptr %197, align 8
@@ -1378,7 +1378,7 @@ thread-pre-split172:                              ; preds = %164
   br i1 %206, label %207, label %.thread179
 
 207:                                              ; preds = %203
-  %208 = getelementptr inbounds i8, ptr %1, i64 2488
+  %208 = getelementptr inbounds nuw i8, ptr %1, i64 2488
   %209 = load i64, ptr %208, align 8
   %210 = or i64 %209, 4294968320
   store i64 %210, ptr %208, align 8
@@ -1396,7 +1396,7 @@ thread-pre-split181:                              ; preds = %207
   br i1 %213, label %214, label %.thread205
 
 214:                                              ; preds = %.thread179
-  %215 = getelementptr inbounds i8, ptr %1, i64 2488
+  %215 = getelementptr inbounds nuw i8, ptr %1, i64 2488
   %216 = load i64, ptr %215, align 8
   %217 = or i64 %216, 4294967424
   store i64 %217, ptr %215, align 8
@@ -1409,7 +1409,7 @@ thread-pre-split181:                              ; preds = %207
   br i1 %219, label %220, label %.thread75
 
 220:                                              ; preds = %.thread70
-  %221 = getelementptr inbounds i8, ptr %1, i64 2488
+  %221 = getelementptr inbounds nuw i8, ptr %1, i64 2488
   %222 = load i64, ptr %221, align 8
   %223 = or i64 %222, 128
   store i64 %223, ptr %221, align 8
@@ -1424,7 +1424,7 @@ thread-pre-split181:                              ; preds = %207
   br i1 %228, label %229, label %.thread187
 
 229:                                              ; preds = %225
-  %230 = getelementptr inbounds i8, ptr %1, i64 2488
+  %230 = getelementptr inbounds nuw i8, ptr %1, i64 2488
   %231 = load i64, ptr %230, align 8
   %232 = or i64 %231, 524288
   store i64 %232, ptr %230, align 8
@@ -1442,7 +1442,7 @@ thread-pre-split189:                              ; preds = %229
   br i1 %235, label %236, label %.thread205
 
 236:                                              ; preds = %.thread187
-  %237 = getelementptr inbounds i8, ptr %1, i64 2488
+  %237 = getelementptr inbounds nuw i8, ptr %1, i64 2488
   %238 = load i64, ptr %237, align 8
   %239 = or i64 %238, 2048
   store i64 %239, ptr %237, align 8
@@ -1461,7 +1461,7 @@ thread-pre-split189:                              ; preds = %229
   br i1 %245, label %246, label %.thread194
 
 246:                                              ; preds = %242
-  %247 = getelementptr inbounds i8, ptr %1, i64 2488
+  %247 = getelementptr inbounds nuw i8, ptr %1, i64 2488
   %248 = load i64, ptr %247, align 8
   %249 = or i64 %248, 524304
   store i64 %249, ptr %247, align 8
@@ -1476,7 +1476,7 @@ thread-pre-split189:                              ; preds = %229
   br i1 %253, label %254, label %.thread195
 
 254:                                              ; preds = %.thread194
-  %255 = getelementptr inbounds i8, ptr %1, i64 2488
+  %255 = getelementptr inbounds nuw i8, ptr %1, i64 2488
   %256 = load i64, ptr %255, align 8
   %257 = or i64 %256, 8389632
   store i64 %257, ptr %255, align 8
@@ -1497,7 +1497,7 @@ thread-pre-split197:                              ; preds = %254
   ]
 
 260:                                              ; preds = %.thread195, %.thread195, %.thread195
-  %261 = getelementptr inbounds i8, ptr %1, i64 2488
+  %261 = getelementptr inbounds nuw i8, ptr %1, i64 2488
   %262 = load i64, ptr %261, align 8
   %263 = or i64 %262, 8388608
   store i64 %263, ptr %261, align 8
@@ -1515,7 +1515,7 @@ thread-pre-split197:                              ; preds = %254
   br i1 %266, label %267, label %.thread205
 
 267:                                              ; preds = %.thread84
-  %268 = getelementptr inbounds i8, ptr %1, i64 2488
+  %268 = getelementptr inbounds nuw i8, ptr %1, i64 2488
   %269 = load i64, ptr %268, align 8
   %270 = or i64 %269, 268435456
   store i64 %270, ptr %268, align 8
@@ -1534,7 +1534,7 @@ thread-pre-split85:                               ; preds = %.thread75, %267, %2
   br i1 %276, label %277, label %.thread205
 
 277:                                              ; preds = %273
-  %278 = getelementptr inbounds i8, ptr %1, i64 2488
+  %278 = getelementptr inbounds nuw i8, ptr %1, i64 2488
   %279 = load i64, ptr %278, align 8
   %280 = or i64 %279, 67108864
   store i64 %280, ptr %278, align 8
@@ -1555,7 +1555,7 @@ thread-pre-split85.thread212:                     ; preds = %277, %thread-pre-sp
   br i1 %285, label %286, label %.thread205
 
 286:                                              ; preds = %282
-  %287 = getelementptr inbounds i8, ptr %1, i64 2488
+  %287 = getelementptr inbounds nuw i8, ptr %1, i64 2488
   %288 = load i64, ptr %287, align 8
   %289 = or i64 %288, 17179869184
   store i64 %289, ptr %287, align 8
@@ -1576,7 +1576,7 @@ thread-pre-split87.thread215:                     ; preds = %.thread34.thread, %
   ]
 
 294:                                              ; preds = %thread-pre-split87.thread215, %thread-pre-split87.thread215
-  %295 = getelementptr inbounds i8, ptr %1, i64 2488
+  %295 = getelementptr inbounds nuw i8, ptr %1, i64 2488
   %296 = load i64, ptr %295, align 8
   %297 = or i64 %296, 1099511627776
   store i64 %297, ptr %295, align 8
@@ -1589,7 +1589,7 @@ thread-pre-split87.thread215:                     ; preds = %.thread34.thread, %
   br i1 %300, label %301, label %.thread205
 
 301:                                              ; preds = %298
-  %302 = getelementptr inbounds i8, ptr %1, i64 2488
+  %302 = getelementptr inbounds nuw i8, ptr %1, i64 2488
   %303 = load i64, ptr %302, align 8
   %304 = or i64 %303, 70368744179712
   store i64 %304, ptr %302, align 8
@@ -1616,10 +1616,10 @@ thread-pre-split87.thread215:                     ; preds = %.thread34.thread, %
   br label %.thread205
 
 .thread205:                                       ; preds = %.thread153, %.thread179, %192, %.thread64, %.thread187, %.thread84, %273, %282, %thread-pre-split87.thread215, %314, %310, %298
-  %316 = getelementptr inbounds i8, ptr %1, i64 74
+  %316 = getelementptr inbounds nuw i8, ptr %1, i64 74
   %317 = load i16, ptr %316, align 2
   %318 = icmp ugt i16 %317, 287
-  %319 = getelementptr inbounds i8, ptr %1, i64 2488
+  %319 = getelementptr inbounds nuw i8, ptr %1, i64 2488
   %320 = load i64, ptr %319, align 8
   br i1 %318, label %321, label %._crit_edge
 
@@ -1673,7 +1673,7 @@ define internal void @trace_xhci_dbg_quirks(ptr noundef %0) #3 align 16 {
   br i1 %10, label %15, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %9, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 @__SCT__tp_func_xhci_dbg_quirks(ptr noundef %13, ptr noundef %0) #10
   br label %15
@@ -1754,7 +1754,7 @@ define internal void @trace_xhci_dbg_init(ptr noundef %0) #3 align 16 {
   br i1 %10, label %15, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %9, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 @__SCT__tp_func_xhci_dbg_init(ptr noundef %13, ptr noundef %0) #10
   br label %15
@@ -1839,31 +1839,31 @@ declare dso_local void @xhci_stop(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @xhci_pci_probe(ptr noundef %0, ptr nocapture readonly %1) #2 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 184
-  %4 = getelementptr inbounds i8, ptr %0, i64 616
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4, ptr elementtype(i32) %4) #10, !srcloc !26
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 616
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, ptr nonnull elementtype(i32) %4) #10, !srcloc !26
   %5 = tail call i32 @usb_hcd_pci_probe(ptr noundef %0, ptr noundef nonnull @xhci_pci_hc_driver) #10
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %82
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 304
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 @usb_hcd_is_primary_hcd(ptr noundef %9) #10
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %9, i64 552
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 552
   %14 = load ptr, ptr %13, align 8
   br label %15
 
 15:                                               ; preds = %12, %7
   %16 = phi ptr [ %14, %12 ], [ %9, %7 ]
-  %17 = getelementptr inbounds i8, ptr %16, i64 608
-  %18 = getelementptr inbounds i8, ptr %16, i64 736
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 608
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 736
   store ptr null, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 264
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %24
@@ -1874,34 +1874,34 @@ define internal i32 @xhci_pci_probe(ptr noundef %0, ptr nocapture readonly %1) #
 
 24:                                               ; preds = %22, %15
   %25 = phi ptr [ %23, %22 ], [ %20, %15 ]
-  %26 = tail call ptr @usb_create_shared_hcd(ptr noundef nonnull @xhci_pci_hc_driver, ptr noundef %3, ptr noundef %25, ptr noundef %9) #10
-  %27 = getelementptr inbounds i8, ptr %16, i64 616
+  %26 = tail call ptr @usb_create_shared_hcd(ptr noundef nonnull @xhci_pci_hc_driver, ptr noundef nonnull %3, ptr noundef %25, ptr noundef %9) #10
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 616
   store ptr %26, ptr %27, align 8
   %28 = icmp eq ptr %26, null
   br i1 %28, label %80, label %29
 
 29:                                               ; preds = %24
-  %30 = tail call i32 @xhci_ext_cap_init(ptr noundef %17) #10
+  %30 = tail call i32 @xhci_ext_cap_init(ptr noundef nonnull %17) #10
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %77
 
 32:                                               ; preds = %29
   %33 = load ptr, ptr %27, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 916
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 916
   %35 = load i32, ptr %34, align 4
   %36 = tail call i32 @usb_add_hcd(ptr noundef %33, i32 noundef %35, i64 noundef 128) #10
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %38, label %77
 
 38:                                               ; preds = %32
-  %39 = getelementptr inbounds i8, ptr %16, i64 3096
+  %39 = getelementptr inbounds nuw i8, ptr %16, i64 3096
   %40 = load i64, ptr %39, align 8
   %41 = and i64 %40, 524288
   %42 = icmp eq i64 %41, 0
   br i1 %42, label %43, label %52
 
 43:                                               ; preds = %38
-  %44 = getelementptr inbounds i8, ptr %16, i64 668
+  %44 = getelementptr inbounds nuw i8, ptr %16, i64 668
   %45 = load i32, ptr %44, align 4
   %46 = and i32 %45, 61440
   %.not = icmp eq i32 %46, 0
@@ -1909,7 +1909,7 @@ define internal i32 @xhci_pci_probe(ptr noundef %0, ptr nocapture readonly %1) #
 
 47:                                               ; preds = %43
   %48 = load ptr, ptr %27, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 340
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 340
   %50 = load i16, ptr %49, align 4
   %51 = or i16 %50, 256
   store i16 %51, ptr %49, align 4
@@ -1923,7 +1923,7 @@ define internal i32 @xhci_pci_probe(ptr noundef %0, ptr nocapture readonly %1) #
 .lr.ph:                                           ; preds = %52, %61
   %55 = phi i32 [ %62, %61 ], [ %53, %52 ]
   %56 = add i32 %55, -1
-  %57 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4, i32 %56, ptr elementtype(i32) %4, i32 %55) #10, !srcloc !28
+  %57 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 %56, ptr nonnull elementtype(i32) %4, i32 %55) #10, !srcloc !28
   %58 = extractvalue { i8, i32 } %57, 0
   %59 = icmp ult i8 %58, 2
   tail call void @llvm.assume(i1 %59)
@@ -1941,7 +1941,7 @@ define internal i32 @xhci_pci_probe(ptr noundef %0, ptr nocapture readonly %1) #
   br i1 %65, label %66, label %67
 
 66:                                               ; preds = %.thread
-  tail call void @pm_runtime_forbid(ptr noundef %3) #10
+  tail call void @pm_runtime_forbid(ptr noundef nonnull %3) #10
   br label %72
 
 67:                                               ; preds = %.thread
@@ -1951,11 +1951,11 @@ define internal i32 @xhci_pci_probe(ptr noundef %0, ptr nocapture readonly %1) #
   br i1 %70, label %72, label %71
 
 71:                                               ; preds = %67
-  tail call void @pm_runtime_allow(ptr noundef %3) #10
+  tail call void @pm_runtime_allow(ptr noundef nonnull %3) #10
   br label %72
 
 72:                                               ; preds = %71, %67, %66
-  %73 = getelementptr inbounds i8, ptr %0, i64 776
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %74 = load ptr, ptr %73, align 8
   %75 = icmp eq ptr %74, null
   br i1 %75, label %.thread7, label %76
@@ -1984,7 +1984,7 @@ define internal i32 @xhci_pci_probe(ptr noundef %0, ptr nocapture readonly %1) #
 .lr.ph9:                                          ; preds = %82, %92
   %86 = phi i32 [ %93, %92 ], [ %84, %82 ]
   %87 = add i32 %86, -1
-  %88 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4, i32 %87, ptr elementtype(i32) %4, i32 %86) #10, !srcloc !28
+  %88 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 %87, ptr nonnull elementtype(i32) %4, i32 %86) #10, !srcloc !28
   %89 = extractvalue { i8, i32 } %88, 0
   %90 = icmp ult i8 %89, 2
   tail call void @llvm.assume(i1 %90)
@@ -2003,36 +2003,36 @@ define internal i32 @xhci_pci_probe(ptr noundef %0, ptr nocapture readonly %1) #
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @xhci_pci_remove(ptr noundef %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 304
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @usb_hcd_is_primary_hcd(ptr noundef %3) #10
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %3, i64 552
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 552
   %8 = load ptr, ptr %7, align 8
   br label %9
 
 9:                                                ; preds = %6, %1
   %10 = phi ptr [ %8, %6 ], [ %3, %1 ]
-  %11 = getelementptr inbounds i8, ptr %10, i64 3056
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 3056
   %12 = load i32, ptr %11, align 8
   %13 = or i32 %12, 4
   store i32 %13, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %10, i64 3096
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 3096
   %15 = load i64, ptr %14, align 8
   %16 = and i64 %15, 8589934592
   %17 = icmp eq i64 %16, 0
   br i1 %17, label %20, label %18
 
 18:                                               ; preds = %9
-  %19 = getelementptr inbounds i8, ptr %0, i64 184
-  tail call void @pm_runtime_forbid(ptr noundef %19) #10
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  tail call void @pm_runtime_forbid(ptr noundef nonnull %19) #10
   br label %20
 
 20:                                               ; preds = %18, %9
-  %21 = getelementptr inbounds i8, ptr %10, i64 616
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 616
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %26, label %24

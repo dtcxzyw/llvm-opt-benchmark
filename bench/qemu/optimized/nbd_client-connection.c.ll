@@ -41,7 +41,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define dso_local void @nbd_client_connection_enable_retry(ptr nocapture noundef writeonly initializes((113, 114)) %conn) local_unnamed_addr #0 {
 entry:
-  %do_retry = getelementptr inbounds i8, ptr %conn, i64 113
+  %do_retry = getelementptr inbounds nuw i8, ptr %conn, i64 113
   store i8 1, ptr %do_retry, align 1
   ret void
 }
@@ -59,29 +59,29 @@ entry:
   %..str = select i1 %tobool.not, ptr @.str, ptr %export_name
   %call9 = tail call noalias ptr @g_strdup(ptr noundef nonnull %..str) #10
   store ptr %call3, ptr %call, align 8
-  %.compoundliteral.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %call, i64 8
+  %.compoundliteral.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %tlscreds, ptr %.compoundliteral.sroa.3.0..sroa_idx, align 8
-  %.compoundliteral.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %call, i64 16
+  %.compoundliteral.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr %call6, ptr %.compoundliteral.sroa.4.0..sroa_idx, align 8
-  %.compoundliteral.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %call, i64 24
+  %.compoundliteral.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %call, i64 24
   store i8 1, ptr %.compoundliteral.sroa.5.0..sroa_idx, align 8
-  %.compoundliteral.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %call, i64 25
+  %.compoundliteral.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %call, i64 25
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.compoundliteral.sroa.6.0..sroa_idx, i8 0, i64 7, i1 false)
-  %.compoundliteral.sroa.61.0..sroa_idx = getelementptr inbounds i8, ptr %call, i64 32
+  %.compoundliteral.sroa.61.0..sroa_idx = getelementptr inbounds nuw i8, ptr %call, i64 32
   store ptr %call8, ptr %.compoundliteral.sroa.61.0..sroa_idx, align 8
-  %.compoundliteral.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %call, i64 40
+  %.compoundliteral.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %call, i64 40
   store ptr %call9, ptr %.compoundliteral.sroa.7.0..sroa_idx, align 8
-  %.compoundliteral.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %call, i64 48
+  %.compoundliteral.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %call, i64 48
   store i32 4, ptr %.compoundliteral.sroa.8.0..sroa_idx, align 8
-  %.compoundliteral.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %call, i64 52
+  %.compoundliteral.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %call, i64 52
   store i8 1, ptr %.compoundliteral.sroa.9.0..sroa_idx, align 4
-  %.compoundliteral.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %call, i64 53
+  %.compoundliteral.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %call, i64 53
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(59) %.compoundliteral.sroa.10.0..sroa_idx, i8 0, i64 59, i1 false)
-  %.compoundliteral.sroa.102.0..sroa_idx = getelementptr inbounds i8, ptr %call, i64 112
+  %.compoundliteral.sroa.102.0..sroa_idx = getelementptr inbounds nuw i8, ptr %call, i64 112
   store i8 %frombool, ptr %.compoundliteral.sroa.102.0..sroa_idx, align 8
-  %.compoundliteral.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %call, i64 113
+  %.compoundliteral.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %call, i64 113
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(183) %.compoundliteral.sroa.11.0..sroa_idx, i8 0, i64 183, i1 false)
-  %mutex = getelementptr inbounds i8, ptr %call, i64 120
+  %mutex = getelementptr inbounds nuw i8, ptr %call, i64 120
   tail call void @qemu_mutex_init(ptr noundef nonnull %mutex) #10
   ret ptr %call
 }
@@ -112,18 +112,18 @@ entry:
   br i1 %tobool.not, label %if.end18, label %for.body.us
 
 for.body.us:                                      ; preds = %entry
-  %mutex = getelementptr inbounds i8, ptr %conn, i64 120
+  %mutex = getelementptr inbounds nuw i8, ptr %conn, i64 120
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
   tail call void %1(ptr noundef nonnull %mutex, ptr noundef nonnull @.str.10, i32 noundef 122) #10
-  %detached = getelementptr inbounds i8, ptr %conn, i64 281
-  %sioc = getelementptr inbounds i8, ptr %conn, i64 256
+  %detached = getelementptr inbounds nuw i8, ptr %conn, i64 281
+  %sioc = getelementptr inbounds nuw i8, ptr %conn, i64 256
   %2 = load i8, ptr %detached, align 1
   %tobool2.us = trunc i8 %2 to i1
   br i1 %tobool2.us, label %if.else, label %if.end4.us
 
 if.end4.us:                                       ; preds = %for.body.us
-  %running = getelementptr inbounds i8, ptr %conn, i64 280
+  %running = getelementptr inbounds nuw i8, ptr %conn, i64 280
   %3 = load i8, ptr %running, align 8
   %tobool5.us = trunc i8 %3 to i1
   br i1 %tobool5.us, label %if.then6.us, label %if.end9.us
@@ -166,7 +166,7 @@ declare i32 @qio_channel_shutdown(ptr noundef, i32 noundef, ptr noundef) local_u
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @nbd_client_connection_do_free(ptr noundef %conn) unnamed_addr #1 {
 entry:
-  %sioc = getelementptr inbounds i8, ptr %conn, i64 256
+  %sioc = getelementptr inbounds nuw i8, ptr %conn, i64 256
   %0 = load ptr, ptr %sioc, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -179,21 +179,21 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %err = getelementptr inbounds i8, ptr %conn, i64 272
+  %err = getelementptr inbounds nuw i8, ptr %conn, i64 272
   %2 = load ptr, ptr %err, align 8
   tail call void @error_free(ptr noundef %2) #10
   %3 = load ptr, ptr %conn, align 8
   tail call void @qapi_free_SocketAddress(ptr noundef %3) #10
-  %tlshostname = getelementptr inbounds i8, ptr %conn, i64 16
+  %tlshostname = getelementptr inbounds nuw i8, ptr %conn, i64 16
   %4 = load ptr, ptr %tlshostname, align 8
   tail call void @g_free(ptr noundef %4) #10
-  %tlscreds = getelementptr inbounds i8, ptr %conn, i64 8
+  %tlscreds = getelementptr inbounds nuw i8, ptr %conn, i64 8
   %5 = load ptr, ptr %tlscreds, align 8
   tail call void @object_unref(ptr noundef %5) #10
-  %x_dirty_bitmap = getelementptr inbounds i8, ptr %conn, i64 32
+  %x_dirty_bitmap = getelementptr inbounds nuw i8, ptr %conn, i64 32
   %6 = load ptr, ptr %x_dirty_bitmap, align 8
   tail call void @g_free(ptr noundef %6) #10
-  %name = getelementptr inbounds i8, ptr %conn, i64 40
+  %name = getelementptr inbounds nuw i8, ptr %conn, i64 40
   %7 = load ptr, ptr %name, align 8
   tail call void @g_free(ptr noundef %7) #10
   tail call void @g_free(ptr noundef nonnull %conn) #10
@@ -204,7 +204,7 @@ if.end:                                           ; preds = %if.then, %entry
 define dso_local ptr @nbd_co_establish_connection(ptr noundef %conn, ptr noundef writeonly %info, i1 noundef zeroext %blocking, ptr noundef %errp) #1 {
 entry:
   %thread = alloca %struct.QemuThread, align 8
-  %do_negotiation = getelementptr inbounds i8, ptr %conn, i64 112
+  %do_negotiation = getelementptr inbounds nuw i8, ptr %conn, i64 112
   %0 = load i8, ptr %do_negotiation, align 8
   %tobool = trunc i8 %0 to i1
   %tobool1 = icmp eq ptr %info, null
@@ -216,13 +216,13 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end3:                                          ; preds = %entry
-  %mutex = getelementptr inbounds i8, ptr %conn, i64 120
+  %mutex = getelementptr inbounds nuw i8, ptr %conn, i64 120
   %1 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %2 = inttoptr i64 %1 to ptr
   tail call void %2(ptr noundef nonnull %mutex, ptr noundef nonnull @.str.10, i32 noundef 122) #10
-  %wait_co = getelementptr inbounds i8, ptr %conn, i64 288
-  %running = getelementptr inbounds i8, ptr %conn, i64 280
-  %sioc = getelementptr inbounds i8, ptr %conn, i64 256
+  %wait_co = getelementptr inbounds nuw i8, ptr %conn, i64 288
+  %running = getelementptr inbounds nuw i8, ptr %conn, i64 280
+  %sioc = getelementptr inbounds nuw i8, ptr %conn, i64 256
   %3 = load ptr, ptr %wait_co, align 8
   %tobool5.not.us.us = icmp eq ptr %3, null
   br i1 %blocking, label %for.body.us.us, label %for.body
@@ -255,7 +255,7 @@ if.end34.us.us:                                   ; preds = %if.end32.us.us, %if
   call void %7(ptr noundef nonnull %mutex, ptr noundef nonnull @.str.10, i32 noundef 122) #10
   %8 = load i8, ptr %running, align 8
   %tobool57 = trunc i8 %8 to i1
-  %err59 = getelementptr inbounds i8, ptr %conn, i64 272
+  %err59 = getelementptr inbounds nuw i8, ptr %conn, i64 272
   %9 = load ptr, ptr %err59, align 8
   %tobool60.not = icmp eq ptr %9, null
   br i1 %tobool57, label %if.then58, label %if.else66
@@ -284,9 +284,9 @@ if.then12:                                        ; preds = %if.then10, %if.then
   br i1 %tobool14, label %if.then15, label %if.end23
 
 if.then15:                                        ; preds = %if.then12
-  %updated_info = getelementptr inbounds i8, ptr %conn, i64 168
+  %updated_info = getelementptr inbounds nuw i8, ptr %conn, i64 168
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %info, ptr noundef nonnull align 8 dereferenceable(88) %updated_info, i64 88, i1 false)
-  %ioc = getelementptr inbounds i8, ptr %conn, i64 264
+  %ioc = getelementptr inbounds nuw i8, ptr %conn, i64 264
   %14 = load ptr, ptr %ioc, align 8
   %tobool16.not = icmp eq ptr %14, null
   %.pre74 = load ptr, ptr %sioc, align 8
@@ -300,7 +300,7 @@ if.then17:                                        ; preds = %if.then15
   br label %return
 
 if.end23:                                         ; preds = %if.then12
-  %ioc24.phi.trans.insert = getelementptr inbounds i8, ptr %conn, i64 264
+  %ioc24.phi.trans.insert = getelementptr inbounds nuw i8, ptr %conn, i64 264
   %.pre = load ptr, ptr %ioc24.phi.trans.insert, align 8
   %16 = icmp eq ptr %.pre, null
   br i1 %16, label %if.end28, label %if.else27
@@ -321,7 +321,7 @@ if.end32:                                         ; preds = %if.then10
   br label %if.then36
 
 if.then36:                                        ; preds = %if.end8, %if.end32
-  %err = getelementptr inbounds i8, ptr %conn, i64 272
+  %err = getelementptr inbounds nuw i8, ptr %conn, i64 272
   %18 = load ptr, ptr %err, align 8
   %tobool37.not = icmp eq ptr %18, null
   br i1 %tobool37.not, label %if.else41, label %if.then38
@@ -371,9 +371,9 @@ if.end81:                                         ; preds = %if.end75
   br i1 %tobool83, label %if.then84, label %if.end94
 
 if.then84:                                        ; preds = %if.end81
-  %updated_info85 = getelementptr inbounds i8, ptr %conn, i64 168
+  %updated_info85 = getelementptr inbounds nuw i8, ptr %conn, i64 168
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %info, ptr noundef nonnull align 8 dereferenceable(88) %updated_info85, i64 88, i1 false)
-  %ioc86 = getelementptr inbounds i8, ptr %conn, i64 264
+  %ioc86 = getelementptr inbounds nuw i8, ptr %conn, i64 264
   %22 = load ptr, ptr %ioc86, align 8
   %tobool87.not = icmp eq ptr %22, null
   %.pre75 = load ptr, ptr %sioc, align 8
@@ -387,7 +387,7 @@ if.then88:                                        ; preds = %if.then84
   br label %return
 
 if.end94:                                         ; preds = %if.end81
-  %ioc95.phi.trans.insert = getelementptr inbounds i8, ptr %conn, i64 264
+  %ioc95.phi.trans.insert = getelementptr inbounds nuw i8, ptr %conn, i64 264
   %.pre71 = load ptr, ptr %ioc95.phi.trans.insert, align 8
   %24 = icmp eq ptr %.pre71, null
   br i1 %24, label %if.end99, label %if.else98
@@ -419,25 +419,25 @@ entry:
   %local_err = alloca ptr, align 8
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
-  %mutex = getelementptr inbounds i8, ptr %opaque, i64 120
+  %mutex = getelementptr inbounds nuw i8, ptr %opaque, i64 120
   tail call void %1(ptr noundef nonnull %mutex, ptr noundef nonnull @.str.2, i32 noundef 179) #10
-  %detached = getelementptr inbounds i8, ptr %opaque, i64 281
+  %detached = getelementptr inbounds nuw i8, ptr %opaque, i64 281
   %2 = load i8, ptr %detached, align 1
   %tobool38 = trunc i8 %2 to i1
   br i1 %tobool38, label %while.end47, label %while.body2.lr.ph
 
 while.body2.lr.ph:                                ; preds = %entry
-  %sioc = getelementptr inbounds i8, ptr %opaque, i64 256
-  %updated_info = getelementptr inbounds i8, ptr %opaque, i64 168
-  %initial_info = getelementptr inbounds i8, ptr %opaque, i64 24
-  %do_negotiation = getelementptr inbounds i8, ptr %opaque, i64 112
-  %tlscreds = getelementptr inbounds i8, ptr %opaque, i64 8
-  %tlshostname = getelementptr inbounds i8, ptr %opaque, i64 16
-  %ioc = getelementptr inbounds i8, ptr %opaque, i64 264
-  %x_dirty_bitmap = getelementptr inbounds i8, ptr %opaque, i64 176
-  %err = getelementptr inbounds i8, ptr %opaque, i64 272
-  %do_retry = getelementptr inbounds i8, ptr %opaque, i64 113
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %sioc = getelementptr inbounds nuw i8, ptr %opaque, i64 256
+  %updated_info = getelementptr inbounds nuw i8, ptr %opaque, i64 168
+  %initial_info = getelementptr inbounds nuw i8, ptr %opaque, i64 24
+  %do_negotiation = getelementptr inbounds nuw i8, ptr %opaque, i64 112
+  %tlscreds = getelementptr inbounds nuw i8, ptr %opaque, i64 8
+  %tlshostname = getelementptr inbounds nuw i8, ptr %opaque, i64 16
+  %ioc = getelementptr inbounds nuw i8, ptr %opaque, i64 264
+  %x_dirty_bitmap = getelementptr inbounds nuw i8, ptr %opaque, i64 176
+  %err = getelementptr inbounds nuw i8, ptr %opaque, i64 272
+  %do_retry = getelementptr inbounds nuw i8, ptr %opaque, i64 113
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   br label %while.body2
 
 while.body2:                                      ; preds = %while.body2.lr.ph, %trace_nbd_connect_thread_sleep.exit
@@ -577,7 +577,7 @@ trace_nbd_connect_thread_sleep.exit:              ; preds = %if.then29, %land.lh
   br i1 %tobool, label %while.end47, label %while.body2, !llvm.loop !5
 
 while.end47:                                      ; preds = %trace_nbd_connect_thread_sleep.exit, %if.then23.critedge, %land.lhs.true, %nbd_connect.exit, %entry
-  %running = getelementptr inbounds i8, ptr %opaque, i64 280
+  %running = getelementptr inbounds nuw i8, ptr %opaque, i64 280
   %31 = load i8, ptr %running, align 8
   %tobool48 = trunc i8 %31 to i1
   br i1 %tobool48, label %if.end51, label %if.else50
@@ -588,7 +588,7 @@ if.else50:                                        ; preds = %while.end47
 
 if.end51:                                         ; preds = %while.end47
   store i8 0, ptr %running, align 8
-  %wait_co = getelementptr inbounds i8, ptr %opaque, i64 288
+  %wait_co = getelementptr inbounds nuw i8, ptr %opaque, i64 288
   %32 = load ptr, ptr %wait_co, align 8
   %tobool53.not = icmp eq ptr %32, null
   br i1 %tobool53.not, label %if.end57, label %if.then54
@@ -625,11 +625,11 @@ declare void @qemu_coroutine_yield() #3
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @nbd_co_establish_connection_cancel(ptr noundef %conn) local_unnamed_addr #1 {
 qemu_lockable_auto_unlock.exit.us:
-  %mutex = getelementptr inbounds i8, ptr %conn, i64 120
+  %mutex = getelementptr inbounds nuw i8, ptr %conn, i64 120
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
   tail call void %1(ptr noundef nonnull %mutex, ptr noundef nonnull @.str.10, i32 noundef 122) #10
-  %wait_co1 = getelementptr inbounds i8, ptr %conn, i64 288
+  %wait_co1 = getelementptr inbounds nuw i8, ptr %conn, i64 288
   %2 = load ptr, ptr %wait_co1, align 8
   store ptr null, ptr %wait_co1, align 8
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex, ptr noundef nonnull @.str.10, i32 noundef 132) #10

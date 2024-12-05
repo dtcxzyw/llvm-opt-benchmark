@@ -44,7 +44,7 @@ define hidden void @_ZN4llvm15AllocationOrder6createEjRKNS_10VirtRegMapERKNS_17R
   %14 = and i32 %1, 2147483647
   %15 = zext nneg i32 %14 to i64
   %16 = load ptr, ptr %13, align 8
-  %17 = getelementptr inbounds %"struct.std::pair", ptr %16, i64 %15
+  %17 = getelementptr inbounds nuw %"struct.std::pair", ptr %16, i64 %15
   %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %17, align 8
   %18 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
   %19 = inttoptr i64 %18 to ptr
@@ -53,7 +53,7 @@ define hidden void @_ZN4llvm15AllocationOrder6createEjRKNS_10VirtRegMapERKNS_17R
   %22 = load i16, ptr %21, align 8
   %23 = zext i16 %22 to i64
   %24 = load ptr, ptr %3, align 8
-  %25 = getelementptr inbounds %"struct.llvm::RegisterClassInfo::RCInfo", ptr %24, i64 %23
+  %25 = getelementptr inbounds nuw %"struct.llvm::RegisterClassInfo::RCInfo", ptr %24, i64 %23
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %27 = load i32, ptr %26, align 8
   %28 = load i32, ptr %25, align 8
@@ -70,13 +70,13 @@ _ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit: ; preds 
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %33 = load i32, ptr %32, align 4
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds i8, ptr %6, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 24
   call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull %35, i64 noundef 16) #5
   %36 = load ptr, ptr %10, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 384
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 384
   %38 = load ptr, ptr %37, align 8
   %39 = call noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(308) %10, i32 %1, ptr %31, i64 %34, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(1041) %8, ptr noundef nonnull %2, ptr noundef %4) #5
-  %40 = getelementptr inbounds i8, ptr %0, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef nonnull %40, i64 noundef 16) #5
   %41 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseImE5emptyEv(ptr noundef nonnull align 8 dereferenceable(56) %6) #5
   br i1 %41, label %_ZN4llvm15AllocationOrderC2EONS_11SmallVectorItLj16EEENS_8ArrayRefItEEb.exit, label %42
@@ -88,7 +88,7 @@ _ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit: ; preds 
 _ZN4llvm15AllocationOrderC2EONS_11SmallVectorItLj16EEENS_8ArrayRefItEEb.exit: ; preds = %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit, %42
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %31, ptr %44, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 64
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 %34, ptr %.sroa.2.0..sroa_idx.i, align 8
   %spec.select.i = select i1 %39, i32 0, i32 %33
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -120,14 +120,14 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm15S
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = icmp eq ptr %5, %6
   br i1 %7, label %21, label %8
 
 8:                                                ; preds = %4
   %9 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #5
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = icmp eq ptr %10, %11
   br i1 %12, label %_ZN4llvm15SmallVectorImplItE12assignRemoteEOS1_.exit, label %13
 
@@ -189,7 +189,7 @@ _ZSt4moveIPtS0_ET0_T_S2_S1_.exit:                 ; preds = %29, %26, %24
   %37 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #5
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %39, i64 noundef %22, i64 noundef 2) #5
   br label %_ZSt4moveIPtS0_ET0_T_S2_S1_.exit35
 

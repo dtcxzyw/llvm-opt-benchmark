@@ -71,53 +71,53 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %s, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #13
   store ptr null, ptr %data, align 8
   tail call void @mptsas_fix_config_endianness(ptr noundef %req) #13
-  %0 = getelementptr inbounds i8, ptr %reply, i64 1
+  %0 = getelementptr inbounds nuw i8, ptr %reply, i64 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %0, i8 0, i64 19, i1 false)
   %1 = load i8, ptr %req, align 1
   store i8 %1, ptr %reply, align 1
-  %Function = getelementptr inbounds i8, ptr %req, i64 3
+  %Function = getelementptr inbounds nuw i8, ptr %req, i64 3
   %2 = load i8, ptr %Function, align 1
-  %Function2 = getelementptr inbounds i8, ptr %reply, i64 3
+  %Function2 = getelementptr inbounds nuw i8, ptr %reply, i64 3
   store i8 %2, ptr %Function2, align 1
-  %MsgContext = getelementptr inbounds i8, ptr %req, i64 8
+  %MsgContext = getelementptr inbounds nuw i8, ptr %req, i64 8
   %3 = load i32, ptr %MsgContext, align 1
-  %MsgContext3 = getelementptr inbounds i8, ptr %reply, i64 8
+  %MsgContext3 = getelementptr inbounds nuw i8, ptr %reply, i64 8
   store i32 %3, ptr %MsgContext3, align 1
-  %MsgLength = getelementptr inbounds i8, ptr %reply, i64 2
+  %MsgLength = getelementptr inbounds nuw i8, ptr %reply, i64 2
   store i8 6, ptr %MsgLength, align 1
-  %PageType = getelementptr inbounds i8, ptr %req, i64 23
+  %PageType = getelementptr inbounds nuw i8, ptr %req, i64 23
   %4 = load i8, ptr %PageType, align 1
-  %PageType4 = getelementptr inbounds i8, ptr %reply, i64 23
+  %PageType4 = getelementptr inbounds nuw i8, ptr %reply, i64 23
   store i8 %4, ptr %PageType4, align 1
-  %PageNumber = getelementptr inbounds i8, ptr %req, i64 22
+  %PageNumber = getelementptr inbounds nuw i8, ptr %req, i64 22
   %5 = load i8, ptr %PageNumber, align 1
-  %PageNumber5 = getelementptr inbounds i8, ptr %reply, i64 22
+  %PageNumber5 = getelementptr inbounds nuw i8, ptr %reply, i64 22
   store i8 %5, ptr %PageNumber5, align 1
-  %PageLength = getelementptr inbounds i8, ptr %req, i64 21
+  %PageLength = getelementptr inbounds nuw i8, ptr %req, i64 21
   %6 = load i8, ptr %PageLength, align 1
-  %PageLength6 = getelementptr inbounds i8, ptr %reply, i64 21
+  %PageLength6 = getelementptr inbounds nuw i8, ptr %reply, i64 21
   store i8 %6, ptr %PageLength6, align 1
-  %PageVersion = getelementptr inbounds i8, ptr %req, i64 20
+  %PageVersion = getelementptr inbounds nuw i8, ptr %req, i64 20
   %7 = load i8, ptr %PageVersion, align 1
-  %PageVersion7 = getelementptr inbounds i8, ptr %reply, i64 20
+  %PageVersion7 = getelementptr inbounds nuw i8, ptr %reply, i64 20
   store i8 %7, ptr %PageVersion7, align 1
   %8 = and i8 %4, 15
   %cmp = icmp eq i8 %8, 15
   br i1 %cmp, label %if.then, label %if.end18
 
 if.then:                                          ; preds = %entry
-  %ExtPageType = getelementptr inbounds i8, ptr %req, i64 6
+  %ExtPageType = getelementptr inbounds nuw i8, ptr %req, i64 6
   %9 = load i8, ptr %ExtPageType, align 1
   %cmp13 = icmp ult i8 %9, 16
   br i1 %cmp13, label %if.then15, label %if.end
 
 if.then15:                                        ; preds = %if.then
-  %IOCStatus = getelementptr inbounds i8, ptr %reply, i64 14
+  %IOCStatus = getelementptr inbounds nuw i8, ptr %reply, i64 14
   store i16 33, ptr %IOCStatus, align 1
   br label %out
 
 if.end:                                           ; preds = %if.then
-  %ExtPageType17 = getelementptr inbounds i8, ptr %reply, i64 6
+  %ExtPageType17 = getelementptr inbounds nuw i8, ptr %reply, i64 6
   store i8 %9, ptr %ExtPageType17, align 1
   br label %if.end18
 
@@ -128,7 +128,7 @@ if.end18:                                         ; preds = %if.end, %entry
 for.body.i:                                       ; preds = %for.inc.i, %if.end18
   %indvars.iv.i = phi i64 [ 0, %if.end18 ], [ %indvars.iv.next.i, %for.inc.i ]
   %arrayidx.i = getelementptr [32 x %struct.MPTSASConfigPage], ptr @mptsas_config_pages, i64 0, i64 %indvars.iv.i
-  %type2.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 1
+  %type2.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 1
   %10 = load i8, ptr %type2.i, align 1
   %cmp4.i = icmp eq i8 %type.0, %10
   br i1 %cmp4.i, label %land.lhs.true.i, label %for.inc.i
@@ -152,14 +152,14 @@ mptsas_find_config_page.exit.thread:              ; preds = %for.inc.i
   br i1 %switch67, label %for.body.i52, label %sw.default
 
 sw.default:                                       ; preds = %mptsas_find_config_page.exit.thread, %mptsas_find_config_page.exit
-  %IOCStatus25 = getelementptr inbounds i8, ptr %reply, i64 14
+  %IOCStatus25 = getelementptr inbounds nuw i8, ptr %reply, i64 14
   store i16 32, ptr %IOCStatus25, align 1
   br label %out
 
 for.body.i52:                                     ; preds = %mptsas_find_config_page.exit.thread, %for.inc.i58
   %indvars.iv.i53 = phi i64 [ %indvars.iv.next.i59, %for.inc.i58 ], [ 0, %mptsas_find_config_page.exit.thread ]
   %arrayidx.i54 = getelementptr [32 x %struct.MPTSASConfigPage], ptr @mptsas_config_pages, i64 0, i64 %indvars.iv.i53
-  %type2.i55 = getelementptr inbounds i8, ptr %arrayidx.i54, i64 1
+  %type2.i55 = getelementptr inbounds nuw i8, ptr %arrayidx.i54, i64 1
   %12 = load i8, ptr %type2.i55, align 1
   %cmp4.i57 = icmp eq i8 %type.0, %12
   br i1 %cmp4.i57, label %land.lhs.true.i62, label %for.inc.i58
@@ -175,12 +175,12 @@ for.inc.i58:                                      ; preds = %land.lhs.true.i62, 
   br i1 %exitcond.not.i60, label %if.else, label %for.body.i52, !llvm.loop !5
 
 if.then30:                                        ; preds = %land.lhs.true.i62
-  %IOCStatus31 = getelementptr inbounds i8, ptr %reply, i64 14
+  %IOCStatus31 = getelementptr inbounds nuw i8, ptr %reply, i64 14
   store i16 34, ptr %IOCStatus31, align 1
   br label %out
 
 if.else:                                          ; preds = %for.inc.i58
-  %IOCStatus32 = getelementptr inbounds i8, ptr %reply, i64 14
+  %IOCStatus32 = getelementptr inbounds nuw i8, ptr %reply, i64 14
   store i16 33, ptr %IOCStatus32, align 1
   br label %out
 
@@ -193,27 +193,27 @@ if.end34:                                         ; preds = %mptsas_find_config_
   ]
 
 if.then43:                                        ; preds = %if.end34, %if.end34
-  %mpt_config_build = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %mpt_config_build = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %14 = load ptr, ptr %mpt_config_build, align 8
-  %PageAddress = getelementptr inbounds i8, ptr %req, i64 24
+  %PageAddress = getelementptr inbounds nuw i8, ptr %req, i64 24
   %15 = load i32, ptr %PageAddress, align 1
   %call44 = tail call i64 %14(ptr noundef %s, ptr noundef null, i32 noundef %15) #13
   %cmp45 = icmp slt i64 %call44, 0
   br i1 %cmp45, label %if.then47, label %done
 
 if.then47:                                        ; preds = %if.then43
-  %IOCStatus48 = getelementptr inbounds i8, ptr %reply, i64 14
+  %IOCStatus48 = getelementptr inbounds nuw i8, ptr %reply, i64 14
   store i16 34, ptr %IOCStatus48, align 1
   br label %out
 
 if.then60:                                        ; preds = %if.end34, %if.end34
-  %mpt_config_build61 = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %mpt_config_build61 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %16 = load ptr, ptr %mpt_config_build61, align 8
-  %PageAddress62 = getelementptr inbounds i8, ptr %req, i64 24
+  %PageAddress62 = getelementptr inbounds nuw i8, ptr %req, i64 24
   %17 = load i32, ptr %PageAddress62, align 1
   %call63 = tail call i64 %16(ptr noundef %s, ptr noundef null, i32 noundef %17) #13
   %cmp64 = icmp slt i64 %call63, 0
-  %IOCStatus67 = getelementptr inbounds i8, ptr %reply, i64 14
+  %IOCStatus67 = getelementptr inbounds nuw i8, ptr %reply, i64 14
   br i1 %cmp64, label %if.then66, label %if.else68
 
 if.then66:                                        ; preds = %if.then60
@@ -225,30 +225,30 @@ if.else68:                                        ; preds = %if.then60
   br label %out
 
 if.end71:                                         ; preds = %if.end34
-  %PageBufferSGE = getelementptr inbounds i8, ptr %req, i64 28
+  %PageBufferSGE = getelementptr inbounds nuw i8, ptr %req, i64 28
   %18 = load i32, ptr %PageBufferSGE, align 1
   %and72 = and i32 %18, 16777215
   %cmp73 = icmp eq i32 %and72, 0
   br i1 %cmp73, label %if.then75, label %if.end84
 
 if.then75:                                        ; preds = %if.end71
-  %mpt_config_build76 = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %mpt_config_build76 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %19 = load ptr, ptr %mpt_config_build76, align 8
-  %PageAddress77 = getelementptr inbounds i8, ptr %req, i64 24
+  %PageAddress77 = getelementptr inbounds nuw i8, ptr %req, i64 24
   %20 = load i32, ptr %PageAddress77, align 1
   %call78 = tail call i64 %19(ptr noundef %s, ptr noundef null, i32 noundef %20) #13
   %cmp79 = icmp slt i64 %call78, 0
   br i1 %cmp79, label %if.then81, label %done
 
 if.then81:                                        ; preds = %if.then75
-  %IOCStatus82 = getelementptr inbounds i8, ptr %reply, i64 14
+  %IOCStatus82 = getelementptr inbounds nuw i8, ptr %reply, i64 14
   store i16 34, ptr %IOCStatus82, align 1
   br label %out
 
 if.end84:                                         ; preds = %if.end71
   %and85 = and i32 %18, 33554432
   %tobool86.not = icmp eq i32 %and85, 0
-  %u91 = getelementptr inbounds i8, ptr %req, i64 32
+  %u91 = getelementptr inbounds nuw i8, ptr %req, i64 32
   br i1 %tobool86.not, label %if.else89, label %if.then87
 
 if.then87:                                        ; preds = %if.end84
@@ -262,16 +262,16 @@ if.else89:                                        ; preds = %if.end84
 
 if.end93:                                         ; preds = %if.else89, %if.then87
   %pa.0 = phi i64 [ %21, %if.then87 ], [ %conv92, %if.else89 ]
-  %mpt_config_build94 = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %mpt_config_build94 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %23 = load ptr, ptr %mpt_config_build94, align 8
-  %PageAddress95 = getelementptr inbounds i8, ptr %req, i64 24
+  %PageAddress95 = getelementptr inbounds nuw i8, ptr %req, i64 24
   %24 = load i32, ptr %PageAddress95, align 1
   %call96 = call i64 %23(ptr noundef %s, ptr noundef nonnull %data, i32 noundef %24) #13
   %cmp97 = icmp slt i64 %call96, 0
   br i1 %cmp97, label %if.then99, label %if.else101
 
 if.then99:                                        ; preds = %if.end93
-  %IOCStatus100 = getelementptr inbounds i8, ptr %reply, i64 14
+  %IOCStatus100 = getelementptr inbounds nuw i8, ptr %reply, i64 14
   store i16 34, ptr %IOCStatus100, align 1
   br label %out
 
@@ -289,7 +289,7 @@ if.else107:                                       ; preds = %if.else101
 if.end108:                                        ; preds = %if.else101
   %conv109 = zext nneg i32 %and72 to i64
   %cond = call i64 @llvm.umin.i64(i64 %call96, i64 %conv109)
-  %bus_master_as.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 576
+  %bus_master_as.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 576
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !7
   fence seq_cst
   %call.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i, i64 noundef %pa.0, i32 1, ptr noundef nonnull %25, i64 noundef range(i64 0, -9223372036854775808) %cond, i1 noundef zeroext true) #13
@@ -303,11 +303,11 @@ done:                                             ; preds = %if.then75, %if.then
 
 if.then116:                                       ; preds = %done
   %conv117 = trunc i64 %div51 to i16
-  %ExtPageLength = getelementptr inbounds i8, ptr %reply, i64 4
+  %ExtPageLength = getelementptr inbounds nuw i8, ptr %reply, i64 4
   store i16 %conv117, ptr %ExtPageLength, align 1
-  %ExtPageType118 = getelementptr inbounds i8, ptr %req, i64 6
+  %ExtPageType118 = getelementptr inbounds nuw i8, ptr %req, i64 6
   %27 = load i8, ptr %ExtPageType118, align 1
-  %ExtPageType119 = getelementptr inbounds i8, ptr %reply, i64 6
+  %ExtPageType119 = getelementptr inbounds nuw i8, ptr %reply, i64 6
   store i8 %27, ptr %ExtPageType119, align 1
   br label %out
 
@@ -359,10 +359,10 @@ define internal i64 @mptsas_config_manufacturing_2(ptr noundef %s, ptr noundef %
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %s) #13
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_GET_CLASS) #13
-  %device_id = getelementptr inbounds i8, ptr %call1.i, i64 210
+  %device_id = getelementptr inbounds nuw i8, ptr %call1.i, i64 210
   %0 = load i16, ptr %device_id, align 2
   %conv = zext i16 %0 to i32
-  %revision = getelementptr inbounds i8, ptr %call1.i, i64 212
+  %revision = getelementptr inbounds nuw i8, ptr %call1.i, i64 212
   %1 = load i8, ptr %revision, align 4
   %conv1 = zext i8 %1 to i32
   %call2 = tail call i64 (ptr, ptr, ...) @mptsas_config_pack(ptr noundef %data, ptr noundef nonnull @.str.11, i32 noundef 0, i32 noundef 2, i32 noundef 9, i32 noundef %conv, i32 noundef %conv1)
@@ -374,10 +374,10 @@ define internal i64 @mptsas_config_manufacturing_3(ptr noundef %s, ptr noundef %
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %s) #13
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_GET_CLASS) #13
-  %device_id = getelementptr inbounds i8, ptr %call1.i, i64 210
+  %device_id = getelementptr inbounds nuw i8, ptr %call1.i, i64 210
   %0 = load i16, ptr %device_id, align 2
   %conv = zext i16 %0 to i32
-  %revision = getelementptr inbounds i8, ptr %call1.i, i64 212
+  %revision = getelementptr inbounds nuw i8, ptr %call1.i, i64 212
   %1 = load i8, ptr %revision, align 4
   %conv1 = zext i8 %1 to i32
   %call2 = tail call i64 (ptr, ptr, ...) @mptsas_config_pack(ptr noundef %data, ptr noundef nonnull @.str.11, i32 noundef 0, i32 noundef 3, i32 noundef 9, i32 noundef %conv, i32 noundef %conv1)
@@ -394,7 +394,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @mptsas_config_manufacturing_5(ptr nocapture noundef readonly %s, ptr noundef %data, i32 %address) #0 {
 entry:
-  %sas_addr = getelementptr inbounds i8, ptr %s, i64 3440
+  %sas_addr = getelementptr inbounds nuw i8, ptr %s, i64 3440
   %0 = load i64, ptr %sas_addr, align 16
   %call = tail call i64 (ptr, ptr, ...) @mptsas_config_pack(ptr noundef %data, ptr noundef nonnull @.str.13, i32 noundef 2, i32 noundef 5, i32 noundef 9, i64 noundef %0)
   ret i64 %call
@@ -439,7 +439,7 @@ entry:
 define internal i64 @mptsas_config_io_unit_0(ptr noundef %s, ptr noundef %data, i32 %address) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %s, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #13
-  %devfn = getelementptr inbounds i8, ptr %call.i, i64 208
+  %devfn = getelementptr inbounds nuw i8, ptr %call.i, i64 208
   %0 = load i32, ptr %devfn, align 16
   %conv = zext i32 %0 to i64
   %shl = shl i64 %conv, 56
@@ -459,7 +459,7 @@ entry:
 define internal i64 @mptsas_config_io_unit_2(ptr noundef %s, ptr noundef %data, i32 %address) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %s, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #13
-  %devfn1 = getelementptr inbounds i8, ptr %call.i, i64 208
+  %devfn1 = getelementptr inbounds nuw i8, ptr %call.i, i64 208
   %0 = load i32, ptr %devfn1, align 16
   %conv2 = and i32 %0, 255
   %call3 = tail call i64 (ptr, ptr, ...) @mptsas_config_pack(ptr noundef %data, ptr noundef nonnull @.str.18, i32 noundef 2, i32 noundef 2, i32 noundef 0, i32 noundef 0, i32 noundef 256, i32 noundef 0, i32 noundef %conv2, i32 noundef 0)
@@ -485,22 +485,22 @@ define internal i64 @mptsas_config_ioc_0(ptr noundef %s, ptr noundef %data, i32 
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %s) #13
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_GET_CLASS) #13
-  %vendor_id = getelementptr inbounds i8, ptr %call1.i, i64 208
+  %vendor_id = getelementptr inbounds nuw i8, ptr %call1.i, i64 208
   %0 = load i16, ptr %vendor_id, align 8
   %conv = zext i16 %0 to i32
-  %device_id = getelementptr inbounds i8, ptr %call1.i, i64 210
+  %device_id = getelementptr inbounds nuw i8, ptr %call1.i, i64 210
   %1 = load i16, ptr %device_id, align 2
   %conv1 = zext i16 %1 to i32
-  %revision = getelementptr inbounds i8, ptr %call1.i, i64 212
+  %revision = getelementptr inbounds nuw i8, ptr %call1.i, i64 212
   %2 = load i8, ptr %revision, align 4
   %conv2 = zext i8 %2 to i32
-  %class_id = getelementptr inbounds i8, ptr %call1.i, i64 214
+  %class_id = getelementptr inbounds nuw i8, ptr %call1.i, i64 214
   %3 = load i16, ptr %class_id, align 2
   %conv3 = zext i16 %3 to i32
-  %subsystem_vendor_id = getelementptr inbounds i8, ptr %call1.i, i64 216
+  %subsystem_vendor_id = getelementptr inbounds nuw i8, ptr %call1.i, i64 216
   %4 = load i16, ptr %subsystem_vendor_id, align 8
   %conv4 = zext i16 %4 to i32
-  %subsystem_id = getelementptr inbounds i8, ptr %call1.i, i64 218
+  %subsystem_id = getelementptr inbounds nuw i8, ptr %call1.i, i64 218
   %5 = load i16, ptr %subsystem_id, align 2
   %conv5 = zext i16 %5 to i32
   %call6 = tail call i64 (ptr, ptr, ...) @mptsas_config_pack(ptr noundef %data, ptr noundef nonnull @.str.21, i32 noundef 1, i32 noundef 0, i32 noundef 1, i32 noundef %conv, i32 noundef %conv1, i32 noundef %conv2, i32 noundef %conv3, i32 noundef %conv4, i32 noundef %conv5)
@@ -558,7 +558,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %sub = add i64 %call, -128
-  %bus.i = getelementptr inbounds i8, ptr %s, i64 6616
+  %bus.i = getelementptr inbounds nuw i8, ptr %s, i64 6616
   br label %for.body
 
 for.body:                                         ; preds = %if.then, %for.body
@@ -591,7 +591,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %sub = add i64 %call, -96
-  %bus.i = getelementptr inbounds i8, ptr %s, i64 6616
+  %bus.i = getelementptr inbounds nuw i8, ptr %s, i64 6616
   br label %for.body
 
 for.body:                                         ; preds = %if.then, %for.body
@@ -669,7 +669,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
   %call10.i.i = tail call i32 @qemu_get_thread_id() #13
   %4 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %s, i32 noundef %address, i32 noundef range(i32 -22, 8) -22, i32 noundef -1, i32 noundef -1, i32 noundef range(i32 0, 2) 0) #13
   br label %trace_mptsas_config_sas_phy.exit
@@ -683,7 +683,7 @@ trace_mptsas_config_sas_phy.exit:                 ; preds = %if.then, %land.lhs.
   br label %return
 
 if.end:                                           ; preds = %if.end6.i
-  %bus.i = getelementptr inbounds i8, ptr %s, i64 6616
+  %bus.i = getelementptr inbounds nuw i8, ptr %s, i64 6616
   %call.i = tail call ptr @scsi_device_find(ptr noundef nonnull %bus.i, i32 noundef 0, i32 noundef range(i32 -2147483648, 8) %and4.i, i32 noundef 0) #13
   %add.i = add nuw nsw i32 %and4.i, 1
   %tobool3.not.i = icmp eq ptr %call.i, null
@@ -712,7 +712,7 @@ if.then8.i.i23:                                   ; preds = %if.then.i.i20
   %call9.i.i24 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i13, ptr noundef null) #13
   %call10.i.i25 = tail call i32 @qemu_get_thread_id() #13
   %10 = load i64, ptr %_now.i.i13, align 8
-  %tv_usec.i.i26 = getelementptr inbounds i8, ptr %_now.i.i13, i64 8
+  %tv_usec.i.i26 = getelementptr inbounds nuw i8, ptr %_now.i.i13, i64 8
   %11 = load i64, ptr %tv_usec.i.i26, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, i32 noundef %call10.i.i25, i64 noundef %10, i64 noundef %11, ptr noundef %s, i32 noundef %address, i32 noundef range(i32 -22, 8) %and4.i, i32 noundef %add.i, i32 noundef %cond.i, i32 noundef range(i32 0, 2) 0) #13
   br label %trace_mptsas_config_sas_phy.exit27
@@ -723,7 +723,7 @@ if.else.i.i22:                                    ; preds = %if.then.i.i20
 
 trace_mptsas_config_sas_phy.exit27:               ; preds = %if.end, %land.lhs.true5.i.i17, %if.then8.i.i23, %if.else.i.i22
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i13)
-  %sas_addr = getelementptr inbounds i8, ptr %s, i64 3440
+  %sas_addr = getelementptr inbounds nuw i8, ptr %s, i64 3440
   %12 = load i64, ptr %sas_addr, align 16
   %tobool.not = icmp ne ptr %call.i, null
   %cond = zext i1 %tobool.not to i32
@@ -778,7 +778,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
   %call10.i.i = tail call i32 @qemu_get_thread_id() #13
   %4 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %s, i32 noundef %address, i32 noundef range(i32 -22, 8) -22, i32 noundef -1, i32 noundef -1, i32 noundef range(i32 0, 2) 1) #13
   br label %trace_mptsas_config_sas_phy.exit
@@ -792,7 +792,7 @@ trace_mptsas_config_sas_phy.exit:                 ; preds = %if.then, %land.lhs.
   br label %return
 
 if.end:                                           ; preds = %if.end6.i
-  %bus.i = getelementptr inbounds i8, ptr %s, i64 6616
+  %bus.i = getelementptr inbounds nuw i8, ptr %s, i64 6616
   %call.i = tail call ptr @scsi_device_find(ptr noundef nonnull %bus.i, i32 noundef 0, i32 noundef range(i32 -2147483648, 8) %and4.i, i32 noundef 0) #13
   %add.i = add nuw nsw i32 %and4.i, 1
   %tobool3.not.i = icmp eq ptr %call.i, null
@@ -821,7 +821,7 @@ if.then8.i.i21:                                   ; preds = %if.then.i.i18
   %call9.i.i22 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i11, ptr noundef null) #13
   %call10.i.i23 = tail call i32 @qemu_get_thread_id() #13
   %10 = load i64, ptr %_now.i.i11, align 8
-  %tv_usec.i.i24 = getelementptr inbounds i8, ptr %_now.i.i11, i64 8
+  %tv_usec.i.i24 = getelementptr inbounds nuw i8, ptr %_now.i.i11, i64 8
   %11 = load i64, ptr %tv_usec.i.i24, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, i32 noundef %call10.i.i23, i64 noundef %10, i64 noundef %11, ptr noundef %s, i32 noundef %address, i32 noundef range(i32 -22, 8) %and4.i, i32 noundef %add.i, i32 noundef %cond.i, i32 noundef range(i32 0, 2) 1) #13
   br label %trace_mptsas_config_sas_phy.exit25
@@ -849,7 +849,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %and.i = and i32 %address, 65535
-  %bus.i = getelementptr inbounds i8, ptr %s, i64 6616
+  %bus.i = getelementptr inbounds nuw i8, ptr %s, i64 6616
   br label %do.body.i
 
 do.body.i:                                        ; preds = %land.rhs.i, %if.then.i
@@ -895,7 +895,7 @@ if.end22.i:                                       ; preds = %land.rhs.i, %do.bod
 
 mptsas_device_addr_get.exit:                      ; preds = %if.else5.i, %if.then7.i, %if.end22.i
   %retval.0.i = phi i32 [ -22, %if.then7.i ], [ -22, %if.else5.i ], [ %.i.0.i, %if.end22.i ]
-  %bus.i9 = getelementptr inbounds i8, ptr %s, i64 6616
+  %bus.i9 = getelementptr inbounds nuw i8, ptr %s, i64 6616
   %call.i10 = tail call ptr @scsi_device_find(ptr noundef nonnull %bus.i9, i32 noundef 0, i32 noundef range(i32 -2147483648, 8) %retval.0.i, i32 noundef 0) #13
   %add.i = add nsw i32 %retval.0.i, 1
   %tobool3.not.i = icmp eq ptr %call.i10, null
@@ -924,7 +924,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
   %call10.i.i = tail call i32 @qemu_get_thread_id() #13
   %4 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %s, i32 noundef %address, i32 noundef range(i32 -22, 8) %retval.0.i, i32 noundef %add.i, i32 noundef %cond.i, i32 noundef range(i32 0, 3) 0) #13
   br label %trace_mptsas_config_sas_device.exit
@@ -938,7 +938,7 @@ trace_mptsas_config_sas_device.exit:              ; preds = %mptsas_device_addr_
   br i1 %tobool3.not.i, label %return, label %if.end
 
 if.end:                                           ; preds = %trace_mptsas_config_sas_device.exit
-  %wwn = getelementptr inbounds i8, ptr %call.i10, i64 576
+  %wwn = getelementptr inbounds nuw i8, ptr %call.i10, i64 576
   %6 = load i64, ptr %wwn, align 8
   %call2 = tail call i64 (ptr, ptr, ...) @mptsas_config_pack_ext(ptr noundef %data, ptr noundef nonnull @.str.39, i32 noundef 5, i32 noundef 0, i32 noundef 15, i32 noundef 18, i64 noundef %6, i32 noundef %add.i, i32 noundef %retval.0.i, i32 noundef 0, i32 noundef %add5.i, i32 noundef %retval.0.i, i32 noundef 0, i32 noundef 1025, i32 noundef 7, i32 noundef %retval.0.i)
   br label %return
@@ -957,7 +957,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %and.i = and i32 %address, 65535
-  %bus.i = getelementptr inbounds i8, ptr %s, i64 6616
+  %bus.i = getelementptr inbounds nuw i8, ptr %s, i64 6616
   br label %do.body.i
 
 do.body.i:                                        ; preds = %land.rhs.i, %if.then.i
@@ -1003,7 +1003,7 @@ if.end22.i:                                       ; preds = %land.rhs.i, %do.bod
 
 mptsas_device_addr_get.exit:                      ; preds = %if.else5.i, %if.then7.i, %if.end22.i
   %retval.0.i = phi i32 [ -22, %if.then7.i ], [ -22, %if.else5.i ], [ %.i.0.i, %if.end22.i ]
-  %bus.i7 = getelementptr inbounds i8, ptr %s, i64 6616
+  %bus.i7 = getelementptr inbounds nuw i8, ptr %s, i64 6616
   %call.i8 = tail call ptr @scsi_device_find(ptr noundef nonnull %bus.i7, i32 noundef 0, i32 noundef range(i32 -2147483648, 8) %retval.0.i, i32 noundef 0) #13
   %add.i = add nsw i32 %retval.0.i, 1
   %tobool3.not.i = icmp eq ptr %call.i8, null
@@ -1032,7 +1032,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
   %call10.i.i = tail call i32 @qemu_get_thread_id() #13
   %4 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %s, i32 noundef %address, i32 noundef range(i32 -22, 8) %retval.0.i, i32 noundef %add.i, i32 noundef %cond.i, i32 noundef range(i32 0, 3) 1) #13
   br label %trace_mptsas_config_sas_device.exit
@@ -1046,7 +1046,7 @@ trace_mptsas_config_sas_device.exit:              ; preds = %mptsas_device_addr_
   br i1 %tobool3.not.i, label %return, label %if.end
 
 if.end:                                           ; preds = %trace_mptsas_config_sas_device.exit
-  %wwn = getelementptr inbounds i8, ptr %call.i8, i64 576
+  %wwn = getelementptr inbounds nuw i8, ptr %call.i8, i64 576
   %6 = load i64, ptr %wwn, align 8
   %call2 = tail call i64 (ptr, ptr, ...) @mptsas_config_pack_ext(ptr noundef %data, ptr noundef nonnull @.str.42, i32 noundef 0, i32 noundef 1, i32 noundef 15, i32 noundef 18, i64 noundef %6, i32 noundef %add5.i, i32 noundef %retval.0.i, i32 noundef 0)
   br label %return
@@ -1065,7 +1065,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %and.i = and i32 %address, 65535
-  %bus.i = getelementptr inbounds i8, ptr %s, i64 6616
+  %bus.i = getelementptr inbounds nuw i8, ptr %s, i64 6616
   br label %do.body.i
 
 do.body.i:                                        ; preds = %land.rhs.i, %if.then.i
@@ -1111,7 +1111,7 @@ if.end22.i:                                       ; preds = %land.rhs.i, %do.bod
 
 mptsas_device_addr_get.exit:                      ; preds = %if.else5.i, %if.then7.i, %if.end22.i
   %retval.0.i = phi i32 [ -22, %if.then7.i ], [ -22, %if.else5.i ], [ %.i.0.i, %if.end22.i ]
-  %bus.i6 = getelementptr inbounds i8, ptr %s, i64 6616
+  %bus.i6 = getelementptr inbounds nuw i8, ptr %s, i64 6616
   %call.i7 = tail call ptr @scsi_device_find(ptr noundef nonnull %bus.i6, i32 noundef 0, i32 noundef range(i32 -2147483648, 8) %retval.0.i, i32 noundef 0) #13
   %add.i = add nsw i32 %retval.0.i, 1
   %tobool3.not.i = icmp eq ptr %call.i7, null
@@ -1140,7 +1140,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
   %call10.i.i = tail call i32 @qemu_get_thread_id() #13
   %4 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %s, i32 noundef %address, i32 noundef range(i32 -22, 8) %retval.0.i, i32 noundef %add.i, i32 noundef %cond.i, i32 noundef range(i32 0, 3) 2) #13
   br label %trace_mptsas_config_sas_device.exit
@@ -1154,7 +1154,7 @@ trace_mptsas_config_sas_device.exit:              ; preds = %mptsas_device_addr_
   br i1 %tobool3.not.i, label %return, label %if.end
 
 if.end:                                           ; preds = %trace_mptsas_config_sas_device.exit
-  %wwn = getelementptr inbounds i8, ptr %call.i7, i64 576
+  %wwn = getelementptr inbounds nuw i8, ptr %call.i7, i64 576
   %6 = load i64, ptr %wwn, align 8
   %call2 = tail call i64 (ptr, ptr, ...) @mptsas_config_pack_ext(ptr noundef %data, ptr noundef nonnull @.str.43, i32 noundef 1, i32 noundef 2, i32 noundef 15, i32 noundef 18, i64 noundef %6, i32 noundef 0)
   br label %return
@@ -1213,8 +1213,8 @@ if.end6:                                          ; preds = %vpack.exit.thread, 
 ; Function Attrs: nofree nounwind sspstrong memory(readwrite, inaccessiblemem: read) uwtable
 define internal fastcc i64 @vfill(ptr noundef %data, ptr nocapture noundef readonly %fmt, ptr nocapture noundef nonnull %ap) unnamed_addr #4 {
 entry:
-  %overflow_arg_area_p22 = getelementptr inbounds i8, ptr %ap, i64 8
-  %0 = getelementptr inbounds i8, ptr %ap, i64 16
+  %overflow_arg_area_p22 = getelementptr inbounds nuw i8, ptr %ap, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %ap, i64 16
   %tobool52.not = icmp eq ptr %data, null
   br label %while.cond.outer
 

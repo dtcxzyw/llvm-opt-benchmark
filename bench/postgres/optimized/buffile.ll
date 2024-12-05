@@ -42,24 +42,24 @@ define dso_local noundef ptr @BufFileCreateTemp(i1 noundef zeroext %0) local_unn
   %3 = tail call i32 @OpenTemporaryFile(i1 noundef zeroext %0) #10
   %4 = tail call ptr @palloc(i64 noundef 8264) #10
   store i32 1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i8 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 17
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 17
   store i8 0, ptr %6, align 1
   %7 = load ptr, ptr @CurrentResourceOwner, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i32 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   %11 = tail call ptr @palloc(i64 noundef 4) #10
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %11, ptr %12, align 8
   store i32 %3, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %4, i64 18
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 18
   store i8 0, ptr %13, align 2
-  %14 = getelementptr inbounds i8, ptr %4, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   store i8 %2, ptr %5, align 8
   ret ptr %4
@@ -74,24 +74,24 @@ define dso_local noundef ptr @BufFileCreateFileSet(ptr noundef %0, ptr noundef %
   %3 = alloca [1024 x i8], align 16
   %4 = tail call ptr @palloc(i64 noundef 8264) #10
   store i32 1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i8 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 17
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 17
   store i8 0, ptr %6, align 1
   %7 = load ptr, ptr @CurrentResourceOwner, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i32 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
-  %11 = getelementptr inbounds i8, ptr %4, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %0, ptr %11, align 8
   %12 = tail call ptr @pstrdup(ptr noundef %1) #10
-  %13 = getelementptr inbounds i8, ptr %4, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %12, ptr %13, align 8
   %14 = tail call ptr @palloc(i64 noundef 4) #10
-  %15 = getelementptr inbounds i8, ptr %4, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %14, ptr %15, align 8
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3)
   %16 = load ptr, ptr %13, align 8
@@ -105,7 +105,7 @@ define dso_local noundef ptr @BufFileCreateFileSet(ptr noundef %0, ptr noundef %
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3)
   %24 = load ptr, ptr %15, align 8
   store i32 %23, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %4, i64 18
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 18
   store i8 0, ptr %25, align 2
   ret ptr %4
 }
@@ -177,27 +177,27 @@ define dso_local noundef ptr @BufFileOpenFileSet(ptr noundef %0, ptr noundef %1,
 31:                                               ; preds = %24
   %32 = call ptr @palloc(i64 noundef 8264) #10
   store i32 %.0, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store i8 0, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %32, i64 17
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 17
   store i8 0, ptr %34, align 1
   %35 = load ptr, ptr @CurrentResourceOwner, align 8
-  %36 = getelementptr inbounds i8, ptr %32, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 40
   store ptr %35, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %32, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %32, i64 48
   store i32 0, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %32, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %32, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, i8 0, i64 16, i1 false)
-  %39 = getelementptr inbounds i8, ptr %32, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr %.1, ptr %39, align 8
   %40 = icmp eq i32 %2, 0
-  %41 = getelementptr inbounds i8, ptr %32, i64 18
+  %41 = getelementptr inbounds nuw i8, ptr %32, i64 18
   %42 = zext i1 %40 to i8
   store i8 %42, ptr %41, align 2
-  %43 = getelementptr inbounds i8, ptr %32, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %32, i64 24
   store ptr %0, ptr %43, align 8
   %44 = call ptr @pstrdup(ptr noundef %1) #10
-  %45 = getelementptr inbounds i8, ptr %32, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %32, i64 32
   store ptr %44, ptr %45, align 8
   br label %46
 
@@ -267,7 +267,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @BufFileExportFileSet(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 17
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %3 = load i8, ptr %2, align 1
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %BufFileFlush.exit
@@ -277,14 +277,14 @@ define dso_local void @BufFileExportFileSet(ptr noundef %0) local_unnamed_addr #
   br label %BufFileFlush.exit
 
 BufFileFlush.exit:                                ; preds = %1, %5
-  %6 = getelementptr inbounds i8, ptr %0, i64 18
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 18
   store i8 1, ptr %6, align 2
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @BufFileClose(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 17
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %3 = load i8, ptr %2, align 1
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %BufFileFlush.exit
@@ -299,7 +299,7 @@ BufFileFlush.exit:                                ; preds = %1, %5
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %BufFileFlush.exit
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %9
 
 9:                                                ; preds = %.lr.ph, %9
@@ -315,7 +315,7 @@ BufFileFlush.exit:                                ; preds = %1, %5
   br i1 %15, label %9, label %._crit_edge, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %9, %BufFileFlush.exit
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
   tail call void @pfree(ptr noundef %17) #10
   tail call void @pfree(ptr noundef nonnull %0) #10
@@ -335,7 +335,7 @@ define internal fastcc i64 @BufFileReadCommon(ptr noundef %0, ptr nocapture noun
   %6 = alloca %struct.timespec, align 8
   %7 = alloca %struct.iovec, align 8
   %8 = alloca %struct.timespec, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 17
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %10 = load i8, ptr %9, align 1
   %11 = trunc i8 %10 to i1
   br i1 %11, label %12, label %BufFileFlush.exit
@@ -349,15 +349,15 @@ BufFileFlush.exit:                                ; preds = %5, %12
   br i1 %.not55, label %BufFileLoadBuffer.exit._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %BufFileFlush.exit
-  %13 = getelementptr inbounds i8, ptr %0, i64 64
-  %14 = getelementptr inbounds i8, ptr %0, i64 68
-  %15 = getelementptr inbounds i8, ptr %0, i64 56
-  %16 = getelementptr inbounds i8, ptr %0, i64 48
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
-  %18 = getelementptr inbounds i8, ptr %8, i64 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 72
-  %20 = getelementptr inbounds i8, ptr %7, i64 8
-  %21 = getelementptr inbounds i8, ptr %6, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.pre = load i32, ptr %13, align 8
   br label %22
 
@@ -507,7 +507,7 @@ BufFileLoadBuffer.exit._crit_edge:                ; preds = %70, %76, %BufFileLo
   %92 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   call void @llvm.assume(i1 %92)
   %93 = call i32 @errcode_for_file_access() #10
-  %94 = getelementptr inbounds i8, ptr %0, i64 32
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %95 = load ptr, ptr %94, align 8
   %.not48 = icmp eq ptr %95, null
   br i1 %.not48, label %98, label %96
@@ -546,11 +546,11 @@ define dso_local void @BufFileWrite(ptr noundef %0, ptr nocapture noundef readon
   br i1 %.not31, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
-  %5 = getelementptr inbounds i8, ptr %0, i64 17
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
-  %7 = getelementptr inbounds i8, ptr %0, i64 68
-  %8 = getelementptr inbounds i8, ptr %0, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.pre = load i32, ptr %4, align 8
   br label %9
 
@@ -617,23 +617,23 @@ define internal fastcc void @BufFileDumpBuffer(ptr noundef %0) unnamed_addr #0 {
   %3 = alloca %struct.iovec, align 8
   %4 = alloca %struct.timespec, align 8
   %5 = alloca [1024 x i8], align 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 68
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %7 = load i32, ptr %6, align 4
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph51, label %._crit_edge52
 
 .lr.ph51:                                         ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 72
-  %18 = getelementptr inbounds i8, ptr %3, i64 8
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %20
 
 20:                                               ; preds = %.lr.ph51, %102
@@ -799,13 +799,13 @@ extendBufFile.exit:                               ; preds = %30, %34
 
 ._crit_edge52:                                    ; preds = %102, %1
   %.lcssa43 = phi i32 [ %7, %1 ], [ %109, %102 ]
-  %111 = getelementptr inbounds i8, ptr %0, i64 17
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 17
   store i8 0, ptr %111, align 1
-  %112 = getelementptr inbounds i8, ptr %0, i64 64
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %113 = load i32, ptr %112, align 8
   %114 = sub i32 %.lcssa43, %113
   %115 = sext i32 %114 to i64
-  %116 = getelementptr inbounds i8, ptr %0, i64 56
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %117 = load i64, ptr %116, align 8
   %118 = sub i64 %117, %115
   store i64 %118, ptr %116, align 8
@@ -813,7 +813,7 @@ extendBufFile.exit:                               ; preds = %30, %34
   br i1 %119, label %120, label %125
 
 120:                                              ; preds = %._crit_edge52
-  %121 = getelementptr inbounds i8, ptr %0, i64 48
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %122 = load i32, ptr %121, align 8
   %123 = add i32 %122, -1
   store i32 %123, ptr %121, align 8
@@ -843,11 +843,11 @@ define dso_local range(i32 -1, 1) i32 @BufFileSeek(ptr noundef %0, i32 noundef %
   br i1 %6, label %.loopexit, label %43
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = load i32, ptr %12, align 8
   %14 = sext i32 %13 to i64
   %15 = add i64 %11, %2
@@ -857,7 +857,7 @@ define dso_local range(i32 -1, 1) i32 @BufFileSeek(ptr noundef %0, i32 noundef %
 17:                                               ; preds = %4
   %18 = load i32, ptr %0, align 8
   %19 = add i32 %18, -1
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = sext i32 %19 to i64
   %23 = getelementptr i32, ptr %21, i64 %22
@@ -877,7 +877,7 @@ define dso_local range(i32 -1, 1) i32 @BufFileSeek(ptr noundef %0, i32 noundef %
   %34 = getelementptr i32, ptr %30, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = tail call ptr @FilePathName(i32 noundef %35) #10
-  %37 = getelementptr inbounds i8, ptr %0, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %38 = load ptr, ptr %37, align 8
   %39 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef %36, ptr noundef %38) #10
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 776, ptr noundef nonnull @__func__.BufFileSeek) #10
@@ -919,19 +919,19 @@ define dso_local range(i32 -1, 1) i32 @BufFileSeek(ptr noundef %0, i32 noundef %
 ._crit_edge:                                      ; preds = %17, %.lr.ph.preheader.split, %43
   %.148.lcssa = phi i32 [ %.047, %43 ], [ %56, %.lr.ph.preheader.split ], [ %19, %17 ]
   %.1.lcssa = phi i64 [ %.0, %43 ], [ %54, %.lr.ph.preheader.split ], [ %25, %17 ]
-  %57 = getelementptr inbounds i8, ptr %0, i64 48
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %58 = load i32, ptr %57, align 8
   %59 = icmp eq i32 %.148.lcssa, %58
   br i1 %59, label %60, label %72
 
 60:                                               ; preds = %._crit_edge
-  %61 = getelementptr inbounds i8, ptr %0, i64 56
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %62 = load i64, ptr %61, align 8
   %.not = icmp slt i64 %.1.lcssa, %62
   br i1 %.not, label %72, label %63
 
 63:                                               ; preds = %60
-  %64 = getelementptr inbounds i8, ptr %0, i64 68
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %65 = load i32, ptr %64, align 4
   %66 = sext i32 %65 to i64
   %67 = add i64 %62, %66
@@ -941,12 +941,12 @@ define dso_local range(i32 -1, 1) i32 @BufFileSeek(ptr noundef %0, i32 noundef %
 68:                                               ; preds = %63
   %69 = sub i64 %.1.lcssa, %62
   %70 = trunc i64 %69 to i32
-  %71 = getelementptr inbounds i8, ptr %0, i64 64
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %70, ptr %71, align 8
   br label %.loopexit
 
 72:                                               ; preds = %63, %60, %._crit_edge
-  %73 = getelementptr inbounds i8, ptr %0, i64 17
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %74 = load i8, ptr %73, align 1
   %75 = trunc i8 %74 to i1
   br i1 %75, label %76, label %BufFileFlush.exit
@@ -996,11 +996,11 @@ select.unfold._crit_edge:                         ; preds = %.lr.ph72.preheader.
 
 96:                                               ; preds = %select.unfold._crit_edge
   store i32 %.350.lcssa, ptr %57, align 8
-  %97 = getelementptr inbounds i8, ptr %0, i64 56
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %.3.lcssa, ptr %97, align 8
-  %98 = getelementptr inbounds i8, ptr %0, i64 64
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 0, ptr %98, align 8
-  %99 = getelementptr inbounds i8, ptr %0, i64 68
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %99, align 4
   br label %.loopexit
 
@@ -1015,12 +1015,12 @@ declare ptr @FilePathName(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @BufFileTell(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #4 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i32, ptr %4, align 8
   store i32 %5, ptr %1, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load i32, ptr %8, align 8
   %10 = sext i32 %9 to i64
   %11 = add i64 %7, %10
@@ -1040,7 +1040,7 @@ define dso_local range(i32 -1, 1) i32 @BufFileSeekBlock(ptr noundef %0, i64 noun
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 -2305843009213693952, -6917529028714823680) i64 @BufFileSize(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %0, align 8
   %5 = add i32 %4, -1
@@ -1062,7 +1062,7 @@ define dso_local range(i64 -2305843009213693952, -6917529028714823680) i64 @BufF
   %18 = getelementptr i32, ptr %14, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = tail call ptr @FilePathName(i32 noundef %19) #10
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef %20, ptr noundef %22) #10
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 879, ptr noundef nonnull @__func__.BufFileSize) #10
@@ -1082,9 +1082,9 @@ define dso_local range(i64 -281474976710656, 281474976579585) i64 @BufFileAppend
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
   %5 = add i32 %4, %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %7, %9
   br i1 %.not, label %13, label %10
@@ -1097,7 +1097,7 @@ define dso_local range(i64 -281474976710656, 281474976579585) i64 @BufFileAppend
   unreachable
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = sext i32 %5 to i64
   %17 = shl nsw i64 %16, 2
@@ -1108,7 +1108,7 @@ define dso_local range(i64 -281474976710656, 281474976579585) i64 @BufFileAppend
   br i1 %20, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %13
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = sext i32 %19 to i64
   br label %23
 
@@ -1139,7 +1139,7 @@ define dso_local range(i64 -281474976710656, 281474976579585) i64 @BufFileAppend
 define dso_local void @BufFileTruncateFileSet(ptr nocapture noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [1024 x i8], align 16
   %5 = load i32, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load i64, ptr %6, align 8
   %.079 = add i32 %5, -1
   %.not80 = icmp slt i32 %.079, %1
@@ -1147,9 +1147,9 @@ define dso_local void @BufFileTruncateFileSet(ptr nocapture noundef %0, i32 noun
 
 .lr.ph:                                           ; preds = %3
   %8 = icmp eq i64 %2, 0
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %12
 
 12:                                               ; preds = %.lr.ph, %47
@@ -1223,7 +1223,7 @@ define dso_local void @BufFileTruncateFileSet(ptr nocapture noundef %0, i32 noun
   %.063.lcssa = phi i32 [ %1, %3 ], [ %.164, %47 ]
   %.062.lcssa = phi i64 [ %7, %3 ], [ %.1, %47 ]
   store i32 %.065.lcssa, ptr %0, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %49 = load i32, ptr %48, align 8
   %50 = icmp eq i32 %.063.lcssa, %49
   br i1 %50, label %51, label %67
@@ -1234,7 +1234,7 @@ define dso_local void @BufFileTruncateFileSet(ptr nocapture noundef %0, i32 noun
   br i1 %.not69, label %64, label %53
 
 53:                                               ; preds = %51
-  %54 = getelementptr inbounds i8, ptr %0, i64 68
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %55 = load i32, ptr %54, align 4
   %56 = sext i32 %55 to i64
   %57 = add i64 %52, %56
@@ -1242,7 +1242,7 @@ define dso_local void @BufFileTruncateFileSet(ptr nocapture noundef %0, i32 noun
   br i1 %.not70, label %67, label %58
 
 58:                                               ; preds = %53
-  %59 = getelementptr inbounds i8, ptr %0, i64 64
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %60 = load i32, ptr %59, align 8
   %61 = sext i32 %60 to i64
   %62 = add i64 %52, %61
@@ -1261,9 +1261,9 @@ define dso_local void @BufFileTruncateFileSet(ptr nocapture noundef %0, i32 noun
 
 64:                                               ; preds = %51
   store i64 %.062.lcssa, ptr %6, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 64
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 0, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %0, i64 68
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %66, align 4
   br label %72
 
@@ -1274,9 +1274,9 @@ define dso_local void @BufFileTruncateFileSet(ptr nocapture noundef %0, i32 noun
 69:                                               ; preds = %67
   store i32 %.063.lcssa, ptr %48, align 8
   store i64 %.062.lcssa, ptr %6, align 8
-  %70 = getelementptr inbounds i8, ptr %0, i64 64
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 0, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %0, i64 68
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %71, align 4
   br label %72
 

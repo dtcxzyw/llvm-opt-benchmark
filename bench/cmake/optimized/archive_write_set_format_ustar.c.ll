@@ -40,7 +40,7 @@ define dso_local range(i32 -30, 1) i32 @archive_write_set_format_ustar(ptr nound
   br i1 %3, label %23, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 312
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %9, label %7
@@ -59,24 +59,24 @@ define dso_local range(i32 -30, 1) i32 @archive_write_set_format_ustar(ptr nound
   br label %23
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 248
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store ptr %10, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 256
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store ptr @.str.2, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 272
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store ptr @archive_write_ustar_options, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 288
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store ptr @archive_write_ustar_header, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 296
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store ptr @archive_write_ustar_data, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 304
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store ptr @archive_write_ustar_close, ptr %19, align 8
   store ptr @archive_write_ustar_free, ptr %5, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 280
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store ptr @archive_write_ustar_finish_entry, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 196609, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr @.str.3, ptr %22, align 8
   br label %23
 
@@ -94,7 +94,7 @@ declare void @archive_set_error(ptr noundef, i32 noundef, ptr noundef, ...) loca
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -30, 1) i32 @archive_write_ustar_options(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 248
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(11) @.str.23) #12
   %7 = icmp eq i32 %6, 0
@@ -110,14 +110,14 @@ define internal range(i32 -30, 1) i32 @archive_write_ustar_options(ptr noundef %
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %10, %8
-  %14 = getelementptr inbounds i8, ptr %0, i64 256
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %15 = load ptr, ptr %14, align 8
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.24, ptr noundef %15) #10
   br label %19
 
 16:                                               ; preds = %10
   %17 = tail call ptr @archive_string_conversion_to_charset(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 0) #10
-  %18 = getelementptr inbounds i8, ptr %5, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %17, ptr %18, align 8
   %.not = icmp eq ptr %17, null
   %. = select i1 %.not, i32 -30, i32 0
@@ -132,27 +132,27 @@ define internal range(i32 -30, 1) i32 @archive_write_ustar_options(ptr noundef %
 define internal range(i32 -2147483648, 1) i32 @archive_write_ustar_header(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca [512 x i8], align 16
   %4 = alloca %struct.archive_string, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 248
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %16
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %6, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %12 = load i32, ptr %11, align 8
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %13, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %10
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %6, i64 24
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 24
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %16
 
 13:                                               ; preds = %10
   %14 = tail call ptr @archive_string_default_conversion_for_write(ptr noundef nonnull %0) #10
-  %15 = getelementptr inbounds i8, ptr %6, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %14, ptr %15, align 8
   store i32 1, ptr %11, align 8
   br label %16
@@ -223,7 +223,7 @@ define internal range(i32 -2147483648, 1) i32 @archive_write_ustar_header(ptr no
   br label %64
 
 46:                                               ; preds = %40
-  %47 = getelementptr inbounds i8, ptr %4, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %47, align 8
   %48 = call ptr @archive_strncat(ptr noundef nonnull %4, ptr noundef nonnull %32, i64 noundef %41) #10
   %49 = call ptr @archive_strappend_char(ptr noundef nonnull %4, i8 noundef signext 47) #10
@@ -256,7 +256,7 @@ define internal range(i32 -2147483648, 1) i32 @archive_write_ustar_header(ptr no
   store i64 %60, ptr %6, align 8
   %61 = sub nsw i64 0, %60
   %62 = and i64 %61, 511
-  %63 = getelementptr inbounds i8, ptr %6, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %62, ptr %63, align 8
   call void @archive_entry_free(ptr noundef null) #10
   br label %64
@@ -268,7 +268,7 @@ define internal range(i32 -2147483648, 1) i32 @archive_write_ustar_header(ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @archive_write_ustar_data(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 248
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %5, align 8
   %spec.select = tail call i64 @llvm.umin.i64(i64 %2, i64 %6)
@@ -290,7 +290,7 @@ define internal i32 @archive_write_ustar_close(ptr noundef %0) #0 {
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define internal noundef i32 @archive_write_ustar_free(ptr nocapture noundef %0) #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 248
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #10
   store ptr null, ptr %2, align 8
@@ -299,10 +299,10 @@ define internal noundef i32 @archive_write_ustar_free(ptr nocapture noundef %0) 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @archive_write_ustar_finish_entry(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 248
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, %4
   %8 = tail call i32 @__archive_write_nulls(ptr noundef %0, i64 noundef %7) #10
@@ -356,7 +356,7 @@ define dso_local range(i32 -30, 1) i32 @__archive_write_format_header_ustar(ptr 
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %24
-  %30 = getelementptr inbounds i8, ptr %27, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 1
   %31 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %30, i32 noundef 47) #12
   store ptr %31, ptr %8, align 8
   br label %32
@@ -371,7 +371,7 @@ define dso_local range(i32 -30, 1) i32 @__archive_write_format_header_ustar(ptr 
   br label %52
 
 35:                                               ; preds = %32
-  %36 = getelementptr inbounds i8, ptr %33, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 1
   %37 = load i8, ptr %36, align 1
   %38 = icmp eq i8 %37, 0
   br i1 %38, label %39, label %40
@@ -381,7 +381,7 @@ define dso_local range(i32 -30, 1) i32 @__archive_write_format_header_ustar(ptr 
   br label %52
 
 40:                                               ; preds = %35
-  %41 = getelementptr inbounds i8, ptr %22, i64 155
+  %41 = getelementptr inbounds nuw i8, ptr %22, i64 155
   %42 = icmp ugt ptr %33, %41
   br i1 %42, label %43, label %44
 
@@ -390,7 +390,7 @@ define dso_local range(i32 -30, 1) i32 @__archive_write_format_header_ustar(ptr 
   br label %52
 
 44:                                               ; preds = %40
-  %45 = getelementptr inbounds i8, ptr %1, i64 345
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 345
   %46 = ptrtoint ptr %33 to i64
   %47 = ptrtoint ptr %22 to i64
   %48 = sub i64 %46, %47
@@ -471,7 +471,7 @@ define dso_local range(i32 -30, 1) i32 @__archive_write_format_header_ustar(ptr 
 78:                                               ; preds = %77, %.thread
   %79 = phi i64 [ 100, %77 ], [ %75, %.thread ]
   %.5 = phi i32 [ -25, %77 ], [ %.3287, %.thread ]
-  %80 = getelementptr inbounds i8, ptr %1, i64 157
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 157
   %81 = load ptr, ptr %8, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %80, ptr noundef nonnull align 1 dereferenceable(1) %81, i64 %79, i1 false)
   br label %82
@@ -525,7 +525,7 @@ define dso_local range(i32 -30, 1) i32 @__archive_write_format_header_ustar(ptr 
 99:                                               ; preds = %98, %94
   %100 = phi i64 [ 32, %98 ], [ %93, %94 ]
   %.8 = phi i32 [ %.9, %98 ], [ %.6, %94 ]
-  %101 = getelementptr inbounds i8, ptr %1, i64 265
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 265
   %102 = load ptr, ptr %8, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %101, ptr align 1 %102, i64 %100, i1 false)
   br label %103
@@ -583,7 +583,7 @@ define dso_local range(i32 -30, 1) i32 @__archive_write_format_header_ustar(ptr 
   %123 = phi i64 [ 32, %121 ], [ %114, %115 ]
   %124 = phi ptr [ %.pre, %121 ], [ %116, %115 ]
   %.12 = phi i32 [ %.13, %121 ], [ %.10, %115 ]
-  %125 = getelementptr inbounds i8, ptr %1, i64 297
+  %125 = getelementptr inbounds nuw i8, ptr %1, i64 297
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %125, ptr align 1 %124, i64 %123, i1 false)
   br label %126
 
@@ -593,7 +593,7 @@ define dso_local range(i32 -30, 1) i32 @__archive_write_format_header_ustar(ptr 
   %128 = and i32 %127, 4095
   %129 = zext nneg i32 %128 to i64
   %.not.i = icmp eq i32 %4, 0
-  %130 = getelementptr inbounds i8, ptr %1, i64 106
+  %130 = getelementptr inbounds nuw i8, ptr %1, i64 106
   br i1 %.not.i, label %.lr.ph.i23.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %126, %.lr.ph.i.i
@@ -641,7 +641,7 @@ format_number.exit:                               ; preds = %._crit_edge.i27.i, 
 format_number.exit.thread:                        ; preds = %._crit_edge.i27.i, %._crit_edge.i.i, %format_number.exit
   %.14 = phi i32 [ -25, %format_number.exit ], [ %.11, %._crit_edge.i.i ], [ %.11, %._crit_edge.i27.i ]
   %147 = call i64 @archive_entry_uid(ptr noundef %2) #10
-  %148 = getelementptr inbounds i8, ptr %1, i64 108
+  %148 = getelementptr inbounds nuw i8, ptr %1, i64 108
   %149 = icmp slt i64 %147, 0
   br i1 %.not.i, label %161, label %150
 
@@ -653,7 +653,7 @@ format_number.exit.thread:                        ; preds = %._crit_edge.i27.i, 
   br label %format_number.exit151
 
 151:                                              ; preds = %150
-  %152 = getelementptr inbounds i8, ptr %1, i64 114
+  %152 = getelementptr inbounds nuw i8, ptr %1, i64 114
   br label %.lr.ph.i.i129
 
 .lr.ph.i.i129:                                    ; preds = %.lr.ph.i.i129, %151
@@ -689,7 +689,7 @@ format_number.exit.thread:                        ; preds = %._crit_edge.i27.i, 
 
 163:                                              ; preds = %.lr.ph.i136
   %164 = zext nneg i32 %.01937.i138 to i64
-  %165 = getelementptr inbounds i8, ptr %148, i64 %164
+  %165 = getelementptr inbounds nuw i8, ptr %148, i64 %164
   br label %.lr.ph.i23.i145
 
 .lr.ph.i23.i145:                                  ; preds = %.lr.ph.i23.i145, %163
@@ -721,7 +721,7 @@ format_number.exit.thread:                        ; preds = %._crit_edge.i27.i, 
   br i1 %exitcond.not.i139, label %.loopexit.i140, label %.lr.ph.i136, !llvm.loop !7
 
 .loopexit.i140:                                   ; preds = %174, %161
-  %177 = getelementptr inbounds i8, ptr %1, i64 116
+  %177 = getelementptr inbounds nuw i8, ptr %1, i64 116
   br label %178
 
 178:                                              ; preds = %178, %.loopexit.i140
@@ -748,7 +748,7 @@ format_number.exit151:                            ; preds = %.lr.ph27.preheader.
 format_number.exit151.thread:                     ; preds = %._crit_edge.i27.i149, %._crit_edge.i.i133, %format_256.exit.i144, %format_number.exit151
   %.15 = phi i32 [ -25, %format_number.exit151 ], [ %.14, %format_256.exit.i144 ], [ %.14, %._crit_edge.i.i133 ], [ %.14, %._crit_edge.i27.i149 ]
   %185 = call i64 @archive_entry_gid(ptr noundef %2) #10
-  %186 = getelementptr inbounds i8, ptr %1, i64 116
+  %186 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %187 = icmp slt i64 %185, 0
   br i1 %.not.i, label %199, label %188
 
@@ -760,7 +760,7 @@ format_number.exit151.thread:                     ; preds = %._crit_edge.i27.i14
   br label %format_number.exit177
 
 189:                                              ; preds = %188
-  %190 = getelementptr inbounds i8, ptr %1, i64 122
+  %190 = getelementptr inbounds nuw i8, ptr %1, i64 122
   br label %.lr.ph.i.i153
 
 .lr.ph.i.i153:                                    ; preds = %.lr.ph.i.i153, %189
@@ -796,7 +796,7 @@ format_number.exit151.thread:                     ; preds = %._crit_edge.i27.i14
 
 201:                                              ; preds = %.lr.ph.i162
   %202 = zext nneg i32 %.01937.i164 to i64
-  %203 = getelementptr inbounds i8, ptr %186, i64 %202
+  %203 = getelementptr inbounds nuw i8, ptr %186, i64 %202
   br label %.lr.ph.i23.i171
 
 .lr.ph.i23.i171:                                  ; preds = %.lr.ph.i23.i171, %201
@@ -828,7 +828,7 @@ format_number.exit151.thread:                     ; preds = %._crit_edge.i27.i14
   br i1 %exitcond.not.i165, label %.loopexit.i166, label %.lr.ph.i162, !llvm.loop !7
 
 .loopexit.i166:                                   ; preds = %212, %199
-  %215 = getelementptr inbounds i8, ptr %1, i64 124
+  %215 = getelementptr inbounds nuw i8, ptr %1, i64 124
   br label %216
 
 216:                                              ; preds = %216, %.loopexit.i166
@@ -855,7 +855,7 @@ format_number.exit177:                            ; preds = %.lr.ph27.preheader.
 format_number.exit177.thread:                     ; preds = %._crit_edge.i27.i175, %._crit_edge.i.i157, %format_256.exit.i170, %format_number.exit177
   %.16 = phi i32 [ -25, %format_number.exit177 ], [ %.15, %format_256.exit.i170 ], [ %.15, %._crit_edge.i.i157 ], [ %.15, %._crit_edge.i27.i175 ]
   %223 = call i64 @archive_entry_size(ptr noundef %2) #10
-  %224 = getelementptr inbounds i8, ptr %1, i64 124
+  %224 = getelementptr inbounds nuw i8, ptr %1, i64 124
   %225 = icmp slt i64 %223, 0
   br i1 %.not.i, label %237, label %226
 
@@ -867,7 +867,7 @@ format_number.exit177.thread:                     ; preds = %._crit_edge.i27.i17
   br label %format_number.exit203
 
 227:                                              ; preds = %226
-  %228 = getelementptr inbounds i8, ptr %1, i64 135
+  %228 = getelementptr inbounds nuw i8, ptr %1, i64 135
   br label %.lr.ph.i.i179
 
 .lr.ph.i.i179:                                    ; preds = %.lr.ph.i.i179, %227
@@ -903,7 +903,7 @@ format_number.exit177.thread:                     ; preds = %._crit_edge.i27.i17
 
 239:                                              ; preds = %.lr.ph.i188
   %240 = zext nneg i32 %.01937.i190 to i64
-  %241 = getelementptr inbounds i8, ptr %224, i64 %240
+  %241 = getelementptr inbounds nuw i8, ptr %224, i64 %240
   br label %.lr.ph.i23.i197
 
 .lr.ph.i23.i197:                                  ; preds = %.lr.ph.i23.i197, %239
@@ -935,7 +935,7 @@ format_number.exit177.thread:                     ; preds = %._crit_edge.i27.i17
   br i1 %exitcond.not.i191, label %.loopexit.i192, label %.lr.ph.i188, !llvm.loop !7
 
 .loopexit.i192:                                   ; preds = %250, %237
-  %253 = getelementptr inbounds i8, ptr %1, i64 136
+  %253 = getelementptr inbounds nuw i8, ptr %1, i64 136
   br label %254
 
 254:                                              ; preds = %254, %.loopexit.i192
@@ -962,7 +962,7 @@ format_number.exit203:                            ; preds = %.lr.ph27.preheader.
 format_number.exit203.thread:                     ; preds = %._crit_edge.i27.i201, %._crit_edge.i.i183, %format_256.exit.i196, %format_number.exit203
   %.17 = phi i32 [ -25, %format_number.exit203 ], [ %.16, %format_256.exit.i196 ], [ %.16, %._crit_edge.i.i183 ], [ %.16, %._crit_edge.i27.i201 ]
   %261 = call i64 @archive_entry_mtime(ptr noundef %2) #10
-  %262 = getelementptr inbounds i8, ptr %1, i64 136
+  %262 = getelementptr inbounds nuw i8, ptr %1, i64 136
   br i1 %.not.i, label %275, label %263
 
 263:                                              ; preds = %format_number.exit203.thread
@@ -974,7 +974,7 @@ format_number.exit203.thread:                     ; preds = %._crit_edge.i27.i20
   br label %format_number.exit229
 
 265:                                              ; preds = %263
-  %266 = getelementptr inbounds i8, ptr %1, i64 147
+  %266 = getelementptr inbounds nuw i8, ptr %1, i64 147
   br label %.lr.ph.i.i205
 
 .lr.ph.i.i205:                                    ; preds = %.lr.ph.i.i205, %265
@@ -1001,7 +1001,7 @@ format_number.exit203.thread:                     ; preds = %._crit_edge.i27.i20
 
 275:                                              ; preds = %format_number.exit203.thread
   %or.cond = icmp ult i64 %261, 8589934592
-  %276 = getelementptr inbounds i8, ptr %1, i64 147
+  %276 = getelementptr inbounds nuw i8, ptr %1, i64 147
   br i1 %or.cond, label %.lr.ph.i23.i223, label %.loopexit.i218
 
 .lr.ph.i23.i223:                                  ; preds = %275, %.lr.ph.i23.i223
@@ -1060,7 +1060,7 @@ format_number.exit229.thread:                     ; preds = %._crit_edge.i27.i22
 
 296:                                              ; preds = %293, %format_number.exit229.thread
   %297 = call i64 @archive_entry_rdevmajor(ptr noundef %2) #10
-  %298 = getelementptr inbounds i8, ptr %1, i64 329
+  %298 = getelementptr inbounds nuw i8, ptr %1, i64 329
   %299 = icmp slt i64 %297, 0
   br i1 %.not.i, label %311, label %300
 
@@ -1072,7 +1072,7 @@ format_number.exit229.thread:                     ; preds = %._crit_edge.i27.i22
   br label %format_number.exit255
 
 301:                                              ; preds = %300
-  %302 = getelementptr inbounds i8, ptr %1, i64 335
+  %302 = getelementptr inbounds nuw i8, ptr %1, i64 335
   br label %.lr.ph.i.i231
 
 .lr.ph.i.i231:                                    ; preds = %.lr.ph.i.i231, %301
@@ -1108,7 +1108,7 @@ format_number.exit229.thread:                     ; preds = %._crit_edge.i27.i22
 
 313:                                              ; preds = %.lr.ph.i240
   %314 = zext nneg i32 %.01937.i242 to i64
-  %315 = getelementptr inbounds i8, ptr %298, i64 %314
+  %315 = getelementptr inbounds nuw i8, ptr %298, i64 %314
   br label %.lr.ph.i23.i249
 
 .lr.ph.i23.i249:                                  ; preds = %.lr.ph.i23.i249, %313
@@ -1140,7 +1140,7 @@ format_number.exit229.thread:                     ; preds = %._crit_edge.i27.i22
   br i1 %exitcond.not.i243, label %.loopexit.i244, label %.lr.ph.i240, !llvm.loop !7
 
 .loopexit.i244:                                   ; preds = %324, %311
-  %327 = getelementptr inbounds i8, ptr %1, i64 337
+  %327 = getelementptr inbounds nuw i8, ptr %1, i64 337
   br label %328
 
 328:                                              ; preds = %328, %.loopexit.i244
@@ -1167,7 +1167,7 @@ format_number.exit255:                            ; preds = %.lr.ph27.preheader.
 format_number.exit255.thread:                     ; preds = %._crit_edge.i27.i253, %._crit_edge.i.i235, %format_256.exit.i248, %format_number.exit255
   %.20 = phi i32 [ -25, %format_number.exit255 ], [ %.18, %format_256.exit.i248 ], [ %.18, %._crit_edge.i.i235 ], [ %.18, %._crit_edge.i27.i253 ]
   %335 = call i64 @archive_entry_rdevminor(ptr noundef %2) #10
-  %336 = getelementptr inbounds i8, ptr %1, i64 337
+  %336 = getelementptr inbounds nuw i8, ptr %1, i64 337
   %337 = icmp slt i64 %335, 0
   br i1 %.not.i, label %349, label %338
 
@@ -1179,7 +1179,7 @@ format_number.exit255.thread:                     ; preds = %._crit_edge.i27.i25
   br label %format_number.exit281
 
 339:                                              ; preds = %338
-  %340 = getelementptr inbounds i8, ptr %1, i64 343
+  %340 = getelementptr inbounds nuw i8, ptr %1, i64 343
   br label %.lr.ph.i.i257
 
 .lr.ph.i.i257:                                    ; preds = %.lr.ph.i.i257, %339
@@ -1215,7 +1215,7 @@ format_number.exit255.thread:                     ; preds = %._crit_edge.i27.i25
 
 351:                                              ; preds = %.lr.ph.i266
   %352 = zext nneg i32 %.01937.i268 to i64
-  %353 = getelementptr inbounds i8, ptr %336, i64 %352
+  %353 = getelementptr inbounds nuw i8, ptr %336, i64 %352
   br label %.lr.ph.i23.i275
 
 .lr.ph.i23.i275:                                  ; preds = %.lr.ph.i23.i275, %351
@@ -1247,7 +1247,7 @@ format_number.exit255.thread:                     ; preds = %._crit_edge.i27.i25
   br i1 %exitcond.not.i269, label %.loopexit.i270, label %.lr.ph.i266, !llvm.loop !7
 
 .loopexit.i270:                                   ; preds = %362, %349
-  %365 = getelementptr inbounds i8, ptr %1, i64 345
+  %365 = getelementptr inbounds nuw i8, ptr %1, i64 345
   br label %366
 
 366:                                              ; preds = %366, %.loopexit.i270
@@ -1278,7 +1278,7 @@ format_number.exit281.thread:                     ; preds = %._crit_edge.i27.i27
 
 374:                                              ; preds = %format_number.exit281.thread
   %375 = trunc i32 %3 to i8
-  %376 = getelementptr inbounds i8, ptr %1, i64 156
+  %376 = getelementptr inbounds nuw i8, ptr %1, i64 156
   store i8 %375, ptr %376, align 1
   br label %397
 
@@ -1286,7 +1286,7 @@ format_number.exit281.thread:                     ; preds = %._crit_edge.i27.i27
   br i1 %.not112.not, label %380, label %378
 
 378:                                              ; preds = %377
-  %379 = getelementptr inbounds i8, ptr %1, i64 156
+  %379 = getelementptr inbounds nuw i8, ptr %1, i64 156
   store i8 %.0289, ptr %379, align 1
   br label %397
 
@@ -1304,32 +1304,32 @@ format_number.exit281.thread:                     ; preds = %._crit_edge.i27.i27
   ]
 
 384:                                              ; preds = %380
-  %385 = getelementptr inbounds i8, ptr %1, i64 156
+  %385 = getelementptr inbounds nuw i8, ptr %1, i64 156
   store i8 48, ptr %385, align 1
   br label %397
 
 386:                                              ; preds = %380
-  %387 = getelementptr inbounds i8, ptr %1, i64 156
+  %387 = getelementptr inbounds nuw i8, ptr %1, i64 156
   store i8 50, ptr %387, align 1
   br label %397
 
 388:                                              ; preds = %380
-  %389 = getelementptr inbounds i8, ptr %1, i64 156
+  %389 = getelementptr inbounds nuw i8, ptr %1, i64 156
   store i8 51, ptr %389, align 1
   br label %397
 
 390:                                              ; preds = %380
-  %391 = getelementptr inbounds i8, ptr %1, i64 156
+  %391 = getelementptr inbounds nuw i8, ptr %1, i64 156
   store i8 52, ptr %391, align 1
   br label %397
 
 392:                                              ; preds = %380
-  %393 = getelementptr inbounds i8, ptr %1, i64 156
+  %393 = getelementptr inbounds nuw i8, ptr %1, i64 156
   store i8 53, ptr %393, align 1
   br label %397
 
 394:                                              ; preds = %380
-  %395 = getelementptr inbounds i8, ptr %1, i64 156
+  %395 = getelementptr inbounds nuw i8, ptr %1, i64 156
   store i8 54, ptr %395, align 1
   br label %397
 
@@ -1344,7 +1344,7 @@ format_number.exit281.thread:                     ; preds = %._crit_edge.i27.i27
 398:                                              ; preds = %397, %398
   %indvars.iv = phi i64 [ 0, %397 ], [ %indvars.iv.next, %398 ]
   %.0101339 = phi i32 [ 0, %397 ], [ %402, %398 ]
-  %399 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %399 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %400 = load i8, ptr %399, align 1
   %401 = zext i8 %400 to i32
   %402 = add i32 %.0101339, %401
@@ -1353,7 +1353,7 @@ format_number.exit281.thread:                     ; preds = %._crit_edge.i27.i27
   br i1 %exitcond.not, label %403, label %398, !llvm.loop !9
 
 403:                                              ; preds = %398
-  %404 = getelementptr inbounds i8, ptr %1, i64 154
+  %404 = getelementptr inbounds nuw i8, ptr %1, i64 154
   store i8 0, ptr %404, align 1
   %405 = zext i32 %402 to i64
   br label %.lr.ph.i282

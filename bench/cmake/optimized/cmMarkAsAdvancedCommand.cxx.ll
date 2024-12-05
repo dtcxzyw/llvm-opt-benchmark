@@ -64,7 +64,7 @@ define dso_local noundef zeroext i1 @_Z23cmMarkAsAdvancedCommandRKSt6vectorINSt7
   %15 = alloca %"class.std::__cxx11::basic_string", align 8
   %16 = alloca %"class.std::allocator", align 1
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %17, %19
   br i1 %20, label %21, label %31
@@ -89,7 +89,7 @@ define dso_local noundef zeroext i1 @_Z23cmMarkAsAdvancedCommandRKSt6vectorINSt7
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc71
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %.loopexit.sink.split unwind label %29
 
@@ -144,15 +144,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br i1 %52, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %42
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %3, i64 8
-  %53 = getelementptr inbounds i8, ptr %3, i64 16
-  %54 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds i8, ptr %3, i64 32
-  %55 = getelementptr inbounds i8, ptr %3, i64 40
-  %56 = getelementptr inbounds i8, ptr %3, i64 48
-  %.sroa.2.0..sroa_idx.i14.i = getelementptr inbounds i8, ptr %3, i64 56
-  %57 = getelementptr inbounds i8, ptr %3, i64 64
-  %58 = getelementptr inbounds i8, ptr %.053, i64 1
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %.sroa.2.0..sroa_idx.i14.i = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %58 = getelementptr inbounds nuw i8, ptr %.053, i64 1
   br label %59
 
 59:                                               ; preds = %.lr.ph, %123
@@ -160,7 +160,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %61 = phi i64 [ %45, %.lr.ph ], [ %125, %123 ]
   %.150130 = phi i1 [ %.049, %.lr.ph ], [ %.251, %123 ]
   %.156129 = phi i32 [ %.055, %.lr.ph ], [ %124, %123 ]
-  %62 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %60, i64 %61
   %63 = call noundef i32 @_ZNK10cmMakefile15GetPolicyStatusEN10cmPolicies8PolicyIDEb(ptr noundef nonnull align 8 dereferenceable(3520) %43, i32 noundef 102, i1 noundef zeroext false)
   switch i32 %63, label %.thread120 [
     i32 1, label %64

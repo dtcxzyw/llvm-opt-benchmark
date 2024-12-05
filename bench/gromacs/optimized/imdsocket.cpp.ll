@@ -25,7 +25,7 @@ define noundef i32 @_ZN3gmx19imdsock_winsockinitEv() local_unnamed_addr #0 {
 define noundef ptr @_ZN3gmx14imdsock_createEv() local_unnamed_addr #1 {
   %1 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 152, i64 noundef 1, i64 noundef 20)
   %2 = tail call i32 @socket(i32 noundef 2, i32 noundef 1, i32 noundef 0) #13
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 %2, ptr %3, align 4
   %4 = icmp eq i32 %2, -1
   br i1 %4, label %5, label %9
@@ -85,14 +85,14 @@ declare i32 @sleep(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef i32 @_ZN3gmx12imdsock_bindEPNS_9IMDSocketEi(ptr noundef initializes((0, 16)) %0, i32 noundef %1) local_unnamed_addr #7 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, i8 0, i64 12, i1 false)
   store i16 2, ptr %0, align 4
   %4 = trunc i32 %1 to i16
   %5 = tail call zeroext i16 @htons(i16 noundef zeroext %4) #14
-  %6 = getelementptr inbounds i8, ptr %0, i64 2
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 %5, ptr %6, align 2
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 4
   %9 = tail call i32 @bind(i32 noundef %8, ptr noundef nonnull %0, i32 noundef 16) #13
   %.not = icmp eq i32 %9, 0
@@ -120,7 +120,7 @@ declare i32 @bind(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef i32 @_ZN3gmx15imd_sock_listenEPNS_9IMDSocketE(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 4
   %4 = tail call i32 @listen(i32 noundef %3, i32 noundef 1) #13
   %.not = icmp eq i32 %4, 0
@@ -144,7 +144,7 @@ declare i32 @listen(i32 noundef, i32 noundef) local_unnamed_addr #2
 define noundef ptr @_ZN3gmx14imdsock_acceptEPNS_9IMDSocketE(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca i32, align 4
   store i32 16, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 4
   %5 = call i32 @accept(i32 noundef %4, ptr noundef %0, ptr noundef nonnull %2)
   %6 = icmp sgt i32 %5, -1
@@ -153,7 +153,7 @@ define noundef ptr @_ZN3gmx14imdsock_acceptEPNS_9IMDSocketE(ptr noundef %0) loca
 7:                                                ; preds = %1
   %8 = call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 244, i64 noundef 1, i64 noundef 20)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) %0, i64 16, i1 false)
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 %5, ptr %9, align 4
   br label %14
 
@@ -178,7 +178,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define noundef i32 @_ZN3gmx15imdsock_getportEPNS_9IMDSocketEPi(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #7 {
   %3 = alloca i32, align 4
   store i32 16, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 4
   %6 = call i32 @getsockname(i32 noundef %5, ptr noundef %0, ptr noundef nonnull %3) #13
   %.not = icmp eq i32 %6, 0
@@ -194,7 +194,7 @@ define noundef i32 @_ZN3gmx15imdsock_getportEPNS_9IMDSocketEPi(ptr noundef %0, p
   br label %18
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %15 = load i16, ptr %14, align 2
   %16 = call zeroext i16 @ntohs(i16 noundef zeroext %15) #14
   %17 = zext i16 %16 to i32
@@ -231,7 +231,7 @@ declare i32 @ntohl(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree uwtable
 define noundef i32 @_ZN3gmx13imdsock_writeEPNS_9IMDSocketEPKci(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #11 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 4
   %6 = sext i32 %2 to i64
   %7 = tail call i64 @write(i32 noundef %5, ptr noundef %1, i64 noundef %6)
@@ -244,7 +244,7 @@ declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noun
 
 ; Function Attrs: mustprogress nofree uwtable
 define noundef i32 @_ZN3gmx12imdsock_readEPNS_9IMDSocketEPci(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #11 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 4
   %6 = sext i32 %2 to i64
   %7 = tail call i64 @read(i32 noundef %5, ptr noundef %1, i64 noundef %6)
@@ -261,7 +261,7 @@ define void @_ZN3gmx16imdsock_shutdownEPNS_9IMDSocketE(ptr noundef readonly %0) 
   br i1 %2, label %14, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 4
   %6 = tail call i32 @shutdown(i32 noundef %5, i32 noundef 1) #13
   %7 = icmp eq i32 %6, -1
@@ -289,7 +289,7 @@ define noundef range(i32 0, 2) i32 @_ZN3gmx15imdsock_destroyEPNS_9IMDSocketE(ptr
   br i1 %2, label %12, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 4
   %6 = tail call i32 @close(i32 noundef %5)
   %7 = icmp eq i32 %6, -1
@@ -315,7 +315,7 @@ define noundef i32 @_ZN3gmx15imdsock_tryreadEPNS_9IMDSocketEii(ptr nocapture nou
   %4 = alloca %struct.fd_set, align 8
   %5 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 410, i64 noundef 1, i64 noundef 16)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %4, i8 0, i64 128, i1 false)
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 4
   %8 = srem i32 %7, 64
   %9 = zext nneg i32 %8 to i64
@@ -329,7 +329,7 @@ define noundef i32 @_ZN3gmx15imdsock_tryreadEPNS_9IMDSocketEii(ptr nocapture nou
   %16 = sext i32 %1 to i64
   store i64 %16, ptr %5, align 8
   %17 = sext i32 %2 to i64
-  %18 = getelementptr inbounds i8, ptr %5, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %17, ptr %18, align 8
   br label %19
 

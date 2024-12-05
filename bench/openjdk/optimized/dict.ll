@@ -23,20 +23,20 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden void @_ZN4DictC2EPFiPKvS1_EPFiS1_E(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 800
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 800
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %2, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 16, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 0, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %7, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %7, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %15 = load ptr, ptr %14, align 8
   %16 = ptrtoint ptr %13 to i64
   %17 = ptrtoint ptr %15 to i64
@@ -45,7 +45,7 @@ define hidden void @_ZN4DictC2EPFiPKvS1_EPFiS1_E(ptr nocapture noundef nonnull a
   br i1 %.not.i.i, label %21, label %19
 
 19:                                               ; preds = %3
-  %20 = getelementptr inbounds i8, ptr %15, i64 256
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 256
   store ptr %20, ptr %14, align 8
   br label %_ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit
 
@@ -55,7 +55,7 @@ define hidden void @_ZN4DictC2EPFiPKvS1_EPFiS1_E(ptr nocapture noundef nonnull a
 
 _ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit: ; preds = %19, %21
   %.0.i.i = phi ptr [ %15, %19 ], [ %22, %21 ]
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0.i.i, ptr %23, align 8
   %24 = load i32, ptr %10, align 8
   %25 = zext i32 %24 to i64
@@ -70,9 +70,9 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4DictC2EPFiPKvS1_EPFiS1_EP5Arenai(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
   store ptr %3, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %2, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %1, ptr %7, align 8
   %8 = icmp sgt i32 %4, 0
   %9 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %4)
@@ -83,15 +83,15 @@ define hidden void @_ZN4DictC2EPFiPKvS1_EPFiS1_EP5Arenai(ptr nocapture noundef n
   %13 = shl nuw i32 1, %12
   %.0.i = select i1 %or.cond.i, i32 %4, i32 %13
   %14 = tail call noundef i32 @llvm.smax.i32(i32 %.0.i, i32 16)
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 0, ptr %16, align 4
   %17 = zext nneg i32 %14 to i64
   %18 = shl nuw nsw i64 %17, 4
-  %19 = getelementptr inbounds i8, ptr %3, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %3, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %22 = load ptr, ptr %21, align 8
   %23 = ptrtoint ptr %20 to i64
   %24 = ptrtoint ptr %22 to i64
@@ -100,7 +100,7 @@ define hidden void @_ZN4DictC2EPFiPKvS1_EPFiS1_EP5Arenai(ptr nocapture noundef n
   br i1 %.not.i.i, label %28, label %26
 
 26:                                               ; preds = %5
-  %27 = getelementptr inbounds i8, ptr %22, i64 %18
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 %18
   store ptr %27, ptr %21, align 8
   br label %_ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit
 
@@ -110,7 +110,7 @@ define hidden void @_ZN4DictC2EPFiPKvS1_EPFiS1_EP5Arenai(ptr nocapture noundef n
 
 _ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit: ; preds = %26, %28
   %.0.i.i = phi ptr [ %22, %26 ], [ %29, %28 ]
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0.i.i, ptr %30, align 8
   %31 = load i32, ptr %15, align 8
   %32 = zext i32 %31 to i64
@@ -122,27 +122,27 @@ _ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit: ; preds = %2
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4DictC2ERKS_P5Arena(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, ptr noundef %2) unnamed_addr #0 align 2 {
   store ptr %2, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
   store i32 %6, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 20
-  %8 = getelementptr inbounds i8, ptr %1, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %9 = load i32, ptr %8, align 4
   store i32 %9, ptr %7, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load ptr, ptr %11, align 8
   store ptr %12, ptr %10, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
-  %14 = getelementptr inbounds i8, ptr %1, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %15 = load ptr, ptr %14, align 8
   store ptr %15, ptr %13, align 8
   %16 = zext i32 %6 to i64
   %17 = shl nuw nsw i64 %16, 4
-  %18 = getelementptr inbounds i8, ptr %2, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %2, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %21 = load ptr, ptr %20, align 8
   %22 = ptrtoint ptr %19 to i64
   %23 = ptrtoint ptr %21 to i64
@@ -151,7 +151,7 @@ define hidden void @_ZN4DictC2ERKS_P5Arena(ptr nocapture noundef nonnull align 8
   br i1 %.not.i.i, label %27, label %25
 
 25:                                               ; preds = %3
-  %26 = getelementptr inbounds i8, ptr %21, i64 %17
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 %17
   store ptr %26, ptr %20, align 8
   br label %_ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit
 
@@ -161,9 +161,9 @@ define hidden void @_ZN4DictC2ERKS_P5Arena(ptr nocapture noundef nonnull align 8
 
 _ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit: ; preds = %25, %27
   %.0.i.i = phi ptr [ %21, %25 ], [ %28, %27 ]
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0.i.i, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = load i32, ptr %4, align 8
   %33 = zext i32 %32 to i64
@@ -177,21 +177,21 @@ _ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit: ; preds = %2
   %36 = phi i32 [ %72, %71 ], [ %35, %_ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %71 ], [ 0, %_ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit ]
   %37 = load ptr, ptr %29, align 8
-  %38 = getelementptr inbounds %class.bucket, ptr %37, i64 %indvars.iv
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
+  %38 = getelementptr inbounds nuw %class.bucket, ptr %37, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8
   %.not = icmp eq ptr %40, null
   br i1 %.not, label %71, label %41
 
 41:                                               ; preds = %.lr.ph
   %42 = load ptr, ptr %0, align 8
-  %43 = getelementptr inbounds i8, ptr %38, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %44 = load i32, ptr %43, align 4
   %45 = zext i32 %44 to i64
   %46 = shl nuw nsw i64 %45, 4
-  %47 = getelementptr inbounds i8, ptr %42, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %42, i64 40
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %42, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %42, i64 32
   %50 = load ptr, ptr %49, align 8
   %51 = ptrtoint ptr %48 to i64
   %52 = ptrtoint ptr %50 to i64
@@ -200,7 +200,7 @@ _ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit: ; preds = %2
   br i1 %.not.i.i15, label %56, label %54
 
 54:                                               ; preds = %41
-  %55 = getelementptr inbounds i8, ptr %50, i64 %46
+  %55 = getelementptr inbounds nuw i8, ptr %50, i64 %46
   store ptr %55, ptr %49, align 8
   br label %_ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit17
 
@@ -211,14 +211,14 @@ _ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit: ; preds = %2
 _ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit17: ; preds = %54, %56
   %.0.i.i16 = phi ptr [ %50, %54 ], [ %57, %56 ]
   %58 = load ptr, ptr %29, align 8
-  %59 = getelementptr inbounds %class.bucket, ptr %58, i64 %indvars.iv, i32 2
+  %59 = getelementptr inbounds nuw %class.bucket, ptr %58, i64 %indvars.iv, i32 2
   store ptr %.0.i.i16, ptr %59, align 8
   %60 = load ptr, ptr %29, align 8
-  %61 = getelementptr inbounds %class.bucket, ptr %60, i64 %indvars.iv
-  %62 = getelementptr inbounds i8, ptr %61, i64 8
+  %61 = getelementptr inbounds nuw %class.bucket, ptr %60, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = load ptr, ptr %62, align 8
   %64 = load ptr, ptr %30, align 8
-  %65 = getelementptr inbounds %class.bucket, ptr %64, i64 %indvars.iv, i32 2
+  %65 = getelementptr inbounds nuw %class.bucket, ptr %64, i64 %indvars.iv, i32 2
   %66 = load ptr, ptr %65, align 8
   %67 = load i32, ptr %61, align 8
   %68 = shl i32 %67, 1
@@ -249,12 +249,12 @@ define hidden void @_ZN4DictD2Ev(ptr nocapture nonnull readnone align 8 %0) unna
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4Dict8doubhashEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = shl i32 %3, 1
   store i32 %4, ptr %2, align 8
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = zext i32 %3 to i64
   %9 = shl nuw nsw i64 %8, 4
@@ -262,20 +262,20 @@ define hidden void @_ZN4Dict8doubhashEv(ptr nocapture noundef nonnull align 8 de
   %11 = shl nuw nsw i64 %10, 4
   %12 = tail call noundef ptr @_ZN5Arena8AreallocEPvmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %7, i64 noundef %9, i64 noundef %11, i32 noundef 0) #11
   store ptr %12, ptr %6, align 8
-  %13 = getelementptr inbounds %class.bucket, ptr %12, i64 %8
+  %13 = getelementptr inbounds nuw %class.bucket, ptr %12, i64 %8
   tail call void @llvm.memset.p0.i64(ptr align 1 %13, i8 0, i64 %9, i1 false)
   %.not63 = icmp eq i32 %3, 0
   br i1 %.not63, label %._crit_edge, label %.lr.ph62
 
 .lr.ph62:                                         ; preds = %1
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %15
 
 15:                                               ; preds = %.lr.ph62, %.loopexit
   %indvars.iv = phi i64 [ 0, %.lr.ph62 ], [ %indvars.iv.next, %.loopexit ]
   %16 = load ptr, ptr %6, align 8
-  %17 = getelementptr inbounds %class.bucket, ptr %16, i64 %indvars.iv
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %17 = getelementptr inbounds nuw %class.bucket, ptr %16, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %.loopexit, label %20
@@ -284,7 +284,7 @@ define hidden void @_ZN4Dict8doubhashEv(ptr nocapture noundef nonnull align 8 de
   %21 = trunc nuw i64 %indvars.iv to i32
   %22 = add i32 %3, %21
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds i8, ptr %17, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %25 = load i32, ptr %24, align 4
   %26 = load i32, ptr %17, align 8
   br label %27
@@ -296,17 +296,17 @@ define hidden void @_ZN4Dict8doubhashEv(ptr nocapture noundef nonnull align 8 de
   br i1 %28, label %27, label %30, !llvm.loop !8
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds %class.bucket, ptr %16, i64 %23
+  %31 = getelementptr inbounds nuw %class.bucket, ptr %16, i64 %23
   %spec.store.select = tail call i32 @llvm.umax.i32(i32 %.053, i32 1)
   %32 = shl i32 %spec.store.select, 1
-  %33 = getelementptr inbounds i8, ptr %31, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 4
   store i32 %32, ptr %33, align 4
   %34 = load ptr, ptr %0, align 8
   %35 = zext i32 %32 to i64
   %36 = shl nuw nsw i64 %35, 4
-  %37 = getelementptr inbounds i8, ptr %34, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 40
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %34, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %40 = load ptr, ptr %39, align 8
   %41 = ptrtoint ptr %38 to i64
   %42 = ptrtoint ptr %40 to i64
@@ -315,7 +315,7 @@ define hidden void @_ZN4Dict8doubhashEv(ptr nocapture noundef nonnull align 8 de
   br i1 %.not.i.i, label %46, label %44
 
 44:                                               ; preds = %30
-  %45 = getelementptr inbounds i8, ptr %40, i64 %36
+  %45 = getelementptr inbounds nuw i8, ptr %40, i64 %36
   store ptr %45, ptr %39, align 8
   br label %_ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit
 
@@ -325,7 +325,7 @@ define hidden void @_ZN4Dict8doubhashEv(ptr nocapture noundef nonnull align 8 de
 
 _ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit: ; preds = %44, %46
   %.0.i.i = phi ptr [ %40, %44 ], [ %47, %46 ]
-  %48 = getelementptr inbounds i8, ptr %31, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr %.0.i.i, ptr %48, align 8
   %49 = load i32, ptr %17, align 8
   %.not64 = icmp eq i32 %49, 0
@@ -337,7 +337,7 @@ _ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit: ; preds = %4
   %50 = load ptr, ptr %18, align 8
   %51 = shl i32 %.15458, 1
   %52 = zext i32 %51 to i64
-  %53 = getelementptr inbounds ptr, ptr %50, i64 %52
+  %53 = getelementptr inbounds nuw ptr, ptr %50, i64 %52
   %54 = load ptr, ptr %53, align 8
   %55 = load ptr, ptr %14, align 8
   %56 = tail call noundef i32 %55(ptr noundef %54) #11
@@ -352,17 +352,17 @@ _ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit: ; preds = %4
   %62 = load ptr, ptr %48, align 8
   %63 = shl i32 %.05259, 1
   %64 = zext i32 %63 to i64
-  %65 = getelementptr inbounds ptr, ptr %62, i64 %64
+  %65 = getelementptr inbounds nuw ptr, ptr %62, i64 %64
   store ptr %54, ptr %65, align 8
   %66 = load ptr, ptr %18, align 8
   %67 = or disjoint i32 %51, 1
   %68 = zext i32 %67 to i64
-  %69 = getelementptr inbounds ptr, ptr %66, i64 %68
+  %69 = getelementptr inbounds nuw ptr, ptr %66, i64 %68
   %70 = load ptr, ptr %69, align 8
   %71 = load ptr, ptr %48, align 8
   %72 = or disjoint i32 %63, 1
   %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds ptr, ptr %71, i64 %73
+  %74 = getelementptr inbounds nuw ptr, ptr %71, i64 %73
   store ptr %70, ptr %74, align 8
   %75 = add i32 %.05259, 1
   store i32 %75, ptr %31, align 8
@@ -372,18 +372,18 @@ _ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit: ; preds = %4
   %78 = load ptr, ptr %18, align 8
   %79 = shl i32 %77, 1
   %80 = zext i32 %79 to i64
-  %81 = getelementptr inbounds ptr, ptr %78, i64 %80
+  %81 = getelementptr inbounds nuw ptr, ptr %78, i64 %80
   %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds ptr, ptr %78, i64 %52
+  %83 = getelementptr inbounds nuw ptr, ptr %78, i64 %52
   store ptr %82, ptr %83, align 8
   %84 = load ptr, ptr %18, align 8
   %85 = load i32, ptr %17, align 8
   %86 = shl i32 %85, 1
   %87 = or disjoint i32 %86, 1
   %88 = zext i32 %87 to i64
-  %89 = getelementptr inbounds ptr, ptr %84, i64 %88
+  %89 = getelementptr inbounds nuw ptr, ptr %84, i64 %88
   %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds ptr, ptr %84, i64 %68
+  %91 = getelementptr inbounds nuw ptr, ptr %84, i64 %68
   store ptr %90, ptr %91, align 8
   br label %94
 
@@ -411,24 +411,24 @@ declare noundef ptr @_ZN5Arena8AreallocEPvmmN17AllocFailStrategy13AllocFailEnumE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN4Dict6InsertEPvS0_b(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i32 %6(ptr noundef %1) #11
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = add i32 %9, -1
   %11 = and i32 %10, %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = zext i32 %11 to i64
-  %15 = getelementptr inbounds %class.bucket, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw %class.bucket, ptr %13, i64 %14
   %16 = load i32, ptr %15, align 8
   %.not57 = icmp eq i32 %16, 0
   br i1 %.not57, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
-  %18 = getelementptr inbounds i8, ptr %15, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
   br label %23
 
 19:                                               ; preds = %23
@@ -445,7 +445,7 @@ define hidden noundef ptr @_ZN4Dict6InsertEPvS0_b(ptr nocapture noundef nonnull 
   %26 = trunc nuw i64 %indvars.iv to i32
   %27 = shl i32 %26, 1
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds ptr, ptr %25, i64 %28
+  %29 = getelementptr inbounds nuw ptr, ptr %25, i64 %28
   %30 = load ptr, ptr %29, align 8
   %31 = tail call noundef i32 %24(ptr noundef %1, ptr noundef %30) #11
   %.not53 = icmp eq i32 %31, 0
@@ -455,15 +455,15 @@ define hidden noundef ptr @_ZN4Dict6InsertEPvS0_b(ptr nocapture noundef nonnull 
   %33 = load ptr, ptr %18, align 8
   %34 = or disjoint i32 %27, 1
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds ptr, ptr %33, i64 %35
+  %36 = getelementptr inbounds nuw ptr, ptr %33, i64 %35
   %37 = load ptr, ptr %36, align 8
   br i1 %3, label %38, label %97
 
 38:                                               ; preds = %32
-  %39 = getelementptr inbounds ptr, ptr %33, i64 %28
+  %39 = getelementptr inbounds nuw ptr, ptr %33, i64 %28
   store ptr %1, ptr %39, align 8
   %40 = load ptr, ptr %18, align 8
-  %41 = getelementptr inbounds ptr, ptr %40, i64 %35
+  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %35
   store ptr %2, ptr %41, align 8
   br label %97
 
@@ -473,7 +473,7 @@ define hidden noundef ptr @_ZN4Dict6InsertEPvS0_b(ptr nocapture noundef nonnull 
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %4
   %42 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %9, %4 ]
-  %43 = getelementptr inbounds i8, ptr %0, i64 20
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %44 = load i32, ptr %43, align 4
   %45 = add i32 %44, 1
   store i32 %45, ptr %43, align 4
@@ -487,16 +487,16 @@ define hidden noundef ptr @_ZN4Dict6InsertEPvS0_b(ptr nocapture noundef nonnull 
   %50 = and i32 %49, %7
   %51 = load ptr, ptr %12, align 8
   %52 = zext i32 %50 to i64
-  %53 = getelementptr inbounds %class.bucket, ptr %51, i64 %52
+  %53 = getelementptr inbounds nuw %class.bucket, ptr %51, i64 %52
   br label %54
 
 54:                                               ; preds = %47, %._crit_edge
   %.050 = phi ptr [ %53, %47 ], [ %15, %._crit_edge ]
   %55 = load i32, ptr %.050, align 8
-  %56 = getelementptr inbounds i8, ptr %.050, i64 4
+  %56 = getelementptr inbounds nuw i8, ptr %.050, i64 4
   %57 = load i32, ptr %56, align 4
   %58 = icmp eq i32 %55, %57
-  %59 = getelementptr inbounds i8, ptr %.050, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %.050, i64 8
   %60 = load ptr, ptr %59, align 8
   br i1 %58, label %61, label %._crit_edge62
 
@@ -507,9 +507,9 @@ define hidden noundef ptr @_ZN4Dict6InsertEPvS0_b(ptr nocapture noundef nonnull 
 62:                                               ; preds = %61
   store i32 2, ptr %56, align 4
   %63 = load ptr, ptr %0, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 40
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 40
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %63, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %63, i64 32
   %67 = load ptr, ptr %66, align 8
   %68 = ptrtoint ptr %65 to i64
   %69 = ptrtoint ptr %67 to i64
@@ -518,7 +518,7 @@ define hidden noundef ptr @_ZN4Dict6InsertEPvS0_b(ptr nocapture noundef nonnull 
   br i1 %.not.i.i, label %73, label %71
 
 71:                                               ; preds = %62
-  %72 = getelementptr inbounds i8, ptr %67, i64 32
+  %72 = getelementptr inbounds nuw i8, ptr %67, i64 32
   store ptr %72, ptr %66, align 8
   br label %_ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit
 
@@ -545,18 +545,18 @@ _ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit: ; preds = %7
 
 ._crit_edge62:                                    ; preds = %54, %_ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit, %75
   %83 = phi ptr [ %.0.i.i, %_ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit ], [ %80, %75 ], [ %60, %54 ]
-  %84 = getelementptr inbounds i8, ptr %.050, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %.050, i64 8
   %85 = load i32, ptr %.050, align 8
   %86 = shl i32 %85, 1
   %87 = zext i32 %86 to i64
-  %88 = getelementptr inbounds ptr, ptr %83, i64 %87
+  %88 = getelementptr inbounds nuw ptr, ptr %83, i64 %87
   store ptr %1, ptr %88, align 8
   %89 = load ptr, ptr %84, align 8
   %90 = load i32, ptr %.050, align 8
   %91 = shl i32 %90, 1
   %92 = or disjoint i32 %91, 1
   %93 = zext i32 %92 to i64
-  %94 = getelementptr inbounds ptr, ptr %89, i64 %93
+  %94 = getelementptr inbounds nuw ptr, ptr %89, i64 %93
   store ptr %2, ptr %94, align 8
   %95 = load i32, ptr %.050, align 8
   %96 = add i32 %95, 1
@@ -570,24 +570,24 @@ _ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit: ; preds = %7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN4Dict6DeleteEPv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef i32 %4(ptr noundef %1) #11
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = add i32 %7, -1
   %9 = and i32 %8, %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = zext i32 %9 to i64
-  %13 = getelementptr inbounds %class.bucket, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw %class.bucket, ptr %11, i64 %12
   %14 = load i32, ptr %13, align 8
   %.not31 = icmp eq i32 %14, 0
   br i1 %.not31, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
-  %16 = getelementptr inbounds i8, ptr %13, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   br label %21
 
 17:                                               ; preds = %21
@@ -604,7 +604,7 @@ define hidden noundef ptr @_ZN4Dict6DeleteEPv(ptr nocapture noundef nonnull alig
   %24 = trunc nuw i64 %indvars.iv to i32
   %25 = shl i32 %24, 1
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds ptr, ptr %23, i64 %26
+  %27 = getelementptr inbounds nuw ptr, ptr %23, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = tail call noundef i32 %22(ptr noundef %1, ptr noundef %28) #11
   %.not = icmp eq i32 %29, 0
@@ -614,27 +614,27 @@ define hidden noundef ptr @_ZN4Dict6DeleteEPv(ptr nocapture noundef nonnull alig
   %31 = load ptr, ptr %16, align 8
   %32 = or disjoint i32 %25, 1
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds ptr, ptr %31, i64 %33
+  %34 = getelementptr inbounds nuw ptr, ptr %31, i64 %33
   %35 = load ptr, ptr %34, align 8
   %36 = load i32, ptr %13, align 8
   %37 = add i32 %36, -1
   store i32 %37, ptr %13, align 8
   %38 = shl i32 %37, 1
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds ptr, ptr %31, i64 %39
+  %40 = getelementptr inbounds nuw ptr, ptr %31, i64 %39
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds ptr, ptr %31, i64 %26
+  %42 = getelementptr inbounds nuw ptr, ptr %31, i64 %26
   store ptr %41, ptr %42, align 8
   %43 = load ptr, ptr %16, align 8
   %44 = load i32, ptr %13, align 8
   %45 = shl i32 %44, 1
   %46 = or disjoint i32 %45, 1
   %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds ptr, ptr %43, i64 %47
+  %48 = getelementptr inbounds nuw ptr, ptr %43, i64 %47
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds ptr, ptr %43, i64 %33
+  %50 = getelementptr inbounds nuw ptr, ptr %43, i64 %33
   store ptr %49, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 20
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %52 = load i32, ptr %51, align 4
   %53 = add i32 %52, -1
   store i32 %53, ptr %51, align 4
@@ -647,24 +647,24 @@ define hidden noundef ptr @_ZN4Dict6DeleteEPv(ptr nocapture noundef nonnull alig
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZNK4DictixEPKv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef i32 %4(ptr noundef %1) #11
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = add i32 %7, -1
   %9 = and i32 %8, %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = zext i32 %9 to i64
-  %13 = getelementptr inbounds %class.bucket, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw %class.bucket, ptr %11, i64 %12
   %14 = load i32, ptr %13, align 8
   %.not16 = icmp eq i32 %14, 0
   br i1 %.not16, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
-  %16 = getelementptr inbounds i8, ptr %13, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   br label %21
 
 17:                                               ; preds = %21
@@ -681,7 +681,7 @@ define hidden noundef ptr @_ZNK4DictixEPKv(ptr nocapture noundef nonnull readonl
   %24 = trunc nuw i64 %indvars.iv to i32
   %25 = shl i32 %24, 1
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds ptr, ptr %23, i64 %26
+  %27 = getelementptr inbounds nuw ptr, ptr %23, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = tail call noundef i32 %22(ptr noundef %1, ptr noundef %28) #11
   %.not = icmp eq i32 %29, 0
@@ -691,7 +691,7 @@ define hidden noundef ptr @_ZNK4DictixEPKv(ptr nocapture noundef nonnull readonl
   %31 = load ptr, ptr %16, align 8
   %32 = or disjoint i32 %25, 1
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds ptr, ptr %31, i64 %33
+  %34 = getelementptr inbounds nuw ptr, ptr %31, i64 %33
   %35 = load ptr, ptr %34, align 8
   br label %.loopexit
 
@@ -702,8 +702,8 @@ define hidden noundef ptr @_ZNK4DictixEPKv(ptr nocapture noundef nonnull readonl
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4Dict5printEv(ptr noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %2, align 8
   %.not28 = icmp eq i32 %4, 0
   br i1 %.not28, label %_ZN5DictIC2EPK4Dict.exit, label %.lr.ph
@@ -720,22 +720,22 @@ define hidden void @_ZN4Dict5printEv(ptr noundef nonnull align 8 dereferenceable
 8:                                                ; preds = %.lr.ph, %6
   %9 = phi i32 [ 0, %.lr.ph ], [ %7, %6 ]
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds %class.bucket, ptr %5, i64 %10
+  %11 = getelementptr inbounds nuw %class.bucket, ptr %5, i64 %10
   %12 = load i32, ptr %11, align 8
   %.not2.i.i.i = icmp eq i32 %12, 0
   br i1 %.not2.i.i.i, label %6, label %13, !llvm.loop !14
 
 13:                                               ; preds = %8
   %14 = add i32 %12, -1
-  %15 = getelementptr inbounds %class.bucket, ptr %5, i64 %10, i32 2
+  %15 = getelementptr inbounds nuw %class.bucket, ptr %5, i64 %10, i32 2
   %16 = load ptr, ptr %15, align 8
   %17 = shl i32 %14, 1
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds ptr, ptr %16, i64 %18
+  %19 = getelementptr inbounds nuw ptr, ptr %16, i64 %18
   %20 = load ptr, ptr %19, align 8
   %21 = or disjoint i32 %17, 1
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds ptr, ptr %16, i64 %22
+  %23 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
   %24 = load ptr, ptr %23, align 8
   br label %_ZN5DictIC2EPK4Dict.exit
 
@@ -746,7 +746,7 @@ _ZN5DictIC2EPK4Dict.exit:                         ; preds = %6, %1, %13
   %.sroa.16.1 = phi ptr [ %20, %13 ], [ null, %1 ], [ null, %6 ]
   %26 = load ptr, ptr @tty, align 8
   %27 = ptrtoint ptr %0 to i64
-  %28 = getelementptr inbounds i8, ptr %0, i64 20
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %29 = load i32, ptr %28, align 4
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %26, ptr noundef nonnull @.str, i64 noundef %27, i32 noundef %29) #11
   %30 = load i32, ptr %2, align 8
@@ -779,15 +779,15 @@ _ZN5DictIC2EPK4Dict.exit:                         ; preds = %6, %1, %13
   %39 = add i32 %.sroa.9.024, -1
   %40 = load ptr, ptr %3, align 8
   %41 = zext i32 %.sroa.4.025 to i64
-  %42 = getelementptr inbounds %class.bucket, ptr %40, i64 %41, i32 2
+  %42 = getelementptr inbounds nuw %class.bucket, ptr %40, i64 %41, i32 2
   %43 = load ptr, ptr %42, align 8
   %44 = shl i32 %39, 1
   %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds ptr, ptr %43, i64 %45
+  %46 = getelementptr inbounds nuw ptr, ptr %43, i64 %45
   %47 = load ptr, ptr %46, align 8
   %48 = or disjoint i32 %44, 1
   %49 = zext i32 %48 to i64
-  %50 = getelementptr inbounds ptr, ptr %43, i64 %49
+  %50 = getelementptr inbounds nuw ptr, ptr %43, i64 %49
   %51 = load ptr, ptr %50, align 8
   %.pre = load i32, ptr %2, align 8
   br label %_ZN5DictIppEv.exit
@@ -800,22 +800,22 @@ _ZN5DictIC2EPK4Dict.exit:                         ; preds = %6, %1, %13
 53:                                               ; preds = %.lr.ph19, %.preheader.i
   %54 = phi i32 [ %35, %.lr.ph19 ], [ %52, %.preheader.i ]
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds %class.bucket, ptr %37, i64 %55
+  %56 = getelementptr inbounds nuw %class.bucket, ptr %37, i64 %55
   %57 = load i32, ptr %56, align 8
   %.not2.i = icmp eq i32 %57, 0
   br i1 %.not2.i, label %.preheader.i, label %58, !llvm.loop !14
 
 58:                                               ; preds = %53
   %59 = add i32 %57, -1
-  %60 = getelementptr inbounds %class.bucket, ptr %37, i64 %55, i32 2
+  %60 = getelementptr inbounds nuw %class.bucket, ptr %37, i64 %55, i32 2
   %61 = load ptr, ptr %60, align 8
   %62 = shl i32 %59, 1
   %63 = zext i32 %62 to i64
-  %64 = getelementptr inbounds ptr, ptr %61, i64 %63
+  %64 = getelementptr inbounds nuw ptr, ptr %61, i64 %63
   %65 = load ptr, ptr %64, align 8
   %66 = or disjoint i32 %62, 1
   %67 = zext i32 %66 to i64
-  %68 = getelementptr inbounds ptr, ptr %61, i64 %67
+  %68 = getelementptr inbounds nuw ptr, ptr %61, i64 %67
   %69 = load ptr, ptr %68, align 8
   br label %_ZN5DictIppEv.exit
 
@@ -838,7 +838,7 @@ declare void @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferen
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN5DictIppEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #5 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 12
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = add i32 %3, -1
   store i32 %4, ptr %2, align 4
@@ -846,36 +846,36 @@ define hidden void @_ZN5DictIppEv(ptr nocapture noundef nonnull align 8 derefere
   br i1 %.not, label %.preheader, label %9
 
 .preheader:                                       ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.pre = load i32, ptr %5, align 8
   br label %31
 
 9:                                                ; preds = %1
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds %class.bucket, ptr %12, i64 %15, i32 2
+  %16 = getelementptr inbounds nuw %class.bucket, ptr %12, i64 %15, i32 2
   %17 = load ptr, ptr %16, align 8
   %18 = shl i32 %4, 1
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds ptr, ptr %17, i64 %19
+  %20 = getelementptr inbounds nuw ptr, ptr %17, i64 %19
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %21, ptr %22, align 8
   %23 = load ptr, ptr %11, align 8
-  %24 = getelementptr inbounds %class.bucket, ptr %23, i64 %15, i32 2
+  %24 = getelementptr inbounds nuw %class.bucket, ptr %23, i64 %15, i32 2
   %25 = load ptr, ptr %24, align 8
   %26 = or disjoint i32 %18, 1
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds ptr, ptr %25, i64 %27
+  %28 = getelementptr inbounds nuw ptr, ptr %25, i64 %27
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %29, ptr %30, align 8
   br label %61
 
@@ -890,7 +890,7 @@ define hidden void @_ZN5DictIppEv(ptr nocapture noundef nonnull align 8 derefere
 36:                                               ; preds = %31
   %37 = load ptr, ptr %8, align 8
   %38 = zext i32 %33 to i64
-  %39 = getelementptr inbounds %class.bucket, ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw %class.bucket, ptr %37, i64 %38
   %40 = load i32, ptr %39, align 8
   store i32 %40, ptr %2, align 4
   %.not2 = icmp eq i32 %40, 0
@@ -900,27 +900,27 @@ define hidden void @_ZN5DictIppEv(ptr nocapture noundef nonnull align 8 derefere
   %42 = add i32 %40, -1
   store i32 %42, ptr %2, align 4
   %43 = load ptr, ptr %8, align 8
-  %44 = getelementptr inbounds %class.bucket, ptr %43, i64 %38, i32 2
+  %44 = getelementptr inbounds nuw %class.bucket, ptr %43, i64 %38, i32 2
   %45 = load ptr, ptr %44, align 8
   %46 = shl i32 %42, 1
   %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds ptr, ptr %45, i64 %47
+  %48 = getelementptr inbounds nuw ptr, ptr %45, i64 %47
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %49, ptr %50, align 8
   %51 = load ptr, ptr %8, align 8
-  %52 = getelementptr inbounds %class.bucket, ptr %51, i64 %38, i32 2
+  %52 = getelementptr inbounds nuw %class.bucket, ptr %51, i64 %38, i32 2
   %53 = load ptr, ptr %52, align 8
   %54 = or disjoint i32 %46, 1
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds ptr, ptr %53, i64 %55
+  %56 = getelementptr inbounds nuw ptr, ptr %53, i64 %55
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %57, ptr %58, align 8
   br label %61
 
 59:                                               ; preds = %31
-  %60 = getelementptr inbounds i8, ptr %0, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, i8 0, i64 16, i1 false)
   br label %61
 
@@ -941,12 +941,12 @@ define hidden noundef range(i32 -1073741824, 1073741824) i32 @_Z7hashstrPKv(ptr 
   %3 = phi i8 [ %14, %.lr.ph ], [ %2, %1 ]
   %.014 = phi ptr [ %4, %.lr.ph ], [ %0, %1 ]
   %.0913 = phi i32 [ %13, %.lr.ph ], [ 0, %1 ]
-  %4 = getelementptr inbounds i8, ptr %.014, i64 1
+  %4 = getelementptr inbounds nuw i8, ptr %.014, i64 1
   %5 = shl i8 %3, 1
   %6 = or disjoint i8 %5, 1
   %7 = sext i8 %6 to i32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %8 = getelementptr inbounds [20 x i8], ptr @_ZL4shft, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [20 x i8], ptr @_ZL4shft, i64 0, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1
   %10 = zext nneg i8 %9 to i32
   %11 = shl i32 %7, %10
@@ -961,7 +961,7 @@ define hidden noundef range(i32 -1073741824, 1073741824) i32 @_Z7hashstrPKv(ptr 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.010.lcssa = phi i64 [ 0, %1 ], [ %indvars.iv.next, %.lr.ph ]
   %.09.lcssa = phi i32 [ 0, %1 ], [ %13, %.lr.ph ]
-  %18 = getelementptr inbounds [20 x i16], ptr @_ZL4xsum, i64 0, i64 %.010.lcssa
+  %18 = getelementptr inbounds nuw [20 x i16], ptr @_ZL4xsum, i64 0, i64 %.010.lcssa
   %19 = load i16, ptr %18, align 2
   %20 = sext i16 %19 to i32
   %21 = add nsw i32 %.09.lcssa, %20
@@ -1006,11 +1006,11 @@ define hidden noundef range(i32 -1, 2) i32 @_Z6cmpkeyPKvS0_(ptr noundef readnone
 define hidden void @_ZN5DictI5resetEPK4Dict(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 16)) %0, ptr noundef %1) local_unnamed_addr #5 align 2 {
 .preheader.i:
   store ptr %1, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 12
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 -1, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %6
 
 6:                                                ; preds = %11, %.preheader.i
@@ -1024,7 +1024,7 @@ define hidden void @_ZN5DictI5resetEPK4Dict(ptr nocapture noundef nonnull writeo
 11:                                               ; preds = %6
   %12 = load ptr, ptr %5, align 8
   %13 = zext i32 %8 to i64
-  %14 = getelementptr inbounds %class.bucket, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw %class.bucket, ptr %12, i64 %13
   %15 = load i32, ptr %14, align 8
   store i32 %15, ptr %3, align 4
   %.not2.i = icmp eq i32 %15, 0
@@ -1034,27 +1034,27 @@ define hidden void @_ZN5DictI5resetEPK4Dict(ptr nocapture noundef nonnull writeo
   %17 = add i32 %15, -1
   store i32 %17, ptr %3, align 4
   %18 = load ptr, ptr %5, align 8
-  %19 = getelementptr inbounds %class.bucket, ptr %18, i64 %13, i32 2
+  %19 = getelementptr inbounds nuw %class.bucket, ptr %18, i64 %13, i32 2
   %20 = load ptr, ptr %19, align 8
   %21 = shl i32 %17, 1
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds ptr, ptr %20, i64 %22
+  %23 = getelementptr inbounds nuw ptr, ptr %20, i64 %22
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %24, ptr %25, align 8
   %26 = load ptr, ptr %5, align 8
-  %27 = getelementptr inbounds %class.bucket, ptr %26, i64 %13, i32 2
+  %27 = getelementptr inbounds nuw %class.bucket, ptr %26, i64 %13, i32 2
   %28 = load ptr, ptr %27, align 8
   %29 = or disjoint i32 %21, 1
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds ptr, ptr %28, i64 %30
+  %31 = getelementptr inbounds nuw ptr, ptr %28, i64 %30
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %32, ptr %33, align 8
   br label %_ZN5DictIppEv.exit
 
 34:                                               ; preds = %6
-  %35 = getelementptr inbounds i8, ptr %0, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false)
   br label %_ZN5DictIppEv.exit
 

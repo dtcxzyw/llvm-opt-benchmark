@@ -26,7 +26,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress uwtable
 define void @_Z22count_bonded_distancesRK10gmx_mtop_tRK10t_inputrecPdS5_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(768) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 36
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %8, label %14
@@ -36,7 +36,7 @@ define void @_Z22count_bonded_distancesRK10gmx_mtop_tRK10t_inputrecPdS5_(ptr noc
   br i1 %9, label %_ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit, label %14
 
 _ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit: ; preds = %8
-  %10 = getelementptr inbounds i8, ptr %1, i64 340
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 340
   %.val = load i32, ptr %10, align 4
   %11 = icmp ugt i32 %.val, 15
   %switch.cast = trunc i32 %.val to i16
@@ -50,19 +50,19 @@ _ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit: ; preds = %8
 
 14:                                               ; preds = %4, %8, %_ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit
   %15 = phi i1 [ false, %8 ], [ false, %4 ], [ %.not68, %_ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit ]
-  %16 = getelementptr inbounds i8, ptr %1, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %17 = load i32, ptr %16, align 8
   %18 = icmp sgt i32 %17, 0
   %19 = uitofp nneg i32 %17 to double
   %20 = fdiv double 1.000000e+00, %19
   %.047 = select i1 %18, double %20, double 0.000000e+00
-  %21 = getelementptr inbounds i8, ptr %1, i64 204
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 204
   %22 = load i32, ptr %21, align 4
   %.not = icmp eq i32 %22, 0
   br i1 %.not, label %30, label %23
 
 23:                                               ; preds = %14
-  %24 = getelementptr inbounds i8, ptr %1, i64 212
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 212
   %25 = load i32, ptr %24, align 4
   %26 = sitofp i32 %25 to double
   %27 = fdiv double 1.000000e+00, %26
@@ -74,15 +74,15 @@ _ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit: ; preds = %8
 
 30:                                               ; preds = %14, %23, %29
   %.1 = phi double [ %27, %29 ], [ %.047, %23 ], [ %.047, %14 ]
-  %31 = getelementptr inbounds i8, ptr %0, i64 136
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 144
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %34 = load ptr, ptr %33, align 8
   %.not6973 = icmp eq ptr %32, %34
   br i1 %.not6973, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %0, i64 112
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %36 = load ptr, ptr %35, align 8
   %37 = fsub double 1.000000e+00, %.1
   br i1 %15, label %.lr.ph.split.us, label %.lr.ph.split
@@ -94,24 +94,24 @@ _ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit: ; preds = %8
   %38 = load i32, ptr %.sroa.063.074.us, align 8
   %39 = sext i32 %38 to i64
   %40 = getelementptr inbounds %struct.gmx_moltype_t, ptr %36, i64 %39
-  %41 = getelementptr inbounds i8, ptr %.sroa.063.074.us, i64 4
-  %42 = getelementptr inbounds i8, ptr %40, i64 80
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.063.074.us, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 80
   br label %57
 
 43:                                               ; preds = %95
   %44 = load i32, ptr %41, align 4
-  %45 = getelementptr inbounds i8, ptr %40, i64 2344
+  %45 = getelementptr inbounds nuw i8, ptr %40, i64 2344
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 -4
   %48 = load i32, ptr %47, align 4
-  %49 = getelementptr inbounds i8, ptr %40, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %50 = load i32, ptr %49, align 8
   %51 = sub nsw i32 %48, %50
   %52 = mul nsw i32 %51, %44
   %53 = sitofp i32 %52 to double
   %54 = fmul double %53, 5.000000e-01
   %55 = fadd double %.2.us, %54
-  %56 = getelementptr inbounds i8, ptr %.sroa.063.074.us, i64 56
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.063.074.us, i64 56
   %.not69.us = icmp eq ptr %56, %34
   br i1 %.not69.us, label %._crit_edge, label %.lr.ph.split.us
 
@@ -119,7 +119,7 @@ _ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit: ; preds = %8
   %indvars.iv81 = phi i64 [ %indvars.iv.next82, %95 ], [ 0, %.lr.ph.split.us ]
   %.15071.us = phi double [ %.2.us, %95 ], [ %.04976.us, %.lr.ph.split.us ]
   %.15270.us = phi double [ %.253.us, %95 ], [ %.05175.us, %.lr.ph.split.us ]
-  %58 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv81, i32 5
+  %58 = getelementptr inbounds nuw [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv81, i32 5
   %59 = load i32, ptr %58, align 4
   %60 = and i32 %59, 1
   %.not62.us = icmp eq i32 %60, 0
@@ -138,7 +138,7 @@ _ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit: ; preds = %8
   ]
 
 63:                                               ; preds = %61, %61, %61, %61
-  %64 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv81, i32 2
+  %64 = getelementptr inbounds nuw [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv81, i32 2
   %65 = load i32, ptr %64, align 16
   %66 = add nsw i32 %65, -1
   %67 = sitofp i32 %66 to double
@@ -150,7 +150,7 @@ _ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit: ; preds = %8
   br label %76
 
 71:                                               ; preds = %61
-  %72 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv81, i32 2
+  %72 = getelementptr inbounds nuw [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv81, i32 2
   %73 = load i32, ptr %72, align 16
   %74 = add nsw i32 %73, -1
   %75 = sitofp i32 %74 to double
@@ -160,8 +160,8 @@ _ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit: ; preds = %8
   %.046.us = phi double [ %75, %71 ], [ %68, %63 ], [ 0.000000e+00, %61 ], [ 1.000000e+00, %70 ]
   %.0.us = phi double [ 0.000000e+00, %71 ], [ %69, %63 ], [ 0.000000e+00, %61 ], [ 0.000000e+00, %70 ]
   %77 = load i32, ptr %41, align 4
-  %78 = getelementptr inbounds [94 x %struct.InteractionList], ptr %42, i64 0, i64 %indvars.iv81
-  %79 = getelementptr inbounds i8, ptr %78, i64 8
+  %78 = getelementptr inbounds nuw [94 x %struct.InteractionList], ptr %42, i64 0, i64 %indvars.iv81
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load ptr, ptr %79, align 8
   %81 = load ptr, ptr %78, align 8
   %82 = ptrtoint ptr %80 to i64
@@ -170,7 +170,7 @@ _ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit: ; preds = %8
   %85 = lshr exact i64 %84, 2
   %86 = trunc i64 %85 to i32
   %87 = mul nsw i32 %77, %86
-  %88 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv81, i32 2
+  %88 = getelementptr inbounds nuw [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv81, i32 2
   %89 = load i32, ptr %88, align 16
   %90 = add nsw i32 %89, 1
   %91 = sdiv i32 %87, %90
@@ -196,7 +196,7 @@ _ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit: ; preds = %8
   %.sroa.063.074 = phi ptr [ %32, %.lr.ph.split ], [ %140, %139 ]
   %97 = load i32, ptr %.sroa.063.074, align 8
   %98 = sext i32 %97 to i64
-  %99 = getelementptr inbounds i8, ptr %.sroa.063.074, i64 4
+  %99 = getelementptr inbounds nuw i8, ptr %.sroa.063.074, i64 4
   %gep = getelementptr %struct.gmx_moltype_t, ptr %invariant.gep, i64 %98
   br label %100
 
@@ -204,7 +204,7 @@ _ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit: ; preds = %8
   %indvars.iv = phi i64 [ 0, %96 ], [ %indvars.iv.next, %138 ]
   %.15071 = phi double [ %.04976, %96 ], [ %.2, %138 ]
   %.15270 = phi double [ %.05175, %96 ], [ %.253, %138 ]
-  %101 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv, i32 5
+  %101 = getelementptr inbounds nuw [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv, i32 5
   %102 = load i32, ptr %101, align 4
   %103 = and i32 %102, 1
   %.not62 = icmp eq i32 %103, 0
@@ -226,7 +226,7 @@ _ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit: ; preds = %8
   br label %119
 
 107:                                              ; preds = %104, %104, %104, %104
-  %108 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv, i32 2
+  %108 = getelementptr inbounds nuw [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv, i32 2
   %109 = load i32, ptr %108, align 16
   %110 = add nsw i32 %109, -1
   %111 = sitofp i32 %110 to double
@@ -235,7 +235,7 @@ _ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit: ; preds = %8
   br label %119
 
 114:                                              ; preds = %104
-  %115 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv, i32 2
+  %115 = getelementptr inbounds nuw [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv, i32 2
   %116 = load i32, ptr %115, align 16
   %117 = add nsw i32 %116, -1
   %118 = sitofp i32 %117 to double
@@ -245,8 +245,8 @@ _ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit: ; preds = %8
   %.046 = phi double [ %118, %114 ], [ %112, %107 ], [ 0.000000e+00, %104 ], [ 1.000000e+00, %106 ]
   %.0 = phi double [ 0.000000e+00, %114 ], [ %113, %107 ], [ 0.000000e+00, %104 ], [ 0.000000e+00, %106 ]
   %120 = load i32, ptr %99, align 4
-  %121 = getelementptr inbounds [94 x %struct.InteractionList], ptr %gep, i64 0, i64 %indvars.iv
-  %122 = getelementptr inbounds i8, ptr %121, i64 8
+  %121 = getelementptr inbounds nuw [94 x %struct.InteractionList], ptr %gep, i64 0, i64 %indvars.iv
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %123 = load ptr, ptr %122, align 8
   %124 = load ptr, ptr %121, align 8
   %125 = ptrtoint ptr %123 to i64
@@ -255,7 +255,7 @@ _ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit: ; preds = %8
   %128 = lshr exact i64 %127, 2
   %129 = trunc i64 %128 to i32
   %130 = mul nsw i32 %120, %129
-  %131 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv, i32 2
+  %131 = getelementptr inbounds nuw [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv, i32 2
   %132 = load i32, ptr %131, align 16
   %133 = add nsw i32 %132, 1
   %134 = sdiv i32 %130, %133
@@ -272,7 +272,7 @@ _ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit: ; preds = %8
   br i1 %exitcond.not, label %139, label %100, !llvm.loop !5
 
 139:                                              ; preds = %138
-  %140 = getelementptr inbounds i8, ptr %.sroa.063.074, i64 56
+  %140 = getelementptr inbounds nuw i8, ptr %.sroa.063.074, i64 56
   %.not69 = icmp eq ptr %140, %34
   br i1 %.not69, label %._crit_edge, label %96
 
@@ -325,26 +325,26 @@ _ZL7usingRFRK22CoulombInteractionType.exit.i:
   %6 = load double, ptr %4, align 8
   %7 = call double @llvm.fmuladd.f64(double %5, double 5.000000e+00, double %6)
   %8 = fmul double %7, 2.500000e+01
-  %9 = getelementptr inbounds i8, ptr %1, i64 340
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 340
   %.val.i = load i32, ptr %9, align 4
   %10 = icmp ult i32 %.val.i, 17
   %switch.cast = trunc i32 %.val.i to i17
   %switch.downshift = lshr i17 -63482, %switch.cast
   %switch.masked = trunc i17 %switch.downshift to i1
   %11 = select i1 %10, i1 %switch.masked, i1 false
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 136
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 144
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %17 = load ptr, ptr %16, align 8
   %.not103108.i = icmp eq ptr %15, %17
   br i1 %.not103108.i, label %._crit_edge113.i, label %.lr.ph112.i
 
 .lr.ph112.i:                                      ; preds = %_ZL7usingRFRK22CoulombInteractionType.exit.i
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load i32, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 112
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %21 = add nsw i32 %19, 1
   %22 = load ptr, ptr %20, align 8
   br label %23
@@ -358,15 +358,15 @@ _ZL7usingRFRK22CoulombInteractionType.exit.i:
   %24 = load i32, ptr %.sroa.096.0109.i, align 8
   %25 = sext i32 %24 to i64
   %26 = getelementptr inbounds %struct.gmx_moltype_t, ptr %22, i64 %25
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
-  %28 = getelementptr inbounds i8, ptr %26, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %27, align 8
   %31 = icmp sgt i32 %30, 0
   br i1 %31, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %23
-  %32 = getelementptr inbounds i8, ptr %.sroa.096.0109.i, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.096.0109.i, i64 4
   %33 = zext nneg i32 %30 to i64
   br label %34
 
@@ -376,25 +376,25 @@ _ZL7usingRFRK22CoulombInteractionType.exit.i:
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %61 ]
   %.1105.i = phi i32 [ %.081111.i, %.lr.ph.i ], [ %.2.i, %61 ]
   %.183104.i = phi i32 [ %.082110.i, %.lr.ph.i ], [ %.284.i, %61 ]
-  %35 = getelementptr inbounds %struct.t_atom, ptr %29, i64 %indvars.iv.i
-  %36 = getelementptr inbounds i8, ptr %35, i64 4
+  %35 = getelementptr inbounds nuw %struct.t_atom, ptr %29, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %37 = load float, ptr %36, align 4
   %38 = fcmp une float %37, 0.000000e+00
   br i1 %38, label %43, label %39
 
 39:                                               ; preds = %34
-  %40 = getelementptr inbounds i8, ptr %35, i64 12
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 12
   %41 = load float, ptr %40, align 4
   %42 = fcmp une float %41, 0.000000e+00
   br i1 %42, label %43, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %39
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %35, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %35, i64 16
   %.pre = load i16, ptr %.phi.trans.insert, align 4
   br label %61
 
 43:                                               ; preds = %39, %34
-  %44 = getelementptr inbounds i8, ptr %35, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %45 = load i16, ptr %44, align 4
   %46 = zext i16 %45 to i32
   %47 = mul nsw i32 %21, %46
@@ -409,7 +409,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.i:
   br label %56
 
 52:                                               ; preds = %43
-  %53 = getelementptr inbounds i8, ptr %49, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %54 = load float, ptr %53, align 4
   %55 = fcmp une float %54, 0.000000e+00
   %.pre118.i = load i32, ptr %32, align 4
@@ -428,11 +428,11 @@ _ZL7usingRFRK22CoulombInteractionType.exit.i:
   %62 = phi i16 [ %45, %56 ], [ %45, %59 ], [ %.pre, %._crit_edge ]
   %.284.i = phi i32 [ %.183104.i, %56 ], [ %60, %59 ], [ %.183104.i, %._crit_edge ]
   %.2.i = phi i32 [ %58, %56 ], [ %.1105.i, %59 ], [ %.1105.i, %._crit_edge ]
-  %63 = getelementptr inbounds i8, ptr %35, i64 12
+  %63 = getelementptr inbounds nuw i8, ptr %35, i64 12
   %64 = load float, ptr %63, align 4
   %65 = fcmp une float %37, %64
   %.4 = select i1 %65, i1 true, i1 %.3
-  %66 = getelementptr inbounds i8, ptr %35, i64 18
+  %66 = getelementptr inbounds nuw i8, ptr %35, i64 18
   %67 = load i16, ptr %66, align 2
   %.not91.i = icmp ne i16 %62, %67
   %.471 = select i1 %.not91.i, i1 true, i1 %.370
@@ -445,7 +445,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.i:
   %.166 = phi i1 [ %.065, %23 ], [ %.4, %61 ]
   %.183.lcssa.i = phi i32 [ %.082110.i, %23 ], [ %.284.i, %61 ]
   %.1.lcssa.i = phi i32 [ %.081111.i, %23 ], [ %.2.i, %61 ]
-  %68 = getelementptr inbounds i8, ptr %.sroa.096.0109.i, i64 56
+  %68 = getelementptr inbounds nuw i8, ptr %.sroa.096.0109.i, i64 56
   %.not103.i = icmp eq ptr %68, %17
   br i1 %.not103.i, label %._crit_edge113.i, label %23
 
@@ -454,32 +454,32 @@ _ZL7usingRFRK22CoulombInteractionType.exit.i:
   %.2 = phi i1 [ false, %_ZL7usingRFRK22CoulombInteractionType.exit.i ], [ %.166, %._crit_edge.i ]
   %.082.lcssa.i = phi i32 [ 0, %_ZL7usingRFRK22CoulombInteractionType.exit.i ], [ %.183.lcssa.i, %._crit_edge.i ]
   %.081.lcssa.i = phi i32 [ 0, %_ZL7usingRFRK22CoulombInteractionType.exit.i ], [ %.1.lcssa.i, %._crit_edge.i ]
-  %69 = getelementptr inbounds i8, ptr %0, i64 176
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %70 = load i32, ptr %69, align 8
   %71 = add i32 %.081.lcssa.i, %.082.lcssa.i
   %72 = sub i32 %70, %71
   %73 = add nsw i32 %72, %.081.lcssa.i
-  %74 = getelementptr inbounds i8, ptr %1, i64 332
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 332
   %75 = load float, ptr %74, align 4
   %76 = sitofp i32 %70 to float
   %77 = load float, ptr %2, align 4
-  %78 = getelementptr inbounds i8, ptr %2, i64 12
-  %79 = getelementptr inbounds i8, ptr %2, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %79 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %80 = load float, ptr %79, align 4
-  %81 = getelementptr inbounds i8, ptr %2, i64 24
-  %82 = getelementptr inbounds i8, ptr %2, i64 32
+  %81 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %82 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %83 = load float, ptr %82, align 4
-  %84 = getelementptr inbounds i8, ptr %2, i64 28
+  %84 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %85 = load float, ptr %84, align 4
-  %86 = getelementptr inbounds i8, ptr %2, i64 20
+  %86 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %87 = load float, ptr %86, align 4
   %88 = fneg float %87
   %89 = fmul float %85, %88
   %90 = call float @llvm.fmuladd.f32(float %80, float %83, float %89)
   %91 = load float, ptr %78, align 4
-  %92 = getelementptr inbounds i8, ptr %2, i64 4
+  %92 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %93 = load float, ptr %92, align 4
-  %94 = getelementptr inbounds i8, ptr %2, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %95 = load float, ptr %94, align 4
   %96 = fneg float %95
   %97 = fmul float %85, %96
@@ -539,17 +539,17 @@ _ZL14pp_verlet_loadRK10gmx_mtop_tRK10t_inputrecPA3_KfPiS8_PdPbSA_.exit: ; preds 
   %145 = or i1 %144, %11
   %146 = select i1 %145, double 2.900000e+00, double 4.200000e+00
   %147 = select i1 %145, double 2.400000e+00, double 3.800000e+00
-  %148 = getelementptr inbounds i8, ptr %1, i64 372
+  %148 = getelementptr inbounds nuw i8, ptr %1, i64 372
   %149 = load i32, ptr %148, align 4
   %150 = icmp eq i32 %149, 3
-  %151 = getelementptr inbounds i8, ptr %1, i64 368
+  %151 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %.val94.i = load i32, ptr %151, align 8
   %152 = icmp eq i32 %.val94.i, 5
   %or.cond102.i = select i1 %150, i1 true, i1 %152
   %153 = fadd double %146, 1.000000e+00
   %.088.i = select i1 %or.cond102.i, double 3.500000e+00, double 2.500000e+00
   %.085.i = select i1 %or.cond102.i, double %153, double %146
-  %154 = getelementptr inbounds i8, ptr %1, i64 172
+  %154 = getelementptr inbounds nuw i8, ptr %1, i64 172
   %155 = load i32, ptr %154, align 4
   %156 = icmp eq i32 %155, 1
   %or.cond.i = select i1 %152, i1 %156, i1 false
@@ -566,7 +566,7 @@ _ZL14pp_verlet_loadRK10gmx_mtop_tRK10t_inputrecPA3_KfPiS8_PdPbSA_.exit: ; preds 
   %164 = sitofp i32 %72 to double
   %165 = call double @llvm.fmuladd.f64(double %164, double %.189.i, double %163)
   %166 = fmul double %138, %165
-  %167 = getelementptr inbounds i8, ptr %1, i64 148
+  %167 = getelementptr inbounds nuw i8, ptr %1, i64 148
   %168 = load i32, ptr %167, align 4
   %169 = add nsw i32 %168, 1
   %170 = sdiv i32 %169, 2
@@ -580,14 +580,14 @@ _ZL14pp_verlet_loadRK10gmx_mtop_tRK10t_inputrecPA3_KfPiS8_PdPbSA_.exit: ; preds 
   ]
 
 171:                                              ; preds = %_ZL14pp_verlet_loadRK10gmx_mtop_tRK10t_inputrecPA3_KfPiS8_PdPbSA_.exit, %_ZL14pp_verlet_loadRK10gmx_mtop_tRK10t_inputrecPA3_KfPiS8_PdPbSA_.exit, %_ZL14pp_verlet_loadRK10gmx_mtop_tRK10t_inputrecPA3_KfPiS8_PdPbSA_.exit, %_ZL14pp_verlet_loadRK10gmx_mtop_tRK10t_inputrecPA3_KfPiS8_PdPbSA_.exit, %_ZL14pp_verlet_loadRK10gmx_mtop_tRK10t_inputrecPA3_KfPiS8_PdPbSA_.exit
-  %172 = getelementptr inbounds i8, ptr %1, i64 140
+  %172 = getelementptr inbounds nuw i8, ptr %1, i64 140
   %173 = load i32, ptr %172, align 4
-  %174 = getelementptr inbounds i8, ptr %1, i64 144
+  %174 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %175 = load i32, ptr %174, align 8
   %176 = mul i32 %173, %170
   %177 = mul i32 %176, %175
   %178 = sitofp i32 %177 to double
-  %179 = getelementptr inbounds i8, ptr %1, i64 396
+  %179 = getelementptr inbounds nuw i8, ptr %1, i64 396
   %180 = load i32, ptr %179, align 4
   %181 = icmp ne i32 %180, 0
   %182 = select i1 %181, i1 %.2, i1 false
@@ -596,7 +596,7 @@ _ZL14pp_verlet_loadRK10gmx_mtop_tRK10t_inputrecPA3_KfPiS8_PdPbSA_.exit: ; preds 
   %185 = select i1 %182, double 2.000000e+00, double 1.000000e+00
   %186 = fmul double %185, 5.000000e+00
   %187 = fmul double %186, %183
-  %188 = getelementptr inbounds i8, ptr %1, i64 152
+  %188 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %189 = load i32, ptr %188, align 8
   %190 = mul nsw i32 %189, %189
   %191 = mul nsw i32 %190, %189
@@ -624,14 +624,14 @@ _ZL8usingPmeRK22CoulombInteractionType.exit:      ; preds = %_ZL14pp_verlet_load
   br i1 %203, label %204, label %243
 
 204:                                              ; preds = %_ZL8usingPmeRK22CoulombInteractionType.exit
-  %205 = getelementptr inbounds i8, ptr %1, i64 140
+  %205 = getelementptr inbounds nuw i8, ptr %1, i64 140
   %206 = load i32, ptr %205, align 4
-  %207 = getelementptr inbounds i8, ptr %1, i64 144
+  %207 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %208 = load i32, ptr %207, align 8
   %209 = mul i32 %206, %170
   %210 = mul i32 %209, %208
   %211 = sitofp i32 %210 to double
-  %212 = getelementptr inbounds i8, ptr %1, i64 396
+  %212 = getelementptr inbounds nuw i8, ptr %1, i64 396
   %213 = load i32, ptr %212, align 4
   %214 = icmp ne i32 %213, 0
   %215 = select i1 %214, i1 %.269, i1 false
@@ -646,7 +646,7 @@ _ZL8usingPmeRK22CoulombInteractionType.exit:      ; preds = %_ZL14pp_verlet_load
   %223 = mul nuw nsw i32 %.0, 5
   %224 = uitofp nneg i32 %223 to double
   %225 = fmul double %221, %224
-  %226 = getelementptr inbounds i8, ptr %1, i64 152
+  %226 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %227 = load i32, ptr %226, align 8
   %228 = mul nsw i32 %227, %227
   %229 = mul nsw i32 %228, %227

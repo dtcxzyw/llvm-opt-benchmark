@@ -97,11 +97,11 @@ define hidden range(i32 0, 3) i32 @mlib_ImageClippingMxN(ptr noundef %0, ptr nou
 
 67:                                               ; preds = %66
   store i32 %spec.store.select, ptr %4, align 4
-  %68 = getelementptr inbounds i8, ptr %4, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %.0111, ptr %68, align 4
-  %69 = getelementptr inbounds i8, ptr %4, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %spec.store.select1, ptr %69, align 4
-  %70 = getelementptr inbounds i8, ptr %4, i64 12
+  %70 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %.0110, ptr %70, align 4
   br label %71
 

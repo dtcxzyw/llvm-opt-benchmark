@@ -75,7 +75,7 @@ lpad:                                             ; preds = %invoke.cont, %sw.de
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %s to i64
-  %switch.gep = getelementptr inbounds [7 x ptr], ptr @switch.table._ZN4cvc58internal6theorylsERSoNS1_14EqualityStatusE, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZN4cvc58internal6theorylsERSoNS1_14EqualityStatusE, i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %switch.load)
   ret ptr %os
@@ -129,7 +129,7 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory9Valuation12isSatLite
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %0 = load ptr, ptr %this, align 8
-  %d_propEngine.i = getelementptr inbounds i8, ptr %0, i64 16
+  %d_propEngine.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load ptr, ptr %d_propEngine.i, align 8
   %2 = load ptr, ptr %n, align 8
   store ptr %2, ptr %agg.tmp, align 8
@@ -147,12 +147,12 @@ entry:
   %ref.tmp = alloca i8, align 1
   %agg.tmp17 = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %0 = load ptr, ptr %n, align 8
-  %d_kind.i = getelementptr inbounds i8, ptr %0, i64 8
+  %d_kind.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
   %cmp = icmp eq i16 %bf.clear.i, 18
   %1 = load ptr, ptr %this, align 8
-  %d_propEngine.i = getelementptr inbounds i8, ptr %1, i64 16
+  %d_propEngine.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2 = load ptr, ptr %d_propEngine.i, align 8
   br i1 %cmp, label %if.then, label %if.else14
 
@@ -160,14 +160,14 @@ if.then:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %call2.i.i.i = tail call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef 18), !noalias !4
   %cmp.i.i = icmp eq i32 %call2.i.i.i, 2
-  %d_children.i.i = getelementptr inbounds i8, ptr %0, i64 16
+  %d_children.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %idxprom.i.i = zext i1 %cmp.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds [0 x ptr], ptr %d_children.i.i, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [0 x ptr], ptr %d_children.i.i, i64 0, i64 %idxprom.i.i
   %3 = load ptr, ptr %arrayidx.i.i, align 8, !noalias !4
   store ptr %3, ptr %agg.tmp, align 8, !alias.scope !4
   call void @_ZNK4cvc58internal4prop10PropEngine8getValueENS0_12NodeTemplateILb0EEE(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate.123") align 8 %atomRes, ptr noundef nonnull align 8 dereferenceable(424) %2, ptr noundef nonnull %agg.tmp)
   %4 = load ptr, ptr %atomRes, align 8
-  %d_kind.i2 = getelementptr inbounds i8, ptr %4, i64 8
+  %d_kind.i2 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %bf.load.i3 = load i16, ptr %d_kind.i2, align 8
   %bf.clear.i4 = and i16 %bf.load.i3, 1023
   %cmp6 = icmp eq i16 %bf.clear.i4, 17
@@ -379,7 +379,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %d_sortInfer.i = getelementptr inbounds i8, ptr %0, i64 1208
+  %d_sortInfer.i = getelementptr inbounds nuw i8, ptr %0, i64 1208
   %1 = load ptr, ptr %d_sortInfer.i, align 8
   br label %return
 
@@ -459,7 +459,7 @@ define hidden void @_ZN4cvc58internal6theory9Valuation13ensureLiteralENS0_12Node
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %0 = load ptr, ptr %this, align 8
-  %d_propEngine.i = getelementptr inbounds i8, ptr %0, i64 16
+  %d_propEngine.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load ptr, ptr %d_propEngine.i, align 8
   %2 = load ptr, ptr %n, align 8
   store ptr %2, ptr %agg.tmp, align 8
@@ -474,7 +474,7 @@ define hidden void @_ZN4cvc58internal6theory9Valuation19getPreprocessedTermENS0_
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %0 = load ptr, ptr %this, align 8
-  %d_propEngine.i = getelementptr inbounds i8, ptr %0, i64 16
+  %d_propEngine.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load ptr, ptr %d_propEngine.i, align 8
   %2 = load ptr, ptr %n, align 8
   store ptr %2, ptr %agg.tmp, align 8
@@ -489,7 +489,7 @@ define hidden void @_ZN4cvc58internal6theory9Valuation19getPreprocessedTermENS0_
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %0 = load ptr, ptr %this, align 8
-  %d_propEngine.i = getelementptr inbounds i8, ptr %0, i64 16
+  %d_propEngine.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load ptr, ptr %d_propEngine.i, align 8
   %2 = load ptr, ptr %n, align 8
   store ptr %2, ptr %agg.tmp, align 8
@@ -504,7 +504,7 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory9Valuation10isDecisio
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate.123", align 8
   %0 = load ptr, ptr %this, align 8
-  %d_propEngine.i = getelementptr inbounds i8, ptr %0, i64 16
+  %d_propEngine.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load ptr, ptr %d_propEngine.i, align 8
   %2 = load ptr, ptr %lit, align 8
   store ptr %2, ptr %agg.tmp, align 8
@@ -581,7 +581,7 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory9Valuation7isFixedENS
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %0 = load ptr, ptr %this, align 8
-  %d_propEngine.i = getelementptr inbounds i8, ptr %0, i64 16
+  %d_propEngine.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load ptr, ptr %d_propEngine.i, align 8
   %2 = load ptr, ptr %lit, align 8
   store ptr %2, ptr %agg.tmp, align 8
@@ -595,7 +595,7 @@ declare noundef zeroext i1 @_ZNK4cvc58internal4prop10PropEngine7isFixedENS0_12No
 define hidden noundef i32 @_ZNK4cvc58internal6theory9Valuation17getAssertionLevelEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %d_propEngine.i = getelementptr inbounds i8, ptr %0, i64 16
+  %d_propEngine.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load ptr, ptr %d_propEngine.i, align 8
   %call2 = tail call noundef i32 @_ZNK4cvc58internal4prop10PropEngine17getAssertionLevelEv(ptr noundef nonnull align 8 dereferenceable(424) %1)
   ret i32 %call2
@@ -620,10 +620,10 @@ declare void @_ZN4cvc58internal12TheoryEngine15entailmentCheckENS0_7options12The
 define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory9Valuation9needCheckEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %d_outputChannelUsed.i = getelementptr inbounds i8, ptr %0, i64 953
+  %d_outputChannelUsed.i = getelementptr inbounds nuw i8, ptr %0, i64 953
   %1 = load i8, ptr %d_outputChannelUsed.i, align 1
   %tobool.i = trunc i8 %1 to i1
-  %d_lemmasAdded.i = getelementptr inbounds i8, ptr %0, i64 952
+  %d_lemmasAdded.i = getelementptr inbounds nuw i8, ptr %0, i64 952
   %2 = load i8, ptr %d_lemmasAdded.i, align 8
   %tobool2.i = trunc i8 %2 to i1
   %3 = select i1 %tobool.i, i1 true, i1 %tobool2.i
@@ -709,11 +709,11 @@ declare noundef zeroext i1 @_ZNK4cvc58internal12TheoryEngine10isRelevantENS0_12N
 define hidden ptr @_ZN4cvc58internal6theory9Valuation10factsBeginENS1_8TheoryIdE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i32 noundef %tid) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %d_theoryTable.i = getelementptr inbounds i8, ptr %0, i64 24
+  %d_theoryTable.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %idxprom.i = zext i32 %tid to i64
-  %arrayidx.i = getelementptr inbounds [14 x ptr], ptr %d_theoryTable.i, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [14 x ptr], ptr %d_theoryTable.i, i64 0, i64 %idxprom.i
   %1 = load ptr, ptr %arrayidx.i, align 8
-  %d_list.i.i = getelementptr inbounds i8, ptr %1, i64 256
+  %d_list.i.i = getelementptr inbounds nuw i8, ptr %1, i64 256
   %2 = load ptr, ptr %d_list.i.i, align 8
   ret ptr %2
 }
@@ -722,11 +722,11 @@ entry:
 define hidden ptr @_ZN4cvc58internal6theory9Valuation8factsEndENS1_8TheoryIdE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i32 noundef %tid) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %d_theoryTable.i = getelementptr inbounds i8, ptr %0, i64 24
+  %d_theoryTable.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %idxprom.i = zext i32 %tid to i64
-  %arrayidx.i = getelementptr inbounds [14 x ptr], ptr %d_theoryTable.i, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [14 x ptr], ptr %d_theoryTable.i, i64 0, i64 %idxprom.i
   %1 = load ptr, ptr %arrayidx.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %1, i64 264
+  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 264
   %2 = load ptr, ptr %_M_finish.i.i.i, align 8
   ret ptr %2
 }
@@ -755,9 +755,9 @@ init.i:                                           ; preds = %init.check.i
 
 invoke.cont.i:                                    ; preds = %init.i
   store i64 1152920405095219200, ptr %call.i, align 8
-  %d_kind.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %d_kind.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i16 0, ptr %d_kind.i.i, align 8
-  %d_nchildren.i.i = getelementptr inbounds i8, ptr %call.i, i64 12
+  %d_nchildren.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 12
   store i32 0, ptr %d_nchildren.i.i, align 4
   store ptr %call.i, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #14

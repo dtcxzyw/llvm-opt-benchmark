@@ -112,7 +112,7 @@ define void @_Z11gmx_ctime_rB5cxx11PKl(ptr dead_on_unwind noalias writable sret(
   %3 = alloca %"struct.std::array", align 1
   %4 = alloca %"class.std::allocator", align 1
   %5 = call ptr @ctime_r(ptr noundef %1, ptr noundef nonnull %3) #9
-  %6 = getelementptr inbounds i8, ptr %3, i64 1024
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 1024
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #9
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %.noexc unwind label %11
@@ -122,7 +122,7 @@ define void @_Z11gmx_ctime_rB5cxx11PKl(ptr dead_on_unwind noalias writable sret(
           to label %.noexc2 unwind label %11
 
 .noexc2:                                          ; preds = %.noexc
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %8, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %3, ptr noundef nonnull %6)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IPcvEET_S7_RKS3_.exit unwind label %9

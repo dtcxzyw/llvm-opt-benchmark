@@ -28,15 +28,15 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
   br i1 %.not.i, label %18, label %11
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %8, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %13 = load ptr, ptr %12, align 8, !noalias !3, !nonnull !6, !align !7, !noundef !6
-  %14 = getelementptr inbounds i8, ptr %8, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %15 = load i64, ptr %14, align 8, !noalias !3, !noundef !6
   store ptr %13, ptr %7, align 8, !noalias !3
-  %16 = getelementptr inbounds i8, ptr %7, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %15, ptr %16, align 8, !noalias !3
   store ptr %7, ptr %5, align 8, !noalias !3
-  %17 = getelementptr inbounds i8, ptr %5, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h472ab177d9601a8cE", ptr %17, align 8, !noalias !3
   call void @_ZN4core3fmt9Arguments6new_v117h30bf1d769ab653e6E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %6, ptr nonnull align 8 @anon.f4f36e2827d9a98c41ad7a4676c02c03.3, i64 2, ptr nonnull align 8 %5, i64 1), !noalias !3
   call void @_ZN5alloc3fmt6format17h37dbd3d28761c149E(ptr sret({ { { i64, ptr, {} }, i64 } }) align 8 %0, ptr nonnull align 8 %6)
@@ -50,9 +50,9 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
   call void @llvm.assume(i1 %22)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %21, ptr noundef nonnull align 1 dereferenceable(3) @anon.f4f36e2827d9a98c41ad7a4676c02c03.4, i64 3, i1 false)
   store i64 %20, ptr %0, align 8, !alias.scope !3
-  %.sroa.24.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.24.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %21, ptr %.sroa.24.0..sroa_idx.i, align 8, !alias.scope !3
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 3, ptr %.sroa.3.0..sroa_idx.i, align 8, !alias.scope !3
   br label %"_ZN13uuhelp_parser11parse_usage28_$u7b$$u7b$closure$u7d$$u7d$17h011079741f716642E.exit"
 
@@ -67,7 +67,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden zeroext i1 @"_ZN13uuhelp_parser11parse_about28_$u7b$$u7b$closure$u7d$$u7d$17h5ce847a39de871c8E"(ptr nocapture readnone align 1 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
   %3 = load ptr, ptr %1, align 8, !nonnull !6, !align !7, !noundef !6
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !6
   %6 = tail call zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h32b63db9d7f00a5bE"(ptr nonnull align 1 %3, i64 %5, ptr nonnull align 1 @anon.f4f36e2827d9a98c41ad7a4676c02c03.0, i64 3)
   %7 = xor i1 %6, true
@@ -77,7 +77,7 @@ define hidden zeroext i1 @"_ZN13uuhelp_parser11parse_about28_$u7b$$u7b$closure$u
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden zeroext i1 @"_ZN13uuhelp_parser11parse_about28_$u7b$$u7b$closure$u7d$$u7d$17hbb2048ad40eb45f3E"(ptr nocapture readnone align 1 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
   %3 = load ptr, ptr %1, align 8, !nonnull !6, !align !7, !noundef !6
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !6
   %6 = tail call zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h32b63db9d7f00a5bE"(ptr nonnull align 1 %3, i64 %5, ptr nonnull align 1 @anon.f4f36e2827d9a98c41ad7a4676c02c03.0, i64 3)
   %7 = xor i1 %6, true
@@ -88,7 +88,7 @@ define hidden zeroext i1 @"_ZN13uuhelp_parser11parse_about28_$u7b$$u7b$closure$u
 define hidden zeroext i1 @"_ZN13uuhelp_parser11parse_about28_$u7b$$u7b$closure$u7d$$u7d$17h0d7a4216fcd87e25E"(ptr nocapture readnone align 1 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
   %3 = alloca [4 x i8], align 4
   %4 = load ptr, ptr %1, align 8, !nonnull !6, !align !7, !noundef !6
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !6
   store i32 0, ptr %3, align 4
   %7 = call { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17hcd9d8e4e3977f50fE(i32 35, ptr nonnull align 1 %3, i64 4)
@@ -102,7 +102,7 @@ define hidden zeroext i1 @"_ZN13uuhelp_parser11parse_about28_$u7b$$u7b$closure$u
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden zeroext i1 @"_ZN13uuhelp_parser11parse_usage28_$u7b$$u7b$closure$u7d$$u7d$17hb6b079031552080fE"(ptr nocapture readnone align 1 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
   %3 = load ptr, ptr %1, align 8, !nonnull !6, !align !7, !noundef !6
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !6
   %6 = tail call zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h32b63db9d7f00a5bE"(ptr nonnull align 1 %3, i64 %5, ptr nonnull align 1 @anon.f4f36e2827d9a98c41ad7a4676c02c03.0, i64 3)
   %7 = xor i1 %6, true
@@ -112,7 +112,7 @@ define hidden zeroext i1 @"_ZN13uuhelp_parser11parse_usage28_$u7b$$u7b$closure$u
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden zeroext i1 @"_ZN13uuhelp_parser11parse_usage28_$u7b$$u7b$closure$u7d$$u7d$17h3a2c81306829591fE"(ptr nocapture readnone align 1 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
   %3 = load ptr, ptr %1, align 8, !nonnull !6, !align !7, !noundef !6
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !6
   %6 = tail call zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h32b63db9d7f00a5bE"(ptr nonnull align 1 %3, i64 %5, ptr nonnull align 1 @anon.f4f36e2827d9a98c41ad7a4676c02c03.0, i64 3)
   %7 = xor i1 %6, true
@@ -152,9 +152,9 @@ define hidden zeroext i1 @"_ZN13uuhelp_parser13parse_section17is_section_header2
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden zeroext i1 @"_ZN13uuhelp_parser13parse_section28_$u7b$$u7b$closure$u7d$$u7d$17h85d3a540c0ea1b50E"(ptr nocapture readonly align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #1 {
   %4 = load ptr, ptr %0, align 8, !nonnull !6, !align !8, !noundef !6
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8, !nonnull !6, !noundef !6
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !6
   %9 = tail call zeroext i1 @_ZN13uuhelp_parser13parse_section17is_section_header17hc0547ecbebe038a9E(ptr align 1 %1, i64 %2, ptr nonnull align 1 %6, i64 %8)
   %10 = xor i1 %9, true
@@ -164,12 +164,12 @@ define hidden zeroext i1 @"_ZN13uuhelp_parser13parse_section28_$u7b$$u7b$closure
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden zeroext i1 @"_ZN13uuhelp_parser13parse_section28_$u7b$$u7b$closure$u7d$$u7d$17ha638f680d0e13d40E"(ptr nocapture readonly align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
   %3 = load ptr, ptr %1, align 8, !nonnull !6, !align !7, !noundef !6
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !6
   %6 = load ptr, ptr %0, align 8, !nonnull !6, !align !8, !noundef !6
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8, !nonnull !6, !noundef !6
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = load i64, ptr %9, align 8, !noundef !6
   %11 = tail call zeroext i1 @_ZN13uuhelp_parser13parse_section17is_section_header17hc0547ecbebe038a9E(ptr nonnull align 1 %3, i64 %5, ptr nonnull align 1 %8, i64 %10)
   %12 = xor i1 %11, true
@@ -179,11 +179,11 @@ define hidden zeroext i1 @"_ZN13uuhelp_parser13parse_section28_$u7b$$u7b$closure
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden zeroext i1 @"_ZN13uuhelp_parser13parse_section28_$u7b$$u7b$closure$u7d$$u7d$17hc70fd41f5ea552b1E"(ptr nocapture readonly align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
   %3 = load ptr, ptr %1, align 8, !nonnull !6, !align !7, !noundef !6
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !6
   %6 = load ptr, ptr %0, align 8, !nonnull !6, !align !8, !noundef !6
   %7 = load ptr, ptr %6, align 8, !nonnull !6, !align !7, !noundef !6
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load i64, ptr %8, align 8, !noundef !6
   %10 = tail call zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h32b63db9d7f00a5bE"(ptr nonnull align 1 %3, i64 %5, ptr nonnull align 1 %7, i64 %9)
   %11 = xor i1 %10, true

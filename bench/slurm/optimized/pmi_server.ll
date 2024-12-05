@@ -85,66 +85,66 @@ define dso_local ptr @_kvs_comm_dup() local_unnamed_addr #0 {
 .lr.ph51:                                         ; preds = %0, %._crit_edge
   %indvars.iv55 = phi i64 [ %indvars.iv.next56, %._crit_edge ], [ 0, %0 ]
   %7 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 303, ptr noundef nonnull @__func__._kvs_comm_dup) #12
-  %8 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv55
+  %8 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv55
   store ptr %7, ptr %8, align 8
   %9 = load ptr, ptr @kvs_comm_ptr, align 8
-  %10 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv55
+  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv55
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr @xstrdup(ptr noundef %12) #12
   %14 = load ptr, ptr %8, align 8
   store ptr %13, ptr %14, align 8
   %15 = load ptr, ptr @kvs_comm_ptr, align 8
-  %16 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv55
+  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv55
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i32, ptr %18, align 8
   %20 = load ptr, ptr %8, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i32 %19, ptr %21, align 8
   %22 = load ptr, ptr %8, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i32, ptr %23, align 8
   %25 = zext i32 %24 to i64
   %26 = shl nuw nsw i64 %25, 3
   %27 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %26, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 307, ptr noundef nonnull @__func__._kvs_comm_dup) #12
   %28 = load ptr, ptr %8, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store ptr %27, ptr %29, align 8
   %30 = load ptr, ptr %8, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load i32, ptr %31, align 8
   %33 = zext i32 %32 to i64
   %34 = shl nuw nsw i64 %33, 3
   %35 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %34, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 309, ptr noundef nonnull @__func__._kvs_comm_dup) #12
   %36 = load ptr, ptr %8, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
   store ptr %35, ptr %37, align 8
   %38 = load ptr, ptr @kvs_comm_ptr, align 8
-  %39 = getelementptr inbounds ptr, ptr %38, i64 %indvars.iv55
+  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv55
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, null
   br i1 %43, label %44, label %54
 
 44:                                               ; preds = %.lr.ph51
-  %45 = getelementptr inbounds i8, ptr %40, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %46 = load i32, ptr %45, align 8
   %47 = zext i32 %46 to i64
   %48 = shl nuw nsw i64 %47, 1
   %49 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %48, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 313, ptr noundef nonnull @__func__._kvs_comm_dup) #12
   %50 = load ptr, ptr @kvs_comm_ptr, align 8
-  %51 = getelementptr inbounds ptr, ptr %50, i64 %indvars.iv55
+  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv55
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 32
   store ptr %49, ptr %53, align 8
   br label %54
 
 54:                                               ; preds = %44, %.lr.ph51
   %.pre58 = phi ptr [ %50, %44 ], [ %38, %.lr.ph51 ]
   %55 = load ptr, ptr %8, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load i32, ptr %56, align 8
   %.not53 = icmp eq i32 %57, 0
   br i1 %.not53, label %._crit_edge, label %.lr.ph
@@ -154,47 +154,47 @@ define dso_local ptr @_kvs_comm_dup() local_unnamed_addr #0 {
   %59 = phi ptr [ %98, %96 ], [ %.pre58, %54 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %96 ], [ 0, %54 ]
   %.04347 = phi i32 [ %.1, %96 ], [ 0, %54 ]
-  %60 = getelementptr inbounds ptr, ptr %59, i64 %indvars.iv55
+  %60 = getelementptr inbounds nuw ptr, ptr %59, i64 %indvars.iv55
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 32
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i16, ptr %63, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw i16, ptr %63, i64 %indvars.iv
   %65 = load i16, ptr %64, align 2
   %.not = icmp eq i16 %65, 0
   br i1 %.not, label %66, label %96
 
 66:                                               ; preds = %.lr.ph
-  %67 = getelementptr inbounds i8, ptr %61, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds ptr, ptr %68, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %indvars.iv
   %70 = load ptr, ptr %69, align 8
   %71 = tail call ptr @xstrdup(ptr noundef %70) #12
   %72 = load ptr, ptr %8, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %74 = load ptr, ptr %73, align 8
   %75 = sext i32 %.04347 to i64
   %76 = getelementptr inbounds ptr, ptr %74, i64 %75
   store ptr %71, ptr %76, align 8
   %77 = load ptr, ptr @kvs_comm_ptr, align 8
-  %78 = getelementptr inbounds ptr, ptr %77, i64 %indvars.iv55
+  %78 = getelementptr inbounds nuw ptr, ptr %77, i64 %indvars.iv55
   %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 24
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds ptr, ptr %81, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw ptr, ptr %81, i64 %indvars.iv
   %83 = load ptr, ptr %82, align 8
   %84 = tail call ptr @xstrdup(ptr noundef %83) #12
   %85 = load ptr, ptr %8, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 24
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 24
   %87 = load ptr, ptr %86, align 8
   %88 = getelementptr inbounds ptr, ptr %87, i64 %75
   store ptr %84, ptr %88, align 8
   %89 = add nsw i32 %.04347, 1
   %90 = load ptr, ptr @kvs_comm_ptr, align 8
-  %91 = getelementptr inbounds ptr, ptr %90, i64 %indvars.iv55
+  %91 = getelementptr inbounds nuw ptr, ptr %90, i64 %indvars.iv55
   %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 32
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 32
   %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds i16, ptr %94, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw i16, ptr %94, i64 %indvars.iv
   store i16 1, ptr %95, align 2
   %.pre = load ptr, ptr @kvs_comm_ptr, align 8
   %.pre59 = load ptr, ptr %8, align 8
@@ -205,7 +205,7 @@ define dso_local ptr @_kvs_comm_dup() local_unnamed_addr #0 {
   %98 = phi ptr [ %59, %.lr.ph ], [ %.pre, %66 ]
   %.1 = phi i32 [ %.04347, %.lr.ph ], [ %89, %66 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %99 = getelementptr inbounds i8, ptr %97, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %100 = load i32, ptr %99, align 8
   %101 = zext i32 %100 to i64
   %102 = icmp samesign ult i64 %indvars.iv.next, %101
@@ -214,7 +214,7 @@ define dso_local ptr @_kvs_comm_dup() local_unnamed_addr #0 {
 ._crit_edge:                                      ; preds = %96, %54
   %.lcssa45 = phi ptr [ %55, %54 ], [ %97, %96 ]
   %.043.lcssa = phi i32 [ 0, %54 ], [ %.1, %96 ]
-  %103 = getelementptr inbounds i8, ptr %.lcssa45, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %.lcssa45, i64 8
   store i32 %.043.lcssa, ptr %103, align 8
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %104 = load i32, ptr @kvs_comm_cnt, align 4
@@ -260,13 +260,13 @@ define dso_local noundef i32 @pmi_kvs_put(ptr nocapture noundef readonly %0) loc
   br i1 %.not25, label %.preheader, label %16
 
 .preheader:                                       ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i16, ptr %13, align 8
   %.not39 = icmp eq i16 %14, 0
   br i1 %.not39, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %18
 
 16:                                               ; preds = %10
@@ -278,7 +278,7 @@ define dso_local noundef i32 @pmi_kvs_put(ptr nocapture noundef readonly %0) loc
 18:                                               ; preds = %.lr.ph, %_merge_named_kvs.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_merge_named_kvs.exit ]
   %19 = load ptr, ptr %15, align 8
-  %20 = getelementptr inbounds ptr, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %21, align 8
   %23 = load i32, ptr @kvs_comm_cnt, align 4
@@ -297,7 +297,7 @@ define dso_local noundef i32 @pmi_kvs_put(ptr nocapture noundef readonly %0) loc
 
 27:                                               ; preds = %26, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %26 ]
-  %28 = getelementptr inbounds ptr, ptr %25, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv.i
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr %29, align 8
   %31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull readonly dereferenceable(1) %22) #15
@@ -305,18 +305,18 @@ define dso_local noundef i32 @pmi_kvs_put(ptr nocapture noundef readonly %0) loc
   br i1 %.not.i, label %_find_kvs_by_name.exit, label %26
 
 _find_kvs_by_name.exit:                           ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %21, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %33 = load i32, ptr %32, align 8
   %.not54.i = icmp eq i32 %33, 0
   br i1 %.not54.i, label %._crit_edge.i, label %.lr.ph53.i
 
 .lr.ph53.i:                                       ; preds = %_find_kvs_by_name.exit
-  %34 = getelementptr inbounds i8, ptr %29, i64 8
-  %35 = getelementptr inbounds i8, ptr %21, i64 16
-  %36 = getelementptr inbounds i8, ptr %29, i64 16
-  %37 = getelementptr inbounds i8, ptr %29, i64 24
-  %38 = getelementptr inbounds i8, ptr %29, i64 32
-  %39 = getelementptr inbounds i8, ptr %21, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %29, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %29, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %21, i64 24
   br label %40
 
 40:                                               ; preds = %94, %.lr.ph53.i
@@ -331,7 +331,7 @@ _find_kvs_by_name.exit:                           ; preds = %27
 
 .lr.ph.i29:                                       ; preds = %.preheader.i
   %41 = load ptr, ptr %35, align 8
-  %42 = getelementptr inbounds ptr, ptr %41, i64 %indvars.iv60.i
+  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv60.i
   %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr %36, align 8
   %wide.trip.count.i30 = zext i32 %.pre63.i to i64
@@ -339,7 +339,7 @@ _find_kvs_by_name.exit:                           ; preds = %27
 
 45:                                               ; preds = %56, %.lr.ph.i29
   %indvars.iv.i31 = phi i64 [ 0, %.lr.ph.i29 ], [ %indvars.iv.next.i32, %56 ]
-  %46 = getelementptr inbounds ptr, ptr %44, i64 %indvars.iv.i31
+  %46 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv.i31
   %47 = load ptr, ptr %46, align 8
   %48 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %43, ptr noundef nonnull dereferenceable(1) %47) #15
   %.not44.i = icmp eq i32 %48, 0
@@ -348,14 +348,14 @@ _find_kvs_by_name.exit:                           ; preds = %27
 49:                                               ; preds = %45
   %50 = trunc nuw nsw i64 %indvars.iv.i31 to i32
   %51 = load ptr, ptr %37, align 8
-  %52 = getelementptr inbounds ptr, ptr %51, i64 %indvars.iv.i31
+  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv.i31
   tail call void @slurm_xfree(ptr noundef %52) #12
   %53 = load ptr, ptr %38, align 8
   %.not45.i = icmp eq ptr %53, null
   br i1 %.not45.i, label %.loopexit.i, label %54
 
 54:                                               ; preds = %49
-  %55 = getelementptr inbounds i16, ptr %53, i64 %indvars.iv.i31
+  %55 = getelementptr inbounds nuw i16, ptr %53, i64 %indvars.iv.i31
   store i16 0, ptr %55, align 2
   br label %.loopexit.i
 
@@ -366,13 +366,13 @@ _find_kvs_by_name.exit:                           ; preds = %27
 
 .loopexit.i:                                      ; preds = %54, %49
   %57 = load ptr, ptr %39, align 8
-  %58 = getelementptr inbounds ptr, ptr %57, i64 %indvars.iv60.i
+  %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv60.i
   %59 = load ptr, ptr %58, align 8
   %60 = load ptr, ptr %37, align 8
-  %61 = getelementptr inbounds ptr, ptr %60, i64 %indvars.iv.i31
+  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %indvars.iv.i31
   store ptr %59, ptr %61, align 8
   %62 = load ptr, ptr %39, align 8
-  %63 = getelementptr inbounds ptr, ptr %62, i64 %indvars.iv60.i
+  %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %indvars.iv60.i
   store ptr null, ptr %63, align 8
   %.pre.i = load i32, ptr %34, align 8
   %64 = icmp ugt i32 %.pre.i, %50
@@ -390,28 +390,28 @@ _find_kvs_by_name.exit:                           ; preds = %27
   %72 = shl nuw nsw i64 %71, 3
   %73 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %37, i64 noundef 1, i64 noundef %72, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 370, ptr noundef nonnull @__func__._merge_named_kvs) #12
   %74 = load ptr, ptr %35, align 8
-  %75 = getelementptr inbounds ptr, ptr %74, i64 %indvars.iv60.i
+  %75 = getelementptr inbounds nuw ptr, ptr %74, i64 %indvars.iv60.i
   %76 = load ptr, ptr %75, align 8
   %77 = load ptr, ptr %36, align 8
   %78 = load i32, ptr %34, align 8
   %79 = add i32 %78, -1
   %80 = zext i32 %79 to i64
-  %81 = getelementptr inbounds ptr, ptr %77, i64 %80
+  %81 = getelementptr inbounds nuw ptr, ptr %77, i64 %80
   store ptr %76, ptr %81, align 8
   %82 = load ptr, ptr %39, align 8
-  %83 = getelementptr inbounds ptr, ptr %82, i64 %indvars.iv60.i
+  %83 = getelementptr inbounds nuw ptr, ptr %82, i64 %indvars.iv60.i
   %84 = load ptr, ptr %83, align 8
   %85 = load ptr, ptr %37, align 8
   %86 = load i32, ptr %34, align 8
   %87 = add i32 %86, -1
   %88 = zext i32 %87 to i64
-  %89 = getelementptr inbounds ptr, ptr %85, i64 %88
+  %89 = getelementptr inbounds nuw ptr, ptr %85, i64 %88
   store ptr %84, ptr %89, align 8
   %90 = load ptr, ptr %35, align 8
-  %91 = getelementptr inbounds ptr, ptr %90, i64 %indvars.iv60.i
+  %91 = getelementptr inbounds nuw ptr, ptr %90, i64 %indvars.iv60.i
   store ptr null, ptr %91, align 8
   %92 = load ptr, ptr %39, align 8
-  %93 = getelementptr inbounds ptr, ptr %92, i64 %indvars.iv60.i
+  %93 = getelementptr inbounds nuw ptr, ptr %92, i64 %indvars.iv60.i
   store ptr null, ptr %93, align 8
   br label %94
 
@@ -423,13 +423,13 @@ _find_kvs_by_name.exit:                           ; preds = %27
   br i1 %97, label %40, label %._crit_edge.i, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %94, %_find_kvs_by_name.exit
-  %98 = getelementptr inbounds i8, ptr %29, i64 32
+  %98 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %99 = load ptr, ptr %98, align 8
   %.not.i28 = icmp eq ptr %99, null
   br i1 %.not.i28, label %_merge_named_kvs.exit, label %100
 
 100:                                              ; preds = %._crit_edge.i
-  %101 = getelementptr inbounds i8, ptr %29, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %102 = load i32, ptr %101, align 8
   %103 = zext i32 %102 to i64
   %104 = shl nuw nsw i64 %103, 1
@@ -449,7 +449,7 @@ _find_kvs_by_name.exit:                           ; preds = %27
   %113 = add nsw i32 %110, 1
   store i32 %113, ptr @kvs_comm_cnt, align 4
   %114 = load ptr, ptr %15, align 8
-  %115 = getelementptr inbounds ptr, ptr %114, i64 %indvars.iv
+  %115 = getelementptr inbounds nuw ptr, ptr %114, i64 %indvars.iv
   store ptr null, ptr %115, align 8
   br label %_merge_named_kvs.exit
 
@@ -516,7 +516,7 @@ declare void @slurm_diff_tv_str(ptr noundef, ptr noundef, ptr noundef, i32 nound
 define dso_local range(i32 -1, 1) i32 @pmi_kvs_get(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca %union.pthread_attr_t, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %9
@@ -572,7 +572,7 @@ define dso_local range(i32 -1, 1) i32 @pmi_kvs_get(ptr nocapture noundef %0) loc
 29:                                               ; preds = %24
   %30 = load ptr, ptr @barrier_ptr, align 8
   %31 = zext i32 %26 to i64
-  %32 = getelementptr inbounds %struct.barrier_resp, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw %struct.barrier_resp, ptr %30, i64 %31
   %33 = load i16, ptr %32, align 8
   %34 = icmp eq i16 %33, 0
   br i1 %34, label %35, label %38
@@ -590,18 +590,18 @@ define dso_local range(i32 -1, 1) i32 @pmi_kvs_get(ptr nocapture noundef %0) loc
 
 40:                                               ; preds = %38, %35
   %41 = phi ptr [ %.pre28, %38 ], [ %30, %35 ]
-  %42 = getelementptr inbounds i8, ptr %0, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %43 = load i16, ptr %42, align 8
   %44 = load i32, ptr %0, align 8
   %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds %struct.barrier_resp, ptr %41, i64 %45
+  %46 = getelementptr inbounds nuw %struct.barrier_resp, ptr %41, i64 %45
   store i16 %43, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %48 = load ptr, ptr %47, align 8
   %49 = load ptr, ptr @barrier_ptr, align 8
   %50 = load i32, ptr %0, align 8
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds %struct.barrier_resp, ptr %49, i64 %51, i32 1
+  %52 = getelementptr inbounds nuw %struct.barrier_resp, ptr %49, i64 %51, i32 1
   store ptr %48, ptr %52, align 8
   store ptr null, ptr %47, align 8
   %53 = load i32, ptr @barrier_resp_cnt, align 4
@@ -633,7 +633,7 @@ define dso_local range(i32 -1, 1) i32 @pmi_kvs_get(ptr nocapture noundef %0) loc
   %67 = load ptr, ptr @barrier_ptr, align 8
   store ptr %67, ptr %66, align 8
   %68 = load i32, ptr @barrier_cnt, align 4
-  %69 = getelementptr inbounds i8, ptr %66, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 8
   store i32 %68, ptr %69, align 8
   store ptr null, ptr @barrier_ptr, align 8
   store i32 0, ptr @barrier_resp_cnt, align 4
@@ -654,9 +654,9 @@ define dso_local range(i32 -1, 1) i32 @pmi_kvs_get(ptr nocapture noundef %0) loc
 75:                                               ; preds = %73, %70
   %.sink28.i = phi ptr [ %71, %70 ], [ %74, %73 ]
   %.sink.i = phi i32 [ %72, %70 ], [ 0, %73 ]
-  %76 = getelementptr inbounds i8, ptr %66, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %66, i64 16
   store ptr %.sink28.i, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %66, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %66, i64 24
   store i32 %.sink.i, ptr %77, align 8
   %78 = call i32 @pthread_attr_init(ptr noundef nonnull %3) #12
   %.not.i = icmp eq i32 %78, 0
@@ -790,7 +790,7 @@ define dso_local void @pmi_kvs_free() local_unnamed_addr #0 {
   %7 = phi i32 [ %3, %.lr.ph.preheader ], [ %27, %_free_kvs_comm.exit ]
   %8 = phi ptr [ %.pre12, %.lr.ph.preheader ], [ %28, %_free_kvs_comm.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_free_kvs_comm.exit ]
-  %9 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
   store ptr %10, ptr %1, align 8
@@ -798,23 +798,23 @@ define dso_local void @pmi_kvs_free() local_unnamed_addr #0 {
   br i1 %11, label %_free_kvs_comm.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.lr.ph
-  %12 = getelementptr inbounds i8, ptr %10, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %13 = load i32, ptr %12, align 8
   %.not.i = icmp eq i32 %13, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %14 = getelementptr inbounds i8, ptr %10, i64 16
-  %15 = getelementptr inbounds i8, ptr %10, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 24
   br label %16
 
 16:                                               ; preds = %16, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %16 ]
   %17 = load ptr, ptr %14, align 8
-  %18 = getelementptr inbounds ptr, ptr %17, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv.i
   call void @slurm_xfree(ptr noundef %18) #12
   %19 = load ptr, ptr %15, align 8
-  %20 = getelementptr inbounds ptr, ptr %19, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv.i
   call void @slurm_xfree(ptr noundef %20) #12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %21 = load i32, ptr %12, align 8
@@ -823,12 +823,12 @@ define dso_local void @pmi_kvs_free() local_unnamed_addr #0 {
   br i1 %23, label %16, label %._crit_edge.i, !llvm.loop !14
 
 ._crit_edge.i:                                    ; preds = %16, %.preheader.i
-  %24 = getelementptr inbounds i8, ptr %10, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 32
   call void @slurm_xfree(ptr noundef nonnull %24) #12
   call void @slurm_xfree(ptr noundef nonnull %10) #12
-  %25 = getelementptr inbounds i8, ptr %10, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %10, i64 16
   call void @slurm_xfree(ptr noundef nonnull %25) #12
-  %26 = getelementptr inbounds i8, ptr %10, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %10, i64 24
   call void @slurm_xfree(ptr noundef nonnull %26) #12
   call void @slurm_xfree(ptr noundef nonnull %1) #12
   %.pre = load ptr, ptr @kvs_comm_ptr, align 8
@@ -913,7 +913,7 @@ define internal noalias noundef ptr @_agent(ptr noundef %0) #0 {
   %.097 = phi i32 [ %spec.store.select, %11 ], [ 32, %1 ]
   %15 = tail call ptr @getenv(ptr noundef nonnull @.str.17) #12
   %16 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #12
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load i32, ptr %17, align 8
   %19 = sext i32 %18 to i64
   %20 = shl nsw i64 %19, 5
@@ -937,7 +937,7 @@ define internal noalias noundef ptr @_agent(ptr noundef %0) #0 {
   %.098180 = phi i32 [ 0, %.lr.ph184 ], [ %.199, %138 ]
   %.0100179 = phi i32 [ 0, %.lr.ph184 ], [ %.1101, %138 ]
   %29 = load ptr, ptr %27, align 8
-  %30 = getelementptr inbounds %struct.barrier_resp, ptr %29, i64 %indvars.iv230
+  %30 = getelementptr inbounds nuw %struct.barrier_resp, ptr %29, i64 %indvars.iv230
   %31 = load i16, ptr %30, align 8
   %32 = icmp eq i16 %31, 0
   br i1 %32, label %._crit_edge248, label %33
@@ -949,7 +949,7 @@ define internal noalias noundef ptr @_agent(ptr noundef %0) #0 {
 33:                                               ; preds = %26
   %34 = call ptr @slurm_xcalloc(i64 noundef %24, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 207, ptr noundef nonnull @__func__._agent) #12
   %35 = add nuw nsw i64 %indvars.iv230, 1
-  %36 = getelementptr inbounds i8, ptr %27, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %37 = load i32, ptr %36, align 8
   %38 = sext i32 %37 to i64
   %39 = icmp slt i64 %35, %38
@@ -960,7 +960,7 @@ define internal noalias noundef ptr @_agent(ptr noundef %0) #0 {
   %indvars.iv227 = phi i64 [ %indvars.iv.next228, %66 ], [ %indvars.iv, %33 ]
   %.094171 = phi i32 [ %.296, %66 ], [ 0, %33 ]
   %41 = load ptr, ptr %27, align 8
-  %42 = getelementptr inbounds %struct.barrier_resp, ptr %41, i64 %indvars.iv227
+  %42 = getelementptr inbounds nuw %struct.barrier_resp, ptr %41, i64 %indvars.iv227
   %43 = load i16, ptr %42, align 8
   %44 = icmp eq i16 %43, 0
   br i1 %44, label %66, label %45
@@ -969,9 +969,9 @@ define internal noalias noundef ptr @_agent(ptr noundef %0) #0 {
   br i1 %25, label %46, label %52
 
 46:                                               ; preds = %45
-  %47 = getelementptr inbounds %struct.barrier_resp, ptr %41, i64 %indvars.iv230, i32 1
+  %47 = getelementptr inbounds nuw %struct.barrier_resp, ptr %41, i64 %indvars.iv230, i32 1
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %42, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %50 = load ptr, ptr %49, align 8
   %51 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %48, ptr noundef nonnull dereferenceable(1) %50) #15
   %.not121 = icmp eq i32 %51, 0
@@ -982,17 +982,17 @@ define internal noalias noundef ptr @_agent(ptr noundef %0) #0 {
   %54 = getelementptr inbounds %struct.kvs_hosts, ptr %34, i64 %53
   store i32 0, ptr %54, align 8
   %55 = load ptr, ptr %27, align 8
-  %56 = getelementptr inbounds %struct.barrier_resp, ptr %55, i64 %indvars.iv227
+  %56 = getelementptr inbounds nuw %struct.barrier_resp, ptr %55, i64 %indvars.iv227
   %57 = load i16, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %54, i64 4
+  %58 = getelementptr inbounds nuw i8, ptr %54, i64 4
   store i16 %57, ptr %58, align 4
   %59 = load ptr, ptr %27, align 8
-  %60 = getelementptr inbounds %struct.barrier_resp, ptr %59, i64 %indvars.iv227, i32 1
+  %60 = getelementptr inbounds nuw %struct.barrier_resp, ptr %59, i64 %indvars.iv227, i32 1
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %54, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store ptr %61, ptr %62, align 8
   %63 = load ptr, ptr %27, align 8
-  %64 = getelementptr inbounds %struct.barrier_resp, ptr %63, i64 %indvars.iv227
+  %64 = getelementptr inbounds nuw %struct.barrier_resp, ptr %63, i64 %indvars.iv227
   store i16 0, ptr %64, align 8
   %65 = add nsw i32 %.094171, 1
   %.not122 = icmp slt i32 %65, %.097
@@ -1064,11 +1064,11 @@ define internal noalias noundef ptr @_agent(ptr noundef %0) #0 {
 88:                                               ; preds = %._crit_edge177
   %89 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 241, ptr noundef nonnull @__func__._agent) #12
   %90 = load ptr, ptr %27, align 8
-  %91 = getelementptr inbounds %struct.barrier_resp, ptr %90, i64 %indvars.iv230
+  %91 = getelementptr inbounds nuw %struct.barrier_resp, ptr %90, i64 %indvars.iv230
   store ptr %91, ptr %89, align 8
   %92 = sext i32 %.092181 to i64
   %93 = getelementptr inbounds %struct.kvs_comm_set, ptr %28, i64 %92
-  %94 = getelementptr inbounds i8, ptr %89, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %89, i64 8
   store ptr %93, ptr %94, align 8
   %95 = trunc i32 %.195 to i16
   store i16 %95, ptr %93, align 8
@@ -1076,12 +1076,12 @@ define internal noalias noundef ptr @_agent(ptr noundef %0) #0 {
   %97 = getelementptr inbounds %struct.kvs_comm_set, ptr %96, i64 %92, i32 1
   store ptr %34, ptr %97, align 8
   %98 = load ptr, ptr %2, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 24
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 24
   %100 = load i32, ptr %99, align 8
   %101 = trunc i32 %100 to i16
   %102 = getelementptr inbounds %struct.kvs_comm_set, ptr %96, i64 %92, i32 2
   store i16 %101, ptr %102, align 8
-  %103 = getelementptr inbounds i8, ptr %98, i64 16
+  %103 = getelementptr inbounds nuw i8, ptr %98, i64 16
   %104 = load ptr, ptr %103, align 8
   %105 = getelementptr inbounds %struct.kvs_comm_set, ptr %96, i64 %92, i32 3
   store ptr %104, ptr %105, align 8
@@ -1167,7 +1167,7 @@ define internal noalias noundef ptr @_agent(ptr noundef %0) #0 {
   %.1101 = phi i32 [ %.0100179, %._crit_edge248 ], [ %71, %109 ], [ %71, %135 ], [ %71, %133 ]
   %.199 = phi i32 [ %.098180, %._crit_edge248 ], [ %70, %109 ], [ %70, %135 ], [ %70, %133 ]
   %.193 = phi i32 [ %.092181, %._crit_edge248 ], [ %106, %109 ], [ %106, %135 ], [ %106, %133 ]
-  %141 = getelementptr inbounds i8, ptr %139, i64 8
+  %141 = getelementptr inbounds nuw i8, ptr %139, i64 8
   %142 = load i32, ptr %141, align 8
   %143 = sext i32 %142 to i64
   %144 = icmp slt i64 %indvars.iv.next231.pre-phi, %143
@@ -1245,7 +1245,7 @@ define internal noalias noundef ptr @_agent(ptr noundef %0) #0 {
 
 .lr.ph192:                                        ; preds = %.lr.ph192.preheader, %.lr.ph192
   %indvars.iv234 = phi i64 [ 0, %.lr.ph192.preheader ], [ %indvars.iv.next235, %.lr.ph192 ]
-  %168 = getelementptr inbounds %struct.kvs_comm_set, ptr %147, i64 %indvars.iv234, i32 1
+  %168 = getelementptr inbounds nuw %struct.kvs_comm_set, ptr %147, i64 %indvars.iv234, i32 1
   call void @slurm_xfree(ptr noundef nonnull %168) #12
   %indvars.iv.next235 = add nuw nsw i64 %indvars.iv234, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next235, %wide.trip.count
@@ -1258,7 +1258,7 @@ define internal noalias noundef ptr @_agent(ptr noundef %0) #0 {
 ._crit_edge193:                                   ; preds = %._crit_edge193.loopexit, %.preheader133
   %169 = phi ptr [ %.pre247, %._crit_edge193.loopexit ], [ %146, %.preheader133 ]
   call void @slurm_xfree(ptr noundef nonnull %3) #12
-  %170 = getelementptr inbounds i8, ptr %169, i64 8
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 8
   %171 = load i32, ptr %170, align 8
   %172 = icmp sgt i32 %171, 0
   br i1 %172, label %.lr.ph196, label %._crit_edge197
@@ -1266,7 +1266,7 @@ define internal noalias noundef ptr @_agent(ptr noundef %0) #0 {
 .lr.ph196:                                        ; preds = %._crit_edge193, %.lr.ph196
   %indvars.iv237 = phi i64 [ %indvars.iv.next238, %.lr.ph196 ], [ 0, %._crit_edge193 ]
   %173 = load ptr, ptr %169, align 8
-  %174 = getelementptr inbounds %struct.barrier_resp, ptr %173, i64 %indvars.iv237, i32 1
+  %174 = getelementptr inbounds nuw %struct.barrier_resp, ptr %173, i64 %indvars.iv237, i32 1
   call void @slurm_xfree(ptr noundef nonnull %174) #12
   %indvars.iv.next238 = add nuw nsw i64 %indvars.iv237, 1
   %175 = load i32, ptr %170, align 8
@@ -1277,7 +1277,7 @@ define internal noalias noundef ptr @_agent(ptr noundef %0) #0 {
 ._crit_edge197:                                   ; preds = %.lr.ph196, %._crit_edge193
   call void @slurm_xfree(ptr noundef nonnull %169) #12
   %178 = load ptr, ptr %2, align 8
-  %179 = getelementptr inbounds i8, ptr %178, i64 24
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 24
   %180 = load i32, ptr %179, align 8
   %181 = icmp sgt i32 %180, 0
   br i1 %181, label %.preheader, label %._crit_edge205
@@ -1285,11 +1285,11 @@ define internal noalias noundef ptr @_agent(ptr noundef %0) #0 {
 .preheader:                                       ; preds = %._crit_edge197, %._crit_edge201
   %182 = phi ptr [ %207, %._crit_edge201 ], [ %178, %._crit_edge197 ]
   %indvars.iv243 = phi i64 [ %indvars.iv.next244, %._crit_edge201 ], [ 0, %._crit_edge197 ]
-  %183 = getelementptr inbounds i8, ptr %182, i64 16
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 16
   %184 = load ptr, ptr %183, align 8
-  %185 = getelementptr inbounds ptr, ptr %184, i64 %indvars.iv243
+  %185 = getelementptr inbounds nuw ptr, ptr %184, i64 %indvars.iv243
   %186 = load ptr, ptr %185, align 8
-  %187 = getelementptr inbounds i8, ptr %186, i64 8
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 8
   %188 = load i32, ptr %187, align 8
   %.not207 = icmp eq i32 %188, 0
   br i1 %.not207, label %._crit_edge201, label %.lr.ph200
@@ -1297,22 +1297,22 @@ define internal noalias noundef ptr @_agent(ptr noundef %0) #0 {
 .lr.ph200:                                        ; preds = %.preheader, %.lr.ph200
   %indvars.iv240 = phi i64 [ %indvars.iv.next241, %.lr.ph200 ], [ 0, %.preheader ]
   %189 = phi ptr [ %201, %.lr.ph200 ], [ %186, %.preheader ]
-  %190 = getelementptr inbounds i8, ptr %189, i64 16
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 16
   %191 = load ptr, ptr %190, align 8
-  %192 = getelementptr inbounds ptr, ptr %191, i64 %indvars.iv240
+  %192 = getelementptr inbounds nuw ptr, ptr %191, i64 %indvars.iv240
   call void @slurm_xfree(ptr noundef %192) #12
   %193 = load ptr, ptr %183, align 8
-  %194 = getelementptr inbounds ptr, ptr %193, i64 %indvars.iv243
+  %194 = getelementptr inbounds nuw ptr, ptr %193, i64 %indvars.iv243
   %195 = load ptr, ptr %194, align 8
-  %196 = getelementptr inbounds i8, ptr %195, i64 24
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 24
   %197 = load ptr, ptr %196, align 8
-  %198 = getelementptr inbounds ptr, ptr %197, i64 %indvars.iv240
+  %198 = getelementptr inbounds nuw ptr, ptr %197, i64 %indvars.iv240
   call void @slurm_xfree(ptr noundef %198) #12
   %indvars.iv.next241 = add nuw nsw i64 %indvars.iv240, 1
   %199 = load ptr, ptr %183, align 8
-  %200 = getelementptr inbounds ptr, ptr %199, i64 %indvars.iv243
+  %200 = getelementptr inbounds nuw ptr, ptr %199, i64 %indvars.iv243
   %201 = load ptr, ptr %200, align 8
-  %202 = getelementptr inbounds i8, ptr %201, i64 8
+  %202 = getelementptr inbounds nuw i8, ptr %201, i64 8
   %203 = load i32, ptr %202, align 8
   %204 = zext i32 %203 to i64
   %205 = icmp samesign ult i64 %indvars.iv.next241, %204
@@ -1320,24 +1320,24 @@ define internal noalias noundef ptr @_agent(ptr noundef %0) #0 {
 
 ._crit_edge201:                                   ; preds = %.lr.ph200, %.preheader
   %.lcssa = phi ptr [ %186, %.preheader ], [ %201, %.lr.ph200 ]
-  %206 = getelementptr inbounds i8, ptr %.lcssa, i64 16
+  %206 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 16
   call void @slurm_xfree(ptr noundef nonnull %206) #12
   %207 = load ptr, ptr %2, align 8
-  %208 = getelementptr inbounds i8, ptr %207, i64 16
+  %208 = getelementptr inbounds nuw i8, ptr %207, i64 16
   %209 = load ptr, ptr %208, align 8
-  %210 = getelementptr inbounds ptr, ptr %209, i64 %indvars.iv243
+  %210 = getelementptr inbounds nuw ptr, ptr %209, i64 %indvars.iv243
   %211 = load ptr, ptr %210, align 8
-  %212 = getelementptr inbounds i8, ptr %211, i64 24
+  %212 = getelementptr inbounds nuw i8, ptr %211, i64 24
   call void @slurm_xfree(ptr noundef nonnull %212) #12
   %213 = load ptr, ptr %208, align 8
-  %214 = getelementptr inbounds ptr, ptr %213, i64 %indvars.iv243
+  %214 = getelementptr inbounds nuw ptr, ptr %213, i64 %indvars.iv243
   %215 = load ptr, ptr %214, align 8
   call void @slurm_xfree(ptr noundef %215) #12
   %216 = load ptr, ptr %208, align 8
-  %217 = getelementptr inbounds ptr, ptr %216, i64 %indvars.iv243
+  %217 = getelementptr inbounds nuw ptr, ptr %216, i64 %indvars.iv243
   call void @slurm_xfree(ptr noundef %217) #12
   %indvars.iv.next244 = add nuw nsw i64 %indvars.iv243, 1
-  %218 = getelementptr inbounds i8, ptr %207, i64 24
+  %218 = getelementptr inbounds nuw i8, ptr %207, i64 24
   %219 = load i32, ptr %218, align 8
   %220 = sext i32 %219 to i64
   %221 = icmp slt i64 %indvars.iv.next244, %220
@@ -1345,7 +1345,7 @@ define internal noalias noundef ptr @_agent(ptr noundef %0) #0 {
 
 ._crit_edge205:                                   ; preds = %._crit_edge201, %._crit_edge197
   %.lcssa137 = phi ptr [ %178, %._crit_edge197 ], [ %207, %._crit_edge201 ]
-  %222 = getelementptr inbounds i8, ptr %.lcssa137, i64 16
+  %222 = getelementptr inbounds nuw i8, ptr %.lcssa137, i64 16
   call void @slurm_xfree(ptr noundef nonnull %222) #12
   call void @slurm_xfree(ptr noundef nonnull %2) #12
   %223 = call i32 @gettimeofday(ptr noundef nonnull %5, ptr noundef null) #12
@@ -1385,7 +1385,7 @@ define internal noalias noundef ptr @_msg_thread(ptr noundef %0) #0 {
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = load i16, ptr %8, align 8
   %12 = zext i16 %11 to i32
@@ -1393,15 +1393,15 @@ define internal noalias noundef ptr @_msg_thread(ptr noundef %0) #0 {
   br label %13
 
 13:                                               ; preds = %7, %1
-  %14 = getelementptr inbounds i8, ptr %4, i64 204
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 204
   store i16 7204, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %4, i64 192
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 192
   store ptr %16, ptr %17, align 8
   %18 = load ptr, ptr %0, align 8
   %19 = load i16, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %18, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %21 = load ptr, ptr %20, align 8
   call void @slurm_set_addr(ptr noundef nonnull %4, i16 noundef zeroext %19, ptr noundef %21) #12
   %22 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 720), align 8
@@ -1413,7 +1413,7 @@ define internal noalias noundef ptr @_msg_thread(ptr noundef %0) #0 {
 
 27:                                               ; preds = %13
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = load i16, ptr %28, align 8
   %32 = zext i16 %31 to i32
@@ -1427,7 +1427,7 @@ define internal noalias noundef ptr @_msg_thread(ptr noundef %0) #0 {
 
 36:                                               ; preds = %34
   %37 = load ptr, ptr %0, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.23, ptr noundef %39, i32 noundef %35) #12
   br label %41

@@ -1706,7 +1706,7 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %1355 = phi i64 [ 0, %1345 ], [ %1359, %1354 ]
   %1356 = trunc i64 %1355 to i32
   %1357 = mul i32 %1356, %1346
-  %1358 = getelementptr inbounds [16 x i32], ptr %11, i64 0, i64 %1355
+  %1358 = getelementptr inbounds nuw [16 x i32], ptr %11, i64 0, i64 %1355
   store i32 %1357, ptr %1358, align 4, !tbaa !20
   %1359 = add nuw nsw i64 %1355, 1
   %1360 = icmp eq i64 %1359, 16

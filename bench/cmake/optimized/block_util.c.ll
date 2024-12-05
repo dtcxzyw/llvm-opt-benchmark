@@ -14,7 +14,7 @@ define dso_local range(i32 0, 12) i32 @lzma_block_compressed_size(ptr noundef %0
   br i1 %6, label %lzma_block_unpadded_size.exit.thread, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = add i32 %9, -8
   %or.cond.i = icmp ult i32 %10, 1017
@@ -24,7 +24,7 @@ define dso_local range(i32 0, 12) i32 @lzma_block_compressed_size(ptr noundef %0
   br i1 %or.cond21.i, label %12, label %lzma_block_unpadded_size.exit.thread
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i64, ptr %13, align 8
   %or.cond22.i = icmp slt i64 %14, -1
   %15 = icmp eq i64 %14, 0
@@ -33,7 +33,7 @@ define dso_local range(i32 0, 12) i32 @lzma_block_compressed_size(ptr noundef %0
 
 16:                                               ; preds = %12
   %17 = icmp eq i64 %14, -1
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load i32, ptr %18, align 8
   %20 = icmp ugt i32 %19, 15
   %brmerge.i = or i1 %17, %20
@@ -88,7 +88,7 @@ define dso_local range(i64 -1, 9223372036854775805) i64 @lzma_block_unpadded_siz
   br i1 %5, label %27, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = add i32 %8, -8
   %or.cond = icmp ult i32 %9, 1017
@@ -98,7 +98,7 @@ define dso_local range(i64 -1, 9223372036854775805) i64 @lzma_block_unpadded_siz
   br i1 %or.cond21, label %11, label %27
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i64, ptr %12, align 8
   %or.cond22 = icmp slt i64 %13, -1
   %14 = icmp eq i64 %13, 0
@@ -107,7 +107,7 @@ define dso_local range(i64 -1, 9223372036854775805) i64 @lzma_block_unpadded_siz
 
 15:                                               ; preds = %11
   %16 = icmp eq i64 %13, -1
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load i32, ptr %17, align 8
   %19 = icmp ugt i32 %18, 15
   %brmerge = or i1 %16, %19
@@ -144,7 +144,7 @@ define dso_local range(i64 -1, 9223372036854775805) i64 @lzma_block_total_size(p
   br i1 %5, label %lzma_block_unpadded_size.exit.thread, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = add i32 %8, -8
   %or.cond.i = icmp ult i32 %9, 1017
@@ -154,7 +154,7 @@ define dso_local range(i64 -1, 9223372036854775805) i64 @lzma_block_total_size(p
   br i1 %or.cond21.i, label %11, label %lzma_block_unpadded_size.exit.thread
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i64, ptr %12, align 8
   %or.cond22.i = icmp slt i64 %13, -1
   %14 = icmp eq i64 %13, 0
@@ -163,7 +163,7 @@ define dso_local range(i64 -1, 9223372036854775805) i64 @lzma_block_total_size(p
 
 15:                                               ; preds = %11
   %16 = icmp eq i64 %13, -1
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load i32, ptr %17, align 8
   %19 = icmp ugt i32 %18, 15
   %brmerge.i = or i1 %16, %19

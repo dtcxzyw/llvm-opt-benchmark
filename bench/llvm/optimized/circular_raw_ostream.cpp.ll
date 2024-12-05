@@ -60,7 +60,7 @@ define dso_local void @_ZN4llvm20circular_raw_ostream10write_implEPKcm(ptr nocap
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %16, ptr align 1 %1, i64 %23, i1 false)
   %24 = sub i64 %.014, %23
   %25 = load ptr, ptr %7, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 %23
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 %23
   store ptr %26, ptr %7, align 8
   %27 = load ptr, ptr %8, align 8
   %28 = load i64, ptr %4, align 8
@@ -217,7 +217,7 @@ _ZN4llvm20circular_raw_ostream21flushBufferWithBannerEv.exit: ; preds = %_ZN4llv
 
 47:                                               ; preds = %43
   %48 = load ptr, ptr %42, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load ptr, ptr %49, align 8
   tail call void %50(ptr noundef nonnull align 8 dereferenceable(48) %42) #7
   br label %_ZN4llvm20circular_raw_ostream13releaseStreamEv.exit
@@ -260,7 +260,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm20circular_raw_ostream12
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(48) %3) #7
   ret i1 %7
@@ -269,7 +269,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm20circular_raw_ostream12
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm11raw_ostream10has_colorsEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(48) %0) #7
   ret i1 %5
@@ -288,7 +288,7 @@ define linkonce_odr hidden noundef i64 @_ZNK4llvm20circular_raw_ostream11current
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i64 %6(ptr noundef nonnull align 8 dereferenceable(48) %3) #7
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 32

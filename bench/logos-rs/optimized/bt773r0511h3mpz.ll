@@ -32,16 +32,16 @@ define i64 @"_ZN95_$LT$logos_codegen..graph..fork..ForkIter$u20$as$u20$core..ite
   %3 = alloca [4 x i8], align 4
   %4 = alloca [24 x i8], align 8
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = tail call { ptr, i64 } @"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h7f1e71a86efcfb54E"(i64 %7, ptr align 4 %5, i64 256, ptr nonnull align 8 @anon.343a85c169baf784e69415944ce08f85.1)
   %9 = extractvalue { ptr, i64 } %8, 0
   %10 = extractvalue { ptr, i64 } %8, 1
   %11 = getelementptr inbounds i32, ptr %9, i64 %10
   store ptr %9, ptr %4, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i8 0, ptr %13, align 8
   %14 = call i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hff272508b7c0cdf9E"(ptr nonnull align 8 %4, i64 0)
   %15 = load i64, ptr %6, align 8
@@ -66,11 +66,11 @@ define i64 @"_ZN95_$LT$logos_codegen..graph..fork..ForkIter$u20$as$u20$core..ite
   %28 = extractvalue { ptr, i64 } %26, 1
   %29 = getelementptr inbounds i32, ptr %27, i64 %28
   store ptr %27, ptr %2, align 8
-  %30 = getelementptr inbounds i8, ptr %2, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %29, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %2, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i8 0, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %2, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %3, ptr %32, align 8
   %33 = call i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hbb647f64420a5933E"(ptr nonnull align 8 %2, i64 0)
   %34 = load i64, ptr %6, align 8
@@ -101,19 +101,19 @@ define zeroext i1 @"_ZN13logos_codegen5graph5impls5debug79_$LT$impl$u20$core..fm
   call void @_ZN4core3fmt9Formatter9debug_set17hcae7d6f4ec2edaadE(ptr nonnull sret([16 x i8]) align 8 %6, ptr align 8 %1)
   %7 = load ptr, ptr %0, align 8
   store ptr %7, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %8, align 8
   %9 = call i64 @"_ZN95_$LT$logos_codegen..graph..fork..ForkIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h31bda62dc7938527E"(ptr nonnull align 8 %5)
   %10 = icmp ult i64 %9, 4294967296
   br i1 %10, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %4, i64 4
-  %12 = getelementptr inbounds i8, ptr %4, i64 5
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 5
   br label %15
 
 ._crit_edge:                                      ; preds = %15, %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i32, ptr %13, align 8
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %23, label %20
@@ -135,7 +135,7 @@ define zeroext i1 @"_ZN13logos_codegen5graph5impls5debug79_$LT$impl$u20$core..fm
 
 20:                                               ; preds = %._crit_edge
   store i32 95, ptr %3, align 4
-  %21 = getelementptr inbounds i8, ptr %3, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %14, ptr %21, align 4
   %22 = call align 8 ptr @_ZN4core3fmt8builders8DebugSet5entry17h97cee4100b5a60bdE(ptr nonnull align 8 %6, ptr nonnull align 1 %3, ptr nonnull align 8 @anon.343a85c169baf784e69415944ce08f85.3)
   br label %23
@@ -147,8 +147,8 @@ define zeroext i1 @"_ZN13logos_codegen5graph5impls5debug79_$LT$impl$u20$core..fm
 
 ; Function Attrs: nonlazybind uwtable
 define zeroext i1 @"_ZN13logos_codegen5graph5impls5debug83_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$logos_codegen..graph..fork..Fork$GT$2eq17h3ef23c2a736a99a6E"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = tail call zeroext i1 @"_ZN70_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h94cda9541989b659E"(ptr nonnull align 4 %3, ptr nonnull align 4 %4)
   br i1 %5, label %6, label %10
 

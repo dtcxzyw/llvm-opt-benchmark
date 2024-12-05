@@ -103,15 +103,15 @@ declare void @hb_paint_funcs_set_push_transform_func(ptr noundef, ptr noundef, p
 define internal void @_ZL31hb_paint_extents_push_transformP16hb_paint_funcs_tPvffffffS1_(ptr nocapture readnone %0, ptr noundef nonnull %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, ptr nocapture readnone %8) #0 {
   %10 = alloca %struct.hb_transform_t, align 4
   store float %2, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %10, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store float %3, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %10, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store float %4, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %10, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store float %5, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %10, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store float %6, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %10, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 20
   store float %7, ptr %15, align 4
   call void @_ZN26hb_paint_extents_context_t14push_transformERK14hb_transform_t(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 4 dereferenceable(24) %10)
   ret void
@@ -121,7 +121,7 @@ declare void @hb_paint_funcs_set_pop_transform_func(ptr noundef, ptr noundef, pt
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZL30hb_paint_extents_pop_transformP16hb_paint_funcs_tPvS1_(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr nocapture readnone %2) #2 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4, !noalias !6
   %.not.i.i = icmp eq i32 %5, 0
   br i1 %.not.i.i, label %_ZN26hb_paint_extents_context_t13pop_transformEv.exit, label %6
@@ -141,11 +141,11 @@ declare void @hb_paint_funcs_set_push_clip_glyph_func(ptr noundef, ptr noundef, 
 define internal void @_ZL32hb_paint_extents_push_clip_glyphP16hb_paint_funcs_tPvjP9hb_font_tS1_(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture readnone %4) #3 {
   %6 = alloca %struct.hb_extents_t, align 8
   store float 0.000000e+00, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store float 0.000000e+00, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store float -1.000000e+00, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store float -1.000000e+00, ptr %9, align 4
   %10 = tail call noundef ptr @_ZNK16hb_lazy_loader_tI15hb_draw_funcs_t35hb_draw_extents_funcs_lazy_loader_tvLj0ES0_E10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZL25static_draw_extents_funcs)
   call void @hb_font_draw_glyph(ptr noundef %3, i32 noundef %2, ptr noundef %10, ptr noundef nonnull %6)
@@ -171,7 +171,7 @@ declare void @hb_paint_funcs_set_pop_clip_func(ptr noundef, ptr noundef, ptr nou
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZL25hb_paint_extents_pop_clipP16hb_paint_funcs_tPvS1_(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr nocapture readnone %2) #2 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 20
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %5 = load i32, ptr %4, align 4, !noalias !9
   %.not.i.i = icmp eq i32 %5, 0
   br i1 %.not.i.i, label %_ZN26hb_paint_extents_context_t8pop_clipEv.exit, label %6
@@ -189,8 +189,8 @@ declare void @hb_paint_funcs_set_push_group_func(ptr noundef, ptr noundef, ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZL27hb_paint_extents_push_groupP16hb_paint_funcs_tPvS1_(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr nocapture readnone %2) #4 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 32
-  %5 = getelementptr inbounds i8, ptr %1, i64 36
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %6 = load i32, ptr %5, align 4
   %7 = load i32, ptr %4, align 8
   %.not.i.i = icmp slt i32 %6, %7
@@ -218,7 +218,7 @@ define internal void @_ZL27hb_paint_extents_push_groupP16hb_paint_funcs_tPvS1_(p
   br i1 %16, label %_ZN11hb_vector_tI11hb_bounds_tLb0EE5allocEjb.exit.thread9.i.i, label %_ZN11hb_vector_tI11hb_bounds_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i.i
 
 _ZN11hb_vector_tI11hb_bounds_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i.i: ; preds = %.thread.i.i.i
-  %17 = getelementptr inbounds i8, ptr %1, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %18 = load ptr, ptr %17, align 8
   %19 = zext nneg i32 %14 to i64
   %20 = mul nuw nsw i64 %19, 20
@@ -247,21 +247,21 @@ _ZN11hb_vector_tI11hb_bounds_tLb0EE5allocEjb.exit.thread6.i.i: ; preds = %_ZN11h
   br label %_ZN26hb_paint_extents_context_t10push_groupEv.exit
 
 _ZN11hb_vector_tI11hb_bounds_tLb0EE5allocEjb.exit.thread.i.i: ; preds = %_ZN11hb_vector_tI11hb_bounds_tLb0EE5allocEjb.exit.i.i, %22, %11, %3
-  %24 = getelementptr inbounds i8, ptr %1, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %25 = load ptr, ptr %24, align 8
   %26 = load i32, ptr %5, align 4
   %27 = add i32 %26, 1
   store i32 %27, ptr %5, align 4
   %28 = zext i32 %26 to i64
-  %29 = getelementptr inbounds %struct.hb_bounds_t, ptr %25, i64 %28
+  %29 = getelementptr inbounds nuw %struct.hb_bounds_t, ptr %25, i64 %28
   store i32 2, ptr %29, align 4
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %29, i64 4
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %29, i64 4
   store float 0.000000e+00, ptr %.sroa.2.0..sroa_idx.i, align 4
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %29, i64 8
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %29, i64 8
   store float 0.000000e+00, ptr %.sroa.3.0..sroa_idx.i, align 4
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %29, i64 12
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %29, i64 12
   store float -1.000000e+00, ptr %.sroa.4.0..sroa_idx.i, align 4
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %29, i64 16
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %29, i64 16
   store float -1.000000e+00, ptr %.sroa.5.0..sroa_idx.i, align 4
   br label %_ZN26hb_paint_extents_context_t10push_groupEv.exit
 
@@ -281,7 +281,7 @@ declare void @hb_paint_funcs_set_color_func(ptr noundef, ptr noundef, ptr nounde
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZL28hb_paint_extents_paint_colorP16hb_paint_funcs_tPvijS1_(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i32 %2, i32 %3, ptr nocapture readnone %4) #5 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %7 = load i32, ptr %6, align 4
   %.not.i.not.i.i = icmp eq i32 %7, 0
   br i1 %.not.i.not.i.i, label %8, label %9
@@ -292,15 +292,15 @@ define internal void @_ZL28hb_paint_extents_paint_colorP16hb_paint_funcs_tPvijS1
 
 9:                                                ; preds = %5
   %10 = add i32 %7, -1
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = zext i32 %10 to i64
-  %14 = getelementptr inbounds %struct.hb_bounds_t, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw %struct.hb_bounds_t, ptr %12, i64 %13
   br label %_ZN11hb_vector_tI11hb_bounds_tLb0EE4tailEv.exit.i
 
 _ZN11hb_vector_tI11hb_bounds_tLb0EE4tailEv.exit.i: ; preds = %9, %8
   %.0.i.i.i = phi ptr [ @_hb_CrapPool, %8 ], [ %14, %9 ]
-  %15 = getelementptr inbounds i8, ptr %1, i64 36
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %16 = load i32, ptr %15, align 4
   %.not.i.not.i3.i = icmp eq i32 %16, 0
   br i1 %.not.i.not.i3.i, label %17, label %18
@@ -311,10 +311,10 @@ _ZN11hb_vector_tI11hb_bounds_tLb0EE4tailEv.exit.i: ; preds = %9, %8
 
 18:                                               ; preds = %_ZN11hb_vector_tI11hb_bounds_tLb0EE4tailEv.exit.i
   %19 = add i32 %16, -1
-  %20 = getelementptr inbounds i8, ptr %1, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %21 = load ptr, ptr %20, align 8
   %22 = zext i32 %19 to i64
-  %23 = getelementptr inbounds %struct.hb_bounds_t, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw %struct.hb_bounds_t, ptr %21, i64 %22
   br label %_ZN11hb_vector_tI11hb_bounds_tLb0EE4tailEv.exit5.i
 
 _ZN11hb_vector_tI11hb_bounds_tLb0EE4tailEv.exit5.i: ; preds = %18, %17
@@ -341,29 +341,29 @@ _ZN11hb_vector_tI11hb_bounds_tLb0EE4tailEv.exit5.i: ; preds = %18, %17
   br label %_ZN26hb_paint_extents_context_t5paintEv.exit
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %.0.i.i4.i, i64 4
-  %31 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i.i4.i, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 4
   %32 = load float, ptr %30, align 4
   %33 = load float, ptr %31, align 4
   %34 = fcmp ole float %32, %33
   %35 = select i1 %34, float %32, float %33
   store float %35, ptr %30, align 4
-  %36 = getelementptr inbounds i8, ptr %.0.i.i4.i, i64 8
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i4.i, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %38 = load float, ptr %36, align 4
   %39 = load float, ptr %37, align 4
   %40 = fcmp ole float %38, %39
   %41 = select i1 %40, float %38, float %39
   store float %41, ptr %36, align 4
-  %42 = getelementptr inbounds i8, ptr %.0.i.i4.i, i64 12
-  %43 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 12
+  %42 = getelementptr inbounds nuw i8, ptr %.0.i.i4.i, i64 12
+  %43 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
   %44 = load float, ptr %42, align 4
   %45 = load float, ptr %43, align 4
   %46 = fcmp oge float %44, %45
   %47 = select i1 %46, float %44, float %45
   store float %47, ptr %42, align 4
-  %48 = getelementptr inbounds i8, ptr %.0.i.i4.i, i64 16
-  %49 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %.0.i.i4.i, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   %50 = load float, ptr %48, align 4
   %51 = load float, ptr %49, align 4
   %52 = fcmp oge float %50, %51
@@ -381,14 +381,14 @@ declare void @hb_paint_funcs_set_image_func(ptr noundef, ptr noundef, ptr nounde
 define internal noundef i32 @_ZL28hb_paint_extents_paint_imageP16hb_paint_funcs_tPvP9hb_blob_tjjjfP18hb_glyph_extents_tS1_(ptr nocapture readnone %0, ptr noundef nonnull %1, ptr nocapture readnone %2, i32 %3, i32 %4, i32 %5, float %6, ptr nocapture noundef readonly %7, ptr nocapture readnone %8) #3 {
   %10 = load i32, ptr %7, align 4
   %11 = sitofp i32 %10 to float
-  %12 = getelementptr inbounds i8, ptr %7, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = sitofp i32 %13 to float
-  %15 = getelementptr inbounds i8, ptr %7, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %16 = load i32, ptr %15, align 4
   %17 = sitofp i32 %16 to float
   %18 = fadd float %14, %17
-  %19 = getelementptr inbounds i8, ptr %7, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %20 = load i32, ptr %19, align 4
   %21 = sitofp i32 %20 to float
   %22 = fadd float %11, %21
@@ -397,7 +397,7 @@ define internal noundef i32 @_ZL28hb_paint_extents_paint_imageP16hb_paint_funcs_
   %.sroa.3.8.vec.insert = insertelement <2 x float> poison, float %22, i64 0
   %.sroa.3.12.vec.insert = insertelement <2 x float> %.sroa.3.8.vec.insert, float %14, i64 1
   tail call void @_ZN26hb_paint_extents_context_t9push_clipE12hb_extents_t(ptr noundef nonnull align 8 dereferenceable(48) %1, <2 x float> %.sroa.0.4.vec.insert, <2 x float> %.sroa.3.12.vec.insert)
-  %23 = getelementptr inbounds i8, ptr %1, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %24 = load i32, ptr %23, align 4
   %.not.i.not.i.i = icmp eq i32 %24, 0
   br i1 %.not.i.not.i.i, label %25, label %26
@@ -408,15 +408,15 @@ define internal noundef i32 @_ZL28hb_paint_extents_paint_imageP16hb_paint_funcs_
 
 26:                                               ; preds = %9
   %27 = add i32 %24, -1
-  %28 = getelementptr inbounds i8, ptr %1, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %29 = load ptr, ptr %28, align 8
   %30 = zext i32 %27 to i64
-  %31 = getelementptr inbounds %struct.hb_bounds_t, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw %struct.hb_bounds_t, ptr %29, i64 %30
   br label %_ZN11hb_vector_tI11hb_bounds_tLb0EE4tailEv.exit.i
 
 _ZN11hb_vector_tI11hb_bounds_tLb0EE4tailEv.exit.i: ; preds = %26, %25
   %.0.i.i.i = phi ptr [ @_hb_CrapPool, %25 ], [ %31, %26 ]
-  %32 = getelementptr inbounds i8, ptr %1, i64 36
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %33 = load i32, ptr %32, align 4
   %.not.i.not.i3.i = icmp eq i32 %33, 0
   br i1 %.not.i.not.i3.i, label %34, label %35
@@ -427,10 +427,10 @@ _ZN11hb_vector_tI11hb_bounds_tLb0EE4tailEv.exit.i: ; preds = %26, %25
 
 35:                                               ; preds = %_ZN11hb_vector_tI11hb_bounds_tLb0EE4tailEv.exit.i
   %36 = add i32 %33, -1
-  %37 = getelementptr inbounds i8, ptr %1, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %38 = load ptr, ptr %37, align 8
   %39 = zext i32 %36 to i64
-  %40 = getelementptr inbounds %struct.hb_bounds_t, ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw %struct.hb_bounds_t, ptr %38, i64 %39
   br label %_ZN11hb_vector_tI11hb_bounds_tLb0EE4tailEv.exit5.i
 
 _ZN11hb_vector_tI11hb_bounds_tLb0EE4tailEv.exit5.i: ; preds = %35, %34
@@ -457,29 +457,29 @@ _ZN11hb_vector_tI11hb_bounds_tLb0EE4tailEv.exit5.i: ; preds = %35, %34
   br label %_ZN26hb_paint_extents_context_t5paintEv.exit
 
 46:                                               ; preds = %43
-  %47 = getelementptr inbounds i8, ptr %.0.i.i4.i, i64 4
-  %48 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i4.i, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 4
   %49 = load float, ptr %47, align 4
   %50 = load float, ptr %48, align 4
   %51 = fcmp ole float %49, %50
   %52 = select i1 %51, float %49, float %50
   store float %52, ptr %47, align 4
-  %53 = getelementptr inbounds i8, ptr %.0.i.i4.i, i64 8
-  %54 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i4.i, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %55 = load float, ptr %53, align 4
   %56 = load float, ptr %54, align 4
   %57 = fcmp ole float %55, %56
   %58 = select i1 %57, float %55, float %56
   store float %58, ptr %53, align 4
-  %59 = getelementptr inbounds i8, ptr %.0.i.i4.i, i64 12
-  %60 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 12
+  %59 = getelementptr inbounds nuw i8, ptr %.0.i.i4.i, i64 12
+  %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
   %61 = load float, ptr %59, align 4
   %62 = load float, ptr %60, align 4
   %63 = fcmp oge float %61, %62
   %64 = select i1 %63, float %61, float %62
   store float %64, ptr %59, align 4
-  %65 = getelementptr inbounds i8, ptr %.0.i.i4.i, i64 16
-  %66 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %.0.i.i4.i, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   %67 = load float, ptr %65, align 4
   %68 = load float, ptr %66, align 4
   %69 = fcmp oge float %67, %68
@@ -505,7 +505,7 @@ declare void @hb_paint_funcs_set_linear_gradient_func(ptr noundef, ptr noundef, 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZL38hb_paint_extents_paint_linear_gradientP16hb_paint_funcs_tPvP15hb_color_line_tffffffS1_(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, float %3, float %4, float %5, float %6, float %7, float %8, ptr nocapture readnone %9) #5 {
-  %11 = getelementptr inbounds i8, ptr %1, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %12 = load i32, ptr %11, align 4
   %.not.i.not.i.i = icmp eq i32 %12, 0
   br i1 %.not.i.not.i.i, label %13, label %14
@@ -516,15 +516,15 @@ define internal void @_ZL38hb_paint_extents_paint_linear_gradientP16hb_paint_fun
 
 14:                                               ; preds = %10
   %15 = add i32 %12, -1
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = zext i32 %15 to i64
-  %19 = getelementptr inbounds %struct.hb_bounds_t, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw %struct.hb_bounds_t, ptr %17, i64 %18
   br label %_ZN11hb_vector_tI11hb_bounds_tLb0EE4tailEv.exit.i
 
 _ZN11hb_vector_tI11hb_bounds_tLb0EE4tailEv.exit.i: ; preds = %14, %13
   %.0.i.i.i = phi ptr [ @_hb_CrapPool, %13 ], [ %19, %14 ]
-  %20 = getelementptr inbounds i8, ptr %1, i64 36
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %21 = load i32, ptr %20, align 4
   %.not.i.not.i3.i = icmp eq i32 %21, 0
   br i1 %.not.i.not.i3.i, label %22, label %23
@@ -535,10 +535,10 @@ _ZN11hb_vector_tI11hb_bounds_tLb0EE4tailEv.exit.i: ; preds = %14, %13
 
 23:                                               ; preds = %_ZN11hb_vector_tI11hb_bounds_tLb0EE4tailEv.exit.i
   %24 = add i32 %21, -1
-  %25 = getelementptr inbounds i8, ptr %1, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %26 = load ptr, ptr %25, align 8
   %27 = zext i32 %24 to i64
-  %28 = getelementptr inbounds %struct.hb_bounds_t, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw %struct.hb_bounds_t, ptr %26, i64 %27
   br label %_ZN11hb_vector_tI11hb_bounds_tLb0EE4tailEv.exit5.i
 
 _ZN11hb_vector_tI11hb_bounds_tLb0EE4tailEv.exit5.i: ; preds = %23, %22
@@ -565,29 +565,29 @@ _ZN11hb_vector_tI11hb_bounds_tLb0EE4tailEv.exit5.i: ; preds = %23, %22
   br label %_ZN26hb_paint_extents_context_t5paintEv.exit
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %.0.i.i4.i, i64 4
-  %36 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i4.i, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 4
   %37 = load float, ptr %35, align 4
   %38 = load float, ptr %36, align 4
   %39 = fcmp ole float %37, %38
   %40 = select i1 %39, float %37, float %38
   store float %40, ptr %35, align 4
-  %41 = getelementptr inbounds i8, ptr %.0.i.i4.i, i64 8
-  %42 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %.0.i.i4.i, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %43 = load float, ptr %41, align 4
   %44 = load float, ptr %42, align 4
   %45 = fcmp ole float %43, %44
   %46 = select i1 %45, float %43, float %44
   store float %46, ptr %41, align 4
-  %47 = getelementptr inbounds i8, ptr %.0.i.i4.i, i64 12
-  %48 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 12
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i4.i, i64 12
+  %48 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
   %49 = load float, ptr %47, align 4
   %50 = load float, ptr %48, align 4
   %51 = fcmp oge float %49, %50
   %52 = select i1 %51, float %49, float %50
   store float %52, ptr %47, align 4
-  %53 = getelementptr inbounds i8, ptr %.0.i.i4.i, i64 16
-  %54 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i4.i, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   %55 = load float, ptr %53, align 4
   %56 = load float, ptr %54, align 4
   %57 = fcmp oge float %55, %56
@@ -603,7 +603,7 @@ declare void @hb_paint_funcs_set_radial_gradient_func(ptr noundef, ptr noundef, 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZL38hb_paint_extents_paint_radial_gradientP16hb_paint_funcs_tPvP15hb_color_line_tffffffS1_(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, float %3, float %4, float %5, float %6, float %7, float %8, ptr nocapture readnone %9) #5 {
-  %11 = getelementptr inbounds i8, ptr %1, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %12 = load i32, ptr %11, align 4
   %.not.i.not.i.i = icmp eq i32 %12, 0
   br i1 %.not.i.not.i.i, label %13, label %14
@@ -614,15 +614,15 @@ define internal void @_ZL38hb_paint_extents_paint_radial_gradientP16hb_paint_fun
 
 14:                                               ; preds = %10
   %15 = add i32 %12, -1
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = zext i32 %15 to i64
-  %19 = getelementptr inbounds %struct.hb_bounds_t, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw %struct.hb_bounds_t, ptr %17, i64 %18
   br label %_ZN11hb_vector_tI11hb_bounds_tLb0EE4tailEv.exit.i
 
 _ZN11hb_vector_tI11hb_bounds_tLb0EE4tailEv.exit.i: ; preds = %14, %13
   %.0.i.i.i = phi ptr [ @_hb_CrapPool, %13 ], [ %19, %14 ]
-  %20 = getelementptr inbounds i8, ptr %1, i64 36
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %21 = load i32, ptr %20, align 4
   %.not.i.not.i3.i = icmp eq i32 %21, 0
   br i1 %.not.i.not.i3.i, label %22, label %23
@@ -633,10 +633,10 @@ _ZN11hb_vector_tI11hb_bounds_tLb0EE4tailEv.exit.i: ; preds = %14, %13
 
 23:                                               ; preds = %_ZN11hb_vector_tI11hb_bounds_tLb0EE4tailEv.exit.i
   %24 = add i32 %21, -1
-  %25 = getelementptr inbounds i8, ptr %1, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %26 = load ptr, ptr %25, align 8
   %27 = zext i32 %24 to i64
-  %28 = getelementptr inbounds %struct.hb_bounds_t, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw %struct.hb_bounds_t, ptr %26, i64 %27
   br label %_ZN11hb_vector_tI11hb_bounds_tLb0EE4tailEv.exit5.i
 
 _ZN11hb_vector_tI11hb_bounds_tLb0EE4tailEv.exit5.i: ; preds = %23, %22
@@ -663,29 +663,29 @@ _ZN11hb_vector_tI11hb_bounds_tLb0EE4tailEv.exit5.i: ; preds = %23, %22
   br label %_ZN26hb_paint_extents_context_t5paintEv.exit
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %.0.i.i4.i, i64 4
-  %36 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i4.i, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 4
   %37 = load float, ptr %35, align 4
   %38 = load float, ptr %36, align 4
   %39 = fcmp ole float %37, %38
   %40 = select i1 %39, float %37, float %38
   store float %40, ptr %35, align 4
-  %41 = getelementptr inbounds i8, ptr %.0.i.i4.i, i64 8
-  %42 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %.0.i.i4.i, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %43 = load float, ptr %41, align 4
   %44 = load float, ptr %42, align 4
   %45 = fcmp ole float %43, %44
   %46 = select i1 %45, float %43, float %44
   store float %46, ptr %41, align 4
-  %47 = getelementptr inbounds i8, ptr %.0.i.i4.i, i64 12
-  %48 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 12
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i4.i, i64 12
+  %48 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
   %49 = load float, ptr %47, align 4
   %50 = load float, ptr %48, align 4
   %51 = fcmp oge float %49, %50
   %52 = select i1 %51, float %49, float %50
   store float %52, ptr %47, align 4
-  %53 = getelementptr inbounds i8, ptr %.0.i.i4.i, i64 16
-  %54 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i4.i, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   %55 = load float, ptr %53, align 4
   %56 = load float, ptr %54, align 4
   %57 = fcmp oge float %55, %56
@@ -701,7 +701,7 @@ declare void @hb_paint_funcs_set_sweep_gradient_func(ptr noundef, ptr noundef, p
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZL37hb_paint_extents_paint_sweep_gradientP16hb_paint_funcs_tPvP15hb_color_line_tffffS1_(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, float %3, float %4, float %5, float %6, ptr nocapture readnone %7) #5 {
-  %9 = getelementptr inbounds i8, ptr %1, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %10 = load i32, ptr %9, align 4
   %.not.i.not.i.i = icmp eq i32 %10, 0
   br i1 %.not.i.not.i.i, label %11, label %12
@@ -712,15 +712,15 @@ define internal void @_ZL37hb_paint_extents_paint_sweep_gradientP16hb_paint_func
 
 12:                                               ; preds = %8
   %13 = add i32 %10, -1
-  %14 = getelementptr inbounds i8, ptr %1, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = zext i32 %13 to i64
-  %17 = getelementptr inbounds %struct.hb_bounds_t, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw %struct.hb_bounds_t, ptr %15, i64 %16
   br label %_ZN11hb_vector_tI11hb_bounds_tLb0EE4tailEv.exit.i
 
 _ZN11hb_vector_tI11hb_bounds_tLb0EE4tailEv.exit.i: ; preds = %12, %11
   %.0.i.i.i = phi ptr [ @_hb_CrapPool, %11 ], [ %17, %12 ]
-  %18 = getelementptr inbounds i8, ptr %1, i64 36
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %19 = load i32, ptr %18, align 4
   %.not.i.not.i3.i = icmp eq i32 %19, 0
   br i1 %.not.i.not.i3.i, label %20, label %21
@@ -731,10 +731,10 @@ _ZN11hb_vector_tI11hb_bounds_tLb0EE4tailEv.exit.i: ; preds = %12, %11
 
 21:                                               ; preds = %_ZN11hb_vector_tI11hb_bounds_tLb0EE4tailEv.exit.i
   %22 = add i32 %19, -1
-  %23 = getelementptr inbounds i8, ptr %1, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %24 = load ptr, ptr %23, align 8
   %25 = zext i32 %22 to i64
-  %26 = getelementptr inbounds %struct.hb_bounds_t, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw %struct.hb_bounds_t, ptr %24, i64 %25
   br label %_ZN11hb_vector_tI11hb_bounds_tLb0EE4tailEv.exit5.i
 
 _ZN11hb_vector_tI11hb_bounds_tLb0EE4tailEv.exit5.i: ; preds = %21, %20
@@ -761,29 +761,29 @@ _ZN11hb_vector_tI11hb_bounds_tLb0EE4tailEv.exit5.i: ; preds = %21, %20
   br label %_ZN26hb_paint_extents_context_t5paintEv.exit
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %.0.i.i4.i, i64 4
-  %34 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %.0.i.i4.i, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 4
   %35 = load float, ptr %33, align 4
   %36 = load float, ptr %34, align 4
   %37 = fcmp ole float %35, %36
   %38 = select i1 %37, float %35, float %36
   store float %38, ptr %33, align 4
-  %39 = getelementptr inbounds i8, ptr %.0.i.i4.i, i64 8
-  %40 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %.0.i.i4.i, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %41 = load float, ptr %39, align 4
   %42 = load float, ptr %40, align 4
   %43 = fcmp ole float %41, %42
   %44 = select i1 %43, float %41, float %42
   store float %44, ptr %39, align 4
-  %45 = getelementptr inbounds i8, ptr %.0.i.i4.i, i64 12
-  %46 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 12
+  %45 = getelementptr inbounds nuw i8, ptr %.0.i.i4.i, i64 12
+  %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
   %47 = load float, ptr %45, align 4
   %48 = load float, ptr %46, align 4
   %49 = fcmp oge float %47, %48
   %50 = select i1 %49, float %47, float %48
   store float %50, ptr %45, align 4
-  %51 = getelementptr inbounds i8, ptr %.0.i.i4.i, i64 16
-  %52 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i4.i, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   %53 = load float, ptr %51, align 4
   %54 = load float, ptr %52, align 4
   %55 = fcmp oge float %53, %54
@@ -799,7 +799,7 @@ declare void @hb_paint_funcs_make_immutable(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN26hb_paint_extents_context_t14push_transformERK14hb_transform_t(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(24) %1) local_unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not.i.not.i = icmp eq i32 %4, 0
   br i1 %.not.i.not.i, label %5, label %6
@@ -811,44 +811,44 @@ define linkonce_odr hidden void @_ZN26hb_paint_extents_context_t14push_transform
 
 6:                                                ; preds = %2
   %7 = add i32 %4, -1
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = zext i32 %7 to i64
-  %11 = getelementptr inbounds %struct.hb_transform_t, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw %struct.hb_transform_t, ptr %9, i64 %10
   br label %_ZN11hb_vector_tI14hb_transform_tLb0EE4tailEv.exit
 
 _ZN11hb_vector_tI14hb_transform_tLb0EE4tailEv.exit: ; preds = %5, %6
   %12 = phi i32 [ %.pre, %5 ], [ %4, %6 ]
   %.0.i.i = phi ptr [ @_hb_CrapPool, %5 ], [ %11, %6 ]
   %.sroa.0.0.copyload = load float, ptr %.0.i.i, align 4
-  %.sroa.4.0..0.i.i.sroa_idx = getelementptr inbounds i8, ptr %.0.i.i, i64 4
+  %.sroa.4.0..0.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   %.sroa.4.0.copyload = load float, ptr %.sroa.4.0..0.i.i.sroa_idx, align 4
-  %.sroa.6.0..0.i.i.sroa_idx = getelementptr inbounds i8, ptr %.0.i.i, i64 8
+  %.sroa.6.0..0.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   %.sroa.6.0.copyload = load float, ptr %.sroa.6.0..0.i.i.sroa_idx, align 4
-  %.sroa.8.0..0.i.i.sroa_idx = getelementptr inbounds i8, ptr %.0.i.i, i64 12
+  %.sroa.8.0..0.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
   %.sroa.8.0.copyload = load float, ptr %.sroa.8.0..0.i.i.sroa_idx, align 4
-  %.sroa.10.0..0.i.i.sroa_idx = getelementptr inbounds i8, ptr %.0.i.i, i64 16
+  %.sroa.10.0..0.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   %.sroa.10.0.copyload = load float, ptr %.sroa.10.0..0.i.i.sroa_idx, align 4
-  %.sroa.12.0..0.i.i.sroa_idx = getelementptr inbounds i8, ptr %.0.i.i, i64 20
+  %.sroa.12.0..0.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 20
   %.sroa.12.0.copyload = load float, ptr %.sroa.12.0..0.i.i.sroa_idx, align 4
   %13 = load float, ptr %1, align 4
-  %14 = getelementptr inbounds i8, ptr %1, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %15 = load float, ptr %14, align 4
   %16 = fmul float %.sroa.6.0.copyload, %15
   %17 = tail call float @llvm.fmuladd.f32(float %13, float %.sroa.0.0.copyload, float %16)
   %18 = fmul float %.sroa.8.0.copyload, %15
   %19 = tail call float @llvm.fmuladd.f32(float %13, float %.sroa.4.0.copyload, float %18)
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load float, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %1, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %23 = load float, ptr %22, align 4
   %24 = fmul float %.sroa.6.0.copyload, %23
   %25 = tail call float @llvm.fmuladd.f32(float %21, float %.sroa.0.0.copyload, float %24)
   %26 = fmul float %.sroa.8.0.copyload, %23
   %27 = tail call float @llvm.fmuladd.f32(float %21, float %.sroa.4.0.copyload, float %26)
-  %28 = getelementptr inbounds i8, ptr %1, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %29 = load float, ptr %28, align 4
-  %30 = getelementptr inbounds i8, ptr %1, i64 20
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %31 = load float, ptr %30, align 4
   %32 = fmul float %.sroa.6.0.copyload, %31
   %33 = tail call float @llvm.fmuladd.f32(float %29, float %.sroa.0.0.copyload, float %32)
@@ -882,7 +882,7 @@ _ZN11hb_vector_tI14hb_transform_tLb0EE4tailEv.exit: ; preds = %5, %6
   br i1 %47, label %_ZN11hb_vector_tI14hb_transform_tLb0EE5allocEjb.exit.thread9.i, label %_ZN11hb_vector_tI14hb_transform_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i
 
 _ZN11hb_vector_tI14hb_transform_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i: ; preds = %.thread.i.i
-  %48 = getelementptr inbounds i8, ptr %0, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %49 = load ptr, ptr %48, align 8
   %50 = zext nneg i32 %45 to i64
   %51 = mul nuw nsw i64 %50, 24
@@ -911,23 +911,23 @@ _ZN11hb_vector_tI14hb_transform_tLb0EE5allocEjb.exit.thread6.i: ; preds = %_ZN11
   br label %_ZN11hb_vector_tI14hb_transform_tLb0EE4pushIJRS0_EEEPS0_DpOT_.exit
 
 _ZN11hb_vector_tI14hb_transform_tLb0EE5allocEjb.exit.thread.i: ; preds = %_ZN11hb_vector_tI14hb_transform_tLb0EE5allocEjb.exit.i, %53, %42, %_ZN11hb_vector_tI14hb_transform_tLb0EE4tailEv.exit
-  %55 = getelementptr inbounds i8, ptr %0, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %56 = load ptr, ptr %55, align 8
   %57 = load i32, ptr %3, align 4
   %58 = add i32 %57, 1
   store i32 %58, ptr %3, align 4
   %59 = zext i32 %57 to i64
-  %60 = getelementptr inbounds %struct.hb_transform_t, ptr %56, i64 %59
+  %60 = getelementptr inbounds nuw %struct.hb_transform_t, ptr %56, i64 %59
   store float %17, ptr %60, align 4
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %60, i64 4
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 4
   store float %19, ptr %.sroa.4.0..sroa_idx, align 4
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %60, i64 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 8
   store float %25, ptr %.sroa.6.0..sroa_idx, align 4
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %60, i64 12
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 12
   store float %27, ptr %.sroa.8.0..sroa_idx, align 4
-  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %60, i64 16
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 16
   store float %34, ptr %.sroa.10.0..sroa_idx, align 4
-  %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %60, i64 20
+  %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 20
   store float %37, ptr %.sroa.12.0..sroa_idx, align 4
   br label %_ZN11hb_vector_tI14hb_transform_tLb0EE4pushIJRS0_EEEPS0_DpOT_.exit
 
@@ -950,7 +950,7 @@ declare void @hb_font_draw_glyph(ptr noundef, i32 noundef, ptr noundef, ptr noun
 define linkonce_odr hidden void @_ZN26hb_paint_extents_context_t9push_clipE12hb_extents_t(ptr noundef nonnull align 8 dereferenceable(48) %0, <2 x float> %1, <2 x float> %2) local_unnamed_addr #3 comdat align 2 {
   %4 = alloca [4 x float], align 16
   %5 = alloca [4 x float], align 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %.not.i.not.i = icmp eq i32 %7, 0
   br i1 %.not.i.not.i, label %8, label %9
@@ -961,10 +961,10 @@ define linkonce_odr hidden void @_ZN26hb_paint_extents_context_t9push_clipE12hb_
 
 9:                                                ; preds = %3
   %10 = add i32 %7, -1
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = zext i32 %10 to i64
-  %14 = getelementptr inbounds %struct.hb_transform_t, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw %struct.hb_transform_t, ptr %12, i64 %13
   br label %_ZN11hb_vector_tI14hb_transform_tLb0EE4tailEv.exit
 
 _ZN11hb_vector_tI14hb_transform_tLb0EE4tailEv.exit: ; preds = %8, %9
@@ -975,25 +975,25 @@ _ZN11hb_vector_tI14hb_transform_tLb0EE4tailEv.exit: ; preds = %8, %9
   store float %.sroa.02.0.vec.extract, ptr %4, align 16
   %.sroa.02.4.vec.extract = extractelement <2 x float> %1, i64 1
   store float %.sroa.02.4.vec.extract, ptr %5, align 16
-  %15 = getelementptr inbounds i8, ptr %4, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store float %.sroa.02.0.vec.extract, ptr %15, align 4
   %.sroa.10.12.vec.extract = extractelement <2 x float> %2, i64 1
-  %16 = getelementptr inbounds i8, ptr %5, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store float %.sroa.10.12.vec.extract, ptr %16, align 4
   %.sroa.10.8.vec.extract = extractelement <2 x float> %2, i64 0
-  %17 = getelementptr inbounds i8, ptr %4, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store float %.sroa.10.8.vec.extract, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store float %.sroa.02.4.vec.extract, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store float %.sroa.10.8.vec.extract, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %5, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store float %.sroa.10.12.vec.extract, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
-  %22 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
-  %23 = getelementptr inbounds i8, ptr %.0.i.i, i64 12
-  %24 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
-  %25 = getelementptr inbounds i8, ptr %.0.i.i, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 20
   %26 = load float, ptr %.0.i.i, align 4
   %27 = load float, ptr %21, align 4
   %28 = load float, ptr %22, align 4
@@ -1008,8 +1008,8 @@ _ZN11hb_vector_tI14hb_transform_tLb0EE4tailEv.exit: ; preds = %8, %9
   %35 = phi float [ -1.000000e+00, %_ZN11hb_vector_tI14hb_transform_tLb0EE4tailEv.exit ], [ %.sroa.speculated9.i.sink.i, %_ZN12hb_extents_t9add_pointEff.exit.i ]
   %36 = phi float [ 0.000000e+00, %_ZN11hb_vector_tI14hb_transform_tLb0EE4tailEv.exit ], [ %.sroa.speculated12.i.sink.i, %_ZN12hb_extents_t9add_pointEff.exit.i ]
   %indvars.iv.i = phi i64 [ 0, %_ZN11hb_vector_tI14hb_transform_tLb0EE4tailEv.exit ], [ %indvars.iv.next.i, %_ZN12hb_extents_t9add_pointEff.exit.i ]
-  %37 = getelementptr inbounds [4 x float], ptr %4, i64 0, i64 %indvars.iv.i
-  %38 = getelementptr inbounds [4 x float], ptr %5, i64 0, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %indvars.iv.i
+  %38 = getelementptr inbounds nuw [4 x float], ptr %5, i64 0, i64 %indvars.iv.i
   %39 = load float, ptr %37, align 4
   %40 = load float, ptr %38, align 4
   %41 = fmul float %27, %40
@@ -1050,12 +1050,12 @@ _ZNK14hb_transform_t17transform_extentsER12hb_extents_t.exit: ; preds = %_ZN12hb
   %.sroa.02.4.vec.insert10.le = insertelement <2 x float> %.sroa.02.0.vec.insert5.le, float %.sroa.speculated5.i.sink.i, i64 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %53 = getelementptr inbounds i8, ptr %0, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %54 = fcmp oge float %.sroa.speculated12.i.sink.i, %.sroa.speculated9.i.sink.i
   %55 = fcmp oge float %.sroa.speculated5.i.sink.i, %.sroa.speculated.i.sink.i
   %56 = select i1 %54, i1 true, i1 %55
   %57 = select i1 %56, i32 2, i32 1
-  %58 = getelementptr inbounds i8, ptr %0, i64 20
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %59 = load i32, ptr %58, align 4
   %60 = load i32, ptr %53, align 8
   %.not.i = icmp slt i32 %59, %60
@@ -1083,7 +1083,7 @@ _ZNK14hb_transform_t17transform_extentsER12hb_extents_t.exit: ; preds = %_ZN12hb
   br i1 %69, label %_ZN11hb_vector_tI11hb_bounds_tLb0EE5allocEjb.exit.thread9.i, label %_ZN11hb_vector_tI11hb_bounds_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i
 
 _ZN11hb_vector_tI11hb_bounds_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i: ; preds = %.thread.i.i
-  %70 = getelementptr inbounds i8, ptr %0, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %71 = load ptr, ptr %70, align 8
   %72 = zext nneg i32 %67 to i64
   %73 = mul nuw nsw i64 %72, 20
@@ -1112,17 +1112,17 @@ _ZN11hb_vector_tI11hb_bounds_tLb0EE5allocEjb.exit.thread6.i: ; preds = %_ZN11hb_
   br label %_ZN11hb_vector_tI11hb_bounds_tLb0EE4pushIJS0_EEEPS0_DpOT_.exit
 
 _ZN11hb_vector_tI11hb_bounds_tLb0EE5allocEjb.exit.thread.i: ; preds = %_ZN11hb_vector_tI11hb_bounds_tLb0EE5allocEjb.exit.i, %75, %64, %_ZNK14hb_transform_t17transform_extentsER12hb_extents_t.exit
-  %77 = getelementptr inbounds i8, ptr %0, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %78 = load ptr, ptr %77, align 8
   %79 = load i32, ptr %58, align 4
   %80 = add i32 %79, 1
   store i32 %80, ptr %58, align 4
   %81 = zext i32 %79 to i64
-  %82 = getelementptr inbounds %struct.hb_bounds_t, ptr %78, i64 %81
+  %82 = getelementptr inbounds nuw %struct.hb_bounds_t, ptr %78, i64 %81
   store i32 %57, ptr %82, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %82, i64 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %82, i64 4
   store <2 x float> %.sroa.02.4.vec.insert10.le, ptr %.sroa.2.0..sroa_idx, align 4
-  %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %82, i64 12
+  %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %82, i64 12
   store <2 x float> %.sroa.10.12.vec.insert20.le, ptr %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx, align 4
   br label %_ZN11hb_vector_tI11hb_bounds_tLb0EE4pushIJS0_EEEPS0_DpOT_.exit
 
@@ -1194,7 +1194,7 @@ declare void @hb_draw_funcs_set_move_to_func(ptr noundef, ptr noundef, ptr nound
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZL23hb_draw_extents_move_toP15hb_draw_funcs_tPvP15hb_draw_state_tffS1_(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr nocapture readnone %2, float noundef %3, float noundef %4, ptr nocapture readnone %5) #2 {
   %7 = load float, ptr %1, align 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load float, ptr %8, align 4
   %10 = fcmp ogt float %7, %9
   br i1 %10, label %11, label %14
@@ -1202,9 +1202,9 @@ define internal void @_ZL23hb_draw_extents_move_toP15hb_draw_funcs_tPvP15hb_draw
 11:                                               ; preds = %6
   store float %3, ptr %8, align 4
   store float %3, ptr %1, align 4
-  %12 = getelementptr inbounds i8, ptr %1, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store float %4, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store float %4, ptr %13, align 4
   br label %_ZN12hb_extents_t9add_pointEff.exit
 
@@ -1212,7 +1212,7 @@ define internal void @_ZL23hb_draw_extents_move_toP15hb_draw_funcs_tPvP15hb_draw
   %15 = fcmp ole float %7, %3
   %.sroa.speculated12.i = select i1 %15, float %7, float %3
   store float %.sroa.speculated12.i, ptr %1, align 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %17 = load float, ptr %16, align 4
   %18 = fcmp ole float %17, %4
   %.sroa.speculated5.i = select i1 %18, float %17, float %4
@@ -1220,7 +1220,7 @@ define internal void @_ZL23hb_draw_extents_move_toP15hb_draw_funcs_tPvP15hb_draw
   %19 = fcmp oge float %9, %3
   %.sroa.speculated9.i = select i1 %19, float %9, float %3
   store float %.sroa.speculated9.i, ptr %8, align 4
-  %20 = getelementptr inbounds i8, ptr %1, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %21 = load float, ptr %20, align 4
   %22 = fcmp oge float %21, %4
   %.sroa.speculated.i = select i1 %22, float %21, float %4
@@ -1236,7 +1236,7 @@ declare void @hb_draw_funcs_set_line_to_func(ptr noundef, ptr noundef, ptr nound
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZL23hb_draw_extents_line_toP15hb_draw_funcs_tPvP15hb_draw_state_tffS1_(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr nocapture readnone %2, float noundef %3, float noundef %4, ptr nocapture readnone %5) #2 {
   %7 = load float, ptr %1, align 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load float, ptr %8, align 4
   %10 = fcmp ogt float %7, %9
   br i1 %10, label %11, label %14
@@ -1244,9 +1244,9 @@ define internal void @_ZL23hb_draw_extents_line_toP15hb_draw_funcs_tPvP15hb_draw
 11:                                               ; preds = %6
   store float %3, ptr %8, align 4
   store float %3, ptr %1, align 4
-  %12 = getelementptr inbounds i8, ptr %1, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store float %4, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store float %4, ptr %13, align 4
   br label %_ZN12hb_extents_t9add_pointEff.exit
 
@@ -1254,7 +1254,7 @@ define internal void @_ZL23hb_draw_extents_line_toP15hb_draw_funcs_tPvP15hb_draw
   %15 = fcmp ole float %7, %3
   %.sroa.speculated12.i = select i1 %15, float %7, float %3
   store float %.sroa.speculated12.i, ptr %1, align 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %17 = load float, ptr %16, align 4
   %18 = fcmp ole float %17, %4
   %.sroa.speculated5.i = select i1 %18, float %17, float %4
@@ -1262,7 +1262,7 @@ define internal void @_ZL23hb_draw_extents_line_toP15hb_draw_funcs_tPvP15hb_draw
   %19 = fcmp oge float %9, %3
   %.sroa.speculated9.i = select i1 %19, float %9, float %3
   store float %.sroa.speculated9.i, ptr %8, align 4
-  %20 = getelementptr inbounds i8, ptr %1, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %21 = load float, ptr %20, align 4
   %22 = fcmp oge float %21, %4
   %.sroa.speculated.i = select i1 %22, float %21, float %4
@@ -1278,7 +1278,7 @@ declare void @hb_draw_funcs_set_quadratic_to_func(ptr noundef, ptr noundef, ptr 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZL28hb_draw_extents_quadratic_toP15hb_draw_funcs_tPvP15hb_draw_state_tffffS1_(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr nocapture readnone %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, ptr nocapture readnone %7) #2 {
   %9 = load float, ptr %1, align 4
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load float, ptr %10, align 4
   %12 = fcmp ogt float %9, %11
   br i1 %12, label %_ZN12hb_extents_t9add_pointEff.exit.thread, label %_ZN12hb_extents_t9add_pointEff.exit
@@ -1286,13 +1286,13 @@ define internal void @_ZL28hb_draw_extents_quadratic_toP15hb_draw_funcs_tPvP15hb
 _ZN12hb_extents_t9add_pointEff.exit:              ; preds = %8
   %13 = fcmp ole float %9, %3
   %.sroa.speculated12.i = select i1 %13, float %9, float %3
-  %14 = getelementptr inbounds i8, ptr %1, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %15 = load float, ptr %14, align 4
   %16 = fcmp ole float %15, %4
   %.sroa.speculated5.i = select i1 %16, float %15, float %4
   %17 = fcmp oge float %11, %3
   %.sroa.speculated9.i = select i1 %17, float %11, float %3
-  %18 = getelementptr inbounds i8, ptr %1, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %19 = load float, ptr %18, align 4
   %20 = fcmp oge float %19, %4
   %.sroa.speculated.i = select i1 %20, float %19, float %4
@@ -1302,9 +1302,9 @@ _ZN12hb_extents_t9add_pointEff.exit:              ; preds = %8
 22:                                               ; preds = %_ZN12hb_extents_t9add_pointEff.exit
   store float %5, ptr %10, align 4
   store float %5, ptr %1, align 4
-  %23 = getelementptr inbounds i8, ptr %1, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store float %6, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %1, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store float %6, ptr %24, align 4
   br label %_ZN12hb_extents_t9add_pointEff.exit11
 
@@ -1316,14 +1316,14 @@ _ZN12hb_extents_t9add_pointEff.exit.thread:       ; preds = %8, %_ZN12hb_extents
   %29 = fcmp ole float %25, %5
   %.sroa.speculated12.i7 = select i1 %29, float %25, float %5
   store float %.sroa.speculated12.i7, ptr %1, align 4
-  %30 = getelementptr inbounds i8, ptr %1, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %31 = fcmp ole float %27, %6
   %.sroa.speculated5.i8 = select i1 %31, float %27, float %6
   store float %.sroa.speculated5.i8, ptr %30, align 4
   %32 = fcmp oge float %26, %5
   %.sroa.speculated9.i9 = select i1 %32, float %26, float %5
   store float %.sroa.speculated9.i9, ptr %10, align 4
-  %33 = getelementptr inbounds i8, ptr %1, i64 12
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %34 = fcmp oge float %28, %6
   %.sroa.speculated.i10 = select i1 %34, float %28, float %6
   store float %.sroa.speculated.i10, ptr %33, align 4
@@ -1338,7 +1338,7 @@ declare void @hb_draw_funcs_set_cubic_to_func(ptr noundef, ptr noundef, ptr noun
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZL24hb_draw_extents_cubic_toP15hb_draw_funcs_tPvP15hb_draw_state_tffffffS1_(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr nocapture readnone %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, ptr nocapture readnone %9) #2 {
   %11 = load float, ptr %1, align 4
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load float, ptr %12, align 4
   %14 = fcmp ogt float %11, %13
   br i1 %14, label %_ZN12hb_extents_t9add_pointEff.exit14, label %_ZN12hb_extents_t9add_pointEff.exit
@@ -1346,13 +1346,13 @@ define internal void @_ZL24hb_draw_extents_cubic_toP15hb_draw_funcs_tPvP15hb_dra
 _ZN12hb_extents_t9add_pointEff.exit:              ; preds = %10
   %15 = fcmp ole float %11, %3
   %.sroa.speculated12.i = select i1 %15, float %11, float %3
-  %16 = getelementptr inbounds i8, ptr %1, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %17 = load float, ptr %16, align 4
   %18 = fcmp ole float %17, %4
   %.sroa.speculated5.i = select i1 %18, float %17, float %4
   %19 = fcmp oge float %13, %3
   %.sroa.speculated9.i = select i1 %19, float %13, float %3
-  %20 = getelementptr inbounds i8, ptr %1, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %21 = load float, ptr %20, align 4
   %22 = fcmp oge float %21, %4
   %.sroa.speculated.i = select i1 %22, float %21, float %4
@@ -1378,9 +1378,9 @@ _ZN12hb_extents_t9add_pointEff.exit14:            ; preds = %10, %_ZN12hb_extent
 33:                                               ; preds = %_ZN12hb_extents_t9add_pointEff.exit14
   store float %7, ptr %12, align 4
   store float %7, ptr %1, align 4
-  %34 = getelementptr inbounds i8, ptr %1, i64 12
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store float %8, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %1, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store float %8, ptr %35, align 4
   br label %_ZN12hb_extents_t9add_pointEff.exit19
 
@@ -1392,14 +1392,14 @@ _ZN12hb_extents_t9add_pointEff.exit14.thread:     ; preds = %_ZN12hb_extents_t9a
   %40 = fcmp ole float %36, %7
   %.sroa.speculated12.i15 = select i1 %40, float %36, float %7
   store float %.sroa.speculated12.i15, ptr %1, align 4
-  %41 = getelementptr inbounds i8, ptr %1, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %42 = fcmp ole float %38, %8
   %.sroa.speculated5.i16 = select i1 %42, float %38, float %8
   store float %.sroa.speculated5.i16, ptr %41, align 4
   %43 = fcmp oge float %37, %7
   %.sroa.speculated9.i17 = select i1 %43, float %37, float %7
   store float %.sroa.speculated9.i17, ptr %12, align 4
-  %44 = getelementptr inbounds i8, ptr %1, i64 12
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %45 = fcmp oge float %39, %8
   %.sroa.speculated.i18 = select i1 %45, float %39, float %8
   store float %.sroa.speculated.i18, ptr %44, align 4
@@ -1415,7 +1415,7 @@ declare void @hb_draw_funcs_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN26hb_paint_extents_context_t9pop_groupE25hb_paint_composite_mode_t(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 36
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = load i32, ptr %3, align 4, !noalias !19
   %.not.i = icmp eq i32 %4, 0
   br i1 %.not.i, label %_ZN11hb_vector_tI11hb_bounds_tLb0EE3popEv.exit.thread, label %_ZN11hb_vector_tI11hb_bounds_tLb0EE3popEv.exit
@@ -1429,19 +1429,19 @@ _ZN11hb_vector_tI11hb_bounds_tLb0EE3popEv.exit.thread: ; preds = %2
   br label %10
 
 _ZN11hb_vector_tI11hb_bounds_tLb0EE3popEv.exit:   ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8, !noalias !19
   %7 = add i32 %4, -1
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds %struct.hb_bounds_t, ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw %struct.hb_bounds_t, ptr %6, i64 %8
   %.sroa.0.0.copyload6 = load i32, ptr %9, align 4
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 4
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 4
   %.sroa.7.0.copyload10 = load float, ptr %.sroa.7.0..sroa_idx, align 4
-  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.sroa.9.0.copyload17 = load float, ptr %.sroa.9.0..sroa_idx, align 4
-  %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 12
+  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 12
   %.sroa.11.0.copyload24 = load float, ptr %.sroa.11.0..sroa_idx, align 4
-  %.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 16
+  %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.sroa.13.0.copyload31 = load float, ptr %.sroa.13.0..sroa_idx, align 4
   store i32 %7, ptr %3, align 4, !noalias !19
   %.not.i.not.i = icmp eq i32 %7, 0
@@ -1458,10 +1458,10 @@ _ZN11hb_vector_tI11hb_bounds_tLb0EE3popEv.exit:   ; preds = %2
 
 11:                                               ; preds = %_ZN11hb_vector_tI11hb_bounds_tLb0EE3popEv.exit
   %12 = add i32 %4, -2
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load ptr, ptr %13, align 8
   %15 = zext i32 %12 to i64
-  %16 = getelementptr inbounds %struct.hb_bounds_t, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw %struct.hb_bounds_t, ptr %14, i64 %15
   br label %_ZN11hb_vector_tI11hb_bounds_tLb0EE4tailEv.exit
 
 _ZN11hb_vector_tI11hb_bounds_tLb0EE4tailEv.exit:  ; preds = %10, %11
@@ -1487,13 +1487,13 @@ _ZN11hb_vector_tI11hb_bounds_tLb0EE4tailEv.exit:  ; preds = %10, %11
 
 18:                                               ; preds = %_ZN11hb_vector_tI11hb_bounds_tLb0EE4tailEv.exit, %_ZN11hb_vector_tI11hb_bounds_tLb0EE4tailEv.exit
   store i32 %.sroa.0.052, ptr %.0.i.i, align 4
-  %.sroa.7.0..0.i.i.sroa_idx = getelementptr inbounds i8, ptr %.0.i.i, i64 4
+  %.sroa.7.0..0.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   store float %.sroa.7.050, ptr %.sroa.7.0..0.i.i.sroa_idx, align 4
-  %.sroa.9.0..0.i.i.sroa_idx = getelementptr inbounds i8, ptr %.0.i.i, i64 8
+  %.sroa.9.0..0.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   store float %.sroa.9.048, ptr %.sroa.9.0..0.i.i.sroa_idx, align 4
-  %.sroa.11.0..0.i.i.sroa_idx = getelementptr inbounds i8, ptr %.0.i.i, i64 12
+  %.sroa.11.0..0.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
   store float %.sroa.11.046, ptr %.sroa.11.0..0.i.i.sroa_idx, align 4
-  %.sroa.13.0..0.i.i.sroa_idx = getelementptr inbounds i8, ptr %.0.i.i, i64 16
+  %.sroa.13.0..0.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   store float %.sroa.13.044, ptr %.sroa.13.0..0.i.i.sroa_idx, align 4
   br label %_ZN11hb_bounds_t9intersectERKS_.exit
 
@@ -1516,33 +1516,33 @@ _ZN11hb_vector_tI11hb_bounds_tLb0EE4tailEv.exit:  ; preds = %10, %11
 
 23:                                               ; preds = %21
   store i32 1, ptr %.0.i.i, align 4
-  %.sroa.7.0..0.i.i.sroa_idx12 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
+  %.sroa.7.0..0.i.i.sroa_idx12 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   store float %.sroa.7.050, ptr %.sroa.7.0..0.i.i.sroa_idx12, align 4
-  %.sroa.9.0..0.i.i.sroa_idx19 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
+  %.sroa.9.0..0.i.i.sroa_idx19 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   store float %.sroa.9.048, ptr %.sroa.9.0..0.i.i.sroa_idx19, align 4
-  %.sroa.11.0..0.i.i.sroa_idx26 = getelementptr inbounds i8, ptr %.0.i.i, i64 12
+  %.sroa.11.0..0.i.i.sroa_idx26 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
   store float %.sroa.11.046, ptr %.sroa.11.0..0.i.i.sroa_idx26, align 4
-  %.sroa.13.0..0.i.i.sroa_idx33 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
+  %.sroa.13.0..0.i.i.sroa_idx33 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   store float %.sroa.13.044, ptr %.sroa.13.0..0.i.i.sroa_idx33, align 4
   br label %_ZN11hb_bounds_t9intersectERKS_.exit
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   %26 = load float, ptr %25, align 4
   %27 = fcmp oge float %26, %.sroa.7.050
   %28 = select i1 %27, float %26, float %.sroa.7.050
   store float %28, ptr %25, align 4
-  %29 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   %30 = load float, ptr %29, align 4
   %31 = fcmp oge float %30, %.sroa.9.048
   %32 = select i1 %31, float %30, float %.sroa.9.048
   store float %32, ptr %29, align 4
-  %33 = getelementptr inbounds i8, ptr %.0.i.i, i64 12
+  %33 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
   %34 = load float, ptr %33, align 4
   %35 = fcmp ole float %34, %.sroa.11.046
   %36 = select i1 %35, float %34, float %.sroa.11.046
   store float %36, ptr %33, align 4
-  %37 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   %38 = load float, ptr %37, align 4
   %39 = fcmp ole float %38, %.sroa.13.044
   %40 = select i1 %39, float %38, float %.sroa.13.044
@@ -1575,33 +1575,33 @@ _ZN11hb_vector_tI11hb_bounds_tLb0EE4tailEv.exit:  ; preds = %10, %11
 
 49:                                               ; preds = %47
   store i32 1, ptr %.0.i.i, align 4
-  %.sroa.7.0..0.i.i.sroa_idx14 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
+  %.sroa.7.0..0.i.i.sroa_idx14 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   store float %.sroa.7.050, ptr %.sroa.7.0..0.i.i.sroa_idx14, align 4
-  %.sroa.9.0..0.i.i.sroa_idx21 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
+  %.sroa.9.0..0.i.i.sroa_idx21 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   store float %.sroa.9.048, ptr %.sroa.9.0..0.i.i.sroa_idx21, align 4
-  %.sroa.11.0..0.i.i.sroa_idx28 = getelementptr inbounds i8, ptr %.0.i.i, i64 12
+  %.sroa.11.0..0.i.i.sroa_idx28 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
   store float %.sroa.11.046, ptr %.sroa.11.0..0.i.i.sroa_idx28, align 4
-  %.sroa.13.0..0.i.i.sroa_idx35 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
+  %.sroa.13.0..0.i.i.sroa_idx35 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   store float %.sroa.13.044, ptr %.sroa.13.0..0.i.i.sroa_idx35, align 4
   br label %_ZN11hb_bounds_t9intersectERKS_.exit
 
 50:                                               ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   %52 = load float, ptr %51, align 4
   %53 = fcmp ole float %52, %.sroa.7.050
   %54 = select i1 %53, float %52, float %.sroa.7.050
   store float %54, ptr %51, align 4
-  %55 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   %56 = load float, ptr %55, align 4
   %57 = fcmp ole float %56, %.sroa.9.048
   %58 = select i1 %57, float %56, float %.sroa.9.048
   store float %58, ptr %55, align 4
-  %59 = getelementptr inbounds i8, ptr %.0.i.i, i64 12
+  %59 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
   %60 = load float, ptr %59, align 4
   %61 = fcmp oge float %60, %.sroa.11.046
   %62 = select i1 %61, float %60, float %.sroa.11.046
   store float %62, ptr %59, align 4
-  %63 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   %64 = load float, ptr %63, align 4
   %65 = fcmp oge float %64, %.sroa.13.044
   %66 = select i1 %65, float %64, float %.sroa.13.044

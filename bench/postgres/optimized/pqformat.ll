@@ -23,7 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local void @pq_beginmessage(ptr noundef %0, i8 noundef signext %1) local_unnamed_addr #0 {
   tail call void @initStringInfo(ptr noundef %0) #9
   %3 = sext i8 %1 to i32
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %3, ptr %4, align 8
   ret void
 }
@@ -34,7 +34,7 @@ declare void @initStringInfo(ptr noundef) local_unnamed_addr #1
 define dso_local void @pq_beginmessage_reuse(ptr noundef %0, i8 noundef signext %1) local_unnamed_addr #0 {
   tail call void @resetStringInfo(ptr noundef %0) #9
   %3 = sext i8 %1 to i32
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %3, ptr %4, align 8
   ret void
 }
@@ -64,7 +64,7 @@ define dso_local void @pq_sendcountedtext(ptr noundef %0, ptr noundef %1, i32 no
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
   %11 = tail call i32 @llvm.bswap.i32(i32 %10)
   %12 = load ptr, ptr %0, align 8, !alias.scope !5
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i32, ptr %13, align 8, !alias.scope !5
   %15 = sext i32 %14 to i64
   %16 = getelementptr i8, ptr %12, i64 %15
@@ -81,7 +81,7 @@ define dso_local void @pq_sendcountedtext(ptr noundef %0, ptr noundef %1, i32 no
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
   %20 = tail call i32 @llvm.bswap.i32(i32 %19)
   %21 = load ptr, ptr %0, align 8, !alias.scope !8
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load i32, ptr %22, align 8, !alias.scope !8
   %24 = sext i32 %23 to i64
   %25 = getelementptr i8, ptr %21, i64 %24
@@ -157,8 +157,8 @@ define dso_local void @pq_send_ascii_string(ptr noundef %0, ptr nocapture nounde
   br i1 %.not15, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   br label %6
 
 6:                                                ; preds = %.lr.ph, %22
@@ -210,7 +210,7 @@ define dso_local void @pq_sendfloat4(ptr noundef %0, float noundef %1) local_unn
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
   %4 = tail call i32 @llvm.bswap.i32(i32 %3)
   %5 = load ptr, ptr %0, align 8, !alias.scope !13
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8, !alias.scope !13
   %8 = sext i32 %7 to i64
   %9 = getelementptr i8, ptr %5, i64 %8
@@ -227,7 +227,7 @@ define dso_local void @pq_sendfloat8(ptr noundef %0, double noundef %1) local_un
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
   %4 = tail call i64 @llvm.bswap.i64(i64 %3)
   %5 = load ptr, ptr %0, align 8, !alias.scope !16
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8, !alias.scope !16
   %8 = sext i32 %7 to i64
   %9 = getelementptr i8, ptr %5, i64 %8
@@ -240,13 +240,13 @@ define dso_local void @pq_sendfloat8(ptr noundef %0, double noundef %1) local_un
 ; Function Attrs: nounwind uwtable
 define dso_local void @pq_endmessage(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @PqCommMethods, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = trunc i32 %6 to i8
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = sext i32 %10 to i64
   %12 = tail call i32 %4(i8 noundef signext %7, ptr noundef %8, i64 noundef %11) #9
@@ -259,13 +259,13 @@ define dso_local void @pq_endmessage(ptr nocapture noundef %0) local_unnamed_add
 ; Function Attrs: nounwind uwtable
 define dso_local void @pq_endmessage_reuse(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @PqCommMethods, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = trunc i32 %6 to i8
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = sext i32 %10 to i64
   %12 = tail call i32 %4(i8 noundef signext %7, ptr noundef %8, i64 noundef %11) #9
@@ -275,10 +275,10 @@ define dso_local void @pq_endmessage_reuse(ptr nocapture noundef readonly %0) lo
 ; Function Attrs: nounwind uwtable
 define dso_local void @pq_begintypsend(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @initStringInfo(ptr noundef %0) #9
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = add i32 %3, 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i32, ptr %5, align 4
   %.not = icmp slt i32 %4, %6
   br i1 %.not, label %8, label %7
@@ -383,7 +383,7 @@ define dso_local void @pq_begintypsend(ptr noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef ptr @pq_endtypsend(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = shl i32 %4, 2
   store i32 %5, ptr %2, align 4
@@ -397,7 +397,7 @@ define dso_local void @pq_puttextmessage(i8 noundef signext %0, ptr noundef %1) 
   %5 = tail call ptr @pg_server_to_client(ptr noundef %1, i32 noundef %4) #9
   %.not = icmp eq ptr %5, %1
   %6 = load ptr, ptr @PqCommMethods, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 8
   br i1 %.not, label %13, label %9
 
@@ -422,7 +422,7 @@ define dso_local void @pq_puttextmessage(i8 noundef signext %0, ptr noundef %1) 
 ; Function Attrs: nounwind uwtable
 define dso_local void @pq_putemptymessage(i8 noundef signext %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @PqCommMethods, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 %4(i8 noundef signext %0, ptr noundef null, i64 noundef 0) #9
   ret void
@@ -430,9 +430,9 @@ define dso_local void @pq_putemptymessage(i8 noundef signext %0) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 256) i32 @pq_getmsgbyte(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %.not = icmp slt i32 %3, %5
   br i1 %.not, label %10, label %6
@@ -474,9 +474,9 @@ define dso_local i32 @pq_getmsgint(ptr nocapture noundef %0, i32 noundef %1) loc
   ]
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = sub i32 %5, %7
   %9 = icmp slt i32 %8, 1
@@ -501,9 +501,9 @@ pq_copymsgbytes.exit:                             ; preds = %3
   br label %55
 
 19:                                               ; preds = %2
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load i32, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load i32, ptr %22, align 8
   %24 = sub i32 %21, %23
   %25 = icmp slt i32 %24, 2
@@ -529,9 +529,9 @@ pq_copymsgbytes.exit5:                            ; preds = %19
   br label %55
 
 36:                                               ; preds = %2
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load i32, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %40 = load i32, ptr %39, align 8
   %41 = sub i32 %38, %40
   %42 = icmp slt i32 %41, 4
@@ -573,9 +573,9 @@ define dso_local void @pq_copymsgbytes(ptr nocapture noundef %0, ptr nocapture n
   br i1 %4, label %12, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = sub i32 %7, %9
   %11 = icmp sgt i32 %2, %10
@@ -611,9 +611,9 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pq_getmsgint64(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = sub i32 %3, %5
   %7 = icmp slt i32 %6, 8
@@ -643,9 +643,9 @@ declare i64 @llvm.bswap.i64(i64) #5
 
 ; Function Attrs: nounwind uwtable
 define dso_local float @pq_getmsgfloat4(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = sub i32 %3, %5
   %7 = icmp slt i32 %6, 4
@@ -673,9 +673,9 @@ pq_getmsgint.exit:                                ; preds = %1
 
 ; Function Attrs: nounwind uwtable
 define dso_local double @pq_getmsgfloat8(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = sub i32 %3, %5
   %7 = icmp slt i32 %6, 8
@@ -707,9 +707,9 @@ define dso_local ptr @pq_getmsgbytes(ptr nocapture noundef %0, i32 noundef %1) l
   br i1 %3, label %11, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = sub i32 %6, %8
   %10 = icmp sgt i32 %1, %9
@@ -741,9 +741,9 @@ define dso_local ptr @pq_getmsgtext(ptr nocapture noundef %0, i32 noundef %1, pt
   br i1 %4, label %12, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = sub i32 %7, %9
   %11 = icmp sgt i32 %1, %10
@@ -796,14 +796,14 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @pq_getmsgstring(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = sext i32 %4 to i64
   %6 = getelementptr i8, ptr %2, i64 %5
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #10
   %8 = trunc i64 %7 to i32
   %9 = add i32 %4, %8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 8
   %.not = icmp slt i32 %9, %11
   br i1 %.not, label %16, label %12
@@ -826,14 +826,14 @@ define dso_local ptr @pq_getmsgstring(ptr nocapture noundef %0) local_unnamed_ad
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @pq_getmsgrawstring(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = sext i32 %4 to i64
   %6 = getelementptr i8, ptr %2, i64 %5
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #10
   %8 = trunc i64 %7 to i32
   %9 = add i32 %4, %8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 8
   %.not = icmp slt i32 %9, %11
   br i1 %.not, label %16, label %12
@@ -854,9 +854,9 @@ define dso_local noundef ptr @pq_getmsgrawstring(ptr nocapture noundef %0) local
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @pq_getmsgend(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %3, %5
   br i1 %.not, label %10, label %6

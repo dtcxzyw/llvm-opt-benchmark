@@ -282,10 +282,10 @@ define void @dgees_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readon
 
 .preheader23:                                     ; preds = %153, %.preheader23
   %156 = phi i64 [ %161, %.preheader23 ], [ 1, %153 ]
-  %157 = getelementptr inbounds double, ptr %35, i64 %156
-  %158 = getelementptr inbounds double, ptr %36, i64 %156
+  %157 = getelementptr inbounds nuw double, ptr %35, i64 %156
+  %158 = getelementptr inbounds nuw double, ptr %36, i64 %156
   %159 = call i32 (ptr, ptr, ...) %2(ptr noundef nonnull %157, ptr noundef nonnull %158) #6
-  %160 = getelementptr inbounds i32, ptr %42, i64 %156
+  %160 = getelementptr inbounds nuw i32, ptr %42, i64 %156
   store i32 %159, ptr %160, align 4, !tbaa !3
   %161 = add nuw nsw i64 %156, 1
   %162 = load i32, ptr %16, align 4, !tbaa !3
@@ -529,8 +529,8 @@ define void @dgees_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readon
   %295 = phi i32 [ %324, %.thread19 ], [ 1, %291 ]
   %296 = phi i32 [ %325, %.thread19 ], [ 0, %291 ]
   %297 = phi i32 [ %326, %.thread19 ], [ 1, %291 ]
-  %298 = getelementptr inbounds double, ptr %35, i64 %294
-  %299 = getelementptr inbounds double, ptr %36, i64 %294
+  %298 = getelementptr inbounds nuw double, ptr %35, i64 %294
+  %299 = getelementptr inbounds nuw double, ptr %36, i64 %294
   %300 = call i32 (ptr, ptr, ...) %2(ptr noundef nonnull %298, ptr noundef nonnull %299) #6
   %301 = load double, ptr %299, align 8, !tbaa !7
   %302 = fcmp oeq double %301, 0.000000e+00

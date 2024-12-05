@@ -137,7 +137,7 @@ define void @dlarre_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 1, ptr %19, align 4, !tbaa !3
   %93 = load double, ptr %6, align 8, !tbaa !7
   store double %93, ptr %20, align 8, !tbaa !7
-  %94 = getelementptr inbounds i8, ptr %20, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store double %93, ptr %94, align 8, !tbaa !7
   br label %95
 
@@ -167,11 +167,11 @@ define void @dlarre_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %108 = phi double [ 0.000000e+00, %102 ], [ %117, %105 ]
   %109 = phi double [ %97, %102 ], [ %128, %105 ]
   %110 = phi double [ %97, %102 ], [ %133, %105 ]
-  %111 = getelementptr inbounds double, ptr %50, i64 %106
+  %111 = getelementptr inbounds nuw double, ptr %50, i64 %106
   store double 0.000000e+00, ptr %111, align 8, !tbaa !7
-  %112 = getelementptr inbounds double, ptr %49, i64 %106
+  %112 = getelementptr inbounds nuw double, ptr %49, i64 %106
   store double 0.000000e+00, ptr %112, align 8, !tbaa !7
-  %113 = getelementptr inbounds double, ptr %54, i64 %106
+  %113 = getelementptr inbounds nuw double, ptr %54, i64 %106
   %114 = load double, ptr %113, align 8, !tbaa !7
   %115 = fcmp oge double %114, 0.000000e+00
   %116 = fneg double %114
@@ -179,7 +179,7 @@ define void @dlarre_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %118 = fcmp oge double %117, %107
   %119 = select i1 %118, double %117, double %107
   %120 = fadd double %108, %117
-  %121 = getelementptr inbounds double, ptr %55, i64 %106
+  %121 = getelementptr inbounds nuw double, ptr %55, i64 %106
   %122 = load double, ptr %121, align 8, !tbaa !7
   %123 = fsub double %122, %120
   %124 = shl i64 %106, 33
@@ -286,7 +286,7 @@ define void @dlarre_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %185 = phi i32 [ 1, %172 ], [ %902, %897 ]
   %186 = phi i32 [ undef, %172 ], [ %899, %897 ]
   %187 = phi i32 [ undef, %172 ], [ %898, %897 ]
-  %188 = getelementptr inbounds i32, ptr %52, i64 %182
+  %188 = getelementptr inbounds nuw i32, ptr %52, i64 %182
   %189 = load i32, ptr %188, align 4, !tbaa !3
   %190 = sub nsw i32 %189, %185
   %191 = add nsw i32 %190, 1
@@ -807,7 +807,7 @@ define void @dlarre_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %545 = phi i64 [ %563, %.preheader38 ], [ 1, %536 ]
   %546 = phi i64 [ %556, %.preheader38 ], [ %234, %536 ]
   %547 = phi double [ %569, %.preheader38 ], [ %544, %536 ]
-  %548 = getelementptr inbounds double, ptr %45, i64 %545
+  %548 = getelementptr inbounds nuw double, ptr %45, i64 %545
   %549 = load double, ptr %548, align 8, !tbaa !7
   %550 = fdiv double 1.000000e+00, %549
   %551 = getelementptr double, ptr %533, i64 %545
@@ -852,7 +852,7 @@ define void @dlarre_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .preheader:                                       ; preds = %572, %.preheader
   %579 = phi i64 [ %586, %.preheader ], [ 1, %572 ]
   %580 = phi i32 [ %585, %.preheader ], [ 0, %572 ]
-  %581 = getelementptr inbounds double, ptr %45, i64 %579
+  %581 = getelementptr inbounds nuw double, ptr %45, i64 %579
   %582 = load double, ptr %581, align 8, !tbaa !7
   %583 = fmul double %512, %582
   %584 = fcmp olt double %583, 0.000000e+00
@@ -948,7 +948,7 @@ define void @dlarre_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 636:                                              ; preds = %636, %632
   %637 = phi i64 [ 1, %632 ], [ %653, %636 ]
-  %638 = getelementptr inbounds double, ptr %45, i64 %637
+  %638 = getelementptr inbounds nuw double, ptr %45, i64 %637
   %639 = load double, ptr %638, align 8, !tbaa !7
   %640 = call double @llvm.fmuladd.f64(double %176, double %639, double 1.000000e+00)
   %641 = trunc i64 %637 to i32
@@ -1169,7 +1169,7 @@ define void @dlarre_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 788:                                              ; preds = %785, %782
   %789 = phi i64 [ 1, %782 ], [ %786, %785 ]
-  %790 = getelementptr inbounds double, ptr %45, i64 %789
+  %790 = getelementptr inbounds nuw double, ptr %45, i64 %789
   %791 = load double, ptr %790, align 8, !tbaa !7
   %792 = fcmp olt double %791, 0.000000e+00
   br i1 %792, label %793, label %785

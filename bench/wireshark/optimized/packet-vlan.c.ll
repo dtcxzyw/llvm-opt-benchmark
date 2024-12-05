@@ -222,13 +222,13 @@ define internal i32 @dissect_vlan(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %8 = alloca [4 x ptr], align 16
   %9 = alloca %struct.ethertype_data_s, align 8
   store ptr %6, ptr %8, align 16
-  %10 = getelementptr inbounds i8, ptr %8, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %7, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr @hf_vlan_id, ptr %11, align 16
-  %12 = getelementptr inbounds i8, ptr %8, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   call void @col_set_str(ptr noundef %14, i32 noundef 34, ptr noundef nonnull @.str.43) #3
   %15 = load ptr, ptr %13, align 8
@@ -236,7 +236,7 @@ define internal i32 @dissect_vlan(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %16 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0) #3
   %17 = zext i16 %16 to i32
   %18 = and i16 %16, 4095
-  %19 = getelementptr inbounds i8, ptr %1, i64 256
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %20 = load i32, ptr %19, align 8
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %24
@@ -309,7 +309,7 @@ define internal i32 @dissect_vlan(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 switch.lookup:                                    ; preds = %54
   %57 = zext nneg i32 %55 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_vlan, i64 0, i64 %57
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.dissect_vlan, i64 0, i64 %57
   %switch.load = load ptr, ptr %switch.gep, align 8
   %58 = load i32, ptr %switch.load, align 4
   store i32 %58, ptr %6, align 4
@@ -331,7 +331,7 @@ switch.lookup:                                    ; preds = %54
 
 64:                                               ; preds = %61
   %65 = load i32, ptr @hf_vlan_id_name, align 4
-  %66 = getelementptr inbounds i8, ptr %1, i64 408
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %67 = load ptr, ptr %66, align 8
   %68 = call ptr @get_vlan_name(ptr noundef %67, i16 noundef zeroext %18) #3
   %69 = call ptr @proto_tree_add_string(ptr noundef %49, i32 noundef %65, ptr noundef %0, i32 noundef 0, i32 noundef 2, ptr noundef %68) #3
@@ -339,13 +339,13 @@ switch.lookup:                                    ; preds = %54
   br i1 %.not.i, label %proto_item_set_generated.exit, label %70
 
 70:                                               ; preds = %64
-  %71 = getelementptr inbounds i8, ptr %69, i64 32
+  %71 = getelementptr inbounds nuw i8, ptr %69, i64 32
   %72 = load ptr, ptr %71, align 8
   %.not5.i = icmp eq ptr %72, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %73
 
 73:                                               ; preds = %70
-  %74 = getelementptr inbounds i8, ptr %72, i64 28
+  %74 = getelementptr inbounds nuw i8, ptr %72, i64 28
   %75 = load i32, ptr %74, align 4
   %76 = or i32 %75, 2
   store i32 %76, ptr %74, align 4
@@ -380,14 +380,14 @@ proto_item_set_generated.exit:                    ; preds = %73, %70, %64, %61, 
   %90 = load i32, ptr @hf_vlan_etype, align 4
   %91 = call ptr @proto_tree_add_uint(ptr noundef %.054, i32 noundef %90, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef %78) #3
   store i16 %77, ptr %9, align 8
-  %92 = getelementptr inbounds i8, ptr %9, i64 4
+  %92 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 4, ptr %92, align 4
-  %93 = getelementptr inbounds i8, ptr %9, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %.054, ptr %93, align 8
   %94 = load i32, ptr @hf_vlan_trailer, align 4
-  %95 = getelementptr inbounds i8, ptr %9, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 %94, ptr %95, align 8
-  %96 = getelementptr inbounds i8, ptr %9, i64 20
+  %96 = getelementptr inbounds nuw i8, ptr %9, i64 20
   store i32 0, ptr %96, align 4
   %97 = load ptr, ptr @ethertype_handle, align 8
   %98 = call i32 @call_dissector_with_data(ptr noundef %97, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %9) #3

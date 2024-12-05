@@ -20,18 +20,18 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define ptr @Ver_FormulaParser(ptr noundef %0, ptr noundef %1, ptr nocapture noundef initializes((4, 8)) %2, ptr nocapture noundef initializes((4, 8)) %3, ptr nocapture noundef initializes((4, 8)) %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
 sub_0:
-  %6 = getelementptr inbounds i8, ptr %2, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %3, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %8, align 4
   %9 = load i8, ptr %0, align 1
   %.not277 = icmp eq i8 %9, 48
   br i1 %.not277, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
-  %10 = getelementptr inbounds i8, ptr %0, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %11 = load i8, ptr %10, align 1
   %12 = icmp eq i8 %11, 0
   br i1 %12, label %15, label %.thread314
@@ -59,7 +59,7 @@ sub_0224:                                         ; preds = %.tail.thread
   br i1 %.not278, label %.tail223, label %.tail223.thread
 
 .tail223:                                         ; preds = %sub_0224
-  %20 = getelementptr inbounds i8, ptr %0, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %21 = load i8, ptr %20, align 1
   %22 = icmp eq i8 %21, 0
   br i1 %22, label %24, label %.tail223.thread
@@ -94,7 +94,7 @@ sub_0224:                                         ; preds = %.tail.thread
 
 31:                                               ; preds = %.preheader229, %27, %29
   %.1113 = phi i32 [ %28, %27 ], [ %30, %29 ], [ %.0112, %.preheader229 ]
-  %32 = getelementptr inbounds i8, ptr %.0111, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %.0111, i64 1
   %.pre = load i8, ptr %32, align 1
   br label %.preheader229, !llvm.loop !4
 
@@ -109,8 +109,8 @@ sub_0224:                                         ; preds = %.tail.thread
 35:                                               ; preds = %33
   %36 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #8
   %37 = getelementptr inbounds i8, ptr %0, i64 %36
-  %38 = getelementptr inbounds i8, ptr %37, i64 2
-  %39 = getelementptr inbounds i8, ptr %37, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 2
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 1
   store i8 0, ptr %38, align 1
   store i8 41, ptr %39, align 1
   %.not135263 = icmp eq i64 %36, 0
@@ -124,9 +124,9 @@ sub_0224:                                         ; preds = %.tail.thread
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %35
   %.lcssa262 = phi ptr [ %37, %35 ], [ %0, %.lr.ph.preheader ]
   store i8 40, ptr %.lcssa262, align 1
-  %40 = getelementptr inbounds i8, ptr %4, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %41 = getelementptr i8, ptr %2, i64 8
-  %.phi.trans.insert.i165 = getelementptr inbounds i8, ptr %3, i64 8
+  %.phi.trans.insert.i165 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %42
 
 42:                                               ; preds = %.loopexit, %._crit_edge
@@ -357,7 +357,7 @@ thread-pre-split:                                 ; preds = %111
   %125 = load i8, ptr %.2, align 1
   %126 = icmp eq i8 %125, 92
   %spec.select.idx = zext i1 %126 to i64
-  %spec.select = getelementptr inbounds i8, ptr %.2, i64 %spec.select.idx
+  %spec.select = getelementptr inbounds nuw i8, ptr %.2, i64 %spec.select.idx
   %127 = ptrtoint ptr %124 to i64
   %128 = shl i64 %127, 32
   %sext = add i64 %128, -4294967296
@@ -746,7 +746,7 @@ Vec_IntGrow.exit.i208:                            ; preds = %281, %279
 .loopexit:                                        ; preds = %Vec_PtrPush.exit181, %.loopexit.sink.split, %160, %.preheader227, %42, %42, %42, %42
   %.2116 = phi i32 [ %.0114, %42 ], [ %.0114, %42 ], [ %.0114, %42 ], [ %.0114, %42 ], [ 1, %160 ], [ 2, %.preheader227 ], [ %.2116.ph, %.loopexit.sink.split ], [ 2, %Vec_PtrPush.exit181 ]
   %.3 = phi ptr [ %.2, %42 ], [ %.2, %42 ], [ %.2, %42 ], [ %.2, %42 ], [ %.2, %160 ], [ %.4327, %.preheader227 ], [ %.3.ph, %.loopexit.sink.split ], [ %.4327, %Vec_PtrPush.exit181 ]
-  %298 = getelementptr inbounds i8, ptr %.3, i64 1
+  %298 = getelementptr inbounds nuw i8, ptr %.3, i64 1
   br label %42, !llvm.loop !6
 
 299:                                              ; preds = %42
@@ -795,14 +795,14 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define internal fastcc void @Vec_IntPush(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = load i32, ptr %0, align 8
   %6 = icmp eq i32 %4, %5
   br i1 %6, label %7, label %.Vec_IntGrow.exit10_crit_edge
 
 .Vec_IntGrow.exit10_crit_edge:                    ; preds = %2
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %Vec_IntGrow.exit10
 
@@ -811,7 +811,7 @@ define internal fastcc void @Vec_IntPush(ptr nocapture noundef %0, i32 noundef %
   br i1 %8, label %9, label %17
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not9.i = icmp eq ptr %11, null
   br i1 %.not9.i, label %14, label %12
@@ -832,7 +832,7 @@ Vec_IntGrow.exit:                                 ; preds = %12, %14
 
 17:                                               ; preds = %7
   %18 = shl nuw nsw i32 %4, 1
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not9.i9 = icmp eq ptr %20, null
   %21 = zext nneg i32 %18 to i64
@@ -866,9 +866,9 @@ Vec_IntGrow.exit10:                               ; preds = %.Vec_IntGrow.exit10
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @Ver_FormulaParserTopOper(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = add nsw i32 %7, -1
   store i32 %8, ptr %6, align 4
@@ -994,7 +994,7 @@ define internal fastcc i32 @Ver_FormulaParserFindVar(ptr noundef %0, ptr nocaptu
   br i1 %4, label %5, label %.preheader
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1
   br label %7
 
 7:                                                ; preds = %9, %5
@@ -1006,7 +1006,7 @@ define internal fastcc i32 @Ver_FormulaParserFindVar(ptr noundef %0, ptr nocaptu
   ]
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %.047, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.047, i64 1
   %.pr = load i8, ptr %10, align 1
   br label %7, !llvm.loop !7
 
@@ -1033,7 +1033,7 @@ define internal fastcc i32 @Ver_FormulaParserFindVar(ptr noundef %0, ptr nocaptu
   ]
 
 12:                                               ; preds = %.preheader
-  %13 = getelementptr inbounds i8, ptr %.2, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   %.pr80 = load i8, ptr %13, align 1
   br label %.preheader, !llvm.loop !8
 
@@ -1066,7 +1066,7 @@ define internal fastcc i32 @Ver_FormulaParserFindVar(ptr noundef %0, ptr nocaptu
 23:                                               ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
   %24 = shl nuw nsw i64 %indvars.iv, 1
-  %25 = getelementptr inbounds ptr, ptr %.val71, i64 %24
+  %25 = getelementptr inbounds nuw ptr, ptr %.val71, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = ptrtoint ptr %26 to i64
   %28 = trunc i64 %27 to i32
@@ -1075,7 +1075,7 @@ define internal fastcc i32 @Ver_FormulaParserFindVar(ptr noundef %0, ptr nocaptu
 
 29:                                               ; preds = %23
   %30 = or disjoint i64 %24, 1
-  %31 = getelementptr inbounds ptr, ptr %.val71, i64 %30
+  %31 = getelementptr inbounds nuw ptr, ptr %.val71, i64 %30
   %32 = load ptr, ptr %31, align 8
   %33 = tail call i32 @strncmp(ptr noundef nonnull %.046, ptr noundef %32, i64 noundef %22) #8
   %.not70 = icmp eq i32 %33, 0
@@ -1095,7 +1095,7 @@ define internal fastcc i32 @Ver_FormulaParserFindVar(ptr noundef %0, ptr nocaptu
   br i1 %37, label %38, label %.Vec_PtrGrow.exit11_crit_edge.i
 
 .Vec_PtrGrow.exit11_crit_edge.i:                  ; preds = %._crit_edge
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %Vec_PtrPush.exit
 
@@ -1104,7 +1104,7 @@ define internal fastcc i32 @Ver_FormulaParserFindVar(ptr noundef %0, ptr nocaptu
   br i1 %39, label %40, label %48
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds i8, ptr %1, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %42 = load ptr, ptr %41, align 8
   %.not9.i.i = icmp eq ptr %42, null
   br i1 %.not9.i.i, label %45, label %43
@@ -1125,7 +1125,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %45, %43
 
 48:                                               ; preds = %38
   %49 = shl nuw nsw i32 %.val, 1
-  %50 = getelementptr inbounds i8, ptr %1, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %51 = load ptr, ptr %50, align 8
   %.not9.i10.i = icmp eq ptr %51, null
   %52 = zext nneg i32 %49 to i64
@@ -1160,7 +1160,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %67, label %68, label %.Vec_PtrGrow.exit11_crit_edge.i73
 
 .Vec_PtrGrow.exit11_crit_edge.i73:                ; preds = %Vec_PtrPush.exit
-  %.phi.trans.insert.i74 = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert.i74 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre.i75 = load ptr, ptr %.phi.trans.insert.i74, align 8
   br label %Vec_PtrPush.exit79
 
@@ -1169,7 +1169,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %69, label %70, label %78
 
 70:                                               ; preds = %68
-  %71 = getelementptr inbounds i8, ptr %1, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %72 = load ptr, ptr %71, align 8
   %.not9.i.i77 = icmp eq ptr %72, null
   br i1 %.not9.i.i77, label %75, label %73
@@ -1190,7 +1190,7 @@ Vec_PtrGrow.exit.i78:                             ; preds = %75, %73
 
 78:                                               ; preds = %68
   %79 = shl nuw nsw i32 %65, 1
-  %80 = getelementptr inbounds i8, ptr %1, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %81 = load ptr, ptr %80, align 8
   %.not9.i10.i76 = icmp eq ptr %81, null
   %82 = zext nneg i32 %79 to i64
@@ -1234,13 +1234,13 @@ declare ptr @Hop_IthVar(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define ptr @Ver_FormulaReduction(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %6 = load i8, ptr %0, align 1
   %7 = icmp eq i8 %6, 126
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %10 = load i8, ptr %5, align 1
   br label %11
 
@@ -1263,13 +1263,13 @@ define ptr @Ver_FormulaReduction(ptr noundef %0, ptr noundef %1, ptr nocapture n
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %.1 = phi ptr [ %15, %.preheader ], [ %.037, %.preheader.preheader ]
-  %15 = getelementptr inbounds i8, ptr %.1, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %16 = load i8, ptr %.1, align 1
   %.not = icmp eq i8 %16, 123
   br i1 %.not, label %17, label %.preheader, !llvm.loop !10
 
 17:                                               ; preds = %.preheader
-  %18 = getelementptr inbounds i8, ptr %2, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %18, align 4
   %.pr = load i8, ptr %15, align 1
   %.not4247 = icmp eq i8 %.pr, 125
@@ -1303,7 +1303,7 @@ define ptr @Ver_FormulaReduction(ptr noundef %0, ptr noundef %1, ptr nocapture n
   ]
 
 .critedge:                                        ; preds = %28, %28
-  %30 = getelementptr inbounds i8, ptr %.3, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %.3, i64 1
   br label %28, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %28, %17

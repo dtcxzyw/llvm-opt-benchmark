@@ -148,7 +148,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
   %8 = icmp ugt i32 %3, 2
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #11
   store i32 0, ptr %6, align 4, !annotation !8
-  %9 = getelementptr inbounds i8, ptr %2, i64 176
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 176
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %24, label %12
@@ -159,7 +159,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
   br i1 %14, label %24, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %10, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %21, label %19, !prof !9
@@ -175,7 +175,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
 
 24:                                               ; preds = %21, %19, %12, %4
   %25 = phi ptr [ %20, %19 ], [ %23, %21 ], [ null, %12 ], [ null, %4 ]
-  %26 = getelementptr inbounds i8, ptr %25, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %7) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %7, i8 0, i64 20, i1 false)
   switch i32 %3, label %.thread [
@@ -184,7 +184,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
   ]
 
 27:                                               ; preds = %24, %24
-  %28 = getelementptr inbounds i8, ptr %0, i64 116
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %29 = load i32, ptr %28, align 4
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %.critedge, label %31
@@ -200,7 +200,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
 
 .critedge:                                        ; preds = %..critedge_crit_edge, %27
   %33 = phi i32 [ %.pre, %..critedge_crit_edge ], [ 0, %27 ]
-  %34 = getelementptr inbounds i8, ptr %0, i64 112
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %35 = load i32, ptr %34, align 8
   %36 = add i32 %1, %33
   %37 = sub i32 %35, %36
@@ -221,7 +221,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
   br label %.thread20
 
 44:                                               ; preds = %.critedge
-  %45 = getelementptr inbounds i8, ptr %0, i64 200
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %46 = load ptr, ptr %45, align 8
   %47 = sext i32 %1 to i64
   %48 = getelementptr i8, ptr %46, i64 %47
@@ -231,7 +231,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
 .thread20:                                        ; preds = %..thread20_crit_edge, %44
   %50 = phi i32 [ %35, %44 ], [ %.pre71, %..thread20_crit_edge ]
   %51 = phi ptr [ %48, %44 ], [ %5, %..thread20_crit_edge ]
-  %52 = getelementptr inbounds i8, ptr %51, i64 12
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 12
   %53 = load i16, ptr %52, align 4
   %54 = lshr i16 %53, 2
   %55 = and i16 %54, 60
@@ -243,7 +243,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
 59:                                               ; preds = %.thread20
   %60 = sub nuw i32 %50, %57
   call void @_raw_spin_lock_bh(ptr noundef nonnull @nf_ftp_lock) #11
-  %61 = getelementptr inbounds i8, ptr %0, i64 200
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %62 = load ptr, ptr %61, align 8
   %63 = zext i32 %57 to i64
   %64 = getelementptr i8, ptr %62, i64 %63
@@ -252,11 +252,11 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
   %67 = getelementptr i8, ptr %64, i64 %66
   %68 = load i8, ptr %67, align 1
   %69 = icmp eq i8 %68, 10
-  %70 = getelementptr inbounds i8, ptr %51, i64 4
+  %70 = getelementptr inbounds nuw i8, ptr %51, i64 4
   %71 = load i32, ptr %70, align 4
   %72 = call i32 @llvm.bswap.i32(i32 %71)
   %73 = add i32 %72, %60
-  %74 = getelementptr inbounds i8, ptr %25, i64 40
+  %74 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %75 = zext i1 %8 to i64
   %76 = getelementptr [2 x i16], ptr %74, i64 0, i64 %75
   %77 = load i16, ptr %76, align 2
@@ -280,7 +280,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
   br i1 %88, label %.loopexit38, label %81
 
 .loopexit39:                                      ; preds = %81, %59
-  %89 = getelementptr inbounds i8, ptr %25, i64 44
+  %89 = getelementptr inbounds nuw i8, ptr %25, i64 44
   %90 = getelementptr [2 x i16], ptr %89, i64 0, i64 %75
   %91 = load i16, ptr %90, align 2
   %92 = and i16 %91, 1
@@ -293,11 +293,11 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
   br label %.loopexit38
 
 .loopexit38:                                      ; preds = %84, %94
-  %96 = getelementptr inbounds i8, ptr %2, i64 50
+  %96 = getelementptr inbounds nuw i8, ptr %2, i64 50
   %97 = load i16, ptr %96, align 2
-  %98 = getelementptr inbounds i8, ptr %7, i64 18
+  %98 = getelementptr inbounds nuw i8, ptr %7, i64 18
   store i16 %97, ptr %98, align 2
-  %99 = getelementptr inbounds i8, ptr %2, i64 16
+  %99 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.offs = select i1 %8, i64 72, i64 16
   %100 = getelementptr i8, ptr %99, i64 %.offs
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef align 8 dereferenceable(16) %100, i64 16, i1 false)
@@ -331,11 +331,11 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
   br i1 %.not33, label %.thread25, label %.thread24
 
 .split59.us:                                      ; preds = %.split.us
-  %115 = getelementptr inbounds i8, ptr %106, i64 16
+  %115 = getelementptr inbounds nuw i8, ptr %106, i64 16
   %116 = load i8, ptr %115, align 16
-  %117 = getelementptr inbounds i8, ptr %106, i64 17
+  %117 = getelementptr inbounds nuw i8, ptr %106, i64 17
   %118 = load i8, ptr %117, align 1
-  %119 = getelementptr inbounds i8, ptr %106, i64 24
+  %119 = getelementptr inbounds nuw i8, ptr %106, i64 24
   %120 = load ptr, ptr %119, align 8
   %121 = icmp eq i8 %116, 0
   br i1 %121, label %.loopexit36, label %122
@@ -389,7 +389,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
 145:                                              ; preds = %141
   %.offs19 = select i1 %8, i64 16, i64 72
   %146 = getelementptr i8, ptr %99, i64 %.offs19
-  %147 = getelementptr inbounds i8, ptr %146, i64 20
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 20
   %148 = load i16, ptr %98, align 2
   %149 = load i16, ptr %96, align 2
   %150 = icmp eq i16 %148, %149
@@ -408,14 +408,14 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
 157:                                              ; preds = %154, %151, %145
   %158 = phi ptr [ %147, %151 ], [ %147, %145 ], [ %7, %154 ]
   %159 = trunc i16 %148 to i8
-  %160 = getelementptr inbounds i8, ptr %7, i64 16
-  call void @nf_ct_expect_init(ptr noundef nonnull %142, i32 noundef 0, i8 noundef zeroext %159, ptr noundef %146, ptr noundef %158, i8 noundef zeroext 6, ptr noundef null, ptr noundef %160) #11
+  %160 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  call void @nf_ct_expect_init(ptr noundef nonnull %142, i32 noundef 0, i8 noundef zeroext %159, ptr noundef %146, ptr noundef nonnull %158, i8 noundef zeroext 6, ptr noundef null, ptr noundef nonnull %160) #11
   %161 = load volatile ptr, ptr @nf_nat_ftp_hook, align 8
   %162 = icmp eq ptr %161, null
   br i1 %162, label %173, label %163
 
 163:                                              ; preds = %157
-  %164 = getelementptr inbounds i8, ptr %2, i64 128
+  %164 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %165 = load i64, ptr %164, align 8
   %166 = and i64 %165, 48
   %167 = icmp eq i64 %166, 0
@@ -512,7 +512,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @nf_ct_ftp_from_nlattr(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #3 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 176
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %18, label %6
@@ -523,7 +523,7 @@ define internal noundef i32 @nf_ct_ftp_from_nlattr(ptr nocapture readnone %0, pt
   br i1 %8, label %18, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %15, label %13, !prof !9
@@ -539,7 +539,7 @@ define internal noundef i32 @nf_ct_ftp_from_nlattr(ptr nocapture readnone %0, pt
 
 18:                                               ; preds = %15, %13, %6, %2
   %19 = phi ptr [ %14, %13 ], [ %17, %15 ], [ null, %6 ], [ null, %2 ]
-  %20 = getelementptr inbounds i8, ptr %19, i64 44
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 44
   %21 = load i16, ptr %20, align 4
   %22 = or i16 %21, 1
   store i16 %22, ptr %20, align 4
@@ -654,28 +654,28 @@ define internal i32 @try_rfc959(ptr nocapture noundef readonly %0, i64 noundef %
 39:                                               ; preds = %26
   %40 = load i32, ptr %6, align 16
   %41 = shl i32 %40, 24
-  %42 = getelementptr inbounds i8, ptr %6, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %43 = load i32, ptr %42, align 4
   %44 = shl i32 %43, 16
   %45 = or i32 %44, %41
-  %46 = getelementptr inbounds i8, ptr %6, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %47 = load i32, ptr %46, align 8
   %48 = shl i32 %47, 8
   %49 = or i32 %45, %48
-  %50 = getelementptr inbounds i8, ptr %6, i64 12
+  %50 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %51 = load i32, ptr %50, align 4
   %52 = or i32 %49, %51
   %53 = tail call i32 @llvm.bswap.i32(i32 %52)
   store i32 %53, ptr %2, align 4
-  %54 = getelementptr inbounds i8, ptr %6, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %55 = load i32, ptr %54, align 16
   %56 = shl i32 %55, 8
-  %57 = getelementptr inbounds i8, ptr %6, i64 20
+  %57 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %58 = load i32, ptr %57, align 4
   %59 = or i32 %56, %58
   %60 = trunc i32 %59 to i16
   %61 = tail call i16 @llvm.bswap.i16(i16 %60)
-  %62 = getelementptr inbounds i8, ptr %2, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i16 %61, ptr %62, align 4
   br label %.thread
 
@@ -709,7 +709,7 @@ define internal i32 @try_eprt(ptr noundef %0, i64 noundef %1, ptr noundef %2, i8
   br i1 %20, label %21, label %.thread12
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %2, i64 18
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 18
   %23 = load i16, ptr %22, align 2
   %.phi.trans.insert = getelementptr i8, ptr %0, i64 1
   %.pre = load i8, ptr %.phi.trans.insert, align 1
@@ -797,15 +797,15 @@ define internal i32 @try_eprt(ptr noundef %0, i64 noundef %1, ptr noundef %2, i8
 68:                                               ; preds = %55
   %69 = load i32, ptr %7, align 16
   %70 = shl i32 %69, 24
-  %71 = getelementptr inbounds i8, ptr %7, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %72 = load i32, ptr %71, align 4
   %73 = shl i32 %72, 16
   %74 = or i32 %73, %70
-  %75 = getelementptr inbounds i8, ptr %7, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %76 = load i32, ptr %75, align 8
   %77 = shl i32 %76, 8
   %78 = or i32 %74, %77
-  %79 = getelementptr inbounds i8, ptr %7, i64 12
+  %79 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %80 = load i32, ptr %79, align 4
   %81 = or i32 %78, %80
   %82 = tail call i32 @llvm.bswap.i32(i32 %81)
@@ -841,7 +841,7 @@ select.unfold11:                                  ; preds = %84, %.thread
 
 98:                                               ; preds = %select.unfold11
   %99 = add i32 %96, 4
-  %100 = getelementptr inbounds i8, ptr %2, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %101 = sext i32 %99 to i64
   %102 = icmp ugt i64 %1, %101
   br i1 %102, label %.preheader, label %.thread12
@@ -970,28 +970,28 @@ define internal i32 @try_rfc1123(ptr nocapture noundef readonly %0, i64 noundef 
 57:                                               ; preds = %46
   %58 = load i32, ptr %6, align 16
   %59 = shl i32 %58, 24
-  %60 = getelementptr inbounds i8, ptr %6, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %61 = load i32, ptr %60, align 4
   %62 = shl i32 %61, 16
   %63 = or i32 %62, %59
-  %64 = getelementptr inbounds i8, ptr %6, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %65 = load i32, ptr %64, align 8
   %66 = shl i32 %65, 8
   %67 = or i32 %63, %66
-  %68 = getelementptr inbounds i8, ptr %6, i64 12
+  %68 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %69 = load i32, ptr %68, align 4
   %70 = or i32 %67, %69
   %71 = tail call i32 @llvm.bswap.i32(i32 %70)
   store i32 %71, ptr %2, align 4
-  %72 = getelementptr inbounds i8, ptr %6, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %73 = load i32, ptr %72, align 16
   %74 = shl i32 %73, 8
-  %75 = getelementptr inbounds i8, ptr %6, i64 20
+  %75 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %76 = load i32, ptr %75, align 4
   %77 = or i32 %74, %76
   %78 = trunc i32 %77 to i16
   %79 = tail call i16 @llvm.bswap.i16(i16 %78)
-  %80 = getelementptr inbounds i8, ptr %2, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i16 %79, ptr %80, align 4
   br label %.thread
 
@@ -1032,7 +1032,7 @@ define internal i32 @try_epsv_response(ptr nocapture noundef readonly %0, i64 no
   br i1 %21, label %22, label %.loopexit
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %2, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %24
 
 24:                                               ; preds = %40, %22

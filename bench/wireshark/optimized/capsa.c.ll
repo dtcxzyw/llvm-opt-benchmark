@@ -112,27 +112,27 @@ define hidden range(i32 -1, 2) i32 @capsa_open(ptr noundef %0, ptr noundef %1, p
   br i1 %.not48, label %52, label %39
 
 39:                                               ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %0, i64 20
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %.039, ptr %40, align 4
   %41 = call noalias dereferenceable_or_null(824) ptr @g_malloc_n(i64 noundef 1, i64 noundef 824) #6
   %42 = load i16, ptr %5, align 2
   store i16 %42, ptr %41, align 8
   %43 = load i32, ptr %6, align 4
-  %44 = getelementptr inbounds i8, ptr %41, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 4
   store i32 %43, ptr %44, align 4
-  %45 = getelementptr inbounds i8, ptr %41, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store i32 0, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 96
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %41, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 112
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @capsa_read, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 120
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr @capsa_seek_read, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 144
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 1, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 148
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 6, ptr %51, align 4
   call void @wtap_add_generated_idb(ptr noundef nonnull %0) #5
   br label %52
@@ -153,11 +153,11 @@ declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @capsa_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %10, %12
   br i1 %13, label %14, label %15
@@ -174,7 +174,7 @@ define internal range(i32 0, 2) i32 @capsa_read(ptr nocapture noundef readonly %
 18:                                               ; preds = %15
   %19 = load ptr, ptr %0, align 8
   %20 = tail call i64 @file_tell(ptr noundef %19) #5
-  %21 = getelementptr inbounds i8, ptr %8, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 %20, ptr %21, align 8
   %22 = load ptr, ptr %0, align 8
   %23 = tail call i32 @wtap_read_bytes(ptr noundef %22, ptr noundef null, i32 noundef 1, ptr noundef %3, ptr noundef %4) #5
@@ -183,7 +183,7 @@ define internal range(i32 0, 2) i32 @capsa_read(ptr nocapture noundef readonly %
 
 24:                                               ; preds = %18
   %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %8, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %27 = tail call i32 @wtap_read_bytes(ptr noundef %25, ptr noundef nonnull %26, i32 noundef 800, ptr noundef %3, ptr noundef %4) #5
   %.not40 = icmp eq i32 %27, 0
   br i1 %.not40, label %51, label %28
@@ -195,9 +195,9 @@ define internal range(i32 0, 2) i32 @capsa_read(ptr nocapture noundef readonly %
   br i1 %.not41, label %51, label %31
 
 31:                                               ; preds = %28, %15
-  %32 = getelementptr inbounds i8, ptr %8, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %8, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %35 = zext nneg i32 %16 to i64
   %36 = getelementptr [200 x i32], ptr %34, i64 0, i64 %35
   %37 = load i32, ptr %36, align 4
@@ -238,7 +238,7 @@ define internal range(i32 0, 2) i32 @capsa_read(ptr nocapture noundef readonly %
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @capsa_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @file_seek(ptr noundef %8, i64 noundef %1, i32 noundef 0, ptr noundef %4) #5
   %10 = icmp eq i64 %9, -1
@@ -303,18 +303,18 @@ define internal fastcc range(i32 -1, 65504) i32 @capsa_read_packet(i16 %.96.val.
   br i1 %.not57, label %69, label %10
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %12 = load i16, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %6, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %14 = load i16, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %6, i64 18
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 18
   %16 = load i16, ptr %15, align 2
-  %17 = getelementptr inbounds i8, ptr %6, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %18 = load i64, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %6, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %20 = load i8, ptr %19, align 4
   %21 = zext i8 %20 to i32
-  %22 = getelementptr inbounds i8, ptr %6, i64 25
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 25
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i32
   %25 = add nuw nsw i32 %24, %21
@@ -340,11 +340,11 @@ define internal fastcc range(i32 -1, 65504) i32 @capsa_read_packet(i16 %.96.val.
 
 38:                                               ; preds = %36
   %39 = load i16, ptr %7, align 4
-  %40 = getelementptr inbounds i8, ptr %7, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %41 = load i16, ptr %40, align 4
-  %42 = getelementptr inbounds i8, ptr %7, i64 2
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 2
   %43 = load i16, ptr %42, align 2
-  %44 = getelementptr inbounds i8, ptr %7, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %45 = load i64, ptr %44, align 4
   br label %47
 
@@ -375,25 +375,25 @@ define internal fastcc range(i32 -1, 65504) i32 @capsa_read_packet(i16 %.96.val.
   %53 = add nuw nsw i32 %.053, 4
   %54 = icmp eq i32 %53, %.052
   %spec.select = select i1 %54, i32 %.053, i32 %.052
-  %55 = getelementptr inbounds i8, ptr %1, i64 64
-  %56 = getelementptr inbounds i8, ptr %1, i64 80
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store i32 0, ptr %56, align 8
   store i32 0, ptr %1, align 8
   %57 = call ptr @wtap_block_create(i32 noundef 5) #5
-  %58 = getelementptr inbounds i8, ptr %1, i64 232
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 232
   store ptr %57, ptr %58, align 8
   store i32 %.053, ptr %55, align 8
-  %59 = getelementptr inbounds i8, ptr %1, i64 68
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 68
   store i32 %spec.select, ptr %59, align 4
-  %60 = getelementptr inbounds i8, ptr %1, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 3, ptr %60, align 4
   %61 = udiv i64 %.0, 1000000
-  %62 = getelementptr inbounds i8, ptr %1, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %61, ptr %62, align 8
   %63 = urem i64 %.0, 1000000
   %64 = trunc nuw nsw i64 %63 to i32
   %65 = mul nuw nsw i32 %64, 1000
-  %66 = getelementptr inbounds i8, ptr %1, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 %65, ptr %66, align 8
   %67 = call i32 @wtap_read_packet_bytes(ptr noundef %0, ptr noundef %2, i32 noundef %.053, ptr noundef %3, ptr noundef %4) #5
   %.not59 = icmp eq i32 %67, 0

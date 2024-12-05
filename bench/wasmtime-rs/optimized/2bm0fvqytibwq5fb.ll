@@ -23,7 +23,7 @@ define void @_ZN22cranelift_codegen_meta13isa_from_arch17h5622c80582f40225E(ptr 
   %6 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %7 = alloca { ptr, i64 }, align 8
   store ptr %1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %2, ptr %8, align 8
   %9 = tail call i8 @_ZN22cranelift_codegen_meta3isa3Isa9from_arch17h011ec0d7c25a08ccE(ptr align 1 %1, i64 %2), !range !3
   %10 = icmp eq i8 %9, 4
@@ -31,7 +31,7 @@ define void @_ZN22cranelift_codegen_meta13isa_from_arch17h5622c80582f40225E(ptr 
 
 11:                                               ; preds = %3
   store ptr %7, ptr %4, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hb00593a18ac4215eE", ptr %12, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h8f7516983d0c178cE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %5, ptr nonnull align 8 @anon.a4ace3d538bf6ccd9b54f76f6cf34f21.2, i64 2, ptr nonnull align 8 %4, i64 1)
   call void @_ZN5alloc3fmt6format17h8d9274f217220247E(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %6, ptr nonnull align 8 %5)
@@ -39,7 +39,7 @@ define void @_ZN22cranelift_codegen_meta13isa_from_arch17h5622c80582f40225E(ptr 
   br label %15
 
 13:                                               ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %9, ptr %14, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %15
@@ -87,11 +87,11 @@ define align 8 ptr @_ZN22cranelift_codegen_meta8generate17h7c37419d145d31c3E(ptr
   br i1 %26, label %27, label %50
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %16, i64 128
+  %28 = getelementptr inbounds nuw i8, ptr %16, i64 128
   %29 = load ptr, ptr %28, align 8, !nonnull !4, !noundef !4
-  %30 = getelementptr inbounds i8, ptr %16, i64 136
+  %30 = getelementptr inbounds nuw i8, ptr %16, i64 136
   %31 = load i64, ptr %30, align 8, !noundef !4
-  %32 = getelementptr inbounds i8, ptr %16, i64 96
+  %32 = getelementptr inbounds nuw i8, ptr %16, i64 96
   %33 = invoke align 8 ptr @_ZN22cranelift_codegen_meta8gen_inst8generate17h818bd289362b7ca6E(ptr nonnull align 8 %29, i64 %31, ptr nonnull align 8 %32, ptr nonnull align 1 @anon.a4ace3d538bf6ccd9b54f76f6cf34f21.5, i64 10, ptr nonnull align 1 @anon.a4ace3d538bf6ccd9b54f76f6cf34f21.6, i64 15, ptr nonnull align 1 @anon.a4ace3d538bf6ccd9b54f76f6cf34f21.7, i64 13, ptr nonnull align 1 @anon.a4ace3d538bf6ccd9b54f76f6cf34f21.8, i64 15, ptr align 1 %2, i64 %3, ptr align 1 %4, i64 %5)
           to label %34 unwind label %19
 
@@ -109,10 +109,10 @@ define align 8 ptr @_ZN22cranelift_codegen_meta8generate17h7c37419d145d31c3E(ptr
 
 38:                                               ; preds = %37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %15, i64 32, i1 false)
-  %39 = getelementptr inbounds i8, ptr %11, i64 96
-  %40 = getelementptr inbounds i8, ptr %7, i64 8
-  %41 = getelementptr inbounds i8, ptr %10, i64 8
-  %42 = getelementptr inbounds i8, ptr %10, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %11, i64 96
+  %40 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %10, i64 16
   br label %43
 
 43:                                               ; preds = %63, %38

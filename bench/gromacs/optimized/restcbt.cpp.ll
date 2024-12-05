@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 define void @_Z26compute_factors_restanglesiPK9t_iparamsPfS2_PdS3_S3_S2_(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly initializes((0, 8)) %4, ptr nocapture noundef writeonly initializes((0, 8)) %5, ptr nocapture noundef writeonly initializes((0, 8)) %6, ptr nocapture noundef writeonly initializes((0, 4)) %7) local_unnamed_addr #0 {
   %9 = sext i32 %0 to i64
   %10 = getelementptr inbounds %union.t_iparams, ptr %1, i64 %9
-  %11 = getelementptr inbounds i8, ptr %10, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load float, ptr %11, align 4
   %13 = fpext float %12 to double
   %14 = load float, ptr %10, align 4
@@ -19,20 +19,20 @@ define void @_Z26compute_factors_restanglesiPK9t_iparamsPfS2_PdS3_S3_S2_(i32 nou
   %17 = fsub double 0x400921FB54442D18, %16
   %18 = tail call double @cos(double noundef %17) #5
   %19 = load float, ptr %2, align 4
-  %20 = getelementptr inbounds i8, ptr %2, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %21 = load float, ptr %20, align 4
   %22 = fmul float %21, %21
   %23 = tail call float @llvm.fmuladd.f32(float %19, float %19, float %22)
-  %24 = getelementptr inbounds i8, ptr %2, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %25 = load float, ptr %24, align 4
   %26 = tail call noundef float @llvm.fmuladd.f32(float %25, float %25, float %23)
   %27 = fpext float %26 to double
   %28 = load float, ptr %3, align 4
-  %29 = getelementptr inbounds i8, ptr %3, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %30 = load float, ptr %29, align 4
   %31 = fmul float %21, %30
   %32 = tail call float @llvm.fmuladd.f32(float %19, float %28, float %31)
-  %33 = getelementptr inbounds i8, ptr %3, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %34 = load float, ptr %33, align 4
   %35 = tail call noundef float @llvm.fmuladd.f32(float %25, float %34, float %32)
   %36 = fpext float %35 to double
@@ -89,30 +89,30 @@ define void @_Z25compute_factors_restrdihsiPK9t_iparamsPfS2_S2_S2_S2_S2_S2_S2_S2
   %24 = fmul double %23, 0x3F91DF46A2529D39
   %25 = fptrunc double %24 to float
   %26 = tail call noundef float @cosf(float noundef %25) #5
-  %27 = getelementptr inbounds i8, ptr %21, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %28 = load float, ptr %27, align 4
   %29 = load float, ptr %2, align 4
-  %30 = getelementptr inbounds i8, ptr %2, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %31 = load float, ptr %30, align 4
   %32 = fmul float %31, %31
   %33 = tail call float @llvm.fmuladd.f32(float %29, float %29, float %32)
-  %34 = getelementptr inbounds i8, ptr %2, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %35 = load float, ptr %34, align 4
   %36 = tail call noundef float @llvm.fmuladd.f32(float %35, float %35, float %33)
   %37 = load float, ptr %3, align 4
-  %38 = getelementptr inbounds i8, ptr %3, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %39 = load float, ptr %38, align 4
   %40 = fmul float %39, %39
   %41 = tail call float @llvm.fmuladd.f32(float %37, float %37, float %40)
-  %42 = getelementptr inbounds i8, ptr %3, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %43 = load float, ptr %42, align 4
   %44 = tail call noundef float @llvm.fmuladd.f32(float %43, float %43, float %41)
   %45 = load float, ptr %4, align 4
-  %46 = getelementptr inbounds i8, ptr %4, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %47 = load float, ptr %46, align 4
   %48 = fmul float %47, %47
   %49 = tail call float @llvm.fmuladd.f32(float %45, float %45, float %48)
-  %50 = getelementptr inbounds i8, ptr %4, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %51 = load float, ptr %50, align 4
   %52 = tail call noundef float @llvm.fmuladd.f32(float %51, float %51, float %49)
   %53 = fmul float %31, %39
@@ -228,38 +228,38 @@ define void @_Z23compute_factors_cbtdihsiPK9t_iparamsPfS2_S2_S2_S2_S2_S2_S2_S2_S
   %17 = sext i32 %0 to i64
   %18 = getelementptr inbounds %union.t_iparams, ptr %1, i64 %17
   %.sroa.0.0.copyload = load float, ptr %18, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 4
   %.sroa.2.0.copyload = load float, ptr %.sroa.2.0..sroa_idx, align 4
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8
   %.sroa.3.0.copyload = load float, ptr %.sroa.3.0..sroa_idx, align 4
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 12
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 12
   %.sroa.4.0.copyload = load float, ptr %.sroa.4.0..sroa_idx, align 4
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 16
   %.sroa.5.0.copyload = load float, ptr %.sroa.5.0..sroa_idx, align 4
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 20
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 20
   %.sroa.6.0.copyload = load float, ptr %.sroa.6.0..sroa_idx, align 4
   %19 = load float, ptr %2, align 4
-  %20 = getelementptr inbounds i8, ptr %2, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %21 = load float, ptr %20, align 4
   %22 = fmul float %21, %21
   %23 = tail call float @llvm.fmuladd.f32(float %19, float %19, float %22)
-  %24 = getelementptr inbounds i8, ptr %2, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %25 = load float, ptr %24, align 4
   %26 = tail call noundef float @llvm.fmuladd.f32(float %25, float %25, float %23)
   %27 = load float, ptr %3, align 4
-  %28 = getelementptr inbounds i8, ptr %3, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %29 = load float, ptr %28, align 4
   %30 = fmul float %29, %29
   %31 = tail call float @llvm.fmuladd.f32(float %27, float %27, float %30)
-  %32 = getelementptr inbounds i8, ptr %3, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %33 = load float, ptr %32, align 4
   %34 = tail call noundef float @llvm.fmuladd.f32(float %33, float %33, float %31)
   %35 = load float, ptr %4, align 4
-  %36 = getelementptr inbounds i8, ptr %4, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %37 = load float, ptr %36, align 4
   %38 = fmul float %37, %37
   %39 = tail call float @llvm.fmuladd.f32(float %35, float %35, float %38)
-  %40 = getelementptr inbounds i8, ptr %4, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %41 = load float, ptr %40, align 4
   %42 = tail call noundef float @llvm.fmuladd.f32(float %41, float %41, float %39)
   %43 = fmul float %21, %29
@@ -377,17 +377,17 @@ define void @_Z23compute_factors_cbtdihsiPK9t_iparamsPfS2_S2_S2_S2_S2_S2_S2_S2_S
 
 148:                                              ; preds = %16, %148
   %indvars.iv = phi i64 [ 0, %16 ], [ %indvars.iv.next, %148 ]
-  %149 = getelementptr inbounds float, ptr %2, i64 %indvars.iv
+  %149 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
   %150 = load float, ptr %149, align 4
-  %151 = getelementptr inbounds float, ptr %3, i64 %indvars.iv
+  %151 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
   %152 = load float, ptr %151, align 4
   %153 = fmul float %114, %152
   %154 = tail call float @llvm.fmuladd.f32(float %112, float %150, float %153)
-  %155 = getelementptr inbounds float, ptr %4, i64 %indvars.iv
+  %155 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
   %156 = load float, ptr %155, align 4
   %157 = tail call float @llvm.fmuladd.f32(float %34, float %156, float %154)
   %158 = fmul float %157, %111
-  %159 = getelementptr inbounds float, ptr %5, i64 %indvars.iv
+  %159 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv
   store float %158, ptr %159, align 4
   %160 = load float, ptr %149, align 4
   %161 = load float, ptr %151, align 4
@@ -396,7 +396,7 @@ define void @_Z23compute_factors_cbtdihsiPK9t_iparamsPfS2_S2_S2_S2_S2_S2_S2_S2_S
   %164 = load float, ptr %155, align 4
   %165 = tail call float @llvm.fmuladd.f32(float %130, float %164, float %163)
   %166 = fmul float %165, %111
-  %167 = getelementptr inbounds float, ptr %6, i64 %indvars.iv
+  %167 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
   store float %166, ptr %167, align 4
   %168 = load float, ptr %149, align 4
   %169 = load float, ptr %151, align 4
@@ -405,7 +405,7 @@ define void @_Z23compute_factors_cbtdihsiPK9t_iparamsPfS2_S2_S2_S2_S2_S2_S2_S2_S
   %172 = load float, ptr %155, align 4
   %173 = tail call float @llvm.fmuladd.f32(float %144, float %172, float %171)
   %174 = fmul float %173, %111
-  %175 = getelementptr inbounds float, ptr %7, i64 %indvars.iv
+  %175 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv
   store float %174, ptr %175, align 4
   %176 = load float, ptr %149, align 4
   %177 = load float, ptr %151, align 4
@@ -414,7 +414,7 @@ define void @_Z23compute_factors_cbtdihsiPK9t_iparamsPfS2_S2_S2_S2_S2_S2_S2_S2_S
   %180 = load float, ptr %155, align 4
   %181 = tail call float @llvm.fmuladd.f32(float %147, float %180, float %179)
   %182 = fmul float %181, %111
-  %183 = getelementptr inbounds float, ptr %8, i64 %indvars.iv
+  %183 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv
   store float %182, ptr %183, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -449,14 +449,14 @@ define void @_Z23compute_factors_cbtdihsiPK9t_iparamsPfS2_S2_S2_S2_S2_S2_S2_S2_S
 
 209:                                              ; preds = %184, %209
   %indvars.iv286 = phi i64 [ 0, %184 ], [ %indvars.iv.next287, %209 ]
-  %210 = getelementptr inbounds float, ptr %2, i64 %indvars.iv286
+  %210 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv286
   %211 = load float, ptr %210, align 4
-  %212 = getelementptr inbounds float, ptr %3, i64 %indvars.iv286
+  %212 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv286
   %213 = load float, ptr %212, align 4
   %214 = fneg float %213
   %215 = tail call float @llvm.fmuladd.f32(float %185, float %211, float %214)
   %216 = fmul float %215, %202
-  %217 = getelementptr inbounds float, ptr %9, i64 %indvars.iv286
+  %217 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv286
   store float %216, ptr %217, align 4
   %218 = load float, ptr %212, align 4
   %219 = fpext float %218 to double
@@ -467,13 +467,13 @@ define void @_Z23compute_factors_cbtdihsiPK9t_iparamsPfS2_S2_S2_S2_S2_S2_S2_S2_S
   %224 = tail call double @llvm.fmuladd.f64(double %205, double %219, double %223)
   %225 = fmul double %224, %203
   %226 = fptrunc double %225 to float
-  %227 = getelementptr inbounds float, ptr %10, i64 %indvars.iv286
+  %227 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv286
   store float %226, ptr %227, align 4
   %228 = load float, ptr %210, align 4
   %229 = load float, ptr %212, align 4
   %230 = tail call float @llvm.fmuladd.f32(float %208, float %229, float %228)
   %231 = fmul float %230, %202
-  %232 = getelementptr inbounds float, ptr %11, i64 %indvars.iv286
+  %232 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv286
   store float %231, ptr %232, align 4
   %indvars.iv.next287 = add nuw nsw i64 %indvars.iv286, 1
   %exitcond289.not = icmp eq i64 %indvars.iv.next287, 3
@@ -502,14 +502,14 @@ define void @_Z23compute_factors_cbtdihsiPK9t_iparamsPfS2_S2_S2_S2_S2_S2_S2_S2_S
 
 252:                                              ; preds = %233, %252
   %indvars.iv290 = phi i64 [ 0, %233 ], [ %indvars.iv.next291, %252 ]
-  %253 = getelementptr inbounds float, ptr %3, i64 %indvars.iv290
+  %253 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv290
   %254 = load float, ptr %253, align 4
-  %255 = getelementptr inbounds float, ptr %4, i64 %indvars.iv290
+  %255 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv290
   %256 = load float, ptr %255, align 4
   %257 = fneg float %256
   %258 = tail call float @llvm.fmuladd.f32(float %234, float %254, float %257)
   %259 = fmul float %258, %245
-  %260 = getelementptr inbounds float, ptr %12, i64 %indvars.iv290
+  %260 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv290
   store float %259, ptr %260, align 4
   %261 = load float, ptr %255, align 4
   %262 = fpext float %261 to double
@@ -520,13 +520,13 @@ define void @_Z23compute_factors_cbtdihsiPK9t_iparamsPfS2_S2_S2_S2_S2_S2_S2_S2_S
   %267 = tail call double @llvm.fmuladd.f64(double %248, double %262, double %266)
   %268 = fmul double %267, %246
   %269 = fptrunc double %268 to float
-  %270 = getelementptr inbounds float, ptr %13, i64 %indvars.iv290
+  %270 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv290
   store float %269, ptr %270, align 4
   %271 = load float, ptr %253, align 4
   %272 = load float, ptr %255, align 4
   %273 = tail call float @llvm.fmuladd.f32(float %251, float %272, float %271)
   %274 = fmul float %273, %245
-  %275 = getelementptr inbounds float, ptr %14, i64 %indvars.iv290
+  %275 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv290
   store float %274, ptr %275, align 4
   %indvars.iv.next291 = add nuw nsw i64 %indvars.iv290, 1
   %exitcond293.not = icmp eq i64 %indvars.iv.next291, 3

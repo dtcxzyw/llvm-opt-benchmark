@@ -43,7 +43,7 @@ $_ZN9LogPrefixILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = 
 define hidden void @_ZN11OSContainer4initEv() local_unnamed_addr #0 align 2 {
   store i8 1, ptr @_ZN11OSContainer15_is_initializedE, align 1
   store i8 0, ptr @_ZN11OSContainer17_is_containerizedE, align 1
-  %1 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %1 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %3, label %2
 
@@ -57,7 +57,7 @@ define hidden void @_ZN11OSContainer4initEv() local_unnamed_addr #0 align 2 {
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %7 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not7 = icmp eq ptr %7, null
   br i1 %.not7, label %31, label %8
 
@@ -73,7 +73,7 @@ define hidden void @_ZN11OSContainer4initEv() local_unnamed_addr #0 align 2 {
 
 12:                                               ; preds = %9
   %13 = load ptr, ptr %10, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(8) %10) #4
   br i1 %16, label %.thread, label %17
@@ -98,7 +98,7 @@ define hidden void @_ZN11OSContainer4initEv() local_unnamed_addr #0 align 2 {
   %26 = or i1 %16, %.04.shrunk
   %27 = zext i1 %26 to i8
   store i8 %27, ptr @_ZN11OSContainer17_is_containerizedE, align 1
-  %28 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %28 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not8 = icmp eq ptr %28, null
   br i1 %.not8, label %31, label %29
 
@@ -141,7 +141,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE105ELS1_25ELS1_0ELS1
 define hidden noundef ptr @_ZN11OSContainer14container_typeEv() local_unnamed_addr #0 align 2 {
   %1 = load ptr, ptr @cgroup_subsystem, align 8
   %2 = load ptr, ptr %1, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %1) #4
   ret ptr %5
@@ -230,7 +230,7 @@ declare void @_ZN15CgroupSubsystem27print_version_specific_infoEP12outputStream(
 define hidden noundef ptr @_ZN11OSContainer15cpu_cpuset_cpusEv() local_unnamed_addr #0 align 2 {
   %1 = load ptr, ptr @cgroup_subsystem, align 8
   %2 = load ptr, ptr %1, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %1) #4
   ret ptr %5
@@ -240,7 +240,7 @@ define hidden noundef ptr @_ZN11OSContainer15cpu_cpuset_cpusEv() local_unnamed_a
 define hidden noundef ptr @_ZN11OSContainer23cpu_cpuset_memory_nodesEv() local_unnamed_addr #0 align 2 {
   %1 = load ptr, ptr @cgroup_subsystem, align 8
   %2 = load ptr, ptr %1, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %1) #4
   ret ptr %5
@@ -293,7 +293,7 @@ define hidden noundef i64 @_ZN11OSContainer8pids_maxEv() local_unnamed_addr #0 a
 define hidden noundef i64 @_ZN11OSContainer12pids_currentEv() local_unnamed_addr #0 align 2 {
   %1 = load ptr, ptr @cgroup_subsystem, align 8
   %2 = load ptr, ptr %1, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef i64 %4(ptr noundef nonnull align 8 dereferenceable(8) %1) #4
   ret i64 %5

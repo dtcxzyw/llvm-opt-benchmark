@@ -74,7 +74,7 @@ define hidden void @_ZN17DependencyContext4initEv() local_unnamed_addr #0 align 
   %5 = load ptr, ptr %1, align 8
   %6 = call noundef ptr @_ZN15PerfDataManager19create_long_counterE9CounterNSPKcN8PerfData5UnitsElP10JavaThread(i32 noundef 8, ptr noundef nonnull @.str, i32 noundef 4, i64 noundef 0, ptr noundef %5) #12
   store ptr %6, ptr @_ZN17DependencyContext35_perf_total_buckets_allocated_countE, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %9, label %17
@@ -120,15 +120,15 @@ define hidden void @_ZN17DependencyContext23mark_dependent_nmethodsEP19Deoptimiz
 
 .lr.ph:                                           ; preds = %3
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %7 = getelementptr inbounds i8, ptr %4, i64 56
-  %8 = getelementptr inbounds i8, ptr %4, i64 144
-  %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 152
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 144
+  %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 152
   br label %9
 
 9:                                                ; preds = %.lr.ph, %43
   %.021 = phi ptr [ %5, %.lr.ph ], [ %44, %43 ]
   %10 = load ptr, ptr %.021, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 213
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 213
   %12 = load volatile i8, ptr %11, align 1
   %.not18 = icmp eq i8 %12, 0
   br i1 %.not18, label %14, label %13
@@ -142,21 +142,21 @@ define hidden void @_ZN17DependencyContext23mark_dependent_nmethodsEP19Deoptimiz
   br i1 %15, label %16, label %43
 
 16:                                               ; preds = %14
-  %17 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE36ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %17 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE36ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not19 = icmp eq ptr %17, null
   br i1 %.not19, label %_ZN12ResourceMarkD2Ev.exit, label %18
 
 18:                                               ; preds = %16
   %19 = load ptr, ptr %6, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 800
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 800
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %21, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %21, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %21, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %29 = load i64, ptr %28, align 8
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %4, i1 noundef zeroext false) #12
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %4, align 8
@@ -167,7 +167,7 @@ define hidden void @_ZN17DependencyContext23mark_dependent_nmethodsEP19Deoptimiz
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull @.str.7) #12
   call void @_ZN9DepChange8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %4) #12
   %30 = load ptr, ptr %10, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %32 = load ptr, ptr %31, align 8
   call void %32(ptr noundef nonnull align 8 dereferenceable(214) %10, ptr noundef nonnull %4) #12
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #12
@@ -193,7 +193,7 @@ define hidden void @_ZN17DependencyContext23mark_dependent_nmethodsEP19Deoptimiz
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %37, %35, %16
   %38 = load ptr, ptr %2, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %40 = load ptr, ptr %39, align 8
   %41 = call noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(8) %2) #12
   %42 = xor i1 %41, true
@@ -228,7 +228,7 @@ define hidden noundef ptr @_ZN17DependencyContext26dependencies_not_unloadingEv(
   ret ptr %.lcssa
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %10 = load volatile ptr, ptr %9, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !8
   %11 = load ptr, ptr %0, align 8
@@ -247,7 +247,7 @@ define hidden noundef ptr @_ZN17DependencyContext26dependencies_not_unloadingEv(
   br i1 %18, label %20, label %.preheader.i
 
 .preheader.i:                                     ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %5, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %23
 
 20:                                               ; preds = %16
@@ -270,7 +270,7 @@ define hidden noundef ptr @_ZN17DependencyContext26dependencies_not_unloadingEv(
 
 30:                                               ; preds = %27
   %31 = load ptr, ptr @_ZN17DependencyContext31_perf_total_buckets_stale_countE, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 40
   %33 = load ptr, ptr %32, align 8
   %34 = load i64, ptr %33, align 8
   %35 = add nsw i64 %34, 1
@@ -280,7 +280,7 @@ define hidden noundef ptr @_ZN17DependencyContext26dependencies_not_unloadingEv(
 .sink.split.i:                                    ; preds = %30, %20
   %_ZN17DependencyContext35_perf_total_buckets_stale_acc_countE.sink.i = phi ptr [ @_ZN17DependencyContext35_perf_total_buckets_stale_acc_countE, %30 ], [ @_ZN17DependencyContext37_perf_total_buckets_deallocated_countE, %20 ]
   %36 = load ptr, ptr %_ZN17DependencyContext35_perf_total_buckets_stale_acc_countE.sink.i, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 40
   %38 = load ptr, ptr %37, align 8
   %39 = load i64, ptr %38, align 8
   %40 = add nsw i64 %39, 1
@@ -313,7 +313,7 @@ declare void @_ZN19DeoptimizationScope4markEP7nmethodb(ptr noundef nonnull align
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN13nmethodBucket18next_not_unloadingEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load volatile ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %._crit_edge, label %.lr.ph
@@ -329,7 +329,7 @@ define hidden noundef ptr @_ZN13nmethodBucket18next_not_unloadingEv(ptr noundef 
   ret ptr %.lcssa
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %10 = load volatile ptr, ptr %9, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !8
   %11 = load volatile ptr, ptr %2, align 8
@@ -347,7 +347,7 @@ define hidden noundef ptr @_ZN13nmethodBucket18next_not_unloadingEv(ptr noundef 
   br i1 %17, label %19, label %.preheader.i
 
 .preheader.i:                                     ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %5, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %22
 
 19:                                               ; preds = %15
@@ -370,7 +370,7 @@ define hidden noundef ptr @_ZN13nmethodBucket18next_not_unloadingEv(ptr noundef 
 
 29:                                               ; preds = %26
   %30 = load ptr, ptr @_ZN17DependencyContext31_perf_total_buckets_stale_countE, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 40
   %32 = load ptr, ptr %31, align 8
   %33 = load i64, ptr %32, align 8
   %34 = add nsw i64 %33, 1
@@ -380,7 +380,7 @@ define hidden noundef ptr @_ZN13nmethodBucket18next_not_unloadingEv(ptr noundef 
 .sink.split.i:                                    ; preds = %29, %19
   %_ZN17DependencyContext35_perf_total_buckets_stale_acc_countE.sink.i = phi ptr [ @_ZN17DependencyContext35_perf_total_buckets_stale_acc_countE, %29 ], [ @_ZN17DependencyContext37_perf_total_buckets_deallocated_countE, %19 ]
   %35 = load ptr, ptr %_ZN17DependencyContext35_perf_total_buckets_stale_acc_countE.sink.i, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 40
   %37 = load ptr, ptr %36, align 8
   %38 = load i64, ptr %37, align 8
   %39 = add nsw i64 %38, 1
@@ -413,9 +413,9 @@ define hidden void @_ZN17DependencyContext21add_dependent_nmethodEP7nmethod(ptr 
 ._crit_edge:                                      ; preds = %6, %2
   %8 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i8 noundef zeroext 1, i32 noundef 0) #12
   store ptr %1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store volatile ptr null, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %8, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store volatile ptr null, ptr %10, align 8
   br label %11
 
@@ -435,7 +435,7 @@ define hidden void @_ZN17DependencyContext21add_dependent_nmethodEP7nmethod(ptr 
 
 20:                                               ; preds = %17
   %21 = load ptr, ptr @_ZN17DependencyContext35_perf_total_buckets_allocated_countE, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %23 = load ptr, ptr %22, align 8
   %24 = load i64, ptr %23, align 8
   %25 = add nsw i64 %24, 1
@@ -448,7 +448,7 @@ define hidden void @_ZN17DependencyContext21add_dependent_nmethodEP7nmethod(ptr 
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden void @_ZN13nmethodBucket8set_nextEPS_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store volatile ptr %1, ptr %3, align 8
   ret void
 }
@@ -460,7 +460,7 @@ define hidden void @_ZN17DependencyContext7releaseEP13nmethodBucket(ptr noundef 
   br i1 %3, label %5, label %.preheader
 
 .preheader:                                       ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %11
 
 5:                                                ; preds = %1
@@ -490,7 +490,7 @@ define hidden void @_ZN17DependencyContext7releaseEP13nmethodBucket(ptr noundef 
 
 18:                                               ; preds = %15
   %19 = load ptr, ptr @_ZN17DependencyContext31_perf_total_buckets_stale_countE, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %21 = load ptr, ptr %20, align 8
   %22 = load i64, ptr %21, align 8
   %23 = add nsw i64 %22, 1
@@ -500,7 +500,7 @@ define hidden void @_ZN17DependencyContext7releaseEP13nmethodBucket(ptr noundef 
 .sink.split:                                      ; preds = %8, %18
   %_ZN17DependencyContext35_perf_total_buckets_stale_acc_countE.sink = phi ptr [ @_ZN17DependencyContext35_perf_total_buckets_stale_acc_countE, %18 ], [ @_ZN17DependencyContext37_perf_total_buckets_deallocated_countE, %8 ]
   %24 = load ptr, ptr %_ZN17DependencyContext35_perf_total_buckets_stale_acc_countE.sink, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %26 = load ptr, ptr %25, align 8
   %27 = load i64, ptr %26, align 8
   %28 = add nsw i64 %27, 1
@@ -520,7 +520,7 @@ define hidden noundef zeroext i1 @_ZN17DependencyContext17delete_on_releaseEv() 
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden void @_ZN13nmethodBucket19set_purge_list_nextEPS_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store volatile ptr %1, ptr %3, align 8
   ret void
 }
@@ -534,7 +534,7 @@ define hidden void @_ZN17DependencyContext25purge_dependency_contextsEv() local_
 .lr.ph:                                           ; preds = %0, %.lr.ph
   %.010 = phi i32 [ %4, %.lr.ph ], [ 0, %0 ]
   %.079 = phi ptr [ %3, %.lr.ph ], [ %1, %0 ]
-  %2 = getelementptr inbounds i8, ptr %.079, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %.079, i64 16
   %3 = load volatile ptr, ptr %2, align 8
   %4 = add nuw nsw i32 %.010, 1
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %.079) #12
@@ -549,7 +549,7 @@ define hidden void @_ZN17DependencyContext25purge_dependency_contextsEv() local_
 7:                                                ; preds = %._crit_edge
   %8 = load ptr, ptr @_ZN17DependencyContext37_perf_total_buckets_deallocated_countE, align 8
   %9 = zext nneg i32 %4 to i64
-  %10 = getelementptr inbounds i8, ptr %8, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %11 = load ptr, ptr %10, align 8
   %12 = load i64, ptr %11, align 8
   %13 = add nsw i64 %12, %9
@@ -563,7 +563,7 @@ define hidden void @_ZN17DependencyContext25purge_dependency_contextsEv() local_
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden noundef ptr @_ZN13nmethodBucket15purge_list_nextEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #5 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load volatile ptr, ptr %2, align 8
   ret ptr %3
 }
@@ -571,7 +571,7 @@ define hidden noundef ptr @_ZN13nmethodBucket15purge_list_nextEv(ptr noundef non
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN17DependencyContext26clean_unloading_dependentsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
   %2 = load volatile i64, ptr @_ZN17DependencyContext15_cleaning_epochE, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load volatile i64, ptr %4, align 8
   %.not.i = icmp ult i64 %5, %2
@@ -600,7 +600,7 @@ _ZN17DependencyContext13claim_cleanupEv.exit.thread: ; preds = %.lr.ph, %8, %1, 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN17DependencyContext13claim_cleanupEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
   %2 = load volatile i64, ptr @_ZN17DependencyContext15_cleaning_epochE, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load volatile i64, ptr %4, align 8
   %.not = icmp ult i64 %5, %2
@@ -624,7 +624,7 @@ define hidden noundef ptr @_ZN17DependencyContext34release_and_get_next_not_unlo
   br i1 %4, label %6, label %.preheader.i
 
 .preheader.i:                                     ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %9
 
 6:                                                ; preds = %1
@@ -647,7 +647,7 @@ define hidden noundef ptr @_ZN17DependencyContext34release_and_get_next_not_unlo
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr @_ZN17DependencyContext31_perf_total_buckets_stale_countE, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %19 = load ptr, ptr %18, align 8
   %20 = load i64, ptr %19, align 8
   %21 = add nsw i64 %20, 1
@@ -657,7 +657,7 @@ define hidden noundef ptr @_ZN17DependencyContext34release_and_get_next_not_unlo
 .sink.split.i:                                    ; preds = %16, %6
   %_ZN17DependencyContext35_perf_total_buckets_stale_acc_countE.sink.i = phi ptr [ @_ZN17DependencyContext35_perf_total_buckets_stale_acc_countE, %16 ], [ @_ZN17DependencyContext37_perf_total_buckets_deallocated_countE, %6 ]
   %22 = load ptr, ptr %_ZN17DependencyContext35_perf_total_buckets_stale_acc_countE.sink.i, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %24 = load ptr, ptr %23, align 8
   %25 = load i64, ptr %24, align 8
   %26 = add nsw i64 %25, 1
@@ -680,14 +680,14 @@ define hidden void @_ZN17DependencyContext21remove_all_dependentsEv(ptr nocaptur
   %.022 = phi ptr [ %7, %.preheader ], [ %3, %1 ]
   %.01721 = phi i64 [ %5, %.preheader ], [ 0, %1 ]
   %5 = add nuw nsw i64 %.01721, 1
-  %6 = getelementptr inbounds i8, ptr %.022, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %.022, i64 8
   %7 = load volatile ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %.preheader, !llvm.loop !17
 
 8:                                                ; preds = %.preheader
   %9 = load volatile ptr, ptr @_ZN17DependencyContext11_purge_listE, align 8
-  %10 = getelementptr inbounds i8, ptr %.022, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %.022, i64 16
   br label %11
 
 11:                                               ; preds = %11, %8
@@ -704,13 +704,13 @@ define hidden void @_ZN17DependencyContext21remove_all_dependentsEv(ptr nocaptur
 
 17:                                               ; preds = %14
   %18 = load ptr, ptr @_ZN17DependencyContext31_perf_total_buckets_stale_countE, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %20 = load ptr, ptr %19, align 8
   %21 = load i64, ptr %20, align 8
   %22 = add nsw i64 %21, %5
   store i64 %22, ptr %20, align 8
   %23 = load ptr, ptr @_ZN17DependencyContext35_perf_total_buckets_stale_acc_countE, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 40
   %25 = load ptr, ptr %24, align 8
   %26 = load i64, ptr %25, align 8
   %27 = add nsw i64 %26, %5
@@ -728,7 +728,7 @@ define hidden void @_ZN17DependencyContext21remove_all_dependentsEv(ptr nocaptur
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden noundef ptr @_ZN13nmethodBucket4nextEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #5 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load volatile ptr, ptr %2, align 8
   ret ptr %3
 }
@@ -758,7 +758,7 @@ define hidden void @_ZN17DependencyContext49remove_and_mark_for_deoptimization_a
   br i1 %8, label %10, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.lr.ph
-  %9 = getelementptr inbounds i8, ptr %.07, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   br label %13
 
 10:                                               ; preds = %.lr.ph
@@ -781,7 +781,7 @@ define hidden void @_ZN17DependencyContext49remove_and_mark_for_deoptimization_a
 
 20:                                               ; preds = %17
   %21 = load ptr, ptr @_ZN17DependencyContext31_perf_total_buckets_stale_countE, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %23 = load ptr, ptr %22, align 8
   %24 = load i64, ptr %23, align 8
   %25 = add nsw i64 %24, 1
@@ -791,7 +791,7 @@ define hidden void @_ZN17DependencyContext49remove_and_mark_for_deoptimization_a
 .sink.split.i.i:                                  ; preds = %20, %10
   %_ZN17DependencyContext35_perf_total_buckets_stale_acc_countE.sink.i.i = phi ptr [ @_ZN17DependencyContext35_perf_total_buckets_stale_acc_countE, %20 ], [ @_ZN17DependencyContext37_perf_total_buckets_deallocated_countE, %10 ]
   %26 = load ptr, ptr %_ZN17DependencyContext35_perf_total_buckets_stale_acc_countE.sink.i.i, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %28 = load ptr, ptr %27, align 8
   %29 = load i64, ptr %28, align 8
   %30 = add nsw i64 %29, 1
@@ -914,7 +914,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN17LogStreamImplBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZN17LogStreamImplBase10LineBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %2) #12
   ret void
 }

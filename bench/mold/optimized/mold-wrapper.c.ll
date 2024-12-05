@@ -33,13 +33,13 @@ entry:
   br i1 %.not, label %sub_1, label %lor.lhs.false
 
 sub_1:                                            ; preds = %entry
-  %1 = getelementptr inbounds i8, ptr %file, i64 1
+  %1 = getelementptr inbounds nuw i8, ptr %file, i64 1
   %2 = load i8, ptr %1, align 1
   %.not9 = icmp eq i8 %2, 100
   br i1 %.not9, label %entry.tail, label %lor.lhs.false
 
 entry.tail:                                       ; preds = %sub_1
-  %3 = getelementptr inbounds i8, ptr %file, i64 2
+  %3 = getelementptr inbounds nuw i8, ptr %file, i64 2
   %4 = load i8, ptr %3, align 1
   %5 = icmp eq i8 %4, 0
   br i1 %5, label %if.then, label %lor.lhs.false
@@ -70,7 +70,7 @@ for.body:                                         ; preds = %if.end, %for.body
   %9 = phi ptr [ %10, %for.body ], [ %8, %if.end ]
   %call6 = tail call i32 @putenv(ptr noundef nonnull %9) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx = getelementptr inbounds ptr, ptr %envp, i64 %indvars.iv.next
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %envp, i64 %indvars.iv.next
   %10 = load ptr, ptr %arrayidx, align 8
   %tobool3.not = icmp eq ptr %10, null
   br i1 %tobool3.not, label %for.end, label %for.body, !llvm.loop !4
@@ -132,13 +132,13 @@ sub_0:                                            ; preds = %land.rhs, %while.co
   br i1 %.not, label %sub_1, label %lor.lhs.false
 
 sub_1:                                            ; preds = %sub_0
-  %2 = getelementptr inbounds i8, ptr %ptr.0, i64 1
+  %2 = getelementptr inbounds nuw i8, ptr %ptr.0, i64 1
   %3 = load i8, ptr %2, align 1
   %.not10 = icmp eq i8 %3, 100
   br i1 %.not10, label %while.end.tail, label %lor.lhs.false
 
 while.end.tail:                                   ; preds = %sub_1
-  %4 = getelementptr inbounds i8, ptr %ptr.0, i64 2
+  %4 = getelementptr inbounds nuw i8, ptr %ptr.0, i64 2
   %5 = load i8, ptr %4, align 1
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %lor.end, label %lor.lhs.false
@@ -208,8 +208,8 @@ entry:
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %aq.i)
   call void @llvm.va_copy.p0(ptr nonnull %aq.i, ptr nonnull %ap)
   %aq.promoted.i = load i32, ptr %aq.i, align 16
-  %overflow_arg_area_p.i = getelementptr inbounds i8, ptr %aq.i, i64 8
-  %0 = getelementptr inbounds i8, ptr %aq.i, i64 16
+  %overflow_arg_area_p.i = getelementptr inbounds nuw i8, ptr %aq.i, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %aq.i, i64 16
   %reg_save_area.i = load ptr, ptr %0, align 16
   %overflow_arg_area_p.promoted.i = load ptr, ptr %overflow_arg_area_p.i, align 8
   br label %while.cond.i
@@ -249,8 +249,8 @@ count_args.exit:                                  ; preds = %vaarg.end.i
   %conv = zext nneg i32 %add to i64
   %mul = shl nuw nsw i64 %conv, 3
   %5 = alloca i8, i64 %mul, align 16
-  %overflow_arg_area_p.i2 = getelementptr inbounds i8, ptr %ap, i64 8
-  %6 = getelementptr inbounds i8, ptr %ap, i64 16
+  %overflow_arg_area_p.i2 = getelementptr inbounds nuw i8, ptr %ap, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %ap, i64 16
   %ap.promoted = load i32, ptr %ap, align 16
   %overflow_arg_area_p.i2.promoted = load ptr, ptr %overflow_arg_area_p.i2, align 8
   %reg_save_area.i11 = load ptr, ptr %6, align 16
@@ -285,14 +285,14 @@ vaarg.end.i7:                                     ; preds = %vaarg.in_mem.i5, %v
 
 while.body.i:                                     ; preds = %vaarg.end.i7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %arrayidx.i = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i
   store ptr %12, ptr %arrayidx.i, align 8
   br label %while.cond.i3, !llvm.loop !8
 
 copy_args.exit:                                   ; preds = %vaarg.end.i7
   store ptr %arg0, ptr %5, align 16
   %idxprom2.i = and i64 %indvars.iv.i, 4294967295
-  %arrayidx3.i = getelementptr inbounds ptr, ptr %5, i64 %idxprom2.i
+  %arrayidx3.i = getelementptr inbounds nuw ptr, ptr %5, i64 %idxprom2.i
   store ptr null, ptr %arrayidx3.i, align 8
   call void @llvm.va_end.p0(ptr nonnull %ap)
   %13 = load ptr, ptr @environ, align 8
@@ -327,8 +327,8 @@ entry:
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %aq.i)
   call void @llvm.va_copy.p0(ptr nonnull %aq.i, ptr nonnull %ap)
   %aq.promoted.i = load i32, ptr %aq.i, align 16
-  %overflow_arg_area_p.i = getelementptr inbounds i8, ptr %aq.i, i64 8
-  %0 = getelementptr inbounds i8, ptr %aq.i, i64 16
+  %overflow_arg_area_p.i = getelementptr inbounds nuw i8, ptr %aq.i, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %aq.i, i64 16
   %reg_save_area.i = load ptr, ptr %0, align 16
   %overflow_arg_area_p.promoted.i = load ptr, ptr %overflow_arg_area_p.i, align 8
   br label %while.cond.i
@@ -368,8 +368,8 @@ count_args.exit:                                  ; preds = %vaarg.end.i
   %conv = zext nneg i32 %add to i64
   %mul = shl nuw nsw i64 %conv, 3
   %5 = alloca i8, i64 %mul, align 16
-  %overflow_arg_area_p.i2 = getelementptr inbounds i8, ptr %ap, i64 8
-  %6 = getelementptr inbounds i8, ptr %ap, i64 16
+  %overflow_arg_area_p.i2 = getelementptr inbounds nuw i8, ptr %ap, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %ap, i64 16
   %ap.promoted = load i32, ptr %ap, align 16
   %overflow_arg_area_p.i2.promoted = load ptr, ptr %overflow_arg_area_p.i2, align 8
   %reg_save_area.i11 = load ptr, ptr %6, align 16
@@ -404,14 +404,14 @@ vaarg.end.i7:                                     ; preds = %vaarg.in_mem.i5, %v
 
 while.body.i:                                     ; preds = %vaarg.end.i7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %arrayidx.i = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i
   store ptr %12, ptr %arrayidx.i, align 8
   br label %while.cond.i3, !llvm.loop !8
 
 copy_args.exit:                                   ; preds = %vaarg.end.i7
   store ptr %arg0, ptr %5, align 16
   %idxprom2.i = and i64 %indvars.iv.i, 4294967295
-  %arrayidx3.i = getelementptr inbounds ptr, ptr %5, i64 %idxprom2.i
+  %arrayidx3.i = getelementptr inbounds nuw ptr, ptr %5, i64 %idxprom2.i
   store ptr null, ptr %arrayidx3.i, align 8
   call void @llvm.va_end.p0(ptr nonnull %ap)
   %13 = load ptr, ptr @environ, align 8
@@ -428,8 +428,8 @@ entry:
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %aq.i)
   call void @llvm.va_copy.p0(ptr nonnull %aq.i, ptr nonnull %ap)
   %aq.promoted.i = load i32, ptr %aq.i, align 16
-  %overflow_arg_area_p.i = getelementptr inbounds i8, ptr %aq.i, i64 8
-  %0 = getelementptr inbounds i8, ptr %aq.i, i64 16
+  %overflow_arg_area_p.i = getelementptr inbounds nuw i8, ptr %aq.i, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %aq.i, i64 16
   %reg_save_area.i = load ptr, ptr %0, align 16
   %overflow_arg_area_p.promoted.i = load ptr, ptr %overflow_arg_area_p.i, align 8
   br label %while.cond.i
@@ -469,8 +469,8 @@ count_args.exit:                                  ; preds = %vaarg.end.i
   %conv = zext nneg i32 %add to i64
   %mul = shl nuw nsw i64 %conv, 3
   %5 = alloca i8, i64 %mul, align 16
-  %overflow_arg_area_p.i2 = getelementptr inbounds i8, ptr %ap, i64 8
-  %6 = getelementptr inbounds i8, ptr %ap, i64 16
+  %overflow_arg_area_p.i2 = getelementptr inbounds nuw i8, ptr %ap, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %ap, i64 16
   %ap.promoted = load i32, ptr %ap, align 16
   %overflow_arg_area_p.i2.promoted = load ptr, ptr %overflow_arg_area_p.i2, align 8
   %reg_save_area.i11 = load ptr, ptr %6, align 16
@@ -505,14 +505,14 @@ vaarg.end.i7:                                     ; preds = %vaarg.in_mem.i5, %v
 
 while.body.i:                                     ; preds = %vaarg.end.i7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %arrayidx.i = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i
   store ptr %11, ptr %arrayidx.i, align 8
   br label %while.cond.i3, !llvm.loop !8
 
 copy_args.exit:                                   ; preds = %vaarg.end.i7
   store ptr %arg0, ptr %5, align 16
   %idxprom2.i = and i64 %indvars.iv.i, 4294967295
-  %arrayidx3.i = getelementptr inbounds ptr, ptr %5, i64 %idxprom2.i
+  %arrayidx3.i = getelementptr inbounds nuw ptr, ptr %5, i64 %idxprom2.i
   store ptr null, ptr %arrayidx3.i, align 8
   %fits_in_gp = icmp ult i32 %gp_offset, 41
   br i1 %fits_in_gp, label %vaarg.in_reg, label %vaarg.in_mem

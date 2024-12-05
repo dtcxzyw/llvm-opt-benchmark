@@ -77,7 +77,7 @@ for.body.i.i.i.i:                                 ; preds = %if.end22.i.i.i.i, %
   ]
 
 if.end.i.i.i.i:                                   ; preds = %for.body.i.i.i.i, %for.body.i.i.i.i, %for.body.i.i.i.i, %for.body.i.i.i.i, %for.body.i.i.i.i, %for.body.i.i.i.i
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.050.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.050.i.i.i.i, i64 1
   %2 = load i8, ptr %incdec.ptr.i.i.i.i.i, align 1
   switch i8 %2, label %_ZN19OpenColorIO_v2_4devL5LTrimERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.loopexit.split.loop.exit [
     i8 32, label %if.end10.i.i.i.i
@@ -89,7 +89,7 @@ if.end.i.i.i.i:                                   ; preds = %for.body.i.i.i.i, %
   ]
 
 if.end10.i.i.i.i:                                 ; preds = %if.end.i.i.i.i, %if.end.i.i.i.i, %if.end.i.i.i.i, %if.end.i.i.i.i, %if.end.i.i.i.i, %if.end.i.i.i.i
-  %incdec.ptr.i10.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.050.i.i.i.i, i64 2
+  %incdec.ptr.i10.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.050.i.i.i.i, i64 2
   %3 = load i8, ptr %incdec.ptr.i10.i.i.i.i, align 1
   switch i8 %3, label %_ZN19OpenColorIO_v2_4devL5LTrimERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.loopexit.split.loop.exit58 [
     i8 32, label %if.end16.i.i.i.i
@@ -101,7 +101,7 @@ if.end10.i.i.i.i:                                 ; preds = %if.end.i.i.i.i, %if
   ]
 
 if.end16.i.i.i.i:                                 ; preds = %if.end10.i.i.i.i, %if.end10.i.i.i.i, %if.end10.i.i.i.i, %if.end10.i.i.i.i, %if.end10.i.i.i.i, %if.end10.i.i.i.i
-  %incdec.ptr.i12.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.050.i.i.i.i, i64 3
+  %incdec.ptr.i12.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.050.i.i.i.i, i64 3
   %4 = load i8, ptr %incdec.ptr.i12.i.i.i.i, align 1
   switch i8 %4, label %_ZN19OpenColorIO_v2_4devL5LTrimERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.loopexit.split.loop.exit60 [
     i8 32, label %if.end22.i.i.i.i
@@ -113,7 +113,7 @@ if.end16.i.i.i.i:                                 ; preds = %if.end10.i.i.i.i, %
   ]
 
 if.end22.i.i.i.i:                                 ; preds = %if.end16.i.i.i.i, %if.end16.i.i.i.i, %if.end16.i.i.i.i, %if.end16.i.i.i.i, %if.end16.i.i.i.i, %if.end16.i.i.i.i
-  %incdec.ptr.i14.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.050.i.i.i.i, i64 4
+  %incdec.ptr.i14.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.050.i.i.i.i, i64 4
   %dec.i.i.i.i = add nsw i64 %__trip_count.051.i.i.i.i, -1
   %cmp.i.i.i.i = icmp sgt i64 %__trip_count.051.i.i.i.i, 1
   br i1 %cmp.i.i.i.i, label %for.body.i.i.i.i, label %for.end.loopexit.i.i.i.i, !llvm.loop !4
@@ -144,7 +144,7 @@ sw.bb.i.i.i.i:                                    ; preds = %for.end.i.i.i.i
   ]
 
 if.end29.i.i.i.i:                                 ; preds = %sw.bb.i.i.i.i, %sw.bb.i.i.i.i, %sw.bb.i.i.i.i, %sw.bb.i.i.i.i, %sw.bb.i.i.i.i, %sw.bb.i.i.i.i
-  %incdec.ptr.i19.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr.i19.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0.lcssa.i.i.i.i, i64 1
   br label %sw.bb31.i.i.i.i
 
 sw.bb31.i.i.i.i:                                  ; preds = %if.end29.i.i.i.i, %for.end.i.i.i.i
@@ -160,7 +160,7 @@ sw.bb31.i.i.i.i:                                  ; preds = %if.end29.i.i.i.i, %
   ]
 
 if.end36.i.i.i.i:                                 ; preds = %sw.bb31.i.i.i.i, %sw.bb31.i.i.i.i, %sw.bb31.i.i.i.i, %sw.bb31.i.i.i.i, %sw.bb31.i.i.i.i, %sw.bb31.i.i.i.i
-  %incdec.ptr.i21.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i.i.i, i64 1
+  %incdec.ptr.i21.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.1.i.i.i.i, i64 1
   br label %sw.bb38.i.i.i.i
 
 sw.bb38.i.i.i.i:                                  ; preds = %if.end36.i.i.i.i, %for.end.i.i.i.i
@@ -179,15 +179,15 @@ sw.bb38.i.i.i.i:                                  ; preds = %if.end36.i.i.i.i, %
   br label %_ZN19OpenColorIO_v2_4devL5LTrimERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZN19OpenColorIO_v2_4devL5LTrimERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.loopexit.split.loop.exit: ; preds = %if.end.i.i.i.i
-  %incdec.ptr.i.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.050.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.le = getelementptr inbounds nuw i8, ptr %__first.sroa.0.050.i.i.i.i, i64 1
   br label %_ZN19OpenColorIO_v2_4devL5LTrimERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZN19OpenColorIO_v2_4devL5LTrimERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.loopexit.split.loop.exit58: ; preds = %if.end10.i.i.i.i
-  %incdec.ptr.i10.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.050.i.i.i.i, i64 2
+  %incdec.ptr.i10.i.i.i.i.le = getelementptr inbounds nuw i8, ptr %__first.sroa.0.050.i.i.i.i, i64 2
   br label %_ZN19OpenColorIO_v2_4devL5LTrimERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZN19OpenColorIO_v2_4devL5LTrimERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.loopexit.split.loop.exit60: ; preds = %if.end16.i.i.i.i
-  %incdec.ptr.i12.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.050.i.i.i.i, i64 3
+  %incdec.ptr.i12.i.i.i.i.le = getelementptr inbounds nuw i8, ptr %__first.sroa.0.050.i.i.i.i, i64 3
   br label %_ZN19OpenColorIO_v2_4devL5LTrimERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZN19OpenColorIO_v2_4devL5LTrimERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %for.body.i.i.i.i, %_ZN19OpenColorIO_v2_4devL5LTrimERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.loopexit.split.loop.exit, %_ZN19OpenColorIO_v2_4devL5LTrimERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.loopexit.split.loop.exit58, %_ZN19OpenColorIO_v2_4devL5LTrimERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.loopexit.split.loop.exit60, %for.end.i.i.i.i, %sw.bb.i.i.i.i, %sw.bb31.i.i.i.i, %sw.bb38.i.i.i.i, %sw.bb38.i.i.i.i, %sw.bb38.i.i.i.i, %sw.bb38.i.i.i.i, %sw.bb38.i.i.i.i, %sw.bb38.i.i.i.i, %8
@@ -391,7 +391,7 @@ if.end.i:                                         ; preds = %for.cond.i, %for.co
   br i1 %cmp.i, label %if.then2, label %if.end2.i
 
 if.end2.i:                                        ; preds = %if.end.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %ptr.0.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %ptr.0.i, i64 1
   %inc.i = add i64 %pos.0.i, 1
   %.pr = load i8, ptr %incdec.ptr.i, align 1
   br label %for.cond.i, !llvm.loop !15

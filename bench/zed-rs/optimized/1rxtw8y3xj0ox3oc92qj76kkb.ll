@@ -18,7 +18,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define void @_ZN21command_palette_hooks4init17h846066e7f50a9423E(ptr noalias noundef align 8 dereferenceable(1176) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca [64 x i8], align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(32) @anon.6a7c910729cff2016bead211e3ac9a38.1.llvm.17981425489127122807, i64 32, i1 false)
-  %3 = getelementptr inbounds i8, ptr %2, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) @anon.6a7c910729cff2016bead211e3ac9a38.1.llvm.17981425489127122807, i64 32, i1 false)
   call void @_ZN4gpui3app10AppContext10set_global17h24909fd79bfdf38aE(ptr noalias noundef nonnull align 8 dereferenceable(1176) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %2)
   tail call void @_ZN4gpui3app10AppContext10set_global17h2895bf429681dfdbE(ptr noalias noundef nonnull align 8 dereferenceable(1176) %0, ptr noundef align 1 null, ptr undef)
@@ -31,15 +31,15 @@ define noundef align 8 dereferenceable_or_null(64) ptr @_ZN21command_palette_hoo
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2), !noalias !4
   store i64 -3679232113327487339, ptr %2, align 8, !noalias !4
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 2566713538917939287, ptr %3, align 8, !noalias !4
-  %4 = getelementptr inbounds i8, ptr %0, i64 960
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %5 = load i64, ptr %4, align 8, !alias.scope !7, !noalias !10, !noundef !12
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %_ZN4gpui3app10AppContext10try_global17hbc11a55939c8a51aE.exit, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 936
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 936
   %9 = call noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17he56ffc6207ff2c3bE.llvm.564500492275298540"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i64 noundef -4358146048048516957, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
   %10 = icmp eq ptr %9, null
   br i1 %10, label %_ZN4gpui3app10AppContext10try_global17hbc11a55939c8a51aE.exit, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hcfd4027f1d253ad9E.llvm.564500492275298540.exit.i"
@@ -50,7 +50,7 @@ define noundef align 8 dereferenceable_or_null(64) ptr @_ZN21command_palette_hoo
   %13 = getelementptr inbounds i8, ptr %9, i64 -8
   %14 = load ptr, ptr %13, align 8, !nonnull !12, !align !13, !noundef !12
   call void @llvm.experimental.noalias.scope.decl(metadata !14)
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8, !invariant.load !12, !alias.scope !14, !nonnull !12
   %17 = call { i64, i64 } %16(ptr noundef nonnull align 1 %12), !noalias !14
   %18 = extractvalue { i64, i64 } %17, 0
@@ -80,7 +80,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN21command_palette_hoo
 define noundef zeroext i1 @_ZN21command_palette_hooks20CommandPaletteFilter9is_hidden17h21a9043a67d43d62E(ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(56) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [8 x i8], align 8
   %5 = alloca [104 x i8], align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %7 = load ptr, ptr %6, align 8, !invariant.load !12, !nonnull !12
   %8 = tail call { ptr, i64 } %7(ptr noundef nonnull align 1 %1)
   %9 = extractvalue { ptr, i64 } %8, 0
@@ -88,23 +88,23 @@ define noundef zeroext i1 @_ZN21command_palette_hooks20CommandPaletteFilter9is_h
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %5)
   call void @_ZN4core3str7pattern11StrSearcher3new17h2a4da5502da022b5E(ptr noalias nocapture noundef nonnull sret([104 x i8]) align 8 dereferenceable(104) %5, ptr noalias noundef nonnull readonly align 1 %9, i64 noundef %10, ptr noalias noundef nonnull readonly align 1 @anon.a4eb5c511ad4151089a8cb979824708d.13, i64 noundef 2)
   %.sroa.03.sroa.0.0.copyload = load i64, ptr %5, align 8
-  %.sroa.03.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.03.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.03.sroa.4.0.copyload = load i64, ptr %.sroa.03.sroa.4.0..sroa_idx, align 8
-  %.sroa.03.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
+  %.sroa.03.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
   %.sroa.03.sroa.6.0.copyload = load i64, ptr %.sroa.03.sroa.6.0..sroa_idx, align 8
-  %.sroa.03.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 32
+  %.sroa.03.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.sroa.03.sroa.7.0.copyload = load i64, ptr %.sroa.03.sroa.7.0..sroa_idx, align 8
-  %.sroa.03.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 40
+  %.sroa.03.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 40
   %.sroa.03.sroa.8.0.copyload = load i64, ptr %.sroa.03.sroa.8.0..sroa_idx, align 8
-  %.sroa.03.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 56
+  %.sroa.03.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 56
   %.sroa.03.sroa.10.0.copyload = load i64, ptr %.sroa.03.sroa.10.0..sroa_idx, align 8
-  %.sroa.03.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 72
+  %.sroa.03.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 72
   %.sroa.03.sroa.12.0.copyload = load ptr, ptr %.sroa.03.sroa.12.0..sroa_idx, align 8, !nonnull !12, !noundef !12
-  %.sroa.03.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 80
+  %.sroa.03.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 80
   %.sroa.03.sroa.13.0.copyload = load i64, ptr %.sroa.03.sroa.13.0..sroa_idx, align 8
-  %.sroa.03.sroa.14.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 88
+  %.sroa.03.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 88
   %.sroa.03.sroa.14.0.copyload = load ptr, ptr %.sroa.03.sroa.14.0..sroa_idx, align 8
-  %.sroa.03.sroa.15.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 96
+  %.sroa.03.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 96
   %.sroa.03.sroa.15.0.copyload = load i64, ptr %.sroa.03.sroa.15.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %5)
   %.sroa.841.sroa.0.0.extract.trunc = trunc i64 %.sroa.03.sroa.6.0.copyload to i1
@@ -155,7 +155,7 @@ define noundef zeroext i1 @_ZN21command_palette_hooks20CommandPaletteFilter9is_h
   br i1 %31, label %42, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6eb46fc9bb0e39d5E.exit12.i.i.i.i"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6eb46fc9bb0e39d5E.exit12.i.i.i.i": ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %27, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 1
   %33 = and i8 %30, 31
   %34 = zext nneg i8 %33 to i32
   %35 = icmp ne ptr %32, %12
@@ -173,7 +173,7 @@ define noundef zeroext i1 @_ZN21command_palette_hooks20CommandPaletteFilter9is_h
   br label %65
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6eb46fc9bb0e39d5E.exit14.i.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6eb46fc9bb0e39d5E.exit12.i.i.i.i"
-  %44 = getelementptr inbounds i8, ptr %27, i64 2
+  %44 = getelementptr inbounds nuw i8, ptr %27, i64 2
   %45 = icmp ne ptr %44, %12
   tail call void @llvm.assume(i1 %45)
   %46 = load i8, ptr %44, align 1, !noalias !29, !noundef !12
@@ -187,7 +187,7 @@ define noundef zeroext i1 @_ZN21command_palette_hooks20CommandPaletteFilter9is_h
   br i1 %53, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6eb46fc9bb0e39d5E.exit16.i.i.i.i", label %65
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6eb46fc9bb0e39d5E.exit16.i.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6eb46fc9bb0e39d5E.exit14.i.i.i.i"
-  %54 = getelementptr inbounds i8, ptr %27, i64 3
+  %54 = getelementptr inbounds nuw i8, ptr %27, i64 3
   %55 = icmp ne ptr %54, %12
   tail call void @llvm.assume(i1 %55)
   %56 = load i8, ptr %54, align 1, !noalias !29, !noundef !12
@@ -440,7 +440,7 @@ define noundef zeroext i1 @_ZN21command_palette_hooks20CommandPaletteFilter9is_h
 "_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hc39c817243408a4fE.exit": ; preds = %65, %.sink.split.i, %.preheader80, %143, %.preheader, %64, %130, %80, %.preheader.i.i
   %.sroa.4.1.i = phi i64 [ %10, %130 ], [ %10, %80 ], [ %10, %.preheader.i.i ], [ %spec.select, %64 ], [ %133, %.preheader ], [ %10, %143 ], [ %85, %.preheader80 ], [ %10, %.sink.split.i ], [ %15, %65 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
-  %176 = getelementptr inbounds i8, ptr %0, i64 24
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %177 = load i64, ptr %176, align 8, !alias.scope !52, !noalias !55, !noundef !12
   %178 = icmp eq i64 %177, 0
   br i1 %178, label %select.unfold, label %179
@@ -458,7 +458,7 @@ define noundef zeroext i1 @_ZN21command_palette_hooks20CommandPaletteFilter9is_h
   call void @llvm.experimental.noalias.scope.decl(metadata !77)
   %184 = lshr i64 %183, 57
   %185 = trunc nuw nsw i64 %184 to i8
-  %186 = getelementptr inbounds i8, ptr %0, i64 8
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %187 = load i64, ptr %186, align 8, !alias.scope !80, !noalias !81, !noundef !12
   %188 = load ptr, ptr %0, align 8, !alias.scope !80, !noalias !81, !nonnull !12, !noundef !12
   %.sroa.0.0.vec.insert.i.i.i = insertelement <16 x i8> poison, i8 %185, i64 0
@@ -518,19 +518,19 @@ select.unfold:                                    ; preds = %._crit_edge.i.i11, 
   %212 = extractvalue { i64, i64 } %211, 0
   %213 = extractvalue { i64, i64 } %211, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !107)
-  %214 = getelementptr inbounds i8, ptr %0, i64 56
+  %214 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %215 = load i64, ptr %214, align 8, !alias.scope !107, !noundef !12
   %216 = icmp eq i64 %215, 0
   br i1 %216, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hdc6febfb40514bbdE.exit", label %217
 
 217:                                              ; preds = %select.unfold
-  %218 = getelementptr inbounds i8, ptr %0, i64 32
+  %218 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %219 = mul i64 %213, 5871781006564002453
   call void @llvm.experimental.noalias.scope.decl(metadata !110)
   call void @llvm.experimental.noalias.scope.decl(metadata !113)
   %220 = lshr i64 %219, 57
   %221 = trunc nuw nsw i64 %220 to i8
-  %222 = getelementptr inbounds i8, ptr %0, i64 40
+  %222 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %223 = load i64, ptr %222, align 8, !alias.scope !116, !noalias !117, !noundef !12
   %224 = load ptr, ptr %218, align 8, !alias.scope !116, !noalias !117, !nonnull !12, !noundef !12
   %.sroa.0.0.vec.insert.i.i.i14 = insertelement <16 x i8> poison, i8 %221, i64 0
@@ -627,14 +627,14 @@ define void @_ZN21command_palette_hooks20CommandPaletteFilter17hide_action_types
   %5 = alloca [24 x i8], align 8
   %6 = alloca [16 x i8], align 8
   %7 = getelementptr inbounds { { i64, i64 } }, ptr %1, i64 %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !167)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !170)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !173
   store ptr %1, ptr %6, align 8, !noalias !173
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %7, ptr %9, align 8, !noalias !173
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load i64, ptr %10, align 8, !alias.scope !173, !noundef !12
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %13, label %15
@@ -657,13 +657,13 @@ define void @_ZN21command_palette_hooks20CommandPaletteFilter17hide_action_types
 
 19:                                               ; preds = %15, %13
   %.sroa.0.0.i.i = phi i64 [ %14, %13 ], [ %18, %15 ]
-  %20 = getelementptr inbounds i8, ptr %0, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %21 = load i64, ptr %20, align 8, !alias.scope !174, !noalias !177, !noundef !12
   %22 = icmp ugt i64 %.sroa.0.0.i.i, %21
   br i1 %22, label %23, label %"_ZN105_$LT$hashbrown..set..HashSet$LT$T$C$S$C$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$T$GT$$GT$6extend17haf3af58c7ea54813E.exit"
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %0, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %25 = call { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17hd1c9f7f10a8ecadfE.llvm.3979017099963316329"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8, i64 noundef %.sroa.0.0.i.i, ptr noalias noundef nonnull readonly align 1 %24, i1 noundef zeroext true)
   %26 = extractvalue { i64, i64 } %25, 0
   %27 = icmp eq i64 %26, -9223372036854775807
@@ -684,15 +684,15 @@ define noundef align 8 dereferenceable_or_null(16) ptr @_ZN21command_palette_hoo
   tail call void @llvm.experimental.noalias.scope.decl(metadata !179)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2), !noalias !179
   store i64 -5328999675344686696, ptr %2, align 8, !noalias !179
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 1916089275286693111, ptr %3, align 8, !noalias !179
-  %4 = getelementptr inbounds i8, ptr %0, i64 960
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %5 = load i64, ptr %4, align 8, !alias.scope !182, !noalias !185, !noundef !12
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %_ZN4gpui3app10AppContext10try_global17hdeacd4cfc370117aE.exit, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 936
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 936
   %9 = call noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17he56ffc6207ff2c3bE.llvm.564500492275298540"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i64 noundef 2055544632123795907, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
   %10 = icmp eq ptr %9, null
   br i1 %10, label %_ZN4gpui3app10AppContext10try_global17hdeacd4cfc370117aE.exit, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hcfd4027f1d253ad9E.llvm.564500492275298540.exit.i"
@@ -703,7 +703,7 @@ define noundef align 8 dereferenceable_or_null(16) ptr @_ZN21command_palette_hoo
   %13 = getelementptr inbounds i8, ptr %9, i64 -8
   %14 = load ptr, ptr %13, align 8, !nonnull !12, !align !13, !noundef !12
   call void @llvm.experimental.noalias.scope.decl(metadata !187)
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8, !invariant.load !12, !alias.scope !187, !nonnull !12
   %17 = call { i64, i64 } %16(ptr noundef nonnull align 1 %12), !noalias !187
   %18 = extractvalue { i64, i64 } %17, 0
@@ -735,9 +735,9 @@ define void @_ZN21command_palette_hooks25CommandPaletteInterceptor9intercept17hb
 
 9:                                                ; preds = %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !190)
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !190, !noalias !193, !nonnull !12, !align !13, !noundef !12
-  %12 = getelementptr inbounds i8, ptr %11, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %13 = load ptr, ptr %12, align 8, !invariant.load !12, !noalias !197, !nonnull !12
   tail call void %13(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %0, ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %4), !noalias !190
   br label %14
@@ -749,7 +749,7 @@ define void @_ZN21command_palette_hooks25CommandPaletteInterceptor9intercept17hb
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN21command_palette_hooks25CommandPaletteInterceptor5clear17h7792acac866a4c6aE(ptr noalias nocapture noundef align 8 dereferenceable(16) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %.val = load ptr, ptr %0, align 8, !noundef !12
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val1 = load ptr, ptr %2, align 8
   %3 = icmp eq ptr %.val, null
   br i1 %3, label %"_ZN4core3ptr255drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$str$C$$RF$gpui..app..AppContext$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..option..Option$LT$command_palette_hooks..CommandInterceptResult$GT$$GT$$GT$$GT$17hf50a8966b96d90a2E.exit", label %4
@@ -766,9 +766,9 @@ define void @_ZN21command_palette_hooks25CommandPaletteInterceptor5clear17h7792a
           to label %8 unwind label %16
 
 8:                                                ; preds = %7, %4
-  %9 = getelementptr inbounds i8, ptr %.val1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.val1, i64 8
   %10 = load i64, ptr %9, align 8, !range !198, !invariant.load !12
-  %11 = getelementptr inbounds i8, ptr %.val1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %.val1, i64 16
   %12 = load i64, ptr %11, align 8, !range !199, !invariant.load !12
   %13 = icmp ult i64 %12, -9223372036854775807
   tail call void @llvm.assume(i1 %13)
@@ -782,9 +782,9 @@ define void @_ZN21command_palette_hooks25CommandPaletteInterceptor5clear17h7792a
 16:                                               ; preds = %7
   %17 = landingpad { ptr, i32 }
           cleanup
-  %18 = getelementptr inbounds i8, ptr %.val1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.val1, i64 8
   %19 = load i64, ptr %18, align 8, !range !198, !invariant.load !12
-  %20 = getelementptr inbounds i8, ptr %.val1, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %.val1, i64 16
   %21 = load i64, ptr %20, align 8, !range !199, !invariant.load !12
   %22 = icmp ult i64 %21, -9223372036854775807
   tail call void @llvm.assume(i1 %22)
@@ -807,7 +807,7 @@ define void @_ZN21command_palette_hooks25CommandPaletteInterceptor5clear17h7792a
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN21command_palette_hooks25CommandPaletteInterceptor3set17h94727068a00ced03E(ptr noalias nocapture noundef align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(48) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %.val = load ptr, ptr %0, align 8, !noundef !12
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val4 = load ptr, ptr %4, align 8
   %5 = icmp eq ptr %.val, null
   br i1 %5, label %"_ZN4core3ptr255drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$str$C$$RF$gpui..app..AppContext$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..option..Option$LT$command_palette_hooks..CommandInterceptResult$GT$$GT$$GT$$GT$17hf50a8966b96d90a2E.exit", label %6
@@ -824,9 +824,9 @@ define void @_ZN21command_palette_hooks25CommandPaletteInterceptor3set17h9472706
           to label %10 unwind label %18
 
 10:                                               ; preds = %9, %6
-  %11 = getelementptr inbounds i8, ptr %.val4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.val4, i64 8
   %12 = load i64, ptr %11, align 8, !range !198, !invariant.load !12
-  %13 = getelementptr inbounds i8, ptr %.val4, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %.val4, i64 16
   %14 = load i64, ptr %13, align 8, !range !199, !invariant.load !12
   %15 = icmp ult i64 %14, -9223372036854775807
   tail call void @llvm.assume(i1 %15)
@@ -840,9 +840,9 @@ define void @_ZN21command_palette_hooks25CommandPaletteInterceptor3set17h9472706
 18:                                               ; preds = %9
   %19 = landingpad { ptr, i32 }
           cleanup
-  %20 = getelementptr inbounds i8, ptr %.val4, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.val4, i64 8
   %21 = load i64, ptr %20, align 8, !range !198, !invariant.load !12
-  %22 = getelementptr inbounds i8, ptr %.val4, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %.val4, i64 16
   %23 = load i64, ptr %22, align 8, !range !199, !invariant.load !12
   %24 = icmp ult i64 %23, -9223372036854775807
   tail call void @llvm.assume(i1 %24)

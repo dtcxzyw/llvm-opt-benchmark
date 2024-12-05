@@ -73,13 +73,13 @@ $_ZN5ZXing9BitMatrix7UNSET_VE = comdat any
 
 ; Function Attrs: mustprogress optsize uwtable
 define void @_ZN5ZXing8ToStringB5cxx11ERKNS_9BitMatrixEccbb(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i8 noundef signext %2, i8 noundef signext %3, i1 noundef zeroext %4, i1 noundef zeroext %5) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %7, ptr %0, align 8, !tbaa !3
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %8, align 8, !tbaa !8
   store i8 0, ptr %7, align 8, !tbaa !11
   %9 = load i32, ptr %1, align 8, !tbaa !12
-  %10 = getelementptr inbounds i8, ptr %1, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %11 = load i32, ptr %10, align 4, !tbaa !19
   %12 = mul nsw i32 %11, %9
   %13 = zext i1 %4 to i32
@@ -90,7 +90,7 @@ define void @_ZN5ZXing8ToStringB5cxx11ERKNS_9BitMatrixEccbb(ptr dead_on_unwind n
           to label %17 unwind label %23
 
 17:                                               ; preds = %6
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %19
 
 19:                                               ; preds = %55, %17
@@ -156,7 +156,7 @@ define void @_ZN5ZXing8ToStringB5cxx11ERKNS_9BitMatrixEccbb(ptr dead_on_unwind n
   br label %57
 
 50:                                               ; preds = %47, %46
-  %51 = getelementptr inbounds i8, ptr %42, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %42, i64 1
   %52 = icmp eq ptr %51, %35
   br i1 %52, label %.loopexit, label %41
 
@@ -204,12 +204,12 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: mustprogress optsize uwtable
 define void @_ZN5ZXing8ToStringB5cxx11ERKNS_9BitMatrixEb(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %4, ptr %0, align 8, !tbaa !3
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %5, align 8, !tbaa !8
   store i8 0, ptr %4, align 8, !tbaa !11
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4, !tbaa !19
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.preheader, label %.loopexit4
@@ -264,7 +264,7 @@ define void @_ZN5ZXing8ToStringB5cxx11ERKNS_9BitMatrixEb(ptr dead_on_unwind noal
 32:                                               ; preds = %31, %29, %25
   %33 = phi i64 [ 2, %31 ], [ 0, %29 ], [ 0, %25 ]
   %34 = or disjoint i64 %33, %21
-  %35 = getelementptr inbounds [4 x ptr], ptr @__const._ZN5ZXing8ToStringB5cxx11ERKNS_9BitMatrixEb.map, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw [4 x ptr], ptr @__const._ZN5ZXing8ToStringB5cxx11ERKNS_9BitMatrixEb.map, i64 0, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !24
   %37 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %36) #13
           to label %38 unwind label %44
@@ -319,9 +319,9 @@ define linkonce_odr noundef zeroext i1 @_ZNK5ZXing9BitMatrix3getEii(ptr noundef 
   %4 = load i32, ptr %0, align 8, !tbaa !12
   %5 = mul nsw i32 %4, %2
   %6 = add nsw i32 %5, %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = sext i32 %6 to i64
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !27
   %11 = load ptr, ptr %7, align 8, !tbaa !20
   %12 = ptrtoint ptr %10 to i64
@@ -348,7 +348,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(
 define void @_ZN5ZXing5ToSVGB5cxx11ERKNS_9BitMatrixE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %4 = load i32, ptr %1, align 8, !tbaa !12
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4, !tbaa !19
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %3) #16
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #13
@@ -444,13 +444,13 @@ define void @_ZN5ZXing5ToSVGB5cxx11ERKNS_9BitMatrixE(ptr dead_on_unwind noalias 
   br i1 %48, label %.loopexit, label %.preheader, !llvm.loop !29
 
 49:                                               ; preds = %.loopexit3
-  %50 = getelementptr inbounds i8, ptr %3, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 8
   invoke void @_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %50) #13
           to label %51 unwind label %27
 
 51:                                               ; preds = %49
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %3, ptr noundef nonnull @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE) #17
-  %52 = getelementptr inbounds i8, ptr %3, i64 112
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 112
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %52) #17
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %3) #16
   ret void
@@ -458,7 +458,7 @@ define void @_ZN5ZXing5ToSVGB5cxx11ERKNS_9BitMatrixE(ptr dead_on_unwind noalias 
 53:                                               ; preds = %44, %27
   %54 = phi { ptr, i32 } [ %45, %44 ], [ %28, %27 ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %3, ptr noundef nonnull @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE) #17
-  %55 = getelementptr inbounds i8, ptr %3, i64 112
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 112
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %55) #17
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %3) #16
   resume { ptr, i32 } %54
@@ -481,7 +481,7 @@ define void @_ZN5ZXing14ParseBitMatrixERKNSt7__cxx1112basic_stringIcSt11char_tra
   br label %.loopexit7
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !8
   %11 = add nuw i64 %5, 1
   %12 = udiv i64 %10, %11
@@ -496,8 +496,8 @@ define void @_ZN5ZXing14ParseBitMatrixERKNSt7__cxx1112basic_stringIcSt11char_tra
 
 19:                                               ; preds = %8
   %20 = icmp sgt i32 %17, 0
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = and i64 %12, 2147483647
   br label %24
 
@@ -583,9 +583,9 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 define linkonce_odr void @_ZN5ZXing9BitMatrixC2Eii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator.0", align 1
   store i32 %1, ptr %0, align 8, !tbaa !12
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %2, ptr %5, align 4, !tbaa !19
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = mul nsw i32 %2, %1
   %8 = sext i32 %7 to i64
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #16
@@ -595,7 +595,7 @@ define linkonce_odr void @_ZN5ZXing9BitMatrixC2Eii(ptr noundef nonnull align 8 d
   br i1 %9, label %27, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !27
   %13 = load ptr, ptr %6, align 8, !tbaa !20
   %14 = ptrtoint ptr %12 to i64
@@ -659,8 +659,8 @@ define void @_ZN5ZXing9SaveAsPBMERKNS_9BitMatrixENSt7__cxx1112basic_stringIcSt11
   tail call void @llvm.experimental.noalias.scope.decl(metadata !32)
   %9 = load i64, ptr %0, align 8, !noalias !32
   store i64 %9, ptr %7, align 8, !alias.scope !32
-  %10 = getelementptr inbounds i8, ptr %7, i64 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @_ZNSt6vectorIhSaIhEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %11) #13
   invoke void @_ZN5ZXing7InflateEONS_9BitMatrixEiii(ptr dead_on_unwind nonnull writable sret(%"class.ZXing::BitMatrix") align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 0, i32 noundef 0, i32 noundef %2) #13
           to label %12 unwind label %70
@@ -670,7 +670,7 @@ define void @_ZN5ZXing9SaveAsPBMERKNS_9BitMatrixENSt7__cxx1112basic_stringIcSt11
           to label %13 unwind label %72
 
 13:                                               ; preds = %12
-  %14 = getelementptr inbounds i8, ptr %6, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !20
   %16 = icmp eq ptr %15, null
   br i1 %16, label %18, label %17
@@ -711,7 +711,7 @@ define void @_ZN5ZXing9SaveAsPBMERKNS_9BitMatrixENSt7__cxx1112basic_stringIcSt11
   %30 = getelementptr i8, ptr %29, i64 -24
   %31 = load i64, ptr %30, align 8
   %32 = getelementptr inbounds i8, ptr %27, i64 %31
-  %33 = getelementptr inbounds i8, ptr %32, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load i64, ptr %33, align 8, !tbaa !39
   %35 = icmp eq i64 %34, 0
   br i1 %35, label %38, label %36
@@ -727,7 +727,7 @@ define void @_ZN5ZXing9SaveAsPBMERKNS_9BitMatrixENSt7__cxx1112basic_stringIcSt11
 40:                                               ; preds = %38, %36
   %41 = phi ptr [ %37, %36 ], [ %27, %38 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  %42 = getelementptr inbounds i8, ptr %5, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %43 = load i32, ptr %42, align 4, !tbaa !45
   %44 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %41, i32 noundef %43) #13
           to label %45 unwind label %86
@@ -737,9 +737,9 @@ define void @_ZN5ZXing9SaveAsPBMERKNS_9BitMatrixENSt7__cxx1112basic_stringIcSt11
           to label %47 unwind label %86
 
 47:                                               ; preds = %45
-  %48 = getelementptr inbounds i8, ptr %5, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %49 = load ptr, ptr %48, align 8, !tbaa !20
-  %50 = getelementptr inbounds i8, ptr %5, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %51 = load ptr, ptr %50, align 8, !tbaa !27
   %52 = ptrtoint ptr %51 to i64
   %53 = ptrtoint ptr %49 to i64
@@ -757,9 +757,9 @@ define void @_ZN5ZXing9SaveAsPBMERKNS_9BitMatrixENSt7__cxx1112basic_stringIcSt11
   %62 = load i64, ptr %61, align 8
   %63 = getelementptr inbounds i8, ptr %8, i64 %62
   store ptr %60, ptr %63, align 8, !tbaa !37
-  %64 = getelementptr inbounds i8, ptr %8, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @_ZNSt13basic_filebufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(240) %64) #17
-  %65 = getelementptr inbounds i8, ptr %8, i64 248
+  %65 = getelementptr inbounds nuw i8, ptr %8, i64 248
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %65) #17
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %8) #16
   %66 = load ptr, ptr %48, align 8, !tbaa !20
@@ -782,7 +782,7 @@ define void @_ZN5ZXing9SaveAsPBMERKNS_9BitMatrixENSt7__cxx1112basic_stringIcSt11
 72:                                               ; preds = %12
   %73 = landingpad { ptr, i32 }
           cleanup
-  %74 = getelementptr inbounds i8, ptr %6, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %75 = load ptr, ptr %74, align 8, !tbaa !20
   %76 = icmp eq ptr %75, null
   br i1 %76, label %78, label %77
@@ -820,7 +820,7 @@ define void @_ZN5ZXing9SaveAsPBMERKNS_9BitMatrixENSt7__cxx1112basic_stringIcSt11
 88:                                               ; preds = %86, %84
   %89 = phi { ptr, i32 } [ %87, %86 ], [ %85, %84 ]
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %8) #16
-  %90 = getelementptr inbounds i8, ptr %5, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %91 = load ptr, ptr %90, align 8, !tbaa !20
   %92 = icmp eq ptr %91, null
   br i1 %92, label %94, label %93
@@ -838,7 +838,7 @@ define void @_ZN5ZXing9SaveAsPBMERKNS_9BitMatrixENSt7__cxx1112basic_stringIcSt11
 ; Function Attrs: mustprogress optsize uwtable
 define linkonce_odr void @_ZN5ZXing8ToMatrixIhEENS_6MatrixIT_EERKNS_9BitMatrixES2_S2_(ptr dead_on_unwind noalias writable sret(%"class.ZXing::Matrix") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i8 noundef zeroext %2, i8 noundef zeroext %3) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %5 = load i32, ptr %1, align 8, !tbaa !12
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4, !tbaa !19
   tail call void @_ZN5ZXing6MatrixIhEC2Eiih(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %5, i32 noundef %7, i8 noundef zeroext 0) #13
   %8 = load i32, ptr %6, align 4, !tbaa !19
@@ -846,7 +846,7 @@ define linkonce_odr void @_ZN5ZXing8ToMatrixIhEENS_6MatrixIT_EERKNS_9BitMatrixES
   br i1 %9, label %10, label %.loopexit
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i32, ptr %1, align 8, !tbaa !12
   br label %13
 
@@ -937,14 +937,14 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEEC2EmRKhRKS0_(ptr noundef nonnull a
   br i1 %9, label %13, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %8, i64 %1
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 %1
   %12 = load i8, ptr %2, align 1, !tbaa !11
   tail call void @llvm.memset.p0.i64(ptr align 1 %8, i8 %12, i64 %1, i1 false)
   br label %13
 
 13:                                               ; preds = %10, %7
   %14 = phi ptr [ %8, %7 ], [ %11, %10 ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %14, ptr %15, align 8, !tbaa !27
   ret void
 }
@@ -985,10 +985,10 @@ define linkonce_odr void @_ZNSt12_Vector_baseIhSaIhEE17_M_create_storageEm(ptr n
 9:                                                ; preds = %7, %2
   %10 = phi ptr [ %8, %7 ], [ null, %2 ]
   store ptr %10, ptr %0, align 8, !tbaa !20
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %10, ptr %11, align 8, !tbaa !27
   %12 = getelementptr inbounds i8, ptr %10, i64 %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %12, ptr %13, align 8, !tbaa !49
   ret void
 }
@@ -1004,7 +1004,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress optsize uwtable
 define linkonce_odr void @_ZNSt6vectorIhSaIhEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !27
   %5 = load ptr, ptr %1, align 8, !tbaa !20
   %6 = ptrtoint ptr %4 to i64
@@ -1027,7 +1027,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEEC2ERKS1_(ptr noundef nonnull align
 
 17:                                               ; preds = %16, %2
   %18 = getelementptr inbounds i8, ptr %11, i64 %14
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %18, ptr %19, align 8, !tbaa !27
   ret void
 }
@@ -1056,9 +1056,9 @@ define linkonce_odr void @_ZN5ZXing6MatrixIhEC2Eiih(ptr noundef nonnull align 8 
   %6 = alloca %"class.std::allocator.0", align 1
   store i8 %3, ptr %5, align 1, !tbaa !11
   store i32 %1, ptr %0, align 8, !tbaa !35
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %2, ptr %7, align 4, !tbaa !45
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = mul nsw i32 %2, %1
   %10 = sext i32 %9 to i64
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #16
@@ -1068,7 +1068,7 @@ define linkonce_odr void @_ZN5ZXing6MatrixIhEC2Eiih(ptr noundef nonnull align 8 
   br i1 %11, label %29, label %12
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !27
   %15 = load ptr, ptr %8, align 8, !tbaa !20
   %16 = ptrtoint ptr %14 to i64

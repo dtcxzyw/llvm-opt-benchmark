@@ -345,7 +345,7 @@ define internal noundef ptr @thread_loop(ptr nocapture noundef %0) #4 {
 
 5:                                                ; preds = %1
   %6 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %4, i64 noundef 15) #10
-  %7 = getelementptr inbounds i8, ptr %2, i64 15
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 15
   store i8 0, ptr %7, align 1
   %8 = tail call i64 @pthread_self() #11
   %9 = call i32 @pthread_setname_np(i64 noundef %8, ptr noundef nonnull %2) #10

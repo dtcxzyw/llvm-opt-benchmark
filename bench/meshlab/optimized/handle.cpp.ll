@@ -23,19 +23,19 @@ define void @_ZN6HandleC2EP10CHART_INFO6QColor7QPointFii(ptr noundef nonnull ali
   %8 = alloca %class.QPointF, align 8
   %9 = alloca %class.QCursor, align 8
   store double %3, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %8, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store double %4, ptr %10, align 8
   tail call void @_ZN15QGraphicsObjectC2EP13QGraphicsItem(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef null)
   store ptr getelementptr inbounds (i8, ptr @_ZTV6Handle, i64 16), ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV6Handle, i64 168), ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 36
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i16 -1, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 38
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 38
   store i64 0, ptr %14, align 2
-  %15 = getelementptr inbounds i8, ptr %0, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %1, ptr %15, align 8
   %16 = tail call noundef nonnull align 4 dereferenceable(14) ptr @_ZN6QColoraSERKS_(ptr noundef nonnull align 4 dereferenceable(14) %12, ptr noundef nonnull align 4 dereferenceable(14) %2) #13
   invoke void @_ZN13QGraphicsItem6setPosERK7QPointF(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %8)
@@ -47,7 +47,7 @@ define void @_ZN6HandleC2EP10CHART_INFO6QColor7QPointFii(ptr noundef nonnull ali
           to label %19 unwind label %23
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %0, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %6, ptr %20, align 8
   invoke void @_ZN7QCursorC1EN2Qt11CursorShapeE(ptr noundef nonnull align 8 dereferenceable(8) %9, i32 noundef 17)
           to label %21 unwind label %23
@@ -128,18 +128,18 @@ define void @_ZThn16_N6HandleD0Ev(ptr nocapture noundef readnone %0) unnamed_add
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZNK6Handle12boundingRectEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QRectF) align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) unnamed_addr #8 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %4 = load i32, ptr %3, align 8
   %5 = sub nsw i32 0, %4
   %6 = sitofp i32 %5 to double
   %7 = fmul double %6, 5.000000e-01
   %8 = sitofp i32 %4 to double
   store double %7, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %7, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %8, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %8, ptr %11, align 8
   ret void
 }
@@ -147,18 +147,18 @@ define void @_ZNK6Handle12boundingRectEv(ptr dead_on_unwind noalias nocapture wr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @_ZThn16_NK6Handle12boundingRectEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QRectF) align 8 initializes((0, 32)) %0, ptr nocapture noundef readonly %1) unnamed_addr #9 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
-  %3 = getelementptr inbounds i8, ptr %1, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load i32, ptr %3, align 8, !noalias !5
   %5 = sub nsw i32 0, %4
   %6 = sitofp i32 %5 to double
   %7 = fmul double %6, 5.000000e-01
   %8 = sitofp i32 %4 to double
   store double %7, ptr %0, align 8, !alias.scope !5
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %7, ptr %9, align 8, !alias.scope !5
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %8, ptr %10, align 8, !alias.scope !5
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %8, ptr %11, align 8, !alias.scope !5
   ret void
 }
@@ -171,14 +171,14 @@ define void @_ZN6Handle15mousePressEventEP24QGraphicsSceneMouseEvent(ptr noundef
   br i1 %.not, label %9, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 18
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 18
   %7 = load i16, ptr %6, align 2
   %8 = and i16 %7, -5
   store i16 %8, ptr %6, align 2
   br label %12
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @_ZN7QCursorC1EN2Qt11CursorShapeE(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef 18)
   invoke void @_ZN13QGraphicsItem9setCursorERK7QCursor(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %11 unwind label %13
@@ -208,7 +208,7 @@ define void @_ZThn16_N6Handle15mousePressEventEP24QGraphicsSceneMouseEvent(ptr n
   br i1 %.not.i, label %9, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 18
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 18
   %7 = load i16, ptr %6, align 2
   %8 = and i16 %7, -5
   store i16 %8, ptr %6, align 2
@@ -237,7 +237,7 @@ _ZN6Handle15mousePressEventEP24QGraphicsSceneMouseEvent.exit: ; preds = %5, %10
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6Handle17mouseReleaseEventEP24QGraphicsSceneMouseEvent(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef readnone %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QCursor, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @_ZN7QCursorC1EN2Qt11CursorShapeE(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef 17)
   invoke void @_ZN13QGraphicsItem9setCursorERK7QCursor(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %5 unwind label %6

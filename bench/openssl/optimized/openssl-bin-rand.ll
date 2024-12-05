@@ -159,7 +159,7 @@ while.body31:                                     ; preds = %while.body31.lr.ph,
   br i1 %tobool39.not, label %if.then40, label %if.end54
 
 if.then40:                                        ; preds = %while.body31
-  %arrayidx29.le = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %arrayidx29.le = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   switch i8 %4, label %sw.default [
     i8 75, label %land.lhs.true
     i8 77, label %sw.bb46
@@ -183,7 +183,7 @@ sw.default:                                       ; preds = %if.then40
 
 if.end54:                                         ; preds = %while.body31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx29 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.next
+  %arrayidx29 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.next
   %8 = load i8, ptr %arrayidx29, align 1
   %tobool30.not = icmp eq i8 %8, 0
   br i1 %tobool30.not, label %land.lhs.true80, label %while.body31, !llvm.loop !7
@@ -201,7 +201,7 @@ if.then64:                                        ; preds = %land.lhs.true
 
 if.then73:                                        ; preds = %land.lhs.true
   %idxprom75 = and i64 %indvars.iv, 4294967295
-  %arrayidx76 = getelementptr inbounds i8, ptr %1, i64 %idxprom75
+  %arrayidx76 = getelementptr inbounds nuw i8, ptr %1, i64 %idxprom75
   store i8 0, ptr %arrayidx76, align 1
   %.pre = load ptr, ptr %call21, align 8
   br label %land.lhs.true80
@@ -301,7 +301,7 @@ for.cond.us:                                      ; preds = %for.body.us
 
 for.body.us:                                      ; preds = %while.body138.us, %for.cond.us
   %indvars.iv135 = phi i64 [ %indvars.iv.next136, %for.cond.us ], [ 0, %while.body138.us ]
-  %arrayidx160.us = getelementptr inbounds i8, ptr %call134, i64 %indvars.iv135
+  %arrayidx160.us = getelementptr inbounds nuw i8, ptr %call134, i64 %indvars.iv135
   %14 = load i8, ptr %arrayidx160.us, align 1
   %conv161.us = zext i8 %14 to i32
   %call162.us = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %call118, ptr noundef nonnull @.str.34, i32 noundef %conv161.us) #5

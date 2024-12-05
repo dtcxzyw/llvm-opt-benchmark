@@ -22,7 +22,7 @@ define void @ADIOI_P2PContigWriteAggregation(ptr noundef %0, ptr noundef %1, ptr
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   store i32 0, ptr %2, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %18 = load ptr, ptr %17, align 8
   %19 = call i32 @PMPI_Comm_size(ptr noundef %18, ptr noundef nonnull %9) #4
   %20 = load ptr, ptr %17, align 8
@@ -33,17 +33,17 @@ define void @ADIOI_P2PContigWriteAggregation(ptr noundef %0, ptr noundef %1, ptr
   %25 = load i64, ptr %24, align 8
   %26 = getelementptr inbounds i64, ptr %4, i64 %23
   %27 = load i64, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 136
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 20
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 20
   %31 = load i32, ptr %30, align 4
-  %32 = getelementptr inbounds i8, ptr %29, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %33 = load i32, ptr %32, align 8
   %34 = icmp sgt i32 %31, 0
   br i1 %34, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %7
-  %35 = getelementptr inbounds i8, ptr %29, i64 88
+  %35 = getelementptr inbounds nuw i8, ptr %29, i64 88
   %36 = load ptr, ptr %35, align 8
   %wide.trip.count = zext nneg i32 %31 to i64
   br label %37
@@ -52,15 +52,15 @@ define void @ADIOI_P2PContigWriteAggregation(ptr noundef %0, ptr noundef %1, ptr
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %48 ]
   %.0448567 = phi i32 [ -1, %.lr.ph ], [ %.1449, %48 ]
   %.0453566 = phi i32 [ 0, %.lr.ph ], [ %.1454, %48 ]
-  %38 = getelementptr inbounds i32, ptr %36, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv
   %39 = load i32, ptr %38, align 4
   %40 = icmp eq i32 %39, %22
   br i1 %40, label %41, label %48
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds i64, ptr %6, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
   %43 = load i64, ptr %42, align 8
-  %44 = getelementptr inbounds i64, ptr %5, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv
   %45 = load i64, ptr %44, align 8
   %46 = icmp sgt i64 %43, %45
   %spec.select = select i1 %46, i32 1, i32 %.0453566
@@ -97,13 +97,13 @@ define void @ADIOI_P2PContigWriteAggregation(ptr noundef %0, ptr noundef %1, ptr
 .lr.ph572:                                        ; preds = %.lr.ph572.preheader, %80
   %indvars.iv640 = phi i64 [ 0, %.lr.ph572.preheader ], [ %indvars.iv.next641, %80 ]
   %.0457570 = phi i32 [ 0, %.lr.ph572.preheader ], [ %.1458, %80 ]
-  %57 = getelementptr inbounds i64, ptr %5, i64 %indvars.iv640
+  %57 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv640
   %58 = load i64, ptr %57, align 8
   %.not544 = icmp slt i64 %25, %58
   br i1 %.not544, label %62, label %59
 
 59:                                               ; preds = %.lr.ph572
-  %60 = getelementptr inbounds i64, ptr %6, i64 %indvars.iv640
+  %60 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv640
   %61 = load i64, ptr %60, align 8
   %.not545 = icmp sgt i64 %25, %61
   br i1 %.not545, label %62, label %66
@@ -113,16 +113,16 @@ define void @ADIOI_P2PContigWriteAggregation(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not546, label %80, label %63
 
 63:                                               ; preds = %62
-  %64 = getelementptr inbounds i64, ptr %6, i64 %indvars.iv640
+  %64 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv640
   %65 = load i64, ptr %64, align 8
   %.not547 = icmp sgt i64 %27, %65
   br i1 %.not547, label %80, label %66
 
 66:                                               ; preds = %63, %59
   %67 = load ptr, ptr %28, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 88
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 88
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i32, ptr %69, i64 %indvars.iv640
+  %70 = getelementptr inbounds nuw i32, ptr %69, i64 %indvars.iv640
   %71 = load i32, ptr %70, align 4
   %72 = sext i32 %.0457570 to i64
   %73 = getelementptr inbounds i32, ptr %53, i64 %72
@@ -130,7 +130,7 @@ define void @ADIOI_P2PContigWriteAggregation(ptr noundef %0, ptr noundef %1, ptr
   %74 = load i64, ptr %57, align 8
   %75 = getelementptr inbounds i64, ptr %55, i64 %72
   store i64 %74, ptr %75, align 8
-  %76 = getelementptr inbounds i64, ptr %6, i64 %indvars.iv640
+  %76 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv640
   %77 = load i64, ptr %76, align 8
   %78 = getelementptr inbounds i64, ptr %56, i64 %72
   store i64 %77, ptr %78, align 8
@@ -162,7 +162,7 @@ define void @ADIOI_P2PContigWriteAggregation(ptr noundef %0, ptr noundef %1, ptr
 86:                                               ; preds = %.lr.ph577, %98
   %indvars.iv645 = phi i64 [ 0, %.lr.ph577 ], [ %indvars.iv.next646, %98 ]
   %.1476575 = phi i32 [ 0, %.lr.ph577 ], [ %.2477, %98 ]
-  %87 = getelementptr inbounds i64, ptr %3, i64 %indvars.iv645
+  %87 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv645
   %88 = load i64, ptr %87, align 8
   %.not540 = icmp slt i64 %88, %84
   br i1 %.not540, label %91, label %89
@@ -173,7 +173,7 @@ define void @ADIOI_P2PContigWriteAggregation(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not541, label %91, label %96
 
 91:                                               ; preds = %89, %86
-  %92 = getelementptr inbounds i64, ptr %4, i64 %indvars.iv645
+  %92 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv645
   %93 = load i64, ptr %92, align 8
   %.not542 = icmp slt i64 %93, %84
   br i1 %.not542, label %98, label %94
@@ -217,7 +217,7 @@ define void @ADIOI_P2PContigWriteAggregation(ptr noundef %0, ptr noundef %1, ptr
   %110 = phi i32 [ %105, %.lr.ph583 ], [ %155, %154 ]
   %indvars.iv650 = phi i64 [ 0, %.lr.ph583 ], [ %indvars.iv.next651, %154 ]
   %.3478580 = phi i32 [ 0, %.lr.ph583 ], [ %.4479, %154 ]
-  %111 = getelementptr inbounds i64, ptr %3, i64 %indvars.iv650
+  %111 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv650
   %112 = load i64, ptr %111, align 8
   %113 = load i64, ptr %107, align 8
   %.not530 = icmp slt i64 %112, %113
@@ -229,7 +229,7 @@ define void @ADIOI_P2PContigWriteAggregation(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not531, label %116, label %121
 
 116:                                              ; preds = %114, %109
-  %117 = getelementptr inbounds i64, ptr %4, i64 %indvars.iv650
+  %117 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv650
   %118 = load i64, ptr %117, align 8
   %.not532 = icmp slt i64 %118, %113
   br i1 %.not532, label %154, label %119
@@ -255,7 +255,7 @@ define void @ADIOI_P2PContigWriteAggregation(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not535, label %.thread, label %129
 
 129:                                              ; preds = %127
-  %130 = getelementptr inbounds i64, ptr %4, i64 %indvars.iv650
+  %130 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv650
   %131 = load i64, ptr %130, align 8
   %.not536 = icmp slt i64 %131, %126
   %.not537 = icmp sgt i64 %131, %128
@@ -283,7 +283,7 @@ define void @ADIOI_P2PContigWriteAggregation(ptr noundef %0, ptr noundef %1, ptr
   br label %152
 
 .thread:                                          ; preds = %127, %121
-  %144 = getelementptr inbounds i64, ptr %4, i64 %indvars.iv650
+  %144 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv650
   %145 = load i64, ptr %144, align 8
   %146 = sub nsw i64 %145, %126
   %147 = trunc i64 %146 to i32
@@ -332,7 +332,7 @@ define void @ADIOI_P2PContigWriteAggregation(ptr noundef %0, ptr noundef %1, ptr
   %167 = call ptr @ADIOI_Malloc_fn(i64 noundef %166, i32 noundef 154, ptr noundef nonnull @.str) #4
   %168 = call ptr @ADIOI_Malloc_fn(i64 noundef %166, i32 noundef 156, ptr noundef nonnull @.str) #4
   %169 = call ptr @ADIOI_Malloc_fn(i64 noundef %163, i32 noundef 159, ptr noundef nonnull @.str) #4
-  %170 = getelementptr inbounds i8, ptr %0, i64 264
+  %170 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %171 = load ptr, ptr %170, align 8
   %172 = sext i32 %33 to i64
   %173 = load i32, ptr %9, align 4
@@ -367,7 +367,7 @@ define void @ADIOI_P2PContigWriteAggregation(ptr noundef %0, ptr noundef %1, ptr
   %193 = getelementptr inbounds i64, ptr %6, i64 %.0448.lcssa
   %194 = add nsw i64 %172, -1
   %195 = icmp sgt i32 %.0475, 0
-  %196 = getelementptr inbounds i8, ptr %0, i64 56
+  %196 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %197 = select i1 %.0453.lcssa, i64 0, i64 %172
   %wide.trip.count659 = zext nneg i32 %.0457.lcssa to i64
   %wide.trip.count664 = zext nneg i32 %.0475 to i64
@@ -391,13 +391,13 @@ define void @ADIOI_P2PContigWriteAggregation(ptr noundef %0, ptr noundef %1, ptr
 202:                                              ; preds = %.lr.ph591, %.thread556
   %indvars.iv656 = phi i64 [ 0, %.lr.ph591 ], [ %indvars.iv.next657, %.thread556 ]
   %.0450590 = phi i32 [ 0, %.lr.ph591 ], [ %.1451, %.thread556 ]
-  %203 = getelementptr inbounds i64, ptr %55, i64 %indvars.iv656
+  %203 = getelementptr inbounds nuw i64, ptr %55, i64 %indvars.iv656
   %204 = load i64, ptr %203, align 8
   %.not519 = icmp slt i64 %25, %204
   br i1 %.not519, label %208, label %205
 
 205:                                              ; preds = %202
-  %206 = getelementptr inbounds i64, ptr %56, i64 %indvars.iv656
+  %206 = getelementptr inbounds nuw i64, ptr %56, i64 %indvars.iv656
   %207 = load i64, ptr %206, align 8
   %.not520 = icmp sgt i64 %25, %207
   br i1 %.not520, label %208, label %212
@@ -407,7 +407,7 @@ define void @ADIOI_P2PContigWriteAggregation(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not521, label %.thread556, label %209
 
 209:                                              ; preds = %208
-  %210 = getelementptr inbounds i64, ptr %56, i64 %indvars.iv656
+  %210 = getelementptr inbounds nuw i64, ptr %56, i64 %indvars.iv656
   %211 = load i64, ptr %210, align 8
   %.not522 = icmp sgt i64 %27, %211
   br i1 %.not522, label %.thread556, label %212
@@ -472,7 +472,7 @@ define void @ADIOI_P2PContigWriteAggregation(ptr noundef %0, ptr noundef %1, ptr
 
 235:                                              ; preds = %229
   %236 = getelementptr inbounds i32, ptr %158, i64 %230
-  %237 = getelementptr inbounds i32, ptr %53, i64 %indvars.iv656
+  %237 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv656
   %238 = load i32, ptr %237, align 4
   %239 = load ptr, ptr %17, align 8
   %240 = getelementptr inbounds ptr, ptr %164, i64 %230
@@ -524,19 +524,19 @@ define void @ADIOI_P2PContigWriteAggregation(ptr noundef %0, ptr noundef %1, ptr
 
 .lr.ph601.split.us:                               ; preds = %.lr.ph601.split.us.preheader, %.lr.ph601.split.us
   %indvars.iv667 = phi i64 [ 0, %.lr.ph601.split.us.preheader ], [ %indvars.iv.next668, %.lr.ph601.split.us ]
-  %252 = getelementptr inbounds i32, ptr %191, i64 %indvars.iv667
+  %252 = getelementptr inbounds nuw i32, ptr %191, i64 %indvars.iv667
   %253 = load i32, ptr %252, align 4
   %254 = sext i32 %253 to i64
   %255 = getelementptr inbounds i8, ptr %1, i64 %254
-  %256 = getelementptr inbounds i32, ptr %192, i64 %indvars.iv667
+  %256 = getelementptr inbounds nuw i32, ptr %192, i64 %indvars.iv667
   %257 = load i32, ptr %256, align 4
-  %258 = getelementptr inbounds i32, ptr %190, i64 %indvars.iv667
+  %258 = getelementptr inbounds nuw i32, ptr %190, i64 %indvars.iv667
   %259 = load i32, ptr %258, align 4
   %260 = sext i32 %259 to i64
   %261 = getelementptr inbounds i32, ptr %53, i64 %260
   %262 = load i32, ptr %261, align 4
   %263 = load ptr, ptr %17, align 8
-  %264 = getelementptr inbounds ptr, ptr %169, i64 %indvars.iv667
+  %264 = getelementptr inbounds nuw ptr, ptr %169, i64 %indvars.iv667
   %265 = call i32 @PMPI_Isend(ptr noundef %255, i32 noundef %257, ptr noundef nonnull @ompi_mpi_byte, i32 noundef %262, i32 noundef 0, ptr noundef %263, ptr noundef %264) #4
   %indvars.iv.next668 = add nuw nsw i64 %indvars.iv667, 1
   %exitcond673.not = icmp eq i64 %indvars.iv.next668, %wide.trip.count672
@@ -545,12 +545,12 @@ define void @ADIOI_P2PContigWriteAggregation(ptr noundef %0, ptr noundef %1, ptr
 266:                                              ; preds = %.lr.ph597, %297
   %indvars.iv661 = phi i64 [ 0, %.lr.ph597 ], [ %indvars.iv.next662, %297 ]
   %.0443595 = phi i32 [ 0, %.lr.ph597 ], [ %.1444, %297 ]
-  %267 = getelementptr inbounds i64, ptr %.0471, i64 %indvars.iv661
+  %267 = getelementptr inbounds nuw i64, ptr %.0471, i64 %indvars.iv661
   %268 = load i64, ptr %267, align 8
   %.not513 = icmp slt i64 %268, %.1465626
   %.not514 = icmp sgt i64 %268, %.1463
   %or.cond553 = select i1 %.not513, i1 true, i1 %.not514
-  %269 = getelementptr inbounds i32, ptr %.0467, i64 %indvars.iv661
+  %269 = getelementptr inbounds nuw i32, ptr %.0467, i64 %indvars.iv661
   %270 = load i32, ptr %269, align 4
   %271 = sext i32 %270 to i64
   %272 = add nsw i64 %268, %271
@@ -582,21 +582,21 @@ define void @ADIOI_P2PContigWriteAggregation(ptr noundef %0, ptr noundef %1, ptr
   br label %285
 
 .thread694:                                       ; preds = %278
-  %284 = getelementptr inbounds i32, ptr %187, i64 %indvars.iv661
+  %284 = getelementptr inbounds nuw i32, ptr %187, i64 %indvars.iv661
   store i32 0, ptr %284, align 4
   br label %297
 
 285:                                              ; preds = %279, %273, %280, %274
   %.sink = phi i32 [ %283, %280 ], [ %277, %274 ], [ %270, %273 ], [ %270, %279 ]
-  %286 = getelementptr inbounds i32, ptr %187, i64 %indvars.iv661
+  %286 = getelementptr inbounds nuw i32, ptr %187, i64 %indvars.iv661
   store i32 %.sink, ptr %286, align 4
   %287 = icmp sgt i32 %.sink, 0
   %or.cond = and i1 %250, %287
   br i1 %or.cond, label %288, label %297
 
 288:                                              ; preds = %285
-  %289 = getelementptr inbounds i32, ptr %187, i64 %indvars.iv661
-  %290 = getelementptr inbounds i32, ptr %.0461, i64 %indvars.iv661
+  %289 = getelementptr inbounds nuw i32, ptr %187, i64 %indvars.iv661
+  %290 = getelementptr inbounds nuw i32, ptr %.0461, i64 %indvars.iv661
   %291 = load i32, ptr %290, align 4
   %292 = load ptr, ptr %17, align 8
   %293 = sext i32 %.0443595 to i64
@@ -651,7 +651,7 @@ define void @ADIOI_P2PContigWriteAggregation(ptr noundef %0, ptr noundef %1, ptr
 .lr.ph605:                                        ; preds = %.preheader, %.lr.ph605
   %indvars.iv674 = phi i64 [ %indvars.iv.next675, %.lr.ph605 ], [ 0, %.preheader ]
   %.0440604 = phi i32 [ %319, %.lr.ph605 ], [ 0, %.preheader ]
-  %317 = getelementptr inbounds i32, ptr %187, i64 %indvars.iv674
+  %317 = getelementptr inbounds nuw i32, ptr %187, i64 %indvars.iv674
   %318 = load i32, ptr %317, align 4
   %319 = add nsw i32 %318, %.0440604
   %indvars.iv.next675 = add nuw nsw i64 %indvars.iv674, 1
@@ -664,14 +664,14 @@ define void @ADIOI_P2PContigWriteAggregation(ptr noundef %0, ptr noundef %1, ptr
 
 ._crit_edge606:                                   ; preds = %._crit_edge606.loopexit, %.preheader
   %.0440.lcssa = phi i64 [ 0, %.preheader ], [ %320, %._crit_edge606.loopexit ]
-  %321 = getelementptr inbounds i32, ptr %187, i64 %indvars.iv679
+  %321 = getelementptr inbounds nuw i32, ptr %187, i64 %indvars.iv679
   %322 = load i32, ptr %321, align 4
   %323 = icmp sgt i32 %322, 0
   br i1 %323, label %324, label %335
 
 324:                                              ; preds = %._crit_edge606
   %325 = getelementptr inbounds i8, ptr %171, i64 %.0440.lcssa
-  %326 = getelementptr inbounds i32, ptr %.0461, i64 %indvars.iv679
+  %326 = getelementptr inbounds nuw i32, ptr %.0461, i64 %indvars.iv679
   %327 = load i32, ptr %326, align 4
   %328 = load ptr, ptr %17, align 8
   %329 = sext i32 %.0441609 to i64
@@ -739,7 +739,7 @@ define void @ADIOI_P2PContigWriteAggregation(ptr noundef %0, ptr noundef %1, ptr
 
 364:                                              ; preds = %._crit_edge619
   %365 = load ptr, ptr %196, align 8
-  %366 = getelementptr inbounds i8, ptr %365, i64 24
+  %366 = getelementptr inbounds nuw i8, ptr %365, i64 24
   %367 = load ptr, ptr %366, align 8
   call void %367(ptr noundef %0, ptr noundef %171, i32 noundef %.0.lcssa, ptr noundef nonnull @ompi_mpi_byte, i32 noundef 100, i64 noundef %.1465626, ptr noundef nonnull %8, ptr noundef nonnull %2) #4
   br label %368
@@ -755,7 +755,7 @@ define void @ADIOI_P2PContigWriteAggregation(ptr noundef %0, ptr noundef %1, ptr
 
 .lr.ph622:                                        ; preds = %.lr.ph622.preheader, %.lr.ph622
   %indvars.iv686 = phi i64 [ 0, %.lr.ph622.preheader ], [ %indvars.iv.next687, %.lr.ph622 ]
-  %369 = getelementptr inbounds ptr, ptr %169, i64 %indvars.iv686
+  %369 = getelementptr inbounds nuw ptr, ptr %169, i64 %indvars.iv686
   %370 = call i32 @PMPI_Wait(ptr noundef %369, ptr noundef nonnull %14) #4
   %indvars.iv.next687 = add nuw nsw i64 %indvars.iv686, 1
   %exitcond690.not = icmp eq i64 %indvars.iv.next687, %wide.trip.count689
@@ -822,7 +822,7 @@ define void @ADIOI_P2PContigReadAggregation(ptr noundef %0, ptr noundef %1, ptr 
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
   store i32 0, ptr %2, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @PMPI_Comm_size(ptr noundef %16, ptr noundef nonnull %9) #4
   %18 = load ptr, ptr %15, align 8
@@ -833,17 +833,17 @@ define void @ADIOI_P2PContigReadAggregation(ptr noundef %0, ptr noundef %1, ptr 
   %23 = load i64, ptr %22, align 8
   %24 = getelementptr inbounds i64, ptr %4, i64 %21
   %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 136
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 20
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 20
   %29 = load i32, ptr %28, align 4
-  %30 = getelementptr inbounds i8, ptr %27, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %31 = load i32, ptr %30, align 8
   %32 = icmp sgt i32 %29, 0
   br i1 %32, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %7
-  %33 = getelementptr inbounds i8, ptr %27, i64 88
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 88
   %34 = load ptr, ptr %33, align 8
   %wide.trip.count = zext nneg i32 %29 to i64
   br label %35
@@ -852,15 +852,15 @@ define void @ADIOI_P2PContigReadAggregation(ptr noundef %0, ptr noundef %1, ptr 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %46 ]
   %.0417543 = phi i32 [ -1, %.lr.ph ], [ %.1418, %46 ]
   %.0424542 = phi i32 [ 0, %.lr.ph ], [ %.1425, %46 ]
-  %36 = getelementptr inbounds i32, ptr %34, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv
   %37 = load i32, ptr %36, align 4
   %38 = icmp eq i32 %37, %20
   br i1 %38, label %39, label %46
 
 39:                                               ; preds = %35
-  %40 = getelementptr inbounds i64, ptr %6, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
   %41 = load i64, ptr %40, align 8
-  %42 = getelementptr inbounds i64, ptr %5, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv
   %43 = load i64, ptr %42, align 8
   %44 = icmp sgt i64 %41, %43
   %spec.select = select i1 %44, i32 1, i32 %.0424542
@@ -897,13 +897,13 @@ define void @ADIOI_P2PContigReadAggregation(ptr noundef %0, ptr noundef %1, ptr 
 .lr.ph548:                                        ; preds = %.lr.ph548.preheader, %78
   %indvars.iv596 = phi i64 [ 0, %.lr.ph548.preheader ], [ %indvars.iv.next597, %78 ]
   %.0430546 = phi i32 [ 0, %.lr.ph548.preheader ], [ %.1431, %78 ]
-  %55 = getelementptr inbounds i64, ptr %5, i64 %indvars.iv596
+  %55 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv596
   %56 = load i64, ptr %55, align 8
   %.not523 = icmp slt i64 %23, %56
   br i1 %.not523, label %60, label %57
 
 57:                                               ; preds = %.lr.ph548
-  %58 = getelementptr inbounds i64, ptr %6, i64 %indvars.iv596
+  %58 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv596
   %59 = load i64, ptr %58, align 8
   %.not524 = icmp sgt i64 %23, %59
   br i1 %.not524, label %60, label %64
@@ -913,16 +913,16 @@ define void @ADIOI_P2PContigReadAggregation(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not525, label %78, label %61
 
 61:                                               ; preds = %60
-  %62 = getelementptr inbounds i64, ptr %6, i64 %indvars.iv596
+  %62 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv596
   %63 = load i64, ptr %62, align 8
   %.not526 = icmp sgt i64 %25, %63
   br i1 %.not526, label %78, label %64
 
 64:                                               ; preds = %61, %57
   %65 = load ptr, ptr %26, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 88
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 88
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i32, ptr %67, i64 %indvars.iv596
+  %68 = getelementptr inbounds nuw i32, ptr %67, i64 %indvars.iv596
   %69 = load i32, ptr %68, align 4
   %70 = sext i32 %.0430546 to i64
   %71 = getelementptr inbounds i32, ptr %51, i64 %70
@@ -930,7 +930,7 @@ define void @ADIOI_P2PContigReadAggregation(ptr noundef %0, ptr noundef %1, ptr 
   %72 = load i64, ptr %55, align 8
   %73 = getelementptr inbounds i64, ptr %53, i64 %70
   store i64 %72, ptr %73, align 8
-  %74 = getelementptr inbounds i64, ptr %6, i64 %indvars.iv596
+  %74 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv596
   %75 = load i64, ptr %74, align 8
   %76 = getelementptr inbounds i64, ptr %54, i64 %70
   store i64 %75, ptr %76, align 8
@@ -962,7 +962,7 @@ define void @ADIOI_P2PContigReadAggregation(ptr noundef %0, ptr noundef %1, ptr 
 84:                                               ; preds = %.lr.ph553, %96
   %indvars.iv601 = phi i64 [ 0, %.lr.ph553 ], [ %indvars.iv.next602, %96 ]
   %.1456551 = phi i32 [ 0, %.lr.ph553 ], [ %.2457, %96 ]
-  %85 = getelementptr inbounds i64, ptr %3, i64 %indvars.iv601
+  %85 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv601
   %86 = load i64, ptr %85, align 8
   %.not519 = icmp slt i64 %86, %82
   br i1 %.not519, label %89, label %87
@@ -973,7 +973,7 @@ define void @ADIOI_P2PContigReadAggregation(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not520, label %89, label %94
 
 89:                                               ; preds = %87, %84
-  %90 = getelementptr inbounds i64, ptr %4, i64 %indvars.iv601
+  %90 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv601
   %91 = load i64, ptr %90, align 8
   %.not521 = icmp slt i64 %91, %82
   br i1 %.not521, label %96, label %92
@@ -1017,7 +1017,7 @@ define void @ADIOI_P2PContigReadAggregation(ptr noundef %0, ptr noundef %1, ptr 
   %108 = phi i32 [ %103, %.lr.ph559 ], [ %153, %152 ]
   %indvars.iv606 = phi i64 [ 0, %.lr.ph559 ], [ %indvars.iv.next607, %152 ]
   %.3458556 = phi i32 [ 0, %.lr.ph559 ], [ %.4459, %152 ]
-  %109 = getelementptr inbounds i64, ptr %3, i64 %indvars.iv606
+  %109 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv606
   %110 = load i64, ptr %109, align 8
   %111 = load i64, ptr %105, align 8
   %.not509 = icmp slt i64 %110, %111
@@ -1029,7 +1029,7 @@ define void @ADIOI_P2PContigReadAggregation(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not510, label %114, label %119
 
 114:                                              ; preds = %112, %107
-  %115 = getelementptr inbounds i64, ptr %4, i64 %indvars.iv606
+  %115 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv606
   %116 = load i64, ptr %115, align 8
   %.not511 = icmp slt i64 %116, %111
   br i1 %.not511, label %152, label %117
@@ -1055,7 +1055,7 @@ define void @ADIOI_P2PContigReadAggregation(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not514, label %.thread, label %127
 
 127:                                              ; preds = %125
-  %128 = getelementptr inbounds i64, ptr %4, i64 %indvars.iv606
+  %128 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv606
   %129 = load i64, ptr %128, align 8
   %.not515 = icmp slt i64 %129, %124
   %.not516 = icmp sgt i64 %129, %126
@@ -1083,7 +1083,7 @@ define void @ADIOI_P2PContigReadAggregation(ptr noundef %0, ptr noundef %1, ptr 
   br label %150
 
 .thread:                                          ; preds = %125, %119
-  %142 = getelementptr inbounds i64, ptr %4, i64 %indvars.iv606
+  %142 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv606
   %143 = load i64, ptr %142, align 8
   %144 = sub nsw i64 %143, %124
   %145 = trunc i64 %144 to i32
@@ -1119,7 +1119,7 @@ define void @ADIOI_P2PContigReadAggregation(ptr noundef %0, ptr noundef %1, ptr 
   %159 = sext i32 %.0455 to i64
   %160 = shl nsw i64 %159, 3
   %161 = call ptr @ADIOI_Malloc_fn(i64 noundef %160, i32 noundef 673, ptr noundef nonnull @.str) #4
-  %162 = getelementptr inbounds i8, ptr %0, i64 264
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %163 = load ptr, ptr %162, align 8
   %164 = sext i32 %31 to i64
   %165 = load i32, ptr %9, align 4
@@ -1153,7 +1153,7 @@ define void @ADIOI_P2PContigReadAggregation(ptr noundef %0, ptr noundef %1, ptr 
 .lr.ph591:                                        ; preds = %177
   %184 = getelementptr inbounds i64, ptr %6, i64 %.0417.lcssa
   %185 = add nsw i64 %164, -1
-  %186 = getelementptr inbounds i8, ptr %0, i64 56
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %187 = icmp sgt i32 %.0430.lcssa, 0
   %188 = icmp sgt i32 %.0455, 0
   %wide.trip.count612 = zext nneg i32 %.0430.lcssa to i64
@@ -1178,7 +1178,7 @@ define void @ADIOI_P2PContigReadAggregation(ptr noundef %0, ptr noundef %1, ptr 
   %.3443 = select i1 %193, i64 %191, i64 %196
   %.0422 = select i1 %193, i32 %195, i32 %31
   %197 = load ptr, ptr %186, align 8
-  %198 = getelementptr inbounds i8, ptr %197, i64 16
+  %198 = getelementptr inbounds nuw i8, ptr %197, i64 16
   %199 = load ptr, ptr %198, align 8
   call void %199(ptr noundef nonnull %0, ptr noundef %163, i32 noundef %.0422, ptr noundef nonnull @ompi_mpi_byte, i32 noundef 100, i64 noundef %.1446587, ptr noundef nonnull %8, ptr noundef nonnull %2) #4
   br label %200
@@ -1202,13 +1202,13 @@ define void @ADIOI_P2PContigReadAggregation(ptr noundef %0, ptr noundef %1, ptr 
 205:                                              ; preds = %.lr.ph564, %.thread533
   %indvars.iv609 = phi i64 [ 0, %.lr.ph564 ], [ %indvars.iv.next610, %.thread533 ]
   %.0419562 = phi i32 [ 0, %.lr.ph564 ], [ %.1420, %.thread533 ]
-  %206 = getelementptr inbounds i64, ptr %53, i64 %indvars.iv609
+  %206 = getelementptr inbounds nuw i64, ptr %53, i64 %indvars.iv609
   %207 = load i64, ptr %206, align 8
   %.not499 = icmp slt i64 %23, %207
   br i1 %.not499, label %211, label %208
 
 208:                                              ; preds = %205
-  %209 = getelementptr inbounds i64, ptr %54, i64 %indvars.iv609
+  %209 = getelementptr inbounds nuw i64, ptr %54, i64 %indvars.iv609
   %210 = load i64, ptr %209, align 8
   %.not500 = icmp sgt i64 %23, %210
   br i1 %.not500, label %211, label %215
@@ -1218,7 +1218,7 @@ define void @ADIOI_P2PContigReadAggregation(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not501, label %.thread533, label %212
 
 212:                                              ; preds = %211
-  %213 = getelementptr inbounds i64, ptr %54, i64 %indvars.iv609
+  %213 = getelementptr inbounds nuw i64, ptr %54, i64 %indvars.iv609
   %214 = load i64, ptr %213, align 8
   %.not502 = icmp sgt i64 %25, %214
   br i1 %.not502, label %.thread533, label %215
@@ -1298,12 +1298,12 @@ define void @ADIOI_P2PContigReadAggregation(ptr noundef %0, ptr noundef %1, ptr 
 
 .lr.ph567:                                        ; preds = %.preheader539, %256
   %indvars.iv614 = phi i64 [ %indvars.iv.next615, %256 ], [ 0, %.preheader539 ]
-  %240 = getelementptr inbounds i64, ptr %.0454, i64 %indvars.iv614
+  %240 = getelementptr inbounds nuw i64, ptr %.0454, i64 %indvars.iv614
   %241 = load i64, ptr %240, align 8
   %.not493 = icmp slt i64 %241, %.2449
   %.not494 = icmp sgt i64 %241, %.1441
   %or.cond531 = select i1 %.not493, i1 true, i1 %.not494
-  %242 = getelementptr inbounds i32, ptr %.0450, i64 %indvars.iv614
+  %242 = getelementptr inbounds nuw i32, ptr %.0450, i64 %indvars.iv614
   %243 = load i32, ptr %242, align 4
   %244 = sext i32 %243 to i64
   %245 = add nsw i64 %241, %244
@@ -1335,7 +1335,7 @@ define void @ADIOI_P2PContigReadAggregation(ptr noundef %0, ptr noundef %1, ptr 
 
 256:                                              ; preds = %251, %246, %247, %252
   %.sink = phi i32 [ %250, %247 ], [ %255, %252 ], [ %243, %246 ], [ %.mux, %251 ]
-  %257 = getelementptr inbounds i32, ptr %179, i64 %indvars.iv614
+  %257 = getelementptr inbounds nuw i32, ptr %179, i64 %indvars.iv614
   store i32 %.sink, ptr %257, align 4
   %indvars.iv.next615 = add nuw nsw i64 %indvars.iv614, 1
   %exitcond618.not = icmp eq i64 %indvars.iv.next615, %wide.trip.count617
@@ -1346,19 +1346,19 @@ define void @ADIOI_P2PContigReadAggregation(ptr noundef %0, ptr noundef %1, ptr 
 
 .lr.ph569:                                        ; preds = %.lr.ph569.preheader, %.lr.ph569
   %indvars.iv619 = phi i64 [ 0, %.lr.ph569.preheader ], [ %indvars.iv.next620, %.lr.ph569 ]
-  %258 = getelementptr inbounds i32, ptr %182, i64 %indvars.iv619
+  %258 = getelementptr inbounds nuw i32, ptr %182, i64 %indvars.iv619
   %259 = load i32, ptr %258, align 4
   %260 = sext i32 %259 to i64
   %261 = getelementptr inbounds i8, ptr %1, i64 %260
-  %262 = getelementptr inbounds i32, ptr %183, i64 %indvars.iv619
+  %262 = getelementptr inbounds nuw i32, ptr %183, i64 %indvars.iv619
   %263 = load i32, ptr %262, align 4
-  %264 = getelementptr inbounds i32, ptr %181, i64 %indvars.iv619
+  %264 = getelementptr inbounds nuw i32, ptr %181, i64 %indvars.iv619
   %265 = load i32, ptr %264, align 4
   %266 = sext i32 %265 to i64
   %267 = getelementptr inbounds i32, ptr %51, i64 %266
   %268 = load i32, ptr %267, align 4
   %269 = load ptr, ptr %15, align 8
-  %270 = getelementptr inbounds ptr, ptr %158, i64 %indvars.iv619
+  %270 = getelementptr inbounds nuw ptr, ptr %158, i64 %indvars.iv619
   %271 = call i32 @PMPI_Irecv(ptr noundef %261, i32 noundef %263, ptr noundef nonnull @ompi_mpi_byte, i32 noundef %268, i32 noundef 0, ptr noundef %269, ptr noundef %270) #4
   %indvars.iv.next620 = add nuw nsw i64 %indvars.iv619, 1
   %exitcond623.not = icmp eq i64 %indvars.iv.next620, %wide.trip.count622
@@ -1377,7 +1377,7 @@ define void @ADIOI_P2PContigReadAggregation(ptr noundef %0, ptr noundef %1, ptr 
 .lr.ph572:                                        ; preds = %.preheader, %.lr.ph572
   %indvars.iv624 = phi i64 [ %indvars.iv.next625, %.lr.ph572 ], [ 0, %.preheader ]
   %.0571 = phi i32 [ %274, %.lr.ph572 ], [ 0, %.preheader ]
-  %272 = getelementptr inbounds i32, ptr %179, i64 %indvars.iv624
+  %272 = getelementptr inbounds nuw i32, ptr %179, i64 %indvars.iv624
   %273 = load i32, ptr %272, align 4
   %274 = add nsw i32 %273, %.0571
   %indvars.iv.next625 = add nuw nsw i64 %indvars.iv624, 1
@@ -1390,14 +1390,14 @@ define void @ADIOI_P2PContigReadAggregation(ptr noundef %0, ptr noundef %1, ptr 
 
 ._crit_edge573:                                   ; preds = %._crit_edge573.loopexit, %.preheader
   %.0.lcssa = phi i64 [ 0, %.preheader ], [ %275, %._crit_edge573.loopexit ]
-  %276 = getelementptr inbounds i32, ptr %179, i64 %indvars.iv629
+  %276 = getelementptr inbounds nuw i32, ptr %179, i64 %indvars.iv629
   %277 = load i32, ptr %276, align 4
   %278 = icmp sgt i32 %277, 0
   br i1 %278, label %279, label %297
 
 279:                                              ; preds = %._crit_edge573
   %280 = getelementptr inbounds i8, ptr %163, i64 %.0.lcssa
-  %281 = getelementptr inbounds i32, ptr %.0436, i64 %indvars.iv629
+  %281 = getelementptr inbounds nuw i32, ptr %.0436, i64 %indvars.iv629
   %282 = load i32, ptr %281, align 4
   %283 = load ptr, ptr %15, align 8
   %284 = sext i32 %.0413576 to i64
@@ -1405,13 +1405,13 @@ define void @ADIOI_P2PContigReadAggregation(ptr noundef %0, ptr noundef %1, ptr 
   %286 = call i32 @PMPI_Isend(ptr noundef %280, i32 noundef %277, ptr noundef nonnull @ompi_mpi_byte, i32 noundef %282, i32 noundef 0, ptr noundef %283, ptr noundef %285) #4
   %287 = add nsw i32 %.0413576, 1
   %288 = load i32, ptr %276, align 4
-  %289 = getelementptr inbounds i32, ptr %.0450, i64 %indvars.iv629
+  %289 = getelementptr inbounds nuw i32, ptr %.0450, i64 %indvars.iv629
   %290 = load i32, ptr %289, align 4
   %291 = sub nsw i32 %290, %288
   store i32 %291, ptr %289, align 4
   %292 = load i32, ptr %276, align 4
   %293 = sext i32 %292 to i64
-  %294 = getelementptr inbounds i64, ptr %.0454, i64 %indvars.iv629
+  %294 = getelementptr inbounds nuw i64, ptr %.0454, i64 %indvars.iv629
   %295 = load i64, ptr %294, align 8
   %296 = add nsw i64 %295, %293
   store i64 %296, ptr %294, align 8

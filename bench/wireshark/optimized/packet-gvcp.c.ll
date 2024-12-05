@@ -1068,7 +1068,7 @@ define internal i32 @dissect_gvcp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %or.cond, label %14, label %215
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   tail call void @col_set_str(ptr noundef %16, i32 noundef 34, ptr noundef nonnull @.str.461) #5
   %17 = load ptr, ptr %15, align 8
@@ -1176,7 +1176,7 @@ define internal i32 @dissect_gvcp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %80 = tail call ptr @wmem_file_scope() #5
   %81 = tail call noalias ptr @wmem_map_new(ptr noundef %80, ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #5
   store ptr %81, ptr %79, align 8
-  %82 = getelementptr inbounds i8, ptr %79, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %79, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(2048) %82, i8 0, i64 2048, i1 false)
   %83 = load i32, ptr @proto_gvcp, align 4
   tail call void @conversation_add_proto_data(ptr noundef nonnull %74, i32 noundef %83, ptr noundef nonnull %79) #5
@@ -1184,9 +1184,9 @@ define internal i32 @dissect_gvcp(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 84:                                               ; preds = %77, %64
   %.0271 = phi ptr [ %76, %64 ], [ %79, %77 ]
-  %85 = getelementptr inbounds i8, ptr %1, i64 80
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 50
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 50
   %88 = load i16, ptr %87, align 2
   %89 = and i16 %88, 8
   %.not289 = icmp eq i16 %89, 0
@@ -1196,13 +1196,13 @@ define internal i32 @dissect_gvcp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %12, label %.thread314, label %99
 
 .thread314:                                       ; preds = %90
-  %91 = getelementptr inbounds i8, ptr %1, i64 408
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %92 = load ptr, ptr %91, align 8
   %93 = tail call noalias ptr @wmem_alloc(ptr noundef %92, i64 noundef 24) #5
-  %94 = getelementptr inbounds i8, ptr %1, i64 20
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %95 = load i32, ptr %94, align 4
   store i32 %95, ptr %93, align 8
-  %96 = getelementptr inbounds i8, ptr %93, i64 4
+  %96 = getelementptr inbounds nuw i8, ptr %93, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %96, i8 0, i64 16, i1 false)
   %97 = load i32, ptr @ett_gvcp, align 4
   %98 = tail call ptr @proto_item_add_subtree(ptr noundef %.sink, i32 noundef %97) #5
@@ -1229,7 +1229,7 @@ define internal i32 @dissect_gvcp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %108, label %.lr.ph325, label %.loopexit
 
 .lr.ph325:                                        ; preds = %106
-  %109 = getelementptr inbounds i8, ptr %1, i64 20
+  %109 = getelementptr inbounds nuw i8, ptr %1, i64 20
   br label %110
 
 110:                                              ; preds = %.lr.ph325, %121
@@ -1246,7 +1246,7 @@ define internal i32 @dissect_gvcp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %116, label %117, label %121
 
 117:                                              ; preds = %113
-  %118 = getelementptr inbounds i8, ptr %112, i64 4
+  %118 = getelementptr inbounds nuw i8, ptr %112, i64 4
   %119 = load i32, ptr %118, align 4
   %.not292 = icmp eq i32 %119, 0
   br i1 %.not292, label %120, label %.loopexit
@@ -1275,7 +1275,7 @@ define internal i32 @dissect_gvcp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not326, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %128
-  %130 = getelementptr inbounds i8, ptr %1, i64 20
+  %130 = getelementptr inbounds nuw i8, ptr %1, i64 20
   br label %131
 
 131:                                              ; preds = %.lr.ph, %142
@@ -1292,7 +1292,7 @@ define internal i32 @dissect_gvcp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %137, label %.loopexit318, label %138
 
 138:                                              ; preds = %134
-  %139 = getelementptr inbounds i8, ptr %133, i64 4
+  %139 = getelementptr inbounds nuw i8, ptr %133, i64 4
   %140 = load i32, ptr %139, align 4
   %141 = icmp eq i32 %135, %140
   br i1 %141, label %.loopexit318, label %142
@@ -1303,7 +1303,7 @@ define internal i32 @dissect_gvcp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %exitcond.not, label %.loopexit, label %131, !llvm.loop !6
 
 .loopexit:                                        ; preds = %142, %121, %128, %106, %123, %101, %99, %117
-  %144 = getelementptr inbounds i8, ptr %1, i64 408
+  %144 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %145 = load ptr, ptr %144, align 8
   %146 = tail call noalias ptr @wmem_alloc0(ptr noundef %145, i64 noundef 24) #5
   br label %.loopexit318
@@ -1321,7 +1321,7 @@ define internal i32 @dissect_gvcp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not298, label %proto_item_set_generated.exit, label %151
 
 151:                                              ; preds = %149
-  %152 = getelementptr inbounds i8, ptr %.3316, i64 4
+  %152 = getelementptr inbounds nuw i8, ptr %.3316, i64 4
   %153 = load i32, ptr %152, align 4
   %.not299 = icmp eq i32 %153, 0
   br i1 %.not299, label %proto_item_set_generated.exit, label %154
@@ -1333,13 +1333,13 @@ define internal i32 @dissect_gvcp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not.i, label %proto_item_set_generated.exit, label %157
 
 157:                                              ; preds = %154
-  %158 = getelementptr inbounds i8, ptr %156, i64 32
+  %158 = getelementptr inbounds nuw i8, ptr %156, i64 32
   %159 = load ptr, ptr %158, align 8
   %.not5.i = icmp eq ptr %159, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %160
 
 160:                                              ; preds = %157
-  %161 = getelementptr inbounds i8, ptr %159, i64 28
+  %161 = getelementptr inbounds nuw i8, ptr %159, i64 28
   %162 = load i32, ptr %161, align 4
   %163 = or i32 %162, 2
   store i32 %163, ptr %161, align 4
@@ -1396,7 +1396,7 @@ proto_item_set_generated.exit:                    ; preds = %160, %157, %154, %1
 
 173:                                              ; preds = %proto_item_set_generated.exit, %172, %171, %170, %169, %168, %167, %166, %165, %164
   %174 = load ptr, ptr %85, align 8
-  %175 = getelementptr inbounds i8, ptr %174, i64 50
+  %175 = getelementptr inbounds nuw i8, ptr %174, i64 50
   %176 = load i16, ptr %175, align 2
   %177 = and i16 %176, 8
   %178 = icmp eq i16 %177, 0
@@ -1441,13 +1441,13 @@ proto_item_set_generated.exit:                    ; preds = %160, %157, %154, %1
   br i1 %.not.i301, label %proto_item_set_generated.exit303, label %197
 
 197:                                              ; preds = %194
-  %198 = getelementptr inbounds i8, ptr %196, i64 32
+  %198 = getelementptr inbounds nuw i8, ptr %196, i64 32
   %199 = load ptr, ptr %198, align 8
   %.not5.i302 = icmp eq ptr %199, null
   br i1 %.not5.i302, label %proto_item_set_generated.exit303, label %200
 
 200:                                              ; preds = %197
-  %201 = getelementptr inbounds i8, ptr %199, i64 28
+  %201 = getelementptr inbounds nuw i8, ptr %199, i64 28
   %202 = load i32, ptr %201, align 4
   %203 = or i32 %202, 2
   store i32 %203, ptr %201, align 4
@@ -1620,7 +1620,7 @@ define internal fastcc void @dissect_packetresend_cmd(ptr noundef %0, ptr nounde
   %.053 = phi i64 [ %9, %7 ], [ %20, %14 ]
   %.050 = phi i32 [ %13, %7 ], [ %22, %14 ]
   %.049 = phi i32 [ %11, %7 ], [ %21, %14 ]
-  %24 = getelementptr inbounds i8, ptr %2, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %25 = load ptr, ptr %24, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %25, i32 noundef 25, ptr noundef nonnull @.str.733, i64 noundef %.053, i32 noundef %.049, i32 noundef %.050) #5
   %.not = icmp eq ptr %0, null
@@ -1663,14 +1663,14 @@ define internal fastcc void @dissect_readreg_cmd(ptr noundef %0, ptr noundef %1,
   %9 = lshr i32 %3, 2
   %10 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef 8) #5
   store i32 %10, ptr %8, align 4
-  %11 = getelementptr inbounds i8, ptr %2, i64 408
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr @try_val_to_str(i32 noundef %10, ptr noundef nonnull @bootstrapregisternames) #5
   %.not16.i = icmp eq ptr %13, null
   br i1 %.not16.i, label %14, label %get_register_name_from_address.exit
 
 14:                                               ; preds = %6
-  %15 = getelementptr inbounds i8, ptr %4, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %17
 
 16:                                               ; preds = %17
@@ -1702,7 +1702,7 @@ define internal fastcc void @dissect_readreg_cmd(ptr noundef %0, ptr noundef %1,
 get_register_name_from_address.exit:              ; preds = %6, %22, %.thread.i
   %.0.i = phi ptr [ %13, %6 ], [ %24, %22 ], [ %25, %.thread.i ]
   %26 = icmp samesign ugt i32 %3, 7
-  %27 = getelementptr inbounds i8, ptr %2, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %28 = load ptr, ptr %27, align 8
   br i1 %26, label %29, label %30
 
@@ -1715,9 +1715,9 @@ get_register_name_from_address.exit:              ; preds = %6, %22, %.thread.i
   br label %31
 
 31:                                               ; preds = %30, %29
-  %32 = getelementptr inbounds i8, ptr %2, i64 80
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 50
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 50
   %35 = load i16, ptr %34, align 2
   %36 = and i16 %35, 8
   %.not = icmp eq i16 %36, 0
@@ -1726,7 +1726,7 @@ get_register_name_from_address.exit:              ; preds = %6, %22, %.thread.i
 37:                                               ; preds = %31
   %38 = tail call ptr @wmem_file_scope() #5
   %39 = tail call noalias ptr @wmem_array_new(ptr noundef %38, i64 noundef 4) #5
-  %40 = getelementptr inbounds i8, ptr %5, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %39, ptr %40, align 8
   br label %41
 
@@ -1748,9 +1748,9 @@ get_register_name_from_address.exit:              ; preds = %6, %22, %.thread.i
 .lr.ph:                                           ; preds = %.thread, %46
   %.067 = phi ptr [ %45, %.thread ], [ %0, %46 ]
   %.not42 = icmp eq ptr %5, null
-  %47 = getelementptr inbounds i8, ptr %5, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not44 = icmp eq ptr %.067, null
-  %48 = getelementptr inbounds i8, ptr %4, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br i1 %.not44, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
@@ -1772,7 +1772,7 @@ dissect_extended_bootstrap_register.exit.us.us:   ; preds = %.lr.ph.split.us, %d
   %52 = call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %.03955.us) #5
   store i32 %52, ptr %8, align 4
   %53 = load ptr, ptr %32, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 50
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 50
   %55 = load i16, ptr %54, align 2
   %56 = and i16 %55, 8
   %.not43.us = icmp eq i16 %56, 0
@@ -1798,7 +1798,7 @@ dissect_extended_bootstrap_register.exit.us:      ; preds = %57, %.lr.ph.split.u
 
 62:                                               ; preds = %.lr.ph.split
   %63 = load ptr, ptr %32, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 50
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 50
   %65 = load i16, ptr %64, align 2
   %66 = and i16 %65, 8
   %.not43 = icmp eq i16 %66, 0
@@ -1849,7 +1849,7 @@ is_extended_bootstrap_address.exit:               ; preds = %78
 
 switch.lookup:                                    ; preds = %is_extended_bootstrap_address.exit
   %86 = zext nneg i32 %84 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_readmem_ack, i64 0, i64 %86
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.dissect_readmem_ack, i64 0, i64 %86
   %switch.load = load ptr, ptr %switch.gep, align 8
   %87 = load i32, ptr %switch.load, align 4
   %88 = call ptr @proto_tree_add_item(ptr noundef nonnull %.067, i32 noundef %87, ptr noundef %1, i32 noundef %.03955, i32 noundef 4, i32 noundef 0) #5
@@ -1881,21 +1881,21 @@ define internal fastcc void @dissect_writereg_cmd(ptr noundef %0, ptr noundef %1
   br i1 %.not, label %11, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %8, ptr %10, align 8
   br label %11
 
 11:                                               ; preds = %9, %6
   %12 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef 8) #5
   %13 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef 12) #5
-  %14 = getelementptr inbounds i8, ptr %2, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr @try_val_to_str(i32 noundef %12, ptr noundef nonnull @bootstrapregisternames) #5
   %.not16.i = icmp eq ptr %16, null
   br i1 %.not16.i, label %17, label %get_register_name_from_address.exit
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %4, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %20
 
 19:                                               ; preds = %20
@@ -1949,7 +1949,7 @@ get_register_name_from_address.exit:              ; preds = %11, %25, %.thread.i
 
 36:                                               ; preds = %get_register_name_from_address.exit, %34, %31
   %37 = icmp samesign ugt i32 %3, 15
-  %38 = getelementptr inbounds i8, ptr %2, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %39 = load ptr, ptr %38, align 8
   %.not70 = icmp eq ptr %0, null
   br i1 %37, label %40, label %.thread
@@ -1971,7 +1971,7 @@ get_register_name_from_address.exit:              ; preds = %11, %25, %.thread.i
 
 .lr.ph:                                           ; preds = %.thread, %.thread76.thread
   %.091 = phi ptr [ %42, %.thread76.thread ], [ %0, %.thread ]
-  %43 = getelementptr inbounds i8, ptr %4, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %44
 
 44:                                               ; preds = %.lr.ph, %dissect_extended_bootstrap_register.exit
@@ -2022,7 +2022,7 @@ is_extended_bootstrap_address.exit:               ; preds = %.preheader
 
 switch.lookup:                                    ; preds = %is_extended_bootstrap_address.exit
   %66 = zext nneg i32 %64 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_readmem_ack, i64 0, i64 %66
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.dissect_readmem_ack, i64 0, i64 %66
   %switch.load = load ptr, ptr %switch.gep, align 8
   %67 = load i32, ptr %switch.load, align 4
   %68 = call ptr @proto_tree_add_item(ptr noundef %61, i32 noundef %67, ptr noundef %1, i32 noundef %62, i32 noundef 4, i32 noundef 0) #5
@@ -2054,7 +2054,7 @@ dissect_extended_bootstrap_register.exit:         ; preds = %is_extended_bootstr
 define internal fastcc void @dissect_readmem_cmd(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef 8) #5
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef 14) #5
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = zext i16 %6 to i32
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %8, i32 noundef 25, ptr noundef nonnull @.str.742, i32 noundef %5, i32 noundef %9) #5
@@ -2072,7 +2072,7 @@ define internal fastcc void @dissect_readmem_cmd(ptr noundef %0, ptr noundef %1,
   br label %dissect_extended_bootstrap_register.exit
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %3, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %18
 
 17:                                               ; preds = %18
@@ -2099,7 +2099,7 @@ is_extended_bootstrap_address.exit:               ; preds = %18
 
 switch.lookup:                                    ; preds = %is_extended_bootstrap_address.exit
   %26 = zext nneg i32 %24 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_readmem_ack, i64 0, i64 %26
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.dissect_readmem_ack, i64 0, i64 %26
   %switch.load = load ptr, ptr %switch.gep, align 8
   %27 = load i32, ptr %switch.load, align 4
   %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %27, ptr noundef %1, i32 noundef 8, i32 noundef 4, i32 noundef 0) #5
@@ -2125,14 +2125,14 @@ define internal fastcc void @dissect_writemem_cmd(ptr noundef %0, ptr noundef %1
   %7 = alloca i32, align 4
   %8 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef 8) #5
   store i32 %8, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %2, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr @try_val_to_str(i32 noundef %8, ptr noundef nonnull @bootstrapregisternames) #5
   %.not16.i = icmp eq ptr %11, null
   br i1 %.not16.i, label %12, label %get_register_name_from_address.exit
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %4, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %15
 
 14:                                               ; preds = %15
@@ -2163,7 +2163,7 @@ define internal fastcc void @dissect_writemem_cmd(ptr noundef %0, ptr noundef %1
 
 get_register_name_from_address.exit:              ; preds = %6, %20, %.thread.i
   %.0.i = phi ptr [ %11, %6 ], [ %22, %20 ], [ %23, %.thread.i ]
-  %24 = getelementptr inbounds i8, ptr %2, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = add nsw i32 %3, -4
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %25, i32 noundef 25, ptr noundef nonnull @.str.743, ptr noundef %.0.i, i32 noundef %26) #5
@@ -2171,9 +2171,9 @@ get_register_name_from_address.exit:              ; preds = %6, %20, %.thread.i
   br i1 %.not, label %.thread, label %27
 
 27:                                               ; preds = %get_register_name_from_address.exit
-  %28 = getelementptr inbounds i8, ptr %2, i64 80
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 50
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 50
   %31 = load i16, ptr %30, align 2
   %32 = and i16 %31, 8
   %.not34 = icmp eq i16 %32, 0
@@ -2182,7 +2182,7 @@ get_register_name_from_address.exit:              ; preds = %6, %20, %.thread.i
 33:                                               ; preds = %27
   %34 = tail call ptr @wmem_file_scope() #5
   %35 = tail call noalias ptr @wmem_array_new(ptr noundef %34, i64 noundef 4) #5
-  %36 = getelementptr inbounds i8, ptr %5, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %35, ptr %36, align 8
   call void @wmem_array_append(ptr noundef %35, ptr noundef nonnull %7, i32 noundef 1) #5
   br label %37
@@ -2196,7 +2196,7 @@ get_register_name_from_address.exit:              ; preds = %6, %20, %.thread.i
   br i1 %.not3542, label %dissect_register_data.exit, label %proto_item_set_generated.exit
 
 38:                                               ; preds = %37
-  %39 = getelementptr inbounds i8, ptr %5, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %40 = load i32, ptr %39, align 4
   %.not36 = icmp eq i32 %40, 0
   br i1 %.not36, label %proto_item_set_generated.exit, label %41
@@ -2208,13 +2208,13 @@ get_register_name_from_address.exit:              ; preds = %6, %20, %.thread.i
   br i1 %.not.i, label %proto_item_set_generated.exit, label %44
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %43, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %46 = load ptr, ptr %45, align 8
   %.not5.i = icmp eq ptr %46, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %47
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %46, i64 28
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 28
   %49 = load i32, ptr %48, align 4
   %50 = or i32 %49, 2
   store i32 %50, ptr %48, align 4
@@ -2272,7 +2272,7 @@ proto_item_set_generated.exit:                    ; preds = %.thread, %47, %44, 
   br i1 %70, label %dissect_register_data.exit.sink.split, label %dissect_register_data.exit
 
 71:                                               ; preds = %proto_item_set_generated.exit
-  %72 = getelementptr inbounds i8, ptr %4, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %74
 
 73:                                               ; preds = %74
@@ -2299,7 +2299,7 @@ is_extended_bootstrap_address.exit:               ; preds = %74
 
 switch.lookup:                                    ; preds = %is_extended_bootstrap_address.exit
   %82 = zext nneg i32 %80 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_readmem_ack, i64 0, i64 %82
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.dissect_readmem_ack, i64 0, i64 %82
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %dissect_register_data.exit.sink.split
 
@@ -2318,7 +2318,7 @@ dissect_register_data.exit:                       ; preds = %is_extended_bootstr
 define internal fastcc void @dissect_event_cmd(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 65536) %3, i32 noundef range(i32 -1, 17) %4) unnamed_addr #0 {
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef 10) #5
   %7 = zext i16 %6 to i32
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %9, i32 noundef 25, ptr noundef nonnull @.str.744, i32 noundef %7) #5
   %.not = icmp eq ptr %0, null
@@ -2404,7 +2404,7 @@ define internal fastcc void @dissect_eventdata_cmd(ptr noundef %0, ptr noundef %
   br i1 %6, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.not = icmp eq i32 %3, 0
   br label %8
 
@@ -2511,12 +2511,12 @@ declare ptr @wmem_map_insert(ptr noundef, ptr noundef, ptr noundef) local_unname
 define internal fastcc void @dissect_discovery_ack(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 65536) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %2, i64 408
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = call ptr @tvb_get_stringz_enc(ptr noundef %7, ptr noundef %1, i32 noundef 80, ptr noundef nonnull %5, i32 noundef 0) #5
   %9 = load ptr, ptr %6, align 8
   %10 = call ptr @tvb_get_stringz_enc(ptr noundef %9, ptr noundef %1, i32 noundef 224, ptr noundef nonnull %5, i32 noundef 0) #5
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load ptr, ptr %11, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %12, i32 noundef 25, ptr noundef nonnull @.str.746, ptr noundef %8, ptr noundef %10) #5
   %.not = icmp eq ptr %0, null
@@ -2606,7 +2606,7 @@ define internal fastcc void @dissect_readreg_ack(ptr noundef %0, ptr noundef %1,
   br i1 %.not, label %11, label %8
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not85 = icmp eq ptr %10, null
   br i1 %.not85, label %11, label %.thread
@@ -2628,14 +2628,14 @@ define internal fastcc void @dissect_readreg_ack(ptr noundef %0, ptr noundef %1,
   %17 = load ptr, ptr %9, align 8
   %18 = tail call ptr @wmem_array_index(ptr noundef %17, i32 noundef 0) #5
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %2, i64 408
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %21 = load ptr, ptr %20, align 8
   %22 = tail call ptr @try_val_to_str(i32 noundef %19, ptr noundef nonnull @bootstrapregisternames) #5
   %.not16.i = icmp eq ptr %22, null
   br i1 %.not16.i, label %23, label %get_register_name_from_address.exit
 
 23:                                               ; preds = %16
-  %24 = getelementptr inbounds i8, ptr %4, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %26
 
 25:                                               ; preds = %26
@@ -2666,7 +2666,7 @@ define internal fastcc void @dissect_readreg_ack(ptr noundef %0, ptr noundef %1,
 
 get_register_name_from_address.exit:              ; preds = %16, %31, %.thread.i
   %.0.i = phi ptr [ %22, %16 ], [ %33, %31 ], [ %34, %.thread.i ]
-  %35 = getelementptr inbounds i8, ptr %2, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %36 = load ptr, ptr %35, align 8
   tail call void @col_append_str(ptr noundef %36, i32 noundef 25, ptr noundef %.0.i) #5
   br label %37
@@ -2676,7 +2676,7 @@ get_register_name_from_address.exit:              ; preds = %16, %31, %.thread.i
   br i1 %.not88, label %42, label %38
 
 38:                                               ; preds = %37
-  %39 = getelementptr inbounds i8, ptr %2, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef 8) #5
   tail call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %40, i32 noundef 25, ptr noundef nonnull @.str.749, ptr noundef nonnull @.str.750, i32 noundef %41) #5
@@ -2693,7 +2693,7 @@ get_register_name_from_address.exit:              ; preds = %16, %31, %.thread.i
 .thread145:                                       ; preds = %11, %.thread
   %.076115 = phi i32 [ %13, %.thread ], [ 0, %11 ]
   %43 = phi i1 [ true, %.thread ], [ false, %11 ]
-  %44 = getelementptr inbounds i8, ptr %2, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %45 = load ptr, ptr %44, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %45, i32 noundef 25, ptr noundef nonnull @.str.748) #5
   %.not89148 = icmp eq ptr %0, null
@@ -2714,9 +2714,9 @@ dissect_extended_bootstrap_register.exit.us.preheader: ; preds = %.thread158, %.
 .lr.ph.split.preheader:                           ; preds = %.thread158, %.lr.ph
   %.076114149156163168 = phi i32 [ %.076115, %.thread158 ], [ %.076114, %.lr.ph ]
   %.079165166 = phi ptr [ %47, %.thread158 ], [ %0, %.lr.ph ]
-  %48 = getelementptr inbounds i8, ptr %5, i64 8
-  %49 = getelementptr inbounds i8, ptr %2, i64 408
-  %50 = getelementptr inbounds i8, ptr %4, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 408
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %.lr.ph.split
 
 dissect_extended_bootstrap_register.exit.us:      ; preds = %dissect_extended_bootstrap_register.exit.us.preheader, %dissect_extended_bootstrap_register.exit.us
@@ -2823,7 +2823,7 @@ is_extended_bootstrap_address.exit:               ; preds = %.preheader
 
 switch.lookup:                                    ; preds = %is_extended_bootstrap_address.exit
   %91 = zext nneg i32 %89 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_readmem_ack, i64 0, i64 %91
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.dissect_readmem_ack, i64 0, i64 %91
   %switch.load = load ptr, ptr %switch.gep, align 8
   %92 = load i32, ptr %switch.load, align 4
   %93 = tail call ptr @proto_tree_add_item(ptr noundef %.079165166, i32 noundef %92, ptr noundef %1, i32 noundef %.078133, i32 noundef 4, i32 noundef 0) #5
@@ -2874,10 +2874,10 @@ define internal fastcc void @dissect_writereg_ack(ptr noundef %0, ptr noundef %1
   br i1 %.not23, label %26, label %10
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load i32, ptr %11, align 8
   %13 = icmp sgt i32 %12, 1
-  %14 = getelementptr inbounds i8, ptr %2, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = zext i16 %9 to i32
   %17 = icmp eq i32 %12, %16
@@ -2903,7 +2903,7 @@ define internal fastcc void @dissect_writereg_ack(ptr noundef %0, ptr noundef %1
   br label %29
 
 26:                                               ; preds = %8
-  %27 = getelementptr inbounds i8, ptr %2, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %28 = load ptr, ptr %27, align 8
   tail call void @col_append_str(ptr noundef %28, i32 noundef 25, ptr noundef nonnull @.str.758) #5
   br label %29
@@ -2919,14 +2919,14 @@ define internal fastcc void @dissect_readmem_ack(ptr noundef %0, ptr noundef %1,
 
 6:                                                ; preds = %5
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef 8) #5
-  %8 = getelementptr inbounds i8, ptr %2, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr @try_val_to_str(i32 noundef %7, ptr noundef nonnull @bootstrapregisternames) #5
   %.not16.i = icmp eq ptr %10, null
   br i1 %.not16.i, label %11, label %get_register_name_from_address.exit
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %14
 
 13:                                               ; preds = %14
@@ -2957,7 +2957,7 @@ define internal fastcc void @dissect_readmem_ack(ptr noundef %0, ptr noundef %1,
 
 get_register_name_from_address.exit:              ; preds = %6, %19, %.thread.i
   %.0.i = phi ptr [ %10, %6 ], [ %21, %19 ], [ %22, %.thread.i ]
-  %23 = getelementptr inbounds i8, ptr %2, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %24 = load ptr, ptr %23, align 8
   tail call void @col_append_str(ptr noundef %24, i32 noundef 25, ptr noundef %.0.i) #5
   %.not40 = icmp eq ptr %0, null
@@ -3016,7 +3016,7 @@ get_register_name_from_address.exit:              ; preds = %6, %19, %.thread.i
   br i1 %46, label %dissect_register_data.exit.sink.split, label %dissect_register_data.exit
 
 47:                                               ; preds = %25
-  %48 = getelementptr inbounds i8, ptr %4, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %50
 
 49:                                               ; preds = %50
@@ -3043,7 +3043,7 @@ is_extended_bootstrap_address.exit:               ; preds = %50
 
 switch.lookup:                                    ; preds = %is_extended_bootstrap_address.exit
   %58 = zext nneg i32 %56 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_readmem_ack, i64 0, i64 %58
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.dissect_readmem_ack, i64 0, i64 %58
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %dissect_register_data.exit.sink.split
 
@@ -3064,7 +3064,7 @@ define internal fastcc void @dissect_writemem_ack(ptr noundef %0, ptr noundef %1
   br i1 %.not, label %.thread, label %7
 
 7:                                                ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not24 = icmp eq ptr %9, null
   br i1 %.not24, label %33, label %10
@@ -3078,14 +3078,14 @@ define internal fastcc void @dissect_writemem_ack(ptr noundef %0, ptr noundef %1
   %13 = load ptr, ptr %8, align 8
   %14 = tail call ptr @wmem_array_index(ptr noundef %13, i32 noundef 0) #5
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %2, i64 408
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr @try_val_to_str(i32 noundef %15, ptr noundef nonnull @bootstrapregisternames) #5
   %.not16.i = icmp eq ptr %18, null
   br i1 %.not16.i, label %19, label %get_register_name_from_address.exit
 
 19:                                               ; preds = %12
-  %20 = getelementptr inbounds i8, ptr %4, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %22
 
 21:                                               ; preds = %22
@@ -3116,7 +3116,7 @@ define internal fastcc void @dissect_writemem_ack(ptr noundef %0, ptr noundef %1
 
 get_register_name_from_address.exit:              ; preds = %12, %27, %.thread.i
   %.0.i = phi ptr [ %18, %12 ], [ %29, %27 ], [ %30, %.thread.i ]
-  %31 = getelementptr inbounds i8, ptr %2, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %32 = load ptr, ptr %31, align 8
   tail call void @col_append_str(ptr noundef %32, i32 noundef 25, ptr noundef %.0.i) #5
   br label %33
@@ -3141,13 +3141,13 @@ get_register_name_from_address.exit:              ; preds = %12, %27, %.thread.i
   br i1 %.not.i, label %proto_item_set_generated.exit, label %39
 
 39:                                               ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %38, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 32
   %41 = load ptr, ptr %40, align 8
   %.not5.i = icmp eq ptr %41, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %42
 
 42:                                               ; preds = %39
-  %43 = getelementptr inbounds i8, ptr %41, i64 28
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 28
   %44 = load i32, ptr %43, align 4
   %45 = or i32 %44, 2
   store i32 %45, ptr %43, align 4

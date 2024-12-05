@@ -690,10 +690,10 @@ eval_buf.exit:                                    ; preds = %208, %211, %216
   br i1 %or.cond6, label %.preheader, label %278
 
 .preheader:                                       ; preds = %228
-  %229 = getelementptr inbounds i8, ptr %6, i64 8
-  %230 = getelementptr inbounds i8, ptr %6, i64 16
-  %231 = getelementptr inbounds i8, ptr %6, i64 24
-  %232 = getelementptr inbounds i8, ptr %6, i64 32
+  %229 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %230 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %231 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %232 = getelementptr inbounds nuw i8, ptr %6, i64 32
   br label %233
 
 233:                                              ; preds = %.preheader, %.split550.us
@@ -759,15 +759,15 @@ eval_buf.exit:                                    ; preds = %208, %211, %216
   br i1 %exitcond671.not, label %265, label %233, !llvm.loop !12
 
 265:                                              ; preds = %.split550.us
-  %266 = getelementptr inbounds i8, ptr %7, i64 8
+  %266 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %267 = load double, ptr %266, align 8
-  %268 = getelementptr inbounds i8, ptr %7, i64 16
+  %268 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %269 = load double, ptr %268, align 16
   %270 = fadd double %267, %269
-  %271 = getelementptr inbounds i8, ptr %7, i64 24
+  %271 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %272 = load double, ptr %271, align 8
   %273 = fadd double %270, %272
-  %274 = getelementptr inbounds i8, ptr %7, i64 32
+  %274 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %275 = load double, ptr %274, align 16
   %276 = fadd double %273, %275
   %277 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.29, double noundef %276, double noundef %267, double noundef %269, double noundef %272, double noundef %275)
@@ -984,10 +984,10 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @js_trace_malloc(ptr nocapture noundef %0, i64 noundef %1) #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = icmp ugt i64 %5, %7
   br i1 %8, label %18, label %9
@@ -1025,7 +1025,7 @@ define internal void @js_trace_free(ptr nocapture noundef %0, ptr noundef %1) #3
   %5 = add i64 %4, -1
   store i64 %5, ptr %0, align 8
   %6 = tail call i64 @malloc_usable_size(ptr noundef nonnull %1) #16
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   %reass.sub = sub i64 %8, %6
   %9 = add i64 %reass.sub, -8
@@ -1047,10 +1047,10 @@ define internal noundef ptr @js_trace_realloc(ptr nocapture noundef %0, ptr noun
   br i1 %5, label %js_trace_malloc.exit, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %8, %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i64, ptr %10, align 8
   %12 = icmp ugt i64 %9, %11
   br i1 %12, label %js_trace_malloc.exit, label %13
@@ -1082,7 +1082,7 @@ define internal noundef ptr @js_trace_realloc(ptr nocapture noundef %0, ptr noun
   %26 = load i64, ptr %0, align 8
   %27 = add i64 %26, -1
   store i64 %27, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load i64, ptr %28, align 8
   %reass.sub = sub i64 %29, %23
   %30 = add i64 %reass.sub, -8
@@ -1091,11 +1091,11 @@ define internal noundef ptr @js_trace_realloc(ptr nocapture noundef %0, ptr noun
   br label %js_trace_malloc.exit
 
 31:                                               ; preds = %22
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load i64, ptr %32, align 8
   %34 = sub i64 %2, %23
   %35 = add i64 %34, %33
-  %36 = getelementptr inbounds i8, ptr %0, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %37 = load i64, ptr %36, align 8
   %38 = icmp ugt i64 %35, %37
   br i1 %38, label %js_trace_malloc.exit, label %39
@@ -1130,9 +1130,9 @@ define internal i64 @js_trace_malloc_usable_size(ptr noundef %0) #3 {
 define internal void @js_trace_malloc_printf(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #3 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %2

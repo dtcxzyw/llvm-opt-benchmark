@@ -47,15 +47,15 @@ define range(i32 0, 2) i32 @lu_decompose(ptr nocapture noundef readonly %0, i32 
 
 .preheader83.us:                                  ; preds = %16, %.preheader83.lr.ph
   %indvars.iv106 = phi i64 [ %indvars.iv.next107, %16 ], [ 0, %.preheader83.lr.ph ]
-  %14 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv106
-  %15 = getelementptr inbounds ptr, ptr %.pre.pre, i64 %indvars.iv106
+  %14 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv106
+  %15 = getelementptr inbounds nuw ptr, ptr %.pre.pre, i64 %indvars.iv106
   br label %21
 
 16:                                               ; preds = %._crit_edge.us
   %17 = fdiv double 1.000000e+00, %28
-  %18 = getelementptr inbounds double, ptr %11, i64 %indvars.iv106
+  %18 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv106
   store double %17, ptr %18, align 8
-  %19 = getelementptr inbounds i32, ptr %.pre133.pre, i64 %indvars.iv106
+  %19 = getelementptr inbounds nuw i32, ptr %.pre133.pre, i64 %indvars.iv106
   %20 = trunc nuw nsw i64 %indvars.iv106 to i32
   store i32 %20, ptr %19, align 4
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
@@ -66,10 +66,10 @@ define range(i32 0, 2) i32 @lu_decompose(ptr nocapture noundef readonly %0, i32 
   %indvars.iv = phi i64 [ 0, %.preheader83.us ], [ %indvars.iv.next, %21 ]
   %.06687.us = phi double [ 0.000000e+00, %.preheader83.us ], [ %28, %21 ]
   %22 = load ptr, ptr %14, align 8
-  %23 = getelementptr inbounds double, ptr %22, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv
   %24 = load double, ptr %23, align 8
   %25 = load ptr, ptr %15, align 8
-  %26 = getelementptr inbounds double, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw double, ptr %25, i64 %indvars.iv
   store double %24, ptr %26, align 8
   %27 = tail call double @llvm.fabs.f64(double %24)
   %28 = tail call double @llvm.maxnum.f64(double %.06687.us, double %27)
@@ -94,7 +94,7 @@ define range(i32 0, 2) i32 @lu_decompose(ptr nocapture noundef readonly %0, i32 
 
 .split.us:                                        ; preds = %._crit_edge.us
   %31 = and i64 %indvars.iv106, 4294967295
-  %32 = getelementptr inbounds double, ptr %11, i64 %31
+  %32 = getelementptr inbounds nuw double, ptr %11, i64 %31
   store double 0.000000e+00, ptr %32, align 8
   br label %.loopexit82
 
@@ -114,12 +114,12 @@ define range(i32 0, 2) i32 @lu_decompose(ptr nocapture noundef readonly %0, i32 
   %indvars.iv113 = phi i64 [ %indvars.iv.next114, %.lr.ph ], [ %indvars.iv111, %.preheader ]
   %.16790 = phi double [ %.268, %.lr.ph ], [ 0.000000e+00, %.preheader ]
   %.17289 = phi i32 [ %.273, %.lr.ph ], [ %.071101, %.preheader ]
-  %34 = getelementptr inbounds i32, ptr %.pre133.pre, i64 %indvars.iv113
+  %34 = getelementptr inbounds nuw i32, ptr %.pre133.pre, i64 %indvars.iv113
   %35 = load i32, ptr %34, align 4
   %36 = sext i32 %35 to i64
   %37 = getelementptr inbounds ptr, ptr %.pre.pre, i64 %36
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds double, ptr %38, i64 %indvars.iv111
+  %39 = getelementptr inbounds nuw double, ptr %38, i64 %indvars.iv111
   %40 = load double, ptr %39, align 8
   %41 = tail call double @llvm.fabs.f64(double %40)
   %42 = getelementptr inbounds double, ptr %11, i64 %36
@@ -143,7 +143,7 @@ define range(i32 0, 2) i32 @lu_decompose(ptr nocapture noundef readonly %0, i32 
   br i1 %.not80, label %.lr.ph95.us.preheader, label %50
 
 50:                                               ; preds = %48
-  %51 = getelementptr inbounds i32, ptr %.pre133.pre, i64 %indvars.iv111
+  %51 = getelementptr inbounds nuw i32, ptr %.pre133.pre, i64 %indvars.iv111
   %52 = load i32, ptr %51, align 4
   %53 = sext i32 %.273 to i64
   %54 = getelementptr inbounds i32, ptr %.pre133.pre, i64 %53
@@ -153,24 +153,24 @@ define range(i32 0, 2) i32 @lu_decompose(ptr nocapture noundef readonly %0, i32 
   br label %.lr.ph95.us.preheader
 
 .lr.ph95.us.preheader:                            ; preds = %48, %50
-  %56 = getelementptr inbounds i32, ptr %.pre133.pre, i64 %indvars.iv111
+  %56 = getelementptr inbounds nuw i32, ptr %.pre133.pre, i64 %indvars.iv111
   %57 = load i32, ptr %56, align 4
   %58 = sext i32 %57 to i64
   %59 = getelementptr inbounds ptr, ptr %.pre.pre, i64 %58
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds double, ptr %60, i64 %indvars.iv111
+  %61 = getelementptr inbounds nuw double, ptr %60, i64 %indvars.iv111
   %62 = load double, ptr %61, align 8
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   br label %.lr.ph95.us
 
 .lr.ph95.us:                                      ; preds = %.lr.ph95.us.preheader, %._crit_edge96.us
   %indvars.iv125 = phi i64 [ %indvars.iv118, %.lr.ph95.us.preheader ], [ %indvars.iv.next126, %._crit_edge96.us ]
-  %63 = getelementptr inbounds i32, ptr %.pre133.pre, i64 %indvars.iv125
+  %63 = getelementptr inbounds nuw i32, ptr %.pre133.pre, i64 %indvars.iv125
   %64 = load i32, ptr %63, align 4
   %65 = sext i32 %64 to i64
   %66 = getelementptr inbounds ptr, ptr %.pre.pre, i64 %65
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds double, ptr %67, i64 %indvars.iv111
+  %68 = getelementptr inbounds nuw double, ptr %67, i64 %indvars.iv111
   %69 = load double, ptr %68, align 8
   %70 = fdiv double %69, %62
   store double %70, ptr %68, align 8
@@ -183,13 +183,13 @@ define range(i32 0, 2) i32 @lu_decompose(ptr nocapture noundef readonly %0, i32 
   %74 = sext i32 %73 to i64
   %75 = getelementptr inbounds ptr, ptr %.pre.pre, i64 %74
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds double, ptr %76, i64 %indvars.iv120
+  %77 = getelementptr inbounds nuw double, ptr %76, i64 %indvars.iv120
   %78 = load double, ptr %77, align 8
   %79 = load i32, ptr %63, align 4
   %80 = sext i32 %79 to i64
   %81 = getelementptr inbounds ptr, ptr %.pre.pre, i64 %80
   %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds double, ptr %82, i64 %indvars.iv120
+  %83 = getelementptr inbounds nuw double, ptr %82, i64 %indvars.iv120
   %84 = load double, ptr %83, align 8
   %85 = tail call double @llvm.fmuladd.f64(double %71, double %78, double %84)
   store double %85, ptr %83, align 8
@@ -296,7 +296,7 @@ define void @lu_solve(ptr nocapture noundef %0, ptr nocapture noundef readonly %
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader40
-  %7 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv55
+  %7 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv55
   %8 = load i32, ptr %7, align 4
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds ptr, ptr %5, i64 %9
@@ -313,9 +313,9 @@ define void @lu_solve(ptr nocapture noundef %0, ptr nocapture noundef readonly %
 16:                                               ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
   %.042 = phi double [ 0.000000e+00, %.lr.ph ], [ %21, %16 ]
-  %17 = getelementptr inbounds double, ptr %11, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv
   %18 = load double, ptr %17, align 8
-  %19 = getelementptr inbounds double, ptr %0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv
   %20 = load double, ptr %19, align 8
   %21 = tail call double @llvm.fmuladd.f64(double %18, double %20, double %.042)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -328,7 +328,7 @@ define void @lu_solve(ptr nocapture noundef %0, ptr nocapture noundef readonly %
   %22 = getelementptr inbounds double, ptr %1, i64 %.pre-phi
   %23 = load double, ptr %22, align 8
   %24 = fsub double %23, %.0.lcssa
-  %25 = getelementptr inbounds double, ptr %0, i64 %indvars.iv55
+  %25 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv55
   store double %24, ptr %25, align 8
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
@@ -338,7 +338,7 @@ define void @lu_solve(ptr nocapture noundef %0, ptr nocapture noundef readonly %
   %indvars.iv60 = phi i64 [ %14, %.preheader.lr.ph ], [ %indvars.iv.next61, %._crit_edge47 ]
   %indvars.iv.next61 = add nsw i64 %indvars.iv60, -1
   %26 = icmp slt i64 %indvars.iv60, %15
-  %27 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv.next61
+  %27 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.next61
   %28 = load i32, ptr %27, align 4
   %29 = sext i32 %28 to i64
   %30 = getelementptr inbounds ptr, ptr %12, i64 %29
@@ -348,9 +348,9 @@ define void @lu_solve(ptr nocapture noundef %0, ptr nocapture noundef readonly %
 .lr.ph46:                                         ; preds = %.preheader, %.lr.ph46
   %indvars.iv62 = phi i64 [ %indvars.iv.next63, %.lr.ph46 ], [ %indvars.iv60, %.preheader ]
   %.145 = phi double [ %36, %.lr.ph46 ], [ 0.000000e+00, %.preheader ]
-  %32 = getelementptr inbounds double, ptr %31, i64 %indvars.iv62
+  %32 = getelementptr inbounds nuw double, ptr %31, i64 %indvars.iv62
   %33 = load double, ptr %32, align 8
-  %34 = getelementptr inbounds double, ptr %0, i64 %indvars.iv62
+  %34 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv62
   %35 = load double, ptr %34, align 8
   %36 = tail call double @llvm.fmuladd.f64(double %33, double %35, double %.145)
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
@@ -360,10 +360,10 @@ define void @lu_solve(ptr nocapture noundef %0, ptr nocapture noundef readonly %
 
 ._crit_edge47:                                    ; preds = %.lr.ph46, %.preheader
   %.1.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %36, %.lr.ph46 ]
-  %39 = getelementptr inbounds double, ptr %0, i64 %indvars.iv.next61
+  %39 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv.next61
   %40 = load double, ptr %39, align 8
   %41 = fsub double %40, %.1.lcssa
-  %42 = getelementptr inbounds double, ptr %31, i64 %indvars.iv.next61
+  %42 = getelementptr inbounds nuw double, ptr %31, i64 %indvars.iv.next61
   %43 = load double, ptr %42, align 8
   %44 = fdiv double %41, %43
   store double %44, ptr %39, align 8

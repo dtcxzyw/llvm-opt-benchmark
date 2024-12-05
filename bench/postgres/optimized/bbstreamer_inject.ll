@@ -27,12 +27,12 @@ define internal void @bbstreamer_recovery_injector_content(ptr noundef %0, ptr n
   ]
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2072) %10, ptr noundef nonnull align 8 dereferenceable(2072) %1, i64 2072, i1 false)
-  %11 = getelementptr inbounds i8, ptr %0, i64 41
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 41
   %12 = load i8, ptr %11, align 1
   %13 = trunc i8 %12 to i1
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br i1 %13, label %15, label %32
 
 15:                                               ; preds = %9
@@ -42,19 +42,19 @@ define internal void @bbstreamer_recovery_injector_content(ptr noundef %0, ptr n
   store i8 %18, ptr %14, align 8
   %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(21) @.str.1) #7
   %20 = icmp eq i32 %19, 0
-  %21 = getelementptr inbounds i8, ptr %0, i64 42
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 42
   %22 = zext i1 %20 to i8
   store i8 %22, ptr %21, align 2
   br i1 %20, label %23, label %36
 
 23:                                               ; preds = %15
-  %24 = getelementptr inbounds i8, ptr %0, i64 43
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 43
   store i8 1, ptr %24, align 1
-  %25 = getelementptr inbounds i8, ptr %0, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load i64, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 1080
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %30, %28
   store i64 %31, ptr %29, align 8
@@ -71,30 +71,30 @@ define internal void @bbstreamer_recovery_injector_content(ptr noundef %0, ptr n
   br i1 %17, label %140, label %134
 
 37:                                               ; preds = %5
-  %38 = getelementptr inbounds i8, ptr %0, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %39 = load i8, ptr %38, align 8
   %40 = trunc i8 %39 to i1
   br i1 %40, label %140, label %134
 
 41:                                               ; preds = %5
-  %42 = getelementptr inbounds i8, ptr %0, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %43 = load i8, ptr %42, align 8
   %44 = trunc i8 %43 to i1
   br i1 %44, label %140, label %45
 
 45:                                               ; preds = %41
-  %46 = getelementptr inbounds i8, ptr %0, i64 42
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 42
   %47 = load i8, ptr %46, align 2
   %48 = trunc i8 %47 to i1
   br i1 %48, label %49, label %134
 
 49:                                               ; preds = %45
-  %50 = getelementptr inbounds i8, ptr %0, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 48
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %53 = load ptr, ptr %52, align 8
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %53, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %56 = load i64, ptr %55, align 8
   %57 = trunc i64 %56 to i32
   %58 = load ptr, ptr %51, align 8
@@ -103,44 +103,44 @@ define internal void @bbstreamer_recovery_injector_content(ptr noundef %0, ptr n
   br label %134
 
 60:                                               ; preds = %5
-  %61 = getelementptr inbounds i8, ptr %0, i64 41
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 41
   %62 = load i8, ptr %61, align 1
   %63 = trunc i8 %62 to i1
   br i1 %63, label %64, label %109
 
 64:                                               ; preds = %60
-  %65 = getelementptr inbounds i8, ptr %0, i64 43
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 43
   %66 = load i8, ptr %65, align 1
   %67 = trunc i8 %66 to i1
   br i1 %67, label %92, label %68
 
 68:                                               ; preds = %64
-  %69 = getelementptr inbounds i8, ptr %0, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %0, i64 48
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %72 = load ptr, ptr %71, align 8
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %72, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %75 = load i64, ptr %74, align 8
   %76 = trunc i64 %75 to i32
   call void @llvm.lifetime.start.p0(i64 2072, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %8, ptr noundef nonnull align 1 dereferenceable(21) @.str.1, i64 noundef 21, i1 false) #8
   %sext38 = shl i64 %75, 32
   %77 = ashr exact i64 %sext38, 32
-  %78 = getelementptr inbounds i8, ptr %8, i64 1024
+  %78 = getelementptr inbounds nuw i8, ptr %8, i64 1024
   store i64 %77, ptr %78, align 8
   %79 = load i32, ptr @pg_file_create_mode, align 4
-  %80 = getelementptr inbounds i8, ptr %8, i64 1032
+  %80 = getelementptr inbounds nuw i8, ptr %8, i64 1032
   store i32 %79, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %8, i64 1044
+  %81 = getelementptr inbounds nuw i8, ptr %8, i64 1044
   store i8 0, ptr %81, align 4
-  %82 = getelementptr inbounds i8, ptr %8, i64 1045
+  %82 = getelementptr inbounds nuw i8, ptr %8, i64 1045
   store i8 0, ptr %82, align 1
-  %83 = getelementptr inbounds i8, ptr %8, i64 1046
+  %83 = getelementptr inbounds nuw i8, ptr %8, i64 1046
   store i8 0, ptr %83, align 2
-  %84 = getelementptr inbounds i8, ptr %8, i64 1036
+  %84 = getelementptr inbounds nuw i8, ptr %8, i64 1036
   store i32 2048, ptr %84, align 4
-  %85 = getelementptr inbounds i8, ptr %8, i64 1040
+  %85 = getelementptr inbounds nuw i8, ptr %8, i64 1040
   store i32 1024, ptr %85, align 8
   %86 = load ptr, ptr %70, align 8
   %87 = load ptr, ptr %86, align 8
@@ -155,24 +155,24 @@ define internal void @bbstreamer_recovery_injector_content(ptr noundef %0, ptr n
   br label %92
 
 92:                                               ; preds = %68, %64
-  %93 = getelementptr inbounds i8, ptr %0, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %94 = load ptr, ptr %93, align 8
   call void @llvm.lifetime.start.p0(i64 2072, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %7, ptr noundef nonnull align 1 dereferenceable(15) @.str, i64 noundef 15, i1 false) #8
-  %95 = getelementptr inbounds i8, ptr %7, i64 1024
+  %95 = getelementptr inbounds nuw i8, ptr %7, i64 1024
   store i64 0, ptr %95, align 8
   %96 = load i32, ptr @pg_file_create_mode, align 4
-  %97 = getelementptr inbounds i8, ptr %7, i64 1032
+  %97 = getelementptr inbounds nuw i8, ptr %7, i64 1032
   store i32 %96, ptr %97, align 8
-  %98 = getelementptr inbounds i8, ptr %7, i64 1044
+  %98 = getelementptr inbounds nuw i8, ptr %7, i64 1044
   store i8 0, ptr %98, align 4
-  %99 = getelementptr inbounds i8, ptr %7, i64 1045
+  %99 = getelementptr inbounds nuw i8, ptr %7, i64 1045
   store i8 0, ptr %99, align 1
-  %100 = getelementptr inbounds i8, ptr %7, i64 1046
+  %100 = getelementptr inbounds nuw i8, ptr %7, i64 1046
   store i8 0, ptr %100, align 2
-  %101 = getelementptr inbounds i8, ptr %7, i64 1036
+  %101 = getelementptr inbounds nuw i8, ptr %7, i64 1036
   store i32 2048, ptr %101, align 4
-  %102 = getelementptr inbounds i8, ptr %7, i64 1040
+  %102 = getelementptr inbounds nuw i8, ptr %7, i64 1040
   store i32 1024, ptr %102, align 8
   %103 = load ptr, ptr %94, align 8
   %104 = load ptr, ptr %103, align 8
@@ -187,32 +187,32 @@ define internal void @bbstreamer_recovery_injector_content(ptr noundef %0, ptr n
   br label %134
 
 109:                                              ; preds = %60
-  %110 = getelementptr inbounds i8, ptr %0, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %111 = load ptr, ptr %110, align 8
-  %112 = getelementptr inbounds i8, ptr %0, i64 48
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %113 = load ptr, ptr %112, align 8
   %114 = load ptr, ptr %113, align 8
-  %115 = getelementptr inbounds i8, ptr %113, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %113, i64 8
   %116 = load i64, ptr %115, align 8
   %117 = trunc i64 %116 to i32
   call void @llvm.lifetime.start.p0(i64 2072, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %6, ptr noundef nonnull align 1 dereferenceable(14) @.str.2, i64 noundef 14, i1 false) #8
   %sext = shl i64 %116, 32
   %118 = ashr exact i64 %sext, 32
-  %119 = getelementptr inbounds i8, ptr %6, i64 1024
+  %119 = getelementptr inbounds nuw i8, ptr %6, i64 1024
   store i64 %118, ptr %119, align 8
   %120 = load i32, ptr @pg_file_create_mode, align 4
-  %121 = getelementptr inbounds i8, ptr %6, i64 1032
+  %121 = getelementptr inbounds nuw i8, ptr %6, i64 1032
   store i32 %120, ptr %121, align 8
-  %122 = getelementptr inbounds i8, ptr %6, i64 1044
+  %122 = getelementptr inbounds nuw i8, ptr %6, i64 1044
   store i8 0, ptr %122, align 4
-  %123 = getelementptr inbounds i8, ptr %6, i64 1045
+  %123 = getelementptr inbounds nuw i8, ptr %6, i64 1045
   store i8 0, ptr %123, align 1
-  %124 = getelementptr inbounds i8, ptr %6, i64 1046
+  %124 = getelementptr inbounds nuw i8, ptr %6, i64 1046
   store i8 0, ptr %124, align 2
-  %125 = getelementptr inbounds i8, ptr %6, i64 1036
+  %125 = getelementptr inbounds nuw i8, ptr %6, i64 1036
   store i32 2048, ptr %125, align 4
-  %126 = getelementptr inbounds i8, ptr %6, i64 1040
+  %126 = getelementptr inbounds nuw i8, ptr %6, i64 1040
   store i32 1024, ptr %126, align 8
   %127 = load ptr, ptr %111, align 8
   %128 = load ptr, ptr %127, align 8
@@ -234,9 +234,9 @@ define internal void @bbstreamer_recovery_injector_content(ptr noundef %0, ptr n
 134:                                              ; preds = %32, %23, %92, %109, %45, %49, %37, %36
   %.137 = phi i32 [ %3, %92 ], [ %3, %109 ], [ %3, %49 ], [ %3, %45 ], [ %3, %37 ], [ %3, %36 ], [ 0, %23 ], [ %3, %32 ]
   %.1 = phi ptr [ %2, %92 ], [ %2, %109 ], [ %2, %49 ], [ %2, %45 ], [ %2, %37 ], [ %2, %36 ], [ null, %23 ], [ %2, %32 ]
-  %135 = getelementptr inbounds i8, ptr %0, i64 8
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %136 = load ptr, ptr %135, align 8
-  %137 = getelementptr inbounds i8, ptr %0, i64 56
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %138 = load ptr, ptr %136, align 8
   %139 = load ptr, ptr %138, align 8
   call void %139(ptr noundef nonnull %136, ptr noundef nonnull %137, ptr noundef %.1, i32 noundef %.137, i32 noundef %4) #8
@@ -248,10 +248,10 @@ define internal void @bbstreamer_recovery_injector_content(ptr noundef %0, ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal void @bbstreamer_recovery_injector_finalize(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull %3) #8
   ret void
@@ -259,10 +259,10 @@ define internal void @bbstreamer_recovery_injector_finalize(ptr nocapture nounde
 
 ; Function Attrs: nounwind uwtable
 define internal void @bbstreamer_recovery_injector_free(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull %3) #8
   tail call void @pfree(ptr noundef %0) #8
@@ -274,11 +274,11 @@ define dso_local noundef ptr @bbstreamer_recovery_injector_new(ptr noundef %0, i
   %4 = zext i1 %1 to i8
   %5 = tail call ptr @palloc0(i64 noundef 2128) #8
   store ptr @bbstreamer_recovery_injector_ops, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 41
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 41
   store i8 %4, ptr %7, align 1
-  %8 = getelementptr inbounds i8, ptr %5, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr %2, ptr %8, align 8
   ret ptr %5
 }
@@ -290,20 +290,20 @@ define dso_local void @bbstreamer_inject_file(ptr noundef %0, ptr noundef %1, pt
   %5 = alloca %struct.bbstreamer_member, align 8
   %6 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %1, i64 noundef 1024) #8
   %7 = sext i32 %3 to i64
-  %8 = getelementptr inbounds i8, ptr %5, i64 1024
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 1024
   store i64 %7, ptr %8, align 8
   %9 = load i32, ptr @pg_file_create_mode, align 4
-  %10 = getelementptr inbounds i8, ptr %5, i64 1032
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 1032
   store i32 %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 1044
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 1044
   store i8 0, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %5, i64 1045
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 1045
   store i8 0, ptr %12, align 1
-  %13 = getelementptr inbounds i8, ptr %5, i64 1046
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 1046
   store i8 0, ptr %13, align 2
-  %14 = getelementptr inbounds i8, ptr %5, i64 1036
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 1036
   store i32 2048, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %5, i64 1040
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 1040
   store i32 1024, ptr %15, align 8
   %16 = load ptr, ptr %0, align 8
   %17 = load ptr, ptr %16, align 8

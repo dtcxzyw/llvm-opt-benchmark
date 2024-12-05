@@ -940,7 +940,7 @@ define hidden void @proto_reg_handoff_isdn_sup() local_unnamed_addr #0 {
 .preheader18:                                     ; preds = %1, %20
   %indvars.iv23 = phi i64 [ %indvars.iv.next24, %20 ], [ 0, %1 ]
   %6 = getelementptr [4 x %struct._isdn_global_sup_op_t], ptr @isdn_sup_global_op_tab, i64 0, i64 %indvars.iv23
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %13, label %9
@@ -953,7 +953,7 @@ define hidden void @proto_reg_handoff_isdn_sup() local_unnamed_addr #0 {
   br label %13
 
 13:                                               ; preds = %9, %.preheader18
-  %14 = getelementptr inbounds i8, ptr %6, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %15 = load ptr, ptr %14, align 8
   %.not17 = icmp eq ptr %15, null
   br i1 %.not17, label %20, label %16
@@ -1038,19 +1038,19 @@ define internal i32 @dissect_isdn_sup_arg(ptr noundef %0, ptr noundef %1, ptr no
   unreachable
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %7, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %11 = load i32, ptr %10, align 8
   %.not49 = icmp eq i32 %11, 1
   br i1 %.not49, label %12, label %get_op.exit.thread
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %7, i64 84
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 84
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %get_op.exit.thread
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %7, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %18 = load i32, ptr %17, align 8
   br label %21
 
@@ -1080,10 +1080,10 @@ get_op.exit:                                      ; preds = %21
 
 33:                                               ; preds = %get_op.exit
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %27, ptr noundef nonnull @.str.535, ptr noundef nonnull %32) #3
-  %34 = getelementptr inbounds i8, ptr %7, i64 104
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %35 = load ptr, ptr %34, align 8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %35, ptr noundef nonnull @.str.536, ptr noundef nonnull %32) #3
-  %36 = getelementptr inbounds i8, ptr %7, i64 56
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %37 = load i32, ptr %36, align 8
   %38 = icmp sgt i32 %37, -1
   br i1 %38, label %39, label %43
@@ -1096,7 +1096,7 @@ get_op.exit:                                      ; preds = %21
   br label %43
 
 43:                                               ; preds = %33, %39, %get_op.exit
-  %44 = getelementptr inbounds i8, ptr %23, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %45 = load ptr, ptr %44, align 8
   %.not52 = icmp eq ptr %45, null
   br i1 %.not52, label %48, label %46
@@ -1135,19 +1135,19 @@ define internal i32 @dissect_isdn_sup_res(ptr noundef %0, ptr noundef %1, ptr no
   unreachable
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %7, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %11 = load i32, ptr %10, align 8
   %.not49 = icmp eq i32 %11, 2
   br i1 %.not49, label %12, label %get_op.exit.thread
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %7, i64 84
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 84
   %14 = load i32, ptr %13, align 4
   %.not50 = icmp eq i32 %14, 0
   br i1 %.not50, label %15, label %get_op.exit.thread
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %7, i64 88
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %17 = load i32, ptr %16, align 8
   br label %20
 
@@ -1177,10 +1177,10 @@ get_op.exit:                                      ; preds = %20
 
 32:                                               ; preds = %get_op.exit
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %26, ptr noundef nonnull @.str.535, ptr noundef nonnull %31) #3
-  %33 = getelementptr inbounds i8, ptr %7, i64 104
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %34 = load ptr, ptr %33, align 8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %34, ptr noundef nonnull @.str.536, ptr noundef nonnull %31) #3
-  %35 = getelementptr inbounds i8, ptr %7, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %36 = load i32, ptr %35, align 8
   %37 = icmp sgt i32 %36, -1
   br i1 %37, label %38, label %42
@@ -1193,7 +1193,7 @@ get_op.exit:                                      ; preds = %20
   br label %42
 
 42:                                               ; preds = %32, %38, %get_op.exit
-  %43 = getelementptr inbounds i8, ptr %22, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %44 = load ptr, ptr %43, align 8
   %.not53 = icmp eq ptr %44, null
   br i1 %.not53, label %47, label %45
@@ -1232,19 +1232,19 @@ define internal i32 @dissect_isdn_sup_err(ptr noundef %0, ptr noundef %1, ptr no
   unreachable
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %7, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %11 = load i32, ptr %10, align 8
   %.not49 = icmp eq i32 %11, 3
   br i1 %.not49, label %12, label %get_err.exit.thread
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %7, i64 84
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 84
   %14 = load i32, ptr %13, align 4
   %.not50 = icmp eq i32 %14, 0
   br i1 %.not50, label %15, label %get_err.exit.thread
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %7, i64 88
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %17 = load i32, ptr %16, align 8
   br label %20
 
@@ -1274,10 +1274,10 @@ get_err.exit:                                     ; preds = %20
 
 32:                                               ; preds = %get_err.exit
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %26, ptr noundef nonnull @.str.535, ptr noundef nonnull %31) #3
-  %33 = getelementptr inbounds i8, ptr %7, i64 104
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %34 = load ptr, ptr %33, align 8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %34, ptr noundef nonnull @.str.536, ptr noundef nonnull %31) #3
-  %35 = getelementptr inbounds i8, ptr %7, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %36 = load i32, ptr %35, align 8
   %37 = icmp sgt i32 %36, -1
   br i1 %37, label %38, label %42

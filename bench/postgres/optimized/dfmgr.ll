@@ -144,7 +144,7 @@ define internal fastcc ptr @internal_load_library(ptr noundef %0) unnamed_addr #
   br i1 %cond, label %8, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %.0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %6) #19
   %.not67 = icmp eq i32 %7, 0
   br i1 %.not67, label %.critedge2.thread, label %4, !llvm.loop !5
@@ -160,7 +160,7 @@ define internal fastcc ptr @internal_load_library(ptr noundef %0) unnamed_addr #
   br i1 %.not6880, label %.critedge2, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = load i64, ptr %2, align 8
   br label %18
@@ -175,13 +175,13 @@ define internal fastcc ptr @internal_load_library(ptr noundef %0) unnamed_addr #
 
 18:                                               ; preds = %.lr.ph, %.critedge74
   %.281 = phi ptr [ %.279, %.lr.ph ], [ %.2, %.critedge74 ]
-  %19 = getelementptr inbounds i8, ptr %.281, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %.281, i64 16
   %20 = load i64, ptr %19, align 8
   %21 = icmp eq i64 %12, %20
   br i1 %21, label %22, label %.critedge74
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %.281, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.281, i64 8
   %24 = load i64, ptr %23, align 8
   %.not = icmp eq i64 %13, %24
   br i1 %.not, label %.critedge2.thread, label %.critedge74
@@ -229,23 +229,23 @@ define internal fastcc ptr @internal_load_library(ptr noundef %0) unnamed_addr #
   br label %.loopexit
 
 46:                                               ; preds = %33
-  %47 = getelementptr inbounds i8, ptr %27, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %27, i64 24
   store i64 0, ptr %47, align 1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph83.preheader, %37, %46
-  %48 = getelementptr inbounds i8, ptr %27, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %49 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %48, ptr noundef nonnull dereferenceable(1) %0) #17
   %50 = load i64, ptr %2, align 8
-  %51 = getelementptr inbounds i8, ptr %27, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i64 %50, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %2, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %53 = load i64, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %27, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store i64 %53, ptr %54, align 8
   store ptr null, ptr %27, align 8
   %55 = tail call ptr @dlopen(ptr noundef nonnull %48, i32 noundef 258) #17
-  %56 = getelementptr inbounds i8, ptr %27, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %27, i64 24
   store ptr %55, ptr %56, align 8
   %57 = icmp eq ptr %55, null
   br i1 %57, label %58, label %63
@@ -316,7 +316,7 @@ define internal fastcc ptr @internal_load_library(ptr noundef %0) unnamed_addr #
 
 .critedge2.thread:                                ; preds = %5, %22, %82
   %.3 = phi ptr [ %27, %82 ], [ %.281, %22 ], [ %.0, %5 ]
-  %86 = getelementptr inbounds i8, ptr %.3, i64 24
+  %86 = getelementptr inbounds nuw i8, ptr %.3, i64 24
   %87 = load ptr, ptr %86, align 8
   ret ptr %87
 }
@@ -382,9 +382,9 @@ define dso_local nonnull ptr @find_rendezvous_variable(ptr noundef %0) local_unn
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %3, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i64 64, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 72, ptr %8, align 8
   %9 = call ptr @hash_create(ptr noundef nonnull @.str.2, i64 noundef 16, ptr noundef nonnull %3, i32 noundef 24) #17
   store ptr %9, ptr @find_rendezvous_variable.rendezvousHash, align 8
@@ -398,12 +398,12 @@ define dso_local nonnull ptr @find_rendezvous_variable(ptr noundef %0) local_unn
   br i1 %14, label %17, label %15
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %12, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 64
   store ptr null, ptr %16, align 8
   br label %17
 
 17:                                               ; preds = %15, %10
-  %18 = getelementptr inbounds i8, ptr %12, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 64
   ret ptr %18
 }
 
@@ -420,7 +420,7 @@ define dso_local i64 @EstimateLibraryStateSpace() local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %0, %.lr.ph
   %.048 = phi ptr [ %.04, %.lr.ph ], [ %.045, %0 ]
   %.07 = phi i64 [ %4, %.lr.ph ], [ 1, %0 ]
-  %1 = getelementptr inbounds i8, ptr %.048, i64 32
+  %1 = getelementptr inbounds nuw i8, ptr %.048, i64 32
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #19
   %3 = add i64 %2, 1
   %4 = tail call i64 @add_size(i64 noundef %.07, i64 noundef %3) #17
@@ -448,7 +448,7 @@ define dso_local void @SerializeLibraryState(i64 noundef %0, ptr noundef %1) loc
   %.0915 = phi ptr [ %.09, %.lr.ph ], [ %.0911, %2 ]
   %.014 = phi i64 [ %6, %.lr.ph ], [ %0, %2 ]
   %.01013 = phi ptr [ %7, %.lr.ph ], [ %1, %2 ]
-  %3 = getelementptr inbounds i8, ptr %.0915, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %.0915, i64 32
   %4 = tail call i64 @strlcpy(ptr noundef %.01013, ptr noundef nonnull dereferenceable(1) %3, i64 noundef %.014) #17
   %5 = add i64 %4, 1
   %6 = sub i64 %.014, %5
@@ -476,8 +476,8 @@ define dso_local void @RestoreLibraryState(ptr noundef %0) local_unnamed_addr #0
   %.05 = phi ptr [ %6, %.lr.ph ], [ %0, %1 ]
   %3 = tail call fastcc ptr @internal_load_library(ptr noundef nonnull %.05)
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.05) #19
-  %5 = add i64 %4, 1
-  %6 = getelementptr i8, ptr %.05, i64 %5
+  %5 = getelementptr i8, ptr %.05, i64 %4
+  %6 = getelementptr i8, ptr %5, i64 1
   %7 = load i8, ptr %6, align 1
   %.not = icmp eq i8 %7, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
@@ -522,7 +522,7 @@ declare i32 @dlclose(ptr noundef) local_unnamed_addr #1
 define internal fastcc void @incompatible_module_error(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #13 {
   %3 = alloca %struct.StringInfoData, align 8
   %4 = alloca [32 x i8], align 16
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %6, 1700
   br i1 %.not, label %20, label %7
@@ -551,7 +551,7 @@ define internal fastcc void @incompatible_module_error(ptr noundef %0, ptr nound
   unreachable
 
 20:                                               ; preds = %2
-  %21 = getelementptr inbounds i8, ptr %1, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(11) getelementptr inbounds (i8, ptr @magic_data, i64 24)) #19
   %.not18 = icmp eq i32 %22, 0
   br i1 %.not18, label %27, label %23
@@ -566,13 +566,13 @@ define internal fastcc void @incompatible_module_error(ptr noundef %0, ptr nound
 
 27:                                               ; preds = %20
   call void @initStringInfo(ptr noundef nonnull %3) #17
-  %28 = getelementptr inbounds i8, ptr %1, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = load i32, ptr %28, align 4
   %.not19 = icmp eq i32 %29, 100
   br i1 %.not19, label %36, label %30
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %3, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %32 = load i32, ptr %31, align 8
   %.not20 = icmp eq i32 %32, 0
   br i1 %.not20, label %34, label %33
@@ -588,13 +588,13 @@ define internal fastcc void @incompatible_module_error(ptr noundef %0, ptr nound
   br label %36
 
 36:                                               ; preds = %34, %27
-  %37 = getelementptr inbounds i8, ptr %1, i64 12
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %38 = load i32, ptr %37, align 4
   %.not21 = icmp eq i32 %38, 32
   br i1 %.not21, label %45, label %39
 
 39:                                               ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %3, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %41 = load i32, ptr %40, align 8
   %.not22 = icmp eq i32 %41, 0
   br i1 %.not22, label %43, label %42
@@ -610,13 +610,13 @@ define internal fastcc void @incompatible_module_error(ptr noundef %0, ptr nound
   br label %45
 
 45:                                               ; preds = %43, %36
-  %46 = getelementptr inbounds i8, ptr %1, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %47 = load i32, ptr %46, align 4
   %.not23 = icmp eq i32 %47, 64
   br i1 %.not23, label %54, label %48
 
 48:                                               ; preds = %45
-  %49 = getelementptr inbounds i8, ptr %3, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %50 = load i32, ptr %49, align 8
   %.not24 = icmp eq i32 %50, 0
   br i1 %.not24, label %52, label %51
@@ -632,13 +632,13 @@ define internal fastcc void @incompatible_module_error(ptr noundef %0, ptr nound
   br label %54
 
 54:                                               ; preds = %52, %45
-  %55 = getelementptr inbounds i8, ptr %1, i64 20
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %56 = load i32, ptr %55, align 4
   %.not25 = icmp eq i32 %56, 1
   br i1 %.not25, label %64, label %57
 
 57:                                               ; preds = %54
-  %58 = getelementptr inbounds i8, ptr %3, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %59 = load i32, ptr %58, align 8
   %.not26 = icmp eq i32 %59, 0
   br i1 %.not26, label %61, label %60
@@ -656,7 +656,7 @@ define internal fastcc void @incompatible_module_error(ptr noundef %0, ptr nound
   br label %64
 
 64:                                               ; preds = %61, %54
-  %65 = getelementptr inbounds i8, ptr %3, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %66 = load i32, ptr %65, align 8
   %67 = icmp eq i32 %66, 0
   br i1 %67, label %68, label %69

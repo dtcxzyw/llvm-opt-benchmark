@@ -61,7 +61,7 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load ptr, ptr %file_args, align 8
   %call = tail call noalias ptr @g_strdup(ptr noundef %0) #6
-  %offset2 = getelementptr inbounds i8, ptr %file_args, i64 8
+  %offset2 = getelementptr inbounds nuw i8, ptr %file_args, i64 8
   %1 = load i64, ptr %offset2, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %2 = load i32, ptr @trace_events_enabled_count, align 4
@@ -86,7 +86,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #6
   %call10.i.i = tail call i32 @qemu_get_thread_id() #6
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.5, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef %call) #6
   br label %trace_migration_file_outgoing.exit
@@ -145,7 +145,7 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load ptr, ptr %file_args, align 8
   %call = tail call noalias ptr @g_strdup(ptr noundef %0) #6
-  %offset2 = getelementptr inbounds i8, ptr %file_args, i64 8
+  %offset2 = getelementptr inbounds nuw i8, ptr %file_args, i64 8
   %1 = load i64, ptr %offset2, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %2 = load i32, ptr @trace_events_enabled_count, align 4
@@ -170,7 +170,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #6
   %call10.i.i = tail call i32 @qemu_get_thread_id() #6
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef %call) #6
   br label %trace_migration_file_incoming.exit

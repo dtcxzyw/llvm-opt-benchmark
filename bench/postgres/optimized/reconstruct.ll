@@ -56,15 +56,15 @@ define dso_local void @reconstruct_from_incremental_file(ptr noundef %0, ptr nou
   %25 = sext i32 %4 to i64
   %26 = getelementptr ptr, ptr %23, i64 %25
   store ptr %24, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %24, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %28 = load i32, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %24, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %30 = load i32, ptr %29, align 8
   %.not13.i = icmp eq i32 %30, 0
   br i1 %.not13.i, label %find_reconstructed_block_length.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %13
-  %31 = getelementptr inbounds i8, ptr %24, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %32 = load ptr, ptr %31, align 8
   %wide.trip.count.i = zext i32 %30 to i64
   br label %33
@@ -92,8 +92,8 @@ find_reconstructed_block_length.exit:             ; preds = %33, %13
   br i1 %.not217, label %.preheader177, label %.lr.ph
 
 .lr.ph:                                           ; preds = %find_reconstructed_block_length.exit
-  %42 = getelementptr inbounds i8, ptr %24, i64 32
-  %43 = getelementptr inbounds i8, ptr %24, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %24, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %24, i64 16
   br label %46
 
 .preheader177:                                    ; preds = %46, %find_reconstructed_block_length.exit
@@ -140,7 +140,7 @@ find_reconstructed_block_length.exit:             ; preds = %33, %13
   %65 = call ptr @pstrdup(ptr noundef nonnull %18) #10
   store ptr %65, ptr %64, align 8
   %66 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %18, i32 noundef 0, i32 noundef 0) #10
-  %67 = getelementptr inbounds i8, ptr %64, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 8
   store i32 %66, ptr %67, align 8
   %68 = icmp slt i32 %66, 0
   br i1 %68, label %69, label %make_rfile.exit
@@ -167,23 +167,23 @@ make_rfile.exit:                                  ; preds = %.lr.ph212, %74
   %.0134 = phi ptr [ %77, %74 ], [ %64, %.lr.ph212 ]
   %78 = getelementptr ptr, ptr %23, i64 %60
   store ptr %.0134, ptr %78, align 8
-  %79 = getelementptr inbounds i8, ptr %.0134, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %.0134, i64 16
   %80 = load i64, ptr %79, align 8
   %81 = icmp eq i64 %80, 0
   br i1 %81, label %85, label %.preheader
 
 .preheader:                                       ; preds = %make_rfile.exit
-  %82 = getelementptr inbounds i8, ptr %.0134, i64 24
+  %82 = getelementptr inbounds nuw i8, ptr %.0134, i64 24
   %83 = load i32, ptr %82, align 8
   %.not218 = icmp eq i32 %83, 0
   br i1 %.not218, label %.loopexit, label %.lr.ph208
 
 .lr.ph208:                                        ; preds = %.preheader
-  %84 = getelementptr inbounds i8, ptr %.0134, i64 32
+  %84 = getelementptr inbounds nuw i8, ptr %.0134, i64 32
   br label %114
 
 85:                                               ; preds = %make_rfile.exit
-  %86 = getelementptr inbounds i8, ptr %.0134, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %.0134, i64 8
   %87 = load i32, ptr %86, align 8
   %88 = call i32 @fstat(i32 noundef %87, ptr noundef nonnull %19) #10
   %89 = icmp slt i32 %88, 0
@@ -196,7 +196,7 @@ make_rfile.exit:                                  ; preds = %.lr.ph212, %74
   unreachable
 
 92:                                               ; preds = %85
-  %93 = getelementptr inbounds i8, ptr %19, i64 48
+  %93 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %94 = load i64, ptr %93, align 8
   %95 = load i32, ptr %27, align 8
   %.not219 = icmp eq i32 %95, 0
@@ -310,19 +310,19 @@ make_rfile.exit:                                  ; preds = %.lr.ph212, %74
   br label %.thread
 
 153:                                              ; preds = %145
-  %154 = getelementptr inbounds i8, ptr %147, i64 24
+  %154 = getelementptr inbounds nuw i8, ptr %147, i64 24
   %155 = load i32, ptr %154, align 8
   %156 = icmp eq i32 %155, %8
   br i1 %156, label %157, label %.thread
 
 157:                                              ; preds = %153
-  %158 = getelementptr inbounds i8, ptr %147, i64 28
+  %158 = getelementptr inbounds nuw i8, ptr %147, i64 28
   %159 = load i32, ptr %158, align 4
   store i32 %159, ptr %9, align 4
   %160 = sext i32 %159 to i64
   %161 = call ptr @pg_malloc(i64 noundef %160) #10
   store ptr %161, ptr %10, align 8
-  %162 = getelementptr inbounds i8, ptr %147, i64 32
+  %162 = getelementptr inbounds nuw i8, ptr %147, i64 32
   %163 = load ptr, ptr %162, align 8
   %164 = load i32, ptr %9, align 4
   %165 = sext i32 %164 to i64
@@ -364,7 +364,7 @@ make_rfile.exit:                                  ; preds = %.lr.ph212, %74
 
 176:                                              ; preds = %.sink.split.i, %171
   call void @initStringInfo(ptr noundef nonnull %15) #10
-  %177 = getelementptr inbounds i8, ptr %15, i64 8
+  %177 = getelementptr inbounds nuw i8, ptr %15, i64 8
   br label %.outer.i
 
 .outer.i:                                         ; preds = %.outer.i.backedge, %176
@@ -494,11 +494,11 @@ make_rfile.exit:                                  ; preds = %.lr.ph212, %74
   br i1 %227, label %236, label %.thread.us.i
 
 .thread.us.i:                                     ; preds = %.lr.ph.split.us.split.i
-  %228 = getelementptr inbounds i8, ptr %226, i64 44
+  %228 = getelementptr inbounds nuw i8, ptr %226, i64 44
   %229 = load i32, ptr %228, align 4
   %230 = add i32 %229, 1
   store i32 %230, ptr %228, align 4
-  %231 = getelementptr inbounds i8, ptr %226, i64 48
+  %231 = getelementptr inbounds nuw i8, ptr %226, i64 48
   %232 = load i64, ptr %231, align 8
   %233 = getelementptr i64, ptr %40, i64 %indvars.iv50.i
   %234 = load i64, ptr %233, align 8
@@ -531,18 +531,18 @@ make_rfile.exit:                                  ; preds = %.lr.ph212, %74
   br label %264
 
 .thread.i:                                        ; preds = %.lr.ph.split.i
-  %244 = getelementptr inbounds i8, ptr %240, i64 44
+  %244 = getelementptr inbounds nuw i8, ptr %240, i64 44
   %245 = load i32, ptr %244, align 4
   %246 = add i32 %245, 1
   store i32 %246, ptr %244, align 4
-  %247 = getelementptr inbounds i8, ptr %240, i64 48
+  %247 = getelementptr inbounds nuw i8, ptr %240, i64 48
   %248 = load i64, ptr %247, align 8
   %249 = getelementptr i64, ptr %40, i64 %indvars.iv47.i
   %250 = load i64, ptr %249, align 8
   %251 = add i64 %250, 8192
   %..i = call i64 @llvm.smax.i64(i64 %248, i64 %251)
   store i64 %..i, ptr %247, align 8
-  %252 = getelementptr inbounds i8, ptr %240, i64 8
+  %252 = getelementptr inbounds nuw i8, ptr %240, i64 8
   %253 = load i32, ptr %252, align 8
   %254 = load i64, ptr %249, align 8
   %255 = call i64 @pread(i32 noundef %253, ptr noundef nonnull %16, i64 noundef 8192, i64 noundef %254) #10
@@ -647,12 +647,12 @@ write_reconstructed_file.exit.thread:             ; preds = %224
   br i1 %.not.i156267, label %debug_reconstruction.exit, label %.lr.ph.i157.thread
 
 .lr.ph.i157.thread:                               ; preds = %write_reconstructed_file.exit.thread
-  %279 = getelementptr inbounds i8, ptr %14, i64 48
+  %279 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %wide.trip.count40.i268 = zext i32 %20 to i64
   br label %.lr.ph.split.us.i.preheader
 
 .lr.ph.i157:                                      ; preds = %write_reconstructed_file.exit
-  %280 = getelementptr inbounds i8, ptr %14, i64 48
+  %280 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %wide.trip.count40.i = zext i32 %20 to i64
   br i1 %12, label %.lr.ph.split.us.i.preheader, label %.lr.ph.split.i158
 
@@ -669,7 +669,7 @@ write_reconstructed_file.exit.thread:             ; preds = %224
   br i1 %284, label %304, label %285
 
 285:                                              ; preds = %.lr.ph.split.us.i
-  %286 = getelementptr inbounds i8, ptr %283, i64 44
+  %286 = getelementptr inbounds nuw i8, ptr %283, i64 44
   %287 = load i32, ptr %286, align 4
   %288 = icmp eq i32 %287, 0
   br i1 %288, label %304, label %289
@@ -685,7 +685,7 @@ write_reconstructed_file.exit.thread:             ; preds = %224
   br label %294
 
 294:                                              ; preds = %292, %289
-  %295 = getelementptr inbounds i8, ptr %283, i64 8
+  %295 = getelementptr inbounds nuw i8, ptr %283, i64 8
   %296 = load i32, ptr %295, align 8
   %297 = call i32 @fstat(i32 noundef %296, ptr noundef nonnull %14) #10
   %298 = icmp slt i32 %297, 0
@@ -693,7 +693,7 @@ write_reconstructed_file.exit.thread:             ; preds = %224
 
 299:                                              ; preds = %294
   %300 = load i64, ptr %281, align 8
-  %301 = getelementptr inbounds i8, ptr %283, i64 48
+  %301 = getelementptr inbounds nuw i8, ptr %283, i64 48
   %302 = load i64, ptr %301, align 8
   %303 = icmp slt i64 %300, %302
   br i1 %303, label %.split26.us.i, label %304
@@ -711,7 +711,7 @@ write_reconstructed_file.exit.thread:             ; preds = %224
   br i1 %307, label %318, label %308
 
 308:                                              ; preds = %.lr.ph.split.i158
-  %309 = getelementptr inbounds i8, ptr %306, i64 44
+  %309 = getelementptr inbounds nuw i8, ptr %306, i64 44
   %310 = load i32, ptr %309, align 4
   %311 = icmp ne i32 %310, 0
   %312 = load i32, ptr @__pg_log_level, align 4
@@ -769,7 +769,7 @@ debug_reconstruction.exit:                        ; preds = %318, %304, %write_r
   br i1 %327, label %340, label %328
 
 328:                                              ; preds = %323
-  %329 = getelementptr inbounds i8, ptr %326, i64 8
+  %329 = getelementptr inbounds nuw i8, ptr %326, i64 8
   %330 = load i32, ptr %329, align 8
   %331 = call i32 @close(i32 noundef %330) #10
   %.not146 = icmp eq i32 %331, 0
@@ -782,7 +782,7 @@ debug_reconstruction.exit:                        ; preds = %318, %304, %write_r
   unreachable
 
 334:                                              ; preds = %328
-  %335 = getelementptr inbounds i8, ptr %326, i64 32
+  %335 = getelementptr inbounds nuw i8, ptr %326, i64 32
   %336 = load ptr, ptr %335, align 8
   %.not147 = icmp eq ptr %336, null
   br i1 %.not147, label %338, label %337
@@ -817,7 +817,7 @@ define internal fastcc ptr @make_incremental_rfile(ptr noundef %0) unnamed_addr 
   %4 = tail call ptr @pstrdup(ptr noundef %0) #10
   store ptr %4, ptr %3, align 8
   %5 = tail call i32 (ptr, i32, ...) @open(ptr noundef %0, i32 noundef 0, i32 noundef 0) #10
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %5, ptr %6, align 8
   %7 = icmp slt i32 %5, 0
   br i1 %7, label %8, label %make_rfile.exit
@@ -859,7 +859,7 @@ read_bytes.exit:                                  ; preds = %make_rfile.exit
   unreachable
 
 18:                                               ; preds = %read_bytes.exit
-  %19 = getelementptr inbounds i8, ptr %3, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %20 = load i32, ptr %6, align 8
   %21 = tail call i64 @read(i32 noundef %20, ptr noundef nonnull %19, i64 noundef 4) #10
   %22 = trunc i64 %21 to i32
@@ -892,7 +892,7 @@ read_bytes.exit27:                                ; preds = %18
   unreachable
 
 31:                                               ; preds = %read_bytes.exit27
-  %32 = getelementptr inbounds i8, ptr %3, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %33 = load i32, ptr %6, align 8
   %34 = tail call i64 @read(i32 noundef %33, ptr noundef nonnull %32, i64 noundef 4) #10
   %35 = trunc i64 %34 to i32
@@ -933,7 +933,7 @@ read_bytes.exit29:                                ; preds = %31
   %47 = zext i32 %45 to i64
   %48 = shl nuw nsw i64 %47, 2
   %49 = tail call ptr @pg_malloc0(i64 noundef %48) #10
-  %50 = getelementptr inbounds i8, ptr %3, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %49, ptr %50, align 8
   %51 = load i32, ptr %19, align 8
   %52 = shl i32 %51, 2
@@ -968,7 +968,7 @@ read_bytes.exit29:                                ; preds = %31
 
 read_bytes.exit31:                                ; preds = %.read_bytes.exit31_crit_edge, %44
   %65 = phi i64 [ %59, %.read_bytes.exit31_crit_edge ], [ 12, %44 ]
-  %66 = getelementptr inbounds i8, ptr %3, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %65, ptr %66, align 8
   ret ptr %3
 }

@@ -158,9 +158,9 @@ define dso_local void @dbuf_init2(ptr nocapture noundef writeonly initializes((0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 32, i1 false)
   %.not = icmp eq ptr %2, null
   %spec.store.select = select i1 %.not, ptr @dbuf_default_realloc, ptr %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %spec.store.select, ptr %5, align 8
   ret void
 }
@@ -177,22 +177,22 @@ define internal noalias noundef ptr @dbuf_default_realloc(ptr nocapture readnone
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @dbuf_init(ptr nocapture noundef writeonly initializes((0, 48)) %0) local_unnamed_addr #4 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 32, i1 false)
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr null, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr @dbuf_default_realloc, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @dbuf_realloc(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #7 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = icmp ugt i64 %1, %4
   br i1 %5, label %6, label %20
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i32, ptr %7, align 8
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %20
@@ -201,9 +201,9 @@ define dso_local range(i32 -1, 1) i32 @dbuf_realloc(ptr nocapture noundef %0, i6
   %10 = mul i64 %4, 3
   %11 = lshr i64 %10, 1
   %spec.select = tail call i64 @llvm.umax.i64(i64 %11, i64 %1)
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %0, align 8
   %17 = tail call ptr %13(ptr noundef %15, ptr noundef %16, i64 noundef %spec.select) #17
@@ -227,7 +227,7 @@ define dso_local range(i32 -1, 1) i32 @dbuf_realloc(ptr nocapture noundef %0, i6
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @dbuf_write(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) local_unnamed_addr #7 {
   %5 = add i64 %3, %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = icmp ugt i64 %5, %7
   br i1 %8, label %9, label %._crit_edge
@@ -237,7 +237,7 @@ define dso_local range(i32 -1, 1) i32 @dbuf_write(ptr nocapture noundef %0, i64 
   br label %23
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load i32, ptr %10, align 8
   %.not.i = icmp eq i32 %11, 0
   br i1 %.not.i, label %12, label %dbuf_realloc.exit
@@ -246,9 +246,9 @@ define dso_local range(i32 -1, 1) i32 @dbuf_write(ptr nocapture noundef %0, i64 
   %13 = mul i64 %7, 3
   %14 = lshr i64 %13, 1
   %spec.select.i = tail call i64 @llvm.umax.i64(i64 %14, i64 %5)
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %0, align 8
   %20 = tail call ptr %16(ptr noundef %18, ptr noundef %19, i64 noundef %spec.select.i) #17
@@ -268,7 +268,7 @@ define dso_local range(i32 -1, 1) i32 @dbuf_write(ptr nocapture noundef %0, i64 
   %24 = phi ptr [ %.pre, %._crit_edge ], [ %20, %22 ]
   %25 = getelementptr i8, ptr %24, i64 %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %25, ptr align 1 %2, i64 %3, i1 false)
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load i64, ptr %26, align 8
   %28 = icmp ugt i64 %5, %27
   br i1 %28, label %29, label %dbuf_realloc.exit
@@ -287,10 +287,10 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @dbuf_put(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #7 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = icmp ugt i64 %6, %8
   br i1 %9, label %10, label %._crit_edge
@@ -300,7 +300,7 @@ define dso_local range(i32 -1, 1) i32 @dbuf_put(ptr nocapture noundef %0, ptr no
   br label %23
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i32, ptr %11, align 8
   %.not.i = icmp eq i32 %12, 0
   br i1 %.not.i, label %13, label %dbuf_realloc.exit.thread
@@ -309,9 +309,9 @@ define dso_local range(i32 -1, 1) i32 @dbuf_put(ptr nocapture noundef %0, ptr no
   %14 = mul i64 %8, 3
   %15 = lshr i64 %14, 1
   %spec.select.i = tail call i64 @llvm.umax.i64(i64 %15, i64 %6)
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %0, align 8
   %21 = tail call ptr %17(ptr noundef %19, ptr noundef %20, i64 noundef %spec.select.i) #17
@@ -345,10 +345,10 @@ dbuf_realloc.exit.thread:                         ; preds = %10, %22, %23
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @dbuf_put_self(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #7 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = icmp ugt i64 %6, %8
   br i1 %9, label %10, label %._crit_edge
@@ -358,7 +358,7 @@ define dso_local range(i32 -1, 1) i32 @dbuf_put_self(ptr nocapture noundef %0, i
   br label %23
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i32, ptr %11, align 8
   %.not.i = icmp eq i32 %12, 0
   br i1 %.not.i, label %13, label %dbuf_realloc.exit.thread
@@ -367,9 +367,9 @@ define dso_local range(i32 -1, 1) i32 @dbuf_put_self(ptr nocapture noundef %0, i
   %14 = mul i64 %8, 3
   %15 = lshr i64 %14, 1
   %spec.select.i = tail call i64 @llvm.umax.i64(i64 %15, i64 %6)
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %0, align 8
   %21 = tail call ptr %17(ptr noundef %19, ptr noundef %20, i64 noundef %spec.select.i) #17
@@ -404,10 +404,10 @@ dbuf_realloc.exit.thread:                         ; preds = %10, %22, %23
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @dbuf_putc(ptr nocapture noundef %0, i8 noundef zeroext %1) local_unnamed_addr #7 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = icmp ugt i64 %5, %7
   br i1 %8, label %9, label %._crit_edge.i
@@ -417,7 +417,7 @@ define dso_local range(i32 -1, 1) i32 @dbuf_putc(ptr nocapture noundef %0, i8 no
   br label %22
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load i32, ptr %10, align 8
   %.not.i.i = icmp eq i32 %11, 0
   br i1 %.not.i.i, label %12, label %dbuf_put.exit
@@ -426,9 +426,9 @@ define dso_local range(i32 -1, 1) i32 @dbuf_putc(ptr nocapture noundef %0, i8 no
   %13 = mul i64 %7, 3
   %14 = lshr i64 %13, 1
   %spec.select.i.i = tail call i64 @llvm.umax.i64(i64 %14, i64 %5)
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %0, align 8
   %20 = tail call ptr %16(ptr noundef %18, ptr noundef %19, i64 noundef %spec.select.i.i) #17
@@ -463,10 +463,10 @@ dbuf_put.exit:                                    ; preds = %9, %21, %22
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @dbuf_putstr(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #7 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #15
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = icmp ugt i64 %6, %8
   br i1 %9, label %10, label %._crit_edge.i
@@ -476,7 +476,7 @@ define dso_local range(i32 -1, 1) i32 @dbuf_putstr(ptr nocapture noundef %0, ptr
   br label %23
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i32, ptr %11, align 8
   %.not.i.i = icmp eq i32 %12, 0
   br i1 %.not.i.i, label %13, label %dbuf_put.exit
@@ -485,9 +485,9 @@ define dso_local range(i32 -1, 1) i32 @dbuf_putstr(ptr nocapture noundef %0, ptr
   %14 = mul i64 %8, 3
   %15 = lshr i64 %14, 1
   %spec.select.i.i = tail call i64 @llvm.umax.i64(i64 %15, i64 %6)
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %0, align 8
   %21 = tail call ptr %17(ptr noundef %19, ptr noundef %20, i64 noundef %spec.select.i.i) #17
@@ -528,13 +528,13 @@ define dso_local range(i32 -1, 1) i32 @dbuf_printf(ptr nocapture noundef %0, ptr
   call void @llvm.va_end.p0(ptr nonnull %3)
   %6 = sext i32 %5 to i64
   %7 = icmp ult i32 %5, 128
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
   br i1 %7, label %10, label %34
 
 10:                                               ; preds = %2
   %11 = add i64 %9, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i64, ptr %12, align 8
   %14 = icmp ugt i64 %11, %13
   br i1 %14, label %15, label %._crit_edge.i
@@ -544,7 +544,7 @@ define dso_local range(i32 -1, 1) i32 @dbuf_printf(ptr nocapture noundef %0, ptr
   br label %28
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load i32, ptr %16, align 8
   %.not.i.i = icmp eq i32 %17, 0
   br i1 %.not.i.i, label %18, label %dbuf_put.exit
@@ -553,9 +553,9 @@ define dso_local range(i32 -1, 1) i32 @dbuf_printf(ptr nocapture noundef %0, ptr
   %19 = mul i64 %13, 3
   %20 = lshr i64 %19, 1
   %spec.select.i.i = call i64 @llvm.umax.i64(i64 %20, i64 %11)
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %0, align 8
   %26 = call ptr %22(ptr noundef %24, ptr noundef %25, i64 noundef %spec.select.i.i) #17
@@ -585,13 +585,13 @@ dbuf_realloc.exit.i:                              ; preds = %18
 34:                                               ; preds = %2
   %35 = add nsw i64 %6, 1
   %36 = add i64 %35, %9
-  %37 = getelementptr inbounds i8, ptr %0, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %38 = load i64, ptr %37, align 8
   %39 = icmp ugt i64 %36, %38
   br i1 %39, label %40, label %54
 
 40:                                               ; preds = %34
-  %41 = getelementptr inbounds i8, ptr %0, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %42 = load i32, ptr %41, align 8
   %.not.i = icmp eq i32 %42, 0
   br i1 %.not.i, label %43, label %dbuf_put.exit
@@ -600,9 +600,9 @@ dbuf_realloc.exit.i:                              ; preds = %18
   %44 = mul i64 %38, 3
   %45 = lshr i64 %44, 1
   %spec.select.i = call i64 @llvm.umax.i64(i64 %45, i64 %36)
-  %46 = getelementptr inbounds i8, ptr %0, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %49 = load ptr, ptr %48, align 8
   %50 = load ptr, ptr %0, align 8
   %51 = call ptr %47(ptr noundef %49, ptr noundef %50, i64 noundef %spec.select.i) #17
@@ -647,9 +647,9 @@ define dso_local void @dbuf_free(ptr nocapture noundef initializes((8, 32)) %0) 
   br i1 %.not, label %9, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr %5(ptr noundef %7, ptr noundef nonnull %2, i64 noundef 0) #17
   br label %9
@@ -804,7 +804,7 @@ define dso_local i32 @unicode_from_utf8(ptr noundef %0, i32 noundef %1, ptr noca
 
 switch.lookup:                                    ; preds = %9
   %11 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [62 x i32], ptr @switch.table.unicode_from_utf8, i64 0, i64 %11
+  %switch.gep = getelementptr inbounds nuw [62 x i32], ptr @switch.table.unicode_from_utf8, i64 0, i64 %11
   %switch.load = load i32, ptr %switch.gep, align 4
   %12 = add i32 %1, -1
   %13 = icmp sgt i32 %switch.load, %12
@@ -933,11 +933,11 @@ exchange_func.exit215:                            ; preds = %exchange_func.exit.
 
 24:                                               ; preds = %exchange_func.exit215
   store ptr %0, ptr %6, align 16
-  %25 = getelementptr inbounds i8, ptr %6, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %1, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %6, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 0, ptr %26, align 16
-  %27 = getelementptr inbounds i8, ptr %6, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %28 = sub i64 0, %2
   %29 = icmp eq i64 %2, 2
   %exchange_one_int16.exchange_int16s.i.i = select i1 %29, ptr @exchange_one_int16, ptr @exchange_int16s
@@ -1257,9 +1257,9 @@ med3.exit:                                        ; preds = %108, %110, %114, %1
   %.1181 = phi ptr [ %.0180253, %171 ], [ %166, %.critedge3 ]
   %.2 = phi i64 [ %158, %171 ], [ %167, %.critedge3 ]
   store ptr %.sink285, ptr %.1167255, align 8
-  %173 = getelementptr inbounds i8, ptr %.1167255, i64 8
+  %173 = getelementptr inbounds nuw i8, ptr %.1167255, i64 8
   store i64 %.sink, ptr %173, align 8
-  %174 = getelementptr inbounds i8, ptr %.1167255, i64 16
+  %174 = getelementptr inbounds nuw i8, ptr %.1167255, i64 16
   store i32 %43, ptr %174, align 8
   %.2168 = getelementptr i8, ptr %.1167255, i64 24
   %175 = icmp ugt i64 %.2, 6

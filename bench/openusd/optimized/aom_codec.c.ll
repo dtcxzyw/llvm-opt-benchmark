@@ -68,7 +68,7 @@ define hidden noundef nonnull ptr @aom_codec_err_to_string(i32 noundef %0) local
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [10 x ptr], ptr @switch.table.aom_codec_error, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [10 x ptr], ptr @switch.table.aom_codec_error, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -90,7 +90,7 @@ define hidden noundef nonnull ptr @aom_codec_error(ptr noundef readonly %0) loca
 
 switch.lookup:                                    ; preds = %2
   %6 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds [10 x ptr], ptr @switch.table.aom_codec_error, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw [10 x ptr], ptr @switch.table.aom_codec_error, i64 0, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %aom_codec_err_to_string.exit
 
@@ -241,7 +241,7 @@ at_ctrl_map_end.exit.thread:                      ; preds = %.preheader, %at_ctr
   br label %34
 
 30:                                               ; preds = %at_ctrl_map_end.exit.thread
-  %31 = getelementptr inbounds i8, ptr %.0, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   br label %.preheader, !llvm.loop !4
 
 32:                                               ; preds = %at_ctrl_map_end.exit
@@ -313,7 +313,7 @@ define hidden void @aom_internal_error(ptr noundef initializes((0, 8)) %0, i32 n
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = call i32 @vsnprintf(ptr noundef nonnull %7, i64 noundef 199, ptr noundef nonnull %2, ptr noundef nonnull %4) #9
   call void @llvm.va_end.p0(ptr nonnull %4)
-  %9 = getelementptr inbounds i8, ptr %0, i64 207
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 207
   store i8 0, ptr %9, align 1
   br label %10
 
@@ -355,7 +355,7 @@ define hidden noundef nonnull ptr @aom_obu_type_to_string(i8 noundef zeroext %0)
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [15 x ptr], ptr @switch.table.aom_obu_type_to_string, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [15 x ptr], ptr @switch.table.aom_obu_type_to_string, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 

@@ -93,7 +93,7 @@ entry:
   %ref.tmp = alloca %"class.QuantLib::Array", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #22
   %vtable = load ptr, ptr %process, align 8, !tbaa !3
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 56
   %0 = load ptr, ptr %vfn, align 8
   call void %0(ptr dead_on_unwind nonnull writable sret(%"class.QuantLib::Array") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(128) %process, double noundef %t0, ptr noundef nonnull align 8 dereferenceable(16) %x0)
   call void @llvm.experimental.noalias.scope.decl(metadata !6)
@@ -125,7 +125,7 @@ _ZN8QuantLib5ArrayD2Ev.exit:                      ; preds = %for.body.i.i, %entr
 define noundef double @_ZNK8QuantLib19EulerDiscretization5driftERKNS_19StochasticProcess1DEddd(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(144) %process, double noundef %t0, double noundef %x0, double noundef %dt) unnamed_addr #3 align 2 {
 entry:
   %vtable = load ptr, ptr %process, align 8, !tbaa !3
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 128
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 128
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef double %0(ptr noundef nonnull align 8 dereferenceable(144) %process, double noundef %t0, double noundef %x0)
   %mul = fmul double %dt, %call
@@ -136,7 +136,7 @@ entry:
 define noundef double @_ZThn8_NK8QuantLib19EulerDiscretization5driftERKNS_19StochasticProcess1DEddd(ptr nocapture readnone %this, ptr noundef nonnull align 8 dereferenceable(144) %process, double noundef %t0, double noundef %x0, double noundef %dt) unnamed_addr #4 align 2 {
 entry:
   %vtable.i = load ptr, ptr %process, align 8, !tbaa !3
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 128
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 128
   %0 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef double %0(ptr noundef nonnull align 8 dereferenceable(144) %process, double noundef %t0, double noundef %x0)
   %mul.i = fmul double %dt, %call.i
@@ -149,7 +149,7 @@ entry:
   %ref.tmp = alloca %"class.QuantLib::Matrix", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp) #22
   %vtable = load ptr, ptr %process, align 8, !tbaa !3
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 64
   %0 = load ptr, ptr %vfn, align 8
   call void %0(ptr dead_on_unwind nonnull writable sret(%"class.QuantLib::Matrix") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(128) %process, double noundef %t0, ptr noundef nonnull align 8 dereferenceable(16) %x0)
   %call = call double @sqrt(double noundef %dt) #22, !tbaa !18
@@ -190,7 +190,7 @@ declare double @sqrt(double noundef) local_unnamed_addr #5
 define noundef double @_ZNK8QuantLib19EulerDiscretization9diffusionERKNS_19StochasticProcess1DEddd(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(144) %process, double noundef %t0, double noundef %x0, double noundef %dt) unnamed_addr #3 align 2 {
 entry:
   %vtable = load ptr, ptr %process, align 8, !tbaa !3
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 136
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 136
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef double %0(ptr noundef nonnull align 8 dereferenceable(144) %process, double noundef %t0, double noundef %x0)
   %call2 = tail call double @sqrt(double noundef %dt) #22, !tbaa !18
@@ -202,7 +202,7 @@ entry:
 define noundef double @_ZThn8_NK8QuantLib19EulerDiscretization9diffusionERKNS_19StochasticProcess1DEddd(ptr nocapture readnone %this, ptr noundef nonnull align 8 dereferenceable(144) %process, double noundef %t0, double noundef %x0, double noundef %dt) unnamed_addr #4 align 2 {
 entry:
   %vtable.i = load ptr, ptr %process, align 8, !tbaa !3
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 136
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 136
   %0 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef double %0(ptr noundef nonnull align 8 dereferenceable(144) %process, double noundef %t0, double noundef %x0)
   %call2.i = tail call double @sqrt(double noundef %dt) #22, !tbaa !18
@@ -218,7 +218,7 @@ entry:
   %ref.tmp2 = alloca %"class.QuantLib::Matrix", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %sigma) #22
   %vtable = load ptr, ptr %process, align 8, !tbaa !3
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 64
   %0 = load ptr, ptr %vfn, align 8
   call void %0(ptr dead_on_unwind nonnull writable sret(%"class.QuantLib::Matrix") align 8 %sigma, ptr noundef nonnull align 8 dereferenceable(128) %process, double noundef %t0, ptr noundef nonnull align 8 dereferenceable(16) %x0)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp) #22
@@ -672,7 +672,7 @@ unreachable:                                      ; preds = %invoke.cont38
 define noundef double @_ZNK8QuantLib19EulerDiscretization8varianceERKNS_19StochasticProcess1DEddd(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(144) %process, double noundef %t0, double noundef %x0, double noundef %dt) unnamed_addr #3 align 2 {
 entry:
   %vtable = load ptr, ptr %process, align 8, !tbaa !3
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 136
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 136
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef double %0(ptr noundef nonnull align 8 dereferenceable(144) %process, double noundef %t0, double noundef %x0)
   %mul = fmul double %call, %call
@@ -684,7 +684,7 @@ entry:
 define noundef double @_ZThn8_NK8QuantLib19EulerDiscretization8varianceERKNS_19StochasticProcess1DEddd(ptr nocapture readnone %this, ptr noundef nonnull align 8 dereferenceable(144) %process, double noundef %t0, double noundef %x0, double noundef %dt) unnamed_addr #4 align 2 {
 entry:
   %vtable.i = load ptr, ptr %process, align 8, !tbaa !3
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 136
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 136
   %0 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef double %0(ptr noundef nonnull align 8 dereferenceable(144) %process, double noundef %t0, double noundef %x0)
   %mul.i = fmul double %call.i, %call.i
@@ -809,7 +809,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i = load ptr, ptr %0, align 8, !tbaa !3
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc.i.i unwind label %terminate.lpad.i.i
@@ -822,7 +822,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
 
 if.then.i.i.i.i:                                  ; preds = %.noexc.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !3
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 24
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN5boost10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit unwind label %terminate.lpad.i.i

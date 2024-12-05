@@ -52,7 +52,7 @@ define dso_local noundef zeroext i1 @_ZN7cmValue4IsOnESt17basic_string_viewIcSt1
   ]
 
 8:                                                ; preds = %6, %6
-  %9 = getelementptr inbounds i8, ptr %1, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %10 = load i8, ptr %9, align 1
   %11 = and i8 %10, -33
   %spec.select = icmp eq i8 %11, 78
@@ -66,7 +66,7 @@ define dso_local noundef zeroext i1 @_ZN7cmValue4IsOnESt17basic_string_viewIcSt1
   ]
 
 14:                                               ; preds = %12, %12
-  %15 = getelementptr inbounds i8, ptr %1, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %16 = load i8, ptr %15, align 1
   switch i8 %16, label %switch.edge [
     i8 69, label %17
@@ -74,7 +74,7 @@ define dso_local noundef zeroext i1 @_ZN7cmValue4IsOnESt17basic_string_viewIcSt1
   ]
 
 17:                                               ; preds = %14, %14
-  %18 = getelementptr inbounds i8, ptr %1, i64 2
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %19 = load i8, ptr %18, align 1
   %20 = and i8 %19, -33
   %spec.select21 = icmp eq i8 %20, 83
@@ -88,7 +88,7 @@ define dso_local noundef zeroext i1 @_ZN7cmValue4IsOnESt17basic_string_viewIcSt1
   ]
 
 23:                                               ; preds = %21, %21
-  %24 = getelementptr inbounds i8, ptr %1, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %25 = load i8, ptr %24, align 1
   switch i8 %25, label %switch.edge [
     i8 82, label %26
@@ -96,7 +96,7 @@ define dso_local noundef zeroext i1 @_ZN7cmValue4IsOnESt17basic_string_viewIcSt1
   ]
 
 26:                                               ; preds = %23, %23
-  %27 = getelementptr inbounds i8, ptr %1, i64 2
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %28 = load i8, ptr %27, align 1
   switch i8 %28, label %switch.edge [
     i8 85, label %29
@@ -104,7 +104,7 @@ define dso_local noundef zeroext i1 @_ZN7cmValue4IsOnESt17basic_string_viewIcSt1
   ]
 
 29:                                               ; preds = %26, %26
-  %30 = getelementptr inbounds i8, ptr %1, i64 3
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %31 = load i8, ptr %30, align 1
   %32 = and i8 %31, -33
   %spec.select22 = icmp eq i8 %32, 69
@@ -141,7 +141,7 @@ define dso_local noundef zeroext i1 @_ZN7cmValue5IsOffESt17basic_string_viewIcSt
   ]
 
 8:                                                ; preds = %6, %6
-  %9 = getelementptr inbounds i8, ptr %1, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %10 = load i8, ptr %9, align 1
   %11 = and i8 %10, -33
   %spec.select = icmp eq i8 %11, 79
@@ -155,7 +155,7 @@ define dso_local noundef zeroext i1 @_ZN7cmValue5IsOffESt17basic_string_viewIcSt
   ]
 
 14:                                               ; preds = %12, %12
-  %15 = getelementptr inbounds i8, ptr %1, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %16 = load i8, ptr %15, align 1
   switch i8 %16, label %_ZN7cmValue10IsNOTFOUNDESt17basic_string_viewIcSt11char_traitsIcEE.exit [
     i8 70, label %17
@@ -163,7 +163,7 @@ define dso_local noundef zeroext i1 @_ZN7cmValue5IsOffESt17basic_string_viewIcSt
   ]
 
 17:                                               ; preds = %14, %14
-  %18 = getelementptr inbounds i8, ptr %1, i64 2
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %19 = load i8, ptr %18, align 1
   %20 = and i8 %19, -33
   %spec.select36 = icmp eq i8 %20, 70
@@ -177,7 +177,7 @@ define dso_local noundef zeroext i1 @_ZN7cmValue5IsOffESt17basic_string_viewIcSt
   ]
 
 23:                                               ; preds = %21, %21
-  %24 = getelementptr inbounds i8, ptr %1, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %25 = load i8, ptr %24, align 1
   switch i8 %25, label %_ZN7cmValue10IsNOTFOUNDESt17basic_string_viewIcSt11char_traitsIcEE.exit [
     i8 65, label %26
@@ -185,7 +185,7 @@ define dso_local noundef zeroext i1 @_ZN7cmValue5IsOffESt17basic_string_viewIcSt
   ]
 
 26:                                               ; preds = %23, %23
-  %27 = getelementptr inbounds i8, ptr %1, i64 2
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %28 = load i8, ptr %27, align 1
   switch i8 %28, label %_ZN7cmValue10IsNOTFOUNDESt17basic_string_viewIcSt11char_traitsIcEE.exit [
     i8 76, label %29
@@ -193,7 +193,7 @@ define dso_local noundef zeroext i1 @_ZN7cmValue5IsOffESt17basic_string_viewIcSt
   ]
 
 29:                                               ; preds = %26, %26
-  %30 = getelementptr inbounds i8, ptr %1, i64 3
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %31 = load i8, ptr %30, align 1
   switch i8 %31, label %_ZN7cmValue10IsNOTFOUNDESt17basic_string_viewIcSt11char_traitsIcEE.exit [
     i8 83, label %32
@@ -201,7 +201,7 @@ define dso_local noundef zeroext i1 @_ZN7cmValue5IsOffESt17basic_string_viewIcSt
   ]
 
 32:                                               ; preds = %29, %29
-  %33 = getelementptr inbounds i8, ptr %1, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %34 = load i8, ptr %33, align 1
   %35 = and i8 %34, -33
   %spec.select37 = icmp eq i8 %35, 69
@@ -215,7 +215,7 @@ define dso_local noundef zeroext i1 @_ZN7cmValue5IsOffESt17basic_string_viewIcSt
   ]
 
 38:                                               ; preds = %36, %36
-  %39 = getelementptr inbounds i8, ptr %1, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %40 = load i8, ptr %39, align 1
   switch i8 %40, label %_ZN7cmValue10IsNOTFOUNDESt17basic_string_viewIcSt11char_traitsIcEE.exit [
     i8 71, label %41
@@ -223,7 +223,7 @@ define dso_local noundef zeroext i1 @_ZN7cmValue5IsOffESt17basic_string_viewIcSt
   ]
 
 41:                                               ; preds = %38, %38
-  %42 = getelementptr inbounds i8, ptr %1, i64 2
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %43 = load i8, ptr %42, align 1
   switch i8 %43, label %_ZN7cmValue10IsNOTFOUNDESt17basic_string_viewIcSt11char_traitsIcEE.exit [
     i8 78, label %44
@@ -231,7 +231,7 @@ define dso_local noundef zeroext i1 @_ZN7cmValue5IsOffESt17basic_string_viewIcSt
   ]
 
 44:                                               ; preds = %41, %41
-  %45 = getelementptr inbounds i8, ptr %1, i64 3
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %46 = load i8, ptr %45, align 1
   switch i8 %46, label %_ZN7cmValue10IsNOTFOUNDESt17basic_string_viewIcSt11char_traitsIcEE.exit [
     i8 79, label %47
@@ -239,7 +239,7 @@ define dso_local noundef zeroext i1 @_ZN7cmValue5IsOffESt17basic_string_viewIcSt
   ]
 
 47:                                               ; preds = %44, %44
-  %48 = getelementptr inbounds i8, ptr %1, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %49 = load i8, ptr %48, align 1
   switch i8 %49, label %_ZN7cmValue10IsNOTFOUNDESt17basic_string_viewIcSt11char_traitsIcEE.exit [
     i8 82, label %50
@@ -247,7 +247,7 @@ define dso_local noundef zeroext i1 @_ZN7cmValue5IsOffESt17basic_string_viewIcSt
   ]
 
 50:                                               ; preds = %47, %47
-  %51 = getelementptr inbounds i8, ptr %1, i64 5
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %52 = load i8, ptr %51, align 1
   %53 = and i8 %52, -33
   %spec.select38 = icmp eq i8 %53, 69
@@ -333,13 +333,13 @@ define dso_local noundef zeroext i1 @_ZN7cmValue14IsInternallyOnESt17basic_strin
   ]
 
 6:                                                ; preds = %4, %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %8 = load i8, ptr %7, align 1
   %9 = icmp eq i8 %8, 95
   br i1 %9, label %10, label %17
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %1, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %12 = load i8, ptr %11, align 1
   switch i8 %12, label %17 [
     i8 79, label %13
@@ -347,7 +347,7 @@ define dso_local noundef zeroext i1 @_ZN7cmValue14IsInternallyOnESt17basic_strin
   ]
 
 13:                                               ; preds = %10, %10
-  %14 = getelementptr inbounds i8, ptr %1, i64 3
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %15 = load i8, ptr %14, align 1
   %16 = and i8 %15, -33
   %spec.select = icmp eq i8 %16, 78

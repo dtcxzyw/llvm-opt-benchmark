@@ -186,8 +186,8 @@ cdce.end:                                         ; preds = %cdce.call, %84
   %122 = add i32 %118, %121
   %123 = icmp slt i32 %122, 1
   %124 = getelementptr i8, ptr %38, i64 8
-  %125 = getelementptr inbounds i8, ptr %27, i64 16
-  %126 = getelementptr inbounds i8, ptr %27, i64 24
+  %125 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %126 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %127 = sext i32 %31 to i64
   %128 = sext i32 %35 to i64
   %129 = icmp slt i32 %111, 1
@@ -1057,7 +1057,7 @@ cdce.end:                                         ; preds = %cdce.call, %84
   %reass.sub67 = sub i32 %682, %683
   %684 = add i32 %reass.sub67, 1
   store i32 %684, ptr %20, align 4, !tbaa !3
-  %685 = getelementptr inbounds double, ptr %29, i64 %681
+  %685 = getelementptr inbounds nuw double, ptr %29, i64 %681
   %686 = call i32 @idamax_(ptr noundef nonnull %20, ptr noundef nonnull %685, ptr noundef nonnull @c__1) #6
   %687 = add i32 %683, -1
   %688 = add i32 %687, %686
@@ -1072,7 +1072,7 @@ cdce.end:                                         ; preds = %cdce.call, %84
   %695 = load double, ptr %694, align 8, !tbaa !7
   store double %695, ptr %685, align 8, !tbaa !7
   store double %692, ptr %694, align 8, !tbaa !7
-  %696 = getelementptr inbounds double, ptr %30, i64 %681
+  %696 = getelementptr inbounds nuw double, ptr %30, i64 %681
   %697 = load double, ptr %696, align 8, !tbaa !7
   store double %697, ptr %25, align 8, !tbaa !7
   %698 = getelementptr inbounds double, ptr %30, i64 %693
@@ -1105,7 +1105,7 @@ cdce.end:                                         ; preds = %cdce.call, %84
   %reass.sub = sub i32 %714, %715
   %716 = add i32 %reass.sub, 1
   store i32 %716, ptr %20, align 4, !tbaa !3
-  %717 = getelementptr inbounds double, ptr %29, i64 %713
+  %717 = getelementptr inbounds nuw double, ptr %29, i64 %713
   %718 = call i32 @idamax_(ptr noundef nonnull %20, ptr noundef nonnull %717, ptr noundef nonnull @c__1) #6
   %719 = add i32 %715, -1
   %720 = add i32 %719, %718
@@ -1120,7 +1120,7 @@ cdce.end:                                         ; preds = %cdce.call, %84
   %727 = load double, ptr %726, align 8, !tbaa !7
   store double %727, ptr %717, align 8, !tbaa !7
   store double %724, ptr %726, align 8, !tbaa !7
-  %728 = getelementptr inbounds double, ptr %30, i64 %713
+  %728 = getelementptr inbounds nuw double, ptr %30, i64 %713
   %729 = load double, ptr %728, align 8, !tbaa !7
   store double %729, ptr %25, align 8, !tbaa !7
   %730 = getelementptr inbounds double, ptr %30, i64 %725

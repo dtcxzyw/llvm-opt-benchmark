@@ -142,15 +142,15 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 ; Function Attrs: nounwind uwtable
 define hidden void @SplashInitFrameShape(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.ImageRect, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 10456
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 10456
   %5 = load ptr, ptr %4, align 8
   %6 = sext i32 %1 to i64
   %7 = getelementptr inbounds %struct.SplashImage, ptr %5, i64 %6
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr null, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 10436
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 10436
   %11 = load i32, ptr %10, align 4
   %12 = icmp ne i32 %11, 0
   %13 = load i32, ptr @shapeSupported, align 4
@@ -159,12 +159,12 @@ define hidden void @SplashInitFrameShape(ptr noundef %0, i32 noundef %1) local_u
   br i1 %or.cond, label %15, label %.thread
 
 15:                                               ; preds = %2
-  %16 = getelementptr inbounds i8, ptr %0, i64 10440
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 10440
   %17 = load i32, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 10444
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 10444
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 9320
-  %21 = getelementptr inbounds i8, ptr %0, i64 9352
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 9320
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 9352
   %22 = load i32, ptr %21, align 8
   %23 = mul nsw i32 %22, %17
   %24 = load ptr, ptr %4, align 8
@@ -234,7 +234,7 @@ define hidden i32 @SplashTime() local_unnamed_addr #7 {
   %3 = call i32 @gettimeofday(ptr noundef nonnull %1, ptr noundef nonnull %2) #16
   %4 = load i64, ptr %1, align 8
   %5 = mul i64 %4, 1000
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = udiv i64 %7, 1000
   %9 = add i64 %8, %5
@@ -253,7 +253,7 @@ define hidden void @msec2timeval(i32 noundef %0, ptr nocapture noundef writeonly
   %5 = urem i32 %0, 1000
   %6 = mul nuw nsw i32 %5, 1000
   %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %7, ptr %8, align 8
   ret void
 }
@@ -324,38 +324,38 @@ define hidden void @FreeColors(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
 define hidden void @SplashCreateWindow(ptr nocapture noundef initializes((10636, 10644), (11792, 11800)) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.XSizeHints, align 8
   %3 = alloca %struct.XSetWindowAttributes, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i32 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 11728
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 11728
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i64 @XDefaultColormapOfScreen(ptr noundef %6) #16
-  %8 = getelementptr inbounds i8, ptr %3, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 96
   store i64 %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 11712
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 11712
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i64 @XCreateFontCursor(ptr noundef %11, i32 noundef 150) #16
-  %13 = getelementptr inbounds i8, ptr %0, i64 11792
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 11792
   store i64 %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 104
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 104
   store i64 %12, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store i64 32768, ptr %15, align 8
   tail call fastcc void @SplashCenter(ptr noundef %0)
   %16 = load ptr, ptr %10, align 8
   %17 = load ptr, ptr %5, align 8
   %18 = tail call i64 @XRootWindowOfScreen(ptr noundef %17) #16
-  %19 = getelementptr inbounds i8, ptr %0, i64 10636
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 10636
   %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %0, i64 10640
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 10640
   %22 = load i32, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 10440
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 10440
   %24 = load i32, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 10444
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 10444
   %26 = load i32, ptr %25, align 4
   %27 = call i64 @XCreateWindow(ptr noundef %16, i64 noundef %18, i32 noundef %20, i32 noundef %22, i32 noundef %24, i32 noundef %26, i32 noundef 0, i32 noundef 0, i32 noundef 1, ptr noundef null, i64 noundef 27712, ptr noundef nonnull %3) #16
-  %28 = getelementptr inbounds i8, ptr %0, i64 11720
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 11720
   store i64 %27, ptr %28, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2)
   %.not.i = icmp eq i64 %27, 0
@@ -364,24 +364,24 @@ define hidden void @SplashCreateWindow(ptr nocapture noundef initializes((10636,
 29:                                               ; preds = %1
   store i64 575, ptr %2, align 8
   %30 = load i32, ptr %23, align 8
-  %31 = getelementptr inbounds i8, ptr %2, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %30, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %2, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %30, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %2, i64 64
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i32 %30, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %2, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %30, ptr %34, align 8
   %35 = load i32, ptr %25, align 4
-  %36 = getelementptr inbounds i8, ptr %2, i64 36
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 36
   store i32 %35, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %2, i64 28
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 %35, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %2, i64 68
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 68
   store i32 %35, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %2, i64 20
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 %35, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %2, i64 72
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store i32 1, ptr %40, align 8
   %41 = load ptr, ptr %10, align 8
   call void @XSetWMNormalHints(ptr noundef %41, i64 noundef %27, ptr noundef nonnull %2) #16
@@ -390,7 +390,7 @@ define hidden void @SplashCreateWindow(ptr nocapture noundef initializes((10636,
 SplashUpdateSizeHints.exit:                       ; preds = %1, %29
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2)
   %42 = call ptr @XAllocWMHints() #16
-  %43 = getelementptr inbounds i8, ptr %0, i64 11800
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 11800
   store ptr %42, ptr %43, align 8
   %.not = icmp eq ptr %42, null
   br i1 %.not, label %53, label %44
@@ -398,10 +398,10 @@ SplashUpdateSizeHints.exit:                       ; preds = %1, %29
 44:                                               ; preds = %SplashUpdateSizeHints.exit
   store i64 3, ptr %42, align 8
   %45 = load ptr, ptr %43, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i32 0, ptr %46, align 8
   %47 = load ptr, ptr %43, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 12
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 12
   store i32 1, ptr %48, align 4
   %49 = load ptr, ptr %10, align 8
   %50 = load i64, ptr %28, align 8
@@ -423,7 +423,7 @@ define internal fastcc void @SplashCenter(ptr nocapture noundef initializes((106
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 11712
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 11712
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @XInternAtom(ptr noundef %8, ptr noundef nonnull @.str.18, i32 noundef 1) #16
   %.not = icmp eq i64 %9, 0
@@ -431,7 +431,7 @@ define internal fastcc void @SplashCenter(ptr nocapture noundef initializes((106
 
 10:                                               ; preds = %1
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 11728
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 11728
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i64 @XRootWindowOfScreen(ptr noundef %13) #16
   %15 = call i32 @XGetWindowProperty(ptr noundef %11, i64 noundef %14, i64 noundef %9, i64 noundef 0, i64 noundef 1, i32 noundef 0, i64 noundef 19, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #16
@@ -447,20 +447,20 @@ define internal fastcc void @SplashCenter(ptr nocapture noundef initializes((106
 21:                                               ; preds = %10
   %22 = load i16, ptr %19, align 2
   %23 = zext i16 %22 to i32
-  %24 = getelementptr inbounds i8, ptr %0, i64 10440
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 10440
   %25 = load i32, ptr %24, align 8
   %.neg = sdiv i32 %25, -2
   %26 = add nsw i32 %.neg, %23
-  %27 = getelementptr inbounds i8, ptr %0, i64 10636
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 10636
   store i32 %26, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %19, i64 2
+  %28 = getelementptr inbounds nuw i8, ptr %19, i64 2
   %29 = load i16, ptr %28, align 2
   %30 = zext i16 %29 to i32
-  %31 = getelementptr inbounds i8, ptr %0, i64 10444
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 10444
   %32 = load i32, ptr %31, align 4
   %.neg19 = sdiv i32 %32, -2
   %33 = add nsw i32 %.neg19, %30
-  %34 = getelementptr inbounds i8, ptr %0, i64 10640
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 10640
   store i32 %33, ptr %34, align 8
   %35 = call i32 @XFree(ptr noundef nonnull %19) #16
   br label %55
@@ -473,22 +473,22 @@ define internal fastcc void @SplashCenter(ptr nocapture noundef initializes((106
   br label %39
 
 39:                                               ; preds = %36, %37, %1
-  %40 = getelementptr inbounds i8, ptr %0, i64 11728
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 11728
   %41 = load ptr, ptr %40, align 8
   %42 = call i32 @XWidthOfScreen(ptr noundef %41) #16
-  %43 = getelementptr inbounds i8, ptr %0, i64 10440
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 10440
   %44 = load i32, ptr %43, align 8
   %45 = sub nsw i32 %42, %44
   %46 = sdiv i32 %45, 2
-  %47 = getelementptr inbounds i8, ptr %0, i64 10636
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 10636
   store i32 %46, ptr %47, align 4
   %48 = load ptr, ptr %40, align 8
   %49 = call i32 @XHeightOfScreen(ptr noundef %48) #16
-  %50 = getelementptr inbounds i8, ptr %0, i64 10444
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 10444
   %51 = load i32, ptr %50, align 4
   %52 = sub nsw i32 %49, %51
   %53 = sdiv i32 %52, 2
-  %54 = getelementptr inbounds i8, ptr %0, i64 10640
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 10640
   store i32 %53, ptr %54, align 8
   br label %55
 
@@ -506,7 +506,7 @@ declare i32 @XSetWMHints(ptr noundef, i64 noundef, ptr noundef) local_unnamed_ad
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SplashUpdateShape(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 10628
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 10628
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, -1
   %5 = load i32, ptr @shapeSupported, align 4
@@ -515,23 +515,23 @@ define hidden void @SplashUpdateShape(ptr nocapture noundef readonly %0) local_u
   br i1 %or.cond, label %7, label %33
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 10436
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 10436
   %9 = load i32, ptr %8, align 4
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %33, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 11712
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 11712
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 11720
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 11720
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 10456
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 10456
   %16 = load ptr, ptr %15, align 8
   %17 = zext nneg i32 %3 to i64
-  %18 = getelementptr inbounds %struct.SplashImage, ptr %16, i64 %17
-  %19 = getelementptr inbounds i8, ptr %18, i64 16
+  %18 = getelementptr inbounds nuw %struct.SplashImage, ptr %16, i64 %17
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %18, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %22 = load i32, ptr %21, align 8
   tail call void @XShapeCombineRectangles(ptr noundef %12, i64 noundef %14, i32 noundef 1, i32 noundef 0, i32 noundef 0, ptr noundef %20, i32 noundef %22, i32 noundef 0, i32 noundef 3) #16
   %23 = load ptr, ptr %11, align 8
@@ -540,9 +540,9 @@ define hidden void @SplashUpdateShape(ptr nocapture noundef readonly %0) local_u
   %26 = load i32, ptr %2, align 4
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds %struct.SplashImage, ptr %25, i64 %27
-  %29 = getelementptr inbounds i8, ptr %28, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %28, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %32 = load i32, ptr %31, align 8
   tail call void @XShapeCombineRectangles(ptr noundef %23, i64 noundef %24, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef %30, i32 noundef %32, i32 noundef 0, i32 noundef 3) #16
   br label %33
@@ -560,15 +560,15 @@ define hidden void @SplashRevertShape(ptr nocapture noundef readonly %0) local_u
   br i1 %.not, label %13, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 10436
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 10436
   %5 = load i32, ptr %4, align 4
   %.not5 = icmp eq i32 %5, 0
   br i1 %.not5, label %6, label %13
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 11712
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 11712
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 11720
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 11720
   %10 = load i64, ptr %9, align 8
   tail call void @XShapeCombineMask(ptr noundef %8, i64 noundef %10, i32 noundef 1, i32 noundef 0, i32 noundef 0, i64 noundef 0, i32 noundef 0) #16
   %11 = load ptr, ptr %7, align 8
@@ -602,39 +602,39 @@ define hidden range(i32 -1, 2) i32 @ByteOrderToX(i32 noundef %0) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SplashRedrawWindow(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 10628
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 10628
   %3 = load i32, ptr %2, align 4
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %52, label %5
 
 5:                                                ; preds = %1
   tail call void @SplashUpdateScreenData(ptr noundef nonnull %0) #16
-  %6 = getelementptr inbounds i8, ptr %0, i64 11712
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 11712
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 11736
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 11736
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load i32, ptr %10, align 8
   %12 = shl nsw i32 %11, 3
-  %13 = getelementptr inbounds i8, ptr %0, i64 10440
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 10440
   %14 = load i32, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 10444
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 10444
   %16 = load i32, ptr %15, align 4
   %17 = tail call ptr @XCreateImage(ptr noundef %7, ptr noundef %9, i32 noundef %12, i32 noundef 2, i32 noundef 0, ptr noundef null, i32 noundef %14, i32 noundef %16, i32 noundef 8, i32 noundef 0) #16
-  %18 = getelementptr inbounds i8, ptr %0, i64 10616
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 10616
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %17, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %17, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %22 = load i32, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %17, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 48
   store i32 %22, ptr %23, align 8
   %24 = load i32, ptr %17, align 8
   %25 = mul nsw i32 %24, %22
   %26 = sdiv i32 %25, 8
-  %27 = getelementptr inbounds i8, ptr %17, i64 44
+  %27 = getelementptr inbounds nuw i8, ptr %17, i64 44
   store i32 %26, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %0, i64 36
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %29 = load i32, ptr %28, align 4
   %30 = icmp eq i32 %29, 2
   br i1 %30, label %31, label %ByteOrderToX.exit
@@ -649,21 +649,21 @@ ByteOrderToX.exit:                                ; preds = %5, %31
   %switch.select.i = select i1 %switch.selectcmp.i, i32 1, i32 -1
   %switch.selectcmp5.i = icmp eq i32 %.0.i, 0
   %switch.select6.i = select i1 %switch.selectcmp5.i, i32 0, i32 %switch.select.i
-  %33 = getelementptr inbounds i8, ptr %17, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store i32 %switch.select6.i, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %17, i64 28
+  %34 = getelementptr inbounds nuw i8, ptr %17, i64 28
   store i32 8, ptr %34, align 4
   %35 = load ptr, ptr %6, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 11720
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 11720
   %37 = load i64, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 11728
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 11728
   %39 = load ptr, ptr %38, align 8
   %40 = tail call ptr @XDefaultGCOfScreen(ptr noundef %39) #16
   %41 = load i32, ptr %13, align 8
   %42 = load i32, ptr %15, align 4
   %43 = tail call i32 @XPutImage(ptr noundef %35, i64 noundef %37, ptr noundef %40, ptr noundef nonnull %17, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef %41, i32 noundef %42) #16
   store ptr null, ptr %20, align 8
-  %44 = getelementptr inbounds i8, ptr %17, i64 96
+  %44 = getelementptr inbounds nuw i8, ptr %17, i64 96
   %45 = load ptr, ptr %44, align 8
   %46 = tail call i32 %45(ptr noundef nonnull %17) #16
   tail call void @SplashRemoveDecoration(ptr noundef nonnull %0)
@@ -690,7 +690,7 @@ declare ptr @XDefaultGCOfScreen(ptr noundef) local_unnamed_addr #2
 define hidden void @SplashRemoveDecoration(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca [4 x i64], align 16
   %3 = alloca %struct.PROPMOTIFWMHINTS, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 11712
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 11712
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 @XInternAtom(ptr noundef %5, ptr noundef nonnull @.str.4, i32 noundef 1) #16
   %.not = icmp eq i64 %6, 0
@@ -702,10 +702,10 @@ define hidden void @SplashRemoveDecoration(ptr nocapture noundef readonly %0) lo
   store i64 %9, ptr %2, align 16
   %10 = load ptr, ptr %4, align 8
   %11 = tail call i64 @XInternAtom(ptr noundef %10, ptr noundef nonnull @.str.6, i32 noundef 1) #16
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %11, ptr %12, align 8
   %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 11720
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 11720
   %15 = load i64, ptr %14, align 8
   %16 = call i32 @XChangeProperty(ptr noundef %13, i64 noundef %15, i64 noundef %6, i64 noundef 4, i32 noundef 32, i32 noundef 0, ptr noundef nonnull %2, i32 noundef 2) #16
   br label %17
@@ -718,10 +718,10 @@ define hidden void @SplashRemoveDecoration(ptr nocapture noundef readonly %0) lo
 
 20:                                               ; preds = %17
   store i64 3, ptr %3, align 8
-  %21 = getelementptr inbounds i8, ptr %3, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
   %22 = load ptr, ptr %4, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 11720
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 11720
   %24 = load i64, ptr %23, align 8
   %25 = call i32 @XChangeProperty(ptr noundef %22, i64 noundef %24, i64 noundef %19, i64 noundef %19, i32 noundef 32, i32 noundef 0, ptr noundef nonnull %3, i32 noundef 5) #16
   br label %26
@@ -738,18 +738,18 @@ define hidden void @SplashRemoveDecoration(ptr nocapture noundef readonly %0) lo
   store i64 %31, ptr %2, align 16
   %32 = load ptr, ptr %4, align 8
   %33 = call i64 @XInternAtom(ptr noundef %32, ptr noundef nonnull @.str.10, i32 noundef 1) #16
-  %34 = getelementptr inbounds i8, ptr %2, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %33, ptr %34, align 8
   %35 = load ptr, ptr %4, align 8
   %36 = call i64 @XInternAtom(ptr noundef %35, ptr noundef nonnull @.str.11, i32 noundef 1) #16
-  %37 = getelementptr inbounds i8, ptr %2, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %36, ptr %37, align 16
   %38 = load ptr, ptr %4, align 8
   %39 = call i64 @XInternAtom(ptr noundef %38, ptr noundef nonnull @.str.12, i32 noundef 1) #16
-  %40 = getelementptr inbounds i8, ptr %2, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 %39, ptr %40, align 8
   %41 = load ptr, ptr %4, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 11720
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 11720
   %43 = load i64, ptr %42, align 8
   %44 = call i32 @XChangeProperty(ptr noundef %41, i64 noundef %43, i64 noundef %28, i64 noundef 4, i32 noundef 32, i32 noundef 0, ptr noundef nonnull %2, i32 noundef 4) #16
   br label %45
@@ -766,10 +766,10 @@ define hidden void @SplashRemoveDecoration(ptr nocapture noundef readonly %0) lo
   store i64 %50, ptr %2, align 16
   %51 = load ptr, ptr %4, align 8
   %52 = call i64 @XInternAtom(ptr noundef %51, ptr noundef nonnull @.str.15, i32 noundef 1) #16
-  %53 = getelementptr inbounds i8, ptr %2, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %52, ptr %53, align 8
   %54 = load ptr, ptr %4, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 11720
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 11720
   %56 = load i64, ptr %55, align 8
   %57 = call i32 @XChangeProperty(ptr noundef %54, i64 noundef %56, i64 noundef %47, i64 noundef 4, i32 noundef 32, i32 noundef 0, ptr noundef nonnull %2, i32 noundef 2) #16
   br label %58
@@ -782,7 +782,7 @@ define hidden void @SplashRemoveDecoration(ptr nocapture noundef readonly %0) lo
 
 61:                                               ; preds = %58
   %62 = load ptr, ptr %4, align 8
-  %63 = getelementptr inbounds i8, ptr %0, i64 11720
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 11720
   %64 = load i64, ptr %63, align 8
   %65 = call i32 @XChangeProperty(ptr noundef %62, i64 noundef %64, i64 noundef %60, i64 noundef 4, i32 noundef 32, i32 noundef 0, ptr noundef nonnull %2, i32 noundef 0) #16
   br label %66
@@ -799,24 +799,24 @@ declare i32 @XFlush(ptr noundef) local_unnamed_addr #2
 define hidden void @SplashReconfigureNow(ptr noundef initializes((10636, 10644)) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.XSizeHints, align 8
   tail call fastcc void @SplashCenter(ptr noundef %0)
-  %3 = getelementptr inbounds i8, ptr %0, i64 11720
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 11720
   %4 = load i64, ptr %3, align 8
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %34, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 11712
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 11712
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @XUnmapWindow(ptr noundef %7, i64 noundef %4) #16
   %9 = load ptr, ptr %6, align 8
   %10 = load i64, ptr %3, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 10636
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 10636
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 10640
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 10640
   %14 = load i32, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 10440
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 10440
   %16 = load i32, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 10444
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 10444
   %18 = load i32, ptr %17, align 4
   %19 = tail call i32 @XMoveResizeWindow(ptr noundef %9, i64 noundef %10, i32 noundef %12, i32 noundef %14, i32 noundef %16, i32 noundef %18) #16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2)
@@ -827,24 +827,24 @@ define hidden void @SplashReconfigureNow(ptr noundef initializes((10636, 10644))
 21:                                               ; preds = %5
   store i64 575, ptr %2, align 8
   %22 = load i32, ptr %15, align 8
-  %23 = getelementptr inbounds i8, ptr %2, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %22, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %2, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %22, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %2, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i32 %22, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %2, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %22, ptr %26, align 8
   %27 = load i32, ptr %17, align 4
-  %28 = getelementptr inbounds i8, ptr %2, i64 36
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 36
   store i32 %27, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %2, i64 28
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 %27, ptr %29, align 4
-  %30 = getelementptr inbounds i8, ptr %2, i64 68
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 68
   store i32 %27, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %2, i64 20
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 %27, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %2, i64 72
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store i32 1, ptr %32, align 8
   %33 = load ptr, ptr %6, align 8
   call void @XSetWMNormalHints(ptr noundef %33, i64 noundef %20, ptr noundef nonnull %2) #16
@@ -855,13 +855,13 @@ SplashUpdateSizeHints.exit:                       ; preds = %5, %21
   br label %34
 
 34:                                               ; preds = %SplashUpdateSizeHints.exit, %1
-  %35 = getelementptr inbounds i8, ptr %0, i64 10436
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 10436
   %36 = load i32, ptr %35, align 4
   %.not15 = icmp eq i32 %36, 0
   br i1 %.not15, label %65, label %37
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %0, i64 10628
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 10628
   %39 = load i32, ptr %38, align 4
   %40 = icmp sgt i32 %39, -1
   %41 = load i32, ptr @shapeSupported, align 4
@@ -870,16 +870,16 @@ SplashUpdateSizeHints.exit:                       ; preds = %5, %21
   br i1 %or.cond.i, label %43, label %SplashUpdateShape.exit
 
 43:                                               ; preds = %37
-  %44 = getelementptr inbounds i8, ptr %0, i64 11712
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 11712
   %45 = load ptr, ptr %44, align 8
   %46 = load i64, ptr %3, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 10456
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 10456
   %48 = load ptr, ptr %47, align 8
   %49 = zext nneg i32 %39 to i64
-  %50 = getelementptr inbounds %struct.SplashImage, ptr %48, i64 %49
-  %51 = getelementptr inbounds i8, ptr %50, i64 16
+  %50 = getelementptr inbounds nuw %struct.SplashImage, ptr %48, i64 %49
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %50, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %54 = load i32, ptr %53, align 8
   call void @XShapeCombineRectangles(ptr noundef %45, i64 noundef %46, i32 noundef 1, i32 noundef 0, i32 noundef 0, ptr noundef %52, i32 noundef %54, i32 noundef 0, i32 noundef 3) #16
   %55 = load ptr, ptr %44, align 8
@@ -888,9 +888,9 @@ SplashUpdateSizeHints.exit:                       ; preds = %5, %21
   %58 = load i32, ptr %38, align 4
   %59 = sext i32 %58 to i64
   %60 = getelementptr inbounds %struct.SplashImage, ptr %57, i64 %59
-  %61 = getelementptr inbounds i8, ptr %60, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %60, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %64 = load i32, ptr %63, align 8
   call void @XShapeCombineRectangles(ptr noundef %55, i64 noundef %56, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef %62, i32 noundef %64, i32 noundef 0, i32 noundef 3) #16
   br label %SplashUpdateShape.exit
@@ -901,7 +901,7 @@ SplashUpdateSizeHints.exit:                       ; preds = %5, %21
   br i1 %.not.i17, label %SplashUpdateShape.exit, label %67
 
 67:                                               ; preds = %65
-  %68 = getelementptr inbounds i8, ptr %0, i64 11712
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 11712
   %69 = load ptr, ptr %68, align 8
   %70 = load i64, ptr %3, align 8
   call void @XShapeCombineMask(ptr noundef %69, i64 noundef %70, i32 noundef 1, i32 noundef 0, i32 noundef 0, i64 noundef 0, i32 noundef 0) #16
@@ -927,7 +927,7 @@ define hidden void @sendctl(ptr noundef readonly %0, i8 noundef signext %1) loca
   br i1 %.not, label %9, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 11708
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 11708
   %6 = load i32, ptr %5, align 4
   %.not4 = icmp eq i32 %6, 0
   br i1 %.not4, label %9, label %7
@@ -953,16 +953,16 @@ define hidden range(i32 0, 2) i32 @SplashInitPlatform(ptr noundef %0) local_unna
   %7 = alloca [3 x i32], align 4
   %8 = alloca [256 x i64], align 16
   %9 = alloca [256 x %struct.XColor], align 16
-  %10 = getelementptr inbounds i8, ptr %0, i64 11752
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 11752
   %11 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %10, ptr noundef null) #16
   %12 = tail call ptr @XOpenDisplay(ptr noundef null) #16
-  %13 = getelementptr inbounds i8, ptr %0, i64 11712
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 11712
   store ptr %12, ptr %13, align 8
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %14, label %16
 
 14:                                               ; preds = %1
-  %15 = getelementptr inbounds i8, ptr %0, i64 11668
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 11668
   store i32 -1, ptr %15, align 4
   br label %133
 
@@ -980,12 +980,12 @@ define hidden range(i32 0, 2) i32 @SplashInitPlatform(ptr noundef %0) local_unna
 21:                                               ; preds = %18, %16
   %22 = load ptr, ptr %13, align 8
   %23 = call ptr @XDefaultScreenOfDisplay(ptr noundef %22) #16
-  %24 = getelementptr inbounds i8, ptr %0, i64 11728
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 11728
   store ptr %23, ptr %24, align 8
   %25 = call ptr @XDefaultVisualOfScreen(ptr noundef %23) #16
-  %26 = getelementptr inbounds i8, ptr %0, i64 11736
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 11736
   store ptr %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %25, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %28 = load i32, ptr %27, align 8
   switch i32 %28, label %133 [
     i32 4, label %29
@@ -995,19 +995,19 @@ define hidden range(i32 0, 2) i32 @SplashInitPlatform(ptr noundef %0) local_unna
 29:                                               ; preds = %21
   %30 = load ptr, ptr %24, align 8
   %31 = call i32 @XDefaultDepthOfScreen(ptr noundef %30) #16
-  %32 = getelementptr inbounds i8, ptr %0, i64 10432
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 10432
   store i32 1, ptr %32, align 8
   %33 = load i32, ptr @shapeSupported, align 4
-  %34 = getelementptr inbounds i8, ptr %0, i64 10436
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 10436
   store i32 %33, ptr %34, align 4
   %35 = load ptr, ptr %26, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load i64, ptr %36, align 8
   %38 = trunc i64 %37 to i32
-  %39 = getelementptr inbounds i8, ptr %35, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %40 = load i64, ptr %39, align 8
   %41 = trunc i64 %40 to i32
-  %42 = getelementptr inbounds i8, ptr %35, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %35, i64 40
   %43 = load i64, ptr %42, align 8
   %44 = trunc i64 %43 to i32
   call void @initFormat(ptr noundef nonnull %0, i32 noundef %38, i32 noundef %41, i32 noundef %44, i32 noundef 0) #16
@@ -1015,11 +1015,11 @@ define hidden range(i32 0, 2) i32 @SplashInitPlatform(ptr noundef %0) local_unna
   %46 = call i32 @XImageByteOrder(ptr noundef %45) #16
   %47 = icmp ne i32 %46, 0
   %48 = zext i1 %47 to i32
-  %49 = getelementptr inbounds i8, ptr %0, i64 36
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %48, ptr %49, align 4
   %50 = add nsw i32 %31, 7
   %51 = sdiv i32 %50, 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %51, ptr %52, align 8
   br label %133
 
@@ -1029,7 +1029,7 @@ define hidden range(i32 0, 2) i32 @SplashInitPlatform(ptr noundef %0) local_unna
   %56 = load ptr, ptr %13, align 8
   %57 = load ptr, ptr %24, align 8
   %58 = load ptr, ptr %26, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 52
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 52
   %60 = load i32, ptr %59, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %4)
@@ -1076,7 +1076,7 @@ GetNumAvailableColors.exit:                       ; preds = %65, %69
 
 78:                                               ; preds = %GetNumAvailableColors.exit
   %79 = call i32 @XCloseDisplay(ptr noundef %77) #16
-  %80 = getelementptr inbounds i8, ptr %0, i64 11668
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 11668
   store i32 -1, ptr %80, align 4
   store ptr null, ptr %13, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
@@ -1090,47 +1090,47 @@ GetNumAvailableColors.exit:                       ; preds = %65, %69
   %85 = call i64 @XDefaultColormapOfScreen(ptr noundef %84) #16
   %86 = call i32 @XAllocColorCells(ptr noundef %77, i64 noundef %85, i32 noundef 0, ptr noundef nonnull %2, i32 noundef 0, ptr noundef nonnull %8, i32 noundef %75) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  %87 = getelementptr inbounds i8, ptr %0, i64 11744
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 11744
   store i64 %85, ptr %87, align 8
   %88 = icmp sgt i32 %75, 0
   br i1 %88, label %.lr.ph, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %83
-  %89 = getelementptr inbounds i8, ptr %0, i64 9408
-  %90 = getelementptr inbounds i8, ptr %0, i64 88
-  %91 = getelementptr inbounds i8, ptr %0, i64 10644
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 9408
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 10644
   call void @initColorCube(ptr noundef nonnull %7, ptr noundef nonnull %89, ptr noundef nonnull %90, ptr noundef nonnull %91) #16
   br label %._crit_edge88
 
 .lr.ph:                                           ; preds = %83
-  %92 = getelementptr inbounds i8, ptr %0, i64 10644
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 10644
   %wide.trip.count = zext nneg i32 %75 to i64
   br label %93
 
 93:                                               ; preds = %.lr.ph, %93
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %93 ]
-  %94 = getelementptr inbounds [256 x i64], ptr %8, i64 0, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw [256 x i64], ptr %8, i64 0, i64 %indvars.iv
   %95 = load i64, ptr %94, align 8
   %96 = trunc i64 %95 to i32
-  %97 = getelementptr inbounds [256 x i32], ptr %92, i64 0, i64 %indvars.iv
+  %97 = getelementptr inbounds nuw [256 x i32], ptr %92, i64 0, i64 %indvars.iv
   store i32 %96, ptr %97, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %93, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %93
-  %98 = getelementptr inbounds i8, ptr %0, i64 9408
-  %99 = getelementptr inbounds i8, ptr %0, i64 88
-  %100 = getelementptr inbounds i8, ptr %0, i64 10644
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 9408
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 10644
   call void @initColorCube(ptr noundef nonnull %7, ptr noundef nonnull %98, ptr noundef nonnull %99, ptr noundef nonnull %100) #16
   %wide.trip.count93 = zext nneg i32 %75 to i64
   br label %.lr.ph87
 
 .lr.ph87:                                         ; preds = %._crit_edge, %.lr.ph87
   %indvars.iv90 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next91, %.lr.ph87 ]
-  %101 = getelementptr inbounds [256 x i64], ptr %8, i64 0, i64 %indvars.iv90
+  %101 = getelementptr inbounds nuw [256 x i64], ptr %8, i64 0, i64 %indvars.iv90
   %102 = load i64, ptr %101, align 8
-  %103 = getelementptr inbounds [256 x %struct.XColor], ptr %9, i64 0, i64 %indvars.iv90
+  %103 = getelementptr inbounds nuw [256 x %struct.XColor], ptr %9, i64 0, i64 %indvars.iv90
   store i64 %102, ptr %103, align 16
   %104 = getelementptr inbounds [256 x i32], ptr %98, i64 0, i64 %102
   %105 = load i32, ptr %104, align 4
@@ -1138,18 +1138,18 @@ GetNumAvailableColors.exit:                       ; preds = %65, %69
   %107 = trunc nuw i32 %106 to i16
   %108 = and i16 %107, 255
   %109 = mul nuw i16 %108, 257
-  %110 = getelementptr inbounds i8, ptr %103, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %103, i64 8
   store i16 %109, ptr %110, align 8
   %111 = trunc i32 %105 to i16
   %112 = lshr i16 %111, 8
   %113 = mul nuw i16 %112, 257
-  %114 = getelementptr inbounds i8, ptr %103, i64 10
+  %114 = getelementptr inbounds nuw i8, ptr %103, i64 10
   store i16 %113, ptr %114, align 2
   %115 = and i16 %111, 255
   %116 = mul nuw i16 %115, 257
-  %117 = getelementptr inbounds i8, ptr %103, i64 12
+  %117 = getelementptr inbounds nuw i8, ptr %103, i64 12
   store i16 %116, ptr %117, align 4
-  %118 = getelementptr inbounds i8, ptr %103, i64 14
+  %118 = getelementptr inbounds nuw i8, ptr %103, i64 14
   store i8 7, ptr %118, align 2
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %exitcond94.not = icmp eq i64 %indvars.iv.next91, %wide.trip.count93
@@ -1163,19 +1163,19 @@ GetNumAvailableColors.exit:                       ; preds = %65, %69
   %123 = load i64, ptr %87, align 8
   %124 = call i32 @XStoreColors(ptr noundef %122, i64 noundef %123, ptr noundef nonnull %9, i32 noundef %75) #16
   call void @initFormat(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #16
-  %125 = getelementptr inbounds i8, ptr %0, i64 80
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %119, ptr %125, align 8
   %126 = add nsw i32 %55, 7
   %127 = sdiv i32 %126, 8
-  %128 = getelementptr inbounds i8, ptr %0, i64 32
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %127, ptr %128, align 8
-  %129 = getelementptr inbounds i8, ptr %0, i64 48
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %121, ptr %129, align 8
-  %130 = getelementptr inbounds i8, ptr %0, i64 64
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %120, ptr %130, align 8
-  %131 = getelementptr inbounds i8, ptr %0, i64 72
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 %75, ptr %131, align 8
-  %132 = getelementptr inbounds i8, ptr %0, i64 36
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 2, ptr %132, align 4
   br label %133
 
@@ -1213,13 +1213,13 @@ declare i32 @XStoreColors(ptr noundef, i64 noundef, ptr noundef, i32 noundef) lo
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SplashCleanupPlatform(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 10456
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 10456
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 10448
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 10448
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph, label %.loopexit
@@ -1228,7 +1228,7 @@ define hidden void @SplashCleanupPlatform(ptr nocapture noundef %0) local_unname
   %7 = phi i32 [ %15, %14 ], [ %5, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %14 ], [ 0, %.preheader ]
   %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %struct.SplashImage, ptr %8, i64 %indvars.iv, i32 2
+  %9 = getelementptr inbounds nuw %struct.SplashImage, ptr %8, i64 %indvars.iv, i32 2
   %10 = load ptr, ptr %9, align 8
   %.not11 = icmp eq ptr %10, null
   br i1 %.not11, label %14, label %11
@@ -1236,7 +1236,7 @@ define hidden void @SplashCleanupPlatform(ptr nocapture noundef %0) local_unname
 11:                                               ; preds = %.lr.ph
   tail call void @free(ptr noundef nonnull %10) #16
   %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds %struct.SplashImage, ptr %12, i64 %indvars.iv, i32 2
+  %13 = getelementptr inbounds nuw %struct.SplashImage, ptr %12, i64 %indvars.iv, i32 2
   store ptr null, ptr %13, align 8
   %.pre = load i32, ptr %4, align 8
   br label %14
@@ -1250,7 +1250,7 @@ define hidden void @SplashCleanupPlatform(ptr nocapture noundef %0) local_unname
 
 .loopexit:                                        ; preds = %14, %.preheader, %1
   %18 = load i32, ptr @shapeSupported, align 4
-  %19 = getelementptr inbounds i8, ptr %0, i64 10436
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 10436
   store i32 %18, ptr %19, align 4
   ret void
 }
@@ -1258,58 +1258,58 @@ define hidden void @SplashCleanupPlatform(ptr nocapture noundef %0) local_unname
 ; Function Attrs: nounwind uwtable
 define hidden void @SplashDonePlatform(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca [256 x i64], align 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 11752
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 11752
   %4 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %3) #16
-  %5 = getelementptr inbounds i8, ptr %0, i64 11744
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 11744
   %6 = load i64, ptr %5, align 8
   %.not = icmp eq i64 %6, 0
   br i1 %.not, label %22, label %.preheader
 
 .preheader:                                       ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = load i32, ptr %7, align 8
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %10 = getelementptr inbounds i8, ptr %0, i64 10644
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 10644
   %wide.trip.count = zext nneg i32 %8 to i64
   br label %11
 
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %12 = getelementptr inbounds [256 x i32], ptr %10, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [256 x i32], ptr %10, i64 0, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds [256 x i64], ptr %2, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [256 x i64], ptr %2, i64 0, i64 %indvars.iv
   store i64 %14, ptr %15, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %11, %.preheader
-  %16 = getelementptr inbounds i8, ptr %0, i64 11712
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 11712
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 11728
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 11728
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i64 @XDefaultColormapOfScreen(ptr noundef %19) #16
   %21 = call i32 @XFreeColors(ptr noundef %17, i64 noundef %20, ptr noundef nonnull %2, i32 noundef %8, i64 noundef 0) #16
   br label %22
 
 22:                                               ; preds = %._crit_edge, %1
-  %23 = getelementptr inbounds i8, ptr %0, i64 11720
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 11720
   %24 = load i64, ptr %23, align 8
   %.not25 = icmp eq i64 %24, 0
   br i1 %.not25, label %29, label %25
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %0, i64 11712
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 11712
   %27 = load ptr, ptr %26, align 8
   %28 = call i32 @XDestroyWindow(ptr noundef %27, i64 noundef %24) #16
   br label %29
 
 29:                                               ; preds = %25, %22
-  %30 = getelementptr inbounds i8, ptr %0, i64 11800
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 11800
   %31 = load ptr, ptr %30, align 8
   %.not26 = icmp eq ptr %31, null
   br i1 %.not26, label %34, label %32
@@ -1319,19 +1319,19 @@ define hidden void @SplashDonePlatform(ptr noundef %0) local_unnamed_addr #0 {
   br label %34
 
 34:                                               ; preds = %32, %29
-  %35 = getelementptr inbounds i8, ptr %0, i64 11792
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 11792
   %36 = load i64, ptr %35, align 8
   %.not27 = icmp eq i64 %36, 0
   br i1 %.not27, label %41, label %37
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %0, i64 11712
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 11712
   %39 = load ptr, ptr %38, align 8
   %40 = call i32 @XFreeCursor(ptr noundef %39, i64 noundef %36) #16
   br label %41
 
 41:                                               ; preds = %37, %34
-  %42 = getelementptr inbounds i8, ptr %0, i64 11712
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 11712
   %43 = load ptr, ptr %42, align 8
   %.not28 = icmp eq ptr %43, null
   br i1 %.not28, label %46, label %44
@@ -1362,23 +1362,23 @@ define hidden void @SplashEventLoop(ptr noundef %0) local_unnamed_addr #0 {
   %6 = alloca [2 x %struct.pollfd], align 16
   %7 = alloca i8, align 1
   %8 = alloca %union._XEvent, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 11712
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 11712
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @XConnectionNumber(ptr noundef %10) #16
-  %12 = getelementptr inbounds i8, ptr %0, i64 11704
-  %13 = getelementptr inbounds i8, ptr %6, i64 4
-  %14 = getelementptr inbounds i8, ptr %6, i64 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 11704
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %16 = tail call ptr @__errno_location() #20
-  %17 = getelementptr inbounds i8, ptr %0, i64 11668
-  %18 = getelementptr inbounds i8, ptr %0, i64 10464
-  %19 = getelementptr inbounds i8, ptr %0, i64 10456
-  %20 = getelementptr inbounds i8, ptr %0, i64 10628
-  %21 = getelementptr inbounds i8, ptr %4, i64 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 11752
-  %23 = getelementptr inbounds i8, ptr %2, i64 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 10436
-  %25 = getelementptr inbounds i8, ptr %0, i64 11720
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 11668
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 10464
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 10456
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 10628
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 11752
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 10436
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 11720
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %1
@@ -1475,10 +1475,10 @@ define hidden void @SplashEventLoop(ptr noundef %0) local_unnamed_addr #0 {
   %77 = load i64, ptr %25, align 8
   %78 = load ptr, ptr %19, align 8
   %79 = zext nneg i32 %69 to i64
-  %80 = getelementptr inbounds %struct.SplashImage, ptr %78, i64 %79
-  %81 = getelementptr inbounds i8, ptr %80, i64 16
+  %80 = getelementptr inbounds nuw %struct.SplashImage, ptr %78, i64 %79
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %80, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %80, i64 24
   %84 = load i32, ptr %83, align 8
   call void @XShapeCombineRectangles(ptr noundef %76, i64 noundef %77, i32 noundef 1, i32 noundef 0, i32 noundef 0, ptr noundef %82, i32 noundef %84, i32 noundef 0, i32 noundef 3) #16
   %85 = load ptr, ptr %9, align 8
@@ -1487,9 +1487,9 @@ define hidden void @SplashEventLoop(ptr noundef %0) local_unnamed_addr #0 {
   %88 = load i32, ptr %20, align 4
   %89 = sext i32 %88 to i64
   %90 = getelementptr inbounds %struct.SplashImage, ptr %87, i64 %89
-  %91 = getelementptr inbounds i8, ptr %90, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %90, i64 24
+  %93 = getelementptr inbounds nuw i8, ptr %90, i64 24
   %94 = load i32, ptr %93, align 8
   call void @XShapeCombineRectangles(ptr noundef %85, i64 noundef %86, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef %92, i32 noundef %94, i32 noundef 0, i32 noundef 3) #16
   br label %SplashUpdateShape.exit
@@ -1587,7 +1587,7 @@ declare i32 @SplashIsStillLooping(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SplashUnlock(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 11752
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 11752
   %3 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #16
   ret void
 }
@@ -1596,7 +1596,7 @@ declare i32 @poll(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SplashLock(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 11752
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 11752
   %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %2) #16
   ret void
 }
@@ -1635,9 +1635,9 @@ declare void @SplashCleanup(ptr noundef) local_unnamed_addr #2
 define hidden noalias noundef ptr @SplashScreenThread(ptr noundef %0) #0 {
   %2 = alloca %struct.timeval, align 8
   %3 = alloca %struct.timezone, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 11752
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 11752
   %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %4) #16
-  %6 = getelementptr inbounds i8, ptr %0, i64 11704
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 11704
   %7 = tail call i32 @pipe(ptr noundef nonnull %6) #16
   %8 = load i32, ptr %6, align 8
   %9 = tail call i32 (i32, i32, ...) @fcntl64(i32 noundef %8, i32 noundef 3, i32 noundef 0) #16
@@ -1648,33 +1648,33 @@ define hidden noalias noundef ptr @SplashScreenThread(ptr noundef %0) #0 {
   %12 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef nonnull %3) #16
   %13 = load i64, ptr %2, align 8
   %14 = mul i64 %13, 1000
-  %15 = getelementptr inbounds i8, ptr %2, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %16 = load i64, ptr %15, align 8
   %17 = udiv i64 %16, 1000
   %18 = add i64 %17, %14
   %19 = trunc i64 %18 to i32
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %20 = getelementptr inbounds i8, ptr %0, i64 10464
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 10464
   store i32 %19, ptr %20, align 8
   tail call void @SplashCreateWindow(ptr noundef %0)
   %21 = load ptr, ptr @stdout, align 8
   %22 = tail call i32 @fflush(ptr noundef %21)
-  %23 = getelementptr inbounds i8, ptr %0, i64 11720
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 11720
   %24 = load i64, ptr %23, align 8
   %.not = icmp eq i64 %24, 0
   br i1 %.not, label %74, label %25
 
 25:                                               ; preds = %1
   tail call void @SplashRemoveDecoration(ptr noundef nonnull %0)
-  %26 = getelementptr inbounds i8, ptr %0, i64 11712
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 11712
   %27 = load ptr, ptr %26, align 8
   %28 = load i64, ptr %23, align 8
   %29 = tail call i32 @XStoreName(ptr noundef %27, i64 noundef %28, ptr noundef nonnull @.str.17) #16
   %30 = load ptr, ptr %26, align 8
   %31 = load i64, ptr %23, align 8
   %32 = tail call i32 @XMapRaised(ptr noundef %30, i64 noundef %31) #16
-  %33 = getelementptr inbounds i8, ptr %0, i64 10628
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 10628
   %34 = load i32, ptr %33, align 4
   %35 = icmp sgt i32 %34, -1
   %36 = load i32, ptr @shapeSupported, align 4
@@ -1683,7 +1683,7 @@ define hidden noalias noundef ptr @SplashScreenThread(ptr noundef %0) #0 {
   br i1 %or.cond.i, label %38, label %SplashUpdateShape.exit
 
 38:                                               ; preds = %25
-  %39 = getelementptr inbounds i8, ptr %0, i64 10436
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 10436
   %40 = load i32, ptr %39, align 4
   %.not.i = icmp eq i32 %40, 0
   br i1 %.not.i, label %SplashUpdateShape.exit, label %41
@@ -1691,13 +1691,13 @@ define hidden noalias noundef ptr @SplashScreenThread(ptr noundef %0) #0 {
 41:                                               ; preds = %38
   %42 = load ptr, ptr %26, align 8
   %43 = load i64, ptr %23, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 10456
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 10456
   %45 = load ptr, ptr %44, align 8
   %46 = zext nneg i32 %34 to i64
-  %47 = getelementptr inbounds %struct.SplashImage, ptr %45, i64 %46
-  %48 = getelementptr inbounds i8, ptr %47, i64 16
+  %47 = getelementptr inbounds nuw %struct.SplashImage, ptr %45, i64 %46
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %47, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %51 = load i32, ptr %50, align 8
   tail call void @XShapeCombineRectangles(ptr noundef %42, i64 noundef %43, i32 noundef 1, i32 noundef 0, i32 noundef 0, ptr noundef %49, i32 noundef %51, i32 noundef 0, i32 noundef 3) #16
   %52 = load ptr, ptr %26, align 8
@@ -1706,24 +1706,24 @@ define hidden noalias noundef ptr @SplashScreenThread(ptr noundef %0) #0 {
   %55 = load i32, ptr %33, align 4
   %56 = sext i32 %55 to i64
   %57 = getelementptr inbounds %struct.SplashImage, ptr %54, i64 %56
-  %58 = getelementptr inbounds i8, ptr %57, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %57, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %61 = load i32, ptr %60, align 8
   tail call void @XShapeCombineRectangles(ptr noundef %52, i64 noundef %53, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef %59, i32 noundef %61, i32 noundef 0, i32 noundef 3) #16
   br label %SplashUpdateShape.exit
 
 SplashUpdateShape.exit:                           ; preds = %25, %38, %41
   tail call void @SplashRedrawWindow(ptr noundef nonnull %0)
-  %62 = getelementptr inbounds i8, ptr %0, i64 11700
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 11700
   %63 = load float, ptr %62, align 4
-  %64 = getelementptr inbounds i8, ptr %0, i64 10636
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 10636
   %65 = load i32, ptr %64, align 4
   %66 = sitofp i32 %65 to float
   %67 = fdiv float %66, %63
   %68 = fptosi float %67 to i32
   store i32 %68, ptr %64, align 4
-  %69 = getelementptr inbounds i8, ptr %0, i64 10640
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 10640
   %70 = load i32, ptr %69, align 8
   %71 = sitofp i32 %70 to float
   %72 = fdiv float %71, %63
@@ -1735,7 +1735,7 @@ SplashUpdateShape.exit:                           ; preds = %25, %38, %41
 74:                                               ; preds = %SplashUpdateShape.exit, %1
   %75 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #16
   tail call void @SplashDone(ptr noundef nonnull %0) #16
-  %76 = getelementptr inbounds i8, ptr %0, i64 11668
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 11668
   store i32 -1, ptr %76, align 4
   ret ptr null
 }
@@ -1795,7 +1795,7 @@ define hidden void @SplashClosePlatform(ptr noundef readonly %0) local_unnamed_a
   br i1 %.not.i, label %sendctl.exit, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 11708
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 11708
   %5 = load i32, ptr %4, align 4
   %.not4.i = icmp eq i32 %5, 0
   br i1 %.not4.i, label %sendctl.exit, label %6
@@ -1818,7 +1818,7 @@ define hidden void @SplashUpdate(ptr noundef readonly %0) local_unnamed_addr #7 
   br i1 %.not.i, label %sendctl.exit, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 11708
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 11708
   %5 = load i32, ptr %4, align 4
   %.not4.i = icmp eq i32 %5, 0
   br i1 %.not4.i, label %sendctl.exit, label %6
@@ -1841,7 +1841,7 @@ define hidden void @SplashReconfigure(ptr noundef readonly %0) local_unnamed_add
   br i1 %.not.i, label %sendctl.exit, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 11708
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 11708
   %5 = load i32, ptr %4, align 4
   %.not4.i = icmp eq i32 %5, 0
   br i1 %.not4.i, label %sendctl.exit, label %6

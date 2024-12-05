@@ -488,7 +488,7 @@ define void @dggev3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 284:                                              ; preds = %.loopexit43, %279
   %285 = phi i64 [ 1, %279 ], [ %358, %.loopexit43 ]
-  %286 = getelementptr inbounds double, ptr %42, i64 %285
+  %286 = getelementptr inbounds nuw double, ptr %42, i64 %285
   %287 = load double, ptr %286, align 8, !tbaa !7
   %288 = fcmp olt double %287, 0.000000e+00
   br i1 %288, label %.loopexit43, label %289
@@ -613,7 +613,7 @@ define void @dggev3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 368:                                              ; preds = %.loopexit, %363
   %369 = phi i64 [ 1, %363 ], [ %442, %.loopexit ]
-  %370 = getelementptr inbounds double, ptr %42, i64 %369
+  %370 = getelementptr inbounds nuw double, ptr %42, i64 %369
   %371 = load double, ptr %370, align 8, !tbaa !7
   %372 = fcmp olt double %371, 0.000000e+00
   br i1 %372, label %.loopexit, label %373

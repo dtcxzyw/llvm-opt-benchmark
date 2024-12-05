@@ -1955,7 +1955,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_lldp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.791) #8
   %7 = load ptr, ptr %5, align 8
@@ -1969,7 +1969,7 @@ define internal i32 @dissect_lldp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %narrow = add nuw nsw i16 %13, 2
   %14 = zext nneg i16 %narrow to i32
   %15 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 0, i32 noundef %14) #8
-  %16 = getelementptr inbounds i8, ptr %1, i64 408
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noalias ptr @wmem_alloc0(ptr noundef %17, i64 noundef 32) #8
   %19 = tail call fastcc i32 @dissect_lldp_chassis_id(ptr noundef %15, ptr noundef %1, ptr noundef %11, ptr noundef %18)
@@ -2808,7 +2808,7 @@ define internal fastcc range(i32 -1, 514) i32 @dissect_lldp_chassis_id(ptr nound
   br label %123
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %1, i64 408
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %37 = load ptr, ptr %36, align 8
   %38 = call ptr @tvb_address_to_str(ptr noundef %37, ptr noundef %0, i32 noundef 1, i32 noundef 3) #8
   %39 = load i32, ptr @hf_chassis_id_mac, align 4
@@ -2832,7 +2832,7 @@ define internal fastcc range(i32 -1, 514) i32 @dissect_lldp_chassis_id(ptr nound
   br i1 %48, label %49, label %55
 
 49:                                               ; preds = %47
-  %50 = getelementptr inbounds i8, ptr %1, i64 408
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %51 = load ptr, ptr %50, align 8
   %52 = call ptr @tvb_address_to_str(ptr noundef %51, ptr noundef %0, i32 noundef 2, i32 noundef 4) #8
   %53 = load i32, ptr @hf_chassis_id_ip4, align 4
@@ -2850,7 +2850,7 @@ define internal fastcc range(i32 -1, 514) i32 @dissect_lldp_chassis_id(ptr nound
   br i1 %60, label %61, label %67
 
 61:                                               ; preds = %59
-  %62 = getelementptr inbounds i8, ptr %1, i64 408
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %63 = load ptr, ptr %62, align 8
   %64 = call ptr @tvb_address_to_str(ptr noundef %63, ptr noundef %0, i32 noundef 3, i32 noundef 4) #8
   %65 = load i32, ptr @hf_chassis_id_ip6, align 4
@@ -2864,7 +2864,7 @@ define internal fastcc range(i32 -1, 514) i32 @dissect_lldp_chassis_id(ptr nound
   br label %123
 
 71:                                               ; preds = %43
-  %72 = getelementptr inbounds i8, ptr %1, i64 408
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %73 = load ptr, ptr %72, align 8
   %74 = add nsw i32 %14, -2
   %75 = call ptr @tvb_bytes_to_str(ptr noundef %73, ptr noundef %0, i32 noundef 4, i32 noundef %74) #8
@@ -2895,39 +2895,39 @@ define internal fastcc range(i32 -1, 514) i32 @dissect_lldp_chassis_id(ptr nound
   br label %112
 
 84:                                               ; preds = %83
-  %85 = getelementptr inbounds i8, ptr %1, i64 408
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %86 = load ptr, ptr %85, align 8
   %87 = add nsw i32 %14, -1
   %88 = call ptr @tvb_format_stringzpad(ptr noundef %86, ptr noundef %0, i32 noundef 3, i32 noundef %87) #8
   br label %112
 
 89:                                               ; preds = %83
-  %90 = getelementptr inbounds i8, ptr %1, i64 408
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %91 = load ptr, ptr %90, align 8
   %92 = add nsw i32 %14, -1
   %93 = call ptr @tvb_format_stringzpad(ptr noundef %91, ptr noundef %0, i32 noundef 3, i32 noundef %92) #8
   br label %112
 
 94:                                               ; preds = %83
-  %95 = getelementptr inbounds i8, ptr %1, i64 408
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %96 = load ptr, ptr %95, align 8
   %97 = add nsw i32 %14, -1
   %98 = call ptr @tvb_format_stringzpad(ptr noundef %96, ptr noundef %0, i32 noundef 3, i32 noundef %97) #8
   %99 = load ptr, ptr %95, align 8
   %100 = call noalias ptr @wmem_strdup(ptr noundef %99, ptr noundef %98) #8
-  %101 = getelementptr inbounds i8, ptr %3, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %100, ptr %101, align 8
   br label %112
 
 102:                                              ; preds = %83
-  %103 = getelementptr inbounds i8, ptr %1, i64 408
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %104 = load ptr, ptr %103, align 8
   %105 = add nsw i32 %14, -1
   %106 = call ptr @tvb_format_stringzpad(ptr noundef %104, ptr noundef %0, i32 noundef 3, i32 noundef %105) #8
   br label %112
 
 107:                                              ; preds = %83
-  %108 = getelementptr inbounds i8, ptr %1, i64 408
+  %108 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %109 = load ptr, ptr %108, align 8
   %110 = add nsw i32 %14, -1
   %111 = call ptr @tvb_bytes_to_str(ptr noundef %109, ptr noundef %0, i32 noundef 3, i32 noundef %110) #8
@@ -2950,7 +2950,7 @@ define internal fastcc range(i32 -1, 514) i32 @dissect_lldp_chassis_id(ptr nound
   br i1 %117, label %118, label %121
 
 118:                                              ; preds = %115
-  %119 = getelementptr inbounds i8, ptr %1, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %120 = load ptr, ptr %119, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %120, i32 noundef 25, ptr noundef nonnull @.str.1090, ptr noundef nonnull %.0, ptr noundef %.0131) #8
   br label %121
@@ -3020,7 +3020,7 @@ define internal fastcc range(i32 -1, 514) i32 @dissect_lldp_port_id(ptr noundef 
   br label %121
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %1, i64 408
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %37 = load ptr, ptr %36, align 8
   %38 = call ptr @tvb_address_to_str(ptr noundef %37, ptr noundef %0, i32 noundef 1, i32 noundef 3) #8
   %39 = load i32, ptr @hf_port_id_mac, align 4
@@ -3041,7 +3041,7 @@ define internal fastcc range(i32 -1, 514) i32 @dissect_lldp_port_id(ptr noundef 
   br i1 %46, label %47, label %53
 
 47:                                               ; preds = %45
-  %48 = getelementptr inbounds i8, ptr %1, i64 408
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %49 = load ptr, ptr %48, align 8
   %50 = call ptr @tvb_address_to_str(ptr noundef %49, ptr noundef %0, i32 noundef 2, i32 noundef 4) #8
   %51 = load i32, ptr @hf_port_id_ip4, align 4
@@ -3059,7 +3059,7 @@ define internal fastcc range(i32 -1, 514) i32 @dissect_lldp_port_id(ptr noundef 
   br i1 %58, label %59, label %65
 
 59:                                               ; preds = %57
-  %60 = getelementptr inbounds i8, ptr %1, i64 408
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %61 = load ptr, ptr %60, align 8
   %62 = call ptr @tvb_address_to_str(ptr noundef %61, ptr noundef %0, i32 noundef 3, i32 noundef 4) #8
   %63 = load i32, ptr @hf_port_id_ip6, align 4
@@ -3073,7 +3073,7 @@ define internal fastcc range(i32 -1, 514) i32 @dissect_lldp_port_id(ptr noundef 
   br label %121
 
 69:                                               ; preds = %41
-  %70 = getelementptr inbounds i8, ptr %1, i64 408
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %71 = load ptr, ptr %70, align 8
   %72 = add nsw i32 %14, -2
   %73 = call ptr @tvb_bytes_to_str(ptr noundef %71, ptr noundef %0, i32 noundef 4, i32 noundef %72) #8
@@ -3104,41 +3104,41 @@ define internal fastcc range(i32 -1, 514) i32 @dissect_lldp_port_id(ptr noundef 
   br label %110
 
 82:                                               ; preds = %81
-  %83 = getelementptr inbounds i8, ptr %1, i64 408
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %84 = load ptr, ptr %83, align 8
   %85 = add nsw i32 %14, -1
   %86 = call ptr @tvb_format_stringzpad(ptr noundef %84, ptr noundef %0, i32 noundef 3, i32 noundef %85) #8
   br label %110
 
 87:                                               ; preds = %81
-  %88 = getelementptr inbounds i8, ptr %1, i64 408
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %89 = load ptr, ptr %88, align 8
   %90 = add nsw i32 %14, -1
   %91 = call ptr @tvb_bytes_to_str(ptr noundef %89, ptr noundef %0, i32 noundef 3, i32 noundef %90) #8
   br label %110
 
 92:                                               ; preds = %81
-  %93 = getelementptr inbounds i8, ptr %1, i64 408
+  %93 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %94 = load ptr, ptr %93, align 8
   %95 = add nsw i32 %14, -1
   %96 = call ptr @tvb_format_stringzpad(ptr noundef %94, ptr noundef %0, i32 noundef 3, i32 noundef %95) #8
   br label %110
 
 97:                                               ; preds = %81
-  %98 = getelementptr inbounds i8, ptr %1, i64 408
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %99 = load ptr, ptr %98, align 8
   %100 = add nsw i32 %14, -1
   %101 = call ptr @tvb_format_stringzpad(ptr noundef %99, ptr noundef %0, i32 noundef 3, i32 noundef %100) #8
   br label %110
 
 102:                                              ; preds = %81
-  %103 = getelementptr inbounds i8, ptr %1, i64 408
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %104 = load ptr, ptr %103, align 8
   %105 = add nsw i32 %14, -1
   %106 = call ptr @tvb_format_stringzpad(ptr noundef %104, ptr noundef %0, i32 noundef 3, i32 noundef %105) #8
   %107 = load ptr, ptr %103, align 8
   %108 = call noalias ptr @wmem_strdup(ptr noundef %107, ptr noundef %106) #8
-  %109 = getelementptr inbounds i8, ptr %3, i64 16
+  %109 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %108, ptr %109, align 8
   br label %110
 
@@ -3159,7 +3159,7 @@ define internal fastcc range(i32 -1, 514) i32 @dissect_lldp_port_id(ptr noundef 
   br i1 %115, label %116, label %119
 
 116:                                              ; preds = %113
-  %117 = getelementptr inbounds i8, ptr %1, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %118 = load ptr, ptr %117, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %118, i32 noundef 25, ptr noundef nonnull @.str.1090, ptr noundef nonnull %.0, ptr noundef %.0128) #8
   br label %119
@@ -3193,7 +3193,7 @@ define internal fastcc range(i32 -1, 5) i32 @dissect_lldp_time_to_live(ptr nound
   br label %14
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = zext i16 %7 to i32
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %12, i32 noundef 25, ptr noundef nonnull @.str.1100, i32 noundef %13) #8
@@ -3286,10 +3286,10 @@ switch.hole_check:                                ; preds = %.lr.ph8
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %13 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table.dissect_dcbx_tlv, i64 0, i64 %13
+  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.dissect_dcbx_tlv, i64 0, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   %14 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep18 = getelementptr inbounds [6 x i32], ptr @switch.table.dissect_dcbx_tlv.14, i64 0, i64 %14
+  %switch.gep18 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.dissect_dcbx_tlv.14, i64 0, i64 %14
   %switch.load19 = load i32, ptr %switch.gep18, align 4
   %narrow = add nuw nsw i16 %11, 2
   %15 = zext nneg i16 %narrow to i32
@@ -3895,7 +3895,7 @@ switch.lookup:                                    ; preds = %89
   %112 = load i32, ptr @hf_ieee_802_3_mdi_power_source, align 4
   %113 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %112, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #8
   %114 = zext nneg i8 %109 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_ieee_802_3_tlv, i64 0, i64 %114
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.dissect_ieee_802_3_tlv, i64 0, i64 %114
   %switch.load = load ptr, ptr %switch.gep, align 8
   %115 = lshr i8 %108, 4
   %116 = and i8 %115, 3
@@ -4377,13 +4377,13 @@ define internal fastcc void @dissect_profinet_tlv(ptr noundef %0, ptr nocapture 
   br i1 %10, label %11, label %set_port_id_for_profinet_specialized_column_info.exit
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %3, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %13 = load i32, ptr %12, align 8
   %.not.i = icmp eq i32 %13, 1
   br i1 %.not.i, label %set_name_of_station_for_profinet_specialized_column_info.exit, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %3, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %16 = load ptr, ptr %15, align 8
   %.not20.i = icmp eq ptr %16, null
   br i1 %.not20.i, label %35, label %17
@@ -4395,14 +4395,14 @@ define internal fastcc void @dissect_profinet_tlv(ptr noundef %0, ptr nocapture 
 
 18:                                               ; preds = %17
   store i32 1, ptr %12, align 8
-  %19 = getelementptr inbounds i8, ptr %3, i64 28
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 28
   store i32 1, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %1, i64 408
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noalias ptr @wmem_strdup(ptr noundef %21, ptr noundef nonnull %16) #8
   %23 = tail call ptr @strtok(ptr noundef %22, ptr noundef nonnull @.str.1133) #8
   %24 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.1133) #8
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %26, i32 noundef 25, ptr noundef nonnull @.str.1134, ptr noundef %24) #8
   %27 = load ptr, ptr %25, align 8
@@ -4410,7 +4410,7 @@ define internal fastcc void @dissect_profinet_tlv(ptr noundef %0, ptr nocapture 
   br label %set_name_of_station_for_profinet_specialized_column_info.exit
 
 28:                                               ; preds = %17
-  %29 = getelementptr inbounds i8, ptr %3, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %30 = load ptr, ptr %29, align 8
   %.not.i.i = icmp eq ptr %30, null
   br i1 %.not.i.i, label %31, label %.sink.split.i.i
@@ -4423,13 +4423,13 @@ define internal fastcc void @dissect_profinet_tlv(ptr noundef %0, ptr nocapture 
 .sink.split.i.i:                                  ; preds = %31, %28
   %.sink9.i.i = phi ptr [ %30, %28 ], [ %32, %31 ]
   store i32 1, ptr %12, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %34 = load ptr, ptr %33, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %34, i32 noundef 25, ptr noundef nonnull @.str.1134, ptr noundef nonnull %.sink9.i.i) #8
   br label %set_name_of_station_for_profinet_specialized_column_info.exit
 
 35:                                               ; preds = %14
-  %36 = getelementptr inbounds i8, ptr %3, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %37 = load ptr, ptr %36, align 8
   %.not.i22.i = icmp eq ptr %37, null
   br i1 %.not.i22.i, label %38, label %.sink.split.i23.i
@@ -4442,26 +4442,26 @@ define internal fastcc void @dissect_profinet_tlv(ptr noundef %0, ptr nocapture 
 .sink.split.i23.i:                                ; preds = %38, %35
   %.sink9.i24.i = phi ptr [ %37, %35 ], [ %39, %38 ]
   store i32 1, ptr %12, align 8
-  %40 = getelementptr inbounds i8, ptr %1, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %41 = load ptr, ptr %40, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %41, i32 noundef 25, ptr noundef nonnull @.str.1134, ptr noundef nonnull %.sink9.i24.i) #8
   br label %set_name_of_station_for_profinet_specialized_column_info.exit
 
 set_name_of_station_for_profinet_specialized_column_info.exit: ; preds = %11, %18, %31, %.sink.split.i.i, %38, %.sink.split.i23.i
-  %42 = getelementptr inbounds i8, ptr %3, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %43 = load i32, ptr %42, align 4
   %.not.i164 = icmp eq i32 %43, 1
   br i1 %.not.i164, label %set_port_id_for_profinet_specialized_column_info.exit, label %44
 
 44:                                               ; preds = %set_name_of_station_for_profinet_specialized_column_info.exit
-  %45 = getelementptr inbounds i8, ptr %3, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %46 = load ptr, ptr %45, align 8
   %.not5.i = icmp eq ptr %46, null
   br i1 %.not5.i, label %set_port_id_for_profinet_specialized_column_info.exit, label %47
 
 47:                                               ; preds = %44
   store i32 1, ptr %42, align 4
-  %48 = getelementptr inbounds i8, ptr %1, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %49 = load ptr, ptr %48, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %49, i32 noundef 25, ptr noundef nonnull @.str.1135, ptr noundef nonnull %46) #8
   br label %set_port_id_for_profinet_specialized_column_info.exit
@@ -4535,7 +4535,7 @@ set_port_id_for_profinet_specialized_column_info.exit: ; preds = %47, %44, %set_
   %81 = load i32, ptr @hf_profinet_class3_port_status_PreambleLength, align 4
   %82 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %81, ptr noundef %0, i32 noundef 3, i32 noundef 2, i32 noundef %75) #8
   %83 = and i16 %73, 7
-  %84 = getelementptr inbounds i8, ptr %1, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %85 = load ptr, ptr %84, align 8
   %86 = zext nneg i16 %83 to i32
   %87 = tail call ptr @val_to_str(i32 noundef %86, ptr noundef nonnull @profinet_port3_status_vals, ptr noundef nonnull @.str.1128) #8
@@ -4700,7 +4700,7 @@ define internal fastcc void @dissect_cisco_tlv(ptr noundef %0, ptr nocapture nou
 25:                                               ; preds = %7
   %26 = load i32, ptr @hf_cisco_aci_portstate, align 4
   %27 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %26, ptr noundef %0, i32 noundef 1, i32 noundef %11, i32 noundef 0) #8
-  %28 = getelementptr inbounds i8, ptr %1, i64 408
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %29 = load ptr, ptr %28, align 8
   %30 = tail call ptr @proto_item_get_display_repr(ptr noundef %29, ptr noundef %27) #8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %5, ptr noundef nonnull @.str.1139, ptr noundef %30) #8
@@ -4709,7 +4709,7 @@ define internal fastcc void @dissect_cisco_tlv(ptr noundef %0, ptr nocapture nou
 31:                                               ; preds = %7
   %32 = load i32, ptr @hf_cisco_aci_noderole, align 4
   %33 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %32, ptr noundef %0, i32 noundef 1, i32 noundef %11, i32 noundef 0) #8
-  %34 = getelementptr inbounds i8, ptr %1, i64 408
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %35 = load ptr, ptr %34, align 8
   %36 = tail call ptr @proto_item_get_display_repr(ptr noundef %35, ptr noundef %33) #8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %5, ptr noundef nonnull @.str.1139, ptr noundef %36) #8
@@ -4718,7 +4718,7 @@ define internal fastcc void @dissect_cisco_tlv(ptr noundef %0, ptr nocapture nou
 37:                                               ; preds = %7
   %38 = load i32, ptr @hf_cisco_aci_nodeid, align 4
   %39 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %38, ptr noundef %0, i32 noundef 1, i32 noundef %11, i32 noundef 0) #8
-  %40 = getelementptr inbounds i8, ptr %1, i64 408
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %41 = load ptr, ptr %40, align 8
   %42 = tail call ptr @proto_item_get_display_repr(ptr noundef %41, ptr noundef %39) #8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %5, ptr noundef nonnull @.str.1139, ptr noundef %42) #8
@@ -4727,7 +4727,7 @@ define internal fastcc void @dissect_cisco_tlv(ptr noundef %0, ptr nocapture nou
 43:                                               ; preds = %7
   %44 = load i32, ptr @hf_cisco_aci_spinelevel, align 4
   %45 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %44, ptr noundef %0, i32 noundef 1, i32 noundef %11, i32 noundef 0) #8
-  %46 = getelementptr inbounds i8, ptr %1, i64 408
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %47 = load ptr, ptr %46, align 8
   %48 = tail call ptr @proto_item_get_display_repr(ptr noundef %47, ptr noundef %45) #8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %5, ptr noundef nonnull @.str.1139, ptr noundef %48) #8
@@ -4736,7 +4736,7 @@ define internal fastcc void @dissect_cisco_tlv(ptr noundef %0, ptr nocapture nou
 49:                                               ; preds = %7
   %50 = load i32, ptr @hf_cisco_aci_podid, align 4
   %51 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %50, ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef 0) #8
-  %52 = getelementptr inbounds i8, ptr %1, i64 408
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %53 = load ptr, ptr %52, align 8
   %54 = tail call ptr @proto_item_get_display_repr(ptr noundef %53, ptr noundef %51) #8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %5, ptr noundef nonnull @.str.1139, ptr noundef %54) #8
@@ -4745,7 +4745,7 @@ define internal fastcc void @dissect_cisco_tlv(ptr noundef %0, ptr nocapture nou
 55:                                               ; preds = %7
   %56 = load i32, ptr @hf_cisco_aci_fabricname, align 4
   %57 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %56, ptr noundef %0, i32 noundef 1, i32 noundef %11, i32 noundef 0) #8
-  %58 = getelementptr inbounds i8, ptr %1, i64 408
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %59 = load ptr, ptr %58, align 8
   %60 = tail call ptr @proto_item_get_display_repr(ptr noundef %59, ptr noundef %57) #8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %5, ptr noundef nonnull @.str.1139, ptr noundef %60) #8
@@ -4758,7 +4758,7 @@ define internal fastcc void @dissect_cisco_tlv(ptr noundef %0, ptr nocapture nou
   br i1 %.not238, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %61
-  %64 = getelementptr inbounds i8, ptr %1, i64 408
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %65
 
 65:                                               ; preds = %.lr.ph, %65
@@ -4783,7 +4783,7 @@ define internal fastcc void @dissect_cisco_tlv(ptr noundef %0, ptr nocapture nou
 78:                                               ; preds = %7
   %79 = load i32, ptr @hf_cisco_aci_nodeip, align 4
   %80 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %79, ptr noundef %0, i32 noundef 1, i32 noundef %11, i32 noundef 0) #8
-  %81 = getelementptr inbounds i8, ptr %1, i64 408
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %82 = load ptr, ptr %81, align 8
   %83 = tail call ptr @proto_item_get_display_repr(ptr noundef %82, ptr noundef %80) #8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %5, ptr noundef nonnull @.str.1139, ptr noundef %83) #8
@@ -4792,7 +4792,7 @@ define internal fastcc void @dissect_cisco_tlv(ptr noundef %0, ptr nocapture nou
 84:                                               ; preds = %7
   %85 = load i32, ptr @hf_cisco_aci_portrole, align 4
   %86 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %85, ptr noundef %0, i32 noundef 1, i32 noundef %11, i32 noundef 0) #8
-  %87 = getelementptr inbounds i8, ptr %1, i64 408
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %88 = load ptr, ptr %87, align 8
   %89 = tail call ptr @proto_item_get_display_repr(ptr noundef %88, ptr noundef %86) #8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %5, ptr noundef nonnull @.str.1139, ptr noundef %89) #8
@@ -4801,7 +4801,7 @@ define internal fastcc void @dissect_cisco_tlv(ptr noundef %0, ptr nocapture nou
 90:                                               ; preds = %7
   %91 = load i32, ptr @hf_cisco_aci_version, align 4
   %92 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %91, ptr noundef %0, i32 noundef 1, i32 noundef %11, i32 noundef 0) #8
-  %93 = getelementptr inbounds i8, ptr %1, i64 408
+  %93 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %94 = load ptr, ptr %93, align 8
   %95 = tail call ptr @proto_item_get_display_repr(ptr noundef %94, ptr noundef %92) #8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %5, ptr noundef nonnull @.str.1139, ptr noundef %95) #8
@@ -4810,7 +4810,7 @@ define internal fastcc void @dissect_cisco_tlv(ptr noundef %0, ptr nocapture nou
 96:                                               ; preds = %7
   %97 = load i32, ptr @hf_cisco_aci_fabricvlan, align 4
   %98 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %97, ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef 0) #8
-  %99 = getelementptr inbounds i8, ptr %1, i64 408
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %100 = load ptr, ptr %99, align 8
   %101 = tail call ptr @proto_item_get_display_repr(ptr noundef %100, ptr noundef %98) #8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %5, ptr noundef nonnull @.str.1139, ptr noundef %101) #8
@@ -4819,7 +4819,7 @@ define internal fastcc void @dissect_cisco_tlv(ptr noundef %0, ptr nocapture nou
 102:                                              ; preds = %7
   %103 = load i32, ptr @hf_cisco_aci_serialno, align 4
   %104 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %103, ptr noundef %0, i32 noundef 1, i32 noundef %11, i32 noundef 0) #8
-  %105 = getelementptr inbounds i8, ptr %1, i64 408
+  %105 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %106 = load ptr, ptr %105, align 8
   %107 = tail call ptr @proto_item_get_display_repr(ptr noundef %106, ptr noundef %104) #8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %5, ptr noundef nonnull @.str.1139, ptr noundef %107) #8
@@ -4828,7 +4828,7 @@ define internal fastcc void @dissect_cisco_tlv(ptr noundef %0, ptr nocapture nou
 108:                                              ; preds = %7
   %109 = load i32, ptr @hf_cisco_aci_model, align 4
   %110 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %109, ptr noundef %0, i32 noundef 1, i32 noundef %11, i32 noundef 0) #8
-  %111 = getelementptr inbounds i8, ptr %1, i64 408
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %112 = load ptr, ptr %111, align 8
   %113 = tail call ptr @proto_item_get_display_repr(ptr noundef %112, ptr noundef %110) #8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %5, ptr noundef nonnull @.str.1139, ptr noundef %113) #8
@@ -4837,7 +4837,7 @@ define internal fastcc void @dissect_cisco_tlv(ptr noundef %0, ptr nocapture nou
 114:                                              ; preds = %7
   %115 = load i32, ptr @hf_cisco_aci_nodename, align 4
   %116 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %115, ptr noundef %0, i32 noundef 1, i32 noundef %11, i32 noundef 0) #8
-  %117 = getelementptr inbounds i8, ptr %1, i64 408
+  %117 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %118 = load ptr, ptr %117, align 8
   %119 = tail call ptr @proto_item_get_display_repr(ptr noundef %118, ptr noundef %116) #8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %5, ptr noundef nonnull @.str.1139, ptr noundef %119) #8
@@ -4846,7 +4846,7 @@ define internal fastcc void @dissect_cisco_tlv(ptr noundef %0, ptr nocapture nou
 120:                                              ; preds = %7
   %121 = load i32, ptr @hf_cisco_aci_portmode, align 4
   %122 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %121, ptr noundef %0, i32 noundef 1, i32 noundef %11, i32 noundef 0) #8
-  %123 = getelementptr inbounds i8, ptr %1, i64 408
+  %123 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %124 = load ptr, ptr %123, align 8
   %125 = tail call ptr @proto_item_get_display_repr(ptr noundef %124, ptr noundef %122) #8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %5, ptr noundef nonnull @.str.1139, ptr noundef %125) #8
@@ -4855,7 +4855,7 @@ define internal fastcc void @dissect_cisco_tlv(ptr noundef %0, ptr nocapture nou
 126:                                              ; preds = %7
   %127 = load i32, ptr @hf_cisco_aci_authcookie, align 4
   %128 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %127, ptr noundef %0, i32 noundef 1, i32 noundef %11, i32 noundef 0) #8
-  %129 = getelementptr inbounds i8, ptr %1, i64 408
+  %129 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %130 = load ptr, ptr %129, align 8
   %131 = tail call ptr @proto_item_get_display_repr(ptr noundef %130, ptr noundef %128) #8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %5, ptr noundef nonnull @.str.1139, ptr noundef %131) #8
@@ -4864,7 +4864,7 @@ define internal fastcc void @dissect_cisco_tlv(ptr noundef %0, ptr nocapture nou
 132:                                              ; preds = %7
   %133 = load i32, ptr @hf_cisco_aci_apicmode, align 4
   %134 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %133, ptr noundef %0, i32 noundef 1, i32 noundef %11, i32 noundef 0) #8
-  %135 = getelementptr inbounds i8, ptr %1, i64 408
+  %135 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %136 = load ptr, ptr %135, align 8
   %137 = tail call ptr @proto_item_get_display_repr(ptr noundef %136, ptr noundef %134) #8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %5, ptr noundef nonnull @.str.1139, ptr noundef %137) #8
@@ -4873,7 +4873,7 @@ define internal fastcc void @dissect_cisco_tlv(ptr noundef %0, ptr nocapture nou
 138:                                              ; preds = %7
   %139 = load i32, ptr @hf_cisco_aci_fabricid, align 4
   %140 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %139, ptr noundef %0, i32 noundef 1, i32 noundef %11, i32 noundef 0) #8
-  %141 = getelementptr inbounds i8, ptr %1, i64 408
+  %141 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %142 = load ptr, ptr %141, align 8
   %143 = tail call ptr @proto_item_get_display_repr(ptr noundef %142, ptr noundef %140) #8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %5, ptr noundef nonnull @.str.1139, ptr noundef %143) #8

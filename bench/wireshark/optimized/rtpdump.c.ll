@@ -54,8 +54,8 @@ define hidden range(i32 -1, 2) i32 @rtpdump_open(ptr nocapture noundef %0, ptr n
 18:                                               ; preds = %17
   %19 = call ptr @g_string_sized_new(i64 noundef 71) #7
   %20 = load ptr, ptr @g_ascii_table, align 8
-  %21 = getelementptr inbounds i8, ptr %19, i64 8
-  %22 = getelementptr inbounds i8, ptr %19, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 16
   br label %23
 
 23:                                               ; preds = %g_string_append_c_inline.exit, %18
@@ -204,7 +204,7 @@ g_string_append_c_inline.exit:                    ; preds = %70, %64, %42
   %91 = zext i32 %90 to i64
   store i64 %91, ptr %10, align 8
   %92 = load ptr, ptr %0, align 8
-  %93 = getelementptr inbounds i8, ptr %10, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %94 = call i32 @wtap_read_bytes(ptr noundef %92, ptr noundef nonnull %93, i32 noundef 4, ptr noundef %1, ptr noundef %2) #7
   %.not84 = icmp eq i32 %94, 0
   br i1 %.not84, label %95, label %99
@@ -260,7 +260,7 @@ g_string_append_c_inline.exit:                    ; preds = %70, %64, %42
 
 124:                                              ; preds = %116
   %125 = call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #8
-  %126 = getelementptr inbounds i8, ptr %125, i64 32
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %126, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false)
   call void @ws_buffer_init(ptr noundef %125, i64 noundef 36) #7
   call void @wtap_buffer_append_epdu_uint(ptr noundef %125, i16 noundef zeroext 24, i32 noundef 3) #7
@@ -301,20 +301,20 @@ g_string_append_c_inline.exit:                    ; preds = %70, %64, %42
   %141 = load i16, ptr %.sink115, align 2
   %142 = zext i16 %141 to i32
   call void @wtap_buffer_append_epdu_uint(ptr noundef nonnull %125, i16 noundef zeroext %.sink, i32 noundef %142) #7
-  %143 = getelementptr inbounds i8, ptr %0, i64 96
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %125, ptr %143, align 8
-  %144 = getelementptr inbounds i8, ptr %0, i64 136
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr @rtpdump_close, ptr %144, align 8
-  %145 = getelementptr inbounds i8, ptr %0, i64 112
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @rtpdump_read, ptr %145, align 8
-  %146 = getelementptr inbounds i8, ptr %0, i64 120
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr @rtpdump_seek_read, ptr %146, align 8
   %147 = load i32, ptr @rtpdump_file_type_subtype, align 4
-  %148 = getelementptr inbounds i8, ptr %0, i64 20
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %147, ptr %148, align 4
-  %149 = getelementptr inbounds i8, ptr %0, i64 144
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 155, ptr %149, align 8
-  %150 = getelementptr inbounds i8, ptr %0, i64 148
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 3, ptr %150, align 4
   br label %151
 
@@ -356,7 +356,7 @@ declare void @wtap_buffer_append_epdu_tag(ptr noundef, i16 noundef zeroext, ptr 
 
 ; Function Attrs: nounwind uwtable
 define internal void @rtpdump_close(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 96
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   tail call void @ws_buffer_free(ptr noundef %3) #7
   ret void
@@ -376,7 +376,7 @@ define internal i32 @rtpdump_read(ptr nocapture noundef readonly %0, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @rtpdump_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @file_seek(ptr noundef %8, i64 noundef %1, i32 noundef 0, ptr noundef %4) #7
   %10 = icmp eq i64 %9, -1
@@ -413,7 +413,7 @@ define internal fastcc i32 @rtpdump_read_packet(ptr %.96.val, ptr noundef %0, pt
   %7 = alloca i16, align 2
   %8 = alloca i16, align 2
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %10, align 8
   %11 = call i32 @wtap_read_bytes_or_eof(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 2, ptr noundef %3, ptr noundef %4) #7
   %.not = icmp eq i32 %11, 0
@@ -443,10 +443,10 @@ define internal fastcc i32 @rtpdump_read_packet(ptr %.96.val, ptr noundef %0, pt
   %22 = add i16 %21, -8
   store i16 %22, ptr %7, align 2
   %23 = load ptr, ptr %.96.val, align 8
-  %24 = getelementptr inbounds i8, ptr %.96.val, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %.96.val, i64 16
   %25 = load i64, ptr %24, align 8
   %26 = getelementptr i8, ptr %23, i64 %25
-  %27 = getelementptr inbounds i8, ptr %.96.val, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %.96.val, i64 24
   %28 = load i64, ptr %27, align 8
   %29 = sub i64 %28, %25
   call void @ws_buffer_append(ptr noundef %2, ptr noundef %26, i64 noundef %29) #7
@@ -469,24 +469,24 @@ define internal fastcc i32 @rtpdump_read_packet(ptr %.96.val, ptr noundef %0, pt
   store i64 %38, ptr %6, align 8
   %39 = urem i32 %36, 1000
   %40 = mul nuw nsw i32 %39, 1000000
-  %41 = getelementptr inbounds i8, ptr %6, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %40, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %1, i64 16
-  %43 = getelementptr inbounds i8, ptr %.96.val, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.96.val, i64 32
   call void @nstime_sum(ptr noundef nonnull %42, ptr noundef nonnull %43, ptr noundef nonnull %6) #7
-  %44 = getelementptr inbounds i8, ptr %1, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %45 = load i32, ptr %44, align 4
   %46 = or i32 %45, 3
   store i32 %46, ptr %44, align 4
   %47 = load i16, ptr %8, align 2
   %48 = zext i16 %47 to i32
   %49 = add i32 %35, %48
-  %50 = getelementptr inbounds i8, ptr %1, i64 64
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 %49, ptr %50, align 8
   %51 = load i16, ptr %7, align 2
   %52 = zext i16 %51 to i32
   %53 = add i32 %35, %52
-  %54 = getelementptr inbounds i8, ptr %1, i64 68
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 68
   store i32 %53, ptr %54, align 4
   store i32 0, ptr %1, align 8
   %55 = call i32 @wtap_read_packet_bytes(ptr noundef %0, ptr noundef %2, i32 noundef %52, ptr noundef %3, ptr noundef %4) #7

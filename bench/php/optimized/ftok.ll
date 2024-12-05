@@ -33,7 +33,7 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden void @zif_ftok(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %6, 2
   br i1 %.not, label %8, label %7
@@ -43,8 +43,8 @@ define hidden void @zif_ftok(ptr noundef %0, ptr nocapture noundef writeonly %1)
   br label %.thread165
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %11 = load i8, ptr %10, align 8
   %12 = icmp eq i8 %11, 6
   br i1 %12, label %.critedge, label %14
@@ -72,8 +72,8 @@ thread-pre-split:                                 ; preds = %14
   br label %23
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %17, i64 24
-  %20 = getelementptr inbounds i8, ptr %17, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %21 = load i64, ptr %20, align 8
   %22 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #7
   %.not146 = icmp eq i64 %21, %22
@@ -81,9 +81,9 @@ thread-pre-split:                                 ; preds = %14
 
 23:                                               ; preds = %._crit_edge, %18
   %24 = phi i64 [ %.pre, %._crit_edge ], [ %21, %18 ]
-  %25 = getelementptr inbounds i8, ptr %17, i64 24
-  %26 = getelementptr inbounds i8, ptr %0, i64 96
-  %27 = getelementptr inbounds i8, ptr %0, i64 104
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %28 = load i8, ptr %27, align 8
   %29 = icmp eq i8 %28, 6
   br i1 %29, label %.thread160, label %31
@@ -111,7 +111,7 @@ thread-pre-split:                                 ; preds = %14
 
 33:                                               ; preds = %._crit_edge187, %.thread160
   %34 = phi ptr [ %.pre188, %._crit_edge187 ], [ %30, %.thread160 ]
-  %35 = getelementptr inbounds i8, ptr %34, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %36 = icmp eq i64 %24, 0
   br i1 %36, label %37, label %40
 
@@ -123,7 +123,7 @@ thread-pre-split:                                 ; preds = %14
   br label %62
 
 40:                                               ; preds = %33
-  %41 = getelementptr inbounds i8, ptr %34, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %42 = load i64, ptr %41, align 8
   %.not148 = icmp eq i64 %42, 1
   br i1 %.not148, label %46, label %43
@@ -142,7 +142,7 @@ thread-pre-split:                                 ; preds = %14
 
 48:                                               ; preds = %46
   store i64 -1, ptr %1, align 8
-  %49 = getelementptr inbounds i8, ptr %1, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %49, align 8
   br label %62
 
@@ -163,7 +163,7 @@ thread-pre-split:                                 ; preds = %14
 59:                                               ; preds = %55, %50
   %60 = sext i32 %53 to i64
   store i64 %60, ptr %1, align 8
-  %61 = getelementptr inbounds i8, ptr %1, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %61, align 8
   br label %62
 

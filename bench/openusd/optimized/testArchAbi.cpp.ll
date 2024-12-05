@@ -169,7 +169,7 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %41
   %48 = load i8, ptr %46, align 1
   %49 = icmp eq i8 %48, 42
   %.idx.i.i = zext i1 %49 to i64
-  %50 = getelementptr inbounds i8, ptr %46, i64 %.idx.i.i
+  %50 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx.i.i
   %51 = call i32 @strcmp(ptr noundef nonnull dereferenceable(56) @_ZTSN32pxrInternal_v0_24__pxrReserved__14ArchAbiDerivedIiEE, ptr noundef nonnull dereferenceable(1) %50) #8
   %.fr = freeze i32 %51
   %52 = icmp eq i32 %.fr, 0
@@ -217,7 +217,7 @@ _ZNKSt9type_infoeqERKS_.exit23:                   ; preds = %67
   %74 = load i8, ptr %72, align 1
   %75 = icmp eq i8 %74, 42
   %.idx.i.i21 = zext i1 %75 to i64
-  %76 = getelementptr inbounds i8, ptr %72, i64 %.idx.i.i21
+  %76 = getelementptr inbounds nuw i8, ptr %72, i64 %.idx.i.i21
   %77 = call i32 @strcmp(ptr noundef nonnull dereferenceable(56) @_ZTSN32pxrInternal_v0_24__pxrReserved__14ArchAbiDerivedIiEE, ptr noundef nonnull dereferenceable(1) %76) #8
   %78 = icmp eq i32 %77, 0
   br i1 %78, label %_ZNKSt9type_infoeqERKS_.exit23.thread, label %.invoke

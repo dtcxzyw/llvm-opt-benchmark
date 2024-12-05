@@ -70,7 +70,7 @@ for.body:                                         ; preds = %entry, %for.body
   %count.035 = phi i64 [ %spec.select, %for.body ], [ 0, %entry ]
   %i.034 = phi i64 [ %inc7, %for.body ], [ %bit_offset, %entry ]
   %shr.i = lshr i64 %i.034, 3
-  %arrayidx.i = getelementptr inbounds i8, ptr %data, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %data, i64 %shr.i
   %1 = load i8, ptr %arrayidx.i, align 1
   %conv.i = zext i8 %1 to i32
   %2 = trunc i64 %i.034 to i32
@@ -89,7 +89,7 @@ for.end:                                          ; preds = %for.body, %entry
   br i1 %cmp8.not, label %if.end56, label %if.then9
 
 if.then9:                                         ; preds = %for.end
-  %add.ptr = getelementptr inbounds i64, ptr %add.ptr.i, i64 %div5.i
+  %add.ptr = getelementptr inbounds nuw i64, ptr %add.ptr.i, i64 %div5.i
   %mul.i27 = and i64 %div5.i, 288230376151711740
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %count_unroll, i8 0, i64 32, i1 false)
   %cmp2537.not = icmp eq i64 %mul.i27, 0
@@ -106,10 +106,10 @@ for.cond41.preheader:                             ; preds = %for.end35, %if.then
 
 for.body29:                                       ; preds = %for.cond27.preheader, %for.body29
   %k.036 = phi i64 [ 0, %for.cond27.preheader ], [ %inc34, %for.body29 ]
-  %arrayidx = getelementptr inbounds i64, ptr %u64_data.038, i64 %k.036
+  %arrayidx = getelementptr inbounds nuw i64, ptr %u64_data.038, i64 %k.036
   %5 = load i64, ptr %arrayidx, align 8
   %6 = tail call noundef range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %5)
-  %arrayidx31 = getelementptr inbounds [4 x i64], ptr %count_unroll, i64 0, i64 %k.036
+  %arrayidx31 = getelementptr inbounds nuw [4 x i64], ptr %count_unroll, i64 0, i64 %k.036
   %7 = load i64, ptr %arrayidx31, align 8
   %add32 = add i64 %7, %6
   store i64 %add32, ptr %arrayidx31, align 8
@@ -118,7 +118,7 @@ for.body29:                                       ; preds = %for.cond27.preheade
   br i1 %exitcond.not, label %for.end35, label %for.body29, !llvm.loop !6
 
 for.end35:                                        ; preds = %for.body29
-  %add.ptr36 = getelementptr inbounds i8, ptr %u64_data.038, i64 32
+  %add.ptr36 = getelementptr inbounds nuw i8, ptr %u64_data.038, i64 32
   %add38 = add nuw nsw i64 %i23.039, 4
   %cmp25 = icmp samesign ult i64 %add38, %mul.i27
   br i1 %cmp25, label %for.cond27.preheader, label %for.cond41.preheader, !llvm.loop !7
@@ -130,7 +130,7 @@ for.cond49.preheader:                             ; preds = %for.body43
 for.body43:                                       ; preds = %for.cond41.preheader, %for.body43
   %k40.042 = phi i64 [ 0, %for.cond41.preheader ], [ %inc47, %for.body43 ]
   %count.341 = phi i64 [ %count.0.lcssa, %for.cond41.preheader ], [ %add45, %for.body43 ]
-  %arrayidx44 = getelementptr inbounds [4 x i64], ptr %count_unroll, i64 0, i64 %k40.042
+  %arrayidx44 = getelementptr inbounds nuw [4 x i64], ptr %count_unroll, i64 0, i64 %k40.042
   %8 = load i64, ptr %arrayidx44, align 8
   %add45 = add nsw i64 %8, %count.341
   %inc47 = add nuw nsw i64 %k40.042, 1
@@ -143,7 +143,7 @@ for.body51:                                       ; preds = %for.cond49.preheade
   %9 = load i64, ptr %u64_data.144, align 8
   %10 = tail call noundef range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %9)
   %add53 = add i64 %10, %count.445
-  %incdec.ptr = getelementptr inbounds i8, ptr %u64_data.144, i64 8
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %u64_data.144, i64 8
   %cmp50 = icmp ult ptr %incdec.ptr, %add.ptr
   br i1 %cmp50, label %for.body51, label %if.end56, !llvm.loop !9
 
@@ -157,7 +157,7 @@ for.body61:                                       ; preds = %if.end56, %for.body
   %i57.049 = phi i64 [ %inc67, %for.body61 ], [ %add13.i, %if.end56 ]
   %count.548 = phi i64 [ %spec.select26, %for.body61 ], [ %count.2, %if.end56 ]
   %shr.i28 = lshr i64 %i57.049, 3
-  %arrayidx.i29 = getelementptr inbounds i8, ptr %data, i64 %shr.i28
+  %arrayidx.i29 = getelementptr inbounds nuw i8, ptr %data, i64 %shr.i28
   %11 = load i8, ptr %arrayidx.i29, align 1
   %conv.i30 = zext i8 %11 to i32
   %12 = trunc i64 %i57.049 to i32
@@ -187,19 +187,19 @@ entry:
   %div.i = sdiv i64 %left_offset, 8
   %add.ptr.i = getelementptr inbounds i8, ptr %_ZN5arrow4util8internalL14kNonNullFillerE.maybe_null.i.i, i64 %div.i
   store ptr %add.ptr.i, ptr %bit_counter, align 8
-  %left_offset_.i = getelementptr inbounds i8, ptr %bit_counter, i64 8
+  %left_offset_.i = getelementptr inbounds nuw i8, ptr %bit_counter, i64 8
   %rem.i = srem i64 %left_offset, 8
   store i64 %rem.i, ptr %left_offset_.i, align 8
-  %right_bitmap_.i = getelementptr inbounds i8, ptr %bit_counter, i64 16
+  %right_bitmap_.i = getelementptr inbounds nuw i8, ptr %bit_counter, i64 16
   %cmp.not.i3.i = icmp eq ptr %right_bitmap, null
   %_ZN5arrow4util8internalL14kNonNullFillerE.maybe_null.i4.i = select i1 %cmp.not.i3.i, ptr @_ZN5arrow4util8internalL14kNonNullFillerE, ptr %right_bitmap
   %div3.i = sdiv i64 %right_offset, 8
   %add.ptr4.i = getelementptr inbounds i8, ptr %_ZN5arrow4util8internalL14kNonNullFillerE.maybe_null.i4.i, i64 %div3.i
   store ptr %add.ptr4.i, ptr %right_bitmap_.i, align 8
-  %right_offset_.i = getelementptr inbounds i8, ptr %bit_counter, i64 24
+  %right_offset_.i = getelementptr inbounds nuw i8, ptr %bit_counter, i64 24
   %rem5.i = srem i64 %right_offset, 8
   store i64 %rem5.i, ptr %right_offset_.i, align 8
-  %bits_remaining_.i = getelementptr inbounds i8, ptr %bit_counter, i64 32
+  %bits_remaining_.i = getelementptr inbounds nuw i8, ptr %bit_counter, i64 32
   store i64 %length, ptr %bits_remaining_.i, align 8
   %call.i2 = call i32 @_ZN5arrow8internal21BinaryBitBlockCounter8NextWordINS0_6detail11BitBlockAndEEENS0_13BitBlockCountEv(ptr noundef nonnull align 8 dereferenceable(40) %bit_counter)
   %sext.mask3 = and i32 %call.i2, 65535
@@ -323,7 +323,7 @@ if.end36:                                         ; preds = %if.else, %if.then29
   %shr.i44 = lshr i32 %.sink, %conv2.i43
   %conv3.i45 = trunc i32 %shr.i44 to i8
   %rev.i.i46 = tail call noundef i8 @llvm.bitreverse.i8(i8 %conv3.i45)
-  %arrayidx38 = getelementptr inbounds i8, ptr %add.ptr2, i64 %i_dest.050
+  %arrayidx38 = getelementptr inbounds nuw i8, ptr %add.ptr2, i64 %i_dest.050
   %5 = load i8, ptr %arrayidx38, align 1
   %6 = trunc i32 %left_trailing_mask_dest.0.in to i8
   %7 = xor i8 %6, -1
@@ -450,7 +450,7 @@ while.body.us:                                    ; preds = %_ZN5arrow8internal1
   %reader.sroa.21.0155.us = phi i8 [ %reader.sroa.21.40.extract.trunc122.us, %while.body.us ], [ %reader.sroa.21.2, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ]
   %reader.sroa.4.0152.us = phi ptr [ %add.ptr.i39.us, %while.body.us ], [ %add.ptr.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ]
   %dec.us = add nsw i64 %nwords.0158.us, -1
-  %add.ptr.i39.us = getelementptr inbounds i8, ptr %reader.sroa.4.0152.us, i64 8
+  %add.ptr.i39.us = getelementptr inbounds nuw i8, ptr %reader.sroa.4.0152.us, i64 8
   %ret.0.copyload.i.i.i40.us = load i64, ptr %add.ptr.i39.us, align 1
   %2 = freeze i64 %ret.0.copyload.i.i.i40.us
   %reader.sroa.21.40.insert.ext.us = zext i8 %reader.sroa.21.0155.us to i64
@@ -459,7 +459,7 @@ while.body.us:                                    ; preds = %_ZN5arrow8internal1
   %reader.sroa.21.40.extract.trunc122.us = trunc i64 %2 to i8
   %reader.sroa.27.40.extract.shift123.us = and i64 %2, -256
   store i64 %word.0.i.us, ptr %writer.sroa.4.0156.us, align 1
-  %add.ptr21.i.us = getelementptr inbounds i8, ptr %writer.sroa.4.0156.us, i64 8
+  %add.ptr21.i.us = getelementptr inbounds nuw i8, ptr %writer.sroa.4.0156.us, i64 8
   %tobool3.not.us = icmp eq i64 %dec.us, 0
   br i1 %tobool3.not.us, label %while.cond6.preheader, label %while.body.us, !llvm.loop !13
 
@@ -489,7 +489,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %writer.sroa.26.sroa.0.0153 = phi i64 [ %or13.i, %while.body ], [ %writer.sroa.26.sroa.0.1, %while.body.lr.ph ]
   %reader.sroa.4.0152 = phi ptr [ %add.ptr.i39, %while.body ], [ %add.ptr.i, %while.body.lr.ph ]
   %dec = add nsw i64 %nwords.0158, -1
-  %add.ptr.i39 = getelementptr inbounds i8, ptr %reader.sroa.4.0152, i64 8
+  %add.ptr.i39 = getelementptr inbounds nuw i8, ptr %reader.sroa.4.0152, i64 8
   %ret.0.copyload.i.i.i40 = load i64, ptr %add.ptr.i39, align 1
   %3 = freeze i64 %ret.0.copyload.i.i.i40
   %reader.sroa.21.40.insert.ext = zext i8 %reader.sroa.21.0155 to i64
@@ -500,7 +500,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %shl.i = shl i64 %word.0.i, %rem.i21
   %shr.i = lshr i64 %word.0.i, %sub.i43
   %or.i = or i64 %shr.i, %shl.i
-  %add.ptr.i45 = getelementptr inbounds i8, ptr %writer.sroa.4.0156, i64 8
+  %add.ptr.i45 = getelementptr inbounds nuw i8, ptr %writer.sroa.4.0156, i64 8
   %ret.0.copyload.i.i.i46 = load i64, ptr %add.ptr.i45, align 1
   %writer.sroa.26.32.insert.ext = and i64 %writer.sroa.26.sroa.0.0153, 2147483392
   %writer.sroa.20.32.insert.ext = zext i8 %writer.sroa.20.0154 to i64
@@ -575,7 +575,7 @@ _ZN5arrow8internal12BitmapReader4NextEv.exit.i:   ; preds = %if.then11.i.i, %if.
   br i1 %exitcond.not.i, label %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit, label %for.body.i, !llvm.loop !14
 
 _ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.thread: ; preds = %while.body9
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %reader.sroa.4.1166, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %reader.sroa.4.1166, i64 1
   %ret.0.copyload.i.i.i54 = load i8, ptr %incdec.ptr.i, align 1
   %conv19.i = zext i8 %reader.sroa.21.1170 to i32
   %shr20.i = lshr i32 %conv19.i, %sh_prom.i57
@@ -606,7 +606,7 @@ if.then2.i:                                       ; preds = %if.then.i80
   %conv.i82 = zext i8 %byte.2.i140 to i32
   %shl.i84 = shl nuw nsw i32 %conv.i82, %sh_prom.i
   %shr.i85 = lshr i32 %conv.i82, %sh_prom6.i
-  %add.ptr.i87 = getelementptr inbounds i8, ptr %writer.sroa.4.1171, i64 1
+  %add.ptr.i87 = getelementptr inbounds nuw i8, ptr %writer.sroa.4.1171, i64 1
   %ret.0.copyload.i.i.i88 = load i8, ptr %add.ptr.i87, align 1
   %conv8.i = zext i8 %writer.sroa.20.1168 to i64
   %and.i91 = and i64 %conv8.i, %conv.i33
@@ -627,7 +627,7 @@ if.end.i:                                         ; preds = %if.then.i80, %if.th
   %conv13.i.sink = phi i8 [ %conv13.i, %if.then2.i ], [ %byte.2.i140, %if.then.i80 ]
   %writer.sroa.20.4 = phi i8 [ %conv24.i, %if.then2.i ], [ %writer.sroa.20.1168, %if.then.i80 ]
   store i8 %conv13.i.sink, ptr %writer.sroa.4.1171, align 1
-  %incdec.ptr.i93 = getelementptr inbounds i8, ptr %writer.sroa.4.1171, i64 1
+  %incdec.ptr.i93 = getelementptr inbounds nuw i8, ptr %writer.sroa.4.1171, i64 1
   br label %_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit
 
 if.else34.i:                                      ; preds = %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit
@@ -829,7 +829,7 @@ while.body.us:                                    ; preds = %_ZN5arrow8internal1
   %reader.sroa.21.0160.us = phi i8 [ %reader.sroa.21.40.extract.trunc125.us, %while.body.us ], [ %reader.sroa.21.2, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ]
   %reader.sroa.4.0157.us = phi ptr [ %add.ptr.i42.us, %while.body.us ], [ %add.ptr.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ]
   %dec.us = add nsw i64 %nwords.0163.us, -1
-  %add.ptr.i42.us = getelementptr inbounds i8, ptr %reader.sroa.4.0157.us, i64 8
+  %add.ptr.i42.us = getelementptr inbounds nuw i8, ptr %reader.sroa.4.0157.us, i64 8
   %ret.0.copyload.i.i.i43.us = load i64, ptr %add.ptr.i42.us, align 1
   %2 = freeze i64 %ret.0.copyload.i.i.i43.us
   %reader.sroa.21.40.insert.ext.us = zext i8 %reader.sroa.21.0160.us to i64
@@ -839,7 +839,7 @@ while.body.us:                                    ; preds = %_ZN5arrow8internal1
   %reader.sroa.27.40.extract.shift126.us = and i64 %2, -256
   %not.us = xor i64 %word.0.i.us, -1
   store i64 %not.us, ptr %writer.sroa.4.0161.us, align 1
-  %add.ptr21.i.us = getelementptr inbounds i8, ptr %writer.sroa.4.0161.us, i64 8
+  %add.ptr21.i.us = getelementptr inbounds nuw i8, ptr %writer.sroa.4.0161.us, i64 8
   %tobool3.not.us = icmp eq i64 %dec.us, 0
   br i1 %tobool3.not.us, label %while.cond6.preheader, label %while.body.us, !llvm.loop !17
 
@@ -869,7 +869,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %writer.sroa.26.sroa.0.0158 = phi i64 [ %or13.i, %while.body ], [ %writer.sroa.26.sroa.0.1, %while.body.lr.ph ]
   %reader.sroa.4.0157 = phi ptr [ %add.ptr.i42, %while.body ], [ %add.ptr.i, %while.body.lr.ph ]
   %dec = add nsw i64 %nwords.0163, -1
-  %add.ptr.i42 = getelementptr inbounds i8, ptr %reader.sroa.4.0157, i64 8
+  %add.ptr.i42 = getelementptr inbounds nuw i8, ptr %reader.sroa.4.0157, i64 8
   %ret.0.copyload.i.i.i43 = load i64, ptr %add.ptr.i42, align 1
   %3 = freeze i64 %ret.0.copyload.i.i.i43
   %reader.sroa.21.40.insert.ext = zext i8 %reader.sroa.21.0160 to i64
@@ -881,7 +881,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %shl.i = shl i64 %not, %rem.i24
   %shr.i = lshr i64 %not, %sub.i46
   %or.i = or i64 %shr.i, %shl.i
-  %add.ptr.i48 = getelementptr inbounds i8, ptr %writer.sroa.4.0161, i64 8
+  %add.ptr.i48 = getelementptr inbounds nuw i8, ptr %writer.sroa.4.0161, i64 8
   %ret.0.copyload.i.i.i49 = load i64, ptr %add.ptr.i48, align 1
   %writer.sroa.26.32.insert.ext = and i64 %writer.sroa.26.sroa.0.0158, 2147483392
   %writer.sroa.20.32.insert.ext = zext i8 %writer.sroa.20.0159 to i64
@@ -956,7 +956,7 @@ _ZN5arrow8internal12BitmapReader4NextEv.exit.i:   ; preds = %if.then11.i.i, %if.
   br i1 %exitcond.not.i, label %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit, label %for.body.i, !llvm.loop !14
 
 _ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.thread: ; preds = %while.body9
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %reader.sroa.4.1171, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %reader.sroa.4.1171, i64 1
   %ret.0.copyload.i.i.i57 = load i8, ptr %incdec.ptr.i, align 1
   %conv19.i = zext i8 %reader.sroa.21.1175 to i32
   %shr20.i = lshr i32 %conv19.i, %sh_prom.i60
@@ -989,7 +989,7 @@ if.then2.i:                                       ; preds = %if.then.i83
   %conv.i85 = zext i8 %not11144 to i32
   %shl.i87 = shl nuw nsw i32 %conv.i85, %sh_prom.i
   %shr.i88 = lshr i32 %conv.i85, %sh_prom6.i
-  %add.ptr.i90 = getelementptr inbounds i8, ptr %writer.sroa.4.1176, i64 1
+  %add.ptr.i90 = getelementptr inbounds nuw i8, ptr %writer.sroa.4.1176, i64 1
   %ret.0.copyload.i.i.i91 = load i8, ptr %add.ptr.i90, align 1
   %conv8.i = zext i8 %writer.sroa.20.1173 to i64
   %and.i94 = and i64 %conv8.i, %conv.i36
@@ -1010,7 +1010,7 @@ if.end.i:                                         ; preds = %if.then.i83, %if.th
   %conv13.i.sink = phi i8 [ %conv13.i, %if.then2.i ], [ %not11144, %if.then.i83 ]
   %writer.sroa.20.4 = phi i8 [ %conv24.i, %if.then2.i ], [ %writer.sroa.20.1173, %if.then.i83 ]
   store i8 %conv13.i.sink, ptr %writer.sroa.4.1176, align 1
-  %incdec.ptr.i96 = getelementptr inbounds i8, ptr %writer.sroa.4.1176, i64 1
+  %incdec.ptr.i96 = getelementptr inbounds nuw i8, ptr %writer.sroa.4.1176, i64 1
   br label %_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit
 
 if.else34.i:                                      ; preds = %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit
@@ -1098,10 +1098,10 @@ if.then15:                                        ; preds = %if.else
 
 for.body:                                         ; preds = %if.then15, %for.body
   %i.0179 = phi i64 [ %inc, %for.body ], [ 0, %if.then15 ]
-  %arrayidx = getelementptr inbounds i8, ptr %add.ptr, i64 %i.0179
+  %arrayidx = getelementptr inbounds nuw i8, ptr %add.ptr, i64 %i.0179
   %16 = load i8, ptr %arrayidx, align 1
   %not24 = xor i8 %16, -1
-  %arrayidx26 = getelementptr inbounds i8, ptr %add.ptr18, i64 %i.0179
+  %arrayidx26 = getelementptr inbounds nuw i8, ptr %add.ptr18, i64 %i.0179
   store i8 %not24, ptr %arrayidx26, align 1
   %inc = add nuw nsw i64 %i.0179, 1
   %exitcond.not = icmp eq i64 %inc, %sub22
@@ -1202,7 +1202,7 @@ if.end36.i:                                       ; preds = %if.else.i, %if.then
   %shr.i44.i = lshr i32 %.sink.i, %conv2.i43.i
   %conv3.i45.i = trunc i32 %shr.i44.i to i8
   %rev.i.i46.i = tail call noundef i8 @llvm.bitreverse.i8(i8 %conv3.i45.i)
-  %arrayidx38.i = getelementptr inbounds i8, ptr %add.ptr2.i, i64 %i_dest.050.i
+  %arrayidx38.i = getelementptr inbounds nuw i8, ptr %add.ptr2.i, i64 %i_dest.050.i
   %5 = load i8, ptr %arrayidx38.i, align 1
   %6 = trunc i32 %left_trailing_mask_dest.0.in.i to i8
   %7 = xor i8 %6, -1
@@ -1251,23 +1251,23 @@ if.then:                                          ; preds = %invoke.cont
 invoke.cont4:                                     ; preds = %invoke.cont
   call void @llvm.experimental.noalias.scope.decl(metadata !20)
   call void @llvm.experimental.noalias.scope.decl(metadata !23)
-  %storage_.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %storage_.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   %1 = load ptr, ptr %storage_.i.i, align 8, !noalias !26
   store ptr %1, ptr %buffer, align 8, !alias.scope !26
-  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %buffer, i64 8
-  %_M_refcount4.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %_M_refcount.i.i.i.i = getelementptr inbounds nuw i8, ptr %buffer, i64 8
+  %_M_refcount4.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %2 = load ptr, ptr %_M_refcount4.i.i.i.i, align 8, !noalias !26
   store ptr null, ptr %_M_refcount4.i.i.i.i, align 8, !noalias !26
   store ptr %2, ptr %_M_refcount.i.i.i.i, align 8, !alias.scope !26
   store ptr null, ptr %storage_.i.i, align 8, !noalias !26
-  %is_cpu_.i = getelementptr inbounds i8, ptr %1, i64 9
+  %is_cpu_.i = getelementptr inbounds nuw i8, ptr %1, i64 9
   %3 = load i8, ptr %is_cpu_.i, align 1
   %tobool.i = trunc i8 %3 to i1
-  %is_mutable_.i = getelementptr inbounds i8, ptr %1, i64 8
+  %is_mutable_.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i8, ptr %is_mutable_.i, align 8
   %tobool2.i = trunc i8 %4 to i1
   %5 = select i1 %tobool.i, i1 %tobool2.i, i1 false
-  %data_.i = getelementptr inbounds i8, ptr %1, i64 16
+  %data_.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %data_.i, align 8
   %cond.i = select i1 %5, ptr %6, ptr null
   invoke void @_ZN5arrow8internal14TransferBitmapILNS0_12TransferModeE0EEEvPKhlllPh(ptr noundef %data, i64 noundef %offset, i64 noundef %length, i64 noundef 0, ptr noundef %cond.i)
@@ -1305,9 +1305,9 @@ lpad7:                                            ; preds = %invoke.cont4
 
 _ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit:      ; preds = %for.body, %invoke.cont8
   store ptr null, ptr %agg.result, align 8
-  %storage_.i.i12 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %storage_.i.i12 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %1, ptr %storage_.i.i12, align 8
-  %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_refcount.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %2, ptr %_M_refcount.i.i.i.i.i, align 8
   br label %cleanup
 
@@ -1340,23 +1340,23 @@ if.then:                                          ; preds = %invoke.cont
 invoke.cont4:                                     ; preds = %invoke.cont
   call void @llvm.experimental.noalias.scope.decl(metadata !28)
   call void @llvm.experimental.noalias.scope.decl(metadata !31)
-  %storage_.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %storage_.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   %1 = load ptr, ptr %storage_.i.i, align 8, !noalias !34
   store ptr %1, ptr %buffer, align 8, !alias.scope !34
-  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %buffer, i64 8
-  %_M_refcount4.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %_M_refcount.i.i.i.i = getelementptr inbounds nuw i8, ptr %buffer, i64 8
+  %_M_refcount4.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %2 = load ptr, ptr %_M_refcount4.i.i.i.i, align 8, !noalias !34
   store ptr null, ptr %_M_refcount4.i.i.i.i, align 8, !noalias !34
   store ptr %2, ptr %_M_refcount.i.i.i.i, align 8, !alias.scope !34
   store ptr null, ptr %storage_.i.i, align 8, !noalias !34
-  %is_cpu_.i = getelementptr inbounds i8, ptr %1, i64 9
+  %is_cpu_.i = getelementptr inbounds nuw i8, ptr %1, i64 9
   %3 = load i8, ptr %is_cpu_.i, align 1
   %tobool.i = trunc i8 %3 to i1
-  %is_mutable_.i = getelementptr inbounds i8, ptr %1, i64 8
+  %is_mutable_.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i8, ptr %is_mutable_.i, align 8
   %tobool2.i = trunc i8 %4 to i1
   %5 = select i1 %tobool.i, i1 %tobool2.i, i1 false
-  %data_.i = getelementptr inbounds i8, ptr %1, i64 16
+  %data_.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %data_.i, align 8
   %cond.i = select i1 %5, ptr %6, ptr null
   invoke void @_ZN5arrow8internal14TransferBitmapILNS0_12TransferModeE1EEEvPKhlllPh(ptr noundef %data, i64 noundef %offset, i64 noundef %length, i64 noundef 0, ptr noundef %cond.i)
@@ -1394,9 +1394,9 @@ lpad7:                                            ; preds = %invoke.cont4
 
 _ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit:      ; preds = %for.body, %invoke.cont8
   store ptr null, ptr %agg.result, align 8
-  %storage_.i.i12 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %storage_.i.i12 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %1, ptr %storage_.i.i12, align 8
-  %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_refcount.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %2, ptr %_M_refcount.i.i.i.i.i, align 8
   br label %cleanup
 
@@ -1419,19 +1419,19 @@ if.then:                                          ; preds = %invoke.cont
   br label %cleanup
 
 invoke.cont5:                                     ; preds = %invoke.cont
-  %storage_.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %storage_.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   %1 = load ptr, ptr %storage_.i.i, align 8, !noalias !36
-  %_M_refcount4.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %_M_refcount4.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %2 = load ptr, ptr %_M_refcount4.i.i.i.i, align 8, !noalias !36
-  %is_cpu_.i = getelementptr inbounds i8, ptr %1, i64 9
+  %is_cpu_.i = getelementptr inbounds nuw i8, ptr %1, i64 9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %storage_.i.i, i8 0, i64 16, i1 false)
   %3 = load i8, ptr %is_cpu_.i, align 1
   %tobool.i = trunc i8 %3 to i1
-  %is_mutable_.i = getelementptr inbounds i8, ptr %1, i64 8
+  %is_mutable_.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i8, ptr %is_mutable_.i, align 8
   %tobool2.i = trunc i8 %4 to i1
   %5 = select i1 %tobool.i, i1 %tobool2.i, i1 false
-  %data_.i = getelementptr inbounds i8, ptr %1, i64 16
+  %data_.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %data_.i, align 8
   %cond.i = select i1 %5, ptr %6, ptr null
   %div.i = sdiv i64 %offset, 8
@@ -1505,7 +1505,7 @@ if.end36.i:                                       ; preds = %if.else.i, %if.then
   %shr.i44.i = lshr i32 %.sink.i, %conv2.i43.i
   %conv3.i45.i = trunc i32 %shr.i44.i to i8
   %rev.i.i46.i = call noundef i8 @llvm.bitreverse.i8(i8 %conv3.i45.i)
-  %arrayidx38.i = getelementptr inbounds i8, ptr %cond.i, i64 %i_dest.050.i
+  %arrayidx38.i = getelementptr inbounds nuw i8, ptr %cond.i, i64 %i_dest.050.i
   %14 = load i8, ptr %arrayidx38.i, align 1
   %15 = trunc i32 %left_trailing_mask_dest.0.in.i to i8
   %16 = xor i8 %15, -1
@@ -1528,9 +1528,9 @@ if.end36.i:                                       ; preds = %if.else.i, %if.then
 
 _ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit:      ; preds = %if.end36.i, %invoke.cont5
   store ptr null, ptr %agg.result, align 8
-  %storage_.i.i6 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %storage_.i.i6 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %1, ptr %storage_.i.i6, align 8
-  %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_refcount.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %2, ptr %_M_refcount.i.i.i.i.i, align 8
   br label %cleanup
 
@@ -1561,25 +1561,25 @@ cond.false.i:                                     ; preds = %entry
 call.i.noexc:                                     ; preds = %cond.false.i
   %1 = load i8, ptr %0, align 8
   store i8 %1, ptr %call.i3, align 8
-  %msg.i.i = getelementptr inbounds i8, ptr %call.i3, i64 8
-  %msg3.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %msg.i.i = getelementptr inbounds nuw i8, ptr %call.i3, i64 8
+  %msg3.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i, ptr noundef nonnull align 8 dereferenceable(32) %msg3.i.i)
           to label %.noexc.i unwind label %lpad4.i
 
 .noexc.i:                                         ; preds = %call.i.noexc
-  %detail.i.i = getelementptr inbounds i8, ptr %call.i3, i64 40
-  %detail4.i.i = getelementptr inbounds i8, ptr %0, i64 40
+  %detail.i.i = getelementptr inbounds nuw i8, ptr %call.i3, i64 40
+  %detail4.i.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   %2 = load ptr, ptr %detail4.i.i, align 8
   store ptr %2, ptr %detail.i.i, align 8
-  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %call.i3, i64 48
-  %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 48
+  %_M_refcount.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i3, i64 48
+  %_M_refcount3.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8
   store ptr %3, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %.noexc.i
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %4 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %4, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -1682,13 +1682,13 @@ terminate.lpad.body:                              ; preds = %terminate.lpad, %lp
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10shared_ptrIN5arrow6BufferEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_refcount.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_refcount.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_refcount.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %_M_use_count.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i acquire, align 8
   %cmp.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -1696,10 +1696,10 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   store i32 0, ptr %_M_use_count.i.i.i, align 8
-  %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
+  %_M_weak_count.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i, align 4
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
   br label %if.end8.sink.split.i.i.i
@@ -1725,10 +1725,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %if.else.i.
 
 if.then7.i.i.i:                                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
+  %vfn.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -1750,7 +1750,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.end8.sink.split.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.then.i.i.i
   %vtable2.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i, i64 24
+  %vfn3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable2.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
   br label %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -1767,13 +1767,13 @@ entry:
   br i1 %cmp.i.i, label %if.then.i, label %delete.notnull.i.i
 
 if.then.i:                                        ; preds = %entry
-  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_refcount.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5arrow6ResultISt10shared_ptrINS_6BufferEEE7DestroyEv.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i = icmp eq i64 %2, 4294967297
   %3 = trunc i64 %2 to i32
@@ -1781,10 +1781,10 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 12
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
+  %vfn.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %4 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %1) #20
   br label %if.end8.sink.split.i.i.i.i.i.i
@@ -1810,10 +1810,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.then7.i.i.i.i.i.i:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
+  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
   %7 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(16) %1) #20
-  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 12
+  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 12
   %8 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
@@ -1835,7 +1835,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %
 
 if.end8.sink.split.i.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i = load ptr, ptr %1, align 8
-  %vfn3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i, i64 24
+  %vfn3.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable2.i.i.i.i.i.i.i.i, i64 24
   %11 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(16) %1) #20
   br label %_ZN5arrow6ResultISt10shared_ptrINS_6BufferEEE7DestroyEv.exit
@@ -1847,13 +1847,13 @@ _ZN5arrow6ResultISt10shared_ptrINS_6BufferEEE7DestroyEv.exit: ; preds = %if.then
 
 delete.notnull.i.i:                               ; preds = %entry, %_ZN5arrow6ResultISt10shared_ptrINS_6BufferEEE7DestroyEv.exit
   %12 = phi ptr [ %.pr, %_ZN5arrow6ResultISt10shared_ptrINS_6BufferEEE7DestroyEv.exit ], [ %0, %entry ]
-  %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 48
+  %_M_refcount.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 48
   %13 = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %13, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZN5arrow6Status11DeleteStateEv.exit.i, label %if.then.i.i.i.i.i.i1
 
 if.then.i.i.i.i.i.i1:                             ; preds = %delete.notnull.i.i
-  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
+  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 8
   %14 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq i64 %14, 4294967297
   %15 = trunc i64 %14 to i32
@@ -1861,10 +1861,10 @@ if.then.i.i.i.i.i.i1:                             ; preds = %delete.notnull.i.i
 
 if.then.i.i.i.i.i.i.i2:                           ; preds = %if.then.i.i.i.i.i.i1
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 12
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %13, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %16 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %13) #20
   br label %if.end8.sink.split.i.i.i.i.i.i.i
@@ -1890,10 +1890,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
 
 if.then7.i.i.i.i.i.i.i:                           ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %13, align 8
-  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 16
+  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 16
   %19 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(16) %13) #20
-  %_M_weak_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 12
+  %_M_weak_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 12
   %20 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %20, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
@@ -1915,13 +1915,13 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds =
 
 if.end8.sink.split.i.i.i.i.i.i.i:                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i2
   %vtable2.i.i.i.i.i.i.i.i.i = load ptr, ptr %13, align 8
-  %vfn3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i, i64 24
+  %vfn3.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable2.i.i.i.i.i.i.i.i.i, i64 24
   %23 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i, align 8
   tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %13) #20
   br label %_ZN5arrow6Status11DeleteStateEv.exit.i
 
 _ZN5arrow6Status11DeleteStateEv.exit.i:           ; preds = %if.end8.sink.split.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %delete.notnull.i.i
-  %msg.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
+  %msg.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i.i) #20
   tail call void @_ZdlPv(ptr noundef nonnull %12) #22
   store ptr null, ptr %this, align 8
@@ -1958,7 +1958,7 @@ for.body:                                         ; preds = %if.end, %for.body
   %i.0174 = phi i64 [ %inc, %for.body ], [ %mul, %if.end ]
   %add = add nsw i64 %i.0174, %left_offset
   %shr.i = lshr i64 %add, 3
-  %arrayidx.i = getelementptr inbounds i8, ptr %left, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %left, i64 %shr.i
   %2 = load i8, ptr %arrayidx.i, align 1
   %conv.i = zext i8 %2 to i32
   %3 = trunc i64 %add to i32
@@ -1968,7 +1968,7 @@ for.body:                                         ; preds = %if.end, %for.body
   %tobool.i = icmp ne i32 %5, 0
   %add11 = add nsw i64 %i.0174, %right_offset
   %shr.i18 = lshr i64 %add11, 3
-  %arrayidx.i19 = getelementptr inbounds i8, ptr %right, i64 %shr.i18
+  %arrayidx.i19 = getelementptr inbounds nuw i8, ptr %right, i64 %shr.i18
   %6 = load i8, ptr %arrayidx.i19, align 1
   %conv.i20 = zext i8 %6 to i32
   %7 = trunc i64 %add11 to i32
@@ -2067,7 +2067,7 @@ while.cond26.preheader:                           ; preds = %while.cond
 
 while.body:                                       ; preds = %while.cond
   %dec = add nsw i64 %nwords.0, -1
-  %add.ptr.i64 = getelementptr inbounds i8, ptr %left_reader.sroa.4.0, i64 8
+  %add.ptr.i64 = getelementptr inbounds nuw i8, ptr %left_reader.sroa.4.0, i64 8
   %ret.0.copyload.i.i.i65 = load i64, ptr %add.ptr.i64, align 1
   %14 = freeze i64 %ret.0.copyload.i.i.i65
   %left_reader.sroa.21.40.insert.ext = zext i8 %left_reader.sroa.21.0 to i64
@@ -2075,7 +2075,7 @@ while.body:                                       ; preds = %while.cond
   %word.0.i = tail call noundef i64 @llvm.fshr.i64(i64 %14, i64 %left_reader.sroa.21.40.insert.insert, i64 %rem.i)
   %left_reader.sroa.21.40.extract.trunc163 = trunc i64 %14 to i8
   %left_reader.sroa.27.40.extract.shift164 = and i64 %14, -256
-  %add.ptr.i67 = getelementptr inbounds i8, ptr %right_reader.sroa.4.0, i64 8
+  %add.ptr.i67 = getelementptr inbounds nuw i8, ptr %right_reader.sroa.4.0, i64 8
   %ret.0.copyload.i.i.i68 = load i64, ptr %add.ptr.i67, align 1
   %15 = freeze i64 %ret.0.copyload.i.i.i68
   %right_reader.sroa.19.40.insert.ext = zext i8 %right_reader.sroa.19.0 to i64
@@ -2160,7 +2160,7 @@ for.end.i:                                        ; preds = %for.end.loopexit.i,
   br label %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit
 
 if.else.i74:                                      ; preds = %while.body29
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %left_reader.sroa.4.1, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %left_reader.sroa.4.1, i64 1
   %ret.0.copyload.i.i.i75 = load i8, ptr %incdec.ptr.i, align 1
   %conv19.i = zext i8 %left_reader.sroa.21.1 to i32
   %shr20.i = lshr i32 %conv19.i, %sh_prom.i77
@@ -2238,7 +2238,7 @@ for.end.i111:                                     ; preds = %for.end.loopexit.i1
   br label %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit147
 
 if.else.i88:                                      ; preds = %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit
-  %incdec.ptr.i90 = getelementptr inbounds i8, ptr %right_reader.sroa.4.1, i64 1
+  %incdec.ptr.i90 = getelementptr inbounds nuw i8, ptr %right_reader.sroa.4.1, i64 1
   %ret.0.copyload.i.i.i91 = load i8, ptr %incdec.ptr.i90, align 1
   %conv19.i94 = zext i8 %right_reader.sroa.19.1 to i32
   %shr20.i96 = lshr i32 %conv19.i94, %sh_prom.i95
@@ -2311,10 +2311,10 @@ entry:
   br i1 %cmp.i.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %is_cpu_.i = getelementptr inbounds i8, ptr %0, i64 9
+  %is_cpu_.i = getelementptr inbounds nuw i8, ptr %0, i64 9
   %1 = load i8, ptr %is_cpu_.i, align 1
   %tobool.i = trunc i8 %1 to i1
-  %data_.i = getelementptr inbounds i8, ptr %0, i64 16
+  %data_.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %2 = load ptr, ptr %data_.i, align 8
   %cond.i = select i1 %tobool.i, ptr %2, ptr null
   br label %cond.end
@@ -2326,10 +2326,10 @@ cond.end:                                         ; preds = %entry, %cond.true
   br i1 %cmp.i3.not, label %cond.end8, label %cond.true4
 
 cond.true4:                                       ; preds = %cond.end
-  %is_cpu_.i4 = getelementptr inbounds i8, ptr %3, i64 9
+  %is_cpu_.i4 = getelementptr inbounds nuw i8, ptr %3, i64 9
   %4 = load i8, ptr %is_cpu_.i4, align 1
   %tobool.i5 = trunc i8 %4 to i1
-  %data_.i6 = getelementptr inbounds i8, ptr %3, i64 16
+  %data_.i6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %data_.i6, align 8
   %cond.i7 = select i1 %tobool.i5, ptr %5, ptr null
   br label %cond.end8
@@ -2386,26 +2386,26 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt7bit_andEENS_6ResultISt10shared_ptrINS_6BufferEEEEPNS_10MemoryPoolEPKhlSC_lll.exit
 
 invoke.cont4.i:                                   ; preds = %entry
-  %storage_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %storage_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   %1 = load ptr, ptr %storage_.i.i.i, align 8, !noalias !50
-  %_M_refcount4.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
+  %_M_refcount4.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   %2 = load ptr, ptr %_M_refcount4.i.i.i.i.i, align 8, !noalias !50
-  %is_cpu_.i.i = getelementptr inbounds i8, ptr %1, i64 9
+  %is_cpu_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %storage_.i.i.i, i8 0, i64 16, i1 false), !noalias !47
   %3 = load i8, ptr %is_cpu_.i.i, align 1, !noalias !47
   %tobool.i.i = trunc i8 %3 to i1
-  %is_mutable_.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %is_mutable_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i8, ptr %is_mutable_.i.i, align 8, !noalias !47
   %tobool2.i.i = trunc i8 %4 to i1
   %5 = select i1 %tobool.i.i, i1 %tobool2.i.i, i1 false
-  %data_.i.i = getelementptr inbounds i8, ptr %1, i64 16
+  %data_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %data_.i.i, align 8, !noalias !47
   %cond.i.i = select i1 %5, ptr %6, ptr null
   call fastcc void @_ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt7bit_andEEvPKhlS5_lllPh(ptr noundef readonly %left, i64 noundef %left_offset, ptr noundef readonly %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset, ptr noundef %cond.i.i), !noalias !47
   store ptr null, ptr %agg.result, align 8, !alias.scope !47
-  %storage_.i.i6.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %storage_.i.i6.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %1, ptr %storage_.i.i6.i, align 8, !alias.scope !47
-  %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_refcount.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %2, ptr %_M_refcount.i.i.i.i.i.i, align 8, !alias.scope !47
   br label %_ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt7bit_andEENS_6ResultISt10shared_ptrINS_6BufferEEEEPNS_10MemoryPoolEPKhlSC_lll.exit
 
@@ -2454,12 +2454,12 @@ if.then:                                          ; preds = %entry
 
 for.body.i:                                       ; preds = %if.then, %for.body.i
   %i.010.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %if.then ]
-  %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %i.010.i
-  %arrayidx25.i = getelementptr inbounds i8, ptr %add.ptr22.i, i64 %i.010.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 %i.010.i
+  %arrayidx25.i = getelementptr inbounds nuw i8, ptr %add.ptr22.i, i64 %i.010.i
   %0 = load i8, ptr %arrayidx.i, align 1
   %1 = load i8, ptr %arrayidx25.i, align 1
   %and1.i.i = and i8 %1, %0
-  %arrayidx27.i = getelementptr inbounds i8, ptr %add.ptr24.i, i64 %i.010.i
+  %arrayidx27.i = getelementptr inbounds nuw i8, ptr %add.ptr24.i, i64 %i.010.i
   store i8 %and1.i.i, ptr %arrayidx27.i, align 1
   %inc.i = add nuw nsw i64 %i.010.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %add.i.i
@@ -2566,7 +2566,7 @@ while.body.us.i:                                  ; preds = %_ZN5arrow8internal1
   %right_reader.sroa.19.0220.us.i = phi i8 [ %right_reader.sroa.19.40.extract.trunc204.us.i, %while.body.us.i ], [ %right_reader.sroa.19.2.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
   %right_reader.sroa.4.0217.us.i = phi ptr [ %add.ptr.i62.us.i, %while.body.us.i ], [ %add.ptr.i6262.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
   %dec.us.i = add nsw i64 %nwords.0226.us.i, -1
-  %add.ptr.i59.us.i = getelementptr inbounds i8, ptr %left_reader.sroa.4.0223.us.i, i64 8
+  %add.ptr.i59.us.i = getelementptr inbounds nuw i8, ptr %left_reader.sroa.4.0223.us.i, i64 8
   %ret.0.copyload.i.i.i60.us.i = load i64, ptr %add.ptr.i59.us.i, align 1
   %2 = freeze i64 %ret.0.copyload.i.i.i60.us.i
   %left_reader.sroa.21.40.insert.ext.us.i = zext i8 %left_reader.sroa.21.0224.us.i to i64
@@ -2574,7 +2574,7 @@ while.body.us.i:                                  ; preds = %_ZN5arrow8internal1
   %word.0.i.us.i = tail call noundef i64 @llvm.fshr.i64(i64 %2, i64 %left_reader.sroa.21.40.insert.insert.us.i, i64 %rem1)
   %left_reader.sroa.21.40.extract.trunc213.us.i = trunc i64 %2 to i8
   %left_reader.sroa.27.40.extract.shift214.us.i = and i64 %2, -256
-  %add.ptr.i62.us.i = getelementptr inbounds i8, ptr %right_reader.sroa.4.0217.us.i, i64 8
+  %add.ptr.i62.us.i = getelementptr inbounds nuw i8, ptr %right_reader.sroa.4.0217.us.i, i64 8
   %ret.0.copyload.i.i.i63.us.i = load i64, ptr %add.ptr.i62.us.i, align 1
   %3 = freeze i64 %ret.0.copyload.i.i.i63.us.i
   %right_reader.sroa.19.40.insert.ext.us.i = zext i8 %right_reader.sroa.19.0220.us.i to i64
@@ -2584,7 +2584,7 @@ while.body.us.i:                                  ; preds = %_ZN5arrow8internal1
   %right_reader.sroa.25.40.extract.shift205.us.i = and i64 %3, -256
   %and.i.us.i = and i64 %word.0.i65.us.i, %word.0.i.us.i
   store i64 %and.i.us.i, ptr %writer.sroa.4.0222.us.i, align 1
-  %add.ptr21.i.us.i = getelementptr inbounds i8, ptr %writer.sroa.4.0222.us.i, i64 8
+  %add.ptr21.i.us.i = getelementptr inbounds nuw i8, ptr %writer.sroa.4.0222.us.i, i64 8
   %tobool.not.us.i = icmp eq i64 %dec.us.i, 0
   br i1 %tobool.not.us.i, label %while.cond6.preheader.i, label %while.body.us.i, !llvm.loop !56
 
@@ -2622,7 +2622,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %writer.sroa.26.sroa.0.0218.i = phi i64 [ %or13.i.i, %while.body.i ], [ %writer.sroa.26.sroa.0.1.i, %while.body.lr.ph.i ]
   %right_reader.sroa.4.0217.i = phi ptr [ %add.ptr.i62.i, %while.body.i ], [ %add.ptr.i6262.i, %while.body.lr.ph.i ]
   %dec.i = add nsw i64 %nwords.0226.i, -1
-  %add.ptr.i59.i = getelementptr inbounds i8, ptr %left_reader.sroa.4.0223.i, i64 8
+  %add.ptr.i59.i = getelementptr inbounds nuw i8, ptr %left_reader.sroa.4.0223.i, i64 8
   %ret.0.copyload.i.i.i60.i = load i64, ptr %add.ptr.i59.i, align 1
   %4 = freeze i64 %ret.0.copyload.i.i.i60.i
   %left_reader.sroa.21.40.insert.ext.i = zext i8 %left_reader.sroa.21.0224.i to i64
@@ -2630,7 +2630,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %word.0.i.i = tail call noundef i64 @llvm.fshr.i64(i64 %4, i64 %left_reader.sroa.21.40.insert.insert.i, i64 %rem1)
   %left_reader.sroa.21.40.extract.trunc213.i = trunc i64 %4 to i8
   %left_reader.sroa.27.40.extract.shift214.i = and i64 %4, -256
-  %add.ptr.i62.i = getelementptr inbounds i8, ptr %right_reader.sroa.4.0217.i, i64 8
+  %add.ptr.i62.i = getelementptr inbounds nuw i8, ptr %right_reader.sroa.4.0217.i, i64 8
   %ret.0.copyload.i.i.i63.i = load i64, ptr %add.ptr.i62.i, align 1
   %5 = freeze i64 %ret.0.copyload.i.i.i63.i
   %right_reader.sroa.19.40.insert.ext.i = zext i8 %right_reader.sroa.19.0220.i to i64
@@ -2642,7 +2642,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %shl.i.i = shl i64 %and.i.i14, %rem
   %shr.i.i15 = lshr i64 %and.i.i14, %sub.i68.i
   %or.i.i = or i64 %shr.i.i15, %shl.i.i
-  %add.ptr.i70.i = getelementptr inbounds i8, ptr %writer.sroa.4.0222.i, i64 8
+  %add.ptr.i70.i = getelementptr inbounds nuw i8, ptr %writer.sroa.4.0222.i, i64 8
   %ret.0.copyload.i.i.i71.i = load i64, ptr %add.ptr.i70.i, align 1
   %writer.sroa.26.32.insert.ext.i = and i64 %writer.sroa.26.sroa.0.0218.i, 2147483392
   %writer.sroa.20.32.insert.ext.i = zext i8 %writer.sroa.20.0219.i to i64
@@ -2731,7 +2731,7 @@ for.end.i.i:                                      ; preds = %for.end.loopexit.i.
   br label %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.i
 
 if.else.i79.i:                                    ; preds = %while.body9.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %left_reader.sroa.4.1244.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %left_reader.sroa.4.1244.i, i64 1
   %ret.0.copyload.i.i.i80.i = load i8, ptr %incdec.ptr.i.i, align 1
   %conv19.i.i = zext i8 %left_reader.sroa.21.1247.i to i32
   %shr20.i.i = lshr i32 %conv19.i.i, %sh_prom.i83.i
@@ -2810,7 +2810,7 @@ for.end.i119.i:                                   ; preds = %for.end.loopexit.i1
   br label %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit155.i
 
 if.else.i96.i:                                    ; preds = %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.i
-  %incdec.ptr.i98.i = getelementptr inbounds i8, ptr %right_reader.sroa.4.1239.i, i64 1
+  %incdec.ptr.i98.i = getelementptr inbounds nuw i8, ptr %right_reader.sroa.4.1239.i, i64 1
   %ret.0.copyload.i.i.i99.i = load i8, ptr %incdec.ptr.i98.i, align 1
   %conv19.i102.i = zext i8 %right_reader.sroa.19.1242.i to i32
   %shr20.i104.i = lshr i32 %conv19.i102.i, %sh_prom.i103.i
@@ -2838,7 +2838,7 @@ if.then2.i.i:                                     ; preds = %if.then.i168.i
   %conv.i170.i = zext i8 %and1.i.i16 to i32
   %shl.i172.i = shl nuw nsw i32 %conv.i170.i, %sh_prom.i.i
   %shr.i173.i = lshr i32 %conv.i170.i, %sh_prom6.i.i
-  %add.ptr.i175.i = getelementptr inbounds i8, ptr %writer.sroa.4.1243.i, i64 1
+  %add.ptr.i175.i = getelementptr inbounds nuw i8, ptr %writer.sroa.4.1243.i, i64 1
   %ret.0.copyload.i.i.i176.i = load i8, ptr %add.ptr.i175.i, align 1
   %conv8.i.i = zext i8 %writer.sroa.20.1241.i to i64
   %and.i179.i = and i64 %conv8.i.i, %conv.i53.i
@@ -2859,7 +2859,7 @@ if.end.i.i:                                       ; preds = %if.then2.i.i, %if.t
   %conv13.i.sink.i = phi i8 [ %conv13.i.i, %if.then2.i.i ], [ %and1.i.i16, %if.then.i168.i ]
   %writer.sroa.20.4.i = phi i8 [ %conv24.i.i, %if.then2.i.i ], [ %writer.sroa.20.1241.i, %if.then.i168.i ]
   store i8 %conv13.i.sink.i, ptr %writer.sroa.4.1243.i, align 1
-  %incdec.ptr.i181.i = getelementptr inbounds i8, ptr %writer.sroa.4.1243.i, i64 1
+  %incdec.ptr.i181.i = getelementptr inbounds nuw i8, ptr %writer.sroa.4.1243.i, i64 1
   br label %_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit.i
 
 if.else34.i.i:                                    ; preds = %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit155.i
@@ -2946,26 +2946,26 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt6bit_orEENS_6ResultISt10shared_ptrINS_6BufferEEEEPNS_10MemoryPoolEPKhlSC_lll.exit
 
 invoke.cont4.i:                                   ; preds = %entry
-  %storage_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %storage_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   %1 = load ptr, ptr %storage_.i.i.i, align 8, !noalias !61
-  %_M_refcount4.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
+  %_M_refcount4.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   %2 = load ptr, ptr %_M_refcount4.i.i.i.i.i, align 8, !noalias !61
-  %is_cpu_.i.i = getelementptr inbounds i8, ptr %1, i64 9
+  %is_cpu_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %storage_.i.i.i, i8 0, i64 16, i1 false), !noalias !58
   %3 = load i8, ptr %is_cpu_.i.i, align 1, !noalias !58
   %tobool.i.i = trunc i8 %3 to i1
-  %is_mutable_.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %is_mutable_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i8, ptr %is_mutable_.i.i, align 8, !noalias !58
   %tobool2.i.i = trunc i8 %4 to i1
   %5 = select i1 %tobool.i.i, i1 %tobool2.i.i, i1 false
-  %data_.i.i = getelementptr inbounds i8, ptr %1, i64 16
+  %data_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %data_.i.i, align 8, !noalias !58
   %cond.i.i = select i1 %5, ptr %6, ptr null
   call fastcc void @_ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt6bit_orEEvPKhlS5_lllPh(ptr noundef readonly %left, i64 noundef %left_offset, ptr noundef readonly %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset, ptr noundef %cond.i.i), !noalias !58
   store ptr null, ptr %agg.result, align 8, !alias.scope !58
-  %storage_.i.i6.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %storage_.i.i6.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %1, ptr %storage_.i.i6.i, align 8, !alias.scope !58
-  %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_refcount.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %2, ptr %_M_refcount.i.i.i.i.i.i, align 8, !alias.scope !58
   br label %_ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt6bit_orEENS_6ResultISt10shared_ptrINS_6BufferEEEEPNS_10MemoryPoolEPKhlSC_lll.exit
 
@@ -3014,12 +3014,12 @@ if.then:                                          ; preds = %entry
 
 for.body.i:                                       ; preds = %if.then, %for.body.i
   %i.010.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %if.then ]
-  %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %i.010.i
-  %arrayidx25.i = getelementptr inbounds i8, ptr %add.ptr22.i, i64 %i.010.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 %i.010.i
+  %arrayidx25.i = getelementptr inbounds nuw i8, ptr %add.ptr22.i, i64 %i.010.i
   %0 = load i8, ptr %arrayidx.i, align 1
   %1 = load i8, ptr %arrayidx25.i, align 1
   %or1.i.i = or i8 %1, %0
-  %arrayidx27.i = getelementptr inbounds i8, ptr %add.ptr24.i, i64 %i.010.i
+  %arrayidx27.i = getelementptr inbounds nuw i8, ptr %add.ptr24.i, i64 %i.010.i
   store i8 %or1.i.i, ptr %arrayidx27.i, align 1
   %inc.i = add nuw nsw i64 %i.010.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %add.i.i
@@ -3126,7 +3126,7 @@ while.body.us.i:                                  ; preds = %_ZN5arrow8internal1
   %right_reader.sroa.19.0220.us.i = phi i8 [ %right_reader.sroa.19.40.extract.trunc204.us.i, %while.body.us.i ], [ %right_reader.sroa.19.2.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
   %right_reader.sroa.4.0217.us.i = phi ptr [ %add.ptr.i62.us.i, %while.body.us.i ], [ %add.ptr.i6262.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
   %dec.us.i = add nsw i64 %nwords.0226.us.i, -1
-  %add.ptr.i59.us.i = getelementptr inbounds i8, ptr %left_reader.sroa.4.0223.us.i, i64 8
+  %add.ptr.i59.us.i = getelementptr inbounds nuw i8, ptr %left_reader.sroa.4.0223.us.i, i64 8
   %ret.0.copyload.i.i.i60.us.i = load i64, ptr %add.ptr.i59.us.i, align 1
   %2 = freeze i64 %ret.0.copyload.i.i.i60.us.i
   %left_reader.sroa.21.40.insert.ext.us.i = zext i8 %left_reader.sroa.21.0224.us.i to i64
@@ -3134,7 +3134,7 @@ while.body.us.i:                                  ; preds = %_ZN5arrow8internal1
   %word.0.i.us.i = tail call noundef i64 @llvm.fshr.i64(i64 %2, i64 %left_reader.sroa.21.40.insert.insert.us.i, i64 %rem1)
   %left_reader.sroa.21.40.extract.trunc213.us.i = trunc i64 %2 to i8
   %left_reader.sroa.27.40.extract.shift214.us.i = and i64 %2, -256
-  %add.ptr.i62.us.i = getelementptr inbounds i8, ptr %right_reader.sroa.4.0217.us.i, i64 8
+  %add.ptr.i62.us.i = getelementptr inbounds nuw i8, ptr %right_reader.sroa.4.0217.us.i, i64 8
   %ret.0.copyload.i.i.i63.us.i = load i64, ptr %add.ptr.i62.us.i, align 1
   %3 = freeze i64 %ret.0.copyload.i.i.i63.us.i
   %right_reader.sroa.19.40.insert.ext.us.i = zext i8 %right_reader.sroa.19.0220.us.i to i64
@@ -3144,7 +3144,7 @@ while.body.us.i:                                  ; preds = %_ZN5arrow8internal1
   %right_reader.sroa.25.40.extract.shift205.us.i = and i64 %3, -256
   %or.i.us.i = or i64 %word.0.i65.us.i, %word.0.i.us.i
   store i64 %or.i.us.i, ptr %writer.sroa.4.0222.us.i, align 1
-  %add.ptr21.i.us.i = getelementptr inbounds i8, ptr %writer.sroa.4.0222.us.i, i64 8
+  %add.ptr21.i.us.i = getelementptr inbounds nuw i8, ptr %writer.sroa.4.0222.us.i, i64 8
   %tobool.not.us.i = icmp eq i64 %dec.us.i, 0
   br i1 %tobool.not.us.i, label %while.cond6.preheader.i, label %while.body.us.i, !llvm.loop !67
 
@@ -3182,7 +3182,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %writer.sroa.26.sroa.0.0218.i = phi i64 [ %or13.i.i, %while.body.i ], [ %writer.sroa.26.sroa.0.1.i, %while.body.lr.ph.i ]
   %right_reader.sroa.4.0217.i = phi ptr [ %add.ptr.i62.i, %while.body.i ], [ %add.ptr.i6262.i, %while.body.lr.ph.i ]
   %dec.i = add nsw i64 %nwords.0226.i, -1
-  %add.ptr.i59.i = getelementptr inbounds i8, ptr %left_reader.sroa.4.0223.i, i64 8
+  %add.ptr.i59.i = getelementptr inbounds nuw i8, ptr %left_reader.sroa.4.0223.i, i64 8
   %ret.0.copyload.i.i.i60.i = load i64, ptr %add.ptr.i59.i, align 1
   %4 = freeze i64 %ret.0.copyload.i.i.i60.i
   %left_reader.sroa.21.40.insert.ext.i = zext i8 %left_reader.sroa.21.0224.i to i64
@@ -3190,7 +3190,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %word.0.i.i = tail call noundef i64 @llvm.fshr.i64(i64 %4, i64 %left_reader.sroa.21.40.insert.insert.i, i64 %rem1)
   %left_reader.sroa.21.40.extract.trunc213.i = trunc i64 %4 to i8
   %left_reader.sroa.27.40.extract.shift214.i = and i64 %4, -256
-  %add.ptr.i62.i = getelementptr inbounds i8, ptr %right_reader.sroa.4.0217.i, i64 8
+  %add.ptr.i62.i = getelementptr inbounds nuw i8, ptr %right_reader.sroa.4.0217.i, i64 8
   %ret.0.copyload.i.i.i63.i = load i64, ptr %add.ptr.i62.i, align 1
   %5 = freeze i64 %ret.0.copyload.i.i.i63.i
   %right_reader.sroa.19.40.insert.ext.i = zext i8 %right_reader.sroa.19.0220.i to i64
@@ -3202,7 +3202,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %shl.i.i = shl i64 %or.i.i, %rem
   %shr.i.i14 = lshr i64 %or.i.i, %sub.i68.i
   %or.i69.i = or i64 %shr.i.i14, %shl.i.i
-  %add.ptr.i71.i = getelementptr inbounds i8, ptr %writer.sroa.4.0222.i, i64 8
+  %add.ptr.i71.i = getelementptr inbounds nuw i8, ptr %writer.sroa.4.0222.i, i64 8
   %ret.0.copyload.i.i.i72.i = load i64, ptr %add.ptr.i71.i, align 1
   %writer.sroa.26.32.insert.ext.i = and i64 %writer.sroa.26.sroa.0.0218.i, 2147483392
   %writer.sroa.20.32.insert.ext.i = zext i8 %writer.sroa.20.0219.i to i64
@@ -3291,7 +3291,7 @@ for.end.i.i:                                      ; preds = %for.end.loopexit.i.
   br label %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.i
 
 if.else.i79.i:                                    ; preds = %while.body9.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %left_reader.sroa.4.1244.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %left_reader.sroa.4.1244.i, i64 1
   %ret.0.copyload.i.i.i80.i = load i8, ptr %incdec.ptr.i.i, align 1
   %conv19.i.i = zext i8 %left_reader.sroa.21.1247.i to i32
   %shr20.i.i = lshr i32 %conv19.i.i, %sh_prom.i83.i
@@ -3370,7 +3370,7 @@ for.end.i119.i:                                   ; preds = %for.end.loopexit.i1
   br label %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit155.i
 
 if.else.i96.i:                                    ; preds = %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.i
-  %incdec.ptr.i98.i = getelementptr inbounds i8, ptr %right_reader.sroa.4.1239.i, i64 1
+  %incdec.ptr.i98.i = getelementptr inbounds nuw i8, ptr %right_reader.sroa.4.1239.i, i64 1
   %ret.0.copyload.i.i.i99.i = load i8, ptr %incdec.ptr.i98.i, align 1
   %conv19.i102.i = zext i8 %right_reader.sroa.19.1242.i to i32
   %shr20.i104.i = lshr i32 %conv19.i102.i, %sh_prom.i103.i
@@ -3398,7 +3398,7 @@ if.then2.i.i:                                     ; preds = %if.then.i168.i
   %conv.i170.i = zext i8 %or1.i.i16 to i32
   %shl.i172.i = shl nuw nsw i32 %conv.i170.i, %sh_prom.i.i
   %shr.i173.i = lshr i32 %conv.i170.i, %sh_prom6.i.i
-  %add.ptr.i175.i = getelementptr inbounds i8, ptr %writer.sroa.4.1243.i, i64 1
+  %add.ptr.i175.i = getelementptr inbounds nuw i8, ptr %writer.sroa.4.1243.i, i64 1
   %ret.0.copyload.i.i.i176.i = load i8, ptr %add.ptr.i175.i, align 1
   %conv8.i.i = zext i8 %writer.sroa.20.1241.i to i64
   %and.i179.i = and i64 %conv8.i.i, %conv.i53.i
@@ -3419,7 +3419,7 @@ if.end.i.i:                                       ; preds = %if.then2.i.i, %if.t
   %conv13.i.sink.i = phi i8 [ %conv13.i.i, %if.then2.i.i ], [ %or1.i.i16, %if.then.i168.i ]
   %writer.sroa.20.4.i = phi i8 [ %conv24.i.i, %if.then2.i.i ], [ %writer.sroa.20.1241.i, %if.then.i168.i ]
   store i8 %conv13.i.sink.i, ptr %writer.sroa.4.1243.i, align 1
-  %incdec.ptr.i181.i = getelementptr inbounds i8, ptr %writer.sroa.4.1243.i, i64 1
+  %incdec.ptr.i181.i = getelementptr inbounds nuw i8, ptr %writer.sroa.4.1243.i, i64 1
   br label %_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit.i
 
 if.else34.i.i:                                    ; preds = %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit155.i
@@ -3506,26 +3506,26 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt7bit_xorEENS_6ResultISt10shared_ptrINS_6BufferEEEEPNS_10MemoryPoolEPKhlSC_lll.exit
 
 invoke.cont4.i:                                   ; preds = %entry
-  %storage_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %storage_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   %1 = load ptr, ptr %storage_.i.i.i, align 8, !noalias !72
-  %_M_refcount4.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
+  %_M_refcount4.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   %2 = load ptr, ptr %_M_refcount4.i.i.i.i.i, align 8, !noalias !72
-  %is_cpu_.i.i = getelementptr inbounds i8, ptr %1, i64 9
+  %is_cpu_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %storage_.i.i.i, i8 0, i64 16, i1 false), !noalias !69
   %3 = load i8, ptr %is_cpu_.i.i, align 1, !noalias !69
   %tobool.i.i = trunc i8 %3 to i1
-  %is_mutable_.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %is_mutable_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i8, ptr %is_mutable_.i.i, align 8, !noalias !69
   %tobool2.i.i = trunc i8 %4 to i1
   %5 = select i1 %tobool.i.i, i1 %tobool2.i.i, i1 false
-  %data_.i.i = getelementptr inbounds i8, ptr %1, i64 16
+  %data_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %data_.i.i, align 8, !noalias !69
   %cond.i.i = select i1 %5, ptr %6, ptr null
   call fastcc void @_ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt7bit_xorEEvPKhlS5_lllPh(ptr noundef readonly %left, i64 noundef %left_offset, ptr noundef readonly %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset, ptr noundef %cond.i.i), !noalias !69
   store ptr null, ptr %agg.result, align 8, !alias.scope !69
-  %storage_.i.i6.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %storage_.i.i6.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %1, ptr %storage_.i.i6.i, align 8, !alias.scope !69
-  %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_refcount.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %2, ptr %_M_refcount.i.i.i.i.i.i, align 8, !alias.scope !69
   br label %_ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt7bit_xorEENS_6ResultISt10shared_ptrINS_6BufferEEEEPNS_10MemoryPoolEPKhlSC_lll.exit
 
@@ -3574,12 +3574,12 @@ if.then:                                          ; preds = %entry
 
 for.body.i:                                       ; preds = %if.then, %for.body.i
   %i.010.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %if.then ]
-  %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %i.010.i
-  %arrayidx25.i = getelementptr inbounds i8, ptr %add.ptr22.i, i64 %i.010.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 %i.010.i
+  %arrayidx25.i = getelementptr inbounds nuw i8, ptr %add.ptr22.i, i64 %i.010.i
   %0 = load i8, ptr %arrayidx.i, align 1
   %1 = load i8, ptr %arrayidx25.i, align 1
   %xor1.i.i = xor i8 %1, %0
-  %arrayidx27.i = getelementptr inbounds i8, ptr %add.ptr24.i, i64 %i.010.i
+  %arrayidx27.i = getelementptr inbounds nuw i8, ptr %add.ptr24.i, i64 %i.010.i
   store i8 %xor1.i.i, ptr %arrayidx27.i, align 1
   %inc.i = add nuw nsw i64 %i.010.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %add.i.i
@@ -3686,7 +3686,7 @@ while.body.us.i:                                  ; preds = %_ZN5arrow8internal1
   %right_reader.sroa.19.0219.us.i = phi i8 [ %right_reader.sroa.19.40.extract.trunc203.us.i, %while.body.us.i ], [ %right_reader.sroa.19.2.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
   %right_reader.sroa.4.0216.us.i = phi ptr [ %add.ptr.i62.us.i, %while.body.us.i ], [ %add.ptr.i6261.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
   %dec.us.i = add nsw i64 %nwords.0225.us.i, -1
-  %add.ptr.i59.us.i = getelementptr inbounds i8, ptr %left_reader.sroa.4.0222.us.i, i64 8
+  %add.ptr.i59.us.i = getelementptr inbounds nuw i8, ptr %left_reader.sroa.4.0222.us.i, i64 8
   %ret.0.copyload.i.i.i60.us.i = load i64, ptr %add.ptr.i59.us.i, align 1
   %2 = freeze i64 %ret.0.copyload.i.i.i60.us.i
   %left_reader.sroa.21.40.insert.ext.us.i = zext i8 %left_reader.sroa.21.0223.us.i to i64
@@ -3694,7 +3694,7 @@ while.body.us.i:                                  ; preds = %_ZN5arrow8internal1
   %word.0.i.us.i = tail call noundef i64 @llvm.fshr.i64(i64 %2, i64 %left_reader.sroa.21.40.insert.insert.us.i, i64 %rem1)
   %left_reader.sroa.21.40.extract.trunc212.us.i = trunc i64 %2 to i8
   %left_reader.sroa.27.40.extract.shift213.us.i = and i64 %2, -256
-  %add.ptr.i62.us.i = getelementptr inbounds i8, ptr %right_reader.sroa.4.0216.us.i, i64 8
+  %add.ptr.i62.us.i = getelementptr inbounds nuw i8, ptr %right_reader.sroa.4.0216.us.i, i64 8
   %ret.0.copyload.i.i.i63.us.i = load i64, ptr %add.ptr.i62.us.i, align 1
   %3 = freeze i64 %ret.0.copyload.i.i.i63.us.i
   %right_reader.sroa.19.40.insert.ext.us.i = zext i8 %right_reader.sroa.19.0219.us.i to i64
@@ -3704,7 +3704,7 @@ while.body.us.i:                                  ; preds = %_ZN5arrow8internal1
   %right_reader.sroa.25.40.extract.shift204.us.i = and i64 %3, -256
   %xor.i.us.i = xor i64 %word.0.i65.us.i, %word.0.i.us.i
   store i64 %xor.i.us.i, ptr %writer.sroa.4.0221.us.i, align 1
-  %add.ptr21.i.us.i = getelementptr inbounds i8, ptr %writer.sroa.4.0221.us.i, i64 8
+  %add.ptr21.i.us.i = getelementptr inbounds nuw i8, ptr %writer.sroa.4.0221.us.i, i64 8
   %tobool.not.us.i = icmp eq i64 %dec.us.i, 0
   br i1 %tobool.not.us.i, label %while.cond6.preheader.i, label %while.body.us.i, !llvm.loop !78
 
@@ -3742,7 +3742,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %writer.sroa.26.sroa.0.0217.i = phi i64 [ %or13.i.i, %while.body.i ], [ %writer.sroa.26.sroa.0.1.i, %while.body.lr.ph.i ]
   %right_reader.sroa.4.0216.i = phi ptr [ %add.ptr.i62.i, %while.body.i ], [ %add.ptr.i6261.i, %while.body.lr.ph.i ]
   %dec.i = add nsw i64 %nwords.0225.i, -1
-  %add.ptr.i59.i = getelementptr inbounds i8, ptr %left_reader.sroa.4.0222.i, i64 8
+  %add.ptr.i59.i = getelementptr inbounds nuw i8, ptr %left_reader.sroa.4.0222.i, i64 8
   %ret.0.copyload.i.i.i60.i = load i64, ptr %add.ptr.i59.i, align 1
   %4 = freeze i64 %ret.0.copyload.i.i.i60.i
   %left_reader.sroa.21.40.insert.ext.i = zext i8 %left_reader.sroa.21.0223.i to i64
@@ -3750,7 +3750,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %word.0.i.i = tail call noundef i64 @llvm.fshr.i64(i64 %4, i64 %left_reader.sroa.21.40.insert.insert.i, i64 %rem1)
   %left_reader.sroa.21.40.extract.trunc212.i = trunc i64 %4 to i8
   %left_reader.sroa.27.40.extract.shift213.i = and i64 %4, -256
-  %add.ptr.i62.i = getelementptr inbounds i8, ptr %right_reader.sroa.4.0216.i, i64 8
+  %add.ptr.i62.i = getelementptr inbounds nuw i8, ptr %right_reader.sroa.4.0216.i, i64 8
   %ret.0.copyload.i.i.i63.i = load i64, ptr %add.ptr.i62.i, align 1
   %5 = freeze i64 %ret.0.copyload.i.i.i63.i
   %right_reader.sroa.19.40.insert.ext.i = zext i8 %right_reader.sroa.19.0219.i to i64
@@ -3762,7 +3762,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %shl.i.i = shl i64 %xor.i.i, %rem
   %shr.i.i14 = lshr i64 %xor.i.i, %sub.i68.i
   %or.i.i = or i64 %shr.i.i14, %shl.i.i
-  %add.ptr.i70.i = getelementptr inbounds i8, ptr %writer.sroa.4.0221.i, i64 8
+  %add.ptr.i70.i = getelementptr inbounds nuw i8, ptr %writer.sroa.4.0221.i, i64 8
   %ret.0.copyload.i.i.i71.i = load i64, ptr %add.ptr.i70.i, align 1
   %writer.sroa.26.32.insert.ext.i = and i64 %writer.sroa.26.sroa.0.0217.i, 2147483392
   %writer.sroa.20.32.insert.ext.i = zext i8 %writer.sroa.20.0218.i to i64
@@ -3851,7 +3851,7 @@ for.end.i.i:                                      ; preds = %for.end.loopexit.i.
   br label %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.i
 
 if.else.i78.i:                                    ; preds = %while.body9.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %left_reader.sroa.4.1243.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %left_reader.sroa.4.1243.i, i64 1
   %ret.0.copyload.i.i.i79.i = load i8, ptr %incdec.ptr.i.i, align 1
   %conv19.i.i = zext i8 %left_reader.sroa.21.1246.i to i32
   %shr20.i.i = lshr i32 %conv19.i.i, %sh_prom.i82.i
@@ -3930,7 +3930,7 @@ for.end.i118.i:                                   ; preds = %for.end.loopexit.i1
   br label %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit154.i
 
 if.else.i95.i:                                    ; preds = %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.i
-  %incdec.ptr.i97.i = getelementptr inbounds i8, ptr %right_reader.sroa.4.1238.i, i64 1
+  %incdec.ptr.i97.i = getelementptr inbounds nuw i8, ptr %right_reader.sroa.4.1238.i, i64 1
   %ret.0.copyload.i.i.i98.i = load i8, ptr %incdec.ptr.i97.i, align 1
   %conv19.i101.i = zext i8 %right_reader.sroa.19.1241.i to i32
   %shr20.i103.i = lshr i32 %conv19.i101.i, %sh_prom.i102.i
@@ -3958,7 +3958,7 @@ if.then2.i.i:                                     ; preds = %if.then.i167.i
   %conv.i169.i = zext i8 %xor1.i.i16 to i32
   %shl.i171.i = shl nuw nsw i32 %conv.i169.i, %sh_prom.i.i
   %shr.i172.i = lshr i32 %conv.i169.i, %sh_prom6.i.i
-  %add.ptr.i174.i = getelementptr inbounds i8, ptr %writer.sroa.4.1242.i, i64 1
+  %add.ptr.i174.i = getelementptr inbounds nuw i8, ptr %writer.sroa.4.1242.i, i64 1
   %ret.0.copyload.i.i.i175.i = load i8, ptr %add.ptr.i174.i, align 1
   %conv8.i.i = zext i8 %writer.sroa.20.1240.i to i64
   %and.i178.i = and i64 %conv8.i.i, %conv.i53.i
@@ -3979,7 +3979,7 @@ if.end.i.i:                                       ; preds = %if.then2.i.i, %if.t
   %conv13.i.sink.i = phi i8 [ %conv13.i.i, %if.then2.i.i ], [ %xor1.i.i16, %if.then.i167.i ]
   %writer.sroa.20.4.i = phi i8 [ %conv24.i.i, %if.then2.i.i ], [ %writer.sroa.20.1240.i, %if.then.i167.i ]
   store i8 %conv13.i.sink.i, ptr %writer.sroa.4.1242.i, align 1
-  %incdec.ptr.i180.i = getelementptr inbounds i8, ptr %writer.sroa.4.1242.i, i64 1
+  %incdec.ptr.i180.i = getelementptr inbounds nuw i8, ptr %writer.sroa.4.1242.i, i64 1
   br label %_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit.i
 
 if.else34.i.i:                                    ; preds = %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit154.i
@@ -4066,26 +4066,26 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN5arrow8internal12_GLOBAL__N_18BitmapOpINS0_8AndNotOpEEENS_6ResultISt10shared_ptrINS_6BufferEEEEPNS_10MemoryPoolEPKhlSC_lll.exit
 
 invoke.cont4.i:                                   ; preds = %entry
-  %storage_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %storage_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   %1 = load ptr, ptr %storage_.i.i.i, align 8, !noalias !83
-  %_M_refcount4.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
+  %_M_refcount4.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   %2 = load ptr, ptr %_M_refcount4.i.i.i.i.i, align 8, !noalias !83
-  %is_cpu_.i.i = getelementptr inbounds i8, ptr %1, i64 9
+  %is_cpu_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %storage_.i.i.i, i8 0, i64 16, i1 false), !noalias !80
   %3 = load i8, ptr %is_cpu_.i.i, align 1, !noalias !80
   %tobool.i.i = trunc i8 %3 to i1
-  %is_mutable_.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %is_mutable_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i8, ptr %is_mutable_.i.i, align 8, !noalias !80
   %tobool2.i.i = trunc i8 %4 to i1
   %5 = select i1 %tobool.i.i, i1 %tobool2.i.i, i1 false
-  %data_.i.i = getelementptr inbounds i8, ptr %1, i64 16
+  %data_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %data_.i.i, align 8, !noalias !80
   %cond.i.i = select i1 %5, ptr %6, ptr null
   call fastcc void @_ZN5arrow8internal12_GLOBAL__N_18BitmapOpINS0_8AndNotOpEEEvPKhlS5_lllPh(ptr noundef readonly %left, i64 noundef %left_offset, ptr noundef readonly %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset, ptr noundef %cond.i.i), !noalias !80
   store ptr null, ptr %agg.result, align 8, !alias.scope !80
-  %storage_.i.i6.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %storage_.i.i6.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %1, ptr %storage_.i.i6.i, align 8, !alias.scope !80
-  %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_refcount.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %2, ptr %_M_refcount.i.i.i.i.i.i, align 8, !alias.scope !80
   br label %_ZN5arrow8internal12_GLOBAL__N_18BitmapOpINS0_8AndNotOpEEENS_6ResultISt10shared_ptrINS_6BufferEEEEPNS_10MemoryPoolEPKhlSC_lll.exit
 
@@ -4134,13 +4134,13 @@ if.then:                                          ; preds = %entry
 
 for.body.i:                                       ; preds = %if.then, %for.body.i
   %i.011.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %if.then ]
-  %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %i.011.i
-  %arrayidx25.i = getelementptr inbounds i8, ptr %add.ptr22.i, i64 %i.011.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 %i.011.i
+  %arrayidx25.i = getelementptr inbounds nuw i8, ptr %add.ptr22.i, i64 %i.011.i
   %0 = load i8, ptr %arrayidx.i, align 1
   %1 = load i8, ptr %arrayidx25.i, align 1
   %not.i.i = xor i8 %1, -1
   %and.i9.i = and i8 %0, %not.i.i
-  %arrayidx27.i = getelementptr inbounds i8, ptr %add.ptr24.i, i64 %i.011.i
+  %arrayidx27.i = getelementptr inbounds nuw i8, ptr %add.ptr24.i, i64 %i.011.i
   store i8 %and.i9.i, ptr %arrayidx27.i, align 1
   %inc.i = add nuw nsw i64 %i.011.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %add.i.i
@@ -4247,7 +4247,7 @@ while.body.us.i:                                  ; preds = %_ZN5arrow8internal1
   %right_reader.sroa.19.0223.us.i = phi i8 [ %right_reader.sroa.19.40.extract.trunc207.us.i, %while.body.us.i ], [ %right_reader.sroa.19.2.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
   %right_reader.sroa.4.0220.us.i = phi ptr [ %add.ptr.i62.us.i, %while.body.us.i ], [ %add.ptr.i6265.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
   %dec.us.i = add nsw i64 %nwords.0229.us.i, -1
-  %add.ptr.i59.us.i = getelementptr inbounds i8, ptr %left_reader.sroa.4.0226.us.i, i64 8
+  %add.ptr.i59.us.i = getelementptr inbounds nuw i8, ptr %left_reader.sroa.4.0226.us.i, i64 8
   %ret.0.copyload.i.i.i60.us.i = load i64, ptr %add.ptr.i59.us.i, align 1
   %2 = freeze i64 %ret.0.copyload.i.i.i60.us.i
   %left_reader.sroa.21.40.insert.ext.us.i = zext i8 %left_reader.sroa.21.0227.us.i to i64
@@ -4255,7 +4255,7 @@ while.body.us.i:                                  ; preds = %_ZN5arrow8internal1
   %word.0.i.us.i = tail call noundef i64 @llvm.fshr.i64(i64 %2, i64 %left_reader.sroa.21.40.insert.insert.us.i, i64 %rem1)
   %left_reader.sroa.21.40.extract.trunc216.us.i = trunc i64 %2 to i8
   %left_reader.sroa.27.40.extract.shift217.us.i = and i64 %2, -256
-  %add.ptr.i62.us.i = getelementptr inbounds i8, ptr %right_reader.sroa.4.0220.us.i, i64 8
+  %add.ptr.i62.us.i = getelementptr inbounds nuw i8, ptr %right_reader.sroa.4.0220.us.i, i64 8
   %ret.0.copyload.i.i.i63.us.i = load i64, ptr %add.ptr.i62.us.i, align 1
   %3 = freeze i64 %ret.0.copyload.i.i.i63.us.i
   %right_reader.sroa.19.40.insert.ext.us.i = zext i8 %right_reader.sroa.19.0223.us.i to i64
@@ -4266,7 +4266,7 @@ while.body.us.i:                                  ; preds = %_ZN5arrow8internal1
   %not.i.us.i = xor i64 %word.0.i65.us.i, -1
   %and.i.us.i = and i64 %word.0.i.us.i, %not.i.us.i
   store i64 %and.i.us.i, ptr %writer.sroa.4.0225.us.i, align 1
-  %add.ptr21.i.us.i = getelementptr inbounds i8, ptr %writer.sroa.4.0225.us.i, i64 8
+  %add.ptr21.i.us.i = getelementptr inbounds nuw i8, ptr %writer.sroa.4.0225.us.i, i64 8
   %tobool.not.us.i = icmp eq i64 %dec.us.i, 0
   br i1 %tobool.not.us.i, label %while.cond6.preheader.i, label %while.body.us.i, !llvm.loop !89
 
@@ -4304,7 +4304,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %writer.sroa.26.sroa.0.0221.i = phi i64 [ %or13.i.i, %while.body.i ], [ %writer.sroa.26.sroa.0.1.i, %while.body.lr.ph.i ]
   %right_reader.sroa.4.0220.i = phi ptr [ %add.ptr.i62.i, %while.body.i ], [ %add.ptr.i6265.i, %while.body.lr.ph.i ]
   %dec.i = add nsw i64 %nwords.0229.i, -1
-  %add.ptr.i59.i = getelementptr inbounds i8, ptr %left_reader.sroa.4.0226.i, i64 8
+  %add.ptr.i59.i = getelementptr inbounds nuw i8, ptr %left_reader.sroa.4.0226.i, i64 8
   %ret.0.copyload.i.i.i60.i = load i64, ptr %add.ptr.i59.i, align 1
   %4 = freeze i64 %ret.0.copyload.i.i.i60.i
   %left_reader.sroa.21.40.insert.ext.i = zext i8 %left_reader.sroa.21.0227.i to i64
@@ -4312,7 +4312,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %word.0.i.i = tail call noundef i64 @llvm.fshr.i64(i64 %4, i64 %left_reader.sroa.21.40.insert.insert.i, i64 %rem1)
   %left_reader.sroa.21.40.extract.trunc216.i = trunc i64 %4 to i8
   %left_reader.sroa.27.40.extract.shift217.i = and i64 %4, -256
-  %add.ptr.i62.i = getelementptr inbounds i8, ptr %right_reader.sroa.4.0220.i, i64 8
+  %add.ptr.i62.i = getelementptr inbounds nuw i8, ptr %right_reader.sroa.4.0220.i, i64 8
   %ret.0.copyload.i.i.i63.i = load i64, ptr %add.ptr.i62.i, align 1
   %5 = freeze i64 %ret.0.copyload.i.i.i63.i
   %right_reader.sroa.19.40.insert.ext.i = zext i8 %right_reader.sroa.19.0223.i to i64
@@ -4325,7 +4325,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %shl.i.i = shl i64 %and.i.i15, %rem
   %shr.i.i16 = lshr i64 %and.i.i15, %sub.i68.i
   %or.i.i = or i64 %shr.i.i16, %shl.i.i
-  %add.ptr.i70.i = getelementptr inbounds i8, ptr %writer.sroa.4.0225.i, i64 8
+  %add.ptr.i70.i = getelementptr inbounds nuw i8, ptr %writer.sroa.4.0225.i, i64 8
   %ret.0.copyload.i.i.i71.i = load i64, ptr %add.ptr.i70.i, align 1
   %writer.sroa.26.32.insert.ext.i = and i64 %writer.sroa.26.sroa.0.0221.i, 2147483392
   %writer.sroa.20.32.insert.ext.i = zext i8 %writer.sroa.20.0222.i to i64
@@ -4414,7 +4414,7 @@ for.end.i.i:                                      ; preds = %for.end.loopexit.i.
   br label %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.i
 
 if.else.i80.i:                                    ; preds = %while.body9.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %left_reader.sroa.4.1247.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %left_reader.sroa.4.1247.i, i64 1
   %ret.0.copyload.i.i.i81.i = load i8, ptr %incdec.ptr.i.i, align 1
   %conv19.i.i = zext i8 %left_reader.sroa.21.1250.i to i32
   %shr20.i.i = lshr i32 %conv19.i.i, %sh_prom.i84.i
@@ -4493,7 +4493,7 @@ for.end.i120.i:                                   ; preds = %for.end.loopexit.i1
   br label %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit156.i
 
 if.else.i97.i:                                    ; preds = %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.i
-  %incdec.ptr.i99.i = getelementptr inbounds i8, ptr %right_reader.sroa.4.1242.i, i64 1
+  %incdec.ptr.i99.i = getelementptr inbounds nuw i8, ptr %right_reader.sroa.4.1242.i, i64 1
   %ret.0.copyload.i.i.i100.i = load i8, ptr %incdec.ptr.i99.i, align 1
   %conv19.i103.i = zext i8 %right_reader.sroa.19.1245.i to i32
   %shr20.i105.i = lshr i32 %conv19.i103.i, %sh_prom.i104.i
@@ -4522,7 +4522,7 @@ if.then2.i.i:                                     ; preds = %if.then.i171.i
   %conv.i173.i = zext i8 %and.i158.i to i32
   %shl.i175.i = shl nuw nsw i32 %conv.i173.i, %sh_prom.i.i
   %shr.i176.i = lshr i32 %conv.i173.i, %sh_prom6.i.i
-  %add.ptr.i178.i = getelementptr inbounds i8, ptr %writer.sroa.4.1246.i, i64 1
+  %add.ptr.i178.i = getelementptr inbounds nuw i8, ptr %writer.sroa.4.1246.i, i64 1
   %ret.0.copyload.i.i.i179.i = load i8, ptr %add.ptr.i178.i, align 1
   %conv8.i.i = zext i8 %writer.sroa.20.1244.i to i64
   %and.i182.i = and i64 %conv8.i.i, %conv.i53.i
@@ -4543,7 +4543,7 @@ if.end.i.i:                                       ; preds = %if.then2.i.i, %if.t
   %conv13.i.sink.i = phi i8 [ %conv13.i.i, %if.then2.i.i ], [ %and.i158.i, %if.then.i171.i ]
   %writer.sroa.20.4.i = phi i8 [ %conv24.i.i, %if.then2.i.i ], [ %writer.sroa.20.1244.i, %if.then.i171.i ]
   store i8 %conv13.i.sink.i, ptr %writer.sroa.4.1246.i, align 1
-  %incdec.ptr.i184.i = getelementptr inbounds i8, ptr %writer.sroa.4.1246.i, i64 1
+  %incdec.ptr.i184.i = getelementptr inbounds nuw i8, ptr %writer.sroa.4.1246.i, i64 1
   br label %_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit.i
 
 if.else34.i.i:                                    ; preds = %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit156.i
@@ -4630,26 +4630,26 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN5arrow8internal12_GLOBAL__N_18BitmapOpINS0_7OrNotOpEEENS_6ResultISt10shared_ptrINS_6BufferEEEEPNS_10MemoryPoolEPKhlSC_lll.exit
 
 invoke.cont4.i:                                   ; preds = %entry
-  %storage_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %storage_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   %1 = load ptr, ptr %storage_.i.i.i, align 8, !noalias !94
-  %_M_refcount4.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
+  %_M_refcount4.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   %2 = load ptr, ptr %_M_refcount4.i.i.i.i.i, align 8, !noalias !94
-  %is_cpu_.i.i = getelementptr inbounds i8, ptr %1, i64 9
+  %is_cpu_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %storage_.i.i.i, i8 0, i64 16, i1 false), !noalias !91
   %3 = load i8, ptr %is_cpu_.i.i, align 1, !noalias !91
   %tobool.i.i = trunc i8 %3 to i1
-  %is_mutable_.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %is_mutable_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i8, ptr %is_mutable_.i.i, align 8, !noalias !91
   %tobool2.i.i = trunc i8 %4 to i1
   %5 = select i1 %tobool.i.i, i1 %tobool2.i.i, i1 false
-  %data_.i.i = getelementptr inbounds i8, ptr %1, i64 16
+  %data_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %data_.i.i, align 8, !noalias !91
   %cond.i.i = select i1 %5, ptr %6, ptr null
   call fastcc void @_ZN5arrow8internal12_GLOBAL__N_18BitmapOpINS0_7OrNotOpEEEvPKhlS5_lllPh(ptr noundef readonly %left, i64 noundef %left_offset, ptr noundef readonly %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset, ptr noundef %cond.i.i), !noalias !91
   store ptr null, ptr %agg.result, align 8, !alias.scope !91
-  %storage_.i.i6.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %storage_.i.i6.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %1, ptr %storage_.i.i6.i, align 8, !alias.scope !91
-  %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_refcount.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %2, ptr %_M_refcount.i.i.i.i.i.i, align 8, !alias.scope !91
   br label %_ZN5arrow8internal12_GLOBAL__N_18BitmapOpINS0_7OrNotOpEEENS_6ResultISt10shared_ptrINS_6BufferEEEEPNS_10MemoryPoolEPKhlSC_lll.exit
 
@@ -4698,13 +4698,13 @@ if.then:                                          ; preds = %entry
 
 for.body.i:                                       ; preds = %if.then, %for.body.i
   %i.010.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %if.then ]
-  %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %i.010.i
-  %arrayidx25.i = getelementptr inbounds i8, ptr %add.ptr22.i, i64 %i.010.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 %i.010.i
+  %arrayidx25.i = getelementptr inbounds nuw i8, ptr %add.ptr22.i, i64 %i.010.i
   %0 = load i8, ptr %arrayidx.i, align 1
   %1 = load i8, ptr %arrayidx25.i, align 1
   %not.i.i = xor i8 %1, -1
   %or.i.i = or i8 %0, %not.i.i
-  %arrayidx27.i = getelementptr inbounds i8, ptr %add.ptr24.i, i64 %i.010.i
+  %arrayidx27.i = getelementptr inbounds nuw i8, ptr %add.ptr24.i, i64 %i.010.i
   store i8 %or.i.i, ptr %arrayidx27.i, align 1
   %inc.i = add nuw nsw i64 %i.010.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %add.i.i
@@ -4811,7 +4811,7 @@ while.body.us.i:                                  ; preds = %_ZN5arrow8internal1
   %right_reader.sroa.19.0223.us.i = phi i8 [ %right_reader.sroa.19.40.extract.trunc207.us.i, %while.body.us.i ], [ %right_reader.sroa.19.2.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
   %right_reader.sroa.4.0220.us.i = phi ptr [ %add.ptr.i62.us.i, %while.body.us.i ], [ %add.ptr.i6265.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
   %dec.us.i = add nsw i64 %nwords.0229.us.i, -1
-  %add.ptr.i59.us.i = getelementptr inbounds i8, ptr %left_reader.sroa.4.0226.us.i, i64 8
+  %add.ptr.i59.us.i = getelementptr inbounds nuw i8, ptr %left_reader.sroa.4.0226.us.i, i64 8
   %ret.0.copyload.i.i.i60.us.i = load i64, ptr %add.ptr.i59.us.i, align 1
   %2 = freeze i64 %ret.0.copyload.i.i.i60.us.i
   %left_reader.sroa.21.40.insert.ext.us.i = zext i8 %left_reader.sroa.21.0227.us.i to i64
@@ -4819,7 +4819,7 @@ while.body.us.i:                                  ; preds = %_ZN5arrow8internal1
   %word.0.i.us.i = tail call noundef i64 @llvm.fshr.i64(i64 %2, i64 %left_reader.sroa.21.40.insert.insert.us.i, i64 %rem1)
   %left_reader.sroa.21.40.extract.trunc216.us.i = trunc i64 %2 to i8
   %left_reader.sroa.27.40.extract.shift217.us.i = and i64 %2, -256
-  %add.ptr.i62.us.i = getelementptr inbounds i8, ptr %right_reader.sroa.4.0220.us.i, i64 8
+  %add.ptr.i62.us.i = getelementptr inbounds nuw i8, ptr %right_reader.sroa.4.0220.us.i, i64 8
   %ret.0.copyload.i.i.i63.us.i = load i64, ptr %add.ptr.i62.us.i, align 1
   %3 = freeze i64 %ret.0.copyload.i.i.i63.us.i
   %right_reader.sroa.19.40.insert.ext.us.i = zext i8 %right_reader.sroa.19.0223.us.i to i64
@@ -4830,7 +4830,7 @@ while.body.us.i:                                  ; preds = %_ZN5arrow8internal1
   %not.i.us.i = xor i64 %word.0.i65.us.i, -1
   %or.i.us.i = or i64 %word.0.i.us.i, %not.i.us.i
   store i64 %or.i.us.i, ptr %writer.sroa.4.0225.us.i, align 1
-  %add.ptr21.i.us.i = getelementptr inbounds i8, ptr %writer.sroa.4.0225.us.i, i64 8
+  %add.ptr21.i.us.i = getelementptr inbounds nuw i8, ptr %writer.sroa.4.0225.us.i, i64 8
   %tobool.not.us.i = icmp eq i64 %dec.us.i, 0
   br i1 %tobool.not.us.i, label %while.cond6.preheader.i, label %while.body.us.i, !llvm.loop !100
 
@@ -4868,7 +4868,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %writer.sroa.26.sroa.0.0221.i = phi i64 [ %or13.i.i, %while.body.i ], [ %writer.sroa.26.sroa.0.1.i, %while.body.lr.ph.i ]
   %right_reader.sroa.4.0220.i = phi ptr [ %add.ptr.i62.i, %while.body.i ], [ %add.ptr.i6265.i, %while.body.lr.ph.i ]
   %dec.i = add nsw i64 %nwords.0229.i, -1
-  %add.ptr.i59.i = getelementptr inbounds i8, ptr %left_reader.sroa.4.0226.i, i64 8
+  %add.ptr.i59.i = getelementptr inbounds nuw i8, ptr %left_reader.sroa.4.0226.i, i64 8
   %ret.0.copyload.i.i.i60.i = load i64, ptr %add.ptr.i59.i, align 1
   %4 = freeze i64 %ret.0.copyload.i.i.i60.i
   %left_reader.sroa.21.40.insert.ext.i = zext i8 %left_reader.sroa.21.0227.i to i64
@@ -4876,7 +4876,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %word.0.i.i = tail call noundef i64 @llvm.fshr.i64(i64 %4, i64 %left_reader.sroa.21.40.insert.insert.i, i64 %rem1)
   %left_reader.sroa.21.40.extract.trunc216.i = trunc i64 %4 to i8
   %left_reader.sroa.27.40.extract.shift217.i = and i64 %4, -256
-  %add.ptr.i62.i = getelementptr inbounds i8, ptr %right_reader.sroa.4.0220.i, i64 8
+  %add.ptr.i62.i = getelementptr inbounds nuw i8, ptr %right_reader.sroa.4.0220.i, i64 8
   %ret.0.copyload.i.i.i63.i = load i64, ptr %add.ptr.i62.i, align 1
   %5 = freeze i64 %ret.0.copyload.i.i.i63.i
   %right_reader.sroa.19.40.insert.ext.i = zext i8 %right_reader.sroa.19.0223.i to i64
@@ -4889,7 +4889,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %shl.i.i = shl i64 %or.i.i15, %rem
   %shr.i.i16 = lshr i64 %or.i.i15, %sub.i68.i
   %or.i69.i = or i64 %shr.i.i16, %shl.i.i
-  %add.ptr.i71.i = getelementptr inbounds i8, ptr %writer.sroa.4.0225.i, i64 8
+  %add.ptr.i71.i = getelementptr inbounds nuw i8, ptr %writer.sroa.4.0225.i, i64 8
   %ret.0.copyload.i.i.i72.i = load i64, ptr %add.ptr.i71.i, align 1
   %writer.sroa.26.32.insert.ext.i = and i64 %writer.sroa.26.sroa.0.0221.i, 2147483392
   %writer.sroa.20.32.insert.ext.i = zext i8 %writer.sroa.20.0222.i to i64
@@ -4978,7 +4978,7 @@ for.end.i.i:                                      ; preds = %for.end.loopexit.i.
   br label %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.i
 
 if.else.i80.i:                                    ; preds = %while.body9.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %left_reader.sroa.4.1247.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %left_reader.sroa.4.1247.i, i64 1
   %ret.0.copyload.i.i.i81.i = load i8, ptr %incdec.ptr.i.i, align 1
   %conv19.i.i = zext i8 %left_reader.sroa.21.1250.i to i32
   %shr20.i.i = lshr i32 %conv19.i.i, %sh_prom.i84.i
@@ -5057,7 +5057,7 @@ for.end.i120.i:                                   ; preds = %for.end.loopexit.i1
   br label %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit156.i
 
 if.else.i97.i:                                    ; preds = %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.i
-  %incdec.ptr.i99.i = getelementptr inbounds i8, ptr %right_reader.sroa.4.1242.i, i64 1
+  %incdec.ptr.i99.i = getelementptr inbounds nuw i8, ptr %right_reader.sroa.4.1242.i, i64 1
   %ret.0.copyload.i.i.i100.i = load i8, ptr %incdec.ptr.i99.i, align 1
   %conv19.i103.i = zext i8 %right_reader.sroa.19.1245.i to i32
   %shr20.i105.i = lshr i32 %conv19.i103.i, %sh_prom.i104.i
@@ -5086,7 +5086,7 @@ if.then2.i.i:                                     ; preds = %if.then.i171.i
   %conv.i173.i = zext i8 %or.i158.i to i32
   %shl.i175.i = shl nuw nsw i32 %conv.i173.i, %sh_prom.i.i
   %shr.i176.i = lshr i32 %conv.i173.i, %sh_prom6.i.i
-  %add.ptr.i178.i = getelementptr inbounds i8, ptr %writer.sroa.4.1246.i, i64 1
+  %add.ptr.i178.i = getelementptr inbounds nuw i8, ptr %writer.sroa.4.1246.i, i64 1
   %ret.0.copyload.i.i.i179.i = load i8, ptr %add.ptr.i178.i, align 1
   %conv8.i.i = zext i8 %writer.sroa.20.1244.i to i64
   %and.i182.i = and i64 %conv8.i.i, %conv.i53.i
@@ -5107,7 +5107,7 @@ if.end.i.i:                                       ; preds = %if.then2.i.i, %if.t
   %conv13.i.sink.i = phi i8 [ %conv13.i.i, %if.then2.i.i ], [ %or.i158.i, %if.then.i171.i ]
   %writer.sroa.20.4.i = phi i8 [ %conv24.i.i, %if.then2.i.i ], [ %writer.sroa.20.1244.i, %if.then.i171.i ]
   store i8 %conv13.i.sink.i, ptr %writer.sroa.4.1246.i, align 1
-  %incdec.ptr.i184.i = getelementptr inbounds i8, ptr %writer.sroa.4.1246.i, i64 1
+  %incdec.ptr.i184.i = getelementptr inbounds nuw i8, ptr %writer.sroa.4.1246.i, i64 1
   br label %_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit.i
 
 if.else34.i.i:                                    ; preds = %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit156.i
@@ -5183,18 +5183,18 @@ declare i64 @llvm.ctpop.i64(i64) #9
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr i32 @_ZN5arrow8internal21BinaryBitBlockCounter8NextWordINS0_6detail11BitBlockAndEEENS0_13BitBlockCountEv(ptr noundef nonnull align 8 dereferenceable(40) %this) local_unnamed_addr #2 comdat align 2 {
 entry:
-  %bits_remaining_ = getelementptr inbounds i8, ptr %this, i64 32
+  %bits_remaining_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i64, ptr %bits_remaining_, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %left_offset_ = getelementptr inbounds i8, ptr %this, i64 8
+  %left_offset_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %left_offset_, align 8
   %cmp = icmp eq i64 %1, 0
   %add = sub i64 128, %1
   %spec.select = select i1 %cmp, i64 64, i64 %add
-  %right_offset_ = getelementptr inbounds i8, ptr %this, i64 24
+  %right_offset_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load i64, ptr %right_offset_, align 8
   %cmp4 = icmp eq i64 %2, 0
   %add9 = sub i64 128, %2
@@ -5210,7 +5210,7 @@ if.then14:                                        ; preds = %if.end
   %conv18 = ashr exact i64 %sext, 48
   %cmp1929 = icmp sgt i64 %conv18, 0
   %.pre = load ptr, ptr %this, align 8
-  %right_bitmap_ = getelementptr inbounds i8, ptr %this, i64 16
+  %right_bitmap_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load ptr, ptr %right_bitmap_, align 8
   br i1 %cmp1929, label %for.body, label %for.end
 
@@ -5219,7 +5219,7 @@ for.body:                                         ; preds = %if.then14, %for.bod
   %popcount17.030 = phi i16 [ %spec.select10, %for.body ], [ 0, %if.then14 ]
   %add21 = add nsw i64 %i.031, %1
   %shr.i = lshr i64 %add21, 3
-  %arrayidx.i = getelementptr inbounds i8, ptr %.pre, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %.pre, i64 %shr.i
   %4 = load i8, ptr %arrayidx.i, align 1
   %conv.i = zext i8 %4 to i32
   %5 = trunc i64 %add21 to i32
@@ -5229,7 +5229,7 @@ for.body:                                         ; preds = %if.then14, %for.bod
   %tobool.i = icmp ne i32 %7, 0
   %add24 = add nsw i64 %i.031, %2
   %shr.i13 = lshr i64 %add24, 3
-  %arrayidx.i14 = getelementptr inbounds i8, ptr %3, i64 %shr.i13
+  %arrayidx.i14 = getelementptr inbounds nuw i8, ptr %3, i64 %shr.i13
   %8 = load i8, ptr %arrayidx.i14, align 1
   %conv.i15 = zext i8 %8 to i32
   %9 = trunc i64 %add24 to i32
@@ -5250,7 +5250,7 @@ for.end:                                          ; preds = %for.body, %if.then1
   %idx.ext = sext i16 %12 to i64
   %add.ptr = getelementptr inbounds i8, ptr %.pre, i64 %idx.ext
   store ptr %add.ptr, ptr %this, align 8
-  %right_bitmap_34 = getelementptr inbounds i8, ptr %this, i64 16
+  %right_bitmap_34 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %add.ptr36 = getelementptr inbounds i8, ptr %3, i64 %idx.ext
   store ptr %add.ptr36, ptr %right_bitmap_34, align 8
   %sub39 = sub nsw i64 %0, %conv18
@@ -5267,20 +5267,20 @@ if.end42:                                         ; preds = %if.end
   br i1 %or.cond, label %if.then48, label %if.else
 
 if.then48:                                        ; preds = %if.end42
-  %right_bitmap_51 = getelementptr inbounds i8, ptr %this, i64 16
+  %right_bitmap_51 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %17 = load ptr, ptr %right_bitmap_51, align 8
   %ret.0.copyload.i.i18 = load i64, ptr %17, align 1
   %and.i = and i64 %ret.0.copyload.i.i18, %ret.0.copyload.i.i
   br label %if.end71
 
 if.else:                                          ; preds = %if.end42
-  %add.ptr58 = getelementptr inbounds i8, ptr %16, i64 8
+  %add.ptr58 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %ret.0.copyload.i.i20 = load i64, ptr %add.ptr58, align 1
   %retval.0.i = tail call noundef i64 @llvm.fshr.i64(i64 %ret.0.copyload.i.i20, i64 %ret.0.copyload.i.i, i64 %1)
-  %right_bitmap_62 = getelementptr inbounds i8, ptr %this, i64 16
+  %right_bitmap_62 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %18 = load ptr, ptr %right_bitmap_62, align 8
   %ret.0.copyload.i.i21 = load i64, ptr %18, align 1
-  %add.ptr65 = getelementptr inbounds i8, ptr %18, i64 8
+  %add.ptr65 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %ret.0.copyload.i.i22 = load i64, ptr %add.ptr65, align 1
   %retval.0.i23 = tail call noundef i64 @llvm.fshr.i64(i64 %ret.0.copyload.i.i22, i64 %ret.0.copyload.i.i21, i64 %2)
   %and.i24 = and i64 %retval.0.i23, %retval.0.i
@@ -5290,10 +5290,10 @@ if.end71:                                         ; preds = %if.else, %if.then48
   %and.i24.sink = phi i64 [ %and.i24, %if.else ], [ %and.i, %if.then48 ]
   %19 = phi ptr [ %18, %if.else ], [ %17, %if.then48 ]
   %20 = tail call noundef range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %and.i24.sink)
-  %add.ptr73 = getelementptr inbounds i8, ptr %16, i64 8
+  %add.ptr73 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %add.ptr73, ptr %this, align 8
-  %right_bitmap_74 = getelementptr inbounds i8, ptr %this, i64 16
-  %add.ptr75 = getelementptr inbounds i8, ptr %19, i64 8
+  %right_bitmap_74 = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %add.ptr75 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %add.ptr75, ptr %right_bitmap_74, align 8
   %sub77 = add nsw i64 %0, -64
   store i64 %sub77, ptr %bits_remaining_, align 8

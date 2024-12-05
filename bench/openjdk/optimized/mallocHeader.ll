@@ -13,11 +13,11 @@ define hidden void @_ZNK12MallocHeader20print_block_on_errorEP12outputStreamPh(p
   %5 = ptrtoint ptr %2 to i64
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str, i64 noundef %4, i64 noundef %5) #2
   %6 = getelementptr inbounds i8, ptr %0, i64 -128
-  %7 = getelementptr inbounds i8, ptr %0, i64 128
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %8 = and i64 %5, -8
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds i8, ptr %9, i64 -128
-  %11 = getelementptr inbounds i8, ptr %9, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %12 = icmp ugt ptr %10, %7
   br i1 %12, label %13, label %14
 

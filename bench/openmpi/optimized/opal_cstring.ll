@@ -16,9 +16,9 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @opal_cstring_ctor(ptr nocapture noundef writeonly initializes((16, 24), (25, 26)) %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 25
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 25
   store i8 0, ptr %3, align 1
   ret void
 }
@@ -48,9 +48,9 @@ define noalias noundef ptr @opal_cstring_create_l(ptr noundef %0, i64 noundef %1
 
 12:                                               ; preds = %11
   store ptr @opal_cstring_t_class, ptr %7, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store volatile i32 1, ptr %13, align 8
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_cstring_t_class, i64 40), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_cstring_t_class, i64 40), align 8
   %15 = load ptr, ptr %14, align 8
   %.not6.i.i = icmp eq ptr %15, null
   br i1 %.not6.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i
@@ -59,7 +59,7 @@ define noalias noundef ptr @opal_cstring_create_l(ptr noundef %0, i64 noundef %1
   %16 = phi ptr [ %18, %.lr.ph.i.i ], [ %15, %12 ]
   %.07.i.i = phi ptr [ %17, %.lr.ph.i.i ], [ %14, %12 ]
   tail call void %16(ptr noundef nonnull %7) #12
-  %17 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i, !llvm.loop !4
@@ -83,9 +83,9 @@ define noalias noundef ptr @opal_cstring_create_l(ptr noundef %0, i64 noundef %1
 
 28:                                               ; preds = %27, %24
   store ptr @opal_cstring_t_class, ptr %22, align 8
-  %29 = getelementptr inbounds i8, ptr %22, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store volatile i32 1, ptr %29, align 8
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_cstring_t_class, i64 40), align 8
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_cstring_t_class, i64 40), align 8
   %31 = load ptr, ptr %30, align 8
   %.not6.i = icmp eq ptr %31, null
   br i1 %.not6.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
@@ -94,15 +94,15 @@ define noalias noundef ptr @opal_cstring_create_l(ptr noundef %0, i64 noundef %1
   %32 = phi ptr [ %34, %.lr.ph.i ], [ %31, %28 ]
   %.07.i = phi ptr [ %33, %.lr.ph.i ], [ %30, %28 ]
   tail call void %32(ptr noundef nonnull %22) #12
-  %33 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %34 = load ptr, ptr %33, align 8
   %.not.i17 = icmp eq ptr %34, null
   br i1 %.not.i17, label %opal_obj_run_constructors.exit, label %.lr.ph.i, !llvm.loop !4
 
 opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %28
-  %35 = getelementptr inbounds i8, ptr %22, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i64 %1, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %22, i64 25
+  %36 = getelementptr inbounds nuw i8, ptr %22, i64 25
   %37 = add i64 %1, 1
   tail call void @opal_string_copy(ptr noundef nonnull %36, ptr noundef %0, i64 noundef %37) #12
   br label %opal_obj_new.exit
@@ -142,9 +142,9 @@ define noalias noundef ptr @opal_cstring_create(ptr noundef %0) local_unnamed_ad
 
 10:                                               ; preds = %9
   store ptr @opal_cstring_t_class, ptr %5, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store volatile i32 1, ptr %11, align 8
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_cstring_t_class, i64 40), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_cstring_t_class, i64 40), align 8
   %13 = load ptr, ptr %12, align 8
   %.not6.i.i = icmp eq ptr %13, null
   br i1 %.not6.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i
@@ -153,7 +153,7 @@ define noalias noundef ptr @opal_cstring_create(ptr noundef %0) local_unnamed_ad
   %14 = phi ptr [ %16, %.lr.ph.i.i ], [ %13, %10 ]
   %.07.i.i = phi ptr [ %15, %.lr.ph.i.i ], [ %12, %10 ]
   tail call void %14(ptr noundef nonnull %5) #12
-  %15 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i, !llvm.loop !4
@@ -178,7 +178,7 @@ define range(i32 -5, 1) i32 @opal_cstring_to_int(ptr noundef %0, ptr nocapture n
   br i1 %4, label %23, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 25
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %7 = load i8, ptr %6, align 1
   %8 = icmp eq i8 %7, 0
   br i1 %8, label %23, label %9
@@ -227,7 +227,7 @@ declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) lo
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite) uwtable
 define range(i32 -5, 1) i32 @opal_cstring_to_bool(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #8 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 25
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %4 = tail call fastcc i32 @opal_str_to_bool_impl(ptr noundef nonnull %3, ptr noundef %1)
   ret i32 %4
 }
@@ -251,7 +251,7 @@ define internal fastcc range(i32 -5, 1) i32 @opal_str_to_bool_impl(ptr noundef r
   %10 = zext i16 %9 to i32
   %11 = and i32 %10, 8192
   %.not17 = icmp eq i32 %11, 0
-  %12 = getelementptr inbounds i8, ptr %.0, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   br i1 %.not17, label %13, label %5, !llvm.loop !6
 
 13:                                               ; preds = %5

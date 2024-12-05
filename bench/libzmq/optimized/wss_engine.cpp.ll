@@ -35,11 +35,11 @@ entry:
   %trust = alloca %struct.gnutls_datum_t, align 8
   tail call void @_ZN3zmq11ws_engine_tC2EiRKNS_9options_tERKNS_19endpoint_uri_pair_tERKNS_12ws_address_tEb(ptr noundef nonnull align 8 dereferenceable(25696) %this, i32 noundef %fd_, ptr noundef nonnull align 8 dereferenceable(1336) %options_, ptr noundef nonnull align 8 dereferenceable(68) %endpoint_uri_pair_, ptr noundef nonnull align 8 dereferenceable(96) %address_, i1 noundef zeroext %client_)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq12wss_engine_tE, i64 16), ptr %this, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %this, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq12wss_engine_tE, i64 208), ptr %add.ptr, align 8
-  %_established = getelementptr inbounds i8, ptr %this, i64 25696
+  %_established = getelementptr inbounds nuw i8, ptr %this, i64 25696
   store i8 0, ptr %_established, align 8
-  %_tls_client_cred = getelementptr inbounds i8, ptr %this, i64 25704
+  %_tls_client_cred = getelementptr inbounds nuw i8, ptr %this, i64 25704
   store ptr null, ptr %_tls_client_cred, align 8
   br i1 %client_, label %if.then, label %do.body86
 
@@ -66,7 +66,7 @@ lpad:                                             ; preds = %if.then122.invoke, 
   resume { ptr, i32 } %2
 
 do.end:                                           ; preds = %if.then4, %invoke.cont
-  %wss_trust_system = getelementptr inbounds i8, ptr %options_, i64 1200
+  %wss_trust_system = getelementptr inbounds nuw i8, ptr %options_, i64 1200
   %3 = load i8, ptr %wss_trust_system, align 8
   %tobool10 = trunc i8 %3 to i1
   br i1 %tobool10, label %if.then11, label %if.end15
@@ -77,7 +77,7 @@ if.then11:                                        ; preds = %do.end
           to label %if.end15 unwind label %lpad
 
 if.end15:                                         ; preds = %if.then11, %do.end
-  %wss_trust_pem = getelementptr inbounds i8, ptr %options_, i64 1136
+  %wss_trust_pem = getelementptr inbounds nuw i8, ptr %options_, i64 1136
   %call16 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %wss_trust_pem) #12
   %cmp17.not = icmp eq i64 %call16, 0
   br i1 %cmp17.not, label %if.end39, label %if.then18
@@ -85,7 +85,7 @@ if.end15:                                         ; preds = %if.then11, %do.end
 if.then18:                                        ; preds = %if.end15
   %call20 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %wss_trust_pem) #12
   store ptr %call20, ptr %trust, align 8
-  %size = getelementptr inbounds i8, ptr %trust, i64 8
+  %size = getelementptr inbounds nuw i8, ptr %trust, i64 8
   %call22 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %wss_trust_pem) #12
   %conv = trunc i64 %call22 to i32
   store i32 %conv, ptr %size, align 8
@@ -111,7 +111,7 @@ if.end39:                                         ; preds = %invoke.cont24, %if.
           to label %invoke.cont41 unwind label %lpad
 
 invoke.cont41:                                    ; preds = %if.end39
-  %_tls_session = getelementptr inbounds i8, ptr %this, i64 25712
+  %_tls_session = getelementptr inbounds nuw i8, ptr %this, i64 25712
   %call43 = invoke i32 @gnutls_init(ptr noundef nonnull %_tls_session, i32 noundef 10)
           to label %invoke.cont42 unwind label %lpad
 
@@ -182,7 +182,7 @@ if.then90:                                        ; preds = %do.body86
           to label %do.end98 unwind label %lpad
 
 do.end98:                                         ; preds = %if.then90, %do.body86
-  %_tls_session99 = getelementptr inbounds i8, ptr %this, i64 25712
+  %_tls_session99 = getelementptr inbounds nuw i8, ptr %this, i64 25712
   %call101 = invoke i32 @gnutls_init(ptr noundef nonnull %_tls_session99, i32 noundef 9)
           to label %invoke.cont100 unwind label %lpad
 
@@ -219,7 +219,7 @@ if.then122.invoke:                                ; preds = %if.then77, %if.then
           to label %if.end131 unwind label %lpad
 
 if.end131:                                        ; preds = %if.then122.invoke, %invoke.cont116, %invoke.cont71
-  %_tls_session132 = getelementptr inbounds i8, ptr %this, i64 25712
+  %_tls_session132 = getelementptr inbounds nuw i8, ptr %this, i64 25712
   %24 = load ptr, ptr %_tls_session132, align 8
   %call134 = invoke i32 @gnutls_set_default_priority(ptr noundef %24)
           to label %invoke.cont133 unwind label %lpad
@@ -308,15 +308,15 @@ declare void @_ZN3zmq11ws_engine_tD2Ev(ptr noundef nonnull align 8 dereferenceab
 define void @_ZN3zmq12wss_engine_tD2Ev(ptr noundef nonnull align 8 dereferenceable(25720) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq12wss_engine_tE, i64 16), ptr %this, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %this, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq12wss_engine_tE, i64 208), ptr %add.ptr, align 8
-  %_tls_session = getelementptr inbounds i8, ptr %this, i64 25712
+  %_tls_session = getelementptr inbounds nuw i8, ptr %this, i64 25712
   %0 = load ptr, ptr %_tls_session, align 8
   invoke void @gnutls_deinit(ptr noundef %0)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  %_tls_client_cred = getelementptr inbounds i8, ptr %this, i64 25704
+  %_tls_client_cred = getelementptr inbounds nuw i8, ptr %this, i64 25704
   %1 = load ptr, ptr %_tls_client_cred, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -384,7 +384,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3zmq12wss_engine_t13plug_internalEv(ptr noundef nonnull align 8 dereferenceable(25720) %this) unnamed_addr #0 align 2 {
 entry:
-  %_handle.i = getelementptr inbounds i8, ptr %this, i64 1584
+  %_handle.i = getelementptr inbounds nuw i8, ptr %this, i64 1584
   %0 = load ptr, ptr %_handle.i, align 8
   tail call void @_ZN3zmq11io_object_t10set_pollinEPv(ptr noundef nonnull align 8 dereferenceable(1689) %this, ptr noundef %0)
   tail call void @_ZN3zmq20stream_engine_base_t8in_eventEv(ptr noundef nonnull align 8 dereferenceable(1689) %this)
@@ -396,7 +396,7 @@ declare void @_ZN3zmq20stream_engine_base_t8in_eventEv(ptr noundef nonnull align
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3zmq12wss_engine_t9out_eventEv(ptr noundef nonnull align 8 dereferenceable(25720) %this) unnamed_addr #0 align 2 {
 entry:
-  %_established = getelementptr inbounds i8, ptr %this, i64 25696
+  %_established = getelementptr inbounds nuw i8, ptr %this, i64 25696
   %0 = load i8, ptr %_established, align 8
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.then, label %if.end
@@ -418,10 +418,10 @@ declare void @_ZN3zmq20stream_engine_base_t9out_eventEv(ptr noundef nonnull alig
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN3zmq12wss_engine_t12do_handshakeEv(ptr noundef nonnull align 8 dereferenceable(25720) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %_tls_session = getelementptr inbounds i8, ptr %this, i64 25712
+  %_tls_session = getelementptr inbounds nuw i8, ptr %this, i64 25712
   %0 = load ptr, ptr %_tls_session, align 8
   %call = tail call i32 @gnutls_handshake(ptr noundef %0)
-  %_handle.i = getelementptr inbounds i8, ptr %this, i64 1584
+  %_handle.i = getelementptr inbounds nuw i8, ptr %this, i64 1584
   %1 = load ptr, ptr %_handle.i, align 8
   tail call void @_ZN3zmq11io_object_t13reset_polloutEPv(ptr noundef nonnull align 8 dereferenceable(1689) %this, ptr noundef %1)
   switch i32 %call, label %if.else12 [
@@ -433,7 +433,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   tail call void @_ZN3zmq11ws_engine_t18start_ws_handshakeEv(ptr noundef nonnull align 8 dereferenceable(25696) %this)
-  %_established = getelementptr inbounds i8, ptr %this, i64 25696
+  %_established = getelementptr inbounds nuw i8, ptr %this, i64 25696
   store i8 1, ptr %_established, align 8
   br label %return
 
@@ -450,7 +450,7 @@ if.then7:                                         ; preds = %if.then3
 
 if.else12:                                        ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 96
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 96
   %4 = load ptr, ptr %vfn, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(1689) %this, i32 noundef 1)
   br label %return
@@ -468,7 +468,7 @@ declare i32 @gnutls_record_get_direction(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN3zmq12wss_engine_t9handshakeEv(ptr noundef nonnull align 8 dereferenceable(25720) %this) unnamed_addr #0 align 2 {
 entry:
-  %_established = getelementptr inbounds i8, ptr %this, i64 25696
+  %_established = getelementptr inbounds nuw i8, ptr %this, i64 25696
   %0 = load i8, ptr %_established, align 8
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.end3, label %if.then
@@ -491,7 +491,7 @@ declare noundef zeroext i1 @_ZN3zmq11ws_engine_t9handshakeEv(ptr noundef nonnull
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN3zmq12wss_engine_t4readEPvm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25720) %this, ptr noundef %data_, i64 noundef %size_) unnamed_addr #0 align 2 {
 entry:
-  %_tls_session = getelementptr inbounds i8, ptr %this, i64 25712
+  %_tls_session = getelementptr inbounds nuw i8, ptr %this, i64 25712
   %0 = load ptr, ptr %_tls_session, align 8
   %call = tail call i64 @gnutls_record_recv(ptr noundef %0, ptr noundef %data_, i64 noundef %size_)
   switch i64 %call, label %if.end15 [
@@ -549,7 +549,7 @@ declare ptr @__errno_location() local_unnamed_addr #9
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN3zmq12wss_engine_t5writeEPKvm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25720) %this, ptr noundef %data_, i64 noundef %size_) unnamed_addr #0 align 2 {
 entry:
-  %_tls_session = getelementptr inbounds i8, ptr %this, i64 25712
+  %_tls_session = getelementptr inbounds nuw i8, ptr %this, i64 25712
   %0 = load ptr, ptr %_tls_session, align 8
   %call = tail call i64 @gnutls_record_send(ptr noundef %0, ptr noundef %data_, i64 noundef %size_)
   switch i64 %call, label %if.end [
@@ -582,7 +582,7 @@ declare void @_ZN3zmq20stream_engine_base_t11timer_eventEi(ptr noundef nonnull a
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZN3zmq20stream_engine_base_t19has_handshake_stageEv(ptr noundef nonnull align 8 dereferenceable(1689) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  %_has_handshake_stage = getelementptr inbounds i8, ptr %this, i64 1688
+  %_has_handshake_stage = getelementptr inbounds nuw i8, ptr %this, i64 1688
   %0 = load i8, ptr %_has_handshake_stage, align 8
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -619,7 +619,7 @@ declare noundef i32 @_ZN3zmq11ws_engine_t20produce_pong_messageEPNS_5msg_tE(ptr 
 ; Function Attrs: uwtable
 define linkonce_odr noundef zeroext i1 @_ZThn16_N3zmq20stream_engine_base_t19has_handshake_stageEv(ptr noundef %this) unnamed_addr #10 comdat align 2 {
 entry:
-  %_has_handshake_stage.i = getelementptr inbounds i8, ptr %this, i64 1672
+  %_has_handshake_stage.i = getelementptr inbounds nuw i8, ptr %this, i64 1672
   %0 = load i8, ptr %_has_handshake_stage.i, align 8
   %tobool.i = trunc i8 %0 to i1
   ret i1 %tobool.i

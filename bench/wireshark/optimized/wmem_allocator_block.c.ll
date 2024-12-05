@@ -31,7 +31,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden void @wmem_block_verify(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 1
   br i1 %4, label %6, label %5
@@ -41,11 +41,11 @@ define hidden void @wmem_block_verify(ptr nocapture noundef readonly %0) local_u
   br label %6
 
 6:                                                ; preds = %5, %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
-  %11 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not21 = icmp eq ptr %12, null
   br i1 %10, label %13, label %19
@@ -58,7 +58,7 @@ define hidden void @wmem_block_verify(ptr nocapture noundef readonly %0) local_u
   br label %15
 
 15:                                               ; preds = %13, %14
-  %16 = getelementptr inbounds i8, ptr %8, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %17 = load ptr, ptr %16, align 8
   %.not22 = icmp eq ptr %17, null
   br i1 %.not22, label %152, label %18
@@ -86,7 +86,7 @@ define hidden void @wmem_block_verify(ptr nocapture noundef readonly %0) local_u
 25:                                               ; preds = %.preheader48, %46
   %.025.i = phi i32 [ %29, %46 ], [ 0, %.preheader48 ]
   %.01724.i = phi ptr [ %47, %46 ], [ %12, %.preheader48 ]
-  %26 = getelementptr inbounds i8, ptr %.01724.i, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %.01724.i, i64 4
   %27 = load i32, ptr %26, align 4
   %28 = lshr i32 %27, 3
   %29 = add i32 %28, %.025.i
@@ -136,7 +136,7 @@ define hidden void @wmem_block_verify(ptr nocapture noundef readonly %0) local_u
 
 wmem_block_verify_master_list.exit:               ; preds = %46, %19
   %.016.i = phi i32 [ 0, %19 ], [ %29, %46 ]
-  %48 = getelementptr inbounds i8, ptr %8, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %49 = load ptr, ptr %48, align 8
   %.not.i23 = icmp eq ptr %49, null
   br i1 %.not.i23, label %wmem_block_verify_recycler.exit, label %.preheader.i
@@ -144,7 +144,7 @@ wmem_block_verify_master_list.exit:               ; preds = %46, %19
 .preheader.i:                                     ; preds = %wmem_block_verify_master_list.exit, %76
   %.017.i = phi ptr [ %77, %76 ], [ %49, %wmem_block_verify_master_list.exit ]
   %.0.i = phi i32 [ %53, %76 ], [ 0, %wmem_block_verify_master_list.exit ]
-  %50 = getelementptr inbounds i8, ptr %.017.i, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %.017.i, i64 4
   %51 = load i32, ptr %50, align 4
   %52 = lshr i32 %51, 3
   %53 = add i32 %52, %.0.i
@@ -222,7 +222,7 @@ wmem_block_verify_recycler.exit:                  ; preds = %76, %wmem_block_ver
 83:                                               ; preds = %.preheader45, %wmem_block_verify_block.exit
   %.035 = phi i32 [ %146, %wmem_block_verify_block.exit ], [ 0, %.preheader45 ]
   %.01834 = phi ptr [ %147, %wmem_block_verify_block.exit ], [ %79, %.preheader45 ]
-  %84 = getelementptr inbounds i8, ptr %.01834, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %.01834, i64 8
   %85 = load ptr, ptr %84, align 8
   %.not20 = icmp eq ptr %85, null
   br i1 %.not20, label %90, label %86
@@ -260,7 +260,7 @@ wmem_block_verify_recycler.exit:                  ; preds = %76, %wmem_block_ver
   %.028.i = phi i32 [ %.1.i, %137 ], [ 0, %.preheader ]
   %.027.i = phi i32 [ %103, %137 ], [ 16, %.preheader ]
   %.0.i30 = phi ptr [ %142, %137 ], [ %91, %.preheader ]
-  %100 = getelementptr inbounds i8, ptr %.0.i30, i64 4
+  %100 = getelementptr inbounds nuw i8, ptr %.0.i30, i64 4
   %101 = load i32, ptr %100, align 4
   %102 = lshr i32 %101, 3
   %103 = add i32 %102, %.027.i
@@ -388,17 +388,17 @@ declare void @g_assertion_message(ptr noundef, ptr noundef, i32 noundef, ptr nou
 define hidden void @wmem_block_allocator_init(ptr nocapture noundef writeonly initializes((0, 48), (56, 64)) %0) local_unnamed_addr #0 {
   %2 = tail call noalias ptr @wmem_alloc(ptr noundef null, i64 noundef 24) #6
   store ptr @wmem_block_alloc, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @wmem_block_realloc, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @wmem_block_free, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr @wmem_block_free_all, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr @wmem_block_gc, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr @wmem_block_allocator_cleanup, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %2, ptr %8, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   ret void
@@ -416,7 +416,7 @@ define internal noundef ptr @wmem_block_alloc(ptr nocapture noundef %0, i64 noun
   %6 = tail call noalias ptr @wmem_alloc(ptr noundef null, i64 noundef %5) #6
   store ptr null, ptr %6, align 8
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %7, ptr %8, align 8
   %.not.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i, label %wmem_block_alloc_jumbo.exit, label %9
@@ -435,13 +435,13 @@ wmem_block_alloc_jumbo.exit:                      ; preds = %4, %9
   br label %98
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %22, label %16
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %15, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = lshr i32 %18, 3
   %20 = zext nneg i32 %19 to i64
@@ -450,13 +450,13 @@ wmem_block_alloc_jumbo.exit:                      ; preds = %4, %9
   br i1 %.not28, label %22, label %69
 
 22:                                               ; preds = %16, %13
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8
   %.not29 = icmp eq ptr %24, null
   br i1 %.not29, label %wmem_block_add_to_recycler.exit.thread, label %25
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %24, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %27 = load i32, ptr %26, align 4
   %28 = lshr i32 %27, 3
   %29 = zext nneg i32 %28 to i64
@@ -507,7 +507,7 @@ wmem_block_pop_master.exit:                       ; preds = %32, %35
   %51 = load i32, ptr %26, align 4
   %52 = lshr i32 %51, 3
   %53 = load ptr, ptr %14, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 4
   %55 = load i32, ptr %54, align 4
   %56 = lshr i32 %55, 3
   %57 = icmp samesign ugt i32 %52, %56
@@ -526,7 +526,7 @@ wmem_block_add_to_recycler.exit.thread:           ; preds = %22, %wmem_block_add
   %58 = tail call noalias ptr @wmem_alloc(ptr noundef null, i64 noundef 8388608) #6
   store ptr null, ptr %58, align 8
   %59 = load ptr, ptr %0, align 8
-  %60 = getelementptr inbounds i8, ptr %58, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store ptr %59, ptr %60, align 8
   %.not.i.i32 = icmp eq ptr %59, null
   br i1 %.not.i.i32, label %wmem_block_add_to_block_list.exit.i, label %61
@@ -568,10 +568,10 @@ wmem_block_new_block.exit:                        ; preds = %wmem_block_add_to_b
 72:                                               ; preds = %69
   %73 = getelementptr i8, ptr %70, i64 24
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 4
   %76 = load i32, ptr %75, align 4
   %77 = lshr i32 %76, 3
-  %78 = getelementptr inbounds i8, ptr %70, i64 4
+  %78 = getelementptr inbounds nuw i8, ptr %70, i64 4
   %79 = load i32, ptr %78, align 4
   %80 = lshr i32 %79, 3
   %81 = icmp samesign ult i32 %77, %80
@@ -601,7 +601,7 @@ wmem_block_new_block.exit:                        ; preds = %wmem_block_add_to_b
   br label %wmem_block_cycle_recycler.exit
 
 wmem_block_cycle_recycler.exit:                   ; preds = %69, %82, %93
-  %94 = getelementptr inbounds i8, ptr %.0, i64 4
+  %94 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   %95 = load i32, ptr %94, align 4
   %96 = or i32 %95, 2
   store i32 %96, ptr %94, align 4
@@ -626,7 +626,7 @@ define internal ptr @wmem_block_realloc(ptr nocapture noundef %0, ptr noundef %1
   %9 = getelementptr i8, ptr %1, i64 -32
   %10 = add i64 %2, 32
   %11 = tail call noalias ptr @wmem_realloc(ptr noundef null, ptr noundef %9, i64 noundef %10) #6
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %15, label %14
@@ -641,7 +641,7 @@ define internal ptr @wmem_block_realloc(ptr nocapture noundef %0, ptr noundef %1
   br i1 %.not12.i, label %19, label %17
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %16, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %11, ptr %18, align 8
   br label %wmem_block_realloc_jumbo.exit
 
@@ -669,7 +669,7 @@ wmem_block_realloc_jumbo.exit:                    ; preds = %17, %19
   br i1 %.not58, label %81, label %29
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %28, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = and i32 %31, 2
   %.not59 = icmp eq i32 %32, 0
@@ -712,7 +712,7 @@ wmem_block_realloc_jumbo.exit:                    ; preds = %17, %19
   br label %55
 
 55:                                               ; preds = %54, %38
-  %56 = getelementptr inbounds i8, ptr %0, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %57 = load ptr, ptr %56, align 8
   %58 = icmp eq ptr %57, null
   br i1 %58, label %wmem_block_cycle_recycler.exit, label %59
@@ -720,10 +720,10 @@ wmem_block_realloc_jumbo.exit:                    ; preds = %17, %19
 59:                                               ; preds = %55
   %60 = getelementptr i8, ptr %57, i64 24
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %63 = load i32, ptr %62, align 4
   %64 = lshr i32 %63, 3
-  %65 = getelementptr inbounds i8, ptr %57, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %57, i64 4
   %66 = load i32, ptr %65, align 4
   %67 = lshr i32 %66, 3
   %68 = icmp samesign ult i32 %64, %67
@@ -773,7 +773,7 @@ wmem_block_realloc_jumbo.exit:                    ; preds = %17, %19
   br i1 %.not.i.i.i, label %96, label %94
 
 94:                                               ; preds = %89
-  %95 = getelementptr inbounds i8, ptr %91, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %91, i64 8
   store ptr %93, ptr %95, align 8
   br label %97
 
@@ -798,7 +798,7 @@ wmem_block_free_jumbo.exit.i:                     ; preds = %98, %97
   %101 = and i32 %87, -7
   store i32 %101, ptr %5, align 4
   tail call fastcc void @wmem_block_merge_free(ptr noundef %0, ptr noundef %4)
-  %102 = getelementptr inbounds i8, ptr %0, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %103 = load ptr, ptr %102, align 8
   %104 = icmp eq ptr %103, null
   br i1 %104, label %wmem_block_cycle_recycler.exit, label %105
@@ -806,10 +806,10 @@ wmem_block_free_jumbo.exit.i:                     ; preds = %98, %97
 105:                                              ; preds = %100
   %106 = getelementptr i8, ptr %103, i64 24
   %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 4
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 4
   %109 = load i32, ptr %108, align 4
   %110 = lshr i32 %109, 3
-  %111 = getelementptr inbounds i8, ptr %103, i64 4
+  %111 = getelementptr inbounds nuw i8, ptr %103, i64 4
   %112 = load i32, ptr %111, align 4
   %113 = lshr i32 %112, 3
   %114 = icmp samesign ult i32 %110, %113
@@ -860,7 +860,7 @@ wmem_block_free_jumbo.exit.i:                     ; preds = %98, %97
   %140 = and i64 %132, 536870896
   %141 = getelementptr i8, ptr %4, i64 %140
   %142 = sub i32 %22, %136
-  %143 = getelementptr inbounds i8, ptr %141, i64 4
+  %143 = getelementptr inbounds nuw i8, ptr %141, i64 4
   %144 = load i32, ptr %143, align 4
   %145 = shl i32 %142, 3
   %146 = and i32 %144, 6
@@ -886,7 +886,7 @@ wmem_block_free_jumbo.exit.i:                     ; preds = %98, %97
   br label %wmem_block_split_used_chunk.exit
 
 wmem_block_split_used_chunk.exit:                 ; preds = %129, %156
-  %157 = getelementptr inbounds i8, ptr %0, i64 16
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %158 = load ptr, ptr %157, align 8
   %159 = icmp eq ptr %158, null
   br i1 %159, label %wmem_block_cycle_recycler.exit, label %160
@@ -894,10 +894,10 @@ wmem_block_split_used_chunk.exit:                 ; preds = %129, %156
 160:                                              ; preds = %wmem_block_split_used_chunk.exit
   %161 = getelementptr i8, ptr %158, i64 24
   %162 = load ptr, ptr %161, align 8
-  %163 = getelementptr inbounds i8, ptr %162, i64 4
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 4
   %164 = load i32, ptr %163, align 4
   %165 = lshr i32 %164, 3
-  %166 = getelementptr inbounds i8, ptr %158, i64 4
+  %166 = getelementptr inbounds nuw i8, ptr %158, i64 4
   %167 = load i32, ptr %166, align 4
   %168 = lshr i32 %167, 3
   %169 = icmp samesign ult i32 %165, %168
@@ -948,7 +948,7 @@ define internal void @wmem_block_free(ptr nocapture noundef %0, ptr noundef %1) 
   br i1 %.not.i.i, label %13, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %10, ptr %12, align 8
   br label %14
 
@@ -974,7 +974,7 @@ wmem_block_free_jumbo.exit:                       ; preds = %14, %15
   %19 = and i32 %4, -7
   store i32 %19, ptr %3, align 4
   tail call fastcc void @wmem_block_merge_free(ptr noundef %0, ptr noundef %18)
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %wmem_block_cycle_recycler.exit, label %23
@@ -982,10 +982,10 @@ wmem_block_free_jumbo.exit:                       ; preds = %14, %15
 23:                                               ; preds = %17
   %24 = getelementptr i8, ptr %21, i64 24
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %27 = load i32, ptr %26, align 4
   %28 = lshr i32 %27, 3
-  %29 = getelementptr inbounds i8, ptr %21, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %30 = load i32, ptr %29, align 4
   %31 = lshr i32 %30, 3
   %32 = icmp samesign ult i32 %28, %31
@@ -1020,7 +1020,7 @@ wmem_block_cycle_recycler.exit:                   ; preds = %44, %33, %17, %wmem
 
 ; Function Attrs: nounwind uwtable
 define internal void @wmem_block_free_all(ptr nocapture noundef initializes((8, 24)) %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %3 = load ptr, ptr %0, align 8
   %.not15 = icmp eq ptr %3, null
@@ -1037,12 +1037,12 @@ define internal void @wmem_block_free_all(ptr nocapture noundef initializes((8, 
 7:                                                ; preds = %.lr.ph
   %8 = load ptr, ptr %.016, align 8
   %.not.i = icmp eq ptr %8, null
-  %9 = getelementptr inbounds i8, ptr %.016, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.016, i64 8
   %10 = load ptr, ptr %9, align 8
   br i1 %.not.i, label %13, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %10, ptr %12, align 8
   br label %14
 
@@ -1083,7 +1083,7 @@ wmem_block_remove_from_block_list.exit:           ; preds = %14, %15
 
 wmem_block_init_block.exit:                       ; preds = %18, %23
   store ptr %19, ptr %2, align 8
-  %25 = getelementptr inbounds i8, ptr %.016, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.016, i64 8
   %26 = load ptr, ptr %25, align 8
   br label %27
 
@@ -1104,14 +1104,14 @@ define internal void @wmem_block_gc(ptr nocapture noundef %0) #0 {
   br i1 %.not41, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %5
 
 5:                                                ; preds = %.lr.ph, %39
   %.042 = phi ptr [ %2, %.lr.ph ], [ %8, %39 ]
   %6 = getelementptr i8, ptr %.042, i64 16
-  %7 = getelementptr inbounds i8, ptr %.042, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %.042, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr i8, ptr %.042, i64 20
   %10 = load i32, ptr %9, align 4
@@ -1205,14 +1205,14 @@ define internal void @wmem_block_allocator_cleanup(ptr noundef %0) #0 {
   br i1 %.not41.i, label %wmem_block_gc.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %5
 
 5:                                                ; preds = %39, %.lr.ph.i
   %.042.i = phi ptr [ %2, %.lr.ph.i ], [ %8, %39 ]
   %6 = getelementptr i8, ptr %.042.i, i64 16
-  %7 = getelementptr inbounds i8, ptr %.042.i, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %.042.i, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr i8, ptr %.042.i, i64 20
   %10 = load i32, ptr %9, align 4
@@ -1303,7 +1303,7 @@ wmem_block_gc.exit:                               ; preds = %39, %1
 define internal fastcc void @wmem_block_split_free_chunk(ptr nocapture noundef %0, ptr noundef %1, i64 noundef range(i64 0, -16) %2) unnamed_addr #2 {
   %4 = add nuw i64 %2, 15
   %5 = and i64 %4, -16
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = lshr i32 %7, 3
   %9 = zext nneg i32 %8 to i64
@@ -1313,7 +1313,7 @@ define internal fastcc void @wmem_block_split_free_chunk(ptr nocapture noundef %
   br i1 %12, label %13, label %42
 
 13:                                               ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %1, %15
   br i1 %16, label %17, label %22
@@ -1345,7 +1345,7 @@ define internal fastcc void @wmem_block_split_free_chunk(ptr nocapture noundef %
   br i1 %or.cond.i, label %31, label %._crit_edge.i
 
 31:                                               ; preds = %24
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %32, align 8
   br label %wmem_block_pop_master.exit
 
@@ -1356,7 +1356,7 @@ define internal fastcc void @wmem_block_split_free_chunk(ptr nocapture noundef %
   %35 = load ptr, ptr %28, align 8
   %36 = getelementptr i8, ptr %35, i64 16
   store ptr %34, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, %1
   br i1 %39, label %40, label %wmem_block_pop_master.exit
@@ -1379,7 +1379,7 @@ define internal fastcc void @wmem_block_split_free_chunk(ptr nocapture noundef %
   %50 = getelementptr i8, ptr %1, i64 %49
   %51 = getelementptr i8, ptr %1, i64 16
   %52 = getelementptr i8, ptr %50, i64 16
-  %53 = getelementptr inbounds i8, ptr %0, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %54 = load ptr, ptr %53, align 8
   %55 = icmp eq ptr %54, %1
   %56 = load ptr, ptr %51, align 8
@@ -1428,7 +1428,7 @@ define internal fastcc void @wmem_block_split_free_chunk(ptr nocapture noundef %
   br label %76
 
 76:                                               ; preds = %68, %66
-  %77 = getelementptr inbounds i8, ptr %0, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %78 = load ptr, ptr %77, align 8
   %79 = icmp eq ptr %78, %1
   br i1 %79, label %80, label %81
@@ -1439,7 +1439,7 @@ define internal fastcc void @wmem_block_split_free_chunk(ptr nocapture noundef %
 
 81:                                               ; preds = %76, %80, %63
   %82 = sub i32 %8, %45
-  %83 = getelementptr inbounds i8, ptr %50, i64 4
+  %83 = getelementptr inbounds nuw i8, ptr %50, i64 4
   %84 = load i32, ptr %83, align 4
   %85 = shl i32 %82, 3
   %86 = and i32 %84, 6
@@ -1471,7 +1471,7 @@ declare noalias ptr @wmem_realloc(ptr noundef, ptr noundef, i64 noundef) local_u
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @wmem_block_merge_free(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 1
   %.not = icmp ne i32 %5, 0
@@ -1483,7 +1483,7 @@ define internal fastcc void @wmem_block_merge_free(ptr nocapture noundef %0, ptr
   br i1 %.not56, label %23, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %8, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = and i32 %11, 2
   %.not57 = icmp eq i32 %12, 0
@@ -1518,7 +1518,7 @@ define internal fastcc void @wmem_block_merge_free(ptr nocapture noundef %0, ptr
   br i1 %.not60, label %44, label %29
 
 29:                                               ; preds = %23
-  %30 = getelementptr inbounds i8, ptr %28, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = and i32 %31, 2
   %.not61 = icmp eq i32 %32, 0
@@ -1545,7 +1545,7 @@ define internal fastcc void @wmem_block_merge_free(ptr nocapture noundef %0, ptr
   %45 = phi i32 [ %24, %29 ], [ %43, %33 ], [ %24, %23 ]
   %.050 = phi ptr [ null, %29 ], [ %spec.select68, %33 ], [ null, %23 ]
   %.0 = phi ptr [ %1, %29 ], [ %28, %33 ], [ %1, %23 ]
-  %46 = getelementptr inbounds i8, ptr %.0, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   %47 = and i32 %45, 1
   %.not63 = icmp eq i32 %47, 0
   br i1 %.not63, label %48, label %52
@@ -1562,7 +1562,7 @@ define internal fastcc void @wmem_block_merge_free(ptr nocapture noundef %0, ptr
   br i1 %.not64, label %.critedge, label %53
 
 53:                                               ; preds = %52
-  %54 = getelementptr inbounds i8, ptr %0, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %55 = load ptr, ptr %54, align 8
   %56 = icmp eq ptr %.049, %55
   br i1 %56, label %57, label %83
@@ -1582,7 +1582,7 @@ define internal fastcc void @wmem_block_merge_free(ptr nocapture noundef %0, ptr
   br i1 %or.cond.i, label %65, label %._crit_edge.i
 
 65:                                               ; preds = %58
-  %66 = getelementptr inbounds i8, ptr %0, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %66, align 8
   br label %wmem_block_remove_from_recycler.exit
 
@@ -1593,7 +1593,7 @@ define internal fastcc void @wmem_block_merge_free(ptr nocapture noundef %0, ptr
   %69 = load ptr, ptr %62, align 8
   %70 = getelementptr i8, ptr %69, i64 16
   store ptr %68, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %0, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %72 = load ptr, ptr %71, align 8
   %73 = icmp eq ptr %72, %.050
   br i1 %73, label %74, label %wmem_block_remove_from_recycler.exit
@@ -1631,7 +1631,7 @@ wmem_block_remove_from_recycler.exit:             ; preds = %74, %._crit_edge.i,
   br i1 %or.cond.i69, label %90, label %._crit_edge.i70
 
 90:                                               ; preds = %83
-  %91 = getelementptr inbounds i8, ptr %0, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %91, align 8
   br label %.critedge
 
@@ -1642,7 +1642,7 @@ wmem_block_remove_from_recycler.exit:             ; preds = %74, %._crit_edge.i,
   %94 = load ptr, ptr %87, align 8
   %95 = getelementptr i8, ptr %94, i64 16
   store ptr %93, ptr %95, align 8
-  %96 = getelementptr inbounds i8, ptr %0, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %97 = load ptr, ptr %96, align 8
   %98 = icmp eq ptr %97, %.049
   br i1 %98, label %99, label %.critedge
@@ -1664,7 +1664,7 @@ wmem_block_remove_from_recycler.exit:             ; preds = %74, %._crit_edge.i,
 
 105:                                              ; preds = %101
   %106 = getelementptr i8, ptr %.0, i64 16
-  %107 = getelementptr inbounds i8, ptr %0, i64 16
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %108 = load ptr, ptr %107, align 8
   %.not.i = icmp eq ptr %108, null
   %109 = getelementptr i8, ptr %.0, i64 24
@@ -1689,7 +1689,7 @@ wmem_block_remove_from_recycler.exit:             ; preds = %74, %._crit_edge.i,
   %118 = load i32, ptr %46, align 4
   %119 = lshr i32 %118, 3
   %120 = load ptr, ptr %107, align 8
-  %121 = getelementptr inbounds i8, ptr %120, i64 4
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 4
   %122 = load i32, ptr %121, align 4
   %123 = lshr i32 %122, 3
   %124 = icmp samesign ugt i32 %119, %123

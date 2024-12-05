@@ -101,7 +101,7 @@ define hidden void @_ZN13ServiceThread10initializeEv() local_unnamed_addr #0 ali
   call void @_ZN13ExceptionMarkC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1) #5
   %2 = load ptr, ptr %1, align 8
   %3 = call ptr @_ZN10JavaThread27create_system_thread_objectEPKcPS_(ptr noundef nonnull @.str, ptr noundef %2) #5
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %8
@@ -127,11 +127,11 @@ declare ptr @_ZN10JavaThread27create_system_thread_objectEPKcPS_(ptr noundef, pt
 define hidden void @_ZN13ServiceThread20service_thread_entryEP10JavaThreadS1_(ptr noundef %0, ptr noundef %1) #0 align 2 {
   %3 = alloca %class.JvmtiDeferredEvent, align 8
   %4 = alloca %class.JvmtiDeferredEvent, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 928
-  %6 = getelementptr inbounds i8, ptr %0, i64 1092
-  %7 = getelementptr inbounds i8, ptr %0, i64 1096
-  %8 = getelementptr inbounds i8, ptr %0, i64 1384
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 928
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1092
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1096
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1384
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %10
 
 10:                                               ; preds = %.backedge, %2
@@ -671,13 +671,13 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK10JavaThread13can_call_javaEv
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK10JavaThread21is_active_Java_threadEv(ptr noundef nonnull align 8 dereferenceable(1800) %0) unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 888
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %10
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 1128
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   %7 = load volatile i32, ptr %6, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !6
   %8 = add i32 %7, -57007

@@ -15,7 +15,7 @@ define dso_local noundef i32 @_ZN4llvm3pdb12hashStringV1ENS_9StringRefE(ptr %0, 
   %3 = trunc i64 %1 to i32
   %4 = lshr i64 %1, 2
   %5 = and i64 %4, 1073741823
-  %6 = getelementptr inbounds %"struct.llvm::support::detail::packed_endian_specific_integral", ptr %0, i64 %5
+  %6 = getelementptr inbounds nuw %"struct.llvm::support::detail::packed_endian_specific_integral", ptr %0, i64 %5
   %.not33 = icmp eq i64 %5, 0
   br i1 %.not33, label %._crit_edge, label %.lr.ph
 
@@ -24,7 +24,7 @@ define dso_local noundef i32 @_ZN4llvm3pdb12hashStringV1ENS_9StringRefE(ptr %0, 
   %.02234 = phi ptr [ %9, %.lr.ph ], [ %0, %2 ]
   %7 = load i32, ptr %.02234, align 1
   %8 = xor i32 %7, %.035
-  %9 = getelementptr inbounds i8, ptr %.02234, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %.02234, i64 4
   %.not = icmp eq ptr %9, %6
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -39,7 +39,7 @@ define dso_local noundef i32 @_ZN4llvm3pdb12hashStringV1ENS_9StringRefE(ptr %0, 
   %.0.copyload.i.i.i27 = load i16, ptr %6, align 1
   %13 = zext i16 %.0.copyload.i.i.i27 to i32
   %14 = xor i32 %.0.lcssa, %13
-  %15 = getelementptr inbounds i8, ptr %6, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %16 = add nsw i32 %10, -2
   br label %17
 
@@ -69,7 +69,7 @@ define dso_local noundef i32 @_ZN4llvm3pdb12hashStringV1ENS_9StringRefE(ptr %0, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i32 @_ZN4llvm3pdb12hashStringV2ENS_9StringRefE(ptr readonly %0, i64 %1) local_unnamed_addr #1 {
   %3 = lshr i64 %1, 2
-  %4 = getelementptr inbounds %"struct.llvm::support::detail::packed_endian_specific_integral", ptr %0, i64 %3
+  %4 = getelementptr inbounds nuw %"struct.llvm::support::detail::packed_endian_specific_integral", ptr %0, i64 %3
   %.not38 = icmp ult i64 %1, 4
   br i1 %.not38, label %._crit_edge, label %.lr.ph
 
@@ -81,7 +81,7 @@ define dso_local noundef i32 @_ZN4llvm3pdb12hashStringV2ENS_9StringRefE(ptr read
   %7 = mul i32 %6, 1025
   %8 = lshr i32 %7, 6
   %9 = xor i32 %8, %7
-  %10 = getelementptr inbounds i8, ptr %.02339, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %.02339, i64 4
   %.not = icmp eq ptr %10, %4
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -90,7 +90,7 @@ define dso_local noundef i32 @_ZN4llvm3pdb12hashStringV2ENS_9StringRefE(ptr read
   %11 = and i64 %1, -4
   %12 = and i64 %1, 3
   %13 = getelementptr inbounds i8, ptr %0, i64 %11
-  %14 = getelementptr inbounds i8, ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 %12
   %.not2541 = icmp eq i64 %12, 0
   br i1 %.not2541, label %._crit_edge46, label %.lr.ph45
 
@@ -103,7 +103,7 @@ define dso_local noundef i32 @_ZN4llvm3pdb12hashStringV2ENS_9StringRefE(ptr read
   %18 = mul i32 %17, 1025
   %19 = lshr i32 %18, 6
   %20 = xor i32 %19, %18
-  %21 = getelementptr inbounds i8, ptr %.02442, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %.02442, i64 1
   %.not25 = icmp eq ptr %21, %14
   br i1 %.not25, label %._crit_edge46, label %.lr.ph45
 

@@ -13,35 +13,35 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4llvh8InitLLVMC2ERiRPPKc(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 16)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %Argc, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %Argv) unnamed_addr #0 align 2 {
 entry:
-  %Slabs.i = getelementptr inbounds i8, ptr %this, i64 16
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %Slabs.i = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(97) %this, i8 0, i64 16, i1 false)
   store ptr %add.ptr.i.i.i.i.i.i, ptr %Slabs.i, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %Size.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 28
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   store i32 4, ptr %Capacity2.i.i.i.i.i.i, align 4
-  %CustomSizedSlabs.i = getelementptr inbounds i8, ptr %this, i64 64
-  %add.ptr.i.i.i.i.i1.i = getelementptr inbounds i8, ptr %this, i64 80
+  %CustomSizedSlabs.i = getelementptr inbounds nuw i8, ptr %this, i64 64
+  %add.ptr.i.i.i.i.i1.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   store ptr %add.ptr.i.i.i.i.i1.i, ptr %CustomSizedSlabs.i, align 8
-  %Size.i.i.i.i.i2.i = getelementptr inbounds i8, ptr %this, i64 72
-  %RedZoneSize.i = getelementptr inbounds i8, ptr %this, i64 88
+  %Size.i.i.i.i.i2.i = getelementptr inbounds nuw i8, ptr %this, i64 72
+  %RedZoneSize.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Size.i.i.i.i.i2.i, i8 0, i64 16, i1 false)
   store i64 1, ptr %RedZoneSize.i, align 8
-  %Args = getelementptr inbounds i8, ptr %this, i64 104
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 120
+  %Args = getelementptr inbounds nuw i8, ptr %this, i64 104
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 120
   store ptr %add.ptr.i.i.i.i.i, ptr %Args, align 8
-  %Size.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
+  %Size.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   store i32 0, ptr %Size.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 116
+  %Capacity2.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 116
   store i32 0, ptr %Capacity2.i.i.i.i.i, align 4
   %0 = load i32, ptr %Argc, align 4
   %1 = load ptr, ptr %Argv, align 8
   tail call void @_ZN4llvh21PrettyStackTraceEntryC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i.i) #6
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh23PrettyStackTraceProgramE, i64 16), ptr %add.ptr.i.i.i.i.i, align 8
-  %ArgC.i = getelementptr inbounds i8, ptr %this, i64 136
+  %ArgC.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   store i32 %0, ptr %ArgC.i, align 8
-  %ArgV.i = getelementptr inbounds i8, ptr %this, i64 144
+  %ArgV.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   store ptr %1, ptr %ArgV.i, align 8
   tail call void @_ZN4llvh22EnablePrettyStackTraceEv() #6
   %2 = load ptr, ptr %Argv, align 8
@@ -65,9 +65,9 @@ declare void @_ZN4llvh3sys28PrintStackTraceOnErrorSignalENS_9StringRefEb(ptr, i6
 define hidden void @_ZN4llvh8InitLLVMD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN4llvh13llvm_shutdownEv() #6
-  %StackPrinter = getelementptr inbounds i8, ptr %this, i64 120
+  %StackPrinter = getelementptr inbounds nuw i8, ptr %this, i64 120
   tail call void @_ZN4llvh21PrettyStackTraceEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %StackPrinter) #6
-  %Args = getelementptr inbounds i8, ptr %this, i64 104
+  %Args = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load ptr, ptr %Args, align 8
   %cmp.i.i.i = icmp eq ptr %0, %StackPrinter
   br i1 %cmp.i.i.i, label %_ZN4llvh11SmallVectorIPKcLj0EED2Ev.exit, label %if.then.i.i
@@ -77,12 +77,12 @@ if.then.i.i:                                      ; preds = %entry
   br label %_ZN4llvh11SmallVectorIPKcLj0EED2Ev.exit
 
 _ZN4llvh11SmallVectorIPKcLj0EED2Ev.exit:          ; preds = %entry, %if.then.i.i
-  %Slabs.i = getelementptr inbounds i8, ptr %this, i64 16
+  %Slabs.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %Slabs.i, align 8
-  %Size.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %Size.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load i32, ptr %Size.i.i, align 8
   %conv.i.i = zext i32 %2 to i64
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %1, i64 %conv.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %1, i64 %conv.i.i
   %cmp.not4.i.i = icmp eq i32 %2, 0
   br i1 %cmp.not4.i.i, label %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE15DeallocateSlabsEPPvS4_.exit.i, label %for.body.i.i
 
@@ -90,17 +90,17 @@ for.body.i.i:                                     ; preds = %_ZN4llvh11SmallVect
   %I.addr.05.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %1, %_ZN4llvh11SmallVectorIPKcLj0EED2Ev.exit ]
   %3 = load ptr, ptr %I.addr.05.i.i, align 8
   tail call void @free(ptr noundef %3) #6
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %I.addr.05.i.i, i64 8
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %I.addr.05.i.i, i64 8
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i
   br i1 %cmp.not.i.i, label %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE15DeallocateSlabsEPPvS4_.exit.i, label %for.body.i.i, !llvm.loop !4
 
 _ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE15DeallocateSlabsEPPvS4_.exit.i: ; preds = %for.body.i.i, %_ZN4llvh11SmallVectorIPKcLj0EED2Ev.exit
-  %CustomSizedSlabs.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %CustomSizedSlabs.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %4 = load ptr, ptr %CustomSizedSlabs.i.i, align 8
-  %Size.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
+  %Size.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %5 = load i32, ptr %Size.i.i.i, align 8
   %conv.i.i.i = zext i32 %5 to i64
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %4, i64 %conv.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw %"struct.std::pair", ptr %4, i64 %conv.i.i.i
   %cmp.not5.i.i = icmp eq i32 %5, 0
   br i1 %cmp.not5.i.i, label %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE26DeallocateCustomSizedSlabsEv.exit.i, label %for.body.i1.i
 
@@ -108,7 +108,7 @@ for.body.i1.i:                                    ; preds = %_ZN4llvh20BumpPtrAl
   %__begin2.06.i.i = phi ptr [ %incdec.ptr.i2.i, %for.body.i1.i ], [ %4, %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE15DeallocateSlabsEPPvS4_.exit.i ]
   %6 = load ptr, ptr %__begin2.06.i.i, align 8
   tail call void @free(ptr noundef %6) #6
-  %incdec.ptr.i2.i = getelementptr inbounds i8, ptr %__begin2.06.i.i, i64 16
+  %incdec.ptr.i2.i = getelementptr inbounds nuw i8, ptr %__begin2.06.i.i, i64 16
   %cmp.not.i3.i = icmp eq ptr %incdec.ptr.i2.i, %add.ptr.i.i.i
   br i1 %cmp.not.i3.i, label %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE26DeallocateCustomSizedSlabsEv.exit.loopexit.i, label %for.body.i1.i
 
@@ -118,7 +118,7 @@ _ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE26DeallocateC
 
 _ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE26DeallocateCustomSizedSlabsEv.exit.i: ; preds = %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE26DeallocateCustomSizedSlabsEv.exit.loopexit.i, %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE15DeallocateSlabsEPPvS4_.exit.i
   %7 = phi ptr [ %.pre.i, %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE26DeallocateCustomSizedSlabsEv.exit.loopexit.i ], [ %4, %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE15DeallocateSlabsEPPvS4_.exit.i ]
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %cmp.i.i.i.i = icmp eq ptr %7, %add.ptr.i.i.i.i.i
   br i1 %cmp.i.i.i.i, label %_ZN4llvh11SmallVectorISt4pairIPvmELj0EED2Ev.exit.i, label %if.then.i.i.i
 
@@ -128,7 +128,7 @@ if.then.i.i.i:                                    ; preds = %_ZN4llvh20BumpPtrAl
 
 _ZN4llvh11SmallVectorISt4pairIPvmELj0EED2Ev.exit.i: ; preds = %if.then.i.i.i, %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE26DeallocateCustomSizedSlabsEv.exit.i
   %8 = load ptr, ptr %Slabs.i, align 8
-  %add.ptr.i.i.i.i4.i = getelementptr inbounds i8, ptr %this, i64 32
+  %add.ptr.i.i.i.i4.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %cmp.i.i.i5.i = icmp eq ptr %8, %add.ptr.i.i.i.i4.i
   br i1 %cmp.i.i.i5.i, label %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EED2Ev.exit, label %if.then.i.i6.i
 

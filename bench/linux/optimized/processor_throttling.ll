@@ -105,7 +105,7 @@ define dso_local void @acpi_processor_throttling_init() local_unnamed_addr #0 al
   br i1 %19, label %24, label %20
 
 20:                                               ; preds = %12
-  %21 = getelementptr inbounds i8, ptr %18, i64 766
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 766
   %22 = load i8, ptr %21, align 2
   %23 = icmp eq i8 %22, 0
   br i1 %23, label %.thread19.split.preheader, label %24
@@ -151,19 +151,19 @@ define dso_local void @acpi_processor_throttling_init() local_unnamed_addr #0 al
   br i1 %48, label %49, label %.thread25
 
 49:                                               ; preds = %45
-  %50 = getelementptr inbounds i8, ptr %43, i64 736
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %50, i64 %38) #9, !srcloc !11
+  %50 = getelementptr inbounds nuw i8, ptr %43, i64 736
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %50, i64 %38) #9, !srcloc !11
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1, i64 %38) #9, !srcloc !11
-  %51 = getelementptr inbounds i8, ptr %43, i64 728
+  %51 = getelementptr inbounds nuw i8, ptr %43, i64 728
   %52 = load i64, ptr %51, align 1
   %53 = icmp ult i64 %52, 2
   br i1 %53, label %.thread25, label %54
 
 54:                                               ; preds = %49
-  %55 = getelementptr inbounds i8, ptr %43, i64 712
+  %55 = getelementptr inbounds nuw i8, ptr %43, i64 712
   %56 = shl i64 %52, 32
   %57 = ashr exact i64 %56, 32
-  %58 = getelementptr inbounds i8, ptr %43, i64 720
+  %58 = getelementptr inbounds nuw i8, ptr %43, i64 720
   %.pre32 = load i64, ptr @__cpu_possible_mask, align 8
   br label %59
 
@@ -200,21 +200,21 @@ define dso_local void @acpi_processor_throttling_init() local_unnamed_addr #0 al
   br i1 %79, label %95, label %80
 
 80:                                               ; preds = %72
-  %81 = getelementptr inbounds i8, ptr %78, i64 712
+  %81 = getelementptr inbounds nuw i8, ptr %78, i64 712
   %82 = load i64, ptr %81, align 1
   %83 = load i64, ptr %55, align 1
   %84 = icmp eq i64 %82, %83
   br i1 %84, label %85, label %95
 
 85:                                               ; preds = %80
-  %86 = getelementptr inbounds i8, ptr %78, i64 728
+  %86 = getelementptr inbounds nuw i8, ptr %78, i64 728
   %87 = load i64, ptr %86, align 1
   %88 = icmp eq i64 %87, %57
   br i1 %88, label %89, label %.thread19.split.preheader
 
 89:                                               ; preds = %85
   %90 = load i64, ptr %58, align 1
-  %91 = getelementptr inbounds i8, ptr %78, i64 720
+  %91 = getelementptr inbounds nuw i8, ptr %78, i64 720
   %92 = load i64, ptr %91, align 1
   %93 = icmp eq i64 %90, %92
   br i1 %93, label %94, label %.thread19.split.preheader
@@ -225,7 +225,7 @@ define dso_local void @acpi_processor_throttling_init() local_unnamed_addr #0 al
 
 94:                                               ; preds = %89
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1, i64 %73) #9, !srcloc !11
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %50, i64 %73) #9, !srcloc !11
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %50, i64 %73) #9, !srcloc !11
   %.pre = load i64, ptr @__cpu_possible_mask, align 8
   br label %95
 
@@ -264,14 +264,14 @@ define dso_local void @acpi_processor_throttling_init() local_unnamed_addr #0 al
   br i1 %118, label %127, label %119
 
 119:                                              ; preds = %111
-  %120 = getelementptr inbounds i8, ptr %117, i64 712
+  %120 = getelementptr inbounds nuw i8, ptr %117, i64 712
   %121 = load i64, ptr %120, align 1
   %122 = load i64, ptr %55, align 1
   %123 = icmp eq i64 %121, %122
   br i1 %123, label %124, label %127
 
 124:                                              ; preds = %119
-  %125 = getelementptr inbounds i8, ptr %117, i64 736
+  %125 = getelementptr inbounds nuw i8, ptr %117, i64 736
   %126 = load i64, ptr %50, align 8
   store i64 %126, ptr %125, align 8
   br label %127
@@ -340,10 +340,10 @@ define dso_local void @acpi_processor_throttling_init() local_unnamed_addr #0 al
   br i1 %.not, label %167, label %164
 
 164:                                              ; preds = %157
-  %165 = getelementptr inbounds i8, ptr %163, i64 736
+  %165 = getelementptr inbounds nuw i8, ptr %163, i64 736
   store i64 0, ptr %165, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %165, i64 %158) #9, !srcloc !11
-  %166 = getelementptr inbounds i8, ptr %163, i64 768
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %165, i64 %158) #9, !srcloc !11
+  %166 = getelementptr inbounds nuw i8, ptr %163, i64 768
   store i32 252, ptr %166, align 8
   %.pre33 = load i64, ptr @__cpu_possible_mask, align 8
   br label %167
@@ -394,25 +394,25 @@ define dso_local i32 @acpi_processor_tstate_has_changed(ptr noundef %0) local_un
 12:                                               ; preds = %7
   %13 = load i64, ptr %2, align 8
   %14 = trunc i64 %13 to i32
-  %15 = getelementptr inbounds i8, ptr %0, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %14, ptr %15, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
-  %16 = getelementptr inbounds i8, ptr %0, i64 680
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %17 = load i32, ptr %16, align 8
   %18 = icmp ugt i32 %17, %14
   br i1 %18, label %19, label %35
 
 19:                                               ; preds = %12
-  %20 = getelementptr inbounds i8, ptr %0, i64 640
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %21 = load i32, ptr %20, align 8
   %22 = icmp sgt i32 %21, %14
   br i1 %22, label %23, label %30
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %0, i64 852
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 852
   %25 = load i32, ptr %24, align 4
   %26 = call i32 @llvm.smax.i32(i32 %25, i32 %14)
-  %27 = getelementptr inbounds i8, ptr %0, i64 860
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 860
   %28 = load i32, ptr %27, align 4
   %29 = call i32 @llvm.smax.i32(i32 %28, i32 %26)
   br label %32
@@ -448,15 +448,15 @@ define dso_local void @acpi_processor_reevaluate_tstate(ptr noundef %0, i1 nound
   br i1 %1, label %3, label %5
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %.thread
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 640
-  %7 = getelementptr inbounds i8, ptr %0, i64 680
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 640
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load i16, ptr %10, align 8
   br i1 %9, label %55, label %12
 
@@ -467,7 +467,7 @@ define dso_local void @acpi_processor_reevaluate_tstate(ptr noundef %0, i1 nound
   br i1 %14, label %.thread, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load i32, ptr %16, align 8
   %18 = zext i32 %17 to i64
   %19 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %18) #9, !srcloc !10
@@ -480,14 +480,14 @@ define dso_local void @acpi_processor_reevaluate_tstate(ptr noundef %0, i1 nound
   %23 = load i32, ptr %16, align 8
   %24 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !16
   %25 = inttoptr i64 %24 to ptr
-  %26 = getelementptr inbounds i8, ptr %25, i64 44
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 44
   %27 = load i32, ptr %26, align 4
   %28 = and i32 %27, 67108864
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %41, label %30
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 968
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 968
   %32 = load i32, ptr %31, align 8
   %33 = icmp eq i32 %32, 1
   br i1 %33, label %34, label %41
@@ -498,7 +498,7 @@ define dso_local void @acpi_processor_reevaluate_tstate(ptr noundef %0, i1 nound
   br i1 %36, label %37, label %41
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %0, i64 744
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %39 = load ptr, ptr %38, align 8
   %40 = tail call i32 %39(ptr noundef nonnull %0) #9
   br label %44
@@ -548,7 +548,7 @@ define internal fastcc i32 @__acpi_processor_set_throttling(ptr noundef %0, i32 
   br i1 %7, label %.thread15, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i16, ptr %9, align 8
   %11 = and i16 %10, 4
   %12 = icmp eq i16 %11, 0
@@ -559,14 +559,14 @@ define internal fastcc i32 @__acpi_processor_set_throttling(ptr noundef %0, i32 
   br i1 %14, label %.thread15, label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %0, i64 680
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %17 = load i32, ptr %16, align 8
   %18 = add i32 %17, -1
   %19 = icmp ult i32 %18, %1
   br i1 %19, label %.thread15, label %20
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load i32, ptr %21, align 8
   %23 = zext i32 %22 to i64
   %24 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %23) #9, !srcloc !10
@@ -577,7 +577,7 @@ define internal fastcc i32 @__acpi_processor_set_throttling(ptr noundef %0, i32 
 
 27:                                               ; preds = %20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !19
-  %28 = getelementptr inbounds i8, ptr %0, i64 736
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %.pre19 = load i64, ptr @__cpu_online_mask, align 8
   br label %29
 
@@ -609,23 +609,23 @@ define internal fastcc i32 @__acpi_processor_set_throttling(ptr noundef %0, i32 
   br i1 %49, label %72, label %50
 
 50:                                               ; preds = %42
-  %51 = getelementptr inbounds i8, ptr %48, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 32
   %52 = load i16, ptr %51, align 8
   %53 = and i16 %52, 4
   %54 = icmp eq i16 %53, 0
   br i1 %54, label %72, label %55
 
 55:                                               ; preds = %50
-  %56 = getelementptr inbounds i8, ptr %48, i64 852
+  %56 = getelementptr inbounds nuw i8, ptr %48, i64 852
   %57 = load i32, ptr %56, align 4
   %58 = tail call i32 @llvm.smax.i32(i32 %57, i32 %32)
-  %59 = getelementptr inbounds i8, ptr %48, i64 860
+  %59 = getelementptr inbounds nuw i8, ptr %48, i64 860
   %60 = load i32, ptr %59, align 4
   %61 = tail call i32 @llvm.smax.i32(i32 %60, i32 %58)
-  %62 = getelementptr inbounds i8, ptr %48, i64 28
+  %62 = getelementptr inbounds nuw i8, ptr %48, i64 28
   %63 = load i32, ptr %62, align 4
   %64 = tail call i32 @llvm.smax.i32(i32 %63, i32 %61)
-  %65 = getelementptr inbounds i8, ptr %48, i64 680
+  %65 = getelementptr inbounds nuw i8, ptr %48, i64 680
   %66 = load i32, ptr %65, align 8
   %67 = icmp ult i32 %64, %66
   br i1 %67, label %72, label %68
@@ -648,14 +648,14 @@ define internal fastcc i32 @__acpi_processor_set_throttling(ptr noundef %0, i32 
 .thread:                                          ; preds = %29, %72, %38
   %.pre21 = phi i64 [ %30, %29 ], [ %73, %72 ], [ %30, %38 ]
   %.lcssa16 = phi i32 [ %32, %29 ], [ %74, %72 ], [ %32, %38 ]
-  %78 = getelementptr inbounds i8, ptr %0, i64 768
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %79 = load i32, ptr %78, align 8
   %80 = icmp eq i32 %79, 253
   br i1 %80, label %119, label %81
 
 81:                                               ; preds = %.thread
-  %82 = getelementptr inbounds i8, ptr %5, i64 8
-  %83 = getelementptr inbounds i8, ptr %5, i64 12
+  %82 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %5, i64 12
   br i1 %3, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %81, %113
@@ -686,7 +686,7 @@ define internal fastcc i32 @__acpi_processor_set_throttling(ptr noundef %0, i32 
   br i1 %103, label %113, label %104
 
 104:                                              ; preds = %96
-  %105 = getelementptr inbounds i8, ptr %102, i64 32
+  %105 = getelementptr inbounds nuw i8, ptr %102, i64 32
   %106 = load i16, ptr %105, align 8
   %107 = and i16 %106, 4
   %108 = icmp eq i16 %107, 0
@@ -696,7 +696,7 @@ define internal fastcc i32 @__acpi_processor_set_throttling(ptr noundef %0, i32 
   store ptr %102, ptr %5, align 8
   store i32 %1, ptr %82, align 8
   store i8 %6, ptr %83, align 4
-  %110 = getelementptr inbounds i8, ptr %102, i64 752
+  %110 = getelementptr inbounds nuw i8, ptr %102, i64 752
   %111 = load ptr, ptr %110, align 8
   %112 = tail call i32 %111(ptr noundef nonnull %102, i32 noundef %1, i1 noundef zeroext %2) #9
   %.pre20 = load i64, ptr @__cpu_online_mask, align 8
@@ -712,9 +712,9 @@ define internal fastcc i32 @__acpi_processor_set_throttling(ptr noundef %0, i32 
 
 119:                                              ; preds = %.thread
   store ptr %0, ptr %5, align 8
-  %120 = getelementptr inbounds i8, ptr %5, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %1, ptr %120, align 8
-  %121 = getelementptr inbounds i8, ptr %5, i64 12
+  %121 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i8 %6, ptr %121, align 4
   %122 = load i32, ptr %21, align 8
   br i1 %3, label %137, label %123
@@ -722,14 +722,14 @@ define internal fastcc i32 @__acpi_processor_set_throttling(ptr noundef %0, i32 
 123:                                              ; preds = %119
   %124 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !16
   %125 = inttoptr i64 %124 to ptr
-  %126 = getelementptr inbounds i8, ptr %125, i64 44
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 44
   %127 = load i32, ptr %126, align 4
   %128 = and i32 %127, 67108864
   %129 = icmp eq i32 %128, 0
   br i1 %129, label %141, label %130
 
 130:                                              ; preds = %123
-  %131 = getelementptr inbounds i8, ptr %125, i64 968
+  %131 = getelementptr inbounds nuw i8, ptr %125, i64 968
   %132 = load i32, ptr %131, align 8
   %133 = icmp eq i32 %132, 1
   br i1 %133, label %134, label %141
@@ -740,7 +740,7 @@ define internal fastcc i32 @__acpi_processor_set_throttling(ptr noundef %0, i32 
   br i1 %136, label %137, label %141
 
 137:                                              ; preds = %134, %119
-  %138 = getelementptr inbounds i8, ptr %0, i64 752
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %139 = load ptr, ptr %138, align 8
   %140 = tail call i32 %139(ptr noundef nonnull %0, i32 noundef %1, i1 noundef zeroext %2) #9
   br label %.thread13
@@ -778,7 +778,7 @@ define internal fastcc i32 @__acpi_processor_set_throttling(ptr noundef %0, i32 
   br i1 %163, label %191, label %164
 
 164:                                              ; preds = %156
-  %165 = getelementptr inbounds i8, ptr %162, i64 32
+  %165 = getelementptr inbounds nuw i8, ptr %162, i64 32
   %166 = load i16, ptr %165, align 8
   %167 = and i16 %166, 4
   %168 = icmp eq i16 %167, 0
@@ -791,14 +791,14 @@ define internal fastcc i32 @__acpi_processor_set_throttling(ptr noundef %0, i32 
   %170 = load i32, ptr %21, align 8
   %171 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !16
   %172 = inttoptr i64 %171 to ptr
-  %173 = getelementptr inbounds i8, ptr %172, i64 44
+  %173 = getelementptr inbounds nuw i8, ptr %172, i64 44
   %174 = load i32, ptr %173, align 4
   %175 = and i32 %174, 67108864
   %176 = icmp eq i32 %175, 0
   br i1 %176, label %188, label %177
 
 177:                                              ; preds = %169
-  %178 = getelementptr inbounds i8, ptr %172, i64 968
+  %178 = getelementptr inbounds nuw i8, ptr %172, i64 968
   %179 = load i32, ptr %178, align 8
   %180 = icmp eq i32 %179, 1
   br i1 %180, label %181, label %188
@@ -809,7 +809,7 @@ define internal fastcc i32 @__acpi_processor_set_throttling(ptr noundef %0, i32 
   br i1 %183, label %184, label %188
 
 184:                                              ; preds = %181
-  %185 = getelementptr inbounds i8, ptr %162, i64 752
+  %185 = getelementptr inbounds nuw i8, ptr %162, i64 752
   %186 = load ptr, ptr %185, align 8
   %187 = call i32 %186(ptr noundef nonnull %162, i32 noundef %1, i1 noundef zeroext %2) #9
   br label %191
@@ -857,14 +857,14 @@ define internal fastcc i32 @__acpi_processor_set_throttling(ptr noundef %0, i32 
   br i1 %216, label %224, label %217
 
 217:                                              ; preds = %209
-  %218 = getelementptr inbounds i8, ptr %215, i64 32
+  %218 = getelementptr inbounds nuw i8, ptr %215, i64 32
   %219 = load i16, ptr %218, align 8
   %220 = and i16 %219, 4
   %221 = icmp eq i16 %220, 0
   br i1 %221, label %224, label %222
 
 222:                                              ; preds = %217
-  %223 = getelementptr inbounds i8, ptr %215, i64 640
+  %223 = getelementptr inbounds nuw i8, ptr %215, i64 640
   store i32 %.lcssa16, ptr %223, align 8
   br label %224
 
@@ -892,7 +892,7 @@ define dso_local i32 @acpi_processor_get_throttling_info(ptr noundef %0) local_u
   %9 = alloca %struct.acpi_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #9
   store i64 -1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr null, ptr %10, align 8
   %11 = load ptr, ptr %0, align 8
   %12 = call i32 @acpi_evaluate_object(ptr noundef %11, ptr noundef nonnull @.str.4, ptr noundef null, ptr noundef nonnull %9) #9
@@ -917,18 +917,18 @@ define dso_local i32 @acpi_processor_get_throttling_info(ptr noundef %0) local_u
   br i1 %20, label %21, label %71
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %16, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i32 %23, 2
   br i1 %24, label %25, label %71
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %16, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = load i32, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %27, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %30 = load i32, ptr %29, align 4
-  %31 = getelementptr inbounds i8, ptr %27, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = icmp ne i32 %28, 3
   %34 = icmp ult i32 %30, 15
@@ -938,8 +938,8 @@ define dso_local i32 @acpi_processor_get_throttling_info(ptr noundef %0) local_u
   br i1 %37, label %71, label %38
 
 38:                                               ; preds = %25
-  %39 = getelementptr inbounds i8, ptr %0, i64 648
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(15) %39, ptr noundef nonnull align 1 dereferenceable(15) %32, i64 15, i1 false)
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 648
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %39, ptr noundef nonnull align 1 dereferenceable(15) %32, i64 15, i1 false)
   %40 = load ptr, ptr %26, align 8
   %41 = getelementptr i8, ptr %40, i64 24
   %42 = load i32, ptr %41, align 8
@@ -955,12 +955,12 @@ define dso_local i32 @acpi_processor_get_throttling_info(ptr noundef %0) local_u
   br i1 %51, label %71, label %52
 
 52:                                               ; preds = %38
-  %53 = getelementptr inbounds i8, ptr %0, i64 663
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(15) %53, ptr noundef nonnull align 1 dereferenceable(15) %46, i64 15, i1 false)
-  %54 = getelementptr inbounds i8, ptr %0, i64 652
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 663
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %53, ptr noundef nonnull align 1 dereferenceable(15) %46, i64 15, i1 false)
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 652
   %55 = load i8, ptr %54, align 4
   %56 = zext i8 %55 to i32
-  %57 = getelementptr inbounds i8, ptr %0, i64 653
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 653
   %58 = load i8, ptr %57, align 1
   %59 = zext i8 %58 to i32
   %60 = add nuw nsw i32 %59, %56
@@ -968,10 +968,10 @@ define dso_local i32 @acpi_processor_get_throttling_info(ptr noundef %0) local_u
   br i1 %61, label %71, label %62
 
 62:                                               ; preds = %52
-  %63 = getelementptr inbounds i8, ptr %0, i64 667
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 667
   %64 = load i8, ptr %63, align 1
   %65 = zext i8 %64 to i32
-  %66 = getelementptr inbounds i8, ptr %0, i64 668
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 668
   %67 = load i8, ptr %66, align 1
   %68 = zext i8 %67 to i32
   %69 = add nuw nsw i32 %68, %65
@@ -991,11 +991,11 @@ define dso_local i32 @acpi_processor_get_throttling_info(ptr noundef %0) local_u
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #9
   store i64 -1, ptr %6, align 8
-  %75 = getelementptr inbounds i8, ptr %6, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr null, ptr %75, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #9
   store i64 6, ptr %7, align 8
-  %76 = getelementptr inbounds i8, ptr %7, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @.str.10, ptr %76, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
@@ -1026,14 +1026,14 @@ define dso_local i32 @acpi_processor_get_throttling_info(ptr noundef %0) local_u
   br label %.thread16
 
 89:                                               ; preds = %84
-  %90 = getelementptr inbounds i8, ptr %82, i64 4
+  %90 = getelementptr inbounds nuw i8, ptr %82, i64 4
   %91 = load i32, ptr %90, align 4
-  %92 = getelementptr inbounds i8, ptr %0, i64 680
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 680
   store i32 %91, ptr %92, align 8
   %93 = zext i32 %91 to i64
   %94 = mul nuw nsw i64 %93, 40
   %95 = call noalias align 8 ptr @__kmalloc(i64 noundef %94, i32 noundef 3264) #13
-  %96 = getelementptr inbounds i8, ptr %0, i64 688
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 688
   store ptr %95, ptr %96, align 8
   %97 = icmp eq ptr %95, null
   br i1 %97, label %.thread16, label %98
@@ -1044,8 +1044,8 @@ define dso_local i32 @acpi_processor_get_throttling_info(ptr noundef %0) local_u
   br i1 %100, label %.loopexit23, label %101
 
 101:                                              ; preds = %98
-  %102 = getelementptr inbounds i8, ptr %8, i64 8
-  %103 = getelementptr inbounds i8, ptr %82, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %82, i64 8
   br label %108
 
 104:                                              ; preds = %120
@@ -1131,12 +1131,12 @@ define dso_local i32 @acpi_processor_get_throttling_info(ptr noundef %0) local_u
 
 139:                                              ; preds = %._crit_edge, %130
   %140 = phi i32 [ %136, %._crit_edge ], [ 0, %130 ]
-  %141 = getelementptr inbounds i8, ptr %0, i64 28
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %140, ptr %141, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
-  %142 = getelementptr inbounds i8, ptr %0, i64 744
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 744
   store ptr @acpi_processor_get_throttling_ptc, ptr %142, align 8
-  %143 = getelementptr inbounds i8, ptr %0, i64 752
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 752
   store ptr @acpi_processor_set_throttling_ptc, ptr %143, align 8
   br label %.loopexit
 
@@ -1155,23 +1155,23 @@ define dso_local i32 @acpi_processor_get_throttling_info(ptr noundef %0) local_u
   br label %145
 
 145:                                              ; preds = %.thread16, %71, %.critedge13, %.critedge, %144
-  %146 = getelementptr inbounds i8, ptr %0, i64 744
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 744
   store ptr @acpi_processor_get_throttling_fadt, ptr %146, align 8
-  %147 = getelementptr inbounds i8, ptr %0, i64 752
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 752
   store ptr @acpi_processor_set_throttling_fadt, ptr %147, align 8
-  %148 = getelementptr inbounds i8, ptr %0, i64 760
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %149 = load i32, ptr %148, align 8
   %150 = icmp eq i32 %149, 0
   br i1 %150, label %.thread22, label %151
 
 151:                                              ; preds = %145
-  %152 = getelementptr inbounds i8, ptr %0, i64 765
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 765
   %153 = load i8, ptr %152, align 1
   %154 = icmp eq i8 %153, 0
   br i1 %154, label %.thread22, label %155
 
 155:                                              ; preds = %151
-  %156 = getelementptr inbounds i8, ptr %0, i64 764
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 764
   %157 = load i8, ptr %156, align 4
   %158 = zext i8 %157 to i32
   %159 = zext i8 %153 to i32
@@ -1187,10 +1187,10 @@ define dso_local i32 @acpi_processor_get_throttling_info(ptr noundef %0) local_u
   %165 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 105), align 1
   %166 = zext nneg i8 %165 to i32
   %167 = shl nuw i32 1, %166
-  %168 = getelementptr inbounds i8, ptr %0, i64 680
+  %168 = getelementptr inbounds nuw i8, ptr %0, i64 680
   store i32 %167, ptr %168, align 8
   %169 = lshr i32 1000, %166
-  %170 = getelementptr inbounds i8, ptr %0, i64 772
+  %170 = getelementptr inbounds nuw i8, ptr %0, i64 772
   br label %171
 
 171:                                              ; preds = %171, %164
@@ -1200,7 +1200,7 @@ define dso_local i32 @acpi_processor_get_throttling_info(ptr noundef %0) local_u
   %175 = sub i16 1000, %174
   %176 = sext i32 %172 to i64
   %177 = getelementptr [16 x %struct.acpi_processor_tx], ptr %170, i64 0, i64 %176
-  %178 = getelementptr inbounds i8, ptr %177, i64 2
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 2
   store i16 %175, ptr %178, align 2
   store i16 %175, ptr %177, align 4
   %179 = add nuw i32 %172, 1
@@ -1211,15 +1211,15 @@ define dso_local i32 @acpi_processor_get_throttling_info(ptr noundef %0) local_u
 .loopexit:                                        ; preds = %171, %139
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #9
   store i64 -1, ptr %2, align 8
-  %182 = getelementptr inbounds i8, ptr %2, i64 8
+  %182 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %182, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #9
   store i64 6, ptr %3, align 8
-  %183 = getelementptr inbounds i8, ptr %3, i64 8
+  %183 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @.str.10, ptr %183, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  %184 = getelementptr inbounds i8, ptr %0, i64 766
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 766
   store i8 0, ptr %184, align 2
   %185 = load ptr, ptr %0, align 8
   %186 = call i32 @acpi_evaluate_object(ptr noundef %185, ptr noundef nonnull @.str.21, ptr noundef null, ptr noundef nonnull %2) #9
@@ -1244,17 +1244,17 @@ define dso_local i32 @acpi_processor_get_throttling_info(ptr noundef %0) local_u
   br i1 %194, label %195, label %228
 
 195:                                              ; preds = %192
-  %196 = getelementptr inbounds i8, ptr %190, i64 4
+  %196 = getelementptr inbounds nuw i8, ptr %190, i64 4
   %197 = load i32, ptr %196, align 4
   %198 = icmp eq i32 %197, 1
   br i1 %198, label %199, label %228
 
 199:                                              ; preds = %195
-  %200 = getelementptr inbounds i8, ptr %0, i64 696
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 696
   store i64 40, ptr %4, align 8
-  %201 = getelementptr inbounds i8, ptr %4, i64 8
+  %201 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %200, ptr %201, align 8
-  %202 = getelementptr inbounds i8, ptr %190, i64 8
+  %202 = getelementptr inbounds nuw i8, ptr %190, i64 8
   %203 = load ptr, ptr %202, align 8
   %204 = call i32 @acpi_extract_package(ptr noundef %203, ptr noundef nonnull %3, ptr noundef nonnull %4) #9
   %205 = icmp eq i32 %204, 0
@@ -1266,23 +1266,23 @@ define dso_local i32 @acpi_processor_get_throttling_info(ptr noundef %0) local_u
   br i1 %208, label %209, label %228
 
 209:                                              ; preds = %206
-  %210 = getelementptr inbounds i8, ptr %0, i64 704
+  %210 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %211 = load i64, ptr %210, align 1
   %212 = icmp eq i64 %211, 0
   br i1 %212, label %213, label %228
 
 213:                                              ; preds = %209
   store i8 1, ptr %184, align 2
-  %214 = getelementptr inbounds i8, ptr %0, i64 720
+  %214 = getelementptr inbounds nuw i8, ptr %0, i64 720
   %215 = load i64, ptr %214, align 1
   %216 = trunc i64 %215 to i32
-  %217 = getelementptr inbounds i8, ptr %0, i64 768
+  %217 = getelementptr inbounds nuw i8, ptr %0, i64 768
   store i32 %216, ptr %217, align 8
-  %218 = getelementptr inbounds i8, ptr %0, i64 16
+  %218 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %219 = load i32, ptr %218, align 8
   %220 = zext i32 %219 to i64
-  %221 = getelementptr inbounds i8, ptr %0, i64 736
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %221, i64 %220) #9, !srcloc !11
+  %221 = getelementptr inbounds nuw i8, ptr %0, i64 736
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %221, i64 %220) #9, !srcloc !11
   %222 = load i64, ptr %214, align 1
   %223 = add i64 %222, -252
   %224 = icmp ult i64 %223, 3
@@ -1313,12 +1313,12 @@ define dso_local i32 @acpi_processor_get_throttling_info(ptr noundef %0) local_u
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #9
   store i8 0, ptr %184, align 2
-  %233 = getelementptr inbounds i8, ptr %0, i64 16
+  %233 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %234 = load i32, ptr %233, align 8
   %235 = zext i32 %234 to i64
-  %236 = getelementptr inbounds i8, ptr %0, i64 736
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %236, i64 %235) #9, !srcloc !11
-  %237 = getelementptr inbounds i8, ptr %0, i64 768
+  %236 = getelementptr inbounds nuw i8, ptr %0, i64 736
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %236, i64 %235) #9, !srcloc !11
+  %237 = getelementptr inbounds nuw i8, ptr %0, i64 768
   store i32 252, ptr %237, align 8
   br label %238
 
@@ -1329,7 +1329,7 @@ define dso_local i32 @acpi_processor_get_throttling_info(ptr noundef %0) local_u
   br i1 %241, label %242, label %.thread22
 
 242:                                              ; preds = %238
-  %243 = getelementptr inbounds i8, ptr %0, i64 32
+  %243 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %244 = load i16, ptr %243, align 8
   %245 = or i16 %244, 4
   store i16 %245, ptr %243, align 8
@@ -1337,7 +1337,7 @@ define dso_local i32 @acpi_processor_get_throttling_info(ptr noundef %0) local_u
   br i1 %246, label %.thread21, label %247
 
 247:                                              ; preds = %242
-  %248 = getelementptr inbounds i8, ptr %0, i64 16
+  %248 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %249 = load i32, ptr %248, align 8
   %250 = zext i32 %249 to i64
   %251 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %250) #9, !srcloc !10
@@ -1350,14 +1350,14 @@ define dso_local i32 @acpi_processor_get_throttling_info(ptr noundef %0) local_u
   %255 = load i32, ptr %248, align 8
   %256 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !16
   %257 = inttoptr i64 %256 to ptr
-  %258 = getelementptr inbounds i8, ptr %257, i64 44
+  %258 = getelementptr inbounds nuw i8, ptr %257, i64 44
   %259 = load i32, ptr %258, align 4
   %260 = and i32 %259, 67108864
   %261 = icmp eq i32 %260, 0
   br i1 %261, label %273, label %262
 
 262:                                              ; preds = %254
-  %263 = getelementptr inbounds i8, ptr %257, i64 968
+  %263 = getelementptr inbounds nuw i8, ptr %257, i64 968
   %264 = load i32, ptr %263, align 8
   %265 = icmp eq i32 %264, 1
   br i1 %265, label %266, label %273
@@ -1368,7 +1368,7 @@ define dso_local i32 @acpi_processor_get_throttling_info(ptr noundef %0) local_u
   br i1 %268, label %269, label %273
 
 269:                                              ; preds = %266
-  %270 = getelementptr inbounds i8, ptr %0, i64 744
+  %270 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %271 = load ptr, ptr %270, align 8
   %272 = call i32 %271(ptr noundef nonnull %0) #9
   br label %276
@@ -1384,7 +1384,7 @@ define dso_local i32 @acpi_processor_get_throttling_info(ptr noundef %0) local_u
   br i1 %278, label %279, label %.thread21
 
 279:                                              ; preds = %276
-  %280 = getelementptr inbounds i8, ptr %0, i64 640
+  %280 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %281 = load i32, ptr %280, align 8
   %282 = icmp eq i32 %281, 0
   br i1 %282, label %.thread22, label %283
@@ -1412,22 +1412,22 @@ define internal noundef range(i32 -22, 1) i32 @acpi_processor_get_throttling_fad
   br i1 %2, label %37, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i16, ptr %4, align 8
   %6 = and i16 %5, 4
   %7 = icmp eq i16 %6, 0
   br i1 %7, label %37, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 640
-  %10 = getelementptr inbounds i8, ptr %0, i64 760
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 640
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %11 = load i32, ptr %10, align 8
   %12 = zext i32 %11 to i64
   %13 = tail call ptr @__request_region(ptr noundef nonnull @ioport_resource, i64 noundef %12, i64 noundef 6, ptr noundef nonnull @.str.17, i32 noundef 0) #9
   store i32 0, ptr %9, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 680
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 764
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 764
   %17 = load i8, ptr %16, align 4
   tail call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !25
   %18 = load i32, ptr %10, align 8
@@ -1472,15 +1472,15 @@ define internal noundef range(i32 -22, 1) i32 @acpi_processor_set_throttling_fad
   br i1 %6, label %62, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 640
-  %9 = getelementptr inbounds i8, ptr %0, i64 680
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 640
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %10 = load i32, ptr %9, align 8
   %11 = add i32 %10, -1
   %12 = icmp ult i32 %11, %1
   br i1 %12, label %62, label %13
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load i16, ptr %14, align 8
   %16 = and i16 %15, 4
   %17 = icmp eq i16 %16, 0
@@ -1495,7 +1495,7 @@ define internal noundef range(i32 -22, 1) i32 @acpi_processor_set_throttling_fad
   br i1 %21, label %62, label %22
 
 22:                                               ; preds = %19, %18
-  %23 = getelementptr inbounds i8, ptr %0, i64 28
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %24 = load i32, ptr %23, align 4
   %25 = icmp sgt i32 %24, %1
   br i1 %25, label %62, label %26
@@ -1506,7 +1506,7 @@ define internal noundef range(i32 -22, 1) i32 @acpi_processor_set_throttling_fad
 
 28:                                               ; preds = %26
   %29 = sub i32 %10, %1
-  %30 = getelementptr inbounds i8, ptr %0, i64 764
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 764
   %31 = load i8, ptr %30, align 4
   %32 = zext nneg i8 %31 to i32
   %33 = shl i32 %29, %32
@@ -1520,7 +1520,7 @@ define internal noundef range(i32 -22, 1) i32 @acpi_processor_set_throttling_fad
   %39 = phi i32 [ %37, %28 ], [ 0, %26 ]
   %40 = phi i32 [ %33, %28 ], [ 0, %26 ]
   tail call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !25
-  %41 = getelementptr inbounds i8, ptr %0, i64 760
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %42 = load i32, ptr %41, align 8
   %43 = trunc i32 %42 to i16
   %44 = tail call i32 asm sideeffect "inl ${1:w}, $0", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %43) #9, !srcloc !26
@@ -1568,18 +1568,18 @@ define internal i32 @acpi_processor_get_throttling_ptc(ptr noundef %0) #0 align 
   br i1 %3, label %73, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i16, ptr %5, align 8
   %7 = and i16 %6, 4
   %8 = icmp eq i16 %7, 0
   br i1 %8, label %73, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 640
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 640
   store i32 0, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #9
   store i32 0, ptr %2, align 4, !annotation !19
-  %11 = getelementptr inbounds i8, ptr %0, i64 666
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 666
   %12 = load i8, ptr %11, align 1
   switch i8 %12, label %47 [
     i8 1, label %13
@@ -1587,13 +1587,13 @@ define internal i32 @acpi_processor_get_throttling_ptc(ptr noundef %0) #0 align 
   ]
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 667
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 667
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i32
-  %17 = getelementptr inbounds i8, ptr %0, i64 668
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 668
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i32
-  %20 = getelementptr inbounds i8, ptr %0, i64 670
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 670
   %21 = load i64, ptr %20, align 1
   %22 = add nuw nsw i32 %19, %16
   %23 = call i32 @acpi_os_read_port(i64 noundef %21, ptr noundef nonnull %2, i32 noundef %22) #9
@@ -1651,13 +1651,13 @@ define internal i32 @acpi_processor_get_throttling_ptc(ptr noundef %0) #0 align 
 51:                                               ; preds = %43, %._crit_edge, %13
   %.ph = phi i64 [ %29, %13 ], [ %.pre9, %._crit_edge ], [ %46, %43 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #9
-  %52 = getelementptr inbounds i8, ptr %0, i64 680
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %53 = load i32, ptr %52, align 8
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %.thread6, label %55
 
 55:                                               ; preds = %51
-  %56 = getelementptr inbounds i8, ptr %0, i64 688
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %57 = load ptr, ptr %56, align 8
   br label %61
 
@@ -1701,15 +1701,15 @@ define internal noundef range(i32 -22, 1) i32 @acpi_processor_set_throttling_ptc
   br i1 %6, label %.thread, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 640
-  %9 = getelementptr inbounds i8, ptr %0, i64 680
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 640
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %10 = load i32, ptr %9, align 8
   %11 = add i32 %10, -1
   %12 = icmp ult i32 %11, %1
   br i1 %12, label %.thread, label %13
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load i16, ptr %14, align 8
   %16 = and i16 %15, 4
   %17 = icmp eq i16 %16, 0
@@ -1724,7 +1724,7 @@ define internal noundef range(i32 -22, 1) i32 @acpi_processor_set_throttling_ptc
   br i1 %21, label %.thread, label %22
 
 22:                                               ; preds = %19, %18
-  %23 = getelementptr inbounds i8, ptr %0, i64 28
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %24 = load i32, ptr %23, align 4
   %25 = icmp sgt i32 %24, %1
   br i1 %25, label %.thread, label %26
@@ -1734,12 +1734,12 @@ define internal noundef range(i32 -22, 1) i32 @acpi_processor_set_throttling_ptc
   br i1 %27, label %.thread, label %28
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %0, i64 688
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %30 = load ptr, ptr %29, align 8
   %31 = zext nneg i32 %1 to i64
   %32 = getelementptr %struct.acpi_processor_tx_tss, ptr %30, i64 %31, i32 3
   %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 651
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 651
   %35 = load i8, ptr %34, align 1
   switch i8 %35, label %69 [
     i8 1, label %36
@@ -1747,17 +1747,17 @@ define internal noundef range(i32 -22, 1) i32 @acpi_processor_set_throttling_ptc
   ]
 
 36:                                               ; preds = %28
-  %37 = getelementptr inbounds i8, ptr %0, i64 652
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 652
   %38 = load i8, ptr %37, align 4
   %39 = zext i8 %38 to i32
-  %40 = getelementptr inbounds i8, ptr %0, i64 653
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 653
   %41 = load i8, ptr %40, align 1
   %42 = zext i8 %41 to i32
   %43 = shl nsw i32 -1, %39
   %44 = xor i32 %43, -1
   %45 = zext nneg i32 %44 to i64
   %46 = and i64 %33, %45
-  %47 = getelementptr inbounds i8, ptr %0, i64 655
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 655
   %48 = load i64, ptr %47, align 1
   %49 = zext nneg i8 %41 to i64
   %50 = shl i64 %46, %49
@@ -1824,7 +1824,7 @@ declare dso_local void @acpi_evaluation_failure_warn(ptr noundef, ptr noundef, i
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @__acpi_processor_get_throttling(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 744
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 %3(ptr noundef %0) #9
   %5 = sext i32 %4 to i64
@@ -1837,11 +1837,11 @@ declare dso_local i64 @work_on_cpu_key(i32 noundef, ptr noundef, ptr noundef, pt
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @acpi_processor_throttling_fn(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 752
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 752
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %8 = load i8, ptr %7, align 4, !range !36, !noundef !37
   %9 = icmp ne i8 %8, 0
   %10 = tail call i32 %4(ptr noundef %2, i32 noundef %6, i1 noundef zeroext %9) #9

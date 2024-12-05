@@ -18,9 +18,9 @@ define zeroext i1 @graphviz_acyclic(ptr noundef %0, ptr nocapture noundef readon
 .lr.ph:                                           ; preds = %3, %13
   %.017 = phi ptr [ %14, %13 ], [ %4, %3 ]
   %.01416 = phi i1 [ %.1, %13 ], [ false, %3 ]
-  %5 = getelementptr inbounds i8, ptr %.017, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %.017, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %13
@@ -38,7 +38,7 @@ define zeroext i1 @graphviz_acyclic(ptr noundef %0, ptr nocapture noundef readon
 
 ._crit_edge:                                      ; preds = %13, %3
   %.014.lcssa = phi i1 [ false, %3 ], [ %.1, %13 ]
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load i8, ptr %15, align 8
   %17 = trunc i8 %16 to i1
   br i1 %17, label %18, label %23
@@ -60,12 +60,12 @@ declare ptr @agfstnode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @dfs(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr nocapture noundef %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 1, ptr %7, align 8
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %10 = load i8, ptr %9, align 4
   %11 = or i8 %10, 1
   store i8 %11, ptr %9, align 4
@@ -85,21 +85,21 @@ define internal fastcc zeroext i1 @dfs(ptr noundef %0, ptr noundef %1, i1 nounde
   %16 = and i32 %15, 3
   %17 = icmp eq i32 %16, 3
   %.idx = select i1 %17, i64 0, i64 64
-  %18 = getelementptr inbounds i8, ptr %.04350, i64 %.idx
-  %19 = getelementptr inbounds i8, ptr %18, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %.04350, i64 %.idx
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 56
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq i32 %16, 2
   %.idx46 = select i1 %21, i64 0, i64 -64
   %22 = getelementptr inbounds i8, ptr %.04350, i64 %.idx46
-  %23 = getelementptr inbounds i8, ptr %22, i64 56
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 56
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %20, %24
   br i1 %25, label %55, label %26
 
 26:                                               ; preds = %.lr.ph
-  %27 = getelementptr inbounds i8, ptr %24, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 20
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 20
   %30 = load i8, ptr %29, align 4
   %31 = trunc i8 %30 to i1
   br i1 %31, label %32, label %46
@@ -136,7 +136,7 @@ define internal fastcc zeroext i1 @dfs(ptr noundef %0, ptr noundef %1, i1 nounde
   br label %55
 
 46:                                               ; preds = %26
-  %47 = getelementptr inbounds i8, ptr %28, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %48 = load i32, ptr %47, align 8
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %50, label %55
@@ -160,7 +160,7 @@ define internal fastcc zeroext i1 @dfs(ptr noundef %0, ptr noundef %1, i1 nounde
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %4
   %.0.lcssa = phi i1 [ %2, %4 ], [ %56, %._crit_edge.loopexit ]
   %57 = load ptr, ptr %5, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 20
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 20
   %59 = load i8, ptr %58, align 4
   %60 = and i8 %59, -2
   store i8 %60, ptr %58, align 4
@@ -189,12 +189,12 @@ define internal fastcc void @addRevEdge(ptr noundef %0, ptr noundef nonnull %1) 
   %5 = icmp eq i32 %4, 2
   %.idx = select i1 %5, i64 0, i64 -64
   %6 = getelementptr inbounds i8, ptr %1, i64 %.idx
-  %7 = getelementptr inbounds i8, ptr %6, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq i32 %4, 3
   %.idx21 = select i1 %9, i64 0, i64 64
-  %10 = getelementptr inbounds i8, ptr %1, i64 %.idx21
-  %11 = getelementptr inbounds i8, ptr %10, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx21
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr @agnameof(ptr noundef nonnull %1) #3
   %14 = tail call ptr @agedge(ptr noundef %0, ptr noundef %8, ptr noundef %12, ptr noundef %13, i32 noundef 1) #3

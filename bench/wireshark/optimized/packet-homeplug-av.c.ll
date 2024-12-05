@@ -2412,7 +2412,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_homeplug_av(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   store ptr null, ptr @ti_vendor, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.989) #5
   %7 = load ptr, ptr %5, align 8
@@ -2421,7 +2421,7 @@ define internal i32 @dissect_homeplug_av(ptr noundef %0, ptr nocapture noundef r
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #5
   %10 = load i32, ptr @ett_homeplug_av, align 4
   %11 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %10) #5
-  %12 = getelementptr inbounds i8, ptr %1, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr @ptvcursor_new(ptr noundef %13, ptr noundef %11, ptr noundef %0, i32 noundef 0) #5
   %.not.i = icmp eq ptr %14, null
@@ -4044,7 +4044,7 @@ dissect_homeplug_av_cc_net_info.exit.i:           ; preds = %43, %.lr.ph23.i
   %389 = zext i8 %381 to i32
   %390 = uitofp i8 %381 to float
   %391 = fdiv float %.0.lcssa.i, %390
-  %392 = getelementptr inbounds i8, ptr %2, i64 8
+  %392 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %393 = load ptr, ptr %392, align 8
   %394 = fpext float %391 to double
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %393, i32 noundef 25, ptr noundef nonnull @.str.1580, i32 noundef %389, double noundef %394) #5

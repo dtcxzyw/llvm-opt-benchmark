@@ -341,7 +341,7 @@ define internal i32 @dissect_icep_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_set_str(ptr noundef %11, i32 noundef 34, ptr noundef nonnull @.str.95) #3
   %12 = load ptr, ptr %10, align 8
@@ -647,7 +647,7 @@ define internal fastcc void @dissect_icep_request_common(ptr noundef %0, i32 nou
 
 17:                                               ; preds = %6
   %18 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %4, ptr noundef nonnull @ei_icep_length, ptr noundef nonnull @.str.136) #3
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   tail call void @col_append_str(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.137) #3
   br label %dissect_ice_params.exit.thread78
@@ -706,7 +706,7 @@ dissect_ice_facet.exit.thread.sink.split:         ; preds = %38, %32
   %ei_icep_facet_missing.sink = phi ptr [ @ei_icep_facet_missing, %32 ], [ @ei_icep_facet_max_one_element, %38 ]
   %.str.151.sink = phi ptr [ @.str.151, %32 ], [ @.str.152, %38 ]
   %45 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %4, ptr noundef nonnull %ei_icep_facet_missing.sink) #3
-  %46 = getelementptr inbounds i8, ptr %2, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %47 = load ptr, ptr %46, align 8
   call void @col_append_str(ptr noundef %47, i32 noundef 25, ptr noundef nonnull %.str.151.sink) #3
   br label %dissect_ice_facet.exit.thread
@@ -747,7 +747,7 @@ dissect_ice_facet.exit:                           ; preds = %41
   br i1 %or.cond, label %66, label %69
 
 66:                                               ; preds = %58
-  %67 = getelementptr inbounds i8, ptr %2, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %68 = load ptr, ptr %67, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %68, i32 noundef 25, ptr noundef nonnull @.str.141, ptr noundef nonnull %64, ptr noundef nonnull %62) #3
   store ptr null, ptr %15, align 8
@@ -761,7 +761,7 @@ dissect_ice_facet.exit:                           ; preds = %41
 
 71:                                               ; preds = %69
   %72 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %4, ptr noundef nonnull @ei_icep_mode_missing) #3
-  %73 = getelementptr inbounds i8, ptr %2, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %74 = load ptr, ptr %73, align 8
   call void @col_append_str(ptr noundef %74, i32 noundef 25, ptr noundef nonnull @.str.142) #3
   br label %dissect_ice_params.exit.thread78
@@ -881,7 +881,7 @@ dissect_ice_context.exit.thread75:                ; preds = %101
 
 dissect_ice_context.exit.thread.sink.split:       ; preds = %99, %91, %82
   %.str.153.sink = phi ptr [ @.str.153, %82 ], [ @.str.146, %91 ], [ @.str.154, %99 ]
-  %129 = getelementptr inbounds i8, ptr %2, i64 8
+  %129 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %130 = load ptr, ptr %129, align 8
   call void @col_append_str(ptr noundef %130, i32 noundef 25, ptr noundef nonnull %.str.153.sink) #3
   br label %dissect_ice_context.exit.thread
@@ -915,7 +915,7 @@ dissect_ice_context.exit:                         ; preds = %127
 
 137:                                              ; preds = %132
   %138 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %4, ptr noundef nonnull @ei_icep_params_missing) #3
-  %139 = getelementptr inbounds i8, ptr %2, i64 8
+  %139 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %140 = load ptr, ptr %139, align 8
   call void @col_append_str(ptr noundef %140, i32 noundef 25, ptr noundef nonnull @.str.155) #3
   br label %dissect_ice_params.exit.thread78
@@ -927,7 +927,7 @@ dissect_ice_context.exit:                         ; preds = %127
 
 144:                                              ; preds = %141
   %145 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %4, ptr noundef nonnull @ei_icep_params_size) #3
-  %146 = getelementptr inbounds i8, ptr %2, i64 8
+  %146 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %147 = load ptr, ptr %146, align 8
   call void @col_append_str(ptr noundef %147, i32 noundef 25, ptr noundef nonnull @.str.156) #3
   br label %dissect_ice_params.exit.thread78
@@ -964,7 +964,7 @@ dissect_ice_context.exit:                         ; preds = %127
 166:                                              ; preds = %162
   %167 = sub i32 %164, %163
   %168 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %4, ptr noundef nonnull @ei_icep_params_encapsulated, ptr noundef nonnull @.str.81, i32 noundef %167) #3
-  %169 = getelementptr inbounds i8, ptr %2, i64 8
+  %169 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %170 = load ptr, ptr %169, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %170, i32 noundef 25, ptr noundef nonnull @.str.157, i32 noundef %167) #3
   br label %dissect_ice_params.exit.thread78
@@ -998,7 +998,7 @@ define internal fastcc void @dissect_ice_string(ptr noundef %0, ptr noundef %1, 
 
 11:                                               ; preds = %8
   %12 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %0, ptr noundef %2, ptr noundef nonnull @ei_icep_string_malformed, ptr noundef nonnull @.str.143) #3
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
   tail call void @col_append_str(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.144) #3
   br label %61
@@ -1020,7 +1020,7 @@ define internal fastcc void @dissect_ice_string(ptr noundef %0, ptr noundef %1, 
 
 24:                                               ; preds = %22
   %25 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %0, ptr noundef %2, ptr noundef nonnull @ei_icep_string_malformed, ptr noundef nonnull @.str.145) #3
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8
   tail call void @col_append_str(ptr noundef %27, i32 noundef 25, ptr noundef nonnull @.str.146) #3
   br label %61
@@ -1042,7 +1042,7 @@ define internal fastcc void @dissect_ice_string(ptr noundef %0, ptr noundef %1, 
 
 35:                                               ; preds = %33
   %36 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %0, ptr noundef %2, ptr noundef nonnull @ei_icep_string_malformed, ptr noundef nonnull @.str.147) #3
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load ptr, ptr %37, align 8
   tail call void @col_append_str(ptr noundef %38, i32 noundef 25, ptr noundef nonnull @.str.148) #3
   br label %61
@@ -1054,14 +1054,14 @@ define internal fastcc void @dissect_ice_string(ptr noundef %0, ptr noundef %1, 
 
 42:                                               ; preds = %39
   %43 = tail call ptr @expert_add_info(ptr noundef %0, ptr noundef %2, ptr noundef nonnull @ei_icep_string_too_long) #3
-  %44 = getelementptr inbounds i8, ptr %0, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8
   tail call void @col_append_str(ptr noundef %45, i32 noundef 25, ptr noundef nonnull @.str.149) #3
   br label %61
 
 46:                                               ; preds = %39
   %.not54 = icmp eq i32 %.0, 0
-  %47 = getelementptr inbounds i8, ptr %0, i64 408
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %48 = load ptr, ptr %47, align 8
   br i1 %.not54, label %51, label %49
 

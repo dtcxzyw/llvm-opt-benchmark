@@ -28,7 +28,7 @@ define ptr @Lpk_MapPrimeInternal(ptr noundef %0, ptr nocapture noundef readonly 
   br i1 %.not34, label %15, label %.preheader
 
 .preheader:                                       ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = icmp slt i32 %.val27, %11
   br i1 %12, label %.lr.ph, label %.critedge
@@ -42,25 +42,25 @@ define ptr @Lpk_MapPrimeInternal(ptr noundef %0, ptr nocapture noundef readonly 
   %16 = getelementptr i8, ptr %1, i64 16
   %.val32 = load ptr, ptr %16, align 8
   %17 = zext nneg i32 %9 to i64
-  %18 = getelementptr inbounds %struct.Kit_Node_t_, ptr %.val32, i64 %17, i32 2
+  %18 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val32, i64 %17, i32 2
   br label %56
 
 19:                                               ; preds = %.lr.ph, %19
   %indvars.iv = phi i64 [ %14, %.lr.ph ], [ %indvars.iv.next, %19 ]
   %.val29 = load ptr, ptr %13, align 8
-  %20 = getelementptr inbounds %struct.Kit_Node_t_, ptr %.val29, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val29, i64 %indvars.iv
   %21 = load i32, ptr %20, align 8
   %22 = lshr i32 %21, 1
   %23 = and i32 %22, 1073741823
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds %struct.Kit_Node_t_, ptr %.val29, i64 %24, i32 2
+  %25 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val29, i64 %24, i32 2
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %20, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %28 = load i32, ptr %27, align 4
   %29 = lshr i32 %28, 1
   %30 = and i32 %29, 1073741823
   %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr inbounds %struct.Kit_Node_t_, ptr %.val29, i64 %31, i32 2
+  %32 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val29, i64 %31, i32 2
   %33 = load ptr, ptr %32, align 8
   %34 = ptrtoint ptr %26 to i64
   %35 = and i64 %34, -2
@@ -79,7 +79,7 @@ define ptr @Lpk_MapPrimeInternal(ptr noundef %0, ptr nocapture noundef readonly 
   %48 = or disjoint i64 %43, %47
   %49 = inttoptr i64 %48 to ptr
   %50 = tail call ptr @If_ManCreateAnd(ptr noundef %0, ptr noundef %41, ptr noundef %49) #2
-  %51 = getelementptr inbounds i8, ptr %20, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %50, ptr %51, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = load i32, ptr %10, align 8
@@ -89,7 +89,7 @@ define ptr @Lpk_MapPrimeInternal(ptr noundef %0, ptr nocapture noundef readonly 
 
 .critedge:                                        ; preds = %19, %.preheader
   %.024.lcssa = phi ptr [ null, %.preheader ], [ %20, %19 ]
-  %55 = getelementptr inbounds i8, ptr %.024.lcssa, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %.024.lcssa, i64 8
   br label %56
 
 56:                                               ; preds = %.critedge, %15, %3
@@ -102,14 +102,14 @@ declare ptr @If_ManCreateAnd(ptr noundef, ptr noundef, ptr noundef) local_unname
 
 ; Function Attrs: nounwind uwtable
 define ptr @Lpk_MapPrime(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8240056
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8240056
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr @Kit_TruthToGraph(ptr noundef %1, i32 noundef %2, ptr noundef %6) #2
   %8 = icmp eq ptr %7, null
   br i1 %8, label %80, label %.preheader
 
 .preheader:                                       ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %7, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %.lr.ph, label %.critedge
@@ -121,9 +121,9 @@ define ptr @Lpk_MapPrime(ptr nocapture noundef readonly %0, ptr noundef %1, i32 
 13:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
   %.val = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds %struct.Kit_Node_t_, ptr %.val, i64 %indvars.iv, i32 2
+  %16 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val, i64 %indvars.iv, i32 2
   store ptr %15, ptr %16, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load i32, ptr %9, align 4
@@ -133,7 +133,7 @@ define ptr @Lpk_MapPrime(ptr nocapture noundef readonly %0, ptr noundef %1, i32 
 
 .critedge:                                        ; preds = %13, %.preheader
   %.lcssa21 = phi i32 [ %10, %.preheader ], [ %17, %13 ]
-  %20 = getelementptr inbounds i8, ptr %0, i64 8240048
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8240048
   %21 = load ptr, ptr %20, align 8
   %.val.i = load i32, ptr %7, align 8
   %.not.i = icmp eq i32 %.val.i, 0
@@ -152,7 +152,7 @@ define ptr @Lpk_MapPrime(ptr nocapture noundef readonly %0, ptr noundef %1, i32 
   br i1 %.not34.i, label %33, label %.preheader.i
 
 .preheader.i:                                     ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %7, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %29 = load i32, ptr %28, align 8
   %30 = icmp slt i32 %.lcssa21, %29
   br i1 %30, label %.lr.ph.i, label %.critedge.i
@@ -166,25 +166,25 @@ define ptr @Lpk_MapPrime(ptr nocapture noundef readonly %0, ptr noundef %1, i32 
   %34 = getelementptr i8, ptr %7, i64 16
   %.val32.i = load ptr, ptr %34, align 8
   %35 = zext nneg i32 %27 to i64
-  %36 = getelementptr inbounds %struct.Kit_Node_t_, ptr %.val32.i, i64 %35, i32 2
+  %36 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val32.i, i64 %35, i32 2
   br label %Lpk_MapPrimeInternal.exit
 
 37:                                               ; preds = %37, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %32, %.lr.ph.i ], [ %indvars.iv.next.i, %37 ]
   %.val29.i = load ptr, ptr %31, align 8
-  %38 = getelementptr inbounds %struct.Kit_Node_t_, ptr %.val29.i, i64 %indvars.iv.i
+  %38 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val29.i, i64 %indvars.iv.i
   %39 = load i32, ptr %38, align 8
   %40 = lshr i32 %39, 1
   %41 = and i32 %40, 1073741823
   %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr inbounds %struct.Kit_Node_t_, ptr %.val29.i, i64 %42, i32 2
+  %43 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val29.i, i64 %42, i32 2
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %38, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %46 = load i32, ptr %45, align 4
   %47 = lshr i32 %46, 1
   %48 = and i32 %47, 1073741823
   %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr inbounds %struct.Kit_Node_t_, ptr %.val29.i, i64 %49, i32 2
+  %50 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val29.i, i64 %49, i32 2
   %51 = load ptr, ptr %50, align 8
   %52 = ptrtoint ptr %44 to i64
   %53 = and i64 %52, -2
@@ -203,7 +203,7 @@ define ptr @Lpk_MapPrime(ptr nocapture noundef readonly %0, ptr noundef %1, i32 
   %66 = or disjoint i64 %61, %65
   %67 = inttoptr i64 %66 to ptr
   %68 = tail call ptr @If_ManCreateAnd(ptr noundef %21, ptr noundef %59, ptr noundef %67) #2
-  %69 = getelementptr inbounds i8, ptr %38, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store ptr %68, ptr %69, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %70 = load i32, ptr %28, align 8
@@ -213,7 +213,7 @@ define ptr @Lpk_MapPrime(ptr nocapture noundef readonly %0, ptr noundef %1, i32 
 
 .critedge.i:                                      ; preds = %37, %.preheader.i
   %.024.lcssa.i = phi ptr [ null, %.preheader.i ], [ %38, %37 ]
-  %73 = getelementptr inbounds i8, ptr %.024.lcssa.i, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %.024.lcssa.i, i64 8
   br label %Lpk_MapPrimeInternal.exit
 
 Lpk_MapPrimeInternal.exit:                        ; preds = %22, %33, %.critedge.i
@@ -248,7 +248,7 @@ define ptr @Lpk_MapTree_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 
   br i1 %10, label %Kit_DsdNtkObj.exit.thread, label %Kit_DsdNtkObj.exit
 
 Kit_DsdNtkObj.exit:                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = sub nsw i32 %7, %9
   %14 = sext i32 %13 to i64
@@ -280,7 +280,7 @@ Kit_DsdNtkObj.exit.thread:                        ; preds = %5, %Kit_DsdNtkObj.e
   ]
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %0, i64 8240048
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8240048
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr i8, ptr %32, i64 16
   %.val = load ptr, ptr %33, align 8
@@ -292,12 +292,12 @@ Kit_DsdNtkObj.exit.thread:                        ; preds = %5, %Kit_DsdNtkObj.e
   br label %.loopexit
 
 39:                                               ; preds = %26
-  %40 = getelementptr inbounds i8, ptr %16, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %41 = load i16, ptr %40, align 4
   %42 = zext i16 %41 to i32
   %43 = lshr i32 %42, 1
   %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds ptr, ptr %2, i64 %44
+  %45 = getelementptr inbounds nuw ptr, ptr %2, i64 %44
   %46 = load ptr, ptr %45, align 8
   %47 = xor i32 %3, %42
   %48 = and i32 %47, 1
@@ -308,7 +308,7 @@ Kit_DsdNtkObj.exit.thread:                        ; preds = %5, %Kit_DsdNtkObj.e
   br label %.loopexit
 
 53:                                               ; preds = %26
-  %54 = getelementptr inbounds i8, ptr %16, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %55 = load i16, ptr %54, align 4
   %56 = zext i16 %55 to i32
   %57 = tail call ptr @Lpk_MapTree_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %56, ptr noundef null)
@@ -316,7 +316,7 @@ Kit_DsdNtkObj.exit.thread:                        ; preds = %5, %Kit_DsdNtkObj.e
   br i1 %.not108, label %58, label %63
 
 58:                                               ; preds = %53
-  %59 = getelementptr inbounds i8, ptr %16, i64 6
+  %59 = getelementptr inbounds nuw i8, ptr %16, i64 6
   %60 = load i16, ptr %59, align 2
   %61 = zext i16 %60 to i32
   %62 = tail call ptr @Lpk_MapTree_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %61, ptr noundef null)
@@ -330,7 +330,7 @@ Kit_DsdNtkObj.exit.thread:                        ; preds = %5, %Kit_DsdNtkObj.e
   br i1 %or.cond, label %.loopexit, label %67
 
 67:                                               ; preds = %63
-  %68 = getelementptr inbounds i8, ptr %0, i64 8240048
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 8240048
   %69 = load ptr, ptr %68, align 8
   %70 = tail call ptr @If_ManCreateAnd(ptr noundef %69, ptr noundef nonnull %57, ptr noundef nonnull %64) #2
   %71 = and i32 %3, 1
@@ -341,7 +341,7 @@ Kit_DsdNtkObj.exit.thread:                        ; preds = %5, %Kit_DsdNtkObj.e
   br label %.loopexit
 
 76:                                               ; preds = %26
-  %77 = getelementptr inbounds i8, ptr %16, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %78 = load i16, ptr %77, align 4
   %79 = zext i16 %78 to i32
   %80 = tail call ptr @Lpk_MapTree_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %79, ptr noundef null)
@@ -349,7 +349,7 @@ Kit_DsdNtkObj.exit.thread:                        ; preds = %5, %Kit_DsdNtkObj.e
   br i1 %.not107, label %81, label %86
 
 81:                                               ; preds = %76
-  %82 = getelementptr inbounds i8, ptr %16, i64 6
+  %82 = getelementptr inbounds nuw i8, ptr %16, i64 6
   %83 = load i16, ptr %82, align 2
   %84 = zext i16 %83 to i32
   %85 = tail call ptr @Lpk_MapTree_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %84, ptr noundef null)
@@ -369,7 +369,7 @@ Kit_DsdNtkObj.exit.thread:                        ; preds = %5, %Kit_DsdNtkObj.e
   %94 = trunc i64 %93 to i32
   %95 = xor i32 %3, %94
   %96 = and i32 %95, 1
-  %97 = getelementptr inbounds i8, ptr %0, i64 8240048
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 8240048
   %98 = load ptr, ptr %97, align 8
   %99 = and i64 %91, -2
   %100 = inttoptr i64 %99 to ptr
@@ -383,10 +383,10 @@ Kit_DsdNtkObj.exit.thread:                        ; preds = %5, %Kit_DsdNtkObj.e
   br label %.loopexit
 
 108:                                              ; preds = %26
-  %109 = getelementptr inbounds i8, ptr %0, i64 8241836
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 8241836
   %110 = lshr i32 %27, 26
   %111 = zext nneg i32 %110 to i64
-  %112 = getelementptr inbounds [17 x i32], ptr %109, i64 0, i64 %111
+  %112 = getelementptr inbounds nuw [17 x i32], ptr %109, i64 0, i64 %111
   %113 = load i32, ptr %112, align 4
   %114 = add nsw i32 %113, 1
   store i32 %114, ptr %112, align 4
@@ -396,17 +396,17 @@ Kit_DsdNtkObj.exit.thread:                        ; preds = %5, %Kit_DsdNtkObj.e
   br i1 %.not115, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %108
-  %117 = getelementptr inbounds i8, ptr %16, i64 4
+  %117 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %.not106 = icmp eq ptr %4, null
   br i1 %.not106, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %124
   %indvars.iv123 = phi i64 [ %indvars.iv.next124, %124 ], [ 0, %.lr.ph ]
-  %118 = getelementptr inbounds [0 x i16], ptr %117, i64 0, i64 %indvars.iv123
+  %118 = getelementptr inbounds nuw [0 x i16], ptr %117, i64 0, i64 %indvars.iv123
   %119 = load i16, ptr %118, align 2
   %120 = zext i16 %119 to i32
   %121 = tail call ptr @Lpk_MapTree_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %120, ptr noundef null)
-  %122 = getelementptr inbounds [16 x ptr], ptr %6, i64 0, i64 %indvars.iv123
+  %122 = getelementptr inbounds nuw [16 x ptr], ptr %6, i64 0, i64 %indvars.iv123
   store ptr %121, ptr %122, align 8
   %123 = icmp eq ptr %121, null
   br i1 %123, label %.loopexit, label %124
@@ -433,7 +433,7 @@ Kit_DsdNtkObj.exit.thread:                        ; preds = %5, %Kit_DsdNtkObj.e
   br i1 %134, label %140, label %135
 
 135:                                              ; preds = %.lr.ph.split
-  %136 = getelementptr inbounds [0 x i16], ptr %117, i64 0, i64 %indvars.iv
+  %136 = getelementptr inbounds nuw [0 x i16], ptr %117, i64 0, i64 %indvars.iv
   %137 = load i16, ptr %136, align 2
   %138 = zext i16 %137 to i32
   %139 = tail call ptr @Lpk_MapTree_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %138, ptr noundef null)
@@ -441,7 +441,7 @@ Kit_DsdNtkObj.exit.thread:                        ; preds = %5, %Kit_DsdNtkObj.e
 
 140:                                              ; preds = %.lr.ph.split, %135
   %.sink126 = phi ptr [ %139, %135 ], [ %4, %.lr.ph.split ]
-  %141 = getelementptr inbounds [16 x ptr], ptr %6, i64 0, i64 %indvars.iv
+  %141 = getelementptr inbounds nuw [16 x ptr], ptr %6, i64 0, i64 %indvars.iv
   store ptr %.sink126, ptr %141, align 8
   %142 = icmp eq ptr %.sink126, null
   br i1 %142, label %.loopexit, label %129
@@ -450,13 +450,13 @@ Kit_DsdNtkObj.exit.thread:                        ; preds = %5, %Kit_DsdNtkObj.e
   %.lcssa110 = phi i32 [ %115, %108 ], [ %125, %124 ], [ %130, %129 ]
   %.lcssa = phi i32 [ %116, %108 ], [ %126, %124 ], [ %131, %129 ]
   %143 = load ptr, ptr %0, align 8
-  %144 = getelementptr inbounds i8, ptr %143, i64 8
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
   %145 = load i32, ptr %144, align 4
   %146 = icmp sgt i32 %145, 0
   br i1 %146, label %147, label %167
 
 147:                                              ; preds = %.critedge
-  %148 = getelementptr inbounds i8, ptr %143, i64 40
+  %148 = getelementptr inbounds nuw i8, ptr %143, i64 40
   %149 = load i32, ptr %148, align 4
   %150 = icmp sgt i32 %.lcssa, %149
   br i1 %150, label %151, label %167
@@ -464,11 +464,11 @@ Kit_DsdNtkObj.exit.thread:                        ; preds = %5, %Kit_DsdNtkObj.e
 151:                                              ; preds = %147
   %152 = and i32 %.lcssa110, 448
   %153 = icmp eq i32 %152, 320
-  %154 = getelementptr inbounds i8, ptr %16, i64 4
+  %154 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %155 = lshr i32 %.lcssa110, 10
   %156 = and i32 %155, 255
   %157 = zext nneg i32 %156 to i64
-  %158 = getelementptr inbounds i32, ptr %154, i64 %157
+  %158 = getelementptr inbounds nuw i32, ptr %154, i64 %157
   %159 = select i1 %153, ptr %158, ptr null
   %160 = call ptr @Lpk_MapSuppRedDec_rec(ptr noundef nonnull %0, ptr noundef %159, i32 noundef %.lcssa, ptr noundef nonnull %6) #2
   %.not = icmp eq ptr %160, null
@@ -490,11 +490,11 @@ Kit_DsdNtkObj.exit.thread:                        ; preds = %5, %Kit_DsdNtkObj.e
   %168 = phi i32 [ %.pre, %._crit_edge ], [ %.lcssa110, %147 ], [ %.lcssa110, %.critedge ]
   %169 = and i32 %168, 448
   %170 = icmp eq i32 %169, 320
-  %171 = getelementptr inbounds i8, ptr %16, i64 4
+  %171 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %172 = lshr i32 %168, 10
   %173 = and i32 %172, 255
   %174 = zext nneg i32 %173 to i64
-  %175 = getelementptr inbounds i32, ptr %171, i64 %174
+  %175 = getelementptr inbounds nuw i32, ptr %171, i64 %174
   %176 = select i1 %170, ptr %175, ptr null
   %177 = lshr i32 %168, 26
   %178 = call ptr @Lpk_MapPrime(ptr noundef nonnull %0, ptr noundef %176, i32 noundef %177, ptr noundef nonnull %6)

@@ -13,17 +13,17 @@ define void @Tim_ManCreateBox(ptr nocapture noundef %0, i32 noundef %1, i32 noun
 
 10:                                               ; preds = %7
   %11 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #7
-  %12 = getelementptr inbounds i8, ptr %11, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 0, ptr %12, align 4
   store i32 100, ptr %11, align 8
   %13 = tail call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #7
-  %14 = getelementptr inbounds i8, ptr %11, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %13, ptr %14, align 8
   store ptr %11, ptr %0, align 8
   br label %15
 
 15:                                               ; preds = %10, %7
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = add nsw i32 %4, %2
   %19 = shl i32 %18, 2
@@ -35,14 +35,14 @@ define void @Tim_ManCreateBox(ptr nocapture noundef %0, i32 noundef %1, i32 noun
   %.val = load i32, ptr %23, align 4
   store i32 %.val, ptr %21, align 4
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %26 = load i32, ptr %25, align 4
   %27 = load i32, ptr %24, align 8
   %28 = icmp eq i32 %26, %27
   br i1 %28, label %29, label %.Vec_PtrGrow.exit11_crit_edge.i
 
 .Vec_PtrGrow.exit11_crit_edge.i:                  ; preds = %15
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %24, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %Vec_PtrPush.exit
 
@@ -51,7 +51,7 @@ define void @Tim_ManCreateBox(ptr nocapture noundef %0, i32 noundef %1, i32 noun
   br i1 %30, label %31, label %39
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %24, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %33 = load ptr, ptr %32, align 8
   %.not9.i.i = icmp eq ptr %33, null
   br i1 %.not9.i.i, label %36, label %34
@@ -72,7 +72,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %36, %34
 
 39:                                               ; preds = %29
   %40 = shl nuw nsw i32 %26, 1
-  %41 = getelementptr inbounds i8, ptr %24, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %42 = load ptr, ptr %41, align 8
   %.not9.i10.i = icmp eq ptr %42, null
   %43 = zext nneg i32 %40 to i64
@@ -101,20 +101,20 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %54 = sext i32 %52 to i64
   %55 = getelementptr inbounds ptr, ptr %51, i64 %54
   store ptr %21, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %21, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i32 %5, ptr %56, align 4
-  %57 = getelementptr inbounds i8, ptr %21, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i32 %2, ptr %57, align 4
-  %58 = getelementptr inbounds i8, ptr %21, i64 12
+  %58 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 %4, ptr %58, align 4
-  %59 = getelementptr inbounds i8, ptr %21, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store i32 %6, ptr %59, align 4
   %60 = icmp sgt i32 %2, 0
   br i1 %60, label %.lr.ph, label %.preheader
 
 .lr.ph:                                           ; preds = %Vec_PtrPush.exit
-  %61 = getelementptr inbounds i8, ptr %21, i64 28
-  %62 = getelementptr inbounds i8, ptr %0, i64 48
+  %61 = getelementptr inbounds nuw i8, ptr %21, i64 28
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %63 = sext i32 %1 to i64
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %69
@@ -124,8 +124,8 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %64, label %.lr.ph51, label %._crit_edge
 
 .lr.ph51:                                         ; preds = %.preheader
-  %65 = getelementptr inbounds i8, ptr %21, i64 28
-  %66 = getelementptr inbounds i8, ptr %0, i64 40
+  %65 = getelementptr inbounds nuw i8, ptr %21, i64 28
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %67 = sext i32 %3 to i64
   %68 = sext i32 %2 to i64
   %wide.trip.count56 = zext nneg i32 %4 to i64
@@ -134,7 +134,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 69:                                               ; preds = %.lr.ph, %69
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %69 ]
   %70 = add nsw i64 %indvars.iv, %63
-  %71 = getelementptr inbounds [0 x i32], ptr %61, i64 0, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [0 x i32], ptr %61, i64 0, i64 %indvars.iv
   %72 = trunc nsw i64 %70 to i32
   store i32 %72, ptr %71, align 4
   %73 = load i32, ptr %21, align 4
@@ -179,13 +179,13 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i32 @Tim_ManBoxForCi(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %.not = icmp slt i32 %1, %4
   br i1 %.not, label %5, label %11
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = sext i32 %1 to i64
   %9 = getelementptr inbounds %struct.Tim_Obj_t_, ptr %7, i64 %8, i32 2
@@ -199,13 +199,13 @@ define i32 @Tim_ManBoxForCi(ptr nocapture noundef readonly %0, i32 noundef %1) l
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i32 @Tim_ManBoxForCo(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 36
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = load i32, ptr %3, align 4
   %.not = icmp slt i32 %1, %4
   br i1 %.not, label %5, label %11
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = sext i32 %1 to i64
   %9 = getelementptr inbounds %struct.Tim_Obj_t_, ptr %7, i64 %8, i32 2
@@ -225,7 +225,7 @@ define i32 @Tim_ManBoxInputFirst(ptr nocapture noundef readonly %0, i32 noundef 
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds ptr, ptr %.val.val, i64 %4
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 28
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 28
   %8 = load i32, ptr %7, align 4
   ret i32 %8
 }
@@ -238,9 +238,9 @@ define range(i32 -2147483648, 2147483647) i32 @Tim_ManBoxInputLast(ptr nocapture
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds ptr, ptr %.val.val, i64 %4
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 28
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 28
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = load i32, ptr %9, align 4
   %11 = add i32 %8, -1
   %12 = add i32 %11, %10
@@ -255,7 +255,7 @@ define i32 @Tim_ManBoxInputNum(ptr nocapture noundef readonly %0, i32 noundef %1
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds ptr, ptr %.val.val, i64 %4
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i32, ptr %7, align 4
   ret i32 %8
 }
@@ -268,8 +268,8 @@ define i32 @Tim_ManBoxOutputFirst(ptr nocapture noundef readonly %0, i32 noundef
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds ptr, ptr %.val3.val, i64 %4
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 28
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load i32, ptr %8, align 4
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds [0 x i32], ptr %7, i64 0, i64 %10
@@ -285,13 +285,13 @@ define range(i32 -2147483648, 2147483647) i32 @Tim_ManBoxOutputLast(ptr nocaptur
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds ptr, ptr %.val5.val, i64 %4
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 28
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load i32, ptr %8, align 4
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds [0 x i32], ptr %7, i64 0, i64 %10
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %6, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %14 = load i32, ptr %13, align 4
   %15 = add i32 %12, -1
   %16 = add i32 %15, %14
@@ -306,7 +306,7 @@ define i32 @Tim_ManBoxOutputNum(ptr nocapture noundef readonly %0, i32 noundef %
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds ptr, ptr %.val.val, i64 %4
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %8 = load i32, ptr %7, align 4
   ret i32 %8
 }
@@ -319,7 +319,7 @@ define i32 @Tim_ManBoxDelayTableId(ptr nocapture noundef readonly %0, i32 nounde
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds ptr, ptr %.val.val, i64 %4
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i32, ptr %7, align 4
   ret i32 %8
 }
@@ -332,18 +332,18 @@ define ptr @Tim_ManBoxDelayTable(ptr nocapture noundef readonly %0, i32 noundef 
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds ptr, ptr %.val7.val, i64 %4
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i32, ptr %7, align 4
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %17, label %10
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr i8, ptr %12, i64 8
   %.val = load ptr, ptr %13, align 8
   %14 = zext nneg i32 %8 to i64
-  %15 = getelementptr inbounds ptr, ptr %.val, i64 %14
+  %15 = getelementptr inbounds nuw ptr, ptr %.val, i64 %14
   %16 = load ptr, ptr %15, align 8
   br label %17
 
@@ -360,7 +360,7 @@ define i32 @Tim_ManBoxIsBlack(ptr nocapture noundef readonly %0, i32 noundef %1)
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds ptr, ptr %.val.val, i64 %4
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load i32, ptr %7, align 4
   ret i32 %8
 }
@@ -373,7 +373,7 @@ define i32 @Tim_ManBoxCopy(ptr nocapture noundef readonly %0, i32 noundef %1) lo
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds ptr, ptr %.val.val, i64 %4
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %8 = load i32, ptr %7, align 4
   ret i32 %8
 }
@@ -386,7 +386,7 @@ define void @Tim_ManBoxSetCopy(ptr nocapture noundef readonly %0, i32 noundef %1
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds ptr, ptr %.val.val, i64 %5
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i32 %2, ptr %8, align 4
   ret void
 }
@@ -412,10 +412,10 @@ define range(i32 -2147483648, 2147483646) i32 @Tim_ManBoxFindFromCiNum(ptr nound
 
 9:                                                ; preds = %.lr.ph, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
-  %10 = getelementptr inbounds ptr, ptr %.val13, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw ptr, ptr %.val13, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 28
-  %13 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 28
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %14 = load i32, ptr %13, align 4
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds [0 x i32], ptr %12, i64 0, i64 %15

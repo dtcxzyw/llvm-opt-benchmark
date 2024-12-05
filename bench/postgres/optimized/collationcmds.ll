@@ -101,9 +101,9 @@ define dso_local { i64, i32 } @DefineCollation(ptr noundef %0, ptr noundef %1, p
   br i1 %.not154, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %20
-  %21 = getelementptr inbounds i8, ptr %2, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %22 = load i32, ptr %21, align 4
-  %23 = getelementptr inbounds i8, ptr %2, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %smax = call i32 @llvm.smax.i32(i32 %22, i32 0)
   %wide.trip.count = zext nneg i32 %smax to i64
   %exitcond.not257 = icmp slt i32 %22, 1
@@ -117,7 +117,7 @@ define dso_local { i64, i32 } @DefineCollation(ptr noundef %0, ptr noundef %1, p
   %indvars.iv258 = phi i64 [ %indvars.iv.next, %64 ], [ 0, %.lr.ph259.preheader ]
   %25 = getelementptr %union.ListCell, ptr %24, i64 %indvars.iv258
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8
   %29 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(5) @.str) #12
   %30 = icmp eq i32 %29, 0
@@ -159,13 +159,13 @@ define dso_local { i64, i32 } @DefineCollation(ptr noundef %0, ptr noundef %1, p
   br i1 %51, label %61, label %52
 
 52:                                               ; preds = %49
-  %53 = getelementptr inbounds i8, ptr %26, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %54 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   call void @llvm.assume(i1 %54)
   %55 = call i32 @errcode(i32 noundef 16801924) #11
   %56 = load ptr, ptr %53, align 8
   %57 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, ptr noundef %56) #11
-  %58 = getelementptr inbounds i8, ptr %26, i64 36
+  %58 = getelementptr inbounds nuw i8, ptr %26, i64 36
   %59 = load i32, ptr %58, align 4
   %60 = call i32 @parser_errposition(ptr noundef %0, i32 noundef %59) #11
   call void @errfinish(ptr noundef nonnull @.str.9, i32 noundef 114, ptr noundef nonnull @__func__.DefineCollation) #11
@@ -220,7 +220,7 @@ define dso_local { i64, i32 } @DefineCollation(ptr noundef %0, ptr noundef %1, p
   br i1 %.not157246, label %134, label %list_length.exit.thread
 
 list_length.exit:                                 ; preds = %73
-  %74 = getelementptr inbounds i8, ptr %2, i64 4
+  %74 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %75 = load i32, ptr %74, align 4
   %.not158 = icmp eq i32 %75, 1
   br i1 %.not158, label %80, label %list_length.exit.thread
@@ -250,17 +250,17 @@ list_length.exit.thread:                          ; preds = %.thread, %list_leng
   unreachable
 
 88:                                               ; preds = %80
-  %89 = getelementptr inbounds i8, ptr %84, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 22
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 22
   %92 = load i8, ptr %91, align 2
   %93 = zext i8 %92 to i64
   %94 = getelementptr i8, ptr %90, i64 %93
-  %95 = getelementptr inbounds i8, ptr %94, i64 76
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 76
   %96 = load i8, ptr %95, align 4
-  %97 = getelementptr inbounds i8, ptr %94, i64 77
+  %97 = getelementptr inbounds nuw i8, ptr %94, i64 77
   %98 = load i8, ptr %97, align 1
-  %99 = getelementptr inbounds i8, ptr %94, i64 80
+  %99 = getelementptr inbounds nuw i8, ptr %94, i64 80
   %100 = load i32, ptr %99, align 4
   %101 = call i64 @SysCacheGetAttr(i32 noundef 16, ptr noundef nonnull %84, i16 noundef signext 8, ptr noundef nonnull %14) #11
   %102 = load i8, ptr %14, align 1
@@ -734,7 +734,7 @@ define dso_local { i64, i32 } @AlterCollation(ptr nocapture noundef readonly %0)
   %4 = alloca [12 x i8], align 1
   %5 = alloca [12 x i64], align 16
   %6 = tail call ptr @table_open(i32 noundef 3456, i32 noundef 3) #11
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 @get_collation_oid(ptr noundef %8, i1 noundef zeroext false) #11
   %10 = icmp eq i32 %9, 100
@@ -773,9 +773,9 @@ define dso_local { i64, i32 } @AlterCollation(ptr nocapture noundef readonly %0)
   unreachable
 
 27:                                               ; preds = %21
-  %28 = getelementptr inbounds i8, ptr %23, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 22
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 22
   %31 = load i8, ptr %30, align 2
   %32 = zext i8 %31 to i64
   %33 = getelementptr i8, ptr %29, i64 %32
@@ -791,7 +791,7 @@ define dso_local { i64, i32 } @AlterCollation(ptr nocapture noundef readonly %0)
 
 40:                                               ; preds = %27, %37
   %41 = phi ptr [ %39, %37 ], [ null, %27 ]
-  %42 = getelementptr inbounds i8, ptr %33, i64 76
+  %42 = getelementptr inbounds nuw i8, ptr %33, i64 76
   %43 = load i8, ptr %42, align 4
   %44 = icmp eq i8 %43, 105
   %45 = select i1 %44, i16 10, i16 8
@@ -837,11 +837,11 @@ define dso_local { i64, i32 } @AlterCollation(ptr nocapture noundef readonly %0)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %4, i8 0, i64 11, i1 false)
   %65 = call ptr @cstring_to_text(ptr noundef nonnull %50) #11
   %66 = ptrtoint ptr %65 to i64
-  %67 = getelementptr inbounds i8, ptr %5, i64 88
+  %67 = getelementptr inbounds nuw i8, ptr %5, i64 88
   store i64 %66, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %4, i64 11
+  %68 = getelementptr inbounds nuw i8, ptr %4, i64 11
   store i8 1, ptr %68, align 1
-  %69 = getelementptr inbounds i8, ptr %6, i64 64
+  %69 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %70 = load ptr, ptr %69, align 8
   %71 = call ptr @heap_modify_tuple(ptr noundef nonnull %23, ptr noundef %70, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef nonnull %4) #11
   br label %76
@@ -857,7 +857,7 @@ define dso_local { i64, i32 } @AlterCollation(ptr nocapture noundef readonly %0)
 
 76:                                               ; preds = %64, %72, %74
   %.0 = phi ptr [ %71, %64 ], [ %23, %74 ], [ %23, %72 ]
-  %77 = getelementptr inbounds i8, ptr %.0, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   call void @CatalogTupleUpdate(ptr noundef %6, ptr noundef nonnull %77, ptr noundef %.0) #11
   %78 = load ptr, ptr @object_access_hook, align 8
   %.not46 = icmp eq ptr %78, null
@@ -906,7 +906,7 @@ declare void @table_close(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_collation_actual_version(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
   %5 = icmp eq i32 %4, 100
@@ -929,13 +929,13 @@ define dso_local i64 @pg_collation_actual_version(ptr nocapture noundef %0) loca
   unreachable
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %9, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 22
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 22
   %19 = load i8, ptr %18, align 2
   %20 = zext i8 %19 to i64
   %21 = getelementptr i8, ptr %17, i64 %20
-  %22 = getelementptr inbounds i8, ptr %21, i64 76
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 76
   %23 = load i8, ptr %22, align 4
   %24 = icmp eq i8 %23, 105
   %25 = select i1 %24, i16 15, i16 13
@@ -957,13 +957,13 @@ define dso_local i64 @pg_collation_actual_version(ptr nocapture noundef %0) loca
   unreachable
 
 34:                                               ; preds = %27
-  %35 = getelementptr inbounds i8, ptr %29, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 22
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 22
   %38 = load i8, ptr %37, align 2
   %39 = zext i8 %38 to i64
   %40 = getelementptr i8, ptr %36, i64 %39
-  %41 = getelementptr inbounds i8, ptr %40, i64 76
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 76
   %42 = load i8, ptr %41, align 4
   %43 = icmp eq i8 %42, 105
   %44 = select i1 %43, i16 10, i16 8
@@ -987,7 +987,7 @@ define dso_local i64 @pg_collation_actual_version(ptr nocapture noundef %0) loca
   br label %55
 
 53:                                               ; preds = %46
-  %54 = getelementptr inbounds i8, ptr %0, i64 28
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %54, align 4
   br label %55
 
@@ -1002,7 +1002,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @pg_import_system_collat
   %3 = alloca [128 x i16], align 16
   %4 = alloca [128 x i8], align 16
   %5 = alloca [128 x i8], align 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i64, ptr %6, align 8
   %8 = trunc i64 %7 to i32
   %9 = tail call zeroext i1 @superuser() #11
@@ -1204,9 +1204,9 @@ normalize_libc_locale_name.exit:                  ; preds = %72
   %92 = getelementptr %struct.CollAliasData, ptr %.2, i64 %91
   store ptr %90, ptr %92, align 8
   %93 = call ptr @pstrdup(ptr noundef nonnull %5) #11
-  %94 = getelementptr inbounds i8, ptr %92, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %92, i64 8
   store ptr %93, ptr %94, align 8
-  %95 = getelementptr inbounds i8, ptr %92, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %92, i64 16
   store i32 %50, ptr %95, align 8
   %96 = add i32 %.058.ph111, 1
   br label %.outer
@@ -1255,9 +1255,9 @@ normalize_libc_locale_name.exit:                  ; preds = %72
   %.187117 = phi i32 [ %.086.ph.lcssa, %.lr.ph120.preheader ], [ %.288, %115 ]
   %104 = getelementptr %struct.CollAliasData, ptr %.0.ph.lcssa, i64 %indvars.iv
   %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %104, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds i8, ptr %104, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %104, i64 16
   %109 = load i32, ptr %108, align 8
   %110 = call i32 @GetUserId() #11
   %111 = call ptr @get_collation_actual_version(i8 noundef signext 99, ptr noundef %105) #11

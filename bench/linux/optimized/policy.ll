@@ -21,13 +21,13 @@ define dso_local i32 @netlink_policy_dump_get_policy_idx(ptr nocapture noundef r
   br i1 %6, label %14, label %7, !prof !5
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %.loopexit, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = zext i32 %9 to i64
   br label %15
 
@@ -45,7 +45,7 @@ define dso_local i32 @netlink_policy_dump_get_policy_idx(ptr nocapture noundef r
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %17, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = icmp eq i32 %22, %2
   br i1 %23, label %27, label %24
@@ -89,7 +89,7 @@ define dso_local noundef i32 @netlink_policy_dump_add_policy(ptr nocapture nound
   br i1 %9, label %.thread, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 10, ptr %11, align 8
   %12 = icmp ugt ptr %8, inttoptr (i64 -4096 to ptr)
   br i1 %12, label %.thread, label %16
@@ -108,13 +108,13 @@ define dso_local noundef i32 @netlink_policy_dump_add_policy(ptr nocapture nound
   br i1 %20, label %21, label %.loopexit26
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %17, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %.loopexit28, label %25
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %17, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %27 = zext i32 %23 to i64
   br label %31
 
@@ -131,7 +131,7 @@ define dso_local noundef i32 @netlink_policy_dump_add_policy(ptr nocapture nound
   br i1 %35, label %36, label %40
 
 36:                                               ; preds = %31
-  %37 = getelementptr inbounds i8, ptr %33, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %38 = load i32, ptr %37, align 8
   %39 = icmp eq i32 %38, %2
   br i1 %39, label %.loopexit26, label %40
@@ -150,10 +150,10 @@ define dso_local noundef i32 @netlink_policy_dump_add_policy(ptr nocapture nound
   br i1 %47, label %.loopexit22, label %48
 
 48:                                               ; preds = %.loopexit28
-  %49 = getelementptr inbounds i8, ptr %46, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %50 = load i32, ptr %49, align 8
   store i32 %42, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %46, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %52 = zext i32 %50 to i64
   %53 = getelementptr [0 x %struct.anon], ptr %51, i64 0, i64 %52
   %54 = sub i32 %42, %50
@@ -166,20 +166,20 @@ define dso_local noundef i32 @netlink_policy_dump_add_policy(ptr nocapture nound
   %57 = phi ptr [ %53, %48 ], [ %33, %40 ]
   %58 = phi ptr [ %46, %48 ], [ %17, %40 ]
   store ptr %1, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %57, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store i32 %2, ptr %59, align 8
   br label %.loopexit26
 
 .loopexit26:                                      ; preds = %36, %16, %.loopexit27
   %.ph = phi ptr [ %58, %.loopexit27 ], [ %17, %16 ], [ %17, %36 ]
-  %60 = getelementptr inbounds i8, ptr %.ph, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %.ph, i64 8
   %61 = load i32, ptr %60, align 8
   %62 = icmp eq i32 %61, 0
   br i1 %62, label %.loopexit24, label %.preheader23
 
 63:                                               ; preds = %.thread19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %64 = getelementptr inbounds i8, ptr %129, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %129, i64 8
   %65 = load i32, ptr %64, align 8
   %66 = zext i32 %65 to i64
   %67 = icmp samesign ult i64 %indvars.iv.next, %66
@@ -188,7 +188,7 @@ define dso_local noundef i32 @netlink_policy_dump_add_policy(ptr nocapture nound
 .preheader23:                                     ; preds = %.loopexit26, %63
   %indvars.iv = phi i64 [ %indvars.iv.next, %63 ], [ 0, %.loopexit26 ]
   %68 = phi ptr [ %129, %63 ], [ %.ph, %.loopexit26 ]
-  %69 = getelementptr inbounds i8, ptr %68, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %70 = getelementptr [0 x %struct.anon], ptr %69, i64 0, i64 %indvars.iv
   %71 = load ptr, ptr %70, align 8
   %72 = icmp eq ptr %71, null
@@ -209,9 +209,9 @@ define dso_local noundef i32 @netlink_policy_dump_add_policy(ptr nocapture nound
   br i1 %80, label %81, label %.thread19
 
 81:                                               ; preds = %73
-  %82 = getelementptr inbounds i8, ptr %77, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %77, i64 2
+  %84 = getelementptr inbounds nuw i8, ptr %77, i64 2
   %85 = load i16, ptr %84, align 2
   %86 = zext i16 %85 to i32
   %87 = icmp ne ptr %83, null
@@ -220,14 +220,14 @@ define dso_local noundef i32 @netlink_policy_dump_add_policy(ptr nocapture nound
   br i1 %89, label %90, label %.thread19
 
 90:                                               ; preds = %81
-  %91 = getelementptr inbounds i8, ptr %75, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %92 = load i32, ptr %91, align 8
   %93 = icmp eq i32 %92, 0
   br i1 %93, label %.loopexit21, label %94
 
 94:                                               ; preds = %90
   %95 = zext i32 %92 to i64
-  %96 = getelementptr inbounds i8, ptr %75, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %75, i64 16
   br label %100
 
 97:                                               ; preds = %109
@@ -243,7 +243,7 @@ define dso_local noundef i32 @netlink_policy_dump_add_policy(ptr nocapture nound
   br i1 %104, label %105, label %109
 
 105:                                              ; preds = %100
-  %106 = getelementptr inbounds i8, ptr %102, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %102, i64 8
   %107 = load i32, ptr %106, align 8
   %108 = icmp eq i32 %107, %86
   br i1 %108, label %.thread19, label %109
@@ -262,10 +262,10 @@ define dso_local noundef i32 @netlink_policy_dump_add_policy(ptr nocapture nound
   br i1 %116, label %.loopexit22, label %117
 
 117:                                              ; preds = %.loopexit21
-  %118 = getelementptr inbounds i8, ptr %115, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %119 = load i32, ptr %118, align 8
   store i32 %111, ptr %118, align 8
-  %120 = getelementptr inbounds i8, ptr %115, i64 16
+  %120 = getelementptr inbounds nuw i8, ptr %115, i64 16
   %121 = zext i32 %119 to i64
   %122 = getelementptr [0 x %struct.anon], ptr %120, i64 0, i64 %121
   %123 = sub i32 %111, %119
@@ -278,7 +278,7 @@ define dso_local noundef i32 @netlink_policy_dump_add_policy(ptr nocapture nound
   %126 = phi ptr [ %122, %117 ], [ %102, %109 ]
   %127 = phi ptr [ %115, %117 ], [ %75, %109 ]
   store ptr %83, ptr %126, align 8
-  %128 = getelementptr inbounds i8, ptr %126, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %126, i64 8
   store i32 %86, ptr %128, align 8
   br label %.thread19
 
@@ -324,13 +324,13 @@ define dso_local void @netlink_policy_dump_free(ptr noundef %0) local_unnamed_ad
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
 define dso_local zeroext i1 @netlink_policy_dump_loop(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
   %2 = load i32, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp ult i32 %2, %4
   br i1 %5, label %6, label %12
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = zext i32 %2 to i64
   %9 = getelementptr [0 x %struct.anon], ptr %7, i64 0, i64 %8
   %10 = load ptr, ptr %9, align 8
@@ -449,9 +449,9 @@ define internal fastcc range(i32 -105, 1) i32 @__netlink_policy_dump_write_attr(
 netlink_policy_dump_attr_size_estimate.exit:      ; preds = %4, %21, %22, %23, %24, %25
   %26 = phi i32 [ 16, %25 ], [ 32, %24 ], [ 24, %23 ], [ 48, %22 ], [ 32, %21 ], [ 0, %4 ]
   %27 = or i32 %3, 32768
-  %28 = getelementptr inbounds i8, ptr %1, i64 192
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 184
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %31 = load i32, ptr %30, align 8
   %32 = zext i32 %31 to i64
   %33 = getelementptr i8, ptr %29, i64 %32
@@ -485,7 +485,7 @@ netlink_policy_dump_attr_size_estimate.exit:      ; preds = %4, %21, %22, %23, %
   ]
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds i8, ptr %1, i64 200
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %42 = load ptr, ptr %41, align 8
   %43 = icmp ugt ptr %42, %33
   br i1 %43, label %44, label %45, !prof !5
@@ -517,13 +517,13 @@ netlink_policy_dump_attr_size_estimate.exit:      ; preds = %4, %21, %22, %23, %
   br i1 %56, label %154, label %57
 
 57:                                               ; preds = %52
-  %58 = getelementptr inbounds i8, ptr %2, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %59, null
   br i1 %60, label %154, label %61
 
 61:                                               ; preds = %57
-  %62 = getelementptr inbounds i8, ptr %2, i64 2
+  %62 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %63 = load i16, ptr %62, align 2
   %64 = icmp eq i16 %63, 0
   br i1 %64, label %154, label %65
@@ -572,13 +572,13 @@ netlink_policy_dump_attr_size_estimate.exit:      ; preds = %4, %21, %22, %23, %
 
 80:                                               ; preds = %79, %78, %77, %76, %75
   %81 = phi i32 [ 3, %76 ], [ 4, %77 ], [ 5, %78 ], [ 17, %79 ], [ 2, %75 ]
-  %82 = getelementptr inbounds i8, ptr %2, i64 1
+  %82 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %83 = load i8, ptr %82, align 1
   %84 = icmp eq i8 %83, 5
   br i1 %84, label %85, label %90
 
 85:                                               ; preds = %80
-  %86 = getelementptr inbounds i8, ptr %2, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %87 = load i32, ptr %86, align 8
   %88 = zext i32 %87 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #7
@@ -598,7 +598,7 @@ netlink_policy_dump_attr_size_estimate.exit:      ; preds = %4, %21, %22, %23, %
   br i1 %93, label %94, label %171
 
 94:                                               ; preds = %90
-  %95 = getelementptr inbounds i8, ptr %17, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %96 = load i64, ptr %95, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #7
   store i64 %96, ptr %12, align 8
@@ -646,7 +646,7 @@ netlink_policy_dump_attr_size_estimate.exit:      ; preds = %4, %21, %22, %23, %
   br i1 %110, label %111, label %172
 
 111:                                              ; preds = %106
-  %112 = getelementptr inbounds i8, ptr %18, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %113 = load i64, ptr %112, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #7
   store i64 %113, ptr %10, align 8
@@ -657,7 +657,7 @@ netlink_policy_dump_attr_size_estimate.exit:      ; preds = %4, %21, %22, %23, %
   br i1 %115, label %154, label %173
 
 116:                                              ; preds = %38
-  %117 = getelementptr inbounds i8, ptr %2, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %118 = load i32, ptr %117, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #7
   store i32 %118, ptr %9, align 4
@@ -671,7 +671,7 @@ netlink_policy_dump_attr_size_estimate.exit:      ; preds = %4, %21, %22, %23, %
   %123 = select i1 %122, i32 12, i32 10
   %124 = icmp eq i8 %39, 5
   %125 = select i1 %124, i32 11, i32 %123
-  %126 = getelementptr inbounds i8, ptr %2, i64 1
+  %126 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %127 = load i8, ptr %126, align 1
   %128 = add i8 %127, -1
   %129 = icmp ult i8 %128, 2
@@ -695,7 +695,7 @@ netlink_policy_dump_attr_size_estimate.exit:      ; preds = %4, %21, %22, %23, %
   br i1 %136, label %137, label %.thread
 
 137:                                              ; preds = %133, %130
-  %138 = getelementptr inbounds i8, ptr %19, i64 8
+  %138 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %139 = load i64, ptr %138, align 8
   %140 = icmp ult i64 %139, 65535
   br i1 %140, label %141, label %145
@@ -718,7 +718,7 @@ netlink_policy_dump_attr_size_estimate.exit:      ; preds = %4, %21, %22, %23, %
   br label %154
 
 146:                                              ; preds = %121
-  %147 = getelementptr inbounds i8, ptr %2, i64 2
+  %147 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %148 = load i16, ptr %147, align 2
   %149 = icmp eq i16 %148, 0
   br i1 %149, label %154, label %150
@@ -771,7 +771,7 @@ netlink_policy_dump_attr_size_estimate.exit:      ; preds = %4, %21, %22, %23, %
   br label %173
 
 173:                                              ; preds = %.thread, %172, %171, %154, %150, %116, %111, %98, %70, %65
-  %174 = getelementptr inbounds i8, ptr %1, i64 200
+  %174 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %175 = load ptr, ptr %174, align 8
   %176 = icmp ugt ptr %175, %33
   br i1 %176, label %177, label %178, !prof !5
@@ -799,12 +799,12 @@ netlink_policy_dump_attr_size_estimate.exit:      ; preds = %4, %21, %22, %23, %
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -105, 1) i32 @netlink_policy_dump_write(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
-  %4 = getelementptr inbounds i8, ptr %1, i64 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 192
-  %6 = getelementptr inbounds i8, ptr %0, i64 184
-  %7 = getelementptr inbounds i8, ptr %0, i64 200
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load i32, ptr %1, align 8
   %.phi.trans.insert = zext i32 %.pre to i64
   %.phi.trans.insert5 = getelementptr [0 x %struct.anon], ptr %3, i64 0, i64 %.phi.trans.insert

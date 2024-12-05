@@ -20,7 +20,7 @@ define hidden noundef zeroext i1 @_ZNK16LogSelectionList17verify_selectionsEP12o
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = icmp eq ptr %1, null
   br i1 %5, label %.lr.ph.split.us, label %.lr.ph.split
 
@@ -97,7 +97,7 @@ define hidden noundef zeroext i1 @_ZN16LogSelectionList5parseEPKcP12outputStream
   br i1 %.not27, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %12
 
 12:                                               ; preds = %.lr.ph, %22
@@ -134,7 +134,7 @@ define hidden noundef zeroext i1 @_ZN16LogSelectionList5parseEPKcP12outputStream
   store i64 %24, ptr %0, align 8
   %25 = getelementptr inbounds [320 x %class.LogSelection], ptr %11, i64 0, i64 %23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %25, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false)
-  %26 = getelementptr inbounds i8, ptr %18, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %18, i64 1
   br i1 %.not23, label %.loopexit.loopexit, label %12, !llvm.loop !8
 
 .loopexit.loopexit:                               ; preds = %20, %22
@@ -170,7 +170,7 @@ define hidden noundef i32 @_ZNK16LogSelectionList9level_forERK9LogTagSet(ptr nou
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %5
 
 5:                                                ; preds = %.lr.ph, %10

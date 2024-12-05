@@ -84,18 +84,18 @@ $_ZTV17LogStreamImplBase = comdat any
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9metaspace12ChunkManager26return_chunk_simple_lockedEPNS_9MetachunkE(ptr nocapture noundef nonnull align 8 dereferenceable(376) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i8, ptr %4, align 8
   %6 = sext i8 %5 to i64
   %7 = getelementptr inbounds %"class.metaspace::FreeChunkList", ptr %3, i64 %6
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %11, label %22
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %17
@@ -103,17 +103,17 @@ define hidden void @_ZN9metaspace12ChunkManager26return_chunk_simple_lockedEPNS_
 15:                                               ; preds = %11
   store ptr %1, ptr %7, align 8
   store ptr %1, ptr %12, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   br label %_ZN9metaspace19FreeChunkListVector3addEPNS_9MetachunkE.exit
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %1, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store ptr null, ptr %18, align 8
   %19 = load ptr, ptr %12, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store ptr %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %19, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 48
   store ptr %1, ptr %21, align 8
   store ptr %1, ptr %12, align 8
   br label %_ZN9metaspace19FreeChunkListVector3addEPNS_9MetachunkE.exit
@@ -124,37 +124,37 @@ define hidden void @_ZN9metaspace12ChunkManager26return_chunk_simple_lockedEPNS_
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %7, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %1, ptr %26, align 8
   store ptr %1, ptr %7, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
   br label %_ZN9metaspace19FreeChunkListVector3addEPNS_9MetachunkE.exit
 
 28:                                               ; preds = %22
-  %29 = getelementptr inbounds i8, ptr %1, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store ptr %23, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store ptr null, ptr %30, align 8
   %31 = load ptr, ptr %7, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 40
   store ptr %1, ptr %32, align 8
   store ptr %1, ptr %7, align 8
   br label %_ZN9metaspace19FreeChunkListVector3addEPNS_9MetachunkE.exit
 
 _ZN9metaspace19FreeChunkListVector3addEPNS_9MetachunkE.exit: ; preds = %15, %17, %25, %28
-  %33 = getelementptr inbounds i8, ptr %7, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %34 = load i32, ptr %33, align 8
   %35 = add i32 %34, 1
   store i32 %35, ptr %33, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 0, ptr %36, align 8
-  %37 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %37 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %37, null
   br i1 %.not, label %48, label %38
 
 38:                                               ; preds = %_ZN9metaspace19FreeChunkListVector3addEPNS_9MetachunkE.exit
-  %39 = getelementptr inbounds i8, ptr %0, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = ptrtoint ptr %1 to i64
   %42 = tail call noundef signext i8 @_ZNK9metaspace9Metachunk14get_state_charEv(ptr noundef nonnull align 8 dereferenceable(72) %1) #10
@@ -184,15 +184,15 @@ declare noundef signext i8 @_ZNK9metaspace9Metachunk14get_state_charEv(ptr nound
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
 define hidden void @_ZN9metaspace12ChunkManagerC2EPKcPNS_16VirtualSpaceListE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(376) initializes((0, 376)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 align 2 {
   store ptr %2, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(360) %5, i8 0, i64 360, i1 false)
   br label %6
 
 6:                                                ; preds = %6, %3
   %.idx.i = phi i64 [ 0, %3 ], [ %.add.i, %6 ]
-  %.ptr.i = getelementptr inbounds i8, ptr %5, i64 %.idx.i
+  %.ptr.i = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.ptr.i, i8 0, i64 20, i1 false)
   %.add.i = add nuw nsw i64 %.idx.i, 24
   %7 = icmp eq i64 %.add.i, 360
@@ -207,20 +207,20 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9metaspace12ChunkManager29split_chunk_and_add_splintersEPNS_9MetachunkEa(ptr noundef nonnull align 8 dereferenceable(376) %0, ptr noundef %1, i8 noundef signext %2) local_unnamed_addr #0 align 2 {
-  %4 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %18, label %5
 
 5:                                                ; preds = %3
   %6 = ptrtoint ptr %0 to i64
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %1 to i64
   %10 = tail call noundef signext i8 @_ZNK9metaspace9Metachunk14get_state_charEv(ptr noundef nonnull align 8 dereferenceable(72) %1) #10
   %11 = sext i8 %10 to i32
   %12 = load ptr, ptr %1, align 8
   %13 = ptrtoint ptr %12 to i64
-  %14 = getelementptr inbounds i8, ptr %1, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load i8, ptr %14, align 8
   %16 = sext i8 %15 to i32
   %17 = sext i8 %2 to i32
@@ -228,9 +228,9 @@ define hidden void @_ZN9metaspace12ChunkManager29split_chunk_and_add_splintersEP
   br label %18
 
 18:                                               ; preds = %3, %5
-  %19 = getelementptr inbounds i8, ptr %1, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN9metaspace16VirtualSpaceNode5splitEaPNS_9MetachunkEPNS_19FreeChunkListVectorE(ptr noundef nonnull align 8 dereferenceable(192) %20, i8 noundef signext %2, ptr noundef nonnull %1, ptr noundef nonnull %21) #10
   %22 = load i64, ptr @_ZN9metaspace13InternalStats17_num_chunk_splitsE, align 8
   %23 = add i64 %22, 1
@@ -263,7 +263,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerC2E
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN9metaspace12ChunkManager16get_chunk_lockedEaam(ptr noundef nonnull align 8 dereferenceable(376) %0, i8 noundef signext %1, i8 noundef signext %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
-  %5 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %5 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %._crit_edge, label %6
 
@@ -273,7 +273,7 @@ define hidden noundef ptr @_ZN9metaspace12ChunkManager16get_chunk_lockedEaam(ptr
 
 6:                                                ; preds = %4
   %7 = ptrtoint ptr %0 to i64
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = sext i8 %1 to i32
   %11 = sext i8 %2 to i32
@@ -282,7 +282,7 @@ define hidden noundef ptr @_ZN9metaspace12ChunkManager16get_chunk_lockedEaam(ptr
 
 12:                                               ; preds = %._crit_edge, %6
   %.pre-phi = phi i32 [ %.pre, %._crit_edge ], [ %10, %6 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = add i8 %1, 2
   %15 = tail call noundef i8 @llvm.smin.i8(i8 %14, i8 %2)
   %16 = tail call noundef ptr @_ZN9metaspace19FreeChunkListVector22search_chunk_ascendingEaam(ptr noundef nonnull align 8 dereferenceable(360) %13, i8 noundef signext %1, i8 noundef signext %15, i64 noundef %3) #10
@@ -311,13 +311,13 @@ define hidden noundef ptr @_ZN9metaspace12ChunkManager16get_chunk_lockedEaam(ptr
 
 .thread58.thread:                                 ; preds = %12, %18, %21, %24, %.thread58
   %.380 = phi ptr [ %27, %.thread58 ], [ %16, %12 ], [ %19, %18 ], [ %22, %21 ], [ %25, %24 ]
-  %28 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %28 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not72 = icmp eq ptr %28, null
   br i1 %.not72, label %56, label %29
 
 29:                                               ; preds = %.thread58.thread
   %30 = ptrtoint ptr %0 to i64
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %32 = load ptr, ptr %31, align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.6, i64 noundef %30, ptr noundef %32)
   br label %56
@@ -329,37 +329,37 @@ define hidden noundef ptr @_ZN9metaspace12ChunkManager16get_chunk_lockedEaam(ptr
   br i1 %36, label %37, label %43
 
 37:                                               ; preds = %33
-  %38 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %38 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not76 = icmp eq ptr %38, null
   br i1 %.not76, label %49, label %39
 
 39:                                               ; preds = %37
   %40 = ptrtoint ptr %0 to i64
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %42 = load ptr, ptr %41, align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.7, i64 noundef %40, ptr noundef %42)
   br label %49
 
 43:                                               ; preds = %33
-  %44 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %44 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not73 = icmp eq ptr %44, null
   br i1 %.not73, label %56, label %45
 
 45:                                               ; preds = %43
   %46 = ptrtoint ptr %0 to i64
-  %47 = getelementptr inbounds i8, ptr %0, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %48 = load ptr, ptr %47, align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.8, i64 noundef %46, ptr noundef %48)
   br label %56
 
 49:                                               ; preds = %39, %37
-  %50 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %50 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not77 = icmp eq ptr %50, null
   br i1 %.not77, label %.thread64, label %51
 
 51:                                               ; preds = %49
   %52 = ptrtoint ptr %0 to i64
-  %53 = getelementptr inbounds i8, ptr %0, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %54 = load ptr, ptr %53, align 8
   %55 = sext i8 %2 to i32
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.9, i64 noundef %52, ptr noundef %54, i32 noundef %.pre-phi, i32 noundef %55)
@@ -367,19 +367,19 @@ define hidden noundef ptr @_ZN9metaspace12ChunkManager16get_chunk_lockedEaam(ptr
 
 56:                                               ; preds = %.thread58.thread, %29, %43, %45
   %.4.ph = phi ptr [ %35, %43 ], [ %35, %45 ], [ %.380, %29 ], [ %.380, %.thread58.thread ]
-  %57 = getelementptr inbounds i8, ptr %.4.ph, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %.4.ph, i64 24
   %58 = load i8, ptr %57, align 8
   %59 = icmp slt i8 %58, %1
   br i1 %59, label %60, label %77
 
 60:                                               ; preds = %56
-  %61 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %61 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i = icmp eq ptr %61, null
   br i1 %.not.i, label %_ZN9metaspace12ChunkManager29split_chunk_and_add_splintersEPNS_9MetachunkEa.exit, label %62
 
 62:                                               ; preds = %60
   %63 = ptrtoint ptr %0 to i64
-  %64 = getelementptr inbounds i8, ptr %0, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %65 = load ptr, ptr %64, align 8
   %66 = ptrtoint ptr %.4.ph to i64
   %67 = tail call noundef signext i8 @_ZNK9metaspace9Metachunk14get_state_charEv(ptr noundef nonnull align 8 dereferenceable(72) %.4.ph) #10
@@ -392,7 +392,7 @@ define hidden noundef ptr @_ZN9metaspace12ChunkManager16get_chunk_lockedEaam(ptr
   br label %_ZN9metaspace12ChunkManager29split_chunk_and_add_splintersEPNS_9MetachunkEa.exit
 
 _ZN9metaspace12ChunkManager29split_chunk_and_add_splintersEPNS_9MetachunkEa.exit: ; preds = %60, %62
-  %73 = getelementptr inbounds i8, ptr %.4.ph, i64 32
+  %73 = getelementptr inbounds nuw i8, ptr %.4.ph, i64 32
   %74 = load ptr, ptr %73, align 8
   tail call void @_ZN9metaspace16VirtualSpaceNode5splitEaPNS_9MetachunkEPNS_19FreeChunkListVectorE(ptr noundef nonnull align 8 dereferenceable(192) %74, i8 noundef signext %1, ptr noundef nonnull %.4.ph, ptr noundef nonnull %13) #10
   %75 = load i64, ptr @_ZN9metaspace13InternalStats17_num_chunk_splitsE, align 8
@@ -401,7 +401,7 @@ _ZN9metaspace12ChunkManager29split_chunk_and_add_splintersEPNS_9MetachunkEa.exit
   br label %77
 
 77:                                               ; preds = %_ZN9metaspace12ChunkManager29split_chunk_and_add_splintersEPNS_9MetachunkEa.exit, %56
-  %78 = getelementptr inbounds i8, ptr %.4.ph, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %.4.ph, i64 16
   %79 = load i64, ptr %78, align 8
   %80 = icmp ult i64 %79, %3
   br i1 %80, label %81, label %97
@@ -411,13 +411,13 @@ _ZN9metaspace12ChunkManager29split_chunk_and_add_splintersEPNS_9MetachunkEa.exit
   br i1 %82, label %97, label %83
 
 83:                                               ; preds = %81
-  %84 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %84 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not74 = icmp eq ptr %84, null
   br i1 %.not74, label %96, label %85
 
 85:                                               ; preds = %83
   %86 = ptrtoint ptr %0 to i64
-  %87 = getelementptr inbounds i8, ptr %0, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %88 = load ptr, ptr %87, align 8
   %89 = ptrtoint ptr %.4.ph to i64
   %90 = tail call noundef signext i8 @_ZNK9metaspace9Metachunk14get_state_charEv(ptr noundef nonnull align 8 dereferenceable(72) %.4.ph) #10
@@ -434,15 +434,15 @@ _ZN9metaspace12ChunkManager29split_chunk_and_add_splintersEPNS_9MetachunkEa.exit
   br label %.thread64
 
 97:                                               ; preds = %81, %77
-  %98 = getelementptr inbounds i8, ptr %.4.ph, i64 25
+  %98 = getelementptr inbounds nuw i8, ptr %.4.ph, i64 25
   store i8 1, ptr %98, align 1
-  %99 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %99 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not75 = icmp eq ptr %99, null
   br i1 %.not75, label %111, label %100
 
 100:                                              ; preds = %97
   %101 = ptrtoint ptr %0 to i64
-  %102 = getelementptr inbounds i8, ptr %0, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %103 = load ptr, ptr %102, align 8
   %104 = ptrtoint ptr %.4.ph to i64
   %105 = tail call noundef signext i8 @_ZNK9metaspace9Metachunk14get_state_charEv(ptr noundef nonnull align 8 dereferenceable(72) %.4.ph) #10
@@ -493,39 +493,39 @@ declare noundef zeroext i1 @_ZN9metaspace9Metachunk23ensure_committed_lockedEm(p
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9metaspace12ChunkManager19return_chunk_lockedEPNS_9MetachunkE(ptr noundef nonnull align 8 dereferenceable(376) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not21 = icmp eq ptr %3, null
   br i1 %.not21, label %16, label %4
 
 4:                                                ; preds = %2
   %5 = ptrtoint ptr %0 to i64
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = ptrtoint ptr %1 to i64
   %9 = tail call noundef signext i8 @_ZNK9metaspace9Metachunk14get_state_charEv(ptr noundef nonnull align 8 dereferenceable(72) %1) #10
   %10 = sext i8 %9 to i32
   %11 = load ptr, ptr %1, align 8
   %12 = ptrtoint ptr %11 to i64
-  %13 = getelementptr inbounds i8, ptr %1, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %14 = load i8, ptr %13, align 8
   %15 = sext i8 %14 to i32
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.12, i64 noundef %5, ptr noundef %7, i64 noundef %8, i32 noundef %10, i64 noundef %12, i32 noundef %15)
   br label %16
 
 16:                                               ; preds = %2, %4
-  %17 = getelementptr inbounds i8, ptr %1, i64 25
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 25
   store i8 0, ptr %17, align 1
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 0, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %20 = load i8, ptr %19, align 8
   %21 = icmp eq i8 %20, 0
   br i1 %21, label %.thread, label %22
 
 22:                                               ; preds = %16
-  %23 = getelementptr inbounds i8, ptr %1, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = tail call noundef ptr @_ZN9metaspace16VirtualSpaceNode5mergeEPNS_9MetachunkEPNS_19FreeChunkListVectorE(ptr noundef nonnull align 8 dereferenceable(192) %24, ptr noundef nonnull %1, ptr noundef nonnull %25) #10
   %.not = icmp eq ptr %26, null
   br i1 %.not, label %.thread, label %27
@@ -534,20 +534,20 @@ define hidden void @_ZN9metaspace12ChunkManager19return_chunk_lockedEPNS_9Metach
   %28 = load i64, ptr @_ZN9metaspace13InternalStats17_num_chunk_mergesE, align 8
   %29 = add i64 %28, 1
   store i64 %29, ptr @_ZN9metaspace13InternalStats17_num_chunk_mergesE, align 8
-  %30 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %30 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not22 = icmp eq ptr %30, null
   br i1 %.not22, label %.thread, label %31
 
 31:                                               ; preds = %27
   %32 = ptrtoint ptr %0 to i64
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = ptrtoint ptr %26 to i64
   %36 = tail call noundef signext i8 @_ZNK9metaspace9Metachunk14get_state_charEv(ptr noundef nonnull align 8 dereferenceable(72) %26) #10
   %37 = sext i8 %36 to i32
   %38 = load ptr, ptr %26, align 8
   %39 = ptrtoint ptr %38 to i64
-  %40 = getelementptr inbounds i8, ptr %26, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %41 = load i8, ptr %40, align 8
   %42 = sext i8 %41 to i32
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.13, i64 noundef %32, ptr noundef %34, i64 noundef %35, i32 noundef %37, i64 noundef %39, i32 noundef %42)
@@ -555,18 +555,18 @@ define hidden void @_ZN9metaspace12ChunkManager19return_chunk_lockedEPNS_9Metach
 
 .thread:                                          ; preds = %16, %31, %27, %22
   %.018 = phi ptr [ %1, %22 ], [ %26, %27 ], [ %26, %31 ], [ %1, %16 ]
-  %43 = getelementptr inbounds i8, ptr %0, i64 16
-  %44 = getelementptr inbounds i8, ptr %.018, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %.018, i64 24
   %45 = load i8, ptr %44, align 8
   %46 = sext i8 %45 to i64
   %47 = getelementptr inbounds %"class.metaspace::FreeChunkList", ptr %43, i64 %46
-  %48 = getelementptr inbounds i8, ptr %.018, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %.018, i64 16
   %49 = load i64, ptr %48, align 8
   %50 = icmp eq i64 %49, 0
   br i1 %50, label %51, label %62
 
 51:                                               ; preds = %.thread
-  %52 = getelementptr inbounds i8, ptr %47, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %53, null
   br i1 %54, label %55, label %57
@@ -574,17 +574,17 @@ define hidden void @_ZN9metaspace12ChunkManager19return_chunk_lockedEPNS_9Metach
 55:                                               ; preds = %51
   store ptr %.018, ptr %47, align 8
   store ptr %.018, ptr %52, align 8
-  %56 = getelementptr inbounds i8, ptr %.018, i64 40
+  %56 = getelementptr inbounds nuw i8, ptr %.018, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %56, i8 0, i64 16, i1 false)
   br label %_ZN9metaspace19FreeChunkListVector3addEPNS_9MetachunkE.exit.i
 
 57:                                               ; preds = %51
-  %58 = getelementptr inbounds i8, ptr %.018, i64 48
+  %58 = getelementptr inbounds nuw i8, ptr %.018, i64 48
   store ptr null, ptr %58, align 8
   %59 = load ptr, ptr %52, align 8
-  %60 = getelementptr inbounds i8, ptr %.018, i64 40
+  %60 = getelementptr inbounds nuw i8, ptr %.018, i64 40
   store ptr %59, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %59, i64 48
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 48
   store ptr %.018, ptr %61, align 8
   store ptr %.018, ptr %52, align 8
   br label %_ZN9metaspace19FreeChunkListVector3addEPNS_9MetachunkE.exit.i
@@ -595,37 +595,37 @@ define hidden void @_ZN9metaspace12ChunkManager19return_chunk_lockedEPNS_9Metach
   br i1 %64, label %65, label %68
 
 65:                                               ; preds = %62
-  %66 = getelementptr inbounds i8, ptr %47, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store ptr %.018, ptr %66, align 8
   store ptr %.018, ptr %47, align 8
-  %67 = getelementptr inbounds i8, ptr %.018, i64 40
+  %67 = getelementptr inbounds nuw i8, ptr %.018, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, i8 0, i64 16, i1 false)
   br label %_ZN9metaspace19FreeChunkListVector3addEPNS_9MetachunkE.exit.i
 
 68:                                               ; preds = %62
-  %69 = getelementptr inbounds i8, ptr %.018, i64 48
+  %69 = getelementptr inbounds nuw i8, ptr %.018, i64 48
   store ptr %63, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %.018, i64 40
+  %70 = getelementptr inbounds nuw i8, ptr %.018, i64 40
   store ptr null, ptr %70, align 8
   %71 = load ptr, ptr %47, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 40
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 40
   store ptr %.018, ptr %72, align 8
   store ptr %.018, ptr %47, align 8
   br label %_ZN9metaspace19FreeChunkListVector3addEPNS_9MetachunkE.exit.i
 
 _ZN9metaspace19FreeChunkListVector3addEPNS_9MetachunkE.exit.i: ; preds = %68, %65, %57, %55
-  %73 = getelementptr inbounds i8, ptr %47, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %74 = load i32, ptr %73, align 8
   %75 = add i32 %74, 1
   store i32 %75, ptr %73, align 8
-  %76 = getelementptr inbounds i8, ptr %.018, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %.018, i64 8
   store i64 0, ptr %76, align 8
-  %77 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %77 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i = icmp eq ptr %77, null
   br i1 %.not.i, label %_ZN9metaspace12ChunkManager26return_chunk_simple_lockedEPNS_9MetachunkE.exit, label %78
 
 78:                                               ; preds = %_ZN9metaspace19FreeChunkListVector3addEPNS_9MetachunkE.exit.i
-  %79 = getelementptr inbounds i8, ptr %0, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %80 = load ptr, ptr %79, align 8
   %81 = ptrtoint ptr %.018 to i64
   %82 = tail call noundef signext i8 @_ZNK9metaspace9Metachunk14get_state_charEv(ptr noundef nonnull align 8 dereferenceable(72) %.018) #10
@@ -673,17 +673,17 @@ define hidden noundef zeroext i1 @_ZN9metaspace12ChunkManager21attempt_enlarge_c
   br i1 %.not.i.i, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread, label %8
 
 _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread: ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %1, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = tail call noundef zeroext i1 @_ZN9metaspace16VirtualSpaceNode21attempt_enlarge_chunkEPNS_9MetachunkEPNS_19FreeChunkListVectorE(ptr noundef nonnull align 8 dereferenceable(192) %5, ptr noundef nonnull %1, ptr noundef nonnull %6) #10
   br label %_ZN11MutexLockerD2Ev.exit
 
 8:                                                ; preds = %2
   tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %3) #10
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = tail call noundef zeroext i1 @_ZN9metaspace16VirtualSpaceNode21attempt_enlarge_chunkEPNS_9MetachunkEPNS_19FreeChunkListVectorE(ptr noundef nonnull align 8 dereferenceable(192) %10, ptr noundef nonnull %1, ptr noundef nonnull %11) #10
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %3) #10
   br label %_ZN11MutexLockerD2Ev.exit
@@ -707,29 +707,29 @@ define hidden void @_ZN9metaspace12ChunkManager5purgeEv(ptr noundef nonnull alig
   br label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
 
 _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %1, %4
-  %5 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %5 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not18 = icmp eq ptr %5, null
   br i1 %.not18, label %10, label %6
 
 6:                                                ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
   %7 = ptrtoint ptr %0 to i64
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.14, i64 noundef %7, ptr noundef %9)
   br label %10
 
 10:                                               ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, %6
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %15 = load i64, ptr %14, align 8
   %16 = tail call noundef signext i8 @_ZN9metaspace10chunklevel23level_fitting_word_sizeEm(i64 noundef 8192) #10
   %.not24 = icmp slt i8 %16, 0
   br i1 %.not24, label %._crit_edge28, label %.lr.ph27
 
 .lr.ph27:                                         ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %18
 
 18:                                               ; preds = %.lr.ph27, %._crit_edge
@@ -743,7 +743,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %1, %4
 .lr.ph:                                           ; preds = %18, %.lr.ph
   %.01523 = phi ptr [ %.015, %.lr.ph ], [ %.01521, %18 ]
   tail call void @_ZN9metaspace9Metachunk15uncommit_lockedEv(ptr noundef nonnull align 8 dereferenceable(72) %.01523) #10
-  %21 = getelementptr inbounds i8, ptr %.01523, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %.01523, i64 48
   %.015 = load ptr, ptr %21, align 8
   %.not16 = icmp eq ptr %.015, null
   br i1 %.not16, label %._crit_edge, label %.lr.ph, !llvm.loop !6
@@ -755,14 +755,14 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %1, %4
 
 ._crit_edge28:                                    ; preds = %._crit_edge, %10
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 40
   %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %23, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 48
   %27 = load i64, ptr %26, align 8
   %28 = icmp eq i64 %25, %13
   %29 = icmp eq i64 %27, %15
   %or.cond = and i1 %28, %29
-  %30 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %30 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not20 = icmp eq ptr %30, null
   br i1 %or.cond, label %31, label %36
 
@@ -771,7 +771,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %1, %4
 
 32:                                               ; preds = %31
   %33 = ptrtoint ptr %0 to i64
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load ptr, ptr %34, align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.15, i64 noundef %33, ptr noundef %35)
   br label %43
@@ -782,15 +782,15 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %1, %4
 37:                                               ; preds = %36
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %2, i1 noundef zeroext false) #10
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %2, align 8
-  %38 = getelementptr inbounds i8, ptr %2, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %38) #10
-  %39 = getelementptr inbounds i8, ptr %2, i64 144
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 144
   store i32 3, ptr %39, align 8
-  %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %2, i64 152
+  %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i, align 8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %2, align 8
   %40 = ptrtoint ptr %0 to i64
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %42 = load ptr, ptr %41, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.16, i64 noundef %40, ptr noundef %42) #10
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.17) #10
@@ -870,7 +870,7 @@ define hidden noundef ptr @_ZN9metaspace12ChunkManager18chunkmanager_classEv() l
   br i1 %2, label %6, label %3
 
 3:                                                ; preds = %0
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   br label %6
 
@@ -886,7 +886,7 @@ define hidden noundef ptr @_ZN9metaspace12ChunkManager21chunkmanager_nonclassEv(
   br i1 %2, label %6, label %3
 
 3:                                                ; preds = %0
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   br label %6
 
@@ -902,13 +902,13 @@ define hidden noundef i64 @_ZNK9metaspace12ChunkManager24calc_committed_word_siz
   br i1 %.not.i.i, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread, label %5
 
 _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread: ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = tail call noundef i64 @_ZNK9metaspace19FreeChunkListVector24calc_committed_word_sizeEv(ptr noundef nonnull align 8 dereferenceable(360) %3) #10
   br label %_ZN11MutexLockerD2Ev.exit
 
 5:                                                ; preds = %1
   tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %2) #10
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = tail call noundef i64 @_ZNK9metaspace19FreeChunkListVector24calc_committed_word_sizeEv(ptr noundef nonnull align 8 dereferenceable(360) %6) #10
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %2) #10
   br label %_ZN11MutexLockerD2Ev.exit
@@ -920,7 +920,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerC2E
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZNK9metaspace12ChunkManager31calc_committed_word_size_lockedEv(ptr noundef nonnull align 8 dereferenceable(376) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = tail call noundef i64 @_ZNK9metaspace19FreeChunkListVector24calc_committed_word_sizeEv(ptr noundef nonnull align 8 dereferenceable(360) %2) #10
   ret i64 %3
 }
@@ -938,23 +938,23 @@ define hidden void @_ZNK9metaspace12ChunkManager17add_to_statisticsEPNS_17ChunkM
   br label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
 
 _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %2, %4
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %invariant.gep = getelementptr inbounds i8, ptr %0, i64 32
-  %6 = getelementptr inbounds i8, ptr %1, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 64
   br label %7
 
 7:                                                ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, %7
   %indvars.iv = phi i64 [ 0, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit ], [ %indvars.iv.next, %7 ]
   %.idx = mul nuw nsw i64 %indvars.iv, 24
-  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %.idx
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx
   %8 = load i32, ptr %gep, align 8
-  %9 = getelementptr inbounds [15 x i32], ptr %1, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [15 x i32], ptr %1, i64 0, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
   %11 = add nsw i32 %10, %8
   store i32 %11, ptr %9, align 4
   %12 = trunc nuw nsw i64 %indvars.iv to i8
   %13 = tail call noundef i64 @_ZNK9metaspace19FreeChunkListVector33calc_committed_word_size_at_levelEa(ptr noundef nonnull align 8 dereferenceable(360) %5, i8 noundef signext %12) #10
-  %14 = getelementptr inbounds [15 x i64], ptr %6, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [15 x i64], ptr %6, i64 0, i64 %indvars.iv
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, %13
   store i64 %16, ptr %14, align 8
@@ -983,9 +983,9 @@ define hidden void @_ZNK9metaspace12ChunkManager8print_onEP12outputStream(ptr no
 
 _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %2
   tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %3) #10
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = tail call noundef i32 @_ZNK9metaspace19FreeChunkListVector10num_chunksEv(ptr noundef nonnull align 8 dereferenceable(360) %6) #10
   %8 = tail call noundef i64 @_ZNK9metaspace19FreeChunkListVector9word_sizeEv(ptr noundef nonnull align 8 dereferenceable(360) %6) #10
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.19, ptr noundef %5, i32 noundef %7, i64 noundef %8) #10
@@ -994,9 +994,9 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %2
   br label %_ZN11MutexLockerD2Ev.exit
 
 _ZN11MutexLockerD2Ev.exit.critedge:               ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = tail call noundef i32 @_ZNK9metaspace19FreeChunkListVector10num_chunksEv(ptr noundef nonnull align 8 dereferenceable(360) %11) #10
   %13 = tail call noundef i64 @_ZNK9metaspace19FreeChunkListVector9word_sizeEv(ptr noundef nonnull align 8 dereferenceable(360) %11) #10
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.19, ptr noundef %10, i32 noundef %12, i64 noundef %13) #10
@@ -1009,9 +1009,9 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerD2E
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK9metaspace12ChunkManager15print_on_lockedEP12outputStream(ptr noundef nonnull align 8 dereferenceable(376) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = tail call noundef i32 @_ZNK9metaspace19FreeChunkListVector10num_chunksEv(ptr noundef nonnull align 8 dereferenceable(360) %5) #10
   %7 = tail call noundef i64 @_ZNK9metaspace19FreeChunkListVector9word_sizeEv(ptr noundef nonnull align 8 dereferenceable(360) %5) #10
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.19, ptr noundef %4, i32 noundef %6, i64 noundef %7) #10
@@ -1092,7 +1092,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN17LogStreamImplBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZN17LogStreamImplBase10LineBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %2) #10
   ret void
 }

@@ -86,9 +86,9 @@ define { i64, i64 } @softfloat_mulAddF128(i64 noundef %0, i64 noundef %1, i64 no
 50:                                               ; preds = %48
   call void @softfloat_normSubnormalF128Sig(ptr dead_on_unwind nonnull writable sret(%struct.exp32_sig128) align 8 %10, i64 noundef %15, i64 noundef %1) #4
   %.sroa.0121.0.copyload = load i64, ptr %10, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.sroa.6.sroa.0.0.copyload = load i64, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.6.sroa.6.0..sroa.6.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %10, i64 16
+  %.sroa.6.sroa.6.0..sroa.6.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 16
   %.sroa.6.sroa.6.0.copyload = load i64, ptr %.sroa.6.sroa.6.0..sroa.6.0..sroa_idx.sroa_idx, align 8
   br label %51
 
@@ -107,9 +107,9 @@ define { i64, i64 } @softfloat_mulAddF128(i64 noundef %0, i64 noundef %1, i64 no
 54:                                               ; preds = %52
   call void @softfloat_normSubnormalF128Sig(ptr dead_on_unwind nonnull writable sret(%struct.exp32_sig128) align 8 %11, i64 noundef %18, i64 noundef %3) #4
   %.sroa.0121.0.copyload124 = load i64, ptr %11, align 8
-  %.sroa.6.0..sroa_idx126 = getelementptr inbounds i8, ptr %11, i64 8
+  %.sroa.6.0..sroa_idx126 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.sroa.6.sroa.0.0.copyload159 = load i64, ptr %.sroa.6.0..sroa_idx126, align 8
-  %.sroa.6.sroa.6.0..sroa.6.0..sroa_idx126.sroa_idx = getelementptr inbounds i8, ptr %11, i64 16
+  %.sroa.6.sroa.6.0..sroa.6.0..sroa_idx126.sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 16
   %.sroa.6.sroa.6.0.copyload163 = load i64, ptr %.sroa.6.sroa.6.0..sroa.6.0..sroa_idx126.sroa_idx, align 8
   br label %55
 
@@ -125,9 +125,9 @@ define { i64, i64 } @softfloat_mulAddF128(i64 noundef %0, i64 noundef %1, i64 no
   %61 = or i64 %60, -9223372036854775808
   %62 = shl i64 %.sroa.0179.0, 15
   call void @softfloat_mul128To256M(i64 noundef %58, i64 noundef %59, i64 noundef %61, i64 noundef %62, ptr noundef nonnull %8) #4
-  %63 = getelementptr inbounds i8, ptr %8, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %64 = load i64, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %8, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %66 = load i64, ptr %65, align 16
   %67 = and i64 %64, 72057594037927936
   %.not275.not.not = icmp eq i64 %67, 0
@@ -149,9 +149,9 @@ define { i64, i64 } @softfloat_mulAddF128(i64 noundef %0, i64 noundef %1, i64 no
 72:                                               ; preds = %68
   call void @softfloat_normSubnormalF128Sig(ptr dead_on_unwind nonnull writable sret(%struct.exp32_sig128) align 8 %12, i64 noundef %24, i64 noundef %5) #4
   %.sroa.0121.0.copyload125 = load i64, ptr %12, align 8
-  %.sroa.6.0..sroa_idx127 = getelementptr inbounds i8, ptr %12, i64 8
+  %.sroa.6.0..sroa_idx127 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.6.sroa.0.0.copyload160 = load i64, ptr %.sroa.6.0..sroa_idx127, align 8
-  %.sroa.6.sroa.6.0..sroa.6.0..sroa_idx127.sroa_idx = getelementptr inbounds i8, ptr %12, i64 16
+  %.sroa.6.sroa.6.0..sroa.6.0..sroa_idx127.sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
   %.sroa.6.sroa.6.0.copyload164 = load i64, ptr %.sroa.6.sroa.6.0..sroa.6.0..sroa_idx127.sroa_idx, align 8
   br label %73
 
@@ -187,7 +187,7 @@ define { i64, i64 } @softfloat_mulAddF128(i64 noundef %0, i64 noundef %1, i64 no
   br i1 %.not275.not.not, label %106, label %89
 
 89:                                               ; preds = %88
-  %90 = getelementptr inbounds i8, ptr %8, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %91 = load i64, ptr %90, align 8
   %92 = load i64, ptr %8, align 16
   %93 = call i64 @llvm.fshl.i64(i64 %91, i64 %92, i64 63)
@@ -217,9 +217,9 @@ define { i64, i64 } @softfloat_mulAddF128(i64 noundef %0, i64 noundef %1, i64 no
   br label %106
 
 103:                                              ; preds = %99
-  %104 = getelementptr inbounds i8, ptr %9, i64 24
+  %104 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 %75, ptr %104, align 8
-  %105 = getelementptr inbounds i8, ptr %9, i64 16
+  %105 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 %76, ptr %105, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   call void @softfloat_shiftRightJam256M(ptr noundef nonnull %9, i64 noundef %77, ptr noundef nonnull %9) #4
@@ -273,7 +273,7 @@ define { i64, i64 } @softfloat_mulAddF128(i64 noundef %0, i64 noundef %1, i64 no
   %127 = icmp ult i64 %76, %.sroa.073.1
   %.neg.i = sext i1 %127 to i64
   %128 = add i64 %126, %.neg.i
-  %129 = getelementptr inbounds i8, ptr %8, i64 8
+  %129 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %130 = load i64, ptr %129, align 8
   %131 = load i64, ptr %8, align 16
   %132 = or i64 %131, %130
@@ -292,9 +292,9 @@ define { i64, i64 } @softfloat_mulAddF128(i64 noundef %0, i64 noundef %1, i64 no
   br label %201
 
 138:                                              ; preds = %123
-  %139 = getelementptr inbounds i8, ptr %9, i64 24
+  %139 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 %75, ptr %139, align 8
-  %140 = getelementptr inbounds i8, ptr %9, i64 16
+  %140 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 %76, ptr %140, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   br label %thread-pre-split.sink.split
@@ -311,7 +311,7 @@ define { i64, i64 } @softfloat_mulAddF128(i64 noundef %0, i64 noundef %1, i64 no
   %146 = add i64 %144, %.neg.i326
   %147 = or i64 %146, %143
   %148 = icmp ne i64 %147, 0
-  %149 = getelementptr inbounds i8, ptr %8, i64 8
+  %149 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %150 = load i64, ptr %149, align 8
   %151 = icmp ne i64 %150, 0
   %or.cond4 = select i1 %148, i1 true, i1 %151
@@ -355,7 +355,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.si
   %.1.ph = phi i1 [ %27, %157 ], [ %.1.ph.ph, %thread-pre-split.sink.split ]
   %.pr = load i64, ptr %63, align 8
   %.pr335 = load i64, ptr %65, align 16
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %8, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   %.pre336 = load i64, ptr %8, align 16
   br label %164
@@ -426,7 +426,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.si
   %.sroa.073.0 = phi i64 [ %66, %70 ], [ %.sroa.073.2, %119 ], [ %161, %159 ]
   %.sroa.35.0 = phi i64 [ %64, %70 ], [ %.sroa.35.2, %119 ], [ %160, %159 ]
   %.1247 = phi i64 [ %spec.select302, %70 ], [ %spec.select304, %119 ], [ %spec.select308, %159 ]
-  %197 = getelementptr inbounds i8, ptr %8, i64 8
+  %197 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %198 = load i64, ptr %197, align 8
   %199 = load i64, ptr %8, align 16
   %200 = or i64 %199, %198

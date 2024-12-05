@@ -118,8 +118,8 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %entry, %for.cond
   %i.05 = phi i64 [ %inc, %for.cond ], [ 0, %entry ]
-  %arrayidx = getelementptr inbounds [82 x %struct.ec_name2nid_st], ptr @curve_list, i64 0, i64 %i.05
-  %nid2 = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %arrayidx = getelementptr inbounds nuw [82 x %struct.ec_name2nid_st], ptr @curve_list, i64 0, i64 %i.05
+  %nid2 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %0 = load i32, ptr %nid2, align 8
   %cmp3 = icmp eq i32 %0, %nid
   br i1 %cmp3, label %if.then4, label %for.cond
@@ -146,14 +146,14 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.04.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds [15 x %struct.ec_name2nid_st], ptr @nist_curves, i64 0, i64 %i.04.i
+  %arrayidx.i = getelementptr inbounds nuw [15 x %struct.ec_name2nid_st], ptr @nist_curves, i64 0, i64 %i.04.i
   %0 = load ptr, ptr %arrayidx.i, align 16
   %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(1) %name) #5
   %cmp2.i = icmp eq i32 %call.i, 0
   br i1 %cmp2.i, label %ossl_ec_curve_nist2nid_int.exit, label %for.cond.i
 
 ossl_ec_curve_nist2nid_int.exit:                  ; preds = %for.body.i
-  %nid.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %nid.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %1 = load i32, ptr %nid.i, align 8
   %cmp1.not = icmp eq i32 %1, 0
   br i1 %cmp1.not, label %for.body.preheader, label %return
@@ -168,14 +168,14 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.cond
   %i.07 = phi i64 [ %inc, %for.cond ], [ 0, %for.body.preheader ]
-  %arrayidx = getelementptr inbounds [82 x %struct.ec_name2nid_st], ptr @curve_list, i64 0, i64 %i.07
+  %arrayidx = getelementptr inbounds nuw [82 x %struct.ec_name2nid_st], ptr @curve_list, i64 0, i64 %i.07
   %2 = load ptr, ptr %arrayidx, align 16
   %call5 = tail call i32 @OPENSSL_strcasecmp(ptr noundef %2, ptr noundef nonnull %name) #6
   %cmp6 = icmp eq i32 %call5, 0
   br i1 %cmp6, label %if.then7, label %for.cond
 
 if.then7:                                         ; preds = %for.body
-  %nid9 = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %nid9 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %3 = load i32, ptr %nid9, align 8
   br label %return
 
@@ -196,14 +196,14 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %entry, %for.cond
   %i.04 = phi i64 [ 0, %entry ], [ %inc, %for.cond ]
-  %arrayidx = getelementptr inbounds [15 x %struct.ec_name2nid_st], ptr @nist_curves, i64 0, i64 %i.04
+  %arrayidx = getelementptr inbounds nuw [15 x %struct.ec_name2nid_st], ptr @nist_curves, i64 0, i64 %i.04
   %0 = load ptr, ptr %arrayidx, align 16
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %name) #5
   %cmp2 = icmp eq i32 %call, 0
   br i1 %cmp2, label %if.then, label %for.cond
 
 if.then:                                          ; preds = %for.body
-  %nid = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %nid = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %1 = load i32, ptr %nid, align 8
   br label %return
 
@@ -226,8 +226,8 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %entry, %for.cond
   %i.04 = phi i64 [ 0, %entry ], [ %inc, %for.cond ]
-  %arrayidx = getelementptr inbounds [15 x %struct.ec_name2nid_st], ptr @nist_curves, i64 0, i64 %i.04
-  %nid1 = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %arrayidx = getelementptr inbounds nuw [15 x %struct.ec_name2nid_st], ptr @nist_curves, i64 0, i64 %i.04
+  %nid1 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %0 = load i32, ptr %nid1, align 8
   %cmp2 = icmp eq i32 %0, %nid
   br i1 %cmp2, label %if.then, label %for.cond

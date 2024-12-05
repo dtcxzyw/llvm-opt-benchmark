@@ -17,13 +17,13 @@ declare noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef, ptr noundef, i32 noun
 
 ; Function Attrs: mustprogress uwtable
 define void @_Z11destroy_binP5t_bin(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 56, ptr noundef %7)
   br label %8
@@ -45,13 +45,13 @@ define void @_Z9reset_binP5t_bin(ptr nocapture noundef writeonly initializes((0,
 define noundef i32 @_Z8add_binrP5t_biniPKf(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   %4 = load i32, ptr %0, align 8
   %5 = add nsw i32 %4, %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = icmp sgt i32 %5, %7
   br i1 %8, label %9, label %._crit_edge29
 
 ._crit_edge29:                                    ; preds = %3
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %16
 
@@ -62,7 +62,7 @@ define noundef i32 @_Z8add_binrP5t_biniPKf(ptr nocapture noundef %0, i32 noundef
   %11 = sub i32 %reass.sub, %10
   %storemerge = select i1 %.not, i32 %5, i32 %11
   store i32 %storemerge, ptr %6, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = sext i32 %storemerge to i64
   %14 = load ptr, ptr %12, align 8
   %15 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 81, ptr noundef %14, i64 noundef range(i64 -2147483648, 2147483648) %13, i64 noundef 8)
@@ -84,10 +84,10 @@ define noundef i32 @_Z8add_binrP5t_biniPKf(ptr nocapture noundef %0, i32 noundef
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %22 = getelementptr inbounds float, ptr %2, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
   %23 = load float, ptr %22, align 4
   %24 = fpext float %23 to double
-  %25 = getelementptr inbounds double, ptr %20, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw double, ptr %20, i64 %indvars.iv
   store double %24, ptr %25, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -115,13 +115,13 @@ define noundef i32 @_Z8add_binrP5t_binN3gmx8ArrayRefIKfEE(ptr nocapture noundef 
   %8 = trunc i64 %7 to i32
   %9 = load i32, ptr %0, align 8
   %10 = add nsw i32 %9, %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = icmp sgt i32 %10, %12
   br i1 %13, label %14, label %._crit_edge29.i
 
 ._crit_edge29.i:                                  ; preds = %3
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %21
 
@@ -132,7 +132,7 @@ define noundef i32 @_Z8add_binrP5t_binN3gmx8ArrayRefIKfEE(ptr nocapture noundef 
   %16 = sub i32 %reass.sub.i, %15
   %storemerge.i = select i1 %.not.i, i32 %10, i32 %16
   store i32 %storemerge.i, ptr %11, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = sext i32 %storemerge.i to i64
   %19 = load ptr, ptr %17, align 8
   %20 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 81, ptr noundef %19, i64 noundef range(i64 -2147483648, 2147483648) %18, i64 noundef 8)
@@ -154,10 +154,10 @@ define noundef i32 @_Z8add_binrP5t_binN3gmx8ArrayRefIKfEE(ptr nocapture noundef 
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %27 = getelementptr inbounds float, ptr %1, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv.i
   %28 = load float, ptr %27, align 4
   %29 = fpext float %28 to double
-  %30 = getelementptr inbounds double, ptr %25, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw double, ptr %25, i64 %indvars.iv.i
   store double %29, ptr %30, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -178,13 +178,13 @@ _Z8add_binrP5t_biniPKf.exit:                      ; preds = %21, %._crit_edge.lo
 define noundef i32 @_Z8add_bindP5t_biniPKd(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   %4 = load i32, ptr %0, align 8
   %5 = add nsw i32 %4, %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = icmp sgt i32 %5, %7
   br i1 %8, label %9, label %._crit_edge29
 
 ._crit_edge29:                                    ; preds = %3
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %16
 
@@ -195,7 +195,7 @@ define noundef i32 @_Z8add_bindP5t_biniPKd(ptr nocapture noundef %0, i32 noundef
   %11 = sub i32 %reass.sub, %10
   %storemerge = select i1 %.not, i32 %5, i32 %11
   store i32 %storemerge, ptr %6, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = sext i32 %storemerge to i64
   %14 = load ptr, ptr %12, align 8
   %15 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 116, ptr noundef %14, i64 noundef range(i64 -2147483648, 2147483648) %13, i64 noundef 8)
@@ -217,9 +217,9 @@ define noundef i32 @_Z8add_bindP5t_biniPKd(ptr nocapture noundef %0, i32 noundef
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %22 = getelementptr inbounds double, ptr %2, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
   %23 = load double, ptr %22, align 8
-  %24 = getelementptr inbounds double, ptr %20, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw double, ptr %20, i64 %indvars.iv
   store double %23, ptr %24, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -245,13 +245,13 @@ define noundef i32 @_Z8add_bindP5t_binN3gmx8ArrayRefIKdEE(ptr nocapture noundef 
   %8 = trunc i64 %7 to i32
   %9 = load i32, ptr %0, align 8
   %10 = add nsw i32 %9, %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = icmp sgt i32 %10, %12
   br i1 %13, label %14, label %._crit_edge29.i
 
 ._crit_edge29.i:                                  ; preds = %3
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %21
 
@@ -262,7 +262,7 @@ define noundef i32 @_Z8add_bindP5t_binN3gmx8ArrayRefIKdEE(ptr nocapture noundef 
   %16 = sub i32 %reass.sub.i, %15
   %storemerge.i = select i1 %.not.i, i32 %10, i32 %16
   store i32 %storemerge.i, ptr %11, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = sext i32 %storemerge.i to i64
   %19 = load ptr, ptr %17, align 8
   %20 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 116, ptr noundef %19, i64 noundef range(i64 -2147483648, 2147483648) %18, i64 noundef 8)
@@ -284,9 +284,9 @@ define noundef i32 @_Z8add_bindP5t_binN3gmx8ArrayRefIKdEE(ptr nocapture noundef 
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %27 = getelementptr inbounds double, ptr %1, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv.i
   %28 = load double, ptr %27, align 8
-  %29 = getelementptr inbounds double, ptr %25, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw double, ptr %25, i64 %indvars.iv.i
   store double %28, ptr %29, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -306,7 +306,7 @@ _Z8add_bindP5t_biniPKd.exit:                      ; preds = %21, %._crit_edge.lo
 ; Function Attrs: mustprogress uwtable
 define void @_Z7sum_binP5t_binPK9t_commrec(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp slt i32 %3, %5
   br i1 %6, label %.lr.ph, label %.._crit_edge_crit_edge
@@ -316,7 +316,7 @@ define void @_Z7sum_binP5t_binPK9t_commrec(ptr nocapture noundef readonly %0, pt
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = sext i32 %3 to i64
   br label %9
 
@@ -333,7 +333,7 @@ define void @_Z7sum_binP5t_binPK9t_commrec(ptr nocapture noundef readonly %0, pt
 
 ._crit_edge:                                      ; preds = %9, %.._crit_edge_crit_edge
   %.pre-phi = phi i64 [ %.pre, %.._crit_edge_crit_edge ], [ %13, %9 ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
   tail call void @_Z8gmx_sumdmPdPK9t_commrec(i64 noundef %.pre-phi, ptr noundef %16, ptr noundef %1)
   ret void
@@ -343,7 +343,7 @@ declare void @_Z8gmx_sumdmPdPK9t_commrec(i64 noundef, ptr noundef, ptr noundef) 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_Z12extract_binrP5t_biniiPf(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #3 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = sext i32 %1 to i64
   %8 = getelementptr inbounds double, ptr %6, i64 %7
@@ -356,10 +356,10 @@ define void @_Z12extract_binrP5t_biniiPf(ptr nocapture noundef readonly %0, i32 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %10 = getelementptr inbounds double, ptr %8, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv
   %11 = load double, ptr %10, align 8
   %12 = fptrunc double %11 to float
-  %13 = getelementptr inbounds float, ptr %3, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
   store float %12, ptr %13, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -376,7 +376,7 @@ define void @_Z12extract_binrP5t_biniN3gmx8ArrayRefIfEE(ptr nocapture noundef re
   %7 = sub i64 %5, %6
   %8 = lshr exact i64 %7, 2
   %9 = trunc i64 %8 to i32
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = sext i32 %1 to i64
   %13 = getelementptr inbounds double, ptr %11, i64 %12
@@ -389,10 +389,10 @@ define void @_Z12extract_binrP5t_biniN3gmx8ArrayRefIfEE(ptr nocapture noundef re
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %15 = getelementptr inbounds double, ptr %13, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv.i
   %16 = load double, ptr %15, align 8
   %17 = fptrunc double %16 to float
-  %18 = getelementptr inbounds float, ptr %2, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv.i
   store float %17, ptr %18, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -404,7 +404,7 @@ _Z12extract_binrP5t_biniiPf.exit:                 ; preds = %.lr.ph.i, %4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_Z12extract_bindP5t_biniiPd(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #3 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = sext i32 %1 to i64
   %8 = getelementptr inbounds double, ptr %6, i64 %7
@@ -417,9 +417,9 @@ define void @_Z12extract_bindP5t_biniiPd(ptr nocapture noundef readonly %0, i32 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %10 = getelementptr inbounds double, ptr %8, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv
   %11 = load double, ptr %10, align 8
-  %12 = getelementptr inbounds double, ptr %3, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
   store double %11, ptr %12, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -436,7 +436,7 @@ define void @_Z12extract_bindP5t_biniN3gmx8ArrayRefIdEE(ptr nocapture noundef re
   %7 = sub i64 %5, %6
   %8 = lshr exact i64 %7, 3
   %9 = trunc i64 %8 to i32
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = sext i32 %1 to i64
   %13 = getelementptr inbounds double, ptr %11, i64 %12
@@ -449,9 +449,9 @@ define void @_Z12extract_bindP5t_biniN3gmx8ArrayRefIdEE(ptr nocapture noundef re
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %15 = getelementptr inbounds double, ptr %13, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv.i
   %16 = load double, ptr %15, align 8
-  %17 = getelementptr inbounds double, ptr %2, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv.i
   store double %16, ptr %17, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i

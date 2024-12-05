@@ -21,7 +21,7 @@ $__clang_call_terminate = comdat any
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3zmq10signaler_tC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %this) unnamed_addr #0 align 2 {
 entry:
-  %_r = getelementptr inbounds i8, ptr %this, i64 4
+  %_r = getelementptr inbounds nuw i8, ptr %this, i64 4
   %call = tail call noundef i32 @_ZN3zmq11make_fdpairEPiS0_(ptr noundef nonnull %_r, ptr noundef nonnull %this)
   %cmp = icmp eq i32 %call, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -35,7 +35,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %call4 = tail call i32 @getpid() #10
-  %pid = getelementptr inbounds i8, ptr %this, i64 8
+  %pid = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %call4, ptr %pid, align 4
   ret void
 }
@@ -50,7 +50,7 @@ declare i32 @getpid() local_unnamed_addr #2
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3zmq10signaler_tD2Ev(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_r = getelementptr inbounds i8, ptr %this, i64 4
+  %_r = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = load i32, ptr %_r, align 4
   %cmp = icmp eq i32 %0, -1
   br i1 %cmp, label %do.end, label %do.body.i
@@ -161,7 +161,7 @@ declare void @_ZN3zmq9zmq_abortEPKc(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK3zmq10signaler_t6get_fdEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %this) local_unnamed_addr #8 align 2 {
 entry:
-  %_r = getelementptr inbounds i8, ptr %this, i64 4
+  %_r = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = load i32, ptr %_r, align 4
   ret i32 %0
 }
@@ -170,7 +170,7 @@ entry:
 define void @_ZN3zmq10signaler_t4sendEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %this) local_unnamed_addr #0 align 2 {
 entry:
   %inc = alloca i64, align 8
-  %pid = getelementptr inbounds i8, ptr %this, i64 8
+  %pid = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %pid, align 4
   %call = tail call i32 @getpid() #10
   %cmp.not = icmp eq i32 %0, %call
@@ -205,7 +205,7 @@ declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noun
 define noundef range(i32 -1, 1) i32 @_ZNK3zmq10signaler_t4waitEi(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %this, i32 noundef %timeout_) local_unnamed_addr #0 align 2 {
 entry:
   %pfd = alloca %struct.pollfd, align 4
-  %pid = getelementptr inbounds i8, ptr %this, i64 8
+  %pid = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %pid, align 4
   %call = tail call i32 @getpid() #10
   %cmp.not = icmp eq i32 %0, %call
@@ -217,10 +217,10 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %_r = getelementptr inbounds i8, ptr %this, i64 4
+  %_r = getelementptr inbounds nuw i8, ptr %this, i64 4
   %1 = load i32, ptr %_r, align 4
   store i32 %1, ptr %pfd, align 4
-  %events = getelementptr inbounds i8, ptr %pfd, i64 4
+  %events = getelementptr inbounds nuw i8, ptr %pfd, i64 4
   store i16 1, ptr %events, align 4
   %call3 = call i32 @poll(ptr noundef nonnull %pfd, i64 noundef 1, i32 noundef %timeout_)
   %cmp4 = icmp slt i32 %call3, 0
@@ -274,7 +274,7 @@ if.then28:                                        ; preds = %do.body25
   br label %do.body33
 
 do.body33:                                        ; preds = %if.then28, %do.body25
-  %revents = getelementptr inbounds i8, ptr %pfd, i64 6
+  %revents = getelementptr inbounds nuw i8, ptr %pfd, i64 6
   %8 = load i16, ptr %revents, align 2
   %9 = and i16 %8, 1
   %tobool.not = icmp eq i16 %9, 0
@@ -300,7 +300,7 @@ define void @_ZN3zmq10signaler_t4recvEv(ptr nocapture noundef nonnull readonly a
 entry:
   %dummy = alloca i64, align 8
   %inc = alloca i64, align 8
-  %_r = getelementptr inbounds i8, ptr %this, i64 4
+  %_r = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = load i32, ptr %_r, align 4
   %call = call i64 @read(i32 noundef %0, ptr noundef nonnull %dummy, i64 noundef 8)
   %cmp.not = icmp eq i64 %call, 8
@@ -366,7 +366,7 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq10signaler_t13recv_failableEv(ptr no
 entry:
   %dummy = alloca i64, align 8
   %inc = alloca i64, align 8
-  %_r = getelementptr inbounds i8, ptr %this, i64 4
+  %_r = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = load i32, ptr %_r, align 4
   %call = call i64 @read(i32 noundef %0, ptr noundef nonnull %dummy, i64 noundef 8)
   switch i64 %call, label %if.then13 [
@@ -451,7 +451,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3zmq10signaler_t6forkedEv(ptr noundef nonnull align 4 dereferenceable(12) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %_r = getelementptr inbounds i8, ptr %this, i64 4
+  %_r = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = load i32, ptr %_r, align 4
   %call = tail call i32 @close(i32 noundef %0)
   %1 = load i32, ptr %this, align 4

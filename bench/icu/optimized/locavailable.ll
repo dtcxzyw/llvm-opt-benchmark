@@ -45,7 +45,7 @@ entry:
   %status.i = alloca %"class.icu_75::ErrorCode", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %status.i)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_759ErrorCodeE, i64 16), ptr %status.i, align 8
-  %errorCode.i.i = getelementptr inbounds i8, ptr %status.i, i64 8
+  %errorCode.i.i = getelementptr inbounds nuw i8, ptr %status.i, i64 8
   store i32 0, ptr %errorCode.i.i, align 8
   invoke fastcc void @_ZN12_GLOBAL__N_122_load_installedLocalesER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %errorCode.i.i)
           to label %uloc_countAvailable_75.exit unwind label %lpad.i
@@ -84,19 +84,19 @@ if.then:                                          ; preds = %uloc_countAvailable
 
 new.notnull:                                      ; preds = %if.then
   store i64 %conv, ptr %call1, align 8
-  %.ptr = getelementptr inbounds i8, ptr %call1, i64 8
+  %.ptr = getelementptr inbounds nuw i8, ptr %call1, i64 8
   %arrayctor.end = getelementptr inbounds %"class.icu_75::Locale", ptr %.ptr, i64 %conv
   br label %arrayctor.loop
 
 arrayctor.loop:                                   ; preds = %invoke.cont, %new.notnull
   %arrayctor.cur.idx = phi i64 [ 8, %new.notnull ], [ %arrayctor.cur.add, %invoke.cont ]
-  %arrayctor.cur.ptr.ptr = getelementptr inbounds i8, ptr %call1, i64 %arrayctor.cur.idx
+  %arrayctor.cur.ptr.ptr = getelementptr inbounds nuw i8, ptr %call1, i64 %arrayctor.cur.idx
   invoke void @_ZN6icu_756LocaleC1Ev(ptr noundef nonnull align 8 dereferenceable(217) %arrayctor.cur.ptr.ptr)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %arrayctor.loop
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 224
-  %arrayctor.next.ptr = getelementptr inbounds i8, ptr %call1, i64 %arrayctor.cur.add
+  %arrayctor.next.ptr = getelementptr inbounds nuw i8, ptr %call1, i64 %arrayctor.cur.add
   %arrayctor.done = icmp eq ptr %arrayctor.next.ptr, %arrayctor.end
   br i1 %arrayctor.done, label %new.cont, label %arrayctor.loop
 
@@ -142,7 +142,7 @@ if.end10:                                         ; preds = %if.end
   br i1 %cmp119, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end10
-  %errorCode.i.i5 = getelementptr inbounds i8, ptr %status.i4, i64 8
+  %errorCode.i.i5 = getelementptr inbounds nuw i8, ptr %status.i4, i64 8
   %11 = zext nneg i32 %.pre to i64
   br label %for.body
 
@@ -150,7 +150,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %ul
   %indvars.iv = phi i64 [ %11, %for.body.lr.ph ], [ %indvars.iv.next, %uloc_getAvailable_75.exit ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %12 = load ptr, ptr @_ZN6icu_75L19availableLocaleListE, align 8
-  %arrayidx = getelementptr inbounds %"class.icu_75::Locale", ptr %12, i64 %indvars.iv.next
+  %arrayidx = getelementptr inbounds nuw %"class.icu_75::Locale", ptr %12, i64 %indvars.iv.next
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %status.i4)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_759ErrorCodeE, i64 16), ptr %status.i4, align 8
   store i32 0, ptr %errorCode.i.i5, align 8
@@ -174,7 +174,7 @@ lpad.i6:                                          ; preds = %for.body
 
 if.end5.i:                                        ; preds = %invoke.cont2.i
   %17 = load ptr, ptr @_ZN12_GLOBAL__N_121gAvailableLocaleNamesE, align 16
-  %arrayidx.i = getelementptr inbounds ptr, ptr %17, i64 %indvars.iv.next
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv.next
   %18 = load ptr, ptr %arrayidx.i, align 8
   br label %uloc_getAvailable_75.exit
 
@@ -196,7 +196,7 @@ define i32 @uloc_countAvailable_75() local_unnamed_addr #0 personality ptr @__gx
 entry:
   %status = alloca %"class.icu_75::ErrorCode", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_759ErrorCodeE, i64 16), ptr %status, align 8
-  %errorCode.i = getelementptr inbounds i8, ptr %status, i64 8
+  %errorCode.i = getelementptr inbounds nuw i8, ptr %status, i64 8
   store i32 0, ptr %errorCode.i, align 8
   invoke fastcc void @_ZN12_GLOBAL__N_122_load_installedLocalesER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %errorCode.i)
           to label %invoke.cont2 unwind label %lpad
@@ -239,7 +239,7 @@ define ptr @uloc_getAvailable_75(i32 noundef %offset) local_unnamed_addr #0 pers
 entry:
   %status = alloca %"class.icu_75::ErrorCode", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_759ErrorCodeE, i64 16), ptr %status, align 8
-  %errorCode.i = getelementptr inbounds i8, ptr %status, i64 8
+  %errorCode.i = getelementptr inbounds nuw i8, ptr %status, i64 8
   store i32 0, ptr %errorCode.i, align 8
   invoke fastcc void @_ZN12_GLOBAL__N_122_load_installedLocalesER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %errorCode.i)
           to label %invoke.cont2 unwind label %lpad
@@ -388,12 +388,12 @@ _ZN12_GLOBAL__N_120loadInstalledLocalesER10UErrorCode.exit: ; preds = %invoke.co
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rb.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sink.i)
   %5 = load i32, ptr %status, align 4
-  store i32 %5, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_125ginstalledLocalesInitOnceE, i64 4), align 4
+  store i32 %5, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_125ginstalledLocalesInitOnceE, i64 4), align 4
   call void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZN12_GLOBAL__N_125ginstalledLocalesInitOnceE)
   br label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.end.i
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_125ginstalledLocalesInitOnceE, i64 4), align 4
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_125ginstalledLocalesInitOnceE, i64 4), align 4
   %cmp.i9.i = icmp slt i32 %6, 1
   br i1 %cmp.i9.i, label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit, label %if.then8.i
 
@@ -449,9 +449,9 @@ if.then.i:                                        ; preds = %new.cont
 
 _ZN6icu_7512LocalPointerIN12_GLOBAL__N_133AvailableLocalesStringEnumerationEEC2EPS2_R10UErrorCode.exit: ; preds = %new.notnull
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_133AvailableLocalesStringEnumerationE, i64 16), ptr %call8, align 8
-  %fType.i = getelementptr inbounds i8, ptr %call8, i64 116
+  %fType.i = getelementptr inbounds nuw i8, ptr %call8, i64 116
   store i32 %type, ptr %fType.i, align 4
-  %fIndex.i = getelementptr inbounds i8, ptr %call8, i64 120
+  %fIndex.i = getelementptr inbounds nuw i8, ptr %call8, i64 120
   store i32 0, ptr %fIndex.i, align 8
   %.pre = load i32, ptr %status, align 4
   %3 = icmp slt i32 %.pre, 1
@@ -469,7 +469,7 @@ if.end14:                                         ; preds = %_ZN6icu_7512LocalPo
 
 delete.notnull.i17:                               ; preds = %_ZN6icu_7512LocalPointerIN12_GLOBAL__N_133AvailableLocalesStringEnumerationEEC2EPS2_R10UErrorCode.exit
   %vtable.i18 = load ptr, ptr %call8, align 8
-  %vfn.i19 = getelementptr inbounds i8, ptr %vtable.i18, i64 8
+  %vfn.i19 = getelementptr inbounds nuw i8, ptr %vtable.i18, i64 8
   %5 = load ptr, ptr %vfn.i19, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(124) %call8) #13
   br label %return
@@ -510,10 +510,10 @@ entry:
   tail call void @uprv_free_75(ptr noundef %0)
   store ptr null, ptr @_ZN12_GLOBAL__N_121gAvailableLocaleNamesE, align 16
   store i32 0, ptr @_ZN12_GLOBAL__N_122gAvailableLocaleCountsE, align 4
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_121gAvailableLocaleNamesE, i64 8), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_121gAvailableLocaleNamesE, i64 8), align 8
   tail call void @uprv_free_75(ptr noundef %1)
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_121gAvailableLocaleNamesE, i64 8), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_122gAvailableLocaleCountsE, i64 4), align 4
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_121gAvailableLocaleNamesE, i64 8), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_122gAvailableLocaleCountsE, i64 4), align 4
   store atomic i32 0, ptr @_ZN12_GLOBAL__N_125ginstalledLocalesInitOnceE seq_cst, align 4
   ret i8 1
 }
@@ -571,7 +571,7 @@ entry:
   %availableLocalesTable = alloca %"class.icu_75::ResourceTable", align 8
   store ptr %key, ptr %key.addr, align 8
   %vtable = load ptr, ptr %value, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 88
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 88
   %1 = load ptr, ptr %vfn, align 8
   call void %1(ptr nonnull sret(%"class.icu_75::ResourceTable") align 8 %resIndexTable, ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %2 = load i32, ptr %status, align 4
@@ -584,7 +584,7 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %tobool3.not21, label %for.end39, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %length.i = getelementptr inbounds i8, ptr %availableLocalesTable, i64 32
+  %length.i = getelementptr inbounds nuw i8, ptr %availableLocalesTable, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc37
@@ -602,7 +602,7 @@ if.else:                                          ; preds = %for.body
 if.end11:                                         ; preds = %if.else, %for.body
   %type.0 = phi i64 [ 0, %for.body ], [ 1, %if.else ]
   %vtable12 = load ptr, ptr %value, align 8
-  %vfn13 = getelementptr inbounds i8, ptr %vtable12, i64 88
+  %vfn13 = getelementptr inbounds nuw i8, ptr %vtable12, i64 88
   %4 = load ptr, ptr %vfn13, align 8
   call void %4(ptr nonnull sret(%"class.icu_75::ResourceTable") align 8 %availableLocalesTable, ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %5 = load i32, ptr %status, align 4
@@ -611,12 +611,12 @@ if.end11:                                         ; preds = %if.else, %for.body
 
 if.end17:                                         ; preds = %if.end11
   %6 = load i32, ptr %length.i, align 8
-  %arrayidx = getelementptr inbounds [2 x i32], ptr @_ZN12_GLOBAL__N_122gAvailableLocaleCountsE, i64 0, i64 %type.0
+  %arrayidx = getelementptr inbounds nuw [2 x i32], ptr @_ZN12_GLOBAL__N_122gAvailableLocaleCountsE, i64 0, i64 %type.0
   store i32 %6, ptr %arrayidx, align 4
   %conv = sext i32 %6 to i64
   %mul = shl nsw i64 %conv, 3
   %call21 = call noalias ptr @uprv_malloc_75(i64 noundef %mul) #16
-  %arrayidx23 = getelementptr inbounds [2 x ptr], ptr @_ZN12_GLOBAL__N_121gAvailableLocaleNamesE, i64 0, i64 %type.0
+  %arrayidx23 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN12_GLOBAL__N_121gAvailableLocaleNamesE, i64 0, i64 %type.0
   store ptr %call21, ptr %arrayidx23, align 8
   %cmp26 = icmp eq ptr %call21, null
   br i1 %cmp26, label %if.then27, label %for.cond29.preheader
@@ -634,7 +634,7 @@ for.body32:                                       ; preds = %for.cond29.preheade
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body32 ], [ 0, %for.cond29.preheader ]
   %7 = load ptr, ptr %key.addr, align 8
   %8 = load ptr, ptr %arrayidx23, align 8
-  %arrayidx36 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
+  %arrayidx36 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   store ptr %7, ptr %arrayidx36, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -687,7 +687,7 @@ declare noundef ptr @_ZNK6icu_7517StringEnumeration5cloneEv(ptr noundef nonnull 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef i32 @_ZNK12_GLOBAL__N_133AvailableLocalesStringEnumeration5countER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(124) %this, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #9 align 2 {
 entry:
-  %fType = getelementptr inbounds i8, ptr %this, i64 116
+  %fType = getelementptr inbounds nuw i8, ptr %this, i64 116
   %1 = load i32, ptr %fType, align 4
   %cmp = icmp eq i32 %1, 2
   br i1 %cmp, label %if.then, label %if.else
@@ -700,7 +700,7 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   %idxprom = zext i32 %1 to i64
-  %arrayidx = getelementptr inbounds [2 x i32], ptr @_ZN12_GLOBAL__N_122gAvailableLocaleCountsE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [2 x i32], ptr @_ZN12_GLOBAL__N_122gAvailableLocaleCountsE, i64 0, i64 %idxprom
   %4 = load i32, ptr %arrayidx, align 4
   br label %return
 
@@ -712,9 +712,9 @@ return:                                           ; preds = %if.else, %if.then
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef ptr @_ZN12_GLOBAL__N_133AvailableLocalesStringEnumeration4nextEPiR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(124) %this, ptr noundef writeonly %resultLength, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #10 align 2 {
 entry:
-  %fType = getelementptr inbounds i8, ptr %this, i64 116
+  %fType = getelementptr inbounds nuw i8, ptr %this, i64 116
   %1 = load i32, ptr %fType, align 4
-  %fIndex = getelementptr inbounds i8, ptr %this, i64 120
+  %fIndex = getelementptr inbounds nuw i8, ptr %this, i64 120
   %2 = load i32, ptr %fIndex, align 8
   %inc = add nsw i32 %2, 1
   store i32 %inc, ptr %fIndex, align 8
@@ -733,13 +733,13 @@ if.end5:                                          ; preds = %if.then, %entry
   %actualIndex.0 = phi i32 [ %2, %entry ], [ %spec.select, %if.then ]
   %actualType.0 = phi i32 [ %1, %entry ], [ %spec.select11, %if.then ]
   %idxprom = zext i32 %actualType.0 to i64
-  %arrayidx = getelementptr inbounds [2 x i32], ptr @_ZN12_GLOBAL__N_122gAvailableLocaleCountsE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [2 x i32], ptr @_ZN12_GLOBAL__N_122gAvailableLocaleCountsE, i64 0, i64 %idxprom
   %4 = load i32, ptr %arrayidx, align 4
   %cmp6 = icmp slt i32 %actualIndex.0, %4
   br i1 %cmp6, label %if.then7, label %if.else15
 
 if.then7:                                         ; preds = %if.end5
-  %arrayidx9 = getelementptr inbounds [2 x ptr], ptr @_ZN12_GLOBAL__N_121gAvailableLocaleNamesE, i64 0, i64 %idxprom
+  %arrayidx9 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN12_GLOBAL__N_121gAvailableLocaleNamesE, i64 0, i64 %idxprom
   %5 = load ptr, ptr %arrayidx9, align 8
   %idxprom10 = sext i32 %actualIndex.0 to i64
   %arrayidx11 = getelementptr inbounds ptr, ptr %5, i64 %idxprom10
@@ -774,7 +774,7 @@ declare noundef ptr @_ZN6icu_7517StringEnumeration5snextER10UErrorCode(ptr nound
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZN12_GLOBAL__N_133AvailableLocalesStringEnumeration5resetER10UErrorCode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(124) initializes((120, 124)) %this, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #11 align 2 {
 entry:
-  %fIndex = getelementptr inbounds i8, ptr %this, i64 120
+  %fIndex = getelementptr inbounds nuw i8, ptr %this, i64 120
   store i32 0, ptr %fIndex, align 8
   ret void
 }

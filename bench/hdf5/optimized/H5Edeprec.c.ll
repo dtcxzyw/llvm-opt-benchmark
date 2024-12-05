@@ -555,7 +555,7 @@ define range(i32 -1, 1) i32 @H5Ewalk1(i32 noundef %0, ptr noundef %1, ptr nounde
 
 24:                                               ; preds = %17
   store i32 1, ptr %4, align 8
-  %25 = getelementptr inbounds i8, ptr %4, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %25, align 8
   %26 = call i32 @H5E__walk(ptr noundef nonnull @H5E_stack_g, i32 noundef %0, ptr noundef nonnull %4, ptr noundef %2) #4
   %27 = icmp slt i32 %26, 0
@@ -628,7 +628,7 @@ define range(i32 -1, 1) i32 @H5Eget_auto1(ptr noundef writeonly %0, ptr noundef 
   br label %.thread30
 
 31:                                               ; preds = %23
-  %32 = getelementptr inbounds i8, ptr %3, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %33 = load i8, ptr %32, align 4
   %34 = trunc i8 %33 to i1
   %35 = load i32, ptr %3, align 8
@@ -647,7 +647,7 @@ define range(i32 -1, 1) i32 @H5Eget_auto1(ptr noundef writeonly %0, ptr noundef 
   br i1 %.not, label %46, label %42
 
 42:                                               ; preds = %41
-  %43 = getelementptr inbounds i8, ptr %3, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %44 = load ptr, ptr %43, align 8
   store ptr %44, ptr %0, align 8
   br label %46
@@ -716,13 +716,13 @@ define range(i32 -1, 1) i32 @H5Eset_auto1(ptr noundef %0, ptr noundef %1) local_
 
 30:                                               ; preds = %23
   store i32 1, ptr %3, align 8
-  %31 = getelementptr inbounds i8, ptr %3, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %32 = load ptr, ptr %31, align 8
   %.not = icmp eq ptr %0, %32
   %spec.select = zext i1 %.not to i8
-  %33 = getelementptr inbounds i8, ptr %3, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i8 %spec.select, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %3, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %34, align 8
   %35 = call i32 @H5E__set_auto(ptr noundef nonnull @H5E_stack_g, ptr noundef nonnull %3, ptr noundef %1) #4
   %36 = icmp slt i32 %35, 0

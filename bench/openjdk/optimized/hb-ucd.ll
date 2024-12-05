@@ -98,7 +98,7 @@ define internal noundef range(i32 0, 256) i32 @_ZL22hb_ucd_combining_classP18hb_
   %9 = lshr i32 %1, 9
   %10 = add nuw nsw i32 %9, 7186
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds [17884 x i8], ptr @_ZL10_hb_ucd_u8, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw [17884 x i8], ptr @_ZL10_hb_ucd_u8, i64 0, i64 %11
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i32
   %15 = shl nuw nsw i32 %14, 3
@@ -106,7 +106,7 @@ define internal noundef range(i32 0, 256) i32 @_ZL22hb_ucd_combining_classP18hb_
   %17 = or disjoint i32 %16, 7432
   %18 = add nuw nsw i32 %17, %15
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds [17884 x i8], ptr @_ZL10_hb_ucd_u8, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw [17884 x i8], ptr @_ZL10_hb_ucd_u8, i64 0, i64 %19
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i32
   %23 = shl nuw nsw i32 %22, 2
@@ -114,7 +114,7 @@ define internal noundef range(i32 0, 256) i32 @_ZL22hb_ucd_combining_classP18hb_
   %25 = or disjoint i32 %24, 7784
   %26 = add nuw nsw i32 %25, %23
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds [17884 x i8], ptr @_ZL10_hb_ucd_u8, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw [17884 x i8], ptr @_ZL10_hb_ucd_u8, i64 0, i64 %27
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i32
   %31 = shl nuw nsw i32 %30, 2
@@ -122,7 +122,7 @@ define internal noundef range(i32 0, 256) i32 @_ZL22hb_ucd_combining_classP18hb_
   %33 = or disjoint i32 %32, 8244
   %34 = add nuw nsw i32 %33, %31
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds [17884 x i8], ptr @_ZL10_hb_ucd_u8, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw [17884 x i8], ptr @_ZL10_hb_ucd_u8, i64 0, i64 %35
   %37 = load i8, ptr %36, align 1
   %38 = zext i8 %37 to i32
   %39 = shl nuw nsw i32 %38, 2
@@ -130,7 +130,7 @@ define internal noundef range(i32 0, 256) i32 @_ZL22hb_ucd_combining_classP18hb_
   %41 = or disjoint i32 %40, 8800
   %42 = add nuw nsw i32 %41, %39
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds [17884 x i8], ptr @_ZL10_hb_ucd_u8, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw [17884 x i8], ptr @_ZL10_hb_ucd_u8, i64 0, i64 %43
   %45 = load i8, ptr %44, align 1
   %46 = zext i8 %45 to i32
   br label %_ZL11_hb_ucd_cccj.exit
@@ -153,7 +153,7 @@ define internal noundef range(i32 0, 256) i32 @_ZL23hb_ucd_general_categoryP18hb
   %8 = lshr i32 %1, 7
   %9 = lshr i32 %1, 11
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds [17884 x i8], ptr @_ZL10_hb_ucd_u8, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw [17884 x i8], ptr @_ZL10_hb_ucd_u8, i64 0, i64 %10
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
   %14 = shl nuw nsw i32 %13, 4
@@ -161,14 +161,14 @@ define internal noundef range(i32 0, 256) i32 @_ZL23hb_ucd_general_categoryP18hb
   %16 = or disjoint i32 %15, 544
   %17 = add nuw nsw i32 %16, %14
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds [17884 x i8], ptr @_ZL10_hb_ucd_u8, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw [17884 x i8], ptr @_ZL10_hb_ucd_u8, i64 0, i64 %18
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i32
   %22 = shl nuw nsw i32 %21, 3
   %23 = and i32 %7, 7
   %24 = or disjoint i32 %22, %23
   %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds [9344 x i16], ptr @_ZL11_hb_ucd_u16, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw [9344 x i16], ptr @_ZL11_hb_ucd_u16, i64 0, i64 %25
   %27 = load i16, ptr %26, align 2
   %28 = zext i16 %27 to i32
   %29 = shl nuw nsw i32 %28, 3
@@ -176,7 +176,7 @@ define internal noundef range(i32 0, 256) i32 @_ZL23hb_ucd_general_categoryP18hb
   %31 = or disjoint i32 %30, 1312
   %32 = add nuw nsw i32 %31, %29
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds [17884 x i8], ptr @_ZL10_hb_ucd_u8, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw [17884 x i8], ptr @_ZL10_hb_ucd_u8, i64 0, i64 %33
   %35 = load i8, ptr %34, align 1
   %36 = zext i8 %35 to i32
   %37 = shl nuw nsw i32 %36, 1
@@ -184,7 +184,7 @@ define internal noundef range(i32 0, 256) i32 @_ZL23hb_ucd_general_categoryP18hb
   %39 = or disjoint i32 %38, 6808
   %40 = add nuw nsw i32 %39, %37
   %41 = zext nneg i32 %40 to i64
-  %42 = getelementptr inbounds [17884 x i8], ptr @_ZL10_hb_ucd_u8, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw [17884 x i8], ptr @_ZL10_hb_ucd_u8, i64 0, i64 %41
   %43 = load i8, ptr %42, align 1
   %44 = zext i8 %43 to i32
   br label %_ZL10_hb_ucd_gcj.exit
@@ -206,7 +206,7 @@ define internal noundef i32 @_ZL16hb_ucd_mirroringP18hb_unicode_funcs_tjPv(ptr n
   %7 = lshr i32 %1, 5
   %8 = lshr i32 %1, 9
   %9 = zext nneg i32 %8 to i64
-  %10 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZL10_hb_ucd_u8, i64 9300), i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @_ZL10_hb_ucd_u8, i64 9300), i64 %9
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = lshr i32 %1, 6
@@ -218,7 +218,7 @@ define internal noundef i32 @_ZL16hb_ucd_mirroringP18hb_unicode_funcs_tjPv(ptr n
   %19 = add nuw nsw i32 %18, 9428
   %20 = add nuw nsw i32 %19, %17
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds [17884 x i8], ptr @_ZL10_hb_ucd_u8, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw [17884 x i8], ptr @_ZL10_hb_ucd_u8, i64 0, i64 %21
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i32
   %25 = shl nuw nsw i32 %24, 3
@@ -226,14 +226,14 @@ define internal noundef i32 @_ZL16hb_ucd_mirroringP18hb_unicode_funcs_tjPv(ptr n
   %27 = add nuw nsw i32 %26, 9548
   %28 = add nuw nsw i32 %27, %25
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds [17884 x i8], ptr @_ZL10_hb_ucd_u8, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw [17884 x i8], ptr @_ZL10_hb_ucd_u8, i64 0, i64 %29
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i32
   %33 = shl nuw nsw i32 %32, 2
   %34 = and i32 %1, 3
   %35 = or disjoint i32 %33, %34
   %36 = zext nneg i32 %35 to i64
-  %37 = getelementptr inbounds [196 x i16], ptr @_ZL11_hb_ucd_i16, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw [196 x i16], ptr @_ZL11_hb_ucd_i16, i64 0, i64 %36
   %38 = load i16, ptr %37, align 2
   %39 = sext i16 %38 to i32
   br label %_ZL11_hb_ucd_bmgj.exit
@@ -257,7 +257,7 @@ define internal noundef i32 @_ZL13hb_ucd_scriptP18hb_unicode_funcs_tjPv(ptr noca
   %8 = lshr i32 %1, 11
   %9 = add nuw nsw i32 %8, 9884
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds [17884 x i8], ptr @_ZL10_hb_ucd_u8, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw [17884 x i8], ptr @_ZL10_hb_ucd_u8, i64 0, i64 %10
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
   %14 = shl nuw nsw i32 %13, 4
@@ -265,7 +265,7 @@ define internal noundef i32 @_ZL13hb_ucd_scriptP18hb_unicode_funcs_tjPv(ptr noca
   %16 = add nuw nsw i32 %15, 10334
   %17 = add nuw nsw i32 %16, %14
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds [17884 x i8], ptr @_ZL10_hb_ucd_u8, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw [17884 x i8], ptr @_ZL10_hb_ucd_u8, i64 0, i64 %18
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i32
   %22 = shl nuw nsw i32 %21, 4
@@ -273,7 +273,7 @@ define internal noundef i32 @_ZL13hb_ucd_scriptP18hb_unicode_funcs_tjPv(ptr noca
   %24 = or disjoint i32 %23, 2048
   %25 = add nuw nsw i32 %24, %22
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds [9344 x i16], ptr @_ZL11_hb_ucd_u16, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw [9344 x i16], ptr @_ZL11_hb_ucd_u16, i64 0, i64 %26
   %28 = load i16, ptr %27, align 2
   %29 = zext i16 %28 to i32
   %30 = shl nuw nsw i32 %29, 3
@@ -281,14 +281,14 @@ define internal noundef i32 @_ZL13hb_ucd_scriptP18hb_unicode_funcs_tjPv(ptr noca
   %32 = add nuw nsw i32 %31, 11070
   %33 = add nuw nsw i32 %32, %30
   %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr inbounds [17884 x i8], ptr @_ZL10_hb_ucd_u8, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw [17884 x i8], ptr @_ZL10_hb_ucd_u8, i64 0, i64 %34
   %36 = load i8, ptr %35, align 1
   %37 = zext i8 %36 to i64
   br label %_ZL10_hb_ucd_scj.exit
 
 _ZL10_hb_ucd_scj.exit:                            ; preds = %3, %5
   %38 = phi i64 [ %37, %5 ], [ 2, %3 ]
-  %39 = getelementptr inbounds [165 x i32], ptr @_ZL14_hb_ucd_sc_map, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw [165 x i32], ptr @_ZL14_hb_ucd_sc_map, i64 0, i64 %38
   %40 = load i32, ptr %39, align 4
   ret i32 %40
 }
@@ -351,7 +351,7 @@ define internal noundef range(i32 0, 2) i32 @_ZL14hb_ucd_composeP18hb_unicode_fu
   %34 = lshr i32 %33, 1
   %35 = zext nneg i32 %34 to i64
   %36 = shl nuw nsw i64 %35, 2
-  %37 = getelementptr inbounds i8, ptr @_ZL19_hb_ucd_dm2_u32_map, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr @_ZL19_hb_ucd_dm2_u32_map, i64 %36
   %38 = load i32, ptr %37, align 4
   %39 = and i32 %38, -16384
   %40 = icmp ult i32 %31, %39
@@ -394,7 +394,7 @@ _ZL10hb_bsearchIKjjEPT_RKT0_S2_mmPFiPKvS7_E.exit: ; preds = %43
   %55 = lshr i32 %54, 1
   %56 = zext nneg i32 %55 to i64
   %57 = shl nuw nsw i64 %56, 3
-  %58 = getelementptr inbounds i8, ptr @_ZL19_hb_ucd_dm2_u64_map, i64 %57
+  %58 = getelementptr inbounds nuw i8, ptr @_ZL19_hb_ucd_dm2_u64_map, i64 %57
   %59 = load i64, ptr %58, align 8
   %60 = and i64 %59, 9223372036852678656
   %61 = icmp ult i64 %52, %60
@@ -483,7 +483,7 @@ _ZL10_hb_ucd_dmj.exit:                            ; preds = %_ZL24_hb_ucd_decomp
   %22 = lshr i32 %1, 9
   %23 = add nuw nsw i32 %22, 16702
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds [17884 x i8], ptr @_ZL10_hb_ucd_u8, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw [17884 x i8], ptr @_ZL10_hb_ucd_u8, i64 0, i64 %24
   %26 = load i8, ptr %25, align 1
   %27 = zext i8 %26 to i32
   %28 = shl nuw nsw i32 %27, 5
@@ -491,7 +491,7 @@ _ZL10_hb_ucd_dmj.exit:                            ; preds = %_ZL24_hb_ucd_decomp
   %30 = add nuw nsw i32 %29, 17084
   %31 = add nuw nsw i32 %30, %28
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds [17884 x i8], ptr @_ZL10_hb_ucd_u8, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw [17884 x i8], ptr @_ZL10_hb_ucd_u8, i64 0, i64 %32
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i32
   %36 = shl nuw nsw i32 %35, 4
@@ -499,7 +499,7 @@ _ZL10_hb_ucd_dmj.exit:                            ; preds = %_ZL24_hb_ucd_decomp
   %38 = or disjoint i32 %37, 6032
   %39 = add nuw nsw i32 %38, %36
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds [9344 x i16], ptr @_ZL11_hb_ucd_u16, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw [9344 x i16], ptr @_ZL11_hb_ucd_u16, i64 0, i64 %40
   %42 = load i16, ptr %41, align 2
   %43 = zext i16 %42 to i64
   %.not = icmp eq i16 %42, 0
@@ -516,7 +516,7 @@ _ZL10_hb_ucd_dmj.exit:                            ; preds = %_ZL24_hb_ucd_decomp
 
 49:                                               ; preds = %47
   %50 = and i64 %45, 4294967295
-  %51 = getelementptr inbounds [825 x i16], ptr @_ZL18_hb_ucd_dm1_p0_map, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw [825 x i16], ptr @_ZL18_hb_ucd_dm1_p0_map, i64 0, i64 %50
   %52 = load i16, ptr %51, align 2
   %53 = zext i16 %52 to i32
   br label %61
@@ -524,7 +524,7 @@ _ZL10_hb_ucd_dmj.exit:                            ; preds = %_ZL24_hb_ucd_decomp
 54:                                               ; preds = %47
   %55 = add nuw nsw i64 %43, 4294966470
   %56 = and i64 %55, 4294967295
-  %57 = getelementptr inbounds [110 x i16], ptr @_ZL18_hb_ucd_dm1_p2_map, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw [110 x i16], ptr @_ZL18_hb_ucd_dm1_p2_map, i64 0, i64 %56
   %58 = load i16, ptr %57, align 2
   %59 = zext i16 %58 to i32
   %60 = or disjoint i32 %59, 131072
@@ -543,7 +543,7 @@ _ZL10_hb_ucd_dmj.exit:                            ; preds = %_ZL24_hb_ucd_decomp
 
 66:                                               ; preds = %62
   %67 = zext nneg i32 %64 to i64
-  %68 = getelementptr inbounds [638 x i32], ptr @_ZL19_hb_ucd_dm2_u32_map, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw [638 x i32], ptr @_ZL19_hb_ucd_dm2_u32_map, i64 0, i64 %67
   %69 = load i32, ptr %68, align 4
   %70 = lshr i32 %69, 21
   store i32 %70, ptr %2, align 4
@@ -555,7 +555,7 @@ _ZL10_hb_ucd_dmj.exit:                            ; preds = %_ZL24_hb_ucd_decomp
 74:                                               ; preds = %62
   %75 = add nuw nsw i64 %43, 4294965722
   %76 = and i64 %75, 4294967295
-  %77 = getelementptr inbounds [388 x i64], ptr @_ZL19_hb_ucd_dm2_u64_map, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw [388 x i64], ptr @_ZL19_hb_ucd_dm2_u64_map, i64 0, i64 %76
   %78 = load i64, ptr %77, align 8
   %79 = lshr i64 %78, 42
   %80 = trunc nuw nsw i64 %79 to i32

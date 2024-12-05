@@ -76,10 +76,10 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local zeroext i1 @parse_current_is_expr(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   %4 = zext i32 %3 to i64
-  %5 = getelementptr inbounds [190 x %struct.ParseRule], ptr @rules, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [190 x %struct.ParseRule], ptr @rules, i64 0, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = icmp ne ptr %6, null
   ret i1 %7
@@ -87,9 +87,9 @@ define dso_local zeroext i1 @parse_current_is_expr(ptr nocapture noundef readonl
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @parse_range(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.sroa.06.0.copyload = load i64, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %13 [
     i32 36, label %6
@@ -118,7 +118,7 @@ define dso_local noundef zeroext i1 @parse_range(ptr noundef %0, ptr nocapture n
   br i1 %20, label %.critedge, label %21
 
 21:                                               ; preds = %13
-  %22 = getelementptr inbounds i8, ptr %19, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %23 = load i16, ptr %22, align 8
   %24 = and i16 %23, 255
   %.not = icmp eq i16 %24, 0
@@ -135,7 +135,7 @@ define dso_local noundef zeroext i1 @parse_range(ptr noundef %0, ptr nocapture n
   %27 = sub i64 %.sink.sink, %26
   %phi.call.in = sdiv exact i64 %27, 56
   %phi.call = trunc i64 %phi.call.in to i32
-  %28 = getelementptr inbounds i8, ptr %1, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %phi.call, ptr %28, align 4
   %29 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 7) #8
   %30 = load i8, ptr %1, align 4
@@ -170,7 +170,7 @@ define dso_local noundef zeroext i1 @parse_range(ptr noundef %0, ptr nocapture n
 46:                                               ; preds = %38
   %47 = load i32, ptr %4, align 8
   %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds [190 x %struct.ParseRule], ptr @rules, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw [190 x %struct.ParseRule], ptr @rules, i64 0, i64 %48
   %50 = load ptr, ptr %49, align 8
   %.not50 = icmp eq ptr %50, null
   br i1 %.not50, label %62, label %51
@@ -181,7 +181,7 @@ define dso_local noundef zeroext i1 @parse_range(ptr noundef %0, ptr nocapture n
   br i1 %53, label %.critedge2, label %54
 
 54:                                               ; preds = %51
-  %55 = getelementptr inbounds i8, ptr %52, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %56 = load i16, ptr %55, align 8
   %57 = and i16 %56, 255
   %.not49 = icmp eq i16 %57, 0
@@ -198,7 +198,7 @@ define dso_local noundef zeroext i1 @parse_range(ptr noundef %0, ptr nocapture n
   %60 = sub i64 %.sink56, %59
   %phi.call44.in = sdiv exact i64 %60, 56
   %phi.call44 = trunc i64 %phi.call44.in to i32
-  %61 = getelementptr inbounds i8, ptr %1, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %phi.call44, ptr %61, align 4
   br label %80
 
@@ -208,7 +208,7 @@ define dso_local noundef zeroext i1 @parse_range(ptr noundef %0, ptr nocapture n
   br i1 %.not48, label %77, label %64
 
 64:                                               ; preds = %62
-  %65 = getelementptr inbounds i8, ptr %0, i64 56
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %66 = load i64, ptr %65, align 8
   %.not.unshifted.i = xor i64 %66, %.sroa.06.0.copyload
   %.not.i = icmp ult i64 %.not.unshifted.i, 4294967296
@@ -241,7 +241,7 @@ extend_span_with_token.exit:                      ; preds = %67, %68
 77:                                               ; preds = %62
   %78 = and i8 %42, -7
   store i8 %78, ptr %1, align 4
-  %79 = getelementptr inbounds i8, ptr %1, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 0, ptr %79, align 4
   br label %80
 
@@ -267,10 +267,10 @@ declare void @sema_error_at(i64, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @parse_precedence_with_left_side(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds [190 x %struct.ParseRule], ptr @rules, i64 0, i64 %6, i32 2
+  %7 = getelementptr inbounds nuw [190 x %struct.ParseRule], ptr @rules, i64 0, i64 %6, i32 2
   %8 = load i32, ptr %7, align 8
   %9 = icmp ugt i32 %2, %8
   br i1 %9, label %.loopexit, label %.lr.ph
@@ -283,20 +283,20 @@ define dso_local ptr @parse_precedence_with_left_side(ptr noundef %0, ptr nounde
   br i1 %12, label %.critedge, label %13
 
 13:                                               ; preds = %.lr.ph
-  %14 = getelementptr inbounds i8, ptr %.01621, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %.01621, i64 16
   %15 = load i16, ptr %14, align 8
   %16 = and i16 %15, 255
   %.not = icmp eq i16 %16, 0
   br i1 %.not, label %.loopexit, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %13
-  %17 = getelementptr inbounds [190 x %struct.ParseRule], ptr @rules, i64 0, i64 %10, i32 1
+  %17 = getelementptr inbounds nuw [190 x %struct.ParseRule], ptr @rules, i64 0, i64 %10, i32 1
   %18 = load ptr, ptr %17, align 8
   %.not18 = icmp eq ptr %18, null
   br i1 %.not18, label %19, label %24
 
 19:                                               ; preds = %.critedge
-  %20 = getelementptr inbounds i8, ptr %0, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %21 = tail call ptr @token_type_to_string(i32 noundef %11) #8
   %22 = load i64, ptr %20, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %22, ptr noundef nonnull @.str.1, ptr noundef %21) #8
@@ -307,7 +307,7 @@ define dso_local ptr @parse_precedence_with_left_side(ptr noundef %0, ptr nounde
   %25 = tail call ptr %18(ptr noundef nonnull %0, ptr noundef %.01621) #8
   %26 = load i32, ptr %4, align 8
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds [190 x %struct.ParseRule], ptr @rules, i64 0, i64 %27, i32 2
+  %28 = getelementptr inbounds nuw [190 x %struct.ParseRule], ptr @rules, i64 0, i64 %27, i32 2
   %29 = load i32, ptr %28, align 8
   %30 = icmp ugt i32 %2, %29
   br i1 %30, label %.loopexit, label %.lr.ph
@@ -322,12 +322,12 @@ declare ptr @token_type_to_string(i32 noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @parse_cond(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca ptr, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %5 = tail call ptr @expr_new(i32 noundef 13, i64 %4) #8
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr null, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %8
 
 8:                                                ; preds = %426, %1
@@ -343,7 +343,7 @@ define dso_local ptr @parse_cond(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %12, label %.critedge.i, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = load i16, ptr %14, align 8
   %16 = and i16 %15, 255
   %.not.i = icmp eq i16 %16, 0
@@ -351,7 +351,7 @@ define dso_local ptr @parse_cond(ptr noundef %0) local_unnamed_addr #1 {
 
 .critedge.i:                                      ; preds = %13, %10
   %17 = call ptr @calloc_arena(i64 noundef 72) #8
-  %18 = getelementptr inbounds i8, ptr %17, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 8, ptr %18, align 4
   %19 = load i32, ptr %17, align 4
   %20 = icmp eq i32 %19, 8
@@ -359,7 +359,7 @@ define dso_local ptr @parse_cond(ptr noundef %0) local_unnamed_addr #1 {
 
 21:                                               ; preds = %.critedge.i
   %22 = call ptr @calloc_arena(i64 noundef 136) #8
-  %23 = getelementptr inbounds i8, ptr %22, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   store i32 16, ptr %23, align 4
   %24 = load i32, ptr %18, align 4
   %25 = zext i32 %24 to i64
@@ -377,9 +377,9 @@ define dso_local ptr @parse_cond(ptr noundef %0) local_unnamed_addr #1 {
   %.1.i.i = phi ptr [ %22, %21 ], [ %17, %.critedge.i ]
   %32 = add i32 %31, 1
   store i32 %32, ptr %.1.i.i, align 4
-  %33 = getelementptr inbounds i8, ptr %.1.i.i, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
   %34 = zext i32 %31 to i64
-  %35 = getelementptr inbounds ptr, ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw ptr, ptr %33, i64 %34
   store ptr %11, ptr %35, align 8
   %36 = call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 29) #8
   br i1 %36, label %.lr.ph.i, label %._crit_edge.i
@@ -396,7 +396,7 @@ define dso_local ptr @parse_cond(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %41, label %.critedge2.i, label %42
 
 42:                                               ; preds = %39
-  %43 = getelementptr inbounds i8, ptr %40, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %44 = load i16, ptr %43, align 8
   %45 = and i16 %44, 255
   %.not72.i = icmp eq i16 %45, 0
@@ -416,7 +416,7 @@ define dso_local ptr @parse_cond(ptr noundef %0) local_unnamed_addr #1 {
   %52 = shl nuw nsw i64 %51, 3
   %53 = or disjoint i64 %52, 8
   %54 = call ptr @calloc_arena(i64 noundef %53) #8
-  %55 = getelementptr inbounds i8, ptr %54, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
   store i32 %50, ptr %55, align 4
   %56 = load i32, ptr %.phi.trans.insert.i.i, align 4
   %57 = zext i32 %56 to i64
@@ -440,9 +440,9 @@ define dso_local ptr @parse_cond(ptr noundef %0) local_unnamed_addr #1 {
   %.sink.i = phi ptr [ %68, %.critedge4.i ], [ %40, %.critedge2.i ], [ %.sink.ph.i, %.backedge.sink.split.i ]
   %62 = add i32 %.sink91.i, 1
   store i32 %62, ptr %.1.i74.sink90.i, align 4
-  %63 = getelementptr inbounds i8, ptr %.1.i74.sink90.i, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %.1.i74.sink90.i, i64 8
   %64 = zext i32 %.sink91.i to i64
-  %65 = getelementptr inbounds ptr, ptr %63, i64 %64
+  %65 = getelementptr inbounds nuw ptr, ptr %63, i64 %64
   store ptr %.sink.i, ptr %65, align 8
   %66 = call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 29) #8
   br i1 %66, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !7
@@ -453,7 +453,7 @@ define dso_local ptr @parse_cond(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %69, label %.critedge4.i, label %70
 
 70:                                               ; preds = %67
-  %71 = getelementptr inbounds i8, ptr %68, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %72 = load i16, ptr %71, align 8
   %73 = and i16 %72, 255
   %.not70.i = icmp eq i16 %73, 0
@@ -473,7 +473,7 @@ define dso_local ptr @parse_cond(ptr noundef %0) local_unnamed_addr #1 {
   %80 = shl nuw nsw i64 %79, 3
   %81 = or disjoint i64 %80, 8
   %82 = call ptr @calloc_arena(i64 noundef %81) #8
-  %83 = getelementptr inbounds i8, ptr %82, i64 4
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 4
   store i32 %78, ptr %83, align 4
   %84 = load i32, ptr %.phi.trans.insert.i77.i, align 4
   %85 = zext i32 %84 to i64
@@ -487,13 +487,13 @@ define dso_local ptr @parse_cond(ptr noundef %0) local_unnamed_addr #1 {
 
 ._crit_edge.i:                                    ; preds = %.backedge.i, %30
   %.062.lcssa.i = phi ptr [ %33, %30 ], [ %63, %.backedge.i ]
-  %90 = getelementptr inbounds i8, ptr %11, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %91 = load i64, ptr %90, align 8
   %92 = call ptr @expr_new(i32 noundef 59, i64 %91) #8
-  %93 = getelementptr inbounds i8, ptr %92, i64 24
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 24
   store ptr %.062.lcssa.i, ptr %93, align 8
-  %94 = getelementptr inbounds i8, ptr %92, i64 8
-  %95 = getelementptr inbounds i8, ptr %0, i64 56
+  %94 = getelementptr inbounds nuw i8, ptr %92, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %96 = load i64, ptr %94, align 8
   %97 = load i64, ptr %95, align 8
   %.not.unshifted.i.i = xor i64 %97, %96
@@ -531,7 +531,7 @@ parse_try_unwrap_chain.exit:                      ; preds = %70, %42, %13
 
 109:                                              ; preds = %parse_try_unwrap_chain.exit.thread, %parse_try_unwrap_chain.exit
   %.061.i124 = phi ptr [ %92, %parse_try_unwrap_chain.exit.thread ], [ %.061.i, %parse_try_unwrap_chain.exit ]
-  %110 = getelementptr inbounds i8, ptr %.061.i124, i64 16
+  %110 = getelementptr inbounds nuw i8, ptr %.061.i124, i64 16
   %111 = load i16, ptr %110, align 8
   %112 = and i16 %111, 255
   %.not87 = icmp eq i16 %112, 0
@@ -549,7 +549,7 @@ parse_try_unwrap_chain.exit:                      ; preds = %70, %42, %13
 
 116:                                              ; preds = %.critedge
   %117 = call ptr @calloc_arena(i64 noundef 72) #8
-  %118 = getelementptr inbounds i8, ptr %117, i64 4
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 4
   store i32 8, ptr %118, align 4
   br label %121
 
@@ -567,13 +567,13 @@ parse_try_unwrap_chain.exit:                      ; preds = %70, %42, %13
   br i1 %124, label %125, label %139
 
 125:                                              ; preds = %121
-  %126 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %126 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   %127 = shl i32 %122, 1
   %128 = zext i32 %127 to i64
   %129 = shl nuw nsw i64 %128, 3
   %130 = or disjoint i64 %129, 8
   %131 = call ptr @calloc_arena(i64 noundef %130) #8
-  %132 = getelementptr inbounds i8, ptr %131, i64 4
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 4
   store i32 %127, ptr %132, align 4
   %133 = load i32, ptr %126, align 4
   %134 = zext i32 %133 to i64
@@ -591,19 +591,19 @@ parse_try_unwrap_chain.exit:                      ; preds = %70, %42, %13
   %.1.i = phi ptr [ %131, %125 ], [ %.0.i, %121 ]
   %141 = add i32 %140, 1
   store i32 %141, ptr %.1.i, align 4
-  %142 = getelementptr inbounds i8, ptr %.1.i, i64 8
+  %142 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   store ptr %142, ptr %6, align 8
   %143 = load i32, ptr %.1.i, align 4
   %144 = add i32 %143, -1
   %145 = zext i32 %144 to i64
-  %146 = getelementptr inbounds ptr, ptr %142, i64 %145
+  %146 = getelementptr inbounds nuw ptr, ptr %142, i64 %145
   store ptr %.061.i125, ptr %146, align 8
   %147 = load i32, ptr %7, align 8
   %148 = icmp eq i32 %147, 8
   br i1 %148, label %149, label %.loopexit
 
 149:                                              ; preds = %139
-  %150 = getelementptr inbounds i8, ptr %.061.i125, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %.061.i125, i64 8
   %151 = load i64, ptr %150, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %151, ptr noundef nonnull @.str.2) #8
   %152 = load ptr, ptr @poisoned_expr, align 8
@@ -618,7 +618,7 @@ parse_try_unwrap_chain.exit:                      ; preds = %70, %42, %13
   br i1 %157, label %.critedge.i91, label %158
 
 158:                                              ; preds = %153
-  %159 = getelementptr inbounds i8, ptr %156, i64 16
+  %159 = getelementptr inbounds nuw i8, ptr %156, i64 16
   %160 = load i16, ptr %159, align 8
   %161 = and i16 %160, 255
   %.not.i90 = icmp eq i16 %161, 0
@@ -630,7 +630,7 @@ parse_try_unwrap_chain.exit:                      ; preds = %70, %42, %13
 
 163:                                              ; preds = %.critedge.i91
   %164 = call ptr @calloc_arena(i64 noundef 72) #8
-  %165 = getelementptr inbounds i8, ptr %164, i64 4
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 4
   store i32 8, ptr %165, align 4
   %166 = load i32, ptr %164, align 4
   %167 = icmp eq i32 %166, 8
@@ -638,7 +638,7 @@ parse_try_unwrap_chain.exit:                      ; preds = %70, %42, %13
 
 168:                                              ; preds = %163
   %169 = call ptr @calloc_arena(i64 noundef 136) #8
-  %170 = getelementptr inbounds i8, ptr %169, i64 4
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 4
   store i32 16, ptr %170, align 4
   %171 = load i32, ptr %165, align 4
   %172 = zext i32 %171 to i64
@@ -656,9 +656,9 @@ parse_try_unwrap_chain.exit:                      ; preds = %70, %42, %13
   %.1.i.i103 = phi ptr [ %169, %168 ], [ %164, %163 ]
   %179 = add i32 %178, 1
   store i32 %179, ptr %.1.i.i103, align 4
-  %180 = getelementptr inbounds i8, ptr %.1.i.i103, i64 8
+  %180 = getelementptr inbounds nuw i8, ptr %.1.i.i103, i64 8
   %181 = zext i32 %178 to i64
-  %182 = getelementptr inbounds ptr, ptr %180, i64 %181
+  %182 = getelementptr inbounds nuw ptr, ptr %180, i64 %181
   store ptr %156, ptr %182, align 8
   br label %183
 
@@ -669,7 +669,7 @@ parse_try_unwrap_chain.exit:                      ; preds = %70, %42, %13
   br i1 %185, label %.critedge2.i104, label %186
 
 186:                                              ; preds = %183
-  %187 = getelementptr inbounds i8, ptr %184, i64 16
+  %187 = getelementptr inbounds nuw i8, ptr %184, i64 16
   %188 = load i16, ptr %187, align 8
   %189 = and i16 %188, 255
   %.not113.i = icmp eq i16 %189, 0
@@ -689,7 +689,7 @@ parse_try_unwrap_chain.exit:                      ; preds = %70, %42, %13
   %196 = shl nuw nsw i64 %195, 3
   %197 = or disjoint i64 %196, 8
   %198 = call ptr @calloc_arena(i64 noundef %197) #8
-  %199 = getelementptr inbounds i8, ptr %198, i64 4
+  %199 = getelementptr inbounds nuw i8, ptr %198, i64 4
   store i32 %194, ptr %199, align 4
   %200 = load i32, ptr %.phi.trans.insert.i.i105, align 4
   %201 = zext i32 %200 to i64
@@ -707,37 +707,37 @@ parse_try_unwrap_chain.exit:                      ; preds = %70, %42, %13
   %.1.i115.i = phi ptr [ %198, %193 ], [ %190, %.critedge2.i104 ]
   %208 = add i32 %207, 1
   store i32 %208, ptr %.1.i115.i, align 4
-  %209 = getelementptr inbounds i8, ptr %.1.i115.i, i64 8
+  %209 = getelementptr inbounds nuw i8, ptr %.1.i115.i, i64 8
   %210 = zext i32 %207 to i64
-  %211 = getelementptr inbounds ptr, ptr %209, i64 %210
+  %211 = getelementptr inbounds nuw ptr, ptr %209, i64 %210
   store ptr %184, ptr %211, align 8
   %212 = call zeroext i1 @try_consume(ptr noundef %0, i32 noundef 8) #8
   br i1 %212, label %183, label %213, !llvm.loop !9
 
 213:                                              ; preds = %206
-  %214 = getelementptr inbounds i8, ptr %155, i64 40
+  %214 = getelementptr inbounds nuw i8, ptr %155, i64 40
   store ptr %209, ptr %214, align 8
   br label %parse_catch_unwrap.exit.thread
 
 215:                                              ; preds = %.critedge.i91
-  %216 = getelementptr inbounds i8, ptr %156, i64 16
+  %216 = getelementptr inbounds nuw i8, ptr %156, i64 16
   %217 = load i16, ptr %216, align 8
   %218 = and i16 %217, 255
   %219 = icmp eq i16 %218, 62
   br i1 %219, label %220, label %231
 
 220:                                              ; preds = %215
-  %221 = getelementptr inbounds i8, ptr %156, i64 24
+  %221 = getelementptr inbounds nuw i8, ptr %156, i64 24
   %222 = load ptr, ptr %221, align 8
-  %223 = getelementptr inbounds i8, ptr %155, i64 24
-  %224 = getelementptr inbounds i8, ptr %155, i64 32
+  %223 = getelementptr inbounds nuw i8, ptr %155, i64 24
+  %224 = getelementptr inbounds nuw i8, ptr %155, i64 32
   store ptr %222, ptr %224, align 8
   %225 = call fastcc ptr @parse_precedence(ptr noundef nonnull %0, i32 noundef 5)
   %226 = icmp eq ptr %225, null
   br i1 %226, label %.critedge4.i102, label %227
 
 227:                                              ; preds = %220
-  %228 = getelementptr inbounds i8, ptr %225, i64 16
+  %228 = getelementptr inbounds nuw i8, ptr %225, i64 16
   %229 = load i16, ptr %228, align 8
   %230 = and i16 %229, 255
   %.not107.i = icmp eq i16 %230, 0
@@ -748,8 +748,8 @@ parse_try_unwrap_chain.exit:                      ; preds = %70, %42, %13
   br label %234
 
 231:                                              ; preds = %215
-  %232 = getelementptr inbounds i8, ptr %155, i64 24
-  %233 = getelementptr inbounds i8, ptr %155, i64 32
+  %232 = getelementptr inbounds nuw i8, ptr %155, i64 24
+  %233 = getelementptr inbounds nuw i8, ptr %155, i64 32
   store ptr null, ptr %233, align 8
   store ptr %156, ptr %232, align 8
   br label %234
@@ -759,8 +759,8 @@ parse_try_unwrap_chain.exit:                      ; preds = %70, %42, %13
   br i1 %235, label %.preheader.i, label %236
 
 236:                                              ; preds = %234
-  %237 = getelementptr inbounds i8, ptr %155, i64 24
-  %238 = getelementptr inbounds i8, ptr %155, i64 32
+  %237 = getelementptr inbounds nuw i8, ptr %155, i64 24
+  %238 = getelementptr inbounds nuw i8, ptr %155, i64 32
   %239 = load ptr, ptr %238, align 8
   %.not108.i = icmp eq ptr %239, null
   br i1 %.not108.i, label %242, label %240
@@ -771,14 +771,14 @@ parse_try_unwrap_chain.exit:                      ; preds = %70, %42, %13
   br label %parse_catch_unwrap.exit
 
 242:                                              ; preds = %236
-  %243 = getelementptr inbounds i8, ptr %155, i64 40
+  %243 = getelementptr inbounds nuw i8, ptr %155, i64 40
   %244 = load ptr, ptr %243, align 8
   %.not.i.i92 = icmp eq ptr %244, null
   br i1 %.not.i.i92, label %245, label %248
 
 245:                                              ; preds = %242
   %246 = call ptr @calloc_arena(i64 noundef 72) #8
-  %247 = getelementptr inbounds i8, ptr %246, i64 4
+  %247 = getelementptr inbounds nuw i8, ptr %246, i64 4
   store i32 8, ptr %247, align 4
   br label %250
 
@@ -796,13 +796,13 @@ parse_try_unwrap_chain.exit:                      ; preds = %70, %42, %13
   br i1 %253, label %254, label %268
 
 254:                                              ; preds = %250
-  %255 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
+  %255 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   %256 = shl i32 %251, 1
   %257 = zext i32 %256 to i64
   %258 = shl nuw nsw i64 %257, 3
   %259 = or disjoint i64 %258, 8
   %260 = call ptr @calloc_arena(i64 noundef %259) #8
-  %261 = getelementptr inbounds i8, ptr %260, i64 4
+  %261 = getelementptr inbounds nuw i8, ptr %260, i64 4
   store i32 %256, ptr %261, align 4
   %262 = load i32, ptr %255, align 4
   %263 = zext i32 %262 to i64
@@ -820,17 +820,17 @@ parse_try_unwrap_chain.exit:                      ; preds = %70, %42, %13
   %.1.i120.i = phi ptr [ %260, %254 ], [ %.0.i.i, %250 ]
   %270 = add i32 %269, 1
   store i32 %270, ptr %.1.i120.i, align 4
-  %271 = getelementptr inbounds i8, ptr %.1.i120.i, i64 8
+  %271 = getelementptr inbounds nuw i8, ptr %.1.i120.i, i64 8
   store ptr %271, ptr %243, align 8
   %272 = load ptr, ptr %237, align 8
   %273 = load i32, ptr %.1.i120.i, align 4
   %274 = add i32 %273, -1
   %275 = zext i32 %274 to i64
-  %276 = getelementptr inbounds ptr, ptr %271, i64 %275
+  %276 = getelementptr inbounds nuw ptr, ptr %271, i64 %275
   store ptr %272, ptr %276, align 8
   store ptr null, ptr %237, align 8
-  %277 = getelementptr inbounds i8, ptr %155, i64 8
-  %278 = getelementptr inbounds i8, ptr %0, i64 56
+  %277 = getelementptr inbounds nuw i8, ptr %155, i64 8
+  %278 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %279 = load i64, ptr %277, align 8
   %280 = load i64, ptr %278, align 8
   %.not.unshifted.i.i93 = xor i64 %280, %279
@@ -868,7 +868,7 @@ extend_span_with_token.exit.i95:                  ; preds = %282, %281
   br i1 %292, label %.critedge6.i, label %293
 
 293:                                              ; preds = %.preheader.i
-  %294 = getelementptr inbounds i8, ptr %291, i64 16
+  %294 = getelementptr inbounds nuw i8, ptr %291, i64 16
   %295 = load i16, ptr %294, align 8
   %296 = and i16 %295, 255
   %.not110.i = icmp eq i16 %296, 0
@@ -880,7 +880,7 @@ extend_span_with_token.exit.i95:                  ; preds = %282, %281
 
 297:                                              ; preds = %.critedge6.i
   %298 = call ptr @calloc_arena(i64 noundef 72) #8
-  %299 = getelementptr inbounds i8, ptr %298, i64 4
+  %299 = getelementptr inbounds nuw i8, ptr %298, i64 4
   store i32 8, ptr %299, align 4
   br label %302
 
@@ -898,13 +898,13 @@ extend_span_with_token.exit.i95:                  ; preds = %282, %281
   br i1 %305, label %306, label %320
 
 306:                                              ; preds = %302
-  %307 = getelementptr inbounds i8, ptr %.0.i127.i, i64 4
+  %307 = getelementptr inbounds nuw i8, ptr %.0.i127.i, i64 4
   %308 = shl i32 %303, 1
   %309 = zext i32 %308 to i64
   %310 = shl nuw nsw i64 %309, 3
   %311 = or disjoint i64 %310, 8
   %312 = call ptr @calloc_arena(i64 noundef %311) #8
-  %313 = getelementptr inbounds i8, ptr %312, i64 4
+  %313 = getelementptr inbounds nuw i8, ptr %312, i64 4
   store i32 %308, ptr %313, align 4
   %314 = load i32, ptr %307, align 4
   %315 = zext i32 %314 to i64
@@ -922,18 +922,18 @@ extend_span_with_token.exit.i95:                  ; preds = %282, %281
   %.1.i128.i = phi ptr [ %312, %306 ], [ %.0.i127.i, %302 ]
   %322 = add i32 %321, 1
   store i32 %322, ptr %.1.i128.i, align 4
-  %323 = getelementptr inbounds i8, ptr %.1.i128.i, i64 8
+  %323 = getelementptr inbounds nuw i8, ptr %.1.i128.i, i64 8
   %324 = zext i32 %321 to i64
-  %325 = getelementptr inbounds ptr, ptr %323, i64 %324
+  %325 = getelementptr inbounds nuw ptr, ptr %323, i64 %324
   store ptr %291, ptr %325, align 8
   %326 = call zeroext i1 @try_consume(ptr noundef %0, i32 noundef 8) #8
   br i1 %326, label %.preheader.i, label %327, !llvm.loop !10
 
 327:                                              ; preds = %320
-  %328 = getelementptr inbounds i8, ptr %155, i64 40
+  %328 = getelementptr inbounds nuw i8, ptr %155, i64 40
   store ptr %323, ptr %328, align 8
-  %329 = getelementptr inbounds i8, ptr %155, i64 8
-  %330 = getelementptr inbounds i8, ptr %0, i64 56
+  %329 = getelementptr inbounds nuw i8, ptr %155, i64 8
+  %330 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %331 = load i64, ptr %329, align 8
   %332 = load i64, ptr %330, align 8
   %.not.unshifted.i131.i = xor i64 %332, %331
@@ -971,7 +971,7 @@ parse_catch_unwrap.exit:                          ; preds = %293, %186, %227, %1
 
 parse_catch_unwrap.exit.thread:                   ; preds = %extend_span_with_token.exit.i95, %extend_span_with_token.exit139.i, %213, %parse_catch_unwrap.exit
   %.097.i127 = phi ptr [ %.097.i, %parse_catch_unwrap.exit ], [ %155, %213 ], [ %155, %extend_span_with_token.exit139.i ], [ %155, %extend_span_with_token.exit.i95 ]
-  %344 = getelementptr inbounds i8, ptr %.097.i127, i64 16
+  %344 = getelementptr inbounds nuw i8, ptr %.097.i127, i64 16
   %345 = load i16, ptr %344, align 8
   %346 = and i16 %345, 255
   %.not85 = icmp eq i16 %346, 0
@@ -989,7 +989,7 @@ parse_catch_unwrap.exit.thread:                   ; preds = %extend_span_with_to
 
 350:                                              ; preds = %.critedge2
   %351 = call ptr @calloc_arena(i64 noundef 72) #8
-  %352 = getelementptr inbounds i8, ptr %351, i64 4
+  %352 = getelementptr inbounds nuw i8, ptr %351, i64 4
   store i32 8, ptr %352, align 4
   br label %355
 
@@ -1007,13 +1007,13 @@ parse_catch_unwrap.exit.thread:                   ; preds = %extend_span_with_to
   br i1 %358, label %359, label %373
 
 359:                                              ; preds = %355
-  %360 = getelementptr inbounds i8, ptr %.0.i111, i64 4
+  %360 = getelementptr inbounds nuw i8, ptr %.0.i111, i64 4
   %361 = shl i32 %356, 1
   %362 = zext i32 %361 to i64
   %363 = shl nuw nsw i64 %362, 3
   %364 = or disjoint i64 %363, 8
   %365 = call ptr @calloc_arena(i64 noundef %364) #8
-  %366 = getelementptr inbounds i8, ptr %365, i64 4
+  %366 = getelementptr inbounds nuw i8, ptr %365, i64 4
   store i32 %361, ptr %366, align 4
   %367 = load i32, ptr %360, align 4
   %368 = zext i32 %367 to i64
@@ -1031,19 +1031,19 @@ parse_catch_unwrap.exit.thread:                   ; preds = %extend_span_with_to
   %.1.i112 = phi ptr [ %365, %359 ], [ %.0.i111, %355 ]
   %375 = add i32 %374, 1
   store i32 %375, ptr %.1.i112, align 4
-  %376 = getelementptr inbounds i8, ptr %.1.i112, i64 8
+  %376 = getelementptr inbounds nuw i8, ptr %.1.i112, i64 8
   store ptr %376, ptr %6, align 8
   %377 = load i32, ptr %.1.i112, align 4
   %378 = add i32 %377, -1
   %379 = zext i32 %378 to i64
-  %380 = getelementptr inbounds ptr, ptr %376, i64 %379
+  %380 = getelementptr inbounds nuw ptr, ptr %376, i64 %379
   store ptr %.097.i128, ptr %380, align 8
   %381 = load i32, ptr %7, align 8
   %382 = icmp eq i32 %381, 8
   br i1 %382, label %383, label %.loopexit
 
 383:                                              ; preds = %373
-  %384 = getelementptr inbounds i8, ptr %.097.i128, i64 8
+  %384 = getelementptr inbounds nuw i8, ptr %.097.i128, i64 8
   %385 = load i64, ptr %384, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %385, ptr noundef nonnull @.str.3) #8
   %386 = load ptr, ptr @poisoned_expr, align 8
@@ -1055,7 +1055,7 @@ parse_catch_unwrap.exit.thread:                   ; preds = %extend_span_with_to
   br i1 %cond, label %395, label %389
 
 389:                                              ; preds = %387
-  %390 = getelementptr inbounds i8, ptr %388, i64 16
+  %390 = getelementptr inbounds nuw i8, ptr %388, i64 16
   %391 = load i16, ptr %390, align 8
   %392 = and i16 %391, 255
   %.not = icmp eq i16 %392, 0
@@ -1067,11 +1067,11 @@ parse_catch_unwrap.exit.thread:                   ; preds = %extend_span_with_to
 
 395:                                              ; preds = %387
   %396 = load ptr, ptr %2, align 8
-  %397 = getelementptr inbounds i8, ptr %396, i64 16
+  %397 = getelementptr inbounds nuw i8, ptr %396, i64 16
   %398 = load i64, ptr %397, align 8
   %399 = call ptr @expr_new(i32 noundef 23, i64 %398) #8
   %400 = load ptr, ptr %2, align 8
-  %401 = getelementptr inbounds i8, ptr %399, i64 24
+  %401 = getelementptr inbounds nuw i8, ptr %399, i64 24
   store ptr %400, ptr %401, align 8
   br label %.critedge4
 
@@ -1083,7 +1083,7 @@ parse_catch_unwrap.exit.thread:                   ; preds = %extend_span_with_to
 
 403:                                              ; preds = %.critedge4
   %404 = call ptr @calloc_arena(i64 noundef 72) #8
-  %405 = getelementptr inbounds i8, ptr %404, i64 4
+  %405 = getelementptr inbounds nuw i8, ptr %404, i64 4
   store i32 8, ptr %405, align 4
   br label %408
 
@@ -1101,13 +1101,13 @@ parse_catch_unwrap.exit.thread:                   ; preds = %extend_span_with_to
   br i1 %411, label %412, label %426
 
 412:                                              ; preds = %408
-  %413 = getelementptr inbounds i8, ptr %.0.i118, i64 4
+  %413 = getelementptr inbounds nuw i8, ptr %.0.i118, i64 4
   %414 = shl i32 %409, 1
   %415 = zext i32 %414 to i64
   %416 = shl nuw nsw i64 %415, 3
   %417 = or disjoint i64 %416, 8
   %418 = call ptr @calloc_arena(i64 noundef %417) #8
-  %419 = getelementptr inbounds i8, ptr %418, i64 4
+  %419 = getelementptr inbounds nuw i8, ptr %418, i64 4
   store i32 %414, ptr %419, align 4
   %420 = load i32, ptr %413, align 4
   %421 = zext i32 %420 to i64
@@ -1125,19 +1125,19 @@ parse_catch_unwrap.exit.thread:                   ; preds = %extend_span_with_to
   %.1.i119 = phi ptr [ %418, %412 ], [ %.0.i118, %408 ]
   %428 = add i32 %427, 1
   store i32 %428, ptr %.1.i119, align 4
-  %429 = getelementptr inbounds i8, ptr %.1.i119, i64 8
+  %429 = getelementptr inbounds nuw i8, ptr %.1.i119, i64 8
   store ptr %429, ptr %6, align 8
   %430 = load i32, ptr %.1.i119, align 4
   %431 = add i32 %430, -1
   %432 = zext i32 %431 to i64
-  %433 = getelementptr inbounds ptr, ptr %429, i64 %432
+  %433 = getelementptr inbounds nuw ptr, ptr %429, i64 %432
   store ptr %.073, ptr %433, align 8
   %434 = call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #8
   br i1 %434, label %8, label %.loopexit
 
 .loopexit:                                        ; preds = %426, %139, %373
-  %435 = getelementptr inbounds i8, ptr %5, i64 8
-  %436 = getelementptr inbounds i8, ptr %0, i64 56
+  %435 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %436 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %437 = load i64, ptr %435, align 8
   %438 = load i64, ptr %436, align 8
   %.not.unshifted.i = xor i64 %438, %437
@@ -1179,16 +1179,16 @@ declare ptr @parse_decl_or_expr(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @parse_precedence(ptr noundef %0, i32 noundef %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds [190 x %struct.ParseRule], ptr @rules, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw [190 x %struct.ParseRule], ptr @rules, i64 0, i64 %5
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load i64, ptr %9, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %10, ptr noundef nonnull @.str.21) #8
   %11 = load ptr, ptr @poisoned_expr, align 8
@@ -1202,7 +1202,7 @@ define internal fastcc ptr @parse_precedence(ptr noundef %0, i32 noundef %1) unn
 .split12:                                         ; preds = %12
   %15 = load i32, ptr %3, align 8
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds [190 x %struct.ParseRule], ptr @rules, i64 0, i64 %16, i32 2
+  %17 = getelementptr inbounds nuw [190 x %struct.ParseRule], ptr @rules, i64 0, i64 %16, i32 2
   %18 = load i32, ptr %17, align 8
   %19 = icmp ugt i32 %1, %18
   br i1 %19, label %.critedge, label %.lr.ph.i
@@ -1215,20 +1215,20 @@ define internal fastcc ptr @parse_precedence(ptr noundef %0, i32 noundef %1) unn
   br i1 %22, label %.critedge.i, label %23
 
 23:                                               ; preds = %.lr.ph.i
-  %24 = getelementptr inbounds i8, ptr %.01621.i, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %.01621.i, i64 16
   %25 = load i16, ptr %24, align 8
   %26 = and i16 %25, 255
   %.not.i = icmp eq i16 %26, 0
   br i1 %.not.i, label %.critedge, label %.critedge.i
 
 .critedge.i:                                      ; preds = %23, %.lr.ph.i
-  %27 = getelementptr inbounds [190 x %struct.ParseRule], ptr @rules, i64 0, i64 %20, i32 1
+  %27 = getelementptr inbounds nuw [190 x %struct.ParseRule], ptr @rules, i64 0, i64 %20, i32 1
   %28 = load ptr, ptr %27, align 8
   %.not18.i = icmp eq ptr %28, null
   br i1 %.not18.i, label %29, label %34
 
 29:                                               ; preds = %.critedge.i
-  %30 = getelementptr inbounds i8, ptr %0, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %31 = tail call ptr @token_type_to_string(i32 noundef %21) #8
   %32 = load i64, ptr %30, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %32, ptr noundef nonnull @.str.1, ptr noundef %31) #8
@@ -1239,13 +1239,13 @@ define internal fastcc ptr @parse_precedence(ptr noundef %0, i32 noundef %1) unn
   %35 = tail call ptr %28(ptr noundef nonnull %0, ptr noundef %.01621.i) #8
   %36 = load i32, ptr %3, align 8
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds [190 x %struct.ParseRule], ptr @rules, i64 0, i64 %37, i32 2
+  %38 = getelementptr inbounds nuw [190 x %struct.ParseRule], ptr @rules, i64 0, i64 %37, i32 2
   %39 = load i32, ptr %38, align 8
   %40 = icmp ugt i32 %1, %39
   br i1 %40, label %.critedge, label %.lr.ph.i
 
 41:                                               ; preds = %12
-  %42 = getelementptr inbounds i8, ptr %13, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %43 = load i16, ptr %42, align 8
   %44 = and i16 %43, 255
   %.not15 = icmp eq i16 %44, 0
@@ -1254,7 +1254,7 @@ define internal fastcc ptr @parse_precedence(ptr noundef %0, i32 noundef %1) unn
 .split:                                           ; preds = %41
   %45 = load i32, ptr %3, align 8
   %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds [190 x %struct.ParseRule], ptr @rules, i64 0, i64 %46, i32 2
+  %47 = getelementptr inbounds nuw [190 x %struct.ParseRule], ptr @rules, i64 0, i64 %46, i32 2
   %48 = load i32, ptr %47, align 8
   %49 = icmp ugt i32 %1, %48
   br i1 %49, label %.critedge, label %.lr.ph.i16
@@ -1267,20 +1267,20 @@ define internal fastcc ptr @parse_precedence(ptr noundef %0, i32 noundef %1) unn
   br i1 %52, label %.critedge.i19, label %53
 
 53:                                               ; preds = %.lr.ph.i16
-  %54 = getelementptr inbounds i8, ptr %.01621.i17, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %.01621.i17, i64 16
   %55 = load i16, ptr %54, align 8
   %56 = and i16 %55, 255
   %.not.i18 = icmp eq i16 %56, 0
   br i1 %.not.i18, label %.critedge, label %.critedge.i19
 
 .critedge.i19:                                    ; preds = %53, %.lr.ph.i16
-  %57 = getelementptr inbounds [190 x %struct.ParseRule], ptr @rules, i64 0, i64 %50, i32 1
+  %57 = getelementptr inbounds nuw [190 x %struct.ParseRule], ptr @rules, i64 0, i64 %50, i32 1
   %58 = load ptr, ptr %57, align 8
   %.not18.i20 = icmp eq ptr %58, null
   br i1 %.not18.i20, label %59, label %64
 
 59:                                               ; preds = %.critedge.i19
-  %60 = getelementptr inbounds i8, ptr %0, i64 48
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %61 = tail call ptr @token_type_to_string(i32 noundef %51) #8
   %62 = load i64, ptr %60, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %62, ptr noundef nonnull @.str.1, ptr noundef %61) #8
@@ -1291,7 +1291,7 @@ define internal fastcc ptr @parse_precedence(ptr noundef %0, i32 noundef %1) unn
   %65 = tail call ptr %58(ptr noundef nonnull %0, ptr noundef %.01621.i17) #8
   %66 = load i32, ptr %3, align 8
   %67 = zext i32 %66 to i64
-  %68 = getelementptr inbounds [190 x %struct.ParseRule], ptr @rules, i64 0, i64 %67, i32 2
+  %68 = getelementptr inbounds nuw [190 x %struct.ParseRule], ptr @rules, i64 0, i64 %67, i32 2
   %69 = load i32, ptr %68, align 8
   %70 = icmp ugt i32 %1, %69
   br i1 %70, label %.critedge, label %.lr.ph.i16
@@ -1309,7 +1309,7 @@ define dso_local ptr @parse_constant_expr(ptr noundef %0) local_unnamed_addr #1 
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @parse_vasplat(ptr noundef %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
   %4 = tail call ptr @expr_new(i32 noundef 65, i64 %3) #8
   tail call void @advance(ptr noundef %0) #8
@@ -1325,7 +1325,7 @@ define dso_local ptr @parse_vasplat(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %9, label %23, label %10
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %4, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %12 = tail call zeroext i1 @parse_range(ptr noundef nonnull %0, ptr noundef nonnull %11)
   br i1 %12, label %15, label %13
 
@@ -1334,7 +1334,7 @@ define dso_local ptr @parse_vasplat(ptr noundef %0) local_unnamed_addr #1 {
   br label %38
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load i32, ptr %16, align 8
   %18 = icmp eq i32 %17, 26
   br i1 %18, label %.critedge, label %19
@@ -1351,8 +1351,8 @@ define dso_local ptr @parse_vasplat(ptr noundef %0) local_unnamed_addr #1 {
   br label %23
 
 23:                                               ; preds = %8, %.critedge
-  %24 = getelementptr inbounds i8, ptr %4, i64 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %26 = load i64, ptr %24, align 8
   %27 = load i64, ptr %25, align 8
   %.not.unshifted.i = xor i64 %27, %26
@@ -1404,14 +1404,14 @@ define dso_local noundef zeroext i1 @parse_arg_list(ptr noundef %0, ptr nocaptur
   br label %8
 
 8:                                                ; preds = %7, %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.sroa.011.0.copyload82 = load i64, ptr %9, align 8
   %10 = call fastcc zeroext i1 @parse_param_path(ptr noundef %0, ptr noundef %6)
   br i1 %10, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %13
 
 13:                                               ; preds = %.lr.ph, %107
@@ -1422,7 +1422,7 @@ define dso_local noundef zeroext i1 @parse_arg_list(ptr noundef %0, ptr nocaptur
 
 15:                                               ; preds = %13
   %16 = tail call ptr @expr_new(i32 noundef 25, i64 %.sroa.011.0.copyload83) #8
-  %17 = getelementptr inbounds i8, ptr %16, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store ptr %14, ptr %17, align 8
   %18 = load i32, ptr %11, align 8
   %19 = icmp eq i32 %18, 10
@@ -1441,16 +1441,16 @@ define dso_local noundef zeroext i1 @parse_arg_list(ptr noundef %0, ptr nocaptur
   br i1 %24, label %.critedge, label %25
 
 25:                                               ; preds = %.critedge78
-  %26 = getelementptr inbounds i8, ptr %23, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %27 = load i16, ptr %26, align 8
   %28 = and i16 %27, 255
   %.not75 = icmp eq i16 %28, 0
   br i1 %.not75, label %.loopexit, label %.critedge
 
 .critedge:                                        ; preds = %.critedge78, %25
-  %29 = getelementptr inbounds i8, ptr %16, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr %23, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %16, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %31 = load i64, ptr %30, align 8
   %32 = load i64, ptr %12, align 8
   %.not.unshifted.i = xor i64 %32, %31
@@ -1495,7 +1495,7 @@ extend_span_with_token.exit:                      ; preds = %33, %34
   br i1 %49, label %.critedge2, label %50
 
 50:                                               ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %48, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %52 = load i16, ptr %51, align 8
   %53 = and i16 %52, 255
   %.not74 = icmp eq i16 %53, 0
@@ -1516,7 +1516,7 @@ extend_span_with_token.exit:                      ; preds = %33, %34
   br i1 %60, label %.critedge2, label %61
 
 61:                                               ; preds = %58
-  %62 = getelementptr inbounds i8, ptr %59, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %63 = load i16, ptr %62, align 8
   %64 = and i16 %63, 255
   %.not73 = icmp eq i16 %64, 0
@@ -1530,7 +1530,7 @@ extend_span_with_token.exit:                      ; preds = %33, %34
 
 66:                                               ; preds = %.critedge2
   %67 = tail call ptr @calloc_arena(i64 noundef 72) #8
-  %68 = getelementptr inbounds i8, ptr %67, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 4
   store i32 8, ptr %68, align 4
   br label %71
 
@@ -1548,13 +1548,13 @@ extend_span_with_token.exit:                      ; preds = %33, %34
   br i1 %74, label %75, label %89
 
 75:                                               ; preds = %71
-  %76 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   %77 = shl i32 %72, 1
   %78 = zext i32 %77 to i64
   %79 = shl nuw nsw i64 %78, 3
   %80 = or disjoint i64 %79, 8
   %81 = tail call ptr @calloc_arena(i64 noundef %80) #8
-  %82 = getelementptr inbounds i8, ptr %81, i64 4
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 4
   store i32 %77, ptr %82, align 4
   %83 = load i32, ptr %76, align 4
   %84 = zext i32 %83 to i64
@@ -1572,12 +1572,12 @@ extend_span_with_token.exit:                      ; preds = %33, %34
   %.1.i = phi ptr [ %81, %75 ], [ %.0.i, %71 ]
   %91 = add i32 %90, 1
   store i32 %91, ptr %.1.i, align 4
-  %92 = getelementptr inbounds i8, ptr %.1.i, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   store ptr %92, ptr %1, align 8
   %93 = load i32, ptr %.1.i, align 4
   %94 = add i32 %93, -1
   %95 = zext i32 %94 to i64
-  %96 = getelementptr inbounds ptr, ptr %92, i64 %95
+  %96 = getelementptr inbounds nuw ptr, ptr %92, i64 %95
   store ptr %.066, ptr %96, align 8
   %97 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #8
   br i1 %97, label %98, label %.loopexit
@@ -1613,7 +1613,7 @@ extend_span_with_token.exit:                      ; preds = %33, %34
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @parse_param_path(ptr noundef %0, ptr nocapture noundef nonnull initializes((0, 8)) %1) unnamed_addr #1 {
   store ptr null, ptr %1, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %4
 
 4:                                                ; preds = %.backedge, %2
@@ -1635,14 +1635,14 @@ define internal fastcc noundef zeroext i1 @parse_param_path(ptr noundef %0, ptr 
   br i1 %12, label %.critedge, label %13
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = load i16, ptr %14, align 8
   %16 = and i16 %15, 255
   %.not75 = icmp eq i16 %16, 0
   br i1 %.not75, label %.loopexit, label %.critedge
 
 .critedge:                                        ; preds = %6, %13
-  %17 = getelementptr inbounds i8, ptr %7, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %11, ptr %17, align 8
   %18 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 36) #8
   br i1 %18, label %19, label %30
@@ -1653,14 +1653,14 @@ define internal fastcc noundef zeroext i1 @parse_param_path(ptr noundef %0, ptr 
   br i1 %21, label %.critedge2, label %22
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %20, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %24 = load i16, ptr %23, align 8
   %25 = and i16 %24, 255
   %.not76 = icmp eq i16 %25, 0
   br i1 %.not76, label %.loopexit, label %.critedge2
 
 .critedge2:                                       ; preds = %19, %22
-  %26 = getelementptr inbounds i8, ptr %7, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %20, ptr %26, align 8
   %27 = load i8, ptr %7, align 8
   %28 = and i8 %27, -16
@@ -1674,7 +1674,7 @@ define internal fastcc noundef zeroext i1 @parse_param_path(ptr noundef %0, ptr 
   br i1 %32, label %.critedge79, label %33
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %0, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %35 = tail call ptr @token_type_to_string(i32 noundef 25) #8
   %36 = load i64, ptr %34, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %36, ptr noundef nonnull @.str.22, ptr noundef %35) #8
@@ -1688,7 +1688,7 @@ define internal fastcc noundef zeroext i1 @parse_param_path(ptr noundef %0, ptr 
 
 38:                                               ; preds = %.critedge79
   %39 = tail call ptr @calloc_arena(i64 noundef 72) #8
-  %40 = getelementptr inbounds i8, ptr %39, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   store i32 8, ptr %40, align 4
   br label %43
 
@@ -1709,13 +1709,13 @@ define internal fastcc noundef zeroext i1 @parse_param_path(ptr noundef %0, ptr 
   %.0.i.sink116 = phi ptr [ %.0.i83, %83 ], [ %.0.i, %43 ]
   %.sink115 = phi i32 [ %84, %83 ], [ %44, %43 ]
   %.sink.ph = phi ptr [ %67, %83 ], [ %7, %43 ]
-  %47 = getelementptr inbounds i8, ptr %.0.i.sink116, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.sink116, i64 4
   %48 = shl i32 %.sink115, 1
   %49 = zext i32 %48 to i64
   %50 = shl nuw nsw i64 %49, 3
   %51 = or disjoint i64 %50, 8
   %52 = tail call ptr @calloc_arena(i64 noundef %51) #8
-  %53 = getelementptr inbounds i8, ptr %52, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
   store i32 %48, ptr %53, align 4
   %54 = load i32, ptr %47, align 4
   %55 = zext i32 %54 to i64
@@ -1734,12 +1734,12 @@ define internal fastcc noundef zeroext i1 @parse_param_path(ptr noundef %0, ptr 
   %.sink = phi ptr [ %67, %83 ], [ %7, %43 ], [ %.sink.ph, %.backedge.sink.split ]
   %60 = add i32 %.sink96, 1
   store i32 %60, ptr %.1.i.sink95, align 4
-  %61 = getelementptr inbounds i8, ptr %.1.i.sink95, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %.1.i.sink95, i64 8
   store ptr %61, ptr %1, align 8
   %62 = load i32, ptr %.1.i.sink95, align 4
   %63 = add i32 %62, -1
   %64 = zext i32 %63 to i64
-  %65 = getelementptr inbounds ptr, ptr %61, i64 %64
+  %65 = getelementptr inbounds nuw ptr, ptr %61, i64 %64
   store ptr %.sink, ptr %65, align 8
   br label %4
 
@@ -1754,14 +1754,14 @@ define internal fastcc noundef zeroext i1 @parse_param_path(ptr noundef %0, ptr 
   br i1 %71, label %.critedge4, label %72
 
 72:                                               ; preds = %66
-  %73 = getelementptr inbounds i8, ptr %70, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %74 = load i16, ptr %73, align 8
   %75 = and i16 %74, 255
   %.not = icmp eq i16 %75, 0
   br i1 %.not, label %.loopexit, label %.critedge4
 
 .critedge4:                                       ; preds = %66, %72
-  %76 = getelementptr inbounds i8, ptr %67, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store ptr %70, ptr %76, align 8
   %77 = load ptr, ptr %1, align 8
   %.not.i80 = icmp eq ptr %77, null
@@ -1769,7 +1769,7 @@ define internal fastcc noundef zeroext i1 @parse_param_path(ptr noundef %0, ptr 
 
 78:                                               ; preds = %.critedge4
   %79 = tail call ptr @calloc_arena(i64 noundef 72) #8
-  %80 = getelementptr inbounds i8, ptr %79, i64 4
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 4
   store i32 8, ptr %80, align 4
   br label %83
 
@@ -1794,10 +1794,10 @@ define internal fastcc noundef zeroext i1 @parse_param_path(ptr noundef %0, ptr 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @parse_expression_list(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
   %6 = tail call ptr @expr_new(i32 noundef 27, i64 %5) #8
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   br label %8
 
 8:                                                ; preds = %51, %2
@@ -1806,7 +1806,7 @@ define dso_local ptr @parse_expression_list(ptr noundef %0, i1 noundef zeroext %
   br i1 %cond, label %16, label %10
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %9, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %12 = load i16, ptr %11, align 8
   %13 = and i16 %12, 255
   %.not = icmp eq i16 %13, 0
@@ -1827,11 +1827,11 @@ define dso_local ptr @parse_expression_list(ptr noundef %0, i1 noundef zeroext %
 
 20:                                               ; preds = %16
   %21 = load ptr, ptr %3, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load i64, ptr %22, align 8
   %24 = call ptr @expr_new(i32 noundef 23, i64 %23) #8
   %25 = load ptr, ptr %3, align 8
-  %26 = getelementptr inbounds i8, ptr %24, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store ptr %25, ptr %26, align 8
   br label %.critedge
 
@@ -1843,7 +1843,7 @@ define dso_local ptr @parse_expression_list(ptr noundef %0, i1 noundef zeroext %
 
 28:                                               ; preds = %.critedge
   %29 = call ptr @calloc_arena(i64 noundef 72) #8
-  %30 = getelementptr inbounds i8, ptr %29, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   store i32 8, ptr %30, align 4
   br label %33
 
@@ -1861,13 +1861,13 @@ define dso_local ptr @parse_expression_list(ptr noundef %0, i1 noundef zeroext %
   br i1 %36, label %37, label %51
 
 37:                                               ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   %39 = shl i32 %34, 1
   %40 = zext i32 %39 to i64
   %41 = shl nuw nsw i64 %40, 3
   %42 = or disjoint i64 %41, 8
   %43 = call ptr @calloc_arena(i64 noundef %42) #8
-  %44 = getelementptr inbounds i8, ptr %43, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   store i32 %39, ptr %44, align 4
   %45 = load i32, ptr %38, align 4
   %46 = zext i32 %45 to i64
@@ -1885,12 +1885,12 @@ define dso_local ptr @parse_expression_list(ptr noundef %0, i1 noundef zeroext %
   %.1.i = phi ptr [ %43, %37 ], [ %.0.i, %33 ]
   %53 = add i32 %52, 1
   store i32 %53, ptr %.1.i, align 4
-  %54 = getelementptr inbounds i8, ptr %.1.i, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   store ptr %54, ptr %7, align 8
   %55 = load i32, ptr %.1.i, align 4
   %56 = add i32 %55, -1
   %57 = zext i32 %56 to i64
-  %58 = getelementptr inbounds ptr, ptr %54, i64 %57
+  %58 = getelementptr inbounds nuw ptr, ptr %54, i64 %57
   store ptr %.022, ptr %58, align 8
   %59 = call zeroext i1 @try_consume(ptr noundef %0, i32 noundef 8) #8
   br i1 %59, label %8, label %.loopexit
@@ -1902,11 +1902,11 @@ define dso_local ptr @parse_expression_list(ptr noundef %0, i1 noundef zeroext %
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @parse_ct_expression_list(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %5 = tail call ptr @expr_new(i32 noundef 27, i64 %4) #8
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
-  %7 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   br label %8
 
 8:                                                ; preds = %60, %2
@@ -1920,7 +1920,7 @@ define dso_local ptr @parse_ct_expression_list(ptr noundef %0, i1 noundef zeroex
   br i1 %.not38, label %.critedge, label %13
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %12, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %15 = load i64, ptr %14, align 8
   %16 = and i64 %15, 127
   %.not39 = icmp eq i64 %16, 0
@@ -1940,10 +1940,10 @@ define dso_local ptr @parse_ct_expression_list(ptr noundef %0, i1 noundef zeroex
   br label %.loopexit
 
 22:                                               ; preds = %.critedge
-  %23 = getelementptr inbounds i8, ptr %12, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %24 = load i64, ptr %23, align 8
   %25 = tail call ptr @expr_new(i32 noundef 23, i64 %24) #8
-  %26 = getelementptr inbounds i8, ptr %25, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store ptr %12, ptr %26, align 8
   br label %.critedge2
 
@@ -1953,7 +1953,7 @@ define dso_local ptr @parse_ct_expression_list(ptr noundef %0, i1 noundef zeroex
   br i1 %29, label %.critedge2, label %30
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %28, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %32 = load i16, ptr %31, align 8
   %33 = and i16 %32, 255
   %.not = icmp eq i16 %33, 0
@@ -1971,7 +1971,7 @@ define dso_local ptr @parse_ct_expression_list(ptr noundef %0, i1 noundef zeroex
 
 37:                                               ; preds = %.critedge2
   %38 = tail call ptr @calloc_arena(i64 noundef 72) #8
-  %39 = getelementptr inbounds i8, ptr %38, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   store i32 8, ptr %39, align 4
   br label %42
 
@@ -1989,13 +1989,13 @@ define dso_local ptr @parse_ct_expression_list(ptr noundef %0, i1 noundef zeroex
   br i1 %45, label %46, label %60
 
 46:                                               ; preds = %42
-  %47 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   %48 = shl i32 %43, 1
   %49 = zext i32 %48 to i64
   %50 = shl nuw nsw i64 %49, 3
   %51 = or disjoint i64 %50, 8
   %52 = tail call ptr @calloc_arena(i64 noundef %51) #8
-  %53 = getelementptr inbounds i8, ptr %52, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
   store i32 %48, ptr %53, align 4
   %54 = load i32, ptr %47, align 4
   %55 = zext i32 %54 to i64
@@ -2013,12 +2013,12 @@ define dso_local ptr @parse_ct_expression_list(ptr noundef %0, i1 noundef zeroex
   %.1.i = phi ptr [ %52, %46 ], [ %.0.i, %42 ]
   %62 = add i32 %61, 1
   store i32 %62, ptr %.1.i, align 4
-  %63 = getelementptr inbounds i8, ptr %.1.i, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   store ptr %63, ptr %7, align 8
   %64 = load i32, ptr %.1.i, align 4
   %65 = add i32 %64, -1
   %66 = zext i32 %65 to i64
-  %67 = getelementptr inbounds ptr, ptr %63, i64 %66
+  %67 = getelementptr inbounds nuw ptr, ptr %63, i64 %66
   store ptr %.034, ptr %67, align 8
   %68 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #8
   br i1 %68, label %8, label %.loopexit
@@ -2033,7 +2033,7 @@ declare ptr @parse_var_decl(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @parse_initializer_list(ptr noundef %0, ptr nocapture readnone %1) #1 {
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
   %6 = tail call ptr @expr_new(i32 noundef 35, i64 %5) #8
   tail call void @advance(ptr noundef %0) #8
@@ -2041,7 +2041,7 @@ define dso_local ptr @parse_initializer_list(ptr noundef %0, ptr nocapture readn
   br i1 %7, label %._crit_edge63, label %8
 
 ._crit_edge63:                                    ; preds = %2
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %6, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %63
 
@@ -2072,9 +2072,9 @@ define dso_local ptr @parse_initializer_list(ptr noundef %0, ptr nocapture readn
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %35
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %35 ]
   %.04158 = phi i32 [ -1, %.lr.ph.preheader ], [ %.1, %35 ]
-  %17 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load i16, ptr %19, align 8
   %21 = and i16 %20, 255
   %22 = icmp eq i16 %21, 25
@@ -2085,7 +2085,7 @@ define dso_local ptr @parse_initializer_list(ptr noundef %0, ptr nocapture readn
   br i1 %24, label %25, label %35
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %18, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %27 = load i64, ptr %26, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %27, ptr noundef nonnull @.str.7) #8
   %28 = load ptr, ptr @poisoned_expr, align 8
@@ -2096,7 +2096,7 @@ define dso_local ptr @parse_initializer_list(ptr noundef %0, ptr nocapture readn
   br i1 %30, label %31, label %35
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %18, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %33 = load i64, ptr %32, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %33, ptr noundef nonnull @.str.8) #8
   %34 = load ptr, ptr @poisoned_expr, align 8
@@ -2110,7 +2110,7 @@ define dso_local ptr @parse_initializer_list(ptr noundef %0, ptr nocapture readn
 
 ._crit_edge:                                      ; preds = %35, %12, %14
   %.041.lcssa = phi i1 [ false, %14 ], [ false, %12 ], [ %22, %35 ]
-  %36 = getelementptr inbounds i8, ptr %0, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %37 = load i32, ptr %36, align 8
   %38 = icmp eq i32 %37, 24
   br i1 %38, label %.critedge, label %39
@@ -2124,8 +2124,8 @@ define dso_local ptr @parse_initializer_list(ptr noundef %0, ptr nocapture readn
 
 .critedge:                                        ; preds = %._crit_edge
   tail call void @advance(ptr noundef nonnull %0) #8
-  %43 = getelementptr inbounds i8, ptr %6, i64 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 56
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %45 = load i64, ptr %43, align 8
   %46 = load i64, ptr %44, align 8
   %.not.unshifted.i = xor i64 %46, %45
@@ -2154,12 +2154,12 @@ extend_span_with_token.exit:                      ; preds = %47, %48
   %56 = and i64 %45, -16711681
   %.sroa.010.0.insert.insert.i = or disjoint i64 %.sroa.311.0.insert.shift.i, %56
   store i64 %.sroa.010.0.insert.insert.i, ptr %43, align 8
-  %57 = getelementptr inbounds i8, ptr %6, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %13, ptr %57, align 8
   br i1 %.041.lcssa, label %58, label %63
 
 58:                                               ; preds = %extend_span_with_token.exit
-  %59 = getelementptr inbounds i8, ptr %6, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %60 = load i16, ptr %59, align 8
   %61 = and i16 %60, -256
   %62 = or disjoint i16 %61, 24
@@ -2168,8 +2168,8 @@ extend_span_with_token.exit:                      ; preds = %47, %48
 
 63:                                               ; preds = %extend_span_with_token.exit, %._crit_edge63, %58
   %64 = phi i64 [ %.pre, %._crit_edge63 ], [ %.sroa.010.0.insert.insert.i, %58 ], [ %.sroa.010.0.insert.insert.i, %extend_span_with_token.exit ]
-  %65 = getelementptr inbounds i8, ptr %6, i64 8
-  %66 = getelementptr inbounds i8, ptr %0, i64 56
+  %65 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %67 = load i64, ptr %66, align 8
   %.not.unshifted.i44 = xor i64 %67, %64
   %.not.i45 = icmp ult i64 %.not.unshifted.i44, 4294967296
@@ -2300,18 +2300,18 @@ read_num_type.exit:                               ; preds = %43, %.lr.ph.i16, %1
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @parse_integer(ptr noundef %0, ptr nocapture readnone %1) #1 {
   %3 = alloca %struct.Int, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
   %6 = tail call ptr @expr_new(i32 noundef 14, i64 %5) #8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = icmp ugt i64 %8, 2
   br i1 %11, label %12, label %.preheader
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %10, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 1
   %14 = load i8, ptr %13, align 1
   %15 = or i8 %14, 32
   switch i8 %15, label %.lr.ph520.preheader [
@@ -2328,7 +2328,7 @@ define dso_local ptr @parse_integer(ptr noundef %0, ptr nocapture readnone %1) #
   br label %.lr.ph520
 
 .thread716:                                       ; preds = %.preheader
-  %16 = getelementptr inbounds i8, ptr %6, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %17 = load i16, ptr %16, align 8
   %18 = and i16 %17, -1024
   %19 = or disjoint i16 %18, 1
@@ -2446,7 +2446,7 @@ define dso_local ptr @parse_integer(ptr noundef %0, ptr nocapture readnone %1) #
   %75 = extractvalue { i64, i64 } %73, 1
   %76 = sext i8 %21 to i64
   %77 = and i64 %76, 4294967295
-  %78 = getelementptr inbounds [256 x i8], ptr @hex_conv, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw [256 x i8], ptr @hex_conv, i64 0, i64 %77
   %79 = load i8, ptr %78, align 1
   %80 = sext i8 %79 to i64
   %81 = add nsw i64 %80, -1
@@ -3162,7 +3162,7 @@ read_int_suffix.exit:                             ; preds = %312, %294, %.lr.ph.
   br label %528
 
 431:                                              ; preds = %read_int_suffix.exit
-  %432 = getelementptr inbounds i8, ptr %6, i64 24
+  %432 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %433 = load i16, ptr %432, align 8
   %434 = and i16 %433, -1024
   %435 = icmp sgt i32 %.1214.fr, 0
@@ -3305,9 +3305,9 @@ is_power_of_two.exit362:                          ; preds = %466
   %492 = tail call i32 @type_size(ptr noundef %491) #8
   %493 = shl i32 %492, 3
   store i64 %.sroa.0119.1629639671680700710730, ptr %3, align 8
-  %.sroa.26.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %.sroa.26.1628640668681699711729, ptr %.sroa.26.0..sroa_idx, align 8
-  %494 = getelementptr inbounds i8, ptr %3, i64 16
+  %494 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 0, ptr %494, align 8
   %spec.select830 = select i1 %.0208626641664682698712728, i32 8, i32 3
   br label %495
@@ -3362,12 +3362,12 @@ is_power_of_two.exit362:                          ; preds = %466
   %.not367 = phi i1 [ true, %509 ], [ true, %.thread374 ], [ false, %485 ], [ false, %488 ]
   %.1365 = phi i32 [ 0, %509 ], [ 0, %.thread374 ], [ %.1372744, %485 ], [ %.1372743, %488 ]
   %.0211 = phi ptr [ %.1212, %509 ], [ %512, %.thread374 ], [ %487, %485 ], [ %490, %488 ]
-  %514 = getelementptr inbounds i8, ptr %6, i64 32
+  %514 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %515 = load i32, ptr %.0211, align 8
   store i64 %.sroa.0119.1629639669, ptr %514, align 8
-  %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 40
+  %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i64 %.sroa.26.1628640666, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 48
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i32 %515, ptr %.sroa.2.0..sroa_idx, align 8
   %516 = load i32, ptr %.0211, align 8
   %517 = tail call zeroext i1 @int_fits(ptr noundef nonnull byval(%struct.Int) align 8 %514, i32 noundef %516) #8
@@ -3431,19 +3431,19 @@ declare ptr @i128_to_string(i64, i64, i64 noundef, i1 noundef zeroext) local_unn
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @parse_type_compound_literal_expr_after_type(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = tail call ptr @expr_new(i32 noundef 12, i64 %4) #8
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
-  %7 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 17
   br i1 %10, label %.critedge24, label %11
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = tail call ptr @token_type_to_string(i32 noundef 17) #8
   %14 = load i64, ptr %12, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %14, ptr noundef nonnull @.str.22, ptr noundef %13) #8
@@ -3456,7 +3456,7 @@ define dso_local ptr @parse_type_compound_literal_expr_after_type(ptr noundef %0
   br i1 %17, label %.critedge, label %18
 
 18:                                               ; preds = %.critedge24
-  %19 = getelementptr inbounds i8, ptr %16, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %20 = load i16, ptr %19, align 8
   %21 = and i16 %20, 255
   %.not = icmp eq i16 %21, 0
@@ -3468,8 +3468,8 @@ define dso_local ptr @parse_type_compound_literal_expr_after_type(ptr noundef %0
 
 .critedge:                                        ; preds = %.critedge24, %18
   store ptr %16, ptr %6, align 8
-  %24 = getelementptr inbounds i8, ptr %5, i64 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %26 = load i64, ptr %24, align 8
   %27 = load i64, ptr %25, align 8
   %.not.unshifted.i = xor i64 %27, %26
@@ -3514,19 +3514,19 @@ define dso_local ptr @parse_type_expression_with_path(ptr noundef %0, ptr nounde
   %4 = load i64, ptr %1, align 8
   %5 = tail call ptr @vmem_alloc(ptr noundef nonnull @type_info_arena, i64 noundef 40) #8
   %6 = load i16, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %4, ptr %7, align 8
   %8 = and i16 %6, -512
   %9 = or disjoint i16 %8, 8
   store i16 %9, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 24
-  %11 = getelementptr inbounds i8, ptr %5, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %10, align 8
   tail call void @advance(ptr noundef %0) #8
-  %14 = getelementptr inbounds i8, ptr %0, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %15 = load i64, ptr %7, align 8
   %16 = load i64, ptr %14, align 8
   %.not.unshifted.i = xor i64 %16, %15
@@ -3595,7 +3595,7 @@ extend_span_with_token.exit:                      ; preds = %17, %18
 
 .critedge2:                                       ; preds = %40, %38, %.critedge
   %.046 = phi ptr [ %27, %.critedge ], [ null, %38 ], [ %39, %40 ]
-  %45 = getelementptr inbounds i8, ptr %0, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %46 = load i32, ptr %45, align 8
   %47 = icmp eq i32 %46, 17
   br i1 %47, label %48, label %50
@@ -3605,17 +3605,17 @@ extend_span_with_token.exit:                      ; preds = %17, %18
   br label %61
 
 50:                                               ; preds = %.critedge2
-  %51 = getelementptr inbounds i8, ptr %.046, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %.046, i64 16
   %52 = load i64, ptr %51, align 8
   %53 = tail call ptr @expr_new(i32 noundef 62, i64 %52) #8
-  %54 = getelementptr inbounds i8, ptr %53, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 24
   store ptr %.046, ptr %54, align 8
   %55 = load i32, ptr %45, align 8
   %56 = icmp eq i32 %55, 58
   br i1 %56, label %57, label %61
 
 57:                                               ; preds = %50
-  %58 = getelementptr inbounds i8, ptr %0, i64 48
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %59 = load i64, ptr %58, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %59, ptr noundef nonnull @.str.18) #8
   %60 = load ptr, ptr @poisoned_expr, align 8
@@ -3632,14 +3632,14 @@ declare ptr @parse_optional_type(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @parse_unary_expr(ptr noundef %0, ptr nocapture readnone %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %5 = tail call ptr @expr_new(i32 noundef 63, i64 %4) #8
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i32, ptr %6, align 8
   %8 = tail call i32 @unaryop_from_token(i32 noundef %7) #8
-  %9 = getelementptr inbounds i8, ptr %5, i64 24
-  %10 = getelementptr inbounds i8, ptr %5, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %11 = trunc i32 %8 to i8
   store i8 %11, ptr %10, align 8
   tail call void @advance(ptr noundef %0) #8
@@ -3648,7 +3648,7 @@ define internal ptr @parse_unary_expr(ptr noundef %0, ptr nocapture readnone %1)
   br i1 %13, label %.critedge, label %14
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %12, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i16, ptr %15, align 8
   %17 = and i16 %16, 255
   %.not = icmp eq i16 %17, 0
@@ -3656,8 +3656,8 @@ define internal ptr @parse_unary_expr(ptr noundef %0, ptr nocapture readnone %1)
 
 .critedge:                                        ; preds = %14, %2
   store ptr %12, ptr %9, align 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %20 = load i64, ptr %18, align 8
   %21 = load i64, ptr %19, align 8
   %.not.unshifted.i = xor i64 %21, %20
@@ -3695,11 +3695,11 @@ extend_span_with_token.exit:                      ; preds = %22, %23
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @parse_binary(ptr noundef %0, ptr noundef %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   tail call void @advance(ptr noundef %0) #8
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds [190 x %struct.ParseRule], ptr @rules, i64 0, i64 %5, i32 2
+  %6 = getelementptr inbounds nuw [190 x %struct.ParseRule], ptr @rules, i64 0, i64 %5, i32 2
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 1
   br i1 %8, label %9, label %18
@@ -3710,7 +3710,7 @@ define internal ptr @parse_binary(ptr noundef %0, ptr noundef %1) #1 {
   br i1 %11, label %.critedge, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %10, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %14 = load i16, ptr %13, align 8
   %15 = and i16 %14, 255
   %.not33 = icmp eq i16 %15, 0
@@ -3727,7 +3727,7 @@ define internal ptr @parse_binary(ptr noundef %0, ptr noundef %1) #1 {
   br i1 %21, label %.critedge, label %22
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %20, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %24 = load i16, ptr %23, align 8
   %25 = and i16 %24, 255
   %.not = icmp eq i16 %25, 0
@@ -3739,12 +3739,12 @@ define internal ptr @parse_binary(ptr noundef %0, ptr noundef %1) #1 {
 
 .critedge:                                        ; preds = %22, %18, %12, %9
   %.029 = phi ptr [ null, %9 ], [ %10, %12 ], [ null, %18 ], [ %20, %22 ]
-  %28 = getelementptr inbounds i8, ptr %1, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = load i64, ptr %28, align 8
   %30 = tail call ptr @expr_new(i32 noundef 3, i64 %29) #8
   %31 = tail call i32 @binaryop_from_token(i32 noundef %4) #8
-  %32 = getelementptr inbounds i8, ptr %30, i64 24
-  %33 = getelementptr inbounds i8, ptr %30, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %34 = trunc i32 %31 to i8
   store i8 %34, ptr %33, align 8
   %35 = load ptr, ptr @expr_arena, align 8
@@ -3758,10 +3758,10 @@ define internal ptr @parse_binary(ptr noundef %0, ptr noundef %1) #1 {
   %42 = sub i64 %41, %37
   %43 = sdiv exact i64 %42, 56
   %44 = trunc i64 %43 to i32
-  %45 = getelementptr inbounds i8, ptr %30, i64 28
+  %45 = getelementptr inbounds nuw i8, ptr %30, i64 28
   store i32 %44, ptr %45, align 4
-  %46 = getelementptr inbounds i8, ptr %30, i64 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 56
+  %46 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %48 = load i64, ptr %46, align 8
   %49 = load i64, ptr %47, align 8
   %.not.unshifted.i = xor i64 %49, %48
@@ -3800,13 +3800,13 @@ extend_span_with_token.exit:                      ; preds = %50, %51
 ; Function Attrs: nounwind uwtable
 define internal ptr @parse_rethrow_expr(ptr noundef %0, ptr noundef %1) #1 {
   tail call void @advance(ptr noundef %0) #8
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = tail call ptr @expr_new(i32 noundef 45, i64 %4) #8
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load i64, ptr %7, align 8
   %10 = load i64, ptr %8, align 8
   %.not.unshifted.i = xor i64 %10, %9
@@ -3841,17 +3841,17 @@ extend_span_with_token.exit:                      ; preds = %11, %12
 ; Function Attrs: nounwind uwtable
 define internal ptr @parse_access_expr(ptr noundef %0, ptr noundef %1) #1 {
   tail call void @advance(ptr noundef %0) #8
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = tail call ptr @expr_new(i32 noundef 1, i64 %4) #8
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %1, ptr %6, align 8
   %7 = tail call fastcc ptr @parse_precedence(ptr noundef %0, i32 noundef 12)
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.critedge, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %7, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %11 = load i16, ptr %10, align 8
   %12 = and i16 %11, 255
   %.not = icmp eq i16 %12, 0
@@ -3862,10 +3862,10 @@ define internal ptr @parse_access_expr(ptr noundef %0, ptr noundef %1) #1 {
   br label %30
 
 .critedge:                                        ; preds = %2, %9
-  %15 = getelementptr inbounds i8, ptr %5, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %7, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %5, i64 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %18 = load i64, ptr %16, align 8
   %19 = load i64, ptr %17, align 8
   %.not.unshifted.i = xor i64 %19, %18
@@ -3904,7 +3904,7 @@ extend_span_with_token.exit:                      ; preds = %20, %21
 ; Function Attrs: nounwind uwtable
 define internal ptr @parse_subscript_expr(ptr noundef %0, ptr noundef %1) #1 {
   tail call void @advance(ptr noundef %0) #8
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = tail call ptr @expr_new(i32 noundef 51, i64 %4) #8
   %6 = load ptr, ptr @expr_arena, align 8
@@ -3913,9 +3913,9 @@ define internal ptr @parse_subscript_expr(ptr noundef %0, ptr noundef %1) #1 {
   %9 = sub i64 %7, %8
   %10 = sdiv exact i64 %9, 56
   %11 = trunc i64 %10 to i32
-  %12 = getelementptr inbounds i8, ptr %5, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 28
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %14 = tail call zeroext i1 @parse_range(ptr noundef %0, ptr noundef nonnull %13)
   br i1 %14, label %17, label %15
 
@@ -3924,13 +3924,13 @@ define internal ptr @parse_subscript_expr(ptr noundef %0, ptr noundef %1) #1 {
   br label %48
 
 17:                                               ; preds = %2
-  %18 = getelementptr inbounds i8, ptr %0, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %19 = load i32, ptr %18, align 8
   %20 = icmp eq i32 %19, 25
   br i1 %20, label %.critedge, label %21
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %0, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %23 = tail call ptr @token_type_to_string(i32 noundef 25) #8
   %24 = load i64, ptr %22, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %24, ptr noundef nonnull @.str.22, ptr noundef %23) #8
@@ -3945,7 +3945,7 @@ define internal ptr @parse_subscript_expr(ptr noundef %0, ptr noundef %1) #1 {
   br i1 %.not, label %33, label %28
 
 28:                                               ; preds = %.critedge
-  %29 = getelementptr inbounds i8, ptr %5, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %30 = load i16, ptr %29, align 8
   %31 = and i16 %30, -256
   %32 = or disjoint i16 %31, 47
@@ -3953,8 +3953,8 @@ define internal ptr @parse_subscript_expr(ptr noundef %0, ptr noundef %1) #1 {
   br label %33
 
 33:                                               ; preds = %.critedge, %28
-  %34 = getelementptr inbounds i8, ptr %5, i64 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 56
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %36 = load i64, ptr %34, align 8
   %37 = load i64, ptr %35, align 8
   %.not.unshifted.i = xor i64 %37, %36
@@ -3992,7 +3992,7 @@ extend_span_with_token.exit:                      ; preds = %38, %39
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @parse_grouping_expr(ptr noundef %0, ptr nocapture readnone %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %5 = tail call ptr @expr_new(i32 noundef 32, i64 %4) #8
   tail call void @advance(ptr noundef %0) #8
@@ -4001,7 +4001,7 @@ define internal ptr @parse_grouping_expr(ptr noundef %0, ptr nocapture readnone 
   br i1 %7, label %.critedge, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = load i16, ptr %9, align 8
   %11 = and i16 %10, 255
   %.not = icmp eq i16 %11, 0
@@ -4012,9 +4012,9 @@ define internal ptr @parse_grouping_expr(ptr noundef %0, ptr nocapture readnone 
   br label %81
 
 .critedge:                                        ; preds = %2, %8
-  %14 = getelementptr inbounds i8, ptr %5, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %6, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load i32, ptr %15, align 8
   %17 = icmp eq i32 %16, 26
   br i1 %17, label %.critedge49, label %18
@@ -4029,14 +4029,14 @@ define internal ptr @parse_grouping_expr(ptr noundef %0, ptr nocapture readnone 
 .critedge49:                                      ; preds = %.critedge
   tail call void @advance(ptr noundef nonnull %0) #8
   %22 = load ptr, ptr %14, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load i16, ptr %23, align 8
   %25 = and i16 %24, 255
   %26 = icmp eq i16 %25, 62
   br i1 %26, label %27, label %66
 
 27:                                               ; preds = %.critedge49
-  %28 = getelementptr inbounds i8, ptr %22, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %15, align 8
   %31 = icmp eq i32 %30, 17
@@ -4056,7 +4056,7 @@ define internal ptr @parse_grouping_expr(ptr noundef %0, ptr nocapture readnone 
 
 38:                                               ; preds = %32, %27
   %39 = zext i32 %30 to i64
-  %40 = getelementptr inbounds [190 x %struct.ParseRule], ptr @rules, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw [190 x %struct.ParseRule], ptr @rules, i64 0, i64 %39
   %41 = load ptr, ptr %40, align 8
   %.not46 = icmp eq ptr %41, null
   br i1 %.not46, label %66, label %42
@@ -4067,7 +4067,7 @@ define internal ptr @parse_grouping_expr(ptr noundef %0, ptr nocapture readnone 
   br i1 %44, label %.critedge2, label %45
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %43, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %47 = load i16, ptr %46, align 8
   %48 = and i16 %47, 255
   %.not47 = icmp eq i16 %48, 0
@@ -4088,9 +4088,9 @@ define internal ptr @parse_grouping_expr(ptr noundef %0, ptr nocapture readnone 
   %53 = sub i64 %.sink, %52
   %phi.call.in = sdiv exact i64 %53, 56
   %phi.call = trunc i64 %phi.call.in to i32
-  %54 = getelementptr inbounds i8, ptr %5, i64 28
+  %54 = getelementptr inbounds nuw i8, ptr %5, i64 28
   store i32 %phi.call, ptr %54, align 4
-  %55 = getelementptr inbounds i8, ptr %5, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %56 = load i16, ptr %55, align 8
   %57 = and i16 %56, -256
   %58 = or disjoint i16 %57, 9
@@ -4101,13 +4101,13 @@ define internal ptr @parse_grouping_expr(ptr noundef %0, ptr nocapture readnone 
   %62 = sub i64 %60, %61
   %63 = sdiv exact i64 %62, 40
   %64 = trunc i64 %63 to i32
-  %65 = getelementptr inbounds i8, ptr %5, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i32 %64, ptr %65, align 8
   br label %66
 
 66:                                               ; preds = %.critedge49, %.critedge2, %38
-  %67 = getelementptr inbounds i8, ptr %5, i64 8
-  %68 = getelementptr inbounds i8, ptr %0, i64 56
+  %67 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %69 = load i64, ptr %67, align 8
   %70 = load i64, ptr %68, align 8
   %.not.unshifted.i = xor i64 %70, %69
@@ -4153,7 +4153,7 @@ define internal ptr @parse_call_expr(ptr noundef %0, ptr noundef %1) #1 {
   tail call void @advance(ptr noundef %0) #8
   store i8 0, ptr %4, align 1
   store ptr null, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i32, ptr %7, align 8
   switch i32 %8, label %9 [
     i32 26, label %16
@@ -4162,9 +4162,9 @@ define internal ptr @parse_call_expr(ptr noundef %0, ptr noundef %1) #1 {
 
 9:                                                ; preds = %2
   %10 = tail call ptr @calloc_arena(i64 noundef 40) #8
-  %11 = getelementptr inbounds i8, ptr %10, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 4, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %10, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %12, ptr %3, align 8
   %13 = call zeroext i1 @parse_arg_list(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef 26, ptr noundef nonnull %4, i1 noundef zeroext true)
   br i1 %13, label %16, label %14
@@ -4218,7 +4218,7 @@ define internal ptr @parse_call_expr(ptr noundef %0, ptr noundef %1) #1 {
   ]
 
 parse_next_may_be_type_or_ident.exit:             ; preds = %18
-  %19 = getelementptr inbounds i8, ptr %0, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %20 = load i64, ptr %19, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %20, ptr noundef nonnull @.str.25) #8
   %21 = load ptr, ptr @poisoned_expr, align 8
@@ -4238,7 +4238,7 @@ parse_next_may_be_type_or_ident.exit:             ; preds = %18
   br i1 %28, label %33, label %29
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %0, i64 56
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %31 = load i64, ptr %30, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %31, ptr noundef nonnull @.str.26) #8
   %32 = load ptr, ptr @poisoned_expr, align 8
@@ -4246,7 +4246,7 @@ parse_next_may_be_type_or_ident.exit:             ; preds = %18
 
 33:                                               ; preds = %26
   call void @advance(ptr noundef nonnull %0) #8
-  %34 = getelementptr inbounds i8, ptr %1, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %35 = load i64, ptr %34, align 8
   %36 = call ptr @expr_new(i32 noundef 8, i64 %35) #8
   %37 = load ptr, ptr @expr_arena, align 8
@@ -4255,13 +4255,13 @@ parse_next_may_be_type_or_ident.exit:             ; preds = %18
   %40 = sub i64 %38, %39
   %41 = sdiv exact i64 %40, 56
   %42 = trunc i64 %41 to i32
-  %43 = getelementptr inbounds i8, ptr %36, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %36, i64 24
   store i32 %42, ptr %43, align 8
   %44 = load ptr, ptr %3, align 8
-  %45 = getelementptr inbounds i8, ptr %36, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %36, i64 40
   store ptr %44, ptr %45, align 8
   %46 = load i8, ptr %4, align 1
-  %47 = getelementptr inbounds i8, ptr %36, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %48 = load i16, ptr %47, align 8
   %49 = shl i8 %46, 2
   %50 = and i8 %49, 4
@@ -4269,8 +4269,8 @@ parse_next_may_be_type_or_ident.exit:             ; preds = %18
   %52 = and i16 %48, -5
   %53 = or disjoint i16 %52, %51
   store i16 %53, ptr %47, align 8
-  %54 = getelementptr inbounds i8, ptr %36, i64 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 56
+  %54 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %56 = load i64, ptr %54, align 8
   %57 = load i64, ptr %55, align 8
   %.not.unshifted.i = xor i64 %57, %56
@@ -4312,7 +4312,7 @@ extend_span_with_token.exit:                      ; preds = %58, %59
   br i1 %71, label %.outer.preheader, label %72
 
 72:                                               ; preds = %69
-  %73 = getelementptr inbounds i8, ptr %0, i64 48
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %74 = load i64, ptr %73, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %74, ptr noundef nonnull @.str.27) #8
   %75 = load ptr, ptr @poisoned_expr, align 8
@@ -4333,7 +4333,7 @@ extend_span_with_token.exit:                      ; preds = %58, %59
   br i1 %.not69, label %114, label %79
 
 79:                                               ; preds = %.lr.ph
-  %80 = getelementptr inbounds i8, ptr %78, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %81 = load ptr, ptr %80, align 8
   %82 = call i32 @attribute_by_name(ptr noundef %81) #8
   switch i32 %82, label %109 [
@@ -4350,7 +4350,7 @@ extend_span_with_token.exit:                      ; preds = %58, %59
 
 86:                                               ; preds = %83
   %87 = load ptr, ptr %6, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %89 = load i64, ptr %88, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %89, ptr noundef nonnull @.str.28) #8
   %90 = load ptr, ptr @poisoned_expr, align 8
@@ -4370,7 +4370,7 @@ extend_span_with_token.exit:                      ; preds = %58, %59
 
 98:                                               ; preds = %94
   %99 = load ptr, ptr %6, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 16
   %101 = load i64, ptr %100, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %101, ptr noundef nonnull @.str.28) #8
   %102 = load ptr, ptr @poisoned_expr, align 8
@@ -4382,7 +4382,7 @@ extend_span_with_token.exit:                      ; preds = %58, %59
 
 104:                                              ; preds = %103
   %105 = load ptr, ptr %6, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 16
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 16
   %107 = load i64, ptr %106, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %107, ptr noundef nonnull @.str.29) #8
   %108 = load ptr, ptr @poisoned_expr, align 8
@@ -4390,7 +4390,7 @@ extend_span_with_token.exit:                      ; preds = %58, %59
 
 109:                                              ; preds = %79
   %110 = load ptr, ptr %6, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 16
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 16
   %112 = load i64, ptr %111, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %112, ptr noundef nonnull @.str.30) #8
   %113 = load ptr, ptr @poisoned_expr, align 8
@@ -4423,7 +4423,7 @@ extend_span_with_token.exit:                      ; preds = %58, %59
   br i1 %129, label %.critedge, label %130
 
 130:                                              ; preds = %127
-  %131 = getelementptr inbounds i8, ptr %128, i64 12
+  %131 = getelementptr inbounds nuw i8, ptr %128, i64 12
   %132 = load i8, ptr %131, align 4
   %.not71 = icmp eq i8 %132, 0
   br i1 %.not71, label %133, label %.critedge.thread
@@ -4441,10 +4441,10 @@ extend_span_with_token.exit:                      ; preds = %58, %59
   %.06477 = phi ptr [ null, %.critedge ], [ %128, %130 ]
   %136 = load i64, ptr %54, align 8
   %137 = call ptr @expr_new(i32 noundef 66, i64 %136) #8
-  %138 = getelementptr inbounds i8, ptr %137, i64 24
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 24
   store ptr %.06477, ptr %138, align 8
   %139 = load ptr, ptr %5, align 8
-  %140 = getelementptr inbounds i8, ptr %137, i64 32
+  %140 = getelementptr inbounds nuw i8, ptr %137, i64 32
   store ptr %139, ptr %140, align 8
   %141 = load ptr, ptr @expr_arena, align 8
   %142 = ptrtoint ptr %137 to i64
@@ -4452,7 +4452,7 @@ extend_span_with_token.exit:                      ; preds = %58, %59
   %144 = sub i64 %142, %143
   %145 = sdiv exact i64 %144, 56
   %146 = trunc i64 %145 to i32
-  %147 = getelementptr inbounds i8, ptr %36, i64 28
+  %147 = getelementptr inbounds nuw i8, ptr %36, i64 28
   store i32 %146, ptr %147, align 4
   br label %148
 
@@ -4463,14 +4463,14 @@ extend_span_with_token.exit:                      ; preds = %58, %59
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @parse_ternary_expr(ptr noundef %0, ptr noundef %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = tail call ptr @expr_new(i32 noundef 55, i64 %4) #8
   tail call void @advance(ptr noundef %0) #8
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds [190 x %struct.ParseRule], ptr @rules, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw [190 x %struct.ParseRule], ptr @rules, i64 0, i64 %8
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %19, label %11
@@ -4480,24 +4480,24 @@ define internal ptr @parse_ternary_expr(ptr noundef %0, ptr noundef %1) #1 {
   br i1 %12, label %13, label %39
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %0, i64 184
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds [190 x %struct.ParseRule], ptr @rules, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [190 x %struct.ParseRule], ptr @rules, i64 0, i64 %16
   %18 = load ptr, ptr %17, align 8
   %.not54 = icmp eq ptr %18, null
   br i1 %.not54, label %19, label %39
 
 19:                                               ; preds = %13, %2
-  %20 = getelementptr inbounds i8, ptr %5, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %21 = load i16, ptr %20, align 8
   %22 = and i16 %21, -256
   %23 = or disjoint i16 %22, 29
   store i16 %23, ptr %20, align 8
-  %24 = getelementptr inbounds i8, ptr %5, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %1, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %5, i64 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %27 = load i64, ptr %25, align 8
   %28 = load i64, ptr %26, align 8
   %.not.unshifted.i = xor i64 %28, %27
@@ -4535,14 +4535,14 @@ extend_span_with_token.exit:                      ; preds = %29, %30
   %43 = sub i64 %41, %42
   %44 = sdiv exact i64 %43, 56
   %45 = trunc i64 %44 to i32
-  %46 = getelementptr inbounds i8, ptr %5, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 %45, ptr %46, align 8
   %47 = tail call fastcc ptr @parse_precedence(ptr noundef nonnull %0, i32 noundef 1)
   %48 = icmp eq ptr %47, null
   br i1 %48, label %.critedge, label %49
 
 49:                                               ; preds = %39
-  %50 = getelementptr inbounds i8, ptr %47, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %51 = load i16, ptr %50, align 8
   %52 = and i16 %51, 255
   %.not55 = icmp eq i16 %52, 0
@@ -4563,14 +4563,14 @@ extend_span_with_token.exit:                      ; preds = %29, %30
   %57 = sub i64 %.sink, %56
   %phi.call.in = sdiv exact i64 %57, 56
   %phi.call = trunc i64 %phi.call.in to i32
-  %58 = getelementptr inbounds i8, ptr %5, i64 28
+  %58 = getelementptr inbounds nuw i8, ptr %5, i64 28
   store i32 %phi.call, ptr %58, align 4
   %59 = load i32, ptr %6, align 8
   %60 = icmp eq i32 %59, 7
   br i1 %60, label %.critedge58, label %61
 
 61:                                               ; preds = %.critedge
-  %62 = getelementptr inbounds i8, ptr %0, i64 48
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %63 = tail call ptr @token_type_to_string(i32 noundef 7) #8
   %64 = load i64, ptr %62, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %64, ptr noundef nonnull @.str.22, ptr noundef %63) #8
@@ -4584,7 +4584,7 @@ extend_span_with_token.exit:                      ; preds = %29, %30
   br i1 %67, label %.critedge2, label %68
 
 68:                                               ; preds = %.critedge58
-  %69 = getelementptr inbounds i8, ptr %66, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %70 = load i16, ptr %69, align 8
   %71 = and i16 %70, 255
   %.not56 = icmp eq i16 %71, 0
@@ -4605,10 +4605,10 @@ extend_span_with_token.exit:                      ; preds = %29, %30
   %76 = sub i64 %.sink71, %75
   %phi.call51.in = sdiv exact i64 %76, 56
   %phi.call51 = trunc i64 %phi.call51.in to i32
-  %77 = getelementptr inbounds i8, ptr %5, i64 32
+  %77 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i32 %phi.call51, ptr %77, align 8
-  %78 = getelementptr inbounds i8, ptr %5, i64 8
-  %79 = getelementptr inbounds i8, ptr %0, i64 56
+  %78 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %80 = load i64, ptr %78, align 8
   %81 = load i64, ptr %79, align 8
   %.not.unshifted.i59 = xor i64 %81, %80
@@ -4646,14 +4646,14 @@ extend_span_with_token.exit67:                    ; preds = %82, %83
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @parse_force_unwrap_expr(ptr noundef %0, ptr noundef %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = tail call ptr @expr_new(i32 noundef 30, i64 %4) #8
   tail call void @advance(ptr noundef %0) #8
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load i64, ptr %7, align 8
   %10 = load i64, ptr %8, align 8
   %.not.unshifted.i = xor i64 %10, %9
@@ -4687,10 +4687,10 @@ extend_span_with_token.exit:                      ; preds = %11, %12
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @parse_builtin(ptr noundef %0, ptr nocapture readnone %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %5 = tail call ptr @expr_new(i32 noundef 6, i64 %4) #8
-  %6 = getelementptr inbounds i8, ptr %0, i64 184
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %7 = load i32, ptr %6, align 8
   %.off = add i32 %7, -64
   %switch = icmp ult i32 %.off, 3
@@ -4704,11 +4704,11 @@ define internal ptr @parse_builtin(ptr noundef %0, ptr nocapture readnone %1) #1
 
 11:                                               ; preds = %2
   tail call void @advance(ptr noundef nonnull %0) #8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %5, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %13, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %16 = load i64, ptr %15, align 8
   %17 = load i64, ptr %3, align 8
   %.not.unshifted.i = xor i64 %17, %16
@@ -4741,7 +4741,7 @@ extend_span_with_token.exit:                      ; preds = %18, %19
   br i1 %28, label %29, label %34
 
 29:                                               ; preds = %extend_span_with_token.exit
-  %30 = getelementptr inbounds i8, ptr %5, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %31 = load i16, ptr %30, align 8
   %32 = and i16 %31, -256
   %33 = or disjoint i16 %32, 11
@@ -4759,7 +4759,7 @@ extend_span_with_token.exit:                      ; preds = %18, %19
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @parse_elvis_expr(ptr noundef %0, ptr noundef %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = tail call ptr @expr_new(i32 noundef 55, i64 %4) #8
   %6 = load ptr, ptr @expr_arena, align 8
@@ -4768,17 +4768,17 @@ define internal ptr @parse_elvis_expr(ptr noundef %0, ptr noundef %1) #1 {
   %9 = sub i64 %7, %8
   %10 = sdiv exact i64 %9, 56
   %11 = trunc i64 %10 to i32
-  %12 = getelementptr inbounds i8, ptr %5, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 %11, ptr %12, align 8
   tail call void @advance(ptr noundef %0) #8
-  %13 = getelementptr inbounds i8, ptr %5, i64 28
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 28
   store i32 0, ptr %13, align 4
   %14 = tail call fastcc ptr @parse_precedence(ptr noundef %0, i32 noundef 2)
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.critedge, label %16
 
 16:                                               ; preds = %2
-  %17 = getelementptr inbounds i8, ptr %14, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %18 = load i16, ptr %17, align 8
   %19 = and i16 %18, 255
   %.not = icmp eq i16 %19, 0
@@ -4799,10 +4799,10 @@ define internal ptr @parse_elvis_expr(ptr noundef %0, ptr noundef %1) #1 {
   %24 = sub i64 %.sink, %23
   %phi.call.in = sdiv exact i64 %24, 56
   %phi.call = trunc i64 %phi.call.in to i32
-  %25 = getelementptr inbounds i8, ptr %5, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i32 %phi.call, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %5, i64 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %28 = load i64, ptr %26, align 8
   %29 = load i64, ptr %27, align 8
   %.not.unshifted.i = xor i64 %29, %28
@@ -4840,7 +4840,7 @@ extend_span_with_token.exit:                      ; preds = %30, %31
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @parse_expr_block(ptr noundef %0, ptr nocapture readnone %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %5 = tail call ptr @expr_new(i32 noundef 28, i64 %4) #8
   tail call void @advance(ptr noundef %0) #8
@@ -4848,7 +4848,7 @@ define internal ptr @parse_expr_block(ptr noundef %0, ptr nocapture readnone %1)
   br i1 %6, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %5, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.critedge
@@ -4858,7 +4858,7 @@ define internal ptr @parse_expr_block(ptr noundef %0, ptr nocapture readnone %1)
   br i1 %9, label %.critedge, label %10
 
 10:                                               ; preds = %.lr.ph
-  %11 = getelementptr inbounds i8, ptr %8, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %12 = load i8, ptr %11, align 4
   %.not = icmp eq i8 %12, 0
   br i1 %.not, label %14, label %.split
@@ -4879,13 +4879,13 @@ define internal ptr @parse_expr_block(ptr noundef %0, ptr nocapture readnone %1)
   %phi.call.in = sdiv exact i64 %17, 48
   %phi.call = trunc i64 %phi.call.in to i32
   store i32 %phi.call, ptr %.01922, align 4
-  %18 = getelementptr inbounds i8, ptr %8, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %19 = tail call zeroext i1 @try_consume(ptr noundef %0, i32 noundef 54) #8
   br i1 %19, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.critedge, %2
-  %20 = getelementptr inbounds i8, ptr %5, i64 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %22 = load i64, ptr %20, align 8
   %23 = load i64, ptr %21, align 8
   %.not.unshifted.i = xor i64 %23, %22
@@ -4924,7 +4924,7 @@ extend_span_with_token.exit:                      ; preds = %24, %25
 ; Function Attrs: nounwind uwtable
 define internal ptr @parse_generic_expr(ptr noundef %0, ptr noundef %1) #1 {
   tail call void @advance(ptr noundef %0) #8
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = tail call ptr @expr_new(i32 noundef 31, i64 %4) #8
   %6 = load ptr, ptr @expr_arena, align 8
@@ -4933,7 +4933,7 @@ define internal ptr @parse_generic_expr(ptr noundef %0, ptr noundef %1) #1 {
   %9 = sub i64 %7, %8
   %10 = sdiv exact i64 %9, 56
   %11 = trunc i64 %10 to i32
-  %12 = getelementptr inbounds i8, ptr %5, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 %11, ptr %12, align 8
   br label %13
 
@@ -4944,7 +4944,7 @@ define internal ptr @parse_generic_expr(ptr noundef %0, ptr noundef %1) #1 {
   br i1 %15, label %.critedge, label %16
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %14, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %18 = load i16, ptr %17, align 8
   %19 = and i16 %18, 255
   %.not = icmp eq i16 %19, 0
@@ -4960,7 +4960,7 @@ define internal ptr @parse_generic_expr(ptr noundef %0, ptr noundef %1) #1 {
 
 22:                                               ; preds = %.critedge
   %23 = tail call ptr @calloc_arena(i64 noundef 72) #8
-  %24 = getelementptr inbounds i8, ptr %23, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store i32 8, ptr %24, align 4
   br label %27
 
@@ -4978,13 +4978,13 @@ define internal ptr @parse_generic_expr(ptr noundef %0, ptr noundef %1) #1 {
   br i1 %30, label %31, label %45
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   %33 = shl i32 %28, 1
   %34 = zext i32 %33 to i64
   %35 = shl nuw nsw i64 %34, 3
   %36 = or disjoint i64 %35, 8
   %37 = tail call ptr @calloc_arena(i64 noundef %36) #8
-  %38 = getelementptr inbounds i8, ptr %37, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
   store i32 %33, ptr %38, align 4
   %39 = load i32, ptr %32, align 4
   %40 = zext i32 %39 to i64
@@ -5002,21 +5002,21 @@ define internal ptr @parse_generic_expr(ptr noundef %0, ptr noundef %1) #1 {
   %.1.i = phi ptr [ %37, %31 ], [ %.0.i, %27 ]
   %47 = add i32 %46, 1
   store i32 %47, ptr %.1.i, align 4
-  %48 = getelementptr inbounds i8, ptr %.1.i, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %49 = zext i32 %46 to i64
-  %50 = getelementptr inbounds ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
   store ptr %14, ptr %50, align 8
   %51 = tail call zeroext i1 @try_consume(ptr noundef %0, i32 noundef 8) #8
   br i1 %51, label %13, label %52, !llvm.loop !19
 
 52:                                               ; preds = %45
-  %53 = getelementptr inbounds i8, ptr %0, i64 40
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %54 = load i32, ptr %53, align 8
   %55 = icmp eq i32 %54, 55
   br i1 %55, label %.critedge44, label %56
 
 56:                                               ; preds = %52
-  %57 = getelementptr inbounds i8, ptr %0, i64 48
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %58 = tail call ptr @token_type_to_string(i32 noundef 55) #8
   %59 = load i64, ptr %57, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %59, ptr noundef nonnull @.str.22, ptr noundef %58) #8
@@ -5025,10 +5025,10 @@ define internal ptr @parse_generic_expr(ptr noundef %0, ptr noundef %1) #1 {
 
 .critedge44:                                      ; preds = %52
   tail call void @advance(ptr noundef nonnull %0) #8
-  %61 = getelementptr inbounds i8, ptr %5, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %48, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %5, i64 8
-  %63 = getelementptr inbounds i8, ptr %0, i64 56
+  %62 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %64 = load i64, ptr %62, align 8
   %65 = load i64, ptr %63, align 8
   %.not.unshifted.i = xor i64 %65, %64
@@ -5066,20 +5066,20 @@ extend_span_with_token.exit:                      ; preds = %66, %67
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @parse_post_unary(ptr noundef %0, ptr noundef %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = tail call ptr @expr_new(i32 noundef 44, i64 %4) #8
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i32, ptr %7, align 8
   %9 = tail call i32 @unaryop_from_token(i32 noundef %8) #8
-  %10 = getelementptr inbounds i8, ptr %5, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %11 = trunc i32 %9 to i8
   store i8 %11, ptr %10, align 8
   tail call void @advance(ptr noundef %0) #8
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %14 = load i64, ptr %12, align 8
   %15 = load i64, ptr %13, align 8
   %.not.unshifted.i = xor i64 %15, %14
@@ -5119,7 +5119,7 @@ define internal ptr @parse_orelse(ptr noundef %0, ptr noundef %1) #1 {
   br i1 %4, label %.critedge, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = load i16, ptr %6, align 8
   %8 = and i16 %7, 255
   %.not = icmp eq i16 %8, 0
@@ -5130,11 +5130,11 @@ define internal ptr @parse_orelse(ptr noundef %0, ptr noundef %1) #1 {
   br label %41
 
 .critedge:                                        ; preds = %2, %5
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = tail call ptr @expr_new(i32 noundef 3, i64 %12) #8
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
-  %15 = getelementptr inbounds i8, ptr %13, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store i8 13, ptr %15, align 8
   %16 = load ptr, ptr @expr_arena, align 8
   %17 = ptrtoint ptr %1 to i64
@@ -5147,10 +5147,10 @@ define internal ptr @parse_orelse(ptr noundef %0, ptr noundef %1) #1 {
   %23 = sub i64 %22, %18
   %24 = sdiv exact i64 %23, 56
   %25 = trunc i64 %24 to i32
-  %26 = getelementptr inbounds i8, ptr %13, i64 28
+  %26 = getelementptr inbounds nuw i8, ptr %13, i64 28
   store i32 %25, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %13, i64 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %29 = load i64, ptr %27, align 8
   %30 = load i64, ptr %28, align 8
   %.not.unshifted.i = xor i64 %30, %29
@@ -5197,7 +5197,7 @@ define internal ptr @parse_identifier_starting_expression(ptr noundef %0, ptr no
   br label %36
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load i32, ptr %8, align 8
   switch i32 %9, label %32 [
     i32 64, label %10
@@ -5207,11 +5207,11 @@ define internal ptr @parse_identifier_starting_expression(ptr noundef %0, ptr no
   ]
 
 10:                                               ; preds = %7, %7, %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr @kw_return, align 8
   %14 = icmp eq ptr %12, %13
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = load i64, ptr %15, align 8
   br i1 %14, label %17, label %19
 
@@ -5222,11 +5222,11 @@ define internal ptr @parse_identifier_starting_expression(ptr noundef %0, ptr no
 19:                                               ; preds = %10
   %20 = call ptr @expr_new(i32 noundef 34, i64 %16) #8
   %21 = load ptr, ptr %11, align 8
-  %22 = getelementptr inbounds i8, ptr %20, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store ptr %21, ptr %22, align 8
   %23 = load i32, ptr %8, align 8
   %24 = icmp eq i32 %23, 65
-  %25 = getelementptr inbounds i8, ptr %20, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %26 = zext i1 %24 to i8
   store i8 %26, ptr %25, align 8
   br label %parse_identifier.exit
@@ -5235,7 +5235,7 @@ parse_identifier.exit:                            ; preds = %17, %19
   %.0.i = phi ptr [ %18, %17 ], [ %20, %19 ]
   call void @advance(ptr noundef nonnull %0) #8
   %27 = load ptr, ptr %3, align 8
-  %28 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   store ptr %27, ptr %28, align 8
   br label %36
 
@@ -5245,7 +5245,7 @@ parse_identifier.exit:                            ; preds = %17, %19
   br label %36
 
 32:                                               ; preds = %7
-  %33 = getelementptr inbounds i8, ptr %0, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %34 = load i64, ptr %33, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %34, ptr noundef nonnull @.str.32) #8
   %35 = load ptr, ptr @poisoned_expr, align 8
@@ -5258,11 +5258,11 @@ parse_identifier.exit:                            ; preds = %17, %19
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @parse_identifier(ptr noundef %0, ptr nocapture readnone %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr @kw_return, align 8
   %6 = icmp eq ptr %4, %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load i64, ptr %7, align 8
   br i1 %6, label %9, label %11
 
@@ -5273,12 +5273,12 @@ define internal ptr @parse_identifier(ptr noundef %0, ptr nocapture readnone %1)
 11:                                               ; preds = %2
   %12 = tail call ptr @expr_new(i32 noundef 34, i64 %8) #8
   %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds i8, ptr %12, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store ptr %13, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load i32, ptr %15, align 8
   %17 = icmp eq i32 %16, 65
-  %18 = getelementptr inbounds i8, ptr %12, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %19 = zext i1 %17 to i8
   store i8 %19, ptr %18, align 8
   br label %20
@@ -5306,7 +5306,7 @@ define internal ptr @parse_type_identifier(ptr noundef %0, ptr nocapture readnon
   br label %parse_type_expression_with_path.exit
 
 .critedge2.i:                                     ; preds = %4, %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 17
   br i1 %11, label %12, label %14
@@ -5316,17 +5316,17 @@ define internal ptr @parse_type_identifier(ptr noundef %0, ptr nocapture readnon
   br label %parse_type_expression_with_path.exit
 
 14:                                               ; preds = %.critedge2.i
-  %15 = getelementptr inbounds i8, ptr %3, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %16 = load i64, ptr %15, align 8
   %17 = tail call ptr @expr_new(i32 noundef 62, i64 %16) #8
-  %18 = getelementptr inbounds i8, ptr %17, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store ptr %3, ptr %18, align 8
   %19 = load i32, ptr %9, align 8
   %20 = icmp eq i32 %19, 58
   br i1 %20, label %21, label %parse_type_expression_with_path.exit
 
 21:                                               ; preds = %14
-  %22 = getelementptr inbounds i8, ptr %0, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %23 = load i64, ptr %22, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %23, ptr noundef nonnull @.str.18) #8
   %24 = load ptr, ptr @poisoned_expr, align 8
@@ -5343,19 +5343,19 @@ define internal ptr @parse_ct_ident(ptr noundef %0, ptr nocapture readnone %1) #
   br i1 %3, label %4, label %8
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load i64, ptr %5, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %6, ptr noundef nonnull @.str.33) #8
   %7 = load ptr, ptr @poisoned_expr, align 8
   br label %15
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load i64, ptr %9, align 8
   %11 = tail call ptr @expr_new(i32 noundef 22, i64 %10) #8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr %13, ptr %14, align 8
   tail call void @advance(ptr noundef %0) #8
   br label %15
@@ -5367,12 +5367,12 @@ define internal ptr @parse_ct_ident(ptr noundef %0, ptr nocapture readnone %1) #
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @parse_hash_ident(ptr noundef %0, ptr nocapture readnone %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %5 = tail call ptr @expr_new(i32 noundef 33, i64 %4) #8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %7, ptr %8, align 8
   tail call void @advance(ptr noundef %0) #8
   ret ptr %5
@@ -5380,15 +5380,15 @@ define internal ptr @parse_hash_ident(ptr noundef %0, ptr nocapture readnone %1)
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @parse_string_literal(ptr noundef %0, ptr nocapture readnone %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %5 = tail call ptr @expr_new(i32 noundef 14, i64 %4) #8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i64, ptr %8, align 8
   tail call void @advance(ptr noundef %0) #8
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 76
   br i1 %12, label %.lr.ph, label %.outer._crit_edge
@@ -5437,11 +5437,11 @@ define internal ptr @parse_string_literal(ptr noundef %0, ptr nocapture readnone
   br label %43
 
 30:                                               ; preds = %.outer._crit_edge
-  %31 = getelementptr inbounds i8, ptr %5, i64 24
-  %32 = getelementptr inbounds i8, ptr %5, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %.040.ph.lcssa, ptr %32, align 8
   %33 = trunc nuw i64 %.041.ph.lcssa to i32
-  %34 = getelementptr inbounds i8, ptr %5, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i32 %33, ptr %34, align 8
   %35 = load ptr, ptr @type_string, align 8
   store ptr %35, ptr %5, align 8
@@ -5449,7 +5449,7 @@ define internal ptr @parse_string_literal(ptr noundef %0, ptr nocapture readnone
   %37 = and i16 %36, -256
   %38 = or disjoint i16 %37, 6
   store i16 %38, ptr %31, align 8
-  %39 = getelementptr inbounds i8, ptr %5, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %40 = load i16, ptr %39, align 8
   %41 = and i16 %40, -3841
   %42 = or disjoint i16 %41, 512
@@ -5463,20 +5463,20 @@ define internal ptr @parse_string_literal(ptr noundef %0, ptr nocapture readnone
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @parse_char_lit(ptr noundef %0, ptr nocapture readnone %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %5 = tail call ptr @expr_new(i32 noundef 14, i64 %4) #8
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load i16, ptr %6, align 8
   %8 = or i16 %7, 256
   store i16 %8, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 32
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false)
   %11 = and i16 %8, -256
   %12 = or disjoint i16 %11, 1
   store i16 %12, ptr %6, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load i8, ptr %13, align 8
   %switch.tableidx = add i8 %14, -1
   %15 = icmp ult i8 %switch.tableidx, 8
@@ -5484,10 +5484,10 @@ define internal ptr @parse_char_lit(ptr noundef %0, ptr nocapture readnone %1) #
 
 switch.lookup:                                    ; preds = %2
   %16 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table.parse_char_lit, i64 0, i64 %16
+  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.parse_char_lit, i64 0, i64 %16
   %switch.load = load ptr, ptr %switch.gep, align 8
   %17 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep20 = getelementptr inbounds [8 x i32], ptr @switch.table.parse_char_lit.2, i64 0, i64 %17
+  %switch.gep20 = getelementptr inbounds nuw [8 x i32], ptr @switch.table.parse_char_lit.2, i64 0, i64 %17
   %switch.load21 = load i32, ptr %switch.gep20, align 4
   br label %18
 
@@ -5496,7 +5496,7 @@ switch.lookup:                                    ; preds = %2
   %.sink = phi i32 [ %switch.load21, %switch.lookup ], [ 12, %2 ]
   %19 = load ptr, ptr %type_u128.sink, align 8
   store ptr %19, ptr %5, align 8
-  %20 = getelementptr inbounds i8, ptr %5, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store i32 %.sink, ptr %20, align 8
   tail call void @advance(ptr noundef nonnull %0) #8
   ret ptr %5
@@ -5505,25 +5505,25 @@ switch.lookup:                                    ; preds = %2
 ; Function Attrs: nounwind uwtable
 define internal ptr @parse_double(ptr noundef %0, ptr nocapture readnone %1) #1 {
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
   %6 = tail call ptr @expr_new(i32 noundef 14, i64 %5) #8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = load i8, ptr %8, align 1
   %10 = icmp eq i8 %9, 48
   br i1 %10, label %13, label %.thread
 
 .thread:                                          ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %6, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %12 = load i16, ptr %11, align 8
   br label %22
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %15 = load i8, ptr %14, align 1
   %16 = icmp eq i8 %15, 120
-  %17 = getelementptr inbounds i8, ptr %6, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %18 = load i16, ptr %17, align 8
   br i1 %16, label %19, label %22
 
@@ -5557,9 +5557,9 @@ define internal ptr @parse_double(ptr noundef %0, ptr nocapture readnone %1) #1 
 
 32:                                               ; preds = %25
   %.sroa.0.0 = extractvalue { double, i32 } %.pn, 0
-  %33 = getelementptr inbounds i8, ptr %6, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store double %.sroa.0.0, ptr %33, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 40
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i32 %.sroa.3.0, ptr %.sroa.3.0..sroa_idx, align 8
   switch i32 %.sroa.3.0, label %38 [
     i32 17, label %39
@@ -5593,7 +5593,7 @@ define internal ptr @parse_double(ptr noundef %0, ptr nocapture readnone %1) #1 
   %41 = load i16, ptr %26, align 8
   %42 = and i16 %41, -256
   store i16 %42, ptr %26, align 8
-  %43 = getelementptr inbounds i8, ptr %6, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %44 = load i16, ptr %43, align 8
   %45 = and i16 %44, -3841
   %46 = or disjoint i16 %45, 512
@@ -5608,14 +5608,14 @@ define internal ptr @parse_double(ptr noundef %0, ptr nocapture readnone %1) #1 
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @parse_bytes_expr(ptr noundef %0, ptr nocapture readnone %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 80
   br i1 %5, label %.lr.ph.lr.ph, label %.outer._crit_edge
 
 .lr.ph.lr.ph:                                     ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %parse_base64.exit
@@ -5659,14 +5659,14 @@ define internal ptr @parse_bytes_expr(ptr noundef %0, ptr nocapture readnone %1)
 
 27:                                               ; preds = %21
   %28 = and i64 %10, 4294967295
-  %29 = getelementptr inbounds i8, ptr %18, i64 %28
+  %29 = getelementptr inbounds nuw i8, ptr %18, i64 %28
   %30 = icmp sgt i64 %25, 5
   br i1 %30, label %.preheader48.i.preheader, label %parse_base64.exit
 
 .preheader48.i.preheader:                         ; preds = %27
   %31 = zext i32 %.0.ph111 to i64
-  %32 = getelementptr inbounds i8, ptr %18, i64 %31
-  %.ptr51 = getelementptr inbounds i8, ptr %24, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %18, i64 %31
+  %.ptr51 = getelementptr inbounds nuw i8, ptr %24, i64 4
   br label %.preheader48.i
 
 .preheader48.i:                                   ; preds = %.preheader48.i.preheader, %110
@@ -5676,7 +5676,7 @@ define internal ptr @parse_bytes_expr(ptr noundef %0, ptr nocapture readnone %1)
 
 33:                                               ; preds = %46, %.preheader48.i
   %.1.i = phi ptr [ %34, %46 ], [ %.076.i, %.preheader48.i ]
-  %34 = getelementptr inbounds i8, ptr %.1.i, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %.1.i, i64 1
   %35 = load i8, ptr %.1.i, align 1
   %36 = add i8 %35, -65
   %or.cond.i.i = icmp ult i8 %36, 26
@@ -5723,7 +5723,7 @@ base64_to_sextet.exit.i:                          ; preds = %33, %45, %base64_to
 
 base64_to_sextet.exit34.i:                        ; preds = %59, %base64_to_sextet.exit.i
   %.2.i = phi ptr [ %34, %base64_to_sextet.exit.i ], [ %48, %59 ]
-  %48 = getelementptr inbounds i8, ptr %.2.i, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %.2.i, i64 1
   %49 = load i8, ptr %.2.i, align 1
   %50 = add i8 %49, -65
   %or.cond.i30.i = icmp ult i8 %50, 26
@@ -5767,7 +5767,7 @@ base64_to_sextet.exit34.i:                        ; preds = %59, %base64_to_sext
 
 base64_to_sextet.exit39.i:                        ; preds = %72, %.preheader.i
   %.3.i = phi ptr [ %48, %.preheader.i ], [ %61, %72 ]
-  %61 = getelementptr inbounds i8, ptr %.3.i, i64 1
+  %61 = getelementptr inbounds nuw i8, ptr %.3.i, i64 1
   %62 = load i8, ptr %.3.i, align 1
   %63 = add i8 %62, -65
   %or.cond.i35.i = icmp ult i8 %63, 26
@@ -5812,7 +5812,7 @@ base64_to_sextet.exit44.preheader.i:              ; preds = %base64_to_sextet.ex
 
 base64_to_sextet.exit44.i:                        ; preds = %86, %base64_to_sextet.exit44.preheader.i
   %.4.i = phi ptr [ %75, %86 ], [ %61, %base64_to_sextet.exit44.preheader.i ]
-  %75 = getelementptr inbounds i8, ptr %.4.i, i64 1
+  %75 = getelementptr inbounds nuw i8, ptr %.4.i, i64 1
   %76 = load i8, ptr %.4.i, align 1
   %77 = add i8 %76, -65
   %or.cond.i40.i = icmp ult i8 %77, 26
@@ -5864,7 +5864,7 @@ base64_to_sextet.exit44.i:                        ; preds = %86, %base64_to_sext
 95:                                               ; preds = %.loopexit.i
   %96 = lshr i32 %93, 16
   %97 = trunc i32 %96 to i8
-  %98 = getelementptr inbounds i8, ptr %.02475.i, i64 1
+  %98 = getelementptr inbounds nuw i8, ptr %.02475.i, i64 1
   store i8 %97, ptr %.02475.i, align 1
   br label %99
 
@@ -5876,7 +5876,7 @@ base64_to_sextet.exit44.i:                        ; preds = %86, %base64_to_sext
 101:                                              ; preds = %99
   %102 = lshr i32 %93, 8
   %103 = trunc i32 %102 to i8
-  %104 = getelementptr inbounds i8, ptr %.125.i, i64 1
+  %104 = getelementptr inbounds nuw i8, ptr %.125.i, i64 1
   store i8 %103, ptr %.125.i, align 1
   br label %105
 
@@ -5887,7 +5887,7 @@ base64_to_sextet.exit44.i:                        ; preds = %86, %base64_to_sext
 
 107:                                              ; preds = %105
   %108 = trunc i32 %93 to i8
-  %109 = getelementptr inbounds i8, ptr %.226.i, i64 1
+  %109 = getelementptr inbounds nuw i8, ptr %.226.i, i64 1
   store i8 %108, ptr %.226.i, align 1
   br label %110
 
@@ -5902,8 +5902,8 @@ base64_to_sextet.exit44.i:                        ; preds = %86, %base64_to_sext
 
 .preheader12.i.preheader:                         ; preds = %112
   %114 = zext i32 %.0.ph111 to i64
-  %115 = getelementptr inbounds i8, ptr %18, i64 %114
-  %.ptr = getelementptr inbounds i8, ptr %24, i64 2
+  %115 = getelementptr inbounds nuw i8, ptr %18, i64 %114
+  %.ptr = getelementptr inbounds nuw i8, ptr %24, i64 2
   br label %.preheader12.i
 
 .preheader12.i:                                   ; preds = %.preheader12.i.preheader, %133
@@ -5913,11 +5913,11 @@ base64_to_sextet.exit44.i:                        ; preds = %86, %base64_to_sext
 
 116:                                              ; preds = %124, %.preheader12.i
   %.1.i44 = phi ptr [ %117, %124 ], [ %.020.i, %.preheader12.i ]
-  %117 = getelementptr inbounds i8, ptr %.1.i44, i64 1
+  %117 = getelementptr inbounds nuw i8, ptr %.1.i44, i64 1
   %118 = load i8, ptr %.1.i44, align 1
   %119 = sext i8 %118 to i64
   %120 = and i64 %119, 4294967295
-  %121 = getelementptr inbounds [256 x i8], ptr @hex_conv, i64 0, i64 %120
+  %121 = getelementptr inbounds nuw [256 x i8], ptr @hex_conv, i64 0, i64 %120
   %122 = load i8, ptr %121, align 1
   %123 = icmp slt i8 %122, 1
   br i1 %123, label %124, label %.preheader.i45
@@ -5928,11 +5928,11 @@ base64_to_sextet.exit44.i:                        ; preds = %86, %base64_to_sext
 
 .preheader.i45:                                   ; preds = %116, %.preheader.i45
   %.2.i46 = phi ptr [ %126, %.preheader.i45 ], [ %117, %116 ]
-  %126 = getelementptr inbounds i8, ptr %.2.i46, i64 1
+  %126 = getelementptr inbounds nuw i8, ptr %.2.i46, i64 1
   %127 = load i8, ptr %.2.i46, align 1
   %128 = sext i8 %127 to i64
   %129 = and i64 %128, 4294967295
-  %130 = getelementptr inbounds [256 x i8], ptr @hex_conv, i64 0, i64 %129
+  %130 = getelementptr inbounds nuw [256 x i8], ptr @hex_conv, i64 0, i64 %129
   %131 = load i8, ptr %130, align 1
   %132 = icmp slt i8 %131, 1
   br i1 %132, label %.preheader.i45, label %133, !llvm.loop !28
@@ -5942,7 +5942,7 @@ base64_to_sextet.exit44.i:                        ; preds = %86, %base64_to_sext
   %135 = shl i8 %122, 4
   %136 = add i8 %135, -16
   %137 = or i8 %134, %136
-  %138 = getelementptr inbounds i8, ptr %.0919.i, i64 1
+  %138 = getelementptr inbounds nuw i8, ptr %.0919.i, i64 1
   store i8 %137, ptr %.0919.i, align 1
   %139 = icmp ult ptr %126, %.ptr53
   br i1 %139, label %.preheader12.i, label %parse_base64.exit, !llvm.loop !29
@@ -5956,13 +5956,13 @@ parse_base64.exit:                                ; preds = %133, %110, %124, %4
 .outer._crit_edge:                                ; preds = %parse_base64.exit, %12, %2
   %.040.ph.lcssa = phi ptr [ null, %2 ], [ %.040.ph110, %12 ], [ %18, %parse_base64.exit ]
   %.0.ph.lcssa = phi i32 [ 0, %2 ], [ %.0.ph111, %12 ], [ %16, %parse_base64.exit ]
-  %142 = getelementptr inbounds i8, ptr %0, i64 48
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %143 = load i64, ptr %142, align 8
   %144 = tail call ptr @expr_new(i32 noundef 14, i64 %143) #8
-  %145 = getelementptr inbounds i8, ptr %144, i64 24
-  %146 = getelementptr inbounds i8, ptr %144, i64 32
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 24
+  %146 = getelementptr inbounds nuw i8, ptr %144, i64 32
   store ptr %.040.ph.lcssa, ptr %146, align 8
-  %147 = getelementptr inbounds i8, ptr %144, i64 40
+  %147 = getelementptr inbounds nuw i8, ptr %144, i64 40
   store i32 %.0.ph.lcssa, ptr %147, align 8
   %148 = load i16, ptr %145, align 8
   %149 = and i16 %148, -256
@@ -5976,24 +5976,24 @@ parse_base64.exit:                                ; preds = %133, %110, %124, %4
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @parse_bool(ptr noundef %0, ptr nocapture readnone %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %5 = tail call ptr @expr_new(i32 noundef 14, i64 %4) #8
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 140
   %10 = zext i1 %9 to i8
   store i16 2, ptr %6, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 26
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 26
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.4.0..sroa_idx, i8 0, i64 6, i1 false)
-  %.sroa.41.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 32
+  %.sroa.41.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i8 %10, ptr %.sroa.41.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 33
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 33
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.5.0..sroa_idx, i8 0, i64 23, i1 false)
   %11 = load ptr, ptr @type_bool, align 8
   store ptr %11, ptr %5, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %13 = load i16, ptr %12, align 8
   %14 = and i16 %13, -3841
   %15 = or disjoint i16 %14, 512
@@ -6007,19 +6007,19 @@ define internal ptr @parse_lambda(ptr noundef %0, ptr nocapture readnone %1) #1 
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = tail call ptr @expr_new(i32 noundef 36, i64 %7) #8
   tail call void @advance(ptr noundef %0) #8
   %9 = tail call ptr @vmem_alloc(ptr noundef nonnull @decl_arena, i64 noundef 136) #8
-  %10 = getelementptr inbounds i8, ptr %9, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load i64, ptr %10, align 8
   %12 = and i64 %11, -7296
   %13 = or disjoint i64 %12, 2065
   store i64 %13, ptr %10, align 8
-  %14 = getelementptr inbounds i8, ptr %9, i64 128
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 128
   store ptr null, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load i32, ptr %15, align 8
   %17 = icmp eq i32 %16, 19
   br i1 %17, label %.critedge93, label %18
@@ -6090,9 +6090,9 @@ define internal ptr @parse_lambda(ptr noundef %0, ptr nocapture readnone %1) #1 
 
 44:                                               ; preds = %.critedge95, %41, %40
   %45 = phi i32 [ %43, %41 ], [ 0, %40 ], [ %38, %.critedge95 ]
-  %46 = getelementptr inbounds i8, ptr %9, i64 92
+  %46 = getelementptr inbounds nuw i8, ptr %9, i64 92
   store i32 %45, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %9, i64 104
+  %47 = getelementptr inbounds nuw i8, ptr %9, i64 104
   store ptr %.pre, ptr %47, align 8
   %.not89 = icmp eq ptr %.07697, null
   br i1 %.not89, label %55, label %48
@@ -6108,10 +6108,10 @@ define internal ptr @parse_lambda(ptr noundef %0, ptr nocapture readnone %1) #1 
 
 55:                                               ; preds = %44, %48
   %56 = phi i32 [ %54, %48 ], [ 0, %44 ]
-  %57 = getelementptr inbounds i8, ptr %9, i64 96
+  %57 = getelementptr inbounds nuw i8, ptr %9, i64 96
   store i32 %56, ptr %57, align 8
   %58 = load i32, ptr %4, align 4
-  %59 = getelementptr inbounds i8, ptr %9, i64 89
+  %59 = getelementptr inbounds nuw i8, ptr %9, i64 89
   %60 = trunc i32 %58 to i16
   %61 = load i16, ptr %59, align 1
   %62 = shl i16 %60, 3
@@ -6119,7 +6119,7 @@ define internal ptr @parse_lambda(ptr noundef %0, ptr nocapture readnone %1) #1 
   %64 = and i16 %61, -57
   %65 = or disjoint i16 %63, %64
   store i16 %65, ptr %59, align 1
-  %66 = getelementptr inbounds i8, ptr %9, i64 64
+  %66 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %67 = call zeroext i1 @parse_attributes(ptr noundef nonnull %0, ptr noundef nonnull %66, ptr noundef null, ptr noundef null, ptr noundef null) #8
   br i1 %67, label %70, label %68
 
@@ -6141,7 +6141,7 @@ define internal ptr @parse_lambda(ptr noundef %0, ptr nocapture readnone %1) #1 
   br i1 %75, label %.critedge2, label %76
 
 76:                                               ; preds = %72
-  %77 = getelementptr inbounds i8, ptr %74, i64 12
+  %77 = getelementptr inbounds nuw i8, ptr %74, i64 12
   %78 = load i8, ptr %77, align 4
   %.not91 = icmp eq i8 %78, 0
   br i1 %.not91, label %80, label %.split
@@ -6161,7 +6161,7 @@ define internal ptr @parse_lambda(ptr noundef %0, ptr nocapture readnone %1) #1 
   %83 = sub i64 %.sink, %82
   %phi.call.in = sdiv exact i64 %83, 48
   %phi.call = trunc i64 %phi.call.in to i32
-  %84 = getelementptr inbounds i8, ptr %9, i64 112
+  %84 = getelementptr inbounds nuw i8, ptr %9, i64 112
   store i32 %phi.call, ptr %84, align 8
   br label %99
 
@@ -6171,7 +6171,7 @@ define internal ptr @parse_lambda(ptr noundef %0, ptr nocapture readnone %1) #1 
   br i1 %87, label %.critedge4, label %88
 
 88:                                               ; preds = %85
-  %89 = getelementptr inbounds i8, ptr %86, i64 12
+  %89 = getelementptr inbounds nuw i8, ptr %86, i64 12
   %90 = load i8, ptr %89, align 4
   %.not90 = icmp eq i8 %90, 0
   br i1 %.not90, label %92, label %.split78
@@ -6191,7 +6191,7 @@ define internal ptr @parse_lambda(ptr noundef %0, ptr nocapture readnone %1) #1 
   %95 = sub i64 %.sink100, %94
   %phi.call80.in = sdiv exact i64 %95, 48
   %phi.call80 = trunc i64 %phi.call80.in to i32
-  %96 = getelementptr inbounds i8, ptr %9, i64 112
+  %96 = getelementptr inbounds nuw i8, ptr %9, i64 112
   store i32 %phi.call80, ptr %96, align 8
   br label %99
 
@@ -6201,7 +6201,7 @@ define internal ptr @parse_lambda(ptr noundef %0, ptr nocapture readnone %1) #1 
   br label %99
 
 99:                                               ; preds = %.critedge4, %97, %.critedge2
-  %100 = getelementptr inbounds i8, ptr %8, i64 24
+  %100 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %9, ptr %100, align 8
   br label %101
 
@@ -6212,19 +6212,19 @@ define internal ptr @parse_lambda(ptr noundef %0, ptr nocapture readnone %1) #1 
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @parse_null(ptr noundef %0, ptr nocapture readnone %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %5 = tail call ptr @expr_new(i32 noundef 14, i64 %4) #8
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load i16, ptr %6, align 8
   %8 = and i16 %7, -256
   %9 = or disjoint i16 %8, 7
   store i16 %9, ptr %6, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i64 0, ptr %10, align 8
   %11 = load ptr, ptr @type_voidptr, align 8
   store ptr %11, ptr %5, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %13 = load i16, ptr %12, align 8
   %14 = and i16 %13, -3841
   %15 = or disjoint i16 %14, 512
@@ -6236,12 +6236,12 @@ define internal noundef ptr @parse_null(ptr noundef %0, ptr nocapture readnone %
 ; Function Attrs: nounwind uwtable
 define internal ptr @parse_ct_call(ptr noundef %0, ptr nocapture readnone %1) #1 {
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
   %6 = tail call ptr @expr_new(i32 noundef 17, i64 %5) #8
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 %8, ptr %9, align 8
   tail call void @advance(ptr noundef %0) #8
   %10 = load i32, ptr %7, align 8
@@ -6262,7 +6262,7 @@ define internal ptr @parse_ct_call(ptr noundef %0, ptr nocapture readnone %1) #1
   br i1 %17, label %.critedge, label %18
 
 18:                                               ; preds = %.critedge39
-  %19 = getelementptr inbounds i8, ptr %16, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %20 = load i16, ptr %19, align 8
   %21 = and i16 %20, 255
   %.not = icmp eq i16 %21, 0
@@ -6282,10 +6282,10 @@ define internal ptr @parse_ct_call(ptr noundef %0, ptr nocapture readnone %1) #1
   br label %51
 
 27:                                               ; preds = %.critedge
-  %28 = getelementptr inbounds i8, ptr %6, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %16, ptr %28, align 8
   %29 = load ptr, ptr %3, align 8
-  %30 = getelementptr inbounds i8, ptr %6, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr %29, ptr %30, align 8
   %31 = load i32, ptr %7, align 8
   %32 = icmp eq i32 %31, 26
@@ -6300,8 +6300,8 @@ define internal ptr @parse_ct_call(ptr noundef %0, ptr nocapture readnone %1) #1
 
 .critedge41:                                      ; preds = %27
   tail call void @advance(ptr noundef nonnull %0) #8
-  %37 = getelementptr inbounds i8, ptr %6, i64 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 56
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %39 = load i64, ptr %37, align 8
   %40 = load i64, ptr %38, align 8
   %.not.unshifted.i = xor i64 %40, %39
@@ -6339,13 +6339,13 @@ extend_span_with_token.exit:                      ; preds = %41, %42
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @parse_ct_and_or(ptr noundef %0, ptr nocapture readnone %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %5 = tail call ptr @expr_new(i32 noundef 15, i64 %4) #8
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 146
-  %9 = getelementptr inbounds i8, ptr %5, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %10 = zext i1 %8 to i8
   store i8 %10, ptr %9, align 8
   tail call void @advance(ptr noundef %0) #8
@@ -6371,7 +6371,7 @@ define internal ptr @parse_ct_and_or(ptr noundef %0, ptr nocapture readnone %1) 
   br i1 %19, label %.critedge, label %20
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %18, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %22 = load i16, ptr %21, align 8
   %23 = and i16 %22, 255
   %.not = icmp eq i16 %23, 0
@@ -6387,7 +6387,7 @@ define internal ptr @parse_ct_and_or(ptr noundef %0, ptr nocapture readnone %1) 
 
 26:                                               ; preds = %.critedge
   %27 = tail call ptr @calloc_arena(i64 noundef 72) #8
-  %28 = getelementptr inbounds i8, ptr %27, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   store i32 8, ptr %28, align 4
   br label %31
 
@@ -6405,13 +6405,13 @@ define internal ptr @parse_ct_and_or(ptr noundef %0, ptr nocapture readnone %1) 
   br i1 %34, label %35, label %49
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   %37 = shl i32 %32, 1
   %38 = zext i32 %37 to i64
   %39 = shl nuw nsw i64 %38, 3
   %40 = or disjoint i64 %39, 8
   %41 = tail call ptr @calloc_arena(i64 noundef %40) #8
-  %42 = getelementptr inbounds i8, ptr %41, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   store i32 %37, ptr %42, align 4
   %43 = load i32, ptr %36, align 4
   %44 = zext i32 %43 to i64
@@ -6429,9 +6429,9 @@ define internal ptr @parse_ct_and_or(ptr noundef %0, ptr nocapture readnone %1) 
   %.1.i = phi ptr [ %41, %35 ], [ %.0.i, %31 ]
   %51 = add i32 %50, 1
   store i32 %51, ptr %.1.i, align 4
-  %52 = getelementptr inbounds i8, ptr %.1.i, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %53 = zext i32 %50 to i64
-  %54 = getelementptr inbounds ptr, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw ptr, ptr %52, i64 %53
   store ptr %18, ptr %54, align 8
   %55 = tail call zeroext i1 @try_consume(ptr noundef %0, i32 noundef 8) #8
   br i1 %55, label %17, label %56
@@ -6450,10 +6450,10 @@ define internal ptr @parse_ct_and_or(ptr noundef %0, ptr nocapture readnone %1) 
 
 .critedge55:                                      ; preds = %56
   tail call void @advance(ptr noundef nonnull %0) #8
-  %63 = getelementptr inbounds i8, ptr %5, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %52, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %5, i64 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 56
+  %64 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %66 = load i64, ptr %64, align 8
   %67 = load i64, ptr %65, align 8
   %.not.unshifted.i = xor i64 %67, %66
@@ -6491,13 +6491,13 @@ extend_span_with_token.exit:                      ; preds = %68, %69
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @parse_ct_castable(ptr noundef %0, ptr nocapture readnone %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %5 = tail call ptr @expr_new(i32 noundef 18, i64 %4) #8
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 148
-  %9 = getelementptr inbounds i8, ptr %5, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %10 = zext i1 %8 to i8
   store i8 %10, ptr %9, align 8
   tail call void @advance(ptr noundef %0) #8
@@ -6519,7 +6519,7 @@ define internal ptr @parse_ct_castable(ptr noundef %0, ptr nocapture readnone %1
   br i1 %18, label %.critedge, label %19
 
 19:                                               ; preds = %.critedge61
-  %20 = getelementptr inbounds i8, ptr %17, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %21 = load i16, ptr %20, align 8
   %22 = and i16 %21, 255
   %.not = icmp eq i16 %22, 0
@@ -6540,7 +6540,7 @@ define internal ptr @parse_ct_castable(ptr noundef %0, ptr nocapture readnone %1
   %27 = sub i64 %.sink, %26
   %phi.call.in = sdiv exact i64 %27, 56
   %phi.call = trunc i64 %phi.call.in to i32
-  %28 = getelementptr inbounds i8, ptr %5, i64 28
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 28
   store i32 %phi.call, ptr %28, align 4
   %29 = load i32, ptr %6, align 8
   %30 = icmp eq i32 %29, 8
@@ -6580,7 +6580,7 @@ define internal ptr @parse_ct_castable(ptr noundef %0, ptr nocapture readnone %1
   %43 = sub i64 %.sink68, %42
   %phi.call55.in = sdiv exact i64 %43, 40
   %phi.call55 = trunc i64 %phi.call55.in to i32
-  %44 = getelementptr inbounds i8, ptr %5, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i32 %phi.call55, ptr %44, align 8
   %45 = load i32, ptr %6, align 8
   %46 = icmp eq i32 %45, 26
@@ -6595,8 +6595,8 @@ define internal ptr @parse_ct_castable(ptr noundef %0, ptr nocapture readnone %1
 
 .critedge65:                                      ; preds = %.critedge2
   tail call void @advance(ptr noundef nonnull %0) #8
-  %51 = getelementptr inbounds i8, ptr %5, i64 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 56
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %53 = load i64, ptr %51, align 8
   %54 = load i64, ptr %52, align 8
   %.not.unshifted.i = xor i64 %54, %53
@@ -6634,11 +6634,11 @@ extend_span_with_token.exit:                      ; preds = %55, %56
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @parse_ct_defined(ptr noundef %0, ptr nocapture readnone %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %5 = tail call ptr @expr_new(i32 noundef 20, i64 %4) #8
   tail call void @advance(ptr noundef %0) #8
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 19
   br i1 %8, label %.critedge47, label %9
@@ -6665,7 +6665,7 @@ define internal ptr @parse_ct_defined(ptr noundef %0, ptr nocapture readnone %1)
   br i1 %17, label %.critedge, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %16, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %20 = load i16, ptr %19, align 8
   %21 = and i16 %20, 255
   %.not = icmp eq i16 %21, 0
@@ -6681,7 +6681,7 @@ define internal ptr @parse_ct_defined(ptr noundef %0, ptr nocapture readnone %1)
 
 24:                                               ; preds = %.critedge
   %25 = tail call ptr @calloc_arena(i64 noundef 72) #8
-  %26 = getelementptr inbounds i8, ptr %25, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   store i32 8, ptr %26, align 4
   br label %29
 
@@ -6699,13 +6699,13 @@ define internal ptr @parse_ct_defined(ptr noundef %0, ptr nocapture readnone %1)
   br i1 %32, label %33, label %47
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   %35 = shl i32 %30, 1
   %36 = zext i32 %35 to i64
   %37 = shl nuw nsw i64 %36, 3
   %38 = or disjoint i64 %37, 8
   %39 = tail call ptr @calloc_arena(i64 noundef %38) #8
-  %40 = getelementptr inbounds i8, ptr %39, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   store i32 %35, ptr %40, align 4
   %41 = load i32, ptr %34, align 4
   %42 = zext i32 %41 to i64
@@ -6723,9 +6723,9 @@ define internal ptr @parse_ct_defined(ptr noundef %0, ptr nocapture readnone %1)
   %.1.i = phi ptr [ %39, %33 ], [ %.0.i, %29 ]
   %49 = add i32 %48, 1
   store i32 %49, ptr %.1.i, align 4
-  %50 = getelementptr inbounds i8, ptr %.1.i, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %51 = zext i32 %48 to i64
-  %52 = getelementptr inbounds ptr, ptr %50, i64 %51
+  %52 = getelementptr inbounds nuw ptr, ptr %50, i64 %51
   store ptr %16, ptr %52, align 8
   %53 = tail call zeroext i1 @try_consume(ptr noundef %0, i32 noundef 8) #8
   br i1 %53, label %13, label %54, !llvm.loop !30
@@ -6748,7 +6748,7 @@ define internal ptr @parse_ct_defined(ptr noundef %0, ptr nocapture readnone %1)
 
 .loopexit:                                        ; preds = %13, %.critedge49
   %.1 = phi ptr [ %50, %.critedge49 ], [ %.041, %13 ]
-  %61 = getelementptr inbounds i8, ptr %5, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %.1, ptr %61, align 8
   br label %62
 
@@ -6759,11 +6759,11 @@ define internal ptr @parse_ct_defined(ptr noundef %0, ptr nocapture readnone %1)
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @parse_ct_embed(ptr noundef %0, ptr nocapture readnone %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %5 = tail call ptr @expr_new(i32 noundef 26, i64 %4) #8
   tail call void @advance(ptr noundef %0) #8
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 19
   br i1 %8, label %.critedge46, label %9
@@ -6782,7 +6782,7 @@ define internal ptr @parse_ct_embed(ptr noundef %0, ptr nocapture readnone %1) #
   br i1 %14, label %.critedge, label %15
 
 15:                                               ; preds = %.critedge46
-  %16 = getelementptr inbounds i8, ptr %13, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %17 = load i16, ptr %16, align 8
   %18 = and i16 %17, 255
   %.not = icmp eq i16 %18, 0
@@ -6793,7 +6793,7 @@ define internal ptr @parse_ct_embed(ptr noundef %0, ptr nocapture readnone %1) #
   br label %54
 
 .critedge:                                        ; preds = %.critedge46, %15
-  %21 = getelementptr inbounds i8, ptr %5, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %13, ptr %21, align 8
   %22 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #8
   br i1 %22, label %23, label %33
@@ -6804,7 +6804,7 @@ define internal ptr @parse_ct_embed(ptr noundef %0, ptr nocapture readnone %1) #
   br i1 %25, label %.critedge2, label %26
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %24, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %28 = load i16, ptr %27, align 8
   %29 = and i16 %28, 255
   %.not44 = icmp eq i16 %29, 0
@@ -6815,7 +6815,7 @@ define internal ptr @parse_ct_embed(ptr noundef %0, ptr nocapture readnone %1) #
   br label %54
 
 .critedge2:                                       ; preds = %23, %26
-  %32 = getelementptr inbounds i8, ptr %5, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %24, ptr %32, align 8
   br label %33
 
@@ -6833,8 +6833,8 @@ define internal ptr @parse_ct_embed(ptr noundef %0, ptr nocapture readnone %1) #
 
 .critedge48:                                      ; preds = %33
   tail call void @advance(ptr noundef nonnull %0) #8
-  %40 = getelementptr inbounds i8, ptr %5, i64 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %42 = load i64, ptr %40, align 8
   %43 = load i64, ptr %41, align 8
   %.not.unshifted.i = xor i64 %43, %42
@@ -6872,11 +6872,11 @@ extend_span_with_token.exit:                      ; preds = %44, %45
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @parse_ct_eval(ptr noundef %0, ptr nocapture readnone %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %5 = tail call ptr @expr_new(i32 noundef 21, i64 %4) #8
   tail call void @advance(ptr noundef %0) #8
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 19
   br i1 %8, label %.critedge34, label %9
@@ -6895,7 +6895,7 @@ define internal ptr @parse_ct_eval(ptr noundef %0, ptr nocapture readnone %1) #1
   br i1 %14, label %.critedge, label %15
 
 15:                                               ; preds = %.critedge34
-  %16 = getelementptr inbounds i8, ptr %13, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %17 = load i16, ptr %16, align 8
   %18 = and i16 %17, 255
   %.not = icmp eq i16 %18, 0
@@ -6906,7 +6906,7 @@ define internal ptr @parse_ct_eval(ptr noundef %0, ptr nocapture readnone %1) #1
   br label %42
 
 .critedge:                                        ; preds = %.critedge34, %15
-  %21 = getelementptr inbounds i8, ptr %5, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %13, ptr %21, align 8
   %22 = load i32, ptr %6, align 8
   %23 = icmp eq i32 %22, 26
@@ -6921,8 +6921,8 @@ define internal ptr @parse_ct_eval(ptr noundef %0, ptr nocapture readnone %1) #1
 
 .critedge36:                                      ; preds = %.critedge
   tail call void @advance(ptr noundef nonnull %0) #8
-  %28 = getelementptr inbounds i8, ptr %5, i64 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %30 = load i64, ptr %28, align 8
   %31 = load i64, ptr %29, align 8
   %.not.unshifted.i = xor i64 %31, %30
@@ -6960,7 +6960,7 @@ extend_span_with_token.exit:                      ; preds = %32, %33
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @parse_type_expr(ptr noundef %0, ptr nocapture readnone %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %5 = tail call ptr @expr_new(i32 noundef 62, i64 %4) #8
   %6 = tail call ptr @parse_optional_type(ptr noundef %0) #8
@@ -6978,7 +6978,7 @@ define internal ptr @parse_type_expr(ptr noundef %0, ptr nocapture readnone %1) 
   br label %27
 
 .critedge:                                        ; preds = %2, %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 17
   br i1 %14, label %15, label %17
@@ -6988,11 +6988,11 @@ define internal ptr @parse_type_expr(ptr noundef %0, ptr nocapture readnone %1) 
   br label %27
 
 17:                                               ; preds = %.critedge
-  %18 = getelementptr inbounds i8, ptr %5, i64 8
-  %19 = getelementptr inbounds i8, ptr %6, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %20 = load i64, ptr %19, align 8
   store i64 %20, ptr %18, align 8
-  %21 = getelementptr inbounds i8, ptr %5, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %6, ptr %21, align 8
   %22 = load i32, ptr %12, align 8
   %23 = icmp eq i32 %22, 58
@@ -7011,11 +7011,11 @@ define internal ptr @parse_type_expr(ptr noundef %0, ptr nocapture readnone %1) 
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @parse_ct_is_const(ptr noundef %0, ptr nocapture readnone %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %5 = tail call ptr @expr_new(i32 noundef 19, i64 %4) #8
   tail call void @advance(ptr noundef %0) #8
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 19
   br i1 %8, label %.critedge35, label %9
@@ -7034,7 +7034,7 @@ define internal ptr @parse_ct_is_const(ptr noundef %0, ptr nocapture readnone %1
   br i1 %14, label %.critedge, label %15
 
 15:                                               ; preds = %.critedge35
-  %16 = getelementptr inbounds i8, ptr %13, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %17 = load i16, ptr %16, align 8
   %18 = and i16 %17, 255
   %.not = icmp eq i16 %18, 0
@@ -7045,7 +7045,7 @@ define internal ptr @parse_ct_is_const(ptr noundef %0, ptr nocapture readnone %1
   br label %42
 
 .critedge:                                        ; preds = %.critedge35, %15
-  %21 = getelementptr inbounds i8, ptr %5, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %13, ptr %21, align 8
   %22 = load i32, ptr %6, align 8
   %23 = icmp eq i32 %22, 26
@@ -7060,8 +7060,8 @@ define internal ptr @parse_ct_is_const(ptr noundef %0, ptr nocapture readnone %1
 
 .critedge37:                                      ; preds = %.critedge
   tail call void @advance(ptr noundef nonnull %0) #8
-  %28 = getelementptr inbounds i8, ptr %5, i64 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %30 = load i64, ptr %28, align 8
   %31 = load i64, ptr %29, align 8
   %.not.unshifted.i = xor i64 %31, %30
@@ -7099,11 +7099,11 @@ extend_span_with_token.exit:                      ; preds = %32, %33
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @parse_ct_sizeof(ptr noundef %0, ptr nocapture readnone %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %5 = tail call ptr @expr_new(i32 noundef 1, i64 %4) #8
   tail call void @advance(ptr noundef %0) #8
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 19
   br i1 %8, label %.critedge53, label %9
@@ -7122,7 +7122,7 @@ define internal ptr @parse_ct_sizeof(ptr noundef %0, ptr nocapture readnone %1) 
   br i1 %14, label %.critedge, label %15
 
 15:                                               ; preds = %.critedge53
-  %16 = getelementptr inbounds i8, ptr %13, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %17 = load i16, ptr %16, align 8
   %18 = and i16 %17, 255
   %.not = icmp eq i16 %18, 0
@@ -7146,13 +7146,13 @@ define internal ptr @parse_ct_sizeof(ptr noundef %0, ptr nocapture readnone %1) 
 
 .critedge55:                                      ; preds = %.critedge
   tail call void @advance(ptr noundef nonnull %0) #8
-  %27 = getelementptr inbounds i8, ptr %13, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %28 = load i64, ptr %27, align 8
   %29 = tail call ptr @expr_new(i32 noundef 62, i64 %28) #8
   %30 = load i64, ptr %27, align 8
   %31 = tail call ptr @vmem_alloc(ptr noundef nonnull @type_info_arena, i64 noundef 40) #8
   %32 = load i16, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %31, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store i64 %30, ptr %33, align 8
   %34 = and i16 %32, -512
   %35 = or disjoint i16 %34, 24
@@ -7163,21 +7163,21 @@ define internal ptr @parse_ct_sizeof(ptr noundef %0, ptr nocapture readnone %1) 
   %39 = and i16 %37, -513
   %40 = or disjoint i16 %39, %38
   store i16 %40, ptr %31, align 8
-  %41 = getelementptr inbounds i8, ptr %31, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %31, i64 24
   store ptr %13, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %29, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %29, i64 24
   store ptr %31, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %5, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %29, ptr %43, align 8
   %44 = load i64, ptr %3, align 8
   %45 = tail call ptr @expr_new(i32 noundef 34, i64 %44) #8
   %46 = load ptr, ptr getelementptr inbounds (i8, ptr @type_property_list, i64 160), align 16
-  %47 = getelementptr inbounds i8, ptr %45, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 32
   store ptr %46, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %5, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %45, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %5, i64 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %51 = load i64, ptr %49, align 8
   %52 = load i64, ptr %50, align 8
   %.not.unshifted.i = xor i64 %52, %51
@@ -7215,12 +7215,12 @@ extend_span_with_token.exit:                      ; preds = %53, %54
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @parse_ct_stringify(ptr noundef %0, ptr nocapture readnone %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.sroa.018.0.copyload = load i64, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 96
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8
   tail call void @advance(ptr noundef %0) #8
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 19
   br i1 %8, label %.critedge51, label %9
@@ -7239,7 +7239,7 @@ define internal ptr @parse_ct_stringify(ptr noundef %0, ptr nocapture readnone %
   br i1 %14, label %.critedge, label %15
 
 15:                                               ; preds = %.critedge51
-  %16 = getelementptr inbounds i8, ptr %13, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %17 = load i16, ptr %16, align 8
   %18 = and i16 %17, 255
   %.not = icmp eq i16 %18, 0
@@ -7250,7 +7250,7 @@ define internal ptr @parse_ct_stringify(ptr noundef %0, ptr nocapture readnone %
   br label %65
 
 .critedge:                                        ; preds = %.critedge51, %15
-  %21 = getelementptr inbounds i8, ptr %0, i64 88
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 -1
   %24 = load i32, ptr %6, align 8
@@ -7266,7 +7266,7 @@ define internal ptr @parse_ct_stringify(ptr noundef %0, ptr nocapture readnone %
 
 .critedge53:                                      ; preds = %.critedge
   tail call void @advance(ptr noundef nonnull %0) #8
-  %30 = getelementptr inbounds i8, ptr %13, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %31 = load i16, ptr %30, align 8
   %32 = and i16 %31, 255
   %33 = icmp eq i16 %32, 33
@@ -7274,10 +7274,10 @@ define internal ptr @parse_ct_stringify(ptr noundef %0, ptr nocapture readnone %
 
 34:                                               ; preds = %.critedge53
   %35 = tail call ptr @expr_new(i32 noundef 50, i64 %.sroa.018.0.copyload) #8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   store ptr %13, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %35, i64 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 56
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %39 = load i64, ptr %37, align 8
   %40 = load i64, ptr %38, align 8
   %.not.unshifted.i = xor i64 %40, %39
@@ -7314,15 +7314,15 @@ extend_span_with_token.exit:                      ; preds = %41, %42
   %54 = sub i64 %52, %53
   %55 = tail call ptr @str_copy(ptr noundef %5, i64 noundef %54) #8
   %56 = tail call ptr @expr_new(i32 noundef 14, i64 %.sroa.018.0.copyload) #8
-  %57 = getelementptr inbounds i8, ptr %56, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %58 = load i16, ptr %57, align 8
   %59 = and i16 %58, -256
   %60 = or disjoint i16 %59, 6
   store i16 %60, ptr %57, align 8
-  %61 = getelementptr inbounds i8, ptr %56, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %56, i64 32
   store ptr %55, ptr %61, align 8
   %62 = trunc i64 %54 to i32
-  %63 = getelementptr inbounds i8, ptr %56, i64 40
+  %63 = getelementptr inbounds nuw i8, ptr %56, i64 40
   store i32 %62, ptr %63, align 8
   %64 = load ptr, ptr @type_string, align 8
   store ptr %64, ptr %56, align 8
@@ -7335,12 +7335,12 @@ extend_span_with_token.exit:                      ; preds = %41, %42
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @parse_ct_arg(ptr noundef %0, ptr nocapture readnone %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %5 = tail call ptr @expr_new(i32 noundef 16, i64 %4) #8
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %9 = trunc i32 %7 to i16
   store i16 %9, ptr %8, align 8
   %10 = and i32 %7, 65535
@@ -7367,7 +7367,7 @@ define internal ptr @parse_ct_arg(ptr noundef %0, ptr nocapture readnone %1) #1 
   br i1 %19, label %.critedge, label %20
 
 20:                                               ; preds = %.critedge39
-  %21 = getelementptr inbounds i8, ptr %18, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %22 = load i16, ptr %21, align 8
   %23 = and i16 %22, 255
   %.not37 = icmp eq i16 %23, 0
@@ -7388,7 +7388,7 @@ define internal ptr @parse_ct_arg(ptr noundef %0, ptr nocapture readnone %1) #1 
   %28 = sub i64 %.sink, %27
   %phi.call.in = sdiv exact i64 %28, 56
   %phi.call = trunc i64 %phi.call.in to i32
-  %29 = getelementptr inbounds i8, ptr %5, i64 28
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 28
   store i32 %phi.call, ptr %29, align 4
   %30 = load i32, ptr %6, align 8
   %31 = icmp eq i32 %30, 26
@@ -7406,8 +7406,8 @@ define internal ptr @parse_ct_arg(ptr noundef %0, ptr nocapture readnone %1) #1 
   br label %36
 
 36:                                               ; preds = %2, %.critedge41
-  %37 = getelementptr inbounds i8, ptr %5, i64 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 56
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %39 = load i64, ptr %37, align 8
   %40 = load i64, ptr %38, align 8
   %.not.unshifted.i = xor i64 %40, %39
@@ -7445,7 +7445,7 @@ extend_span_with_token.exit:                      ; preds = %41, %42
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @parse_try_unwrap(ptr noundef %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
   %4 = tail call ptr @expr_new(i32 noundef 58, i64 %3) #8
   tail call void @advance(ptr noundef %0) #8
@@ -7458,7 +7458,7 @@ define internal fastcc ptr @parse_try_unwrap(ptr noundef %0) unnamed_addr #1 {
   br label %.critedge
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load i16, ptr %8, align 8
   %10 = and i16 %9, 255
   %.not = icmp eq i16 %10, 0
@@ -7470,23 +7470,23 @@ define internal fastcc ptr @parse_try_unwrap(ptr noundef %0) unnamed_addr #1 {
 
 .critedge:                                        ; preds = %..critedge_crit_edge, %7
   %13 = phi i16 [ %.pre, %..critedge_crit_edge ], [ %9, %7 ]
-  %14 = getelementptr inbounds i8, ptr %5, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %15 = and i16 %13, 255
   %16 = icmp eq i16 %15, 62
   br i1 %16, label %17, label %30
 
 17:                                               ; preds = %.critedge
-  %18 = getelementptr inbounds i8, ptr %5, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %4, i64 24
-  %21 = getelementptr inbounds i8, ptr %4, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %19, ptr %21, align 8
   %22 = tail call fastcc ptr @parse_precedence(ptr noundef nonnull %0, i32 noundef 5)
   %23 = icmp eq ptr %22, null
   br i1 %23, label %.critedge2, label %24
 
 24:                                               ; preds = %17
-  %25 = getelementptr inbounds i8, ptr %22, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %26 = load i16, ptr %25, align 8
   %27 = and i16 %26, 255
   %.not41 = icmp eq i16 %27, 0
@@ -7501,7 +7501,7 @@ define internal fastcc ptr @parse_try_unwrap(ptr noundef %0) unnamed_addr #1 {
   br label %32
 
 30:                                               ; preds = %.critedge
-  %31 = getelementptr inbounds i8, ptr %4, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %5, ptr %31, align 8
   br label %32
 
@@ -7513,14 +7513,14 @@ define internal fastcc ptr @parse_try_unwrap(ptr noundef %0) unnamed_addr #1 {
   br i1 %36, label %37, label %45
 
 37:                                               ; preds = %32
-  %38 = getelementptr inbounds i8, ptr %33, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %39 = load i16, ptr %38, align 8
   %40 = and i16 %39, 255
   %.not42 = icmp eq i16 %40, 34
   br i1 %.not42, label %45, label %41
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %33, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %43 = load i64, ptr %42, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %43, ptr noundef nonnull @.str.19) #8
   %44 = load ptr, ptr @poisoned_expr, align 8
@@ -7536,7 +7536,7 @@ define internal fastcc ptr @parse_try_unwrap(ptr noundef %0) unnamed_addr #1 {
   br i1 %49, label %.critedge4, label %50
 
 50:                                               ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %48, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %52 = load i16, ptr %51, align 8
   %53 = and i16 %52, 255
   %.not43 = icmp eq i16 %53, 0
@@ -7547,13 +7547,13 @@ define internal fastcc ptr @parse_try_unwrap(ptr noundef %0) unnamed_addr #1 {
   br label %72
 
 .critedge4:                                       ; preds = %47, %50
-  %56 = getelementptr inbounds i8, ptr %4, i64 40
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %48, ptr %56, align 8
   br label %57
 
 57:                                               ; preds = %45, %.critedge4
-  %58 = getelementptr inbounds i8, ptr %4, i64 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 56
+  %58 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %60 = load i64, ptr %58, align 8
   %61 = load i64, ptr %59, align 8
   %.not.unshifted.i = xor i64 %61, %60

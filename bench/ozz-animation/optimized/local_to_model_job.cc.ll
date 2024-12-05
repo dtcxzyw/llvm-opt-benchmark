@@ -12,14 +12,14 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN3ozz9animation15LocalToModelJobC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 25), (32, 64)) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   store i32 -1, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 20
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 1024, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   ret void
 }
@@ -31,16 +31,16 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation15LocalToModelJob8Validat
   br i1 %.not, label %16, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %2, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %5 = load i64, ptr %4, align 8
   %sext = shl i64 %5, 32
   %6 = ashr exact i64 %sext, 32
   %7 = add nsw i64 %6, 3
   %8 = lshr i64 %7, 2
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load i64, ptr %9, align 8
   %11 = icmp uge i64 %10, %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %13 = load i64, ptr %12, align 8
   %14 = icmp uge i64 %13, %6
   %15 = and i1 %14, %11
@@ -60,43 +60,43 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation15LocalToModelJob3RunEv(p
   br i1 %.not.i, label %_ZNK3ozz9animation15LocalToModelJob8ValidateEv.exit.thread, label %_ZNK3ozz9animation15LocalToModelJob8ValidateEv.exit
 
 _ZNK3ozz9animation15LocalToModelJob8ValidateEv.exit: ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load i64, ptr %5, align 8
   %sext.i = shl i64 %6, 32
   %7 = ashr exact i64 %sext.i, 32
   %8 = add nsw i64 %7, 3
   %9 = lshr i64 %8, 2
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load i64, ptr %10, align 8
   %12 = icmp uge i64 %11, %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %14 = load i64, ptr %13, align 8
   %15 = icmp uge i64 %14, %7
   %16 = and i1 %15, %12
   br i1 %16, label %17, label %_ZNK3ozz9animation15LocalToModelJob8ValidateEv.exit.thread
 
 17:                                               ; preds = %_ZNK3ozz9animation15LocalToModelJob8ValidateEv.exit
-  %18 = getelementptr inbounds i8, ptr %4, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %19 = load ptr, ptr %18, align 8
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr %2, align 16, !alias.scope !5
-  %20 = getelementptr inbounds i8, ptr %2, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store <4 x float> <float 0.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr %20, align 16, !alias.scope !5
-  %21 = getelementptr inbounds i8, ptr %2, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 1.000000e+00, float 0.000000e+00>, ptr %21, align 16, !alias.scope !5
-  %22 = getelementptr inbounds i8, ptr %2, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %22, align 16, !alias.scope !5
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   %spec.select = select i1 %25, ptr %2, ptr %24
-  %26 = getelementptr inbounds i8, ptr %0, i64 20
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %27 = load i32, ptr %26, align 4
   %28 = add nsw i32 %27, 1
   %29 = trunc i64 %6 to i32
   %30 = tail call i32 @llvm.smin.i32(i32 %28, i32 %29)
-  %31 = getelementptr inbounds i8, ptr %0, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load i32, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %34 = load i8, ptr %33, align 8
   %.mask = and i8 %34, 1
   %35 = zext nneg i8 %.mask to i32
@@ -111,30 +111,30 @@ _ZNK3ozz9animation15LocalToModelJob8ValidateEv.exit: ; preds = %1
 
 41:                                               ; preds = %39
   %42 = zext nneg i32 %37 to i64
-  %43 = getelementptr inbounds i16, ptr %19, i64 %42
+  %43 = getelementptr inbounds nuw i16, ptr %19, i64 %42
   %44 = load i16, ptr %43, align 2
   %45 = sext i16 %44 to i32
   %.not427 = icmp sgt i32 %32, %45
   br i1 %.not427, label %_ZNK3ozz9animation15LocalToModelJob8ValidateEv.exit.thread, label %.lr.ph426
 
 .lr.ph426:                                        ; preds = %39, %41
-  %46 = getelementptr inbounds i8, ptr %0, i64 32
-  %47 = getelementptr inbounds i8, ptr %3, i64 64
-  %48 = getelementptr inbounds i8, ptr %3, i64 128
-  %49 = getelementptr inbounds i8, ptr %3, i64 192
-  %50 = getelementptr inbounds i8, ptr %3, i64 16
-  %51 = getelementptr inbounds i8, ptr %3, i64 80
-  %52 = getelementptr inbounds i8, ptr %3, i64 144
-  %53 = getelementptr inbounds i8, ptr %3, i64 208
-  %54 = getelementptr inbounds i8, ptr %3, i64 32
-  %55 = getelementptr inbounds i8, ptr %3, i64 96
-  %56 = getelementptr inbounds i8, ptr %3, i64 160
-  %57 = getelementptr inbounds i8, ptr %3, i64 224
-  %58 = getelementptr inbounds i8, ptr %3, i64 48
-  %59 = getelementptr inbounds i8, ptr %3, i64 112
-  %60 = getelementptr inbounds i8, ptr %3, i64 176
-  %61 = getelementptr inbounds i8, ptr %3, i64 240
-  %62 = getelementptr inbounds i8, ptr %0, i64 48
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 128
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 192
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 80
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 144
+  %53 = getelementptr inbounds nuw i8, ptr %3, i64 208
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 96
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 160
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 224
+  %58 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 112
+  %60 = getelementptr inbounds nuw i8, ptr %3, i64 176
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 240
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %63 = zext nneg i32 %30 to i64
   br label %.outer
 
@@ -144,17 +144,17 @@ _ZNK3ozz9animation15LocalToModelJob8ValidateEv.exit: ; preds = %1
   %65 = sext i32 %64 to i64
   %66 = load ptr, ptr %46, align 8
   %67 = getelementptr inbounds %"struct.ozz::math::SoaTransform", ptr %66, i64 %65
-  %68 = getelementptr inbounds i8, ptr %67, i64 48
-  %69 = getelementptr inbounds i8, ptr %67, i64 112
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 48
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 112
   %70 = load <4 x float>, ptr %68, align 16, !noalias !8
   %71 = fmul <4 x float> %70, %70
-  %72 = getelementptr inbounds i8, ptr %67, i64 64
+  %72 = getelementptr inbounds nuw i8, ptr %67, i64 64
   %73 = load <4 x float>, ptr %72, align 16, !noalias !8
   %74 = fmul <4 x float> %70, %73
-  %75 = getelementptr inbounds i8, ptr %67, i64 80
+  %75 = getelementptr inbounds nuw i8, ptr %67, i64 80
   %76 = load <4 x float>, ptr %75, align 16, !noalias !8
   %77 = fmul <4 x float> %70, %76
-  %78 = getelementptr inbounds i8, ptr %67, i64 96
+  %78 = getelementptr inbounds nuw i8, ptr %67, i64 96
   %79 = load <4 x float>, ptr %78, align 16, !noalias !8
   %80 = fmul <4 x float> %70, %79
   %81 = fmul <4 x float> %73, %73
@@ -171,7 +171,7 @@ _ZNK3ozz9animation15LocalToModelJob8ValidateEv.exit: ; preds = %1
   %92 = fmul <4 x float> %90, %91
   %93 = fsub <4 x float> %77, %83
   %94 = fmul <4 x float> %90, %93
-  %95 = getelementptr inbounds i8, ptr %67, i64 128
+  %95 = getelementptr inbounds nuw i8, ptr %67, i64 128
   %96 = load <4 x float>, ptr %95, align 16, !noalias !8
   %97 = fmul <4 x float> %96, splat (float 2.000000e+00)
   %98 = fsub <4 x float> %74, %85
@@ -181,7 +181,7 @@ _ZNK3ozz9animation15LocalToModelJob8ValidateEv.exit: ; preds = %1
   %102 = fmul <4 x float> %96, %101
   %103 = fadd <4 x float> %82, %80
   %104 = fmul <4 x float> %103, %97
-  %105 = getelementptr inbounds i8, ptr %67, i64 144
+  %105 = getelementptr inbounds nuw i8, ptr %67, i64 144
   %106 = load <4 x float>, ptr %105, align 16, !noalias !8
   %107 = fmul <4 x float> %106, splat (float 2.000000e+00)
   %108 = fadd <4 x float> %77, %83
@@ -192,9 +192,9 @@ _ZNK3ozz9animation15LocalToModelJob8ValidateEv.exit: ; preds = %1
   %113 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %112, <4 x float> splat (float -2.000000e+00), <4 x float> splat (float 1.000000e+00))
   %114 = fmul <4 x float> %113, %106
   %115 = load <4 x float>, ptr %67, align 16, !noalias !8
-  %116 = getelementptr inbounds i8, ptr %67, i64 16
+  %116 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %117 = load <4 x float>, ptr %116, align 16, !noalias !8
-  %118 = getelementptr inbounds i8, ptr %67, i64 32
+  %118 = getelementptr inbounds nuw i8, ptr %67, i64 32
   %119 = load <4 x float>, ptr %118, align 16, !noalias !8
   %120 = shufflevector <4 x float> %89, <4 x float> %94, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %121 = shufflevector <4 x float> %92, <4 x float> <float 0.000000e+00, float 0.000000e+00, float poison, float poison>, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
@@ -264,30 +264,30 @@ _ZNK3ozz9animation15LocalToModelJob8ValidateEv.exit: ; preds = %1
   %162 = getelementptr inbounds %"struct.ozz::math::Float4x4", ptr %161, i64 %160
   %163 = select i1 %159, ptr %spec.select, ptr %162
   %164 = and i64 %indvars.iv, 3
-  %165 = getelementptr inbounds [4 x %"struct.ozz::math::Float4x4"], ptr %3, i64 0, i64 %164
+  %165 = getelementptr inbounds nuw [4 x %"struct.ozz::math::Float4x4"], ptr %3, i64 0, i64 %164
   %166 = load <4 x float>, ptr %165, align 16, !noalias !13
   %167 = shufflevector <4 x float> %166, <4 x float> poison, <4 x i32> zeroinitializer
   %168 = load <4 x float>, ptr %163, align 16, !noalias !13
   %169 = fmul <4 x float> %167, %168
   %170 = shufflevector <4 x float> %166, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
   %.sroa.sel435.v.sroa.sel.v = select i1 %159, ptr %spec.select, ptr %162
-  %.sroa.sel435.v.sroa.sel = getelementptr inbounds i8, ptr %.sroa.sel435.v.sroa.sel.v, i64 32
+  %.sroa.sel435.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel435.v.sroa.sel.v, i64 32
   %171 = load <4 x float>, ptr %.sroa.sel435.v.sroa.sel, align 16, !noalias !13
   %172 = fmul <4 x float> %170, %171
   %173 = shufflevector <4 x float> %166, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
   %.sroa.sel432.v.sroa.sel.v = select i1 %159, ptr %spec.select, ptr %162
-  %.sroa.sel432.v.sroa.sel = getelementptr inbounds i8, ptr %.sroa.sel432.v.sroa.sel.v, i64 16
+  %.sroa.sel432.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel432.v.sroa.sel.v, i64 16
   %174 = load <4 x float>, ptr %.sroa.sel432.v.sroa.sel, align 16, !noalias !13
   %175 = fmul <4 x float> %173, %174
   %176 = fadd <4 x float> %169, %175
   %177 = shufflevector <4 x float> %166, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
   %.sroa.sel.v.sroa.sel.v = select i1 %159, ptr %spec.select, ptr %162
-  %.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %.sroa.sel.v.sroa.sel.v, i64 48
+  %.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel.v.sroa.sel.v, i64 48
   %178 = load <4 x float>, ptr %.sroa.sel.v.sroa.sel, align 16, !noalias !13
   %179 = fmul <4 x float> %177, %178
   %180 = fadd <4 x float> %172, %179
   %181 = fadd <4 x float> %176, %180
-  %182 = getelementptr inbounds i8, ptr %165, i64 16
+  %182 = getelementptr inbounds nuw i8, ptr %165, i64 16
   %183 = load <4 x float>, ptr %182, align 16, !noalias !13
   %184 = shufflevector <4 x float> %183, <4 x float> poison, <4 x i32> zeroinitializer
   %185 = fmul <4 x float> %168, %184
@@ -300,7 +300,7 @@ _ZNK3ozz9animation15LocalToModelJob8ValidateEv.exit: ; preds = %1
   %192 = fmul <4 x float> %178, %191
   %193 = fadd <4 x float> %192, %187
   %194 = fadd <4 x float> %190, %193
-  %195 = getelementptr inbounds i8, ptr %165, i64 32
+  %195 = getelementptr inbounds nuw i8, ptr %165, i64 32
   %196 = load <4 x float>, ptr %195, align 16, !noalias !13
   %197 = shufflevector <4 x float> %196, <4 x float> poison, <4 x i32> zeroinitializer
   %198 = fmul <4 x float> %168, %197
@@ -313,7 +313,7 @@ _ZNK3ozz9animation15LocalToModelJob8ValidateEv.exit: ; preds = %1
   %205 = fmul <4 x float> %178, %204
   %206 = fadd <4 x float> %205, %200
   %207 = fadd <4 x float> %203, %206
-  %208 = getelementptr inbounds i8, ptr %165, i64 48
+  %208 = getelementptr inbounds nuw i8, ptr %165, i64 48
   %209 = load <4 x float>, ptr %208, align 16, !noalias !13
   %210 = shufflevector <4 x float> %209, <4 x float> poison, <4 x i32> zeroinitializer
   %211 = fmul <4 x float> %168, %210
@@ -328,11 +328,11 @@ _ZNK3ozz9animation15LocalToModelJob8ValidateEv.exit: ; preds = %1
   %220 = fadd <4 x float> %216, %219
   %221 = getelementptr inbounds %"struct.ozz::math::Float4x4", ptr %161, i64 %indvars.iv
   store <4 x float> %181, ptr %221, align 16
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %221, i64 16
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %221, i64 16
   store <4 x float> %194, ptr %.sroa.2.0..sroa_idx, align 16
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %221, i64 32
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %221, i64 32
   store <4 x float> %207, ptr %.sroa.3.0..sroa_idx, align 16
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %221, i64 48
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %221, i64 48
   store <4 x float> %220, ptr %.sroa.4.0..sroa_idx, align 16
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %222 = icmp slt i64 %indvars.iv.next, %63

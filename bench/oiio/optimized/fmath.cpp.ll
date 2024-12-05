@@ -48,10 +48,10 @@ for.body:                                         ; preds = %entry, %_ZN18OpenIm
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body
   %indvars.iv.i = phi i64 [ 0, %for.body ], [ %indvars.iv.next.i, %for.body.i.i ]
-  %arrayidx.i.i = getelementptr inbounds i16, ptr %src.addr.010, i64 %indvars.iv.i
+  %arrayidx.i.i = getelementptr inbounds nuw i16, ptr %src.addr.010, i64 %indvars.iv.i
   %2 = load i16, ptr %arrayidx.i.i, align 2
   %conv.i.i = zext i16 %2 to i32
-  %arrayidx3.i.i = getelementptr inbounds [4 x i32], ptr %h.i.i, i64 0, i64 %indvars.iv.i
+  %arrayidx3.i.i = getelementptr inbounds nuw [4 x i32], ptr %h.i.i, i64 0, i64 %indvars.iv.i
   store i32 %conv.i.i, ptr %arrayidx3.i.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -73,8 +73,8 @@ _ZN18OpenImageIO_v2_6_04simd7vfloat4C2EPK4half.exit: ; preds = %for.body.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %h.i.i)
   store <4 x i32> %or.i.i, ptr %dst.addr.09, align 1
   %sub = add i64 %n.addr.08, -4
-  %add.ptr = getelementptr inbounds i8, ptr %src.addr.010, i64 8
-  %add.ptr2 = getelementptr inbounds i8, ptr %dst.addr.09, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %src.addr.010, i64 8
+  %add.ptr2 = getelementptr inbounds nuw i8, ptr %dst.addr.09, i64 16
   %cmp = icmp ugt i64 %sub, 3
   br i1 %cmp, label %for.body, label %while.cond.preheader, !llvm.loop !6
 
@@ -83,12 +83,12 @@ while.body:                                       ; preds = %while.cond.preheade
   %dst.addr.115 = phi ptr [ %incdec.ptr3, %while.body ], [ %dst.addr.0.lcssa, %while.cond.preheader ]
   %n.addr.114 = phi i64 [ %dec, %while.body ], [ %n.addr.0.lcssa, %while.cond.preheader ]
   %dec = add i64 %n.addr.114, -1
-  %incdec.ptr = getelementptr inbounds i8, ptr %src.addr.116, i64 2
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %src.addr.116, i64 2
   %10 = load i16, ptr %src.addr.116, align 2
   %idxprom.i = zext i16 %10 to i64
-  %arrayidx.i = getelementptr inbounds [65536 x %"union.half::uif"], ptr @_ZN4half8_toFloatE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [65536 x %"union.half::uif"], ptr @_ZN4half8_toFloatE, i64 0, i64 %idxprom.i
   %11 = load float, ptr %arrayidx.i, align 4
-  %incdec.ptr3 = getelementptr inbounds i8, ptr %dst.addr.115, i64 4
+  %incdec.ptr3 = getelementptr inbounds nuw i8, ptr %dst.addr.115, i64 4
   store float %11, ptr %dst.addr.115, align 4
   %tobool.not = icmp eq i64 %dec, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !7
@@ -121,9 +121,9 @@ for.body:                                         ; preds = %entry, %for.inc
 
 for.body.i:                                       ; preds = %for.body, %_ZN4halfaSEf.exit
   %indvars.iv = phi i64 [ 0, %for.body ], [ %indvars.iv.next, %_ZN4halfaSEf.exit ]
-  %arrayidx.i = getelementptr inbounds [4 x float], ptr %s, i64 0, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw [4 x float], ptr %s, i64 0, i64 %indvars.iv
   %1 = load float, ptr %arrayidx.i, align 4
-  %arrayidx3.i = getelementptr inbounds %class.half, ptr %dst.addr.035, i64 %indvars.iv
+  %arrayidx3.i = getelementptr inbounds nuw %class.half, ptr %dst.addr.035, i64 %indvars.iv
   %2 = bitcast float %1 to i32
   %cmp.i.i = fcmp oeq float %1, 0.000000e+00
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
@@ -136,7 +136,7 @@ if.then.i.i:                                      ; preds = %for.body.i
 if.else.i.i:                                      ; preds = %for.body.i
   %shr2.i.i = lshr i32 %2, 23
   %idxprom.i.i = zext nneg i32 %shr2.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds [512 x i16], ptr @_ZN4half5_eLutE, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [512 x i16], ptr @_ZN4half5_eLutE, i64 0, i64 %idxprom.i.i
   %3 = load i16, ptr %arrayidx.i.i, align 2
   %tobool.not.i.i = icmp eq i16 %3, 0
   br i1 %tobool.not.i.i, label %if.else13.i.i, label %if.then4.i.i
@@ -165,8 +165,8 @@ _ZN4halfaSEf.exit:                                ; preds = %if.then.i.i, %if.th
 
 for.inc:                                          ; preds = %_ZN4halfaSEf.exit
   %sub = add i64 %n.addr.036, -4
-  %add.ptr = getelementptr inbounds i8, ptr %src.addr.034, i64 16
-  %add.ptr3 = getelementptr inbounds i8, ptr %dst.addr.035, i64 8
+  %add.ptr = getelementptr inbounds nuw i8, ptr %src.addr.034, i64 16
+  %add.ptr3 = getelementptr inbounds nuw i8, ptr %dst.addr.035, i64 8
   %cmp = icmp ugt i64 %sub, 3
   br i1 %cmp, label %for.body, label %while.cond.preheader, !llvm.loop !9
 
@@ -175,9 +175,9 @@ while.body:                                       ; preds = %while.cond.preheade
   %dst.addr.141 = phi ptr [ %incdec.ptr4, %_ZN4halfaSEf.exit31 ], [ %dst.addr.0.lcssa, %while.cond.preheader ]
   %src.addr.140 = phi ptr [ %incdec.ptr, %_ZN4halfaSEf.exit31 ], [ %src.addr.0.lcssa, %while.cond.preheader ]
   %dec = add i64 %n.addr.142, -1
-  %incdec.ptr = getelementptr inbounds i8, ptr %src.addr.140, i64 4
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %src.addr.140, i64 4
   %5 = load float, ptr %src.addr.140, align 4
-  %incdec.ptr4 = getelementptr inbounds i8, ptr %dst.addr.141, i64 2
+  %incdec.ptr4 = getelementptr inbounds nuw i8, ptr %dst.addr.141, i64 2
   %6 = bitcast float %5 to i32
   %cmp.i.i11 = fcmp oeq float %5, 0.000000e+00
   br i1 %cmp.i.i11, label %if.then.i.i28, label %if.else.i.i12
@@ -190,7 +190,7 @@ if.then.i.i28:                                    ; preds = %while.body
 if.else.i.i12:                                    ; preds = %while.body
   %shr2.i.i13 = lshr i32 %6, 23
   %idxprom.i.i14 = zext nneg i32 %shr2.i.i13 to i64
-  %arrayidx.i.i15 = getelementptr inbounds [512 x i16], ptr @_ZN4half5_eLutE, i64 0, i64 %idxprom.i.i14
+  %arrayidx.i.i15 = getelementptr inbounds nuw [512 x i16], ptr @_ZN4half5_eLutE, i64 0, i64 %idxprom.i.i14
   %7 = load i16, ptr %arrayidx.i.i15, align 2
   %tobool.not.i.i16 = icmp eq i16 %7, 0
   br i1 %tobool.not.i.i16, label %if.else13.i.i26, label %if.then4.i.i17

@@ -20,7 +20,7 @@ define internal noalias noundef ptr @Make_AlphaNumeric_Type(ptr nocapture nounde
   br i1 %5, label %6, label %12
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = zext nneg i32 %4 to i64
   %10 = getelementptr i8, ptr %8, i64 %9
@@ -29,7 +29,7 @@ define internal noalias noundef ptr @Make_AlphaNumeric_Type(ptr nocapture nounde
   br label %16
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr i8, ptr %14, i64 8
   store ptr %15, ptr %13, align 8
@@ -93,21 +93,21 @@ define internal zeroext i1 @Check_AlphaNumeric_Field(ptr noundef %0, ptr nocaptu
   br label %11
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %.0, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   br label %5, !llvm.loop !5
 
 11:                                               ; preds = %.lr.ph, %17
   %.237 = phi ptr [ %.0, %.lr.ph ], [ %18, %17 ]
   %12 = phi i8 [ %6, %.lr.ph ], [ %.pr, %17 ]
   %13 = zext i8 %12 to i64
-  %14 = getelementptr inbounds i16, ptr %8, i64 %13
+  %14 = getelementptr inbounds nuw i16, ptr %8, i64 %13
   %15 = load i16, ptr %14, align 2
   %16 = and i16 %15, 8
   %.not27 = icmp eq i16 %16, 0
   br i1 %.not27, label %.critedge2, label %17
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %.237, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %.237, i64 1
   %.pr = load i8, ptr %18, align 1
   %.not26 = icmp eq i8 %.pr, 0
   br i1 %.not26, label %.critedge2, label %11, !llvm.loop !7
@@ -123,7 +123,7 @@ define internal zeroext i1 @Check_AlphaNumeric_Field(ptr noundef %0, ptr nocaptu
   %.3 = phi ptr [ %.2.lcssa.ph, %.critedge2 ], [ %24, %22 ]
   %23 = load i8, ptr %.3, align 1
   %cond32 = icmp eq i8 %23, 32
-  %24 = getelementptr inbounds i8, ptr %.3, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.3, i64 1
   br i1 %cond32, label %22, label %.critedge4.loopexit, !llvm.loop !8
 
 .critedge4.loopexit:                              ; preds = %22

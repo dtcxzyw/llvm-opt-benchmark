@@ -56,7 +56,7 @@ declare void @llvm.trap() #6
 define hidden void @_ZN6google8protobuf8compiler4java25ImmutableGeneratorFactoryC2EPNS2_7ContextE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef %context) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler4java25ImmutableGeneratorFactoryE, i64 16), ptr %this, align 8
-  %context_ = getelementptr inbounds i8, ptr %this, i64 8
+  %context_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %context, ptr %context_, align 8
   ret void
 }
@@ -80,9 +80,9 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZNK6google8protobuf8compiler4java25ImmutableGeneratorFactory19NewMessageGeneratorEPKNS0_10DescriptorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %descriptor) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %context_ = getelementptr inbounds i8, ptr %this, i64 8
+  %context_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %context_, align 8
-  %enforce_lite.i = getelementptr inbounds i8, ptr %0, i64 75
+  %enforce_lite.i = getelementptr inbounds nuw i8, ptr %0, i64 75
   %1 = load i8, ptr %enforce_lite.i, align 1
   %tobool.i = trunc i8 %1 to i1
   %call5 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #14
@@ -127,9 +127,9 @@ declare void @_ZN6google8protobuf8compiler4java29ImmutableMessageLiteGeneratorC1
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZNK6google8protobuf8compiler4java25ImmutableGeneratorFactory21NewExtensionGeneratorEPKNS0_15FieldDescriptorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %descriptor) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %context_ = getelementptr inbounds i8, ptr %this, i64 8
+  %context_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %context_, align 8
-  %enforce_lite.i = getelementptr inbounds i8, ptr %0, i64 75
+  %enforce_lite.i = getelementptr inbounds nuw i8, ptr %0, i64 75
   %1 = load i8, ptr %enforce_lite.i, align 1
   %tobool.i = trunc i8 %1 to i1
   %call6 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #14
@@ -170,7 +170,7 @@ declare void @_ZN6google8protobuf8compiler4java31ImmutableExtensionLiteGenerator
 define hidden noundef nonnull ptr @_ZNK6google8protobuf8compiler4java25ImmutableGeneratorFactory19NewServiceGeneratorEPKNS0_17ServiceDescriptorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %descriptor) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #14
-  %context_ = getelementptr inbounds i8, ptr %this, i64 8
+  %context_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %context_, align 8
   invoke void @_ZN6google8protobuf8compiler4java25ImmutableServiceGeneratorC1EPKNS0_17ServiceDescriptorEPNS2_7ContextE(ptr noundef nonnull align 8 dereferenceable(32) %call, ptr noundef %descriptor, ptr noundef %0)
           to label %invoke.cont unwind label %lpad

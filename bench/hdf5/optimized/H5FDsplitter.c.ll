@@ -221,7 +221,7 @@ define i32 @H5Pset_fapl_splitter(i64 noundef %0, ptr noundef %1) local_unnamed_a
   br label %.thread51
 
 29:                                               ; preds = %22
-  %30 = getelementptr inbounds i8, ptr %1, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %31 = load i32, ptr %30, align 4
   %.not24 = icmp eq i32 %31, 1
   br i1 %.not24, label %36, label %32
@@ -323,15 +323,15 @@ define internal fastcc range(i32 -1, 1) i32 @H5FD__splitter_populate_config(ptr 
 
 .thread81:                                        ; preds = %5
   store i32 730949760, ptr %6, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 1, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %6, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   br label %52
 
 13:                                               ; preds = %2
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre = load i64, ptr %.phi.trans.insert, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.not73 = icmp eq i64 %.pre, 0
   br i1 %.not73, label %52, label %15
 
@@ -396,24 +396,24 @@ define internal fastcc range(i32 -1, 1) i32 @H5FD__splitter_populate_config(ptr 
 52:                                               ; preds = %.thread81, %44, %13
   %53 = phi ptr [ %12, %.thread81 ], [ %14, %44 ], [ %14, %13 ]
   %.05984 = phi ptr [ %6, %.thread81 ], [ %0, %44 ], [ %0, %13 ]
-  %54 = getelementptr inbounds i8, ptr %.05984, i64 8218
+  %54 = getelementptr inbounds nuw i8, ptr %.05984, i64 8218
   %55 = load i8, ptr %54, align 2
-  %56 = getelementptr inbounds i8, ptr %1, i64 8210
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 8210
   %57 = and i8 %55, 1
   store i8 %57, ptr %56, align 2
-  %58 = getelementptr inbounds i8, ptr %1, i64 16
-  %59 = getelementptr inbounds i8, ptr %.05984, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %.05984, i64 24
   %60 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %58, ptr noundef nonnull dereferenceable(1) %59, i64 noundef 4097) #11
-  %61 = getelementptr inbounds i8, ptr %1, i64 4112
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 4112
   store i8 0, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %1, i64 4113
-  %63 = getelementptr inbounds i8, ptr %.05984, i64 4121
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 4113
+  %63 = getelementptr inbounds nuw i8, ptr %.05984, i64 4121
   %64 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %62, ptr noundef nonnull dereferenceable(1) %63, i64 noundef 4097) #11
-  %65 = getelementptr inbounds i8, ptr %1, i64 8209
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 8209
   store i8 0, ptr %65, align 1
   %66 = load i64, ptr @H5P_LST_FILE_ACCESS_ID_g, align 8
   store i64 %66, ptr %1, align 8
-  %67 = getelementptr inbounds i8, ptr %1, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %66, ptr %67, align 8
   %68 = call ptr @H5I_object(i64 noundef %66) #11
   %69 = icmp eq ptr %68, null
@@ -426,7 +426,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5FD__splitter_populate_config(ptr 
   br label %141
 
 74:                                               ; preds = %52
-  %75 = getelementptr inbounds i8, ptr %.05984, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %.05984, i64 8
   %76 = load i64, ptr %75, align 8
   %.not74 = icmp eq i64 %76, 0
   br i1 %.not74, label %87, label %77
@@ -627,7 +627,7 @@ define range(i32 -1, 1) i32 @H5Pget_fapl_splitter(i64 noundef %0, ptr noundef %1
   br label %.thread87
 
 42:                                               ; preds = %36
-  %43 = getelementptr inbounds i8, ptr %1, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %44 = load i32, ptr %43, align 4
   %.not48 = icmp eq i32 %44, 1
   br i1 %.not48, label %49, label %45
@@ -639,8 +639,8 @@ define range(i32 -1, 1) i32 @H5Pget_fapl_splitter(i64 noundef %0, ptr noundef %1
   br label %.thread87
 
 49:                                               ; preds = %42
-  %50 = getelementptr inbounds i8, ptr %1, i64 8
-  %51 = getelementptr inbounds i8, ptr %1, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, i8 -1, i64 16, i1 false)
   %52 = load i64, ptr @H5P_CLS_FILE_ACCESS_ID_g, align 8
   %53 = tail call ptr @H5P_object_verify(i64 noundef %0, i64 noundef %52) #11
@@ -695,15 +695,15 @@ define range(i32 -1, 1) i32 @H5Pget_fapl_splitter(i64 noundef %0, ptr noundef %1
 82:                                               ; preds = %76, %66
   %.041 = phi ptr [ %67, %66 ], [ %70, %76 ]
   %.1 = phi ptr [ null, %66 ], [ %70, %76 ]
-  %83 = getelementptr inbounds i8, ptr %1, i64 24
-  %84 = getelementptr inbounds i8, ptr %.041, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %84 = getelementptr inbounds nuw i8, ptr %.041, i64 16
   %85 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %83, ptr noundef nonnull dereferenceable(1) %84, i64 noundef 4097) #11
-  %86 = getelementptr inbounds i8, ptr %1, i64 4121
-  %87 = getelementptr inbounds i8, ptr %.041, i64 4113
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 4121
+  %87 = getelementptr inbounds nuw i8, ptr %.041, i64 4113
   %88 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %86, ptr noundef nonnull dereferenceable(1) %87, i64 noundef 4097) #11
-  %89 = getelementptr inbounds i8, ptr %.041, i64 8210
+  %89 = getelementptr inbounds nuw i8, ptr %.041, i64 8210
   %90 = load i8, ptr %89, align 2
-  %91 = getelementptr inbounds i8, ptr %1, i64 8218
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 8218
   %92 = and i8 %90, 1
   store i8 %92, ptr %91, align 2
   %93 = load i64, ptr %.041, align 8
@@ -718,7 +718,7 @@ define range(i32 -1, 1) i32 @H5Pget_fapl_splitter(i64 noundef %0, ptr noundef %1
   br label %109
 
 100:                                              ; preds = %82
-  %101 = getelementptr inbounds i8, ptr %.041, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %.041, i64 8
   %102 = load i64, ptr %101, align 8
   %103 = tail call fastcc i32 @H5FD__copy_plist(i64 noundef %102, ptr noundef %51)
   %104 = icmp slt i32 %103, 0
@@ -828,7 +828,7 @@ define internal noundef i32 @H5FD__splitter_term() #3 {
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @H5FD__splitter_sb_size(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8304
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8304
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4
@@ -844,7 +844,7 @@ define internal i64 @H5FD__splitter_sb_size(ptr nocapture noundef readonly %0) #
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5FD__splitter_sb_encode(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8304
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8304
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %13, label %6
@@ -867,7 +867,7 @@ define internal range(i32 -1, 1) i32 @H5FD__splitter_sb_encode(ptr nocapture nou
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5FD__splitter_sb_decode(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8304
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8304
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @H5FD_sb_load(ptr noundef %5, ptr noundef %1, ptr noundef %2) #11
   %7 = icmp slt i32 %6, 0
@@ -886,7 +886,7 @@ define internal range(i32 -1, 1) i32 @H5FD__splitter_sb_decode(ptr nocapture nou
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @H5FD__splitter_fapl_get(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 88
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = tail call ptr @H5FD__splitter_fapl_copy(ptr noundef nonnull %2)
   ret ptr %3
 }
@@ -905,11 +905,11 @@ define internal ptr @H5FD__splitter_fapl_copy(ptr nocapture noundef readonly %0)
 
 8:                                                ; preds = %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(8216) %2, ptr noundef nonnull align 8 dereferenceable(8216) %0, i64 8216, i1 false)
-  %9 = getelementptr inbounds i8, ptr %2, i64 16
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %10, i64 noundef 4097) #11
-  %12 = getelementptr inbounds i8, ptr %2, i64 4113
-  %13 = getelementptr inbounds i8, ptr %0, i64 4113
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 4113
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 4113
   %14 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %13, i64 noundef 4097) #11
   %15 = load i64, ptr %0, align 8
   %16 = tail call fastcc i32 @H5FD__copy_plist(i64 noundef %15, ptr noundef %2)
@@ -923,9 +923,9 @@ define internal ptr @H5FD__splitter_fapl_copy(ptr nocapture noundef readonly %0)
   br label %32
 
 22:                                               ; preds = %8
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = tail call fastcc i32 @H5FD__copy_plist(i64 noundef %24, ptr noundef %25)
   %27 = icmp slt i32 %26, 0
   br i1 %27, label %28, label %.thread
@@ -959,7 +959,7 @@ define internal range(i32 -1, 1) i32 @H5FD__splitter_fapl_free(ptr noundef %0) #
   br label %20
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = tail call i32 @H5I_dec_ref(i64 noundef %11) #11
   %13 = icmp slt i32 %12, 0
@@ -1041,8 +1041,8 @@ define internal ptr @H5FD__splitter_open(ptr noundef %0, i32 noundef %1, i64 nou
   br label %.thread.thread
 
 36:                                               ; preds = %29
-  %37 = getelementptr inbounds i8, ptr %30, i64 88
-  %38 = getelementptr inbounds i8, ptr %30, i64 96
+  %37 = getelementptr inbounds nuw i8, ptr %30, i64 88
+  %38 = getelementptr inbounds nuw i8, ptr %30, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, i8 -1, i64 16, i1 false)
   %39 = tail call ptr @H5I_object(i64 noundef %2) #11
   %40 = icmp eq ptr %39, null
@@ -1082,7 +1082,7 @@ define internal ptr @H5FD__splitter_open(ptr noundef %0, i32 noundef %1, i64 nou
   br label %.thread115
 
 62:                                               ; preds = %55
-  %63 = getelementptr inbounds i8, ptr %49, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %64 = load i8, ptr %63, align 8
   %65 = icmp eq i8 %64, 0
   br i1 %65, label %66, label %73
@@ -1101,15 +1101,15 @@ define internal ptr @H5FD__splitter_open(ptr noundef %0, i32 noundef %1, i64 nou
 73:                                               ; preds = %62, %66, %45
   %.080 = phi ptr [ %46, %45 ], [ %49, %66 ], [ %49, %62 ]
   %.1 = phi ptr [ null, %45 ], [ %49, %66 ], [ %49, %62 ]
-  %74 = getelementptr inbounds i8, ptr %30, i64 104
-  %75 = getelementptr inbounds i8, ptr %.080, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %30, i64 104
+  %75 = getelementptr inbounds nuw i8, ptr %.080, i64 16
   %76 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %74, ptr noundef nonnull dereferenceable(1) %75, i64 noundef 4097) #11
-  %77 = getelementptr inbounds i8, ptr %30, i64 4201
-  %78 = getelementptr inbounds i8, ptr %.080, i64 4113
+  %77 = getelementptr inbounds nuw i8, ptr %30, i64 4201
+  %78 = getelementptr inbounds nuw i8, ptr %.080, i64 4113
   %79 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %77, ptr noundef nonnull dereferenceable(1) %78, i64 noundef 4097) #11
-  %80 = getelementptr inbounds i8, ptr %.080, i64 8210
+  %80 = getelementptr inbounds nuw i8, ptr %.080, i64 8210
   %81 = load i8, ptr %80, align 2
-  %82 = getelementptr inbounds i8, ptr %30, i64 8298
+  %82 = getelementptr inbounds nuw i8, ptr %30, i64 8298
   %83 = and i8 %81, 1
   store i8 %83, ptr %82, align 2
   %84 = load i64, ptr %.080, align 8
@@ -1124,7 +1124,7 @@ define internal ptr @H5FD__splitter_open(ptr noundef %0, i32 noundef %1, i64 nou
   br label %132
 
 91:                                               ; preds = %73
-  %92 = getelementptr inbounds i8, ptr %.080, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %.080, i64 8
   %93 = load i64, ptr %92, align 8
   %94 = tail call fastcc i32 @H5FD__copy_plist(i64 noundef %93, ptr noundef %38)
   %95 = icmp slt i32 %94, 0
@@ -1137,7 +1137,7 @@ define internal ptr @H5FD__splitter_open(ptr noundef %0, i32 noundef %1, i64 nou
   br label %132
 
 100:                                              ; preds = %91
-  %101 = getelementptr inbounds i8, ptr %30, i64 8320
+  %101 = getelementptr inbounds nuw i8, ptr %30, i64 8320
   %102 = load ptr, ptr %101, align 8
   %.not98 = icmp eq ptr %102, null
   br i1 %.not98, label %103, label %112
@@ -1162,7 +1162,7 @@ define internal ptr @H5FD__splitter_open(ptr noundef %0, i32 noundef %1, i64 nou
 112:                                              ; preds = %103, %105, %100
   %113 = load i64, ptr %.080, align 8
   %114 = tail call ptr @H5FD_open(ptr noundef nonnull %0, i32 noundef %1, i64 noundef %113, i64 noundef -1) #11
-  %115 = getelementptr inbounds i8, ptr %30, i64 8304
+  %115 = getelementptr inbounds nuw i8, ptr %30, i64 8304
   store ptr %114, ptr %115, align 8
   %.not100 = icmp eq ptr %114, null
   br i1 %.not100, label %116, label %120
@@ -1176,7 +1176,7 @@ define internal ptr @H5FD__splitter_open(ptr noundef %0, i32 noundef %1, i64 nou
 120:                                              ; preds = %112
   %121 = load i64, ptr %92, align 8
   %122 = tail call ptr @H5FD_open(ptr noundef nonnull %75, i32 noundef %1, i64 noundef %121, i64 noundef -1) #11
-  %123 = getelementptr inbounds i8, ptr %30, i64 8312
+  %123 = getelementptr inbounds nuw i8, ptr %30, i64 8312
   store ptr %122, ptr %123, align 8
   %.not101 = icmp eq ptr %122, null
   br i1 %.not101, label %124, label %132
@@ -1229,7 +1229,7 @@ define internal ptr @H5FD__splitter_open(ptr noundef %0, i32 noundef %1, i64 nou
   br label %142
 
 142:                                              ; preds = %140, %138
-  %143 = getelementptr inbounds i8, ptr %30, i64 8304
+  %143 = getelementptr inbounds nuw i8, ptr %30, i64 8304
   %144 = load ptr, ptr %143, align 8
   %.not105 = icmp eq ptr %144, null
   br i1 %.not105, label %147, label %145
@@ -1239,7 +1239,7 @@ define internal ptr @H5FD__splitter_open(ptr noundef %0, i32 noundef %1, i64 nou
   br label %147
 
 147:                                              ; preds = %145, %142
-  %148 = getelementptr inbounds i8, ptr %30, i64 8312
+  %148 = getelementptr inbounds nuw i8, ptr %30, i64 8312
   %149 = load ptr, ptr %148, align 8
   %.not106 = icmp eq ptr %149, null
   br i1 %.not106, label %152, label %150
@@ -1249,7 +1249,7 @@ define internal ptr @H5FD__splitter_open(ptr noundef %0, i32 noundef %1, i64 nou
   br label %152
 
 152:                                              ; preds = %150, %147
-  %153 = getelementptr inbounds i8, ptr %30, i64 8320
+  %153 = getelementptr inbounds nuw i8, ptr %30, i64 8320
   %154 = load ptr, ptr %153, align 8
   %.not107 = icmp eq ptr %154, null
   br i1 %.not107, label %157, label %155
@@ -1269,7 +1269,7 @@ define internal ptr @H5FD__splitter_open(ptr noundef %0, i32 noundef %1, i64 nou
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5FD__splitter_close(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 88
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load i64, ptr %2, align 8
   %4 = tail call i32 @H5I_dec_ref(i64 noundef %3) #11
   %5 = icmp slt i32 %4, 0
@@ -1282,7 +1282,7 @@ define internal range(i32 -1, 1) i32 @H5FD__splitter_close(ptr noundef %0) #0 {
   br label %51
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = load i64, ptr %11, align 8
   %13 = tail call i32 @H5I_dec_ref(i64 noundef %12) #11
   %14 = icmp slt i32 %13, 0
@@ -1295,7 +1295,7 @@ define internal range(i32 -1, 1) i32 @H5FD__splitter_close(ptr noundef %0) #0 {
   br label %51
 
 19:                                               ; preds = %10
-  %20 = getelementptr inbounds i8, ptr %0, i64 8304
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8304
   %21 = load ptr, ptr %20, align 8
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %29, label %22
@@ -1312,7 +1312,7 @@ define internal range(i32 -1, 1) i32 @H5FD__splitter_close(ptr noundef %0) #0 {
   br label %51
 
 29:                                               ; preds = %22, %19
-  %30 = getelementptr inbounds i8, ptr %0, i64 8312
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8312
   %31 = load ptr, ptr %30, align 8
   %.not20 = icmp eq ptr %31, null
   br i1 %.not20, label %44, label %32
@@ -1324,7 +1324,7 @@ define internal range(i32 -1, 1) i32 @H5FD__splitter_close(ptr noundef %0) #0 {
 
 35:                                               ; preds = %32
   tail call fastcc void @H5FD__splitter_log_error(ptr noundef nonnull %0, ptr noundef nonnull @__func__.H5FD__splitter_close, ptr noundef nonnull @.str.41)
-  %36 = getelementptr inbounds i8, ptr %0, i64 8298
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8298
   %37 = load i8, ptr %36, align 2
   %38 = and i8 %37, 1
   %39 = icmp eq i8 %38, 0
@@ -1337,7 +1337,7 @@ define internal range(i32 -1, 1) i32 @H5FD__splitter_close(ptr noundef %0) #0 {
   br label %51
 
 44:                                               ; preds = %32, %35, %29
-  %45 = getelementptr inbounds i8, ptr %0, i64 8320
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8320
   %46 = load ptr, ptr %45, align 8
   %.not21 = icmp eq ptr %46, null
   br i1 %.not21, label %49, label %47
@@ -1358,9 +1358,9 @@ define internal range(i32 -1, 1) i32 @H5FD__splitter_close(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @H5FD__splitter_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8304
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8304
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8304
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8304
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @H5FD_cmp(ptr noundef %4, ptr noundef %6) #11
   ret i32 %7
@@ -1372,7 +1372,7 @@ define internal range(i32 -1, 1) i32 @H5FD__splitter_query(ptr noundef readonly 
   br i1 %.not, label %12, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8304
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8304
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @H5FDquery(ptr noundef %5, ptr noundef %1) #11
   %7 = icmp slt i32 %6, 0
@@ -1399,7 +1399,7 @@ define internal range(i32 -1, 1) i32 @H5FD__splitter_query(ptr noundef readonly 
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5FD__splitter_get_type_map(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8304
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8304
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @H5FD_get_fs_type_map(ptr noundef %4, ptr noundef %1) #11
   %6 = icmp slt i32 %5, 0
@@ -1418,7 +1418,7 @@ define internal range(i32 -1, 1) i32 @H5FD__splitter_get_type_map(ptr nocapture 
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @H5FD__splitter_alloc(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8304
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8304
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i64 @H5FDalloc(ptr noundef %6, i32 noundef %1, i64 noundef %2, i64 noundef %3) #11
   %8 = icmp eq i64 %7, -1
@@ -1431,7 +1431,7 @@ define internal i64 @H5FD__splitter_alloc(ptr nocapture noundef readonly %0, i32
   br label %27
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 8312
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8312
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i64 @H5FDalloc(ptr noundef %15, i32 noundef %1, i64 noundef %2, i64 noundef %3) #11
   %17 = icmp eq i64 %16, -1
@@ -1439,7 +1439,7 @@ define internal i64 @H5FD__splitter_alloc(ptr nocapture noundef readonly %0, i32
 
 18:                                               ; preds = %13
   tail call fastcc void @H5FD__splitter_log_error(ptr noundef nonnull %0, ptr noundef nonnull @__func__.H5FD__splitter_alloc, ptr noundef nonnull @.str.44)
-  %19 = getelementptr inbounds i8, ptr %0, i64 8298
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8298
   %20 = load i8, ptr %19, align 2
   %21 = and i8 %20, 1
   %22 = icmp eq i8 %21, 0
@@ -1458,7 +1458,7 @@ define internal i64 @H5FD__splitter_alloc(ptr nocapture noundef readonly %0, i32
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5FD__splitter_free(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8304
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8304
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @H5FDfree(ptr noundef %7, i32 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #11
   %9 = icmp slt i32 %8, 0
@@ -1471,7 +1471,7 @@ define internal range(i32 -1, 1) i32 @H5FD__splitter_free(ptr nocapture noundef 
   br label %28
 
 14:                                               ; preds = %5
-  %15 = getelementptr inbounds i8, ptr %0, i64 8312
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8312
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 @H5FDfree(ptr noundef %16, i32 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #11
   %18 = icmp slt i32 %17, 0
@@ -1479,7 +1479,7 @@ define internal range(i32 -1, 1) i32 @H5FD__splitter_free(ptr nocapture noundef 
 
 19:                                               ; preds = %14
   tail call fastcc void @H5FD__splitter_log_error(ptr noundef nonnull %0, ptr noundef nonnull @__func__.H5FD__splitter_free, ptr noundef nonnull @.str.46)
-  %20 = getelementptr inbounds i8, ptr %0, i64 8298
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8298
   %21 = load i8, ptr %20, align 2
   %22 = and i8 %21, 1
   %23 = icmp eq i8 %22, 0
@@ -1498,7 +1498,7 @@ define internal range(i32 -1, 1) i32 @H5FD__splitter_free(ptr nocapture noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @H5FD__splitter_get_eoa(ptr nocapture noundef readonly %0, i32 noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8304
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8304
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i64 @H5FD_get_eoa(ptr noundef %4, i32 noundef %1) #11
   %6 = icmp eq i64 %5, -1
@@ -1516,7 +1516,7 @@ define internal i64 @H5FD__splitter_get_eoa(ptr nocapture noundef readonly %0, i
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5FD__splitter_set_eoa(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8304
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8304
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @H5FD_set_eoa(ptr noundef %5, i32 noundef %1, i64 noundef %2) #11
   %7 = icmp slt i32 %6, 0
@@ -1529,7 +1529,7 @@ define internal range(i32 -1, 1) i32 @H5FD__splitter_set_eoa(ptr nocapture nound
   br label %26
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %0, i64 8312
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8312
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 @H5FD_set_eoa(ptr noundef %14, i32 noundef %1, i64 noundef %2) #11
   %16 = icmp slt i32 %15, 0
@@ -1537,7 +1537,7 @@ define internal range(i32 -1, 1) i32 @H5FD__splitter_set_eoa(ptr nocapture nound
 
 17:                                               ; preds = %12
   tail call fastcc void @H5FD__splitter_log_error(ptr noundef nonnull %0, ptr noundef nonnull @__func__.H5FD__splitter_set_eoa, ptr noundef nonnull @.str.49)
-  %18 = getelementptr inbounds i8, ptr %0, i64 8298
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8298
   %19 = load i8, ptr %18, align 2
   %20 = and i8 %19, 1
   %21 = icmp eq i8 %20, 0
@@ -1556,7 +1556,7 @@ define internal range(i32 -1, 1) i32 @H5FD__splitter_set_eoa(ptr nocapture nound
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @H5FD__splitter_get_eof(ptr nocapture noundef readonly %0, i32 noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8304
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8304
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i64 @H5FD_get_eof(ptr noundef %4, i32 noundef %1) #11
   %6 = icmp eq i64 %5, -1
@@ -1574,9 +1574,9 @@ define internal i64 @H5FD__splitter_get_eof(ptr nocapture noundef readonly %0, i
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5FD__splitter_get_handle(ptr nocapture noundef readonly %0, i64 %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8304
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8304
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 88
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %7 = load i64, ptr %6, align 8
   %8 = tail call i32 @H5FD_get_vfd_handle(ptr noundef %5, i64 noundef %7, ptr noundef %2) #11
   %9 = icmp slt i32 %8, 0
@@ -1619,7 +1619,7 @@ define internal range(i32 -1, 1) i32 @H5FD__splitter_read(ptr nocapture noundef 
   br label %28
 
 19:                                               ; preds = %11
-  %20 = getelementptr inbounds i8, ptr %0, i64 8304
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8304
   %21 = load ptr, ptr %20, align 8
   %22 = tail call i32 @H5FDread(ptr noundef %21, i32 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) #11
   %23 = icmp slt i32 %22, 0
@@ -1649,7 +1649,7 @@ define internal range(i32 -1, 1) i32 @H5FD__splitter_write(ptr nocapture noundef
   br label %36
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %0, i64 8304
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8304
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 @H5FDwrite(ptr noundef %15, i32 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) #11
   %17 = icmp slt i32 %16, 0
@@ -1662,7 +1662,7 @@ define internal range(i32 -1, 1) i32 @H5FD__splitter_write(ptr nocapture noundef
   br label %36
 
 22:                                               ; preds = %13
-  %23 = getelementptr inbounds i8, ptr %0, i64 8312
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8312
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i32 @H5FDwrite(ptr noundef %24, i32 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) #11
   %26 = icmp slt i32 %25, 0
@@ -1670,7 +1670,7 @@ define internal range(i32 -1, 1) i32 @H5FD__splitter_write(ptr nocapture noundef
 
 27:                                               ; preds = %22
   tail call fastcc void @H5FD__splitter_log_error(ptr noundef nonnull %0, ptr noundef nonnull @__func__.H5FD__splitter_write, ptr noundef nonnull @.str.57)
-  %28 = getelementptr inbounds i8, ptr %0, i64 8298
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8298
   %29 = load i8, ptr %28, align 2
   %30 = and i8 %29, 1
   %31 = icmp eq i8 %30, 0
@@ -1689,7 +1689,7 @@ define internal range(i32 -1, 1) i32 @H5FD__splitter_write(ptr nocapture noundef
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5FD__splitter_flush(ptr nocapture noundef readonly %0, i64 noundef %1, i1 noundef zeroext %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8304
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8304
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @H5FDflush(ptr noundef %5, i64 noundef %1, i1 noundef zeroext %2) #11
   %7 = icmp slt i32 %6, 0
@@ -1702,7 +1702,7 @@ define internal range(i32 -1, 1) i32 @H5FD__splitter_flush(ptr nocapture noundef
   br label %26
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %0, i64 8312
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8312
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 @H5FDflush(ptr noundef %14, i64 noundef %1, i1 noundef zeroext %2) #11
   %16 = icmp slt i32 %15, 0
@@ -1710,7 +1710,7 @@ define internal range(i32 -1, 1) i32 @H5FD__splitter_flush(ptr nocapture noundef
 
 17:                                               ; preds = %12
   tail call fastcc void @H5FD__splitter_log_error(ptr noundef nonnull %0, ptr noundef nonnull @__func__.H5FD__splitter_flush, ptr noundef nonnull @.str.59)
-  %18 = getelementptr inbounds i8, ptr %0, i64 8298
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8298
   %19 = load i8, ptr %18, align 2
   %20 = and i8 %19, 1
   %21 = icmp eq i8 %20, 0
@@ -1729,7 +1729,7 @@ define internal range(i32 -1, 1) i32 @H5FD__splitter_flush(ptr nocapture noundef
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5FD__splitter_truncate(ptr nocapture noundef readonly %0, i64 noundef %1, i1 noundef zeroext %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8304
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8304
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @H5FDtruncate(ptr noundef %5, i64 noundef %1, i1 noundef zeroext %2) #11
   %7 = icmp slt i32 %6, 0
@@ -1742,7 +1742,7 @@ define internal range(i32 -1, 1) i32 @H5FD__splitter_truncate(ptr nocapture noun
   br label %26
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %0, i64 8312
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8312
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 @H5FDtruncate(ptr noundef %14, i64 noundef %1, i1 noundef zeroext %2) #11
   %16 = icmp slt i32 %15, 0
@@ -1750,7 +1750,7 @@ define internal range(i32 -1, 1) i32 @H5FD__splitter_truncate(ptr nocapture noun
 
 17:                                               ; preds = %12
   tail call fastcc void @H5FD__splitter_log_error(ptr noundef nonnull %0, ptr noundef nonnull @__func__.H5FD__splitter_truncate, ptr noundef nonnull @.str.61)
-  %18 = getelementptr inbounds i8, ptr %0, i64 8298
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8298
   %19 = load i8, ptr %18, align 2
   %20 = and i8 %19, 1
   %21 = icmp eq i8 %20, 0
@@ -1769,7 +1769,7 @@ define internal range(i32 -1, 1) i32 @H5FD__splitter_truncate(ptr nocapture noun
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5FD__splitter_lock(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8304
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8304
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @H5FD_lock(ptr noundef %4, i1 noundef zeroext %1) #11
   %6 = icmp slt i32 %5, 0
@@ -1782,7 +1782,7 @@ define internal range(i32 -1, 1) i32 @H5FD__splitter_lock(ptr nocapture noundef 
   br label %26
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 8312
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8312
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %26, label %14
@@ -1794,7 +1794,7 @@ define internal range(i32 -1, 1) i32 @H5FD__splitter_lock(ptr nocapture noundef 
 
 17:                                               ; preds = %14
   tail call fastcc void @H5FD__splitter_log_error(ptr noundef nonnull %0, ptr noundef nonnull @__func__.H5FD__splitter_lock, ptr noundef nonnull @.str.63)
-  %18 = getelementptr inbounds i8, ptr %0, i64 8298
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8298
   %19 = load i8, ptr %18, align 2
   %20 = and i8 %19, 1
   %21 = icmp eq i8 %20, 0
@@ -1813,7 +1813,7 @@ define internal range(i32 -1, 1) i32 @H5FD__splitter_lock(ptr nocapture noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5FD__splitter_unlock(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8304
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8304
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @H5FD_unlock(ptr noundef %3) #11
   %5 = icmp slt i32 %4, 0
@@ -1826,7 +1826,7 @@ define internal range(i32 -1, 1) i32 @H5FD__splitter_unlock(ptr nocapture nounde
   br label %20
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 8312
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8312
   %12 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %20, label %13
@@ -1876,7 +1876,7 @@ define internal range(i32 -1, 1) i32 @H5FD__splitter_delete(ptr noundef %0, i64 
   br label %.thread
 
 19:                                               ; preds = %12
-  %20 = getelementptr inbounds i8, ptr %6, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %21 = load i8, ptr %20, align 8
   %22 = icmp eq i8 %21, 0
   br i1 %22, label %23, label %65
@@ -1931,7 +1931,7 @@ define internal range(i32 -1, 1) i32 @H5FD__splitter_delete(ptr noundef %0, i64 
   br label %.thread
 
 54:                                               ; preds = %47
-  %55 = getelementptr inbounds i8, ptr %41, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %56 = load i8, ptr %55, align 8
   %57 = icmp eq i8 %56, 0
   br i1 %57, label %58, label %65
@@ -1962,8 +1962,8 @@ define internal range(i32 -1, 1) i32 @H5FD__splitter_delete(ptr noundef %0, i64 
   br label %83
 
 73:                                               ; preds = %65
-  %74 = getelementptr inbounds i8, ptr %.028, i64 16
-  %75 = getelementptr inbounds i8, ptr %.028, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %.028, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %.028, i64 8
   %76 = load i64, ptr %75, align 8
   %77 = tail call i32 @H5FDdelete(ptr noundef nonnull %74, i64 noundef %76) #11
   %78 = icmp slt i32 %77, 0
@@ -1998,7 +1998,7 @@ define internal range(i32 -1, 1) i32 @H5FD__splitter_ctl(ptr nocapture noundef r
   br i1 %.not, label %16, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 8304
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8304
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 @H5FDctl(ptr noundef %9, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) #11
   %11 = icmp slt i32 %10, 0
@@ -2093,7 +2093,7 @@ declare ptr @H5FD_open(ptr noundef, i32 noundef, i64 noundef, i64 noundef) local
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @H5FD__splitter_log_error(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8320
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8320
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %22, label %6

@@ -294,7 +294,7 @@ define internal i32 @dissect_netlink_sock_diag(ptr noundef %0, ptr noundef %1, p
   unreachable
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void @col_set_str(ptr noundef %12, i32 noundef 34, ptr noundef nonnull @.str.166) #4
   %13 = load ptr, ptr %11, align 8
@@ -303,18 +303,18 @@ define internal i32 @dissect_netlink_sock_diag(ptr noundef %0, ptr noundef %1, p
   %15 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %14, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_netlink_sock_diag, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
-  %18 = getelementptr inbounds i8, ptr %3, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %19 = load i32, ptr %18, align 4
   %20 = load i32, ptr @hf_netlink_sock_diag_nltype, align 4
   %21 = tail call i32 @dissect_netlink_header(ptr noundef %0, ptr noundef %17, i32 noundef 0, i32 noundef %19, i32 noundef %20, ptr noundef null) #4
   store ptr %1, ptr %5, align 8
-  %22 = getelementptr inbounds i8, ptr %3, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %23 = load i16, ptr %22, align 4
   %cond = icmp eq i16 %23, 20
   br i1 %cond, label %24, label %dissect_sock_diag_by_family.exit
 
 24:                                               ; preds = %10
-  %25 = getelementptr inbounds i8, ptr %1, i64 348
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 348
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %26, 0
   %28 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %21) #4
@@ -769,7 +769,7 @@ define internal range(i32 0, 2) i32 @dissect_netlink_unix_sock_diag_reply_attrs(
 
 29:                                               ; preds = %27
   %30 = load i32, ptr @hf_netlink_sock_diag_unix_peer_inode, align 4
-  %31 = getelementptr inbounds i8, ptr %2, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %32 = load i32, ptr %31, align 4
   %33 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %3, i32 noundef %30, ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef %32, ptr noundef nonnull %8) #4
   %34 = load i32, ptr %8, align 4
@@ -782,7 +782,7 @@ define internal range(i32 0, 2) i32 @dissect_netlink_unix_sock_diag_reply_attrs(
 
 37:                                               ; preds = %35
   %38 = load i32, ptr @hf_netlink_sock_diag_rqueue, align 4
-  %39 = getelementptr inbounds i8, ptr %2, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %40 = load i32, ptr %39, align 4
   %41 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %38, ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef %40) #4
   %42 = load i32, ptr @hf_netlink_sock_diag_wqueue, align 4
@@ -802,7 +802,7 @@ define internal range(i32 0, 2) i32 @dissect_netlink_unix_sock_diag_reply_attrs(
   br i1 %48, label %.lr.ph.i, label %dissect_sock_diag_meminfo.exit
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %49 = getelementptr inbounds i8, ptr %2, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %50 = add nsw i32 %6, -4
   %51 = lshr exact i32 %50, 2
   %52 = tail call i32 @llvm.umin.i32(i32 %51, i32 5)
@@ -923,7 +923,7 @@ _dissect_padding.exit:                            ; preds = %16, %18
 _dissect_padding.exit47:                          ; preds = %27, %25, %30
   %.0 = add i32 %3, 36
   %37 = load i32, ptr @hf_netlink_sock_diag_inet_interface, align 4
-  %38 = getelementptr inbounds i8, ptr %1, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %39 = load i32, ptr %38, align 4
   %40 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %37, ptr noundef %0, i32 noundef %.0, i32 noundef 4, i32 noundef %39) #4
   %41 = add i32 %3, 40
@@ -954,7 +954,7 @@ define internal range(i32 0, 2) i32 @dissect_sock_diag_inet_attributes(ptr nound
 
 10:                                               ; preds = %8
   %11 = load i32, ptr @hf_netlink_sock_diag_rmem_alloc, align 4
-  %12 = getelementptr inbounds i8, ptr %2, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %11, ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef %13) #4
   %15 = add i32 %5, 4
@@ -983,7 +983,7 @@ define internal range(i32 0, 2) i32 @dissect_sock_diag_inet_attributes(ptr nound
   br i1 %30, label %.lr.ph.i, label %dissect_sock_diag_meminfo.exit
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %31 = getelementptr inbounds i8, ptr %2, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %32 = add nsw i32 %6, -4
   %33 = lshr exact i32 %32, 2
   %34 = tail call i32 @llvm.umin.i32(i32 %33, i32 5)
@@ -1039,7 +1039,7 @@ define internal range(i32 0, 2) i32 @dissect_sock_diag_netlink_attributes(ptr no
   br i1 %11, label %.lr.ph.i, label %dissect_sock_diag_meminfo.exit
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %12 = getelementptr inbounds i8, ptr %2, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %13 = add nsw i32 %6, -4
   %14 = lshr exact i32 %13, 2
   %15 = tail call i32 @llvm.umin.i32(i32 %14, i32 5)
@@ -1082,7 +1082,7 @@ define internal range(i32 0, 2) i32 @dissect_netlink_packet_sock_diag_reply_attr
   br i1 %11, label %.lr.ph.i, label %dissect_sock_diag_meminfo.exit
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %12 = getelementptr inbounds i8, ptr %2, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %13 = add nsw i32 %6, -4
   %14 = lshr exact i32 %13, 2
   %15 = tail call i32 @llvm.umin.i32(i32 %14, i32 5)

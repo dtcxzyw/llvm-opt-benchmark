@@ -132,7 +132,7 @@ define hidden noundef i32 @_ZNK4ncnn15SELU_x86_avx51215forward_inplaceERNS_3MatE
   %80 = fadd fast <16 x float> %79, %54
   %81 = fmul fast <16 x float> %80, %52
   store <16 x float> %81, ptr %.0535618, align 1
-  %82 = getelementptr inbounds i8, ptr %.0535618, i64 64
+  %82 = getelementptr inbounds nuw i8, ptr %.0535618, i64 64
   %83 = add nuw nsw i32 %.0536617, 16
   %84 = or disjoint i32 %83, 15
   %85 = icmp slt i32 %84, %16
@@ -190,7 +190,7 @@ define hidden noundef i32 @_ZNK4ncnn15SELU_x86_avx51215forward_inplaceERNS_3MatE
   %122 = fadd fast <8 x float> %121, %95
   %123 = fmul fast <8 x float> %122, %91
   store <8 x float> %123, ptr %.1621, align 1
-  %124 = getelementptr inbounds i8, ptr %.1621, i64 32
+  %124 = getelementptr inbounds nuw i8, ptr %.1621, i64 32
   %125 = add nuw nsw i32 %.1537620, 8
   %126 = or disjoint i32 %125, 7
   %127 = icmp slt i32 %126, %16
@@ -250,7 +250,7 @@ define hidden noundef i32 @_ZNK4ncnn15SELU_x86_avx51215forward_inplaceERNS_3MatE
   %166 = fadd fast <4 x float> %165, %137
   %167 = fmul fast <4 x float> %166, %133
   store <4 x float> %167, ptr %.2628, align 1
-  %168 = getelementptr inbounds i8, ptr %.2628, i64 16
+  %168 = getelementptr inbounds nuw i8, ptr %.2628, i64 16
   %169 = add nuw nsw i32 %.2538627, 4
   %170 = or disjoint i32 %169, 3
   %171 = icmp slt i32 %170, %16
@@ -291,7 +291,7 @@ define hidden noundef i32 @_ZNK4ncnn15SELU_x86_avx51215forward_inplaceERNS_3MatE
 185:                                              ; preds = %182, %178
   %storemerge = phi float [ %184, %182 ], [ %181, %178 ]
   store float %storemerge, ptr %.3635, align 4
-  %186 = getelementptr inbounds i8, ptr %.3635, i64 4
+  %186 = getelementptr inbounds nuw i8, ptr %.3635, i64 4
   %187 = add nuw nsw i32 %.3539634, 1
   %exitcond.not = icmp eq i32 %187, %16
   br i1 %exitcond.not, label %._crit_edge638, label %.lr.ph637, !llvm.loop !8

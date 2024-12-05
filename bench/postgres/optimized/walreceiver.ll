@@ -169,7 +169,7 @@ define dso_local void @WalReceiverMain() local_unnamed_addr #3 {
   store ptr null, ptr %17, align 8
   store i32 0, ptr %18, align 4
   %24 = load ptr, ptr @WalRcv, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 2240
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 2240
   %26 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %25, i8 1, ptr nonnull elementtype(i8) %25) #15, !srcloc !5
   %.not = icmp eq i8 %26, 0
   br i1 %.not, label %29, label %27
@@ -179,7 +179,7 @@ define dso_local void @WalReceiverMain() local_unnamed_addr #3 {
   br label %29
 
 29:                                               ; preds = %0, %27
-  %30 = getelementptr inbounds i8, ptr %24, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %31 = load i32, ptr %30, align 4
   switch i32 %31, label %35 [
     i32 5, label %32
@@ -194,7 +194,7 @@ define dso_local void @WalReceiverMain() local_unnamed_addr #3 {
 33:                                               ; preds = %29, %32
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   store i8 0, ptr %25, align 8
-  %34 = getelementptr inbounds i8, ptr %24, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %24, i64 8
   tail call void @ConditionVariableBroadcast(ptr noundef nonnull %34) #15
   tail call void @proc_exit(i32 noundef 1) #17
   unreachable
@@ -212,35 +212,35 @@ define dso_local void @WalReceiverMain() local_unnamed_addr #3 {
   %39 = load i32, ptr @MyProcPid, align 4
   store i32 %39, ptr %24, align 8
   store i32 2, ptr %30, align 4
-  %40 = getelementptr inbounds i8, ptr %24, i64 2225
+  %40 = getelementptr inbounds nuw i8, ptr %24, i64 2225
   store i8 0, ptr %40, align 1
-  %41 = getelementptr inbounds i8, ptr %24, i64 104
+  %41 = getelementptr inbounds nuw i8, ptr %24, i64 104
   %42 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %41, i64 noundef 1024) #15
-  %43 = getelementptr inbounds i8, ptr %24, i64 2160
+  %43 = getelementptr inbounds nuw i8, ptr %24, i64 2160
   %44 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %43, i64 noundef 64) #15
-  %45 = getelementptr inbounds i8, ptr %24, i64 2224
+  %45 = getelementptr inbounds nuw i8, ptr %24, i64 2224
   %46 = load i8, ptr %45, align 8
   %47 = trunc i8 %46 to i1
-  %48 = getelementptr inbounds i8, ptr %24, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %49 = load i64, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %24, i64 40
+  %50 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %51 = load i32, ptr %50, align 8
   store i32 %51, ptr %14, align 4
   %52 = call i64 @GetCurrentTimestamp() #15
-  %53 = getelementptr inbounds i8, ptr %24, i64 96
+  %53 = getelementptr inbounds nuw i8, ptr %24, i64 96
   store i64 %52, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %24, i64 80
+  %54 = getelementptr inbounds nuw i8, ptr %24, i64 80
   store i64 %52, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %24, i64 72
+  %55 = getelementptr inbounds nuw i8, ptr %24, i64 72
   store i64 %52, ptr %55, align 8
   %56 = load ptr, ptr @MyProc, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 36
-  %58 = getelementptr inbounds i8, ptr %24, i64 2232
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 36
+  %58 = getelementptr inbounds nuw i8, ptr %24, i64 2232
   store ptr %57, ptr %58, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !8
   store i8 0, ptr %25, align 8
   %59 = load ptr, ptr @WalRcv, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 2248
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 2248
   store volatile i64 0, ptr %60, align 8
   %61 = ptrtoint ptr %14 to i64
   call void @on_shmem_exit(ptr noundef nonnull @WalRcvDie, i64 noundef %61) #15
@@ -288,11 +288,11 @@ define dso_local void @WalReceiverMain() local_unnamed_addr #3 {
 
 88:                                               ; preds = %75
   %89 = load ptr, ptr @WalReceiverFunctions, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %91 = load ptr, ptr %90, align 8
   %92 = call ptr %91(ptr noundef nonnull %82) #15
   %93 = load ptr, ptr @WalReceiverFunctions, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 24
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 24
   %95 = load ptr, ptr %94, align 8
   %96 = load ptr, ptr @wrconn, align 8
   call void %95(ptr noundef %96, ptr noundef nonnull %17, ptr noundef nonnull %18) #15
@@ -314,7 +314,7 @@ define dso_local void @WalReceiverMain() local_unnamed_addr #3 {
   br label %103
 
 103:                                              ; preds = %101, %100
-  %104 = getelementptr inbounds i8, ptr %24, i64 1128
+  %104 = getelementptr inbounds nuw i8, ptr %24, i64 1128
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1025) %104, i8 0, i64 1025, i1 false)
   %105 = load ptr, ptr %17, align 8
   %.not96 = icmp eq ptr %105, null
@@ -326,7 +326,7 @@ define dso_local void @WalReceiverMain() local_unnamed_addr #3 {
 
 108:                                              ; preds = %106, %103
   %109 = load i32, ptr %18, align 4
-  %110 = getelementptr inbounds i8, ptr %24, i64 2156
+  %110 = getelementptr inbounds nuw i8, ptr %24, i64 2156
   store i32 %109, ptr %110, align 4
   store i8 1, ptr %40, align 1
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
@@ -348,7 +348,7 @@ define dso_local void @WalReceiverMain() local_unnamed_addr #3 {
 
 115:                                              ; preds = %114, %112
   %116 = load ptr, ptr @WalReceiverFunctions, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 32
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 32
   %118 = load ptr, ptr %117, align 8
   %119 = load ptr, ptr @wrconn, align 8
   %120 = call ptr %118(ptr noundef %119, ptr noundef nonnull %15) #15
@@ -359,16 +359,16 @@ define dso_local void @WalReceiverMain() local_unnamed_addr #3 {
   br i1 %.not98196, label %.lr.ph200, label %._crit_edge201
 
 .lr.ph200:                                        ; preds = %115
-  %124 = getelementptr inbounds i8, ptr %20, i64 16
-  %125 = getelementptr inbounds i8, ptr %20, i64 8
-  %126 = getelementptr inbounds i8, ptr %20, i64 24
-  %127 = getelementptr inbounds i8, ptr %11, i64 8
-  %128 = getelementptr inbounds i8, ptr %11, i64 12
-  %129 = getelementptr inbounds i8, ptr %11, i64 16
-  %130 = getelementptr inbounds i8, ptr %10, i64 8
-  %131 = getelementptr inbounds i8, ptr %10, i64 12
-  %132 = getelementptr inbounds i8, ptr %10, i64 16
-  %133 = getelementptr inbounds i8, ptr %24, i64 2256
+  %124 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %125 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %126 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  %127 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %11, i64 12
+  %129 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %130 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %10, i64 12
+  %132 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %133 = getelementptr inbounds nuw i8, ptr %24, i64 2256
   br label %138
 
 ._crit_edge201:                                   ; preds = %WalRcvWaitForStartPosition.exit, %115
@@ -405,14 +405,14 @@ define dso_local void @WalReceiverMain() local_unnamed_addr #3 {
 
 149:                                              ; preds = %148
   %150 = load ptr, ptr @WalReceiverFunctions, align 8
-  %151 = getelementptr inbounds i8, ptr %150, i64 112
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 112
   %152 = load ptr, ptr %151, align 8
   %153 = load ptr, ptr @wrconn, align 8
   %154 = call i32 %152(ptr noundef %153) #15
   %155 = sext i32 %154 to i64
   %156 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %13, i64 noundef 64, ptr noundef nonnull @.str.11, i64 noundef %155) #15
   %157 = load ptr, ptr @WalReceiverFunctions, align 8
-  %158 = getelementptr inbounds i8, ptr %157, i64 96
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 96
   %159 = load ptr, ptr %158, align 8
   %160 = load ptr, ptr @wrconn, align 8
   %161 = call ptr %159(ptr noundef %160, ptr noundef nonnull %13, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef 0, ptr noundef null) #15
@@ -440,7 +440,7 @@ define dso_local void @WalReceiverMain() local_unnamed_addr #3 {
   %170 = load i32, ptr %14, align 4
   store i32 %170, ptr %126, align 8
   %171 = load ptr, ptr @WalReceiverFunctions, align 8
-  %172 = getelementptr inbounds i8, ptr %171, i64 64
+  %172 = getelementptr inbounds nuw i8, ptr %171, i64 64
   %173 = load ptr, ptr %172, align 8
   %174 = load ptr, ptr @wrconn, align 8
   %175 = call zeroext i1 %173(ptr noundef %174, ptr noundef nonnull %20) #15
@@ -661,7 +661,7 @@ WalRcvComputeNextWakeup.exit113:                  ; preds = %249, %250, %252, %2
 
 259:                                              ; preds = %254, %ProcessWalRcvInterrupts.exit
   %260 = load ptr, ptr @WalReceiverFunctions, align 8
-  %261 = getelementptr inbounds i8, ptr %260, i64 80
+  %261 = getelementptr inbounds nuw i8, ptr %260, i64 80
   %262 = load ptr, ptr %261, align 8
   %263 = load ptr, ptr @wrconn, align 8
   %264 = call i32 %262(ptr noundef %263, ptr noundef nonnull %21, ptr noundef nonnull %22) #15
@@ -769,7 +769,7 @@ WalRcvComputeNextWakeup.exit115:                  ; preds = %.lr.ph, %269
   call void @issue_xlog_fsync(i32 noundef %294, i64 noundef %299, i32 noundef %280) #15
   %307 = load i64, ptr @LogstreamResult.0, align 8
   store i64 %307, ptr @LogstreamResult.1, align 8
-  %308 = getelementptr inbounds i8, ptr %306, i64 2240
+  %308 = getelementptr inbounds nuw i8, ptr %306, i64 2240
   %309 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %308, i8 1, ptr nonnull elementtype(i8) %308) #15, !srcloc !5
   %.not.i137 = icmp eq i8 %309, 0
   br i1 %.not.i137, label %312, label %310
@@ -779,17 +779,17 @@ WalRcvComputeNextWakeup.exit115:                  ; preds = %.lr.ph, %269
   br label %312
 
 312:                                              ; preds = %310, %305
-  %313 = getelementptr inbounds i8, ptr %306, i64 48
+  %313 = getelementptr inbounds nuw i8, ptr %306, i64 48
   %314 = load i64, ptr %313, align 8
   %315 = load i64, ptr @LogstreamResult.1, align 8
   %316 = icmp ult i64 %314, %315
   br i1 %316, label %317, label %320
 
 317:                                              ; preds = %312
-  %318 = getelementptr inbounds i8, ptr %306, i64 64
+  %318 = getelementptr inbounds nuw i8, ptr %306, i64 64
   store i64 %314, ptr %318, align 8
   store i64 %315, ptr %313, align 8
-  %319 = getelementptr inbounds i8, ptr %306, i64 56
+  %319 = getelementptr inbounds nuw i8, ptr %306, i64 56
   store i32 %280, ptr %319, align 8
   br label %320
 
@@ -943,7 +943,7 @@ XLogWalRcvClose.exit133:                          ; preds = %353, %354
   %391 = phi i64 [ %.pre.i.i, %.._crit_edge_crit_edge.i.i ], [ %388, %386 ]
   %.030.lcssa.i.i = phi i64 [ %288, %.._crit_edge_crit_edge.i.i ], [ %388, %386 ]
   %392 = load ptr, ptr @WalRcv, align 8
-  %393 = getelementptr inbounds i8, ptr %392, i64 2248
+  %393 = getelementptr inbounds nuw i8, ptr %392, i64 2248
   store volatile i64 %391, ptr %393, align 8
   %394 = load i32, ptr @recvFile, align 4
   %395 = icmp sgt i32 %394, -1
@@ -968,7 +968,7 @@ XLogWalRcvClose.exit133:                          ; preds = %353, %354
   call void @issue_xlog_fsync(i32 noundef %394, i64 noundef %400, i32 noundef %280) #15
   %406 = load i64, ptr @LogstreamResult.0, align 8
   store i64 %406, ptr @LogstreamResult.1, align 8
-  %407 = getelementptr inbounds i8, ptr %392, i64 2240
+  %407 = getelementptr inbounds nuw i8, ptr %392, i64 2240
   %408 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %407, i8 1, ptr nonnull elementtype(i8) %407) #15, !srcloc !5
   %.not.i134 = icmp eq i8 %408, 0
   br i1 %.not.i134, label %411, label %409
@@ -978,17 +978,17 @@ XLogWalRcvClose.exit133:                          ; preds = %353, %354
   br label %411
 
 411:                                              ; preds = %409, %405
-  %412 = getelementptr inbounds i8, ptr %392, i64 48
+  %412 = getelementptr inbounds nuw i8, ptr %392, i64 48
   %413 = load i64, ptr %412, align 8
   %414 = load i64, ptr @LogstreamResult.1, align 8
   %415 = icmp ult i64 %413, %414
   br i1 %415, label %416, label %419
 
 416:                                              ; preds = %411
-  %417 = getelementptr inbounds i8, ptr %392, i64 64
+  %417 = getelementptr inbounds nuw i8, ptr %392, i64 64
   store i64 %413, ptr %417, align 8
   store i64 %414, ptr %412, align 8
-  %418 = getelementptr inbounds i8, ptr %392, i64 56
+  %418 = getelementptr inbounds nuw i8, ptr %392, i64 56
   store i32 %280, ptr %418, align 8
   br label %419
 
@@ -1117,7 +1117,7 @@ XLogWalRcvProcessMsg.exit:                        ; preds = %XLogWalRcvWrite.exi
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   %469 = load ptr, ptr @WalReceiverFunctions, align 8
-  %470 = getelementptr inbounds i8, ptr %469, i64 80
+  %470 = getelementptr inbounds nuw i8, ptr %469, i64 80
   %471 = load ptr, ptr %470, align 8
   %472 = load ptr, ptr @wrconn, align 8
   %473 = call i32 %471(ptr noundef %472, ptr noundef nonnull %21, ptr noundef nonnull %22) #15
@@ -1159,7 +1159,7 @@ XLogWalRcvProcessMsg.exit:                        ; preds = %XLogWalRcvWrite.exi
   call void @issue_xlog_fsync(i32 noundef %492, i64 noundef %493, i32 noundef %486) #15
   %494 = load i64, ptr @LogstreamResult.0, align 8
   store i64 %494, ptr @LogstreamResult.1, align 8
-  %495 = getelementptr inbounds i8, ptr %491, i64 2240
+  %495 = getelementptr inbounds nuw i8, ptr %491, i64 2240
   %496 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %495, i8 1, ptr nonnull elementtype(i8) %495) #15, !srcloc !5
   %.not.i117 = icmp eq i8 %496, 0
   br i1 %.not.i117, label %499, label %497
@@ -1169,17 +1169,17 @@ XLogWalRcvProcessMsg.exit:                        ; preds = %XLogWalRcvWrite.exi
   br label %499
 
 499:                                              ; preds = %497, %490
-  %500 = getelementptr inbounds i8, ptr %491, i64 48
+  %500 = getelementptr inbounds nuw i8, ptr %491, i64 48
   %501 = load i64, ptr %500, align 8
   %502 = load i64, ptr @LogstreamResult.1, align 8
   %503 = icmp ult i64 %501, %502
   br i1 %503, label %504, label %507
 
 504:                                              ; preds = %499
-  %505 = getelementptr inbounds i8, ptr %491, i64 64
+  %505 = getelementptr inbounds nuw i8, ptr %491, i64 64
   store i64 %501, ptr %505, align 8
   store i64 %502, ptr %500, align 8
-  %506 = getelementptr inbounds i8, ptr %491, i64 56
+  %506 = getelementptr inbounds nuw i8, ptr %491, i64 56
   store i32 %486, ptr %506, align 8
   br label %507
 
@@ -1234,7 +1234,7 @@ XLogWalRcvProcessMsg.exit:                        ; preds = %XLogWalRcvWrite.exi
   call void @issue_xlog_fsync(i32 noundef %530, i64 noundef %531, i32 noundef %524) #15
   %532 = load i64, ptr @LogstreamResult.0, align 8
   store i64 %532, ptr @LogstreamResult.1, align 8
-  %533 = getelementptr inbounds i8, ptr %529, i64 2240
+  %533 = getelementptr inbounds nuw i8, ptr %529, i64 2240
   %534 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %533, i8 1, ptr nonnull elementtype(i8) %533) #15, !srcloc !5
   %.not.i118 = icmp eq i8 %534, 0
   br i1 %.not.i118, label %537, label %535
@@ -1244,17 +1244,17 @@ XLogWalRcvProcessMsg.exit:                        ; preds = %XLogWalRcvWrite.exi
   br label %537
 
 537:                                              ; preds = %535, %528
-  %538 = getelementptr inbounds i8, ptr %529, i64 48
+  %538 = getelementptr inbounds nuw i8, ptr %529, i64 48
   %539 = load i64, ptr %538, align 8
   %540 = load i64, ptr @LogstreamResult.1, align 8
   %541 = icmp ult i64 %539, %540
   br i1 %541, label %542, label %545
 
 542:                                              ; preds = %537
-  %543 = getelementptr inbounds i8, ptr %529, i64 64
+  %543 = getelementptr inbounds nuw i8, ptr %529, i64 64
   store i64 %539, ptr %543, align 8
   store i64 %540, ptr %538, align 8
-  %544 = getelementptr inbounds i8, ptr %529, i64 56
+  %544 = getelementptr inbounds nuw i8, ptr %529, i64 56
   store i32 %524, ptr %544, align 8
   br label %545
 
@@ -1396,7 +1396,7 @@ ProcessWalRcvInterrupts.exit123:                  ; preds = %575
 598:                                              ; preds = %523, %485
   call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %8)
   %599 = load ptr, ptr @WalReceiverFunctions, align 8
-  %600 = getelementptr inbounds i8, ptr %599, i64 72
+  %600 = getelementptr inbounds nuw i8, ptr %599, i64 72
   %601 = load ptr, ptr %600, align 8
   %602 = load ptr, ptr @wrconn, align 8
   call void %601(ptr noundef %602, ptr noundef nonnull %15) #15
@@ -1434,7 +1434,7 @@ ProcessWalRcvInterrupts.exit123:                  ; preds = %575
   call void @issue_xlog_fsync(i32 noundef %610, i64 noundef %619, i32 noundef %613) #15
   %620 = load i64, ptr @LogstreamResult.0, align 8
   store i64 %620, ptr @LogstreamResult.1, align 8
-  %621 = getelementptr inbounds i8, ptr %618, i64 2240
+  %621 = getelementptr inbounds nuw i8, ptr %618, i64 2240
   %622 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %621, i8 1, ptr nonnull elementtype(i8) %621) #15, !srcloc !5
   %.not.i124 = icmp eq i8 %622, 0
   br i1 %.not.i124, label %625, label %623
@@ -1444,17 +1444,17 @@ ProcessWalRcvInterrupts.exit123:                  ; preds = %575
   br label %625
 
 625:                                              ; preds = %623, %617
-  %626 = getelementptr inbounds i8, ptr %618, i64 48
+  %626 = getelementptr inbounds nuw i8, ptr %618, i64 48
   %627 = load i64, ptr %626, align 8
   %628 = load i64, ptr @LogstreamResult.1, align 8
   %629 = icmp ult i64 %627, %628
   br i1 %629, label %630, label %633
 
 630:                                              ; preds = %625
-  %631 = getelementptr inbounds i8, ptr %618, i64 64
+  %631 = getelementptr inbounds nuw i8, ptr %618, i64 64
   store i64 %627, ptr %631, align 8
   store i64 %628, ptr %626, align 8
-  %632 = getelementptr inbounds i8, ptr %618, i64 56
+  %632 = getelementptr inbounds nuw i8, ptr %618, i64 56
   store i32 %613, ptr %632, align 8
   br label %633
 
@@ -1544,7 +1544,7 @@ XLogWalRcvFlush.exit126:                          ; preds = %612, %649
 674:                                              ; preds = %670, %672
   call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %5)
   %675 = load ptr, ptr @WalRcv, align 8
-  %676 = getelementptr inbounds i8, ptr %675, i64 2240
+  %676 = getelementptr inbounds nuw i8, ptr %675, i64 2240
   %677 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %676, i8 1, ptr nonnull elementtype(i8) %676) #15, !srcloc !5
   %.not.i127 = icmp eq i8 %677, 0
   br i1 %.not.i127, label %680, label %678
@@ -1554,7 +1554,7 @@ XLogWalRcvFlush.exit126:                          ; preds = %612, %649
   br label %680
 
 680:                                              ; preds = %678, %674
-  %681 = getelementptr inbounds i8, ptr %675, i64 4
+  %681 = getelementptr inbounds nuw i8, ptr %675, i64 4
   %682 = load i32, ptr %681, align 4
   %.not24.i = icmp eq i32 %682, 2
   br i1 %.not24.i, label %689, label %683
@@ -1578,9 +1578,9 @@ XLogWalRcvFlush.exit126:                          ; preds = %612, %649
 
 689:                                              ; preds = %680
   store i32 3, ptr %681, align 4
-  %690 = getelementptr inbounds i8, ptr %675, i64 32
+  %690 = getelementptr inbounds nuw i8, ptr %675, i64 32
   store i64 0, ptr %690, align 8
-  %691 = getelementptr inbounds i8, ptr %675, i64 40
+  %691 = getelementptr inbounds nuw i8, ptr %675, i64 40
   store i32 0, ptr %691, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !17
   store i8 0, ptr %676, align 8
@@ -1664,7 +1664,7 @@ ProcessWalRcvInterrupts.exit.i:                   ; preds = %696
 WalRcvWaitForStartPosition.exit:                  ; preds = %707, %716
   call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %5)
   %722 = load ptr, ptr @WalReceiverFunctions, align 8
-  %723 = getelementptr inbounds i8, ptr %722, i64 32
+  %723 = getelementptr inbounds nuw i8, ptr %722, i64 32
   %724 = load ptr, ptr %723, align 8
   %725 = load ptr, ptr @wrconn, align 8
   %726 = call ptr %724(ptr noundef %725, ptr noundef nonnull %15) #15
@@ -1697,7 +1697,7 @@ define internal void @WalRcvDie(i32 %0, i64 noundef %1) #0 {
   %4 = inttoptr i64 %1 to ptr
   %5 = load i32, ptr %4, align 4
   tail call fastcc void @XLogWalRcvFlush(i1 noundef zeroext true, i32 noundef %5)
-  %6 = getelementptr inbounds i8, ptr %3, i64 2240
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 2240
   %7 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %6, i8 1, ptr nonnull elementtype(i8) %6) #15, !srcloc !5
   %.not = icmp eq i8 %7, 0
   br i1 %.not, label %10, label %8
@@ -1707,16 +1707,16 @@ define internal void @WalRcvDie(i32 %0, i64 noundef %1) #0 {
   br label %10
 
 10:                                               ; preds = %2, %8
-  %11 = getelementptr inbounds i8, ptr %3, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %11, align 4
   store i32 0, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 2225
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 2225
   store i8 0, ptr %12, align 1
-  %13 = getelementptr inbounds i8, ptr %3, i64 2232
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 2232
   store ptr null, ptr %13, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !21
   store i8 0, ptr %6, align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   tail call void @ConditionVariableBroadcast(ptr noundef nonnull %14) #15
   %15 = load ptr, ptr @wrconn, align 8
   %.not9 = icmp eq ptr %15, null
@@ -1724,7 +1724,7 @@ define internal void @WalRcvDie(i32 %0, i64 noundef %1) #0 {
 
 16:                                               ; preds = %10
   %17 = load ptr, ptr @WalReceiverFunctions, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 128
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 128
   %19 = load ptr, ptr %18, align 8
   tail call void %19(ptr noundef nonnull %15) #15
   br label %20
@@ -1790,7 +1790,7 @@ define internal fastcc void @WalRcvFetchTimeLineHistoryFiles(i32 noundef %0, i32
 
 13:                                               ; preds = %9, %11
   %14 = load ptr, ptr @WalReceiverFunctions, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr @wrconn, align 8
   call void %16(ptr noundef %17, i32 noundef %.016, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #15
@@ -1972,7 +1972,7 @@ WalRcvComputeNextWakeup.exit:                     ; preds = %.WalRcvComputeNextW
 
 81:                                               ; preds = %WalRcvComputeNextWakeup.exit, %67
   %82 = load ptr, ptr @WalReceiverFunctions, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 88
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 88
   %84 = load ptr, ptr %83, align 8
   %85 = load ptr, ptr @wrconn, align 8
   %86 = load ptr, ptr @reply_message, align 8
@@ -2123,7 +2123,7 @@ WalRcvComputeNextWakeup.exit:                     ; preds = %10
   %85 = add i32 %84, 4
   store i32 %85, ptr getelementptr inbounds (i8, ptr @reply_message, i64 8), align 8
   %86 = load ptr, ptr @WalReceiverFunctions, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 88
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 88
   %88 = load ptr, ptr %87, align 8
   %89 = load ptr, ptr @wrconn, align 8
   %90 = load ptr, ptr @reply_message, align 8
@@ -2159,7 +2159,7 @@ define internal fastcc void @XLogWalRcvFlush(i1 noundef zeroext %0, i32 noundef 
   tail call void @issue_xlog_fsync(i32 noundef %9, i64 noundef %10, i32 noundef %1) #15
   %11 = load i64, ptr @LogstreamResult.0, align 8
   store i64 %11, ptr @LogstreamResult.1, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 2240
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 2240
   %13 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %12, i8 1, ptr nonnull elementtype(i8) %12) #15, !srcloc !5
   %.not = icmp eq i8 %13, 0
   br i1 %.not, label %16, label %14
@@ -2169,17 +2169,17 @@ define internal fastcc void @XLogWalRcvFlush(i1 noundef zeroext %0, i32 noundef 
   br label %16
 
 16:                                               ; preds = %7, %14
-  %17 = getelementptr inbounds i8, ptr %8, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %18 = load i64, ptr %17, align 8
   %19 = load i64, ptr @LogstreamResult.1, align 8
   %20 = icmp ult i64 %18, %19
   br i1 %20, label %21, label %24
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %8, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 64
   store i64 %18, ptr %22, align 8
   store i64 %19, ptr %17, align 8
-  %23 = getelementptr inbounds i8, ptr %8, i64 56
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 56
   store i32 %1, ptr %23, align 8
   br label %24
 
@@ -2254,26 +2254,26 @@ declare void @XLogArchiveNotify(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @WalRcvForceReply() local_unnamed_addr #0 {
   %1 = load ptr, ptr @WalRcv, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 2256
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 2256
   store i32 1, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %1, i64 2240
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 2240
   %4 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %3, i8 1, ptr nonnull elementtype(i8) %3) #15, !srcloc !5
   %.not = icmp eq i8 %4, 0
   br i1 %.not, label %9, label %5
 
 5:                                                ; preds = %0
   %6 = load ptr, ptr @WalRcv, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 2240
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 2240
   %8 = tail call i32 @s_lock(ptr noundef nonnull %7, ptr noundef nonnull @.str.1, i32 noundef 1362, ptr noundef nonnull @__func__.WalRcvForceReply) #15
   br label %9
 
 9:                                                ; preds = %0, %5
   %10 = load ptr, ptr @WalRcv, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 2232
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 2232
   %12 = load ptr, ptr %11, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !23
   %13 = load ptr, ptr @WalRcv, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 2240
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 2240
   store i8 0, ptr %14, align 8
   %.not2 = icmp eq ptr %12, null
   br i1 %.not2, label %16, label %15
@@ -2295,53 +2295,53 @@ define dso_local i64 @pg_stat_get_wal_receiver(ptr noundef %0) local_unnamed_add
   %4 = alloca [64 x i8], align 16
   %5 = alloca [1024 x i8], align 16
   %6 = load ptr, ptr @WalRcv, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 2240
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 2240
   %8 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %7, i8 1, ptr nonnull elementtype(i8) %7) #15, !srcloc !5
   %.not = icmp eq i8 %8, 0
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %1
   %10 = load ptr, ptr @WalRcv, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 2240
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 2240
   %12 = tail call i32 @s_lock(ptr noundef nonnull %11, ptr noundef nonnull @.str.1, i32 noundef 1422, ptr noundef nonnull @__func__.pg_stat_get_wal_receiver) #15
   br label %13
 
 13:                                               ; preds = %1, %9
   %14 = load ptr, ptr @WalRcv, align 8
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 2225
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 2225
   %17 = load i8, ptr %16, align 1
-  %18 = getelementptr inbounds i8, ptr %14, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %14, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %21 = load i64, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %14, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %23 = load i32, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %14, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %14, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %27 = load i32, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %14, i64 72
+  %28 = getelementptr inbounds nuw i8, ptr %14, i64 72
   %29 = load i64, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %14, i64 80
+  %30 = getelementptr inbounds nuw i8, ptr %14, i64 80
   %31 = load i64, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %14, i64 88
+  %32 = getelementptr inbounds nuw i8, ptr %14, i64 88
   %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %14, i64 96
+  %34 = getelementptr inbounds nuw i8, ptr %14, i64 96
   %35 = load i64, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %14, i64 2160
+  %36 = getelementptr inbounds nuw i8, ptr %14, i64 2160
   %37 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %36, i64 noundef 64) #15
   %38 = load ptr, ptr @WalRcv, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 1128
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 1128
   %40 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %39, i64 noundef 1025) #15
   %41 = load ptr, ptr @WalRcv, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 2156
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 2156
   %43 = load i32, ptr %42, align 4
-  %44 = getelementptr inbounds i8, ptr %41, i64 104
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 104
   %45 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %44, i64 noundef 1024) #15
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !24
   %46 = load ptr, ptr @WalRcv, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 2240
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 2240
   store i8 0, ptr %47, align 8
   %48 = icmp eq i32 %15, 0
   br i1 %48, label %51, label %49
@@ -2351,12 +2351,12 @@ define dso_local i64 @pg_stat_get_wal_receiver(ptr noundef %0) local_unnamed_add
   br i1 %50, label %53, label %51
 
 51:                                               ; preds = %13, %49
-  %52 = getelementptr inbounds i8, ptr %0, i64 28
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %52, align 4
   br label %169
 
 53:                                               ; preds = %49
-  %54 = getelementptr inbounds i8, ptr %46, i64 2248
+  %54 = getelementptr inbounds nuw i8, ptr %46, i64 2248
   %55 = load volatile i64, ptr %54, align 8
   %56 = call i32 @get_call_result_type(ptr noundef %0, ptr noundef null, ptr noundef nonnull %2) #15
   %.not62 = icmp eq i32 %56, 1
@@ -2400,7 +2400,7 @@ define dso_local i64 @pg_stat_get_wal_receiver(ptr noundef %0) local_unnamed_add
 
 switch.lookup:                                    ; preds = %79
   %81 = zext nneg i32 %19 to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table.pg_stat_get_wal_receiver, i64 0, i64 %81
+  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.pg_stat_get_wal_receiver, i64 0, i64 %81
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %WalRcvGetStateString.exit
 
@@ -2626,7 +2626,7 @@ declare i64 @pq_getmsgint64(ptr noundef) local_unnamed_addr #1
 define internal fastcc void @ProcessWalSndrMessage(i64 noundef %0, i64 noundef %1) unnamed_addr #0 {
   %3 = load ptr, ptr @WalRcv, align 8
   %4 = tail call i64 @GetCurrentTimestamp() #15
-  %5 = getelementptr inbounds i8, ptr %3, i64 2240
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 2240
   %6 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %5, i8 1, ptr nonnull elementtype(i8) %5) #15, !srcloc !5
   %.not = icmp eq i8 %6, 0
   br i1 %.not, label %9, label %7
@@ -2636,21 +2636,21 @@ define internal fastcc void @ProcessWalSndrMessage(i64 noundef %0, i64 noundef %
   br label %9
 
 9:                                                ; preds = %2, %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %11 = load i64, ptr %10, align 8
   %12 = icmp ult i64 %11, %0
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %3, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 96
   store i64 %1, ptr %14, align 8
   br label %15
 
 15:                                               ; preds = %13, %9
   store i64 %0, ptr %10, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store i64 %1, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %3, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store i64 %4, ptr %17, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !25
   store i8 0, ptr %5, align 8

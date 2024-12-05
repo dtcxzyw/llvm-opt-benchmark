@@ -275,15 +275,15 @@ define internal i32 @dissect_zbee_zcl_thermostat(ptr noundef %0, ptr nocapture n
   br i1 %5, label %47, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %3, i64 17
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 17
   %8 = load i8, ptr %7, align 1
-  %9 = getelementptr inbounds i8, ptr %3, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 0
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = zext i8 %8 to i32
-  %15 = getelementptr inbounds i8, ptr %3, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br i1 %11, label %16, label %38
 
 16:                                               ; preds = %6
@@ -438,15 +438,15 @@ define internal i32 @dissect_zbee_zcl_ias_zone(ptr noundef %0, ptr nocapture nou
   br i1 %5, label %50, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %3, i64 17
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 17
   %8 = load i8, ptr %7, align 1
-  %9 = getelementptr inbounds i8, ptr %3, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 0
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = zext i8 %8 to i32
-  %15 = getelementptr inbounds i8, ptr %3, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br i1 %11, label %16, label %27
 
 16:                                               ; preds = %6
@@ -534,7 +534,7 @@ define internal fastcc void @dissect_zcl_thermostat_schedule(ptr noundef %0, ptr
   br i1 %.not55, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %3, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.fr = freeze i8 %11
   %16 = zext i8 %.fr to i32
   %17 = and i32 %16, 1

@@ -17,16 +17,16 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_Z21gmx_sparsematrix_initi(i32 noundef %0) local_unnamed_addr #0 {
   %2 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 49, i64 noundef 1, i64 noundef 32)
-  %3 = getelementptr inbounds i8, ptr %2, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %0, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = sext i32 %0 to i64
   %6 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 52, i64 noundef range(i64 -2147483648, 2147483648) %5, i64 noundef 4)
   store ptr %6, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 53, i64 noundef range(i64 -2147483648, 2147483648) %5, i64 noundef 4)
   store ptr %8, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %10 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 54, i64 noundef range(i64 -2147483648, 2147483648) %5, i64 noundef 8)
   store ptr %10, ptr %9, align 8
   %11 = icmp sgt i32 %0, 0
@@ -39,13 +39,13 @@ define noundef ptr @_Z21gmx_sparsematrix_initi(i32 noundef %0) local_unnamed_add
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
   store i32 0, ptr %15, align 4
   %16 = load ptr, ptr %9, align 8
-  %17 = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
   store ptr null, ptr %17, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -57,20 +57,20 @@ define noundef ptr @_Z21gmx_sparsematrix_initi(i32 noundef %0) local_unnamed_add
 
 ; Function Attrs: mustprogress uwtable
 define void @_Z24gmx_sparsematrix_destroyP16gmx_sparsematrix(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %6
 
 6:                                                ; preds = %.lr.ph, %12
   %7 = phi i32 [ %3, %.lr.ph ], [ %13, %12 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %12, label %11
@@ -88,13 +88,13 @@ define void @_Z24gmx_sparsematrix_destroyP16gmx_sparsematrix(ptr noundef %0) loc
   br i1 %15, label %6, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %12, %1
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 79, ptr noundef %17)
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 80, ptr noundef %19)
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load ptr, ptr %20, align 8
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 81, ptr noundef %21)
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 83, ptr noundef nonnull %0)
@@ -103,21 +103,21 @@ define void @_Z24gmx_sparsematrix_destroyP16gmx_sparsematrix(ptr noundef %0) loc
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define void @_Z22gmx_sparsematrix_printP8_IO_FILEP16gmx_sparsematrix(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph45, label %._crit_edge46
 
 .lr.ph45:                                         ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %8
 
 8:                                                ; preds = %.lr.ph45, %.loopexit
   %9 = phi i32 [ %4, %.lr.ph45 ], [ %51, %.loopexit ]
   %indvars.iv50 = phi i64 [ 0, %.lr.ph45 ], [ %indvars.iv.next51, %.loopexit ]
   %10 = load ptr, ptr %6, align 8
-  %11 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv50
+  %11 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv50
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %.preheader28, label %.preheader31
@@ -153,9 +153,9 @@ define void @_Z22gmx_sparsematrix_printP8_IO_FILEP16gmx_sparsematrix(ptr nocaptu
   %.038 = phi i32 [ %.lcssa32, %._crit_edge ], [ 0, %.preheader31 ]
   %22 = add nsw i32 %.038, 1
   %23 = load ptr, ptr %7, align 8
-  %24 = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv50
+  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv50
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds %struct.gmx_sparsematrix_entry, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw %struct.gmx_sparsematrix_entry, ptr %25, i64 %indvars.iv
   %27 = load i32, ptr %26, align 4
   %28 = icmp slt i32 %.038, %27
   br i1 %28, label %.lr.ph, label %._crit_edge
@@ -165,9 +165,9 @@ define void @_Z22gmx_sparsematrix_printP8_IO_FILEP16gmx_sparsematrix(ptr nocaptu
   %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.6, double noundef 0.000000e+00) #12
   %31 = add nsw i32 %29, 1
   %32 = load ptr, ptr %7, align 8
-  %33 = getelementptr inbounds ptr, ptr %32, i64 %indvars.iv50
+  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv50
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds %struct.gmx_sparsematrix_entry, ptr %34, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw %struct.gmx_sparsematrix_entry, ptr %34, i64 %indvars.iv
   %36 = load i32, ptr %35, align 4
   %37 = icmp slt i32 %29, %36
   br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !8
@@ -175,13 +175,13 @@ define void @_Z22gmx_sparsematrix_printP8_IO_FILEP16gmx_sparsematrix(ptr nocaptu
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.lcssa33 = phi ptr [ %25, %.preheader ], [ %34, %.lr.ph ]
   %.lcssa32 = phi i32 [ %22, %.preheader ], [ %31, %.lr.ph ]
-  %38 = getelementptr inbounds %struct.gmx_sparsematrix_entry, ptr %.lcssa33, i64 %indvars.iv, i32 1
+  %38 = getelementptr inbounds nuw %struct.gmx_sparsematrix_entry, ptr %.lcssa33, i64 %indvars.iv, i32 1
   %39 = load float, ptr %38, align 4
   %40 = fpext float %39 to double
   %41 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.6, double noundef %40) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %42 = load ptr, ptr %6, align 8
-  %43 = getelementptr inbounds i32, ptr %42, i64 %indvars.iv50
+  %43 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv50
   %44 = load i32, ptr %43, align 4
   %45 = sext i32 %44 to i64
   %46 = icmp slt i64 %indvars.iv.next, %45
@@ -212,7 +212,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef float @_Z22gmx_sparsematrix_valueP16gmx_sparsematrixii(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = sext i32 %1 to i64
   %7 = getelementptr inbounds i32, ptr %5, i64 %6
@@ -221,7 +221,7 @@ define noundef float @_Z22gmx_sparsematrix_valueP16gmx_sparsematrixii(ptr nocapt
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds ptr, ptr %11, i64 %6
   %13 = load ptr, ptr %12, align 8
@@ -230,13 +230,13 @@ define noundef float @_Z22gmx_sparsematrix_valueP16gmx_sparsematrixii(ptr nocapt
 
 15:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
-  %16 = getelementptr inbounds %struct.gmx_sparsematrix_entry, ptr %13, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw %struct.gmx_sparsematrix_entry, ptr %13, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %17, %2
   br i1 %18, label %.thread, label %21
 
 .thread:                                          ; preds = %15
-  %19 = getelementptr inbounds %struct.gmx_sparsematrix_entry, ptr %13, i64 %indvars.iv, i32 1
+  %19 = getelementptr inbounds nuw %struct.gmx_sparsematrix_entry, ptr %13, i64 %indvars.iv, i32 1
   %20 = load float, ptr %19, align 4
   br label %._crit_edge
 
@@ -252,7 +252,7 @@ define noundef float @_Z22gmx_sparsematrix_valueP16gmx_sparsematrixii(ptr nocapt
 
 ; Function Attrs: mustprogress uwtable
 define void @_Z32gmx_sparsematrix_increment_valueP16gmx_sparsematrixiif(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, float noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = sext i32 %1 to i64
   %7 = load ptr, ptr %5, align 8
   %8 = getelementptr inbounds i32, ptr %7, i64 %6
@@ -261,7 +261,7 @@ define void @_Z32gmx_sparsematrix_increment_valueP16gmx_sparsematrixiif(ptr noca
   br i1 %10, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds ptr, ptr %12, i64 %6
   %14 = load ptr, ptr %13, align 8
@@ -270,7 +270,7 @@ define void @_Z32gmx_sparsematrix_increment_valueP16gmx_sparsematrixiif(ptr noca
 
 16:                                               ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
-  %17 = getelementptr inbounds %struct.gmx_sparsematrix_entry, ptr %14, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw %struct.gmx_sparsematrix_entry, ptr %14, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, %2
   br i1 %19, label %._crit_edge, label %20
@@ -283,7 +283,7 @@ define void @_Z32gmx_sparsematrix_increment_valueP16gmx_sparsematrixiif(ptr noca
   br i1 %.not, label %16, label %.loopexit, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %16
-  %23 = getelementptr inbounds %struct.gmx_sparsematrix_entry, ptr %14, i64 %indvars.iv, i32 1
+  %23 = getelementptr inbounds nuw %struct.gmx_sparsematrix_entry, ptr %14, i64 %indvars.iv, i32 1
   %24 = load float, ptr %23, align 4
   %25 = fadd float %3, %24
   store float %25, ptr %23, align 4
@@ -291,7 +291,7 @@ define void @_Z32gmx_sparsematrix_increment_valueP16gmx_sparsematrixiif(ptr noca
 
 .loopexit:                                        ; preds = %20, %4
   %.lcssa.ph = phi i32 [ %9, %4 ], [ %21, %20 ]
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i32, ptr %27, i64 %6
   %29 = load i32, ptr %28, align 4
@@ -301,7 +301,7 @@ define void @_Z32gmx_sparsematrix_increment_valueP16gmx_sparsematrixiif(ptr noca
 31:                                               ; preds = %.loopexit
   %32 = add nsw i32 %.lcssa.ph, 100
   store i32 %32, ptr %28, align 4
-  %33 = getelementptr inbounds i8, ptr %0, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds ptr, ptr %34, i64 %6
   %36 = load ptr, ptr %35, align 8
@@ -326,7 +326,7 @@ define void @_Z32gmx_sparsematrix_increment_valueP16gmx_sparsematrixiif(ptr noca
   br label %46
 
 46:                                               ; preds = %.sink.split, %.loopexit
-  %47 = getelementptr inbounds i8, ptr %0, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds ptr, ptr %48, i64 %6
   %50 = load ptr, ptr %49, align 8
@@ -358,27 +358,27 @@ define void @_Z32gmx_sparsematrix_increment_valueP16gmx_sparsematrixiif(ptr noca
 
 ; Function Attrs: mustprogress nofree uwtable
 define void @_Z25gmx_sparsematrix_compressP16gmx_sparsematrix(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.preheader.lr.ph, label %._crit_edge48
 
 .preheader.lr.ph:                                 ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
   %indvars.iv50 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next51, %._crit_edge ]
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv50
+  %8 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv50
   %9 = load i32, ptr %8, align 4
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %.lr.ph.preheader, label %.critedge.._crit_edge_crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv50
+  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv50
   %13 = load ptr, ptr %12, align 8
   %14 = zext nneg i32 %9 to i64
   %15 = getelementptr %struct.gmx_sparsematrix_entry, ptr %13, i64 %14
@@ -394,7 +394,7 @@ define void @_Z25gmx_sparsematrix_compressP16gmx_sparsematrix(ptr nocapture noun
 
 .lr.ph:                                           ; preds = %.lr.ph66
   %19 = load ptr, ptr %5, align 8
-  %20 = getelementptr inbounds ptr, ptr %19, i64 %indvars.iv50
+  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv50
   %21 = load ptr, ptr %20, align 8
   %22 = zext nneg i32 %31 to i64
   %23 = getelementptr %struct.gmx_sparsematrix_entry, ptr %21, i64 %22
@@ -409,7 +409,7 @@ define void @_Z25gmx_sparsematrix_compressP16gmx_sparsematrix(ptr nocapture noun
   %28 = add nsw i32 %.pre.pre65, -1
   store i32 %28, ptr %27, align 4
   %29 = load ptr, ptr %6, align 8
-  %30 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv50
+  %30 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv50
   %31 = load i32, ptr %30, align 4
   %32 = icmp sgt i32 %31, 0
   br i1 %32, label %.lr.ph, label %.critedge.._crit_edge_crit_edge, !llvm.loop !14
@@ -424,9 +424,9 @@ define void @_Z25gmx_sparsematrix_compressP16gmx_sparsematrix(ptr nocapture noun
   %indvars.iv = phi i64 [ %indvars.iv.next, %61 ], [ 0, %.lr.ph45.preheader ]
   %34 = phi i32 [ %64, %61 ], [ %.ph69, %.lr.ph45.preheader ]
   %35 = load ptr, ptr %5, align 8
-  %36 = getelementptr inbounds ptr, ptr %35, i64 %indvars.iv50
+  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv50
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds %struct.gmx_sparsematrix_entry, ptr %37, i64 %indvars.iv, i32 1
+  %38 = getelementptr inbounds nuw %struct.gmx_sparsematrix_entry, ptr %37, i64 %indvars.iv, i32 1
   %39 = load float, ptr %38, align 4
   %40 = fcmp oeq float %39, 0.000000e+00
   br i1 %40, label %41, label %61
@@ -438,19 +438,19 @@ define void @_Z25gmx_sparsematrix_compressP16gmx_sparsematrix(ptr nocapture noun
   %45 = load float, ptr %44, align 4
   store float %45, ptr %38, align 4
   %46 = load ptr, ptr %5, align 8
-  %47 = getelementptr inbounds ptr, ptr %46, i64 %indvars.iv50
+  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv50
   %48 = load ptr, ptr %47, align 8
   %49 = load ptr, ptr %6, align 8
-  %50 = getelementptr inbounds i32, ptr %49, i64 %indvars.iv50
+  %50 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv50
   %51 = load i32, ptr %50, align 4
   %52 = sext i32 %51 to i64
   %53 = getelementptr %struct.gmx_sparsematrix_entry, ptr %48, i64 %52
   %54 = getelementptr i8, ptr %53, i64 -8
   %55 = load i32, ptr %54, align 4
-  %56 = getelementptr inbounds %struct.gmx_sparsematrix_entry, ptr %48, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw %struct.gmx_sparsematrix_entry, ptr %48, i64 %indvars.iv
   store i32 %55, ptr %56, align 4
   %57 = load ptr, ptr %6, align 8
-  %58 = getelementptr inbounds i32, ptr %57, i64 %indvars.iv50
+  %58 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv50
   %59 = load i32, ptr %58, align 4
   %60 = add nsw i32 %59, -1
   store i32 %60, ptr %58, align 4
@@ -460,7 +460,7 @@ define void @_Z25gmx_sparsematrix_compressP16gmx_sparsematrix(ptr nocapture noun
 61:                                               ; preds = %.lr.ph45, %41
   %62 = phi ptr [ %33, %.lr.ph45 ], [ %.pre53, %41 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %63 = getelementptr inbounds i32, ptr %62, i64 %indvars.iv50
+  %63 = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv50
   %64 = load i32, ptr %63, align 4
   %65 = sext i32 %64 to i64
   %66 = icmp slt i64 %indvars.iv.next, %65
@@ -469,7 +469,7 @@ define void @_Z25gmx_sparsematrix_compressP16gmx_sparsematrix(ptr nocapture noun
 ._crit_edge:                                      ; preds = %61, %.critedge.._crit_edge_crit_edge
   %.pre-phi = phi i64 [ %.pre55, %.critedge.._crit_edge_crit_edge ], [ %65, %61 ]
   %67 = load ptr, ptr %5, align 8
-  %68 = getelementptr inbounds ptr, ptr %67, i64 %indvars.iv50
+  %68 = getelementptr inbounds nuw ptr, ptr %67, i64 %indvars.iv50
   %69 = load ptr, ptr %68, align 8
   tail call void @qsort(ptr noundef %69, i64 noundef %.pre-phi, i64 noundef 8, ptr noundef nonnull @_ZL15compare_columnsPKvS0_)
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
@@ -495,14 +495,14 @@ define internal noundef range(i32 -1, 2) i32 @_ZL15compare_columnsPKvS0_(ptr noc
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_Z32gmx_sparsematrix_vector_multiplyP16gmx_sparsematrixPfS1_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #7 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
-  %7 = getelementptr inbounds float, ptr %2, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
   store float 0.000000e+00, ptr %7, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %8 = load i32, ptr %4, align 4
@@ -520,27 +520,27 @@ define void @_Z32gmx_sparsematrix_vector_multiplyP16gmx_sparsematrixPfS1_(ptr no
   br i1 %11, label %.lr.ph66, label %.loopexit
 
 .lr.ph66:                                         ; preds = %.preheader57
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %54
 
 .preheader:                                       ; preds = %._crit_edge
   br i1 %11, label %.lr.ph74, label %.loopexit
 
 .lr.ph74:                                         ; preds = %.preheader
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %18
 
 18:                                               ; preds = %.lr.ph74, %._crit_edge71
   %indvars.iv87 = phi i64 [ 0, %.lr.ph74 ], [ %indvars.iv.next88, %._crit_edge71 ]
-  %19 = getelementptr inbounds float, ptr %1, i64 %indvars.iv87
+  %19 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv87
   %20 = load float, ptr %19, align 4
   %21 = load ptr, ptr %16, align 8
-  %22 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv87
+  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv87
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %17, align 8
-  %25 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv87
+  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv87
   %26 = load i32, ptr %25, align 4
   %27 = icmp sgt i32 %26, 0
   br i1 %27, label %.lr.ph70, label %._crit_edge71
@@ -549,9 +549,9 @@ define void @_Z32gmx_sparsematrix_vector_multiplyP16gmx_sparsematrixPfS1_(ptr no
   %28 = phi ptr [ %43, %42 ], [ %24, %18 ]
   %indvars.iv84 = phi i64 [ %indvars.iv.next85, %42 ], [ 0, %18 ]
   %.05567 = phi float [ %36, %42 ], [ 0.000000e+00, %18 ]
-  %29 = getelementptr inbounds %struct.gmx_sparsematrix_entry, ptr %23, i64 %indvars.iv84
+  %29 = getelementptr inbounds nuw %struct.gmx_sparsematrix_entry, ptr %23, i64 %indvars.iv84
   %30 = load i32, ptr %29, align 4
-  %31 = getelementptr inbounds i8, ptr %29, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %32 = load float, ptr %31, align 4
   %33 = sext i32 %30 to i64
   %34 = getelementptr inbounds float, ptr %1, i64 %33
@@ -572,7 +572,7 @@ define void @_Z32gmx_sparsematrix_vector_multiplyP16gmx_sparsematrixPfS1_(ptr no
 42:                                               ; preds = %.lr.ph70, %38
   %43 = phi ptr [ %28, %.lr.ph70 ], [ %.pre, %38 ]
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
-  %44 = getelementptr inbounds i32, ptr %43, i64 %indvars.iv87
+  %44 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv87
   %45 = load i32, ptr %44, align 4
   %46 = sext i32 %45 to i64
   %47 = icmp slt i64 %indvars.iv.next85, %46
@@ -580,7 +580,7 @@ define void @_Z32gmx_sparsematrix_vector_multiplyP16gmx_sparsematrixPfS1_(ptr no
 
 ._crit_edge71:                                    ; preds = %42, %18
   %.055.lcssa = phi float [ 0.000000e+00, %18 ], [ %36, %42 ]
-  %48 = getelementptr inbounds float, ptr %2, i64 %indvars.iv87
+  %48 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv87
   %49 = load float, ptr %48, align 4
   %50 = fadd float %.055.lcssa, %49
   store float %50, ptr %48, align 4
@@ -593,10 +593,10 @@ define void @_Z32gmx_sparsematrix_vector_multiplyP16gmx_sparsematrixPfS1_(ptr no
 54:                                               ; preds = %.lr.ph66, %._crit_edge64
   %indvars.iv81 = phi i64 [ 0, %.lr.ph66 ], [ %indvars.iv.next82, %._crit_edge64 ]
   %55 = load ptr, ptr %14, align 8
-  %56 = getelementptr inbounds ptr, ptr %55, i64 %indvars.iv81
+  %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv81
   %57 = load ptr, ptr %56, align 8
   %58 = load ptr, ptr %15, align 8
-  %59 = getelementptr inbounds i32, ptr %58, i64 %indvars.iv81
+  %59 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv81
   %60 = load i32, ptr %59, align 4
   %61 = icmp sgt i32 %60, 0
   br i1 %61, label %.lr.ph63.preheader, label %._crit_edge64
@@ -608,9 +608,9 @@ define void @_Z32gmx_sparsematrix_vector_multiplyP16gmx_sparsematrixPfS1_(ptr no
 .lr.ph63:                                         ; preds = %.lr.ph63.preheader, %.lr.ph63
   %indvars.iv78 = phi i64 [ 0, %.lr.ph63.preheader ], [ %indvars.iv.next79, %.lr.ph63 ]
   %.15660 = phi float [ 0.000000e+00, %.lr.ph63.preheader ], [ %69, %.lr.ph63 ]
-  %62 = getelementptr inbounds %struct.gmx_sparsematrix_entry, ptr %57, i64 %indvars.iv78
+  %62 = getelementptr inbounds nuw %struct.gmx_sparsematrix_entry, ptr %57, i64 %indvars.iv78
   %63 = load i32, ptr %62, align 4
-  %64 = getelementptr inbounds i8, ptr %62, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 4
   %65 = load float, ptr %64, align 4
   %66 = sext i32 %63 to i64
   %67 = getelementptr inbounds float, ptr %1, i64 %66
@@ -622,7 +622,7 @@ define void @_Z32gmx_sparsematrix_vector_multiplyP16gmx_sparsematrixPfS1_(ptr no
 
 ._crit_edge64:                                    ; preds = %.lr.ph63, %54
   %.156.lcssa = phi float [ 0.000000e+00, %54 ], [ %69, %.lr.ph63 ]
-  %70 = getelementptr inbounds float, ptr %2, i64 %indvars.iv81
+  %70 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv81
   %71 = load float, ptr %70, align 4
   %72 = fadd float %.156.lcssa, %71
   store float %72, ptr %70, align 4

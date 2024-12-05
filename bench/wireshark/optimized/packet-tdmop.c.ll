@@ -113,7 +113,7 @@ define internal i32 @dissect_tdmop(ptr noundef %0, ptr noundef %1, ptr noundef %
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #3
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @col_set_str(ptr noundef %10, i32 noundef 34, ptr noundef nonnull @.str.31) #3
   %11 = load ptr, ptr %9, align 8
@@ -139,8 +139,8 @@ define internal i32 @dissect_tdmop(ptr noundef %0, ptr noundef %1, ptr noundef %
   %24 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %20, i32 noundef %23, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %6) #3
   %25 = load i32, ptr @hf_tdmop_SrcCh, align 4
   %26 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %20, i32 noundef %25, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %7) #3
-  %27 = getelementptr inbounds i8, ptr %1, i64 208
-  %28 = getelementptr inbounds i8, ptr %1, i64 232
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %29 = load i32, ptr %7, align 4
   %30 = load i32, ptr %6, align 4
   call void @conversation_set_conv_addr_port_endpoints(ptr noundef nonnull %1, ptr noundef nonnull %27, ptr noundef nonnull %28, i32 noundef 16, i32 noundef %29, i32 noundef %30) #3
@@ -268,7 +268,7 @@ define internal i32 @dissect_tdmop(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not121, label %._crit_edge.thread, label %99
 
 99:                                               ; preds = %._crit_edge
-  %100 = getelementptr inbounds i8, ptr %1, i64 408
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %101 = load ptr, ptr %100, align 8
   %102 = zext i32 %.3 to i64
   %103 = call noalias ptr @wmem_memdup(ptr noundef %101, ptr noundef nonnull %5, i64 noundef %102) #3

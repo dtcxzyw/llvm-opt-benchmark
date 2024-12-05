@@ -217,7 +217,7 @@ define noundef i32 @yylex(ptr noundef %0, ptr noundef %1, ptr nocapture readnone
 
 9:                                                ; preds = %6, %6
   %10 = load i64, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #9
   %.not31 = icmp eq i32 %13, 0
@@ -317,9 +317,9 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   store i64 0, ptr %6, align 8
   store i64 128, ptr %11, align 8
   store i64 0, ptr %9, align 16
-  %27 = getelementptr inbounds i8, ptr %14, i64 8
-  %.sroa.2563.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  %.sroa.6.16..sroa_idx = getelementptr inbounds i8, ptr %6, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %.sroa.2563.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.sroa.6.16..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 4
   br label %30
 
 28:                                               ; preds = %2026, %2030, %2093, %106
@@ -330,7 +330,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %.11154 = phi i32 [ 3, %2093 ], [ %.01153, %2026 ], [ %.01153, %2030 ], [ %spec.select, %106 ]
   %.11151 = phi i32 [ %2094, %2093 ], [ %2029, %2026 ], [ %2033, %2030 ], [ %100, %106 ]
   %.1 = phi i32 [ %.7, %2093 ], [ %.9, %2026 ], [ %.9, %2030 ], [ -2, %106 ]
-  %29 = getelementptr inbounds i8, ptr %.11164, i64 2
+  %29 = getelementptr inbounds nuw i8, ptr %.11164, i64 2
   br label %30
 
 30:                                               ; preds = %28, %4
@@ -448,7 +448,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
 
 85:                                               ; preds = %83
   %86 = zext nneg i32 %.5 to i64
-  %87 = getelementptr inbounds [304 x i8], ptr @yytranslate, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw [304 x i8], ptr @yytranslate, i64 0, i64 %86
   %88 = load i8, ptr %87, align 1
   %89 = sext i8 %88 to i32
   br label %90
@@ -462,14 +462,14 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
 
 92:                                               ; preds = %90
   %93 = zext nneg i32 %91 to i64
-  %94 = getelementptr inbounds [2052 x i16], ptr @yycheck, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw [2052 x i16], ptr @yycheck, i64 0, i64 %93
   %95 = load i16, ptr %94, align 2
   %96 = sext i16 %95 to i32
   %.not1218 = icmp eq i32 %.01193, %96
   br i1 %.not1218, label %97, label %110
 
 97:                                               ; preds = %92
-  %98 = getelementptr inbounds [2052 x i16], ptr @yytable, i64 0, i64 %93
+  %98 = getelementptr inbounds nuw [2052 x i16], ptr @yytable, i64 0, i64 %93
   %99 = load i16, ptr %98, align 2
   %100 = sext i16 %99 to i32
   %101 = icmp slt i16 %99, 1
@@ -485,9 +485,9 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
 
 106:                                              ; preds = %97
   %spec.select = call i32 @llvm.usub.sat.i32(i32 %.01153, i32 1)
-  %107 = getelementptr inbounds i8, ptr %.21175, i64 16
+  %107 = getelementptr inbounds nuw i8, ptr %.21175, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %107, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
-  %108 = getelementptr inbounds i8, ptr %.21185, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %.21185, i64 8
   %109 = load i64, ptr %6, align 8
   store i64 %109, ptr %108, align 4
   br label %28
@@ -504,14 +504,14 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %.01191 = phi i32 [ %113, %110 ], [ %105, %104 ]
   %.9 = phi i32 [ %.4, %110 ], [ %.6, %104 ]
   %116 = zext nneg i32 %.01191 to i64
-  %117 = getelementptr inbounds [170 x i8], ptr @yyr2, i64 0, i64 %116
+  %117 = getelementptr inbounds nuw [170 x i8], ptr @yyr2, i64 0, i64 %116
   %118 = load i8, ptr %117, align 1
   %119 = sext i8 %118 to i64
   %120 = sub nsw i64 1, %119
   %121 = getelementptr inbounds %union.YYSTYPE, ptr %.21175, i64 %120
   %122 = load i64, ptr %121, align 8
   store i64 %122, ptr %.sroa.0616, align 8
-  %.sroa.179.0..sroa_idx = getelementptr inbounds i8, ptr %121, i64 8
+  %.sroa.179.0..sroa_idx = getelementptr inbounds nuw i8, ptr %121, i64 8
   %.sroa.179.0.copyload = load ptr, ptr %.sroa.179.0..sroa_idx, align 8
   %.not1220 = icmp eq i8 %118, 0
   br i1 %.not1220, label %130, label %123
@@ -519,14 +519,14 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
 123:                                              ; preds = %115
   %124 = sub nsw i64 0, %119
   %125 = getelementptr inbounds %struct.location, ptr %.21185, i64 %124
-  %126 = getelementptr inbounds i8, ptr %125, i64 8
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
   %127 = load i32, ptr %126, align 4
-  %128 = getelementptr inbounds i8, ptr %.21185, i64 4
+  %128 = getelementptr inbounds nuw i8, ptr %.21185, i64 4
   %129 = load i32, ptr %128, align 4
   br label %133
 
 130:                                              ; preds = %115
-  %131 = getelementptr inbounds i8, ptr %.21185, i64 4
+  %131 = getelementptr inbounds nuw i8, ptr %.21185, i64 4
   %132 = load i32, ptr %131, align 4
   br label %133
 
@@ -723,7 +723,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %150 = extractvalue { ptr, ptr } %149, 0
   %151 = extractvalue { ptr, ptr } %149, 1
   %152 = load ptr, ptr %.21175, align 8
-  %153 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %153 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %154 = load ptr, ptr %153, align 8
   %155 = call { ptr, ptr } @block_join(ptr %150, ptr %151, ptr %152, ptr %154) #9
   %156 = extractvalue { ptr, ptr } %155, 0
@@ -745,7 +745,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %168 = extractvalue { ptr, ptr } %167, 0
   %169 = extractvalue { ptr, ptr } %167, 1
   %170 = load ptr, ptr %.21175, align 8
-  %171 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %171 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %172 = load ptr, ptr %171, align 8
   %173 = call { ptr, ptr } @block_join(ptr %168, ptr %169, ptr %170, ptr %172) #9
   %174 = extractvalue { ptr, ptr } %173, 0
@@ -831,7 +831,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %215 = getelementptr inbounds i8, ptr %.21175, i64 -8
   %216 = load ptr, ptr %215, align 8
   %217 = load ptr, ptr %.21175, align 8
-  %218 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %218 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %219 = load ptr, ptr %218, align 8
   %220 = call { ptr, ptr } @block_join(ptr %214, ptr %216, ptr %217, ptr %219) #9
   %221 = extractvalue { ptr, ptr } %220, 0
@@ -852,7 +852,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %230 = getelementptr inbounds i8, ptr %.21175, i64 -8
   %231 = load ptr, ptr %230, align 8
   %232 = load ptr, ptr %.21175, align 8
-  %233 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %233 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %234 = load ptr, ptr %233, align 8
   %235 = call { ptr, ptr } @block_join(ptr %229, ptr %231, ptr %232, ptr %234) #9
   %236 = extractvalue { ptr, ptr } %235, 0
@@ -866,7 +866,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %241 = getelementptr inbounds i8, ptr %.21175, i64 -8
   %242 = load ptr, ptr %241, align 8
   %243 = load ptr, ptr %.21175, align 8
-  %244 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %244 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %245 = load ptr, ptr %244, align 8
   %246 = call { ptr, ptr } @block_bind_referenced(ptr %240, ptr %242, ptr %243, ptr %245, i32 noundef 128) #9
   %247 = extractvalue { ptr, ptr } %246, 0
@@ -884,7 +884,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %256 = getelementptr inbounds i8, ptr %.21175, i64 -24
   %257 = load ptr, ptr %256, align 8
   %258 = load ptr, ptr %.21175, align 8
-  %259 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %259 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %260 = load ptr, ptr %259, align 8
   %261 = call { ptr, ptr } @gen_destructure(ptr %252, ptr %254, ptr %255, ptr %257, ptr %258, ptr %260) #9
   %262 = extractvalue { ptr, ptr } %261, 0
@@ -968,7 +968,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %326 = getelementptr inbounds i8, ptr %.21175, i64 -8
   %327 = load ptr, ptr %326, align 8
   %328 = load ptr, ptr %.21175, align 8
-  %329 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %329 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %330 = load ptr, ptr %329, align 8
   %331 = call { ptr, ptr } @gen_cond(ptr %322, ptr %324, ptr %325, ptr %327, ptr %328, ptr %330) #9
   %332 = extractvalue { ptr, ptr } %331, 0
@@ -996,7 +996,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %340 = getelementptr inbounds i8, ptr %.21175, i64 -24
   %341 = load ptr, ptr %340, align 8
   %342 = load ptr, ptr %.21175, align 8
-  %343 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %343 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %344 = load ptr, ptr %343, align 8
   %345 = call { ptr, ptr } @gen_try(ptr %339, ptr %341, ptr %342, ptr %344) #9
   %346 = extractvalue { ptr, ptr } %345, 0
@@ -1009,7 +1009,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %350 = extractvalue { ptr, ptr } %349, 0
   %351 = extractvalue { ptr, ptr } %349, 1
   %352 = load ptr, ptr %.21175, align 8
-  %353 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %353 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %354 = load ptr, ptr %353, align 8
   %355 = call { ptr, ptr } @gen_try(ptr %352, ptr %354, ptr %350, ptr %351) #9
   %356 = extractvalue { ptr, ptr } %355, 0
@@ -1042,7 +1042,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %369 = extractvalue { i64, ptr } %367, 1
   %370 = call ptr @jv_string_value(i64 %368, ptr %369) #9
   %371 = load ptr, ptr %.21175, align 8
-  %372 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %372 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %373 = load ptr, ptr %372, align 8
   %374 = call { ptr, ptr } @gen_label(ptr noundef %370, ptr %371, ptr %373) #9
   %375 = extractvalue { ptr, ptr } %374, 0
@@ -1084,7 +1084,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %399 = extractvalue { ptr, ptr } %398, 0
   %400 = extractvalue { ptr, ptr } %398, 1
   %401 = load ptr, ptr %.21175, align 8
-  %402 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %402 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %403 = load ptr, ptr %402, align 8
   %404 = call { ptr, ptr } @gen_lambda(ptr %401, ptr %403) #9
   %405 = extractvalue { ptr, ptr } %404, 0
@@ -1104,7 +1104,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %416 = getelementptr inbounds i8, ptr %.21175, i64 -24
   %417 = load ptr, ptr %416, align 8
   %418 = load ptr, ptr %.21175, align 8
-  %419 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %419 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %420 = load ptr, ptr %419, align 8
   %421 = call { ptr, ptr } @gen_or(ptr %415, ptr %417, ptr %418, ptr %420) #9
   %422 = extractvalue { ptr, ptr } %421, 0
@@ -1118,7 +1118,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %427 = getelementptr inbounds i8, ptr %.21175, i64 -24
   %428 = load ptr, ptr %427, align 8
   %429 = load ptr, ptr %.21175, align 8
-  %430 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %430 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %431 = load ptr, ptr %430, align 8
   %432 = call { ptr, ptr } @gen_and(ptr %426, ptr %428, ptr %429, ptr %431) #9
   %433 = extractvalue { ptr, ptr } %432, 0
@@ -1132,7 +1132,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %438 = getelementptr inbounds i8, ptr %.21175, i64 -24
   %439 = load ptr, ptr %438, align 8
   %440 = load ptr, ptr %.21175, align 8
-  %441 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %441 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %442 = load ptr, ptr %441, align 8
   %443 = call { ptr, ptr } @gen_definedor(ptr %437, ptr %439, ptr %440, ptr %442) #9
   %444 = extractvalue { ptr, ptr } %443, 0
@@ -1146,7 +1146,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %449 = getelementptr inbounds i8, ptr %.21175, i64 -24
   %450 = load ptr, ptr %449, align 8
   %451 = load ptr, ptr %.21175, align 8
-  %452 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %452 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %453 = load ptr, ptr %452, align 8
   %454 = call fastcc { ptr, ptr } @gen_definedor_assign(ptr %448, ptr %450, ptr %451, ptr %453)
   %455 = extractvalue { ptr, ptr } %454, 0
@@ -1163,7 +1163,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %463 = extractvalue { ptr, ptr } %462, 0
   %464 = extractvalue { ptr, ptr } %462, 1
   %465 = load ptr, ptr %.21175, align 8
-  %466 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %466 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %467 = load ptr, ptr %466, align 8
   %468 = call { ptr, ptr } @gen_lambda(ptr %465, ptr %467) #9
   %469 = extractvalue { ptr, ptr } %468, 0
@@ -1183,7 +1183,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %480 = getelementptr inbounds i8, ptr %.21175, i64 -24
   %481 = load ptr, ptr %480, align 8
   %482 = load ptr, ptr %.21175, align 8
-  %483 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %483 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %484 = load ptr, ptr %483, align 8
   %485 = call { ptr, ptr } @block_join(ptr %479, ptr %481, ptr %482, ptr %484) #9
   %486 = extractvalue { ptr, ptr } %485, 0
@@ -1197,7 +1197,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %491 = getelementptr inbounds i8, ptr %.21175, i64 -24
   %492 = load ptr, ptr %491, align 8
   %493 = load ptr, ptr %.21175, align 8
-  %494 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %494 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %495 = load ptr, ptr %494, align 8
   %496 = call { ptr, ptr } @gen_both(ptr %490, ptr %492, ptr %493, ptr %495) #9
   %497 = extractvalue { ptr, ptr } %496, 0
@@ -1211,7 +1211,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %502 = getelementptr inbounds i8, ptr %.21175, i64 -24
   %503 = load ptr, ptr %502, align 8
   %504 = load ptr, ptr %.21175, align 8
-  %505 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %505 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %506 = load ptr, ptr %505, align 8
   %507 = call fastcc { ptr, ptr } @gen_binop(ptr %501, ptr %503, ptr %504, ptr %506, i32 noundef 43)
   %508 = extractvalue { ptr, ptr } %507, 0
@@ -1225,7 +1225,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %513 = getelementptr inbounds i8, ptr %.21175, i64 -24
   %514 = load ptr, ptr %513, align 8
   %515 = load ptr, ptr %.21175, align 8
-  %516 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %516 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %517 = load ptr, ptr %516, align 8
   %518 = call fastcc { ptr, ptr } @gen_update(ptr %512, ptr %514, ptr %515, ptr %517, i32 noundef 43)
   %519 = extractvalue { ptr, ptr } %518, 0
@@ -1241,7 +1241,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %526 = extractvalue { ptr, ptr } %525, 0
   %527 = extractvalue { ptr, ptr } %525, 1
   %528 = load ptr, ptr %.21175, align 8
-  %529 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %529 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %530 = load ptr, ptr %529, align 8
   %531 = call { ptr, ptr } @block_join(ptr %528, ptr %530, ptr %526, ptr %527) #9
   %532 = extractvalue { ptr, ptr } %531, 0
@@ -1255,7 +1255,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %537 = getelementptr inbounds i8, ptr %.21175, i64 -24
   %538 = load ptr, ptr %537, align 8
   %539 = load ptr, ptr %.21175, align 8
-  %540 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %540 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %541 = load ptr, ptr %540, align 8
   %542 = call fastcc { ptr, ptr } @gen_binop(ptr %536, ptr %538, ptr %539, ptr %541, i32 noundef 45)
   %543 = extractvalue { ptr, ptr } %542, 0
@@ -1269,7 +1269,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %548 = getelementptr inbounds i8, ptr %.21175, i64 -24
   %549 = load ptr, ptr %548, align 8
   %550 = load ptr, ptr %.21175, align 8
-  %551 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %551 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %552 = load ptr, ptr %551, align 8
   %553 = call fastcc { ptr, ptr } @gen_update(ptr %547, ptr %549, ptr %550, ptr %552, i32 noundef 45)
   %554 = extractvalue { ptr, ptr } %553, 0
@@ -1283,7 +1283,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %559 = getelementptr inbounds i8, ptr %.21175, i64 -24
   %560 = load ptr, ptr %559, align 8
   %561 = load ptr, ptr %.21175, align 8
-  %562 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %562 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %563 = load ptr, ptr %562, align 8
   %564 = call fastcc { ptr, ptr } @gen_binop(ptr %558, ptr %560, ptr %561, ptr %563, i32 noundef 42)
   %565 = extractvalue { ptr, ptr } %564, 0
@@ -1297,7 +1297,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %570 = getelementptr inbounds i8, ptr %.21175, i64 -24
   %571 = load ptr, ptr %570, align 8
   %572 = load ptr, ptr %.21175, align 8
-  %573 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %573 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %574 = load ptr, ptr %573, align 8
   %575 = call fastcc { ptr, ptr } @gen_update(ptr %569, ptr %571, ptr %572, ptr %574, i32 noundef 42)
   %576 = extractvalue { ptr, ptr } %575, 0
@@ -1311,7 +1311,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %581 = getelementptr inbounds i8, ptr %.21175, i64 -24
   %582 = load ptr, ptr %581, align 8
   %583 = load ptr, ptr %.21175, align 8
-  %584 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %584 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %585 = load ptr, ptr %584, align 8
   %586 = call fastcc { ptr, ptr } @gen_binop(ptr %580, ptr %582, ptr %583, ptr %585, i32 noundef 47)
   %587 = extractvalue { ptr, ptr } %586, 0
@@ -1325,7 +1325,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %592 = getelementptr inbounds i8, ptr %.21175, i64 -24
   %593 = load ptr, ptr %592, align 8
   %594 = load ptr, ptr %.21175, align 8
-  %595 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %595 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %596 = load ptr, ptr %595, align 8
   %597 = call fastcc { ptr, ptr } @gen_binop(ptr %591, ptr %593, ptr %594, ptr %596, i32 noundef 37)
   %598 = extractvalue { ptr, ptr } %597, 0
@@ -1339,7 +1339,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %603 = getelementptr inbounds i8, ptr %.21175, i64 -24
   %604 = load ptr, ptr %603, align 8
   %605 = load ptr, ptr %.21175, align 8
-  %606 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %606 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %607 = load ptr, ptr %606, align 8
   %608 = call fastcc { ptr, ptr } @gen_update(ptr %602, ptr %604, ptr %605, ptr %607, i32 noundef 47)
   %609 = extractvalue { ptr, ptr } %608, 0
@@ -1353,7 +1353,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %614 = getelementptr inbounds i8, ptr %.21175, i64 -24
   %615 = load ptr, ptr %614, align 8
   %616 = load ptr, ptr %.21175, align 8
-  %617 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %617 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %618 = load ptr, ptr %617, align 8
   %619 = call fastcc { ptr, ptr } @gen_update(ptr %613, ptr %615, ptr %616, ptr %618, i32 noundef 37)
   %620 = extractvalue { ptr, ptr } %619, 0
@@ -1367,7 +1367,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %625 = getelementptr inbounds i8, ptr %.21175, i64 -24
   %626 = load ptr, ptr %625, align 8
   %627 = load ptr, ptr %.21175, align 8
-  %628 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %628 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %629 = load ptr, ptr %628, align 8
   %630 = call fastcc { ptr, ptr } @gen_binop(ptr %624, ptr %626, ptr %627, ptr %629, i32 noundef 266)
   %631 = extractvalue { ptr, ptr } %630, 0
@@ -1381,7 +1381,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %636 = getelementptr inbounds i8, ptr %.21175, i64 -24
   %637 = load ptr, ptr %636, align 8
   %638 = load ptr, ptr %.21175, align 8
-  %639 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %639 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %640 = load ptr, ptr %639, align 8
   %641 = call fastcc { ptr, ptr } @gen_binop(ptr %635, ptr %637, ptr %638, ptr %640, i32 noundef 267)
   %642 = extractvalue { ptr, ptr } %641, 0
@@ -1395,7 +1395,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %647 = getelementptr inbounds i8, ptr %.21175, i64 -24
   %648 = load ptr, ptr %647, align 8
   %649 = load ptr, ptr %.21175, align 8
-  %650 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %650 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %651 = load ptr, ptr %650, align 8
   %652 = call fastcc { ptr, ptr } @gen_binop(ptr %646, ptr %648, ptr %649, ptr %651, i32 noundef 60)
   %653 = extractvalue { ptr, ptr } %652, 0
@@ -1409,7 +1409,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %658 = getelementptr inbounds i8, ptr %.21175, i64 -24
   %659 = load ptr, ptr %658, align 8
   %660 = load ptr, ptr %.21175, align 8
-  %661 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %661 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %662 = load ptr, ptr %661, align 8
   %663 = call fastcc { ptr, ptr } @gen_binop(ptr %657, ptr %659, ptr %660, ptr %662, i32 noundef 62)
   %664 = extractvalue { ptr, ptr } %663, 0
@@ -1423,7 +1423,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %669 = getelementptr inbounds i8, ptr %.21175, i64 -24
   %670 = load ptr, ptr %669, align 8
   %671 = load ptr, ptr %.21175, align 8
-  %672 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %672 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %673 = load ptr, ptr %672, align 8
   %674 = call fastcc { ptr, ptr } @gen_binop(ptr %668, ptr %670, ptr %671, ptr %673, i32 noundef 294)
   %675 = extractvalue { ptr, ptr } %674, 0
@@ -1437,7 +1437,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %680 = getelementptr inbounds i8, ptr %.21175, i64 -24
   %681 = load ptr, ptr %680, align 8
   %682 = load ptr, ptr %.21175, align 8
-  %683 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %683 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %684 = load ptr, ptr %683, align 8
   %685 = call fastcc { ptr, ptr } @gen_binop(ptr %679, ptr %681, ptr %682, ptr %684, i32 noundef 295)
   %686 = extractvalue { ptr, ptr } %685, 0
@@ -1448,7 +1448,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
 688:                                              ; preds = %133
   %689 = load i64, ptr %.21175, align 8
   store i64 %689, ptr %.sroa.0616, align 8
-  %.sroa.179.0..sroa_idx621 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %.sroa.179.0..sroa_idx621 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %.sroa.179.0.copyload622 = load ptr, ptr %.sroa.179.0..sroa_idx621, align 8
   br label %2004
 
@@ -1541,7 +1541,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %740 = extractvalue { i64, ptr } %738, 1
   %741 = call ptr @jv_string_value(i64 %739, ptr %740) #9
   %742 = load i64, ptr %.21175, align 8
-  %743 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %743 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %744 = load ptr, ptr %743, align 8
   %745 = call ptr @jv_string_value(i64 %742, ptr %744) #9
   %746 = call { ptr, ptr } @gen_import(ptr noundef %741, ptr noundef %745, i32 noundef 1) #9
@@ -1567,7 +1567,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %760 = extractvalue { i64, ptr } %758, 1
   %761 = call ptr @jv_string_value(i64 %759, ptr %760) #9
   %762 = load i64, ptr %.21175, align 8
-  %763 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %763 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %764 = load ptr, ptr %763, align 8
   %765 = call ptr @jv_string_value(i64 %762, ptr %764) #9
   %766 = call { ptr, ptr } @gen_import(ptr noundef %761, ptr noundef %765, i32 noundef 0) #9
@@ -1585,7 +1585,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
 
 773:                                              ; preds = %133
   %774 = load ptr, ptr %.21175, align 8
-  %775 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %775 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %776 = load ptr, ptr %775, align 8
   %777 = call { i64, ptr } @block_const(ptr %774, ptr %776) #9
   %778 = extractvalue { i64, ptr } %777, 0
@@ -1603,7 +1603,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
 
 786:                                              ; preds = %133
   %787 = load ptr, ptr %.21175, align 8
-  %788 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %788 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %789 = load ptr, ptr %788, align 8
   %790 = call i32 @block_is_const(ptr %787, ptr %789) #9
   %.not1224 = icmp eq i32 %790, 0
@@ -1682,7 +1682,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
 839:                                              ; preds = %133
   %840 = load i64, ptr %.21175, align 8
   store i64 %840, ptr %.sroa.0616, align 8
-  %.sroa.179.0..sroa_idx627 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %.sroa.179.0..sroa_idx627 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %.sroa.179.0.copyload628 = load ptr, ptr %.sroa.179.0..sroa_idx627, align 8
   br label %2004
 
@@ -1692,7 +1692,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %844 = getelementptr inbounds i8, ptr %.21175, i64 -24
   %845 = load ptr, ptr %844, align 8
   %846 = load ptr, ptr %.21175, align 8
-  %847 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %847 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %848 = load ptr, ptr %847, align 8
   %849 = call { ptr, ptr } @block_join(ptr %843, ptr %845, ptr %846, ptr %848) #9
   %850 = extractvalue { ptr, ptr } %849, 0
@@ -1702,7 +1702,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
 
 852:                                              ; preds = %133
   %853 = load i64, ptr %.21175, align 8
-  %854 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %854 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %855 = load ptr, ptr %854, align 8
   %856 = call ptr @jv_string_value(i64 %853, ptr %855) #9
   %857 = call { ptr, ptr } @gen_param_regular(ptr noundef %856) #9
@@ -1716,7 +1716,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
 
 862:                                              ; preds = %133
   %863 = load i64, ptr %.21175, align 8
-  %864 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %864 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %865 = load ptr, ptr %864, align 8
   %866 = call ptr @jv_string_value(i64 %863, ptr %865) #9
   %867 = call { ptr, ptr } @gen_param(ptr noundef %866) #9
@@ -1769,7 +1769,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
 893:                                              ; preds = %133
   %894 = getelementptr inbounds i8, ptr %.21175, i64 -16
   %895 = load i64, ptr %.21175, align 8
-  %896 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %896 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %897 = load ptr, ptr %896, align 8
   %898 = call { ptr, ptr } @gen_const(i64 %895, ptr %897) #9
   %899 = extractvalue { ptr, ptr } %898, 0
@@ -1818,7 +1818,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %936 = getelementptr inbounds i8, ptr %.21175, i64 -8
   %937 = load ptr, ptr %936, align 8
   %938 = load ptr, ptr %.21175, align 8
-  %939 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %939 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %940 = load ptr, ptr %939, align 8
   %941 = call { ptr, ptr } @gen_cond(ptr %932, ptr %934, ptr %935, ptr %937, ptr %938, ptr %940) #9
   %942 = extractvalue { ptr, ptr } %941, 0
@@ -1847,7 +1847,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %954 = getelementptr inbounds i8, ptr %.21175, i64 -24
   %955 = load ptr, ptr %954, align 8
   %956 = load ptr, ptr %.21175, align 8
-  %957 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %957 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %958 = load ptr, ptr %957, align 8
   %959 = call { ptr, ptr } @block_join(ptr %953, ptr %955, ptr %956, ptr %958) #9
   %960 = extractvalue { ptr, ptr } %959, 0
@@ -1863,7 +1863,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %967 = extractvalue { ptr, ptr } %966, 0
   %968 = extractvalue { ptr, ptr } %966, 1
   %969 = load ptr, ptr %.21175, align 8
-  %970 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %970 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %971 = load ptr, ptr %970, align 8
   %972 = call { ptr, ptr } @block_join(ptr %969, ptr %971, ptr %967, ptr %968) #9
   %973 = extractvalue { ptr, ptr } %972, 0
@@ -1874,7 +1874,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
 975:                                              ; preds = %133
   %976 = load i64, ptr %.21175, align 8
   store i64 %976, ptr %.sroa.0616, align 8
-  %.sroa.179.0..sroa_idx635 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %.sroa.179.0..sroa_idx635 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %.sroa.179.0.copyload636 = load ptr, ptr %.sroa.179.0..sroa_idx635, align 8
   br label %2004
 
@@ -1897,7 +1897,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
 
 988:                                              ; preds = %133
   %989 = load i64, ptr %.21175, align 8
-  %990 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %990 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %991 = load ptr, ptr %990, align 8
   %992 = call ptr @jv_string_value(i64 %989, ptr %991) #9
   %993 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.8, ptr noundef %992) #9
@@ -2010,7 +2010,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
 1070:                                             ; preds = %133
   %1071 = getelementptr inbounds i8, ptr %.21175, i64 -16
   %1072 = load i64, ptr %.21175, align 8
-  %1073 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1073 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %1074 = load ptr, ptr %1073, align 8
   %1075 = call { ptr, ptr } @gen_const(i64 %1072, ptr %1074) #9
   %1076 = extractvalue { ptr, ptr } %1075, 0
@@ -2029,7 +2029,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %1086 = extractvalue { ptr, ptr } %1085, 0
   %1087 = extractvalue { ptr, ptr } %1085, 1
   %1088 = load i64, ptr %.21175, align 8
-  %1089 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1089 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %1090 = load ptr, ptr %1089, align 8
   %1091 = call { ptr, ptr } @gen_const(i64 %1088, ptr %1090) #9
   %1092 = extractvalue { ptr, ptr } %1091, 0
@@ -2046,7 +2046,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %1100 = getelementptr inbounds i8, ptr %.21175, i64 -24
   %1101 = load ptr, ptr %1100, align 8
   %1102 = load ptr, ptr %.21175, align 8
-  %1103 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1103 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %1104 = load ptr, ptr %1103, align 8
   %1105 = call fastcc { ptr, ptr } @gen_index(ptr %1099, ptr %1101, ptr %1102, ptr %1104)
   %1106 = extractvalue { ptr, ptr } %1105, 0
@@ -2059,7 +2059,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %1110 = extractvalue { ptr, ptr } %1109, 0
   %1111 = extractvalue { ptr, ptr } %1109, 1
   %1112 = load ptr, ptr %.21175, align 8
-  %1113 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1113 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %1114 = load ptr, ptr %1113, align 8
   %1115 = call fastcc { ptr, ptr } @gen_index(ptr %1110, ptr %1111, ptr %1112, ptr %1114)
   %1116 = extractvalue { ptr, ptr } %1115, 0
@@ -2338,7 +2338,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
 
 1326:                                             ; preds = %133
   %1327 = load i64, ptr %.21175, align 8
-  %1328 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1328 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %1329 = load ptr, ptr %1328, align 8
   %1330 = call { ptr, ptr } @gen_const(i64 %1327, ptr %1329) #9
   %1331 = extractvalue { ptr, ptr } %1330, 0
@@ -2349,7 +2349,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
 1333:                                             ; preds = %133
   %1334 = load i64, ptr %.21175, align 8
   store i64 %1334, ptr %.sroa.0616, align 8
-  %.sroa.179.0..sroa_idx637 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %.sroa.179.0..sroa_idx637 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %.sroa.179.0.copyload638 = load ptr, ptr %.sroa.179.0..sroa_idx637, align 8
   br label %2004
 
@@ -2358,7 +2358,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %1337 = extractvalue { ptr, ptr } %1336, 0
   %1338 = extractvalue { ptr, ptr } %1336, 1
   %1339 = load i64, ptr %.21175, align 8
-  %1340 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1340 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %1341 = load ptr, ptr %1340, align 8
   %1342 = call fastcc { ptr, ptr } @gen_format(ptr %1337, ptr %1338, i64 %1339, ptr %1341)
   %1343 = extractvalue { ptr, ptr } %1342, 0
@@ -2436,7 +2436,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
 
 1393:                                             ; preds = %133
   %1394 = load i64, ptr %.21175, align 8
-  %1395 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1395 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %1396 = load ptr, ptr %1395, align 8
   %1397 = call ptr @jv_string_value(i64 %1394, ptr %1396) #9
   %1398 = call { ptr, ptr } @gen_op_unbound(i32 noundef 7, ptr noundef %1397) #9
@@ -2457,7 +2457,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
 
 1406:                                             ; preds = %133
   %1407 = load i64, ptr %.21175, align 8
-  %1408 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1408 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %1409 = load ptr, ptr %1408, align 8
   %1410 = call ptr @jv_string_value(i64 %1407, ptr %1409) #9
   %1411 = call { ptr, ptr } @gen_op_unbound(i32 noundef 6, ptr noundef %1410) #9
@@ -2485,7 +2485,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
 
 1423:                                             ; preds = %133
   %1424 = load i64, ptr %.21175, align 8
-  %1425 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1425 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %1426 = load ptr, ptr %1425, align 8
   %1427 = call ptr @jv_string_value(i64 %1424, ptr %1426) #9
   %1428 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1427, ptr noundef nonnull dereferenceable(6) @.str.19) #8
@@ -2604,7 +2604,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
 1498:                                             ; preds = %133
   %1499 = load i64, ptr %.21175, align 8
   store i64 %1499, ptr %.sroa.0616, align 8
-  %.sroa.179.0..sroa_idx643 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %.sroa.179.0..sroa_idx643 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %.sroa.179.0.copyload644 = load ptr, ptr %.sroa.179.0..sroa_idx643, align 8
   br label %2004
 
@@ -2614,7 +2614,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %1503 = getelementptr inbounds i8, ptr %.21175, i64 -24
   %1504 = load ptr, ptr %1503, align 8
   %1505 = load ptr, ptr %.21175, align 8
-  %1506 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1506 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %1507 = load ptr, ptr %1506, align 8
   %1508 = call { ptr, ptr } @block_join(ptr %1502, ptr %1504, ptr %1505, ptr %1507) #9
   %1509 = extractvalue { ptr, ptr } %1508, 0
@@ -2624,7 +2624,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
 
 1511:                                             ; preds = %133
   %1512 = load ptr, ptr %.21175, align 8
-  %1513 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1513 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %1514 = load ptr, ptr %1513, align 8
   %1515 = call { ptr, ptr } @gen_lambda(ptr %1512, ptr %1514) #9
   %1516 = extractvalue { ptr, ptr } %1515, 0
@@ -2635,7 +2635,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
 1518:                                             ; preds = %133
   %1519 = getelementptr inbounds i8, ptr %.21175, i64 -32
   %1520 = load ptr, ptr %.21175, align 8
-  %1521 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1521 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %1522 = load ptr, ptr %1521, align 8
   %1523 = call { ptr, ptr } @gen_destructure_alt(ptr %1520, ptr %1522) #9
   %1524 = extractvalue { ptr, ptr } %1523, 0
@@ -2651,7 +2651,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
 
 1532:                                             ; preds = %133
   %1533 = load ptr, ptr %.21175, align 8
-  %1534 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1534 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %1535 = load ptr, ptr %1534, align 8
   %1536 = call { ptr, ptr } @gen_destructure_alt(ptr %1533, ptr %1535) #9
   %1537 = extractvalue { ptr, ptr } %1536, 0
@@ -2665,7 +2665,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %1542 = getelementptr inbounds i8, ptr %.21175, i64 -24
   %1543 = load ptr, ptr %1542, align 8
   %1544 = load ptr, ptr %.21175, align 8
-  %1545 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1545 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %1546 = load ptr, ptr %1545, align 8
   %1547 = call { ptr, ptr } @block_join(ptr %1541, ptr %1543, ptr %1544, ptr %1546) #9
   %1548 = extractvalue { ptr, ptr } %1547, 0
@@ -2676,13 +2676,13 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
 1550:                                             ; preds = %133
   %1551 = load i64, ptr %.21175, align 8
   store i64 %1551, ptr %.sroa.0616, align 8
-  %.sroa.179.0..sroa_idx645 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %.sroa.179.0..sroa_idx645 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %.sroa.179.0.copyload646 = load ptr, ptr %.sroa.179.0..sroa_idx645, align 8
   br label %2004
 
 1552:                                             ; preds = %133
   %1553 = load i64, ptr %.21175, align 8
-  %1554 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1554 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %1555 = load ptr, ptr %1554, align 8
   %1556 = call ptr @jv_string_value(i64 %1553, ptr %1555) #9
   %1557 = call { ptr, ptr } @gen_op_unbound(i32 noundef 8, ptr noundef %1556) #9
@@ -2727,7 +2727,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %1586 = extractvalue { ptr, ptr } %1585, 0
   %1587 = extractvalue { ptr, ptr } %1585, 1
   %1588 = load ptr, ptr %.21175, align 8
-  %1589 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1589 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %1590 = load ptr, ptr %1589, align 8
   %1591 = call { ptr, ptr } @gen_array_matcher(ptr %1586, ptr %1587, ptr %1588, ptr %1590) #9
   %1592 = extractvalue { ptr, ptr } %1591, 0
@@ -2741,7 +2741,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %1597 = getelementptr inbounds i8, ptr %.21175, i64 -24
   %1598 = load ptr, ptr %1597, align 8
   %1599 = load ptr, ptr %.21175, align 8
-  %1600 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1600 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %1601 = load ptr, ptr %1600, align 8
   %1602 = call { ptr, ptr } @gen_array_matcher(ptr %1596, ptr %1598, ptr %1599, ptr %1601) #9
   %1603 = extractvalue { ptr, ptr } %1602, 0
@@ -2752,7 +2752,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
 1605:                                             ; preds = %133
   %1606 = load i64, ptr %.21175, align 8
   store i64 %1606, ptr %.sroa.0616, align 8
-  %.sroa.179.0..sroa_idx647 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %.sroa.179.0..sroa_idx647 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %.sroa.179.0.copyload648 = load ptr, ptr %.sroa.179.0..sroa_idx647, align 8
   br label %2004
 
@@ -2762,7 +2762,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %1610 = getelementptr inbounds i8, ptr %.21175, i64 -24
   %1611 = load ptr, ptr %1610, align 8
   %1612 = load ptr, ptr %.21175, align 8
-  %1613 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1613 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %1614 = load ptr, ptr %1613, align 8
   %1615 = call { ptr, ptr } @block_join(ptr %1609, ptr %1611, ptr %1612, ptr %1614) #9
   %1616 = extractvalue { ptr, ptr } %1615, 0
@@ -2772,7 +2772,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
 
 1618:                                             ; preds = %133
   %1619 = load i64, ptr %.21175, align 8
-  %1620 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1620 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %1621 = load ptr, ptr %1620, align 8
   %1622 = call { ptr, ptr } @gen_const(i64 %1619, ptr %1621) #9
   %1623 = extractvalue { ptr, ptr } %1622, 0
@@ -2810,7 +2810,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %1652 = extractvalue { ptr, ptr } %1651, 0
   %1653 = extractvalue { ptr, ptr } %1651, 1
   %1654 = load ptr, ptr %.21175, align 8
-  %1655 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1655 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %1656 = load ptr, ptr %1655, align 8
   %1657 = call { ptr, ptr } @block_join(ptr %1652, ptr %1653, ptr %1654, ptr %1656) #9
   %1658 = extractvalue { ptr, ptr } %1657, 0
@@ -2830,7 +2830,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %1669 = extractvalue { ptr, ptr } %1668, 0
   %1670 = extractvalue { ptr, ptr } %1668, 1
   %1671 = load ptr, ptr %.21175, align 8
-  %1672 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1672 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %1673 = load ptr, ptr %1672, align 8
   %1674 = call { ptr, ptr } @gen_object_matcher(ptr %1669, ptr %1670, ptr %1671, ptr %1673) #9
   %1675 = extractvalue { ptr, ptr } %1674, 0
@@ -2847,7 +2847,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %1683 = extractvalue { ptr, ptr } %1682, 0
   %1684 = extractvalue { ptr, ptr } %1682, 1
   %1685 = load ptr, ptr %.21175, align 8
-  %1686 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1686 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %1687 = load ptr, ptr %1686, align 8
   %1688 = call { ptr, ptr } @gen_object_matcher(ptr %1683, ptr %1684, ptr %1685, ptr %1687) #9
   %1689 = extractvalue { ptr, ptr } %1688, 0
@@ -2861,7 +2861,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %1694 = getelementptr inbounds i8, ptr %.21175, i64 -24
   %1695 = load ptr, ptr %1694, align 8
   %1696 = load ptr, ptr %.21175, align 8
-  %1697 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1697 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %1698 = load ptr, ptr %1697, align 8
   %1699 = call { ptr, ptr } @gen_object_matcher(ptr %1693, ptr %1695, ptr %1696, ptr %1698) #9
   %1700 = extractvalue { ptr, ptr } %1699, 0
@@ -2896,7 +2896,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %1714 = load ptr, ptr %1703, align 8
   %1715 = load ptr, ptr %1705, align 8
   %1716 = load ptr, ptr %.21175, align 8
-  %1717 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1717 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %1718 = load ptr, ptr %1717, align 8
   %1719 = call { ptr, ptr } @gen_object_matcher(ptr %1714, ptr %1715, ptr %1716, ptr %1718) #9
   %1720 = extractvalue { ptr, ptr } %1719, 0
@@ -2913,7 +2913,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   call void @yyerror(ptr noundef nonnull %24, ptr poison, ptr noundef %1, ptr noundef %2, ptr poison, ptr noundef nonnull @.str.22)
   %1723 = load i64, ptr %.21175, align 8
   store i64 %1723, ptr %.sroa.0616, align 8
-  %.sroa.179.0..sroa_idx649 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %.sroa.179.0..sroa_idx649 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %.sroa.179.0.copyload650 = load ptr, ptr %.sroa.179.0..sroa_idx649, align 8
   br label %2004
 
@@ -3053,7 +3053,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
 1800:                                             ; preds = %133
   %1801 = load i64, ptr %.21175, align 8
   store i64 %1801, ptr %.sroa.0616, align 8
-  %.sroa.179.0..sroa_idx651 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %.sroa.179.0..sroa_idx651 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %.sroa.179.0.copyload652 = load ptr, ptr %.sroa.179.0..sroa_idx651, align 8
   br label %2004
 
@@ -3063,7 +3063,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %1805 = getelementptr inbounds i8, ptr %.21175, i64 -24
   %1806 = load ptr, ptr %1805, align 8
   %1807 = load ptr, ptr %.21175, align 8
-  %1808 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1808 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %1809 = load ptr, ptr %1808, align 8
   %1810 = call { ptr, ptr } @block_join(ptr %1804, ptr %1806, ptr %1807, ptr %1809) #9
   %1811 = extractvalue { ptr, ptr } %1810, 0
@@ -3074,7 +3074,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
 1813:                                             ; preds = %133
   %1814 = load i64, ptr %.21175, align 8
   store i64 %1814, ptr %.sroa.0616, align 8
-  %.sroa.179.0..sroa_idx653 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %.sroa.179.0..sroa_idx653 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %.sroa.179.0.copyload654 = load ptr, ptr %.sroa.179.0..sroa_idx653, align 8
   br label %2004
 
@@ -3087,7 +3087,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %1821 = extractvalue { ptr, ptr } %1820, 0
   %1822 = extractvalue { ptr, ptr } %1820, 1
   %1823 = load ptr, ptr %.21175, align 8
-  %1824 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1824 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %1825 = load ptr, ptr %1824, align 8
   %1826 = call { ptr, ptr } @gen_dictpair(ptr %1821, ptr %1822, ptr %1823, ptr %1825) #9
   %1827 = extractvalue { ptr, ptr } %1826, 0
@@ -3104,7 +3104,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %1835 = extractvalue { ptr, ptr } %1834, 0
   %1836 = extractvalue { ptr, ptr } %1834, 1
   %1837 = load ptr, ptr %.21175, align 8
-  %1838 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1838 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %1839 = load ptr, ptr %1838, align 8
   %1840 = call { ptr, ptr } @gen_dictpair(ptr %1835, ptr %1836, ptr %1837, ptr %1839) #9
   %1841 = extractvalue { ptr, ptr } %1840, 0
@@ -3118,7 +3118,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %1846 = getelementptr inbounds i8, ptr %.21175, i64 -24
   %1847 = load ptr, ptr %1846, align 8
   %1848 = load ptr, ptr %.21175, align 8
-  %1849 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1849 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %1850 = load ptr, ptr %1849, align 8
   %1851 = call { ptr, ptr } @gen_dictpair(ptr %1845, ptr %1847, ptr %1848, ptr %1850) #9
   %1852 = extractvalue { ptr, ptr } %1851, 0
@@ -3149,7 +3149,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %1874 = extractvalue { ptr, ptr } %1873, 0
   %1875 = extractvalue { ptr, ptr } %1873, 1
   %1876 = load ptr, ptr %.21175, align 8
-  %1877 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1877 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %1878 = load ptr, ptr %1877, align 8
   %1879 = call { ptr, ptr } @gen_dictpair(ptr %1876, ptr %1878, ptr %1874, ptr %1875) #9
   %1880 = extractvalue { ptr, ptr } %1879, 0
@@ -3174,7 +3174,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %1892 = extractvalue { ptr, ptr } %1891, 0
   %1893 = extractvalue { ptr, ptr } %1891, 1
   %1894 = load ptr, ptr %.21175, align 8
-  %1895 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1895 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %1896 = load ptr, ptr %1895, align 8
   %1897 = call { ptr, ptr } @gen_dictpair(ptr %1892, ptr %1893, ptr %1894, ptr %1896) #9
   %1898 = extractvalue { ptr, ptr } %1897, 0
@@ -3187,7 +3187,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
 
 1902:                                             ; preds = %133
   %1903 = load i64, ptr %.21175, align 8
-  %1904 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1904 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %1905 = load ptr, ptr %1904, align 8
   %1906 = call { ptr, ptr } @gen_const(i64 %1903, ptr %1905) #9
   %1907 = extractvalue { ptr, ptr } %1906, 0
@@ -3213,7 +3213,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
 
 1921:                                             ; preds = %133
   %1922 = load i64, ptr %.21175, align 8
-  %1923 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1923 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %1924 = load ptr, ptr %1923, align 8
   %1925 = call { i64, ptr } @jv_copy(i64 %1922, ptr %1924) #9
   %1926 = extractvalue { i64, ptr } %1925, 0
@@ -3256,7 +3256,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
 
 1958:                                             ; preds = %133
   %1959 = load i64, ptr %.21175, align 8
-  %1960 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1960 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %1961 = load ptr, ptr %1960, align 8
   %1962 = call { i64, ptr } @jv_copy(i64 %1959, ptr %1961) #9
   %1963 = extractvalue { i64, ptr } %1962, 0
@@ -3308,7 +3308,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %1994 = load ptr, ptr %1983, align 8
   %1995 = load ptr, ptr %1985, align 8
   %1996 = load ptr, ptr %.21175, align 8
-  %1997 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1997 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %1998 = load ptr, ptr %1997, align 8
   %1999 = call { ptr, ptr } @gen_dictpair(ptr %1994, ptr %1995, ptr %1996, ptr %1998) #9
   %2000 = extractvalue { ptr, ptr } %1999, 0
@@ -3325,7 +3325,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   call void @yyerror(ptr noundef nonnull %26, ptr poison, ptr noundef %1, ptr noundef %2, ptr poison, ptr noundef nonnull @.str.22)
   %2003 = load i64, ptr %.21175, align 8
   store i64 %2003, ptr %.sroa.0616, align 8
-  %.sroa.179.0..sroa_idx655 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %.sroa.179.0..sroa_idx655 = getelementptr inbounds nuw i8, ptr %.21175, i64 8
   %.sroa.179.0.copyload656 = load ptr, ptr %.sroa.179.0..sroa_idx655, align 8
   br label %2004
 
@@ -3335,18 +3335,18 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %2006 = getelementptr inbounds %union.YYSTYPE, ptr %.21175, i64 %2005
   %2007 = getelementptr inbounds i16, ptr %.21165, i64 %2005
   %2008 = getelementptr inbounds %struct.location, ptr %.21185, i64 %2005
-  %2009 = getelementptr inbounds i8, ptr %2006, i64 16
+  %2009 = getelementptr inbounds nuw i8, ptr %2006, i64 16
   %.sroa.0616.0..sroa.0616.0..sroa.0616.0. = load i64, ptr %.sroa.0616, align 8
   store i64 %.sroa.0616.0..sroa.0616.0..sroa.0616.0., ptr %2009, align 8
-  %.sroa.179.0..sroa_idx657 = getelementptr inbounds i8, ptr %2006, i64 24
+  %.sroa.179.0..sroa_idx657 = getelementptr inbounds nuw i8, ptr %2006, i64 24
   store ptr %.sroa.179.0, ptr %.sroa.179.0..sroa_idx657, align 8
-  %2010 = getelementptr inbounds i8, ptr %2008, i64 8
+  %2010 = getelementptr inbounds nuw i8, ptr %2008, i64 8
   %.sroa.26.0.insert.ext1435 = zext i32 %.sroa.26.0 to i64
   %.sroa.26.0.insert.shift1436 = shl nuw i64 %.sroa.26.0.insert.ext1435, 32
   %.sroa.01249.0.insert.ext1331 = zext i32 %.sroa.01249.0 to i64
   %.sroa.01249.0.insert.insert1333 = or disjoint i64 %.sroa.26.0.insert.shift1436, %.sroa.01249.0.insert.ext1331
   store i64 %.sroa.01249.0.insert.insert1333, ptr %2010, align 4
-  %2011 = getelementptr inbounds [170 x i8], ptr @yyr1, i64 0, i64 %116
+  %2011 = getelementptr inbounds nuw [170 x i8], ptr @yyr1, i64 0, i64 %116
   %2012 = load i8, ptr %2011, align 1
   %2013 = sext i8 %2012 to i64
   %2014 = add nsw i64 %2013, -70
@@ -3361,13 +3361,13 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
 
 2021:                                             ; preds = %2004
   %2022 = zext nneg i32 %2020 to i64
-  %2023 = getelementptr inbounds [2052 x i16], ptr @yycheck, i64 0, i64 %2022
+  %2023 = getelementptr inbounds nuw [2052 x i16], ptr @yycheck, i64 0, i64 %2022
   %2024 = load i16, ptr %2023, align 2
   %2025 = icmp eq i16 %2024, %2018
   br i1 %2025, label %2026, label %2030
 
 2026:                                             ; preds = %2021
-  %2027 = getelementptr inbounds [2052 x i16], ptr @yytable, i64 0, i64 %2022
+  %2027 = getelementptr inbounds nuw [2052 x i16], ptr @yytable, i64 0, i64 %2022
   %2028 = load i16, ptr %2027, align 2
   %2029 = sext i16 %2028 to i32
   br label %28
@@ -3389,7 +3389,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
 
 2036:                                             ; preds = %.thread
   %2037 = zext nneg i32 %.81446 to i64
-  %2038 = getelementptr inbounds [304 x i8], ptr @yytranslate, i64 0, i64 %2037
+  %2038 = getelementptr inbounds nuw [304 x i8], ptr @yytranslate, i64 0, i64 %2037
   %2039 = load i8, ptr %2038, align 1
   %2040 = sext i8 %2039 to i32
   br label %2041
@@ -3521,12 +3521,12 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
 
 2093:                                             ; preds = %2078
   %2094 = zext nneg i16 %2080 to i32
-  %2095 = getelementptr inbounds i8, ptr %.51178, i64 16
+  %2095 = getelementptr inbounds nuw i8, ptr %.51178, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2095, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
   %.sroa.6.16.copyload = load i32, ptr %.sroa.6.16..sroa_idx, align 4
-  %2096 = getelementptr inbounds i8, ptr %.51188, i64 8
+  %2096 = getelementptr inbounds nuw i8, ptr %.51188, i64 8
   store i32 %.sroa.0606.1, ptr %2096, align 4
-  %2097 = getelementptr inbounds i8, ptr %.51188, i64 12
+  %2097 = getelementptr inbounds nuw i8, ptr %.51188, i64 12
   store i32 %.sroa.6.16.copyload, ptr %2097, align 4
   br label %28
 
@@ -3565,7 +3565,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %.4116214711485 = phi ptr [ %.41162, %2102 ], [ %.11159, %2064 ]
   %.1014731483 = phi i32 [ %.10, %2102 ], [ 0, %2064 ]
   %2103 = zext nneg i32 %.1014731483 to i64
-  %2104 = getelementptr inbounds [304 x i8], ptr @yytranslate, i64 0, i64 %2103
+  %2104 = getelementptr inbounds nuw [304 x i8], ptr @yytranslate, i64 0, i64 %2103
   %2105 = load i8, ptr %2104, align 1
   %2106 = sext i8 %2105 to i32
   br label %2107
@@ -4087,7 +4087,7 @@ define internal fastcc { ptr, ptr } @gen_loc_object(i32 %.0.val, ptr noundef %0)
   %6 = extractvalue { i64, ptr } %5, 0
   %7 = extractvalue { i64, ptr } %5, 1
   %8 = load i64, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call { i64, ptr } @jv_copy(i64 %8, ptr %10) #9
   %12 = extractvalue { i64, ptr } %11, 0
@@ -4165,7 +4165,7 @@ define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr nocapture nounde
 
 3:                                                ; preds = %1
   store i32 %.8.val, ptr %2, align 16
-  %4 = getelementptr inbounds i8, ptr %2, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %.val.val.i = load i16, ptr %.0.val1, align 2
   %5 = sext i16 %.val.val.i to i64
   %6 = getelementptr inbounds [315 x i16], ptr @yypact, i64 0, i64 %5
@@ -4275,7 +4275,7 @@ yy_syntax_error_arguments.exit.thread6:           ; preds = %31, %.thread.i.i, %
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %yytnamerr.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %yytnamerr.exit.thread ]
   %.04217 = phi i64 [ %46, %.lr.ph.preheader ], [ %63, %yytnamerr.exit.thread ]
-  %48 = getelementptr inbounds [5 x i32], ptr %2, i64 0, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [5 x i32], ptr %2, i64 0, i64 %indvars.iv
   %49 = load i32, ptr %48, align 4
   %50 = sext i32 %49 to i64
   %51 = getelementptr inbounds [100 x ptr], ptr @yytname, i64 0, i64 %50
@@ -4287,7 +4287,7 @@ yy_syntax_error_arguments.exit.thread6:           ; preds = %31, %.thread.i.i, %
 .preheader.split.us.i:                            ; preds = %.lr.ph, %60
   %.018.us.i = phi i64 [ %61, %60 ], [ 0, %.lr.ph ]
   %.0.us.i = phi ptr [ %.1.us.i, %60 ], [ %52, %.lr.ph ]
-  %55 = getelementptr inbounds i8, ptr %.0.us.i, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %.0.us.i, i64 1
   %56 = load i8, ptr %55, align 1
   switch i8 %56, label %60 [
     i8 39, label %yytnamerr.exit
@@ -4297,7 +4297,7 @@ yy_syntax_error_arguments.exit.thread6:           ; preds = %31, %.thread.i.i, %
   ]
 
 57:                                               ; preds = %.preheader.split.us.i
-  %58 = getelementptr inbounds i8, ptr %.0.us.i, i64 2
+  %58 = getelementptr inbounds nuw i8, ptr %.0.us.i, i64 2
   %59 = load i8, ptr %58, align 1
   %.not22.us.i = icmp eq i8 %59, 92
   br i1 %.not22.us.i, label %60, label %yytnamerr.exit
@@ -4344,7 +4344,7 @@ yytnamerr.exit.thread:                            ; preds = %.preheader.split.us
   ]
 
 69:                                               ; preds = %.preheader
-  %70 = getelementptr inbounds i8, ptr %.141, i64 1
+  %70 = getelementptr inbounds nuw i8, ptr %.141, i64 1
   %71 = load i8, ptr %70, align 1
   %72 = icmp eq i8 %71, 115
   %73 = icmp slt i32 %.0, %.0.i5
@@ -4366,7 +4366,7 @@ yytnamerr.exit.thread:                            ; preds = %.preheader.split.us
 .preheader.split.i:                               ; preds = %74, %89
   %.018.i = phi i64 [ %91, %89 ], [ 0, %74 ]
   %.0.i51 = phi ptr [ %.1.i, %89 ], [ %81, %74 ]
-  %84 = getelementptr inbounds i8, ptr %.0.i51, i64 1
+  %84 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 1
   %85 = load i8, ptr %84, align 1
   switch i8 %85, label %89 [
     i8 39, label %.loopexit.thread.i
@@ -4376,20 +4376,20 @@ yytnamerr.exit.thread:                            ; preds = %.preheader.split.us
   ]
 
 86:                                               ; preds = %.preheader.split.i
-  %87 = getelementptr inbounds i8, ptr %.0.i51, i64 2
+  %87 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 2
   %88 = load i8, ptr %87, align 1
   %.not22.i = icmp eq i8 %88, 92
   br i1 %.not22.i, label %89, label %.loopexit.thread.i
 
 89:                                               ; preds = %86, %.preheader.split.i
   %.1.i = phi ptr [ %84, %.preheader.split.i ], [ %87, %86 ]
-  %90 = getelementptr inbounds i8, ptr %.036, i64 %.018.i
+  %90 = getelementptr inbounds nuw i8, ptr %.036, i64 %.018.i
   store i8 %85, ptr %90, align 1
   %91 = add nuw nsw i64 %.018.i, 1
   br label %.preheader.split.i
 
 .split.us.thread.i:                               ; preds = %.preheader.split.i
-  %92 = getelementptr inbounds i8, ptr %.036, i64 %.018.i
+  %92 = getelementptr inbounds nuw i8, ptr %.036, i64 %.018.i
   store i8 0, ptr %92, align 1
   br label %yytnamerr.exit58
 
@@ -4405,7 +4405,7 @@ yytnamerr.exit58:                                 ; preds = %69, %.preheader, %.
   %.sink = phi i64 [ 2, %.loopexit.thread.i ], [ 2, %.split.us.thread.i ], [ 1, %.preheader ], [ 1, %69 ]
   %.1 = phi i32 [ %75, %.loopexit.thread.i ], [ %75, %.split.us.thread.i ], [ %.0, %.preheader ], [ %.0, %69 ]
   %97 = getelementptr inbounds i8, ptr %.036, i64 %.sink26
-  %98 = getelementptr inbounds i8, ptr %.141, i64 %.sink
+  %98 = getelementptr inbounds nuw i8, ptr %.141, i64 %.sink
   br label %.preheader, !llvm.loop !8
 
 yy_syntax_error_arguments.exit.thread8:           ; preds = %yytnamerr.exit, %.preheader, %._crit_edge.i.i, %66, %yy_syntax_error_arguments.exit
@@ -4453,231 +4453,231 @@ define internal fastcc void @yydestruct(i32 noundef range(i32 -128, 128) %0, ptr
 
 3:                                                ; preds = %2
   %4 = load i64, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @jv_free(i64 %4, ptr %6) #9
   br label %135
 
 7:                                                ; preds = %2
   %8 = load i64, ptr %1, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @jv_free(i64 %8, ptr %10) #9
   br label %135
 
 11:                                               ; preds = %2
   %12 = load i64, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   tail call void @jv_free(i64 %12, ptr %14) #9
   br label %135
 
 15:                                               ; preds = %2
   %16 = load i64, ptr %1, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call void @jv_free(i64 %16, ptr %18) #9
   br label %135
 
 19:                                               ; preds = %2
   %20 = load i64, ptr %1, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8
   tail call void @jv_free(i64 %20, ptr %22) #9
   br label %135
 
 23:                                               ; preds = %2
   %24 = load i64, ptr %1, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8
   tail call void @jv_free(i64 %24, ptr %26) #9
   br label %135
 
 27:                                               ; preds = %2
   %28 = load ptr, ptr %1, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %30 = load ptr, ptr %29, align 8
   tail call void @block_free(ptr %28, ptr %30) #9
   br label %135
 
 31:                                               ; preds = %2
   %32 = load ptr, ptr %1, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %34 = load ptr, ptr %33, align 8
   tail call void @block_free(ptr %32, ptr %34) #9
   br label %135
 
 35:                                               ; preds = %2
   %36 = load ptr, ptr %1, align 8
-  %37 = getelementptr inbounds i8, ptr %1, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %38 = load ptr, ptr %37, align 8
   tail call void @block_free(ptr %36, ptr %38) #9
   br label %135
 
 39:                                               ; preds = %2
   %40 = load ptr, ptr %1, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %42 = load ptr, ptr %41, align 8
   tail call void @block_free(ptr %40, ptr %42) #9
   br label %135
 
 43:                                               ; preds = %2
   %44 = load ptr, ptr %1, align 8
-  %45 = getelementptr inbounds i8, ptr %1, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %46 = load ptr, ptr %45, align 8
   tail call void @block_free(ptr %44, ptr %46) #9
   br label %135
 
 47:                                               ; preds = %2
   %48 = load ptr, ptr %1, align 8
-  %49 = getelementptr inbounds i8, ptr %1, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %50 = load ptr, ptr %49, align 8
   tail call void @block_free(ptr %48, ptr %50) #9
   br label %135
 
 51:                                               ; preds = %2
   %52 = load ptr, ptr %1, align 8
-  %53 = getelementptr inbounds i8, ptr %1, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %54 = load ptr, ptr %53, align 8
   tail call void @block_free(ptr %52, ptr %54) #9
   br label %135
 
 55:                                               ; preds = %2
   %56 = load ptr, ptr %1, align 8
-  %57 = getelementptr inbounds i8, ptr %1, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %58 = load ptr, ptr %57, align 8
   tail call void @block_free(ptr %56, ptr %58) #9
   br label %135
 
 59:                                               ; preds = %2
   %60 = load ptr, ptr %1, align 8
-  %61 = getelementptr inbounds i8, ptr %1, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %62 = load ptr, ptr %61, align 8
   tail call void @block_free(ptr %60, ptr %62) #9
   br label %135
 
 63:                                               ; preds = %2
   %64 = load ptr, ptr %1, align 8
-  %65 = getelementptr inbounds i8, ptr %1, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %66 = load ptr, ptr %65, align 8
   tail call void @block_free(ptr %64, ptr %66) #9
   br label %135
 
 67:                                               ; preds = %2
   %68 = load i64, ptr %1, align 8
-  %69 = getelementptr inbounds i8, ptr %1, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %70 = load ptr, ptr %69, align 8
   tail call void @jv_free(i64 %68, ptr %70) #9
   br label %135
 
 71:                                               ; preds = %2
   %72 = load ptr, ptr %1, align 8
-  %73 = getelementptr inbounds i8, ptr %1, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %74 = load ptr, ptr %73, align 8
   tail call void @block_free(ptr %72, ptr %74) #9
   br label %135
 
 75:                                               ; preds = %2
   %76 = load ptr, ptr %1, align 8
-  %77 = getelementptr inbounds i8, ptr %1, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %78 = load ptr, ptr %77, align 8
   tail call void @block_free(ptr %76, ptr %78) #9
   br label %135
 
 79:                                               ; preds = %2
   %80 = load ptr, ptr %1, align 8
-  %81 = getelementptr inbounds i8, ptr %1, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %82 = load ptr, ptr %81, align 8
   tail call void @block_free(ptr %80, ptr %82) #9
   br label %135
 
 83:                                               ; preds = %2
   %84 = load ptr, ptr %1, align 8
-  %85 = getelementptr inbounds i8, ptr %1, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %86 = load ptr, ptr %85, align 8
   tail call void @block_free(ptr %84, ptr %86) #9
   br label %135
 
 87:                                               ; preds = %2
   %88 = load ptr, ptr %1, align 8
-  %89 = getelementptr inbounds i8, ptr %1, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %90 = load ptr, ptr %89, align 8
   tail call void @block_free(ptr %88, ptr %90) #9
   br label %135
 
 91:                                               ; preds = %2
   %92 = load ptr, ptr %1, align 8
-  %93 = getelementptr inbounds i8, ptr %1, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %94 = load ptr, ptr %93, align 8
   tail call void @block_free(ptr %92, ptr %94) #9
   br label %135
 
 95:                                               ; preds = %2
   %96 = load ptr, ptr %1, align 8
-  %97 = getelementptr inbounds i8, ptr %1, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %98 = load ptr, ptr %97, align 8
   tail call void @block_free(ptr %96, ptr %98) #9
   br label %135
 
 99:                                               ; preds = %2
   %100 = load ptr, ptr %1, align 8
-  %101 = getelementptr inbounds i8, ptr %1, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %102 = load ptr, ptr %101, align 8
   tail call void @block_free(ptr %100, ptr %102) #9
   br label %135
 
 103:                                              ; preds = %2
   %104 = load ptr, ptr %1, align 8
-  %105 = getelementptr inbounds i8, ptr %1, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %106 = load ptr, ptr %105, align 8
   tail call void @block_free(ptr %104, ptr %106) #9
   br label %135
 
 107:                                              ; preds = %2
   %108 = load ptr, ptr %1, align 8
-  %109 = getelementptr inbounds i8, ptr %1, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %110 = load ptr, ptr %109, align 8
   tail call void @block_free(ptr %108, ptr %110) #9
   br label %135
 
 111:                                              ; preds = %2
   %112 = load ptr, ptr %1, align 8
-  %113 = getelementptr inbounds i8, ptr %1, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %114 = load ptr, ptr %113, align 8
   tail call void @block_free(ptr %112, ptr %114) #9
   br label %135
 
 115:                                              ; preds = %2
   %116 = load ptr, ptr %1, align 8
-  %117 = getelementptr inbounds i8, ptr %1, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %118 = load ptr, ptr %117, align 8
   tail call void @block_free(ptr %116, ptr %118) #9
   br label %135
 
 119:                                              ; preds = %2
   %120 = load ptr, ptr %1, align 8
-  %121 = getelementptr inbounds i8, ptr %1, i64 8
+  %121 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %122 = load ptr, ptr %121, align 8
   tail call void @block_free(ptr %120, ptr %122) #9
   br label %135
 
 123:                                              ; preds = %2
   %124 = load i64, ptr %1, align 8
-  %125 = getelementptr inbounds i8, ptr %1, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %126 = load ptr, ptr %125, align 8
   tail call void @jv_free(i64 %124, ptr %126) #9
   br label %135
 
 127:                                              ; preds = %2
   %128 = load ptr, ptr %1, align 8
-  %129 = getelementptr inbounds i8, ptr %1, i64 8
+  %129 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %130 = load ptr, ptr %129, align 8
   tail call void @block_free(ptr %128, ptr %130) #9
   br label %135
 
 131:                                              ; preds = %2
   %132 = load ptr, ptr %1, align 8
-  %133 = getelementptr inbounds i8, ptr %1, i64 8
+  %133 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %134 = load ptr, ptr %133, align 8
   tail call void @block_free(ptr %132, ptr %134) #9
   br label %135
@@ -4691,9 +4691,9 @@ define i32 @jq_parse(ptr noundef %0, ptr nocapture noundef initializes((0, 16)) 
   %3 = alloca %struct.lexer_param, align 8
   %4 = alloca i32, align 4
   %5 = call i32 @jq_yylex_init_extra(i32 noundef 0, ptr noundef nonnull %3) #9
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = load ptr, ptr %3, align 8
   %11 = call ptr @jq_yy_scan_bytes(ptr noundef %7, i32 noundef %9, ptr noundef %10) #9
@@ -4702,7 +4702,7 @@ define i32 @jq_parse(ptr noundef %0, ptr nocapture noundef initializes((0, 16)) 
   %13 = extractvalue { ptr, ptr } %12, 0
   %14 = extractvalue { ptr, ptr } %12, 1
   store ptr %13, ptr %1, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %14, ptr %.sroa.22.0..sroa_idx, align 8
   %15 = call i32 @yyparse(ptr noundef nonnull %1, ptr noundef nonnull %4, ptr noundef %0, ptr noundef nonnull %3)
   %16 = load ptr, ptr %3, align 8
@@ -4744,7 +4744,7 @@ define i32 @jq_parse_library(ptr noundef %0, ptr nocapture noundef initializes((
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @block_has_main(ptr %5, ptr %7) #9
   %.not7 = icmp eq i32 %8, 0

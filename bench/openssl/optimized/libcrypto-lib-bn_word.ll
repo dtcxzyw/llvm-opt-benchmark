@@ -24,7 +24,7 @@ if.end5:                                          ; preds = %if.then2
   br label %return
 
 if.end7:                                          ; preds = %if.end
-  %top = getelementptr inbounds i8, ptr %a, i64 8
+  %top = getelementptr inbounds nuw i8, ptr %a, i64 8
   %0 = load i32, ptr %top, align 8
   %cmp817 = icmp sgt i32 %0, 0
   br i1 %cmp817, label %for.body.lr.ph, label %return
@@ -38,7 +38,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv = phi i64 [ %2, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %ret.018 = phi i64 [ 0, %for.body.lr.ph ], [ %rem16, %for.body ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %arrayidx = getelementptr inbounds i64, ptr %1, i64 %indvars.iv.next
+  %arrayidx = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv.next
   %3 = load i64, ptr %arrayidx, align 8
   %or = tail call i64 @llvm.fshl.i64(i64 %ret.018, i64 %3, i64 32)
   %rem = urem i64 %or, %w
@@ -63,7 +63,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %top = getelementptr inbounds i8, ptr %a, i64 8
+  %top = getelementptr inbounds nuw i8, ptr %a, i64 8
   %0 = load i32, ptr %top, align 8
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %return, label %if.end2
@@ -91,13 +91,13 @@ for.body:                                         ; preds = %for.body.preheader,
   %ret.028 = phi i64 [ 0, %for.body.preheader ], [ %sub13, %for.body ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %3 = load ptr, ptr %a, align 8
-  %arrayidx = getelementptr inbounds i64, ptr %3, i64 %indvars.iv.next
+  %arrayidx = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv.next
   %4 = load i64, ptr %arrayidx, align 8
   %call11 = tail call i64 @bn_div_words(i64 noundef %ret.028, i64 noundef %4, i64 noundef %shl) #3
   %mul = mul i64 %call11, %shl
   %sub13 = sub i64 %4, %mul
   %5 = load ptr, ptr %a, align 8
-  %arrayidx17 = getelementptr inbounds i64, ptr %5, i64 %indvars.iv.next
+  %arrayidx17 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv.next
   store i64 %call11, ptr %arrayidx17, align 8
   %cmp9 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp9, label %for.body, label %for.end, !llvm.loop !6
@@ -133,7 +133,7 @@ if.end29:                                         ; preds = %if.end6, %if.then26
   br i1 %tobool32.not, label %if.then33, label %return
 
 if.then33:                                        ; preds = %if.end29
-  %neg = getelementptr inbounds i8, ptr %a, i64 16
+  %neg = getelementptr inbounds nuw i8, ptr %a, i64 16
   store i32 0, ptr %neg, align 8
   br label %return
 
@@ -166,13 +166,13 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %neg = getelementptr inbounds i8, ptr %a, i64 16
+  %neg = getelementptr inbounds nuw i8, ptr %a, i64 16
   %0 = load i32, ptr %neg, align 8
   %tobool5.not = icmp eq i32 %0, 0
   br i1 %tobool5.not, label %for.cond.preheader, label %if.then6
 
 for.cond.preheader:                               ; preds = %if.end4
-  %top = getelementptr inbounds i8, ptr %a, i64 8
+  %top = getelementptr inbounds nuw i8, ptr %a, i64 8
   br label %land.rhs
 
 if.then6:                                         ; preds = %if.end4
@@ -199,7 +199,7 @@ land.rhs:                                         ; preds = %for.cond.preheader,
 
 for.body:                                         ; preds = %land.rhs
   %4 = load ptr, ptr %a, align 8
-  %arrayidx = getelementptr inbounds i64, ptr %4, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv
   %5 = load i64, ptr %arrayidx, align 8
   %add = add i64 %5, %w.addr.032
   store i64 %add, ptr %arrayidx, align 8
@@ -224,7 +224,7 @@ if.end34:                                         ; preds = %if.then27
   store i32 %inc36, ptr %top, align 8
   %8 = load ptr, ptr %a, align 8
   %idxprom38 = zext nneg i32 %2 to i64
-  %arrayidx39 = getelementptr inbounds i64, ptr %8, i64 %idxprom38
+  %arrayidx39 = getelementptr inbounds nuw i64, ptr %8, i64 %idxprom38
   store i64 %w.addr.032, ptr %arrayidx39, align 8
   br label %return
 
@@ -258,7 +258,7 @@ if.then4:                                         ; preds = %if.then2
   br label %return
 
 if.end6:                                          ; preds = %if.end
-  %neg = getelementptr inbounds i8, ptr %a, i64 16
+  %neg = getelementptr inbounds nuw i8, ptr %a, i64 16
   %0 = load i32, ptr %neg, align 8
   %tobool7.not = icmp eq i32 %0, 0
   br i1 %tobool7.not, label %if.end12, label %if.then8
@@ -270,7 +270,7 @@ if.then8:                                         ; preds = %if.end6
   br label %return
 
 if.end12:                                         ; preds = %if.end6
-  %top = getelementptr inbounds i8, ptr %a, i64 8
+  %top = getelementptr inbounds nuw i8, ptr %a, i64 8
   %1 = load i32, ptr %top, align 8
   %cmp13 = icmp eq i32 %1, 1
   %.pre = load ptr, ptr %a, align 8
@@ -306,7 +306,7 @@ if.then25:                                        ; preds = %if.then25.loopexit,
   %sub29 = sub nuw i64 %.lcssa, %w.addr.0.lcssa
   store i64 %sub29, ptr %arrayidx23.lcssa, align 8
   %4 = load ptr, ptr %a, align 8
-  %arrayidx41 = getelementptr inbounds i64, ptr %4, i64 %idxprom.lcssa
+  %arrayidx41 = getelementptr inbounds nuw i64, ptr %4, i64 %idxprom.lcssa
   %5 = load i64, ptr %arrayidx41, align 8
   %cmp42 = icmp eq i64 %5, 0
   br i1 %cmp42, label %land.lhs.true43, label %return
@@ -318,7 +318,7 @@ if.else:                                          ; preds = %if.else.preheader, 
   store i64 %sub33, ptr %arrayidx2340, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %6 = load ptr, ptr %a, align 8
-  %arrayidx23 = getelementptr inbounds i64, ptr %6, i64 %indvars.iv.next
+  %arrayidx23 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.next
   %7 = load i64, ptr %arrayidx23, align 8
   %cmp24.not = icmp eq i64 %7, 0
   br i1 %cmp24.not, label %if.else, label %if.then25.loopexit
@@ -345,7 +345,7 @@ declare void @BN_set_negative(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @BN_mul_word(ptr noundef %a, i64 noundef %w) local_unnamed_addr #0 {
 entry:
-  %top = getelementptr inbounds i8, ptr %a, i64 8
+  %top = getelementptr inbounds nuw i8, ptr %a, i64 8
   %0 = load i32, ptr %top, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.then

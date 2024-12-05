@@ -1008,7 +1008,7 @@ sub_0:                                            ; preds = %entry
   br i1 %.not, label %if.end.tail, label %land.lhs.true
 
 if.end.tail:                                      ; preds = %sub_0
-  %1 = getelementptr inbounds i8, ptr %call, i64 1
+  %1 = getelementptr inbounds nuw i8, ptr %call, i64 1
   %2 = load i8, ptr %1, align 1
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %if.end6, label %land.lhs.true
@@ -2276,7 +2276,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %bytes, align 8
-  %ob_sval.i = getelementptr inbounds i8, ptr %0, i64 32
+  %ob_sval.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %call2 = call i32 (ptr, ptr, ...) @PySys_Audit(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3, ptr noundef %path, ptr noundef %mode, i32 noundef 0) #16
   %cmp = icmp slt i32 %call2, 0
   br i1 %cmp, label %if.then3, label %do.body
@@ -2693,7 +2693,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool.not, label %if.then, label %if.end7
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
-  %arrayidx1 = getelementptr inbounds i8, ptr %cwd, i64 16384
+  %arrayidx1 = getelementptr inbounds nuw i8, ptr %cwd, i64 16384
   store i32 0, ptr %arrayidx1, align 16
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %fname.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len.i)
@@ -2750,7 +2750,7 @@ if.then10:                                        ; preds = %if.end7
   br label %return
 
 if.end12:                                         ; preds = %if.end7
-  %arrayidx14 = getelementptr inbounds i8, ptr %cwd13, i64 16384
+  %arrayidx14 = getelementptr inbounds nuw i8, ptr %cwd13, i64 16384
   store i32 0, ptr %arrayidx14, align 16
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %fname.i24)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len.i25)
@@ -3380,7 +3380,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
 
 if.end:                                           ; preds = %if.then, %lor.lhs.false
   %tobool.not = phi i1 [ false, %if.then ], [ true, %lor.lhs.false ]
-  %thousands_sep5 = getelementptr inbounds i8, ptr %lc, i64 8
+  %thousands_sep5 = getelementptr inbounds nuw i8, ptr %lc, i64 8
   %2 = load ptr, ptr %thousands_sep5, align 8
   %call6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #17
   %cmp7 = icmp ugt i64 %call6, 1
@@ -3552,14 +3552,14 @@ entry:
   ]
 
 if.end:                                           ; preds = %entry
-  %arrayidx = getelementptr inbounds i8, ptr %buf, i64 4
+  %arrayidx = getelementptr inbounds nuw i8, ptr %buf, i64 4
   store i32 0, ptr %arrayidx, align 4
   %cmp247.not = icmp eq i64 %call, 0
   %tobool39.not = icmp eq i32 %raw_malloc, 0
   br i1 %cmp247.not, label %if.end.split, label %while.body.us.us
 
 if.end.thread:                                    ; preds = %entry
-  %arrayidx141 = getelementptr inbounds i8, ptr %buf, i64 4
+  %arrayidx141 = getelementptr inbounds nuw i8, ptr %buf, i64 4
   store i32 0, ptr %arrayidx141, align 4
   %cmp247.not142 = icmp eq i64 %call, 0
   %tobool39.not143 = icmp eq i32 %raw_malloc, 0

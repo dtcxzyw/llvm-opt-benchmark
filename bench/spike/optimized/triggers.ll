@@ -175,14 +175,14 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i64 @_ZNK8triggers9trigger_t11tdata2_readEPK11processor_t(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   ret i64 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN8triggers9trigger_t12tdata2_writeEP11processor_tm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(44) initializes((8, 16)) %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #4 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %4, align 8
   ret void
 }
@@ -220,16 +220,16 @@ define noundef range(i32 0, 5) i32 @_ZN8triggers9trigger_t15legalize_actionEmmm(
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef i32 @_ZNK8triggers9trigger_t17legalize_mhselectEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %0, i1 noundef zeroext %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 36
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = load i32, ptr %3, align 4
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds [8 x i32], ptr @_ZZNK8triggers9trigger_t18interpret_mhselectEbE12warlize_if_h, i64 0, i64 %5
-  %7 = getelementptr inbounds [8 x i32], ptr @_ZZNK8triggers9trigger_t18interpret_mhselectEbE12warlize_no_h, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i32], ptr @_ZZNK8triggers9trigger_t18interpret_mhselectEbE12warlize_if_h, i64 0, i64 %5
+  %7 = getelementptr inbounds nuw [8 x i32], ptr @_ZZNK8triggers9trigger_t18interpret_mhselectEbE12warlize_no_h, i64 0, i64 %5
   %.in.i = select i1 %1, ptr %6, ptr %7
   %8 = load i32, ptr %.in.i, align 4
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds [8 x %"class.std::optional.133"], ptr @_ZZNK8triggers9trigger_t18interpret_mhselectEbE5table, i64 0, i64 %9
-  %11 = getelementptr inbounds i8, ptr %10, i64 12
+  %10 = getelementptr inbounds nuw [8 x %"class.std::optional.133"], ptr @_ZZNK8triggers9trigger_t18interpret_mhselectEbE5table, i64 0, i64 %9
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %12 = load i8, ptr %11, align 4
   %13 = trunc i8 %12 to i1
   br i1 %13, label %_ZNK8triggers9trigger_t18interpret_mhselectEb.exit, label %14
@@ -256,22 +256,22 @@ _ZNK8triggers9trigger_t18interpret_mhselectEb.exit: ; preds = %2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef i64 @_ZNK8triggers9trigger_t11tdata3_readEPK11processor_t(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 968
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 968
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %.sink.i.i = load i64, ptr %5, align 8
   %6 = and i64 %.sink.i.i, 128
   %.0.i.i.not = icmp eq i64 %6, 0
-  %7 = getelementptr inbounds i8, ptr %0, i64 36
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %8 = load i32, ptr %7, align 4
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds [8 x i32], ptr @_ZZNK8triggers9trigger_t18interpret_mhselectEbE12warlize_if_h, i64 0, i64 %9
-  %11 = getelementptr inbounds [8 x i32], ptr @_ZZNK8triggers9trigger_t18interpret_mhselectEbE12warlize_no_h, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i32], ptr @_ZZNK8triggers9trigger_t18interpret_mhselectEbE12warlize_if_h, i64 0, i64 %9
+  %11 = getelementptr inbounds nuw [8 x i32], ptr @_ZZNK8triggers9trigger_t18interpret_mhselectEbE12warlize_no_h, i64 0, i64 %9
   %.in.i.i = select i1 %.0.i.i.not, ptr %11, ptr %10
   %12 = load i32, ptr %.in.i.i, align 4
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds [8 x %"class.std::optional.133"], ptr @_ZZNK8triggers9trigger_t18interpret_mhselectEbE5table, i64 0, i64 %13
-  %15 = getelementptr inbounds i8, ptr %14, i64 12
+  %14 = getelementptr inbounds nuw [8 x %"class.std::optional.133"], ptr @_ZZNK8triggers9trigger_t18interpret_mhselectEbE5table, i64 0, i64 %13
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %16 = load i8, ptr %15, align 4
   %17 = trunc i8 %16 to i1
   br i1 %17, label %_ZNK8triggers9trigger_t17legalize_mhselectEb.exit, label %18
@@ -291,14 +291,14 @@ define noundef i64 @_ZNK8triggers9trigger_t11tdata3_readEPK11processor_t(ptr noc
   unreachable
 
 _ZNK8triggers9trigger_t17legalize_mhselectEb.exit: ; preds = %2
-  %22 = getelementptr inbounds i8, ptr %1, i64 3796
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 3796
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i32 %23, 32
   %25 = select i1 %24, i64 4227858432, i64 -2251799813685248
   %26 = shl nsw i64 %25, 1
   %27 = xor i64 %26, -1
   %28 = and i64 %25, %27
-  %29 = getelementptr inbounds i8, ptr %0, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load i32, ptr %29, align 8
   %31 = zext i32 %30 to i64
   %32 = mul i64 %28, %31
@@ -313,7 +313,7 @@ _ZNK8triggers9trigger_t17legalize_mhselectEb.exit: ; preds = %2
   %40 = and i64 %39, %34
   %41 = or disjoint i64 %33, %40
   %42 = select i1 %24, i64 786432, i64 2130303778816
-  %43 = getelementptr inbounds i8, ptr %0, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %44 = load i32, ptr %43, align 8
   %45 = zext i32 %44 to i64
   %46 = shl nuw nsw i64 %42, 1
@@ -325,7 +325,7 @@ _ZNK8triggers9trigger_t17legalize_mhselectEb.exit: ; preds = %2
   %52 = select i1 %24, i64 262140, i64 68719476732
   %53 = xor i64 %52, -1
   %54 = and i64 %51, %53
-  %55 = getelementptr inbounds i8, ptr %0, i64 28
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %56 = load i32, ptr %55, align 4
   %57 = zext i32 %56 to i64
   %58 = shl nuw nsw i64 %52, 1
@@ -333,7 +333,7 @@ _ZNK8triggers9trigger_t17legalize_mhselectEb.exit: ; preds = %2
   %60 = and i64 %52, %59
   %61 = mul i64 %60, %57
   %62 = and i64 %61, %52
-  %63 = getelementptr inbounds i8, ptr %0, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %64 = load i32, ptr %63, align 8
   %65 = and i32 %64, 3
   %66 = zext nneg i32 %65 to i64
@@ -358,7 +358,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8triggers9trigger_t12tdata3_writeEP11processor_tm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(44) initializes((24, 44)) %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 3796
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 3796
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 32
   %7 = select i1 %6, i64 4227858432, i64 -2251799813685248
@@ -368,7 +368,7 @@ define void @_ZN8triggers9trigger_t12tdata3_writeEP11processor_tm(ptr nocapture 
   %11 = and i64 %7, %10
   %12 = udiv i64 %8, %11
   %13 = trunc i64 %12 to i32
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %13, ptr %14, align 8
   %15 = select i1 %6, i64 58720256, i64 1970324836974592
   %16 = and i64 %15, %2
@@ -377,7 +377,7 @@ define void @_ZN8triggers9trigger_t12tdata3_writeEP11processor_tm(ptr nocapture 
   %19 = and i64 %15, %18
   %20 = udiv i64 %16, %19
   %21 = trunc i64 %20 to i32
-  %22 = getelementptr inbounds i8, ptr %0, i64 36
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %21, ptr %22, align 4
   %23 = select i1 %6, i64 786432, i64 2130303778816
   %24 = and i64 %23, %2
@@ -386,9 +386,9 @@ define void @_ZN8triggers9trigger_t12tdata3_writeEP11processor_tm(ptr nocapture 
   %27 = and i64 %23, %26
   %28 = udiv i64 %24, %27
   %29 = trunc i64 %28 to i32
-  %30 = getelementptr inbounds i8, ptr %0, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %29, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 968
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 968
   %32 = load ptr, ptr %31, align 8
   %33 = tail call noundef zeroext i1 @_ZNK10misa_csr_t23extension_enabled_constEh(ptr noundef nonnull align 8 dereferenceable(64) %32, i8 noundef zeroext 83) #22
   br i1 %33, label %34, label %42
@@ -405,7 +405,7 @@ define void @_ZN8triggers9trigger_t12tdata3_writeEP11processor_tm(ptr nocapture 
 
 42:                                               ; preds = %34, %3
   %43 = phi i32 [ %41, %34 ], [ 0, %3 ]
-  %44 = getelementptr inbounds i8, ptr %0, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %43, ptr %44, align 4
   %45 = load ptr, ptr %31, align 8
   %46 = tail call noundef zeroext i1 @_ZNK10misa_csr_t23extension_enabled_constEh(ptr noundef nonnull align 8 dereferenceable(64) %45, i8 noundef zeroext 83) #22
@@ -414,7 +414,7 @@ define void @_ZN8triggers9trigger_t12tdata3_writeEP11processor_tm(ptr nocapture 
   %48 = trunc nuw nsw i64 %47 to i32
   %spec.select = select i1 %.not, i32 0, i32 %48
   %49 = select i1 %46, i32 %spec.select, i32 0
-  %50 = getelementptr inbounds i8, ptr %0, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %49, ptr %50, align 8
   ret void
 }
@@ -422,10 +422,10 @@ define void @_ZN8triggers9trigger_t12tdata3_writeEP11processor_tm(ptr nocapture 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef zeroext i1 @_ZNK8triggers9trigger_t12common_matchEP11processor_tb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %.in.v = select i1 %2, i64 952, i64 944
-  %.in = getelementptr inbounds i8, ptr %1, i64 %.in.v
+  %.in = getelementptr inbounds nuw i8, ptr %1, i64 %.in.v
   %4 = load i64, ptr %.in, align 8
   %.in10.in.v = select i1 %2, i64 963, i64 962
-  %.in10.in = getelementptr inbounds i8, ptr %1, i64 %.in10.in.v
+  %.in10.in = getelementptr inbounds nuw i8, ptr %1, i64 %.in10.in.v
   %.in10 = load i8, ptr %.in10.in, align 1
   %5 = trunc i8 %.in10 to i1
   switch i64 %4, label %8 [
@@ -448,7 +448,7 @@ define noundef zeroext i1 @_ZNK8triggers9trigger_t12common_matchEP11processor_tb
 
 _ZNK8triggers9trigger_t10mode_matchEmb.exit:      ; preds = %3, %6, %7
   %.in.in.v.sink.i = phi i64 [ %.in.in.v.i, %7 ], [ %.in4.in.v.i, %6 ], [ 18, %3 ]
-  %.in.in.i = getelementptr inbounds i8, ptr %0, i64 %.in.in.v.sink.i
+  %.in.in.i = getelementptr inbounds nuw i8, ptr %0, i64 %.in.in.v.sink.i
   %.0.in.i = load i8, ptr %.in.in.i, align 1
   %.0.i = trunc i8 %.0.in.i to i1
   br i1 %.0.i, label %9, label %11
@@ -484,7 +484,7 @@ define noundef zeroext i1 @_ZNK8triggers9trigger_t10mode_matchEmb(ptr nocapture 
 
 7:                                                ; preds = %3, %5, %4
   %.in.in.v.sink = phi i64 [ %.in.in.v, %5 ], [ %.in4.in.v, %4 ], [ 18, %3 ]
-  %.in.in = getelementptr inbounds i8, ptr %0, i64 %.in.in.v.sink
+  %.in.in = getelementptr inbounds nuw i8, ptr %0, i64 %.in.in.v.sink
   %.0.in = load i8, ptr %.in.in, align 1
   %.0 = trunc i8 %.0.in to i1
   ret i1 %.0
@@ -492,9 +492,9 @@ define noundef zeroext i1 @_ZNK8triggers9trigger_t10mode_matchEmb(ptr nocapture 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef zeroext i1 @_ZNK8triggers9trigger_t12textra_matchEP11processor_t(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 3796
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 3796
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8
   switch i32 %6, label %51 [
     i32 1, label %7
@@ -504,7 +504,7 @@ define noundef zeroext i1 @_ZNK8triggers9trigger_t12textra_matchEP11processor_t(
 7:                                                ; preds = %2
   %8 = icmp eq i32 %4, 32
   %9 = select i1 %8, i64 65535, i64 17179869183
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load i32, ptr %10, align 8
   br label %12
 
@@ -525,13 +525,13 @@ define noundef zeroext i1 @_ZNK8triggers9trigger_t12textra_matchEP11processor_t(
   br i1 %exitcond.not, label %20, label %12, !llvm.loop !4
 
 20:                                               ; preds = %12
-  %21 = getelementptr inbounds i8, ptr %1, i64 2200
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 2200
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = tail call noundef i64 %25(ptr noundef nonnull align 8 dereferenceable(37) %22) #22
-  %27 = getelementptr inbounds i8, ptr %0, i64 28
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %28 = load i32, ptr %27, align 4
   %29 = zext i32 %28 to i64
   %30 = xor i64 %26, %29
@@ -540,10 +540,10 @@ define noundef zeroext i1 @_ZNK8triggers9trigger_t12textra_matchEP11processor_t(
   br i1 %.not36, label %51, label %118
 
 32:                                               ; preds = %2
-  %33 = getelementptr inbounds i8, ptr %1, i64 1752
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 1752
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = tail call noundef i64 %37(ptr noundef nonnull align 8 dereferenceable(72) %34) #22
   %39 = icmp eq i32 %4, 32
@@ -553,7 +553,7 @@ define noundef zeroext i1 @_ZNK8triggers9trigger_t12textra_matchEP11processor_t(
   %43 = xor i64 %42, -1
   %44 = and i64 %40, %43
   %45 = udiv i64 %41, %44
-  %46 = getelementptr inbounds i8, ptr %0, i64 28
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %47 = load i32, ptr %46, align 4
   %48 = select i1 %39, i32 511, i32 65535
   %49 = and i32 %47, %48
@@ -562,22 +562,22 @@ define noundef zeroext i1 @_ZNK8triggers9trigger_t12textra_matchEP11processor_t(
   br i1 %.not, label %51, label %118
 
 51:                                               ; preds = %20, %32, %2
-  %52 = getelementptr inbounds i8, ptr %1, i64 968
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 968
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 40
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %.sink.i.i = load i64, ptr %54, align 8
   %55 = and i64 %.sink.i.i, 128
   %.0.i.i.not = icmp eq i64 %55, 0
-  %56 = getelementptr inbounds i8, ptr %0, i64 36
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %57 = load i32, ptr %56, align 4
   %58 = zext i32 %57 to i64
-  %59 = getelementptr inbounds [8 x i32], ptr @_ZZNK8triggers9trigger_t18interpret_mhselectEbE12warlize_if_h, i64 0, i64 %58
-  %60 = getelementptr inbounds [8 x i32], ptr @_ZZNK8triggers9trigger_t18interpret_mhselectEbE12warlize_no_h, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i32], ptr @_ZZNK8triggers9trigger_t18interpret_mhselectEbE12warlize_if_h, i64 0, i64 %58
+  %60 = getelementptr inbounds nuw [8 x i32], ptr @_ZZNK8triggers9trigger_t18interpret_mhselectEbE12warlize_no_h, i64 0, i64 %58
   %.in.i = select i1 %.0.i.i.not, ptr %60, ptr %59
   %61 = load i32, ptr %.in.i, align 4
   %62 = zext i32 %61 to i64
-  %63 = getelementptr inbounds [8 x %"class.std::optional.133"], ptr @_ZZNK8triggers9trigger_t18interpret_mhselectEbE5table, i64 0, i64 %62
-  %64 = getelementptr inbounds i8, ptr %63, i64 12
+  %63 = getelementptr inbounds nuw [8 x %"class.std::optional.133"], ptr @_ZZNK8triggers9trigger_t18interpret_mhselectEbE5table, i64 0, i64 %62
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 12
   %65 = load i8, ptr %64, align 4
   %66 = trunc i8 %65 to i1
   br i1 %66, label %_ZNK8triggers9trigger_t18interpret_mhselectEb.exit, label %67
@@ -598,7 +598,7 @@ define noundef zeroext i1 @_ZNK8triggers9trigger_t12textra_matchEP11processor_t(
 
 _ZNK8triggers9trigger_t18interpret_mhselectEb.exit: ; preds = %51
   %.sroa.02.0.copyload.i = load i64, ptr %63, align 16
-  %.sroa.23.0..sroa_idx.i = getelementptr inbounds i8, ptr %63, i64 8
+  %.sroa.23.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %63, i64 8
   %.sroa.23.0.copyload.i = load i32, ptr %.sroa.23.0..sroa_idx.i, align 8
   %.sroa.0.0.extract.trunc = trunc i64 %.sroa.02.0.copyload.i to i32
   %.sroa.3.0.extract.shift = lshr i64 %.sroa.02.0.copyload.i, 32
@@ -610,17 +610,17 @@ _ZNK8triggers9trigger_t18interpret_mhselectEb.exit: ; preds = %51
   ]
 
 71:                                               ; preds = %_ZNK8triggers9trigger_t18interpret_mhselectEb.exit
-  %72 = getelementptr inbounds i8, ptr %1, i64 2216
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 2216
   %73 = load ptr, ptr %72, align 8
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %76 = load ptr, ptr %75, align 8
   %77 = tail call noundef i64 %76(ptr noundef nonnull align 8 dereferenceable(37) %73) #22
   %78 = trunc i32 %.sroa.7.8.extract.shift to i1
   br i1 %78, label %79, label %.invoke
 
 79:                                               ; preds = %71
-  %80 = getelementptr inbounds i8, ptr %0, i64 40
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %81 = load i32, ptr %80, align 8
   %82 = trunc i32 %.sroa.23.0.copyload.i to i1
   %83 = shl i32 %81, 1
@@ -635,10 +635,10 @@ _ZNK8triggers9trigger_t18interpret_mhselectEb.exit: ; preds = %51
   br i1 %.not38, label %117, label %118
 
 91:                                               ; preds = %_ZNK8triggers9trigger_t18interpret_mhselectEb.exit
-  %92 = getelementptr inbounds i8, ptr %1, i64 1992
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 1992
   %93 = load ptr, ptr %92, align 8
   %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %96 = load ptr, ptr %95, align 8
   %97 = tail call noundef i64 %96(ptr noundef nonnull align 8 dereferenceable(37) %93) #22
   %98 = trunc i32 %.sroa.7.8.extract.shift to i1
@@ -652,7 +652,7 @@ _ZNK8triggers9trigger_t18interpret_mhselectEb.exit: ; preds = %51
   unreachable
 
 99:                                               ; preds = %91
-  %100 = getelementptr inbounds i8, ptr %0, i64 40
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %101 = load i32, ptr %100, align 8
   %102 = trunc i32 %.sroa.23.0.copyload.i to i1
   %103 = shl i32 %101, 1
@@ -693,46 +693,46 @@ declare void @llvm.trap() #10
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK8triggers9trigger_t12allow_actionEPK7state_t(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #11 align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(44) %0)
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %52
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 872
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 872
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 1912
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 1912
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noundef i64 %17(ptr noundef nonnull align 8 dereferenceable(72) %14) #22
   %19 = and i64 %18, 2
   %.not17 = icmp ne i64 %19, 0
-  %20 = getelementptr inbounds i8, ptr %1, i64 1928
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 1928
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %23 = load i64, ptr %22, align 8
   %24 = and i64 %23, 2
   %25 = icmp ne i64 %24, 0
-  %26 = getelementptr inbounds i8, ptr %1, i64 1032
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 1032
   %27 = load ptr, ptr %26, align 8
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = tail call noundef i64 %30(ptr noundef nonnull align 8 dereferenceable(37) %27) #22
   %32 = and i64 %31, 8
   %.not18 = icmp eq i64 %32, 0
-  %33 = getelementptr inbounds i8, ptr %1, i64 1816
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 1816
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = tail call noundef i64 %37(ptr noundef nonnull align 8 dereferenceable(37) %34) #22
-  %39 = getelementptr inbounds i8, ptr %1, i64 832
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 832
   %40 = load i64, ptr %39, align 8
   %.not20 = icmp eq i64 %40, 3
   %41 = and i64 %12, 8
@@ -745,7 +745,7 @@ define noundef zeroext i1 @_ZNK8triggers9trigger_t12allow_actionEPK7state_t(ptr 
   br i1 %.not21, label %43, label %52
 
 43:                                               ; preds = %42
-  %44 = getelementptr inbounds i8, ptr %1, i64 850
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 850
   %45 = load i8, ptr %44, align 2
   %46 = trunc i8 %45 to i1
   %47 = or i1 %.not17, %.not18
@@ -767,7 +767,7 @@ define noundef zeroext i1 @_ZNK8triggers9trigger_t12allow_actionEPK7state_t(ptr 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i64 @_ZNK8triggers18disabled_trigger_t11tdata1_readEPK11processor_t(ptr nocapture noundef nonnull readonly align 8 dereferenceable(45) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 3796
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 3796
   %4 = load i32, ptr %3, align 4
   %5 = add i32 %4, -4
   %6 = zext nneg i32 %5 to i64
@@ -782,7 +782,7 @@ define noundef i64 @_ZNK8triggers18disabled_trigger_t11tdata1_readEPK11processor
   %15 = xor i64 %14, -1
   %16 = and i64 %11, %15
   %17 = and i64 %16, %7
-  %18 = getelementptr inbounds i8, ptr %0, i64 44
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %19 = load i8, ptr %18, align 4
   %20 = and i8 %19, 1
   %21 = zext nneg i8 %20 to i64
@@ -797,11 +797,11 @@ define noundef i64 @_ZNK8triggers18disabled_trigger_t11tdata1_readEPK11processor
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN8triggers18disabled_trigger_t12tdata1_writeEP11processor_tmb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(45) initializes((44, 45)) %0, ptr nocapture noundef readonly %1, i64 noundef %2, i1 zeroext %3) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 3796
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 3796
   %6 = load i32, ptr %5, align 4
   %7 = add i32 %6, -5
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds i8, ptr %0, i64 44
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %10 = lshr i64 %2, %8
   %11 = trunc i64 %10 to i8
   %12 = and i8 %11, 1
@@ -811,7 +811,7 @@ define void @_ZN8triggers18disabled_trigger_t12tdata1_writeEP11processor_tmb(ptr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i64 @_ZNK8triggers10mcontrol_t11tdata1_readEPK11processor_t(ptr nocapture noundef nonnull readonly align 8 dereferenceable(63) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 3796
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 3796
   %4 = load i32, ptr %3, align 4
   %5 = add i32 %4, -4
   %6 = zext nneg i32 %5 to i64
@@ -826,7 +826,7 @@ define noundef i64 @_ZNK8triggers10mcontrol_t11tdata1_readEPK11processor_t(ptr n
   %15 = xor i64 %14, -1
   %16 = and i64 %11, %15
   %17 = and i64 %16, %7
-  %18 = getelementptr inbounds i8, ptr %0, i64 44
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %19 = load i8, ptr %18, align 4
   %20 = and i8 %19, 1
   %21 = zext nneg i8 %20 to i64
@@ -842,62 +842,62 @@ define noundef i64 @_ZNK8triggers10mcontrol_t11tdata1_readEPK11processor_t(ptr n
   %31 = and i64 %30, -2097120
   %32 = xor i64 %31, -2097120
   %33 = and i64 %32, %27
-  %34 = getelementptr inbounds i8, ptr %0, i64 52
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %35 = load i8, ptr %34, align 4
   %36 = zext i8 %35 to i64
   %37 = shl nuw nsw i64 %36, 20
   %38 = and i64 %37, 1048576
-  %39 = getelementptr inbounds i8, ptr %0, i64 53
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 53
   %40 = load i8, ptr %39, align 1
   %41 = zext i8 %40 to i64
   %42 = shl nuw nsw i64 %41, 19
   %43 = and i64 %42, 524288
-  %44 = getelementptr inbounds i8, ptr %0, i64 54
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 54
   %45 = load i8, ptr %44, align 2
   %46 = zext i8 %45 to i64
   %47 = shl nuw nsw i64 %46, 18
   %48 = and i64 %47, 262144
-  %49 = getelementptr inbounds i8, ptr %0, i64 48
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %50 = load i32, ptr %49, align 8
   %51 = zext i32 %50 to i64
   %52 = shl nuw nsw i64 %51, 12
   %53 = and i64 %52, 258048
-  %54 = getelementptr inbounds i8, ptr %0, i64 55
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 55
   %55 = load i8, ptr %54, align 1
   %56 = zext i8 %55 to i64
   %57 = shl nuw nsw i64 %56, 11
   %58 = and i64 %57, 2048
-  %59 = getelementptr inbounds i8, ptr %0, i64 56
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %60 = load i32, ptr %59, align 8
   %61 = zext i32 %60 to i64
   %62 = shl nuw nsw i64 %61, 7
   %63 = and i64 %62, 1920
-  %64 = getelementptr inbounds i8, ptr %0, i64 18
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %65 = load i8, ptr %64, align 2
   %66 = shl i8 %65, 6
   %67 = and i8 %66, 64
   %68 = zext nneg i8 %67 to i64
-  %69 = getelementptr inbounds i8, ptr %0, i64 19
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 19
   %70 = load i8, ptr %69, align 1
   %71 = shl i8 %70, 4
   %72 = and i8 %71, 16
   %73 = zext nneg i8 %72 to i64
-  %74 = getelementptr inbounds i8, ptr %0, i64 20
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %75 = load i8, ptr %74, align 4
   %76 = shl i8 %75, 3
   %77 = and i8 %76, 8
   %78 = zext nneg i8 %77 to i64
-  %79 = getelementptr inbounds i8, ptr %0, i64 60
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %80 = load i8, ptr %79, align 4
   %81 = shl i8 %80, 2
   %82 = and i8 %81, 4
   %83 = zext nneg i8 %82 to i64
-  %84 = getelementptr inbounds i8, ptr %0, i64 61
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 61
   %85 = load i8, ptr %84, align 1
   %86 = shl i8 %85, 1
   %87 = and i8 %86, 2
   %88 = zext nneg i8 %87 to i64
-  %89 = getelementptr inbounds i8, ptr %0, i64 62
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 62
   %90 = load i8, ptr %89, align 2
   %91 = and i8 %90, 1
   %92 = zext nneg i8 %91 to i64
@@ -918,22 +918,22 @@ define noundef i64 @_ZNK8triggers10mcontrol_t11tdata1_readEPK11processor_t(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8triggers10mcontrol_t12tdata1_writeEP11processor_tmb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(63) initializes((18, 21), (44, 45), (48, 63)) %0, ptr nocapture noundef readonly %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 3796
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 3796
   %6 = load i32, ptr %5, align 4
   %7 = add i32 %6, -5
   %8 = zext nneg i32 %7 to i64
   %9 = shl nuw i64 1, %8
-  %10 = getelementptr inbounds i8, ptr %0, i64 44
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %11 = lshr i64 %2, %8
   %12 = trunc i64 %11 to i8
   %13 = and i8 %12, 1
   store i8 %13, ptr %10, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 52
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %15 = lshr i64 %2, 20
   %16 = trunc i64 %15 to i8
   %17 = and i8 %16, 1
   store i8 %17, ptr %14, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 53
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 53
   %19 = lshr i64 %2, 19
   %20 = trunc i64 %19 to i8
   %21 = and i8 %20, 1
@@ -955,7 +955,7 @@ define void @_ZN8triggers10mcontrol_t12tdata1_writeEP11processor_tmb(ptr nocaptu
 
 _ZN8triggers17mcontrol_common_t15legalize_timingEmmmmm.exit: ; preds = %4, %23, %25
   %.0.i = phi i8 [ %28, %25 ], [ 0, %23 ], [ 1, %4 ]
-  %29 = getelementptr inbounds i8, ptr %0, i64 54
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 54
   store i8 %.0.i, ptr %29, align 2
   %.lhs.trunc = lshr i64 %2, 12
   %.zext = and i64 %.lhs.trunc, 63
@@ -980,12 +980,12 @@ _ZN8triggers17mcontrol_common_t15legalize_timingEmmmmm.exit: ; preds = %4, %23, 
 
 41:                                               ; preds = %_ZN8triggers17mcontrol_common_t15legalize_timingEmmmmm.exit, %33, %39
   %42 = phi i32 [ %40, %39 ], [ 0, %33 ], [ 0, %_ZN8triggers17mcontrol_common_t15legalize_timingEmmmmm.exit ]
-  %43 = getelementptr inbounds i8, ptr %0, i64 48
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %42, ptr %43, align 8
   %44 = and i64 %2, 2048
   %45 = icmp ne i64 %44, 0
   %46 = and i1 %3, %45
-  %47 = getelementptr inbounds i8, ptr %0, i64 55
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 55
   %48 = zext i1 %46 to i8
   store i8 %48, ptr %47, align 1
   %49 = lshr i64 %2, 7
@@ -993,20 +993,20 @@ _ZN8triggers17mcontrol_common_t15legalize_timingEmmmmm.exit: ; preds = %4, %23, 
   %switch.i = icmp samesign ult i64 %50, 6
   %51 = trunc nuw nsw i64 %50 to i32
   %.0.i21 = select i1 %switch.i, i32 %51, i32 0
-  %52 = getelementptr inbounds i8, ptr %0, i64 56
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %.0.i21, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 18
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %54 = trunc i64 %2 to i8
   %55 = lshr i8 %54, 6
   %56 = and i8 %55, 1
   store i8 %56, ptr %53, align 2
-  %57 = getelementptr inbounds i8, ptr %1, i64 968
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 968
   %58 = load ptr, ptr %57, align 8
   %59 = tail call noundef zeroext i1 @_ZNK10misa_csr_t23extension_enabled_constEh(ptr noundef nonnull align 8 dereferenceable(64) %58, i8 noundef zeroext 83) #22
   %60 = and i64 %2, 16
   %61 = icmp ne i64 %60, 0
   %62 = and i1 %61, %59
-  %63 = getelementptr inbounds i8, ptr %0, i64 19
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 19
   %64 = zext i1 %62 to i8
   store i8 %64, ptr %63, align 1
   %65 = load ptr, ptr %57, align 8
@@ -1014,18 +1014,18 @@ _ZN8triggers17mcontrol_common_t15legalize_timingEmmmmm.exit: ; preds = %4, %23, 
   %67 = and i64 %2, 8
   %68 = icmp ne i64 %67, 0
   %69 = and i1 %68, %66
-  %70 = getelementptr inbounds i8, ptr %0, i64 20
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %71 = zext i1 %69 to i8
   store i8 %71, ptr %70, align 4
-  %72 = getelementptr inbounds i8, ptr %0, i64 60
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %73 = lshr i8 %54, 2
   %74 = and i8 %73, 1
   store i8 %74, ptr %72, align 4
-  %75 = getelementptr inbounds i8, ptr %0, i64 61
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 61
   %76 = lshr i8 %54, 1
   %77 = and i8 %76, 1
   store i8 %77, ptr %75, align 1
-  %78 = getelementptr inbounds i8, ptr %0, i64 62
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 62
   %79 = and i8 %54, 1
   store i8 %79, ptr %78, align 2
   ret void
@@ -1079,7 +1079,7 @@ define noundef i32 @_ZN8triggers17mcontrol_common_t14legalize_matchEm(i64 nounde
 
 ; Function Attrs: mustprogress nounwind memory(argmem: read, inaccessiblemem: write) uwtable
 define noundef zeroext i1 @_ZNK8triggers17mcontrol_common_t12simple_matchEjm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(63) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #9 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %49 [
     i32 0, label %6
@@ -1091,13 +1091,13 @@ define noundef zeroext i1 @_ZNK8triggers17mcontrol_common_t12simple_matchEjm(ptr
   ]
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = icmp eq i64 %2, %8
   br label %50
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = and i64 %12, 1
   %.not5.i = icmp eq i64 %13, 0
@@ -1126,19 +1126,19 @@ _ZL3ctom.exit:                                    ; preds = %_ZL3ctom.exit.loope
   br label %50
 
 22:                                               ; preds = %3
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i64, ptr %23, align 8
   %25 = icmp uge i64 %2, %24
   br label %50
 
 26:                                               ; preds = %3
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load i64, ptr %27, align 8
   %29 = icmp ult i64 %2, %28
   br label %50
 
 30:                                               ; preds = %3
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %32 = load i64, ptr %31, align 8
   %33 = lshr i32 %1, 1
   %34 = zext nneg i32 %33 to i64
@@ -1149,7 +1149,7 @@ _ZL3ctom.exit:                                    ; preds = %_ZL3ctom.exit.loope
   br label %50
 
 39:                                               ; preds = %3
-  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %41 = load i64, ptr %40, align 8
   %42 = lshr i32 %1, 1
   %43 = zext nneg i32 %42 to i64
@@ -1178,27 +1178,27 @@ define { i64, i8 } @_ZN8triggers17mcontrol_common_t26detect_memory_access_matchE
   ]
 
 7:                                                ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 60
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %9 = load i8, ptr %8, align 4
   %10 = trunc i8 %9 to i1
   br i1 %10, label %19, label %_ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit.thread
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 61
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 61
   %13 = load i8, ptr %12, align 1
   %14 = trunc i8 %13 to i1
   br i1 %14, label %19, label %_ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit.thread
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %0, i64 62
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 62
   %17 = load i8, ptr %16, align 2
   %18 = trunc i8 %17 to i1
   br i1 %18, label %19, label %_ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit.thread
 
 19:                                               ; preds = %11, %7, %6, %15
-  %.in.i = getelementptr inbounds i8, ptr %1, i64 944
+  %.in.i = getelementptr inbounds nuw i8, ptr %1, i64 944
   %20 = load i64, ptr %.in.i, align 8
-  %.in10.in.i = getelementptr inbounds i8, ptr %1, i64 962
+  %.in10.in.i = getelementptr inbounds nuw i8, ptr %1, i64 962
   %.in10.i = load i8, ptr %.in10.in.i, align 1
   %21 = trunc i8 %.in10.i to i1
   switch i64 %20, label %24 [
@@ -1221,7 +1221,7 @@ define { i64, i8 } @_ZN8triggers17mcontrol_common_t26detect_memory_access_matchE
 
 _ZNK8triggers9trigger_t10mode_matchEmb.exit.i:    ; preds = %23, %22, %19
   %.in.in.v.sink.i.i = phi i64 [ %.in.in.v.i.i, %23 ], [ %.in4.in.v.i.i, %22 ], [ 18, %19 ]
-  %.in.in.i.i = getelementptr inbounds i8, ptr %0, i64 %.in.in.v.sink.i.i
+  %.in.in.i.i = getelementptr inbounds nuw i8, ptr %0, i64 %.in.in.v.sink.i.i
   %.0.in.i.i = load i8, ptr %.in.in.i.i, align 1
   %.0.i.i = trunc i8 %.0.in.i.i to i1
   br i1 %.0.i.i, label %_ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit, label %_ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit.thread
@@ -1231,7 +1231,7 @@ _ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit: ; preds = %_ZNK8trig
   br i1 %25, label %26, label %_ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit.thread
 
 26:                                               ; preds = %_ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit
-  %27 = getelementptr inbounds i8, ptr %0, i64 53
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 53
   %28 = load i8, ptr %27, align 1
   %29 = trunc i8 %28 to i1
   br i1 %29, label %30, label %32
@@ -1242,12 +1242,12 @@ _ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit: ; preds = %_ZNK8trig
 
 32:                                               ; preds = %30, %26
   %.0 = phi i64 [ %3, %26 ], [ %4, %30 ]
-  %33 = getelementptr inbounds i8, ptr %1, i64 3796
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 3796
   %34 = load i32, ptr %33, align 4
   %35 = icmp eq i32 %34, 32
   %36 = and i64 %.0, 4294967295
   %spec.select = select i1 %35, i64 %36, i64 %.0
-  %37 = getelementptr inbounds i8, ptr %0, i64 56
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %38 = load i32, ptr %37, align 8
   switch i32 %38, label %77 [
     i32 0, label %_ZNK8triggers17mcontrol_common_t12simple_matchEjm.exit
@@ -1259,7 +1259,7 @@ _ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit: ; preds = %_ZNK8trig
   ]
 
 39:                                               ; preds = %32
-  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %41 = load i64, ptr %40, align 8
   %42 = and i64 %41, 1
   %.not5.i.i = icmp eq i64 %42, 0
@@ -1288,19 +1288,19 @@ _ZL3ctom.exit.i:                                  ; preds = %_ZL3ctom.exit.loope
   br i1 %50, label %81, label %_ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit.thread
 
 51:                                               ; preds = %32
-  %52 = getelementptr inbounds i8, ptr %0, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %53 = load i64, ptr %52, align 8
   %.not = icmp ult i64 %spec.select, %53
   br i1 %.not, label %_ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit.thread, label %81
 
 54:                                               ; preds = %32
-  %55 = getelementptr inbounds i8, ptr %0, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %56 = load i64, ptr %55, align 8
   %57 = icmp ult i64 %spec.select, %56
   br i1 %57, label %81, label %_ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit.thread
 
 58:                                               ; preds = %32
-  %59 = getelementptr inbounds i8, ptr %0, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %60 = load i64, ptr %59, align 8
   %61 = lshr i32 %34, 1
   %62 = zext nneg i32 %61 to i64
@@ -1311,7 +1311,7 @@ _ZL3ctom.exit.i:                                  ; preds = %_ZL3ctom.exit.loope
   br i1 %66, label %81, label %_ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit.thread
 
 67:                                               ; preds = %32
-  %68 = getelementptr inbounds i8, ptr %0, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %69 = load i64, ptr %68, align 8
   %70 = lshr i32 %34, 1
   %71 = zext nneg i32 %70 to i64
@@ -1327,14 +1327,14 @@ _ZL3ctom.exit.i:                                  ; preds = %_ZL3ctom.exit.loope
   unreachable
 
 _ZNK8triggers17mcontrol_common_t12simple_matchEjm.exit: ; preds = %32
-  %78 = getelementptr inbounds i8, ptr %0, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %79 = load i64, ptr %78, align 8
   %80 = icmp eq i64 %spec.select, %79
   br i1 %80, label %81, label %_ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit.thread
 
 81:                                               ; preds = %_ZL3ctom.exit.i, %51, %54, %58, %67, %_ZNK8triggers17mcontrol_common_t12simple_matchEjm.exit
   %82 = load ptr, ptr %0, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 72
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 72
   %84 = load ptr, ptr %83, align 8
   %85 = invoke noundef i32 %84(ptr noundef nonnull align 8 dereferenceable(44) %0)
           to label %.noexc unwind label %134
@@ -1344,36 +1344,36 @@ _ZNK8triggers17mcontrol_common_t12simple_matchEjm.exit: ; preds = %32
   br i1 %86, label %87, label %_ZNK8triggers9trigger_t12allow_actionEPK7state_t.exit.thread
 
 87:                                               ; preds = %.noexc
-  %88 = getelementptr inbounds i8, ptr %1, i64 984
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 984
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 56
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 56
   %91 = load i64, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %1, i64 2024
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 2024
   %93 = load ptr, ptr %92, align 8
   %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %96 = load ptr, ptr %95, align 8
   %97 = tail call noundef i64 %96(ptr noundef nonnull align 8 dereferenceable(72) %93) #22
   %98 = and i64 %97, 2
   %.not17.i = icmp ne i64 %98, 0
-  %99 = getelementptr inbounds i8, ptr %1, i64 2040
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 2040
   %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 56
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 56
   %102 = load i64, ptr %101, align 8
   %103 = and i64 %102, 2
   %104 = icmp ne i64 %103, 0
-  %105 = getelementptr inbounds i8, ptr %1, i64 1144
+  %105 = getelementptr inbounds nuw i8, ptr %1, i64 1144
   %106 = load ptr, ptr %105, align 8
   %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %109 = load ptr, ptr %108, align 8
   %110 = tail call noundef i64 %109(ptr noundef nonnull align 8 dereferenceable(37) %106) #22
   %111 = and i64 %110, 8
   %.not18.i = icmp eq i64 %111, 0
-  %112 = getelementptr inbounds i8, ptr %1, i64 1928
+  %112 = getelementptr inbounds nuw i8, ptr %1, i64 1928
   %113 = load ptr, ptr %112, align 8
   %114 = load ptr, ptr %113, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %116 = load ptr, ptr %115, align 8
   %117 = tail call noundef i64 %116(ptr noundef nonnull align 8 dereferenceable(37) %113) #22
   %118 = load i64, ptr %.in.i, align 8
@@ -1403,12 +1403,12 @@ _ZNK8triggers9trigger_t12allow_actionEPK7state_t.exit: ; preds = %121
   br i1 %spec.select26.i, label %_ZNK8triggers9trigger_t12allow_actionEPK7state_t.exit.thread, label %_ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit.thread
 
 _ZNK8triggers9trigger_t12allow_actionEPK7state_t.exit.thread: ; preds = %120, %.noexc, %_ZNK8triggers9trigger_t12allow_actionEPK7state_t.exit
-  %128 = getelementptr inbounds i8, ptr %0, i64 52
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i8 1, ptr %128, align 4
-  %129 = getelementptr inbounds i8, ptr %0, i64 54
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 54
   %130 = load i8, ptr %129, align 2
   %131 = and i8 %130, 1
-  %132 = getelementptr inbounds i8, ptr %0, i64 48
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %133 = load i32, ptr %132, align 8
   %.sroa.2.0.insert.ext = zext i32 %133 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
@@ -1433,23 +1433,23 @@ _ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit.thread: ; preds = %12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i64 @_ZNK8triggers11mcontrol6_t11tdata1_readEPK11processor_t(ptr nocapture noundef nonnull readonly align 8 dereferenceable(63) %0, ptr nocapture noundef readonly %1) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 3796
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 3796
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i8, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 968
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 968
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %.sink.i.i = load i64, ptr %9, align 8
   %10 = and i64 %.sink.i.i, 128
   %.0.i.i.not = icmp eq i64 %10, 0
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i8, ptr %11, align 8
   %13 = zext i8 %12 to i64
   %14 = shl nuw nsw i64 %13, 24
   %15 = and i64 %14, 16777216
   %16 = select i1 %.0.i.i.not, i64 0, i64 %15
-  %17 = getelementptr inbounds i8, ptr %0, i64 17
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i64
   %20 = shl nuw nsw i64 %19, 23
@@ -1479,58 +1479,58 @@ define noundef i64 @_ZNK8triggers11mcontrol6_t11tdata1_readEPK11processor_t(ptr 
   %44 = and i64 %43, -32571360
   %45 = or disjoint i64 %44, %16
   %46 = or disjoint i64 %45, %22
-  %47 = getelementptr inbounds i8, ptr %0, i64 52
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %48 = load i8, ptr %47, align 4
   %49 = zext i8 %48 to i64
   %50 = shl nuw nsw i64 %49, 22
   %51 = and i64 %50, 4194304
   %52 = or disjoint i64 %46, %51
-  %53 = getelementptr inbounds i8, ptr %0, i64 53
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 53
   %54 = load i8, ptr %53, align 1
   %55 = zext i8 %54 to i64
   %56 = shl nuw nsw i64 %55, 21
   %57 = and i64 %56, 2097152
-  %58 = getelementptr inbounds i8, ptr %0, i64 54
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 54
   %59 = load i8, ptr %58, align 2
   %60 = zext i8 %59 to i64
   %61 = shl nuw nsw i64 %60, 20
   %62 = and i64 %61, 1048576
-  %63 = getelementptr inbounds i8, ptr %0, i64 48
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %64 = load i32, ptr %63, align 8
   %65 = zext i32 %64 to i64
   %66 = shl nuw nsw i64 %65, 12
   %67 = and i64 %66, 61440
-  %68 = getelementptr inbounds i8, ptr %0, i64 55
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 55
   %69 = load i8, ptr %68, align 1
   %70 = zext i8 %69 to i64
   %71 = shl nuw nsw i64 %70, 11
   %72 = and i64 %71, 2048
-  %73 = getelementptr inbounds i8, ptr %0, i64 56
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %74 = load i32, ptr %73, align 8
   %75 = zext i32 %74 to i64
   %76 = shl nuw nsw i64 %75, 7
   %77 = and i64 %76, 1920
-  %78 = getelementptr inbounds i8, ptr %0, i64 18
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %79 = load i8, ptr %78, align 2
   %80 = shl i8 %79, 6
   %81 = and i8 %80, 64
   %82 = zext nneg i8 %81 to i64
-  %83 = getelementptr inbounds i8, ptr %0, i64 19
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 19
   %84 = load i8, ptr %83, align 1
   %85 = shl i8 %84, 4
   %86 = and i8 %85, 16
   %87 = zext nneg i8 %86 to i64
-  %88 = getelementptr inbounds i8, ptr %0, i64 20
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %89 = load i8, ptr %88, align 4
   %90 = shl i8 %89, 3
   %91 = and i8 %90, 8
   %92 = zext nneg i8 %91 to i64
-  %93 = getelementptr inbounds i8, ptr %0, i64 60
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %94 = load i8, ptr %93, align 4
   %95 = shl i8 %94, 2
   %96 = and i8 %95, 4
   %97 = zext nneg i8 %96 to i64
-  %98 = getelementptr inbounds i8, ptr %0, i64 61
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 61
   %99 = load i8, ptr %98, align 1
   %100 = shl i8 %99, 1
   %101 = and i8 %100, 2
@@ -1545,7 +1545,7 @@ define noundef i64 @_ZNK8triggers11mcontrol6_t11tdata1_readEPK11processor_t(ptr 
   %.masked36.masked = or i64 %.masked.masked.masked, %92
   %.masked = or i64 %.masked36.masked, %97
   %103 = or i64 %.masked, %102
-  %104 = getelementptr inbounds i8, ptr %0, i64 62
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 62
   %105 = load i8, ptr %104, align 2
   %106 = and i8 %105, 1
   %107 = zext nneg i8 %106 to i64
@@ -1555,32 +1555,32 @@ define noundef i64 @_ZNK8triggers11mcontrol6_t11tdata1_readEPK11processor_t(ptr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8triggers11mcontrol6_t12tdata1_writeEP11processor_tmb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(63) initializes((16, 21), (44, 45), (48, 63)) %0, ptr nocapture noundef readonly %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 3796
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 3796
   %6 = load i32, ptr %5, align 4
   %7 = add i32 %6, -5
   %8 = zext nneg i32 %7 to i64
   %9 = shl nuw i64 1, %8
-  %10 = getelementptr inbounds i8, ptr %0, i64 44
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %11 = lshr i64 %2, %8
   %12 = trunc i64 %11 to i8
   %13 = and i8 %12, 1
   store i8 %13, ptr %10, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = lshr i64 %2, 24
   %16 = trunc i64 %15 to i8
   %17 = and i8 %16, 1
   store i8 %17, ptr %14, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 17
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %19 = lshr i64 %2, 23
   %20 = trunc i64 %19 to i8
   %21 = and i8 %20, 1
   store i8 %21, ptr %18, align 1
-  %22 = getelementptr inbounds i8, ptr %0, i64 52
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %23 = lshr i64 %2, 22
   %24 = trunc i64 %23 to i8
   %25 = and i8 %24, 1
   store i8 %25, ptr %22, align 4
-  %26 = getelementptr inbounds i8, ptr %0, i64 53
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 53
   %27 = lshr i64 %2, 21
   %28 = trunc i64 %27 to i8
   %29 = and i8 %28, 1
@@ -1602,7 +1602,7 @@ define void @_ZN8triggers11mcontrol6_t12tdata1_writeEP11processor_tmb(ptr nocapt
 
 _ZN8triggers17mcontrol_common_t15legalize_timingEmmmmm.exit: ; preds = %4, %31, %33
   %.0.i = phi i8 [ %36, %33 ], [ 0, %31 ], [ 1, %4 ]
-  %37 = getelementptr inbounds i8, ptr %0, i64 54
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 54
   store i8 %.0.i, ptr %37, align 2
   %38 = lshr i64 %2, 12
   %.zext = and i64 %38, 15
@@ -1627,12 +1627,12 @@ _ZN8triggers17mcontrol_common_t15legalize_timingEmmmmm.exit: ; preds = %4, %31, 
 
 50:                                               ; preds = %_ZN8triggers17mcontrol_common_t15legalize_timingEmmmmm.exit, %42, %48
   %51 = phi i32 [ %49, %48 ], [ 0, %42 ], [ 0, %_ZN8triggers17mcontrol_common_t15legalize_timingEmmmmm.exit ]
-  %52 = getelementptr inbounds i8, ptr %0, i64 48
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %51, ptr %52, align 8
   %53 = and i64 %2, 2048
   %54 = icmp ne i64 %53, 0
   %55 = and i1 %3, %54
-  %56 = getelementptr inbounds i8, ptr %0, i64 55
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 55
   %57 = zext i1 %55 to i8
   store i8 %57, ptr %56, align 1
   %58 = lshr i64 %2, 7
@@ -1640,20 +1640,20 @@ _ZN8triggers17mcontrol_common_t15legalize_timingEmmmmm.exit: ; preds = %4, %31, 
   %switch.i = icmp samesign ult i64 %59, 6
   %60 = trunc nuw nsw i64 %59 to i32
   %.0.i23 = select i1 %switch.i, i32 %60, i32 0
-  %61 = getelementptr inbounds i8, ptr %0, i64 56
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %.0.i23, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %0, i64 18
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %63 = trunc i64 %2 to i8
   %64 = lshr i8 %63, 6
   %65 = and i8 %64, 1
   store i8 %65, ptr %62, align 2
-  %66 = getelementptr inbounds i8, ptr %1, i64 968
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 968
   %67 = load ptr, ptr %66, align 8
   %68 = tail call noundef zeroext i1 @_ZNK10misa_csr_t23extension_enabled_constEh(ptr noundef nonnull align 8 dereferenceable(64) %67, i8 noundef zeroext 83) #22
   %69 = and i64 %2, 16
   %70 = icmp ne i64 %69, 0
   %71 = and i1 %70, %68
-  %72 = getelementptr inbounds i8, ptr %0, i64 19
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 19
   %73 = zext i1 %71 to i8
   store i8 %73, ptr %72, align 1
   %74 = load ptr, ptr %66, align 8
@@ -1661,18 +1661,18 @@ _ZN8triggers17mcontrol_common_t15legalize_timingEmmmmm.exit: ; preds = %4, %31, 
   %76 = and i64 %2, 8
   %77 = icmp ne i64 %76, 0
   %78 = and i1 %77, %75
-  %79 = getelementptr inbounds i8, ptr %0, i64 20
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %80 = zext i1 %78 to i8
   store i8 %80, ptr %79, align 4
-  %81 = getelementptr inbounds i8, ptr %0, i64 60
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %82 = lshr i8 %63, 2
   %83 = and i8 %82, 1
   store i8 %83, ptr %81, align 4
-  %84 = getelementptr inbounds i8, ptr %0, i64 61
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 61
   %85 = lshr i8 %63, 1
   %86 = and i8 %85, 1
   store i8 %86, ptr %84, align 1
-  %87 = getelementptr inbounds i8, ptr %0, i64 62
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 62
   %88 = and i8 %63, 1
   store i8 %88, ptr %87, align 2
   ret void
@@ -1680,9 +1680,9 @@ _ZN8triggers17mcontrol_common_t15legalize_timingEmmmmm.exit: ; preds = %4, %31, 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define { i64, i8 } @_ZN8triggers8icount_t18detect_icount_fireEP11processor_t(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef readonly %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  %.in.i = getelementptr inbounds i8, ptr %1, i64 944
+  %.in.i = getelementptr inbounds nuw i8, ptr %1, i64 944
   %3 = load i64, ptr %.in.i, align 8
-  %.in10.in.i = getelementptr inbounds i8, ptr %1, i64 962
+  %.in10.in.i = getelementptr inbounds nuw i8, ptr %1, i64 962
   %.in10.i = load i8, ptr %.in10.in.i, align 1
   %4 = trunc i8 %.in10.i to i1
   switch i64 %3, label %7 [
@@ -1705,7 +1705,7 @@ define { i64, i8 } @_ZN8triggers8icount_t18detect_icount_fireEP11processor_t(ptr
 
 _ZNK8triggers9trigger_t10mode_matchEmb.exit.i:    ; preds = %6, %5, %2
   %.in.in.v.sink.i.i = phi i64 [ %.in.in.v.i.i, %6 ], [ %.in4.in.v.i.i, %5 ], [ 18, %2 ]
-  %.in.in.i.i = getelementptr inbounds i8, ptr %0, i64 %.in.in.v.sink.i.i
+  %.in.in.i.i = getelementptr inbounds nuw i8, ptr %0, i64 %.in.in.v.sink.i.i
   %.0.in.i.i = load i8, ptr %.in.in.i.i, align 1
   %.0.i.i = trunc i8 %.0.in.i.i to i1
   br i1 %.0.i.i, label %_ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit, label %_ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit.thread
@@ -1716,7 +1716,7 @@ _ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit: ; preds = %_ZNK8trig
 
 9:                                                ; preds = %_ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %12 = load ptr, ptr %11, align 8
   %13 = invoke noundef i32 %12(ptr noundef nonnull align 8 dereferenceable(44) %0)
           to label %.noexc unwind label %62
@@ -1726,36 +1726,36 @@ _ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit: ; preds = %_ZNK8trig
   br i1 %14, label %15, label %_ZNK8triggers9trigger_t12allow_actionEPK7state_t.exit.thread
 
 15:                                               ; preds = %.noexc
-  %16 = getelementptr inbounds i8, ptr %1, i64 984
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 984
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 56
   %19 = load i64, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 2024
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 2024
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noundef i64 %24(ptr noundef nonnull align 8 dereferenceable(72) %21) #22
   %26 = and i64 %25, 2
   %.not17.i = icmp ne i64 %26, 0
-  %27 = getelementptr inbounds i8, ptr %1, i64 2040
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 2040
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 56
   %30 = load i64, ptr %29, align 8
   %31 = and i64 %30, 2
   %32 = icmp ne i64 %31, 0
-  %33 = getelementptr inbounds i8, ptr %1, i64 1144
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 1144
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = tail call noundef i64 %37(ptr noundef nonnull align 8 dereferenceable(37) %34) #22
   %39 = and i64 %38, 8
   %.not18.i = icmp eq i64 %39, 0
-  %40 = getelementptr inbounds i8, ptr %1, i64 1928
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 1928
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load ptr, ptr %43, align 8
   %45 = tail call noundef i64 %44(ptr noundef nonnull align 8 dereferenceable(37) %41) #22
   %46 = load i64, ptr %.in.i, align 8
@@ -1785,16 +1785,16 @@ _ZNK8triggers9trigger_t12allow_actionEPK7state_t.exit: ; preds = %49
   br i1 %spec.select26.i, label %_ZNK8triggers9trigger_t12allow_actionEPK7state_t.exit.thread, label %_ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit.thread
 
 _ZNK8triggers9trigger_t12allow_actionEPK7state_t.exit.thread: ; preds = %48, %.noexc, %_ZNK8triggers9trigger_t12allow_actionEPK7state_t.exit
-  %56 = getelementptr inbounds i8, ptr %0, i64 56
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %57 = load i8, ptr %56, align 8
   %58 = trunc i8 %57 to i1
   br i1 %58, label %_ZNSt8optionalIN8triggers14match_result_tEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit, label %_ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit.thread
 
 _ZNSt8optionalIN8triggers14match_result_tEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit: ; preds = %_ZNK8triggers9trigger_t12allow_actionEPK7state_t.exit.thread
   store i8 0, ptr %56, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 45
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 45
   store i8 1, ptr %59, align 1
-  %60 = getelementptr inbounds i8, ptr %0, i64 60
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %61 = load i32, ptr %60, align 4
   %.sroa.2.0.insert.ext = zext i32 %61 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
@@ -1817,9 +1817,9 @@ _ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit.thread: ; preds = %49
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8triggers8icount_t23detect_icount_decrementEP11processor_t(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef readonly %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  %.in.i = getelementptr inbounds i8, ptr %1, i64 944
+  %.in.i = getelementptr inbounds nuw i8, ptr %1, i64 944
   %3 = load i64, ptr %.in.i, align 8
-  %.in10.in.i = getelementptr inbounds i8, ptr %1, i64 962
+  %.in10.in.i = getelementptr inbounds nuw i8, ptr %1, i64 962
   %.in10.i = load i8, ptr %.in10.in.i, align 1
   %4 = trunc i8 %.in10.i to i1
   switch i64 %3, label %7 [
@@ -1842,7 +1842,7 @@ define void @_ZN8triggers8icount_t23detect_icount_decrementEP11processor_t(ptr n
 
 _ZNK8triggers9trigger_t10mode_matchEmb.exit.i:    ; preds = %6, %5, %2
   %.in.in.v.sink.i.i = phi i64 [ %.in.in.v.i.i, %6 ], [ %.in4.in.v.i.i, %5 ], [ 18, %2 ]
-  %.in.in.i.i = getelementptr inbounds i8, ptr %0, i64 %.in.in.v.sink.i.i
+  %.in.in.i.i = getelementptr inbounds nuw i8, ptr %0, i64 %.in.in.v.sink.i.i
   %.0.in.i.i = load i8, ptr %.in.in.i.i, align 1
   %.0.i.i = trunc i8 %.0.in.i.i to i1
   br i1 %.0.i.i, label %_ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit, label %_ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit.thread
@@ -1853,7 +1853,7 @@ _ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit: ; preds = %_ZNK8trig
 
 9:                                                ; preds = %_ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %12 = load ptr, ptr %11, align 8
   %13 = invoke noundef i32 %12(ptr noundef nonnull align 8 dereferenceable(44) %0)
           to label %.noexc unwind label %62
@@ -1863,36 +1863,36 @@ _ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit: ; preds = %_ZNK8trig
   br i1 %14, label %15, label %_ZNK8triggers9trigger_t12allow_actionEPK7state_t.exit.thread
 
 15:                                               ; preds = %.noexc
-  %16 = getelementptr inbounds i8, ptr %1, i64 984
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 984
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 56
   %19 = load i64, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 2024
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 2024
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noundef i64 %24(ptr noundef nonnull align 8 dereferenceable(72) %21) #22
   %26 = and i64 %25, 2
   %.not17.i = icmp ne i64 %26, 0
-  %27 = getelementptr inbounds i8, ptr %1, i64 2040
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 2040
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 56
   %30 = load i64, ptr %29, align 8
   %31 = and i64 %30, 2
   %32 = icmp ne i64 %31, 0
-  %33 = getelementptr inbounds i8, ptr %1, i64 1144
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 1144
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = tail call noundef i64 %37(ptr noundef nonnull align 8 dereferenceable(37) %34) #22
   %39 = and i64 %38, 8
   %.not18.i = icmp eq i64 %39, 0
-  %40 = getelementptr inbounds i8, ptr %1, i64 1928
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 1928
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load ptr, ptr %43, align 8
   %45 = tail call noundef i64 %44(ptr noundef nonnull align 8 dereferenceable(37) %41) #22
   %46 = load i64, ptr %.in.i, align 8
@@ -1922,7 +1922,7 @@ _ZNK8triggers9trigger_t12allow_actionEPK7state_t.exit: ; preds = %49
   br i1 %spec.select26.i, label %_ZNK8triggers9trigger_t12allow_actionEPK7state_t.exit.thread, label %_ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit.thread
 
 _ZNK8triggers9trigger_t12allow_actionEPK7state_t.exit.thread: ; preds = %48, %.noexc, %_ZNK8triggers9trigger_t12allow_actionEPK7state_t.exit
-  %56 = getelementptr inbounds i8, ptr %0, i64 48
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %57 = load i32, ptr %56, align 8
   switch i32 %57, label %60 [
     i32 0, label %_ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit.thread
@@ -1930,7 +1930,7 @@ _ZNK8triggers9trigger_t12allow_actionEPK7state_t.exit.thread: ; preds = %48, %.n
   ]
 
 58:                                               ; preds = %_ZNK8triggers9trigger_t12allow_actionEPK7state_t.exit.thread
-  %59 = getelementptr inbounds i8, ptr %0, i64 56
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 1, ptr %59, align 8
   br label %60
 
@@ -1952,23 +1952,23 @@ _ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit.thread: ; preds = %49
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i64 @_ZNK8triggers8icount_t11tdata1_readEPK11processor_t(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr nocapture noundef readonly %1) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 3796
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 3796
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i8, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 968
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 968
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %.sink.i.i = load i64, ptr %9, align 8
   %10 = and i64 %.sink.i.i, 128
   %.0.i.i.not = icmp eq i64 %10, 0
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i8, ptr %11, align 8
   %13 = zext i8 %12 to i64
   %14 = shl nuw nsw i64 %13, 26
   %15 = and i64 %14, 67108864
   %16 = select i1 %.0.i.i.not, i64 0, i64 %15
-  %17 = getelementptr inbounds i8, ptr %0, i64 17
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i64
   %20 = shl nuw nsw i64 %19, 25
@@ -1998,32 +1998,32 @@ define noundef i64 @_ZNK8triggers8icount_t11tdata1_readEPK11processor_t(ptr noca
   %44 = and i64 %43, -134217728
   %45 = or disjoint i64 %44, %16
   %46 = or disjoint i64 %45, %22
-  %47 = getelementptr inbounds i8, ptr %0, i64 45
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 45
   %48 = load i8, ptr %47, align 1
   %49 = zext i8 %48 to i64
   %50 = shl nuw nsw i64 %49, 24
   %51 = and i64 %50, 16777216
   %52 = or disjoint i64 %46, %51
-  %53 = getelementptr inbounds i8, ptr %0, i64 52
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %54 = load i32, ptr %53, align 4
   %55 = zext i32 %54 to i64
   %56 = shl nuw nsw i64 %55, 10
   %57 = and i64 %56, 16776192
-  %58 = getelementptr inbounds i8, ptr %0, i64 18
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %59 = load i8, ptr %58, align 2
   %60 = zext i8 %59 to i64
   %61 = shl nuw nsw i64 %60, 9
   %62 = and i64 %61, 512
-  %63 = getelementptr inbounds i8, ptr %0, i64 57
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 57
   %64 = load i8, ptr %63, align 1
   %65 = zext i8 %64 to i64
   %66 = shl nuw nsw i64 %65, 8
   %67 = and i64 %66, 256
-  %68 = getelementptr inbounds i8, ptr %0, i64 19
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 19
   %69 = load i8, ptr %68, align 1
   %70 = shl i8 %69, 7
   %71 = zext i8 %70 to i64
-  %72 = getelementptr inbounds i8, ptr %0, i64 20
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %73 = load i8, ptr %72, align 4
   %74 = shl i8 %73, 6
   %75 = and i8 %74, 64
@@ -2033,7 +2033,7 @@ define noundef i64 @_ZNK8triggers8icount_t11tdata1_readEPK11processor_t(ptr noca
   %.masked.masked = or i64 %.masked24.masked.masked, %67
   %.masked27 = or i64 %.masked.masked, %71
   %77 = or i64 %.masked27, %76
-  %78 = getelementptr inbounds i8, ptr %0, i64 60
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %79 = load i32, ptr %78, align 4
   %80 = and i32 %79, 63
   %81 = zext nneg i32 %80 to i64
@@ -2043,9 +2043,9 @@ define noundef i64 @_ZNK8triggers8icount_t11tdata1_readEPK11processor_t(ptr noca
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8triggers8icount_t12tdata1_writeEP11processor_tmb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((16, 21), (44, 46), (48, 58), (60, 64)) %0, ptr nocapture noundef readonly %1, i64 noundef %2, i1 zeroext %3) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 3796
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 3796
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 2248
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 2248
   %8 = load i8, ptr %7, align 8
   %9 = trunc i8 %8 to i1
   %10 = add i32 %6, -5
@@ -2054,19 +2054,19 @@ define void @_ZN8triggers8icount_t12tdata1_writeEP11processor_tmb(ptr nocapture 
   %13 = trunc i64 %12 to i8
   %14 = and i8 %13, 1
   %15 = select i1 %9, i8 %14, i8 0
-  %16 = getelementptr inbounds i8, ptr %0, i64 44
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i8 %15, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = lshr i64 %2, 26
   %19 = trunc i64 %18 to i8
   %20 = and i8 %19, 1
   store i8 %20, ptr %17, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 17
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %22 = lshr i64 %2, 25
   %23 = trunc i64 %22 to i8
   %24 = and i8 %23, 1
   store i8 %24, ptr %21, align 1
-  %25 = getelementptr inbounds i8, ptr %0, i64 45
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 45
   %26 = lshr i64 %2, 24
   %27 = trunc i64 %26 to i8
   %28 = and i8 %27, 1
@@ -2074,29 +2074,29 @@ define void @_ZN8triggers8icount_t12tdata1_writeEP11processor_tmb(ptr nocapture 
   %29 = trunc i64 %2 to i32
   %30 = lshr i32 %29, 10
   %31 = and i32 %30, 16383
-  %32 = getelementptr inbounds i8, ptr %0, i64 52
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 %31, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %0, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %31, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 18
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %35 = lshr i64 %2, 9
   %36 = trunc i64 %35 to i8
   %37 = and i8 %36, 1
   store i8 %37, ptr %34, align 2
-  %38 = getelementptr inbounds i8, ptr %0, i64 57
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 57
   %39 = lshr i64 %2, 8
   %40 = trunc i64 %39 to i8
   %41 = and i8 %40, 1
   store i8 %41, ptr %38, align 1
-  %42 = getelementptr inbounds i8, ptr %0, i64 56
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 %41, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %1, i64 968
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 968
   %44 = load ptr, ptr %43, align 8
   %45 = tail call noundef zeroext i1 @_ZNK10misa_csr_t23extension_enabled_constEh(ptr noundef nonnull align 8 dereferenceable(64) %44, i8 noundef zeroext 83) #22
   %46 = and i64 %2, 128
   %47 = icmp ne i64 %46, 0
   %48 = and i1 %47, %45
-  %49 = getelementptr inbounds i8, ptr %0, i64 19
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 19
   %50 = zext i1 %48 to i8
   store i8 %50, ptr %49, align 1
   %51 = load ptr, ptr %43, align 8
@@ -2104,7 +2104,7 @@ define void @_ZN8triggers8icount_t12tdata1_writeEP11processor_tmb(ptr nocapture 
   %53 = and i64 %2, 64
   %54 = icmp ne i64 %53, 0
   %55 = and i1 %54, %52
-  %56 = getelementptr inbounds i8, ptr %0, i64 20
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %57 = zext i1 %55 to i8
   store i8 %57, ptr %56, align 4
   %58 = shl nuw i64 1, %11
@@ -2130,20 +2130,20 @@ define void @_ZN8triggers8icount_t12tdata1_writeEP11processor_tmb(ptr nocapture 
 
 _ZN8triggers9trigger_t15legalize_actionEmmm.exit: ; preds = %4, %63, %69
   %71 = phi i32 [ %70, %69 ], [ 0, %63 ], [ 0, %4 ]
-  %72 = getelementptr inbounds i8, ptr %0, i64 60
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 %71, ptr %72, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN8triggers8icount_t17stash_read_valuesEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((52, 56), (57, 58)) %0) unnamed_addr #12 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 52
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 %3, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load i8, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 57
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 57
   %8 = and i8 %6, 1
   store i8 %8, ptr %7, align 1
   ret void
@@ -2151,24 +2151,24 @@ define void @_ZN8triggers8icount_t17stash_read_valuesEv(ptr nocapture noundef no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i64 @_ZNK8triggers10itrigger_t11tdata1_readEPK11processor_t(ptr nocapture noundef nonnull readonly align 8 dereferenceable(53) %0, ptr nocapture noundef readonly %1) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 3796
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 3796
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i8, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 45
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 45
   %8 = load i8, ptr %7, align 1
-  %9 = getelementptr inbounds i8, ptr %1, i64 968
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 968
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %.sink.i.i = load i64, ptr %11, align 8
   %12 = and i64 %.sink.i.i, 128
   %.0.i.i.not = icmp eq i64 %12, 0
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i8, ptr %13, align 8
   %15 = zext i8 %14 to i64
   %16 = shl nuw nsw i64 %15, 12
   %17 = and i64 %16, 4096
-  %18 = getelementptr inbounds i8, ptr %0, i64 17
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i64
   %21 = shl nuw nsw i64 %20, 11
@@ -2208,26 +2208,26 @@ define noundef i64 @_ZNK8triggers10itrigger_t11tdata1_readEPK11processor_t(ptr n
   %55 = and i64 %54, %46
   %56 = or disjoint i64 %48, %55
   %57 = and i64 %56, -7936
-  %58 = getelementptr inbounds i8, ptr %0, i64 52
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %59 = load i8, ptr %58, align 4
   %60 = zext i8 %59 to i64
   %61 = shl nuw nsw i64 %60, 10
   %62 = and i64 %61, 1024
-  %63 = getelementptr inbounds i8, ptr %0, i64 18
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %64 = load i8, ptr %63, align 2
   %65 = zext i8 %64 to i64
   %66 = shl nuw nsw i64 %65, 9
   %67 = and i64 %66, 512
-  %68 = getelementptr inbounds i8, ptr %0, i64 19
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 19
   %69 = load i8, ptr %68, align 1
   %70 = shl i8 %69, 7
   %71 = zext i8 %70 to i64
-  %72 = getelementptr inbounds i8, ptr %0, i64 20
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %73 = load i8, ptr %72, align 4
   %74 = shl i8 %73, 6
   %75 = and i8 %74, 64
   %76 = zext nneg i8 %75 to i64
-  %77 = getelementptr inbounds i8, ptr %0, i64 48
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %78 = load i32, ptr %77, align 8
   %79 = and i32 %78, 63
   %80 = zext nneg i32 %79 to i64
@@ -2244,49 +2244,49 @@ define noundef i64 @_ZNK8triggers10itrigger_t11tdata1_readEPK11processor_t(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8triggers10itrigger_t12tdata1_writeEP11processor_tmb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(53) initializes((16, 21), (44, 46), (48, 53)) %0, ptr nocapture noundef readonly %1, i64 noundef %2, i1 zeroext %3) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 3796
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 3796
   %6 = load i32, ptr %5, align 4
   %7 = add i32 %6, -5
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds i8, ptr %0, i64 44
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %10 = lshr i64 %2, %8
   %11 = trunc i64 %10 to i8
   %12 = and i8 %11, 1
   store i8 %12, ptr %9, align 4
   %13 = add i32 %6, -6
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds i8, ptr %0, i64 45
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 45
   %16 = lshr i64 %2, %14
   %17 = trunc i64 %16 to i8
   %18 = and i8 %17, 1
   store i8 %18, ptr %15, align 1
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = lshr i64 %2, 12
   %21 = trunc i64 %20 to i8
   %22 = and i8 %21, 1
   store i8 %22, ptr %19, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 17
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %24 = lshr i64 %2, 11
   %25 = trunc i64 %24 to i8
   %26 = and i8 %25, 1
   store i8 %26, ptr %23, align 1
-  %27 = getelementptr inbounds i8, ptr %0, i64 52
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %28 = lshr i64 %2, 10
   %29 = trunc i64 %28 to i8
   %30 = and i8 %29, 1
   store i8 %30, ptr %27, align 4
-  %31 = getelementptr inbounds i8, ptr %0, i64 18
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %32 = lshr i64 %2, 9
   %33 = trunc i64 %32 to i8
   %34 = and i8 %33, 1
   store i8 %34, ptr %31, align 2
-  %35 = getelementptr inbounds i8, ptr %1, i64 968
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 968
   %36 = load ptr, ptr %35, align 8
   %37 = tail call noundef zeroext i1 @_ZNK10misa_csr_t23extension_enabled_constEh(ptr noundef nonnull align 8 dereferenceable(64) %36, i8 noundef zeroext 83) #22
   %38 = and i64 %2, 128
   %39 = icmp ne i64 %38, 0
   %40 = and i1 %39, %37
-  %41 = getelementptr inbounds i8, ptr %0, i64 19
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 19
   %42 = zext i1 %40 to i8
   store i8 %42, ptr %41, align 1
   %43 = load ptr, ptr %35, align 8
@@ -2295,7 +2295,7 @@ define void @_ZN8triggers10itrigger_t12tdata1_writeEP11processor_tmb(ptr nocaptu
   %46 = and i64 %2, 64
   %47 = icmp ne i64 %46, 0
   %48 = and i1 %47, %44
-  %49 = getelementptr inbounds i8, ptr %0, i64 20
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %50 = zext i1 %48 to i8
   store i8 %50, ptr %49, align 4
   %51 = and i64 %2, 63
@@ -2320,16 +2320,16 @@ define void @_ZN8triggers10itrigger_t12tdata1_writeEP11processor_tmb(ptr nocaptu
 
 _ZN8triggers9trigger_t15legalize_actionEmmm.exit: ; preds = %4, %55, %61
   %63 = phi i32 [ %62, %61 ], [ 0, %55 ], [ 0, %4 ]
-  %64 = getelementptr inbounds i8, ptr %0, i64 48
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %63, ptr %64, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define { i64, i8 } @_ZN8triggers13trap_common_t17detect_trap_matchEP11processor_tRK6trap_t(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  %.in.i = getelementptr inbounds i8, ptr %1, i64 952
+  %.in.i = getelementptr inbounds nuw i8, ptr %1, i64 952
   %4 = load i64, ptr %.in.i, align 8
-  %.in10.in.i = getelementptr inbounds i8, ptr %1, i64 963
+  %.in10.in.i = getelementptr inbounds nuw i8, ptr %1, i64 963
   %.in10.i = load i8, ptr %.in10.in.i, align 1
   %5 = trunc i8 %.in10.i to i1
   switch i64 %4, label %8 [
@@ -2352,7 +2352,7 @@ define { i64, i8 } @_ZN8triggers13trap_common_t17detect_trap_matchEP11processor_
 
 _ZNK8triggers9trigger_t10mode_matchEmb.exit.i:    ; preds = %7, %6, %3
   %.in.in.v.sink.i.i = phi i64 [ %.in.in.v.i.i, %7 ], [ %.in4.in.v.i.i, %6 ], [ 18, %3 ]
-  %.in.in.i.i = getelementptr inbounds i8, ptr %0, i64 %.in.in.v.sink.i.i
+  %.in.in.i.i = getelementptr inbounds nuw i8, ptr %0, i64 %.in.in.v.sink.i.i
   %.0.in.i.i = load i8, ptr %.in.in.i.i, align 1
   %.0.i.i = trunc i8 %.0.in.i.i to i1
   br i1 %.0.i.i, label %_ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit, label %_ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit.thread
@@ -2362,9 +2362,9 @@ _ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit: ; preds = %_ZNK8trig
   br i1 %9, label %10, label %_ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit.thread
 
 10:                                               ; preds = %_ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit
-  %11 = getelementptr inbounds i8, ptr %1, i64 3796
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 3796
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load i64, ptr %13, align 8
   %15 = add i32 %12, -1
   %16 = zext nneg i32 %15 to i64
@@ -2374,7 +2374,7 @@ _ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit: ; preds = %_ZNK8trig
   %20 = xor i64 %17, -1
   %21 = and i64 %14, %20
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 128
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 128
   %24 = load ptr, ptr %23, align 8
   %25 = invoke noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(52) %0, i1 noundef zeroext %19, i64 noundef %21)
           to label %26 unwind label %79
@@ -2384,7 +2384,7 @@ _ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit: ; preds = %_ZNK8trig
 
 27:                                               ; preds = %26
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 72
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 72
   %30 = load ptr, ptr %29, align 8
   %31 = invoke noundef i32 %30(ptr noundef nonnull align 8 dereferenceable(44) %0)
           to label %.noexc unwind label %79
@@ -2394,39 +2394,39 @@ _ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit: ; preds = %_ZNK8trig
   br i1 %32, label %33, label %_ZNK8triggers9trigger_t12allow_actionEPK7state_t.exit.thread
 
 33:                                               ; preds = %.noexc
-  %34 = getelementptr inbounds i8, ptr %1, i64 984
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 984
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 56
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 56
   %37 = load i64, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %1, i64 2024
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 2024
   %39 = load ptr, ptr %38, align 8
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load ptr, ptr %41, align 8
   %43 = tail call noundef i64 %42(ptr noundef nonnull align 8 dereferenceable(72) %39) #22
   %44 = and i64 %43, 2
   %.not17.i = icmp ne i64 %44, 0
-  %45 = getelementptr inbounds i8, ptr %1, i64 2040
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 2040
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 56
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 56
   %48 = load i64, ptr %47, align 8
   %49 = and i64 %48, 2
   %50 = icmp ne i64 %49, 0
-  %51 = getelementptr inbounds i8, ptr %1, i64 1144
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 1144
   %52 = load ptr, ptr %51, align 8
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load ptr, ptr %54, align 8
   %56 = tail call noundef i64 %55(ptr noundef nonnull align 8 dereferenceable(37) %52) #22
   %57 = and i64 %56, 8
   %.not18.i = icmp eq i64 %57, 0
-  %58 = getelementptr inbounds i8, ptr %1, i64 1928
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 1928
   %59 = load ptr, ptr %58, align 8
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = load ptr, ptr %61, align 8
   %63 = tail call noundef i64 %62(ptr noundef nonnull align 8 dereferenceable(37) %59) #22
-  %64 = getelementptr inbounds i8, ptr %1, i64 944
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 944
   %65 = load i64, ptr %64, align 8
   %.not20.i = icmp eq i64 %65, 3
   %66 = and i64 %37, 8
@@ -2439,7 +2439,7 @@ _ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit: ; preds = %_ZNK8trig
   br i1 %.not21.i, label %68, label %_ZNK8triggers9trigger_t12allow_actionEPK7state_t.exit.thread
 
 68:                                               ; preds = %67
-  %69 = getelementptr inbounds i8, ptr %1, i64 962
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 962
   %70 = load i8, ptr %69, align 2
   %71 = trunc i8 %70 to i1
   %72 = or i1 %.not17.i, %.not18.i
@@ -2455,9 +2455,9 @@ _ZNK8triggers9trigger_t12allow_actionEPK7state_t.exit: ; preds = %68
   br i1 %spec.select26.i, label %_ZNK8triggers9trigger_t12allow_actionEPK7state_t.exit.thread, label %_ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit.thread
 
 _ZNK8triggers9trigger_t12allow_actionEPK7state_t.exit.thread: ; preds = %67, %.noexc, %_ZNK8triggers9trigger_t12allow_actionEPK7state_t.exit
-  %76 = getelementptr inbounds i8, ptr %0, i64 45
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 45
   store i8 1, ptr %76, align 1
-  %77 = getelementptr inbounds i8, ptr %0, i64 48
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %78 = load i32, ptr %77, align 8
   %.sroa.2.0.insert.ext = zext i32 %78 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
@@ -2488,13 +2488,13 @@ define noundef zeroext i1 @_ZNK8triggers10itrigger_t12simple_matchEbm(ptr nocapt
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 52
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %8 = load i8, ptr %7, align 4
   %9 = trunc i8 %8 to i1
   br i1 %9, label %16, label %10
 
 10:                                               ; preds = %6, %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = shl nuw i64 1, %2
   %14 = and i64 %12, %13
@@ -2508,24 +2508,24 @@ define noundef zeroext i1 @_ZNK8triggers10itrigger_t12simple_matchEbm(ptr nocapt
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i64 @_ZNK8triggers10etrigger_t11tdata1_readEPK11processor_t(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %0, ptr nocapture noundef readonly %1) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 3796
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 3796
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i8, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 45
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 45
   %8 = load i8, ptr %7, align 1
-  %9 = getelementptr inbounds i8, ptr %1, i64 968
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 968
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %.sink.i.i = load i64, ptr %11, align 8
   %12 = and i64 %.sink.i.i, 128
   %.0.i.i.not = icmp eq i64 %12, 0
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i8, ptr %13, align 8
   %15 = zext i8 %14 to i64
   %16 = shl nuw nsw i64 %15, 12
   %17 = and i64 %16, 4096
-  %18 = getelementptr inbounds i8, ptr %0, i64 17
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i64
   %21 = shl nuw nsw i64 %20, 11
@@ -2565,21 +2565,21 @@ define noundef i64 @_ZNK8triggers10etrigger_t11tdata1_readEPK11processor_t(ptr n
   %55 = and i64 %54, %46
   %56 = or disjoint i64 %48, %55
   %57 = and i64 %56, -6912
-  %58 = getelementptr inbounds i8, ptr %0, i64 18
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %59 = load i8, ptr %58, align 2
   %60 = zext i8 %59 to i64
   %61 = shl nuw nsw i64 %60, 9
   %62 = and i64 %61, 512
-  %63 = getelementptr inbounds i8, ptr %0, i64 19
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 19
   %64 = load i8, ptr %63, align 1
   %65 = shl i8 %64, 7
   %66 = zext i8 %65 to i64
-  %67 = getelementptr inbounds i8, ptr %0, i64 20
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %68 = load i8, ptr %67, align 4
   %69 = shl i8 %68, 6
   %70 = and i8 %69, 64
   %71 = zext nneg i8 %70 to i64
-  %72 = getelementptr inbounds i8, ptr %0, i64 48
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %73 = load i32, ptr %72, align 8
   %74 = and i32 %73, 63
   %75 = zext nneg i32 %74 to i64
@@ -2595,44 +2595,44 @@ define noundef i64 @_ZNK8triggers10etrigger_t11tdata1_readEPK11processor_t(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8triggers10etrigger_t12tdata1_writeEP11processor_tmb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) initializes((16, 21), (44, 46), (48, 52)) %0, ptr nocapture noundef readonly %1, i64 noundef %2, i1 zeroext %3) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 3796
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 3796
   %6 = load i32, ptr %5, align 4
   %7 = add i32 %6, -5
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds i8, ptr %0, i64 44
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %10 = lshr i64 %2, %8
   %11 = trunc i64 %10 to i8
   %12 = and i8 %11, 1
   store i8 %12, ptr %9, align 4
   %13 = add i32 %6, -6
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds i8, ptr %0, i64 45
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 45
   %16 = lshr i64 %2, %14
   %17 = trunc i64 %16 to i8
   %18 = and i8 %17, 1
   store i8 %18, ptr %15, align 1
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = lshr i64 %2, 12
   %21 = trunc i64 %20 to i8
   %22 = and i8 %21, 1
   store i8 %22, ptr %19, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 17
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %24 = lshr i64 %2, 11
   %25 = trunc i64 %24 to i8
   %26 = and i8 %25, 1
   store i8 %26, ptr %23, align 1
-  %27 = getelementptr inbounds i8, ptr %0, i64 18
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %28 = lshr i64 %2, 9
   %29 = trunc i64 %28 to i8
   %30 = and i8 %29, 1
   store i8 %30, ptr %27, align 2
-  %31 = getelementptr inbounds i8, ptr %1, i64 968
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 968
   %32 = load ptr, ptr %31, align 8
   %33 = tail call noundef zeroext i1 @_ZNK10misa_csr_t23extension_enabled_constEh(ptr noundef nonnull align 8 dereferenceable(64) %32, i8 noundef zeroext 83) #22
   %34 = and i64 %2, 128
   %35 = icmp ne i64 %34, 0
   %36 = and i1 %35, %33
-  %37 = getelementptr inbounds i8, ptr %0, i64 19
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 19
   %38 = zext i1 %36 to i8
   store i8 %38, ptr %37, align 1
   %39 = load ptr, ptr %31, align 8
@@ -2641,7 +2641,7 @@ define void @_ZN8triggers10etrigger_t12tdata1_writeEP11processor_tmb(ptr nocaptu
   %42 = and i64 %2, 64
   %43 = icmp ne i64 %42, 0
   %44 = and i1 %43, %40
-  %45 = getelementptr inbounds i8, ptr %0, i64 20
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %46 = zext i1 %44 to i8
   store i8 %46, ptr %45, align 4
   %47 = and i64 %2, 63
@@ -2666,14 +2666,14 @@ define void @_ZN8triggers10etrigger_t12tdata1_writeEP11processor_tmb(ptr nocaptu
 
 _ZN8triggers9trigger_t15legalize_actionEmmm.exit: ; preds = %4, %51, %57
   %59 = phi i32 [ %58, %57 ], [ 0, %51 ], [ 0, %4 ]
-  %60 = getelementptr inbounds i8, ptr %0, i64 48
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %59, ptr %60, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK8triggers10etrigger_t12simple_matchEbm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %0, i1 noundef zeroext %1, i64 noundef %2) unnamed_addr #3 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = shl nuw i64 1, %2
   %7 = and i64 %5, %6
@@ -2685,7 +2685,7 @@ define noundef zeroext i1 @_ZNK8triggers10etrigger_t12simple_matchEbm(ptr nocapt
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8triggers8module_tC2Ej(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((8, 32)) %0, i32 noundef %1) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %.not.i.i.i.i = icmp eq i32 %1, 0
   br i1 %.not.i.i.i.i, label %12, label %.noexc
@@ -2696,7 +2696,7 @@ define void @_ZN8triggers8module_tC2Ej(ptr nocapture noundef nonnull align 8 der
   %6 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %5) #23
   store ptr %6, ptr %3, align 8
   %7 = getelementptr ptr, ptr %6, i64 %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %7, ptr %8, align 8
   store ptr null, ptr %6, align 8
   %9 = getelementptr i8, ptr %6, i64 8
@@ -2714,7 +2714,7 @@ _ZSt6fill_nIPPN8triggers9trigger_tEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i.i: ;
 
 .lr.ph.preheader:                                 ; preds = %_ZSt6fill_nIPPN8triggers9trigger_tEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc
   %.0.i.i.i.i.i.ph = phi ptr [ %7, %_ZSt6fill_nIPPN8triggers9trigger_tEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %9, %.noexc ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.0.i.i.i.i.i.ph, ptr %13, align 8
   %wide.trip.count = zext i32 %1 to i64
   br label %.lr.ph
@@ -2728,7 +2728,7 @@ _ZSt6fill_nIPPN8triggers9trigger_tEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i.i: ;
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %14, i8 0, i64 48, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8triggers18disabled_trigger_tE, i64 16), ptr %14, align 8
   %16 = load ptr, ptr %3, align 8
-  %17 = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
   store ptr %14, ptr %17, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2760,9 +2760,9 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8triggers8module_tD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %3, %5
   br i1 %6, label %._crit_edge, label %.lr.ph
@@ -2775,13 +2775,13 @@ define void @_ZN8triggers8module_tD2Ev(ptr nocapture noundef nonnull readonly al
 
 9:                                                ; preds = %.lr.ph
   %10 = load ptr, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(44) %7) #22
   br label %13
 
 13:                                               ; preds = %.lr.ph, %9
-  %14 = getelementptr inbounds i8, ptr %.sroa.04.07, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.04.07, i64 8
   %15 = icmp eq ptr %14, %5
   br i1 %15, label %._crit_edge.loopexit, label %.lr.ph
 
@@ -2804,14 +2804,14 @@ _ZNSt6vectorIPN8triggers9trigger_tESaIS2_EED2Ev.exit: ; preds = %._crit_edge, %1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef i64 @_ZNK8triggers8module_t11tdata1_readEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = zext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds ptr, ptr %5, i64 %4
+  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %4
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %0, align 8
   %9 = load ptr, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef i64 %11(ptr noundef nonnull align 8 dereferenceable(44) %7, ptr noundef %8) #22
   ret i64 %12
@@ -2819,13 +2819,13 @@ define noundef i64 @_ZNK8triggers8module_t11tdata1_readEj(ptr nocapture noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef zeroext i1 @_ZN8triggers8module_t12tdata1_writeEjm(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = zext i32 %1 to i64
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds ptr, ptr %6, i64 %5
+  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %5
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = load ptr, ptr %10, align 8
   %12 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(44) %8)
           to label %13 unwind label %188
@@ -2835,17 +2835,17 @@ define noundef zeroext i1 @_ZN8triggers8module_t12tdata1_writeEjm(ptr noundef no
   br i1 %12, label %14, label %18
 
 14:                                               ; preds = %13
-  %15 = getelementptr inbounds i8, ptr %.pre, i64 2248
+  %15 = getelementptr inbounds nuw i8, ptr %.pre, i64 2248
   %16 = load i8, ptr %15, align 8
   %17 = trunc i8 %16 to i1
   br i1 %17, label %18, label %187
 
 18:                                               ; preds = %14, %13
-  %19 = getelementptr inbounds i8, ptr %.pre, i64 3796
+  %19 = getelementptr inbounds nuw i8, ptr %.pre, i64 3796
   %20 = load i32, ptr %19, align 4
   %21 = add i32 %1, 1
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %4, align 8
   %26 = ptrtoint ptr %24 to i64
@@ -2856,10 +2856,10 @@ define noundef zeroext i1 @_ZN8triggers8module_t12tdata1_writeEjm(ptr noundef no
   br i1 %30, label %31, label %44
 
 31:                                               ; preds = %18
-  %32 = getelementptr inbounds ptr, ptr %25, i64 %22
+  %32 = getelementptr inbounds nuw ptr, ptr %25, i64 %22
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %36 = load ptr, ptr %35, align 8
   %37 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(44) %33)
           to label %38 unwind label %188
@@ -2878,7 +2878,7 @@ define noundef zeroext i1 @_ZN8triggers8module_t12tdata1_writeEjm(ptr noundef no
 44:                                               ; preds = %39, %38, %18
   %45 = phi i1 [ true, %38 ], [ true, %18 ], [ %.not, %39 ]
   %46 = load ptr, ptr %0, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 2248
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 2248
   %48 = load i8, ptr %47, align 8
   %49 = trunc i8 %48 to i1
   %50 = add i32 %20, -5
@@ -2894,10 +2894,10 @@ define noundef zeroext i1 @_ZN8triggers8module_t12tdata1_writeEjm(ptr noundef no
 55:                                               ; preds = %44
   %56 = add i32 %1, -1
   %57 = zext i32 %56 to i64
-  %58 = getelementptr inbounds ptr, ptr %.pre51, i64 %57
+  %58 = getelementptr inbounds nuw ptr, ptr %.pre51, i64 %57
   %59 = load ptr, ptr %58, align 8
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %62 = load ptr, ptr %61, align 8
   %63 = invoke noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(44) %59)
           to label %64 unwind label %188
@@ -2907,10 +2907,10 @@ define noundef zeroext i1 @_ZN8triggers8module_t12tdata1_writeEjm(ptr noundef no
   br i1 %63, label %74, label %65
 
 65:                                               ; preds = %64
-  %66 = getelementptr inbounds ptr, ptr %.pre50, i64 %57
+  %66 = getelementptr inbounds nuw ptr, ptr %.pre50, i64 %57
   %67 = load ptr, ptr %66, align 8
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 40
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 40
   %70 = load ptr, ptr %69, align 8
   %71 = invoke noundef zeroext i1 %70(ptr noundef nonnull align 8 dereferenceable(44) %67)
           to label %72 unwind label %188
@@ -2936,21 +2936,21 @@ define noundef zeroext i1 @_ZN8triggers8module_t12tdata1_writeEjm(ptr noundef no
   %82 = and i64 %78, %81
   %83 = udiv i64 %79, %82
   %84 = trunc i64 %83 to i32
-  %85 = getelementptr inbounds ptr, ptr %75, i64 %5
+  %85 = getelementptr inbounds nuw ptr, ptr %75, i64 %5
   %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %88 = load i64, ptr %87, align 8
   %89 = load ptr, ptr %0, align 8
   %90 = tail call noundef i64 @_ZNK8triggers9trigger_t11tdata3_readEPK11processor_t(ptr noundef nonnull align 8 dereferenceable(44) %86, ptr noundef %89) #22
   %91 = load ptr, ptr %4, align 8
-  %92 = getelementptr inbounds ptr, ptr %91, i64 %5
+  %92 = getelementptr inbounds nuw ptr, ptr %91, i64 %5
   %93 = load ptr, ptr %92, align 8
   %94 = icmp eq ptr %93, null
   br i1 %94, label %99, label %95
 
 95:                                               ; preds = %74
   %96 = load ptr, ptr %93, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %98 = load ptr, ptr %97, align 8
   tail call void %98(ptr noundef nonnull align 8 dereferenceable(44) %93) #22
   br label %99
@@ -2980,13 +2980,13 @@ define noundef zeroext i1 @_ZN8triggers8module_t12tdata1_writeEjm(ptr noundef no
 105:                                              ; preds = %103
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %104, i8 0, i64 64, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8triggers8icount_tE, i64 16), ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %104, i64 45
+  %106 = getelementptr inbounds nuw i8, ptr %104, i64 45
   store i8 0, ptr %106, align 1
-  %107 = getelementptr inbounds i8, ptr %104, i64 48
+  %107 = getelementptr inbounds nuw i8, ptr %104, i64 48
   store i32 1, ptr %107, align 8
-  %108 = getelementptr inbounds i8, ptr %104, i64 52
+  %108 = getelementptr inbounds nuw i8, ptr %104, i64 52
   store i32 1, ptr %108, align 4
-  %109 = getelementptr inbounds i8, ptr %104, i64 57
+  %109 = getelementptr inbounds nuw i8, ptr %104, i64 57
   store i8 0, ptr %109, align 1
   br label %122
 
@@ -3029,26 +3029,26 @@ define noundef zeroext i1 @_ZN8triggers8module_t12tdata1_writeEjm(ptr noundef no
 122:                                              ; preds = %121, %118, %115, %112, %105, %102
   %.sink = phi ptr [ %120, %121 ], [ %117, %118 ], [ %114, %115 ], [ %111, %112 ], [ %104, %105 ], [ %101, %102 ]
   %123 = load ptr, ptr %4, align 8
-  %124 = getelementptr inbounds ptr, ptr %123, i64 %5
+  %124 = getelementptr inbounds nuw ptr, ptr %123, i64 %5
   store ptr %.sink, ptr %124, align 8
   %125 = load ptr, ptr %4, align 8
-  %126 = getelementptr inbounds ptr, ptr %125, i64 %5
+  %126 = getelementptr inbounds nuw ptr, ptr %125, i64 %5
   %127 = load ptr, ptr %126, align 8
   %128 = load ptr, ptr %0, align 8
   %129 = load ptr, ptr %127, align 8
-  %130 = getelementptr inbounds i8, ptr %129, i64 24
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 24
   %131 = load ptr, ptr %130, align 8
   tail call void %131(ptr noundef nonnull align 8 dereferenceable(44) %127, ptr noundef %128, i64 noundef %.042, i1 noundef zeroext %45) #22
   %132 = load ptr, ptr %4, align 8
-  %133 = getelementptr inbounds ptr, ptr %132, i64 %5
+  %133 = getelementptr inbounds nuw ptr, ptr %132, i64 %5
   %134 = load ptr, ptr %133, align 8
-  %135 = getelementptr inbounds i8, ptr %134, i64 8
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 8
   store i64 %88, ptr %135, align 8
   %136 = load ptr, ptr %4, align 8
-  %137 = getelementptr inbounds ptr, ptr %136, i64 %5
+  %137 = getelementptr inbounds nuw ptr, ptr %136, i64 %5
   %138 = load ptr, ptr %137, align 8
   %139 = load ptr, ptr %0, align 8
-  %140 = getelementptr inbounds i8, ptr %139, i64 3796
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 3796
   %141 = load i32, ptr %140, align 4
   %142 = icmp eq i32 %141, 32
   %143 = select i1 %142, i64 4227858432, i64 -2251799813685248
@@ -3058,7 +3058,7 @@ define noundef zeroext i1 @_ZN8triggers8module_t12tdata1_writeEjm(ptr noundef no
   %147 = and i64 %143, %146
   %148 = udiv i64 %144, %147
   %149 = trunc i64 %148 to i32
-  %150 = getelementptr inbounds i8, ptr %138, i64 40
+  %150 = getelementptr inbounds nuw i8, ptr %138, i64 40
   store i32 %149, ptr %150, align 8
   %151 = select i1 %142, i64 58720256, i64 1970324836974592
   %152 = and i64 %151, %90
@@ -3067,7 +3067,7 @@ define noundef zeroext i1 @_ZN8triggers8module_t12tdata1_writeEjm(ptr noundef no
   %155 = and i64 %151, %154
   %156 = udiv i64 %152, %155
   %157 = trunc i64 %156 to i32
-  %158 = getelementptr inbounds i8, ptr %138, i64 36
+  %158 = getelementptr inbounds nuw i8, ptr %138, i64 36
   store i32 %157, ptr %158, align 4
   %159 = select i1 %142, i64 786432, i64 2130303778816
   %160 = and i64 %159, %90
@@ -3076,9 +3076,9 @@ define noundef zeroext i1 @_ZN8triggers8module_t12tdata1_writeEjm(ptr noundef no
   %163 = and i64 %159, %162
   %164 = udiv i64 %160, %163
   %165 = trunc i64 %164 to i32
-  %166 = getelementptr inbounds i8, ptr %138, i64 32
+  %166 = getelementptr inbounds nuw i8, ptr %138, i64 32
   store i32 %165, ptr %166, align 8
-  %167 = getelementptr inbounds i8, ptr %139, i64 968
+  %167 = getelementptr inbounds nuw i8, ptr %139, i64 968
   %168 = load ptr, ptr %167, align 8
   %169 = tail call noundef zeroext i1 @_ZNK10misa_csr_t23extension_enabled_constEh(ptr noundef nonnull align 8 dereferenceable(64) %168, i8 noundef zeroext 83) #22
   br i1 %169, label %170, label %_ZN8triggers9trigger_t12tdata3_writeEP11processor_tm.exit
@@ -3095,7 +3095,7 @@ define noundef zeroext i1 @_ZN8triggers8module_t12tdata1_writeEjm(ptr noundef no
 
 _ZN8triggers9trigger_t12tdata3_writeEP11processor_tm.exit: ; preds = %122, %170
   %178 = phi i32 [ %177, %170 ], [ 0, %122 ]
-  %179 = getelementptr inbounds i8, ptr %138, i64 28
+  %179 = getelementptr inbounds nuw i8, ptr %138, i64 28
   store i32 %178, ptr %179, align 4
   %180 = load ptr, ptr %167, align 8
   %181 = tail call noundef zeroext i1 @_ZNK10misa_csr_t23extension_enabled_constEh(ptr noundef nonnull align 8 dereferenceable(64) %180, i8 noundef zeroext 83) #22
@@ -3104,7 +3104,7 @@ _ZN8triggers9trigger_t12tdata3_writeEP11processor_tm.exit: ; preds = %122, %170
   %183 = trunc nuw nsw i64 %182 to i32
   %spec.select.i = select i1 %.not.i, i32 0, i32 %183
   %184 = select i1 %181, i32 %spec.select.i, i32 0
-  %185 = getelementptr inbounds i8, ptr %138, i64 24
+  %185 = getelementptr inbounds nuw i8, ptr %138, i64 24
   store i32 %184, ptr %185, align 8
   %186 = load ptr, ptr %0, align 8
   invoke void @_ZN11processor_t15trigger_updatedERKSt6vectorIPN8triggers9trigger_tESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(659880) %186, ptr noundef nonnull align 8 dereferenceable(24) %4)
@@ -3126,25 +3126,25 @@ declare void @_ZN11processor_t15trigger_updatedERKSt6vectorIPN8triggers9trigger_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i64 @_ZNK8triggers8module_t11tdata2_readEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef %1) local_unnamed_addr #13 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = zext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds ptr, ptr %5, i64 %4
+  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %4
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i64, ptr %8, align 8
   ret i64 %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef zeroext i1 @_ZN8triggers8module_t12tdata2_writeEjm(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = zext i32 %1 to i64
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds ptr, ptr %6, i64 %5
+  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %5
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = load ptr, ptr %10, align 8
   %12 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(44) %8)
           to label %13 unwind label %26
@@ -3154,16 +3154,16 @@ define noundef zeroext i1 @_ZN8triggers8module_t12tdata2_writeEjm(ptr noundef no
 
 14:                                               ; preds = %13
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 2248
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 2248
   %17 = load i8, ptr %16, align 8
   %18 = trunc i8 %17 to i1
   br i1 %18, label %19, label %25
 
 19:                                               ; preds = %14, %13
   %20 = load ptr, ptr %4, align 8
-  %21 = getelementptr inbounds ptr, ptr %20, i64 %5
+  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %5
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i64 %2, ptr %23, align 8
   %24 = load ptr, ptr %0, align 8
   invoke void @_ZN11processor_t15trigger_updatedERKSt6vectorIPN8triggers9trigger_tESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(659880) %24, ptr noundef nonnull align 8 dereferenceable(24) %4)
@@ -3183,10 +3183,10 @@ define noundef zeroext i1 @_ZN8triggers8module_t12tdata2_writeEjm(ptr noundef no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef i64 @_ZNK8triggers8module_t11tdata3_readEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = zext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds ptr, ptr %5, i64 %4
+  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %4
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %0, align 8
   %9 = tail call noundef i64 @_ZNK8triggers9trigger_t11tdata3_readEPK11processor_t(ptr noundef nonnull align 8 dereferenceable(44) %7, ptr noundef %8) #22
@@ -3195,13 +3195,13 @@ define noundef i64 @_ZNK8triggers8module_t11tdata3_readEj(ptr nocapture noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef zeroext i1 @_ZN8triggers8module_t12tdata3_writeEjm(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = zext i32 %1 to i64
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds ptr, ptr %6, i64 %5
+  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %5
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = load ptr, ptr %10, align 8
   %12 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(44) %8)
           to label %13 unwind label %70
@@ -3211,16 +3211,16 @@ define noundef zeroext i1 @_ZN8triggers8module_t12tdata3_writeEjm(ptr noundef no
   br i1 %12, label %14, label %18
 
 14:                                               ; preds = %13
-  %15 = getelementptr inbounds i8, ptr %.pre, i64 2248
+  %15 = getelementptr inbounds nuw i8, ptr %.pre, i64 2248
   %16 = load i8, ptr %15, align 8
   %17 = trunc i8 %16 to i1
   br i1 %17, label %18, label %69
 
 18:                                               ; preds = %14, %13
   %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds ptr, ptr %19, i64 %5
+  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %5
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %.pre, i64 3796
+  %22 = getelementptr inbounds nuw i8, ptr %.pre, i64 3796
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i32 %23, 32
   %25 = select i1 %24, i64 4227858432, i64 -2251799813685248
@@ -3230,7 +3230,7 @@ define noundef zeroext i1 @_ZN8triggers8module_t12tdata3_writeEjm(ptr noundef no
   %29 = and i64 %25, %28
   %30 = udiv i64 %26, %29
   %31 = trunc i64 %30 to i32
-  %32 = getelementptr inbounds i8, ptr %21, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %21, i64 40
   store i32 %31, ptr %32, align 8
   %33 = select i1 %24, i64 58720256, i64 1970324836974592
   %34 = and i64 %33, %2
@@ -3239,7 +3239,7 @@ define noundef zeroext i1 @_ZN8triggers8module_t12tdata3_writeEjm(ptr noundef no
   %37 = and i64 %33, %36
   %38 = udiv i64 %34, %37
   %39 = trunc i64 %38 to i32
-  %40 = getelementptr inbounds i8, ptr %21, i64 36
+  %40 = getelementptr inbounds nuw i8, ptr %21, i64 36
   store i32 %39, ptr %40, align 4
   %41 = select i1 %24, i64 786432, i64 2130303778816
   %42 = and i64 %41, %2
@@ -3248,9 +3248,9 @@ define noundef zeroext i1 @_ZN8triggers8module_t12tdata3_writeEjm(ptr noundef no
   %45 = and i64 %41, %44
   %46 = udiv i64 %42, %45
   %47 = trunc i64 %46 to i32
-  %48 = getelementptr inbounds i8, ptr %21, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store i32 %47, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %.pre, i64 968
+  %49 = getelementptr inbounds nuw i8, ptr %.pre, i64 968
   %50 = load ptr, ptr %49, align 8
   %51 = tail call noundef zeroext i1 @_ZNK10misa_csr_t23extension_enabled_constEh(ptr noundef nonnull align 8 dereferenceable(64) %50, i8 noundef zeroext 83) #22
   br i1 %51, label %52, label %_ZN8triggers9trigger_t12tdata3_writeEP11processor_tm.exit
@@ -3267,7 +3267,7 @@ define noundef zeroext i1 @_ZN8triggers8module_t12tdata3_writeEjm(ptr noundef no
 
 _ZN8triggers9trigger_t12tdata3_writeEP11processor_tm.exit: ; preds = %18, %52
   %60 = phi i32 [ %59, %52 ], [ 0, %18 ]
-  %61 = getelementptr inbounds i8, ptr %21, i64 28
+  %61 = getelementptr inbounds nuw i8, ptr %21, i64 28
   store i32 %60, ptr %61, align 4
   %62 = load ptr, ptr %49, align 8
   %63 = tail call noundef zeroext i1 @_ZNK10misa_csr_t23extension_enabled_constEh(ptr noundef nonnull align 8 dereferenceable(64) %62, i8 noundef zeroext 83) #22
@@ -3276,7 +3276,7 @@ _ZN8triggers9trigger_t12tdata3_writeEP11processor_tm.exit: ; preds = %18, %52
   %65 = trunc nuw nsw i64 %64 to i32
   %spec.select.i = select i1 %.not.i, i32 0, i32 %65
   %66 = select i1 %63, i32 %spec.select.i, i32 0
-  %67 = getelementptr inbounds i8, ptr %21, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store i32 %66, ptr %67, align 8
   %68 = load ptr, ptr %0, align 8
   invoke void @_ZN11processor_t15trigger_updatedERKSt6vectorIPN8triggers9trigger_tESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(659880) %68, ptr noundef nonnull align 8 dereferenceable(24) %4)
@@ -3297,15 +3297,15 @@ _ZN8triggers9trigger_t12tdata3_writeEP11processor_tm.exit: ; preds = %18, %52
 ; Function Attrs: mustprogress nounwind uwtable
 define { i64, i8 } @_ZN8triggers8module_t26detect_memory_access_matchENS_11operation_tEmSt8optionalImE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef %1, i64 noundef %2, i64 %3, i8 %4) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 2248
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 2248
   %8 = load i8, ptr %7, align 8
   %9 = trunc i8 %8 to i1
   br i1 %9, label %.loopexit, label %10
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %12, %14
   br i1 %15, label %.loopexit, label %.lr.ph
@@ -3321,7 +3321,7 @@ define { i64, i8 } @_ZN8triggers8module_t26detect_memory_access_matchENS_11opera
 
 17:                                               ; preds = %.lr.ph
   %18 = load ptr, ptr %16, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %20 = load ptr, ptr %19, align 8
   %21 = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(44) %16)
           to label %22 unwind label %49
@@ -3333,7 +3333,7 @@ define { i64, i8 } @_ZN8triggers8module_t26detect_memory_access_matchENS_11opera
 24:                                               ; preds = %.lr.ph
   %25 = load ptr, ptr %0, align 8
   %26 = load ptr, ptr %16, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 96
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 96
   %28 = load ptr, ptr %27, align 8
   %29 = tail call { i64, i8 } %28(ptr noundef nonnull align 8 dereferenceable(44) %16, ptr noundef %25, i32 noundef %1, i64 noundef %2, i64 %3, i8 %4) #22
   %.fca.0.extract = extractvalue { i64, i8 } %29, 0
@@ -3342,7 +3342,7 @@ define { i64, i8 } @_ZN8triggers8module_t26detect_memory_access_matchENS_11opera
   %.sroa.0.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.0.sroa.2.0.extract.shift to i32
   %30 = trunc i8 %.fca.1.extract to i1
   %31 = load ptr, ptr %16, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 40
   %33 = load ptr, ptr %32, align 8
   br i1 %30, label %34, label %40
 
@@ -3374,7 +3374,7 @@ define { i64, i8 } @_ZN8triggers8module_t26detect_memory_access_matchENS_11opera
   %.sroa.2.2 = phi i32 [ %.sroa.2.136, %42 ], [ %.sroa.2.136, %22 ], [ %.sroa.0.sroa.2.0.extract.trunc, %39 ], [ %.sroa.2.136, %36 ]
   %.sroa.324.2 = phi i8 [ %.sroa.324.137, %42 ], [ %.sroa.324.137, %22 ], [ %.fca.1.extract, %39 ], [ %.sroa.324.137, %36 ]
   %.1 = phi i1 [ %43, %42 ], [ %23, %22 ], [ true, %39 ], [ true, %36 ]
-  %44 = getelementptr inbounds i8, ptr %.sroa.020.034, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %.sroa.020.034, i64 8
   %45 = icmp eq ptr %44, %14
   br i1 %45, label %.loopexit.loopexit, label %.lr.ph
 
@@ -3403,9 +3403,9 @@ define { i64, i8 } @_ZN8triggers8module_t26detect_memory_access_matchENS_11opera
 
 ; Function Attrs: mustprogress nounwind uwtable
 define { i64, i8 } @_ZN8triggers8module_t19detect_icount_matchEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %3, %5
   br i1 %6, label %._crit_edge, label %.lr.ph
@@ -3414,19 +3414,19 @@ define { i64, i8 } @_ZN8triggers8module_t19detect_icount_matchEv(ptr nocapture n
   %.sroa.023.041 = phi ptr [ %12, %11 ], [ %3, %1 ]
   %7 = load ptr, ptr %.sroa.023.041, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 88
   %10 = load ptr, ptr %9, align 8
   invoke void %10(ptr noundef nonnull align 8 dereferenceable(44) %7)
           to label %11 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 11:                                               ; preds = %.lr.ph
-  %12 = getelementptr inbounds i8, ptr %.sroa.023.041, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.023.041, i64 8
   %13 = icmp eq ptr %12, %5
   br i1 %13, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %11, %1
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 2248
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 2248
   %16 = load i8, ptr %15, align 8
   %17 = trunc i8 %16 to i1
   br i1 %17, label %.loopexit, label %18
@@ -3445,7 +3445,7 @@ define { i64, i8 } @_ZN8triggers8module_t19detect_icount_matchEv(ptr nocapture n
   %22 = load ptr, ptr %.sroa.019.042, align 8
   %23 = load ptr, ptr %0, align 8
   %24 = load ptr, ptr %22, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 104
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 104
   %26 = load ptr, ptr %25, align 8
   %27 = invoke { i64, i8 } %26(ptr noundef nonnull align 8 dereferenceable(44) %22, ptr noundef %23)
           to label %28 unwind label %.loopexit.split-lp.loopexit
@@ -3472,7 +3472,7 @@ define { i64, i8 } @_ZN8triggers8module_t19detect_icount_matchEv(ptr nocapture n
   %.sroa.026.2 = phi i32 [ %.sroa.026.0.extract.trunc, %33 ], [ %.sroa.026.143, %28 ], [ %.sroa.026.143, %30 ]
   %.sroa.2.2 = phi i32 [ %.sroa.017.sroa.2.0.extract.trunc, %33 ], [ %.sroa.2.144, %28 ], [ %.sroa.2.144, %30 ]
   %.sroa.4.2 = phi i8 [ %.fca.1.extract, %33 ], [ %.sroa.4.145, %28 ], [ %.sroa.4.145, %30 ]
-  %35 = getelementptr inbounds i8, ptr %.sroa.019.042, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.019.042, i64 8
   %36 = icmp eq ptr %35, %20
   br i1 %36, label %._crit_edge48, label %.lr.ph47
 
@@ -3496,13 +3496,13 @@ define { i64, i8 } @_ZN8triggers8module_t19detect_icount_matchEv(ptr nocapture n
   %41 = load ptr, ptr %.sroa.014.051, align 8
   %42 = load ptr, ptr %0, align 8
   %43 = load ptr, ptr %41, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 112
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 112
   %45 = load ptr, ptr %44, align 8
   invoke void %45(ptr noundef nonnull align 8 dereferenceable(44) %41, ptr noundef %42)
           to label %46 unwind label %.loopexit34
 
 46:                                               ; preds = %.lr.ph53
-  %47 = getelementptr inbounds i8, ptr %.sroa.014.051, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %.sroa.014.051, i64 8
   %48 = icmp eq ptr %47, %39
   br i1 %48, label %.loopexit, label %.lr.ph53
 
@@ -3543,15 +3543,15 @@ define { i64, i8 } @_ZN8triggers8module_t19detect_icount_matchEv(ptr nocapture n
 ; Function Attrs: mustprogress nounwind uwtable
 define { i64, i8 } @_ZN8triggers8module_t17detect_trap_matchERK6trap_t(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 2248
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 2248
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
   br i1 %6, label %.loopexit, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %9, %11
   br i1 %12, label %.loopexit, label %.lr.ph
@@ -3564,7 +3564,7 @@ define { i64, i8 } @_ZN8triggers8module_t17detect_trap_matchERK6trap_t(ptr nocap
   %13 = load ptr, ptr %.sroa.010.017, align 8
   %14 = load ptr, ptr %0, align 8
   %15 = load ptr, ptr %13, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 120
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 120
   %17 = load ptr, ptr %16, align 8
   %18 = tail call { i64, i8 } %17(ptr noundef nonnull align 8 dereferenceable(44) %13, ptr noundef %14, ptr noundef nonnull align 8 dereferenceable(16) %1) #22
   %.fca.0.extract = extractvalue { i64, i8 } %18, 0
@@ -3588,7 +3588,7 @@ define { i64, i8 } @_ZN8triggers8module_t17detect_trap_matchERK6trap_t(ptr nocap
   %.sroa.013.2 = phi i32 [ %.sroa.013.0.extract.trunc, %23 ], [ %.sroa.013.118, %.lr.ph ], [ %.sroa.013.118, %20 ]
   %.sroa.2.2 = phi i32 [ %.sroa.0.sroa.2.0.extract.trunc, %23 ], [ %.sroa.2.119, %.lr.ph ], [ %.sroa.2.119, %20 ]
   %.sroa.314.2 = phi i8 [ %.fca.1.extract, %23 ], [ %.sroa.314.120, %.lr.ph ], [ %.sroa.314.120, %20 ]
-  %25 = getelementptr inbounds i8, ptr %.sroa.010.017, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.010.017, i64 8
   %26 = icmp eq ptr %25, %11
   br i1 %26, label %.loopexit.loopexit, label %.lr.ph
 
@@ -3626,7 +3626,7 @@ define linkonce_odr void @_ZN8triggers18disabled_trigger_tD0Ev(ptr noundef nonnu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZNK8triggers18disabled_trigger_t9get_dmodeEv(ptr noundef nonnull align 8 dereferenceable(45) %0) unnamed_addr #6 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 44
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %3 = load i8, ptr %2, align 4
   %4 = trunc i8 %3 to i1
   ret i1 %4
@@ -3700,7 +3700,7 @@ define linkonce_odr void @_ZN8triggers10mcontrol_tD0Ev(ptr noundef nonnull align
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZNK8triggers17mcontrol_common_t9get_dmodeEv(ptr noundef nonnull align 8 dereferenceable(63) %0) unnamed_addr #6 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 44
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %3 = load i8, ptr %2, align 4
   %4 = trunc i8 %3 to i1
   ret i1 %4
@@ -3708,7 +3708,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK8triggers17mcontrol_common_t9get_dmo
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZNK8triggers17mcontrol_common_t9get_chainEv(ptr noundef nonnull align 8 dereferenceable(63) %0) unnamed_addr #6 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 55
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 55
   %3 = load i8, ptr %2, align 1
   %4 = trunc i8 %3 to i1
   ret i1 %4
@@ -3716,7 +3716,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK8triggers17mcontrol_common_t9get_cha
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZNK8triggers17mcontrol_common_t11get_executeEv(ptr noundef nonnull align 8 dereferenceable(63) %0) unnamed_addr #6 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 60
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %3 = load i8, ptr %2, align 4
   %4 = trunc i8 %3 to i1
   ret i1 %4
@@ -3724,7 +3724,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK8triggers17mcontrol_common_t11get_ex
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZNK8triggers17mcontrol_common_t9get_storeEv(ptr noundef nonnull align 8 dereferenceable(63) %0) unnamed_addr #6 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 61
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 61
   %3 = load i8, ptr %2, align 1
   %4 = trunc i8 %3 to i1
   ret i1 %4
@@ -3732,7 +3732,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK8triggers17mcontrol_common_t9get_sto
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZNK8triggers17mcontrol_common_t8get_loadEv(ptr noundef nonnull align 8 dereferenceable(63) %0) unnamed_addr #6 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 62
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 62
   %3 = load i8, ptr %2, align 2
   %4 = trunc i8 %3 to i1
   ret i1 %4
@@ -3740,7 +3740,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK8triggers17mcontrol_common_t8get_loa
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i32 @_ZNK8triggers17mcontrol_common_t10get_actionEv(ptr noundef nonnull align 8 dereferenceable(63) %0) unnamed_addr #6 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
@@ -3782,7 +3782,7 @@ define linkonce_odr void @_ZN8triggers8icount_tD0Ev(ptr noundef nonnull align 8 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZNK8triggers8icount_t9get_dmodeEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #6 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 44
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %3 = load i8, ptr %2, align 4
   %4 = trunc i8 %3 to i1
   ret i1 %4
@@ -3790,17 +3790,17 @@ define linkonce_odr noundef zeroext i1 @_ZNK8triggers8icount_t9get_dmodeEv(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i32 @_ZNK8triggers8icount_t10get_actionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #6 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 60
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZNK8triggers8icount_t19icount_check_neededEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #6 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8
   %.not = icmp ne i32 %3, 0
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
   %7 = select i1 %.not, i1 true, i1 %6
@@ -3820,7 +3820,7 @@ define linkonce_odr void @_ZN8triggers10itrigger_tD0Ev(ptr noundef nonnull align
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZNK8triggers13trap_common_t9get_dmodeEv(ptr noundef nonnull align 8 dereferenceable(52) %0) unnamed_addr #6 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 44
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %3 = load i8, ptr %2, align 4
   %4 = trunc i8 %3 to i1
   ret i1 %4
@@ -3828,7 +3828,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK8triggers13trap_common_t9get_dmodeEv
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i32 @_ZNK8triggers13trap_common_t10get_actionEv(ptr noundef nonnull align 8 dereferenceable(52) %0) unnamed_addr #6 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }

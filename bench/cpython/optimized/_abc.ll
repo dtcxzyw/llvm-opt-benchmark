@@ -1057,7 +1057,7 @@ for.cond.preheader.i:                             ; preds = %if.end3.i
   br i1 %cmp9129.i, label %for.body.lr.ph.i, label %for.end.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %ob_item.i = getelementptr inbounds i8, ptr %call4.i, i64 24
+  %ob_item.i = getelementptr inbounds nuw i8, ptr %call4.i, i64 24
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -1106,13 +1106,13 @@ if.then1.i242.i:                                  ; preds = %if.end.i239.i
   br label %error.i
 
 cond.true36.i:                                    ; preds = %cond.end.thread.i
-  %ob_item26.i = getelementptr inbounds i8, ptr %call10.i, i64 24
+  %ob_item26.i = getelementptr inbounds nuw i8, ptr %call10.i, i64 24
   %11 = load ptr, ptr %ob_item26.i, align 8
   %arrayidx38.i = getelementptr i8, ptr %11, i64 8
   br label %cond.end42.i
 
 cond.false39.i:                                   ; preds = %cond.end.i
-  %ob_item29.i = getelementptr inbounds i8, ptr %call10.i, i64 24
+  %ob_item29.i = getelementptr inbounds nuw i8, ptr %call10.i, i64 24
   %arrayidx41.i = getelementptr i8, ptr %call10.i, i64 32
   br label %cond.end42.i
 
@@ -1235,7 +1235,7 @@ for.cond61.preheader.i:                           ; preds = %if.end54.i
   br i1 %cmp63135.i, label %for.body64.lr.ph.i, label %for.end105.i
 
 for.body64.lr.ph.i:                               ; preds = %for.cond61.preheader.i
-  %ob_item65.i = getelementptr inbounds i8, ptr %call51.i, i64 24
+  %ob_item65.i = getelementptr inbounds nuw i8, ptr %call51.i, i64 24
   br label %for.body64.i
 
 if.then58.i:                                      ; preds = %if.end54.i
@@ -1552,7 +1552,7 @@ compute_abstract_methods.exit:                    ; preds = %Py_XDECREF.exit105.
 
 if.end:                                           ; preds = %compute_abstract_methods.exit
   %58 = load ptr, ptr %module.val, align 8
-  %tp_alloc.i = getelementptr inbounds i8, ptr %58, i64 304
+  %tp_alloc.i = getelementptr inbounds nuw i8, ptr %58, i64 304
   %59 = load ptr, ptr %tp_alloc.i, align 8
   %call.i19 = call ptr %59(ptr noundef %58, i64 noundef 0) #4
   %cmp.i20 = icmp eq ptr %call.i19, null
@@ -1583,11 +1583,11 @@ if.then1.i.i26:                                   ; preds = %if.end.i.i23
   br label %return
 
 if.end5:                                          ; preds = %if.end.i21
-  %_abc_registry.i = getelementptr inbounds i8, ptr %call.i19, i64 16
-  %abc_invalidation_counter.i = getelementptr inbounds i8, ptr %type.val.val.i, i64 8
+  %_abc_registry.i = getelementptr inbounds nuw i8, ptr %call.i19, i64 16
+  %abc_invalidation_counter.i = getelementptr inbounds nuw i8, ptr %type.val.val.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_abc_registry.i, i8 0, i64 24, i1 false)
   %64 = load i64, ptr %abc_invalidation_counter.i, align 8
-  %_abc_negative_cache_version.i = getelementptr inbounds i8, ptr %call.i19, i64 40
+  %_abc_negative_cache_version.i = getelementptr inbounds nuw i8, ptr %call.i19, i64 40
   store i64 %64, ptr %_abc_negative_cache_version.i, align 8
   %call6 = call i32 @PyObject_SetAttr(ptr noundef %self, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 35256), ptr noundef nonnull %call.i19) #4
   %cmp7 = icmp slt i32 %call6, 0
@@ -1669,7 +1669,7 @@ if.then30:                                        ; preds = %land.lhs.true, %if.
   br label %return
 
 if.end31:                                         ; preds = %if.end28
-  %tp_flags = getelementptr inbounds i8, ptr %self, i64 168
+  %tp_flags = getelementptr inbounds nuw i8, ptr %self, i64 168
   %71 = load i64, ptr %tp_flags, align 8
   %or = or i64 %71, %and
   store i64 %or, ptr %tp_flags, align 8
@@ -1719,7 +1719,7 @@ if.end.i.i:                                       ; preds = %if.then3.i
   br i1 %cmp.i.i, label %return.sink.split, label %return
 
 if.end:                                           ; preds = %if.end.i11
-  %_abc_registry = getelementptr inbounds i8, ptr %call1.i, i64 16
+  %_abc_registry = getelementptr inbounds nuw i8, ptr %call1.i, i64 16
   %6 = load ptr, ptr %_abc_registry, align 8
   %cmp1.not = icmp eq ptr %6, null
   br i1 %cmp1.not, label %if.end6, label %land.lhs.true
@@ -1794,7 +1794,7 @@ if.end.i.i:                                       ; preds = %if.then3.i
   br i1 %cmp.i.i, label %return.sink.split, label %return
 
 if.end:                                           ; preds = %if.end.i16
-  %_abc_cache = getelementptr inbounds i8, ptr %call1.i, i64 24
+  %_abc_cache = getelementptr inbounds nuw i8, ptr %call1.i, i64 24
   %6 = load ptr, ptr %_abc_cache, align 8
   %cmp1.not = icmp eq ptr %6, null
   br i1 %cmp1.not, label %if.end6, label %land.lhs.true
@@ -1817,7 +1817,7 @@ if.end.i26:                                       ; preds = %if.then5
   br i1 %cmp.i28, label %return.sink.split, label %return
 
 if.end6:                                          ; preds = %land.lhs.true, %if.end
-  %_abc_negative_cache = getelementptr inbounds i8, ptr %call1.i, i64 32
+  %_abc_negative_cache = getelementptr inbounds nuw i8, ptr %call1.i, i64 32
   %9 = load ptr, ptr %_abc_negative_cache, align 8
   %cmp7.not = icmp eq ptr %9, null
   br i1 %cmp7.not, label %if.end13, label %land.lhs.true8
@@ -1892,16 +1892,16 @@ if.end.i.i:                                       ; preds = %if.then3.i
   br i1 %cmp.i.i, label %return.sink.split, label %return
 
 if.end:                                           ; preds = %if.end.i9
-  %_abc_registry = getelementptr inbounds i8, ptr %call1.i, i64 16
+  %_abc_registry = getelementptr inbounds nuw i8, ptr %call1.i, i64 16
   %6 = load ptr, ptr %_abc_registry, align 8
   %call1 = tail call ptr @PySet_New(ptr noundef %6) #4
-  %_abc_cache = getelementptr inbounds i8, ptr %call1.i, i64 24
+  %_abc_cache = getelementptr inbounds nuw i8, ptr %call1.i, i64 24
   %7 = load ptr, ptr %_abc_cache, align 8
   %call2 = tail call ptr @PySet_New(ptr noundef %7) #4
-  %_abc_negative_cache = getelementptr inbounds i8, ptr %call1.i, i64 32
+  %_abc_negative_cache = getelementptr inbounds nuw i8, ptr %call1.i, i64 32
   %8 = load ptr, ptr %_abc_negative_cache, align 8
   %call3 = tail call ptr @PySet_New(ptr noundef %8) #4
-  %_abc_negative_cache_version = getelementptr inbounds i8, ptr %call1.i, i64 40
+  %_abc_negative_cache_version = getelementptr inbounds nuw i8, ptr %call1.i, i64 40
   %9 = load i64, ptr %_abc_negative_cache_version, align 8
   %call4 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.14, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, i64 noundef %9) #4
   %10 = load i64, ptr %call1.i, align 8
@@ -2019,7 +2019,7 @@ if.then1.i.i.i:                                   ; preds = %if.end.i.i27.i
   br label %exit
 
 if.end18.i:                                       ; preds = %if.end.i26.i
-  %_abc_registry.i = getelementptr inbounds i8, ptr %call1.i.i, i64 16
+  %_abc_registry.i = getelementptr inbounds nuw i8, ptr %call1.i.i, i64 16
   %call19.i = tail call fastcc i32 @_add_to_weak_set(ptr noundef %_abc_registry.i, ptr noundef nonnull %1)
   %cmp20.i = icmp slt i32 %call19.i, 0
   %13 = load i64, ptr %call1.i.i, align 8
@@ -2055,7 +2055,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 
 Py_DECREF.exit.i:                                 ; preds = %if.then1.i.i, %if.end.i.i, %if.end22.i
   %module.val.i = load ptr, ptr %7, align 8
-  %abc_invalidation_counter.i = getelementptr inbounds i8, ptr %module.val.i, i64 8
+  %abc_invalidation_counter.i = getelementptr inbounds nuw i8, ptr %module.val.i, i64 8
   %15 = load i64, ptr %abc_invalidation_counter.i, align 8
   %inc.i = add i64 %15, 1
   store i64 %inc.i, ptr %abc_invalidation_counter.i, align 8
@@ -2068,7 +2068,7 @@ Py_DECREF.exit.i:                                 ; preds = %if.then1.i.i, %if.e
   br i1 %cmp.i.i30.not.i, label %if.end30.i, label %if.then26.i
 
 if.then26.i:                                      ; preds = %Py_DECREF.exit.i
-  %tp_flags.i = getelementptr inbounds i8, ptr %0, i64 168
+  %tp_flags.i = getelementptr inbounds nuw i8, ptr %0, i64 168
   %18 = load i64, ptr %tp_flags.i, align 8
   %and.i = and i64 %18, 96
   %tobool27.not.i = icmp eq i64 %and.i, 0
@@ -2164,7 +2164,7 @@ if.then1.i53.i:                                   ; preds = %if.end.i50.i
   br label %exit
 
 if.end4.i:                                        ; preds = %if.end.i
-  %_abc_cache.i = getelementptr inbounds i8, ptr %call1.i.i, i64 24
+  %_abc_cache.i = getelementptr inbounds nuw i8, ptr %call1.i.i, i64 24
   %10 = load ptr, ptr %_abc_cache.i, align 8
   %cmp.i35.i = icmp eq ptr %10, null
   br i1 %cmp.i35.i, label %if.end12.i, label %lor.lhs.false.i.i
@@ -2232,16 +2232,16 @@ if.end12.i:                                       ; preds = %if.end8.i, %if.then
   br i1 %cmp14.i, label %if.then15.i, label %if.end29.i
 
 if.then15.i:                                      ; preds = %if.end12.i
-  %_abc_negative_cache_version.i = getelementptr inbounds i8, ptr %call1.i.i, i64 40
+  %_abc_negative_cache_version.i = getelementptr inbounds nuw i8, ptr %call1.i.i, i64 40
   %17 = load i64, ptr %_abc_negative_cache_version.i, align 8
   %module.val.i = load ptr, ptr %2, align 8
-  %abc_invalidation_counter.i = getelementptr inbounds i8, ptr %module.val.i, i64 8
+  %abc_invalidation_counter.i = getelementptr inbounds nuw i8, ptr %module.val.i, i64 8
   %18 = load i64, ptr %abc_invalidation_counter.i, align 8
   %cmp17.i = icmp eq i64 %17, %18
   br i1 %cmp17.i, label %if.then18.i, label %if.end27.i
 
 if.then18.i:                                      ; preds = %if.then15.i
-  %_abc_negative_cache.i = getelementptr inbounds i8, ptr %call1.i.i, i64 32
+  %_abc_negative_cache.i = getelementptr inbounds nuw i8, ptr %call1.i.i, i64 32
   %19 = load ptr, ptr %_abc_negative_cache.i, align 8
   %call19.i = tail call fastcc i32 @_in_weak_set(ptr noundef %19, ptr noundef nonnull %call1.i)
   %cmp20.i = icmp slt i32 %call19.i, 0
@@ -2264,7 +2264,7 @@ if.end.i.i46.i:                                   ; preds = %if.then24.i
 if.end27.i:                                       ; preds = %if.end22.i, %if.then15.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %args.i.i)
   store ptr %0, ptr %args.i.i, align 16
-  %arrayinit.element.i.i = getelementptr inbounds i8, ptr %args.i.i, i64 8
+  %arrayinit.element.i.i = getelementptr inbounds nuw i8, ptr %args.i.i, i64 8
   store ptr %call1.i, ptr %arrayinit.element.i.i, align 8
   %call.i.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 34440), ptr noundef nonnull %args.i.i, i64 noundef -9223372036854775806, ptr noundef null) #4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %args.i.i)
@@ -2273,7 +2273,7 @@ if.end27.i:                                       ; preds = %if.end22.i, %if.the
 if.end29.i:                                       ; preds = %if.end12.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %args.i48.i)
   store ptr %0, ptr %args.i48.i, align 16
-  %arrayinit.element.i49.i = getelementptr inbounds i8, ptr %args.i48.i, i64 8
+  %arrayinit.element.i49.i = getelementptr inbounds nuw i8, ptr %args.i48.i, i64 8
   store ptr %call1.i, ptr %arrayinit.element.i49.i, align 8
   %call.i50.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 34440), ptr noundef nonnull %args.i48.i, i64 noundef -9223372036854775806, ptr noundef null) #4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %args.i48.i)
@@ -2323,7 +2323,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 Py_DECREF.exit.i:                                 ; preds = %if.then1.i.i, %if.end.i.i, %sw.bb35.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %args.i51.i)
   store ptr %0, ptr %args.i51.i, align 16
-  %arrayinit.element.i52.i = getelementptr inbounds i8, ptr %args.i51.i, i64 8
+  %arrayinit.element.i52.i = getelementptr inbounds nuw i8, ptr %args.i51.i, i64 8
   store ptr %instance.val.i, ptr %arrayinit.element.i52.i, align 8
   %call.i53.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 34440), ptr noundef nonnull %args.i51.i, i64 noundef -9223372036854775806, ptr noundef null) #4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %args.i51.i)
@@ -2435,7 +2435,7 @@ if.then1.i.i.i:                                   ; preds = %if.end.i.i.i
   br label %_abc__abc_subclasscheck_impl.exit
 
 if.end3.i:                                        ; preds = %if.end.i70.i
-  %_abc_cache.i = getelementptr inbounds i8, ptr %call1.i.i, i64 24
+  %_abc_cache.i = getelementptr inbounds nuw i8, ptr %call1.i.i, i64 24
   %11 = load ptr, ptr %_abc_cache.i, align 8
   %cmp.i72.i = icmp eq ptr %11, null
   br i1 %cmp.i72.i, label %if.end10.i, label %lor.lhs.false.i.i
@@ -2492,12 +2492,12 @@ if.then9.i:                                       ; preds = %if.end7.i
 
 if.end10.i:                                       ; preds = %if.end7.i, %if.then6.i.i, %lor.lhs.false.i.i, %if.end3.i
   %module.val.i = load ptr, ptr %5, align 8
-  %_abc_negative_cache_version.i = getelementptr inbounds i8, ptr %call1.i.i, i64 40
+  %_abc_negative_cache_version.i = getelementptr inbounds nuw i8, ptr %call1.i.i, i64 40
   %16 = load i64, ptr %_abc_negative_cache_version.i, align 8
-  %abc_invalidation_counter.i = getelementptr inbounds i8, ptr %module.val.i, i64 8
+  %abc_invalidation_counter.i = getelementptr inbounds nuw i8, ptr %module.val.i, i64 8
   %17 = load i64, ptr %abc_invalidation_counter.i, align 8
   %cmp12.i = icmp ult i64 %16, %17
-  %_abc_negative_cache.i = getelementptr inbounds i8, ptr %call1.i.i, i64 32
+  %_abc_negative_cache.i = getelementptr inbounds nuw i8, ptr %call1.i.i, i64 32
   %18 = load ptr, ptr %_abc_negative_cache.i, align 8
   %cmp14.not.i = icmp eq ptr %18, null
   br i1 %cmp12.i, label %if.then13.i, label %if.else.i
@@ -2575,7 +2575,7 @@ if.then28.i:                                      ; preds = %if.end26.i
 if.end30.i:                                       ; preds = %if.end26.i, %if.then6.i97.i, %lor.lhs.false.i80.i, %if.else.i, %if.end19.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %args.i.i)
   store ptr %0, ptr %args.i.i, align 16
-  %arrayinit.element.i.i = getelementptr inbounds i8, ptr %args.i.i, i64 8
+  %arrayinit.element.i.i = getelementptr inbounds nuw i8, ptr %args.i.i, i64 8
   store ptr %1, ptr %arrayinit.element.i.i, align 8
   %call.i.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 34504), ptr noundef nonnull %args.i.i, i64 noundef -9223372036854775806, ptr noundef null) #4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %args.i.i)
@@ -2689,7 +2689,7 @@ Py_DECREF.exit122.i:                              ; preds = %if.then1.i120.i, %i
   br i1 %cmp56123.i, label %for.body.lr.ph.i, label %for.end.i
 
 for.body.lr.ph.i:                                 ; preds = %Py_DECREF.exit122.i
-  %ob_item.i = getelementptr inbounds i8, ptr %call54.i, i64 24
+  %ob_item.i = getelementptr inbounds nuw i8, ptr %call54.i, i64 24
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
@@ -2739,7 +2739,7 @@ for.cond78.preheader.i:                           ; preds = %if.end72.i
   br i1 %cmp80126.i, label %for.body81.lr.ph.i, label %for.end98.i
 
 for.body81.lr.ph.i:                               ; preds = %for.cond78.preheader.i
-  %ob_item82.i = getelementptr inbounds i8, ptr %call69.i, i64 24
+  %ob_item82.i = getelementptr inbounds nuw i8, ptr %call69.i, i64 24
   br label %for.body81.i
 
 if.then76.i:                                      ; preds = %if.end72.i
@@ -2877,7 +2877,7 @@ declare ptr @PyLong_FromUnsignedLongLong(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal ptr @abc_data_new(ptr noundef %type, ptr nocapture readnone %args, ptr nocapture readnone %kwds) #0 {
 entry:
-  %tp_alloc = getelementptr inbounds i8, ptr %type, i64 304
+  %tp_alloc = getelementptr inbounds nuw i8, ptr %type, i64 304
   %0 = load ptr, ptr %tp_alloc, align 8
   %call = tail call ptr %0(ptr noundef %type, i64 noundef 0) #4
   %cmp = icmp eq ptr %call, null
@@ -2908,11 +2908,11 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %_abc_registry = getelementptr inbounds i8, ptr %call, i64 16
-  %abc_invalidation_counter = getelementptr inbounds i8, ptr %type.val.val, i64 8
+  %_abc_registry = getelementptr inbounds nuw i8, ptr %call, i64 16
+  %abc_invalidation_counter = getelementptr inbounds nuw i8, ptr %type.val.val, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_abc_registry, i8 0, i64 24, i1 false)
   %5 = load i64, ptr %abc_invalidation_counter, align 8
-  %_abc_negative_cache_version = getelementptr inbounds i8, ptr %call, i64 40
+  %_abc_negative_cache_version = getelementptr inbounds nuw i8, ptr %call, i64 40
   store i64 %5, ptr %_abc_negative_cache_version, align 8
   br label %return
 
@@ -3101,7 +3101,7 @@ for.cond.preheader:                               ; preds = %if.end
   br i1 %cmp916, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %ob_item = getelementptr inbounds i8, ptr %call4, i64 24
+  %ob_item = getelementptr inbounds nuw i8, ptr %call4, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -3270,7 +3270,7 @@ entry:
   %pos = alloca i64, align 8
   %hash = alloca i64, align 8
   %rkey = alloca ptr, align 8
-  %_abc_registry = getelementptr inbounds i8, ptr %impl, i64 16
+  %_abc_registry = getelementptr inbounds nuw i8, ptr %impl, i64 16
   %0 = load ptr, ptr %_abc_registry, align 8
   %cmp.i30 = icmp eq ptr %0, null
   br i1 %cmp.i30, label %return, label %lor.lhs.false.i
@@ -3421,7 +3421,7 @@ if.end33:                                         ; preds = %Py_DECREF.exit57
   br i1 %cmp34.not, label %for.inc, label %if.then35
 
 if.then35:                                        ; preds = %if.end33
-  %_abc_cache = getelementptr inbounds i8, ptr %impl, i64 24
+  %_abc_cache = getelementptr inbounds nuw i8, ptr %impl, i64 24
   %call36 = call fastcc i32 @_add_to_weak_set(ptr noundef %_abc_cache, ptr noundef %subclass)
   %cmp37 = icmp slt i32 %call36, 0
   br i1 %cmp37, label %for.end, label %if.end39
@@ -3492,7 +3492,7 @@ define internal range(i32 -1, 1) i32 @_abcmodule_exec(ptr noundef %module) #0 {
 entry:
   %0 = getelementptr i8, ptr %module, i64 32
   %module.val = load ptr, ptr %0, align 8
-  %abc_invalidation_counter = getelementptr inbounds i8, ptr %module.val, i64 8
+  %abc_invalidation_counter = getelementptr inbounds nuw i8, ptr %module.val, i64 8
   store i64 0, ptr %abc_invalidation_counter, align 8
   %call1 = tail call ptr @PyType_FromModuleAndSpec(ptr noundef %module, ptr noundef nonnull @_abc_data_type_spec, ptr noundef null) #4
   store ptr %call1, ptr %module.val, align 8
@@ -3510,7 +3510,7 @@ entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
   %call1 = tail call i32 @abc_data_clear(ptr noundef %self)
-  %tp_free = getelementptr inbounds i8, ptr %self.val, i64 320
+  %tp_free = getelementptr inbounds nuw i8, ptr %self.val, i64 320
   %1 = load ptr, ptr %tp_free, align 8
   tail call void %1(ptr noundef %self) #4
   %2 = load i64, ptr %self.val, align 8
@@ -3546,7 +3546,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool3.not, label %do.body6, label %return
 
 do.body6:                                         ; preds = %if.then, %entry
-  %_abc_registry = getelementptr inbounds i8, ptr %self, i64 16
+  %_abc_registry = getelementptr inbounds nuw i8, ptr %self, i64 16
   %1 = load ptr, ptr %_abc_registry, align 8
   %tobool7.not = icmp eq ptr %1, null
   br i1 %tobool7.not, label %do.body17, label %if.then8
@@ -3557,7 +3557,7 @@ if.then8:                                         ; preds = %do.body6
   br i1 %tobool12.not, label %do.body17, label %return
 
 do.body17:                                        ; preds = %if.then8, %do.body6
-  %_abc_cache = getelementptr inbounds i8, ptr %self, i64 24
+  %_abc_cache = getelementptr inbounds nuw i8, ptr %self, i64 24
   %2 = load ptr, ptr %_abc_cache, align 8
   %tobool18.not = icmp eq ptr %2, null
   br i1 %tobool18.not, label %do.body28, label %if.then19
@@ -3568,7 +3568,7 @@ if.then19:                                        ; preds = %do.body17
   br i1 %tobool23.not, label %do.body28, label %return
 
 do.body28:                                        ; preds = %if.then19, %do.body17
-  %_abc_negative_cache = getelementptr inbounds i8, ptr %self, i64 32
+  %_abc_negative_cache = getelementptr inbounds nuw i8, ptr %self, i64 32
   %3 = load ptr, ptr %_abc_negative_cache, align 8
   %tobool29.not = icmp eq ptr %3, null
   br i1 %tobool29.not, label %do.end38, label %if.then30
@@ -3589,7 +3589,7 @@ return:                                           ; preds = %if.then30, %if.then
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @abc_data_clear(ptr nocapture noundef %self) #0 {
 entry:
-  %_abc_registry = getelementptr inbounds i8, ptr %self, i64 16
+  %_abc_registry = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %_abc_registry, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %do.body1, label %if.then
@@ -3612,7 +3612,7 @@ if.then1.i30:                                     ; preds = %if.end.i27
   br label %do.body1
 
 do.body1:                                         ; preds = %if.end.i27, %if.then1.i30, %if.then, %entry
-  %_abc_cache = getelementptr inbounds i8, ptr %self, i64 24
+  %_abc_cache = getelementptr inbounds nuw i8, ptr %self, i64 24
   %3 = load ptr, ptr %_abc_cache, align 8
   %cmp4.not = icmp eq ptr %3, null
   br i1 %cmp4.not, label %do.body8, label %if.then5
@@ -3635,7 +3635,7 @@ if.then1.i21:                                     ; preds = %if.end.i18
   br label %do.body8
 
 do.body8:                                         ; preds = %if.end.i18, %if.then1.i21, %if.then5, %do.body1
-  %_abc_negative_cache = getelementptr inbounds i8, ptr %self, i64 32
+  %_abc_negative_cache = getelementptr inbounds nuw i8, ptr %self, i64 32
   %6 = load ptr, ptr %_abc_negative_cache, align 8
   %cmp11.not = icmp eq ptr %6, null
   br i1 %cmp11.not, label %do.end14, label %if.then12

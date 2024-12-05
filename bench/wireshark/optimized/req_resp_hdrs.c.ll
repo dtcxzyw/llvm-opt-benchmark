@@ -56,7 +56,7 @@ define range(i32 0, 2) i32 @req_resp_hdrs_do_reassembly(ptr noundef %0, i32 noun
   br i1 %26, label %starts_with_chunk_size.exit, label %27
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %2, i64 408
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %29 = load ptr, ptr %28, align 8
   %30 = tail call ptr @tvb_get_string_enc(ptr noundef %29, ptr noundef %0, i32 noundef %1, i32 noundef %25, i32 noundef 0) #6
   %31 = tail call ptr @strpbrk(ptr noundef %30, ptr noundef nonnull @.str.8) #7
@@ -89,13 +89,13 @@ starts_with_chunk_size.exit:                      ; preds = %23, %33, %35
   br i1 %or.cond7, label %42, label %.loopexit234
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %2, i64 328
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 328
   %44 = load i16, ptr %43, align 8
   %.not212 = icmp eq i16 %44, 0
   br i1 %.not212, label %.loopexit234, label %.preheader
 
 .preheader:                                       ; preds = %42
-  %45 = getelementptr inbounds i8, ptr %2, i64 408
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 408
   br i1 %39, label %.outer.us.outer, label %.preheader.split
 
 .outer.us.outer:                                  ; preds = %.preheader, %72
@@ -251,9 +251,9 @@ starts_with_chunk_size.exit:                      ; preds = %23, %33, %35
   br i1 %102, label %.split.us, label %.lr.ph
 
 .split.us:                                        ; preds = %.outer, %79, %.preheader.split
-  %103 = getelementptr inbounds i8, ptr %2, i64 332
+  %103 = getelementptr inbounds nuw i8, ptr %2, i64 332
   store i32 %1, ptr %103, align 4
-  %104 = getelementptr inbounds i8, ptr %2, i64 336
+  %104 = getelementptr inbounds nuw i8, ptr %2, i64 336
   store i32 268435455, ptr %104, align 8
   br label %.loopexit
 
@@ -269,9 +269,9 @@ starts_with_chunk_size.exit:                      ; preds = %23, %33, %35
   br i1 %or.cond228, label %.loopexit235, label %.split263.us
 
 .split263.us:                                     ; preds = %.lr.ph, %83
-  %111 = getelementptr inbounds i8, ptr %2, i64 332
+  %111 = getelementptr inbounds nuw i8, ptr %2, i64 332
   store i32 %1, ptr %111, align 4
-  %112 = getelementptr inbounds i8, ptr %2, i64 336
+  %112 = getelementptr inbounds nuw i8, ptr %2, i64 336
   store i32 268435455, ptr %112, align 8
   br label %.loopexit
 
@@ -328,9 +328,9 @@ starts_with_chunk_size.exit:                      ; preds = %23, %33, %35
   br label %128
 
 128:                                              ; preds = %126, %124, %123
-  %129 = getelementptr inbounds i8, ptr %2, i64 408
-  %130 = getelementptr inbounds i8, ptr %2, i64 332
-  %131 = getelementptr inbounds i8, ptr %2, i64 336
+  %129 = getelementptr inbounds nuw i8, ptr %2, i64 408
+  %130 = getelementptr inbounds nuw i8, ptr %2, i64 332
+  %131 = getelementptr inbounds nuw i8, ptr %2, i64 336
   store i32 0, ptr %13, align 4
   store i32 0, ptr %14, align 4
   %132 = load i32, ptr %11, align 4
@@ -468,7 +468,7 @@ starts_with_chunk_size.exit:                      ; preds = %23, %33, %35
   br i1 %188, label %.loopexit, label %189
 
 189:                                              ; preds = %186, %185
-  %190 = getelementptr inbounds i8, ptr %2, i64 408
+  %190 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %191 = load ptr, ptr %190, align 8
   %192 = call ptr @tvb_get_string_enc(ptr noundef %191, ptr noundef %0, i32 noundef 0, i32 noundef 12, i32 noundef 0) #6
   %193 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %192, ptr noundef nonnull dereferenceable(12) @.str.10, i64 noundef 11) #7
@@ -502,11 +502,11 @@ starts_with_chunk_size.exit:                      ; preds = %23, %33, %35
 208:                                              ; preds = %202
   %209 = icmp eq i32 %204, -1
   %spec.store.select = select i1 %209, i32 0, i32 %204
-  %210 = getelementptr inbounds i8, ptr %2, i64 332
+  %210 = getelementptr inbounds nuw i8, ptr %2, i64 332
   store i32 %1, ptr %210, align 4
   %211 = load i32, ptr %12, align 4
   %212 = sub i32 %211, %spec.store.select
-  %213 = getelementptr inbounds i8, ptr %2, i64 336
+  %213 = getelementptr inbounds nuw i8, ptr %2, i64 336
   store i32 %212, ptr %213, align 8
   br label %.loopexit
 
@@ -515,7 +515,7 @@ starts_with_chunk_size.exit:                      ; preds = %23, %33, %35
   br i1 %.not218, label %.loopexit, label %215
 
 215:                                              ; preds = %214
-  %216 = getelementptr inbounds i8, ptr %2, i64 328
+  %216 = getelementptr inbounds nuw i8, ptr %2, i64 328
   %217 = load i16, ptr %216, align 8
   %.not219 = icmp eq i16 %217, 0
   br i1 %.not219, label %.loopexit, label %218
@@ -529,9 +529,9 @@ starts_with_chunk_size.exit:                      ; preds = %23, %33, %35
   br i1 %223, label %.loopexit, label %224
 
 224:                                              ; preds = %218
-  %225 = getelementptr inbounds i8, ptr %2, i64 332
+  %225 = getelementptr inbounds nuw i8, ptr %2, i64 332
   store i32 %1, ptr %225, align 4
-  %226 = getelementptr inbounds i8, ptr %2, i64 336
+  %226 = getelementptr inbounds nuw i8, ptr %2, i64 336
   store i32 268435454, ptr %226, align 8
   br label %.loopexit
 

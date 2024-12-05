@@ -56,19 +56,19 @@ define internal range(i32 -13, 1) i32 @mca_patcher_overwrite_patch_symbol(ptr no
   br i1 %17, label %18, label %mca_patcher_is_function_patched.exit.thread
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %.013, i64 10
+  %19 = getelementptr inbounds nuw i8, ptr %.013, i64 10
   %20 = load i8, ptr %19, align 1
   %21 = icmp eq i8 %20, 65
   br i1 %21, label %22, label %mca_patcher_is_function_patched.exit.thread
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %.013, i64 11
+  %23 = getelementptr inbounds nuw i8, ptr %.013, i64 11
   %24 = load i8, ptr %23, align 1
   %25 = icmp eq i8 %24, -1
   br i1 %25, label %mca_patcher_is_function_patched.exit, label %mca_patcher_is_function_patched.exit.thread
 
 mca_patcher_is_function_patched.exit:             ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %.013, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %.013, i64 12
   %27 = load i8, ptr %26, align 1
   %28 = icmp eq i8 %27, -29
   br i1 %28, label %29, label %mca_patcher_is_function_patched.exit.thread
@@ -109,9 +109,9 @@ define internal range(i32 -2, 1) i32 @mca_patcher_overwrite_patch_address(i64 no
 
 9:                                                ; preds = %8
   store ptr @mca_patcher_base_patch_t_class, ptr %4, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store volatile i32 1, ptr %10, align 8
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_patcher_base_patch_t_class, i64 40), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_patcher_base_patch_t_class, i64 40), align 8
   %12 = load ptr, ptr %11, align 8
   %.not6.i.i = icmp eq ptr %12, null
   br i1 %.not6.i.i, label %opal_obj_new.exit.thread9, label %.lr.ph.i.i
@@ -120,38 +120,38 @@ define internal range(i32 -2, 1) i32 @mca_patcher_overwrite_patch_address(i64 no
   %13 = phi ptr [ %15, %.lr.ph.i.i ], [ %12, %9 ]
   %.07.i.i = phi ptr [ %14, %.lr.ph.i.i ], [ %11, %9 ]
   tail call void %13(ptr noundef nonnull %4) #4
-  %14 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i, label %opal_obj_new.exit.thread9, label %.lr.ph.i.i, !llvm.loop !4
 
 opal_obj_new.exit.thread9:                        ; preds = %.lr.ph.i.i, %9
-  %16 = getelementptr inbounds i8, ptr %4, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i64 %0, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %4, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i64 %1, ptr %17, align 8
   %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_patcher_overwrite_module, i64 88)) #4
   %19 = load i64, ptr %17, align 8
-  %20 = getelementptr inbounds i8, ptr %4, i64 128
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 128
   store i32 13, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %4, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i16 -17591, ptr %21, align 2
-  %22 = getelementptr inbounds i8, ptr %4, i64 66
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 66
   store i64 %19, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %4, i64 74
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 74
   store i8 65, ptr %23, align 1
-  %24 = getelementptr inbounds i8, ptr %4, i64 75
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 75
   store i8 -1, ptr %24, align 1
-  %25 = getelementptr inbounds i8, ptr %4, i64 76
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 76
   store i8 -29, ptr %25, align 1
   tail call void @mca_base_patcher_patch_apply_binary(ptr noundef nonnull %4) #4
   %26 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @mca_patcher_overwrite_module, i64 48), align 8
-  %27 = getelementptr inbounds i8, ptr %4, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store volatile ptr %26, ptr %27, align 8
   %28 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @mca_patcher_overwrite_module, i64 48), align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store volatile ptr %4, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %4, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store volatile ptr getelementptr inbounds (i8, ptr @mca_patcher_overwrite_module, i64 24), ptr %30, align 8
   store volatile ptr %4, ptr getelementptr inbounds (i8, ptr @mca_patcher_overwrite_module, i64 48), align 8
   %31 = load volatile i64, ptr getelementptr inbounds (i8, ptr @mca_patcher_overwrite_module, i64 64), align 8

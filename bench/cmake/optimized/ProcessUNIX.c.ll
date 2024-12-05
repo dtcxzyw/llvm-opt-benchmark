@@ -60,10 +60,10 @@ define dso_local noundef ptr @cmsysProcess_New() local_unnamed_addr #0 {
   br i1 %.not, label %5, label %1
 
 1:                                                ; preds = %0
-  %2 = getelementptr inbounds i8, ptr %calloc, i64 2368
+  %2 = getelementptr inbounds nuw i8, ptr %calloc, i64 2368
   store i32 1, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %calloc, i64 2380
-  %4 = getelementptr inbounds i8, ptr %calloc, i64 1292
+  %3 = getelementptr inbounds nuw i8, ptr %calloc, i64 2380
+  %4 = getelementptr inbounds nuw i8, ptr %calloc, i64 1292
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %3, i8 -1, i64 24, i1 false)
   store volatile i32 0, ptr %4, align 4
   br label %5
@@ -84,13 +84,13 @@ define dso_local void @cmsysProcess_Delete(ptr noundef %0) local_unnamed_addr #3
   br i1 %.not, label %53, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 1292
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1292
   %4 = load volatile i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 3
   br i1 %5, label %6, label %.preheader.i
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 1100
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1100
   %8 = load i32, ptr %7, align 4
   %.not13 = icmp eq i32 %8, 0
   br i1 %.not13, label %18, label %9
@@ -101,13 +101,13 @@ define dso_local void @cmsysProcess_Delete(ptr noundef %0) local_unnamed_addr #3
   br i1 %.not9.i, label %11, label %.preheader.i
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 1152
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1152
   %13 = load i32, ptr %12, align 8
   %.not10.i = icmp eq i32 %13, 0
   br i1 %.not10.i, label %14, label %.preheader.i
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %0, i64 1296
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 1296
   %16 = load volatile i32, ptr %15, align 8
   %.not11.i = icmp eq i32 %16, 0
   br i1 %.not11.i, label %17, label %.preheader.i
@@ -123,7 +123,7 @@ define dso_local void @cmsysProcess_Delete(ptr noundef %0) local_unnamed_addr #3
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %2, %18, %9, %11, %14, %17
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load volatile i32, ptr %20, align 8
   %22 = icmp sgt i32 %21, 0
   br i1 %22, label %.lr.ph29.i, label %._crit_edge30.i
@@ -131,7 +131,7 @@ define dso_local void @cmsysProcess_Delete(ptr noundef %0) local_unnamed_addr #3
 .lr.ph29.i:                                       ; preds = %.preheader.i, %._crit_edge.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %._crit_edge.i ], [ 0, %.preheader.i ]
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv.i
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %25, align 8
   %.not2526.i = icmp eq ptr %26, null
@@ -140,7 +140,7 @@ define dso_local void @cmsysProcess_Delete(ptr noundef %0) local_unnamed_addr #3
 .lr.ph.i:                                         ; preds = %.lr.ph29.i, %.lr.ph.i
   %27 = phi ptr [ %29, %.lr.ph.i ], [ %26, %.lr.ph29.i ]
   %.027.i = phi ptr [ %28, %.lr.ph.i ], [ %25, %.lr.ph29.i ]
-  %28 = getelementptr inbounds i8, ptr %.027.i, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.027.i, i64 8
   tail call void @free(ptr noundef nonnull %27) #25
   %29 = load ptr, ptr %28, align 8
   %.not25.i = icmp eq ptr %29, null
@@ -148,7 +148,7 @@ define dso_local void @cmsysProcess_Delete(ptr noundef %0) local_unnamed_addr #3
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %.pre.i = load ptr, ptr %0, align 8
-  %.phi.trans.insert.i = getelementptr inbounds ptr, ptr %.pre.i, i64 %indvars.iv.i
+  %.phi.trans.insert.i = getelementptr inbounds nuw ptr, ptr %.pre.i, i64 %indvars.iv.i
   %.pre32.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %._crit_edge.i
 
@@ -173,7 +173,7 @@ define dso_local void @cmsysProcess_Delete(ptr noundef %0) local_unnamed_addr #3
   br label %cmsysProcess_SetCommand.exit
 
 cmsysProcess_SetCommand.exit:                     ; preds = %35, %._crit_edge30.i
-  %36 = getelementptr inbounds i8, ptr %0, i64 1088
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
   br i1 %38, label %cmsysProcess_SetWorkingDirectory.exit, label %39
@@ -184,7 +184,7 @@ cmsysProcess_SetCommand.exit:                     ; preds = %35, %._crit_edge30.
   br label %cmsysProcess_SetWorkingDirectory.exit
 
 cmsysProcess_SetWorkingDirectory.exit:            ; preds = %39, %cmsysProcess_SetCommand.exit
-  %40 = getelementptr inbounds i8, ptr %0, i64 2344
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 2344
   %41 = load ptr, ptr %40, align 8
   %.not21.i = icmp eq ptr %41, null
   br i1 %.not21.i, label %cmsysProcess_SetPipeFile.exit, label %42
@@ -195,7 +195,7 @@ cmsysProcess_SetWorkingDirectory.exit:            ; preds = %39, %cmsysProcess_S
   br label %cmsysProcess_SetPipeFile.exit
 
 cmsysProcess_SetPipeFile.exit:                    ; preds = %42, %cmsysProcess_SetWorkingDirectory.exit
-  %43 = getelementptr inbounds i8, ptr %0, i64 2352
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 2352
   %44 = load ptr, ptr %43, align 8
   %.not21.i18 = icmp eq ptr %44, null
   br i1 %.not21.i18, label %cmsysProcess_SetPipeFile.exit20, label %45
@@ -206,7 +206,7 @@ cmsysProcess_SetPipeFile.exit:                    ; preds = %42, %cmsysProcess_S
   br label %cmsysProcess_SetPipeFile.exit20
 
 cmsysProcess_SetPipeFile.exit20:                  ; preds = %45, %cmsysProcess_SetPipeFile.exit
-  %46 = getelementptr inbounds i8, ptr %0, i64 2360
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 2360
   %47 = load ptr, ptr %46, align 8
   %.not21.i22 = icmp eq ptr %47, null
   br i1 %.not21.i22, label %cmsysProcess_SetPipeFile.exit24, label %48
@@ -217,10 +217,10 @@ cmsysProcess_SetPipeFile.exit20:                  ; preds = %45, %cmsysProcess_S
   br label %cmsysProcess_SetPipeFile.exit24
 
 cmsysProcess_SetPipeFile.exit24:                  ; preds = %cmsysProcess_SetPipeFile.exit20, %48
-  %49 = getelementptr inbounds i8, ptr %0, i64 2336
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 2336
   %50 = load ptr, ptr %49, align 8
   tail call void @free(ptr noundef %50) #25
-  %51 = getelementptr inbounds i8, ptr %0, i64 2328
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 2328
   %52 = load ptr, ptr %51, align 8
   tail call void @free(ptr noundef %52) #25
   tail call void @free(ptr noundef nonnull %0) #25
@@ -236,25 +236,25 @@ define dso_local void @cmsysProcess_Disown(ptr noundef %0) local_unnamed_addr #3
   br i1 %.not, label %15, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 1100
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1100
   %4 = load i32, ptr %3, align 4
   %.not8 = icmp eq i32 %4, 0
   br i1 %.not8, label %15, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 1292
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1292
   %7 = load volatile i32, ptr %6, align 4
   %.not9 = icmp eq i32 %7, 3
   br i1 %.not9, label %8, label %15
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 1152
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1152
   %10 = load i32, ptr %9, align 8
   %.not10 = icmp eq i32 %10, 0
   br i1 %.not10, label %11, label %15
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 1296
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1296
   %13 = load volatile i32, ptr %12, align 8
   %.not11 = icmp eq i32 %13, 0
   br i1 %.not11, label %14, label %15
@@ -275,7 +275,7 @@ define dso_local range(i32 0, 2) i32 @cmsysProcess_WaitForExit(ptr noundef %0, p
   br i1 %.not, label %.loopexit, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 1292
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1292
   %5 = load volatile i32, ptr %4, align 4
   %.not51 = icmp eq i32 %5, 3
   br i1 %.not51, label %.preheader55, label %.loopexit
@@ -299,7 +299,7 @@ define dso_local range(i32 0, 2) i32 @cmsysProcess_WaitForExit(ptr noundef %0, p
   br label %.loopexit
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %0, i64 1072
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   %16 = load i32, ptr %15, align 8
   %.not52 = icmp eq i32 %16, 0
   br i1 %.not52, label %18, label %17
@@ -310,39 +310,39 @@ define dso_local range(i32 0, 2) i32 @cmsysProcess_WaitForExit(ptr noundef %0, p
   br label %.loopexit
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %0, i64 1296
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 1296
   %20 = load volatile i32, ptr %19, align 8
   %.not53 = icmp eq i32 %20, 0
   br i1 %.not53, label %21, label %171
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %0, i64 1152
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 1152
   %23 = load i32, ptr %22, align 8
   %.not54 = icmp eq i32 %23, 0
   br i1 %.not54, label %.preheader, label %171
 
 .preheader:                                       ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load volatile i32, ptr %24, align 8
   %26 = icmp sgt i32 %25, 0
   br i1 %26, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %27 = getelementptr inbounds i8, ptr %0, i64 2336
-  %28 = getelementptr inbounds i8, ptr %0, i64 2328
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 2336
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 2328
   br label %29
 
 29:                                               ; preds = %.lr.ph, %kwsysProcessSetExitExceptionByIndex.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %kwsysProcessSetExitExceptionByIndex.exit ]
   %30 = load ptr, ptr %27, align 8
-  %31 = getelementptr inbounds i32, ptr %30, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4
   %33 = load ptr, ptr %28, align 8
-  %34 = getelementptr inbounds %struct.kwsysProcessResults_s, ptr %33, i64 %indvars.iv, i32 2
+  %34 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %33, i64 %indvars.iv, i32 2
   store i32 %32, ptr %34, align 4
   %35 = load ptr, ptr %28, align 8
-  %36 = getelementptr inbounds %struct.kwsysProcessResults_s, ptr %35, i64 %indvars.iv
-  %37 = getelementptr inbounds i8, ptr %36, i64 8
+  %36 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %35, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load i32, ptr %37, align 4
   %39 = and i32 %38, 127
   %40 = icmp eq i32 %39, 0
@@ -351,15 +351,15 @@ define dso_local range(i32 0, 2) i32 @cmsysProcess_WaitForExit(ptr noundef %0, p
 41:                                               ; preds = %29
   store i32 4, ptr %36, align 4
   %42 = load ptr, ptr %28, align 8
-  %43 = getelementptr inbounds %struct.kwsysProcessResults_s, ptr %42, i64 %indvars.iv, i32 1
+  %43 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %42, i64 %indvars.iv, i32 1
   store i32 0, ptr %43, align 4
   %44 = load ptr, ptr %28, align 8
-  %45 = getelementptr inbounds %struct.kwsysProcessResults_s, ptr %44, i64 %indvars.iv
-  %46 = getelementptr inbounds i8, ptr %45, i64 8
+  %45 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %44, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load i32, ptr %46, align 4
   %48 = lshr i32 %47, 8
   %49 = and i32 %48, 255
-  %50 = getelementptr inbounds i8, ptr %45, i64 12
+  %50 = getelementptr inbounds nuw i8, ptr %45, i64 12
   store i32 %49, ptr %50, align 4
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
@@ -372,10 +372,10 @@ define dso_local range(i32 0, 2) i32 @cmsysProcess_WaitForExit(ptr noundef %0, p
 54:                                               ; preds = %51
   store i32 2, ptr %36, align 4
   %55 = load ptr, ptr %28, align 8
-  %56 = getelementptr inbounds %struct.kwsysProcessResults_s, ptr %55, i64 %indvars.iv, i32 2
+  %56 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %55, i64 %indvars.iv, i32 2
   %57 = load i32, ptr %56, align 4
   %58 = and i32 %57, 127
-  %59 = getelementptr inbounds %struct.kwsysProcessResults_s, ptr %55, i64 %indvars.iv, i32 1
+  %59 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %55, i64 %indvars.iv, i32 1
   switch i32 %58, label %153 [
     i32 11, label %60
     i32 7, label %63
@@ -413,232 +413,232 @@ define dso_local range(i32 0, 2) i32 @cmsysProcess_WaitForExit(ptr noundef %0, p
 60:                                               ; preds = %54
   store i32 1, ptr %59, align 4
   %61 = load ptr, ptr %28, align 8
-  %62 = getelementptr inbounds %struct.kwsysProcessResults_s, ptr %61, i64 %indvars.iv, i32 4
+  %62 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %61, i64 %indvars.iv, i32 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %62, ptr noundef nonnull align 1 dereferenceable(19) @.str.8, i64 19, i1 false) #25
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
 63:                                               ; preds = %54
   store i32 1, ptr %59, align 4
   %64 = load ptr, ptr %28, align 8
-  %65 = getelementptr inbounds %struct.kwsysProcessResults_s, ptr %64, i64 %indvars.iv, i32 4
+  %65 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %64, i64 %indvars.iv, i32 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %65, ptr noundef nonnull align 1 dereferenceable(10) @.str.9, i64 10, i1 false) #25
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
 66:                                               ; preds = %54
   store i32 4, ptr %59, align 4
   %67 = load ptr, ptr %28, align 8
-  %68 = getelementptr inbounds %struct.kwsysProcessResults_s, ptr %67, i64 %indvars.iv, i32 4
+  %68 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %67, i64 %indvars.iv, i32 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(25) %68, ptr noundef nonnull align 1 dereferenceable(25) @.str.10, i64 25, i1 false) #25
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
 69:                                               ; preds = %54
   store i32 2, ptr %59, align 4
   %70 = load ptr, ptr %28, align 8
-  %71 = getelementptr inbounds %struct.kwsysProcessResults_s, ptr %70, i64 %indvars.iv, i32 4
+  %71 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %70, i64 %indvars.iv, i32 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %71, ptr noundef nonnull align 1 dereferenceable(20) @.str.11, i64 20, i1 false) #25
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
 72:                                               ; preds = %54
   store i32 3, ptr %59, align 4
   %73 = load ptr, ptr %28, align 8
-  %74 = getelementptr inbounds %struct.kwsysProcessResults_s, ptr %73, i64 %indvars.iv, i32 4
+  %74 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %73, i64 %indvars.iv, i32 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %74, ptr noundef nonnull align 1 dereferenceable(15) @.str.12, i64 15, i1 false) #25
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
 75:                                               ; preds = %54
   store i32 5, ptr %59, align 4
   %76 = load ptr, ptr %28, align 8
-  %77 = getelementptr inbounds %struct.kwsysProcessResults_s, ptr %76, i64 %indvars.iv, i32 4
+  %77 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %76, i64 %indvars.iv, i32 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %77, ptr noundef nonnull align 1 dereferenceable(19) @.str.13, i64 19, i1 false) #25
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
 78:                                               ; preds = %54
   store i32 5, ptr %59, align 4
   %79 = load ptr, ptr %28, align 8
-  %80 = getelementptr inbounds %struct.kwsysProcessResults_s, ptr %79, i64 %indvars.iv, i32 4
+  %80 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %79, i64 %indvars.iv, i32 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %80, ptr noundef nonnull align 1 dereferenceable(18) @.str.14, i64 18, i1 false) #25
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
 81:                                               ; preds = %54
   store i32 5, ptr %59, align 4
   %82 = load ptr, ptr %28, align 8
-  %83 = getelementptr inbounds %struct.kwsysProcessResults_s, ptr %82, i64 %indvars.iv, i32 4
+  %83 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %82, i64 %indvars.iv, i32 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(22) %83, ptr noundef nonnull align 1 dereferenceable(22) @.str.15, i64 22, i1 false) #25
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
 84:                                               ; preds = %54
   store i32 5, ptr %59, align 4
   %85 = load ptr, ptr %28, align 8
-  %86 = getelementptr inbounds %struct.kwsysProcessResults_s, ptr %85, i64 %indvars.iv, i32 4
+  %86 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %85, i64 %indvars.iv, i32 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %86, ptr noundef nonnull align 1 dereferenceable(7) @.str.16, i64 7, i1 false) #25
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
 87:                                               ; preds = %54
   store i32 5, ptr %59, align 4
   %88 = load ptr, ptr %28, align 8
-  %89 = getelementptr inbounds %struct.kwsysProcessResults_s, ptr %88, i64 %indvars.iv, i32 4
+  %89 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %88, i64 %indvars.iv, i32 4
   store i64 23724528828369235, ptr %89, align 1
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
 90:                                               ; preds = %54
   store i32 5, ptr %59, align 4
   %91 = load ptr, ptr %28, align 8
-  %92 = getelementptr inbounds %struct.kwsysProcessResults_s, ptr %91, i64 %indvars.iv, i32 4
+  %92 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %91, i64 %indvars.iv, i32 4
   store i64 22589819993934163, ptr %92, align 1
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
 93:                                               ; preds = %54
   store i32 5, ptr %59, align 4
   %94 = load ptr, ptr %28, align 8
-  %95 = getelementptr inbounds %struct.kwsysProcessResults_s, ptr %94, i64 %indvars.iv, i32 4
+  %95 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %94, i64 %indvars.iv, i32 4
   store i64 13882791725320531, ptr %95, align 1
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
 96:                                               ; preds = %54
   store i32 5, ptr %59, align 4
   %97 = load ptr, ptr %28, align 8
-  %98 = getelementptr inbounds %struct.kwsysProcessResults_s, ptr %97, i64 %indvars.iv, i32 4
+  %98 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %97, i64 %indvars.iv, i32 4
   store i64 14164266702031187, ptr %98, align 1
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
 99:                                               ; preds = %54
   store i32 5, ptr %59, align 4
   %100 = load ptr, ptr %28, align 8
-  %101 = getelementptr inbounds %struct.kwsysProcessResults_s, ptr %100, i64 %indvars.iv, i32 4
+  %101 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %100, i64 %indvars.iv, i32 4
   store i64 19510049202719059, ptr %101, align 1
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
 102:                                              ; preds = %54
   store i32 5, ptr %59, align 4
   %103 = load ptr, ptr %28, align 8
-  %104 = getelementptr inbounds %struct.kwsysProcessResults_s, ptr %103, i64 %indvars.iv, i32 4
+  %104 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %103, i64 %indvars.iv, i32 4
   store i64 21764060672903507, ptr %104, align 1
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
 105:                                              ; preds = %54
   store i32 5, ptr %59, align 4
   %106 = load ptr, ptr %28, align 8
-  %107 = getelementptr inbounds %struct.kwsysProcessResults_s, ptr %106, i64 %indvars.iv, i32 4
+  %107 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %106, i64 %indvars.iv, i32 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %107, ptr noundef nonnull align 1 dereferenceable(10) @.str.23, i64 10, i1 false) #25
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
 108:                                              ; preds = %54
   store i32 5, ptr %59, align 4
   %109 = load ptr, ptr %28, align 8
-  %110 = getelementptr inbounds %struct.kwsysProcessResults_s, ptr %109, i64 %indvars.iv, i32 4
+  %110 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %109, i64 %indvars.iv, i32 4
   store i64 19224171666426195, ptr %110, align 1
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
 111:                                              ; preds = %54
   store i32 5, ptr %59, align 4
   %112 = load ptr, ptr %28, align 8
-  %113 = getelementptr inbounds %struct.kwsysProcessResults_s, ptr %112, i64 %indvars.iv, i32 4
+  %113 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %112, i64 %indvars.iv, i32 4
   store i64 23730000381823315, ptr %113, align 1
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
 114:                                              ; preds = %54
   store i32 5, ptr %59, align 4
   %115 = load ptr, ptr %28, align 8
-  %116 = getelementptr inbounds %struct.kwsysProcessResults_s, ptr %115, i64 %indvars.iv, i32 4
+  %116 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %115, i64 %indvars.iv, i32 4
   store i64 22605221729880403, ptr %116, align 1
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
 117:                                              ; preds = %54
   store i32 5, ptr %59, align 4
   %118 = load ptr, ptr %28, align 8
-  %119 = getelementptr inbounds %struct.kwsysProcessResults_s, ptr %118, i64 %indvars.iv, i32 4
+  %119 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %118, i64 %indvars.iv, i32 4
   store i64 22610715009829203, ptr %119, align 1
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
 120:                                              ; preds = %54
   store i32 5, ptr %59, align 4
   %121 = load ptr, ptr %28, align 8
-  %122 = getelementptr inbounds %struct.kwsysProcessResults_s, ptr %121, i64 %indvars.iv, i32 4
+  %122 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %121, i64 %indvars.iv, i32 4
   store i64 22035674723469651, ptr %122, align 1
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
 123:                                              ; preds = %54
   store i32 5, ptr %59, align 4
   %124 = load ptr, ptr %28, align 8
-  %125 = getelementptr inbounds %struct.kwsysProcessResults_s, ptr %124, i64 %indvars.iv, i32 4
+  %125 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %124, i64 %indvars.iv, i32 4
   store i64 24012596630210899, ptr %125, align 1
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
 126:                                              ; preds = %54
   store i32 5, ptr %59, align 4
   %127 = load ptr, ptr %28, align 8
-  %128 = getelementptr inbounds %struct.kwsysProcessResults_s, ptr %127, i64 %indvars.iv, i32 4
+  %128 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %127, i64 %indvars.iv, i32 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %128, ptr noundef nonnull align 1 dereferenceable(7) @.str.30, i64 7, i1 false) #25
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
 129:                                              ; preds = %54
   store i32 5, ptr %59, align 4
   %130 = load ptr, ptr %28, align 8
-  %131 = getelementptr inbounds %struct.kwsysProcessResults_s, ptr %130, i64 %indvars.iv, i32 4
+  %131 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %130, i64 %indvars.iv, i32 4
   store i64 24013623194503507, ptr %131, align 1
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
 132:                                              ; preds = %54
   store i32 5, ptr %59, align 4
   %133 = load ptr, ptr %28, align 8
-  %134 = getelementptr inbounds %struct.kwsysProcessResults_s, ptr %133, i64 %indvars.iv, i32 4
+  %134 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %133, i64 %indvars.iv, i32 4
   store i64 25424309497842003, ptr %134, align 1
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
 135:                                              ; preds = %54
   store i32 5, ptr %59, align 4
   %136 = load ptr, ptr %28, align 8
-  %137 = getelementptr inbounds %struct.kwsysProcessResults_s, ptr %136, i64 %indvars.iv, i32 4
+  %137 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %136, i64 %indvars.iv, i32 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %137, ptr noundef nonnull align 1 dereferenceable(10) @.str.33, i64 10, i1 false) #25
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
 138:                                              ; preds = %54
   store i32 5, ptr %59, align 4
   %139 = load ptr, ptr %28, align 8
-  %140 = getelementptr inbounds %struct.kwsysProcessResults_s, ptr %139, i64 %indvars.iv, i32 4
+  %140 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %139, i64 %indvars.iv, i32 4
   store i64 19790463322507603, ptr %140, align 1
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
 141:                                              ; preds = %54
   store i32 5, ptr %59, align 4
   %142 = load ptr, ptr %28, align 8
-  %143 = getelementptr inbounds %struct.kwsysProcessResults_s, ptr %142, i64 %indvars.iv, i32 4
+  %143 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %142, i64 %indvars.iv, i32 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %143, ptr noundef nonnull align 1 dereferenceable(9) @.str.35, i64 9, i1 false) #25
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
 144:                                              ; preds = %54
   store i32 5, ptr %59, align 4
   %145 = load ptr, ptr %28, align 8
-  %146 = getelementptr inbounds %struct.kwsysProcessResults_s, ptr %145, i64 %indvars.iv, i32 4
+  %146 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %145, i64 %indvars.iv, i32 4
   store i64 21476001762986323, ptr %146, align 1
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
 147:                                              ; preds = %54
   store i32 5, ptr %59, align 4
   %148 = load ptr, ptr %28, align 8
-  %149 = getelementptr inbounds %struct.kwsysProcessResults_s, ptr %148, i64 %indvars.iv, i32 4
+  %149 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %148, i64 %indvars.iv, i32 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %149, ptr noundef nonnull align 1 dereferenceable(7) @.str.37, i64 7, i1 false) #25
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
 150:                                              ; preds = %54
   store i32 5, ptr %59, align 4
   %151 = load ptr, ptr %28, align 8
-  %152 = getelementptr inbounds %struct.kwsysProcessResults_s, ptr %151, i64 %indvars.iv, i32 4
+  %152 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %151, i64 %indvars.iv, i32 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %152, ptr noundef nonnull align 1 dereferenceable(7) @.str.38, i64 7, i1 false) #25
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
 153:                                              ; preds = %54
   store i32 5, ptr %59, align 4
   %154 = load ptr, ptr %28, align 8
-  %155 = getelementptr inbounds %struct.kwsysProcessResults_s, ptr %154, i64 %indvars.iv, i32 4
+  %155 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %154, i64 %indvars.iv, i32 4
   %156 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %155, i64 noundef 1025, ptr noundef nonnull @.str.39, i32 noundef range(i32 0, 128) %58) #25
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
 157:                                              ; preds = %51
-  %158 = getelementptr inbounds i8, ptr %36, i64 16
+  %158 = getelementptr inbounds nuw i8, ptr %36, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %158, ptr noundef nonnull align 1 dereferenceable(33) @.str.7, i64 33, i1 false) #25
   %159 = load ptr, ptr %28, align 8
-  %160 = getelementptr inbounds %struct.kwsysProcessResults_s, ptr %159, i64 %indvars.iv
+  %160 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %159, i64 %indvars.iv
   store i32 1, ptr %160, align 4
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
@@ -650,7 +650,7 @@ kwsysProcessSetExitExceptionByIndex.exit:         ; preds = %153, %150, %147, %1
   br i1 %163, label %29, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %kwsysProcessSetExitExceptionByIndex.exit, %.preheader
-  %164 = getelementptr inbounds i8, ptr %0, i64 2328
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 2328
   %165 = load ptr, ptr %164, align 8
   %166 = load volatile i32, ptr %24, align 8
   %167 = sext i32 %166 to i64
@@ -676,7 +676,7 @@ define dso_local range(i32 0, 2) i32 @cmsysProcess_SetCommand(ptr noundef %0, pt
   br i1 %.not, label %22, label %.preheader
 
 .preheader:                                       ; preds = %2
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load volatile i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph29, label %._crit_edge30
@@ -684,7 +684,7 @@ define dso_local range(i32 0, 2) i32 @cmsysProcess_SetCommand(ptr noundef %0, pt
 .lr.ph29:                                         ; preds = %.preheader, %._crit_edge
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge ], [ 0, %.preheader ]
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
   %.not2526 = icmp eq ptr %9, null
@@ -693,7 +693,7 @@ define dso_local range(i32 0, 2) i32 @cmsysProcess_SetCommand(ptr noundef %0, pt
 .lr.ph:                                           ; preds = %.lr.ph29, %.lr.ph
   %10 = phi ptr [ %12, %.lr.ph ], [ %9, %.lr.ph29 ]
   %.027 = phi ptr [ %11, %.lr.ph ], [ %8, %.lr.ph29 ]
-  %11 = getelementptr inbounds i8, ptr %.027, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.027, i64 8
   tail call void @free(ptr noundef nonnull %10) #25
   %12 = load ptr, ptr %11, align 8
   %.not25 = icmp eq ptr %12, null
@@ -701,7 +701,7 @@ define dso_local range(i32 0, 2) i32 @cmsysProcess_SetCommand(ptr noundef %0, pt
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load ptr, ptr %0, align 8
-  %.phi.trans.insert = getelementptr inbounds ptr, ptr %.pre, i64 %indvars.iv
+  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv
   %.pre32 = load ptr, ptr %.phi.trans.insert, align 8
   br label %._crit_edge
 
@@ -744,7 +744,7 @@ define dso_local range(i32 0, 2) i32 @cmsysProcess_SetWorkingDirectory(ptr nound
   br i1 %.not, label %18, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 1088
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, %1
   br i1 %6, label %18, label %7
@@ -799,8 +799,8 @@ define dso_local range(i32 0, 2) i32 @cmsysProcess_SetPipeFile(ptr noundef %0, i
 switch.lookup:                                    ; preds = %4
   %6 = shl nuw nsw i32 %switch.tableidx, 3
   %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr inbounds i8, ptr %0, i64 %7
-  %9 = getelementptr inbounds i8, ptr %8, i64 2344
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 %7
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 2344
   %10 = load ptr, ptr %9, align 8
   %.not21 = icmp eq ptr %10, null
   br i1 %.not21, label %12, label %11
@@ -831,29 +831,29 @@ default.unreachable:                              ; preds = %.thread
   unreachable
 
 15:                                               ; preds = %.thread
-  %16 = getelementptr inbounds i8, ptr %0, i64 2380
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 2380
   store i32 -1, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 2384
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 2384
   store i32 -1, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 2368
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 2368
   store i32 0, ptr %18, align 8
   br label %cmsysProcess_SetPipeShared.exit
 
 19:                                               ; preds = %.thread
-  %20 = getelementptr inbounds i8, ptr %0, i64 2388
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 2388
   store i32 -1, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %0, i64 2392
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2392
   store i32 -1, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %0, i64 2372
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 2372
   store i32 0, ptr %22, align 4
   br label %cmsysProcess_SetPipeShared.exit
 
 23:                                               ; preds = %.thread
-  %24 = getelementptr inbounds i8, ptr %0, i64 2396
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 2396
   store i32 -1, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %0, i64 2400
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 2400
   store i32 -1, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %0, i64 2376
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 2376
   store i32 0, ptr %26, align 8
   br label %cmsysProcess_SetPipeShared.exit
 
@@ -878,7 +878,7 @@ define dso_local range(i32 0, 2) i32 @cmsysProcess_AddCommand(ptr noundef %0, pt
   br i1 %.not, label %92, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load volatile i32, ptr %8, align 8
   %10 = add nsw i32 %9, 1
   %11 = sext i32 %10 to i64
@@ -898,9 +898,9 @@ define dso_local range(i32 0, 2) i32 @cmsysProcess_AddCommand(ptr noundef %0, pt
 
 17:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
-  %18 = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
   store ptr %19, ptr %20, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = load volatile i32, ptr %8, align 8
@@ -909,7 +909,7 @@ define dso_local range(i32 0, 2) i32 @cmsysProcess_AddCommand(ptr noundef %0, pt
   br i1 %23, label %17, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %17, %.preheader75
-  %24 = getelementptr inbounds i8, ptr %0, i64 1104
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   %25 = load i32, ptr %24, align 8
   %.not67 = icmp eq i32 %25, 0
   br i1 %.not67, label %.preheader74, label %26
@@ -942,7 +942,7 @@ define dso_local range(i32 0, 2) i32 @cmsysProcess_AddCommand(ptr noundef %0, pt
 
 .preheader74:                                     ; preds = %._crit_edge, %.preheader74
   %.059 = phi ptr [ %42, %.preheader74 ], [ %1, %._crit_edge ]
-  %42 = getelementptr inbounds i8, ptr %.059, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %.059, i64 8
   %43 = load ptr, ptr %.059, align 8
   %.not68 = icmp eq ptr %43, null
   br i1 %.not68, label %44, label %.preheader74, !llvm.loop !11
@@ -975,20 +975,20 @@ define dso_local range(i32 0, 2) i32 @cmsysProcess_AddCommand(ptr noundef %0, pt
 
 .lr.ph79:                                         ; preds = %.preheader73, %74
   %.078 = phi i64 [ %75, %74 ], [ 0, %.preheader73 ]
-  %60 = getelementptr inbounds ptr, ptr %1, i64 %.078
+  %60 = getelementptr inbounds nuw ptr, ptr %1, i64 %.078
   %61 = load ptr, ptr %60, align 8
   %62 = tail call noalias ptr @strdup(ptr noundef %61) #25
   %63 = load volatile i32, ptr %8, align 8
   %64 = sext i32 %63 to i64
   %65 = getelementptr inbounds ptr, ptr %13, i64 %64
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds ptr, ptr %66, i64 %.078
+  %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %.078
   store ptr %62, ptr %67, align 8
   %68 = load volatile i32, ptr %8, align 8
   %69 = sext i32 %68 to i64
   %70 = getelementptr inbounds ptr, ptr %13, i64 %69
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds ptr, ptr %71, i64 %.078
+  %72 = getelementptr inbounds nuw ptr, ptr %71, i64 %.078
   %73 = load ptr, ptr %72, align 8
   %.not70 = icmp eq ptr %73, null
   br i1 %.not70, label %.preheader, label %74
@@ -1052,11 +1052,11 @@ define dso_local void @cmsysProcess_SetTimeout(ptr noundef writeonly %0, double 
   br i1 %.not, label %7, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 1080
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   %5 = fcmp olt double %1, 0.000000e+00
   %storemerge = select i1 %5, double 0.000000e+00, double %1
   store double %storemerge, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 1136
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1136
   store i64 -1, ptr %6, align 8
   br label %7
 
@@ -1080,29 +1080,29 @@ define dso_local void @cmsysProcess_SetPipeNative(ptr noundef %0, i32 noundef %1
 switch.lookup:                                    ; preds = %4
   %6 = shl nuw nsw i32 %switch.tableidx, 3
   %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr inbounds i8, ptr %0, i64 %7
-  %9 = getelementptr inbounds i8, ptr %8, i64 2380
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 %7
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 2380
   %.not18 = icmp eq ptr %2, null
   br i1 %.not18, label %.thread, label %switch.lookup21
 
 .thread:                                          ; preds = %switch.lookup
   store i32 -1, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %8, i64 2384
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 2384
   store i32 -1, ptr %10, align 4
   br label %cmsysProcess_SetPipeShared.exit
 
 switch.lookup21:                                  ; preds = %switch.lookup
   %11 = load i32, ptr %2, align 4
   store i32 %11, ptr %9, align 4
-  %12 = getelementptr inbounds i8, ptr %2, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %8, i64 2384
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 2384
   store i32 %13, ptr %14, align 4
   %switch.tableidx22 = add nsw i32 %1, -1
   %switch.idx.cast23 = zext i32 %switch.tableidx22 to i64
   %switch.idx.mult24 = shl nuw nsw i64 %switch.idx.cast23, 3
-  %15 = getelementptr inbounds i8, ptr %0, i64 %switch.idx.mult24
-  %16 = getelementptr inbounds i8, ptr %15, i64 2344
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.idx.mult24
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 2344
   %17 = load ptr, ptr %16, align 8
   %.not21.i = icmp eq ptr %17, null
   br i1 %.not21.i, label %cmsysProcess_SetPipeFile.exit, label %18
@@ -1120,17 +1120,17 @@ cmsysProcess_SetPipeFile.exit:                    ; preds = %18, %switch.lookup2
   ]
 
 19:                                               ; preds = %cmsysProcess_SetPipeFile.exit
-  %20 = getelementptr inbounds i8, ptr %0, i64 2368
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 2368
   store i32 0, ptr %20, align 8
   br label %cmsysProcess_SetPipeShared.exit
 
 21:                                               ; preds = %cmsysProcess_SetPipeFile.exit
-  %22 = getelementptr inbounds i8, ptr %0, i64 2372
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 2372
   store i32 0, ptr %22, align 4
   br label %cmsysProcess_SetPipeShared.exit
 
 23:                                               ; preds = %cmsysProcess_SetPipeFile.exit
-  %24 = getelementptr inbounds i8, ptr %0, i64 2376
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 2376
   store i32 0, ptr %24, align 8
   br label %cmsysProcess_SetPipeShared.exit
 
@@ -1156,21 +1156,21 @@ define dso_local void @cmsysProcess_SetPipeShared(ptr noundef %0, i32 noundef %1
 5:                                                ; preds = %4
   %.not14 = icmp ne i32 %2, 0
   %6 = zext i1 %.not14 to i32
-  %7 = getelementptr inbounds i8, ptr %0, i64 2368
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2368
   store i32 %6, ptr %7, align 8
   br label %14
 
 8:                                                ; preds = %4
   %.not13 = icmp ne i32 %2, 0
   %9 = zext i1 %.not13 to i32
-  %10 = getelementptr inbounds i8, ptr %0, i64 2372
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 2372
   store i32 %9, ptr %10, align 4
   br label %14
 
 11:                                               ; preds = %4
   %.not12 = icmp ne i32 %2, 0
   %12 = zext i1 %.not12 to i32
-  %13 = getelementptr inbounds i8, ptr %0, i64 2376
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 2376
   store i32 %12, ptr %13, align 8
   br label %14
 
@@ -1182,8 +1182,8 @@ switch.lookup:                                    ; preds = %14
   %switch.tableidx = add nsw i32 %1, -1
   %switch.idx.cast = zext i32 %switch.tableidx to i64
   %switch.idx.mult = shl nuw nsw i64 %switch.idx.cast, 3
-  %15 = getelementptr inbounds i8, ptr %0, i64 %switch.idx.mult
-  %16 = getelementptr inbounds i8, ptr %15, i64 2344
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.idx.mult
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 2344
   %17 = load ptr, ptr %16, align 8
   %.not21.i = icmp eq ptr %17, null
   br i1 %.not21.i, label %cmsysProcess_SetPipeFile.exit, label %18
@@ -1197,10 +1197,10 @@ cmsysProcess_SetPipeFile.exit:                    ; preds = %18, %switch.lookup
   %switch.tableidx19 = add nsw i32 %1, -1
   %switch.idx.cast20 = zext i32 %switch.tableidx19 to i64
   %switch.idx.mult21 = shl nuw nsw i64 %switch.idx.cast20, 3
-  %19 = getelementptr inbounds i8, ptr %0, i64 %switch.idx.mult21
-  %20 = getelementptr inbounds i8, ptr %19, i64 2380
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.idx.mult21
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 2380
   store i32 -1, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %19, i64 2384
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 2384
   store i32 -1, ptr %21, align 4
   br label %cmsysProcess_SetPipeNative.exit
 
@@ -1222,22 +1222,22 @@ define dso_local i32 @cmsysProcess_GetOption(ptr noundef %0, i32 noundef %1) loc
   ]
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 1096
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %6 = load i32, ptr %5, align 8
   br label %16
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 1108
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1108
   %9 = load i32, ptr %8, align 4
   br label %16
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %0, i64 1104
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   %12 = load i32, ptr %11, align 8
   br label %16
 
 13:                                               ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %0, i64 1112
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1112
   %15 = load volatile i32, ptr %14, align 8
   br label %16
 
@@ -1260,22 +1260,22 @@ define dso_local void @cmsysProcess_SetOption(ptr noundef %0, i32 noundef %1, i3
   ]
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 1096
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   store i32 %2, ptr %6, align 8
   br label %13
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 1108
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1108
   store i32 %2, ptr %8, align 4
   br label %13
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 1104
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   store i32 %2, ptr %10, align 8
   br label %13
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %0, i64 1112
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1112
   store volatile i32 %2, ptr %12, align 8
   br label %13
 
@@ -1289,7 +1289,7 @@ define dso_local i32 @cmsysProcess_GetState(ptr noundef %0) local_unnamed_addr #
   br i1 %.not, label %5, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 1292
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1292
   %4 = load volatile i32, ptr %3, align 4
   br label %5
 
@@ -1304,13 +1304,13 @@ define dso_local i32 @cmsysProcess_GetExitException(ptr noundef %0) local_unname
   br i1 %.not, label %15, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 2328
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 2328
   %4 = load ptr, ptr %3, align 8
   %.not5 = icmp eq ptr %4, null
   br i1 %.not5, label %15, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load volatile i32, ptr %6, align 8
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %9, label %15
@@ -1334,13 +1334,13 @@ define dso_local i32 @cmsysProcess_GetExitCode(ptr noundef %0) local_unnamed_add
   br i1 %.not, label %15, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 2328
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 2328
   %4 = load ptr, ptr %3, align 8
   %.not5 = icmp eq ptr %4, null
   br i1 %.not5, label %15, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load volatile i32, ptr %6, align 8
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %9, label %15
@@ -1364,13 +1364,13 @@ define dso_local i32 @cmsysProcess_GetExitValue(ptr noundef %0) local_unnamed_ad
   br i1 %.not, label %15, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 2328
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 2328
   %4 = load ptr, ptr %3, align 8
   %.not5 = icmp eq ptr %4, null
   br i1 %.not5, label %15, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load volatile i32, ptr %6, align 8
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %9, label %15
@@ -1394,10 +1394,10 @@ define dso_local nonnull ptr @cmsysProcess_GetErrorString(ptr noundef %0) local_
   br i1 %.not, label %7, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 1292
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1292
   %4 = load volatile i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 1300
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1300
   %spec.select = select i1 %5, ptr %6, ptr @.str.1
   br label %7
 
@@ -1412,19 +1412,19 @@ define dso_local ptr @cmsysProcess_GetExceptionString(ptr noundef %0) local_unna
   br i1 %.not, label %18, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 2328
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 2328
   %4 = load ptr, ptr %3, align 8
   %.not8 = icmp eq ptr %4, null
   br i1 %.not8, label %18, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load volatile i32, ptr %6, align 8
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %9, label %18
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 1292
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1292
   %11 = load volatile i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 2
   br i1 %12, label %13, label %18
@@ -1447,7 +1447,7 @@ define dso_local i32 @cmsysProcess_GetStateByIndex(ptr noundef %0, i32 noundef %
   br i1 %.not, label %14, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load volatile i32, ptr %4, align 8
   %6 = icmp sge i32 %1, %5
   %7 = icmp slt i32 %1, 0
@@ -1455,10 +1455,10 @@ define dso_local i32 @cmsysProcess_GetStateByIndex(ptr noundef %0, i32 noundef %
   br i1 %or.cond, label %14, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 2328
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 2328
   %10 = load ptr, ptr %9, align 8
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds %struct.kwsysProcessResults_s, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4
   br label %14
 
@@ -1473,7 +1473,7 @@ define dso_local i32 @cmsysProcess_GetExitExceptionByIndex(ptr noundef %0, i32 n
   br i1 %.not, label %14, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load volatile i32, ptr %4, align 8
   %6 = icmp sge i32 %1, %5
   %7 = icmp slt i32 %1, 0
@@ -1481,10 +1481,10 @@ define dso_local i32 @cmsysProcess_GetExitExceptionByIndex(ptr noundef %0, i32 n
   br i1 %or.cond, label %14, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 2328
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 2328
   %10 = load ptr, ptr %9, align 8
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds %struct.kwsysProcessResults_s, ptr %10, i64 %11, i32 1
+  %12 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %10, i64 %11, i32 1
   %13 = load i32, ptr %12, align 4
   br label %14
 
@@ -1499,7 +1499,7 @@ define dso_local i32 @cmsysProcess_GetExitValueByIndex(ptr noundef %0, i32 nound
   br i1 %.not, label %14, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load volatile i32, ptr %4, align 8
   %6 = icmp sge i32 %1, %5
   %7 = icmp slt i32 %1, 0
@@ -1507,10 +1507,10 @@ define dso_local i32 @cmsysProcess_GetExitValueByIndex(ptr noundef %0, i32 nound
   br i1 %or.cond, label %14, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 2328
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 2328
   %10 = load ptr, ptr %9, align 8
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds %struct.kwsysProcessResults_s, ptr %10, i64 %11, i32 3
+  %12 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %10, i64 %11, i32 3
   %13 = load i32, ptr %12, align 4
   br label %14
 
@@ -1525,7 +1525,7 @@ define dso_local i32 @cmsysProcess_GetExitCodeByIndex(ptr noundef %0, i32 nounde
   br i1 %.not, label %14, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load volatile i32, ptr %4, align 8
   %6 = icmp sge i32 %1, %5
   %7 = icmp slt i32 %1, 0
@@ -1533,10 +1533,10 @@ define dso_local i32 @cmsysProcess_GetExitCodeByIndex(ptr noundef %0, i32 nounde
   br i1 %or.cond, label %14, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 2336
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 2336
   %10 = load ptr, ptr %9, align 8
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds i32, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw i32, ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4
   br label %14
 
@@ -1551,7 +1551,7 @@ define dso_local nonnull ptr @cmsysProcess_GetExceptionStringByIndex(ptr noundef
   br i1 %.not, label %16, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load volatile i32, ptr %4, align 8
   %6 = icmp sge i32 %1, %5
   %7 = icmp slt i32 %1, 0
@@ -1559,13 +1559,13 @@ define dso_local nonnull ptr @cmsysProcess_GetExceptionStringByIndex(ptr noundef
   br i1 %or.cond, label %16, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 2328
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 2328
   %10 = load ptr, ptr %9, align 8
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds %struct.kwsysProcessResults_s, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, 2
-  %15 = getelementptr inbounds i8, ptr %12, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %spec.select = select i1 %14, ptr %15, ptr @.str.3
   br label %16
 
@@ -1590,38 +1590,38 @@ define dso_local void @cmsysProcess_Execute(ptr noundef %0) local_unnamed_addr #
   br i1 %.not, label %388, label %12
 
 12:                                               ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 1292
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1292
   %14 = load volatile i32, ptr %13, align 4
   %15 = icmp eq i32 %14, 3
   br i1 %15, label %388, label %16
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load volatile i32, ptr %17, align 8
   %19 = icmp slt i32 %18, 1
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 1300
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 1300
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %21, ptr noundef nonnull align 1 dereferenceable(11) @.str.5, i64 11, i1 false) #25
   store volatile i32 1, ptr %13, align 4
   br label %388
 
 22:                                               ; preds = %16
-  %23 = getelementptr inbounds i8, ptr %0, i64 12
-  %24 = getelementptr inbounds i8, ptr %0, i64 1072
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %23, i8 -1, i64 28, i1 false)
   store i32 0, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 1120
-  %26 = getelementptr inbounds i8, ptr %0, i64 1152
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 1120
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 1152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, i8 -1, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(140) %26, i8 0, i64 140, i1 false)
   store volatile i32 0, ptr %13, align 4
-  %27 = getelementptr inbounds i8, ptr %0, i64 1296
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 1296
   store volatile i32 0, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 1300
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 1300
   store i8 0, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %0, i64 1064
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %30 = load volatile ptr, ptr %29, align 8
   %31 = load volatile i32, ptr %17, align 8
   %32 = sext i32 %31 to i64
@@ -1641,7 +1641,7 @@ define dso_local void @cmsysProcess_Execute(ptr noundef %0) local_unnamed_addr #
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.preheader.i ]
   %38 = load volatile ptr, ptr %29, align 8
-  %39 = getelementptr inbounds i32, ptr %38, i64 %indvars.iv.i
+  %39 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv.i
   store volatile i32 0, ptr %39, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %40 = load volatile i32, ptr %17, align 8
@@ -1650,7 +1650,7 @@ define dso_local void @cmsysProcess_Execute(ptr noundef %0) local_unnamed_addr #
   br i1 %42, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !14
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
-  %43 = getelementptr inbounds i8, ptr %0, i64 2336
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 2336
   %44 = load ptr, ptr %43, align 8
   tail call void @free(ptr noundef %44) #25
   %45 = load volatile i32, ptr %17, align 8
@@ -1666,7 +1666,7 @@ define dso_local void @cmsysProcess_Execute(ptr noundef %0) local_unnamed_addr #
   %51 = sext i32 %50 to i64
   %52 = shl nsw i64 %51, 2
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %48, i8 0, i64 %52, i1 false)
-  %53 = getelementptr inbounds i8, ptr %0, i64 2328
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 2328
   %54 = load ptr, ptr %53, align 8
   tail call void @free(ptr noundef %54) #25
   %55 = load volatile i32, ptr %17, align 8
@@ -1689,19 +1689,19 @@ define dso_local void @cmsysProcess_Execute(ptr noundef %0) local_unnamed_addr #
 .lr.ph81.i:                                       ; preds = %59, %.lr.ph81.i
   %indvars.iv87.i = phi i64 [ %indvars.iv.next88.i, %.lr.ph81.i ], [ 0, %59 ]
   %65 = load ptr, ptr %53, align 8
-  %66 = getelementptr inbounds %struct.kwsysProcessResults_s, ptr %65, i64 %indvars.iv87.i, i32 1
+  %66 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %65, i64 %indvars.iv87.i, i32 1
   store i32 0, ptr %66, align 4
   %67 = load ptr, ptr %53, align 8
-  %68 = getelementptr inbounds %struct.kwsysProcessResults_s, ptr %67, i64 %indvars.iv87.i
+  %68 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %67, i64 %indvars.iv87.i
   store i32 0, ptr %68, align 4
   %69 = load ptr, ptr %53, align 8
-  %70 = getelementptr inbounds %struct.kwsysProcessResults_s, ptr %69, i64 %indvars.iv87.i, i32 2
+  %70 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %69, i64 %indvars.iv87.i, i32 2
   store i32 1, ptr %70, align 4
   %71 = load ptr, ptr %53, align 8
-  %72 = getelementptr inbounds %struct.kwsysProcessResults_s, ptr %71, i64 %indvars.iv87.i, i32 3
+  %72 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %71, i64 %indvars.iv87.i, i32 3
   store i32 1, ptr %72, align 4
   %73 = load ptr, ptr %53, align 8
-  %74 = getelementptr inbounds %struct.kwsysProcessResults_s, ptr %73, i64 %indvars.iv87.i, i32 4
+  %74 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %73, i64 %indvars.iv87.i, i32 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %74, ptr noundef nonnull align 1 dereferenceable(13) @.str.3, i64 13, i1 false) #25
   %indvars.iv.next88.i = add nuw nsw i64 %indvars.iv87.i, 1
   %75 = load volatile i32, ptr %17, align 8
@@ -1710,16 +1710,16 @@ define dso_local void @cmsysProcess_Execute(ptr noundef %0) local_unnamed_addr #
   br i1 %77, label %.lr.ph81.i, label %._crit_edge82.i, !llvm.loop !15
 
 ._crit_edge82.i:                                  ; preds = %.lr.ph81.i, %59
-  %78 = getelementptr inbounds i8, ptr %0, i64 1088
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   %79 = load ptr, ptr %78, align 8
   %.not72.i = icmp eq ptr %79, null
   br i1 %.not72.i, label %.critedge138, label %80
 
 80:                                               ; preds = %._crit_edge82.i
-  %81 = getelementptr inbounds i8, ptr %0, i64 2404
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 2404
   store i32 4096, ptr %81, align 4
   %82 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #27
-  %83 = getelementptr inbounds i8, ptr %0, i64 2408
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 2408
   store ptr %82, ptr %83, align 8
   %.not73.i = icmp eq ptr %82, null
   br i1 %.not73.i, label %84, label %kwsysProcessInitialize.exit
@@ -1730,9 +1730,9 @@ define dso_local void @cmsysProcess_Execute(ptr noundef %0) local_unnamed_addr #
   br label %388
 
 kwsysProcessInitialize.exit:                      ; preds = %80
-  %85 = getelementptr inbounds i8, ptr %0, i64 2408
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 2408
   %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %0, i64 2404
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 2404
   %88 = load i32, ptr %87, align 4
   %89 = sext i32 %88 to i64
   %90 = tail call ptr @getcwd(ptr noundef %86, i64 noundef %89) #25
@@ -1760,7 +1760,7 @@ kwsysProcessInitialize.exit:                      ; preds = %80
   br label %388
 
 .critedge138:                                     ; preds = %.preheader145, %._crit_edge82.i
-  %99 = getelementptr inbounds i8, ptr %0, i64 1096
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %100 = load i32, ptr %99, align 8
   %.not114 = icmp eq i32 %100, 0
   br i1 %.not114, label %101, label %186
@@ -1774,11 +1774,11 @@ kwsysProcessInitialize.exit:                      ; preds = %80
 
 104:                                              ; preds = %101
   %105 = load i32, ptr %5, align 4
-  %106 = getelementptr inbounds i8, ptr %0, i64 20
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %105, ptr %106, align 4
-  %107 = getelementptr inbounds i8, ptr %5, i64 4
+  %107 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %108 = load i32, ptr %107, align 4
-  %109 = getelementptr inbounds i8, ptr %0, i64 36
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %108, ptr %109, align 4
   %110 = call i32 (i32, i32, ...) @fcntl(i32 noundef %105, i32 noundef 3) #25
   %111 = icmp sgt i32 %110, -1
@@ -1873,10 +1873,10 @@ kwsysProcessSetNonBlocking.exit22.i:              ; preds = %115
   br i1 %155, label %156, label %kwsysProcessesAdd.exit
 
 156:                                              ; preds = %154
-  %157 = getelementptr inbounds i8, ptr %6, i64 8
+  %157 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %157, i8 0, i64 144, i1 false)
   store ptr @kwsysProcessesSignalHandler, ptr %6, align 8
-  %158 = getelementptr inbounds i8, ptr %6, i64 136
+  %158 = getelementptr inbounds nuw i8, ptr %6, i64 136
   store i32 268435461, ptr %158, align 8
   %159 = call i32 @sigemptyset(ptr noundef nonnull %157) #25
   br label %160
@@ -1936,14 +1936,14 @@ kwsysProcessesAdd.exit:                           ; preds = %178, %181, %154
   br label %388
 
 186:                                              ; preds = %kwsysProcessesAdd.exit, %.critedge138
-  %187 = getelementptr inbounds i8, ptr %0, i64 2344
+  %187 = getelementptr inbounds nuw i8, ptr %0, i64 2344
   %188 = load ptr, ptr %187, align 8
   %.not116 = icmp eq ptr %188, null
   br i1 %.not116, label %198, label %189
 
 189:                                              ; preds = %186
   %190 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %188, i32 noundef 0) #25
-  %191 = getelementptr inbounds i8, ptr %0, i64 24
+  %191 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %190, ptr %191, align 8
   %192 = icmp slt i32 %190, 0
   br i1 %192, label %193, label %194
@@ -1962,21 +1962,21 @@ kwsysProcessesAdd.exit:                           ; preds = %178, %181, %154
   br label %388
 
 198:                                              ; preds = %186
-  %199 = getelementptr inbounds i8, ptr %0, i64 2368
+  %199 = getelementptr inbounds nuw i8, ptr %0, i64 2368
   %200 = load i32, ptr %199, align 8
   %.not117 = icmp eq i32 %200, 0
   br i1 %.not117, label %203, label %201
 
 201:                                              ; preds = %198
-  %202 = getelementptr inbounds i8, ptr %0, i64 24
+  %202 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %202, align 8
   br label %218
 
 203:                                              ; preds = %198
-  %204 = getelementptr inbounds i8, ptr %0, i64 2380
+  %204 = getelementptr inbounds nuw i8, ptr %0, i64 2380
   %205 = load i32, ptr %204, align 4
   %206 = icmp sgt i32 %205, -1
-  %207 = getelementptr inbounds i8, ptr %0, i64 24
+  %207 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br i1 %206, label %208, label %217
 
 208:                                              ; preds = %203
@@ -1986,7 +1986,7 @@ kwsysProcessesAdd.exit:                           ; preds = %178, %181, %154
   br i1 %210, label %216, label %211
 
 211:                                              ; preds = %208
-  %212 = getelementptr inbounds i8, ptr %0, i64 2384
+  %212 = getelementptr inbounds nuw i8, ptr %0, i64 2384
   %213 = load i32, ptr %212, align 4
   %214 = call i32 (i32, i32, ...) @fcntl(i32 noundef %213, i32 noundef 2, i32 noundef 1) #25
   %215 = icmp slt i32 %214, 0
@@ -2012,10 +2012,10 @@ kwsysProcessesAdd.exit:                           ; preds = %178, %181, %154
 222:                                              ; preds = %218
   %223 = load i32, ptr %7, align 4
   store i32 %223, ptr %23, align 4
-  %224 = getelementptr inbounds i8, ptr %7, i64 4
+  %224 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %225 = load i32, ptr %224, align 4
-  %226 = getelementptr inbounds i8, ptr %0, i64 24
-  %227 = getelementptr inbounds i8, ptr %0, i64 28
+  %226 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %227 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %225, ptr %227, align 4
   %228 = call i32 (i32, i32, ...) @fcntl(i32 noundef %223, i32 noundef 2, i32 noundef 1) #25
   %229 = icmp slt i32 %228, 0
@@ -2042,7 +2042,7 @@ kwsysProcessesAdd.exit:                           ; preds = %178, %181, %154
   br label %388
 
 239:                                              ; preds = %235
-  %240 = getelementptr inbounds i8, ptr %0, i64 2352
+  %240 = getelementptr inbounds nuw i8, ptr %0, i64 2352
   %241 = load ptr, ptr %240, align 8
   %.not119 = icmp eq ptr %241, null
   br i1 %.not119, label %245, label %242
@@ -2057,7 +2057,7 @@ kwsysProcessesAdd.exit:                           ; preds = %178, %181, %154
   br label %388
 
 245:                                              ; preds = %239
-  %246 = getelementptr inbounds i8, ptr %0, i64 2372
+  %246 = getelementptr inbounds nuw i8, ptr %0, i64 2372
   %247 = load i32, ptr %246, align 4
   %.not120 = icmp eq i32 %247, 0
   br i1 %.not120, label %249, label %248
@@ -2068,13 +2068,13 @@ kwsysProcessesAdd.exit:                           ; preds = %178, %181, %154
   br label %257
 
 249:                                              ; preds = %245
-  %250 = getelementptr inbounds i8, ptr %0, i64 2392
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 2392
   %251 = load i32, ptr %250, align 4
   %252 = icmp sgt i32 %251, -1
   br i1 %252, label %253, label %257
 
 253:                                              ; preds = %249
-  %254 = getelementptr inbounds i8, ptr %0, i64 2388
+  %254 = getelementptr inbounds nuw i8, ptr %0, i64 2388
   %255 = call fastcc i32 @kwsysProcessSetupOutputPipeNative(ptr noundef %227, ptr noundef %254)
   %.not121 = icmp eq i32 %255, 0
   br i1 %.not121, label %256, label %257
@@ -2094,11 +2094,11 @@ kwsysProcessesAdd.exit:                           ; preds = %178, %181, %154
 
 261:                                              ; preds = %257
   %262 = load i32, ptr %8, align 4
-  %263 = getelementptr inbounds i8, ptr %0, i64 16
+  %263 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %262, ptr %263, align 4
-  %264 = getelementptr inbounds i8, ptr %8, i64 4
+  %264 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %265 = load i32, ptr %264, align 4
-  %266 = getelementptr inbounds i8, ptr %0, i64 32
+  %266 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %265, ptr %266, align 8
   %267 = call i32 (i32, i32, ...) @fcntl(i32 noundef %262, i32 noundef 2, i32 noundef 1) #25
   %268 = icmp slt i32 %267, 0
@@ -2125,7 +2125,7 @@ kwsysProcessesAdd.exit:                           ; preds = %178, %181, %154
   br label %388
 
 278:                                              ; preds = %274
-  %279 = getelementptr inbounds i8, ptr %0, i64 2360
+  %279 = getelementptr inbounds nuw i8, ptr %0, i64 2360
   %280 = load ptr, ptr %279, align 8
   %.not124 = icmp eq ptr %280, null
   br i1 %.not124, label %284, label %281
@@ -2140,7 +2140,7 @@ kwsysProcessesAdd.exit:                           ; preds = %178, %181, %154
   br label %388
 
 284:                                              ; preds = %278
-  %285 = getelementptr inbounds i8, ptr %0, i64 2376
+  %285 = getelementptr inbounds nuw i8, ptr %0, i64 2376
   %286 = load i32, ptr %285, align 8
   %.not125 = icmp eq i32 %286, 0
   br i1 %.not125, label %288, label %287
@@ -2151,13 +2151,13 @@ kwsysProcessesAdd.exit:                           ; preds = %178, %181, %154
   br label %296
 
 288:                                              ; preds = %284
-  %289 = getelementptr inbounds i8, ptr %0, i64 2400
+  %289 = getelementptr inbounds nuw i8, ptr %0, i64 2400
   %290 = load i32, ptr %289, align 4
   %291 = icmp sgt i32 %290, -1
   br i1 %291, label %292, label %296
 
 292:                                              ; preds = %288
-  %293 = getelementptr inbounds i8, ptr %0, i64 2396
+  %293 = getelementptr inbounds nuw i8, ptr %0, i64 2396
   %294 = call fastcc i32 @kwsysProcessSetupOutputPipeNative(ptr noundef %266, ptr noundef %293)
   %.not126 = icmp eq i32 %294, 0
   br i1 %.not126, label %295, label %296
@@ -2170,14 +2170,14 @@ kwsysProcessesAdd.exit:                           ; preds = %178, %181, %154
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %297 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #25
   %298 = load i64, ptr %2, align 8
-  %299 = getelementptr inbounds i8, ptr %2, i64 8
+  %299 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %300 = load i64, ptr %299, align 8
   %301 = sdiv i64 %300, 1000
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   store i64 %298, ptr %25, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1128
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1128
   store i64 %301, ptr %.sroa.2.0..sroa_idx, align 8
-  %302 = getelementptr inbounds i8, ptr %0, i64 1136
+  %302 = getelementptr inbounds nuw i8, ptr %0, i64 1136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %302, i8 -1, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %9, i8 -1, i64 20, i1 false)
   %303 = load i32, ptr %226, align 8
@@ -2189,10 +2189,10 @@ kwsysProcessesAdd.exit:                           ; preds = %178, %181, %154
   br label %.preheader144
 
 .lr.ph:                                           ; preds = %296
-  %306 = getelementptr inbounds i8, ptr %11, i64 4
-  %307 = getelementptr inbounds i8, ptr %9, i64 4
-  %308 = getelementptr inbounds i8, ptr %0, i64 1108
-  %309 = getelementptr inbounds i8, ptr %9, i64 8
+  %306 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %307 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %308 = getelementptr inbounds nuw i8, ptr %0, i64 1108
+  %309 = getelementptr inbounds nuw i8, ptr %9, i64 8
   br label %314
 
 310:                                              ; preds = %365
@@ -2319,9 +2319,9 @@ kwsysProcessesAdd.exit:                           ; preds = %178, %181, %154
 
 366:                                              ; preds = %365
   store i32 %348, ptr %10, align 4
-  %367 = getelementptr inbounds i8, ptr %9, i64 12
+  %367 = getelementptr inbounds nuw i8, ptr %9, i64 12
   call fastcc void @kwsysProcessCleanupDescriptor(ptr noundef %367)
-  %368 = getelementptr inbounds i8, ptr %9, i64 16
+  %368 = getelementptr inbounds nuw i8, ptr %9, i64 16
   call fastcc void @kwsysProcessCleanupDescriptor(ptr noundef %368)
   %369 = load i32, ptr %226, align 8
   %.not137 = icmp eq i32 %348, %369
@@ -2337,14 +2337,14 @@ kwsysProcessesAdd.exit:                           ; preds = %178, %181, %154
 
 .preheader144:                                    ; preds = %.preheader144.preheader, %.preheader144
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader144 ], [ 0, %.preheader144.preheader ]
-  %372 = getelementptr inbounds [3 x i32], ptr %226, i64 0, i64 %indvars.iv
+  %372 = getelementptr inbounds nuw [3 x i32], ptr %226, i64 0, i64 %indvars.iv
   call fastcc void @kwsysProcessCleanupDescriptor(ptr noundef %372)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %373, label %.preheader144, !llvm.loop !21
 
 373:                                              ; preds = %.preheader144
-  %374 = getelementptr inbounds i8, ptr %0, i64 2408
+  %374 = getelementptr inbounds nuw i8, ptr %0, i64 2408
   %375 = load ptr, ptr %374, align 8
   %.not128 = icmp eq ptr %375, null
   br i1 %.not128, label %384, label %.preheader
@@ -2368,11 +2368,11 @@ kwsysProcessesAdd.exit:                           ; preds = %178, %181, %154
   br label %384
 
 384:                                              ; preds = %.critedge2, %373
-  %385 = getelementptr inbounds i8, ptr %0, i64 1156
+  %385 = getelementptr inbounds nuw i8, ptr %0, i64 1156
   store i32 3, ptr %385, align 4
   store volatile i32 3, ptr %13, align 4
   %386 = load i32, ptr %99, align 8
-  %387 = getelementptr inbounds i8, ptr %0, i64 1100
+  %387 = getelementptr inbounds nuw i8, ptr %0, i64 1100
   store i32 %386, ptr %387, align 4
   br label %388
 
@@ -2392,7 +2392,7 @@ define internal fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 nou
   br i1 %.not, label %.critedge2, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 1300
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1300
   %8 = load i8, ptr %7, align 4
   %9 = icmp eq i8 %8, 0
   br i1 %9, label %10, label %15
@@ -2405,15 +2405,15 @@ define internal fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 nou
   br label %15
 
 15:                                               ; preds = %10, %6
-  %16 = getelementptr inbounds i8, ptr %0, i64 1292
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1292
   store volatile i32 1, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 1064
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %18 = load volatile ptr, ptr %17, align 8
   %.not34 = icmp eq ptr %18, null
   br i1 %.not34, label %.loopexit, label %.preheader46
 
 .preheader46:                                     ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load volatile i32, ptr %19, align 8
   %21 = icmp sgt i32 %20, 0
   br i1 %21, label %.lr.ph, label %.loopexit
@@ -2421,21 +2421,21 @@ define internal fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 nou
 .lr.ph:                                           ; preds = %.preheader46, %.critedge
   %indvars.iv = phi i64 [ %indvars.iv.next, %.critedge ], [ 0, %.preheader46 ]
   %22 = load volatile ptr, ptr %17, align 8
-  %23 = getelementptr inbounds i32, ptr %22, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv
   %24 = load volatile i32, ptr %23, align 4
   %.not39 = icmp eq i32 %24, 0
   br i1 %.not39, label %.critedge, label %25
 
 25:                                               ; preds = %.lr.ph
   %26 = load volatile ptr, ptr %17, align 8
-  %27 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
   %28 = load volatile i32, ptr %27, align 4
   call fastcc void @kwsysProcessKill(i32 noundef %28)
   br label %29
 
 29:                                               ; preds = %35, %25
   %30 = load volatile ptr, ptr %17, align 8
-  %31 = getelementptr inbounds i32, ptr %30, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv
   %32 = load volatile i32, ptr %31, align 4
   %33 = call i32 @waitpid(i32 noundef %32, ptr noundef nonnull %5, i32 noundef 0) #25
   %34 = icmp slt i32 %33, 0
@@ -2455,7 +2455,7 @@ define internal fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 nou
   br i1 %41, label %.lr.ph, label %.loopexit, !llvm.loop !24
 
 .loopexit:                                        ; preds = %.critedge, %.preheader46, %15
-  %42 = getelementptr inbounds i8, ptr %0, i64 2408
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 2408
   %43 = load ptr, ptr %42, align 8
   %.not35 = icmp eq ptr %43, null
   br i1 %.not35, label %.critedge2, label %.preheader45
@@ -2473,7 +2473,7 @@ define internal fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 nou
   br i1 %50, label %.preheader45, label %.critedge2, !llvm.loop !25
 
 .critedge2:                                       ; preds = %.preheader45, %47, %.loopexit, %2
-  %51 = getelementptr inbounds i8, ptr %0, i64 1096
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %52 = load i32, ptr %51, align 8
   %.not36 = icmp eq i32 %52, 0
   br i1 %.not36, label %53, label %kwsysProcessesRemove.exit
@@ -2491,7 +2491,7 @@ define internal fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 nou
 
 .lr.ph.i:                                         ; preds = %58, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %58 ]
-  %55 = getelementptr inbounds ptr, ptr %.sroa.7.0.copyload.i, i64 %indvars.iv.i
+  %55 = getelementptr inbounds nuw ptr, ptr %.sroa.7.0.copyload.i, i64 %indvars.iv.i
   %56 = load ptr, ptr %55, align 8
   %57 = icmp eq ptr %56, %0
   br i1 %57, label %59, label %58
@@ -2514,9 +2514,9 @@ define internal fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 nou
 .lr.ph25.i:                                       ; preds = %.lr.ph25.i, %.lr.ph25.preheader.i
   %indvars.iv31.i = phi i64 [ %indvars.iv.i, %.lr.ph25.preheader.i ], [ %indvars.iv.next32.i, %.lr.ph25.i ]
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
-  %63 = getelementptr inbounds ptr, ptr %.sroa.7.0.copyload.i, i64 %indvars.iv.next32.i
+  %63 = getelementptr inbounds nuw ptr, ptr %.sroa.7.0.copyload.i, i64 %indvars.iv.next32.i
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds ptr, ptr %.sroa.7.0.copyload.i, i64 %indvars.iv31.i
+  %65 = getelementptr inbounds nuw ptr, ptr %.sroa.7.0.copyload.i, i64 %indvars.iv31.i
   store ptr %64, ptr %65, align 8
   %exitcond35.not.i = icmp eq i64 %indvars.iv.next32.i, %wide.trip.count34.i
   br i1 %exitcond35.not.i, label %._crit_edge.i, label %.lr.ph25.i, !llvm.loop !27
@@ -2587,7 +2587,7 @@ define internal fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 nou
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %58, %85, %53
-  %92 = getelementptr inbounds i8, ptr %0, i64 36
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %93 = load i32, ptr %92, align 4
   %94 = icmp sgt i32 %93, 2
   br i1 %94, label %.preheader.i.i, label %kwsysProcessesRemove.exit
@@ -2609,7 +2609,7 @@ define internal fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 nou
   br label %kwsysProcessesRemove.exit
 
 kwsysProcessesRemove.exit:                        ; preds = %.critedge.i.i, %.loopexit.i, %.critedge2
-  %102 = getelementptr inbounds i8, ptr %0, i64 1064
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %103 = load volatile ptr, ptr %102, align 8
   %.not37 = icmp eq ptr %103, null
   br i1 %.not37, label %106, label %104
@@ -2621,7 +2621,7 @@ kwsysProcessesRemove.exit:                        ; preds = %.critedge.i.i, %.lo
   br label %106
 
 106:                                              ; preds = %104, %kwsysProcessesRemove.exit
-  %107 = getelementptr inbounds i8, ptr %0, i64 2408
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 2408
   %108 = load ptr, ptr %107, align 8
   %.not38 = icmp eq ptr %108, null
   br i1 %.not38, label %110, label %109
@@ -2632,16 +2632,16 @@ kwsysProcessesRemove.exit:                        ; preds = %.critedge.i.i, %.lo
   br label %110
 
 110:                                              ; preds = %109, %106
-  %111 = getelementptr inbounds i8, ptr %0, i64 12
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 12
   br label %113
 
 .preheader:                                       ; preds = %kwsysProcessCleanupDescriptor.exit
-  %112 = getelementptr inbounds i8, ptr %0, i64 24
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %124
 
 113:                                              ; preds = %110, %kwsysProcessCleanupDescriptor.exit
   %indvars.iv56 = phi i64 [ 0, %110 ], [ %indvars.iv.next57, %kwsysProcessCleanupDescriptor.exit ]
-  %114 = getelementptr inbounds [3 x i32], ptr %111, i64 0, i64 %indvars.iv56
+  %114 = getelementptr inbounds nuw [3 x i32], ptr %111, i64 0, i64 %indvars.iv56
   %115 = load i32, ptr %114, align 4
   %116 = icmp sgt i32 %115, 2
   br i1 %116, label %.preheader.i40, label %kwsysProcessCleanupDescriptor.exit
@@ -2669,7 +2669,7 @@ kwsysProcessCleanupDescriptor.exit:               ; preds = %113, %.critedge.i41
 
 124:                                              ; preds = %.preheader, %kwsysProcessCleanupDescriptor.exit44
   %indvars.iv59 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next60, %kwsysProcessCleanupDescriptor.exit44 ]
-  %125 = getelementptr inbounds [3 x i32], ptr %112, i64 0, i64 %indvars.iv59
+  %125 = getelementptr inbounds nuw [3 x i32], ptr %112, i64 0, i64 %indvars.iv59
   %126 = load i32, ptr %125, align 4
   %127 = icmp sgt i32 %126, 2
   br i1 %127, label %.preheader.i42, label %kwsysProcessCleanupDescriptor.exit44
@@ -2831,7 +2831,7 @@ kwsysProcessCleanupDescriptor.exit:               ; preds = %2, %.critedge.i
   br i1 %14, label %22, label %15
 
 15:                                               ; preds = %kwsysProcessCleanupDescriptor.exit
-  %16 = getelementptr inbounds i8, ptr %1, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = tail call i32 (i32, i32, ...) @fcntl(i32 noundef %17, i32 noundef 2, i32 noundef 1) #25
   %19 = icmp slt i32 %18, 0
@@ -2863,7 +2863,7 @@ define internal fastcc range(i32 0, 2) i32 @kwsysProcessCreate(ptr noundef nonnu
   %10 = alloca %struct.__sigset_t, align 8
   %11 = alloca [2 x i32], align 4
   %12 = alloca i8, align 1
-  %13 = getelementptr inbounds i8, ptr %2, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %14 = tail call i32 @pipe(ptr noundef nonnull %13) #25
   %15 = icmp slt i32 %14, 0
   br i1 %15, label %kwsysProcessCleanupDescriptor.exit61, label %16
@@ -2895,7 +2895,7 @@ define internal fastcc range(i32 0, 2) i32 @kwsysProcessCreate(ptr noundef nonnu
   br label %kwsysProcessCleanupDescriptor.exit
 
 kwsysProcessCleanupDescriptor.exit:               ; preds = %19, %.critedge.i
-  %29 = getelementptr inbounds i8, ptr %2, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %30 = load i32, ptr %29, align 4
   %31 = icmp sgt i32 %30, 2
   br i1 %31, label %.preheader.i59, label %kwsysProcessCleanupDescriptor.exit61
@@ -2917,14 +2917,14 @@ kwsysProcessCleanupDescriptor.exit:               ; preds = %19, %.critedge.i
   br label %kwsysProcessCleanupDescriptor.exit61
 
 39:                                               ; preds = %16
-  %40 = getelementptr inbounds i8, ptr %2, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %41 = load i32, ptr %40, align 4
   %42 = call i32 (i32, i32, ...) @fcntl(i32 noundef %41, i32 noundef 2, i32 noundef 1) #25
   %43 = icmp slt i32 %42, 0
   br i1 %43, label %49, label %44
 
 44:                                               ; preds = %39
-  %45 = getelementptr inbounds i8, ptr %11, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %46 = load i32, ptr %45, align 4
   %47 = call i32 (i32, i32, ...) @fcntl(i32 noundef %46, i32 noundef 2, i32 noundef 1) #25
   %48 = icmp slt i32 %47, 0
@@ -2994,7 +2994,7 @@ kwsysProcessCleanupDescriptor.exit67:             ; preds = %kwsysProcessCleanup
   br label %kwsysProcessCleanupDescriptor.exit70
 
 kwsysProcessCleanupDescriptor.exit70:             ; preds = %kwsysProcessCleanupDescriptor.exit67, %.critedge.i69
-  %77 = getelementptr inbounds i8, ptr %11, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %78 = load i32, ptr %77, align 4
   %79 = icmp sgt i32 %78, 2
   br i1 %79, label %.preheader.i71, label %kwsysProcessCleanupDescriptor.exit61
@@ -3172,7 +3172,7 @@ kwsysProcessFork.exit:                            ; preds = %130, %136, %.crited
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  %160 = getelementptr inbounds i8, ptr %0, i64 1064
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %161 = load volatile ptr, ptr %160, align 8
   %162 = sext i32 %1 to i64
   %163 = getelementptr inbounds i32, ptr %161, i64 %162
@@ -3293,7 +3293,7 @@ kwsysProcessCleanupDescriptor.exit96:             ; preds = %kwsysProcessCleanup
   br label %224
 
 224:                                              ; preds = %220, %222, %218
-  %225 = getelementptr inbounds i8, ptr %2, i64 4
+  %225 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %226 = load i32, ptr %225, align 4
   %.not = icmp eq i32 %226, 1
   br i1 %.not, label %229, label %227
@@ -3303,7 +3303,7 @@ kwsysProcessCleanupDescriptor.exit96:             ; preds = %kwsysProcessCleanup
   br label %229
 
 229:                                              ; preds = %227, %224
-  %230 = getelementptr inbounds i8, ptr %2, i64 8
+  %230 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %231 = load i32, ptr %230, align 4
   %.not57 = icmp eq i32 %231, 2
   br i1 %.not57, label %234, label %232
@@ -3352,7 +3352,7 @@ kwsysProcessCleanupDescriptor.exit96:             ; preds = %kwsysProcessCleanup
   %269 = call i32 @sigaction(i32 noundef 31, ptr noundef nonnull %5, ptr noundef null) #25
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %5)
   %270 = call i32 @sigprocmask(i32 noundef 2, ptr noundef nonnull %10, ptr noundef null) #25
-  %271 = getelementptr inbounds i8, ptr %0, i64 1112
+  %271 = getelementptr inbounds nuw i8, ptr %0, i64 1112
   %272 = load volatile i32, ptr %271, align 8
   %.not58 = icmp eq i32 %272, 0
   br i1 %.not58, label %278, label %273
@@ -3379,7 +3379,7 @@ kwsysProcessCleanupDescriptor.exit96:             ; preds = %kwsysProcessCleanup
   %286 = load i32, ptr %285, align 4
   %287 = call ptr @strerror(i32 noundef %286) #25
   %288 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %287, i64 noundef 1024) #25
-  %289 = getelementptr inbounds i8, ptr %4, i64 1023
+  %289 = getelementptr inbounds nuw i8, ptr %4, i64 1023
   store i8 0, ptr %289, align 1
   %290 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #26
   %291 = call i64 @write(i32 noundef %284, ptr noundef nonnull %4, i64 noundef %290) #25
@@ -3511,16 +3511,16 @@ kwsysProcessCleanupDescriptor.exit114:            ; preds = %336, %.critedge.i11
   br label %kwsysProcessCleanupDescriptor.exit61
 
 349:                                              ; preds = %kwsysProcessCleanupDescriptor.exit114
-  %350 = getelementptr inbounds i8, ptr %0, i64 1288
+  %350 = getelementptr inbounds nuw i8, ptr %0, i64 1288
   %351 = load i32, ptr %350, align 8
   %352 = add nsw i32 %351, 1
   store i32 %352, ptr %350, align 8
-  %353 = getelementptr inbounds i8, ptr %0, i64 1300
+  %353 = getelementptr inbounds nuw i8, ptr %0, i64 1300
   br label %.preheader
 
 .preheader:                                       ; preds = %349, %.critedge
   %.049119 = phi i64 [ 0, %349 ], [ %spec.select, %.critedge ]
-  %354 = getelementptr inbounds i8, ptr %353, i64 %.049119
+  %354 = getelementptr inbounds nuw i8, ptr %353, i64 %.049119
   %355 = sub nuw nsw i64 1024, %.049119
   br label %356
 
@@ -3577,15 +3577,15 @@ kwsysProcessCleanupDescriptor.exit61:             ; preds = %.preheader.i109, %3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @kwsysProcessClosePipes(ptr nocapture noundef nonnull %0) unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 12
-  %3 = getelementptr inbounds i8, ptr %0, i64 1160
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
-  %5 = getelementptr inbounds i8, ptr %0, i64 1156
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1160
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1156
   br label %6
 
 6:                                                ; preds = %1, %41
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %41 ]
-  %7 = getelementptr inbounds [3 x i32], ptr %2, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [3 x i32], ptr %2, i64 0, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4
   %9 = icmp sgt i32 %8, -1
   br i1 %9, label %10, label %41
@@ -3593,7 +3593,7 @@ define internal fastcc void @kwsysProcessClosePipes(ptr nocapture noundef nonnul
 10:                                               ; preds = %6
   %11 = lshr i32 %8, 6
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds [16 x i64], ptr %3, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw [16 x i64], ptr %3, i64 0, i64 %12
   %14 = load i64, ptr %13, align 8
   %15 = and i32 %8, 63
   %16 = zext nneg i32 %15 to i64
@@ -3671,25 +3671,25 @@ define dso_local i32 @cmsysProcess_WaitForData(ptr noundef %0, ptr noundef write
   %11 = alloca %struct.timespec, align 8
   %12 = alloca %struct.kwsysProcessWaitData_s, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, i8 0, i64 40, i1 false)
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %3, ptr %13, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %268, label %14
 
 14:                                               ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %0, i64 1292
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 1292
   %16 = load volatile i32, ptr %15, align 4
   %.not30 = icmp eq i32 %16, 3
   br i1 %.not30, label %17, label %268
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %0, i64 1296
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 1296
   %19 = load volatile i32, ptr %18, align 8
   %.not31 = icmp eq i32 %19, 0
   br i1 %.not31, label %20, label %268
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %0, i64 1152
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 1152
   %22 = load i32, ptr %21, align 8
   %.not32 = icmp eq i32 %22, 0
   br i1 %.not32, label %23, label %268
@@ -3699,7 +3699,7 @@ define dso_local i32 @cmsysProcess_WaitForData(ptr noundef %0, ptr noundef write
   br i1 %.not33, label %.split, label %.split26
 
 .split:                                           ; preds = %23
-  %24 = getelementptr inbounds i8, ptr %12, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %25 = call fastcc i32 @kwsysProcessGetTimeoutTime(ptr noundef %0, ptr noundef null, ptr noundef %24)
   %26 = icmp eq i32 %25, 0
   br label %kwsysProcessGetTimeoutTime.exit
@@ -3708,18 +3708,18 @@ define dso_local i32 @cmsysProcess_WaitForData(ptr noundef %0, ptr noundef write
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
   %27 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %11) #25
   %28 = load i64, ptr %11, align 8
-  %29 = getelementptr inbounds i8, ptr %11, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %30 = load i64, ptr %29, align 8
   %31 = sdiv i64 %30, 1000
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  %32 = getelementptr inbounds i8, ptr %12, i64 24
-  %33 = getelementptr inbounds i8, ptr %0, i64 1080
+  %32 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   %34 = load double, ptr %33, align 8
   %35 = fcmp ogt double %34, 0.000000e+00
   br i1 %35, label %36, label %55
 
 36:                                               ; preds = %.split26
-  %37 = getelementptr inbounds i8, ptr %0, i64 1136
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 1136
   %38 = load i64, ptr %37, align 8
   %39 = icmp slt i64 %38, 0
   br i1 %39, label %40, label %55
@@ -3730,9 +3730,9 @@ define dso_local i32 @cmsysProcess_WaitForData(ptr noundef %0, ptr noundef write
   %43 = fsub double %34, %42
   %44 = fmul double %43, 1.000000e+06
   %45 = fptosi double %44 to i64
-  %46 = getelementptr inbounds i8, ptr %0, i64 1120
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 1120
   %47 = load i64, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 1128
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   %49 = load i64, ptr %48, align 8
   %50 = add nsw i64 %47, %41
   %51 = add nsw i64 %49, %45
@@ -3742,17 +3742,17 @@ define dso_local i32 @cmsysProcess_WaitForData(ptr noundef %0, ptr noundef write
   %.sroa.03.0.i.i = add nsw i64 %50, %54
   %.sroa.4.0.i.i = select i1 %52, i64 %53, i64 %51
   store i64 %.sroa.03.0.i.i, ptr %37, align 8
-  %.sroa.25.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 1144
+  %.sroa.25.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 1144
   store i64 %.sroa.4.0.i.i, ptr %.sroa.25.0..sroa_idx.i, align 8
   br label %55
 
 55:                                               ; preds = %.split26, %36, %40
-  %56 = getelementptr inbounds i8, ptr %0, i64 1136
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 1136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(16) %56, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   %57 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %10) #25
   %58 = load i64, ptr %10, align 8
-  %59 = getelementptr inbounds i8, ptr %10, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %60 = load i64, ptr %59, align 8
   %61 = sdiv i64 %60, 1000
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
@@ -3774,7 +3774,7 @@ define dso_local i32 @cmsysProcess_WaitForData(ptr noundef %0, ptr noundef write
   br i1 %74, label %81, label %75
 
 75:                                               ; preds = %55
-  %76 = getelementptr inbounds i8, ptr %12, i64 32
+  %76 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %77 = load i64, ptr %76, align 8
   %78 = icmp sge i64 %.sroa.03.0.i29.i, %73
   %79 = icmp ne i64 %.sroa.03.0.i29.i, %73
@@ -3785,7 +3785,7 @@ define dso_local i32 @cmsysProcess_WaitForData(ptr noundef %0, ptr noundef write
 
 81:                                               ; preds = %75, %55
   store i64 %.sroa.03.0.i29.i, ptr %32, align 8
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %12, i64 32
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %12, i64 32
   store i64 %.sroa.4.0.i30.i, ptr %.sroa.3.0..sroa_idx.i, align 8
   br label %kwsysProcessGetTimeoutTime.exit
 
@@ -3793,39 +3793,39 @@ kwsysProcessGetTimeoutTime.exit:                  ; preds = %81, %75, %.split
   %phi.call = phi i1 [ %26, %.split ], [ false, %81 ], [ true, %75 ]
   %.sroa.3.0 = phi i64 [ 0, %.split ], [ %31, %81 ], [ %31, %75 ]
   %.sroa.05.0 = phi i64 [ 0, %.split ], [ %28, %81 ], [ %28, %75 ]
-  %82 = getelementptr inbounds i8, ptr %0, i64 1156
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 1156
   %83 = load i32, ptr %82, align 4
   %84 = icmp sgt i32 %83, 0
   br i1 %84, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %kwsysProcessGetTimeoutTime.exit
-  %85 = getelementptr inbounds i8, ptr %0, i64 12
-  %86 = getelementptr inbounds i8, ptr %0, i64 1160
-  %87 = getelementptr inbounds i8, ptr %0, i64 40
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 1160
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %88 = icmp ne ptr %1, null
   %89 = icmp ne ptr %2, null
   %or.cond.i = and i1 %88, %89
-  %90 = getelementptr inbounds i8, ptr %0, i64 8
-  %91 = getelementptr inbounds i8, ptr %0, i64 1064
-  %92 = getelementptr inbounds i8, ptr %0, i64 2336
-  %93 = getelementptr inbounds i8, ptr %0, i64 1288
-  %94 = getelementptr inbounds i8, ptr %0, i64 36
-  %95 = getelementptr inbounds i8, ptr %0, i64 1300
-  %96 = getelementptr inbounds i8, ptr %12, i64 4
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 1064
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 2336
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 1288
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 1300
+  %96 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %97 = load i32, ptr %96, align 4
   %.not.i38 = icmp eq i32 %97, 0
-  %98 = getelementptr inbounds i8, ptr %12, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %99 = load i64, ptr %98, align 8
   %100 = icmp slt i64 %99, 0
   %..i = select i1 %100, ptr null, ptr %9
   %101 = load ptr, ptr %13, align 8
   %spec.select = select i1 %phi.call, ptr null, ptr %101
-  %102 = getelementptr inbounds i8, ptr %6, i64 8
-  %103 = getelementptr inbounds i8, ptr %12, i64 32
+  %102 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %104 = load i64, ptr %103, align 8
   %105 = icmp ne ptr %spec.select, null
-  %106 = getelementptr inbounds i8, ptr %9, i64 8
-  %107 = getelementptr inbounds i8, ptr %0, i64 1072
+  %106 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   br label %108
 
 108:                                              ; preds = %.lr.ph, %kwsysProcessWaitForPipe.exit
@@ -3834,7 +3834,7 @@ kwsysProcessGetTimeoutTime.exit:                  ; preds = %81, %75, %.split
 
 109:                                              ; preds = %.loopexit46, %108
   %indvars.iv.i = phi i64 [ 0, %108 ], [ %indvars.iv.next.i, %.loopexit46 ]
-  %110 = getelementptr inbounds [3 x i32], ptr %85, i64 0, i64 %indvars.iv.i
+  %110 = getelementptr inbounds nuw [3 x i32], ptr %85, i64 0, i64 %indvars.iv.i
   %111 = load i32, ptr %110, align 4
   %112 = icmp sgt i32 %111, -1
   br i1 %112, label %113, label %.loopexit46
@@ -3842,7 +3842,7 @@ kwsysProcessGetTimeoutTime.exit:                  ; preds = %81, %75, %.split
 113:                                              ; preds = %109
   %114 = lshr i32 %111, 6
   %115 = zext nneg i32 %114 to i64
-  %116 = getelementptr inbounds [16 x i64], ptr %86, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw [16 x i64], ptr %86, i64 0, i64 %115
   %117 = load i64, ptr %116, align 8
   %118 = and i32 %111, 63
   %119 = zext nneg i32 %118 to i64
@@ -3897,17 +3897,17 @@ kwsysProcessGetTimeoutTime.exit:                  ; preds = %81, %75, %.split
 .lr.ph.i.i:                                       ; preds = %.preheader19.i.i, %kwsysProcessCleanupDescriptor.exit.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %kwsysProcessCleanupDescriptor.exit.i.i ], [ 0, %.preheader19.i.i ]
   %142 = load volatile ptr, ptr %91, align 8
-  %143 = getelementptr inbounds i32, ptr %142, i64 %indvars.iv.i.i
+  %143 = getelementptr inbounds nuw i32, ptr %142, i64 %indvars.iv.i.i
   %144 = load volatile i32, ptr %143, align 4
   %.not.i.i = icmp eq i32 %144, 0
   br i1 %.not.i.i, label %kwsysProcessCleanupDescriptor.exit.i.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.lr.ph.i.i, %152
   %145 = load volatile ptr, ptr %91, align 8
-  %146 = getelementptr inbounds i32, ptr %145, i64 %indvars.iv.i.i
+  %146 = getelementptr inbounds nuw i32, ptr %145, i64 %indvars.iv.i.i
   %147 = load volatile i32, ptr %146, align 4
   %148 = load ptr, ptr %92, align 8
-  %149 = getelementptr inbounds i32, ptr %148, i64 %indvars.iv.i.i
+  %149 = getelementptr inbounds nuw i32, ptr %148, i64 %indvars.iv.i.i
   %150 = call i32 @waitpid(i32 noundef %147, ptr noundef %149, i32 noundef 1) #25
   %151 = icmp slt i32 %150, 0
   br i1 %151, label %152, label %.critedge.i.i
@@ -3924,7 +3924,7 @@ kwsysProcessGetTimeoutTime.exit:                  ; preds = %81, %75, %.split
 
 156:                                              ; preds = %.critedge.i.i
   %157 = load volatile ptr, ptr %91, align 8
-  %158 = getelementptr inbounds i32, ptr %157, i64 %indvars.iv.i.i
+  %158 = getelementptr inbounds nuw i32, ptr %157, i64 %indvars.iv.i.i
   store volatile i32 0, ptr %158, align 4
   %159 = load i32, ptr %93, align 8
   %160 = add nsw i32 %159, -1
@@ -4083,7 +4083,7 @@ kwsysProcessGetTimeoutLeft.exit.i.preheader:      ; preds = %.thread24.i.i, %199
 kwsysProcessGetTimeoutLeft.exit.i:                ; preds = %kwsysProcessGetTimeoutLeft.exit.i.preheader, %227
   %indvars.iv118.i = phi i64 [ %indvars.iv.next119.i, %227 ], [ 0, %kwsysProcessGetTimeoutLeft.exit.i.preheader ]
   %.075105.i = phi i32 [ %.176.i, %227 ], [ -1, %kwsysProcessGetTimeoutLeft.exit.i.preheader ]
-  %214 = getelementptr inbounds [3 x i32], ptr %85, i64 0, i64 %indvars.iv118.i
+  %214 = getelementptr inbounds nuw [3 x i32], ptr %85, i64 0, i64 %indvars.iv118.i
   %215 = load i32, ptr %214, align 4
   %216 = icmp sgt i32 %215, -1
   br i1 %216, label %217, label %227
@@ -4094,7 +4094,7 @@ kwsysProcessGetTimeoutLeft.exit.i:                ; preds = %kwsysProcessGetTime
   %220 = shl nuw i64 1, %219
   %221 = lshr i32 %215, 6
   %222 = zext nneg i32 %221 to i64
-  %223 = getelementptr inbounds [16 x i64], ptr %86, i64 0, i64 %222
+  %223 = getelementptr inbounds nuw [16 x i64], ptr %86, i64 0, i64 %222
   %224 = load i64, ptr %223, align 8
   %225 = or i64 %224, %220
   store i64 %225, ptr %223, align 8
@@ -4160,7 +4160,7 @@ kwsysProcessWaitForPipe.exit:                     ; preds = %.critedge3.i, %240
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %246 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #25
   %247 = load i64, ptr %5, align 8
-  %248 = getelementptr inbounds i8, ptr %5, i64 8
+  %248 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %249 = load i64, ptr %248, align 8
   %250 = sdiv i64 %249, 1000
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
@@ -4185,7 +4185,7 @@ kwsysProcessWaitForPipe.exit:                     ; preds = %.critedge3.i, %240
   br label %262
 
 262:                                              ; preds = %245, %261, %.critedge
-  %263 = getelementptr inbounds i8, ptr %12, i64 4
+  %263 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %264 = load i32, ptr %263, align 4
   %.not35 = icmp eq i32 %264, 0
   br i1 %.not35, label %265, label %268
@@ -4211,13 +4211,13 @@ kwsysProcessWaitForPipe.exit:                     ; preds = %.critedge3.i, %240
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @kwsysProcessGetTimeoutTime(ptr nocapture noundef nonnull %0, ptr noundef readonly %1, ptr nocapture noundef nonnull initializes((0, 16)) %2) unnamed_addr #3 {
   %4 = alloca %struct.timespec, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 1080
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   %6 = load double, ptr %5, align 8
   %7 = fcmp ogt double %6, 0.000000e+00
   br i1 %7, label %8, label %27
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 1136
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1136
   %10 = load i64, ptr %9, align 8
   %11 = icmp slt i64 %10, 0
   br i1 %11, label %12, label %27
@@ -4228,9 +4228,9 @@ define internal fastcc range(i32 0, 2) i32 @kwsysProcessGetTimeoutTime(ptr nocap
   %15 = fsub double %6, %14
   %16 = fmul double %15, 1.000000e+06
   %17 = fptosi double %16 to i64
-  %18 = getelementptr inbounds i8, ptr %0, i64 1120
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 1120
   %19 = load i64, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 1128
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   %21 = load i64, ptr %20, align 8
   %22 = add nsw i64 %19, %13
   %23 = add nsw i64 %21, %17
@@ -4240,12 +4240,12 @@ define internal fastcc range(i32 0, 2) i32 @kwsysProcessGetTimeoutTime(ptr nocap
   %.sroa.03.0.i = add nsw i64 %22, %26
   %.sroa.4.0.i = select i1 %24, i64 %25, i64 %23
   store i64 %.sroa.03.0.i, ptr %9, align 8
-  %.sroa.25.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1144
+  %.sroa.25.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1144
   store i64 %.sroa.4.0.i, ptr %.sroa.25.0..sroa_idx, align 8
   br label %27
 
 27:                                               ; preds = %12, %8, %3
-  %28 = getelementptr inbounds i8, ptr %0, i64 1136
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 1136
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %28, i64 16, i1 false)
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %55, label %29
@@ -4254,7 +4254,7 @@ define internal fastcc range(i32 0, 2) i32 @kwsysProcessGetTimeoutTime(ptr nocap
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %30 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #25
   %31 = load i64, ptr %4, align 8
-  %32 = getelementptr inbounds i8, ptr %4, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %33 = load i64, ptr %32, align 8
   %34 = sdiv i64 %33, 1000
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
@@ -4276,7 +4276,7 @@ define internal fastcc range(i32 0, 2) i32 @kwsysProcessGetTimeoutTime(ptr nocap
   br i1 %47, label %54, label %48
 
 48:                                               ; preds = %29
-  %49 = getelementptr inbounds i8, ptr %2, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %50 = load i64, ptr %49, align 8
   %51 = icmp sge i64 %.sroa.03.0.i29, %46
   %52 = icmp ne i64 %.sroa.03.0.i29, %46
@@ -4287,7 +4287,7 @@ define internal fastcc range(i32 0, 2) i32 @kwsysProcessGetTimeoutTime(ptr nocap
 
 54:                                               ; preds = %48, %29
   store i64 %.sroa.03.0.i29, ptr %2, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %.sroa.4.0.i30, ptr %.sroa.3.0..sroa_idx, align 8
   br label %55
 
@@ -4303,13 +4303,13 @@ define dso_local void @cmsysProcess_Kill(ptr noundef %0) local_unnamed_addr #3 {
   br i1 %.not, label %44, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 1292
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1292
   %5 = load volatile i32, ptr %4, align 4
   %.not15 = icmp eq i32 %5, 3
   br i1 %.not15, label %6, label %44
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 36
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %8 = load i32, ptr %7, align 4
   %9 = icmp sgt i32 %8, 2
   br i1 %9, label %.preheader.i, label %kwsysProcessCleanupDescriptor.exit
@@ -4332,35 +4332,35 @@ define dso_local void @cmsysProcess_Kill(ptr noundef %0) local_unnamed_addr #3 {
 
 kwsysProcessCleanupDescriptor.exit:               ; preds = %6, %.critedge.i
   tail call fastcc void @kwsysProcessClosePipes(ptr noundef %0)
-  %17 = getelementptr inbounds i8, ptr %0, i64 1296
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 1296
   store volatile i32 1, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load volatile i32, ptr %18, align 8
   %20 = icmp sgt i32 %19, 0
   br i1 %20, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %kwsysProcessCleanupDescriptor.exit
-  %21 = getelementptr inbounds i8, ptr %0, i64 1064
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   br label %22
 
 22:                                               ; preds = %.lr.ph, %.critedge
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.critedge ]
   %23 = load volatile ptr, ptr %21, align 8
-  %24 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv
   %25 = load volatile i32, ptr %24, align 4
   %.not16 = icmp eq i32 %25, 0
   br i1 %.not16, label %.critedge, label %26
 
 26:                                               ; preds = %22
   %27 = load volatile ptr, ptr %21, align 8
-  %28 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
   %29 = load volatile i32, ptr %28, align 4
   call fastcc void @kwsysProcessKill(i32 noundef %29)
   br label %30
 
 30:                                               ; preds = %36, %26
   %31 = load volatile ptr, ptr %21, align 8
-  %32 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv
   %33 = load volatile i32, ptr %32, align 4
   %34 = call i32 @waitpid(i32 noundef %33, ptr noundef nonnull %2, i32 noundef 0) #25
   %35 = icmp slt i32 %34, 0
@@ -4380,7 +4380,7 @@ kwsysProcessCleanupDescriptor.exit:               ; preds = %6, %.critedge.i
   br i1 %42, label %22, label %._crit_edge, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %.critedge, %kwsysProcessCleanupDescriptor.exit
-  %43 = getelementptr inbounds i8, ptr %0, i64 1288
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 1288
   store i32 0, ptr %43, align 8
   br label %44
 
@@ -4394,37 +4394,37 @@ define dso_local void @cmsysProcess_Interrupt(ptr noundef %0) local_unnamed_addr
   br i1 %.not, label %.loopexit, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 1292
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1292
   %4 = load volatile i32, ptr %3, align 4
   %.not13 = icmp eq i32 %4, 3
   br i1 %.not13, label %5, label %.loopexit
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 1152
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1152
   %7 = load i32, ptr %6, align 8
   %.not14 = icmp eq i32 %7, 0
   br i1 %.not14, label %8, label %.loopexit
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 1296
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1296
   %10 = load volatile i32, ptr %9, align 8
   %.not15 = icmp eq i32 %10, 0
   br i1 %.not15, label %11, label %.loopexit
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 1112
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1112
   %13 = load volatile i32, ptr %12, align 8
   %.not16 = icmp eq i32 %13, 0
   br i1 %.not16, label %33, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %0, i64 1064
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %16 = load volatile ptr, ptr %15, align 8
   %.not17 = icmp eq ptr %16, null
   br i1 %.not17, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load volatile i32, ptr %17, align 8
   %19 = icmp sgt i32 %18, 0
   br i1 %19, label %.lr.ph, label %.loopexit
@@ -4432,14 +4432,14 @@ define dso_local void @cmsysProcess_Interrupt(ptr noundef %0) local_unnamed_addr
 .lr.ph:                                           ; preds = %.preheader, %29
   %indvars.iv = phi i64 [ %indvars.iv.next, %29 ], [ 0, %.preheader ]
   %20 = load volatile ptr, ptr %15, align 8
-  %21 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
   %22 = load volatile i32, ptr %21, align 4
   %.not18 = icmp eq i32 %22, 0
   br i1 %.not18, label %29, label %23
 
 23:                                               ; preds = %.lr.ph
   %24 = load volatile ptr, ptr %15, align 8
-  %25 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv
   %26 = load volatile i32, ptr %25, align 4
   %27 = sub nsw i32 0, %26
   %28 = tail call i32 @kill(i32 noundef %27, i32 noundef 2) #25
@@ -4484,7 +4484,7 @@ define internal fastcc void @kwsysProcessKill(i32 noundef %0) unnamed_addr #3 {
 
 .lr.ph:                                           ; preds = %11, %38
   %.035 = phi ptr [ %39, %38 ], [ %12, %11 ]
-  %13 = getelementptr inbounds i8, ptr %.035, i64 19
+  %13 = getelementptr inbounds nuw i8, ptr %.035, i64 19
   %14 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %13, ptr noundef nonnull @.str.41, ptr noundef nonnull %4) #25
   %15 = icmp eq i32 %14, 1
   %16 = load i32, ptr %4, align 4
@@ -4517,7 +4517,7 @@ define internal fastcc void @kwsysProcessKill(i32 noundef %0) unnamed_addr #3 {
   br i1 %.not31, label %38, label %30
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds i8, ptr %29, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 1
   %32 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %31, ptr noundef nonnull @.str.44, ptr noundef nonnull %6) #25
   %33 = icmp eq i32 %32, 1
   %34 = load i32, ptr %6, align 4
@@ -4594,16 +4594,16 @@ define dso_local void @cmsysProcess_ResetStartTime(ptr noundef writeonly %0) loc
   br i1 %.not, label %10, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 1120
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1120
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %5 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #25
   %6 = load i64, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = sdiv i64 %8, 1000
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   store i64 %6, ptr %4, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1128
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1128
   store i64 %9, ptr %.sroa.2.0..sroa_idx, align 8
   br label %10
 
@@ -4647,7 +4647,7 @@ define internal fastcc void @kwsysProcessChildErrorExit(i32 noundef %0) unnamed_
   %4 = load i32, ptr %3, align 4
   %5 = tail call ptr @strerror(i32 noundef %4) #25
   %6 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %5, i64 noundef 1024) #25
-  %7 = getelementptr inbounds i8, ptr %2, i64 1023
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 1023
   store i8 0, ptr %7, align 1
   %8 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
   %9 = call i64 @write(i32 noundef %0, ptr noundef nonnull %2, i64 noundef %8) #25
@@ -4736,12 +4736,12 @@ define internal void @kwsysProcessesSignalHandler(i32 noundef %0, ptr nocapture 
   %indvars.iv43 = phi i64 [ %indvars.iv.next44, %.lr.ph38 ], [ 0, %.preheader ]
   store i8 1, ptr %5, align 1
   %12 = load ptr, ptr @kwsysProcesses.2, align 8
-  %13 = getelementptr inbounds ptr, ptr %12, i64 %indvars.iv43
+  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv43
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 20
   %16 = load i32, ptr %15, align 4
   %17 = call i64 @read(i32 noundef %16, ptr noundef nonnull %5, i64 noundef 1) #25
-  %18 = getelementptr inbounds i8, ptr %14, i64 36
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 36
   %19 = load i32, ptr %18, align 4
   %20 = call i64 @write(i32 noundef %19, ptr noundef nonnull %5, i64 noundef 1) #25
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
@@ -4759,33 +4759,33 @@ define internal void @kwsysProcessesSignalHandler(i32 noundef %0, ptr nocapture 
   %27 = phi i32 [ %58, %.loopexit33 ], [ %25, %24 ]
   %indvars.iv40 = phi i64 [ %indvars.iv.next41, %.loopexit33 ], [ 0, %24 ]
   %28 = load ptr, ptr @kwsysProcesses.2, align 8
-  %29 = getelementptr inbounds ptr, ptr %28, i64 %indvars.iv40
+  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv40
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 1112
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 1112
   %32 = load volatile i32, ptr %31, align 8
   %.not26 = icmp eq i32 %32, 0
   br i1 %.not26, label %.loopexit33, label %33
 
 33:                                               ; preds = %.lr.ph36
-  %34 = getelementptr inbounds i8, ptr %30, i64 1296
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 1296
   %35 = load volatile i32, ptr %34, align 8
   %.not27 = icmp eq i32 %35, 0
   br i1 %.not27, label %36, label %.loopexit33
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %30, i64 1292
+  %37 = getelementptr inbounds nuw i8, ptr %30, i64 1292
   %38 = load volatile i32, ptr %37, align 4
   %.not28 = icmp eq i32 %38, 1
   br i1 %.not28, label %.loopexit33, label %39
 
 39:                                               ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %30, i64 1064
+  %40 = getelementptr inbounds nuw i8, ptr %30, i64 1064
   %41 = load volatile ptr, ptr %40, align 8
   %.not29 = icmp eq ptr %41, null
   br i1 %.not29, label %.loopexit33, label %.preheader32
 
 .preheader32:                                     ; preds = %39
-  %42 = getelementptr inbounds i8, ptr %30, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %43 = load volatile i32, ptr %42, align 8
   %44 = icmp sgt i32 %43, 0
   br i1 %44, label %.lr.ph, label %.loopexit33
@@ -4793,14 +4793,14 @@ define internal void @kwsysProcessesSignalHandler(i32 noundef %0, ptr nocapture 
 .lr.ph:                                           ; preds = %.preheader32, %54
   %indvars.iv = phi i64 [ %indvars.iv.next, %54 ], [ 0, %.preheader32 ]
   %45 = load volatile ptr, ptr %40, align 8
-  %46 = getelementptr inbounds i32, ptr %45, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw i32, ptr %45, i64 %indvars.iv
   %47 = load volatile i32, ptr %46, align 4
   %.not30 = icmp eq i32 %47, 0
   br i1 %.not30, label %54, label %48
 
 48:                                               ; preds = %.lr.ph
   %49 = load volatile ptr, ptr %40, align 8
-  %50 = getelementptr inbounds i32, ptr %49, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv
   %51 = load volatile i32, ptr %50, align 4
   %52 = sub nsw i32 0, %51
   %53 = tail call i32 @kill(i32 noundef %52, i32 noundef 2) #25
@@ -4841,7 +4841,7 @@ define internal void @kwsysProcessesSignalHandler(i32 noundef %0, ptr nocapture 
   br i1 %.not, label %65, label %.preheader31.backedge
 
 65:                                               ; preds = %63
-  %66 = getelementptr inbounds i8, ptr %6, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %6, i8 0, i64 152, i1 false)
   %67 = call i32 @sigemptyset(ptr noundef nonnull %66) #25
   br label %68

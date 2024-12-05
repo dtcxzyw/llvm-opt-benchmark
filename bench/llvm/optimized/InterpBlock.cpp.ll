@@ -106,13 +106,13 @@ define dso_local void @_ZN5clang6interp5Block7cleanupEv(ptr noundef nonnull alig
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %0, i64 -24
-  %11 = getelementptr inbounds i8, ptr %0, i64 27
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 27
   %12 = load i8, ptr %11, align 1
   %13 = trunc i8 %12 to i1
   br i1 %13, label %14, label %25
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 64
   %18 = load ptr, ptr %17, align 8
@@ -123,8 +123,8 @@ define dso_local void @_ZN5clang6interp5Block7cleanupEv(ptr noundef nonnull alig
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %21 = load i32, ptr %20, align 8
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
-  %24 = getelementptr inbounds i8, ptr %23, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 %22
   tail call void %18(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %24, ptr noundef nonnull %16) #4
   br label %_ZN5clang6interp5Block10invokeDtorEv.exit.i
 
@@ -194,8 +194,8 @@ define dso_local void @_ZN5clang6interp9DeadBlock4freeEv(ptr noundef nonnull ali
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds i8, ptr %0, i64 64
-  %16 = getelementptr inbounds i8, ptr %15, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 %14
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull %16, ptr noundef nonnull %7) #4
   br label %_ZN5clang6interp5Block10invokeDtorEv.exit
 

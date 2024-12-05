@@ -15,7 +15,7 @@ define range(i32 -22, 2) i32 @timer_release(ptr noundef %0) local_unnamed_addr #
   br i1 %3, label %timer_free.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 13
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 13
   %6 = load i8, ptr %5, align 1
   %7 = icmp ugt i8 %6, 1
   br i1 %7, label %8, label %10
@@ -26,7 +26,7 @@ define range(i32 -22, 2) i32 @timer_release(ptr noundef %0) local_unnamed_addr #
   br label %timer_free.exit
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = tail call i32 @wd_cancel(ptr noundef nonnull %11) #4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2) #4, !srcloc !6
@@ -69,7 +69,7 @@ define range(i32 -22, 2) i32 @timer_release(ptr noundef %0) local_unnamed_addr #
   br i1 %.not22.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !8
 
 .loopexit.i:                                      ; preds = %26, %21, %17, %10
-  %28 = getelementptr inbounds i8, ptr %0, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %29 = load i8, ptr %28, align 4
   %30 = and i8 %29, 1
   %.not23.i = icmp eq i8 %30, 0

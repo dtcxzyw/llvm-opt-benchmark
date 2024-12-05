@@ -49,15 +49,15 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden noundef i32 @mbedtls_md5_starts(ptr nocapture noundef writeonly initializes((0, 24)) %0) local_unnamed_addr #0 {
   store i32 0, ptr %0, align 4
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1732584193, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 -271733879, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 -1732584194, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 271733878, ptr %6, align 4
   ret i32 0
 }
@@ -67,254 +67,254 @@ define hidden noundef i32 @mbedtls_internal_md5_process(ptr nocapture noundef %0
   %3 = alloca %struct.anon, align 4
   %4 = load i16, ptr %1, align 1
   %5 = zext i16 %4 to i32
-  %6 = getelementptr inbounds i8, ptr %1, i64 2
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = shl nuw nsw i32 %8, 16
   %10 = or disjoint i32 %9, %5
-  %11 = getelementptr inbounds i8, ptr %1, i64 3
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
   %14 = shl nuw i32 %13, 24
   %15 = or disjoint i32 %10, %14
   store i32 %15, ptr %3, align 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %17 = load i16, ptr %16, align 1
   %18 = zext i16 %17 to i32
-  %19 = getelementptr inbounds i8, ptr %1, i64 6
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i32
   %22 = shl nuw nsw i32 %21, 16
   %23 = or disjoint i32 %22, %18
-  %24 = getelementptr inbounds i8, ptr %1, i64 7
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 7
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
   %27 = shl nuw i32 %26, 24
   %28 = or disjoint i32 %23, %27
-  %29 = getelementptr inbounds i8, ptr %3, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %28, ptr %29, align 4
-  %30 = getelementptr inbounds i8, ptr %1, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = load i16, ptr %30, align 1
   %32 = zext i16 %31 to i32
-  %33 = getelementptr inbounds i8, ptr %1, i64 10
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i32
   %36 = shl nuw nsw i32 %35, 16
   %37 = or disjoint i32 %36, %32
-  %38 = getelementptr inbounds i8, ptr %1, i64 11
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 11
   %39 = load i8, ptr %38, align 1
   %40 = zext i8 %39 to i32
   %41 = shl nuw i32 %40, 24
   %42 = or disjoint i32 %37, %41
-  %43 = getelementptr inbounds i8, ptr %3, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %42, ptr %43, align 4
-  %44 = getelementptr inbounds i8, ptr %1, i64 12
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %45 = load i16, ptr %44, align 1
   %46 = zext i16 %45 to i32
-  %47 = getelementptr inbounds i8, ptr %1, i64 14
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 14
   %48 = load i8, ptr %47, align 1
   %49 = zext i8 %48 to i32
   %50 = shl nuw nsw i32 %49, 16
   %51 = or disjoint i32 %50, %46
-  %52 = getelementptr inbounds i8, ptr %1, i64 15
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 15
   %53 = load i8, ptr %52, align 1
   %54 = zext i8 %53 to i32
   %55 = shl nuw i32 %54, 24
   %56 = or disjoint i32 %51, %55
-  %57 = getelementptr inbounds i8, ptr %3, i64 12
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 %56, ptr %57, align 4
-  %58 = getelementptr inbounds i8, ptr %1, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %59 = load i16, ptr %58, align 1
   %60 = zext i16 %59 to i32
-  %61 = getelementptr inbounds i8, ptr %1, i64 18
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 18
   %62 = load i8, ptr %61, align 1
   %63 = zext i8 %62 to i32
   %64 = shl nuw nsw i32 %63, 16
   %65 = or disjoint i32 %64, %60
-  %66 = getelementptr inbounds i8, ptr %1, i64 19
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 19
   %67 = load i8, ptr %66, align 1
   %68 = zext i8 %67 to i32
   %69 = shl nuw i32 %68, 24
   %70 = or disjoint i32 %65, %69
-  %71 = getelementptr inbounds i8, ptr %3, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 %70, ptr %71, align 4
-  %72 = getelementptr inbounds i8, ptr %1, i64 20
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %73 = load i16, ptr %72, align 1
   %74 = zext i16 %73 to i32
-  %75 = getelementptr inbounds i8, ptr %1, i64 22
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 22
   %76 = load i8, ptr %75, align 1
   %77 = zext i8 %76 to i32
   %78 = shl nuw nsw i32 %77, 16
   %79 = or disjoint i32 %78, %74
-  %80 = getelementptr inbounds i8, ptr %1, i64 23
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 23
   %81 = load i8, ptr %80, align 1
   %82 = zext i8 %81 to i32
   %83 = shl nuw i32 %82, 24
   %84 = or disjoint i32 %79, %83
-  %85 = getelementptr inbounds i8, ptr %3, i64 20
+  %85 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i32 %84, ptr %85, align 4
-  %86 = getelementptr inbounds i8, ptr %1, i64 24
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %87 = load i16, ptr %86, align 1
   %88 = zext i16 %87 to i32
-  %89 = getelementptr inbounds i8, ptr %1, i64 26
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 26
   %90 = load i8, ptr %89, align 1
   %91 = zext i8 %90 to i32
   %92 = shl nuw nsw i32 %91, 16
   %93 = or disjoint i32 %92, %88
-  %94 = getelementptr inbounds i8, ptr %1, i64 27
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 27
   %95 = load i8, ptr %94, align 1
   %96 = zext i8 %95 to i32
   %97 = shl nuw i32 %96, 24
   %98 = or disjoint i32 %93, %97
-  %99 = getelementptr inbounds i8, ptr %3, i64 24
+  %99 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %98, ptr %99, align 4
-  %100 = getelementptr inbounds i8, ptr %1, i64 28
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %101 = load i16, ptr %100, align 1
   %102 = zext i16 %101 to i32
-  %103 = getelementptr inbounds i8, ptr %1, i64 30
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 30
   %104 = load i8, ptr %103, align 1
   %105 = zext i8 %104 to i32
   %106 = shl nuw nsw i32 %105, 16
   %107 = or disjoint i32 %106, %102
-  %108 = getelementptr inbounds i8, ptr %1, i64 31
+  %108 = getelementptr inbounds nuw i8, ptr %1, i64 31
   %109 = load i8, ptr %108, align 1
   %110 = zext i8 %109 to i32
   %111 = shl nuw i32 %110, 24
   %112 = or disjoint i32 %107, %111
-  %113 = getelementptr inbounds i8, ptr %3, i64 28
+  %113 = getelementptr inbounds nuw i8, ptr %3, i64 28
   store i32 %112, ptr %113, align 4
-  %114 = getelementptr inbounds i8, ptr %1, i64 32
+  %114 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %115 = load i16, ptr %114, align 1
   %116 = zext i16 %115 to i32
-  %117 = getelementptr inbounds i8, ptr %1, i64 34
+  %117 = getelementptr inbounds nuw i8, ptr %1, i64 34
   %118 = load i8, ptr %117, align 1
   %119 = zext i8 %118 to i32
   %120 = shl nuw nsw i32 %119, 16
   %121 = or disjoint i32 %120, %116
-  %122 = getelementptr inbounds i8, ptr %1, i64 35
+  %122 = getelementptr inbounds nuw i8, ptr %1, i64 35
   %123 = load i8, ptr %122, align 1
   %124 = zext i8 %123 to i32
   %125 = shl nuw i32 %124, 24
   %126 = or disjoint i32 %121, %125
-  %127 = getelementptr inbounds i8, ptr %3, i64 32
+  %127 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 %126, ptr %127, align 4
-  %128 = getelementptr inbounds i8, ptr %1, i64 36
+  %128 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %129 = load i16, ptr %128, align 1
   %130 = zext i16 %129 to i32
-  %131 = getelementptr inbounds i8, ptr %1, i64 38
+  %131 = getelementptr inbounds nuw i8, ptr %1, i64 38
   %132 = load i8, ptr %131, align 1
   %133 = zext i8 %132 to i32
   %134 = shl nuw nsw i32 %133, 16
   %135 = or disjoint i32 %134, %130
-  %136 = getelementptr inbounds i8, ptr %1, i64 39
+  %136 = getelementptr inbounds nuw i8, ptr %1, i64 39
   %137 = load i8, ptr %136, align 1
   %138 = zext i8 %137 to i32
   %139 = shl nuw i32 %138, 24
   %140 = or disjoint i32 %135, %139
-  %141 = getelementptr inbounds i8, ptr %3, i64 36
+  %141 = getelementptr inbounds nuw i8, ptr %3, i64 36
   store i32 %140, ptr %141, align 4
-  %142 = getelementptr inbounds i8, ptr %1, i64 40
+  %142 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %143 = load i16, ptr %142, align 1
   %144 = zext i16 %143 to i32
-  %145 = getelementptr inbounds i8, ptr %1, i64 42
+  %145 = getelementptr inbounds nuw i8, ptr %1, i64 42
   %146 = load i8, ptr %145, align 1
   %147 = zext i8 %146 to i32
   %148 = shl nuw nsw i32 %147, 16
   %149 = or disjoint i32 %148, %144
-  %150 = getelementptr inbounds i8, ptr %1, i64 43
+  %150 = getelementptr inbounds nuw i8, ptr %1, i64 43
   %151 = load i8, ptr %150, align 1
   %152 = zext i8 %151 to i32
   %153 = shl nuw i32 %152, 24
   %154 = or disjoint i32 %149, %153
-  %155 = getelementptr inbounds i8, ptr %3, i64 40
+  %155 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i32 %154, ptr %155, align 4
-  %156 = getelementptr inbounds i8, ptr %1, i64 44
+  %156 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %157 = load i16, ptr %156, align 1
   %158 = zext i16 %157 to i32
-  %159 = getelementptr inbounds i8, ptr %1, i64 46
+  %159 = getelementptr inbounds nuw i8, ptr %1, i64 46
   %160 = load i8, ptr %159, align 1
   %161 = zext i8 %160 to i32
   %162 = shl nuw nsw i32 %161, 16
   %163 = or disjoint i32 %162, %158
-  %164 = getelementptr inbounds i8, ptr %1, i64 47
+  %164 = getelementptr inbounds nuw i8, ptr %1, i64 47
   %165 = load i8, ptr %164, align 1
   %166 = zext i8 %165 to i32
   %167 = shl nuw i32 %166, 24
   %168 = or disjoint i32 %163, %167
-  %169 = getelementptr inbounds i8, ptr %3, i64 44
+  %169 = getelementptr inbounds nuw i8, ptr %3, i64 44
   store i32 %168, ptr %169, align 4
-  %170 = getelementptr inbounds i8, ptr %1, i64 48
+  %170 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %171 = load i16, ptr %170, align 1
   %172 = zext i16 %171 to i32
-  %173 = getelementptr inbounds i8, ptr %1, i64 50
+  %173 = getelementptr inbounds nuw i8, ptr %1, i64 50
   %174 = load i8, ptr %173, align 1
   %175 = zext i8 %174 to i32
   %176 = shl nuw nsw i32 %175, 16
   %177 = or disjoint i32 %176, %172
-  %178 = getelementptr inbounds i8, ptr %1, i64 51
+  %178 = getelementptr inbounds nuw i8, ptr %1, i64 51
   %179 = load i8, ptr %178, align 1
   %180 = zext i8 %179 to i32
   %181 = shl nuw i32 %180, 24
   %182 = or disjoint i32 %177, %181
-  %183 = getelementptr inbounds i8, ptr %3, i64 48
+  %183 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 %182, ptr %183, align 4
-  %184 = getelementptr inbounds i8, ptr %1, i64 52
+  %184 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %185 = load i16, ptr %184, align 1
   %186 = zext i16 %185 to i32
-  %187 = getelementptr inbounds i8, ptr %1, i64 54
+  %187 = getelementptr inbounds nuw i8, ptr %1, i64 54
   %188 = load i8, ptr %187, align 1
   %189 = zext i8 %188 to i32
   %190 = shl nuw nsw i32 %189, 16
   %191 = or disjoint i32 %190, %186
-  %192 = getelementptr inbounds i8, ptr %1, i64 55
+  %192 = getelementptr inbounds nuw i8, ptr %1, i64 55
   %193 = load i8, ptr %192, align 1
   %194 = zext i8 %193 to i32
   %195 = shl nuw i32 %194, 24
   %196 = or disjoint i32 %191, %195
-  %197 = getelementptr inbounds i8, ptr %3, i64 52
+  %197 = getelementptr inbounds nuw i8, ptr %3, i64 52
   store i32 %196, ptr %197, align 4
-  %198 = getelementptr inbounds i8, ptr %1, i64 56
+  %198 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %199 = load i16, ptr %198, align 1
   %200 = zext i16 %199 to i32
-  %201 = getelementptr inbounds i8, ptr %1, i64 58
+  %201 = getelementptr inbounds nuw i8, ptr %1, i64 58
   %202 = load i8, ptr %201, align 1
   %203 = zext i8 %202 to i32
   %204 = shl nuw nsw i32 %203, 16
   %205 = or disjoint i32 %204, %200
-  %206 = getelementptr inbounds i8, ptr %1, i64 59
+  %206 = getelementptr inbounds nuw i8, ptr %1, i64 59
   %207 = load i8, ptr %206, align 1
   %208 = zext i8 %207 to i32
   %209 = shl nuw i32 %208, 24
   %210 = or disjoint i32 %205, %209
-  %211 = getelementptr inbounds i8, ptr %3, i64 56
+  %211 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i32 %210, ptr %211, align 4
-  %212 = getelementptr inbounds i8, ptr %1, i64 60
+  %212 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %213 = load i16, ptr %212, align 1
   %214 = zext i16 %213 to i32
-  %215 = getelementptr inbounds i8, ptr %1, i64 62
+  %215 = getelementptr inbounds nuw i8, ptr %1, i64 62
   %216 = load i8, ptr %215, align 1
   %217 = zext i8 %216 to i32
   %218 = shl nuw nsw i32 %217, 16
   %219 = or disjoint i32 %218, %214
-  %220 = getelementptr inbounds i8, ptr %1, i64 63
+  %220 = getelementptr inbounds nuw i8, ptr %1, i64 63
   %221 = load i8, ptr %220, align 1
   %222 = zext i8 %221 to i32
   %223 = shl nuw i32 %222, 24
   %224 = or disjoint i32 %219, %223
-  %225 = getelementptr inbounds i8, ptr %3, i64 60
+  %225 = getelementptr inbounds nuw i8, ptr %3, i64 60
   store i32 %224, ptr %225, align 4
-  %226 = getelementptr inbounds i8, ptr %0, i64 8
+  %226 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %227 = load i32, ptr %226, align 4
-  %228 = getelementptr inbounds i8, ptr %3, i64 64
-  %229 = getelementptr inbounds i8, ptr %0, i64 12
+  %228 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %229 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %230 = load i32, ptr %229, align 4
-  %231 = getelementptr inbounds i8, ptr %3, i64 68
-  %232 = getelementptr inbounds i8, ptr %0, i64 16
+  %231 = getelementptr inbounds nuw i8, ptr %3, i64 68
+  %232 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %233 = load i32, ptr %232, align 4
-  %234 = getelementptr inbounds i8, ptr %3, i64 72
-  %235 = getelementptr inbounds i8, ptr %0, i64 20
+  %234 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %235 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %236 = load i32, ptr %235, align 4
-  %237 = getelementptr inbounds i8, ptr %3, i64 76
+  %237 = getelementptr inbounds nuw i8, ptr %3, i64 76
   %238 = xor i32 %236, %233
   %239 = and i32 %238, %230
   %240 = xor i32 %239, %236
@@ -842,7 +842,7 @@ define hidden noundef i32 @mbedtls_md5_update(ptr nocapture noundef %0, ptr noca
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %0, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = add i32 %15, 1
   store i32 %16, ptr %14, align 4
@@ -857,12 +857,12 @@ define hidden noundef i32 @mbedtls_md5_update(ptr nocapture noundef %0, ptr noca
   br i1 %.not44, label %._crit_edge.thread, label %19
 
 19:                                               ; preds = %18
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = zext nneg i32 %7 to i64
-  %22 = getelementptr inbounds i8, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 %21
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %22, ptr noundef nonnull align 1 dereferenceable(1) %1, i64 %9, i1 false)
   %23 = tail call i32 @mbedtls_internal_md5_process(ptr noundef nonnull %0, ptr noundef nonnull %20)
-  %24 = getelementptr inbounds i8, ptr %1, i64 %9
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 %9
   %25 = sub nuw i64 %2, %9
   br label %26
 
@@ -876,7 +876,7 @@ define hidden noundef i32 @mbedtls_md5_update(ptr nocapture noundef %0, ptr noca
   %.147 = phi i64 [ %30, %.lr.ph ], [ %.035, %26 ]
   %.13746 = phi ptr [ %29, %.lr.ph ], [ %.036, %26 ]
   %28 = tail call i32 @mbedtls_internal_md5_process(ptr noundef nonnull %0, ptr noundef %.13746)
-  %29 = getelementptr inbounds i8, ptr %.13746, i64 64
+  %29 = getelementptr inbounds nuw i8, ptr %.13746, i64 64
   %30 = add i64 %.147, -64
   %31 = icmp ugt i64 %30, 63
   br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !4
@@ -891,9 +891,9 @@ define hidden noundef i32 @mbedtls_md5_update(ptr nocapture noundef %0, ptr noca
   %.1.lcssa60 = phi i64 [ %.1.lcssa, %._crit_edge ], [ %2, %18 ]
   %.137.lcssa59 = phi ptr [ %.137.lcssa, %._crit_edge ], [ %1, %18 ]
   %.05358 = phi i32 [ 0, %._crit_edge ], [ %7, %18 ]
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = zext nneg i32 %.05358 to i64
-  %34 = getelementptr inbounds i8, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 %33
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %34, ptr align 1 %.137.lcssa59, i64 %.1.lcssa60, i1 false)
   br label %35
 
@@ -905,14 +905,14 @@ define hidden noundef i32 @mbedtls_md5_update(ptr nocapture noundef %0, ptr noca
 define hidden noundef i32 @mbedtls_md5_finish(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) local_unnamed_addr #2 {
   %3 = load i32, ptr %0, align 4
   %4 = and i32 %3, 63
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = zext nneg i32 %4 to i64
-  %7 = getelementptr inbounds [64 x i8], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 0, i64 %6
   store i8 -128, ptr %7, align 1
   %8 = icmp samesign ult i32 %4, 56
   %9 = zext nneg i32 %4 to i64
-  %10 = getelementptr inbounds i8, ptr %5, i64 %9
-  %11 = getelementptr inbounds i8, ptr %10, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 %9
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1
   br i1 %8, label %12, label %15
 
 12:                                               ; preds = %2
@@ -927,123 +927,124 @@ define hidden noundef i32 @mbedtls_md5_finish(ptr nocapture noundef %0, ptr noca
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %11, i8 0, i64 %17, i1 false)
   %18 = tail call i32 @mbedtls_internal_md5_process(ptr noundef nonnull %0, ptr noundef nonnull %5)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %5, i8 0, i64 56, i1 false)
+  %.pre = load i32, ptr %0, align 4
   br label %19
 
 19:                                               ; preds = %15, %12
-  %20 = load i32, ptr %0, align 4
-  %21 = getelementptr inbounds i8, ptr %0, i64 4
+  %20 = phi i32 [ %.pre, %15 ], [ %3, %12 ]
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %22 = load i32, ptr %21, align 4
   %23 = tail call i32 @llvm.fshl.i32(i32 %22, i32 %20, i32 3)
   %24 = shl i32 %20, 3
   %25 = trunc i32 %24 to i8
-  %26 = getelementptr inbounds i8, ptr %0, i64 80
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i8 %25, ptr %26, align 4
   %27 = lshr i32 %24, 8
   %28 = trunc i32 %27 to i8
-  %29 = getelementptr inbounds i8, ptr %0, i64 81
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 81
   store i8 %28, ptr %29, align 1
   %30 = lshr i32 %24, 16
   %31 = trunc i32 %30 to i8
-  %32 = getelementptr inbounds i8, ptr %0, i64 82
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 82
   store i8 %31, ptr %32, align 2
   %33 = lshr i32 %24, 24
   %34 = trunc nuw i32 %33 to i8
-  %35 = getelementptr inbounds i8, ptr %0, i64 83
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 83
   store i8 %34, ptr %35, align 1
   %36 = trunc i32 %23 to i8
-  %37 = getelementptr inbounds i8, ptr %0, i64 84
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i8 %36, ptr %37, align 4
   %38 = lshr i32 %23, 8
   %39 = trunc i32 %38 to i8
-  %40 = getelementptr inbounds i8, ptr %0, i64 85
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 85
   store i8 %39, ptr %40, align 1
   %41 = lshr i32 %23, 16
   %42 = trunc i32 %41 to i8
-  %43 = getelementptr inbounds i8, ptr %0, i64 86
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 86
   store i8 %42, ptr %43, align 2
   %44 = lshr i32 %23, 24
   %45 = trunc nuw i32 %44 to i8
-  %46 = getelementptr inbounds i8, ptr %0, i64 87
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 87
   store i8 %45, ptr %46, align 1
   %47 = tail call i32 @mbedtls_internal_md5_process(ptr noundef nonnull %0, ptr noundef nonnull %5)
-  %48 = getelementptr inbounds i8, ptr %0, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %49 = load i32, ptr %48, align 4
   %50 = trunc i32 %49 to i8
   store i8 %50, ptr %1, align 1
   %51 = load i32, ptr %48, align 4
   %52 = lshr i32 %51, 8
   %53 = trunc i32 %52 to i8
-  %54 = getelementptr inbounds i8, ptr %1, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 %53, ptr %54, align 1
   %55 = load i32, ptr %48, align 4
   %56 = lshr i32 %55, 16
   %57 = trunc i32 %56 to i8
-  %58 = getelementptr inbounds i8, ptr %1, i64 2
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i8 %57, ptr %58, align 1
   %59 = load i32, ptr %48, align 4
   %60 = lshr i32 %59, 24
   %61 = trunc nuw i32 %60 to i8
-  %62 = getelementptr inbounds i8, ptr %1, i64 3
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 3
   store i8 %61, ptr %62, align 1
-  %63 = getelementptr inbounds i8, ptr %0, i64 12
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %64 = load i32, ptr %63, align 4
   %65 = trunc i32 %64 to i8
-  %66 = getelementptr inbounds i8, ptr %1, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i8 %65, ptr %66, align 1
   %67 = load i32, ptr %63, align 4
   %68 = lshr i32 %67, 8
   %69 = trunc i32 %68 to i8
-  %70 = getelementptr inbounds i8, ptr %1, i64 5
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 5
   store i8 %69, ptr %70, align 1
   %71 = load i32, ptr %63, align 4
   %72 = lshr i32 %71, 16
   %73 = trunc i32 %72 to i8
-  %74 = getelementptr inbounds i8, ptr %1, i64 6
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 6
   store i8 %73, ptr %74, align 1
   %75 = load i32, ptr %63, align 4
   %76 = lshr i32 %75, 24
   %77 = trunc nuw i32 %76 to i8
-  %78 = getelementptr inbounds i8, ptr %1, i64 7
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 7
   store i8 %77, ptr %78, align 1
-  %79 = getelementptr inbounds i8, ptr %0, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %80 = load i32, ptr %79, align 4
   %81 = trunc i32 %80 to i8
-  %82 = getelementptr inbounds i8, ptr %1, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i8 %81, ptr %82, align 1
   %83 = load i32, ptr %79, align 4
   %84 = lshr i32 %83, 8
   %85 = trunc i32 %84 to i8
-  %86 = getelementptr inbounds i8, ptr %1, i64 9
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 9
   store i8 %85, ptr %86, align 1
   %87 = load i32, ptr %79, align 4
   %88 = lshr i32 %87, 16
   %89 = trunc i32 %88 to i8
-  %90 = getelementptr inbounds i8, ptr %1, i64 10
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 10
   store i8 %89, ptr %90, align 1
   %91 = load i32, ptr %79, align 4
   %92 = lshr i32 %91, 24
   %93 = trunc nuw i32 %92 to i8
-  %94 = getelementptr inbounds i8, ptr %1, i64 11
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 11
   store i8 %93, ptr %94, align 1
-  %95 = getelementptr inbounds i8, ptr %0, i64 20
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %96 = load i32, ptr %95, align 4
   %97 = trunc i32 %96 to i8
-  %98 = getelementptr inbounds i8, ptr %1, i64 12
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i8 %97, ptr %98, align 1
   %99 = load i32, ptr %95, align 4
   %100 = lshr i32 %99, 8
   %101 = trunc i32 %100 to i8
-  %102 = getelementptr inbounds i8, ptr %1, i64 13
+  %102 = getelementptr inbounds nuw i8, ptr %1, i64 13
   store i8 %101, ptr %102, align 1
   %103 = load i32, ptr %95, align 4
   %104 = lshr i32 %103, 16
   %105 = trunc i32 %104 to i8
-  %106 = getelementptr inbounds i8, ptr %1, i64 14
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 14
   store i8 %105, ptr %106, align 1
   %107 = load i32, ptr %95, align 4
   %108 = lshr i32 %107, 24
   %109 = trunc nuw i32 %108 to i8
-  %110 = getelementptr inbounds i8, ptr %1, i64 15
+  %110 = getelementptr inbounds nuw i8, ptr %1, i64 15
   store i8 %109, ptr %110, align 1
   ret i32 0
 }
@@ -1051,14 +1052,14 @@ define hidden noundef i32 @mbedtls_md5_finish(ptr nocapture noundef %0, ptr noca
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @mbedtls_md5(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #2 {
   %4 = alloca %struct.mbedtls_md5_context, align 4
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %4, i8 0, i64 88, i1 false)
   store i32 1732584193, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %4, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 -271733879, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 -1732584194, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 271733878, ptr %8, align 4
   %9 = icmp eq i64 %1, 0
   br i1 %9, label %mbedtls_md5_update.exit, label %10
@@ -1073,7 +1074,7 @@ define hidden noundef i32 @mbedtls_md5(ptr nocapture noundef readonly %0, i64 no
   %.147.i = phi i64 [ %15, %.lr.ph.i ], [ %1, %10 ]
   %.13746.i = phi ptr [ %14, %.lr.ph.i ], [ %0, %10 ]
   %13 = call i32 @mbedtls_internal_md5_process(ptr noundef nonnull %4, ptr noundef %.13746.i)
-  %14 = getelementptr inbounds i8, ptr %.13746.i, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.13746.i, i64 64
   %15 = add i64 %.147.i, -64
   %16 = icmp ugt i64 %15, 63
   br i1 %16, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !4
@@ -1085,7 +1086,7 @@ define hidden noundef i32 @mbedtls_md5(ptr nocapture noundef readonly %0, i64 no
 ._crit_edge.thread.i:                             ; preds = %10, %._crit_edge.i
   %.1.lcssa.i9 = phi i64 [ %15, %._crit_edge.i ], [ %1, %10 ]
   %.137.lcssa.i8 = phi ptr [ %14, %._crit_edge.i ], [ %0, %10 ]
-  %17 = getelementptr inbounds i8, ptr %4, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %17, ptr align 1 %.137.lcssa.i8, i64 %.1.lcssa.i9, i1 false)
   br label %mbedtls_md5_update.exit
 
@@ -1100,16 +1101,16 @@ define hidden range(i32 0, 2) i32 @mbedtls_md5_self_test(i32 noundef %0) local_u
   %2 = alloca %struct.mbedtls_md5_context, align 4
   %3 = alloca [16 x i8], align 16
   %.not16 = icmp eq i32 %0, 0
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 12
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
-  %7 = getelementptr inbounds i8, ptr %2, i64 20
-  %8 = getelementptr inbounds i8, ptr %2, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   br i1 %.not16, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %1, %22
   %indvars.iv30 = phi i64 [ %indvars.iv.next31, %22 ], [ 0, %1 ]
-  %9 = getelementptr inbounds [7 x i64], ptr @md5_test_buflen, i64 0, i64 %indvars.iv30
+  %9 = getelementptr inbounds nuw [7 x i64], ptr @md5_test_buflen, i64 0, i64 %indvars.iv30
   %10 = load i64, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %2, i8 0, i64 88, i1 false)
@@ -1121,7 +1122,7 @@ define hidden range(i32 0, 2) i32 @mbedtls_md5_self_test(i32 noundef %0) local_u
   br i1 %11, label %mbedtls_md5.exit.us, label %12
 
 12:                                               ; preds = %.split.us
-  %13 = getelementptr inbounds [7 x [81 x i8]], ptr @md5_test_buf, i64 0, i64 %indvars.iv30
+  %13 = getelementptr inbounds nuw [7 x [81 x i8]], ptr @md5_test_buf, i64 0, i64 %indvars.iv30
   %14 = trunc i64 %10 to i32
   store i32 %14, ptr %2, align 4
   %15 = icmp eq i64 %indvars.iv30, 6
@@ -1131,7 +1132,7 @@ define hidden range(i32 0, 2) i32 @mbedtls_md5_self_test(i32 noundef %0) local_u
   %.147.i.i.us = phi i64 [ %18, %.lr.ph.i.i.us ], [ %10, %12 ]
   %.13746.i.i.us = phi ptr [ %17, %.lr.ph.i.i.us ], [ %13, %12 ]
   %16 = call i32 @mbedtls_internal_md5_process(ptr noundef nonnull %2, ptr noundef nonnull %.13746.i.i.us)
-  %17 = getelementptr inbounds i8, ptr %.13746.i.i.us, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %.13746.i.i.us, i64 64
   %18 = add i64 %.147.i.i.us, -64
   %19 = icmp ugt i64 %18, 63
   br i1 %19, label %.lr.ph.i.i.us, label %._crit_edge.i.i.us, !llvm.loop !4
@@ -1150,7 +1151,7 @@ mbedtls_md5.exit.us:                              ; preds = %._crit_edge.thread.
   %20 = call i32 @mbedtls_md5_finish(ptr noundef nonnull %2, ptr noundef nonnull %3)
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %2, i64 noundef 88) #11
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %2)
-  %21 = getelementptr inbounds [7 x [16 x i8]], ptr @md5_test_sum, i64 0, i64 %indvars.iv30
+  %21 = getelementptr inbounds nuw [7 x [16 x i8]], ptr @md5_test_sum, i64 0, i64 %indvars.iv30
   %bcmp.us = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %3, ptr noundef nonnull dereferenceable(16) %21, i64 16)
   %.not17.us = icmp eq i32 %bcmp.us, 0
   br i1 %.not17.us, label %22, label %.critedge
@@ -1165,7 +1166,7 @@ mbedtls_md5.exit.us:                              ; preds = %._crit_edge.thread.
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = trunc nuw nsw i64 %indvars.iv.next to i32
   %24 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %23)
-  %25 = getelementptr inbounds [7 x i64], ptr @md5_test_buflen, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [7 x i64], ptr @md5_test_buflen, i64 0, i64 %indvars.iv
   %26 = load i64, ptr %25, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %2, i8 0, i64 88, i1 false)
@@ -1177,7 +1178,7 @@ mbedtls_md5.exit.us:                              ; preds = %._crit_edge.thread.
   br i1 %27, label %mbedtls_md5.exit, label %28
 
 28:                                               ; preds = %.split
-  %29 = getelementptr inbounds [7 x [81 x i8]], ptr @md5_test_buf, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [7 x [81 x i8]], ptr @md5_test_buf, i64 0, i64 %indvars.iv
   %30 = trunc i64 %26 to i32
   store i32 %30, ptr %2, align 4
   %31 = icmp eq i64 %indvars.iv, 6
@@ -1187,7 +1188,7 @@ mbedtls_md5.exit.us:                              ; preds = %._crit_edge.thread.
   %.147.i.i = phi i64 [ %34, %.lr.ph.i.i ], [ %26, %28 ]
   %.13746.i.i = phi ptr [ %33, %.lr.ph.i.i ], [ %29, %28 ]
   %32 = call i32 @mbedtls_internal_md5_process(ptr noundef nonnull %2, ptr noundef nonnull %.13746.i.i)
-  %33 = getelementptr inbounds i8, ptr %.13746.i.i, i64 64
+  %33 = getelementptr inbounds nuw i8, ptr %.13746.i.i, i64 64
   %34 = add i64 %.147.i.i, -64
   %35 = icmp ugt i64 %34, 63
   br i1 %35, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !4
@@ -1206,7 +1207,7 @@ mbedtls_md5.exit:                                 ; preds = %.split, %._crit_edg
   %36 = call i32 @mbedtls_md5_finish(ptr noundef nonnull %2, ptr noundef nonnull %3)
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %2, i64 noundef 88) #11
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %2)
-  %37 = getelementptr inbounds [7 x [16 x i8]], ptr @md5_test_sum, i64 0, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [7 x [16 x i8]], ptr @md5_test_sum, i64 0, i64 %indvars.iv
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %3, ptr noundef nonnull dereferenceable(16) %37, i64 16)
   %.not17 = icmp eq i32 %bcmp, 0
   br i1 %.not17, label %38, label %.split22.us

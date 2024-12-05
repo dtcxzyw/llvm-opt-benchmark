@@ -229,10 +229,10 @@ define { ptr, i64 } @_ZN5boost4urls9to_stringENS0_6schemeE(i16 noundef zeroext %
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i16 %0 to i64
-  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table._ZN5boost4urls9to_stringENS0_6schemeE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN5boost4urls9to_stringENS0_6schemeE, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i16 %0 to i64
-  %switch.gep1 = getelementptr inbounds [8 x i64], ptr @switch.table._ZN5boost4urls9to_stringENS0_6schemeE.1, i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN5boost4urls9to_stringENS0_6schemeE.1, i64 0, i64 %4
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   br label %5
 
@@ -252,7 +252,7 @@ define noundef zeroext range(i16 0, 444) i16 @_ZN5boost4urls12default_portENS0_6
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [6 x i16], ptr @switch.table._ZN5boost4urls12default_portENS0_6schemeE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [6 x i16], ptr @switch.table._ZN5boost4urls12default_portENS0_6schemeE, i64 0, i64 %3
   %switch.load = load i16, ptr %switch.gep, align 2
   br label %4
 

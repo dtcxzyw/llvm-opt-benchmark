@@ -24,7 +24,7 @@ define i32 @Xz_ReadVarInt(ptr nocapture noundef readonly %0, i64 noundef %1, ptr
   br i1 %exitcond.not, label %.loopexit, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1
   %10 = and i8 %9, 127
   %11 = zext nneg i8 %10 to i64
@@ -51,7 +51,7 @@ define i32 @Xz_ReadVarInt(ptr nocapture noundef readonly %0, i64 noundef %1, ptr
 
 ; Function Attrs: nounwind uwtable
 define void @BraState_Free(ptr noundef %0, ptr noundef %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void %4(ptr noundef %1, ptr noundef %0) #10
   ret void
@@ -59,11 +59,11 @@ define void @BraState_Free(ptr noundef %0, ptr noundef %1) #1 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define range(i32 0, 5) i32 @BraState_SetProps(ptr nocapture noundef initializes((28, 32), (36, 40)) %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture readnone %3) #2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 28
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 36
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 0, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 3
   br i1 %9, label %10, label %16
@@ -76,7 +76,7 @@ define range(i32 0, 5) i32 @BraState_SetProps(ptr nocapture noundef initializes(
   %12 = load i8, ptr %1, align 1
   %13 = zext i8 %12 to i32
   %14 = add nuw nsw i32 %13, 1
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %14, ptr %15, align 8
   br label %26
 
@@ -125,16 +125,16 @@ define range(i32 0, 5) i32 @BraState_SetProps(ptr nocapture noundef initializes(
 
 ; Function Attrs: nounwind uwtable
 define void @BraState_Init(ptr noundef initializes((0, 24), (40, 44)) %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 3
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   tail call void @Delta_Init(ptr noundef nonnull %7) #10
   br label %8
 
@@ -159,16 +159,16 @@ define range(i32 0, 5) i32 @BraState_SetFromMethod(ptr nocapture noundef writeon
 
 9:                                                ; preds = %5
   %10 = trunc nuw i64 %1 to i32
-  %11 = getelementptr inbounds i8, ptr %7, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 %10, ptr %11, align 8
   store ptr %7, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @BraState_Free, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @BraState_SetProps, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr @BraState_Init, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr @BraState_Code, ptr %15, align 8
   br label %16
 
@@ -188,15 +188,15 @@ define internal range(i32 0, 5) i32 @BraState_Code(ptr noundef %0, ptr nocapture
   br i1 %.not133137, label %.loopexit124, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 300
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
-  %15 = getelementptr inbounds i8, ptr %0, i64 36
-  %16 = getelementptr inbounds i8, ptr %0, i64 28
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
-  %18 = getelementptr inbounds i8, ptr %0, i64 44
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 300
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.not122 = icmp eq i32 %5, 0
   br label %.lr.ph
 
@@ -342,7 +342,7 @@ define internal range(i32 0, 5) i32 @BraState_Code(ptr noundef %0, ptr nocapture
 
 .loopexit124:                                     ; preds = %83, %32, %23, %8
   %.1 = phi i64 [ %10, %8 ], [ %.0109.ph141, %23 ], [ %41, %32 ], [ %41, %83 ]
-  %86 = getelementptr inbounds i8, ptr %0, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %87 = load i64, ptr %86, align 8
   %88 = load i64, ptr %0, align 8
   %89 = icmp eq i64 %87, %88
@@ -364,16 +364,16 @@ define internal range(i32 0, 5) i32 @BraState_Code(ptr noundef %0, ptr nocapture
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
 define void @MixCoder_Construct(ptr nocapture noundef writeonly initializes((0, 20)) %0, ptr noundef %1) local_unnamed_addr #4 {
   store ptr %1, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 112
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   br label %6
 
 6:                                                ; preds = %2, %6
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %6 ]
-  %7 = getelementptr inbounds [4 x %struct._IStateCoder], ptr %5, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x %struct._IStateCoder], ptr %5, i64 0, i64 %indvars.iv
   store ptr null, ptr %7, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -385,13 +385,13 @@ define void @MixCoder_Construct(ptr nocapture noundef writeonly initializes((0, 
 
 ; Function Attrs: nounwind uwtable
 define void @MixCoder_Free(ptr nocapture noundef %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 112
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %6 = load ptr, ptr %0, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %._crit_edge, label %.lr.ph.split
@@ -404,7 +404,7 @@ define void @MixCoder_Free(ptr nocapture noundef %0) local_unnamed_addr #1 {
   %8 = phi ptr [ %.pr, %.lr.ph.splitthread-pre-split ], [ %6, %.lr.ph ]
   %9 = phi i32 [ %17, %.lr.ph.splitthread-pre-split ], [ %3, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph ]
-  %10 = getelementptr inbounds [4 x %struct._IStateCoder], ptr %5, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x %struct._IStateCoder], ptr %5, i64 0, i64 %indvars.iv
   %.not18 = icmp eq ptr %8, null
   br i1 %.not18, label %16, label %11
 
@@ -414,7 +414,7 @@ define void @MixCoder_Free(ptr nocapture noundef %0) local_unnamed_addr #1 {
   br i1 %.not19, label %16, label %13
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %10, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %15 = load ptr, ptr %14, align 8
   tail call void %15(ptr noundef nonnull %12, ptr noundef nonnull %8) #10
   %.pre = load i32, ptr %2, align 8
@@ -429,14 +429,14 @@ define void @MixCoder_Free(ptr nocapture noundef %0) local_unnamed_addr #1 {
 
 ._crit_edge:                                      ; preds = %16, %.lr.ph, %1
   store i32 0, ptr %2, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %26, label %22
 
 22:                                               ; preds = %._crit_edge
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef %23, ptr noundef nonnull %21) #10
   store ptr null, ptr %20, align 8
@@ -448,16 +448,16 @@ define void @MixCoder_Free(ptr nocapture noundef %0) local_unnamed_addr #1 {
 
 ; Function Attrs: nounwind uwtable
 define void @MixCoder_Init(ptr nocapture noundef %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 1
   br i1 %4, label %.lr.ph, label %.preheader
 
 .lr.ph:                                           ; preds = %1
   %5 = add nsw i32 %3, -1
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
-  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %wide.trip.count = zext nneg i32 %5 to i64
   br label %11
 
@@ -466,16 +466,16 @@ define void @MixCoder_Init(ptr nocapture noundef %0) local_unnamed_addr #1 {
   br i1 %9, label %.lr.ph17, label %._crit_edge
 
 .lr.ph17:                                         ; preds = %.preheader
-  %10 = getelementptr inbounds i8, ptr %0, i64 112
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
   br label %15
 
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %12 = getelementptr inbounds [3 x i64], ptr %6, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [3 x i64], ptr %6, i64 0, i64 %indvars.iv
   store i64 0, ptr %12, align 8
-  %13 = getelementptr inbounds [3 x i64], ptr %7, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [3 x i64], ptr %7, i64 0, i64 %indvars.iv
   store i64 0, ptr %13, align 8
-  %14 = getelementptr inbounds [3 x i32], ptr %8, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [3 x i32], ptr %8, i64 0, i64 %indvars.iv
   store i32 0, ptr %14, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -483,8 +483,8 @@ define void @MixCoder_Init(ptr nocapture noundef %0) local_unnamed_addr #1 {
 
 15:                                               ; preds = %.lr.ph17, %15
   %indvars.iv19 = phi i64 [ 0, %.lr.ph17 ], [ %indvars.iv.next20, %15 ]
-  %16 = getelementptr inbounds [4 x %struct._IStateCoder], ptr %10, i64 0, i64 %indvars.iv19
-  %17 = getelementptr inbounds i8, ptr %16, i64 24
+  %16 = getelementptr inbounds nuw [4 x %struct._IStateCoder], ptr %10, i64 0, i64 %indvars.iv19
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %16, align 8
   tail call void %18(ptr noundef %19) #10
@@ -500,10 +500,10 @@ define void @MixCoder_Init(ptr nocapture noundef %0) local_unnamed_addr #1 {
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 5) i32 @MixCoder_SetFromMethod(ptr nocapture noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds [4 x %struct._IStateCoder], ptr %4, i64 0, i64 %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %8 = getelementptr inbounds [4 x i64], ptr %7, i64 0, i64 %5
   store i64 %2, ptr %8, align 8
   %cond = icmp eq i64 %2, 33
@@ -518,15 +518,15 @@ define range(i32 0, 5) i32 @MixCoder_SetFromMethod(ptr nocapture noundef %0, i32
   br i1 %13, label %Lzma2State_SetFromMethod.exit, label %14
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %6, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @Lzma2State_Free, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr @Lzma2State_SetProps, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %6, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr @Lzma2State_Init, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr @Lzma2State_Code, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %12, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   br label %Lzma2State_SetFromMethod.exit
 
@@ -547,16 +547,16 @@ define range(i32 0, 5) i32 @MixCoder_SetFromMethod(ptr nocapture noundef %0, i32
 
 28:                                               ; preds = %23
   %29 = trunc nuw i64 %2 to i32
-  %30 = getelementptr inbounds i8, ptr %26, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 24
   store i32 %29, ptr %30, align 8
   store ptr %26, ptr %6, align 8
-  %31 = getelementptr inbounds i8, ptr %6, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @BraState_Free, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %6, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr @BraState_SetProps, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %6, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr @BraState_Init, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %6, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr @BraState_Code, ptr %34, align 8
   br label %Lzma2State_SetFromMethod.exit
 
@@ -575,7 +575,7 @@ define i32 @MixCoder_Code(ptr nocapture noundef %0, ptr noundef %1, ptr nocaptur
   store i64 0, ptr %2, align 8
   store i64 0, ptr %4, align 8
   store i32 2, ptr %7, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %22
@@ -589,14 +589,14 @@ define i32 @MixCoder_Code(ptr nocapture noundef %0, ptr noundef %1, ptr nocaptur
   br i1 %21, label %.loopexit, label %22
 
 22:                                               ; preds = %17, %8
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load i32, ptr %23, align 8
   %.not = icmp eq i32 %24, 1
   %spec.select = select i1 %.not, i32 %6, i32 0
-  %25 = getelementptr inbounds i8, ptr %0, i64 112
-  %26 = getelementptr inbounds i8, ptr %0, i64 32
-  %27 = getelementptr inbounds i8, ptr %0, i64 56
-  %28 = getelementptr inbounds i8, ptr %0, i64 20
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %29 = icmp sgt i32 %24, 0
   br i1 %29, label %.split, label %.split106.us.thread
 
@@ -615,7 +615,7 @@ define i32 @MixCoder_Code(ptr nocapture noundef %0, ptr noundef %1, ptr nocaptur
   %.07499 = phi i32 [ %.175, %101 ], [ 0, %.split ]
   %.17798 = phi i32 [ %.278, %101 ], [ %.076, %.split ]
   %.18197 = phi ptr [ %.282, %101 ], [ %.080, %.split ]
-  %33 = getelementptr inbounds [4 x %struct._IStateCoder], ptr %25, i64 0, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [4 x %struct._IStateCoder], ptr %25, i64 0, i64 %indvars.iv
   %34 = icmp eq i64 %indvars.iv, 0
   br i1 %34, label %35, label %38
 
@@ -655,9 +655,9 @@ define i32 @MixCoder_Code(ptr nocapture noundef %0, ptr noundef %1, ptr nocaptur
   br label %67
 
 58:                                               ; preds = %51
-  %59 = getelementptr inbounds [3 x i64], ptr %26, i64 0, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [3 x i64], ptr %26, i64 0, i64 %indvars.iv
   %60 = load i64, ptr %59, align 8
-  %61 = getelementptr inbounds [3 x i64], ptr %27, i64 0, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [3 x i64], ptr %27, i64 0, i64 %indvars.iv
   %62 = load i64, ptr %61, align 8
   %.not88 = icmp eq i64 %60, %62
   br i1 %.not88, label %63, label %101
@@ -665,14 +665,14 @@ define i32 @MixCoder_Code(ptr nocapture noundef %0, ptr noundef %1, ptr nocaptur
 63:                                               ; preds = %58
   %64 = load ptr, ptr %14, align 8
   %65 = shl nsw i64 %indvars.iv, 17
-  %66 = getelementptr inbounds i8, ptr %64, i64 %65
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 %65
   br label %67
 
 67:                                               ; preds = %63, %55
   %storemerge = phi i64 [ 131072, %63 ], [ %57, %55 ]
   %.070 = phi ptr [ %66, %63 ], [ %.1101, %55 ]
   store i64 %storemerge, ptr %9, align 8
-  %68 = getelementptr inbounds i8, ptr %33, i64 32
+  %68 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %69 = load ptr, ptr %68, align 8
   %70 = load ptr, ptr %33, align 8
   %71 = call i32 %69(ptr noundef %70, ptr noundef %.070, ptr noundef nonnull %9, ptr noundef %.069, ptr noundef nonnull %10, i32 noundef %.0, i32 noundef %spec.select, ptr noundef nonnull %11) #10
@@ -714,11 +714,11 @@ define i32 @MixCoder_Code(ptr nocapture noundef %0, ptr noundef %1, ptr nocaptur
   br label %97
 
 93:                                               ; preds = %83
-  %94 = getelementptr inbounds [3 x i64], ptr %27, i64 0, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw [3 x i64], ptr %27, i64 0, i64 %indvars.iv
   store i64 %88, ptr %94, align 8
-  %95 = getelementptr inbounds [3 x i64], ptr %26, i64 0, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw [3 x i64], ptr %26, i64 0, i64 %indvars.iv
   store i64 0, ptr %95, align 8
-  %96 = getelementptr inbounds [3 x i32], ptr %28, i64 0, i64 %indvars.iv
+  %96 = getelementptr inbounds nuw [3 x i32], ptr %28, i64 0, i64 %indvars.iv
   store i32 %72, ptr %96, align 4
   br label %97
 
@@ -766,17 +766,17 @@ define i32 @MixCoder_Code(ptr nocapture noundef %0, ptr noundef %1, ptr nocaptur
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 18) i32 @Xz_ParseHeader(ptr nocapture noundef initializes((0, 2)) %0, ptr noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 6
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %4 = load i8, ptr %3, align 1
   %5 = zext i8 %4 to i16
   %6 = shl nuw i16 %5, 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 7
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 7
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i16
   %10 = or disjoint i16 %6, %9
   store i16 %10, ptr %0, align 2
   %11 = tail call i32 @CrcCalc(ptr noundef nonnull %3, i64 noundef 2) #10
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i32, ptr %12, align 1
   %.not = icmp eq i32 %11, %13
   br i1 %.not, label %14, label %18
@@ -801,22 +801,22 @@ define range(i32 0, 17) i32 @XzBlock_Parse(ptr nocapture noundef writeonly %0, p
   %5 = shl nuw nsw i32 %4, 2
   %6 = zext nneg i32 %5 to i64
   %7 = tail call i32 @CrcCalc(ptr noundef nonnull %1, i64 noundef %6) #10
-  %8 = getelementptr inbounds i8, ptr %1, i64 %6
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 %6
   %9 = load i32, ptr %8, align 1
   %.not = icmp eq i32 %7, %9
   br i1 %.not, label %10, label %Xz_ReadVarInt.exit.thread
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %1, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %12 = load i8, ptr %11, align 1
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %12, ptr %13, align 8
   %14 = and i8 %12, 64
   %.not72 = icmp eq i8 %14, 0
   br i1 %.not72, label %40, label %15
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %1, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %17 = add nsw i32 %5, -2
   store i64 0, ptr %0, align 8
   %18 = tail call i32 @llvm.umin.i32(i32 %17, i32 9)
@@ -830,7 +830,7 @@ define range(i32 0, 17) i32 @XzBlock_Parse(ptr nocapture noundef writeonly %0, p
   br i1 %exitcond.not.i, label %Xz_ReadVarInt.exit.thread, label %22
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %16, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 %indvars.iv.i
   %24 = load i8, ptr %23, align 1
   %25 = and i8 %24, 127
   %26 = zext nneg i8 %25 to i64
@@ -864,9 +864,9 @@ define range(i32 0, 17) i32 @XzBlock_Parse(ptr nocapture noundef writeonly %0, p
 
 41:                                               ; preds = %40
   %42 = zext i32 %.064 to i64
-  %43 = getelementptr inbounds i8, ptr %1, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 %42
   %44 = sub i32 %5, %.064
-  %45 = getelementptr inbounds i8, ptr %0, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %45, align 8
   %46 = tail call i32 @llvm.umin.i32(i32 %44, i32 9)
   %47 = zext nneg i32 %46 to i64
@@ -879,7 +879,7 @@ define range(i32 0, 17) i32 @XzBlock_Parse(ptr nocapture noundef writeonly %0, p
   br i1 %exitcond.not.i76, label %Xz_ReadVarInt.exit.thread, label %50
 
 50:                                               ; preds = %48
-  %51 = getelementptr inbounds i8, ptr %43, i64 %indvars.iv.i75
+  %51 = getelementptr inbounds nuw i8, ptr %43, i64 %indvars.iv.i75
   %52 = load i8, ptr %51, align 1
   %53 = and i8 %52, 127
   %54 = zext nneg i8 %53 to i64
@@ -906,16 +906,16 @@ Xz_ReadVarInt.exit80:                             ; preds = %59
   %.1 = phi i32 [ %63, %Xz_ReadVarInt.exit80 ], [ %.064, %40 ]
   %65 = and i8 %12, 3
   %narrow = add nuw nsw i8 %65, 1
-  %66 = getelementptr inbounds i8, ptr %0, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %wide.trip.count = zext nneg i8 %narrow to i64
   br label %67
 
 67:                                               ; preds = %64, %116
   %indvars.iv = phi i64 [ 0, %64 ], [ %indvars.iv.next, %116 ]
   %.2121 = phi i32 [ %.1, %64 ], [ %122, %116 ]
-  %68 = getelementptr inbounds %struct.CXzFilter, ptr %66, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw %struct.CXzFilter, ptr %66, i64 %indvars.iv
   %69 = zext i32 %.2121 to i64
-  %70 = getelementptr inbounds i8, ptr %1, i64 %69
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 %69
   %71 = sub i32 %5, %.2121
   store i64 0, ptr %68, align 8
   %72 = tail call i32 @llvm.umin.i32(i32 %71, i32 9)
@@ -931,7 +931,7 @@ Xz_ReadVarInt.exit80:                             ; preds = %59
   br i1 %exitcond.not.i82, label %Xz_ReadVarInt.exit.thread, label %77
 
 77:                                               ; preds = %75
-  %78 = getelementptr inbounds i8, ptr %70, i64 %indvars.iv.i81
+  %78 = getelementptr inbounds nuw i8, ptr %70, i64 %indvars.iv.i81
   %79 = load i8, ptr %78, align 1
   %80 = and i8 %79, 127
   %81 = zext nneg i8 %80 to i64
@@ -954,7 +954,7 @@ Xz_ReadVarInt.exit86:                             ; preds = %86
   %89 = trunc nuw nsw i64 %indvars.iv.next.i83 to i32
   %90 = add i32 %.2121, %89
   %91 = zext i32 %90 to i64
-  %92 = getelementptr inbounds i8, ptr %1, i64 %91
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 %91
   %93 = sub i32 %5, %90
   %94 = tail call i32 @llvm.umin.i32(i32 %93, i32 9)
   %95 = zext nneg i32 %94 to i64
@@ -968,7 +968,7 @@ Xz_ReadVarInt.exit86:                             ; preds = %86
   br i1 %exitcond.not.i88, label %Xz_ReadVarInt.exit.thread, label %98
 
 98:                                               ; preds = %96
-  %99 = getelementptr inbounds i8, ptr %92, i64 %indvars.iv.i87
+  %99 = getelementptr inbounds nuw i8, ptr %92, i64 %indvars.iv.i87
   %100 = load i8, ptr %99, align 1
   %101 = and i8 %100, 127
   %102 = zext nneg i8 %101 to i64
@@ -998,11 +998,11 @@ Xz_ReadVarInt.exit92:                             ; preds = %107
 
 116:                                              ; preds = %Xz_ReadVarInt.exit92
   %117 = trunc nuw i64 %105 to i32
-  %118 = getelementptr inbounds i8, ptr %68, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %68, i64 8
   store i32 %117, ptr %118, align 8
-  %119 = getelementptr inbounds i8, ptr %68, i64 12
+  %119 = getelementptr inbounds nuw i8, ptr %68, i64 12
   %120 = zext i32 %111 to i64
-  %121 = getelementptr inbounds i8, ptr %1, i64 %120
+  %121 = getelementptr inbounds nuw i8, ptr %1, i64 %120
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %119, ptr nonnull align 1 %121, i64 %105, i1 false)
   %122 = add i32 %111, %117
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1021,7 +1021,7 @@ Xz_ReadVarInt.exit92:                             ; preds = %107
 
 126:                                              ; preds = %.preheader
   %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
-  %127 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv144
+  %127 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv144
   %128 = load i8, ptr %127, align 1
   %.not74 = icmp eq i8 %128, 0
   br i1 %.not74, label %.preheader, label %Xz_ReadVarInt.exit.thread
@@ -1036,29 +1036,29 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: nounwind uwtable
 define i32 @XzDec_Init(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i8, ptr %3, align 8
   %5 = and i8 %4, 3
   %narrow = add nuw nsw i8 %5, 1
   %6 = zext nneg i8 %narrow to i32
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, %6
   br i1 %9, label %.preheader, label %.critedge
 
 .preheader:                                       ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = zext nneg i8 %5 to i64
   %wide.trip.count = zext nneg i8 %narrow to i64
   br label %13
 
 13:                                               ; preds = %.preheader, %19
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %19 ]
-  %14 = getelementptr inbounds [4 x i64], ptr %10, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i64], ptr %10, i64 0, i64 %indvars.iv
   %15 = load i64, ptr %14, align 8
   %16 = sub nuw nsw i64 %12, %indvars.iv
-  %17 = getelementptr inbounds [4 x %struct.CXzFilter], ptr %11, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [4 x %struct.CXzFilter], ptr %11, i64 0, i64 %16
   %18 = load i64, ptr %17, align 8
   %.not49 = icmp eq i64 %15, %18
   br i1 %.not49, label %19, label %20
@@ -1078,7 +1078,7 @@ define i32 @XzDec_Init(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_a
   br i1 %22, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.critedge
-  %23 = getelementptr inbounds i8, ptr %0, i64 112
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %24 = load ptr, ptr %0, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %._crit_edge.i, label %.lr.ph.split.i
@@ -1091,7 +1091,7 @@ define i32 @XzDec_Init(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_a
   %26 = phi ptr [ %.pr.i, %.lr.ph.splitthread-pre-split.i ], [ %24, %.lr.ph.i ]
   %27 = phi i32 [ %35, %.lr.ph.splitthread-pre-split.i ], [ %8, %.lr.ph.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.splitthread-pre-split.i ], [ 0, %.lr.ph.i ]
-  %28 = getelementptr inbounds [4 x %struct._IStateCoder], ptr %23, i64 0, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw [4 x %struct._IStateCoder], ptr %23, i64 0, i64 %indvars.iv.i
   %.not18.i = icmp eq ptr %26, null
   br i1 %.not18.i, label %34, label %29
 
@@ -1101,7 +1101,7 @@ define i32 @XzDec_Init(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_a
   br i1 %.not19.i, label %34, label %31
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %28, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %33 = load ptr, ptr %32, align 8
   tail call void %33(ptr noundef nonnull %30, ptr noundef nonnull %26) #10
   %.pre.i = load i32, ptr %7, align 8
@@ -1116,14 +1116,14 @@ define i32 @XzDec_Init(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_a
 
 ._crit_edge.i:                                    ; preds = %34, %.lr.ph.i, %.critedge
   store i32 0, ptr %7, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load ptr, ptr %38, align 8
   %.not.i = icmp eq ptr %39, null
   br i1 %.not.i, label %MixCoder_Free.exit, label %40
 
 40:                                               ; preds = %._crit_edge.i
   %41 = load ptr, ptr %0, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8
   tail call void %43(ptr noundef %41, ptr noundef nonnull %39) #10
   store ptr null, ptr %38, align 8
@@ -1131,9 +1131,9 @@ define i32 @XzDec_Init(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_a
 
 MixCoder_Free.exit:                               ; preds = %._crit_edge.i, %40
   store i32 %6, ptr %7, align 8
-  %44 = getelementptr inbounds i8, ptr %1, i64 24
-  %45 = getelementptr inbounds i8, ptr %0, i64 112
-  %46 = getelementptr inbounds i8, ptr %0, i64 80
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %47 = zext nneg i8 %5 to i64
   %wide.trip.count74 = zext nneg i8 %narrow to i64
   br label %48
@@ -1141,10 +1141,10 @@ MixCoder_Free.exit:                               ; preds = %._crit_edge.i, %40
 48:                                               ; preds = %MixCoder_Free.exit, %MixCoder_SetFromMethod.exit
   %indvars.iv71 = phi i64 [ 0, %MixCoder_Free.exit ], [ %indvars.iv.next72, %MixCoder_SetFromMethod.exit ]
   %49 = sub nuw nsw i64 %47, %indvars.iv71
-  %50 = getelementptr inbounds [4 x %struct.CXzFilter], ptr %44, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw [4 x %struct.CXzFilter], ptr %44, i64 0, i64 %49
   %51 = load i64, ptr %50, align 8
-  %52 = getelementptr inbounds [4 x %struct._IStateCoder], ptr %45, i64 0, i64 %indvars.iv71
-  %53 = getelementptr inbounds [4 x i64], ptr %46, i64 0, i64 %indvars.iv71
+  %52 = getelementptr inbounds nuw [4 x %struct._IStateCoder], ptr %45, i64 0, i64 %indvars.iv71
+  %53 = getelementptr inbounds nuw [4 x i64], ptr %46, i64 0, i64 %indvars.iv71
   store i64 %51, ptr %53, align 8
   %cond.i = icmp eq i64 %51, 33
   br i1 %cond.i, label %54, label %65
@@ -1158,15 +1158,15 @@ MixCoder_Free.exit:                               ; preds = %._crit_edge.i, %40
   br i1 %58, label %MixCoder_Init.exit, label %59
 
 59:                                               ; preds = %54
-  %60 = getelementptr inbounds i8, ptr %52, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store ptr @Lzma2State_Free, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %52, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %52, i64 16
   store ptr @Lzma2State_SetProps, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %52, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %52, i64 24
   store ptr @Lzma2State_Init, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %52, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %52, i64 32
   store ptr @Lzma2State_Code, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %57, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %57, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %64, i8 0, i64 16, i1 false)
   br label %MixCoder_SetFromMethod.exit
 
@@ -1187,16 +1187,16 @@ MixCoder_Free.exit:                               ; preds = %._crit_edge.i, %40
 
 73:                                               ; preds = %68
   %74 = trunc nuw i64 %51 to i32
-  %75 = getelementptr inbounds i8, ptr %71, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %71, i64 24
   store i32 %74, ptr %75, align 8
   store ptr %71, ptr %52, align 8
-  %76 = getelementptr inbounds i8, ptr %52, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store ptr @BraState_Free, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %52, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %52, i64 16
   store ptr @BraState_SetProps, ptr %77, align 8
-  %78 = getelementptr inbounds i8, ptr %52, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %52, i64 24
   store ptr @BraState_Init, ptr %78, align 8
-  %79 = getelementptr inbounds i8, ptr %52, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %52, i64 32
   store ptr @BraState_Code, ptr %79, align 8
   br label %MixCoder_SetFromMethod.exit
 
@@ -1208,8 +1208,8 @@ MixCoder_SetFromMethod.exit:                      ; preds = %73, %59
 .loopexit:                                        ; preds = %19, %MixCoder_SetFromMethod.exit, %20
   %wide.trip.count79.pre-phi = phi i64 [ %wide.trip.count, %20 ], [ %wide.trip.count74, %MixCoder_SetFromMethod.exit ], [ %wide.trip.count, %19 ]
   %.pre-phi = phi i64 [ %12, %20 ], [ %47, %MixCoder_SetFromMethod.exit ], [ %12, %19 ]
-  %80 = getelementptr inbounds i8, ptr %1, i64 24
-  %81 = getelementptr inbounds i8, ptr %0, i64 112
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 112
   br label %83
 
 82:                                               ; preds = %83
@@ -1220,13 +1220,13 @@ MixCoder_SetFromMethod.exit:                      ; preds = %73, %59
 83:                                               ; preds = %.loopexit, %82
   %indvars.iv76 = phi i64 [ 0, %.loopexit ], [ %indvars.iv.next77, %82 ]
   %84 = sub nuw nsw i64 %.pre-phi, %indvars.iv76
-  %85 = getelementptr inbounds [4 x %struct.CXzFilter], ptr %80, i64 0, i64 %84
-  %86 = getelementptr inbounds [4 x %struct._IStateCoder], ptr %81, i64 0, i64 %indvars.iv76
-  %87 = getelementptr inbounds i8, ptr %86, i64 16
+  %85 = getelementptr inbounds nuw [4 x %struct.CXzFilter], ptr %80, i64 0, i64 %84
+  %86 = getelementptr inbounds nuw [4 x %struct._IStateCoder], ptr %81, i64 0, i64 %indvars.iv76
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 16
   %88 = load ptr, ptr %87, align 8
   %89 = load ptr, ptr %86, align 8
-  %90 = getelementptr inbounds i8, ptr %85, i64 12
-  %91 = getelementptr inbounds i8, ptr %85, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %85, i64 12
+  %91 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %92 = load i32, ptr %91, align 8
   %93 = zext i32 %92 to i64
   %94 = load ptr, ptr %0, align 8
@@ -1241,9 +1241,9 @@ MixCoder_SetFromMethod.exit:                      ; preds = %73, %59
 
 .lr.ph.i57:                                       ; preds = %96
   %99 = add nsw i32 %97, -1
-  %100 = getelementptr inbounds i8, ptr %0, i64 56
-  %101 = getelementptr inbounds i8, ptr %0, i64 32
-  %102 = getelementptr inbounds i8, ptr %0, i64 20
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %wide.trip.count.i = zext nneg i32 %99 to i64
   br label %104
 
@@ -1253,11 +1253,11 @@ MixCoder_SetFromMethod.exit:                      ; preds = %73, %59
 
 104:                                              ; preds = %104, %.lr.ph.i57
   %indvars.iv.i58 = phi i64 [ 0, %.lr.ph.i57 ], [ %indvars.iv.next.i59, %104 ]
-  %105 = getelementptr inbounds [3 x i64], ptr %100, i64 0, i64 %indvars.iv.i58
+  %105 = getelementptr inbounds nuw [3 x i64], ptr %100, i64 0, i64 %indvars.iv.i58
   store i64 0, ptr %105, align 8
-  %106 = getelementptr inbounds [3 x i64], ptr %101, i64 0, i64 %indvars.iv.i58
+  %106 = getelementptr inbounds nuw [3 x i64], ptr %101, i64 0, i64 %indvars.iv.i58
   store i64 0, ptr %106, align 8
-  %107 = getelementptr inbounds [3 x i32], ptr %102, i64 0, i64 %indvars.iv.i58
+  %107 = getelementptr inbounds nuw [3 x i32], ptr %102, i64 0, i64 %indvars.iv.i58
   store i32 0, ptr %107, align 4
   %indvars.iv.next.i59 = add nuw nsw i64 %indvars.iv.i58, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i59, %wide.trip.count.i
@@ -1265,8 +1265,8 @@ MixCoder_SetFromMethod.exit:                      ; preds = %73, %59
 
 .lr.ph17.i:                                       ; preds = %.preheader.i, %.lr.ph17.i
   %indvars.iv19.i = phi i64 [ %indvars.iv.next20.i, %.lr.ph17.i ], [ 0, %.preheader.i ]
-  %108 = getelementptr inbounds [4 x %struct._IStateCoder], ptr %81, i64 0, i64 %indvars.iv19.i
-  %109 = getelementptr inbounds i8, ptr %108, i64 24
+  %108 = getelementptr inbounds nuw [4 x %struct._IStateCoder], ptr %81, i64 0, i64 %indvars.iv19.i
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 24
   %110 = load ptr, ptr %109, align 8
   %111 = load ptr, ptr %108, align 8
   tail call void %110(ptr noundef %111) #10
@@ -1283,18 +1283,18 @@ MixCoder_Init.exit:                               ; preds = %68, %54, %65, %83, 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
 define noundef i32 @XzUnpacker_Create(ptr nocapture noundef writeonly initializes((88, 108)) %0, ptr noundef %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 96
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr null, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 200
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 200
   br label %7
 
 7:                                                ; preds = %7, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %7 ]
-  %8 = getelementptr inbounds [4 x %struct._IStateCoder], ptr %6, i64 0, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [4 x %struct._IStateCoder], ptr %6, i64 0, i64 %indvars.iv.i
   store ptr null, ptr %8, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -1302,11 +1302,11 @@ define noundef i32 @XzUnpacker_Create(ptr nocapture noundef writeonly initialize
 
 MixCoder_Construct.exit:                          ; preds = %7
   store i32 0, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   ret i32 0
 }
@@ -1317,14 +1317,14 @@ define void @XzUnpacker_Free(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %.not, label %32, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 88
-  %4 = getelementptr inbounds i8, ptr %0, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 200
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %8 = load ptr, ptr %3, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %._crit_edge.i, label %.lr.ph.split.i
@@ -1337,7 +1337,7 @@ define void @XzUnpacker_Free(ptr noundef %0) local_unnamed_addr #1 {
   %10 = phi ptr [ %.pr.i, %.lr.ph.splitthread-pre-split.i ], [ %8, %.lr.ph.i ]
   %11 = phi i32 [ %19, %.lr.ph.splitthread-pre-split.i ], [ %5, %.lr.ph.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.splitthread-pre-split.i ], [ 0, %.lr.ph.i ]
-  %12 = getelementptr inbounds [4 x %struct._IStateCoder], ptr %7, i64 0, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [4 x %struct._IStateCoder], ptr %7, i64 0, i64 %indvars.iv.i
   %.not18.i = icmp eq ptr %10, null
   br i1 %.not18.i, label %18, label %13
 
@@ -1347,7 +1347,7 @@ define void @XzUnpacker_Free(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %.not19.i, label %18, label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %12, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull %14, ptr noundef nonnull %10) #10
   %.pre.i = load i32, ptr %4, align 8
@@ -1362,24 +1362,24 @@ define void @XzUnpacker_Free(ptr noundef %0) local_unnamed_addr #1 {
 
 ._crit_edge.i:                                    ; preds = %18, %.lr.ph.i, %2
   store i32 0, ptr %4, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 96
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %23 = load ptr, ptr %22, align 8
   %.not.i = icmp eq ptr %23, null
   br i1 %.not.i, label %MixCoder_Free.exit, label %24
 
 24:                                               ; preds = %._crit_edge.i
   %25 = load ptr, ptr %3, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
   tail call void %27(ptr noundef %25, ptr noundef nonnull %23) #10
   store ptr null, ptr %22, align 8
   br label %MixCoder_Free.exit
 
 MixCoder_Free.exit:                               ; preds = %._crit_edge.i, %24
-  %28 = getelementptr inbounds i8, ptr %0, i64 528
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %29 = load ptr, ptr %28, align 8
   tail call void @cl_hash_destroy(ptr noundef %29) #10
-  %30 = getelementptr inbounds i8, ptr %0, i64 536
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %31 = load ptr, ptr %30, align 8
   tail call void @cl_hash_destroy(ptr noundef %31) #10
   store ptr null, ptr %30, align 8
@@ -1403,32 +1403,32 @@ define i32 @XzUnpacker_Code(ptr noundef %0, ptr noundef %1, ptr nocapture nounde
   store i64 0, ptr %2, align 8
   store i64 0, ptr %4, align 8
   store i32 0, ptr %6, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 64
-  %16 = getelementptr inbounds i8, ptr %0, i64 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 576
-  %18 = getelementptr inbounds i8, ptr %0, i64 72
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
-  %20 = getelementptr inbounds i8, ptr %0, i64 48
-  %21 = getelementptr inbounds i8, ptr %0, i64 580
-  %22 = getelementptr inbounds i8, ptr %0, i64 584
-  %23 = getelementptr inbounds i8, ptr %0, i64 585
-  %24 = getelementptr inbounds i8, ptr %0, i64 586
-  %25 = getelementptr inbounds i8, ptr %0, i64 80
-  %26 = getelementptr inbounds i8, ptr %0, i64 12
-  %27 = getelementptr inbounds i8, ptr %0, i64 56
-  %28 = getelementptr inbounds i8, ptr %0, i64 536
-  %29 = getelementptr inbounds i8, ptr %0, i64 544
-  %30 = getelementptr inbounds i8, ptr %0, i64 24
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 512
-  %33 = getelementptr inbounds i8, ptr %0, i64 20
-  %34 = getelementptr inbounds i8, ptr %0, i64 360
-  %35 = getelementptr inbounds i8, ptr %0, i64 32
-  %36 = getelementptr inbounds i8, ptr %0, i64 88
-  %37 = getelementptr inbounds i8, ptr %0, i64 577
-  %38 = getelementptr inbounds i8, ptr %0, i64 40
-  %39 = getelementptr inbounds i8, ptr %0, i64 582
-  %40 = getelementptr inbounds i8, ptr %0, i64 583
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 576
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 580
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 584
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 585
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 586
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 536
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 544
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 512
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 577
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 582
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 583
   br label %.outer
 
 .outer:                                           ; preds = %.outer.backedge, %7
@@ -1440,10 +1440,10 @@ define i32 @XzUnpacker_Code(ptr noundef %0, ptr noundef %1, ptr nocapture nounde
   %44 = icmp eq i32 %43, 6
   br i1 %44, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %325, %.outer
-  %.0232.lcssa = phi ptr [ %.0232.ph, %.outer ], [ %.1, %325 ]
-  %.lcssa288 = phi i64 [ %41, %.outer ], [ %327, %325 ]
-  %.lcssa = phi i64 [ %42, %.outer ], [ %328, %325 ]
+._crit_edge:                                      ; preds = %322, %.outer
+  %.0232.lcssa = phi ptr [ %.0232.ph, %.outer ], [ %.1, %322 ]
+  %.lcssa288 = phi i64 [ %41, %.outer ], [ %324, %322 ]
+  %.lcssa = phi i64 [ %42, %.outer ], [ %325, %322 ]
   %45 = load i64, ptr %2, align 8
   %46 = sub i64 %13, %45
   store i64 %46, ptr %8, align 8
@@ -1491,7 +1491,7 @@ define i32 @XzUnpacker_Code(ptr noundef %0, ptr noundef %1, ptr nocapture nounde
   %74 = add i64 %70, %73
   %75 = call i32 @Xz_WriteVarInt(ptr noundef nonnull %10, i64 noundef %74) #10
   %76 = zext i32 %75 to i64
-  %77 = getelementptr inbounds i8, ptr %10, i64 %76
+  %77 = getelementptr inbounds nuw i8, ptr %10, i64 %76
   %78 = load i64, ptr %35, align 8
   %79 = call i32 @Xz_WriteVarInt(ptr noundef nonnull %77, i64 noundef %78) #10
   %80 = add i32 %79, %75
@@ -1524,11 +1524,11 @@ define i32 @XzUnpacker_Code(ptr noundef %0, ptr noundef %1, ptr nocapture nounde
 .outer.backedge:                                  ; preds = %88, %._crit_edge304
   br label %.outer
 
-.lr.ph:                                           ; preds = %.outer, %325
-  %90 = phi i32 [ %326, %325 ], [ %43, %.outer ]
-  %91 = phi i64 [ %328, %325 ], [ %42, %.outer ]
-  %92 = phi i64 [ %327, %325 ], [ %41, %.outer ]
-  %.0232293 = phi ptr [ %.1, %325 ], [ %.0232.ph, %.outer ]
+.lr.ph:                                           ; preds = %.outer, %322
+  %90 = phi i32 [ %323, %322 ], [ %43, %.outer ]
+  %91 = phi i64 [ %325, %322 ], [ %42, %.outer ]
+  %92 = phi i64 [ %324, %322 ], [ %41, %.outer ]
+  %.0232293 = phi ptr [ %.1, %322 ], [ %.0232.ph, %.outer ]
   %93 = icmp eq i64 %14, %92
   br i1 %93, label %Xz_ParseHeader.exit.thread.sink.split, label %94
 
@@ -1536,11 +1536,11 @@ define i32 @XzUnpacker_Code(ptr noundef %0, ptr noundef %1, ptr nocapture nounde
   switch i32 %90, label %thread-pre-split [
     i32 0, label %95
     i32 5, label %122
-    i32 7, label %172
-    i32 1, label %205
-    i32 2, label %260
-    i32 3, label %275
-    i32 4, label %314
+    i32 7, label %171
+    i32 1, label %203
+    i32 2, label %258
+    i32 3, label %273
+    i32 4, label %311
   ]
 
 95:                                               ; preds = %94
@@ -1555,16 +1555,16 @@ define i32 @XzUnpacker_Code(ptr noundef %0, ptr noundef %1, ptr nocapture nounde
   br i1 %99, label %101, label %._crit_edge303
 
 101:                                              ; preds = %98
-  %102 = getelementptr inbounds [6 x i8], ptr @XZ_SIG, i64 0, i64 %100
+  %102 = getelementptr inbounds nuw [6 x i8], ptr @XZ_SIG, i64 0, i64 %100
   %103 = load i8, ptr %102, align 1
   %.not274 = icmp eq i8 %.pre301, %103
   br i1 %.not274, label %._crit_edge303, label %Xz_ParseHeader.exit.thread
 
 ._crit_edge303:                                   ; preds = %98, %101
-  %104 = getelementptr inbounds i8, ptr %.0232293, i64 1
+  %104 = getelementptr inbounds nuw i8, ptr %.0232293, i64 1
   %105 = add nuw nsw i32 %96, 1
   store i32 %105, ptr %16, align 4
-  %106 = getelementptr inbounds [1024 x i8], ptr %17, i64 0, i64 %100
+  %106 = getelementptr inbounds nuw [1024 x i8], ptr %17, i64 0, i64 %100
   store i8 %.pre301, ptr %106, align 1
   %107 = load i64, ptr %4, align 8
   %108 = add i64 %107, 1
@@ -1603,7 +1603,7 @@ Xz_ParseHeader.exit:                              ; preds = %118
   br i1 %124, label %125, label %150
 
 125:                                              ; preds = %122
-  %126 = getelementptr inbounds i8, ptr %.0232293, i64 1
+  %126 = getelementptr inbounds nuw i8, ptr %.0232293, i64 1
   %127 = load i8, ptr %.0232293, align 1
   store i32 1, ptr %16, align 4
   store i8 %127, ptr %17, align 1
@@ -1655,7 +1655,7 @@ Xz_ParseHeader.exit:                              ; preds = %118
 150:                                              ; preds = %122
   %151 = load i32, ptr %33, align 4
   %.not269 = icmp eq i32 %123, %151
-  br i1 %.not269, label %165, label %152
+  br i1 %.not269, label %164, label %152
 
 152:                                              ; preds = %150
   %153 = sub i32 %151, %123
@@ -1664,324 +1664,321 @@ Xz_ParseHeader.exit:                              ; preds = %118
   %156 = trunc nuw i64 %91 to i32
   %spec.select = select i1 %155, i32 %156, i32 %153
   %157 = zext i32 %123 to i64
-  %158 = getelementptr inbounds i8, ptr %17, i64 %157
+  %158 = getelementptr inbounds nuw i8, ptr %17, i64 %157
   %159 = zext i32 %spec.select to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %158, ptr align 1 %.0232293, i64 %159, i1 false)
-  %160 = load i32, ptr %16, align 4
-  %161 = add i32 %160, %spec.select
-  store i32 %161, ptr %16, align 4
-  %162 = load i64, ptr %4, align 8
-  %163 = add i64 %162, %159
-  store i64 %163, ptr %4, align 8
-  %164 = getelementptr inbounds i8, ptr %.0232293, i64 %159
+  %160 = add i32 %spec.select, %123
+  store i32 %160, ptr %16, align 4
+  %161 = load i64, ptr %4, align 8
+  %162 = add i64 %161, %159
+  store i64 %162, ptr %4, align 8
+  %163 = getelementptr inbounds nuw i8, ptr %.0232293, i64 %159
   br label %thread-pre-split
 
-165:                                              ; preds = %150
-  %166 = call i32 @XzBlock_Parse(ptr noundef nonnull %34, ptr noundef nonnull %17)
-  %.not270 = icmp eq i32 %166, 0
-  br i1 %.not270, label %167, label %Xz_ParseHeader.exit.thread
+164:                                              ; preds = %150
+  %165 = call i32 @XzBlock_Parse(ptr noundef nonnull %34, ptr noundef nonnull %17)
+  %.not270 = icmp eq i32 %165, 0
+  br i1 %.not270, label %166, label %Xz_ParseHeader.exit.thread
 
-167:                                              ; preds = %165
+166:                                              ; preds = %164
   store i32 6, ptr %0, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
-  %168 = load i16, ptr %19, align 8
-  %169 = and i16 %168, 15
-  %170 = zext nneg i16 %169 to i32
-  call void @XzCheck_Init(ptr noundef nonnull %32, i32 noundef %170) #10
-  %171 = call i32 @XzDec_Init(ptr noundef nonnull %36, ptr noundef nonnull %34)
-  %.not271 = icmp eq i32 %171, 0
+  %167 = load i16, ptr %19, align 8
+  %168 = and i16 %167, 15
+  %169 = zext nneg i16 %168 to i32
+  call void @XzCheck_Init(ptr noundef nonnull %32, i32 noundef %169) #10
+  %170 = call i32 @XzDec_Init(ptr noundef nonnull %36, ptr noundef nonnull %34)
+  %.not271 = icmp eq i32 %170, 0
   br i1 %.not271, label %thread-pre-split, label %Xz_ParseHeader.exit.thread
 
-172:                                              ; preds = %94
-  %173 = load i64, ptr %30, align 8
-  %174 = load i32, ptr %31, align 8
-  %175 = zext i32 %174 to i64
-  %176 = add i64 %173, %175
-  %177 = and i64 %176, 3
-  %.not263 = icmp eq i64 %177, 0
-  br i1 %.not263, label %184, label %178
+171:                                              ; preds = %94
+  %172 = load i64, ptr %30, align 8
+  %173 = load i32, ptr %31, align 8
+  %174 = zext i32 %173 to i64
+  %175 = add i64 %172, %174
+  %176 = and i64 %175, 3
+  %.not263 = icmp eq i64 %176, 0
+  br i1 %.not263, label %183, label %177
 
-178:                                              ; preds = %172
-  %179 = add i64 %92, 1
-  store i64 %179, ptr %4, align 8
-  %180 = load i32, ptr %31, align 8
-  %181 = add i32 %180, 1
-  store i32 %181, ptr %31, align 8
-  %182 = getelementptr inbounds i8, ptr %.0232293, i64 1
-  %183 = load i8, ptr %.0232293, align 1
-  %.not268 = icmp eq i8 %183, 0
+177:                                              ; preds = %171
+  %178 = add i64 %92, 1
+  store i64 %178, ptr %4, align 8
+  %179 = load i32, ptr %31, align 8
+  %180 = add i32 %179, 1
+  store i32 %180, ptr %31, align 8
+  %181 = getelementptr inbounds nuw i8, ptr %.0232293, i64 1
+  %182 = load i8, ptr %.0232293, align 1
+  %.not268 = icmp eq i8 %182, 0
   br i1 %.not268, label %thread-pre-split, label %Xz_ParseHeader.exit.thread
 
-184:                                              ; preds = %172
-  %185 = load i16, ptr %19, align 8
-  %186 = call i32 @XzFlags_GetCheckSize(i16 noundef zeroext %185) #10
-  %187 = load i32, ptr %16, align 4
-  %.not264 = icmp eq i32 %186, %187
-  br i1 %.not264, label %201, label %188
+183:                                              ; preds = %171
+  %184 = load i16, ptr %19, align 8
+  %185 = call i32 @XzFlags_GetCheckSize(i16 noundef zeroext %184) #10
+  %186 = load i32, ptr %16, align 4
+  %.not264 = icmp eq i32 %185, %186
+  br i1 %.not264, label %199, label %187
 
-188:                                              ; preds = %184
-  %189 = sub i32 %186, %187
-  %190 = zext i32 %189 to i64
-  %191 = icmp ult i64 %91, %190
-  %192 = trunc nuw i64 %91 to i32
-  %spec.select277 = select i1 %191, i32 %192, i32 %189
-  %193 = zext i32 %187 to i64
-  %194 = getelementptr inbounds i8, ptr %17, i64 %193
-  %195 = zext i32 %spec.select277 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %194, ptr align 1 %.0232293, i64 %195, i1 false)
-  %196 = load i32, ptr %16, align 4
-  %197 = add i32 %196, %spec.select277
-  store i32 %197, ptr %16, align 4
-  %198 = load i64, ptr %4, align 8
-  %199 = add i64 %198, %195
-  store i64 %199, ptr %4, align 8
-  %200 = getelementptr inbounds i8, ptr %.0232293, i64 %195
+187:                                              ; preds = %183
+  %188 = sub i32 %185, %186
+  %189 = zext i32 %188 to i64
+  %190 = icmp ult i64 %91, %189
+  %191 = trunc nuw i64 %91 to i32
+  %spec.select277 = select i1 %190, i32 %191, i32 %188
+  %192 = zext i32 %186 to i64
+  %193 = getelementptr inbounds nuw i8, ptr %17, i64 %192
+  %194 = zext i32 %spec.select277 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %193, ptr align 1 %.0232293, i64 %194, i1 false)
+  %195 = add i32 %spec.select277, %186
+  store i32 %195, ptr %16, align 4
+  %196 = load i64, ptr %4, align 8
+  %197 = add i64 %196, %194
+  store i64 %197, ptr %4, align 8
+  %198 = getelementptr inbounds nuw i8, ptr %.0232293, i64 %194
   br label %thread-pre-split
 
-201:                                              ; preds = %184
+199:                                              ; preds = %183
   store i32 5, ptr %0, align 8
   store i32 0, ptr %16, align 4
-  %202 = call i32 @XzCheck_Final(ptr noundef nonnull %32, ptr noundef nonnull %11) #10
-  %.not265 = icmp eq i32 %202, 0
-  br i1 %.not265, label %thread-pre-split, label %203
+  %200 = call i32 @XzCheck_Final(ptr noundef nonnull %32, ptr noundef nonnull %11) #10
+  %.not265 = icmp eq i32 %200, 0
+  br i1 %.not265, label %thread-pre-split, label %201
 
-203:                                              ; preds = %201
-  %204 = zext i32 %186 to i64
-  %bcmp266 = call i32 @bcmp(ptr nonnull %11, ptr nonnull %17, i64 %204)
+201:                                              ; preds = %199
+  %202 = zext i32 %185 to i64
+  %bcmp266 = call i32 @bcmp(ptr nonnull %11, ptr nonnull %17, i64 %202)
   %.not267 = icmp eq i32 %bcmp266, 0
   br i1 %.not267, label %thread-pre-split, label %Xz_ParseHeader.exit.thread
 
-205:                                              ; preds = %94
-  %206 = load i32, ptr %16, align 4
-  %207 = load i32, ptr %26, align 4
-  %208 = icmp ult i32 %206, %207
-  br i1 %208, label %209, label %218
+203:                                              ; preds = %94
+  %204 = load i32, ptr %16, align 4
+  %205 = load i32, ptr %26, align 4
+  %206 = icmp ult i32 %204, %205
+  br i1 %206, label %207, label %216
 
-209:                                              ; preds = %205
-  %210 = add i64 %92, 1
-  store i64 %210, ptr %4, align 8
-  %211 = getelementptr inbounds i8, ptr %.0232293, i64 1
-  %212 = load i8, ptr %.0232293, align 1
-  %213 = load i32, ptr %16, align 4
-  %214 = add i32 %213, 1
-  store i32 %214, ptr %16, align 4
-  %215 = zext i32 %213 to i64
-  %216 = getelementptr inbounds [1024 x i8], ptr %17, i64 0, i64 %215
-  %217 = load i8, ptr %216, align 1
-  %.not262 = icmp eq i8 %212, %217
+207:                                              ; preds = %203
+  %208 = add i64 %92, 1
+  store i64 %208, ptr %4, align 8
+  %209 = getelementptr inbounds nuw i8, ptr %.0232293, i64 1
+  %210 = load i8, ptr %.0232293, align 1
+  %211 = load i32, ptr %16, align 4
+  %212 = add i32 %211, 1
+  store i32 %212, ptr %16, align 4
+  %213 = zext i32 %211 to i64
+  %214 = getelementptr inbounds nuw [1024 x i8], ptr %17, i64 0, i64 %213
+  %215 = load i8, ptr %214, align 1
+  %.not262 = icmp eq i8 %210, %215
   br i1 %.not262, label %thread-pre-split, label %Xz_ParseHeader.exit.thread
 
-218:                                              ; preds = %205
-  %219 = load i64, ptr %27, align 8
-  %220 = load i64, ptr %20, align 8
-  %221 = icmp ult i64 %219, %220
-  br i1 %221, label %222, label %235
+216:                                              ; preds = %203
+  %217 = load i64, ptr %27, align 8
+  %218 = load i64, ptr %20, align 8
+  %219 = icmp ult i64 %217, %218
+  br i1 %219, label %220, label %233
 
-222:                                              ; preds = %218
-  %223 = sub nuw i64 %220, %219
-  %spec.select278 = call i64 @llvm.umin.i64(i64 %91, i64 %223)
-  %224 = load i32, ptr %25, align 8
-  %225 = call i32 @CrcUpdate(i32 noundef %224, ptr noundef %.0232293, i64 noundef %spec.select278) #10
-  store i32 %225, ptr %25, align 8
-  %226 = load ptr, ptr %28, align 8
-  %.not261 = icmp eq ptr %226, null
-  br i1 %.not261, label %229, label %227
+220:                                              ; preds = %216
+  %221 = sub nuw i64 %218, %217
+  %spec.select278 = call i64 @llvm.umin.i64(i64 %91, i64 %221)
+  %222 = load i32, ptr %25, align 8
+  %223 = call i32 @CrcUpdate(i32 noundef %222, ptr noundef %.0232293, i64 noundef %spec.select278) #10
+  store i32 %223, ptr %25, align 8
+  %224 = load ptr, ptr %28, align 8
+  %.not261 = icmp eq ptr %224, null
+  br i1 %.not261, label %227, label %225
 
-227:                                              ; preds = %222
-  %228 = call i32 @cl_update_hash(ptr noundef nonnull %226, ptr noundef %.0232293, i64 noundef %spec.select278) #10
-  br label %229
+225:                                              ; preds = %220
+  %226 = call i32 @cl_update_hash(ptr noundef nonnull %224, ptr noundef %.0232293, i64 noundef %spec.select278) #10
+  br label %227
 
-229:                                              ; preds = %227, %222
-  %230 = load i64, ptr %4, align 8
-  %231 = add i64 %230, %spec.select278
-  store i64 %231, ptr %4, align 8
-  %232 = getelementptr inbounds i8, ptr %.0232293, i64 %spec.select278
-  %233 = load i64, ptr %27, align 8
-  %234 = add i64 %233, %spec.select278
-  store i64 %234, ptr %27, align 8
+227:                                              ; preds = %225, %220
+  %228 = load i64, ptr %4, align 8
+  %229 = add i64 %228, %spec.select278
+  store i64 %229, ptr %4, align 8
+  %230 = getelementptr inbounds i8, ptr %.0232293, i64 %spec.select278
+  %231 = load i64, ptr %27, align 8
+  %232 = add i64 %231, %spec.select278
+  store i64 %232, ptr %27, align 8
   br label %thread-pre-split
 
-235:                                              ; preds = %218
-  %236 = and i64 %219, 3
-  %.not257 = icmp eq i64 %236, 0
-  br i1 %.not257, label %254, label %237
+233:                                              ; preds = %216
+  %234 = and i64 %217, 3
+  %.not257 = icmp eq i64 %234, 0
+  br i1 %.not257, label %252, label %235
 
-237:                                              ; preds = %235
-  %238 = getelementptr inbounds i8, ptr %.0232293, i64 1
-  %239 = load i8, ptr %.0232293, align 1
-  %240 = load i32, ptr %25, align 8
-  %241 = zext i8 %239 to i32
-  %.masked = and i32 %240, 255
-  %242 = xor i32 %.masked, %241
-  %243 = zext nneg i32 %242 to i64
-  %244 = getelementptr inbounds [0 x i32], ptr @g_CrcTable, i64 0, i64 %243
-  %245 = load i32, ptr %244, align 4
-  %246 = lshr i32 %240, 8
-  %247 = xor i32 %245, %246
-  store i32 %247, ptr %25, align 8
-  %248 = load i64, ptr %4, align 8
+235:                                              ; preds = %233
+  %236 = getelementptr inbounds nuw i8, ptr %.0232293, i64 1
+  %237 = load i8, ptr %.0232293, align 1
+  %238 = load i32, ptr %25, align 8
+  %239 = zext i8 %237 to i32
+  %.masked = and i32 %238, 255
+  %240 = xor i32 %.masked, %239
+  %241 = zext nneg i32 %240 to i64
+  %242 = getelementptr inbounds nuw [0 x i32], ptr @g_CrcTable, i64 0, i64 %241
+  %243 = load i32, ptr %242, align 4
+  %244 = lshr i32 %238, 8
+  %245 = xor i32 %243, %244
+  store i32 %245, ptr %25, align 8
+  %246 = load i64, ptr %4, align 8
+  %247 = add i64 %246, 1
+  store i64 %247, ptr %4, align 8
+  %248 = load i64, ptr %27, align 8
   %249 = add i64 %248, 1
-  store i64 %249, ptr %4, align 8
-  %250 = load i64, ptr %27, align 8
+  store i64 %249, ptr %27, align 8
+  %250 = load i64, ptr %20, align 8
   %251 = add i64 %250, 1
-  store i64 %251, ptr %27, align 8
-  %252 = load i64, ptr %20, align 8
-  %253 = add i64 %252, 1
-  store i64 %253, ptr %20, align 8
-  %.not260 = icmp eq i8 %239, 0
+  store i64 %251, ptr %20, align 8
+  %.not260 = icmp eq i8 %237, 0
   br i1 %.not260, label %thread-pre-split, label %Xz_ParseHeader.exit.thread
 
-254:                                              ; preds = %235
+252:                                              ; preds = %233
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %12, i8 0, i64 32, i1 false)
   store i32 2, ptr %0, align 8
-  %255 = add i64 %220, 4
-  store i64 %255, ptr %20, align 8
+  %253 = add i64 %218, 4
+  store i64 %253, ptr %20, align 8
   store i32 0, ptr %16, align 4
-  %256 = load ptr, ptr %28, align 8
-  %.not258 = icmp eq ptr %256, null
-  br i1 %.not258, label %259, label %257
+  %254 = load ptr, ptr %28, align 8
+  %.not258 = icmp eq ptr %254, null
+  br i1 %.not258, label %257, label %255
 
-257:                                              ; preds = %254
-  %258 = call i32 @cl_finish_hash(ptr noundef nonnull %256, ptr noundef nonnull %12) #10
+255:                                              ; preds = %252
+  %256 = call i32 @cl_finish_hash(ptr noundef nonnull %254, ptr noundef nonnull %12) #10
   store ptr null, ptr %28, align 8
-  br label %259
+  br label %257
 
-259:                                              ; preds = %257, %254
+257:                                              ; preds = %255, %252
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %12, ptr noundef nonnull dereferenceable(32) %29, i64 32)
   %.not259 = icmp eq i32 %bcmp, 0
   br i1 %.not259, label %thread-pre-split, label %Xz_ParseHeader.exit.thread
 
-260:                                              ; preds = %94
-  %261 = load i32, ptr %16, align 4
-  %262 = icmp ult i32 %261, 4
-  br i1 %262, label %263, label %271
+258:                                              ; preds = %94
+  %259 = load i32, ptr %16, align 4
+  %260 = icmp ult i32 %259, 4
+  br i1 %260, label %261, label %269
 
-263:                                              ; preds = %260
-  %264 = add i64 %92, 1
-  store i64 %264, ptr %4, align 8
-  %265 = getelementptr inbounds i8, ptr %.0232293, i64 1
-  %266 = load i8, ptr %.0232293, align 1
-  %267 = load i32, ptr %16, align 4
-  %268 = add i32 %267, 1
-  store i32 %268, ptr %16, align 4
-  %269 = zext i32 %267 to i64
-  %270 = getelementptr inbounds [1024 x i8], ptr %17, i64 0, i64 %269
-  store i8 %266, ptr %270, align 1
+261:                                              ; preds = %258
+  %262 = add i64 %92, 1
+  store i64 %262, ptr %4, align 8
+  %263 = getelementptr inbounds nuw i8, ptr %.0232293, i64 1
+  %264 = load i8, ptr %.0232293, align 1
+  %265 = load i32, ptr %16, align 4
+  %266 = add i32 %265, 1
+  store i32 %266, ptr %16, align 4
+  %267 = zext i32 %265 to i64
+  %268 = getelementptr inbounds nuw [1024 x i8], ptr %17, i64 0, i64 %267
+  store i8 %264, ptr %268, align 1
   br label %thread-pre-split
 
-271:                                              ; preds = %260
+269:                                              ; preds = %258
   store i32 3, ptr %0, align 8
   store i32 0, ptr %16, align 4
-  %272 = load i32, ptr %25, align 8
-  %273 = load i32, ptr %17, align 8
-  %274 = xor i32 %273, %272
-  %.not256 = icmp eq i32 %274, -1
+  %270 = load i32, ptr %25, align 8
+  %271 = load i32, ptr %17, align 8
+  %272 = xor i32 %271, %270
+  %.not256 = icmp eq i32 %272, -1
   br i1 %.not256, label %thread-pre-split, label %Xz_ParseHeader.exit.thread
 
-275:                                              ; preds = %94
-  %276 = load i32, ptr %16, align 4
-  %277 = sub i32 12, %276
-  %278 = zext i32 %277 to i64
-  %279 = icmp ult i64 %91, %278
-  %280 = trunc nuw i64 %91 to i32
-  %spec.select279 = select i1 %279, i32 %280, i32 %277
-  %281 = zext i32 %276 to i64
-  %282 = getelementptr inbounds i8, ptr %17, i64 %281
-  %283 = zext i32 %spec.select279 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %282, ptr align 1 %.0232293, i64 %283, i1 false)
-  %284 = load i32, ptr %16, align 4
-  %285 = add i32 %spec.select279, %284
-  store i32 %285, ptr %16, align 4
-  %286 = load i64, ptr %4, align 8
-  %287 = add i64 %286, %283
-  store i64 %287, ptr %4, align 8
-  %288 = getelementptr inbounds i8, ptr %.0232293, i64 %283
-  %289 = load i32, ptr %16, align 4
-  %290 = icmp eq i32 %289, 12
-  br i1 %290, label %291, label %thread-pre-split
+273:                                              ; preds = %94
+  %274 = load i32, ptr %16, align 4
+  %275 = sub i32 12, %274
+  %276 = zext i32 %275 to i64
+  %277 = icmp ult i64 %91, %276
+  %278 = trunc nuw i64 %91 to i32
+  %spec.select279 = select i1 %277, i32 %278, i32 %275
+  %279 = zext i32 %274 to i64
+  %280 = getelementptr inbounds nuw i8, ptr %17, i64 %279
+  %281 = zext i32 %spec.select279 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %280, ptr align 1 %.0232293, i64 %281, i1 false)
+  %282 = add i32 %spec.select279, %274
+  store i32 %282, ptr %16, align 4
+  %283 = load i64, ptr %4, align 8
+  %284 = add i64 %283, %281
+  store i64 %284, ptr %4, align 8
+  %285 = getelementptr inbounds nuw i8, ptr %.0232293, i64 %281
+  %286 = load i32, ptr %16, align 4
+  %287 = icmp eq i32 %286, 12
+  br i1 %287, label %288, label %thread-pre-split
 
-291:                                              ; preds = %275
+288:                                              ; preds = %273
   store i32 4, ptr %0, align 8
-  %292 = load i64, ptr %18, align 8
-  %293 = add i64 %292, 1
-  store i64 %293, ptr %18, align 8
+  %289 = load i64, ptr %18, align 8
+  %290 = add i64 %289, 1
+  store i64 %290, ptr %18, align 8
   store i64 0, ptr %15, align 8
-  %294 = load i16, ptr %19, align 8
-  %295 = load i64, ptr %20, align 8
-  %296 = load i32, ptr %21, align 1
-  %297 = sext i32 %296 to i64
-  %298 = shl nsw i64 %297, 2
-  %299 = add nsw i64 %298, 4
-  %300 = icmp eq i64 %295, %299
-  br i1 %300, label %301, label %Xz_ParseHeader.exit.thread
+  %291 = load i16, ptr %19, align 8
+  %292 = load i64, ptr %20, align 8
+  %293 = load i32, ptr %21, align 1
+  %294 = sext i32 %293 to i64
+  %295 = shl nsw i64 %294, 2
+  %296 = add nsw i64 %295, 4
+  %297 = icmp eq i64 %292, %296
+  br i1 %297, label %298, label %Xz_ParseHeader.exit.thread
 
-301:                                              ; preds = %291
-  %302 = load i32, ptr %17, align 1
-  %303 = call i32 @CrcCalc(ptr noundef nonnull %21, i64 noundef 6) #10
-  %304 = icmp eq i32 %302, %303
-  br i1 %304, label %305, label %Xz_ParseHeader.exit.thread
+298:                                              ; preds = %288
+  %299 = load i32, ptr %17, align 1
+  %300 = call i32 @CrcCalc(ptr noundef nonnull %21, i64 noundef 6) #10
+  %301 = icmp eq i32 %299, %300
+  br i1 %301, label %302, label %Xz_ParseHeader.exit.thread
 
-305:                                              ; preds = %301
-  %306 = zext i16 %294 to i32
-  %307 = load i8, ptr %22, align 1
+302:                                              ; preds = %298
+  %303 = zext i16 %291 to i32
+  %304 = load i8, ptr %22, align 1
+  %305 = zext i8 %304 to i32
+  %306 = shl nuw nsw i32 %305, 8
+  %307 = load i8, ptr %23, align 1
   %308 = zext i8 %307 to i32
-  %309 = shl nuw nsw i32 %308, 8
-  %310 = load i8, ptr %23, align 1
-  %311 = zext i8 %310 to i32
-  %312 = or disjoint i32 %309, %311
-  %313 = icmp eq i32 %312, %306
-  br i1 %313, label %Xz_CheckFooter.exit, label %Xz_ParseHeader.exit.thread
+  %309 = or disjoint i32 %306, %308
+  %310 = icmp eq i32 %309, %303
+  br i1 %310, label %Xz_CheckFooter.exit, label %Xz_ParseHeader.exit.thread
 
-Xz_CheckFooter.exit:                              ; preds = %305
+Xz_CheckFooter.exit:                              ; preds = %302
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %24, ptr noundef nonnull dereferenceable(2) @XZ_FOOTER_SIG, i64 2)
   %.not283 = icmp eq i32 %bcmp.i, 0
   br i1 %.not283, label %thread-pre-split, label %Xz_ParseHeader.exit.thread
 
-314:                                              ; preds = %94
-  %315 = load i8, ptr %.0232293, align 1
-  %.not = icmp eq i8 %315, 0
-  br i1 %.not, label %320, label %316
+311:                                              ; preds = %94
+  %312 = load i8, ptr %.0232293, align 1
+  %.not = icmp eq i8 %312, 0
+  br i1 %.not, label %317, label %313
 
-316:                                              ; preds = %314
-  %317 = load i64, ptr %15, align 8
-  %318 = and i64 %317, 3
-  %.not254 = icmp eq i64 %318, 0
-  br i1 %.not254, label %319, label %Xz_ParseHeader.exit.thread
+313:                                              ; preds = %311
+  %314 = load i64, ptr %15, align 8
+  %315 = and i64 %314, 3
+  %.not254 = icmp eq i64 %315, 0
+  br i1 %.not254, label %316, label %Xz_ParseHeader.exit.thread
 
-319:                                              ; preds = %316
+316:                                              ; preds = %313
   store i32 0, ptr %16, align 4
   store i32 0, ptr %0, align 8
-  br label %325
+  br label %322
 
-320:                                              ; preds = %314
-  %321 = add i64 %92, 1
-  store i64 %321, ptr %4, align 8
-  %322 = getelementptr inbounds i8, ptr %.0232293, i64 1
-  %323 = load i64, ptr %15, align 8
-  %324 = add i64 %323, 1
-  store i64 %324, ptr %15, align 8
+317:                                              ; preds = %311
+  %318 = add i64 %92, 1
+  store i64 %318, ptr %4, align 8
+  %319 = getelementptr inbounds nuw i8, ptr %.0232293, i64 1
+  %320 = load i64, ptr %15, align 8
+  %321 = add i64 %320, 1
+  store i64 %321, ptr %15, align 8
   br label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %94, %Xz_ParseHeader.exit, %._crit_edge303, %152, %167, %145, %188, %203, %201, %178, %229, %259, %237, %209, %271, %263, %Xz_CheckFooter.exit, %275, %320
-  %.1.ph = phi ptr [ %.0232293, %Xz_ParseHeader.exit ], [ %104, %._crit_edge303 ], [ %.0232293, %167 ], [ %164, %152 ], [ %126, %145 ], [ %.0232293, %201 ], [ %.0232293, %203 ], [ %200, %188 ], [ %182, %178 ], [ %.0232293, %259 ], [ %238, %237 ], [ %232, %229 ], [ %211, %209 ], [ %.0232293, %271 ], [ %265, %263 ], [ %288, %275 ], [ %288, %Xz_CheckFooter.exit ], [ %322, %320 ], [ %.0232293, %94 ]
+thread-pre-split:                                 ; preds = %94, %Xz_ParseHeader.exit, %._crit_edge303, %152, %166, %145, %187, %201, %199, %177, %227, %257, %235, %207, %269, %261, %Xz_CheckFooter.exit, %273, %317
+  %.1.ph = phi ptr [ %.0232293, %Xz_ParseHeader.exit ], [ %104, %._crit_edge303 ], [ %.0232293, %166 ], [ %163, %152 ], [ %126, %145 ], [ %.0232293, %199 ], [ %.0232293, %201 ], [ %198, %187 ], [ %181, %177 ], [ %.0232293, %257 ], [ %236, %235 ], [ %230, %227 ], [ %209, %207 ], [ %.0232293, %269 ], [ %263, %261 ], [ %285, %273 ], [ %285, %Xz_CheckFooter.exit ], [ %319, %317 ], [ %.0232293, %94 ]
   %.pr = load i32, ptr %0, align 8
-  br label %325
+  br label %322
 
-325:                                              ; preds = %thread-pre-split, %319
-  %326 = phi i32 [ %.pr, %thread-pre-split ], [ 0, %319 ]
-  %.1 = phi ptr [ %.1.ph, %thread-pre-split ], [ %.0232293, %319 ]
-  %327 = load i64, ptr %4, align 8
-  %328 = sub i64 %14, %327
-  %329 = icmp eq i32 %326, 6
-  br i1 %329, label %._crit_edge, label %.lr.ph
+322:                                              ; preds = %thread-pre-split, %316
+  %323 = phi i32 [ %.pr, %thread-pre-split ], [ 0, %316 ]
+  %.1 = phi ptr [ %.1.ph, %thread-pre-split ], [ %.0232293, %316 ]
+  %324 = load i64, ptr %4, align 8
+  %325 = sub i64 %14, %324
+  %326 = icmp eq i32 %323, 6
+  br i1 %326, label %._crit_edge, label %.lr.ph
 
 Xz_ParseHeader.exit.thread.sink.split:            ; preds = %._crit_edge, %.lr.ph
   %.sink = phi i32 [ 3, %.lr.ph ], [ 2, %._crit_edge ]
   store i32 %.sink, ptr %6, align 4
   br label %Xz_ParseHeader.exit.thread
 
-Xz_ParseHeader.exit.thread:                       ; preds = %88, %49, %301, %305, %291, %109, %118, %316, %Xz_CheckFooter.exit, %271, %259, %237, %209, %203, %178, %167, %165, %101, %Xz_ParseHeader.exit.thread.sink.split
-  %.0229 = phi i32 [ 0, %Xz_ParseHeader.exit.thread.sink.split ], [ 17, %101 ], [ %166, %165 ], [ %171, %167 ], [ 3, %178 ], [ 3, %203 ], [ 3, %209 ], [ 3, %237 ], [ 3, %259 ], [ 3, %271 ], [ 3, %Xz_CheckFooter.exit ], [ 17, %316 ], [ 17, %109 ], [ 4, %118 ], [ 3, %291 ], [ 3, %305 ], [ 3, %301 ], [ %50, %49 ], [ 0, %88 ]
+Xz_ParseHeader.exit.thread:                       ; preds = %88, %49, %298, %302, %288, %109, %118, %313, %Xz_CheckFooter.exit, %269, %257, %235, %207, %201, %177, %166, %164, %101, %Xz_ParseHeader.exit.thread.sink.split
+  %.0229 = phi i32 [ 0, %Xz_ParseHeader.exit.thread.sink.split ], [ 17, %101 ], [ %165, %164 ], [ %170, %166 ], [ 3, %177 ], [ 3, %201 ], [ 3, %207 ], [ 3, %235 ], [ 3, %257 ], [ 3, %269 ], [ 3, %Xz_CheckFooter.exit ], [ 17, %313 ], [ 17, %109 ], [ 4, %118 ], [ 3, %288 ], [ 3, %302 ], [ 3, %298 ], [ %50, %49 ], [ 0, %88 ]
   ret i32 %.0229
 }
 
@@ -2013,7 +2010,7 @@ define range(i32 0, 2) i32 @XzUnpacker_IsStreamWasFinished(ptr nocapture noundef
   br i1 %3, label %4, label %10
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 3
   %8 = icmp eq i64 %7, 0
@@ -2047,7 +2044,7 @@ declare i64 @SPARC_Convert(ptr noundef, i64 noundef, i32 noundef, i32 noundef) l
 ; Function Attrs: nounwind uwtable
 define internal void @Lzma2State_Free(ptr noundef %0, ptr noundef %1) #1 {
   tail call void @LzmaDec_Free(ptr noundef %0, ptr noundef %1) #10
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void %4(ptr noundef %1, ptr noundef %0) #10
   ret void

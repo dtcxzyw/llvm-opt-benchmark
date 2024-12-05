@@ -37,7 +37,7 @@ define dso_local range(i32 5, 4) i32 @Curl_rand(ptr noundef %0, ptr nocapture no
   %.021 = phi i64 [ %13, %.preheader ], [ %6, %.preheader.preheader ]
   %.11419 = phi ptr [ %10, %.preheader ], [ %.01323, %.preheader.preheader ]
   %9 = trunc i32 %8 to i8
-  %10 = getelementptr inbounds i8, ptr %.11419, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.11419, i64 1
   store i8 %9, ptr %.11419, align 1
   %11 = load i32, ptr %4, align 4
   %12 = lshr i32 %11, 8
@@ -91,7 +91,7 @@ define internal fastcc range(i32 5, 4) i32 @randit(ptr noundef %0, ptr noundef n
   br i1 %.not20, label %24, label %19
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %0, i64 2642
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 2642
   %21 = load i64, ptr %20, align 2
   %22 = and i64 %21, 268435456
   %.not21 = icmp eq i64 %22, 0
@@ -172,7 +172,7 @@ Curl_rand.exit.thread:                            ; preds = %.loopexit.i
   %.021.i = phi i64 [ %18, %.preheader.i ], [ %11, %.preheader.preheader.i ]
   %.11419.i = phi ptr [ %15, %.preheader.i ], [ %.01323.i, %.preheader.preheader.i ]
   %14 = trunc i32 %13 to i8
-  %15 = getelementptr inbounds i8, ptr %.11419.i, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %.11419.i, i64 1
   store i8 %14, ptr %.11419.i, align 1
   %16 = load i32, ptr %4, align 4
   %17 = lshr i32 %16, 8
@@ -217,9 +217,9 @@ define dso_local range(i32 5, 4) i32 @Curl_rand_alnum(ptr noundef %0, ptr nocapt
 10:                                               ; preds = %7
   %11 = urem i32 %8, 62
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds [63 x i8], ptr @alnum, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw [63 x i8], ptr @alnum, i64 0, i64 %12
   %14 = load i8, ptr %13, align 1
-  %15 = getelementptr inbounds i8, ptr %.01120, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %.01120, i64 1
   store i8 %14, ptr %.01120, align 1
   %.010 = add i64 %.01021, -1
   %.not = icmp eq i64 %.010, 0

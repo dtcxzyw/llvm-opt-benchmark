@@ -13,13 +13,13 @@ define hidden ptr @pm_strpbrk(ptr noundef %0, ptr noundef %1, ptr noundef readon
   br i1 %6, label %pm_strpbrk_utf8.exit, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 643
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 643
   %9 = load i8, ptr %8, align 1
   %10 = trunc i8 %9 to i1
   br i1 %10, label %56, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 432
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 432
   br i1 %4, label %.split.us.i, label %.split.i
 
 .split.us.i:                                      ; preds = %11, %37
@@ -111,7 +111,7 @@ define hidden ptr @pm_strpbrk(ptr noundef %0, ptr noundef %1, ptr noundef readon
   br i1 %55, label %.split.i, label %pm_strpbrk_utf8.exit, !llvm.loop !9
 
 56:                                               ; preds = %7
-  %57 = getelementptr inbounds i8, ptr %0, i64 472
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %58 = load ptr, ptr %57, align 8
   %59 = icmp eq ptr %58, getelementptr inbounds (i8, ptr @pm_encodings, i64 48)
   br i1 %59, label %.preheader, label %66
@@ -131,10 +131,10 @@ define hidden ptr @pm_strpbrk(ptr noundef %0, ptr noundef %1, ptr noundef readon
   br i1 %exitcond.not.i, label %pm_strpbrk_utf8.exit, label %.preheader, !llvm.loop !10
 
 66:                                               ; preds = %56
-  %67 = getelementptr inbounds i8, ptr %58, i64 40
+  %67 = getelementptr inbounds nuw i8, ptr %58, i64 40
   %68 = load i8, ptr %67, align 8
   %69 = trunc i8 %68 to i1
-  %70 = getelementptr inbounds i8, ptr %0, i64 432
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 432
   br i1 %69, label %71, label %121
 
 71:                                               ; preds = %66

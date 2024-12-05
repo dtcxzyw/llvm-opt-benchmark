@@ -136,7 +136,7 @@ define hidden noundef zeroext i1 @_ZN8rawspeed10Rw2Decoder20isAppropriateDecoder
   %4 = alloca %"struct.rawspeed::TiffID", align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #24
   call void @_ZNK8rawspeed11TiffRootIFD5getIDEv(ptr dead_on_unwind nonnull writable sret(%"struct.rawspeed::TiffID") align 8 %4, ptr noundef nonnull align 8 dereferenceable(120) %0)
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !6
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %13, label %8
@@ -202,14 +202,14 @@ define hidden noundef zeroext i1 @_ZN8rawspeed10Rw2Decoder20isAppropriateDecoder
 
 43:                                               ; preds = %37, %32, %25, %13
   %44 = phi i1 [ true, %25 ], [ true, %13 ], [ false, %32 ], [ %42, %37 ]
-  %45 = getelementptr inbounds i8, ptr %4, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %46 = load ptr, ptr %45, align 8, !tbaa !13
-  %47 = getelementptr inbounds i8, ptr %4, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %48 = icmp eq ptr %46, %47
   br i1 %48, label %49, label %53
 
 49:                                               ; preds = %43
-  %50 = getelementptr inbounds i8, ptr %4, i64 40
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %51 = load i64, ptr %50, align 8, !tbaa !6
   %52 = icmp ult i64 %51, 16
   call void @llvm.assume(i1 %52)
@@ -221,7 +221,7 @@ define hidden noundef zeroext i1 @_ZN8rawspeed10Rw2Decoder20isAppropriateDecoder
 
 54:                                               ; preds = %53, %49
   %55 = load ptr, ptr %4, align 8, !tbaa !13
-  %56 = getelementptr inbounds i8, ptr %4, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %57 = icmp eq ptr %55, %56
   br i1 %57, label %58, label %61
 
@@ -252,14 +252,14 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8rawspeed6TiffIDD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !13
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = icmp eq ptr %3, %4
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i64, ptr %7, align 8, !tbaa !6
   %9 = icmp ult i64 %8, 16
   tail call void @llvm.assume(i1 %9)
@@ -271,12 +271,12 @@ define linkonce_odr hidden void @_ZN8rawspeed6TiffIDD2Ev(ptr noundef nonnull ali
 
 11:                                               ; preds = %10, %6
   %12 = load ptr, ptr %0, align 8, !tbaa !13
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = icmp eq ptr %12, %13
   br i1 %14, label %15, label %19
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i64, ptr %16, align 8, !tbaa !6
   %18 = icmp ult i64 %17, 16
   tail call void @llvm.assume(i1 %18)
@@ -317,7 +317,7 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
   %25 = alloca %"class.rawspeed::PanasonicV7Decompressor", align 8
   %26 = alloca %"class.rawspeed::RawImage", align 16
   %27 = alloca %"class.rawspeed::ByteStream", align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 96
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %29 = load ptr, ptr %28, align 8, !tbaa !14
   %30 = tail call noundef ptr @_ZNK8rawspeed7TiffIFD17getEntryRecursiveENS_7TiffTagE(ptr noundef nonnull align 8 dereferenceable(104) %29, i32 noundef 280) #26
   %31 = icmp eq ptr %30, null
@@ -345,7 +345,7 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
 
 47:                                               ; preds = %40
   %48 = tail call noundef ptr @_ZNK8rawspeed7TiffIFD8getEntryENS_7TiffTagE(ptr noundef nonnull align 8 dereferenceable(104) %33, i32 noundef 273)
-  %49 = getelementptr inbounds i8, ptr %48, i64 48
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 48
   %50 = load i32, ptr %49, align 8, !tbaa !15
   %51 = icmp eq i32 %50, 1
   br i1 %51, label %53, label %52
@@ -356,9 +356,9 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
 
 53:                                               ; preds = %47
   %54 = tail call noundef i32 @_ZNK8rawspeed9TiffEntry6getU32Ej(ptr noundef nonnull align 8 dereferenceable(52) %48, i32 noundef 0)
-  %55 = getelementptr inbounds i8, ptr %1, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %56 = zext i32 %54 to i64
-  %57 = getelementptr inbounds i8, ptr %1, i64 40
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %58 = load i32, ptr %57, align 8, !tbaa !24
   %59 = icmp ult i32 %54, %58
   br i1 %59, label %61, label %60
@@ -368,9 +368,9 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
   unreachable
 
 61:                                               ; preds = %53
-  %62 = getelementptr inbounds i8, ptr %1, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %63 = load ptr, ptr %62, align 8, !tbaa !25
-  %64 = getelementptr inbounds i8, ptr %63, i64 40
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 40
   %65 = zext nneg i16 %35 to i64
   %66 = shl nuw nsw i64 %65, 32
   %67 = zext nneg i16 %38 to i64
@@ -411,14 +411,14 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
   tail call void @llvm.assume(i1 %86)
   %87 = icmp sgt i32 %70, -1
   tail call void @llvm.assume(i1 %87)
-  %88 = getelementptr inbounds i8, ptr %84, i64 %56
+  %88 = getelementptr inbounds nuw i8, ptr %84, i64 %56
   %89 = or disjoint i64 %79, 244834610708480
   store ptr %88, ptr %4, align 8
-  %90 = getelementptr inbounds i8, ptr %4, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %89, ptr %90, align 8
-  %91 = getelementptr inbounds i8, ptr %4, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %91, align 8, !tbaa !32
-  %92 = getelementptr inbounds i8, ptr %5, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %93 = load <2 x ptr>, ptr %62, align 8, !tbaa !14
   store <2 x ptr> %93, ptr %5, align 16, !tbaa !14
   %94 = extractelement <2 x ptr> %93, i64 1
@@ -426,7 +426,7 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
   br i1 %95, label %105, label %96
 
 96:                                               ; preds = %83
-  %97 = getelementptr inbounds i8, ptr %94, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %98 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !33
   %99 = icmp eq i8 %98, 0
   br i1 %99, label %103, label %100
@@ -444,7 +444,7 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
 105:                                              ; preds = %103, %100, %83
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #24
   store i64 0, ptr %6, align 8, !tbaa.struct !28
-  %106 = getelementptr inbounds i8, ptr %6, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %68, ptr %106, align 8, !tbaa.struct !28
   %107 = shl nuw nsw i32 %39, 1
   invoke void @_ZN8rawspeed24UncompressedDecompressorC1ENS_10ByteStreamENS_8RawImageERKNS_12iRectangle2DEiiNS_8BitOrderE(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull byval(%"class.rawspeed::ByteStream") align 8 %4, ptr noundef nonnull %5, ptr noundef nonnull align 4 dereferenceable(16) %6, i32 noundef %107, i32 noundef 16, i32 noundef 0)
@@ -457,7 +457,7 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
   br i1 %110, label %135, label %111
 
 111:                                              ; preds = %108
-  %112 = getelementptr inbounds i8, ptr %109, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %109, i64 8
   %113 = load atomic i64, ptr %112 acquire, align 8
   %114 = icmp eq i64 %113, 4294967297
   %115 = trunc i64 %113 to i32
@@ -465,14 +465,14 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
 
 116:                                              ; preds = %111
   store i32 0, ptr %112, align 8, !tbaa !35
-  %117 = getelementptr inbounds i8, ptr %109, i64 12
+  %117 = getelementptr inbounds nuw i8, ptr %109, i64 12
   store i32 0, ptr %117, align 4, !tbaa !37
   %118 = load ptr, ptr %109, align 8, !tbaa !38
-  %119 = getelementptr inbounds i8, ptr %118, i64 16
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 16
   %120 = load ptr, ptr %119, align 8
   call void %120(ptr noundef nonnull align 8 dereferenceable(16) %109) #24
   %121 = load ptr, ptr %109, align 8, !tbaa !38
-  %122 = getelementptr inbounds i8, ptr %121, i64 24
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 24
   %123 = load ptr, ptr %122, align 8
   call void %123(ptr noundef nonnull align 8 dereferenceable(16) %109) #24
   br label %135
@@ -510,13 +510,13 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
           to label %138 unwind label %169
 
 138:                                              ; preds = %137
-  %139 = getelementptr inbounds i8, ptr %3, i64 32
+  %139 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %140 = load ptr, ptr %139, align 8, !tbaa !34
   %141 = icmp eq ptr %140, null
   br i1 %141, label %166, label %142
 
 142:                                              ; preds = %138
-  %143 = getelementptr inbounds i8, ptr %140, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %140, i64 8
   %144 = load atomic i64, ptr %143 acquire, align 8
   %145 = icmp eq i64 %144, 4294967297
   %146 = trunc i64 %144 to i32
@@ -524,14 +524,14 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
 
 147:                                              ; preds = %142
   store i32 0, ptr %143, align 8, !tbaa !35
-  %148 = getelementptr inbounds i8, ptr %140, i64 12
+  %148 = getelementptr inbounds nuw i8, ptr %140, i64 12
   store i32 0, ptr %148, align 4, !tbaa !37
   %149 = load ptr, ptr %140, align 8, !tbaa !38
-  %150 = getelementptr inbounds i8, ptr %149, i64 16
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 16
   %151 = load ptr, ptr %150, align 8
   call void %151(ptr noundef nonnull align 8 dereferenceable(16) %140) #24
   %152 = load ptr, ptr %140, align 8, !tbaa !38
-  %153 = getelementptr inbounds i8, ptr %152, i64 24
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 24
   %154 = load ptr, ptr %153, align 8
   call void %154(ptr noundef nonnull align 8 dereferenceable(16) %140) #24
   br label %166
@@ -613,14 +613,14 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
   tail call void @llvm.assume(i1 %188)
   %189 = icmp sgt i32 %54, -1
   tail call void @llvm.assume(i1 %189)
-  %190 = getelementptr inbounds i8, ptr %187, i64 %56
+  %190 = getelementptr inbounds nuw i8, ptr %187, i64 %56
   %191 = or disjoint i64 %182, 244834610708480
   store ptr %190, ptr %8, align 8
-  %192 = getelementptr inbounds i8, ptr %8, i64 8
+  %192 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %191, ptr %192, align 8
-  %193 = getelementptr inbounds i8, ptr %8, i64 16
+  %193 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 0, ptr %193, align 8, !tbaa !32
-  %194 = getelementptr inbounds i8, ptr %9, i64 8
+  %194 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %195 = load <2 x ptr>, ptr %62, align 8, !tbaa !14
   store <2 x ptr> %195, ptr %9, align 16, !tbaa !14
   %196 = extractelement <2 x ptr> %195, i64 1
@@ -628,7 +628,7 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
   br i1 %197, label %207, label %198
 
 198:                                              ; preds = %186
-  %199 = getelementptr inbounds i8, ptr %196, i64 8
+  %199 = getelementptr inbounds nuw i8, ptr %196, i64 8
   %200 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !33
   %201 = icmp eq i8 %200, 0
   br i1 %201, label %205, label %202
@@ -646,7 +646,7 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
 207:                                              ; preds = %205, %202, %186
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #24
   store i64 0, ptr %10, align 8, !tbaa.struct !28
-  %208 = getelementptr inbounds i8, ptr %10, i64 8
+  %208 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %68, ptr %208, align 8, !tbaa.struct !28
   %209 = mul nuw nsw i32 %39, 12
   %210 = lshr i32 %209, 3
@@ -663,7 +663,7 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
   br i1 %216, label %241, label %217
 
 217:                                              ; preds = %214
-  %218 = getelementptr inbounds i8, ptr %215, i64 8
+  %218 = getelementptr inbounds nuw i8, ptr %215, i64 8
   %219 = load atomic i64, ptr %218 acquire, align 8
   %220 = icmp eq i64 %219, 4294967297
   %221 = trunc i64 %219 to i32
@@ -671,14 +671,14 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
 
 222:                                              ; preds = %217
   store i32 0, ptr %218, align 8, !tbaa !35
-  %223 = getelementptr inbounds i8, ptr %215, i64 12
+  %223 = getelementptr inbounds nuw i8, ptr %215, i64 12
   store i32 0, ptr %223, align 4, !tbaa !37
   %224 = load ptr, ptr %215, align 8, !tbaa !38
-  %225 = getelementptr inbounds i8, ptr %224, i64 16
+  %225 = getelementptr inbounds nuw i8, ptr %224, i64 16
   %226 = load ptr, ptr %225, align 8
   call void %226(ptr noundef nonnull align 8 dereferenceable(16) %215) #24
   %227 = load ptr, ptr %215, align 8, !tbaa !38
-  %228 = getelementptr inbounds i8, ptr %227, i64 24
+  %228 = getelementptr inbounds nuw i8, ptr %227, i64 24
   %229 = load ptr, ptr %228, align 8
   call void %229(ptr noundef nonnull align 8 dereferenceable(16) %215) #24
   br label %241
@@ -716,13 +716,13 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
           to label %244 unwind label %275
 
 244:                                              ; preds = %243
-  %245 = getelementptr inbounds i8, ptr %7, i64 32
+  %245 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %246 = load ptr, ptr %245, align 8, !tbaa !34
   %247 = icmp eq ptr %246, null
   br i1 %247, label %272, label %248
 
 248:                                              ; preds = %244
-  %249 = getelementptr inbounds i8, ptr %246, i64 8
+  %249 = getelementptr inbounds nuw i8, ptr %246, i64 8
   %250 = load atomic i64, ptr %249 acquire, align 8
   %251 = icmp eq i64 %250, 4294967297
   %252 = trunc i64 %250 to i32
@@ -730,14 +730,14 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
 
 253:                                              ; preds = %248
   store i32 0, ptr %249, align 8, !tbaa !35
-  %254 = getelementptr inbounds i8, ptr %246, i64 12
+  %254 = getelementptr inbounds nuw i8, ptr %246, i64 12
   store i32 0, ptr %254, align 4, !tbaa !37
   %255 = load ptr, ptr %246, align 8, !tbaa !38
-  %256 = getelementptr inbounds i8, ptr %255, i64 16
+  %256 = getelementptr inbounds nuw i8, ptr %255, i64 16
   %257 = load ptr, ptr %256, align 8
   call void %257(ptr noundef nonnull align 8 dereferenceable(16) %246) #24
   %258 = load ptr, ptr %246, align 8, !tbaa !38
-  %259 = getelementptr inbounds i8, ptr %258, i64 24
+  %259 = getelementptr inbounds nuw i8, ptr %258, i64 24
   %260 = load ptr, ptr %259, align 8
   call void %260(ptr noundef nonnull align 8 dereferenceable(16) %246) #24
   br label %272
@@ -789,7 +789,7 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
 
 279:                                              ; preds = %173
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %11) #24
-  %280 = getelementptr inbounds i8, ptr %12, i64 8
+  %280 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %281 = load <2 x ptr>, ptr %62, align 8, !tbaa !14
   store <2 x ptr> %281, ptr %12, align 16, !tbaa !14
   %282 = extractelement <2 x ptr> %281, i64 1
@@ -797,7 +797,7 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
   br i1 %283, label %293, label %284
 
 284:                                              ; preds = %279
-  %285 = getelementptr inbounds i8, ptr %282, i64 8
+  %285 = getelementptr inbounds nuw i8, ptr %282, i64 8
   %286 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !33
   %287 = icmp eq i8 %286, 0
   br i1 %287, label %291, label %288
@@ -832,38 +832,38 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
   tail call void @llvm.assume(i1 %302)
   %303 = icmp sgt i32 %54, -1
   tail call void @llvm.assume(i1 %303)
-  %304 = getelementptr inbounds i8, ptr %301, i64 %56
+  %304 = getelementptr inbounds nuw i8, ptr %301, i64 %56
   %305 = or disjoint i64 %300, 244834610708480
   store ptr %304, ptr %13, align 8
-  %306 = getelementptr inbounds i8, ptr %13, i64 8
+  %306 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 %305, ptr %306, align 8
-  %307 = getelementptr inbounds i8, ptr %13, i64 16
+  %307 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i32 0, ptr %307, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #24
-  %308 = getelementptr inbounds i8, ptr %14, i64 16
+  %308 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %308, ptr %14, align 8, !tbaa !41
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %308, ptr noundef nonnull align 1 dereferenceable(15) @.str.6, i64 15, i1 false)
-  %309 = getelementptr inbounds i8, ptr %14, i64 8
+  %309 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 15, ptr %309, align 8, !tbaa !6
-  %310 = getelementptr inbounds i8, ptr %14, i64 31
+  %310 = getelementptr inbounds nuw i8, ptr %14, i64 31
   store i8 0, ptr %310, align 1, !tbaa !33
-  %311 = getelementptr inbounds i8, ptr %1, i64 64
+  %311 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %312 = load ptr, ptr %311, align 8, !tbaa !42
-  %313 = getelementptr inbounds i8, ptr %1, i64 56
+  %313 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %314 = icmp eq ptr %312, null
   br i1 %314, label %360, label %.preheader
 
 .preheader:                                       ; preds = %298, %331
   %315 = phi ptr [ %337, %331 ], [ %312, %298 ]
   %316 = phi ptr [ %334, %331 ], [ %313, %298 ]
-  %317 = getelementptr inbounds i8, ptr %315, i64 40
+  %317 = getelementptr inbounds nuw i8, ptr %315, i64 40
   %318 = load i64, ptr %317, align 8, !tbaa !6
   %319 = icmp eq i64 %318, 0
   br i1 %319, label %326, label %320
 
 320:                                              ; preds = %.preheader
   %321 = call i64 @llvm.umin.i64(i64 %318, i64 15)
-  %322 = getelementptr inbounds i8, ptr %315, i64 32
+  %322 = getelementptr inbounds nuw i8, ptr %315, i64 32
   %323 = load ptr, ptr %322, align 8, !tbaa !13
   %324 = call i32 @memcmp(ptr noundef %323, ptr noundef nonnull %308, i64 noundef %321) #24
   %325 = icmp eq i32 %324, 0
@@ -881,7 +881,7 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
   %333 = icmp slt i32 %332, 0
   %334 = select i1 %333, ptr %316, ptr %315
   %335 = select i1 %333, i64 24, i64 16
-  %336 = getelementptr inbounds i8, ptr %315, i64 %335
+  %336 = getelementptr inbounds nuw i8, ptr %315, i64 %335
   %337 = load ptr, ptr %336, align 8, !tbaa !14
   %338 = icmp eq ptr %337, null
   br i1 %338, label %339, label %.preheader, !llvm.loop !46
@@ -891,14 +891,14 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
   br i1 %340, label %360, label %341
 
 341:                                              ; preds = %339
-  %342 = getelementptr inbounds i8, ptr %334, i64 40
+  %342 = getelementptr inbounds nuw i8, ptr %334, i64 40
   %343 = load i64, ptr %342, align 8, !tbaa !6
   %344 = icmp eq i64 %343, 0
   br i1 %344, label %351, label %345
 
 345:                                              ; preds = %341
   %346 = call i64 @llvm.umin.i64(i64 %343, i64 15)
-  %347 = getelementptr inbounds i8, ptr %334, i64 32
+  %347 = getelementptr inbounds nuw i8, ptr %334, i64 32
   %348 = load ptr, ptr %347, align 8, !tbaa !13
   %349 = call i32 @memcmp(ptr noundef nonnull %308, ptr noundef %348, i64 noundef %346) #24
   %350 = icmp eq i32 %349, 0
@@ -945,7 +945,7 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
   br i1 %372, label %397, label %373
 
 373:                                              ; preds = %370
-  %374 = getelementptr inbounds i8, ptr %371, i64 8
+  %374 = getelementptr inbounds nuw i8, ptr %371, i64 8
   %375 = load atomic i64, ptr %374 acquire, align 8
   %376 = icmp eq i64 %375, 4294967297
   %377 = trunc i64 %375 to i32
@@ -953,14 +953,14 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
 
 378:                                              ; preds = %373
   store i32 0, ptr %374, align 8, !tbaa !35
-  %379 = getelementptr inbounds i8, ptr %371, i64 12
+  %379 = getelementptr inbounds nuw i8, ptr %371, i64 12
   store i32 0, ptr %379, align 4, !tbaa !37
   %380 = load ptr, ptr %371, align 8, !tbaa !38
-  %381 = getelementptr inbounds i8, ptr %380, i64 16
+  %381 = getelementptr inbounds nuw i8, ptr %380, i64 16
   %382 = load ptr, ptr %381, align 8
   call void %382(ptr noundef nonnull align 8 dereferenceable(16) %371) #24
   %383 = load ptr, ptr %371, align 8, !tbaa !38
-  %384 = getelementptr inbounds i8, ptr %383, i64 24
+  %384 = getelementptr inbounds nuw i8, ptr %383, i64 24
   %385 = load ptr, ptr %384, align 8
   call void %385(ptr noundef nonnull align 8 dereferenceable(16) %371) #24
   br label %397
@@ -995,7 +995,7 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
 
 399:                                              ; preds = %397
   call void @_ZNK8rawspeed23PanasonicV4Decompressor10decompressEv(ptr noundef nonnull align 8 dereferenceable(72) %11) #24
-  %400 = getelementptr inbounds i8, ptr %11, i64 48
+  %400 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %401 = load ptr, ptr %400, align 8, !tbaa !48
   %402 = icmp eq ptr %401, null
   br i1 %402, label %404, label %403
@@ -1005,13 +1005,13 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
   br label %404
 
 404:                                              ; preds = %403, %399
-  %405 = getelementptr inbounds i8, ptr %11, i64 8
+  %405 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %406 = load ptr, ptr %405, align 8, !tbaa !34
   %407 = icmp eq ptr %406, null
   br i1 %407, label %432, label %408
 
 408:                                              ; preds = %404
-  %409 = getelementptr inbounds i8, ptr %406, i64 8
+  %409 = getelementptr inbounds nuw i8, ptr %406, i64 8
   %410 = load atomic i64, ptr %409 acquire, align 8
   %411 = icmp eq i64 %410, 4294967297
   %412 = trunc i64 %410 to i32
@@ -1019,14 +1019,14 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
 
 413:                                              ; preds = %408
   store i32 0, ptr %409, align 8, !tbaa !35
-  %414 = getelementptr inbounds i8, ptr %406, i64 12
+  %414 = getelementptr inbounds nuw i8, ptr %406, i64 12
   store i32 0, ptr %414, align 4, !tbaa !37
   %415 = load ptr, ptr %406, align 8, !tbaa !38
-  %416 = getelementptr inbounds i8, ptr %415, i64 16
+  %416 = getelementptr inbounds nuw i8, ptr %415, i64 16
   %417 = load ptr, ptr %416, align 8
   call void %417(ptr noundef nonnull align 8 dereferenceable(16) %406) #24
   %418 = load ptr, ptr %406, align 8, !tbaa !38
-  %419 = getelementptr inbounds i8, ptr %418, i64 24
+  %419 = getelementptr inbounds nuw i8, ptr %418, i64 24
   %420 = load ptr, ptr %419, align 8
   call void %420(ptr noundef nonnull align 8 dereferenceable(16) %406) #24
   br label %432
@@ -1108,7 +1108,7 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
   br i1 %453, label %987, label %454
 
 454:                                              ; preds = %450
-  %455 = getelementptr inbounds i8, ptr %452, i64 8
+  %455 = getelementptr inbounds nuw i8, ptr %452, i64 8
   %456 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !33
   %457 = icmp eq i8 %456, 0
   br i1 %457, label %461, label %458
@@ -1124,16 +1124,16 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
   br label %987
 
 463:                                              ; preds = %2
-  %464 = getelementptr inbounds i8, ptr %1, i64 8
+  %464 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %465 = load ptr, ptr %464, align 8, !tbaa !25
-  %466 = getelementptr inbounds i8, ptr %465, i64 40
+  %466 = getelementptr inbounds nuw i8, ptr %465, i64 40
   %467 = zext i16 %35 to i64
   %468 = shl nuw nsw i64 %467, 32
   %469 = zext i16 %38 to i64
   %470 = or disjoint i64 %468, %469
   store i64 %470, ptr %466, align 8, !tbaa.struct !28
   %471 = tail call noundef ptr @_ZNK8rawspeed7TiffIFD8getEntryENS_7TiffTagE(ptr noundef nonnull align 8 dereferenceable(104) %33, i32 noundef 280)
-  %472 = getelementptr inbounds i8, ptr %471, i64 48
+  %472 = getelementptr inbounds nuw i8, ptr %471, i64 48
   %473 = load i32, ptr %472, align 8, !tbaa !15
   %474 = icmp eq i32 %473, 1
   br i1 %474, label %476, label %475
@@ -1144,7 +1144,7 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
 
 476:                                              ; preds = %463
   %477 = tail call noundef i32 @_ZNK8rawspeed9TiffEntry6getU32Ej(ptr noundef nonnull align 8 dereferenceable(52) %471, i32 noundef 0)
-  %478 = getelementptr inbounds i8, ptr %1, i64 40
+  %478 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %479 = load i32, ptr %478, align 8, !tbaa !24
   %480 = icmp ult i32 %479, %477
   br i1 %480, label %481, label %482
@@ -1155,7 +1155,7 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
 
 482:                                              ; preds = %476
   %483 = zext nneg i32 %477 to i64
-  %484 = getelementptr inbounds i8, ptr %1, i64 32
+  %484 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %485 = sub nuw nsw i32 %479, %477
   %486 = zext nneg i32 %485 to i64
   %487 = load ptr, ptr %484, align 8, !tbaa !30, !nonnull !31, !noundef !31
@@ -1163,23 +1163,23 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
   tail call void @llvm.assume(i1 %488)
   %489 = icmp sgt i32 %477, -1
   tail call void @llvm.assume(i1 %489)
-  %490 = getelementptr inbounds i8, ptr %487, i64 %483
+  %490 = getelementptr inbounds nuw i8, ptr %487, i64 %483
   %491 = or disjoint i64 %486, 244834610708480
-  %492 = getelementptr inbounds i8, ptr %33, i64 72
+  %492 = getelementptr inbounds nuw i8, ptr %33, i64 72
   %493 = load ptr, ptr %492, align 8, !tbaa !42
-  %494 = getelementptr inbounds i8, ptr %33, i64 64
+  %494 = getelementptr inbounds nuw i8, ptr %33, i64 64
   %495 = icmp eq ptr %493, null
   br i1 %495, label %515, label %.preheader63
 
 .preheader63:                                     ; preds = %482, %.preheader63
   %496 = phi ptr [ %504, %.preheader63 ], [ %493, %482 ]
   %497 = phi ptr [ %501, %.preheader63 ], [ %494, %482 ]
-  %498 = getelementptr inbounds i8, ptr %496, i64 32
+  %498 = getelementptr inbounds nuw i8, ptr %496, i64 32
   %499 = load i32, ptr %498, align 4, !tbaa !50
   %500 = icmp slt i32 %499, 10
   %501 = select i1 %500, ptr %497, ptr %496
   %502 = select i1 %500, i64 24, i64 16
-  %503 = getelementptr inbounds i8, ptr %496, i64 %502
+  %503 = getelementptr inbounds nuw i8, ptr %496, i64 %502
   %504 = load ptr, ptr %503, align 8, !tbaa !14
   %505 = icmp eq ptr %504, null
   br i1 %505, label %506, label %.preheader63, !llvm.loop !51
@@ -1189,7 +1189,7 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
   br i1 %507, label %515, label %508
 
 508:                                              ; preds = %506
-  %509 = getelementptr inbounds i8, ptr %501, i64 32
+  %509 = getelementptr inbounds nuw i8, ptr %501, i64 32
   %510 = load i32, ptr %509, align 4, !tbaa !50
   %511 = icmp sgt i32 %510, 10
   br i1 %511, label %515, label %512
@@ -1212,7 +1212,7 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
 
 519:                                              ; preds = %515
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %15) #24
-  %520 = getelementptr inbounds i8, ptr %16, i64 8
+  %520 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %521 = load <2 x ptr>, ptr %464, align 8, !tbaa !14
   store <2 x ptr> %521, ptr %16, align 16, !tbaa !14
   %522 = extractelement <2 x ptr> %521, i64 1
@@ -1220,7 +1220,7 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
   br i1 %523, label %533, label %524
 
 524:                                              ; preds = %519
-  %525 = getelementptr inbounds i8, ptr %522, i64 8
+  %525 = getelementptr inbounds nuw i8, ptr %522, i64 8
   %526 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !33
   %527 = icmp eq i8 %526, 0
   br i1 %527, label %531, label %528
@@ -1237,35 +1237,35 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
 
 533:                                              ; preds = %531, %528, %519
   store ptr %490, ptr %17, align 8
-  %534 = getelementptr inbounds i8, ptr %17, i64 8
+  %534 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 %491, ptr %534, align 8
-  %535 = getelementptr inbounds i8, ptr %17, i64 16
+  %535 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i32 0, ptr %535, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18) #24
-  %536 = getelementptr inbounds i8, ptr %18, i64 16
+  %536 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr %536, ptr %18, align 8, !tbaa !41
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %536, ptr noundef nonnull align 1 dereferenceable(15) @.str.6, i64 15, i1 false)
-  %537 = getelementptr inbounds i8, ptr %18, i64 8
+  %537 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 15, ptr %537, align 8, !tbaa !6
-  %538 = getelementptr inbounds i8, ptr %18, i64 31
+  %538 = getelementptr inbounds nuw i8, ptr %18, i64 31
   store i8 0, ptr %538, align 1, !tbaa !33
-  %539 = getelementptr inbounds i8, ptr %1, i64 64
+  %539 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %540 = load ptr, ptr %539, align 8, !tbaa !42
-  %541 = getelementptr inbounds i8, ptr %1, i64 56
+  %541 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %542 = icmp eq ptr %540, null
   br i1 %542, label %588, label %.preheader62
 
 .preheader62:                                     ; preds = %533, %559
   %543 = phi ptr [ %565, %559 ], [ %540, %533 ]
   %544 = phi ptr [ %562, %559 ], [ %541, %533 ]
-  %545 = getelementptr inbounds i8, ptr %543, i64 40
+  %545 = getelementptr inbounds nuw i8, ptr %543, i64 40
   %546 = load i64, ptr %545, align 8, !tbaa !6
   %547 = icmp eq i64 %546, 0
   br i1 %547, label %554, label %548
 
 548:                                              ; preds = %.preheader62
   %549 = call i64 @llvm.umin.i64(i64 %546, i64 15)
-  %550 = getelementptr inbounds i8, ptr %543, i64 32
+  %550 = getelementptr inbounds nuw i8, ptr %543, i64 32
   %551 = load ptr, ptr %550, align 8, !tbaa !13
   %552 = call i32 @memcmp(ptr noundef %551, ptr noundef nonnull %536, i64 noundef %549) #24
   %553 = icmp eq i32 %552, 0
@@ -1283,7 +1283,7 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
   %561 = icmp slt i32 %560, 0
   %562 = select i1 %561, ptr %544, ptr %543
   %563 = select i1 %561, i64 24, i64 16
-  %564 = getelementptr inbounds i8, ptr %543, i64 %563
+  %564 = getelementptr inbounds nuw i8, ptr %543, i64 %563
   %565 = load ptr, ptr %564, align 8, !tbaa !14
   %566 = icmp eq ptr %565, null
   br i1 %566, label %567, label %.preheader62, !llvm.loop !52
@@ -1293,14 +1293,14 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
   br i1 %568, label %588, label %569
 
 569:                                              ; preds = %567
-  %570 = getelementptr inbounds i8, ptr %562, i64 40
+  %570 = getelementptr inbounds nuw i8, ptr %562, i64 40
   %571 = load i64, ptr %570, align 8, !tbaa !6
   %572 = icmp eq i64 %571, 0
   br i1 %572, label %579, label %573
 
 573:                                              ; preds = %569
   %574 = call i64 @llvm.umin.i64(i64 %571, i64 15)
-  %575 = getelementptr inbounds i8, ptr %562, i64 32
+  %575 = getelementptr inbounds nuw i8, ptr %562, i64 32
   %576 = load ptr, ptr %575, align 8, !tbaa !13
   %577 = call i32 @memcmp(ptr noundef nonnull %536, ptr noundef %576, i64 noundef %574) #24
   %578 = icmp eq i32 %577, 0
@@ -1347,7 +1347,7 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
   br i1 %600, label %625, label %601
 
 601:                                              ; preds = %598
-  %602 = getelementptr inbounds i8, ptr %599, i64 8
+  %602 = getelementptr inbounds nuw i8, ptr %599, i64 8
   %603 = load atomic i64, ptr %602 acquire, align 8
   %604 = icmp eq i64 %603, 4294967297
   %605 = trunc i64 %603 to i32
@@ -1355,14 +1355,14 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
 
 606:                                              ; preds = %601
   store i32 0, ptr %602, align 8, !tbaa !35
-  %607 = getelementptr inbounds i8, ptr %599, i64 12
+  %607 = getelementptr inbounds nuw i8, ptr %599, i64 12
   store i32 0, ptr %607, align 4, !tbaa !37
   %608 = load ptr, ptr %599, align 8, !tbaa !38
-  %609 = getelementptr inbounds i8, ptr %608, i64 16
+  %609 = getelementptr inbounds nuw i8, ptr %608, i64 16
   %610 = load ptr, ptr %609, align 8
   call void %610(ptr noundef nonnull align 8 dereferenceable(16) %599) #24
   %611 = load ptr, ptr %599, align 8, !tbaa !38
-  %612 = getelementptr inbounds i8, ptr %611, i64 24
+  %612 = getelementptr inbounds nuw i8, ptr %611, i64 24
   %613 = load ptr, ptr %612, align 8
   call void %613(ptr noundef nonnull align 8 dereferenceable(16) %599) #24
   br label %625
@@ -1404,7 +1404,7 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
   br i1 %630, label %640, label %631
 
 631:                                              ; preds = %627
-  %632 = getelementptr inbounds i8, ptr %629, i64 8
+  %632 = getelementptr inbounds nuw i8, ptr %629, i64 8
   %633 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !33
   %634 = icmp eq i8 %633, 0
   br i1 %634, label %638, label %635
@@ -1420,7 +1420,7 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
   br label %640
 
 640:                                              ; preds = %638, %635, %627
-  %641 = getelementptr inbounds i8, ptr %15, i64 48
+  %641 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %642 = load ptr, ptr %641, align 8, !tbaa !48
   %643 = icmp eq ptr %642, null
   br i1 %643, label %645, label %644
@@ -1430,13 +1430,13 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
   br label %645
 
 645:                                              ; preds = %644, %640
-  %646 = getelementptr inbounds i8, ptr %15, i64 8
+  %646 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %647 = load ptr, ptr %646, align 8, !tbaa !34
   %648 = icmp eq ptr %647, null
   br i1 %648, label %673, label %649
 
 649:                                              ; preds = %645
-  %650 = getelementptr inbounds i8, ptr %647, i64 8
+  %650 = getelementptr inbounds nuw i8, ptr %647, i64 8
   %651 = load atomic i64, ptr %650 acquire, align 8
   %652 = icmp eq i64 %651, 4294967297
   %653 = trunc i64 %651 to i32
@@ -1444,14 +1444,14 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
 
 654:                                              ; preds = %649
   store i32 0, ptr %650, align 8, !tbaa !35
-  %655 = getelementptr inbounds i8, ptr %647, i64 12
+  %655 = getelementptr inbounds nuw i8, ptr %647, i64 12
   store i32 0, ptr %655, align 4, !tbaa !37
   %656 = load ptr, ptr %647, align 8, !tbaa !38
-  %657 = getelementptr inbounds i8, ptr %656, i64 16
+  %657 = getelementptr inbounds nuw i8, ptr %656, i64 16
   %658 = load ptr, ptr %657, align 8
   call void %658(ptr noundef nonnull align 8 dereferenceable(16) %647) #24
   %659 = load ptr, ptr %647, align 8, !tbaa !38
-  %660 = getelementptr inbounds i8, ptr %659, i64 24
+  %660 = getelementptr inbounds nuw i8, ptr %659, i64 24
   %661 = load ptr, ptr %660, align 8
   call void %661(ptr noundef nonnull align 8 dereferenceable(16) %647) #24
   br label %673
@@ -1518,7 +1518,7 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
 
 687:                                              ; preds = %515
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %19) #24
-  %688 = getelementptr inbounds i8, ptr %20, i64 8
+  %688 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %689 = load <2 x ptr>, ptr %464, align 8, !tbaa !14
   store <2 x ptr> %689, ptr %20, align 16, !tbaa !14
   %690 = extractelement <2 x ptr> %689, i64 1
@@ -1526,7 +1526,7 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
   br i1 %691, label %701, label %692
 
 692:                                              ; preds = %687
-  %693 = getelementptr inbounds i8, ptr %690, i64 8
+  %693 = getelementptr inbounds nuw i8, ptr %690, i64 8
   %694 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !33
   %695 = icmp eq i8 %694, 0
   br i1 %695, label %699, label %696
@@ -1543,9 +1543,9 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
 
 701:                                              ; preds = %699, %696, %687
   store ptr %490, ptr %21, align 8
-  %702 = getelementptr inbounds i8, ptr %21, i64 8
+  %702 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i64 %491, ptr %702, align 8
-  %703 = getelementptr inbounds i8, ptr %21, i64 16
+  %703 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i32 0, ptr %703, align 8
   %704 = zext i16 %516 to i32
   invoke void @_ZN8rawspeed23PanasonicV5DecompressorC1ENS_8RawImageENS_10ByteStreamEj(ptr noundef nonnull align 8 dereferenceable(80) %19, ptr noundef nonnull %20, ptr noundef nonnull byval(%"class.rawspeed::ByteStream") align 8 %21, i32 noundef %704)
@@ -1557,7 +1557,7 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
   br i1 %707, label %732, label %708
 
 708:                                              ; preds = %705
-  %709 = getelementptr inbounds i8, ptr %706, i64 8
+  %709 = getelementptr inbounds nuw i8, ptr %706, i64 8
   %710 = load atomic i64, ptr %709 acquire, align 8
   %711 = icmp eq i64 %710, 4294967297
   %712 = trunc i64 %710 to i32
@@ -1565,14 +1565,14 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
 
 713:                                              ; preds = %708
   store i32 0, ptr %709, align 8, !tbaa !35
-  %714 = getelementptr inbounds i8, ptr %706, i64 12
+  %714 = getelementptr inbounds nuw i8, ptr %706, i64 12
   store i32 0, ptr %714, align 4, !tbaa !37
   %715 = load ptr, ptr %706, align 8, !tbaa !38
-  %716 = getelementptr inbounds i8, ptr %715, i64 16
+  %716 = getelementptr inbounds nuw i8, ptr %715, i64 16
   %717 = load ptr, ptr %716, align 8
   call void %717(ptr noundef nonnull align 8 dereferenceable(16) %706) #24
   %718 = load ptr, ptr %706, align 8, !tbaa !38
-  %719 = getelementptr inbounds i8, ptr %718, i64 24
+  %719 = getelementptr inbounds nuw i8, ptr %718, i64 24
   %720 = load ptr, ptr %719, align 8
   call void %720(ptr noundef nonnull align 8 dereferenceable(16) %706) #24
   br label %732
@@ -1614,7 +1614,7 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
   br i1 %737, label %747, label %738
 
 738:                                              ; preds = %734
-  %739 = getelementptr inbounds i8, ptr %736, i64 8
+  %739 = getelementptr inbounds nuw i8, ptr %736, i64 8
   %740 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !33
   %741 = icmp eq i8 %740, 0
   br i1 %741, label %745, label %742
@@ -1630,7 +1630,7 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
   br label %747
 
 747:                                              ; preds = %745, %742, %734
-  %748 = getelementptr inbounds i8, ptr %19, i64 56
+  %748 = getelementptr inbounds nuw i8, ptr %19, i64 56
   %749 = load ptr, ptr %748, align 8, !tbaa !53
   %750 = icmp eq ptr %749, null
   br i1 %750, label %752, label %751
@@ -1640,13 +1640,13 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
   br label %752
 
 752:                                              ; preds = %751, %747
-  %753 = getelementptr inbounds i8, ptr %19, i64 8
+  %753 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %754 = load ptr, ptr %753, align 8, !tbaa !34
   %755 = icmp eq ptr %754, null
   br i1 %755, label %780, label %756
 
 756:                                              ; preds = %752
-  %757 = getelementptr inbounds i8, ptr %754, i64 8
+  %757 = getelementptr inbounds nuw i8, ptr %754, i64 8
   %758 = load atomic i64, ptr %757 acquire, align 8
   %759 = icmp eq i64 %758, 4294967297
   %760 = trunc i64 %758 to i32
@@ -1654,14 +1654,14 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
 
 761:                                              ; preds = %756
   store i32 0, ptr %757, align 8, !tbaa !35
-  %762 = getelementptr inbounds i8, ptr %754, i64 12
+  %762 = getelementptr inbounds nuw i8, ptr %754, i64 12
   store i32 0, ptr %762, align 4, !tbaa !37
   %763 = load ptr, ptr %754, align 8, !tbaa !38
-  %764 = getelementptr inbounds i8, ptr %763, i64 16
+  %764 = getelementptr inbounds nuw i8, ptr %763, i64 16
   %765 = load ptr, ptr %764, align 8
   call void %765(ptr noundef nonnull align 8 dereferenceable(16) %754) #24
   %766 = load ptr, ptr %754, align 8, !tbaa !38
-  %767 = getelementptr inbounds i8, ptr %766, i64 24
+  %767 = getelementptr inbounds nuw i8, ptr %766, i64 24
   %768 = load ptr, ptr %767, align 8
   call void %768(ptr noundef nonnull align 8 dereferenceable(16) %754) #24
   br label %780
@@ -1722,7 +1722,7 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
 
 792:                                              ; preds = %787
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %22) #24
-  %793 = getelementptr inbounds i8, ptr %23, i64 8
+  %793 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %794 = load <2 x ptr>, ptr %464, align 8, !tbaa !14
   store <2 x ptr> %794, ptr %23, align 16, !tbaa !14
   %795 = extractelement <2 x ptr> %794, i64 1
@@ -1730,7 +1730,7 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
   br i1 %796, label %806, label %797
 
 797:                                              ; preds = %792
-  %798 = getelementptr inbounds i8, ptr %795, i64 8
+  %798 = getelementptr inbounds nuw i8, ptr %795, i64 8
   %799 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !33
   %800 = icmp eq i8 %799, 0
   br i1 %800, label %804, label %801
@@ -1747,9 +1747,9 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
 
 806:                                              ; preds = %804, %801, %792
   store ptr %490, ptr %24, align 8
-  %807 = getelementptr inbounds i8, ptr %24, i64 8
+  %807 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %491, ptr %807, align 8
-  %808 = getelementptr inbounds i8, ptr %24, i64 16
+  %808 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store i32 0, ptr %808, align 8
   invoke void @_ZN8rawspeed23PanasonicV6DecompressorC1ENS_8RawImageENS_10ByteStreamEj(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull %23, ptr noundef nonnull byval(%"class.rawspeed::ByteStream") align 8 %24, i32 noundef %788)
           to label %809 unwind label %880
@@ -1760,7 +1760,7 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
   br i1 %811, label %836, label %812
 
 812:                                              ; preds = %809
-  %813 = getelementptr inbounds i8, ptr %810, i64 8
+  %813 = getelementptr inbounds nuw i8, ptr %810, i64 8
   %814 = load atomic i64, ptr %813 acquire, align 8
   %815 = icmp eq i64 %814, 4294967297
   %816 = trunc i64 %814 to i32
@@ -1768,14 +1768,14 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
 
 817:                                              ; preds = %812
   store i32 0, ptr %813, align 8, !tbaa !35
-  %818 = getelementptr inbounds i8, ptr %810, i64 12
+  %818 = getelementptr inbounds nuw i8, ptr %810, i64 12
   store i32 0, ptr %818, align 4, !tbaa !37
   %819 = load ptr, ptr %810, align 8, !tbaa !38
-  %820 = getelementptr inbounds i8, ptr %819, i64 16
+  %820 = getelementptr inbounds nuw i8, ptr %819, i64 16
   %821 = load ptr, ptr %820, align 8
   call void %821(ptr noundef nonnull align 8 dereferenceable(16) %810) #24
   %822 = load ptr, ptr %810, align 8, !tbaa !38
-  %823 = getelementptr inbounds i8, ptr %822, i64 24
+  %823 = getelementptr inbounds nuw i8, ptr %822, i64 24
   %824 = load ptr, ptr %823, align 8
   call void %824(ptr noundef nonnull align 8 dereferenceable(16) %810) #24
   br label %836
@@ -1817,7 +1817,7 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
   br i1 %841, label %851, label %842
 
 842:                                              ; preds = %838
-  %843 = getelementptr inbounds i8, ptr %840, i64 8
+  %843 = getelementptr inbounds nuw i8, ptr %840, i64 8
   %844 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !33
   %845 = icmp eq i8 %844, 0
   br i1 %845, label %849, label %846
@@ -1833,13 +1833,13 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
   br label %851
 
 851:                                              ; preds = %849, %846, %838
-  %852 = getelementptr inbounds i8, ptr %22, i64 8
+  %852 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %853 = load ptr, ptr %852, align 8, !tbaa !34
   %854 = icmp eq ptr %853, null
   br i1 %854, label %879, label %855
 
 855:                                              ; preds = %851
-  %856 = getelementptr inbounds i8, ptr %853, i64 8
+  %856 = getelementptr inbounds nuw i8, ptr %853, i64 8
   %857 = load atomic i64, ptr %856 acquire, align 8
   %858 = icmp eq i64 %857, 4294967297
   %859 = trunc i64 %857 to i32
@@ -1847,14 +1847,14 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
 
 860:                                              ; preds = %855
   store i32 0, ptr %856, align 8, !tbaa !35
-  %861 = getelementptr inbounds i8, ptr %853, i64 12
+  %861 = getelementptr inbounds nuw i8, ptr %853, i64 12
   store i32 0, ptr %861, align 4, !tbaa !37
   %862 = load ptr, ptr %853, align 8, !tbaa !38
-  %863 = getelementptr inbounds i8, ptr %862, i64 16
+  %863 = getelementptr inbounds nuw i8, ptr %862, i64 16
   %864 = load ptr, ptr %863, align 8
   call void %864(ptr noundef nonnull align 8 dereferenceable(16) %853) #24
   %865 = load ptr, ptr %853, align 8, !tbaa !38
-  %866 = getelementptr inbounds i8, ptr %865, i64 24
+  %866 = getelementptr inbounds nuw i8, ptr %865, i64 24
   %867 = load ptr, ptr %866, align 8
   call void %867(ptr noundef nonnull align 8 dereferenceable(16) %853) #24
   br label %879
@@ -1914,7 +1914,7 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
 
 890:                                              ; preds = %886
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %25) #24
-  %891 = getelementptr inbounds i8, ptr %26, i64 8
+  %891 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %892 = load <2 x ptr>, ptr %464, align 8, !tbaa !14
   store <2 x ptr> %892, ptr %26, align 16, !tbaa !14
   %893 = extractelement <2 x ptr> %892, i64 1
@@ -1922,7 +1922,7 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
   br i1 %894, label %904, label %895
 
 895:                                              ; preds = %890
-  %896 = getelementptr inbounds i8, ptr %893, i64 8
+  %896 = getelementptr inbounds nuw i8, ptr %893, i64 8
   %897 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !33
   %898 = icmp eq i8 %897, 0
   br i1 %898, label %902, label %899
@@ -1939,9 +1939,9 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
 
 904:                                              ; preds = %902, %899, %890
   store ptr %490, ptr %27, align 8
-  %905 = getelementptr inbounds i8, ptr %27, i64 8
+  %905 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i64 %491, ptr %905, align 8
-  %906 = getelementptr inbounds i8, ptr %27, i64 16
+  %906 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store i32 0, ptr %906, align 8
   invoke void @_ZN8rawspeed23PanasonicV7DecompressorC1ENS_8RawImageENS_10ByteStreamE(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull %26, ptr noundef nonnull byval(%"class.rawspeed::ByteStream") align 8 %27)
           to label %907 unwind label %979
@@ -1952,7 +1952,7 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
   br i1 %909, label %934, label %910
 
 910:                                              ; preds = %907
-  %911 = getelementptr inbounds i8, ptr %908, i64 8
+  %911 = getelementptr inbounds nuw i8, ptr %908, i64 8
   %912 = load atomic i64, ptr %911 acquire, align 8
   %913 = icmp eq i64 %912, 4294967297
   %914 = trunc i64 %912 to i32
@@ -1960,14 +1960,14 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
 
 915:                                              ; preds = %910
   store i32 0, ptr %911, align 8, !tbaa !35
-  %916 = getelementptr inbounds i8, ptr %908, i64 12
+  %916 = getelementptr inbounds nuw i8, ptr %908, i64 12
   store i32 0, ptr %916, align 4, !tbaa !37
   %917 = load ptr, ptr %908, align 8, !tbaa !38
-  %918 = getelementptr inbounds i8, ptr %917, i64 16
+  %918 = getelementptr inbounds nuw i8, ptr %917, i64 16
   %919 = load ptr, ptr %918, align 8
   call void %919(ptr noundef nonnull align 8 dereferenceable(16) %908) #24
   %920 = load ptr, ptr %908, align 8, !tbaa !38
-  %921 = getelementptr inbounds i8, ptr %920, i64 24
+  %921 = getelementptr inbounds nuw i8, ptr %920, i64 24
   %922 = load ptr, ptr %921, align 8
   call void %922(ptr noundef nonnull align 8 dereferenceable(16) %908) #24
   br label %934
@@ -2012,7 +2012,7 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
   br i1 %940, label %950, label %941
 
 941:                                              ; preds = %937
-  %942 = getelementptr inbounds i8, ptr %939, i64 8
+  %942 = getelementptr inbounds nuw i8, ptr %939, i64 8
   %943 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !33
   %944 = icmp eq i8 %943, 0
   br i1 %944, label %948, label %945
@@ -2028,13 +2028,13 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
   br label %950
 
 950:                                              ; preds = %948, %945, %937
-  %951 = getelementptr inbounds i8, ptr %25, i64 8
+  %951 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %952 = load ptr, ptr %951, align 8, !tbaa !34
   %953 = icmp eq ptr %952, null
   br i1 %953, label %978, label %954
 
 954:                                              ; preds = %950
-  %955 = getelementptr inbounds i8, ptr %952, i64 8
+  %955 = getelementptr inbounds nuw i8, ptr %952, i64 8
   %956 = load atomic i64, ptr %955 acquire, align 8
   %957 = icmp eq i64 %956, 4294967297
   %958 = trunc i64 %956 to i32
@@ -2042,14 +2042,14 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
 
 959:                                              ; preds = %954
   store i32 0, ptr %955, align 8, !tbaa !35
-  %960 = getelementptr inbounds i8, ptr %952, i64 12
+  %960 = getelementptr inbounds nuw i8, ptr %952, i64 12
   store i32 0, ptr %960, align 4, !tbaa !37
   %961 = load ptr, ptr %952, align 8, !tbaa !38
-  %962 = getelementptr inbounds i8, ptr %961, i64 16
+  %962 = getelementptr inbounds nuw i8, ptr %961, i64 16
   %963 = load ptr, ptr %962, align 8
   call void %963(ptr noundef nonnull align 8 dereferenceable(16) %952) #24
   %964 = load ptr, ptr %952, align 8, !tbaa !38
-  %965 = getelementptr inbounds i8, ptr %964, i64 24
+  %965 = getelementptr inbounds nuw i8, ptr %964, i64 24
   %966 = load ptr, ptr %965, align 8
   call void %966(ptr noundef nonnull align 8 dereferenceable(16) %952) #24
   br label %978
@@ -2151,13 +2151,13 @@ declare void @_ZN8rawspeed24UncompressedDecompressorC1ENS_10ByteStreamENS_8RawIm
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8rawspeed8RawImageD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !34
   %4 = icmp eq ptr %3, null
   br i1 %4, label %29, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load atomic i64, ptr %6 acquire, align 8
   %8 = icmp eq i64 %7, 4294967297
   %9 = trunc i64 %7 to i32
@@ -2165,14 +2165,14 @@ define linkonce_odr hidden void @_ZN8rawspeed8RawImageD2Ev(ptr noundef nonnull a
 
 10:                                               ; preds = %5
   store i32 0, ptr %6, align 8, !tbaa !35
-  %11 = getelementptr inbounds i8, ptr %3, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %11, align 4, !tbaa !37
   %12 = load ptr, ptr %3, align 8, !tbaa !38
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(16) %3) #24
   %15 = load ptr, ptr %3, align 8, !tbaa !38
-  %16 = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %3) #24
   br label %29
@@ -2210,13 +2210,13 @@ declare void @_ZN8rawspeed24UncompressedDecompressor33decode12BitRawUnpackedLeft
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8rawspeed24UncompressedDecompressorD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !34
   %4 = icmp eq ptr %3, null
   br i1 %4, label %29, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load atomic i64, ptr %6 acquire, align 8
   %8 = icmp eq i64 %7, 4294967297
   %9 = trunc i64 %7 to i32
@@ -2224,14 +2224,14 @@ define linkonce_odr hidden void @_ZN8rawspeed24UncompressedDecompressorD2Ev(ptr 
 
 10:                                               ; preds = %5
   store i32 0, ptr %6, align 8, !tbaa !35
-  %11 = getelementptr inbounds i8, ptr %3, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %11, align 4, !tbaa !37
   %12 = load ptr, ptr %3, align 8, !tbaa !38
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(16) %3) #24
   %15 = load ptr, ptr %3, align 8, !tbaa !38
-  %16 = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %3) #24
   br label %29
@@ -2272,7 +2272,7 @@ declare void @_ZNK8rawspeed23PanasonicV4Decompressor10decompressEv(ptr noundef n
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8rawspeed23PanasonicV4DecompressorD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !tbaa !48
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
@@ -2282,13 +2282,13 @@ define linkonce_odr hidden void @_ZN8rawspeed23PanasonicV4DecompressorD2Ev(ptr n
   br label %6
 
 6:                                                ; preds = %5, %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !34
   %9 = icmp eq ptr %8, null
   br i1 %9, label %34, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load atomic i64, ptr %11 acquire, align 8
   %13 = icmp eq i64 %12, 4294967297
   %14 = trunc i64 %12 to i32
@@ -2296,14 +2296,14 @@ define linkonce_odr hidden void @_ZN8rawspeed23PanasonicV4DecompressorD2Ev(ptr n
 
 15:                                               ; preds = %10
   store i32 0, ptr %11, align 8, !tbaa !35
-  %16 = getelementptr inbounds i8, ptr %8, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 0, ptr %16, align 4, !tbaa !37
   %17 = load ptr, ptr %8, align 8, !tbaa !38
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(16) %8) #24
   %20 = load ptr, ptr %8, align 8, !tbaa !38
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(16) %8) #24
   br label %34
@@ -2342,7 +2342,7 @@ declare void @_ZNK8rawspeed23PanasonicV5Decompressor10decompressEv(ptr noundef n
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8rawspeed23PanasonicV5DecompressorD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8, !tbaa !53
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
@@ -2352,13 +2352,13 @@ define linkonce_odr hidden void @_ZN8rawspeed23PanasonicV5DecompressorD2Ev(ptr n
   br label %6
 
 6:                                                ; preds = %5, %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !34
   %9 = icmp eq ptr %8, null
   br i1 %9, label %34, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load atomic i64, ptr %11 acquire, align 8
   %13 = icmp eq i64 %12, 4294967297
   %14 = trunc i64 %12 to i32
@@ -2366,14 +2366,14 @@ define linkonce_odr hidden void @_ZN8rawspeed23PanasonicV5DecompressorD2Ev(ptr n
 
 15:                                               ; preds = %10
   store i32 0, ptr %11, align 8, !tbaa !35
-  %16 = getelementptr inbounds i8, ptr %8, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 0, ptr %16, align 4, !tbaa !37
   %17 = load ptr, ptr %8, align 8, !tbaa !38
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(16) %8) #24
   %20 = load ptr, ptr %8, align 8, !tbaa !38
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(16) %8) #24
   br label %34
@@ -2412,13 +2412,13 @@ declare void @_ZNK8rawspeed23PanasonicV6Decompressor10decompressEv(ptr noundef n
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8rawspeed23PanasonicV6DecompressorD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !34
   %4 = icmp eq ptr %3, null
   br i1 %4, label %29, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load atomic i64, ptr %6 acquire, align 8
   %8 = icmp eq i64 %7, 4294967297
   %9 = trunc i64 %7 to i32
@@ -2426,14 +2426,14 @@ define linkonce_odr hidden void @_ZN8rawspeed23PanasonicV6DecompressorD2Ev(ptr n
 
 10:                                               ; preds = %5
   store i32 0, ptr %6, align 8, !tbaa !35
-  %11 = getelementptr inbounds i8, ptr %3, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %11, align 4, !tbaa !37
   %12 = load ptr, ptr %3, align 8, !tbaa !38
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(16) %3) #24
   %15 = load ptr, ptr %3, align 8, !tbaa !38
-  %16 = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %3) #24
   br label %29
@@ -2471,13 +2471,13 @@ declare void @_ZNK8rawspeed23PanasonicV7Decompressor10decompressEv(ptr noundef n
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8rawspeed23PanasonicV7DecompressorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !34
   %4 = icmp eq ptr %3, null
   br i1 %4, label %29, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load atomic i64, ptr %6 acquire, align 8
   %8 = icmp eq i64 %7, 4294967297
   %9 = trunc i64 %7 to i32
@@ -2485,14 +2485,14 @@ define linkonce_odr hidden void @_ZN8rawspeed23PanasonicV7DecompressorD2Ev(ptr n
 
 10:                                               ; preds = %5
   store i32 0, ptr %6, align 8, !tbaa !35
-  %11 = getelementptr inbounds i8, ptr %3, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %11, align 4, !tbaa !37
   %12 = load ptr, ptr %3, align 8, !tbaa !38
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(16) %3) #24
   %15 = load ptr, ptr %3, align 8, !tbaa !38
-  %16 = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %3) #24
   br label %29
@@ -2530,41 +2530,41 @@ define hidden void @_ZN8rawspeed10Rw2Decoder20checkSupportInternalEPKNS_14Camera
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #24
-  %6 = getelementptr inbounds i8, ptr %0, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %7 = load ptr, ptr %6, align 8, !tbaa !14
   call void @_ZNK8rawspeed11TiffRootIFD5getIDEv(ptr dead_on_unwind nonnull writable sret(%"struct.rawspeed::TiffID") align 8 %3, ptr noundef nonnull align 8 dereferenceable(120) %7)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #24
   call void @llvm.experimental.noalias.scope.decl(metadata !55)
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !25, !noalias !55
-  %10 = getelementptr inbounds i8, ptr %9, i64 560
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 560
   %11 = load ptr, ptr %10, align 8, !tbaa !14, !noalias !55
-  %12 = getelementptr inbounds i8, ptr %9, i64 568
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 568
   %13 = load ptr, ptr %12, align 8, !tbaa !14, !noalias !55
   %14 = icmp eq ptr %11, %13
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %2
-  %16 = getelementptr inbounds i8, ptr %4, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %16, ptr %4, align 8, !tbaa !41, !alias.scope !55
-  %17 = getelementptr inbounds i8, ptr %4, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %17, align 8, !tbaa !6, !alias.scope !55
   store i8 0, ptr %16, align 8, !tbaa !33, !alias.scope !55
   br label %_ZNK8rawspeed10Rw2Decoder9guessModeB5cxx11Ev.exit
 
 18:                                               ; preds = %2
-  %19 = getelementptr inbounds i8, ptr %9, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %20 = load <2 x i32>, ptr %19, align 8, !tbaa !29, !noalias !55
   %21 = sitofp <2 x i32> %20 to <2 x float>
   %22 = shufflevector <2 x float> %21, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   %23 = fdiv <2 x float> %21, %22
   %24 = extractelement <2 x float> %23, i64 0
-  %25 = getelementptr inbounds i8, ptr %4, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %25, ptr %4, align 8, !tbaa !41, !alias.scope !55
   store i32 960116273, ptr %25, align 8, !alias.scope !55
-  %26 = getelementptr inbounds i8, ptr %4, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 4, ptr %26, align 8, !tbaa !6, !alias.scope !55
-  %27 = getelementptr inbounds i8, ptr %4, i64 20
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i8 0, ptr %27, align 4, !tbaa !33, !alias.scope !55
   %28 = shufflevector <2 x float> %23, <2 x float> poison, <2 x i32> zeroinitializer
   %29 = fadd <2 x float> %28, <float -1.500000e+00, float 0xBFFC71C720000000>
@@ -2577,7 +2577,7 @@ define hidden void @_ZN8rawspeed10Rw2Decoder20checkSupportInternalEPKNS_14Camera
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm.exit.i: ; preds = %18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %25, ptr noundef nonnull align 1 dereferenceable(3) @.str.18, i64 3, i1 false)
   store i64 3, ptr %26, align 8, !tbaa !6, !alias.scope !55
-  %34 = getelementptr inbounds i8, ptr %4, i64 19
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 19
   store i8 0, ptr %34, align 1, !tbaa !33, !alias.scope !55
   br label %43
 
@@ -2628,18 +2628,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm.exit.i:
           to label %_ZNK8rawspeed10Rw2Decoder9guessModeB5cxx11Ev.exit unwind label %35
 
 _ZNK8rawspeed10Rw2Decoder9guessModeB5cxx11Ev.exit: ; preds = %59, %15
-  %61 = getelementptr inbounds i8, ptr %3, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %62 = invoke noundef zeroext i1 @_ZN8rawspeed10RawDecoder20checkCameraSupportedEPKNS_14CameraMetaDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_SB_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %63 unwind label %85
 
 63:                                               ; preds = %_ZNK8rawspeed10Rw2Decoder9guessModeB5cxx11Ev.exit
   %64 = load ptr, ptr %4, align 8, !tbaa !13
-  %65 = getelementptr inbounds i8, ptr %4, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %66 = icmp eq ptr %64, %65
   br i1 %66, label %67, label %71
 
 67:                                               ; preds = %63
-  %68 = getelementptr inbounds i8, ptr %4, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %69 = load i64, ptr %68, align 8, !tbaa !6
   %70 = icmp ult i64 %69, 16
   call void @llvm.assume(i1 %70)
@@ -2655,9 +2655,9 @@ _ZNK8rawspeed10Rw2Decoder9guessModeB5cxx11Ev.exit: ; preds = %59, %15
 
 73:                                               ; preds = %72
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #24
-  %74 = getelementptr inbounds i8, ptr %5, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %74, ptr %5, align 8, !tbaa !41
-  %75 = getelementptr inbounds i8, ptr %5, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %75, align 8, !tbaa !6
   store i8 0, ptr %74, align 8, !tbaa !33
   %76 = invoke noundef zeroext i1 @_ZN8rawspeed10RawDecoder20checkCameraSupportedEPKNS_14CameraMetaDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_SB_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull align 8 dereferenceable(32) %5)
@@ -2686,12 +2686,12 @@ _ZNK8rawspeed10Rw2Decoder9guessModeB5cxx11Ev.exit: ; preds = %59, %15
   %86 = landingpad { ptr, i32 }
           cleanup
   %87 = load ptr, ptr %4, align 8, !tbaa !13
-  %88 = getelementptr inbounds i8, ptr %4, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %89 = icmp eq ptr %87, %88
   br i1 %89, label %90, label %94
 
 90:                                               ; preds = %85
-  %91 = getelementptr inbounds i8, ptr %4, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %92 = load i64, ptr %91, align 8, !tbaa !6
   %93 = icmp ult i64 %92, 16
   call void @llvm.assume(i1 %93)
@@ -2729,12 +2729,12 @@ _ZNK8rawspeed10Rw2Decoder9guessModeB5cxx11Ev.exit: ; preds = %59, %15
 
 105:                                              ; preds = %84, %72
   %106 = load ptr, ptr %61, align 8, !tbaa !13
-  %107 = getelementptr inbounds i8, ptr %3, i64 48
+  %107 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %108 = icmp eq ptr %106, %107
   br i1 %108, label %109, label %113
 
 109:                                              ; preds = %105
-  %110 = getelementptr inbounds i8, ptr %3, i64 40
+  %110 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %111 = load i64, ptr %110, align 8, !tbaa !6
   %112 = icmp ult i64 %111, 16
   call void @llvm.assume(i1 %112)
@@ -2746,12 +2746,12 @@ _ZNK8rawspeed10Rw2Decoder9guessModeB5cxx11Ev.exit: ; preds = %59, %15
 
 114:                                              ; preds = %113, %109
   %115 = load ptr, ptr %3, align 8, !tbaa !13
-  %116 = getelementptr inbounds i8, ptr %3, i64 16
+  %116 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %117 = icmp eq ptr %115, %116
   br i1 %117, label %118, label %122
 
 118:                                              ; preds = %114
-  %119 = getelementptr inbounds i8, ptr %3, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %120 = load i64, ptr %119, align 8, !tbaa !6
   %121 = icmp ult i64 %120, 16
   call void @llvm.assume(i1 %121)
@@ -2774,36 +2774,36 @@ _ZNK8rawspeed10Rw2Decoder9guessModeB5cxx11Ev.exit: ; preds = %59, %15
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK8rawspeed10Rw2Decoder9guessModeB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !25
-  %5 = getelementptr inbounds i8, ptr %4, i64 560
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 560
   %6 = load ptr, ptr %5, align 8, !tbaa !14
-  %7 = getelementptr inbounds i8, ptr %4, i64 568
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 568
   %8 = load ptr, ptr %7, align 8, !tbaa !14
   %9 = icmp eq ptr %6, %8
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %11, ptr %0, align 8, !tbaa !41
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %12, align 8, !tbaa !6
   store i8 0, ptr %11, align 8, !tbaa !33
   br label %56
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %4, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %15 = load <2 x i32>, ptr %14, align 8, !tbaa !29
   %16 = sitofp <2 x i32> %15 to <2 x float>
   %17 = shufflevector <2 x float> %16, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   %18 = fdiv <2 x float> %16, %17
   %19 = extractelement <2 x float> %18, i64 0
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !41
   store i32 960116273, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 4, ptr %21, align 8, !tbaa !6
-  %22 = getelementptr inbounds i8, ptr %0, i64 20
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i8 0, ptr %22, align 4, !tbaa !33
   %23 = shufflevector <2 x float> %18, <2 x float> poison, <2 x i32> zeroinitializer
   %24 = fadd <2 x float> %23, <float -1.500000e+00, float 0xBFFC71C720000000>
@@ -2816,7 +2816,7 @@ define hidden void @_ZNK8rawspeed10Rw2Decoder9guessModeB5cxx11Ev(ptr dead_on_unw
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm.exit: ; preds = %13
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %20, ptr noundef nonnull align 1 dereferenceable(3) @.str.18, i64 3, i1 false)
   store i64 3, ptr %21, align 8, !tbaa !6
-  %29 = getelementptr inbounds i8, ptr %0, i64 19
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 19
   store i8 0, ptr %29, align 1, !tbaa !33
   br label %38
 
@@ -2875,7 +2875,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm.exit: ;
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK8rawspeed10Rw2Decoder8parseCFAEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 96
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8, !tbaa !14
   %4 = tail call noundef ptr @_ZNK8rawspeed7TiffIFD17getEntryRecursiveENS_7TiffTagE(ptr noundef nonnull align 8 dereferenceable(104) %3, i32 noundef 9) #26
   %5 = icmp eq ptr %4, null
@@ -2886,10 +2886,10 @@ define hidden void @_ZNK8rawspeed10Rw2Decoder8parseCFAEv(ptr nocapture noundef n
   unreachable
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %4, i64 44
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 44
   %9 = load i32, ptr %8, align 4, !tbaa !58
   %10 = icmp eq i32 %9, 3
-  %11 = getelementptr inbounds i8, ptr %4, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %12 = load i32, ptr %11, align 8, !tbaa !15
   %13 = icmp eq i32 %12, 1
   %14 = select i1 %10, i1 %13, i1 false
@@ -2909,30 +2909,30 @@ define hidden void @_ZNK8rawspeed10Rw2Decoder8parseCFAEv(ptr nocapture noundef n
   ]
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !25
-  %21 = getelementptr inbounds i8, ptr %20, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 64
   tail call void (ptr, i64, ...) @_ZN8rawspeed16ColorFilterArray6setCFAENS_8iPoint2DEz(ptr noundef nonnull align 8 dereferenceable(32) %21, i64 8589934594, i8 noundef zeroext 0, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 2)
   br label %36
 
 22:                                               ; preds = %16
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !25
-  %25 = getelementptr inbounds i8, ptr %24, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 64
   tail call void (ptr, i64, ...) @_ZN8rawspeed16ColorFilterArray6setCFAENS_8iPoint2DEz(ptr noundef nonnull align 8 dereferenceable(32) %25, i64 8589934594, i8 noundef zeroext 1, i8 noundef zeroext 0, i8 noundef zeroext 2, i8 noundef zeroext 1)
   br label %36
 
 26:                                               ; preds = %16
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load ptr, ptr %27, align 8, !tbaa !25
-  %29 = getelementptr inbounds i8, ptr %28, i64 64
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 64
   tail call void (ptr, i64, ...) @_ZN8rawspeed16ColorFilterArray6setCFAENS_8iPoint2DEz(ptr noundef nonnull align 8 dereferenceable(32) %29, i64 8589934594, i8 noundef zeroext 1, i8 noundef zeroext 2, i8 noundef zeroext 0, i8 noundef zeroext 1)
   br label %36
 
 30:                                               ; preds = %16
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !25
-  %33 = getelementptr inbounds i8, ptr %32, i64 64
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 64
   tail call void (ptr, i64, ...) @_ZN8rawspeed16ColorFilterArray6setCFAENS_8iPoint2DEz(ptr noundef nonnull align 8 dereferenceable(32) %33, i64 8589934594, i8 noundef zeroext 2, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 0)
   br label %36
 
@@ -2952,7 +2952,7 @@ declare void @_ZN8rawspeed16ColorFilterArray6setCFAENS_8iPoint2DEz(ptr noundef n
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZNK8rawspeed10Rw2Decoder6getRawEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 96
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8, !tbaa !14
   %4 = tail call noundef ptr @_ZNK8rawspeed7TiffIFD17getEntryRecursiveENS_7TiffTagE(ptr noundef nonnull align 8 dereferenceable(104) %3, i32 noundef 280) #26
   %5 = icmp eq ptr %4, null
@@ -2969,41 +2969,41 @@ define hidden void @_ZN8rawspeed10Rw2Decoder22decodeMetaDataInternalEPKNS_14Came
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @_ZNK8rawspeed10Rw2Decoder8parseCFAEv(ptr noundef nonnull align 8 dereferenceable(104) %0)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #24
-  %7 = getelementptr inbounds i8, ptr %0, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8, !tbaa !14
   call void @_ZNK8rawspeed11TiffRootIFD5getIDEv(ptr dead_on_unwind nonnull writable sret(%"struct.rawspeed::TiffID") align 8 %3, ptr noundef nonnull align 8 dereferenceable(120) %8)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #24
   call void @llvm.experimental.noalias.scope.decl(metadata !59)
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !25, !noalias !59
-  %11 = getelementptr inbounds i8, ptr %10, i64 560
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 560
   %12 = load ptr, ptr %11, align 8, !tbaa !14, !noalias !59
-  %13 = getelementptr inbounds i8, ptr %10, i64 568
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 568
   %14 = load ptr, ptr %13, align 8, !tbaa !14, !noalias !59
   %15 = icmp eq ptr %12, %14
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %2
-  %17 = getelementptr inbounds i8, ptr %4, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %17, ptr %4, align 8, !tbaa !41, !alias.scope !59
-  %18 = getelementptr inbounds i8, ptr %4, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %18, align 8, !tbaa !6, !alias.scope !59
   store i8 0, ptr %17, align 8, !tbaa !33, !alias.scope !59
   br label %_ZNK8rawspeed10Rw2Decoder9guessModeB5cxx11Ev.exit
 
 19:                                               ; preds = %2
-  %20 = getelementptr inbounds i8, ptr %10, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %21 = load <2 x i32>, ptr %20, align 8, !tbaa !29, !noalias !59
   %22 = sitofp <2 x i32> %21 to <2 x float>
   %23 = shufflevector <2 x float> %22, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   %24 = fdiv <2 x float> %22, %23
   %25 = extractelement <2 x float> %24, i64 0
-  %26 = getelementptr inbounds i8, ptr %4, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %26, ptr %4, align 8, !tbaa !41, !alias.scope !59
   store i32 960116273, ptr %26, align 8, !alias.scope !59
-  %27 = getelementptr inbounds i8, ptr %4, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 4, ptr %27, align 8, !tbaa !6, !alias.scope !59
-  %28 = getelementptr inbounds i8, ptr %4, i64 20
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i8 0, ptr %28, align 4, !tbaa !33, !alias.scope !59
   %29 = shufflevector <2 x float> %24, <2 x float> poison, <2 x i32> zeroinitializer
   %30 = fadd <2 x float> %29, <float -1.500000e+00, float 0xBFFC71C720000000>
@@ -3016,7 +3016,7 @@ define hidden void @_ZN8rawspeed10Rw2Decoder22decodeMetaDataInternalEPKNS_14Came
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm.exit.i: ; preds = %19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %26, ptr noundef nonnull align 1 dereferenceable(3) @.str.18, i64 3, i1 false)
   store i64 3, ptr %27, align 8, !tbaa !6, !alias.scope !59
-  %35 = getelementptr inbounds i8, ptr %4, i64 19
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 19
   store i8 0, ptr %35, align 1, !tbaa !33, !alias.scope !59
   br label %44
 
@@ -3083,7 +3083,7 @@ _ZNK8rawspeed10Rw2Decoder9guessModeB5cxx11Ev.exit: ; preds = %60, %16
 
 69:                                               ; preds = %65, %_ZNK8rawspeed10Rw2Decoder9guessModeB5cxx11Ev.exit
   %70 = phi i32 [ 0, %_ZNK8rawspeed10Rw2Decoder9guessModeB5cxx11Ev.exit ], [ %66, %65 ]
-  %71 = getelementptr inbounds i8, ptr %3, i64 32
+  %71 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %72 = invoke noundef zeroext i1 @_ZN8rawspeed10RawDecoder20checkCameraSupportedEPKNS_14CameraMetaDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_SB_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %71, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %73 unwind label %67
 
@@ -3092,14 +3092,14 @@ _ZNK8rawspeed10Rw2Decoder9guessModeB5cxx11Ev.exit: ; preds = %60, %16
 
 74:                                               ; preds = %73
   %75 = load ptr, ptr %0, align 8, !tbaa !38
-  %76 = getelementptr inbounds i8, ptr %75, i64 48
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 48
   %77 = load ptr, ptr %76, align 8
   invoke void %77(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %71, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef %70)
           to label %106 unwind label %67
 
 78:                                               ; preds = %73
   %79 = load ptr, ptr %9, align 8, !tbaa !25
-  %80 = getelementptr inbounds i8, ptr %79, i64 376
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 376
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %81 unwind label %67
 
@@ -3110,13 +3110,13 @@ _ZNK8rawspeed10Rw2Decoder9guessModeB5cxx11Ev.exit: ; preds = %60, %16
 
 83:                                               ; preds = %81
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #24
-  %84 = getelementptr inbounds i8, ptr %5, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %84, ptr %5, align 8, !tbaa !41
-  %85 = getelementptr inbounds i8, ptr %5, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %85, align 8, !tbaa !6
   store i8 0, ptr %84, align 8, !tbaa !33
   %86 = load ptr, ptr %0, align 8, !tbaa !38
-  %87 = getelementptr inbounds i8, ptr %86, i64 48
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 48
   %88 = load ptr, ptr %87, align 8
   invoke void %88(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %71, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef %70)
           to label %89 unwind label %97
@@ -3170,21 +3170,21 @@ _ZNK8rawspeed10Rw2Decoder9guessModeB5cxx11Ev.exit: ; preds = %60, %16
           to label %112 unwind label %269
 
 112:                                              ; preds = %106
-  %113 = getelementptr inbounds i8, ptr %111, i64 72
+  %113 = getelementptr inbounds nuw i8, ptr %111, i64 72
   %114 = load ptr, ptr %113, align 8, !tbaa !42
-  %115 = getelementptr inbounds i8, ptr %111, i64 64
+  %115 = getelementptr inbounds nuw i8, ptr %111, i64 64
   %116 = icmp eq ptr %114, null
   br i1 %116, label %448, label %.preheader24
 
 .preheader24:                                     ; preds = %112, %.preheader24
   %117 = phi ptr [ %125, %.preheader24 ], [ %114, %112 ]
   %118 = phi ptr [ %122, %.preheader24 ], [ %115, %112 ]
-  %119 = getelementptr inbounds i8, ptr %117, i64 32
+  %119 = getelementptr inbounds nuw i8, ptr %117, i64 32
   %120 = load i32, ptr %119, align 4, !tbaa !50
   %121 = icmp slt i32 %120, 28
   %122 = select i1 %121, ptr %118, ptr %117
   %123 = select i1 %121, i64 24, i64 16
-  %124 = getelementptr inbounds i8, ptr %117, i64 %123
+  %124 = getelementptr inbounds nuw i8, ptr %117, i64 %123
   %125 = load ptr, ptr %124, align 8, !tbaa !14
   %126 = icmp eq ptr %125, null
   br i1 %126, label %127, label %.preheader24, !llvm.loop !62
@@ -3194,7 +3194,7 @@ _ZNK8rawspeed10Rw2Decoder9guessModeB5cxx11Ev.exit: ; preds = %60, %16
   br i1 %128, label %334, label %129
 
 129:                                              ; preds = %127
-  %130 = getelementptr inbounds i8, ptr %122, i64 32
+  %130 = getelementptr inbounds nuw i8, ptr %122, i64 32
   %131 = load i32, ptr %130, align 4, !tbaa !50
   %132 = icmp sgt i32 %131, 28
   br i1 %132, label %334, label %.preheader23
@@ -3202,12 +3202,12 @@ _ZNK8rawspeed10Rw2Decoder9guessModeB5cxx11Ev.exit: ; preds = %60, %16
 .preheader23:                                     ; preds = %129, %.preheader23
   %133 = phi ptr [ %141, %.preheader23 ], [ %114, %129 ]
   %134 = phi ptr [ %138, %.preheader23 ], [ %115, %129 ]
-  %135 = getelementptr inbounds i8, ptr %133, i64 32
+  %135 = getelementptr inbounds nuw i8, ptr %133, i64 32
   %136 = load i32, ptr %135, align 4, !tbaa !50
   %137 = icmp slt i32 %136, 29
   %138 = select i1 %137, ptr %134, ptr %133
   %139 = select i1 %137, i64 24, i64 16
-  %140 = getelementptr inbounds i8, ptr %133, i64 %139
+  %140 = getelementptr inbounds nuw i8, ptr %133, i64 %139
   %141 = load ptr, ptr %140, align 8, !tbaa !14
   %142 = icmp eq ptr %141, null
   br i1 %142, label %143, label %.preheader23, !llvm.loop !63
@@ -3217,7 +3217,7 @@ _ZNK8rawspeed10Rw2Decoder9guessModeB5cxx11Ev.exit: ; preds = %60, %16
   br i1 %144, label %334, label %145
 
 145:                                              ; preds = %143
-  %146 = getelementptr inbounds i8, ptr %138, i64 32
+  %146 = getelementptr inbounds nuw i8, ptr %138, i64 32
   %147 = load i32, ptr %146, align 4, !tbaa !50
   %148 = icmp sgt i32 %147, 29
   br i1 %148, label %334, label %.preheader22
@@ -3225,12 +3225,12 @@ _ZNK8rawspeed10Rw2Decoder9guessModeB5cxx11Ev.exit: ; preds = %60, %16
 .preheader22:                                     ; preds = %145, %.preheader22
   %149 = phi ptr [ %157, %.preheader22 ], [ %114, %145 ]
   %150 = phi ptr [ %154, %.preheader22 ], [ %115, %145 ]
-  %151 = getelementptr inbounds i8, ptr %149, i64 32
+  %151 = getelementptr inbounds nuw i8, ptr %149, i64 32
   %152 = load i32, ptr %151, align 4, !tbaa !50
   %153 = icmp slt i32 %152, 30
   %154 = select i1 %153, ptr %150, ptr %149
   %155 = select i1 %153, i64 24, i64 16
-  %156 = getelementptr inbounds i8, ptr %149, i64 %155
+  %156 = getelementptr inbounds nuw i8, ptr %149, i64 %155
   %157 = load ptr, ptr %156, align 8, !tbaa !14
   %158 = icmp eq ptr %157, null
   br i1 %158, label %159, label %.preheader22, !llvm.loop !64
@@ -3240,7 +3240,7 @@ _ZNK8rawspeed10Rw2Decoder9guessModeB5cxx11Ev.exit: ; preds = %60, %16
   br i1 %160, label %334, label %161
 
 161:                                              ; preds = %159
-  %162 = getelementptr inbounds i8, ptr %154, i64 32
+  %162 = getelementptr inbounds nuw i8, ptr %154, i64 32
   %163 = load i32, ptr %162, align 4, !tbaa !50
   %164 = icmp sgt i32 %163, 30
   br i1 %164, label %334, label %165
@@ -3349,9 +3349,9 @@ _ZNK8rawspeed10Rw2Decoder9guessModeB5cxx11Ev.exit: ; preds = %60, %16
 224:                                              ; preds = %220, %214
   %225 = phi i32 [ %215, %214 ], [ %223, %220 ]
   %226 = load ptr, ptr %9, align 8, !tbaa !25
-  %227 = getelementptr inbounds i8, ptr %226, i64 100
-  %228 = getelementptr inbounds i8, ptr %226, i64 120
-  %229 = getelementptr inbounds i8, ptr %226, i64 152
+  %227 = getelementptr inbounds nuw i8, ptr %226, i64 100
+  %228 = getelementptr inbounds nuw i8, ptr %226, i64 120
+  %229 = getelementptr inbounds nuw i8, ptr %226, i64 152
   %230 = load i8, ptr %229, align 8, !tbaa !65, !range !68, !noundef !31
   %231 = icmp eq i8 %230, 0
   br i1 %231, label %232, label %233
@@ -3362,34 +3362,34 @@ _ZNK8rawspeed10Rw2Decoder9guessModeB5cxx11Ev.exit: ; preds = %60, %16
 
 233:                                              ; preds = %232, %224
   store ptr %227, ptr %228, align 8
-  %234 = getelementptr inbounds i8, ptr %226, i64 128
+  %234 = getelementptr inbounds nuw i8, ptr %226, i64 128
   store i32 4, ptr %234, align 8
-  %235 = getelementptr inbounds i8, ptr %226, i64 136
+  %235 = getelementptr inbounds nuw i8, ptr %226, i64 136
   store i32 2, ptr %235, align 8
-  %236 = getelementptr inbounds i8, ptr %226, i64 140
+  %236 = getelementptr inbounds nuw i8, ptr %226, i64 140
   store i32 2, ptr %236, align 4
-  %237 = getelementptr inbounds i8, ptr %226, i64 144
+  %237 = getelementptr inbounds nuw i8, ptr %226, i64 144
   store i32 2, ptr %237, align 8
   %238 = load ptr, ptr %9, align 8, !tbaa !25
-  %239 = getelementptr inbounds i8, ptr %238, i64 120
-  %240 = getelementptr inbounds i8, ptr %238, i64 152
+  %239 = getelementptr inbounds nuw i8, ptr %238, i64 120
+  %240 = getelementptr inbounds nuw i8, ptr %238, i64 152
   %241 = load i8, ptr %240, align 8, !tbaa !65, !range !68, !noundef !31
   %242 = icmp ne i8 %241, 0
   call void @llvm.assume(i1 %242)
   %243 = load ptr, ptr %239, align 8, !tbaa !14, !noalias !69, !nonnull !31, !noundef !31
-  %244 = getelementptr inbounds i8, ptr %238, i64 128
+  %244 = getelementptr inbounds nuw i8, ptr %238, i64 128
   %245 = load i32, ptr %244, align 8, !tbaa !29, !noalias !69
   %246 = icmp sgt i32 %245, -1
   call void @llvm.assume(i1 %246)
-  %247 = getelementptr inbounds i8, ptr %238, i64 140
+  %247 = getelementptr inbounds nuw i8, ptr %238, i64 140
   %248 = load i32, ptr %247, align 4, !tbaa !72, !noalias !69
   %249 = icmp sgt i32 %248, -1
   call void @llvm.assume(i1 %249)
-  %250 = getelementptr inbounds i8, ptr %238, i64 144
+  %250 = getelementptr inbounds nuw i8, ptr %238, i64 144
   %251 = load i32, ptr %250, align 8, !tbaa !75, !noalias !69
   %252 = icmp sgt i32 %251, -1
   call void @llvm.assume(i1 %252)
-  %253 = getelementptr inbounds i8, ptr %238, i64 136
+  %253 = getelementptr inbounds nuw i8, ptr %238, i64 136
   %254 = load i32, ptr %253, align 8, !tbaa !76, !noalias !69
   %255 = icmp ne i32 %254, 0
   call void @llvm.assume(i1 %255)
@@ -3409,7 +3409,7 @@ _ZNK8rawspeed10Rw2Decoder9guessModeB5cxx11Ev.exit: ; preds = %60, %16
   %265 = or i1 %263, %264
   %266 = mul nuw nsw i32 %251, %248
   call void @llvm.assume(i1 %265)
-  %267 = getelementptr inbounds i8, ptr %238, i64 64
+  %267 = getelementptr inbounds nuw i8, ptr %238, i64 64
   %268 = invoke noundef zeroext i8 @_ZNK8rawspeed16ColorFilterArray10getColorAtEii(ptr noundef nonnull align 8 dereferenceable(32) %267, i32 noundef 0, i32 noundef 0)
           to label %277 unwind label %278
 
@@ -3474,12 +3474,12 @@ _ZNK8rawspeed10Rw2Decoder9guessModeB5cxx11Ev.exit: ; preds = %60, %16
   %290 = landingpad { ptr, i32 }
           cleanup
   %291 = load ptr, ptr %6, align 8, !tbaa !13
-  %292 = getelementptr inbounds i8, ptr %6, i64 16
+  %292 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %293 = icmp eq ptr %291, %292
   br i1 %293, label %294, label %298
 
 294:                                              ; preds = %289
-  %295 = getelementptr inbounds i8, ptr %6, i64 8
+  %295 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %296 = load i64, ptr %295, align 8, !tbaa !6
   %297 = icmp ult i64 %296, 16
   call void @llvm.assume(i1 %297)
@@ -3500,7 +3500,7 @@ _ZNK8rawspeed10Rw2Decoder9guessModeB5cxx11Ev.exit: ; preds = %60, %16
   call void @llvm.assume(i1 %303)
   store i32 %302, ptr %243, align 4, !tbaa !29
   %304 = load ptr, ptr %9, align 8, !tbaa !25
-  %305 = getelementptr inbounds i8, ptr %304, i64 64
+  %305 = getelementptr inbounds nuw i8, ptr %304, i64 64
   %306 = invoke noundef zeroext i8 @_ZNK8rawspeed16ColorFilterArray10getColorAtEii(ptr noundef nonnull align 8 dereferenceable(32) %305, i32 noundef 0, i32 noundef 1)
           to label %307 unwind label %278
 
@@ -3521,10 +3521,10 @@ _ZNK8rawspeed10Rw2Decoder9guessModeB5cxx11Ev.exit: ; preds = %60, %16
   %311 = phi i32 [ %185, %309 ], [ %205, %308 ], [ %225, %307 ]
   %312 = icmp samesign ugt i32 %266, 2
   call void @llvm.assume(i1 %312)
-  %313 = getelementptr inbounds i8, ptr %243, i64 8
+  %313 = getelementptr inbounds nuw i8, ptr %243, i64 8
   store i32 %311, ptr %313, align 4, !tbaa !29
   %314 = load ptr, ptr %9, align 8, !tbaa !25
-  %315 = getelementptr inbounds i8, ptr %314, i64 64
+  %315 = getelementptr inbounds nuw i8, ptr %314, i64 64
   %316 = invoke noundef zeroext i8 @_ZNK8rawspeed16ColorFilterArray10getColorAtEii(ptr noundef nonnull align 8 dereferenceable(32) %315, i32 noundef 1, i32 noundef 0)
           to label %317 unwind label %278
 
@@ -3543,10 +3543,10 @@ _ZNK8rawspeed10Rw2Decoder9guessModeB5cxx11Ev.exit: ; preds = %60, %16
 
 320:                                              ; preds = %319, %318, %317
   %321 = phi i32 [ %185, %319 ], [ %205, %318 ], [ %225, %317 ]
-  %322 = getelementptr inbounds i8, ptr %243, i64 4
+  %322 = getelementptr inbounds nuw i8, ptr %243, i64 4
   store i32 %321, ptr %322, align 4, !tbaa !29
   %323 = load ptr, ptr %9, align 8, !tbaa !25
-  %324 = getelementptr inbounds i8, ptr %323, i64 64
+  %324 = getelementptr inbounds nuw i8, ptr %323, i64 64
   %325 = invoke noundef zeroext i8 @_ZNK8rawspeed16ColorFilterArray10getColorAtEii(ptr noundef nonnull align 8 dereferenceable(32) %324, i32 noundef 1, i32 noundef 1)
           to label %326 unwind label %278
 
@@ -3567,7 +3567,7 @@ _ZNK8rawspeed10Rw2Decoder9guessModeB5cxx11Ev.exit: ; preds = %60, %16
   %330 = phi i32 [ %185, %328 ], [ %205, %327 ], [ %225, %326 ]
   %331 = icmp samesign ugt i32 %266, 3
   call void @llvm.assume(i1 %331)
-  %332 = getelementptr inbounds i8, ptr %243, i64 12
+  %332 = getelementptr inbounds nuw i8, ptr %243, i64 12
   store i32 %330, ptr %332, align 4, !tbaa !29
   %333 = load ptr, ptr %113, align 8, !tbaa !42
   br label %334
@@ -3580,12 +3580,12 @@ _ZNK8rawspeed10Rw2Decoder9guessModeB5cxx11Ev.exit: ; preds = %60, %16
 .preheader21:                                     ; preds = %334, %.preheader21
   %337 = phi ptr [ %345, %.preheader21 ], [ %335, %334 ]
   %338 = phi ptr [ %342, %.preheader21 ], [ %115, %334 ]
-  %339 = getelementptr inbounds i8, ptr %337, i64 32
+  %339 = getelementptr inbounds nuw i8, ptr %337, i64 32
   %340 = load i32, ptr %339, align 4, !tbaa !50
   %341 = icmp slt i32 %340, 36
   %342 = select i1 %341, ptr %338, ptr %337
   %343 = select i1 %341, i64 24, i64 16
-  %344 = getelementptr inbounds i8, ptr %337, i64 %343
+  %344 = getelementptr inbounds nuw i8, ptr %337, i64 %343
   %345 = load ptr, ptr %344, align 8, !tbaa !14
   %346 = icmp eq ptr %345, null
   br i1 %346, label %347, label %.preheader21, !llvm.loop !77
@@ -3598,7 +3598,7 @@ _ZNK8rawspeed10Rw2Decoder9guessModeB5cxx11Ev.exit: ; preds = %60, %16
   br label %399
 
 349:                                              ; preds = %347
-  %350 = getelementptr inbounds i8, ptr %342, i64 32
+  %350 = getelementptr inbounds nuw i8, ptr %342, i64 32
   %351 = load i32, ptr %350, align 4, !tbaa !50
   %352 = icmp sgt i32 %351, 36
   br i1 %352, label %.preheader56, label %.preheader20
@@ -3606,12 +3606,12 @@ _ZNK8rawspeed10Rw2Decoder9guessModeB5cxx11Ev.exit: ; preds = %60, %16
 .preheader20:                                     ; preds = %349, %.preheader20
   %353 = phi ptr [ %361, %.preheader20 ], [ %335, %349 ]
   %354 = phi ptr [ %358, %.preheader20 ], [ %115, %349 ]
-  %355 = getelementptr inbounds i8, ptr %353, i64 32
+  %355 = getelementptr inbounds nuw i8, ptr %353, i64 32
   %356 = load i32, ptr %355, align 4, !tbaa !50
   %357 = icmp slt i32 %356, 37
   %358 = select i1 %357, ptr %354, ptr %353
   %359 = select i1 %357, i64 24, i64 16
-  %360 = getelementptr inbounds i8, ptr %353, i64 %359
+  %360 = getelementptr inbounds nuw i8, ptr %353, i64 %359
   %361 = load ptr, ptr %360, align 8, !tbaa !14
   %362 = icmp eq ptr %361, null
   br i1 %362, label %363, label %.preheader20, !llvm.loop !78
@@ -3621,7 +3621,7 @@ _ZNK8rawspeed10Rw2Decoder9guessModeB5cxx11Ev.exit: ; preds = %60, %16
   br i1 %364, label %.preheader56, label %365
 
 365:                                              ; preds = %363
-  %366 = getelementptr inbounds i8, ptr %358, i64 32
+  %366 = getelementptr inbounds nuw i8, ptr %358, i64 32
   %367 = load i32, ptr %366, align 4, !tbaa !50
   %368 = icmp sgt i32 %367, 37
   br i1 %368, label %.preheader56, label %.preheader19
@@ -3629,12 +3629,12 @@ _ZNK8rawspeed10Rw2Decoder9guessModeB5cxx11Ev.exit: ; preds = %60, %16
 .preheader19:                                     ; preds = %365, %.preheader19
   %369 = phi ptr [ %377, %.preheader19 ], [ %335, %365 ]
   %370 = phi ptr [ %374, %.preheader19 ], [ %115, %365 ]
-  %371 = getelementptr inbounds i8, ptr %369, i64 32
+  %371 = getelementptr inbounds nuw i8, ptr %369, i64 32
   %372 = load i32, ptr %371, align 4, !tbaa !50
   %373 = icmp slt i32 %372, 38
   %374 = select i1 %373, ptr %370, ptr %369
   %375 = select i1 %373, i64 24, i64 16
-  %376 = getelementptr inbounds i8, ptr %369, i64 %375
+  %376 = getelementptr inbounds nuw i8, ptr %369, i64 %375
   %377 = load ptr, ptr %376, align 8, !tbaa !14
   %378 = icmp eq ptr %377, null
   br i1 %378, label %379, label %.preheader19, !llvm.loop !79
@@ -3644,7 +3644,7 @@ _ZNK8rawspeed10Rw2Decoder9guessModeB5cxx11Ev.exit: ; preds = %60, %16
   br i1 %380, label %.preheader56, label %381
 
 381:                                              ; preds = %379
-  %382 = getelementptr inbounds i8, ptr %374, i64 32
+  %382 = getelementptr inbounds nuw i8, ptr %374, i64 32
   %383 = load i32, ptr %382, align 4, !tbaa !50
   %384 = icmp sgt i32 %383, 38
   br i1 %384, label %.preheader56, label %385
@@ -3660,7 +3660,7 @@ _ZNK8rawspeed10Rw2Decoder9guessModeB5cxx11Ev.exit: ; preds = %60, %16
 389:                                              ; preds = %387
   %390 = uitofp i16 %388 to float
   %391 = load ptr, ptr %9, align 8, !tbaa !25
-  %392 = getelementptr inbounds i8, ptr %391, i64 256
+  %392 = getelementptr inbounds nuw i8, ptr %391, i64 256
   store float %390, ptr %392, align 4, !tbaa !80
   %393 = invoke noundef ptr @_ZNK8rawspeed7TiffIFD8getEntryENS_7TiffTagE(ptr noundef nonnull align 8 dereferenceable(104) %111, i32 noundef 37)
           to label %394 unwind label %269
@@ -3677,12 +3677,12 @@ _ZNK8rawspeed10Rw2Decoder9guessModeB5cxx11Ev.exit: ; preds = %60, %16
 399:                                              ; preds = %.preheader56, %399
   %400 = phi ptr [ %408, %399 ], [ %335, %.preheader56 ]
   %401 = phi ptr [ %405, %399 ], [ %115, %.preheader56 ]
-  %402 = getelementptr inbounds i8, ptr %400, i64 32
+  %402 = getelementptr inbounds nuw i8, ptr %400, i64 32
   %403 = load i32, ptr %402, align 4, !tbaa !50
   %404 = icmp slt i32 %403, 17
   %405 = select i1 %404, ptr %401, ptr %400
   %406 = select i1 %404, i64 24, i64 16
-  %407 = getelementptr inbounds i8, ptr %400, i64 %406
+  %407 = getelementptr inbounds nuw i8, ptr %400, i64 %406
   %408 = load ptr, ptr %407, align 8, !tbaa !14
   %409 = icmp eq ptr %408, null
   br i1 %409, label %410, label %399, !llvm.loop !82
@@ -3692,7 +3692,7 @@ _ZNK8rawspeed10Rw2Decoder9guessModeB5cxx11Ev.exit: ; preds = %60, %16
   br i1 %411, label %448, label %412
 
 412:                                              ; preds = %410
-  %413 = getelementptr inbounds i8, ptr %405, i64 32
+  %413 = getelementptr inbounds nuw i8, ptr %405, i64 32
   %414 = load i32, ptr %413, align 4, !tbaa !50
   %415 = icmp sgt i32 %414, 17
   br i1 %415, label %448, label %.preheader
@@ -3700,12 +3700,12 @@ _ZNK8rawspeed10Rw2Decoder9guessModeB5cxx11Ev.exit: ; preds = %60, %16
 .preheader:                                       ; preds = %412, %.preheader
   %416 = phi ptr [ %424, %.preheader ], [ %335, %412 ]
   %417 = phi ptr [ %421, %.preheader ], [ %115, %412 ]
-  %418 = getelementptr inbounds i8, ptr %416, i64 32
+  %418 = getelementptr inbounds nuw i8, ptr %416, i64 32
   %419 = load i32, ptr %418, align 4, !tbaa !50
   %420 = icmp slt i32 %419, 18
   %421 = select i1 %420, ptr %417, ptr %416
   %422 = select i1 %420, i64 24, i64 16
-  %423 = getelementptr inbounds i8, ptr %416, i64 %422
+  %423 = getelementptr inbounds nuw i8, ptr %416, i64 %422
   %424 = load ptr, ptr %423, align 8, !tbaa !14
   %425 = icmp eq ptr %424, null
   br i1 %425, label %426, label %.preheader, !llvm.loop !83
@@ -3715,7 +3715,7 @@ _ZNK8rawspeed10Rw2Decoder9guessModeB5cxx11Ev.exit: ; preds = %60, %16
   br i1 %427, label %448, label %428
 
 428:                                              ; preds = %426
-  %429 = getelementptr inbounds i8, ptr %421, i64 32
+  %429 = getelementptr inbounds nuw i8, ptr %421, i64 32
   %430 = load i32, ptr %429, align 4, !tbaa !50
   %431 = icmp sgt i32 %430, 18
   br i1 %431, label %448, label %432
@@ -3731,7 +3731,7 @@ _ZNK8rawspeed10Rw2Decoder9guessModeB5cxx11Ev.exit: ; preds = %60, %16
 436:                                              ; preds = %434
   %437 = uitofp i16 %435 to float
   %438 = load ptr, ptr %9, align 8, !tbaa !25
-  %439 = getelementptr inbounds i8, ptr %438, i64 256
+  %439 = getelementptr inbounds nuw i8, ptr %438, i64 256
   store float %437, ptr %439, align 4, !tbaa !80
   br label %.invoke46
 
@@ -3739,7 +3739,7 @@ _ZNK8rawspeed10Rw2Decoder9guessModeB5cxx11Ev.exit: ; preds = %60, %16
   %.sink48 = phi ptr [ %398, %396 ], [ %438, %436 ]
   %.sink = phi float [ %397, %396 ], [ 2.560000e+02, %436 ]
   %440 = phi i32 [ 38, %396 ], [ 18, %436 ]
-  %441 = getelementptr inbounds i8, ptr %.sink48, i64 260
+  %441 = getelementptr inbounds nuw i8, ptr %.sink48, i64 260
   store float %.sink, ptr %441, align 4, !tbaa !80
   %442 = invoke noundef ptr @_ZNK8rawspeed7TiffIFD8getEntryENS_7TiffTagE(ptr noundef nonnull align 8 dereferenceable(104) %111, i32 noundef %440)
           to label %.invoke unwind label %269
@@ -3751,18 +3751,18 @@ _ZNK8rawspeed10Rw2Decoder9guessModeB5cxx11Ev.exit: ; preds = %60, %16
 444:                                              ; preds = %.invoke
   %445 = uitofp i16 %443 to float
   %446 = load ptr, ptr %9, align 8, !tbaa !25
-  %447 = getelementptr inbounds i8, ptr %446, i64 264
+  %447 = getelementptr inbounds nuw i8, ptr %446, i64 264
   store float %445, ptr %447, align 4, !tbaa !80
   br label %448
 
 448:                                              ; preds = %444, %428, %426, %412, %410, %334, %112
   %449 = load ptr, ptr %4, align 8, !tbaa !13
-  %450 = getelementptr inbounds i8, ptr %4, i64 16
+  %450 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %451 = icmp eq ptr %449, %450
   br i1 %451, label %452, label %456
 
 452:                                              ; preds = %448
-  %453 = getelementptr inbounds i8, ptr %4, i64 8
+  %453 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %454 = load i64, ptr %453, align 8, !tbaa !6
   %455 = icmp ult i64 %454, 16
   call void @llvm.assume(i1 %455)
@@ -3775,12 +3775,12 @@ _ZNK8rawspeed10Rw2Decoder9guessModeB5cxx11Ev.exit: ; preds = %60, %16
 457:                                              ; preds = %456, %452
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #24
   %458 = load ptr, ptr %71, align 8, !tbaa !13
-  %459 = getelementptr inbounds i8, ptr %3, i64 48
+  %459 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %460 = icmp eq ptr %458, %459
   br i1 %460, label %461, label %465
 
 461:                                              ; preds = %457
-  %462 = getelementptr inbounds i8, ptr %3, i64 40
+  %462 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %463 = load i64, ptr %462, align 8, !tbaa !6
   %464 = icmp ult i64 %463, 16
   call void @llvm.assume(i1 %464)
@@ -3792,12 +3792,12 @@ _ZNK8rawspeed10Rw2Decoder9guessModeB5cxx11Ev.exit: ; preds = %60, %16
 
 466:                                              ; preds = %465, %461
   %467 = load ptr, ptr %3, align 8, !tbaa !13
-  %468 = getelementptr inbounds i8, ptr %3, i64 16
+  %468 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %469 = icmp eq ptr %467, %468
   br i1 %469, label %470, label %474
 
 470:                                              ; preds = %466
-  %471 = getelementptr inbounds i8, ptr %3, i64 8
+  %471 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %472 = load i64, ptr %471, align 8, !tbaa !6
   %473 = icmp ult i64 %472, 16
   call void @llvm.assume(i1 %473)
@@ -3814,12 +3814,12 @@ _ZNK8rawspeed10Rw2Decoder9guessModeB5cxx11Ev.exit: ; preds = %60, %16
 476:                                              ; preds = %299, %278, %275, %273, %271, %269, %105, %67
   %477 = phi { ptr, i32 } [ %68, %67 ], [ %98, %105 ], [ %270, %269 ], [ %272, %271 ], [ %274, %273 ], [ %276, %275 ], [ %300, %299 ], [ %279, %278 ]
   %478 = load ptr, ptr %4, align 8, !tbaa !13
-  %479 = getelementptr inbounds i8, ptr %4, i64 16
+  %479 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %480 = icmp eq ptr %478, %479
   br i1 %480, label %481, label %485
 
 481:                                              ; preds = %476
-  %482 = getelementptr inbounds i8, ptr %4, i64 8
+  %482 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %483 = load i64, ptr %482, align 8, !tbaa !6
   %484 = icmp ult i64 %483, 16
   call void @llvm.assume(i1 %484)
@@ -3845,27 +3845,27 @@ declare void @_ZN8rawspeed16ColorFilterArray13colorToStringB5cxx11ENS_8CFAColorE
 
 ; Function Attrs: mustprogress uwtable
 define hidden { i64, i64 } @_ZN8rawspeed10Rw2Decoder14getDefaultCropEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 96
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8, !tbaa !14
   %4 = tail call noundef ptr @_ZNK8rawspeed7TiffIFD17getEntryRecursiveENS_7TiffTagE(ptr noundef nonnull align 8 dereferenceable(104) %3, i32 noundef 280) #26
   %5 = icmp eq ptr %4, null
   %6 = select i1 %5, i32 273, i32 280
   %7 = tail call noundef ptr @_ZNK8rawspeed7TiffIFD13getIFDWithTagENS_7TiffTagEj(ptr noundef nonnull align 8 dereferenceable(104) %3, i32 noundef %6, i32 noundef 0)
-  %8 = getelementptr inbounds i8, ptr %7, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %9 = load ptr, ptr %8, align 8, !tbaa !42
-  %10 = getelementptr inbounds i8, ptr %7, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %11 = icmp eq ptr %9, null
   br i1 %11, label %76, label %.preheader8
 
 .preheader8:                                      ; preds = %1, %.preheader8
   %12 = phi ptr [ %20, %.preheader8 ], [ %9, %1 ]
   %13 = phi ptr [ %17, %.preheader8 ], [ %10, %1 ]
-  %14 = getelementptr inbounds i8, ptr %12, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %15 = load i32, ptr %14, align 4, !tbaa !50
   %16 = icmp slt i32 %15, 5
   %17 = select i1 %16, ptr %13, ptr %12
   %18 = select i1 %16, i64 24, i64 16
-  %19 = getelementptr inbounds i8, ptr %12, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !14
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %.preheader8, !llvm.loop !84
@@ -3875,7 +3875,7 @@ define hidden { i64, i64 } @_ZN8rawspeed10Rw2Decoder14getDefaultCropEv(ptr nocap
   br i1 %23, label %76, label %24
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %17, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %26 = load i32, ptr %25, align 4, !tbaa !50
   %27 = icmp sgt i32 %26, 5
   br i1 %27, label %76, label %.preheader7
@@ -3883,12 +3883,12 @@ define hidden { i64, i64 } @_ZN8rawspeed10Rw2Decoder14getDefaultCropEv(ptr nocap
 .preheader7:                                      ; preds = %24, %.preheader7
   %28 = phi ptr [ %36, %.preheader7 ], [ %9, %24 ]
   %29 = phi ptr [ %33, %.preheader7 ], [ %10, %24 ]
-  %30 = getelementptr inbounds i8, ptr %28, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %31 = load i32, ptr %30, align 4, !tbaa !50
   %32 = icmp slt i32 %31, 4
   %33 = select i1 %32, ptr %29, ptr %28
   %34 = select i1 %32, i64 24, i64 16
-  %35 = getelementptr inbounds i8, ptr %28, i64 %34
+  %35 = getelementptr inbounds nuw i8, ptr %28, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !14
   %37 = icmp eq ptr %36, null
   br i1 %37, label %38, label %.preheader7, !llvm.loop !85
@@ -3898,7 +3898,7 @@ define hidden { i64, i64 } @_ZN8rawspeed10Rw2Decoder14getDefaultCropEv(ptr nocap
   br i1 %39, label %76, label %40
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds i8, ptr %33, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %42 = load i32, ptr %41, align 4, !tbaa !50
   %43 = icmp sgt i32 %42, 4
   br i1 %43, label %76, label %.preheader6
@@ -3906,12 +3906,12 @@ define hidden { i64, i64 } @_ZN8rawspeed10Rw2Decoder14getDefaultCropEv(ptr nocap
 .preheader6:                                      ; preds = %40, %.preheader6
   %44 = phi ptr [ %52, %.preheader6 ], [ %9, %40 ]
   %45 = phi ptr [ %49, %.preheader6 ], [ %10, %40 ]
-  %46 = getelementptr inbounds i8, ptr %44, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %47 = load i32, ptr %46, align 4, !tbaa !50
   %48 = icmp slt i32 %47, 7
   %49 = select i1 %48, ptr %45, ptr %44
   %50 = select i1 %48, i64 24, i64 16
-  %51 = getelementptr inbounds i8, ptr %44, i64 %50
+  %51 = getelementptr inbounds nuw i8, ptr %44, i64 %50
   %52 = load ptr, ptr %51, align 8, !tbaa !14
   %53 = icmp eq ptr %52, null
   br i1 %53, label %54, label %.preheader6, !llvm.loop !86
@@ -3921,7 +3921,7 @@ define hidden { i64, i64 } @_ZN8rawspeed10Rw2Decoder14getDefaultCropEv(ptr nocap
   br i1 %55, label %76, label %56
 
 56:                                               ; preds = %54
-  %57 = getelementptr inbounds i8, ptr %49, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %49, i64 32
   %58 = load i32, ptr %57, align 4, !tbaa !50
   %59 = icmp sgt i32 %58, 7
   br i1 %59, label %76, label %.preheader
@@ -3929,12 +3929,12 @@ define hidden { i64, i64 } @_ZN8rawspeed10Rw2Decoder14getDefaultCropEv(ptr nocap
 .preheader:                                       ; preds = %56, %.preheader
   %60 = phi ptr [ %68, %.preheader ], [ %9, %56 ]
   %61 = phi ptr [ %65, %.preheader ], [ %10, %56 ]
-  %62 = getelementptr inbounds i8, ptr %60, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %63 = load i32, ptr %62, align 4, !tbaa !50
   %64 = icmp slt i32 %63, 6
   %65 = select i1 %64, ptr %61, ptr %60
   %66 = select i1 %64, i64 24, i64 16
-  %67 = getelementptr inbounds i8, ptr %60, i64 %66
+  %67 = getelementptr inbounds nuw i8, ptr %60, i64 %66
   %68 = load ptr, ptr %67, align 8, !tbaa !14
   %69 = icmp eq ptr %68, null
   br i1 %69, label %70, label %.preheader, !llvm.loop !87
@@ -3944,7 +3944,7 @@ define hidden { i64, i64 } @_ZN8rawspeed10Rw2Decoder14getDefaultCropEv(ptr nocap
   br i1 %71, label %76, label %72
 
 72:                                               ; preds = %70
-  %73 = getelementptr inbounds i8, ptr %65, i64 32
+  %73 = getelementptr inbounds nuw i8, ptr %65, i64 32
   %74 = load i32, ptr %73, align 4, !tbaa !50
   %75 = icmp sgt i32 %74, 6
   br i1 %75, label %76, label %77
@@ -3980,15 +3980,15 @@ define hidden { i64, i64 } @_ZN8rawspeed10Rw2Decoder14getDefaultCropEv(ptr nocap
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8rawspeed19AbstractTiffDecoderD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed19AbstractTiffDecoderE, i64 16), ptr %0, align 8, !tbaa !38
-  %2 = getelementptr inbounds i8, ptr %0, i64 96
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8, !tbaa !14
   %4 = icmp eq ptr %3, null
   br i1 %4, label %35, label %5
 
 5:                                                ; preds = %1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed7TiffIFDE, i64 16), ptr %3, align 8, !tbaa !38
-  %6 = getelementptr inbounds i8, ptr %3, i64 56
-  %7 = getelementptr inbounds i8, ptr %3, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %8 = load ptr, ptr %7, align 8, !tbaa !42
   invoke void @_ZNSt8_Rb_treeIN8rawspeed7TiffTagESt4pairIKS1_St10unique_ptrINS0_9TiffEntryESt14default_deleteIS5_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE8_M_eraseEPSt13_Rb_tree_nodeIS9_E(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef %8)
           to label %12 unwind label %9
@@ -4001,9 +4001,9 @@ define linkonce_odr hidden void @_ZN8rawspeed19AbstractTiffDecoderD2Ev(ptr nound
   unreachable
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %3, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %14 = load ptr, ptr %13, align 8, !tbaa !88
-  %15 = getelementptr inbounds i8, ptr %3, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %16 = load ptr, ptr %15, align 8, !tbaa !90
   %17 = icmp eq ptr %14, %16
   br i1 %17, label %30, label %.preheader
@@ -4016,14 +4016,14 @@ define linkonce_odr hidden void @_ZN8rawspeed19AbstractTiffDecoderD2Ev(ptr nound
 
 21:                                               ; preds = %.preheader
   %22 = load ptr, ptr %19, align 8, !tbaa !38
-  %23 = getelementptr inbounds i8, ptr %22, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 8
   tail call void %24(ptr noundef nonnull align 8 dereferenceable(104) %19) #24
   br label %25
 
 25:                                               ; preds = %21, %.preheader
   store ptr null, ptr %18, align 8, !tbaa !14
-  %26 = getelementptr inbounds i8, ptr %18, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %27 = icmp eq ptr %26, %16
   br i1 %27, label %28, label %.preheader, !llvm.loop !91
 
@@ -4047,8 +4047,8 @@ define linkonce_odr hidden void @_ZN8rawspeed19AbstractTiffDecoderD2Ev(ptr nound
 35:                                               ; preds = %34, %1
   store ptr null, ptr %2, align 8, !tbaa !14
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed10RawDecoderE, i64 16), ptr %0, align 8, !tbaa !38
-  %36 = getelementptr inbounds i8, ptr %0, i64 48
-  %37 = getelementptr inbounds i8, ptr %0, i64 64
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %38 = load ptr, ptr %37, align 8, !tbaa !42
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIvESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %36, ptr noundef %38)
           to label %42 unwind label %39
@@ -4061,13 +4061,13 @@ define linkonce_odr hidden void @_ZN8rawspeed19AbstractTiffDecoderD2Ev(ptr nound
   unreachable
 
 42:                                               ; preds = %35
-  %43 = getelementptr inbounds i8, ptr %0, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %44 = load ptr, ptr %43, align 8, !tbaa !34
   %45 = icmp eq ptr %44, null
   br i1 %45, label %70, label %46
 
 46:                                               ; preds = %42
-  %47 = getelementptr inbounds i8, ptr %44, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %48 = load atomic i64, ptr %47 acquire, align 8
   %49 = icmp eq i64 %48, 4294967297
   %50 = trunc i64 %48 to i32
@@ -4075,14 +4075,14 @@ define linkonce_odr hidden void @_ZN8rawspeed19AbstractTiffDecoderD2Ev(ptr nound
 
 51:                                               ; preds = %46
   store i32 0, ptr %47, align 8, !tbaa !35
-  %52 = getelementptr inbounds i8, ptr %44, i64 12
+  %52 = getelementptr inbounds nuw i8, ptr %44, i64 12
   store i32 0, ptr %52, align 4, !tbaa !37
   %53 = load ptr, ptr %44, align 8, !tbaa !38
-  %54 = getelementptr inbounds i8, ptr %53, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load ptr, ptr %54, align 8
   tail call void %55(ptr noundef nonnull align 8 dereferenceable(16) %44) #24
   %56 = load ptr, ptr %44, align 8, !tbaa !38
-  %57 = getelementptr inbounds i8, ptr %56, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %58 = load ptr, ptr %57, align 8
   tail call void %58(ptr noundef nonnull align 8 dereferenceable(16) %44) #24
   br label %70
@@ -4123,7 +4123,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10Rw2DecoderD0Ev(ptr noundef nonnul
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN8rawspeed19AbstractTiffDecoder10getRootIFDEv(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #8 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 96
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8, !tbaa !14
   ret ptr %3
 }
@@ -4222,10 +4222,10 @@ declare void @llvm.assume(i1 noundef) #17
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !38
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #24
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !33
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %11, label %8
@@ -4247,7 +4247,7 @@ define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_pol
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr %0, align 8, !tbaa !38
-  %18 = getelementptr inbounds i8, ptr %17, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load ptr, ptr %18, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(16) %0) #24
   br label %20
@@ -4276,15 +4276,15 @@ define linkonce_odr hidden void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcE
   br i1 %3, label %54, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !6
   %7 = load ptr, ptr %0, align 8, !tbaa !13
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = icmp eq ptr %7, %8
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8, !tbaa !6
   %13 = icmp ult i64 %12, 16
   tail call void @llvm.assume(i1 %13)
@@ -4322,7 +4322,7 @@ define linkonce_odr hidden void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcE
   br i1 %9, label %31, label %35
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load i64, ptr %32, align 8, !tbaa !6
   %34 = icmp ult i64 %33, 16
   tail call void @llvm.assume(i1 %34)
@@ -4342,7 +4342,7 @@ define linkonce_odr hidden void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcE
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %40, align 8, !tbaa !6
   br label %52
 
@@ -4362,7 +4362,7 @@ define linkonce_odr hidden void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcE
   br label %48
 
 48:                                               ; preds = %47, %45
-  %49 = getelementptr inbounds i8, ptr %0, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %6, ptr %49, align 8, !tbaa !6
   %50 = load ptr, ptr %0, align 8, !tbaa !13
   %51 = getelementptr inbounds i8, ptr %50, i64 %6
@@ -4382,7 +4382,7 @@ declare float @llvm.fabs.f32(float) #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %2, 9223372036854775807
   %9 = sub i64 %8, %7
@@ -4397,7 +4397,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNS
   %13 = sub i64 %4, %2
   %14 = add i64 %7, %13
   %15 = load ptr, ptr %0, align 8, !tbaa !13
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = icmp eq ptr %15, %16
   br i1 %17, label %18, label %20
 
@@ -4592,14 +4592,14 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNS
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !6
   %8 = add i64 %2, %1
   %9 = sub i64 %7, %8
   %10 = sub i64 %4, %2
   %11 = add i64 %7, %10
   %12 = load ptr, ptr %0, align 8, !tbaa !13
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = icmp eq ptr %12, %13
   br i1 %14, label %15, label %17
 
@@ -4726,19 +4726,19 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIN8rawspeed7TiffTagESt4pairIKS1_S
 
 .preheader:                                       ; preds = %2, %16
   %4 = phi ptr [ %8, %16 ], [ %1, %2 ]
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !92
   tail call void @_ZNSt8_Rb_treeIN8rawspeed7TiffTagESt4pairIKS1_St10unique_ptrINS0_9TiffEntryESt14default_deleteIS5_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE8_M_eraseEPSt13_Rb_tree_nodeIS9_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %6)
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !93
-  %9 = getelementptr inbounds i8, ptr %4, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %10 = load ptr, ptr %9, align 8, !tbaa !14
   %11 = icmp eq ptr %10, null
   br i1 %11, label %16, label %12
 
 12:                                               ; preds = %.preheader
   %13 = load ptr, ptr %10, align 8, !tbaa !38
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(52) %10) #24
   br label %16
@@ -4759,20 +4759,20 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
 
 .preheader:                                       ; preds = %2, %28
   %4 = phi ptr [ %8, %28 ], [ %1, %2 ]
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !92
   tail call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIvESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %6)
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !93
-  %9 = getelementptr inbounds i8, ptr %4, i64 32
-  %10 = getelementptr inbounds i8, ptr %4, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %11 = load ptr, ptr %10, align 8, !tbaa !13
-  %12 = getelementptr inbounds i8, ptr %4, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %13 = icmp eq ptr %11, %12
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %.preheader
-  %15 = getelementptr inbounds i8, ptr %4, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %16 = load i64, ptr %15, align 8, !tbaa !6
   %17 = icmp ult i64 %16, 16
   tail call void @llvm.assume(i1 %17)
@@ -4784,12 +4784,12 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
 
 19:                                               ; preds = %18, %14
   %20 = load ptr, ptr %9, align 8, !tbaa !13
-  %21 = getelementptr inbounds i8, ptr %4, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %22 = icmp eq ptr %20, %21
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %4, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %25 = load i64, ptr %24, align 8, !tbaa !6
   %26 = icmp ult i64 %25, 16
   tail call void @llvm.assume(i1 %26)

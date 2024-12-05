@@ -12,15 +12,15 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden void @Curl_hash_init(ptr nocapture noundef writeonly initializes((0, 36), (40, 48)) %h, i32 noundef %slots, ptr noundef %hfunc, ptr noundef %comparator, ptr noundef %dtor) local_unnamed_addr #0 {
 entry:
   store ptr null, ptr %h, align 8
-  %hash_func = getelementptr inbounds i8, ptr %h, i64 8
+  %hash_func = getelementptr inbounds nuw i8, ptr %h, i64 8
   store ptr %hfunc, ptr %hash_func, align 8
-  %comp_func = getelementptr inbounds i8, ptr %h, i64 16
+  %comp_func = getelementptr inbounds nuw i8, ptr %h, i64 16
   store ptr %comparator, ptr %comp_func, align 8
-  %dtor9 = getelementptr inbounds i8, ptr %h, i64 24
+  %dtor9 = getelementptr inbounds nuw i8, ptr %h, i64 24
   store ptr %dtor, ptr %dtor9, align 8
-  %size = getelementptr inbounds i8, ptr %h, i64 40
+  %size = getelementptr inbounds nuw i8, ptr %h, i64 40
   store i64 0, ptr %size, align 8
-  %slots10 = getelementptr inbounds i8, ptr %h, i64 32
+  %slots10 = getelementptr inbounds nuw i8, ptr %h, i64 32
   store i32 %slots, ptr %slots10, align 8
   ret void
 }
@@ -33,13 +33,13 @@ entry:
   br i1 %tobool.not, label %if.then, label %entry.if.end10_crit_edge
 
 entry.if.end10_crit_edge:                         ; preds = %entry
-  %slots12.phi.trans.insert = getelementptr inbounds i8, ptr %h, i64 32
+  %slots12.phi.trans.insert = getelementptr inbounds nuw i8, ptr %h, i64 32
   %.pre38 = load i32, ptr %slots12.phi.trans.insert, align 8
   br label %if.end10
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr @Curl_cmalloc, align 8
-  %slots = getelementptr inbounds i8, ptr %h, i64 32
+  %slots = getelementptr inbounds nuw i8, ptr %h, i64 32
   %2 = load i32, ptr %slots, align 8
   %conv = sext i32 %2 to i64
   %mul = shl nsw i64 %conv, 5
@@ -56,7 +56,7 @@ for.cond.preheader:                               ; preds = %if.then
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.cond.preheader ]
   %4 = load ptr, ptr %h, align 8
-  %arrayidx = getelementptr inbounds %struct.Curl_llist, ptr %4, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw %struct.Curl_llist, ptr %4, i64 %indvars.iv
   tail call void @Curl_llist_init(ptr noundef %arrayidx, ptr noundef nonnull @hash_element_dtor) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %5 = load i32, ptr %slots, align 8
@@ -71,7 +71,7 @@ if.end10.loopexit:                                ; preds = %for.body
 if.end10:                                         ; preds = %entry.if.end10_crit_edge, %if.end10.loopexit, %for.cond.preheader
   %7 = phi i32 [ %5, %if.end10.loopexit ], [ %3, %for.cond.preheader ], [ %.pre38, %entry.if.end10_crit_edge ]
   %8 = phi ptr [ %.pre, %if.end10.loopexit ], [ %call, %for.cond.preheader ], [ %0, %entry.if.end10_crit_edge ]
-  %hash_func = getelementptr inbounds i8, ptr %h, i64 8
+  %hash_func = getelementptr inbounds nuw i8, ptr %h, i64 8
   %9 = load ptr, ptr %hash_func, align 8
   %conv13 = sext i32 %7 to i64
   %call14 = tail call i64 %9(ptr noundef %key, i64 noundef %key_len, i64 noundef %conv13) #8
@@ -81,15 +81,15 @@ if.end10:                                         ; preds = %entry.if.end10_crit
   br i1 %tobool17.not34, label %for.end26, label %for.body18.lr.ph
 
 for.body18.lr.ph:                                 ; preds = %if.end10
-  %comp_func = getelementptr inbounds i8, ptr %h, i64 16
+  %comp_func = getelementptr inbounds nuw i8, ptr %h, i64 16
   br label %for.body18
 
 for.body18:                                       ; preds = %for.body18.lr.ph, %for.inc25
   %le.035 = phi ptr [ %le.033, %for.body18.lr.ph ], [ %le.0, %for.inc25 ]
   %10 = load ptr, ptr %le.035, align 8
   %11 = load ptr, ptr %comp_func, align 8
-  %key19 = getelementptr inbounds i8, ptr %10, i64 40
-  %key_len20 = getelementptr inbounds i8, ptr %10, i64 32
+  %key19 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  %key_len20 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %12 = load i64, ptr %key_len20, align 8
   %call21 = tail call i64 %11(ptr noundef nonnull %key19, i64 noundef %12, ptr noundef %key, i64 noundef %key_len) #8
   %tobool22.not = icmp eq i64 %call21, 0
@@ -97,14 +97,14 @@ for.body18:                                       ; preds = %for.body18.lr.ph, %
 
 if.then23:                                        ; preds = %for.body18
   tail call void @Curl_llist_remove(ptr noundef nonnull %arrayidx15, ptr noundef nonnull %le.035, ptr noundef nonnull %h) #8
-  %size = getelementptr inbounds i8, ptr %h, i64 40
+  %size = getelementptr inbounds nuw i8, ptr %h, i64 40
   %13 = load i64, ptr %size, align 8
   %dec = add i64 %13, -1
   store i64 %dec, ptr %size, align 8
   br label %for.end26
 
 for.inc25:                                        ; preds = %for.body18
-  %next = getelementptr inbounds i8, ptr %le.035, i64 16
+  %next = getelementptr inbounds nuw i8, ptr %le.035, i64 16
   %le.0 = load ptr, ptr %next, align 8
   %tobool17.not = icmp eq ptr %le.0, null
   br i1 %tobool17.not, label %for.end26, label %for.body18, !llvm.loop !6
@@ -117,16 +117,16 @@ for.end26:                                        ; preds = %for.inc25, %if.end1
   br i1 %tobool.not.i, label %return, label %if.then29
 
 if.then29:                                        ; preds = %for.end26
-  %key1.i = getelementptr inbounds i8, ptr %call.i, i64 40
+  %key1.i = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %key1.i, ptr readonly align 1 %key, i64 %key_len, i1 false)
-  %key_len2.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %key_len2.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   store i64 %key_len, ptr %key_len2.i, align 8
-  %ptr.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %ptr.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store ptr %p, ptr %ptr.i, align 8
-  %tail = getelementptr inbounds i8, ptr %arrayidx15, i64 8
+  %tail = getelementptr inbounds nuw i8, ptr %arrayidx15, i64 8
   %15 = load ptr, ptr %tail, align 8
   tail call void @Curl_llist_insert_next(ptr noundef nonnull %arrayidx15, ptr noundef %15, ptr noundef nonnull %call.i, ptr noundef nonnull %call.i) #8
-  %size30 = getelementptr inbounds i8, ptr %h, i64 40
+  %size30 = getelementptr inbounds nuw i8, ptr %h, i64 40
   %16 = load i64, ptr %size30, align 8
   %inc31 = add i64 %16, 1
   store i64 %inc31, ptr %size30, align 8
@@ -142,20 +142,20 @@ declare void @Curl_llist_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal void @hash_element_dtor(ptr nocapture noundef readonly %user, ptr noundef initializes((32, 40)) %element) #1 {
 entry:
-  %ptr = getelementptr inbounds i8, ptr %element, i64 24
+  %ptr = getelementptr inbounds nuw i8, ptr %element, i64 24
   %0 = load ptr, ptr %ptr, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %dtor = getelementptr inbounds i8, ptr %user, i64 24
+  %dtor = getelementptr inbounds nuw i8, ptr %user, i64 24
   %1 = load ptr, ptr %dtor, align 8
   tail call void %1(ptr noundef nonnull %0) #8
   store ptr null, ptr %ptr, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %key_len = getelementptr inbounds i8, ptr %element, i64 32
+  %key_len = getelementptr inbounds nuw i8, ptr %element, i64 32
   store i64 0, ptr %key_len, align 8
   %2 = load ptr, ptr @Curl_cfree, align 8
   tail call void %2(ptr noundef nonnull %element) #8
@@ -174,9 +174,9 @@ entry:
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %hash_func = getelementptr inbounds i8, ptr %h, i64 8
+  %hash_func = getelementptr inbounds nuw i8, ptr %h, i64 8
   %1 = load ptr, ptr %hash_func, align 8
-  %slots = getelementptr inbounds i8, ptr %h, i64 32
+  %slots = getelementptr inbounds nuw i8, ptr %h, i64 32
   %2 = load i32, ptr %slots, align 8
   %conv = sext i32 %2 to i64
   %call = tail call i64 %1(ptr noundef %key, i64 noundef %key_len, i64 noundef %conv) #8
@@ -186,15 +186,15 @@ if.then:                                          ; preds = %entry
   br i1 %tobool4.not16, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.then
-  %comp_func = getelementptr inbounds i8, ptr %h, i64 16
+  %comp_func = getelementptr inbounds nuw i8, ptr %h, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %le.017 = phi ptr [ %le.015, %for.body.lr.ph ], [ %le.0, %for.inc ]
   %3 = load ptr, ptr %le.017, align 8
   %4 = load ptr, ptr %comp_func, align 8
-  %key5 = getelementptr inbounds i8, ptr %3, i64 40
-  %key_len6 = getelementptr inbounds i8, ptr %3, i64 32
+  %key5 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %key_len6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load i64, ptr %key_len6, align 8
   %call7 = tail call i64 %4(ptr noundef nonnull %key5, i64 noundef %5, ptr noundef %key, i64 noundef %key_len) #8
   %tobool8.not = icmp eq i64 %call7, 0
@@ -202,14 +202,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 if.then9:                                         ; preds = %for.body
   tail call void @Curl_llist_remove(ptr noundef nonnull %arrayidx, ptr noundef nonnull %le.017, ptr noundef nonnull %h) #8
-  %size = getelementptr inbounds i8, ptr %h, i64 40
+  %size = getelementptr inbounds nuw i8, ptr %h, i64 40
   %6 = load i64, ptr %size, align 8
   %dec = add i64 %6, -1
   store i64 %dec, ptr %size, align 8
   br label %return
 
 for.inc:                                          ; preds = %for.body
-  %next = getelementptr inbounds i8, ptr %le.017, i64 16
+  %next = getelementptr inbounds nuw i8, ptr %le.017, i64 16
   %le.0 = load ptr, ptr %next, align 8
   %tobool4.not = icmp eq ptr %le.0, null
   br i1 %tobool4.not, label %return, label %for.body, !llvm.loop !7
@@ -227,9 +227,9 @@ entry:
   br i1 %tobool.not, label %return, label %do.end2
 
 do.end2:                                          ; preds = %entry
-  %hash_func = getelementptr inbounds i8, ptr %h, i64 8
+  %hash_func = getelementptr inbounds nuw i8, ptr %h, i64 8
   %1 = load ptr, ptr %hash_func, align 8
-  %slots = getelementptr inbounds i8, ptr %h, i64 32
+  %slots = getelementptr inbounds nuw i8, ptr %h, i64 32
   %2 = load i32, ptr %slots, align 8
   %conv = sext i32 %2 to i64
   %call = tail call i64 %1(ptr noundef %key, i64 noundef %key_len, i64 noundef %conv) #8
@@ -239,11 +239,11 @@ do.end2:                                          ; preds = %entry
   br i1 %tobool4.not12, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %do.end2
-  %comp_func = getelementptr inbounds i8, ptr %h, i64 16
+  %comp_func = getelementptr inbounds nuw i8, ptr %h, i64 16
   br label %for.body
 
 for.cond:                                         ; preds = %for.body
-  %next = getelementptr inbounds i8, ptr %le.013, i64 16
+  %next = getelementptr inbounds nuw i8, ptr %le.013, i64 16
   %le.0 = load ptr, ptr %next, align 8
   %tobool4.not = icmp eq ptr %le.0, null
   br i1 %tobool4.not, label %return, label %for.body, !llvm.loop !8
@@ -252,15 +252,15 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %le.013 = phi ptr [ %le.011, %for.body.lr.ph ], [ %le.0, %for.cond ]
   %3 = load ptr, ptr %le.013, align 8
   %4 = load ptr, ptr %comp_func, align 8
-  %key5 = getelementptr inbounds i8, ptr %3, i64 40
-  %key_len6 = getelementptr inbounds i8, ptr %3, i64 32
+  %key5 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %key_len6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load i64, ptr %key_len6, align 8
   %call7 = tail call i64 %4(ptr noundef nonnull %key5, i64 noundef %5, ptr noundef %key, i64 noundef %key_len) #8
   %tobool8.not = icmp eq i64 %call7, 0
   br i1 %tobool8.not, label %for.cond, label %if.then9
 
 if.then9:                                         ; preds = %for.body
-  %ptr10 = getelementptr inbounds i8, ptr %3, i64 24
+  %ptr10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %6 = load ptr, ptr %ptr10, align 8
   br label %return
 
@@ -277,7 +277,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %slots = getelementptr inbounds i8, ptr %h, i64 32
+  %slots = getelementptr inbounds nuw i8, ptr %h, i64 32
   %1 = load i32, ptr %slots, align 8
   %cmp10 = icmp sgt i32 %1, 0
   br i1 %cmp10, label %for.body, label %do.body
@@ -285,7 +285,7 @@ for.cond.preheader:                               ; preds = %entry
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.cond.preheader ]
   %2 = load ptr, ptr %h, align 8
-  %arrayidx = getelementptr inbounds %struct.Curl_llist, ptr %2, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw %struct.Curl_llist, ptr %2, i64 %indvars.iv
   tail call void @Curl_llist_destroy(ptr noundef %arrayidx, ptr noundef nonnull %h) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %3 = load i32, ptr %slots, align 8
@@ -305,9 +305,9 @@ do.body:                                          ; preds = %do.body.loopexit, %
   br label %if.end
 
 if.end:                                           ; preds = %do.body, %entry
-  %size = getelementptr inbounds i8, ptr %h, i64 40
+  %size = getelementptr inbounds nuw i8, ptr %h, i64 40
   store i64 0, ptr %size, align 8
-  %slots4 = getelementptr inbounds i8, ptr %h, i64 32
+  %slots4 = getelementptr inbounds nuw i8, ptr %h, i64 32
   store i32 0, ptr %slots4, align 8
   ret void
 }
@@ -326,20 +326,20 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %tobool1.not.i, label %Curl_hash_clean_with_criterium.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %lor.lhs.false.i
-  %slots.i = getelementptr inbounds i8, ptr %h, i64 32
+  %slots.i = getelementptr inbounds nuw i8, ptr %h, i64 32
   %1 = load i32, ptr %slots.i, align 8
   %cmp15.i = icmp sgt i32 %1, 0
   br i1 %cmp15.i, label %for.body.lr.ph.i, label %Curl_hash_clean_with_criterium.exit
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %size.i = getelementptr inbounds i8, ptr %h, i64 40
+  %size.i = getelementptr inbounds nuw i8, ptr %h, i64 40
   br label %for.body.us.i
 
 for.body.us.i:                                    ; preds = %for.inc.us.i, %for.body.lr.ph.i
   %2 = phi i32 [ %5, %for.inc.us.i ], [ %1, %for.body.lr.ph.i ]
   %indvars.iv19.i = phi i64 [ %indvars.iv.next20.i, %for.inc.us.i ], [ 0, %for.body.lr.ph.i ]
   %3 = load ptr, ptr %h, align 8
-  %arrayidx.us.i = getelementptr inbounds %struct.Curl_llist, ptr %3, i64 %indvars.iv19.i
+  %arrayidx.us.i = getelementptr inbounds nuw %struct.Curl_llist, ptr %3, i64 %indvars.iv19.i
   %4 = load ptr, ptr %arrayidx.us.i, align 8
   %tobool3.not13.us.i = icmp eq ptr %4, null
   br i1 %tobool3.not13.us.i, label %for.inc.us.i, label %while.body.us.us.i
@@ -357,7 +357,7 @@ for.inc.us.i:                                     ; preds = %for.inc.us.loopexit
 
 while.body.us.us.i:                               ; preds = %for.body.us.i, %while.body.us.us.i
   %le.014.us.us.i = phi ptr [ %7, %while.body.us.us.i ], [ %4, %for.body.us.i ]
-  %next.us.us.i = getelementptr inbounds i8, ptr %le.014.us.us.i, i64 16
+  %next.us.us.i = getelementptr inbounds nuw i8, ptr %le.014.us.us.i, i64 16
   %7 = load ptr, ptr %next.us.us.i, align 8
   tail call void @Curl_llist_remove(ptr noundef nonnull %arrayidx.us.i, ptr noundef nonnull %le.014.us.us.i, ptr noundef nonnull %h) #8
   %8 = load i64, ptr %size.i, align 8
@@ -382,21 +382,21 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool1.not, label %for.end, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %lor.lhs.false
-  %slots = getelementptr inbounds i8, ptr %h, i64 32
+  %slots = getelementptr inbounds nuw i8, ptr %h, i64 32
   %1 = load i32, ptr %slots, align 8
   %cmp15 = icmp sgt i32 %1, 0
   br i1 %cmp15, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %tobool4.not = icmp eq ptr %comp, null
-  %size = getelementptr inbounds i8, ptr %h, i64 40
+  %size = getelementptr inbounds nuw i8, ptr %h, i64 40
   br i1 %tobool4.not, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
   %2 = phi i32 [ %5, %for.inc.us ], [ %1, %for.body.lr.ph ]
   %indvars.iv19 = phi i64 [ %indvars.iv.next20, %for.inc.us ], [ 0, %for.body.lr.ph ]
   %3 = load ptr, ptr %h, align 8
-  %arrayidx.us = getelementptr inbounds %struct.Curl_llist, ptr %3, i64 %indvars.iv19
+  %arrayidx.us = getelementptr inbounds nuw %struct.Curl_llist, ptr %3, i64 %indvars.iv19
   %4 = load ptr, ptr %arrayidx.us, align 8
   %tobool3.not13.us = icmp eq ptr %4, null
   br i1 %tobool3.not13.us, label %for.inc.us, label %while.body.us.us
@@ -414,7 +414,7 @@ for.inc.us:                                       ; preds = %for.inc.us.loopexit
 
 while.body.us.us:                                 ; preds = %for.body.us, %while.body.us.us
   %le.014.us.us = phi ptr [ %7, %while.body.us.us ], [ %4, %for.body.us ]
-  %next.us.us = getelementptr inbounds i8, ptr %le.014.us.us, i64 16
+  %next.us.us = getelementptr inbounds nuw i8, ptr %le.014.us.us, i64 16
   %7 = load ptr, ptr %next.us.us, align 8
   tail call void @Curl_llist_remove(ptr noundef nonnull %arrayidx.us, ptr noundef nonnull %le.014.us.us, ptr noundef nonnull %h) #8
   %8 = load i64, ptr %size, align 8
@@ -427,17 +427,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %9 = phi i32 [ %16, %for.inc ], [ %1, %for.body.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %for.body.lr.ph ]
   %10 = load ptr, ptr %h, align 8
-  %arrayidx = getelementptr inbounds %struct.Curl_llist, ptr %10, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw %struct.Curl_llist, ptr %10, i64 %indvars.iv
   %11 = load ptr, ptr %arrayidx, align 8
   %tobool3.not13 = icmp eq ptr %11, null
   br i1 %tobool3.not13, label %for.inc, label %while.body
 
 while.body:                                       ; preds = %for.body, %if.end9
   %le.014 = phi ptr [ %12, %if.end9 ], [ %11, %for.body ]
-  %next = getelementptr inbounds i8, ptr %le.014, i64 16
+  %next = getelementptr inbounds nuw i8, ptr %le.014, i64 16
   %12 = load ptr, ptr %next, align 8
   %13 = load ptr, ptr %le.014, align 8
-  %ptr6 = getelementptr inbounds i8, ptr %13, i64 24
+  %ptr6 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %14 = load ptr, ptr %ptr6, align 8
   %call = tail call i32 %comp(ptr noundef %user, ptr noundef %14) #8
   %tobool7.not = icmp eq i32 %call, 0
@@ -480,7 +480,7 @@ while.body:                                       ; preds = %entry, %while.body
   %h.08 = phi i64 [ %xor, %while.body ], [ 5381, %entry ]
   %key_str.07 = phi ptr [ %incdec.ptr, %while.body ], [ %key, %entry ]
   %add = mul i64 %h.08, 33
-  %incdec.ptr = getelementptr inbounds i8, ptr %key_str.07, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %key_str.07, i64 1
   %0 = load i8, ptr %key_str.07, align 1
   %conv = sext i8 %0 to i64
   %xor = xor i64 %add, %conv
@@ -516,9 +516,9 @@ return:                                           ; preds = %land.lhs.true, %if.
 define hidden void @Curl_hash_start_iterate(ptr noundef %hash, ptr nocapture noundef writeonly initializes((0, 12), (16, 24)) %iter) local_unnamed_addr #0 {
 entry:
   store ptr %hash, ptr %iter, align 8
-  %slot_index = getelementptr inbounds i8, ptr %iter, i64 8
+  %slot_index = getelementptr inbounds nuw i8, ptr %iter, i64 8
   store i32 0, ptr %slot_index, align 8
-  %current_element = getelementptr inbounds i8, ptr %iter, i64 16
+  %current_element = getelementptr inbounds nuw i8, ptr %iter, i64 16
   store ptr null, ptr %current_element, align 8
   ret void
 }
@@ -532,22 +532,22 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %current_element = getelementptr inbounds i8, ptr %iter, i64 16
+  %current_element = getelementptr inbounds nuw i8, ptr %iter, i64 16
   %2 = load ptr, ptr %current_element, align 8
   %tobool1.not = icmp eq ptr %2, null
   br i1 %tobool1.not, label %if.then8, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %next = getelementptr inbounds i8, ptr %2, i64 16
+  %next = getelementptr inbounds nuw i8, ptr %2, i64 16
   %3 = load ptr, ptr %next, align 8
   store ptr %3, ptr %current_element, align 8
   %tobool7.not = icmp eq ptr %3, null
   br i1 %tobool7.not, label %if.then8, label %if.then22
 
 if.then8:                                         ; preds = %if.end, %if.end5
-  %slot_index = getelementptr inbounds i8, ptr %iter, i64 8
+  %slot_index = getelementptr inbounds nuw i8, ptr %iter, i64 8
   %4 = load i32, ptr %slot_index, align 8
-  %slots = getelementptr inbounds i8, ptr %0, i64 32
+  %slots = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i32, ptr %slots, align 8
   %cmp22 = icmp slt i32 %4, %5
   br i1 %cmp22, label %for.body.lr.ph, label %return

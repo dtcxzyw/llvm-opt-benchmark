@@ -39,17 +39,17 @@ define range(i32 -4, 1) i32 @CVDiag(ptr noundef %0) local_unnamed_addr #0 {
   br label %50
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 448
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 168
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 168
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %16, label %12
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %8, i64 176
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 176
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %17
@@ -59,7 +59,7 @@ define range(i32 -4, 1) i32 @CVDiag(ptr noundef %0) local_unnamed_addr #0 {
   br label %50
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %0, i64 1688
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 1688
   %19 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %21, label %20
@@ -69,11 +69,11 @@ define range(i32 -4, 1) i32 @CVDiag(ptr noundef %0) local_unnamed_addr #0 {
   br label %21
 
 21:                                               ; preds = %20, %17
-  %22 = getelementptr inbounds i8, ptr %0, i64 1664
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 1664
   store ptr @CVDiagInit, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 1672
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 1672
   store ptr @CVDiagSetup, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 1680
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 1680
   store ptr @CVDiagSolve, ptr %24, align 8
   store ptr @CVDiagFree, ptr %18, align 8
   %25 = tail call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #9
@@ -85,13 +85,13 @@ define range(i32 -4, 1) i32 @CVDiag(ptr noundef %0) local_unnamed_addr #0 {
   br label %50
 
 28:                                               ; preds = %21
-  %29 = getelementptr inbounds i8, ptr %25, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 40
   store i64 0, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 1780
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 1780
   store i32 1, ptr %30, align 4
   %31 = load ptr, ptr %5, align 8
   %32 = tail call ptr @N_VClone(ptr noundef %31) #8
-  %33 = getelementptr inbounds i8, ptr %25, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %32, ptr %33, align 8
   %34 = icmp eq ptr %32, null
   br i1 %34, label %35, label %36
@@ -104,7 +104,7 @@ define range(i32 -4, 1) i32 @CVDiag(ptr noundef %0) local_unnamed_addr #0 {
 36:                                               ; preds = %28
   %37 = load ptr, ptr %5, align 8
   %38 = tail call ptr @N_VClone(ptr noundef %37) #8
-  %39 = getelementptr inbounds i8, ptr %25, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store ptr %38, ptr %39, align 8
   %40 = icmp eq ptr %38, null
   br i1 %40, label %41, label %42
@@ -118,7 +118,7 @@ define range(i32 -4, 1) i32 @CVDiag(ptr noundef %0) local_unnamed_addr #0 {
 42:                                               ; preds = %36
   %43 = load ptr, ptr %5, align 8
   %44 = tail call ptr @N_VClone(ptr noundef %43) #8
-  %45 = getelementptr inbounds i8, ptr %25, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store ptr %44, ptr %45, align 8
   %46 = icmp eq ptr %44, null
   br i1 %46, label %47, label %48
@@ -131,7 +131,7 @@ define range(i32 -4, 1) i32 @CVDiag(ptr noundef %0) local_unnamed_addr #0 {
   br label %50
 
 48:                                               ; preds = %42
-  %49 = getelementptr inbounds i8, ptr %0, i64 1696
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 1696
   store ptr %25, ptr %49, align 8
   br label %50
 
@@ -144,36 +144,36 @@ declare void @cvProcessError(ptr noundef, i32 noundef, ptr noundef, ptr noundef,
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @CVDiagInit(ptr nocapture noundef readonly %0) #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1696
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1696
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 2) i32 @CVDiagSetup(ptr noundef %0, i32 %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr noundef %5, ptr noundef %6, ptr nocapture readnone %7) #0 {
-  %9 = getelementptr inbounds i8, ptr %0, i64 1696
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1696
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 1264
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1264
   %12 = load double, ptr %11, align 8
   %13 = fmul double %12, 1.000000e-01
-  %14 = getelementptr inbounds i8, ptr %0, i64 944
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %15 = load double, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 328
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %17 = load ptr, ptr %16, align 8
   tail call void @N_VLinearSum(double noundef %15, ptr noundef %3, double noundef -1.000000e+00, ptr noundef %17, ptr noundef %5) #8
   tail call void @N_VLinearSum(double noundef %13, ptr noundef %5, double noundef 1.000000e+00, ptr noundef %2, ptr noundef %6) #8
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 984
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 984
   %21 = load double, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %10, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = tail call i32 %19(double noundef %21, ptr noundef %6, ptr noundef %23, ptr noundef %25) #8
-  %27 = getelementptr inbounds i8, ptr %10, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %28 = load i64, ptr %27, align 8
   %29 = add nsw i64 %28, 1
   store i64 %29, ptr %27, align 8
@@ -195,15 +195,15 @@ define internal range(i32 -1, 2) i32 @CVDiagSetup(ptr noundef %0, i32 %1, ptr no
   %36 = fneg double %35
   %37 = load ptr, ptr %22, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e-01, ptr noundef %5, double noundef %36, ptr noundef %37, ptr noundef %37) #8
-  %38 = getelementptr inbounds i8, ptr %0, i64 424
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %39 = load ptr, ptr %38, align 8
   tail call void @N_VProd(ptr noundef %5, ptr noundef %39, ptr noundef %6) #8
   %40 = load double, ptr %0, align 8
-  %41 = getelementptr inbounds i8, ptr %10, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %42 = load ptr, ptr %41, align 8
   tail call void @N_VCompare(double noundef %40, ptr noundef %6, ptr noundef %42) #8
   %43 = load ptr, ptr %41, align 8
-  %44 = getelementptr inbounds i8, ptr %10, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %45 = load ptr, ptr %44, align 8
   tail call void @N_VAddConst(ptr noundef %43, double noundef -1.000000e+00, ptr noundef %45) #8
   %46 = load ptr, ptr %41, align 8
@@ -225,7 +225,7 @@ define internal range(i32 -1, 2) i32 @CVDiagSetup(ptr noundef %0, i32 %1, ptr no
 
 55:                                               ; preds = %33
   store i32 1, ptr %4, align 4
-  %56 = getelementptr inbounds i8, ptr %0, i64 1272
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 1272
   %57 = load double, ptr %56, align 8
   store double %57, ptr %10, align 8
   br label %58
@@ -233,24 +233,24 @@ define internal range(i32 -1, 2) i32 @CVDiagSetup(ptr noundef %0, i32 %1, ptr no
 58:                                               ; preds = %33, %32, %55, %31
   %.sink = phi i64 [ 0, %55 ], [ -6, %31 ], [ -7, %32 ], [ -5, %33 ]
   %.0 = phi i32 [ 0, %55 ], [ -1, %31 ], [ 1, %32 ], [ 1, %33 ]
-  %59 = getelementptr inbounds i8, ptr %10, i64 40
+  %59 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i64 %.sink, ptr %59, align 8
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @CVDiagSolve(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 1696
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1696
   %7 = load ptr, ptr %6, align 8
   %8 = load double, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 1272
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1272
   %10 = load double, ptr %9, align 8
   %11 = fcmp une double %8, %10
   br i1 %11, label %12, label %23
 
 12:                                               ; preds = %5
   %13 = fdiv double %10, %8
-  %14 = getelementptr inbounds i8, ptr %7, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %15 = load ptr, ptr %14, align 8
   tail call void @N_VInv(ptr noundef %15, ptr noundef %15) #8
   %16 = load ptr, ptr %14, align 8
@@ -270,7 +270,7 @@ define internal range(i32 0, 2) i32 @CVDiagSolve(ptr nocapture noundef readonly 
   br label %23
 
 23:                                               ; preds = %21, %5
-  %24 = getelementptr inbounds i8, ptr %7, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %25 = load ptr, ptr %24, align 8
   tail call void @N_VProd(ptr noundef %1, ptr noundef %25, ptr noundef %1) #8
   br label %26
@@ -278,22 +278,22 @@ define internal range(i32 0, 2) i32 @CVDiagSolve(ptr nocapture noundef readonly 
 26:                                               ; preds = %12, %23
   %.sink = phi i64 [ 0, %23 ], [ -5, %12 ]
   %.0 = phi i32 [ 0, %23 ], [ 1, %12 ]
-  %27 = getelementptr inbounds i8, ptr %7, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i64 %.sink, ptr %27, align 8
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @CVDiagFree(ptr nocapture noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1696
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1696
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @N_VDestroy(ptr noundef %5) #8
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = load ptr, ptr %6, align 8
   tail call void @N_VDestroy(ptr noundef %7) #8
-  %8 = getelementptr inbounds i8, ptr %3, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %9 = load ptr, ptr %8, align 8
   tail call void @N_VDestroy(ptr noundef %9) #8
   tail call void @free(ptr noundef %3) #8
@@ -321,11 +321,11 @@ define range(i32 -1, 1) i32 @CVDiagGetWorkSpace(ptr noundef readonly %0, ptr noc
   br label %13
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 1592
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1592
   %8 = load i64, ptr %7, align 8
   %9 = mul nsw i64 %8, 3
   store i64 %9, ptr %1, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 1600
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1600
   %11 = load i64, ptr %10, align 8
   %12 = mul nsw i64 %11, 3
   store i64 %12, ptr %2, align 8
@@ -346,7 +346,7 @@ define range(i32 -2, 1) i32 @CVDiagGetNumRhsEvals(ptr noundef %0, ptr nocapture 
   br label %13
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 1696
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1696
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %10
@@ -356,7 +356,7 @@ define range(i32 -2, 1) i32 @CVDiagGetNumRhsEvals(ptr noundef %0, ptr nocapture 
   br label %13
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %7, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %12 = load i64, ptr %11, align 8
   store i64 %12, ptr %1, align 8
   br label %13
@@ -376,7 +376,7 @@ define range(i32 -2, 1) i32 @CVDiagGetLastFlag(ptr noundef %0, ptr nocapture nou
   br label %13
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 1696
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1696
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %10
@@ -386,7 +386,7 @@ define range(i32 -2, 1) i32 @CVDiagGetLastFlag(ptr noundef %0, ptr nocapture nou
   br label %13
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %7, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load i64, ptr %11, align 8
   store i64 %12, ptr %1, align 8
   br label %13
@@ -465,7 +465,7 @@ define range(i32 -101, 1) i32 @CVDiagB(ptr noundef %0, i32 noundef %1) local_unn
   br label %24
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 2200
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2200
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %10
@@ -475,9 +475,9 @@ define range(i32 -101, 1) i32 @CVDiagB(ptr noundef %0, i32 noundef %1) local_unn
   br label %24
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %0, i64 2192
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 2192
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %14 = load i32, ptr %13, align 8
   %.not = icmp slt i32 %1, %14
   br i1 %.not, label %16, label %15
@@ -487,7 +487,7 @@ define range(i32 -101, 1) i32 @CVDiagB(ptr noundef %0, i32 noundef %1) local_unn
   br label %24
 
 16:                                               ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %12, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 32
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %16
@@ -495,11 +495,11 @@ define range(i32 -101, 1) i32 @CVDiagB(ptr noundef %0, i32 noundef %1) local_unn
   %.016.sink = load ptr, ptr %.016.sink.in, align 8, !nonnull !4, !noundef !4
   %18 = load i32, ptr %.016.sink, align 8
   %19 = icmp eq i32 %1, %18
-  %20 = getelementptr inbounds i8, ptr %.016.sink, i64 120
+  %20 = getelementptr inbounds nuw i8, ptr %.016.sink, i64 120
   br i1 %19, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %21 = getelementptr inbounds i8, ptr %.016.sink, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %.016.sink, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i32 @CVDiag(ptr noundef %22)
   br label %24

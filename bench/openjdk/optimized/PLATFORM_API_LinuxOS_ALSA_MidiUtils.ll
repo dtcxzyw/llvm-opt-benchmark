@@ -309,13 +309,13 @@ define internal fastcc i32 @iterateRawmidiDevices(i32 noundef %0, ptr noundef re
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
 define hidden noundef range(i32 -11115, 1) i32 @initMIDIDeviceDescription(ptr nocapture noundef writeonly initializes((0, 8), (16, 32)) %0, i32 noundef %1) local_unnamed_addr #2 {
   store i32 %1, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 200, ptr %3, align 4
   %4 = tail call noalias dereferenceable_or_null(201) ptr @calloc(i64 noundef 201, i64 noundef 1) #13
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %4, ptr %5, align 8
   %6 = tail call noalias dereferenceable_or_null(201) ptr @calloc(i64 noundef 201, i64 noundef 1) #13
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %6, ptr %7, align 8
   %.not = icmp eq ptr %4, null
   %.not9 = icmp eq ptr %6, null
@@ -329,7 +329,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define hidden void @freeMIDIDeviceDescription(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -339,7 +339,7 @@ define hidden void @freeMIDIDeviceDescription(ptr nocapture noundef readonly %0)
   br label %5
 
 5:                                                ; preds = %4, %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %.not5 = icmp eq ptr %7, null
   br i1 %.not5, label %9, label %8
@@ -359,13 +359,13 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 define hidden range(i32 -11115, 1) i32 @getMidiDeviceName(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.tag_ALSA_MIDIDeviceDescription, align 8
   store i32 %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 200, ptr %6, align 4
   %7 = tail call noalias dereferenceable_or_null(201) ptr @calloc(i64 noundef 201, i64 noundef 1) #13
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %7, ptr %8, align 8
   %9 = tail call noalias dereferenceable_or_null(201) ptr @calloc(i64 noundef 201, i64 noundef 1) #13
-  %10 = getelementptr inbounds i8, ptr %5, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %9, ptr %10, align 8
   %.not.i = icmp ne ptr %7, null
   %.not9.i = icmp ne ptr %9, null
@@ -384,7 +384,7 @@ define hidden range(i32 -11115, 1) i32 @getMidiDeviceName(i32 noundef %0, i32 no
   %16 = add i32 %3, -1
   %17 = zext i32 %16 to i64
   %18 = call ptr @strncpy(ptr noundef %2, ptr noundef %.pre, i64 noundef %17) #12
-  %19 = getelementptr inbounds i8, ptr %2, i64 %17
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 %17
   store i8 0, ptr %19, align 1
   br label %20
 
@@ -419,7 +419,7 @@ define hidden noundef i32 @getMidiDeviceVendor(i32 noundef %0, ptr noundef %1, i
   %4 = add i32 %2, -1
   %5 = zext i32 %4 to i64
   %6 = tail call ptr @strncpy(ptr noundef %1, ptr noundef nonnull dereferenceable(35) @.str, i64 noundef %5) #12
-  %7 = getelementptr inbounds i8, ptr %1, i64 %5
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 %5
   store i8 0, ptr %7, align 1
   ret i32 0
 }
@@ -428,13 +428,13 @@ define hidden noundef i32 @getMidiDeviceVendor(i32 noundef %0, ptr noundef %1, i
 define hidden range(i32 -11115, 1) i32 @getMidiDeviceDescription(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.tag_ALSA_MIDIDeviceDescription, align 8
   store i32 %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 200, ptr %6, align 4
   %7 = tail call noalias dereferenceable_or_null(201) ptr @calloc(i64 noundef 201, i64 noundef 1) #13
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %7, ptr %8, align 8
   %9 = tail call noalias dereferenceable_or_null(201) ptr @calloc(i64 noundef 201, i64 noundef 1) #13
-  %10 = getelementptr inbounds i8, ptr %5, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %9, ptr %10, align 8
   %.not.i = icmp ne ptr %7, null
   %.not9.i = icmp ne ptr %9, null
@@ -453,7 +453,7 @@ define hidden range(i32 -11115, 1) i32 @getMidiDeviceDescription(i32 noundef %0,
   %17 = add i32 %3, -1
   %18 = zext i32 %17 to i64
   %19 = call ptr @strncpy(ptr noundef %2, ptr noundef %16, i64 noundef %18) #12
-  %20 = getelementptr inbounds i8, ptr %2, i64 %18
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 %18
   store i8 0, ptr %20, align 1
   br label %21
 
@@ -504,13 +504,13 @@ define hidden i32 @openMidiDevice(i32 noundef %0, i32 noundef %1, ptr nocapture 
 10:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   store i32 %1, ptr %5, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 200, ptr %11, align 4
   %12 = tail call noalias dereferenceable_or_null(201) ptr @calloc(i64 noundef 201, i64 noundef 1) #13
-  %13 = getelementptr inbounds i8, ptr %5, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %12, ptr %13, align 8
   %14 = tail call noalias dereferenceable_or_null(201) ptr @calloc(i64 noundef 201, i64 noundef 1) #13
-  %15 = getelementptr inbounds i8, ptr %5, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %14, ptr %15, align 8
   %.not.i.i = icmp ne ptr %12, null
   %.not9.i.i = icmp ne ptr %14, null
@@ -525,7 +525,7 @@ define hidden i32 @openMidiDevice(i32 noundef %0, i32 noundef %1, ptr nocapture 
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %5, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %22 = load i32, ptr %21, align 8
   br label %23
 
@@ -609,16 +609,16 @@ getMidiDeviceID.exit:                             ; preds = %26, %28
   %52 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #12
   %53 = load i64, ptr %4, align 8
   %54 = mul i64 %53, 1000000
-  %55 = getelementptr inbounds i8, ptr %4, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %56 = load i64, ptr %55, align 8
   %57 = add i64 %54, %56
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %58 = load ptr, ptr %2, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 32
   store i64 %57, ptr %59, align 8
   %60 = load ptr, ptr %7, align 8
   %61 = load ptr, ptr %2, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   store ptr %60, ptr %62, align 8
   br label %63
 
@@ -649,7 +649,7 @@ define hidden i32 @closeMidiDevice(ptr noundef %0) local_unnamed_addr #0 {
 
 4:                                                ; preds = %2
   %5 = tail call i32 @snd_rawmidi_close(ptr noundef nonnull %3) #12
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not11 = icmp eq ptr %7, null
   br i1 %.not11, label %9, label %8
@@ -680,11 +680,11 @@ define hidden i64 @getMidiTimestamp(ptr noundef readonly %0) local_unnamed_addr 
   %4 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #12
   %5 = load i64, ptr %2, align 8
   %6 = mul i64 %5, 1000000
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %6, %8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load i64, ptr %10, align 8
   %12 = sub i64 %9, %11
   br label %13
@@ -742,17 +742,17 @@ define internal range(i32 0, 2) i32 @deviceInfoIterator(i32 noundef %0, ptr noun
   br i1 %7, label %8, label %72
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %0, ptr %9, align 8
   store i8 32, ptr %5, align 16
-  %10 = getelementptr inbounds i8, ptr %5, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 91, ptr %10, align 1
-  %11 = getelementptr inbounds i8, ptr %5, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 2
   call void @getDeviceStringFromDeviceID(ptr noundef nonnull %11, i64 noundef 298, i32 noundef %0, i32 noundef 0, i32 noundef 1) #12
   %12 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #14
   %13 = sub i64 299, %12
   %14 = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull @.str.3, i64 noundef %13) #12
-  %15 = getelementptr inbounds i8, ptr %3, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %19, label %17
@@ -767,7 +767,7 @@ define internal range(i32 0, 2) i32 @deviceInfoIterator(i32 noundef %0, ptr noun
 
 21:                                               ; preds = %19, %17
   %22 = phi ptr [ %18, %17 ], [ %20, %19 ]
-  %23 = getelementptr inbounds i8, ptr %3, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %24 = load i32, ptr %23, align 4
   %25 = sext i32 %24 to i64
   %26 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #14
@@ -779,7 +779,7 @@ define internal range(i32 0, 2) i32 @deviceInfoIterator(i32 noundef %0, ptr noun
   %32 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %29) #14
   %33 = sub i64 %31, %32
   %34 = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull %5, i64 noundef %33) #12
-  %35 = getelementptr inbounds i8, ptr %3, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %36 = load ptr, ptr %35, align 8
   store i8 0, ptr %36, align 1
   br i1 %.not, label %49, label %37

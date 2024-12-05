@@ -46,7 +46,7 @@ define hidden void @_ZN12MonitorChunkC2Ei(ptr nocapture noundef nonnull writeonl
   %3 = sext i32 %1 to i64
   %4 = shl nsw i64 %3, 4
   %5 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %4, i8 noundef zeroext 22, i32 noundef 0) #3
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %5, ptr %6, align 8
   ret void
 }
@@ -55,7 +55,7 @@ declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEn
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN12MonitorChunkD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %3) #3
   ret void
@@ -70,13 +70,13 @@ define hidden void @_ZN12MonitorChunk7oops_doEP10OopClosure(ptr nocapture nounde
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %6
 
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
   %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds %class.BasicObjectLock, ptr %7, i64 %indvars.iv, i32 1
+  %8 = getelementptr inbounds nuw %class.BasicObjectLock, ptr %7, i64 %indvars.iv, i32 1
   %9 = load ptr, ptr %1, align 8
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %8) #3

@@ -43,7 +43,7 @@ define void @destroy_print_field(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %5, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @slurm_xfree(ptr noundef nonnull %4) #8
   call void @slurm_xfree(ptr noundef nonnull %2) #8
   br label %5
@@ -79,7 +79,7 @@ define void @print_fields_header(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %or.cond34, label %13, label %17
 
 13:                                               ; preds = %.lr.ph
-  %14 = getelementptr inbounds i8, ptr %9, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef %15)
   br label %37
@@ -92,7 +92,7 @@ define void @print_fields_header(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %or.cond3, label %21, label %25
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %9, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %23, ptr noundef nonnull %19)
   br label %37
@@ -103,7 +103,7 @@ define void @print_fields_header(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %or.cond5, label %31, label %27
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %9, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, ptr noundef %29)
   br label %37
@@ -111,7 +111,7 @@ define void @print_fields_header(ptr noundef %0) local_unnamed_addr #0 {
 31:                                               ; preds = %25
   %32 = load i32, ptr %9, align 8
   %33 = tail call i32 @llvm.abs.i32(i32 %32, i1 true)
-  %34 = getelementptr inbounds i8, ptr %9, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %32, i32 noundef %33, ptr noundef %35)
   br label %37

@@ -21,14 +21,14 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define dso_local void @imx_i2c_init(ptr nocapture noundef writeonly initializes((0, 8), (40, 72)) %s, ptr noundef %qts, i64 noundef %addr) local_unnamed_addr #0 {
 entry:
-  %addr1 = getelementptr inbounds i8, ptr %s, i64 64
+  %addr1 = getelementptr inbounds nuw i8, ptr %s, i64 64
   store i64 %addr, ptr %addr1, align 8
   store ptr @imx_i2c_get_driver, ptr %s, align 8
-  %parent = getelementptr inbounds i8, ptr %s, i64 40
+  %parent = getelementptr inbounds nuw i8, ptr %s, i64 40
   store ptr @imx_i2c_send, ptr %parent, align 8
-  %recv = getelementptr inbounds i8, ptr %s, i64 48
+  %recv = getelementptr inbounds nuw i8, ptr %s, i64 48
   store ptr @imx_i2c_recv, ptr %recv, align 8
-  %qts4 = getelementptr inbounds i8, ptr %s, i64 56
+  %qts4 = getelementptr inbounds nuw i8, ptr %s, i64 56
   store ptr %qts, ptr %qts4, align 8
   ret void
 }
@@ -41,7 +41,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %parent = getelementptr inbounds i8, ptr %obj, i64 40
+  %parent = getelementptr inbounds nuw i8, ptr %obj, i64 40
   ret ptr %parent
 
 if.end:                                           ; preds = %entry

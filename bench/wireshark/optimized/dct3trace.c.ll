@@ -71,18 +71,18 @@ define hidden range(i32 -1, 2) i32 @dct3trace_open(ptr noundef %0, ptr nocapture
   br i1 %.not16, label %19, label %27
 
 19:                                               ; preds = %18
-  %20 = getelementptr inbounds i8, ptr %0, i64 144
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 116, ptr %20, align 8
   %21 = load i32, ptr @dct3trace_file_type_subtype, align 4
-  %22 = getelementptr inbounds i8, ptr %0, i64 20
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %21, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 112
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @dct3trace_read, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 120
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr @dct3trace_seek_read, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 148
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 0, ptr %26, align 4
   call void @wtap_add_generated_idb(ptr noundef nonnull %0) #7
   br label %27
@@ -108,7 +108,7 @@ define internal range(i32 0, 2) i32 @dct3trace_read(ptr nocapture noundef readon
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @dct3trace_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @file_seek(ptr noundef %8, i64 noundef %1, i32 noundef 0, ptr noundef %4) #7
   %10 = icmp eq i64 %9, -1
@@ -146,14 +146,14 @@ define internal fastcc range(i32 0, 2) i32 @dct3trace_get_packet(ptr noundef %0,
   %7 = alloca [23 x i8], align 16
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %1, i64 84
-  %11 = getelementptr inbounds i8, ptr %7, i64 23
-  %12 = getelementptr inbounds i8, ptr %1, i64 80
-  %13 = getelementptr inbounds i8, ptr %1, i64 86
-  %14 = getelementptr inbounds i8, ptr %1, i64 88
-  %15 = getelementptr inbounds i8, ptr %1, i64 85
-  %16 = getelementptr inbounds i8, ptr %1, i64 92
-  %17 = getelementptr inbounds i8, ptr %1, i64 94
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 84
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 23
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 86
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 85
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 92
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 94
   br label %.outer.outer.outer
 
 .outer.outer.outer:                               ; preds = %5, %164
@@ -199,24 +199,24 @@ define internal fastcc range(i32 0, 2) i32 @dct3trace_get_packet(ptr noundef %0,
 27:                                               ; preds = %26
   store i32 0, ptr %1, align 8
   %28 = call ptr @wtap_block_create(i32 noundef 5) #7
-  %29 = getelementptr inbounds i8, ptr %1, i64 232
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 232
   store ptr %28, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 0, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 0, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 0, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 64
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 %.078.ph.ph, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 68
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 68
   store i32 %.078.ph.ph, ptr %34, align 4
   store i32 0, ptr %3, align 4
   %35 = load i32, ptr %33, align 8
   %36 = zext i32 %35 to i64
   call void @ws_buffer_assure_space(ptr noundef %2, i64 noundef %36) #7
   %37 = load ptr, ptr %2, align 8
-  %38 = getelementptr inbounds i8, ptr %2, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %39 = load i64, ptr %38, align 8
   %40 = getelementptr i8, ptr %37, i64 %39
   %41 = load i32, ptr %33, align 8
@@ -393,7 +393,7 @@ hex2bin.exit:                                     ; preds = %.outer.i, %hc2b.exi
   br i1 %112, label %hex2bin.exit.thread, label %.outer.outer, !llvm.loop !4
 
 hex2bin.exit.thread:                              ; preds = %hex2bin.exit, %95
-  %113 = getelementptr inbounds i8, ptr %1, i64 64
+  %113 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 -13, ptr %3, align 4
   %114 = load i32, ptr %113, align 8
   %115 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.10, i32 noundef %114) #7
@@ -510,7 +510,7 @@ hex2bin.exit122:                                  ; preds = %.outer.i116, %hc2b.
   br i1 %160, label %hex2bin.exit122.thread, label %164
 
 hex2bin.exit122.thread:                           ; preds = %hex2bin.exit122, %142
-  %161 = getelementptr inbounds i8, ptr %1, i64 64
+  %161 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 -13, ptr %3, align 4
   %162 = load i32, ptr %161, align 8
   %163 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.10, i32 noundef %162) #7

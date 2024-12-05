@@ -90,7 +90,7 @@ define void @dgemmt_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 85:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #5
   store ptr @dgemv_n, ptr %15, align 16
-  %86 = getelementptr inbounds i8, ptr %15, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr @dgemv_t, ptr %86, align 8
   %87 = icmp eq i32 %20, 0
   br i1 %87, label %.loopexit, label %88
@@ -128,7 +128,7 @@ define void @dgemmt_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %108 = sub nsw i64 %101, %107
   %109 = mul nsw i64 %107, %102
   %110 = getelementptr inbounds double, ptr %11, i64 %109
-  %111 = getelementptr inbounds double, ptr %110, i64 %107
+  %111 = getelementptr inbounds nuw double, ptr %110, i64 %107
   %112 = tail call i32 @dscal_k(i64 noundef %108, i64 noundef 0, i64 noundef 0, double noundef %23, ptr noundef %111, i64 noundef 1, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0) #5
   %113 = add nuw nsw i64 %107, 1
   %114 = icmp eq i64 %113, %101
@@ -173,7 +173,7 @@ define void @dgemmt_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %140 = getelementptr inbounds double, ptr %8, i64 %139
   %141 = mul nsw i64 %135, %102
   %142 = getelementptr inbounds double, ptr %11, i64 %141
-  %143 = getelementptr inbounds double, ptr %142, i64 %135
+  %143 = getelementptr inbounds nuw double, ptr %142, i64 %135
   br i1 %93, label %144, label %146
 
 144:                                              ; preds = %.split

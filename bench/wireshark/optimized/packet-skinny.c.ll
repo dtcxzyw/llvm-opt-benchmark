@@ -3031,7 +3031,7 @@ define internal i32 @dissect_skinny(ptr noundef %0, ptr noundef %1, ptr noundef 
   ]
 
 12:                                               ; preds = %11, %11, %11, %11, %11, %11, %11, %11, %11, %11, %11
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   tail call void @col_set_str(ptr noundef %14, i32 noundef 34, ptr noundef nonnull @.str.966) #6
   %15 = load ptr, ptr %13, align 8
@@ -3113,17 +3113,17 @@ define internal i32 @dissect_skinny_pdu(ptr noundef %0, ptr noundef %1, ptr noun
   %18 = tail call noalias ptr @wmem_alloc0(ptr noundef %17, i64 noundef 40) #6
   %19 = tail call ptr @wmem_file_scope() #6
   %20 = tail call noalias ptr @wmem_map_new(ptr noundef %19, ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #6
-  %21 = getelementptr inbounds i8, ptr %18, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %20, ptr %21, align 8
   %22 = tail call ptr @wmem_file_scope() #6
   %23 = tail call noalias ptr @wmem_map_new(ptr noundef %22, ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #6
-  %24 = getelementptr inbounds i8, ptr %18, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr %23, ptr %24, align 8
   %25 = tail call ptr @wmem_file_scope() #6
   %26 = tail call noalias ptr @wmem_map_new(ptr noundef %25, ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #6
-  %27 = getelementptr inbounds i8, ptr %18, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr %26, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %18, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %18, i64 32
   store i32 -1, ptr %28, align 8
   store i32 0, ptr %18, align 8
   %29 = load i32, ptr @proto_skinny, align 4
@@ -3143,39 +3143,39 @@ define internal i32 @dissect_skinny_pdu(ptr noundef %0, ptr noundef %1, ptr noun
   store i32 %7, ptr %35, align 8
   %36 = tail call ptr @val_to_str_ext(i32 noundef %7, ptr noundef nonnull @message_id_ext, ptr noundef nonnull @.str.1923) #6
   %37 = load ptr, ptr @si, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
   store ptr %36, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %37, i64 12
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 12
   store i32 0, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %37, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i32 0, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %37, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 16
   store i32 0, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %37, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %37, i64 32
   store i32 0, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %37, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %37, i64 40
   %44 = load ptr, ptr %43, align 8
   tail call void @g_free(ptr noundef %44) #6
   %45 = load ptr, ptr @si, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 40
   store ptr null, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %45, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %48 = load ptr, ptr %47, align 8
   tail call void @g_free(ptr noundef %48) #6
   %49 = load ptr, ptr @si, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 48
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 48
   store ptr null, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %49, i64 56
-  %52 = getelementptr inbounds i8, ptr %49, i64 80
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 56
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %51, i8 -1, i64 20, i1 false)
   %53 = load ptr, ptr %52, align 8
   tail call void @g_free(ptr noundef %53) #6
   %54 = load ptr, ptr @si, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 80
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 80
   store ptr null, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %1, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %54, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %59 = load ptr, ptr %58, align 8
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %57, i32 noundef 25, ptr noundef nonnull @.str.1924, ptr noundef %59) #6
   %60 = load ptr, ptr %56, align 8
@@ -3197,7 +3197,7 @@ define internal i32 @dissect_skinny_pdu(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not70, label %74, label %68
 
 68:                                               ; preds = %67
-  %69 = getelementptr inbounds i8, ptr %spec.select, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %spec.select, i64 16
   %70 = load i32, ptr %69, align 8
   %.not71 = icmp eq i32 %70, 0
   br i1 %.not71, label %74, label %.sink.split
@@ -3225,13 +3225,13 @@ define internal i32 @dissect_skinny_pdu(ptr noundef %0, ptr noundef %1, ptr noun
   br label %82
 
 82:                                               ; preds = %75, %74
-  %83 = getelementptr inbounds i8, ptr %1, i64 408
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %84 = load ptr, ptr %83, align 8
   %85 = tail call ptr @ptvcursor_new(ptr noundef %84, ptr noundef %.0, ptr noundef %0, i32 noundef 12) #6
   br i1 %.not70, label %90, label %86
 
 86:                                               ; preds = %82
-  %87 = getelementptr inbounds i8, ptr %spec.select, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %spec.select, i64 8
   %88 = load ptr, ptr %87, align 8
   %.not73 = icmp eq ptr %88, null
   br i1 %.not73, label %90, label %89
@@ -3403,7 +3403,7 @@ define internal void @handle_KeypadButtonMessage(ptr noundef %0, ptr nocapture r
   %9 = tail call ptr @try_val_to_str_ext(i32 noundef %8, ptr noundef nonnull @KeyPadButton_short_ext) #6
   %10 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2091, ptr noundef %9) #6
   %11 = load ptr, ptr @si, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 80
   store ptr %10, ptr %12, align 8
   %13 = load i32, ptr @hf_skinny_kpButton, align 4
   %14 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %13, i32 noundef 4, i32 noundef -2147483648) #6
@@ -3415,7 +3415,7 @@ define internal void @handle_KeypadButtonMessage(ptr noundef %0, ptr nocapture r
   %18 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %19 = tail call i32 @tvb_get_letohl(ptr noundef %17, i32 noundef %18) #6
   %20 = load ptr, ptr @si, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i32 %19, ptr %21, align 8
   %22 = load i32, ptr @hf_skinny_lineInstance, align 4
   %23 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %22, i32 noundef 4, i32 noundef -2147483648) #6
@@ -3423,7 +3423,7 @@ define internal void @handle_KeypadButtonMessage(ptr noundef %0, ptr nocapture r
   %25 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %26 = tail call i32 @tvb_get_letohl(ptr noundef %24, i32 noundef %25) #6
   %27 = load ptr, ptr @si, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 12
   store i32 %26, ptr %28, align 4
   %29 = load i32, ptr @hf_skinny_callReference, align 4
   %30 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %29, i32 noundef 4, i32 noundef -2147483648) #6
@@ -3441,14 +3441,14 @@ define internal void @handle_EnblocCallMessage(ptr noundef %0, ptr nocapture nou
   %7 = tail call i32 @tvb_get_letohl(ptr noundef %6, i32 noundef 4) #6
   %8 = icmp ugt i32 %7, 17
   %9 = select i1 %8, i32 25, i32 24
-  %10 = getelementptr inbounds i8, ptr %1, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %13 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %14 = tail call ptr @tvb_format_stringzpad(ptr noundef %11, ptr noundef %12, i32 noundef %13, i32 noundef %9) #6
   %15 = tail call noalias ptr @g_strdup(ptr noundef %14) #6
   %16 = load ptr, ptr @si, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
   store ptr %15, ptr %17, align 8
   %18 = load i32, ptr @hf_skinny_calledParty, align 4
   %19 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %18, i32 noundef %9, i32 noundef 0) #6
@@ -3460,7 +3460,7 @@ define internal void @handle_EnblocCallMessage(ptr noundef %0, ptr nocapture nou
   %23 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %24 = tail call i32 @tvb_get_letohl(ptr noundef %22, i32 noundef %23) #6
   %25 = load ptr, ptr @si, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i32 %24, ptr %26, align 8
   %27 = load i32, ptr @hf_skinny_lineInstance, align 4
   %28 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %27, i32 noundef 4, i32 noundef -2147483648) #6
@@ -3478,7 +3478,7 @@ define internal void @handle_StimulusMessage(ptr noundef %0, ptr nocapture readn
   %7 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %8 = tail call i32 @tvb_get_letohl(ptr noundef %6, i32 noundef %7) #6
   %9 = load ptr, ptr @si, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %8, ptr %10, align 8
   %11 = load i32, ptr @hf_skinny_lineInstance, align 4
   %12 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %11, i32 noundef 4, i32 noundef -2147483648) #6
@@ -3486,7 +3486,7 @@ define internal void @handle_StimulusMessage(ptr noundef %0, ptr nocapture readn
   %14 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %15 = tail call i32 @tvb_get_letohl(ptr noundef %13, i32 noundef %14) #6
   %16 = load ptr, ptr @si, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 %15, ptr %17, align 4
   %18 = load i32, ptr @hf_skinny_callReference, align 4
   %19 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %18, i32 noundef 4, i32 noundef -2147483648) #6
@@ -3507,7 +3507,7 @@ define internal void @handle_OffHookMessage(ptr noundef %0, ptr nocapture readno
   %9 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %10 = tail call i32 @tvb_get_letohl(ptr noundef %8, i32 noundef %9) #6
   %11 = load ptr, ptr @si, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 %10, ptr %12, align 8
   %13 = load i32, ptr @hf_skinny_lineInstance, align 4
   %14 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %13, i32 noundef 4, i32 noundef -2147483648) #6
@@ -3515,7 +3515,7 @@ define internal void @handle_OffHookMessage(ptr noundef %0, ptr nocapture readno
   %16 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %17 = tail call i32 @tvb_get_letohl(ptr noundef %15, i32 noundef %16) #6
   %18 = load ptr, ptr @si, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 12
   store i32 %17, ptr %19, align 4
   %20 = load i32, ptr @hf_skinny_callReference, align 4
   %21 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %20, i32 noundef 4, i32 noundef -2147483648) #6
@@ -3537,7 +3537,7 @@ define internal void @handle_OnHookMessage(ptr noundef %0, ptr nocapture readnon
   %9 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %10 = tail call i32 @tvb_get_letohl(ptr noundef %8, i32 noundef %9) #6
   %11 = load ptr, ptr @si, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 %10, ptr %12, align 8
   %13 = load i32, ptr @hf_skinny_lineInstance, align 4
   %14 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %13, i32 noundef 4, i32 noundef -2147483648) #6
@@ -3545,7 +3545,7 @@ define internal void @handle_OnHookMessage(ptr noundef %0, ptr nocapture readnon
   %16 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %17 = tail call i32 @tvb_get_letohl(ptr noundef %15, i32 noundef %16) #6
   %18 = load ptr, ptr @si, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 12
   store i32 %17, ptr %19, align 4
   %20 = load i32, ptr @hf_skinny_callReference, align 4
   %21 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %20, i32 noundef 4, i32 noundef -2147483648) #6
@@ -3561,7 +3561,7 @@ define internal void @handle_HookFlashMessage(ptr noundef %0, ptr nocapture read
   %5 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef %5) #6
   %7 = load ptr, ptr @si, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %6, ptr %8, align 8
   %9 = load i32, ptr @hf_skinny_lineInstance, align 4
   %10 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %9, i32 noundef 4, i32 noundef -2147483648) #6
@@ -3569,7 +3569,7 @@ define internal void @handle_HookFlashMessage(ptr noundef %0, ptr nocapture read
   %12 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %13 = tail call i32 @tvb_get_letohl(ptr noundef %11, i32 noundef %12) #6
   %14 = load ptr, ptr @si, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store i32 %13, ptr %15, align 4
   %16 = load i32, ptr @hf_skinny_callReference, align 4
   %17 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %16, i32 noundef 4, i32 noundef -2147483648) #6
@@ -3769,7 +3769,7 @@ define internal void @handle_MulticastMediaReceptionAckMessage(ptr noundef %0, p
   %5 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef %5) #6
   %7 = load ptr, ptr @si, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 72
   store i32 %6, ptr %8, align 8
   %9 = load i32, ptr @hf_skinny_multicastReceptionStatus, align 4
   %10 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %9, i32 noundef 4, i32 noundef -2147483648) #6
@@ -3780,7 +3780,7 @@ define internal void @handle_MulticastMediaReceptionAckMessage(ptr noundef %0, p
   %15 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %16 = tail call i32 @tvb_get_letohl(ptr noundef %14, i32 noundef %15) #6
   %17 = load ptr, ptr @si, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i32 %16, ptr %18, align 8
   %19 = load i32, ptr @hf_skinny_passThroughPartyId, align 4
   %20 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %19, i32 noundef 4, i32 noundef -2147483648) #6
@@ -3788,7 +3788,7 @@ define internal void @handle_MulticastMediaReceptionAckMessage(ptr noundef %0, p
   %22 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %23 = tail call i32 @tvb_get_letohl(ptr noundef %21, i32 noundef %22) #6
   %24 = load ptr, ptr @si, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 12
   store i32 %23, ptr %25, align 4
   %26 = load i32, ptr @hf_skinny_callReference, align 4
   %27 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %26, i32 noundef 4, i32 noundef -2147483648) #6
@@ -3806,7 +3806,7 @@ define internal void @handle_OpenReceiveChannelAckMessage(ptr noundef %0, ptr no
   %8 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %9 = tail call i32 @tvb_get_letohl(ptr noundef %7, i32 noundef %8) #6
   %10 = load ptr, ptr @si, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 56
   store i32 %9, ptr %11, align 8
   %12 = load i32, ptr @hf_skinny_mediaReceptionStatus, align 4
   %13 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %12, i32 noundef 4, i32 noundef -2147483648) #6
@@ -3826,11 +3826,11 @@ define internal void @handle_OpenReceiveChannelAckMessage(ptr noundef %0, ptr no
   %21 = add i32 %.01821.i, %14
   %22 = tail call ptr @tvb_get_ptr(ptr noundef %15, i32 noundef %21, i32 noundef 4) #6
   store i32 2, ptr %4, align 8
-  %23 = getelementptr inbounds i8, ptr %4, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 4, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %4, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %22, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %4, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %25, align 8
   br label %read_skinny_ipv4or6.exit
 
@@ -3842,11 +3842,11 @@ define internal void @handle_OpenReceiveChannelAckMessage(ptr noundef %0, ptr no
   %28 = add i32 %14, 4
   %29 = tail call ptr @tvb_get_ptr(ptr noundef %15, i32 noundef %28, i32 noundef 16) #6
   store i32 3, ptr %4, align 8
-  %30 = getelementptr inbounds i8, ptr %4, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 16, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %4, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %29, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %4, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %32, align 8
   br label %read_skinny_ipv4or6.exit
 
@@ -3863,13 +3863,13 @@ read_skinny_ipv4or6.exit:                         ; preds = %.thread.i, %27, %33
   %38 = tail call i32 @tvb_get_letohl(ptr noundef %36, i32 noundef %37) #6
   %39 = load i32, ptr @hf_skinny_portNumber, align 4
   %40 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %39, i32 noundef 4, i32 noundef -2147483648) #6
-  %41 = getelementptr inbounds i8, ptr %1, i64 20
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %42 = load i32, ptr %41, align 4
   call void @srtp_add_address(ptr noundef %1, i32 noundef 3, ptr noundef nonnull %4, i32 noundef %38, i32 noundef 0, ptr noundef nonnull @.str.966, i32 noundef %42, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #6
   %43 = call ptr @address_to_display(ptr noundef null, ptr noundef nonnull %4) #6
   %44 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2116, ptr noundef %43, i32 noundef %38) #6
   %45 = load ptr, ptr @si, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 80
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 80
   store ptr %44, ptr %46, align 8
   call void @wmem_free(ptr noundef null, ptr noundef %43) #6
   %47 = call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
@@ -3879,7 +3879,7 @@ read_skinny_ipv4or6.exit:                         ; preds = %.thread.i, %27, %33
   %51 = call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %52 = call i32 @tvb_get_letohl(ptr noundef %50, i32 noundef %51) #6
   %53 = load ptr, ptr @si, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   store i32 %52, ptr %54, align 8
   %55 = load i32, ptr @hf_skinny_passThroughPartyId, align 4
   %56 = call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %55, i32 noundef 4, i32 noundef -2147483648) #6
@@ -3891,7 +3891,7 @@ read_skinny_ipv4or6.exit:                         ; preds = %.thread.i, %27, %33
   %60 = call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %61 = call i32 @tvb_get_letohl(ptr noundef %59, i32 noundef %60) #6
   %62 = load ptr, ptr @si, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 12
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 12
   store i32 %61, ptr %63, align 4
   %64 = load i32, ptr @hf_skinny_callReference, align 4
   %65 = call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %64, i32 noundef 4, i32 noundef -2147483648) #6
@@ -3921,7 +3921,7 @@ define internal void @handle_ConnectionStatisticsResMessage(ptr noundef %0, ptr 
   %15 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %16 = tail call i32 @tvb_get_letohl(ptr noundef %14, i32 noundef %15) #6
   %17 = load ptr, ptr @si, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 12
   store i32 %16, ptr %18, align 4
   %19 = load i32, ptr @hf_skinny_callReference, align 4
   %20 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %19, i32 noundef 4, i32 noundef -2147483648) #6
@@ -3974,7 +3974,7 @@ define internal void @handle_OffHookWithCallingPartyNumberMessage(ptr noundef %0
   %13 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %14 = tail call i32 @tvb_get_letohl(ptr noundef %12, i32 noundef %13) #6
   %15 = load ptr, ptr @si, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i32 %14, ptr %16, align 8
   %17 = load i32, ptr @hf_skinny_lineInstance, align 4
   %18 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %17, i32 noundef 4, i32 noundef -2147483648) #6
@@ -3989,7 +3989,7 @@ define internal void @handle_SoftKeyEventMessage(ptr noundef %0, ptr nocapture r
   %7 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %8 = tail call i32 @tvb_get_letohl(ptr noundef %6, i32 noundef %7) #6
   %9 = load ptr, ptr @si, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %8, ptr %10, align 8
   %11 = load i32, ptr @hf_skinny_lineInstance, align 4
   %12 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %11, i32 noundef 4, i32 noundef -2147483648) #6
@@ -3997,7 +3997,7 @@ define internal void @handle_SoftKeyEventMessage(ptr noundef %0, ptr nocapture r
   %14 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %15 = tail call i32 @tvb_get_letohl(ptr noundef %13, i32 noundef %14) #6
   %16 = load ptr, ptr @si, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 %15, ptr %17, align 4
   %18 = load i32, ptr @hf_skinny_callReference, align 4
   %19 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %18, i32 noundef 4, i32 noundef -2147483648) #6
@@ -4055,7 +4055,7 @@ define internal void @handle_MediaTransmissionFailureMessage(ptr noundef %0, ptr
   %11 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %12 = tail call i32 @tvb_get_letohl(ptr noundef %10, i32 noundef %11) #6
   %13 = load ptr, ptr @si, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i32 %12, ptr %14, align 8
   %15 = load i32, ptr @hf_skinny_passThroughPartyId, align 4
   %16 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %15, i32 noundef 4, i32 noundef -2147483648) #6
@@ -4075,11 +4075,11 @@ define internal void @handle_MediaTransmissionFailureMessage(ptr noundef %0, ptr
   %24 = add i32 %.01821.i, %17
   %25 = tail call ptr @tvb_get_ptr(ptr noundef %18, i32 noundef %24, i32 noundef 4) #6
   store i32 2, ptr %4, align 8
-  %26 = getelementptr inbounds i8, ptr %4, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 4, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %4, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %25, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %4, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %28, align 8
   br label %read_skinny_ipv4or6.exit
 
@@ -4091,11 +4091,11 @@ define internal void @handle_MediaTransmissionFailureMessage(ptr noundef %0, ptr
   %31 = add i32 %17, 4
   %32 = tail call ptr @tvb_get_ptr(ptr noundef %18, i32 noundef %31, i32 noundef 16) #6
   store i32 3, ptr %4, align 8
-  %33 = getelementptr inbounds i8, ptr %4, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 16, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %4, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %32, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %4, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %35, align 8
   br label %read_skinny_ipv4or6.exit
 
@@ -4112,20 +4112,20 @@ read_skinny_ipv4or6.exit:                         ; preds = %.thread.i, %30, %36
   %41 = tail call i32 @tvb_get_letohl(ptr noundef %39, i32 noundef %40) #6
   %42 = load i32, ptr @hf_skinny_remotePortNumber, align 4
   %43 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %42, i32 noundef 4, i32 noundef -2147483648) #6
-  %44 = getelementptr inbounds i8, ptr %1, i64 20
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4
   call void @srtp_add_address(ptr noundef %1, i32 noundef 3, ptr noundef nonnull %4, i32 noundef %41, i32 noundef 0, ptr noundef nonnull @.str.966, i32 noundef %45, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #6
   %46 = call ptr @address_to_display(ptr noundef null, ptr noundef nonnull %4) #6
   %47 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2116, ptr noundef %46, i32 noundef %41) #6
   %48 = load ptr, ptr @si, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 80
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 80
   store ptr %47, ptr %49, align 8
   call void @wmem_free(ptr noundef null, ptr noundef %46) #6
   %50 = call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %51 = call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %52 = call i32 @tvb_get_letohl(ptr noundef %50, i32 noundef %51) #6
   %53 = load ptr, ptr @si, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 12
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 12
   store i32 %52, ptr %54, align 4
   %55 = load i32, ptr @hf_skinny_callReference, align 4
   %56 = call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %55, i32 noundef 4, i32 noundef -2147483648) #6
@@ -4171,7 +4171,7 @@ define internal void @handle_DeviceToUserDataMessage(ptr noundef %0, ptr noundef
   %9 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %10 = tail call i32 @tvb_get_letohl(ptr noundef %8, i32 noundef %9) #6
   %11 = load ptr, ptr @si, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 %10, ptr %12, align 8
   %13 = load i32, ptr @hf_skinny_lineInstance, align 4
   %14 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %13, i32 noundef 4, i32 noundef -2147483648) #6
@@ -4179,7 +4179,7 @@ define internal void @handle_DeviceToUserDataMessage(ptr noundef %0, ptr noundef
   %16 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %17 = tail call i32 @tvb_get_letohl(ptr noundef %15, i32 noundef %16) #6
   %18 = load ptr, ptr @si, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 12
   store i32 %17, ptr %19, align 4
   %20 = load i32, ptr @hf_skinny_callReference, align 4
   %21 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %20, i32 noundef 4, i32 noundef -2147483648) #6
@@ -4207,7 +4207,7 @@ define internal void @handle_DeviceToUserDataResponseMessage(ptr noundef %0, ptr
   %9 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %10 = tail call i32 @tvb_get_letohl(ptr noundef %8, i32 noundef %9) #6
   %11 = load ptr, ptr @si, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 %10, ptr %12, align 8
   %13 = load i32, ptr @hf_skinny_lineInstance, align 4
   %14 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %13, i32 noundef 4, i32 noundef -2147483648) #6
@@ -4215,7 +4215,7 @@ define internal void @handle_DeviceToUserDataResponseMessage(ptr noundef %0, ptr
   %16 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %17 = tail call i32 @tvb_get_letohl(ptr noundef %15, i32 noundef %16) #6
   %18 = load ptr, ptr @si, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 12
   store i32 %17, ptr %19, align 4
   %20 = load i32, ptr @hf_skinny_callReference, align 4
   %21 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %20, i32 noundef 4, i32 noundef -2147483648) #6
@@ -4851,7 +4851,7 @@ define internal void @handle_OpenMultiMediaReceiveChannelAckMessage(ptr noundef 
   %6 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %7 = tail call i32 @tvb_get_letohl(ptr noundef %5, i32 noundef %6) #6
   %8 = load ptr, ptr @si, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 64
   store i32 %7, ptr %9, align 8
   %10 = load i32, ptr @hf_skinny_multimediaReceptionStatus, align 4
   %11 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %10, i32 noundef 4, i32 noundef -2147483648) #6
@@ -4871,11 +4871,11 @@ define internal void @handle_OpenMultiMediaReceiveChannelAckMessage(ptr noundef 
   %19 = add i32 %.01821.i, %12
   %20 = tail call ptr @tvb_get_ptr(ptr noundef %13, i32 noundef %19, i32 noundef 4) #6
   store i32 2, ptr %4, align 8
-  %21 = getelementptr inbounds i8, ptr %4, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 4, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %4, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %20, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %4, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %23, align 8
   br label %read_skinny_ipv4or6.exit
 
@@ -4887,11 +4887,11 @@ define internal void @handle_OpenMultiMediaReceiveChannelAckMessage(ptr noundef 
   %26 = add i32 %12, 4
   %27 = tail call ptr @tvb_get_ptr(ptr noundef %13, i32 noundef %26, i32 noundef 16) #6
   store i32 3, ptr %4, align 8
-  %28 = getelementptr inbounds i8, ptr %4, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 16, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %4, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %27, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %4, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %30, align 8
   br label %read_skinny_ipv4or6.exit
 
@@ -4908,13 +4908,13 @@ read_skinny_ipv4or6.exit:                         ; preds = %.thread.i, %25, %31
   %36 = tail call i32 @tvb_get_letohl(ptr noundef %34, i32 noundef %35) #6
   %37 = load i32, ptr @hf_skinny_portNumber, align 4
   %38 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %37, i32 noundef 4, i32 noundef -2147483648) #6
-  %39 = getelementptr inbounds i8, ptr %1, i64 20
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %40 = load i32, ptr %39, align 4
   call void @srtp_add_address(ptr noundef %1, i32 noundef 3, ptr noundef nonnull %4, i32 noundef %36, i32 noundef 0, ptr noundef nonnull @.str.966, i32 noundef %40, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #6
   %41 = call ptr @address_to_display(ptr noundef null, ptr noundef nonnull %4) #6
   %42 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2116, ptr noundef %41, i32 noundef %36) #6
   %43 = load ptr, ptr @si, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 80
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 80
   store ptr %42, ptr %44, align 8
   call void @wmem_free(ptr noundef null, ptr noundef %41) #6
   %45 = call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
@@ -4924,7 +4924,7 @@ read_skinny_ipv4or6.exit:                         ; preds = %.thread.i, %25, %31
   %49 = call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %50 = call i32 @tvb_get_letohl(ptr noundef %48, i32 noundef %49) #6
   %51 = load ptr, ptr @si, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   store i32 %50, ptr %52, align 8
   %53 = load i32, ptr @hf_skinny_passThroughPartyId, align 4
   %54 = call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %53, i32 noundef 4, i32 noundef -2147483648) #6
@@ -4932,7 +4932,7 @@ read_skinny_ipv4or6.exit:                         ; preds = %.thread.i, %25, %31
   %56 = call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %57 = call i32 @tvb_get_letohl(ptr noundef %55, i32 noundef %56) #6
   %58 = load ptr, ptr @si, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 12
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 12
   store i32 %57, ptr %59, align 4
   %60 = load i32, ptr @hf_skinny_callReference, align 4
   %61 = call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %60, i32 noundef 4, i32 noundef -2147483648) #6
@@ -5052,7 +5052,7 @@ define internal void @handle_AddParticipantResMessage(ptr noundef %0, ptr nounde
   %10 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %11 = tail call i32 @tvb_get_letohl(ptr noundef %9, i32 noundef %10) #6
   %12 = load ptr, ptr @si, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 12
   store i32 %11, ptr %13, align 4
   %14 = load i32, ptr @hf_skinny_callReference, align 4
   %15 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %14, i32 noundef 4, i32 noundef -2147483648) #6
@@ -5208,7 +5208,7 @@ define internal void @handle_DeviceToUserDataMessageVersion1(ptr noundef %0, ptr
   %9 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %10 = tail call i32 @tvb_get_letohl(ptr noundef %8, i32 noundef %9) #6
   %11 = load ptr, ptr @si, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 %10, ptr %12, align 8
   %13 = load i32, ptr @hf_skinny_lineInstance, align 4
   %14 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %13, i32 noundef 4, i32 noundef -2147483648) #6
@@ -5216,7 +5216,7 @@ define internal void @handle_DeviceToUserDataMessageVersion1(ptr noundef %0, ptr
   %16 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %17 = tail call i32 @tvb_get_letohl(ptr noundef %15, i32 noundef %16) #6
   %18 = load ptr, ptr @si, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 12
   store i32 %17, ptr %19, align 4
   %20 = load i32, ptr @hf_skinny_callReference, align 4
   %21 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %20, i32 noundef 4, i32 noundef -2147483648) #6
@@ -5254,7 +5254,7 @@ define internal void @handle_DeviceToUserDataResponseMessageVersion1(ptr noundef
   %9 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %10 = tail call i32 @tvb_get_letohl(ptr noundef %8, i32 noundef %9) #6
   %11 = load ptr, ptr @si, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 %10, ptr %12, align 8
   %13 = load i32, ptr @hf_skinny_lineInstance, align 4
   %14 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %13, i32 noundef 4, i32 noundef -2147483648) #6
@@ -5262,7 +5262,7 @@ define internal void @handle_DeviceToUserDataResponseMessageVersion1(ptr noundef
   %16 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %17 = tail call i32 @tvb_get_letohl(ptr noundef %15, i32 noundef %16) #6
   %18 = load ptr, ptr @si, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 12
   store i32 %17, ptr %19, align 4
   %20 = load i32, ptr @hf_skinny_callReference, align 4
   %21 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %20, i32 noundef 4, i32 noundef -2147483648) #6
@@ -6529,7 +6529,7 @@ define internal void @handle_PortResMessage(ptr noundef %0, ptr noundef %1, ptr 
   %13 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %14 = tail call i32 @tvb_get_letohl(ptr noundef %12, i32 noundef %13) #6
   %15 = load ptr, ptr @si, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i32 %14, ptr %16, align 4
   %17 = load i32, ptr @hf_skinny_callReference, align 4
   %18 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %17, i32 noundef 4, i32 noundef -2147483648) #6
@@ -6537,7 +6537,7 @@ define internal void @handle_PortResMessage(ptr noundef %0, ptr noundef %1, ptr 
   %20 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %21 = tail call i32 @tvb_get_letohl(ptr noundef %19, i32 noundef %20) #6
   %22 = load ptr, ptr @si, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i32 %21, ptr %23, align 8
   %24 = load i32, ptr @hf_skinny_passThroughPartyId, align 4
   %25 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %24, i32 noundef 4, i32 noundef -2147483648) #6
@@ -6557,11 +6557,11 @@ define internal void @handle_PortResMessage(ptr noundef %0, ptr noundef %1, ptr 
   %33 = add i32 %.01821.i, %26
   %34 = tail call ptr @tvb_get_ptr(ptr noundef %27, i32 noundef %33, i32 noundef 4) #6
   store i32 2, ptr %4, align 8
-  %35 = getelementptr inbounds i8, ptr %4, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 4, ptr %35, align 4
-  %36 = getelementptr inbounds i8, ptr %4, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %34, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %4, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %37, align 8
   br label %read_skinny_ipv4or6.exit
 
@@ -6573,11 +6573,11 @@ define internal void @handle_PortResMessage(ptr noundef %0, ptr noundef %1, ptr 
   %40 = add i32 %26, 4
   %41 = tail call ptr @tvb_get_ptr(ptr noundef %27, i32 noundef %40, i32 noundef 16) #6
   store i32 3, ptr %4, align 8
-  %42 = getelementptr inbounds i8, ptr %4, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 16, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %4, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %41, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %4, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %44, align 8
   br label %read_skinny_ipv4or6.exit
 
@@ -6594,13 +6594,13 @@ read_skinny_ipv4or6.exit:                         ; preds = %.thread.i, %39, %45
   %50 = tail call i32 @tvb_get_letohl(ptr noundef %48, i32 noundef %49) #6
   %51 = load i32, ptr @hf_skinny_portNumber, align 4
   %52 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %51, i32 noundef 4, i32 noundef -2147483648) #6
-  %53 = getelementptr inbounds i8, ptr %1, i64 20
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %54 = load i32, ptr %53, align 4
   call void @srtp_add_address(ptr noundef %1, i32 noundef 3, ptr noundef nonnull %4, i32 noundef %50, i32 noundef 0, ptr noundef nonnull @.str.966, i32 noundef %54, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #6
   %55 = call ptr @address_to_display(ptr noundef null, ptr noundef nonnull %4) #6
   %56 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2116, ptr noundef %55, i32 noundef %50) #6
   %57 = load ptr, ptr @si, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 80
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 80
   store ptr %56, ptr %58, align 8
   call void @wmem_free(ptr noundef null, ptr noundef %55) #6
   %59 = load i32, ptr @hf_skinny_RTCPPortNumber, align 4
@@ -6628,7 +6628,7 @@ define internal void @handle_QoSResvNotifyMessage(ptr noundef %0, ptr noundef %1
   %8 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %9 = tail call i32 @tvb_get_letohl(ptr noundef %7, i32 noundef %8) #6
   %10 = load ptr, ptr @si, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store i32 %9, ptr %11, align 4
   %12 = load i32, ptr @hf_skinny_callReference, align 4
   %13 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %12, i32 noundef 4, i32 noundef -2147483648) #6
@@ -6636,7 +6636,7 @@ define internal void @handle_QoSResvNotifyMessage(ptr noundef %0, ptr noundef %1
   %15 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %16 = tail call i32 @tvb_get_letohl(ptr noundef %14, i32 noundef %15) #6
   %17 = load ptr, ptr @si, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i32 %16, ptr %18, align 8
   %19 = load i32, ptr @hf_skinny_passThroughPartyId, align 4
   %20 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %19, i32 noundef 4, i32 noundef -2147483648) #6
@@ -6656,11 +6656,11 @@ define internal void @handle_QoSResvNotifyMessage(ptr noundef %0, ptr noundef %1
   %28 = add i32 %.01821.i, %21
   %29 = tail call ptr @tvb_get_ptr(ptr noundef %22, i32 noundef %28, i32 noundef 4) #6
   store i32 2, ptr %4, align 8
-  %30 = getelementptr inbounds i8, ptr %4, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 4, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %4, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %29, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %4, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %32, align 8
   br label %read_skinny_ipv4or6.exit
 
@@ -6672,11 +6672,11 @@ define internal void @handle_QoSResvNotifyMessage(ptr noundef %0, ptr noundef %1
   %35 = add i32 %21, 4
   %36 = tail call ptr @tvb_get_ptr(ptr noundef %22, i32 noundef %35, i32 noundef 16) #6
   store i32 3, ptr %4, align 8
-  %37 = getelementptr inbounds i8, ptr %4, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 16, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %4, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %36, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %4, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %39, align 8
   br label %read_skinny_ipv4or6.exit
 
@@ -6693,13 +6693,13 @@ read_skinny_ipv4or6.exit:                         ; preds = %.thread.i, %34, %40
   %45 = tail call i32 @tvb_get_letohl(ptr noundef %43, i32 noundef %44) #6
   %46 = load i32, ptr @hf_skinny_remotePortNumber, align 4
   %47 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %46, i32 noundef 4, i32 noundef -2147483648) #6
-  %48 = getelementptr inbounds i8, ptr %1, i64 20
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %49 = load i32, ptr %48, align 4
   call void @srtp_add_address(ptr noundef %1, i32 noundef 3, ptr noundef nonnull %4, i32 noundef %45, i32 noundef 0, ptr noundef nonnull @.str.966, i32 noundef %49, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #6
   %50 = call ptr @address_to_display(ptr noundef null, ptr noundef nonnull %4) #6
   %51 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2116, ptr noundef %50, i32 noundef %45) #6
   %52 = load ptr, ptr @si, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 80
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 80
   store ptr %51, ptr %53, align 8
   call void @wmem_free(ptr noundef null, ptr noundef %50) #6
   %54 = load i32, ptr @hf_skinny_direction, align 4
@@ -6716,7 +6716,7 @@ define internal void @handle_QoSErrorNotifyMessage(ptr noundef %0, ptr noundef %
   %8 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %9 = tail call i32 @tvb_get_letohl(ptr noundef %7, i32 noundef %8) #6
   %10 = load ptr, ptr @si, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store i32 %9, ptr %11, align 4
   %12 = load i32, ptr @hf_skinny_callReference, align 4
   %13 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %12, i32 noundef 4, i32 noundef -2147483648) #6
@@ -6724,7 +6724,7 @@ define internal void @handle_QoSErrorNotifyMessage(ptr noundef %0, ptr noundef %
   %15 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %16 = tail call i32 @tvb_get_letohl(ptr noundef %14, i32 noundef %15) #6
   %17 = load ptr, ptr @si, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i32 %16, ptr %18, align 8
   %19 = load i32, ptr @hf_skinny_passThroughPartyId, align 4
   %20 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %19, i32 noundef 4, i32 noundef -2147483648) #6
@@ -6744,11 +6744,11 @@ define internal void @handle_QoSErrorNotifyMessage(ptr noundef %0, ptr noundef %
   %28 = add i32 %.01821.i, %21
   %29 = tail call ptr @tvb_get_ptr(ptr noundef %22, i32 noundef %28, i32 noundef 4) #6
   store i32 2, ptr %4, align 8
-  %30 = getelementptr inbounds i8, ptr %4, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 4, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %4, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %29, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %4, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %32, align 8
   br label %read_skinny_ipv4or6.exit
 
@@ -6760,11 +6760,11 @@ define internal void @handle_QoSErrorNotifyMessage(ptr noundef %0, ptr noundef %
   %35 = add i32 %21, 4
   %36 = tail call ptr @tvb_get_ptr(ptr noundef %22, i32 noundef %35, i32 noundef 16) #6
   store i32 3, ptr %4, align 8
-  %37 = getelementptr inbounds i8, ptr %4, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 16, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %4, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %36, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %4, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %39, align 8
   br label %read_skinny_ipv4or6.exit
 
@@ -6781,13 +6781,13 @@ read_skinny_ipv4or6.exit:                         ; preds = %.thread.i, %34, %40
   %45 = tail call i32 @tvb_get_letohl(ptr noundef %43, i32 noundef %44) #6
   %46 = load i32, ptr @hf_skinny_remotePortNumber, align 4
   %47 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %46, i32 noundef 4, i32 noundef -2147483648) #6
-  %48 = getelementptr inbounds i8, ptr %1, i64 20
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %49 = load i32, ptr %48, align 4
   call void @srtp_add_address(ptr noundef %1, i32 noundef 3, ptr noundef nonnull %4, i32 noundef %45, i32 noundef 0, ptr noundef nonnull @.str.966, i32 noundef %49, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #6
   %50 = call ptr @address_to_display(ptr noundef null, ptr noundef nonnull %4) #6
   %51 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2116, ptr noundef %50, i32 noundef %45) #6
   %52 = load ptr, ptr @si, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 80
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 80
   store ptr %51, ptr %53, align 8
   call void @wmem_free(ptr noundef null, ptr noundef %50) #6
   %54 = load i32, ptr @hf_skinny_direction, align 4
@@ -6943,7 +6943,7 @@ define internal void @handle_StartToneMessage(ptr noundef %0, ptr nocapture read
   %7 = tail call ptr @try_val_to_str_ext(i32 noundef %6, ptr noundef nonnull @DeviceTone_ext) #6
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2091, ptr noundef %7) #6
   %9 = load ptr, ptr @si, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 80
   store ptr %8, ptr %10, align 8
   %11 = load i32, ptr @hf_skinny_tone, align 4
   %12 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %11, i32 noundef 4, i32 noundef -2147483648) #6
@@ -6953,7 +6953,7 @@ define internal void @handle_StartToneMessage(ptr noundef %0, ptr nocapture read
   %16 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %17 = tail call i32 @tvb_get_letohl(ptr noundef %15, i32 noundef %16) #6
   %18 = load ptr, ptr @si, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i32 %17, ptr %19, align 8
   %20 = load i32, ptr @hf_skinny_lineInstance, align 4
   %21 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %20, i32 noundef 4, i32 noundef -2147483648) #6
@@ -6961,7 +6961,7 @@ define internal void @handle_StartToneMessage(ptr noundef %0, ptr nocapture read
   %23 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %24 = tail call i32 @tvb_get_letohl(ptr noundef %22, i32 noundef %23) #6
   %25 = load ptr, ptr @si, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 12
   store i32 %24, ptr %26, align 4
   %27 = load i32, ptr @hf_skinny_callReference, align 4
   %28 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %27, i32 noundef 4, i32 noundef -2147483648) #6
@@ -6976,7 +6976,7 @@ define internal void @handle_StopToneMessage(ptr noundef %0, ptr nocapture readn
   %7 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %8 = tail call i32 @tvb_get_letohl(ptr noundef %6, i32 noundef %7) #6
   %9 = load ptr, ptr @si, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %8, ptr %10, align 8
   %11 = load i32, ptr @hf_skinny_lineInstance, align 4
   %12 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %11, i32 noundef 4, i32 noundef -2147483648) #6
@@ -6984,7 +6984,7 @@ define internal void @handle_StopToneMessage(ptr noundef %0, ptr nocapture readn
   %14 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %15 = tail call i32 @tvb_get_letohl(ptr noundef %13, i32 noundef %14) #6
   %16 = load ptr, ptr @si, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 %15, ptr %17, align 4
   %18 = load i32, ptr @hf_skinny_callReference, align 4
   %19 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %18, i32 noundef 4, i32 noundef -2147483648) #6
@@ -7010,7 +7010,7 @@ define internal void @handle_SetRingerMessage(ptr noundef %0, ptr nocapture read
   %9 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %10 = tail call i32 @tvb_get_letohl(ptr noundef %8, i32 noundef %9) #6
   %11 = load ptr, ptr @si, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 %10, ptr %12, align 8
   %13 = load i32, ptr @hf_skinny_lineInstance, align 4
   %14 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %13, i32 noundef 4, i32 noundef -2147483648) #6
@@ -7018,7 +7018,7 @@ define internal void @handle_SetRingerMessage(ptr noundef %0, ptr nocapture read
   %16 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %17 = tail call i32 @tvb_get_letohl(ptr noundef %15, i32 noundef %16) #6
   %18 = load ptr, ptr @si, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 12
   store i32 %17, ptr %19, align 4
   %20 = load i32, ptr @hf_skinny_callReference, align 4
   %21 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %20, i32 noundef 4, i32 noundef -2147483648) #6
@@ -7064,7 +7064,7 @@ define internal void @handle_StartMediaTransmissionMessage(ptr noundef %0, ptr n
   %13 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %14 = tail call i32 @tvb_get_letohl(ptr noundef %12, i32 noundef %13) #6
   %15 = load ptr, ptr @si, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i32 %14, ptr %16, align 8
   %17 = load i32, ptr @hf_skinny_passThroughPartyId, align 4
   %18 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %17, i32 noundef 4, i32 noundef -2147483648) #6
@@ -7084,11 +7084,11 @@ define internal void @handle_StartMediaTransmissionMessage(ptr noundef %0, ptr n
   %26 = add i32 %.01821.i, %19
   %27 = tail call ptr @tvb_get_ptr(ptr noundef %20, i32 noundef %26, i32 noundef 4) #6
   store i32 2, ptr %4, align 8
-  %28 = getelementptr inbounds i8, ptr %4, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 4, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %4, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %27, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %4, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %30, align 8
   br label %read_skinny_ipv4or6.exit
 
@@ -7100,11 +7100,11 @@ define internal void @handle_StartMediaTransmissionMessage(ptr noundef %0, ptr n
   %33 = add i32 %19, 4
   %34 = tail call ptr @tvb_get_ptr(ptr noundef %20, i32 noundef %33, i32 noundef 16) #6
   store i32 3, ptr %4, align 8
-  %35 = getelementptr inbounds i8, ptr %4, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 16, ptr %35, align 4
-  %36 = getelementptr inbounds i8, ptr %4, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %34, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %4, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %37, align 8
   br label %read_skinny_ipv4or6.exit
 
@@ -7121,13 +7121,13 @@ read_skinny_ipv4or6.exit:                         ; preds = %.thread.i, %32, %38
   %43 = tail call i32 @tvb_get_letohl(ptr noundef %41, i32 noundef %42) #6
   %44 = load i32, ptr @hf_skinny_remotePortNumber, align 4
   %45 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %44, i32 noundef 4, i32 noundef -2147483648) #6
-  %46 = getelementptr inbounds i8, ptr %1, i64 20
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %47 = load i32, ptr %46, align 4
   call void @srtp_add_address(ptr noundef %1, i32 noundef 3, ptr noundef nonnull %4, i32 noundef %43, i32 noundef 0, ptr noundef nonnull @.str.966, i32 noundef %47, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #6
   %48 = call ptr @address_to_display(ptr noundef null, ptr noundef nonnull %4) #6
   %49 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2116, ptr noundef %48, i32 noundef %43) #6
   %50 = load ptr, ptr @si, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 80
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 80
   store ptr %49, ptr %51, align 8
   call void @wmem_free(ptr noundef null, ptr noundef %48) #6
   %52 = load i32, ptr @hf_skinny_milliSecondPacketSize, align 4
@@ -7189,7 +7189,7 @@ read_skinny_ipv4or6.exit:                         ; preds = %.thread.i, %32, %38
   %94 = call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %95 = call i32 @tvb_get_letohl(ptr noundef %93, i32 noundef %94) #6
   %96 = load ptr, ptr @si, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 12
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 12
   store i32 %95, ptr %97, align 4
   %98 = load i32, ptr @hf_skinny_callReference, align 4
   %99 = call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %98, i32 noundef 4, i32 noundef -2147483648) #6
@@ -7371,7 +7371,7 @@ define internal void @handle_StopMediaTransmissionMessage(ptr noundef %0, ptr no
   %7 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %8 = tail call i32 @tvb_get_letohl(ptr noundef %6, i32 noundef %7) #6
   %9 = load ptr, ptr @si, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 %8, ptr %10, align 8
   %11 = load i32, ptr @hf_skinny_passThroughPartyId, align 4
   %12 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %11, i32 noundef 4, i32 noundef -2147483648) #6
@@ -7379,7 +7379,7 @@ define internal void @handle_StopMediaTransmissionMessage(ptr noundef %0, ptr no
   %14 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %15 = tail call i32 @tvb_get_letohl(ptr noundef %13, i32 noundef %14) #6
   %16 = load ptr, ptr @si, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 %15, ptr %17, align 4
   %18 = load i32, ptr @hf_skinny_callReference, align 4
   %19 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %18, i32 noundef 4, i32 noundef -2147483648) #6
@@ -7392,14 +7392,14 @@ define internal void @handle_StopMediaTransmissionMessage(ptr noundef %0, ptr no
 define internal void @handle_CallInfoMessage(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #0 {
   %4 = load i32, ptr @hf_skinny_callingPartyName, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 40, i32 noundef 0) #6
-  %6 = getelementptr inbounds i8, ptr %1, i64 408
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %9 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %10 = tail call ptr @tvb_format_stringzpad(ptr noundef %7, ptr noundef %8, i32 noundef %9, i32 noundef 24) #6
   %11 = tail call noalias ptr @g_strdup(ptr noundef %10) #6
   %12 = load ptr, ptr @si, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 40
   store ptr %11, ptr %13, align 8
   %14 = load i32, ptr @hf_skinny_callingParty, align 4
   %15 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %14, i32 noundef 24, i32 noundef 0) #6
@@ -7411,7 +7411,7 @@ define internal void @handle_CallInfoMessage(ptr noundef %0, ptr nocapture nound
   %21 = tail call ptr @tvb_format_stringzpad(ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef 24) #6
   %22 = tail call noalias ptr @g_strdup(ptr noundef %21) #6
   %23 = load ptr, ptr @si, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 48
   store ptr %22, ptr %24, align 8
   %25 = load i32, ptr @hf_skinny_calledParty, align 4
   %26 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %25, i32 noundef 24, i32 noundef 0) #6
@@ -7419,7 +7419,7 @@ define internal void @handle_CallInfoMessage(ptr noundef %0, ptr nocapture nound
   %28 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %29 = tail call i32 @tvb_get_letohl(ptr noundef %27, i32 noundef %28) #6
   %30 = load ptr, ptr @si, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i32 %29, ptr %31, align 8
   %32 = load i32, ptr @hf_skinny_lineInstance, align 4
   %33 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %32, i32 noundef 4, i32 noundef -2147483648) #6
@@ -7427,7 +7427,7 @@ define internal void @handle_CallInfoMessage(ptr noundef %0, ptr nocapture nound
   %35 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %36 = tail call i32 @tvb_get_letohl(ptr noundef %34, i32 noundef %35) #6
   %37 = load ptr, ptr @si, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 12
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 12
   store i32 %36, ptr %38, align 4
   %39 = load i32, ptr @hf_skinny_callReference, align 4
   %40 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %39, i32 noundef 4, i32 noundef -2147483648) #6
@@ -7488,13 +7488,13 @@ define internal void @handle_CallInfoMessage(ptr noundef %0, ptr nocapture nound
   tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   tail call void @ptvcursor_pop_subtree(ptr noundef %0) #6
   %95 = load ptr, ptr @si, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 40
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 40
   %97 = load ptr, ptr %96, align 8
   %.not = icmp eq ptr %97, null
   br i1 %.not, label %105, label %98
 
 98:                                               ; preds = %3
-  %99 = getelementptr inbounds i8, ptr %95, i64 48
+  %99 = getelementptr inbounds nuw i8, ptr %95, i64 48
   %100 = load ptr, ptr %99, align 8
   %.not46 = icmp eq ptr %100, null
   br i1 %.not46, label %105, label %101
@@ -7502,7 +7502,7 @@ define internal void @handle_CallInfoMessage(ptr noundef %0, ptr nocapture nound
 101:                                              ; preds = %98
   %102 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2159, ptr noundef nonnull %97, ptr noundef nonnull %100) #6
   %103 = load ptr, ptr @si, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 80
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 80
   store ptr %102, ptr %104, align 8
   br label %105
 
@@ -7829,7 +7829,7 @@ define internal void @handle_StartMulticastMediaReceptionMessage(ptr noundef %0,
   %13 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %14 = tail call i32 @tvb_get_letohl(ptr noundef %12, i32 noundef %13) #6
   %15 = load ptr, ptr @si, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i32 %14, ptr %16, align 8
   %17 = load i32, ptr @hf_skinny_passThroughPartyId, align 4
   %18 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %17, i32 noundef 4, i32 noundef -2147483648) #6
@@ -7849,11 +7849,11 @@ define internal void @handle_StartMulticastMediaReceptionMessage(ptr noundef %0,
   %26 = add i32 %.01821.i, %19
   %27 = tail call ptr @tvb_get_ptr(ptr noundef %20, i32 noundef %26, i32 noundef 4) #6
   store i32 2, ptr %4, align 8
-  %28 = getelementptr inbounds i8, ptr %4, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 4, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %4, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %27, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %4, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %30, align 8
   br label %read_skinny_ipv4or6.exit
 
@@ -7865,11 +7865,11 @@ define internal void @handle_StartMulticastMediaReceptionMessage(ptr noundef %0,
   %33 = add i32 %19, 4
   %34 = tail call ptr @tvb_get_ptr(ptr noundef %20, i32 noundef %33, i32 noundef 16) #6
   store i32 3, ptr %4, align 8
-  %35 = getelementptr inbounds i8, ptr %4, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 16, ptr %35, align 4
-  %36 = getelementptr inbounds i8, ptr %4, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %34, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %4, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %37, align 8
   br label %read_skinny_ipv4or6.exit
 
@@ -7886,13 +7886,13 @@ read_skinny_ipv4or6.exit:                         ; preds = %.thread.i, %32, %38
   %43 = tail call i32 @tvb_get_letohl(ptr noundef %41, i32 noundef %42) #6
   %44 = load i32, ptr @hf_skinny_multicastPortNumber, align 4
   %45 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %44, i32 noundef 4, i32 noundef -2147483648) #6
-  %46 = getelementptr inbounds i8, ptr %1, i64 20
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %47 = load i32, ptr %46, align 4
   call void @srtp_add_address(ptr noundef %1, i32 noundef 3, ptr noundef nonnull %4, i32 noundef %43, i32 noundef 0, ptr noundef nonnull @.str.966, i32 noundef %47, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #6
   %48 = call ptr @address_to_display(ptr noundef null, ptr noundef nonnull %4) #6
   %49 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2116, ptr noundef %48, i32 noundef %43) #6
   %50 = load ptr, ptr @si, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 80
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 80
   store ptr %49, ptr %51, align 8
   call void @wmem_free(ptr noundef null, ptr noundef %48) #6
   %52 = load i32, ptr @hf_skinny_milliSecondPacketSize, align 4
@@ -7948,7 +7948,7 @@ read_skinny_ipv4or6.exit:                         ; preds = %.thread.i, %32, %38
   %88 = call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %89 = call i32 @tvb_get_letohl(ptr noundef %87, i32 noundef %88) #6
   %90 = load ptr, ptr @si, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 12
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 12
   store i32 %89, ptr %91, align 4
   %92 = load i32, ptr @hf_skinny_callReference, align 4
   %93 = call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %92, i32 noundef 4, i32 noundef -2147483648) #6
@@ -7971,7 +7971,7 @@ define internal void @handle_StartMulticastMediaTransmissionMessage(ptr noundef 
   %13 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %14 = tail call i32 @tvb_get_letohl(ptr noundef %12, i32 noundef %13) #6
   %15 = load ptr, ptr @si, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i32 %14, ptr %16, align 8
   %17 = load i32, ptr @hf_skinny_passThroughPartyId, align 4
   %18 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %17, i32 noundef 4, i32 noundef -2147483648) #6
@@ -7991,11 +7991,11 @@ define internal void @handle_StartMulticastMediaTransmissionMessage(ptr noundef 
   %26 = add i32 %.01821.i, %19
   %27 = tail call ptr @tvb_get_ptr(ptr noundef %20, i32 noundef %26, i32 noundef 4) #6
   store i32 2, ptr %4, align 8
-  %28 = getelementptr inbounds i8, ptr %4, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 4, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %4, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %27, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %4, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %30, align 8
   br label %read_skinny_ipv4or6.exit
 
@@ -8007,11 +8007,11 @@ define internal void @handle_StartMulticastMediaTransmissionMessage(ptr noundef 
   %33 = add i32 %19, 4
   %34 = tail call ptr @tvb_get_ptr(ptr noundef %20, i32 noundef %33, i32 noundef 16) #6
   store i32 3, ptr %4, align 8
-  %35 = getelementptr inbounds i8, ptr %4, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 16, ptr %35, align 4
-  %36 = getelementptr inbounds i8, ptr %4, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %34, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %4, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %37, align 8
   br label %read_skinny_ipv4or6.exit
 
@@ -8028,13 +8028,13 @@ read_skinny_ipv4or6.exit:                         ; preds = %.thread.i, %32, %38
   %43 = tail call i32 @tvb_get_letohl(ptr noundef %41, i32 noundef %42) #6
   %44 = load i32, ptr @hf_skinny_multicastPortNumber, align 4
   %45 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %44, i32 noundef 4, i32 noundef -2147483648) #6
-  %46 = getelementptr inbounds i8, ptr %1, i64 20
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %47 = load i32, ptr %46, align 4
   call void @srtp_add_address(ptr noundef %1, i32 noundef 3, ptr noundef nonnull %4, i32 noundef %43, i32 noundef 0, ptr noundef nonnull @.str.966, i32 noundef %47, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #6
   %48 = call ptr @address_to_display(ptr noundef null, ptr noundef nonnull %4) #6
   %49 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2116, ptr noundef %48, i32 noundef %43) #6
   %50 = load ptr, ptr @si, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 80
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 80
   store ptr %49, ptr %51, align 8
   call void @wmem_free(ptr noundef null, ptr noundef %48) #6
   %52 = load i32, ptr @hf_skinny_milliSecondPacketSize, align 4
@@ -8096,7 +8096,7 @@ read_skinny_ipv4or6.exit:                         ; preds = %.thread.i, %32, %38
   %94 = call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %95 = call i32 @tvb_get_letohl(ptr noundef %93, i32 noundef %94) #6
   %96 = load ptr, ptr @si, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 12
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 12
   store i32 %95, ptr %97, align 4
   %98 = load i32, ptr @hf_skinny_callReference, align 4
   %99 = call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %98, i32 noundef 4, i32 noundef -2147483648) #6
@@ -8113,7 +8113,7 @@ define internal void @handle_StopMulticastMediaReceptionMessage(ptr noundef %0, 
   %7 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %8 = tail call i32 @tvb_get_letohl(ptr noundef %6, i32 noundef %7) #6
   %9 = load ptr, ptr @si, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 %8, ptr %10, align 8
   %11 = load i32, ptr @hf_skinny_passThroughPartyId, align 4
   %12 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %11, i32 noundef 4, i32 noundef -2147483648) #6
@@ -8121,7 +8121,7 @@ define internal void @handle_StopMulticastMediaReceptionMessage(ptr noundef %0, 
   %14 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %15 = tail call i32 @tvb_get_letohl(ptr noundef %13, i32 noundef %14) #6
   %16 = load ptr, ptr @si, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 %15, ptr %17, align 4
   %18 = load i32, ptr @hf_skinny_callReference, align 4
   %19 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %18, i32 noundef 4, i32 noundef -2147483648) #6
@@ -8136,7 +8136,7 @@ define internal void @handle_StopMulticastMediaTransmissionMessage(ptr noundef %
   %7 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %8 = tail call i32 @tvb_get_letohl(ptr noundef %6, i32 noundef %7) #6
   %9 = load ptr, ptr @si, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 %8, ptr %10, align 8
   %11 = load i32, ptr @hf_skinny_passThroughPartyId, align 4
   %12 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %11, i32 noundef 4, i32 noundef -2147483648) #6
@@ -8144,7 +8144,7 @@ define internal void @handle_StopMulticastMediaTransmissionMessage(ptr noundef %
   %14 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %15 = tail call i32 @tvb_get_letohl(ptr noundef %13, i32 noundef %14) #6
   %16 = load ptr, ptr @si, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 %15, ptr %17, align 4
   %18 = load i32, ptr @hf_skinny_callReference, align 4
   %19 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %18, i32 noundef 4, i32 noundef -2147483648) #6
@@ -8167,7 +8167,7 @@ define internal void @handle_OpenReceiveChannelMessage(ptr noundef %0, ptr nound
   %15 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %16 = tail call i32 @tvb_get_letohl(ptr noundef %14, i32 noundef %15) #6
   %17 = load ptr, ptr @si, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i32 %16, ptr %18, align 8
   %19 = load i32, ptr @hf_skinny_passThroughPartyId, align 4
   %20 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %19, i32 noundef 4, i32 noundef -2147483648) #6
@@ -8224,7 +8224,7 @@ define internal void @handle_OpenReceiveChannelMessage(ptr noundef %0, ptr nound
   %57 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %58 = tail call i32 @tvb_get_letohl(ptr noundef %56, i32 noundef %57) #6
   %59 = load ptr, ptr @si, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 12
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 12
   store i32 %58, ptr %60, align 4
   %61 = load i32, ptr @hf_skinny_callReference, align 4
   %62 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %61, i32 noundef 4, i32 noundef -2147483648) #6
@@ -8352,11 +8352,11 @@ define internal void @handle_OpenReceiveChannelMessage(ptr noundef %0, ptr nound
   %133 = add i32 %.01821.i, %126
   %134 = tail call ptr @tvb_get_ptr(ptr noundef %127, i32 noundef %133, i32 noundef 4) #6
   store i32 2, ptr %4, align 8
-  %135 = getelementptr inbounds i8, ptr %4, i64 4
+  %135 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 4, ptr %135, align 4
-  %136 = getelementptr inbounds i8, ptr %4, i64 8
+  %136 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %134, ptr %136, align 8
-  %137 = getelementptr inbounds i8, ptr %4, i64 16
+  %137 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %137, align 8
   br label %146
 
@@ -8368,11 +8368,11 @@ define internal void @handle_OpenReceiveChannelMessage(ptr noundef %0, ptr nound
   %140 = add i32 %126, 4
   %141 = tail call ptr @tvb_get_ptr(ptr noundef %127, i32 noundef %140, i32 noundef 16) #6
   store i32 3, ptr %4, align 8
-  %142 = getelementptr inbounds i8, ptr %4, i64 4
+  %142 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 16, ptr %142, align 4
-  %143 = getelementptr inbounds i8, ptr %4, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %141, ptr %143, align 8
-  %144 = getelementptr inbounds i8, ptr %4, i64 16
+  %144 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %144, align 8
   br label %146
 
@@ -8389,13 +8389,13 @@ define internal void @handle_OpenReceiveChannelMessage(ptr noundef %0, ptr nound
   %151 = tail call i32 @tvb_get_letohl(ptr noundef %149, i32 noundef %150) #6
   %152 = load i32, ptr @hf_skinny_sourcePortNumber, align 4
   %153 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %152, i32 noundef 4, i32 noundef -2147483648) #6
-  %154 = getelementptr inbounds i8, ptr %1, i64 20
+  %154 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %155 = load i32, ptr %154, align 4
   call void @srtp_add_address(ptr noundef %1, i32 noundef 3, ptr noundef nonnull %4, i32 noundef %151, i32 noundef 0, ptr noundef nonnull @.str.966, i32 noundef %155, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #6
   %156 = call ptr @address_to_display(ptr noundef null, ptr noundef nonnull %4) #6
   %157 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2116, ptr noundef %156, i32 noundef %151) #6
   %158 = load ptr, ptr @si, align 8
-  %159 = getelementptr inbounds i8, ptr %158, i64 80
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 80
   store ptr %157, ptr %159, align 8
   call void @wmem_free(ptr noundef null, ptr noundef %156) #6
   %160 = icmp ugt i32 %8, 15
@@ -8485,7 +8485,7 @@ define internal void @handle_CloseReceiveChannelMessage(ptr noundef %0, ptr noca
   %7 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %8 = tail call i32 @tvb_get_letohl(ptr noundef %6, i32 noundef %7) #6
   %9 = load ptr, ptr @si, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 %8, ptr %10, align 8
   %11 = load i32, ptr @hf_skinny_passThroughPartyId, align 4
   %12 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %11, i32 noundef 4, i32 noundef -2147483648) #6
@@ -8493,7 +8493,7 @@ define internal void @handle_CloseReceiveChannelMessage(ptr noundef %0, ptr noca
   %14 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %15 = tail call i32 @tvb_get_letohl(ptr noundef %13, i32 noundef %14) #6
   %16 = load ptr, ptr @si, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 %15, ptr %17, align 4
   %18 = load i32, ptr @hf_skinny_callReference, align 4
   %19 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %18, i32 noundef 4, i32 noundef -2147483648) #6
@@ -8517,7 +8517,7 @@ define internal void @handle_ConnectionStatisticsReqMessage(ptr noundef %0, ptr 
   %13 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %14 = tail call i32 @tvb_get_letohl(ptr noundef %12, i32 noundef %13) #6
   %15 = load ptr, ptr @si, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i32 %14, ptr %16, align 4
   %17 = load i32, ptr @hf_skinny_callReference, align 4
   %18 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %17, i32 noundef 4, i32 noundef -2147483648) #6
@@ -8700,7 +8700,7 @@ define internal void @handle_SelectSoftKeysMessage(ptr noundef %0, ptr nocapture
   %5 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef %5) #6
   %7 = load ptr, ptr @si, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %6, ptr %8, align 8
   %9 = load i32, ptr @hf_skinny_lineInstance, align 4
   %10 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %9, i32 noundef 4, i32 noundef -2147483648) #6
@@ -8708,7 +8708,7 @@ define internal void @handle_SelectSoftKeysMessage(ptr noundef %0, ptr nocapture
   %12 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %13 = tail call i32 @tvb_get_letohl(ptr noundef %11, i32 noundef %12) #6
   %14 = load ptr, ptr @si, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store i32 %13, ptr %15, align 4
   %16 = load i32, ptr @hf_skinny_callReference, align 4
   %17 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %16, i32 noundef 4, i32 noundef -2147483648) #6
@@ -8761,13 +8761,13 @@ define internal void @handle_CallStateMessage(ptr noundef %0, ptr nocapture read
   %7 = tail call ptr @try_val_to_str_ext(i32 noundef %6, ptr noundef nonnull @DCallState_ext) #6
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2091, ptr noundef %7) #6
   %9 = load ptr, ptr @si, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 80
   store ptr %8, ptr %10, align 8
   %11 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %12 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %13 = tail call i32 @tvb_get_letohl(ptr noundef %11, i32 noundef %12) #6
   %14 = load ptr, ptr @si, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store i32 %13, ptr %15, align 8
   %16 = load i32, ptr @hf_skinny_callState, align 4
   %17 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %16, i32 noundef 4, i32 noundef -2147483648) #6
@@ -8775,7 +8775,7 @@ define internal void @handle_CallStateMessage(ptr noundef %0, ptr nocapture read
   %19 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %20 = tail call i32 @tvb_get_letohl(ptr noundef %18, i32 noundef %19) #6
   %21 = load ptr, ptr @si, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i32 %20, ptr %22, align 8
   %23 = load i32, ptr @hf_skinny_lineInstance, align 4
   %24 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %23, i32 noundef 4, i32 noundef -2147483648) #6
@@ -8783,7 +8783,7 @@ define internal void @handle_CallStateMessage(ptr noundef %0, ptr nocapture read
   %26 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %27 = tail call i32 @tvb_get_letohl(ptr noundef %25, i32 noundef %26) #6
   %28 = load ptr, ptr @si, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 12
   store i32 %27, ptr %29, align 4
   %30 = load i32, ptr @hf_skinny_callReference, align 4
   %31 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %30, i32 noundef 4, i32 noundef -2147483648) #6
@@ -8809,7 +8809,7 @@ define internal void @handle_DisplayPromptStatusMessage(ptr noundef %0, ptr noca
   %8 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %9 = tail call i32 @tvb_get_letohl(ptr noundef %7, i32 noundef %8) #6
   %10 = load ptr, ptr @si, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 %9, ptr %11, align 8
   %12 = load i32, ptr @hf_skinny_lineInstance, align 4
   %13 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %12, i32 noundef 4, i32 noundef -2147483648) #6
@@ -8817,7 +8817,7 @@ define internal void @handle_DisplayPromptStatusMessage(ptr noundef %0, ptr noca
   %15 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %16 = tail call i32 @tvb_get_letohl(ptr noundef %14, i32 noundef %15) #6
   %17 = load ptr, ptr @si, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 12
   store i32 %16, ptr %18, align 4
   %19 = load i32, ptr @hf_skinny_callReference, align 4
   %20 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %19, i32 noundef 4, i32 noundef -2147483648) #6
@@ -8830,7 +8830,7 @@ define internal void @handle_ClearPromptStatusMessage(ptr noundef %0, ptr nocapt
   %5 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef %5) #6
   %7 = load ptr, ptr @si, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %6, ptr %8, align 8
   %9 = load i32, ptr @hf_skinny_lineInstance, align 4
   %10 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %9, i32 noundef 4, i32 noundef -2147483648) #6
@@ -8838,7 +8838,7 @@ define internal void @handle_ClearPromptStatusMessage(ptr noundef %0, ptr nocapt
   %12 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %13 = tail call i32 @tvb_get_letohl(ptr noundef %11, i32 noundef %12) #6
   %14 = load ptr, ptr @si, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store i32 %13, ptr %15, align 4
   %16 = load i32, ptr @hf_skinny_callReference, align 4
   %17 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %16, i32 noundef 4, i32 noundef -2147483648) #6
@@ -8860,7 +8860,7 @@ define internal void @handle_ActivateCallPlaneMessage(ptr noundef %0, ptr nocapt
   %5 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef %5) #6
   %7 = load ptr, ptr @si, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %6, ptr %8, align 8
   %9 = load i32, ptr @hf_skinny_lineInstance, align 4
   %10 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %9, i32 noundef 4, i32 noundef -2147483648) #6
@@ -8881,7 +8881,7 @@ define internal void @handle_BackSpaceResMessage(ptr noundef %0, ptr nocapture r
   %5 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef %5) #6
   %7 = load ptr, ptr @si, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %6, ptr %8, align 8
   %9 = load i32, ptr @hf_skinny_lineInstance, align 4
   %10 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %9, i32 noundef 4, i32 noundef -2147483648) #6
@@ -8889,7 +8889,7 @@ define internal void @handle_BackSpaceResMessage(ptr noundef %0, ptr nocapture r
   %12 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %13 = tail call i32 @tvb_get_letohl(ptr noundef %11, i32 noundef %12) #6
   %14 = load ptr, ptr @si, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store i32 %13, ptr %15, align 4
   %16 = load i32, ptr @hf_skinny_callReference, align 4
   %17 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %16, i32 noundef 4, i32 noundef -2147483648) #6
@@ -8914,7 +8914,7 @@ define internal void @handle_StartMediaFailureDetectionMessage(ptr noundef %0, p
   %9 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %10 = tail call i32 @tvb_get_letohl(ptr noundef %8, i32 noundef %9) #6
   %11 = load ptr, ptr @si, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i32 %10, ptr %12, align 8
   %13 = load i32, ptr @hf_skinny_passThroughPartyId, align 4
   %14 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %13, i32 noundef 4, i32 noundef -2147483648) #6
@@ -8971,7 +8971,7 @@ define internal void @handle_StartMediaFailureDetectionMessage(ptr noundef %0, p
   %51 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %52 = tail call i32 @tvb_get_letohl(ptr noundef %50, i32 noundef %51) #6
   %53 = load ptr, ptr @si, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 12
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 12
   store i32 %52, ptr %54, align 4
   %55 = load i32, ptr @hf_skinny_callReference, align 4
   %56 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %55, i32 noundef 4, i32 noundef -2147483648) #6
@@ -9002,14 +9002,14 @@ define internal void @handle_DialedNumberMessage(ptr noundef %0, ptr nocapture n
 .sink.split:                                      ; preds = %13, %9
   %.sink48 = phi i32 [ %11, %9 ], [ %15, %13 ]
   %.sink42.ph = phi i32 [ 24, %9 ], [ 25, %13 ]
-  %17 = getelementptr inbounds i8, ptr %1, i64 408
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %20 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %21 = tail call ptr @tvb_format_stringzpad(ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %.sink48) #6
   %22 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2091, ptr noundef %21) #6
   %23 = load ptr, ptr @si, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 80
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 80
   store ptr %22, ptr %24, align 8
   br label %25
 
@@ -9021,7 +9021,7 @@ define internal void @handle_DialedNumberMessage(ptr noundef %0, ptr nocapture n
   %29 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %30 = tail call i32 @tvb_get_letohl(ptr noundef %28, i32 noundef %29) #6
   %31 = load ptr, ptr @si, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i32 %30, ptr %32, align 8
   %33 = load i32, ptr @hf_skinny_lineInstance, align 4
   %34 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %33, i32 noundef 4, i32 noundef -2147483648) #6
@@ -9029,7 +9029,7 @@ define internal void @handle_DialedNumberMessage(ptr noundef %0, ptr nocapture n
   %36 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %37 = tail call i32 @tvb_get_letohl(ptr noundef %35, i32 noundef %36) #6
   %38 = load ptr, ptr @si, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 12
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 12
   store i32 %37, ptr %39, align 4
   %40 = load i32, ptr @hf_skinny_callReference, align 4
   %41 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %40, i32 noundef 4, i32 noundef -2147483648) #6
@@ -9046,7 +9046,7 @@ define internal void @handle_UserToDeviceDataMessage(ptr noundef %0, ptr noundef
   %9 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %10 = tail call i32 @tvb_get_letohl(ptr noundef %8, i32 noundef %9) #6
   %11 = load ptr, ptr @si, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 %10, ptr %12, align 8
   %13 = load i32, ptr @hf_skinny_lineInstance, align 4
   %14 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %13, i32 noundef 4, i32 noundef -2147483648) #6
@@ -9054,7 +9054,7 @@ define internal void @handle_UserToDeviceDataMessage(ptr noundef %0, ptr noundef
   %16 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %17 = tail call i32 @tvb_get_letohl(ptr noundef %15, i32 noundef %16) #6
   %18 = load ptr, ptr @si, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 12
   store i32 %17, ptr %19, align 4
   %20 = load i32, ptr @hf_skinny_callReference, align 4
   %21 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %20, i32 noundef 4, i32 noundef -2147483648) #6
@@ -9313,7 +9313,7 @@ define internal void @handle_CallSelectStatResMessage(ptr noundef %0, ptr nocapt
   %7 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %8 = tail call i32 @tvb_get_letohl(ptr noundef %6, i32 noundef %7) #6
   %9 = load ptr, ptr @si, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 %8, ptr %10, align 4
   %11 = load i32, ptr @hf_skinny_callReference, align 4
   %12 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %11, i32 noundef 4, i32 noundef -2147483648) #6
@@ -9321,7 +9321,7 @@ define internal void @handle_CallSelectStatResMessage(ptr noundef %0, ptr nocapt
   %14 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %15 = tail call i32 @tvb_get_letohl(ptr noundef %13, i32 noundef %14) #6
   %16 = load ptr, ptr @si, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i32 %15, ptr %17, align 8
   %18 = load i32, ptr @hf_skinny_lineInstance, align 4
   %19 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %18, i32 noundef 4, i32 noundef -2147483648) #6
@@ -9342,7 +9342,7 @@ define internal void @handle_OpenMultiMediaReceiveChannelMessage(ptr noundef %0,
   %13 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %14 = tail call i32 @tvb_get_letohl(ptr noundef %12, i32 noundef %13) #6
   %15 = load ptr, ptr @si, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i32 %14, ptr %16, align 8
   %17 = load i32, ptr @hf_skinny_passThroughPartyId, align 4
   %18 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %17, i32 noundef 4, i32 noundef -2147483648) #6
@@ -9355,7 +9355,7 @@ define internal void @handle_OpenMultiMediaReceiveChannelMessage(ptr noundef %0,
   %25 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %26 = tail call i32 @tvb_get_letohl(ptr noundef %24, i32 noundef %25) #6
   %27 = load ptr, ptr @si, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i32 %26, ptr %28, align 8
   %29 = load i32, ptr @hf_skinny_lineInstance, align 4
   %30 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %29, i32 noundef 4, i32 noundef -2147483648) #6
@@ -9363,7 +9363,7 @@ define internal void @handle_OpenMultiMediaReceiveChannelMessage(ptr noundef %0,
   %32 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %33 = tail call i32 @tvb_get_letohl(ptr noundef %31, i32 noundef %32) #6
   %34 = load ptr, ptr @si, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 12
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 12
   store i32 %33, ptr %35, align 4
   %36 = load i32, ptr @hf_skinny_callReference, align 4
   %37 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %36, i32 noundef 4, i32 noundef -2147483648) #6
@@ -9786,11 +9786,11 @@ define internal void @handle_OpenMultiMediaReceiveChannelMessage(ptr noundef %0,
   %311 = add i32 %.01821.i, %304
   %312 = tail call ptr @tvb_get_ptr(ptr noundef %305, i32 noundef %311, i32 noundef 4) #6
   store i32 2, ptr %4, align 8
-  %313 = getelementptr inbounds i8, ptr %4, i64 4
+  %313 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 4, ptr %313, align 4
-  %314 = getelementptr inbounds i8, ptr %4, i64 8
+  %314 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %312, ptr %314, align 8
-  %315 = getelementptr inbounds i8, ptr %4, i64 16
+  %315 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %315, align 8
   br label %324
 
@@ -9802,11 +9802,11 @@ define internal void @handle_OpenMultiMediaReceiveChannelMessage(ptr noundef %0,
   %318 = add i32 %304, 4
   %319 = tail call ptr @tvb_get_ptr(ptr noundef %305, i32 noundef %318, i32 noundef 16) #6
   store i32 3, ptr %4, align 8
-  %320 = getelementptr inbounds i8, ptr %4, i64 4
+  %320 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 16, ptr %320, align 4
-  %321 = getelementptr inbounds i8, ptr %4, i64 8
+  %321 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %319, ptr %321, align 8
-  %322 = getelementptr inbounds i8, ptr %4, i64 16
+  %322 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %322, align 8
   br label %324
 
@@ -9823,13 +9823,13 @@ define internal void @handle_OpenMultiMediaReceiveChannelMessage(ptr noundef %0,
   %329 = tail call i32 @tvb_get_letohl(ptr noundef %327, i32 noundef %328) #6
   %330 = load i32, ptr @hf_skinny_sourcePortNumber, align 4
   %331 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %330, i32 noundef 4, i32 noundef -2147483648) #6
-  %332 = getelementptr inbounds i8, ptr %1, i64 20
+  %332 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %333 = load i32, ptr %332, align 4
   call void @srtp_add_address(ptr noundef %1, i32 noundef 3, ptr noundef nonnull %4, i32 noundef %329, i32 noundef 0, ptr noundef nonnull @.str.966, i32 noundef %333, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #6
   %334 = call ptr @address_to_display(ptr noundef null, ptr noundef nonnull %4) #6
   %335 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2116, ptr noundef %334, i32 noundef %329) #6
   %336 = load ptr, ptr @si, align 8
-  %337 = getelementptr inbounds i8, ptr %336, i64 80
+  %337 = getelementptr inbounds nuw i8, ptr %336, i64 80
   store ptr %335, ptr %337, align 8
   call void @wmem_free(ptr noundef null, ptr noundef %334) #6
   %338 = icmp ugt i32 %6, 15
@@ -9871,7 +9871,7 @@ define internal void @handle_StartMultiMediaTransmissionMessage(ptr noundef %0, 
   %23 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %24 = tail call i32 @tvb_get_letohl(ptr noundef %22, i32 noundef %23) #6
   %25 = load ptr, ptr @si, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 12
   store i32 %24, ptr %26, align 4
   %27 = load i32, ptr @hf_skinny_callReference, align 4
   %28 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %27, i32 noundef 4, i32 noundef -2147483648) #6
@@ -10287,7 +10287,7 @@ define internal void @handle_StopMultiMediaTransmissionMessage(ptr noundef %0, p
   %7 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %8 = tail call i32 @tvb_get_letohl(ptr noundef %6, i32 noundef %7) #6
   %9 = load ptr, ptr @si, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 %8, ptr %10, align 8
   %11 = load i32, ptr @hf_skinny_passThroughPartyId, align 4
   %12 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %11, i32 noundef 4, i32 noundef -2147483648) #6
@@ -10295,7 +10295,7 @@ define internal void @handle_StopMultiMediaTransmissionMessage(ptr noundef %0, p
   %14 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %15 = tail call i32 @tvb_get_letohl(ptr noundef %13, i32 noundef %14) #6
   %16 = load ptr, ptr @si, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 %15, ptr %17, align 4
   %18 = load i32, ptr @hf_skinny_callReference, align 4
   %19 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %18, i32 noundef 4, i32 noundef -2147483648) #6
@@ -10314,7 +10314,7 @@ define internal void @handle_MiscellaneousCommandMessage(ptr noundef %0, ptr noc
   %9 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %10 = tail call i32 @tvb_get_letohl(ptr noundef %8, i32 noundef %9) #6
   %11 = load ptr, ptr @si, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 12
   store i32 %10, ptr %12, align 4
   %13 = load i32, ptr @hf_skinny_callReference, align 4
   %14 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %13, i32 noundef 4, i32 noundef -2147483648) #6
@@ -10504,7 +10504,7 @@ define internal void @handle_FlowControlCommandMessage(ptr noundef %0, ptr nocap
   %9 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %10 = tail call i32 @tvb_get_letohl(ptr noundef %8, i32 noundef %9) #6
   %11 = load ptr, ptr @si, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 12
   store i32 %10, ptr %12, align 4
   %13 = load i32, ptr @hf_skinny_callReference, align 4
   %14 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %13, i32 noundef 4, i32 noundef -2147483648) #6
@@ -10521,7 +10521,7 @@ define internal void @handle_CloseMultiMediaReceiveChannelMessage(ptr noundef %0
   %7 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %8 = tail call i32 @tvb_get_letohl(ptr noundef %6, i32 noundef %7) #6
   %9 = load ptr, ptr @si, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 %8, ptr %10, align 8
   %11 = load i32, ptr @hf_skinny_passThroughPartyId, align 4
   %12 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %11, i32 noundef 4, i32 noundef -2147483648) #6
@@ -10529,7 +10529,7 @@ define internal void @handle_CloseMultiMediaReceiveChannelMessage(ptr noundef %0
   %14 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %15 = tail call i32 @tvb_get_letohl(ptr noundef %13, i32 noundef %14) #6
   %16 = load ptr, ptr @si, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 %15, ptr %17, align 4
   %18 = load i32, ptr @hf_skinny_callReference, align 4
   %19 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %18, i32 noundef 4, i32 noundef -2147483648) #6
@@ -10617,7 +10617,7 @@ define internal void @handle_AddParticipantReqMessage(ptr noundef %0, ptr nocapt
   %10 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %11 = tail call i32 @tvb_get_letohl(ptr noundef %9, i32 noundef %10) #6
   %12 = load ptr, ptr @si, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 12
   store i32 %11, ptr %13, align 4
   %14 = load i32, ptr @hf_skinny_callReference, align 4
   %15 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %14, i32 noundef 4, i32 noundef -2147483648) #6
@@ -10673,7 +10673,7 @@ define internal void @handle_DropParticipantReqMessage(ptr noundef %0, ptr nocap
   %10 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %11 = tail call i32 @tvb_get_letohl(ptr noundef %9, i32 noundef %10) #6
   %12 = load ptr, ptr @si, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 12
   store i32 %11, ptr %13, align 4
   %14 = load i32, ptr @hf_skinny_callReference, align 4
   %15 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %14, i32 noundef 4, i32 noundef -2147483648) #6
@@ -10705,7 +10705,7 @@ define internal void @handle_ChangeParticipantReqMessage(ptr noundef %0, ptr noc
   %10 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %11 = tail call i32 @tvb_get_letohl(ptr noundef %9, i32 noundef %10) #6
   %12 = load ptr, ptr @si, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 12
   store i32 %11, ptr %13, align 4
   %14 = load i32, ptr @hf_skinny_callReference, align 4
   %15 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %14, i32 noundef 4, i32 noundef -2147483648) #6
@@ -10760,7 +10760,7 @@ define internal void @handle_UserToDeviceDataMessageVersion1(ptr noundef %0, ptr
   %9 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %10 = tail call i32 @tvb_get_letohl(ptr noundef %8, i32 noundef %9) #6
   %11 = load ptr, ptr @si, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 %10, ptr %12, align 8
   %13 = load i32, ptr @hf_skinny_lineInstance, align 4
   %14 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %13, i32 noundef 4, i32 noundef -2147483648) #6
@@ -10768,7 +10768,7 @@ define internal void @handle_UserToDeviceDataMessageVersion1(ptr noundef %0, ptr
   %16 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %17 = tail call i32 @tvb_get_letohl(ptr noundef %15, i32 noundef %16) #6
   %18 = load ptr, ptr @si, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 12
   store i32 %17, ptr %19, align 4
   %20 = load i32, ptr @hf_skinny_callReference, align 4
   %21 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %20, i32 noundef 4, i32 noundef -2147483648) #6
@@ -10803,7 +10803,7 @@ define internal void @handle_VideoDisplayCommandMessage(ptr noundef %0, ptr noca
   %7 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %8 = tail call i32 @tvb_get_letohl(ptr noundef %6, i32 noundef %7) #6
   %9 = load ptr, ptr @si, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 %8, ptr %10, align 4
   %11 = load i32, ptr @hf_skinny_callReference, align 4
   %12 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %11, i32 noundef 4, i32 noundef -2147483648) #6
@@ -10822,7 +10822,7 @@ define internal void @handle_FlowControlNotifyMessage(ptr noundef %0, ptr nocapt
   %9 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %10 = tail call i32 @tvb_get_letohl(ptr noundef %8, i32 noundef %9) #6
   %11 = load ptr, ptr @si, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 12
   store i32 %10, ptr %12, align 4
   %13 = load i32, ptr @hf_skinny_callReference, align 4
   %14 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %13, i32 noundef 4, i32 noundef -2147483648) #6
@@ -10927,7 +10927,7 @@ define internal void @handle_DisplayPromptStatusV2Message(ptr noundef %0, ptr no
   %7 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %8 = tail call i32 @tvb_get_letohl(ptr noundef %6, i32 noundef %7) #6
   %9 = load ptr, ptr @si, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %8, ptr %10, align 8
   %11 = load i32, ptr @hf_skinny_lineInstance, align 4
   %12 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %11, i32 noundef 4, i32 noundef -2147483648) #6
@@ -10935,7 +10935,7 @@ define internal void @handle_DisplayPromptStatusV2Message(ptr noundef %0, ptr no
   %14 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %15 = tail call i32 @tvb_get_letohl(ptr noundef %13, i32 noundef %14) #6
   %16 = load ptr, ptr @si, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 %15, ptr %17, align 4
   %18 = load i32, ptr @hf_skinny_callReference, align 4
   %19 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %18, i32 noundef 4, i32 noundef -2147483648) #6
@@ -11114,7 +11114,7 @@ define internal void @handle_CallInfoV2Message(ptr noundef %0, ptr nocapture nou
   %7 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %8 = tail call i32 @tvb_get_letohl(ptr noundef %6, i32 noundef %7) #6
   %9 = load ptr, ptr @si, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %8, ptr %10, align 8
   %11 = load i32, ptr @hf_skinny_lineInstance, align 4
   %12 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %11, i32 noundef 4, i32 noundef -2147483648) #6
@@ -11122,7 +11122,7 @@ define internal void @handle_CallInfoV2Message(ptr noundef %0, ptr nocapture nou
   %14 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %15 = tail call i32 @tvb_get_letohl(ptr noundef %13, i32 noundef %14) #6
   %16 = load ptr, ptr @si, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 %15, ptr %17, align 4
   %18 = load i32, ptr @hf_skinny_callReference, align 4
   %19 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %18, i32 noundef 4, i32 noundef -2147483648) #6
@@ -11174,14 +11174,14 @@ define internal void @handle_CallInfoV2Message(ptr noundef %0, ptr nocapture nou
   br i1 %62, label %63, label %74
 
 63:                                               ; preds = %3
-  %64 = getelementptr inbounds i8, ptr %1, i64 408
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %65 = load ptr, ptr %64, align 8
   %66 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %67 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %68 = tail call ptr @tvb_format_stringzpad(ptr noundef %65, ptr noundef %66, i32 noundef %67, i32 noundef %61) #6
   %69 = tail call noalias ptr @g_strdup(ptr noundef %68) #6
   %70 = load ptr, ptr @si, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 40
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 40
   store ptr %69, ptr %71, align 8
   %72 = load i32, ptr @hf_skinny_callingParty, align 4
   %73 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %72, i32 noundef %61, i32 noundef 0) #6
@@ -11217,14 +11217,14 @@ define internal void @handle_CallInfoV2Message(ptr noundef %0, ptr nocapture nou
   br i1 %90, label %91, label %102
 
 91:                                               ; preds = %85
-  %92 = getelementptr inbounds i8, ptr %1, i64 408
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %93 = load ptr, ptr %92, align 8
   %94 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %95 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %96 = tail call ptr @tvb_format_stringzpad(ptr noundef %93, ptr noundef %94, i32 noundef %95, i32 noundef %89) #6
   %97 = tail call noalias ptr @g_strdup(ptr noundef %96) #6
   %98 = load ptr, ptr @si, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 48
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 48
   store ptr %97, ptr %99, align 8
   %100 = load i32, ptr @hf_skinny_calledParty, align 4
   %101 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %100, i32 noundef %89, i32 noundef 0) #6
@@ -11444,13 +11444,13 @@ define internal void @handle_CallInfoV2Message(ptr noundef %0, ptr nocapture nou
 
 225:                                              ; preds = %221, %224, %203
   %226 = load ptr, ptr @si, align 8
-  %227 = getelementptr inbounds i8, ptr %226, i64 40
+  %227 = getelementptr inbounds nuw i8, ptr %226, i64 40
   %228 = load ptr, ptr %227, align 8
   %.not = icmp eq ptr %228, null
   br i1 %.not, label %236, label %229
 
 229:                                              ; preds = %225
-  %230 = getelementptr inbounds i8, ptr %226, i64 48
+  %230 = getelementptr inbounds nuw i8, ptr %226, i64 48
   %231 = load ptr, ptr %230, align 8
   %.not142 = icmp eq ptr %231, null
   br i1 %.not142, label %236, label %232
@@ -11458,7 +11458,7 @@ define internal void @handle_CallInfoV2Message(ptr noundef %0, ptr nocapture nou
 232:                                              ; preds = %229
   %233 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2159, ptr noundef nonnull %228, ptr noundef nonnull %231) #6
   %234 = load ptr, ptr @si, align 8
-  %235 = getelementptr inbounds i8, ptr %234, i64 80
+  %235 = getelementptr inbounds nuw i8, ptr %234, i64 80
   store ptr %233, ptr %235, align 8
   br label %236
 
@@ -11474,7 +11474,7 @@ define internal void @handle_PortReqMessage(ptr noundef %0, ptr nocapture nounde
   %7 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %8 = tail call i32 @tvb_get_letohl(ptr noundef %6, i32 noundef %7) #6
   %9 = load ptr, ptr @si, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 %8, ptr %10, align 4
   %11 = load i32, ptr @hf_skinny_callReference, align 4
   %12 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %11, i32 noundef 4, i32 noundef -2147483648) #6
@@ -11482,7 +11482,7 @@ define internal void @handle_PortReqMessage(ptr noundef %0, ptr nocapture nounde
   %14 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %15 = tail call i32 @tvb_get_letohl(ptr noundef %13, i32 noundef %14) #6
   %16 = load ptr, ptr @si, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i32 %15, ptr %17, align 8
   %18 = load i32, ptr @hf_skinny_passThroughPartyId, align 4
   %19 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %18, i32 noundef 4, i32 noundef -2147483648) #6
@@ -11504,7 +11504,7 @@ define internal void @handle_PortCloseMessage(ptr noundef %0, ptr nocapture read
   %7 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %8 = tail call i32 @tvb_get_letohl(ptr noundef %6, i32 noundef %7) #6
   %9 = load ptr, ptr @si, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 %8, ptr %10, align 4
   %11 = load i32, ptr @hf_skinny_callReference, align 4
   %12 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %11, i32 noundef 4, i32 noundef -2147483648) #6
@@ -11512,7 +11512,7 @@ define internal void @handle_PortCloseMessage(ptr noundef %0, ptr nocapture read
   %14 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %15 = tail call i32 @tvb_get_letohl(ptr noundef %13, i32 noundef %14) #6
   %16 = load ptr, ptr @si, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i32 %15, ptr %17, align 8
   %18 = load i32, ptr @hf_skinny_passThroughPartyId, align 4
   %19 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %18, i32 noundef 4, i32 noundef -2147483648) #6
@@ -11530,7 +11530,7 @@ define internal void @handle_QoSListenMessage(ptr noundef %0, ptr noundef %1, pt
   %8 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %9 = tail call i32 @tvb_get_letohl(ptr noundef %7, i32 noundef %8) #6
   %10 = load ptr, ptr @si, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store i32 %9, ptr %11, align 4
   %12 = load i32, ptr @hf_skinny_callReference, align 4
   %13 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %12, i32 noundef 4, i32 noundef -2147483648) #6
@@ -11538,7 +11538,7 @@ define internal void @handle_QoSListenMessage(ptr noundef %0, ptr noundef %1, pt
   %15 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %16 = tail call i32 @tvb_get_letohl(ptr noundef %14, i32 noundef %15) #6
   %17 = load ptr, ptr @si, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i32 %16, ptr %18, align 8
   %19 = load i32, ptr @hf_skinny_passThroughPartyId, align 4
   %20 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %19, i32 noundef 4, i32 noundef -2147483648) #6
@@ -11558,11 +11558,11 @@ define internal void @handle_QoSListenMessage(ptr noundef %0, ptr noundef %1, pt
   %28 = add i32 %.01821.i, %21
   %29 = tail call ptr @tvb_get_ptr(ptr noundef %22, i32 noundef %28, i32 noundef 4) #6
   store i32 2, ptr %4, align 8
-  %30 = getelementptr inbounds i8, ptr %4, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 4, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %4, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %29, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %4, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %32, align 8
   br label %read_skinny_ipv4or6.exit
 
@@ -11574,11 +11574,11 @@ define internal void @handle_QoSListenMessage(ptr noundef %0, ptr noundef %1, pt
   %35 = add i32 %21, 4
   %36 = tail call ptr @tvb_get_ptr(ptr noundef %22, i32 noundef %35, i32 noundef 16) #6
   store i32 3, ptr %4, align 8
-  %37 = getelementptr inbounds i8, ptr %4, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 16, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %4, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %36, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %4, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %39, align 8
   br label %read_skinny_ipv4or6.exit
 
@@ -11595,13 +11595,13 @@ read_skinny_ipv4or6.exit:                         ; preds = %.thread.i, %34, %40
   %45 = tail call i32 @tvb_get_letohl(ptr noundef %43, i32 noundef %44) #6
   %46 = load i32, ptr @hf_skinny_remotePortNumber, align 4
   %47 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %46, i32 noundef 4, i32 noundef -2147483648) #6
-  %48 = getelementptr inbounds i8, ptr %1, i64 20
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %49 = load i32, ptr %48, align 4
   call void @srtp_add_address(ptr noundef %1, i32 noundef 3, ptr noundef nonnull %4, i32 noundef %45, i32 noundef 0, ptr noundef nonnull @.str.966, i32 noundef %49, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #6
   %50 = call ptr @address_to_display(ptr noundef null, ptr noundef nonnull %4) #6
   %51 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2116, ptr noundef %50, i32 noundef %45) #6
   %52 = load ptr, ptr @si, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 80
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 80
   store ptr %51, ptr %53, align 8
   call void @wmem_free(ptr noundef null, ptr noundef %50) #6
   %54 = load i32, ptr @hf_skinny_resvStyle, align 4
@@ -11647,7 +11647,7 @@ define internal void @handle_QoSPathMessage(ptr noundef %0, ptr noundef %1, ptr 
   %8 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %9 = tail call i32 @tvb_get_letohl(ptr noundef %7, i32 noundef %8) #6
   %10 = load ptr, ptr @si, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store i32 %9, ptr %11, align 4
   %12 = load i32, ptr @hf_skinny_callReference, align 4
   %13 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %12, i32 noundef 4, i32 noundef -2147483648) #6
@@ -11655,7 +11655,7 @@ define internal void @handle_QoSPathMessage(ptr noundef %0, ptr noundef %1, ptr 
   %15 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %16 = tail call i32 @tvb_get_letohl(ptr noundef %14, i32 noundef %15) #6
   %17 = load ptr, ptr @si, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i32 %16, ptr %18, align 8
   %19 = load i32, ptr @hf_skinny_passThroughPartyId, align 4
   %20 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %19, i32 noundef 4, i32 noundef -2147483648) #6
@@ -11675,11 +11675,11 @@ define internal void @handle_QoSPathMessage(ptr noundef %0, ptr noundef %1, ptr 
   %28 = add i32 %.01821.i, %21
   %29 = tail call ptr @tvb_get_ptr(ptr noundef %22, i32 noundef %28, i32 noundef 4) #6
   store i32 2, ptr %4, align 8
-  %30 = getelementptr inbounds i8, ptr %4, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 4, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %4, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %29, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %4, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %32, align 8
   br label %read_skinny_ipv4or6.exit
 
@@ -11691,11 +11691,11 @@ define internal void @handle_QoSPathMessage(ptr noundef %0, ptr noundef %1, ptr 
   %35 = add i32 %21, 4
   %36 = tail call ptr @tvb_get_ptr(ptr noundef %22, i32 noundef %35, i32 noundef 16) #6
   store i32 3, ptr %4, align 8
-  %37 = getelementptr inbounds i8, ptr %4, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 16, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %4, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %36, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %4, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %39, align 8
   br label %read_skinny_ipv4or6.exit
 
@@ -11712,13 +11712,13 @@ read_skinny_ipv4or6.exit:                         ; preds = %.thread.i, %34, %40
   %45 = tail call i32 @tvb_get_letohl(ptr noundef %43, i32 noundef %44) #6
   %46 = load i32, ptr @hf_skinny_remotePortNumber, align 4
   %47 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %46, i32 noundef 4, i32 noundef -2147483648) #6
-  %48 = getelementptr inbounds i8, ptr %1, i64 20
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %49 = load i32, ptr %48, align 4
   call void @srtp_add_address(ptr noundef %1, i32 noundef 3, ptr noundef nonnull %4, i32 noundef %45, i32 noundef 0, ptr noundef nonnull @.str.966, i32 noundef %49, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #6
   %50 = call ptr @address_to_display(ptr noundef null, ptr noundef nonnull %4) #6
   %51 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2116, ptr noundef %50, i32 noundef %45) #6
   %52 = load ptr, ptr @si, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 80
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 80
   store ptr %51, ptr %53, align 8
   call void @wmem_free(ptr noundef null, ptr noundef %50) #6
   %54 = load i32, ptr @hf_skinny_resvStyle, align 4
@@ -11762,7 +11762,7 @@ define internal void @handle_QoSTeardownMessage(ptr noundef %0, ptr noundef %1, 
   %8 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %9 = tail call i32 @tvb_get_letohl(ptr noundef %7, i32 noundef %8) #6
   %10 = load ptr, ptr @si, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store i32 %9, ptr %11, align 4
   %12 = load i32, ptr @hf_skinny_callReference, align 4
   %13 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %12, i32 noundef 4, i32 noundef -2147483648) #6
@@ -11770,7 +11770,7 @@ define internal void @handle_QoSTeardownMessage(ptr noundef %0, ptr noundef %1, 
   %15 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %16 = tail call i32 @tvb_get_letohl(ptr noundef %14, i32 noundef %15) #6
   %17 = load ptr, ptr @si, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i32 %16, ptr %18, align 8
   %19 = load i32, ptr @hf_skinny_passThroughPartyId, align 4
   %20 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %19, i32 noundef 4, i32 noundef -2147483648) #6
@@ -11790,11 +11790,11 @@ define internal void @handle_QoSTeardownMessage(ptr noundef %0, ptr noundef %1, 
   %28 = add i32 %.01821.i, %21
   %29 = tail call ptr @tvb_get_ptr(ptr noundef %22, i32 noundef %28, i32 noundef 4) #6
   store i32 2, ptr %4, align 8
-  %30 = getelementptr inbounds i8, ptr %4, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 4, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %4, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %29, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %4, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %32, align 8
   br label %read_skinny_ipv4or6.exit
 
@@ -11806,11 +11806,11 @@ define internal void @handle_QoSTeardownMessage(ptr noundef %0, ptr noundef %1, 
   %35 = add i32 %21, 4
   %36 = tail call ptr @tvb_get_ptr(ptr noundef %22, i32 noundef %35, i32 noundef 16) #6
   store i32 3, ptr %4, align 8
-  %37 = getelementptr inbounds i8, ptr %4, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 16, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %4, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %36, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %4, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %39, align 8
   br label %read_skinny_ipv4or6.exit
 
@@ -11827,13 +11827,13 @@ read_skinny_ipv4or6.exit:                         ; preds = %.thread.i, %34, %40
   %45 = tail call i32 @tvb_get_letohl(ptr noundef %43, i32 noundef %44) #6
   %46 = load i32, ptr @hf_skinny_remotePortNumber, align 4
   %47 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %46, i32 noundef 4, i32 noundef -2147483648) #6
-  %48 = getelementptr inbounds i8, ptr %1, i64 20
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %49 = load i32, ptr %48, align 4
   call void @srtp_add_address(ptr noundef %1, i32 noundef 3, ptr noundef nonnull %4, i32 noundef %45, i32 noundef 0, ptr noundef nonnull @.str.966, i32 noundef %49, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #6
   %50 = call ptr @address_to_display(ptr noundef null, ptr noundef nonnull %4) #6
   %51 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2116, ptr noundef %50, i32 noundef %45) #6
   %52 = load ptr, ptr @si, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 80
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 80
   store ptr %51, ptr %53, align 8
   call void @wmem_free(ptr noundef null, ptr noundef %50) #6
   %54 = load i32, ptr @hf_skinny_direction, align 4
@@ -11850,7 +11850,7 @@ define internal void @handle_UpdateDSCPMessage(ptr noundef %0, ptr noundef %1, p
   %8 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %9 = tail call i32 @tvb_get_letohl(ptr noundef %7, i32 noundef %8) #6
   %10 = load ptr, ptr @si, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store i32 %9, ptr %11, align 4
   %12 = load i32, ptr @hf_skinny_callReference, align 4
   %13 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %12, i32 noundef 4, i32 noundef -2147483648) #6
@@ -11858,7 +11858,7 @@ define internal void @handle_UpdateDSCPMessage(ptr noundef %0, ptr noundef %1, p
   %15 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %16 = tail call i32 @tvb_get_letohl(ptr noundef %14, i32 noundef %15) #6
   %17 = load ptr, ptr @si, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i32 %16, ptr %18, align 8
   %19 = load i32, ptr @hf_skinny_passThroughPartyId, align 4
   %20 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %19, i32 noundef 4, i32 noundef -2147483648) #6
@@ -11878,11 +11878,11 @@ define internal void @handle_UpdateDSCPMessage(ptr noundef %0, ptr noundef %1, p
   %28 = add i32 %.01821.i, %21
   %29 = tail call ptr @tvb_get_ptr(ptr noundef %22, i32 noundef %28, i32 noundef 4) #6
   store i32 2, ptr %4, align 8
-  %30 = getelementptr inbounds i8, ptr %4, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 4, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %4, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %29, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %4, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %32, align 8
   br label %read_skinny_ipv4or6.exit
 
@@ -11894,11 +11894,11 @@ define internal void @handle_UpdateDSCPMessage(ptr noundef %0, ptr noundef %1, p
   %35 = add i32 %21, 4
   %36 = tail call ptr @tvb_get_ptr(ptr noundef %22, i32 noundef %35, i32 noundef 16) #6
   store i32 3, ptr %4, align 8
-  %37 = getelementptr inbounds i8, ptr %4, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 16, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %4, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %36, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %4, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %39, align 8
   br label %read_skinny_ipv4or6.exit
 
@@ -11915,13 +11915,13 @@ read_skinny_ipv4or6.exit:                         ; preds = %.thread.i, %34, %40
   %45 = tail call i32 @tvb_get_letohl(ptr noundef %43, i32 noundef %44) #6
   %46 = load i32, ptr @hf_skinny_remotePortNumber, align 4
   %47 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %46, i32 noundef 4, i32 noundef -2147483648) #6
-  %48 = getelementptr inbounds i8, ptr %1, i64 20
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %49 = load i32, ptr %48, align 4
   call void @srtp_add_address(ptr noundef %1, i32 noundef 3, ptr noundef nonnull %4, i32 noundef %45, i32 noundef 0, ptr noundef nonnull @.str.966, i32 noundef %49, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #6
   %50 = call ptr @address_to_display(ptr noundef null, ptr noundef nonnull %4) #6
   %51 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2116, ptr noundef %50, i32 noundef %45) #6
   %52 = load ptr, ptr @si, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 80
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 80
   store ptr %51, ptr %53, align 8
   call void @wmem_free(ptr noundef null, ptr noundef %50) #6
   %54 = load i32, ptr @hf_skinny_DSCPValue, align 4
@@ -11938,7 +11938,7 @@ define internal void @handle_QoSModifyMessage(ptr noundef %0, ptr noundef %1, pt
   %8 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %9 = tail call i32 @tvb_get_letohl(ptr noundef %7, i32 noundef %8) #6
   %10 = load ptr, ptr @si, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store i32 %9, ptr %11, align 4
   %12 = load i32, ptr @hf_skinny_callReference, align 4
   %13 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %12, i32 noundef 4, i32 noundef -2147483648) #6
@@ -11946,7 +11946,7 @@ define internal void @handle_QoSModifyMessage(ptr noundef %0, ptr noundef %1, pt
   %15 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %16 = tail call i32 @tvb_get_letohl(ptr noundef %14, i32 noundef %15) #6
   %17 = load ptr, ptr @si, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i32 %16, ptr %18, align 8
   %19 = load i32, ptr @hf_skinny_passThroughPartyId, align 4
   %20 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %19, i32 noundef 4, i32 noundef -2147483648) #6
@@ -11966,11 +11966,11 @@ define internal void @handle_QoSModifyMessage(ptr noundef %0, ptr noundef %1, pt
   %28 = add i32 %.01821.i, %21
   %29 = tail call ptr @tvb_get_ptr(ptr noundef %22, i32 noundef %28, i32 noundef 4) #6
   store i32 2, ptr %4, align 8
-  %30 = getelementptr inbounds i8, ptr %4, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 4, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %4, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %29, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %4, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %32, align 8
   br label %read_skinny_ipv4or6.exit
 
@@ -11982,11 +11982,11 @@ define internal void @handle_QoSModifyMessage(ptr noundef %0, ptr noundef %1, pt
   %35 = add i32 %21, 4
   %36 = tail call ptr @tvb_get_ptr(ptr noundef %22, i32 noundef %35, i32 noundef 16) #6
   store i32 3, ptr %4, align 8
-  %37 = getelementptr inbounds i8, ptr %4, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 16, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %4, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %36, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %4, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %39, align 8
   br label %read_skinny_ipv4or6.exit
 
@@ -12003,13 +12003,13 @@ read_skinny_ipv4or6.exit:                         ; preds = %.thread.i, %34, %40
   %45 = tail call i32 @tvb_get_letohl(ptr noundef %43, i32 noundef %44) #6
   %46 = load i32, ptr @hf_skinny_remotePortNumber, align 4
   %47 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %46, i32 noundef 4, i32 noundef -2147483648) #6
-  %48 = getelementptr inbounds i8, ptr %1, i64 20
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %49 = load i32, ptr %48, align 4
   call void @srtp_add_address(ptr noundef %1, i32 noundef 3, ptr noundef nonnull %4, i32 noundef %45, i32 noundef 0, ptr noundef nonnull @.str.966, i32 noundef %49, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #6
   %50 = call ptr @address_to_display(ptr noundef null, ptr noundef nonnull %4) #6
   %51 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2116, ptr noundef %50, i32 noundef %45) #6
   %52 = load ptr, ptr @si, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 80
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 80
   store ptr %51, ptr %53, align 8
   call void @wmem_free(ptr noundef null, ptr noundef %50) #6
   %54 = load i32, ptr @hf_skinny_direction, align 4
@@ -12079,7 +12079,7 @@ define internal void @handle_StartMediaTransmissionAckMessage(ptr noundef %0, pt
   %11 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %12 = tail call i32 @tvb_get_letohl(ptr noundef %10, i32 noundef %11) #6
   %13 = load ptr, ptr @si, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i32 %12, ptr %14, align 8
   %15 = load i32, ptr @hf_skinny_passThroughPartyId, align 4
   %16 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %15, i32 noundef 4, i32 noundef -2147483648) #6
@@ -12087,7 +12087,7 @@ define internal void @handle_StartMediaTransmissionAckMessage(ptr noundef %0, pt
   %18 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %19 = tail call i32 @tvb_get_letohl(ptr noundef %17, i32 noundef %18) #6
   %20 = load ptr, ptr @si, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 12
   store i32 %19, ptr %21, align 4
   %22 = load i32, ptr @hf_skinny_callReference, align 4
   %23 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %22, i32 noundef 4, i32 noundef -2147483648) #6
@@ -12107,11 +12107,11 @@ define internal void @handle_StartMediaTransmissionAckMessage(ptr noundef %0, pt
   %31 = add i32 %.01821.i, %24
   %32 = tail call ptr @tvb_get_ptr(ptr noundef %25, i32 noundef %31, i32 noundef 4) #6
   store i32 2, ptr %4, align 8
-  %33 = getelementptr inbounds i8, ptr %4, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 4, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %4, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %32, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %4, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %35, align 8
   br label %read_skinny_ipv4or6.exit
 
@@ -12123,11 +12123,11 @@ define internal void @handle_StartMediaTransmissionAckMessage(ptr noundef %0, pt
   %38 = add i32 %24, 4
   %39 = tail call ptr @tvb_get_ptr(ptr noundef %25, i32 noundef %38, i32 noundef 16) #6
   store i32 3, ptr %4, align 8
-  %40 = getelementptr inbounds i8, ptr %4, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 16, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %4, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %39, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %4, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %42, align 8
   br label %read_skinny_ipv4or6.exit
 
@@ -12144,20 +12144,20 @@ read_skinny_ipv4or6.exit:                         ; preds = %.thread.i, %37, %43
   %48 = tail call i32 @tvb_get_letohl(ptr noundef %46, i32 noundef %47) #6
   %49 = load i32, ptr @hf_skinny_portNumber, align 4
   %50 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %49, i32 noundef 4, i32 noundef -2147483648) #6
-  %51 = getelementptr inbounds i8, ptr %1, i64 20
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %52 = load i32, ptr %51, align 4
   call void @srtp_add_address(ptr noundef %1, i32 noundef 3, ptr noundef nonnull %4, i32 noundef %48, i32 noundef 0, ptr noundef nonnull @.str.966, i32 noundef %52, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #6
   %53 = call ptr @address_to_display(ptr noundef null, ptr noundef nonnull %4) #6
   %54 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2116, ptr noundef %53, i32 noundef %48) #6
   %55 = load ptr, ptr @si, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 80
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 80
   store ptr %54, ptr %56, align 8
   call void @wmem_free(ptr noundef null, ptr noundef %53) #6
   %57 = call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %58 = call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %59 = call i32 @tvb_get_letohl(ptr noundef %57, i32 noundef %58) #6
   %60 = load ptr, ptr @si, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 60
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 60
   store i32 %59, ptr %61, align 4
   %62 = load i32, ptr @hf_skinny_mediaTransmissionStatus, align 4
   %63 = call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %62, i32 noundef 4, i32 noundef -2147483648) #6
@@ -12178,7 +12178,7 @@ define internal void @handle_StartMultiMediaTransmissionAckMessage(ptr noundef %
   %11 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %12 = tail call i32 @tvb_get_letohl(ptr noundef %10, i32 noundef %11) #6
   %13 = load ptr, ptr @si, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i32 %12, ptr %14, align 8
   %15 = load i32, ptr @hf_skinny_passThroughPartyId, align 4
   %16 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %15, i32 noundef 4, i32 noundef -2147483648) #6
@@ -12186,7 +12186,7 @@ define internal void @handle_StartMultiMediaTransmissionAckMessage(ptr noundef %
   %18 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %19 = tail call i32 @tvb_get_letohl(ptr noundef %17, i32 noundef %18) #6
   %20 = load ptr, ptr @si, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 12
   store i32 %19, ptr %21, align 4
   %22 = load i32, ptr @hf_skinny_callReference, align 4
   %23 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %22, i32 noundef 4, i32 noundef -2147483648) #6
@@ -12206,11 +12206,11 @@ define internal void @handle_StartMultiMediaTransmissionAckMessage(ptr noundef %
   %31 = add i32 %.01821.i, %24
   %32 = tail call ptr @tvb_get_ptr(ptr noundef %25, i32 noundef %31, i32 noundef 4) #6
   store i32 2, ptr %4, align 8
-  %33 = getelementptr inbounds i8, ptr %4, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 4, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %4, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %32, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %4, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %35, align 8
   br label %read_skinny_ipv4or6.exit
 
@@ -12222,11 +12222,11 @@ define internal void @handle_StartMultiMediaTransmissionAckMessage(ptr noundef %
   %38 = add i32 %24, 4
   %39 = tail call ptr @tvb_get_ptr(ptr noundef %25, i32 noundef %38, i32 noundef 16) #6
   store i32 3, ptr %4, align 8
-  %40 = getelementptr inbounds i8, ptr %4, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 16, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %4, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %39, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %4, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %42, align 8
   br label %read_skinny_ipv4or6.exit
 
@@ -12243,20 +12243,20 @@ read_skinny_ipv4or6.exit:                         ; preds = %.thread.i, %37, %43
   %48 = tail call i32 @tvb_get_letohl(ptr noundef %46, i32 noundef %47) #6
   %49 = load i32, ptr @hf_skinny_portNumber, align 4
   %50 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %49, i32 noundef 4, i32 noundef -2147483648) #6
-  %51 = getelementptr inbounds i8, ptr %1, i64 20
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %52 = load i32, ptr %51, align 4
   call void @srtp_add_address(ptr noundef %1, i32 noundef 3, ptr noundef nonnull %4, i32 noundef %48, i32 noundef 0, ptr noundef nonnull @.str.966, i32 noundef %52, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #6
   %53 = call ptr @address_to_display(ptr noundef null, ptr noundef nonnull %4) #6
   %54 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2116, ptr noundef %53, i32 noundef %48) #6
   %55 = load ptr, ptr @si, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 80
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 80
   store ptr %54, ptr %56, align 8
   call void @wmem_free(ptr noundef null, ptr noundef %53) #6
   %57 = call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   %58 = call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %59 = call i32 @tvb_get_letohl(ptr noundef %57, i32 noundef %58) #6
   %60 = load ptr, ptr @si, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 68
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 68
   store i32 %59, ptr %61, align 4
   %62 = load i32, ptr @hf_skinny_multimediaTransmissionStatus, align 4
   %63 = call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %62, i32 noundef 4, i32 noundef -2147483648) #6
@@ -12273,7 +12273,7 @@ define internal void @handle_CallHistoryInfoMessage(ptr noundef %0, ptr nocaptur
   %7 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %8 = tail call i32 @tvb_get_letohl(ptr noundef %6, i32 noundef %7) #6
   %9 = load ptr, ptr @si, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %8, ptr %10, align 8
   %11 = load i32, ptr @hf_skinny_lineInstance, align 4
   %12 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %11, i32 noundef 4, i32 noundef -2147483648) #6
@@ -12281,7 +12281,7 @@ define internal void @handle_CallHistoryInfoMessage(ptr noundef %0, ptr nocaptur
   %14 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %15 = tail call i32 @tvb_get_letohl(ptr noundef %13, i32 noundef %14) #6
   %16 = load ptr, ptr @si, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 %15, ptr %17, align 4
   %18 = load i32, ptr @hf_skinny_callReference, align 4
   %19 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %18, i32 noundef 4, i32 noundef -2147483648) #6
@@ -12399,7 +12399,7 @@ define internal void @handle_RecordingStatusMessage(ptr noundef %0, ptr nocaptur
   %5 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef %5) #6
   %7 = load ptr, ptr @si, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 %6, ptr %8, align 4
   %9 = load i32, ptr @hf_skinny_callReference, align 4
   %10 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %9, i32 noundef 4, i32 noundef -2147483648) #6
@@ -12461,9 +12461,9 @@ declare void @ptvcursor_advance(ptr noundef, i32 noundef) local_unnamed_addr #1
 define internal fastcc void @skinny_reqrep_add_request(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #0 {
   %5 = tail call ptr @ptvcursor_tree(ptr noundef %0) #6
   %6 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
-  %7 = getelementptr inbounds i8, ptr %1, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 50
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 50
   %10 = load i16, ptr %9, align 2
   %11 = and i16 %10, 8
   %.not = icmp eq i16 %11, 0
@@ -12472,15 +12472,15 @@ define internal fastcc void @skinny_reqrep_add_request(ptr noundef %0, ptr nocap
 12:                                               ; preds = %4
   %13 = tail call ptr @wmem_file_scope() #6
   %14 = tail call noalias ptr @wmem_alloc0(ptr noundef %13, i64 noundef 24) #6
-  %15 = getelementptr inbounds i8, ptr %1, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %16 = load i32, ptr %15, align 4
   store i32 %16, ptr %14, align 8
-  %17 = getelementptr inbounds i8, ptr %14, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 0, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %14, i64 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %19, i64 16, i1 false)
-  %20 = getelementptr inbounds i8, ptr %2, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = sext i32 %3 to i64
   %23 = inttoptr i64 %22 to ptr
@@ -12488,9 +12488,9 @@ define internal fastcc void @skinny_reqrep_add_request(ptr noundef %0, ptr nocap
   br label %25
 
 25:                                               ; preds = %12, %4
-  %26 = getelementptr inbounds i8, ptr %2, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 20
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %29 = load i32, ptr %28, align 4
   %30 = zext i32 %29 to i64
   %31 = inttoptr i64 %30 to ptr
@@ -12499,7 +12499,7 @@ define internal fastcc void @skinny_reqrep_add_request(ptr noundef %0, ptr nocap
   br i1 %.not19, label %proto_item_set_generated.exit, label %33
 
 33:                                               ; preds = %25
-  %34 = getelementptr inbounds i8, ptr %32, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %35 = load i32, ptr %34, align 4
   %.not20 = icmp eq i32 %35, 0
   br i1 %.not20, label %proto_item_set_generated.exit, label %36
@@ -12511,13 +12511,13 @@ define internal fastcc void @skinny_reqrep_add_request(ptr noundef %0, ptr nocap
   br i1 %.not.i, label %proto_item_set_generated.exit, label %39
 
 39:                                               ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %38, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 32
   %41 = load ptr, ptr %40, align 8
   %.not5.i = icmp eq ptr %41, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %42
 
 42:                                               ; preds = %39
-  %43 = getelementptr inbounds i8, ptr %41, i64 28
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 28
   %44 = load i32, ptr %43, align 4
   %45 = or i32 %44, 2
   store i32 %45, ptr %43, align 4
@@ -12551,16 +12551,16 @@ define internal fastcc void @skinny_reqrep_add_response(ptr noundef %0, ptr noun
   %5 = alloca %struct.nstime_t, align 8
   %6 = tail call ptr @ptvcursor_tree(ptr noundef %0) #6
   %7 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
-  %8 = getelementptr inbounds i8, ptr %1, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 50
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 50
   %11 = load i16, ptr %10, align 2
   %12 = and i16 %11, 8
   %.not = icmp eq i16 %12, 0
   br i1 %.not, label %13, label %35
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %2, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = sext i32 %3 to i64
   %17 = inttoptr i64 %16 to ptr
@@ -12569,17 +12569,17 @@ define internal fastcc void @skinny_reqrep_add_response(ptr noundef %0, ptr noun
   br i1 %.not28, label %35, label %19
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %1, i64 20
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %18, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 %21, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %2, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = load i32, ptr %18, align 8
   %26 = zext i32 %25 to i64
   %27 = inttoptr i64 %26 to ptr
   %28 = tail call ptr @wmem_map_insert(ptr noundef %24, ptr noundef %27, ptr noundef nonnull %18) #6
-  %29 = getelementptr inbounds i8, ptr %2, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %30 = load ptr, ptr %29, align 8
   %31 = load i32, ptr %20, align 4
   %32 = zext i32 %31 to i64
@@ -12588,9 +12588,9 @@ define internal fastcc void @skinny_reqrep_add_response(ptr noundef %0, ptr noun
   br label %35
 
 35:                                               ; preds = %19, %13, %4
-  %36 = getelementptr inbounds i8, ptr %2, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %1, i64 20
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %39 = load i32, ptr %38, align 4
   %40 = zext i32 %39 to i64
   %41 = inttoptr i64 %40 to ptr
@@ -12610,21 +12610,21 @@ define internal fastcc void @skinny_reqrep_add_response(ptr noundef %0, ptr noun
   br i1 %.not.i, label %proto_item_set_generated.exit, label %48
 
 48:                                               ; preds = %45
-  %49 = getelementptr inbounds i8, ptr %47, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %50 = load ptr, ptr %49, align 8
   %.not5.i = icmp eq ptr %50, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %51
 
 51:                                               ; preds = %48
-  %52 = getelementptr inbounds i8, ptr %50, i64 28
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 28
   %53 = load i32, ptr %52, align 4
   %54 = or i32 %53, 2
   store i32 %54, ptr %52, align 4
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %45, %48, %51
-  %55 = getelementptr inbounds i8, ptr %1, i64 24
-  %56 = getelementptr inbounds i8, ptr %42, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %42, i64 8
   call void @nstime_delta(ptr noundef nonnull %5, ptr noundef nonnull %55, ptr noundef nonnull %56) #6
   %57 = load i32, ptr @hf_skinny_response_time, align 4
   %58 = call ptr @proto_tree_add_time(ptr noundef %6, i32 noundef %57, ptr noundef %7, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %5) #6
@@ -12632,13 +12632,13 @@ proto_item_set_generated.exit:                    ; preds = %45, %48, %51
   br i1 %.not.i31, label %proto_item_set_generated.exit33, label %59
 
 59:                                               ; preds = %proto_item_set_generated.exit
-  %60 = getelementptr inbounds i8, ptr %58, i64 32
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 32
   %61 = load ptr, ptr %60, align 8
   %.not5.i32 = icmp eq ptr %61, null
   br i1 %.not5.i32, label %proto_item_set_generated.exit33, label %62
 
 62:                                               ; preds = %59
-  %63 = getelementptr inbounds i8, ptr %61, i64 28
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 28
   %64 = load i32, ptr %63, align 4
   %65 = or i32 %64, 2
   store i32 %65, ptr %63, align 4
@@ -12763,7 +12763,7 @@ define internal fastcc void @dissect_skinny_displayLabel(ptr noundef %0, ptr noc
 14:                                               ; preds = %9, %12, %4
   %.057 = phi i32 [ %13, %12 ], [ %10, %9 ], [ %3, %4 ]
   %15 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %2, ptr noundef %7, i32 noundef %6, i32 noundef %.057, i32 noundef 0) #6
-  %16 = getelementptr inbounds i8, ptr %1, i64 408
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %17 = load ptr, ptr %16, align 8
   %18 = add i32 %.057, 1
   %19 = sext i32 %18 to i64
@@ -12846,7 +12846,7 @@ define internal fastcc void @dissect_skinny_displayLabel(ptr noundef %0, ptr noc
   %48 = tail call ptr @wmem_strbuf_get_str(ptr noundef %20) #6
   %49 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2091, ptr noundef %48) #6
   %50 = load ptr, ptr @si, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 80
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 80
   store ptr %49, ptr %51, align 8
   %52 = tail call ptr @wmem_strbuf_get_str(ptr noundef %20) #6
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %15, ptr noundef nonnull @.str.2173, ptr noundef %52) #6

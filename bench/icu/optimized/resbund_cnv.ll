@@ -18,7 +18,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define void @_ZN6icu_7514ResourceBundleC2ERKNS_13UnicodeStringERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8), (16, 24)) %this, ptr noundef nonnull align 8 dereferenceable(64) %path, ptr nocapture noundef nonnull readonly align 8 dereferenceable(217) %locale, ptr noundef nonnull align 4 dereferenceable(4) %error) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514ResourceBundleE, i64 16), ptr %this, align 8
-  %fLocale = getelementptr inbounds i8, ptr %this, i64 16
+  %fLocale = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr null, ptr %fLocale, align 8
   invoke void @_ZN6icu_7514ResourceBundle18constructForLocaleERKNS_13UnicodeStringERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(64) %path, ptr noundef nonnull align 8 dereferenceable(217) %locale, ptr noundef nonnull align 4 dereferenceable(4) %error)
           to label %invoke.cont unwind label %lpad
@@ -38,16 +38,16 @@ define void @_ZN6icu_7514ResourceBundle18constructForLocaleERKNS_13UnicodeString
 entry:
   %srcChar.addr.i = alloca i16, align 2
   %nullTerminatedPath = alloca %"class.icu_75::UnicodeString", align 8
-  %fUnion.i = getelementptr inbounds i8, ptr %path, i64 8
+  %fUnion.i = getelementptr inbounds nuw i8, ptr %path, i64 8
   %0 = load i16, ptr %fUnion.i, align 8
   %cmp.i = icmp ugt i16 %0, 31
   br i1 %cmp.i, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %fullName.i = getelementptr inbounds i8, ptr %locale, i64 40
+  %fullName.i = getelementptr inbounds nuw i8, ptr %locale, i64 40
   %1 = load ptr, ptr %fullName.i, align 8
   %call3 = tail call ptr @ures_open_75(ptr noundef null, ptr noundef %1, ptr noundef nonnull %error)
-  %fResource = getelementptr inbounds i8, ptr %this, i64 8
+  %fResource = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %call3, ptr %fResource, align 8
   br label %if.end
 
@@ -60,7 +60,7 @@ if.else:                                          ; preds = %entry
 
 invoke.cont:                                      ; preds = %if.else
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %srcChar.addr.i)
-  %fUnion.i5 = getelementptr inbounds i8, ptr %nullTerminatedPath, i64 8
+  %fUnion.i5 = getelementptr inbounds nuw i8, ptr %nullTerminatedPath, i64 8
   %2 = load i16, ptr %fUnion.i5, align 8
   %3 = and i16 %2, 17
   %tobool.not.i = icmp eq i16 %3, 0
@@ -72,23 +72,23 @@ if.else.i:                                        ; preds = %invoke.cont
   br i1 %tobool6.not.i, label %if.else9.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.else.i
-  %fBuffer.i = getelementptr inbounds i8, ptr %nullTerminatedPath, i64 10
+  %fBuffer.i = getelementptr inbounds nuw i8, ptr %nullTerminatedPath, i64 10
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 if.else9.i:                                       ; preds = %if.else.i
-  %fArray.i = getelementptr inbounds i8, ptr %nullTerminatedPath, i64 24
+  %fArray.i = getelementptr inbounds nuw i8, ptr %nullTerminatedPath, i64 24
   %5 = load ptr, ptr %fArray.i, align 8
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7513UnicodeString9getBufferEv.exit:      ; preds = %invoke.cont, %if.then7.i, %if.else9.i
   %retval.0.i = phi ptr [ %fBuffer.i, %if.then7.i ], [ %5, %if.else9.i ], [ null, %invoke.cont ]
-  %fullName.i6 = getelementptr inbounds i8, ptr %locale, i64 40
+  %fullName.i6 = getelementptr inbounds nuw i8, ptr %locale, i64 40
   %6 = load ptr, ptr %fullName.i6, align 8
   %call10 = invoke ptr @ures_openU_75(ptr noundef %retval.0.i, ptr noundef %6, ptr noundef nonnull %error)
           to label %invoke.cont9 unwind label %lpad
 
 invoke.cont9:                                     ; preds = %_ZNK6icu_7513UnicodeString9getBufferEv.exit
-  %fResource11 = getelementptr inbounds i8, ptr %this, i64 8
+  %fResource11 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %call10, ptr %fResource11, align 8
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %nullTerminatedPath) #4
   br label %if.end
@@ -112,7 +112,7 @@ declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable
 define void @_ZN6icu_7514ResourceBundleC2ERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8), (16, 24)) %this, ptr noundef nonnull align 8 dereferenceable(64) %path, ptr noundef nonnull align 4 dereferenceable(4) %error) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514ResourceBundleE, i64 16), ptr %this, align 8
-  %fLocale = getelementptr inbounds i8, ptr %this, i64 16
+  %fLocale = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr null, ptr %fLocale, align 8
   %call = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756Locale10getDefaultEv()
           to label %invoke.cont unwind label %lpad

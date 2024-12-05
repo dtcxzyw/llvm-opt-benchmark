@@ -219,7 +219,7 @@ define internal i32 @dissect_lapdm(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %or.cond, label %15, label %19
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %1, i64 348
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 348
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %17, 1
   br i1 %18, label %25, label %19
@@ -238,13 +238,13 @@ define internal i32 @dissect_lapdm(ptr noundef %0, ptr noundef %1, ptr noundef %
   %26 = phi i1 [ false, %22 ], [ true, %15 ]
   %.0146 = phi i32 [ 3, %22 ], [ 2, %15 ]
   %.0145 = phi i32 [ %24, %22 ], [ 0, %15 ]
-  %27 = getelementptr inbounds i8, ptr %1, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %28 = load ptr, ptr %27, align 8
   tail call void @col_set_str(ptr noundef %28, i32 noundef 34, ptr noundef nonnull @.str.76) #4
   %29 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #4
   %30 = zext i8 %29 to i32
   %31 = and i8 %29, 2
-  %32 = getelementptr inbounds i8, ptr %1, i64 348
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 348
   %33 = load i32, ptr %32, align 4
   switch i32 %33, label %38 [
     i32 1, label %34
@@ -356,14 +356,14 @@ define internal i32 @dissect_lapdm(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %or.cond3, label %100, label %161
 
 100:                                              ; preds = %93
-  %101 = getelementptr inbounds i8, ptr %1, i64 276
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 276
   %102 = load i8, ptr %101, align 4
   %103 = and i8 %102, 1
   %.not166 = icmp eq i8 %103, 0
   br i1 %.not166, label %104, label %161
 
 104:                                              ; preds = %100
-  %105 = getelementptr inbounds i8, ptr %1, i64 272
+  %105 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %106 = load i32, ptr %105, align 8
   store i32 %.0151, ptr %105, align 8
   %107 = tail call i32 @conversation_get_id_from_elements(ptr noundef nonnull %1, i32 noundef 26, i32 noundef 8) #4
@@ -373,9 +373,9 @@ define internal i32 @dissect_lapdm(ptr noundef %0, ptr noundef %1, ptr noundef %
   %111 = or disjoint i32 %108, %110
   %112 = load i32, ptr %32, align 4
   %113 = or i32 %111, %112
-  %114 = getelementptr inbounds i8, ptr %1, i64 80
+  %114 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 50
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 50
   %117 = load i16, ptr %116, align 2
   %118 = and i16 %117, 8
   %.not167 = icmp eq i16 %118, 0
@@ -406,9 +406,9 @@ define internal i32 @dissect_lapdm(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not169, label %156, label %135
 
 135:                                              ; preds = %.critedge
-  %136 = getelementptr inbounds i8, ptr %1, i64 20
+  %136 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %137 = load i32, ptr %136, align 4
-  %138 = getelementptr inbounds i8, ptr %133, i64 40
+  %138 = getelementptr inbounds nuw i8, ptr %133, i64 40
   %139 = load i32, ptr %138, align 8
   %140 = icmp eq i32 %137, %139
   br i1 %140, label %141, label %156
@@ -425,7 +425,7 @@ define internal i32 @dissect_lapdm(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 146:                                              ; preds = %144, %141
   %147 = load ptr, ptr %114, align 8
-  %148 = getelementptr inbounds i8, ptr %147, i64 50
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 50
   %149 = load i16, ptr %148, align 2
   %150 = and i16 %149, 8
   %.not171 = icmp eq i16 %150, 0
@@ -458,9 +458,9 @@ define internal i32 @dissect_lapdm(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %191
 
 165:                                              ; preds = %161
-  %166 = getelementptr inbounds i8, ptr %1, i64 80
+  %166 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %167 = load ptr, ptr %166, align 8
-  %168 = getelementptr inbounds i8, ptr %167, i64 50
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 50
   %169 = load i16, ptr %168, align 2
   %170 = and i16 %169, 8
   %.not172 = icmp eq i16 %170, 0

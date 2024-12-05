@@ -87,15 +87,15 @@ define void @dhsein_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   br i1 %67, label %70, label %68
 
 68:                                               ; preds = %64
-  %69 = getelementptr inbounds i32, ptr %32, i64 %65
+  %69 = getelementptr inbounds nuw i32, ptr %32, i64 %65
   store i32 0, ptr %69, align 4, !tbaa !3
   br label %89
 
 70:                                               ; preds = %64
-  %71 = getelementptr inbounds double, ptr %38, i64 %65
+  %71 = getelementptr inbounds nuw double, ptr %38, i64 %65
   %72 = load double, ptr %71, align 8, !tbaa !7
   %73 = fcmp oeq double %72, 0.000000e+00
-  %74 = getelementptr inbounds i32, ptr %32, i64 %65
+  %74 = getelementptr inbounds nuw i32, ptr %32, i64 %65
   %75 = load i32, ptr %74, align 4, !tbaa !3
   %76 = icmp eq i32 %75, 0
   br i1 %73, label %77, label %81
@@ -242,7 +242,7 @@ define void @dhsein_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   %159 = phi i32 [ 1, %149 ], [ %360, %357 ]
   %160 = phi i32 [ 0, %149 ], [ %359, %357 ]
   %161 = phi i32 [ 1, %149 ], [ %358, %357 ]
-  %162 = getelementptr inbounds i32, ptr %32, i64 %158
+  %162 = getelementptr inbounds nuw i32, ptr %32, i64 %158
   %163 = load i32, ptr %162, align 4, !tbaa !3
   %164 = icmp eq i32 %163, 0
   br i1 %164, label %357, label %165
@@ -344,10 +344,10 @@ define void @dhsein_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
 
 220:                                              ; preds = %.sink.split, %203
   %221 = phi i32 [ %160, %203 ], [ %204, %.sink.split ]
-  %222 = getelementptr inbounds double, ptr %37, i64 %158
+  %222 = getelementptr inbounds nuw double, ptr %37, i64 %158
   %223 = load double, ptr %222, align 8, !tbaa !7
   store double %223, ptr %30, align 8, !tbaa !7
-  %224 = getelementptr inbounds double, ptr %38, i64 %158
+  %224 = getelementptr inbounds nuw double, ptr %38, i64 %158
   %225 = load double, ptr %224, align 8, !tbaa !7
   store double %225, ptr %29, align 8, !tbaa !7
   %226 = sext i32 %204 to i64

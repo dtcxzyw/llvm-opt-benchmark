@@ -19,13 +19,13 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @intel_gt_invalidate_tlb_full(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 3488
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 3488
   %5 = load volatile i64, ptr %4, align 8
   %6 = icmp slt i64 %5, 0
   br i1 %6, label %.thread9, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 3096
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 3096
   %9 = load volatile i32, ptr %8, align 4
   %10 = add i32 %1, 1
   %11 = and i32 %10, -2
@@ -34,7 +34,7 @@ define dso_local void @intel_gt_invalidate_tlb_full(ptr noundef %0, i32 noundef 
   br i1 %13, label %.thread9, label %14
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %0, i64 3296
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 3296
   %16 = load volatile i32, ptr %15, align 4
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %.thread9, label %.lr.ph, !prof !5
@@ -42,7 +42,7 @@ define dso_local void @intel_gt_invalidate_tlb_full(ptr noundef %0, i32 noundef 
 .lr.ph:                                           ; preds = %14, %24
   %18 = phi i32 [ %25, %24 ], [ %16, %14 ]
   %19 = add i32 %18, 1
-  %20 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %15, i32 %19, ptr elementtype(i32) %15, i32 %18) #6, !srcloc !6
+  %20 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %15, i32 %19, ptr nonnull elementtype(i32) %15, i32 %18) #6, !srcloc !6
   %21 = extractvalue { i8, i32 } %20, 0
   %22 = icmp ult i8 %21, 2
   tail call void @llvm.assume(i1 %22)
@@ -55,15 +55,15 @@ define dso_local void @intel_gt_invalidate_tlb_full(ptr noundef %0, i32 noundef 
   br i1 %26, label %.thread9, label %.lr.ph, !prof !8, !llvm.loop !9
 
 27:                                               ; preds = %.lr.ph
-  %28 = getelementptr inbounds i8, ptr %0, i64 632
-  %29 = getelementptr inbounds i8, ptr %0, i64 3064
-  %30 = getelementptr inbounds i8, ptr %0, i64 636
-  %31 = getelementptr inbounds i8, ptr %0, i64 1256
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
-  %33 = getelementptr inbounds i8, ptr %0, i64 4040
-  %34 = getelementptr inbounds i8, ptr %0, i64 4952
-  %35 = getelementptr inbounds i8, ptr %0, i64 4956
-  tail call void @mutex_lock(ptr noundef %29) #6
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 632
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 3064
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 636
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 1256
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 4040
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 4952
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 4956
+  tail call void @mutex_lock(ptr noundef nonnull %29) #6
   %36 = load volatile i32, ptr %8, align 4
   %37 = sub i32 %36, %11
   %38 = icmp sgt i32 %37, 0
@@ -71,9 +71,9 @@ define dso_local void @intel_gt_invalidate_tlb_full(ptr noundef %0, i32 noundef 
 
 39:                                               ; preds = %27
   %40 = load ptr, ptr %0, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 7168
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 7168
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 28
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 28
   %44 = load i64, ptr %43, align 4
   %45 = and i64 %44, 65536
   %46 = icmp eq i64 %45, 0
@@ -90,14 +90,14 @@ define dso_local void @intel_gt_invalidate_tlb_full(ptr noundef %0, i32 noundef 
   br i1 %52, label %166, label %53
 
 53:                                               ; preds = %50
-  %54 = tail call i32 @intel_guc_invalidate_tlb_engines(ptr noundef %28) #6
+  %54 = tail call i32 @intel_guc_invalidate_tlb_engines(ptr noundef nonnull %28) #6
   br label %166
 
 55:                                               ; preds = %39
   %56 = load ptr, ptr %32, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
   store i64 0, ptr %3, align 8, !annotation !14
-  %57 = getelementptr inbounds i8, ptr %40, i64 7176
+  %57 = getelementptr inbounds nuw i8, ptr %40, i64 7176
   %58 = load i8, ptr %57, align 8
   %59 = icmp ult i8 %58, 8
   br i1 %59, label %165, label %60
@@ -105,9 +105,9 @@ define dso_local void @intel_gt_invalidate_tlb_full(ptr noundef %0, i32 noundef 
 60:                                               ; preds = %55
   tail call void @intel_uncore_forcewake_get(ptr noundef %56, i32 noundef 65535) #6
   call void @intel_gt_mcr_lock(ptr noundef %0, ptr noundef nonnull %3) #6
-  %61 = getelementptr inbounds i8, ptr %56, i64 32
-  call void @_raw_spin_lock(ptr noundef %61) #6
-  %62 = getelementptr inbounds i8, ptr %56, i64 36
+  %61 = getelementptr inbounds nuw i8, ptr %56, i64 32
+  call void @_raw_spin_lock(ptr noundef nonnull %61) #6
+  %62 = getelementptr inbounds nuw i8, ptr %56, i64 36
   br label %63
 
 63:                                               ; preds = %96, %60
@@ -119,17 +119,17 @@ define dso_local void @intel_gt_invalidate_tlb_full(ptr noundef %0, i32 noundef 
   br i1 %68, label %96, label %69
 
 69:                                               ; preds = %63
-  %70 = getelementptr inbounds i8, ptr %67, i64 392
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 392
   %71 = load volatile i64, ptr %70, align 8
   %72 = icmp eq i64 %71, 0
   br i1 %72, label %96, label %73
 
 73:                                               ; preds = %69
-  %74 = getelementptr inbounds i8, ptr %67, i64 76
+  %74 = getelementptr inbounds nuw i8, ptr %67, i64 76
   %75 = load i8, ptr %74, align 4, !range !12, !noundef !13
   %76 = icmp eq i8 %75, 0
-  %77 = getelementptr inbounds i8, ptr %67, i64 80
-  %78 = getelementptr inbounds i8, ptr %67, i64 84
+  %77 = getelementptr inbounds nuw i8, ptr %67, i64 80
+  %78 = getelementptr inbounds nuw i8, ptr %67, i64 84
   %79 = load i32, ptr %78, align 4
   %80 = load i32, ptr %77, align 4
   br i1 %76, label %82, label %81
@@ -156,7 +156,7 @@ define dso_local void @intel_gt_invalidate_tlb_full(ptr noundef %0, i32 noundef 
   br label %92
 
 92:                                               ; preds = %87, %81
-  %93 = getelementptr inbounds i8, ptr %67, i64 44
+  %93 = getelementptr inbounds nuw i8, ptr %67, i64 44
   %94 = load i32, ptr %93, align 4
   %95 = or i32 %94, %65
   br label %96
@@ -188,7 +188,7 @@ define dso_local void @intel_gt_invalidate_tlb_full(ptr noundef %0, i32 noundef 
   br label %113
 
 113:                                              ; preds = %107, %102, %100
-  call void @_raw_spin_unlock(ptr noundef %61) #6
+  call void @_raw_spin_unlock(ptr noundef nonnull %61) #6
   %114 = load i64, ptr %3, align 8
   call void @intel_gt_mcr_unlock(ptr noundef %0, i64 noundef %114) #6
   %115 = load i32, ptr %35, align 4
@@ -207,26 +207,26 @@ define dso_local void @intel_gt_invalidate_tlb_full(ptr noundef %0, i32 noundef 
   %125 = sext i32 %119 to i64
   %126 = getelementptr [27 x ptr], ptr %33, i64 0, i64 %125
   %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 76
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 76
   %129 = load i8, ptr %128, align 4, !range !12, !noundef !13
   %130 = icmp eq i8 %129, 0
-  %131 = getelementptr inbounds i8, ptr %127, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %132 = load ptr, ptr %131, align 8
   br i1 %130, label %139, label %133
 
 133:                                              ; preds = %.lr.ph13
-  %134 = getelementptr inbounds i8, ptr %127, i64 80
-  %135 = getelementptr inbounds i8, ptr %127, i64 88
+  %134 = getelementptr inbounds nuw i8, ptr %127, i64 80
+  %135 = getelementptr inbounds nuw i8, ptr %127, i64 88
   %136 = load i32, ptr %135, align 4
   %137 = load i32, ptr %134, align 4
   %138 = call i32 @intel_gt_mcr_wait_for_reg(ptr noundef %132, i32 %137, i32 noundef %136, i32 noundef 0, i32 noundef 100, i32 noundef 4) #6
   br label %147
 
 139:                                              ; preds = %.lr.ph13
-  %140 = getelementptr inbounds i8, ptr %132, i64 24
+  %140 = getelementptr inbounds nuw i8, ptr %132, i64 24
   %141 = load ptr, ptr %140, align 8
-  %142 = getelementptr inbounds i8, ptr %127, i64 80
-  %143 = getelementptr inbounds i8, ptr %127, i64 88
+  %142 = getelementptr inbounds nuw i8, ptr %127, i64 80
+  %143 = getelementptr inbounds nuw i8, ptr %127, i64 88
   %144 = load i32, ptr %143, align 4
   %145 = load i32, ptr %142, align 4
   %146 = call i32 @__intel_wait_for_register_fw(ptr noundef %141, i32 %145, i32 noundef %144, i32 noundef 0, i32 noundef 100, i32 noundef 4, ptr noundef null) #6
@@ -248,15 +248,15 @@ define dso_local void @intel_gt_invalidate_tlb_full(ptr noundef %0, i32 noundef 
   br i1 %155, label %159, label %156
 
 156:                                              ; preds = %153
-  %157 = getelementptr inbounds i8, ptr %154, i64 8
+  %157 = getelementptr inbounds nuw i8, ptr %154, i64 8
   %158 = load ptr, ptr %157, align 8
   br label %159
 
 159:                                              ; preds = %156, %153
   %160 = phi ptr [ %158, %156 ], [ null, %153 ]
   %161 = load i32, ptr %34, align 8
-  %162 = getelementptr inbounds i8, ptr %127, i64 24
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %160, ptr noundef nonnull @.str.1, i32 noundef %161, ptr noundef %162, i32 noundef 4) #8
+  %162 = getelementptr inbounds nuw i8, ptr %127, i64 24
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef %160, ptr noundef nonnull @.str.1, i32 noundef %161, ptr noundef nonnull %162, i32 noundef 4) #8
   br label %163
 
 163:                                              ; preds = %159, %150, %147
@@ -279,7 +279,7 @@ define dso_local void @intel_gt_invalidate_tlb_full(ptr noundef %0, i32 noundef 
   br label %169
 
 169:                                              ; preds = %166, %27
-  call void @mutex_unlock(ptr noundef %29) #6
+  call void @mutex_unlock(ptr noundef nonnull %29) #6
   %170 = load volatile i32, ptr %15, align 4
   %171 = icmp eq i32 %170, 1
   br i1 %171, label %._crit_edge16, label %.lr.ph15, !prof !5
@@ -287,7 +287,7 @@ define dso_local void @intel_gt_invalidate_tlb_full(ptr noundef %0, i32 noundef 
 .lr.ph15:                                         ; preds = %169, %178
   %172 = phi i32 [ %179, %178 ], [ %170, %169 ]
   %173 = add i32 %172, -1
-  %174 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %15, i32 %173, ptr elementtype(i32) %15, i32 %172) #6, !srcloc !6
+  %174 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %15, i32 %173, ptr nonnull elementtype(i32) %15, i32 %172) #6, !srcloc !6
   %175 = extractvalue { i8, i32 } %174, 0
   %176 = icmp ult i8 %175, 2
   call void @llvm.assume(i1 %176)
@@ -300,7 +300,7 @@ define dso_local void @intel_gt_invalidate_tlb_full(ptr noundef %0, i32 noundef 
   br i1 %180, label %._crit_edge16, label %.lr.ph15, !prof !8, !llvm.loop !9
 
 ._crit_edge16:                                    ; preds = %178, %169
-  call void @__intel_wakeref_put_last(ptr noundef %15, i64 noundef 1) #6
+  call void @__intel_wakeref_put_last(ptr noundef nonnull %15, i64 noundef 1) #6
   br label %.thread9
 
 .thread9:                                         ; preds = %24, %.lr.ph15, %14, %._crit_edge16, %7, %2
@@ -324,9 +324,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @intel_gt_init_tlb(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 3064
-  tail call void @__mutex_init(ptr noundef %2, ptr noundef nonnull @.str, ptr noundef nonnull @intel_gt_init_tlb.__key) #6
-  %3 = getelementptr inbounds i8, ptr %0, i64 3096
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 3064
+  tail call void @__mutex_init(ptr noundef nonnull %2, ptr noundef nonnull @.str, ptr noundef nonnull @intel_gt_init_tlb.__key) #6
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 3096
   store i32 0, ptr %3, align 4
   ret void
 }

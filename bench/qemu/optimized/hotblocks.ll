@@ -34,7 +34,7 @@ for.body.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %argv, i64 %indvars.iv
   %0 = load ptr, ptr %arrayidx, align 8
   %call = tail call ptr @g_strsplit(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 2) #7
   %1 = load ptr, ptr %call, align 8
@@ -44,7 +44,7 @@ for.body:                                         ; preds = %for.body.preheader,
 
 if.then:                                          ; preds = %for.body
   %2 = load ptr, ptr %call, align 8
-  %arrayidx5 = getelementptr inbounds i8, ptr %call, i64 8
+  %arrayidx5 = getelementptr inbounds nuw i8, ptr %call, i64 8
   %3 = load ptr, ptr %arrayidx5, align 8
   %call6 = tail call zeroext i1 @qemu_plugin_bool_parse(ptr noundef %2, ptr noundef %3, ptr noundef nonnull @do_inline) #7
   br i1 %call6, label %for.inc, label %glib_auto_cleanup_GStrv.exit.thread
@@ -99,7 +99,7 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %trans_count = getelementptr inbounds i8, ptr %call2, i64 16
+  %trans_count = getelementptr inbounds nuw i8, ptr %call2, i64 16
   %2 = load i32, ptr %trans_count, align 8
   %inc = add nsw i32 %2, 1
   store i32 %inc, ptr %trans_count, align 8
@@ -108,9 +108,9 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %call3 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #9
   store i64 %call, ptr %call3, align 8
-  %trans_count4 = getelementptr inbounds i8, ptr %call3, i64 16
+  %trans_count4 = getelementptr inbounds nuw i8, ptr %call3, i64 16
   store i32 1, ptr %trans_count4, align 8
-  %insns5 = getelementptr inbounds i8, ptr %call3, i64 24
+  %insns5 = getelementptr inbounds nuw i8, ptr %call3, i64 24
   store i64 %call1, ptr %insns5, align 8
   %3 = load ptr, ptr @hotblocks, align 8
   %call6 = tail call i32 @g_hash_table_insert(ptr noundef %3, ptr noundef %1, ptr noundef nonnull %call3) #7
@@ -124,7 +124,7 @@ if.end:                                           ; preds = %if.else, %if.then
   br i1 %tobool7, label %if.then8, label %if.else9
 
 if.then8:                                         ; preds = %if.end
-  %exec_count = getelementptr inbounds i8, ptr %cnt.0, i64 8
+  %exec_count = getelementptr inbounds nuw i8, ptr %cnt.0, i64 8
   tail call void @qemu_plugin_register_vcpu_tb_exec_inline(ptr noundef %tb, i32 noundef 0, ptr noundef nonnull %exec_count, i64 noundef 1) #7
   br label %if.end10
 
@@ -159,7 +159,7 @@ if.then:                                          ; preds = %entry
 land.rhs:                                         ; preds = %if.then, %for.body
   %it.013 = phi ptr [ %call3, %if.then ], [ %8, %for.body ]
   %i.012 = phi i32 [ 0, %if.then ], [ %inc, %for.body ]
-  %next = getelementptr inbounds i8, ptr %it.013, i64 8
+  %next = getelementptr inbounds nuw i8, ptr %it.013, i64 8
   %2 = load ptr, ptr %next, align 8
   %tobool5.not = icmp eq ptr %2, null
   br i1 %tobool5.not, label %for.end, label %for.body
@@ -167,11 +167,11 @@ land.rhs:                                         ; preds = %if.then, %for.body
 for.body:                                         ; preds = %land.rhs
   %3 = load ptr, ptr %it.013, align 8
   %4 = load i64, ptr %3, align 8
-  %trans_count = getelementptr inbounds i8, ptr %3, i64 16
+  %trans_count = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i32, ptr %trans_count, align 8
-  %insns = getelementptr inbounds i8, ptr %3, i64 24
+  %insns = getelementptr inbounds nuw i8, ptr %3, i64 24
   %6 = load i64, ptr %insns, align 8
-  %exec_count = getelementptr inbounds i8, ptr %3, i64 8
+  %exec_count = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load i64, ptr %exec_count, align 8
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.9, i64 noundef %4, i32 noundef %5, i64 noundef %6, i64 noundef %7) #7
   %inc = add nuw nsw i32 %i.012, 1
@@ -232,7 +232,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %exec_count = getelementptr inbounds i8, ptr %call, i64 8
+  %exec_count = getelementptr inbounds nuw i8, ptr %call, i64 8
   %1 = load i64, ptr %exec_count, align 8
   %inc = add i64 %1, 1
   store i64 %inc, ptr %exec_count, align 8
@@ -256,9 +256,9 @@ declare ptr @g_list_sort(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 -1, 2) i32 @cmp_exec_count(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #6 {
 entry:
-  %exec_count = getelementptr inbounds i8, ptr %a, i64 8
+  %exec_count = getelementptr inbounds nuw i8, ptr %a, i64 8
   %0 = load i64, ptr %exec_count, align 8
-  %exec_count1 = getelementptr inbounds i8, ptr %b, i64 8
+  %exec_count1 = getelementptr inbounds nuw i8, ptr %b, i64 8
   %1 = load i64, ptr %exec_count1, align 8
   %cmp = icmp ugt i64 %0, %1
   %cond = select i1 %cmp, i32 -1, i32 1

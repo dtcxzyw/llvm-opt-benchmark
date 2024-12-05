@@ -44,7 +44,7 @@ define hidden void @_ZN5boost4urls6detail18segments_iter_implC2ERKNS1_8path_refE
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #8
   call void @_ZNK5boost4urls6detail8path_ref6bufferEv(ptr dead_on_unwind nonnull writable sret(%"class.boost::urls::pct_string_view") align 8 %3, ptr noundef nonnull align 8 dereferenceable(40) %4) #8
   %.sroa.0.0.copyload.i = load ptr, ptr %3, align 8, !tbaa !3
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !7
   switch i64 %.sroa.2.0.copyload.i, label %17 [
     i64 0, label %_ZN5boost4urls6detail11path_prefixENS_4core17basic_string_viewIcEE.exit
@@ -66,7 +66,7 @@ define hidden void @_ZN5boost4urls6detail18segments_iter_implC2ERKNS1_8path_refE
   ]
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 1
   %14 = load i8, ptr %13, align 1, !tbaa !9
   %15 = icmp eq i8 %14, 47
   br i1 %15, label %_ZN5boost4urls6detail11path_prefixENS_4core17basic_string_viewIcEE.exit, label %16
@@ -82,13 +82,13 @@ define hidden void @_ZN5boost4urls6detail18segments_iter_implC2ERKNS1_8path_refE
   ]
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 1
   %21 = load i8, ptr %20, align 1, !tbaa !9
   %22 = icmp eq i8 %21, 46
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 2
   %25 = load i8, ptr %24, align 1, !tbaa !9
   %26 = icmp eq i8 %25, 47
   br i1 %26, label %_ZN5boost4urls6detail11path_prefixENS_4core17basic_string_viewIcEE.exit, label %27
@@ -97,7 +97,7 @@ define hidden void @_ZN5boost4urls6detail18segments_iter_implC2ERKNS1_8path_refE
   br label %_ZN5boost4urls6detail11path_prefixENS_4core17basic_string_viewIcEE.exit
 
 28:                                               ; preds = %17
-  %29 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 1
   %30 = load i8, ptr %29, align 1, !tbaa !9
   %31 = icmp eq i8 %30, 47
   br i1 %31, label %_ZN5boost4urls6detail11path_prefixENS_4core17basic_string_viewIcEE.exit, label %32
@@ -137,7 +137,7 @@ _ZN5boost4urls6detail11path_prefixENS_4core17basic_string_viewIcEE.exit: ; preds
   br i1 %.not.i, label %_ZN5boost4urls6detail18segments_iter_impl6updateEv.exit, label %.lr.ph.i, !llvm.loop !17
 
 42:                                               ; preds = %.lr.ph.i
-  %43 = getelementptr inbounds i8, ptr %.017.i, i64 3
+  %43 = getelementptr inbounds nuw i8, ptr %.017.i, i64 3
   %44 = add i64 %37, 2
   store i64 %44, ptr %6, align 8, !tbaa !16
   br label %.backedge.i
@@ -157,9 +157,9 @@ _ZN5boost4urls6detail18segments_iter_impl6updateEv.exit: ; preds = %.lr.ph.i, %.
   %54 = sub i64 %52, %53
   store i64 %54, ptr %6, align 8, !tbaa !16
   store ptr %36, ptr %45, align 8
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 88
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i64 %52, ptr %.sroa.4.0..sroa_idx.i, align 8
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 96
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i64 %54, ptr %.sroa.5.0..sroa_idx.i, align 8
   ret void
 }
@@ -203,7 +203,7 @@ define hidden void @_ZN5boost4urls6detail18segments_iter_impl6updateEv(ptr nound
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 14:                                               ; preds = %.lr.ph
-  %15 = getelementptr inbounds i8, ptr %.017, i64 3
+  %15 = getelementptr inbounds nuw i8, ptr %.017, i64 3
   %16 = add i64 %9, 2
   store i64 %16, ptr %8, align 8, !tbaa !16
   br label %.backedge
@@ -223,9 +223,9 @@ define hidden void @_ZN5boost4urls6detail18segments_iter_impl6updateEv(ptr nound
   store i64 %25, ptr %8, align 8, !tbaa !16
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %7, ptr %26, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 88
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i64 %23, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 96
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i64 %25, ptr %.sroa.5.0..sroa_idx, align 8
   ret void
 }
@@ -274,7 +274,7 @@ define hidden void @_ZN5boost4urls6detail18segments_iter_implC2ERKNS1_8url_implE
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #8
   call void @_ZNK5boost4urls6detail8path_ref6bufferEv(ptr dead_on_unwind nonnull writable sret(%"class.boost::urls::pct_string_view") align 8 %5, ptr noundef nonnull align 8 dereferenceable(40) %6) #8
   %.sroa.0.0.copyload.i = load ptr, ptr %5, align 8, !tbaa !3
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !7
   switch i64 %.sroa.2.0.copyload.i, label %23 [
     i64 0, label %_ZN5boost4urls6detail11path_prefixENS_4core17basic_string_viewIcEE.exit
@@ -296,7 +296,7 @@ define hidden void @_ZN5boost4urls6detail18segments_iter_implC2ERKNS1_8url_implE
   ]
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 1
   %20 = load i8, ptr %19, align 1, !tbaa !9
   %21 = icmp eq i8 %20, 47
   br i1 %21, label %_ZN5boost4urls6detail11path_prefixENS_4core17basic_string_viewIcEE.exit, label %22
@@ -312,13 +312,13 @@ define hidden void @_ZN5boost4urls6detail18segments_iter_implC2ERKNS1_8url_implE
   ]
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 1
   %27 = load i8, ptr %26, align 1, !tbaa !9
   %28 = icmp eq i8 %27, 46
   br i1 %28, label %29, label %33
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 2
+  %30 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 2
   %31 = load i8, ptr %30, align 1, !tbaa !9
   %32 = icmp eq i8 %31, 47
   br i1 %32, label %_ZN5boost4urls6detail11path_prefixENS_4core17basic_string_viewIcEE.exit, label %33
@@ -327,7 +327,7 @@ define hidden void @_ZN5boost4urls6detail18segments_iter_implC2ERKNS1_8url_implE
   br label %_ZN5boost4urls6detail11path_prefixENS_4core17basic_string_viewIcEE.exit
 
 34:                                               ; preds = %23
-  %35 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 1
   %36 = load i8, ptr %35, align 1, !tbaa !9
   %37 = icmp eq i8 %36, 47
   br i1 %37, label %_ZN5boost4urls6detail11path_prefixENS_4core17basic_string_viewIcEE.exit, label %38
@@ -381,7 +381,7 @@ _ZN5boost4urls6detail11path_prefixENS_4core17basic_string_viewIcEE.exit: ; preds
   br i1 %.not.i, label %_ZN5boost4urls6detail18segments_iter_impl6updateEv.exit, label %.lr.ph.i, !llvm.loop !17
 
 54:                                               ; preds = %.lr.ph.i
-  %55 = getelementptr inbounds i8, ptr %.017.i, i64 3
+  %55 = getelementptr inbounds nuw i8, ptr %.017.i, i64 3
   %56 = add i64 %49, 2
   store i64 %56, ptr %10, align 8, !tbaa !16
   br label %.backedge.i
@@ -400,9 +400,9 @@ _ZN5boost4urls6detail18segments_iter_impl6updateEv.exit: ; preds = %.lr.ph.i, %.
   %65 = sub i64 %63, %64
   store i64 %65, ptr %10, align 8, !tbaa !16
   store ptr %48, ptr %57, align 8
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 88
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i64 %63, ptr %.sroa.4.0..sroa_idx.i, align 8
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 96
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i64 %65, ptr %.sroa.5.0..sroa_idx.i, align 8
   ret void
 }
@@ -462,7 +462,7 @@ define void @_ZN5boost4urls6detail18segments_iter_impl9incrementEv(ptr noundef n
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 23:                                               ; preds = %.lr.ph
-  %24 = getelementptr inbounds i8, ptr %.018, i64 3
+  %24 = getelementptr inbounds nuw i8, ptr %.018, i64 3
   %25 = add i64 %18, 2
   store i64 %25, ptr %16, align 8, !tbaa !16
   br label %.backedge
@@ -481,9 +481,9 @@ define void @_ZN5boost4urls6detail18segments_iter_impl9incrementEv(ptr noundef n
   store i64 %33, ptr %16, align 8, !tbaa !16
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %17, ptr %34, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 88
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i64 %31, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 96
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i64 %33, ptr %.sroa.5.0..sroa_idx, align 8
   br label %35
 
@@ -512,7 +512,7 @@ define void @_ZN5boost4urls6detail18segments_iter_impl9decrementEv(ptr noundef n
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @_ZNK5boost4urls6detail8path_ref6bufferEv(ptr dead_on_unwind nonnull writable sret(%"class.boost::urls::pct_string_view") align 8 %2, ptr noundef nonnull align 8 dereferenceable(40) %13) #8
   %.sroa.0.0.copyload.i = load ptr, ptr %2, align 8, !tbaa !3
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !7
   switch i64 %.sroa.2.0.copyload.i, label %24 [
     i64 0, label %_ZN5boost4urls6detail11path_prefixENS_4core17basic_string_viewIcEE.exit
@@ -534,7 +534,7 @@ define void @_ZN5boost4urls6detail18segments_iter_impl9decrementEv(ptr noundef n
   ]
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 1
   %21 = load i8, ptr %20, align 1, !tbaa !9
   %22 = icmp eq i8 %21, 47
   br i1 %22, label %_ZN5boost4urls6detail11path_prefixENS_4core17basic_string_viewIcEE.exit, label %23
@@ -550,13 +550,13 @@ define void @_ZN5boost4urls6detail18segments_iter_impl9decrementEv(ptr noundef n
   ]
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 1
   %28 = load i8, ptr %27, align 1, !tbaa !9
   %29 = icmp eq i8 %28, 46
   br i1 %29, label %30, label %34
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 2
   %32 = load i8, ptr %31, align 1, !tbaa !9
   %33 = icmp eq i8 %32, 47
   br i1 %33, label %_ZN5boost4urls6detail11path_prefixENS_4core17basic_string_viewIcEE.exit, label %34
@@ -565,7 +565,7 @@ define void @_ZN5boost4urls6detail18segments_iter_impl9decrementEv(ptr noundef n
   br label %_ZN5boost4urls6detail11path_prefixENS_4core17basic_string_viewIcEE.exit
 
 35:                                               ; preds = %24
-  %36 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 1
   %37 = load i8, ptr %36, align 1, !tbaa !9
   %38 = icmp eq i8 %37, 47
   br i1 %38, label %_ZN5boost4urls6detail11path_prefixENS_4core17basic_string_viewIcEE.exit, label %39
@@ -598,7 +598,7 @@ _ZN5boost4urls6detail11path_prefixENS_4core17basic_string_viewIcEE.exit: ; preds
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #8
   call void @_ZNK5boost4urls6detail8path_ref6bufferEv(ptr dead_on_unwind nonnull writable sret(%"class.boost::urls::pct_string_view") align 8 %4, ptr noundef nonnull align 8 dereferenceable(40) %48) #8
   %.sroa.0.0.copyload.i16 = load ptr, ptr %4, align 8, !tbaa !3
-  %.sroa.2.0..sroa_idx.i17 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.2.0..sroa_idx.i17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.2.0.copyload.i18 = load i64, ptr %.sroa.2.0..sroa_idx.i17, align 8, !tbaa !7
   switch i64 %.sroa.2.0.copyload.i18, label %60 [
     i64 0, label %_ZN5boost4urls6detail11path_prefixENS_4core17basic_string_viewIcEE.exit23
@@ -620,7 +620,7 @@ _ZN5boost4urls6detail11path_prefixENS_4core17basic_string_viewIcEE.exit: ; preds
   ]
 
 55:                                               ; preds = %53
-  %56 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i16, i64 1
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i16, i64 1
   %57 = load i8, ptr %56, align 1, !tbaa !9
   %58 = icmp eq i8 %57, 47
   br i1 %58, label %_ZN5boost4urls6detail11path_prefixENS_4core17basic_string_viewIcEE.exit23, label %59
@@ -636,13 +636,13 @@ _ZN5boost4urls6detail11path_prefixENS_4core17basic_string_viewIcEE.exit: ; preds
   ]
 
 62:                                               ; preds = %60
-  %63 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i16, i64 1
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i16, i64 1
   %64 = load i8, ptr %63, align 1, !tbaa !9
   %65 = icmp eq i8 %64, 46
   br i1 %65, label %66, label %70
 
 66:                                               ; preds = %62
-  %67 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i16, i64 2
+  %67 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i16, i64 2
   %68 = load i8, ptr %67, align 1, !tbaa !9
   %69 = icmp eq i8 %68, 47
   br i1 %69, label %_ZN5boost4urls6detail11path_prefixENS_4core17basic_string_viewIcEE.exit23, label %70
@@ -651,7 +651,7 @@ _ZN5boost4urls6detail11path_prefixENS_4core17basic_string_viewIcEE.exit: ; preds
   br label %_ZN5boost4urls6detail11path_prefixENS_4core17basic_string_viewIcEE.exit23
 
 71:                                               ; preds = %60
-  %72 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i16, i64 1
+  %72 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i16, i64 1
   %73 = load i8, ptr %72, align 1, !tbaa !9
   %74 = icmp eq i8 %73, 47
   br i1 %74, label %_ZN5boost4urls6detail11path_prefixENS_4core17basic_string_viewIcEE.exit23, label %75
@@ -711,14 +711,14 @@ _ZN5boost4urls6detail11path_prefixENS_4core17basic_string_viewIcEE.exit23: ; pre
   %99 = ptrtoint ptr %98 to i64
   %100 = sub i64 %95, %99
   store i64 %100, ptr %77, align 8, !tbaa !10
-  %101 = getelementptr inbounds i8, ptr %.1, i64 1
+  %101 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %102 = add nsw i64 %96, -1
   %103 = load i64, ptr %83, align 8, !tbaa !16
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %101, ptr %104, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 88
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i64 %102, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 96
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i64 %103, ptr %.sroa.5.0..sroa_idx, align 8
   br label %105
 

@@ -34,8 +34,8 @@ define noalias noundef ptr @unpackMatrix(ptr nocapture noundef readonly %0, i32 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %11 = mul nuw nsw i64 %indvars.iv, %9
-  %12 = getelementptr inbounds float, ptr %7, i64 %11
-  %13 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw float, ptr %7, i64 %11
+  %13 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   store ptr %12, ptr %13, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %9
@@ -44,7 +44,7 @@ define noalias noundef ptr @unpackMatrix(ptr nocapture noundef readonly %0, i32 
 .preheader:                                       ; preds = %.preheader.preheader, %24
   %indvars.iv45 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next46, %24 ]
   %.03140 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next44, %24 ]
-  %14 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv45
+  %14 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv45
   %15 = load ptr, ptr %14, align 8
   %sext = shl i64 %.03140, 32
   %16 = ashr exact i64 %sext, 32
@@ -55,11 +55,11 @@ define noalias noundef ptr @unpackMatrix(ptr nocapture noundef readonly %0, i32 
   %indvars.iv43 = phi i64 [ %16, %.preheader ], [ %indvars.iv.next44, %17 ]
   %18 = getelementptr inbounds float, ptr %0, i64 %indvars.iv43
   %19 = load float, ptr %18, align 4
-  %20 = getelementptr inbounds float, ptr %15, i64 %indvars.iv47
+  %20 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv47
   store float %19, ptr %20, align 4
-  %21 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv47
+  %21 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv47
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds float, ptr %22, i64 %indvars.iv45
+  %23 = getelementptr inbounds nuw float, ptr %22, i64 %indvars.iv45
   store float %19, ptr %23, align 4
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %indvars.iv.next44 = add nsw i64 %indvars.iv43, 1
@@ -119,14 +119,14 @@ define void @constrained_majorization_new_with_gaps(ptr nocapture noundef readon
   %7 = sext i32 %3 to i64
   %8 = getelementptr inbounds ptr, ptr %2, i64 %7
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %18 = load i32, ptr %17, align 8
   %19 = icmp slt i32 %4, 1
   br i1 %19, label %.loopexit451, label %20
@@ -185,7 +185,7 @@ define void @constrained_majorization_new_with_gaps(ptr nocapture noundef readon
   %.130.i = phi i32 [ %24, %37 ], [ %.02936.i, %.lr.ph.i ]
   %.128.i = phi i32 [ %.2.i, %37 ], [ %.02737.i, %.lr.ph.i ]
   %.1.i = phi float [ %38, %37 ], [ %.038.i, %.lr.ph.i ]
-  %42 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv.i
+  %42 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i
   %43 = load i32, ptr %42, align 4
   %44 = sext i32 %43 to i64
   %45 = getelementptr inbounds float, ptr %9, i64 %44
@@ -203,15 +203,15 @@ define void @constrained_majorization_new_with_gaps(ptr nocapture noundef readon
   br i1 %exitcond.not.i, label %ensureMonotonicOrderingWithGaps.exit, label %.lr.ph.i
 
 ensureMonotonicOrderingWithGaps.exit:             ; preds = %49
-  %50 = getelementptr inbounds i8, ptr %0, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 40
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 48
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %0, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %59 = load ptr, ptr %58, align 8
   %wide.trip.count = zext nneg i32 %11 to i64
   br label %.lr.ph
@@ -238,7 +238,7 @@ ensureMonotonicOrderingWithGaps.exit:             ; preds = %49
 68:                                               ; preds = %61, %64, %.lr.ph
   %.1393 = phi i32 [ %62, %64 ], [ %.0392452, %.lr.ph ], [ %18, %61 ]
   %.1391 = phi i32 [ %67, %64 ], [ %.0390453, %.lr.ph ], [ %11, %61 ]
-  %69 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
   %70 = load i32, ptr %69, align 4
   %71 = sext i32 %70 to i64
   %72 = getelementptr inbounds i32, ptr %59, i64 %71
@@ -248,7 +248,7 @@ ensureMonotonicOrderingWithGaps.exit:             ; preds = %49
   br i1 %exitcond.not, label %.preheader450.lr.ph, label %.lr.ph
 
 .preheader450.lr.ph:                              ; preds = %68
-  %73 = getelementptr inbounds i8, ptr %0, i64 56
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %74 = load ptr, ptr %73, align 8
   %invariant.gep538 = getelementptr i8, ptr %53, i64 -4
   %75 = zext nneg i32 %11 to i64
@@ -348,9 +348,9 @@ ensureMonotonicOrderingWithGaps.exit:             ; preds = %49
   br i1 %118, label %125, label %119
 
 119:                                              ; preds = %117
-  %120 = getelementptr inbounds float, ptr %115, i64 %indvars.iv560
+  %120 = getelementptr inbounds nuw float, ptr %115, i64 %indvars.iv560
   %121 = load float, ptr %120, align 4
-  %122 = getelementptr inbounds float, ptr %9, i64 %indvars.iv560
+  %122 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv560
   %123 = load float, ptr %122, align 4
   %124 = tail call float @llvm.fmuladd.f32(float %121, float %123, float %.0394468.us)
   br label %125
@@ -540,7 +540,7 @@ ensureMonotonicOrderingWithGaps.exit:             ; preds = %49
 
 212:                                              ; preds = %._crit_edge525.us
   %213 = zext nneg i32 %.1380.us to i64
-  %214 = getelementptr inbounds float, ptr %55, i64 %213
+  %214 = getelementptr inbounds nuw float, ptr %55, i64 %213
   %215 = load float, ptr %214, align 4
   %.not441.us = icmp eq i32 %.1380.us, 0
   br i1 %.not441.us, label %218, label %216
@@ -699,7 +699,7 @@ ensureMonotonicOrderingWithGaps.exit:             ; preds = %49
 
 .lr.ph531.us:                                     ; preds = %.preheader447.us, %.lr.ph531.us
   %indvars.iv613 = phi i64 [ %indvars.iv.next614, %.lr.ph531.us ], [ %213, %.preheader447.us ]
-  %305 = getelementptr inbounds i32, ptr %57, i64 %indvars.iv613
+  %305 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv613
   %306 = load i32, ptr %305, align 4
   %307 = sext i32 %306 to i64
   %308 = getelementptr inbounds float, ptr %74, i64 %307
@@ -714,7 +714,7 @@ ensureMonotonicOrderingWithGaps.exit:             ; preds = %49
 
 .lr.ph529.us:                                     ; preds = %.lr.ph529.us.preheader, %.lr.ph529.us
   %indvars.iv608 = phi i64 [ 0, %.lr.ph529.us.preheader ], [ %indvars.iv.next609, %.lr.ph529.us ]
-  %314 = getelementptr inbounds i32, ptr %57, i64 %indvars.iv608
+  %314 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv608
   %315 = load i32, ptr %314, align 4
   %316 = sext i32 %315 to i64
   %317 = getelementptr inbounds float, ptr %74, i64 %316
@@ -730,7 +730,7 @@ ensureMonotonicOrderingWithGaps.exit:             ; preds = %49
   %indvars.iv603 = phi i64 [ 0, %.lr.ph524.us.preheader ], [ %indvars.iv.next604, %.thread.us ]
   %.0377521.us = phi double [ 0.000000e+00, %.lr.ph524.us.preheader ], [ %.1378.us, %.thread.us ]
   %.0379520.us = phi i32 [ -1, %.lr.ph524.us.preheader ], [ %.1380.us, %.thread.us ]
-  %321 = getelementptr inbounds float, ptr %55, i64 %indvars.iv603
+  %321 = getelementptr inbounds nuw float, ptr %55, i64 %indvars.iv603
   %322 = load float, ptr %321, align 4
   %.not444.us = icmp eq i64 %indvars.iv603, 0
   br i1 %.not444.us, label %.thread.us, label %323
@@ -784,7 +784,7 @@ ensureMonotonicOrderingWithGaps.exit:             ; preds = %49
   %indvars.iv594 = phi i64 [ %177, %.lr.ph518.us.preheader ], [ %indvars.iv.next595, %._crit_edge512.us ]
   %.1414515.us = phi float [ 0.000000e+00, %.lr.ph518.us.preheader ], [ %367, %._crit_edge512.us ]
   %.1416514.us = phi float [ 0.000000e+00, %.lr.ph518.us.preheader ], [ %363, %._crit_edge512.us ]
-  %346 = getelementptr inbounds i32, ptr %57, i64 %indvars.iv599
+  %346 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv599
   %347 = load i32, ptr %346, align 4
   %348 = sext i32 %347 to i64
   %349 = getelementptr inbounds ptr, ptr %12, i64 %348
@@ -809,7 +809,7 @@ ensureMonotonicOrderingWithGaps.exit:             ; preds = %49
   %361 = fsub float %.1414515.us, %354
   %362 = fadd float %.1412.lcssa.us, %361
   %363 = fdiv float %360, %362
-  %364 = getelementptr inbounds float, ptr %55, i64 %indvars.iv599
+  %364 = getelementptr inbounds nuw float, ptr %55, i64 %indvars.iv599
   store float %363, ptr %364, align 4
   %365 = load float, ptr %353, align 4
   %366 = fsub float %.1412.lcssa.us, %365
@@ -822,7 +822,7 @@ ensureMonotonicOrderingWithGaps.exit:             ; preds = %49
 .lr.ph511.us:                                     ; preds = %.lr.ph518.us, %.lr.ph511.us
   %indvars.iv596 = phi i64 [ %indvars.iv.next597, %.lr.ph511.us ], [ %indvars.iv594, %.lr.ph518.us ]
   %.1412508.us = phi float [ %374, %.lr.ph511.us ], [ 0.000000e+00, %.lr.ph518.us ]
-  %369 = getelementptr inbounds i32, ptr %57, i64 %indvars.iv596
+  %369 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv596
   %370 = load i32, ptr %369, align 4
   %371 = sext i32 %370 to i64
   %372 = getelementptr inbounds float, ptr %350, i64 %371
@@ -837,7 +837,7 @@ ensureMonotonicOrderingWithGaps.exit:             ; preds = %49
   %indvars.iv589 = phi i64 [ 0, %.lr.ph505.us.preheader ], [ %indvars.iv.next590, %._crit_edge500.us ]
   %.0413503.us = phi float [ 0.000000e+00, %.lr.ph505.us.preheader ], [ %397, %._crit_edge500.us ]
   %.0415502.us = phi float [ 0.000000e+00, %.lr.ph505.us.preheader ], [ %393, %._crit_edge500.us ]
-  %377 = getelementptr inbounds i32, ptr %57, i64 %indvars.iv589
+  %377 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv589
   %378 = load i32, ptr %377, align 4
   %379 = sext i32 %378 to i64
   %380 = getelementptr inbounds ptr, ptr %12, i64 %379
@@ -862,7 +862,7 @@ ensureMonotonicOrderingWithGaps.exit:             ; preds = %49
   %391 = fsub float %.0413503.us, %384
   %392 = fadd float %.0411.lcssa.us, %391
   %393 = fdiv float %390, %392
-  %394 = getelementptr inbounds float, ptr %53, i64 %indvars.iv589
+  %394 = getelementptr inbounds nuw float, ptr %53, i64 %indvars.iv589
   store float %393, ptr %394, align 4
   %395 = load float, ptr %383, align 4
   %396 = fsub float %.0411.lcssa.us, %395
@@ -874,7 +874,7 @@ ensureMonotonicOrderingWithGaps.exit:             ; preds = %49
 .lr.ph499.us:                                     ; preds = %.lr.ph505.us, %.lr.ph499.us
   %indvars.iv584 = phi i64 [ %indvars.iv.next585, %.lr.ph499.us ], [ 0, %.lr.ph505.us ]
   %.0411496.us = phi float [ %403, %.lr.ph499.us ], [ 0.000000e+00, %.lr.ph505.us ]
-  %398 = getelementptr inbounds i32, ptr %57, i64 %indvars.iv584
+  %398 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv584
   %399 = load i32, ptr %398, align 4
   %400 = sext i32 %399 to i64
   %401 = getelementptr inbounds float, ptr %381, i64 %400
@@ -955,22 +955,22 @@ define void @deleteCMajEnv(ptr nocapture noundef %0) local_unnamed_addr #4 {
   tail call void @free(ptr noundef %3) #11
   %4 = load ptr, ptr %0, align 8
   tail call void @free(ptr noundef %4) #11
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   tail call void @free(ptr noundef %6) #11
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
   tail call void @free(ptr noundef %8) #11
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8
   tail call void @free(ptr noundef %10) #11
-  %11 = getelementptr inbounds i8, ptr %0, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = load ptr, ptr %11, align 8
   tail call void @free(ptr noundef %12) #11
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   tail call void @free(ptr noundef %14) #11
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
   tail call void @free(ptr noundef %16) #11
   tail call void @free(ptr noundef %0) #11
@@ -993,13 +993,13 @@ define noalias noundef ptr @initConstrainedMajorization(ptr nocapture noundef re
   unreachable
 
 gv_alloc.exit:                                    ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %6, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store ptr %2, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 72
   store ptr %3, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 80
   store i32 %4, ptr %14, align 8
   %15 = sext i32 %1 to i64
   %16 = tail call fastcc ptr @gv_calloc(i64 noundef %15, i64 noundef 8)
@@ -1026,8 +1026,8 @@ gv_alloc.exit:                                    ; preds = %5
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %23 = mul nuw nsw i64 %indvars.iv.i, %21
-  %24 = getelementptr inbounds float, ptr %19, i64 %23
-  %25 = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw float, ptr %19, i64 %23
+  %25 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.i
   store ptr %24, ptr %25, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %21
@@ -1036,7 +1036,7 @@ gv_alloc.exit:                                    ; preds = %5
 .preheader.i:                                     ; preds = %36, %.preheader.preheader.i
   %indvars.iv45.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next46.i, %36 ]
   %.03140.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next44.i, %36 ]
-  %26 = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv45.i
+  %26 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv45.i
   %27 = load ptr, ptr %26, align 8
   %sext.i = shl i64 %.03140.i, 32
   %28 = ashr exact i64 %sext.i, 32
@@ -1047,11 +1047,11 @@ gv_alloc.exit:                                    ; preds = %5
   %indvars.iv43.i = phi i64 [ %28, %.preheader.i ], [ %indvars.iv.next44.i, %29 ]
   %30 = getelementptr inbounds float, ptr %0, i64 %indvars.iv43.i
   %31 = load float, ptr %30, align 4
-  %32 = getelementptr inbounds float, ptr %27, i64 %indvars.iv47.i
+  %32 = getelementptr inbounds nuw float, ptr %27, i64 %indvars.iv47.i
   store float %31, ptr %32, align 4
-  %33 = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv47.i
+  %33 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv47.i
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds float, ptr %34, i64 %indvars.iv45.i
+  %35 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv45.i
   store float %31, ptr %35, align 4
   %indvars.iv.next48.i = add nuw nsw i64 %indvars.iv47.i, 1
   %indvars.iv.next44.i = add nsw i64 %indvars.iv43.i, 1
@@ -1066,22 +1066,22 @@ gv_alloc.exit:                                    ; preds = %5
 unpackMatrix.exit:                                ; preds = %36, %.preheader36.i
   store ptr %16, ptr %6, align 8
   %37 = tail call fastcc ptr @gv_calloc(i64 noundef %15, i64 noundef 4)
-  %38 = getelementptr inbounds i8, ptr %6, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %37, ptr %38, align 8
   %39 = tail call fastcc ptr @gv_calloc(i64 noundef %15, i64 noundef 4)
-  %40 = getelementptr inbounds i8, ptr %6, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr %39, ptr %40, align 8
   %41 = tail call fastcc ptr @gv_calloc(i64 noundef %15, i64 noundef 4)
-  %42 = getelementptr inbounds i8, ptr %6, i64 48
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr %41, ptr %42, align 8
   %43 = tail call fastcc ptr @gv_calloc(i64 noundef %15, i64 noundef 4)
-  %44 = getelementptr inbounds i8, ptr %6, i64 56
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store ptr %43, ptr %44, align 8
   %45 = tail call fastcc ptr @gv_calloc(i64 noundef %15, i64 noundef 4)
-  %46 = getelementptr inbounds i8, ptr %6, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %45, ptr %46, align 8
   %47 = tail call fastcc ptr @gv_calloc(i64 noundef %15, i64 noundef 4)
-  %48 = getelementptr inbounds i8, ptr %6, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %47, ptr %48, align 8
   ret ptr %6
 }

@@ -166,7 +166,7 @@ _ZN7ZLockerI14ZConditionLockEC2EPS0_.exit:        ; preds = %0
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
   store volatile i64 0, ptr @_ZN12ZJNICritical6_countE, align 8
   %4 = load ptr, ptr @_ZN12ZJNICritical5_lockE, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull %5) #6
   %7 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(88) %2) #6
   br label %_ZN7ZLockerI14ZConditionLockED2Ev.exit
@@ -175,7 +175,7 @@ _ZN7ZLockerI14ZConditionLockED2Ev.exit.critedge:  ; preds = %0
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
   store volatile i64 0, ptr @_ZN12ZJNICritical6_countE, align 8
   %8 = load ptr, ptr @_ZN12ZJNICritical5_lockE, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull %9) #6
   br label %_ZN7ZLockerI14ZConditionLockED2Ev.exit
 
@@ -187,14 +187,14 @@ _ZN7ZLockerI14ZConditionLockED2Ev.exit:           ; preds = %_ZN7ZLockerI14ZCond
 define hidden void @_ZN12ZJNICritical11enter_innerEP10JavaThread(ptr noundef %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %class.TimeInstant, align 8
   %3 = alloca %class.ZStatTimer, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
-  %6 = getelementptr inbounds i8, ptr %3, i64 24
-  %7 = getelementptr inbounds i8, ptr %0, i64 928
-  %8 = getelementptr inbounds i8, ptr %0, i64 1092
-  %9 = getelementptr inbounds i8, ptr %0, i64 1096
-  %10 = getelementptr inbounds i8, ptr %0, i64 1384
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 928
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1092
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1096
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1384
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %1
@@ -296,7 +296,7 @@ _ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit: ; preds = %_ZN7ZLocke
   %49 = load ptr, ptr %4, align 8
   %50 = load ptr, ptr %3, align 8
   %51 = load ptr, ptr %49, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = load ptr, ptr %52, align 8
   call void %53(ptr noundef nonnull align 8 dereferenceable(48) %49, ptr noundef %50, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %2) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
@@ -317,7 +317,7 @@ _ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit: ; preds = %_ZN7ZLocke
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN12ZJNICritical5enterEP10JavaThread(ptr noundef %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1308
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1308
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %6, label %5
@@ -375,7 +375,7 @@ _ZN7ZLockerI14ZConditionLockEC2EPS0_.exit.thread: ; preds = %11
 14:                                               ; preds = %11
   %15 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(88) %12) #6
   %16 = load ptr, ptr @_ZN12ZJNICritical5_lockE, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %18 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull %17) #6
   %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(88) %12) #6
   br label %_ZN7ZLockerI14ZConditionLockED2Ev.exit
@@ -386,7 +386,7 @@ _ZN7ZLockerI14ZConditionLockED2Ev.exit:           ; preds = %3, %14, %_ZN7ZLocke
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN12ZJNICritical4exitEP10JavaThread(ptr nocapture noundef %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1308
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1308
   %3 = load i32, ptr %2, align 4
   %4 = add nsw i32 %3, -1
   store i32 %4, ptr %2, align 4
@@ -430,7 +430,7 @@ _ZN7ZLockerI14ZConditionLockEC2EPS0_.exit.thread.i: ; preds = %16
 19:                                               ; preds = %16
   %20 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(88) %17) #6
   %21 = load ptr, ptr @_ZN12ZJNICritical5_lockE, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %23 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull %22) #6
   %24 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(88) %17) #6
   br label %_ZN12ZJNICritical10exit_innerEv.exit

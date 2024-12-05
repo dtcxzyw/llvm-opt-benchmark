@@ -156,15 +156,15 @@ entry:
   %vtable = load ptr, ptr %this, align 8
   %0 = load ptr, ptr %vtable, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(72) %this)
-  %_base = getelementptr inbounds i8, ptr %this, i64 56
+  %_base = getelementptr inbounds nuw i8, ptr %this, i64 56
   %1 = load ptr, ptr %_base, align 8
-  %_pixelsPerRow.i = getelementptr inbounds i8, ptr %this, i64 28
+  %_pixelsPerRow.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %2 = load i32, ptr %_pixelsPerRow.i, align 4
   %conv = sext i32 %2 to i64
   %mul = shl nsw i64 %conv, 3
-  %_xSampling.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_xSampling.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load i32, ptr %_xSampling.i, align 8
-  %_ySampling.i = getelementptr inbounds i8, ptr %this, i64 20
+  %_ySampling.i = getelementptr inbounds nuw i8, ptr %this, i64 20
   %4 = load i32, ptr %_ySampling.i, align 4
   tail call void @_ZN7Imf_3_29DeepSliceC1ENS_9PixelTypeEPcmmmiidbb(ptr noundef nonnull align 8 dereferenceable(56) %agg.result, i32 noundef %call, ptr noundef %1, i64 noundef 8, i64 noundef %mul, i64 noundef 2, i32 noundef %3, i32 noundef %4, double noundef 0.000000e+00, i1 noundef zeroext false, i1 noundef zeroext false)
   ret void
@@ -175,9 +175,9 @@ declare void @_ZN7Imf_3_29DeepSliceC1ENS_9PixelTypeEPcmmmiidbb(ptr noundef nonnu
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef ptr @_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEEclEii(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %x, i32 noundef %y) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %_base = getelementptr inbounds i8, ptr %this, i64 56
+  %_base = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %_base, align 8
-  %_pixelsPerRow.i = getelementptr inbounds i8, ptr %this, i64 28
+  %_pixelsPerRow.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %1 = load i32, ptr %_pixelsPerRow.i, align 4
   %mul = mul nsw i32 %1, %y
   %add = add nsw i32 %mul, %x
@@ -190,9 +190,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef ptr @_ZNK7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEEclEii(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %x, i32 noundef %y) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %_base = getelementptr inbounds i8, ptr %this, i64 56
+  %_base = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %_base, align 8
-  %_pixelsPerRow.i = getelementptr inbounds i8, ptr %this, i64 28
+  %_pixelsPerRow.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %1 = load i32, ptr %_pixelsPerRow.i, align 4
   %mul = mul nsw i32 %1, %y
   %add = add nsw i32 %mul, %x
@@ -206,9 +206,9 @@ entry:
 define weak_odr noundef ptr @_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEE2atEii(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %x, i32 noundef %y) local_unnamed_addr #3 comdat align 2 {
 entry:
   tail call void @_ZNK7Imf_3_212ImageChannel11boundsCheckEii(ptr noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %x, i32 noundef %y)
-  %_base = getelementptr inbounds i8, ptr %this, i64 56
+  %_base = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %_base, align 8
-  %_pixelsPerRow.i = getelementptr inbounds i8, ptr %this, i64 28
+  %_pixelsPerRow.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %1 = load i32, ptr %_pixelsPerRow.i, align 4
   %mul = mul nsw i32 %1, %y
   %add = add nsw i32 %mul, %x
@@ -224,9 +224,9 @@ declare void @_ZNK7Imf_3_212ImageChannel11boundsCheckEii(ptr noundef nonnull ali
 define weak_odr noundef ptr @_ZNK7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEE2atEii(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %x, i32 noundef %y) local_unnamed_addr #3 comdat align 2 {
 entry:
   tail call void @_ZNK7Imf_3_212ImageChannel11boundsCheckEii(ptr noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %x, i32 noundef %y)
-  %_base = getelementptr inbounds i8, ptr %this, i64 56
+  %_base = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %_base, align 8
-  %_pixelsPerRow.i = getelementptr inbounds i8, ptr %this, i64 28
+  %_pixelsPerRow.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %1 = load i32, ptr %_pixelsPerRow.i, align 4
   %mul = mul nsw i32 %1, %y
   %add = add nsw i32 %mul, %x
@@ -239,9 +239,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef ptr @_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEE3rowEi(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %r) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %_base = getelementptr inbounds i8, ptr %this, i64 56
+  %_base = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %_base, align 8
-  %_pixelsPerRow.i = getelementptr inbounds i8, ptr %this, i64 28
+  %_pixelsPerRow.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %1 = load i32, ptr %_pixelsPerRow.i, align 4
   %mul = mul nsw i32 %1, %r
   %idx.ext = sext i32 %mul to i64
@@ -252,9 +252,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef ptr @_ZNK7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEE3rowEi(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %r) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %_base = getelementptr inbounds i8, ptr %this, i64 56
+  %_base = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %_base, align 8
-  %_pixelsPerRow.i = getelementptr inbounds i8, ptr %this, i64 28
+  %_pixelsPerRow.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %1 = load i32, ptr %_pixelsPerRow.i, align 4
   %mul = mul nsw i32 %1, %r
   %idx.ext = sext i32 %mul to i64
@@ -267,7 +267,7 @@ define weak_odr hidden void @_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24half
 entry:
   tail call void @_ZN7Imf_3_212ImageChannelC2ERNS_10ImageLevelEiib(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(192) %level, i32 noundef 1, i32 noundef 1, i1 noundef zeroext %pLinear)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEEE, i64 16), ptr %this, align 8
-  %_sampleListPointers = getelementptr inbounds i8, ptr %this, i64 48
+  %_sampleListPointers = getelementptr inbounds nuw i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_sampleListPointers, i8 0, i64 24, i1 false)
   invoke void @_ZN7Imf_3_212ImageChannel6resizeEv(ptr noundef nonnull align 8 dereferenceable(72) %this)
           to label %.noexc unwind label %lpad
@@ -283,7 +283,7 @@ delete.notnull.i:                                 ; preds = %.noexc
 
 delete.end.i:                                     ; preds = %delete.notnull.i, %.noexc
   store ptr null, ptr %_sampleListPointers, align 8
-  %_numPixels.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_numPixels.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %1 = load i64, ptr %_numPixels.i.i, align 8
   %2 = icmp ugt i64 %1, 2305843009213693951
   %3 = shl i64 %1, 3
@@ -294,7 +294,7 @@ delete.end.i:                                     ; preds = %delete.notnull.i, %
 call3.i.noexc:                                    ; preds = %delete.end.i
   store ptr %call3.i1, ptr %_sampleListPointers, align 8
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 64
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 64
   %5 = load ptr, ptr %vfn.i, align 8
   invoke void %5(ptr noundef nonnull align 8 dereferenceable(72) %this)
           to label %invoke.cont unwind label %lpad
@@ -330,7 +330,7 @@ entry:
 define weak_odr hidden void @_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #4 comdat($_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEED5Ev) align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEEE, i64 16), ptr %this, align 8
-  %_sampleListPointers = getelementptr inbounds i8, ptr %this, i64 48
+  %_sampleListPointers = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_sampleListPointers, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -340,7 +340,7 @@ delete.notnull:                                   ; preds = %entry
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
-  %_sampleBuffer = getelementptr inbounds i8, ptr %this, i64 64
+  %_sampleBuffer = getelementptr inbounds nuw i8, ptr %this, i64 64
   %1 = load ptr, ptr %_sampleBuffer, align 8
   %isnull2 = icmp eq ptr %1, null
   br i1 %isnull2, label %delete.end4, label %delete.notnull3
@@ -375,7 +375,7 @@ entry:
   br i1 %cmp3, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %_sampleListPointers = getelementptr inbounds i8, ptr %this, i64 48
+  %_sampleListPointers = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = zext i32 %oldNumSamples to i64
   %wide.trip.count = zext i32 %newNumSamples to i64
   br label %for.body
@@ -385,7 +385,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %1 = load ptr, ptr %_sampleListPointers, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %i
   %2 = load ptr, ptr %arrayidx, align 8
-  %arrayidx2 = getelementptr inbounds %"class.Imath_3_2::half", ptr %2, i64 %indvars.iv
+  %arrayidx2 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %2, i64 %indvars.iv
   store i16 0, ptr %arrayidx2, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -398,11 +398,11 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEE14moveSampleListEmjjm(ptr noundef nonnull align 8 dereferenceable(72) %this, i64 noundef %i, i32 noundef %oldNumSamples, i32 noundef %newNumSamples, i64 noundef %newSampleListPosition) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_sampleListPointers = getelementptr inbounds i8, ptr %this, i64 48
+  %_sampleListPointers = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_sampleListPointers, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %0, i64 %i
   %1 = load ptr, ptr %arrayidx, align 8
-  %_sampleBuffer = getelementptr inbounds i8, ptr %this, i64 64
+  %_sampleBuffer = getelementptr inbounds nuw i8, ptr %this, i64 64
   %2 = load ptr, ptr %_sampleBuffer, align 8
   %add.ptr = getelementptr inbounds %"class.Imath_3_2::half", ptr %2, i64 %newSampleListPosition
   %cmp = icmp ugt i32 %oldNumSamples, %newNumSamples
@@ -426,8 +426,8 @@ for.body.preheader:                               ; preds = %for.cond.preheader
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv30 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next31, %for.body ]
-  %arrayidx3 = getelementptr inbounds %"class.Imath_3_2::half", ptr %1, i64 %indvars.iv30
-  %arrayidx5 = getelementptr inbounds %"class.Imath_3_2::half", ptr %add.ptr, i64 %indvars.iv30
+  %arrayidx3 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %1, i64 %indvars.iv30
+  %arrayidx5 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %add.ptr, i64 %indvars.iv30
   %3 = load i16, ptr %arrayidx3, align 2
   store i16 %3, ptr %arrayidx5, align 2
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
@@ -453,8 +453,8 @@ for.body20.preheader:                             ; preds = %for.cond18.preheade
 
 for.body9:                                        ; preds = %for.body9.preheader, %for.body9
   %indvars.iv = phi i64 [ 0, %for.body9.preheader ], [ %indvars.iv.next, %for.body9 ]
-  %arrayidx11 = getelementptr inbounds %"class.Imath_3_2::half", ptr %1, i64 %indvars.iv
-  %arrayidx13 = getelementptr inbounds %"class.Imath_3_2::half", ptr %add.ptr, i64 %indvars.iv
+  %arrayidx11 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %1, i64 %indvars.iv
+  %arrayidx13 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %add.ptr, i64 %indvars.iv
   %12 = load i16, ptr %arrayidx11, align 2
   store i16 %12, ptr %arrayidx13, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -471,24 +471,24 @@ if.end:                                           ; preds = %for.body, %for.body
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEE22moveSamplesToNewBufferEPKjS5_PKm(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %oldNumSamples, ptr noundef %newNumSamples, ptr noundef %newSampleListPositions) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_sampleBuffer = getelementptr inbounds i8, ptr %this, i64 64
+  %_sampleBuffer = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %_sampleBuffer, align 8
-  %_level.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_level.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %_level.i.i.i, align 8
-  %_sampleBufferSize.i = getelementptr inbounds i8, ptr %1, i64 184
+  %_sampleBufferSize.i = getelementptr inbounds nuw i8, ptr %1, i64 184
   %2 = load i64, ptr %_sampleBufferSize.i, align 8
   %3 = shl i64 %2, 1
   %.inv = icmp sgt i64 %2, -1
   %4 = select i1 %.inv, i64 %3, i64 -1
   %call3 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %4) #14
   store ptr %call3, ptr %_sampleBuffer, align 8
-  %_numPixels.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_numPixels.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %5 = load i64, ptr %_numPixels.i, align 8
   %cmp35.not = icmp eq i64 %5, 0
   br i1 %cmp35.not, label %for.end46, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %_sampleListPointers = getelementptr inbounds i8, ptr %this, i64 48
+  %_sampleListPointers = getelementptr inbounds nuw i8, ptr %this, i64 48
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end
@@ -517,8 +517,8 @@ for.cond11.preheader:                             ; preds = %for.body
 
 for.body14:                                       ; preds = %for.cond11.preheader, %for.body14
   %indvars.iv43 = phi i64 [ %indvars.iv.next44, %for.body14 ], [ 0, %for.cond11.preheader ]
-  %arrayidx15 = getelementptr inbounds %"class.Imath_3_2::half", ptr %7, i64 %indvars.iv43
-  %arrayidx17 = getelementptr inbounds %"class.Imath_3_2::half", ptr %add.ptr, i64 %indvars.iv43
+  %arrayidx15 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %7, i64 %indvars.iv43
+  %arrayidx17 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %add.ptr, i64 %indvars.iv43
   %12 = load i16, ptr %arrayidx15, align 2
   store i16 %12, ptr %arrayidx17, align 2
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
@@ -543,8 +543,8 @@ for.body35.preheader:                             ; preds = %for.cond32.preheade
 
 for.body22:                                       ; preds = %for.cond19.preheader, %for.body22
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body22 ], [ 0, %for.cond19.preheader ]
-  %arrayidx24 = getelementptr inbounds %"class.Imath_3_2::half", ptr %7, i64 %indvars.iv
-  %arrayidx26 = getelementptr inbounds %"class.Imath_3_2::half", ptr %add.ptr, i64 %indvars.iv
+  %arrayidx24 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %7, i64 %indvars.iv
+  %arrayidx26 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %add.ptr, i64 %indvars.iv
   %17 = load i16, ptr %arrayidx24, align 2
   store i16 %17, ptr %arrayidx26, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -555,7 +555,7 @@ for.body22:                                       ; preds = %for.cond19.preheade
 
 for.body35:                                       ; preds = %for.body35.preheader, %for.body35
   %indvars.iv40 = phi i64 [ %16, %for.body35.preheader ], [ %indvars.iv.next41, %for.body35 ]
-  %arrayidx37 = getelementptr inbounds %"class.Imath_3_2::half", ptr %add.ptr, i64 %indvars.iv40
+  %arrayidx37 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %add.ptr, i64 %indvars.iv40
   store i16 0, ptr %arrayidx37, align 2
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %20 = load i32, ptr %arrayidx9, align 4
@@ -587,9 +587,9 @@ delete.end:                                       ; preds = %delete.notnull, %fo
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef nonnull align 8 dereferenceable(104) ptr @_ZN7Imf_3_216DeepImageChannel12sampleCountsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %_level.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_level.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_level.i.i, align 8
-  %_sampleCounts.i = getelementptr inbounds i8, ptr %0, i64 88
+  %_sampleCounts.i = getelementptr inbounds nuw i8, ptr %0, i64 88
   ret ptr %_sampleCounts.i
 }
 
@@ -599,7 +599,7 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #7
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEE21initializeSampleListsEv(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_sampleBuffer = getelementptr inbounds i8, ptr %this, i64 64
+  %_sampleBuffer = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %_sampleBuffer, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -610,13 +610,13 @@ delete.notnull:                                   ; preds = %entry
 
 delete.end:                                       ; preds = %delete.notnull, %entry
   store ptr null, ptr %_sampleBuffer, align 8
-  %_level.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_level.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %_level.i.i.i, align 8
-  %_numSamples.i = getelementptr inbounds i8, ptr %1, i64 136
+  %_numSamples.i = getelementptr inbounds nuw i8, ptr %1, i64 136
   %2 = load ptr, ptr %_numSamples.i, align 8
-  %_sampleListPositions.i = getelementptr inbounds i8, ptr %1, i64 160
+  %_sampleListPositions.i = getelementptr inbounds nuw i8, ptr %1, i64 160
   %3 = load ptr, ptr %_sampleListPositions.i, align 8
-  %_sampleBufferSize.i = getelementptr inbounds i8, ptr %1, i64 184
+  %_sampleBufferSize.i = getelementptr inbounds nuw i8, ptr %1, i64 184
   %4 = load i64, ptr %_sampleBufferSize.i, align 8
   %5 = shl i64 %4, 1
   %.inv = icmp sgt i64 %4, -1
@@ -624,16 +624,16 @@ delete.end:                                       ; preds = %delete.notnull, %en
   %call8 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %6) #14
   store ptr %call8, ptr %_sampleBuffer, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 72
   %7 = load ptr, ptr %vfn, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(72) %this)
-  %_numPixels.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_numPixels.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %8 = load i64, ptr %_numPixels.i, align 8
   %cmp14.not = icmp eq i64 %8, 0
   br i1 %cmp14.not, label %for.end22, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %delete.end
-  %_sampleListPointers = getelementptr inbounds i8, ptr %this, i64 48
+  %_sampleListPointers = getelementptr inbounds nuw i8, ptr %this, i64 48
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc20
@@ -655,7 +655,7 @@ for.body16:                                       ; preds = %for.body, %for.body
   %13 = load ptr, ptr %_sampleListPointers, align 8
   %arrayidx18 = getelementptr inbounds ptr, ptr %13, i64 %i.015
   %14 = load ptr, ptr %arrayidx18, align 8
-  %arrayidx19 = getelementptr inbounds %"class.Imath_3_2::half", ptr %14, i64 %indvars.iv
+  %arrayidx19 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %14, i64 %indvars.iv
   store i16 0, ptr %arrayidx19, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = load i32, ptr %arrayidx14, align 4
@@ -677,7 +677,7 @@ for.end22:                                        ; preds = %for.inc20, %delete.
 define weak_odr hidden void @_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEE6resizeEv(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 comdat align 2 {
 entry:
   tail call void @_ZN7Imf_3_212ImageChannel6resizeEv(ptr noundef nonnull align 8 dereferenceable(48) %this)
-  %_sampleListPointers = getelementptr inbounds i8, ptr %this, i64 48
+  %_sampleListPointers = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_sampleListPointers, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -688,7 +688,7 @@ delete.notnull:                                   ; preds = %entry
 
 delete.end:                                       ; preds = %delete.notnull, %entry
   store ptr null, ptr %_sampleListPointers, align 8
-  %_numPixels.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_numPixels.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %1 = load i64, ptr %_numPixels.i, align 8
   %2 = icmp ugt i64 %1, 2305843009213693951
   %3 = shl i64 %1, 3
@@ -696,7 +696,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
   %call3 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %4) #14
   store ptr %call3, ptr %_sampleListPointers, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 64
   %5 = load ptr, ptr %vfn, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(72) %this)
   ret void
@@ -712,14 +712,14 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEE16resetBasePointerEv(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %_sampleListPointers = getelementptr inbounds i8, ptr %this, i64 48
+  %_sampleListPointers = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_sampleListPointers, align 8
-  %_level.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_level.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %_level.i, align 8
-  %_dataWindow.i = getelementptr inbounds i8, ptr %1, i64 24
-  %y = getelementptr inbounds i8, ptr %1, i64 28
+  %_dataWindow.i = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %y = getelementptr inbounds nuw i8, ptr %1, i64 28
   %2 = load i32, ptr %y, align 4
-  %_pixelsPerRow.i = getelementptr inbounds i8, ptr %this, i64 28
+  %_pixelsPerRow.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %3 = load i32, ptr %_pixelsPerRow.i, align 4
   %mul = mul nsw i32 %3, %2
   %idx.ext = sext i32 %mul to i64
@@ -729,7 +729,7 @@ entry:
   %idx.ext7 = sext i32 %4 to i64
   %idx.neg8 = sub nsw i64 0, %idx.ext7
   %add.ptr9 = getelementptr inbounds ptr, ptr %add.ptr, i64 %idx.neg8
-  %_base = getelementptr inbounds i8, ptr %this, i64 56
+  %_base = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr %add.ptr9, ptr %_base, align 8
   ret void
 }
@@ -740,15 +740,15 @@ entry:
   %vtable = load ptr, ptr %this, align 8
   %0 = load ptr, ptr %vtable, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(72) %this)
-  %_base = getelementptr inbounds i8, ptr %this, i64 56
+  %_base = getelementptr inbounds nuw i8, ptr %this, i64 56
   %1 = load ptr, ptr %_base, align 8
-  %_pixelsPerRow.i = getelementptr inbounds i8, ptr %this, i64 28
+  %_pixelsPerRow.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %2 = load i32, ptr %_pixelsPerRow.i, align 4
   %conv = sext i32 %2 to i64
   %mul = shl nsw i64 %conv, 3
-  %_xSampling.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_xSampling.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load i32, ptr %_xSampling.i, align 8
-  %_ySampling.i = getelementptr inbounds i8, ptr %this, i64 20
+  %_ySampling.i = getelementptr inbounds nuw i8, ptr %this, i64 20
   %4 = load i32, ptr %_ySampling.i, align 4
   tail call void @_ZN7Imf_3_29DeepSliceC1ENS_9PixelTypeEPcmmmiidbb(ptr noundef nonnull align 8 dereferenceable(56) %agg.result, i32 noundef %call, ptr noundef %1, i64 noundef 8, i64 noundef %mul, i64 noundef 4, i32 noundef %3, i32 noundef %4, double noundef 0.000000e+00, i1 noundef zeroext false, i1 noundef zeroext false)
   ret void
@@ -757,9 +757,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef ptr @_ZN7Imf_3_221TypedDeepImageChannelIfEclEii(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %x, i32 noundef %y) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %_base = getelementptr inbounds i8, ptr %this, i64 56
+  %_base = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %_base, align 8
-  %_pixelsPerRow.i = getelementptr inbounds i8, ptr %this, i64 28
+  %_pixelsPerRow.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %1 = load i32, ptr %_pixelsPerRow.i, align 4
   %mul = mul nsw i32 %1, %y
   %add = add nsw i32 %mul, %x
@@ -772,9 +772,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef ptr @_ZNK7Imf_3_221TypedDeepImageChannelIfEclEii(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %x, i32 noundef %y) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %_base = getelementptr inbounds i8, ptr %this, i64 56
+  %_base = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %_base, align 8
-  %_pixelsPerRow.i = getelementptr inbounds i8, ptr %this, i64 28
+  %_pixelsPerRow.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %1 = load i32, ptr %_pixelsPerRow.i, align 4
   %mul = mul nsw i32 %1, %y
   %add = add nsw i32 %mul, %x
@@ -788,9 +788,9 @@ entry:
 define weak_odr noundef ptr @_ZN7Imf_3_221TypedDeepImageChannelIfE2atEii(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %x, i32 noundef %y) local_unnamed_addr #3 comdat align 2 {
 entry:
   tail call void @_ZNK7Imf_3_212ImageChannel11boundsCheckEii(ptr noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %x, i32 noundef %y)
-  %_base = getelementptr inbounds i8, ptr %this, i64 56
+  %_base = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %_base, align 8
-  %_pixelsPerRow.i = getelementptr inbounds i8, ptr %this, i64 28
+  %_pixelsPerRow.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %1 = load i32, ptr %_pixelsPerRow.i, align 4
   %mul = mul nsw i32 %1, %y
   %add = add nsw i32 %mul, %x
@@ -804,9 +804,9 @@ entry:
 define weak_odr noundef ptr @_ZNK7Imf_3_221TypedDeepImageChannelIfE2atEii(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %x, i32 noundef %y) local_unnamed_addr #3 comdat align 2 {
 entry:
   tail call void @_ZNK7Imf_3_212ImageChannel11boundsCheckEii(ptr noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %x, i32 noundef %y)
-  %_base = getelementptr inbounds i8, ptr %this, i64 56
+  %_base = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %_base, align 8
-  %_pixelsPerRow.i = getelementptr inbounds i8, ptr %this, i64 28
+  %_pixelsPerRow.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %1 = load i32, ptr %_pixelsPerRow.i, align 4
   %mul = mul nsw i32 %1, %y
   %add = add nsw i32 %mul, %x
@@ -819,9 +819,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef ptr @_ZN7Imf_3_221TypedDeepImageChannelIfE3rowEi(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %r) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %_base = getelementptr inbounds i8, ptr %this, i64 56
+  %_base = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %_base, align 8
-  %_pixelsPerRow.i = getelementptr inbounds i8, ptr %this, i64 28
+  %_pixelsPerRow.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %1 = load i32, ptr %_pixelsPerRow.i, align 4
   %mul = mul nsw i32 %1, %r
   %idx.ext = sext i32 %mul to i64
@@ -832,9 +832,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef ptr @_ZNK7Imf_3_221TypedDeepImageChannelIfE3rowEi(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %r) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %_base = getelementptr inbounds i8, ptr %this, i64 56
+  %_base = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %_base, align 8
-  %_pixelsPerRow.i = getelementptr inbounds i8, ptr %this, i64 28
+  %_pixelsPerRow.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %1 = load i32, ptr %_pixelsPerRow.i, align 4
   %mul = mul nsw i32 %1, %r
   %idx.ext = sext i32 %mul to i64
@@ -847,7 +847,7 @@ define weak_odr hidden void @_ZN7Imf_3_221TypedDeepImageChannelIfEC2ERNS_14DeepI
 entry:
   tail call void @_ZN7Imf_3_212ImageChannelC2ERNS_10ImageLevelEiib(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(192) %level, i32 noundef 1, i32 noundef 1, i1 noundef zeroext %pLinear)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_221TypedDeepImageChannelIfEE, i64 16), ptr %this, align 8
-  %_sampleListPointers = getelementptr inbounds i8, ptr %this, i64 48
+  %_sampleListPointers = getelementptr inbounds nuw i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_sampleListPointers, i8 0, i64 24, i1 false)
   invoke void @_ZN7Imf_3_212ImageChannel6resizeEv(ptr noundef nonnull align 8 dereferenceable(72) %this)
           to label %.noexc unwind label %lpad
@@ -863,7 +863,7 @@ delete.notnull.i:                                 ; preds = %.noexc
 
 delete.end.i:                                     ; preds = %delete.notnull.i, %.noexc
   store ptr null, ptr %_sampleListPointers, align 8
-  %_numPixels.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_numPixels.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %1 = load i64, ptr %_numPixels.i.i, align 8
   %2 = icmp ugt i64 %1, 2305843009213693951
   %3 = shl i64 %1, 3
@@ -874,7 +874,7 @@ delete.end.i:                                     ; preds = %delete.notnull.i, %
 call3.i.noexc:                                    ; preds = %delete.end.i
   store ptr %call3.i1, ptr %_sampleListPointers, align 8
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 64
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 64
   %5 = load ptr, ptr %vfn.i, align 8
   invoke void %5(ptr noundef nonnull align 8 dereferenceable(72) %this)
           to label %invoke.cont unwind label %lpad
@@ -893,7 +893,7 @@ lpad:                                             ; preds = %call3.i.noexc, %del
 define weak_odr hidden void @_ZN7Imf_3_221TypedDeepImageChannelIfED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #4 comdat($_ZN7Imf_3_221TypedDeepImageChannelIfED5Ev) align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_221TypedDeepImageChannelIfEE, i64 16), ptr %this, align 8
-  %_sampleListPointers = getelementptr inbounds i8, ptr %this, i64 48
+  %_sampleListPointers = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_sampleListPointers, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -903,7 +903,7 @@ delete.notnull:                                   ; preds = %entry
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
-  %_sampleBuffer = getelementptr inbounds i8, ptr %this, i64 64
+  %_sampleBuffer = getelementptr inbounds nuw i8, ptr %this, i64 64
   %1 = load ptr, ptr %_sampleBuffer, align 8
   %isnull2 = icmp eq ptr %1, null
   br i1 %isnull2, label %delete.end4, label %delete.notnull3
@@ -932,7 +932,7 @@ entry:
   br i1 %cmp3, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %_sampleListPointers = getelementptr inbounds i8, ptr %this, i64 48
+  %_sampleListPointers = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = zext i32 %oldNumSamples to i64
   %wide.trip.count = zext i32 %newNumSamples to i64
   br label %for.body
@@ -942,7 +942,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %1 = load ptr, ptr %_sampleListPointers, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %i
   %2 = load ptr, ptr %arrayidx, align 8
-  %arrayidx2 = getelementptr inbounds float, ptr %2, i64 %indvars.iv
+  %arrayidx2 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
   store float 0.000000e+00, ptr %arrayidx2, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -955,11 +955,11 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN7Imf_3_221TypedDeepImageChannelIfE14moveSampleListEmjjm(ptr noundef nonnull align 8 dereferenceable(72) %this, i64 noundef %i, i32 noundef %oldNumSamples, i32 noundef %newNumSamples, i64 noundef %newSampleListPosition) unnamed_addr #4 comdat align 2 {
 entry:
-  %_sampleListPointers = getelementptr inbounds i8, ptr %this, i64 48
+  %_sampleListPointers = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_sampleListPointers, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %0, i64 %i
   %1 = load ptr, ptr %arrayidx, align 8
-  %_sampleBuffer = getelementptr inbounds i8, ptr %this, i64 64
+  %_sampleBuffer = getelementptr inbounds nuw i8, ptr %this, i64 64
   %2 = load ptr, ptr %_sampleBuffer, align 8
   %add.ptr = getelementptr inbounds float, ptr %2, i64 %newSampleListPosition
   %cmp = icmp ugt i32 %oldNumSamples, %newNumSamples
@@ -983,9 +983,9 @@ for.body.preheader:                               ; preds = %for.cond.preheader
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv30 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next31, %for.body ]
-  %arrayidx3 = getelementptr inbounds float, ptr %1, i64 %indvars.iv30
+  %arrayidx3 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv30
   %3 = load float, ptr %arrayidx3, align 4
-  %arrayidx5 = getelementptr inbounds float, ptr %add.ptr, i64 %indvars.iv30
+  %arrayidx5 = getelementptr inbounds nuw float, ptr %add.ptr, i64 %indvars.iv30
   store float %3, ptr %arrayidx5, align 4
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %exitcond34.not = icmp eq i64 %indvars.iv.next31, %wide.trip.count33
@@ -1010,9 +1010,9 @@ for.body20.preheader:                             ; preds = %for.cond18.preheade
 
 for.body9:                                        ; preds = %for.body9.preheader, %for.body9
   %indvars.iv = phi i64 [ 0, %for.body9.preheader ], [ %indvars.iv.next, %for.body9 ]
-  %arrayidx11 = getelementptr inbounds float, ptr %1, i64 %indvars.iv
+  %arrayidx11 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   %12 = load float, ptr %arrayidx11, align 4
-  %arrayidx13 = getelementptr inbounds float, ptr %add.ptr, i64 %indvars.iv
+  %arrayidx13 = getelementptr inbounds nuw float, ptr %add.ptr, i64 %indvars.iv
   store float %12, ptr %arrayidx13, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1028,24 +1028,24 @@ if.end:                                           ; preds = %for.body, %for.body
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN7Imf_3_221TypedDeepImageChannelIfE22moveSamplesToNewBufferEPKjS3_PKm(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %oldNumSamples, ptr noundef %newNumSamples, ptr noundef %newSampleListPositions) unnamed_addr #3 comdat align 2 {
 entry:
-  %_sampleBuffer = getelementptr inbounds i8, ptr %this, i64 64
+  %_sampleBuffer = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %_sampleBuffer, align 8
-  %_level.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_level.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %_level.i.i.i, align 8
-  %_sampleBufferSize.i = getelementptr inbounds i8, ptr %1, i64 184
+  %_sampleBufferSize.i = getelementptr inbounds nuw i8, ptr %1, i64 184
   %2 = load i64, ptr %_sampleBufferSize.i, align 8
   %3 = icmp ugt i64 %2, 4611686018427387903
   %4 = shl i64 %2, 2
   %5 = select i1 %3, i64 -1, i64 %4
   %call3 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %5) #14
   store ptr %call3, ptr %_sampleBuffer, align 8
-  %_numPixels.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_numPixels.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %6 = load i64, ptr %_numPixels.i, align 8
   %cmp35.not = icmp eq i64 %6, 0
   br i1 %cmp35.not, label %for.end45, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %_sampleListPointers = getelementptr inbounds i8, ptr %this, i64 48
+  %_sampleListPointers = getelementptr inbounds nuw i8, ptr %this, i64 48
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end
@@ -1074,9 +1074,9 @@ for.cond11.preheader:                             ; preds = %for.body
 
 for.body14:                                       ; preds = %for.cond11.preheader, %for.body14
   %indvars.iv43 = phi i64 [ %indvars.iv.next44, %for.body14 ], [ 0, %for.cond11.preheader ]
-  %arrayidx15 = getelementptr inbounds float, ptr %8, i64 %indvars.iv43
+  %arrayidx15 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv43
   %13 = load float, ptr %arrayidx15, align 4
-  %arrayidx17 = getelementptr inbounds float, ptr %add.ptr, i64 %indvars.iv43
+  %arrayidx17 = getelementptr inbounds nuw float, ptr %add.ptr, i64 %indvars.iv43
   store float %13, ptr %arrayidx17, align 4
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %14 = load i32, ptr %arrayidx9, align 4
@@ -1100,9 +1100,9 @@ for.body35.preheader:                             ; preds = %for.cond32.preheade
 
 for.body22:                                       ; preds = %for.cond19.preheader, %for.body22
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body22 ], [ 0, %for.cond19.preheader ]
-  %arrayidx24 = getelementptr inbounds float, ptr %8, i64 %indvars.iv
+  %arrayidx24 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv
   %18 = load float, ptr %arrayidx24, align 4
-  %arrayidx26 = getelementptr inbounds float, ptr %add.ptr, i64 %indvars.iv
+  %arrayidx26 = getelementptr inbounds nuw float, ptr %add.ptr, i64 %indvars.iv
   store float %18, ptr %arrayidx26, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = load i32, ptr %arrayidx8, align 4
@@ -1112,7 +1112,7 @@ for.body22:                                       ; preds = %for.cond19.preheade
 
 for.body35:                                       ; preds = %for.body35.preheader, %for.body35
   %indvars.iv40 = phi i64 [ %17, %for.body35.preheader ], [ %indvars.iv.next41, %for.body35 ]
-  %arrayidx37 = getelementptr inbounds float, ptr %add.ptr, i64 %indvars.iv40
+  %arrayidx37 = getelementptr inbounds nuw float, ptr %add.ptr, i64 %indvars.iv40
   store float 0.000000e+00, ptr %arrayidx37, align 4
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %21 = load i32, ptr %arrayidx9, align 4
@@ -1144,7 +1144,7 @@ delete.end:                                       ; preds = %delete.notnull, %fo
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN7Imf_3_221TypedDeepImageChannelIfE21initializeSampleListsEv(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %_sampleBuffer = getelementptr inbounds i8, ptr %this, i64 64
+  %_sampleBuffer = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %_sampleBuffer, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -1155,13 +1155,13 @@ delete.notnull:                                   ; preds = %entry
 
 delete.end:                                       ; preds = %delete.notnull, %entry
   store ptr null, ptr %_sampleBuffer, align 8
-  %_level.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_level.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %_level.i.i.i, align 8
-  %_numSamples.i = getelementptr inbounds i8, ptr %1, i64 136
+  %_numSamples.i = getelementptr inbounds nuw i8, ptr %1, i64 136
   %2 = load ptr, ptr %_numSamples.i, align 8
-  %_sampleListPositions.i = getelementptr inbounds i8, ptr %1, i64 160
+  %_sampleListPositions.i = getelementptr inbounds nuw i8, ptr %1, i64 160
   %3 = load ptr, ptr %_sampleListPositions.i, align 8
-  %_sampleBufferSize.i = getelementptr inbounds i8, ptr %1, i64 184
+  %_sampleBufferSize.i = getelementptr inbounds nuw i8, ptr %1, i64 184
   %4 = load i64, ptr %_sampleBufferSize.i, align 8
   %5 = icmp ugt i64 %4, 4611686018427387903
   %6 = shl i64 %4, 2
@@ -1169,16 +1169,16 @@ delete.end:                                       ; preds = %delete.notnull, %en
   %call8 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #14
   store ptr %call8, ptr %_sampleBuffer, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 72
   %8 = load ptr, ptr %vfn, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(72) %this)
-  %_numPixels.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_numPixels.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %9 = load i64, ptr %_numPixels.i, align 8
   %cmp14.not = icmp eq i64 %9, 0
   br i1 %cmp14.not, label %for.end22, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %delete.end
-  %_sampleListPointers = getelementptr inbounds i8, ptr %this, i64 48
+  %_sampleListPointers = getelementptr inbounds nuw i8, ptr %this, i64 48
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc20
@@ -1200,7 +1200,7 @@ for.body16:                                       ; preds = %for.body, %for.body
   %14 = load ptr, ptr %_sampleListPointers, align 8
   %arrayidx18 = getelementptr inbounds ptr, ptr %14, i64 %i.015
   %15 = load ptr, ptr %arrayidx18, align 8
-  %arrayidx19 = getelementptr inbounds float, ptr %15, i64 %indvars.iv
+  %arrayidx19 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv
   store float 0.000000e+00, ptr %arrayidx19, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = load i32, ptr %arrayidx14, align 4
@@ -1222,7 +1222,7 @@ for.end22:                                        ; preds = %for.inc20, %delete.
 define weak_odr hidden void @_ZN7Imf_3_221TypedDeepImageChannelIfE6resizeEv(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 comdat align 2 {
 entry:
   tail call void @_ZN7Imf_3_212ImageChannel6resizeEv(ptr noundef nonnull align 8 dereferenceable(48) %this)
-  %_sampleListPointers = getelementptr inbounds i8, ptr %this, i64 48
+  %_sampleListPointers = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_sampleListPointers, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -1233,7 +1233,7 @@ delete.notnull:                                   ; preds = %entry
 
 delete.end:                                       ; preds = %delete.notnull, %entry
   store ptr null, ptr %_sampleListPointers, align 8
-  %_numPixels.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_numPixels.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %1 = load i64, ptr %_numPixels.i, align 8
   %2 = icmp ugt i64 %1, 2305843009213693951
   %3 = shl i64 %1, 3
@@ -1241,7 +1241,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
   %call3 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %4) #14
   store ptr %call3, ptr %_sampleListPointers, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 64
   %5 = load ptr, ptr %vfn, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(72) %this)
   ret void
@@ -1250,14 +1250,14 @@ delete.end:                                       ; preds = %delete.notnull, %en
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN7Imf_3_221TypedDeepImageChannelIfE16resetBasePointerEv(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %_sampleListPointers = getelementptr inbounds i8, ptr %this, i64 48
+  %_sampleListPointers = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_sampleListPointers, align 8
-  %_level.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_level.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %_level.i, align 8
-  %_dataWindow.i = getelementptr inbounds i8, ptr %1, i64 24
-  %y = getelementptr inbounds i8, ptr %1, i64 28
+  %_dataWindow.i = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %y = getelementptr inbounds nuw i8, ptr %1, i64 28
   %2 = load i32, ptr %y, align 4
-  %_pixelsPerRow.i = getelementptr inbounds i8, ptr %this, i64 28
+  %_pixelsPerRow.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %3 = load i32, ptr %_pixelsPerRow.i, align 4
   %mul = mul nsw i32 %3, %2
   %idx.ext = sext i32 %mul to i64
@@ -1267,7 +1267,7 @@ entry:
   %idx.ext7 = sext i32 %4 to i64
   %idx.neg8 = sub nsw i64 0, %idx.ext7
   %add.ptr9 = getelementptr inbounds ptr, ptr %add.ptr, i64 %idx.neg8
-  %_base = getelementptr inbounds i8, ptr %this, i64 56
+  %_base = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr %add.ptr9, ptr %_base, align 8
   ret void
 }
@@ -1278,15 +1278,15 @@ entry:
   %vtable = load ptr, ptr %this, align 8
   %0 = load ptr, ptr %vtable, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(72) %this)
-  %_base = getelementptr inbounds i8, ptr %this, i64 56
+  %_base = getelementptr inbounds nuw i8, ptr %this, i64 56
   %1 = load ptr, ptr %_base, align 8
-  %_pixelsPerRow.i = getelementptr inbounds i8, ptr %this, i64 28
+  %_pixelsPerRow.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %2 = load i32, ptr %_pixelsPerRow.i, align 4
   %conv = sext i32 %2 to i64
   %mul = shl nsw i64 %conv, 3
-  %_xSampling.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_xSampling.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load i32, ptr %_xSampling.i, align 8
-  %_ySampling.i = getelementptr inbounds i8, ptr %this, i64 20
+  %_ySampling.i = getelementptr inbounds nuw i8, ptr %this, i64 20
   %4 = load i32, ptr %_ySampling.i, align 4
   tail call void @_ZN7Imf_3_29DeepSliceC1ENS_9PixelTypeEPcmmmiidbb(ptr noundef nonnull align 8 dereferenceable(56) %agg.result, i32 noundef %call, ptr noundef %1, i64 noundef 8, i64 noundef %mul, i64 noundef 4, i32 noundef %3, i32 noundef %4, double noundef 0.000000e+00, i1 noundef zeroext false, i1 noundef zeroext false)
   ret void
@@ -1295,9 +1295,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef ptr @_ZN7Imf_3_221TypedDeepImageChannelIjEclEii(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %x, i32 noundef %y) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %_base = getelementptr inbounds i8, ptr %this, i64 56
+  %_base = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %_base, align 8
-  %_pixelsPerRow.i = getelementptr inbounds i8, ptr %this, i64 28
+  %_pixelsPerRow.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %1 = load i32, ptr %_pixelsPerRow.i, align 4
   %mul = mul nsw i32 %1, %y
   %add = add nsw i32 %mul, %x
@@ -1310,9 +1310,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef ptr @_ZNK7Imf_3_221TypedDeepImageChannelIjEclEii(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %x, i32 noundef %y) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %_base = getelementptr inbounds i8, ptr %this, i64 56
+  %_base = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %_base, align 8
-  %_pixelsPerRow.i = getelementptr inbounds i8, ptr %this, i64 28
+  %_pixelsPerRow.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %1 = load i32, ptr %_pixelsPerRow.i, align 4
   %mul = mul nsw i32 %1, %y
   %add = add nsw i32 %mul, %x
@@ -1326,9 +1326,9 @@ entry:
 define weak_odr noundef ptr @_ZN7Imf_3_221TypedDeepImageChannelIjE2atEii(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %x, i32 noundef %y) local_unnamed_addr #3 comdat align 2 {
 entry:
   tail call void @_ZNK7Imf_3_212ImageChannel11boundsCheckEii(ptr noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %x, i32 noundef %y)
-  %_base = getelementptr inbounds i8, ptr %this, i64 56
+  %_base = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %_base, align 8
-  %_pixelsPerRow.i = getelementptr inbounds i8, ptr %this, i64 28
+  %_pixelsPerRow.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %1 = load i32, ptr %_pixelsPerRow.i, align 4
   %mul = mul nsw i32 %1, %y
   %add = add nsw i32 %mul, %x
@@ -1342,9 +1342,9 @@ entry:
 define weak_odr noundef ptr @_ZNK7Imf_3_221TypedDeepImageChannelIjE2atEii(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %x, i32 noundef %y) local_unnamed_addr #3 comdat align 2 {
 entry:
   tail call void @_ZNK7Imf_3_212ImageChannel11boundsCheckEii(ptr noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %x, i32 noundef %y)
-  %_base = getelementptr inbounds i8, ptr %this, i64 56
+  %_base = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %_base, align 8
-  %_pixelsPerRow.i = getelementptr inbounds i8, ptr %this, i64 28
+  %_pixelsPerRow.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %1 = load i32, ptr %_pixelsPerRow.i, align 4
   %mul = mul nsw i32 %1, %y
   %add = add nsw i32 %mul, %x
@@ -1357,9 +1357,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef ptr @_ZN7Imf_3_221TypedDeepImageChannelIjE3rowEi(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %r) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %_base = getelementptr inbounds i8, ptr %this, i64 56
+  %_base = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %_base, align 8
-  %_pixelsPerRow.i = getelementptr inbounds i8, ptr %this, i64 28
+  %_pixelsPerRow.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %1 = load i32, ptr %_pixelsPerRow.i, align 4
   %mul = mul nsw i32 %1, %r
   %idx.ext = sext i32 %mul to i64
@@ -1370,9 +1370,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef ptr @_ZNK7Imf_3_221TypedDeepImageChannelIjE3rowEi(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %r) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %_base = getelementptr inbounds i8, ptr %this, i64 56
+  %_base = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %_base, align 8
-  %_pixelsPerRow.i = getelementptr inbounds i8, ptr %this, i64 28
+  %_pixelsPerRow.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %1 = load i32, ptr %_pixelsPerRow.i, align 4
   %mul = mul nsw i32 %1, %r
   %idx.ext = sext i32 %mul to i64
@@ -1385,7 +1385,7 @@ define weak_odr hidden void @_ZN7Imf_3_221TypedDeepImageChannelIjEC2ERNS_14DeepI
 entry:
   tail call void @_ZN7Imf_3_212ImageChannelC2ERNS_10ImageLevelEiib(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(192) %level, i32 noundef 1, i32 noundef 1, i1 noundef zeroext %pLinear)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_221TypedDeepImageChannelIjEE, i64 16), ptr %this, align 8
-  %_sampleListPointers = getelementptr inbounds i8, ptr %this, i64 48
+  %_sampleListPointers = getelementptr inbounds nuw i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_sampleListPointers, i8 0, i64 24, i1 false)
   invoke void @_ZN7Imf_3_212ImageChannel6resizeEv(ptr noundef nonnull align 8 dereferenceable(72) %this)
           to label %.noexc unwind label %lpad
@@ -1401,7 +1401,7 @@ delete.notnull.i:                                 ; preds = %.noexc
 
 delete.end.i:                                     ; preds = %delete.notnull.i, %.noexc
   store ptr null, ptr %_sampleListPointers, align 8
-  %_numPixels.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_numPixels.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %1 = load i64, ptr %_numPixels.i.i, align 8
   %2 = icmp ugt i64 %1, 2305843009213693951
   %3 = shl i64 %1, 3
@@ -1412,7 +1412,7 @@ delete.end.i:                                     ; preds = %delete.notnull.i, %
 call3.i.noexc:                                    ; preds = %delete.end.i
   store ptr %call3.i1, ptr %_sampleListPointers, align 8
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 64
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 64
   %5 = load ptr, ptr %vfn.i, align 8
   invoke void %5(ptr noundef nonnull align 8 dereferenceable(72) %this)
           to label %invoke.cont unwind label %lpad
@@ -1431,7 +1431,7 @@ lpad:                                             ; preds = %call3.i.noexc, %del
 define weak_odr hidden void @_ZN7Imf_3_221TypedDeepImageChannelIjED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #4 comdat($_ZN7Imf_3_221TypedDeepImageChannelIjED5Ev) align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_221TypedDeepImageChannelIjEE, i64 16), ptr %this, align 8
-  %_sampleListPointers = getelementptr inbounds i8, ptr %this, i64 48
+  %_sampleListPointers = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_sampleListPointers, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -1441,7 +1441,7 @@ delete.notnull:                                   ; preds = %entry
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
-  %_sampleBuffer = getelementptr inbounds i8, ptr %this, i64 64
+  %_sampleBuffer = getelementptr inbounds nuw i8, ptr %this, i64 64
   %1 = load ptr, ptr %_sampleBuffer, align 8
   %isnull2 = icmp eq ptr %1, null
   br i1 %isnull2, label %delete.end4, label %delete.notnull3
@@ -1470,7 +1470,7 @@ entry:
   br i1 %cmp3, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %_sampleListPointers = getelementptr inbounds i8, ptr %this, i64 48
+  %_sampleListPointers = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = zext i32 %oldNumSamples to i64
   %wide.trip.count = zext i32 %newNumSamples to i64
   br label %for.body
@@ -1480,7 +1480,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %1 = load ptr, ptr %_sampleListPointers, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %i
   %2 = load ptr, ptr %arrayidx, align 8
-  %arrayidx2 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %arrayidx2 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   store i32 0, ptr %arrayidx2, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1493,11 +1493,11 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN7Imf_3_221TypedDeepImageChannelIjE14moveSampleListEmjjm(ptr noundef nonnull align 8 dereferenceable(72) %this, i64 noundef %i, i32 noundef %oldNumSamples, i32 noundef %newNumSamples, i64 noundef %newSampleListPosition) unnamed_addr #4 comdat align 2 {
 entry:
-  %_sampleListPointers = getelementptr inbounds i8, ptr %this, i64 48
+  %_sampleListPointers = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_sampleListPointers, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %0, i64 %i
   %1 = load ptr, ptr %arrayidx, align 8
-  %_sampleBuffer = getelementptr inbounds i8, ptr %this, i64 64
+  %_sampleBuffer = getelementptr inbounds nuw i8, ptr %this, i64 64
   %2 = load ptr, ptr %_sampleBuffer, align 8
   %add.ptr = getelementptr inbounds i32, ptr %2, i64 %newSampleListPosition
   %cmp = icmp ugt i32 %oldNumSamples, %newNumSamples
@@ -1521,9 +1521,9 @@ for.body.preheader:                               ; preds = %for.cond.preheader
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv30 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next31, %for.body ]
-  %arrayidx3 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv30
+  %arrayidx3 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv30
   %3 = load i32, ptr %arrayidx3, align 4
-  %arrayidx5 = getelementptr inbounds i32, ptr %add.ptr, i64 %indvars.iv30
+  %arrayidx5 = getelementptr inbounds nuw i32, ptr %add.ptr, i64 %indvars.iv30
   store i32 %3, ptr %arrayidx5, align 4
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %exitcond34.not = icmp eq i64 %indvars.iv.next31, %wide.trip.count33
@@ -1548,9 +1548,9 @@ for.body20.preheader:                             ; preds = %for.cond18.preheade
 
 for.body9:                                        ; preds = %for.body9.preheader, %for.body9
   %indvars.iv = phi i64 [ 0, %for.body9.preheader ], [ %indvars.iv.next, %for.body9 ]
-  %arrayidx11 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %arrayidx11 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %12 = load i32, ptr %arrayidx11, align 4
-  %arrayidx13 = getelementptr inbounds i32, ptr %add.ptr, i64 %indvars.iv
+  %arrayidx13 = getelementptr inbounds nuw i32, ptr %add.ptr, i64 %indvars.iv
   store i32 %12, ptr %arrayidx13, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1566,24 +1566,24 @@ if.end:                                           ; preds = %for.body, %for.body
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN7Imf_3_221TypedDeepImageChannelIjE22moveSamplesToNewBufferEPKjS3_PKm(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %oldNumSamples, ptr noundef %newNumSamples, ptr noundef %newSampleListPositions) unnamed_addr #3 comdat align 2 {
 entry:
-  %_sampleBuffer = getelementptr inbounds i8, ptr %this, i64 64
+  %_sampleBuffer = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %_sampleBuffer, align 8
-  %_level.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_level.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %_level.i.i.i, align 8
-  %_sampleBufferSize.i = getelementptr inbounds i8, ptr %1, i64 184
+  %_sampleBufferSize.i = getelementptr inbounds nuw i8, ptr %1, i64 184
   %2 = load i64, ptr %_sampleBufferSize.i, align 8
   %3 = icmp ugt i64 %2, 4611686018427387903
   %4 = shl i64 %2, 2
   %5 = select i1 %3, i64 -1, i64 %4
   %call3 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %5) #14
   store ptr %call3, ptr %_sampleBuffer, align 8
-  %_numPixels.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_numPixels.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %6 = load i64, ptr %_numPixels.i, align 8
   %cmp35.not = icmp eq i64 %6, 0
   br i1 %cmp35.not, label %for.end45, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %_sampleListPointers = getelementptr inbounds i8, ptr %this, i64 48
+  %_sampleListPointers = getelementptr inbounds nuw i8, ptr %this, i64 48
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end
@@ -1612,9 +1612,9 @@ for.cond11.preheader:                             ; preds = %for.body
 
 for.body14:                                       ; preds = %for.cond11.preheader, %for.body14
   %indvars.iv43 = phi i64 [ %indvars.iv.next44, %for.body14 ], [ 0, %for.cond11.preheader ]
-  %arrayidx15 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv43
+  %arrayidx15 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv43
   %13 = load i32, ptr %arrayidx15, align 4
-  %arrayidx17 = getelementptr inbounds i32, ptr %add.ptr, i64 %indvars.iv43
+  %arrayidx17 = getelementptr inbounds nuw i32, ptr %add.ptr, i64 %indvars.iv43
   store i32 %13, ptr %arrayidx17, align 4
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %14 = load i32, ptr %arrayidx9, align 4
@@ -1638,9 +1638,9 @@ for.body35.preheader:                             ; preds = %for.cond32.preheade
 
 for.body22:                                       ; preds = %for.cond19.preheader, %for.body22
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body22 ], [ 0, %for.cond19.preheader ]
-  %arrayidx24 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv
+  %arrayidx24 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
   %18 = load i32, ptr %arrayidx24, align 4
-  %arrayidx26 = getelementptr inbounds i32, ptr %add.ptr, i64 %indvars.iv
+  %arrayidx26 = getelementptr inbounds nuw i32, ptr %add.ptr, i64 %indvars.iv
   store i32 %18, ptr %arrayidx26, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = load i32, ptr %arrayidx8, align 4
@@ -1650,7 +1650,7 @@ for.body22:                                       ; preds = %for.cond19.preheade
 
 for.body35:                                       ; preds = %for.body35.preheader, %for.body35
   %indvars.iv40 = phi i64 [ %17, %for.body35.preheader ], [ %indvars.iv.next41, %for.body35 ]
-  %arrayidx37 = getelementptr inbounds i32, ptr %add.ptr, i64 %indvars.iv40
+  %arrayidx37 = getelementptr inbounds nuw i32, ptr %add.ptr, i64 %indvars.iv40
   store i32 0, ptr %arrayidx37, align 4
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %21 = load i32, ptr %arrayidx9, align 4
@@ -1682,7 +1682,7 @@ delete.end:                                       ; preds = %delete.notnull, %fo
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN7Imf_3_221TypedDeepImageChannelIjE21initializeSampleListsEv(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %_sampleBuffer = getelementptr inbounds i8, ptr %this, i64 64
+  %_sampleBuffer = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %_sampleBuffer, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -1693,13 +1693,13 @@ delete.notnull:                                   ; preds = %entry
 
 delete.end:                                       ; preds = %delete.notnull, %entry
   store ptr null, ptr %_sampleBuffer, align 8
-  %_level.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_level.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %_level.i.i.i, align 8
-  %_numSamples.i = getelementptr inbounds i8, ptr %1, i64 136
+  %_numSamples.i = getelementptr inbounds nuw i8, ptr %1, i64 136
   %2 = load ptr, ptr %_numSamples.i, align 8
-  %_sampleListPositions.i = getelementptr inbounds i8, ptr %1, i64 160
+  %_sampleListPositions.i = getelementptr inbounds nuw i8, ptr %1, i64 160
   %3 = load ptr, ptr %_sampleListPositions.i, align 8
-  %_sampleBufferSize.i = getelementptr inbounds i8, ptr %1, i64 184
+  %_sampleBufferSize.i = getelementptr inbounds nuw i8, ptr %1, i64 184
   %4 = load i64, ptr %_sampleBufferSize.i, align 8
   %5 = icmp ugt i64 %4, 4611686018427387903
   %6 = shl i64 %4, 2
@@ -1707,16 +1707,16 @@ delete.end:                                       ; preds = %delete.notnull, %en
   %call8 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #14
   store ptr %call8, ptr %_sampleBuffer, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 72
   %8 = load ptr, ptr %vfn, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(72) %this)
-  %_numPixels.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_numPixels.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %9 = load i64, ptr %_numPixels.i, align 8
   %cmp14.not = icmp eq i64 %9, 0
   br i1 %cmp14.not, label %for.end22, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %delete.end
-  %_sampleListPointers = getelementptr inbounds i8, ptr %this, i64 48
+  %_sampleListPointers = getelementptr inbounds nuw i8, ptr %this, i64 48
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc20
@@ -1738,7 +1738,7 @@ for.body16:                                       ; preds = %for.body, %for.body
   %14 = load ptr, ptr %_sampleListPointers, align 8
   %arrayidx18 = getelementptr inbounds ptr, ptr %14, i64 %i.015
   %15 = load ptr, ptr %arrayidx18, align 8
-  %arrayidx19 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv
+  %arrayidx19 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
   store i32 0, ptr %arrayidx19, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = load i32, ptr %arrayidx14, align 4
@@ -1760,7 +1760,7 @@ for.end22:                                        ; preds = %for.inc20, %delete.
 define weak_odr hidden void @_ZN7Imf_3_221TypedDeepImageChannelIjE6resizeEv(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 comdat align 2 {
 entry:
   tail call void @_ZN7Imf_3_212ImageChannel6resizeEv(ptr noundef nonnull align 8 dereferenceable(48) %this)
-  %_sampleListPointers = getelementptr inbounds i8, ptr %this, i64 48
+  %_sampleListPointers = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_sampleListPointers, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -1771,7 +1771,7 @@ delete.notnull:                                   ; preds = %entry
 
 delete.end:                                       ; preds = %delete.notnull, %entry
   store ptr null, ptr %_sampleListPointers, align 8
-  %_numPixels.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_numPixels.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %1 = load i64, ptr %_numPixels.i, align 8
   %2 = icmp ugt i64 %1, 2305843009213693951
   %3 = shl i64 %1, 3
@@ -1779,7 +1779,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
   %call3 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %4) #14
   store ptr %call3, ptr %_sampleListPointers, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 64
   %5 = load ptr, ptr %vfn, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(72) %this)
   ret void
@@ -1788,14 +1788,14 @@ delete.end:                                       ; preds = %delete.notnull, %en
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN7Imf_3_221TypedDeepImageChannelIjE16resetBasePointerEv(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %_sampleListPointers = getelementptr inbounds i8, ptr %this, i64 48
+  %_sampleListPointers = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_sampleListPointers, align 8
-  %_level.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_level.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %_level.i, align 8
-  %_dataWindow.i = getelementptr inbounds i8, ptr %1, i64 24
-  %y = getelementptr inbounds i8, ptr %1, i64 28
+  %_dataWindow.i = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %y = getelementptr inbounds nuw i8, ptr %1, i64 28
   %2 = load i32, ptr %y, align 4
-  %_pixelsPerRow.i = getelementptr inbounds i8, ptr %this, i64 28
+  %_pixelsPerRow.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %3 = load i32, ptr %_pixelsPerRow.i, align 4
   %mul = mul nsw i32 %3, %2
   %idx.ext = sext i32 %mul to i64
@@ -1805,7 +1805,7 @@ entry:
   %idx.ext7 = sext i32 %4 to i64
   %idx.neg8 = sub nsw i64 0, %idx.ext7
   %add.ptr9 = getelementptr inbounds ptr, ptr %add.ptr, i64 %idx.neg8
-  %_base = getelementptr inbounds i8, ptr %this, i64 56
+  %_base = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr %add.ptr9, ptr %_base, align 8
   ret void
 }
@@ -1828,7 +1828,7 @@ declare void @llvm.trap() #9
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef nonnull align 8 dereferenceable(192) ptr @_ZN7Imf_3_216DeepImageChannel9deepLevelEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %_level.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_level.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_level.i, align 8
   ret ptr %0
 }
@@ -1836,7 +1836,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef nonnull align 8 dereferenceable(192) ptr @_ZNK7Imf_3_216DeepImageChannel9deepLevelEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %_level.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_level.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_level.i, align 8
   ret ptr %0
 }
@@ -1844,9 +1844,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef nonnull align 8 dereferenceable(104) ptr @_ZNK7Imf_3_216DeepImageChannel12sampleCountsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %_level.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_level.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_level.i.i, align 8
-  %_sampleCounts.i = getelementptr inbounds i8, ptr %0, i64 88
+  %_sampleCounts.i = getelementptr inbounds nuw i8, ptr %0, i64 88
   ret ptr %_sampleCounts.i
 }
 

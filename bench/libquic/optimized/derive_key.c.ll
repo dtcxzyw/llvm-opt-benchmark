@@ -12,13 +12,13 @@ entry:
   %md_buf = alloca [64 x i8], align 16
   %mds = alloca i32, align 4
   store i32 0, ptr %mds, align 4
-  %key_len = getelementptr inbounds i8, ptr %type, i64 8
+  %key_len = getelementptr inbounds nuw i8, ptr %type, i64 8
   %0 = load i32, ptr %key_len, align 8
   %cmp = icmp eq ptr %data, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %iv_len = getelementptr inbounds i8, ptr %type, i64 12
+  %iv_len = getelementptr inbounds nuw i8, ptr %type, i64 12
   %1 = load i32, ptr %iv_len, align 4
   call void @EVP_MD_CTX_init(ptr noundef nonnull %c) #2
   %cmp14.not = icmp eq ptr %salt, null
@@ -109,9 +109,9 @@ if.end52:                                         ; preds = %lor.lhs.false48
   br i1 %cmp53.not, label %if.end56, label %if.then55
 
 if.then55:                                        ; preds = %if.end52
-  %arrayidx = getelementptr inbounds [64 x i8], ptr %md_buf, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [64 x i8], ptr %md_buf, i64 0, i64 %indvars.iv
   %6 = load i8, ptr %arrayidx, align 1
-  %incdec.ptr = getelementptr inbounds i8, ptr %key.addr.2, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %key.addr.2, i64 1
   store i8 %6, ptr %key.addr.2, align 1
   br label %if.end56
 
@@ -152,9 +152,9 @@ if.end71:                                         ; preds = %lor.lhs.false67
 
 if.then74:                                        ; preds = %if.end71
   %idxprom75 = zext i32 %i.3 to i64
-  %arrayidx76 = getelementptr inbounds [64 x i8], ptr %md_buf, i64 0, i64 %idxprom75
+  %arrayidx76 = getelementptr inbounds nuw [64 x i8], ptr %md_buf, i64 0, i64 %idxprom75
   %10 = load i8, ptr %arrayidx76, align 1
-  %incdec.ptr77 = getelementptr inbounds i8, ptr %iv.addr.2, i64 1
+  %incdec.ptr77 = getelementptr inbounds nuw i8, ptr %iv.addr.2, i64 1
   store i8 %10, ptr %iv.addr.2, align 1
   br label %if.end78
 

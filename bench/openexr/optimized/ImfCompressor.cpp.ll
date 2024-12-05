@@ -32,7 +32,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define void @_ZN7Imf_3_210CompressorC2ERKNS_6HeaderE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef nonnull align 1 %hdr) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_210CompressorE, i64 16), ptr %this, align 8
-  %_header = getelementptr inbounds i8, ptr %this, i64 8
+  %_header = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %hdr, ptr %_header, align 8
   ret void
 }
@@ -62,10 +62,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN7Imf_3_210Compressor12compressTileEPKciN9Imath_3_23BoxINS3_4Vec2IiEEEERS2_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %inPtr, i32 noundef %inSize, ptr nocapture noundef readonly %range, ptr noundef nonnull align 8 dereferenceable(8) %outPtr) unnamed_addr #7 align 2 {
 entry:
-  %y = getelementptr inbounds i8, ptr %range, i64 4
+  %y = getelementptr inbounds nuw i8, ptr %range, i64 4
   %0 = load i32, ptr %y, align 4
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %inPtr, i32 noundef %inSize, i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %outPtr)
   ret i32 %call
@@ -74,10 +74,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN7Imf_3_210Compressor14uncompressTileEPKciN9Imath_3_23BoxINS3_4Vec2IiEEEERS2_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %inPtr, i32 noundef %inSize, ptr nocapture noundef readonly %range, ptr noundef nonnull align 8 dereferenceable(8) %outPtr) unnamed_addr #7 align 2 {
 entry:
-  %y = getelementptr inbounds i8, ptr %range, i64 4
+  %y = getelementptr inbounds nuw i8, ptr %range, i64 4
   %0 = load i32, ptr %y, align 4
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 48
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %inPtr, i32 noundef %inSize, i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %outPtr)
   ret i32 %call
@@ -266,7 +266,7 @@ lpad:                                             ; preds = %sw.default
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %comp to i64
-  %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table._ZN7Imf_3_216numLinesInBufferENS_11CompressionE, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN7Imf_3_216numLinesInBufferENS_11CompressionE, i64 0, i64 %2
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }

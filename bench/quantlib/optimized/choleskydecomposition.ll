@@ -305,9 +305,9 @@ for.inc111.us:                                    ; preds = %invoke.cont95.us, %
 invoke.cont40.us:                                 ; preds = %invoke.cont31.us, %invoke.cont40.us
   %indvars.iv = phi i64 [ 0, %invoke.cont31.us ], [ %indvars.iv.next, %invoke.cont40.us ]
   %sum.0145.us = phi double [ %28, %invoke.cont31.us ], [ %33, %invoke.cont40.us ]
-  %arrayidx39.us = getelementptr inbounds double, ptr %add.ptr.i.i61, i64 %indvars.iv
+  %arrayidx39.us = getelementptr inbounds nuw double, ptr %add.ptr.i.i61, i64 %indvars.iv
   %31 = load double, ptr %arrayidx39.us, align 8, !tbaa !22
-  %arrayidx43.us = getelementptr inbounds double, ptr %add.ptr.i.i64.us, i64 %indvars.iv
+  %arrayidx43.us = getelementptr inbounds nuw double, ptr %add.ptr.i.i64.us, i64 %indvars.iv
   %32 = load double, ptr %arrayidx43.us, align 8, !tbaa !22
   %neg.us = fneg double %31
   %33 = tail call double @llvm.fmuladd.f64(double %neg.us, double %32, double %sum.0145.us)
@@ -635,7 +635,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i = load ptr, ptr %0, align 8, !tbaa !30
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc.i.i unwind label %terminate.lpad.i.i
@@ -648,7 +648,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
 
 if.then.i.i.i.i:                                  ; preds = %.noexc.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !30
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 24
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN5boost10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit unwind label %terminate.lpad.i.i

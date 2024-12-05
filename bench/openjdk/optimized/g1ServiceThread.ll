@@ -109,11 +109,11 @@ $_ZTV13G1ServiceTask = comdat any
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN14G1SentinelTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24), (32, 40)) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @.str, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 0, ptr %5, align 8
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV14G1SentinelTask, i64 16), ptr %0, align 8
   store i64 9223372036854775807, ptr %2, align 8
@@ -124,25 +124,25 @@ define hidden void @_ZN14G1SentinelTaskC2Ev(ptr noundef nonnull align 8 derefere
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN13G1ServiceTaskC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV13G1ServiceTask, i64 16), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN13G1ServiceTask8set_timeEl(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((8, 16)) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN13G1ServiceTask8set_nextEPS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((24, 32)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   ret void
 }
@@ -162,14 +162,14 @@ declare void @_Z15report_vm_errorPKciS0_S0_z(ptr noundef, i32 noundef, ptr nound
 define hidden void @_ZN15G1ServiceThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(1064) %0) unnamed_addr #3 align 2 {
   tail call void @_ZN18ConcurrentGCThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(918) %0) #15
   store ptr getelementptr inbounds inrange(-16, 240) (i8, ptr @_ZTV15G1ServiceThread, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 920
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 920
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) %2, i32 noundef 21, ptr noundef nonnull @.str.7, i1 noundef zeroext true) #15
-  %3 = getelementptr inbounds i8, ptr %0, i64 1024
-  %4 = getelementptr inbounds i8, ptr %0, i64 1032
-  %5 = getelementptr inbounds i8, ptr %0, i64 1040
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1024
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1032
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   store ptr @.str, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 1048
-  %7 = getelementptr inbounds i8, ptr %0, i64 1056
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1048
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   store i64 0, ptr %7, align 8
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV14G1SentinelTask, i64 16), ptr %3, align 8
   store i64 9223372036854775807, ptr %4, align 8
@@ -187,7 +187,7 @@ declare void @_ZN18ConcurrentGCThread16create_and_startE14ThreadPriority(ptr nou
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN15G1ServiceThread13register_taskEP13G1ServiceTaskl(ptr noundef nonnull align 8 dereferenceable(1064) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #3 align 2 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %8, label %6
@@ -199,7 +199,7 @@ define hidden void @_ZN15G1ServiceThread13register_taskEP13G1ServiceTaskl(ptr no
   unreachable
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %14, label %12
@@ -212,7 +212,7 @@ define hidden void @_ZN15G1ServiceThread13register_taskEP13G1ServiceTaskl(ptr no
 
 14:                                               ; preds = %8
   %15 = tail call noundef zeroext i1 @_ZNK18ConcurrentGCThread14has_terminatedEv(ptr noundef nonnull align 8 dereferenceable(918) %0) #15
-  %16 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %16 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not8 = icmp eq ptr %16, null
   br i1 %15, label %17, label %21
 
@@ -220,7 +220,7 @@ define hidden void @_ZN15G1ServiceThread13register_taskEP13G1ServiceTaskl(ptr no
   br i1 %.not8, label %26, label %18
 
 18:                                               ; preds = %17
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load ptr, ptr %19, align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.13, ptr noundef %20)
   br label %26
@@ -229,7 +229,7 @@ define hidden void @_ZN15G1ServiceThread13register_taskEP13G1ServiceTaskl(ptr no
   br i1 %.not8, label %25, label %22
 
 22:                                               ; preds = %21
-  %23 = getelementptr inbounds i8, ptr %1, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %24 = load ptr, ptr %23, align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.14, ptr noundef %24)
   br label %25
@@ -245,7 +245,7 @@ define hidden void @_ZN15G1ServiceThread13register_taskEP13G1ServiceTaskl(ptr no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZN13G1ServiceTask13is_registeredEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #5 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = icmp ne ptr %3, null
   ret i1 %4
@@ -253,7 +253,7 @@ define hidden noundef zeroext i1 @_ZN13G1ServiceTask13is_registeredEv(ptr nocapt
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef ptr @_ZN13G1ServiceTask4nextEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #5 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
@@ -271,14 +271,14 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_158ELS1_0ELS1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef ptr @_ZN13G1ServiceTask4nameEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #5 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN13G1ServiceTask18set_service_threadEP15G1ServiceThread(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((32, 40)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %1, ptr %3, align 8
   ret void
 }
@@ -291,7 +291,7 @@ define hidden void @_ZN15G1ServiceThread13schedule_taskEP13G1ServiceTaskl(ptr no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN15G1ServiceThread8scheduleEP13G1ServiceTasklb(ptr noundef nonnull align 8 dereferenceable(1064) %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #3 align 2 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %9
@@ -303,7 +303,7 @@ define hidden void @_ZN15G1ServiceThread8scheduleEP13G1ServiceTasklb(ptr noundef
   unreachable
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %15, label %13
@@ -318,25 +318,25 @@ define hidden void @_ZN15G1ServiceThread8scheduleEP13G1ServiceTasklb(ptr noundef
   %16 = tail call noundef i64 @_ZN10TimeHelper17millis_to_counterEl(i64 noundef %2) #15
   %17 = tail call noundef i64 @_ZN2os15elapsed_counterEv() #15
   %18 = add nsw i64 %17, %16
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 920
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 920
   tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %20) #15
-  %21 = getelementptr inbounds i8, ptr %0, i64 1024
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   %22 = load i64, ptr %19, align 8
   br label %23
 
 23:                                               ; preds = %23, %15
   %.0.i = phi ptr [ %21, %15 ], [ %25, %23 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load i64, ptr %26, align 8
   %.not.i = icmp slt i64 %22, %27
   br i1 %.not.i, label %_ZN18G1ServiceTaskQueue11add_orderedEP13G1ServiceTask.exit, label %23, !llvm.loop !6
 
 _ZN18G1ServiceTaskQueue11add_orderedEP13G1ServiceTask.exit: ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   store ptr %25, ptr %10, align 8
   store ptr %1, ptr %28, align 8
   br i1 %3, label %29, label %30
@@ -346,12 +346,12 @@ _ZN18G1ServiceTaskQueue11add_orderedEP13G1ServiceTask.exit: ; preds = %23
   br label %30
 
 30:                                               ; preds = %29, %_ZN18G1ServiceTaskQueue11add_orderedEP13G1ServiceTask.exit
-  %31 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %31 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not10 = icmp eq ptr %31, null
   br i1 %.not10, label %_ZN13MonitorLockerD2Ev.exit, label %32
 
 32:                                               ; preds = %30
-  %33 = getelementptr inbounds i8, ptr %1, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = load i64, ptr %19, align 8
   %36 = tail call noundef double @_ZN10TimeHelper18counter_to_secondsEl(i64 noundef %35) #15
@@ -369,22 +369,22 @@ declare noundef i64 @_ZN2os15elapsed_counterEv() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN18G1ServiceTaskQueue11add_orderedEP13G1ServiceTask(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   br label %5
 
 5:                                                ; preds = %5, %2
   %.0 = phi ptr [ %0, %2 ], [ %7, %5 ]
-  %6 = getelementptr inbounds i8, ptr %.0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i64, ptr %8, align 8
   %.not = icmp slt i64 %4, %9
   br i1 %.not, label %10, label %5, !llvm.loop !6
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %.0, i64 24
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %.0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %7, ptr %12, align 8
   store ptr %1, ptr %11, align 8
   ret void
@@ -403,21 +403,21 @@ declare noundef double @_ZN10TimeHelper18counter_to_secondsEl(i64 noundef) local
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @_ZN13G1ServiceTask4timeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #5 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN15G1ServiceThread13wait_for_taskEv(ptr noundef nonnull align 8 dereferenceable(1064) %0) local_unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 920
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 920
   tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %2) #15
   %3 = tail call noundef zeroext i1 @_ZNK18ConcurrentGCThread16should_terminateEv(ptr noundef nonnull align 8 dereferenceable(918) %0) #15
   br i1 %3, label %_ZN13MonitorLockerD2Ev.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 1024
-  %5 = getelementptr inbounds i8, ptr %0, i64 1048
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1024
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   br label %6
 
 6:                                                ; preds = %.lr.ph, %_ZN13MonitorLocker4waitEl.exit
@@ -426,7 +426,7 @@ define hidden noundef ptr @_ZN15G1ServiceThread13wait_for_taskEv(ptr noundef non
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %6
-  %10 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %10 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not17 = icmp eq ptr %10, null
   br i1 %.not17, label %_ZN13MonitorLocker4waitEl.exit, label %11
 
@@ -435,7 +435,7 @@ define hidden noundef ptr @_ZN15G1ServiceThread13wait_for_taskEv(ptr noundef non
   br label %_ZN13MonitorLocker4waitEl.exit
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %7, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %14 = load i64, ptr %13, align 8
   %15 = tail call noundef i64 @_ZN2os15elapsed_counterEv() #15
   %.not = icmp sgt i64 %14, %15
@@ -443,7 +443,7 @@ define hidden noundef ptr @_ZN15G1ServiceThread13wait_for_taskEv(ptr noundef non
 
 16:                                               ; preds = %12
   %17 = load ptr, ptr %5, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load ptr, ptr %18, align 8
   store ptr %19, ptr %5, align 8
   store ptr null, ptr %18, align 8
@@ -453,7 +453,7 @@ define hidden noundef ptr @_ZN15G1ServiceThread13wait_for_taskEv(ptr noundef non
   %21 = sub nsw i64 %14, %15
   %22 = tail call noundef double @_ZN10TimeHelper17counter_to_millisEl(i64 noundef %21) #15
   %23 = tail call double @llvm.ceil.f64(double %22)
-  %24 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %24 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not16 = icmp eq ptr %24, null
   br i1 %.not16, label %_ZN13MonitorLocker4waitEl.exit12, label %25
 
@@ -482,7 +482,7 @@ declare noundef zeroext i1 @_ZNK18ConcurrentGCThread16should_terminateEv(ptr nou
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZN18G1ServiceTaskQueue8is_emptyEv(ptr noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #5 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %0, %3
   ret i1 %4
@@ -490,16 +490,16 @@ define hidden noundef zeroext i1 @_ZN18G1ServiceTaskQueue8is_emptyEv(ptr noundef
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef ptr @_ZN18G1ServiceTaskQueue5frontEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #5 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN18G1ServiceTaskQueue12remove_frontEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #7 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %2, align 8
   store ptr null, ptr %4, align 8
@@ -516,14 +516,14 @@ define hidden void @_ZN15G1ServiceThread8run_taskEP13G1ServiceTask(ptr noundef n
   %3 = alloca %class.ThreadTotalCPUTimeClosure, align 8
   %4 = tail call noundef i64 @_ZN2os15elapsed_counterEv() #15
   %5 = tail call noundef double @_ZN2os12elapsedVTimeEv() #15
-  %6 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_158ELS1_142ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %6 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_158ELS1_142ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %14, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = sub nsw i64 %4, %11
   %13 = tail call noundef double @_ZN10TimeHelper17counter_to_millisEl(i64 noundef %12) #15
@@ -545,9 +545,9 @@ define hidden void @_ZN15G1ServiceThread8run_taskEP13G1ServiceTask(ptr noundef n
 
 21:                                               ; preds = %19
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV25ThreadTotalCPUTimeClosure, i64 16), ptr %3, align 8
-  %22 = getelementptr inbounds i8, ptr %3, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %3, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 4, ptr %23, align 8
   call void @_ZN25ThreadTotalCPUTimeClosure9do_threadEP6Thread(ptr noundef nonnull align 8 dereferenceable(20) %3, ptr noundef nonnull align 8 dereferenceable(1064) %0) #15
   call void @_ZN25ThreadTotalCPUTimeClosureD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %3) #15
@@ -555,12 +555,12 @@ define hidden void @_ZN15G1ServiceThread8run_taskEP13G1ServiceTask(ptr noundef n
 
 _ZN15G1ServiceThread22update_thread_cpu_timeEv.exit: ; preds = %14, %19, %21
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  %24 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %24 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not7 = icmp eq ptr %24, null
   br i1 %.not7, label %34, label %25
 
 25:                                               ; preds = %_ZN15G1ServiceThread22update_thread_cpu_timeEv.exit
-  %26 = getelementptr inbounds i8, ptr %1, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = call noundef i64 @_ZN2os15elapsed_counterEv() #15
   %29 = sub nsw i64 %28, %4
@@ -599,9 +599,9 @@ define hidden void @_ZN15G1ServiceThread22update_thread_cpu_timeEv(ptr noundef n
 
 7:                                                ; preds = %5
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV25ThreadTotalCPUTimeClosure, i64 16), ptr %2, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 4, ptr %9, align 8
   call void @_ZN25ThreadTotalCPUTimeClosure9do_threadEP6Thread(ptr noundef nonnull align 8 dereferenceable(20) %2, ptr noundef nonnull %0) #15
   call void @_ZN25ThreadTotalCPUTimeClosureD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %2) #15
@@ -625,7 +625,7 @@ define hidden void @_ZN15G1ServiceThread11run_serviceEv(ptr noundef nonnull alig
   br i1 %6, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  %7 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %7 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %9, label %8
 
@@ -640,7 +640,7 @@ define hidden void @_ZN15G1ServiceThread11run_serviceEv(ptr noundef nonnull alig
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN15G1ServiceThread12stop_serviceEv(ptr noundef nonnull align 8 dereferenceable(1064) %0) unnamed_addr #3 align 2 {
 _ZN13MonitorLockerD2Ev.exit:
-  %1 = getelementptr inbounds i8, ptr %0, i64 920
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 920
   tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %1) #15
   tail call void @_ZN7Monitor6notifyEv(ptr noundef nonnull align 8 dereferenceable(104) %1) #15
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %1) #15
@@ -656,7 +656,7 @@ declare void @_ZN25ThreadTotalCPUTimeClosureD1Ev(ptr noundef nonnull align 8 der
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13G1ServiceTask8scheduleEl(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZN15G1ServiceThread8scheduleEP13G1ServiceTasklb(ptr noundef nonnull align 8 dereferenceable(1064) %4, ptr noundef nonnull %0, i64 noundef %1, i1 noundef zeroext false)
   ret void
@@ -664,11 +664,11 @@ define hidden void @_ZN13G1ServiceTask8scheduleEl(ptr noundef nonnull align 8 de
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN18G1ServiceTaskQueueC2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24), (32, 40)) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @.str, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 0, ptr %5, align 8
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV14G1SentinelTask, i64 16), ptr %0, align 8
   store i64 9223372036854775807, ptr %2, align 8
@@ -684,7 +684,7 @@ define linkonce_odr hidden void @_ZN12ThreadShadow22unused_initial_virtualEv(ptr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN15G1ServiceThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(1064) %0) unnamed_addr #3 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 240) (i8, ptr @_ZTV15G1ServiceThread, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 920
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 920
   tail call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #15
   tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(918) %0) #15
   ret void
@@ -693,7 +693,7 @@ define linkonce_odr hidden void @_ZN15G1ServiceThreadD2Ev(ptr noundef nonnull al
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN15G1ServiceThreadD0Ev(ptr noundef nonnull align 8 dereferenceable(1064) %0) unnamed_addr #3 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 240) (i8, ptr @_ZTV15G1ServiceThread, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 920
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 920
   tail call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #15
   tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(1064) %0) #15
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %0) #15
@@ -783,7 +783,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK6Thread21is_active_Java_threa
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK11NamedThread4nameEv(ptr noundef nonnull align 8 dereferenceable(916) %0) unnamed_addr #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 896
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 896
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   %spec.select = select i1 %4, ptr @.str.25, ptr %3

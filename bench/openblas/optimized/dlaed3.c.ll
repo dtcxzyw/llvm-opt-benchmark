@@ -67,7 +67,7 @@ define void @dlaed3_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
 
 46:                                               ; preds = %.preheader25, %46
   %47 = phi i64 [ %52, %46 ], [ 1, %.preheader25 ]
-  %48 = getelementptr inbounds double, ptr %25, i64 %47
+  %48 = getelementptr inbounds nuw double, ptr %25, i64 %47
   %49 = tail call double @dlamc3_(ptr noundef nonnull %48, ptr noundef nonnull %48) #5
   %50 = load double, ptr %48, align 8, !tbaa !7
   %51 = fsub double %49, %50
@@ -117,11 +117,11 @@ thread-pre-split14:                               ; preds = %64
 
 71:                                               ; preds = %69
   store i32 2, ptr %15, align 4, !tbaa !3
-  %72 = getelementptr inbounds i8, ptr %11, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %73 = load i32, ptr %9, align 4, !tbaa !3
   %74 = sext i32 %73 to i64
   %75 = getelementptr inbounds double, ptr %28, i64 %74
-  %76 = getelementptr inbounds i8, ptr %9, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %77 = load i32, ptr %76, align 4, !tbaa !3
   %78 = sext i32 %77 to i64
   %79 = getelementptr inbounds double, ptr %28, i64 %78
@@ -170,7 +170,7 @@ thread-pre-split14:                               ; preds = %64
 
 106:                                              ; preds = %103
   %107 = mul nsw i64 %104, %100
-  %108 = getelementptr inbounds double, ptr %25, i64 %104
+  %108 = getelementptr inbounds nuw double, ptr %25, i64 %104
   %109 = getelementptr double, ptr %24, i64 %107
   br label %115
 
@@ -180,7 +180,7 @@ thread-pre-split14:                               ; preds = %64
 
 111:                                              ; preds = %.loopexit22
   %112 = mul nsw i64 %104, %100
-  %113 = getelementptr inbounds double, ptr %25, i64 %104
+  %113 = getelementptr inbounds nuw double, ptr %25, i64 %104
   %114 = getelementptr double, ptr %24, i64 %112
   br label %129
 
@@ -188,12 +188,12 @@ thread-pre-split14:                               ; preds = %64
   %116 = phi i64 [ 1, %106 ], [ %127, %115 ]
   %117 = getelementptr double, ptr %109, i64 %116
   %118 = load double, ptr %117, align 8, !tbaa !7
-  %119 = getelementptr inbounds double, ptr %25, i64 %116
+  %119 = getelementptr inbounds nuw double, ptr %25, i64 %116
   %120 = load double, ptr %119, align 8, !tbaa !7
   %121 = load double, ptr %108, align 8, !tbaa !7
   %122 = fsub double %120, %121
   %123 = fdiv double %118, %122
-  %124 = getelementptr inbounds double, ptr %28, i64 %116
+  %124 = getelementptr inbounds nuw double, ptr %28, i64 %116
   %125 = load double, ptr %124, align 8, !tbaa !7
   %126 = fmul double %125, %123
   store double %126, ptr %124, align 8, !tbaa !7
@@ -229,11 +229,11 @@ thread-pre-split14:                               ; preds = %64
 
 146:                                              ; preds = %145, %146
   %147 = phi i64 [ %159, %146 ], [ 1, %145 ]
-  %148 = getelementptr inbounds double, ptr %28, i64 %147
+  %148 = getelementptr inbounds nuw double, ptr %28, i64 %147
   %149 = load double, ptr %148, align 8, !tbaa !7
   %150 = fneg double %149
   %151 = call double @sqrt(double noundef %150) #5
-  %152 = getelementptr inbounds double, ptr %29, i64 %147
+  %152 = getelementptr inbounds nuw double, ptr %29, i64 %147
   %153 = load double, ptr %152, align 8, !tbaa !7
   %154 = fcmp ult double %153, 0.000000e+00
   %155 = fcmp oge double %151, 0.000000e+00
@@ -274,12 +274,12 @@ thread-pre-split14:                               ; preds = %64
 
 173:                                              ; preds = %173, %167
   %174 = phi i64 [ 1, %167 ], [ %181, %173 ]
-  %175 = getelementptr inbounds double, ptr %28, i64 %174
+  %175 = getelementptr inbounds nuw double, ptr %28, i64 %174
   %176 = load double, ptr %175, align 8, !tbaa !7
   %177 = getelementptr double, ptr %172, i64 %174
   %178 = load double, ptr %177, align 8, !tbaa !7
   %179 = fdiv double %176, %178
-  %180 = getelementptr inbounds double, ptr %29, i64 %174
+  %180 = getelementptr inbounds nuw double, ptr %29, i64 %174
   store double %179, ptr %180, align 8, !tbaa !7
   %181 = add nuw nsw i64 %174, 1
   %182 = icmp eq i64 %181, %171
@@ -302,7 +302,7 @@ thread-pre-split14:                               ; preds = %64
 
 192:                                              ; preds = %192, %186
   %193 = phi i64 [ 1, %186 ], [ %201, %192 ]
-  %194 = getelementptr inbounds i32, ptr %27, i64 %193
+  %194 = getelementptr inbounds nuw i32, ptr %27, i64 %193
   %195 = load i32, ptr %194, align 4, !tbaa !3
   %196 = sext i32 %195 to i64
   %197 = getelementptr inbounds double, ptr %29, i64 %196
@@ -332,11 +332,11 @@ thread-pre-split14:                               ; preds = %64
   %208 = sub nsw i32 %206, %207
   store i32 %208, ptr %17, align 4, !tbaa !3
   %209 = load i32, ptr %10, align 4, !tbaa !3
-  %210 = getelementptr inbounds i8, ptr %10, i64 4
+  %210 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %211 = load i32, ptr %210, align 4, !tbaa !3
   %212 = add nsw i32 %211, %209
   store i32 %212, ptr %18, align 4, !tbaa !3
-  %213 = getelementptr inbounds i8, ptr %10, i64 8
+  %213 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %214 = load i32, ptr %213, align 4, !tbaa !3
   %215 = add nsw i32 %214, %211
   store i32 %215, ptr %19, align 4, !tbaa !3

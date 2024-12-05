@@ -18,12 +18,12 @@ entry:
   %check = alloca %struct.QEDCheck, align 8
   %frombool = zext i1 %fix to i8
   store ptr %s, ptr %check, align 8
-  %result2 = getelementptr inbounds i8, ptr %check, i64 8
+  %result2 = getelementptr inbounds nuw i8, ptr %check, i64 8
   store ptr %result, ptr %result2, align 8
-  %fix3 = getelementptr inbounds i8, ptr %check, i64 16
+  %fix3 = getelementptr inbounds nuw i8, ptr %check, i64 16
   store i8 %frombool, ptr %fix3, align 8
-  %nclusters = getelementptr inbounds i8, ptr %check, i64 24
-  %file_size = getelementptr inbounds i8, ptr %s, i64 168
+  %nclusters = getelementptr inbounds nuw i8, ptr %check, i64 24
+  %file_size = getelementptr inbounds nuw i8, ptr %s, i64 168
   %0 = load i64, ptr %file_size, align 8
   %1 = getelementptr i8, ptr %s, i64 12
   %s.val = load i32, ptr %1, align 4
@@ -34,10 +34,10 @@ entry:
   %and.i.i = and i64 %add.i, %not.i.i
   %div.i = udiv i64 %and.i.i, %conv.i
   store i64 %div.i, ptr %nclusters, align 8
-  %used_clusters = getelementptr inbounds i8, ptr %check, i64 32
+  %used_clusters = getelementptr inbounds nuw i8, ptr %check, i64 32
   %add = add i64 %div.i, 31
   %div11 = lshr i64 %add, 5
-  %2 = getelementptr inbounds i8, ptr %check, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %check, i64 40
   store i64 0, ptr %2, align 8
   %call6 = tail call noalias ptr @g_try_malloc0_n(i64 noundef %div11, i64 noundef 4) #3
   store ptr %call6, ptr %used_clusters, align 8
@@ -47,16 +47,16 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %image_size = getelementptr inbounds i8, ptr %s, i64 56
+  %image_size = getelementptr inbounds nuw i8, ptr %s, i64 56
   %3 = load i64, ptr %image_size, align 8
   %4 = load i32, ptr %1, align 4
   %conv = zext i32 %4 to i64
   %add12 = add i64 %3, -1
   %sub = add i64 %add12, %conv
   %div16 = udiv i64 %sub, %conv
-  %total_clusters = getelementptr inbounds i8, ptr %result, i64 40
+  %total_clusters = getelementptr inbounds nuw i8, ptr %result, i64 40
   store i64 %div16, ptr %total_clusters, align 8
-  %l1_table = getelementptr inbounds i8, ptr %s, i64 120
+  %l1_table = getelementptr inbounds nuw i8, ptr %s, i64 120
   %5 = load ptr, ptr %l1_table, align 8
   %call18 = call i32 @qed_check_l1_table(ptr noundef nonnull %check, ptr noundef %5)
   %cmp19 = icmp eq i32 %call18, 0
@@ -64,7 +64,7 @@ if.end:                                           ; preds = %entry
 
 if.then21:                                        ; preds = %if.end
   %6 = load ptr, ptr %check, align 8
-  %header_size.i = getelementptr inbounds i8, ptr %6, i64 20
+  %header_size.i = getelementptr inbounds nuw i8, ptr %6, i64 20
   %7 = load i32, ptr %header_size.i, align 4
   %conv.i12 = zext i32 %7 to i64
   %8 = load i64, ptr %nclusters, align 8
@@ -87,7 +87,7 @@ for.body.i:                                       ; preds = %if.then21, %for.inc
 
 if.then.i:                                        ; preds = %for.body.i
   %13 = load ptr, ptr %result2, align 8
-  %leaks.i = getelementptr inbounds i8, ptr %13, i64 4
+  %leaks.i = getelementptr inbounds nuw i8, ptr %13, i64 4
   %14 = load i32, ptr %leaks.i, align 4
   %inc.i = add i32 %14, 1
   store i32 %inc.i, ptr %leaks.i, align 4
@@ -109,13 +109,13 @@ if.then23:                                        ; preds = %qed_check_for_leaks
   br i1 %cmp.i14, label %if.end25, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then23
-  %check_errors.i = getelementptr inbounds i8, ptr %result, i64 8
+  %check_errors.i = getelementptr inbounds nuw i8, ptr %result, i64 8
   %17 = load i32, ptr %check_errors.i, align 8
   %cmp1.i = icmp sgt i32 %17, 0
   br i1 %cmp1.i, label %if.end25, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %features.i = getelementptr inbounds i8, ptr %s, i64 24
+  %features.i = getelementptr inbounds nuw i8, ptr %s, i64 24
   %18 = load i64, ptr %features.i, align 8
   %and.i = and i64 %18, 2
   %tobool.not.i = icmp eq i64 %and.i, 0
@@ -147,13 +147,13 @@ declare noalias ptr @g_try_malloc0_n(i64 noundef, i64 noundef) local_unnamed_add
 define internal i32 @qed_check_l1_table(ptr noundef %check, ptr nocapture noundef %table) #0 {
 entry:
   %0 = load ptr, ptr %check, align 8
-  %table_size = getelementptr inbounds i8, ptr %0, i64 16
+  %table_size = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load i32, ptr %table_size, align 8
   %cmp.not12.i = icmp eq i32 %1, 0
   br i1 %cmp.not12.i, label %qed_set_used_clusters.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %entry
-  %l1_table_offset = getelementptr inbounds i8, ptr %0, i64 48
+  %l1_table_offset = getelementptr inbounds nuw i8, ptr %0, i64 48
   %2 = load i64, ptr %l1_table_offset, align 8
   %3 = getelementptr i8, ptr %0, i64 12
   %.val.i = load i32, ptr %3, align 4
@@ -163,7 +163,7 @@ while.body.lr.ph.i:                               ; preds = %entry
   %not.i.i.i = xor i64 %conv.i.i, -1
   %and.i.i.i = and i64 %add.i.i, %not.i.i.i
   %div.i.i = udiv i64 %and.i.i.i, %conv.i.i
-  %used_clusters.i = getelementptr inbounds i8, ptr %check, i64 32
+  %used_clusters.i = getelementptr inbounds nuw i8, ptr %check, i64 32
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
@@ -189,30 +189,30 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 qed_set_used_clusters.exit:                       ; preds = %while.body.i, %entry
   %corruptions.0.lcssa.i = phi i32 [ 0, %entry ], [ %spec.select.i, %while.body.i ]
-  %result.i = getelementptr inbounds i8, ptr %check, i64 8
+  %result.i = getelementptr inbounds nuw i8, ptr %check, i64 8
   %8 = load ptr, ptr %result.i, align 8
   %9 = load i32, ptr %8, align 8
   %add.i = add i32 %9, %corruptions.0.lcssa.i
   store i32 %add.i, ptr %8, align 8
-  %table_nelems = getelementptr inbounds i8, ptr %0, i64 152
+  %table_nelems = getelementptr inbounds nuw i8, ptr %0, i64 152
   %10 = load i32, ptr %table_nelems, align 8
   %cmp100.not = icmp eq i32 %10, 0
   br i1 %cmp100.not, label %for.end.thread, label %for.body.lr.ph
 
 for.end.thread:                                   ; preds = %qed_set_used_clusters.exit
-  %request44109 = getelementptr inbounds i8, ptr %check, i64 40
+  %request44109 = getelementptr inbounds nuw i8, ptr %check, i64 40
   %11 = load ptr, ptr %request44109, align 8
   tail call void @qed_unref_l2_cache_entry(ptr noundef %11) #4
   store ptr null, ptr %request44109, align 8
   br label %if.end61
 
 for.body.lr.ph:                                   ; preds = %qed_set_used_clusters.exit
-  %cluster_size.i = getelementptr inbounds i8, ptr %0, i64 12
-  %header_size1.i.i = getelementptr inbounds i8, ptr %0, i64 20
-  %file_size.i.i = getelementptr inbounds i8, ptr %0, i64 168
-  %used_clusters.i53 = getelementptr inbounds i8, ptr %check, i64 32
-  %request = getelementptr inbounds i8, ptr %check, i64 40
-  %fix.i = getelementptr inbounds i8, ptr %check, i64 16
+  %cluster_size.i = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %header_size1.i.i = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %file_size.i.i = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %used_clusters.i53 = getelementptr inbounds nuw i8, ptr %check, i64 32
+  %request = getelementptr inbounds nuw i8, ptr %check, i64 40
+  %fix.i = getelementptr inbounds nuw i8, ptr %check, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -267,7 +267,7 @@ if.then5:                                         ; preds = %if.end.i.i, %if.end
 if.then6:                                         ; preds = %if.then5
   store i64 0, ptr %arrayidx, align 8
   %18 = load ptr, ptr %result.i, align 8
-  %corruptions_fixed = getelementptr inbounds i8, ptr %18, i64 12
+  %corruptions_fixed = getelementptr inbounds nuw i8, ptr %18, i64 12
   %19 = load i32, ptr %corruptions_fixed, align 4
   %inc = add i32 %19, 1
   store i32 %inc, ptr %corruptions_fixed, align 4
@@ -336,7 +336,7 @@ if.end19:                                         ; preds = %if.end14, %qed_set_
 
 if.then22:                                        ; preds = %if.end19
   %30 = load ptr, ptr %result.i, align 8
-  %check_errors = getelementptr inbounds i8, ptr %30, i64 8
+  %check_errors = getelementptr inbounds nuw i8, ptr %30, i64 8
   %31 = load i32, ptr %check_errors, align 8
   %inc24 = add i32 %31, 1
   store i32 %inc24, ptr %check_errors, align 8
@@ -346,15 +346,15 @@ if.end25:                                         ; preds = %if.end19
   %32 = load ptr, ptr %request, align 8
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %check, align 8
-  %table_nelems.i = getelementptr inbounds i8, ptr %34, i64 152
+  %table_nelems.i = getelementptr inbounds nuw i8, ptr %34, i64 152
   %35 = load i32, ptr %table_nelems.i, align 8
   %cmp23.not.i = icmp eq i32 %35, 0
   br i1 %cmp23.not.i, label %for.inc, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end25
-  %cluster_size.i74 = getelementptr inbounds i8, ptr %34, i64 12
-  %header_size1.i.i75 = getelementptr inbounds i8, ptr %34, i64 20
-  %file_size.i.i76 = getelementptr inbounds i8, ptr %34, i64 168
+  %cluster_size.i74 = getelementptr inbounds nuw i8, ptr %34, i64 12
+  %header_size1.i.i75 = getelementptr inbounds nuw i8, ptr %34, i64 20
+  %file_size.i.i76 = getelementptr inbounds nuw i8, ptr %34, i64 168
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -368,7 +368,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 
 if.end.i77:                                       ; preds = %for.body.i
   %37 = load ptr, ptr %result.i, align 8
-  %bfi.i = getelementptr inbounds i8, ptr %37, i64 32
+  %bfi.i = getelementptr inbounds nuw i8, ptr %37, i64 32
   %38 = load i64, ptr %bfi.i, align 8
   %inc.i78 = add i64 %38, 1
   store i64 %inc.i78, ptr %bfi.i, align 8
@@ -382,7 +382,7 @@ if.end.i77:                                       ; preds = %for.body.i
 
 if.then5.i:                                       ; preds = %if.end.i77
   %39 = load ptr, ptr %result.i, align 8
-  %fragmented_clusters.i = getelementptr inbounds i8, ptr %39, i64 48
+  %fragmented_clusters.i = getelementptr inbounds nuw i8, ptr %39, i64 48
   %40 = load i64, ptr %fragmented_clusters.i, align 8
   %inc8.i = add i64 %40, 1
   store i64 %inc8.i, ptr %fragmented_clusters.i, align 8
@@ -418,7 +418,7 @@ if.then11.i:                                      ; preds = %qed_check_cluster_o
 if.then13.i:                                      ; preds = %if.then11.i
   store i64 0, ptr %arrayidx.i, align 8
   %45 = load ptr, ptr %result.i, align 8
-  %corruptions_fixed.i = getelementptr inbounds i8, ptr %45, i64 12
+  %corruptions_fixed.i = getelementptr inbounds nuw i8, ptr %45, i64 12
   %46 = load i32, ptr %corruptions_fixed.i, align 4
   %inc18.i = add i32 %46, 1
   store i32 %inc18.i, ptr %corruptions_fixed.i, align 4
@@ -488,7 +488,7 @@ if.then32:                                        ; preds = %land.lhs.true
 
 if.then37:                                        ; preds = %if.then32
   %61 = load ptr, ptr %result.i, align 8
-  %check_errors39 = getelementptr inbounds i8, ptr %61, i64 8
+  %check_errors39 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %62 = load i32, ptr %check_errors39, align 8
   %inc40 = add i32 %62, 1
   store i32 %inc40, ptr %check_errors39, align 8
@@ -505,14 +505,14 @@ for.inc:                                          ; preds = %if.end25, %qed_chec
 
 for.end:                                          ; preds = %for.inc
   %65 = icmp eq i32 %num_invalid_l1.1, 0
-  %request44 = getelementptr inbounds i8, ptr %check, i64 40
+  %request44 = getelementptr inbounds nuw i8, ptr %check, i64 40
   %66 = load ptr, ptr %request44, align 8
   tail call void @qed_unref_l2_cache_entry(ptr noundef %66) #4
   store ptr null, ptr %request44, align 8
   br i1 %65, label %if.end61, label %land.lhs.true49
 
 land.lhs.true49:                                  ; preds = %for.end
-  %fix50 = getelementptr inbounds i8, ptr %check, i64 16
+  %fix50 = getelementptr inbounds nuw i8, ptr %check, i64 16
   %67 = load i8, ptr %fix50, align 8
   %tobool51 = trunc i8 %67 to i1
   br i1 %tobool51, label %if.then52, label %if.end61
@@ -525,7 +525,7 @@ if.then52:                                        ; preds = %land.lhs.true49
 
 if.then56:                                        ; preds = %if.then52
   %69 = load ptr, ptr %result.i, align 8
-  %check_errors58 = getelementptr inbounds i8, ptr %69, i64 8
+  %check_errors58 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %70 = load i32, ptr %check_errors58, align 8
   %inc59 = add i32 %70, 1
   store i32 %inc59, ptr %check_errors58, align 8
@@ -544,13 +544,13 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %check_errors = getelementptr inbounds i8, ptr %result, i64 8
+  %check_errors = getelementptr inbounds nuw i8, ptr %result, i64 8
   %1 = load i32, ptr %check_errors, align 8
   %cmp1 = icmp sgt i32 %1, 0
   br i1 %cmp1, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %features = getelementptr inbounds i8, ptr %s, i64 24
+  %features = getelementptr inbounds nuw i8, ptr %s, i64 24
   %2 = load i64, ptr %features, align 8
   %and = and i64 %2, 2
   %tobool.not = icmp eq i64 %and, 0

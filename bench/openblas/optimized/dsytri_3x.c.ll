@@ -91,7 +91,7 @@ define void @dsytri_3x_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
 
 56:                                               ; preds = %56, %51
   %57 = phi i64 [ 1, %51 ], [ %61, %56 ]
-  %58 = getelementptr inbounds double, ptr %21, i64 %57
+  %58 = getelementptr inbounds nuw double, ptr %21, i64 %57
   %59 = load double, ptr %58, align 8, !tbaa !7
   %60 = getelementptr double, ptr %55, i64 %57
   store double %59, ptr %60, align 8, !tbaa !7
@@ -139,7 +139,7 @@ define void @dsytri_3x_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
 
 85:                                               ; preds = %97, %83
   %86 = phi i64 [ 1, %83 ], [ %98, %97 ]
-  %87 = getelementptr inbounds i32, ptr %22, i64 %86
+  %87 = getelementptr inbounds nuw i32, ptr %22, i64 %86
   %88 = load i32, ptr %87, align 4, !tbaa !3
   %89 = icmp sgt i32 %88, 0
   br i1 %89, label %90, label %97
@@ -841,7 +841,7 @@ thread-pre-split82:                               ; preds = %thread-pre-split82.
 534:                                              ; preds = %575, %519
   %535 = phi i32 [ %105, %519 ], [ %584, %575 ]
   %536 = zext nneg i32 %535 to i64
-  %537 = getelementptr inbounds i32, ptr %22, i64 %536
+  %537 = getelementptr inbounds nuw i32, ptr %22, i64 %536
   %538 = load i32, ptr %537, align 4, !tbaa !3
   %539 = icmp sgt i32 %538, 0
   br i1 %539, label %540, label %546
@@ -1486,7 +1486,7 @@ thread-pre-split82:                               ; preds = %thread-pre-split82.
 .preheader:                                       ; preds = %586, %thread-pre-split92
   %958 = phi i32 [ %973, %thread-pre-split92 ], [ %955, %586 ]
   %959 = zext nneg i32 %958 to i64
-  %960 = getelementptr inbounds i32, ptr %22, i64 %959
+  %960 = getelementptr inbounds nuw i32, ptr %22, i64 %959
   %961 = load i32, ptr %960, align 4, !tbaa !3
   store i32 %961, ptr %10, align 4, !tbaa !3
   %962 = call i32 @llvm.abs.i32(i32 %961, i1 true)

@@ -4627,23 +4627,23 @@ declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #0
 define hidden noundef i32 @dissect_bd_addr(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef writeonly %8) local_unnamed_addr #1 {
   %10 = alloca [6 x i8], align 1
   %11 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %4) #9
-  %12 = getelementptr inbounds i8, ptr %10, i64 5
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 5
   store i8 %11, ptr %12, align 1
   %13 = add i32 %4, 1
   %14 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %13) #9
-  %15 = getelementptr inbounds i8, ptr %10, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i8 %14, ptr %15, align 1
   %16 = add i32 %4, 2
   %17 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %16) #9
-  %18 = getelementptr inbounds i8, ptr %10, i64 3
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 3
   store i8 %17, ptr %18, align 1
   %19 = add i32 %4, 3
   %20 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %19) #9
-  %21 = getelementptr inbounds i8, ptr %10, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 2
   store i8 %20, ptr %21, align 1
   %22 = add i32 %4, 4
   %23 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %22) #9
-  %24 = getelementptr inbounds i8, ptr %10, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 1
   store i8 %23, ptr %24, align 1
   %25 = add i32 %4, 5
   %26 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %25) #9
@@ -4655,19 +4655,19 @@ define hidden noundef i32 @dissect_bd_addr(i32 noundef %0, ptr noundef %1, ptr n
   br i1 %.not, label %40, label %30
 
 30:                                               ; preds = %9
-  %31 = getelementptr inbounds i8, ptr %1, i64 408
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %32 = load ptr, ptr %31, align 8
   %33 = call noalias ptr @wmem_alloc(ptr noundef %32, i64 noundef 48) #9
   store i32 %6, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
   store i32 %7, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %33, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %35, ptr noundef nonnull align 1 dereferenceable(6) %10, i64 6, i1 false)
-  %36 = getelementptr inbounds i8, ptr %33, i64 12
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 12
   store i32 1, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %33, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store i32 %5, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %33, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %33, i64 24
   store i32 0, ptr %38, align 8
   %39 = load i32, ptr @bluetooth_device_tap, align 4
   call void @tap_queue_packet(i32 noundef %39, ptr noundef %1, ptr noundef nonnull %33) #9
@@ -4724,9 +4724,9 @@ define hidden void @save_local_device_name_from_eir_ad(ptr noundef %0, i32 nound
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %2, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 50
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 50
   %13 = load i16, ptr %12, align 2
   %14 = and i16 %13, 8
   %15 = icmp eq i16 %14, 0
@@ -4740,17 +4740,17 @@ define hidden void @save_local_device_name_from_eir_ad(ptr noundef %0, i32 nound
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %18 = getelementptr inbounds i8, ptr %2, i64 408
-  %19 = getelementptr inbounds i8, ptr %4, i64 4
-  %20 = getelementptr inbounds i8, ptr %2, i64 20
-  %21 = getelementptr inbounds i8, ptr %6, i64 8
-  %22 = getelementptr inbounds i8, ptr %6, i64 16
-  %23 = getelementptr inbounds i8, ptr %6, i64 24
-  %24 = getelementptr inbounds i8, ptr %6, i64 32
-  %25 = getelementptr inbounds i8, ptr %6, i64 40
-  %26 = getelementptr inbounds i8, ptr %6, i64 48
-  %27 = getelementptr inbounds i8, ptr %6, i64 56
-  %28 = getelementptr inbounds i8, ptr %4, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 408
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 72
   br label %29
 
 29:                                               ; preds = %.lr.ph, %55
@@ -4792,11 +4792,11 @@ define hidden void @save_local_device_name_from_eir_ad(ptr noundef %0, i32 nound
   %48 = load i32, ptr %7, align 4
   store i32 %48, ptr %47, align 8
   %49 = load i32, ptr %8, align 4
-  %50 = getelementptr inbounds i8, ptr %47, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 4
   store i32 %49, ptr %50, align 4
   %51 = call ptr @wmem_file_scope() #9
   %52 = call noalias ptr @wmem_strdup(ptr noundef %51, ptr noundef %42) #9
-  %53 = getelementptr inbounds i8, ptr %47, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store ptr %52, ptr %53, align 8
   %54 = load ptr, ptr %28, align 8
   call void @wmem_tree_insert32_array(ptr noundef %54, ptr noundef nonnull %6, ptr noundef nonnull %47) #9
@@ -4831,9 +4831,9 @@ define hidden void @get_bluetooth_uuid(ptr dead_on_unwind noalias nocapture writ
 
 5:                                                ; preds = %4, %4, %4
   %6 = trunc nuw i32 %3 to i8
-  %7 = getelementptr inbounds i8, ptr %0, i64 2
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i8 %6, ptr %7, align 2
-  %8 = getelementptr inbounds i8, ptr %0, i64 3
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 3
   switch i32 %3, label %27 [
     i32 2, label %9
     i32 4, label %14
@@ -4844,7 +4844,7 @@ define hidden void @get_bluetooth_uuid(ptr dead_on_unwind noalias nocapture writ
   %11 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %10) #9
   store i8 %11, ptr %8, align 1
   %12 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %2) #9
-  %13 = getelementptr inbounds i8, ptr %0, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 %12, ptr %13, align 2
   br label %.sink.split
 
@@ -4854,14 +4854,14 @@ define hidden void @get_bluetooth_uuid(ptr dead_on_unwind noalias nocapture writ
   store i8 %16, ptr %8, align 1
   %17 = add i32 %2, 2
   %18 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %17) #9
-  %19 = getelementptr inbounds i8, ptr %0, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 %18, ptr %19, align 2
   %20 = add i32 %2, 1
   %21 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %20) #9
-  %22 = getelementptr inbounds i8, ptr %0, i64 5
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 5
   store i8 %21, ptr %22, align 1
   %23 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %2) #9
-  %24 = getelementptr inbounds i8, ptr %0, i64 6
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 6
   store i8 %23, ptr %24, align 2
   %25 = icmp eq i8 %16, 0
   %26 = icmp eq i8 %18, 0
@@ -4874,62 +4874,62 @@ define hidden void @get_bluetooth_uuid(ptr dead_on_unwind noalias nocapture writ
   store i8 %29, ptr %8, align 1
   %30 = add i32 %2, 14
   %31 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %30) #9
-  %32 = getelementptr inbounds i8, ptr %0, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 %31, ptr %32, align 2
   %33 = add i32 %2, 13
   %34 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %33) #9
-  %35 = getelementptr inbounds i8, ptr %0, i64 5
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 5
   store i8 %34, ptr %35, align 1
   %36 = add i32 %2, 12
   %37 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %36) #9
-  %38 = getelementptr inbounds i8, ptr %0, i64 6
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 6
   store i8 %37, ptr %38, align 2
   %39 = add i32 %2, 11
   %40 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %39) #9
-  %41 = getelementptr inbounds i8, ptr %0, i64 7
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 7
   store i8 %40, ptr %41, align 1
   %42 = add i32 %2, 10
   %43 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %42) #9
-  %44 = getelementptr inbounds i8, ptr %0, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %43, ptr %44, align 2
   %45 = add i32 %2, 9
   %46 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %45) #9
-  %47 = getelementptr inbounds i8, ptr %0, i64 9
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 9
   store i8 %46, ptr %47, align 1
   %48 = add i32 %2, 8
   %49 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %48) #9
-  %50 = getelementptr inbounds i8, ptr %0, i64 10
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 10
   store i8 %49, ptr %50, align 2
   %51 = add i32 %2, 7
   %52 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %51) #9
-  %53 = getelementptr inbounds i8, ptr %0, i64 11
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 11
   store i8 %52, ptr %53, align 1
   %54 = add i32 %2, 6
   %55 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %54) #9
-  %56 = getelementptr inbounds i8, ptr %0, i64 12
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i8 %55, ptr %56, align 2
   %57 = add i32 %2, 5
   %58 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %57) #9
-  %59 = getelementptr inbounds i8, ptr %0, i64 13
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 13
   store i8 %58, ptr %59, align 1
   %60 = add i32 %2, 4
   %61 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %60) #9
-  %62 = getelementptr inbounds i8, ptr %0, i64 14
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 14
   store i8 %61, ptr %62, align 2
   %63 = add i32 %2, 3
   %64 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %63) #9
-  %65 = getelementptr inbounds i8, ptr %0, i64 15
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 15
   store i8 %64, ptr %65, align 1
   %66 = add i32 %2, 2
   %67 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %66) #9
-  %68 = getelementptr inbounds i8, ptr %0, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %67, ptr %68, align 2
   %69 = add i32 %2, 1
   %70 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %69) #9
-  %71 = getelementptr inbounds i8, ptr %0, i64 17
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 17
   store i8 %70, ptr %71, align 1
   %72 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %2) #9
-  %73 = getelementptr inbounds i8, ptr %0, i64 18
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 18
   store i8 %72, ptr %73, align 2
   %74 = icmp eq i8 %29, 0
   %75 = icmp eq i8 %31, 0
@@ -4983,7 +4983,7 @@ define ptr @print_numeric_bluetooth_uuid(ptr noundef %0, ptr noundef %1) local_u
   br i1 %.not, label %31, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %1, i64 2
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %5 = load i8, ptr %4, align 2
   switch i8 %5, label %6 [
     i8 0, label %31
@@ -4991,14 +4991,14 @@ define ptr @print_numeric_bluetooth_uuid(ptr noundef %0, ptr noundef %1) local_u
   ]
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %1, i64 3
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %8 = zext i8 %5 to i64
   %9 = tail call ptr @bytes_to_str_maxlen(ptr noundef %0, ptr noundef nonnull %7, i64 noundef %8, i64 noundef 36) #9
   br label %31
 
 10:                                               ; preds = %3
   %11 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef 38) #9
-  %12 = getelementptr inbounds i8, ptr %1, i64 3
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %13 = tail call ptr @bytes_to_hexstr(ptr noundef %11, ptr noundef nonnull %12, i64 noundef 4) #9
   %14 = getelementptr i8, ptr %11, i64 8
   store i8 45, ptr %14, align 1
@@ -5070,10 +5070,10 @@ declare ptr @wmem_tree_lookup_string(ptr noundef, ptr noundef, i32 noundef) loca
 
 ; Function Attrs: nounwind uwtable
 define noalias ptr @dissect_bluetooth_common(ptr noundef %0, ptr noundef initializes((280, 284)) %1, ptr noundef %2) local_unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @col_set_str(ptr noundef %5, i32 noundef 34, ptr noundef nonnull @.str.1252) #9
-  %6 = getelementptr inbounds i8, ptr %1, i64 348
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 348
   %7 = load i32, ptr %6, align 4
   %8 = load ptr, ptr %4, align 8
   switch i32 %7, label %11 [
@@ -5094,15 +5094,15 @@ define noalias ptr @dissect_bluetooth_common(ptr noundef %0, ptr noundef initial
   br label %12
 
 12:                                               ; preds = %11, %10, %9
-  %13 = getelementptr inbounds i8, ptr %1, i64 280
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 280
   store i32 11, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 112
-  %15 = getelementptr inbounds i8, ptr %1, i64 136
-  %16 = getelementptr inbounds i8, ptr %1, i64 284
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %1, i64 288
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %19 = load i32, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 20
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %21 = load i32, ptr %20, align 4
   %22 = tail call ptr @find_conversation(i32 noundef %21, ptr noundef nonnull %14, ptr noundef nonnull %15, i32 noundef 15, i32 noundef %17, i32 noundef %19, i32 noundef 0) #9
   %.not.i = icmp eq ptr %22, null
@@ -5119,55 +5119,55 @@ get_conversation.exit:                            ; preds = %12, %23
   %28 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %26, ptr noundef %0, i32 noundef 0, i32 noundef %27, i32 noundef 0) #9
   %29 = load i32, ptr @ett_bluetooth, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #9
-  %31 = getelementptr inbounds i8, ptr %1, i64 408
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %32 = load ptr, ptr %31, align 8
   %33 = tail call noalias ptr @wmem_alloc(ptr noundef %32, i64 noundef 104) #9
-  %34 = getelementptr inbounds i8, ptr %1, i64 96
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %37 = load i32, ptr %36, align 4
   %38 = and i32 %37, 4
   %.not = icmp eq i32 %38, 0
   br i1 %.not, label %42, label %39
 
 39:                                               ; preds = %get_conversation.exit
-  %40 = getelementptr inbounds i8, ptr %35, i64 76
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 76
   %41 = load i32, ptr %40, align 4
   br label %42
 
 42:                                               ; preds = %get_conversation.exit, %39
   %storemerge = phi i32 [ %41, %39 ], [ 0, %get_conversation.exit ]
   store i32 %storemerge, ptr %33, align 8
-  %43 = getelementptr inbounds i8, ptr %33, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %33, i64 4
   store i32 0, ptr %43, align 4
-  %44 = getelementptr inbounds i8, ptr %33, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr @bluetooth_max_disconnect_in_frame, ptr %44, align 8
   %45 = load ptr, ptr @chandle_sessions, align 8
-  %46 = getelementptr inbounds i8, ptr %33, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %33, i64 16
   store ptr %45, ptr %46, align 8
   %47 = load ptr, ptr @chandle_to_bdaddr, align 8
-  %48 = getelementptr inbounds i8, ptr %33, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %33, i64 24
   store ptr %47, ptr %48, align 8
   %49 = load ptr, ptr @chandle_to_mode, align 8
-  %50 = getelementptr inbounds i8, ptr %33, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %33, i64 32
   store ptr %49, ptr %50, align 8
   %51 = load ptr, ptr @shandle_to_chandle, align 8
-  %52 = getelementptr inbounds i8, ptr %33, i64 40
+  %52 = getelementptr inbounds nuw i8, ptr %33, i64 40
   store ptr %51, ptr %52, align 8
   %53 = load ptr, ptr @bdaddr_to_name, align 8
-  %54 = getelementptr inbounds i8, ptr %33, i64 48
+  %54 = getelementptr inbounds nuw i8, ptr %33, i64 48
   store ptr %53, ptr %54, align 8
   %55 = load ptr, ptr @bdaddr_to_role, align 8
-  %56 = getelementptr inbounds i8, ptr %33, i64 56
+  %56 = getelementptr inbounds nuw i8, ptr %33, i64 56
   store ptr %55, ptr %56, align 8
   %57 = load ptr, ptr @localhost_bdaddr, align 8
-  %58 = getelementptr inbounds i8, ptr %33, i64 64
+  %58 = getelementptr inbounds nuw i8, ptr %33, i64 64
   store ptr %57, ptr %58, align 8
   %59 = load ptr, ptr @localhost_name, align 8
-  %60 = getelementptr inbounds i8, ptr %33, i64 72
+  %60 = getelementptr inbounds nuw i8, ptr %33, i64 72
   store ptr %59, ptr %60, align 8
   %61 = load ptr, ptr @hci_vendors, align 8
-  %62 = getelementptr inbounds i8, ptr %33, i64 80
+  %62 = getelementptr inbounds nuw i8, ptr %33, i64 80
   store ptr %61, ptr %62, align 8
   %63 = load i32, ptr @bluetooth_tap, align 4
   %64 = tail call i32 @have_tap_listener(i32 noundef %63) #9
@@ -5178,7 +5178,7 @@ get_conversation.exit:                            ; preds = %12, %23
   %66 = load ptr, ptr %31, align 8
   %67 = tail call noalias ptr @wmem_alloc(ptr noundef %66, i64 noundef 8) #9
   store i32 %storemerge, ptr %67, align 4
-  %68 = getelementptr inbounds i8, ptr %67, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 4
   store i32 0, ptr %68, align 4
   %69 = load i32, ptr @bluetooth_tap, align 4
   tail call void @tap_queue_packet(i32 noundef %69, ptr noundef nonnull %1, ptr noundef nonnull %67) #9
@@ -5203,20 +5203,20 @@ get_conversation.exit:                            ; preds = %12, %23
 
 79:                                               ; preds = %77
   %80 = load i32, ptr @hf_bluetooth_addr_str, align 4
-  %81 = getelementptr inbounds i8, ptr %73, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %82 = load ptr, ptr %81, align 8
   %83 = tail call ptr @proto_tree_add_string(ptr noundef %30, i32 noundef %80, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %82) #9
   %.not.i88 = icmp eq ptr %83, null
   br i1 %.not.i88, label %proto_item_set_hidden.exit, label %84
 
 84:                                               ; preds = %79
-  %85 = getelementptr inbounds i8, ptr %83, i64 32
+  %85 = getelementptr inbounds nuw i8, ptr %83, i64 32
   %86 = load ptr, ptr %85, align 8
   %.not5.i = icmp eq ptr %86, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %87
 
 87:                                               ; preds = %84
-  %88 = getelementptr inbounds i8, ptr %86, i64 28
+  %88 = getelementptr inbounds nuw i8, ptr %86, i64 28
   %89 = load i32, ptr %88, align 4
   %90 = or i32 %89, 1
   store i32 %90, ptr %88, align 4
@@ -5230,27 +5230,27 @@ proto_item_set_hidden.exit:                       ; preds = %79, %84, %87
   br i1 %.not.i89, label %.critedge, label %94
 
 94:                                               ; preds = %proto_item_set_hidden.exit
-  %95 = getelementptr inbounds i8, ptr %93, i64 32
+  %95 = getelementptr inbounds nuw i8, ptr %93, i64 32
   %96 = load ptr, ptr %95, align 8
   %.not5.i90 = icmp eq ptr %96, null
   br i1 %.not5.i90, label %.critedge, label %.critedge.sink.split
 
 97:                                               ; preds = %77
   %98 = load i32, ptr @hf_bluetooth_addr, align 4
-  %99 = getelementptr inbounds i8, ptr %73, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %100 = load ptr, ptr %99, align 8
   %101 = tail call ptr @proto_tree_add_ether(ptr noundef %30, i32 noundef %98, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %100) #9
   %.not.i91 = icmp eq ptr %101, null
   br i1 %.not.i91, label %proto_item_set_hidden.exit93, label %102
 
 102:                                              ; preds = %97
-  %103 = getelementptr inbounds i8, ptr %101, i64 32
+  %103 = getelementptr inbounds nuw i8, ptr %101, i64 32
   %104 = load ptr, ptr %103, align 8
   %.not5.i92 = icmp eq ptr %104, null
   br i1 %.not5.i92, label %proto_item_set_hidden.exit93, label %105
 
 105:                                              ; preds = %102
-  %106 = getelementptr inbounds i8, ptr %104, i64 28
+  %106 = getelementptr inbounds nuw i8, ptr %104, i64 28
   %107 = load i32, ptr %106, align 4
   %108 = or i32 %107, 1
   store i32 %108, ptr %106, align 4
@@ -5264,14 +5264,14 @@ proto_item_set_hidden.exit93:                     ; preds = %97, %102, %105
   br i1 %.not.i94, label %.critedge, label %112
 
 112:                                              ; preds = %proto_item_set_hidden.exit93
-  %113 = getelementptr inbounds i8, ptr %111, i64 32
+  %113 = getelementptr inbounds nuw i8, ptr %111, i64 32
   %114 = load ptr, ptr %113, align 8
   %.not5.i95 = icmp eq ptr %114, null
   br i1 %.not5.i95, label %.critedge, label %.critedge.sink.split
 
 .critedge.sink.split:                             ; preds = %112, %94
   %.sink111 = phi ptr [ %96, %94 ], [ %114, %112 ]
-  %115 = getelementptr inbounds i8, ptr %.sink111, i64 28
+  %115 = getelementptr inbounds nuw i8, ptr %.sink111, i64 28
   %116 = load i32, ptr %115, align 4
   %117 = or i32 %116, 2
   store i32 %117, ptr %115, align 4
@@ -5290,20 +5290,20 @@ proto_item_set_hidden.exit93:                     ; preds = %97, %102, %105
 
 120:                                              ; preds = %118
   %121 = load i32, ptr @hf_bluetooth_addr_str, align 4
-  %122 = getelementptr inbounds i8, ptr %76, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %123 = load ptr, ptr %122, align 8
   %124 = tail call ptr @proto_tree_add_string(ptr noundef %30, i32 noundef %121, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %123) #9
   %.not.i97 = icmp eq ptr %124, null
   br i1 %.not.i97, label %proto_item_set_hidden.exit99, label %125
 
 125:                                              ; preds = %120
-  %126 = getelementptr inbounds i8, ptr %124, i64 32
+  %126 = getelementptr inbounds nuw i8, ptr %124, i64 32
   %127 = load ptr, ptr %126, align 8
   %.not5.i98 = icmp eq ptr %127, null
   br i1 %.not5.i98, label %proto_item_set_hidden.exit99, label %128
 
 128:                                              ; preds = %125
-  %129 = getelementptr inbounds i8, ptr %127, i64 28
+  %129 = getelementptr inbounds nuw i8, ptr %127, i64 28
   %130 = load i32, ptr %129, align 4
   %131 = or i32 %130, 1
   store i32 %131, ptr %129, align 4
@@ -5317,27 +5317,27 @@ proto_item_set_hidden.exit99:                     ; preds = %120, %125, %128
   br i1 %.not.i100, label %.critedge87, label %135
 
 135:                                              ; preds = %proto_item_set_hidden.exit99
-  %136 = getelementptr inbounds i8, ptr %134, i64 32
+  %136 = getelementptr inbounds nuw i8, ptr %134, i64 32
   %137 = load ptr, ptr %136, align 8
   %.not5.i101 = icmp eq ptr %137, null
   br i1 %.not5.i101, label %.critedge87, label %.critedge87.sink.split
 
 138:                                              ; preds = %118
   %139 = load i32, ptr @hf_bluetooth_addr, align 4
-  %140 = getelementptr inbounds i8, ptr %76, i64 8
+  %140 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %141 = load ptr, ptr %140, align 8
   %142 = tail call ptr @proto_tree_add_ether(ptr noundef %30, i32 noundef %139, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %141) #9
   %.not.i103 = icmp eq ptr %142, null
   br i1 %.not.i103, label %proto_item_set_hidden.exit105, label %143
 
 143:                                              ; preds = %138
-  %144 = getelementptr inbounds i8, ptr %142, i64 32
+  %144 = getelementptr inbounds nuw i8, ptr %142, i64 32
   %145 = load ptr, ptr %144, align 8
   %.not5.i104 = icmp eq ptr %145, null
   br i1 %.not5.i104, label %proto_item_set_hidden.exit105, label %146
 
 146:                                              ; preds = %143
-  %147 = getelementptr inbounds i8, ptr %145, i64 28
+  %147 = getelementptr inbounds nuw i8, ptr %145, i64 28
   %148 = load i32, ptr %147, align 4
   %149 = or i32 %148, 1
   store i32 %149, ptr %147, align 4
@@ -5351,14 +5351,14 @@ proto_item_set_hidden.exit105:                    ; preds = %138, %143, %146
   br i1 %.not.i106, label %.critedge87, label %153
 
 153:                                              ; preds = %proto_item_set_hidden.exit105
-  %154 = getelementptr inbounds i8, ptr %152, i64 32
+  %154 = getelementptr inbounds nuw i8, ptr %152, i64 32
   %155 = load ptr, ptr %154, align 8
   %.not5.i107 = icmp eq ptr %155, null
   br i1 %.not5.i107, label %.critedge87, label %.critedge87.sink.split
 
 .critedge87.sink.split:                           ; preds = %153, %135
   %.sink114 = phi ptr [ %137, %135 ], [ %155, %153 ]
-  %156 = getelementptr inbounds i8, ptr %.sink114, i64 28
+  %156 = getelementptr inbounds nuw i8, ptr %.sink114, i64 28
   %157 = load i32, ptr %156, align 4
   %158 = or i32 %157, 2
   store i32 %158, ptr %156, align 4
@@ -5511,7 +5511,7 @@ define internal void @bt_uuids_uuid_tostr_cb(ptr nocapture noundef readonly %0, 
 define internal void @bt_uuids_label_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #1 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #9
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @g_free(ptr noundef %9) #9
   store ptr %7, ptr %8, align 8
@@ -5520,7 +5520,7 @@ define internal void @bt_uuids_label_set_cb(ptr nocapture noundef %0, ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define internal void @bt_uuids_label_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %13, label %8
@@ -5546,7 +5546,7 @@ define internal void @bt_uuids_label_tostr_cb(ptr nocapture noundef readonly %0,
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @bluetooth_uuid_value(ptr noundef %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 408
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr @proto_bluetooth, align 4
   %5 = tail call ptr @p_get_proto_data(ptr noundef %3, ptr noundef %0, i32 noundef %4, i32 noundef 0) #9
@@ -5555,7 +5555,7 @@ define internal ptr @bluetooth_uuid_value(ptr noundef %0) #1 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @bluetooth_uuid_prompt(ptr noundef %0, ptr nocapture noundef writeonly %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 408
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr @proto_bluetooth, align 4
   %6 = tail call ptr @p_get_proto_data(ptr noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 0) #9
@@ -5615,33 +5615,33 @@ declare void @register_conversation_table(i32 noundef, i32 noundef, ptr noundef,
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @bluetooth_conversation_packet(ptr noundef initializes((24, 28)) %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %4, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 112
-  %8 = getelementptr inbounds i8, ptr %1, i64 136
-  %9 = getelementptr inbounds i8, ptr %1, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 40
-  %14 = getelementptr inbounds i8, ptr %1, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @add_conversation_table_data(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull @bluetooth_ct_dissector_info, i32 noundef 0) #9
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @bluetooth_endpoint_packet(ptr noundef initializes((24, 28)) %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %4, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 112
-  %8 = getelementptr inbounds i8, ptr %1, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load i32, ptr %10, align 4
   tail call void @add_endpoint_table_data(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 0, i32 noundef 1, i32 noundef 1, i32 noundef %11, ptr noundef nonnull @bluetooth_et_dissector_info, i32 noundef 0) #9
-  %12 = getelementptr inbounds i8, ptr %1, i64 136
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4
   tail call void @add_endpoint_table_data(ptr noundef %0, ptr noundef nonnull %12, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef %15, ptr noundef nonnull @bluetooth_et_dissector_info, i32 noundef 0) #9
   ret i32 1
@@ -5656,10 +5656,10 @@ define internal noundef ptr @bt_uuids_copy_cb(ptr noundef returned writeonly ini
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #9
   store ptr %5, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noalias ptr @g_strdup(ptr noundef %7) #9
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %8, ptr %9, align 8
   ret ptr %0
 }
@@ -5679,7 +5679,7 @@ define internal noundef zeroext i1 @bt_uuids_update_cb(ptr nocapture noundef rea
   br i1 %10, label %.sink.split, label %11
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.sink.split, label %15
@@ -5713,7 +5713,7 @@ define internal void @bt_uuids_free_cb(ptr nocapture noundef readonly %0) #1 {
   br i1 %.not, label %13, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %7) #10
   %.not8 = icmp eq i32 %8, 0
@@ -5728,7 +5728,7 @@ define internal void @bt_uuids_free_cb(ptr nocapture noundef readonly %0) #1 {
 13:                                               ; preds = %9, %5, %1
   %14 = load ptr, ptr %0, align 8
   tail call void @g_free(ptr noundef %14) #9
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
   tail call void @g_free(ptr noundef %16) #9
   ret void
@@ -5746,7 +5746,7 @@ define internal void @bt_uuids_post_update_cb() #1 {
   %3 = load ptr, ptr @bt_uuids, align 8
   %4 = getelementptr %struct._bt_uuid_t, ptr %3, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @wmem_tree_insert_string(ptr noundef %2, ptr noundef %5, ptr noundef %7, i32 noundef 0) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5769,14 +5769,14 @@ declare void @prefs_register_uat_preference(ptr noundef, ptr noundef, ptr nounde
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_bluetooth(ptr noundef %0, ptr noundef initializes((280, 284)) %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
   %5 = tail call ptr @dissect_bluetooth_common(ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  %6 = getelementptr inbounds i8, ptr %5, i64 88
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 88
   store i32 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 96
   store ptr null, ptr %7, align 8
   %8 = load ptr, ptr @bluetooth_table, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %12 = load i32, ptr %11, align 8
   %13 = tail call i32 @dissector_try_uint_new(ptr noundef %8, i32 noundef %12, ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1, ptr noundef %5) #9
   %.not = icmp eq i32 %13, 0
@@ -5794,14 +5794,14 @@ define internal i32 @dissect_bluetooth(ptr noundef %0, ptr noundef initializes((
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_bluetooth_bthci(ptr noundef %0, ptr noundef initializes((280, 284)) %1, ptr noundef %2, ptr noundef %3) #1 {
   %5 = tail call ptr @dissect_bluetooth_common(ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  %6 = getelementptr inbounds i8, ptr %5, i64 88
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 88
   store i32 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 96
   store ptr %3, ptr %7, align 8
   %8 = load ptr, ptr @bluetooth_table, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %12 = load i32, ptr %11, align 8
   %13 = tail call i32 @dissector_try_uint_new(ptr noundef %8, i32 noundef %12, ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1, ptr noundef %5) #9
   %.not = icmp eq i32 %13, 0
@@ -5819,14 +5819,14 @@ define internal i32 @dissect_bluetooth_bthci(ptr noundef %0, ptr noundef initial
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_bluetooth_btmon(ptr noundef %0, ptr noundef initializes((280, 284)) %1, ptr noundef %2, ptr noundef %3) #1 {
   %5 = tail call ptr @dissect_bluetooth_common(ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  %6 = getelementptr inbounds i8, ptr %5, i64 88
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 88
   store i32 2, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 96
   store ptr %3, ptr %7, align 8
   %8 = load ptr, ptr @bluetooth_table, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %12 = load i32, ptr %11, align 8
   %13 = tail call i32 @dissector_try_uint_new(ptr noundef %8, i32 noundef %12, ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1, ptr noundef %5) #9
   %.not = icmp eq i32 %13, 0
@@ -5844,9 +5844,9 @@ define internal i32 @dissect_bluetooth_btmon(ptr noundef %0, ptr noundef initial
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_bluetooth_usb(ptr noundef %0, ptr noundef initializes((280, 284)) %1, ptr noundef %2, ptr noundef %3) #1 {
   %5 = tail call ptr @dissect_bluetooth_common(ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  %6 = getelementptr inbounds i8, ptr %5, i64 88
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 88
   store i32 3, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 96
   store ptr %3, ptr %7, align 8
   %8 = load ptr, ptr @hci_usb_handle, align 8
   %9 = tail call i32 @call_dissector_with_data(ptr noundef %8, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %5) #9
@@ -6055,7 +6055,7 @@ define internal nonnull ptr @bluetooth_conv_get_filter_type(ptr nocapture nounde
   ]
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %switch.selectcmp = icmp eq i32 %5, 7
   %switch.select = select i1 %switch.selectcmp, ptr @.str.1262, ptr @.str.4526
@@ -6064,7 +6064,7 @@ define internal nonnull ptr @bluetooth_conv_get_filter_type(ptr nocapture nounde
   br label %20
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i32, ptr %7, align 8
   %switch.selectcmp15 = icmp eq i32 %8, 7
   %switch.select16 = select i1 %switch.selectcmp15, ptr @.str.1263, ptr @.str.4526
@@ -6073,7 +6073,7 @@ define internal nonnull ptr @bluetooth_conv_get_filter_type(ptr nocapture nounde
   br label %20
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 8
   switch i32 %11, label %.thread [
     i32 1, label %12
@@ -6081,13 +6081,13 @@ define internal nonnull ptr @bluetooth_conv_get_filter_type(ptr nocapture nounde
   ]
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, 1
   br i1 %15, label %20, label %.thread
 
 16:                                               ; preds = %9
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load i32, ptr %17, align 8
   %19 = icmp eq i32 %18, 7
   br i1 %19, label %20, label %.thread
@@ -6108,7 +6108,7 @@ define internal nonnull ptr @bluetooth_endpoint_get_filter_type(ptr nocapture no
   br i1 %3, label %4, label %7
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %switch.selectcmp = icmp eq i32 %6, 7
   %switch.select = select i1 %switch.selectcmp, ptr @.str.1264, ptr @.str.4526

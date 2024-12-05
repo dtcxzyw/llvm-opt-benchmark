@@ -28,9 +28,9 @@ define internal void @array_subscript_transform(ptr nocapture noundef %0, ptr no
   br i1 %.not, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
-  %8 = getelementptr inbounds i8, ptr %2, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %9 = load i32, ptr %6, align 4
   %10 = icmp sgt i32 %9, 0
   br i1 %3, label %.lr.ph.split.us.preheader, label %.lr.ph.split.split
@@ -45,7 +45,7 @@ define internal void @array_subscript_transform(ptr nocapture noundef %0, ptr no
   %11 = load ptr, ptr %7, align 8
   %12 = getelementptr %union.ListCell, ptr %11, i64 %indvars.iv105135
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not52.us = icmp eq ptr %15, null
   br i1 %.not52.us, label %22, label %16
@@ -59,7 +59,7 @@ define internal void @array_subscript_transform(ptr nocapture noundef %0, ptr no
   br i1 %21, label %.split.us, label %28
 
 22:                                               ; preds = %.lr.ph138
-  %23 = getelementptr inbounds i8, ptr %13, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %24 = load i8, ptr %23, align 4
   %25 = trunc i8 %24 to i1
   br i1 %25, label %28, label %26
@@ -71,7 +71,7 @@ define internal void @array_subscript_transform(ptr nocapture noundef %0, ptr no
 28:                                               ; preds = %26, %22, %16
   %.0.us = phi ptr [ %20, %16 ], [ %27, %26 ], [ null, %22 ]
   %29 = tail call ptr @lappend(ptr noundef %.04366.us137, ptr noundef %.0.us) #6
-  %30 = getelementptr inbounds i8, ptr %13, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %31 = load ptr, ptr %30, align 8
   %.not53.us = icmp eq ptr %31, null
   br i1 %.not53.us, label %.lr.ph.split.us, label %32
@@ -102,13 +102,13 @@ define internal void @array_subscript_transform(ptr nocapture noundef %0, ptr no
   %42 = load ptr, ptr %7, align 8
   %43 = getelementptr %union.ListCell, ptr %42, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8
   %.not53 = icmp eq ptr %46, null
   br i1 %.not53, label %67, label %54
 
 .split.us:                                        ; preds = %16
-  %47 = getelementptr inbounds i8, ptr %13, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %48 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   tail call void @llvm.assume(i1 %48)
   %49 = tail call i32 @errcode(i32 noundef 67141764) #6
@@ -129,7 +129,7 @@ define internal void @array_subscript_transform(ptr nocapture noundef %0, ptr no
 
 .split75.us:                                      ; preds = %54, %32
   %.us-phi76 = phi ptr [ %13, %32 ], [ %44, %54 ]
-  %60 = getelementptr inbounds i8, ptr %.us-phi76, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %.us-phi76, i64 16
   %61 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   tail call void @llvm.assume(i1 %61)
   %62 = tail call i32 @errcode(i32 noundef 67141764) #6
@@ -150,22 +150,22 @@ define internal void @array_subscript_transform(ptr nocapture noundef %0, ptr no
   br i1 %71, label %.lr.ph95, label %._crit_edge
 
 ._crit_edge.thread:                               ; preds = %5, %.lr.ph.split.split
-  %72 = getelementptr inbounds i8, ptr %0, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %72, i8 0, i64 16, i1 false)
   br label %list_length.exit.thread
 
 ._crit_edge:                                      ; preds = %67, %.lr.ph.split.us, %.lr.ph.split.us.preheader
   %.043.lcssa = phi ptr [ null, %.lr.ph.split.us.preheader ], [ %29, %.lr.ph.split.us ], [ null, %67 ]
   %.042.lcssa = phi ptr [ null, %.lr.ph.split.us.preheader ], [ %38, %.lr.ph.split.us ], [ %68, %67 ]
-  %73 = getelementptr inbounds i8, ptr %0, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.042.lcssa, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %0, i64 32
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %.043.lcssa, ptr %74, align 8
   %.not.i = icmp eq ptr %.042.lcssa, null
   br i1 %.not.i, label %list_length.exit.thread, label %list_length.exit
 
 list_length.exit:                                 ; preds = %._crit_edge
-  %75 = getelementptr inbounds i8, ptr %.042.lcssa, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %.042.lcssa, i64 4
   %76 = load i32, ptr %75, align 4
   %77 = icmp sgt i32 %76, 6
   br i1 %77, label %list_length.exit55, label %list_length.exit.thread
@@ -181,19 +181,19 @@ list_length.exit55:                               ; preds = %list_length.exit
 
 list_length.exit.thread:                          ; preds = %._crit_edge.thread, %._crit_edge, %list_length.exit
   %. = select i1 %3, i64 4, i64 8
-  %82 = getelementptr inbounds i8, ptr %0, i64 %.
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 %.
   %.sink = load i32, ptr %82, align 4
-  %83 = getelementptr inbounds i8, ptr %0, i64 12
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %.sink, ptr %83, align 4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @array_exec_setup(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) #1 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 0
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = icmp sgt i32 %7, 6
   br i1 %8, label %9, label %14
@@ -221,30 +221,30 @@ define internal void @array_exec_setup(ptr nocapture noundef readonly %0, ptr no
 
 18:                                               ; preds = %14
   %19 = tail call ptr @palloc(i64 noundef 60) #6
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load i32, ptr %21, align 8
   store i32 %22, ptr %19, align 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %24 = load i32, ptr %23, align 4
   %25 = tail call signext i16 @get_typlen(i32 noundef %24) #6
-  %26 = getelementptr inbounds i8, ptr %19, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i16 %25, ptr %26, align 4
   %27 = load i32, ptr %21, align 8
-  %28 = getelementptr inbounds i8, ptr %19, i64 6
-  %29 = getelementptr inbounds i8, ptr %19, i64 8
-  %30 = getelementptr inbounds i8, ptr %19, i64 9
+  %28 = getelementptr inbounds nuw i8, ptr %19, i64 6
+  %29 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %19, i64 9
   tail call void @get_typlenbyvalalign(i32 noundef %27, ptr noundef nonnull %28, ptr noundef nonnull %29, ptr noundef nonnull %30) #6
   store ptr @array_subscript_check_subscripts, ptr %2, align 8
   %array_subscript_fetch_slice.sink = select i1 %.not, ptr @array_subscript_fetch, ptr @array_subscript_fetch_slice
   %array_subscript_assign_slice.sink = select i1 %.not, ptr @array_subscript_assign, ptr @array_subscript_assign_slice
   %array_subscript_fetch_old_slice.sink = select i1 %.not, ptr @array_subscript_fetch_old, ptr @array_subscript_fetch_old_slice
-  %31 = getelementptr inbounds i8, ptr %2, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %array_subscript_fetch_slice.sink, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %2, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %array_subscript_assign_slice.sink, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %2, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %array_subscript_fetch_old_slice.sink, ptr %33, align 8
   ret void
 }
@@ -287,33 +287,33 @@ declare void @get_typlenbyvalalign(i32 noundef, ptr noundef, ptr noundef, ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @array_subscript_check_subscripts(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #1 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %.lr.ph, label %.preheader
 
 .lr.ph:                                           ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %5, i64 24
-  %12 = getelementptr inbounds i8, ptr %5, i64 40
-  %13 = getelementptr inbounds i8, ptr %5, i64 32
-  %14 = getelementptr inbounds i8, ptr %7, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 12
   br label %22
 
 .preheader:                                       ; preds = %46, %3
-  %15 = getelementptr inbounds i8, ptr %5, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %16 = load i32, ptr %15, align 8
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %.lr.ph32, label %.loopexit
 
 .lr.ph32:                                         ; preds = %.preheader
-  %18 = getelementptr inbounds i8, ptr %5, i64 56
-  %19 = getelementptr inbounds i8, ptr %5, i64 72
-  %20 = getelementptr inbounds i8, ptr %5, i64 64
-  %21 = getelementptr inbounds i8, ptr %7, i64 36
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 36
   br label %50
 
 22:                                               ; preds = %.lr.ph, %46
@@ -409,7 +409,7 @@ define internal noundef zeroext i1 @array_subscript_check_subscripts(ptr nocaptu
   br i1 %77, label %50, label %.loopexit, !llvm.loop !7
 
 .loopexit.sink.split:                             ; preds = %61, %33
-  %78 = getelementptr inbounds i8, ptr %1, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %79 = load ptr, ptr %78, align 8
   store i8 1, ptr %79, align 1
   br label %.loopexit
@@ -421,31 +421,31 @@ define internal noundef zeroext i1 @array_subscript_check_subscripts(ptr nocaptu
 
 ; Function Attrs: nounwind uwtable
 define internal void @array_subscript_fetch_slice(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #1 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 12
-  %14 = getelementptr inbounds i8, ptr %7, i64 36
-  %15 = getelementptr inbounds i8, ptr %5, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 36
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %7, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %20 = load i16, ptr %19, align 4
   %21 = sext i16 %20 to i32
-  %22 = getelementptr inbounds i8, ptr %7, i64 6
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 6
   %23 = load i16, ptr %22, align 2
   %24 = sext i16 %23 to i32
-  %25 = getelementptr inbounds i8, ptr %7, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %26 = load i8, ptr %25, align 4
   %27 = trunc i8 %26 to i1
-  %28 = getelementptr inbounds i8, ptr %7, i64 9
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 9
   %29 = load i8, ptr %28, align 1
   %30 = tail call i64 @array_get_slice(i64 noundef %10, i32 noundef %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef %16, ptr noundef %18, i32 noundef %21, i32 noundef %24, i1 noundef zeroext %27, i8 noundef signext %29) #6
   %31 = load ptr, ptr %8, align 8
@@ -455,17 +455,17 @@ define internal void @array_subscript_fetch_slice(ptr nocapture readnone %0, ptr
 
 ; Function Attrs: nounwind uwtable
 define internal void @array_subscript_assign_slice(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #1 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %12 = load i16, ptr %11, align 4
   %13 = icmp sgt i16 %12, 0
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = load i8, ptr %15, align 1
   br i1 %13, label %17, label %._crit_edge
@@ -475,7 +475,7 @@ define internal void @array_subscript_assign_slice(ptr nocapture readnone %0, pt
   br i1 %18, label %56, label %19
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %5, i64 88
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %21 = load i8, ptr %20, align 8
   %22 = trunc i8 %21 to i1
   br i1 %22, label %56, label %._crit_edge
@@ -485,7 +485,7 @@ define internal void @array_subscript_assign_slice(ptr nocapture readnone %0, pt
   br i1 %23, label %24, label %30
 
 24:                                               ; preds = %._crit_edge
-  %25 = getelementptr inbounds i8, ptr %1, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %26 = load i32, ptr %7, align 4
   %27 = tail call ptr @construct_empty_array(i32 noundef %26) #6
   %28 = ptrtoint ptr %27 to i64
@@ -497,27 +497,27 @@ define internal void @array_subscript_assign_slice(ptr nocapture readnone %0, pt
 30:                                               ; preds = %24, %._crit_edge
   %31 = phi i16 [ %.pre22, %24 ], [ %12, %._crit_edge ]
   %.0 = phi i64 [ %28, %24 ], [ %10, %._crit_edge ]
-  %32 = getelementptr inbounds i8, ptr %5, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %33 = load i32, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %7, i64 12
-  %35 = getelementptr inbounds i8, ptr %7, i64 36
-  %36 = getelementptr inbounds i8, ptr %5, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 36
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %5, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %5, i64 80
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %41 = load i64, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %5, i64 88
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %43 = load i8, ptr %42, align 8
   %44 = trunc i8 %43 to i1
   %45 = sext i16 %31 to i32
-  %46 = getelementptr inbounds i8, ptr %7, i64 6
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 6
   %47 = load i16, ptr %46, align 2
   %48 = sext i16 %47 to i32
-  %49 = getelementptr inbounds i8, ptr %7, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %50 = load i8, ptr %49, align 4
   %51 = trunc i8 %50 to i1
-  %52 = getelementptr inbounds i8, ptr %7, i64 9
+  %52 = getelementptr inbounds nuw i8, ptr %7, i64 9
   %53 = load i8, ptr %52, align 1
   %54 = tail call i64 @array_set_slice(i64 noundef %.0, i32 noundef %33, ptr noundef nonnull %34, ptr noundef nonnull %35, ptr noundef %37, ptr noundef %39, i64 noundef %41, i1 noundef zeroext %44, i32 noundef %45, i32 noundef %48, i1 noundef zeroext %51, i8 noundef signext %53) #6
   %55 = load ptr, ptr %8, align 8
@@ -530,38 +530,38 @@ define internal void @array_subscript_assign_slice(ptr nocapture readnone %0, pt
 
 ; Function Attrs: nounwind uwtable
 define internal void @array_subscript_fetch_old_slice(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #1 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = load i8, ptr %7, align 1
   %9 = trunc i8 %8 to i1
   br i1 %9, label %36, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %5, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %17 = load i32, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %12, i64 12
-  %19 = getelementptr inbounds i8, ptr %12, i64 36
-  %20 = getelementptr inbounds i8, ptr %5, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 36
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %5, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %12, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %25 = load i16, ptr %24, align 4
   %26 = sext i16 %25 to i32
-  %27 = getelementptr inbounds i8, ptr %12, i64 6
+  %27 = getelementptr inbounds nuw i8, ptr %12, i64 6
   %28 = load i16, ptr %27, align 2
   %29 = sext i16 %28 to i32
-  %30 = getelementptr inbounds i8, ptr %12, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %31 = load i8, ptr %30, align 4
   %32 = trunc i8 %31 to i1
-  %33 = getelementptr inbounds i8, ptr %12, i64 9
+  %33 = getelementptr inbounds nuw i8, ptr %12, i64 9
   %34 = load i8, ptr %33, align 1
   %35 = tail call i64 @array_get_slice(i64 noundef %15, i32 noundef %17, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef %21, ptr noundef %23, i32 noundef %26, i32 noundef %29, i1 noundef zeroext %32, i8 noundef signext %34) #6
   br label %36
@@ -569,37 +569,37 @@ define internal void @array_subscript_fetch_old_slice(ptr nocapture readnone %0,
 36:                                               ; preds = %3, %10
   %.sink17 = phi i64 [ %35, %10 ], [ 0, %3 ]
   %.sink = phi i8 [ 0, %10 ], [ 1, %3 ]
-  %37 = getelementptr inbounds i8, ptr %5, i64 96
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 96
   store i64 %.sink17, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %5, i64 104
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 104
   store i8 %.sink, ptr %38, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @array_subscript_fetch(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #1 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 12
-  %14 = getelementptr inbounds i8, ptr %7, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %15 = load i16, ptr %14, align 4
   %16 = sext i16 %15 to i32
-  %17 = getelementptr inbounds i8, ptr %7, i64 6
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 6
   %18 = load i16, ptr %17, align 2
   %19 = sext i16 %18 to i32
-  %20 = getelementptr inbounds i8, ptr %7, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %21 = load i8, ptr %20, align 4
   %22 = trunc i8 %21 to i1
-  %23 = getelementptr inbounds i8, ptr %7, i64 9
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 9
   %24 = load i8, ptr %23, align 1
-  %25 = getelementptr inbounds i8, ptr %1, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %26 = load ptr, ptr %25, align 8
   %27 = tail call i64 @array_get_element(i64 noundef %10, i32 noundef %12, ptr noundef nonnull %13, i32 noundef %16, i32 noundef %19, i1 noundef zeroext %22, i8 noundef signext %24, ptr noundef %26) #6
   %28 = load ptr, ptr %8, align 8
@@ -609,17 +609,17 @@ define internal void @array_subscript_fetch(ptr nocapture readnone %0, ptr nocap
 
 ; Function Attrs: nounwind uwtable
 define internal void @array_subscript_assign(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #1 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %12 = load i16, ptr %11, align 4
   %13 = icmp sgt i16 %12, 0
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = load i8, ptr %15, align 1
   br i1 %13, label %17, label %._crit_edge
@@ -629,7 +629,7 @@ define internal void @array_subscript_assign(ptr nocapture readnone %0, ptr noca
   br i1 %18, label %51, label %19
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %5, i64 88
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %21 = load i8, ptr %20, align 8
   %22 = trunc i8 %21 to i1
   br i1 %22, label %51, label %._crit_edge
@@ -639,7 +639,7 @@ define internal void @array_subscript_assign(ptr nocapture readnone %0, ptr noca
   br i1 %23, label %24, label %30
 
 24:                                               ; preds = %._crit_edge
-  %25 = getelementptr inbounds i8, ptr %1, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %26 = load i32, ptr %7, align 4
   %27 = tail call ptr @construct_empty_array(i32 noundef %26) #6
   %28 = ptrtoint ptr %27 to i64
@@ -651,22 +651,22 @@ define internal void @array_subscript_assign(ptr nocapture readnone %0, ptr noca
 30:                                               ; preds = %24, %._crit_edge
   %31 = phi i16 [ %.pre19, %24 ], [ %12, %._crit_edge ]
   %.0 = phi i64 [ %28, %24 ], [ %10, %._crit_edge ]
-  %32 = getelementptr inbounds i8, ptr %5, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %33 = load i32, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %7, i64 12
-  %35 = getelementptr inbounds i8, ptr %5, i64 80
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %36 = load i64, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %5, i64 88
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %38 = load i8, ptr %37, align 8
   %39 = trunc i8 %38 to i1
   %40 = sext i16 %31 to i32
-  %41 = getelementptr inbounds i8, ptr %7, i64 6
+  %41 = getelementptr inbounds nuw i8, ptr %7, i64 6
   %42 = load i16, ptr %41, align 2
   %43 = sext i16 %42 to i32
-  %44 = getelementptr inbounds i8, ptr %7, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %45 = load i8, ptr %44, align 4
   %46 = trunc i8 %45 to i1
-  %47 = getelementptr inbounds i8, ptr %7, i64 9
+  %47 = getelementptr inbounds nuw i8, ptr %7, i64 9
   %48 = load i8, ptr %47, align 1
   %49 = tail call i64 @array_set_element(i64 noundef %.0, i32 noundef %33, ptr noundef nonnull %34, i64 noundef %36, i1 noundef zeroext %39, i32 noundef %40, i32 noundef %43, i1 noundef zeroext %46, i8 noundef signext %48) #6
   %50 = load ptr, ptr %8, align 8
@@ -679,46 +679,46 @@ define internal void @array_subscript_assign(ptr nocapture readnone %0, ptr noca
 
 ; Function Attrs: nounwind uwtable
 define internal void @array_subscript_fetch_old(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #1 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = load i8, ptr %7, align 1
   %9 = trunc i8 %8 to i1
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %5, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 104
   store i8 1, ptr %11, align 8
   br label %34
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %5, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %19 = load i32, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %14, i64 12
-  %21 = getelementptr inbounds i8, ptr %14, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %22 = load i16, ptr %21, align 4
   %23 = sext i16 %22 to i32
-  %24 = getelementptr inbounds i8, ptr %14, i64 6
+  %24 = getelementptr inbounds nuw i8, ptr %14, i64 6
   %25 = load i16, ptr %24, align 2
   %26 = sext i16 %25 to i32
-  %27 = getelementptr inbounds i8, ptr %14, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %28 = load i8, ptr %27, align 4
   %29 = trunc i8 %28 to i1
-  %30 = getelementptr inbounds i8, ptr %14, i64 9
+  %30 = getelementptr inbounds nuw i8, ptr %14, i64 9
   %31 = load i8, ptr %30, align 1
-  %32 = getelementptr inbounds i8, ptr %5, i64 104
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 104
   %33 = tail call i64 @array_get_element(i64 noundef %17, i32 noundef %19, ptr noundef nonnull %20, i32 noundef %23, i32 noundef %26, i1 noundef zeroext %29, i8 noundef signext %31, ptr noundef nonnull %32) #6
   br label %34
 
 34:                                               ; preds = %12, %10
   %.sink = phi i64 [ 0, %10 ], [ %33, %12 ]
-  %35 = getelementptr inbounds i8, ptr %5, i64 96
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 96
   store i64 %.sink, ptr %35, align 8
   ret void
 }

@@ -49,11 +49,11 @@ define i32 @cli_msxml_parse_document(ptr noundef %0, ptr noundef %1, ptr noundef
   %7 = alloca %struct.msxml_ctx, align 8
   %8 = alloca %struct.msxml_ictx, align 8
   %.not = icmp eq ptr %0, null
-  %.030.sroa.gep31 = getelementptr inbounds i8, ptr %7, i64 32
+  %.030.sroa.gep31 = getelementptr inbounds nuw i8, ptr %7, i64 32
   br i1 %.not, label %.loopexit47, label %9
 
 9:                                                ; preds = %6
-  %.030.sroa.gep = getelementptr inbounds i8, ptr %5, i64 32
+  %.030.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.not36 = icmp eq ptr %5, null
   br i1 %.not36, label %10, label %11
 
@@ -65,20 +65,20 @@ define i32 @cli_msxml_parse_document(ptr noundef %0, ptr noundef %1, ptr noundef
   %.030.sroa.phi = phi ptr [ %.030.sroa.gep, %9 ], [ %.030.sroa.gep31, %10 ]
   %.030 = phi ptr [ %5, %9 ], [ %7, %10 ]
   store ptr %0, ptr %8, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %4, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %2, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 %3, ptr %14, align 8
   %15 = and i32 %4, 1
   %.not37 = icmp eq i32 %15, 0
   br i1 %.not37, label %24, label %16
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %0, i64 160
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %8, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %18, ptr %19, align 8
   %.not38 = icmp eq ptr %18, null
   br i1 %.not38, label %20, label %22
@@ -89,12 +89,12 @@ define i32 @cli_msxml_parse_document(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %22
 
 22:                                               ; preds = %20, %16
-  %23 = getelementptr inbounds i8, ptr %8, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i32 0, ptr %23, align 8
   br label %26
 
 24:                                               ; preds = %11
-  %25 = getelementptr inbounds i8, ptr %8, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr null, ptr %25, align 8
   br label %26
 
@@ -109,8 +109,8 @@ define i32 @cli_msxml_parse_document(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %29
 
 29:                                               ; preds = %28, %26
-  %30 = getelementptr inbounds i8, ptr %8, i64 40
-  %31 = getelementptr inbounds i8, ptr %8, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 32
   br label %32
 
 32:                                               ; preds = %41, %29
@@ -223,7 +223,7 @@ define internal void @msxml_error_handler(ptr nocapture readnone %0, ptr noundef
 
 switch.lookup:                                    ; preds = %4
   %8 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.msxml_error_handler, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.msxml_error_handler, i64 0, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %9
 
@@ -249,10 +249,10 @@ define internal fastcc i32 @msxml_parse_element(ptr nocapture noundef nonnull re
   %11 = alloca ptr, align 8
   %12 = alloca i64, align 8
   %13 = alloca i32, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %15, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %18 = load ptr, ptr %17, align 8
   %19 = icmp sgt i32 %2, 19
   br i1 %19, label %20, label %31
@@ -260,7 +260,7 @@ define internal fastcc i32 @msxml_parse_element(ptr nocapture noundef nonnull re
 20:                                               ; preds = %4
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.12) #8
   %21 = load ptr, ptr %14, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i32, ptr %22, align 8
   %24 = and i32 %23, 1
   %.not274 = icmp eq i32 %24, 0
@@ -308,7 +308,7 @@ define internal fastcc i32 @msxml_parse_element(ptr nocapture noundef nonnull re
 38:                                               ; preds = %37
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.16) #8
   %39 = load ptr, ptr %14, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load i32, ptr %40, align 8
   %42 = and i32 %41, 1
   %.not230 = icmp eq i32 %42, 0
@@ -330,13 +330,13 @@ define internal fastcc i32 @msxml_parse_element(ptr nocapture noundef nonnull re
   br i1 %50, label %55, label %.preheader.i
 
 .preheader.i:                                     ; preds = %46
-  %51 = getelementptr inbounds i8, ptr %47, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %52 = load i64, ptr %51, align 8
   %.not19.i = icmp eq i64 %52, 0
   br i1 %.not19.i, label %msxml_check_key.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %53 = getelementptr inbounds i8, ptr %47, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %54 = load ptr, ptr %53, align 8
   br label %56
 
@@ -347,7 +347,7 @@ define internal fastcc i32 @msxml_parse_element(ptr nocapture noundef nonnull re
 56:                                               ; preds = %64, %.lr.ph.i
   %57 = phi i64 [ 0, %.lr.ph.i ], [ %66, %64 ]
   %.016.i = phi i32 [ 0, %.lr.ph.i ], [ %65, %64 ]
-  %58 = getelementptr inbounds %struct.key_entry, ptr %54, i64 %57
+  %58 = getelementptr inbounds nuw %struct.key_entry, ptr %54, i64 %57
   %59 = load ptr, ptr %58, align 8
   %60 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %59) #9
   %61 = icmp eq i64 %60, %49
@@ -366,7 +366,7 @@ define internal fastcc i32 @msxml_parse_element(ptr nocapture noundef nonnull re
 
 msxml_check_key.exit:                             ; preds = %62, %64, %.preheader.i, %55
   %.013.i = phi ptr [ @blank_key, %55 ], [ @blank_key, %.preheader.i ], [ @blank_key, %64 ], [ %58, %62 ]
-  %68 = getelementptr inbounds i8, ptr %.013.i, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %.013.i, i64 16
   %69 = load i32, ptr %68, align 8
   %70 = and i32 %69, 1
   %.not232 = icmp eq i32 %70, 0
@@ -389,7 +389,7 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
 
 75:                                               ; preds = %msxml_check_key.exit
   %76 = load ptr, ptr %14, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %78 = load i32, ptr %77, align 8
   %79 = and i32 %78, 1
   %.not233 = icmp eq i32 %79, 0
@@ -410,7 +410,7 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
 
 85:                                               ; preds = %83, %81
   %.sink = phi ptr [ %18, %81 ], [ %3, %83 ]
-  %86 = getelementptr inbounds i8, ptr %.013.i, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %.013.i, i64 8
   %87 = load ptr, ptr %86, align 8
   %88 = tail call ptr @cli_jsonobj(ptr noundef %.sink, ptr noundef %87) #8
   %.not237 = icmp eq ptr %88, null
@@ -519,7 +519,7 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
   %129 = call ptr @xmlTextReaderConstLocalName(ptr noundef %1) #8
   store ptr %129, ptr %5, align 16
   %130 = call ptr @xmlTextReaderConstValue(ptr noundef %1) #8
-  %131 = getelementptr inbounds i8, ptr %5, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %130, ptr %131, align 8
   br label %.preheader278.preheader
 
@@ -542,10 +542,10 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
 
 135:                                              ; preds = %.preheader278
   %136 = call ptr @xmlTextReaderConstLocalName(ptr noundef %1) #8
-  %137 = getelementptr inbounds [20 x %struct.attrib_entry], ptr %5, i64 0, i64 %indvars.iv
+  %137 = getelementptr inbounds nuw [20 x %struct.attrib_entry], ptr %5, i64 0, i64 %indvars.iv
   store ptr %136, ptr %137, align 16
   %138 = call ptr @xmlTextReaderConstValue(ptr noundef %1) #8
-  %139 = getelementptr inbounds i8, ptr %137, i64 8
+  %139 = getelementptr inbounds nuw i8, ptr %137, i64 8
   store ptr %138, ptr %139, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 20
@@ -591,12 +591,12 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
   ]
 
 .preheader:                                       ; preds = %149
-  %151 = getelementptr inbounds i8, ptr %0, i64 16
-  %152 = getelementptr inbounds i8, ptr %0, i64 24
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.not255 = icmp eq ptr %.0194, null
-  %153 = getelementptr inbounds i8, ptr %16, i64 16
-  %154 = getelementptr inbounds i8, ptr %0, i64 8
-  %155 = getelementptr inbounds i8, ptr %16, i64 48
+  %153 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %155 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %156 = add nsw i32 %2, 1
   %157 = select i1 %.not255, ptr %3, ptr %.0194
   br label %160
@@ -611,14 +611,14 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
 
 160:                                              ; preds = %.backedge, %.preheader
   %161 = load ptr, ptr %14, align 8
-  %162 = getelementptr inbounds i8, ptr %161, i64 8
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 8
   %163 = load i32, ptr %162, align 8
   %164 = and i32 %163, 1
   %.not248 = icmp eq i32 %164, 0
   br i1 %.not248, label %168, label %165
 
 165:                                              ; preds = %160
-  %166 = getelementptr inbounds i8, ptr %161, i64 40
+  %166 = getelementptr inbounds nuw i8, ptr %161, i64 40
   %167 = call i32 @cli_json_timeout_cycle_check(ptr noundef %16, ptr noundef nonnull %166) #8
   %.not249 = icmp eq i32 %167, 0
   br i1 %.not249, label %168, label %.thread
@@ -690,7 +690,7 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
   %192 = load i32, ptr %9, align 4
   %193 = call i32 @close(i32 noundef %192) #8
   %194 = load ptr, ptr %155, align 8
-  %195 = getelementptr inbounds i8, ptr %194, i64 40
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 40
   %196 = load i32, ptr %195, align 8
   %.not271 = icmp eq i32 %196, 0
   br i1 %.not271, label %197, label %200
@@ -716,7 +716,7 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
   %209 = load i32, ptr %9, align 4
   %210 = call i32 @close(i32 noundef %209) #8
   %211 = load ptr, ptr %155, align 8
-  %212 = getelementptr inbounds i8, ptr %211, i64 40
+  %212 = getelementptr inbounds nuw i8, ptr %211, i64 40
   %213 = load i32, ptr %212, align 8
   %.not262 = icmp eq i32 %213, 0
   br i1 %.not262, label %214, label %217
@@ -790,7 +790,7 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
   %240 = load i32, ptr %13, align 4
   %241 = call i32 @close(i32 noundef %240) #8
   %242 = load ptr, ptr %155, align 8
-  %243 = getelementptr inbounds i8, ptr %242, i64 40
+  %243 = getelementptr inbounds nuw i8, ptr %242, i64 40
   %244 = load i32, ptr %243, align 8
   %.not270 = icmp eq i32 %244, 0
   br i1 %.not270, label %245, label %248
@@ -814,7 +814,7 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
   %255 = load i32, ptr %13, align 4
   %256 = call i32 @close(i32 noundef %255) #8
   %257 = load ptr, ptr %155, align 8
-  %258 = getelementptr inbounds i8, ptr %257, i64 40
+  %258 = getelementptr inbounds nuw i8, ptr %257, i64 40
   %259 = load i32, ptr %258, align 8
   %.not268 = icmp eq i32 %259, 0
   br i1 %.not268, label %260, label %263

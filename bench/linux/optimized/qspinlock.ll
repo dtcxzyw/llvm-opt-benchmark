@@ -99,7 +99,7 @@ define dso_local void @queued_spin_lock_slowpath(ptr noundef %0, i32 noundef %1)
   br i1 %31, label %32, label %42
 
 32:                                               ; preds = %30
-  %33 = getelementptr inbounds i8, ptr %0, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store volatile i8 0, ptr %33, align 1
   br label %42
 
@@ -129,7 +129,7 @@ define dso_local void @queued_spin_lock_slowpath(ptr noundef %0, i32 noundef %1)
 42:                                               ; preds = %32, %30, %.loopexit29
   %43 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @qnodes) #6, !srcloc !18
   %44 = inttoptr i64 %43 to ptr
-  %45 = getelementptr inbounds i8, ptr %44, i64 12
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 12
   %46 = load i32, ptr %45, align 4
   %47 = add i32 %46, 1
   store i32 %47, ptr %45, align 4
@@ -158,7 +158,7 @@ define dso_local void @queued_spin_lock_slowpath(ptr noundef %0, i32 noundef %1)
   br i1 %61, label %66, label %62
 
 62:                                               ; preds = %59
-  %63 = getelementptr inbounds i8, ptr %60, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %64 = load ptr, ptr %63, align 8
   %65 = tail call i32 @__SCT__tp_func_contention_begin(ptr noundef %64, ptr noundef %0, i32 noundef 1) #5
   br label %66
@@ -202,7 +202,7 @@ define dso_local void @queued_spin_lock_slowpath(ptr noundef %0, i32 noundef %1)
   %83 = sext i32 %46 to i64
   %84 = getelementptr %struct.qnode, ptr %44, i64 %83
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !30
-  %85 = getelementptr inbounds i8, ptr %84, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
   store i32 0, ptr %85, align 8
   store ptr null, ptr %84, align 8
   %86 = load volatile i32, ptr %0, align 4
@@ -219,10 +219,10 @@ define dso_local void @queued_spin_lock_slowpath(ptr noundef %0, i32 noundef %1)
 
 93:                                               ; preds = %88, %82
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !31
-  %94 = getelementptr inbounds i8, ptr %0, i64 2
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %95 = lshr exact i32 %52, 16
   %96 = trunc nuw i32 %95 to i16
-  %97 = tail call i16 asm sideeffect "xchgw ${0:w}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i16) %94, i16 %96, ptr elementtype(i16) %94) #5, !srcloc !32
+  %97 = tail call i16 asm sideeffect "xchgw ${0:w}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i16) %94, i16 %96, ptr nonnull elementtype(i16) %94) #5, !srcloc !32
   %98 = icmp eq i16 %97, 0
   br i1 %98, label %119, label %99
 
@@ -307,7 +307,7 @@ define dso_local void @queued_spin_lock_slowpath(ptr noundef %0, i32 noundef %1)
 .loopexit23:                                      ; preds = %.preheader22, %136, %134
   %141 = phi ptr [ %120, %134 ], [ %137, %136 ], [ %139, %.preheader22 ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !39
-  %142 = getelementptr inbounds i8, ptr %141, i64 8
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 8
   store volatile i32 1, ptr %142, align 8
   br label %.loopexit21
 
@@ -332,7 +332,7 @@ define dso_local void @queued_spin_lock_slowpath(ptr noundef %0, i32 noundef %1)
   br i1 %151, label %156, label %152
 
 152:                                              ; preds = %149
-  %153 = getelementptr inbounds i8, ptr %150, i64 8
+  %153 = getelementptr inbounds nuw i8, ptr %150, i64 8
   %154 = load ptr, ptr %153, align 8
   %155 = tail call i32 @__SCT__tp_func_contention_end(ptr noundef %154, ptr noundef %0, i32 noundef 0) #5
   br label %156

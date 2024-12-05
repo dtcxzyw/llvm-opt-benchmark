@@ -112,11 +112,11 @@ define internal i32 @dmi_id_init() #0 section ".init.text" align 16 {
   br i1 %9, label %19, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %8, i64 672
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 672
   store ptr @dmi_class, ptr %11, align 8
   %12 = tail call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef nonnull %8, ptr noundef nonnull @.str) #7
   %13 = load ptr, ptr @dmi_dev, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 680
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 680
   store ptr @sys_dmi_attribute_groups, ptr %14, align 8
   %15 = tail call i32 @device_register(ptr noundef %13) #7
   %16 = icmp eq i32 %15, 0
@@ -448,7 +448,7 @@ declare dso_local ptr @dmi_get_system_info(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @sys_dmi_field_show(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2) #2 align 16 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load i32, ptr %4, align 8
   %6 = tail call ptr @dmi_get_system_info(i32 noundef %5) #7
   %7 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %2, i64 noundef 4096, ptr noundef nonnull @.str.2, ptr noundef %6) #7
@@ -499,7 +499,7 @@ define internal fastcc noundef i64 @get_modalias(ptr noundef initializes((0, 4))
   %15 = phi ptr [ %8, %7 ], [ @get_modalias.fields, %5 ]
   %16 = phi ptr [ %.ph8, %7 ], [ %3, %5 ]
   %17 = phi i64 [ %.ph, %7 ], [ %6, %5 ]
-  %18 = getelementptr inbounds i8, ptr %15, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %19 = load i32, ptr %18, align 8
   %20 = tail call ptr @dmi_get_system_info(i32 noundef %19) #7
   %21 = icmp eq ptr %20, null
@@ -580,8 +580,8 @@ define internal noundef range(i32 -12, 1) i32 @dmi_dev_uevent(ptr nocapture read
   br i1 %4, label %5, label %22
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 540
-  %7 = getelementptr inbounds i8, ptr %1, i64 2588
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 540
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 2588
   %8 = load i32, ptr %7, align 4
   %9 = add i32 %8, -1
   %10 = sext i32 %9 to i64

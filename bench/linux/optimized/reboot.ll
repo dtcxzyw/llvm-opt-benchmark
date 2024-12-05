@@ -112,8 +112,8 @@ define dso_local void @machine_real_restart(i32 noundef %0) #0 align 16 {
   tail call void @_raw_spin_unlock(ptr noundef nonnull @rtc_lock) #7
   tail call void @load_trampoline_pgtable() #7
   %2 = load ptr, ptr @real_mode_header, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 32
-  tail call void asm sideeffect "ljmpl *$0", "*m,{di},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %3, i32 %0) #7, !srcloc !6
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  tail call void asm sideeffect "ljmpl *$0", "*m,{di},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %3, i32 %0) #7, !srcloc !6
   tail call void asm sideeffect "525:\0A\09.pushsection .discard.unreachable\0A\09.long 525b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 525) #7, !srcloc !7
   unreachable
 }
@@ -597,7 +597,7 @@ define internal noundef i32 @set_kbd_reboot(ptr nocapture noundef readonly %0) #
 
 4:                                                ; preds = %1
   store i32 107, ptr @reboot_type, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.39, ptr noundef %6, ptr noundef nonnull @.str.40) #8
   br label %8
@@ -618,7 +618,7 @@ define internal noundef i32 @set_efi_reboot(ptr nocapture noundef readonly %0) #
 
 6:                                                ; preds = %4
   store i32 101, ptr @reboot_type, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.41, ptr noundef %8) #8
   br label %10
@@ -635,7 +635,7 @@ define internal noundef i32 @set_pci_reboot(ptr nocapture noundef readonly %0) #
 
 4:                                                ; preds = %1
   store i32 112, ptr @reboot_type, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.42, ptr noundef %6, ptr noundef nonnull @.str.43) #8
   br label %8
@@ -652,7 +652,7 @@ define internal noundef i32 @set_bios_reboot(ptr nocapture noundef readonly %0) 
 
 4:                                                ; preds = %1
   store i32 98, ptr @reboot_type, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.42, ptr noundef %6, ptr noundef nonnull @.str.44) #8
   br label %8
@@ -669,7 +669,7 @@ define internal noundef i32 @set_acpi_reboot(ptr nocapture noundef readonly %0) 
 
 4:                                                ; preds = %1
   store i32 97, ptr @reboot_type, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.42, ptr noundef %6, ptr noundef nonnull @.str.45) #8
   br label %8

@@ -46,9 +46,9 @@ define void @Cudd_ApaCopy(i32 noundef %0, ptr nocapture noundef readonly %1, ptr
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %5 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   store i32 %6, ptr %7, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -70,12 +70,12 @@ define noundef i32 @Cudd_ApaAdd(i32 noundef %0, ptr nocapture noundef readonly %
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %6, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %7 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.next
+  %7 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.next
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.next
+  %9 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.next
   %10 = load i32, ptr %9, align 4
   %11 = add i32 %10, %8
-  %12 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.next
+  %12 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.next
   store i32 %11, ptr %12, align 4
   %13 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !6
@@ -99,16 +99,16 @@ define range(i32 -1, 1) i32 @Cudd_ApaSubtract(i32 noundef %0, ptr nocapture noun
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %7 = lshr i64 %.013, 32
   %8 = add nuw nsw i64 %7, 4294967295
-  %9 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.next
+  %9 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.next
   %10 = load i32, ptr %9, align 4
   %11 = zext i32 %10 to i64
   %12 = add nuw nsw i64 %8, %11
-  %13 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.next
+  %13 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.next
   %14 = load i32, ptr %13, align 4
   %15 = zext i32 %14 to i64
   %16 = sub nuw nsw i64 %12, %15
   %17 = trunc i64 %16 to i32
-  %18 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.next
+  %18 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.next
   store i32 %17, ptr %18, align 4
   %19 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %19, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !7
@@ -138,13 +138,13 @@ define range(i32 0, -1) i32 @Cudd_ApaShortDivision(i32 noundef %0, ptr nocapture
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
   %.01213 = phi i64 [ 0, %.lr.ph ], [ %16, %7 ]
   %8 = shl nuw i64 %.01213, 32
-  %9 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
   %11 = zext i32 %10 to i64
   %12 = or disjoint i64 %8, %11
   %13 = udiv i64 %12, %6
   %14 = trunc i64 %13 to i32
-  %15 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   store i32 %14, ptr %15, align 4
   %16 = urem i64 %12, %6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -174,13 +174,13 @@ define i32 @Cudd_ApaIntDivision(i32 noundef %0, ptr nocapture noundef readonly %
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.01516 = phi i32 [ 0, %.lr.ph.preheader ], [ %18, %.lr.ph ]
   %7 = uitofp i32 %.01516 to double
-  %8 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4
   %10 = uitofp i32 %9 to double
   %11 = tail call double @llvm.fmuladd.f64(double %7, double 0x41F0000000000000, double %10)
   %12 = fdiv double %11, %5
   %13 = fptoui double %12 to i32
-  %14 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   store i32 %13, ptr %14, align 4
   %15 = uitofp i32 %13 to double
   %16 = fneg double %15
@@ -211,12 +211,12 @@ define void @Cudd_ApaShiftRight(i32 noundef %0, i32 noundef %1, ptr nocapture no
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %6, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %7 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.next
+  %7 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.next
   %8 = load i32, ptr %7, align 4
   %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
   %9 = load i32, ptr %gep, align 4
   %10 = tail call i32 @llvm.fshl.i32(i32 %9, i32 %8, i32 31)
-  %11 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.next
+  %11 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.next
   store i32 %10, ptr %11, align 4
   %12 = icmp samesign ugt i64 %indvars.iv, 2
   br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !10
@@ -269,7 +269,7 @@ define void @Cudd_ApaPowerOfTwo(i32 noundef %0, ptr nocapture noundef writeonly 
   %11 = and i32 %2, 31
   %12 = shl nuw i32 1, %11
   %13 = zext nneg i32 %8 to i64
-  %14 = getelementptr inbounds i32, ptr %1, i64 %13
+  %14 = getelementptr inbounds nuw i32, ptr %1, i64 %13
   store i32 %12, ptr %14, align 4
   br label %15
 
@@ -288,7 +288,7 @@ define range(i32 -1, 2) i32 @Cudd_ApaCompare(i32 noundef %0, ptr nocapture nound
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %8 ]
-  %6 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %._crit_edge.loopexit.split.loop.exit
@@ -313,7 +313,7 @@ define range(i32 -1, 2) i32 @Cudd_ApaCompare(i32 noundef %0, ptr nocapture nound
 
 .lr.ph47:                                         ; preds = %.lr.ph47.preheader, %13
   %indvars.iv60 = phi i64 [ 0, %.lr.ph47.preheader ], [ %indvars.iv.next61, %13 ]
-  %11 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv60
+  %11 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv60
   %12 = load i32, ptr %11, align 4
   %.not41 = icmp eq i32 %12, 0
   br i1 %.not41, label %13, label %._crit_edge48.loopexit.split.loop.exit
@@ -346,8 +346,8 @@ define range(i32 -1, 2) i32 @Cudd_ApaCompare(i32 noundef %0, ptr nocapture nound
   %21 = zext i32 %.034.lcssa to i64
   %22 = zext i32 %.0.lcssa to i64
   %wide.trip.count68 = zext nneg i32 %15 to i64
-  %invariant.gep = getelementptr inbounds i32, ptr %1, i64 %21
-  %invariant.gep74 = getelementptr inbounds i32, ptr %3, i64 %22
+  %invariant.gep = getelementptr inbounds nuw i32, ptr %1, i64 %21
+  %invariant.gep74 = getelementptr inbounds nuw i32, ptr %3, i64 %22
   br label %.lr.ph53
 
 23:                                               ; preds = %27
@@ -357,9 +357,9 @@ define range(i32 -1, 2) i32 @Cudd_ApaCompare(i32 noundef %0, ptr nocapture nound
 
 .lr.ph53:                                         ; preds = %.lr.ph53.preheader, %23
   %indvars.iv65 = phi i64 [ 0, %.lr.ph53.preheader ], [ %indvars.iv.next66, %23 ]
-  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv65
+  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv65
   %24 = load i32, ptr %gep, align 4
-  %gep75 = getelementptr inbounds i32, ptr %invariant.gep74, i64 %indvars.iv65
+  %gep75 = getelementptr inbounds nuw i32, ptr %invariant.gep74, i64 %indvars.iv65
   %25 = load i32, ptr %gep75, align 4
   %26 = icmp ugt i32 %24, %25
   br i1 %26, label %.loopexit, label %27
@@ -390,13 +390,13 @@ define range(i32 -1, 2) i32 @Cudd_ApaCompareRatios(i32 noundef %0, ptr nocapture
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.01516.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %23, %.lr.ph.i ]
   %12 = uitofp i32 %.01516.i to double
-  %13 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
   %14 = load i32, ptr %13, align 4
   %15 = uitofp i32 %14 to double
   %16 = tail call double @llvm.fmuladd.f64(double %12, double 0x41F0000000000000, double %15)
   %17 = fdiv double %16, %10
   %18 = fptoui double %17 to i32
-  %19 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.i
   store i32 %18, ptr %19, align 4
   %20 = uitofp i32 %18 to double
   %21 = fneg double %20
@@ -427,13 +427,13 @@ Cudd_ApaIntDivision.exit:                         ; preds = %Cudd_ApaIntDivision
   %indvars.iv.i37 = phi i64 [ 0, %.lr.ph.preheader.i34 ], [ %indvars.iv.next.i39, %.lr.ph.i36 ]
   %.01516.i38 = phi i32 [ 0, %.lr.ph.preheader.i34 ], [ %41, %.lr.ph.i36 ]
   %30 = uitofp i32 %.01516.i38 to double
-  %31 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i37
+  %31 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i37
   %32 = load i32, ptr %31, align 4
   %33 = uitofp i32 %32 to double
   %34 = tail call double @llvm.fmuladd.f64(double %30, double 0x41F0000000000000, double %33)
   %35 = fdiv double %34, %28
   %36 = fptoui double %35 to i32
-  %37 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv.i37
+  %37 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv.i37
   store i32 %36, ptr %37, align 4
   %38 = uitofp i32 %36 to double
   %39 = fneg double %38
@@ -457,7 +457,7 @@ Cudd_ApaIntDivision.exit41:                       ; preds = %Cudd_ApaIntDivision
 
 .lr.ph.i44:                                       ; preds = %45, %.lr.ph.preheader.i42
   %indvars.iv.i45 = phi i64 [ 0, %.lr.ph.preheader.i42 ], [ %indvars.iv.next.i46, %45 ]
-  %43 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv.i45
+  %43 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.i45
   %44 = load i32, ptr %43, align 4
   %.not.i = icmp eq i32 %44, 0
   br i1 %.not.i, label %45, label %._crit_edge.loopexit.split.loop.exit.i
@@ -481,7 +481,7 @@ Cudd_ApaIntDivision.exit41:                       ; preds = %Cudd_ApaIntDivision
 
 .lr.ph47.i:                                       ; preds = %49, %.lr.ph47.preheader.i
   %indvars.iv60.i = phi i64 [ 0, %.lr.ph47.preheader.i ], [ %indvars.iv.next61.i, %49 ]
-  %47 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv60.i
+  %47 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv60.i
   %48 = load i32, ptr %47, align 4
   %.not41.i = icmp eq i32 %48, 0
   br i1 %.not41.i, label %49, label %._crit_edge48.loopexit.split.loop.exit.i
@@ -514,8 +514,8 @@ Cudd_ApaIntDivision.exit41:                       ; preds = %Cudd_ApaIntDivision
   %57 = zext i32 %.034.lcssa.i to i64
   %58 = zext i32 %.0.lcssa.i to i64
   %wide.trip.count68.i = zext nneg i32 %51 to i64
-  %invariant.gep.i = getelementptr inbounds i32, ptr %9, i64 %57
-  %invariant.gep74.i = getelementptr inbounds i32, ptr %27, i64 %58
+  %invariant.gep.i = getelementptr inbounds nuw i32, ptr %9, i64 %57
+  %invariant.gep74.i = getelementptr inbounds nuw i32, ptr %27, i64 %58
   br label %.lr.ph53.i
 
 59:                                               ; preds = %63
@@ -525,9 +525,9 @@ Cudd_ApaIntDivision.exit41:                       ; preds = %Cudd_ApaIntDivision
 
 .lr.ph53.i:                                       ; preds = %59, %.lr.ph53.preheader.i
   %indvars.iv65.i = phi i64 [ 0, %.lr.ph53.preheader.i ], [ %indvars.iv.next66.i, %59 ]
-  %gep.i = getelementptr inbounds i32, ptr %invariant.gep.i, i64 %indvars.iv65.i
+  %gep.i = getelementptr inbounds nuw i32, ptr %invariant.gep.i, i64 %indvars.iv65.i
   %60 = load i32, ptr %gep.i, align 4
-  %gep75.i = getelementptr inbounds i32, ptr %invariant.gep74.i, i64 %indvars.iv65.i
+  %gep75.i = getelementptr inbounds nuw i32, ptr %invariant.gep74.i, i64 %indvars.iv65.i
   %61 = load i32, ptr %gep75.i, align 4
   %62 = icmp ugt i32 %60, %61
   br i1 %62, label %Cudd_ApaCompare.exit.thread, label %63
@@ -596,7 +596,7 @@ define range(i32 0, 2) i32 @Cudd_ApaPrintHex(ptr nocapture noundef %0, i32 nound
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4
   %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef %7) #18
   %9 = icmp eq i32 %8, -1
@@ -661,7 +661,7 @@ Cudd_ApaCopy.exit.thread:                         ; preds = %16
   %indvars.iv.i46.us = phi i64 [ 0, %.lr.ph.i44.us ], [ %indvars.iv.next.i47.us, %23 ]
   %.01213.i.us = phi i64 [ 0, %.lr.ph.i44.us ], [ %31, %23 ]
   %24 = shl nuw nsw i64 %.01213.i.us, 32
-  %25 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv.i46.us
+  %25 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.i46.us
   %26 = load i32, ptr %25, align 4
   %27 = zext i32 %26 to i64
   %28 = or disjoint i64 %24, %27
@@ -675,7 +675,7 @@ Cudd_ApaCopy.exit.thread:                         ; preds = %16
 
 ._crit_edge.loopexit.i.us:                        ; preds = %23
   %32 = trunc nuw nsw i64 %31 to i8
-  %33 = getelementptr inbounds i8, ptr %14, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw i8, ptr %14, i64 %indvars.iv
   store i8 %32, ptr %33, align 1
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %34 = icmp sgt i64 %indvars.iv, 0
@@ -695,7 +695,7 @@ Cudd_ApaCopy.exit.thread:                         ; preds = %16
   %indvars.iv62 = phi i64 [ 0, %.lr.ph57.preheader ], [ %indvars.iv.next63, %44 ]
   %.03855 = phi i32 [ 1, %.lr.ph57.preheader ], [ %45, %44 ]
   %.not42 = icmp eq i32 %.03855, 0
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %14, i64 %indvars.iv62
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %14, i64 %indvars.iv62
   %.pre = load i8, ptr %.phi.trans.insert, align 1
   br i1 %.not42, label %.thread, label %36
 
@@ -786,7 +786,7 @@ Cudd_ApaShortDivision.exit.thread.preheader:      ; preds = %Cudd_ApaCopy.exit.t
   %indvars.iv.i56.us = phi i64 [ 0, %.lr.ph.i54.us ], [ %indvars.iv.next.i57.us, %25 ]
   %.01213.i.us = phi i64 [ 0, %.lr.ph.i54.us ], [ %33, %25 ]
   %26 = shl nuw nsw i64 %.01213.i.us, 32
-  %27 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv.i56.us
+  %27 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.i56.us
   %28 = load i32, ptr %27, align 4
   %29 = zext i32 %28 to i64
   %30 = or disjoint i64 %26, %29
@@ -801,7 +801,7 @@ Cudd_ApaShortDivision.exit.thread.preheader:      ; preds = %Cudd_ApaCopy.exit.t
 
 Cudd_ApaShortDivision.exit.us:                    ; preds = %25
   %34 = trunc nuw nsw i64 %33 to i8
-  %35 = getelementptr inbounds i8, ptr %15, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw i8, ptr %15, i64 %indvars.iv
   store i8 %34, ptr %35, align 1
   %.not.us = icmp eq i64 %33, 0
   %36 = trunc nuw nsw i64 %indvars.iv to i32
@@ -860,10 +860,10 @@ Cudd_ApaShortDivision.exit.us:                    ; preds = %25
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @Cudd_ApaCountMinterm(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef initializes((0, 4)) %3) local_unnamed_addr #11 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr @background, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = xor i64 %9, 1
@@ -903,7 +903,7 @@ define noalias noundef ptr @Cudd_ApaCountMinterm(ptr nocapture noundef readonly 
   %28 = and i32 %2, 31
   %29 = shl nuw i32 1, %28
   %30 = zext nneg i32 %25 to i64
-  %31 = getelementptr inbounds i32, ptr %18, i64 %30
+  %31 = getelementptr inbounds nuw i32, ptr %18, i64 %30
   store i32 %29, ptr %31, align 4
   br label %Cudd_ApaPowerOfTwo.exit
 
@@ -968,7 +968,7 @@ Cudd_ApaSetToLiteral.exit:                        ; preds = %35, %.lr.ph.prehead
   tail call void @free(ptr noundef nonnull %32) #18
   %60 = tail call i32 @st__foreach(ptr noundef nonnull %41, ptr noundef nonnull @cuddApaStCountfree, ptr noundef null) #18
   tail call void @st__free_table(ptr noundef nonnull %41) #18
-  %61 = getelementptr inbounds i8, ptr %47, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %47, i64 4
   %62 = load i32, ptr %61, align 4
   %63 = icmp eq i32 %62, 1
   br i1 %63, label %64, label %90
@@ -996,16 +996,16 @@ Cudd_ApaSetToLiteral.exit:                        ; preds = %35, %.lr.ph.prehead
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %70 = lshr i64 %.013.i, 32
   %71 = add nuw nsw i64 %70, 4294967295
-  %72 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv.next.i
+  %72 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv.next.i
   %73 = load i32, ptr %72, align 4
   %74 = zext i32 %73 to i64
   %75 = add nuw nsw i64 %71, %74
-  %76 = getelementptr inbounds i32, ptr %49, i64 %indvars.iv.next.i
+  %76 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv.next.i
   %77 = load i32, ptr %76, align 4
   %78 = zext i32 %77 to i64
   %79 = sub nuw nsw i64 %75, %78
   %80 = trunc i64 %79 to i32
-  %81 = getelementptr inbounds i32, ptr %57, i64 %indvars.iv.next.i
+  %81 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv.next.i
   store i32 %80, ptr %81, align 4
   %82 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %82, label %.lr.ph.i, label %Cudd_ApaSubtract.exit, !llvm.loop !7
@@ -1024,7 +1024,7 @@ Cudd_ApaSubtract.exit:                            ; preds = %.lr.ph.i, %.lr.ph.p
   tail call void @free(ptr noundef %32) #18
   %85 = tail call i32 @st__foreach(ptr noundef nonnull %41, ptr noundef nonnull @cuddApaStCountfree, ptr noundef null) #18
   tail call void @st__free_table(ptr noundef nonnull %41) #18
-  %86 = getelementptr inbounds i8, ptr %47, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %47, i64 4
   %87 = load i32, ptr %86, align 4
   %88 = icmp eq i32 %87, 1
   br i1 %88, label %89, label %90
@@ -1061,7 +1061,7 @@ define internal fastcc ptr @cuddApaCountMintermAux(ptr noundef %0, i32 noundef %
   br label %114
 
 14:                                               ; preds = %5
-  %15 = getelementptr inbounds i8, ptr %0, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = icmp ugt i32 %16, 1
   br i1 %17, label %18, label %22
@@ -1076,9 +1076,9 @@ define internal fastcc ptr @cuddApaCountMintermAux(ptr noundef %0, i32 noundef %
   br label %114
 
 22:                                               ; preds = %18, %14
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = load ptr, ptr %25, align 8
   %27 = call fastcc ptr @cuddApaCountMintermAux(ptr noundef %24, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   %28 = icmp eq ptr %27, null
@@ -1093,7 +1093,7 @@ define internal fastcc ptr @cuddApaCountMintermAux(ptr noundef %0, i32 noundef %
   br i1 %34, label %35, label %40
 
 35:                                               ; preds = %29
-  %36 = getelementptr inbounds i8, ptr %24, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %37 = load i32, ptr %36, align 4
   %38 = icmp eq i32 %37, 1
   br i1 %38, label %39, label %114
@@ -1111,7 +1111,7 @@ define internal fastcc ptr @cuddApaCountMintermAux(ptr noundef %0, i32 noundef %
   br i1 %44, label %45, label %55
 
 45:                                               ; preds = %40
-  %46 = getelementptr inbounds i8, ptr %24, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %47 = load i32, ptr %46, align 4
   %48 = icmp eq i32 %47, 1
   br i1 %48, label %49, label %50
@@ -1121,7 +1121,7 @@ define internal fastcc ptr @cuddApaCountMintermAux(ptr noundef %0, i32 noundef %
   br label %50
 
 50:                                               ; preds = %49, %45
-  %51 = getelementptr inbounds i8, ptr %32, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %52 = load i32, ptr %51, align 4
   %53 = icmp eq i32 %52, 1
   br i1 %53, label %54, label %114
@@ -1149,16 +1149,16 @@ define internal fastcc ptr @cuddApaCountMintermAux(ptr noundef %0, i32 noundef %
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %60 = lshr i64 %.013.i, 32
   %61 = add nuw nsw i64 %60, 4294967295
-  %62 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.next.i
+  %62 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.next.i
   %63 = load i32, ptr %62, align 4
   %64 = zext i32 %63 to i64
   %65 = add nuw nsw i64 %61, %64
-  %66 = getelementptr inbounds i32, ptr %33, i64 %indvars.iv.next.i
+  %66 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv.next.i
   %67 = load i32, ptr %66, align 4
   %68 = zext i32 %67 to i64
   %69 = sub nuw nsw i64 %65, %68
   %70 = trunc i64 %69 to i32
-  %71 = getelementptr inbounds i32, ptr %43, i64 %indvars.iv.next.i
+  %71 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv.next.i
   store i32 %70, ptr %71, align 4
   %72 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %72, label %.lr.ph.i, label %.lr.ph.i71, !llvm.loop !7
@@ -1166,9 +1166,9 @@ define internal fastcc ptr @cuddApaCountMintermAux(ptr noundef %0, i32 noundef %
 .lr.ph.i71:                                       ; preds = %.lr.ph.i, %.lr.ph.i71
   %indvars.iv.i72 = phi i64 [ %indvars.iv.next.i73, %.lr.ph.i71 ], [ %59, %.lr.ph.i ]
   %indvars.iv.next.i73 = add nsw i64 %indvars.iv.i72, -1
-  %73 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv.next.i73
+  %73 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv.next.i73
   %74 = load i32, ptr %73, align 4
-  %75 = getelementptr inbounds i32, ptr %43, i64 %indvars.iv.next.i73
+  %75 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv.next.i73
   %76 = load i32, ptr %75, align 4
   %77 = add i32 %76, %74
   store i32 %77, ptr %75, align 4
@@ -1185,12 +1185,12 @@ define internal fastcc ptr @cuddApaCountMintermAux(ptr noundef %0, i32 noundef %
 .lr.ph.i75:                                       ; preds = %.lr.ph.i75, %.lr.ph.preheader.i74
   %indvars.iv.i76 = phi i64 [ %80, %.lr.ph.preheader.i74 ], [ %indvars.iv.next.i77, %.lr.ph.i75 ]
   %indvars.iv.next.i77 = add nsw i64 %indvars.iv.i76, -1
-  %81 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv.next.i77
+  %81 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv.next.i77
   %82 = load i32, ptr %81, align 4
-  %83 = getelementptr inbounds i32, ptr %33, i64 %indvars.iv.next.i77
+  %83 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv.next.i77
   %84 = load i32, ptr %83, align 4
   %85 = add i32 %84, %82
-  %86 = getelementptr inbounds i32, ptr %43, i64 %indvars.iv.next.i77
+  %86 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv.next.i77
   store i32 %85, ptr %86, align 4
   %87 = icmp samesign ugt i64 %indvars.iv.i76, 1
   br i1 %87, label %.lr.ph.i75, label %Cudd_ApaAdd.exit, !llvm.loop !6
@@ -1207,7 +1207,7 @@ Cudd_ApaAdd.exit:                                 ; preds = %.lr.ph.i71, %.lr.ph
 .lr.ph.i80:                                       ; preds = %.lr.ph.i80, %.lr.ph.preheader.i79
   %indvars.iv.i81 = phi i64 [ %89, %.lr.ph.preheader.i79 ], [ %indvars.iv.next.i82, %.lr.ph.i80 ]
   %indvars.iv.next.i82 = add nsw i64 %indvars.iv.i81, -1
-  %90 = getelementptr inbounds i32, ptr %43, i64 %indvars.iv.next.i82
+  %90 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv.next.i82
   %91 = load i32, ptr %90, align 4
   %gep.i = getelementptr i32, ptr %invariant.gep.i, i64 %indvars.iv.i81
   %92 = load i32, ptr %gep.i, align 4
@@ -1220,7 +1220,7 @@ Cudd_ApaShiftRight.exit:                          ; preds = %.lr.ph.i80, %58, %7
   %95 = load i32, ptr %43, align 4
   %96 = lshr i32 %95, 1
   store i32 %96, ptr %43, align 4
-  %97 = getelementptr inbounds i8, ptr %24, i64 4
+  %97 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %98 = load i32, ptr %97, align 4
   %99 = icmp eq i32 %98, 1
   br i1 %99, label %100, label %101
@@ -1230,7 +1230,7 @@ Cudd_ApaShiftRight.exit:                          ; preds = %.lr.ph.i80, %58, %7
   br label %101
 
 101:                                              ; preds = %100, %Cudd_ApaShiftRight.exit
-  %102 = getelementptr inbounds i8, ptr %32, i64 4
+  %102 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %103 = load i32, ptr %102, align 4
   %104 = icmp eq i32 %103, 1
   br i1 %104, label %105, label %106
@@ -1348,13 +1348,13 @@ define range(i32 0, 2) i32 @Cudd_ApaPrintDensity(ptr nocapture noundef %0, ptr n
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.01516.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %27, %.lr.ph.i ]
   %16 = uitofp i32 %.01516.i to double
-  %17 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i
   %18 = load i32, ptr %17, align 4
   %19 = uitofp i32 %18 to double
   %20 = tail call double @llvm.fmuladd.f64(double %16, double 0x41F0000000000000, double %19)
   %21 = fdiv double %20, %14
   %22 = fptoui double %21 to i32
-  %23 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.i
   store i32 %22, ptr %23, align 4
   %24 = uitofp i32 %22 to double
   %25 = fneg double %24

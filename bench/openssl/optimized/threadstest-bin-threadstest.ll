@@ -818,7 +818,7 @@ for.body.i13:                                     ; preds = %err, %for.body.i13
   %9 = phi ptr [ %10, %for.body.i13 ], [ %8, %err ]
   %p.04.i = phi ptr [ %incdec.ptr.i, %for.body.i13 ], [ @multi_provider, %err ]
   %call.i14 = tail call i32 @OSSL_PROVIDER_unload(ptr noundef nonnull %9) #8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %p.04.i, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %p.04.i, i64 8
   %10 = load ptr, ptr %incdec.ptr.i, align 8
   %cmp.not.i = icmp eq ptr %10, null
   br i1 %cmp.not.i, label %thead_teardown_libctx.exit, label %for.body.i13, !llvm.loop !9
@@ -985,7 +985,7 @@ for.body.i10:                                     ; preds = %err, %for.body.i10
   %6 = phi ptr [ %7, %for.body.i10 ], [ %5, %err ]
   %p.04.i = phi ptr [ %incdec.ptr.i, %for.body.i10 ], [ @multi_provider, %err ]
   %call.i11 = tail call i32 @OSSL_PROVIDER_unload(ptr noundef nonnull %6) #8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %p.04.i, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %p.04.i, i64 8
   %7 = load ptr, ptr %incdec.ptr.i, align 8
   %cmp.not.i = icmp eq ptr %7, null
   br i1 %cmp.not.i, label %thead_teardown_libctx.exit, label %for.body.i10, !llvm.loop !9
@@ -1086,7 +1086,7 @@ for.body.i:                                       ; preds = %if.then15, %for.bod
   %6 = phi ptr [ %7, %for.body.i ], [ %5, %if.then15 ]
   %p.04.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ @multi_provider, %if.then15 ]
   %call.i = tail call i32 @OSSL_PROVIDER_unload(ptr noundef nonnull %6) #8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %p.04.i, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %p.04.i, i64 8
   %7 = load ptr, ptr %incdec.ptr.i, align 8
   %cmp.not.i = icmp eq ptr %7, null
   br i1 %cmp.not.i, label %thead_teardown_libctx.exit, label %for.body.i, !llvm.loop !9
@@ -1539,7 +1539,7 @@ for.body.i27:                                     ; preds = %err, %for.body.i27
   %11 = phi ptr [ %12, %for.body.i27 ], [ %10, %err ]
   %p.04.i = phi ptr [ %incdec.ptr.i, %for.body.i27 ], [ @multi_provider, %err ]
   %call.i28 = tail call i32 @OSSL_PROVIDER_unload(ptr noundef nonnull %11) #8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %p.04.i, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %p.04.i, i64 8
   %12 = load ptr, ptr %incdec.ptr.i, align 8
   %cmp.not.i = icmp eq ptr %12, null
   br i1 %cmp.not.i, label %thead_teardown_libctx.exit, label %for.body.i27, !llvm.loop !9
@@ -1826,7 +1826,7 @@ entry:
   %msg = alloca %struct.bio_msg_st, align 8
   %num_processed = alloca i64, align 8
   store i8 0, ptr %ch, align 1
-  %0 = getelementptr inbounds i8, ptr %msg, i64 16
+  %0 = getelementptr inbounds nuw i8, ptr %msg, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 24, i1 false)
   store i64 0, ptr %num_processed, align 8
   %1 = load ptr, ptr @multi_libctx, align 8
@@ -1837,7 +1837,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   store ptr %scratch, ptr %msg, align 8
-  %data_len = getelementptr inbounds i8, ptr %msg, i64 8
+  %data_len = getelementptr inbounds nuw i8, ptr %msg, i64 8
   store i64 64, ptr %data_len, align 8
   %2 = load i8, ptr %ch, align 1
   %conv = zext i8 %2 to i32

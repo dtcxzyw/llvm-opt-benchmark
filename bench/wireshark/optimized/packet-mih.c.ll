@@ -952,7 +952,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_mih(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.406) #5
   %7 = load ptr, ptr %5, align 8
@@ -1031,10 +1031,10 @@ define internal i32 @dissect_mih(ptr noundef %0, ptr nocapture noundef readonly 
 switch.lookup:                                    ; preds = %52
   %60 = and i16 %58, 1023
   %61 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_mih, i64 0, i64 %61
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.dissect_mih, i64 0, i64 %61
   %switch.load = load ptr, ptr %switch.gep, align 8
   %62 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep213 = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_mih.1, i64 0, i64 %62
+  %switch.gep213 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.dissect_mih.1, i64 0, i64 %62
   %switch.load214 = load ptr, ptr %switch.gep213, align 8
   %63 = load i32, ptr %switch.load, align 4
   %64 = tail call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %63, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #5
@@ -1396,10 +1396,10 @@ define internal fastcc void @dissect_mih_tlv(ptr noundef %0, i32 noundef %1, ptr
 ._crit_edge:                                      ; preds = %36
   store volatile i32 0, ptr %9, align 4
   call void @except_setup_try(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull @dissect_mih_tlv.catch_spec, i64 noundef 1) #5
-  %37 = getelementptr inbounds i8, ptr %11, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %38 = call i32 @_setjmp(ptr noundef nonnull %37) #6
   %.not268 = icmp eq i32 %38, 0
-  %39 = getelementptr inbounds i8, ptr %11, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %.sink = select i1 %.not268, ptr null, ptr %39
   store volatile ptr %.sink, ptr %8, align 8
   %.0..0..0..0. = load volatile i32, ptr %9, align 4
@@ -1465,7 +1465,7 @@ define internal fastcc void @dissect_mih_tlv(ptr noundef %0, i32 noundef %1, ptr
   unreachable
 
 58:                                               ; preds = %56, %54
-  %59 = getelementptr inbounds i8, ptr %11, i64 40
+  %59 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %60 = load volatile ptr, ptr %59, align 8
   call void @except_free(ptr noundef %60) #5
   %61 = call ptr @except_pop() #5
@@ -2171,7 +2171,7 @@ define internal fastcc void @dissect_link_status_req(ptr noundef %0, i16 noundef
 switch.lookup:                                    ; preds = %.lr.ph.i
   %18 = add i16 %.012.i, 1
   %19 = zext nneg i8 %16 to i64
-  %switch.gep = getelementptr inbounds [12 x ptr], ptr @switch.table.dissect_link_param, i64 0, i64 %19
+  %switch.gep = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.dissect_link_param, i64 0, i64 %19
   %switch.load = load ptr, ptr %switch.gep, align 8
   %20 = load i32, ptr %switch.load, align 4
   %21 = sext i16 %18 to i32
@@ -2286,7 +2286,7 @@ define internal noundef signext i16 @dissect_link_cfg_param(ptr noundef %0, i16 
 switch.lookup:                                    ; preds = %3
   %7 = add i16 %1, 1
   %8 = zext nneg i8 %5 to i64
-  %switch.gep = getelementptr inbounds [12 x ptr], ptr @switch.table.dissect_link_param, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.dissect_link_param, i64 0, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   %9 = load i32, ptr %switch.load, align 4
   %10 = sext i16 %7 to i32
@@ -2334,7 +2334,7 @@ define internal noundef signext i16 @dissect_link_cfg_status(ptr noundef %0, i16
 switch.lookup:                                    ; preds = %3
   %7 = add i16 %1, 1
   %8 = zext nneg i8 %5 to i64
-  %switch.gep = getelementptr inbounds [12 x ptr], ptr @switch.table.dissect_link_param, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.dissect_link_param, i64 0, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   %9 = load i32, ptr %switch.load, align 4
   %10 = sext i16 %7 to i32
@@ -3184,7 +3184,7 @@ define internal fastcc signext i16 @dissect_link_param(ptr noundef %0, i16 nound
 switch.lookup:                                    ; preds = %3
   %7 = add i16 %1, 1
   %8 = zext nneg i8 %5 to i64
-  %switch.gep = getelementptr inbounds [12 x ptr], ptr @switch.table.dissect_link_param, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.dissect_link_param, i64 0, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   %9 = load i32, ptr %switch.load, align 4
   %10 = sext i16 %7 to i32

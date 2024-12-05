@@ -126,7 +126,7 @@ _ZL8isStdoutN4llvm9StringRefE.exit:               ; preds = %5
   store ptr %10, ptr %11, align 8
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #6
   store i32 0, ptr %3, align 8
-  %.sroa.28.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.28.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %12, ptr %.sroa.28.0..sroa_idx, align 8
   br label %17
 

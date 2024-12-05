@@ -69,13 +69,13 @@ do.end6:                                          ; preds = %do.body1
   call void @grpc_byte_buffer_reader_readall(ptr nonnull sret(%struct.grpc_slice) align 8 %slice, ptr noundef nonnull %bbr)
   %0 = load ptr, ptr %slice, align 8
   %tobool.not = icmp eq ptr %0, null
-  %data = getelementptr inbounds i8, ptr %slice, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %slice, i64 8
   %1 = load i64, ptr %data, align 8
   %conv = and i64 %1, 255
   %cond = select i1 %tobool.not, i64 %conv, i64 %1
   %sub.i = add i64 %cond, 7
   %div7.i = and i64 %sub.i, -8
-  %end.i.i = getelementptr inbounds i8, ptr %arena, i64 8
+  %end.i.i = getelementptr inbounds nuw i8, ptr %arena, i64 8
   %2 = load ptr, ptr %end.i.i, align 8
   %3 = load ptr, ptr %arena, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %2 to i64
@@ -98,12 +98,12 @@ upb_Arena_Malloc.exit:                            ; preds = %if.then.i, %if.end.
   %4 = phi ptr [ %.pre, %if.then.i ], [ %0, %if.end.i ]
   %retval.0.i = phi ptr [ %call2.i, %if.then.i ], [ %3, %if.end.i ]
   %tobool11.not = icmp eq ptr %4, null
-  %bytes = getelementptr inbounds i8, ptr %slice, i64 16
+  %bytes = getelementptr inbounds nuw i8, ptr %slice, i64 16
   %5 = load ptr, ptr %bytes, align 8
-  %bytes16 = getelementptr inbounds i8, ptr %slice, i64 9
+  %bytes16 = getelementptr inbounds nuw i8, ptr %slice, i64 9
   %cond18 = select i1 %tobool11.not, ptr %bytes16, ptr %5
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i, ptr align 1 %cond18, i64 %cond, i1 false)
-  %6 = load i16, ptr getelementptr inbounds (i8, ptr @grpc__gcp__HandshakerResp_msg_init, i64 16), align 8
+  %6 = load i16, ptr getelementptr inbounds nuw (i8, ptr @grpc__gcp__HandshakerResp_msg_init, i64 16), align 8
   %conv.i.i.i.i = zext i16 %6 to i64
   %add.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i, 8
   %sub.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i, 23
@@ -121,7 +121,7 @@ if.then.i.i.i.i:                                  ; preds = %upb_Arena_Malloc.ex
   br label %upb_Arena_Malloc.exit.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %upb_Arena_Malloc.exit
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 %div7.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 %div7.i.i.i.i
   store ptr %add.ptr.i.i.i.i, ptr %arena, align 8
   br label %upb_Arena_Malloc.exit.i.i.i
 
@@ -131,7 +131,7 @@ upb_Arena_Malloc.exit.i.i.i:                      ; preds = %if.end.i.i.i.i, %if
   br i1 %tobool.not.i.i.i, label %grpc_gcp_HandshakerResp_parse.exit, label %if.end.i8
 
 if.end.i8:                                        ; preds = %upb_Arena_Malloc.exit.i.i.i
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 8
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %retval.0.i.i.i.i, i8 0, i64 %add.i.i.i.i, i1 false)
   %call1.i = call i32 @upb_Decode(ptr noundef %retval.0.i, i64 noundef %cond, ptr noundef nonnull %add.ptr.i.i.i, ptr noundef nonnull @grpc__gcp__HandshakerResp_msg_init, ptr noundef null, i32 noundef 0, ptr noundef nonnull %arena)
   %cmp.not.i = icmp eq i32 %call1.i, 0
@@ -150,7 +150,7 @@ if.then.i12:                                      ; preds = %grpc_gcp_Handshaker
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit
 
 if.then.i.i:                                      ; preds = %if.then.i12
-  %destroyer_fn_.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  %destroyer_fn_.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %destroyer_fn_.i.i, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(16) %9)
   br label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit

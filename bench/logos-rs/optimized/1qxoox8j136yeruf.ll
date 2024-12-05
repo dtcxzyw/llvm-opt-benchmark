@@ -29,9 +29,9 @@ define void @"_ZN96_$LT$u8$u20$as$u20$logos_codegen..parser..ignore_flags..ascii
 15:                                               ; preds = %10
   %16 = tail call ptr @_ZN5alloc5alloc15exchange_malloc17hb0a9e51216425750E(i64 1, i64 1)
   store i8 %1, ptr %16, align 1
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 1, ptr %18, align 8
   br label %22
 
@@ -58,9 +58,9 @@ define void @"_ZN96_$LT$u8$u20$as$u20$logos_codegen..parser..ignore_flags..ascii
 
 26:                                               ; preds = %19
   store i8 %1, ptr %21, align 1
-  %27 = getelementptr inbounds i8, ptr %3, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %21, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %3, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 1, ptr %28, align 8
   store i64 8, ptr %3, align 8
   %29 = invoke ptr @_ZN5alloc5alloc15exchange_malloc17hb0a9e51216425750E(i64 1, i64 1)
@@ -76,14 +76,14 @@ define void @"_ZN96_$LT$u8$u20$as$u20$logos_codegen..parser..ignore_flags..ascii
   %33 = or disjoint i8 %1, 32
   store i8 %33, ptr %29, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %20, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
-  %34 = getelementptr inbounds i8, ptr %20, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %20, i64 40
   store i64 8, ptr %34, align 8
-  %.sroa.212.0..sroa_idx = getelementptr inbounds i8, ptr %20, i64 48
+  %.sroa.212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 48
   store ptr %29, ptr %.sroa.212.0..sroa_idx, align 8
-  %.sroa.313.0..sroa_idx = getelementptr inbounds i8, ptr %20, i64 56
+  %.sroa.313.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 56
   store i64 1, ptr %.sroa.313.0..sroa_idx, align 8
   call void @_ZN5alloc5slice4hack8into_vec17h9df0653c492c2a7fE(ptr nonnull sret([24 x i8]) align 8 %5, ptr align 8 %20, i64 2)
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   br label %22
 
@@ -110,9 +110,9 @@ define void @"_ZN96_$LT$u8$u20$as$u20$logos_codegen..parser..ignore_flags..ascii
 42:                                               ; preds = %12
   %43 = add nsw i8 %1, -32
   store i8 %43, ptr %14, align 1
-  %44 = getelementptr inbounds i8, ptr %6, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %14, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %6, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 1, ptr %45, align 8
   store i64 8, ptr %6, align 8
   %46 = invoke ptr @_ZN5alloc5alloc15exchange_malloc17hb0a9e51216425750E(i64 1, i64 1)
@@ -127,14 +127,14 @@ define void @"_ZN96_$LT$u8$u20$as$u20$logos_codegen..parser..ignore_flags..ascii
 49:                                               ; preds = %42
   store i8 %1, ptr %46, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false)
-  %50 = getelementptr inbounds i8, ptr %13, i64 40
+  %50 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i64 8, ptr %50, align 8
-  %.sroa.24.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 48
+  %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 48
   store ptr %46, ptr %.sroa.24.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 56
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 56
   store i64 1, ptr %.sroa.3.0..sroa_idx, align 8
   call void @_ZN5alloc5slice4hack8into_vec17h9df0653c492c2a7fE(ptr nonnull sret([24 x i8]) align 8 %8, ptr align 8 %13, i64 2)
-  %51 = getelementptr inbounds i8, ptr %0, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   br label %22
 }
@@ -155,9 +155,9 @@ define void @"_ZN98_$LT$char$u20$as$u20$logos_codegen..parser..ignore_flags..asc
   %10 = call { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17h48ba35e684379ff2E"(ptr nonnull align 8 %4)
   %11 = extractvalue { ptr, i64 } %10, 0
   %12 = extractvalue { ptr, i64 } %10, 1
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %11, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %12, ptr %14, align 8
   store i64 8, ptr %0, align 8
   br label %17

@@ -18,7 +18,7 @@ define range(i32 0, 2) i32 @PQsslInUse(ptr noundef readonly %0) local_unnamed_ad
   br i1 %.not, label %7, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 996
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 996
   %4 = load i8, ptr %3, align 4
   %5 = and i8 %4, 1
   %6 = zext nneg i8 %5 to i32
@@ -65,7 +65,7 @@ define i64 @pqsecure_raw_read(ptr noundef %0, ptr noundef %1, i64 noundef %2) lo
   %4 = alloca [256 x i8], align 16
   %5 = tail call ptr @__errno_location() #8
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 472
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %7 = load i32, ptr %6, align 8
   %8 = tail call i64 @recv(i32 noundef %7, ptr noundef %1, i64 noundef %2, i32 noundef 0) #9
   %9 = icmp slt i64 %8, 0
@@ -120,20 +120,20 @@ define i64 @pqsecure_raw_write(ptr nocapture noundef %0, ptr noundef %1, i64 nou
   %4 = alloca [1024 x i8], align 16
   %5 = alloca [256 x i8], align 16
   %6 = alloca %struct.sigpipe_info, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 765
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 765
   %8 = load i8, ptr %7, align 1
   %9 = trunc i8 %8 to i1
   br i1 %9, label %.loopexit, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %0, i64 764
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 764
   %12 = load i8, ptr %11, align 4
   %13 = trunc i8 %12 to i1
   %spec.select = select i1 %13, i32 16384, i32 0
-  %14 = getelementptr inbounds i8, ptr %6, i64 129
-  %15 = getelementptr inbounds i8, ptr %0, i64 763
-  %16 = getelementptr inbounds i8, ptr %6, i64 128
-  %17 = getelementptr inbounds i8, ptr %0, i64 472
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 129
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 763
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 128
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %18 = trunc i8 %12 to i1
   br label %19
 
@@ -196,7 +196,7 @@ define i64 @pqsecure_raw_write(ptr nocapture noundef %0, ptr noundef %1, i64 nou
 .loopexit34.sink.split:                           ; preds = %38, %40
   %43 = call i64 @strlcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.2, i64 noundef 1024) #9
   %44 = call noalias ptr @strdup(ptr noundef nonnull %4) #9
-  %45 = getelementptr inbounds i8, ptr %0, i64 768
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 768
   store ptr %44, ptr %45, align 8
   br label %.loopexit34
 

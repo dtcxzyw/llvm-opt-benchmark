@@ -996,9 +996,9 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @dissect_cms_ContentType(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_cms, align 4
   %12 = tail call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #4
@@ -1023,7 +1023,7 @@ cms_get_private_data.exit:                        ; preds = %6, %13
 
 20:                                               ; preds = %cms_get_private_data.exit
   %21 = load ptr, ptr %7, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 408
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 408
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr @oid_resolved_from_string(ptr noundef %23, ptr noundef nonnull %19) #4
   %.not17 = icmp eq ptr %24, null
@@ -1217,7 +1217,7 @@ define internal i32 @dissect_cms(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 11:                                               ; preds = %6, %4
   %.0 = phi ptr [ %10, %6 ], [ null, %4 ]
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   call void @col_set_str(ptr noundef %13, i32 noundef 34, ptr noundef nonnull @.str.398) #4
   %14 = load ptr, ptr %12, align 8
@@ -1494,9 +1494,9 @@ define internal i32 @dissect_MessageDigest_PDU(ptr noundef %0, ptr noundef %1, p
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_cms_MessageDigest_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_cms, align 4
   %12 = call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #4
@@ -1514,11 +1514,11 @@ define internal i32 @dissect_MessageDigest_PDU(ptr noundef %0, ptr noundef %1, p
 cms_get_private_data.exit.i:                      ; preds = %13, %4
   %.0.i.i = phi ptr [ %12, %4 ], [ %15, %13 ]
   %18 = call i32 @dissect_ber_octet_string(i1 noundef zeroext false, ptr noundef nonnull %5, ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef %6, ptr noundef null) #4
-  %19 = getelementptr inbounds i8, ptr %5, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %20 = load ptr, ptr %19, align 8
   %21 = call i32 @get_ber_identifier(ptr noundef %0, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #4
   %22 = call i32 @get_ber_length(ptr noundef %0, i32 noundef %21, ptr noundef null, ptr noundef null) #4
-  %23 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   %24 = load ptr, ptr %23, align 8
   %.not.i = icmp eq ptr %24, null
   br i1 %.not.i, label %dissect_cms_MessageDigest.exit, label %25
@@ -1849,9 +1849,9 @@ declare void @p_add_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 nounde
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_cms_T_content(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_cms, align 4
   %12 = tail call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #4
@@ -1878,9 +1878,9 @@ declare i32 @call_ber_oid_callback(ptr noundef, ptr noundef, i32 noundef, ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_cms_T_eContent(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_cms, align 4
   %12 = tail call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #4
@@ -1897,7 +1897,7 @@ define internal i32 @dissect_cms_T_eContent(i1 zeroext %0, ptr noundef %1, i32 n
 
 cms_get_private_data.exit:                        ; preds = %6, %13
   %.0.i = phi ptr [ %12, %6 ], [ %15, %13 ]
-  %18 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   store ptr null, ptr %18, align 8
   %19 = tail call i32 @dissect_ber_octet_string(i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %18) #4
   %20 = load ptr, ptr %18, align 8
@@ -1905,7 +1905,7 @@ cms_get_private_data.exit:                        ; preds = %6, %13
   br i1 %.not, label %31, label %21
 
 21:                                               ; preds = %cms_get_private_data.exit
-  %22 = getelementptr inbounds i8, ptr %3, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 @tvb_reported_length(ptr noundef nonnull %20) #4
   tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %23, ptr noundef nonnull @.str.551, i32 noundef %24) #4
@@ -1945,9 +1945,9 @@ define internal i32 @dissect_cms_Attribute(i1 noundef zeroext %0, ptr noundef %1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_cms_T_attrType(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_cms, align 4
   %12 = tail call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #4
@@ -1973,7 +1973,7 @@ cms_get_private_data.exit:                        ; preds = %6, %13
 
 21:                                               ; preds = %cms_get_private_data.exit
   %22 = load ptr, ptr %7, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 408
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 408
   %24 = load ptr, ptr %23, align 8
   %25 = tail call ptr @oid_resolved_from_string(ptr noundef %24, ptr noundef nonnull %20) #4
   %.not16 = icmp eq ptr %25, null
@@ -2001,9 +2001,9 @@ define internal i32 @dissect_cms_SET_OF_AttributeValue(i1 noundef zeroext %0, pt
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_cms_AttributeValue(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_cms, align 4
   %12 = tail call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #4
@@ -2170,9 +2170,9 @@ define internal i32 @dissect_cms_OtherRevocationInfoFormat(i1 noundef zeroext %0
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_cms_T_otherRevInfoFormat(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_cms, align 4
   %12 = tail call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #4
@@ -2196,9 +2196,9 @@ cms_get_private_data.exit:                        ; preds = %6, %13
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_cms_T_otherRevInfo(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_cms, align 4
   %12 = tail call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #4
@@ -2375,9 +2375,9 @@ declare i32 @dissect_ber_GeneralizedTime(i1 noundef zeroext, ptr noundef, ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_cms_T_keyAttrId(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_cms, align 4
   %12 = tail call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #4
@@ -2402,9 +2402,9 @@ cms_get_private_data.exit:                        ; preds = %6, %13
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_cms_T_keyAttr(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_cms, align 4
   %12 = tail call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #4
@@ -2448,9 +2448,9 @@ define internal i32 @dissect_cms_KeyDerivationAlgorithmIdentifier(i1 noundef zer
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_cms_T_oriType(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_cms, align 4
   %12 = tail call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #4
@@ -2474,9 +2474,9 @@ cms_get_private_data.exit:                        ; preds = %6, %13
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_cms_T_oriValue(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_cms, align 4
   %12 = tail call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #4
@@ -2509,9 +2509,9 @@ define internal i32 @dissect_cms_ContentEncryptionAlgorithmIdentifier(i1 noundef
 define internal i32 @dissect_cms_EncryptedContent(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7) #4
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 408
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 408
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @proto_cms, align 4
   %14 = call ptr @p_get_proto_data(ptr noundef %12, ptr noundef %10, i32 noundef %13, i32 noundef 0) #4
@@ -2528,7 +2528,7 @@ define internal i32 @dissect_cms_EncryptedContent(i1 noundef zeroext %0, ptr nou
 
 cms_get_private_data.exit:                        ; preds = %6, %15
   %.0.i = phi ptr [ %14, %6 ], [ %17, %15 ]
-  %20 = getelementptr inbounds i8, ptr %3, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %.0.i, align 8
   %23 = load ptr, ptr %7, align 8
@@ -2606,9 +2606,9 @@ define internal i32 @dissect_cms_SMIMECapability(i1 noundef zeroext %0, ptr noun
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_cms_T_capability(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_cms, align 4
   %12 = tail call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #4
@@ -2634,7 +2634,7 @@ cms_get_private_data.exit:                        ; preds = %6, %13
 
 21:                                               ; preds = %cms_get_private_data.exit
   %22 = load ptr, ptr %7, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 408
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 408
   %24 = load ptr, ptr %23, align 8
   %25 = tail call ptr @oid_resolved_from_string(ptr noundef %24, ptr noundef nonnull %20) #4
   %.not17 = icmp eq ptr %25, null
@@ -2656,9 +2656,9 @@ cms_get_private_data.exit:                        ; preds = %6, %13
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_cms_T_parameters(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_cms, align 4
   %12 = tail call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #4

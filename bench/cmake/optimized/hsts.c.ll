@@ -54,10 +54,10 @@ define dso_local void @Curl_hsts_cleanup(ptr nocapture noundef %0) local_unnamed
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.014 = phi ptr [ %7, %.lr.ph ], [ %4, %3 ]
   %5 = load ptr, ptr %.014, align 8
-  %6 = getelementptr inbounds i8, ptr %.014, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %.014, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr @Curl_cfree, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void %8(ptr noundef %10) #9
   %11 = load ptr, ptr @Curl_cfree, align 8
@@ -67,7 +67,7 @@ define dso_local void @Curl_hsts_cleanup(ptr nocapture noundef %0) local_unnamed
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %12 = load ptr, ptr @Curl_cfree, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %14 = load ptr, ptr %13, align 8
   tail call void %12(ptr noundef %14) #9
   %15 = load ptr, ptr @Curl_cfree, align 8
@@ -104,7 +104,7 @@ define dso_local range(i32 0, 44) i32 @Curl_hsts_parse(ptr noundef %0, ptr nound
   ]
 
 .critedge2:                                       ; preds = %8, %8
-  %10 = getelementptr inbounds i8, ptr %.1, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   br label %8, !llvm.loop !7
 
 .critedge:                                        ; preds = %8
@@ -117,7 +117,7 @@ define dso_local range(i32 0, 44) i32 @Curl_hsts_parse(ptr noundef %0, ptr nound
   br i1 %13, label %hsts_create.exit, label %14
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %.1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.1, i64 8
   br label %16
 
 16:                                               ; preds = %.critedge6, %14
@@ -129,13 +129,13 @@ define dso_local range(i32 0, 44) i32 @Curl_hsts_parse(ptr noundef %0, ptr nound
   ]
 
 .critedge6:                                       ; preds = %16, %16
-  %18 = getelementptr inbounds i8, ptr %.2, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   br label %16, !llvm.loop !8
 
 .critedge4:                                       ; preds = %16
   %19 = icmp eq i8 %17, 34
   %spec.select.idx = zext i1 %19 to i64
-  %spec.select = getelementptr inbounds i8, ptr %.2, i64 %spec.select.idx
+  %spec.select = getelementptr inbounds nuw i8, ptr %.2, i64 %spec.select.idx
   %20 = call i32 @curlx_strtoofft(ptr noundef nonnull %spec.select, ptr noundef nonnull %5, i32 noundef 10, ptr noundef nonnull %4) #9
   switch i32 %20, label %hsts_create.exit [
     i32 1, label %21
@@ -156,7 +156,7 @@ define dso_local range(i32 0, 44) i32 @Curl_hsts_parse(ptr noundef %0, ptr nound
   br i1 %.not86, label %26, label %hsts_create.exit
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %23, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 1
   br label %.critedge8
 
 28:                                               ; preds = %.critedge
@@ -168,7 +168,7 @@ define dso_local range(i32 0, 44) i32 @Curl_hsts_parse(ptr noundef %0, ptr nound
   br i1 %.068, label %hsts_create.exit, label %31
 
 31:                                               ; preds = %30
-  %32 = getelementptr inbounds i8, ptr %.1, i64 17
+  %32 = getelementptr inbounds nuw i8, ptr %.1, i64 17
   br label %.critedge8
 
 .preheader:                                       ; preds = %28, %34
@@ -180,7 +180,7 @@ define dso_local range(i32 0, 44) i32 @Curl_hsts_parse(ptr noundef %0, ptr nound
   ]
 
 34:                                               ; preds = %.preheader
-  %35 = getelementptr inbounds i8, ptr %.6, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %.6, i64 1
   br label %.preheader, !llvm.loop !9
 
 .critedge8:                                       ; preds = %.preheader, %.preheader, %22, %26, %31
@@ -199,13 +199,13 @@ define dso_local range(i32 0, 44) i32 @Curl_hsts_parse(ptr noundef %0, ptr nound
   ]
 
 .critedge12:                                      ; preds = %36, %36
-  %38 = getelementptr inbounds i8, ptr %.7, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %.7, i64 1
   br label %36, !llvm.loop !10
 
 .critedge10:                                      ; preds = %36
   %39 = icmp eq i8 %37, 59
   %spec.select92.idx = zext i1 %39 to i64
-  %spec.select92 = getelementptr inbounds i8, ptr %.7, i64 %spec.select92.idx
+  %spec.select92 = getelementptr inbounds nuw i8, ptr %.7, i64 %spec.select92.idx
   %40 = load i8, ptr %spec.select92, align 1
   %.not88 = icmp eq i8 %40, 0
   br i1 %.not88, label %41, label %.preheader93, !llvm.loop !11
@@ -227,7 +227,7 @@ define dso_local range(i32 0, 44) i32 @Curl_hsts_parse(ptr noundef %0, ptr nound
 47:                                               ; preds = %45
   call void @Curl_llist_remove(ptr noundef %0, ptr noundef nonnull %46, ptr noundef null) #9
   %48 = load ptr, ptr @Curl_cfree, align 8
-  %49 = getelementptr inbounds i8, ptr %46, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %50 = load ptr, ptr %49, align 8
   call void %48(ptr noundef %50) #9
   %51 = load ptr, ptr @Curl_cfree, align 8
@@ -246,9 +246,9 @@ define dso_local range(i32 0, 44) i32 @Curl_hsts_parse(ptr noundef %0, ptr nound
   br i1 %.not91, label %62, label %58
 
 58:                                               ; preds = %52
-  %59 = getelementptr inbounds i8, ptr %56, i64 40
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 40
   store i64 %57, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %56, i64 32
+  %60 = getelementptr inbounds nuw i8, ptr %56, i64 32
   %61 = and i8 %.167, 1
   store i8 %61, ptr %60, align 8
   br label %hsts_create.exit
@@ -289,13 +289,13 @@ define dso_local range(i32 0, 44) i32 @Curl_hsts_parse(ptr noundef %0, ptr nound
   br label %hsts_create.exit
 
 78:                                               ; preds = %74
-  %79 = getelementptr inbounds i8, ptr %73, i64 24
+  %79 = getelementptr inbounds nuw i8, ptr %73, i64 24
   store ptr %75, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %73, i64 40
+  %80 = getelementptr inbounds nuw i8, ptr %73, i64 40
   store i64 %57, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %73, i64 32
+  %81 = getelementptr inbounds nuw i8, ptr %73, i64 32
   store i8 %63, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %0, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %83 = load ptr, ptr %82, align 8
   call void @Curl_llist_insert_next(ptr noundef %0, ptr noundef %83, ptr noundef nonnull %73, ptr noundef nonnull %73) #9
   br label %hsts_create.exit
@@ -334,7 +334,7 @@ define dso_local ptr @Curl_hsts(ptr noundef %0, ptr nocapture noundef readonly %
   %12 = load i8, ptr %11, align 1
   %13 = icmp eq i8 %12, 46
   %spec.select = select i1 %13, i64 %8, i64 %7
-  %14 = getelementptr inbounds [257 x i8], ptr %4, i64 0, i64 %spec.select
+  %14 = getelementptr inbounds nuw [257 x i8], ptr %4, i64 0, i64 %spec.select
   store i8 0, ptr %14, align 1
   %15 = load ptr, ptr %0, align 8
   %.not4347 = icmp eq ptr %15, null
@@ -346,9 +346,9 @@ define dso_local ptr @Curl_hsts(ptr noundef %0, ptr nocapture noundef readonly %
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %47
   %.03948.us = phi ptr [ %18, %47 ], [ %15, %.lr.ph ]
   %16 = load ptr, ptr %.03948.us, align 8
-  %17 = getelementptr inbounds i8, ptr %.03948.us, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %.03948.us, i64 16
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %16, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %20 = load i64, ptr %19, align 8
   %.not44.us = icmp sgt i64 %20, %6
   br i1 %.not44.us, label %26, label %21
@@ -356,7 +356,7 @@ define dso_local ptr @Curl_hsts(ptr noundef %0, ptr nocapture noundef readonly %
 21:                                               ; preds = %.lr.ph.split.us
   call void @Curl_llist_remove(ptr noundef nonnull %0, ptr noundef nonnull %16, ptr noundef null) #9
   %22 = load ptr, ptr @Curl_cfree, align 8
-  %23 = getelementptr inbounds i8, ptr %16, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %24 = load ptr, ptr %23, align 8
   call void %22(ptr noundef %24) #9
   %25 = load ptr, ptr @Curl_cfree, align 8
@@ -364,13 +364,13 @@ define dso_local ptr @Curl_hsts(ptr noundef %0, ptr nocapture noundef readonly %
   br label %47
 
 26:                                               ; preds = %.lr.ph.split.us
-  %27 = getelementptr inbounds i8, ptr %16, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %28 = load i8, ptr %27, align 8
   %29 = trunc i8 %28 to i1
   br i1 %29, label %30, label %43
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %16, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %32 = load ptr, ptr %31, align 8
   %33 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #10
   %34 = icmp ult i64 %33, %spec.select
@@ -390,7 +390,7 @@ define dso_local ptr @Curl_hsts(ptr noundef %0, ptr nocapture noundef readonly %
   br i1 %.not45.us, label %43, label %.loopexit
 
 43:                                               ; preds = %41, %35, %30, %26
-  %44 = getelementptr inbounds i8, ptr %16, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %45 = load ptr, ptr %44, align 8
   %46 = call i32 @curl_strequal(ptr noundef nonnull %4, ptr noundef %45) #9
   %.not46.us = icmp eq i32 %46, 0
@@ -403,9 +403,9 @@ define dso_local ptr @Curl_hsts(ptr noundef %0, ptr nocapture noundef readonly %
 .lr.ph.split:                                     ; preds = %.lr.ph, %62
   %.03948 = phi ptr [ %50, %62 ], [ %15, %.lr.ph ]
   %48 = load ptr, ptr %.03948, align 8
-  %49 = getelementptr inbounds i8, ptr %.03948, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %.03948, i64 16
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %48, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 40
   %52 = load i64, ptr %51, align 8
   %.not44 = icmp sgt i64 %52, %6
   br i1 %.not44, label %58, label %53
@@ -413,7 +413,7 @@ define dso_local ptr @Curl_hsts(ptr noundef %0, ptr nocapture noundef readonly %
 53:                                               ; preds = %.lr.ph.split
   call void @Curl_llist_remove(ptr noundef nonnull %0, ptr noundef nonnull %48, ptr noundef null) #9
   %54 = load ptr, ptr @Curl_cfree, align 8
-  %55 = getelementptr inbounds i8, ptr %48, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %56 = load ptr, ptr %55, align 8
   call void %54(ptr noundef %56) #9
   %57 = load ptr, ptr @Curl_cfree, align 8
@@ -421,7 +421,7 @@ define dso_local ptr @Curl_hsts(ptr noundef %0, ptr nocapture noundef readonly %
   br label %62
 
 58:                                               ; preds = %.lr.ph.split
-  %59 = getelementptr inbounds i8, ptr %48, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %60 = load ptr, ptr %59, align 8
   %61 = call i32 @curl_strequal(ptr noundef nonnull %4, ptr noundef %60) #9
   %.not46 = icmp eq i32 %61, 0
@@ -463,13 +463,13 @@ define dso_local i32 @Curl_hsts_save(ptr noundef %0, ptr noundef readonly %1, pt
   br i1 %.not52, label %11, label %14
 
 11:                                               ; preds = %10
-  %12 = getelementptr inbounds i8, ptr %1, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %13 = load ptr, ptr %12, align 8
   br label %14
 
 14:                                               ; preds = %11, %10
   %.036 = phi ptr [ %2, %10 ], [ %13, %11 ]
-  %15 = getelementptr inbounds i8, ptr %1, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %16 = load i32, ptr %15, align 8
   %17 = and i32 %16, 2
   %18 = icmp eq i32 %17, 0
@@ -495,21 +495,21 @@ define dso_local i32 @Curl_hsts_save(ptr noundef %0, ptr noundef readonly %1, pt
   br i1 %.not5674, label %.loopexit73, label %.lr.ph
 
 .lr.ph:                                           ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %6, i64 20
-  %29 = getelementptr inbounds i8, ptr %6, i64 16
-  %30 = getelementptr inbounds i8, ptr %6, i64 12
-  %31 = getelementptr inbounds i8, ptr %6, i64 8
-  %32 = getelementptr inbounds i8, ptr %6, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 20
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 4
   br label %33
 
 33:                                               ; preds = %.lr.ph, %hsts_out.exit
   %.03875 = phi ptr [ %27, %.lr.ph ], [ %36, %hsts_out.exit ]
   %34 = load ptr, ptr %.03875, align 8
-  %35 = getelementptr inbounds i8, ptr %.03875, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %.03875, i64 16
   %36 = load ptr, ptr %35, align 8
   %37 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
-  %38 = getelementptr inbounds i8, ptr %34, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 40
   %39 = load i64, ptr %38, align 8
   %.not.i = icmp eq i64 %39, 9223372036854775807
   br i1 %.not.i, label %58, label %40
@@ -524,11 +524,11 @@ hsts_out.exit.thread:                             ; preds = %40
   br label %.loopexit73
 
 42:                                               ; preds = %40
-  %43 = getelementptr inbounds i8, ptr %34, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %44 = load i8, ptr %43, align 8
   %45 = trunc i8 %44 to i1
   %46 = select i1 %45, ptr @.str.4, ptr @.str.5
-  %47 = getelementptr inbounds i8, ptr %34, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %48 = load ptr, ptr %47, align 8
   %49 = load i32, ptr %28, align 4
   %50 = add nsw i32 %49, 1900
@@ -542,11 +542,11 @@ hsts_out.exit.thread:                             ; preds = %40
   br label %hsts_out.exit
 
 58:                                               ; preds = %33
-  %59 = getelementptr inbounds i8, ptr %34, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %60 = load i8, ptr %59, align 8
   %61 = trunc i8 %60 to i1
   %62 = select i1 %61, ptr @.str.4, ptr @.str.5
-  %63 = getelementptr inbounds i8, ptr %34, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %64 = load ptr, ptr %63, align 8
   %65 = call i32 (ptr, ptr, ...) @curl_mfprintf(ptr noundef %37, ptr noundef nonnull @.str.6, ptr noundef nonnull %62, ptr noundef %64, ptr noundef nonnull @.str.7) #9
   br label %hsts_out.exit
@@ -594,15 +594,15 @@ hsts_out.exit:                                    ; preds = %42, %58
 
 82:                                               ; preds = %14, %20, %79
   %.037 = phi i32 [ %.1, %79 ], [ 0, %20 ], [ 0, %14 ]
-  %83 = getelementptr inbounds i8, ptr %0, i64 672
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %84 = load ptr, ptr %83, align 8
   %.not59 = icmp eq ptr %84, null
   br i1 %.not59, label %.loopexit, label %85
 
 85:                                               ; preds = %82
-  %86 = getelementptr inbounds i8, ptr %1, i64 24
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %87 = load i64, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %9, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %87, ptr %88, align 8
   store i64 0, ptr %9, align 8
   %89 = load ptr, ptr %1, align 8
@@ -610,34 +610,34 @@ hsts_out.exit:                                    ; preds = %42, %58
   br i1 %.not6076, label %.loopexit, label %.lr.ph78
 
 .lr.ph78:                                         ; preds = %85
-  %90 = getelementptr inbounds i8, ptr %4, i64 8
-  %91 = getelementptr inbounds i8, ptr %4, i64 16
-  %92 = getelementptr inbounds i8, ptr %4, i64 17
-  %93 = getelementptr inbounds i8, ptr %5, i64 20
-  %94 = getelementptr inbounds i8, ptr %5, i64 16
-  %95 = getelementptr inbounds i8, ptr %5, i64 12
-  %96 = getelementptr inbounds i8, ptr %5, i64 8
-  %97 = getelementptr inbounds i8, ptr %5, i64 4
-  %98 = getelementptr inbounds i8, ptr %0, i64 680
+  %90 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %4, i64 17
+  %93 = getelementptr inbounds nuw i8, ptr %5, i64 20
+  %94 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %96 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 680
   br label %99
 
 99:                                               ; preds = %.lr.ph78, %130
   %.13977 = phi ptr [ %89, %.lr.ph78 ], [ %102, %130 ]
   %100 = load ptr, ptr %.13977, align 8
-  %101 = getelementptr inbounds i8, ptr %.13977, i64 16
+  %101 = getelementptr inbounds nuw i8, ptr %.13977, i64 16
   %102 = load ptr, ptr %101, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
-  %103 = getelementptr inbounds i8, ptr %100, i64 24
+  %103 = getelementptr inbounds nuw i8, ptr %100, i64 24
   %104 = load ptr, ptr %103, align 8
   store ptr %104, ptr %4, align 8
   %105 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %104) #10
   store i64 %105, ptr %90, align 8
-  %106 = getelementptr inbounds i8, ptr %100, i64 32
+  %106 = getelementptr inbounds nuw i8, ptr %100, i64 32
   %107 = load i8, ptr %106, align 8
   %108 = and i8 %107, 1
   store i8 %108, ptr %91, align 8
-  %109 = getelementptr inbounds i8, ptr %100, i64 40
+  %109 = getelementptr inbounds nuw i8, ptr %100, i64 40
   %110 = load i64, ptr %109, align 8
   %.not.i63 = icmp eq i64 %110, 9223372036854775807
   br i1 %.not.i63, label %123, label %111
@@ -709,7 +709,7 @@ define dso_local range(i32 0, 28) i32 @Curl_hsts_loadfile(ptr nocapture readnone
   %4 = alloca [257 x i8], align 16
   %5 = alloca [65 x i8], align 16
   %6 = load ptr, ptr @Curl_cfree, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %8 = load ptr, ptr %7, align 8
   tail call void %6(ptr noundef %8) #9
   %9 = load ptr, ptr @Curl_cstrdup, align 8
@@ -735,7 +735,7 @@ define dso_local range(i32 0, 28) i32 @Curl_hsts_loadfile(ptr nocapture readnone
   br i1 %.not3034.i, label %._crit_edge.i, label %.preheader.lr.ph.i
 
 .preheader.lr.ph.i:                               ; preds = %.preheader32.i
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i.backedge, %.preheader.lr.ph.i
@@ -748,7 +748,7 @@ define dso_local range(i32 0, 28) i32 @Curl_hsts_loadfile(ptr nocapture readnone
   ]
 
 .critedge2.i:                                     ; preds = %.preheader.i, %.preheader.i
-  %19 = getelementptr inbounds i8, ptr %.0.i, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   br label %.preheader.i.backedge
 
 .preheader.i.backedge:                            ; preds = %.critedge2.i, %.backedge.i
@@ -776,7 +776,7 @@ define dso_local range(i32 0, 28) i32 @Curl_hsts_loadfile(ptr nocapture readnone
   %28 = load i8, ptr %4, align 16
   %29 = icmp eq i8 %28, 46
   %spec.select.idx.i.i = zext i1 %29 to i64
-  %spec.select.i.i = getelementptr inbounds i8, ptr %4, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %4, i64 %spec.select.idx.i.i
   %30 = call ptr @Curl_hsts(ptr noundef %1, ptr noundef nonnull %spec.select.i.i, i1 noundef zeroext %29)
   %.not23.i.i = icmp eq ptr %30, null
   br i1 %.not23.i.i, label %31, label %52
@@ -817,18 +817,18 @@ define dso_local range(i32 0, 28) i32 @Curl_hsts_loadfile(ptr nocapture readnone
   br label %hsts_add.exit.i
 
 47:                                               ; preds = %43
-  %48 = getelementptr inbounds i8, ptr %42, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %42, i64 24
   store ptr %44, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %42, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %42, i64 40
   store i64 %27, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %42, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %42, i64 32
   store i8 %32, ptr %50, align 8
   %51 = load ptr, ptr %17, align 8
   call void @Curl_llist_insert_next(ptr noundef %1, ptr noundef %51, ptr noundef nonnull %42, ptr noundef nonnull %42) #9
   br label %hsts_add.exit.i
 
 52:                                               ; preds = %26
-  %53 = getelementptr inbounds i8, ptr %30, i64 40
+  %53 = getelementptr inbounds nuw i8, ptr %30, i64 40
   %54 = load i64, ptr %53, align 8
   %55 = icmp sgt i64 %27, %54
   br i1 %55, label %56, label %hsts_add.exit.i
@@ -876,16 +876,16 @@ define dso_local range(i32 0, 44) i32 @Curl_hsts_loadcb(ptr noundef %0, ptr noun
 5:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 257, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
-  %6 = getelementptr inbounds i8, ptr %0, i64 656
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %7 = load ptr, ptr %6, align 8
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %hsts_pull.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
-  %10 = getelementptr inbounds i8, ptr %4, i64 17
-  %11 = getelementptr inbounds i8, ptr %0, i64 664
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 17
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 664
   store ptr %3, ptr %4, align 8
   store i64 256, ptr %8, align 8
   store i8 0, ptr %9, align 8
@@ -897,7 +897,7 @@ define dso_local range(i32 0, 44) i32 @Curl_hsts_loadcb(ptr noundef %0, ptr noun
   br i1 %14, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %16
 
 16:                                               ; preds = %hsts_create.exit.i, %.lr.ph.i
@@ -955,11 +955,11 @@ define dso_local range(i32 0, 44) i32 @Curl_hsts_loadcb(ptr noundef %0, ptr noun
   br label %hsts_pull.exit
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %36, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %36, i64 24
   store ptr %38, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %36, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %36, i64 40
   store i64 %.011.i, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %36, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %36, i64 32
   store i8 %26, ptr %44, align 8
   %45 = load ptr, ptr %15, align 8
   call void @Curl_llist_insert_next(ptr noundef nonnull %1, ptr noundef %45, ptr noundef nonnull %36, ptr noundef nonnull %36) #9
@@ -999,14 +999,14 @@ hsts_pull.exit:                                   ; preds = %16, %.thread30.i.i,
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @Curl_hsts_loadfiles(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 3144
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 3144
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %4
 
 4:                                                ; preds = %1
   %5 = tail call i32 @Curl_share_lock(ptr noundef nonnull %0, i32 noundef 7, i32 noundef 2) #9
-  %6 = getelementptr inbounds i8, ptr %0, i64 2664
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2664
   br label %7
 
 7:                                                ; preds = %4, %7
@@ -1014,7 +1014,7 @@ define dso_local void @Curl_hsts_loadfiles(ptr noundef %0) local_unnamed_addr #0
   %8 = load ptr, ptr %6, align 8
   %9 = load ptr, ptr %.011, align 8
   %10 = tail call i32 @Curl_hsts_loadfile(ptr nonnull poison, ptr noundef %8, ptr noundef %9)
-  %11 = getelementptr inbounds i8, ptr %.011, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.011, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not10 = icmp eq ptr %12, null
   br i1 %.not10, label %13, label %7, !llvm.loop !16

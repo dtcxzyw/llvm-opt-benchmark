@@ -106,7 +106,7 @@ define dso_local void @tsc_verify_tsc_adjust(i1 noundef zeroext %0) local_unname
 
 11:                                               ; preds = %10
   %12 = load volatile i64, ptr @jiffies, align 64
-  %13 = getelementptr inbounds i8, ptr %3, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %14 = load i64, ptr %13, align 8
   %15 = sub i64 %12, %14
   %16 = icmp slt i64 %15, 0
@@ -115,7 +115,7 @@ define dso_local void @tsc_verify_tsc_adjust(i1 noundef zeroext %0) local_unname
 17:                                               ; preds = %11, %10
   %18 = load volatile i64, ptr @jiffies, align 64
   %19 = add i64 %18, 1000
-  %20 = getelementptr inbounds i8, ptr %3, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %19, ptr %20, align 8
   %21 = tail call { i64, i64 } asm sideeffect "1: rdmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 9 \0A .popsection\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 59) #8, !srcloc !8
   %22 = extractvalue { i64, i64 } %21, 0
@@ -130,7 +130,7 @@ define dso_local void @tsc_verify_tsc_adjust(i1 noundef zeroext %0) local_unname
   br label %27
 
 27:                                               ; preds = %26, %17
-  %28 = getelementptr inbounds i8, ptr %3, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %29 = load i64, ptr %28, align 8
   %30 = icmp eq i64 %29, %25
   br i1 %30, label %45, label %31
@@ -148,7 +148,7 @@ define dso_local void @tsc_verify_tsc_adjust(i1 noundef zeroext %0) local_unname
   br label %36
 
 36:                                               ; preds = %35, %31
-  %37 = getelementptr inbounds i8, ptr %3, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %38 = load i8, ptr %37, align 8, !range !5, !noundef !6
   %39 = icmp eq i8 %38, 0
   %40 = or i1 %0, %39
@@ -218,16 +218,16 @@ define dso_local noundef zeroext i1 @tsc_store_and_check_tsc_adjust(i1 noundef z
   store i64 %14, ptr %3, align 8
   %17 = load volatile i64, ptr @jiffies, align 64
   %18 = add i64 %17, 1000
-  %19 = getelementptr inbounds i8, ptr %3, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %3, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i8 0, ptr %20, align 8
   %21 = load i8, ptr @tsc_async_resets, align 1, !range !5, !noundef !6
   %22 = icmp eq i8 %21, 0
   br i1 %22, label %25, label %23
 
 23:                                               ; preds = %16
-  %24 = getelementptr inbounds i8, ptr %3, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %14, ptr %24, align 8
   br label %25
 
@@ -295,7 +295,7 @@ define dso_local noundef zeroext i1 @tsc_store_and_check_tsc_adjust(i1 noundef z
 
 58:                                               ; preds = %56, %55, %53, %.thread.thread
   %59 = phi i64 [ %14, %56 ], [ %14, %.thread.thread ], [ 0, %53 ], [ 0, %55 ]
-  %60 = getelementptr inbounds i8, ptr %3, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %59, ptr %60, align 8
   br label %84
 
@@ -319,13 +319,13 @@ define dso_local noundef zeroext i1 @tsc_store_and_check_tsc_adjust(i1 noundef z
   br label %73
 
 73:                                               ; preds = %71, %69, %61
-  %74 = getelementptr inbounds i8, ptr %66, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %75 = load i64, ptr %74, align 8
   %76 = icmp eq i64 %14, %75
   br i1 %76, label %84, label %77
 
 77:                                               ; preds = %73
-  %78 = getelementptr inbounds i8, ptr %3, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %75, ptr %78, align 8
   %79 = load i64, ptr %74, align 8
   %80 = trunc i64 %79 to i32
@@ -377,7 +377,7 @@ define dso_local void @check_tsc_sync_target() local_unnamed_addr #0 align 16 {
   %21 = tail call i32 @smp_call_function_single(i32 noundef %19, ptr noundef nonnull @check_tsc_sync_source, ptr noundef %20, i32 noundef 0) #8
   %22 = sext i32 %3 to i64
   %23 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %22
-  %24 = getelementptr inbounds i8, ptr %2, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %25
 
 25:                                               ; preds = %.backedge, %18

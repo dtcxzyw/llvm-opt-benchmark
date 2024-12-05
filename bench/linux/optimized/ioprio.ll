@@ -122,11 +122,11 @@ declare dso_local zeroext i1 @capable(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_ioprio_set(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 112
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %7 = load i64, ptr %6, align 8
   %8 = tail call fastcc i64 @__se_sys_ioprio_set(i64 noundef %3, i64 noundef %5, i64 noundef %7)
   ret i64 %8
@@ -196,7 +196,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_ioprio_s
 31:                                               ; preds = %29
   %32 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #4, !srcloc !5
   %33 = inttoptr i64 %32 to ptr
-  %34 = getelementptr inbounds i8, ptr %33, i64 1880
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 1880
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr i8, ptr %35, i64 376
   %37 = load ptr, ptr %36, align 8
@@ -224,9 +224,9 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_ioprio_s
 .preheader15:                                     ; preds = %43, %.loopexit
   %50 = phi ptr [ %70, %.loopexit ], [ %47, %43 ]
   %51 = phi i32 [ %.ph13, %.loopexit ], [ -3, %43 ]
-  %52 = getelementptr inbounds i8, ptr %50, i64 1880
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 1880
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load volatile ptr, ptr %54, align 8
   %56 = icmp eq ptr %55, %54
   br i1 %56, label %.loopexit, label %.preheader
@@ -234,7 +234,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_ioprio_s
 57:                                               ; preds = %.preheader
   %58 = load volatile ptr, ptr %62, align 8
   %59 = load ptr, ptr %52, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = icmp eq ptr %58, %60
   br i1 %61, label %.loopexit, label %.preheader, !llvm.loop !6
 
@@ -275,9 +275,9 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_ioprio_s
 78:                                               ; preds = %76
   %79 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #4, !srcloc !5
   %80 = inttoptr i64 %79 to ptr
-  %81 = getelementptr inbounds i8, ptr %80, i64 1784
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 1784
   %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 136
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 136
   %84 = load ptr, ptr %83, align 8
   br label %87
 
@@ -308,7 +308,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_ioprio_s
   %99 = phi i32 [ %94, %.loopexit19 ], [ -3, %90 ]
   %100 = getelementptr i8, ptr %98, i64 768
   %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 16
   %103 = load volatile ptr, ptr %102, align 8
   %104 = icmp eq ptr %103, %102
   br i1 %104, label %.loopexit19, label %.preheader17
@@ -320,7 +320,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_ioprio_s
   tail call void @__rcu_read_lock() #3
   %108 = getelementptr i8, ptr %105, i64 288
   %109 = load volatile ptr, ptr %108, align 16
-  %110 = getelementptr inbounds i8, ptr %109, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
   %111 = load i32, ptr %110, align 8
   tail call void @__rcu_read_unlock() #3
   %112 = icmp eq i32 %111, %5
@@ -340,7 +340,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_ioprio_s
   %120 = phi i32 [ 0, %116 ], [ %106, %113 ], [ %106, %.preheader17 ]
   %121 = load volatile ptr, ptr %105, align 8
   %122 = load ptr, ptr %100, align 8
-  %123 = getelementptr inbounds i8, ptr %122, i64 16
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 16
   %124 = icmp eq ptr %121, %123
   br i1 %124, label %.loopexit19, label %.preheader17, !llvm.loop !11
 
@@ -365,13 +365,13 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_ioprio_s
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_ioprio_set(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 4294967295
-  %8 = getelementptr inbounds i8, ptr %0, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 4294967295
   %11 = tail call fastcc i64 @__se_sys_ioprio_set(i64 noundef %4, i64 noundef %7, i64 noundef %10)
@@ -380,9 +380,9 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_ioprio_set(p
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_ioprio_get(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 112
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load i64, ptr %4, align 8
   %6 = tail call fastcc i64 @__se_sys_ioprio_get(i64 noundef %3, i64 noundef %5), !range !12
   ret i64 %6
@@ -423,22 +423,22 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_ioprio_g
   br i1 %17, label %18, label %215
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %13, i64 2056
-  tail call void @_raw_spin_lock(ptr noundef %19) #3
-  %20 = getelementptr inbounds i8, ptr %13, i64 2136
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 2056
+  tail call void @_raw_spin_lock(ptr noundef nonnull %19) #3
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 2136
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %27, label %23
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds i8, ptr %21, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 12
   %25 = load i16, ptr %24, align 4
   %26 = zext i16 %25 to i32
   br label %27
 
 27:                                               ; preds = %23, %18
   %28 = phi i32 [ %26, %23 ], [ 0, %18 ]
-  tail call void @_raw_spin_unlock(ptr noundef %19) #3
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %19) #3
   br label %215
 
 29:                                               ; preds = %2
@@ -448,7 +448,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_ioprio_g
 31:                                               ; preds = %29
   %32 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #4, !srcloc !5
   %33 = inttoptr i64 %32 to ptr
-  %34 = getelementptr inbounds i8, ptr %33, i64 1880
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 1880
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr i8, ptr %35, i64 376
   %37 = load ptr, ptr %36, align 8
@@ -476,9 +476,9 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_ioprio_g
 .preheader25:                                     ; preds = %43, %.loopexit
   %50 = phi ptr [ %114, %.loopexit ], [ %47, %43 ]
   %51 = phi i32 [ %110, %.loopexit ], [ -3, %43 ]
-  %52 = getelementptr inbounds i8, ptr %50, i64 1880
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 1880
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load volatile ptr, ptr %54, align 8
   %56 = icmp eq ptr %55, %54
   br i1 %56, label %.loopexit, label %.preheader
@@ -501,7 +501,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_ioprio_g
 
 67:                                               ; preds = %62
   %68 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #4, !srcloc !5
-  %69 = getelementptr inbounds i8, ptr %65, i64 12
+  %69 = getelementptr inbounds nuw i8, ptr %65, i64 12
   %70 = load i16, ptr %69, align 4
   %71 = icmp ult i16 %70, 8192
   br i1 %71, label %72, label %.thread
@@ -558,7 +558,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_ioprio_g
   %105 = phi i32 [ %58, %94 ], [ %103, %99 ], [ %97, %96 ]
   %106 = load volatile ptr, ptr %57, align 8
   %107 = load ptr, ptr %52, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 16
   %109 = icmp eq ptr %106, %108
   br i1 %109, label %.loopexit, label %.preheader, !llvm.loop !13
 
@@ -584,9 +584,9 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_ioprio_g
 120:                                              ; preds = %118
   %121 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #4, !srcloc !5
   %122 = inttoptr i64 %121 to ptr
-  %123 = getelementptr inbounds i8, ptr %122, i64 1784
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 1784
   %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 136
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 136
   %126 = load ptr, ptr %125, align 8
   br label %129
 
@@ -606,7 +606,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_ioprio_g
   br i1 %135, label %.loopexit29, label %136
 
 136:                                              ; preds = %132
-  %137 = getelementptr inbounds i8, ptr %130, i64 80
+  %137 = getelementptr inbounds nuw i8, ptr %130, i64 80
   br label %142
 
 .loopexit28:                                      ; preds = %207, %142
@@ -621,7 +621,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_ioprio_g
   %144 = phi i32 [ -3, %136 ], [ %138, %.loopexit28 ]
   %145 = getelementptr i8, ptr %143, i64 768
   %146 = load ptr, ptr %145, align 8
-  %147 = getelementptr inbounds i8, ptr %146, i64 16
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 16
   %148 = load volatile ptr, ptr %147, align 8
   %149 = icmp eq ptr %148, %147
   br i1 %149, label %.loopexit28, label %.preheader27
@@ -633,7 +633,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_ioprio_g
   tail call void @__rcu_read_lock() #3
   %153 = getelementptr i8, ptr %150, i64 288
   %154 = load volatile ptr, ptr %153, align 16
-  %155 = getelementptr inbounds i8, ptr %154, i64 8
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
   %156 = load i32, ptr %155, align 8
   tail call void @__rcu_read_unlock() #3
   %157 = load i32, ptr %137, align 8
@@ -660,7 +660,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_ioprio_g
 
 170:                                              ; preds = %165
   %171 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #4, !srcloc !5
-  %172 = getelementptr inbounds i8, ptr %168, i64 12
+  %172 = getelementptr inbounds nuw i8, ptr %168, i64 12
   %173 = load i16, ptr %172, align 4
   %174 = icmp ult i16 %173, 8192
   br i1 %174, label %175, label %.thread24
@@ -717,7 +717,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_ioprio_g
   %208 = phi i32 [ %151, %197 ], [ %206, %202 ], [ %151, %159 ], [ %151, %.preheader27 ], [ %200, %199 ]
   %209 = load volatile ptr, ptr %150, align 8
   %210 = load ptr, ptr %145, align 8
-  %211 = getelementptr inbounds i8, ptr %210, i64 16
+  %211 = getelementptr inbounds nuw i8, ptr %210, i64 16
   %212 = icmp eq ptr %209, %211
   br i1 %212, label %.loopexit28, label %.preheader27, !llvm.loop !16
 
@@ -738,10 +738,10 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_ioprio_g
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_ioprio_get(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 4294967295
   %8 = tail call fastcc i64 @__se_sys_ioprio_get(i64 noundef %4, i64 noundef %7), !range !12

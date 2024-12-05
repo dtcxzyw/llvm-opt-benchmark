@@ -21,7 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_nio_ch_IOUtil_initIDs(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef nonnull @.str) #7
   %7 = icmp eq ptr %6, null
@@ -29,7 +29,7 @@ define void @Java_sun_nio_ch_IOUtil_initIDs(ptr noundef %0, ptr nocapture nounde
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 752
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 752
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #7
   store ptr %12, ptr @fd_fdID, align 8
@@ -50,7 +50,7 @@ declare void @JNU_ThrowByName(ptr noundef, ptr noundef, ptr noundef) local_unnam
 ; Function Attrs: nounwind uwtable
 define i32 @Java_sun_nio_ch_IOUtil_fdVal(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 800
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 800
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr @fd_fdID, align 8
   %8 = tail call i32 %6(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %7) #7
@@ -60,7 +60,7 @@ define i32 @Java_sun_nio_ch_IOUtil_fdVal(ptr noundef %0, ptr nocapture noundef r
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_nio_ch_IOUtil_setfdVal(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 872
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 872
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr @fd_fdID, align 8
   tail call void %7(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %8, i32 noundef %3) #7
@@ -70,7 +70,7 @@ define void @Java_sun_nio_ch_IOUtil_setfdVal(ptr noundef %0, ptr nocapture nound
 ; Function Attrs: nounwind uwtable
 define hidden void @setfdval(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 872
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 872
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr @fd_fdID, align 8
   tail call void %6(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %7, i32 noundef %2) #7
@@ -80,7 +80,7 @@ define hidden void @setfdval(ptr noundef %0, ptr noundef %1, i32 noundef %2) loc
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_nio_ch_IOUtil_configureBlocking(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 800
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 800
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr @fd_fdID, align 8
   %9 = tail call i32 %7(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %8) #7
@@ -108,7 +108,7 @@ configureBlocking.exit.thread:                    ; preds = %4, %16, %configureB
 ; Function Attrs: nounwind uwtable
 define hidden i32 @fdval(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 800
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 800
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr @fd_fdID, align 8
   %7 = tail call i32 %5(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %6) #7
@@ -145,7 +145,7 @@ configureBlocking.exit:                           ; preds = %10
   br i1 %16, label %24, label %configureBlocking.exit.thread
 
 configureBlocking.exit.thread:                    ; preds = %10, %configureBlocking.exit
-  %17 = getelementptr inbounds i8, ptr %4, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = call i32 (i32, i32, ...) @fcntl64(i32 noundef %18, i32 noundef 3) #7
   %20 = or i32 %19, 2048
@@ -161,7 +161,7 @@ configureBlocking.exit3:                          ; preds = %configureBlocking.e
   call void @JNU_ThrowIOExceptionWithLastError(ptr noundef %0, ptr noundef nonnull @.str.4) #7
   %25 = load i32, ptr %4, align 4
   %26 = call i32 @close(i32 noundef %25) #7
-  %27 = getelementptr inbounds i8, ptr %4, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %28 = load i32, ptr %27, align 4
   %29 = call i32 @close(i32 noundef %28) #7
   br label %37
@@ -170,7 +170,7 @@ configureBlocking.exit3.thread:                   ; preds = %configureBlocking.e
   %30 = load i32, ptr %4, align 4
   %31 = sext i32 %30 to i64
   %32 = shl nsw i64 %31, 32
-  %33 = getelementptr inbounds i8, ptr %4, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %34 = load i32, ptr %33, align 4
   %35 = sext i32 %34 to i64
   %36 = or i64 %32, %35
@@ -337,7 +337,7 @@ define range(i32 -1, -2147483648) i32 @Java_sun_nio_ch_IOUtil_fdLimit(ptr nounde
   br label %10
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load i64, ptr %8, align 8
   %spec.select4 = call i64 @llvm.umin.i64(i64 %9, i64 2147483647)
   %spec.select = trunc nuw nsw i64 %spec.select4 to i32

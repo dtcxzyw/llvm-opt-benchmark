@@ -113,7 +113,7 @@ define hidden void @keypair_context_update_seed(ptr nocapture noundef readonly %
 .lr.ph.split.i:                                   ; preds = %29, %35
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %35 ], [ 0, %29 ]
   %30 = getelementptr [128 x %struct.addr_entry_s], ptr @addr_table, i64 0, i64 %indvars.iv.i
-  %31 = getelementptr inbounds i8, ptr %30, i64 12
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 12
   %32 = load i32, ptr %31, align 4
   %.not.i = icmp eq i32 %32, 0
   br i1 %.not.i, label %35, label %33
@@ -135,7 +135,7 @@ rf4ce_addr_table_get_addr_entry_by_ieee.exit:     ; preds = %33, %35
 .lr.ph.split.i24:                                 ; preds = %41, %rf4ce_addr_table_get_addr_entry_by_ieee.exit
   %indvars.iv.i25 = phi i64 [ %indvars.iv.next.i28, %41 ], [ 0, %rf4ce_addr_table_get_addr_entry_by_ieee.exit ]
   %36 = getelementptr [128 x %struct.addr_entry_s], ptr @addr_table, i64 0, i64 %indvars.iv.i25
-  %37 = getelementptr inbounds i8, ptr %36, i64 12
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 12
   %38 = load i32, ptr %37, align 4
   %.not.i26 = icmp eq i32 %38, 0
   br i1 %.not.i26, label %41, label %39
@@ -206,13 +206,13 @@ keypair_context_calc_key.exit:                    ; preds = %60, %48
 64:                                               ; preds = %74, %keypair_context_calc_key.exit
   %indvars.iv.i.i = phi i64 [ 0, %keypair_context_calc_key.exit ], [ %indvars.iv.next.i.i, %74 ]
   %65 = getelementptr [64 x %struct.nwk_key_entry_s], ptr @nwk_key_storage, i64 0, i64 %indvars.iv.i.i
-  %66 = getelementptr inbounds i8, ptr %65, i64 36
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 36
   %67 = load i32, ptr %66, align 4
   %.not.i.i = icmp eq i32 %67, 0
   br i1 %.not.i.i, label %74, label %68
 
 68:                                               ; preds = %64
-  %69 = getelementptr inbounds i8, ptr %65, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %65, i64 32
   %70 = load i32, ptr %69, align 16
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %72, label %74
@@ -242,22 +242,22 @@ nwk_key_storage_get_entry_by_key.exit.i:          ; preds = %72
 .preheader.i36:                                   ; preds = %.preheader.i36.preheader, %76
   %indvars.iv.i37 = phi i64 [ %indvars.iv.next.i39, %76 ], [ 0, %.preheader.i36.preheader ]
   %77 = getelementptr [64 x %struct.nwk_key_entry_s], ptr @nwk_key_storage, i64 0, i64 %indvars.iv.i37
-  %78 = getelementptr inbounds i8, ptr %77, i64 36
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 36
   %79 = load i32, ptr %78, align 4
   %.not.i38 = icmp eq i32 %79, 0
   br i1 %.not.i38, label %80, label %76
 
 80:                                               ; preds = %.preheader.i36
-  %81 = getelementptr inbounds i8, ptr %77, i64 36
+  %81 = getelementptr inbounds nuw i8, ptr %77, i64 36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %77, ptr noundef nonnull align 1 dereferenceable(16) getelementptr inbounds (i8, ptr @keypair_context, i64 224), i64 16, i1 false)
-  %82 = getelementptr inbounds i8, ptr %77, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %77, i64 16
   store ptr %.07.i, ptr %82, align 16
-  %83 = getelementptr inbounds i8, ptr %77, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %77, i64 24
   store ptr %.07.i30, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %77, i64 32
+  %84 = getelementptr inbounds nuw i8, ptr %77, i64 32
   store i32 0, ptr %84, align 16
   store i32 1, ptr %81, align 4
-  %85 = getelementptr inbounds i8, ptr %77, i64 40
+  %85 = getelementptr inbounds nuw i8, ptr %77, i64 40
   store i32 1, ptr %85, align 8
   br label %nwk_key_storage_add_entry.exit
 
@@ -273,7 +273,7 @@ define hidden ptr @rf4ce_addr_table_get_addr_entry_by_ieee(ptr noundef readonly 
 .lr.ph.split:                                     ; preds = %1, %7
   %indvars.iv = phi i64 [ %indvars.iv.next, %7 ], [ 0, %1 ]
   %2 = getelementptr [128 x %struct.addr_entry_s], ptr @addr_table, i64 0, i64 %indvars.iv
-  %3 = getelementptr inbounds i8, ptr %2, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %7, label %5
@@ -300,13 +300,13 @@ define hidden void @nwk_key_storage_add_entry(ptr nocapture noundef readonly %0,
 6:                                                ; preds = %16, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %16 ]
   %7 = getelementptr [64 x %struct.nwk_key_entry_s], ptr @nwk_key_storage, i64 0, i64 %indvars.iv.i
-  %8 = getelementptr inbounds i8, ptr %7, i64 36
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 36
   %9 = load i32, ptr %8, align 4
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %16, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %7, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %12 = load i32, ptr %11, align 16
   %13 = icmp eq i32 %12, %3
   br i1 %13, label %14, label %16
@@ -336,22 +336,22 @@ nwk_key_storage_get_entry_by_key.exit:            ; preds = %14
 .preheader:                                       ; preds = %.preheader.preheader, %18
   %indvars.iv = phi i64 [ %indvars.iv.next, %18 ], [ 0, %.preheader.preheader ]
   %19 = getelementptr [64 x %struct.nwk_key_entry_s], ptr @nwk_key_storage, i64 0, i64 %indvars.iv
-  %20 = getelementptr inbounds i8, ptr %19, i64 36
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 36
   %21 = load i32, ptr %20, align 4
   %.not = icmp eq i32 %21, 0
   br i1 %.not, label %22, label %18
 
 22:                                               ; preds = %.preheader
-  %23 = getelementptr inbounds i8, ptr %19, i64 36
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %19, ptr noundef nonnull align 1 dereferenceable(16) %0, i64 16, i1 false)
-  %24 = getelementptr inbounds i8, ptr %19, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr %1, ptr %24, align 16
-  %25 = getelementptr inbounds i8, ptr %19, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store ptr %2, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %19, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store i32 %3, ptr %26, align 16
   store i32 1, ptr %23, align 4
-  %27 = getelementptr inbounds i8, ptr %19, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %19, i64 40
   store i32 %4, ptr %27, align 8
   br label %.loopexit
 
@@ -366,13 +366,13 @@ define hidden void @nwk_key_storage_release_entry(ptr nocapture noundef readonly
 3:                                                ; preds = %13, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %13 ]
   %4 = getelementptr [64 x %struct.nwk_key_entry_s], ptr @nwk_key_storage, i64 0, i64 %indvars.iv.i
-  %5 = getelementptr inbounds i8, ptr %4, i64 36
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 36
   %6 = load i32, ptr %5, align 4
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %13, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %4, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %9 = load i32, ptr %8, align 16
   %10 = icmp eq i32 %9, %1
   br i1 %10, label %11, label %13
@@ -392,7 +392,7 @@ nwk_key_storage_get_entry_by_key.exit:            ; preds = %11
   br i1 %.not, label %nwk_key_storage_get_entry_by_key.exit.thread, label %14
 
 14:                                               ; preds = %nwk_key_storage_get_entry_by_key.exit
-  %15 = getelementptr inbounds i8, ptr %4, i64 36
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 36
   store i32 0, ptr %15, align 4
   br label %nwk_key_storage_get_entry_by_key.exit.thread
 
@@ -408,7 +408,7 @@ define hidden void @rf4ce_addr_table_add_addrs(ptr noundef readonly %0, i16 noun
 .preheader18:                                     ; preds = %2, %13
   %indvars.iv = phi i64 [ %indvars.iv.next, %13 ], [ 0, %2 ]
   %4 = getelementptr [128 x %struct.addr_entry_s], ptr @addr_table, i64 0, i64 %indvars.iv
-  %5 = getelementptr inbounds i8, ptr %4, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %6 = load i32, ptr %5, align 4
   %.not16 = icmp eq i32 %6, 0
   br i1 %.not16, label %13, label %7
@@ -419,7 +419,7 @@ define hidden void @rf4ce_addr_table_add_addrs(ptr noundef readonly %0, i16 noun
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = load i16, ptr %10, align 8
   %12 = icmp eq i16 %11, %1
   br i1 %12, label %.critedge17, label %13
@@ -445,9 +445,9 @@ define hidden void @rf4ce_addr_table_add_addrs(ptr noundef readonly %0, i16 noun
   %17 = getelementptr [128 x %struct.addr_entry_s], ptr @addr_table, i64 0, i64 %indvars.iv25
   %18 = load i64, ptr %0, align 1
   store i64 %18, ptr %17, align 16
-  %19 = getelementptr inbounds i8, ptr %17, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i16 %1, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %17, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 12
   store i32 1, ptr %20, align 4
   br label %.critedge17
 
@@ -465,9 +465,9 @@ define hidden range(i32 0, 2) i32 @rf4ce_addr_table_get_ieee_addr(ptr noundef wr
 6:                                                ; preds = %3
   %.not = icmp eq i32 %2, 0
   %.030.in.v = select i1 %.not, i64 136, i64 112
-  %.030.in = getelementptr inbounds i8, ptr %1, i64 %.030.in.v
+  %.030.in = getelementptr inbounds nuw i8, ptr %1, i64 %.030.in.v
   %.028.in.v = select i1 %.not, i64 144, i64 120
-  %.028.in = getelementptr inbounds i8, ptr %1, i64 %.028.in.v
+  %.028.in = getelementptr inbounds nuw i8, ptr %1, i64 %.028.in.v
   %.028 = load ptr, ptr %.028.in, align 8
   %.030 = load i32, ptr %.030.in, align 8
   %7 = icmp eq i32 %.030, 8
@@ -486,14 +486,14 @@ define hidden range(i32 0, 2) i32 @rf4ce_addr_table_get_ieee_addr(ptr noundef wr
 
 .split.preheader:                                 ; preds = %10
   %.in.in.v = select i1 %.not, i64 4, i64 2
-  %.in.in = getelementptr inbounds i8, ptr %13, i64 %.in.in.v
+  %.in.in = getelementptr inbounds nuw i8, ptr %13, i64 %.in.in.v
   %.in35 = load i16, ptr %.in.in, align 2
   br label %.split
 
 .split.us:                                        ; preds = %8, %19
   %indvars.iv51 = phi i64 [ %indvars.iv.next52, %19 ], [ 0, %8 ]
   %15 = getelementptr [128 x %struct.addr_entry_s], ptr @addr_table, i64 0, i64 %indvars.iv51
-  %16 = getelementptr inbounds i8, ptr %15, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 12
   %17 = load i32, ptr %16, align 4
   %.not36.us = icmp eq i32 %17, 0
   br i1 %.not36.us, label %19, label %18
@@ -511,13 +511,13 @@ define hidden range(i32 0, 2) i32 @rf4ce_addr_table_get_ieee_addr(ptr noundef wr
 .split:                                           ; preds = %.split.preheader, %27
   %indvars.iv = phi i64 [ 0, %.split.preheader ], [ %indvars.iv.next, %27 ]
   %20 = getelementptr [128 x %struct.addr_entry_s], ptr @addr_table, i64 0, i64 %indvars.iv
-  %21 = getelementptr inbounds i8, ptr %20, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 12
   %22 = load i32, ptr %21, align 4
   %.not36 = icmp eq i32 %22, 0
   br i1 %.not36, label %27, label %23
 
 23:                                               ; preds = %.split
-  %24 = getelementptr inbounds i8, ptr %20, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %25 = load i16, ptr %24, align 8
   %.not39 = icmp eq i16 %.in35, %25
   br i1 %.not39, label %.split43.us, label %27
@@ -649,7 +649,7 @@ define hidden void @key_exchange_calc_key(i32 noundef %0) local_unnamed_addr #6 
 .lr.ph.split.i:                                   ; preds = %7, %1
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %7 ], [ 0, %1 ]
   %3 = getelementptr [128 x %struct.addr_entry_s], ptr @addr_table, i64 0, i64 %indvars.iv.i
-  %4 = getelementptr inbounds i8, ptr %3, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %5 = load i32, ptr %4, align 4
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %7, label %6
@@ -672,7 +672,7 @@ rf4ce_addr_table_get_addr_entry_by_ieee.exit:     ; preds = %6, %7
 .lr.ph.split.i17:                                 ; preds = %12, %rf4ce_addr_table_get_addr_entry_by_ieee.exit
   %indvars.iv.i18 = phi i64 [ %indvars.iv.next.i21, %12 ], [ 0, %rf4ce_addr_table_get_addr_entry_by_ieee.exit ]
   %8 = getelementptr [128 x %struct.addr_entry_s], ptr @addr_table, i64 0, i64 %indvars.iv.i18
-  %9 = getelementptr inbounds i8, ptr %8, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %10 = load i32, ptr %9, align 4
   %.not.i19 = icmp eq i32 %10, 0
   br i1 %.not.i19, label %12, label %11
@@ -694,7 +694,7 @@ rf4ce_addr_table_get_addr_entry_by_ieee.exit24:   ; preds = %11, %12
 13:                                               ; preds = %rf4ce_addr_table_get_addr_entry_by_ieee.exit24, %43
   %indvars.iv = phi i64 [ 0, %rf4ce_addr_table_get_addr_entry_by_ieee.exit24 ], [ %indvars.iv.next, %43 ]
   %14 = getelementptr [64 x %struct.vendor_secret_entry_s], ptr @vendor_secret_storage, i64 0, i64 %indvars.iv
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load i32, ptr %15, align 4
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %43, label %17
@@ -715,13 +715,13 @@ rf4ce_addr_table_get_addr_entry_by_ieee.exit24:   ; preds = %11, %12
 .critedge:                                        ; preds = %.critedge.preheader, %31
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %31 ], [ 0, %.critedge.preheader ]
   %22 = getelementptr [64 x %struct.nwk_key_entry_s], ptr @nwk_key_storage, i64 0, i64 %indvars.iv.i.i
-  %23 = getelementptr inbounds i8, ptr %22, i64 36
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 36
   %24 = load i32, ptr %23, align 4
   %.not.i.i = icmp eq i32 %24, 0
   br i1 %.not.i.i, label %31, label %25
 
 25:                                               ; preds = %.critedge
-  %26 = getelementptr inbounds i8, ptr %22, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %27 = load i32, ptr %26, align 16
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %29, label %31
@@ -751,22 +751,22 @@ nwk_key_storage_get_entry_by_key.exit.i:          ; preds = %29
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %33
   %indvars.iv.i25 = phi i64 [ %indvars.iv.next.i27, %33 ], [ 0, %.preheader.i.preheader ]
   %34 = getelementptr [64 x %struct.nwk_key_entry_s], ptr @nwk_key_storage, i64 0, i64 %indvars.iv.i25
-  %35 = getelementptr inbounds i8, ptr %34, i64 36
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 36
   %36 = load i32, ptr %35, align 4
   %.not.i26 = icmp eq i32 %36, 0
   br i1 %.not.i26, label %37, label %33
 
 37:                                               ; preds = %.preheader.i
-  %38 = getelementptr inbounds i8, ptr %34, i64 36
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %34, ptr noundef nonnull readonly align 16 dereferenceable(16) %2, i64 16, i1 false)
-  %39 = getelementptr inbounds i8, ptr %34, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store ptr %.07.i, ptr %39, align 16
-  %40 = getelementptr inbounds i8, ptr %34, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %34, i64 24
   store ptr %.07.i23, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %34, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %34, i64 32
   store i32 0, ptr %41, align 16
   store i32 1, ptr %38, align 4
-  %42 = getelementptr inbounds i8, ptr %34, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %34, i64 40
   store i32 0, ptr %42, align 8
   br label %nwk_key_storage_add_entry.exit
 
@@ -796,17 +796,17 @@ define internal fastcc range(i32 0, 2) i32 @key_exchange_calc_key_cont(ptr nound
   %17 = alloca [16 x i8], align 16
   %18 = alloca [16 x i8], align 16
   %.not15 = icmp eq i32 %2, 0
-  %19 = getelementptr inbounds i8, ptr %13, i64 8
-  %20 = getelementptr inbounds i8, ptr %14, i64 8
-  %21 = getelementptr inbounds i8, ptr %15, i64 9
-  %22 = getelementptr inbounds i8, ptr %15, i64 17
-  %23 = getelementptr inbounds i8, ptr %15, i64 25
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 9
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 17
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 25
   br label %24
 
 24:                                               ; preds = %4, %82
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %82 ]
   %25 = getelementptr [64 x %struct.nwk_key_entry_s], ptr @nwk_key_storage, i64 0, i64 %indvars.iv
-  %26 = getelementptr inbounds i8, ptr %25, i64 36
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 36
   %27 = load i32, ptr %26, align 4
   %.not = icmp eq i32 %27, 0
   br i1 %.not, label %82, label %28
@@ -815,13 +815,13 @@ define internal fastcc range(i32 0, 2) i32 @key_exchange_calc_key_cont(ptr nound
   br i1 %.not15, label %.critedge, label %29
 
 29:                                               ; preds = %28
-  %30 = getelementptr inbounds i8, ptr %25, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %31 = load i32, ptr %30, align 8
   %.not16 = icmp eq i32 %31, 0
   br i1 %.not16, label %82, label %34
 
 .critedge:                                        ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %25, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %33 = load i32, ptr %32, align 16
   %.not17 = icmp eq i32 %33, 0
   br i1 %.not17, label %82, label %34
@@ -1017,7 +1017,7 @@ define hidden void @vendor_secret_storage_add_entry(ptr nocapture noundef readon
 2:                                                ; preds = %8, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %8 ]
   %3 = getelementptr [64 x %struct.vendor_secret_entry_s], ptr @vendor_secret_storage, i64 0, i64 %indvars.iv.i
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i32, ptr %4, align 4
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %8, label %6
@@ -1054,7 +1054,7 @@ vendor_secret_storage_get_entry.exit:             ; preds = %6
 .critedge:                                        ; preds = %.preheader
   %12 = getelementptr [64 x %struct.vendor_secret_entry_s], ptr @vendor_secret_storage, i64 0, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 1 dereferenceable(16) %0, i64 16, i1 false)
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 1, ptr %13, align 4
   br label %.critedge9
 
@@ -1069,7 +1069,7 @@ define hidden void @vendor_secret_storage_release_entry(ptr nocapture noundef re
 2:                                                ; preds = %8, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %8 ]
   %3 = getelementptr [64 x %struct.vendor_secret_entry_s], ptr @vendor_secret_storage, i64 0, i64 %indvars.iv.i
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i32, ptr %4, align 4
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %8, label %6
@@ -1089,7 +1089,7 @@ vendor_secret_storage_get_entry.exit:             ; preds = %6
   br i1 %.not, label %vendor_secret_storage_get_entry.exit.thread, label %9
 
 9:                                                ; preds = %vendor_secret_storage_get_entry.exit
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 0, ptr %10, align 4
   br label %vendor_secret_storage_get_entry.exit.thread
 
@@ -1106,13 +1106,13 @@ define hidden void @rf4ce_secur_cleanup() local_unnamed_addr #11 {
 1:                                                ; preds = %0, %9
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %9 ]
   %2 = getelementptr [64 x %struct.nwk_key_entry_s], ptr @nwk_key_storage, i64 0, i64 %indvars.iv
-  %3 = getelementptr inbounds i8, ptr %2, i64 36
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %9, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %2, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %7 = load i32, ptr %6, align 16
   %.not5 = icmp eq i32 %7, 0
   br i1 %.not5, label %8, label %9
@@ -1141,10 +1141,10 @@ define hidden i32 @decrypt_data(ptr noundef %0, ptr noundef %1, i16 noundef zero
   br i1 %or.cond, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %13 = getelementptr i8, ptr %0, i64 1
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
-  %15 = getelementptr inbounds i8, ptr %8, i64 5
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 5
   %16 = zext i16 %2 to i32
   %17 = zext i16 %2 to i64
   %18 = getelementptr i8, ptr %0, i64 %17
@@ -1153,7 +1153,7 @@ define hidden i32 @decrypt_data(ptr noundef %0, ptr noundef %1, i16 noundef zero
 19:                                               ; preds = %.preheader, %42
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %42 ]
   %20 = getelementptr [64 x %struct.nwk_key_entry_s], ptr @nwk_key_storage, i64 0, i64 %indvars.iv
-  %21 = getelementptr inbounds i8, ptr %20, i64 36
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 36
   %22 = load i32, ptr %21, align 4
   %.not = icmp eq i32 %22, 0
   br i1 %.not, label %42, label %23

@@ -19,29 +19,29 @@ define ptr @cred_create(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_ad
   %7 = tail call i64 @time(ptr noundef null) #5
   %8 = tail call ptr @slurm_cred_alloc(i1 noundef zeroext false) #5
   %9 = tail call ptr @init_buf(i32 noundef 4096) #5
-  %10 = getelementptr inbounds i8, ptr %8, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 64
   store ptr %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 76
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 76
   store i16 %1, ptr %11, align 4
   %12 = icmp ugt i16 %1, 10239
   br i1 %12, label %13, label %219
 
 13:                                               ; preds = %2
   tail call void @pack_step_id(ptr noundef %0, ptr noundef %9, i16 noundef zeroext %1) #5
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load ptr, ptr %14, align 8
   tail call void @pack_identity(ptr noundef %15, ptr noundef %9, i16 noundef zeroext %1) #5
-  %16 = getelementptr inbounds i8, ptr %0, i64 208
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr %0, align 8
   %19 = tail call i32 @gres_job_state_pack(ptr noundef %17, ptr noundef %9, i32 noundef %18, i1 noundef zeroext false, i16 noundef zeroext %1) #5
-  %20 = getelementptr inbounds i8, ptr %0, i64 328
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %21 = load ptr, ptr %20, align 8
   %22 = tail call i32 @gres_step_state_pack(ptr noundef %21, ptr noundef %9, ptr noundef %0, i16 noundef zeroext %1) #5
-  %23 = getelementptr inbounds i8, ptr %0, i64 128
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %24 = load i16, ptr %23, align 8
   tail call void @pack16(i16 noundef zeroext %24, ptr noundef %9) #5
-  %25 = getelementptr inbounds i8, ptr %0, i64 88
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %26 = load ptr, ptr %25, align 8
   %.not422 = icmp eq ptr %26, null
   br i1 %.not422, label %31, label %27
@@ -55,20 +55,20 @@ define ptr @cred_create(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_ad
 31:                                               ; preds = %27, %13
   %.0334 = phi i32 [ %30, %27 ], [ 0, %13 ]
   tail call void @packmem(ptr noundef %26, i32 noundef %.0334, ptr noundef %9) #5
-  %32 = getelementptr inbounds i8, ptr %0, i64 192
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %33 = load ptr, ptr %32, align 8
   %.not423 = icmp eq ptr %33, null
   br i1 %.not423, label %37, label %34
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %0, i64 188
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %36 = load i32, ptr %35, align 4
   br label %37
 
 37:                                               ; preds = %31, %34
   %38 = phi i32 [ %36, %34 ], [ 0, %31 ]
   tail call void @slurm_pack_addr_array(ptr noundef %33, i32 noundef %38, ptr noundef %9) #5
-  %39 = getelementptr inbounds i8, ptr %0, i64 96
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %40 = load ptr, ptr %39, align 8
   %.not424 = icmp eq ptr %40, null
   br i1 %.not424, label %45, label %41
@@ -82,7 +82,7 @@ define ptr @cred_create(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_ad
 45:                                               ; preds = %41, %37
   %.0349 = phi i32 [ %44, %41 ], [ 0, %37 ]
   tail call void @packmem(ptr noundef %40, i32 noundef %.0349, ptr noundef %9) #5
-  %46 = getelementptr inbounds i8, ptr %0, i64 104
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %47 = load ptr, ptr %46, align 8
   %.not425 = icmp eq ptr %47, null
   br i1 %.not425, label %52, label %48
@@ -96,7 +96,7 @@ define ptr @cred_create(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_ad
 52:                                               ; preds = %48, %45
   %.0350 = phi i32 [ %51, %48 ], [ 0, %45 ]
   tail call void @packmem(ptr noundef %47, i32 noundef %.0350, ptr noundef %9) #5
-  %53 = getelementptr inbounds i8, ptr %0, i64 112
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %54 = load ptr, ptr %53, align 8
   %.not426 = icmp eq ptr %54, null
   br i1 %.not426, label %59, label %55
@@ -110,10 +110,10 @@ define ptr @cred_create(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_ad
 59:                                               ; preds = %55, %52
   %.0358 = phi i32 [ %58, %55 ], [ 0, %52 ]
   tail call void @packmem(ptr noundef %54, i32 noundef %.0358, ptr noundef %9) #5
-  %60 = getelementptr inbounds i8, ptr %0, i64 136
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %61 = load i64, ptr %60, align 8
   tail call void @pack_time(i64 noundef %61, ptr noundef %9) #5
-  %62 = getelementptr inbounds i8, ptr %0, i64 144
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %63 = load ptr, ptr %62, align 8
   %.not427 = icmp eq ptr %63, null
   br i1 %.not427, label %68, label %64
@@ -127,10 +127,10 @@ define ptr @cred_create(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_ad
 68:                                               ; preds = %64, %59
   %.0357 = phi i32 [ %67, %64 ], [ 0, %59 ]
   tail call void @packmem(ptr noundef %63, i32 noundef %.0357, ptr noundef %9) #5
-  %69 = getelementptr inbounds i8, ptr %0, i64 204
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 204
   %70 = load i16, ptr %69, align 4
   tail call void @pack16(i16 noundef zeroext %70, ptr noundef %9) #5
-  %71 = getelementptr inbounds i8, ptr %0, i64 216
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %72 = load ptr, ptr %71, align 8
   %.not428 = icmp eq ptr %72, null
   br i1 %.not428, label %77, label %73
@@ -144,7 +144,7 @@ define ptr @cred_create(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_ad
 77:                                               ; preds = %73, %68
   %.0356 = phi i32 [ %76, %73 ], [ 0, %68 ]
   tail call void @packmem(ptr noundef %72, i32 noundef %.0356, ptr noundef %9) #5
-  %78 = getelementptr inbounds i8, ptr %0, i64 224
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %79 = load ptr, ptr %78, align 8
   %.not429 = icmp eq ptr %79, null
   br i1 %.not429, label %84, label %80
@@ -158,13 +158,13 @@ define ptr @cred_create(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_ad
 84:                                               ; preds = %80, %77
   %.0355 = phi i32 [ %83, %80 ], [ 0, %77 ]
   tail call void @packmem(ptr noundef %79, i32 noundef %.0355, ptr noundef %9) #5
-  %85 = getelementptr inbounds i8, ptr %0, i64 232
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %86 = load i16, ptr %85, align 8
   tail call void @pack16(i16 noundef zeroext %86, ptr noundef %9) #5
-  %87 = getelementptr inbounds i8, ptr %0, i64 248
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %88 = load i64, ptr %87, align 8
   tail call void @pack_time(i64 noundef %88, ptr noundef %9) #5
-  %89 = getelementptr inbounds i8, ptr %0, i64 256
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %90 = load ptr, ptr %89, align 8
   %.not430 = icmp eq ptr %90, null
   br i1 %.not430, label %95, label %91
@@ -178,7 +178,7 @@ define ptr @cred_create(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_ad
 95:                                               ; preds = %91, %84
   %.0354 = phi i32 [ %94, %91 ], [ 0, %84 ]
   tail call void @packmem(ptr noundef %90, i32 noundef %.0354, ptr noundef %9) #5
-  %96 = getelementptr inbounds i8, ptr %0, i64 264
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %97 = load ptr, ptr %96, align 8
   %.not431 = icmp eq ptr %97, null
   br i1 %.not431, label %102, label %98
@@ -192,7 +192,7 @@ define ptr @cred_create(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_ad
 102:                                              ; preds = %98, %95
   %.0353 = phi i32 [ %101, %98 ], [ 0, %95 ]
   tail call void @packmem(ptr noundef %97, i32 noundef %.0353, ptr noundef %9) #5
-  %103 = getelementptr inbounds i8, ptr %0, i64 272
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %104 = load ptr, ptr %103, align 8
   %.not432 = icmp eq ptr %104, null
   br i1 %.not432, label %109, label %105
@@ -206,7 +206,7 @@ define ptr @cred_create(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_ad
 109:                                              ; preds = %105, %102
   %.0352 = phi i32 [ %108, %105 ], [ 0, %102 ]
   tail call void @packmem(ptr noundef %104, i32 noundef %.0352, ptr noundef %9) #5
-  %110 = getelementptr inbounds i8, ptr %0, i64 296
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %111 = load ptr, ptr %110, align 8
   %.not433 = icmp eq ptr %111, null
   br i1 %.not433, label %116, label %112
@@ -220,11 +220,11 @@ define ptr @cred_create(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_ad
 116:                                              ; preds = %112, %109
   %.0351 = phi i32 [ %115, %112 ], [ 0, %109 ]
   tail call void @packmem(ptr noundef %111, i32 noundef %.0351, ptr noundef %9) #5
-  %117 = getelementptr inbounds i8, ptr %0, i64 280
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %118 = load i16, ptr %117, align 8
   tail call void @pack16(i16 noundef zeroext %118, ptr noundef %9) #5
   tail call void @pack_time(i64 noundef %7, ptr noundef %9) #5
-  %119 = getelementptr inbounds i8, ptr %0, i64 120
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %120 = load ptr, ptr %119, align 8
   %.not434 = icmp eq ptr %120, null
   br i1 %.not434, label %124, label %121
@@ -260,7 +260,7 @@ define ptr @cred_create(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_ad
   br label %135
 
 135:                                              ; preds = %134, %126
-  %136 = getelementptr inbounds i8, ptr %0, i64 288
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %137 = load ptr, ptr %136, align 8
   %.not436 = icmp eq ptr %137, null
   br i1 %.not436, label %146, label %138
@@ -284,7 +284,7 @@ define ptr @cred_create(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_ad
   br label %147
 
 147:                                              ; preds = %138, %146
-  %148 = getelementptr inbounds i8, ptr %0, i64 32
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %149 = load i16, ptr %148, align 8
   call void @pack16(i16 noundef zeroext %149, ptr noundef %9) #5
   %150 = load i16, ptr %148, align 8
@@ -292,16 +292,16 @@ define ptr @cred_create(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_ad
   br i1 %.not437, label %163, label %151
 
 151:                                              ; preds = %147
-  %152 = getelementptr inbounds i8, ptr %0, i64 40
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %153 = load ptr, ptr %152, align 8
   %154 = zext i16 %150 to i32
   call void @pack16_array(ptr noundef %153, i32 noundef %154, ptr noundef %9) #5
-  %155 = getelementptr inbounds i8, ptr %0, i64 48
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %156 = load ptr, ptr %155, align 8
   %157 = load i16, ptr %148, align 8
   %158 = zext i16 %157 to i32
   call void @pack16_array(ptr noundef %156, i32 noundef %158, ptr noundef %9) #5
-  %159 = getelementptr inbounds i8, ptr %0, i64 56
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %160 = load ptr, ptr %159, align 8
   %161 = load i16, ptr %148, align 8
   %162 = zext i16 %161 to i32
@@ -309,7 +309,7 @@ define ptr @cred_create(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_ad
   br label %163
 
 163:                                              ; preds = %151, %147
-  %164 = getelementptr inbounds i8, ptr %0, i64 64
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %165 = load i32, ptr %164, align 8
   call void @pack32(i32 noundef %165, ptr noundef %9) #5
   %166 = load i32, ptr %164, align 8
@@ -317,23 +317,23 @@ define ptr @cred_create(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_ad
   br i1 %.not438, label %173, label %167
 
 167:                                              ; preds = %163
-  %168 = getelementptr inbounds i8, ptr %0, i64 72
+  %168 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %169 = load ptr, ptr %168, align 8
   call void @pack16_array(ptr noundef %169, i32 noundef %166, ptr noundef %9) #5
-  %170 = getelementptr inbounds i8, ptr %0, i64 80
+  %170 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %171 = load ptr, ptr %170, align 8
   %172 = load i32, ptr %164, align 8
   call void @pack32_array(ptr noundef %171, i32 noundef %172, ptr noundef %9) #5
   br label %173
 
 173:                                              ; preds = %167, %163
-  %174 = getelementptr inbounds i8, ptr %0, i64 188
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %175 = load i32, ptr %174, align 4
   call void @pack32(i32 noundef %175, ptr noundef %9) #5
-  %176 = getelementptr inbounds i8, ptr %0, i64 200
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %177 = load i32, ptr %176, align 8
   call void @pack32(i32 noundef %177, ptr noundef %9) #5
-  %178 = getelementptr inbounds i8, ptr %0, i64 152
+  %178 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %179 = load ptr, ptr %178, align 8
   %.not439 = icmp eq ptr %179, null
   br i1 %.not439, label %184, label %180
@@ -347,7 +347,7 @@ define ptr @cred_create(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_ad
 184:                                              ; preds = %180, %173
   %.0348 = phi i32 [ %183, %180 ], [ 0, %173 ]
   call void @packmem(ptr noundef %179, i32 noundef %.0348, ptr noundef %9) #5
-  %185 = getelementptr inbounds i8, ptr %0, i64 160
+  %185 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %186 = load ptr, ptr %185, align 8
   %.not440 = icmp eq ptr %186, null
   br i1 %.not440, label %191, label %187
@@ -361,7 +361,7 @@ define ptr @cred_create(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_ad
 191:                                              ; preds = %187, %184
   %.0347 = phi i32 [ %190, %187 ], [ 0, %184 ]
   call void @packmem(ptr noundef %186, i32 noundef %.0347, ptr noundef %9) #5
-  %192 = getelementptr inbounds i8, ptr %0, i64 184
+  %192 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %193 = load i32, ptr %192, align 8
   call void @pack32(i32 noundef %193, ptr noundef %9) #5
   %194 = load i32, ptr %192, align 8
@@ -369,17 +369,17 @@ define ptr @cred_create(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_ad
   br i1 %.not441, label %201, label %195
 
 195:                                              ; preds = %191
-  %196 = getelementptr inbounds i8, ptr %0, i64 168
+  %196 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %197 = load ptr, ptr %196, align 8
   call void @pack64_array(ptr noundef %197, i32 noundef %194, ptr noundef %9) #5
-  %198 = getelementptr inbounds i8, ptr %0, i64 176
+  %198 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %199 = load ptr, ptr %198, align 8
   %200 = load i32, ptr %192, align 8
   call void @pack32_array(ptr noundef %199, i32 noundef %200, ptr noundef %9) #5
   br label %201
 
 201:                                              ; preds = %195, %191
-  %202 = getelementptr inbounds i8, ptr %0, i64 320
+  %202 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %203 = load i32, ptr %202, align 8
   call void @pack32(i32 noundef %203, ptr noundef %9) #5
   %204 = load i32, ptr %202, align 8
@@ -387,17 +387,17 @@ define ptr @cred_create(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_ad
   br i1 %.not442, label %211, label %205
 
 205:                                              ; preds = %201
-  %206 = getelementptr inbounds i8, ptr %0, i64 304
+  %206 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %207 = load ptr, ptr %206, align 8
   call void @pack64_array(ptr noundef %207, i32 noundef %204, ptr noundef %9) #5
-  %208 = getelementptr inbounds i8, ptr %0, i64 312
+  %208 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %209 = load ptr, ptr %208, align 8
   %210 = load i32, ptr %202, align 8
   call void @pack32_array(ptr noundef %209, i32 noundef %210, ptr noundef %9) #5
   br label %211
 
 211:                                              ; preds = %201, %205
-  %212 = getelementptr inbounds i8, ptr %0, i64 240
+  %212 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %213 = load ptr, ptr %212, align 8
   %.not443 = icmp eq ptr %213, null
   br i1 %.not443, label %218, label %214
@@ -419,20 +419,20 @@ define ptr @cred_create(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_ad
 
 221:                                              ; preds = %219
   tail call void @pack_step_id(ptr noundef %0, ptr noundef %9, i16 noundef zeroext %1) #5
-  %222 = getelementptr inbounds i8, ptr %0, i64 24
+  %222 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %223 = load ptr, ptr %222, align 8
   tail call void @pack_identity(ptr noundef %223, ptr noundef %9, i16 noundef zeroext %1) #5
-  %224 = getelementptr inbounds i8, ptr %0, i64 208
+  %224 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %225 = load ptr, ptr %224, align 8
   %226 = load i32, ptr %0, align 8
   %227 = tail call i32 @gres_job_state_pack(ptr noundef %225, ptr noundef %9, i32 noundef %226, i1 noundef zeroext false, i16 noundef zeroext %1) #5
-  %228 = getelementptr inbounds i8, ptr %0, i64 328
+  %228 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %229 = load ptr, ptr %228, align 8
   %230 = tail call i32 @gres_step_state_pack(ptr noundef %229, ptr noundef %9, ptr noundef nonnull %0, i16 noundef zeroext %1) #5
-  %231 = getelementptr inbounds i8, ptr %0, i64 128
+  %231 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %232 = load i16, ptr %231, align 8
   tail call void @pack16(i16 noundef zeroext %232, ptr noundef %9) #5
-  %233 = getelementptr inbounds i8, ptr %0, i64 88
+  %233 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %234 = load ptr, ptr %233, align 8
   %.not = icmp eq ptr %234, null
   br i1 %.not, label %239, label %235
@@ -446,7 +446,7 @@ define ptr @cred_create(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_ad
 239:                                              ; preds = %235, %221
   %.0345 = phi i32 [ %238, %235 ], [ 0, %221 ]
   tail call void @packmem(ptr noundef %234, i32 noundef %.0345, ptr noundef %9) #5
-  %240 = getelementptr inbounds i8, ptr %0, i64 96
+  %240 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %241 = load ptr, ptr %240, align 8
   %.not402 = icmp eq ptr %241, null
   br i1 %.not402, label %246, label %242
@@ -460,7 +460,7 @@ define ptr @cred_create(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_ad
 246:                                              ; preds = %242, %239
   %.0344 = phi i32 [ %245, %242 ], [ 0, %239 ]
   tail call void @packmem(ptr noundef %241, i32 noundef %.0344, ptr noundef %9) #5
-  %247 = getelementptr inbounds i8, ptr %0, i64 104
+  %247 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %248 = load ptr, ptr %247, align 8
   %.not403 = icmp eq ptr %248, null
   br i1 %.not403, label %253, label %249
@@ -474,7 +474,7 @@ define ptr @cred_create(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_ad
 253:                                              ; preds = %249, %246
   %.0343 = phi i32 [ %252, %249 ], [ 0, %246 ]
   tail call void @packmem(ptr noundef %248, i32 noundef %.0343, ptr noundef %9) #5
-  %254 = getelementptr inbounds i8, ptr %0, i64 112
+  %254 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %255 = load ptr, ptr %254, align 8
   %.not404 = icmp eq ptr %255, null
   br i1 %.not404, label %260, label %256
@@ -488,10 +488,10 @@ define ptr @cred_create(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_ad
 260:                                              ; preds = %256, %253
   %.0342 = phi i32 [ %259, %256 ], [ 0, %253 ]
   tail call void @packmem(ptr noundef %255, i32 noundef %.0342, ptr noundef %9) #5
-  %261 = getelementptr inbounds i8, ptr %0, i64 136
+  %261 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %262 = load i64, ptr %261, align 8
   tail call void @pack_time(i64 noundef %262, ptr noundef %9) #5
-  %263 = getelementptr inbounds i8, ptr %0, i64 144
+  %263 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %264 = load ptr, ptr %263, align 8
   %.not405 = icmp eq ptr %264, null
   br i1 %.not405, label %269, label %265
@@ -505,10 +505,10 @@ define ptr @cred_create(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_ad
 269:                                              ; preds = %265, %260
   %.0341 = phi i32 [ %268, %265 ], [ 0, %260 ]
   tail call void @packmem(ptr noundef %264, i32 noundef %.0341, ptr noundef %9) #5
-  %270 = getelementptr inbounds i8, ptr %0, i64 204
+  %270 = getelementptr inbounds nuw i8, ptr %0, i64 204
   %271 = load i16, ptr %270, align 4
   tail call void @pack16(i16 noundef zeroext %271, ptr noundef %9) #5
-  %272 = getelementptr inbounds i8, ptr %0, i64 216
+  %272 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %273 = load ptr, ptr %272, align 8
   %.not406 = icmp eq ptr %273, null
   br i1 %.not406, label %278, label %274
@@ -522,7 +522,7 @@ define ptr @cred_create(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_ad
 278:                                              ; preds = %274, %269
   %.0340 = phi i32 [ %277, %274 ], [ 0, %269 ]
   tail call void @packmem(ptr noundef %273, i32 noundef %.0340, ptr noundef %9) #5
-  %279 = getelementptr inbounds i8, ptr %0, i64 224
+  %279 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %280 = load ptr, ptr %279, align 8
   %.not407 = icmp eq ptr %280, null
   br i1 %.not407, label %285, label %281
@@ -536,13 +536,13 @@ define ptr @cred_create(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_ad
 285:                                              ; preds = %281, %278
   %.0339 = phi i32 [ %284, %281 ], [ 0, %278 ]
   tail call void @packmem(ptr noundef %280, i32 noundef %.0339, ptr noundef %9) #5
-  %286 = getelementptr inbounds i8, ptr %0, i64 232
+  %286 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %287 = load i16, ptr %286, align 8
   tail call void @pack16(i16 noundef zeroext %287, ptr noundef %9) #5
-  %288 = getelementptr inbounds i8, ptr %0, i64 248
+  %288 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %289 = load i64, ptr %288, align 8
   tail call void @pack_time(i64 noundef %289, ptr noundef %9) #5
-  %290 = getelementptr inbounds i8, ptr %0, i64 256
+  %290 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %291 = load ptr, ptr %290, align 8
   %.not408 = icmp eq ptr %291, null
   br i1 %.not408, label %296, label %292
@@ -556,7 +556,7 @@ define ptr @cred_create(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_ad
 296:                                              ; preds = %292, %285
   %.0338 = phi i32 [ %295, %292 ], [ 0, %285 ]
   tail call void @packmem(ptr noundef %291, i32 noundef %.0338, ptr noundef %9) #5
-  %297 = getelementptr inbounds i8, ptr %0, i64 264
+  %297 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %298 = load ptr, ptr %297, align 8
   %.not409 = icmp eq ptr %298, null
   br i1 %.not409, label %303, label %299
@@ -570,7 +570,7 @@ define ptr @cred_create(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_ad
 303:                                              ; preds = %299, %296
   %.0337 = phi i32 [ %302, %299 ], [ 0, %296 ]
   tail call void @packmem(ptr noundef %298, i32 noundef %.0337, ptr noundef %9) #5
-  %304 = getelementptr inbounds i8, ptr %0, i64 272
+  %304 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %305 = load ptr, ptr %304, align 8
   %.not410 = icmp eq ptr %305, null
   br i1 %.not410, label %310, label %306
@@ -584,7 +584,7 @@ define ptr @cred_create(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_ad
 310:                                              ; preds = %306, %303
   %.0336 = phi i32 [ %309, %306 ], [ 0, %303 ]
   tail call void @packmem(ptr noundef %305, i32 noundef %.0336, ptr noundef %9) #5
-  %311 = getelementptr inbounds i8, ptr %0, i64 296
+  %311 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %312 = load ptr, ptr %311, align 8
   %.not411 = icmp eq ptr %312, null
   br i1 %.not411, label %317, label %313
@@ -598,11 +598,11 @@ define ptr @cred_create(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_ad
 317:                                              ; preds = %313, %310
   %.0335 = phi i32 [ %316, %313 ], [ 0, %310 ]
   tail call void @packmem(ptr noundef %312, i32 noundef %.0335, ptr noundef %9) #5
-  %318 = getelementptr inbounds i8, ptr %0, i64 280
+  %318 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %319 = load i16, ptr %318, align 8
   tail call void @pack16(i16 noundef zeroext %319, ptr noundef %9) #5
   tail call void @pack_time(i64 noundef %7, ptr noundef %9) #5
-  %320 = getelementptr inbounds i8, ptr %0, i64 120
+  %320 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %321 = load ptr, ptr %320, align 8
   %.not412 = icmp eq ptr %321, null
   br i1 %.not412, label %325, label %322
@@ -638,7 +638,7 @@ define ptr @cred_create(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_ad
   br label %336
 
 336:                                              ; preds = %335, %327
-  %337 = getelementptr inbounds i8, ptr %0, i64 288
+  %337 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %338 = load ptr, ptr %337, align 8
   %.not414 = icmp eq ptr %338, null
   br i1 %.not414, label %347, label %339
@@ -662,7 +662,7 @@ define ptr @cred_create(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_ad
   br label %348
 
 348:                                              ; preds = %339, %347
-  %349 = getelementptr inbounds i8, ptr %0, i64 32
+  %349 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %350 = load i16, ptr %349, align 8
   call void @pack16(i16 noundef zeroext %350, ptr noundef %9) #5
   %351 = load i16, ptr %349, align 8
@@ -670,16 +670,16 @@ define ptr @cred_create(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_ad
   br i1 %.not415, label %364, label %352
 
 352:                                              ; preds = %348
-  %353 = getelementptr inbounds i8, ptr %0, i64 40
+  %353 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %354 = load ptr, ptr %353, align 8
   %355 = zext i16 %351 to i32
   call void @pack16_array(ptr noundef %354, i32 noundef %355, ptr noundef %9) #5
-  %356 = getelementptr inbounds i8, ptr %0, i64 48
+  %356 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %357 = load ptr, ptr %356, align 8
   %358 = load i16, ptr %349, align 8
   %359 = zext i16 %358 to i32
   call void @pack16_array(ptr noundef %357, i32 noundef %359, ptr noundef %9) #5
-  %360 = getelementptr inbounds i8, ptr %0, i64 56
+  %360 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %361 = load ptr, ptr %360, align 8
   %362 = load i16, ptr %349, align 8
   %363 = zext i16 %362 to i32
@@ -687,7 +687,7 @@ define ptr @cred_create(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_ad
   br label %364
 
 364:                                              ; preds = %352, %348
-  %365 = getelementptr inbounds i8, ptr %0, i64 64
+  %365 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %366 = load i32, ptr %365, align 8
   call void @pack32(i32 noundef %366, ptr noundef %9) #5
   %367 = load i32, ptr %365, align 8
@@ -695,23 +695,23 @@ define ptr @cred_create(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_ad
   br i1 %.not416, label %374, label %368
 
 368:                                              ; preds = %364
-  %369 = getelementptr inbounds i8, ptr %0, i64 72
+  %369 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %370 = load ptr, ptr %369, align 8
   call void @pack16_array(ptr noundef %370, i32 noundef %367, ptr noundef %9) #5
-  %371 = getelementptr inbounds i8, ptr %0, i64 80
+  %371 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %372 = load ptr, ptr %371, align 8
   %373 = load i32, ptr %365, align 8
   call void @pack32_array(ptr noundef %372, i32 noundef %373, ptr noundef %9) #5
   br label %374
 
 374:                                              ; preds = %368, %364
-  %375 = getelementptr inbounds i8, ptr %0, i64 188
+  %375 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %376 = load i32, ptr %375, align 4
   call void @pack32(i32 noundef %376, ptr noundef %9) #5
-  %377 = getelementptr inbounds i8, ptr %0, i64 200
+  %377 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %378 = load i32, ptr %377, align 8
   call void @pack32(i32 noundef %378, ptr noundef %9) #5
-  %379 = getelementptr inbounds i8, ptr %0, i64 152
+  %379 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %380 = load ptr, ptr %379, align 8
   %.not417 = icmp eq ptr %380, null
   br i1 %.not417, label %385, label %381
@@ -725,7 +725,7 @@ define ptr @cred_create(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_ad
 385:                                              ; preds = %381, %374
   %.0332 = phi i32 [ %384, %381 ], [ 0, %374 ]
   call void @packmem(ptr noundef %380, i32 noundef %.0332, ptr noundef %9) #5
-  %386 = getelementptr inbounds i8, ptr %0, i64 160
+  %386 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %387 = load ptr, ptr %386, align 8
   %.not418 = icmp eq ptr %387, null
   br i1 %.not418, label %392, label %388
@@ -739,7 +739,7 @@ define ptr @cred_create(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_ad
 392:                                              ; preds = %388, %385
   %.0331 = phi i32 [ %391, %388 ], [ 0, %385 ]
   call void @packmem(ptr noundef %387, i32 noundef %.0331, ptr noundef %9) #5
-  %393 = getelementptr inbounds i8, ptr %0, i64 184
+  %393 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %394 = load i32, ptr %393, align 8
   call void @pack32(i32 noundef %394, ptr noundef %9) #5
   %395 = load i32, ptr %393, align 8
@@ -747,17 +747,17 @@ define ptr @cred_create(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_ad
   br i1 %.not419, label %402, label %396
 
 396:                                              ; preds = %392
-  %397 = getelementptr inbounds i8, ptr %0, i64 168
+  %397 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %398 = load ptr, ptr %397, align 8
   call void @pack64_array(ptr noundef %398, i32 noundef %395, ptr noundef %9) #5
-  %399 = getelementptr inbounds i8, ptr %0, i64 176
+  %399 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %400 = load ptr, ptr %399, align 8
   %401 = load i32, ptr %393, align 8
   call void @pack32_array(ptr noundef %400, i32 noundef %401, ptr noundef %9) #5
   br label %402
 
 402:                                              ; preds = %396, %392
-  %403 = getelementptr inbounds i8, ptr %0, i64 320
+  %403 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %404 = load i32, ptr %403, align 8
   call void @pack32(i32 noundef %404, ptr noundef %9) #5
   %405 = load i32, ptr %403, align 8
@@ -765,17 +765,17 @@ define ptr @cred_create(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_ad
   br i1 %.not420, label %412, label %406
 
 406:                                              ; preds = %402
-  %407 = getelementptr inbounds i8, ptr %0, i64 304
+  %407 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %408 = load ptr, ptr %407, align 8
   call void @pack64_array(ptr noundef %408, i32 noundef %405, ptr noundef %9) #5
-  %409 = getelementptr inbounds i8, ptr %0, i64 312
+  %409 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %410 = load ptr, ptr %409, align 8
   %411 = load i32, ptr %403, align 8
   call void @pack32_array(ptr noundef %410, i32 noundef %411, ptr noundef %9) #5
   br label %412
 
 412:                                              ; preds = %402, %406
-  %413 = getelementptr inbounds i8, ptr %0, i64 240
+  %413 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %414 = load ptr, ptr %413, align 8
   %.not421 = icmp eq ptr %414, null
   br i1 %.not421, label %419, label %415
@@ -883,7 +883,7 @@ define range(i32 -1, 1) i32 @cred_unpack(ptr nocapture noundef writeonly %0, ptr
   %47 = alloca i32, align 4
   store ptr null, ptr %6, align 8
   %48 = tail call ptr @slurm_cred_alloc(i1 noundef zeroext true) #5
-  %49 = getelementptr inbounds i8, ptr %48, i64 80
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 80
   %50 = load ptr, ptr %49, align 8
   %51 = zext i16 %2 to i32
   %52 = icmp ugt i16 %2, 10239
@@ -895,134 +895,134 @@ define range(i32 -1, 1) i32 @cred_unpack(ptr nocapture noundef writeonly %0, ptr
   br i1 %.not319, label %55, label %480
 
 55:                                               ; preds = %53
-  %56 = getelementptr inbounds i8, ptr %50, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %57 = tail call i32 @unpack_identity(ptr noundef nonnull %56, ptr noundef %1, i16 noundef zeroext %2) #5
   %.not320 = icmp eq i32 %57, 0
   br i1 %.not320, label %58, label %480
 
 58:                                               ; preds = %55
-  %59 = getelementptr inbounds i8, ptr %50, i64 208
+  %59 = getelementptr inbounds nuw i8, ptr %50, i64 208
   %60 = load i32, ptr %50, align 8
   %61 = tail call i32 @gres_job_state_unpack(ptr noundef nonnull %59, ptr noundef %1, i32 noundef %60, i16 noundef zeroext %2) #5
   %.not321 = icmp eq i32 %61, 0
   br i1 %.not321, label %62, label %480
 
 62:                                               ; preds = %58
-  %63 = getelementptr inbounds i8, ptr %50, i64 328
+  %63 = getelementptr inbounds nuw i8, ptr %50, i64 328
   %64 = tail call i32 @gres_step_state_unpack(ptr noundef nonnull %63, ptr noundef %1, ptr noundef nonnull %50, i16 noundef zeroext %2) #5
   %.not322 = icmp eq i32 %64, 0
   br i1 %.not322, label %65, label %480
 
 65:                                               ; preds = %62
-  %66 = getelementptr inbounds i8, ptr %50, i64 128
+  %66 = getelementptr inbounds nuw i8, ptr %50, i64 128
   %67 = tail call i32 @unpack16(ptr noundef nonnull %66, ptr noundef %1) #5
   %.not323 = icmp eq i32 %67, 0
   br i1 %.not323, label %68, label %480
 
 68:                                               ; preds = %65
-  %69 = getelementptr inbounds i8, ptr %50, i64 88
+  %69 = getelementptr inbounds nuw i8, ptr %50, i64 88
   %70 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %69, ptr noundef nonnull %8, ptr noundef %1) #5
   %.not324 = icmp eq i32 %70, 0
   br i1 %.not324, label %71, label %480
 
 71:                                               ; preds = %68
-  %72 = getelementptr inbounds i8, ptr %50, i64 192
+  %72 = getelementptr inbounds nuw i8, ptr %50, i64 192
   %73 = call i32 @slurm_unpack_addr_array(ptr noundef nonnull %72, ptr noundef nonnull %5, ptr noundef %1) #5
   %.not325 = icmp eq i32 %73, 0
   br i1 %.not325, label %74, label %480
 
 74:                                               ; preds = %71
-  %75 = getelementptr inbounds i8, ptr %50, i64 96
+  %75 = getelementptr inbounds nuw i8, ptr %50, i64 96
   %76 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %75, ptr noundef nonnull %9, ptr noundef %1) #5
   %.not326 = icmp eq i32 %76, 0
   br i1 %.not326, label %77, label %480
 
 77:                                               ; preds = %74
-  %78 = getelementptr inbounds i8, ptr %50, i64 104
+  %78 = getelementptr inbounds nuw i8, ptr %50, i64 104
   %79 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %78, ptr noundef nonnull %10, ptr noundef %1) #5
   %.not327 = icmp eq i32 %79, 0
   br i1 %.not327, label %80, label %480
 
 80:                                               ; preds = %77
-  %81 = getelementptr inbounds i8, ptr %50, i64 112
+  %81 = getelementptr inbounds nuw i8, ptr %50, i64 112
   %82 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %81, ptr noundef nonnull %11, ptr noundef %1) #5
   %.not328 = icmp eq i32 %82, 0
   br i1 %.not328, label %83, label %480
 
 83:                                               ; preds = %80
-  %84 = getelementptr inbounds i8, ptr %50, i64 136
+  %84 = getelementptr inbounds nuw i8, ptr %50, i64 136
   %85 = call i32 @unpack_time(ptr noundef nonnull %84, ptr noundef %1) #5
   %.not329 = icmp eq i32 %85, 0
   br i1 %.not329, label %86, label %480
 
 86:                                               ; preds = %83
-  %87 = getelementptr inbounds i8, ptr %50, i64 144
+  %87 = getelementptr inbounds nuw i8, ptr %50, i64 144
   %88 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %87, ptr noundef nonnull %12, ptr noundef %1) #5
   %.not330 = icmp eq i32 %88, 0
   br i1 %.not330, label %89, label %480
 
 89:                                               ; preds = %86
-  %90 = getelementptr inbounds i8, ptr %50, i64 204
+  %90 = getelementptr inbounds nuw i8, ptr %50, i64 204
   %91 = call i32 @unpack16(ptr noundef nonnull %90, ptr noundef %1) #5
   %.not331 = icmp eq i32 %91, 0
   br i1 %.not331, label %92, label %480
 
 92:                                               ; preds = %89
-  %93 = getelementptr inbounds i8, ptr %50, i64 216
+  %93 = getelementptr inbounds nuw i8, ptr %50, i64 216
   %94 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %93, ptr noundef nonnull %13, ptr noundef %1) #5
   %.not332 = icmp eq i32 %94, 0
   br i1 %.not332, label %95, label %480
 
 95:                                               ; preds = %92
-  %96 = getelementptr inbounds i8, ptr %50, i64 224
+  %96 = getelementptr inbounds nuw i8, ptr %50, i64 224
   %97 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %96, ptr noundef nonnull %14, ptr noundef %1) #5
   %.not333 = icmp eq i32 %97, 0
   br i1 %.not333, label %98, label %480
 
 98:                                               ; preds = %95
-  %99 = getelementptr inbounds i8, ptr %50, i64 232
+  %99 = getelementptr inbounds nuw i8, ptr %50, i64 232
   %100 = call i32 @unpack16(ptr noundef nonnull %99, ptr noundef %1) #5
   %.not334 = icmp eq i32 %100, 0
   br i1 %.not334, label %101, label %480
 
 101:                                              ; preds = %98
-  %102 = getelementptr inbounds i8, ptr %50, i64 248
+  %102 = getelementptr inbounds nuw i8, ptr %50, i64 248
   %103 = call i32 @unpack_time(ptr noundef nonnull %102, ptr noundef %1) #5
   %.not335 = icmp eq i32 %103, 0
   br i1 %.not335, label %104, label %480
 
 104:                                              ; preds = %101
-  %105 = getelementptr inbounds i8, ptr %50, i64 256
+  %105 = getelementptr inbounds nuw i8, ptr %50, i64 256
   %106 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %105, ptr noundef nonnull %15, ptr noundef %1) #5
   %.not336 = icmp eq i32 %106, 0
   br i1 %.not336, label %107, label %480
 
 107:                                              ; preds = %104
-  %108 = getelementptr inbounds i8, ptr %50, i64 264
+  %108 = getelementptr inbounds nuw i8, ptr %50, i64 264
   %109 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %108, ptr noundef nonnull %16, ptr noundef %1) #5
   %.not337 = icmp eq i32 %109, 0
   br i1 %.not337, label %110, label %480
 
 110:                                              ; preds = %107
-  %111 = getelementptr inbounds i8, ptr %50, i64 272
+  %111 = getelementptr inbounds nuw i8, ptr %50, i64 272
   %112 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %111, ptr noundef nonnull %17, ptr noundef %1) #5
   %.not338 = icmp eq i32 %112, 0
   br i1 %.not338, label %113, label %480
 
 113:                                              ; preds = %110
-  %114 = getelementptr inbounds i8, ptr %50, i64 296
+  %114 = getelementptr inbounds nuw i8, ptr %50, i64 296
   %115 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %114, ptr noundef nonnull %18, ptr noundef %1) #5
   %.not339 = icmp eq i32 %115, 0
   br i1 %.not339, label %116, label %480
 
 116:                                              ; preds = %113
-  %117 = getelementptr inbounds i8, ptr %50, i64 280
+  %117 = getelementptr inbounds nuw i8, ptr %50, i64 280
   %118 = call i32 @unpack16(ptr noundef nonnull %117, ptr noundef %1) #5
   %.not340 = icmp eq i32 %118, 0
   br i1 %.not340, label %119, label %480
 
 119:                                              ; preds = %116
-  %120 = getelementptr inbounds i8, ptr %48, i64 88
+  %120 = getelementptr inbounds nuw i8, ptr %48, i64 88
   %121 = call i32 @unpack_time(ptr noundef nonnull %120, ptr noundef %1) #5
   %.not341 = icmp eq i32 %121, 0
   br i1 %.not341, label %122, label %480
@@ -1056,7 +1056,7 @@ define range(i32 -1, 1) i32 @cred_unpack(ptr nocapture noundef writeonly %0, ptr
 132:                                              ; preds = %130
   %133 = zext i32 %131 to i64
   %134 = call ptr @bit_alloc(i64 noundef %133) #5
-  %135 = getelementptr inbounds i8, ptr %50, i64 120
+  %135 = getelementptr inbounds nuw i8, ptr %50, i64 120
   store ptr %134, ptr %135, align 8
   %136 = load ptr, ptr %19, align 8
   %137 = call i32 @bit_unfmt_hexmask(ptr noundef %134, ptr noundef %136) #5
@@ -1078,7 +1078,7 @@ define range(i32 -1, 1) i32 @cred_unpack(ptr nocapture noundef writeonly %0, ptr
   br label %480
 
 142:                                              ; preds = %130
-  %143 = getelementptr inbounds i8, ptr %50, i64 120
+  %143 = getelementptr inbounds nuw i8, ptr %50, i64 120
   store ptr null, ptr %143, align 8
   br label %144
 
@@ -1087,7 +1087,7 @@ define range(i32 -1, 1) i32 @cred_unpack(ptr nocapture noundef writeonly %0, ptr
   br label %147
 
 145:                                              ; preds = %126
-  %146 = getelementptr inbounds i8, ptr %50, i64 120
+  %146 = getelementptr inbounds nuw i8, ptr %50, i64 120
   store ptr null, ptr %146, align 8
   br label %147
 
@@ -1115,7 +1115,7 @@ define range(i32 -1, 1) i32 @cred_unpack(ptr nocapture noundef writeonly %0, ptr
 155:                                              ; preds = %153
   %156 = zext i32 %154 to i64
   %157 = call ptr @bit_alloc(i64 noundef %156) #5
-  %158 = getelementptr inbounds i8, ptr %50, i64 288
+  %158 = getelementptr inbounds nuw i8, ptr %50, i64 288
   store ptr %157, ptr %158, align 8
   %159 = load ptr, ptr %22, align 8
   %160 = call i32 @bit_unfmt_hexmask(ptr noundef %157, ptr noundef %159) #5
@@ -1137,7 +1137,7 @@ define range(i32 -1, 1) i32 @cred_unpack(ptr nocapture noundef writeonly %0, ptr
   br label %480
 
 165:                                              ; preds = %153
-  %166 = getelementptr inbounds i8, ptr %50, i64 288
+  %166 = getelementptr inbounds nuw i8, ptr %50, i64 288
   store ptr null, ptr %166, align 8
   br label %167
 
@@ -1146,12 +1146,12 @@ define range(i32 -1, 1) i32 @cred_unpack(ptr nocapture noundef writeonly %0, ptr
   br label %170
 
 168:                                              ; preds = %149
-  %169 = getelementptr inbounds i8, ptr %50, i64 288
+  %169 = getelementptr inbounds nuw i8, ptr %50, i64 288
   store ptr null, ptr %169, align 8
   br label %170
 
 170:                                              ; preds = %168, %167
-  %171 = getelementptr inbounds i8, ptr %50, i64 32
+  %171 = getelementptr inbounds nuw i8, ptr %50, i64 32
   %172 = call i32 @unpack16(ptr noundef nonnull %171, ptr noundef %1) #5
   %.not353 = icmp eq i32 %172, 0
   br i1 %.not353, label %173, label %480
@@ -1162,7 +1162,7 @@ define range(i32 -1, 1) i32 @cred_unpack(ptr nocapture noundef writeonly %0, ptr
   br i1 %.not354, label %196, label %175
 
 175:                                              ; preds = %173
-  %176 = getelementptr inbounds i8, ptr %50, i64 40
+  %176 = getelementptr inbounds nuw i8, ptr %50, i64 40
   %177 = call i32 @unpack16_array(ptr noundef nonnull %176, ptr noundef nonnull %4, ptr noundef %1) #5
   %.not355 = icmp eq i32 %177, 0
   br i1 %.not355, label %178, label %480
@@ -1175,7 +1175,7 @@ define range(i32 -1, 1) i32 @cred_unpack(ptr nocapture noundef writeonly %0, ptr
   br i1 %.not356, label %182, label %480
 
 182:                                              ; preds = %178
-  %183 = getelementptr inbounds i8, ptr %50, i64 48
+  %183 = getelementptr inbounds nuw i8, ptr %50, i64 48
   %184 = call i32 @unpack16_array(ptr noundef nonnull %183, ptr noundef nonnull %4, ptr noundef %1) #5
   %.not357 = icmp eq i32 %184, 0
   br i1 %.not357, label %185, label %480
@@ -1188,7 +1188,7 @@ define range(i32 -1, 1) i32 @cred_unpack(ptr nocapture noundef writeonly %0, ptr
   br i1 %.not358, label %189, label %480
 
 189:                                              ; preds = %185
-  %190 = getelementptr inbounds i8, ptr %50, i64 56
+  %190 = getelementptr inbounds nuw i8, ptr %50, i64 56
   %191 = call i32 @unpack32_array(ptr noundef nonnull %190, ptr noundef nonnull %4, ptr noundef %1) #5
   %.not359 = icmp eq i32 %191, 0
   br i1 %.not359, label %192, label %480
@@ -1201,7 +1201,7 @@ define range(i32 -1, 1) i32 @cred_unpack(ptr nocapture noundef writeonly %0, ptr
   br i1 %.not360, label %196, label %480
 
 196:                                              ; preds = %173, %192
-  %197 = getelementptr inbounds i8, ptr %50, i64 64
+  %197 = getelementptr inbounds nuw i8, ptr %50, i64 64
   %198 = call i32 @unpack32(ptr noundef nonnull %197, ptr noundef %1) #5
   %.not361 = icmp eq i32 %198, 0
   br i1 %.not361, label %199, label %480
@@ -1212,7 +1212,7 @@ define range(i32 -1, 1) i32 @cred_unpack(ptr nocapture noundef writeonly %0, ptr
   br i1 %.not362, label %213, label %201
 
 201:                                              ; preds = %199
-  %202 = getelementptr inbounds i8, ptr %50, i64 72
+  %202 = getelementptr inbounds nuw i8, ptr %50, i64 72
   %203 = call i32 @unpack16_array(ptr noundef nonnull %202, ptr noundef nonnull %4, ptr noundef %1) #5
   %.not363 = icmp eq i32 %203, 0
   br i1 %.not363, label %204, label %480
@@ -1224,7 +1224,7 @@ define range(i32 -1, 1) i32 @cred_unpack(ptr nocapture noundef writeonly %0, ptr
   br i1 %.not364, label %207, label %480
 
 207:                                              ; preds = %204
-  %208 = getelementptr inbounds i8, ptr %50, i64 80
+  %208 = getelementptr inbounds nuw i8, ptr %50, i64 80
   %209 = call i32 @unpack32_array(ptr noundef nonnull %208, ptr noundef nonnull %4, ptr noundef %1) #5
   %.not365 = icmp eq i32 %209, 0
   br i1 %.not365, label %210, label %480
@@ -1236,31 +1236,31 @@ define range(i32 -1, 1) i32 @cred_unpack(ptr nocapture noundef writeonly %0, ptr
   br i1 %.not366, label %213, label %480
 
 213:                                              ; preds = %199, %210
-  %214 = getelementptr inbounds i8, ptr %50, i64 188
+  %214 = getelementptr inbounds nuw i8, ptr %50, i64 188
   %215 = call i32 @unpack32(ptr noundef nonnull %214, ptr noundef %1) #5
   %.not367 = icmp eq i32 %215, 0
   br i1 %.not367, label %216, label %480
 
 216:                                              ; preds = %213
-  %217 = getelementptr inbounds i8, ptr %50, i64 200
+  %217 = getelementptr inbounds nuw i8, ptr %50, i64 200
   %218 = call i32 @unpack32(ptr noundef nonnull %217, ptr noundef %1) #5
   %.not368 = icmp eq i32 %218, 0
   br i1 %.not368, label %219, label %480
 
 219:                                              ; preds = %216
-  %220 = getelementptr inbounds i8, ptr %50, i64 152
+  %220 = getelementptr inbounds nuw i8, ptr %50, i64 152
   %221 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %220, ptr noundef nonnull %25, ptr noundef %1) #5
   %.not369 = icmp eq i32 %221, 0
   br i1 %.not369, label %222, label %480
 
 222:                                              ; preds = %219
-  %223 = getelementptr inbounds i8, ptr %50, i64 160
+  %223 = getelementptr inbounds nuw i8, ptr %50, i64 160
   %224 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %223, ptr noundef nonnull %26, ptr noundef %1) #5
   %.not370 = icmp eq i32 %224, 0
   br i1 %.not370, label %225, label %480
 
 225:                                              ; preds = %222
-  %226 = getelementptr inbounds i8, ptr %50, i64 184
+  %226 = getelementptr inbounds nuw i8, ptr %50, i64 184
   %227 = call i32 @unpack32(ptr noundef nonnull %226, ptr noundef %1) #5
   %.not371 = icmp eq i32 %227, 0
   br i1 %.not371, label %228, label %480
@@ -1271,7 +1271,7 @@ define range(i32 -1, 1) i32 @cred_unpack(ptr nocapture noundef writeonly %0, ptr
   br i1 %.not372, label %242, label %230
 
 230:                                              ; preds = %228
-  %231 = getelementptr inbounds i8, ptr %50, i64 168
+  %231 = getelementptr inbounds nuw i8, ptr %50, i64 168
   %232 = call i32 @unpack64_array(ptr noundef nonnull %231, ptr noundef nonnull %4, ptr noundef %1) #5
   %.not373 = icmp eq i32 %232, 0
   br i1 %.not373, label %233, label %480
@@ -1283,7 +1283,7 @@ define range(i32 -1, 1) i32 @cred_unpack(ptr nocapture noundef writeonly %0, ptr
   br i1 %.not374, label %236, label %480
 
 236:                                              ; preds = %233
-  %237 = getelementptr inbounds i8, ptr %50, i64 176
+  %237 = getelementptr inbounds nuw i8, ptr %50, i64 176
   %238 = call i32 @unpack32_array(ptr noundef nonnull %237, ptr noundef nonnull %4, ptr noundef %1) #5
   %.not375 = icmp eq i32 %238, 0
   br i1 %.not375, label %239, label %480
@@ -1295,7 +1295,7 @@ define range(i32 -1, 1) i32 @cred_unpack(ptr nocapture noundef writeonly %0, ptr
   br i1 %.not376, label %242, label %480
 
 242:                                              ; preds = %228, %239
-  %243 = getelementptr inbounds i8, ptr %50, i64 320
+  %243 = getelementptr inbounds nuw i8, ptr %50, i64 320
   %244 = call i32 @unpack32(ptr noundef nonnull %243, ptr noundef %1) #5
   %.not377 = icmp eq i32 %244, 0
   br i1 %.not377, label %245, label %480
@@ -1306,7 +1306,7 @@ define range(i32 -1, 1) i32 @cred_unpack(ptr nocapture noundef writeonly %0, ptr
   br i1 %.not378, label %259, label %247
 
 247:                                              ; preds = %245
-  %248 = getelementptr inbounds i8, ptr %50, i64 304
+  %248 = getelementptr inbounds nuw i8, ptr %50, i64 304
   %249 = call i32 @unpack64_array(ptr noundef nonnull %248, ptr noundef nonnull %4, ptr noundef %1) #5
   %.not379 = icmp eq i32 %249, 0
   br i1 %.not379, label %250, label %480
@@ -1318,7 +1318,7 @@ define range(i32 -1, 1) i32 @cred_unpack(ptr nocapture noundef writeonly %0, ptr
   br i1 %.not380, label %253, label %480
 
 253:                                              ; preds = %250
-  %254 = getelementptr inbounds i8, ptr %50, i64 312
+  %254 = getelementptr inbounds nuw i8, ptr %50, i64 312
   %255 = call i32 @unpack32_array(ptr noundef nonnull %254, ptr noundef nonnull %4, ptr noundef %1) #5
   %.not381 = icmp eq i32 %255, 0
   br i1 %.not381, label %256, label %480
@@ -1330,7 +1330,7 @@ define range(i32 -1, 1) i32 @cred_unpack(ptr nocapture noundef writeonly %0, ptr
   br i1 %.not382, label %259, label %480
 
 259:                                              ; preds = %245, %256
-  %260 = getelementptr inbounds i8, ptr %50, i64 240
+  %260 = getelementptr inbounds nuw i8, ptr %50, i64 240
   %261 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %260, ptr noundef nonnull %27, ptr noundef %1) #5
   %.not383 = icmp eq i32 %261, 0
   br i1 %.not383, label %472, label %480
@@ -1345,128 +1345,128 @@ define range(i32 -1, 1) i32 @cred_unpack(ptr nocapture noundef writeonly %0, ptr
   br i1 %.not, label %266, label %480
 
 266:                                              ; preds = %264
-  %267 = getelementptr inbounds i8, ptr %50, i64 24
+  %267 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %268 = tail call i32 @unpack_identity(ptr noundef nonnull %267, ptr noundef %1, i16 noundef zeroext %2) #5
   %.not254 = icmp eq i32 %268, 0
   br i1 %.not254, label %269, label %480
 
 269:                                              ; preds = %266
-  %270 = getelementptr inbounds i8, ptr %50, i64 208
+  %270 = getelementptr inbounds nuw i8, ptr %50, i64 208
   %271 = load i32, ptr %50, align 8
   %272 = tail call i32 @gres_job_state_unpack(ptr noundef nonnull %270, ptr noundef %1, i32 noundef %271, i16 noundef zeroext %2) #5
   %.not255 = icmp eq i32 %272, 0
   br i1 %.not255, label %273, label %480
 
 273:                                              ; preds = %269
-  %274 = getelementptr inbounds i8, ptr %50, i64 328
+  %274 = getelementptr inbounds nuw i8, ptr %50, i64 328
   %275 = tail call i32 @gres_step_state_unpack(ptr noundef nonnull %274, ptr noundef %1, ptr noundef nonnull %50, i16 noundef zeroext %2) #5
   %.not256 = icmp eq i32 %275, 0
   br i1 %.not256, label %276, label %480
 
 276:                                              ; preds = %273
-  %277 = getelementptr inbounds i8, ptr %50, i64 128
+  %277 = getelementptr inbounds nuw i8, ptr %50, i64 128
   %278 = tail call i32 @unpack16(ptr noundef nonnull %277, ptr noundef %1) #5
   %.not257 = icmp eq i32 %278, 0
   br i1 %.not257, label %279, label %480
 
 279:                                              ; preds = %276
-  %280 = getelementptr inbounds i8, ptr %50, i64 88
+  %280 = getelementptr inbounds nuw i8, ptr %50, i64 88
   %281 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %280, ptr noundef nonnull %28, ptr noundef %1) #5
   %.not258 = icmp eq i32 %281, 0
   br i1 %.not258, label %282, label %480
 
 282:                                              ; preds = %279
-  %283 = getelementptr inbounds i8, ptr %50, i64 96
+  %283 = getelementptr inbounds nuw i8, ptr %50, i64 96
   %284 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %283, ptr noundef nonnull %29, ptr noundef %1) #5
   %.not259 = icmp eq i32 %284, 0
   br i1 %.not259, label %285, label %480
 
 285:                                              ; preds = %282
-  %286 = getelementptr inbounds i8, ptr %50, i64 104
+  %286 = getelementptr inbounds nuw i8, ptr %50, i64 104
   %287 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %286, ptr noundef nonnull %30, ptr noundef %1) #5
   %.not260 = icmp eq i32 %287, 0
   br i1 %.not260, label %288, label %480
 
 288:                                              ; preds = %285
-  %289 = getelementptr inbounds i8, ptr %50, i64 112
+  %289 = getelementptr inbounds nuw i8, ptr %50, i64 112
   %290 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %289, ptr noundef nonnull %31, ptr noundef %1) #5
   %.not261 = icmp eq i32 %290, 0
   br i1 %.not261, label %291, label %480
 
 291:                                              ; preds = %288
-  %292 = getelementptr inbounds i8, ptr %50, i64 136
+  %292 = getelementptr inbounds nuw i8, ptr %50, i64 136
   %293 = call i32 @unpack_time(ptr noundef nonnull %292, ptr noundef %1) #5
   %.not262 = icmp eq i32 %293, 0
   br i1 %.not262, label %294, label %480
 
 294:                                              ; preds = %291
-  %295 = getelementptr inbounds i8, ptr %50, i64 144
+  %295 = getelementptr inbounds nuw i8, ptr %50, i64 144
   %296 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %295, ptr noundef nonnull %32, ptr noundef %1) #5
   %.not263 = icmp eq i32 %296, 0
   br i1 %.not263, label %297, label %480
 
 297:                                              ; preds = %294
-  %298 = getelementptr inbounds i8, ptr %50, i64 204
+  %298 = getelementptr inbounds nuw i8, ptr %50, i64 204
   %299 = call i32 @unpack16(ptr noundef nonnull %298, ptr noundef %1) #5
   %.not264 = icmp eq i32 %299, 0
   br i1 %.not264, label %300, label %480
 
 300:                                              ; preds = %297
-  %301 = getelementptr inbounds i8, ptr %50, i64 216
+  %301 = getelementptr inbounds nuw i8, ptr %50, i64 216
   %302 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %301, ptr noundef nonnull %33, ptr noundef %1) #5
   %.not265 = icmp eq i32 %302, 0
   br i1 %.not265, label %303, label %480
 
 303:                                              ; preds = %300
-  %304 = getelementptr inbounds i8, ptr %50, i64 224
+  %304 = getelementptr inbounds nuw i8, ptr %50, i64 224
   %305 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %304, ptr noundef nonnull %34, ptr noundef %1) #5
   %.not266 = icmp eq i32 %305, 0
   br i1 %.not266, label %306, label %480
 
 306:                                              ; preds = %303
-  %307 = getelementptr inbounds i8, ptr %50, i64 232
+  %307 = getelementptr inbounds nuw i8, ptr %50, i64 232
   %308 = call i32 @unpack16(ptr noundef nonnull %307, ptr noundef %1) #5
   %.not267 = icmp eq i32 %308, 0
   br i1 %.not267, label %309, label %480
 
 309:                                              ; preds = %306
-  %310 = getelementptr inbounds i8, ptr %50, i64 248
+  %310 = getelementptr inbounds nuw i8, ptr %50, i64 248
   %311 = call i32 @unpack_time(ptr noundef nonnull %310, ptr noundef %1) #5
   %.not268 = icmp eq i32 %311, 0
   br i1 %.not268, label %312, label %480
 
 312:                                              ; preds = %309
-  %313 = getelementptr inbounds i8, ptr %50, i64 256
+  %313 = getelementptr inbounds nuw i8, ptr %50, i64 256
   %314 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %313, ptr noundef nonnull %35, ptr noundef %1) #5
   %.not269 = icmp eq i32 %314, 0
   br i1 %.not269, label %315, label %480
 
 315:                                              ; preds = %312
-  %316 = getelementptr inbounds i8, ptr %50, i64 264
+  %316 = getelementptr inbounds nuw i8, ptr %50, i64 264
   %317 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %316, ptr noundef nonnull %36, ptr noundef %1) #5
   %.not270 = icmp eq i32 %317, 0
   br i1 %.not270, label %318, label %480
 
 318:                                              ; preds = %315
-  %319 = getelementptr inbounds i8, ptr %50, i64 272
+  %319 = getelementptr inbounds nuw i8, ptr %50, i64 272
   %320 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %319, ptr noundef nonnull %37, ptr noundef %1) #5
   %.not271 = icmp eq i32 %320, 0
   br i1 %.not271, label %321, label %480
 
 321:                                              ; preds = %318
-  %322 = getelementptr inbounds i8, ptr %50, i64 296
+  %322 = getelementptr inbounds nuw i8, ptr %50, i64 296
   %323 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %322, ptr noundef nonnull %38, ptr noundef %1) #5
   %.not272 = icmp eq i32 %323, 0
   br i1 %.not272, label %324, label %480
 
 324:                                              ; preds = %321
-  %325 = getelementptr inbounds i8, ptr %50, i64 280
+  %325 = getelementptr inbounds nuw i8, ptr %50, i64 280
   %326 = call i32 @unpack16(ptr noundef nonnull %325, ptr noundef %1) #5
   %.not273 = icmp eq i32 %326, 0
   br i1 %.not273, label %327, label %480
 
 327:                                              ; preds = %324
-  %328 = getelementptr inbounds i8, ptr %48, i64 88
+  %328 = getelementptr inbounds nuw i8, ptr %48, i64 88
   %329 = call i32 @unpack_time(ptr noundef nonnull %328, ptr noundef %1) #5
   %.not274 = icmp eq i32 %329, 0
   br i1 %.not274, label %330, label %480
@@ -1500,7 +1500,7 @@ define range(i32 -1, 1) i32 @cred_unpack(ptr nocapture noundef writeonly %0, ptr
 340:                                              ; preds = %338
   %341 = zext i32 %339 to i64
   %342 = call ptr @bit_alloc(i64 noundef %341) #5
-  %343 = getelementptr inbounds i8, ptr %50, i64 120
+  %343 = getelementptr inbounds nuw i8, ptr %50, i64 120
   store ptr %342, ptr %343, align 8
   %344 = load ptr, ptr %39, align 8
   %345 = call i32 @bit_unfmt_hexmask(ptr noundef %342, ptr noundef %344) #5
@@ -1522,7 +1522,7 @@ define range(i32 -1, 1) i32 @cred_unpack(ptr nocapture noundef writeonly %0, ptr
   br label %480
 
 350:                                              ; preds = %338
-  %351 = getelementptr inbounds i8, ptr %50, i64 120
+  %351 = getelementptr inbounds nuw i8, ptr %50, i64 120
   store ptr null, ptr %351, align 8
   br label %352
 
@@ -1531,7 +1531,7 @@ define range(i32 -1, 1) i32 @cred_unpack(ptr nocapture noundef writeonly %0, ptr
   br label %355
 
 353:                                              ; preds = %334
-  %354 = getelementptr inbounds i8, ptr %50, i64 120
+  %354 = getelementptr inbounds nuw i8, ptr %50, i64 120
   store ptr null, ptr %354, align 8
   br label %355
 
@@ -1559,7 +1559,7 @@ define range(i32 -1, 1) i32 @cred_unpack(ptr nocapture noundef writeonly %0, ptr
 363:                                              ; preds = %361
   %364 = zext i32 %362 to i64
   %365 = call ptr @bit_alloc(i64 noundef %364) #5
-  %366 = getelementptr inbounds i8, ptr %50, i64 288
+  %366 = getelementptr inbounds nuw i8, ptr %50, i64 288
   store ptr %365, ptr %366, align 8
   %367 = load ptr, ptr %42, align 8
   %368 = call i32 @bit_unfmt_hexmask(ptr noundef %365, ptr noundef %367) #5
@@ -1581,7 +1581,7 @@ define range(i32 -1, 1) i32 @cred_unpack(ptr nocapture noundef writeonly %0, ptr
   br label %480
 
 373:                                              ; preds = %361
-  %374 = getelementptr inbounds i8, ptr %50, i64 288
+  %374 = getelementptr inbounds nuw i8, ptr %50, i64 288
   store ptr null, ptr %374, align 8
   br label %375
 
@@ -1590,12 +1590,12 @@ define range(i32 -1, 1) i32 @cred_unpack(ptr nocapture noundef writeonly %0, ptr
   br label %378
 
 376:                                              ; preds = %357
-  %377 = getelementptr inbounds i8, ptr %50, i64 288
+  %377 = getelementptr inbounds nuw i8, ptr %50, i64 288
   store ptr null, ptr %377, align 8
   br label %378
 
 378:                                              ; preds = %376, %375
-  %379 = getelementptr inbounds i8, ptr %50, i64 32
+  %379 = getelementptr inbounds nuw i8, ptr %50, i64 32
   %380 = call i32 @unpack16(ptr noundef nonnull %379, ptr noundef %1) #5
   %.not286 = icmp eq i32 %380, 0
   br i1 %.not286, label %381, label %480
@@ -1606,7 +1606,7 @@ define range(i32 -1, 1) i32 @cred_unpack(ptr nocapture noundef writeonly %0, ptr
   br i1 %.not287, label %404, label %383
 
 383:                                              ; preds = %381
-  %384 = getelementptr inbounds i8, ptr %50, i64 40
+  %384 = getelementptr inbounds nuw i8, ptr %50, i64 40
   %385 = call i32 @unpack16_array(ptr noundef nonnull %384, ptr noundef nonnull %4, ptr noundef %1) #5
   %.not288 = icmp eq i32 %385, 0
   br i1 %.not288, label %386, label %480
@@ -1619,7 +1619,7 @@ define range(i32 -1, 1) i32 @cred_unpack(ptr nocapture noundef writeonly %0, ptr
   br i1 %.not289, label %390, label %480
 
 390:                                              ; preds = %386
-  %391 = getelementptr inbounds i8, ptr %50, i64 48
+  %391 = getelementptr inbounds nuw i8, ptr %50, i64 48
   %392 = call i32 @unpack16_array(ptr noundef nonnull %391, ptr noundef nonnull %4, ptr noundef %1) #5
   %.not290 = icmp eq i32 %392, 0
   br i1 %.not290, label %393, label %480
@@ -1632,7 +1632,7 @@ define range(i32 -1, 1) i32 @cred_unpack(ptr nocapture noundef writeonly %0, ptr
   br i1 %.not291, label %397, label %480
 
 397:                                              ; preds = %393
-  %398 = getelementptr inbounds i8, ptr %50, i64 56
+  %398 = getelementptr inbounds nuw i8, ptr %50, i64 56
   %399 = call i32 @unpack32_array(ptr noundef nonnull %398, ptr noundef nonnull %4, ptr noundef %1) #5
   %.not292 = icmp eq i32 %399, 0
   br i1 %.not292, label %400, label %480
@@ -1645,7 +1645,7 @@ define range(i32 -1, 1) i32 @cred_unpack(ptr nocapture noundef writeonly %0, ptr
   br i1 %.not293, label %404, label %480
 
 404:                                              ; preds = %381, %400
-  %405 = getelementptr inbounds i8, ptr %50, i64 64
+  %405 = getelementptr inbounds nuw i8, ptr %50, i64 64
   %406 = call i32 @unpack32(ptr noundef nonnull %405, ptr noundef %1) #5
   %.not294 = icmp eq i32 %406, 0
   br i1 %.not294, label %407, label %480
@@ -1656,7 +1656,7 @@ define range(i32 -1, 1) i32 @cred_unpack(ptr nocapture noundef writeonly %0, ptr
   br i1 %.not295, label %421, label %409
 
 409:                                              ; preds = %407
-  %410 = getelementptr inbounds i8, ptr %50, i64 72
+  %410 = getelementptr inbounds nuw i8, ptr %50, i64 72
   %411 = call i32 @unpack16_array(ptr noundef nonnull %410, ptr noundef nonnull %4, ptr noundef %1) #5
   %.not296 = icmp eq i32 %411, 0
   br i1 %.not296, label %412, label %480
@@ -1668,7 +1668,7 @@ define range(i32 -1, 1) i32 @cred_unpack(ptr nocapture noundef writeonly %0, ptr
   br i1 %.not297, label %415, label %480
 
 415:                                              ; preds = %412
-  %416 = getelementptr inbounds i8, ptr %50, i64 80
+  %416 = getelementptr inbounds nuw i8, ptr %50, i64 80
   %417 = call i32 @unpack32_array(ptr noundef nonnull %416, ptr noundef nonnull %4, ptr noundef %1) #5
   %.not298 = icmp eq i32 %417, 0
   br i1 %.not298, label %418, label %480
@@ -1680,31 +1680,31 @@ define range(i32 -1, 1) i32 @cred_unpack(ptr nocapture noundef writeonly %0, ptr
   br i1 %.not299, label %421, label %480
 
 421:                                              ; preds = %407, %418
-  %422 = getelementptr inbounds i8, ptr %50, i64 188
+  %422 = getelementptr inbounds nuw i8, ptr %50, i64 188
   %423 = call i32 @unpack32(ptr noundef nonnull %422, ptr noundef %1) #5
   %.not300 = icmp eq i32 %423, 0
   br i1 %.not300, label %424, label %480
 
 424:                                              ; preds = %421
-  %425 = getelementptr inbounds i8, ptr %50, i64 200
+  %425 = getelementptr inbounds nuw i8, ptr %50, i64 200
   %426 = call i32 @unpack32(ptr noundef nonnull %425, ptr noundef %1) #5
   %.not301 = icmp eq i32 %426, 0
   br i1 %.not301, label %427, label %480
 
 427:                                              ; preds = %424
-  %428 = getelementptr inbounds i8, ptr %50, i64 152
+  %428 = getelementptr inbounds nuw i8, ptr %50, i64 152
   %429 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %428, ptr noundef nonnull %45, ptr noundef %1) #5
   %.not302 = icmp eq i32 %429, 0
   br i1 %.not302, label %430, label %480
 
 430:                                              ; preds = %427
-  %431 = getelementptr inbounds i8, ptr %50, i64 160
+  %431 = getelementptr inbounds nuw i8, ptr %50, i64 160
   %432 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %431, ptr noundef nonnull %46, ptr noundef %1) #5
   %.not303 = icmp eq i32 %432, 0
   br i1 %.not303, label %433, label %480
 
 433:                                              ; preds = %430
-  %434 = getelementptr inbounds i8, ptr %50, i64 184
+  %434 = getelementptr inbounds nuw i8, ptr %50, i64 184
   %435 = call i32 @unpack32(ptr noundef nonnull %434, ptr noundef %1) #5
   %.not304 = icmp eq i32 %435, 0
   br i1 %.not304, label %436, label %480
@@ -1715,7 +1715,7 @@ define range(i32 -1, 1) i32 @cred_unpack(ptr nocapture noundef writeonly %0, ptr
   br i1 %.not305, label %450, label %438
 
 438:                                              ; preds = %436
-  %439 = getelementptr inbounds i8, ptr %50, i64 168
+  %439 = getelementptr inbounds nuw i8, ptr %50, i64 168
   %440 = call i32 @unpack64_array(ptr noundef nonnull %439, ptr noundef nonnull %4, ptr noundef %1) #5
   %.not306 = icmp eq i32 %440, 0
   br i1 %.not306, label %441, label %480
@@ -1727,7 +1727,7 @@ define range(i32 -1, 1) i32 @cred_unpack(ptr nocapture noundef writeonly %0, ptr
   br i1 %.not307, label %444, label %480
 
 444:                                              ; preds = %441
-  %445 = getelementptr inbounds i8, ptr %50, i64 176
+  %445 = getelementptr inbounds nuw i8, ptr %50, i64 176
   %446 = call i32 @unpack32_array(ptr noundef nonnull %445, ptr noundef nonnull %4, ptr noundef %1) #5
   %.not308 = icmp eq i32 %446, 0
   br i1 %.not308, label %447, label %480
@@ -1739,7 +1739,7 @@ define range(i32 -1, 1) i32 @cred_unpack(ptr nocapture noundef writeonly %0, ptr
   br i1 %.not309, label %450, label %480
 
 450:                                              ; preds = %436, %447
-  %451 = getelementptr inbounds i8, ptr %50, i64 320
+  %451 = getelementptr inbounds nuw i8, ptr %50, i64 320
   %452 = call i32 @unpack32(ptr noundef nonnull %451, ptr noundef %1) #5
   %.not310 = icmp eq i32 %452, 0
   br i1 %.not310, label %453, label %480
@@ -1750,7 +1750,7 @@ define range(i32 -1, 1) i32 @cred_unpack(ptr nocapture noundef writeonly %0, ptr
   br i1 %.not311, label %467, label %455
 
 455:                                              ; preds = %453
-  %456 = getelementptr inbounds i8, ptr %50, i64 304
+  %456 = getelementptr inbounds nuw i8, ptr %50, i64 304
   %457 = call i32 @unpack64_array(ptr noundef nonnull %456, ptr noundef nonnull %4, ptr noundef %1) #5
   %.not312 = icmp eq i32 %457, 0
   br i1 %.not312, label %458, label %480
@@ -1762,7 +1762,7 @@ define range(i32 -1, 1) i32 @cred_unpack(ptr nocapture noundef writeonly %0, ptr
   br i1 %.not313, label %461, label %480
 
 461:                                              ; preds = %458
-  %462 = getelementptr inbounds i8, ptr %50, i64 312
+  %462 = getelementptr inbounds nuw i8, ptr %50, i64 312
   %463 = call i32 @unpack32_array(ptr noundef nonnull %462, ptr noundef nonnull %4, ptr noundef %1) #5
   %.not314 = icmp eq i32 %463, 0
   br i1 %.not314, label %464, label %480
@@ -1774,7 +1774,7 @@ define range(i32 -1, 1) i32 @cred_unpack(ptr nocapture noundef writeonly %0, ptr
   br i1 %.not315, label %467, label %480
 
 467:                                              ; preds = %453, %464
-  %468 = getelementptr inbounds i8, ptr %50, i64 240
+  %468 = getelementptr inbounds nuw i8, ptr %50, i64 240
   %469 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %468, ptr noundef nonnull %47, ptr noundef %1) #5
   %.not316 = icmp eq i32 %469, 0
   br i1 %.not316, label %472, label %480
@@ -1784,14 +1784,14 @@ define range(i32 -1, 1) i32 @cred_unpack(ptr nocapture noundef writeonly %0, ptr
   br label %480
 
 472:                                              ; preds = %467, %259
-  %473 = getelementptr inbounds i8, ptr %50, i64 24
+  %473 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %474 = load ptr, ptr %473, align 8
   %475 = load i32, ptr %474, align 8
-  %476 = getelementptr inbounds i8, ptr %50, i64 12
+  %476 = getelementptr inbounds nuw i8, ptr %50, i64 12
   store i32 %475, ptr %476, align 4
-  %477 = getelementptr inbounds i8, ptr %474, i64 4
+  %477 = getelementptr inbounds nuw i8, ptr %474, i64 4
   %478 = load i32, ptr %477, align 4
-  %479 = getelementptr inbounds i8, ptr %50, i64 16
+  %479 = getelementptr inbounds nuw i8, ptr %50, i64 16
   store i32 %478, ptr %479, align 8
   store ptr %48, ptr %0, align 8
   br label %481
@@ -1845,7 +1845,7 @@ define ptr @cred_unpack_with_signature(ptr noundef %0, i16 noundef zeroext %1) l
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr null, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = call i32 @cred_unpack(ptr noundef nonnull %3, ptr noundef %0, i16 noundef zeroext %1)
   %.not = icmp eq i32 %7, 0
@@ -1855,9 +1855,9 @@ define ptr @cred_unpack_with_signature(ptr noundef %0, i16 noundef zeroext %1) l
 8:                                                ; preds = %2
   %9 = load i32, ptr %5, align 4
   %10 = sub i32 %9, %6
-  %11 = getelementptr inbounds i8, ptr %.pre, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %.pre, i64 72
   store i32 %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %.pre, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %.pre, i64 96
   %13 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %12, ptr noundef nonnull %4, ptr noundef nonnull %0) #5
   %.not14 = icmp eq i32 %13, 0
   br i1 %.not14, label %14, label %31
@@ -1870,20 +1870,20 @@ define ptr @cred_unpack_with_signature(ptr noundef %0, i16 noundef zeroext %1) l
   %17 = load i32, ptr %5, align 4
   %18 = sub i32 %17, %6
   %19 = call ptr @init_buf(i32 noundef %18) #5
-  %20 = getelementptr inbounds i8, ptr %.pre, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %.pre, i64 64
   store ptr %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %.pre, i64 76
+  %21 = getelementptr inbounds nuw i8, ptr %.pre, i64 76
   store i16 %1, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %19, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = zext i32 %6 to i64
-  %27 = getelementptr inbounds i8, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 %26
   %28 = zext i32 %18 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %23, ptr align 1 %27, i64 %28, i1 false)
   %29 = load ptr, ptr %20, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 20
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 20
   store i32 %18, ptr %30, align 4
   br label %32
 
@@ -1909,22 +1909,22 @@ define ptr @sbcast_cred_pack(ptr nocapture noundef readonly %0, i16 noundef zero
   br i1 %5, label %6, label %23
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   tail call void @pack_identity(ptr noundef %8, ptr noundef %3, i16 noundef zeroext %1) #5
   tail call void @pack_time(i64 noundef %4, ptr noundef %3) #5
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i64, ptr %9, align 8
   tail call void @pack_time(i64 noundef %10, ptr noundef %3) #5
   %11 = load i32, ptr %0, align 8
   tail call void @pack32(i32 noundef %11, ptr noundef %3) #5
-  %12 = getelementptr inbounds i8, ptr %0, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %13 = load i32, ptr %12, align 4
   tail call void @pack32(i32 noundef %13, ptr noundef %3) #5
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i32, ptr %14, align 8
   tail call void @pack32(i32 noundef %15, ptr noundef %3) #5
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load ptr, ptr %16, align 8
   %.not54 = icmp eq ptr %17, null
   br i1 %.not54, label %22, label %18
@@ -1946,27 +1946,27 @@ define ptr @sbcast_cred_pack(ptr nocapture noundef readonly %0, i16 noundef zero
 
 25:                                               ; preds = %23
   tail call void @pack_time(i64 noundef %4, ptr noundef %3) #5
-  %26 = getelementptr inbounds i8, ptr %0, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = load i64, ptr %26, align 8
   tail call void @pack_time(i64 noundef %27, ptr noundef %3) #5
   %28 = load i32, ptr %0, align 8
   tail call void @pack32(i32 noundef %28, ptr noundef %3) #5
-  %29 = getelementptr inbounds i8, ptr %0, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %30 = load i32, ptr %29, align 4
   tail call void @pack32(i32 noundef %30, ptr noundef %3) #5
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %32 = load i32, ptr %31, align 8
   tail call void @pack32(i32 noundef %32, ptr noundef %3) #5
-  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = load i32, ptr %34, align 8
   tail call void @pack32(i32 noundef %35, ptr noundef %3) #5
   %36 = load ptr, ptr %33, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %38 = load i32, ptr %37, align 4
   tail call void @pack32(i32 noundef %38, ptr noundef %3) #5
   %39 = load ptr, ptr %33, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8
   %.not = icmp eq ptr %41, null
   br i1 %.not, label %46, label %42
@@ -1981,12 +1981,12 @@ define ptr @sbcast_cred_pack(ptr nocapture noundef readonly %0, i16 noundef zero
   %.047 = phi i32 [ %45, %42 ], [ 0, %25 ]
   tail call void @packmem(ptr noundef %41, i32 noundef %.047, ptr noundef %3) #5
   %47 = load ptr, ptr %33, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 48
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %47, i64 40
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 40
   %51 = load i32, ptr %50, align 8
   tail call void @pack32_array(ptr noundef %49, i32 noundef %51, ptr noundef %3) #5
-  %52 = getelementptr inbounds i8, ptr %0, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %53 = load ptr, ptr %52, align 8
   %.not53 = icmp eq ptr %53, null
   br i1 %.not53, label %58, label %54
@@ -2014,14 +2014,14 @@ define ptr @sbcast_cred_unpack(ptr noundef %0, ptr nocapture noundef writeonly %
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 72, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 523, ptr noundef nonnull @__func__.sbcast_cred_unpack) #5
-  %10 = getelementptr inbounds i8, ptr %0, i64 20
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %11 = load i32, ptr %10, align 4
   %12 = icmp ugt i16 %2, 10239
   br i1 %12, label %13, label %49
 
 13:                                               ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %9, i64 8
-  %15 = getelementptr inbounds i8, ptr %9, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %16 = tail call i32 @unpack_identity(ptr noundef nonnull %15, ptr noundef nonnull %0, i16 noundef zeroext %2) #5
   %.not80 = icmp eq i32 %16, 0
   br i1 %.not80, label %17, label %112
@@ -2032,7 +2032,7 @@ define ptr @sbcast_cred_unpack(ptr noundef %0, ptr nocapture noundef writeonly %
   br i1 %.not81, label %19, label %112
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %9, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %21 = tail call i32 @unpack_time(ptr noundef nonnull %20, ptr noundef nonnull %0) #5
   %.not82 = icmp eq i32 %21, 0
   br i1 %.not82, label %22, label %112
@@ -2043,33 +2043,33 @@ define ptr @sbcast_cred_unpack(ptr noundef %0, ptr nocapture noundef writeonly %
   br i1 %.not83, label %24, label %112
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %9, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %26 = tail call i32 @unpack32(ptr noundef nonnull %25, ptr noundef nonnull %0) #5
   %.not84 = icmp eq i32 %26, 0
   br i1 %.not84, label %27, label %112
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %9, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %29 = tail call i32 @unpack32(ptr noundef nonnull %28, ptr noundef nonnull %0) #5
   %.not85 = icmp eq i32 %29, 0
   br i1 %.not85, label %30, label %112
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %9, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %32 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %31, ptr noundef nonnull %4, ptr noundef nonnull %0) #5
   %.not86 = icmp eq i32 %32, 0
   br i1 %.not86, label %33, label %112
 
 33:                                               ; preds = %30
   %34 = load ptr, ptr %15, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
   %.not87 = icmp eq ptr %36, null
   br i1 %.not87, label %37, label %88
 
 37:                                               ; preds = %33
   %38 = load i32, ptr %34, align 8
-  %39 = getelementptr inbounds i8, ptr %34, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %40 = load i32, ptr %39, align 4
   %41 = call i32 @get_log_level() #5
   %42 = icmp sgt i32 %41, 5
@@ -2102,15 +2102,15 @@ define ptr @sbcast_cred_unpack(ptr noundef %0, ptr nocapture noundef writeonly %
 51:                                               ; preds = %49
   store i32 0, ptr %5, align 4
   %52 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 72, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 549, ptr noundef nonnull @__func__.sbcast_cred_unpack) #5
-  %53 = getelementptr inbounds i8, ptr %9, i64 8
-  %54 = getelementptr inbounds i8, ptr %9, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr %52, ptr %54, align 8
   %55 = tail call i32 @unpack_time(ptr noundef %9, ptr noundef nonnull %0) #5
   %.not = icmp eq i32 %55, 0
   br i1 %.not, label %56, label %112
 
 56:                                               ; preds = %51
-  %57 = getelementptr inbounds i8, ptr %9, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %58 = tail call i32 @unpack_time(ptr noundef nonnull %57, ptr noundef nonnull %0) #5
   %.not71 = icmp eq i32 %58, 0
   br i1 %.not71, label %59, label %112
@@ -2121,13 +2121,13 @@ define ptr @sbcast_cred_unpack(ptr noundef %0, ptr nocapture noundef writeonly %
   br i1 %.not72, label %61, label %112
 
 61:                                               ; preds = %59
-  %62 = getelementptr inbounds i8, ptr %9, i64 12
+  %62 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %63 = tail call i32 @unpack32(ptr noundef nonnull %62, ptr noundef nonnull %0) #5
   %.not73 = icmp eq i32 %63, 0
   br i1 %.not73, label %64, label %112
 
 64:                                               ; preds = %61
-  %65 = getelementptr inbounds i8, ptr %9, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %66 = tail call i32 @unpack32(ptr noundef nonnull %65, ptr noundef nonnull %0) #5
   %.not74 = icmp eq i32 %66, 0
   br i1 %.not74, label %67, label %112
@@ -2140,21 +2140,21 @@ define ptr @sbcast_cred_unpack(ptr noundef %0, ptr nocapture noundef writeonly %
 
 70:                                               ; preds = %67
   %71 = load ptr, ptr %54, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 4
   %73 = tail call i32 @unpack32(ptr noundef nonnull %72, ptr noundef nonnull %0) #5
   %.not76 = icmp eq i32 %73, 0
   br i1 %.not76, label %74, label %112
 
 74:                                               ; preds = %70
   %75 = load ptr, ptr %54, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %77 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %76, ptr noundef nonnull %6, ptr noundef nonnull %0) #5
   %.not77 = icmp eq i32 %77, 0
   br i1 %.not77, label %78, label %112
 
 78:                                               ; preds = %74
   %79 = load ptr, ptr %54, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 48
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 48
   %81 = call i32 @unpack32_array(ptr noundef nonnull %80, ptr noundef nonnull %5, ptr noundef nonnull %0) #5
   %.not78 = icmp eq i32 %81, 0
   br i1 %.not78, label %82, label %112
@@ -2162,9 +2162,9 @@ define ptr @sbcast_cred_unpack(ptr noundef %0, ptr nocapture noundef writeonly %
 82:                                               ; preds = %78
   %83 = load i32, ptr %5, align 4
   %84 = load ptr, ptr %54, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 40
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 40
   store i32 %83, ptr %85, align 8
-  %86 = getelementptr inbounds i8, ptr %9, i64 40
+  %86 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %87 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %86, ptr noundef nonnull %7, ptr noundef nonnull %0) #5
   %.not79 = icmp eq i32 %87, 0
   br i1 %.not79, label %._crit_edge, label %112
@@ -2179,7 +2179,7 @@ define ptr @sbcast_cred_unpack(ptr noundef %0, ptr nocapture noundef writeonly %
   %90 = load i32, ptr %10, align 4
   %91 = sub i32 %90, %11
   store i32 %91, ptr %1, align 4
-  %92 = getelementptr inbounds i8, ptr %9, i64 56
+  %92 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %93 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %92, ptr noundef nonnull %8, ptr noundef nonnull %0) #5
   %.not90 = icmp eq i32 %93, 0
   br i1 %.not90, label %94, label %112
@@ -2197,18 +2197,18 @@ define ptr @sbcast_cred_unpack(ptr noundef %0, ptr nocapture noundef writeonly %
   %99 = load i32, ptr %10, align 4
   %100 = sub i32 %99, %11
   %101 = call ptr @init_buf(i32 noundef %100) #5
-  %102 = getelementptr inbounds i8, ptr %9, i64 48
+  %102 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store ptr %101, ptr %102, align 8
-  %103 = getelementptr inbounds i8, ptr %101, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %101, i64 8
   %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %0, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %106 = load ptr, ptr %105, align 8
   %107 = zext i32 %11 to i64
-  %108 = getelementptr inbounds i8, ptr %106, i64 %107
+  %108 = getelementptr inbounds nuw i8, ptr %106, i64 %107
   %109 = zext i32 %100 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %104, ptr align 1 %108, i64 %109, i1 false)
   %110 = load ptr, ptr %102, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 20
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 20
   store i32 %100, ptr %111, align 4
   br label %113
 

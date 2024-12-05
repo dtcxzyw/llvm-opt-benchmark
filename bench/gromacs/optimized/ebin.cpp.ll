@@ -66,17 +66,17 @@ define void @_Z9done_ebinP6t_ebin(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %3, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %5
 
 5:                                                ; preds = %.lr.ph, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %5 ]
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %struct.gmx_enxnm_t, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw %struct.gmx_enxnm_t, ptr %6, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 69, ptr noundef %8)
   %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds %struct.gmx_enxnm_t, ptr %9, i64 %indvars.iv, i32 1
+  %10 = getelementptr inbounds nuw %struct.gmx_enxnm_t, ptr %9, i64 %indvars.iv, i32 1
   %11 = load ptr, ptr %10, align 8
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 70, ptr noundef %11)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -86,13 +86,13 @@ define void @_Z9done_ebinP6t_ebin(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %14, label %5, label %._crit_edge, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %5, %1
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 72, ptr noundef %16)
-  %17 = getelementptr inbounds i8, ptr %0, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %18 = load ptr, ptr %17, align 8
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 73, ptr noundef %18)
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 74, ptr noundef %20)
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 75, ptr noundef nonnull %0)
@@ -106,18 +106,18 @@ define noundef i32 @_Z14get_ebin_spaceP6t_ebiniPKPKcS2_(ptr nocapture noundef %0
   %5 = load i32, ptr %0, align 8
   %6 = add nsw i32 %5, %1
   store i32 %6, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = sext i32 %6 to i64
   %9 = load ptr, ptr %7, align 8
   %10 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 86, ptr noundef %9, i64 noundef range(i64 -2147483648, 2147483648) %8, i64 noundef 24)
   store ptr %10, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = load i32, ptr %0, align 8
   %13 = sext i32 %12 to i64
   %14 = load ptr, ptr %11, align 8
   %15 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 87, ptr noundef %14, i64 noundef range(i64 -2147483648, 2147483648) %13, i64 noundef 24)
   store ptr %15, ptr %11, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i32, ptr %0, align 8
   %18 = sext i32 %17 to i64
   %19 = load ptr, ptr %16, align 8
@@ -178,7 +178,7 @@ define noundef i32 @_Z14get_ebin_spaceP6t_ebiniPKPKcS2_(ptr nocapture noundef %0
 52:                                               ; preds = %.preheader.us, %63
   %indvars.iv51 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next52, %63 ]
   %.047.us = phi ptr [ @.str.7, %.preheader.us ], [ %.1.us, %63 ]
-  %53 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv51, i32 1
+  %53 = getelementptr inbounds nuw [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv51, i32 1
   %54 = load ptr, ptr %53, align 8
   %55 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull dereferenceable(1) %54) #13
   %56 = icmp eq i32 %55, 0
@@ -286,10 +286,10 @@ define void @_Z8add_ebinP6t_ebiniiPKfb(ptr nocapture noundef readonly %0, i32 no
   resume { ptr, i32 } %15
 
 16:                                               ; preds = %5
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load ptr, ptr %17, align 8
   %19 = zext nneg i32 %1 to i64
-  %20 = getelementptr inbounds %struct.t_energy, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw %struct.t_energy, ptr %18, i64 %19
   %21 = icmp sgt i32 %2, 0
   br i1 %21, label %.lr.ph.preheader, label %._crit_edge
 
@@ -299,9 +299,9 @@ define void @_Z8add_ebinP6t_ebiniiPKfb(ptr nocapture noundef readonly %0, i32 no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %22 = getelementptr inbounds float, ptr %3, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
   %23 = load float, ptr %22, align 4
-  %24 = getelementptr inbounds %struct.t_energy, ptr %20, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw %struct.t_energy, ptr %20, i64 %indvars.iv
   store float %23, ptr %24, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -311,10 +311,10 @@ define void @_Z8add_ebinP6t_ebiniiPKfb(ptr nocapture noundef readonly %0, i32 no
   br i1 %4, label %25, label %.loopexit
 
 25:                                               ; preds = %._crit_edge
-  %26 = getelementptr inbounds i8, ptr %0, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds %struct.t_energy, ptr %27, i64 %19
-  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  %28 = getelementptr inbounds nuw %struct.t_energy, ptr %27, i64 %19
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %30 = load i64, ptr %29, align 8
   %31 = trunc i64 %30 to i32
   %32 = icmp eq i32 %31, 0
@@ -329,17 +329,17 @@ define void @_Z8add_ebinP6t_ebiniiPKfb(ptr nocapture noundef readonly %0, i32 no
 
 .lr.ph67:                                         ; preds = %.lr.ph67.preheader, %.lr.ph67
   %indvars.iv75 = phi i64 [ 0, %.lr.ph67.preheader ], [ %indvars.iv.next76, %.lr.ph67 ]
-  %33 = getelementptr inbounds %struct.t_energy, ptr %20, i64 %indvars.iv75
-  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  %33 = getelementptr inbounds nuw %struct.t_energy, ptr %20, i64 %indvars.iv75
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store double 0.000000e+00, ptr %34, align 8
-  %35 = getelementptr inbounds float, ptr %3, i64 %indvars.iv75
+  %35 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv75
   %36 = load float, ptr %35, align 4
   %37 = fpext float %36 to double
-  %38 = getelementptr inbounds i8, ptr %33, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %33, i64 16
   store double %37, ptr %38, align 8
   %39 = load float, ptr %35, align 4
   %40 = fpext float %39 to double
-  %41 = getelementptr inbounds %struct.t_energy, ptr %28, i64 %indvars.iv75, i32 2
+  %41 = getelementptr inbounds nuw %struct.t_energy, ptr %28, i64 %indvars.iv75, i32 2
   %42 = load double, ptr %41, align 8
   %43 = fadd double %42, %40
   store double %43, ptr %41, align 8
@@ -361,21 +361,21 @@ define void @_Z8add_ebinP6t_ebiniiPKfb(ptr nocapture noundef readonly %0, i32 no
 
 50:                                               ; preds = %.lr.ph65, %50
   %indvars.iv70 = phi i64 [ 0, %.lr.ph65 ], [ %indvars.iv.next71, %50 ]
-  %51 = getelementptr inbounds float, ptr %3, i64 %indvars.iv70
+  %51 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv70
   %52 = load float, ptr %51, align 4
   %53 = fpext float %52 to double
-  %54 = getelementptr inbounds %struct.t_energy, ptr %20, i64 %indvars.iv70
-  %55 = getelementptr inbounds i8, ptr %54, i64 16
+  %54 = getelementptr inbounds nuw %struct.t_energy, ptr %20, i64 %indvars.iv70
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load double, ptr %55, align 8
   %57 = tail call double @llvm.fmuladd.f64(double %49, double %53, double %56)
   %58 = fmul double %57, %57
-  %59 = getelementptr inbounds i8, ptr %54, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %60 = load double, ptr %59, align 8
   %61 = tail call double @llvm.fmuladd.f64(double %58, double %48, double %60)
   store double %61, ptr %59, align 8
   %62 = fadd double %56, %53
   store double %62, ptr %55, align 8
-  %63 = getelementptr inbounds %struct.t_energy, ptr %28, i64 %indvars.iv70, i32 2
+  %63 = getelementptr inbounds nuw %struct.t_energy, ptr %28, i64 %indvars.iv70, i32 2
   %64 = load double, ptr %63, align 8
   %65 = fadd double %64, %53
   store double %65, ptr %63, align 8
@@ -402,7 +402,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA120_cS1_EERKT_NS1_6f
   %9 = extractvalue { i64, ptr } %7, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 %8, ptr %9) #15
   %10 = load i64, ptr %4, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load ptr, ptr %11, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 %10, ptr %12, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %13 unwind label %17
@@ -410,7 +410,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA120_cS1_EERKT_NS1_6f
 13:                                               ; preds = %3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #15
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void @_ZNSt10filesystem7__cxx114path5_ListC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
           to label %15 unwind label %19
 
@@ -461,7 +461,7 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %4
@@ -508,7 +508,7 @@ declare void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_Impl
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_Z16add_ebin_indexedP6t_ebiniN3gmx8ArrayRefIbEENS2_IKfEEb(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture readonly %2, ptr nocapture readnone %3, ptr readonly %4, ptr readnone %5, i1 noundef zeroext %6) local_unnamed_addr #7 {
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i64, ptr %8, align 8
   %.fr = freeze i64 %9
   %10 = trunc i64 %.fr to i32
@@ -517,11 +517,11 @@ define void @_Z16add_ebin_indexedP6t_ebiniN3gmx8ArrayRefIbEENS2_IKfEEb(ptr nocap
   %13 = fdiv double 1.000000e+00, %12
   %14 = fadd double %12, 1.000000e+00
   %15 = fdiv double %13, %14
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load ptr, ptr %16, align 8
   %18 = sext i32 %1 to i64
   %19 = getelementptr inbounds %struct.t_energy, ptr %17, i64 %18
-  %20 = getelementptr inbounds i8, ptr %0, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds %struct.t_energy, ptr %21, i64 %18
   %.not45 = icmp eq ptr %4, %5
@@ -546,27 +546,27 @@ define void @_Z16add_ebin_indexedP6t_ebiniN3gmx8ArrayRefIbEENS2_IKfEEb(ptr nocap
 26:                                               ; preds = %.lr.ph.split.us.split.us
   %27 = load float, ptr %.sroa.0.047.us.us, align 4
   store float %27, ptr %.049.us.us, align 8
-  %28 = getelementptr inbounds i8, ptr %.049.us.us, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.049.us.us, i64 8
   store double 0.000000e+00, ptr %28, align 8
   %29 = load float, ptr %.sroa.0.047.us.us, align 4
   %30 = fpext float %29 to double
-  %31 = getelementptr inbounds i8, ptr %.049.us.us, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %.049.us.us, i64 16
   store double %30, ptr %31, align 8
   %32 = load float, ptr %.sroa.0.047.us.us, align 4
   %33 = fpext float %32 to double
-  %34 = getelementptr inbounds i8, ptr %.03348.us.us, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %.03348.us.us, i64 16
   %35 = load double, ptr %34, align 8
   %36 = fadd double %35, %33
   store double %36, ptr %34, align 8
-  %37 = getelementptr inbounds i8, ptr %.03348.us.us, i64 24
-  %38 = getelementptr inbounds i8, ptr %.049.us.us, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %.03348.us.us, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %.049.us.us, i64 24
   br label %39
 
 39:                                               ; preds = %26, %.lr.ph.split.us.split.us
   %.134.us.us = phi ptr [ %37, %26 ], [ %.03348.us.us, %.lr.ph.split.us.split.us ]
   %.1.us.us = phi ptr [ %38, %26 ], [ %.049.us.us, %.lr.ph.split.us.split.us ]
-  %40 = getelementptr inbounds i8, ptr %.sroa.040.046.us.us, i64 1
-  %41 = getelementptr inbounds i8, ptr %.sroa.0.047.us.us, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.040.046.us.us, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.0.047.us.us, i64 4
   %.not.us.us = icmp eq ptr %41, %5
   br i1 %.not.us.us, label %._crit_edge, label %.lr.ph.split.us.split.us
 
@@ -582,13 +582,13 @@ define void @_Z16add_ebin_indexedP6t_ebiniN3gmx8ArrayRefIbEENS2_IKfEEb(ptr nocap
 44:                                               ; preds = %.lr.ph.split.us.split
   %45 = load float, ptr %.sroa.0.047.us, align 4
   store float %45, ptr %.049.us, align 8
-  %46 = getelementptr inbounds i8, ptr %.049.us, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %.049.us, i64 16
   %47 = load double, ptr %46, align 8
   %48 = fmul float %45, %23
   %49 = fpext float %48 to double
   %50 = fsub double %47, %49
   %51 = fmul double %50, %50
-  %52 = getelementptr inbounds i8, ptr %.049.us, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %.049.us, i64 8
   %53 = load double, ptr %52, align 8
   %54 = tail call double @llvm.fmuladd.f64(double %51, double %15, double %53)
   store double %54, ptr %52, align 8
@@ -598,19 +598,19 @@ define void @_Z16add_ebin_indexedP6t_ebiniN3gmx8ArrayRefIbEENS2_IKfEEb(ptr nocap
   store double %57, ptr %46, align 8
   %58 = load float, ptr %.sroa.0.047.us, align 4
   %59 = fpext float %58 to double
-  %60 = getelementptr inbounds i8, ptr %.03348.us, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %.03348.us, i64 16
   %61 = load double, ptr %60, align 8
   %62 = fadd double %61, %59
   store double %62, ptr %60, align 8
-  %63 = getelementptr inbounds i8, ptr %.03348.us, i64 24
-  %64 = getelementptr inbounds i8, ptr %.049.us, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %.03348.us, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %.049.us, i64 24
   br label %65
 
 65:                                               ; preds = %44, %.lr.ph.split.us.split
   %.134.us = phi ptr [ %63, %44 ], [ %.03348.us, %.lr.ph.split.us.split ]
   %.1.us = phi ptr [ %64, %44 ], [ %.049.us, %.lr.ph.split.us.split ]
-  %66 = getelementptr inbounds i8, ptr %.sroa.040.046.us, i64 1
-  %67 = getelementptr inbounds i8, ptr %.sroa.0.047.us, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.040.046.us, i64 1
+  %67 = getelementptr inbounds nuw i8, ptr %.sroa.0.047.us, i64 4
   %.not.us = icmp eq ptr %67, %5
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us.split
 
@@ -625,13 +625,13 @@ define void @_Z16add_ebin_indexedP6t_ebiniN3gmx8ArrayRefIbEENS2_IKfEEb(ptr nocap
 70:                                               ; preds = %.lr.ph.split
   %71 = load float, ptr %.sroa.0.047, align 4
   store float %71, ptr %.049, align 8
-  %72 = getelementptr inbounds i8, ptr %.049, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %.049, i64 24
   br label %73
 
 73:                                               ; preds = %70, %.lr.ph.split
   %.1 = phi ptr [ %72, %70 ], [ %.049, %.lr.ph.split ]
-  %74 = getelementptr inbounds i8, ptr %.sroa.040.046, i64 1
-  %75 = getelementptr inbounds i8, ptr %.sroa.0.047, i64 4
+  %74 = getelementptr inbounds nuw i8, ptr %.sroa.040.046, i64 1
+  %75 = getelementptr inbounds nuw i8, ptr %.sroa.0.047, i64 4
   %.not = icmp eq ptr %75, %5
   br i1 %.not, label %._crit_edge, label %.lr.ph.split
 
@@ -642,22 +642,22 @@ define void @_Z16add_ebin_indexedP6t_ebiniN3gmx8ArrayRefIbEENS2_IKfEEb(ptr nocap
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_Z19ebin_increase_countiP6t_ebinb(i32 noundef %0, ptr nocapture noundef %1, i1 noundef zeroext %2) local_unnamed_addr #8 {
   %4 = sext i32 %0 to i64
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = add nsw i64 %6, %4
   store i64 %7, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %9 = load i64, ptr %8, align 8
   %10 = add nsw i64 %9, %4
   store i64 %10, ptr %8, align 8
   br i1 %2, label %11, label %18
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load i64, ptr %12, align 8
   %14 = add nsw i64 %13, %4
   store i64 %14, ptr %12, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %16 = load i64, ptr %15, align 8
   %17 = add nsw i64 %16, %4
   store i64 %17, ptr %15, align 8
@@ -669,7 +669,7 @@ define void @_Z19ebin_increase_countiP6t_ebinb(i32 noundef %0, ptr nocapture nou
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_Z15reset_ebin_sumsP6t_ebin(ptr nocapture noundef writeonly initializes((16, 32)) %0) local_unnamed_addr #9 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   ret void
 }
@@ -728,10 +728,10 @@ define void @_Z7pr_ebinP8_IO_FILEP6t_ebiniiiib(ptr nocapture noundef %0, ptr noc
 
 .lr.ph113:                                        ; preds = %27
   %30 = icmp sgt i32 %4, 0
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 48
-  %33 = getelementptr inbounds i8, ptr %1, i64 56
-  %34 = getelementptr inbounds i8, ptr %1, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 32
   br label %35
 
 35:                                               ; preds = %.lr.ph113, %92
@@ -758,7 +758,7 @@ define void @_Z7pr_ebinP8_IO_FILEP6t_ebiniiiib(ptr nocapture noundef %0, ptr noc
 
 40:                                               ; preds = %.lr.ph
   %41 = load ptr, ptr %31, align 8
-  %42 = getelementptr inbounds %struct.gmx_enxnm_t, ptr %41, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw %struct.gmx_enxnm_t, ptr %41, i64 %indvars.iv
   %43 = load ptr, ptr %42, align 8
   %44 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %43, ptr noundef nonnull dereferenceable(5) @.str.15, i64 noundef 4) #13
   %45 = icmp eq i32 %44, 0
@@ -817,7 +817,7 @@ define void @_Z7pr_ebinP8_IO_FILEP6t_ebiniiiib(ptr nocapture noundef %0, ptr noc
 
 61:                                               ; preds = %.lr.ph88.split.us
   %62 = load ptr, ptr %34, align 8
-  %63 = getelementptr inbounds %struct.t_energy, ptr %62, i64 %indvars.iv123
+  %63 = getelementptr inbounds nuw %struct.t_energy, ptr %62, i64 %indvars.iv123
   %64 = load float, ptr %63, align 8
   %65 = fpext float %64 to double
   %66 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.19, double noundef %65) #15
@@ -847,7 +847,7 @@ define void @_Z7pr_ebinP8_IO_FILEP6t_ebiniiiib(ptr nocapture noundef %0, ptr noc
 
 76:                                               ; preds = %71
   %77 = load ptr, ptr %33, align 8
-  %78 = getelementptr inbounds %struct.t_energy, ptr %77, i64 %indvars.iv119, i32 2
+  %78 = getelementptr inbounds nuw %struct.t_energy, ptr %77, i64 %indvars.iv119, i32 2
   %79 = load double, ptr %78, align 8
   %80 = uitofp nneg i64 %72 to double
   %81 = fdiv double %79, %80

@@ -57,13 +57,13 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qcow2_cache_clean_unused(ptr nocapture noundef %c) local_unnamed_addr #0 {
 entry:
-  %size = getelementptr inbounds i8, ptr %c, i64 16
+  %size = getelementptr inbounds nuw i8, ptr %c, i64 16
   %0 = load i32, ptr %size, align 8
   %cmp53 = icmp sgt i32 %0, 0
   br i1 %cmp53, label %while.cond1.preheader.lr.ph, label %while.end19
 
 while.cond1.preheader.lr.ph:                      ; preds = %entry
-  %cache_clean_lru_counter.i = getelementptr inbounds i8, ptr %c, i64 48
+  %cache_clean_lru_counter.i = getelementptr inbounds nuw i8, ptr %c, i64 48
   %1 = getelementptr i8, ptr %c, i64 20
   %2 = getelementptr i8, ptr %c, i64 32
   br label %while.cond1.preheader
@@ -79,13 +79,13 @@ while.cond1.preheader:                            ; preds = %while.cond1.prehead
 land.rhs:                                         ; preds = %while.cond1.preheader, %while.body4
   %indvars.iv = phi i64 [ %5, %while.cond1.preheader ], [ %indvars.iv.next, %while.body4 ]
   %arrayidx.i = getelementptr %struct.Qcow2CachedTable, ptr %4, i64 %indvars.iv
-  %ref.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
+  %ref.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   %7 = load i32, ptr %ref.i, align 8
   %cmp.i = icmp eq i32 %7, 0
   br i1 %cmp.i, label %land.lhs.true.i, label %while.body4
 
 land.lhs.true.i:                                  ; preds = %land.rhs
-  %dirty.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 20
+  %dirty.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 20
   %8 = load i8, ptr %dirty.i, align 4
   %tobool.i = trunc i8 %8 to i1
   br i1 %tobool.i, label %while.body4, label %land.lhs.true1.i
@@ -96,7 +96,7 @@ land.lhs.true1.i:                                 ; preds = %land.lhs.true.i
   br i1 %cmp2.not.i, label %while.body4, label %can_clean_entry.exit
 
 can_clean_entry.exit:                             ; preds = %land.lhs.true1.i
-  %lru_counter.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %lru_counter.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %10 = load i64, ptr %lru_counter.i, align 8
   %11 = load i64, ptr %cache_clean_lru_counter.i, align 8
   %cmp3.i.not = icmp ugt i64 %10, %11
@@ -117,7 +117,7 @@ land.rhs8.preheader:                              ; preds = %while.end
   %13 = ashr exact i64 %sext, 32
   %14 = load ptr, ptr %c, align 8
   %arrayidx.i2471 = getelementptr %struct.Qcow2CachedTable, ptr %14, i64 %13
-  %ref.i2572 = getelementptr inbounds i8, ptr %arrayidx.i2471, i64 16
+  %ref.i2572 = getelementptr inbounds nuw i8, ptr %arrayidx.i2471, i64 16
   %15 = load i32, ptr %ref.i2572, align 8
   %cmp.i2673 = icmp eq i32 %15, 0
   br i1 %cmp.i2673, label %land.lhs.true.i27, label %while.end17
@@ -125,7 +125,7 @@ land.rhs8.preheader:                              ; preds = %while.end
 land.rhs8:                                        ; preds = %while.body11
   %16 = load ptr, ptr %c, align 8
   %arrayidx.i24 = getelementptr %struct.Qcow2CachedTable, ptr %16, i64 %indvars.iv.next57
-  %ref.i25 = getelementptr inbounds i8, ptr %arrayidx.i24, i64 16
+  %ref.i25 = getelementptr inbounds nuw i8, ptr %arrayidx.i24, i64 16
   %17 = load i32, ptr %ref.i25, align 8
   %cmp.i26 = icmp eq i32 %17, 0
   br i1 %cmp.i26, label %land.lhs.true.i27, label %while.end17, !llvm.loop !7
@@ -135,7 +135,7 @@ land.lhs.true.i27:                                ; preds = %land.rhs8.preheader
   %to_clean.04375 = phi i32 [ %inc16, %land.rhs8 ], [ 0, %land.rhs8.preheader ]
   %indvars.iv5674 = phi i64 [ %indvars.iv.next57, %land.rhs8 ], [ %13, %land.rhs8.preheader ]
   %18 = phi i32 [ %24, %land.rhs8 ], [ %3, %land.rhs8.preheader ]
-  %dirty.i28 = getelementptr inbounds i8, ptr %arrayidx.i2476, i64 20
+  %dirty.i28 = getelementptr inbounds nuw i8, ptr %arrayidx.i2476, i64 20
   %19 = load i8, ptr %dirty.i28, align 4
   %tobool.i29 = trunc i8 %19 to i1
   br i1 %tobool.i29, label %while.end17, label %land.lhs.true1.i30
@@ -146,7 +146,7 @@ land.lhs.true1.i30:                               ; preds = %land.lhs.true.i27
   br i1 %cmp2.not.i31, label %while.end17, label %can_clean_entry.exit36
 
 can_clean_entry.exit36:                           ; preds = %land.lhs.true1.i30
-  %lru_counter.i33 = getelementptr inbounds i8, ptr %arrayidx.i2476, i64 8
+  %lru_counter.i33 = getelementptr inbounds nuw i8, ptr %arrayidx.i2476, i64 8
   %21 = load i64, ptr %lru_counter.i33, align 8
   %22 = load i64, ptr %cache_clean_lru_counter.i, align 8
   %cmp3.i35.not = icmp ugt i64 %21, %22
@@ -213,9 +213,9 @@ if.end:                                           ; preds = %while.end, %if.then
   br i1 %cmp, label %while.cond1.preheader, label %while.end19, !llvm.loop !8
 
 while.end19:                                      ; preds = %if.end, %while.body4, %entry
-  %lru_counter20 = getelementptr inbounds i8, ptr %c, i64 40
+  %lru_counter20 = getelementptr inbounds nuw i8, ptr %c, i64 40
   %32 = load i64, ptr %lru_counter20, align 8
-  %cache_clean_lru_counter = getelementptr inbounds i8, ptr %c, i64 48
+  %cache_clean_lru_counter = getelementptr inbounds nuw i8, ptr %c, i64 48
   store i64 %32, ptr %cache_clean_lru_counter, align 8
   ret void
 }
@@ -223,7 +223,7 @@ while.end19:                                      ; preds = %if.end, %while.body
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef ptr @qcow2_cache_create(ptr nocapture noundef readonly %bs, i32 noundef %num_tables, i32 noundef %table_size) local_unnamed_addr #0 {
 entry:
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %cmp = icmp sgt i32 %num_tables, 0
   br i1 %cmp, label %if.end, label %if.else
@@ -250,7 +250,7 @@ if.else7:                                         ; preds = %if.end3
   unreachable
 
 if.end8:                                          ; preds = %if.end3
-  %cluster_size = getelementptr inbounds i8, ptr %0, i64 4
+  %cluster_size = getelementptr inbounds nuw i8, ptr %0, i64 4
   %2 = load i32, ptr %cluster_size, align 4
   %cmp9.not = icmp ugt i32 %table_size, %2
   br i1 %cmp9.not, label %if.else12, label %if.end13
@@ -261,20 +261,20 @@ if.else12:                                        ; preds = %if.end8
 
 if.end13:                                         ; preds = %if.end8
   %call14 = tail call noalias dereferenceable_or_null(56) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 56) #15
-  %size = getelementptr inbounds i8, ptr %call14, i64 16
+  %size = getelementptr inbounds nuw i8, ptr %call14, i64 16
   store i32 %num_tables, ptr %size, align 8
-  %table_size15 = getelementptr inbounds i8, ptr %call14, i64 20
+  %table_size15 = getelementptr inbounds nuw i8, ptr %call14, i64 20
   store i32 %table_size, ptr %table_size15, align 4
   %conv16 = zext nneg i32 %num_tables to i64
   %call17 = tail call noalias ptr @g_try_malloc0_n(i64 noundef %conv16, i64 noundef 24) #15
   store ptr %call17, ptr %call14, align 8
-  %file = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %3 = load ptr, ptr %file, align 8
   %4 = load ptr, ptr %3, align 8
   %conv21 = sext i32 %table_size to i64
   %mul = mul nsw i64 %conv21, %conv16
   %call22 = tail call ptr @qemu_try_blockalign(ptr noundef %4, i64 noundef %mul) #13
-  %table_array = getelementptr inbounds i8, ptr %call14, i64 32
+  %table_array = getelementptr inbounds nuw i8, ptr %call14, i64 32
   store ptr %call22, ptr %table_array, align 8
   %tobool.not = icmp eq ptr %call17, null
   %tobool25.not = icmp eq ptr %call22, null
@@ -310,7 +310,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef i32 @qcow2_cache_destroy(ptr noundef %c) local_unnamed_addr #0 {
 entry:
-  %size = getelementptr inbounds i8, ptr %c, i64 16
+  %size = getelementptr inbounds nuw i8, ptr %c, i64 16
   %0 = load i32, ptr %size, align 8
   %cmp7 = icmp sgt i32 %0, 0
   br i1 %cmp7, label %for.body.lr.ph, label %for.end
@@ -337,7 +337,7 @@ if.else:                                          ; preds = %for.body
   unreachable
 
 for.end:                                          ; preds = %for.cond, %entry
-  %table_array = getelementptr inbounds i8, ptr %c, i64 32
+  %table_array = getelementptr inbounds nuw i8, ptr %c, i64 32
   %3 = load ptr, ptr %table_array, align 8
   tail call void @qemu_vfree(ptr noundef %3) #13
   %4 = load ptr, ptr %c, align 8
@@ -350,10 +350,10 @@ for.end:                                          ; preds = %for.cond, %entry
 define dso_local range(i32 -2147483648, 1) i32 @qcow2_cache_write(ptr noundef %bs, ptr noundef %c) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %call = tail call ptr @qemu_coroutine_self() #13
-  %l2_table_cache = getelementptr inbounds i8, ptr %0, i64 80
+  %l2_table_cache = getelementptr inbounds nuw i8, ptr %0, i64 80
   %1 = load ptr, ptr %l2_table_cache, align 8
   %cmp = icmp eq ptr %c, %1
   %conv = zext i1 %cmp to i32
@@ -380,7 +380,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
   %call10.i.i = tail call i32 @qemu_get_thread_id() #13
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef %call, i32 noundef range(i32 0, 2) %conv) #13
   br label %trace_qcow2_cache_flush.exit
@@ -391,7 +391,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_qcow2_cache_flush.exit:                     ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %size = getelementptr inbounds i8, ptr %c, i64 16
+  %size = getelementptr inbounds nuw i8, ptr %c, i64 16
   %8 = load i32, ptr %size, align 8
   %cmp18 = icmp sgt i32 %8, 0
   br i1 %cmp18, label %for.body, label %for.end
@@ -420,12 +420,12 @@ declare ptr @qemu_coroutine_self() local_unnamed_addr #3
 define internal fastcc range(i32 -2147483648, 1) i32 @qcow2_cache_entry_flush(ptr noundef %bs, ptr noundef %c, i32 noundef %i) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %1 = load ptr, ptr %c, align 8
   %idxprom = sext i32 %i to i64
   %arrayidx = getelementptr %struct.Qcow2CachedTable, ptr %1, i64 %idxprom
-  %dirty = getelementptr inbounds i8, ptr %arrayidx, i64 20
+  %dirty = getelementptr inbounds nuw i8, ptr %arrayidx, i64 20
   %2 = load i8, ptr %dirty, align 4
   %tobool = trunc i8 %2 to i1
   br i1 %tobool, label %lor.lhs.false, label %return
@@ -437,7 +437,7 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.end:                                           ; preds = %lor.lhs.false
   %call = tail call ptr @qemu_coroutine_self() #13
-  %l2_table_cache = getelementptr inbounds i8, ptr %0, i64 80
+  %l2_table_cache = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %l2_table_cache, align 8
   %cmp = icmp eq ptr %c, %4
   %conv = zext i1 %cmp to i32
@@ -464,7 +464,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
   %call10.i.i = tail call i32 @qemu_get_thread_id() #13
   %9 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, ptr noundef %call, i32 noundef range(i32 0, 2) %conv, i32 noundef %i) #13
   br label %trace_qcow2_cache_entry_flush.exit
@@ -475,7 +475,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_qcow2_cache_entry_flush.exit:               ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %depends = getelementptr inbounds i8, ptr %c, i64 8
+  %depends = getelementptr inbounds nuw i8, ptr %c, i64 8
   %11 = load ptr, ptr %depends, align 8
   %tobool5.not = icmp eq ptr %11, null
   br i1 %tobool5.not, label %if.else, label %if.then6
@@ -486,7 +486,7 @@ if.then6:                                         ; preds = %trace_qcow2_cache_e
   br i1 %cmp.i52, label %if.then.i, label %return
 
 if.then.i:                                        ; preds = %if.then6
-  %file.i = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file.i = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %12 = load ptr, ptr %file.i, align 8
   %13 = load ptr, ptr %12, align 8
   %call2.i = tail call i32 @bdrv_flush(ptr noundef %13) #13
@@ -495,18 +495,18 @@ if.then.i:                                        ; preds = %if.then6
 
 if.end.i:                                         ; preds = %if.then.i
   store ptr null, ptr %depends, align 8
-  %depends_on_flush.i = getelementptr inbounds i8, ptr %c, i64 24
+  %depends_on_flush.i = getelementptr inbounds nuw i8, ptr %c, i64 24
   store i8 0, ptr %depends_on_flush.i, align 8
   br label %if.end22
 
 if.else:                                          ; preds = %trace_qcow2_cache_entry_flush.exit
-  %depends_on_flush = getelementptr inbounds i8, ptr %c, i64 24
+  %depends_on_flush = getelementptr inbounds nuw i8, ptr %c, i64 24
   %14 = load i8, ptr %depends_on_flush, align 8
   %tobool8 = trunc i8 %14 to i1
   br i1 %tobool8, label %if.then9, label %if.end22
 
 if.then9:                                         ; preds = %if.else
-  %file = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %15 = load ptr, ptr %file, align 8
   %16 = load ptr, ptr %15, align 8
   %call11 = tail call i32 @bdrv_flush(ptr noundef %16) #13
@@ -518,7 +518,7 @@ if.then14:                                        ; preds = %if.then9
   br label %if.end22
 
 if.end22:                                         ; preds = %if.then14, %if.else, %if.end.i
-  %refcount_block_cache = getelementptr inbounds i8, ptr %0, i64 88
+  %refcount_block_cache = getelementptr inbounds nuw i8, ptr %0, i64 88
   %17 = load ptr, ptr %refcount_block_cache, align 8
   %cmp23 = icmp eq ptr %c, %17
   br i1 %cmp23, label %if.then25, label %if.else32
@@ -527,7 +527,7 @@ if.then25:                                        ; preds = %if.end22
   %18 = load ptr, ptr %c, align 8
   %arrayidx28 = getelementptr %struct.Qcow2CachedTable, ptr %18, i64 %idxprom
   %19 = load i64, ptr %arrayidx28, align 8
-  %table_size = getelementptr inbounds i8, ptr %c, i64 20
+  %table_size = getelementptr inbounds nuw i8, ptr %c, i64 20
   %20 = load i32, ptr %table_size, align 4
   %conv30 = sext i32 %20 to i64
   %call31 = tail call i32 @qcow2_pre_write_overlap_check(ptr noundef nonnull %bs, i32 noundef 16, i64 noundef %19, i64 noundef %conv30, i1 noundef zeroext false) #13
@@ -539,7 +539,7 @@ if.else32:                                        ; preds = %if.end22
   %22 = load ptr, ptr %c, align 8
   %arrayidx39 = getelementptr %struct.Qcow2CachedTable, ptr %22, i64 %idxprom
   %23 = load i64, ptr %arrayidx39, align 8
-  %table_size41 = getelementptr inbounds i8, ptr %c, i64 20
+  %table_size41 = getelementptr inbounds nuw i8, ptr %c, i64 20
   %24 = load i32, ptr %table_size41, align 4
   %conv42 = sext i32 %24 to i64
   br i1 %cmp34, label %if.then36, label %if.else44
@@ -563,7 +563,7 @@ if.end57:                                         ; preds = %if.end53
   br i1 %cmp59, label %do.body, label %if.else68
 
 do.body:                                          ; preds = %if.end57
-  %file62 = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file62 = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %26 = load ptr, ptr %file62, align 8
   %tobool63.not = icmp eq ptr %26, null
   br i1 %tobool63.not, label %if.end82, label %if.end82.sink.split
@@ -574,7 +574,7 @@ if.else68:                                        ; preds = %if.end57
   br i1 %cmp70, label %do.body73, label %if.end82
 
 do.body73:                                        ; preds = %if.else68
-  %file74 = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file74 = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %28 = load ptr, ptr %file74, align 8
   %tobool75.not = icmp eq ptr %28, null
   br i1 %tobool75.not, label %if.end82, label %if.end82.sink.split
@@ -587,12 +587,12 @@ if.end82.sink.split:                              ; preds = %do.body73, %do.body
   br label %if.end82
 
 if.end82:                                         ; preds = %if.end82.sink.split, %if.else68, %do.body73, %do.body
-  %file83 = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file83 = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %30 = load ptr, ptr %file83, align 8
   %31 = load ptr, ptr %c, align 8
   %arrayidx86 = getelementptr %struct.Qcow2CachedTable, ptr %31, i64 %idxprom
   %32 = load i64, ptr %arrayidx86, align 8
-  %table_size88 = getelementptr inbounds i8, ptr %c, i64 20
+  %table_size88 = getelementptr inbounds nuw i8, ptr %c, i64 20
   %33 = load i32, ptr %table_size88, align 4
   %conv89 = sext i32 %33 to i64
   %34 = getelementptr i8, ptr %c, i64 32
@@ -622,7 +622,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end5
 
 if.then:                                          ; preds = %entry
-  %file = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
   %1 = load ptr, ptr %0, align 8
   %call2 = tail call i32 @bdrv_flush(ptr noundef %1) #13
@@ -639,7 +639,7 @@ declare i32 @bdrv_flush(ptr noundef) #3
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local range(i32 -2147483648, 1) i32 @qcow2_cache_set_dependency(ptr noundef %bs, ptr nocapture noundef %c, ptr noundef %dependency) local_unnamed_addr #0 {
 entry:
-  %depends = getelementptr inbounds i8, ptr %dependency, i64 8
+  %depends = getelementptr inbounds nuw i8, ptr %dependency, i64 8
   %0 = load ptr, ptr %depends, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end2, label %if.then
@@ -650,7 +650,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.i, label %qcow2_cache_flush.exit.i, label %return
 
 qcow2_cache_flush.exit.i:                         ; preds = %if.then
-  %file.i.i = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file.i.i = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %1 = load ptr, ptr %file.i.i, align 8
   %2 = load ptr, ptr %1, align 8
   %call2.i.i = tail call i32 @bdrv_flush(ptr noundef %2) #13
@@ -659,12 +659,12 @@ qcow2_cache_flush.exit.i:                         ; preds = %if.then
 
 qcow2_cache_flush_dependency.exit:                ; preds = %qcow2_cache_flush.exit.i
   store ptr null, ptr %depends, align 8
-  %depends_on_flush.i = getelementptr inbounds i8, ptr %dependency, i64 24
+  %depends_on_flush.i = getelementptr inbounds nuw i8, ptr %dependency, i64 24
   store i8 0, ptr %depends_on_flush.i, align 8
   br label %if.end2
 
 if.end2:                                          ; preds = %qcow2_cache_flush_dependency.exit, %entry
-  %depends3 = getelementptr inbounds i8, ptr %c, i64 8
+  %depends3 = getelementptr inbounds nuw i8, ptr %c, i64 8
   %3 = load ptr, ptr %depends3, align 8
   %tobool4.not = icmp eq ptr %3, null
   %cmp6.not = icmp eq ptr %3, %dependency
@@ -677,7 +677,7 @@ if.then7:                                         ; preds = %if.end2
   br i1 %cmp.i.i13, label %qcow2_cache_flush.exit.i15, label %return
 
 qcow2_cache_flush.exit.i15:                       ; preds = %if.then7
-  %file.i.i16 = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file.i.i16 = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %4 = load ptr, ptr %file.i.i16, align 8
   %5 = load ptr, ptr %4, align 8
   %call2.i.i17 = tail call i32 @bdrv_flush(ptr noundef %5) #13
@@ -685,7 +685,7 @@ qcow2_cache_flush.exit.i15:                       ; preds = %if.then7
   br i1 %cmp.i18, label %return, label %qcow2_cache_flush_dependency.exit21
 
 qcow2_cache_flush_dependency.exit21:              ; preds = %qcow2_cache_flush.exit.i15
-  %depends_on_flush.i20 = getelementptr inbounds i8, ptr %c, i64 24
+  %depends_on_flush.i20 = getelementptr inbounds nuw i8, ptr %c, i64 24
   store i8 0, ptr %depends_on_flush.i20, align 8
   br label %if.end12
 
@@ -701,7 +701,7 @@ return:                                           ; preds = %if.then7, %qcow2_ca
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define dso_local void @qcow2_cache_depends_on_flush(ptr nocapture noundef writeonly initializes((24, 25)) %c) local_unnamed_addr #4 {
 entry:
-  %depends_on_flush = getelementptr inbounds i8, ptr %c, i64 24
+  %depends_on_flush = getelementptr inbounds nuw i8, ptr %c, i64 24
   store i8 1, ptr %depends_on_flush, align 8
   ret void
 }
@@ -714,7 +714,7 @@ entry:
   br i1 %cmp.i, label %qcow2_cache_flush.exit, label %return
 
 qcow2_cache_flush.exit:                           ; preds = %entry
-  %file.i = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file.i = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file.i, align 8
   %1 = load ptr, ptr %0, align 8
   %call2.i = tail call i32 @bdrv_flush(ptr noundef %1) #13
@@ -722,7 +722,7 @@ qcow2_cache_flush.exit:                           ; preds = %entry
   br i1 %cmp, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %qcow2_cache_flush.exit
-  %size = getelementptr inbounds i8, ptr %c, i64 16
+  %size = getelementptr inbounds nuw i8, ptr %c, i64 16
   %2 = load i32, ptr %size, align 8
   %cmp121 = icmp sgt i32 %2, 0
   br i1 %cmp121, label %for.body, label %for.cond.preheader.for.end_crit_edge
@@ -735,7 +735,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %indvars.iv = phi i64 [ %indvars.iv.next, %if.end4 ], [ 0, %for.cond.preheader ]
   %3 = load ptr, ptr %c, align 8
   %arrayidx = getelementptr %struct.Qcow2CachedTable, ptr %3, i64 %indvars.iv
-  %ref = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %ref = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   %4 = load i32, ptr %ref, align 8
   %cmp2 = icmp eq i32 %4, 0
   br i1 %cmp2, label %if.end4, label %if.else
@@ -787,7 +787,7 @@ if.then.i15:                                      ; preds = %for.end
   br label %qcow2_cache_table_release.exit
 
 qcow2_cache_table_release.exit:                   ; preds = %for.end, %if.then.i15
-  %lru_counter12 = getelementptr inbounds i8, ptr %c, i64 40
+  %lru_counter12 = getelementptr inbounds nuw i8, ptr %c, i64 40
   store i64 0, ptr %lru_counter12, align 8
   br label %return
 
@@ -810,7 +810,7 @@ entry:
   %_now.i.i74 = alloca %struct.timeval, align 8
   %_now.i.i60 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %cmp.not = icmp eq i64 %offset, 0
   br i1 %cmp.not, label %if.else, label %if.end
@@ -821,7 +821,7 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call = tail call ptr @qemu_coroutine_self() #13
-  %l2_table_cache = getelementptr inbounds i8, ptr %0, i64 80
+  %l2_table_cache = getelementptr inbounds nuw i8, ptr %0, i64 80
   %1 = load ptr, ptr %l2_table_cache, align 8
   %cmp1 = icmp eq ptr %c, %1
   %conv = zext i1 %cmp1 to i32
@@ -848,7 +848,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
   %call10.i.i = tail call i32 @qemu_get_thread_id() #13
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   %conv12.i.i = zext i1 %read_from_disk to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef %call, i32 noundef range(i32 0, 2) %conv, i64 noundef range(i64 1, 0) %offset, i32 noundef %conv12.i.i) #13
@@ -861,7 +861,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_qcow2_cache_get.exit:                       ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %table_size = getelementptr inbounds i8, ptr %c, i64 20
+  %table_size = getelementptr inbounds nuw i8, ptr %c, i64 20
   %8 = load i32, ptr %table_size, align 4
   %conv2 = sext i32 %8 to i64
   %rem = urem i64 %offset, %conv2
@@ -870,7 +870,7 @@ trace_qcow2_cache_get.exit:                       ; preds = %if.end, %land.lhs.t
   br i1 %cmp3, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %trace_qcow2_cache_get.exit
-  %refcount_block_cache.i = getelementptr inbounds i8, ptr %0, i64 88
+  %refcount_block_cache.i = getelementptr inbounds nuw i8, ptr %0, i64 88
   %9 = load ptr, ptr %refcount_block_cache.i, align 8
   %cmp.i = icmp eq ptr %c, %9
   br i1 %cmp.i, label %qcow2_cache_get_name.exit, label %if.else.i
@@ -888,7 +888,7 @@ qcow2_cache_get_name.exit:                        ; preds = %if.then5, %if.else.
 
 if.end7:                                          ; preds = %trace_qcow2_cache_get.exit
   %mul = shl i64 %div, 2
-  %size = getelementptr inbounds i8, ptr %c, i64 16
+  %size = getelementptr inbounds nuw i8, ptr %c, i64 16
   %11 = load i32, ptr %size, align 8
   %conv10 = sext i32 %11 to i64
   %rem11 = urem i64 %mul, %conv10
@@ -907,13 +907,13 @@ do.body:                                          ; preds = %if.end24, %if.end7
   br i1 %cmp14, label %found, label %if.end17
 
 if.end17:                                         ; preds = %do.body
-  %ref = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %ref = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   %14 = load i32, ptr %ref, align 8
   %cmp18 = icmp eq i32 %14, 0
   br i1 %cmp18, label %land.lhs.true, label %if.end24
 
 land.lhs.true:                                    ; preds = %if.end17
-  %lru_counter = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %lru_counter = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %15 = load i64, ptr %lru_counter, align 8
   %cmp20 = icmp ult i64 %15, %min_lru_counter.0
   %spec.select = tail call i64 @llvm.umin.i64(i64 %15, i64 %min_lru_counter.0)
@@ -965,7 +965,7 @@ if.then8.i.i70:                                   ; preds = %if.then.i.i67
   %call9.i.i71 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i60, ptr noundef null) #13
   %call10.i.i72 = tail call i32 @qemu_get_thread_id() #13
   %21 = load i64, ptr %_now.i.i60, align 8
-  %tv_usec.i.i73 = getelementptr inbounds i8, ptr %_now.i.i60, i64 8
+  %tv_usec.i.i73 = getelementptr inbounds nuw i8, ptr %_now.i.i60, i64 8
   %22 = load i64, ptr %tv_usec.i.i73, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, i32 noundef %call10.i.i72, i64 noundef %21, i64 noundef %22, ptr noundef %call36, i32 noundef range(i32 0, 2) %conv39, i32 noundef range(i32 0, -1) %min_lru_index.1) #13
   br label %trace_qcow2_cache_get_replace_entry.exit
@@ -1008,7 +1008,7 @@ if.then8.i.i84:                                   ; preds = %if.then.i.i81
   %call9.i.i85 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i74, ptr noundef null) #13
   %call10.i.i86 = tail call i32 @qemu_get_thread_id() #13
   %28 = load i64, ptr %_now.i.i74, align 8
-  %tv_usec.i.i87 = getelementptr inbounds i8, ptr %_now.i.i74, i64 8
+  %tv_usec.i.i87 = getelementptr inbounds nuw i8, ptr %_now.i.i74, i64 8
   %29 = load i64, ptr %tv_usec.i.i87, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i32 noundef %call10.i.i86, i64 noundef %28, i64 noundef %29, ptr noundef %call45, i32 noundef range(i32 0, 2) %conv48, i32 noundef range(i32 0, -1) %min_lru_index.1) #13
   br label %trace_qcow2_cache_get_read.exit
@@ -1031,7 +1031,7 @@ if.then54:                                        ; preds = %trace_qcow2_cache_g
   br i1 %cmp56, label %do.body59, label %if.end67
 
 do.body59:                                        ; preds = %if.then54
-  %file = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %32 = load ptr, ptr %file, align 8
   %tobool60.not = icmp eq ptr %32, null
   br i1 %tobool60.not, label %if.end67, label %if.then61
@@ -1042,7 +1042,7 @@ if.then61:                                        ; preds = %do.body59
   br label %if.end67
 
 if.end67:                                         ; preds = %if.then61, %do.body59, %if.then54
-  %file68 = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file68 = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %34 = load ptr, ptr %file68, align 8
   %35 = load i32, ptr %table_size, align 4
   %conv70 = sext i32 %35 to i64
@@ -1103,7 +1103,7 @@ if.then8.i.i102:                                  ; preds = %if.then.i.i99
   %call9.i.i103 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i92, ptr noundef null) #13
   %call10.i.i104 = tail call i32 @qemu_get_thread_id() #13
   %46 = load i64, ptr %_now.i.i92, align 8
-  %tv_usec.i.i105 = getelementptr inbounds i8, ptr %_now.i.i92, i64 8
+  %tv_usec.i.i105 = getelementptr inbounds nuw i8, ptr %_now.i.i92, i64 8
   %47 = load i64, ptr %tv_usec.i.i105, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %call10.i.i104, i64 noundef %46, i64 noundef %47, ptr noundef %call88, i32 noundef range(i32 0, 2) %conv91, i32 noundef %i.1) #13
   br label %trace_qcow2_cache_get_done.exit
@@ -1132,12 +1132,12 @@ entry:
 define dso_local void @qcow2_cache_put(ptr nocapture noundef %c, ptr nocapture noundef %table) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %table, align 8
-  %table_array.i = getelementptr inbounds i8, ptr %c, i64 32
+  %table_array.i = getelementptr inbounds nuw i8, ptr %c, i64 32
   %1 = load ptr, ptr %table_array.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %table_size.i = getelementptr inbounds i8, ptr %c, i64 20
+  %table_size.i = getelementptr inbounds nuw i8, ptr %c, i64 20
   %2 = load i32, ptr %table_size.i, align 4
   %conv.i = sext i32 %2 to i64
   %div.i = sdiv i64 %sub.ptr.sub.i, %conv.i
@@ -1147,7 +1147,7 @@ entry:
   br i1 %cmp.i, label %land.lhs.true.i, label %if.else.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  %size.i = getelementptr inbounds i8, ptr %c, i64 16
+  %size.i = getelementptr inbounds nuw i8, ptr %c, i64 16
   %3 = load i32, ptr %size.i, align 8
   %cmp3.i = icmp sgt i32 %3, %conv1.i
   %cmp8.i = icmp eq i64 %rem.i, 0
@@ -1173,7 +1173,7 @@ qcow2_cache_get_table_idx.exit:                   ; preds = %land.lhs.true.i
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %qcow2_cache_get_table_idx.exit
-  %lru_counter = getelementptr inbounds i8, ptr %c, i64 40
+  %lru_counter = getelementptr inbounds nuw i8, ptr %c, i64 40
   %8 = load i64, ptr %lru_counter, align 8
   %inc = add i64 %8, 1
   store i64 %inc, ptr %lru_counter, align 8
@@ -1200,12 +1200,12 @@ if.end15:                                         ; preds = %if.end
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qcow2_cache_entry_mark_dirty(ptr nocapture noundef readonly %c, ptr noundef %table) local_unnamed_addr #0 {
 entry:
-  %table_array.i = getelementptr inbounds i8, ptr %c, i64 32
+  %table_array.i = getelementptr inbounds nuw i8, ptr %c, i64 32
   %0 = load ptr, ptr %table_array.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %table to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %table_size.i = getelementptr inbounds i8, ptr %c, i64 20
+  %table_size.i = getelementptr inbounds nuw i8, ptr %c, i64 20
   %1 = load i32, ptr %table_size.i, align 4
   %conv.i = sext i32 %1 to i64
   %div.i = sdiv i64 %sub.ptr.sub.i, %conv.i
@@ -1215,7 +1215,7 @@ entry:
   br i1 %cmp.i, label %land.lhs.true.i, label %if.else.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  %size.i = getelementptr inbounds i8, ptr %c, i64 16
+  %size.i = getelementptr inbounds nuw i8, ptr %c, i64 16
   %2 = load i32, ptr %size.i, align 8
   %cmp3.i = icmp sgt i32 %2, %conv1.i
   %cmp8.i = icmp eq i64 %rem.i, 0
@@ -1239,7 +1239,7 @@ if.else:                                          ; preds = %qcow2_cache_get_tab
   unreachable
 
 if.end:                                           ; preds = %qcow2_cache_get_table_idx.exit
-  %dirty = getelementptr inbounds i8, ptr %arrayidx, i64 20
+  %dirty = getelementptr inbounds nuw i8, ptr %arrayidx, i64 20
   store i8 1, ptr %dirty, align 4
   ret void
 }
@@ -1247,7 +1247,7 @@ if.end:                                           ; preds = %qcow2_cache_get_tab
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
 define dso_local ptr @qcow2_cache_is_table_offset(ptr nocapture noundef readonly %c, i64 noundef %offset) local_unnamed_addr #5 {
 entry:
-  %size = getelementptr inbounds i8, ptr %c, i64 16
+  %size = getelementptr inbounds nuw i8, ptr %c, i64 16
   %0 = load i32, ptr %size, align 8
   %cmp7 = icmp sgt i32 %0, 0
   br i1 %cmp7, label %for.body.lr.ph, label %return
@@ -1287,12 +1287,12 @@ return:                                           ; preds = %for.cond, %entry, %
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qcow2_cache_discard(ptr nocapture noundef readonly %c, ptr noundef %table) local_unnamed_addr #0 {
 entry:
-  %table_array.i = getelementptr inbounds i8, ptr %c, i64 32
+  %table_array.i = getelementptr inbounds nuw i8, ptr %c, i64 32
   %0 = load ptr, ptr %table_array.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %table to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %table_size.i = getelementptr inbounds i8, ptr %c, i64 20
+  %table_size.i = getelementptr inbounds nuw i8, ptr %c, i64 20
   %1 = load i32, ptr %table_size.i, align 4
   %conv.i = sext i32 %1 to i64
   %div.i = sdiv i64 %sub.ptr.sub.i, %conv.i
@@ -1302,7 +1302,7 @@ entry:
   br i1 %cmp.i, label %land.lhs.true.i, label %if.else.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  %size.i = getelementptr inbounds i8, ptr %c, i64 16
+  %size.i = getelementptr inbounds nuw i8, ptr %c, i64 16
   %2 = load i32, ptr %size.i, align 8
   %cmp3.i = icmp sgt i32 %2, %conv1.i
   %cmp8.i = icmp eq i64 %rem.i, 0
@@ -1317,7 +1317,7 @@ qcow2_cache_get_table_idx.exit:                   ; preds = %land.lhs.true.i
   %3 = load ptr, ptr %c, align 8
   %idxprom = and i64 %div.i, 2147483647
   %arrayidx = getelementptr %struct.Qcow2CachedTable, ptr %3, i64 %idxprom
-  %ref = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %ref = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   %4 = load i32, ptr %ref, align 8
   %cmp = icmp eq i32 %4, 0
   br i1 %cmp, label %if.end, label %if.else

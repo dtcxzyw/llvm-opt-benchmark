@@ -104,7 +104,7 @@ define dso_local i32 @snd_hdac_chmap_to_spk_mask(i8 noundef zeroext %0) #3 align
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %8 = load i32, ptr %7, align 4
   br label %.loopexit
 
@@ -174,19 +174,19 @@ define dso_local void @snd_hdac_setup_channel_mapping(ptr nocapture noundef read
   %21 = phi i32 [ %20, %19 ], [ 50, %16 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #13
   store i32 15, ptr %9, align 16
-  %22 = getelementptr inbounds i8, ptr %9, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 15, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %9, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 15, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %9, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 15, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %9, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 15, ptr %25, align 16
-  %26 = getelementptr inbounds i8, ptr %9, i64 20
+  %26 = getelementptr inbounds nuw i8, ptr %9, i64 20
   store i32 15, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %9, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i32 15, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %9, i64 28
+  %28 = getelementptr inbounds nuw i8, ptr %9, i64 28
   store i32 15, ptr %28, align 4
   %29 = icmp sgt i32 %4, 0
   br i1 %29, label %30, label %.loopexit29
@@ -198,8 +198,8 @@ define dso_local void @snd_hdac_setup_channel_mapping(ptr nocapture noundef read
   br label %36
 
 .loopexit29:                                      ; preds = %.thread20, %.loopexit31
-  %34 = getelementptr inbounds i8, ptr %0, i64 72
-  %35 = getelementptr inbounds i8, ptr %0, i64 88
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 88
   br label %68
 
 36:                                               ; preds = %.thread20, %30
@@ -221,7 +221,7 @@ define dso_local void @snd_hdac_setup_channel_mapping(ptr nocapture noundef read
   br i1 %47, label %.thread20, label %40, !llvm.loop !9
 
 48:                                               ; preds = %40
-  %49 = getelementptr inbounds i8, ptr %42, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %50 = load i32, ptr %49, align 4
   %51 = icmp eq i32 %50, 0
   %52 = select i1 %32, i1 true, i1 %51
@@ -300,13 +300,13 @@ define dso_local void @snd_hdac_setup_channel_mapping(ptr nocapture noundef read
   br i1 %98, label %99, label %.loopexit25
 
 99:                                               ; preds = %90
-  %100 = getelementptr inbounds i8, ptr %94, i64 36
+  %100 = getelementptr inbounds nuw i8, ptr %94, i64 36
   %101 = load i32, ptr %100, align 4
   %102 = icmp sgt i32 %101, 0
   br i1 %102, label %103, label %114
 
 103:                                              ; preds = %99
-  %104 = getelementptr inbounds i8, ptr %94, i64 4
+  %104 = getelementptr inbounds nuw i8, ptr %94, i64 4
   br label %105
 
 105:                                              ; preds = %131, %103
@@ -326,7 +326,7 @@ define dso_local void @snd_hdac_setup_channel_mapping(ptr nocapture noundef read
 
 114:                                              ; preds = %112, %99
   %115 = phi i32 [ 0, %99 ], [ %113, %112 ]
-  %116 = getelementptr inbounds i8, ptr %94, i64 4
+  %116 = getelementptr inbounds nuw i8, ptr %94, i64 4
   br label %142
 
 .loopexit26:                                      ; preds = %126, %105
@@ -398,7 +398,7 @@ define dso_local void @snd_hdac_setup_channel_mapping(ptr nocapture noundef read
   br i1 %2, label %159, label %.loopexit24
 
 159:                                              ; preds = %.loopexit25
-  %160 = getelementptr inbounds i8, ptr %94, i64 36
+  %160 = getelementptr inbounds nuw i8, ptr %94, i64 36
   %161 = load i32, ptr %160, align 4
   %162 = icmp sgt i32 %161, 0
   br i1 %162, label %163, label %.thread21.preheader
@@ -437,8 +437,8 @@ define dso_local void @snd_hdac_setup_channel_mapping(ptr nocapture noundef read
   br i1 %180, label %.loopexit24, label %.thread21, !llvm.loop !25
 
 .loopexit24:                                      ; preds = %.thread21, %165, %.loopexit25
-  %181 = getelementptr inbounds i8, ptr %0, i64 72
-  %182 = getelementptr inbounds i8, ptr %0, i64 88
+  %181 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %182 = getelementptr inbounds nuw i8, ptr %0, i64 88
   br label %183
 
 183:                                              ; preds = %183, %.loopexit24
@@ -625,7 +625,7 @@ define dso_local range(i32 0, -2147483648) i32 @snd_hdac_channel_allocation(ptr 
   br i1 %25, label %26, label %29
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %24, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %28 = load i32, ptr %27, align 4
   br label %.loopexit13
 
@@ -648,7 +648,7 @@ define dso_local range(i32 0, -2147483648) i32 @snd_hdac_channel_allocation(ptr 
 40:                                               ; preds = %55, %.loopexit14
   %41 = phi i64 [ 0, %.loopexit14 ], [ %56, %55 ]
   %42 = getelementptr [50 x %struct.hdac_cea_channel_speaker_allocation], ptr @channel_allocations, i64 0, i64 %41
-  %43 = getelementptr inbounds i8, ptr %42, i64 36
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 36
   %44 = load i32, ptr %43, align 4
   %45 = icmp eq i32 %44, %2
   %46 = icmp eq i32 %14, %44
@@ -656,7 +656,7 @@ define dso_local range(i32 0, -2147483648) i32 @snd_hdac_channel_allocation(ptr 
   br i1 %47, label %48, label %55
 
 48:                                               ; preds = %40
-  %49 = getelementptr inbounds i8, ptr %42, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %42, i64 40
   %50 = load i32, ptr %49, align 4
   %51 = and i32 %50, %15
   %52 = icmp eq i32 %51, %50
@@ -701,13 +701,13 @@ define dso_local range(i32 0, -2147483648) i32 @snd_hdac_channel_allocation(ptr 
 .preheader9:                                      ; preds = %70, %84
   %74 = phi i64 [ %85, %84 ], [ 0, %70 ]
   %75 = getelementptr [50 x %struct.hdac_cea_channel_speaker_allocation], ptr @channel_allocations, i64 0, i64 %74
-  %76 = getelementptr inbounds i8, ptr %75, i64 36
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 36
   %77 = load i32, ptr %76, align 4
   %78 = icmp eq i32 %77, %2
   br i1 %78, label %79, label %84
 
 79:                                               ; preds = %.preheader9
-  %80 = getelementptr inbounds i8, ptr %75, i64 40
+  %80 = getelementptr inbounds nuw i8, ptr %75, i64 40
   %81 = load i32, ptr %80, align 4
   %82 = and i32 %81, %71
   %83 = icmp eq i32 %82, %81
@@ -734,7 +734,7 @@ define dso_local range(i32 0, -2147483648) i32 @snd_hdac_channel_allocation(ptr 
 .preheader:                                       ; preds = %.preheader.preheader, %89
   %92 = phi i64 [ %90, %89 ], [ 0, %.preheader.preheader ]
   %93 = getelementptr [50 x %struct.hdac_cea_channel_speaker_allocation], ptr @channel_allocations, i64 0, i64 %92
-  %94 = getelementptr inbounds i8, ptr %93, i64 36
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 36
   %95 = load i32, ptr %94, align 4
   %96 = icmp eq i32 %95, %2
   br i1 %96, label %97, label %89
@@ -786,20 +786,20 @@ define dso_local range(i32 0, -2147483648) i32 @snd_hdac_channel_allocation(ptr 
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
 define dso_local void @snd_hdac_register_chmap_ops(ptr noundef %0, ptr nocapture noundef writeonly initializes((8, 96)) %1) #5 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(80) %3, ptr noundef nonnull align 8 dereferenceable(80) @chmap_ops, i64 80, i1 false)
-  %4 = getelementptr inbounds i8, ptr %1, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull align 8 dereferenceable(80) @chmap_ops, i64 80, i1 false)
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 88
   store ptr %0, ptr %4, align 8
   br label %5
 
 5:                                                ; preds = %27, %2
   %6 = phi i64 [ 0, %2 ], [ %28, %27 ]
   %7 = getelementptr %struct.hdac_cea_channel_speaker_allocation, ptr @channel_allocations, i64 %6
-  %8 = getelementptr inbounds i8, ptr %7, i64 36
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 36
   store i32 0, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %7, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i32 0, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %7, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 4
   br label %11
 
 11:                                               ; preds = %22, %5
@@ -850,11 +850,11 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hdac_add_chmap_ctls(ptr noun
 
 8:                                                ; preds = %3
   %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store ptr %2, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %9, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 80
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %.loopexit, label %.preheader
@@ -876,13 +876,13 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hdac_add_chmap_ctls(ptr noun
   br i1 %24, label %17, label %.loopexit, !llvm.loop !35
 
 .loopexit:                                        ; preds = %17, %8
-  %25 = getelementptr inbounds i8, ptr %12, i64 88
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 88
   store ptr @hdmi_chmap_ctl_info, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %12, i64 96
+  %26 = getelementptr inbounds nuw i8, ptr %12, i64 96
   store ptr @hdmi_chmap_ctl_get, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %12, i64 104
+  %27 = getelementptr inbounds nuw i8, ptr %12, i64 104
   store ptr @hdmi_chmap_ctl_put, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %12, i64 112
+  %28 = getelementptr inbounds nuw i8, ptr %12, i64 112
   store ptr @hdmi_chmap_ctl_tlv, ptr %28, align 8
   br label %29
 
@@ -897,18 +897,18 @@ declare dso_local i32 @snd_pcm_add_chmap_ctls(ptr noundef, i32 noundef, ptr noun
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
 define internal noundef i32 @hdmi_chmap_ctl_info(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((64, 68), (72, 76), (80, 96)) %1) #7 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 128
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 2, ptr %7, align 8
   %8 = load i32, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i32 %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store i64 0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 88
   store i64 36, ptr %11, align 8
   ret i32 0
 }
@@ -916,21 +916,21 @@ define internal noundef i32 @hdmi_chmap_ctl_info(ptr nocapture noundef readonly 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @hdmi_chmap_ctl_get(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
   %3 = alloca [8 x i8], align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 128
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 120
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %9 = load i64, ptr %8, align 8
   %10 = trunc i64 %9 to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #13
   store i64 0, ptr %3, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %14 = load ptr, ptr %13, align 8
   call void %12(ptr noundef %14, i32 noundef %10, ptr noundef nonnull %3) #13
-  %15 = getelementptr inbounds i8, ptr %1, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 72
   br label %16
 
 16:                                               ; preds = %16, %2
@@ -953,30 +953,30 @@ define internal noundef i32 @hdmi_chmap_ctl_get(ptr nocapture noundef readonly %
 define internal i32 @hdmi_chmap_ctl_put(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = alloca [8 x i8], align 8
   %4 = alloca [8 x i8], align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 128
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 120
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %10 = load i64, ptr %9, align 8
   %11 = trunc i64 %10 to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
-  %12 = getelementptr inbounds i8, ptr %8, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 88
   %15 = load ptr, ptr %14, align 8
   %16 = tail call zeroext i1 %13(ptr noundef %15, i32 noundef %11) #13
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %2
   store i64 0, ptr %4, align 8, !annotation !15
-  %18 = getelementptr inbounds i8, ptr %1, i64 60
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 76
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %21 = load i32, ptr %20, align 4
   %22 = sub i32 %19, %21
-  %23 = getelementptr inbounds i8, ptr %0, i64 80
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %24 = load i32, ptr %23, align 8
   %25 = zext i32 %22 to i64
   %26 = zext i32 %24 to i64
@@ -984,7 +984,7 @@ define internal i32 @hdmi_chmap_ctl_put(ptr nocapture noundef readonly %0, ptr n
   %28 = trunc i64 %27 to i32
   %29 = and i32 %22, %28
   %30 = load ptr, ptr %6, align 8
-  %31 = getelementptr inbounds i8, ptr %6, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %32 = load i32, ptr %31, align 8
   %33 = sext i32 %32 to i64
   %.idx = mul nsw i64 %33, 56
@@ -996,19 +996,19 @@ define internal i32 @hdmi_chmap_ctl_put(ptr nocapture noundef readonly %0, ptr n
 
 .preheader12:                                     ; preds = %17, %42
   %38 = phi ptr [ %44, %42 ], [ %36, %17 ]
-  %39 = getelementptr inbounds i8, ptr %38, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, %29
   br i1 %41, label %46, label %42
 
 42:                                               ; preds = %.preheader12
-  %43 = getelementptr inbounds i8, ptr %38, i64 224
+  %43 = getelementptr inbounds nuw i8, ptr %38, i64 224
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, null
   br i1 %45, label %.thread, label %.preheader12, !llvm.loop !38
 
 46:                                               ; preds = %.preheader12
-  %47 = getelementptr inbounds i8, ptr %38, i64 192
+  %47 = getelementptr inbounds nuw i8, ptr %38, i64 192
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, null
   br i1 %49, label %.thread, label %50
@@ -1027,7 +1027,7 @@ define internal i32 @hdmi_chmap_ctl_put(ptr nocapture noundef readonly %0, ptr n
 53:                                               ; preds = %52, %50, %50
   %54 = phi i32 [ 1, %52 ], [ 0, %50 ], [ 0, %50 ]
   store i64 0, ptr %3, align 8
-  %55 = getelementptr inbounds i8, ptr %1, i64 72
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 72
   br label %56
 
 56:                                               ; preds = %56, %53
@@ -1042,7 +1042,7 @@ define internal i32 @hdmi_chmap_ctl_put(ptr nocapture noundef readonly %0, ptr n
   br i1 %63, label %64, label %56, !llvm.loop !39
 
 64:                                               ; preds = %56
-  %65 = getelementptr inbounds i8, ptr %8, i64 40
+  %65 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %66 = load ptr, ptr %65, align 8
   %67 = load ptr, ptr %14, align 8
   call void %66(ptr noundef %67, i32 noundef %11, ptr noundef nonnull %4) #13
@@ -1066,7 +1066,7 @@ define internal i32 @hdmi_chmap_ctl_put(ptr nocapture noundef readonly %0, ptr n
   br i1 %79, label %80, label %83
 
 80:                                               ; preds = %76
-  %81 = getelementptr inbounds i8, ptr %78, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %78, i64 4
   %82 = load i32, ptr %81, align 4
   br label %.loopexit
 
@@ -1089,7 +1089,7 @@ define internal i32 @hdmi_chmap_ctl_put(ptr nocapture noundef readonly %0, ptr n
 .preheader:                                       ; preds = %.loopexit, %106
   %94 = phi i64 [ %107, %106 ], [ 0, %.loopexit ]
   %95 = getelementptr [50 x %struct.hdac_cea_channel_speaker_allocation], ptr @channel_allocations, i64 0, i64 %94
-  %96 = getelementptr inbounds i8, ptr %95, i64 36
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 36
   %97 = load i32, ptr %96, align 4
   %98 = icmp eq i32 %97, 8
   %99 = icmp eq i32 %91, %97
@@ -1097,7 +1097,7 @@ define internal i32 @hdmi_chmap_ctl_put(ptr nocapture noundef readonly %0, ptr n
   br i1 %100, label %101, label %106
 
 101:                                              ; preds = %.preheader
-  %102 = getelementptr inbounds i8, ptr %95, i64 40
+  %102 = getelementptr inbounds nuw i8, ptr %95, i64 40
   %103 = load i32, ptr %102, align 4
   %104 = and i32 %103, %89
   %105 = icmp eq i32 %104, %103
@@ -1114,7 +1114,7 @@ define internal i32 @hdmi_chmap_ctl_put(ptr nocapture noundef readonly %0, ptr n
   br i1 %111, label %.thread, label %112
 
 112:                                              ; preds = %109
-  %113 = getelementptr inbounds i8, ptr %8, i64 24
+  %113 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %114 = load ptr, ptr %113, align 8
   %115 = icmp eq ptr %114, null
   br i1 %115, label %119, label %116
@@ -1125,7 +1125,7 @@ define internal i32 @hdmi_chmap_ctl_put(ptr nocapture noundef readonly %0, ptr n
   br i1 %118, label %119, label %.thread
 
 119:                                              ; preds = %116, %112
-  %120 = getelementptr inbounds i8, ptr %8, i64 48
+  %120 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %121 = load ptr, ptr %120, align 8
   %122 = load ptr, ptr %14, align 8
   call void %121(ptr noundef %122, i32 noundef %11, ptr noundef nonnull %3, i32 noundef %54) #13
@@ -1141,11 +1141,11 @@ define internal i32 @hdmi_chmap_ctl_put(ptr nocapture noundef readonly %0, ptr n
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 -19, 1) i32 @hdmi_chmap_ctl_tlv(ptr nocapture noundef readonly %0, i32 %1, i32 noundef %2, ptr noundef %3) #0 align 16 {
   %5 = alloca [8 x i32], align 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 120
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %11 = load i64, ptr %10, align 8
   %12 = trunc i64 %11 to i32
   %13 = icmp ult i32 %2, 8
@@ -1163,9 +1163,9 @@ define internal range(i32 -19, 1) i32 @hdmi_chmap_ctl_tlv(ptr nocapture noundef 
   br i1 %21, label %22, label %133
 
 22:                                               ; preds = %14
-  %23 = getelementptr inbounds i8, ptr %9, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %9, i64 88
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 88
   %26 = load ptr, ptr %25, align 8
   %27 = tail call i32 %24(ptr noundef %26, i32 noundef %12) #13
   br label %28
@@ -1192,7 +1192,7 @@ define internal range(i32 -19, 1) i32 @hdmi_chmap_ctl_tlv(ptr nocapture noundef 
   br i1 %42, label %43, label %28, !llvm.loop !41
 
 43:                                               ; preds = %39
-  %44 = getelementptr inbounds i8, ptr %9, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %45 = sext i32 %40 to i64
   %46 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %45) #14, !srcloc !42
   %47 = icmp ult i64 %46, 2
@@ -1201,7 +1201,7 @@ define internal range(i32 -19, 1) i32 @hdmi_chmap_ctl_tlv(ptr nocapture noundef 
 48:                                               ; preds = %43
   %49 = getelementptr i8, ptr %3, i64 8
   %50 = add i32 %2, -8
-  %51 = getelementptr inbounds i8, ptr %9, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %9, i64 16
   br label %56
 
 52:                                               ; preds = %116
@@ -1230,13 +1230,13 @@ define internal range(i32 -19, 1) i32 @hdmi_chmap_ctl_tlv(ptr nocapture noundef 
   %71 = phi ptr [ @channel_allocations, %56 ], [ %121, %116 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, i8 0, i64 32, i1 false), !annotation !15
-  %72 = getelementptr inbounds i8, ptr %71, i64 36
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 36
   %73 = load i32, ptr %72, align 4
   %74 = icmp eq i32 %73, %60
   br i1 %74, label %75, label %116
 
 75:                                               ; preds = %66
-  %76 = getelementptr inbounds i8, ptr %71, i64 40
+  %76 = getelementptr inbounds nuw i8, ptr %71, i64 40
   %77 = load i32, ptr %76, align 4
   %78 = and i32 %77, %40
   %79 = icmp eq i32 %77, %78
@@ -1340,7 +1340,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
 define internal range(i32 -1, 259) i32 @hdmi_chmap_cea_alloc_validate_get_type(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2) #9 align 16 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 36
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, %2
   %7 = select i1 %6, i32 258, i32 -1
@@ -1349,7 +1349,7 @@ define internal range(i32 -1, 259) i32 @hdmi_chmap_cea_alloc_validate_get_type(p
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @hdmi_cea_alloc_to_tlv_chmap(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, i32 noundef %3) #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   br label %6
 
 6:                                                ; preds = %24, %4

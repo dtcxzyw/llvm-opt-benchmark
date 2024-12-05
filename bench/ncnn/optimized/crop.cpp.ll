@@ -141,7 +141,7 @@ define hidden noundef i32 @_ZN4ncnn4Crop10load_paramERKNS_9ParamDictE(ptr nounde
 
 53:                                               ; preds = %49
   %54 = load ptr, ptr %51, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %56 = load ptr, ptr %55, align 8
   invoke void %56(ptr noundef nonnull align 8 dereferenceable(8) %51, ptr noundef %52)
           to label %59 unwind label %352
@@ -216,7 +216,7 @@ define hidden noundef i32 @_ZN4ncnn4Crop10load_paramERKNS_9ParamDictE(ptr nounde
 
 97:                                               ; preds = %93
   %98 = load ptr, ptr %95, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 24
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 24
   %100 = load ptr, ptr %99, align 8
   invoke void %100(ptr noundef nonnull align 8 dereferenceable(8) %95, ptr noundef %96)
           to label %103 unwind label %107
@@ -259,7 +259,7 @@ define hidden noundef i32 @_ZN4ncnn4Crop10load_paramERKNS_9ParamDictE(ptr nounde
 
 116:                                              ; preds = %113
   %117 = load ptr, ptr %114, align 8
-  %118 = getelementptr inbounds i8, ptr %117, i64 24
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 24
   %119 = load ptr, ptr %118, align 8
   invoke void %119(ptr noundef nonnull align 8 dereferenceable(8) %114, ptr noundef %115)
           to label %122 unwind label %127
@@ -328,7 +328,7 @@ define hidden noundef i32 @_ZN4ncnn4Crop10load_paramERKNS_9ParamDictE(ptr nounde
 
 146:                                              ; preds = %142
   %147 = load ptr, ptr %144, align 8
-  %148 = getelementptr inbounds i8, ptr %147, i64 24
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 24
   %149 = load ptr, ptr %148, align 8
   invoke void %149(ptr noundef nonnull align 8 dereferenceable(8) %144, ptr noundef %145)
           to label %152 unwind label %392
@@ -403,7 +403,7 @@ define hidden noundef i32 @_ZN4ncnn4Crop10load_paramERKNS_9ParamDictE(ptr nounde
 
 190:                                              ; preds = %186
   %191 = load ptr, ptr %188, align 8
-  %192 = getelementptr inbounds i8, ptr %191, i64 24
+  %192 = getelementptr inbounds nuw i8, ptr %191, i64 24
   %193 = load ptr, ptr %192, align 8
   invoke void %193(ptr noundef nonnull align 8 dereferenceable(8) %188, ptr noundef %189)
           to label %196 unwind label %200
@@ -446,7 +446,7 @@ define hidden noundef i32 @_ZN4ncnn4Crop10load_paramERKNS_9ParamDictE(ptr nounde
 
 209:                                              ; preds = %206
   %210 = load ptr, ptr %207, align 8
-  %211 = getelementptr inbounds i8, ptr %210, i64 24
+  %211 = getelementptr inbounds nuw i8, ptr %210, i64 24
   %212 = load ptr, ptr %211, align 8
   invoke void %212(ptr noundef nonnull align 8 dereferenceable(8) %207, ptr noundef %208)
           to label %215 unwind label %219
@@ -514,7 +514,7 @@ define hidden noundef i32 @_ZN4ncnn4Crop10load_paramERKNS_9ParamDictE(ptr nounde
 
 238:                                              ; preds = %234
   %239 = load ptr, ptr %236, align 8
-  %240 = getelementptr inbounds i8, ptr %239, i64 24
+  %240 = getelementptr inbounds nuw i8, ptr %239, i64 24
   %241 = load ptr, ptr %240, align 8
   invoke void %241(ptr noundef nonnull align 8 dereferenceable(8) %236, ptr noundef %237)
           to label %244 unwind label %432
@@ -589,7 +589,7 @@ define hidden noundef i32 @_ZN4ncnn4Crop10load_paramERKNS_9ParamDictE(ptr nounde
 
 282:                                              ; preds = %278
   %283 = load ptr, ptr %280, align 8
-  %284 = getelementptr inbounds i8, ptr %283, i64 24
+  %284 = getelementptr inbounds nuw i8, ptr %283, i64 24
   %285 = load ptr, ptr %284, align 8
   invoke void %285(ptr noundef nonnull align 8 dereferenceable(8) %280, ptr noundef %281)
           to label %288 unwind label %292
@@ -632,7 +632,7 @@ define hidden noundef i32 @_ZN4ncnn4Crop10load_paramERKNS_9ParamDictE(ptr nounde
 
 301:                                              ; preds = %298
   %302 = load ptr, ptr %299, align 8
-  %303 = getelementptr inbounds i8, ptr %302, i64 24
+  %303 = getelementptr inbounds nuw i8, ptr %302, i64 24
   %304 = load ptr, ptr %303, align 8
   invoke void %304(ptr noundef nonnull align 8 dereferenceable(8) %299, ptr noundef %300)
           to label %307 unwind label %310
@@ -739,7 +739,7 @@ define hidden noundef i32 @_ZN4ncnn4Crop10load_paramERKNS_9ParamDictE(ptr nounde
 
 362:                                              ; preds = %358
   %363 = load ptr, ptr %360, align 8
-  %364 = getelementptr inbounds i8, ptr %363, i64 24
+  %364 = getelementptr inbounds nuw i8, ptr %363, i64 24
   %365 = load ptr, ptr %364, align 8
   invoke void %365(ptr noundef nonnull align 8 dereferenceable(8) %360, ptr noundef %361)
           to label %368 unwind label %371
@@ -786,7 +786,7 @@ define hidden noundef i32 @_ZN4ncnn4Crop10load_paramERKNS_9ParamDictE(ptr nounde
 
 382:                                              ; preds = %379
   %383 = load ptr, ptr %380, align 8
-  %384 = getelementptr inbounds i8, ptr %383, i64 24
+  %384 = getelementptr inbounds nuw i8, ptr %383, i64 24
   %385 = load ptr, ptr %384, align 8
   invoke void %385(ptr noundef nonnull align 8 dereferenceable(8) %380, ptr noundef %381)
           to label %471 unwind label %387
@@ -828,7 +828,7 @@ define hidden noundef i32 @_ZN4ncnn4Crop10load_paramERKNS_9ParamDictE(ptr nounde
 
 402:                                              ; preds = %398
   %403 = load ptr, ptr %400, align 8
-  %404 = getelementptr inbounds i8, ptr %403, i64 24
+  %404 = getelementptr inbounds nuw i8, ptr %403, i64 24
   %405 = load ptr, ptr %404, align 8
   invoke void %405(ptr noundef nonnull align 8 dereferenceable(8) %400, ptr noundef %401)
           to label %408 unwind label %411
@@ -875,7 +875,7 @@ define hidden noundef i32 @_ZN4ncnn4Crop10load_paramERKNS_9ParamDictE(ptr nounde
 
 422:                                              ; preds = %419
   %423 = load ptr, ptr %420, align 8
-  %424 = getelementptr inbounds i8, ptr %423, i64 24
+  %424 = getelementptr inbounds nuw i8, ptr %423, i64 24
   %425 = load ptr, ptr %424, align 8
   invoke void %425(ptr noundef nonnull align 8 dereferenceable(8) %420, ptr noundef %421)
           to label %471 unwind label %427
@@ -917,7 +917,7 @@ define hidden noundef i32 @_ZN4ncnn4Crop10load_paramERKNS_9ParamDictE(ptr nounde
 
 442:                                              ; preds = %438
   %443 = load ptr, ptr %440, align 8
-  %444 = getelementptr inbounds i8, ptr %443, i64 24
+  %444 = getelementptr inbounds nuw i8, ptr %443, i64 24
   %445 = load ptr, ptr %444, align 8
   invoke void %445(ptr noundef nonnull align 8 dereferenceable(8) %440, ptr noundef %441)
           to label %448 unwind label %451
@@ -964,7 +964,7 @@ define hidden noundef i32 @_ZN4ncnn4Crop10load_paramERKNS_9ParamDictE(ptr nounde
 
 462:                                              ; preds = %459
   %463 = load ptr, ptr %460, align 8
-  %464 = getelementptr inbounds i8, ptr %463, i64 24
+  %464 = getelementptr inbounds nuw i8, ptr %463, i64 24
   %465 = load ptr, ptr %464, align 8
   invoke void %465(ptr noundef nonnull align 8 dereferenceable(8) %460, ptr noundef %461)
           to label %471 unwind label %467
@@ -1180,7 +1180,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn4Crop7forwardERKNS_3MatER
 
 111:                                              ; preds = %107
   %112 = load ptr, ptr %109, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 24
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 24
   %114 = load ptr, ptr %113, align 8
   invoke void %114(ptr noundef nonnull align 8 dereferenceable(8) %109, ptr noundef %110)
           to label %117 unwind label %120
@@ -1252,7 +1252,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn4Crop7forwardERKNS_3MatER
 
 143:                                              ; preds = %139
   %144 = load ptr, ptr %141, align 8
-  %145 = getelementptr inbounds i8, ptr %144, i64 24
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 24
   %146 = load ptr, ptr %145, align 8
   tail call void %146(ptr noundef nonnull align 8 dereferenceable(8) %141, ptr noundef %142)
   br label %149
@@ -1387,7 +1387,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn4Crop7forwardERKNS_3MatER
 
 215:                                              ; preds = %211
   %216 = load ptr, ptr %213, align 8
-  %217 = getelementptr inbounds i8, ptr %216, i64 24
+  %217 = getelementptr inbounds nuw i8, ptr %216, i64 24
   %218 = load ptr, ptr %217, align 8
   tail call void %218(ptr noundef nonnull align 8 dereferenceable(8) %213, ptr noundef %214)
   br label %221
@@ -1528,7 +1528,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn4Crop7forwardERKNS_3MatER
 
 292:                                              ; preds = %288
   %293 = load ptr, ptr %290, align 8
-  %294 = getelementptr inbounds i8, ptr %293, i64 24
+  %294 = getelementptr inbounds nuw i8, ptr %293, i64 24
   %295 = load ptr, ptr %294, align 8
   tail call void %295(ptr noundef nonnull align 8 dereferenceable(8) %290, ptr noundef %291)
   br label %298
@@ -1669,7 +1669,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn4Crop7forwardERKNS_3MatER
 
 375:                                              ; preds = %371
   %376 = load ptr, ptr %373, align 8
-  %377 = getelementptr inbounds i8, ptr %376, i64 24
+  %377 = getelementptr inbounds nuw i8, ptr %376, i64 24
   %378 = load ptr, ptr %377, align 8
   invoke void %378(ptr noundef nonnull align 8 dereferenceable(8) %373, ptr noundef %374)
           to label %381 unwind label %443
@@ -1744,7 +1744,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn4Crop7forwardERKNS_3MatER
 
 419:                                              ; preds = %415
   %420 = load ptr, ptr %417, align 8
-  %421 = getelementptr inbounds i8, ptr %420, i64 24
+  %421 = getelementptr inbounds nuw i8, ptr %420, i64 24
   %422 = load ptr, ptr %421, align 8
   invoke void %422(ptr noundef nonnull align 8 dereferenceable(8) %417, ptr noundef %418)
           to label %425 unwind label %430
@@ -1811,7 +1811,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn4Crop7forwardERKNS_3MatER
 
 453:                                              ; preds = %449
   %454 = load ptr, ptr %451, align 8
-  %455 = getelementptr inbounds i8, ptr %454, i64 24
+  %455 = getelementptr inbounds nuw i8, ptr %454, i64 24
   %456 = load ptr, ptr %455, align 8
   invoke void %456(ptr noundef nonnull align 8 dereferenceable(8) %451, ptr noundef %452)
           to label %459 unwind label %462
@@ -1931,16 +1931,16 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn4Crop7forwardERKNS_3MatER
 
 515:                                              ; preds = %515, %.preheader.us.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.us.i ], [ %indvars.iv.next.i, %515 ]
-  %516 = getelementptr inbounds i8, ptr %.02831.us.us.i, i64 %indvars.iv.i
+  %516 = getelementptr inbounds nuw i8, ptr %.02831.us.us.i, i64 %indvars.iv.i
   %517 = load i8, ptr %516, align 1
-  %518 = getelementptr inbounds i8, ptr %.02732.us.us.i, i64 %indvars.iv.i
+  %518 = getelementptr inbounds nuw i8, ptr %.02732.us.us.i, i64 %indvars.iv.i
   store i8 %517, ptr %518, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond38.not.i = icmp eq i64 %indvars.iv.next.i, %513
   br i1 %exitcond38.not.i, label %..loopexit_crit_edge.us.us.i, label %515, !llvm.loop !7
 
 ..loopexit_crit_edge.us.us.i:                     ; preds = %515
-  %519 = getelementptr inbounds i8, ptr %.02732.us.us.i, i64 %505
+  %519 = getelementptr inbounds nuw i8, ptr %.02732.us.us.i, i64 %505
   %520 = getelementptr inbounds i8, ptr %.02831.us.us.i, i64 %496
   %521 = add nuw nsw i32 %.02633.us.us.i, 1
   %exitcond39.not.i = icmp eq i32 %521, %498
@@ -1951,7 +1951,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn4Crop7forwardERKNS_3MatER
   %.02732.i = phi ptr [ %522, %.lr.ph34.split.i ], [ %504, %.lr.ph34.i ]
   %.02831.i = phi ptr [ %523, %.lr.ph34.split.i ], [ %510, %.lr.ph34.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.02732.i, ptr align 1 %.02831.i, i64 %513, i1 false)
-  %522 = getelementptr inbounds i8, ptr %.02732.i, i64 %505
+  %522 = getelementptr inbounds nuw i8, ptr %.02732.i, i64 %505
   %523 = getelementptr inbounds i8, ptr %.02831.i, i64 %496
   %524 = add nuw nsw i32 %.02633.i, 1
   %exitcond.not.i = icmp eq i32 %524, %498
@@ -1987,16 +1987,16 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn4Crop7forwardERKNS_3MatER
 
 533:                                              ; preds = %533, %.preheader.us.us.i811
   %indvars.iv.i815 = phi i64 [ 0, %.preheader.us.us.i811 ], [ %indvars.iv.next.i816, %533 ]
-  %534 = getelementptr inbounds i16, ptr %.02831.us.us.i814, i64 %indvars.iv.i815
+  %534 = getelementptr inbounds nuw i16, ptr %.02831.us.us.i814, i64 %indvars.iv.i815
   %535 = load i16, ptr %534, align 2
-  %536 = getelementptr inbounds i16, ptr %.02732.us.us.i813, i64 %indvars.iv.i815
+  %536 = getelementptr inbounds nuw i16, ptr %.02732.us.us.i813, i64 %indvars.iv.i815
   store i16 %535, ptr %536, align 2
   %indvars.iv.next.i816 = add nuw nsw i64 %indvars.iv.i815, 1
   %exitcond38.not.i817 = icmp eq i64 %indvars.iv.next.i816, %wide.trip.count.i
   br i1 %exitcond38.not.i817, label %..loopexit_crit_edge.us.us.i818, label %533, !llvm.loop !10
 
 ..loopexit_crit_edge.us.us.i818:                  ; preds = %533
-  %537 = getelementptr inbounds i16, ptr %.02732.us.us.i813, i64 %505
+  %537 = getelementptr inbounds nuw i16, ptr %.02732.us.us.i813, i64 %505
   %538 = getelementptr inbounds i16, ptr %.02831.us.us.i814, i64 %496
   %539 = add nuw nsw i32 %.02633.us.us.i812, 1
   %exitcond39.not.i819 = icmp eq i32 %539, %498
@@ -2007,7 +2007,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn4Crop7forwardERKNS_3MatER
   %.02732.i807 = phi ptr [ %540, %.lr.ph34.split.i805 ], [ %504, %.lr.ph34.i804 ]
   %.02831.i808 = phi ptr [ %541, %.lr.ph34.split.i805 ], [ %527, %.lr.ph34.i804 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %.02732.i807, ptr align 2 %.02831.i808, i64 %531, i1 false)
-  %540 = getelementptr inbounds i16, ptr %.02732.i807, i64 %505
+  %540 = getelementptr inbounds nuw i16, ptr %.02732.i807, i64 %505
   %541 = getelementptr inbounds i16, ptr %.02831.i808, i64 %496
   %542 = add nuw nsw i32 %.02633.i806, 1
   %exitcond.not.i809 = icmp eq i32 %542, %498
@@ -2041,16 +2041,16 @@ _ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit: ; preds = %.lr.ph34.
 
 551:                                              ; preds = %551, %.preheader.us.us.i827
   %indvars.iv.i831 = phi i64 [ 0, %.preheader.us.us.i827 ], [ %indvars.iv.next.i832, %551 ]
-  %552 = getelementptr inbounds float, ptr %.02831.us.us.i830, i64 %indvars.iv.i831
+  %552 = getelementptr inbounds nuw float, ptr %.02831.us.us.i830, i64 %indvars.iv.i831
   %553 = load float, ptr %552, align 4
-  %554 = getelementptr inbounds float, ptr %.02732.us.us.i829, i64 %indvars.iv.i831
+  %554 = getelementptr inbounds nuw float, ptr %.02732.us.us.i829, i64 %indvars.iv.i831
   store float %553, ptr %554, align 4
   %indvars.iv.next.i832 = add nuw nsw i64 %indvars.iv.i831, 1
   %exitcond38.not.i833 = icmp eq i64 %indvars.iv.next.i832, %548
   br i1 %exitcond38.not.i833, label %..loopexit_crit_edge.us.us.i834, label %551, !llvm.loop !12
 
 ..loopexit_crit_edge.us.us.i834:                  ; preds = %551
-  %555 = getelementptr inbounds float, ptr %.02732.us.us.i829, i64 %505
+  %555 = getelementptr inbounds nuw float, ptr %.02732.us.us.i829, i64 %505
   %556 = getelementptr inbounds float, ptr %.02831.us.us.i830, i64 %496
   %557 = add nuw nsw i32 %.02633.us.us.i828, 1
   %exitcond39.not.i835 = icmp eq i32 %557, %498
@@ -2061,7 +2061,7 @@ _ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit: ; preds = %.lr.ph34.
   %.02732.i823 = phi ptr [ %558, %.lr.ph34.split.i821 ], [ %504, %.lr.ph34.i820 ]
   %.02831.i824 = phi ptr [ %559, %.lr.ph34.split.i821 ], [ %545, %.lr.ph34.i820 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.02732.i823, ptr align 4 %.02831.i824, i64 %549, i1 false)
-  %558 = getelementptr inbounds float, ptr %.02732.i823, i64 %505
+  %558 = getelementptr inbounds nuw float, ptr %.02732.i823, i64 %505
   %559 = getelementptr inbounds float, ptr %.02831.i824, i64 %496
   %560 = add nuw nsw i32 %.02633.i822, 1
   %exitcond.not.i825 = icmp eq i32 %560, %498
@@ -2091,7 +2091,7 @@ _ZN4ncnnL21copy_cut_border_imageIfEEvRKNS_3MatERS1_ii.exit: ; preds = %.lr.ph34.
 
 568:                                              ; preds = %565
   %569 = load ptr, ptr %566, align 8
-  %570 = getelementptr inbounds i8, ptr %569, i64 24
+  %570 = getelementptr inbounds nuw i8, ptr %569, i64 24
   %571 = load ptr, ptr %570, align 8
   invoke void %571(ptr noundef nonnull align 8 dereferenceable(8) %566, ptr noundef %567)
           to label %.critedge unwind label %574
@@ -2130,7 +2130,7 @@ _ZN4ncnnL21copy_cut_border_imageIfEEvRKNS_3MatERS1_ii.exit: ; preds = %.lr.ph34.
 
 585:                                              ; preds = %582
   %586 = load ptr, ptr %583, align 8
-  %587 = getelementptr inbounds i8, ptr %586, i64 24
+  %587 = getelementptr inbounds nuw i8, ptr %586, i64 24
   %588 = load ptr, ptr %587, align 8
   invoke void %588(ptr noundef nonnull align 8 dereferenceable(8) %583, ptr noundef %584)
           to label %934 unwind label %590
@@ -2194,7 +2194,7 @@ _ZN4ncnnL21copy_cut_border_imageIfEEvRKNS_3MatERS1_ii.exit: ; preds = %.lr.ph34.
 
 619:                                              ; preds = %615
   %620 = load ptr, ptr %617, align 8
-  %621 = getelementptr inbounds i8, ptr %620, i64 24
+  %621 = getelementptr inbounds nuw i8, ptr %620, i64 24
   %622 = load ptr, ptr %621, align 8
   tail call void %622(ptr noundef nonnull align 8 dereferenceable(8) %617, ptr noundef %618)
   br label %625
@@ -2335,7 +2335,7 @@ _ZN4ncnnL21copy_cut_border_imageIfEEvRKNS_3MatERS1_ii.exit: ; preds = %.lr.ph34.
 
 702:                                              ; preds = %698
   %703 = load ptr, ptr %700, align 8
-  %704 = getelementptr inbounds i8, ptr %703, i64 24
+  %704 = getelementptr inbounds nuw i8, ptr %703, i64 24
   %705 = load ptr, ptr %704, align 8
   invoke void %705(ptr noundef nonnull align 8 dereferenceable(8) %700, ptr noundef %701)
           to label %708 unwind label %770
@@ -2410,7 +2410,7 @@ _ZN4ncnnL21copy_cut_border_imageIfEEvRKNS_3MatERS1_ii.exit: ; preds = %.lr.ph34.
 
 746:                                              ; preds = %742
   %747 = load ptr, ptr %744, align 8
-  %748 = getelementptr inbounds i8, ptr %747, i64 24
+  %748 = getelementptr inbounds nuw i8, ptr %747, i64 24
   %749 = load ptr, ptr %748, align 8
   invoke void %749(ptr noundef nonnull align 8 dereferenceable(8) %744, ptr noundef %745)
           to label %752 unwind label %757
@@ -2477,7 +2477,7 @@ _ZN4ncnnL21copy_cut_border_imageIfEEvRKNS_3MatERS1_ii.exit: ; preds = %.lr.ph34.
 
 780:                                              ; preds = %776
   %781 = load ptr, ptr %778, align 8
-  %782 = getelementptr inbounds i8, ptr %781, i64 24
+  %782 = getelementptr inbounds nuw i8, ptr %781, i64 24
   %783 = load ptr, ptr %782, align 8
   invoke void %783(ptr noundef nonnull align 8 dereferenceable(8) %778, ptr noundef %779)
           to label %786 unwind label %789
@@ -2611,7 +2611,7 @@ _ZN4ncnnL21copy_cut_border_imageIfEEvRKNS_3MatERS1_ii.exit: ; preds = %.lr.ph34.
   %.02732.i839.us = phi ptr [ %855, %.lr.ph34.split.i837.us ], [ %847, %.lr.ph34.i836.us ]
   %.02831.i840.us = phi ptr [ %856, %.lr.ph34.split.i837.us ], [ %851, %.lr.ph34.i836.us ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.02732.i839.us, ptr align 1 %.02831.i840.us, i64 %854, i1 false)
-  %855 = getelementptr inbounds i8, ptr %.02732.i839.us, i64 %842
+  %855 = getelementptr inbounds nuw i8, ptr %.02732.i839.us, i64 %842
   %856 = getelementptr inbounds i8, ptr %.02831.i840.us, i64 %828
   %857 = add nuw nsw i32 %.02633.i838.us, 1
   %exitcond.not.i841.us = icmp eq i32 %857, %835
@@ -2629,16 +2629,16 @@ _ZN4ncnnL21copy_cut_border_imageIfEEvRKNS_3MatERS1_ii.exit: ; preds = %.lr.ph34.
 
 859:                                              ; preds = %859, %.preheader.us.us.i843.us
   %indvars.iv.i847.us = phi i64 [ 0, %.preheader.us.us.i843.us ], [ %indvars.iv.next.i848.us, %859 ]
-  %860 = getelementptr inbounds i8, ptr %.02831.us.us.i846.us, i64 %indvars.iv.i847.us
+  %860 = getelementptr inbounds nuw i8, ptr %.02831.us.us.i846.us, i64 %indvars.iv.i847.us
   %861 = load i8, ptr %860, align 1
-  %862 = getelementptr inbounds i8, ptr %.02732.us.us.i845.us, i64 %indvars.iv.i847.us
+  %862 = getelementptr inbounds nuw i8, ptr %.02732.us.us.i845.us, i64 %indvars.iv.i847.us
   store i8 %861, ptr %862, align 1
   %indvars.iv.next.i848.us = add nuw nsw i64 %indvars.iv.i847.us, 1
   %exitcond38.not.i849.us = icmp eq i64 %indvars.iv.next.i848.us, %854
   br i1 %exitcond38.not.i849.us, label %..loopexit_crit_edge.us.us.i850.us, label %859, !llvm.loop !7
 
 ..loopexit_crit_edge.us.us.i850.us:               ; preds = %859
-  %863 = getelementptr inbounds i8, ptr %.02732.us.us.i845.us, i64 %842
+  %863 = getelementptr inbounds nuw i8, ptr %.02732.us.us.i845.us, i64 %842
   %864 = getelementptr inbounds i8, ptr %.02831.us.us.i846.us, i64 %828
   %865 = add nuw nsw i32 %.02633.us.us.i844.us, 1
   %exitcond39.not.i851.us = icmp eq i32 %865, %835
@@ -2662,7 +2662,7 @@ _ZN4ncnnL21copy_cut_border_imageIfEEvRKNS_3MatERS1_ii.exit: ; preds = %.lr.ph34.
   %.02732.i856.us = phi ptr [ %873, %.lr.ph34.split.i854.us ], [ %847, %.lr.ph34.i853.us ]
   %.02831.i857.us = phi ptr [ %874, %.lr.ph34.split.i854.us ], [ %868, %.lr.ph34.i853.us ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %.02732.i856.us, ptr align 2 %.02831.i857.us, i64 %872, i1 false)
-  %873 = getelementptr inbounds i16, ptr %.02732.i856.us, i64 %842
+  %873 = getelementptr inbounds nuw i16, ptr %.02732.i856.us, i64 %842
   %874 = getelementptr inbounds i16, ptr %.02831.i857.us, i64 %828
   %875 = add nuw nsw i32 %.02633.i855.us, 1
   %exitcond.not.i858.us = icmp eq i32 %875, %835
@@ -2684,16 +2684,16 @@ _ZN4ncnnL21copy_cut_border_imageIfEEvRKNS_3MatERS1_ii.exit: ; preds = %.lr.ph34.
 
 877:                                              ; preds = %877, %.preheader.us.us.i862.us
   %indvars.iv.i866.us = phi i64 [ 0, %.preheader.us.us.i862.us ], [ %indvars.iv.next.i867.us, %877 ]
-  %878 = getelementptr inbounds i16, ptr %.02831.us.us.i865.us, i64 %indvars.iv.i866.us
+  %878 = getelementptr inbounds nuw i16, ptr %.02831.us.us.i865.us, i64 %indvars.iv.i866.us
   %879 = load i16, ptr %878, align 2
-  %880 = getelementptr inbounds i16, ptr %.02732.us.us.i864.us, i64 %indvars.iv.i866.us
+  %880 = getelementptr inbounds nuw i16, ptr %.02732.us.us.i864.us, i64 %indvars.iv.i866.us
   store i16 %879, ptr %880, align 2
   %indvars.iv.next.i867.us = add nuw nsw i64 %indvars.iv.i866.us, 1
   %exitcond38.not.i868.us = icmp eq i64 %indvars.iv.next.i867.us, %wide.trip.count.i861.us
   br i1 %exitcond38.not.i868.us, label %..loopexit_crit_edge.us.us.i869.us, label %877, !llvm.loop !10
 
 ..loopexit_crit_edge.us.us.i869.us:               ; preds = %877
-  %881 = getelementptr inbounds i16, ptr %.02732.us.us.i864.us, i64 %842
+  %881 = getelementptr inbounds nuw i16, ptr %.02732.us.us.i864.us, i64 %842
   %882 = getelementptr inbounds i16, ptr %.02831.us.us.i865.us, i64 %828
   %883 = add nuw nsw i32 %.02633.us.us.i863.us, 1
   %exitcond39.not.i870.us = icmp eq i32 %883, %835
@@ -2720,7 +2720,7 @@ _ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit871.us: ; preds = %.lr
   %.02732.i875.us = phi ptr [ %891, %.lr.ph34.split.i873.us ], [ %847, %.lr.ph34.i872.us ]
   %.02831.i876.us = phi ptr [ %892, %.lr.ph34.split.i873.us ], [ %886, %.lr.ph34.i872.us ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.02732.i875.us, ptr align 4 %.02831.i876.us, i64 %890, i1 false)
-  %891 = getelementptr inbounds float, ptr %.02732.i875.us, i64 %842
+  %891 = getelementptr inbounds nuw float, ptr %.02732.i875.us, i64 %842
   %892 = getelementptr inbounds float, ptr %.02831.i876.us, i64 %828
   %893 = add nuw nsw i32 %.02633.i874.us, 1
   %exitcond.not.i877.us = icmp eq i32 %893, %835
@@ -2738,16 +2738,16 @@ _ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit871.us: ; preds = %.lr
 
 895:                                              ; preds = %895, %.preheader.us.us.i879.us
   %indvars.iv.i883.us = phi i64 [ 0, %.preheader.us.us.i879.us ], [ %indvars.iv.next.i884.us, %895 ]
-  %896 = getelementptr inbounds float, ptr %.02831.us.us.i882.us, i64 %indvars.iv.i883.us
+  %896 = getelementptr inbounds nuw float, ptr %.02831.us.us.i882.us, i64 %indvars.iv.i883.us
   %897 = load float, ptr %896, align 4
-  %898 = getelementptr inbounds float, ptr %.02732.us.us.i881.us, i64 %indvars.iv.i883.us
+  %898 = getelementptr inbounds nuw float, ptr %.02732.us.us.i881.us, i64 %indvars.iv.i883.us
   store float %897, ptr %898, align 4
   %indvars.iv.next.i884.us = add nuw nsw i64 %indvars.iv.i883.us, 1
   %exitcond38.not.i885.us = icmp eq i64 %indvars.iv.next.i884.us, %889
   br i1 %exitcond38.not.i885.us, label %..loopexit_crit_edge.us.us.i886.us, label %895, !llvm.loop !12
 
 ..loopexit_crit_edge.us.us.i886.us:               ; preds = %895
-  %899 = getelementptr inbounds float, ptr %.02732.us.us.i881.us, i64 %842
+  %899 = getelementptr inbounds nuw float, ptr %.02732.us.us.i881.us, i64 %842
   %900 = getelementptr inbounds float, ptr %.02831.us.us.i882.us, i64 %828
   %901 = add nuw nsw i32 %.02633.us.us.i880.us, 1
   %exitcond39.not.i887.us = icmp eq i32 %901, %835
@@ -2782,7 +2782,7 @@ _ZN4ncnnL21copy_cut_border_imageIfEEvRKNS_3MatERS1_ii.exit888.us: ; preds = %.lr
 
 909:                                              ; preds = %906
   %910 = load ptr, ptr %907, align 8
-  %911 = getelementptr inbounds i8, ptr %910, i64 24
+  %911 = getelementptr inbounds nuw i8, ptr %910, i64 24
   %912 = load ptr, ptr %911, align 8
   invoke void %912(ptr noundef nonnull align 8 dereferenceable(8) %907, ptr noundef %908)
           to label %.critedge unwind label %915
@@ -2821,7 +2821,7 @@ _ZN4ncnnL21copy_cut_border_imageIfEEvRKNS_3MatERS1_ii.exit888.us: ; preds = %.lr
 
 926:                                              ; preds = %923
   %927 = load ptr, ptr %924, align 8
-  %928 = getelementptr inbounds i8, ptr %927, i64 24
+  %928 = getelementptr inbounds nuw i8, ptr %927, i64 24
   %929 = load ptr, ptr %928, align 8
   invoke void %929(ptr noundef nonnull align 8 dereferenceable(8) %924, ptr noundef %925)
           to label %934 unwind label %931
@@ -2923,12 +2923,12 @@ define hidden void @_ZNK4ncnn4Crop16resolve_crop_roiERKNS_3MatERiS4_S4_S4_S4_S4_
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %51 = getelementptr inbounds i32, ptr %46, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv
   %52 = load i32, ptr %51, align 4
   %53 = icmp slt i32 %52, 0
   %54 = select i1 %53, i32 %21, i32 0
   %spec.select = add nsw i32 %54, %52
-  %55 = getelementptr inbounds [4 x i32], ptr %11, i64 0, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [4 x i32], ptr %11, i64 0, i64 %indvars.iv
   store i32 %spec.select, ptr %55, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2965,9 +2965,9 @@ define hidden void @_ZNK4ncnn4Crop16resolve_crop_roiERKNS_3MatERiS4_S4_S4_S4_S4_
 
 .thread.us:                                       ; preds = %.thread.us.preheader, %.thread.us
   %indvars.iv480 = phi i64 [ 0, %.thread.us.preheader ], [ %indvars.iv.next481, %.thread.us ]
-  %57 = getelementptr inbounds i32, ptr %43, i64 %indvars.iv480
+  %57 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv480
   %58 = load i32, ptr %57, align 4
-  %59 = getelementptr inbounds i32, ptr %44, i64 %indvars.iv480
+  %59 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv480
   %60 = load i32, ptr %59, align 4
   %61 = icmp eq i32 %58, -233
   %spec.store.select.us = select i1 %61, i32 0, i32 %58
@@ -2989,11 +2989,11 @@ define hidden void @_ZNK4ncnn4Crop16resolve_crop_roiERKNS_3MatERiS4_S4_S4_S4_S4_
 
 .lr.ph450.split.us451:                            ; preds = %.lr.ph450.split.us451.preheader, %.thread384.us453
   %indvars.iv475 = phi i64 [ 0, %.lr.ph450.split.us451.preheader ], [ %indvars.iv.next476, %.thread384.us453 ]
-  %70 = getelementptr inbounds [4 x i32], ptr %11, i64 0, i64 %indvars.iv475
+  %70 = getelementptr inbounds nuw [4 x i32], ptr %11, i64 0, i64 %indvars.iv475
   %71 = load i32, ptr %70, align 4
-  %72 = getelementptr inbounds i32, ptr %43, i64 %indvars.iv475
+  %72 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv475
   %73 = load i32, ptr %72, align 4
-  %74 = getelementptr inbounds i32, ptr %44, i64 %indvars.iv475
+  %74 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv475
   %75 = load i32, ptr %74, align 4
   switch i32 %71, label %.thread384.us453 [
     i32 0, label %.thread370.us
@@ -3030,11 +3030,11 @@ define hidden void @_ZNK4ncnn4Crop16resolve_crop_roiERKNS_3MatERiS4_S4_S4_S4_S4_
 
 .lr.ph450.split.us454:                            ; preds = %.lr.ph450.split.us454.preheader, %.thread384.us456
   %indvars.iv470 = phi i64 [ 0, %.lr.ph450.split.us454.preheader ], [ %indvars.iv.next471, %.thread384.us456 ]
-  %85 = getelementptr inbounds [4 x i32], ptr %11, i64 0, i64 %indvars.iv470
+  %85 = getelementptr inbounds nuw [4 x i32], ptr %11, i64 0, i64 %indvars.iv470
   %86 = load i32, ptr %85, align 4
-  %87 = getelementptr inbounds i32, ptr %43, i64 %indvars.iv470
+  %87 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv470
   %88 = load i32, ptr %87, align 4
-  %89 = getelementptr inbounds i32, ptr %44, i64 %indvars.iv470
+  %89 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv470
   %90 = load i32, ptr %89, align 4
   switch i32 %86, label %.thread384.us456 [
     i32 0, label %.thread376.us
@@ -3075,11 +3075,11 @@ define hidden void @_ZNK4ncnn4Crop16resolve_crop_roiERKNS_3MatERiS4_S4_S4_S4_S4_
 
 .lr.ph450.split.us457:                            ; preds = %.lr.ph450.split.us457.preheader, %.thread384.us459
   %indvars.iv465 = phi i64 [ 0, %.lr.ph450.split.us457.preheader ], [ %indvars.iv.next466, %.thread384.us459 ]
-  %101 = getelementptr inbounds [4 x i32], ptr %11, i64 0, i64 %indvars.iv465
+  %101 = getelementptr inbounds nuw [4 x i32], ptr %11, i64 0, i64 %indvars.iv465
   %102 = load i32, ptr %101, align 4
-  %103 = getelementptr inbounds i32, ptr %43, i64 %indvars.iv465
+  %103 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv465
   %104 = load i32, ptr %103, align 4
-  %105 = getelementptr inbounds i32, ptr %44, i64 %indvars.iv465
+  %105 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv465
   %106 = load i32, ptr %105, align 4
   switch i32 %102, label %.thread384.us459 [
     i32 0, label %.thread387.us
@@ -3362,16 +3362,16 @@ define internal fastcc void @_ZN4ncnnL21copy_cut_border_imageIaEEvRKNS_3MatERS1_
 
 27:                                               ; preds = %.preheader.us.us, %27
   %indvars.iv = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next, %27 ]
-  %28 = getelementptr inbounds i8, ptr %.02831.us.us, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw i8, ptr %.02831.us.us, i64 %indvars.iv
   %29 = load i8, ptr %28, align 1
-  %30 = getelementptr inbounds i8, ptr %.02732.us.us, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw i8, ptr %.02732.us.us, i64 %indvars.iv
   store i8 %29, ptr %30, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond38.not = icmp eq i64 %indvars.iv.next, %24
   br i1 %exitcond38.not, label %..loopexit_crit_edge.us.us, label %27, !llvm.loop !7
 
 ..loopexit_crit_edge.us.us:                       ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %.02732.us.us, i64 %25
+  %31 = getelementptr inbounds nuw i8, ptr %.02732.us.us, i64 %25
   %32 = load i32, ptr %10, align 4
   %33 = sext i32 %32 to i64
   %34 = getelementptr inbounds i8, ptr %.02831.us.us, i64 %33
@@ -3384,7 +3384,7 @@ define internal fastcc void @_ZN4ncnnL21copy_cut_border_imageIaEEvRKNS_3MatERS1_
   %.02732 = phi ptr [ %36, %.lr.ph34.split ], [ %21, %.lr.ph34 ]
   %.02831 = phi ptr [ %39, %.lr.ph34.split ], [ %20, %.lr.ph34 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.02732, ptr align 1 %.02831, i64 %24, i1 false)
-  %36 = getelementptr inbounds i8, ptr %.02732, i64 %25
+  %36 = getelementptr inbounds nuw i8, ptr %.02732, i64 %25
   %37 = load i32, ptr %10, align 4
   %38 = sext i32 %37 to i64
   %39 = getelementptr inbounds i8, ptr %.02831, i64 %38
@@ -3441,16 +3441,16 @@ define internal fastcc void @_ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_
 
 28:                                               ; preds = %.preheader.us.us, %28
   %indvars.iv = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next, %28 ]
-  %29 = getelementptr inbounds i16, ptr %.02831.us.us, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw i16, ptr %.02831.us.us, i64 %indvars.iv
   %30 = load i16, ptr %29, align 2
-  %31 = getelementptr inbounds i16, ptr %.02732.us.us, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i16, ptr %.02732.us.us, i64 %indvars.iv
   store i16 %30, ptr %31, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond38.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond38.not, label %..loopexit_crit_edge.us.us, label %28, !llvm.loop !10
 
 ..loopexit_crit_edge.us.us:                       ; preds = %28
-  %32 = getelementptr inbounds i16, ptr %.02732.us.us, i64 %26
+  %32 = getelementptr inbounds nuw i16, ptr %.02732.us.us, i64 %26
   %33 = load i32, ptr %10, align 4
   %34 = sext i32 %33 to i64
   %35 = getelementptr inbounds i16, ptr %.02831.us.us, i64 %34
@@ -3463,7 +3463,7 @@ define internal fastcc void @_ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_
   %.02732 = phi ptr [ %37, %.lr.ph34.split ], [ %21, %.lr.ph34 ]
   %.02831 = phi ptr [ %40, %.lr.ph34.split ], [ %20, %.lr.ph34 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %.02732, ptr align 2 %.02831, i64 %25, i1 false)
-  %37 = getelementptr inbounds i16, ptr %.02732, i64 %26
+  %37 = getelementptr inbounds nuw i16, ptr %.02732, i64 %26
   %38 = load i32, ptr %10, align 4
   %39 = sext i32 %38 to i64
   %40 = getelementptr inbounds i16, ptr %.02831, i64 %39
@@ -3516,16 +3516,16 @@ define internal fastcc void @_ZN4ncnnL21copy_cut_border_imageIfEEvRKNS_3MatERS1_
 
 28:                                               ; preds = %.preheader.us.us, %28
   %indvars.iv = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next, %28 ]
-  %29 = getelementptr inbounds float, ptr %.02831.us.us, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw float, ptr %.02831.us.us, i64 %indvars.iv
   %30 = load float, ptr %29, align 4
-  %31 = getelementptr inbounds float, ptr %.02732.us.us, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw float, ptr %.02732.us.us, i64 %indvars.iv
   store float %30, ptr %31, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond38.not = icmp eq i64 %indvars.iv.next, %24
   br i1 %exitcond38.not, label %..loopexit_crit_edge.us.us, label %28, !llvm.loop !12
 
 ..loopexit_crit_edge.us.us:                       ; preds = %28
-  %32 = getelementptr inbounds float, ptr %.02732.us.us, i64 %26
+  %32 = getelementptr inbounds nuw float, ptr %.02732.us.us, i64 %26
   %33 = load i32, ptr %10, align 4
   %34 = sext i32 %33 to i64
   %35 = getelementptr inbounds float, ptr %.02831.us.us, i64 %34
@@ -3538,7 +3538,7 @@ define internal fastcc void @_ZN4ncnnL21copy_cut_border_imageIfEEvRKNS_3MatERS1_
   %.02732 = phi ptr [ %37, %.lr.ph34.split ], [ %21, %.lr.ph34 ]
   %.02831 = phi ptr [ %40, %.lr.ph34.split ], [ %20, %.lr.ph34 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.02732, ptr align 4 %.02831, i64 %25, i1 false)
-  %37 = getelementptr inbounds float, ptr %.02732, i64 %26
+  %37 = getelementptr inbounds nuw float, ptr %.02732, i64 %26
   %38 = load i32, ptr %10, align 4
   %39 = sext i32 %38 to i64
   %40 = getelementptr inbounds float, ptr %.02831, i64 %39
@@ -3568,7 +3568,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn4Crop7forwardERKSt6vector
   %10 = alloca %"class.ncnn::Mat", align 8
   %11 = alloca %"class.ncnn::Mat", align 8
   %12 = load ptr, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 72
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 44
   %15 = load i32, ptr %14, align 4
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 48
@@ -3605,9 +3605,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn4Crop7forwardERKSt6vector
 34:                                               ; preds = %30
   %35 = load ptr, ptr %13, align 8
   %36 = load i32, ptr %35, align 4
-  %37 = getelementptr inbounds i8, ptr %35, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %38 = load i32, ptr %37, align 4
-  %39 = getelementptr inbounds i8, ptr %35, i64 12
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 12
   %40 = load i32, ptr %39, align 4
   store i32 %40, ptr %5, align 4
   br label %.sink.split.i
@@ -3615,14 +3615,14 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn4Crop7forwardERKSt6vector
 41:                                               ; preds = %30
   %42 = load ptr, ptr %13, align 8
   %43 = load i32, ptr %42, align 4
-  %44 = getelementptr inbounds i8, ptr %42, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %45 = load i32, ptr %44, align 4
-  %46 = getelementptr inbounds i8, ptr %42, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %47 = load i32, ptr %46, align 4
-  %48 = getelementptr inbounds i8, ptr %42, i64 12
+  %48 = getelementptr inbounds nuw i8, ptr %42, i64 12
   %49 = load i32, ptr %48, align 4
   store i32 %49, ptr %5, align 4
-  %50 = getelementptr inbounds i8, ptr %42, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %51 = load i32, ptr %50, align 4
   store i32 %51, ptr %6, align 4
   br label %.sink.split.i
@@ -3630,19 +3630,19 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn4Crop7forwardERKSt6vector
 52:                                               ; preds = %30
   %53 = load ptr, ptr %13, align 8
   %54 = load i32, ptr %53, align 4
-  %55 = getelementptr inbounds i8, ptr %53, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 4
   %56 = load i32, ptr %55, align 4
-  %57 = getelementptr inbounds i8, ptr %53, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %58 = load i32, ptr %57, align 4
-  %59 = getelementptr inbounds i8, ptr %53, i64 12
+  %59 = getelementptr inbounds nuw i8, ptr %53, i64 12
   %60 = load i32, ptr %59, align 4
-  %61 = getelementptr inbounds i8, ptr %53, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %62 = load i32, ptr %61, align 4
   store i32 %62, ptr %5, align 4
-  %63 = getelementptr inbounds i8, ptr %53, i64 20
+  %63 = getelementptr inbounds nuw i8, ptr %53, i64 20
   %64 = load i32, ptr %63, align 4
   store i32 %64, ptr %6, align 4
-  %65 = getelementptr inbounds i8, ptr %53, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %66 = load i32, ptr %65, align 4
   br label %.sink.split.i
 
@@ -3655,7 +3655,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn4Crop7forwardERKSt6vector
   %.1 = phi i32 [ %54, %52 ], [ %43, %41 ], [ %36, %34 ], [ %33, %31 ]
   %.sink.i = phi i64 [ 28, %52 ], [ 20, %41 ], [ 16, %34 ], [ 12, %31 ]
   %.sink44.i = phi ptr [ %7, %52 ], [ %7, %41 ], [ %6, %34 ], [ %5, %31 ]
-  %68 = getelementptr inbounds i8, ptr %67, i64 %.sink.i
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 %.sink.i
   %69 = load i32, ptr %68, align 4
   store i32 %69, ptr %.sink44.i, align 4
   br label %.thread
@@ -3689,7 +3689,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn4Crop7forwardERKSt6vector
 81:                                               ; preds = %70, %77, %73, %72, %71
   %.sroa.68.0 = phi i32 [ %80, %77 ], [ %76, %73 ], [ 1, %72 ], [ 1, %71 ], [ 0, %70 ]
   %.sroa.351083.0 = phi i32 [ 4, %77 ], [ 3, %73 ], [ 2, %72 ], [ 1, %71 ], [ 0, %70 ]
-  %82 = getelementptr inbounds i8, ptr %12, i64 112
+  %82 = getelementptr inbounds nuw i8, ptr %12, i64 112
   %83 = load i32, ptr %82, align 8
   switch i32 %83, label %120 [
     i32 1, label %84
@@ -3699,45 +3699,45 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn4Crop7forwardERKSt6vector
   ]
 
 84:                                               ; preds = %81
-  %85 = getelementptr inbounds i8, ptr %12, i64 116
+  %85 = getelementptr inbounds nuw i8, ptr %12, i64 116
   %86 = load i32, ptr %85, align 4
-  %87 = getelementptr inbounds i8, ptr %12, i64 96
+  %87 = getelementptr inbounds nuw i8, ptr %12, i64 96
   %88 = load i32, ptr %87, align 8
   %89 = mul nsw i32 %88, %86
   br label %120
 
 90:                                               ; preds = %81
-  %91 = getelementptr inbounds i8, ptr %12, i64 116
+  %91 = getelementptr inbounds nuw i8, ptr %12, i64 116
   %92 = load i32, ptr %91, align 4
-  %93 = getelementptr inbounds i8, ptr %12, i64 120
+  %93 = getelementptr inbounds nuw i8, ptr %12, i64 120
   %94 = load i32, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %12, i64 96
+  %95 = getelementptr inbounds nuw i8, ptr %12, i64 96
   %96 = load i32, ptr %95, align 8
   %97 = mul nsw i32 %96, %94
   br label %120
 
 98:                                               ; preds = %81
-  %99 = getelementptr inbounds i8, ptr %12, i64 116
+  %99 = getelementptr inbounds nuw i8, ptr %12, i64 116
   %100 = load i32, ptr %99, align 4
-  %101 = getelementptr inbounds i8, ptr %12, i64 120
+  %101 = getelementptr inbounds nuw i8, ptr %12, i64 120
   %102 = load i32, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %12, i64 128
+  %103 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %104 = load i32, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %12, i64 96
+  %105 = getelementptr inbounds nuw i8, ptr %12, i64 96
   %106 = load i32, ptr %105, align 8
   %107 = mul nsw i32 %106, %104
   br label %120
 
 108:                                              ; preds = %81
-  %109 = getelementptr inbounds i8, ptr %12, i64 116
+  %109 = getelementptr inbounds nuw i8, ptr %12, i64 116
   %110 = load i32, ptr %109, align 4
-  %111 = getelementptr inbounds i8, ptr %12, i64 120
+  %111 = getelementptr inbounds nuw i8, ptr %12, i64 120
   %112 = load i32, ptr %111, align 8
-  %113 = getelementptr inbounds i8, ptr %12, i64 124
+  %113 = getelementptr inbounds nuw i8, ptr %12, i64 124
   %114 = load i32, ptr %113, align 4
-  %115 = getelementptr inbounds i8, ptr %12, i64 128
+  %115 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %116 = load i32, ptr %115, align 8
-  %117 = getelementptr inbounds i8, ptr %12, i64 96
+  %117 = getelementptr inbounds nuw i8, ptr %12, i64 96
   %118 = load i32, ptr %117, align 8
   %119 = mul nsw i32 %118, %116
   br label %120
@@ -3840,7 +3840,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn4Crop7forwardERKSt6vector
 
 158:                                              ; preds = %154
   %159 = load ptr, ptr %156, align 8
-  %160 = getelementptr inbounds i8, ptr %159, i64 24
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 24
   %161 = load ptr, ptr %160, align 8
   tail call void %161(ptr noundef nonnull align 8 dereferenceable(8) %156, ptr noundef %157)
   br label %164
@@ -3972,7 +3972,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn4Crop7forwardERKSt6vector
 
 225:                                              ; preds = %221
   %226 = load ptr, ptr %223, align 8
-  %227 = getelementptr inbounds i8, ptr %226, i64 24
+  %227 = getelementptr inbounds nuw i8, ptr %226, i64 24
   %228 = load ptr, ptr %227, align 8
   tail call void %228(ptr noundef nonnull align 8 dereferenceable(8) %223, ptr noundef %224)
   br label %231
@@ -4107,7 +4107,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn4Crop7forwardERKSt6vector
 
 293:                                              ; preds = %289
   %294 = load ptr, ptr %291, align 8
-  %295 = getelementptr inbounds i8, ptr %294, i64 24
+  %295 = getelementptr inbounds nuw i8, ptr %294, i64 24
   %296 = load ptr, ptr %295, align 8
   tail call void %296(ptr noundef nonnull align 8 dereferenceable(8) %291, ptr noundef %292)
   br label %299
@@ -4242,7 +4242,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn4Crop7forwardERKSt6vector
 
 370:                                              ; preds = %366
   %371 = load ptr, ptr %368, align 8
-  %372 = getelementptr inbounds i8, ptr %371, i64 24
+  %372 = getelementptr inbounds nuw i8, ptr %371, i64 24
   %373 = load ptr, ptr %372, align 8
   invoke void %373(ptr noundef nonnull align 8 dereferenceable(8) %368, ptr noundef %369)
           to label %376 unwind label %438
@@ -4317,7 +4317,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn4Crop7forwardERKSt6vector
 
 414:                                              ; preds = %410
   %415 = load ptr, ptr %412, align 8
-  %416 = getelementptr inbounds i8, ptr %415, i64 24
+  %416 = getelementptr inbounds nuw i8, ptr %415, i64 24
   %417 = load ptr, ptr %416, align 8
   invoke void %417(ptr noundef nonnull align 8 dereferenceable(8) %412, ptr noundef %413)
           to label %420 unwind label %425
@@ -4384,7 +4384,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn4Crop7forwardERKSt6vector
 
 448:                                              ; preds = %444
   %449 = load ptr, ptr %446, align 8
-  %450 = getelementptr inbounds i8, ptr %449, i64 24
+  %450 = getelementptr inbounds nuw i8, ptr %449, i64 24
   %451 = load ptr, ptr %450, align 8
   invoke void %451(ptr noundef nonnull align 8 dereferenceable(8) %446, ptr noundef %447)
           to label %454 unwind label %457
@@ -4502,16 +4502,16 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn4Crop7forwardERKSt6vector
 
 508:                                              ; preds = %508, %.preheader.us.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.us.i ], [ %indvars.iv.next.i, %508 ]
-  %509 = getelementptr inbounds i8, ptr %.02831.us.us.i, i64 %indvars.iv.i
+  %509 = getelementptr inbounds nuw i8, ptr %.02831.us.us.i, i64 %indvars.iv.i
   %510 = load i8, ptr %509, align 1
-  %511 = getelementptr inbounds i8, ptr %.02732.us.us.i, i64 %indvars.iv.i
+  %511 = getelementptr inbounds nuw i8, ptr %.02732.us.us.i, i64 %indvars.iv.i
   store i8 %510, ptr %511, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond38.not.i = icmp eq i64 %indvars.iv.next.i, %506
   br i1 %exitcond38.not.i, label %..loopexit_crit_edge.us.us.i, label %508, !llvm.loop !7
 
 ..loopexit_crit_edge.us.us.i:                     ; preds = %508
-  %512 = getelementptr inbounds i8, ptr %.02732.us.us.i, i64 %498
+  %512 = getelementptr inbounds nuw i8, ptr %.02732.us.us.i, i64 %498
   %513 = getelementptr inbounds i8, ptr %.02831.us.us.i, i64 %489
   %514 = add nuw nsw i32 %.02633.us.us.i, 1
   %exitcond39.not.i = icmp eq i32 %514, %491
@@ -4522,7 +4522,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn4Crop7forwardERKSt6vector
   %.02732.i = phi ptr [ %515, %.lr.ph34.split.i ], [ %497, %.lr.ph34.i ]
   %.02831.i = phi ptr [ %516, %.lr.ph34.split.i ], [ %503, %.lr.ph34.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.02732.i, ptr align 1 %.02831.i, i64 %506, i1 false)
-  %515 = getelementptr inbounds i8, ptr %.02732.i, i64 %498
+  %515 = getelementptr inbounds nuw i8, ptr %.02732.i, i64 %498
   %516 = getelementptr inbounds i8, ptr %.02831.i, i64 %489
   %517 = add nuw nsw i32 %.02633.i, 1
   %exitcond.not.i = icmp eq i32 %517, %491
@@ -4558,16 +4558,16 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn4Crop7forwardERKSt6vector
 
 526:                                              ; preds = %526, %.preheader.us.us.i900
   %indvars.iv.i904 = phi i64 [ 0, %.preheader.us.us.i900 ], [ %indvars.iv.next.i905, %526 ]
-  %527 = getelementptr inbounds i16, ptr %.02831.us.us.i903, i64 %indvars.iv.i904
+  %527 = getelementptr inbounds nuw i16, ptr %.02831.us.us.i903, i64 %indvars.iv.i904
   %528 = load i16, ptr %527, align 2
-  %529 = getelementptr inbounds i16, ptr %.02732.us.us.i902, i64 %indvars.iv.i904
+  %529 = getelementptr inbounds nuw i16, ptr %.02732.us.us.i902, i64 %indvars.iv.i904
   store i16 %528, ptr %529, align 2
   %indvars.iv.next.i905 = add nuw nsw i64 %indvars.iv.i904, 1
   %exitcond38.not.i906 = icmp eq i64 %indvars.iv.next.i905, %wide.trip.count.i
   br i1 %exitcond38.not.i906, label %..loopexit_crit_edge.us.us.i907, label %526, !llvm.loop !10
 
 ..loopexit_crit_edge.us.us.i907:                  ; preds = %526
-  %530 = getelementptr inbounds i16, ptr %.02732.us.us.i902, i64 %498
+  %530 = getelementptr inbounds nuw i16, ptr %.02732.us.us.i902, i64 %498
   %531 = getelementptr inbounds i16, ptr %.02831.us.us.i903, i64 %489
   %532 = add nuw nsw i32 %.02633.us.us.i901, 1
   %exitcond39.not.i908 = icmp eq i32 %532, %491
@@ -4578,7 +4578,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn4Crop7forwardERKSt6vector
   %.02732.i896 = phi ptr [ %533, %.lr.ph34.split.i894 ], [ %497, %.lr.ph34.i893 ]
   %.02831.i897 = phi ptr [ %534, %.lr.ph34.split.i894 ], [ %520, %.lr.ph34.i893 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %.02732.i896, ptr align 2 %.02831.i897, i64 %524, i1 false)
-  %533 = getelementptr inbounds i16, ptr %.02732.i896, i64 %498
+  %533 = getelementptr inbounds nuw i16, ptr %.02732.i896, i64 %498
   %534 = getelementptr inbounds i16, ptr %.02831.i897, i64 %489
   %535 = add nuw nsw i32 %.02633.i895, 1
   %exitcond.not.i898 = icmp eq i32 %535, %491
@@ -4612,16 +4612,16 @@ _ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit: ; preds = %.lr.ph34.
 
 544:                                              ; preds = %544, %.preheader.us.us.i916
   %indvars.iv.i920 = phi i64 [ 0, %.preheader.us.us.i916 ], [ %indvars.iv.next.i921, %544 ]
-  %545 = getelementptr inbounds float, ptr %.02831.us.us.i919, i64 %indvars.iv.i920
+  %545 = getelementptr inbounds nuw float, ptr %.02831.us.us.i919, i64 %indvars.iv.i920
   %546 = load float, ptr %545, align 4
-  %547 = getelementptr inbounds float, ptr %.02732.us.us.i918, i64 %indvars.iv.i920
+  %547 = getelementptr inbounds nuw float, ptr %.02732.us.us.i918, i64 %indvars.iv.i920
   store float %546, ptr %547, align 4
   %indvars.iv.next.i921 = add nuw nsw i64 %indvars.iv.i920, 1
   %exitcond38.not.i922 = icmp eq i64 %indvars.iv.next.i921, %541
   br i1 %exitcond38.not.i922, label %..loopexit_crit_edge.us.us.i923, label %544, !llvm.loop !12
 
 ..loopexit_crit_edge.us.us.i923:                  ; preds = %544
-  %548 = getelementptr inbounds float, ptr %.02732.us.us.i918, i64 %498
+  %548 = getelementptr inbounds nuw float, ptr %.02732.us.us.i918, i64 %498
   %549 = getelementptr inbounds float, ptr %.02831.us.us.i919, i64 %489
   %550 = add nuw nsw i32 %.02633.us.us.i917, 1
   %exitcond39.not.i924 = icmp eq i32 %550, %491
@@ -4632,7 +4632,7 @@ _ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit: ; preds = %.lr.ph34.
   %.02732.i912 = phi ptr [ %551, %.lr.ph34.split.i910 ], [ %497, %.lr.ph34.i909 ]
   %.02831.i913 = phi ptr [ %552, %.lr.ph34.split.i910 ], [ %538, %.lr.ph34.i909 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.02732.i912, ptr align 4 %.02831.i913, i64 %542, i1 false)
-  %551 = getelementptr inbounds float, ptr %.02732.i912, i64 %498
+  %551 = getelementptr inbounds nuw float, ptr %.02732.i912, i64 %498
   %552 = getelementptr inbounds float, ptr %.02831.i913, i64 %489
   %553 = add nuw nsw i32 %.02633.i911, 1
   %exitcond.not.i914 = icmp eq i32 %553, %491
@@ -4662,7 +4662,7 @@ _ZN4ncnnL21copy_cut_border_imageIfEEvRKNS_3MatERS1_ii.exit: ; preds = %.lr.ph34.
 
 561:                                              ; preds = %558
   %562 = load ptr, ptr %559, align 8
-  %563 = getelementptr inbounds i8, ptr %562, i64 24
+  %563 = getelementptr inbounds nuw i8, ptr %562, i64 24
   %564 = load ptr, ptr %563, align 8
   invoke void %564(ptr noundef nonnull align 8 dereferenceable(8) %559, ptr noundef %560)
           to label %.critedge unwind label %567
@@ -4701,7 +4701,7 @@ _ZN4ncnnL21copy_cut_border_imageIfEEvRKNS_3MatERS1_ii.exit: ; preds = %.lr.ph34.
 
 578:                                              ; preds = %575
   %579 = load ptr, ptr %576, align 8
-  %580 = getelementptr inbounds i8, ptr %579, i64 24
+  %580 = getelementptr inbounds nuw i8, ptr %579, i64 24
   %581 = load ptr, ptr %580, align 8
   invoke void %581(ptr noundef nonnull align 8 dereferenceable(8) %576, ptr noundef %577)
           to label %914 unwind label %583
@@ -4764,7 +4764,7 @@ _ZN4ncnnL21copy_cut_border_imageIfEEvRKNS_3MatERS1_ii.exit: ; preds = %.lr.ph34.
 
 608:                                              ; preds = %604
   %609 = load ptr, ptr %606, align 8
-  %610 = getelementptr inbounds i8, ptr %609, i64 24
+  %610 = getelementptr inbounds nuw i8, ptr %609, i64 24
   %611 = load ptr, ptr %610, align 8
   tail call void %611(ptr noundef nonnull align 8 dereferenceable(8) %606, ptr noundef %607)
   br label %614
@@ -4899,7 +4899,7 @@ _ZN4ncnnL21copy_cut_border_imageIfEEvRKNS_3MatERS1_ii.exit: ; preds = %.lr.ph34.
 
 685:                                              ; preds = %681
   %686 = load ptr, ptr %683, align 8
-  %687 = getelementptr inbounds i8, ptr %686, i64 24
+  %687 = getelementptr inbounds nuw i8, ptr %686, i64 24
   %688 = load ptr, ptr %687, align 8
   invoke void %688(ptr noundef nonnull align 8 dereferenceable(8) %683, ptr noundef %684)
           to label %691 unwind label %753
@@ -4974,7 +4974,7 @@ _ZN4ncnnL21copy_cut_border_imageIfEEvRKNS_3MatERS1_ii.exit: ; preds = %.lr.ph34.
 
 729:                                              ; preds = %725
   %730 = load ptr, ptr %727, align 8
-  %731 = getelementptr inbounds i8, ptr %730, i64 24
+  %731 = getelementptr inbounds nuw i8, ptr %730, i64 24
   %732 = load ptr, ptr %731, align 8
   invoke void %732(ptr noundef nonnull align 8 dereferenceable(8) %727, ptr noundef %728)
           to label %735 unwind label %740
@@ -5041,7 +5041,7 @@ _ZN4ncnnL21copy_cut_border_imageIfEEvRKNS_3MatERS1_ii.exit: ; preds = %.lr.ph34.
 
 763:                                              ; preds = %759
   %764 = load ptr, ptr %761, align 8
-  %765 = getelementptr inbounds i8, ptr %764, i64 24
+  %765 = getelementptr inbounds nuw i8, ptr %764, i64 24
   %766 = load ptr, ptr %765, align 8
   invoke void %766(ptr noundef nonnull align 8 dereferenceable(8) %761, ptr noundef %762)
           to label %769 unwind label %772
@@ -5172,7 +5172,7 @@ _ZN4ncnnL21copy_cut_border_imageIfEEvRKNS_3MatERS1_ii.exit: ; preds = %.lr.ph34.
   %.02732.i928.us = phi ptr [ %835, %.lr.ph34.split.i926.us ], [ %827, %.lr.ph34.i925.us ]
   %.02831.i929.us = phi ptr [ %836, %.lr.ph34.split.i926.us ], [ %831, %.lr.ph34.i925.us ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.02732.i928.us, ptr align 1 %.02831.i929.us, i64 %834, i1 false)
-  %835 = getelementptr inbounds i8, ptr %.02732.i928.us, i64 %822
+  %835 = getelementptr inbounds nuw i8, ptr %.02732.i928.us, i64 %822
   %836 = getelementptr inbounds i8, ptr %.02831.i929.us, i64 %808
   %837 = add nuw nsw i32 %.02633.i927.us, 1
   %exitcond.not.i930.us = icmp eq i32 %837, %815
@@ -5190,16 +5190,16 @@ _ZN4ncnnL21copy_cut_border_imageIfEEvRKNS_3MatERS1_ii.exit: ; preds = %.lr.ph34.
 
 839:                                              ; preds = %839, %.preheader.us.us.i932.us
   %indvars.iv.i936.us = phi i64 [ 0, %.preheader.us.us.i932.us ], [ %indvars.iv.next.i937.us, %839 ]
-  %840 = getelementptr inbounds i8, ptr %.02831.us.us.i935.us, i64 %indvars.iv.i936.us
+  %840 = getelementptr inbounds nuw i8, ptr %.02831.us.us.i935.us, i64 %indvars.iv.i936.us
   %841 = load i8, ptr %840, align 1
-  %842 = getelementptr inbounds i8, ptr %.02732.us.us.i934.us, i64 %indvars.iv.i936.us
+  %842 = getelementptr inbounds nuw i8, ptr %.02732.us.us.i934.us, i64 %indvars.iv.i936.us
   store i8 %841, ptr %842, align 1
   %indvars.iv.next.i937.us = add nuw nsw i64 %indvars.iv.i936.us, 1
   %exitcond38.not.i938.us = icmp eq i64 %indvars.iv.next.i937.us, %834
   br i1 %exitcond38.not.i938.us, label %..loopexit_crit_edge.us.us.i939.us, label %839, !llvm.loop !7
 
 ..loopexit_crit_edge.us.us.i939.us:               ; preds = %839
-  %843 = getelementptr inbounds i8, ptr %.02732.us.us.i934.us, i64 %822
+  %843 = getelementptr inbounds nuw i8, ptr %.02732.us.us.i934.us, i64 %822
   %844 = getelementptr inbounds i8, ptr %.02831.us.us.i935.us, i64 %808
   %845 = add nuw nsw i32 %.02633.us.us.i933.us, 1
   %exitcond39.not.i940.us = icmp eq i32 %845, %815
@@ -5223,7 +5223,7 @@ _ZN4ncnnL21copy_cut_border_imageIfEEvRKNS_3MatERS1_ii.exit: ; preds = %.lr.ph34.
   %.02732.i945.us = phi ptr [ %853, %.lr.ph34.split.i943.us ], [ %827, %.lr.ph34.i942.us ]
   %.02831.i946.us = phi ptr [ %854, %.lr.ph34.split.i943.us ], [ %848, %.lr.ph34.i942.us ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %.02732.i945.us, ptr align 2 %.02831.i946.us, i64 %852, i1 false)
-  %853 = getelementptr inbounds i16, ptr %.02732.i945.us, i64 %822
+  %853 = getelementptr inbounds nuw i16, ptr %.02732.i945.us, i64 %822
   %854 = getelementptr inbounds i16, ptr %.02831.i946.us, i64 %808
   %855 = add nuw nsw i32 %.02633.i944.us, 1
   %exitcond.not.i947.us = icmp eq i32 %855, %815
@@ -5245,16 +5245,16 @@ _ZN4ncnnL21copy_cut_border_imageIfEEvRKNS_3MatERS1_ii.exit: ; preds = %.lr.ph34.
 
 857:                                              ; preds = %857, %.preheader.us.us.i951.us
   %indvars.iv.i955.us = phi i64 [ 0, %.preheader.us.us.i951.us ], [ %indvars.iv.next.i956.us, %857 ]
-  %858 = getelementptr inbounds i16, ptr %.02831.us.us.i954.us, i64 %indvars.iv.i955.us
+  %858 = getelementptr inbounds nuw i16, ptr %.02831.us.us.i954.us, i64 %indvars.iv.i955.us
   %859 = load i16, ptr %858, align 2
-  %860 = getelementptr inbounds i16, ptr %.02732.us.us.i953.us, i64 %indvars.iv.i955.us
+  %860 = getelementptr inbounds nuw i16, ptr %.02732.us.us.i953.us, i64 %indvars.iv.i955.us
   store i16 %859, ptr %860, align 2
   %indvars.iv.next.i956.us = add nuw nsw i64 %indvars.iv.i955.us, 1
   %exitcond38.not.i957.us = icmp eq i64 %indvars.iv.next.i956.us, %wide.trip.count.i950.us
   br i1 %exitcond38.not.i957.us, label %..loopexit_crit_edge.us.us.i958.us, label %857, !llvm.loop !10
 
 ..loopexit_crit_edge.us.us.i958.us:               ; preds = %857
-  %861 = getelementptr inbounds i16, ptr %.02732.us.us.i953.us, i64 %822
+  %861 = getelementptr inbounds nuw i16, ptr %.02732.us.us.i953.us, i64 %822
   %862 = getelementptr inbounds i16, ptr %.02831.us.us.i954.us, i64 %808
   %863 = add nuw nsw i32 %.02633.us.us.i952.us, 1
   %exitcond39.not.i959.us = icmp eq i32 %863, %815
@@ -5281,7 +5281,7 @@ _ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit960.us: ; preds = %.lr
   %.02732.i964.us = phi ptr [ %871, %.lr.ph34.split.i962.us ], [ %827, %.lr.ph34.i961.us ]
   %.02831.i965.us = phi ptr [ %872, %.lr.ph34.split.i962.us ], [ %866, %.lr.ph34.i961.us ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.02732.i964.us, ptr align 4 %.02831.i965.us, i64 %870, i1 false)
-  %871 = getelementptr inbounds float, ptr %.02732.i964.us, i64 %822
+  %871 = getelementptr inbounds nuw float, ptr %.02732.i964.us, i64 %822
   %872 = getelementptr inbounds float, ptr %.02831.i965.us, i64 %808
   %873 = add nuw nsw i32 %.02633.i963.us, 1
   %exitcond.not.i966.us = icmp eq i32 %873, %815
@@ -5299,16 +5299,16 @@ _ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit960.us: ; preds = %.lr
 
 875:                                              ; preds = %875, %.preheader.us.us.i968.us
   %indvars.iv.i972.us = phi i64 [ 0, %.preheader.us.us.i968.us ], [ %indvars.iv.next.i973.us, %875 ]
-  %876 = getelementptr inbounds float, ptr %.02831.us.us.i971.us, i64 %indvars.iv.i972.us
+  %876 = getelementptr inbounds nuw float, ptr %.02831.us.us.i971.us, i64 %indvars.iv.i972.us
   %877 = load float, ptr %876, align 4
-  %878 = getelementptr inbounds float, ptr %.02732.us.us.i970.us, i64 %indvars.iv.i972.us
+  %878 = getelementptr inbounds nuw float, ptr %.02732.us.us.i970.us, i64 %indvars.iv.i972.us
   store float %877, ptr %878, align 4
   %indvars.iv.next.i973.us = add nuw nsw i64 %indvars.iv.i972.us, 1
   %exitcond38.not.i974.us = icmp eq i64 %indvars.iv.next.i973.us, %869
   br i1 %exitcond38.not.i974.us, label %..loopexit_crit_edge.us.us.i975.us, label %875, !llvm.loop !12
 
 ..loopexit_crit_edge.us.us.i975.us:               ; preds = %875
-  %879 = getelementptr inbounds float, ptr %.02732.us.us.i970.us, i64 %822
+  %879 = getelementptr inbounds nuw float, ptr %.02732.us.us.i970.us, i64 %822
   %880 = getelementptr inbounds float, ptr %.02831.us.us.i971.us, i64 %808
   %881 = add nuw nsw i32 %.02633.us.us.i969.us, 1
   %exitcond39.not.i976.us = icmp eq i32 %881, %815
@@ -5343,7 +5343,7 @@ _ZN4ncnnL21copy_cut_border_imageIfEEvRKNS_3MatERS1_ii.exit977.us: ; preds = %.lr
 
 889:                                              ; preds = %886
   %890 = load ptr, ptr %887, align 8
-  %891 = getelementptr inbounds i8, ptr %890, i64 24
+  %891 = getelementptr inbounds nuw i8, ptr %890, i64 24
   %892 = load ptr, ptr %891, align 8
   invoke void %892(ptr noundef nonnull align 8 dereferenceable(8) %887, ptr noundef %888)
           to label %.critedge unwind label %895
@@ -5382,7 +5382,7 @@ _ZN4ncnnL21copy_cut_border_imageIfEEvRKNS_3MatERS1_ii.exit977.us: ; preds = %.lr
 
 906:                                              ; preds = %903
   %907 = load ptr, ptr %904, align 8
-  %908 = getelementptr inbounds i8, ptr %907, i64 24
+  %908 = getelementptr inbounds nuw i8, ptr %907, i64 24
   %909 = load ptr, ptr %908, align 8
   invoke void %909(ptr noundef nonnull align 8 dereferenceable(8) %904, ptr noundef %905)
           to label %914 unwind label %911
@@ -5432,10 +5432,10 @@ define hidden void @_ZNK4ncnn4Crop16resolve_crop_roiERKNS_3MatEPKiRiS6_S6_S6_S6_
 16:                                               ; preds = %11
   %17 = load i32, ptr %2, align 4
   store i32 %17, ptr %3, align 4
-  %18 = getelementptr inbounds i8, ptr %2, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %19 = load i32, ptr %18, align 4
   store i32 %19, ptr %4, align 4
-  %20 = getelementptr inbounds i8, ptr %2, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %21 = load i32, ptr %20, align 4
   store i32 %21, ptr %7, align 4
   br label %.sink.split
@@ -5443,16 +5443,16 @@ define hidden void @_ZNK4ncnn4Crop16resolve_crop_roiERKNS_3MatEPKiRiS6_S6_S6_S6_
 22:                                               ; preds = %11
   %23 = load i32, ptr %2, align 4
   store i32 %23, ptr %3, align 4
-  %24 = getelementptr inbounds i8, ptr %2, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %25 = load i32, ptr %24, align 4
   store i32 %25, ptr %4, align 4
-  %26 = getelementptr inbounds i8, ptr %2, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %27 = load i32, ptr %26, align 4
   store i32 %27, ptr %6, align 4
-  %28 = getelementptr inbounds i8, ptr %2, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %29 = load i32, ptr %28, align 4
   store i32 %29, ptr %7, align 4
-  %30 = getelementptr inbounds i8, ptr %2, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %31 = load i32, ptr %30, align 4
   store i32 %31, ptr %8, align 4
   br label %.sink.split
@@ -5460,22 +5460,22 @@ define hidden void @_ZNK4ncnn4Crop16resolve_crop_roiERKNS_3MatEPKiRiS6_S6_S6_S6_
 32:                                               ; preds = %11
   %33 = load i32, ptr %2, align 4
   store i32 %33, ptr %3, align 4
-  %34 = getelementptr inbounds i8, ptr %2, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %35 = load i32, ptr %34, align 4
   store i32 %35, ptr %4, align 4
-  %36 = getelementptr inbounds i8, ptr %2, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %37 = load i32, ptr %36, align 4
   store i32 %37, ptr %5, align 4
-  %38 = getelementptr inbounds i8, ptr %2, i64 12
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %39 = load i32, ptr %38, align 4
   store i32 %39, ptr %6, align 4
-  %40 = getelementptr inbounds i8, ptr %2, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %41 = load i32, ptr %40, align 4
   store i32 %41, ptr %7, align 4
-  %42 = getelementptr inbounds i8, ptr %2, i64 20
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %43 = load i32, ptr %42, align 4
   store i32 %43, ptr %8, align 4
-  %44 = getelementptr inbounds i8, ptr %2, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %45 = load i32, ptr %44, align 4
   store i32 %45, ptr %9, align 4
   br label %.sink.split
@@ -5483,7 +5483,7 @@ define hidden void @_ZNK4ncnn4Crop16resolve_crop_roiERKNS_3MatEPKiRiS6_S6_S6_S6_
 .sink.split:                                      ; preds = %32, %14, %16, %22
   %.sink = phi i64 [ 20, %22 ], [ 16, %16 ], [ 12, %14 ], [ 28, %32 ]
   %.sink44 = phi ptr [ %10, %22 ], [ %8, %16 ], [ %7, %14 ], [ %10, %32 ]
-  %46 = getelementptr inbounds i8, ptr %2, i64 %.sink
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 %.sink
   %47 = load i32, ptr %46, align 4
   store i32 %47, ptr %.sink44, align 4
   br label %48
@@ -5601,7 +5601,7 @@ define linkonce_odr hidden void @_ZN4ncnn4CropD2Ev(ptr noundef nonnull align 8 d
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %10, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
   invoke void %15(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %11)
           to label %18 unwind label %24
@@ -5647,7 +5647,7 @@ define linkonce_odr hidden void @_ZN4ncnn4CropD2Ev(ptr noundef nonnull align 8 d
 
 34:                                               ; preds = %30
   %35 = load ptr, ptr %32, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   invoke void %37(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef %33)
           to label %40 unwind label %46
@@ -5693,7 +5693,7 @@ define linkonce_odr hidden void @_ZN4ncnn4CropD2Ev(ptr noundef nonnull align 8 d
 
 56:                                               ; preds = %52
   %57 = load ptr, ptr %54, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %59 = load ptr, ptr %58, align 8
   invoke void %59(ptr noundef nonnull align 8 dereferenceable(8) %54, ptr noundef %55)
           to label %62 unwind label %65

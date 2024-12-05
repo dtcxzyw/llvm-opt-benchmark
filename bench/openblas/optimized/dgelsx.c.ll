@@ -445,7 +445,7 @@ define void @dgelsx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %262, label %263, label %294
 
 263:                                              ; preds = %258
-  %264 = getelementptr inbounds i32, ptr %36, i64 %259
+  %264 = getelementptr inbounds nuw i32, ptr %36, i64 %259
   %265 = load i32, ptr %264, align 4, !tbaa !3
   %266 = zext i32 %265 to i64
   %267 = icmp eq i64 %259, %266

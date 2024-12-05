@@ -303,7 +303,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_smb_logon(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.143) #2
   %7 = load ptr, ptr %5, align 8
@@ -449,7 +449,7 @@ define internal noundef i32 @dissect_smb_pdc_query(ptr noundef %0, ptr noundef %
   %5 = alloca ptr, align 8
   %6 = load i32, ptr @hf_computer_name, align 4
   %7 = call i32 @display_ms_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %6, ptr noundef nonnull %5) #2
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %5, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %9, i32 noundef 25, ptr noundef nonnull @.str.196, ptr noundef %10) #2
@@ -519,7 +519,7 @@ define internal i32 @dissect_smb_pdc_startup(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not33, label %17, label %14
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %16, i32 noundef 25, ptr noundef nonnull @.str.199, ptr noundef nonnull %13) #2
   store ptr null, ptr %5, align 8
@@ -535,7 +535,7 @@ define internal i32 @dissect_smb_pdc_startup(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not35, label %25, label %22
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %24, i32 noundef 25, ptr noundef nonnull @.str.200, ptr noundef nonnull %21) #2
   store ptr null, ptr %5, align 8

@@ -47,12 +47,12 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__27GeomUtilCuboidMeshG
   %14 = fmul float %1, 5.000000e-01
   %15 = fmul float %2, 5.000000e-01
   store float %13, ptr %5, align 4
-  %16 = getelementptr inbounds i8, ptr %5, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store float %14, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %5, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store float %15, ptr %17, align 4
   %.unpack.i = load i64, ptr %3, align 8
-  %.elt2.i = getelementptr inbounds i8, ptr %3, i64 8
+  %.elt2.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.unpack3.i = load i64, ptr %.elt2.i, align 8
   %18 = getelementptr inbounds i8, ptr %3, i64 %.unpack3.i
   %19 = and i64 %.unpack.i, 1
@@ -75,9 +75,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterI
   call void %27(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 4 dereferenceable(12) %5)
   %28 = fneg float %13
   store float %28, ptr %6, align 4
-  %29 = getelementptr inbounds i8, ptr %6, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store float %14, ptr %29, align 4
-  %30 = getelementptr inbounds i8, ptr %6, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store float %15, ptr %30, align 4
   %.unpack.i35 = load i64, ptr %3, align 8
   %.unpack3.i37 = load i64, ptr %.elt2.i, align 8
@@ -102,9 +102,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterI
   call void %40(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 4 dereferenceable(12) %6)
   %41 = fneg float %14
   store float %28, ptr %7, align 4
-  %42 = getelementptr inbounds i8, ptr %7, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store float %41, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %7, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store float %15, ptr %43, align 4
   %.unpack.i40 = load i64, ptr %3, align 8
   %.unpack3.i42 = load i64, ptr %.elt2.i, align 8
@@ -128,9 +128,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterI
   %53 = phi ptr [ %50, %46 ], [ %52, %51 ]
   call void %53(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 4 dereferenceable(12) %7)
   store float %13, ptr %8, align 4
-  %54 = getelementptr inbounds i8, ptr %8, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store float %41, ptr %54, align 4
-  %55 = getelementptr inbounds i8, ptr %8, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store float %15, ptr %55, align 4
   %.unpack.i45 = load i64, ptr %3, align 8
   %.unpack3.i47 = load i64, ptr %.elt2.i, align 8
@@ -155,9 +155,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterI
   call void %65(ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef nonnull align 4 dereferenceable(12) %8)
   %66 = fneg float %15
   store float %28, ptr %9, align 4
-  %67 = getelementptr inbounds i8, ptr %9, i64 4
+  %67 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store float %41, ptr %67, align 4
-  %68 = getelementptr inbounds i8, ptr %9, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store float %66, ptr %68, align 4
   %.unpack.i50 = load i64, ptr %3, align 8
   %.unpack3.i52 = load i64, ptr %.elt2.i, align 8
@@ -181,9 +181,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterI
   %78 = phi ptr [ %75, %71 ], [ %77, %76 ]
   call void %78(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 4 dereferenceable(12) %9)
   store float %28, ptr %10, align 4
-  %79 = getelementptr inbounds i8, ptr %10, i64 4
+  %79 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store float %14, ptr %79, align 4
-  %80 = getelementptr inbounds i8, ptr %10, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store float %66, ptr %80, align 4
   %.unpack.i55 = load i64, ptr %3, align 8
   %.unpack3.i57 = load i64, ptr %.elt2.i, align 8
@@ -207,9 +207,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterI
   %90 = phi ptr [ %87, %83 ], [ %89, %88 ]
   call void %90(ptr noundef nonnull align 8 dereferenceable(32) %81, ptr noundef nonnull align 4 dereferenceable(12) %10)
   store float %13, ptr %11, align 4
-  %91 = getelementptr inbounds i8, ptr %11, i64 4
+  %91 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store float %14, ptr %91, align 4
-  %92 = getelementptr inbounds i8, ptr %11, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store float %66, ptr %92, align 4
   %.unpack.i60 = load i64, ptr %3, align 8
   %.unpack3.i62 = load i64, ptr %.elt2.i, align 8
@@ -233,9 +233,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterI
   %102 = phi ptr [ %99, %95 ], [ %101, %100 ]
   call void %102(ptr noundef nonnull align 8 dereferenceable(32) %93, ptr noundef nonnull align 4 dereferenceable(12) %11)
   store float %13, ptr %12, align 4
-  %103 = getelementptr inbounds i8, ptr %12, i64 4
+  %103 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store float %41, ptr %103, align 4
-  %104 = getelementptr inbounds i8, ptr %12, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store float %66, ptr %104, align 4
   %.unpack.i65 = load i64, ptr %3, align 8
   %.unpack3.i67 = load i64, ptr %.elt2.i, align 8
@@ -275,12 +275,12 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__27GeomUtilCuboidMeshG
   %14 = fmul double %1, 5.000000e-01
   %15 = fmul double %2, 5.000000e-01
   store double %13, ptr %5, align 8
-  %16 = getelementptr inbounds i8, ptr %5, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store double %14, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store double %15, ptr %17, align 8
   %.unpack.i = load i64, ptr %3, align 8
-  %.elt2.i = getelementptr inbounds i8, ptr %3, i64 8
+  %.elt2.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.unpack3.i = load i64, ptr %.elt2.i, align 8
   %18 = getelementptr inbounds i8, ptr %3, i64 %.unpack3.i
   %19 = and i64 %.unpack.i, 1
@@ -303,9 +303,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterI
   call void %27(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(24) %5)
   %28 = fneg double %13
   store double %28, ptr %6, align 8
-  %29 = getelementptr inbounds i8, ptr %6, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store double %14, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %6, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store double %15, ptr %30, align 8
   %.unpack.i35 = load i64, ptr %3, align 8
   %.unpack3.i37 = load i64, ptr %.elt2.i, align 8
@@ -330,9 +330,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterI
   call void %40(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(24) %6)
   %41 = fneg double %14
   store double %28, ptr %7, align 8
-  %42 = getelementptr inbounds i8, ptr %7, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store double %41, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %7, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store double %15, ptr %43, align 8
   %.unpack.i40 = load i64, ptr %3, align 8
   %.unpack3.i42 = load i64, ptr %.elt2.i, align 8
@@ -356,9 +356,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterI
   %53 = phi ptr [ %50, %46 ], [ %52, %51 ]
   call void %53(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 8 dereferenceable(24) %7)
   store double %13, ptr %8, align 8
-  %54 = getelementptr inbounds i8, ptr %8, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store double %41, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %8, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store double %15, ptr %55, align 8
   %.unpack.i45 = load i64, ptr %3, align 8
   %.unpack3.i47 = load i64, ptr %.elt2.i, align 8
@@ -383,9 +383,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterI
   call void %65(ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef nonnull align 8 dereferenceable(24) %8)
   %66 = fneg double %15
   store double %28, ptr %9, align 8
-  %67 = getelementptr inbounds i8, ptr %9, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store double %41, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %9, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store double %66, ptr %68, align 8
   %.unpack.i50 = load i64, ptr %3, align 8
   %.unpack3.i52 = load i64, ptr %.elt2.i, align 8
@@ -409,9 +409,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterI
   %78 = phi ptr [ %75, %71 ], [ %77, %76 ]
   call void %78(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(24) %9)
   store double %28, ptr %10, align 8
-  %79 = getelementptr inbounds i8, ptr %10, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store double %14, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %10, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store double %66, ptr %80, align 8
   %.unpack.i55 = load i64, ptr %3, align 8
   %.unpack3.i57 = load i64, ptr %.elt2.i, align 8
@@ -435,9 +435,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterI
   %90 = phi ptr [ %87, %83 ], [ %89, %88 ]
   call void %90(ptr noundef nonnull align 8 dereferenceable(32) %81, ptr noundef nonnull align 8 dereferenceable(24) %10)
   store double %13, ptr %11, align 8
-  %91 = getelementptr inbounds i8, ptr %11, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store double %14, ptr %91, align 8
-  %92 = getelementptr inbounds i8, ptr %11, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store double %66, ptr %92, align 8
   %.unpack.i60 = load i64, ptr %3, align 8
   %.unpack3.i62 = load i64, ptr %.elt2.i, align 8
@@ -461,9 +461,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterI
   %102 = phi ptr [ %99, %95 ], [ %101, %100 ]
   call void %102(ptr noundef nonnull align 8 dereferenceable(32) %93, ptr noundef nonnull align 8 dereferenceable(24) %11)
   store double %13, ptr %12, align 8
-  %103 = getelementptr inbounds i8, ptr %12, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store double %41, ptr %103, align 8
-  %104 = getelementptr inbounds i8, ptr %12, i64 16
+  %104 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store double %66, ptr %104, align 8
   %.unpack.i65 = load i64, ptr %3, align 8
   %.unpack3.i67 = load i64, ptr %.elt2.i, align 8

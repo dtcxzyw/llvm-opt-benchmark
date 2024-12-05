@@ -247,7 +247,7 @@ define internal i32 @dissect_btmesh_proxy_msg(ptr noundef %0, ptr noundef %1, pt
   unreachable
 
 18:                                               ; preds = %4
-  %19 = getelementptr inbounds i8, ptr %3, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %20 = load i32, ptr %19, align 4
   %21 = icmp ult i32 %20, 3
   br i1 %21, label %23, label %22
@@ -257,9 +257,9 @@ define internal i32 @dissect_btmesh_proxy_msg(ptr noundef %0, ptr noundef %1, pt
   unreachable
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds i8, ptr %1, i64 80
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 50
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 50
   %27 = load i16, ptr %26, align 2
   %28 = and i16 %27, 8
   %29 = icmp ne i16 %28, 0
@@ -274,7 +274,7 @@ define internal i32 @dissect_btmesh_proxy_msg(ptr noundef %0, ptr noundef %1, pt
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %23
-  %30 = getelementptr inbounds i8, ptr %1, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = load ptr, ptr %30, align 8
   tail call void @col_set_str(ptr noundef %31, i32 noundef 34, ptr noundef nonnull @.str.103) #5
   %32 = load i32, ptr @proto_btmesh_proxy, align 4
@@ -312,7 +312,7 @@ define internal i32 @dissect_btmesh_proxy_msg(ptr noundef %0, ptr noundef %1, pt
   %56 = add i32 %55, 1
   store i32 %56, ptr %54, align 4
   %57 = load ptr, ptr %24, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 50
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 50
   %59 = load i16, ptr %58, align 2
   %60 = and i16 %59, 8
   %.not141 = icmp eq i16 %60, 0
@@ -340,7 +340,7 @@ define internal i32 @dissect_btmesh_proxy_msg(ptr noundef %0, ptr noundef %1, pt
   %73 = load i32, ptr @hf_btmesh_proxy_data_fragment, align 4
   %74 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %73, ptr noundef %0, i32 noundef 1, i32 noundef %45, i32 noundef 0) #5
   %75 = load ptr, ptr %24, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 50
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 50
   %77 = load i16, ptr %76, align 2
   %78 = and i16 %77, 8
   %.not140 = icmp eq i16 %78, 0
@@ -372,7 +372,7 @@ define internal i32 @dissect_btmesh_proxy_msg(ptr noundef %0, ptr noundef %1, pt
   %96 = load i32, ptr @hf_btmesh_proxy_data_fragment, align 4
   %97 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %96, ptr noundef %0, i32 noundef 1, i32 noundef %45, i32 noundef 0) #5
   %98 = load ptr, ptr %24, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 50
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 50
   %100 = load i16, ptr %99, align 2
   %101 = and i16 %100, 8
   %.not139 = icmp eq i16 %101, 0
@@ -401,7 +401,7 @@ define internal i32 @dissect_btmesh_proxy_msg(ptr noundef %0, ptr noundef %1, pt
   %121 = load i32, ptr %120, align 4
   store i32 %121, ptr %117, align 4
   %122 = load ptr, ptr @connection_info_tree, align 8
-  %123 = getelementptr inbounds i8, ptr %1, i64 20
+  %123 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %124 = load i32, ptr %123, align 4
   tail call void @wmem_tree_insert32(ptr noundef %122, i32 noundef %124, ptr noundef nonnull %117) #5
   br label %.thread154
@@ -426,7 +426,7 @@ default.unreachable175:                           ; preds = %.loopexit
 .thread152:                                       ; preds = %.thread154, %126
   %not. = phi i32 [ 0, %126 ], [ 1, %.thread154 ]
   %132 = load ptr, ptr @connection_info_tree, align 8
-  %133 = getelementptr inbounds i8, ptr %1, i64 20
+  %133 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %134 = load i32, ptr %133, align 4
   %135 = tail call ptr @wmem_tree_lookup32(ptr noundef %132, i32 noundef %134) #5
   %.not142 = icmp eq ptr %135, null
@@ -449,9 +449,9 @@ default.unreachable175:                           ; preds = %.loopexit
   %.sink = phi i32 [ 0, %126 ], [ %not., %139 ]
   %.1164167 = phi ptr [ %129, %126 ], [ %140, %139 ]
   store i32 3, ptr %16, align 4
-  %142 = getelementptr inbounds i8, ptr %16, i64 4
+  %142 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store i32 %.sink, ptr %142, align 4
-  %143 = getelementptr inbounds i8, ptr %16, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i32 0, ptr %143, align 4
   switch i8 %43, label %286 [
     i8 0, label %144
@@ -507,10 +507,10 @@ default.unreachable175:                           ; preds = %.loopexit
   %161 = load i32, ptr @hf_btmesh_proxy_data, align 4
   %162 = tail call i32 @tvb_reported_length(ptr noundef nonnull %.1164167) #5
   %163 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %161, ptr noundef nonnull %.1164167, i32 noundef 0, i32 noundef %162, i32 noundef 0) #5
-  %164 = getelementptr inbounds i8, ptr %1, i64 408
+  %164 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %165 = load ptr, ptr %164, align 8
   %166 = tail call noalias ptr @wmem_alloc(ptr noundef %165, i64 noundef 52) #5
-  %167 = getelementptr inbounds i8, ptr %166, i64 17
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 17
   store i8 3, ptr %167, align 1
   %168 = call ptr @btmesh_network_find_key_and_decrypt(ptr noundef nonnull %.1164167, ptr noundef nonnull %1, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef %166) #5
   %.not.i = icmp eq ptr %168, null

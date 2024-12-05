@@ -94,7 +94,7 @@ define internal i32 @amd_init_one(ptr noundef %0, ptr nocapture noundef readonly
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load i64, ptr %7, align 8
   %9 = trunc i64 %8 to i32
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #8
@@ -103,8 +103,8 @@ define internal i32 @amd_init_one(ptr noundef %0, ptr nocapture noundef readonly
 
 11:                                               ; preds = %2
   store i1 true, ptr @amd_init_one.__print_once, align 1
-  %12 = getelementptr inbounds i8, ptr %0, i64 184
-  tail call void @ata_print_version(ptr noundef %12, ptr noundef nonnull @.str.2) #8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  tail call void @ata_print_version(ptr noundef nonnull %12, ptr noundef nonnull @.str.2) #8
   br label %13
 
 13:                                               ; preds = %11, %2
@@ -121,7 +121,7 @@ define internal i32 @amd_init_one(ptr noundef %0, ptr nocapture noundef readonly
   ]
 
 .thread4:                                         ; preds = %16
-  %18 = getelementptr inbounds i8, ptr %0, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %19 = load i8, ptr %18, align 8
   %20 = icmp ugt i8 %19, 7
   %21 = select i1 %20, i32 2, i32 1
@@ -131,13 +131,13 @@ define internal i32 @amd_init_one(ptr noundef %0, ptr nocapture noundef readonly
   br label %39
 
 24:                                               ; preds = %16
-  %25 = getelementptr inbounds i8, ptr %0, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %26 = load i16, ptr %25, align 8
   %27 = icmp eq i16 %26, 4130
   br i1 %27, label %28, label %.thread3
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %0, i64 66
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 66
   %30 = load i16, ptr %29, align 2
   %31 = icmp eq i16 %30, 14016
   %32 = select i1 %31, i32 6, i32 5
@@ -165,7 +165,7 @@ define internal i32 @amd_init_one(ptr noundef %0, ptr nocapture noundef readonly
 
 42:                                               ; preds = %.thread3, %39, %35
   %43 = phi i32 [ %.ph, %.thread3 ], [ %40, %39 ], [ %9, %35 ]
-  %44 = getelementptr inbounds i8, ptr %0, i64 60
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %45 = load i16, ptr %44, align 4
   %46 = icmp eq i16 %45, 4130
   br i1 %46, label %47, label %52
@@ -217,14 +217,14 @@ declare dso_local i32 @ata_pci_device_suspend(ptr noundef, i32) #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @amd_reinit_one(ptr noundef %0) #2 align 16 {
   %2 = alloca i8, align 1
-  %3 = getelementptr inbounds i8, ptr %0, i64 304
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @ata_pci_device_do_resume(ptr noundef %0) #8
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %21
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 60
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %9 = load i16, ptr %8, align 4
   %10 = icmp eq i16 %9, 4130
   br i1 %10, label %11, label %20
@@ -238,7 +238,7 @@ define internal i32 @amd_reinit_one(ptr noundef %0) #2 align 16 {
   store i8 %14, ptr %2, align 1
   %15 = call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef 65, i8 noundef zeroext %14) #8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #8
-  %16 = getelementptr inbounds i8, ptr %0, i64 62
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 62
   %17 = load i16, ptr %16, align 2
   switch i16 %17, label %20 [
     i16 29705, label %18
@@ -290,7 +290,7 @@ declare dso_local i32 @ata_cable_40wire(ptr noundef) #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @amd33_set_piomode(ptr noundef %0, ptr noundef %1) #2 align 16 {
   tail call fastcc void @amd_fifo_setup(ptr noundef %0)
-  %3 = getelementptr inbounds i8, ptr %1, i64 816
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 816
   %4 = load i8, ptr %3, align 16
   %5 = zext i8 %4 to i32
   tail call fastcc void @timing_setup(ptr noundef %0, ptr noundef %1, i32 noundef 64, i32 noundef %5, i32 noundef 1)
@@ -299,7 +299,7 @@ define internal void @amd33_set_piomode(ptr noundef %0, ptr noundef %1) #2 align
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @amd33_set_dmamode(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 817
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 817
   %4 = load i8, ptr %3, align 1
   %5 = zext i8 %4 to i32
   tail call fastcc void @timing_setup(ptr noundef %0, ptr noundef %1, i32 noundef 64, i32 noundef %5, i32 noundef 1)
@@ -309,29 +309,29 @@ define internal void @amd33_set_dmamode(ptr nocapture noundef readonly %0, ptr n
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @amd_fifo_setup(ptr noundef %0) unnamed_addr #2 align 16 {
   %2 = alloca i8, align 1
-  %3 = getelementptr inbounds i8, ptr %0, i64 14776
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 14776
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4
   %9 = zext i32 %8 to i64
   %10 = getelementptr [2 x i8], ptr @amd_fifo_setup.fifobit, i64 0, i64 %9
   %11 = load i8, ptr %10, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8256
-  %13 = tail call ptr @ata_dev_next(ptr noundef null, ptr noundef %12, i32 noundef 0) #8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8256
+  %13 = tail call ptr @ata_dev_next(ptr noundef null, ptr noundef nonnull %12, i32 noundef 0) #8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %1, %.preheader
   %15 = phi i8 [ %20, %.preheader ], [ %11, %1 ]
   %16 = phi ptr [ %21, %.preheader ], [ %13, %1 ]
-  %17 = getelementptr inbounds i8, ptr %16, i64 800
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 800
   %18 = load i32, ptr %17, align 32
   %19 = icmp eq i32 %18, 3
   %20 = select i1 %19, i8 0, i8 %15
-  %21 = tail call ptr @ata_dev_next(ptr noundef nonnull %16, ptr noundef %12, i32 noundef 0) #8
+  %21 = tail call ptr @ata_dev_next(ptr noundef nonnull %16, ptr noundef nonnull %12, i32 noundef 0) #8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %.loopexit, label %.preheader, !llvm.loop !6
 
@@ -363,16 +363,16 @@ define internal fastcc void @timing_setup(ptr nocapture noundef readonly %0, ptr
   %6 = alloca %struct.ata_timing, align 2
   %7 = alloca %struct.ata_timing, align 2
   %8 = alloca i8, align 1
-  %9 = getelementptr inbounds i8, ptr %0, i64 14776
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 14776
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr i8, ptr %12, i64 -184
   %14 = tail call ptr @ata_dev_pair(ptr noundef %1) #8
-  %15 = getelementptr inbounds i8, ptr %0, i64 44
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %16 = load i32, ptr %15, align 4
   %17 = shl i32 %16, 1
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load i32, ptr %18, align 8
   %20 = add i32 %17, %19
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #8
@@ -397,7 +397,7 @@ define internal fastcc void @timing_setup(ptr nocapture noundef readonly %0, ptr
   br i1 %28, label %41, label %29
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %14, i64 817
+  %30 = getelementptr inbounds nuw i8, ptr %14, i64 817
   %31 = load i8, ptr %30, align 1
   %32 = icmp eq i8 %31, -1
   br i1 %32, label %36, label %33
@@ -409,7 +409,7 @@ define internal fastcc void @timing_setup(ptr nocapture noundef readonly %0, ptr
   br label %36
 
 36:                                               ; preds = %33, %29
-  %37 = getelementptr inbounds i8, ptr %14, i64 816
+  %37 = getelementptr inbounds nuw i8, ptr %14, i64 816
   %38 = load i8, ptr %37, align 16
   %39 = zext i8 %38 to i16
   %40 = call i32 @ata_timing_compute(ptr noundef nonnull %14, i16 noundef zeroext %39, ptr noundef nonnull %7, i32 noundef 30000, i32 noundef %22) #8
@@ -428,7 +428,7 @@ define internal fastcc void @timing_setup(ptr nocapture noundef readonly %0, ptr
 
 43:                                               ; preds = %42, %41
   %44 = phi i16 [ 15, %42 ], [ 1, %41 ]
-  %45 = getelementptr inbounds i8, ptr %6, i64 18
+  %45 = getelementptr inbounds nuw i8, ptr %6, i64 18
   store i16 %44, ptr %45, align 2
   br label %46
 
@@ -442,7 +442,7 @@ define internal fastcc void @timing_setup(ptr nocapture noundef readonly %0, ptr
   %53 = shl i32 3, %52
   %54 = xor i32 %53, -1
   %55 = and i32 %50, %54
-  %56 = getelementptr inbounds i8, ptr %6, i64 2
+  %56 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %57 = load i16, ptr %56, align 2
   %58 = icmp ugt i16 %57, 3
   br i1 %58, label %63, label %59
@@ -463,7 +463,7 @@ define internal fastcc void @timing_setup(ptr nocapture noundef readonly %0, ptr
   %69 = ashr i32 %20, 1
   %70 = add nuw nsw i32 %2, 15
   %71 = sub nsw i32 %70, %69
-  %72 = getelementptr inbounds i8, ptr %6, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %73 = load i16, ptr %72, align 2
   %74 = icmp ugt i16 %73, 15
   %75 = call i16 @llvm.umax.i16(i16 %73, i16 1)
@@ -471,7 +471,7 @@ define internal fastcc void @timing_setup(ptr nocapture noundef readonly %0, ptr
   %77 = shl i8 %76, 4
   %78 = add i8 %77, -16
   %79 = select i1 %74, i8 -16, i8 %78
-  %80 = getelementptr inbounds i8, ptr %6, i64 6
+  %80 = getelementptr inbounds nuw i8, ptr %6, i64 6
   %81 = load i16, ptr %80, align 2
   %82 = icmp ugt i16 %81, 15
   %83 = call i16 @llvm.umax.i16(i16 %81, i16 1)
@@ -482,7 +482,7 @@ define internal fastcc void @timing_setup(ptr nocapture noundef readonly %0, ptr
   %88 = call i32 @pci_write_config_byte(ptr noundef %13, i32 noundef %71, i8 noundef zeroext %87) #8
   %89 = sub i32 %2, %20
   %90 = add i32 %89, 11
-  %91 = getelementptr inbounds i8, ptr %6, i64 10
+  %91 = getelementptr inbounds nuw i8, ptr %6, i64 10
   %92 = load i16, ptr %91, align 2
   %93 = icmp ugt i16 %92, 15
   %94 = call i16 @llvm.umax.i16(i16 %92, i16 1)
@@ -490,7 +490,7 @@ define internal fastcc void @timing_setup(ptr nocapture noundef readonly %0, ptr
   %96 = shl i8 %95, 4
   %97 = add i8 %96, -16
   %98 = select i1 %93, i8 -16, i8 %97
-  %99 = getelementptr inbounds i8, ptr %6, i64 12
+  %99 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %100 = load i16, ptr %99, align 2
   %101 = icmp ugt i16 %100, 15
   br i1 %101, label %106, label %102
@@ -505,7 +505,7 @@ define internal fastcc void @timing_setup(ptr nocapture noundef readonly %0, ptr
   %107 = phi i8 [ %105, %102 ], [ 15, %63 ]
   %108 = or i8 %107, %98
   %109 = call i32 @pci_write_config_byte(ptr noundef %13, i32 noundef %90, i8 noundef zeroext %108) #8
-  %110 = getelementptr inbounds i8, ptr %6, i64 18
+  %110 = getelementptr inbounds nuw i8, ptr %6, i64 18
   %111 = load i16, ptr %110, align 2
   %112 = icmp eq i16 %111, 0
   switch i32 %4, label %default.unreachable5 [
@@ -611,12 +611,12 @@ declare dso_local void @ata_timing_merge(ptr noundef, ptr noundef, ptr noundef, 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @amd_pre_reset(ptr noundef %0, i64 noundef %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 64
-  %4 = getelementptr inbounds i8, ptr %3, i64 14776
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 14776
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr i8, ptr %7, i64 -184
-  %9 = getelementptr inbounds i8, ptr %3, i64 44
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 44
   %10 = load i32, ptr %9, align 4
   %11 = zext i32 %10 to i64
   %12 = getelementptr [2 x %struct.pci_bits], ptr @amd_pre_reset.amd_enable_bits, i64 0, i64 %11
@@ -645,7 +645,7 @@ declare dso_local i32 @ata_cable_unknown(ptr noundef) #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @amd66_set_piomode(ptr noundef %0, ptr noundef %1) #2 align 16 {
   tail call fastcc void @amd_fifo_setup(ptr noundef %0)
-  %3 = getelementptr inbounds i8, ptr %1, i64 816
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 816
   %4 = load i8, ptr %3, align 16
   %5 = zext i8 %4 to i32
   tail call fastcc void @timing_setup(ptr noundef %0, ptr noundef %1, i32 noundef 64, i32 noundef %5, i32 noundef 2)
@@ -654,7 +654,7 @@ define internal void @amd66_set_piomode(ptr noundef %0, ptr noundef %1) #2 align
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @amd66_set_dmamode(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 817
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 817
   %4 = load i8, ptr %3, align 1
   %5 = zext i8 %4 to i32
   tail call fastcc void @timing_setup(ptr noundef %0, ptr noundef %1, i32 noundef 64, i32 noundef %5, i32 noundef 2)
@@ -664,7 +664,7 @@ define internal void @amd66_set_dmamode(ptr nocapture noundef readonly %0, ptr n
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @amd100_set_piomode(ptr noundef %0, ptr noundef %1) #2 align 16 {
   tail call fastcc void @amd_fifo_setup(ptr noundef %0)
-  %3 = getelementptr inbounds i8, ptr %1, i64 816
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 816
   %4 = load i8, ptr %3, align 16
   %5 = zext i8 %4 to i32
   tail call fastcc void @timing_setup(ptr noundef %0, ptr noundef %1, i32 noundef 64, i32 noundef %5, i32 noundef 3)
@@ -673,7 +673,7 @@ define internal void @amd100_set_piomode(ptr noundef %0, ptr noundef %1) #2 alig
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @amd100_set_dmamode(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 817
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 817
   %4 = load i8, ptr %3, align 1
   %5 = zext i8 %4 to i32
   tail call fastcc void @timing_setup(ptr noundef %0, ptr noundef %1, i32 noundef 64, i32 noundef %5, i32 noundef 3)
@@ -683,9 +683,9 @@ define internal void @amd100_set_dmamode(ptr nocapture noundef readonly %0, ptr 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 1, 3) i32 @amd_cable_detect(ptr nocapture noundef readonly %0) #2 align 16 {
   %2 = alloca i8, align 1
-  %3 = getelementptr inbounds i8, ptr %0, i64 14776
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 14776
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -184
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #8
@@ -693,7 +693,7 @@ define internal range(i32 1, 3) i32 @amd_cable_detect(ptr nocapture noundef read
   %8 = call i32 @pci_read_config_byte(ptr noundef %7, i32 noundef 66, ptr noundef nonnull %2) #8
   %9 = load i8, ptr %2, align 1
   %10 = zext i8 %9 to i32
-  %11 = getelementptr inbounds i8, ptr %0, i64 44
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %12 = load i32, ptr %11, align 4
   %13 = zext i32 %12 to i64
   %14 = getelementptr [2 x i32], ptr @amd_cable_detect.bitmask, i64 0, i64 %13
@@ -708,7 +708,7 @@ define internal range(i32 1, 3) i32 @amd_cable_detect(ptr nocapture noundef read
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @amd133_set_piomode(ptr noundef %0, ptr noundef %1) #2 align 16 {
   tail call fastcc void @amd_fifo_setup(ptr noundef %0)
-  %3 = getelementptr inbounds i8, ptr %1, i64 816
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 816
   %4 = load i8, ptr %3, align 16
   %5 = zext i8 %4 to i32
   tail call fastcc void @timing_setup(ptr noundef %0, ptr noundef %1, i32 noundef 64, i32 noundef %5, i32 noundef 4)
@@ -717,7 +717,7 @@ define internal void @amd133_set_piomode(ptr noundef %0, ptr noundef %1) #2 alig
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @amd133_set_dmamode(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 817
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 817
   %4 = load i8, ptr %3, align 1
   %5 = zext i8 %4 to i32
   tail call fastcc void @timing_setup(ptr noundef %0, ptr noundef %1, i32 noundef 64, i32 noundef %5, i32 noundef 4)
@@ -726,7 +726,7 @@ define internal void @amd133_set_dmamode(ptr nocapture noundef readonly %0, ptr 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @nv100_set_piomode(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 816
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 816
   %4 = load i8, ptr %3, align 16
   %5 = zext i8 %4 to i32
   tail call fastcc void @timing_setup(ptr noundef %0, ptr noundef %1, i32 noundef 80, i32 noundef %5, i32 noundef 3)
@@ -735,7 +735,7 @@ define internal void @nv100_set_piomode(ptr nocapture noundef readonly %0, ptr n
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @nv100_set_dmamode(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 817
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 817
   %4 = load i8, ptr %3, align 1
   %5 = zext i8 %4 to i32
   tail call fastcc void @timing_setup(ptr noundef %0, ptr noundef %1, i32 noundef 80, i32 noundef %5, i32 noundef 3)
@@ -751,18 +751,18 @@ define internal i32 @nv_mode_filter(ptr noundef %0, i32 noundef %1) #2 align 16 
   %4 = load ptr, ptr %0, align 64
   %5 = load ptr, ptr %4, align 64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #8
-  %6 = getelementptr inbounds i8, ptr %5, i64 14776
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 14776
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = ptrtoint ptr %9 to i64
   %11 = trunc i64 %10 to i32
-  %12 = getelementptr inbounds i8, ptr %5, i64 44
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 44
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, 0
   %15 = lshr i32 %11, 16
   %16 = select i1 %14, i32 %15, i32 %11
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load i32, ptr %17, align 8
   %19 = icmp eq i32 %18, 0
   %20 = lshr i32 %16, 8
@@ -781,53 +781,51 @@ define internal i32 @nv_mode_filter(ptr noundef %0, i32 noundef %1) #2 align 16 
 
 30:                                               ; preds = %24, %2
   %31 = phi i32 [ %29, %24 ], [ 0, %2 ]
-  %32 = getelementptr inbounds i8, ptr %5, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %33 = load i32, ptr %32, align 32
   %34 = and i32 %33, 524288
   %35 = icmp eq i32 %34, 0
-  %36 = getelementptr inbounds i8, ptr %5, i64 15896
-  %37 = icmp eq ptr %36, null
-  %38 = select i1 %35, i1 true, i1 %37
-  br i1 %38, label %48, label %39
+  br i1 %35, label %46, label %36
 
-39:                                               ; preds = %30
-  %40 = tail call i32 @ata_acpi_gtm_xfermask(ptr noundef %0, ptr noundef nonnull %36) #8
-  %41 = getelementptr inbounds i8, ptr %5, i64 15900
+36:                                               ; preds = %30
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 15896
+  %38 = tail call i32 @ata_acpi_gtm_xfermask(ptr noundef %0, ptr noundef nonnull %37) #8
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 15900
+  %40 = load i32, ptr %39, align 1
+  %41 = getelementptr i8, ptr %5, i64 15908
   %42 = load i32, ptr %41, align 1
-  %43 = getelementptr i8, ptr %5, i64 15908
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 15912
   %44 = load i32, ptr %43, align 1
-  %45 = getelementptr inbounds i8, ptr %5, i64 15912
-  %46 = load i32, ptr %45, align 1
-  %47 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 32, ptr noundef nonnull @.str.4, i32 noundef %42, i32 noundef %44, i32 noundef %46) #8
-  br label %48
+  %45 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 32, ptr noundef nonnull @.str.4, i32 noundef %40, i32 noundef %42, i32 noundef %44) #8
+  br label %46
 
-48:                                               ; preds = %39, %30
-  %49 = phi i32 [ %40, %39 ], [ 0, %30 ]
-  %50 = or i32 %49, %31
-  %51 = and i32 %50, 127
-  %52 = icmp eq i32 %51, 0
-  %53 = or disjoint i32 %50, 127
-  %54 = select i1 %52, i32 %53, i32 %50
-  %55 = and i32 %54, 1048448
-  %56 = icmp eq i32 %55, 0
-  %57 = or disjoint i32 %54, 1048448
-  %58 = select i1 %56, i32 %57, i32 %54
-  %59 = tail call i32 @ata_pack_xfermask(i32 noundef 31, i32 noundef 7, i32 noundef 7) #8
-  %60 = or i32 %58, %59
-  %61 = and i32 %60, %1
+46:                                               ; preds = %36, %30
+  %47 = phi i32 [ %38, %36 ], [ 0, %30 ]
+  %48 = or i32 %47, %31
+  %49 = and i32 %48, 127
+  %50 = icmp eq i32 %49, 0
+  %51 = or disjoint i32 %48, 127
+  %52 = select i1 %50, i32 %51, i32 %48
+  %53 = and i32 %52, 1048448
+  %54 = icmp eq i32 %53, 0
+  %55 = or disjoint i32 %52, 1048448
+  %56 = select i1 %54, i32 %55, i32 %52
+  %57 = tail call i32 @ata_pack_xfermask(i32 noundef 31, i32 noundef 7, i32 noundef 7) #8
+  %58 = or i32 %56, %57
+  %59 = and i32 %58, %1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #8
-  ret i32 %61
+  ret i32 %59
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @nv_pre_reset(ptr noundef %0, i64 noundef %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 64
-  %4 = getelementptr inbounds i8, ptr %3, i64 14776
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 14776
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr i8, ptr %7, i64 -184
-  %9 = getelementptr inbounds i8, ptr %3, i64 44
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 44
   %10 = load i32, ptr %9, align 4
   %11 = zext i32 %10 to i64
   %12 = getelementptr [2 x %struct.pci_bits], ptr @nv_pre_reset.nv_enable_bits, i64 0, i64 %11
@@ -846,11 +844,11 @@ define internal i32 @nv_pre_reset(ptr noundef %0, i64 noundef %1) #2 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @nv_host_stop(ptr nocapture noundef readonly %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = ptrtoint ptr %3 to i64
   %5 = trunc i64 %4 to i32
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr i8, ptr %7, i64 -184
   %9 = tail call i32 @pci_write_config_dword(ptr noundef %8, i32 noundef 96, i32 noundef %5) #8
@@ -871,7 +869,7 @@ declare dso_local i32 @pci_write_config_dword(ptr noundef, i32 noundef, i32 noun
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @nv133_set_piomode(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 816
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 816
   %4 = load i8, ptr %3, align 16
   %5 = zext i8 %4 to i32
   tail call fastcc void @timing_setup(ptr noundef %0, ptr noundef %1, i32 noundef 80, i32 noundef %5, i32 noundef 4)
@@ -880,7 +878,7 @@ define internal void @nv133_set_piomode(ptr nocapture noundef readonly %0, ptr n
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @nv133_set_dmamode(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 817
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 817
   %4 = load i8, ptr %3, align 1
   %5 = zext i8 %4 to i32
   tail call fastcc void @timing_setup(ptr noundef %0, ptr noundef %1, i32 noundef 80, i32 noundef %5, i32 noundef 4)

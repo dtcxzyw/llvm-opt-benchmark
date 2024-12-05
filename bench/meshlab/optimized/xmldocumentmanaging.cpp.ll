@@ -75,7 +75,7 @@ define void @_ZN15XMLInteriorNodeD0Ev(ptr noundef nonnull align 8 dereferenceabl
 ; Function Attrs: mustprogress uwtable
 define void @_ZN15XMLInteriorNode14applyProcedureER10XMLVisitor(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #2 align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %0)
   ret void
@@ -84,7 +84,7 @@ define void @_ZN15XMLInteriorNode14applyProcedureER10XMLVisitor(ptr noundef nonn
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN7XMLNodeC2EP6XMLTag(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV7XMLNode, i64 16), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   ret void
 }
@@ -92,14 +92,14 @@ define void @_ZN7XMLNodeC2EP6XMLTag(ptr nocapture noundef nonnull writeonly alig
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7XMLNodeD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV7XMLNode, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %9, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(24) %3) #12
   br label %9
@@ -113,7 +113,7 @@ declare void @llvm.trap() #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN11XMLLeafNodeC2EP10XMLLeafTag(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV11XMLLeafNode, i64 16), ptr %0, align 8
   ret void
@@ -122,14 +122,14 @@ define void @_ZN11XMLLeafNodeC2EP10XMLLeafTag(ptr nocapture noundef nonnull writ
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN11XMLLeafNodeD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV7XMLNode, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %_ZN7XMLNodeD2Ev.exit, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(24) %3) #12
   br label %_ZN7XMLNodeD2Ev.exit
@@ -143,24 +143,24 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN15XMLInteriorNodeC2EP6XMLTag(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV15XMLInteriorNode, i64 16), ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @_ZN10QArrayData11shared_nullE, ptr %4, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN15XMLInteriorNode3sonEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load atomic i32, ptr %4 monotonic, align 4
   %6 = icmp ult i32 %5, 2
   br i1 %6, label %_ZN7QVectorIP7XMLNodeEixEi.exit, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 2147483647
   %.not.i.i.i = icmp eq i32 %10, 0
@@ -178,7 +178,7 @@ define noundef ptr @_ZN15XMLInteriorNode3sonEi(ptr noundef nonnull align 8 deref
 
 _ZN7QVectorIP7XMLNodeEixEi.exit:                  ; preds = %2, %11, %13
   %14 = phi ptr [ %4, %2 ], [ %12, %11 ], [ %.pre.i.i, %13 ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load i64, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %14, i64 %16
   %18 = sext i32 %1 to i64
@@ -211,27 +211,27 @@ define linkonce_odr void @_ZN7QVectorIP7XMLNodeE7reallocEi6QFlagsIN10QArrayData1
 
 13:                                               ; preds = %3, %8
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %7, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %16, ptr %17, align 4
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load i64, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %18, i64 %20
-  %22 = getelementptr inbounds i8, ptr %18, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %23 = load i32, ptr %22, align 4
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds i8, ptr %7, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %26 = load i64, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %7, i64 %26
   %.idx = shl nsw i64 %24, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %27, ptr align 1 %21, i64 %.idx, i1 false)
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load i32, ptr %29, align 8
   %31 = and i32 %30, -2147483648
-  %32 = getelementptr inbounds i8, ptr %7, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %33 = load i32, ptr %32, align 8
   %34 = and i32 %33, 2147483647
   %35 = or disjoint i32 %34, %31
@@ -309,7 +309,7 @@ declare void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef, i64 noundef, i64 no
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN15XMLInteriorNode4sonsEv(ptr dead_on_unwind noalias nonnull writable sret(%class.QVector.1) align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @_ZN7QVectorIP7XMLNodeEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %3)
   ret void
 }
@@ -337,7 +337,7 @@ _ZN9QtPrivate8RefCount3refEv.exit:                ; preds = %2
   br label %49
 
 9:                                                ; preds = %_ZN9QtPrivate8RefCount3refEv.exit
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %11 = load i32, ptr %10, align 8
   %.not = icmp sgt i32 %11, -1
   br i1 %.not, label %22, label %12
@@ -357,14 +357,14 @@ _ZN9QtPrivate8RefCount3refEv.exit:                ; preds = %2
 
 17:                                               ; preds = %12, %16
   %18 = phi ptr [ %15, %12 ], [ %.pre, %16 ]
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load i32, ptr %19, align 8
   %21 = or i32 %20, -2147483648
   store i32 %21, ptr %19, align 8
   br label %28
 
 22:                                               ; preds = %9
-  %23 = getelementptr inbounds i8, ptr %3, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %24 = load i32, ptr %23, align 4
   %25 = sext i32 %24 to i64
   %26 = tail call noundef ptr @_ZN10QArrayData8allocateEmmm6QFlagsINS_16AllocationOptionEE(i64 noundef 8, i64 noundef 8, i64 noundef %25, i32 0) #12
@@ -378,7 +378,7 @@ _ZN9QtPrivate8RefCount3refEv.exit:                ; preds = %2
 
 28:                                               ; preds = %27, %22, %17
   %29 = load ptr, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load i32, ptr %30, align 8
   %32 = and i32 %31, 2147483647
   %.not11 = icmp eq i32 %32, 0
@@ -386,22 +386,22 @@ _ZN9QtPrivate8RefCount3refEv.exit:                ; preds = %2
 
 33:                                               ; preds = %28
   %34 = load ptr, ptr %1, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load i64, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %34, i64 %36
-  %38 = getelementptr inbounds i8, ptr %34, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %39 = load i32, ptr %38, align 4
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds i8, ptr %29, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %42 = load i64, ptr %41, align 8
   %43 = getelementptr inbounds i8, ptr %29, i64 %42
   %.idx = shl nsw i64 %40, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %43, ptr align 1 %37, i64 %.idx, i1 false)
   %44 = load ptr, ptr %1, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %46 = load i32, ptr %45, align 4
   %47 = load ptr, ptr %0, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 4
   store i32 %46, ptr %48, align 4
   br label %49
 
@@ -412,14 +412,14 @@ _ZN9QtPrivate8RefCount3refEv.exit:                ; preds = %2
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN15XMLInteriorNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV15XMLInteriorNode, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load atomic i32, ptr %3 monotonic, align 4
   %5 = icmp ult i32 %4, 2
   br i1 %5, label %_ZN7QVectorIP7XMLNodeE5beginEv.exit, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 2147483647
   %.not.i.i = icmp eq i32 %9, 0
@@ -440,7 +440,7 @@ define void @_ZN15XMLInteriorNodeD2Ev(ptr noundef nonnull align 8 dereferenceabl
 
 _ZN7QVectorIP7XMLNodeE5beginEv.exit:              ; preds = %1, %10, %.noexc
   %13 = phi ptr [ %3, %1 ], [ %11, %10 ], [ %.pre.i, %.noexc ]
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load i64, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %13, i64 %15
   br label %17
@@ -453,7 +453,7 @@ _ZN7QVectorIP7XMLNodeE5beginEv.exit:              ; preds = %1, %10, %.noexc
   br i1 %19, label %27, label %20
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %.pre10, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %.pre10, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = and i32 %22, 2147483647
   %.not.i.i5 = icmp eq i32 %23, 0
@@ -474,10 +474,10 @@ _ZN7QVectorIP7XMLNodeE5beginEv.exit:              ; preds = %1, %10, %.noexc
 
 27:                                               ; preds = %.noexc7, %24, %17
   %28 = phi ptr [ %.pre10, %17 ], [ %25, %24 ], [ %.pre.i6, %.noexc7 ]
-  %29 = getelementptr inbounds i8, ptr %28, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load i64, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %28, i64 %30
-  %32 = getelementptr inbounds i8, ptr %28, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %33 = load i32, ptr %32, align 4
   %34 = sext i32 %33 to i64
   %35 = getelementptr inbounds ptr, ptr %31, i64 %34
@@ -491,7 +491,7 @@ _ZN7QVectorIP7XMLNodeE5beginEv.exit:              ; preds = %1, %10, %.noexc
 
 39:                                               ; preds = %36
   %40 = load ptr, ptr %37, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load ptr, ptr %41, align 8
   tail call void %42(ptr noundef nonnull align 8 dereferenceable(16) %37) #12
   %.pre.pre = load ptr, ptr %2, align 8
@@ -499,7 +499,7 @@ _ZN7QVectorIP7XMLNodeE5beginEv.exit:              ; preds = %1, %10, %.noexc
 
 43:                                               ; preds = %36, %39
   %.pre = phi ptr [ %28, %36 ], [ %.pre.pre, %39 ]
-  %44 = getelementptr inbounds i8, ptr %.0, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   br label %17, !llvm.loop !5
 
 45:                                               ; preds = %27
@@ -525,14 +525,14 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
 
 _ZN7QVectorIP7XMLNodeED2Ev.exit:                  ; preds = %45, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
   store ptr getelementptr inbounds (i8, ptr @_ZTV7XMLNode, i64 16), ptr %0, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %50, null
   br i1 %51, label %_ZN7XMLNodeD2Ev.exit, label %52
 
 52:                                               ; preds = %_ZN7QVectorIP7XMLNodeED2Ev.exit
   %53 = load ptr, ptr %50, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load ptr, ptr %54, align 8
   tail call void %55(ptr noundef nonnull align 8 dereferenceable(24) %50) #12
   br label %_ZN7XMLNodeD2Ev.exit

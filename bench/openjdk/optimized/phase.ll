@@ -83,15 +83,15 @@ define hidden void @_ZN5PhaseC2ENS_11PhaseNumberE(ptr nocapture noundef nonnull 
 4:                                                ; preds = %2
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 1808
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 128
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %10 = load ptr, ptr %9, align 8
   br label %11
 
 11:                                               ; preds = %2, %4
   %12 = phi ptr [ %10, %4 ], [ null, %2 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %12, ptr %13, align 8
   tail call void @_ZN13CompileBroker11maybe_blockEv() #4
   ret void
@@ -445,18 +445,18 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: none, inaccessiblemem: none) uwtable
 define internal void @_GLOBAL__sub_I_phase.cpp() #3 section ".text.startup" {
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN5Phase19_t_totalCompilationE, i64 16), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Phase19_t_totalCompilationE, i64 16), align 8
   store i64 0, ptr @_ZN5Phase19_t_totalCompilationE, align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN5Phase20_t_methodCompilationE, i64 16), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Phase20_t_methodCompilationE, i64 16), align 8
   store i64 0, ptr @_ZN5Phase20_t_methodCompilationE, align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN5Phase18_t_stubCompilationE, i64 16), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Phase18_t_stubCompilationE, i64 16), align 8
   store i64 0, ptr @_ZN5Phase18_t_stubCompilationE, align 8
   br label %1
 
 1:                                                ; preds = %1, %0
   %.idx.i = phi i64 [ 0, %0 ], [ %.add.i, %1 ]
-  %.ptr.i = getelementptr inbounds i8, ptr @_ZN5Phase6timersE, i64 %.idx.i
-  %2 = getelementptr inbounds i8, ptr %.ptr.i, i64 16
+  %.ptr.i = getelementptr inbounds nuw i8, ptr @_ZN5Phase6timersE, i64 %.idx.i
+  %2 = getelementptr inbounds nuw i8, ptr %.ptr.i, i64 16
   store i8 0, ptr %2, align 8
   store i64 0, ptr %.ptr.i, align 8
   %.add.i = add nuw nsw i64 %.idx.i, 24

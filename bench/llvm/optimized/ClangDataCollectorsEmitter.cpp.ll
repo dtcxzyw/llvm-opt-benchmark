@@ -29,9 +29,9 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang23EmitClangDataCollectorsERN4llvm12RecordKeeperERNS0_11raw_ostreamE(ptr noundef nonnull readonly align 8 dereferenceable(232) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.not29 = icmp eq ptr %5, %6
   br i1 %.not29, label %._crit_edge, label %.lr.ph31
 
@@ -61,7 +61,7 @@ define dso_local void @_ZN5clang23EmitClangDataCollectorsERN4llvm12RecordKeeperE
 20:                                               ; preds = %9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %13, ptr noundef nonnull align 1 dereferenceable(13) @.str, i64 13, i1 false)
   %21 = load ptr, ptr %8, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 13
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 13
   store ptr %22, ptr %8, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -71,7 +71,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %18, %20
   %24 = load ptr, ptr %11, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %.sroa.0.0.copyload.i.i = load ptr, ptr %25, align 8
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %24, i64 32
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %24, i64 32
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %26 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   %27 = load ptr, ptr %26, align 8
@@ -118,7 +118,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %33, %35, %36
   %49 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
   store i32 175841324, ptr %39, align 1
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
   store ptr %51, ptr %49, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit14
 
@@ -138,7 +138,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit14:               ; preds = %46, %48
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit14, %.lr.ph.i.i.i
   %.01113.i.i.i28 = phi ptr [ %61, %.lr.ph.i.i.i ], [ %56, %_ZN4llvm11raw_ostreamlsEPKc.exit14 ]
-  %61 = getelementptr inbounds i8, ptr %.01113.i.i.i28, i64 104
+  %61 = getelementptr inbounds nuw i8, ptr %.01113.i.i.i28, i64 104
   %.not.i.i.i = icmp ne ptr %61, %58
   call void @llvm.assume(i1 %.not.i.i.i)
   %62 = load ptr, ptr %61, align 8
@@ -150,7 +150,7 @@ _ZN4llvm6Record8getValueENS_9StringRefE.exit:     ; preds = %.lr.ph.i.i.i, %_ZN4
   %64 = getelementptr inbounds nuw i8, ptr %.01113.i.i.i.lcssa, i64 24
   %65 = load ptr, ptr %64, align 8
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 48
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 48
   %68 = load ptr, ptr %67, align 8
   call void %68(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(10) %65) #6
   %69 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #6
@@ -173,7 +173,7 @@ _ZN4llvm6Record8getValueENS_9StringRefE.exit:     ; preds = %.lr.ph.i.i.i, %_ZN4
 82:                                               ; preds = %_ZN4llvm6Record8getValueENS_9StringRefE.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %75, ptr noundef nonnull align 1 dereferenceable(3) @.str.3, i64 3, i1 false)
   %83 = load ptr, ptr %74, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 3
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 3
   store ptr %84, ptr %74, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit17
 
@@ -191,7 +191,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit17:               ; preds = %80, %82
 90:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit17
   store i8 10, ptr %86, align 1
   %91 = load ptr, ptr %8, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 1
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 1
   store ptr %92, ptr %8, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit20
 
@@ -218,7 +218,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit20:               ; preds = %88, %90
 104:                                              ; preds = %._crit_edge
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %97, ptr noundef nonnull align 1 dereferenceable(20) @.str.5, i64 20, i1 false)
   %105 = load ptr, ptr %96, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 20
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 20
   store ptr %106, ptr %96, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit23
 

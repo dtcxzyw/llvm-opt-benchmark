@@ -44,7 +44,7 @@ define range(i32 -1, 1) i32 @ADIOI_Info_check_and_install_int(ptr nocapture noun
 17:                                               ; preds = %14
   %18 = call i32 @atoi(ptr nocapture noundef nonnull %9) #5
   store i32 %18, ptr %7, align 4
-  %19 = getelementptr inbounds i8, ptr %0, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %20 = load ptr, ptr %19, align 8
   %21 = call i32 @PMPI_Bcast(ptr noundef nonnull %7, i32 noundef 1, ptr noundef nonnull @ompi_mpi_int, i32 noundef 0, ptr noundef %20) #4
   %22 = load i32, ptr %7, align 4
@@ -57,7 +57,7 @@ define range(i32 -1, 1) i32 @ADIOI_Info_check_and_install_int(ptr nocapture noun
   br label %30
 
 25:                                               ; preds = %17
-  %26 = getelementptr inbounds i8, ptr %0, i64 144
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %27 = load ptr, ptr %26, align 8
   %28 = call i32 @PMPI_Info_set(ptr noundef %27, ptr noundef %2, ptr noundef nonnull %9) #4
   %.not27 = icmp eq ptr %3, null
@@ -123,7 +123,7 @@ define range(i32 -1, 1) i32 @ADIOI_Info_check_and_install_enabled(ptr nocapture 
   br i1 %.not36, label %21, label %25
 
 21:                                               ; preds = %19, %17
-  %22 = getelementptr inbounds i8, ptr %0, i64 144
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %23 = load ptr, ptr %22, align 8
   %24 = call i32 @PMPI_Info_set(ptr noundef %23, ptr noundef %2, ptr noundef nonnull %9) #4
   store i32 1, ptr %3, align 4
@@ -140,7 +140,7 @@ define range(i32 -1, 1) i32 @ADIOI_Info_check_and_install_enabled(ptr nocapture 
   br i1 %.not38, label %29, label %33
 
 29:                                               ; preds = %27, %25
-  %30 = getelementptr inbounds i8, ptr %0, i64 144
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %31 = load ptr, ptr %30, align 8
   %32 = call i32 @PMPI_Info_set(ptr noundef %31, ptr noundef %2, ptr noundef nonnull %9) #4
   store i32 2, ptr %3, align 4
@@ -161,7 +161,7 @@ define range(i32 -1, 1) i32 @ADIOI_Info_check_and_install_enabled(ptr nocapture 
   br label %41
 
 37:                                               ; preds = %35, %33
-  %38 = getelementptr inbounds i8, ptr %0, i64 144
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %39 = load ptr, ptr %38, align 8
   %40 = call i32 @PMPI_Info_set(ptr noundef %39, ptr noundef %2, ptr noundef nonnull %9) #4
   store i32 0, ptr %3, align 4
@@ -170,7 +170,7 @@ define range(i32 -1, 1) i32 @ADIOI_Info_check_and_install_enabled(ptr nocapture 
 41:                                               ; preds = %._crit_edge, %29, %37, %21
   %42 = phi i32 [ %.pre, %._crit_edge ], [ 2, %29 ], [ 0, %37 ], [ 1, %21 ]
   store i32 %42, ptr %7, align 4
-  %43 = getelementptr inbounds i8, ptr %0, i64 64
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %44 = load ptr, ptr %43, align 8
   %45 = call i32 @PMPI_Bcast(ptr noundef nonnull %7, i32 noundef 1, ptr noundef nonnull @ompi_mpi_int, i32 noundef 0, ptr noundef %44) #4
   %46 = load i32, ptr %7, align 4
@@ -227,7 +227,7 @@ define range(i32 -1, 1) i32 @ADIOI_Info_check_and_install_true(ptr nocapture nou
   br i1 %.not30, label %21, label %25
 
 21:                                               ; preds = %19, %17
-  %22 = getelementptr inbounds i8, ptr %0, i64 144
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %23 = load ptr, ptr %22, align 8
   %24 = call i32 @PMPI_Info_set(ptr noundef %23, ptr noundef %2, ptr noundef nonnull %9) #4
   store i32 1, ptr %3, align 4
@@ -248,7 +248,7 @@ define range(i32 -1, 1) i32 @ADIOI_Info_check_and_install_true(ptr nocapture nou
   br label %33
 
 29:                                               ; preds = %27, %25
-  %30 = getelementptr inbounds i8, ptr %0, i64 144
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %31 = load ptr, ptr %30, align 8
   %32 = call i32 @PMPI_Info_set(ptr noundef %31, ptr noundef %2, ptr noundef nonnull %9) #4
   store i32 0, ptr %3, align 4
@@ -257,7 +257,7 @@ define range(i32 -1, 1) i32 @ADIOI_Info_check_and_install_true(ptr nocapture nou
 33:                                               ; preds = %._crit_edge, %29, %21
   %34 = phi i32 [ %.pre, %._crit_edge ], [ 0, %29 ], [ 1, %21 ]
   store i32 %34, ptr %8, align 4
-  %35 = getelementptr inbounds i8, ptr %0, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %36 = load ptr, ptr %35, align 8
   %37 = call i32 @PMPI_Bcast(ptr noundef nonnull %8, i32 noundef 1, ptr noundef nonnull @ompi_mpi_int, i32 noundef 0, ptr noundef %36) #4
   %38 = load i32, ptr %8, align 4
@@ -300,7 +300,7 @@ define range(i32 -1, 1) i32 @ADIOI_Info_check_and_install_str(ptr nocapture noun
   br i1 %.not, label %29, label %16
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %0, i64 144
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %18 = load ptr, ptr %17, align 8
   %19 = call i32 @PMPI_Info_set(ptr noundef %18, ptr noundef %2, ptr noundef nonnull %8) #4
   %20 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #5

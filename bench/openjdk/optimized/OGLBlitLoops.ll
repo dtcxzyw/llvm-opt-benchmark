@@ -56,15 +56,15 @@ define hidden void @OGLBlitLoops_IsoBlit(ptr nocapture noundef readnone %0, ptr 
 
 30:                                               ; preds = %16
   store i32 %8, ptr %17, align 8
-  %31 = getelementptr inbounds i8, ptr %17, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 %9, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %17, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i32 %10, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %17, i64 12
+  %33 = getelementptr inbounds nuw i8, ptr %17, i64 12
   store i32 %11, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %18, i64 92
+  %34 = getelementptr inbounds nuw i8, ptr %18, i64 92
   %35 = load i32, ptr %34, align 4
-  %36 = getelementptr inbounds i8, ptr %18, i64 96
+  %36 = getelementptr inbounds nuw i8, ptr %18, i64 96
   %37 = load i32, ptr %36, align 8
   call void @SurfaceData_IntersectBoundsXYXY(ptr noundef nonnull %17, i32 noundef 0, i32 noundef 0, i32 noundef %35, i32 noundef %37) #6
   %38 = load i32, ptr %32, align 8
@@ -141,7 +141,7 @@ define hidden void @OGLBlitLoops_IsoBlit(ptr nocapture noundef readnone %0, ptr 
 74:                                               ; preds = %73
   %75 = icmp eq i32 %5, 2
   %76 = select i1 %75, i32 9729, i32 9728
-  %77 = getelementptr inbounds i8, ptr %18, i64 112
+  %77 = getelementptr inbounds nuw i8, ptr %18, i64 112
   %78 = load i32, ptr %77, align 8
   call void @OGLRenderQueue_CheckPreviousOp(i32 noundef %78) #6
   %.not.i = icmp eq i8 %7, 0
@@ -168,12 +168,12 @@ define hidden void @OGLBlitLoops_IsoBlit(ptr nocapture noundef readnone %0, ptr 
   br label %105
 
 91:                                               ; preds = %83
-  %92 = getelementptr inbounds i8, ptr %18, i64 104
+  %92 = getelementptr inbounds nuw i8, ptr %18, i64 104
   %93 = load i32, ptr %92, align 8
   %94 = sitofp i32 %93 to double
   %95 = fdiv double %86, %94
   %96 = sitofp i32 %.048.i to double
-  %97 = getelementptr inbounds i8, ptr %18, i64 108
+  %97 = getelementptr inbounds nuw i8, ptr %18, i64 108
   %98 = load i32, ptr %97, align 4
   %99 = sitofp i32 %98 to double
   %100 = fdiv double %96, %99
@@ -189,10 +189,10 @@ define hidden void @OGLBlitLoops_IsoBlit(ptr nocapture noundef readnone %0, ptr 
   %.045.i = phi double [ %89, %87 ], [ %102, %91 ]
   %.0.i = phi double [ %90, %87 ], [ %104, %91 ]
   %106 = load ptr, ptr @j2d_glBindTexture, align 8
-  %107 = getelementptr inbounds i8, ptr %18, i64 100
+  %107 = getelementptr inbounds nuw i8, ptr %18, i64 100
   %108 = load i32, ptr %107, align 4
   call void %106(i32 noundef %84, i32 noundef %108) #6
-  %109 = getelementptr inbounds i8, ptr %1, i64 52
+  %109 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %110 = load i32, ptr %109, align 4
   %.not51.i = icmp eq i32 %110, 8448
   br i1 %.not51.i, label %113, label %111
@@ -204,7 +204,7 @@ define hidden void @OGLBlitLoops_IsoBlit(ptr nocapture noundef readnone %0, ptr 
   br label %113
 
 113:                                              ; preds = %111, %105
-  %114 = getelementptr inbounds i8, ptr %18, i64 116
+  %114 = getelementptr inbounds nuw i8, ptr %18, i64 116
   %115 = load i32, ptr %114, align 4
   %.not52.i = icmp eq i32 %115, %76
   br i1 %.not52.i, label %OGLBlitTextureToSurface.exit, label %116
@@ -247,7 +247,7 @@ OGLBlitTextureToSurface.exit:                     ; preds = %113, %116
   br i1 %.not129, label %132, label %.thread
 
 132:                                              ; preds = %131
-  %133 = getelementptr inbounds i8, ptr %1, i64 8
+  %133 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %134 = load i32, ptr %133, align 8
   %135 = lshr i32 %134, 24
   %136 = and i32 %135, 3
@@ -279,7 +279,7 @@ OGLBlitTextureToSurface.exit:                     ; preds = %113, %116
   br label %146
 
 145:                                              ; preds = %132, %141
-  %.0.in.in.in = getelementptr inbounds i8, ptr %1, i64 16
+  %.0.in.in.in = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.0.in.in = load float, ptr %.0.in.in.in, align 8
   %.0.in = fcmp oeq float %.0.in.in, 1.000000e+00
   call void @OGLRenderQueue_CheckPreviousOp(i32 noundef -1) #6
@@ -312,14 +312,14 @@ define internal fastcc void @OGLBlitToSurfaceViaTexture(ptr noundef %0, ptr noca
   br i1 %.not, label %20, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %2, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %19 = load i8, ptr %18, align 4
   %.not146 = icmp ne i8 %19, 0
   br label %20
 
 20:                                               ; preds = %17, %14
   %.not149 = phi i1 [ true, %14 ], [ %.not146, %17 ]
-  %21 = getelementptr inbounds i8, ptr %0, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %22 = load i32, ptr %21, align 8
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %27
@@ -349,7 +349,7 @@ define internal fastcc void @OGLBlitToSurfaceViaTexture(ptr noundef %0, ptr noca
   %39 = load ptr, ptr @j2d_glBindTexture, align 8
   %40 = load i32, ptr %21, align 8
   tail call void %39(i32 noundef 3553, i32 noundef %40) #6
-  %41 = getelementptr inbounds i8, ptr %0, i64 52
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %42 = load i32, ptr %41, align 4
   %.not148 = icmp eq i32 %42, 8448
   br i1 %.not148, label %45, label %43
@@ -375,9 +375,9 @@ define internal fastcc void @OGLBlitToSurfaceViaTexture(ptr noundef %0, ptr noca
   br label %51
 
 51:                                               ; preds = %48, %45
-  %52 = getelementptr inbounds i8, ptr %1, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %53 = load i32, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %1, i64 28
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %55 = load i32, ptr %54, align 4
   %56 = srem i32 %53, %55
   %.not151 = icmp eq i32 %56, 0
@@ -386,11 +386,11 @@ define internal fastcc void @OGLBlitToSurfaceViaTexture(ptr noundef %0, ptr noca
 
 .lr.ph161:                                        ; preds = %51
   %58 = icmp slt i32 %6, %8
-  %59 = getelementptr inbounds i8, ptr %1, i64 16
-  %60 = getelementptr inbounds i8, ptr %2, i64 4
-  %61 = getelementptr inbounds i8, ptr %3, i64 84
-  %62 = getelementptr inbounds i8, ptr %3, i64 88
-  %63 = getelementptr inbounds i8, ptr %3, i64 96
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 84
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 88
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 96
   br i1 %58, label %.lr.ph161.split.us, label %._crit_edge
 
 .lr.ph161.split.us:                               ; preds = %.lr.ph161
@@ -602,16 +602,16 @@ define internal fastcc void @OGLBlitSurfaceToSurface(ptr nocapture noundef reado
   %18 = fptrunc double %17 to float
   %19 = sitofp i32 %12 to float
   %20 = fdiv float %18, %19
-  %21 = getelementptr inbounds i8, ptr %1, i64 84
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %22 = load i32, ptr %21, align 4
   %23 = add nsw i32 %22, %2
-  %24 = getelementptr inbounds i8, ptr %1, i64 88
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %25 = load i32, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 96
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %27 = load i32, ptr %26, align 8
   %28 = sub i32 %25, %5
   %29 = add i32 %28, %27
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %31 = load float, ptr %30, align 8
   %32 = fcmp une float %31, 1.000000e+00
   br i1 %32, label %33, label %34
@@ -693,11 +693,11 @@ define hidden void @OGLBlitLoops_Blit(ptr noundef %0, ptr noundef %1, i64 nounde
 35:                                               ; preds = %16
   tail call void @OGLRenderQueue_CheckPreviousOp(i32 noundef -1) #6
   store i32 %8, ptr %17, align 8
-  %36 = getelementptr inbounds i8, ptr %17, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 %9, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %17, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i32 %10, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %17, i64 12
+  %38 = getelementptr inbounds nuw i8, ptr %17, i64 12
   store i32 %11, ptr %38, align 4
   %39 = load ptr, ptr %19, align 8
   %40 = call i32 %39(ptr noundef %0, ptr noundef nonnull %19, ptr noundef nonnull %17, i32 noundef 1) #6
@@ -717,10 +717,10 @@ define hidden void @OGLBlitLoops_Blit(ptr noundef %0, ptr noundef %1, i64 nounde
   br i1 %48, label %49, label %128
 
 49:                                               ; preds = %45
-  %50 = getelementptr inbounds i8, ptr %19, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %51 = load ptr, ptr %50, align 8
   call void %51(ptr noundef %0, ptr noundef nonnull %19, ptr noundef nonnull %17) #6
-  %52 = getelementptr inbounds i8, ptr %17, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %53 = load ptr, ptr %52, align 8
   %.not128 = icmp eq ptr %53, null
   br i1 %.not128, label %124, label %54
@@ -791,14 +791,14 @@ define hidden void @OGLBlitLoops_Blit(ptr noundef %0, ptr noundef %1, i64 nounde
   %88 = load ptr, ptr @j2d_glPixelStorei, align 8
   call void %88(i32 noundef 3315, i32 noundef 0) #6
   %89 = load ptr, ptr @j2d_glPixelStorei, align 8
-  %90 = getelementptr inbounds i8, ptr %17, i64 32
+  %90 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %91 = load i32, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %17, i64 28
+  %92 = getelementptr inbounds nuw i8, ptr %17, i64 28
   %93 = load i32, ptr %92, align 4
   %94 = sdiv i32 %91, %93
   call void %89(i32 noundef 3314, i32 noundef %94) #6
   %95 = load ptr, ptr @j2d_glPixelStorei, align 8
-  %96 = getelementptr inbounds i8, ptr %18, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %97 = load i32, ptr %96, align 4
   call void %95(i32 noundef 3317, i32 noundef %97) #6
   %.not133 = icmp eq i8 %7, 0
@@ -817,7 +817,7 @@ define hidden void @OGLBlitLoops_Blit(ptr noundef %0, ptr noundef %1, i64 nounde
   br i1 %.not134, label %104, label %.critedge141
 
 104:                                              ; preds = %103
-  %105 = getelementptr inbounds i8, ptr %1, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %106 = load i32, ptr %105, align 8
   %107 = lshr i32 %106, 24
   %108 = and i32 %107, 3
@@ -841,7 +841,7 @@ define hidden void @OGLBlitLoops_Blit(ptr noundef %0, ptr noundef %1, i64 nounde
   br i1 %.not136, label %117, label %.critedge141
 
 117:                                              ; preds = %113
-  %118 = getelementptr inbounds i8, ptr %1, i64 16
+  %118 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %119 = load float, ptr %118, align 8
   %120 = fcmp oeq float %119, 1.000000e+00
   br i1 %120, label %.critedge, label %.critedge141
@@ -862,7 +862,7 @@ define hidden void @OGLBlitLoops_Blit(ptr noundef %0, ptr noundef %1, i64 nounde
   br label %124
 
 124:                                              ; preds = %49, %121
-  %125 = getelementptr inbounds i8, ptr %19, i64 16
+  %125 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %126 = load ptr, ptr %125, align 8
   %.not138 = icmp eq ptr %126, null
   br i1 %.not138, label %128, label %127
@@ -872,7 +872,7 @@ define hidden void @OGLBlitLoops_Blit(ptr noundef %0, ptr noundef %1, i64 nounde
   br label %128
 
 128:                                              ; preds = %41, %45, %124, %127
-  %129 = getelementptr inbounds i8, ptr %19, i64 24
+  %129 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %130 = load ptr, ptr %129, align 8
   %.not139 = icmp eq ptr %130, null
   br i1 %.not139, label %132, label %131
@@ -890,13 +890,13 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @OGLBlitSwToTexture(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %1, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %9 = load i8, ptr %8, align 4
   %.not = icmp eq i8 %9, 0
   %10 = load ptr, ptr @j2d_glBindTexture, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 112
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 100
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 100
   %14 = load i32, ptr %13, align 4
   tail call void %10(i32 noundef %12, i32 noundef %14) #6
   br i1 %.not, label %15, label %18
@@ -909,9 +909,9 @@ define internal fastcc void @OGLBlitSwToTexture(ptr nocapture noundef nonnull re
   br label %18
 
 18:                                               ; preds = %15, %7
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load i32, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 28
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %22 = load i32, ptr %21, align 4
   %23 = srem i32 %20, %22
   %.not36 = icmp eq i32 %23, 0
@@ -924,9 +924,9 @@ define internal fastcc void @OGLBlitSwToTexture(ptr nocapture noundef nonnull re
   br i1 %27, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 4
   br label %31
 
 31:                                               ; preds = %.lr.ph, %31
@@ -953,9 +953,9 @@ define internal fastcc void @OGLBlitSwToTexture(ptr nocapture noundef nonnull re
   %47 = sub nsw i32 %5, %3
   %48 = sub nsw i32 %6, %4
   %49 = load i32, ptr %1, align 4
-  %50 = getelementptr inbounds i8, ptr %1, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %51 = load i32, ptr %50, align 4
-  %52 = getelementptr inbounds i8, ptr %0, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %53 = load ptr, ptr %52, align 8
   tail call void %45(i32 noundef %46, i32 noundef 0, i32 noundef %3, i32 noundef %4, i32 noundef %47, i32 noundef %48, i32 noundef %49, i32 noundef %51, ptr noundef %53) #6
   br label %.loopexit
@@ -985,7 +985,7 @@ define internal fastcc void @OGLBlitSwToSurface(ptr nocapture noundef readonly %
   %18 = fptrunc double %17 to float
   %19 = sub nsw i32 %6, %4
   %20 = sitofp i32 %19 to float
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load float, ptr %21, align 8
   %23 = fcmp une float %22, 1.000000e+00
   br i1 %23, label %24, label %25
@@ -995,7 +995,7 @@ define internal fastcc void @OGLBlitSwToSurface(ptr nocapture noundef readonly %
   br label %25
 
 25:                                               ; preds = %24, %11
-  %26 = getelementptr inbounds i8, ptr %2, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %27 = load i8, ptr %26, align 4
   %.not = icmp eq i8 %27, 0
   br i1 %.not, label %28, label %32
@@ -1020,16 +1020,16 @@ define internal fastcc void @OGLBlitSwToSurface(ptr nocapture noundef readonly %
   %39 = fneg float %18
   %40 = fdiv float %39, %20
   tail call void %38(float noundef %16, float noundef %40) #6
-  %41 = getelementptr inbounds i8, ptr %1, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %42 = load ptr, ptr %41, align 8
   %43 = ptrtoint ptr %42 to i64
   %44 = sext i32 %4 to i64
-  %45 = getelementptr inbounds i8, ptr %1, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %46 = load i32, ptr %45, align 8
   %47 = sext i32 %46 to i64
   %48 = mul nsw i64 %47, %44
   %49 = sext i32 %3 to i64
-  %50 = getelementptr inbounds i8, ptr %1, i64 28
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %51 = load i32, ptr %50, align 4
   %52 = sext i32 %51 to i64
   %53 = mul nsw i64 %52, %49
@@ -1045,7 +1045,7 @@ define internal fastcc void @OGLBlitSwToSurface(ptr nocapture noundef readonly %
   br i1 %58, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %59 = getelementptr inbounds i8, ptr %2, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %60
 
 60:                                               ; preds = %.lr.ph, %60
@@ -1069,7 +1069,7 @@ define internal fastcc void @OGLBlitSwToSurface(ptr nocapture noundef readonly %
 72:                                               ; preds = %32
   %73 = load ptr, ptr @j2d_glDrawPixels, align 8
   %74 = load i32, ptr %2, align 4
-  %75 = getelementptr inbounds i8, ptr %2, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %76 = load i32, ptr %75, align 4
   tail call void %73(i32 noundef %14, i32 noundef %19, i32 noundef %74, i32 noundef %76, ptr noundef %56) #6
   br label %.loopexit
@@ -1159,9 +1159,9 @@ define hidden void @flip(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 nou
 
 31:                                               ; preds = %93, %.preheader.us.us.us
   %indvars.iv162 = phi i64 [ %indvars.iv.next163, %93 ], [ 0, %.preheader.us.us.us ]
-  %32 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv162
+  %32 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv162
   %33 = load i32, ptr %32, align 4
-  %34 = getelementptr inbounds i32, ptr %30, i64 %indvars.iv162
+  %34 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv162
   %35 = load i32, ptr %34, align 4
   %36 = lshr i32 %35, 24
   %37 = icmp eq i32 %36, 255
@@ -1177,15 +1177,15 @@ define hidden void @flip(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 nou
   %44 = and i32 %43, 255
   %45 = zext nneg i32 %36 to i64
   %46 = zext nneg i32 %44 to i64
-  %47 = getelementptr inbounds [256 x [256 x i8]], ptr @div8table, i64 0, i64 %45, i64 %46
+  %47 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @div8table, i64 0, i64 %45, i64 %46
   %48 = load i8, ptr %47, align 1
   %49 = zext i8 %48 to i32
   %50 = zext nneg i32 %42 to i64
-  %51 = getelementptr inbounds [256 x [256 x i8]], ptr @div8table, i64 0, i64 %45, i64 %50
+  %51 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @div8table, i64 0, i64 %45, i64 %50
   %52 = load i8, ptr %51, align 1
   %53 = zext i8 %52 to i32
   %54 = zext nneg i32 %40 to i64
-  %55 = getelementptr inbounds [256 x [256 x i8]], ptr @div8table, i64 0, i64 %45, i64 %54
+  %55 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @div8table, i64 0, i64 %45, i64 %54
   %56 = load i8, ptr %55, align 1
   %57 = zext i8 %56 to i32
   %58 = shl nuw nsw i32 %36, 16
@@ -1213,15 +1213,15 @@ define hidden void @flip(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 nou
   %73 = and i32 %72, 255
   %74 = zext nneg i32 %65 to i64
   %75 = zext nneg i32 %73 to i64
-  %76 = getelementptr inbounds [256 x [256 x i8]], ptr @div8table, i64 0, i64 %74, i64 %75
+  %76 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @div8table, i64 0, i64 %74, i64 %75
   %77 = load i8, ptr %76, align 1
   %78 = zext i8 %77 to i32
   %79 = zext nneg i32 %71 to i64
-  %80 = getelementptr inbounds [256 x [256 x i8]], ptr @div8table, i64 0, i64 %74, i64 %79
+  %80 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @div8table, i64 0, i64 %74, i64 %79
   %81 = load i8, ptr %80, align 1
   %82 = zext i8 %81 to i32
   %83 = zext nneg i32 %69 to i64
-  %84 = getelementptr inbounds [256 x [256 x i8]], ptr @div8table, i64 0, i64 %74, i64 %83
+  %84 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @div8table, i64 0, i64 %74, i64 %83
   %85 = load i8, ptr %84, align 1
   %86 = zext i8 %85 to i32
   %87 = shl nuw nsw i32 %65, 16
@@ -1260,9 +1260,9 @@ define hidden void @flip(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 nou
 
 104:                                              ; preds = %.preheader.us.us, %104
   %indvars.iv152 = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next153, %104 ]
-  %105 = getelementptr inbounds i32, ptr %96, i64 %indvars.iv152
+  %105 = getelementptr inbounds nuw i32, ptr %96, i64 %indvars.iv152
   %106 = load i32, ptr %105, align 4
-  %107 = getelementptr inbounds i32, ptr %103, i64 %indvars.iv152
+  %107 = getelementptr inbounds nuw i32, ptr %103, i64 %indvars.iv152
   %108 = load i32, ptr %107, align 4
   store i32 %108, ptr %105, align 4
   store i32 %106, ptr %107, align 4
@@ -1319,7 +1319,7 @@ define hidden void @flip(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 nou
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %158
   %indvars.iv172 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next173, %158 ]
-  %128 = getelementptr inbounds i32, ptr %127, i64 %indvars.iv172
+  %128 = getelementptr inbounds nuw i32, ptr %127, i64 %indvars.iv172
   %129 = load i32, ptr %128, align 4
   %130 = lshr i32 %129, 24
   %131 = icmp eq i32 %130, 255
@@ -1335,15 +1335,15 @@ define hidden void @flip(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 nou
   %138 = and i32 %137, 255
   %139 = zext nneg i32 %130 to i64
   %140 = zext nneg i32 %138 to i64
-  %141 = getelementptr inbounds [256 x [256 x i8]], ptr @div8table, i64 0, i64 %139, i64 %140
+  %141 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @div8table, i64 0, i64 %139, i64 %140
   %142 = load i8, ptr %141, align 1
   %143 = zext i8 %142 to i32
   %144 = zext nneg i32 %136 to i64
-  %145 = getelementptr inbounds [256 x [256 x i8]], ptr @div8table, i64 0, i64 %139, i64 %144
+  %145 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @div8table, i64 0, i64 %139, i64 %144
   %146 = load i8, ptr %145, align 1
   %147 = zext i8 %146 to i32
   %148 = zext nneg i32 %134 to i64
-  %149 = getelementptr inbounds [256 x [256 x i8]], ptr @div8table, i64 0, i64 %139, i64 %148
+  %149 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @div8table, i64 0, i64 %139, i64 %148
   %150 = load i8, ptr %149, align 1
   %151 = zext i8 %150 to i32
   %152 = shl nuw nsw i32 %130, 16
@@ -1387,11 +1387,11 @@ define hidden void @OGLBlitLoops_SurfaceToSwBlit(ptr noundef %0, ptr noundef rea
   %16 = sext i32 %4 to i64
   %17 = getelementptr inbounds [0 x %struct.OGLPixelFormat], ptr @PixelFormats, i64 0, i64 %16
   %.sroa.0.0.copyload = load i32, ptr %17, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 4
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 4
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 8
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 4
-  %.sroa.411.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 13
+  %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 13
   %.sroa.411.0.copyload = load i8, ptr %.sroa.411.0..sroa_idx, align 1
   %18 = icmp slt i32 %9, 1
   %19 = icmp slt i32 %10, 1
@@ -1407,22 +1407,22 @@ define hidden void @OGLBlitLoops_SurfaceToSwBlit(ptr noundef %0, ptr noundef rea
 23:                                               ; preds = %11
   tail call void @OGLRenderQueue_CheckPreviousOp(i32 noundef -1) #6
   store i32 %5, ptr %12, align 8
-  %24 = getelementptr inbounds i8, ptr %12, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 %6, ptr %24, align 4
   %25 = add nsw i32 %9, %5
-  %26 = getelementptr inbounds i8, ptr %12, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 %25, ptr %26, align 8
   %27 = add nsw i32 %10, %6
-  %28 = getelementptr inbounds i8, ptr %12, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %12, i64 12
   store i32 %27, ptr %28, align 4
   store i32 %7, ptr %13, align 8
-  %29 = getelementptr inbounds i8, ptr %13, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 %8, ptr %29, align 4
   %30 = add nsw i32 %9, %7
-  %31 = getelementptr inbounds i8, ptr %13, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 %30, ptr %31, align 8
   %32 = add nsw i32 %10, %8
-  %33 = getelementptr inbounds i8, ptr %13, i64 12
+  %33 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 %32, ptr %33, align 4
   %34 = load ptr, ptr %15, align 8
   %35 = call i32 %34(ptr noundef %0, ptr noundef nonnull %15, ptr noundef nonnull %13, i32 noundef 2) #6
@@ -1430,9 +1430,9 @@ define hidden void @OGLBlitLoops_SurfaceToSwBlit(ptr noundef %0, ptr noundef rea
   br i1 %.not, label %36, label %106
 
 36:                                               ; preds = %23
-  %37 = getelementptr inbounds i8, ptr %14, i64 92
+  %37 = getelementptr inbounds nuw i8, ptr %14, i64 92
   %38 = load i32, ptr %37, align 4
-  %39 = getelementptr inbounds i8, ptr %14, i64 96
+  %39 = getelementptr inbounds nuw i8, ptr %14, i64 96
   %40 = load i32, ptr %39, align 8
   call void @SurfaceData_IntersectBoundsXYXY(ptr noundef nonnull %12, i32 noundef 0, i32 noundef 0, i32 noundef %38, i32 noundef %40) #6
   %41 = sub nsw i32 %5, %7
@@ -1450,10 +1450,10 @@ define hidden void @OGLBlitLoops_SurfaceToSwBlit(ptr noundef %0, ptr noundef rea
   br i1 %49, label %50, label %102
 
 50:                                               ; preds = %46
-  %51 = getelementptr inbounds i8, ptr %15, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %52 = load ptr, ptr %51, align 8
   call void %52(ptr noundef %0, ptr noundef nonnull %15, ptr noundef nonnull %13) #6
-  %53 = getelementptr inbounds i8, ptr %13, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %54 = load ptr, ptr %53, align 8
   %.not72 = icmp eq ptr %54, null
   br i1 %.not72, label %98, label %55
@@ -1468,13 +1468,13 @@ define hidden void @OGLBlitLoops_SurfaceToSwBlit(ptr noundef %0, ptr noundef rea
   %62 = load i32, ptr %28, align 4
   %63 = sub nsw i32 %62, %57
   %64 = ptrtoint ptr %54 to i64
-  %65 = getelementptr inbounds i8, ptr %13, i64 28
+  %65 = getelementptr inbounds nuw i8, ptr %13, i64 28
   %66 = load i32, ptr %65, align 4
   %67 = mul nsw i32 %66, %58
   %68 = sext i32 %67 to i64
   %69 = add nsw i64 %68, %64
   %70 = sext i32 %59 to i64
-  %71 = getelementptr inbounds i8, ptr %13, i64 32
+  %71 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %72 = load i32, ptr %71, align 8
   %73 = sext i32 %72 to i64
   %74 = mul nsw i64 %73, %70
@@ -1485,10 +1485,10 @@ define hidden void @OGLBlitLoops_SurfaceToSwBlit(ptr noundef %0, ptr noundef rea
   call void %77(i32 noundef 3330, i32 noundef %78) #6
   %79 = load ptr, ptr @j2d_glPixelStorei, align 8
   call void %79(i32 noundef 3333, i32 noundef %.sroa.3.0.copyload) #6
-  %80 = getelementptr inbounds i8, ptr %14, i64 84
+  %80 = getelementptr inbounds nuw i8, ptr %14, i64 84
   %81 = load i32, ptr %80, align 4
   %82 = add nsw i32 %81, %56
-  %83 = getelementptr inbounds i8, ptr %14, i64 88
+  %83 = getelementptr inbounds nuw i8, ptr %14, i64 88
   %84 = load i32, ptr %83, align 8
   %85 = load i32, ptr %39, align 8
   %86 = sub i32 %84, %62
@@ -1500,7 +1500,7 @@ define hidden void @OGLBlitLoops_SurfaceToSwBlit(ptr noundef %0, ptr noundef rea
   br i1 %.not73, label %90, label %94
 
 90:                                               ; preds = %55
-  %91 = getelementptr inbounds i8, ptr %14, i64 80
+  %91 = getelementptr inbounds nuw i8, ptr %14, i64 80
   %92 = load i8, ptr %91, align 8
   %.not74 = icmp eq i8 %92, 0
   %93 = zext i1 %.not74 to i8
@@ -1516,7 +1516,7 @@ define hidden void @OGLBlitLoops_SurfaceToSwBlit(ptr noundef %0, ptr noundef rea
   br label %98
 
 98:                                               ; preds = %50, %94
-  %99 = getelementptr inbounds i8, ptr %15, i64 16
+  %99 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %100 = load ptr, ptr %99, align 8
   %.not75 = icmp eq ptr %100, null
   br i1 %.not75, label %102, label %101
@@ -1526,7 +1526,7 @@ define hidden void @OGLBlitLoops_SurfaceToSwBlit(ptr noundef %0, ptr noundef rea
   br label %102
 
 102:                                              ; preds = %36, %46, %98, %101
-  %103 = getelementptr inbounds i8, ptr %15, i64 24
+  %103 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %104 = load ptr, ptr %103, align 8
   %.not76 = icmp eq ptr %104, null
   br i1 %.not76, label %106, label %105
@@ -1553,28 +1553,28 @@ define hidden void @OGLBlitLoops_CopyArea(ptr nocapture noundef readnone %0, ptr
 14:                                               ; preds = %9
   tail call void @OGLRenderQueue_CheckPreviousOp(i32 noundef -1) #6
   store i32 %3, ptr %10, align 4
-  %15 = getelementptr inbounds i8, ptr %10, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 %4, ptr %15, align 4
   %16 = add nsw i32 %5, %3
-  %17 = getelementptr inbounds i8, ptr %10, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 %16, ptr %17, align 4
   %18 = add nsw i32 %6, %4
-  %19 = getelementptr inbounds i8, ptr %10, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store i32 %18, ptr %19, align 4
   %20 = add nsw i32 %7, %3
   store i32 %20, ptr %11, align 4
   %21 = add nsw i32 %8, %4
-  %22 = getelementptr inbounds i8, ptr %11, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 %21, ptr %22, align 4
   %23 = add nsw i32 %20, %5
-  %24 = getelementptr inbounds i8, ptr %11, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 %23, ptr %24, align 4
   %25 = add nsw i32 %21, %6
-  %26 = getelementptr inbounds i8, ptr %11, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %11, i64 12
   store i32 %25, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %2, i64 92
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 92
   %28 = load i32, ptr %27, align 4
-  %29 = getelementptr inbounds i8, ptr %2, i64 96
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %30 = load i32, ptr %29, align 8
   call void @SurfaceData_IntersectBoundsXYXY(ptr noundef nonnull %10, i32 noundef 0, i32 noundef 0, i32 noundef %28, i32 noundef %30) #6
   %31 = load i32, ptr %27, align 4

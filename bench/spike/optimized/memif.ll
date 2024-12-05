@@ -35,10 +35,10 @@ $_ZNK7memif_t21get_target_endiannessEv = comdat any
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7memif_t4readEmmPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(8) %6)
   %.not = icmp eq i64 %2, 0
@@ -101,7 +101,7 @@ define void @_ZN7memif_t4readEmmPv(ptr nocapture noundef nonnull readonly align 
   %37 = load ptr, ptr %5, align 8
   %38 = add i64 %.060, %.038
   %39 = load ptr, ptr %37, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
   %41 = load ptr, ptr %40, align 8
   %42 = call noundef i64 %41(ptr noundef nonnull align 8 dereferenceable(8) %37)
   %43 = sub nuw i64 %.1, %.060
@@ -112,7 +112,7 @@ define void @_ZN7memif_t4readEmmPv(ptr nocapture noundef nonnull readonly align 
   call void %46(ptr noundef nonnull align 8 dereferenceable(8) %37, i64 noundef %38, i64 noundef %.sroa.speculated, ptr noundef %44)
   %47 = load ptr, ptr %5, align 8
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 32
   %50 = load ptr, ptr %49, align 8
   %51 = call noundef i64 %50(ptr noundef nonnull align 8 dereferenceable(8) %47)
   %52 = add i64 %51, %.060
@@ -134,10 +134,10 @@ declare void @llvm.stackrestore.p0(ptr) #1
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7memif_t5writeEmmPKv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(8) %6)
   %.not = icmp eq i64 %2, 0
@@ -164,7 +164,7 @@ define void @_ZN7memif_t5writeEmmPKv(ptr nocapture noundef nonnull readonly alig
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr align 1 %3, i64 %.sroa.speculated66, i1 false)
   %23 = load ptr, ptr %5, align 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
   call void %26(ptr noundef nonnull align 8 dereferenceable(8) %23, i64 noundef %19, i64 noundef %10, ptr noundef nonnull %16)
   %27 = getelementptr inbounds i8, ptr %3, i64 %.sroa.speculated66
@@ -194,7 +194,7 @@ define void @_ZN7memif_t5writeEmmPKv(ptr nocapture noundef nonnull readonly alig
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %34, ptr align 1 %39, i64 %30, i1 false)
   %40 = load ptr, ptr %5, align 8
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8
   call void %43(ptr noundef nonnull align 8 dereferenceable(8) %40, i64 noundef %36, i64 noundef %10, ptr noundef nonnull %34)
   call void @llvm.stackrestore.p0(ptr %33)
@@ -222,7 +222,7 @@ define void @_ZN7memif_t5writeEmmPKv(ptr nocapture noundef nonnull readonly alig
 50:                                               ; preds = %._crit_edge
   %51 = load ptr, ptr %5, align 8
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load ptr, ptr %53, align 8
   call void %54(ptr noundef nonnull align 8 dereferenceable(8) %51, i64 noundef %.053, i64 noundef %.1)
   br label %.loopexit
@@ -230,7 +230,7 @@ define void @_ZN7memif_t5writeEmmPKv(ptr nocapture noundef nonnull readonly alig
 ._crit_edge.thread:                               ; preds = %44, %._crit_edge
   %55 = load ptr, ptr %5, align 8
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 32
   %58 = load ptr, ptr %57, align 8
   %59 = call noundef i64 %58(ptr noundef nonnull align 8 dereferenceable(8) %55)
   br i1 %.not84, label %.loopexit, label %.lr.ph83
@@ -243,7 +243,7 @@ define void @_ZN7memif_t5writeEmmPKv(ptr nocapture noundef nonnull readonly alig
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %62, i64 %59)
   %63 = getelementptr inbounds i8, ptr %.054, i64 %.081
   %64 = load ptr, ptr %60, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %66 = load ptr, ptr %65, align 8
   call void %66(ptr noundef nonnull align 8 dereferenceable(8) %60, i64 noundef %61, i64 noundef %.sroa.speculated, ptr noundef %63)
   %67 = add i64 %.081, %59
@@ -259,7 +259,7 @@ define i8 @_ZN7memif_t10read_uint8Em(ptr noundef nonnull align 8 dereferenceable
   %3 = alloca %class.target_endian, align 1
   store i8 0, ptr %3, align 1
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef 1, ptr noundef nonnull %3)
   %7 = load i8, ptr %3, align 1
@@ -285,7 +285,7 @@ define i8 @_ZN7memif_t9read_int8Em(ptr noundef nonnull align 8 dereferenceable(1
   %3 = alloca %class.target_endian.0, align 1
   store i8 0, ptr %3, align 1
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef 1, ptr noundef nonnull %3)
   %7 = load i8, ptr %3, align 1
@@ -297,7 +297,7 @@ define void @_ZN7memif_t11write_uint8Em13target_endianIhE(ptr noundef nonnull al
   %4 = alloca %class.target_endian, align 1
   store i8 %2, ptr %4, align 1
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
   call void %7(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef 1, ptr noundef nonnull %4)
   ret void
@@ -308,7 +308,7 @@ define void @_ZN7memif_t10write_int8Em13target_endianIaE(ptr noundef nonnull ali
   %4 = alloca %class.target_endian.0, align 1
   store i8 %2, ptr %4, align 1
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
   call void %7(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef 1, ptr noundef nonnull %4)
   ret void
@@ -339,7 +339,7 @@ define i16 @_ZN7memif_t11read_uint16Em(ptr noundef nonnull align 8 dereferenceab
 
 10:                                               ; preds = %2
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef 2, ptr noundef nonnull %3)
   %14 = load i16, ptr %3, align 2
@@ -371,7 +371,7 @@ define i16 @_ZN7memif_t10read_int16Em(ptr noundef nonnull align 8 dereferenceabl
 
 10:                                               ; preds = %2
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef 2, ptr noundef nonnull %3)
   %14 = load i16, ptr %3, align 2
@@ -403,7 +403,7 @@ define void @_ZN7memif_t12write_uint16Em13target_endianItE(ptr noundef nonnull a
 
 11:                                               ; preds = %3
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load ptr, ptr %13, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef 2, ptr noundef nonnull %4)
   ret void
@@ -434,7 +434,7 @@ define void @_ZN7memif_t11write_int16Em13target_endianIsE(ptr noundef nonnull al
 
 11:                                               ; preds = %3
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load ptr, ptr %13, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef 2, ptr noundef nonnull %4)
   ret void
@@ -465,7 +465,7 @@ define i32 @_ZN7memif_t11read_uint32Em(ptr noundef nonnull align 8 dereferenceab
 
 10:                                               ; preds = %2
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef 4, ptr noundef nonnull %3)
   %14 = load i32, ptr %3, align 4
@@ -497,7 +497,7 @@ define i32 @_ZN7memif_t10read_int32Em(ptr noundef nonnull align 8 dereferenceabl
 
 10:                                               ; preds = %2
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef 4, ptr noundef nonnull %3)
   %14 = load i32, ptr %3, align 4
@@ -529,7 +529,7 @@ define void @_ZN7memif_t12write_uint32Em13target_endianIjE(ptr noundef nonnull a
 
 11:                                               ; preds = %3
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load ptr, ptr %13, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef 4, ptr noundef nonnull %4)
   ret void
@@ -560,7 +560,7 @@ define void @_ZN7memif_t11write_int32Em13target_endianIiE(ptr noundef nonnull al
 
 11:                                               ; preds = %3
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load ptr, ptr %13, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef 4, ptr noundef nonnull %4)
   ret void
@@ -591,7 +591,7 @@ define i64 @_ZN7memif_t11read_uint64Em(ptr noundef nonnull align 8 dereferenceab
 
 10:                                               ; preds = %2
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef 8, ptr noundef nonnull %3)
   %14 = load i64, ptr %3, align 8
@@ -623,7 +623,7 @@ define i64 @_ZN7memif_t10read_int64Em(ptr noundef nonnull align 8 dereferenceabl
 
 10:                                               ; preds = %2
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef 8, ptr noundef nonnull %3)
   %14 = load i64, ptr %3, align 8
@@ -655,7 +655,7 @@ define void @_ZN7memif_t12write_uint64Em13target_endianImE(ptr noundef nonnull a
 
 11:                                               ; preds = %3
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load ptr, ptr %13, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef 8, ptr noundef nonnull %4)
   ret void
@@ -686,7 +686,7 @@ define void @_ZN7memif_t11write_int64Em13target_endianIlE(ptr noundef nonnull al
 
 11:                                               ; preds = %3
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load ptr, ptr %13, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef 8, ptr noundef nonnull %4)
   ret void
@@ -705,10 +705,10 @@ define linkonce_odr void @_ZN7memif_tD0Ev(ptr noundef nonnull align 8 dereferenc
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i32 @_ZNK7memif_t21get_target_endiannessEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(8) %3)
   ret i32 %7

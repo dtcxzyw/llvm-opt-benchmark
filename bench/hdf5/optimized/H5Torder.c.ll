@@ -124,23 +124,23 @@ define i32 @H5T_get_order(ptr noundef %0) local_unnamed_addr #0 {
 
 2:                                                ; preds = %2, %1
   %.028 = phi ptr [ %0, %1 ], [ %6, %2 ]
-  %3 = getelementptr inbounds i8, ptr %.028, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %.028, i64 40
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %2
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %.028, i64 40
-  %9 = getelementptr inbounds i8, ptr %4, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %.028, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %10 = load i32, ptr %9, align 4
   %.off = add i32 %10, -5
   %switch = icmp ult i32 %.off, 6
   br i1 %switch, label %14, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %4, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %13 = load i32, ptr %12, align 8
   br label %.loopexit
 
@@ -176,9 +176,9 @@ define i32 @H5T_get_order(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %23 ]
   %.141 = phi i32 [ 4, %.lr.ph.preheader ], [ %spec.select, %23 ]
   %24 = load ptr, ptr %8, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 64
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds %struct.H5T_cmemb_t, ptr %26, i64 %indvars.iv, i32 3
+  %27 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %26, i64 %indvars.iv, i32 3
   %28 = load ptr, ptr %27, align 8
   %29 = tail call i32 @H5T_get_order(ptr noundef %28)
   %30 = icmp eq i32 %29, -1
@@ -268,7 +268,7 @@ define range(i32 -1, 1) i32 @H5Tset_order(i64 noundef %0, i32 noundef %1) local_
   br label %.thread39
 
 36:                                               ; preds = %30
-  %37 = getelementptr inbounds i8, ptr %24, i64 96
+  %37 = getelementptr inbounds nuw i8, ptr %24, i64 96
   %38 = load ptr, ptr %37, align 8
   %.not = icmp eq ptr %38, null
   br i1 %.not, label %43, label %39
@@ -280,9 +280,9 @@ define range(i32 -1, 1) i32 @H5Tset_order(i64 noundef %0, i32 noundef %1) local_
   br label %.thread39
 
 43:                                               ; preds = %36
-  %44 = getelementptr inbounds i8, ptr %24, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load i32, ptr %46, align 8
   %.not24 = icmp eq i32 %47, 0
   br i1 %.not24, label %52, label %48
@@ -323,9 +323,9 @@ define range(i32 -1, 1) i32 @H5Tset_order(i64 noundef %0, i32 noundef %1) local_
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @H5T__set_order(ptr noundef %0, i32 noundef range(i32 0, 5) %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 8
   br i1 %7, label %8, label %.preheader
@@ -334,7 +334,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__set_order(ptr noundef %0, i32 
   br label %15
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %4, i64 52
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 52
   %10 = load i32, ptr %9, align 4
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %.preheader, label %11
@@ -347,17 +347,17 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__set_order(ptr noundef %0, i32 
 
 15:                                               ; preds = %.preheader, %15
   %.030 = phi ptr [ %19, %15 ], [ %0, %.preheader ]
-  %16 = getelementptr inbounds i8, ptr %.030, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %.030, i64 40
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %19 = load ptr, ptr %18, align 8
   %.not36 = icmp eq ptr %19, null
   br i1 %.not36, label %20, label %15
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %.030, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %.030, i64 40
   %22 = icmp eq i32 %1, 4
-  %23 = getelementptr inbounds i8, ptr %17, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 12
   %24 = load i32, ptr %23, align 4
   br i1 %22, label %25, label %._crit_edge
 
@@ -380,7 +380,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__set_order(ptr noundef %0, i32 
   br i1 %switch, label %32, label %30
 
 30:                                               ; preds = %._crit_edge
-  %31 = getelementptr inbounds i8, ptr %17, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %17, i64 48
   store i32 %1, ptr %31, align 8
   br label %.loopexit
 
@@ -421,9 +421,9 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__set_order(ptr noundef %0, i32 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %47
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %47 ]
   %48 = load ptr, ptr %21, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 64
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 64
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds %struct.H5T_cmemb_t, ptr %50, i64 %indvars.iv, i32 3
+  %51 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %50, i64 %indvars.iv, i32 3
   %52 = load ptr, ptr %51, align 8
   %53 = tail call fastcc i32 @H5T__set_order(ptr noundef %52, i32 noundef %1)
   %54 = icmp slt i32 %53, 0

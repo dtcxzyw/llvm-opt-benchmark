@@ -96,7 +96,7 @@ define hidden noundef range(i32 -3, 1) i32 @main(i32 noundef %0, ptr nocapture n
   br label %164
 
 36:                                               ; preds = %2
-  %37 = getelementptr inbounds i8, ptr %1, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %38 = load ptr, ptr %37, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #7
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %38, ptr noundef nonnull align 1 dereferenceable(1) %4)
@@ -104,7 +104,7 @@ define hidden noundef range(i32 -3, 1) i32 @main(i32 noundef %0, ptr nocapture n
 
 39:                                               ; preds = %36
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #7
-  %40 = getelementptr inbounds i8, ptr %1, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %41 = load ptr, ptr %40, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #7
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %41, ptr noundef nonnull align 1 dereferenceable(1) %6)
@@ -112,7 +112,7 @@ define hidden noundef range(i32 -3, 1) i32 @main(i32 noundef %0, ptr nocapture n
 
 42:                                               ; preds = %39
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #7
-  %43 = getelementptr inbounds i8, ptr %1, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %44 = load ptr, ptr %43, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #7
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %44, ptr noundef nonnull align 1 dereferenceable(1) %8)
@@ -191,34 +191,34 @@ define hidden noundef range(i32 -3, 1) i32 @main(i32 noundef %0, ptr nocapture n
   br label %158
 
 73:                                               ; preds = %64
-  %74 = getelementptr inbounds i8, ptr %12, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 0, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %12, i64 20
+  %75 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i32 0, ptr %75, align 4
   store i32 16842752, ptr %12, align 8
-  %76 = getelementptr inbounds i8, ptr %12, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %10, ptr %76, align 8
   store i32 416, ptr %13, align 4
-  %77 = getelementptr inbounds i8, ptr %13, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 416, ptr %77, align 4
   store double 1.040000e+02, ptr %14, align 8
-  %78 = getelementptr inbounds i8, ptr %14, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store double 1.170000e+02, ptr %78, align 8
-  %79 = getelementptr inbounds i8, ptr %14, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store double 1.230000e+02, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %14, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store double 0.000000e+00, ptr %80, align 8
   invoke void @_ZN2cv3dnn14dnn4_v2024052113blobFromImageERKNS_11_InputArrayEdRKNS_5Size_IiEERKNS_7Scalar_IdEEbbi(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %11, ptr noundef nonnull align 8 dereferenceable(24) %12, double noundef 1.000000e+00, ptr noundef nonnull align 4 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(32) %14, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef 5)
           to label %81 unwind label %114
 
 81:                                               ; preds = %73
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %15) #7
-  %82 = getelementptr inbounds i8, ptr %16, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i32 0, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %16, i64 20
+  %83 = getelementptr inbounds nuw i8, ptr %16, i64 20
   store i32 0, ptr %83, align 4
   store i32 16842752, ptr %16, align 8
-  %84 = getelementptr inbounds i8, ptr %16, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %11, ptr %84, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #7
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %18)
@@ -260,23 +260,23 @@ _ZN2cv9TickMeter5startEv.exit:                    ; preds = %86
   %94 = sub i64 %92, %87
   %spec.select = select i1 %93, i64 0, i64 %94
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %23, ptr noundef nonnull align 4 dereferenceable(12) @__const.main.prob_size, i64 12, i1 false)
-  %95 = getelementptr inbounds i8, ptr %15, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %96 = load ptr, ptr %95, align 8
   invoke void @_ZN2cv3MatC1EiPKiiPvPKm(ptr noundef nonnull align 8 dereferenceable(96) %24, i32 noundef 3, ptr noundef nonnull %23, i32 noundef 5, ptr noundef %96, ptr noundef null)
           to label %.preheader unwind label %116
 
 .preheader:                                       ; preds = %.noexc
-  %97 = getelementptr inbounds i8, ptr %15, i64 64
+  %97 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 4
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 4
   %100 = load i32, ptr %99, align 4
   %101 = icmp sgt i32 %100, 0
   br i1 %101, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %102 = getelementptr inbounds i8, ptr %24, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %24, i64 72
+  %104 = getelementptr inbounds nuw i8, ptr %24, i64 72
   %105 = load ptr, ptr %104, align 8
   %106 = load i64, ptr %105, align 8
   %wide.trip.count = zext nneg i32 %100 to i64

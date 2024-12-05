@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 define internal i32 @mbc_enc_len(ptr nocapture noundef readonly %0) #0 {
   %2 = load i8, ptr %0, align 1
   %3 = zext i8 %2 to i64
-  %4 = getelementptr inbounds [256 x i32], ptr @EncLen_SJIS, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw [256 x i32], ptr @EncLen_SJIS, i64 0, i64 %3
   %5 = load i32, ptr %4, align 4
   ret i32 %5
 }
@@ -36,7 +36,7 @@ define internal i32 @mbc_to_code(ptr noundef %0, ptr noundef readnone %1) #2 {
   br i1 %7, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %2
-  %.01719 = getelementptr inbounds i8, ptr %0, i64 1
+  %.01719 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %8 = icmp sgt i32 %4, 1
   %.not20 = icmp ult ptr %.01719, %1
   %or.cond21 = select i1 %8, i1 %.not20, i1 false
@@ -51,7 +51,7 @@ define internal i32 @mbc_to_code(ptr noundef %0, ptr noundef readnone %1) #2 {
   %11 = shl i32 %.023, 8
   %12 = or disjoint i32 %11, %10
   %13 = add nuw nsw i32 %.01622, 1
-  %.017 = getelementptr inbounds i8, ptr %.01724, i64 1
+  %.017 = getelementptr inbounds nuw i8, ptr %.01724, i64 1
   %14 = icmp slt i32 %13, %4
   %.not = icmp ult ptr %.017, %1
   %or.cond = select i1 %14, i1 %.not, i1 false
@@ -69,7 +69,7 @@ define internal range(i32 -400, 3) i32 @code_to_mbclen(i32 noundef %0) #3 {
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds [256 x i32], ptr @EncLen_SJIS, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [256 x i32], ptr @EncLen_SJIS, i64 0, i64 %4
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %17, label %16
@@ -81,7 +81,7 @@ define internal range(i32 -400, 3) i32 @code_to_mbclen(i32 noundef %0) #3 {
 10:                                               ; preds = %8
   %11 = lshr i32 %0, 8
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds [256 x i32], ptr @EncLen_SJIS, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw [256 x i32], ptr @EncLen_SJIS, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, 2
   br i1 %15, label %17, label %16
@@ -103,14 +103,14 @@ define internal i32 @code_to_mbc(i32 noundef %0, ptr noundef %1) #4 {
 4:                                                ; preds = %2
   %5 = lshr i32 %0, 8
   %6 = trunc i32 %5 to i8
-  %7 = getelementptr inbounds i8, ptr %1, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 %6, ptr %1, align 1
   br label %8
 
 8:                                                ; preds = %4, %2
   %.0 = phi ptr [ %7, %4 ], [ %1, %2 ]
   %9 = trunc i32 %0 to i8
-  %10 = getelementptr inbounds i8, ptr %.0, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   store i8 %9, ptr %.0, align 1
   %11 = ptrtoint ptr %10 to i64
   %12 = ptrtoint ptr %1 to i64
@@ -128,11 +128,11 @@ define internal i32 @mbc_case_fold(i32 %0, ptr nocapture noundef %1, ptr nocaptu
 
 8:                                                ; preds = %4
   %9 = zext nneg i8 %6 to i64
-  %10 = getelementptr inbounds [0 x i8], ptr @OnigEncAsciiToLowerCaseTable, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [0 x i8], ptr @OnigEncAsciiToLowerCaseTable, i64 0, i64 %9
   %11 = load i8, ptr %10, align 1
   store i8 %11, ptr %3, align 1
   %12 = load ptr, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1
   br label %25
 
 14:                                               ; preds = %4
@@ -145,9 +145,9 @@ define internal i32 @mbc_case_fold(i32 %0, ptr nocapture noundef %1, ptr nocaptu
   %.01420 = phi i32 [ %21, %.lr.ph ], [ 0, %14 ]
   %.01519 = phi ptr [ %18, %.lr.ph ], [ %5, %14 ]
   %.01618 = phi ptr [ %20, %.lr.ph ], [ %3, %14 ]
-  %18 = getelementptr inbounds i8, ptr %.01519, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %.01519, i64 1
   %19 = load i8, ptr %.01519, align 1
-  %20 = getelementptr inbounds i8, ptr %.01618, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %.01618, i64 1
   store i8 %19, ptr %.01618, align 1
   %21 = add nuw nsw i32 %.01420, 1
   %exitcond.not = icmp eq i32 %21, %16
@@ -183,14 +183,14 @@ define internal i32 @property_name_to_ctype(ptr nocapture readnone %0, ptr nound
 
 10:                                               ; preds = %3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr align 1 %1, i64 %8, i1 false)
-  %11 = getelementptr inbounds [32 x i8], ptr %4, i64 0, i64 %8
+  %11 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 0, i64 %8
   store i8 0, ptr %11, align 1
   %12 = call ptr @onigenc_sjis_lookup_property_name(ptr noundef nonnull %4, i64 noundef %8) #7
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %16, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %12, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load i32, ptr %14, align 8
   br label %16
 
@@ -210,7 +210,7 @@ define internal i32 @is_code_ctype(i32 noundef %0, i32 noundef %1) #2 {
 
 6:                                                ; preds = %4
   %7 = zext nneg i32 %0 to i64
-  %8 = getelementptr inbounds [0 x i16], ptr @OnigEncAsciiCtypeTable, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [0 x i16], ptr @OnigEncAsciiCtypeTable, i64 0, i64 %7
   %9 = load i16, ptr %8, align 2
   %10 = zext i16 %9 to i32
   %11 = lshr i32 %10, %1
@@ -230,7 +230,7 @@ define internal i32 @is_code_ctype(i32 noundef %0, i32 noundef %1) #2 {
 
 19:                                               ; preds = %17
   %20 = zext nneg i32 %0 to i64
-  %21 = getelementptr inbounds [256 x i32], ptr @EncLen_SJIS, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw [256 x i32], ptr @EncLen_SJIS, i64 0, i64 %20
   %22 = load i32, ptr %21, align 4
   %23 = icmp eq i32 %22, 1
   br i1 %23, label %code_to_mbclen.exit, label %32
@@ -242,7 +242,7 @@ define internal i32 @is_code_ctype(i32 noundef %0, i32 noundef %1) #2 {
 26:                                               ; preds = %24
   %27 = lshr i32 %0, 8
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds [256 x i32], ptr @EncLen_SJIS, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw [256 x i32], ptr @EncLen_SJIS, i64 0, i64 %28
   %30 = load i32, ptr %29, align 4
   %31 = icmp eq i32 %30, 2
   br i1 %31, label %code_to_mbclen.exit, label %32
@@ -257,7 +257,7 @@ define internal i32 @is_code_ctype(i32 noundef %0, i32 noundef %1) #2 {
 
 36:                                               ; preds = %33
   %37 = zext nneg i32 %34 to i64
-  %38 = getelementptr inbounds [2 x ptr], ptr @PropertyList, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw [2 x ptr], ptr @PropertyList, i64 0, i64 %37
   %39 = load ptr, ptr %38, align 8
   %40 = tail call i32 @onig_is_in_code_range(ptr noundef %39, i32 noundef %0) #7
   br label %code_to_mbclen.exit
@@ -280,7 +280,7 @@ define internal range(i32 -6, 1) i32 @get_ctype_code_range(i32 noundef %0, ptr n
 
 8:                                                ; preds = %5
   %9 = zext nneg i32 %6 to i64
-  %10 = getelementptr inbounds [2 x ptr], ptr @PropertyList, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [2 x ptr], ptr @PropertyList, i64 0, i64 %9
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %2, align 8
   br label %12
@@ -298,7 +298,7 @@ define internal ptr @left_adjust_char_head(ptr noundef readnone %0, ptr noundef 
 3:                                                ; preds = %2
   %4 = load i8, ptr %1, align 1
   %5 = zext i8 %4 to i64
-  %6 = getelementptr inbounds [256 x i8], ptr @SJIS_CAN_BE_TRAIL_TABLE, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw [256 x i8], ptr @SJIS_CAN_BE_TRAIL_TABLE, i64 0, i64 %5
   %7 = load i8, ptr %6, align 1
   %.not24 = icmp eq i8 %7, 0
   br i1 %.not24, label %.loopexit, label %.preheader
@@ -312,7 +312,7 @@ define internal ptr @left_adjust_char_head(ptr noundef readnone %0, ptr noundef 
   %10 = getelementptr inbounds i8, ptr %.1, i64 -1
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i64
-  %13 = getelementptr inbounds [256 x i32], ptr @EncLen_SJIS, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw [256 x i32], ptr @EncLen_SJIS, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
   %15 = icmp sgt i32 %14, 1
   br i1 %15, label %.preheader, label %.loopexit, !llvm.loop !7
@@ -343,7 +343,7 @@ define internal ptr @left_adjust_char_head(ptr noundef readnone %0, ptr noundef 
 define internal range(i32 0, 2) i32 @is_allowed_reverse_match(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
   %3 = load i8, ptr %0, align 1
   %4 = zext i8 %3 to i64
-  %5 = getelementptr inbounds [256 x i8], ptr @SJIS_CAN_BE_TRAIL_TABLE, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [256 x i8], ptr @SJIS_CAN_BE_TRAIL_TABLE, i64 0, i64 %4
   %6 = load i8, ptr %5, align 1
   %.not = icmp eq i8 %6, 0
   %7 = zext i1 %.not to i32
@@ -372,7 +372,7 @@ define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly %0
   ]
 
 9:                                                ; preds = %8
-  %10 = getelementptr inbounds i8, ptr %.02437, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.02437, i64 1
   %.not31 = icmp ult ptr %10, %1
   br i1 %.not31, label %11, label %switch.early.test35._crit_edge
 
@@ -399,7 +399,7 @@ switch.early.test:                                ; preds = %11
   br i1 %17, label %18, label %switch.early.test35._crit_edge
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %.02437, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %.02437, i64 1
   %.not = icmp ult ptr %19, %1
   br i1 %.not, label %20, label %switch.early.test35._crit_edge
 
@@ -419,7 +419,7 @@ switch.early.test35:                              ; preds = %20
 
 23:                                               ; preds = %switch.early.test35, %14, %switch.early.test, %.lr.ph
   %.sink = phi i64 [ 1, %.lr.ph ], [ 2, %switch.early.test ], [ 1, %14 ], [ 2, %switch.early.test35 ]
-  %24 = getelementptr inbounds i8, ptr %.02437, i64 %.sink
+  %24 = getelementptr inbounds nuw i8, ptr %.02437, i64 %.sink
   %25 = icmp ult ptr %24, %1
   br i1 %25, label %.lr.ph, label %switch.early.test35._crit_edge, !llvm.loop !8
 

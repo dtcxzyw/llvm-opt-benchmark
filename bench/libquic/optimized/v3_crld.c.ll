@@ -99,13 +99,13 @@ for.cond.preheader:                               ; preds = %entry
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %i.039 = phi i64 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
   %call2 = tail call ptr @sk_value(ptr noundef %nval, i64 noundef %i.039) #3
-  %value = getelementptr inbounds i8, ptr %call2, i64 16
+  %value = getelementptr inbounds nuw i8, ptr %call2, i64 16
   %0 = load ptr, ptr %value, align 8
   %tobool3.not = icmp eq ptr %0, null
   br i1 %tobool3.not, label %if.then4, label %if.else
 
 if.then4:                                         ; preds = %for.body
-  %name = getelementptr inbounds i8, ptr %call2, i64 8
+  %name = getelementptr inbounds nuw i8, ptr %call2, i64 8
   %1 = load ptr, ptr %name, align 8
   %call5 = tail call ptr @X509V3_get_section(ptr noundef %ctx, ptr noundef %1) #3
   %tobool6.not = icmp eq ptr %call5, null
@@ -122,8 +122,8 @@ for.cond.preheader.i:                             ; preds = %if.end8
   br i1 %cmp18.not.i, label %if.end12, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %CRLissuer.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
-  %reasons.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  %CRLissuer.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 16
+  %reasons.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -138,14 +138,14 @@ if.end6.i:                                        ; preds = %for.body.i
   br i1 %cmp7.i, label %if.then30.i, label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.end6.i
-  %name.i = getelementptr inbounds i8, ptr %call2.i, i64 8
+  %name.i = getelementptr inbounds nuw i8, ptr %call2.i, i64 8
   %2 = load ptr, ptr %name.i, align 8
   %call10.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(8) @.str.5) #4
   %tobool11.not.i = icmp eq i32 %call10.i, 0
   br i1 %tobool11.not.i, label %if.then12.i, label %if.else.i
 
 if.then12.i:                                      ; preds = %if.end9.i
-  %value.i = getelementptr inbounds i8, ptr %call2.i, i64 16
+  %value.i = getelementptr inbounds nuw i8, ptr %call2.i, i64 16
   %3 = load ptr, ptr %value.i, align 8
   %call13.i = tail call fastcc i32 @set_reasons(ptr noundef %reasons.i, ptr noundef %3)
   %tobool14.not.i = icmp eq i32 %call13.i, 0
@@ -157,7 +157,7 @@ if.else.i:                                        ; preds = %if.end9.i
   br i1 %tobool19.not.i, label %if.then20.i, label %for.inc.i
 
 if.then20.i:                                      ; preds = %if.else.i
-  %value21.i = getelementptr inbounds i8, ptr %call2.i, i64 16
+  %value21.i = getelementptr inbounds nuw i8, ptr %call2.i, i64 16
   %4 = load ptr, ptr %value21.i, align 8
   %call22.i = tail call fastcc ptr @gnames_from_sectname(ptr noundef %ctx, ptr noundef %4)
   store ptr %call22.i, ptr %CRLissuer.i, align 8
@@ -216,7 +216,7 @@ if.end36:                                         ; preds = %if.end32
   br i1 %tobool38.not, label %merr, label %if.end40
 
 if.end40:                                         ; preds = %if.end36
-  %name42 = getelementptr inbounds i8, ptr %call.i24, i64 8
+  %name42 = getelementptr inbounds nuw i8, ptr %call.i24, i64 8
   store ptr %call21, ptr %name42, align 8
   %5 = load ptr, ptr %call.i, align 8
   store i32 0, ptr %5, align 8
@@ -277,7 +277,7 @@ if.then:                                          ; preds = %for.body
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %for.body
-  %reasons = getelementptr inbounds i8, ptr %call2, i64 8
+  %reasons = getelementptr inbounds nuw i8, ptr %call2, i64 8
   %1 = load ptr, ptr %reasons, align 8
   %tobool5.not = icmp eq ptr %1, null
   br i1 %tobool5.not, label %if.end9, label %if.then6
@@ -296,7 +296,7 @@ for.body.outer.i:                                 ; preds = %for.inc.thread.i, %
   br i1 %tobool2.not.i26, label %for.inc.i, label %if.then.i
 
 for.body.i:                                       ; preds = %for.inc.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %pbn.011.i27, i64 24
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %pbn.011.i27, i64 24
   %3 = load i32, ptr %incdec.ptr.i, align 8
   %call1.i = tail call i32 @ASN1_BIT_STRING_get_bit(ptr noundef nonnull %1, i32 noundef %3) #3
   %tobool2.not.i = icmp eq i32 %call1.i, 0
@@ -313,15 +313,15 @@ if.else.i:                                        ; preds = %if.then.i
 
 for.inc.i:                                        ; preds = %for.body.outer.i, %for.body.i
   %pbn.011.i27 = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %pbn.011.ph.i, %for.body.outer.i ]
-  %lname.i = getelementptr inbounds i8, ptr %pbn.011.i27, i64 32
+  %lname.i = getelementptr inbounds nuw i8, ptr %pbn.011.i27, i64 32
   %4 = load ptr, ptr %lname.i, align 8
   %tobool.not.i = icmp eq ptr %4, null
   br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !10
 
 for.inc.thread.i:                                 ; preds = %if.else.i, %if.then.i
   %call7.i = tail call i32 @BIO_puts(ptr noundef %out, ptr noundef nonnull %.lcssa) #3
-  %incdec.ptr13.i = getelementptr inbounds i8, ptr %pbn.011.i.lcssa, i64 24
-  %lname14.i = getelementptr inbounds i8, ptr %pbn.011.i.lcssa, i64 32
+  %incdec.ptr13.i = getelementptr inbounds nuw i8, ptr %pbn.011.i.lcssa, i64 24
+  %lname14.i = getelementptr inbounds nuw i8, ptr %pbn.011.i.lcssa, i64 32
   %5 = load ptr, ptr %lname14.i, align 8
   %tobool.not15.i = icmp eq ptr %5, null
   br i1 %tobool.not15.i, label %if.else12.i, label %for.body.outer.i, !llvm.loop !10
@@ -338,7 +338,7 @@ print_reasons.exit:                               ; preds = %for.end.i, %if.else
   br label %if.end9
 
 if.end9:                                          ; preds = %print_reasons.exit, %if.end
-  %CRLissuer = getelementptr inbounds i8, ptr %call2, i64 16
+  %CRLissuer = getelementptr inbounds nuw i8, ptr %call2, i64 16
   %6 = load ptr, ptr %CRLissuer, align 8
   %tobool10.not = icmp eq ptr %6, null
   br i1 %tobool10.not, label %for.inc, label %if.then11
@@ -504,19 +504,19 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp31.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %onlysomereasons = getelementptr inbounds i8, ptr %call.i, i64 16
-  %indirectCRL = getelementptr inbounds i8, ptr %call.i, i64 24
-  %onlyattr = getelementptr inbounds i8, ptr %call.i, i64 28
-  %onlyCA = getelementptr inbounds i8, ptr %call.i, i64 12
-  %onlyuser = getelementptr inbounds i8, ptr %call.i, i64 8
+  %onlysomereasons = getelementptr inbounds nuw i8, ptr %call.i, i64 16
+  %indirectCRL = getelementptr inbounds nuw i8, ptr %call.i, i64 24
+  %onlyattr = getelementptr inbounds nuw i8, ptr %call.i, i64 28
+  %onlyCA = getelementptr inbounds nuw i8, ptr %call.i, i64 12
+  %onlyuser = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %i.032 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %call2 = tail call ptr @sk_value(ptr noundef %nval, i64 noundef %i.032) #3
-  %name3 = getelementptr inbounds i8, ptr %call2, i64 8
+  %name3 = getelementptr inbounds nuw i8, ptr %call2, i64 8
   %0 = load ptr, ptr %name3, align 8
-  %value = getelementptr inbounds i8, ptr %call2, i64 16
+  %value = getelementptr inbounds nuw i8, ptr %call2, i64 16
   %1 = load ptr, ptr %value, align 8
   %call4 = tail call fastcc i32 @set_dist_point_name(ptr noundef %call.i, ptr noundef %ctx, ptr noundef %call2)
   %cmp5 = icmp sgt i32 %call4, 0
@@ -577,8 +577,8 @@ if.then44:                                        ; preds = %if.else41
   br i1 %tobool46.not, label %err, label %for.inc
 
 if.else49:                                        ; preds = %if.else41
-  %name3.le = getelementptr inbounds i8, ptr %call2, i64 8
-  %value.le = getelementptr inbounds i8, ptr %call2, i64 16
+  %name3.le = getelementptr inbounds nuw i8, ptr %call2, i64 8
+  %value.le = getelementptr inbounds nuw i8, ptr %call2, i64 16
   tail call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 123, ptr noundef nonnull @.str.4, i32 noundef 450) #3
   %2 = load ptr, ptr %call2, align 8
   %3 = load ptr, ptr %name3.le, align 8
@@ -617,7 +617,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %onlyuser = getelementptr inbounds i8, ptr %pidp, i64 8
+  %onlyuser = getelementptr inbounds nuw i8, ptr %pidp, i64 8
   %1 = load i32, ptr %onlyuser, align 8
   %cmp = icmp sgt i32 %1, 0
   br i1 %cmp, label %if.then2, label %if.end4
@@ -627,7 +627,7 @@ if.then2:                                         ; preds = %if.end
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then2, %if.end
-  %onlyCA = getelementptr inbounds i8, ptr %pidp, i64 12
+  %onlyCA = getelementptr inbounds nuw i8, ptr %pidp, i64 12
   %2 = load i32, ptr %onlyCA, align 4
   %cmp5 = icmp sgt i32 %2, 0
   br i1 %cmp5, label %if.then6, label %if.end8
@@ -637,7 +637,7 @@ if.then6:                                         ; preds = %if.end4
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then6, %if.end4
-  %indirectCRL = getelementptr inbounds i8, ptr %pidp, i64 24
+  %indirectCRL = getelementptr inbounds nuw i8, ptr %pidp, i64 24
   %3 = load i32, ptr %indirectCRL, align 8
   %cmp9 = icmp sgt i32 %3, 0
   br i1 %cmp9, label %if.then10, label %if.end12
@@ -647,7 +647,7 @@ if.then10:                                        ; preds = %if.end8
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then10, %if.end8
-  %onlysomereasons = getelementptr inbounds i8, ptr %pidp, i64 16
+  %onlysomereasons = getelementptr inbounds nuw i8, ptr %pidp, i64 16
   %4 = load ptr, ptr %onlysomereasons, align 8
   %tobool13.not = icmp eq ptr %4, null
   br i1 %tobool13.not, label %if.end17, label %if.then14
@@ -667,7 +667,7 @@ for.body.outer.i:                                 ; preds = %for.inc.thread.i, %
   br i1 %tobool2.not.i31, label %for.inc.i, label %if.then.i
 
 for.body.i:                                       ; preds = %for.inc.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %pbn.011.i32, i64 24
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %pbn.011.i32, i64 24
   %6 = load i32, ptr %incdec.ptr.i, align 8
   %call1.i = tail call i32 @ASN1_BIT_STRING_get_bit(ptr noundef nonnull %4, i32 noundef %6) #3
   %tobool2.not.i = icmp eq i32 %call1.i, 0
@@ -684,15 +684,15 @@ if.else.i:                                        ; preds = %if.then.i
 
 for.inc.i:                                        ; preds = %for.body.outer.i, %for.body.i
   %pbn.011.i32 = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %pbn.011.ph.i, %for.body.outer.i ]
-  %lname.i = getelementptr inbounds i8, ptr %pbn.011.i32, i64 32
+  %lname.i = getelementptr inbounds nuw i8, ptr %pbn.011.i32, i64 32
   %7 = load ptr, ptr %lname.i, align 8
   %tobool.not.i = icmp eq ptr %7, null
   br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !10
 
 for.inc.thread.i:                                 ; preds = %if.else.i, %if.then.i
   %call7.i = tail call i32 @BIO_puts(ptr noundef %out, ptr noundef nonnull %.lcssa) #3
-  %incdec.ptr13.i = getelementptr inbounds i8, ptr %pbn.011.i.lcssa, i64 24
-  %lname14.i = getelementptr inbounds i8, ptr %pbn.011.i.lcssa, i64 32
+  %incdec.ptr13.i = getelementptr inbounds nuw i8, ptr %pbn.011.i.lcssa, i64 24
+  %lname14.i = getelementptr inbounds nuw i8, ptr %pbn.011.i.lcssa, i64 32
   %8 = load ptr, ptr %lname14.i, align 8
   %tobool.not15.i = icmp eq ptr %8, null
   br i1 %tobool.not15.i, label %if.else12.i, label %for.body.outer.i, !llvm.loop !10
@@ -709,7 +709,7 @@ print_reasons.exit:                               ; preds = %for.end.i, %if.else
   br label %if.end17
 
 if.end17:                                         ; preds = %print_reasons.exit, %if.end12
-  %onlyattr = getelementptr inbounds i8, ptr %pidp, i64 28
+  %onlyattr = getelementptr inbounds nuw i8, ptr %pidp, i64 28
   %9 = load i32, ptr %onlyattr, align 4
   %cmp18 = icmp sgt i32 %9, 0
   br i1 %cmp18, label %if.then19, label %if.end21
@@ -768,10 +768,10 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %name = getelementptr inbounds i8, ptr %dpn, i64 8
+  %name = getelementptr inbounds nuw i8, ptr %dpn, i64 8
   %1 = load ptr, ptr %name, align 8
   %call = tail call ptr @X509_NAME_dup(ptr noundef %iname) #3
-  %dpname = getelementptr inbounds i8, ptr %dpn, i64 16
+  %dpname = getelementptr inbounds nuw i8, ptr %dpn, i64 16
   store ptr %call, ptr %dpname, align 8
   %tobool2.not = icmp eq ptr %call, null
   br i1 %tobool2.not, label %return, label %for.cond.preheader
@@ -849,14 +849,14 @@ declare void @sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 2) i32 @set_dist_point_name(ptr nocapture noundef nonnull %pdp, ptr noundef %ctx, ptr nocapture noundef readonly %cnf) unnamed_addr #0 {
 entry:
-  %name = getelementptr inbounds i8, ptr %cnf, i64 8
+  %name = getelementptr inbounds nuw i8, ptr %cnf, i64 8
   %0 = load ptr, ptr %name, align 8
   %call = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(9) @.str.7, i64 noundef 9) #4
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %value = getelementptr inbounds i8, ptr %cnf, i64 16
+  %value = getelementptr inbounds nuw i8, ptr %cnf, i64 16
   %1 = load ptr, ptr %value, align 8
   %call1 = tail call fastcc ptr @gnames_from_sectname(ptr noundef %ctx, ptr noundef %1)
   %tobool2.not = icmp eq ptr %call1, null
@@ -873,7 +873,7 @@ if.then7:                                         ; preds = %if.else
   br i1 %tobool9.not, label %return, label %if.end11
 
 if.end11:                                         ; preds = %if.then7
-  %value12 = getelementptr inbounds i8, ptr %cnf, i64 16
+  %value12 = getelementptr inbounds nuw i8, ptr %cnf, i64 16
   %2 = load ptr, ptr %value12, align 8
   %call13 = tail call ptr @X509V3_get_section(ptr noundef %ctx, ptr noundef %2) #3
   %tobool14.not = icmp eq ptr %call13, null
@@ -901,7 +901,7 @@ if.end22:                                         ; preds = %lor.lhs.false
   %call23 = tail call i64 @sk_num(ptr noundef %3) #3
   %sub = add i64 %call23, -1
   %call24 = tail call ptr @sk_value(ptr noundef %3, i64 noundef %sub) #3
-  %set = getelementptr inbounds i8, ptr %call24, i64 16
+  %set = getelementptr inbounds nuw i8, ptr %call24, i64 16
   %4 = load i32, ptr %set, align 8
   %tobool25.not = icmp eq i32 %4, 0
   br i1 %tobool25.not, label %if.end30, label %if.then26
@@ -934,14 +934,14 @@ if.end37:                                         ; preds = %if.end33
 if.then39:                                        ; preds = %if.end37
   store i32 0, ptr %call.i, align 8
   %6 = load ptr, ptr %pdp, align 8
-  %name40 = getelementptr inbounds i8, ptr %6, i64 8
+  %name40 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %fnm.1, ptr %name40, align 8
   br label %return
 
 if.else41:                                        ; preds = %if.end37
   store i32 1, ptr %call.i, align 8
   %7 = load ptr, ptr %pdp, align 8
-  %name43 = getelementptr inbounds i8, ptr %7, i64 8
+  %name43 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %rnm.1, ptr %name43, align 8
   br label %return
 
@@ -996,7 +996,7 @@ for.cond:                                         ; preds = %if.then18
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %i.019 = phi i64 [ %inc, %for.cond ], [ 0, %for.cond.preheader ]
   %call5 = tail call ptr @sk_value(ptr noundef nonnull %call, i64 noundef %i.019) #3
-  %name = getelementptr inbounds i8, ptr %call5, i64 8
+  %name = getelementptr inbounds nuw i8, ptr %call5, i64 8
   %1 = load ptr, ptr %name, align 8
   %2 = load ptr, ptr %preas, align 8
   %tobool6.not = icmp eq ptr %2, null
@@ -1014,7 +1014,7 @@ if.end12:                                         ; preds = %if.then7, %for.body
 
 for.body15:                                       ; preds = %if.end12, %for.inc
   %pbn.016 = phi ptr [ @reason_flags, %if.end12 ], [ %incdec.ptr, %for.inc ]
-  %sname = getelementptr inbounds i8, ptr %pbn.016, i64 16
+  %sname = getelementptr inbounds nuw i8, ptr %pbn.016, i64 16
   %4 = load ptr, ptr %sname, align 8
   %call16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %1) #4
   %tobool17.not = icmp eq i32 %call16, 0
@@ -1027,8 +1027,8 @@ if.then18:                                        ; preds = %for.body15
   br i1 %tobool20.not, label %err, label %for.cond
 
 for.inc:                                          ; preds = %for.body15
-  %incdec.ptr = getelementptr inbounds i8, ptr %pbn.016, i64 24
-  %lname = getelementptr inbounds i8, ptr %pbn.016, i64 32
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %pbn.016, i64 24
+  %lname = getelementptr inbounds nuw i8, ptr %pbn.016, i64 32
   %6 = load ptr, ptr %lname, align 8
   %tobool14.not = icmp eq ptr %6, null
   br i1 %tobool14.not, label %err, label %for.body15, !llvm.loop !16
@@ -1051,7 +1051,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %add.ptr = getelementptr inbounds i8, ptr %sect, i64 1
+  %add.ptr = getelementptr inbounds nuw i8, ptr %sect, i64 1
   %call = tail call ptr @X509V3_get_section(ptr noundef %ctx, ptr noundef nonnull %add.ptr) #3
   br label %if.end
 
@@ -1116,12 +1116,12 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %dpname = getelementptr inbounds i8, ptr %0, i64 16
+  %dpname = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %dpname, align 8
   br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
-  %dpname2 = getelementptr inbounds i8, ptr %0, i64 16
+  %dpname2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load ptr, ptr %dpname2, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %sw.epilog, label %if.then
@@ -1148,7 +1148,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.47, i32 noundef %indent, ptr noundef nonnull @.str.41) #3
-  %name = getelementptr inbounds i8, ptr %dpn, i64 8
+  %name = getelementptr inbounds nuw i8, ptr %dpn, i64 8
   %1 = load ptr, ptr %name, align 8
   %call6.i = tail call i64 @sk_num(ptr noundef %1) #3
   %cmp7.not.i = icmp eq i64 %call6.i, 0
@@ -1170,7 +1170,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %cmp.i, label %for.body.i, label %if.end, !llvm.loop !11
 
 if.else:                                          ; preds = %entry
-  %name2 = getelementptr inbounds i8, ptr %dpn, i64 8
+  %name2 = getelementptr inbounds nuw i8, ptr %dpn, i64 8
   %2 = load ptr, ptr %name2, align 8
   store ptr %2, ptr %ntmp, align 8
   %add = add nsw i32 %indent, 2

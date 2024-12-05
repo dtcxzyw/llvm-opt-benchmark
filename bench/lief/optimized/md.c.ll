@@ -92,7 +92,7 @@ define hidden noundef ptr @mbedtls_md_info_from_type(i32 noundef %0) local_unnam
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [7 x ptr], ptr @switch.table.mbedtls_md_info_from_type, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.mbedtls_md_info_from_type, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -135,13 +135,13 @@ define hidden void @mbedtls_md_free(ptr noundef %0) local_unnamed_addr #6 {
   br i1 %5, label %32, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %21, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = load i32, ptr %10, align 8
   switch i32 %11, label %19 [
     i32 1, label %12
@@ -187,14 +187,14 @@ define hidden void @mbedtls_md_free(ptr noundef %0) local_unnamed_addr #6 {
   br label %21
 
 21:                                               ; preds = %19, %6
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load ptr, ptr %22, align 8
   %.not20 = icmp eq ptr %23, null
   br i1 %.not20, label %31, label %24
 
 24:                                               ; preds = %21
   %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 13
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 13
   %27 = load i8, ptr %26, align 1
   %28 = zext i8 %27 to i64
   %29 = shl nuw nsw i64 %28, 1
@@ -244,7 +244,7 @@ define hidden range(i32 -20736, 1) i32 @mbedtls_md_clone(ptr noundef readonly %0
   br i1 %.not, label %10, label %48
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %9, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load i32, ptr %11, align 8
   switch i32 %12, label %48 [
     i32 1, label %13
@@ -257,57 +257,57 @@ define hidden range(i32 -20736, 1) i32 @mbedtls_md_clone(ptr noundef readonly %0
   ]
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
   tail call void @mbedtls_md5_clone(ptr noundef %15, ptr noundef %17) #13
   br label %48
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8
   tail call void @mbedtls_ripemd160_clone(ptr noundef %20, ptr noundef %22) #13
   br label %48
 
 23:                                               ; preds = %10
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %27 = load ptr, ptr %26, align 8
   tail call void @mbedtls_sha1_clone(ptr noundef %25, ptr noundef %27) #13
   br label %48
 
 28:                                               ; preds = %10
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load ptr, ptr %31, align 8
   tail call void @mbedtls_sha256_clone(ptr noundef %30, ptr noundef %32) #13
   br label %48
 
 33:                                               ; preds = %10
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %37 = load ptr, ptr %36, align 8
   tail call void @mbedtls_sha256_clone(ptr noundef %35, ptr noundef %37) #13
   br label %48
 
 38:                                               ; preds = %10
-  %39 = getelementptr inbounds i8, ptr %0, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %42 = load ptr, ptr %41, align 8
   tail call void @mbedtls_sha512_clone(ptr noundef %40, ptr noundef %42) #13
   br label %48
 
 43:                                               ; preds = %10
-  %44 = getelementptr inbounds i8, ptr %0, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %1, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %47 = load ptr, ptr %46, align 8
   tail call void @mbedtls_sha512_clone(ptr noundef %45, ptr noundef %47) #13
   br label %48
@@ -336,9 +336,9 @@ define hidden range(i32 -20864, 1) i32 @mbedtls_md_setup(ptr noundef %0, ptr nou
 
 6:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %10 = load i32, ptr %9, align 8
   switch i32 %10, label %47 [
@@ -426,7 +426,7 @@ define hidden range(i32 -20864, 1) i32 @mbedtls_md_setup(ptr noundef %0, ptr nou
   br i1 %.not, label %47, label %40
 
 40:                                               ; preds = %39
-  %41 = getelementptr inbounds i8, ptr %1, i64 13
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 13
   %42 = load i8, ptr %41, align 1
   %43 = zext i8 %42 to i64
   %44 = tail call noalias ptr @calloc(i64 noundef 2, i64 noundef %43) #14
@@ -467,7 +467,7 @@ define hidden i32 @mbedtls_md_starts(ptr noundef readonly %0) local_unnamed_addr
   br i1 %5, label %37, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i32, ptr %7, align 8
   switch i32 %8, label %37 [
     i32 1, label %9
@@ -480,43 +480,43 @@ define hidden i32 @mbedtls_md_starts(ptr noundef readonly %0) local_unnamed_addr
   ]
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 @mbedtls_md5_starts(ptr noundef %11) #13
   br label %37
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 @mbedtls_ripemd160_starts(ptr noundef %15) #13
   br label %37
 
 17:                                               ; preds = %6
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 @mbedtls_sha1_starts(ptr noundef %19) #13
   br label %37
 
 21:                                               ; preds = %6
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 @mbedtls_sha256_starts(ptr noundef %23, i32 noundef 1) #13
   br label %37
 
 25:                                               ; preds = %6
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = tail call i32 @mbedtls_sha256_starts(ptr noundef %27, i32 noundef 0) #13
   br label %37
 
 29:                                               ; preds = %6
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = tail call i32 @mbedtls_sha512_starts(ptr noundef %31, i32 noundef 1) #13
   br label %37
 
 33:                                               ; preds = %6
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = tail call i32 @mbedtls_sha512_starts(ptr noundef %35, i32 noundef 0) #13
   br label %37
@@ -547,7 +547,7 @@ define hidden i32 @mbedtls_md_update(ptr noundef readonly %0, ptr noundef %1, i6
   br i1 %7, label %39, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = load i32, ptr %9, align 8
   switch i32 %10, label %39 [
     i32 1, label %11
@@ -560,43 +560,43 @@ define hidden i32 @mbedtls_md_update(ptr noundef readonly %0, ptr noundef %1, i6
   ]
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 @mbedtls_md5_update(ptr noundef %13, ptr noundef %1, i64 noundef %2) #13
   br label %39
 
 15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 @mbedtls_ripemd160_update(ptr noundef %17, ptr noundef %1, i64 noundef %2) #13
   br label %39
 
 19:                                               ; preds = %8
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = tail call i32 @mbedtls_sha1_update(ptr noundef %21, ptr noundef %1, i64 noundef %2) #13
   br label %39
 
 23:                                               ; preds = %8
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = tail call i32 @mbedtls_sha256_update(ptr noundef %25, ptr noundef %1, i64 noundef %2) #13
   br label %39
 
 27:                                               ; preds = %8
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = tail call i32 @mbedtls_sha256_update(ptr noundef %29, ptr noundef %1, i64 noundef %2) #13
   br label %39
 
 31:                                               ; preds = %8
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = tail call i32 @mbedtls_sha512_update(ptr noundef %33, ptr noundef %1, i64 noundef %2) #13
   br label %39
 
 35:                                               ; preds = %8
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = tail call i32 @mbedtls_sha512_update(ptr noundef %37, ptr noundef %1, i64 noundef %2) #13
   br label %39
@@ -627,7 +627,7 @@ define hidden i32 @mbedtls_md_finish(ptr noundef readonly %0, ptr noundef %1) lo
   br i1 %6, label %38, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load i32, ptr %8, align 8
   switch i32 %9, label %38 [
     i32 1, label %10
@@ -640,43 +640,43 @@ define hidden i32 @mbedtls_md_finish(ptr noundef readonly %0, ptr noundef %1) lo
   ]
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 @mbedtls_md5_finish(ptr noundef %12, ptr noundef %1) #13
   br label %38
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 @mbedtls_ripemd160_finish(ptr noundef %16, ptr noundef %1) #13
   br label %38
 
 18:                                               ; preds = %7
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i32 @mbedtls_sha1_finish(ptr noundef %20, ptr noundef %1) #13
   br label %38
 
 22:                                               ; preds = %7
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i32 @mbedtls_sha256_finish(ptr noundef %24, ptr noundef %1) #13
   br label %38
 
 26:                                               ; preds = %7
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = tail call i32 @mbedtls_sha256_finish(ptr noundef %28, ptr noundef %1) #13
   br label %38
 
 30:                                               ; preds = %7
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = tail call i32 @mbedtls_sha512_finish(ptr noundef %32, ptr noundef %1) #13
   br label %38
 
 34:                                               ; preds = %7
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = tail call i32 @mbedtls_sha512_finish(ptr noundef %36, ptr noundef %1) #13
   br label %38
@@ -702,7 +702,7 @@ define hidden i32 @mbedtls_md(ptr noundef readonly %0, ptr noundef %1, i64 nound
   br i1 %5, label %23, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8
   switch i32 %8, label %23 [
     i32 1, label %9
@@ -839,13 +839,13 @@ define hidden i32 @mbedtls_md_hmac_starts(ptr noundef %0, ptr noundef %1, i64 no
   br i1 %8, label %54, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %54, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %7, i64 13
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 13
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i64
   %17 = icmp ugt i64 %2, %16
@@ -868,11 +868,11 @@ define hidden i32 @mbedtls_md_hmac_starts(ptr noundef %0, ptr noundef %1, i64 no
 
 24:                                               ; preds = %22
   %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 12
   %27 = load i8, ptr %26, align 4
   %28 = zext i8 %27 to i64
   %.pre = load ptr, ptr %10, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %25, i64 13
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %25, i64 13
   %.pre54 = load i8, ptr %.phi.trans.insert, align 1
   %.pre55 = zext i8 %.pre54 to i64
   br label %29
@@ -882,10 +882,10 @@ define hidden i32 @mbedtls_md_hmac_starts(ptr noundef %0, ptr noundef %1, i64 no
   %30 = phi ptr [ %.pre, %24 ], [ %11, %13 ]
   %.041 = phi i64 [ %28, %24 ], [ %2, %13 ]
   %.039 = phi ptr [ %4, %24 ], [ %1, %13 ]
-  %31 = getelementptr inbounds i8, ptr %30, i64 %.pre-phi
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 %.pre-phi
   call void @llvm.memset.p0.i64(ptr align 1 %30, i8 54, i64 %.pre-phi, i1 false)
   %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 13
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 13
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i64
   call void @llvm.memset.p0.i64(ptr align 1 %31, i8 92, i64 %35, i1 false)
@@ -894,13 +894,13 @@ define hidden i32 @mbedtls_md_hmac_starts(ptr noundef %0, ptr noundef %1, i64 no
 
 .lr.ph:                                           ; preds = %29, %.lr.ph
   %.052 = phi i64 [ %45, %.lr.ph ], [ 0, %29 ]
-  %36 = getelementptr inbounds i8, ptr %30, i64 %.052
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 %.052
   %37 = load i8, ptr %36, align 1
-  %38 = getelementptr inbounds i8, ptr %.039, i64 %.052
+  %38 = getelementptr inbounds nuw i8, ptr %.039, i64 %.052
   %39 = load i8, ptr %38, align 1
   %40 = xor i8 %39, %37
   store i8 %40, ptr %36, align 1
-  %41 = getelementptr inbounds i8, ptr %31, i64 %.052
+  %41 = getelementptr inbounds nuw i8, ptr %31, i64 %.052
   %42 = load i8, ptr %41, align 1
   %43 = load i8, ptr %38, align 1
   %44 = xor i8 %43, %42
@@ -916,7 +916,7 @@ define hidden i32 @mbedtls_md_hmac_starts(ptr noundef %0, ptr noundef %1, i64 no
 
 47:                                               ; preds = %._crit_edge
   %48 = load ptr, ptr %0, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 13
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 13
   %50 = load i8, ptr %49, align 1
   %51 = zext i8 %50 to i64
   %52 = call i32 @mbedtls_md_update(ptr noundef nonnull %0, ptr noundef %30, i64 noundef %51)
@@ -943,7 +943,7 @@ define hidden i32 @mbedtls_md_hmac_update(ptr noundef %0, ptr noundef %1, i64 no
   br i1 %7, label %14, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %14, label %12
@@ -969,16 +969,16 @@ define hidden i32 @mbedtls_md_hmac_finish(ptr noundef %0, ptr noundef %1) local_
   br i1 %7, label %34, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %34, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %6, i64 13
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 13
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds i8, ptr %10, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 %15
   %17 = call i32 @mbedtls_md_finish(ptr noundef nonnull %0, ptr noundef nonnull %3)
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %18, label %34
@@ -990,7 +990,7 @@ define hidden i32 @mbedtls_md_hmac_finish(ptr noundef %0, ptr noundef %1) local_
 
 20:                                               ; preds = %18
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 13
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 13
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i64
   %25 = call i32 @mbedtls_md_update(ptr noundef nonnull %0, ptr noundef nonnull %16, i64 noundef %24)
@@ -999,7 +999,7 @@ define hidden i32 @mbedtls_md_hmac_finish(ptr noundef %0, ptr noundef %1) local_
 
 26:                                               ; preds = %20
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 12
   %29 = load i8, ptr %28, align 4
   %30 = zext i8 %29 to i64
   %31 = call i32 @mbedtls_md_update(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef %30)
@@ -1026,7 +1026,7 @@ define hidden i32 @mbedtls_md_hmac_reset(ptr noundef %0) local_unnamed_addr #6 {
   br i1 %5, label %18, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %18, label %10
@@ -1038,7 +1038,7 @@ define hidden i32 @mbedtls_md_hmac_reset(ptr noundef %0) local_unnamed_addr #6 {
 
 12:                                               ; preds = %10
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 13
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 13
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i64
   %17 = tail call i32 @mbedtls_md_update(ptr noundef nonnull %0, ptr noundef nonnull %8, i64 noundef %16)
@@ -1069,7 +1069,7 @@ define hidden i32 @mbedtls_md_hmac(ptr noundef %0, ptr noundef %1, i64 noundef %
 13:                                               ; preds = %11
   %14 = load ptr, ptr %7, align 8
   %15 = icmp eq ptr %14, null
-  %16 = getelementptr inbounds i8, ptr %7, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   %or.cond = select i1 %15, i1 true, i1 %18
@@ -1105,7 +1105,7 @@ define hidden i32 @mbedtls_md_process(ptr noundef readonly %0, ptr noundef %1) l
   br i1 %6, label %38, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load i32, ptr %8, align 8
   switch i32 %9, label %38 [
     i32 1, label %10
@@ -1118,43 +1118,43 @@ define hidden i32 @mbedtls_md_process(ptr noundef readonly %0, ptr noundef %1) l
   ]
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 @mbedtls_internal_md5_process(ptr noundef %12, ptr noundef %1) #13
   br label %38
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 @mbedtls_internal_ripemd160_process(ptr noundef %16, ptr noundef %1) #13
   br label %38
 
 18:                                               ; preds = %7
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i32 @mbedtls_internal_sha1_process(ptr noundef %20, ptr noundef %1) #13
   br label %38
 
 22:                                               ; preds = %7
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i32 @mbedtls_internal_sha256_process(ptr noundef %24, ptr noundef %1) #13
   br label %38
 
 26:                                               ; preds = %7
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = tail call i32 @mbedtls_internal_sha256_process(ptr noundef %28, ptr noundef %1) #13
   br label %38
 
 30:                                               ; preds = %7
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = tail call i32 @mbedtls_internal_sha512_process(ptr noundef %32, ptr noundef %1) #13
   br label %38
 
 34:                                               ; preds = %7
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = tail call i32 @mbedtls_internal_sha512_process(ptr noundef %36, ptr noundef %1) #13
   br label %38
@@ -1180,7 +1180,7 @@ define hidden zeroext i8 @mbedtls_md_get_size(ptr noundef readonly %0) local_unn
   br i1 %2, label %6, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i8, ptr %4, align 4
   br label %6
 
@@ -1195,7 +1195,7 @@ define hidden i32 @mbedtls_md_get_type(ptr noundef readonly %0) local_unnamed_ad
   br i1 %2, label %6, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   br label %6
 

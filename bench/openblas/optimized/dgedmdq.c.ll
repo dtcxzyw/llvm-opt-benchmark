@@ -257,7 +257,7 @@ define noundef i32 @dgedmdq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
 183:                                              ; preds = %182
   store i32 1, ptr %31, align 4, !tbaa !3
   store double 2.000000e+00, ptr %29, align 8, !tbaa !7
-  %184 = getelementptr inbounds i8, ptr %29, i64 8
+  %184 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store double 2.000000e+00, ptr %184, align 8, !tbaa !7
   br label %186
 
@@ -299,7 +299,7 @@ define noundef i32 @dgedmdq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   br i1 %80, label %209, label %215
 
 209:                                              ; preds = %198
-  %210 = getelementptr inbounds i8, ptr %29, i64 8
+  %210 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %211 = load double, ptr %210, align 8, !tbaa !7
   %212 = fptosi double %211 to i32
   %213 = add nsw i32 %205, %212
@@ -407,7 +407,7 @@ define noundef i32 @dgedmdq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %277 = uitofp nneg i32 %260 to double
   store double %277, ptr %29, align 8, !tbaa !7
   %278 = sitofp i32 %258 to double
-  %279 = getelementptr inbounds i8, ptr %29, i64 8
+  %279 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store double %278, ptr %279, align 8, !tbaa !7
   br label %379
 

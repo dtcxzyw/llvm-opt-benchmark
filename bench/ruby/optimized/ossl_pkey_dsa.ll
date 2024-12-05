@@ -185,7 +185,7 @@ define internal noundef i64 @ossl_dsa_initialize(i32 noundef %0, ptr noundef %1,
 42:                                               ; preds = %38, %30
   %.sink = phi ptr [ %26, %30 ], [ %37, %38 ]
   %43 = inttoptr i64 %2 to ptr
-  %44 = getelementptr inbounds i8, ptr %43, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 32
   store ptr %.sink, ptr %44, align 8
   ret i64 %2
 }

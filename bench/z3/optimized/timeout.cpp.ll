@@ -114,7 +114,7 @@ entry:
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN12_GLOBAL__N_112g_timeout_ehclE22event_handler_caller_t(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((8, 12)) %this, i32 noundef %caller_id) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_caller_id = getelementptr inbounds i8, ptr %this, i64 8
+  %m_caller_id = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %caller_id, ptr %m_caller_id, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str)
   %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout)
@@ -166,7 +166,7 @@ define internal void @_GLOBAL__sub_I_timeout.cpp() #11 section ".text.startup" {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #14
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL2eh, i64 8), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL2eh, i64 8), align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_112g_timeout_ehE, i64 16), ptr @_ZL2eh, align 8
   ret void
 }

@@ -56,7 +56,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost3log11v
   %18 = load i8, ptr %17, align 16, !tbaa !19
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %18, ptr %3, align 1, !tbaa !19
-  %20 = getelementptr inbounds i8, ptr %17, i64 10
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 10
   %21 = load i8, ptr %20, align 2, !tbaa !19
   %22 = add i8 %21, 23
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 2
@@ -120,7 +120,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost3log11v
   %19 = sext i8 %18 to i32
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %19, ptr %3, align 16, !tbaa !22
-  %21 = getelementptr inbounds i8, ptr %17, i64 10
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 10
   %22 = load i8, ptr %21, align 2, !tbaa !19
   %23 = sext i8 %22 to i32
   %24 = add nsw i32 %23, 23

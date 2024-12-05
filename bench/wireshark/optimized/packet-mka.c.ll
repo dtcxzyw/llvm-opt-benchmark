@@ -306,7 +306,7 @@ define internal i32 @dissect_mka(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %6 = alloca [32 x i8], align 16
   %7 = alloca %struct._mka_ckn_info_key, align 8
   %8 = alloca [32 x i8], align 16
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @col_set_str(ptr noundef %10, i32 noundef 34, ptr noundef nonnull @.str.123) #8
   %11 = load ptr, ptr %9, align 8
@@ -377,7 +377,7 @@ define internal i32 @dissect_mka(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %60 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %8, i32 noundef 32, i64 noundef %59) #8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   store ptr %8, ptr %7, align 8
-  %61 = getelementptr inbounds i8, ptr %7, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %55, ptr %61, align 8
   %62 = load ptr, ptr @ht_mka_ckn, align 8
   %63 = icmp eq ptr %62, null
@@ -393,7 +393,7 @@ ckn_info_lookup.exit.thread.i.i:                  ; preds = %64, %58
   br label %mka_add_ckn_info.exit.i
 
 ckn_info_lookup.exit.i.i:                         ; preds = %64
-  %67 = getelementptr inbounds i8, ptr %65, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %68 = load ptr, ptr %67, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   %.not.i.i = icmp eq ptr %68, null
@@ -406,13 +406,13 @@ ckn_info_lookup.exit.i.i:                         ; preds = %64
   br i1 %.not.i.i.i, label %mka_add_ckn_info.exit.i, label %72
 
 72:                                               ; preds = %69
-  %73 = getelementptr inbounds i8, ptr %71, i64 32
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 32
   %74 = load ptr, ptr %73, align 8
   %.not5.i.i.i = icmp eq ptr %74, null
   br i1 %.not5.i.i.i, label %mka_add_ckn_info.exit.i, label %75
 
 75:                                               ; preds = %72
-  %76 = getelementptr inbounds i8, ptr %74, i64 28
+  %76 = getelementptr inbounds nuw i8, ptr %74, i64 28
   %77 = load i32, ptr %76, align 4
   %78 = or i32 %77, 2
   store i32 %78, ptr %76, align 4
@@ -439,7 +439,7 @@ dissect_basic_paramset.exit:                      ; preds = %mka_add_ckn_info.ex
   br i1 %87, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %dissect_basic_paramset.exit
-  %88 = getelementptr inbounds i8, ptr %5, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %89 = icmp eq i8 %16, 3
   br label %90
 
@@ -705,7 +705,7 @@ ckn_info_lookup.exit.thread.i.i62:                ; preds = %264, %259
   br label %mka_add_ckn_info.exit.i55
 
 ckn_info_lookup.exit.i.i58:                       ; preds = %264
-  %267 = getelementptr inbounds i8, ptr %265, i64 16
+  %267 = getelementptr inbounds nuw i8, ptr %265, i64 16
   %268 = load ptr, ptr %267, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %.not.i.i59 = icmp eq ptr %268, null
@@ -718,13 +718,13 @@ ckn_info_lookup.exit.i.i58:                       ; preds = %264
   br i1 %.not.i.i.i60, label %mka_add_ckn_info.exit.i55, label %272
 
 272:                                              ; preds = %269
-  %273 = getelementptr inbounds i8, ptr %271, i64 32
+  %273 = getelementptr inbounds nuw i8, ptr %271, i64 32
   %274 = load ptr, ptr %273, align 8
   %.not5.i.i.i61 = icmp eq ptr %274, null
   br i1 %.not5.i.i.i61, label %mka_add_ckn_info.exit.i55, label %275
 
 275:                                              ; preds = %272
-  %276 = getelementptr inbounds i8, ptr %274, i64 28
+  %276 = getelementptr inbounds nuw i8, ptr %274, i64 28
   %277 = load i32, ptr %276, align 4
   %278 = or i32 %277, 2
   store i32 %278, ptr %276, align 4
@@ -999,7 +999,7 @@ define internal void @mka_ckn_uat_data_ckn_set_cb(ptr nocapture noundef initiali
   %11 = load ptr, ptr %0, align 8
   tail call void @g_free(ptr noundef %11) #8
   store ptr %10, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %2, ptr %12, align 8
   ret void
 }
@@ -1011,7 +1011,7 @@ define internal void @mka_ckn_uat_data_ckn_tostr_cb(ptr nocapture noundef readon
   br i1 %.not, label %12, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
   %11 = tail call ptr @g_memdup2(ptr noundef nonnull %6, i64 noundef %10) #9
@@ -1024,7 +1024,7 @@ define internal void @mka_ckn_uat_data_ckn_tostr_cb(ptr nocapture noundef readon
 14:                                               ; preds = %12, %7
   %15 = phi ptr [ %11, %7 ], [ %13, %12 ]
   store ptr %15, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i32, ptr %16, align 8
   store i32 %17, ptr %2, align 4
   ret void
@@ -1036,7 +1036,7 @@ declare zeroext i1 @uat_fld_chk_str(ptr noundef, ptr noundef, i32 noundef, ptr n
 define internal void @mka_ckn_uat_data_name_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   tail call void @g_free(ptr noundef %9) #8
   store ptr %7, ptr %8, align 8
@@ -1045,7 +1045,7 @@ define internal void @mka_ckn_uat_data_name_set_cb(ptr nocapture noundef %0, ptr
 
 ; Function Attrs: nounwind uwtable
 define internal void @mka_ckn_uat_data_name_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %13, label %8
@@ -1073,9 +1073,9 @@ declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, 
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @ckn_info_copy_cb(ptr noundef returned writeonly initializes((0, 12), (16, 24)) %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %5, ptr %6, align 8
   %7 = load ptr, ptr %1, align 8
   %8 = zext i32 %5 to i64
@@ -1083,17 +1083,17 @@ define internal noundef ptr @ckn_info_copy_cb(ptr noundef returned writeonly ini
   store ptr %9, ptr %0, align 8
   %10 = load i32, ptr %4, align 8
   store i32 %10, ptr %6, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noalias ptr @g_strdup(ptr noundef %12) #8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %13, ptr %14, align 8
   ret ptr %0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @ckn_info_update_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = add i32 %4, -1
   %or.cond = icmp ult i32 %5, 32
@@ -1112,7 +1112,7 @@ define internal noundef zeroext i1 @ckn_info_update_cb(ptr nocapture noundef rea
 define internal void @ckn_info_free_cb(ptr nocapture noundef readonly %0) #0 {
   %2 = load ptr, ptr %0, align 8
   tail call void @g_free(ptr noundef %2) #8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call void @g_free(ptr noundef %4) #8
   ret void
@@ -1245,7 +1245,7 @@ declare ptr @g_hash_table_new(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define internal i32 @ckn_key_hash_func(ptr nocapture noundef readonly %0) #4 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
   %.not = icmp eq i32 %4, 0
@@ -1273,9 +1273,9 @@ define internal i32 @ckn_key_hash_func(ptr nocapture noundef readonly %0) #4 {
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal range(i32 0, 2) i32 @ckn_key_equal_func(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %11

@@ -657,7 +657,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_eigrp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca ptr, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.1) #6
   %8 = load ptr, ptr %6, align 8
@@ -712,7 +712,7 @@ define internal i32 @dissect_eigrp(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %46, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %47 = getelementptr inbounds i8, ptr %1, i64 408
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %52
 
 48:                                               ; preds = %4
@@ -1605,10 +1605,10 @@ define internal fastcc void @dissect_eigrp_ipv4_addrs(ptr noundef %0, ptr nounde
   br i1 %9, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %7, i64 4
-  %11 = getelementptr inbounds i8, ptr %7, i64 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 16
-  %13 = getelementptr inbounds i8, ptr %3, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 408
   br label %14
 
 14:                                               ; preds = %.lr.ph, %24
@@ -1731,10 +1731,10 @@ define internal fastcc void @dissect_eigrp_ipv6_addrs(ptr noundef %0, ptr nounde
   br i1 %9, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %7, i64 4
-  %11 = getelementptr inbounds i8, ptr %7, i64 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 16
-  %13 = getelementptr inbounds i8, ptr %3, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 408
   br label %14
 
 14:                                               ; preds = %.lr.ph, %24
@@ -1795,7 +1795,7 @@ define internal fastcc void @dissect_eigrp_services(ptr noundef %0, ptr noundef 
   br i1 %12, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %3, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 408
   br label %14
 
 14:                                               ; preds = %.lr.ph, %78

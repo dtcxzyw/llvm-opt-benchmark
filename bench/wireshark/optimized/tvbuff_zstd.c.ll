@@ -20,18 +20,18 @@ define noundef ptr @tvb_uncompress_zstd(ptr noundef %0, i32 noundef %1, i32 noun
   %6 = sext i32 %2 to i64
   %7 = tail call ptr @tvb_memdup(ptr noundef null, ptr noundef %0, i32 noundef %1, i64 noundef %6) #5
   store ptr %7, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %6, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %9, align 8
   %10 = tail call ptr @ZSTD_createDStream() #5
   %11 = tail call i64 @ZSTD_DStreamOutSize() #5
   %12 = tail call noalias ptr @g_malloc(i64 noundef %11) #6
   store ptr %12, ptr %5, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = tail call i64 @ZSTD_DStreamOutSize() #5
   store i64 %14, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %15, align 8
   %.not61 = icmp eq i32 %2, 0
   br i1 %.not61, label %._crit_edge, label %.lr.ph

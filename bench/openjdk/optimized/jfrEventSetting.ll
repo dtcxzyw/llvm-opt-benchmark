@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZN15JfrEventSetting13set_thresholdEll(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = and i64 %0, 4294967295
-  %4 = getelementptr inbounds [164 x %struct.jfrNativeEventSetting], ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw [164 x %struct.jfrNativeEventSetting], ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 0, i64 %3
   store i64 %1, ptr %4, align 8
   ret i1 true
 }
@@ -21,7 +21,7 @@ define hidden noundef zeroext i1 @_ZN15JfrEventSetting13set_thresholdEll(i64 nou
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define hidden void @_ZN15JfrEventSetting17set_miscellaneousEll(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = and i64 %0, 4294967295
-  %4 = getelementptr inbounds [164 x %struct.jfrNativeEventSetting], ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 0, i64 %3, i32 1
+  %4 = getelementptr inbounds nuw [164 x %struct.jfrNativeEventSetting], ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 0, i64 %3, i32 1
   store i64 %1, ptr %4, align 8
   ret void
 }
@@ -30,7 +30,7 @@ define hidden void @_ZN15JfrEventSetting17set_miscellaneousEll(i64 noundef %0, i
 define hidden void @_ZN15JfrEventSetting14set_stacktraceElb(i64 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = zext i1 %1 to i8
   %4 = and i64 %0, 4294967295
-  %5 = getelementptr inbounds [164 x %struct.jfrNativeEventSetting], ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 0, i64 %4, i32 2
+  %5 = getelementptr inbounds nuw [164 x %struct.jfrNativeEventSetting], ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 0, i64 %4, i32 2
   store i8 %3, ptr %5, align 8
   ret void
 }
@@ -39,7 +39,7 @@ define hidden void @_ZN15JfrEventSetting14set_stacktraceElb(i64 noundef %0, i1 n
 define hidden void @_ZN15JfrEventSetting11set_enabledElb(i64 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = zext i1 %1 to i8
   %4 = and i64 %0, 4294967295
-  %5 = getelementptr inbounds [164 x %struct.jfrNativeEventSetting], ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 0, i64 %4, i32 3
+  %5 = getelementptr inbounds nuw [164 x %struct.jfrNativeEventSetting], ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 0, i64 %4, i32 3
   store i8 %3, ptr %5, align 1
   ret void
 }
@@ -47,7 +47,7 @@ define hidden void @_ZN15JfrEventSetting11set_enabledElb(i64 noundef %0, i1 noun
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define hidden void @_ZN15JfrEventSetting9set_largeE10JfrEventId(i32 noundef %0) local_unnamed_addr #0 align 2 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds [164 x %struct.jfrNativeEventSetting], ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 0, i64 %2, i32 4
+  %3 = getelementptr inbounds nuw [164 x %struct.jfrNativeEventSetting], ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 0, i64 %2, i32 4
   store i8 1, ptr %3, align 2
   ret void
 }

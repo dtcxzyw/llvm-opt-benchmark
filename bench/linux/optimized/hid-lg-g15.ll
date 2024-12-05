@@ -88,7 +88,7 @@ declare dso_local i32 @__hid_register_driver(ptr noundef, ptr noundef, ptr nound
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @lg_g15_probe(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 7156
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 7156
   %4 = load i32, ptr %3, align 4
   %5 = or i32 %4, 2048
   store i32 %5, ptr %3, align 4
@@ -97,7 +97,7 @@ define internal i32 @lg_g15_probe(ptr noundef %0, ptr nocapture noundef readonly
   br i1 %7, label %8, label %.loopexit13
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, %9
   br i1 %11, label %.thread, label %.preheader15
@@ -105,7 +105,7 @@ define internal i32 @lg_g15_probe(ptr noundef %0, ptr nocapture noundef readonly
 .preheader15:                                     ; preds = %8, %.preheader15
   %12 = phi ptr [ %18, %.preheader15 ], [ %10, %8 ]
   %13 = phi i8 [ %17, %.preheader15 ], [ 0, %8 ]
-  %14 = getelementptr inbounds i8, ptr %12, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, -16777216
   %17 = select i1 %16, i8 1, i8 %13
@@ -122,31 +122,31 @@ define internal i32 @lg_g15_probe(ptr noundef %0, ptr nocapture noundef readonly
   br label %.loopexit13
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %0, i64 6352
-  %25 = tail call noalias noundef dereferenceable_or_null(2664) ptr @devm_kmalloc(ptr noundef %24, i64 noundef 2664, i32 noundef 3520) #11
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 6352
+  %25 = tail call noalias noundef dereferenceable_or_null(2664) ptr @devm_kmalloc(ptr noundef nonnull %24, i64 noundef 2664, i32 noundef 3520) #11
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.loopexit13, label %27
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %25, i64 24
-  tail call void @__mutex_init(ptr noundef %28, ptr noundef nonnull @.str.8, ptr noundef nonnull @lg_g15_probe.__key) #10
-  %29 = tail call ptr @devm_input_allocate_device(ptr noundef %24) #10
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 24
+  tail call void @__mutex_init(ptr noundef nonnull %28, ptr noundef nonnull @.str.8, ptr noundef nonnull @lg_g15_probe.__key) #10
+  %29 = tail call ptr @devm_input_allocate_device(ptr noundef nonnull %24) #10
   %30 = icmp eq ptr %29, null
   br i1 %30, label %.loopexit13, label %31
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %25, i64 96
+  %32 = getelementptr inbounds nuw i8, ptr %25, i64 96
   store ptr %0, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %34 = load i64, ptr %33, align 8
   %35 = trunc i64 %34 to i32
-  %36 = getelementptr inbounds i8, ptr %25, i64 104
+  %36 = getelementptr inbounds nuw i8, ptr %25, i64 104
   store i32 %35, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %25, i64 88
+  %37 = getelementptr inbounds nuw i8, ptr %25, i64 88
   store ptr %29, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %29, i64 664
+  %38 = getelementptr inbounds nuw i8, ptr %29, i64 664
   store ptr %0, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 6472
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 6472
   store ptr %25, ptr %39, align 8
   %40 = load i32, ptr %36, align 8
   switch i32 %40, label %57 [
@@ -158,35 +158,35 @@ define internal i32 @lg_g15_probe(ptr noundef %0, ptr nocapture noundef readonly
   ]
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %25, i64 56
+  %42 = getelementptr inbounds nuw i8, ptr %25, i64 56
   store i64 68719476704, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %25, i64 64
+  %43 = getelementptr inbounds nuw i8, ptr %25, i64 64
   store volatile ptr %43, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %25, i64 72
+  %44 = getelementptr inbounds nuw i8, ptr %25, i64 72
   store volatile ptr %43, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %25, i64 80
+  %45 = getelementptr inbounds nuw i8, ptr %25, i64 80
   store ptr @lg_g15_leds_changed_work, ptr %45, align 8
   br label %57
 
 46:                                               ; preds = %31
-  %47 = getelementptr inbounds i8, ptr %25, i64 56
+  %47 = getelementptr inbounds nuw i8, ptr %25, i64 56
   store i64 68719476704, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %25, i64 64
+  %48 = getelementptr inbounds nuw i8, ptr %25, i64 64
   store volatile ptr %48, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %25, i64 72
+  %49 = getelementptr inbounds nuw i8, ptr %25, i64 72
   store volatile ptr %48, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %25, i64 80
+  %50 = getelementptr inbounds nuw i8, ptr %25, i64 80
   store ptr @lg_g15_leds_changed_work, ptr %50, align 8
   br label %57
 
 51:                                               ; preds = %31, %31
-  %52 = getelementptr inbounds i8, ptr %25, i64 56
+  %52 = getelementptr inbounds nuw i8, ptr %25, i64 56
   store i64 68719476704, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %25, i64 64
+  %53 = getelementptr inbounds nuw i8, ptr %25, i64 64
   store volatile ptr %53, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %25, i64 72
+  %54 = getelementptr inbounds nuw i8, ptr %25, i64 72
   store volatile ptr %53, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %25, i64 80
+  %55 = getelementptr inbounds nuw i8, ptr %25, i64 80
   store ptr @lg_g510_leds_sync_work, ptr %55, align 8
   br label %57
 
@@ -244,7 +244,7 @@ define internal i32 @lg_g15_probe(ptr noundef %0, ptr nocapture noundef readonly
   br i1 %87, label %88, label %89
 
 88:                                               ; preds = %85
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %24, ptr noundef nonnull @.str.12, i32 noundef %86) #12
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %24, ptr noundef nonnull @.str.12, i32 noundef %86) #12
   store ptr null, ptr %39, align 8
   br label %.loopexit13
 
@@ -315,7 +315,7 @@ define internal i32 @lg_g15_probe(ptr noundef %0, ptr nocapture noundef readonly
   br i1 %121, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %119
-  %122 = getelementptr inbounds i8, ptr %25, i64 112
+  %122 = getelementptr inbounds nuw i8, ptr %25, i64 112
   br label %126
 
 123:                                              ; preds = %lg_g15_register_led.exit
@@ -331,7 +331,7 @@ define internal i32 @lg_g15_probe(ptr noundef %0, ptr nocapture noundef readonly
   %sext = shl i64 %127, 32
   %131 = ashr exact i64 %sext, 32
   %132 = getelementptr [6 x %struct.lg_g15_led], ptr %122, i64 0, i64 %131
-  %133 = getelementptr inbounds i8, ptr %132, i64 412
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 412
   store i32 %130, ptr %133, align 4
   store ptr %129, ptr %132, align 8
   %134 = load i32, ptr %36, align 8
@@ -344,25 +344,25 @@ define internal i32 @lg_g15_probe(ptr noundef %0, ptr nocapture noundef readonly
   ]
 
 135:                                              ; preds = %126, %126
-  %136 = getelementptr inbounds i8, ptr %132, i64 48
+  %136 = getelementptr inbounds nuw i8, ptr %132, i64 48
   store ptr @lg_g15_led_get, ptr %136, align 8
   br label %137
 
 137:                                              ; preds = %135, %126
-  %138 = getelementptr inbounds i8, ptr %132, i64 40
+  %138 = getelementptr inbounds nuw i8, ptr %132, i64 40
   store ptr @lg_g15_led_set, ptr %138, align 8
   %139 = icmp slt i32 %130, 2
   br i1 %139, label %140, label %143
 
 140:                                              ; preds = %137
-  %141 = getelementptr inbounds i8, ptr %132, i64 20
+  %141 = getelementptr inbounds nuw i8, ptr %132, i64 20
   store i32 2097152, ptr %141, align 4
-  %142 = getelementptr inbounds i8, ptr %132, i64 12
+  %142 = getelementptr inbounds nuw i8, ptr %132, i64 12
   store i32 2, ptr %142, align 4
   br label %lg_g15_register_led.exit
 
 143:                                              ; preds = %137
-  %144 = getelementptr inbounds i8, ptr %132, i64 12
+  %144 = getelementptr inbounds nuw i8, ptr %132, i64 12
   store i32 1, ptr %144, align 4
   br label %lg_g15_register_led.exit
 
@@ -377,29 +377,29 @@ define internal i32 @lg_g15_probe(ptr noundef %0, ptr nocapture noundef readonly
   br label %147
 
 147:                                              ; preds = %146, %145
-  %148 = getelementptr inbounds i8, ptr %132, i64 40
+  %148 = getelementptr inbounds nuw i8, ptr %132, i64 40
   store ptr @lg_g510_kbd_led_set, ptr %148, align 8
-  %149 = getelementptr inbounds i8, ptr %132, i64 48
+  %149 = getelementptr inbounds nuw i8, ptr %132, i64 48
   store ptr @lg_g510_kbd_led_get, ptr %149, align 8
-  %150 = getelementptr inbounds i8, ptr %132, i64 12
+  %150 = getelementptr inbounds nuw i8, ptr %132, i64 12
   store i32 255, ptr %150, align 4
-  %151 = getelementptr inbounds i8, ptr %132, i64 88
+  %151 = getelementptr inbounds nuw i8, ptr %132, i64 88
   store ptr @lg_g510_kbd_led_groups, ptr %151, align 8
   br label %lg_g15_register_led.exit
 
 152:                                              ; preds = %145
-  %153 = getelementptr inbounds i8, ptr %132, i64 40
+  %153 = getelementptr inbounds nuw i8, ptr %132, i64 40
   store ptr @lg_g510_mkey_led_set, ptr %153, align 8
-  %154 = getelementptr inbounds i8, ptr %132, i64 48
+  %154 = getelementptr inbounds nuw i8, ptr %132, i64 48
   store ptr @lg_g510_mkey_led_get, ptr %154, align 8
-  %155 = getelementptr inbounds i8, ptr %132, i64 12
+  %155 = getelementptr inbounds nuw i8, ptr %132, i64 12
   store i32 1, ptr %155, align 4
   br label %lg_g15_register_led.exit
 
 lg_g15_register_led.exit:                         ; preds = %126, %140, %143, %147, %152
   %156 = load ptr, ptr %32, align 8
-  %157 = getelementptr inbounds i8, ptr %156, i64 6352
-  %158 = tail call i32 @devm_led_classdev_register_ext(ptr noundef %157, ptr noundef %132, ptr noundef null) #10
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 6352
+  %158 = tail call i32 @devm_led_classdev_register_ext(ptr noundef nonnull %157, ptr noundef %132, ptr noundef null) #10
   %159 = icmp eq i32 %158, 0
   br i1 %159, label %123, label %.loopexit
 
@@ -415,13 +415,13 @@ lg_g15_register_led.exit:                         ; preds = %126, %140, %143, %1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @lg_g15_raw_event(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, i32 noundef %3) #2 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 6472
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 6472
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %289, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %6, i64 104
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %10 = load i32, ptr %9, align 8
   switch i32 %10, label %289 [
     i32 0, label %11
@@ -439,7 +439,7 @@ define internal noundef i32 @lg_g15_raw_event(ptr nocapture noundef readonly %0,
   br i1 %15, label %16, label %289
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %6, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 88
   br label %20
 
 18:                                               ; preds = %20
@@ -555,9 +555,9 @@ define internal noundef i32 @lg_g15_raw_event(ptr nocapture noundef readonly %0,
   br i1 %102, label %107, label %103
 
 103:                                              ; preds = %99
-  %104 = getelementptr inbounds i8, ptr %6, i64 56
+  %104 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %105 = load ptr, ptr @system_wq, align 8
-  %106 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %105, ptr noundef %104) #10
+  %106 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %105, ptr noundef nonnull %104) #10
   br label %107
 
 107:                                              ; preds = %103, %99
@@ -574,7 +574,7 @@ define internal noundef i32 @lg_g15_raw_event(ptr nocapture noundef readonly %0,
 
 114:                                              ; preds = %109
   %115 = getelementptr i8, ptr %2, i64 1
-  %116 = getelementptr inbounds i8, ptr %6, i64 88
+  %116 = getelementptr inbounds nuw i8, ptr %6, i64 88
   br label %117
 
 117:                                              ; preds = %117, %114
@@ -644,9 +644,9 @@ define internal noundef i32 @lg_g15_raw_event(ptr nocapture noundef readonly %0,
   br i1 %167, label %172, label %168
 
 168:                                              ; preds = %164
-  %169 = getelementptr inbounds i8, ptr %6, i64 56
+  %169 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %170 = load ptr, ptr @system_wq, align 8
-  %171 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %170, ptr noundef %169) #10
+  %171 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %170, ptr noundef nonnull %169) #10
   br label %172
 
 172:                                              ; preds = %168, %164
@@ -662,7 +662,7 @@ define internal noundef i32 @lg_g15_raw_event(ptr nocapture noundef readonly %0,
   br i1 %178, label %179, label %289
 
 179:                                              ; preds = %174
-  %180 = getelementptr inbounds i8, ptr %6, i64 88
+  %180 = getelementptr inbounds nuw i8, ptr %6, i64 88
   %181 = load ptr, ptr %180, align 8
   %182 = getelementptr i8, ptr %2, i64 8
   %183 = load i8, ptr %182, align 1
@@ -700,7 +700,7 @@ define internal noundef i32 @lg_g15_raw_event(ptr nocapture noundef readonly %0,
 
 205:                                              ; preds = %200
   %206 = getelementptr i8, ptr %2, i64 1
-  %207 = getelementptr inbounds i8, ptr %6, i64 88
+  %207 = getelementptr inbounds nuw i8, ptr %6, i64 88
   br label %208
 
 208:                                              ; preds = %208, %205
@@ -725,18 +725,18 @@ define internal noundef i32 @lg_g15_raw_event(ptr nocapture noundef readonly %0,
   %224 = load i8, ptr %223, align 1
   %225 = and i8 %224, 4
   %226 = lshr exact i8 %225, 2
-  %227 = getelementptr inbounds i8, ptr %6, i64 2656
+  %227 = getelementptr inbounds nuw i8, ptr %6, i64 2656
   %228 = load i8, ptr %227, align 8, !range !19, !noundef !20
   %229 = icmp eq i8 %226, %228
   br i1 %229, label %.preheader2, label %230
 
 230:                                              ; preds = %222
   %231 = icmp eq i8 %225, 0
-  %232 = getelementptr inbounds i8, ptr %6, i64 96
+  %232 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %233 = load ptr, ptr %232, align 8
-  %234 = getelementptr inbounds i8, ptr %233, i64 6352
+  %234 = getelementptr inbounds nuw i8, ptr %233, i64 6352
   %235 = select i1 %231, ptr @.str.22, ptr @.str.21
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %234, ptr noundef nonnull %235) #12
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %234, ptr noundef nonnull %235) #12
   store i8 %226, ptr %227, align 8
   br label %.preheader2
 
@@ -811,9 +811,9 @@ define internal noundef i32 @lg_g15_raw_event(ptr nocapture noundef readonly %0,
   br i1 %284, label %285, label %289
 
 285:                                              ; preds = %280
-  %286 = getelementptr inbounds i8, ptr %6, i64 56
+  %286 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %287 = load ptr, ptr @system_wq, align 8
-  %288 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %287, ptr noundef %286) #10
+  %288 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %287, ptr noundef nonnull %286) #10
   br label %289
 
 289:                                              ; preds = %285, %280, %276, %264, %198, %174, %172, %109, %107, %11, %8, %4
@@ -848,8 +848,8 @@ define internal void @lg_g15_leds_changed_work(ptr noundef %0) #2 align 16 {
 
 8:                                                ; preds = %1
   %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 6352
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %10, ptr noundef nonnull @.str.16, i32 noundef %6) #12
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 6352
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %10, ptr noundef nonnull @.str.16, i32 noundef %6) #12
   br label %38
 
 11:                                               ; preds = %1
@@ -943,8 +943,8 @@ define internal void @lg_g510_leds_sync_work(ptr noundef %0) #2 align 16 {
 
 39:                                               ; preds = %1
   %40 = load ptr, ptr %34, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 6352
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %41, ptr noundef nonnull @.str.17, i32 noundef %36) #12
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 6352
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %41, ptr noundef nonnull @.str.17, i32 noundef %36) #12
   br label %42
 
 42:                                               ; preds = %39, %38
@@ -972,7 +972,7 @@ declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_ad
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc range(i32 5, 4) i32 @lg_g15_get_initial_led_brightness(ptr noundef nonnull %0) unnamed_addr #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load i32, ptr %2, align 8
   switch i32 %3, label %73 [
     i32 0, label %4
@@ -983,7 +983,7 @@ define internal fastcc range(i32 5, 4) i32 @lg_g15_get_initial_led_brightness(pt
   ]
 
 4:                                                ; preds = %1, %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @hid_hw_raw_request(ptr noundef %6, i8 noundef zeroext 2, ptr noundef nonnull %0, i64 noundef 4, i32 noundef 2, i32 noundef 1) #10
   %8 = icmp eq i32 %7, 4
@@ -991,8 +991,8 @@ define internal fastcc range(i32 5, 4) i32 @lg_g15_get_initial_led_brightness(pt
 
 9:                                                ; preds = %4
   %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 6352
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %11, ptr noundef nonnull @.str.16, i32 noundef %7) #12
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 6352
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %11, ptr noundef nonnull @.str.16, i32 noundef %7) #12
   %12 = icmp slt i32 %7, 0
   %13 = select i1 %12, i32 %7, i32 -5
   br label %74
@@ -1001,7 +1001,7 @@ define internal fastcc range(i32 5, 4) i32 @lg_g15_get_initial_led_brightness(pt
   %15 = getelementptr i8, ptr %0, i64 1
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i32
-  %18 = getelementptr inbounds i8, ptr %0, i64 520
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 520
   store i32 %17, ptr %18, align 8
   %19 = getelementptr i8, ptr %0, i64 2
   %20 = load i8, ptr %19, align 2
@@ -1043,7 +1043,7 @@ define internal fastcc range(i32 5, 4) i32 @lg_g15_get_initial_led_brightness(pt
   br i1 %46, label %47, label %74
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %0, i64 96
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %49 = load ptr, ptr %48, align 8
   %50 = tail call i32 @hid_hw_raw_request(ptr noundef %49, i8 noundef zeroext 4, ptr noundef nonnull %0, i64 noundef 2, i32 noundef 2, i32 noundef 1) #10
   %51 = icmp eq i32 %50, 2
@@ -1051,8 +1051,8 @@ define internal fastcc range(i32 5, 4) i32 @lg_g15_get_initial_led_brightness(pt
 
 52:                                               ; preds = %47
   %53 = load ptr, ptr %48, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 6352
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %54, ptr noundef nonnull @.str.16, i32 noundef %50) #12
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 6352
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %54, ptr noundef nonnull @.str.16, i32 noundef %50) #12
   br label %55
 
 55:                                               ; preds = %52, %47
@@ -1090,37 +1090,37 @@ define internal fastcc range(i32 5, 4) i32 @lg_g15_get_initial_led_brightness(pt
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @lg_g15_init_input_dev(ptr noundef %0, ptr noundef initializes((0, 32), (456, 472), (608, 616)) %1, ptr noundef %2) unnamed_addr #2 align 16 {
   store ptr %2, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 7328
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 7328
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %4, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 7392
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 7392
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 52
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %9 = load i16, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i16 %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = load i32, ptr %11, align 8
   %13 = trunc i32 %12 to i16
-  %14 = getelementptr inbounds i8, ptr %1, i64 26
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 26
   store i16 %13, ptr %14, align 2
-  %15 = getelementptr inbounds i8, ptr %0, i64 60
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %16 = load i32, ptr %15, align 4
   %17 = trunc i32 %16 to i16
-  %18 = getelementptr inbounds i8, ptr %1, i64 28
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i16 %17, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %0, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %20 = load i32, ptr %19, align 8
   %21 = trunc i32 %20 to i16
-  %22 = getelementptr inbounds i8, ptr %1, i64 30
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 30
   store i16 %21, ptr %22, align 2
-  %23 = getelementptr inbounds i8, ptr %0, i64 6352
-  %24 = getelementptr inbounds i8, ptr %1, i64 608
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 6352
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 608
   store ptr %23, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 456
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 456
   store ptr @lg_g15_input_open, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 464
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 464
   store ptr @lg_g15_input_close, ptr %26, align 8
   br label %27
 
@@ -1141,13 +1141,13 @@ declare dso_local i32 @input_register_device(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @lg_g15_register_led(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) unnamed_addr #2 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = sext i32 %1 to i64
   %6 = getelementptr [6 x %struct.lg_g15_led], ptr %4, i64 0, i64 %5
-  %7 = getelementptr inbounds i8, ptr %6, i64 412
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 412
   store i32 %1, ptr %7, align 4
   store ptr %2, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   switch i32 %9, label %31 [
     i32 0, label %10
@@ -1158,25 +1158,25 @@ define internal fastcc i32 @lg_g15_register_led(ptr noundef nonnull %0, i32 noun
   ]
 
 10:                                               ; preds = %3, %3
-  %11 = getelementptr inbounds i8, ptr %6, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr @lg_g15_led_get, ptr %11, align 8
   br label %12
 
 12:                                               ; preds = %10, %3
-  %13 = getelementptr inbounds i8, ptr %6, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr @lg_g15_led_set, ptr %13, align 8
   %14 = icmp slt i32 %1, 2
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %6, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 2097152, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %6, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 2, ptr %17, align 4
   br label %31
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %6, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 1, ptr %19, align 4
   br label %31
 
@@ -1191,30 +1191,30 @@ define internal fastcc i32 @lg_g15_register_led(ptr noundef nonnull %0, i32 noun
   br label %22
 
 22:                                               ; preds = %21, %20
-  %23 = getelementptr inbounds i8, ptr %6, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr @lg_g510_kbd_led_set, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %6, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr @lg_g510_kbd_led_get, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %6, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 255, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %6, i64 88
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 88
   store ptr @lg_g510_kbd_led_groups, ptr %26, align 8
   br label %31
 
 27:                                               ; preds = %20
-  %28 = getelementptr inbounds i8, ptr %6, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr @lg_g510_mkey_led_set, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %6, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr @lg_g510_mkey_led_get, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %6, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 1, ptr %30, align 4
   br label %31
 
 31:                                               ; preds = %27, %22, %18, %15, %3
-  %32 = getelementptr inbounds i8, ptr %0, i64 96
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 6352
-  %35 = tail call i32 @devm_led_classdev_register_ext(ptr noundef %34, ptr noundef %6, ptr noundef null) #10
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 6352
+  %35 = tail call i32 @devm_led_classdev_register_ext(ptr noundef nonnull %34, ptr noundef %6, ptr noundef null) #10
   ret i32 %35
 }
 
@@ -1238,7 +1238,7 @@ declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc range(i32 5, 4) i32 @lg_g510_get_initial_led_brightness(ptr noundef nonnull %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #2 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 96
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load ptr, ptr %3, align 8
   %5 = trunc nuw nsw i32 %1 to i8
   %6 = add nuw nsw i8 %5, 5
@@ -1248,8 +1248,8 @@ define internal fastcc range(i32 5, 4) i32 @lg_g510_get_initial_led_brightness(p
 
 9:                                                ; preds = %2
   %10 = load ptr, ptr %3, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 6352
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %11, ptr noundef nonnull @.str.16, i32 noundef %7) #12
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 6352
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %11, ptr noundef nonnull @.str.16, i32 noundef %7) #12
   %12 = icmp slt i32 %7, 0
   %13 = select i1 %12, i32 %7, i32 -5
   br label %71
@@ -1284,10 +1284,10 @@ define internal fastcc range(i32 5, 4) i32 @lg_g510_get_initial_led_brightness(p
 
 34:                                               ; preds = %27, %25
   %35 = phi i8 [ %33, %27 ], [ 0, %25 ]
-  %36 = getelementptr inbounds i8, ptr %0, i64 112
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %37 = zext nneg i32 %1 to i64
   %38 = getelementptr [6 x %struct.lg_g15_led], ptr %36, i64 0, i64 %37
-  %39 = getelementptr inbounds i8, ptr %38, i64 416
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 416
   store i8 %35, ptr %39, align 8
   %40 = icmp eq i8 %18, 0
   br i1 %40, label %48, label %41
@@ -1305,7 +1305,7 @@ define internal fastcc range(i32 5, 4) i32 @lg_g510_get_initial_led_brightness(p
 
 48:                                               ; preds = %41, %34
   %49 = phi i8 [ %47, %41 ], [ 0, %34 ]
-  %50 = getelementptr inbounds i8, ptr %38, i64 417
+  %50 = getelementptr inbounds nuw i8, ptr %38, i64 417
   store i8 %49, ptr %50, align 1
   %51 = icmp eq i8 %21, 0
   br i1 %51, label %59, label %52
@@ -1323,23 +1323,23 @@ define internal fastcc range(i32 5, 4) i32 @lg_g510_get_initial_led_brightness(p
 
 59:                                               ; preds = %52, %48
   %60 = phi i8 [ %58, %52 ], [ 0, %48 ]
-  %61 = getelementptr inbounds i8, ptr %38, i64 418
+  %61 = getelementptr inbounds nuw i8, ptr %38, i64 418
   store i8 %60, ptr %61, align 2
-  %62 = getelementptr inbounds i8, ptr %38, i64 408
+  %62 = getelementptr inbounds nuw i8, ptr %38, i64 408
   store i32 %23, ptr %62, align 8
   br label %71
 
 63:                                               ; preds = %14
-  %64 = getelementptr inbounds i8, ptr %0, i64 112
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %65 = zext nneg i32 %1 to i64
   %66 = getelementptr [6 x %struct.lg_g15_led], ptr %64, i64 0, i64 %65
-  %67 = getelementptr inbounds i8, ptr %66, i64 416
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 416
   store i8 -1, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %66, i64 417
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 417
   store i8 -1, ptr %68, align 1
-  %69 = getelementptr inbounds i8, ptr %66, i64 418
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 418
   store i8 -1, ptr %69, align 2
-  %70 = getelementptr inbounds i8, ptr %66, i64 408
+  %70 = getelementptr inbounds nuw i8, ptr %66, i64 408
   store i32 0, ptr %70, align 8
   br label %71
 
@@ -1350,7 +1350,7 @@ define internal fastcc range(i32 5, 4) i32 @lg_g510_get_initial_led_brightness(p
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @lg_g15_input_open(ptr nocapture noundef readonly %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 664
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @hid_hw_open(ptr noundef %3) #10
   ret i32 %4
@@ -1358,7 +1358,7 @@ define internal i32 @lg_g15_input_open(ptr nocapture noundef readonly %0) #2 ali
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @lg_g15_input_close(ptr nocapture noundef readonly %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 664
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %3 = load ptr, ptr %2, align 8
   tail call void @hid_hw_close(ptr noundef %3) #10
   ret void
@@ -1366,15 +1366,15 @@ define internal void @lg_g15_input_close(ptr nocapture noundef readonly %0) #2 a
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @lg_g15_led_get(ptr nocapture noundef readonly %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 120
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 120
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
-  tail call void @mutex_lock(ptr noundef %8) #10
-  %9 = getelementptr inbounds i8, ptr %7, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  tail call void @mutex_lock(ptr noundef nonnull %8) #10
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @hid_hw_raw_request(ptr noundef %10, i8 noundef zeroext 2, ptr noundef %7, i64 noundef 4, i32 noundef 2, i32 noundef 1) #10
   %12 = icmp eq i32 %11, 4
@@ -1382,15 +1382,15 @@ define internal i32 @lg_g15_led_get(ptr nocapture noundef readonly %0) #2 align 
 
 13:                                               ; preds = %1
   %14 = load ptr, ptr %9, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 6352
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %15, ptr noundef nonnull @.str.16, i32 noundef %11) #12
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 6352
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %15, ptr noundef nonnull @.str.16, i32 noundef %11) #12
   br label %43
 
 16:                                               ; preds = %1
   %17 = getelementptr i8, ptr %7, i64 1
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i32
-  %20 = getelementptr inbounds i8, ptr %7, i64 520
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 520
   store i32 %19, ptr %20, align 8
   %21 = getelementptr i8, ptr %7, i64 2
   %22 = load i8, ptr %21, align 2
@@ -1422,38 +1422,38 @@ define internal i32 @lg_g15_led_get(ptr nocapture noundef readonly %0) #2 align 
   br label %43
 
 43:                                               ; preds = %16, %13
-  %44 = getelementptr inbounds i8, ptr %0, i64 412
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 412
   %45 = load i32, ptr %44, align 4
   %46 = zext i32 %45 to i64
   %.idx = mul nuw nsw i64 %46, 424
   %47 = getelementptr i8, ptr %7, i64 520
   %48 = getelementptr i8, ptr %47, i64 %.idx
   %49 = load i32, ptr %48, align 8
-  tail call void @mutex_unlock(ptr noundef %8) #10
+  tail call void @mutex_unlock(ptr noundef nonnull %8) #10
   ret i32 %49
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 5, 4) i32 @lg_g15_led_set(ptr nocapture noundef %0, i32 noundef %1) #2 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 120
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 120
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 2
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %68
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %8, i64 24
-  tail call void @mutex_lock(ptr noundef %14) #10
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  tail call void @mutex_lock(ptr noundef nonnull %14) #10
   store i8 2, ptr %8, align 8
   %15 = getelementptr i8, ptr %8, i64 3
   store i8 0, ptr %15, align 1
-  %16 = getelementptr inbounds i8, ptr %0, i64 412
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 412
   %17 = load i32, ptr %16, align 4
   %18 = icmp ult i32 %17, 2
   br i1 %18, label %22, label %19
@@ -1510,28 +1510,28 @@ define internal range(i32 5, 4) i32 @lg_g15_led_set(ptr nocapture noundef %0, i3
   %53 = phi i8 [ %51, %49 ], [ %29, %22 ]
   %54 = getelementptr i8, ptr %8, i64 2
   store i8 %53, ptr %54, align 2
-  %55 = getelementptr inbounds i8, ptr %8, i64 96
+  %55 = getelementptr inbounds nuw i8, ptr %8, i64 96
   %56 = load ptr, ptr %55, align 8
   %57 = tail call i32 @hid_hw_raw_request(ptr noundef %56, i8 noundef zeroext 2, ptr noundef %8, i64 noundef 4, i32 noundef 2, i32 noundef 9) #10
   %58 = icmp eq i32 %57, 4
   br i1 %58, label %59, label %61
 
 59:                                               ; preds = %52
-  %60 = getelementptr inbounds i8, ptr %0, i64 408
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 408
   store i32 %1, ptr %60, align 8
   br label %66
 
 61:                                               ; preds = %52
   %62 = load ptr, ptr %55, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 6352
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %63, ptr noundef nonnull @.str.17, i32 noundef %57) #12
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 6352
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %63, ptr noundef nonnull @.str.17, i32 noundef %57) #12
   %64 = icmp slt i32 %57, 0
   %65 = select i1 %64, i32 %57, i32 -5
   br label %66
 
 66:                                               ; preds = %61, %59
   %67 = phi i32 [ 0, %59 ], [ %65, %61 ]
-  tail call void @mutex_unlock(ptr noundef %14) #10
+  tail call void @mutex_unlock(ptr noundef nonnull %14) #10
   br label %68
 
 68:                                               ; preds = %66, %2
@@ -1541,27 +1541,27 @@ define internal range(i32 5, 4) i32 @lg_g15_led_set(ptr nocapture noundef %0, i3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 5, 4) i32 @lg_g510_kbd_led_set(ptr nocapture noundef %0, i32 noundef %1) #2 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 20
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 2
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %59
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 120
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 120
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
-  tail call void @mutex_lock(ptr noundef %14) #10
-  %15 = getelementptr inbounds i8, ptr %0, i64 412
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  tail call void @mutex_lock(ptr noundef nonnull %14) #10
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 412
   %16 = load i32, ptr %15, align 4
   %17 = trunc i32 %16 to i8
   %18 = add i8 %17, 5
   store i8 %18, ptr %13, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 416
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %20 = load i8, ptr %19, align 8
   %21 = zext i8 %20 to i32
   %22 = mul i32 %1, %21
@@ -1570,7 +1570,7 @@ define internal range(i32 5, 4) i32 @lg_g510_kbd_led_set(ptr nocapture noundef %
   %25 = trunc i32 %24 to i8
   %26 = getelementptr i8, ptr %13, i64 1
   store i8 %25, ptr %26, align 1
-  %27 = getelementptr inbounds i8, ptr %0, i64 417
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 417
   %28 = load i8, ptr %27, align 1
   %29 = zext i8 %28 to i32
   %30 = mul i32 %1, %29
@@ -1579,7 +1579,7 @@ define internal range(i32 5, 4) i32 @lg_g510_kbd_led_set(ptr nocapture noundef %
   %33 = trunc i32 %32 to i8
   %34 = getelementptr i8, ptr %13, i64 2
   store i8 %33, ptr %34, align 2
-  %35 = getelementptr inbounds i8, ptr %0, i64 418
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 418
   %36 = load i8, ptr %35, align 2
   %37 = zext i8 %36 to i32
   %38 = mul i32 %1, %37
@@ -1588,7 +1588,7 @@ define internal range(i32 5, 4) i32 @lg_g510_kbd_led_set(ptr nocapture noundef %
   %41 = trunc i32 %40 to i8
   %42 = getelementptr i8, ptr %13, i64 3
   store i8 %41, ptr %42, align 1
-  %43 = getelementptr inbounds i8, ptr %13, i64 96
+  %43 = getelementptr inbounds nuw i8, ptr %13, i64 96
   %44 = load ptr, ptr %43, align 8
   %45 = load i32, ptr %15, align 4
   %46 = trunc i32 %45 to i8
@@ -1598,21 +1598,21 @@ define internal range(i32 5, 4) i32 @lg_g510_kbd_led_set(ptr nocapture noundef %
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %7
-  %51 = getelementptr inbounds i8, ptr %0, i64 408
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 408
   store i32 %1, ptr %51, align 8
   br label %57
 
 52:                                               ; preds = %7
   %53 = load ptr, ptr %43, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 6352
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %54, ptr noundef nonnull @.str.17, i32 noundef %48) #12
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 6352
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %54, ptr noundef nonnull @.str.17, i32 noundef %48) #12
   %55 = icmp slt i32 %48, 0
   %56 = select i1 %55, i32 %48, i32 -5
   br label %57
 
 57:                                               ; preds = %52, %50
   %58 = phi i32 [ 0, %50 ], [ %56, %52 ]
-  tail call void @mutex_unlock(ptr noundef %14) #10
+  tail call void @mutex_unlock(ptr noundef nonnull %14) #10
   br label %59
 
 59:                                               ; preds = %57, %2
@@ -1622,29 +1622,29 @@ define internal range(i32 5, 4) i32 @lg_g510_kbd_led_set(ptr nocapture noundef %
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
 define internal i32 @lg_g510_kbd_led_get(ptr nocapture noundef readonly %0) #7 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 408
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 3, 2) i32 @lg_g510_mkey_led_set(ptr nocapture noundef %0, i32 noundef %1) #2 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 120
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 120
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 2
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %53
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %8, i64 24
-  tail call void @mutex_lock(ptr noundef %14) #10
-  %15 = getelementptr inbounds i8, ptr %0, i64 412
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  tail call void @mutex_lock(ptr noundef nonnull %14) #10
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 412
   %16 = load i32, ptr %15, align 4
   %17 = zext i32 %16 to i64
   %18 = getelementptr i8, ptr %8, i64 520
@@ -1680,28 +1680,28 @@ define internal range(i32 3, 2) i32 @lg_g510_mkey_led_set(ptr nocapture noundef 
   store i8 4, ptr %8, align 8
   %39 = getelementptr i8, ptr %8, i64 1
   store i8 %35, ptr %39, align 1
-  %40 = getelementptr inbounds i8, ptr %8, i64 96
+  %40 = getelementptr inbounds nuw i8, ptr %8, i64 96
   %41 = load ptr, ptr %40, align 8
   %42 = tail call i32 @hid_hw_raw_request(ptr noundef %41, i8 noundef zeroext 4, ptr noundef %8, i64 noundef 2, i32 noundef 2, i32 noundef 9) #10
   %43 = icmp eq i32 %42, 2
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %38
-  %45 = getelementptr inbounds i8, ptr %0, i64 408
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 408
   store i32 %1, ptr %45, align 8
   br label %51
 
 46:                                               ; preds = %38
   %47 = load ptr, ptr %40, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 6352
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %48, ptr noundef nonnull @.str.17, i32 noundef %42) #12
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 6352
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %48, ptr noundef nonnull @.str.17, i32 noundef %42) #12
   %49 = icmp slt i32 %42, 0
   %50 = select i1 %49, i32 %42, i32 -5
   br label %51
 
 51:                                               ; preds = %46, %44
   %52 = phi i32 [ 0, %44 ], [ %50, %46 ]
-  tail call void @mutex_unlock(ptr noundef %14) #10
+  tail call void @mutex_unlock(ptr noundef nonnull %14) #10
   br label %53
 
 53:                                               ; preds = %51, %2
@@ -1711,15 +1711,15 @@ define internal range(i32 3, 2) i32 @lg_g510_mkey_led_set(ptr nocapture noundef 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @lg_g510_mkey_led_get(ptr nocapture noundef readonly %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 120
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 120
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
-  tail call void @mutex_lock(ptr noundef %8) #10
-  %9 = getelementptr inbounds i8, ptr %7, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  tail call void @mutex_lock(ptr noundef nonnull %8) #10
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @hid_hw_raw_request(ptr noundef %10, i8 noundef zeroext 4, ptr noundef %7, i64 noundef 2, i32 noundef 2, i32 noundef 1) #10
   %12 = icmp eq i32 %11, 2
@@ -1727,8 +1727,8 @@ define internal i32 @lg_g510_mkey_led_get(ptr nocapture noundef readonly %0) #2 
 
 13:                                               ; preds = %1
   %14 = load ptr, ptr %9, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 6352
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %15, ptr noundef nonnull @.str.16, i32 noundef %11) #12
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 6352
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %15, ptr noundef nonnull @.str.16, i32 noundef %11) #12
   br label %16
 
 16:                                               ; preds = %13, %1
@@ -1753,54 +1753,54 @@ define internal i32 @lg_g510_mkey_led_get(ptr nocapture noundef readonly %0) #2 
   %32 = zext nneg i8 %31 to i32
   %33 = getelementptr i8, ptr %7, i64 2640
   store i32 %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 412
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 412
   %35 = load i32, ptr %34, align 4
   %36 = zext i32 %35 to i64
   %.idx = mul nuw nsw i64 %36, 424
   %37 = getelementptr i8, ptr %7, i64 520
   %38 = getelementptr i8, ptr %37, i64 %.idx
   %39 = load i32, ptr %38, align 8
-  tail call void @mutex_unlock(ptr noundef %8) #10
+  tail call void @mutex_unlock(ptr noundef nonnull %8) #10
   ret i32 %39
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i64 -2147483648, 2147483648) i64 @color_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #2 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 120
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 120
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 120
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 24
-  tail call void @mutex_lock(ptr noundef %12) #10
-  %13 = getelementptr inbounds i8, ptr %5, i64 416
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  tail call void @mutex_lock(ptr noundef nonnull %12) #10
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 416
   %14 = load i8, ptr %13, align 8
   %15 = zext i8 %14 to i32
-  %16 = getelementptr inbounds i8, ptr %5, i64 417
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 417
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i32
-  %19 = getelementptr inbounds i8, ptr %5, i64 418
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 418
   %20 = load i8, ptr %19, align 2
   %21 = zext i8 %20 to i32
   %22 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef %15, i32 noundef %18, i32 noundef %21) #10
   %23 = sext i32 %22 to i64
-  tail call void @mutex_unlock(ptr noundef %12) #10
+  tail call void @mutex_unlock(ptr noundef nonnull %12) #10
   ret i64 %23
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @color_store(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3) #2 align 16 {
   %5 = alloca i64, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 120
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 120
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 120
   %13 = load ptr, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
   %14 = icmp ult i64 %3, 7
@@ -1837,23 +1837,23 @@ define internal range(i64 -2147483648, 2147483648) i64 @color_store(ptr nocaptur
   br label %82
 
 32:                                               ; preds = %26
-  %33 = getelementptr inbounds i8, ptr %13, i64 24
-  call void @mutex_lock(ptr noundef %33) #10
+  %33 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  call void @mutex_lock(ptr noundef nonnull %33) #10
   %34 = load i64, ptr %5, align 8
   %35 = lshr i64 %34, 16
   %36 = trunc i64 %35 to i8
-  %37 = getelementptr inbounds i8, ptr %7, i64 416
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 416
   store i8 %36, ptr %37, align 8
   %38 = lshr i64 %34, 8
   %39 = trunc i64 %38 to i8
-  %40 = getelementptr inbounds i8, ptr %7, i64 417
+  %40 = getelementptr inbounds nuw i8, ptr %7, i64 417
   store i8 %39, ptr %40, align 1
   %41 = trunc i64 %34 to i8
-  %42 = getelementptr inbounds i8, ptr %7, i64 418
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 418
   store i8 %41, ptr %42, align 2
-  %43 = getelementptr inbounds i8, ptr %7, i64 408
+  %43 = getelementptr inbounds nuw i8, ptr %7, i64 408
   %44 = load i32, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %7, i64 412
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 412
   %46 = load i32, ptr %45, align 4
   %47 = trunc i32 %46 to i8
   %48 = add i8 %47, 5
@@ -1882,7 +1882,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @color_store(ptr nocaptur
   %68 = trunc i32 %67 to i8
   %69 = getelementptr i8, ptr %13, i64 3
   store i8 %68, ptr %69, align 1
-  %70 = getelementptr inbounds i8, ptr %13, i64 96
+  %70 = getelementptr inbounds nuw i8, ptr %13, i64 96
   %71 = load ptr, ptr %70, align 8
   %72 = load i32, ptr %45, align 4
   %73 = trunc i32 %72 to i8
@@ -1893,17 +1893,17 @@ define internal range(i64 -2147483648, 2147483648) i64 @color_store(ptr nocaptur
 
 select.unfold:                                    ; preds = %32
   %77 = load ptr, ptr %70, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 6352
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %78, ptr noundef nonnull @.str.17, i32 noundef %75) #12
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 6352
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %78, ptr noundef nonnull @.str.17, i32 noundef %75) #12
   %79 = icmp slt i32 %75, 0
   %spec.select = select i1 %79, i32 %75, i32 -5
-  call void @mutex_unlock(ptr noundef %33) #10
+  call void @mutex_unlock(ptr noundef nonnull %33) #10
   %80 = sext i32 %spec.select to i64
   br label %82
 
 81:                                               ; preds = %32
   store i32 %44, ptr %43, align 8
-  call void @mutex_unlock(ptr noundef %33) #10
+  call void @mutex_unlock(ptr noundef nonnull %33) #10
   br label %82
 
 82:                                               ; preds = %select.unfold, %81, %30, %23, %21, %17, %4

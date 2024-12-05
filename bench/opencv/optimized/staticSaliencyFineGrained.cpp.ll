@@ -67,16 +67,16 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv8saliency25StaticSaliencyFineGrainedC2Ev(ptr noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %4, i64 -80
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 %8
   store ptr %6, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr i8, ptr %12, i64 -88
@@ -85,13 +85,13 @@ define void @_ZN2cv8saliency25StaticSaliencyFineGrainedC2Ev(ptr noundef nonnull 
   store ptr %11, ptr %15, align 8
   %16 = load ptr, ptr %1, align 8
   store ptr %16, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr i8, ptr %16, i64 -80
   %20 = load i64, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 %20
   store ptr %18, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %0, align 8
   %25 = getelementptr i8, ptr %24, i64 -88
@@ -102,7 +102,7 @@ define void @_ZN2cv8saliency25StaticSaliencyFineGrainedC2Ev(ptr noundef nonnull 
   %29 = getelementptr i8, ptr %28, i64 -80
   %30 = load i64, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 %30
-  %32 = getelementptr inbounds i8, ptr %31, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull @.str)
   ret void
 }
@@ -114,10 +114,10 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv8saliency25StaticSaliencyFineGrainedC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr getelementptr inbounds inrange(-88, 72) (i8, ptr @_ZTCN2cv8saliency25StaticSaliencyFineGrainedE8_NS0_8SaliencyE, i64 88), ptr %2, align 8
   store ptr getelementptr inbounds inrange(-72, 64) (i8, ptr @_ZTCN2cv8saliency25StaticSaliencyFineGrainedE8_NS0_8SaliencyE, i64 232), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #13
   store ptr getelementptr inbounds inrange(-88, 72) (i8, ptr @_ZTVN2cv8saliency25StaticSaliencyFineGrainedE, i64 248), ptr %2, align 8
   store ptr getelementptr inbounds inrange(-88, 72) (i8, ptr @_ZTVN2cv8saliency25StaticSaliencyFineGrainedE, i64 88), ptr %0, align 8
@@ -150,7 +150,7 @@ define void @_ZN2cv8saliency25StaticSaliencyFineGrainedD2Ev(ptr nocapture nounde
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN2cv8saliency25StaticSaliencyFineGrainedD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #5 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN2cv8saliency8SaliencyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv8saliency25StaticSaliencyFineGrainedE, i64 48)) #13
   tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
   ret void
@@ -162,7 +162,7 @@ define void @_ZTv0_n24_N2cv8saliency25StaticSaliencyFineGrainedD1Ev(ptr noundef 
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   tail call void @_ZN2cv8saliency8SaliencyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv8saliency25StaticSaliencyFineGrainedE, i64 48)) #13
   tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
   ret void
@@ -170,7 +170,7 @@ define void @_ZTv0_n24_N2cv8saliency25StaticSaliencyFineGrainedD1Ev(ptr noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN2cv8saliency25StaticSaliencyFineGrainedD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #5 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN2cv8saliency8SaliencyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv8saliency25StaticSaliencyFineGrainedE, i64 48)) #13
   tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #14
@@ -186,7 +186,7 @@ define void @_ZTv0_n24_N2cv8saliency25StaticSaliencyFineGrainedD0Ev(ptr noundef 
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   tail call void @_ZN2cv8saliency8SaliencyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv8saliency25StaticSaliencyFineGrainedE, i64 48)) #13
   tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
   tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
@@ -205,7 +205,7 @@ define noundef zeroext i1 @_ZN2cv8saliency25StaticSaliencyFineGrained19computeSa
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8, !noalias !4
   call void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 8 dereferenceable(96) %13)
   br label %_ZNK2cv11_InputArray6getMatEi.exit
@@ -215,7 +215,7 @@ define noundef zeroext i1 @_ZN2cv8saliency25StaticSaliencyFineGrained19computeSa
   br label %_ZNK2cv11_InputArray6getMatEi.exit
 
 _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %11, %14
-  %15 = getelementptr inbounds i8, ptr %5, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %16 = load i32, ptr %15, align 4
   %17 = invoke noundef i32 @_ZNK2cv11_InputArray4kindEv(ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %.noexc unwind label %35
@@ -225,7 +225,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %11, %14
   br i1 %18, label %19, label %22
 
 19:                                               ; preds = %.noexc
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load ptr, ptr %20, align 8, !noalias !7
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull align 8 dereferenceable(96) %21)
           to label %_ZNK2cv11_InputArray6getMatEi.exit18 unwind label %35
@@ -235,7 +235,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %11, %14
           to label %_ZNK2cv11_InputArray6getMatEi.exit18 unwind label %35
 
 _ZNK2cv11_InputArray6getMatEi.exit18:             ; preds = %19, %22
-  %23 = getelementptr inbounds i8, ptr %6, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %24 = load i32, ptr %23, align 8
   %.sroa.2.0.insert.ext = zext i32 %24 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
@@ -255,7 +255,7 @@ _ZNK2cv11_InputArray6getMatEi.exit18:             ; preds = %19, %22
   br i1 %27, label %28, label %31
 
 28:                                               ; preds = %.noexc19
-  %29 = getelementptr inbounds i8, ptr %1, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %30 = load ptr, ptr %29, align 8, !noalias !10
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(96) %30)
           to label %_ZNK2cv11_InputArray6getMatEi.exit22 unwind label %39
@@ -364,29 +364,29 @@ define void @_ZN2cv8saliency25StaticSaliencyFineGrained20calcIntensityChannelENS
 
 .preheader90:                                     ; preds = %3, %.preheader90
   %.idx = phi i64 [ %.add, %.preheader90 ], [ 0, %3 ]
-  %.ptr = getelementptr inbounds i8, ptr %4, i64 %.idx
+  %.ptr = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.ptr) #13
   %.add = add nuw nsw i64 %.idx, 96
   %35 = icmp eq i64 %.add, 576
   br i1 %35, label %36, label %.preheader90
 
 36:                                               ; preds = %.preheader90
-  %37 = getelementptr inbounds i8, ptr %4, i64 576
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 576
   br label %38
 
 38:                                               ; preds = %38, %36
   %.idx33 = phi i64 [ 0, %36 ], [ %.add34, %38 ]
-  %.ptr35 = getelementptr inbounds i8, ptr %5, i64 %.idx33
+  %.ptr35 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx33
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.ptr35) #13
   %.add34 = add nuw nsw i64 %.idx33, 96
   %39 = icmp eq i64 %.add34, 576
   br i1 %39, label %40, label %38
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds i8, ptr %5, i64 576
-  %42 = getelementptr inbounds i8, ptr %1, i64 12
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 576
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %43 = load i32, ptr %42, align 4
-  %44 = getelementptr inbounds i8, ptr %1, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %45 = load i32, ptr %44, align 8
   %.sroa.275.0.insert.ext = zext i32 %45 to i64
   %.sroa.275.0.insert.shift = shl nuw i64 %.sroa.275.0.insert.ext, 32
@@ -399,7 +399,7 @@ define void @_ZN2cv8saliency25StaticSaliencyFineGrained20calcIntensityChannelENS
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #13
   %47 = load ptr, ptr %7, align 8, !noalias !13
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %50 = load ptr, ptr %49, align 8
   invoke void %50(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull align 8 dereferenceable(352) %7, ptr noundef nonnull align 8 dereferenceable(96) %6, i32 noundef -1)
           to label %_ZNK2cv7MatExprcvNS_3MatEEv.exit unwind label %.body
@@ -412,11 +412,11 @@ define void @_ZN2cv8saliency25StaticSaliencyFineGrained20calcIntensityChannelENS
   br label %192
 
 _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %46
-  %52 = getelementptr inbounds i8, ptr %7, i64 208
+  %52 = getelementptr inbounds nuw i8, ptr %7, i64 208
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %52) #13
-  %53 = getelementptr inbounds i8, ptr %7, i64 112
+  %53 = getelementptr inbounds nuw i8, ptr %7, i64 112
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %53) #13
-  %54 = getelementptr inbounds i8, ptr %7, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %7, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %54) #13
   %55 = load i32, ptr %42, align 4
   %56 = add nsw i32 %55, 1
@@ -471,7 +471,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %46
           to label %70 unwind label %.loopexit.split-lp.loopexit
 
 70:                                               ; preds = %.preheader79
-  %71 = getelementptr inbounds [6 x %"class.cv::Mat"], ptr %4, i64 0, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [6 x %"class.cv::Mat"], ptr %4, i64 0, i64 %indvars.iv
   %72 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %71, ptr noundef nonnull align 8 dereferenceable(96) %12)
           to label %73 unwind label %90
 
@@ -487,7 +487,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %46
           to label %76 unwind label %.loopexit.split-lp.loopexit
 
 76:                                               ; preds = %73
-  %77 = getelementptr inbounds [6 x %"class.cv::Mat"], ptr %5, i64 0, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [6 x %"class.cv::Mat"], ptr %5, i64 0, i64 %indvars.iv
   %78 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %77, ptr noundef nonnull align 8 dereferenceable(96) %13)
           to label %79 unwind label %92
 
@@ -556,15 +556,15 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %46
   br i1 %97, label %98, label %106
 
 98:                                               ; preds = %94
-  %99 = getelementptr inbounds i8, ptr %14, i64 16
+  %99 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i32 0, ptr %99, align 8
-  %100 = getelementptr inbounds i8, ptr %14, i64 20
+  %100 = getelementptr inbounds nuw i8, ptr %14, i64 20
   store i32 0, ptr %100, align 4
   store i32 16842752, ptr %14, align 8
-  %101 = getelementptr inbounds i8, ptr %14, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %1, ptr %101, align 8
-  %102 = getelementptr inbounds i8, ptr %15, i64 8
-  %103 = getelementptr inbounds i8, ptr %15, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i64 0, ptr %103, align 8
   store i32 33619968, ptr %15, align 8
   store ptr %6, ptr %102, align 8
@@ -577,8 +577,8 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %46
   br label %.loopexit.split-lp
 
 106:                                              ; preds = %94
-  %107 = getelementptr inbounds i8, ptr %16, i64 8
-  %108 = getelementptr inbounds i8, ptr %16, i64 16
+  %107 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i64 0, ptr %108, align 8
   store i32 33619968, ptr %16, align 8
   store ptr %6, ptr %107, align 8
@@ -591,15 +591,15 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %46
   br label %.loopexit.split-lp
 
 111:                                              ; preds = %106, %98
-  %112 = getelementptr inbounds i8, ptr %17, i64 16
+  %112 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i32 0, ptr %112, align 8
-  %113 = getelementptr inbounds i8, ptr %17, i64 20
+  %113 = getelementptr inbounds nuw i8, ptr %17, i64 20
   store i32 0, ptr %113, align 4
   store i32 16842752, ptr %17, align 8
-  %114 = getelementptr inbounds i8, ptr %17, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %6, ptr %114, align 8
-  %115 = getelementptr inbounds i8, ptr %18, i64 8
-  %116 = getelementptr inbounds i8, ptr %18, i64 16
+  %115 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i64 0, ptr %116, align 8
   store i32 33619968, ptr %18, align 8
   store ptr %6, ptr %115, align 8
@@ -607,15 +607,15 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %46
           to label %117 unwind label %138
 
 117:                                              ; preds = %111
-  %118 = getelementptr inbounds i8, ptr %19, i64 16
+  %118 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i32 0, ptr %118, align 8
-  %119 = getelementptr inbounds i8, ptr %19, i64 20
+  %119 = getelementptr inbounds nuw i8, ptr %19, i64 20
   store i32 0, ptr %119, align 4
   store i32 16842752, ptr %19, align 8
-  %120 = getelementptr inbounds i8, ptr %19, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %6, ptr %120, align 8
-  %121 = getelementptr inbounds i8, ptr %20, i64 8
-  %122 = getelementptr inbounds i8, ptr %20, i64 16
+  %121 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i64 0, ptr %122, align 8
   store i32 33619968, ptr %20, align 8
   store ptr %6, ptr %121, align 8
@@ -623,15 +623,15 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %46
           to label %123 unwind label %140
 
 123:                                              ; preds = %117
-  %124 = getelementptr inbounds i8, ptr %21, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i32 0, ptr %124, align 8
-  %125 = getelementptr inbounds i8, ptr %21, i64 20
+  %125 = getelementptr inbounds nuw i8, ptr %21, i64 20
   store i32 0, ptr %125, align 4
   store i32 16842752, ptr %21, align 8
-  %126 = getelementptr inbounds i8, ptr %21, i64 8
+  %126 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %6, ptr %126, align 8
-  %127 = getelementptr inbounds i8, ptr %22, i64 8
-  %128 = getelementptr inbounds i8, ptr %22, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i64 0, ptr %128, align 8
   store i32 33619968, ptr %22, align 8
   store ptr %8, ptr %127, align 8
@@ -640,7 +640,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %46
 
 .preheader77:                                     ; preds = %123, %137
   %indvars.iv86 = phi i64 [ %indvars.iv.next87, %137 ], [ 0, %123 ]
-  %129 = getelementptr inbounds [6 x i32], ptr @__const._ZN2cv8saliency25StaticSaliencyFineGrained20calcIntensityChannelENS_3MatES2_.neighborhoods, i64 0, i64 %indvars.iv86
+  %129 = getelementptr inbounds nuw [6 x i32], ptr @__const._ZN2cv8saliency25StaticSaliencyFineGrained20calcIntensityChannelENS_3MatES2_.neighborhoods, i64 0, i64 %indvars.iv86
   %130 = load i32, ptr %129, align 4
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %23, ptr noundef nonnull align 8 dereferenceable(96) %8)
           to label %131 unwind label %.loopexit78
@@ -650,12 +650,12 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %46
           to label %132 unwind label %144
 
 132:                                              ; preds = %131
-  %133 = getelementptr inbounds [6 x %"class.cv::Mat"], ptr %4, i64 0, i64 %indvars.iv86
+  %133 = getelementptr inbounds nuw [6 x %"class.cv::Mat"], ptr %4, i64 0, i64 %indvars.iv86
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %25, ptr noundef nonnull align 8 dereferenceable(96) %133)
           to label %134 unwind label %146
 
 134:                                              ; preds = %132
-  %135 = getelementptr inbounds [6 x %"class.cv::Mat"], ptr %5, i64 0, i64 %indvars.iv86
+  %135 = getelementptr inbounds nuw [6 x %"class.cv::Mat"], ptr %5, i64 0, i64 %indvars.iv86
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %26, ptr noundef nonnull align 8 dereferenceable(96) %135)
           to label %136 unwind label %148
 
@@ -757,8 +757,8 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %46
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %31) #13
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %30) #13
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %29) #13
-  %163 = getelementptr inbounds i8, ptr %32, i64 8
-  %164 = getelementptr inbounds i8, ptr %32, i64 16
+  %163 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %164 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store i64 0, ptr %164, align 8
   store i32 33619968, ptr %32, align 8
   store ptr %2, ptr %163, align 8
@@ -901,8 +901,8 @@ define noundef zeroext i1 @_ZTv0_n88_N2cv8saliency25StaticSaliencyFineGrained19c
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv8saliency25StaticSaliencyFineGrained9copyImageENS_3MatES2_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %0, ptr noundef nonnull %1, ptr noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::_OutputArray", align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %6, align 8
   store i32 33619968, ptr %4, align 8
   store ptr %2, ptr %5, align 8
@@ -919,11 +919,11 @@ declare void @_ZN2cv3Mat5zerosENS_5Size_IiEEi(ptr dead_on_unwind writable sret(%
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %0) unnamed_addr #5 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 208
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #13
-  %3 = getelementptr inbounds i8, ptr %0, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #13
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #13
   ret void
 }
@@ -943,23 +943,23 @@ define void @_ZN2cv8saliency25StaticSaliencyFineGrained18getIntensityScaledENS_3
   %9 = alloca %"class.cv::_InputArray", align 8
   %10 = alloca %"class.cv::Scalar_", align 8
   %11 = alloca %"class.cv::Mat", align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false)
   store i32 -1056833530, ptr %7, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %8, ptr %13, align 8
   store i64 17179869185, ptr %12, align 8
   %14 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv7noArrayEv()
   %15 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3Mat5setToERKNS_11_InputArrayES3_(ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %14)
-  %16 = getelementptr inbounds i8, ptr %9, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false)
   store i32 -1056833530, ptr %9, align 8
-  %17 = getelementptr inbounds i8, ptr %9, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %10, ptr %17, align 8
   store i64 17179869185, ptr %16, align 8
   %18 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv7noArrayEv()
   %19 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3Mat5setToERKNS_11_InputArrayES3_(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %18)
-  %20 = getelementptr inbounds i8, ptr %2, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %invariant.op37 = add i32 %5, 1
   %invariant.op39 = xor i32 %5, -1
   %21 = load i32, ptr %20, align 8
@@ -967,17 +967,17 @@ define void @_ZN2cv8saliency25StaticSaliencyFineGrained18getIntensityScaledENS_3
   br i1 %22, label %.preheader.lr.ph, label %._crit_edge41
 
 .preheader.lr.ph:                                 ; preds = %6
-  %23 = getelementptr inbounds i8, ptr %2, i64 12
-  %24 = getelementptr inbounds i8, ptr %2, i64 16
-  %25 = getelementptr inbounds i8, ptr %2, i64 72
-  %26 = getelementptr inbounds i8, ptr %11, i64 12
-  %27 = getelementptr inbounds i8, ptr %11, i64 8
-  %28 = getelementptr inbounds i8, ptr %11, i64 16
-  %29 = getelementptr inbounds i8, ptr %11, i64 72
-  %30 = getelementptr inbounds i8, ptr %3, i64 16
-  %31 = getelementptr inbounds i8, ptr %3, i64 72
-  %32 = getelementptr inbounds i8, ptr %4, i64 16
-  %33 = getelementptr inbounds i8, ptr %4, i64 72
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %11, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %11, i64 72
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %34 = load i32, ptr %23, align 4
   %35 = icmp sgt i32 %34, 0
   br i1 %35, label %.preheader.preheader, label %._crit_edge41
@@ -1012,7 +1012,7 @@ define void @_ZN2cv8saliency25StaticSaliencyFineGrained18getIntensityScaledENS_3
   %50 = load i64, ptr %49, align 8
   %51 = mul i64 %50, %indvars.iv44
   %52 = getelementptr inbounds i8, ptr %48, i64 %51
-  %53 = getelementptr inbounds i8, ptr %52, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 %indvars.iv
   %54 = load i8, ptr %53, align 1
   %55 = sub nsw i64 %indvars.iv, %37
   %56 = trunc nuw nsw i64 %indvars.iv to i32
@@ -1086,7 +1086,7 @@ define void @_ZN2cv8saliency25StaticSaliencyFineGrained18getIntensityScaledENS_3
   %100 = load i64, ptr %99, align 8
   %101 = mul i64 %100, %indvars.iv44
   %102 = getelementptr inbounds i8, ptr %98, i64 %101
-  %103 = getelementptr inbounds i8, ptr %102, i64 %indvars.iv
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 %indvars.iv
   %104 = load i8, ptr %103, align 1
   %105 = uitofp i8 %104 to float
   %106 = fsub float %105, %97
@@ -1099,7 +1099,7 @@ define void @_ZN2cv8saliency25StaticSaliencyFineGrained18getIntensityScaledENS_3
   %111 = load i64, ptr %110, align 8
   %112 = mul i64 %111, %indvars.iv44
   %113 = getelementptr inbounds i8, ptr %109, i64 %112
-  %114 = getelementptr inbounds i8, ptr %113, i64 %indvars.iv
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 %indvars.iv
   store i8 %.sink, ptr %114, align 1
   %115 = fcmp ogt float %107, 0.000000e+00
   %.sink5664 = select i1 %115, float %107, float 0.000000e+00
@@ -1109,7 +1109,7 @@ define void @_ZN2cv8saliency25StaticSaliencyFineGrained18getIntensityScaledENS_3
   %118 = load i64, ptr %117, align 8
   %119 = mul i64 %118, %indvars.iv44
   %120 = getelementptr inbounds i8, ptr %116, i64 %119
-  %121 = getelementptr inbounds i8, ptr %120, i64 %indvars.iv
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 %indvars.iv
   store i8 %.sink56, ptr %121, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %122 = load i32, ptr %23, align 4
@@ -1141,9 +1141,9 @@ define void @_ZN2cv8saliency25StaticSaliencyFineGrained9mixScalesEPNS_3MatES2_S3
   %10 = alloca %"class.cv::Scalar_", align 8
   %11 = alloca %"class.cv::_InputArray", align 8
   %12 = alloca %"class.cv::Scalar_", align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load i32, ptr %15, align 8
   %.sroa.296.0.insert.ext = zext i32 %16 to i64
   %.sroa.296.0.insert.shift = shl nuw i64 %.sroa.296.0.insert.ext, 32
@@ -1154,10 +1154,10 @@ define void @_ZN2cv8saliency25StaticSaliencyFineGrained9mixScalesEPNS_3MatES2_S3
           to label %17 unwind label %98
 
 17:                                               ; preds = %6
-  %18 = getelementptr inbounds i8, ptr %9, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false)
   store i32 -1056833530, ptr %9, align 8
-  %19 = getelementptr inbounds i8, ptr %9, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %10, ptr %19, align 8
   store i64 17179869185, ptr %18, align 8
   %20 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv7noArrayEv()
@@ -1168,10 +1168,10 @@ define void @_ZN2cv8saliency25StaticSaliencyFineGrained9mixScalesEPNS_3MatES2_S3
           to label %23 unwind label %100
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %11, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 32, i1 false)
   store i32 -1056833530, ptr %11, align 8
-  %25 = getelementptr inbounds i8, ptr %11, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %12, ptr %25, align 8
   store i64 17179869185, ptr %24, align 8
   %26 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv7noArrayEv()
@@ -1187,10 +1187,10 @@ define void @_ZN2cv8saliency25StaticSaliencyFineGrained9mixScalesEPNS_3MatES2_S3
 
 .preheader101.lr.ph:                              ; preds = %.preheader102
   %30 = icmp sgt i32 %16, 0
-  %31 = getelementptr inbounds i8, ptr %7, i64 16
-  %32 = getelementptr inbounds i8, ptr %7, i64 72
-  %33 = getelementptr inbounds i8, ptr %8, i64 16
-  %34 = getelementptr inbounds i8, ptr %8, i64 72
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 72
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %35 = icmp sgt i32 %14, 0
   %or.cond = select i1 %30, i1 %35, i1 false
   br i1 %or.cond, label %.preheader101.us.us.preheader, label %._crit_edge133
@@ -1201,12 +1201,12 @@ define void @_ZN2cv8saliency25StaticSaliencyFineGrained9mixScalesEPNS_3MatES2_S3
 
 .preheader101.us.us:                              ; preds = %.preheader101.us.us.preheader, %._crit_edge110.split.us.us.us
   %indvars.iv143 = phi i64 [ 0, %.preheader101.us.us.preheader ], [ %indvars.iv.next144, %._crit_edge110.split.us.us.us ]
-  %36 = getelementptr inbounds %"class.cv::Mat", ptr %1, i64 %indvars.iv143
-  %37 = getelementptr inbounds i8, ptr %36, i64 16
-  %38 = getelementptr inbounds i8, ptr %36, i64 72
-  %39 = getelementptr inbounds %"class.cv::Mat", ptr %3, i64 %indvars.iv143
-  %40 = getelementptr inbounds i8, ptr %39, i64 16
-  %41 = getelementptr inbounds i8, ptr %39, i64 72
+  %36 = getelementptr inbounds nuw %"class.cv::Mat", ptr %1, i64 %indvars.iv143
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 72
+  %39 = getelementptr inbounds nuw %"class.cv::Mat", ptr %3, i64 %indvars.iv143
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 72
   br label %.preheader100.us.us.us
 
 .preheader100.us.us.us:                           ; preds = %._crit_edge.us.us.us, %.preheader101.us.us
@@ -1220,7 +1220,7 @@ define void @_ZN2cv8saliency25StaticSaliencyFineGrained9mixScalesEPNS_3MatES2_S3
   %45 = load i64, ptr %44, align 8
   %46 = mul i64 %45, %indvars.iv139
   %47 = getelementptr inbounds i8, ptr %43, i64 %46
-  %48 = getelementptr inbounds i8, ptr %47, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 %indvars.iv
   %49 = load i8, ptr %48, align 1
   %50 = zext i8 %49 to i16
   %51 = load ptr, ptr %40, align 8
@@ -1228,7 +1228,7 @@ define void @_ZN2cv8saliency25StaticSaliencyFineGrained9mixScalesEPNS_3MatES2_S3
   %53 = load i64, ptr %52, align 8
   %54 = mul i64 %53, %indvars.iv139
   %55 = getelementptr inbounds i8, ptr %51, i64 %54
-  %56 = getelementptr inbounds i8, ptr %55, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 %indvars.iv
   %57 = load i8, ptr %56, align 1
   %58 = zext i8 %57 to i16
   %59 = load ptr, ptr %31, align 8
@@ -1236,7 +1236,7 @@ define void @_ZN2cv8saliency25StaticSaliencyFineGrained9mixScalesEPNS_3MatES2_S3
   %61 = load i64, ptr %60, align 8
   %62 = mul i64 %61, %indvars.iv139
   %63 = getelementptr inbounds i8, ptr %59, i64 %62
-  %64 = getelementptr inbounds i16, ptr %63, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw i16, ptr %63, i64 %indvars.iv
   %65 = load i16, ptr %64, align 2
   %66 = add i16 %65, %50
   store i16 %66, ptr %64, align 2
@@ -1245,7 +1245,7 @@ define void @_ZN2cv8saliency25StaticSaliencyFineGrained9mixScalesEPNS_3MatES2_S3
   %69 = load i64, ptr %68, align 8
   %70 = mul i64 %69, %indvars.iv139
   %71 = getelementptr inbounds i8, ptr %67, i64 %70
-  %72 = getelementptr inbounds i16, ptr %71, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw i16, ptr %71, i64 %indvars.iv
   %73 = load i16, ptr %72, align 2
   %74 = add i16 %73, %58
   store i16 %74, ptr %72, align 2
@@ -1269,16 +1269,16 @@ define void @_ZN2cv8saliency25StaticSaliencyFineGrained9mixScalesEPNS_3MatES2_S3
 
 .preheader98.lr.ph:                               ; preds = %.preheader99
   %76 = icmp sgt i32 %14, 0
-  %77 = getelementptr inbounds i8, ptr %7, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %8, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %80 = load ptr, ptr %79, align 8
   br i1 %76, label %.preheader98.lr.ph.split.us, label %._crit_edge133
 
 .preheader98.lr.ph.split.us:                      ; preds = %.preheader98.lr.ph
-  %81 = getelementptr inbounds i8, ptr %8, i64 72
+  %81 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %7, i64 72
+  %83 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %84 = load ptr, ptr %83, align 8
   %85 = load i64, ptr %84, align 8
   %86 = load i64, ptr %82, align 8
@@ -1298,9 +1298,9 @@ define void @_ZN2cv8saliency25StaticSaliencyFineGrained9mixScalesEPNS_3MatES2_S3
   %indvars.iv147 = phi i64 [ 0, %.preheader98.us ], [ %indvars.iv.next148, %91 ]
   %.171123.us = phi i32 [ %.070127.us, %.preheader98.us ], [ %.2.us, %91 ]
   %.173122.us = phi i32 [ %.072126.us, %.preheader98.us ], [ %spec.select94.us, %91 ]
-  %92 = getelementptr inbounds i16, ptr %88, i64 %indvars.iv147
+  %92 = getelementptr inbounds nuw i16, ptr %88, i64 %indvars.iv147
   %93 = load i16, ptr %92, align 2
-  %94 = getelementptr inbounds i16, ptr %90, i64 %indvars.iv147
+  %94 = getelementptr inbounds nuw i16, ptr %90, i64 %indvars.iv147
   %95 = load i16, ptr %94, align 2
   %96 = sext i16 %95 to i32
   %spec.select94.us = call i32 @llvm.smax.i32(i32 %.173122.us, i32 %96)
@@ -1333,14 +1333,14 @@ define void @_ZN2cv8saliency25StaticSaliencyFineGrained9mixScalesEPNS_3MatES2_S3
 .preheader97.loopexit:                            ; preds = %._crit_edge.us
   %104 = uitofp nneg i32 %.2.us to float
   %105 = uitofp nneg i32 %spec.select94.us to float
-  %106 = getelementptr inbounds i8, ptr %7, i64 16
-  %107 = getelementptr inbounds i8, ptr %7, i64 72
-  %108 = getelementptr inbounds i8, ptr %2, i64 16
-  %109 = getelementptr inbounds i8, ptr %2, i64 72
-  %110 = getelementptr inbounds i8, ptr %8, i64 16
-  %111 = getelementptr inbounds i8, ptr %8, i64 72
-  %112 = getelementptr inbounds i8, ptr %4, i64 16
-  %113 = getelementptr inbounds i8, ptr %4, i64 72
+  %106 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %107 = getelementptr inbounds nuw i8, ptr %7, i64 72
+  %108 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %109 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  %110 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %111 = getelementptr inbounds nuw i8, ptr %8, i64 72
+  %112 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %113 = getelementptr inbounds nuw i8, ptr %4, i64 72
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader97.loopexit, %._crit_edge.us134
@@ -1354,7 +1354,7 @@ define void @_ZN2cv8saliency25StaticSaliencyFineGrained9mixScalesEPNS_3MatES2_S3
   %117 = load i64, ptr %116, align 8
   %118 = mul i64 %117, %indvars.iv162
   %119 = getelementptr inbounds i8, ptr %115, i64 %118
-  %120 = getelementptr inbounds i16, ptr %119, i64 %indvars.iv157
+  %120 = getelementptr inbounds nuw i16, ptr %119, i64 %indvars.iv157
   %121 = load i16, ptr %120, align 2
   %122 = uitofp i16 %121 to float
   %123 = fdiv float %122, %104
@@ -1366,14 +1366,14 @@ define void @_ZN2cv8saliency25StaticSaliencyFineGrained9mixScalesEPNS_3MatES2_S3
   %129 = load i64, ptr %128, align 8
   %130 = mul i64 %129, %indvars.iv162
   %131 = getelementptr inbounds i8, ptr %127, i64 %130
-  %132 = getelementptr inbounds i8, ptr %131, i64 %indvars.iv157
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 %indvars.iv157
   store i8 %126, ptr %132, align 1
   %133 = load ptr, ptr %110, align 8
   %134 = load ptr, ptr %111, align 8
   %135 = load i64, ptr %134, align 8
   %136 = mul i64 %135, %indvars.iv162
   %137 = getelementptr inbounds i8, ptr %133, i64 %136
-  %138 = getelementptr inbounds i16, ptr %137, i64 %indvars.iv157
+  %138 = getelementptr inbounds nuw i16, ptr %137, i64 %indvars.iv157
   %139 = load i16, ptr %138, align 2
   %140 = uitofp i16 %139 to float
   %141 = fdiv float %140, %105
@@ -1385,7 +1385,7 @@ define void @_ZN2cv8saliency25StaticSaliencyFineGrained9mixScalesEPNS_3MatES2_S3
   %147 = load i64, ptr %146, align 8
   %148 = mul i64 %147, %indvars.iv162
   %149 = getelementptr inbounds i8, ptr %145, i64 %148
-  %150 = getelementptr inbounds i8, ptr %149, i64 %indvars.iv157
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 %indvars.iv157
   store i8 %144, ptr %150, align 1
   %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
   %exitcond161.not = icmp eq i64 %indvars.iv.next158, %.sroa.095.0.insert.ext
@@ -1416,9 +1416,9 @@ define void @_ZN2cv8saliency25StaticSaliencyFineGrained9mixScalesEPNS_3MatES2_S3
 define void @_ZN2cv8saliency25StaticSaliencyFineGrained8mixOnOffENS_3MatES2_S2_(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cv::Mat", align 8
   %6 = alloca %"class.cv::_OutputArray", align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i32, ptr %9, align 8
   %.sroa.2.0.insert.ext = zext i32 %10 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
@@ -1431,10 +1431,10 @@ define void @_ZN2cv8saliency25StaticSaliencyFineGrained8mixOnOffENS_3MatES2_S2_(
   br i1 %or.cond, label %.preheader50.lr.ph.split.us, label %._crit_edge64
 
 .preheader50.lr.ph.split.us:                      ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %2, i64 72
-  %14 = getelementptr inbounds i8, ptr %2, i64 16
-  %15 = getelementptr inbounds i8, ptr %1, i64 72
-  %16 = getelementptr inbounds i8, ptr %1, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %15, align 8
   %19 = load i64, ptr %18, align 8
@@ -1457,10 +1457,10 @@ define void @_ZN2cv8saliency25StaticSaliencyFineGrained8mixOnOffENS_3MatES2_S2_(
   %indvars.iv = phi i64 [ 0, %.preheader50.us ], [ %indvars.iv.next, %27 ]
   %.153.us = phi i32 [ %.03757.us, %.preheader50.us ], [ %.2.us, %27 ]
   %.13952.us = phi i32 [ %.03856.us, %.preheader50.us ], [ %spec.select.us, %27 ]
-  %28 = getelementptr inbounds i8, ptr %24, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 %indvars.iv
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i32
-  %31 = getelementptr inbounds i8, ptr %26, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 %indvars.iv
   %32 = load i8, ptr %31, align 1
   %33 = zext i8 %32 to i32
   %spec.select.us = call i32 @llvm.smax.i32(i32 %.13952.us, i32 %33)
@@ -1479,14 +1479,14 @@ define void @_ZN2cv8saliency25StaticSaliencyFineGrained8mixOnOffENS_3MatES2_S2_(
 
 .preheader.lr.ph:                                 ; preds = %._crit_edge58
   %34 = call i32 @llvm.umax.i32(i32 %.2.us, i32 %spec.select.us)
-  %35 = getelementptr inbounds i8, ptr %1, i64 16
-  %36 = getelementptr inbounds i8, ptr %1, i64 72
-  %37 = getelementptr inbounds i8, ptr %2, i64 16
-  %38 = getelementptr inbounds i8, ptr %2, i64 72
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %39 = uitofp nneg i32 %34 to float
   %40 = fpext float %39 to double
-  %41 = getelementptr inbounds i8, ptr %5, i64 16
-  %42 = getelementptr inbounds i8, ptr %5, i64 72
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 72
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us65
@@ -1500,7 +1500,7 @@ define void @_ZN2cv8saliency25StaticSaliencyFineGrained8mixOnOffENS_3MatES2_S2_(
   %46 = load i64, ptr %45, align 8
   %47 = mul i64 %46, %indvars.iv79
   %48 = getelementptr inbounds i8, ptr %44, i64 %47
-  %49 = getelementptr inbounds i8, ptr %48, i64 %indvars.iv74
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 %indvars.iv74
   %50 = load i8, ptr %49, align 1
   %51 = zext i8 %50 to i32
   %52 = load ptr, ptr %37, align 8
@@ -1508,7 +1508,7 @@ define void @_ZN2cv8saliency25StaticSaliencyFineGrained8mixOnOffENS_3MatES2_S2_(
   %54 = load i64, ptr %53, align 8
   %55 = mul i64 %54, %indvars.iv79
   %56 = getelementptr inbounds i8, ptr %52, i64 %55
-  %57 = getelementptr inbounds i8, ptr %56, i64 %indvars.iv74
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 %indvars.iv74
   %58 = load i8, ptr %57, align 1
   %59 = zext i8 %58 to i32
   %60 = add nuw nsw i32 %59, %51
@@ -1521,7 +1521,7 @@ define void @_ZN2cv8saliency25StaticSaliencyFineGrained8mixOnOffENS_3MatES2_S2_(
   %67 = load i64, ptr %66, align 8
   %68 = mul i64 %67, %indvars.iv79
   %69 = getelementptr inbounds i8, ptr %65, i64 %68
-  %70 = getelementptr inbounds i8, ptr %69, i64 %indvars.iv74
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 %indvars.iv74
   store i8 %64, ptr %70, align 1
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %exitcond78.not = icmp eq i64 %indvars.iv.next75, %.sroa.0.0.insert.ext
@@ -1533,8 +1533,8 @@ define void @_ZN2cv8saliency25StaticSaliencyFineGrained8mixOnOffENS_3MatES2_S2_(
   br i1 %exitcond83.not, label %._crit_edge64, label %.preheader.us, !llvm.loop !32
 
 ._crit_edge64:                                    ; preds = %._crit_edge.us65, %4, %._crit_edge58
-  %71 = getelementptr inbounds i8, ptr %6, i64 8
-  %72 = getelementptr inbounds i8, ptr %6, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 0, ptr %72, align 8
   store i32 33619968, ptr %6, align 8
   store ptr %3, ptr %71, align 8
@@ -1573,7 +1573,7 @@ define noundef float @_ZN2cv8saliency25StaticSaliencyFineGrained7getMeanENS_3Mat
 
 14:                                               ; preds = %5
   %15 = add nsw i32 %6, 1
-  %16 = getelementptr inbounds i8, ptr %1, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %17 = load i32, ptr %16, align 4
   %.not = icmp slt i32 %15, %17
   %18 = add nsw i32 %17, -1
@@ -1586,7 +1586,7 @@ define noundef float @_ZN2cv8saliency25StaticSaliencyFineGrained7getMeanENS_3Mat
   br i1 %20, label %25, label %21
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %1, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %23 = load i32, ptr %22, align 4
   %.not15 = icmp slt i32 %10, %23
   %24 = add nsw i32 %23, -1
@@ -1599,7 +1599,7 @@ define noundef float @_ZN2cv8saliency25StaticSaliencyFineGrained7getMeanENS_3Mat
   br i1 %26, label %31, label %27
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %1, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = load i32, ptr %28, align 8
   %.not16 = icmp slt i32 %8, %29
   %30 = add nsw i32 %29, -1
@@ -1612,7 +1612,7 @@ define noundef float @_ZN2cv8saliency25StaticSaliencyFineGrained7getMeanENS_3Mat
   br i1 %32, label %37, label %33
 
 33:                                               ; preds = %31
-  %34 = getelementptr inbounds i8, ptr %1, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %35 = load i32, ptr %34, align 8
   %.not17 = icmp slt i32 %12, %35
   %36 = add nsw i32 %35, -1
@@ -1621,9 +1621,9 @@ define noundef float @_ZN2cv8saliency25StaticSaliencyFineGrained7getMeanENS_3Mat
 
 37:                                               ; preds = %33, %31
   %.sroa.8.0 = phi i32 [ 0, %31 ], [ %spec.select34, %33 ]
-  %38 = getelementptr inbounds i8, ptr %1, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %1, i64 72
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %41 = load ptr, ptr %40, align 8
   %42 = load i64, ptr %41, align 8
   %43 = sext i32 %.sroa.8.0 to i64

@@ -8648,7 +8648,7 @@ define hidden i32 @dissect_gsm_map_TBCD_STRING(i1 noundef zeroext %0, ptr nounde
   br i1 %12, label %21, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %3, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @ett_gsm_map_tbcd_digits, align 4
   %17 = call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
@@ -8672,18 +8672,18 @@ define hidden i32 @dissect_gsm_map_AddressString(i1 noundef zeroext %0, ptr noun
   br i1 %.not, label %30, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @ett_gsm_map_isdn_address_string, align 4
   %14 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #5
   %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %17 = load ptr, ptr %16, align 8
   call void @dissect_gsm_map_msisdn(ptr noundef %15, ptr noundef %17, ptr noundef %14)
   %18 = load ptr, ptr %16, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 80
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 80
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 50
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 50
   %22 = load i16, ptr %21, align 2
   %23 = and i16 %22, 8
   %.not13 = icmp eq i16 %23, 0
@@ -8694,7 +8694,7 @@ define hidden i32 @dissect_gsm_map_AddressString(i1 noundef zeroext %0, ptr noun
   %26 = load ptr, ptr %7, align 8
   %27 = call i32 @tvb_captured_length(ptr noundef %26) #5
   %28 = call ptr @tvb_bytes_to_str(ptr noundef %25, ptr noundef %26, i32 noundef 0, i32 noundef %27) #5
-  %29 = getelementptr inbounds i8, ptr %3, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %28, ptr %29, align 8
   br label %30
 
@@ -8725,19 +8725,19 @@ define hidden i32 @dissect_gsm_map_ExternalSignalInfo(i1 noundef zeroext %0, ptr
   store i32 -1, ptr @ProtocolId, align 4
   %7 = load i32, ptr @ett_gsm_map_ExternalSignalInfo, align 4
   %8 = tail call i32 @dissect_ber_sequence(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @gsm_map_ExternalSignalInfo_sequence, i32 noundef %5, i32 noundef %7) #5
-  %9 = getelementptr inbounds i8, ptr %3, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %95, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %10, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %13 = load ptr, ptr %12, align 8
   %.not61 = icmp eq ptr %13, null
   br i1 %.not61, label %95, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %3, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %16 = load ptr, ptr %15, align 8
   %17 = load i32, ptr @ett_gsm_map_externalsignalinfo, align 4
   %18 = tail call ptr @proto_item_add_subtree(ptr noundef %16, i32 noundef %17) #5
@@ -8766,13 +8766,13 @@ define hidden i32 @dissect_gsm_map_ExternalSignalInfo(i1 noundef zeroext %0, ptr
 
 32:                                               ; preds = %20
   %33 = load ptr, ptr %12, align 8
-  %34 = getelementptr inbounds i8, ptr %3, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = tail call zeroext i16 @de_bearer_cap(ptr noundef %33, ptr noundef %18, ptr noundef %35, i32 noundef 2, i32 noundef %31, ptr noundef null, i32 noundef 0) #5
   br label %95
 
 37:                                               ; preds = %20
-  %38 = getelementptr inbounds i8, ptr %3, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %39 = load ptr, ptr %38, align 8
   %40 = load ptr, ptr %12, align 8
   %41 = tail call ptr @proto_tree_add_expert(ptr noundef %18, ptr noundef %39, ptr noundef nonnull @ei_gsm_map_undecoded, ptr noundef %40, i32 noundef 0, i32 noundef %31) #5
@@ -8796,9 +8796,9 @@ define hidden i32 @dissect_gsm_map_ExternalSignalInfo(i1 noundef zeroext %0, ptr
   %52 = load ptr, ptr %12, align 8
   %53 = tail call ptr @tvb_new_subset_remaining(ptr noundef %52, i32 noundef 2) #5
   %54 = load ptr, ptr @bssap_handle, align 8
-  %55 = getelementptr inbounds i8, ptr %3, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %10, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %58 = load ptr, ptr %57, align 8
   %59 = tail call i32 @call_dissector_with_data(ptr noundef %54, ptr noundef %53, ptr noundef %56, ptr noundef %18, ptr noundef %58) #5
   br label %95
@@ -8813,7 +8813,7 @@ define hidden i32 @dissect_gsm_map_ExternalSignalInfo(i1 noundef zeroext %0, ptr
   %67 = load ptr, ptr %12, align 8
   %68 = tail call ptr @tvb_new_subset_remaining(ptr noundef %67, i32 noundef 3) #5
   %69 = load ptr, ptr @dtap_handle, align 8
-  %70 = getelementptr inbounds i8, ptr %3, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %71 = load ptr, ptr %70, align 8
   %72 = tail call i32 @call_dissector(ptr noundef %69, ptr noundef %68, ptr noundef %71, ptr noundef %18) #5
   br label %95
@@ -8828,9 +8828,9 @@ define hidden i32 @dissect_gsm_map_ExternalSignalInfo(i1 noundef zeroext %0, ptr
   %78 = load ptr, ptr %12, align 8
   %79 = tail call ptr @tvb_new_subset_remaining(ptr noundef %78, i32 noundef 2) #5
   %80 = load ptr, ptr @bssap_handle, align 8
-  %81 = getelementptr inbounds i8, ptr %3, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %10, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %84 = load ptr, ptr %83, align 8
   %85 = tail call i32 @call_dissector_with_data(ptr noundef %80, ptr noundef %79, ptr noundef %82, ptr noundef %18, ptr noundef %84) #5
   br label %95
@@ -8880,7 +8880,7 @@ define hidden i32 @dissect_gsm_map_GSN_Address(i1 noundef zeroext %0, ptr nounde
   br i1 %.not, label %21, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @ett_gsm_map_pdptypenumber, align 4
   %14 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #5
@@ -8920,19 +8920,19 @@ define i32 @dissect_gsm_map_IMSI(i1 noundef zeroext %0, ptr noundef %1, i32 noun
   br i1 %12, label %38, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %3, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %15 = load ptr, ptr %14, align 8
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %16
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %15, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %18 = load ptr, ptr %17, align 8
   %.not5.i = icmp eq ptr %18, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %18, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 28
   %21 = load i32, ptr %20, align 4
   %22 = or i32 %21, 1
   store i32 %22, ptr %20, align 4
@@ -8940,14 +8940,14 @@ define i32 @dissect_gsm_map_IMSI(i1 noundef zeroext %0, ptr noundef %1, i32 noun
 
 proto_item_set_hidden.exit:                       ; preds = %13, %16, %19
   %23 = load ptr, ptr %7, align 8
-  %24 = getelementptr inbounds i8, ptr %3, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = call i32 @tvb_reported_length(ptr noundef %23) #5
   %27 = call ptr @dissect_e212_imsi(ptr noundef %23, ptr noundef %25, ptr noundef %4, i32 noundef 0, i32 noundef %26, i32 noundef 0) #5
   %28 = load ptr, ptr %24, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 80
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 80
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 50
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 50
   %32 = load i16, ptr %31, align 2
   %33 = and i16 %32, 8
   %.not15 = icmp eq i16 %33, 0
@@ -8956,7 +8956,7 @@ proto_item_set_hidden.exit:                       ; preds = %13, %16, %19
 34:                                               ; preds = %proto_item_set_hidden.exit
   %35 = call ptr @wmem_file_scope() #5
   %36 = call noalias ptr @wmem_strdup(ptr noundef %35, ptr noundef %27) #5
-  %37 = getelementptr inbounds i8, ptr %3, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %36, ptr %37, align 8
   br label %38
 
@@ -8981,7 +8981,7 @@ define hidden i32 @dissect_gsm_map_IMEI(i1 noundef zeroext %0, ptr noundef %1, i
   br i1 %12, label %dissect_gsm_map_TBCD_STRING.exit, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %3, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @ett_gsm_map_tbcd_digits, align 4
   %17 = call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
@@ -9004,12 +9004,12 @@ define i32 @dissect_gsm_map_GlobalCellId(i1 noundef zeroext %0, ptr noundef %1, 
   br i1 %.not, label %20, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @ett_gsm_map_GlobalCellId, align 4
   %14 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #5
   %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef 0) #5
   %19 = call zeroext i16 @be_cell_id_aux(ptr noundef %15, ptr noundef %14, ptr noundef %17, i32 noundef 0, i32 noundef %18, ptr noundef null, i32 noundef 0, i8 noundef zeroext 0) #5
@@ -9065,12 +9065,12 @@ define hidden i32 @dissect_gsm_map_RAIdentity(i1 noundef zeroext %0, ptr noundef
   br i1 %.not, label %19, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @ett_gsm_map_RAIdentity, align 4
   %14 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #5
   %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = call zeroext i16 @de_gmm_rai(ptr noundef %15, ptr noundef %14, ptr noundef %17, i32 noundef 0, i32 noundef 3, ptr noundef null, i32 noundef 0) #5
   br label %19
@@ -9096,12 +9096,12 @@ define hidden i32 @dissect_gsm_map_LAIFixedLength(i1 noundef zeroext %0, ptr nou
   br i1 %.not, label %19, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @ett_gsm_map_LAIFixedLength, align 4
   %14 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #5
   %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = call i32 @dissect_e212_mcc_mnc(ptr noundef %15, ptr noundef %17, ptr noundef %14, i32 noundef 0, i32 noundef 1, i32 noundef 1) #5
   br label %19
@@ -9260,7 +9260,7 @@ define hidden i32 @dissect_gsm_map_ss_USSD_DataCodingScheme(i1 noundef zeroext %
   br i1 %.not, label %17, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @ett_gsm_map_cbs_data_coding, align 4
   %14 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #5
@@ -9282,7 +9282,7 @@ define hidden i32 @dissect_gsm_map_ss_USSD_String(i1 noundef zeroext %0, ptr nou
 
 10:                                               ; preds = %6
   %11 = call i32 @tvb_ensure_captured_length_remaining(ptr noundef nonnull %9, i32 noundef 0) #5
-  %12 = getelementptr inbounds i8, ptr %3, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr @ett_gsm_map_ussd_string, align 4
   %15 = call ptr @proto_item_add_subtree(ptr noundef %13, i32 noundef %14) #5
@@ -9293,7 +9293,7 @@ define hidden i32 @dissect_gsm_map_ss_USSD_String(i1 noundef zeroext %0, ptr nou
 
 switch.lookup:                                    ; preds = %10
   %18 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table.dissect_gsm_map_lcs_LCSCodewordString, i64 0, i64 %18
+  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.dissect_gsm_map_lcs_LCSCodewordString, i64 0, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   %19 = load i32, ptr @hf_gsm_map_ussd_string, align 4
   %20 = load ptr, ptr %7, align 8
@@ -9385,12 +9385,12 @@ define hidden i32 @dissect_gsm_map_ms_GeographicalInformation(i1 noundef zeroext
   br i1 %.not, label %19, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @ett_gsm_map_GeographicalInformation, align 4
   %14 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #5
   %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = call i32 @dissect_geographical_description(ptr noundef %15, ptr noundef %17, ptr noundef %14) #5
   br label %19
@@ -9489,7 +9489,7 @@ define hidden i32 @dissect_gsm_map_ms_QoS_Subscribed(i1 noundef zeroext %0, ptr 
   br i1 %.not, label %14, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = call zeroext i16 @de_sm_qos(ptr noundef nonnull %9, ptr noundef %4, ptr noundef %12, i32 noundef 0, i32 noundef 3, ptr noundef null, i32 noundef 0) #5
   br label %14
@@ -9761,10 +9761,10 @@ define hidden i32 @dissect_gsm_map_ms_Ext2_QoS_Subscribed(i1 noundef zeroext %0,
   br i1 %.not, label %dissect_gsm_map_ext2_qos_subscribed.exit, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = call i32 @tvb_reported_length(ptr noundef %1) #5
-  %14 = getelementptr inbounds i8, ptr %3, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @ett_gsm_map_ext2_qos_subscribed, align 4
   %17 = call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
@@ -9801,7 +9801,7 @@ define hidden i32 @dissect_gsm_map_ms_Ext2_QoS_Subscribed(i1 noundef zeroext %0,
   %39 = urem i32 %38, 1000
   %40 = udiv i32 %38, 1000
   %41 = icmp eq i32 %39, 0
-  %42 = getelementptr inbounds i8, ptr %12, i64 408
+  %42 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %43 = load ptr, ptr %42, align 8
   br i1 %41, label %44, label %46
 
@@ -9838,7 +9838,7 @@ define hidden i32 @dissect_gsm_map_ms_Ext2_QoS_Subscribed(i1 noundef zeroext %0,
   %61 = urem i32 %60, 1000
   %62 = udiv i32 %60, 1000
   %63 = icmp eq i32 %61, 0
-  %64 = getelementptr inbounds i8, ptr %12, i64 408
+  %64 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %65 = load ptr, ptr %64, align 8
   br i1 %63, label %66, label %68
 
@@ -9869,10 +9869,10 @@ define hidden i32 @dissect_gsm_map_ms_Ext3_QoS_Subscribed(i1 noundef zeroext %0,
   br i1 %.not, label %dissect_gsm_map_ext3_qos_subscribed.exit, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = call i32 @tvb_reported_length(ptr noundef %1) #5
-  %14 = getelementptr inbounds i8, ptr %3, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @ett_gsm_map_ext3_qos_subscribed, align 4
   %17 = call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
@@ -9893,7 +9893,7 @@ define hidden i32 @dissect_gsm_map_ms_Ext3_QoS_Subscribed(i1 noundef zeroext %0,
   %26 = urem i32 %25, 1000
   %27 = udiv i32 %25, 1000
   %28 = icmp eq i32 %26, 0
-  %29 = getelementptr inbounds i8, ptr %12, i64 408
+  %29 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %30 = load ptr, ptr %29, align 8
   br i1 %28, label %31, label %33
 
@@ -9930,7 +9930,7 @@ define hidden i32 @dissect_gsm_map_ms_Ext3_QoS_Subscribed(i1 noundef zeroext %0,
   %48 = urem i32 %47, 1000
   %49 = udiv i32 %47, 1000
   %50 = icmp eq i32 %48, 0
-  %51 = getelementptr inbounds i8, ptr %12, i64 408
+  %51 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %52 = load ptr, ptr %51, align 8
   br i1 %50, label %53, label %55
 
@@ -10115,12 +10115,12 @@ define i32 @dissect_gsm_map_lcs_Ext_GeographicalInformation(i1 noundef zeroext %
   br i1 %.not, label %19, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @ett_gsm_map_GeographicalInformation, align 4
   %14 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #5
   %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = call i32 @dissect_geographical_description(ptr noundef %15, ptr noundef %17, ptr noundef %14) #5
   br label %19
@@ -10921,30 +10921,30 @@ define internal void @gsm_map_stat_init(ptr noundef %0) #0 {
   %2 = alloca [10 x %struct._stat_tap_table_item_type], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(240) %2, i8 0, i64 240, i1 false)
   store i32 1, ptr %2, align 16
-  %3 = getelementptr inbounds i8, ptr %2, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 3, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i32 1, ptr %4, align 16
-  %5 = getelementptr inbounds i8, ptr %2, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store i32 1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 96
   store i32 4, ptr %6, align 16
-  %7 = getelementptr inbounds i8, ptr %2, i64 120
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 120
   store i32 1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 144
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 144
   store i32 1, ptr %8, align 16
-  %9 = getelementptr inbounds i8, ptr %2, i64 168
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 168
   store i32 4, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 192
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 192
   store i32 1, ptr %10, align 16
-  %11 = getelementptr inbounds i8, ptr %2, i64 216
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 216
   store i32 4, ptr %11, align 8
   %12 = tail call ptr @stat_tap_find_table(ptr noundef %0, ptr noundef nonnull @.str.4930) #5
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %17, label %13
 
 13:                                               ; preds = %1
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load ptr, ptr %14, align 8
   %.not25 = icmp eq ptr %15, null
   br i1 %.not25, label %.loopexit, label %16
@@ -10956,8 +10956,8 @@ define internal void @gsm_map_stat_init(ptr noundef %0) #0 {
 17:                                               ; preds = %1
   %18 = tail call ptr @stat_tap_init_table(ptr noundef nonnull @.str.4930, i32 noundef 10, i32 noundef 0, ptr noundef null) #5
   tail call void @stat_tap_add_table(ptr noundef %0, ptr noundef %18) #5
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
-  %20 = getelementptr inbounds i8, ptr %2, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 32
   br label %21
 
 21:                                               ; preds = %17, %27
@@ -10990,11 +10990,11 @@ define internal void @gsm_map_stat_init(ptr noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @gsm_map_stat_packet(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 104
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = tail call ptr @stat_tap_get_field_data(ptr noundef %10, i32 noundef %12, i32 noundef 2) #5
   %14 = load i32, ptr %11, align 4
@@ -11005,11 +11005,11 @@ define internal noundef i32 @gsm_map_stat_packet(ptr nocapture noundef readonly 
   %19 = tail call ptr @stat_tap_get_field_data(ptr noundef %10, i32 noundef %18, i32 noundef 6) #5
   %20 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %20, 0
-  %21 = getelementptr inbounds i8, ptr %3, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br i1 %.not, label %33, label %22
 
 22:                                               ; preds = %5
-  %23 = getelementptr inbounds i8, ptr %13, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %24 = load i32, ptr %23, align 8
   %25 = add i32 %24, 1
   store i32 %25, ptr %23, align 8
@@ -11017,7 +11017,7 @@ define internal noundef i32 @gsm_map_stat_packet(ptr nocapture noundef readonly 
   tail call void @stat_tap_set_field_data(ptr noundef %10, i32 noundef %26, i32 noundef 2, ptr noundef %13) #5
   %27 = load i16, ptr %21, align 4
   %28 = zext i16 %27 to i32
-  %29 = getelementptr inbounds i8, ptr %15, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %30 = load i32, ptr %29, align 8
   %31 = add i32 %30, %28
   store i32 %31, ptr %29, align 8
@@ -11026,7 +11026,7 @@ define internal noundef i32 @gsm_map_stat_packet(ptr nocapture noundef readonly 
   br label %44
 
 33:                                               ; preds = %5
-  %34 = getelementptr inbounds i8, ptr %17, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %35 = load i32, ptr %34, align 8
   %36 = add i32 %35, 1
   store i32 %36, ptr %34, align 8
@@ -11034,7 +11034,7 @@ define internal noundef i32 @gsm_map_stat_packet(ptr nocapture noundef readonly 
   tail call void @stat_tap_set_field_data(ptr noundef %10, i32 noundef %37, i32 noundef 5, ptr noundef %17) #5
   %38 = load i16, ptr %21, align 4
   %39 = zext i16 %38 to i32
-  %40 = getelementptr inbounds i8, ptr %19, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %41 = load i32, ptr %40, align 8
   %42 = add i32 %41, %39
   store i32 %42, ptr %40, align 8
@@ -11043,13 +11043,13 @@ define internal noundef i32 @gsm_map_stat_packet(ptr nocapture noundef readonly 
   br label %44
 
 44:                                               ; preds = %33, %22
-  %45 = getelementptr inbounds i8, ptr %13, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %46 = load i32, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %15, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %48 = load i32, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %17, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %50 = load i32, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %19, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %52 = load i32, ptr %51, align 8
   %53 = load i32, ptr %3, align 4
   %.not60 = icmp eq i32 %53, 0
@@ -11062,7 +11062,7 @@ define internal noundef i32 @gsm_map_stat_packet(ptr nocapture noundef readonly 
   %57 = uitofp i32 %.72 to float
   %58 = fdiv float %56, %57
   %59 = fpext float %58 to double
-  %60 = getelementptr inbounds i8, ptr %55, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %61 = load double, ptr %60, align 8
   %62 = fadd double %61, %59
   store double %62, ptr %60, align 8
@@ -11076,7 +11076,7 @@ define internal noundef i32 @gsm_map_stat_packet(ptr nocapture noundef readonly 
   %69 = uitofp i32 %68 to float
   %70 = fdiv float %67, %69
   %71 = fpext float %70 to double
-  %72 = getelementptr inbounds i8, ptr %65, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %73 = load double, ptr %72, align 8
   %74 = fadd double %73, %71
   store double %74, ptr %72, align 8
@@ -11087,7 +11087,7 @@ define internal noundef i32 @gsm_map_stat_packet(ptr nocapture noundef readonly 
 
 ; Function Attrs: nounwind uwtable
 define internal void @gsm_map_stat_reset(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 20
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -11095,7 +11095,7 @@ define internal void @gsm_map_stat_reset(ptr noundef %0) #0 {
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.08 = phi i32 [ %6, %.lr.ph ], [ 0, %1 ]
   %4 = tail call ptr @stat_tap_get_field_data(ptr noundef nonnull %0, i32 noundef %.08, i32 noundef 2) #5
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %5, align 8
   tail call void @stat_tap_set_field_data(ptr noundef nonnull %0, i32 noundef %.08, i32 noundef 2, ptr noundef %4) #5
   %6 = add nuw i32 %.08, 1
@@ -11113,7 +11113,7 @@ define internal void @gsm_map_stat_free_table_item(ptr nocapture readnone %0, i3
   br i1 %.not, label %5, label %8
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @g_free(ptr noundef %7) #5
   br label %8
@@ -11131,16 +11131,16 @@ define internal i32 @dissect_gsm_map(ptr noundef %0, ptr noundef %1, ptr noundef
   %5 = alloca i32, align 4
   %6 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #5
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   call void @col_set_str(ptr noundef %8, i32 noundef 34, ptr noundef nonnull @.str.4942) #5
-  %9 = getelementptr inbounds i8, ptr %6, i64 128
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 128
   store ptr %2, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %11 = load ptr, ptr %10, align 8
   %12 = call noalias ptr @wmem_alloc0(ptr noundef %11, i64 noundef 24) #5
   store ptr %3, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr %12, ptr %13, align 8
   %14 = load i32, ptr @proto_gsm_map, align 4
   %15 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %14, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #5
@@ -11177,17 +11177,17 @@ define internal i32 @dissect_gsm_map_sccp(ptr noundef %0, ptr noundef %1, ptr no
   %5 = alloca i32, align 4
   %6 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #5
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   call void @col_set_str(ptr noundef %8, i32 noundef 34, ptr noundef nonnull @.str.4942) #5
-  %9 = getelementptr inbounds i8, ptr %6, i64 128
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 128
   store ptr %2, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %11 = load ptr, ptr %10, align 8
   %12 = call noalias ptr @wmem_alloc0(ptr noundef %11, i64 noundef 24) #5
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %3, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr %12, ptr %14, align 8
   %15 = load i32, ptr @proto_gsm_map, align 4
   %16 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #5
@@ -11299,11 +11299,11 @@ define internal i32 @dissect_gsm_map_PrivateExtension(i1 noundef zeroext %0, ptr
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_gsm_map_T_extId(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %8 = tail call i32 @dissect_ber_object_identifier_str(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7) #5
   %9 = load ptr, ptr %7, align 8
   %10 = icmp ne ptr %9, null
-  %11 = getelementptr inbounds i8, ptr %3, i64 61
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 61
   %12 = zext i1 %10 to i8
   store i8 %12, ptr %11, align 1
   ret i32 %8
@@ -11313,21 +11313,21 @@ define internal i32 @dissect_gsm_map_T_extId(i1 noundef zeroext %0, ptr noundef 
 define internal i32 @dissect_gsm_map_T_extType(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 %5) #0 {
   %7 = load i32, ptr @ett_gsm_map_extension_data, align 4
   %8 = tail call ptr @proto_tree_add_subtree(ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef -1, i32 noundef %7, ptr noundef null, ptr noundef nonnull @.str.4328) #5
-  %9 = getelementptr inbounds i8, ptr %3, i64 61
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 61
   %10 = load i8, ptr %9, align 1
   %11 = trunc i8 %10 to i1
   br i1 %11, label %12, label %18
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %3, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 @call_ber_oid_callback(ptr noundef %14, ptr noundef %1, i32 noundef %2, ptr noundef %16, ptr noundef %8, ptr noundef null) #5
   br label %23
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %3, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i32 @call_data_dissector(ptr noundef %1, ptr noundef %20, ptr noundef %8) #5
   %22 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %2) #5
@@ -11355,7 +11355,7 @@ define internal i32 @dissect_gsm_map_ProtocolId(i1 noundef zeroext %0, ptr nound
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_gsm_map_SignalInfo(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %9 = load ptr, ptr %8, align 8
   %10 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7) #5
   %.not = icmp eq ptr %9, null
@@ -11363,7 +11363,7 @@ define internal i32 @dissect_gsm_map_SignalInfo(i1 noundef zeroext %0, ptr nound
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %7, align 8
-  %13 = getelementptr inbounds i8, ptr %9, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %12, ptr %13, align 8
   br label %14
 
@@ -11528,11 +11528,11 @@ define internal i32 @dissect_gsm_map_MaxMC_Bearers(i1 noundef zeroext %0, ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_gsm_map_sm_T_imsi(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef initializes((48, 56)) %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 348
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 348
   store i32 0, ptr %10, align 4
   %11 = tail call i32 @dissect_gsm_map_IMSI(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5)
   %12 = load ptr, ptr %7, align 8
@@ -11541,10 +11541,10 @@ define internal i32 @dissect_gsm_map_sm_T_imsi(i1 noundef zeroext %0, ptr nounde
 
 13:                                               ; preds = %6
   %14 = tail call fastcc ptr @gsm_map_get_packet_info(ptr noundef nonnull %3, i1 noundef zeroext true)
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i32 1, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
-  %17 = getelementptr inbounds i8, ptr %14, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store ptr %16, ptr %17, align 8
   store ptr null, ptr %7, align 8
   br label %18
@@ -11556,11 +11556,11 @@ define internal i32 @dissect_gsm_map_sm_T_imsi(i1 noundef zeroext %0, ptr nounde
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_gsm_map_sm_T_lmsi(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef initializes((48, 56)) %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr null, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 348
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 348
   store i32 0, ptr %11, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %12 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7) #5
@@ -11570,9 +11570,9 @@ define internal i32 @dissect_gsm_map_sm_T_lmsi(i1 noundef zeroext %0, ptr nounde
 
 14:                                               ; preds = %6
   %15 = load ptr, ptr %9, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 80
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 50
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 50
   %19 = load i16, ptr %18, align 2
   %20 = and i16 %19, 8
   %.not8.i = icmp eq i16 %20, 0
@@ -11598,10 +11598,10 @@ dissect_gsm_map_LMSI.exit:                        ; preds = %dissect_gsm_map_LMS
 
 27:                                               ; preds = %dissect_gsm_map_LMSI.exit
   %28 = call fastcc ptr @gsm_map_get_packet_info(ptr noundef nonnull %3, i1 noundef zeroext true)
-  %29 = getelementptr inbounds i8, ptr %28, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store i32 2, ptr %29, align 8
   %30 = load ptr, ptr %8, align 8
-  %31 = getelementptr inbounds i8, ptr %28, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 24
   store ptr %30, ptr %31, align 8
   store ptr null, ptr %8, align 8
   br label %32
@@ -11612,11 +11612,11 @@ dissect_gsm_map_LMSI.exit:                        ; preds = %dissect_gsm_map_LMS
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_gsm_map_sm_T_serviceCentreAddressDA(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef initializes((48, 56)) %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 348
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 348
   store i32 1, ptr %10, align 4
   %11 = tail call i32 @dissect_gsm_map_AddressString(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5)
   %12 = load ptr, ptr %7, align 8
@@ -11625,10 +11625,10 @@ define internal i32 @dissect_gsm_map_sm_T_serviceCentreAddressDA(i1 noundef zero
 
 13:                                               ; preds = %6
   %14 = tail call fastcc ptr @gsm_map_get_packet_info(ptr noundef nonnull %3, i1 noundef zeroext true)
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i32 3, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
-  %17 = getelementptr inbounds i8, ptr %14, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store ptr %16, ptr %17, align 8
   store ptr null, ptr %7, align 8
   br label %18
@@ -11640,11 +11640,11 @@ define internal i32 @dissect_gsm_map_sm_T_serviceCentreAddressDA(i1 noundef zero
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_gsm_map_sm_T_noSM_RP_DA(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = tail call i32 @dissect_ber_null(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5) #5
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 80
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 50
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 50
   %13 = load i16, ptr %12, align 2
   %14 = and i16 %13, 8
   %.not = icmp eq i16 %14, 0
@@ -11657,15 +11657,15 @@ define internal i32 @dissect_gsm_map_sm_T_noSM_RP_DA(i1 noundef zeroext %0, ptr 
   br i1 %.not14, label %27, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %17, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %20 = load i32, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %16, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i32 %20, ptr %21, align 8
   %22 = tail call ptr @wmem_file_scope() #5
-  %23 = getelementptr inbounds i8, ptr %17, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noalias ptr @wmem_strdup(ptr noundef %22, ptr noundef %24) #5
-  %26 = getelementptr inbounds i8, ptr %16, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store ptr %25, ptr %26, align 8
   br label %27
 
@@ -11677,7 +11677,7 @@ define internal i32 @dissect_gsm_map_sm_T_noSM_RP_DA(i1 noundef zeroext %0, ptr 
 define internal fastcc ptr @gsm_map_get_packet_info(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = alloca [3 x %struct._wmem_tree_key_t], align 16
   %4 = tail call ptr @wmem_file_scope() #5
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr @proto_gsm_map, align 4
   %8 = tail call ptr @p_get_proto_data(ptr noundef %4, ptr noundef %6, i32 noundef %7, i32 noundef 0) #5
@@ -11685,7 +11685,7 @@ define internal fastcc ptr @gsm_map_get_packet_info(ptr nocapture noundef readon
   br i1 %.not, label %9, label %45
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr @wmem_file_scope() #5
   %13 = tail call noalias ptr @wmem_alloc0(ptr noundef %12, i64 noundef 40) #5
@@ -11702,9 +11702,9 @@ define internal fastcc ptr @gsm_map_get_packet_info(ptr nocapture noundef readon
   br i1 %.not26, label %45, label %19
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %18, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %21 = load i32, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %13, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store i32 %21, ptr %22, align 8
   br i1 %1, label %23, label %45
 
@@ -11730,18 +11730,18 @@ define internal fastcc ptr @gsm_map_get_packet_info(ptr nocapture noundef readon
   %.0 = phi ptr [ %27, %23 ], [ %30, %28 ]
   store i32 1, ptr %3, align 16
   %35 = load ptr, ptr %11, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 40
-  %37 = getelementptr inbounds i8, ptr %3, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %36, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %3, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 1, ptr %38, align 16
   %39 = load ptr, ptr %5, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 20
-  %41 = getelementptr inbounds i8, ptr %3, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 20
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %40, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %3, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 0, ptr %42, align 16
-  %43 = getelementptr inbounds i8, ptr %3, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr null, ptr %43, align 8
   %44 = load ptr, ptr %.0, align 8
   call void @wmem_tree_insert32_array(ptr noundef %44, ptr noundef nonnull %3, ptr noundef nonnull %13) #5
@@ -11779,11 +11779,11 @@ define internal i32 @dissect_gsm_map_LMSI(i1 noundef zeroext %0, ptr noundef %1,
   br i1 %.not, label %24, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 80
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 50
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 50
   %16 = load i16, ptr %15, align 2
   %17 = and i16 %16, 8
   %.not8 = icmp eq i16 %17, 0
@@ -11794,7 +11794,7 @@ define internal i32 @dissect_gsm_map_LMSI(i1 noundef zeroext %0, ptr noundef %1,
   %20 = load ptr, ptr %7, align 8
   %21 = call i32 @tvb_captured_length(ptr noundef %20) #5
   %22 = call ptr @tvb_bytes_to_str(ptr noundef %19, ptr noundef %20, i32 noundef 0, i32 noundef %21) #5
-  %23 = getelementptr inbounds i8, ptr %3, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %22, ptr %23, align 8
   br label %24
 
@@ -11805,7 +11805,7 @@ define internal i32 @dissect_gsm_map_LMSI(i1 noundef zeroext %0, ptr noundef %1,
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @gsm_map_get_matching_tcap_info(ptr nocapture noundef readonly %0) unnamed_addr #0 {
   %2 = alloca [3 x %struct._wmem_tree_key_t], align 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %38, label %5
@@ -11816,7 +11816,7 @@ define internal fastcc ptr @gsm_map_get_matching_tcap_info(ptr nocapture noundef
   br i1 %.not21, label %38, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %9) #5
   %11 = load i32, ptr @proto_gsm_map, align 4
@@ -11838,18 +11838,18 @@ define internal fastcc ptr @gsm_map_get_matching_tcap_info(ptr nocapture noundef
   %.017 = phi ptr [ %12, %7 ], [ %15, %13 ]
   store i32 1, ptr %2, align 16
   %20 = load ptr, ptr %4, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 40
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %2, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 1, ptr %23, align 16
   %24 = load ptr, ptr %8, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 20
-  %26 = getelementptr inbounds i8, ptr %2, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 20
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 0, ptr %27, align 16
-  %28 = getelementptr inbounds i8, ptr %2, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr null, ptr %28, align 8
   %29 = load ptr, ptr %.017, align 8
   %30 = call ptr @wmem_tree_lookup32_array_le(ptr noundef %29, ptr noundef nonnull %2) #5
@@ -11857,10 +11857,10 @@ define internal fastcc ptr @gsm_map_get_matching_tcap_info(ptr nocapture noundef
   br i1 %.not23, label %38, label %31
 
 31:                                               ; preds = %19
-  %32 = getelementptr inbounds i8, ptr %30, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %33 = load i32, ptr %32, align 8
   %34 = load ptr, ptr %4, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 40
   %36 = load i32, ptr %35, align 8
   %37 = icmp eq i32 %33, %36
   br i1 %37, label %39, label %38
@@ -11877,12 +11877,12 @@ declare ptr @wmem_tree_lookup32_array_le(ptr noundef, ptr noundef) local_unnamed
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_gsm_map_sm_T_msisdn(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 348
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 348
   store i32 1, ptr %9, align 4
   %10 = tail call i32 @dissect_gsm_map_AddressString(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5)
-  %11 = getelementptr inbounds i8, ptr %3, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %12 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %17, label %13
@@ -11891,7 +11891,7 @@ define internal i32 @dissect_gsm_map_sm_T_msisdn(i1 noundef zeroext %0, ptr noun
   %14 = tail call fastcc ptr @gsm_map_get_packet_info(ptr noundef nonnull %3, i1 noundef zeroext true)
   store i32 1, ptr %14, align 8
   %15 = load ptr, ptr %11, align 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %15, ptr %16, align 8
   store ptr null, ptr %11, align 8
   br label %17
@@ -11902,11 +11902,11 @@ define internal i32 @dissect_gsm_map_sm_T_msisdn(i1 noundef zeroext %0, ptr noun
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_gsm_map_sm_T_serviceCentreAddressOA(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef initializes((48, 56)) %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 348
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 348
   store i32 0, ptr %10, align 4
   %11 = tail call i32 @dissect_gsm_map_AddressString(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5)
   %12 = load ptr, ptr %7, align 8
@@ -11917,7 +11917,7 @@ define internal i32 @dissect_gsm_map_sm_T_serviceCentreAddressOA(i1 noundef zero
   %14 = tail call fastcc ptr @gsm_map_get_packet_info(ptr noundef nonnull %3, i1 noundef zeroext true)
   store i32 2, ptr %14, align 8
   %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %15, ptr %16, align 8
   store ptr null, ptr %7, align 8
   br label %17
@@ -11929,11 +11929,11 @@ define internal i32 @dissect_gsm_map_sm_T_serviceCentreAddressOA(i1 noundef zero
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_gsm_map_sm_T_noSM_RP_OA(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = tail call i32 @dissect_ber_null(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5) #5
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 80
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 50
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 50
   %13 = load i16, ptr %12, align 2
   %14 = and i16 %13, 8
   %.not = icmp eq i16 %14, 0
@@ -11949,10 +11949,10 @@ define internal i32 @dissect_gsm_map_sm_T_noSM_RP_OA(i1 noundef zeroext %0, ptr 
   %19 = load i32, ptr %17, align 8
   store i32 %19, ptr %16, align 8
   %20 = tail call ptr @wmem_file_scope() #5
-  %21 = getelementptr inbounds i8, ptr %17, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noalias ptr @wmem_strdup(ptr noundef %20, ptr noundef %22) #5
-  %24 = getelementptr inbounds i8, ptr %16, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %23, ptr %24, align 8
   br label %25
 
@@ -11969,12 +11969,12 @@ define internal i32 @dissect_gsm_map_ms_LocationNumber(i1 noundef zeroext %0, pt
   br i1 %.not, label %18, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @ett_gsm_map_LocationNumber, align 4
   %14 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #5
   %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %17 = load ptr, ptr %16, align 8
   call void @dissect_isup_location_number_parameter(ptr noundef %15, ptr noundef %17, ptr noundef %14, ptr noundef null) #5
   br label %18
@@ -11992,12 +11992,12 @@ define internal i32 @dissect_gsm_map_ms_GeodeticInformation(i1 noundef zeroext %
   br i1 %.not, label %18, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @ett_gsm_map_GeodeticInformation, align 4
   %14 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #5
   %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %17 = load ptr, ptr %16, align 8
   call void @dissect_isup_calling_geodetic_location_parameter(ptr noundef %15, ptr noundef %17, ptr noundef %14, ptr noundef null) #5
   br label %18
@@ -12039,12 +12039,12 @@ define internal i32 @dissect_gsm_map_E_UTRAN_CGI(i1 noundef zeroext %0, ptr noun
   br i1 %.not, label %20, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @ett_gsm_map_e_utranCellGlobalIdentity, align 4
   %14 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #5
   %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = call i32 @tvb_reported_length(ptr noundef %1) #5
   %19 = call zeroext i16 @de_sgsap_ecgi(ptr noundef %15, ptr noundef %14, ptr noundef %17, i32 noundef 0, i32 noundef %18, ptr noundef null, i32 noundef 0) #5
@@ -12063,12 +12063,12 @@ define internal i32 @dissect_gsm_map_TA_Id(i1 noundef zeroext %0, ptr noundef %1
   br i1 %.not, label %20, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @ett_gsm_map_TA_id, align 4
   %14 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #5
   %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = call i32 @tvb_reported_length(ptr noundef %1) #5
   %19 = call zeroext i16 @de_emm_trac_area_id(ptr noundef %15, ptr noundef %14, ptr noundef %17, i32 noundef 0, i32 noundef %18, ptr noundef null, i32 noundef 0) #5
@@ -12318,7 +12318,7 @@ define internal i32 @dissect_gsm_map_lcs_NameString(i1 noundef zeroext %0, ptr n
 
 10:                                               ; preds = %6
   %11 = call i32 @tvb_ensure_captured_length_remaining(ptr noundef nonnull %9, i32 noundef 0) #5
-  %12 = getelementptr inbounds i8, ptr %3, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr @ett_gsm_map_ussd_string, align 4
   %15 = call ptr @proto_item_add_subtree(ptr noundef %13, i32 noundef %14) #5
@@ -12329,7 +12329,7 @@ define internal i32 @dissect_gsm_map_lcs_NameString(i1 noundef zeroext %0, ptr n
 
 switch.lookup:                                    ; preds = %10
   %18 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table.dissect_gsm_map_lcs_LCSCodewordString, i64 0, i64 %18
+  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.dissect_gsm_map_lcs_LCSCodewordString, i64 0, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   %19 = load i32, ptr @hf_gsm_map_ussd_string, align 4
   %20 = load ptr, ptr %7, align 8
@@ -12358,7 +12358,7 @@ define internal i32 @dissect_gsm_map_lcs_RequestorIDString(i1 noundef zeroext %0
 
 10:                                               ; preds = %6
   %11 = call i32 @tvb_ensure_captured_length_remaining(ptr noundef nonnull %9, i32 noundef 0) #5
-  %12 = getelementptr inbounds i8, ptr %3, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr @ett_gsm_map_ussd_string, align 4
   %15 = call ptr @proto_item_add_subtree(ptr noundef %13, i32 noundef %14) #5
@@ -12369,7 +12369,7 @@ define internal i32 @dissect_gsm_map_lcs_RequestorIDString(i1 noundef zeroext %0
 
 switch.lookup:                                    ; preds = %10
   %18 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table.dissect_gsm_map_lcs_LCSCodewordString, i64 0, i64 %18
+  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.dissect_gsm_map_lcs_LCSCodewordString, i64 0, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   %19 = load i32, ptr @hf_gsm_map_ussd_string, align 4
   %20 = load ptr, ptr %7, align 8
@@ -12392,15 +12392,15 @@ define internal i32 @dissect_gsm_map_ms_APN(i1 noundef zeroext %0, ptr noundef %
   br i1 %.not, label %25, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %3, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr @ett_gsm_map_apn_str, align 4
   %15 = call ptr @proto_item_add_subtree(ptr noundef %13, i32 noundef %14) #5
   %16 = load i32, ptr @hf_gsm_apn_str, align 4
   %17 = load ptr, ptr %7, align 8
-  %18 = getelementptr inbounds i8, ptr %3, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 408
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 408
   %21 = load ptr, ptr %20, align 8
   %22 = call ptr @proto_tree_add_item_ret_string(ptr noundef %15, i32 noundef %16, ptr noundef %17, i32 noundef 0, i32 noundef -1, i32 noundef 84, ptr noundef %21, ptr noundef nonnull %8) #5
   %23 = load ptr, ptr %12, align 8
@@ -12458,7 +12458,7 @@ define internal i32 @dissect_gsm_map_lcs_LCSCodewordString(i1 noundef zeroext %0
 
 10:                                               ; preds = %6
   %11 = call i32 @tvb_ensure_captured_length_remaining(ptr noundef nonnull %9, i32 noundef 0) #5
-  %12 = getelementptr inbounds i8, ptr %3, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr @ett_gsm_map_ussd_string, align 4
   %15 = call ptr @proto_item_add_subtree(ptr noundef %13, i32 noundef %14) #5
@@ -12469,7 +12469,7 @@ define internal i32 @dissect_gsm_map_lcs_LCSCodewordString(i1 noundef zeroext %0
 
 switch.lookup:                                    ; preds = %10
   %18 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table.dissect_gsm_map_lcs_LCSCodewordString, i64 0, i64 %18
+  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.dissect_gsm_map_lcs_LCSCodewordString, i64 0, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   %19 = load i32, ptr @hf_gsm_map_ussd_string, align 4
   %20 = load ptr, ptr %7, align 8
@@ -13335,7 +13335,7 @@ define internal i32 @dissect_gsm_map_ericsson_INCategoryKey(i1 noundef zeroext %
   br i1 %12, label %dissect_gsm_map_TBCD_STRING.exit, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %3, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @ett_gsm_map_tbcd_digits, align 4
   %17 = call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
@@ -13472,7 +13472,7 @@ define internal fastcc void @dissect_gsm_map_GSMMAPPDU(ptr noundef %0, ptr nound
   br i1 %5, label %6, label %21
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %1, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %8 = load ptr, ptr %7, align 8
   store i32 0, ptr @application_context_version, align 4
   %.not = icmp eq ptr %8, null
@@ -13489,7 +13489,7 @@ define internal fastcc void @dissect_gsm_map_GSMMAPPDU(ptr noundef %0, ptr nound
   br i1 %13, label %14, label %22
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %10, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %16, i32 noundef 46) #6
   %.not20 = icmp eq ptr %17, null
@@ -13511,16 +13511,16 @@ define internal fastcc void @dissect_gsm_map_GSMMAPPDU(ptr noundef %0, ptr nound
   %25 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #5
   %26 = add i8 %25, 2
   store i8 %26, ptr @gsm_map_pdu_size, align 1
-  %27 = getelementptr inbounds i8, ptr %1, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = load i8, ptr @gsmmap_pdu_type, align 1
   %32 = zext nneg i8 %31 to i32
   %33 = tail call ptr @val_to_str_const(i32 noundef %32, ptr noundef nonnull @gsm_old_Component_vals, ptr noundef nonnull @.str.4943) #5
   tail call void @col_set_str(ptr noundef %30, i32 noundef 25, ptr noundef %33) #5
   %34 = load ptr, ptr %27, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
   tail call void @col_append_str(ptr noundef %36, i32 noundef 25, ptr noundef nonnull @.str.4944) #5
   %37 = load i32, ptr @hf_gsm_map_old_Component_PDU, align 4
@@ -14201,9 +14201,9 @@ define internal i32 @dissect_gsm_old_InvokeParameter(i1 zeroext %0, ptr noundef 
 308:                                              ; preds = %6
   %309 = load ptr, ptr @map_prop_arg_opcode_table, align 8
   %310 = and i32 %7, 255
-  %311 = getelementptr inbounds i8, ptr %3, i64 16
+  %311 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %312 = load ptr, ptr %311, align 8
-  %313 = getelementptr inbounds i8, ptr %3, i64 128
+  %313 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %314 = load ptr, ptr %313, align 8
   %315 = tail call i32 @dissector_try_uint_new(ptr noundef %309, i32 noundef %310, ptr noundef %1, ptr noundef %312, ptr noundef %4, i32 noundef 1, ptr noundef %314) #5
   %.not406.i = icmp eq i32 %315, 0
@@ -14229,7 +14229,7 @@ dissect_invokeData.exit:                          ; preds = %6, %6, %6, %6, %6, 
 define internal i32 @dissect_gsm_old_OperationLocalvalue(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = tail call i32 @dissect_ber_integer(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull @opcode) #5
   %8 = load i32, ptr @opcode, align 4
-  %9 = getelementptr inbounds i8, ptr %3, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %10 = load ptr, ptr %9, align 8
   switch i32 %8, label %17 [
     i32 44, label %11
@@ -14253,13 +14253,13 @@ define internal i32 @dissect_gsm_old_OperationLocalvalue(i1 noundef zeroext %0, 
 
 dissect_gsm_old_GSMMAPOperationLocalvalue.exit:   ; preds = %14, %17
   %.0.i.i = phi ptr [ %18, %17 ], [ %16, %14 ]
-  %19 = getelementptr inbounds i8, ptr %3, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
   tail call void @col_append_str(ptr noundef %22, i32 noundef 25, ptr noundef %.0.i.i) #5
   %23 = load ptr, ptr %19, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
   tail call void @col_append_str(ptr noundef %25, i32 noundef 25, ptr noundef nonnull @.str.4944) #5
   ret i32 %7
@@ -14288,7 +14288,7 @@ define internal fastcc i32 @dissect_mc_message(ptr noundef %0, i32 noundef %1, p
   br label %44
 
 24:                                               ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %2, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %26 = load ptr, ptr %25, align 8
   %27 = call ptr @proto_tree_add_expert(ptr noundef %3, ptr noundef %26, ptr noundef nonnull @ei_gsm_map_unknown_sequence3, ptr noundef %0, i32 noundef %21, i32 noundef -1) #5
   br label %44
@@ -14306,7 +14306,7 @@ define internal fastcc i32 @dissect_mc_message(ptr noundef %0, i32 noundef %1, p
   br label %44
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %2, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = tail call ptr @proto_tree_add_expert(ptr noundef %3, ptr noundef %35, ptr noundef nonnull @ei_gsm_map_unknown_sequence, ptr noundef %0, i32 noundef %1, i32 noundef -1) #5
   br label %44
@@ -14320,7 +14320,7 @@ define internal fastcc i32 @dissect_mc_message(ptr noundef %0, i32 noundef %1, p
   br label %44
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %2, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %42 = load ptr, ptr %41, align 8
   %43 = tail call ptr @proto_tree_add_expert(ptr noundef %3, ptr noundef %42, ptr noundef nonnull @ei_gsm_map_unknown_parameter, ptr noundef %0, i32 noundef %1, i32 noundef -1) #5
   br label %44
@@ -14359,7 +14359,7 @@ define internal i32 @dissect_gsm_map_ms_DeleteSubscriberDataArg(i1 noundef zeroe
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @dissect_gsm_map_sm_MT_ForwardSM_VGCS_Arg(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %2, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr @ett_gsm_map_sm_MT_ForwardSM_VGCS_Arg, align 4
   %8 = tail call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef %2, ptr noundef %3, ptr noundef %0, i32 noundef %1, ptr noundef nonnull @gsm_map_sm_MT_ForwardSM_VGCS_Arg_sequence, i32 noundef -1, i32 noundef %7) #5
@@ -14367,15 +14367,15 @@ define internal fastcc i32 @dissect_gsm_map_sm_MT_ForwardSM_VGCS_Arg(ptr noundef
   br i1 %.not, label %26, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load ptr, ptr %10, align 8
   %.not16 = icmp eq ptr %11, null
   br i1 %.not16, label %26, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %2, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 348
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 348
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, -1
   br i1 %17, label %18, label %19
@@ -14390,7 +14390,7 @@ define internal fastcc i32 @dissect_gsm_map_sm_MT_ForwardSM_VGCS_Arg(ptr noundef
   %20 = phi ptr [ %.pre17, %18 ], [ %14, %12 ]
   %21 = phi ptr [ %.pre, %18 ], [ %11, %12 ]
   %22 = load ptr, ptr @gsm_sms_handle, align 8
-  %23 = getelementptr inbounds i8, ptr %2, i64 128
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i32 @call_dissector_only(ptr noundef %22, ptr noundef %21, ptr noundef %20, ptr noundef %24, ptr noundef null) #5
   br label %26
@@ -14404,19 +14404,19 @@ define internal i32 @dissect_gsm_old_Bss_APDU(i1 noundef zeroext %0, ptr noundef
   store i32 -1, ptr @ProtocolId, align 4
   %7 = load i32, ptr @ett_gsm_old_Bss_APDU, align 4
   %8 = tail call i32 @dissect_ber_sequence(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @gsm_old_Bss_APDU_sequence, i32 noundef %5, i32 noundef %7) #5
-  %9 = getelementptr inbounds i8, ptr %3, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %95, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %10, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %13 = load ptr, ptr %12, align 8
   %.not61 = icmp eq ptr %13, null
   br i1 %.not61, label %95, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %3, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %16 = load ptr, ptr %15, align 8
   %17 = load i32, ptr @ett_gsm_map_externalsignalinfo, align 4
   %18 = tail call ptr @proto_item_add_subtree(ptr noundef %16, i32 noundef %17) #5
@@ -14445,13 +14445,13 @@ define internal i32 @dissect_gsm_old_Bss_APDU(i1 noundef zeroext %0, ptr noundef
 
 32:                                               ; preds = %20
   %33 = load ptr, ptr %12, align 8
-  %34 = getelementptr inbounds i8, ptr %3, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = tail call zeroext i16 @de_bearer_cap(ptr noundef %33, ptr noundef %18, ptr noundef %35, i32 noundef 2, i32 noundef %31, ptr noundef null, i32 noundef 0) #5
   br label %95
 
 37:                                               ; preds = %20
-  %38 = getelementptr inbounds i8, ptr %3, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %39 = load ptr, ptr %38, align 8
   %40 = load ptr, ptr %12, align 8
   %41 = tail call ptr @proto_tree_add_expert(ptr noundef %18, ptr noundef %39, ptr noundef nonnull @ei_gsm_map_undecoded, ptr noundef %40, i32 noundef 0, i32 noundef %31) #5
@@ -14475,9 +14475,9 @@ define internal i32 @dissect_gsm_old_Bss_APDU(i1 noundef zeroext %0, ptr noundef
   %52 = load ptr, ptr %12, align 8
   %53 = tail call ptr @tvb_new_subset_remaining(ptr noundef %52, i32 noundef 2) #5
   %54 = load ptr, ptr @bssap_handle, align 8
-  %55 = getelementptr inbounds i8, ptr %3, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %10, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %58 = load ptr, ptr %57, align 8
   %59 = tail call i32 @call_dissector_with_data(ptr noundef %54, ptr noundef %53, ptr noundef %56, ptr noundef %18, ptr noundef %58) #5
   br label %95
@@ -14492,7 +14492,7 @@ define internal i32 @dissect_gsm_old_Bss_APDU(i1 noundef zeroext %0, ptr noundef
   %67 = load ptr, ptr %12, align 8
   %68 = tail call ptr @tvb_new_subset_remaining(ptr noundef %67, i32 noundef 3) #5
   %69 = load ptr, ptr @dtap_handle, align 8
-  %70 = getelementptr inbounds i8, ptr %3, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %71 = load ptr, ptr %70, align 8
   %72 = tail call i32 @call_dissector(ptr noundef %69, ptr noundef %68, ptr noundef %71, ptr noundef %18) #5
   br label %95
@@ -14507,9 +14507,9 @@ define internal i32 @dissect_gsm_old_Bss_APDU(i1 noundef zeroext %0, ptr noundef
   %78 = load ptr, ptr %12, align 8
   %79 = tail call ptr @tvb_new_subset_remaining(ptr noundef %78, i32 noundef 2) #5
   %80 = load ptr, ptr @bssap_handle, align 8
-  %81 = getelementptr inbounds i8, ptr %3, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %10, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %84 = load ptr, ptr %83, align 8
   %85 = tail call i32 @call_dissector_with_data(ptr noundef %80, ptr noundef %79, ptr noundef %82, ptr noundef %18, ptr noundef %84) #5
   br label %95
@@ -14566,7 +14566,7 @@ define internal i32 @dissect_gsm_map_ms_CheckIMEI_Arg(i1 noundef zeroext %0, ptr
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @dissect_gsm_map_sm_MT_ForwardSM_Arg(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %2, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr @ett_gsm_map_sm_MT_ForwardSM_Arg, align 4
   %8 = tail call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef %2, ptr noundef %3, ptr noundef %0, i32 noundef %1, ptr noundef nonnull @gsm_map_sm_MT_ForwardSM_Arg_sequence, i32 noundef -1, i32 noundef %7) #5
@@ -14574,15 +14574,15 @@ define internal fastcc i32 @dissect_gsm_map_sm_MT_ForwardSM_Arg(ptr noundef %0, 
   br i1 %.not, label %26, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load ptr, ptr %10, align 8
   %.not16 = icmp eq ptr %11, null
   br i1 %.not16, label %26, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %2, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 348
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 348
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, -1
   br i1 %17, label %18, label %19
@@ -14597,7 +14597,7 @@ define internal fastcc i32 @dissect_gsm_map_sm_MT_ForwardSM_Arg(ptr noundef %0, 
   %20 = phi ptr [ %.pre17, %18 ], [ %14, %12 ]
   %21 = phi ptr [ %.pre, %18 ], [ %11, %12 ]
   %22 = load ptr, ptr @gsm_sms_handle, align 8
-  %23 = getelementptr inbounds i8, ptr %2, i64 128
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i32 @call_dissector_only(ptr noundef %22, ptr noundef %21, ptr noundef %20, ptr noundef %24, ptr noundef null) #5
   br label %26
@@ -14608,7 +14608,7 @@ define internal fastcc i32 @dissect_gsm_map_sm_MT_ForwardSM_Arg(ptr noundef %0, 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @dissect_gsm_old_ForwardSM_Arg(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %2, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr @ett_gsm_old_ForwardSM_Arg, align 4
   %8 = tail call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef %2, ptr noundef %3, ptr noundef %0, i32 noundef %1, ptr noundef nonnull @gsm_old_ForwardSM_Arg_sequence, i32 noundef -1, i32 noundef %7) #5
@@ -14616,15 +14616,15 @@ define internal fastcc i32 @dissect_gsm_old_ForwardSM_Arg(ptr noundef %0, i32 no
   br i1 %.not, label %27, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load ptr, ptr %10, align 8
   %.not17 = icmp eq ptr %11, null
   br i1 %.not17, label %27, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %2, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 348
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 348
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, -1
   br i1 %17, label %.sink.split, label %20
@@ -14640,7 +14640,7 @@ define internal fastcc i32 @dissect_gsm_old_ForwardSM_Arg(ptr noundef %0, i32 no
   %21 = load ptr, ptr @gsm_sms_handle, align 8
   %22 = load ptr, ptr %10, align 8
   %23 = load ptr, ptr %13, align 8
-  %24 = getelementptr inbounds i8, ptr %2, i64 128
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %25 = load ptr, ptr %24, align 8
   %26 = tail call i32 @call_dissector_only(ptr noundef %21, ptr noundef %22, ptr noundef %23, ptr noundef %25, ptr noundef null) #5
   br label %27
@@ -14651,7 +14651,7 @@ define internal fastcc i32 @dissect_gsm_old_ForwardSM_Arg(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @dissect_gsm_map_sm_MO_ForwardSM_Arg(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %2, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr @ett_gsm_map_sm_MO_ForwardSM_Arg, align 4
   %8 = tail call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef %2, ptr noundef %3, ptr noundef %0, i32 noundef %1, ptr noundef nonnull @gsm_map_sm_MO_ForwardSM_Arg_sequence, i32 noundef -1, i32 noundef %7) #5
@@ -14659,15 +14659,15 @@ define internal fastcc i32 @dissect_gsm_map_sm_MO_ForwardSM_Arg(ptr noundef %0, 
   br i1 %.not, label %26, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load ptr, ptr %10, align 8
   %.not16 = icmp eq ptr %11, null
   br i1 %.not16, label %26, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %2, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 348
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 348
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, -1
   br i1 %17, label %18, label %19
@@ -14682,7 +14682,7 @@ define internal fastcc i32 @dissect_gsm_map_sm_MO_ForwardSM_Arg(ptr noundef %0, 
   %20 = phi ptr [ %.pre17, %18 ], [ %14, %12 ]
   %21 = phi ptr [ %.pre, %18 ], [ %11, %12 ]
   %22 = load ptr, ptr @gsm_sms_handle, align 8
-  %23 = getelementptr inbounds i8, ptr %2, i64 128
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i32 @call_dissector_only(ptr noundef %22, ptr noundef %21, ptr noundef %20, ptr noundef %24, ptr noundef null) #5
   br label %26
@@ -14840,7 +14840,7 @@ define internal i32 @dissect_gsm_map_ms_LAC(i1 noundef zeroext %0, ptr noundef %
 
 10:                                               ; preds = %6
   %11 = call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %5, ptr noundef nonnull %9, i32 noundef 0, i32 noundef 2, i32 noundef 0) #5
-  %12 = getelementptr inbounds i8, ptr %3, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %11, ptr %12, align 8
   br label %13
 
@@ -15523,7 +15523,7 @@ define internal i32 @dissect_gsm_map_ms_GroupId(i1 noundef zeroext %0, ptr nound
   br i1 %12, label %dissect_gsm_map_TBCD_STRING.exit, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %3, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @ett_gsm_map_tbcd_digits, align 4
   %17 = call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
@@ -15552,7 +15552,7 @@ define internal i32 @dissect_gsm_map_ms_Long_GroupId(i1 noundef zeroext %0, ptr 
   br i1 %12, label %dissect_gsm_map_TBCD_STRING.exit, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %3, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @ett_gsm_map_tbcd_digits, align 4
   %17 = call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
@@ -16183,7 +16183,7 @@ define internal i32 @dissect_gsm_map_ASCI_CallReference(i1 noundef zeroext %0, p
   br i1 %12, label %dissect_gsm_map_TBCD_STRING.exit, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %3, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @ett_gsm_map_tbcd_digits, align 4
   %17 = call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
@@ -16337,19 +16337,19 @@ define internal i32 @dissect_gsm_map_LongSignalInfo(i1 noundef zeroext %0, ptr n
   br i1 %.not, label %58, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %12 = load ptr, ptr %11, align 8
   %.not28 = icmp eq ptr %12, null
   br i1 %.not28, label %16, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %12, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load ptr, ptr %14, align 8
   br label %16
 
 16:                                               ; preds = %10, %13
   %17 = phi ptr [ %15, %13 ], [ null, %10 ]
-  %18 = getelementptr inbounds i8, ptr %3, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr @ett_gsm_map_LongSignalInfo, align 4
   %21 = call ptr @proto_item_add_subtree(ptr noundef %19, i32 noundef %20) #5
@@ -16377,7 +16377,7 @@ define internal i32 @dissect_gsm_map_LongSignalInfo(i1 noundef zeroext %0, ptr n
   %33 = load ptr, ptr %7, align 8
   %34 = call ptr @tvb_new_subset_remaining(ptr noundef %33, i32 noundef 2) #5
   %35 = load ptr, ptr @bssap_handle, align 8
-  %36 = getelementptr inbounds i8, ptr %3, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %37 = load ptr, ptr %36, align 8
   %38 = call i32 @call_dissector_with_data(ptr noundef %35, ptr noundef %34, ptr noundef %37, ptr noundef %21, ptr noundef %17) #5
   br label %58
@@ -16392,7 +16392,7 @@ define internal i32 @dissect_gsm_map_LongSignalInfo(i1 noundef zeroext %0, ptr n
   %46 = load ptr, ptr %7, align 8
   %47 = call ptr @tvb_new_subset_remaining(ptr noundef %46, i32 noundef 3) #5
   %48 = load ptr, ptr @dtap_handle, align 8
-  %49 = getelementptr inbounds i8, ptr %3, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %50 = load ptr, ptr %49, align 8
   %51 = call i32 @call_dissector(ptr noundef %48, ptr noundef %47, ptr noundef %50, ptr noundef %21) #5
   br label %58
@@ -16400,7 +16400,7 @@ define internal i32 @dissect_gsm_map_LongSignalInfo(i1 noundef zeroext %0, ptr n
 52:                                               ; preds = %16
   %53 = load ptr, ptr @ranap_handle, align 8
   %54 = load ptr, ptr %7, align 8
-  %55 = getelementptr inbounds i8, ptr %3, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %56 = load ptr, ptr %55, align 8
   %57 = call i32 @call_dissector(ptr noundef %53, ptr noundef %54, ptr noundef %56, ptr noundef %4) #5
   br label %58
@@ -16515,7 +16515,7 @@ define internal i32 @dissect_gsm_map_ms_IntegrityProtectionInformation(i1 nounde
   br i1 %.not, label %17, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %3, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %13 = load ptr, ptr %12, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %8, i32 noundef 1, i1 noundef zeroext true, ptr noundef %13) #5
   %14 = load ptr, ptr %7, align 8
@@ -16537,7 +16537,7 @@ define internal i32 @dissect_gsm_map_ms_EncryptionInformation(i1 noundef zeroext
   br i1 %.not, label %17, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %3, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %13 = load ptr, ptr %12, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %8, i32 noundef 1, i1 noundef zeroext true, ptr noundef %13) #5
   %14 = load ptr, ptr %7, align 8
@@ -16577,12 +16577,12 @@ define internal i32 @dissect_gsm_map_ms_RadioResourceInformation(i1 noundef zero
   br i1 %.not, label %20, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @ett_gsm_map_RadioResourceInformation, align 4
   %14 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #5
   %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef 0) #5
   %19 = call zeroext i16 @be_chan_type(ptr noundef %15, ptr noundef %14, ptr noundef %17, i32 noundef 0, i32 noundef %18, ptr noundef null, i32 noundef 0) #5
@@ -16615,7 +16615,7 @@ define internal i32 @dissect_gsm_map_ms_RANAP_ServiceHandover(i1 noundef zeroext
   br i1 %.not, label %17, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %3, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %13 = load ptr, ptr %12, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %8, i32 noundef 1, i1 noundef zeroext true, ptr noundef %13) #5
   %14 = load ptr, ptr %7, align 8
@@ -16851,7 +16851,7 @@ define internal i32 @dissect_gsm_map_ericsson_T_locationInformation(i1 noundef z
   br i1 %.not, label %28, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @ett_gsm_map_ericsson_locationInformation, align 4
   %14 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #5
@@ -16924,11 +16924,11 @@ define internal i32 @dissect_gsm_old_SM_RP_OAold(i1 zeroext %0, ptr noundef %1, 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_gsm_old_T_imsi(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef initializes((48, 56)) %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 348
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 348
   store i32 0, ptr %10, align 4
   %11 = tail call i32 @dissect_gsm_map_IMSI(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5)
   %12 = load ptr, ptr %7, align 8
@@ -16937,10 +16937,10 @@ define internal i32 @dissect_gsm_old_T_imsi(i1 noundef zeroext %0, ptr noundef %
 
 13:                                               ; preds = %6
   %14 = tail call fastcc ptr @gsm_map_get_packet_info(ptr noundef nonnull %3, i1 noundef zeroext true)
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i32 1, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
-  %17 = getelementptr inbounds i8, ptr %14, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store ptr %16, ptr %17, align 8
   store ptr null, ptr %7, align 8
   br label %18
@@ -16952,11 +16952,11 @@ define internal i32 @dissect_gsm_old_T_imsi(i1 noundef zeroext %0, ptr noundef %
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_gsm_old_T_lmsi(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef initializes((48, 56)) %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr null, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 348
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 348
   store i32 0, ptr %11, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %12 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7) #5
@@ -16966,9 +16966,9 @@ define internal i32 @dissect_gsm_old_T_lmsi(i1 noundef zeroext %0, ptr noundef %
 
 14:                                               ; preds = %6
   %15 = load ptr, ptr %9, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 80
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 50
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 50
   %19 = load i16, ptr %18, align 2
   %20 = and i16 %19, 8
   %.not8.i = icmp eq i16 %20, 0
@@ -16994,10 +16994,10 @@ dissect_gsm_map_LMSI.exit:                        ; preds = %dissect_gsm_map_LMS
 
 27:                                               ; preds = %dissect_gsm_map_LMSI.exit
   %28 = call fastcc ptr @gsm_map_get_packet_info(ptr noundef nonnull %3, i1 noundef zeroext true)
-  %29 = getelementptr inbounds i8, ptr %28, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store i32 2, ptr %29, align 8
   %30 = load ptr, ptr %8, align 8
-  %31 = getelementptr inbounds i8, ptr %28, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 24
   store ptr %30, ptr %31, align 8
   store ptr null, ptr %8, align 8
   br label %32
@@ -17008,11 +17008,11 @@ dissect_gsm_map_LMSI.exit:                        ; preds = %dissect_gsm_map_LMS
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_gsm_old_T_serviceCentreAddressDA(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef initializes((48, 56)) %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 348
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 348
   store i32 1, ptr %10, align 4
   %11 = tail call i32 @dissect_gsm_map_AddressString(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5)
   %12 = load ptr, ptr %7, align 8
@@ -17021,10 +17021,10 @@ define internal i32 @dissect_gsm_old_T_serviceCentreAddressDA(i1 noundef zeroext
 
 13:                                               ; preds = %6
   %14 = tail call fastcc ptr @gsm_map_get_packet_info(ptr noundef nonnull %3, i1 noundef zeroext true)
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i32 3, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
-  %17 = getelementptr inbounds i8, ptr %14, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store ptr %16, ptr %17, align 8
   store ptr null, ptr %7, align 8
   br label %18
@@ -17036,11 +17036,11 @@ define internal i32 @dissect_gsm_old_T_serviceCentreAddressDA(i1 noundef zeroext
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_gsm_old_T_noSM_RP_DA(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = tail call i32 @dissect_ber_null(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5) #5
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 80
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 50
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 50
   %13 = load i16, ptr %12, align 2
   %14 = and i16 %13, 8
   %.not = icmp eq i16 %14, 0
@@ -17053,15 +17053,15 @@ define internal i32 @dissect_gsm_old_T_noSM_RP_DA(i1 noundef zeroext %0, ptr nou
   br i1 %.not14, label %27, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %17, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %20 = load i32, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %16, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i32 %20, ptr %21, align 8
   %22 = tail call ptr @wmem_file_scope() #5
-  %23 = getelementptr inbounds i8, ptr %17, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noalias ptr @wmem_strdup(ptr noundef %22, ptr noundef %24) #5
-  %26 = getelementptr inbounds i8, ptr %16, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store ptr %25, ptr %26, align 8
   br label %27
 
@@ -17071,11 +17071,11 @@ define internal i32 @dissect_gsm_old_T_noSM_RP_DA(i1 noundef zeroext %0, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_gsm_old_T_msisdn(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef initializes((48, 56)) %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 348
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 348
   store i32 1, ptr %10, align 4
   %11 = tail call i32 @dissect_gsm_map_AddressString(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5)
   %12 = load ptr, ptr %7, align 8
@@ -17086,7 +17086,7 @@ define internal i32 @dissect_gsm_old_T_msisdn(i1 noundef zeroext %0, ptr noundef
   %14 = tail call fastcc ptr @gsm_map_get_packet_info(ptr noundef nonnull %3, i1 noundef zeroext true)
   store i32 1, ptr %14, align 8
   %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %15, ptr %16, align 8
   store ptr null, ptr %7, align 8
   br label %17
@@ -17097,11 +17097,11 @@ define internal i32 @dissect_gsm_old_T_msisdn(i1 noundef zeroext %0, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_gsm_old_T_serviceCentreAddressOA(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef initializes((48, 56)) %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 348
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 348
   store i32 0, ptr %10, align 4
   %11 = tail call i32 @dissect_gsm_map_AddressString(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5)
   %12 = load ptr, ptr %7, align 8
@@ -17112,7 +17112,7 @@ define internal i32 @dissect_gsm_old_T_serviceCentreAddressOA(i1 noundef zeroext
   %14 = tail call fastcc ptr @gsm_map_get_packet_info(ptr noundef nonnull %3, i1 noundef zeroext true)
   store i32 2, ptr %14, align 8
   %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %15, ptr %16, align 8
   store ptr null, ptr %7, align 8
   br label %17
@@ -17124,11 +17124,11 @@ define internal i32 @dissect_gsm_old_T_serviceCentreAddressOA(i1 noundef zeroext
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_gsm_old_T_noSM_RP_OA(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = tail call i32 @dissect_ber_null(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5) #5
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 80
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 50
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 50
   %13 = load i16, ptr %12, align 2
   %14 = and i16 %13, 8
   %.not = icmp eq i16 %14, 0
@@ -17144,10 +17144,10 @@ define internal i32 @dissect_gsm_old_T_noSM_RP_OA(i1 noundef zeroext %0, ptr nou
   %19 = load i32, ptr %17, align 8
   store i32 %19, ptr %16, align 8
   %20 = tail call ptr @wmem_file_scope() #5
-  %21 = getelementptr inbounds i8, ptr %17, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noalias ptr @wmem_strdup(ptr noundef %20, ptr noundef %22) #5
-  %24 = getelementptr inbounds i8, ptr %16, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %23, ptr %24, align 8
   br label %25
 
@@ -17184,26 +17184,26 @@ define internal i32 @dissect_gsm_map_sm_SM_RP_SMEA(i1 noundef zeroext %0, ptr no
 
 11:                                               ; preds = %6
   store i32 0, ptr %8, align 4
-  %12 = getelementptr inbounds i8, ptr %3, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %13 = load ptr, ptr %12, align 8
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %13, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %16 = load ptr, ptr %15, align 8
   %.not5.i = icmp eq ptr %16, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %16, i64 28
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 28
   %19 = load i32, ptr %18, align 4
   %20 = or i32 %19, 1
   store i32 %20, ptr %18, align 4
   br label %proto_item_set_hidden.exit
 
 proto_item_set_hidden.exit:                       ; preds = %11, %14, %17
-  %21 = getelementptr inbounds i8, ptr %3, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %22 = load ptr, ptr %21, align 8
   call void @dis_field_addr(ptr noundef nonnull %10, ptr noundef %22, ptr noundef %4, ptr noundef nonnull %8, ptr noundef nonnull @.str.4946) #5
   br label %23
@@ -18516,7 +18516,7 @@ define internal i32 @dissect_gsm_old_ReturnResultParameter(i1 zeroext %0, ptr no
   br label %dissect_returnResultData.exit
 
 147:                                              ; preds = %6
-  %148 = getelementptr inbounds i8, ptr %3, i64 16
+  %148 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %149 = load ptr, ptr %148, align 8
   %150 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %4, ptr noundef %149, ptr noundef nonnull @ei_gsm_map_unknown_invokeData, ptr noundef %1, i32 noundef %2, i32 noundef -1, ptr noundef nonnull @.str.4947) #5
   br label %dissect_returnResultData.exit
@@ -18662,9 +18662,9 @@ define internal i32 @dissect_gsm_old_ReturnResultParameter(i1 zeroext %0, ptr no
 233:                                              ; preds = %6
   %234 = load ptr, ptr @map_prop_res_opcode_table, align 8
   %235 = and i32 %7, 255
-  %236 = getelementptr inbounds i8, ptr %3, i64 16
+  %236 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %237 = load ptr, ptr %236, align 8
-  %238 = getelementptr inbounds i8, ptr %3, i64 128
+  %238 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %239 = load ptr, ptr %238, align 8
   %240 = tail call i32 @dissector_try_uint_new(ptr noundef %234, i32 noundef %235, ptr noundef %1, ptr noundef %237, ptr noundef %4, i32 noundef 1, ptr noundef %239) #5
   %.not.i = icmp eq i32 %240, 0
@@ -18702,7 +18702,7 @@ define internal i32 @dissect_gsm_map_ch_ProvideRoamingNumberRes(i1 noundef zeroe
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @dissect_gsm_map_sm_MT_ForwardSM_VGCS_Res(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %2, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr @ett_gsm_map_sm_MT_ForwardSM_VGCS_Res, align 4
   %8 = tail call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef %2, ptr noundef %3, ptr noundef %0, i32 noundef %1, ptr noundef nonnull @gsm_map_sm_MT_ForwardSM_VGCS_Res_sequence, i32 noundef -1, i32 noundef %7) #5
@@ -18710,15 +18710,15 @@ define internal fastcc i32 @dissect_gsm_map_sm_MT_ForwardSM_VGCS_Res(ptr noundef
   br i1 %.not, label %26, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load ptr, ptr %10, align 8
   %.not16 = icmp eq ptr %11, null
   br i1 %.not16, label %26, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %2, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 348
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 348
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, -1
   br i1 %17, label %18, label %19
@@ -18733,7 +18733,7 @@ define internal fastcc i32 @dissect_gsm_map_sm_MT_ForwardSM_VGCS_Res(ptr noundef
   %20 = phi ptr [ %.pre17, %18 ], [ %14, %12 ]
   %21 = phi ptr [ %.pre, %18 ], [ %11, %12 ]
   %22 = load ptr, ptr @gsm_sms_handle, align 8
-  %23 = getelementptr inbounds i8, ptr %2, i64 128
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i32 @call_dissector_only(ptr noundef %22, ptr noundef %21, ptr noundef %20, ptr noundef %24, ptr noundef null) #5
   br label %26
@@ -18777,7 +18777,7 @@ define internal i32 @dissect_gsm_map_ms_CheckIMEI_Res(i1 noundef zeroext %0, ptr
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @dissect_gsm_map_sm_MT_ForwardSM_Res(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %2, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr @ett_gsm_map_sm_MT_ForwardSM_Res, align 4
   %8 = tail call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef %2, ptr noundef %3, ptr noundef %0, i32 noundef %1, ptr noundef nonnull @gsm_map_sm_MT_ForwardSM_Res_sequence, i32 noundef -1, i32 noundef %7) #5
@@ -18785,15 +18785,15 @@ define internal fastcc i32 @dissect_gsm_map_sm_MT_ForwardSM_Res(ptr noundef %0, 
   br i1 %.not, label %26, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load ptr, ptr %10, align 8
   %.not16 = icmp eq ptr %11, null
   br i1 %.not16, label %26, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %2, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 348
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 348
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, -1
   br i1 %17, label %18, label %19
@@ -18808,7 +18808,7 @@ define internal fastcc i32 @dissect_gsm_map_sm_MT_ForwardSM_Res(ptr noundef %0, 
   %20 = phi ptr [ %.pre17, %18 ], [ %14, %12 ]
   %21 = phi ptr [ %.pre, %18 ], [ %11, %12 ]
   %22 = load ptr, ptr @gsm_sms_handle, align 8
-  %23 = getelementptr inbounds i8, ptr %2, i64 128
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i32 @call_dissector_only(ptr noundef %22, ptr noundef %21, ptr noundef %20, ptr noundef %24, ptr noundef null) #5
   br label %26
@@ -18819,7 +18819,7 @@ define internal fastcc i32 @dissect_gsm_map_sm_MT_ForwardSM_Res(ptr noundef %0, 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @dissect_gsm_map_sm_MO_ForwardSM_Res(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %2, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr @ett_gsm_map_sm_MO_ForwardSM_Res, align 4
   %8 = tail call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef %2, ptr noundef %3, ptr noundef %0, i32 noundef %1, ptr noundef nonnull @gsm_map_sm_MO_ForwardSM_Res_sequence, i32 noundef -1, i32 noundef %7) #5
@@ -18827,15 +18827,15 @@ define internal fastcc i32 @dissect_gsm_map_sm_MO_ForwardSM_Res(ptr noundef %0, 
   br i1 %.not, label %26, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load ptr, ptr %10, align 8
   %.not16 = icmp eq ptr %11, null
   br i1 %.not16, label %26, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %2, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 348
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 348
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, -1
   br i1 %17, label %18, label %19
@@ -18850,7 +18850,7 @@ define internal fastcc i32 @dissect_gsm_map_sm_MO_ForwardSM_Res(ptr noundef %0, 
   %20 = phi ptr [ %.pre17, %18 ], [ %14, %12 ]
   %21 = phi ptr [ %.pre, %18 ], [ %11, %12 ]
   %22 = load ptr, ptr @gsm_sms_handle, align 8
-  %23 = getelementptr inbounds i8, ptr %2, i64 128
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i32 @call_dissector_only(ptr noundef %22, ptr noundef %21, ptr noundef %20, ptr noundef %24, ptr noundef null) #5
   br label %26
@@ -19163,7 +19163,7 @@ define internal i32 @dissect_gsm_map_ms_RouteingNumber(i1 noundef zeroext %0, pt
   br i1 %12, label %dissect_gsm_map_TBCD_STRING.exit, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %3, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @ett_gsm_map_tbcd_digits, align 4
   %17 = call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
@@ -19733,9 +19733,9 @@ define internal i32 @dissect_gsm_old_ReturnErrorParameter(i1 zeroext %0, ptr nou
   %155 = load ptr, ptr @map_prop_err_opcode_table, align 8
   %156 = load i32, ptr @opcode, align 4
   %157 = and i32 %156, 255
-  %158 = getelementptr inbounds i8, ptr %3, i64 16
+  %158 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %159 = load ptr, ptr %158, align 8
-  %160 = getelementptr inbounds i8, ptr %3, i64 128
+  %160 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %161 = load ptr, ptr %160, align 8
   %162 = tail call i32 @dissector_try_uint_new(ptr noundef %155, i32 noundef %157, ptr noundef %1, ptr noundef %159, ptr noundef %4, i32 noundef 1, ptr noundef %161) #5
   %.not.i = icmp eq i32 %162, 0
@@ -19771,7 +19771,7 @@ define internal i32 @dissect_gsm_map_er_SM_EnumeratedDeliveryFailureCause(i1 nou
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_gsm_map_er_SM_DeliveryFailureCause(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr @ett_gsm_map_er_SM_DeliveryFailureCause, align 4
   %10 = tail call i32 @dissect_ber_sequence(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @gsm_map_er_SM_DeliveryFailureCause_sequence, i32 noundef %5, i32 noundef %9) #5
@@ -19779,7 +19779,7 @@ define internal i32 @dissect_gsm_map_er_SM_DeliveryFailureCause(i1 noundef zeroe
   br i1 %.not, label %28, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %8, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %13 = load ptr, ptr %12, align 8
   %.not18 = icmp eq ptr %13, null
   br i1 %.not18, label %28, label %14
@@ -19789,14 +19789,14 @@ define internal i32 @dissect_gsm_map_er_SM_DeliveryFailureCause(i1 noundef zeroe
   %16 = and i8 %15, 3
   %17 = icmp eq i8 %16, 0
   %18 = zext i1 %17 to i32
-  %19 = getelementptr inbounds i8, ptr %3, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 348
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 348
   store i32 %18, ptr %21, align 4
   %22 = load ptr, ptr @gsm_sms_handle, align 8
   %23 = load ptr, ptr %12, align 8
   %24 = load ptr, ptr %19, align 8
-  %25 = getelementptr inbounds i8, ptr %3, i64 128
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %26 = load ptr, ptr %25, align 8
   %27 = tail call i32 @call_dissector_only(ptr noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %26, ptr noundef null) #5
   br label %28

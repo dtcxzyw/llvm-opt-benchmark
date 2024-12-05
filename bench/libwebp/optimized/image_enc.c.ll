@@ -48,14 +48,14 @@ define hidden range(i32 0, 2) i32 @WebPWritePNG(ptr noundef %0, ptr noundef read
 21:                                               ; preds = %17
   %22 = load volatile ptr, ptr %3, align 8
   call void @png_init_io(ptr noundef %22, ptr noundef nonnull %0) #8
-  %23 = getelementptr inbounds i8, ptr %1, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %24 = load i32, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load i32, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %5, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %30 = load i32, ptr %29, align 8
   %31 = load i32, ptr %1, align 8
   %switch.tableidx = add i32 %31, -1
@@ -156,17 +156,17 @@ define hidden range(i32 0, 2) i32 @WebPWritePPM(ptr noundef %0, ptr noundef read
   br i1 %or.cond.i, label %WritePPMPAM.exit, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq ptr %9, null
   br i1 %12, label %WritePPMPAM.exit, label %13
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %1, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, i32 noundef %15, i32 noundef %7) #8
   %17 = zext i32 %15 to i64
@@ -203,17 +203,17 @@ define hidden range(i32 0, 2) i32 @WebPWritePAM(ptr noundef %0, ptr noundef read
   br i1 %or.cond.i, label %WritePPMPAM.exit, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq ptr %9, null
   br i1 %12, label %WritePPMPAM.exit, label %13
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %1, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, i32 noundef %15, i32 noundef %7) #8
   %17 = zext i32 %15 to i64
@@ -250,17 +250,17 @@ define hidden range(i32 0, 2) i32 @WebPWrite16bAsPGM(ptr noundef %0, ptr noundef
   br i1 %or.cond, label %.loopexit, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq ptr %9, null
   br i1 %12, label %.loopexit, label %13
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %1, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = shl i32 %15, 1
   %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.1, i32 noundef %16, i32 noundef %7) #8
@@ -300,7 +300,7 @@ declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr
 define hidden range(i32 0, 2) i32 @WebPWriteBMP(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #5 {
   %3 = alloca [70 x i8], align 16
   %4 = alloca [3 x i8], align 1
-  %5 = getelementptr inbounds i8, ptr %3, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(70) %5, i8 0, i64 22, i1 false)
   %6 = icmp eq ptr %0, null
   %7 = icmp eq ptr %1, null
@@ -329,13 +329,13 @@ WebPIsAlphaMode.exit:                             ; preds = %8
   %12 = phi i32 [ 54, %11 ], [ 70, %WebPIsAlphaMode.exit ], [ 70, %8 ], [ 70, %8 ], [ 70, %8 ], [ 70, %8 ], [ 70, %8 ]
   %.not7173 = phi i1 [ true, %11 ], [ false, %WebPIsAlphaMode.exit ], [ false, %8 ], [ false, %8 ], [ false, %8 ], [ false, %8 ], [ false, %8 ]
   %13 = phi i32 [ 3, %11 ], [ 4, %WebPIsAlphaMode.exit ], [ 4, %8 ], [ 4, %8 ], [ 4, %8 ], [ 4, %8 ], [ 4, %8 ]
-  %14 = getelementptr inbounds i8, ptr %1, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load i32, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load i32, ptr %20, align 8
   %22 = mul i32 %13, %15
   %23 = add i32 %22, 3
@@ -347,145 +347,145 @@ WebPIsAlphaMode.exit:                             ; preds = %8
   %27 = mul i32 %24, %17
   %28 = add i32 %27, %12
   store i8 66, ptr %3, align 16
-  %29 = getelementptr inbounds i8, ptr %3, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 77, ptr %29, align 1
-  %30 = getelementptr inbounds i8, ptr %3, i64 2
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %31 = trunc i32 %28 to i8
   store i8 %31, ptr %30, align 2
   %32 = lshr i32 %28, 8
   %33 = trunc i32 %32 to i8
-  %34 = getelementptr inbounds i8, ptr %3, i64 3
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 3
   store i8 %33, ptr %34, align 1
-  %35 = getelementptr inbounds i8, ptr %3, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %36 = lshr i32 %28, 16
   %37 = trunc i32 %36 to i8
   store i8 %37, ptr %35, align 4
   %38 = lshr i32 %28, 24
   %39 = trunc nuw i32 %38 to i8
-  %40 = getelementptr inbounds i8, ptr %3, i64 5
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 5
   store i8 %39, ptr %40, align 1
-  %41 = getelementptr inbounds i8, ptr %3, i64 6
-  %42 = getelementptr inbounds i8, ptr %3, i64 10
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 6
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 10
   %43 = trunc nuw nsw i32 %12 to i8
   store i32 0, ptr %41, align 2
   store i8 %43, ptr %42, align 2
-  %44 = getelementptr inbounds i8, ptr %3, i64 11
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 11
   store i8 0, ptr %44, align 1
-  %45 = getelementptr inbounds i8, ptr %3, i64 12
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i8 0, ptr %45, align 4
-  %46 = getelementptr inbounds i8, ptr %3, i64 13
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 13
   store i8 0, ptr %46, align 1
-  %47 = getelementptr inbounds i8, ptr %3, i64 14
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 14
   %48 = trunc nuw nsw i32 %12 to i8
   %49 = add nsw i8 %48, -14
   store i8 %49, ptr %47, align 2
-  %50 = getelementptr inbounds i8, ptr %3, i64 15
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 15
   store i8 0, ptr %50, align 1
-  %51 = getelementptr inbounds i8, ptr %3, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i8 0, ptr %51, align 16
-  %52 = getelementptr inbounds i8, ptr %3, i64 17
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 17
   store i8 0, ptr %52, align 1
-  %53 = getelementptr inbounds i8, ptr %3, i64 18
+  %53 = getelementptr inbounds nuw i8, ptr %3, i64 18
   %54 = trunc i32 %15 to i8
   store i8 %54, ptr %53, align 2
   %55 = lshr i32 %15, 8
   %56 = trunc i32 %55 to i8
-  %57 = getelementptr inbounds i8, ptr %3, i64 19
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 19
   store i8 %56, ptr %57, align 1
-  %58 = getelementptr inbounds i8, ptr %3, i64 20
+  %58 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %59 = lshr i32 %15, 16
   %60 = trunc i32 %59 to i8
   store i8 %60, ptr %58, align 4
   %61 = lshr i32 %15, 24
   %62 = trunc nuw i32 %61 to i8
-  %63 = getelementptr inbounds i8, ptr %3, i64 21
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 21
   store i8 %62, ptr %63, align 1
-  %64 = getelementptr inbounds i8, ptr %3, i64 22
+  %64 = getelementptr inbounds nuw i8, ptr %3, i64 22
   %65 = trunc i32 %17 to i8
   store i8 %65, ptr %64, align 2
   %66 = lshr i32 %17, 8
   %67 = trunc i32 %66 to i8
-  %68 = getelementptr inbounds i8, ptr %3, i64 23
+  %68 = getelementptr inbounds nuw i8, ptr %3, i64 23
   store i8 %67, ptr %68, align 1
-  %69 = getelementptr inbounds i8, ptr %3, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %70 = lshr i32 %17, 16
   %71 = trunc i32 %70 to i8
   store i8 %71, ptr %69, align 8
   %72 = lshr i32 %17, 24
   %73 = trunc nuw i32 %72 to i8
-  %74 = getelementptr inbounds i8, ptr %3, i64 25
+  %74 = getelementptr inbounds nuw i8, ptr %3, i64 25
   store i8 %73, ptr %74, align 1
-  %75 = getelementptr inbounds i8, ptr %3, i64 26
+  %75 = getelementptr inbounds nuw i8, ptr %3, i64 26
   store i8 1, ptr %75, align 2
-  %76 = getelementptr inbounds i8, ptr %3, i64 27
+  %76 = getelementptr inbounds nuw i8, ptr %3, i64 27
   store i8 0, ptr %76, align 1
-  %77 = getelementptr inbounds i8, ptr %3, i64 28
+  %77 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %.tr = trunc nuw nsw i32 %13 to i8
   %78 = shl nuw nsw i8 %.tr, 3
   store i8 %78, ptr %77, align 4
-  %79 = getelementptr inbounds i8, ptr %3, i64 29
+  %79 = getelementptr inbounds nuw i8, ptr %3, i64 29
   store i8 0, ptr %79, align 1
-  %80 = getelementptr inbounds i8, ptr %3, i64 30
+  %80 = getelementptr inbounds nuw i8, ptr %3, i64 30
   %81 = select i1 %.not7173, i8 0, i8 3
   store i8 %81, ptr %80, align 2
-  %82 = getelementptr inbounds i8, ptr %3, i64 31
+  %82 = getelementptr inbounds nuw i8, ptr %3, i64 31
   store i8 0, ptr %82, align 1
-  %83 = getelementptr inbounds i8, ptr %3, i64 32
+  %83 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i8 0, ptr %83, align 16
-  %84 = getelementptr inbounds i8, ptr %3, i64 33
+  %84 = getelementptr inbounds nuw i8, ptr %3, i64 33
   store i8 0, ptr %84, align 1
-  %85 = getelementptr inbounds i8, ptr %3, i64 34
+  %85 = getelementptr inbounds nuw i8, ptr %3, i64 34
   %86 = trunc i32 %27 to i8
   store i8 %86, ptr %85, align 2
   %87 = lshr i32 %27, 8
   %88 = trunc i32 %87 to i8
-  %89 = getelementptr inbounds i8, ptr %3, i64 35
+  %89 = getelementptr inbounds nuw i8, ptr %3, i64 35
   store i8 %88, ptr %89, align 1
-  %90 = getelementptr inbounds i8, ptr %3, i64 36
+  %90 = getelementptr inbounds nuw i8, ptr %3, i64 36
   %91 = lshr i32 %27, 16
   %92 = trunc i32 %91 to i8
   store i8 %92, ptr %90, align 4
   %93 = lshr i32 %27, 24
   %94 = trunc nuw i32 %93 to i8
-  %95 = getelementptr inbounds i8, ptr %3, i64 37
+  %95 = getelementptr inbounds nuw i8, ptr %3, i64 37
   store i8 %94, ptr %95, align 1
-  %96 = getelementptr inbounds i8, ptr %3, i64 38
+  %96 = getelementptr inbounds nuw i8, ptr %3, i64 38
   store i8 96, ptr %96, align 2
-  %97 = getelementptr inbounds i8, ptr %3, i64 39
+  %97 = getelementptr inbounds nuw i8, ptr %3, i64 39
   store i8 9, ptr %97, align 1
-  %98 = getelementptr inbounds i8, ptr %3, i64 40
+  %98 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i8 0, ptr %98, align 8
-  %99 = getelementptr inbounds i8, ptr %3, i64 41
+  %99 = getelementptr inbounds nuw i8, ptr %3, i64 41
   store i8 0, ptr %99, align 1
-  %100 = getelementptr inbounds i8, ptr %3, i64 42
+  %100 = getelementptr inbounds nuw i8, ptr %3, i64 42
   store i8 96, ptr %100, align 2
-  %101 = getelementptr inbounds i8, ptr %3, i64 43
+  %101 = getelementptr inbounds nuw i8, ptr %3, i64 43
   store i8 9, ptr %101, align 1
-  %102 = getelementptr inbounds i8, ptr %3, i64 44
+  %102 = getelementptr inbounds nuw i8, ptr %3, i64 44
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %102, i8 0, i64 10, i1 false)
   br i1 %.not7173, label %115, label %103
 
 103:                                              ; preds = %26
-  %104 = getelementptr inbounds i8, ptr %3, i64 54
+  %104 = getelementptr inbounds nuw i8, ptr %3, i64 54
   store i8 0, ptr %104, align 2
-  %105 = getelementptr inbounds i8, ptr %3, i64 55
+  %105 = getelementptr inbounds nuw i8, ptr %3, i64 55
   store i8 0, ptr %105, align 1
-  %106 = getelementptr inbounds i8, ptr %3, i64 56
+  %106 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i8 -1, ptr %106, align 8
-  %107 = getelementptr inbounds i8, ptr %3, i64 57
+  %107 = getelementptr inbounds nuw i8, ptr %3, i64 57
   store i8 0, ptr %107, align 1
-  %108 = getelementptr inbounds i8, ptr %3, i64 58
+  %108 = getelementptr inbounds nuw i8, ptr %3, i64 58
   store i8 0, ptr %108, align 2
-  %109 = getelementptr inbounds i8, ptr %3, i64 59
+  %109 = getelementptr inbounds nuw i8, ptr %3, i64 59
   store i8 -1, ptr %109, align 1
-  %110 = getelementptr inbounds i8, ptr %3, i64 60
+  %110 = getelementptr inbounds nuw i8, ptr %3, i64 60
   store i8 0, ptr %110, align 4
-  %111 = getelementptr inbounds i8, ptr %3, i64 61
+  %111 = getelementptr inbounds nuw i8, ptr %3, i64 61
   store i8 0, ptr %111, align 1
-  %112 = getelementptr inbounds i8, ptr %3, i64 62
+  %112 = getelementptr inbounds nuw i8, ptr %3, i64 62
   store i8 -1, ptr %112, align 2
-  %113 = getelementptr inbounds i8, ptr %3, i64 63
-  %114 = getelementptr inbounds i8, ptr %3, i64 69
+  %113 = getelementptr inbounds nuw i8, ptr %3, i64 63
+  %114 = getelementptr inbounds nuw i8, ptr %3, i64 69
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %113, i8 0, i64 6, i1 false)
   store i8 -1, ptr %114, align 1
   br label %115
@@ -562,345 +562,345 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 define hidden range(i32 0, 2) i32 @WebPWriteTIFF(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #5 {
   %3 = alloca [210 x i8], align 16
   store i8 73, ptr %3, align 16
-  %4 = getelementptr inbounds i8, ptr %3, i64 1
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 73, ptr %4, align 1
-  %5 = getelementptr inbounds i8, ptr %3, i64 2
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 42, ptr %5, align 2
-  %6 = getelementptr inbounds i8, ptr %3, i64 3
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 3
   store i8 0, ptr %6, align 1
-  %7 = getelementptr inbounds i8, ptr %3, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i8 8, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %3, i64 5
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 11
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 5
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %8, i8 0, i64 6, i1 false)
   store i8 1, ptr %10, align 1
-  %11 = getelementptr inbounds i8, ptr %3, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i8 3, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %3, i64 13
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 13
   store i8 0, ptr %12, align 1
-  %13 = getelementptr inbounds i8, ptr %3, i64 14
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 14
   store i8 1, ptr %13, align 2
-  %14 = getelementptr inbounds i8, ptr %3, i64 15
-  %15 = getelementptr inbounds i8, ptr %3, i64 18
-  %16 = getelementptr inbounds i8, ptr %3, i64 19
-  %17 = getelementptr inbounds i8, ptr %3, i64 20
-  %18 = getelementptr inbounds i8, ptr %3, i64 21
-  %19 = getelementptr inbounds i8, ptr %3, i64 22
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 15
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 18
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 19
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 21
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %14, i8 0, i64 7, i1 false)
   store i8 1, ptr %19, align 2
-  %20 = getelementptr inbounds i8, ptr %3, i64 23
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 23
   store i8 1, ptr %20, align 1
-  %21 = getelementptr inbounds i8, ptr %3, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i8 3, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %3, i64 25
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 25
   store i8 0, ptr %22, align 1
-  %23 = getelementptr inbounds i8, ptr %3, i64 26
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 26
   store i8 1, ptr %23, align 2
-  %24 = getelementptr inbounds i8, ptr %3, i64 27
-  %25 = getelementptr inbounds i8, ptr %3, i64 30
-  %26 = getelementptr inbounds i8, ptr %3, i64 31
-  %27 = getelementptr inbounds i8, ptr %3, i64 32
-  %28 = getelementptr inbounds i8, ptr %3, i64 33
-  %29 = getelementptr inbounds i8, ptr %3, i64 34
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 27
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 30
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 31
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 33
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 34
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %24, i8 0, i64 7, i1 false)
   store i8 2, ptr %29, align 2
-  %30 = getelementptr inbounds i8, ptr %3, i64 35
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 35
   store i8 1, ptr %30, align 1
-  %31 = getelementptr inbounds i8, ptr %3, i64 36
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 36
   store i8 3, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %3, i64 37
-  %33 = getelementptr inbounds i8, ptr %3, i64 38
-  %34 = getelementptr inbounds i8, ptr %3, i64 42
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 37
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 38
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 42
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %32, i8 0, i64 5, i1 false)
   store i8 -62, ptr %34, align 2
-  %35 = getelementptr inbounds i8, ptr %3, i64 43
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 43
   store i8 0, ptr %35, align 1
-  %36 = getelementptr inbounds i8, ptr %3, i64 44
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 44
   store i8 0, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %3, i64 45
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 45
   store i8 0, ptr %37, align 1
-  %38 = getelementptr inbounds i8, ptr %3, i64 46
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 46
   store i8 3, ptr %38, align 2
-  %39 = getelementptr inbounds i8, ptr %3, i64 47
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 47
   store i8 1, ptr %39, align 1
-  %40 = getelementptr inbounds i8, ptr %3, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i8 3, ptr %40, align 16
-  %41 = getelementptr inbounds i8, ptr %3, i64 49
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 49
   store i8 0, ptr %41, align 1
-  %42 = getelementptr inbounds i8, ptr %3, i64 50
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 50
   store i8 1, ptr %42, align 2
-  %43 = getelementptr inbounds i8, ptr %3, i64 51
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 51
   store i8 0, ptr %43, align 1
-  %44 = getelementptr inbounds i8, ptr %3, i64 52
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 52
   store i8 0, ptr %44, align 4
-  %45 = getelementptr inbounds i8, ptr %3, i64 53
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 53
   store i8 0, ptr %45, align 1
-  %46 = getelementptr inbounds i8, ptr %3, i64 54
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 54
   store i8 1, ptr %46, align 2
-  %47 = getelementptr inbounds i8, ptr %3, i64 55
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 55
   store i8 0, ptr %47, align 1
-  %48 = getelementptr inbounds i8, ptr %3, i64 56
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i8 0, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %3, i64 57
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 57
   store i8 0, ptr %49, align 1
-  %50 = getelementptr inbounds i8, ptr %3, i64 58
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 58
   store i8 6, ptr %50, align 2
-  %51 = getelementptr inbounds i8, ptr %3, i64 59
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 59
   store i8 1, ptr %51, align 1
-  %52 = getelementptr inbounds i8, ptr %3, i64 60
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 60
   store i8 3, ptr %52, align 4
-  %53 = getelementptr inbounds i8, ptr %3, i64 61
+  %53 = getelementptr inbounds nuw i8, ptr %3, i64 61
   store i8 0, ptr %53, align 1
-  %54 = getelementptr inbounds i8, ptr %3, i64 62
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 62
   store i8 1, ptr %54, align 2
-  %55 = getelementptr inbounds i8, ptr %3, i64 63
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 63
   store i8 0, ptr %55, align 1
-  %56 = getelementptr inbounds i8, ptr %3, i64 64
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i8 0, ptr %56, align 16
-  %57 = getelementptr inbounds i8, ptr %3, i64 65
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 65
   store i8 0, ptr %57, align 1
-  %58 = getelementptr inbounds i8, ptr %3, i64 66
+  %58 = getelementptr inbounds nuw i8, ptr %3, i64 66
   store i8 2, ptr %58, align 2
-  %59 = getelementptr inbounds i8, ptr %3, i64 67
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 67
   store i8 0, ptr %59, align 1
-  %60 = getelementptr inbounds i8, ptr %3, i64 68
+  %60 = getelementptr inbounds nuw i8, ptr %3, i64 68
   store i8 0, ptr %60, align 4
-  %61 = getelementptr inbounds i8, ptr %3, i64 69
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 69
   store i8 0, ptr %61, align 1
-  %62 = getelementptr inbounds i8, ptr %3, i64 70
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 70
   store i8 17, ptr %62, align 2
-  %63 = getelementptr inbounds i8, ptr %3, i64 71
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 71
   store i8 1, ptr %63, align 1
-  %64 = getelementptr inbounds i8, ptr %3, i64 72
+  %64 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store i8 4, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %3, i64 73
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 73
   store i8 0, ptr %65, align 1
-  %66 = getelementptr inbounds i8, ptr %3, i64 74
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 74
   store i8 1, ptr %66, align 2
-  %67 = getelementptr inbounds i8, ptr %3, i64 75
+  %67 = getelementptr inbounds nuw i8, ptr %3, i64 75
   store i8 0, ptr %67, align 1
-  %68 = getelementptr inbounds i8, ptr %3, i64 76
+  %68 = getelementptr inbounds nuw i8, ptr %3, i64 76
   store i8 0, ptr %68, align 4
-  %69 = getelementptr inbounds i8, ptr %3, i64 77
+  %69 = getelementptr inbounds nuw i8, ptr %3, i64 77
   store i8 0, ptr %69, align 1
-  %70 = getelementptr inbounds i8, ptr %3, i64 78
+  %70 = getelementptr inbounds nuw i8, ptr %3, i64 78
   store i8 -46, ptr %70, align 2
-  %71 = getelementptr inbounds i8, ptr %3, i64 79
+  %71 = getelementptr inbounds nuw i8, ptr %3, i64 79
   store i8 0, ptr %71, align 1
-  %72 = getelementptr inbounds i8, ptr %3, i64 80
+  %72 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store i8 0, ptr %72, align 16
-  %73 = getelementptr inbounds i8, ptr %3, i64 81
+  %73 = getelementptr inbounds nuw i8, ptr %3, i64 81
   store i8 0, ptr %73, align 1
-  %74 = getelementptr inbounds i8, ptr %3, i64 82
+  %74 = getelementptr inbounds nuw i8, ptr %3, i64 82
   store i8 18, ptr %74, align 2
-  %75 = getelementptr inbounds i8, ptr %3, i64 83
+  %75 = getelementptr inbounds nuw i8, ptr %3, i64 83
   store i8 1, ptr %75, align 1
-  %76 = getelementptr inbounds i8, ptr %3, i64 84
+  %76 = getelementptr inbounds nuw i8, ptr %3, i64 84
   store i8 3, ptr %76, align 4
-  %77 = getelementptr inbounds i8, ptr %3, i64 85
+  %77 = getelementptr inbounds nuw i8, ptr %3, i64 85
   store i8 0, ptr %77, align 1
-  %78 = getelementptr inbounds i8, ptr %3, i64 86
+  %78 = getelementptr inbounds nuw i8, ptr %3, i64 86
   store i8 1, ptr %78, align 2
-  %79 = getelementptr inbounds i8, ptr %3, i64 87
+  %79 = getelementptr inbounds nuw i8, ptr %3, i64 87
   store i8 0, ptr %79, align 1
-  %80 = getelementptr inbounds i8, ptr %3, i64 88
+  %80 = getelementptr inbounds nuw i8, ptr %3, i64 88
   store i8 0, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %3, i64 89
+  %81 = getelementptr inbounds nuw i8, ptr %3, i64 89
   store i8 0, ptr %81, align 1
-  %82 = getelementptr inbounds i8, ptr %3, i64 90
+  %82 = getelementptr inbounds nuw i8, ptr %3, i64 90
   store i8 1, ptr %82, align 2
-  %83 = getelementptr inbounds i8, ptr %3, i64 91
+  %83 = getelementptr inbounds nuw i8, ptr %3, i64 91
   store i8 0, ptr %83, align 1
-  %84 = getelementptr inbounds i8, ptr %3, i64 92
+  %84 = getelementptr inbounds nuw i8, ptr %3, i64 92
   store i8 0, ptr %84, align 4
-  %85 = getelementptr inbounds i8, ptr %3, i64 93
+  %85 = getelementptr inbounds nuw i8, ptr %3, i64 93
   store i8 0, ptr %85, align 1
-  %86 = getelementptr inbounds i8, ptr %3, i64 94
+  %86 = getelementptr inbounds nuw i8, ptr %3, i64 94
   store i8 21, ptr %86, align 2
-  %87 = getelementptr inbounds i8, ptr %3, i64 95
+  %87 = getelementptr inbounds nuw i8, ptr %3, i64 95
   store i8 1, ptr %87, align 1
-  %88 = getelementptr inbounds i8, ptr %3, i64 96
+  %88 = getelementptr inbounds nuw i8, ptr %3, i64 96
   store i8 3, ptr %88, align 16
-  %89 = getelementptr inbounds i8, ptr %3, i64 97
+  %89 = getelementptr inbounds nuw i8, ptr %3, i64 97
   store i8 0, ptr %89, align 1
-  %90 = getelementptr inbounds i8, ptr %3, i64 98
+  %90 = getelementptr inbounds nuw i8, ptr %3, i64 98
   store i8 1, ptr %90, align 2
-  %91 = getelementptr inbounds i8, ptr %3, i64 99
-  %92 = getelementptr inbounds i8, ptr %3, i64 102
-  %93 = getelementptr inbounds i8, ptr %3, i64 106
+  %91 = getelementptr inbounds nuw i8, ptr %3, i64 99
+  %92 = getelementptr inbounds nuw i8, ptr %3, i64 102
+  %93 = getelementptr inbounds nuw i8, ptr %3, i64 106
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %91, i8 0, i64 7, i1 false)
   store i8 22, ptr %93, align 2
-  %94 = getelementptr inbounds i8, ptr %3, i64 107
+  %94 = getelementptr inbounds nuw i8, ptr %3, i64 107
   store i8 1, ptr %94, align 1
-  %95 = getelementptr inbounds i8, ptr %3, i64 108
+  %95 = getelementptr inbounds nuw i8, ptr %3, i64 108
   store i8 3, ptr %95, align 4
-  %96 = getelementptr inbounds i8, ptr %3, i64 109
+  %96 = getelementptr inbounds nuw i8, ptr %3, i64 109
   store i8 0, ptr %96, align 1
-  %97 = getelementptr inbounds i8, ptr %3, i64 110
+  %97 = getelementptr inbounds nuw i8, ptr %3, i64 110
   store i8 1, ptr %97, align 2
-  %98 = getelementptr inbounds i8, ptr %3, i64 111
-  %99 = getelementptr inbounds i8, ptr %3, i64 114
-  %100 = getelementptr inbounds i8, ptr %3, i64 115
-  %101 = getelementptr inbounds i8, ptr %3, i64 116
-  %102 = getelementptr inbounds i8, ptr %3, i64 117
-  %103 = getelementptr inbounds i8, ptr %3, i64 118
+  %98 = getelementptr inbounds nuw i8, ptr %3, i64 111
+  %99 = getelementptr inbounds nuw i8, ptr %3, i64 114
+  %100 = getelementptr inbounds nuw i8, ptr %3, i64 115
+  %101 = getelementptr inbounds nuw i8, ptr %3, i64 116
+  %102 = getelementptr inbounds nuw i8, ptr %3, i64 117
+  %103 = getelementptr inbounds nuw i8, ptr %3, i64 118
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %98, i8 0, i64 7, i1 false)
   store i8 23, ptr %103, align 2
-  %104 = getelementptr inbounds i8, ptr %3, i64 119
+  %104 = getelementptr inbounds nuw i8, ptr %3, i64 119
   store i8 1, ptr %104, align 1
-  %105 = getelementptr inbounds i8, ptr %3, i64 120
+  %105 = getelementptr inbounds nuw i8, ptr %3, i64 120
   store i8 4, ptr %105, align 8
-  %106 = getelementptr inbounds i8, ptr %3, i64 121
+  %106 = getelementptr inbounds nuw i8, ptr %3, i64 121
   store i8 0, ptr %106, align 1
-  %107 = getelementptr inbounds i8, ptr %3, i64 122
+  %107 = getelementptr inbounds nuw i8, ptr %3, i64 122
   store i8 1, ptr %107, align 2
-  %108 = getelementptr inbounds i8, ptr %3, i64 123
-  %109 = getelementptr inbounds i8, ptr %3, i64 126
-  %110 = getelementptr inbounds i8, ptr %3, i64 127
-  %111 = getelementptr inbounds i8, ptr %3, i64 128
-  %112 = getelementptr inbounds i8, ptr %3, i64 129
-  %113 = getelementptr inbounds i8, ptr %3, i64 130
+  %108 = getelementptr inbounds nuw i8, ptr %3, i64 123
+  %109 = getelementptr inbounds nuw i8, ptr %3, i64 126
+  %110 = getelementptr inbounds nuw i8, ptr %3, i64 127
+  %111 = getelementptr inbounds nuw i8, ptr %3, i64 128
+  %112 = getelementptr inbounds nuw i8, ptr %3, i64 129
+  %113 = getelementptr inbounds nuw i8, ptr %3, i64 130
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %108, i8 0, i64 7, i1 false)
   store i8 26, ptr %113, align 2
-  %114 = getelementptr inbounds i8, ptr %3, i64 131
+  %114 = getelementptr inbounds nuw i8, ptr %3, i64 131
   store i8 1, ptr %114, align 1
-  %115 = getelementptr inbounds i8, ptr %3, i64 132
+  %115 = getelementptr inbounds nuw i8, ptr %3, i64 132
   store i8 5, ptr %115, align 4
-  %116 = getelementptr inbounds i8, ptr %3, i64 133
+  %116 = getelementptr inbounds nuw i8, ptr %3, i64 133
   store i8 0, ptr %116, align 1
-  %117 = getelementptr inbounds i8, ptr %3, i64 134
+  %117 = getelementptr inbounds nuw i8, ptr %3, i64 134
   store i8 1, ptr %117, align 2
-  %118 = getelementptr inbounds i8, ptr %3, i64 135
+  %118 = getelementptr inbounds nuw i8, ptr %3, i64 135
   store i8 0, ptr %118, align 1
-  %119 = getelementptr inbounds i8, ptr %3, i64 136
+  %119 = getelementptr inbounds nuw i8, ptr %3, i64 136
   store i8 0, ptr %119, align 8
-  %120 = getelementptr inbounds i8, ptr %3, i64 137
+  %120 = getelementptr inbounds nuw i8, ptr %3, i64 137
   store i8 0, ptr %120, align 1
-  %121 = getelementptr inbounds i8, ptr %3, i64 138
+  %121 = getelementptr inbounds nuw i8, ptr %3, i64 138
   store i8 -54, ptr %121, align 2
-  %122 = getelementptr inbounds i8, ptr %3, i64 139
+  %122 = getelementptr inbounds nuw i8, ptr %3, i64 139
   store i8 0, ptr %122, align 1
-  %123 = getelementptr inbounds i8, ptr %3, i64 140
+  %123 = getelementptr inbounds nuw i8, ptr %3, i64 140
   store i8 0, ptr %123, align 4
-  %124 = getelementptr inbounds i8, ptr %3, i64 141
+  %124 = getelementptr inbounds nuw i8, ptr %3, i64 141
   store i8 0, ptr %124, align 1
-  %125 = getelementptr inbounds i8, ptr %3, i64 142
+  %125 = getelementptr inbounds nuw i8, ptr %3, i64 142
   store i8 27, ptr %125, align 2
-  %126 = getelementptr inbounds i8, ptr %3, i64 143
+  %126 = getelementptr inbounds nuw i8, ptr %3, i64 143
   store i8 1, ptr %126, align 1
-  %127 = getelementptr inbounds i8, ptr %3, i64 144
+  %127 = getelementptr inbounds nuw i8, ptr %3, i64 144
   store i8 5, ptr %127, align 16
-  %128 = getelementptr inbounds i8, ptr %3, i64 145
+  %128 = getelementptr inbounds nuw i8, ptr %3, i64 145
   store i8 0, ptr %128, align 1
-  %129 = getelementptr inbounds i8, ptr %3, i64 146
+  %129 = getelementptr inbounds nuw i8, ptr %3, i64 146
   store i8 1, ptr %129, align 2
-  %130 = getelementptr inbounds i8, ptr %3, i64 147
+  %130 = getelementptr inbounds nuw i8, ptr %3, i64 147
   store i8 0, ptr %130, align 1
-  %131 = getelementptr inbounds i8, ptr %3, i64 148
+  %131 = getelementptr inbounds nuw i8, ptr %3, i64 148
   store i8 0, ptr %131, align 4
-  %132 = getelementptr inbounds i8, ptr %3, i64 149
+  %132 = getelementptr inbounds nuw i8, ptr %3, i64 149
   store i8 0, ptr %132, align 1
-  %133 = getelementptr inbounds i8, ptr %3, i64 150
+  %133 = getelementptr inbounds nuw i8, ptr %3, i64 150
   store i8 -54, ptr %133, align 2
-  %134 = getelementptr inbounds i8, ptr %3, i64 151
+  %134 = getelementptr inbounds nuw i8, ptr %3, i64 151
   store i8 0, ptr %134, align 1
-  %135 = getelementptr inbounds i8, ptr %3, i64 152
+  %135 = getelementptr inbounds nuw i8, ptr %3, i64 152
   store i8 0, ptr %135, align 8
-  %136 = getelementptr inbounds i8, ptr %3, i64 153
+  %136 = getelementptr inbounds nuw i8, ptr %3, i64 153
   store i8 0, ptr %136, align 1
-  %137 = getelementptr inbounds i8, ptr %3, i64 154
+  %137 = getelementptr inbounds nuw i8, ptr %3, i64 154
   store i8 28, ptr %137, align 2
-  %138 = getelementptr inbounds i8, ptr %3, i64 155
+  %138 = getelementptr inbounds nuw i8, ptr %3, i64 155
   store i8 1, ptr %138, align 1
-  %139 = getelementptr inbounds i8, ptr %3, i64 156
+  %139 = getelementptr inbounds nuw i8, ptr %3, i64 156
   store i8 3, ptr %139, align 4
-  %140 = getelementptr inbounds i8, ptr %3, i64 157
+  %140 = getelementptr inbounds nuw i8, ptr %3, i64 157
   store i8 0, ptr %140, align 1
-  %141 = getelementptr inbounds i8, ptr %3, i64 158
+  %141 = getelementptr inbounds nuw i8, ptr %3, i64 158
   store i8 1, ptr %141, align 2
-  %142 = getelementptr inbounds i8, ptr %3, i64 159
+  %142 = getelementptr inbounds nuw i8, ptr %3, i64 159
   store i8 0, ptr %142, align 1
-  %143 = getelementptr inbounds i8, ptr %3, i64 160
+  %143 = getelementptr inbounds nuw i8, ptr %3, i64 160
   store i8 0, ptr %143, align 16
-  %144 = getelementptr inbounds i8, ptr %3, i64 161
+  %144 = getelementptr inbounds nuw i8, ptr %3, i64 161
   store i8 0, ptr %144, align 1
-  %145 = getelementptr inbounds i8, ptr %3, i64 162
+  %145 = getelementptr inbounds nuw i8, ptr %3, i64 162
   store i8 1, ptr %145, align 2
-  %146 = getelementptr inbounds i8, ptr %3, i64 163
+  %146 = getelementptr inbounds nuw i8, ptr %3, i64 163
   store i8 0, ptr %146, align 1
-  %147 = getelementptr inbounds i8, ptr %3, i64 164
+  %147 = getelementptr inbounds nuw i8, ptr %3, i64 164
   store i8 0, ptr %147, align 4
-  %148 = getelementptr inbounds i8, ptr %3, i64 165
+  %148 = getelementptr inbounds nuw i8, ptr %3, i64 165
   store i8 0, ptr %148, align 1
-  %149 = getelementptr inbounds i8, ptr %3, i64 166
+  %149 = getelementptr inbounds nuw i8, ptr %3, i64 166
   store i8 40, ptr %149, align 2
-  %150 = getelementptr inbounds i8, ptr %3, i64 167
+  %150 = getelementptr inbounds nuw i8, ptr %3, i64 167
   store i8 1, ptr %150, align 1
-  %151 = getelementptr inbounds i8, ptr %3, i64 168
+  %151 = getelementptr inbounds nuw i8, ptr %3, i64 168
   store i8 3, ptr %151, align 8
-  %152 = getelementptr inbounds i8, ptr %3, i64 169
+  %152 = getelementptr inbounds nuw i8, ptr %3, i64 169
   store i8 0, ptr %152, align 1
-  %153 = getelementptr inbounds i8, ptr %3, i64 170
+  %153 = getelementptr inbounds nuw i8, ptr %3, i64 170
   store i8 1, ptr %153, align 2
-  %154 = getelementptr inbounds i8, ptr %3, i64 171
+  %154 = getelementptr inbounds nuw i8, ptr %3, i64 171
   store i8 0, ptr %154, align 1
-  %155 = getelementptr inbounds i8, ptr %3, i64 172
+  %155 = getelementptr inbounds nuw i8, ptr %3, i64 172
   store i8 0, ptr %155, align 4
-  %156 = getelementptr inbounds i8, ptr %3, i64 173
+  %156 = getelementptr inbounds nuw i8, ptr %3, i64 173
   store i8 0, ptr %156, align 1
-  %157 = getelementptr inbounds i8, ptr %3, i64 174
+  %157 = getelementptr inbounds nuw i8, ptr %3, i64 174
   store i8 2, ptr %157, align 2
-  %158 = getelementptr inbounds i8, ptr %3, i64 175
+  %158 = getelementptr inbounds nuw i8, ptr %3, i64 175
   store i8 0, ptr %158, align 1
-  %159 = getelementptr inbounds i8, ptr %3, i64 176
+  %159 = getelementptr inbounds nuw i8, ptr %3, i64 176
   store i8 0, ptr %159, align 16
-  %160 = getelementptr inbounds i8, ptr %3, i64 177
+  %160 = getelementptr inbounds nuw i8, ptr %3, i64 177
   store i8 0, ptr %160, align 1
-  %161 = getelementptr inbounds i8, ptr %3, i64 178
+  %161 = getelementptr inbounds nuw i8, ptr %3, i64 178
   store i8 82, ptr %161, align 2
-  %162 = getelementptr inbounds i8, ptr %3, i64 179
+  %162 = getelementptr inbounds nuw i8, ptr %3, i64 179
   store i8 1, ptr %162, align 1
-  %163 = getelementptr inbounds i8, ptr %3, i64 180
+  %163 = getelementptr inbounds nuw i8, ptr %3, i64 180
   store i8 3, ptr %163, align 4
-  %164 = getelementptr inbounds i8, ptr %3, i64 181
+  %164 = getelementptr inbounds nuw i8, ptr %3, i64 181
   store i8 0, ptr %164, align 1
-  %165 = getelementptr inbounds i8, ptr %3, i64 182
+  %165 = getelementptr inbounds nuw i8, ptr %3, i64 182
   store i8 1, ptr %165, align 2
-  %166 = getelementptr inbounds i8, ptr %3, i64 183
-  %167 = getelementptr inbounds i8, ptr %3, i64 186
-  %168 = getelementptr inbounds i8, ptr %3, i64 194
+  %166 = getelementptr inbounds nuw i8, ptr %3, i64 183
+  %167 = getelementptr inbounds nuw i8, ptr %3, i64 186
+  %168 = getelementptr inbounds nuw i8, ptr %3, i64 194
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %166, i8 0, i64 11, i1 false)
   store i8 8, ptr %168, align 2
-  %169 = getelementptr inbounds i8, ptr %3, i64 195
+  %169 = getelementptr inbounds nuw i8, ptr %3, i64 195
   store i8 0, ptr %169, align 1
-  %170 = getelementptr inbounds i8, ptr %3, i64 196
+  %170 = getelementptr inbounds nuw i8, ptr %3, i64 196
   store i8 8, ptr %170, align 4
-  %171 = getelementptr inbounds i8, ptr %3, i64 197
+  %171 = getelementptr inbounds nuw i8, ptr %3, i64 197
   store i8 0, ptr %171, align 1
-  %172 = getelementptr inbounds i8, ptr %3, i64 198
+  %172 = getelementptr inbounds nuw i8, ptr %3, i64 198
   store i8 8, ptr %172, align 2
-  %173 = getelementptr inbounds i8, ptr %3, i64 199
+  %173 = getelementptr inbounds nuw i8, ptr %3, i64 199
   store i8 0, ptr %173, align 1
-  %174 = getelementptr inbounds i8, ptr %3, i64 200
+  %174 = getelementptr inbounds nuw i8, ptr %3, i64 200
   store i8 8, ptr %174, align 8
-  %175 = getelementptr inbounds i8, ptr %3, i64 201
+  %175 = getelementptr inbounds nuw i8, ptr %3, i64 201
   store i8 0, ptr %175, align 1
-  %176 = getelementptr inbounds i8, ptr %3, i64 202
+  %176 = getelementptr inbounds nuw i8, ptr %3, i64 202
   store i8 72, ptr %176, align 2
-  %177 = getelementptr inbounds i8, ptr %3, i64 203
+  %177 = getelementptr inbounds nuw i8, ptr %3, i64 203
   store i8 0, ptr %177, align 1
-  %178 = getelementptr inbounds i8, ptr %3, i64 204
+  %178 = getelementptr inbounds nuw i8, ptr %3, i64 204
   store i8 0, ptr %178, align 4
-  %179 = getelementptr inbounds i8, ptr %3, i64 205
+  %179 = getelementptr inbounds nuw i8, ptr %3, i64 205
   store i8 0, ptr %179, align 1
-  %180 = getelementptr inbounds i8, ptr %3, i64 206
+  %180 = getelementptr inbounds nuw i8, ptr %3, i64 206
   store i8 1, ptr %180, align 2
-  %181 = getelementptr inbounds i8, ptr %3, i64 207
+  %181 = getelementptr inbounds nuw i8, ptr %3, i64 207
   store i8 0, ptr %181, align 1
-  %182 = getelementptr inbounds i8, ptr %3, i64 208
+  %182 = getelementptr inbounds nuw i8, ptr %3, i64 208
   store i8 0, ptr %182, align 16
-  %183 = getelementptr inbounds i8, ptr %3, i64 209
+  %183 = getelementptr inbounds nuw i8, ptr %3, i64 209
   store i8 0, ptr %183, align 1
   %184 = icmp eq ptr %0, null
   %185 = icmp eq ptr %1, null
@@ -926,13 +926,13 @@ switch.hole_check:                                ; preds = %186
 
 WebPIsAlphaMode.exit:                             ; preds = %switch.hole_check, %189
   %.not = phi i1 [ %narrow.i.i, %189 ], [ false, %switch.hole_check ]
-  %191 = getelementptr inbounds i8, ptr %1, i64 4
+  %191 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %192 = load i32, ptr %191, align 4
-  %193 = getelementptr inbounds i8, ptr %1, i64 8
+  %193 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %194 = load i32, ptr %193, align 8
-  %195 = getelementptr inbounds i8, ptr %1, i64 16
+  %195 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %196 = load ptr, ptr %195, align 8
-  %197 = getelementptr inbounds i8, ptr %1, i64 24
+  %197 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %198 = load i32, ptr %197, align 8
   %199 = icmp eq ptr %196, null
   br i1 %199, label %.loopexit, label %200
@@ -1034,17 +1034,17 @@ define hidden range(i32 0, 2) i32 @WebPWriteAlphaPlane(ptr noundef %0, ptr nound
   br i1 %or.cond, label %.loopexit, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 60
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq ptr %9, null
   br i1 %12, label %.loopexit, label %13
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %1, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.1, i32 noundef %15, i32 noundef %7) #8
   %17 = zext i32 %15 to i64
@@ -1081,18 +1081,18 @@ define hidden range(i32 0, 2) i32 @WebPWritePGM(ptr noundef %0, ptr noundef read
   br i1 %or.cond, label %.loopexit, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
   %.fr97 = freeze i32 %7
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %17 = load ptr, ptr %16, align 8
   %18 = add nsw i32 %.fr97, 1
   %19 = sdiv i32 %18, 2
@@ -1119,7 +1119,7 @@ define hidden range(i32 0, 2) i32 @WebPWritePGM(ptr noundef %0, ptr noundef read
   %32 = sext i32 %.fr97 to i64
   %33 = and i32 %.fr97, 1
   %.not81 = icmp eq i32 %33, 0
-  %34 = getelementptr inbounds i8, ptr %1, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 48
   br i1 %.not81, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
@@ -1141,8 +1141,8 @@ define hidden range(i32 0, 2) i32 @WebPWritePGM(ptr noundef %0, ptr noundef read
 
 .lr.ph89:                                         ; preds = %.preheader82
   %43 = sext i32 %19 to i64
-  %44 = getelementptr inbounds i8, ptr %1, i64 52
-  %45 = getelementptr inbounds i8, ptr %1, i64 56
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 56
   br label %68
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
@@ -1169,7 +1169,7 @@ define hidden range(i32 0, 2) i32 @WebPWritePGM(ptr noundef %0, ptr noundef read
   %57 = sext i32 %.fr97 to i64
   %58 = and i32 %.fr97, 1
   %.not80 = icmp eq i32 %58, 0
-  %59 = getelementptr inbounds i8, ptr %1, i64 60
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 60
   br i1 %.not80, label %.lr.ph92.split.us, label %.lr.ph92.split
 
 .lr.ph92.split.us:                                ; preds = %.lr.ph92, %.lr.ph92.split.us
@@ -1236,17 +1236,17 @@ define hidden range(i32 0, 2) i32 @WebPWriteYUV(ptr noundef %0, ptr noundef read
   br i1 %or.cond, label %.loopexit, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %17 = load ptr, ptr %16, align 8
   %.fr = freeze ptr %17
   %18 = add nsw i32 %7, 1
@@ -1267,7 +1267,7 @@ define hidden range(i32 0, 2) i32 @WebPWriteYUV(ptr noundef %0, ptr noundef read
 
 .lr.ph:                                           ; preds = %.preheader78
   %26 = sext i32 %7 to i64
-  %27 = getelementptr inbounds i8, ptr %1, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 48
   br label %30
 
 .preheader77:                                     ; preds = %30
@@ -1275,7 +1275,7 @@ define hidden range(i32 0, 2) i32 @WebPWriteYUV(ptr noundef %0, ptr noundef read
 
 .lr.ph83:                                         ; preds = %.preheader77
   %28 = sext i32 %19 to i64
-  %29 = getelementptr inbounds i8, ptr %1, i64 52
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 52
   br label %41
 
 30:                                               ; preds = %.lr.ph, %30
@@ -1296,7 +1296,7 @@ define hidden range(i32 0, 2) i32 @WebPWriteYUV(ptr noundef %0, ptr noundef read
 
 .lr.ph87:                                         ; preds = %.preheader76
   %39 = sext i32 %19 to i64
-  %40 = getelementptr inbounds i8, ptr %1, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 56
   br label %53
 
 41:                                               ; preds = %.lr.ph83, %41
@@ -1319,7 +1319,7 @@ define hidden range(i32 0, 2) i32 @WebPWriteYUV(ptr noundef %0, ptr noundef read
 
 .lr.ph91.split.preheader:                         ; preds = %.preheader
   %51 = sext i32 %7 to i64
-  %52 = getelementptr inbounds i8, ptr %1, i64 60
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 60
   br label %.lr.ph91.split
 
 53:                                               ; preds = %.lr.ph87, %53
@@ -1367,7 +1367,7 @@ sub_0:                                            ; preds = %3
   br i1 %.not117, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
-  %6 = getelementptr inbounds i8, ptr %2, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %7 = load i8, ptr %6, align 1
   %8 = icmp eq i8 %7, 0
   br i1 %8, label %9, label %.tail.thread
@@ -1421,17 +1421,17 @@ sub_0:                                            ; preds = %3
   br label %WebPWritePAM.exit
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i32, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %28 = load i32, ptr %27, align 8
   %29 = icmp eq ptr %26, null
   br i1 %29, label %WebPWritePAM.exit, label %30
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %0, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %32 = load i32, ptr %31, align 4
   %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %14, ptr noundef nonnull @.str.6, i32 noundef %32, i32 noundef %24) #8
   %34 = zext i32 %32 to i64
@@ -1456,17 +1456,17 @@ sub_0:                                            ; preds = %3
   br i1 %exitcond.not.i.i, label %WebPWritePAM.exit, label %36, !llvm.loop !7
 
 41:                                               ; preds = %19, %19, %19
-  %42 = getelementptr inbounds i8, ptr %0, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %43 = load i32, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %47 = load i32, ptr %46, align 8
   %48 = icmp eq ptr %45, null
   br i1 %48, label %WebPWritePAM.exit, label %49
 
 49:                                               ; preds = %41
-  %50 = getelementptr inbounds i8, ptr %0, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %51 = load i32, ptr %50, align 4
   %52 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %14, ptr noundef nonnull @.str.7, i32 noundef %51, i32 noundef %43) #8
   %53 = zext i32 %51 to i64
@@ -1491,17 +1491,17 @@ sub_0:                                            ; preds = %3
   br i1 %exitcond.not.i.i101, label %WebPWritePAM.exit, label %55, !llvm.loop !7
 
 60:                                               ; preds = %19, %19, %19
-  %61 = getelementptr inbounds i8, ptr %0, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %62 = load i32, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %0, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %66 = load i32, ptr %65, align 8
   %67 = icmp eq ptr %64, null
   br i1 %67, label %WebPWritePAM.exit, label %68
 
 68:                                               ; preds = %60
-  %69 = getelementptr inbounds i8, ptr %0, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %70 = load i32, ptr %69, align 4
   %71 = shl i32 %70, 1
   %72 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %14, ptr noundef nonnull @.str.1, i32 noundef %71, i32 noundef %62) #8
@@ -1543,17 +1543,17 @@ sub_0:                                            ; preds = %3
   br label %WebPWritePAM.exit
 
 88:                                               ; preds = %19
-  %89 = getelementptr inbounds i8, ptr %0, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %90 = load i32, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %0, i64 40
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %0, i64 60
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %94 = load i32, ptr %93, align 4
   %95 = icmp eq ptr %92, null
   br i1 %95, label %WebPWritePAM.exit, label %96
 
 96:                                               ; preds = %88
-  %97 = getelementptr inbounds i8, ptr %0, i64 4
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %98 = load i32, ptr %97, align 4
   %99 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %14, ptr noundef nonnull @.str.1, i32 noundef %98, i32 noundef %90) #8
   %100 = zext i32 %98 to i64

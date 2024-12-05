@@ -35,9 +35,9 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %account_invalid = getelementptr inbounds i8, ptr %stats, i64 352
+  %account_invalid = getelementptr inbounds nuw i8, ptr %stats, i64 352
   store i8 1, ptr %account_invalid, align 8
-  %account_failed = getelementptr inbounds i8, ptr %stats, i64 353
+  %account_failed = getelementptr inbounds nuw i8, ptr %stats, i64 353
   store i8 1, ptr %account_failed, align 1
   ret void
 }
@@ -47,7 +47,7 @@ declare void @qemu_mutex_init(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nofree nounwind sspstrong uwtable
 define dso_local void @block_acct_setup(ptr nocapture noundef %stats, i32 noundef %account_invalid, i32 noundef %account_failed) local_unnamed_addr #2 {
 entry:
-  %account_invalid1 = getelementptr inbounds i8, ptr %stats, i64 352
+  %account_invalid1 = getelementptr inbounds nuw i8, ptr %stats, i64 352
   %0 = load i8, ptr %account_invalid1, align 8
   switch i32 %account_invalid, label %sw.default.i [
     i32 0, label %bool_from_onoffauto.exit
@@ -69,7 +69,7 @@ bool_from_onoffauto.exit:                         ; preds = %entry, %sw.bb1.i, %
   %retval.0.i = phi i8 [ 0, %sw.bb2.i ], [ 1, %sw.bb1.i ], [ %0, %entry ]
   %frombool = and i8 %retval.0.i, 1
   store i8 %frombool, ptr %account_invalid1, align 8
-  %account_failed3 = getelementptr inbounds i8, ptr %stats, i64 353
+  %account_failed3 = getelementptr inbounds nuw i8, ptr %stats, i64 353
   %1 = load i8, ptr %account_failed3, align 1
   switch i32 %account_failed, label %sw.default.i7 [
     i32 0, label %bool_from_onoffauto.exit8
@@ -97,14 +97,14 @@ bool_from_onoffauto.exit8:                        ; preds = %bool_from_onoffauto
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @block_acct_cleanup(ptr noundef %stats) local_unnamed_addr #0 {
 entry:
-  %intervals = getelementptr inbounds i8, ptr %stats, i64 344
+  %intervals = getelementptr inbounds nuw i8, ptr %stats, i64 344
   %0 = load ptr, ptr %intervals, align 8
   %tobool.not4 = icmp eq ptr %0, null
   br i1 %tobool.not4, label %for.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry, %land.rhs
   %s.05 = phi ptr [ %1, %land.rhs ], [ %0, %entry ]
-  %entries = getelementptr inbounds i8, ptr %s.05, i64 592
+  %entries = getelementptr inbounds nuw i8, ptr %s.05, i64 592
   %1 = load ptr, ptr %entries, align 8
   tail call void @g_free(ptr noundef nonnull %s.05) #10
   %tobool.not = icmp eq ptr %1, null
@@ -123,18 +123,18 @@ declare void @qemu_mutex_destroy(ptr noundef) local_unnamed_addr #1
 define dso_local void @block_acct_add_interval(ptr noundef %stats, i32 noundef %interval_length) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(600) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 600) #12
-  %interval_length1 = getelementptr inbounds i8, ptr %call, i64 584
+  %interval_length1 = getelementptr inbounds nuw i8, ptr %call, i64 584
   store i32 %interval_length, ptr %interval_length1, align 8
   store ptr %stats, ptr %call, align 8
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
   tail call void %1(ptr noundef %stats, ptr noundef nonnull @.str, i32 noundef 85) #10
-  %intervals = getelementptr inbounds i8, ptr %stats, i64 344
+  %intervals = getelementptr inbounds nuw i8, ptr %stats, i64 344
   %2 = load ptr, ptr %intervals, align 8
-  %entries = getelementptr inbounds i8, ptr %call, i64 592
+  %entries = getelementptr inbounds nuw i8, ptr %call, i64 592
   store ptr %2, ptr %entries, align 8
   store ptr %call, ptr %intervals, align 8
-  %latency = getelementptr inbounds i8, ptr %call, i64 8
+  %latency = getelementptr inbounds nuw i8, ptr %call, i64 8
   %conv = zext i32 %interval_length to i64
   %mul = mul nuw nsw i64 %conv, 1000000000
   br label %for.body
@@ -165,8 +165,8 @@ declare void @qemu_mutex_unlock_impl(ptr noundef, ptr noundef, i32 noundef) loca
 define dso_local ptr @block_acct_interval_next(ptr nocapture noundef readonly %stats, ptr noundef readonly %s) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %s, null
-  %intervals = getelementptr inbounds i8, ptr %stats, i64 344
-  %entries = getelementptr inbounds i8, ptr %s, i64 592
+  %intervals = getelementptr inbounds nuw i8, ptr %stats, i64 344
+  %entries = getelementptr inbounds nuw i8, ptr %s, i64 592
   %retval.0.in = select i1 %cmp, ptr %intervals, ptr %entries
   %retval.0 = load ptr, ptr %retval.0.in, align 8
   ret ptr %retval.0
@@ -187,9 +187,9 @@ if.end:                                           ; preds = %entry
   %.b = load i1, ptr @clock_type, align 4
   %0 = zext i1 %.b to i32
   %call = tail call i64 @qemu_clock_get_ns(i32 noundef %0) #10
-  %start_time_ns = getelementptr inbounds i8, ptr %cookie, i64 8
+  %start_time_ns = getelementptr inbounds nuw i8, ptr %cookie, i64 8
   store i64 %call, ptr %start_time_ns, align 8
-  %type2 = getelementptr inbounds i8, ptr %cookie, i64 16
+  %type2 = getelementptr inbounds nuw i8, ptr %cookie, i64 16
   store i32 %type, ptr %type2, align 8
   ret void
 }
@@ -202,7 +202,7 @@ declare i64 @qemu_clock_get_ns(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local range(i32 -22, 1) i32 @block_latency_histogram_set(ptr nocapture noundef %stats, i32 noundef %type, ptr noundef readonly %boundaries) local_unnamed_addr #0 {
 entry:
-  %latency_histogram = getelementptr inbounds i8, ptr %stats, i64 360
+  %latency_histogram = getelementptr inbounds nuw i8, ptr %stats, i64 360
   %idxprom = zext i32 %type to i64
   %arrayidx = getelementptr [6 x %struct.BlockLatencyHistogram], ptr %latency_histogram, i64 0, i64 %idxprom
   %tobool.not18 = icmp eq ptr %boundaries, null
@@ -212,7 +212,7 @@ for.body:                                         ; preds = %entry, %if.end
   %new_nbins.021 = phi i32 [ %inc, %if.end ], [ 1, %entry ]
   %prev.020 = phi i64 [ %0, %if.end ], [ 0, %entry ]
   %entry1.019 = phi ptr [ %1, %if.end ], [ %boundaries, %entry ]
-  %value = getelementptr inbounds i8, ptr %entry1.019, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %entry1.019, i64 8
   %0 = load i64, ptr %value, align 8
   %cmp.not = icmp ugt i64 %0, %prev.020
   br i1 %cmp.not, label %if.end, label %return
@@ -226,7 +226,7 @@ if.end:                                           ; preds = %for.body
 for.end:                                          ; preds = %if.end, %entry
   %new_nbins.0.lcssa = phi i32 [ 1, %entry ], [ %inc, %if.end ]
   store i32 %new_nbins.0.lcssa, ptr %arrayidx, align 8
-  %boundaries3 = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %boundaries3 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %2 = load ptr, ptr %boundaries3, align 8
   tail call void @g_free(ptr noundef %2) #10
   %3 = load i32, ptr %arrayidx, align 8
@@ -239,7 +239,7 @@ for.end:                                          ; preds = %if.end, %entry
 for.body9:                                        ; preds = %for.end, %for.body9
   %ptr.024 = phi ptr [ %incdec.ptr, %for.body9 ], [ %call, %for.end ]
   %entry1.123 = phi ptr [ %5, %for.body9 ], [ %boundaries, %for.end ]
-  %value10 = getelementptr inbounds i8, ptr %entry1.123, i64 8
+  %value10 = getelementptr inbounds nuw i8, ptr %entry1.123, i64 8
   %4 = load i64, ptr %value10, align 8
   store i64 %4, ptr %ptr.024, align 8
   %5 = load ptr, ptr %entry1.123, align 8
@@ -248,7 +248,7 @@ for.body9:                                        ; preds = %for.end, %for.body9
   br i1 %tobool8.not, label %for.end13, label %for.body9, !llvm.loop !9
 
 for.end13:                                        ; preds = %for.body9, %for.end
-  %bins = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %bins = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   %6 = load ptr, ptr %bins, align 8
   tail call void @g_free(ptr noundef %6) #10
   %7 = load i32, ptr %arrayidx, align 8
@@ -268,16 +268,16 @@ declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @block_latency_histograms_clear(ptr nocapture noundef %stats) local_unnamed_addr #0 {
 entry:
-  %latency_histogram = getelementptr inbounds i8, ptr %stats, i64 360
+  %latency_histogram = getelementptr inbounds nuw i8, ptr %stats, i64 360
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
   %arrayidx = getelementptr [6 x %struct.BlockLatencyHistogram], ptr %latency_histogram, i64 0, i64 %indvars.iv
-  %bins = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %bins = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   %0 = load ptr, ptr %bins, align 8
   tail call void @g_free(ptr noundef %0) #10
-  %boundaries = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %boundaries = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %1 = load ptr, ptr %boundaries, align 8
   tail call void @g_free(ptr noundef %1) #10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx, i8 0, i64 24, i1 false)
@@ -306,13 +306,13 @@ entry:
   %.b = load i1, ptr @clock_type, align 4
   %0 = zext i1 %.b to i32
   %call = tail call i64 @qemu_clock_get_ns(i32 noundef %0) #10
-  %start_time_ns = getelementptr inbounds i8, ptr %cookie, i64 8
+  %start_time_ns = getelementptr inbounds nuw i8, ptr %cookie, i64 8
   %1 = load i64, ptr %start_time_ns, align 8
   %sub = sub i64 %call, %1
   %2 = load i8, ptr @qtest_allowed, align 1
   %tobool.i = trunc i8 %2 to i1
   %spec.select = select i1 %tobool.i, i64 1000000, i64 %sub
-  %type = getelementptr inbounds i8, ptr %cookie, i64 16
+  %type = getelementptr inbounds nuw i8, ptr %cookie, i64 16
   %3 = load i32, ptr %type, align 8
   %cmp = icmp ult i32 %3, 6
   br i1 %cmp, label %if.end3, label %if.else
@@ -329,15 +329,15 @@ if.end7:                                          ; preds = %if.end3
   %4 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %5 = inttoptr i64 %4 to ptr
   tail call void %5(ptr noundef %stats, ptr noundef nonnull @.str.3, i32 noundef 122) #10
-  %latency_histogram = getelementptr inbounds i8, ptr %stats, i64 360
-  %account_failed = getelementptr inbounds i8, ptr %stats, i64 353
-  %total_time_ns = getelementptr inbounds i8, ptr %stats, i64 240
-  %last_access_time_ns = getelementptr inbounds i8, ptr %stats, i64 336
-  %intervals = getelementptr inbounds i8, ptr %stats, i64 344
+  %latency_histogram = getelementptr inbounds nuw i8, ptr %stats, i64 360
+  %account_failed = getelementptr inbounds nuw i8, ptr %stats, i64 353
+  %total_time_ns = getelementptr inbounds nuw i8, ptr %stats, i64 240
+  %last_access_time_ns = getelementptr inbounds nuw i8, ptr %stats, i64 336
+  %intervals = getelementptr inbounds nuw i8, ptr %stats, i64 344
   br i1 %failed, label %if.end21, label %if.else13
 
 if.else13:                                        ; preds = %if.end7
-  %nr_bytes = getelementptr inbounds i8, ptr %stats, i64 48
+  %nr_bytes = getelementptr inbounds nuw i8, ptr %stats, i64 48
   %6 = load i64, ptr %cookie, align 8
   %7 = load i32, ptr %type, align 8
   %idxprom15 = zext i32 %7 to i64
@@ -349,7 +349,7 @@ if.else13:                                        ; preds = %if.end7
 
 if.end21:                                         ; preds = %if.end7, %if.else13
   %9 = phi i64 [ 96, %if.else13 ], [ 192, %if.end7 ]
-  %10 = getelementptr inbounds i8, ptr %stats, i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr %stats, i64 %9
   %11 = load i32, ptr %type, align 8
   %idxprom18 = zext i32 %11 to i64
   %arrayidx19 = getelementptr [6 x i64], ptr %10, i64 0, i64 %idxprom18
@@ -361,13 +361,13 @@ if.end21:                                         ; preds = %if.end7, %if.else13
   %arrayidx24 = getelementptr [6 x %struct.BlockLatencyHistogram], ptr %latency_histogram, i64 0, i64 %idxprom23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %latency_ns.addr.i)
   store i64 %spec.select, ptr %latency_ns.addr.i, align 8
-  %bins.i = getelementptr inbounds i8, ptr %arrayidx24, i64 16
+  %bins.i = getelementptr inbounds nuw i8, ptr %arrayidx24, i64 16
   %14 = load ptr, ptr %bins.i, align 8
   %cmp.i = icmp eq ptr %14, null
   br i1 %cmp.i, label %block_latency_histogram_account.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end21
-  %boundaries.i = getelementptr inbounds i8, ptr %arrayidx24, i64 8
+  %boundaries.i = getelementptr inbounds nuw i8, ptr %arrayidx24, i64 8
   %15 = load ptr, ptr %boundaries.i, align 8
   %16 = load i64, ptr %15, align 8
   %cmp1.i = icmp ult i64 %spec.select, %16
@@ -442,12 +442,12 @@ if.then27:                                        ; preds = %lor.lhs.false, %blo
 
 for.body34:                                       ; preds = %if.then27, %for.body34
   %s.030 = phi ptr [ %s.0, %for.body34 ], [ %s.028, %if.then27 ]
-  %latency = getelementptr inbounds i8, ptr %s.030, i64 8
+  %latency = getelementptr inbounds nuw i8, ptr %s.030, i64 8
   %28 = load i32, ptr %type, align 8
   %idxprom36 = zext i32 %28 to i64
   %arrayidx37 = getelementptr [6 x %struct.TimedAverage], ptr %latency, i64 0, i64 %idxprom36
   call void @timed_average_account(ptr noundef %arrayidx37, i64 noundef %spec.select) #10
-  %entries = getelementptr inbounds i8, ptr %s.030, i64 592
+  %entries = getelementptr inbounds nuw i8, ptr %s.030, i64 592
   %s.0 = load ptr, ptr %entries, align 8
   %tobool33.not = icmp eq ptr %s.0, null
   br i1 %tobool33.not, label %qemu_lockable_auto_unlock.exit, label %for.body34, !llvm.loop !11
@@ -482,13 +482,13 @@ while.end:                                        ; preds = %entry
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
   tail call void %1(ptr noundef %stats, ptr noundef nonnull @.str, i32 noundef 262) #10
-  %invalid_ops = getelementptr inbounds i8, ptr %stats, i64 144
+  %invalid_ops = getelementptr inbounds nuw i8, ptr %stats, i64 144
   %idxprom = zext nneg i32 %type to i64
   %arrayidx = getelementptr [6 x i64], ptr %invalid_ops, i64 0, i64 %idxprom
   %2 = load i64, ptr %arrayidx, align 8
   %inc = add i64 %2, 1
   store i64 %inc, ptr %arrayidx, align 8
-  %account_invalid = getelementptr inbounds i8, ptr %stats, i64 352
+  %account_invalid = getelementptr inbounds nuw i8, ptr %stats, i64 352
   %3 = load i8, ptr %account_invalid, align 8
   %tobool = trunc i8 %3 to i1
   br i1 %tobool, label %if.then1, label %if.end2
@@ -497,7 +497,7 @@ if.then1:                                         ; preds = %while.end
   %.b = load i1, ptr @clock_type, align 4
   %4 = zext i1 %.b to i32
   %call = tail call i64 @qemu_clock_get_ns(i32 noundef %4) #10
-  %last_access_time_ns = getelementptr inbounds i8, ptr %stats, i64 336
+  %last_access_time_ns = getelementptr inbounds nuw i8, ptr %stats, i64 336
   store i64 %call, ptr %last_access_time_ns, align 8
   br label %if.end2
 
@@ -521,7 +521,7 @@ while.end:                                        ; preds = %entry
   %1 = inttoptr i64 %0 to ptr
   tail call void %1(ptr noundef %stats, ptr noundef nonnull @.str, i32 noundef 276) #10
   %conv = sext i32 %num_requests to i64
-  %merged = getelementptr inbounds i8, ptr %stats, i64 288
+  %merged = getelementptr inbounds nuw i8, ptr %stats, i64 288
   %idxprom = zext nneg i32 %type to i64
   %arrayidx = getelementptr [6 x i64], ptr %merged, i64 0, i64 %idxprom
   %2 = load i64, ptr %arrayidx, align 8
@@ -537,7 +537,7 @@ entry:
   %.b = load i1, ptr @clock_type, align 4
   %0 = zext i1 %.b to i32
   %call = tail call i64 @qemu_clock_get_ns(i32 noundef %0) #10
-  %last_access_time_ns = getelementptr inbounds i8, ptr %stats, i64 336
+  %last_access_time_ns = getelementptr inbounds nuw i8, ptr %stats, i64 336
   %1 = load i64, ptr %last_access_time_ns, align 8
   %sub = sub i64 %call, %1
   ret i64 %sub
@@ -559,7 +559,7 @@ while.end:                                        ; preds = %entry
   %1 = inttoptr i64 %0 to ptr
   %2 = load ptr, ptr %stats, align 8
   tail call void %1(ptr noundef %2, ptr noundef nonnull @.str, i32 noundef 293) #10
-  %latency = getelementptr inbounds i8, ptr %stats, i64 8
+  %latency = getelementptr inbounds nuw i8, ptr %stats, i64 8
   %idxprom = zext nneg i32 %type to i64
   %arrayidx = getelementptr [6 x %struct.TimedAverage], ptr %latency, i64 0, i64 %idxprom
   %call = call i64 @timed_average_sum(ptr noundef %arrayidx, ptr noundef nonnull %elapsed) #10

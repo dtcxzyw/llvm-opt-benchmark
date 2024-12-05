@@ -92,7 +92,7 @@ define hidden range(i32 -1, 1) i32 @dom_document_doctype_read(ptr noundef %0, pt
   br i1 %.not, label %8, label %10
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 1, ptr %9, align 8
   br label %12
 
@@ -137,7 +137,7 @@ define hidden range(i32 -1, 1) i32 @dom_document_document_element_read(ptr nound
   br i1 %.not, label %8, label %10
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 1, ptr %9, align 8
   br label %12
 
@@ -163,7 +163,7 @@ define hidden range(i32 -1, 1) i32 @dom_document_encoding_read(ptr noundef %0, p
   br label %22
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %3, i64 112
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %20, label %9
@@ -174,23 +174,23 @@ define hidden range(i32 -1, 1) i32 @dom_document_encoding_read(ptr noundef %0, p
   %12 = add i64 %11, 32
   %13 = tail call noalias ptr @_emalloc(i64 noundef %12) #13
   store i32 1, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %13, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 22, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %13, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %13, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 %10, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %13, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %17, ptr nonnull align 1 %8, i64 %10, i1 false)
   %18 = getelementptr inbounds [1 x i8], ptr %17, i64 0, i64 %10
   store i8 0, ptr %18, align 1
   store ptr %13, ptr %1, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 262, ptr %19, align 8
   br label %22
 
 20:                                               ; preds = %6
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 1, ptr %21, align 8
   br label %22
 
@@ -213,21 +213,21 @@ define hidden range(i32 -1, 1) i32 @dom_document_encoding_write(ptr noundef %0, 
   br label %23
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i8, ptr %7, align 8
   %9 = icmp eq i8 %8, 1
   br i1 %9, label %22, label %10
 
 10:                                               ; preds = %6
   %11 = load ptr, ptr %1, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = tail call ptr @xmlFindCharEncodingHandler(ptr noundef nonnull %12) #11
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %22, label %14
 
 14:                                               ; preds = %10
   %15 = tail call i32 @xmlCharEncCloseFunc(ptr noundef nonnull %13) #11
-  %16 = getelementptr inbounds i8, ptr %3, i64 112
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %17 = load ptr, ptr %16, align 8
   %.not15 = icmp eq ptr %17, null
   br i1 %.not15, label %20, label %18
@@ -270,11 +270,11 @@ define hidden range(i32 -1, 1) i32 @dom_document_standalone_read(ptr noundef %0,
   br label %12
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %3, i64 76
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 76
   %8 = load i32, ptr %7, align 4
   %9 = icmp sgt i32 %8, 0
   %10 = select i1 %9, i32 3, i32 2
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %10, ptr %11, align 8
   br label %12
 
@@ -294,7 +294,7 @@ define hidden range(i32 -1, 1) i32 @dom_document_standalone_write(ptr noundef %0
   br label %18
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i8, ptr %7, align 8
   %9 = icmp eq i8 %8, 4
   br i1 %9, label %10, label %12
@@ -310,7 +310,7 @@ define hidden range(i32 -1, 1) i32 @dom_document_standalone_write(ptr noundef %0
 14:                                               ; preds = %12, %10
   %15 = phi i64 [ %11, %10 ], [ %13, %12 ]
   %16 = tail call i32 @llvm.scmp.i32.i64(i64 %15, i64 0)
-  %17 = getelementptr inbounds i8, ptr %3, i64 76
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 76
   store i32 %16, ptr %17, align 4
   br label %18
 
@@ -330,7 +330,7 @@ define hidden range(i32 -1, 1) i32 @dom_document_version_read(ptr noundef %0, pt
   br label %22
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %3, i64 104
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %20, label %9
@@ -341,23 +341,23 @@ define hidden range(i32 -1, 1) i32 @dom_document_version_read(ptr noundef %0, pt
   %12 = add i64 %11, 32
   %13 = tail call noalias ptr @_emalloc(i64 noundef %12) #13
   store i32 1, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %13, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 22, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %13, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %13, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 %10, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %13, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %17, ptr nonnull align 1 %8, i64 %10, i1 false)
   %18 = getelementptr inbounds [1 x i8], ptr %17, i64 0, i64 %10
   store i8 0, ptr %18, align 1
   store ptr %13, ptr %1, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 262, ptr %19, align 8
   br label %22
 
 20:                                               ; preds = %6
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 1, ptr %21, align 8
   br label %22
 
@@ -377,14 +377,14 @@ define hidden range(i32 -1, 1) i32 @dom_document_version_write(ptr noundef %0, p
   br label %36
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i8, ptr %7, align 8
   %9 = icmp eq i8 %8, 6
   br i1 %9, label %10, label %18
 
 10:                                               ; preds = %6
   %11 = load ptr, ptr %1, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = and i32 %13, 64
   %.not = icmp eq i32 %14, 0
@@ -403,7 +403,7 @@ define hidden range(i32 -1, 1) i32 @dom_document_version_write(ptr noundef %0, p
 
 .thread:                                          ; preds = %15, %10, %18
   %.037 = phi ptr [ %19, %18 ], [ %11, %10 ], [ %11, %15 ]
-  %20 = getelementptr inbounds i8, ptr %3, i64 104
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %21 = load ptr, ptr %20, align 8
   %.not33 = icmp eq ptr %21, null
   br i1 %.not33, label %24, label %22
@@ -414,10 +414,10 @@ define hidden range(i32 -1, 1) i32 @dom_document_version_write(ptr noundef %0, p
   br label %24
 
 24:                                               ; preds = %22, %.thread
-  %25 = getelementptr inbounds i8, ptr %.037, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %.037, i64 24
   %26 = tail call ptr @xmlStrdup(ptr noundef nonnull %25) #11
   store ptr %26, ptr %20, align 8
-  %27 = getelementptr inbounds i8, ptr %.037, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %.037, i64 4
   %28 = load i32, ptr %27, align 4
   %29 = and i32 %28, 64
   %.not34 = icmp eq i32 %29, 0
@@ -443,14 +443,14 @@ define hidden range(i32 -1, 1) i32 @dom_document_version_write(ptr noundef %0, p
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @dom_document_strict_error_checking_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((8, 12)) %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @dom_get_doc_props_read_only(ptr noundef %4) #11
-  %6 = getelementptr inbounds i8, ptr %5, i64 13
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 13
   %7 = load i8, ptr %6, align 1
   %8 = trunc i8 %7 to i1
   %9 = select i1 %8, i32 3, i32 2
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %9, ptr %10, align 8
   ret i32 0
 }
@@ -459,7 +459,7 @@ declare ptr @dom_get_doc_props_read_only(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @dom_document_strict_error_checking_write(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %11, label %5
@@ -468,7 +468,7 @@ define hidden noundef i32 @dom_document_strict_error_checking_write(ptr nocaptur
   %6 = tail call ptr @dom_get_doc_props(ptr noundef nonnull %4) #11
   %7 = tail call i32 @zend_is_true(ptr noundef %1) #11
   %8 = icmp ne i32 %7, 0
-  %9 = getelementptr inbounds i8, ptr %6, i64 13
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 13
   %10 = zext i1 %8 to i8
   store i8 %10, ptr %9, align 1
   br label %11
@@ -483,21 +483,21 @@ declare i32 @zend_is_true(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @dom_document_format_output_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((8, 12)) %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @dom_get_doc_props_read_only(ptr noundef %4) #11
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
   %9 = select i1 %8, i32 3, i32 2
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %9, ptr %10, align 8
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @dom_document_format_output_write(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %11, label %5
@@ -506,7 +506,7 @@ define hidden noundef i32 @dom_document_format_output_write(ptr nocapture nounde
   %6 = tail call ptr @dom_get_doc_props(ptr noundef nonnull %4) #11
   %7 = tail call i32 @zend_is_true(ptr noundef %1) #11
   %8 = icmp ne i32 %7, 0
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = zext i1 %8 to i8
   store i8 %10, ptr %9, align 8
   br label %11
@@ -517,21 +517,21 @@ define hidden noundef i32 @dom_document_format_output_write(ptr nocapture nounde
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @dom_document_validate_on_parse_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((8, 12)) %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @dom_get_doc_props_read_only(ptr noundef %4) #11
-  %6 = getelementptr inbounds i8, ptr %5, i64 9
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 9
   %7 = load i8, ptr %6, align 1
   %8 = trunc i8 %7 to i1
   %9 = select i1 %8, i32 3, i32 2
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %9, ptr %10, align 8
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @dom_document_validate_on_parse_write(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %11, label %5
@@ -540,7 +540,7 @@ define hidden noundef i32 @dom_document_validate_on_parse_write(ptr nocapture no
   %6 = tail call ptr @dom_get_doc_props(ptr noundef nonnull %4) #11
   %7 = tail call i32 @zend_is_true(ptr noundef %1) #11
   %8 = icmp ne i32 %7, 0
-  %9 = getelementptr inbounds i8, ptr %6, i64 9
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 9
   %10 = zext i1 %8 to i8
   store i8 %10, ptr %9, align 1
   br label %11
@@ -551,21 +551,21 @@ define hidden noundef i32 @dom_document_validate_on_parse_write(ptr nocapture no
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @dom_document_resolve_externals_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((8, 12)) %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @dom_get_doc_props_read_only(ptr noundef %4) #11
-  %6 = getelementptr inbounds i8, ptr %5, i64 10
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 10
   %7 = load i8, ptr %6, align 2
   %8 = trunc i8 %7 to i1
   %9 = select i1 %8, i32 3, i32 2
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %9, ptr %10, align 8
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @dom_document_resolve_externals_write(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %11, label %5
@@ -574,7 +574,7 @@ define hidden noundef i32 @dom_document_resolve_externals_write(ptr nocapture no
   %6 = tail call ptr @dom_get_doc_props(ptr noundef nonnull %4) #11
   %7 = tail call i32 @zend_is_true(ptr noundef %1) #11
   %8 = icmp ne i32 %7, 0
-  %9 = getelementptr inbounds i8, ptr %6, i64 10
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 10
   %10 = zext i1 %8 to i8
   store i8 %10, ptr %9, align 2
   br label %11
@@ -585,21 +585,21 @@ define hidden noundef i32 @dom_document_resolve_externals_write(ptr nocapture no
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @dom_document_preserve_whitespace_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((8, 12)) %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @dom_get_doc_props_read_only(ptr noundef %4) #11
-  %6 = getelementptr inbounds i8, ptr %5, i64 11
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 11
   %7 = load i8, ptr %6, align 1
   %8 = trunc i8 %7 to i1
   %9 = select i1 %8, i32 3, i32 2
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %9, ptr %10, align 8
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @dom_document_preserve_whitespace_write(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %11, label %5
@@ -608,7 +608,7 @@ define hidden noundef i32 @dom_document_preserve_whitespace_write(ptr nocapture 
   %6 = tail call ptr @dom_get_doc_props(ptr noundef nonnull %4) #11
   %7 = tail call i32 @zend_is_true(ptr noundef %1) #11
   %8 = icmp ne i32 %7, 0
-  %9 = getelementptr inbounds i8, ptr %6, i64 11
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 11
   %10 = zext i1 %8 to i8
   store i8 %10, ptr %9, align 1
   br label %11
@@ -619,21 +619,21 @@ define hidden noundef i32 @dom_document_preserve_whitespace_write(ptr nocapture 
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @dom_document_recover_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((8, 12)) %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @dom_get_doc_props_read_only(ptr noundef %4) #11
-  %6 = getelementptr inbounds i8, ptr %5, i64 14
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 14
   %7 = load i8, ptr %6, align 2
   %8 = trunc i8 %7 to i1
   %9 = select i1 %8, i32 3, i32 2
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %9, ptr %10, align 8
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @dom_document_recover_write(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %11, label %5
@@ -642,7 +642,7 @@ define hidden noundef i32 @dom_document_recover_write(ptr nocapture noundef read
   %6 = tail call ptr @dom_get_doc_props(ptr noundef nonnull %4) #11
   %7 = tail call i32 @zend_is_true(ptr noundef %1) #11
   %8 = icmp ne i32 %7, 0
-  %9 = getelementptr inbounds i8, ptr %6, i64 14
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 14
   %10 = zext i1 %8 to i8
   store i8 %10, ptr %9, align 2
   br label %11
@@ -653,21 +653,21 @@ define hidden noundef i32 @dom_document_recover_write(ptr nocapture noundef read
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @dom_document_substitue_entities_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((8, 12)) %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @dom_get_doc_props_read_only(ptr noundef %4) #11
-  %6 = getelementptr inbounds i8, ptr %5, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %7 = load i8, ptr %6, align 4
   %8 = trunc i8 %7 to i1
   %9 = select i1 %8, i32 3, i32 2
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %9, ptr %10, align 8
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @dom_document_substitue_entities_write(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %11, label %5
@@ -676,7 +676,7 @@ define hidden noundef i32 @dom_document_substitue_entities_write(ptr nocapture n
   %6 = tail call ptr @dom_get_doc_props(ptr noundef nonnull %4) #11
   %7 = tail call i32 @zend_is_true(ptr noundef %1) #11
   %8 = icmp ne i32 %7, 0
-  %9 = getelementptr inbounds i8, ptr %6, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %10 = zext i1 %8 to i8
   store i8 %10, ptr %9, align 4
   br label %11
@@ -696,7 +696,7 @@ define hidden range(i32 -1, 1) i32 @dom_document_document_uri_read(ptr noundef %
   br label %22
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %3, i64 136
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %20, label %9
@@ -707,23 +707,23 @@ define hidden range(i32 -1, 1) i32 @dom_document_document_uri_read(ptr noundef %
   %12 = add i64 %11, 32
   %13 = tail call noalias ptr @_emalloc(i64 noundef %12) #13
   store i32 1, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %13, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 22, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %13, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %13, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 %10, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %13, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %17, ptr nonnull align 1 %8, i64 %10, i1 false)
   %18 = getelementptr inbounds [1 x i8], ptr %17, i64 0, i64 %10
   store i8 0, ptr %18, align 1
   store ptr %13, ptr %1, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 262, ptr %19, align 8
   br label %22
 
 20:                                               ; preds = %6
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 1, ptr %21, align 8
   br label %22
 
@@ -743,14 +743,14 @@ define hidden range(i32 -1, 1) i32 @dom_document_document_uri_write(ptr noundef 
   br label %36
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i8, ptr %7, align 8
   %9 = icmp eq i8 %8, 6
   br i1 %9, label %10, label %18
 
 10:                                               ; preds = %6
   %11 = load ptr, ptr %1, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = and i32 %13, 64
   %.not = icmp eq i32 %14, 0
@@ -769,7 +769,7 @@ define hidden range(i32 -1, 1) i32 @dom_document_document_uri_write(ptr noundef 
 
 .thread:                                          ; preds = %15, %10, %18
   %.037 = phi ptr [ %19, %18 ], [ %11, %10 ], [ %11, %15 ]
-  %20 = getelementptr inbounds i8, ptr %3, i64 136
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %21 = load ptr, ptr %20, align 8
   %.not33 = icmp eq ptr %21, null
   br i1 %.not33, label %24, label %22
@@ -780,10 +780,10 @@ define hidden range(i32 -1, 1) i32 @dom_document_document_uri_write(ptr noundef 
   br label %24
 
 24:                                               ; preds = %22, %.thread
-  %25 = getelementptr inbounds i8, ptr %.037, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %.037, i64 24
   %26 = tail call ptr @xmlStrdup(ptr noundef nonnull %25) #11
   store ptr %26, ptr %20, align 8
-  %27 = getelementptr inbounds i8, ptr %.037, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %.037, i64 4
   %28 = load i32, ptr %27, align 4
   %29 = and i32 %28, 64
   %.not34 = icmp eq i32 %29, 0
@@ -809,7 +809,7 @@ define hidden range(i32 -1, 1) i32 @dom_document_document_uri_write(ptr noundef 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden noundef i32 @dom_document_config_read(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly initializes((8, 12)) %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 1, ptr %3, align 8
   ret i32 0
 }
@@ -821,7 +821,7 @@ define hidden void @zim_DOM_Document_createElement(ptr nocapture noundef readonl
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4
   %9 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %8, ptr noundef nonnull @.str.1, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef nonnull %6, ptr noundef nonnull %4) #11
   %10 = icmp eq i32 %9, -1
@@ -834,7 +834,7 @@ define hidden void @zim_DOM_Document_createElement(ptr nocapture noundef readonl
   br label %46
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 -24
   %18 = load ptr, ptr %17, align 8
@@ -842,11 +842,11 @@ define hidden void @zim_DOM_Document_createElement(ptr nocapture noundef readonl
   br i1 %19, label %20, label %28
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %16, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef nonnull %25) #11
   %26 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %27 = icmp ne ptr %26, null
@@ -865,7 +865,7 @@ define hidden void @zim_DOM_Document_createElement(ptr nocapture noundef readonl
   %34 = load ptr, ptr %33, align 8
   %35 = call i32 @dom_get_strict_error(ptr noundef %34) #11
   call void @php_dom_throw_error(i32 noundef 5, i32 noundef %35) #11
-  %36 = getelementptr inbounds i8, ptr %1, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %36, align 8
   br label %46
 
@@ -906,7 +906,7 @@ declare ptr @xmlNewDocNode(ptr noundef, ptr noundef, ptr noundef, ptr noundef) l
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_DOM_Document_createDocumentFragment(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -919,7 +919,7 @@ define hidden void @zim_DOM_Document_createDocumentFragment(ptr nocapture nounde
   br label %29
 
 .critedge:                                        ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 -24
   %11 = load ptr, ptr %10, align 8
@@ -927,11 +927,11 @@ define hidden void @zim_DOM_Document_createDocumentFragment(ptr nocapture nounde
   br i1 %12, label %13, label %21
 
 13:                                               ; preds = %.critedge
-  %14 = getelementptr inbounds i8, ptr %9, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef nonnull %18) #11
   %19 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %20 = icmp ne ptr %19, null
@@ -967,7 +967,7 @@ declare ptr @xmlNewDocFragment(ptr noundef) local_unnamed_addr #1
 define hidden void @zim_DOM_Document_createTextNode(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %7 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %6, ptr noundef nonnull @.str.3, ptr noundef nonnull %4, ptr noundef nonnull %3) #11
   %8 = icmp eq i32 %7, -1
@@ -980,7 +980,7 @@ define hidden void @zim_DOM_Document_createTextNode(ptr nocapture noundef readon
   br label %35
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 -24
   %16 = load ptr, ptr %15, align 8
@@ -988,11 +988,11 @@ define hidden void @zim_DOM_Document_createTextNode(ptr nocapture noundef readon
   br i1 %17, label %18, label %26
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %14, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef nonnull %23) #11
   %24 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %25 = icmp ne ptr %24, null
@@ -1027,7 +1027,7 @@ declare ptr @xmlNewDocText(ptr noundef, ptr noundef) local_unnamed_addr #1
 define hidden void @zim_DOM_Document_createComment(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %7 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %6, ptr noundef nonnull @.str.3, ptr noundef nonnull %4, ptr noundef nonnull %3) #11
   %8 = icmp eq i32 %7, -1
@@ -1040,7 +1040,7 @@ define hidden void @zim_DOM_Document_createComment(ptr nocapture noundef readonl
   br label %35
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 -24
   %16 = load ptr, ptr %15, align 8
@@ -1048,11 +1048,11 @@ define hidden void @zim_DOM_Document_createComment(ptr nocapture noundef readonl
   br i1 %17, label %18, label %26
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %14, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef nonnull %23) #11
   %24 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %25 = icmp ne ptr %24, null
@@ -1087,7 +1087,7 @@ declare ptr @xmlNewDocComment(ptr noundef, ptr noundef) local_unnamed_addr #1
 define hidden void @zim_DOM_Document_createCDATASection(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %7 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %6, ptr noundef nonnull @.str.3, ptr noundef nonnull %4, ptr noundef nonnull %3) #11
   %8 = icmp eq i32 %7, -1
@@ -1100,7 +1100,7 @@ define hidden void @zim_DOM_Document_createCDATASection(ptr nocapture noundef re
   br label %37
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 -24
   %16 = load ptr, ptr %15, align 8
@@ -1108,11 +1108,11 @@ define hidden void @zim_DOM_Document_createCDATASection(ptr nocapture noundef re
   br i1 %17, label %18, label %26
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %14, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef nonnull %23) #11
   %24 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %25 = icmp ne ptr %24, null
@@ -1153,7 +1153,7 @@ define hidden void @zim_DOM_Document_createProcessingInstruction(ptr nocapture n
   %6 = alloca ptr, align 8
   store i64 0, ptr %4, align 8
   store ptr null, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4
   %9 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %8, ptr noundef nonnull @.str.1, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %3) #11
   %10 = icmp eq i32 %9, -1
@@ -1166,7 +1166,7 @@ define hidden void @zim_DOM_Document_createProcessingInstruction(ptr nocapture n
   br label %47
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 -24
   %18 = load ptr, ptr %17, align 8
@@ -1174,11 +1174,11 @@ define hidden void @zim_DOM_Document_createProcessingInstruction(ptr nocapture n
   br i1 %19, label %20, label %28
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %16, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef nonnull %25) #11
   %26 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %27 = icmp ne ptr %26, null
@@ -1197,7 +1197,7 @@ define hidden void @zim_DOM_Document_createProcessingInstruction(ptr nocapture n
   %34 = load ptr, ptr %33, align 8
   %35 = call i32 @dom_get_strict_error(ptr noundef %34) #11
   call void @php_dom_throw_error(i32 noundef 5, i32 noundef %35) #11
-  %36 = getelementptr inbounds i8, ptr %1, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %36, align 8
   br label %47
 
@@ -1216,7 +1216,7 @@ define hidden void @zim_DOM_Document_createProcessingInstruction(ptr nocapture n
   br label %47
 
 44:                                               ; preds = %37
-  %45 = getelementptr inbounds i8, ptr %40, i64 64
+  %45 = getelementptr inbounds nuw i8, ptr %40, i64 64
   store ptr %29, ptr %45, align 8
   %46 = call zeroext i1 @php_dom_create_object(ptr noundef nonnull %40, ptr noundef %1, ptr noundef nonnull %17) #11
   br label %47
@@ -1231,7 +1231,7 @@ declare ptr @xmlNewPI(ptr noundef, ptr noundef) local_unnamed_addr #1
 define hidden void @zim_DOM_Document_createAttribute(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %7 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %6, ptr noundef nonnull @.str.3, ptr noundef nonnull %4, ptr noundef nonnull %3) #11
   %8 = icmp eq i32 %7, -1
@@ -1244,7 +1244,7 @@ define hidden void @zim_DOM_Document_createAttribute(ptr nocapture noundef reado
   br label %43
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 -24
   %16 = load ptr, ptr %15, align 8
@@ -1252,11 +1252,11 @@ define hidden void @zim_DOM_Document_createAttribute(ptr nocapture noundef reado
   br i1 %17, label %18, label %26
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %14, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef nonnull %23) #11
   %24 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %25 = icmp ne ptr %24, null
@@ -1275,7 +1275,7 @@ define hidden void @zim_DOM_Document_createAttribute(ptr nocapture noundef reado
   %32 = load ptr, ptr %31, align 8
   %33 = call i32 @dom_get_strict_error(ptr noundef %32) #11
   call void @php_dom_throw_error(i32 noundef 5, i32 noundef %33) #11
-  %34 = getelementptr inbounds i8, ptr %1, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %34, align 8
   br label %43
 
@@ -1306,7 +1306,7 @@ declare ptr @xmlNewDocProp(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 define hidden void @zim_DOMDocument_createEntityReference(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %7 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %6, ptr noundef nonnull @.str.3, ptr noundef nonnull %4, ptr noundef nonnull %3) #11
   %8 = icmp eq i32 %7, -1
@@ -1319,7 +1319,7 @@ define hidden void @zim_DOMDocument_createEntityReference(ptr nocapture noundef 
   br label %43
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 -24
   %16 = load ptr, ptr %15, align 8
@@ -1327,11 +1327,11 @@ define hidden void @zim_DOMDocument_createEntityReference(ptr nocapture noundef 
   br i1 %17, label %18, label %26
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %14, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef nonnull %23) #11
   %24 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %25 = icmp ne ptr %24, null
@@ -1350,7 +1350,7 @@ define hidden void @zim_DOMDocument_createEntityReference(ptr nocapture noundef 
   %32 = load ptr, ptr %31, align 8
   %33 = call i32 @dom_get_strict_error(ptr noundef %32) #11
   call void @php_dom_throw_error(i32 noundef 5, i32 noundef %33) #11
-  %34 = getelementptr inbounds i8, ptr %1, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %34, align 8
   br label %43
 
@@ -1381,7 +1381,7 @@ declare ptr @xmlNewReference(ptr noundef, ptr noundef) local_unnamed_addr #1
 define hidden void @zim_DOM_Document_getElementsByTagName(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %7 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %6, ptr noundef nonnull @.str.3, ptr noundef nonnull %4, ptr noundef nonnull %3) #11
   %8 = icmp eq i32 %7, -1
@@ -1394,7 +1394,7 @@ define hidden void @zim_DOM_Document_getElementsByTagName(ptr nocapture noundef 
   br label %31
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 -24
   %16 = load ptr, ptr %15, align 8
@@ -1402,11 +1402,11 @@ define hidden void @zim_DOM_Document_getElementsByTagName(ptr nocapture noundef 
   br i1 %17, label %18, label %26
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %14, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef nonnull %23) #11
   %24 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %25 = icmp ne ptr %24, null
@@ -1436,7 +1436,7 @@ define hidden void @zim_DOM_Document_importNode(ptr nocapture noundef readonly %
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
   store i8 0, ptr %4, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4
   %8 = load ptr, ptr @dom_node_class_entry, align 8
   %9 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %7, ptr noundef nonnull @.str.4, ptr noundef nonnull %3, ptr noundef %8, ptr noundef nonnull %4) #11
@@ -1450,7 +1450,7 @@ define hidden void @zim_DOM_Document_importNode(ptr nocapture noundef readonly %
   br label %95
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 -24
   %18 = load ptr, ptr %17, align 8
@@ -1458,11 +1458,11 @@ define hidden void @zim_DOM_Document_importNode(ptr nocapture noundef readonly %
   br i1 %19, label %20, label %28
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %16, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef nonnull %25) #11
   %26 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %27 = icmp ne ptr %26, null
@@ -1479,11 +1479,11 @@ define hidden void @zim_DOM_Document_importNode(ptr nocapture noundef readonly %
   br i1 %34, label %35, label %43
 
 35:                                               ; preds = %28
-  %36 = getelementptr inbounds i8, ptr %31, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef nonnull %40) #11
   %41 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %42 = icmp ne ptr %41, null
@@ -1492,7 +1492,7 @@ define hidden void @zim_DOM_Document_importNode(ptr nocapture noundef readonly %
 
 43:                                               ; preds = %28
   %44 = load ptr, ptr %33, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load i32, ptr %45, align 8
   switch i32 %46, label %49 [
     i32 13, label %47
@@ -1502,12 +1502,12 @@ define hidden void @zim_DOM_Document_importNode(ptr nocapture noundef readonly %
 
 47:                                               ; preds = %43, %43, %43
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.5) #11
-  %48 = getelementptr inbounds i8, ptr %1, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %48, align 8
   br label %95
 
 49:                                               ; preds = %43
-  %50 = getelementptr inbounds i8, ptr %44, i64 64
+  %50 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, %29
   br i1 %52, label %86, label %53
@@ -1520,18 +1520,18 @@ define hidden void @zim_DOM_Document_importNode(ptr nocapture noundef readonly %
   br i1 %.not, label %57, label %59
 
 57:                                               ; preds = %53
-  %58 = getelementptr inbounds i8, ptr %1, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %58, align 8
   br label %95
 
 59:                                               ; preds = %53
-  %60 = getelementptr inbounds i8, ptr %56, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %61 = load i32, ptr %60, align 8
   %62 = icmp eq i32 %61, 2
   br i1 %62, label %63, label %86
 
 63:                                               ; preds = %59
-  %64 = getelementptr inbounds i8, ptr %44, i64 72
+  %64 = getelementptr inbounds nuw i8, ptr %44, i64 72
   %65 = load ptr, ptr %64, align 8
   %.not47 = icmp eq ptr %65, null
   br i1 %.not47, label %86, label %66
@@ -1540,23 +1540,23 @@ define hidden void @zim_DOM_Document_importNode(ptr nocapture noundef readonly %
   %67 = call ptr @xmlDocGetRootElement(ptr noundef %29) #11
   %68 = load ptr, ptr %50, align 8
   %69 = load ptr, ptr %64, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %71 = load ptr, ptr %70, align 8
   %72 = call ptr @xmlSearchNsByHref(ptr noundef %68, ptr noundef %67, ptr noundef %71) #11
   %73 = icmp eq ptr %72, null
   br i1 %73, label %78, label %74
 
 74:                                               ; preds = %66
-  %75 = getelementptr inbounds i8, ptr %72, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %72, i64 24
   %76 = load ptr, ptr %75, align 8
   %77 = icmp eq ptr %76, null
   br i1 %77, label %78, label %85
 
 78:                                               ; preds = %74, %66
   %79 = load ptr, ptr %64, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %79, i64 24
+  %82 = getelementptr inbounds nuw i8, ptr %79, i64 24
   %83 = load ptr, ptr %82, align 8
   %84 = call ptr @dom_get_ns(ptr noundef %67, ptr noundef %81, ptr noundef nonnull %5, ptr noundef %83) #11
   br label %85
@@ -1574,7 +1574,7 @@ define hidden void @zim_DOM_Document_importNode(ptr nocapture noundef readonly %
   br i1 %.not48, label %93, label %89
 
 89:                                               ; preds = %86
-  %90 = getelementptr inbounds i8, ptr %88, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %88, i64 16
   %91 = load i64, ptr %90, align 8
   %92 = add i64 %91, 1
   store i64 %92, ptr %90, align 8
@@ -1615,7 +1615,7 @@ define hidden void @zim_DOM_Document_createElementNS(ptr nocapture noundef reado
   store ptr null, ptr %8, align 8
   store ptr null, ptr %9, align 8
   store ptr null, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 44
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %13 = load i32, ptr %12, align 4
   %14 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %13, ptr noundef nonnull @.str.6, ptr noundef nonnull %6, ptr noundef nonnull %3, ptr noundef nonnull %7, ptr noundef nonnull %4, ptr noundef nonnull %8, ptr noundef nonnull %5) #11
   %15 = icmp eq i32 %14, -1
@@ -1628,7 +1628,7 @@ define hidden void @zim_DOM_Document_createElementNS(ptr nocapture noundef reado
   br label %83
 
 19:                                               ; preds = %2
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 -24
   %23 = load ptr, ptr %22, align 8
@@ -1636,11 +1636,11 @@ define hidden void @zim_DOM_Document_createElementNS(ptr nocapture noundef reado
   br i1 %24, label %25, label %33
 
 25:                                               ; preds = %19
-  %26 = getelementptr inbounds i8, ptr %21, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef nonnull %30) #11
   %31 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %32 = icmp ne ptr %31, null
@@ -1685,7 +1685,7 @@ define hidden void @zim_DOM_Document_createElementNS(ptr nocapture noundef reado
   br i1 %.not, label %67, label %56
 
 56:                                               ; preds = %54
-  %57 = getelementptr inbounds i8, ptr %49, i64 64
+  %57 = getelementptr inbounds nuw i8, ptr %49, i64 64
   %58 = load ptr, ptr %57, align 8
   %59 = call ptr @xmlSearchNsByHref(ptr noundef %58, ptr noundef nonnull %49, ptr noundef nonnull %55) #11
   %60 = icmp eq ptr %59, null
@@ -1732,7 +1732,7 @@ define hidden void @zim_DOM_Document_createElementNS(ptr nocapture noundef reado
   %78 = load ptr, ptr %77, align 8
   %79 = call i32 @dom_get_strict_error(ptr noundef %78) #11
   call void @php_dom_throw_error(i32 noundef %76, i32 noundef %79) #11
-  %80 = getelementptr inbounds i8, ptr %1, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %80, align 8
   br label %83
 
@@ -1756,7 +1756,7 @@ define hidden void @zim_DOM_Document_createAttributeNS(ptr nocapture noundef rea
   %6 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
   store ptr null, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4
   %9 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %8, ptr noundef nonnull @.str.7, ptr noundef nonnull %4, ptr noundef nonnull %3) #11
   %10 = icmp eq i32 %9, -1
@@ -1769,7 +1769,7 @@ define hidden void @zim_DOM_Document_createAttributeNS(ptr nocapture noundef rea
   br label %141
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 -24
   %18 = load ptr, ptr %17, align 8
@@ -1777,11 +1777,11 @@ define hidden void @zim_DOM_Document_createAttributeNS(ptr nocapture noundef rea
   br i1 %19, label %20, label %28
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %16, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef nonnull %25) #11
   %26 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %27 = icmp ne ptr %26, null
@@ -1801,7 +1801,7 @@ define hidden void @zim_DOM_Document_createAttributeNS(ptr nocapture noundef rea
 
 34:                                               ; preds = %32, %28
   %35 = phi ptr [ %33, %32 ], [ %30, %28 ]
-  %36 = getelementptr inbounds i8, ptr %35, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load i64, ptr %36, align 8
   %38 = call ptr @xmlDocGetRootElement(ptr noundef %29) #11
   %.not = icmp eq ptr %38, null
@@ -1809,9 +1809,9 @@ define hidden void @zim_DOM_Document_createAttributeNS(ptr nocapture noundef rea
 
 39:                                               ; preds = %34
   %40 = load ptr, ptr %3, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %42 = trunc i64 %37 to i32
-  %43 = getelementptr inbounds i8, ptr %40, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %44 = load i64, ptr %43, align 8
   %45 = trunc i64 %44 to i32
   %46 = call i32 @dom_check_qname(ptr noundef nonnull %41, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef %42, i32 noundef %45) #11
@@ -1826,13 +1826,13 @@ define hidden void @zim_DOM_Document_createAttributeNS(ptr nocapture noundef rea
 
 50:                                               ; preds = %47
   %51 = load ptr, ptr %4, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = load i64, ptr %52, align 8
   %54 = icmp eq i64 %53, 36
   br i1 %54, label %55, label %.critedge
 
 55:                                               ; preds = %50
-  %56 = getelementptr inbounds i8, ptr %51, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %51, i64 24
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(36) %56, ptr noundef nonnull dereferenceable(36) @.str.8, i64 36)
   %.not84 = icmp eq i32 %bcmp, 0
   br i1 %.not84, label %.critedge103, label %.critedge
@@ -1845,13 +1845,13 @@ define hidden void @zim_DOM_Document_createAttributeNS(ptr nocapture noundef rea
 
 .critedge103:                                     ; preds = %55, %.critedge
   %59 = load ptr, ptr %3, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load i64, ptr %60, align 8
   %62 = icmp eq i64 %61, 5
   br i1 %62, label %63, label %.critedge2
 
 63:                                               ; preds = %.critedge103
-  %64 = getelementptr inbounds i8, ptr %59, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %59, i64 24
   %bcmp85 = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %64, ptr noundef nonnull dereferenceable(5) @.str.10, i64 5)
   %.not86 = icmp eq i32 %bcmp85, 0
   br i1 %.not86, label %._crit_edge, label %.critedge2
@@ -1869,39 +1869,39 @@ define hidden void @zim_DOM_Document_createAttributeNS(ptr nocapture noundef rea
 
 67:                                               ; preds = %._crit_edge, %.critedge2
   %68 = phi ptr [ %.pre112, %._crit_edge ], [ %.pre113, %.critedge2 ]
-  %69 = getelementptr inbounds i8, ptr %68, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %70 = load i64, ptr %69, align 8
   %71 = icmp eq i64 %70, 29
   br i1 %71, label %72, label %.critedge107
 
 72:                                               ; preds = %67
-  %73 = getelementptr inbounds i8, ptr %68, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %68, i64 24
   %bcmp88 = call i32 @bcmp(ptr noundef nonnull dereferenceable(29) %73, ptr noundef nonnull dereferenceable(29) @.str.11, i64 29)
   %.not89.not = icmp eq i32 %bcmp88, 0
   br i1 %.not89.not, label %.critedge105.thread, label %.critedge107
 
 .critedge105:                                     ; preds = %.critedge2
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre113, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre113, i64 16
   %.pre111 = load i64, ptr %.phi.trans.insert, align 8
   %74 = icmp eq i64 %.pre111, 29
   br i1 %74, label %.critedge105.thread, label %.critedge108
 
 .critedge105.thread:                              ; preds = %72, %.critedge105
   %75 = phi ptr [ %.pre113, %.critedge105 ], [ %68, %72 ]
-  %76 = getelementptr inbounds i8, ptr %75, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 24
   %bcmp90 = call i32 @bcmp(ptr noundef nonnull dereferenceable(29) %76, ptr noundef nonnull dereferenceable(29) @.str.11, i64 29)
   %.not91 = icmp eq i32 %bcmp90, 0
   br i1 %.not91, label %77, label %.critedge108
 
 77:                                               ; preds = %.critedge105.thread
   %78 = load ptr, ptr %3, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %80 = load i64, ptr %79, align 8
   %81 = icmp eq i64 %80, 5
   br i1 %81, label %82, label %.critedge6
 
 82:                                               ; preds = %77
-  %83 = getelementptr inbounds i8, ptr %78, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %78, i64 24
   %bcmp92 = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %83, ptr noundef nonnull dereferenceable(5) @.str.10, i64 5)
   %.not93 = icmp eq i32 %bcmp92, 0
   br i1 %.not93, label %.critedge108, label %.critedge6
@@ -1931,16 +1931,16 @@ define hidden void @zim_DOM_Document_createAttributeNS(ptr nocapture noundef rea
 
 93:                                               ; preds = %92
   %94 = load ptr, ptr %4, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 24
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 24
   %96 = call ptr @xmlSearchNsByHref(ptr noundef %29, ptr noundef nonnull %38, ptr noundef nonnull %95) #11
   %97 = load ptr, ptr %3, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 16
   %99 = load i64, ptr %98, align 8
   %100 = icmp eq i64 %99, 5
   br i1 %100, label %101, label %.critedge8
 
 101:                                              ; preds = %93
-  %102 = getelementptr inbounds i8, ptr %97, i64 24
+  %102 = getelementptr inbounds nuw i8, ptr %97, i64 24
   %bcmp96 = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %102, ptr noundef nonnull dereferenceable(5) @.str.10, i64 5)
   %.not97 = icmp eq i32 %bcmp96, 0
   br i1 %.not97, label %105, label %.critedge8
@@ -1957,7 +1957,7 @@ define hidden void @zim_DOM_Document_createAttributeNS(ptr nocapture noundef rea
 
 107:                                              ; preds = %105
   %108 = load ptr, ptr %4, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 24
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 24
   %110 = load ptr, ptr %6, align 8
   %111 = call ptr @xmlNewNs(ptr noundef null, ptr noundef nonnull %109, ptr noundef %110) #11
   call void @php_libxml_set_old_ns(ptr noundef %29, ptr noundef %111) #11
@@ -1968,14 +1968,14 @@ define hidden void @zim_DOM_Document_createAttributeNS(ptr nocapture noundef rea
   br i1 %113, label %118, label %114
 
 114:                                              ; preds = %112
-  %115 = getelementptr inbounds i8, ptr %96, i64 24
+  %115 = getelementptr inbounds nuw i8, ptr %96, i64 24
   %116 = load ptr, ptr %115, align 8
   %117 = icmp eq ptr %116, null
   br i1 %117, label %118, label %125
 
 118:                                              ; preds = %114, %112
   %119 = load ptr, ptr %4, align 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 24
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 24
   %121 = load ptr, ptr %6, align 8
   %.not99 = icmp eq ptr %121, null
   %122 = select i1 %.not99, ptr @.str.12, ptr %121
@@ -1992,7 +1992,7 @@ define hidden void @zim_DOM_Document_createAttributeNS(ptr nocapture noundef rea
 
 126:                                              ; preds = %34
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.13) #11
-  %127 = getelementptr inbounds i8, ptr %1, i64 8
+  %127 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %127, align 8
   br label %141
 
@@ -2021,7 +2021,7 @@ define hidden void @zim_DOM_Document_createAttributeNS(ptr nocapture noundef rea
   %136 = load ptr, ptr %135, align 8
   %137 = call i32 @dom_get_strict_error(ptr noundef %136) #11
   call void @php_dom_throw_error(i32 noundef %.070, i32 noundef %137) #11
-  %138 = getelementptr inbounds i8, ptr %1, i64 8
+  %138 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %138, align 8
   br label %141
 
@@ -2049,7 +2049,7 @@ define hidden void @zim_DOM_Document_getElementsByTagNameNS(ptr nocapture nounde
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4
   %9 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %8, ptr noundef nonnull @.str.14, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef nonnull %6, ptr noundef nonnull %4) #11
   %10 = icmp eq i32 %9, -1
@@ -2062,7 +2062,7 @@ define hidden void @zim_DOM_Document_getElementsByTagNameNS(ptr nocapture nounde
   br label %36
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 -24
   %18 = load ptr, ptr %17, align 8
@@ -2070,11 +2070,11 @@ define hidden void @zim_DOM_Document_getElementsByTagNameNS(ptr nocapture nounde
   br i1 %19, label %20, label %28
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %16, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef nonnull %25) #11
   %26 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %27 = icmp ne ptr %26, null
@@ -2102,7 +2102,7 @@ define hidden void @zim_DOM_Document_getElementsByTagNameNS(ptr nocapture nounde
 define hidden void @zim_DOM_Document_getElementById(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %7 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %6, ptr noundef nonnull @.str.3, ptr noundef nonnull %4, ptr noundef nonnull %3) #11
   %8 = icmp eq i32 %7, -1
@@ -2115,7 +2115,7 @@ define hidden void @zim_DOM_Document_getElementById(ptr nocapture noundef readon
   br label %40
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 -24
   %16 = load ptr, ptr %15, align 8
@@ -2123,11 +2123,11 @@ define hidden void @zim_DOM_Document_getElementById(ptr nocapture noundef readon
   br i1 %17, label %18, label %26
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %14, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef nonnull %23) #11
   %24 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %25 = icmp ne ptr %24, null
@@ -2142,7 +2142,7 @@ define hidden void @zim_DOM_Document_getElementById(ptr nocapture noundef readon
   br i1 %.not, label %38, label %30
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %29, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 40
   %32 = load ptr, ptr %31, align 8
   %.not16 = icmp eq ptr %32, null
   br i1 %.not16, label %38, label %33
@@ -2157,7 +2157,7 @@ define hidden void @zim_DOM_Document_getElementById(ptr nocapture noundef readon
   br label %40
 
 38:                                               ; preds = %26, %30, %33
-  %39 = getelementptr inbounds i8, ptr %1, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 1, ptr %39, align 8
   br label %40
 
@@ -2171,7 +2171,7 @@ declare zeroext i1 @php_dom_is_node_connected(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @php_dom_adopt_node(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %18, label %6
@@ -2182,19 +2182,19 @@ define hidden noundef zeroext i1 @php_dom_adopt_node(ptr noundef %0, ptr nocaptu
   br i1 %.not27, label %18, label %8
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %7, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not28 = icmp eq ptr %10, null
   br i1 %.not28, label %18, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %10, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not29 = icmp eq ptr %13, null
   br i1 %.not29, label %18, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %13, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %16, 1
   store i64 %17, ptr %15, align 8
@@ -2207,13 +2207,13 @@ define hidden noundef zeroext i1 @php_dom_adopt_node(ptr noundef %0, ptr nocaptu
   br i1 %.not30, label %32, label %20
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8
   %.not31 = icmp eq ptr %22, null
   br i1 %.not31, label %27, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %22, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %25 = load i64, ptr %24, align 8
   %26 = add i64 %25, 1
   store i64 %26, ptr %24, align 8
@@ -2244,7 +2244,7 @@ declare i32 @xmlDOMWrapAdoptNode(ptr noundef, ptr noundef, ptr noundef, ptr noun
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @php_dom_transfer_document_ref(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.lr.ph42, label %5
@@ -2254,18 +2254,18 @@ define internal fastcc void @php_dom_transfer_document_ref(ptr nocapture noundef
   br label %.lr.ph42
 
 .lr.ph42:                                         ; preds = %2, %5
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %7
 
 7:                                                ; preds = %.lr.ph42, %31
   %.02941 = phi ptr [ %0, %.lr.ph42 ], [ %33, %31 ]
-  %8 = getelementptr inbounds i8, ptr %.02941, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.02941, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 1
   br i1 %10, label %11, label %.loopexit
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %.02941, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %.02941, i64 88
   %.037 = load ptr, ptr %12, align 8
   %.not3438 = icmp eq ptr %.037, null
   br i1 %.not3438, label %.loopexit, label %.lr.ph
@@ -2277,18 +2277,18 @@ define internal fastcc void @php_dom_transfer_document_ref(ptr nocapture noundef
   br i1 %.not36, label %21, label %14
 
 14:                                               ; preds = %.lr.ph
-  %15 = getelementptr inbounds i8, ptr %13, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %16 = load ptr, ptr %15, align 8, !nonnull !4, !noundef !4
   %17 = load i32, ptr %6, align 8
   %18 = add nsw i32 %17, 1
   store i32 %18, ptr %6, align 8
   %19 = tail call i32 @php_libxml_decrement_doc_ref(ptr noundef nonnull %16) #11
-  %20 = getelementptr inbounds i8, ptr %16, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %1, ptr %20, align 8
   br label %21
 
 21:                                               ; preds = %.lr.ph, %14
-  %22 = getelementptr inbounds i8, ptr %.039, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %.039, i64 48
   %.0 = load ptr, ptr %22, align 8
   %.not34 = icmp eq ptr %.0, null
   br i1 %.not34, label %.loopexit, label %.lr.ph
@@ -2299,18 +2299,18 @@ define internal fastcc void @php_dom_transfer_document_ref(ptr nocapture noundef
   br i1 %.not35, label %31, label %24
 
 24:                                               ; preds = %.loopexit
-  %25 = getelementptr inbounds i8, ptr %23, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %26 = load ptr, ptr %25, align 8, !nonnull !4, !noundef !4
   %27 = load i32, ptr %6, align 8
   %28 = add nsw i32 %27, 1
   store i32 %28, ptr %6, align 8
   %29 = tail call i32 @php_libxml_decrement_doc_ref(ptr noundef nonnull %26) #11
-  %30 = getelementptr inbounds i8, ptr %26, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %1, ptr %30, align 8
   br label %31
 
 31:                                               ; preds = %24, %.loopexit
-  %32 = getelementptr inbounds i8, ptr %.02941, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %.02941, i64 48
   %33 = load ptr, ptr %32, align 8
   %.not33 = icmp eq ptr %33, null
   br i1 %.not33, label %._crit_edge, label %7
@@ -2324,8 +2324,8 @@ declare void @xmlUnlinkNode(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_DOM_Document_adoptNode(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %7 = load ptr, ptr @dom_node_class_entry, align 8
   %8 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %6, ptr noundef nonnull @.str.16, ptr noundef nonnull %3, ptr noundef %7) #11
@@ -2347,11 +2347,11 @@ define hidden void @zim_DOM_Document_adoptNode(ptr nocapture noundef readonly %0
   br i1 %18, label %19, label %27
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %15, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef nonnull %24) #11
   %25 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %26 = icmp ne ptr %25, null
@@ -2360,7 +2360,7 @@ define hidden void @zim_DOM_Document_adoptNode(ptr nocapture noundef readonly %0
 
 27:                                               ; preds = %13
   %28 = load ptr, ptr %17, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load i32, ptr %29, align 8
   switch i32 %30, label %31 [
     i32 9, label %.critedge
@@ -2383,16 +2383,16 @@ define hidden void @zim_DOM_Document_adoptNode(ptr nocapture noundef readonly %0
   %37 = load ptr, ptr %36, align 8
   %38 = call i32 @dom_get_strict_error(ptr noundef %37) #11
   call void @php_dom_throw_error(i32 noundef 9, i32 noundef %38) #11
-  %39 = getelementptr inbounds i8, ptr %1, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %39, align 8
   br label %84
 
 40:                                               ; preds = %31
-  %41 = getelementptr inbounds i8, ptr %32, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef nonnull %45) #11
   %46 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %47 = icmp ne ptr %46, null
@@ -2401,7 +2401,7 @@ define hidden void @zim_DOM_Document_adoptNode(ptr nocapture noundef readonly %0
 
 48:                                               ; preds = %31
   %49 = load ptr, ptr %34, align 8
-  %50 = getelementptr inbounds i8, ptr %28, i64 64
+  %50 = getelementptr inbounds nuw i8, ptr %28, i64 64
   %51 = load ptr, ptr %50, align 8
   %.not.i = icmp eq ptr %51, null
   br i1 %.not.i, label %64, label %52
@@ -2412,19 +2412,19 @@ define hidden void @zim_DOM_Document_adoptNode(ptr nocapture noundef readonly %0
   br i1 %.not27.i, label %64, label %54
 
 54:                                               ; preds = %52
-  %55 = getelementptr inbounds i8, ptr %53, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %56 = load ptr, ptr %55, align 8
   %.not28.i = icmp eq ptr %56, null
   br i1 %.not28.i, label %64, label %57
 
 57:                                               ; preds = %54
-  %58 = getelementptr inbounds i8, ptr %56, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %59 = load ptr, ptr %58, align 8
   %.not29.i = icmp eq ptr %59, null
   br i1 %.not29.i, label %64, label %60
 
 60:                                               ; preds = %57
-  %61 = getelementptr inbounds i8, ptr %59, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %62 = load i64, ptr %61, align 8
   %63 = add i64 %62, 1
   store i64 %63, ptr %61, align 8
@@ -2443,7 +2443,7 @@ define hidden void @zim_DOM_Document_adoptNode(ptr nocapture noundef readonly %0
   br i1 %.not31.i, label %73, label %69
 
 69:                                               ; preds = %66
-  %70 = getelementptr inbounds i8, ptr %68, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %71 = load i64, ptr %70, align 8
   %72 = add i64 %71, 1
   store i64 %72, ptr %70, align 8
@@ -2466,7 +2466,7 @@ define hidden void @zim_DOM_Document_adoptNode(ptr nocapture noundef readonly %0
   br label %80
 
 php_dom_adopt_node.exit:                          ; preds = %73
-  %79 = getelementptr inbounds i8, ptr %1, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %79, align 8
   br label %84
 
@@ -2475,7 +2475,7 @@ php_dom_adopt_node.exit:                          ; preds = %73
   %82 = add i32 %81, 1
   store i32 %82, ptr %15, align 4
   store ptr %15, ptr %1, align 8
-  %83 = getelementptr inbounds i8, ptr %1, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 776, ptr %83, align 8
   br label %84
 
@@ -2485,7 +2485,7 @@ php_dom_adopt_node.exit:                          ; preds = %73
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_DOM_Document_normalizeDocument(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -2498,7 +2498,7 @@ define hidden void @zim_DOM_Document_normalizeDocument(ptr nocapture noundef rea
   br label %30
 
 .critedge:                                        ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 -24
   %11 = load ptr, ptr %10, align 8
@@ -2506,11 +2506,11 @@ define hidden void @zim_DOM_Document_normalizeDocument(ptr nocapture noundef rea
   br i1 %12, label %13, label %21
 
 13:                                               ; preds = %.critedge
-  %14 = getelementptr inbounds i8, ptr %9, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef nonnull %18) #11
   %19 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %20 = icmp ne ptr %19, null
@@ -2525,7 +2525,7 @@ define hidden void @zim_DOM_Document_normalizeDocument(ptr nocapture noundef rea
   br i1 %.not11, label %29, label %25
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %24, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %27 = load i64, ptr %26, align 8
   %28 = add i64 %27, 1
   store i64 %28, ptr %26, align 8
@@ -2550,8 +2550,8 @@ define hidden void @zim_DOMDocument___construct(ptr nocapture noundef readonly %
   store ptr null, ptr %4, align 8
   store i64 0, ptr %5, align 8
   store i64 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
-  %8 = getelementptr inbounds i8, ptr %0, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %9 = load i32, ptr %8, align 4
   %10 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %9, ptr noundef nonnull @.str.17, ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %3, ptr noundef nonnull %5) #11
   %11 = icmp eq i32 %10, -1
@@ -2581,7 +2581,7 @@ define hidden void @zim_DOMDocument___construct(ptr nocapture noundef readonly %
 21:                                               ; preds = %19
   %22 = load ptr, ptr %3, align 8
   %23 = call ptr @xmlStrdup(ptr noundef %22) #11
-  %24 = getelementptr inbounds i8, ptr %17, i64 112
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 112
   store ptr %23, ptr %24, align 8
   br label %25
 
@@ -2646,14 +2646,14 @@ define hidden ptr @_dom_get_valid_file_path(ptr noundef %0, ptr noundef %1, i32 
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %0, i64 7
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 7
   br label %.thread
 
 16:                                               ; preds = %11
   %17 = tail call i32 @strncasecmp(ptr noundef %0, ptr noundef nonnull @.str.20, i64 noundef 17) #12
   %18 = icmp eq i32 %17, 0
   %spec.select.idx = select i1 %18, i64 16, i64 0
-  %spec.select = getelementptr inbounds i8, ptr %0, i64 %spec.select.idx
+  %spec.select = getelementptr inbounds nuw i8, ptr %0, i64 %spec.select.idx
   br i1 %18, label %.thread, label %.sink.split
 
 .thread:                                          ; preds = %14, %6, %16
@@ -2708,19 +2708,19 @@ define hidden ptr @dom_document_parser(ptr noundef readonly %0, i32 noundef %1, 
 13:                                               ; preds = %6, %9
   %.sink = phi ptr [ %12, %9 ], [ null, %6 ]
   %14 = tail call ptr @dom_get_doc_props_read_only(ptr noundef %.sink) #11
-  %15 = getelementptr inbounds i8, ptr %14, i64 9
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 9
   %16 = load i8, ptr %15, align 1
   %17 = trunc i8 %16 to i1
-  %18 = getelementptr inbounds i8, ptr %14, i64 10
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 10
   %19 = load i8, ptr %18, align 2
   %20 = trunc i8 %19 to i1
-  %21 = getelementptr inbounds i8, ptr %14, i64 11
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 11
   %22 = load i8, ptr %21, align 1
   %23 = and i8 %22, 1
-  %24 = getelementptr inbounds i8, ptr %14, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %25 = load i8, ptr %24, align 4
   %26 = trunc i8 %25 to i1
-  %27 = getelementptr inbounds i8, ptr %14, i64 14
+  %27 = getelementptr inbounds nuw i8, ptr %14, i64 14
   %28 = load i8, ptr %27, align 2
   %29 = trunc i8 %28 to i1
   %30 = and i64 %4, 1
@@ -2776,7 +2776,7 @@ define hidden ptr @dom_document_parser(ptr noundef readonly %0, i32 noundef %1, 
   br i1 %.not95, label %71, label %53
 
 53:                                               ; preds = %51
-  %54 = getelementptr inbounds i8, ptr %.083, i64 280
+  %54 = getelementptr inbounds nuw i8, ptr %.083, i64 280
   %55 = load ptr, ptr %54, align 8
   %.not96 = icmp eq ptr %55, null
   br i1 %.not96, label %58, label %56
@@ -2812,19 +2812,19 @@ define hidden ptr @dom_document_parser(ptr noundef readonly %0, i32 noundef %1, 
   br label %71
 
 71:                                               ; preds = %51, %69, %50
-  %72 = getelementptr inbounds i8, ptr %.083, i64 168
+  %72 = getelementptr inbounds nuw i8, ptr %.083, i64 168
   store ptr @php_libxml_ctx_error, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %.083, i64 176
+  %73 = getelementptr inbounds nuw i8, ptr %.083, i64 176
   store ptr @php_libxml_ctx_warning, ptr %73, align 8
   %74 = load ptr, ptr %.083, align 8
   %.not100 = icmp eq ptr %74, null
   br i1 %.not100, label %79, label %75
 
 75:                                               ; preds = %71
-  %76 = getelementptr inbounds i8, ptr %74, i64 176
+  %76 = getelementptr inbounds nuw i8, ptr %74, i64 176
   store ptr @php_libxml_ctx_error, ptr %76, align 8
   %77 = load ptr, ptr %.083, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 168
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 168
   store ptr @php_libxml_ctx_warning, ptr %78, align 8
   br label %79
 
@@ -2850,23 +2850,23 @@ define hidden ptr @dom_document_parser(ptr noundef readonly %0, i32 noundef %1, 
   %or.cond111 = and i1 %86, %.not104
   %88 = or disjoint i64 %.2, 256
   %.3 = select i1 %or.cond111, i64 %88, i64 %.2
-  %89 = getelementptr inbounds i8, ptr %.083, i64 432
+  %89 = getelementptr inbounds nuw i8, ptr %.083, i64 432
   store i32 0, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %.083, i64 156
+  %90 = getelementptr inbounds nuw i8, ptr %.083, i64 156
   store i32 0, ptr %90, align 4
-  %91 = getelementptr inbounds i8, ptr %.083, i64 420
+  %91 = getelementptr inbounds nuw i8, ptr %.083, i64 420
   store i32 0, ptr %91, align 4
-  %92 = getelementptr inbounds i8, ptr %.083, i64 28
+  %92 = getelementptr inbounds nuw i8, ptr %.083, i64 28
   store i32 0, ptr %92, align 4
-  %93 = getelementptr inbounds i8, ptr %.083, i64 436
+  %93 = getelementptr inbounds nuw i8, ptr %.083, i64 436
   store i32 0, ptr %93, align 4
-  %94 = getelementptr inbounds i8, ptr %.083, i64 328
+  %94 = getelementptr inbounds nuw i8, ptr %.083, i64 328
   store i32 1, ptr %94, align 8
-  %95 = getelementptr inbounds i8, ptr %.083, i64 564
+  %95 = getelementptr inbounds nuw i8, ptr %.083, i64 564
   store i32 0, ptr %95, align 4
   %96 = trunc i64 %.3 to i32
   %97 = call i32 @xmlCtxtUseOptions(ptr noundef nonnull %.083, i32 noundef %96) #11
-  %98 = getelementptr inbounds i8, ptr %.083, i64 448
+  %98 = getelementptr inbounds nuw i8, ptr %.083, i64 448
   store i32 %33, ptr %98, align 8
   br i1 %32, label %99, label %102
 
@@ -2879,11 +2879,11 @@ define hidden ptr @dom_document_parser(ptr noundef readonly %0, i32 noundef %1, 
 102:                                              ; preds = %99, %79
   %.082 = phi i32 [ %100, %99 ], [ 0, %79 ]
   %103 = call i32 @xmlParseDocument(ptr noundef nonnull %.083) #11
-  %104 = getelementptr inbounds i8, ptr %.083, i64 24
+  %104 = getelementptr inbounds nuw i8, ptr %.083, i64 24
   %105 = load i32, ptr %104, align 8
   %106 = icmp ne i32 %105, 0
   %or.cond = select i1 %106, i1 true, i1 %32
-  %107 = getelementptr inbounds i8, ptr %.083, i64 16
+  %107 = getelementptr inbounds nuw i8, ptr %.083, i64 16
   %108 = load ptr, ptr %107, align 8
   br i1 %or.cond, label %109, label %122
 
@@ -2901,13 +2901,13 @@ define hidden ptr @dom_document_parser(ptr noundef readonly %0, i32 noundef %1, 
   br i1 %.not106, label %123, label %113
 
 113:                                              ; preds = %112
-  %114 = getelementptr inbounds i8, ptr %108, i64 136
+  %114 = getelementptr inbounds nuw i8, ptr %108, i64 136
   %115 = load ptr, ptr %114, align 8
   %116 = icmp eq ptr %115, null
   br i1 %116, label %117, label %123
 
 117:                                              ; preds = %113
-  %118 = getelementptr inbounds i8, ptr %.083, i64 280
+  %118 = getelementptr inbounds nuw i8, ptr %.083, i64 280
   %119 = load ptr, ptr %118, align 8
   %.not107 = icmp eq ptr %119, null
   br i1 %.not107, label %123, label %120
@@ -2971,8 +2971,8 @@ define internal fastcc void @dom_parse_document(ptr noundef %0, ptr nocapture no
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   store i64 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
-  %8 = getelementptr inbounds i8, ptr %0, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %9 = load i32, ptr %8, align 4
   %10 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %9, ptr noundef nonnull @.str.38, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #11
   %11 = icmp eq i32 %10, -1
@@ -3002,7 +3002,7 @@ define internal fastcc void @dom_parse_document(ptr noundef %0, ptr nocapture no
 
 22:                                               ; preds = %20
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.39) #11
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %23, align 8
   br label %32
 
@@ -3014,7 +3014,7 @@ define internal fastcc void @dom_parse_document(ptr noundef %0, ptr nocapture no
 
 27:                                               ; preds = %24
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.40) #11
-  %28 = getelementptr inbounds i8, ptr %1, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %28, align 8
   br label %32
 
@@ -3041,8 +3041,8 @@ define hidden void @zim_DOMDocument_save(ptr nocapture noundef readonly %0, ptr 
   %5 = alloca i64, align 8
   store i64 0, ptr %3, align 8
   store i64 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4
   %9 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %8, ptr noundef nonnull @.str.22, ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef nonnull %5) #11
   %10 = icmp eq i32 %9, -1
@@ -3074,11 +3074,11 @@ define hidden void @zim_DOMDocument_save(ptr nocapture noundef readonly %0, ptr 
   br i1 %24, label %25, label %33
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %21, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef nonnull %30) #11
   %31 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %32 = icmp ne ptr %31, null
@@ -3090,7 +3090,7 @@ define hidden void @zim_DOMDocument_save(ptr nocapture noundef readonly %0, ptr 
   %35 = getelementptr inbounds i8, ptr %21, i64 -16
   %36 = load ptr, ptr %35, align 8
   %37 = call ptr @dom_get_doc_props_read_only(ptr noundef %36) #11
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load i8, ptr %38, align 8
   %40 = and i8 %39, 1
   %41 = zext nneg i8 %40 to i32
@@ -3125,14 +3125,14 @@ define hidden void @zim_DOMDocument_save(ptr nocapture noundef readonly %0, ptr 
   br i1 %56, label %57, label %59
 
 57:                                               ; preds = %55
-  %58 = getelementptr inbounds i8, ptr %1, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %58, align 8
   br label %62
 
 59:                                               ; preds = %55
   %60 = sext i32 %50 to i64
   store i64 %60, ptr %1, align 8
-  %61 = getelementptr inbounds i8, ptr %1, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %61, align 8
   br label %62
 
@@ -3150,7 +3150,7 @@ define hidden void @zim_DOMDocument_saveXML(ptr nocapture noundef readonly %0, p
   %4 = alloca i64, align 8
   store ptr null, ptr %3, align 8
   store i64 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %7 = load ptr, ptr @dom_node_class_entry, align 8
   %8 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %6, ptr noundef nonnull @.str.24, ptr noundef nonnull %3, ptr noundef %7, ptr noundef nonnull %4) #11
@@ -3164,7 +3164,7 @@ define hidden void @zim_DOMDocument_saveXML(ptr nocapture noundef readonly %0, p
   br label %116
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 -24
   %17 = load ptr, ptr %16, align 8
@@ -3172,11 +3172,11 @@ define hidden void @zim_DOMDocument_saveXML(ptr nocapture noundef readonly %0, p
   br i1 %18, label %19, label %27
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %15, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef nonnull %24) #11
   %25 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %26 = icmp ne ptr %25, null
@@ -3188,7 +3188,7 @@ define hidden void @zim_DOMDocument_saveXML(ptr nocapture noundef readonly %0, p
   %29 = getelementptr inbounds i8, ptr %15, i64 -16
   %30 = load ptr, ptr %29, align 8
   %31 = call ptr @dom_get_doc_props_read_only(ptr noundef %30) #11
-  %32 = getelementptr inbounds i8, ptr %31, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load i8, ptr %32, align 8
   %.mask = and i8 %33, 1
   %34 = zext nneg i8 %.mask to i32
@@ -3204,11 +3204,11 @@ define hidden void @zim_DOMDocument_saveXML(ptr nocapture noundef readonly %0, p
   br i1 %40, label %41, label %49
 
 41:                                               ; preds = %36
-  %42 = getelementptr inbounds i8, ptr %37, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef nonnull %46) #11
   %47 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %48 = icmp ne ptr %47, null
@@ -3217,7 +3217,7 @@ define hidden void @zim_DOMDocument_saveXML(ptr nocapture noundef readonly %0, p
 
 49:                                               ; preds = %36
   %50 = load ptr, ptr %39, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 64
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 64
   %52 = load ptr, ptr %51, align 8
   %.not119 = icmp eq ptr %52, %28
   br i1 %.not119, label %57, label %53
@@ -3226,7 +3226,7 @@ define hidden void @zim_DOMDocument_saveXML(ptr nocapture noundef readonly %0, p
   %54 = load ptr, ptr %29, align 8
   %55 = call i32 @dom_get_strict_error(ptr noundef %54) #11
   call void @php_dom_throw_error(i32 noundef 4, i32 noundef %55) #11
-  %56 = getelementptr inbounds i8, ptr %1, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %56, align 8
   br label %116
 
@@ -3237,7 +3237,7 @@ define hidden void @zim_DOMDocument_saveXML(ptr nocapture noundef readonly %0, p
 
 59:                                               ; preds = %57
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.25) #11
-  %60 = getelementptr inbounds i8, ptr %1, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %60, align 8
   br label %116
 
@@ -3262,7 +3262,7 @@ define hidden void @zim_DOMDocument_saveXML(ptr nocapture noundef readonly %0, p
 
 73:                                               ; preds = %71
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.25) #11
-  %74 = getelementptr inbounds i8, ptr %1, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %74, align 8
   br label %116
 
@@ -3280,7 +3280,7 @@ define hidden void @zim_DOMDocument_saveXML(ptr nocapture noundef readonly %0, p
   %83 = and i32 %82, 1
   %84 = call ptr @__xmlSaveNoEmptyTags() #11
   store i32 %83, ptr %84, align 4
-  %85 = getelementptr inbounds i8, ptr %28, i64 112
+  %85 = getelementptr inbounds nuw i8, ptr %28, i64 112
   %86 = load ptr, ptr %85, align 8
   %87 = call ptr @xmlSaveToBuffer(ptr noundef nonnull %72, ptr noundef %86, i32 noundef %.1) #11
   %88 = call ptr @__xmlSaveNoEmptyTags() #11
@@ -3291,7 +3291,7 @@ define hidden void @zim_DOMDocument_saveXML(ptr nocapture noundef readonly %0, p
 89:                                               ; preds = %75
   call void @xmlBufferFree(ptr noundef nonnull %72) #11
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.26) #11
-  %90 = getelementptr inbounds i8, ptr %1, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %90, align 8
   br label %116
 
@@ -3304,7 +3304,7 @@ define hidden void @zim_DOMDocument_saveXML(ptr nocapture noundef readonly %0, p
   %95 = call i32 @xmlSaveClose(ptr noundef nonnull %87) #11
   call void @xmlBufferFree(ptr noundef nonnull %72) #11
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.27) #11
-  %96 = getelementptr inbounds i8, ptr %1, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %96, align 8
   br label %116
 
@@ -3321,7 +3321,7 @@ define hidden void @zim_DOMDocument_saveXML(ptr nocapture noundef readonly %0, p
 
 102:                                              ; preds = %100
   call void @xmlBufferFree(ptr noundef nonnull %.0) #11
-  %103 = getelementptr inbounds i8, ptr %1, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %103, align 8
   br label %116
 
@@ -3332,18 +3332,18 @@ define hidden void @zim_DOMDocument_saveXML(ptr nocapture noundef readonly %0, p
   %108 = add nsw i64 %107, 32
   %109 = call noalias ptr @_emalloc(i64 noundef %108) #13
   store i32 1, ptr %109, align 4
-  %110 = getelementptr inbounds i8, ptr %109, i64 4
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 4
   store i32 22, ptr %110, align 4
-  %111 = getelementptr inbounds i8, ptr %109, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %109, i64 8
   store i64 0, ptr %111, align 8
-  %112 = getelementptr inbounds i8, ptr %109, i64 16
+  %112 = getelementptr inbounds nuw i8, ptr %109, i64 16
   store i64 %106, ptr %112, align 8
-  %113 = getelementptr inbounds i8, ptr %109, i64 24
+  %113 = getelementptr inbounds nuw i8, ptr %109, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %113, ptr nonnull align 1 %101, i64 %106, i1 false)
   %114 = getelementptr inbounds [1 x i8], ptr %113, i64 0, i64 %106
   store i8 0, ptr %114, align 1
   store ptr %109, ptr %1, align 8
-  %115 = getelementptr inbounds i8, ptr %1, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 262, ptr %115, align 8
   call void @xmlBufferFree(ptr noundef nonnull %.0) #11
   br label %116
@@ -3374,8 +3374,8 @@ declare i32 @xmlBufferLength(ptr noundef) local_unnamed_addr #1
 define hidden void @zim_DOMDocument_xinclude(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   store i64 0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %7 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %6, ptr noundef nonnull @.str.28, ptr noundef nonnull %3) #11
   %8 = icmp eq i32 %7, -1
@@ -3395,7 +3395,7 @@ define hidden void @zim_DOMDocument_xinclude(ptr nocapture noundef readonly %0, 
 
 15:                                               ; preds = %12
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.29) #11
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %16, align 8
   br label %68
 
@@ -3407,11 +3407,11 @@ define hidden void @zim_DOMDocument_xinclude(ptr nocapture noundef readonly %0, 
   br i1 %21, label %22, label %30
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %18, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef nonnull %27) #11
   %28 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %29 = icmp ne ptr %28, null
@@ -3443,14 +3443,14 @@ define hidden void @zim_DOMDocument_xinclude(ptr nocapture noundef readonly %0, 
   %48 = call i32 @xmlSubstituteEntitiesDefault(i32 noundef %39) #11
   %49 = call i32 @xmlLineNumbersDefault(i32 noundef %40) #11
   %50 = call i32 @xmlKeepBlanksDefault(i32 noundef %41) #11
-  %51 = getelementptr inbounds i8, ptr %31, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %.040 = load ptr, ptr %51, align 8
   %.not41 = icmp eq ptr %.040, null
   br i1 %.not41, label %.critedge38, label %.lr.ph
 
 .lr.ph:                                           ; preds = %30, %54
   %.042 = phi ptr [ %.0, %54 ], [ %.040, %30 ]
-  %52 = getelementptr inbounds i8, ptr %.042, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %.042, i64 8
   %53 = load i32, ptr %52, align 8
   switch i32 %53, label %54 [
     i32 1, label %.critedge
@@ -3458,7 +3458,7 @@ define hidden void @zim_DOMDocument_xinclude(ptr nocapture noundef readonly %0, 
   ]
 
 54:                                               ; preds = %.lr.ph
-  %55 = getelementptr inbounds i8, ptr %.042, i64 48
+  %55 = getelementptr inbounds nuw i8, ptr %.042, i64 48
   %.0 = load ptr, ptr %55, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %.critedge38, label %.lr.ph
@@ -3474,7 +3474,7 @@ define hidden void @zim_DOMDocument_xinclude(ptr nocapture noundef readonly %0, 
   br i1 %.not36, label %62, label %58
 
 58:                                               ; preds = %.critedge38
-  %59 = getelementptr inbounds i8, ptr %57, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %60 = load i64, ptr %59, align 8
   %61 = add i64 %60, 1
   store i64 %61, ptr %59, align 8
@@ -3487,12 +3487,12 @@ define hidden void @zim_DOMDocument_xinclude(ptr nocapture noundef readonly %0, 
 63:                                               ; preds = %62
   %64 = sext i32 %44 to i64
   store i64 %64, ptr %1, align 8
-  %65 = getelementptr inbounds i8, ptr %1, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %65, align 8
   br label %68
 
 66:                                               ; preds = %62
-  %67 = getelementptr inbounds i8, ptr %1, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %67, align 8
   br label %68
 
@@ -3521,7 +3521,7 @@ define internal fastcc void @php_dom_remove_xinclude_nodes(ptr noundef %0) unnam
 
 .lr.ph24:                                         ; preds = %1, %.critedge18
   %.023 = phi ptr [ %.2, %.critedge18 ], [ %0, %1 ]
-  %2 = getelementptr inbounds i8, ptr %.023, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %.023, i64 8
   %3 = load i32, ptr %2, align 8
   switch i32 %3, label %20 [
     i32 19, label %4
@@ -3529,7 +3529,7 @@ define internal fastcc void @php_dom_remove_xinclude_nodes(ptr noundef %0) unnam
   ]
 
 4:                                                ; preds = %.lr.ph24
-  %5 = getelementptr inbounds i8, ptr %.023, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %.023, i64 48
   %6 = load ptr, ptr %5, align 8
   tail call void @xmlUnlinkNode(ptr noundef nonnull %.023) #11
   tail call void @php_libxml_node_free_resource(ptr noundef nonnull %.023) #11
@@ -3538,7 +3538,7 @@ define internal fastcc void @php_dom_remove_xinclude_nodes(ptr noundef %0) unnam
 
 .lr.ph:                                           ; preds = %4, %12
   %.121 = phi ptr [ %14, %12 ], [ %6, %4 ]
-  %7 = getelementptr inbounds i8, ptr %.121, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %.121, i64 8
   %8 = load i32, ptr %7, align 8
   switch i32 %8, label %12 [
     i32 20, label %.critedge
@@ -3546,32 +3546,32 @@ define internal fastcc void @php_dom_remove_xinclude_nodes(ptr noundef %0) unnam
   ]
 
 9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds i8, ptr %.121, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %.121, i64 24
   %11 = load ptr, ptr %10, align 8
   tail call fastcc void @php_dom_remove_xinclude_nodes(ptr noundef %11)
   br label %12
 
 12:                                               ; preds = %.lr.ph, %9
-  %13 = getelementptr inbounds i8, ptr %.121, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %.121, i64 48
   %14 = load ptr, ptr %13, align 8
   %.not16 = icmp eq ptr %14, null
   br i1 %.not16, label %._crit_edge, label %.lr.ph
 
 .critedge:                                        ; preds = %.lr.ph
-  %15 = getelementptr inbounds i8, ptr %.121, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %.121, i64 48
   %16 = load ptr, ptr %15, align 8
   tail call void @xmlUnlinkNode(ptr noundef nonnull %.121) #11
   tail call void @php_libxml_node_free_resource(ptr noundef nonnull %.121) #11
   br label %.critedge18
 
 17:                                               ; preds = %.lr.ph24
-  %18 = getelementptr inbounds i8, ptr %.023, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %.023, i64 24
   %19 = load ptr, ptr %18, align 8
   tail call fastcc void @php_dom_remove_xinclude_nodes(ptr noundef %19)
   br label %20
 
 20:                                               ; preds = %.lr.ph24, %17
-  %21 = getelementptr inbounds i8, ptr %.023, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %.023, i64 48
   %22 = load ptr, ptr %21, align 8
   br label %.critedge18
 
@@ -3586,7 +3586,7 @@ define internal fastcc void @php_dom_remove_xinclude_nodes(ptr noundef %0) unnam
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_DOMDocument_validate(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -3599,7 +3599,7 @@ define hidden void @zim_DOMDocument_validate(ptr nocapture noundef readonly %0, 
   br label %44
 
 .critedge:                                        ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 -24
   %11 = load ptr, ptr %10, align 8
@@ -3607,11 +3607,11 @@ define hidden void @zim_DOMDocument_validate(ptr nocapture noundef readonly %0, 
   br i1 %12, label %13, label %21
 
 13:                                               ; preds = %.critedge
-  %14 = getelementptr inbounds i8, ptr %9, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef nonnull %18) #11
   %19 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %20 = icmp ne ptr %19, null
@@ -3634,14 +3634,14 @@ define hidden void @zim_DOMDocument_validate(ptr nocapture noundef readonly %0, 
   %32 = tail call i32 @xmlKeepBlanksDefault(i32 noundef 1) #11
   %33 = tail call ptr @xmlNewValidCtxt() #11
   store ptr null, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr @php_libxml_error_handler, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %33, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 16
   store ptr @php_libxml_error_handler, ptr %35, align 8
   %36 = tail call i32 @xmlValidateDocument(ptr noundef nonnull %33, ptr noundef %22) #11
   %.not19 = icmp eq i32 %36, 0
   %spec.select = select i1 %.not19, i32 2, i32 3
-  %37 = getelementptr inbounds i8, ptr %1, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %spec.select, ptr %37, align 8
   %38 = tail call ptr @__xmlLoadExtDtdDefaultValue() #11
   store i32 %24, ptr %38, align 4
@@ -3681,8 +3681,8 @@ define internal fastcc void @_dom_document_schema_validate(ptr nocapture noundef
   store ptr null, ptr %4, align 8
   store i64 0, ptr %5, align 8
   store i64 0, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
-  %9 = getelementptr inbounds i8, ptr %0, i64 44
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %10 = load i32, ptr %9, align 4
   %11 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %10, ptr noundef nonnull @.str.38, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #11
   %12 = icmp eq i32 %11, -1
@@ -3714,11 +3714,11 @@ define internal fastcc void @_dom_document_schema_validate(ptr nocapture noundef
   br i1 %25, label %26, label %34
 
 26:                                               ; preds = %21
-  %27 = getelementptr inbounds i8, ptr %22, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef nonnull %31) #11
   %32 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %33 = icmp ne ptr %32, null
@@ -3778,7 +3778,7 @@ define internal fastcc void @_dom_document_schema_validate(ptr nocapture noundef
   %65 = call i32 @xmlLineNumbersDefault(i32 noundef %43) #11
   %66 = call i32 @xmlKeepBlanksDefault(i32 noundef %44) #11
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.41) #11
-  %67 = getelementptr inbounds i8, ptr %1, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %67, align 8
   br label %117
 
@@ -3817,7 +3817,7 @@ define internal fastcc void @_dom_document_schema_validate(ptr nocapture noundef
   br label %84
 
 84:                                               ; preds = %83, %81
-  %85 = getelementptr inbounds i8, ptr %1, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %85, align 8
   br label %117
 
@@ -3865,7 +3865,7 @@ define internal fastcc void @_dom_document_schema_validate(ptr nocapture noundef
   %111 = call i32 @xmlLineNumbersDefault(i32 noundef %103) #11
   %112 = call i32 @xmlKeepBlanksDefault(i32 noundef %104) #11
   %113 = icmp eq i32 %106, 0
-  %114 = getelementptr inbounds i8, ptr %1, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br i1 %113, label %115, label %116
 
 115:                                              ; preds = %92
@@ -3899,8 +3899,8 @@ define internal fastcc void @_dom_document_relaxNG_validate(ptr nocapture nounde
   %6 = alloca [4097 x i8], align 16
   store ptr null, ptr %4, align 8
   store i64 0, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
-  %8 = getelementptr inbounds i8, ptr %0, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %9 = load i32, ptr %8, align 4
   %10 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %9, ptr noundef nonnull @.str.3, ptr noundef nonnull %4, ptr noundef nonnull %5) #11
   %11 = icmp eq i32 %10, -1
@@ -3932,11 +3932,11 @@ define internal fastcc void @_dom_document_relaxNG_validate(ptr nocapture nounde
   br i1 %24, label %25, label %33
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %21, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef nonnull %30) #11
   %31 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %32 = icmp ne ptr %31, null
@@ -3967,7 +3967,7 @@ define internal fastcc void @_dom_document_relaxNG_validate(ptr nocapture nounde
 
 42:                                               ; preds = %40
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.44) #11
-  %43 = getelementptr inbounds i8, ptr %1, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %43, align 8
   br label %81
 
@@ -4010,7 +4010,7 @@ define internal fastcc void @_dom_document_relaxNG_validate(ptr nocapture nounde
 
 67:                                               ; preds = %49
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.45) #11
-  %68 = getelementptr inbounds i8, ptr %1, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %68, align 8
   br label %81
 
@@ -4034,7 +4034,7 @@ define internal fastcc void @_dom_document_relaxNG_validate(ptr nocapture nounde
   call void @xmlRelaxNGFree(ptr noundef nonnull %60) #11
   call void @xmlRelaxNGFreeValidCtxt(ptr noundef nonnull %71) #11
   %77 = icmp eq i32 %76, 0
-  %78 = getelementptr inbounds i8, ptr %1, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br i1 %77, label %79, label %80
 
 79:                                               ; preds = %75
@@ -4067,8 +4067,8 @@ define internal fastcc void @dom_load_html(ptr nocapture noundef readonly %0, pt
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   store i64 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
-  %8 = getelementptr inbounds i8, ptr %0, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %9 = load i32, ptr %8, align 4
   %10 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %9, ptr noundef nonnull @.str.38, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #11
   %11 = icmp eq i32 %10, -1
@@ -4100,7 +4100,7 @@ define internal fastcc void @dom_load_html(ptr nocapture noundef readonly %0, pt
 
 23:                                               ; preds = %20
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.40) #11
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %24, align 8
   br label %69
 
@@ -4131,7 +4131,7 @@ define internal fastcc void @dom_load_html(ptr nocapture noundef readonly %0, pt
 
 36:                                               ; preds = %34
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.39) #11
-  %37 = getelementptr inbounds i8, ptr %1, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %37, align 8
   br label %69
 
@@ -4147,41 +4147,41 @@ define internal fastcc void @dom_load_html(ptr nocapture noundef readonly %0, pt
   br i1 %.not33, label %43, label %45
 
 43:                                               ; preds = %42
-  %44 = getelementptr inbounds i8, ptr %1, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %44, align 8
   br label %69
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %.0, i64 168
+  %46 = getelementptr inbounds nuw i8, ptr %.0, i64 168
   store ptr @php_libxml_ctx_error, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %.0, i64 176
+  %47 = getelementptr inbounds nuw i8, ptr %.0, i64 176
   store ptr @php_libxml_ctx_warning, ptr %47, align 8
   %48 = load ptr, ptr %.0, align 8
   %.not34 = icmp eq ptr %48, null
   br i1 %.not34, label %53, label %49
 
 49:                                               ; preds = %45
-  %50 = getelementptr inbounds i8, ptr %48, i64 176
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 176
   store ptr @php_libxml_ctx_error, ptr %50, align 8
   %51 = load ptr, ptr %.0, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 168
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 168
   store ptr @php_libxml_ctx_warning, ptr %52, align 8
   br label %53
 
 53:                                               ; preds = %49, %45
-  %54 = getelementptr inbounds i8, ptr %.0, i64 432
+  %54 = getelementptr inbounds nuw i8, ptr %.0, i64 432
   store i32 0, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %.0, i64 156
+  %55 = getelementptr inbounds nuw i8, ptr %.0, i64 156
   store i32 0, ptr %55, align 4
-  %56 = getelementptr inbounds i8, ptr %.0, i64 420
+  %56 = getelementptr inbounds nuw i8, ptr %.0, i64 420
   store i32 0, ptr %56, align 4
-  %57 = getelementptr inbounds i8, ptr %.0, i64 28
+  %57 = getelementptr inbounds nuw i8, ptr %.0, i64 28
   store i32 0, ptr %57, align 4
-  %58 = getelementptr inbounds i8, ptr %.0, i64 436
+  %58 = getelementptr inbounds nuw i8, ptr %.0, i64 436
   store i32 0, ptr %58, align 4
-  %59 = getelementptr inbounds i8, ptr %.0, i64 328
+  %59 = getelementptr inbounds nuw i8, ptr %.0, i64 328
   store i32 1, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %.0, i64 564
+  %60 = getelementptr inbounds nuw i8, ptr %.0, i64 564
   store i32 0, ptr %60, align 4
   %61 = load i64, ptr %6, align 8
   %.not35 = icmp eq i64 %61, 0
@@ -4194,7 +4194,7 @@ define internal fastcc void @dom_load_html(ptr nocapture noundef readonly %0, pt
 
 65:                                               ; preds = %62, %53
   %66 = call i32 @htmlParseDocument(ptr noundef nonnull %.0) #11
-  %67 = getelementptr inbounds i8, ptr %.0, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %68 = load ptr, ptr %67, align 8
   call void @htmlFreeParserCtxt(ptr noundef nonnull %.0) #11
   call fastcc void @php_dom_finish_loading_document(ptr noundef nonnull %7, ptr noundef %1, ptr noundef %68)
@@ -4214,8 +4214,8 @@ define hidden void @zim_DOMDocument_loadHTML(ptr nocapture noundef readonly %0, 
 define hidden void @zim_DOMDocument_saveHTMLFile(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
-  %6 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4
   %8 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %7, ptr noundef nonnull @.str.30, ptr noundef nonnull %4, ptr noundef nonnull %3) #11
   %9 = icmp eq i32 %8, -1
@@ -4247,11 +4247,11 @@ define hidden void @zim_DOMDocument_saveHTMLFile(ptr nocapture noundef readonly 
   br i1 %23, label %24, label %32
 
 24:                                               ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %20, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef nonnull %29) #11
   %30 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %31 = icmp ne ptr %30, null
@@ -4264,7 +4264,7 @@ define hidden void @zim_DOMDocument_saveHTMLFile(ptr nocapture noundef readonly 
   %35 = getelementptr inbounds i8, ptr %20, i64 -16
   %36 = load ptr, ptr %35, align 8
   %37 = call ptr @dom_get_doc_props_read_only(ptr noundef %36) #11
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load i8, ptr %38, align 8
   %40 = and i8 %39, 1
   %41 = zext nneg i8 %40 to i32
@@ -4274,14 +4274,14 @@ define hidden void @zim_DOMDocument_saveHTMLFile(ptr nocapture noundef readonly 
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %32
-  %46 = getelementptr inbounds i8, ptr %1, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %46, align 8
   br label %50
 
 47:                                               ; preds = %32
   %48 = sext i32 %43 to i64
   store i64 %48, ptr %1, align 8
-  %49 = getelementptr inbounds i8, ptr %1, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %49, align 8
   br label %50
 
@@ -4300,7 +4300,7 @@ define hidden void @zim_DOMDocument_saveHTML(ptr nocapture noundef readonly %0, 
   %5 = alloca i32, align 4
   store ptr null, ptr %3, align 8
   store ptr null, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4
   %8 = load ptr, ptr @dom_node_class_entry, align 8
   %9 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %7, ptr noundef nonnull @.str.31, ptr noundef nonnull %3, ptr noundef %8) #11
@@ -4314,7 +4314,7 @@ define hidden void @zim_DOMDocument_saveHTML(ptr nocapture noundef readonly %0, 
   br label %122
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 -24
   %18 = load ptr, ptr %17, align 8
@@ -4322,11 +4322,11 @@ define hidden void @zim_DOMDocument_saveHTML(ptr nocapture noundef readonly %0, 
   br i1 %19, label %20, label %28
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %16, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef nonnull %25) #11
   %26 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %27 = icmp ne ptr %26, null
@@ -4338,7 +4338,7 @@ define hidden void @zim_DOMDocument_saveHTML(ptr nocapture noundef readonly %0, 
   %30 = getelementptr inbounds i8, ptr %16, i64 -16
   %31 = load ptr, ptr %30, align 8
   %32 = call ptr @dom_get_doc_props(ptr noundef %31) #11
-  %33 = getelementptr inbounds i8, ptr %32, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load i8, ptr %33, align 8
   %35 = and i8 %34, 1
   %36 = zext nneg i8 %35 to i32
@@ -4354,11 +4354,11 @@ define hidden void @zim_DOMDocument_saveHTML(ptr nocapture noundef readonly %0, 
   br i1 %42, label %43, label %51
 
 43:                                               ; preds = %38
-  %44 = getelementptr inbounds i8, ptr %39, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef nonnull %48) #11
   %49 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %50 = icmp ne ptr %49, null
@@ -4367,7 +4367,7 @@ define hidden void @zim_DOMDocument_saveHTML(ptr nocapture noundef readonly %0, 
 
 51:                                               ; preds = %38
   %52 = load ptr, ptr %41, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 64
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 64
   %54 = load ptr, ptr %53, align 8
   %.not174 = icmp eq ptr %54, %29
   br i1 %.not174, label %59, label %55
@@ -4376,7 +4376,7 @@ define hidden void @zim_DOMDocument_saveHTML(ptr nocapture noundef readonly %0, 
   %56 = load ptr, ptr %30, align 8
   %57 = call i32 @dom_get_strict_error(ptr noundef %56) #11
   call void @php_dom_throw_error(i32 noundef 4, i32 noundef %57) #11
-  %58 = getelementptr inbounds i8, ptr %1, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %58, align 8
   br label %122
 
@@ -4387,7 +4387,7 @@ define hidden void @zim_DOMDocument_saveHTML(ptr nocapture noundef readonly %0, 
 
 61:                                               ; preds = %59
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.25) #11
-  %62 = getelementptr inbounds i8, ptr %1, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %62, align 8
   br label %122
 
@@ -4399,28 +4399,28 @@ define hidden void @zim_DOMDocument_saveHTML(ptr nocapture noundef readonly %0, 
 65:                                               ; preds = %63
   call void @xmlBufferFree(ptr noundef nonnull %60) #11
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.32) #11
-  %66 = getelementptr inbounds i8, ptr %1, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %66, align 8
   br label %122
 
 67:                                               ; preds = %63
-  %68 = getelementptr inbounds i8, ptr %52, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %69 = load i32, ptr %68, align 8
   %70 = icmp eq i32 %69, 11
   br i1 %70, label %71, label %78
 
 71:                                               ; preds = %67
-  %72 = getelementptr inbounds i8, ptr %52, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %.0181 = load ptr, ptr %72, align 8
   %.not177182 = icmp eq ptr %.0181, null
   br i1 %.not177182, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %71
-  %73 = getelementptr inbounds i8, ptr %64, i64 52
+  %73 = getelementptr inbounds nuw i8, ptr %64, i64 52
   br label %76
 
 74:                                               ; preds = %76
-  %75 = getelementptr inbounds i8, ptr %.0183, i64 48
+  %75 = getelementptr inbounds nuw i8, ptr %.0183, i64 48
   %.0 = load ptr, ptr %75, align 8
   %.not177 = icmp eq ptr %.0, null
   br i1 %.not177, label %.loopexit, label %76
@@ -4437,7 +4437,7 @@ define hidden void @zim_DOMDocument_saveHTML(ptr nocapture noundef readonly %0, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %76, %74, %71, %78
-  %79 = getelementptr inbounds i8, ptr %64, i64 52
+  %79 = getelementptr inbounds nuw i8, ptr %64, i64 52
   %80 = load i32, ptr %79, align 4
   %.not179 = icmp eq i32 %80, 0
   br i1 %.not179, label %81, label %96
@@ -4457,13 +4457,13 @@ define hidden void @zim_DOMDocument_saveHTML(ptr nocapture noundef readonly %0, 
   %89 = add nsw i64 %88, 32
   %90 = call noalias ptr @_emalloc(i64 noundef %89) #13
   store i32 1, ptr %90, align 4
-  %91 = getelementptr inbounds i8, ptr %90, i64 4
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 4
   store i32 22, ptr %91, align 4
-  %92 = getelementptr inbounds i8, ptr %90, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %90, i64 8
   store i64 0, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %90, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %90, i64 16
   store i64 %87, ptr %93, align 8
-  %94 = getelementptr inbounds i8, ptr %90, i64 24
+  %94 = getelementptr inbounds nuw i8, ptr %90, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %94, ptr align 1 %86, i64 %87, i1 false)
   %95 = getelementptr inbounds [1 x i8], ptr %94, i64 0, i64 %87
   store i8 0, ptr %95, align 1
@@ -4476,7 +4476,7 @@ define hidden void @zim_DOMDocument_saveHTML(ptr nocapture noundef readonly %0, 
 
 97:                                               ; preds = %81, %84, %96
   %.sink = phi i32 [ 262, %84 ], [ 2, %96 ], [ 2, %81 ]
-  %98 = getelementptr inbounds i8, ptr %1, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %.sink, ptr %98, align 8
   %99 = call i32 @xmlOutputBufferClose(ptr noundef nonnull %64) #11
   call void @xmlBufferFree(ptr noundef nonnull %60) #11
@@ -4493,7 +4493,7 @@ define hidden void @zim_DOMDocument_saveHTML(ptr nocapture noundef readonly %0, 
   br i1 %or.cond, label %107, label %105
 
 105:                                              ; preds = %100
-  %106 = getelementptr inbounds i8, ptr %1, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %106, align 8
   br label %118
 
@@ -4503,18 +4503,18 @@ define hidden void @zim_DOMDocument_saveHTML(ptr nocapture noundef readonly %0, 
   %110 = add nsw i64 %109, 32
   %111 = call noalias ptr @_emalloc(i64 noundef %110) #13
   store i32 1, ptr %111, align 4
-  %112 = getelementptr inbounds i8, ptr %111, i64 4
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 4
   store i32 22, ptr %112, align 4
-  %113 = getelementptr inbounds i8, ptr %111, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %111, i64 8
   store i64 0, ptr %113, align 8
-  %114 = getelementptr inbounds i8, ptr %111, i64 16
+  %114 = getelementptr inbounds nuw i8, ptr %111, i64 16
   store i64 %108, ptr %114, align 8
-  %115 = getelementptr inbounds i8, ptr %111, i64 24
+  %115 = getelementptr inbounds nuw i8, ptr %111, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %115, ptr nonnull align 1 %103, i64 %108, i1 false)
   %116 = getelementptr inbounds [1 x i8], ptr %115, i64 0, i64 %108
   store i8 0, ptr %116, align 1
   store ptr %111, ptr %1, align 8
-  %117 = getelementptr inbounds i8, ptr %1, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 262, ptr %117, align 8
   %.pre = load ptr, ptr %4, align 8
   br label %118
@@ -4550,8 +4550,8 @@ define hidden void @zim_DOM_Document_registerNodeClass(ptr nocapture noundef rea
   %5 = load ptr, ptr @dom_node_class_entry, align 8
   store ptr %5, ptr %3, align 8
   store ptr null, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4
   %9 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %8, ptr noundef nonnull @.str.34, ptr noundef nonnull %3, ptr noundef nonnull %4) #11
   %10 = icmp eq i32 %9, -1
@@ -4565,7 +4565,7 @@ define hidden void @zim_DOM_Document_registerNodeClass(ptr nocapture noundef rea
 
 14:                                               ; preds = %2
   %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 28
   %17 = load i32, ptr %16, align 4
   %18 = and i32 %17, 64
   %.not = icmp eq i32 %18, 0
@@ -4599,7 +4599,7 @@ define hidden void @zim_DOM_Document_registerNodeClass(ptr nocapture noundef rea
   br i1 %.not12, label %.critedge14, label %29
 
 29:                                               ; preds = %.critedge
-  %30 = getelementptr inbounds i8, ptr %28, i64 28
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 28
   %31 = load i32, ptr %30, align 4
   %32 = and i32 %31, 64
   %.not15 = icmp eq i32 %32, 0
@@ -4620,11 +4620,11 @@ define hidden void @zim_DOM_Document_registerNodeClass(ptr nocapture noundef rea
   br i1 %39, label %40, label %48
 
 40:                                               ; preds = %.critedge14
-  %41 = getelementptr inbounds i8, ptr %36, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef nonnull %45) #11
   %46 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %47 = icmp ne ptr %46, null
@@ -4636,19 +4636,19 @@ define hidden void @zim_DOM_Document_registerNodeClass(ptr nocapture noundef rea
   %50 = load ptr, ptr %49, align 8
   %51 = load ptr, ptr %3, align 8
   call void @dom_set_doc_classmap(ptr noundef %50, ptr noundef %51, ptr noundef %28) #11
-  %52 = getelementptr inbounds i8, ptr %1, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 3, ptr %52, align 8
   br label %62
 
 53:                                               ; preds = %26
   %54 = load ptr, ptr %3, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %58 = load ptr, ptr %4, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 24
   call void (ptr, i32, ptr, ...) @zend_argument_error(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.36, ptr noundef nonnull %57, ptr noundef nonnull %61) #11
   br label %62
 
@@ -4665,7 +4665,7 @@ define hidden void @zim_DOM_Document_replaceChildren(ptr nocapture noundef reado
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   store i32 0, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %7 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %6, ptr noundef nonnull @.str.37, ptr noundef nonnull %4, ptr noundef nonnull %3) #11
   %8 = icmp eq i32 %7, -1
@@ -4678,7 +4678,7 @@ define hidden void @zim_DOM_Document_replaceChildren(ptr nocapture noundef reado
   br label %29
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 -24
   %16 = load ptr, ptr %15, align 8
@@ -4686,11 +4686,11 @@ define hidden void @zim_DOM_Document_replaceChildren(ptr nocapture noundef reado
   br i1 %17, label %18, label %26
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %14, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef nonnull %23) #11
   %24 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %25 = icmp ne ptr %24, null
@@ -4736,14 +4736,14 @@ define internal fastcc void @php_dom_finish_loading_document(ptr nocapture nound
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %5, i64 -16
   %10 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
-  %11 = getelementptr inbounds i8, ptr %10, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 28
   %12 = load i8, ptr %11, align 4
   %13 = and i8 %12, 1
-  %14 = getelementptr inbounds i8, ptr %10, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %15 = load i64, ptr %14, align 8
   %16 = tail call i32 @php_libxml_decrement_node_ptr(ptr noundef nonnull %6) #11
   %17 = load ptr, ptr %9, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   store ptr null, ptr %18, align 8
   %20 = tail call i32 @php_libxml_decrement_doc_ref(ptr noundef nonnull %6) #11
@@ -4766,10 +4766,10 @@ define internal fastcc void @php_dom_finish_loading_document(ptr nocapture nound
 
 26:                                               ; preds = %22
   %27 = load ptr, ptr %23, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %.034, ptr %28, align 8
   %29 = load ptr, ptr %23, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 28
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 28
   store i8 %.033, ptr %30, align 4
   %31 = tail call i32 @php_libxml_increment_node_ptr(ptr noundef nonnull %6, ptr noundef nonnull %2, ptr noundef nonnull %6) #11
   %.not42 = icmp eq i64 %.1, 0
@@ -4777,14 +4777,14 @@ define internal fastcc void @php_dom_finish_loading_document(ptr nocapture nound
 
 32:                                               ; preds = %26
   %33 = load ptr, ptr %23, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   store i64 %.1, ptr %34, align 8
   %35 = load ptr, ptr %23, align 8
   %.not43 = icmp eq ptr %35, null
   br i1 %.not43, label %40, label %36
 
 36:                                               ; preds = %32
-  %37 = getelementptr inbounds i8, ptr %35, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %38 = load i64, ptr %37, align 8
   %39 = add i64 %38, 1
   store i64 %39, ptr %37, align 8
@@ -4792,7 +4792,7 @@ define internal fastcc void @php_dom_finish_loading_document(ptr nocapture nound
 
 40:                                               ; preds = %26, %32, %36, %22, %3
   %.sink = phi i32 [ 2, %3 ], [ 2, %22 ], [ 3, %36 ], [ 3, %32 ], [ 3, %26 ]
-  %41 = getelementptr inbounds i8, ptr %1, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %.sink, ptr %41, align 8
   ret void
 }

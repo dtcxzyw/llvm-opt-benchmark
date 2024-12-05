@@ -11,14 +11,14 @@ target triple = "x86_64-pc-linux-gnu"
 define i32 @pthread_join(i32 noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = load ptr, ptr @g_readytorun, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 16
   %7 = tail call i32 @nxsched_gettid() #2
   %8 = icmp eq i32 %0, %7
   br i1 %8, label %53, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %6, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %11 = tail call i32 @nxmutex_lock(ptr noundef nonnull %10) #2
   %12 = call i32 @pthread_findjoininfo(ptr noundef %6, i32 noundef %0, ptr noundef nonnull %3) #2
   %13 = icmp eq i32 %12, 0
@@ -26,7 +26,7 @@ define i32 @pthread_join(i32 noundef %0, ptr noundef writeonly %1) local_unnamed
 
 14:                                               ; preds = %9
   %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 9
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 9
   %17 = load i8, ptr %16, align 1
   %18 = trunc i8 %17 to i1
   br i1 %18, label %.sink.split, label %19
@@ -34,11 +34,11 @@ define i32 @pthread_join(i32 noundef %0, ptr noundef writeonly %1) local_unnamed
 19:                                               ; preds = %14
   %20 = call i32 @sched_lock() #2
   %21 = load ptr, ptr %3, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i8, ptr %22, align 8
   %24 = add i8 %23, 1
   store i8 %24, ptr %22, align 8
-  %25 = getelementptr inbounds i8, ptr %21, i64 10
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 10
   %26 = load i8, ptr %25, align 2
   %27 = trunc i8 %26 to i1
   br i1 %27, label %28, label %32
@@ -48,7 +48,7 @@ define i32 @pthread_join(i32 noundef %0, ptr noundef writeonly %1) local_unnamed
   br i1 %.not20, label %44, label %29
 
 29:                                               ; preds = %28
-  %30 = getelementptr inbounds i8, ptr %21, i64 80
+  %30 = getelementptr inbounds nuw i8, ptr %21, i64 80
   %31 = load ptr, ptr %30, align 8
   store ptr %31, ptr %1, align 8
   br label %44
@@ -56,20 +56,20 @@ define i32 @pthread_join(i32 noundef %0, ptr noundef writeonly %1) local_unnamed
 32:                                               ; preds = %19
   %33 = call i32 @nxmutex_unlock(ptr noundef nonnull %10) #2
   %34 = load ptr, ptr %3, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = call i32 @nxsem_wait_uninterruptible(ptr noundef nonnull %35) #2
   %.not = icmp eq ptr %1, null
   %.pre = load ptr, ptr %3, align 8
   br i1 %.not, label %40, label %37
 
 37:                                               ; preds = %32
-  %38 = getelementptr inbounds i8, ptr %.pre, i64 80
+  %38 = getelementptr inbounds nuw i8, ptr %.pre, i64 80
   %39 = load ptr, ptr %38, align 8
   store ptr %39, ptr %1, align 8
   br label %40
 
 40:                                               ; preds = %37, %32
-  %41 = getelementptr inbounds i8, ptr %.pre, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %.pre, i64 48
   %42 = call i32 @pthread_sem_give(ptr noundef nonnull %41) #2
   %43 = call i32 @nxmutex_lock(ptr noundef nonnull %10) #2
   br label %44
@@ -77,7 +77,7 @@ define i32 @pthread_join(i32 noundef %0, ptr noundef writeonly %1) local_unnamed
 44:                                               ; preds = %28, %29, %40
   %45 = call i32 @sched_unlock() #2
   %46 = load ptr, ptr %3, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load i8, ptr %47, align 8
   %49 = add i8 %48, -1
   store i8 %49, ptr %47, align 8

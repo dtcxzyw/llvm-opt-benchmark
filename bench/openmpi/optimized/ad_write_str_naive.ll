@@ -20,7 +20,7 @@ define void @ADIOI_GEN_WriteStrided_naive(ptr noundef %0, ptr noundef %1, i32 no
   %16 = alloca %struct.ompi_status_public_t, align 8
   store i32 0, ptr %7, align 4
   call void @ADIOI_Datatype_iscontig(ptr noundef %3, ptr noundef nonnull %14) #3
-  %17 = getelementptr inbounds i8, ptr %0, i64 120
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %18 = load ptr, ptr %17, align 8
   call void @ADIOI_Datatype_iscontig(ptr noundef %18, ptr noundef nonnull %15) #3
   %19 = load ptr, ptr %17, align 8
@@ -39,7 +39,7 @@ define void @ADIOI_GEN_WriteStrided_naive(ptr noundef %0, ptr noundef %1, i32 no
   %26 = call i32 @PMPI_Type_get_extent(ptr noundef %25, ptr noundef nonnull %11, ptr noundef nonnull %12) #3
   %27 = call i32 @PMPI_Type_size_x(ptr noundef %3, ptr noundef nonnull %10) #3
   %28 = call i32 @PMPI_Type_get_extent(ptr noundef %3, ptr noundef nonnull %11, ptr noundef nonnull %13) #3
-  %29 = getelementptr inbounds i8, ptr %0, i64 128
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %30 = load i64, ptr %29, align 8
   %31 = load i64, ptr %10, align 8
   %32 = sext i32 %2 to i64
@@ -57,12 +57,12 @@ define void @ADIOI_GEN_WriteStrided_naive(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %40, label %41, label %44
 
 41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %0, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %43 = load i64, ptr %42, align 8
   br label %49
 
 44:                                               ; preds = %38
-  %45 = getelementptr inbounds i8, ptr %0, i64 104
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %46 = load i64, ptr %45, align 8
   %47 = mul nsw i64 %30, %5
   %48 = add nsw i64 %46, %47
@@ -70,15 +70,15 @@ define void @ADIOI_GEN_WriteStrided_naive(ptr noundef %0, ptr noundef %1, i32 no
 
 49:                                               ; preds = %44, %41
   %50 = phi i64 [ %43, %41 ], [ %48, %44 ]
-  %51 = getelementptr inbounds i8, ptr %0, i64 216
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %52 = load i32, ptr %51, align 8
   %.not369 = icmp eq i32 %52, 0
   br i1 %.not369, label %64, label %53
 
 53:                                               ; preds = %49
-  %54 = getelementptr inbounds i8, ptr %0, i64 56
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 184
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 184
   %57 = load ptr, ptr %56, align 8
   %58 = call i32 %57(ptr noundef nonnull %0, i32 noundef 300) #3
   %.not370 = icmp eq i32 %58, 0
@@ -86,7 +86,7 @@ define void @ADIOI_GEN_WriteStrided_naive(ptr noundef %0, ptr noundef %1, i32 no
 
 59:                                               ; preds = %53
   %60 = load ptr, ptr %54, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 216
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 216
   %62 = load ptr, ptr %61, align 8
   %63 = call i32 %62(ptr noundef nonnull %0, i32 noundef 7, i32 noundef 1, i64 noundef %50, i32 noundef 0, i64 noundef %33) #3
   br label %64
@@ -96,10 +96,10 @@ define void @ADIOI_GEN_WriteStrided_naive(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %65, label %.preheader.lr.ph, label %._crit_edge433
 
 .preheader.lr.ph:                                 ; preds = %64
-  %66 = getelementptr inbounds i8, ptr %39, i64 8
-  %67 = getelementptr inbounds i8, ptr %39, i64 24
-  %68 = getelementptr inbounds i8, ptr %39, i64 16
-  %69 = getelementptr inbounds i8, ptr %0, i64 56
+  %66 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %39, i64 24
+  %68 = getelementptr inbounds nuw i8, ptr %39, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %70 = load i64, ptr %66, align 8
   %71 = icmp sgt i64 %70, 0
   br i1 %71, label %.preheader.preheader, label %._crit_edge433
@@ -126,12 +126,12 @@ define void @ADIOI_GEN_WriteStrided_naive(ptr noundef %0, ptr noundef %1, i32 no
   %76 = load i64, ptr %13, align 8
   %77 = mul nsw i64 %76, %indvars.iv459
   %78 = load ptr, ptr %67, align 8
-  %79 = getelementptr inbounds i64, ptr %78, i64 %indvars.iv456
+  %79 = getelementptr inbounds nuw i64, ptr %78, i64 %indvars.iv456
   %80 = load i64, ptr %79, align 8
-  %81 = getelementptr inbounds i64, ptr %75, i64 %indvars.iv456
+  %81 = getelementptr inbounds nuw i64, ptr %75, i64 %indvars.iv456
   %82 = load i64, ptr %81, align 8
   %83 = load ptr, ptr %69, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 24
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 24
   %85 = load ptr, ptr %84, align 8
   %86 = getelementptr i8, ptr %1, i64 %77
   %87 = getelementptr i8, ptr %86, i64 %80
@@ -143,7 +143,7 @@ define void @ADIOI_GEN_WriteStrided_naive(ptr noundef %0, ptr noundef %1, i32 no
 
 90:                                               ; preds = %74
   %91 = load ptr, ptr %68, align 8
-  %92 = getelementptr inbounds i64, ptr %91, i64 %indvars.iv456
+  %92 = getelementptr inbounds nuw i64, ptr %91, i64 %indvars.iv456
   %93 = load i64, ptr %92, align 8
   %94 = add nsw i64 %93, %.1312427
   %indvars.iv.next457 = add nuw nsw i64 %indvars.iv456, 1
@@ -165,9 +165,9 @@ define void @ADIOI_GEN_WriteStrided_naive(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %.not371, label %110, label %99
 
 99:                                               ; preds = %._crit_edge433
-  %100 = getelementptr inbounds i8, ptr %0, i64 56
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 184
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 184
   %103 = load ptr, ptr %102, align 8
   %104 = call i32 %103(ptr noundef nonnull %0, i32 noundef 300) #3
   %.not372 = icmp eq i32 %104, 0
@@ -175,7 +175,7 @@ define void @ADIOI_GEN_WriteStrided_naive(ptr noundef %0, ptr noundef %1, i32 no
 
 105:                                              ; preds = %99
   %106 = load ptr, ptr %100, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 216
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 216
   %108 = load ptr, ptr %107, align 8
   %109 = call i32 %108(ptr noundef nonnull %0, i32 noundef 6, i32 noundef 2, i64 noundef %50, i32 noundef 0, i64 noundef %33) #3
   br label %110
@@ -186,23 +186,23 @@ define void @ADIOI_GEN_WriteStrided_naive(ptr noundef %0, ptr noundef %1, i32 no
 111:                                              ; preds = %24
   %112 = load ptr, ptr %17, align 8
   %113 = call ptr @ADIOI_Flatten_and_find(ptr noundef %112) #3
-  %114 = getelementptr inbounds i8, ptr %0, i64 104
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %115 = load i64, ptr %114, align 8
   %116 = icmp eq i32 %4, 101
   br i1 %116, label %117, label %137
 
 117:                                              ; preds = %111
-  %118 = getelementptr inbounds i8, ptr %0, i64 40
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %119 = load i64, ptr %118, align 8
-  %120 = getelementptr inbounds i8, ptr %113, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %113, i64 8
   %121 = load i64, ptr %120, align 8
   %122 = icmp sgt i64 %121, 0
   %123 = load i64, ptr %12, align 8
   br i1 %122, label %.split.us, label %.loopexit379
 
 .split.us:                                        ; preds = %117
-  %124 = getelementptr inbounds i8, ptr %113, i64 16
-  %125 = getelementptr inbounds i8, ptr %113, i64 24
+  %124 = getelementptr inbounds nuw i8, ptr %113, i64 16
+  %125 = getelementptr inbounds nuw i8, ptr %113, i64 24
   %126 = load ptr, ptr %125, align 8
   %127 = load ptr, ptr %124, align 8
   br label %.lr.ph395.us
@@ -219,10 +219,10 @@ define void @ADIOI_GEN_WriteStrided_naive(ptr noundef %0, ptr noundef %1, i32 no
 
 130:                                              ; preds = %.lr.ph395.us, %136
   %indvars.iv452 = phi i64 [ 0, %.lr.ph395.us ], [ %indvars.iv.next453, %136 ]
-  %131 = getelementptr inbounds i64, ptr %126, i64 %indvars.iv452
+  %131 = getelementptr inbounds nuw i64, ptr %126, i64 %indvars.iv452
   %132 = load i64, ptr %131, align 8
   %.reass.us = add i64 %132, %invariant.op.us
-  %133 = getelementptr inbounds i64, ptr %127, i64 %indvars.iv452
+  %133 = getelementptr inbounds nuw i64, ptr %127, i64 %indvars.iv452
   %134 = load i64, ptr %133, align 8
   %135 = add nsw i64 %.reass.us, %134
   %.not368.us = icmp slt i64 %135, %119
@@ -242,20 +242,20 @@ define void @ADIOI_GEN_WriteStrided_naive(ptr noundef %0, ptr noundef %1, i32 no
   %140 = sdiv i64 %5, %139
   %141 = srem i64 %5, %139
   %142 = mul nsw i64 %141, %30
-  %143 = getelementptr inbounds i8, ptr %113, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %113, i64 8
   %144 = load i64, ptr %143, align 8
   %145 = icmp sgt i64 %144, 0
   br i1 %145, label %.lr.ph, label %.loopexit381
 
 .lr.ph:                                           ; preds = %137
-  %146 = getelementptr inbounds i8, ptr %113, i64 16
+  %146 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %147 = load ptr, ptr %146, align 8
   br label %148
 
 148:                                              ; preds = %.lr.ph, %162
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %162 ]
   %.0324392 = phi i64 [ 0, %.lr.ph ], [ %151, %162 ]
-  %149 = getelementptr inbounds i64, ptr %147, i64 %indvars.iv
+  %149 = getelementptr inbounds nuw i64, ptr %147, i64 %indvars.iv
   %150 = load i64, ptr %149, align 8
   %151 = add nsw i64 %150, %.0324392
   %152 = icmp sgt i64 %151, %142
@@ -264,9 +264,9 @@ define void @ADIOI_GEN_WriteStrided_naive(ptr noundef %0, ptr noundef %1, i32 no
 153:                                              ; preds = %148
   %154 = trunc nuw nsw i64 %indvars.iv to i32
   %155 = sub nsw i64 %151, %142
-  %156 = getelementptr inbounds i8, ptr %113, i64 24
+  %156 = getelementptr inbounds nuw i8, ptr %113, i64 24
   %157 = load ptr, ptr %156, align 8
-  %158 = getelementptr inbounds i64, ptr %157, i64 %indvars.iv
+  %158 = getelementptr inbounds nuw i64, ptr %157, i64 %indvars.iv
   %159 = load i64, ptr %158, align 8
   %160 = sub i64 %142, %.0324392
   %161 = add i64 %160, %159
@@ -305,9 +305,9 @@ define void @ADIOI_GEN_WriteStrided_naive(ptr noundef %0, ptr noundef %1, i32 no
 
 .lr.ph407:                                        ; preds = %.loopexit380
   %173 = add nsw i64 %170, -1
-  %174 = getelementptr inbounds i8, ptr %113, i64 24
+  %174 = getelementptr inbounds nuw i8, ptr %113, i64 24
   %175 = load ptr, ptr %174, align 8
-  %176 = getelementptr inbounds i8, ptr %113, i64 16
+  %176 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %177 = load ptr, ptr %176, align 8
   br label %178
 
@@ -345,15 +345,15 @@ define void @ADIOI_GEN_WriteStrided_naive(ptr noundef %0, ptr noundef %1, i32 no
 
 198:                                              ; preds = %._crit_edge, %.loopexit380
   %.0302.lcssa = phi i64 [ %197, %._crit_edge ], [ 0, %.loopexit380 ]
-  %199 = getelementptr inbounds i8, ptr %0, i64 216
+  %199 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %200 = load i32, ptr %199, align 8
   %.not358 = icmp eq i32 %200, 0
   br i1 %.not358, label %213, label %201
 
 201:                                              ; preds = %198
-  %202 = getelementptr inbounds i8, ptr %0, i64 56
+  %202 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %203 = load ptr, ptr %202, align 8
-  %204 = getelementptr inbounds i8, ptr %203, i64 184
+  %204 = getelementptr inbounds nuw i8, ptr %203, i64 184
   %205 = load ptr, ptr %204, align 8
   %206 = call i32 %205(ptr noundef nonnull %0, i32 noundef 300) #3
   %.not359 = icmp eq i32 %206, 0
@@ -361,7 +361,7 @@ define void @ADIOI_GEN_WriteStrided_naive(ptr noundef %0, ptr noundef %1, i32 no
 
 207:                                              ; preds = %201
   %208 = load ptr, ptr %202, align 8
-  %209 = getelementptr inbounds i8, ptr %208, i64 216
+  %209 = getelementptr inbounds nuw i8, ptr %208, i64 216
   %210 = load ptr, ptr %209, align 8
   %reass.sub = sub i64 %.0302.lcssa, %.0301
   %211 = add i64 %reass.sub, 1
@@ -380,10 +380,10 @@ define void @ADIOI_GEN_WriteStrided_naive(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %172, label %.lr.ph413, label %.loopexit374
 
 .lr.ph413:                                        ; preds = %.preheader376
-  %218 = getelementptr inbounds i8, ptr %0, i64 56
-  %219 = getelementptr inbounds i8, ptr %113, i64 24
-  %220 = getelementptr inbounds i8, ptr %113, i64 16
-  %221 = getelementptr inbounds i8, ptr %113, i64 8
+  %218 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %219 = getelementptr inbounds nuw i8, ptr %113, i64 24
+  %220 = getelementptr inbounds nuw i8, ptr %113, i64 16
+  %221 = getelementptr inbounds nuw i8, ptr %113, i64 8
   br label %222
 
 222:                                              ; preds = %.lr.ph413, %263
@@ -397,7 +397,7 @@ define void @ADIOI_GEN_WriteStrided_naive(ptr noundef %0, ptr noundef %1, i32 no
 
 223:                                              ; preds = %222
   %224 = load ptr, ptr %218, align 8
-  %225 = getelementptr inbounds i8, ptr %224, i64 24
+  %225 = getelementptr inbounds nuw i8, ptr %224, i64 24
   %226 = load ptr, ptr %225, align 8
   %227 = getelementptr inbounds i8, ptr %1, i64 %.1321409
   %228 = trunc i64 %.5308411 to i32
@@ -455,8 +455,8 @@ define void @ADIOI_GEN_WriteStrided_naive(ptr noundef %0, ptr noundef %1, i32 no
 
 265:                                              ; preds = %213
   %266 = call ptr @ADIOI_Flatten_and_find(ptr noundef %3) #3
-  %267 = getelementptr inbounds i8, ptr %266, i64 24
-  %268 = getelementptr inbounds i8, ptr %266, i64 16
+  %267 = getelementptr inbounds nuw i8, ptr %266, i64 24
+  %268 = getelementptr inbounds nuw i8, ptr %266, i64 16
   br i1 %172, label %.lr.ph424, label %.loopexit374
 
 .lr.ph424:                                        ; preds = %265
@@ -464,11 +464,11 @@ define void @ADIOI_GEN_WriteStrided_naive(ptr noundef %0, ptr noundef %1, i32 no
   %270 = load i64, ptr %269, align 8
   %271 = load ptr, ptr %267, align 8
   %272 = load i64, ptr %271, align 8
-  %273 = getelementptr inbounds i8, ptr %0, i64 56
-  %274 = getelementptr inbounds i8, ptr %113, i64 8
-  %275 = getelementptr inbounds i8, ptr %113, i64 24
-  %276 = getelementptr inbounds i8, ptr %113, i64 16
-  %277 = getelementptr inbounds i8, ptr %266, i64 8
+  %273 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %274 = getelementptr inbounds nuw i8, ptr %113, i64 8
+  %275 = getelementptr inbounds nuw i8, ptr %113, i64 24
+  %276 = getelementptr inbounds nuw i8, ptr %113, i64 16
+  %277 = getelementptr inbounds nuw i8, ptr %266, i64 8
   br label %278
 
 278:                                              ; preds = %.lr.ph424, %334
@@ -488,7 +488,7 @@ define void @ADIOI_GEN_WriteStrided_naive(ptr noundef %0, ptr noundef %1, i32 no
 
 281:                                              ; preds = %278
   %282 = load ptr, ptr %273, align 8
-  %283 = getelementptr inbounds i8, ptr %282, i64 24
+  %283 = getelementptr inbounds nuw i8, ptr %282, i64 24
   %284 = load ptr, ptr %283, align 8
   %285 = getelementptr inbounds i8, ptr %1, i64 %.0288421
   %286 = trunc i64 %280 to i32
@@ -582,9 +582,9 @@ define void @ADIOI_GEN_WriteStrided_naive(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %.not362, label %350, label %338
 
 338:                                              ; preds = %.loopexit374
-  %339 = getelementptr inbounds i8, ptr %0, i64 56
+  %339 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %340 = load ptr, ptr %339, align 8
-  %341 = getelementptr inbounds i8, ptr %340, i64 184
+  %341 = getelementptr inbounds nuw i8, ptr %340, i64 184
   %342 = load ptr, ptr %341, align 8
   %343 = call i32 %342(ptr noundef nonnull %0, i32 noundef 300) #3
   %.not363 = icmp eq i32 %343, 0
@@ -592,7 +592,7 @@ define void @ADIOI_GEN_WriteStrided_naive(ptr noundef %0, ptr noundef %1, i32 no
 
 344:                                              ; preds = %338
   %345 = load ptr, ptr %339, align 8
-  %346 = getelementptr inbounds i8, ptr %345, i64 216
+  %346 = getelementptr inbounds nuw i8, ptr %345, i64 216
   %347 = load ptr, ptr %346, align 8
   %reass.sub436 = sub i64 %.0302.lcssa, %.0301
   %348 = add i64 %reass.sub436, 1
@@ -604,12 +604,12 @@ define void @ADIOI_GEN_WriteStrided_naive(ptr noundef %0, ptr noundef %1, i32 no
 
 .sink.split:                                      ; preds = %350, %110
   %.5316.sink = phi i64 [ %.0311.lcssa, %110 ], [ %.5316, %350 ]
-  %351 = getelementptr inbounds i8, ptr %0, i64 40
+  %351 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %.5316.sink, ptr %351, align 8
   br label %352
 
 352:                                              ; preds = %.sink.split, %350, %110
-  %353 = getelementptr inbounds i8, ptr %0, i64 48
+  %353 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 -1, ptr %353, align 8
   %354 = call i32 @mca_io_romio_dist_MPIR_Status_set_bytes(ptr noundef %6, ptr noundef %3, i64 noundef %33) #3
   br label %.loopexit

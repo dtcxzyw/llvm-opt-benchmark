@@ -127,16 +127,16 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_112EquivOptPassD2Ev(ptr noundef nonnull align 8 dereferenceable(285) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_112EquivOptPassE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 248
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #12
-  %3 = getelementptr inbounds i8, ptr %0, i64 216
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #12
-  %4 = getelementptr inbounds i8, ptr %0, i64 184
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Yosys10ScriptPassE, i64 16), ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 152
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #12
-  %6 = getelementptr inbounds i8, ptr %0, i64 120
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #12
   tail call void @_ZN5Yosys4PassD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) #12
   ret void
@@ -165,9 +165,9 @@ define linkonce_odr void @_ZN5Yosys10ScriptPassC2ENSt7__cxx1112basic_stringIcSt1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Yosys10ScriptPassE, i64 16), ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 120
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 120
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #12
-  %9 = getelementptr inbounds i8, ptr %0, i64 152
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 152
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #12
   ret void
 
@@ -200,16 +200,16 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_112EquivOptPassD0Ev(ptr noundef nonnull align 8 dereferenceable(285) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_112EquivOptPassE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 248
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #12
-  %3 = getelementptr inbounds i8, ptr %0, i64 216
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #12
-  %4 = getelementptr inbounds i8, ptr %0, i64 184
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Yosys10ScriptPassE, i64 16), ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 152
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #12
-  %6 = getelementptr inbounds i8, ptr %0, i64 120
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #12
   tail call void @_ZN5Yosys4PassD2Ev(ptr noundef nonnull align 8 dereferenceable(285) %0) #12
   tail call void @_ZdlPv(ptr noundef nonnull %0) #13
@@ -260,13 +260,13 @@ define internal void @_ZN12_GLOBAL__N_112EquivOptPass4helpEv(ptr noundef nonnull
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN12_GLOBAL__N_112EquivOptPass11clear_flagsEv(ptr noundef nonnull align 8 dereferenceable(285) %0) unnamed_addr #4 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 184
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.28)
-  %4 = getelementptr inbounds i8, ptr %0, i64 216
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %5 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.28)
-  %6 = getelementptr inbounds i8, ptr %0, i64 248
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %7 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.28)
-  %8 = getelementptr inbounds i8, ptr %0, i64 280
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 280
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %8, i8 0, i64 5, i1 false)
   ret void
 }
@@ -286,13 +286,13 @@ define internal void @_ZN12_GLOBAL__N_112EquivOptPass7executeESt6vectorINSt7__cx
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #12
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
   invoke void %16(ptr noundef nonnull align 8 dereferenceable(285) %0)
           to label %.preheader unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .preheader:                                       ; preds = %3
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %1, align 8
   %20 = ptrtoint ptr %18 to i64
@@ -302,13 +302,13 @@ define internal void @_ZN12_GLOBAL__N_112EquivOptPass7executeESt6vectorINSt7__cx
   br i1 %23, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %24 = getelementptr inbounds i8, ptr %0, i64 283
-  %25 = getelementptr inbounds i8, ptr %0, i64 282
-  %26 = getelementptr inbounds i8, ptr %0, i64 284
-  %27 = getelementptr inbounds i8, ptr %0, i64 281
-  %28 = getelementptr inbounds i8, ptr %0, i64 280
-  %29 = getelementptr inbounds i8, ptr %0, i64 248
-  %30 = getelementptr inbounds i8, ptr %0, i64 216
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 283
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 282
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 284
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 281
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 216
   br label %31
 
 31:                                               ; preds = %.lr.ph, %124
@@ -530,7 +530,7 @@ define internal void @_ZN12_GLOBAL__N_112EquivOptPass7executeESt6vectorINSt7__cx
   br i1 %134, label %.lr.ph65, label %._crit_edge66
 
 .lr.ph65:                                         ; preds = %._crit_edge
-  %135 = getelementptr inbounds i8, ptr %0, i64 184
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 184
   br label %136
 
 136:                                              ; preds = %.lr.ph65, %158
@@ -600,12 +600,12 @@ define internal void @_ZN12_GLOBAL__N_112EquivOptPass7executeESt6vectorINSt7__cx
   br i1 %166, label %136, label %._crit_edge66, !llvm.loop !8
 
 ._crit_edge66:                                    ; preds = %158, %._crit_edge
-  %167 = getelementptr inbounds i8, ptr %0, i64 184
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %168 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %167) #12
   br i1 %168, label %.invoke, label %169
 
 169:                                              ; preds = %._crit_edge66
-  %170 = getelementptr inbounds i8, ptr %2, i64 272
+  %170 = getelementptr inbounds nuw i8, ptr %2, i64 272
   %171 = load ptr, ptr %170, align 8
   %172 = getelementptr inbounds i8, ptr %171, i64 -120
   %173 = load i8, ptr %172, align 8
@@ -613,13 +613,13 @@ define internal void @_ZN12_GLOBAL__N_112EquivOptPass7executeESt6vectorINSt7__cx
   br i1 %174, label %175, label %.invoke
 
 175:                                              ; preds = %169
-  %176 = getelementptr inbounds i8, ptr %0, i64 283
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 283
   %177 = load i8, ptr %176, align 1
   %178 = trunc i8 %177 to i1
   br i1 %178, label %179, label %184
 
 179:                                              ; preds = %175
-  %180 = getelementptr inbounds i8, ptr %0, i64 282
+  %180 = getelementptr inbounds nuw i8, ptr %0, i64 282
   %181 = load i8, ptr %180, align 2
   %182 = trunc i8 %181 to i1
   br i1 %182, label %.invoke, label %184
@@ -821,7 +821,7 @@ define internal void @_ZN12_GLOBAL__N_112EquivOptPass6scriptEv(ptr noundef nonnu
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #12
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #12
-  %90 = getelementptr inbounds i8, ptr %0, i64 284
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %91 = load i8, ptr %90, align 4
   %92 = trunc i8 %91 to i1
   br i1 %92, label %120, label %93
@@ -926,7 +926,7 @@ define internal void @_ZN12_GLOBAL__N_112EquivOptPass6scriptEv(ptr noundef nonnu
   br label %363
 
 120:                                              ; preds = %96, %89
-  %121 = getelementptr inbounds i8, ptr %0, i64 105
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 105
   %122 = load i8, ptr %121, align 1
   %123 = trunc i8 %122 to i1
   br i1 %123, label %124, label %132
@@ -965,7 +965,7 @@ define internal void @_ZN12_GLOBAL__N_112EquivOptPass6scriptEv(ptr noundef nonnu
   br label %363
 
 132:                                              ; preds = %120
-  %133 = getelementptr inbounds i8, ptr %0, i64 184
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 184
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %133)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #12
   invoke void @_ZN5Yosys10ScriptPass3runENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull %18, ptr noundef nonnull %19)
@@ -1166,12 +1166,12 @@ define internal void @_ZN12_GLOBAL__N_112EquivOptPass6scriptEv(ptr noundef nonnu
   br label %363
 
 184:                                              ; preds = %168, %163
-  %185 = getelementptr inbounds i8, ptr %0, i64 216
+  %185 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %186 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %185) #12
   br i1 %186, label %187, label %191
 
 187:                                              ; preds = %184
-  %188 = getelementptr inbounds i8, ptr %0, i64 105
+  %188 = getelementptr inbounds nuw i8, ptr %0, i64 105
   %189 = load i8, ptr %188, align 1
   %190 = trunc i8 %189 to i1
   br i1 %190, label %191, label %.critedge100.thread
@@ -1199,7 +1199,7 @@ define internal void @_ZN12_GLOBAL__N_112EquivOptPass6scriptEv(ptr noundef nonnu
 
 195:                                              ; preds = %.critedge100
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %40) #12
-  %196 = getelementptr inbounds i8, ptr %0, i64 105
+  %196 = getelementptr inbounds nuw i8, ptr %0, i64 105
   %197 = load i8, ptr %196, align 1
   %198 = trunc i8 %197 to i1
   br i1 %198, label %199, label %211
@@ -1288,13 +1288,13 @@ define internal void @_ZN12_GLOBAL__N_112EquivOptPass6scriptEv(ptr noundef nonnu
   br i1 %220, label %222, label %345
 
 222:                                              ; preds = %221
-  %223 = getelementptr inbounds i8, ptr %0, i64 282
+  %223 = getelementptr inbounds nuw i8, ptr %0, i64 282
   %224 = load i8, ptr %223, align 2
   %225 = trunc i8 %224 to i1
   br i1 %225, label %230, label %226
 
 226:                                              ; preds = %222
-  %227 = getelementptr inbounds i8, ptr %0, i64 105
+  %227 = getelementptr inbounds nuw i8, ptr %0, i64 105
   %228 = load i8, ptr %227, align 1
   %229 = trunc i8 %228 to i1
   br i1 %229, label %230, label %247
@@ -1365,13 +1365,13 @@ define internal void @_ZN12_GLOBAL__N_112EquivOptPass6scriptEv(ptr noundef nonnu
   br label %363
 
 247:                                              ; preds = %233, %226
-  %248 = getelementptr inbounds i8, ptr %0, i64 283
+  %248 = getelementptr inbounds nuw i8, ptr %0, i64 283
   %249 = load i8, ptr %248, align 1
   %250 = trunc i8 %249 to i1
   br i1 %250, label %255, label %251
 
 251:                                              ; preds = %247
-  %252 = getelementptr inbounds i8, ptr %0, i64 105
+  %252 = getelementptr inbounds nuw i8, ptr %0, i64 105
   %253 = load i8, ptr %252, align 1
   %254 = trunc i8 %253 to i1
   br i1 %254, label %255, label %267
@@ -1426,7 +1426,7 @@ define internal void @_ZN12_GLOBAL__N_112EquivOptPass6scriptEv(ptr noundef nonnu
 
 267:                                              ; preds = %258, %251
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %54) #12
-  %268 = getelementptr inbounds i8, ptr %0, i64 105
+  %268 = getelementptr inbounds nuw i8, ptr %0, i64 105
   %269 = load i8, ptr %268, align 1
   %270 = trunc i8 %269 to i1
   br i1 %270, label %271, label %275
@@ -1441,7 +1441,7 @@ define internal void @_ZN12_GLOBAL__N_112EquivOptPass6scriptEv(ptr noundef nonnu
   br label %344
 
 275:                                              ; preds = %267
-  %276 = getelementptr inbounds i8, ptr %0, i64 248
+  %276 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %277 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(32) %276)
           to label %278 unwind label %273
 
@@ -1512,7 +1512,7 @@ define internal void @_ZN12_GLOBAL__N_112EquivOptPass6scriptEv(ptr noundef nonnu
   br label %344
 
 297:                                              ; preds = %282
-  %298 = getelementptr inbounds i8, ptr %0, i64 281
+  %298 = getelementptr inbounds nuw i8, ptr %0, i64 281
   %299 = load i8, ptr %298, align 1
   %300 = trunc i8 %299 to i1
   br i1 %300, label %301, label %308
@@ -1610,7 +1610,7 @@ define internal void @_ZN12_GLOBAL__N_112EquivOptPass6scriptEv(ptr noundef nonnu
   br label %344
 
 325:                                              ; preds = %315
-  %326 = getelementptr inbounds i8, ptr %0, i64 280
+  %326 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %327 = load i8, ptr %326, align 8
   %328 = trunc i8 %327 to i1
   br i1 %328, label %329, label %336
@@ -1765,9 +1765,9 @@ declare void @_ZN5Yosys4PassC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Yosys10ScriptPassD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #3 comdat align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Yosys10ScriptPassE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 152
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #12
-  %3 = getelementptr inbounds i8, ptr %0, i64 120
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #12
   tail call void @_ZN5Yosys4PassD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #12
   ret void

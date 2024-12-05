@@ -103,7 +103,7 @@ define void @run_command_add_to_script(ptr noundef %0, ptr noundef %1) local_unn
   br i1 %.not29, label %33, label %27
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %26, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 1
   %29 = load i8, ptr %28, align 1
   store i8 0, ptr %28, align 1
   %30 = call ptr @xstrdup(ptr noundef nonnull %5) #11
@@ -202,7 +202,7 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #4
 define ptr @run_command(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca [2 x i32], align 8
   store i64 -1, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %8, label %6
@@ -216,17 +216,17 @@ define ptr @run_command(ptr nocapture noundef readonly %0) local_unnamed_addr #0
 
 8:                                                ; preds = %6, %1
   %9 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.run_command) #11
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load ptr, ptr %10, align 8
   store i32 127, ptr %11, align 4
   %12 = tail call ptr @xstrdup(ptr noundef nonnull @.str.5) #11
   br label %160
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.run_command, ptr noundef %15, ptr noundef nonnull %4) #11
-  %17 = getelementptr inbounds i8, ptr %0, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %18 = load ptr, ptr %17, align 8
   store i32 127, ptr %18, align 4
   %19 = tail call ptr @xstrdup(ptr noundef nonnull @.str.5) #11
@@ -238,18 +238,18 @@ define ptr @run_command(ptr nocapture noundef readonly %0) local_unnamed_addr #0
   br i1 %22, label %23, label %31
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %0, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %3, align 8
   %27 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.run_command, ptr noundef %25, ptr noundef %26) #11
-  %28 = getelementptr inbounds i8, ptr %0, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %29 = load ptr, ptr %28, align 8
   store i32 127, ptr %29, align 4
   %30 = tail call ptr @xstrdup(ptr noundef nonnull @.str.5) #11
   br label %160
 
 31:                                               ; preds = %20
-  %32 = getelementptr inbounds i8, ptr %0, i64 72
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %33 = load i8, ptr %32, align 8
   %34 = trunc i8 %33 to i1
   br i1 %34, label %42, label %35
@@ -261,7 +261,7 @@ define ptr @run_command(ptr nocapture noundef readonly %0) local_unnamed_addr #0
 
 37:                                               ; preds = %35
   %38 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.run_command) #11
-  %39 = getelementptr inbounds i8, ptr %0, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %40 = load ptr, ptr %39, align 8
   store i32 127, ptr %40, align 4
   %41 = call ptr @xstrdup(ptr noundef nonnull @.str.9) #11
@@ -314,7 +314,7 @@ define ptr @run_command(ptr nocapture noundef readonly %0) local_unnamed_addr #0
 
 63:                                               ; preds = %58
   %64 = call i32 @dup2(i32 noundef %59, i32 noundef 0) #11
-  %65 = getelementptr inbounds i8, ptr %2, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %66 = load i32, ptr %65, align 4
   %67 = call i32 @dup2(i32 noundef %66, i32 noundef 2) #11
   %68 = load i32, ptr %65, align 4
@@ -352,7 +352,7 @@ define ptr @run_command(ptr nocapture noundef readonly %0) local_unnamed_addr #0
   %84 = load ptr, ptr %0, align 8
   %.not83 = icmp eq ptr %84, null
   %85 = load ptr, ptr %3, align 8
-  %86 = getelementptr inbounds i8, ptr %0, i64 24
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %87 = load ptr, ptr %86, align 8
   br i1 %.not83, label %88, label %90
 
@@ -382,7 +382,7 @@ define ptr @run_command(ptr nocapture noundef readonly %0) local_unnamed_addr #0
 100:                                              ; preds = %99
   %101 = load i32, ptr %2, align 8
   %102 = call i32 @close(i32 noundef %101) #11
-  %103 = getelementptr inbounds i8, ptr %2, i64 4
+  %103 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %104 = load i32, ptr %103, align 4
   %105 = call i32 @close(i32 noundef %104) #11
   br label %106
@@ -417,10 +417,10 @@ define ptr @run_command(ptr nocapture noundef readonly %0) local_unnamed_addr #0
   br i1 %98, label %152, label %118
 
 118:                                              ; preds = %117
-  %119 = getelementptr inbounds i8, ptr %2, i64 4
+  %119 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %120 = load i32, ptr %119, align 4
   %121 = call i32 @close(i32 noundef %120) #11
-  %122 = getelementptr inbounds i8, ptr %0, i64 56
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %123 = load i64, ptr %122, align 8
   %.not75 = icmp eq i64 %123, 0
   br i1 %.not75, label %125, label %124
@@ -432,18 +432,18 @@ define ptr @run_command(ptr nocapture noundef readonly %0) local_unnamed_addr #0
 
 125:                                              ; preds = %124, %118
   %126 = phi i64 [ %.pre, %124 ], [ 0, %118 ]
-  %127 = getelementptr inbounds i8, ptr %0, i64 12
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %128 = load i32, ptr %127, align 4
-  %129 = getelementptr inbounds i8, ptr %0, i64 16
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %130 = load i8, ptr %129, align 8
   %131 = trunc i8 %130 to i1
   %132 = load i32, ptr %2, align 8
   %133 = load ptr, ptr %3, align 8
-  %134 = getelementptr inbounds i8, ptr %0, i64 40
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %135 = load ptr, ptr %134, align 8
-  %136 = getelementptr inbounds i8, ptr %0, i64 48
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %137 = load ptr, ptr %136, align 8
-  %138 = getelementptr inbounds i8, ptr %0, i64 64
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %139 = load ptr, ptr %138, align 8
   %140 = call ptr @run_command_poll_child(i32 noundef %53, i32 noundef %128, i1 noundef zeroext %131, i32 noundef %132, ptr noundef %133, ptr noundef %135, i64 noundef %126, ptr noundef %137, ptr noundef %139)
   %141 = load i32, ptr %2, align 8
@@ -473,7 +473,7 @@ define ptr @run_command(ptr nocapture noundef readonly %0) local_unnamed_addr #0
   unreachable
 
 152:                                              ; preds = %117
-  %153 = getelementptr inbounds i8, ptr %0, i64 56
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %154 = load i64, ptr %153, align 8
   %.not78 = icmp eq i64 %154, 0
   br i1 %.not78, label %156, label %155
@@ -483,7 +483,7 @@ define ptr @run_command(ptr nocapture noundef readonly %0) local_unnamed_addr #0
   br label %156
 
 156:                                              ; preds = %155, %152
-  %157 = getelementptr inbounds i8, ptr %0, i64 48
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %158 = load ptr, ptr %157, align 8
   %159 = call i32 @waitpid(i32 noundef %53, ptr noundef %158, i32 noundef 0) #11
   br label %160
@@ -555,13 +555,13 @@ define ptr @run_command_poll_child(i32 noundef %0, i32 noundef %1, i1 noundef ze
 
 .lr.ph.lr.ph:                                     ; preds = %9
   %.not = icmp eq i64 %6, 0
-  %17 = getelementptr inbounds i8, ptr %12, i64 4
-  %18 = getelementptr inbounds i8, ptr %12, i64 6
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 6
   %19 = icmp slt i32 %1, 1
   %.val = load i64, ptr %13, align 8
-  %20 = getelementptr inbounds i8, ptr %13, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %.val57 = load i64, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %11, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 8
   br i1 %19, label %.lr.ph.lr.ph.split.us, label %.lr.ph
 
 .lr.ph.lr.ph.split.us:                            ; preds = %.lr.ph.lr.ph
@@ -607,7 +607,7 @@ define ptr @run_command_poll_child(i32 noundef %0, i32 noundef %1, i1 noundef ze
 
 38:                                               ; preds = %34
   %39 = load ptr, ptr %14, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 %22
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 %22
   %41 = call i64 @read(i32 noundef %3, ptr noundef %40, i64 noundef %24) #11
   %42 = trunc i64 %41 to i32
   %43 = icmp eq i32 %42, 0
@@ -685,7 +685,7 @@ define ptr @run_command_poll_child(i32 noundef %0, i32 noundef %1, i1 noundef ze
 
 73:                                               ; preds = %69
   %74 = load ptr, ptr %14, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 %55
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 %55
   %76 = call i64 @read(i32 noundef %3, ptr noundef %75, i64 noundef %57) #11
   %77 = trunc i64 %76 to i32
   %78 = icmp eq i32 %77, 0
@@ -802,7 +802,7 @@ define ptr @run_command_poll_child(i32 noundef %0, i32 noundef %1, i1 noundef ze
 
 123:                                              ; preds = %119
   %124 = load ptr, ptr %14, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 %90
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 %90
   %126 = call i64 @read(i32 noundef %3, ptr noundef %125, i64 noundef %92) #11
   %127 = trunc i64 %126 to i32
   %128 = icmp eq i32 %127, 0
@@ -862,13 +862,13 @@ define ptr @run_command_poll_child(i32 noundef %0, i32 noundef %1, i1 noundef ze
 
 149:                                              ; preds = %143
   %.val58 = load i64, ptr %13, align 8
-  %150 = getelementptr inbounds i8, ptr %13, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %.val59 = load i64, ptr %150, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   %151 = call i32 @gettimeofday(ptr noundef nonnull %10, ptr noundef null) #11
   %152 = load i64, ptr %10, align 8
   %153 = sub nsw i64 %152, %.val58
-  %154 = getelementptr inbounds i8, ptr %10, i64 8
+  %154 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %155 = load i64, ptr %154, align 8
   %reass.sub78 = sub i64 %155, %.val59
   %156 = add i64 %reass.sub78, 500

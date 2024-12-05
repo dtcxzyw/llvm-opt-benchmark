@@ -2722,24 +2722,24 @@ define hidden i32 @dissect_mms_MMSpdu(i1 zeroext %0, ptr noundef %1, i32 noundef
 11:                                               ; preds = %6
   %12 = getelementptr i8, ptr %3, i64 16
   %.val = load ptr, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %.val, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %.val, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = load i32, ptr @proto_mms, align 4
-  %16 = getelementptr inbounds i8, ptr %.val, i64 376
+  %16 = getelementptr inbounds nuw i8, ptr %.val, i64 376
   %17 = load i8, ptr %16, align 8
   %18 = zext i8 %17 to i32
   %19 = call ptr @p_get_proto_data(ptr noundef %14, ptr noundef %.val, i32 noundef %15, i32 noundef %18) #3
   %.not = icmp eq ptr %19, null
   %20 = load ptr, ptr %12, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
   br i1 %.not, label %57, label %23
 
 23:                                               ; preds = %11
-  %24 = getelementptr inbounds i8, ptr %20, i64 408
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 408
   %25 = load ptr, ptr %24, align 8
   %26 = load i32, ptr @proto_mms, align 4
-  %27 = getelementptr inbounds i8, ptr %20, i64 376
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 376
   %28 = load i8, ptr %27, align 8
   %29 = zext i8 %28 to i32
   %30 = call ptr @p_get_proto_data(ptr noundef %25, ptr noundef %20, i32 noundef %26, i32 noundef %29) #3
@@ -2763,10 +2763,10 @@ private_data_get_preCinfo.exit:                   ; preds = %23, %31
   %40 = getelementptr [15 x %struct._value_string], ptr @mms_MMSpdu_vals, i64 0, i64 %39, i32 1
   %41 = load ptr, ptr %40, align 8
   %.val13 = load ptr, ptr %12, align 8
-  %42 = getelementptr inbounds i8, ptr %.val13, i64 408
+  %42 = getelementptr inbounds nuw i8, ptr %.val13, i64 408
   %43 = load ptr, ptr %42, align 8
   %44 = load i32, ptr @proto_mms, align 4
-  %45 = getelementptr inbounds i8, ptr %.val13, i64 376
+  %45 = getelementptr inbounds nuw i8, ptr %.val13, i64 376
   %46 = load i8, ptr %45, align 8
   %47 = zext i8 %46 to i32
   %48 = call ptr @p_get_proto_data(ptr noundef %43, ptr noundef %.val13, i32 noundef %44, i32 noundef %47) #3
@@ -2785,7 +2785,7 @@ private_data_get_preCinfo.exit:                   ; preds = %23, %31
 
 private_data_get_moreCinfo.exit:                  ; preds = %private_data_get_preCinfo.exit, %49
   %.0.i.i15 = phi ptr [ %51, %49 ], [ %48, %private_data_get_preCinfo.exit ]
-  %56 = getelementptr inbounds i8, ptr %.0.i.i15, i64 10
+  %56 = getelementptr inbounds nuw i8, ptr %.0.i.i15, i64 10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %22, i32 noundef 25, ptr noundef nonnull @.str.14, ptr noundef %.0.i.i, ptr noundef %41, ptr noundef nonnull %56) #3
   br label %62
 
@@ -2839,7 +2839,7 @@ define internal i32 @dissect_mms(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 11:                                               ; preds = %6, %4
   %.0 = phi ptr [ %10, %6 ], [ null, %4 ]
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   call void @col_set_str(ptr noundef %13, i32 noundef 34, ptr noundef nonnull @.str.1313) #3
   %14 = load ptr, ptr %12, align 8
@@ -3047,10 +3047,10 @@ define internal i32 @dissect_mms_Unsigned32(i1 noundef zeroext %0, ptr noundef %
   %12 = load i32, ptr %7, align 4
   %13 = getelementptr i8, ptr %3, i64 16
   %.val = load ptr, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %.val, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %.val, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_mms, align 4
-  %17 = getelementptr inbounds i8, ptr %.val, i64 376
+  %17 = getelementptr inbounds nuw i8, ptr %.val, i64 376
   %18 = load i8, ptr %17, align 8
   %19 = zext i8 %18 to i32
   %20 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %.val, i32 noundef %16, i32 noundef %19) #3
@@ -3163,10 +3163,10 @@ define internal i32 @dissect_mms_Identifier(i1 noundef zeroext %0, ptr noundef %
 15:                                               ; preds = %12
   %16 = getelementptr i8, ptr %3, i64 16
   %.val.i = load ptr, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %.val.i, i64 408
+  %17 = getelementptr inbounds nuw i8, ptr %.val.i, i64 408
   %18 = load ptr, ptr %17, align 8
   %19 = load i32, ptr @proto_mms, align 4
-  %20 = getelementptr inbounds i8, ptr %.val.i, i64 376
+  %20 = getelementptr inbounds nuw i8, ptr %.val.i, i64 376
   %21 = load i8, ptr %20, align 8
   %22 = zext i8 %21 to i32
   %23 = tail call ptr @p_get_proto_data(ptr noundef %18, ptr noundef %.val.i, i32 noundef %19, i32 noundef %22) #3
@@ -3185,10 +3185,10 @@ define internal i32 @dissect_mms_Identifier(i1 noundef zeroext %0, ptr noundef %
 
 private_data_add_moreCinfo_id.exit:               ; preds = %15, %24
   %.0.i.i = phi ptr [ %26, %24 ], [ %23, %15 ]
-  %31 = getelementptr inbounds i8, ptr %.0.i.i, i64 10
+  %31 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 10
   %32 = tail call i64 @g_strlcat(ptr noundef nonnull %31, ptr noundef nonnull @.str.1325, i64 noundef 1024) #3
   %33 = load ptr, ptr %16, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 408
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 408
   %35 = load ptr, ptr %34, align 8
   %36 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 1) #3
   %37 = zext i8 %36 to i32
@@ -3835,9 +3835,9 @@ define internal i32 @dissect_mms_T_listOfVariable_item_02(i1 noundef zeroext %0,
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_mms_VariableSpecification(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 432
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 432
   %10 = load i32, ptr %9, align 8
   %11 = add i32 %10, 3
   store i32 %11, ptr %9, align 8
@@ -3846,7 +3846,7 @@ define internal i32 @dissect_mms_VariableSpecification(i1 zeroext %0, ptr nounde
   %13 = load i32, ptr @ett_mms_VariableSpecification, align 4
   %14 = tail call i32 @dissect_ber_choice(ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @VariableSpecification_choice, i32 noundef %5, i32 noundef %13, ptr noundef null) #3
   %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 432
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 432
   %17 = load i32, ptr %16, align 8
   %18 = add i32 %17, -3
   store i32 %18, ptr %16, align 8
@@ -3857,9 +3857,9 @@ define internal i32 @dissect_mms_VariableSpecification(i1 zeroext %0, ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_mms_AlternateAccess(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 432
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 432
   %10 = load i32, ptr %9, align 8
   %11 = add i32 %10, 4
   store i32 %11, ptr %9, align 8
@@ -3868,7 +3868,7 @@ define internal i32 @dissect_mms_AlternateAccess(i1 noundef zeroext %0, ptr noun
   %13 = load i32, ptr @ett_mms_AlternateAccess, align 4
   %14 = tail call i32 @dissect_ber_sequence_of(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @AlternateAccess_sequence_of, i32 noundef %5, i32 noundef %13) #3
   %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 432
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 432
   %17 = load i32, ptr %16, align 8
   %18 = add i32 %17, -4
   store i32 %18, ptr %16, align 8
@@ -3918,9 +3918,9 @@ declare i32 @dissect_ber_octet_string(i1 noundef zeroext, ptr noundef, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_mms_TypeSpecification(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 432
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 432
   %10 = load i32, ptr %9, align 8
   %11 = add i32 %10, 2
   store i32 %11, ptr %9, align 8
@@ -3929,7 +3929,7 @@ define internal i32 @dissect_mms_TypeSpecification(i1 zeroext %0, ptr noundef %1
   %13 = load i32, ptr @ett_mms_TypeSpecification, align 4
   %14 = tail call i32 @dissect_ber_choice(ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @TypeSpecification_choice, i32 noundef %5, i32 noundef %13, ptr noundef null) #3
   %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 432
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 432
   %17 = load i32, ptr %16, align 8
   %18 = add i32 %17, -2
   store i32 %18, ptr %16, align 8
@@ -4044,9 +4044,9 @@ define internal i32 @dissect_mms_SEQUENCE_OF_Data(i1 noundef zeroext %0, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_mms_Data(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 432
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 432
   %10 = load i32, ptr %9, align 8
   %11 = add i32 %10, 2
   store i32 %11, ptr %9, align 8
@@ -4055,7 +4055,7 @@ define internal i32 @dissect_mms_Data(i1 zeroext %0, ptr noundef %1, i32 noundef
   %13 = load i32, ptr @ett_mms_Data, align 4
   %14 = tail call i32 @dissect_ber_choice(ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @Data_choice, i32 noundef %5, i32 noundef %13, ptr noundef null) #3
   %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 432
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 432
   %17 = load i32, ptr %16, align 8
   %18 = add i32 %17, -2
   store i32 %18, ptr %16, align 8
@@ -4081,10 +4081,10 @@ define internal i32 @dissect_mms_FloatingPoint(i1 noundef zeroext %0, ptr nounde
   %7 = tail call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef null) #3
   %8 = getelementptr i8, ptr %3, i64 16
   %.val = load ptr, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %.val, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %.val, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_mms, align 4
-  %12 = getelementptr inbounds i8, ptr %.val, i64 376
+  %12 = getelementptr inbounds nuw i8, ptr %.val, i64 376
   %13 = load i8, ptr %12, align 8
   %14 = zext i8 %13 to i32
   %15 = tail call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %.val, i32 noundef %11, i32 noundef %14) #3
@@ -4103,7 +4103,7 @@ define internal i32 @dissect_mms_FloatingPoint(i1 noundef zeroext %0, ptr nounde
 
 private_data_add_moreCinfo_float.exit:            ; preds = %6, %16
   %.0.i.i = phi ptr [ %18, %16 ], [ %15, %6 ]
-  %23 = getelementptr inbounds i8, ptr %.0.i.i, i64 10
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 10
   %24 = tail call float @tvb_get_ieee_float(ptr noundef %1, i32 noundef 1, i32 noundef 0) #3
   %25 = fpext float %24 to double
   %26 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %23, i64 noundef 1024, ptr noundef nonnull @.str.1326, double noundef %25) #3
@@ -4121,9 +4121,9 @@ define internal noundef i32 @dissect_mms_TimeOfDay(i1 zeroext %0, ptr noundef %1
 
 9:                                                ; preds = %6
   %10 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %2) #3
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr @signed_time_msecs_to_str(ptr noundef %14, i32 noundef %10) #3
   %16 = icmp sgt i32 %5, 0
@@ -4146,11 +4146,11 @@ define internal noundef i32 @dissect_mms_TimeOfDay(i1 zeroext %0, ptr noundef %1
   store i64 %28, ptr %7, align 8
   %29 = urem i32 %20, 1000
   %30 = mul nuw nsw i32 %29, 1000000
-  %31 = getelementptr inbounds i8, ptr %7, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %30, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %3, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 408
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 408
   %35 = load ptr, ptr %34, align 8
   %36 = call ptr @abs_time_to_str_ex(ptr noundef %35, ptr noundef nonnull %7, i32 noundef 19, i32 noundef 1) #3
   %37 = icmp sgt i32 %5, 0
@@ -4161,7 +4161,7 @@ define internal noundef i32 @dissect_mms_TimeOfDay(i1 zeroext %0, ptr noundef %1
   br label %47
 
 40:                                               ; preds = %6
-  %41 = getelementptr inbounds i8, ptr %3, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %42 = load ptr, ptr %41, align 8
   %43 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %4, ptr noundef %42, ptr noundef nonnull @ei_mms_mal_timeofday_encoding, ptr noundef %1, i32 noundef %2, i32 noundef %8, ptr noundef nonnull @.str.1327) #3
   %44 = icmp sgt i32 %5, 0
@@ -4195,7 +4195,7 @@ define internal noundef i32 @dissect_mms_UtcTime(i1 zeroext %0, ptr noundef %1, 
   br i1 %.not, label %16, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %4, ptr noundef %11, ptr noundef nonnull @ei_mms_mal_utctime_encoding, ptr noundef %1, i32 noundef %2, i32 noundef %8, ptr noundef nonnull @.str.1329) #3
   %13 = icmp sgt i32 %5, 0
@@ -4216,11 +4216,11 @@ define internal noundef i32 @dissect_mms_UtcTime(i1 zeroext %0, ptr noundef %1, 
   %24 = trunc nuw nsw i64 %23 to i32
   %25 = zext i32 %17 to i64
   store i64 %25, ptr %7, align 8
-  %26 = getelementptr inbounds i8, ptr %7, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %24, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %3, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 408
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 408
   %30 = load ptr, ptr %29, align 8
   %31 = call ptr @abs_time_to_str_ex(ptr noundef %30, ptr noundef nonnull %7, i32 noundef 19, i32 noundef 1) #3
   %32 = icmp sgt i32 %5, 0

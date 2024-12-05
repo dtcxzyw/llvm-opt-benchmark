@@ -11,25 +11,25 @@ define void @jpeg_fdct_float(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %.0144 = phi i32 [ 7, %1 ], [ %51, %2 ]
   %.0141143 = phi ptr [ %0, %1 ], [ %50, %2 ]
   %3 = load float, ptr %.0141143, align 4
-  %4 = getelementptr inbounds i8, ptr %.0141143, i64 28
+  %4 = getelementptr inbounds nuw i8, ptr %.0141143, i64 28
   %5 = load float, ptr %4, align 4
   %6 = fadd float %3, %5
   %7 = fsub float %3, %5
-  %8 = getelementptr inbounds i8, ptr %.0141143, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %.0141143, i64 4
   %9 = load float, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %.0141143, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %.0141143, i64 24
   %11 = load float, ptr %10, align 4
   %12 = fadd float %9, %11
   %13 = fsub float %9, %11
-  %14 = getelementptr inbounds i8, ptr %.0141143, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.0141143, i64 8
   %15 = load float, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %.0141143, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %.0141143, i64 20
   %17 = load float, ptr %16, align 4
   %18 = fadd float %15, %17
   %19 = fsub float %15, %17
-  %20 = getelementptr inbounds i8, ptr %.0141143, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %.0141143, i64 12
   %21 = load float, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %.0141143, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %.0141143, i64 16
   %23 = load float, ptr %22, align 4
   %24 = fadd float %21, %23
   %25 = fsub float %21, %23
@@ -65,7 +65,7 @@ define void @jpeg_fdct_float(ptr nocapture noundef %0) local_unnamed_addr #0 {
   store float %48, ptr %8, align 4
   %49 = fsub float %44, %42
   store float %49, ptr %4, align 4
-  %50 = getelementptr inbounds i8, ptr %.0141143, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %.0141143, i64 32
   %51 = add nsw i32 %.0144, -1
   %.not = icmp eq i32 %.0144, 0
   br i1 %.not, label %.preheader, label %2, !llvm.loop !4
@@ -74,25 +74,25 @@ define void @jpeg_fdct_float(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %.1146 = phi i32 [ %100, %.preheader ], [ 7, %2 ]
   %.1142145 = phi ptr [ %99, %.preheader ], [ %0, %2 ]
   %52 = load float, ptr %.1142145, align 4
-  %53 = getelementptr inbounds i8, ptr %.1142145, i64 224
+  %53 = getelementptr inbounds nuw i8, ptr %.1142145, i64 224
   %54 = load float, ptr %53, align 4
   %55 = fadd float %52, %54
   %56 = fsub float %52, %54
-  %57 = getelementptr inbounds i8, ptr %.1142145, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %.1142145, i64 32
   %58 = load float, ptr %57, align 4
-  %59 = getelementptr inbounds i8, ptr %.1142145, i64 192
+  %59 = getelementptr inbounds nuw i8, ptr %.1142145, i64 192
   %60 = load float, ptr %59, align 4
   %61 = fadd float %58, %60
   %62 = fsub float %58, %60
-  %63 = getelementptr inbounds i8, ptr %.1142145, i64 64
+  %63 = getelementptr inbounds nuw i8, ptr %.1142145, i64 64
   %64 = load float, ptr %63, align 4
-  %65 = getelementptr inbounds i8, ptr %.1142145, i64 160
+  %65 = getelementptr inbounds nuw i8, ptr %.1142145, i64 160
   %66 = load float, ptr %65, align 4
   %67 = fadd float %64, %66
   %68 = fsub float %64, %66
-  %69 = getelementptr inbounds i8, ptr %.1142145, i64 96
+  %69 = getelementptr inbounds nuw i8, ptr %.1142145, i64 96
   %70 = load float, ptr %69, align 4
-  %71 = getelementptr inbounds i8, ptr %.1142145, i64 128
+  %71 = getelementptr inbounds nuw i8, ptr %.1142145, i64 128
   %72 = load float, ptr %71, align 4
   %73 = fadd float %70, %72
   %74 = fsub float %70, %72
@@ -128,7 +128,7 @@ define void @jpeg_fdct_float(ptr nocapture noundef %0) local_unnamed_addr #0 {
   store float %97, ptr %57, align 4
   %98 = fsub float %93, %91
   store float %98, ptr %53, align 4
-  %99 = getelementptr inbounds i8, ptr %.1142145, i64 4
+  %99 = getelementptr inbounds nuw i8, ptr %.1142145, i64 4
   %100 = add nsw i32 %.1146, -1
   %.not147 = icmp eq i32 %.1146, 0
   br i1 %.not147, label %101, label %.preheader, !llvm.loop !6

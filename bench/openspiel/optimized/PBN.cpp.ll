@@ -14,7 +14,7 @@ define noundef range(i32 0, 2) i32 @_Z14ConvertFromPBNPKcPA4_j(ptr nocapture nou
 .preheader:                                       ; preds = %.preheader.preheader, %7
   %indvars.iv101 = phi i64 [ 2, %.preheader.preheader ], [ %indvars.iv.next102, %7 ]
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %7 ]
-  %2 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %3 = load i8, ptr %2, align 1
   switch i8 %3, label %4 [
     i8 87, label %.critedge
@@ -68,7 +68,7 @@ define noundef range(i32 0, 2) i32 @_Z14ConvertFromPBNPKcPA4_j(ptr nocapture nou
   %indvars.iv103 = phi i64 [ %indvars.iv101, %.lr.ph.preheader ], [ %indvars.iv.next104, %45 ]
   %.07196 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %45 ]
   %.07295 = phi i32 [ 0, %.lr.ph.preheader ], [ %.173, %45 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv103
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv103
   %14 = load i8, ptr %13, align 1
   %.not89 = icmp eq i8 %14, 0
   br i1 %.not89, label %.critedge2, label %15
@@ -124,7 +124,7 @@ default.unreachable:                              ; preds = %17
 29:                                               ; preds = %26, %22, %18, %17, %24, %23, %20, %19
   %.0 = phi i32 [ 3, %23 ], [ %25, %24 ], [ 0, %19 ], [ %21, %20 ], [ %.07295, %17 ], [ 1, %18 ], [ 2, %22 ], [ %spec.select, %26 ]
   %30 = zext nneg i32 %16 to i64
-  %31 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw [16 x i16], ptr @bitMapRank, i64 0, i64 %30
   %32 = load i16, ptr %31, align 2
   %33 = zext i16 %32 to i32
   %34 = shl nuw nsw i32 %33, 2
@@ -250,7 +250,7 @@ define noundef range(i32 -98, 2) i32 @_Z18ConvertPlayFromPBNRK12playTracePBNR12p
 
 10:                                               ; preds = %.lr.ph, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
-  %11 = getelementptr inbounds [106 x i8], ptr %6, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [106 x i8], ptr %6, i64 0, i64 %indvars.iv
   %12 = load i8, ptr %11, align 2
   %13 = and i8 %12, -33
   switch i8 %13, label %.loopexit [
@@ -272,17 +272,17 @@ define noundef range(i32 -98, 2) i32 @_Z18ConvertPlayFromPBNRK12playTracePBNR12p
 14:                                               ; preds = %10, %.fold.split46, %.fold.split45, %.fold.split
   %.040 = phi i32 [ 0, %10 ], [ 1, %.fold.split ], [ 2, %.fold.split45 ], [ 3, %.fold.split46 ]
   %15 = lshr exact i64 %indvars.iv, 1
-  %16 = getelementptr inbounds [52 x i32], ptr %7, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw [52 x i32], ptr %7, i64 0, i64 %15
   store i32 %.040, ptr %16, align 4
   %17 = or disjoint i64 %indvars.iv, 1
-  %18 = getelementptr inbounds [106 x i8], ptr %6, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [106 x i8], ptr %6, i64 0, i64 %17
   %19 = load i8, ptr %18, align 1
   %20 = tail call noundef i32 @_Z6IsCardc(i8 noundef signext %19)
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %.loopexit, label %22
 
 22:                                               ; preds = %14
-  %23 = getelementptr inbounds [52 x i32], ptr %8, i64 0, i64 %15
+  %23 = getelementptr inbounds nuw [52 x i32], ptr %8, i64 0, i64 %15
   store i32 %20, ptr %23, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %24 = icmp samesign ult i64 %indvars.iv.next, %9

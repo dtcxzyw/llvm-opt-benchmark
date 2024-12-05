@@ -2070,10 +2070,10 @@ define hidden noalias ptr @dissect_e212_mcc_mnc_wmem_packet_str(ptr noundef %0, 
 
 switch.lookup:                                    ; preds = %6
   %8 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [10 x ptr], ptr @switch.table.dissect_e212_mcc_mnc_wmem_packet_str, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw [10 x ptr], ptr @switch.table.dissect_e212_mcc_mnc_wmem_packet_str, i64 0, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   %9 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep119 = getelementptr inbounds [10 x ptr], ptr @switch.table.dissect_e212_mcc_mnc_wmem_packet_str.1, i64 0, i64 %9
+  %switch.gep119 = getelementptr inbounds nuw [10 x ptr], ptr @switch.table.dissect_e212_mcc_mnc_wmem_packet_str.1, i64 0, i64 %9
   %switch.load120 = load ptr, ptr %switch.gep119, align 8
   br label %10
 
@@ -2127,7 +2127,7 @@ switch.lookup:                                    ; preds = %6
 
 42:                                               ; preds = %36, %39, %10
   %.0107.in = phi i32 [ %38, %36 ], [ %41, %39 ], [ %31, %10 ]
-  %43 = getelementptr inbounds i8, ptr %1, i64 408
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %44 = load ptr, ptr %43, align 8
   %45 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %44, ptr noundef nonnull @.str.3, i32 noundef %28) #3
   %46 = tail call ptr @val_to_str_ext_const(i32 noundef %28, ptr noundef nonnull @E212_codes_ext, ptr noundef nonnull @.str.5) #3
@@ -2235,7 +2235,7 @@ define range(i32 5, 7) i32 @dissect_e212_mcc_mnc_in_address(ptr noundef %0, ptr 
   %31 = zext nneg i8 %16 to i32
   %32 = mul nuw nsw i32 %25, 10
   %33 = add nuw nsw i32 %32, %31
-  %34 = getelementptr inbounds i8, ptr %1, i64 408
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %35 = load ptr, ptr %34, align 8
   %36 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %35, ptr noundef nonnull @.str.3, i32 noundef %22) #3
   %37 = load i32, ptr @hf_E212_mcc, align 4
@@ -2307,7 +2307,7 @@ define range(i32 5, 7) i32 @dissect_e212_mcc_mnc_in_utf8_address(ptr noundef %0,
   %6 = alloca i16, align 2
   store i16 0, ptr %5, align 2
   store i16 0, ptr %6, align 2
-  %7 = getelementptr inbounds i8, ptr %1, i64 408
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @tvb_get_string_enc(ptr noundef %8, ptr noundef %0, i32 noundef %3, i32 noundef 3, i32 noundef 2) #3
   %10 = call zeroext i1 @ws_strtou16(ptr noundef %9, ptr noundef null, ptr noundef nonnull %5) #3
@@ -2399,7 +2399,7 @@ define ptr @dissect_e212_imsi(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   %7 = alloca ptr, align 8
   %.not = icmp eq i32 %5, 0
   %8 = load i32, ptr @hf_E212_imsi, align 4
-  %9 = getelementptr inbounds i8, ptr %1, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %10 = load ptr, ptr %9, align 8
   %. = select i1 %.not, i32 -2147483580, i32 -2147352508
   %11 = call ptr @proto_tree_add_item_ret_string(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %3, i32 noundef %4, i32 noundef %., ptr noundef %10, ptr noundef nonnull %7) #3
@@ -2431,13 +2431,13 @@ is_imsi_string_valid.exit.thread:                 ; preds = %14, %6, %is_imsi_st
   br i1 %.not.i28, label %proto_item_set_generated.exit, label %23
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %22, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %25 = load ptr, ptr %24, align 8
   %.not5.i = icmp eq ptr %25, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %26
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %25, i64 28
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 28
   %28 = load i32, ptr %27, align 4
   %29 = or i32 %28, 2
   store i32 %29, ptr %27, align 4
@@ -2480,7 +2480,7 @@ proto_item_set_generated.exit:                    ; preds = %19, %23, %26
   %59 = icmp ne ptr %58, null
   %60 = icmp eq i8 %45, 15
   %or.cond.not.i = select i1 %59, i1 true, i1 %60
-  %61 = getelementptr inbounds i8, ptr %1, i64 408
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %62 = load ptr, ptr %61, align 8
   %63 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %62, ptr noundef nonnull @.str.3, i32 noundef %51) #3
   %64 = load i32, ptr @hf_E212_mcc, align 4
@@ -2527,7 +2527,7 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @dissect_e212_utf8_imsi(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 408
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @tvb_get_string_enc(ptr noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef %4, i32 noundef 2) #3
   %9 = load i32, ptr @hf_E212_imsi, align 4
@@ -2557,13 +2557,13 @@ is_imsi_string_valid.exit.thread:                 ; preds = %12, %5, %is_imsi_st
   br i1 %.not.i23, label %proto_item_set_generated.exit, label %20
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %19, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %22 = load ptr, ptr %21, align 8
   %.not5.i = icmp eq ptr %22, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %22, i64 28
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 28
   %25 = load i32, ptr %24, align 4
   %26 = or i32 %25, 2
   store i32 %26, ptr %24, align 4

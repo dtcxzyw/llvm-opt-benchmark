@@ -66,17 +66,17 @@ define hidden range(i32 -1, 2) i32 @rfc7468_open(ptr nocapture noundef %0, ptr n
 
 30:                                               ; preds = %26
   %31 = load i32, ptr @rfc7468_file_type_subtype, align 4
-  %32 = getelementptr inbounds i8, ptr %0, i64 20
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %31, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %0, i64 144
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 202, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 148
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 0, ptr %35, align 4
-  %36 = getelementptr inbounds i8, ptr %0, i64 112
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @rfc7468_read, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 120
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr @rfc7468_seek_read, ptr %37, align 8
   br label %.loopexit
 
@@ -106,7 +106,7 @@ define internal range(i32 0, 2) i32 @rfc7468_read(ptr nocapture noundef readonly
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @rfc7468_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @file_seek(ptr noundef %8, i64 noundef %1, i32 noundef 0, ptr noundef %4) #5
   %10 = icmp slt i64 %9, 0
@@ -139,9 +139,9 @@ declare i64 @file_tell(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @rfc7468_read_impl(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr nocapture noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca [131 x i8], align 16
-  %7 = getelementptr inbounds i8, ptr %2, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load i64, ptr %9, align 8
   %11 = sub i64 %8, %10
   tail call void @ws_buffer_remove_start(ptr noundef %2, i64 noundef %11) #5
@@ -255,23 +255,23 @@ define internal fastcc range(i32 0, 2) i32 @rfc7468_read_impl(ptr noundef %0, pt
 
 53:                                               ; preds = %47
   store i32 0, ptr %1, align 8
-  %54 = getelementptr inbounds i8, ptr %1, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 0, ptr %54, align 4
-  %55 = getelementptr inbounds i8, ptr %1, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 0, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %1, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 0, ptr %56, align 8
   %57 = load i64, ptr %7, align 8
   %58 = load i64, ptr %9, align 8
   %59 = sub i64 %57, %58
   %60 = trunc i64 %59 to i32
-  %61 = getelementptr inbounds i8, ptr %1, i64 64
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 %60, ptr %61, align 8
   %62 = load i64, ptr %7, align 8
   %63 = load i64, ptr %9, align 8
   %64 = sub i64 %62, %63
   %65 = trunc i64 %64 to i32
-  %66 = getelementptr inbounds i8, ptr %1, i64 68
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 68
   store i32 %65, ptr %66, align 4
   br label %67
 

@@ -101,7 +101,7 @@ _ZN4llvm11SmallPtrSetIPNS_2cl10SubCommandELj1EED2Ev.exit.i: ; preds = %12, %_ZNS
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #11
   %15 = load ptr, ptr %13, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %17 = icmp eq ptr %15, %16
   br i1 %17, label %_ZN4llvm2cl6OptionD2Ev.exit, label %18
 
@@ -146,7 +146,7 @@ define dso_local void @_ZN4llvm16TargetSchedModel4initEPKNS_19TargetSubtargetInf
   %5 = load ptr, ptr %4, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false)
   %6 = load ptr, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 128
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(288) %1) #11
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -178,7 +178,7 @@ define dso_local void @_ZN4llvm16TargetSchedModel4initEPKNS_19TargetSubtargetInf
 22:                                               ; preds = %.lr.ph, %42
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
   %23 = phi i32 [ %17, %.lr.ph ], [ %43, %42 ]
-  %24 = getelementptr inbounds %"struct.llvm::MCProcResourceDesc", ptr %21, i64 %indvars.iv, i32 1
+  %24 = getelementptr inbounds nuw %"struct.llvm::MCProcResourceDesc", ptr %21, i64 %indvars.iv, i32 1
   %25 = load i32, ptr %24, align 8
   %.not21 = icmp eq i32 %25, 0
   br i1 %.not21, label %42, label %26
@@ -237,7 +237,7 @@ _ZSt3lcmIjjENSt11common_typeIJT_T0_EE4typeES1_S2_.exit: ; preds = %26, %_ZNSt8__
 47:                                               ; preds = %._crit_edge, %54
   %indvars.iv30 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next31, %54 ]
   %48 = load ptr, ptr %46, align 8
-  %49 = getelementptr inbounds %"struct.llvm::MCProcResourceDesc", ptr %48, i64 %indvars.iv30, i32 1
+  %49 = getelementptr inbounds nuw %"struct.llvm::MCProcResourceDesc", ptr %48, i64 %indvars.iv30, i32 1
   %50 = load i32, ptr %49, align 8
   %.not = icmp eq i32 %50, 0
   br i1 %.not, label %54, label %51
@@ -250,7 +250,7 @@ _ZSt3lcmIjjENSt11common_typeIJT_T0_EE4typeES1_S2_.exit: ; preds = %26, %_ZNSt8__
 54:                                               ; preds = %47, %51
   %55 = phi i32 [ %53, %51 ], [ 0, %47 ]
   %56 = load ptr, ptr %15, align 8
-  %57 = getelementptr inbounds i32, ptr %56, i64 %indvars.iv30
+  %57 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv30
   store i32 %55, ptr %57, align 4
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %exitcond34.not = icmp eq i64 %indvars.iv.next31, %16
@@ -290,7 +290,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm16TargetSchedModel14mustBeginGroup
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 6
   %15 = load i16, ptr %14, align 2
   %16 = zext i16 %15 to i64
-  %17 = getelementptr inbounds %"struct.llvm::MCSchedClassDesc", ptr %7, i64 %16
+  %17 = getelementptr inbounds nuw %"struct.llvm::MCSchedClassDesc", ptr %7, i64 %16
   %18 = load i16, ptr %17, align 2
   %19 = and i16 %18, 8191
   %cond.i = icmp eq i16 %19, 8190
@@ -305,12 +305,12 @@ define dso_local noundef zeroext i1 @_ZNK4llvm16TargetSchedModel14mustBeginGroup
   %.01012.i = phi i32 [ %20, %.lr.ph.i ], [ %27, %22 ]
   %23 = load ptr, ptr %21, align 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 224
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 224
   %26 = load ptr, ptr %25, align 8
   %27 = tail call noundef i32 %26(ptr noundef nonnull align 8 dereferenceable(288) %23, i32 noundef %.01012.i, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(280) %0) #11
   %28 = load ptr, ptr %6, align 8
   %29 = zext i32 %27 to i64
-  %30 = getelementptr inbounds %"struct.llvm::MCSchedClassDesc", ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw %"struct.llvm::MCSchedClassDesc", ptr %28, i64 %29
   %31 = load i16, ptr %30, align 2
   %32 = and i16 %31, 8191
   %33 = icmp eq i16 %32, 8190
@@ -341,7 +341,7 @@ define dso_local noundef ptr @_ZNK4llvm16TargetSchedModel17resolveSchedClassEPKN
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = zext i16 %6 to i64
-  %10 = getelementptr inbounds %"struct.llvm::MCSchedClassDesc", ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw %"struct.llvm::MCSchedClassDesc", ptr %8, i64 %9
   %11 = load i16, ptr %10, align 2
   %12 = and i16 %11, 8191
   %cond = icmp eq i16 %12, 8190
@@ -356,12 +356,12 @@ define dso_local noundef ptr @_ZNK4llvm16TargetSchedModel17resolveSchedClassEPKN
   %.01012 = phi i32 [ %13, %.lr.ph ], [ %20, %15 ]
   %16 = load ptr, ptr %14, align 8
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 224
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 224
   %19 = load ptr, ptr %18, align 8
   %20 = tail call noundef i32 %19(ptr noundef nonnull align 8 dereferenceable(288) %16, i32 noundef %.01012, ptr noundef nonnull %1, ptr noundef nonnull %0) #11
   %21 = load ptr, ptr %7, align 8
   %22 = zext i32 %20 to i64
-  %23 = getelementptr inbounds %"struct.llvm::MCSchedClassDesc", ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw %"struct.llvm::MCSchedClassDesc", ptr %21, i64 %22
   %24 = load i16, ptr %23, align 2
   %25 = and i16 %24, 8191
   %26 = icmp eq i16 %25, 8190
@@ -397,7 +397,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm16TargetSchedModel12mustEndGroupEP
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 6
   %15 = load i16, ptr %14, align 2
   %16 = zext i16 %15 to i64
-  %17 = getelementptr inbounds %"struct.llvm::MCSchedClassDesc", ptr %7, i64 %16
+  %17 = getelementptr inbounds nuw %"struct.llvm::MCSchedClassDesc", ptr %7, i64 %16
   %18 = load i16, ptr %17, align 2
   %19 = and i16 %18, 8191
   %cond.i = icmp eq i16 %19, 8190
@@ -412,12 +412,12 @@ define dso_local noundef zeroext i1 @_ZNK4llvm16TargetSchedModel12mustEndGroupEP
   %.01012.i = phi i32 [ %20, %.lr.ph.i ], [ %27, %22 ]
   %23 = load ptr, ptr %21, align 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 224
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 224
   %26 = load ptr, ptr %25, align 8
   %27 = tail call noundef i32 %26(ptr noundef nonnull align 8 dereferenceable(288) %23, i32 noundef %.01012.i, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(280) %0) #11
   %28 = load ptr, ptr %6, align 8
   %29 = zext i32 %27 to i64
-  %30 = getelementptr inbounds %"struct.llvm::MCSchedClassDesc", ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw %"struct.llvm::MCSchedClassDesc", ptr %28, i64 %29
   %31 = load i16, ptr %30, align 2
   %32 = and i16 %31, 8191
   %33 = icmp eq i16 %32, 8190
@@ -455,7 +455,7 @@ _ZNK4llvm18InstrItineraryData14getNumMicroOpsEj.exit: ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 6
   %13 = load i16, ptr %12, align 2
   %14 = zext i16 %13 to i64
-  %15 = getelementptr inbounds %"struct.llvm::InstrItinerary", ptr %7, i64 %14
+  %15 = getelementptr inbounds nuw %"struct.llvm::InstrItinerary", ptr %7, i64 %14
   %16 = load i16, ptr %15, align 2
   %17 = zext nneg i16 %16 to i32
   %18 = icmp sgt i16 %16, -1
@@ -466,7 +466,7 @@ _ZNK4llvm18InstrItineraryData14getNumMicroOpsEj.exit: ; preds = %3
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 1008
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 1008
   %25 = load ptr, ptr %24, align 8
   %26 = tail call noundef i32 %25(ptr noundef nonnull align 8 dereferenceable(80) %22, ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(70) %1) #11
   br label %_ZNK4llvm18InstrItineraryData14getNumMicroOpsEj.exit.thread
@@ -495,7 +495,7 @@ _ZNK4llvm18InstrItineraryData14getNumMicroOpsEj.exit: ; preds = %3
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 6
   %39 = load i16, ptr %38, align 2
   %40 = zext i16 %39 to i64
-  %41 = getelementptr inbounds %"struct.llvm::MCSchedClassDesc", ptr %31, i64 %40
+  %41 = getelementptr inbounds nuw %"struct.llvm::MCSchedClassDesc", ptr %31, i64 %40
   %42 = load i16, ptr %41, align 2
   %43 = and i16 %42, 8191
   %cond.i = icmp eq i16 %43, 8190
@@ -510,12 +510,12 @@ _ZNK4llvm18InstrItineraryData14getNumMicroOpsEj.exit: ; preds = %3
   %.01012.i = phi i32 [ %44, %.lr.ph.i ], [ %51, %46 ]
   %47 = load ptr, ptr %45, align 8
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 224
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 224
   %50 = load ptr, ptr %49, align 8
   %51 = tail call noundef i32 %50(ptr noundef nonnull align 8 dereferenceable(288) %47, i32 noundef %.01012.i, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(280) %0) #11
   %52 = load ptr, ptr %30, align 8
   %53 = zext i32 %51 to i64
-  %54 = getelementptr inbounds %"struct.llvm::MCSchedClassDesc", ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw %"struct.llvm::MCSchedClassDesc", ptr %52, i64 %53
   %55 = load i16, ptr %54, align 2
   %56 = and i16 %55, 8191
   %57 = icmp eq i16 %56, 8190
@@ -601,7 +601,7 @@ define dso_local noundef i32 @_ZNK4llvm16TargetSchedModel21computeOperandLatency
   %28 = load ptr, ptr %7, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %30 = load ptr, ptr %28, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 1024
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 1024
   %32 = load ptr, ptr %31, align 8
   %33 = tail call i64 %32(ptr noundef nonnull align 8 dereferenceable(80) %28, ptr noundef nonnull %29, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(70) %3, i32 noundef %4) #11
   br label %_ZNK4llvm18InstrItineraryData15getOperandCycleEjj.exit
@@ -612,7 +612,7 @@ define dso_local noundef i32 @_ZNK4llvm16TargetSchedModel21computeOperandLatency
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 6
   %38 = load i16, ptr %37, align 2
   %39 = zext i16 %38 to i64
-  %40 = getelementptr inbounds %"struct.llvm::InstrItinerary", ptr %23, i64 %39
+  %40 = getelementptr inbounds nuw %"struct.llvm::InstrItinerary", ptr %23, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 6
   %42 = load i16, ptr %41, align 2
   %43 = zext i16 %42 to i32
@@ -627,7 +627,7 @@ define dso_local noundef i32 @_ZNK4llvm16TargetSchedModel21computeOperandLatency
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %50 = load ptr, ptr %49, align 8
   %51 = zext nneg i32 %47 to i64
-  %52 = getelementptr inbounds i32, ptr %50, i64 %51
+  %52 = getelementptr inbounds nuw i32, ptr %50, i64 %51
   %53 = load i32, ptr %52, align 4
   %54 = zext i32 %53 to i64
   %55 = or disjoint i64 %54, 4294967296
@@ -650,7 +650,7 @@ _ZNK4llvm18InstrItineraryData15getOperandCycleEjj.exit.thread: ; preds = %34, %_
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 6
   %61 = load i16, ptr %60, align 2
   %62 = zext i16 %61 to i64
-  %63 = getelementptr inbounds %"struct.llvm::MCSchedClassDesc", ptr %13, i64 %62
+  %63 = getelementptr inbounds nuw %"struct.llvm::MCSchedClassDesc", ptr %13, i64 %62
   %64 = load i16, ptr %63, align 2
   %65 = and i16 %64, 8191
   %cond.i = icmp eq i16 %65, 8190
@@ -665,12 +665,12 @@ _ZNK4llvm18InstrItineraryData15getOperandCycleEjj.exit.thread: ; preds = %34, %_
   %.01012.i = phi i32 [ %66, %.lr.ph.i ], [ %73, %68 ]
   %69 = load ptr, ptr %67, align 8
   %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 224
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 224
   %72 = load ptr, ptr %71, align 8
   %73 = tail call noundef i32 %72(ptr noundef nonnull align 8 dereferenceable(288) %69, i32 noundef %.01012.i, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(280) %0) #11
   %74 = load ptr, ptr %12, align 8
   %75 = zext i32 %73 to i64
-  %76 = getelementptr inbounds %"struct.llvm::MCSchedClassDesc", ptr %74, i64 %75
+  %76 = getelementptr inbounds nuw %"struct.llvm::MCSchedClassDesc", ptr %74, i64 %75
   %77 = load i16, ptr %76, align 2
   %78 = and i16 %77, 8191
   %79 = icmp eq i16 %78, 8190
@@ -691,7 +691,7 @@ _ZNK4llvm16TargetSchedModel17resolveSchedClassEPKNS_12MachineInstrE.exit: ; pred
 84:                                               ; preds = %84, %.lr.ph.i41
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i41 ], [ %indvars.iv.next.i, %84 ]
   %.012.i = phi i32 [ 0, %.lr.ph.i41 ], [ %.1.i, %84 ]
-  %85 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %82, i64 %indvars.iv.i
+  %85 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %82, i64 %indvars.iv.i
   %86 = load i32, ptr %85, align 8
   %87 = and i32 %86, 255
   %88 = icmp eq i32 %87, 0
@@ -721,7 +721,7 @@ _ZL10findDefIdxPKN4llvm12MachineInstrEj.exit:     ; preds = %84, %_ZNK4llvm16Tar
   %102 = zext i16 %101 to i32
   %103 = add nuw nsw i32 %.0.lcssa.i, %102
   %104 = zext nneg i32 %103 to i64
-  %105 = getelementptr inbounds %"struct.llvm::MCWriteLatencyEntry", ptr %99, i64 %104
+  %105 = getelementptr inbounds nuw %"struct.llvm::MCWriteLatencyEntry", ptr %99, i64 %104
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 2
   %107 = load i16, ptr %106, align 2
   %108 = zext i16 %107 to i32
@@ -738,7 +738,7 @@ _ZL10findDefIdxPKN4llvm12MachineInstrEj.exit:     ; preds = %84, %_ZNK4llvm16Tar
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 6
   %116 = load i16, ptr %115, align 2
   %117 = zext i16 %116 to i64
-  %118 = getelementptr inbounds %"struct.llvm::MCSchedClassDesc", ptr %80, i64 %117
+  %118 = getelementptr inbounds nuw %"struct.llvm::MCSchedClassDesc", ptr %80, i64 %117
   %119 = load i16, ptr %118, align 2
   %120 = and i16 %119, 8191
   %cond.i43 = icmp eq i16 %120, 8190
@@ -752,12 +752,12 @@ _ZL10findDefIdxPKN4llvm12MachineInstrEj.exit:     ; preds = %84, %_ZNK4llvm16Tar
   %.01012.i46 = phi i32 [ %121, %.lr.ph.i45 ], [ %127, %122 ]
   %123 = load ptr, ptr %96, align 8
   %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 224
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 224
   %126 = load ptr, ptr %125, align 8
   %127 = tail call noundef i32 %126(ptr noundef nonnull align 8 dereferenceable(288) %123, i32 noundef %.01012.i46, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(280) %0) #11
   %128 = load ptr, ptr %12, align 8
   %129 = zext i32 %127 to i64
-  %130 = getelementptr inbounds %"struct.llvm::MCSchedClassDesc", ptr %128, i64 %129
+  %130 = getelementptr inbounds nuw %"struct.llvm::MCSchedClassDesc", ptr %128, i64 %129
   %131 = load i16, ptr %130, align 2
   %132 = and i16 %131, 8191
   %133 = icmp eq i16 %132, 8190
@@ -783,7 +783,7 @@ _ZNK4llvm14MachineOperand8readsRegEv.exit.thread10.lr.ph.i: ; preds = %137
 _ZNK4llvm14MachineOperand8readsRegEv.exit.thread10.i: ; preds = %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread10.i, %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread10.lr.ph.i
   %indvars.iv.i48 = phi i64 [ 0, %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread10.lr.ph.i ], [ %indvars.iv.next.i51, %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread10.i ]
   %.017.i = phi i32 [ 0, %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread10.lr.ph.i ], [ %.1.i50, %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread10.i ]
-  %141 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %139, i64 %indvars.iv.i48
+  %141 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %139, i64 %indvars.iv.i48
   %142 = load i32, ptr %141, align 8
   %143 = and i32 %142, 805306623
   %or.cond.i = icmp ne i32 %143, 0
@@ -807,9 +807,9 @@ _ZL10findUseIdxPKN4llvm12MachineInstrEj.exit:     ; preds = %_ZNK4llvm14MachineO
   %151 = getelementptr inbounds nuw i8, ptr %.011.i44, i64 10
   %152 = load i16, ptr %151, align 2
   %153 = zext i16 %152 to i64
-  %154 = getelementptr inbounds %"struct.llvm::MCReadAdvanceEntry", ptr %150, i64 %153
+  %154 = getelementptr inbounds nuw %"struct.llvm::MCReadAdvanceEntry", ptr %150, i64 %153
   %155 = zext i16 %135 to i64
-  %156 = getelementptr inbounds %"struct.llvm::MCReadAdvanceEntry", ptr %154, i64 %155
+  %156 = getelementptr inbounds nuw %"struct.llvm::MCReadAdvanceEntry", ptr %154, i64 %155
   br label %.lr.ph.i54
 
 .lr.ph.i54:                                       ; preds = %_ZL10findUseIdxPKN4llvm12MachineInstrEj.exit, %168
@@ -836,7 +836,7 @@ _ZL10findUseIdxPKN4llvm12MachineInstrEj.exit:     ; preds = %_ZNK4llvm14MachineO
   br label %_ZNK4llvm15MCSubtargetInfo20getReadAdvanceCyclesEPKNS_16MCSchedClassDescEjj.exit
 
 168:                                              ; preds = %161, %.lr.ph.i54
-  %169 = getelementptr inbounds i8, ptr %.01522.i, i64 12
+  %169 = getelementptr inbounds nuw i8, ptr %.01522.i, i64 12
   %.not.i56 = icmp eq ptr %169, %156
   br i1 %.not.i56, label %_ZNK4llvm15MCSubtargetInfo20getReadAdvanceCyclesEPKNS_16MCSchedClassDescEjj.exit, label %.lr.ph.i54, !llvm.loop !11
 
@@ -909,7 +909,7 @@ define dso_local noundef i32 @_ZNK4llvm16TargetSchedModel19computeInstrLatencyEP
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %25 = load ptr, ptr %23, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 1032
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 1032
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef i32 %27(ptr noundef nonnull align 8 dereferenceable(80) %23, ptr noundef nonnull %24, ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef null) #11
   br label %63
@@ -923,7 +923,7 @@ define dso_local noundef i32 @_ZNK4llvm16TargetSchedModel19computeInstrLatencyEP
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 6
   %34 = load i16, ptr %33, align 2
   %35 = zext i16 %34 to i64
-  %36 = getelementptr inbounds %"struct.llvm::MCSchedClassDesc", ptr %18, i64 %35
+  %36 = getelementptr inbounds nuw %"struct.llvm::MCSchedClassDesc", ptr %18, i64 %35
   %37 = load i16, ptr %36, align 2
   %38 = and i16 %37, 8191
   %cond.i = icmp eq i16 %38, 8190
@@ -938,12 +938,12 @@ define dso_local noundef i32 @_ZNK4llvm16TargetSchedModel19computeInstrLatencyEP
   %.01012.i = phi i32 [ %39, %.lr.ph.i ], [ %46, %41 ]
   %42 = load ptr, ptr %40, align 8
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 224
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 224
   %45 = load ptr, ptr %44, align 8
   %46 = tail call noundef i32 %45(ptr noundef nonnull align 8 dereferenceable(288) %42, i32 noundef %.01012.i, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(280) %0) #11
   %47 = load ptr, ptr %17, align 8
   %48 = zext i32 %46 to i64
-  %49 = getelementptr inbounds %"struct.llvm::MCSchedClassDesc", ptr %47, i64 %48
+  %49 = getelementptr inbounds nuw %"struct.llvm::MCSchedClassDesc", ptr %47, i64 %48
   %50 = load i16, ptr %49, align 2
   %51 = and i16 %50, 8191
   %52 = icmp eq i16 %51, 8190
@@ -992,7 +992,7 @@ declare noundef i32 @_ZN4llvm12MCSchedModel19computeInstrLatencyERKNS_15MCSubtar
 define dso_local noundef range(i32 0, -2147483648) i32 @_ZNK4llvm16TargetSchedModel19computeInstrLatencyEj(ptr noundef nonnull align 8 dereferenceable(280) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = zext i32 %1 to i64
   %8 = sub nsw i64 0, %7
@@ -1024,7 +1024,7 @@ define dso_local noundef range(i32 0, -2147483648) i32 @_ZNK4llvm16TargetSchedMo
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = tail call noundef i32 @_ZNK4llvm12MCSchedModel19computeInstrLatencyERKNS_15MCSubtargetInfoERKNS_11MCInstrInfoERKNS_6MCInstE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(288) %11, ptr noundef nonnull align 8 dereferenceable(44) %14, ptr noundef nonnull align 8 dereferenceable(128) %1) #11
   br label %30
 
@@ -1032,7 +1032,7 @@ define dso_local noundef range(i32 0, -2147483648) i32 @_ZNK4llvm16TargetSchedMo
   %17 = load i32, ptr %1, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = zext i32 %17 to i64
   %23 = sub nsw i64 0, %22
@@ -1064,13 +1064,13 @@ define dso_local noundef i32 @_ZNK4llvm16TargetSchedModel20computeOutputLatencyE
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load ptr, ptr %9, align 8
   %11 = zext i32 %2 to i64
-  %12 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %10, i64 %11, i32 1
+  %12 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %10, i64 %11, i32 1
   %13 = load i32, ptr %12, align 4
   %14 = tail call noundef ptr @_ZNK4llvm12MachineInstr5getMFEv(ptr noundef nonnull align 8 dereferenceable(70) %1) #11
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 200
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 200
   %19 = load ptr, ptr %18, align 8
   %20 = tail call noundef ptr %19(ptr noundef nonnull align 8 dereferenceable(288) %16) #11
   %21 = tail call noundef i32 @_ZNK4llvm12MachineInstr25findRegisterUseOperandIdxENS_8RegisterEPKNS_18TargetRegisterInfoEb(ptr noundef nonnull align 8 dereferenceable(70) %3, i32 %13, ptr noundef %20, i1 noundef zeroext false) #11
@@ -1081,7 +1081,7 @@ define dso_local noundef i32 @_ZNK4llvm16TargetSchedModel20computeOutputLatencyE
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 832
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 832
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(80) %24, ptr noundef nonnull align 8 dereferenceable(70) %3) #11
   br i1 %28, label %29, label %31
@@ -1105,7 +1105,7 @@ define dso_local noundef i32 @_ZNK4llvm16TargetSchedModel20computeOutputLatencyE
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 6
   %42 = load i16, ptr %41, align 2
   %43 = zext i16 %42 to i64
-  %44 = getelementptr inbounds %"struct.llvm::MCSchedClassDesc", ptr %35, i64 %43
+  %44 = getelementptr inbounds nuw %"struct.llvm::MCSchedClassDesc", ptr %35, i64 %43
   %45 = load i16, ptr %44, align 2
   %46 = and i16 %45, 8191
   %cond.i = icmp eq i16 %46, 8190
@@ -1120,12 +1120,12 @@ define dso_local noundef i32 @_ZNK4llvm16TargetSchedModel20computeOutputLatencyE
   %.01012.i = phi i32 [ %47, %.lr.ph.i ], [ %54, %49 ]
   %50 = load ptr, ptr %48, align 8
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 224
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 224
   %53 = load ptr, ptr %52, align 8
   %54 = tail call noundef i32 %53(ptr noundef nonnull align 8 dereferenceable(288) %50, i32 noundef %.01012.i, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(280) %0) #11
   %55 = load ptr, ptr %34, align 8
   %56 = zext i32 %54 to i64
-  %57 = getelementptr inbounds %"struct.llvm::MCSchedClassDesc", ptr %55, i64 %56
+  %57 = getelementptr inbounds nuw %"struct.llvm::MCSchedClassDesc", ptr %55, i64 %56
   %58 = load i16, ptr %57, align 2
   %59 = and i16 %58, 8191
   %60 = icmp eq i16 %59, 8190
@@ -1145,11 +1145,11 @@ _ZNK4llvm16TargetSchedModel17resolveSchedClassEPKNS_12MachineInstrE.exit: ; pred
   %66 = getelementptr inbounds nuw i8, ptr %.011.i, i64 2
   %67 = load i16, ptr %66, align 2
   %68 = zext i16 %67 to i64
-  %69 = getelementptr inbounds %"struct.llvm::MCWriteProcResEntry", ptr %65, i64 %68
+  %69 = getelementptr inbounds nuw %"struct.llvm::MCWriteProcResEntry", ptr %65, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %.011.i, i64 4
   %71 = load i16, ptr %70, align 2
   %72 = zext i16 %71 to i64
-  %73 = getelementptr inbounds %"struct.llvm::MCWriteProcResEntry", ptr %69, i64 %72
+  %73 = getelementptr inbounds nuw %"struct.llvm::MCWriteProcResEntry", ptr %69, i64 %72
   %.not22 = icmp eq i16 %71, 0
   br i1 %.not22, label %.loopexit, label %.lr.ph
 
@@ -1159,7 +1159,7 @@ _ZNK4llvm16TargetSchedModel17resolveSchedClassEPKNS_12MachineInstrE.exit: ; pred
   br label %78
 
 76:                                               ; preds = %78
-  %77 = getelementptr inbounds i8, ptr %.01823, i64 6
+  %77 = getelementptr inbounds nuw i8, ptr %.01823, i64 6
   %.not = icmp eq ptr %77, %73
   br i1 %.not, label %.loopexit, label %78, !llvm.loop !12
 
@@ -1167,7 +1167,7 @@ _ZNK4llvm16TargetSchedModel17resolveSchedClassEPKNS_12MachineInstrE.exit: ; pred
   %.01823 = phi ptr [ %69, %.lr.ph ], [ %77, %76 ]
   %79 = load i16, ptr %.01823, align 2
   %80 = zext i16 %79 to i64
-  %81 = getelementptr inbounds %"struct.llvm::MCProcResourceDesc", ptr %75, i64 %80, i32 3
+  %81 = getelementptr inbounds nuw %"struct.llvm::MCProcResourceDesc", ptr %75, i64 %80, i32 3
   %82 = load i32, ptr %81, align 8
   %.not19 = icmp eq i32 %82, 0
   br i1 %.not19, label %.loopexit, label %76
@@ -1216,7 +1216,7 @@ define dso_local noundef double @_ZNK4llvm16TargetSchedModel27computeReciprocalT
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 6
   %30 = load i16, ptr %29, align 2
   %31 = zext i16 %30 to i64
-  %32 = getelementptr inbounds %"struct.llvm::MCSchedClassDesc", ptr %21, i64 %31
+  %32 = getelementptr inbounds nuw %"struct.llvm::MCSchedClassDesc", ptr %21, i64 %31
   %33 = load i16, ptr %32, align 2
   %34 = and i16 %33, 8191
   %cond.i = icmp eq i16 %34, 8190
@@ -1230,12 +1230,12 @@ define dso_local noundef double @_ZNK4llvm16TargetSchedModel27computeReciprocalT
   %.01012.i = phi i32 [ %35, %.lr.ph.i ], [ %41, %36 ]
   %37 = load ptr, ptr %25, align 8
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 224
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 224
   %40 = load ptr, ptr %39, align 8
   %41 = tail call noundef i32 %40(ptr noundef nonnull align 8 dereferenceable(288) %37, i32 noundef %.01012.i, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(280) %0) #11
   %42 = load ptr, ptr %20, align 8
   %43 = zext i32 %41 to i64
-  %44 = getelementptr inbounds %"struct.llvm::MCSchedClassDesc", ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw %"struct.llvm::MCSchedClassDesc", ptr %42, i64 %43
   %45 = load i16, ptr %44, align 2
   %46 = and i16 %45, 8191
   %47 = icmp eq i16 %46, 8190
@@ -1259,7 +1259,7 @@ declare noundef double @_ZN4llvm12MCSchedModel23getReciprocalThroughputERKNS_15M
 define dso_local noundef double @_ZNK4llvm16TargetSchedModel27computeReciprocalThroughputEj(ptr noundef nonnull align 8 dereferenceable(280) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = zext i32 %1 to i64
   %8 = sub nsw i64 0, %7
@@ -1290,7 +1290,7 @@ define dso_local noundef double @_ZNK4llvm16TargetSchedModel27computeReciprocalT
 
 28:                                               ; preds = %21
   %29 = zext i16 %10 to i64
-  %30 = getelementptr inbounds %"struct.llvm::MCSchedClassDesc", ptr %25, i64 %29
+  %30 = getelementptr inbounds nuw %"struct.llvm::MCSchedClassDesc", ptr %25, i64 %29
   %31 = load i16, ptr %30, align 2
   %32 = and i16 %31, 8190
   %switch = icmp eq i16 %32, 8190
@@ -1322,7 +1322,7 @@ define dso_local noundef double @_ZNK4llvm16TargetSchedModel27computeReciprocalT
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = tail call noundef double @_ZNK4llvm12MCSchedModel23getReciprocalThroughputERKNS_15MCSubtargetInfoERKNS_11MCInstrInfoERKNS_6MCInstE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(288) %11, ptr noundef nonnull align 8 dereferenceable(44) %14, ptr noundef nonnull align 8 dereferenceable(128) %1) #11
   br label %_ZNK4llvm16TargetSchedModel27computeReciprocalThroughputEj.exit
 
@@ -1338,7 +1338,7 @@ define dso_local noundef double @_ZNK4llvm16TargetSchedModel27computeReciprocalT
 23:                                               ; preds = %16
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = load i32, ptr %1, align 8
   %29 = zext i32 %28 to i64
@@ -1396,7 +1396,7 @@ define linkonce_odr hidden void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagEN
   store i16 %14, ptr %5, align 2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %17 = getelementptr inbounds i8, ptr %0, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %15, i8 0, i64 52, i1 false)
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull %17, i64 noundef 1) #11
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -1529,7 +1529,7 @@ define linkonce_odr hidden void @_ZN4llvm15SmallVectorImplIjE10resizeImplILb0EEE
   br i1 %12, label %13, label %_ZN4llvm15SmallVectorImplIjE7reserveEm.exit
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %14, i64 noundef %1, i64 noundef 4) #11
   br label %_ZN4llvm15SmallVectorImplIjE7reserveEm.exit
 
@@ -1572,9 +1572,9 @@ define internal void @_GLOBAL__sub_I_TargetSchedule.cpp() #8 section ".text.star
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   store i8 1, ptr %3, align 1
   tail call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL16EnableSchedModel, i32 noundef 0, i32 noundef 0)
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL16EnableSchedModel, i64 128), align 8
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZL16EnableSchedModel, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZL16EnableSchedModel, i64 136), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL16EnableSchedModel, i64 128), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL16EnableSchedModel, i64 144), align 8
+  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL16EnableSchedModel, i64 136), align 8
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL16EnableSchedModel, align 8
   tail call void @_ZN4llvm2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL16EnableSchedModel, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL16EnableSchedModel) #11
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL16EnableSchedModel, i64 152), align 8
@@ -1588,16 +1588,16 @@ define internal void @_GLOBAL__sub_I_TargetSchedule.cpp() #8 section ".text.star
   store i16 %6, ptr getelementptr inbounds nuw (i8, ptr @_ZL16EnableSchedModel, i64 10), align 2
   call void @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEE15setInitialValueERKb(ptr noundef nonnull align 8 dereferenceable(192) @_ZL16EnableSchedModel, ptr noundef nonnull align 1 dereferenceable(1) %3) #11
   store ptr @.str.1, ptr getelementptr inbounds nuw (i8, ptr @_ZL16EnableSchedModel, i64 32), align 8
-  store i64 39, ptr getelementptr inbounds (i8, ptr @_ZL16EnableSchedModel, i64 40), align 8
+  store i64 39, ptr getelementptr inbounds nuw (i8, ptr @_ZL16EnableSchedModel, i64 40), align 8
   call void @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEE4doneEv(ptr noundef nonnull align 8 dereferenceable(192) @_ZL16EnableSchedModel) #11
   %7 = call i32 @__cxa_atexit(ptr nonnull @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEED2Ev, ptr nonnull @_ZL16EnableSchedModel, ptr nonnull @__dso_handle) #11
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
   store i8 1, ptr %2, align 1
   call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL16EnableSchedItins, i32 noundef 0, i32 noundef 0)
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL16EnableSchedItins, i64 128), align 8
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZL16EnableSchedItins, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZL16EnableSchedItins, i64 136), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL16EnableSchedItins, i64 128), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL16EnableSchedItins, i64 144), align 8
+  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL16EnableSchedItins, i64 136), align 8
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL16EnableSchedItins, align 8
   call void @_ZN4llvm2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL16EnableSchedItins, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL16EnableSchedItins) #11
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL16EnableSchedItins, i64 152), align 8
@@ -1611,16 +1611,16 @@ define internal void @_GLOBAL__sub_I_TargetSchedule.cpp() #8 section ".text.star
   store i16 %10, ptr getelementptr inbounds nuw (i8, ptr @_ZL16EnableSchedItins, i64 10), align 2
   call void @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEE15setInitialValueERKb(ptr noundef nonnull align 8 dereferenceable(192) @_ZL16EnableSchedItins, ptr noundef nonnull align 1 dereferenceable(1) %2) #11
   store ptr @.str.4, ptr getelementptr inbounds nuw (i8, ptr @_ZL16EnableSchedItins, i64 32), align 8
-  store i64 41, ptr getelementptr inbounds (i8, ptr @_ZL16EnableSchedItins, i64 40), align 8
+  store i64 41, ptr getelementptr inbounds nuw (i8, ptr @_ZL16EnableSchedItins, i64 40), align 8
   call void @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEE4doneEv(ptr noundef nonnull align 8 dereferenceable(192) @_ZL16EnableSchedItins) #11
   %11 = call i32 @__cxa_atexit(ptr nonnull @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEED2Ev, ptr nonnull @_ZL16EnableSchedItins, ptr nonnull @__dso_handle) #11
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1)
   store i8 0, ptr %1, align 1
   call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL20ForceEnableIntervals, i32 noundef 0, i32 noundef 0)
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL20ForceEnableIntervals, i64 128), align 8
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZL20ForceEnableIntervals, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZL20ForceEnableIntervals, i64 136), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL20ForceEnableIntervals, i64 128), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL20ForceEnableIntervals, i64 144), align 8
+  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL20ForceEnableIntervals, i64 136), align 8
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL20ForceEnableIntervals, align 8
   call void @_ZN4llvm2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL20ForceEnableIntervals, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL20ForceEnableIntervals) #11
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL20ForceEnableIntervals, i64 152), align 8
@@ -1634,7 +1634,7 @@ define internal void @_GLOBAL__sub_I_TargetSchedule.cpp() #8 section ".text.star
   store i16 %14, ptr getelementptr inbounds nuw (i8, ptr @_ZL20ForceEnableIntervals, i64 10), align 2
   call void @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEE15setInitialValueERKb(ptr noundef nonnull align 8 dereferenceable(192) @_ZL20ForceEnableIntervals, ptr noundef nonnull align 1 dereferenceable(1) %1) #11
   store ptr @.str.7, ptr getelementptr inbounds nuw (i8, ptr @_ZL20ForceEnableIntervals, i64 32), align 8
-  store i64 57, ptr getelementptr inbounds (i8, ptr @_ZL20ForceEnableIntervals, i64 40), align 8
+  store i64 57, ptr getelementptr inbounds nuw (i8, ptr @_ZL20ForceEnableIntervals, i64 40), align 8
   call void @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEE4doneEv(ptr noundef nonnull align 8 dereferenceable(192) @_ZL20ForceEnableIntervals) #11
   %15 = call i32 @__cxa_atexit(ptr nonnull @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEED2Ev, ptr nonnull @_ZL20ForceEnableIntervals, ptr nonnull @__dso_handle) #11
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1)

@@ -81,44 +81,44 @@ lor.lhs.false.i.i:                                ; preds = %if.then.i
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, %if.then.i
   tail call void @_ZN4absl13base_internal8SpinLockC1ENS0_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i32 noundef 0)
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 288), align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 292), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 288), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 292), align 4
   %call.i.i.i = tail call noundef i64 @sysconf(i32 noundef 30) #11
-  store i64 %call.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 296), align 8
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 304), align 8
-  store i64 64, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 312), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 320), align 8
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 8), align 8
-  store i64 xor (i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 8) to i64), i64 -1283669654), ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 16), align 8
-  store ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 24), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 40), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 48), i8 0, i64 240, i1 false)
+  store i64 %call.i.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 296), align 8
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 304), align 8
+  store i64 64, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 312), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 320), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 8), align 8
+  store i64 xor (i64 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 8) to i64), i64 -1283669654), ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 16), align 8
+  store ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 24), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 40), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 48), i8 0, i64 240, i1 false)
   tail call void @_ZN4absl13base_internal8SpinLockC1ENS0_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i32 noundef 0)
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 288), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 292), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 288), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 292), align 4
   %call.i.i1.i = tail call noundef i64 @sysconf(i32 noundef 30) #11
-  store i64 %call.i.i1.i, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 296), align 8
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 304), align 8
-  store i64 64, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 312), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 320), align 8
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 8), align 8
-  store i64 xor (i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 8) to i64), i64 -1283669654), ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 16), align 8
-  store ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 24), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 40), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 48), i8 0, i64 240, i1 false)
+  store i64 %call.i.i1.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 296), align 8
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 304), align 8
+  store i64 64, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 312), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 320), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 8), align 8
+  store i64 xor (i64 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 8) to i64), i64 -1283669654), ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 16), align 8
+  store ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 24), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 40), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 48), i8 0, i64 240, i1 false)
   tail call void @_ZN4absl13base_internal8SpinLockC1ENS0_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i32 noundef 0)
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 288), align 8
-  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 292), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 288), align 8
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 292), align 4
   %call.i.i2.i = tail call noundef i64 @sysconf(i32 noundef 30) #11
-  store i64 %call.i.i2.i, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 296), align 8
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 304), align 8
-  store i64 64, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 312), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 320), align 8
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 8), align 8
-  store i64 xor (i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 8) to i64), i64 -1283669654), ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 16), align 8
-  store ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 24), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 40), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 48), i8 0, i64 240, i1 false)
+  store i64 %call.i.i2.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 296), align 8
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 304), align 8
+  store i64 64, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 312), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 320), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 8), align 8
+  store i64 xor (i64 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 8) to i64), i64 -1283669654), ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 16), align 8
+  store ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 24), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 40), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 48), i8 0, i64 240, i1 false)
   %3 = atomicrmw xchg ptr @_ZN4absl13base_internal12_GLOBAL__N_119create_globals_onceE, i32 221 release, align 4
   %cmp4.i.i = icmp eq i32 %3, 94570706
   br i1 %cmp4.i.i, label %if.then5.i.i, label %_ZN4absl13base_internal16LowLevelCallOnceIRFvvEJEEEvPNS_9once_flagEOT_DpOT0_.exit
@@ -135,30 +135,30 @@ _ZN4absl13base_internal16LowLevelCallOnceIRFvvEJEEEvPNS_9once_flagEOT_DpOT0_.exi
 define dso_local void @_ZN4absl13base_internal13LowLevelAlloc5ArenaC2Ej(ptr noundef nonnull align 8 dereferenceable(324) %this, i32 noundef %flags_value) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN4absl13base_internal8SpinLockC1ENS0_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) %this, i32 noundef 0)
-  %allocation_count = getelementptr inbounds i8, ptr %this, i64 288
+  %allocation_count = getelementptr inbounds nuw i8, ptr %this, i64 288
   store i32 0, ptr %allocation_count, align 8
-  %flags = getelementptr inbounds i8, ptr %this, i64 292
+  %flags = getelementptr inbounds nuw i8, ptr %this, i64 292
   store i32 %flags_value, ptr %flags, align 4
-  %pagesize = getelementptr inbounds i8, ptr %this, i64 296
+  %pagesize = getelementptr inbounds nuw i8, ptr %this, i64 296
   %call.i = tail call noundef i64 @sysconf(i32 noundef 30) #11
   store i64 %call.i, ptr %pagesize, align 8
-  %round_up = getelementptr inbounds i8, ptr %this, i64 304
+  %round_up = getelementptr inbounds nuw i8, ptr %this, i64 304
   store i64 32, ptr %round_up, align 8
-  %min_size = getelementptr inbounds i8, ptr %this, i64 312
+  %min_size = getelementptr inbounds nuw i8, ptr %this, i64 312
   store i64 64, ptr %min_size, align 8
-  %random = getelementptr inbounds i8, ptr %this, i64 320
+  %random = getelementptr inbounds nuw i8, ptr %this, i64 320
   store i32 0, ptr %random, align 8
-  %freelist4 = getelementptr inbounds i8, ptr %this, i64 8
+  %freelist4 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 0, ptr %freelist4, align 8
   %0 = ptrtoint ptr %freelist4 to i64
   %xor.i = xor i64 %0, -1283669654
-  %magic = getelementptr inbounds i8, ptr %this, i64 16
+  %magic = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i64 %xor.i, ptr %magic, align 8
-  %arena = getelementptr inbounds i8, ptr %this, i64 24
+  %arena = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %this, ptr %arena, align 8
-  %levels = getelementptr inbounds i8, ptr %this, i64 40
+  %levels = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i32 0, ptr %levels, align 8
-  %next = getelementptr inbounds i8, ptr %this, i64 48
+  %next = getelementptr inbounds nuw i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %next, i8 0, i64 240, i1 false)
   ret void
 }
@@ -193,44 +193,44 @@ lor.lhs.false.i.i.i:                              ; preds = %if.then.i.i
 
 if.then.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i, %if.then.i.i
   tail call void @_ZN4absl13base_internal8SpinLockC1ENS0_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i32 noundef 0)
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 288), align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 292), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 288), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 292), align 4
   %call.i.i.i.i = tail call noundef i64 @sysconf(i32 noundef 30) #11
-  store i64 %call.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 296), align 8
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 304), align 8
-  store i64 64, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 312), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 320), align 8
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 8), align 8
-  store i64 xor (i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 8) to i64), i64 -1283669654), ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 16), align 8
-  store ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 24), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 40), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 48), i8 0, i64 240, i1 false)
+  store i64 %call.i.i.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 296), align 8
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 304), align 8
+  store i64 64, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 312), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 320), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 8), align 8
+  store i64 xor (i64 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 8) to i64), i64 -1283669654), ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 16), align 8
+  store ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 24), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 40), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 48), i8 0, i64 240, i1 false)
   tail call void @_ZN4absl13base_internal8SpinLockC1ENS0_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i32 noundef 0)
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 288), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 292), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 288), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 292), align 4
   %call.i.i1.i.i = tail call noundef i64 @sysconf(i32 noundef 30) #11
-  store i64 %call.i.i1.i.i, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 296), align 8
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 304), align 8
-  store i64 64, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 312), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 320), align 8
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 8), align 8
-  store i64 xor (i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 8) to i64), i64 -1283669654), ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 16), align 8
-  store ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 24), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 40), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 48), i8 0, i64 240, i1 false)
+  store i64 %call.i.i1.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 296), align 8
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 304), align 8
+  store i64 64, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 312), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 320), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 8), align 8
+  store i64 xor (i64 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 8) to i64), i64 -1283669654), ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 16), align 8
+  store ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 24), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 40), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 48), i8 0, i64 240, i1 false)
   tail call void @_ZN4absl13base_internal8SpinLockC1ENS0_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i32 noundef 0)
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 288), align 8
-  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 292), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 288), align 8
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 292), align 4
   %call.i.i2.i.i = tail call noundef i64 @sysconf(i32 noundef 30) #11
-  store i64 %call.i.i2.i.i, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 296), align 8
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 304), align 8
-  store i64 64, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 312), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 320), align 8
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 8), align 8
-  store i64 xor (i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 8) to i64), i64 -1283669654), ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 16), align 8
-  store ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 24), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 40), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 48), i8 0, i64 240, i1 false)
+  store i64 %call.i.i2.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 296), align 8
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 304), align 8
+  store i64 64, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 312), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 320), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 8), align 8
+  store i64 xor (i64 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 8) to i64), i64 -1283669654), ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 16), align 8
+  store ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 24), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 40), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 48), i8 0, i64 240, i1 false)
   %3 = atomicrmw xchg ptr @_ZN4absl13base_internal12_GLOBAL__N_119create_globals_onceE, i32 221 release, align 4
   %cmp4.i.i.i = icmp eq i32 %3, 94570706
   br i1 %cmp4.i.i.i, label %if.then5.i.i.i, label %if.end6
@@ -252,30 +252,30 @@ if.end6:                                          ; preds = %if.then5.i.i.i, %if
   %meta_data_arena.0 = phi ptr [ @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, %if.then4 ], [ @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, %if.else ], [ @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, %if.then ], [ @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, %lor.lhs.false.i.i.i ], [ @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, %if.then.i.i.i ], [ @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, %if.then5.i.i.i ]
   %call.i = tail call fastcc noundef ptr @_ZN4absl13base_internalL16DoAllocWithArenaEmPNS0_13LowLevelAlloc5ArenaE(i64 noundef 328, ptr noundef nonnull %meta_data_arena.0)
   tail call void @_ZN4absl13base_internal8SpinLockC1ENS0_14SchedulingModeE(ptr noundef nonnull align 8 dereferenceable(324) %call.i, i32 noundef 0)
-  %allocation_count.i = getelementptr inbounds i8, ptr %call.i, i64 288
+  %allocation_count.i = getelementptr inbounds nuw i8, ptr %call.i, i64 288
   store i32 0, ptr %allocation_count.i, align 8
-  %flags.i = getelementptr inbounds i8, ptr %call.i, i64 292
+  %flags.i = getelementptr inbounds nuw i8, ptr %call.i, i64 292
   store i32 %flags, ptr %flags.i, align 4
-  %pagesize.i = getelementptr inbounds i8, ptr %call.i, i64 296
+  %pagesize.i = getelementptr inbounds nuw i8, ptr %call.i, i64 296
   %call.i.i = tail call noundef i64 @sysconf(i32 noundef 30) #11
   store i64 %call.i.i, ptr %pagesize.i, align 8
-  %round_up.i = getelementptr inbounds i8, ptr %call.i, i64 304
+  %round_up.i = getelementptr inbounds nuw i8, ptr %call.i, i64 304
   store i64 32, ptr %round_up.i, align 8
-  %min_size.i = getelementptr inbounds i8, ptr %call.i, i64 312
+  %min_size.i = getelementptr inbounds nuw i8, ptr %call.i, i64 312
   store i64 64, ptr %min_size.i, align 8
-  %random.i = getelementptr inbounds i8, ptr %call.i, i64 320
+  %random.i = getelementptr inbounds nuw i8, ptr %call.i, i64 320
   store i32 0, ptr %random.i, align 8
-  %freelist4.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %freelist4.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i64 0, ptr %freelist4.i, align 8
   %4 = ptrtoint ptr %freelist4.i to i64
   %xor.i.i = xor i64 %4, -1283669654
-  %magic.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %magic.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store i64 %xor.i.i, ptr %magic.i, align 8
-  %arena.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %arena.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store ptr %call.i, ptr %arena.i, align 8
-  %levels.i = getelementptr inbounds i8, ptr %call.i, i64 40
+  %levels.i = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   store i32 0, ptr %levels.i, align 8
-  %next.i = getelementptr inbounds i8, ptr %call.i, i64 48
+  %next.i = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %next.i, i8 0, i64 240, i1 false)
   ret ptr %call.i
 }
@@ -299,44 +299,44 @@ lor.lhs.false.i.i:                                ; preds = %if.then.i
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, %if.then.i
   tail call void @_ZN4absl13base_internal8SpinLockC1ENS0_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i32 noundef 0)
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 288), align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 292), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 288), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 292), align 4
   %call.i.i.i = tail call noundef i64 @sysconf(i32 noundef 30) #11
-  store i64 %call.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 296), align 8
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 304), align 8
-  store i64 64, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 312), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 320), align 8
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 8), align 8
-  store i64 xor (i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 8) to i64), i64 -1283669654), ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 16), align 8
-  store ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 24), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 40), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 48), i8 0, i64 240, i1 false)
+  store i64 %call.i.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 296), align 8
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 304), align 8
+  store i64 64, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 312), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 320), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 8), align 8
+  store i64 xor (i64 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 8) to i64), i64 -1283669654), ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 16), align 8
+  store ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 24), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 40), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 48), i8 0, i64 240, i1 false)
   tail call void @_ZN4absl13base_internal8SpinLockC1ENS0_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i32 noundef 0)
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 288), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 292), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 288), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 292), align 4
   %call.i.i1.i = tail call noundef i64 @sysconf(i32 noundef 30) #11
-  store i64 %call.i.i1.i, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 296), align 8
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 304), align 8
-  store i64 64, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 312), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 320), align 8
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 8), align 8
-  store i64 xor (i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 8) to i64), i64 -1283669654), ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 16), align 8
-  store ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 24), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 40), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 48), i8 0, i64 240, i1 false)
+  store i64 %call.i.i1.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 296), align 8
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 304), align 8
+  store i64 64, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 312), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 320), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 8), align 8
+  store i64 xor (i64 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 8) to i64), i64 -1283669654), ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 16), align 8
+  store ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 24), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 40), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 48), i8 0, i64 240, i1 false)
   tail call void @_ZN4absl13base_internal8SpinLockC1ENS0_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i32 noundef 0)
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 288), align 8
-  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 292), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 288), align 8
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 292), align 4
   %call.i.i2.i = tail call noundef i64 @sysconf(i32 noundef 30) #11
-  store i64 %call.i.i2.i, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 296), align 8
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 304), align 8
-  store i64 64, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 312), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 320), align 8
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 8), align 8
-  store i64 xor (i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 8) to i64), i64 -1283669654), ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 16), align 8
-  store ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 24), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 40), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 48), i8 0, i64 240, i1 false)
+  store i64 %call.i.i2.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 296), align 8
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 304), align 8
+  store i64 64, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 312), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 320), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 8), align 8
+  store i64 xor (i64 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 8) to i64), i64 -1283669654), ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 16), align 8
+  store ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 24), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 40), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 48), i8 0, i64 240, i1 false)
   %3 = atomicrmw xchg ptr @_ZN4absl13base_internal12_GLOBAL__N_119create_globals_onceE, i32 221 release, align 4
   %cmp4.i.i = icmp eq i32 %3, 94570706
   br i1 %cmp4.i.i, label %if.then5.i.i, label %_ZN4absl13base_internal16LowLevelCallOnceIRFvvEJEEEvPNS_9once_flagEOT_DpOT0_.exit
@@ -389,11 +389,11 @@ do.body4:                                         ; preds = %land.lhs.true, %ent
 do.end7:                                          ; preds = %land.rhs
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %all.i)
   store i8 0, ptr %section, align 8
-  %mask_valid_.i = getelementptr inbounds i8, ptr %section, i64 1
+  %mask_valid_.i = getelementptr inbounds nuw i8, ptr %section, i64 1
   store i8 0, ptr %mask_valid_.i, align 1
-  %arena_.i = getelementptr inbounds i8, ptr %section, i64 136
+  %arena_.i = getelementptr inbounds nuw i8, ptr %section, i64 136
   store ptr %arena, ptr %arena_.i, align 8
-  %flags.i = getelementptr inbounds i8, ptr %arena, i64 292
+  %flags.i = getelementptr inbounds nuw i8, ptr %arena, i64 292
   %0 = load i32, ptr %flags.i, align 4
   %and.i = and i32 %0, 2
   %cmp.not.i = icmp eq i32 %and.i, 0
@@ -401,7 +401,7 @@ do.end7:                                          ; preds = %land.rhs
 
 if.then.i:                                        ; preds = %do.end7
   %call.i = call i32 @sigfillset(ptr noundef nonnull %all.i) #11
-  %mask_2.i = getelementptr inbounds i8, ptr %section, i64 8
+  %mask_2.i = getelementptr inbounds nuw i8, ptr %section, i64 8
   %call3.i = call i32 @pthread_sigmask(i32 noundef 0, ptr noundef nonnull %all.i, ptr noundef nonnull %mask_2.i) #11
   %cmp4.i = icmp eq i32 %call3.i, 0
   %frombool.i = zext i1 %cmp4.i to i8
@@ -430,14 +430,14 @@ if.then.i.i:                                      ; preds = %_ZN4absl13base_inte
 
 _ZN4absl13base_internal12_GLOBAL__N_19ArenaLockC2EPNS0_13LowLevelAlloc5ArenaE.exit: ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i, %if.then.i.i
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %all.i)
-  %allocation_count = getelementptr inbounds i8, ptr %arena, i64 288
+  %allocation_count = getelementptr inbounds nuw i8, ptr %arena, i64 288
   %6 = load i32, ptr %allocation_count, align 8
   %cmp8.not = icmp eq i32 %6, 0
   br i1 %cmp8.not, label %while.cond.preheader, label %if.then9
 
 while.cond.preheader:                             ; preds = %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockC2EPNS0_13LowLevelAlloc5ArenaE.exit
-  %next = getelementptr inbounds i8, ptr %arena, i64 48
-  %pagesize = getelementptr inbounds i8, ptr %arena, i64 296
+  %next = getelementptr inbounds nuw i8, ptr %arena, i64 48
+  %pagesize = getelementptr inbounds nuw i8, ptr %arena, i64 296
   br label %while.cond
 
 if.then9:                                         ; preds = %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockC2EPNS0_13LowLevelAlloc5ArenaE.exit
@@ -458,7 +458,7 @@ _ZN4absl13base_internal8SpinLock6UnlockEv.exit.i: ; preds = %if.then7.i.i, %if.t
   br i1 %tobool.i, label %if.then.i25, label %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev.exit
 
 if.then.i25:                                      ; preds = %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i
-  %mask_.i = getelementptr inbounds i8, ptr %section, i64 8
+  %mask_.i = getelementptr inbounds nuw i8, ptr %section, i64 8
   %call.i26 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %mask_.i, ptr noundef null) #11
   %cmp.not.i27 = icmp eq i32 %call.i26, 0
   br i1 %cmp.not.i27, label %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev.exit, label %do.body.i41.invoke
@@ -477,10 +477,10 @@ while.cond:                                       ; preds = %while.cond.preheade
 
 while.body:                                       ; preds = %while.cond
   %13 = load i64, ptr %12, align 8
-  %next16 = getelementptr inbounds i8, ptr %12, i64 40
+  %next16 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %14 = load ptr, ptr %next16, align 8
   store ptr %14, ptr %next, align 8
-  %magic = getelementptr inbounds i8, ptr %12, i64 8
+  %magic = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load i64, ptr %magic, align 8
   %16 = ptrtoint ptr %12 to i64
   %17 = xor i64 %15, %16
@@ -488,7 +488,7 @@ while.body:                                       ; preds = %while.cond
   br i1 %cmp26.not, label %do.body39, label %do.body77.invoke
 
 do.body39:                                        ; preds = %while.body
-  %arena41 = getelementptr inbounds i8, ptr %12, i64 16
+  %arena41 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %18 = load ptr, ptr %arena41, align 8
   %cmp42.not = icmp eq ptr %18, %arena
   br i1 %cmp42.not, label %do.body56, label %do.body77.invoke
@@ -557,7 +557,7 @@ _ZN4absl13base_internal8SpinLock6UnlockEv.exit.i34: ; preds = %if.then7.i.i33, %
   br i1 %tobool.i36, label %if.then.i37, label %invoke.cont106
 
 if.then.i37:                                      ; preds = %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i34
-  %mask_.i38 = getelementptr inbounds i8, ptr %section, i64 8
+  %mask_.i38 = getelementptr inbounds nuw i8, ptr %section, i64 8
   %call.i39 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %mask_.i38, ptr noundef null) #11
   %cmp.not.i40 = icmp eq i32 %call.i39, 0
   br i1 %cmp.not.i40, label %invoke.cont106, label %do.body.i41.invoke
@@ -623,11 +623,11 @@ if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %arena1, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %all.i)
   store i8 0, ptr %section, align 8
-  %mask_valid_.i = getelementptr inbounds i8, ptr %section, i64 1
+  %mask_valid_.i = getelementptr inbounds nuw i8, ptr %section, i64 1
   store i8 0, ptr %mask_valid_.i, align 1
-  %arena_.i = getelementptr inbounds i8, ptr %section, i64 136
+  %arena_.i = getelementptr inbounds nuw i8, ptr %section, i64 136
   store ptr %0, ptr %arena_.i, align 8
-  %flags.i = getelementptr inbounds i8, ptr %0, i64 292
+  %flags.i = getelementptr inbounds nuw i8, ptr %0, i64 292
   %1 = load i32, ptr %flags.i, align 4
   %and.i = and i32 %1, 2
   %cmp.not.i = icmp eq i32 %and.i, 0
@@ -635,7 +635,7 @@ if.then:                                          ; preds = %entry
 
 if.then.i:                                        ; preds = %if.then
   %call.i = call i32 @sigfillset(ptr noundef nonnull %all.i) #11
-  %mask_2.i = getelementptr inbounds i8, ptr %section, i64 8
+  %mask_2.i = getelementptr inbounds nuw i8, ptr %section, i64 8
   %call3.i = call i32 @pthread_sigmask(i32 noundef 0, ptr noundef nonnull %all.i, ptr noundef nonnull %mask_2.i) #11
   %cmp4.i = icmp eq i32 %call3.i, 0
   %frombool.i = zext i1 %cmp4.i to i8
@@ -668,7 +668,7 @@ _ZN4absl13base_internal12_GLOBAL__N_19ArenaLockC2EPNS0_13LowLevelAlloc5ArenaE.ex
           to label %do.body unwind label %lpad
 
 do.body:                                          ; preds = %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockC2EPNS0_13LowLevelAlloc5ArenaE.exit
-  %allocation_count = getelementptr inbounds i8, ptr %0, i64 288
+  %allocation_count = getelementptr inbounds nuw i8, ptr %0, i64 288
   %7 = load i32, ptr %allocation_count, align 8
   %cmp2 = icmp slt i32 %7, 1
   br i1 %cmp2, label %do.body4, label %do.end10
@@ -707,7 +707,7 @@ _ZN4absl13base_internal8SpinLock6UnlockEv.exit.i: ; preds = %if.then7.i.i, %do.e
   br i1 %tobool.i, label %if.then.i9, label %if.end13
 
 if.then.i9:                                       ; preds = %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i
-  %mask_.i = getelementptr inbounds i8, ptr %section, i64 8
+  %mask_.i = getelementptr inbounds nuw i8, ptr %section, i64 8
   %call.i10 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %mask_.i, ptr noundef null) #11
   %cmp.not.i11 = icmp eq i32 %call.i10, 0
   br i1 %cmp.not.i11, label %if.end13, label %do.body.i
@@ -775,9 +775,9 @@ do.body12:                                        ; preds = %do.body6
 
 do.end18:                                         ; preds = %do.body6
   %4 = load i64, ptr %add.ptr, align 8
-  %min_size = getelementptr inbounds i8, ptr %arena, i64 312
+  %min_size = getelementptr inbounds nuw i8, ptr %arena, i64 312
   %5 = load i64, ptr %min_size, align 8
-  %random = getelementptr inbounds i8, ptr %arena, i64 320
+  %random = getelementptr inbounds nuw i8, ptr %arena, i64 320
   %sub.i = add i64 %4, -40
   %div7.i = lshr i64 %sub.i, 3
   %cmp3.i.i = icmp ugt i64 %4, %5
@@ -823,8 +823,8 @@ do.body10.i:                                      ; preds = %_ZN4absl13base_inte
 _ZN4absl13base_internalL18LLA_SkiplistLevelsEmmPj.exit: ; preds = %_ZN4absl13base_internalL6RandomEPj.exit.i
   %8 = tail call noundef range(i32 1, 30) i32 @llvm.umin.i32(i32 %spec.select.i, i32 29)
   store i32 %8, ptr %v, align 8
-  %freelist = getelementptr inbounds i8, ptr %arena, i64 8
-  %levels.i.i = getelementptr inbounds i8, ptr %arena, i64 40
+  %freelist = getelementptr inbounds nuw i8, ptr %arena, i64 8
+  %levels.i.i = getelementptr inbounds nuw i8, ptr %arena, i64 40
   %9 = load i32, ptr %levels.i.i, align 8
   %cmp11.i.i = icmp sgt i32 %9, 0
   br i1 %cmp11.i.i, label %for.cond1.preheader.preheader.i.i, label %for.end8.i.i
@@ -841,7 +841,7 @@ for.cond1.preheader.i.i:                          ; preds = %for.end.i.i, %for.c
 
 for.cond1.i.i:                                    ; preds = %for.cond1.i.i, %for.cond1.preheader.i.i
   %p.1.i.i = phi ptr [ %11, %for.cond1.i.i ], [ %p.012.i.i, %for.cond1.preheader.i.i ]
-  %next.i.i = getelementptr inbounds i8, ptr %p.1.i.i, i64 40
+  %next.i.i = getelementptr inbounds nuw i8, ptr %p.1.i.i, i64 40
   %arrayidx.i.i = getelementptr inbounds [30 x ptr], ptr %next.i.i, i64 0, i64 %indvars.iv.next.i.i
   %11 = load ptr, ptr %arrayidx.i.i, align 8
   %cmp2.i.i = icmp ne ptr %11, null
@@ -864,7 +864,7 @@ for.cond4.preheader.i:                            ; preds = %for.body.i
   br i1 %13, label %_ZN4absl13base_internalL18LLA_SkiplistInsertEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit, label %for.body7.lr.ph.i
 
 for.body7.lr.ph.i:                                ; preds = %for.end8.i.i, %for.cond4.preheader.i
-  %next12.i = getelementptr inbounds i8, ptr %v, i64 8
+  %next12.i = getelementptr inbounds nuw i8, ptr %v, i64 8
   br label %for.body7.i
 
 for.body.i:                                       ; preds = %for.end8.i.i, %for.body.i
@@ -880,12 +880,12 @@ for.body.i:                                       ; preds = %for.end8.i.i, %for.
 
 for.body7.i:                                      ; preds = %for.body7.i, %for.body7.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body7.lr.ph.i ], [ %indvars.iv.next.i, %for.body7.i ]
-  %arrayidx9.i = getelementptr inbounds ptr, ptr %prev, i64 %indvars.iv.i
+  %arrayidx9.i = getelementptr inbounds nuw ptr, ptr %prev, i64 %indvars.iv.i
   %16 = load ptr, ptr %arrayidx9.i, align 8
-  %next.i = getelementptr inbounds i8, ptr %16, i64 40
-  %arrayidx11.i = getelementptr inbounds [30 x ptr], ptr %next.i, i64 0, i64 %indvars.iv.i
+  %next.i = getelementptr inbounds nuw i8, ptr %16, i64 40
+  %arrayidx11.i = getelementptr inbounds nuw [30 x ptr], ptr %next.i, i64 0, i64 %indvars.iv.i
   %17 = load ptr, ptr %arrayidx11.i, align 8
-  %arrayidx14.i = getelementptr inbounds [30 x ptr], ptr %next12.i, i64 0, i64 %indvars.iv.i
+  %arrayidx14.i = getelementptr inbounds nuw [30 x ptr], ptr %next12.i, i64 0, i64 %indvars.iv.i
   store ptr %17, ptr %arrayidx14.i, align 8
   store ptr %add.ptr, ptr %arrayidx11.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -923,11 +923,11 @@ entry:
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %all.i)
   store i8 0, ptr %section, align 8
-  %mask_valid_.i = getelementptr inbounds i8, ptr %section, i64 1
+  %mask_valid_.i = getelementptr inbounds nuw i8, ptr %section, i64 1
   store i8 0, ptr %mask_valid_.i, align 1
-  %arena_.i = getelementptr inbounds i8, ptr %section, i64 136
+  %arena_.i = getelementptr inbounds nuw i8, ptr %section, i64 136
   store ptr %arena, ptr %arena_.i, align 8
-  %flags.i = getelementptr inbounds i8, ptr %arena, i64 292
+  %flags.i = getelementptr inbounds nuw i8, ptr %arena, i64 292
   %0 = load i32, ptr %flags.i, align 4
   %and.i = and i32 %0, 2
   %cmp.not.i = icmp eq i32 %and.i, 0
@@ -935,7 +935,7 @@ if.then:                                          ; preds = %entry
 
 if.then.i:                                        ; preds = %if.then
   %call.i = call i32 @sigfillset(ptr noundef nonnull %all.i) #11
-  %mask_2.i = getelementptr inbounds i8, ptr %section, i64 8
+  %mask_2.i = getelementptr inbounds nuw i8, ptr %section, i64 8
   %call3.i = call i32 @pthread_sigmask(i32 noundef 0, ptr noundef nonnull %all.i, ptr noundef nonnull %mask_2.i) #11
   %cmp4.i = icmp eq i32 %call3.i, 0
   %frombool.i = zext i1 %cmp4.i to i8
@@ -969,7 +969,7 @@ _ZN4absl13base_internal12_GLOBAL__N_19ArenaLockC2EPNS0_13LowLevelAlloc5ArenaE.ex
 
 invoke.cont:                                      ; preds = %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockC2EPNS0_13LowLevelAlloc5ArenaE.exit
   %add.i = add nuw i64 %request, 32
-  %round_up = getelementptr inbounds i8, ptr %arena, i64 304
+  %round_up = getelementptr inbounds nuw i8, ptr %arena, i64 304
   %6 = load i64, ptr %round_up, align 8
   %sub.i = add nuw i64 %request, 31
   %add.i.i = add i64 %sub.i, %6
@@ -979,13 +979,13 @@ invoke.cont:                                      ; preds = %_ZN4absl13base_inte
 _ZN4absl13base_internalL7RoundUpEmm.exit:         ; preds = %invoke.cont
   %not.i = sub i64 0, %6
   %and.i51 = and i64 %add.i.i, %not.i
-  %min_size = getelementptr inbounds i8, ptr %arena, i64 312
+  %min_size = getelementptr inbounds nuw i8, ptr %arena, i64 312
   %sub.i53 = add i64 %and.i51, -40
   %div7.i = lshr i64 %sub.i53, 3
   %conv3.i = trunc i64 %div7.i to i32
-  %freelist = getelementptr inbounds i8, ptr %arena, i64 8
-  %levels = getelementptr inbounds i8, ptr %arena, i64 40
-  %pagesize = getelementptr inbounds i8, ptr %arena, i64 296
+  %freelist = getelementptr inbounds nuw i8, ptr %arena, i64 8
+  %levels = getelementptr inbounds nuw i8, ptr %arena, i64 40
+  %pagesize = getelementptr inbounds nuw i8, ptr %arena, i64 296
   %sub.i66 = add i64 %and.i51, -1
   br label %for.cond
 
@@ -1027,20 +1027,20 @@ while.cond.preheader:                             ; preds = %invoke.cont3
 
 while.cond:                                       ; preds = %while.cond.preheader, %land.rhs
   %before.0 = phi ptr [ %12, %land.rhs ], [ %freelist, %while.cond.preheader ]
-  %levels.i = getelementptr inbounds i8, ptr %before.0, i64 32
+  %levels.i = getelementptr inbounds nuw i8, ptr %before.0, i64 32
   %11 = load i32, ptr %levels.i, align 8
   %cmp.not.i56.not = icmp sgt i32 %9, %11
   br i1 %cmp.not.i56.not, label %do.body76.invoke, label %do.end4.i
 
 do.end4.i:                                        ; preds = %while.cond
-  %next5.i = getelementptr inbounds i8, ptr %before.0, i64 40
-  %arrayidx.i = getelementptr inbounds [30 x ptr], ptr %next5.i, i64 0, i64 %idxprom.i
+  %next5.i = getelementptr inbounds nuw i8, ptr %before.0, i64 40
+  %arrayidx.i = getelementptr inbounds nuw [30 x ptr], ptr %next5.i, i64 0, i64 %idxprom.i
   %12 = load ptr, ptr %arrayidx.i, align 8
   %cmp6.not.i = icmp eq ptr %12, null
   br i1 %cmp6.not.i, label %if.end14, label %do.body8.i
 
 do.body8.i:                                       ; preds = %do.end4.i
-  %magic.i = getelementptr inbounds i8, ptr %12, i64 8
+  %magic.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %13 = load i64, ptr %magic.i, align 8
   %14 = ptrtoint ptr %12 to i64
   %15 = xor i64 %13, %14
@@ -1048,7 +1048,7 @@ do.body8.i:                                       ; preds = %do.end4.i
   br i1 %cmp10.not.i, label %do.body20.i, label %do.body76.invoke
 
 do.body20.i:                                      ; preds = %do.body8.i
-  %arena22.i = getelementptr inbounds i8, ptr %12, i64 16
+  %arena22.i = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load ptr, ptr %arena22.i, align 8
   %cmp23.not.i = icmp eq ptr %16, %arena
   br i1 %cmp23.not.i, label %do.end32.i, label %do.body76.invoke
@@ -1165,17 +1165,17 @@ invoke.cont32:                                    ; preds = %_ZN4absl13base_inte
   store i64 %and.i70, ptr %new_pages.0, align 8
   %32 = ptrtoint ptr %new_pages.0 to i64
   %xor.i = xor i64 %32, 1283669653
-  %magic = getelementptr inbounds i8, ptr %new_pages.0, i64 8
+  %magic = getelementptr inbounds nuw i8, ptr %new_pages.0, i64 8
   store i64 %xor.i, ptr %magic, align 8
-  %arena39 = getelementptr inbounds i8, ptr %new_pages.0, i64 16
+  %arena39 = getelementptr inbounds nuw i8, ptr %new_pages.0, i64 16
   store ptr %arena, ptr %arena39, align 8
-  %levels40 = getelementptr inbounds i8, ptr %new_pages.0, i64 32
+  %levels40 = getelementptr inbounds nuw i8, ptr %new_pages.0, i64 32
   invoke fastcc void @_ZN4absl13base_internalL13AddToFreelistEPvPNS0_13LowLevelAlloc5ArenaE(ptr noundef nonnull %levels40, ptr noundef nonnull %arena)
           to label %for.cond unwind label %lpad.loopexit, !llvm.loop !14
 
 for.end:                                          ; preds = %land.rhs
-  %magic.i.le = getelementptr inbounds i8, ptr %12, i64 8
-  %arena22.i.le = getelementptr inbounds i8, ptr %12, i64 16
+  %magic.i.le = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %arena22.i.le = getelementptr inbounds nuw i8, ptr %12, i64 16
   %cmp11.i.i = icmp sgt i32 %10, 0
   br i1 %cmp11.i.i, label %for.cond1.preheader.preheader.i.i, label %for.end8.i.i
 
@@ -1191,7 +1191,7 @@ for.cond1.preheader.i.i:                          ; preds = %for.end.i.i, %for.c
 
 for.cond1.i.i:                                    ; preds = %for.cond1.i.i, %for.cond1.preheader.i.i
   %p.1.i.i = phi ptr [ %34, %for.cond1.i.i ], [ %p.012.i.i, %for.cond1.preheader.i.i ]
-  %next.i.i = getelementptr inbounds i8, ptr %p.1.i.i, i64 40
+  %next.i.i = getelementptr inbounds nuw i8, ptr %p.1.i.i, i64 40
   %arrayidx.i.i = getelementptr inbounds [30 x ptr], ptr %next.i.i, i64 0, i64 %indvars.iv.next.i.i
   %34 = load ptr, ptr %arrayidx.i.i, align 8
   %cmp2.i.i = icmp ne ptr %34, null
@@ -1211,7 +1211,7 @@ for.end8.i.i:                                     ; preds = %for.end.i.i, %for.e
 
 cond.false.i.i:                                   ; preds = %for.end8.i.i
   %36 = load ptr, ptr %prev, align 16
-  %next12.i.i = getelementptr inbounds i8, ptr %36, i64 40
+  %next12.i.i = getelementptr inbounds nuw i8, ptr %36, i64 40
   %37 = load ptr, ptr %next12.i.i, align 8
   br label %_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.i
 
@@ -1221,27 +1221,27 @@ _ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS
   br i1 %cmp.not.i78, label %for.cond.preheader.i, label %do.body76.invoke
 
 for.cond.preheader.i:                             ; preds = %_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.i
-  %levels.i80 = getelementptr inbounds i8, ptr %12, i64 32
+  %levels.i80 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %38 = load i32, ptr %levels.i80, align 8
   %cmp5.not17.i = icmp eq i32 %38, 0
   br i1 %cmp5.not17.i, label %for.end.i, label %land.rhs.lr.ph.i
 
 land.rhs.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %next9.i = getelementptr inbounds i8, ptr %12, i64 40
+  %next9.i = getelementptr inbounds nuw i8, ptr %12, i64 40
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %for.body.i, %land.rhs.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %land.rhs.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %arrayidx.i81 = getelementptr inbounds ptr, ptr %prev, i64 %indvars.iv.i
+  %arrayidx.i81 = getelementptr inbounds nuw ptr, ptr %prev, i64 %indvars.iv.i
   %39 = load ptr, ptr %arrayidx.i81, align 8
-  %next.i = getelementptr inbounds i8, ptr %39, i64 40
-  %arrayidx7.i = getelementptr inbounds [30 x ptr], ptr %next.i, i64 0, i64 %indvars.iv.i
+  %next.i = getelementptr inbounds nuw i8, ptr %39, i64 40
+  %arrayidx7.i = getelementptr inbounds nuw [30 x ptr], ptr %next.i, i64 0, i64 %indvars.iv.i
   %40 = load ptr, ptr %arrayidx7.i, align 8
   %cmp8.i = icmp eq ptr %40, %12
   br i1 %cmp8.i, label %for.body.i, label %for.end.loopexit.i
 
 for.body.i:                                       ; preds = %land.rhs.i
-  %arrayidx11.i = getelementptr inbounds [30 x ptr], ptr %next9.i, i64 0, i64 %indvars.iv.i
+  %arrayidx11.i = getelementptr inbounds nuw [30 x ptr], ptr %next9.i, i64 0, i64 %indvars.iv.i
   %41 = load ptr, ptr %arrayidx11.i, align 8
   store ptr %41, ptr %arrayidx7.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1256,7 +1256,7 @@ for.end.loopexit.i:                               ; preds = %for.body.i, %land.r
 
 for.end.i:                                        ; preds = %for.end.loopexit.i, %for.cond.preheader.i
   %.pr.i = phi i32 [ %.pr.pre.i, %for.end.loopexit.i ], [ %10, %for.cond.preheader.i ]
-  %next20.i = getelementptr inbounds i8, ptr %arena, i64 48
+  %next20.i = getelementptr inbounds nuw i8, ptr %arena, i64 48
   %cmp1819.i = icmp sgt i32 %.pr.i, 0
   br i1 %cmp1819.i, label %land.rhs19.preheader.i, label %invoke.cont43
 
@@ -1267,7 +1267,7 @@ land.rhs19.preheader.i:                           ; preds = %for.end.i
 land.rhs19.i:                                     ; preds = %while.body.i, %land.rhs19.preheader.i
   %indvars.iv21.i = phi i64 [ %44, %land.rhs19.preheader.i ], [ %indvars.iv.next22.i, %while.body.i ]
   %indvars.iv.next22.i = add nsw i64 %indvars.iv21.i, -1
-  %arrayidx23.i = getelementptr inbounds [30 x ptr], ptr %next20.i, i64 0, i64 %indvars.iv.next22.i
+  %arrayidx23.i = getelementptr inbounds nuw [30 x ptr], ptr %next20.i, i64 0, i64 %indvars.iv.next22.i
   %45 = load ptr, ptr %arrayidx23.i, align 8
   %cmp24.i = icmp eq ptr %45, null
   br i1 %cmp24.i, label %while.body.i, label %invoke.cont43
@@ -1295,12 +1295,12 @@ if.then50:                                        ; preds = %invoke.cont45
   store i64 %sub53, ptr %add.ptr, align 8
   %49 = ptrtoint ptr %add.ptr to i64
   %xor.i92 = xor i64 %49, 1283669653
-  %magic59 = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  %magic59 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   store i64 %xor.i92, ptr %magic59, align 8
-  %arena61 = getelementptr inbounds i8, ptr %add.ptr, i64 16
+  %arena61 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 16
   store ptr %arena, ptr %arena61, align 8
   store i64 %and.i51, ptr %12, align 8
-  %levels64 = getelementptr inbounds i8, ptr %add.ptr, i64 32
+  %levels64 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 32
   invoke fastcc void @_ZN4absl13base_internalL13AddToFreelistEPvPNS0_13LowLevelAlloc5ArenaE(ptr noundef nonnull %levels64, ptr noundef nonnull %arena)
           to label %if.end66 unwind label %lpad.loopexit.split-lp
 
@@ -1322,7 +1322,7 @@ do.body76.cont:                                   ; preds = %do.body76.invoke
   unreachable
 
 do.end86:                                         ; preds = %if.end66
-  %allocation_count = getelementptr inbounds i8, ptr %arena, i64 288
+  %allocation_count = getelementptr inbounds nuw i8, ptr %arena, i64 288
   %54 = load i32, ptr %allocation_count, align 8
   %inc = add nsw i32 %54, 1
   store i32 %inc, ptr %allocation_count, align 8
@@ -1343,7 +1343,7 @@ _ZN4absl13base_internal8SpinLock6UnlockEv.exit.i: ; preds = %if.then7.i.i, %do.e
   br i1 %tobool.i, label %if.then.i96, label %if.end89
 
 if.then.i96:                                      ; preds = %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i
-  %mask_.i = getelementptr inbounds i8, ptr %section, i64 8
+  %mask_.i = getelementptr inbounds nuw i8, ptr %section, i64 8
   %call.i97 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %mask_.i, ptr noundef null) #11
   %cmp.not.i98 = icmp eq i32 %call.i97, 0
   br i1 %cmp.not.i98, label %if.end89, label %do.body.invoke
@@ -1387,7 +1387,7 @@ declare i64 @syscall(i64 noundef, ...) local_unnamed_addr #3
 define internal fastcc void @_ZN4absl13base_internalL8CoalesceEPNS0_12_GLOBAL__N_19AllocListE(ptr noundef %a) unnamed_addr #0 {
 entry:
   %prev = alloca [30 x ptr], align 16
-  %next = getelementptr inbounds i8, ptr %a, i64 40
+  %next = getelementptr inbounds nuw i8, ptr %a, i64 40
   %0 = load ptr, ptr %next, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true
@@ -1399,14 +1399,14 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
-  %arena3 = getelementptr inbounds i8, ptr %a, i64 16
+  %arena3 = getelementptr inbounds nuw i8, ptr %a, i64 16
   %2 = load ptr, ptr %arena3, align 8
   %3 = load i64, ptr %0, align 8
   %add = add i64 %3, %1
   store i64 %add, ptr %a, align 8
-  %magic = getelementptr inbounds i8, ptr %0, i64 8
-  %freelist = getelementptr inbounds i8, ptr %2, i64 8
-  %levels.i.i = getelementptr inbounds i8, ptr %2, i64 40
+  %magic = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %freelist = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %levels.i.i = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %magic, i8 0, i64 16, i1 false)
   %4 = load i32, ptr %levels.i.i, align 8
   %cmp11.i.i = icmp sgt i32 %4, 0
@@ -1424,7 +1424,7 @@ for.cond1.preheader.i.i:                          ; preds = %for.end.i.i, %for.c
 
 for.cond1.i.i:                                    ; preds = %for.cond1.i.i, %for.cond1.preheader.i.i
   %p.1.i.i = phi ptr [ %6, %for.cond1.i.i ], [ %p.012.i.i, %for.cond1.preheader.i.i ]
-  %next.i.i = getelementptr inbounds i8, ptr %p.1.i.i, i64 40
+  %next.i.i = getelementptr inbounds nuw i8, ptr %p.1.i.i, i64 40
   %arrayidx.i.i = getelementptr inbounds [30 x ptr], ptr %next.i.i, i64 0, i64 %indvars.iv.next.i.i
   %6 = load ptr, ptr %arrayidx.i.i, align 8
   %cmp2.i.i = icmp ne ptr %6, null
@@ -1444,7 +1444,7 @@ for.end8.i.i:                                     ; preds = %for.end.i.i, %if.th
 
 cond.false.i.i:                                   ; preds = %for.end8.i.i
   %8 = load ptr, ptr %prev, align 16
-  %next12.i.i = getelementptr inbounds i8, ptr %8, i64 40
+  %next12.i.i = getelementptr inbounds nuw i8, ptr %8, i64 40
   %9 = load ptr, ptr %next12.i.i, align 8
   br label %_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.i
 
@@ -1454,13 +1454,13 @@ _ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS
   br i1 %cmp.not.i, label %for.cond.preheader.i, label %do.body1.i
 
 for.cond.preheader.i:                             ; preds = %_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.i
-  %levels.i = getelementptr inbounds i8, ptr %0, i64 32
+  %levels.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i32, ptr %levels.i, align 8
   %cmp5.not17.i = icmp eq i32 %10, 0
   br i1 %cmp5.not17.i, label %for.end.i, label %land.rhs.lr.ph.i
 
 land.rhs.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %next9.i = getelementptr inbounds i8, ptr %0, i64 40
+  %next9.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %land.rhs.i
 
 do.body1.i:                                       ; preds = %_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.i
@@ -1469,16 +1469,16 @@ do.body1.i:                                       ; preds = %_ZN4absl13base_inte
 
 land.rhs.i:                                       ; preds = %for.body.i, %land.rhs.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %land.rhs.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds ptr, ptr %prev, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %prev, i64 %indvars.iv.i
   %11 = load ptr, ptr %arrayidx.i, align 8
-  %next.i = getelementptr inbounds i8, ptr %11, i64 40
-  %arrayidx7.i = getelementptr inbounds [30 x ptr], ptr %next.i, i64 0, i64 %indvars.iv.i
+  %next.i = getelementptr inbounds nuw i8, ptr %11, i64 40
+  %arrayidx7.i = getelementptr inbounds nuw [30 x ptr], ptr %next.i, i64 0, i64 %indvars.iv.i
   %12 = load ptr, ptr %arrayidx7.i, align 8
   %cmp8.i = icmp eq ptr %12, %0
   br i1 %cmp8.i, label %for.body.i, label %for.end.loopexit.i
 
 for.body.i:                                       ; preds = %land.rhs.i
-  %arrayidx11.i = getelementptr inbounds [30 x ptr], ptr %next9.i, i64 0, i64 %indvars.iv.i
+  %arrayidx11.i = getelementptr inbounds nuw [30 x ptr], ptr %next9.i, i64 0, i64 %indvars.iv.i
   %13 = load ptr, ptr %arrayidx11.i, align 8
   store ptr %13, ptr %arrayidx7.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1493,21 +1493,21 @@ for.end.loopexit.i:                               ; preds = %for.body.i, %land.r
 
 for.end.i:                                        ; preds = %for.end.loopexit.i, %for.cond.preheader.i
   %.pr.i = phi i32 [ %.pr.pre.i, %for.end.loopexit.i ], [ %4, %for.cond.preheader.i ]
-  %next20.i = getelementptr inbounds i8, ptr %2, i64 48
+  %next20.i = getelementptr inbounds nuw i8, ptr %2, i64 48
   %cmp1819.i = icmp sgt i32 %.pr.i, 0
   br i1 %cmp1819.i, label %land.rhs19.preheader.i, label %for.end8.i.i20
 
 land.rhs19.preheader.i:                           ; preds = %for.end.i
   %16 = zext nneg i32 %.pr.i to i64
   %indvars.iv.next22.i110 = add nsw i64 %16, -1
-  %arrayidx23.i111 = getelementptr inbounds [30 x ptr], ptr %next20.i, i64 0, i64 %indvars.iv.next22.i110
+  %arrayidx23.i111 = getelementptr inbounds nuw [30 x ptr], ptr %next20.i, i64 0, i64 %indvars.iv.next22.i110
   %17 = load ptr, ptr %arrayidx23.i111, align 8
   %cmp24.i112 = icmp eq ptr %17, null
   br i1 %cmp24.i112, label %while.body.i, label %_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit
 
 land.rhs19.i:                                     ; preds = %while.body.i
   %indvars.iv.next22.i = add nsw i64 %indvars.iv.next22.i114, -1
-  %arrayidx23.i = getelementptr inbounds [30 x ptr], ptr %next20.i, i64 0, i64 %indvars.iv.next22.i
+  %arrayidx23.i = getelementptr inbounds nuw [30 x ptr], ptr %next20.i, i64 0, i64 %indvars.iv.next22.i
   %18 = load ptr, ptr %arrayidx23.i, align 8
   %cmp24.i = icmp eq ptr %18, null
   br i1 %cmp24.i, label %while.body.i, label %_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit, !llvm.loop !16
@@ -1537,7 +1537,7 @@ for.cond1.preheader.i.i58:                        ; preds = %for.end.i.i68, %for
 
 for.cond1.i.i62:                                  ; preds = %for.cond1.i.i62, %for.cond1.preheader.i.i58
   %p.1.i.i63 = phi ptr [ %21, %for.cond1.i.i62 ], [ %p.012.i.i60, %for.cond1.preheader.i.i58 ]
-  %next.i.i64 = getelementptr inbounds i8, ptr %p.1.i.i63, i64 40
+  %next.i.i64 = getelementptr inbounds nuw i8, ptr %p.1.i.i63, i64 40
   %arrayidx.i.i65 = getelementptr inbounds [30 x ptr], ptr %next.i.i64, i64 0, i64 %indvars.iv.next.i.i61
   %21 = load ptr, ptr %arrayidx.i.i65, align 8
   %cmp2.i.i66 = icmp ne ptr %21, null
@@ -1558,7 +1558,7 @@ for.end8.i.i20:                                   ; preds = %for.end.i.i68, %for
 
 cond.false.i.i22:                                 ; preds = %for.end8.i.i20
   %24 = load ptr, ptr %prev, align 16
-  %next12.i.i23 = getelementptr inbounds i8, ptr %24, i64 40
+  %next12.i.i23 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %25 = load ptr, ptr %next12.i.i23, align 8
   br label %_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.i24
 
@@ -1569,7 +1569,7 @@ _ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS
   br i1 %cmp.not.i26, label %for.cond.preheader.i28, label %do.body1.i27
 
 for.cond.preheader.i28:                           ; preds = %_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.i24
-  %levels.i29 = getelementptr inbounds i8, ptr %a, i64 32
+  %levels.i29 = getelementptr inbounds nuw i8, ptr %a, i64 32
   %27 = load i32, ptr %levels.i29, align 8
   %cmp5.not17.i30 = icmp eq i32 %27, 0
   br i1 %cmp5.not17.i30, label %for.end.i41, label %land.rhs.i33
@@ -1580,16 +1580,16 @@ do.body1.i27:                                     ; preds = %_ZN4absl13base_inte
 
 land.rhs.i33:                                     ; preds = %for.cond.preheader.i28, %for.body.i53
   %indvars.iv.i34 = phi i64 [ %indvars.iv.next.i55, %for.body.i53 ], [ 0, %for.cond.preheader.i28 ]
-  %arrayidx.i35 = getelementptr inbounds ptr, ptr %prev, i64 %indvars.iv.i34
+  %arrayidx.i35 = getelementptr inbounds nuw ptr, ptr %prev, i64 %indvars.iv.i34
   %28 = load ptr, ptr %arrayidx.i35, align 8
-  %next.i36 = getelementptr inbounds i8, ptr %28, i64 40
-  %arrayidx7.i37 = getelementptr inbounds [30 x ptr], ptr %next.i36, i64 0, i64 %indvars.iv.i34
+  %next.i36 = getelementptr inbounds nuw i8, ptr %28, i64 40
+  %arrayidx7.i37 = getelementptr inbounds nuw [30 x ptr], ptr %next.i36, i64 0, i64 %indvars.iv.i34
   %29 = load ptr, ptr %arrayidx7.i37, align 8
   %cmp8.i38 = icmp eq ptr %29, %a
   br i1 %cmp8.i38, label %for.body.i53, label %for.end.loopexit.i39
 
 for.body.i53:                                     ; preds = %land.rhs.i33
-  %arrayidx11.i54 = getelementptr inbounds [30 x ptr], ptr %next, i64 0, i64 %indvars.iv.i34
+  %arrayidx11.i54 = getelementptr inbounds nuw [30 x ptr], ptr %next, i64 0, i64 %indvars.iv.i34
   %30 = load ptr, ptr %arrayidx11.i54, align 8
   store ptr %30, ptr %arrayidx7.i37, align 8
   %indvars.iv.next.i55 = add nuw nsw i64 %indvars.iv.i34, 1
@@ -1614,7 +1614,7 @@ land.rhs19.preheader.i45:                         ; preds = %for.end.i41
 land.rhs19.i46:                                   ; preds = %while.body.i51, %land.rhs19.preheader.i45
   %indvars.iv21.i47 = phi i64 [ %33, %land.rhs19.preheader.i45 ], [ %indvars.iv.next22.i48, %while.body.i51 ]
   %indvars.iv.next22.i48 = add nsw i64 %indvars.iv21.i47, -1
-  %arrayidx23.i49 = getelementptr inbounds [30 x ptr], ptr %next20.i, i64 0, i64 %indvars.iv.next22.i48
+  %arrayidx23.i49 = getelementptr inbounds nuw [30 x ptr], ptr %next20.i, i64 0, i64 %indvars.iv.next22.i48
   %34 = load ptr, ptr %arrayidx23.i49, align 8
   %cmp24.i50 = icmp eq ptr %34, null
   br i1 %cmp24.i50, label %while.body.i51, label %_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit73
@@ -1627,9 +1627,9 @@ while.body.i51:                                   ; preds = %land.rhs19.i46
 
 _ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit73: ; preds = %land.rhs19.i46, %while.body.i51, %for.end.i41
   %36 = load i64, ptr %a, align 8
-  %min_size = getelementptr inbounds i8, ptr %2, i64 312
+  %min_size = getelementptr inbounds nuw i8, ptr %2, i64 312
   %37 = load i64, ptr %min_size, align 8
-  %random = getelementptr inbounds i8, ptr %2, i64 320
+  %random = getelementptr inbounds nuw i8, ptr %2, i64 320
   %sub.i = add i64 %36, -40
   %div7.i = lshr i64 %sub.i, 3
   %cmp3.i.i74 = icmp ugt i64 %36, %37
@@ -1691,7 +1691,7 @@ for.cond1.preheader.i.i88:                        ; preds = %for.end.i.i98, %for
 
 for.cond1.i.i92:                                  ; preds = %for.cond1.i.i92, %for.cond1.preheader.i.i88
   %p.1.i.i93 = phi ptr [ %43, %for.cond1.i.i92 ], [ %p.012.i.i90, %for.cond1.preheader.i.i88 ]
-  %next.i.i94 = getelementptr inbounds i8, ptr %p.1.i.i93, i64 40
+  %next.i.i94 = getelementptr inbounds nuw i8, ptr %p.1.i.i93, i64 40
   %arrayidx.i.i95 = getelementptr inbounds [30 x ptr], ptr %next.i.i94, i64 0, i64 %indvars.iv.next.i.i91
   %43 = load ptr, ptr %arrayidx.i.i95, align 8
   %cmp2.i.i96 = icmp ne ptr %43, null
@@ -1729,12 +1729,12 @@ for.body.i85:                                     ; preds = %for.end8.i.i79, %fo
 
 for.body7.i:                                      ; preds = %for.body7.i.preheader, %for.body7.i
   %indvars.iv.i81 = phi i64 [ %indvars.iv.next.i84, %for.body7.i ], [ 0, %for.body7.i.preheader ]
-  %arrayidx9.i = getelementptr inbounds ptr, ptr %prev, i64 %indvars.iv.i81
+  %arrayidx9.i = getelementptr inbounds nuw ptr, ptr %prev, i64 %indvars.iv.i81
   %47 = load ptr, ptr %arrayidx9.i, align 8
-  %next.i82 = getelementptr inbounds i8, ptr %47, i64 40
-  %arrayidx11.i83 = getelementptr inbounds [30 x ptr], ptr %next.i82, i64 0, i64 %indvars.iv.i81
+  %next.i82 = getelementptr inbounds nuw i8, ptr %47, i64 40
+  %arrayidx11.i83 = getelementptr inbounds nuw [30 x ptr], ptr %next.i82, i64 0, i64 %indvars.iv.i81
   %48 = load ptr, ptr %arrayidx11.i83, align 8
-  %arrayidx14.i = getelementptr inbounds [30 x ptr], ptr %next, i64 0, i64 %indvars.iv.i81
+  %arrayidx14.i = getelementptr inbounds nuw [30 x ptr], ptr %next, i64 0, i64 %indvars.iv.i81
   store ptr %48, ptr %arrayidx14.i, align 8
   store ptr %a, ptr %arrayidx11.i83, align 8
   %indvars.iv.next.i84 = add nuw nsw i64 %indvars.iv.i81, 1

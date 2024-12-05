@@ -309,7 +309,7 @@ define hidden void @"_ZN19pyo3_macros_backend10pyfunction9signature17FunctionSig
   br i1 %16, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.backedge, %3
-  %17 = getelementptr inbounds i8, ptr %2, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %18 = load i8, ptr %17, align 8
   %19 = icmp eq i8 %18, 2
   br i1 %19, label %28, label %31
@@ -329,7 +329,7 @@ define hidden void @"_ZN19pyo3_macros_backend10pyfunction9signature17FunctionSig
   ]
 
 28:                                               ; preds = %._crit_edge
-  %29 = getelementptr inbounds i8, ptr %2, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %30 = load i32, ptr %29, align 4
   br label %31
 
@@ -357,13 +357,13 @@ define hidden void @"_ZN19pyo3_macros_backend10pyfunction9signature17FunctionSig
   br i1 %27, label %46, label %.backedge
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %2, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %40 = load i8, ptr %39, align 8
   %41 = icmp eq i8 %40, 2
   br i1 %41, label %42, label %45
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %2, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %44 = load i32, ptr %43, align 4
   br label %45
 
@@ -374,13 +374,13 @@ define hidden void @"_ZN19pyo3_macros_backend10pyfunction9signature17FunctionSig
   br label %32
 
 46:                                               ; preds = %37
-  %47 = getelementptr inbounds i8, ptr %2, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %48 = load i8, ptr %47, align 8
   %49 = icmp eq i8 %48, 2
   br i1 %49, label %50, label %53
 
 50:                                               ; preds = %46
-  %51 = getelementptr inbounds i8, ptr %2, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %52 = load i32, ptr %51, align 4
   br label %53
 
@@ -391,19 +391,19 @@ define hidden void @"_ZN19pyo3_macros_backend10pyfunction9signature17FunctionSig
   br label %32
 
 54:                                               ; preds = %33
-  %55 = getelementptr inbounds i8, ptr %2, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %56 = load i8, ptr %55, align 8
   %57 = icmp eq i8 %56, 2
   br i1 %57, label %60, label %63
 
 58:                                               ; preds = %33
-  %59 = getelementptr inbounds i8, ptr %0, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %20, ptr %59, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %32
 
 60:                                               ; preds = %54
-  %61 = getelementptr inbounds i8, ptr %2, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %62 = load i32, ptr %61, align 4
   br label %63
 
@@ -426,20 +426,20 @@ define hidden void @"_ZN19pyo3_macros_backend10pyfunction9signature17FunctionSig
 
 68:                                               ; preds = %63
   store ptr %6, ptr %7, align 8
-  %.sroa.216.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.216.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @"_ZN57_$LT$proc_macro2..Ident$u20$as$u20$core..fmt..Display$GT$3fmt17hbd1f38650d43d07fE", ptr %.sroa.216.0..sroa_idx, align 8
-  %69 = getelementptr inbounds i8, ptr %7, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %5, ptr %69, align 8
-  %.sroa.220.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 24
+  %.sroa.220.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr @"_ZN57_$LT$proc_macro2..Ident$u20$as$u20$core..fmt..Display$GT$3fmt17hbd1f38650d43d07fE", ptr %.sroa.220.0..sroa_idx, align 8
   store ptr @anon.94d9957488632b5d6899ac6065d58b4f.9, ptr %8, align 8
-  %70 = getelementptr inbounds i8, ptr %8, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 3, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %8, i64 32
+  %71 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr null, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %8, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %7, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %8, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 2, ptr %73, align 8
   invoke void @_ZN5alloc3fmt6format17hfef544611ce8decdE(ptr nonnull sret([24 x i8]) align 8 %9, ptr nonnull align 8 %8)
           to label %76 unwind label %74
@@ -507,10 +507,10 @@ define hidden zeroext i1 @"_ZN19pyo3_macros_backend10pyfunction9signature17Funct
   %5 = tail call align 8 ptr @_ZN19pyo3_macros_backend6method5FnArg4name17h23fb16d4e03312fdE(ptr align 8 %4)
   %6 = load ptr, ptr %0, align 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load i64, ptr %8, align 8
   store ptr %7, ptr %3, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %9, ptr %10, align 8
   %11 = call zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h83737e50c91e062dE"(ptr align 8 %5, ptr nonnull align 8 %3)
   ret i1 %11

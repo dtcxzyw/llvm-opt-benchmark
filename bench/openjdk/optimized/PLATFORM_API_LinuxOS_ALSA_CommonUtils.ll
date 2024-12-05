@@ -397,7 +397,7 @@ define hidden void @getALSAVersion(ptr noundef %0, i32 noundef %1) local_unnamed
   %.037 = phi i32 [ 0, %.lr.ph.preheader ], [ %.134, %22 ]
   %.02235 = phi i32 [ 0, %.lr.ph.preheader ], [ %.123, %22 ]
   %.not27 = icmp eq i32 %.037, 0
-  %11 = getelementptr inbounds [200 x i8], ptr @ALSAVersionString, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [200 x i8], ptr @ALSAVersionString, i64 0, i64 %indvars.iv
   %12 = load i8, ptr %11, align 1
   br i1 %.not27, label %13, label %.thread
 
@@ -446,7 +446,7 @@ define hidden void @getALSAVersion(ptr noundef %0, i32 noundef %1) local_unnamed
 
 27:                                               ; preds = %24
   %28 = add nsw i64 %indvars.iv40, -1
-  %29 = getelementptr inbounds [200 x i8], ptr @ALSAVersionString, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw [200 x i8], ptr @ALSAVersionString, i64 0, i64 %28
   %30 = load i8, ptr %29, align 1
   %31 = icmp eq i8 %30, 46
   br i1 %31, label %24, label %.critedge, !llvm.loop !8

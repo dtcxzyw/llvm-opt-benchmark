@@ -98,7 +98,7 @@ _ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit: ; preds = %0, %8
   %9 = getelementptr inbounds i8, ptr %4, i64 %2
   %10 = call noundef zeroext i1 @_ZN2os14protect_memoryEPcmNS_8ProtTypeEb(ptr noundef %4, i64 noundef %2, i32 noundef 0, i1 noundef zeroext true) #9
   %11 = call noundef zeroext i1 @_ZN2os14protect_memoryEPcmNS_8ProtTypeEb(ptr noundef %9, i64 noundef %2, i32 noundef 1, i1 noundef zeroext true) #9
-  %12 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %12 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not = icmp eq ptr %12, null
   %.pre = ptrtoint ptr %4 to i64
   %.pre17 = ptrtoint ptr %9 to i64
@@ -135,16 +135,16 @@ define hidden noundef i64 @_ZN18SafepointMechanism17compute_poll_wordEbm(i1 noun
   br i1 %0, label %3, label %14
 
 3:                                                ; preds = %2
-  %4 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE138ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE138ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not6 = icmp eq ptr %4, null
   br i1 %.not6, label %12, label %5
 
 5:                                                ; preds = %3
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 792
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 792
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 192
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 192
   %11 = load i32, ptr %10, align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE138ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.5, i32 noundef %11)
   br label %12
@@ -155,7 +155,7 @@ define hidden noundef i64 @_ZN18SafepointMechanism17compute_poll_wordEbm(i1 noun
 
 14:                                               ; preds = %2
   %15 = icmp eq i64 %1, 0
-  %16 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE138ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %16 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE138ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not5 = icmp eq ptr %16, null
   br i1 %15, label %17, label %27
 
@@ -165,9 +165,9 @@ define hidden noundef i64 @_ZN18SafepointMechanism17compute_poll_wordEbm(i1 noun
 18:                                               ; preds = %17
   %19 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 792
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 792
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 192
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 192
   %24 = load i32, ptr %23, align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE138ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.6, i32 noundef %24)
   br label %25
@@ -182,9 +182,9 @@ define hidden noundef i64 @_ZN18SafepointMechanism17compute_poll_wordEbm(i1 noun
 28:                                               ; preds = %27
   %29 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 792
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 792
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 192
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 192
   %34 = load i32, ptr %33, align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE138ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.7, i32 noundef %34)
   br label %35
@@ -205,10 +205,10 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE138ELS1_0ELS1_0ELS1_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN18SafepointMechanism18update_poll_valuesEP10JavaThread(ptr noundef %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1392
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1392
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %4 = getelementptr inbounds i8, ptr %0, i64 1096
-  %5 = getelementptr inbounds i8, ptr %0, i64 1104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1096
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   br label %6
 
 6:                                                ; preds = %.backedge, %1
@@ -231,15 +231,15 @@ define hidden void @_ZN18SafepointMechanism18update_poll_valuesEP10JavaThread(pt
 
 13:                                               ; preds = %9, %.thread16
   %14 = load i64, ptr @_ZN18SafepointMechanism22_poll_page_armed_valueE, align 8
-  %15 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE138ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %15 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE138ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not6.i = icmp eq ptr %15, null
   br i1 %.not6.i, label %22, label %16
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 792
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 792
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 192
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 192
   %21 = load i32, ptr %20, align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE138ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.5, i32 noundef %21)
   br label %22
@@ -250,7 +250,7 @@ define hidden void @_ZN18SafepointMechanism18update_poll_valuesEP10JavaThread(pt
 
 24:                                               ; preds = %9
   %25 = icmp eq i64 %11, 0
-  %26 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE138ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %26 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE138ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not5.i = icmp eq ptr %26, null
   br i1 %25, label %27, label %36
 
@@ -259,9 +259,9 @@ define hidden void @_ZN18SafepointMechanism18update_poll_valuesEP10JavaThread(pt
 
 28:                                               ; preds = %27
   %29 = load ptr, ptr %3, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 792
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 792
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 192
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 192
   %33 = load i32, ptr %32, align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE138ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.6, i32 noundef %33)
   br label %34
@@ -275,9 +275,9 @@ define hidden void @_ZN18SafepointMechanism18update_poll_valuesEP10JavaThread(pt
 
 37:                                               ; preds = %36
   %38 = load ptr, ptr %3, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 792
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 792
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 192
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 192
   %42 = load i32, ptr %41, align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE138ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.7, i32 noundef %42)
   br label %_ZN18SafepointMechanism17compute_poll_wordEbm.exit
@@ -338,9 +338,9 @@ declare noundef i64 @_ZN17StackWatermarkSet16lowest_watermarkEP10JavaThread(ptr 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
-  %4 = getelementptr inbounds i8, ptr %0, i64 1092
-  %5 = getelementptr inbounds i8, ptr %0, i64 1392
-  %6 = getelementptr inbounds i8, ptr %0, i64 1384
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1092
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1392
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1384
   br label %7
 
 7:                                                ; preds = %17, %3
@@ -391,11 +391,11 @@ declare noundef zeroext i1 @_ZN14HandshakeState15process_by_selfEbb(ptr noundef 
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden void @_ZN18SafepointMechanism17initialize_headerEP10JavaThread(ptr noundef %0) local_unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1096
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %3 = load i64, ptr @_ZN18SafepointMechanism25_poll_word_disarmed_valueE, align 8
   store volatile i64 %3, ptr %2, align 8
   %4 = load i64, ptr @_ZN18SafepointMechanism25_poll_page_disarmed_valueE, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 1104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   store volatile i64 %4, ptr %5, align 8
   ret void
 }

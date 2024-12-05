@@ -71,9 +71,9 @@ define noundef i32 @init() local_unnamed_addr #0 {
 
 7:                                                ; preds = %5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 0, i64 32, i1 false)
-  %8 = getelementptr inbounds i8, ptr %1, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store ptr @.str.1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr @.str.2, ptr %9, align 8
   %10 = call i32 @assoc_mgr_find_tres_pos(ptr noundef nonnull %1, i1 noundef zeroext false) #9
   store i32 %10, ptr @tres_pos, align 4
@@ -113,13 +113,13 @@ define internal void @_destroy_interface_stats_t(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   tail call void @slurm_xfree(ptr noundef %0) #9
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @slurm_xfree(ptr noundef nonnull %3) #9
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @slurm_xfree(ptr noundef nonnull %4) #9
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @slurm_xfree(ptr noundef nonnull %5) #9
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @slurm_xfree(ptr noundef nonnull %6) #9
   call void @slurm_xfree(ptr noundef nonnull %2) #9
   ret void
@@ -214,36 +214,36 @@ thread-pre-split.i:                               ; preds = %23, %20
   %33 = call i32 @slurm_list_for_each(ptr noundef %32, ptr noundef nonnull @_get_data, ptr noundef %31) #9
   %.not14.i = icmp eq ptr %13, null
   %spec.select.i = select i1 %.not14.i, ptr %31, ptr %13
-  %34 = getelementptr inbounds i8, ptr %31, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %35 = load i64, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %spec.select.i, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 8
   %37 = load i64, ptr %36, align 8
   %38 = sub i64 %35, %37
   store i64 %38, ptr %1, align 16
-  %39 = getelementptr inbounds i8, ptr %31, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %spec.select.i, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 16
   %42 = load i64, ptr %41, align 8
   %43 = sub i64 %40, %42
-  %44 = getelementptr inbounds i8, ptr %1, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %43, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %31, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %46 = load i64, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %spec.select.i, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 24
   %48 = load i64, ptr %47, align 8
   %49 = sub i64 %46, %48
   %50 = uitofp i64 %49 to double
   %51 = fmul double %50, 0x3EF0000000000000
-  %52 = getelementptr inbounds i8, ptr %1, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store double %51, ptr %52, align 16
-  %53 = getelementptr inbounds i8, ptr %31, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %54 = load i64, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %spec.select.i, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 32
   %56 = load i64, ptr %55, align 8
   %57 = sub i64 %54, %56
   %58 = uitofp i64 %57 to double
   %59 = fmul double %58, 0x3EF0000000000000
-  %60 = getelementptr inbounds i8, ptr %1, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store double %59, ptr %60, align 8
   call void @slurm_xfree(ptr noundef nonnull @last_update) #9
   store ptr %31, ptr @last_update, align 8
@@ -305,32 +305,32 @@ define void @acct_gather_interconnect_p_conf_set(ptr noundef %0) local_unnamed_a
   %18 = call ptr @slurm_xstrdup(ptr noundef nonnull %16) #9
   store ptr %18, ptr %17, align 8
   %19 = call ptr (ptr, ...) @slurm_xstrdup_printf(ptr noundef nonnull @.str.8, ptr noundef nonnull %16) #9
-  %20 = getelementptr inbounds i8, ptr %17, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %19, ptr %20, align 8
   %21 = call ptr (ptr, ...) @slurm_xstrdup_printf(ptr noundef nonnull @.str.9, ptr noundef nonnull %16) #9
-  %22 = getelementptr inbounds i8, ptr %17, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr %21, ptr %22, align 8
   %23 = call ptr (ptr, ...) @slurm_xstrdup_printf(ptr noundef nonnull @.str.10, ptr noundef nonnull %16) #9
-  %24 = getelementptr inbounds i8, ptr %17, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store ptr %23, ptr %24, align 8
   %25 = call ptr (ptr, ...) @slurm_xstrdup_printf(ptr noundef nonnull @.str.11, ptr noundef nonnull %16) #9
-  %26 = getelementptr inbounds i8, ptr %17, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store ptr %25, ptr %26, align 8
   %27 = load ptr, ptr %20, align 8
   %28 = call fastcc i64 @_load(ptr noundef %27, i64 noundef 0)
-  %29 = getelementptr inbounds i8, ptr %17, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %17, i64 40
   store i64 %28, ptr %29, align 8
   %30 = load ptr, ptr %22, align 8
   %31 = call fastcc i64 @_load(ptr noundef %30, i64 noundef 0)
-  %32 = getelementptr inbounds i8, ptr %17, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %17, i64 48
   store i64 %31, ptr %32, align 8
   %33 = load ptr, ptr %24, align 8
   %34 = call fastcc i64 @_load(ptr noundef %33, i64 noundef 0)
-  %35 = getelementptr inbounds i8, ptr %17, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %17, i64 56
   store i64 %34, ptr %35, align 8
   %36 = load ptr, ptr %26, align 8
   %37 = call fastcc i64 @_load(ptr noundef %36, i64 noundef 0)
-  %38 = getelementptr inbounds i8, ptr %17, i64 64
+  %38 = getelementptr inbounds nuw i8, ptr %17, i64 64
   store i64 %37, ptr %38, align 8
   %39 = load ptr, ptr @interfaces, align 8
   call void @slurm_list_push(ptr noundef %39, ptr noundef nonnull %17) #9
@@ -432,7 +432,7 @@ define void @acct_gather_interconnect_p_conf_values(ptr nocapture noundef readon
   store ptr %3, ptr %2, align 8
   %4 = load ptr, ptr @sysfs_interfaces, align 8
   %5 = tail call ptr @slurm_xstrdup(ptr noundef %4) #9
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %5, ptr %6, align 8
   %7 = load ptr, ptr %0, align 8
   tail call void @slurm_list_append(ptr noundef %7, ptr noundef nonnull %2) #9
@@ -461,7 +461,7 @@ define noundef i32 @acct_gather_interconnect_p_get_data(ptr noundef %0) local_un
 9:                                                ; preds = %1
   %10 = sext i32 %2 to i64
   %11 = getelementptr inbounds %struct.acct_gather_data, ptr %0, i64 %10
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 32, i1 false)
   %13 = load ptr, ptr @interfaces, align 8
   %14 = tail call i32 @slurm_list_for_each(ptr noundef %13, ptr noundef nonnull @_get_data, ptr noundef nonnull %11) #9
@@ -475,39 +475,39 @@ declare i32 @slurm_list_for_each(ptr noundef, ptr noundef, ptr noundef) local_un
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_get_data(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load i64, ptr %5, align 8
   %7 = tail call fastcc i64 @_load(ptr noundef %4, i64 noundef %6)
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = add i64 %9, %7
   store i64 %10, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %14 = load i64, ptr %13, align 8
   %15 = tail call fastcc i64 @_load(ptr noundef %12, i64 noundef %14)
-  %16 = getelementptr inbounds i8, ptr %1, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, %15
   store i64 %18, ptr %16, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %22 = load i64, ptr %21, align 8
   %23 = tail call fastcc i64 @_load(ptr noundef %20, i64 noundef %22)
-  %24 = getelementptr inbounds i8, ptr %1, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load i64, ptr %24, align 8
   %26 = add i64 %25, %23
   store i64 %26, ptr %24, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 64
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %30 = load i64, ptr %29, align 8
   %31 = tail call fastcc i64 @_load(ptr noundef %28, i64 noundef %30)
-  %32 = getelementptr inbounds i8, ptr %1, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %33 = load i64, ptr %32, align 8
   %34 = add i64 %33, %31
   store i64 %34, ptr %32, align 8

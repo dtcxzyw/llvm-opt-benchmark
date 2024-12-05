@@ -578,13 +578,13 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @zend_get_internal_func_info(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %23
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not20 = icmp eq ptr %8, null
   br i1 %.not20, label %23, label %9
@@ -596,7 +596,7 @@ define hidden i32 @zend_get_internal_func_info(ptr nocapture noundef readonly %0
 
 11:                                               ; preds = %9
   %12 = load ptr, ptr %10, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   %.not22 = icmp eq ptr %14, null
   br i1 %.not22, label %18, label %15
@@ -610,7 +610,7 @@ define hidden i32 @zend_get_internal_func_info(ptr nocapture noundef readonly %0
   br label %23
 
 18:                                               ; preds = %11
-  %19 = getelementptr inbounds i8, ptr %12, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %20 = load i32, ptr %19, align 4
   %21 = shl i32 %20, 22
   %22 = and i32 %21, 536870912
@@ -626,7 +626,7 @@ declare ptr @zend_hash_find_known_hash(ptr noundef, ptr noundef) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define i32 @zend_get_func_info(ptr noundef %0, ptr noundef %1, ptr noundef initializes((0, 8)) %2, ptr noundef initializes((0, 1)) %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   store ptr null, ptr %2, align 8
   store i8 0, ptr %3, align 1
@@ -635,13 +635,13 @@ define i32 @zend_get_func_info(ptr noundef %0, ptr noundef %1, ptr noundef initi
   br i1 %8, label %9, label %33
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %12, label %zend_get_internal_func_info.exit.thread
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %6, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %14 = load ptr, ptr %13, align 8
   %.not20.i = icmp eq ptr %14, null
   br i1 %.not20.i, label %zend_get_internal_func_info.exit.thread, label %15
@@ -653,7 +653,7 @@ define i32 @zend_get_func_info(ptr noundef %0, ptr noundef %1, ptr noundef initi
 
 17:                                               ; preds = %15
   %18 = load ptr, ptr %16, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
   %.not22.i = icmp eq ptr %20, null
   br i1 %.not22.i, label %23, label %21
@@ -663,7 +663,7 @@ define i32 @zend_get_func_info(ptr noundef %0, ptr noundef %1, ptr noundef initi
   br label %zend_get_internal_func_info.exit
 
 23:                                               ; preds = %17
-  %24 = getelementptr inbounds i8, ptr %18, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 12
   %25 = load i32, ptr %24, align 4
   %26 = shl i32 %25, 22
   %27 = and i32 %26, 536870912
@@ -676,7 +676,7 @@ zend_get_internal_func_info.exit:                 ; preds = %21, %23
   br i1 %.not36, label %zend_get_internal_func_info.exit.thread, label %58
 
 zend_get_internal_func_info.exit.thread:          ; preds = %15, %12, %9, %zend_get_internal_func_info.exit
-  %28 = getelementptr inbounds i8, ptr %0, i64 51
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 51
   %29 = load i8, ptr %28, align 1
   %30 = trunc i8 %29 to i1
   %31 = xor i1 %30, true
@@ -684,13 +684,13 @@ zend_get_internal_func_info.exit.thread:          ; preds = %15, %12, %9, %zend_
   br label %58
 
 33:                                               ; preds = %4
-  %34 = getelementptr inbounds i8, ptr %0, i64 51
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 51
   %35 = load i8, ptr %34, align 1
   %36 = trunc i8 %35 to i1
   br i1 %36, label %.thread, label %37
 
 37:                                               ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %6, i64 192
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 192
   %39 = load i32, ptr @zend_func_info_rid, align 4
   %40 = sext i32 %39 to i64
   %41 = getelementptr inbounds [6 x ptr], ptr %38, i64 0, i64 %40
@@ -699,12 +699,12 @@ zend_get_internal_func_info.exit.thread:          ; preds = %15, %12, %9, %zend_
   br i1 %.not, label %.thread, label %43
 
 43:                                               ; preds = %37
-  %44 = getelementptr inbounds i8, ptr %42, i64 112
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 112
   %45 = load i32, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %42, i64 144
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 144
   %47 = load ptr, ptr %46, align 8
   store ptr %47, ptr %2, align 8
-  %48 = getelementptr inbounds i8, ptr %42, i64 116
+  %48 = getelementptr inbounds nuw i8, ptr %42, i64 116
   %49 = load i8, ptr %48, align 4
   %50 = lshr i8 %49, 1
   %.lobit = and i8 %50, 1
@@ -757,7 +757,7 @@ define hidden range(i32 -1, 1) i32 @zend_func_info_startup() local_unnamed_addr 
 8:                                                ; preds = %5
   tail call void @_zend_hash_init(ptr noundef nonnull @func_info, i32 noundef 550, ptr noundef null, i1 noundef zeroext true) #6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load ptr, ptr @zend_string_init_interned, align 8
   %11 = tail call ptr %10(ptr noundef nonnull @.str.2, i64 noundef 5, i1 noundef zeroext true) #6
   store ptr @old_func_infos, ptr %2, align 8
@@ -772,7 +772,7 @@ define hidden range(i32 -1, 1) i32 @zend_func_info_startup() local_unnamed_addr 
   br label %16
 
 16:                                               ; preds = %13, %8
-  %17 = getelementptr inbounds i8, ptr %11, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, 64
   %.not29.i = icmp eq i32 %19, 0
@@ -794,15 +794,15 @@ define hidden range(i32 -1, 1) i32 @zend_func_info_startup() local_unnamed_addr 
 zend_func_info_add.exit:                          ; preds = %25, %20, %16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
-  %26 = getelementptr inbounds i8, ptr %1, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %27
 
 27:                                               ; preds = %49, %zend_func_info_add.exit
   %.02730.i1 = phi i64 [ 0, %zend_func_info_add.exit ], [ %50, %49 ]
   %28 = load ptr, ptr @zend_string_init_interned, align 8
-  %29 = getelementptr inbounds %struct._func_info_t, ptr @func_infos, i64 %.02730.i1
+  %29 = getelementptr inbounds nuw %struct._func_info_t, ptr @func_infos, i64 %.02730.i1
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %29, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %32 = load i32, ptr %31, align 8
   %33 = zext i32 %32 to i64
   %34 = call ptr %28(ptr noundef %30, i64 noundef %33, i1 noundef zeroext true) #6
@@ -818,7 +818,7 @@ zend_func_info_add.exit:                          ; preds = %25, %20, %16
   br label %39
 
 39:                                               ; preds = %36, %27
-  %40 = getelementptr inbounds i8, ptr %34, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %41 = load i32, ptr %40, align 4
   %42 = and i32 %41, 64
   %.not29.i3 = icmp eq i32 %42, 0
@@ -885,18 +885,18 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 1073741952, 1612824705) i32 @zend_range_info(ptr nocapture noundef readonly %0, ptr noundef readonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 52
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %4 = load i8, ptr %3, align 4
   %5 = trunc i8 %4 to i1
   %6 = xor i1 %5, true
   tail call void @llvm.assume(i1 %6)
-  %7 = getelementptr inbounds i8, ptr %0, i64 49
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 49
   %8 = load i8, ptr %7, align 1
   %9 = trunc i8 %8 to i1
   br i1 %9, label %193, label %10
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, 2
   br i1 %13, label %17, label %14
@@ -912,7 +912,7 @@ define internal range(i32 1073741952, 1612824705) i32 @zend_range_info(ptr nocap
   br i1 %.old1.not, label %193, label %18
 
 18:                                               ; preds = %14, %17
-  %19 = getelementptr inbounds i8, ptr %1, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %20 = load i32, ptr %19, align 8
   %21 = and i32 %20, 4096
   %.not = icmp eq i32 %21, 0
@@ -920,48 +920,48 @@ define internal range(i32 1073741952, 1612824705) i32 @zend_range_info(ptr nocap
 
 22:                                               ; preds = %18
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %23, i64 88
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 88
   %29 = load ptr, ptr %28, align 8
   %30 = ptrtoint ptr %25 to i64
   %31 = ptrtoint ptr %29 to i64
   %32 = sub i64 %30, %31
   %33 = ashr exact i64 %32, 5
   %34 = getelementptr inbounds %struct._zend_ssa_op, ptr %27, i64 %33
-  %35 = getelementptr inbounds i8, ptr %25, i64 29
+  %35 = getelementptr inbounds nuw i8, ptr %25, i64 29
   %36 = load i8, ptr %35, align 1
   %37 = icmp eq i8 %36, 1
   br i1 %37, label %38, label %67
 
 38:                                               ; preds = %22
-  %39 = getelementptr inbounds i8, ptr %23, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %40 = load i32, ptr %39, align 4
   %41 = and i32 %40, 33554432
   %.not161 = icmp eq i32 %41, 0
   br i1 %.not161, label %47, label %42
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %25, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %44 = load i32, ptr %43, align 8
   %45 = sext i32 %44 to i64
   %46 = getelementptr inbounds i8, ptr %25, i64 %45
   br label %54
 
 47:                                               ; preds = %38
-  %48 = getelementptr inbounds i8, ptr %23, i64 176
+  %48 = getelementptr inbounds nuw i8, ptr %23, i64 176
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %25, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %51 = load i32, ptr %50, align 8
   %52 = zext i32 %51 to i64
-  %53 = getelementptr inbounds %struct._zval_struct, ptr %49, i64 %52
+  %53 = getelementptr inbounds nuw %struct._zval_struct, ptr %49, i64 %52
   br label %54
 
 54:                                               ; preds = %47, %42
   %55 = phi ptr [ %46, %42 ], [ %53, %47 ]
-  %56 = getelementptr inbounds i8, ptr %55, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load i8, ptr %56, align 8
   switch i8 %57, label %60 [
     i8 11, label %.thread
@@ -978,7 +978,7 @@ define internal range(i32 1073741952, 1612824705) i32 @zend_range_info(ptr nocap
 60:                                               ; preds = %54
   %61 = zext nneg i8 %57 to i32
   %62 = shl nuw i32 1, %61
-  %63 = getelementptr inbounds i8, ptr %55, i64 9
+  %63 = getelementptr inbounds nuw i8, ptr %55, i64 9
   %64 = load i8, ptr %63, align 1
   %.not162 = icmp eq i8 %64, 0
   br i1 %.not162, label %65, label %.thread
@@ -989,7 +989,7 @@ define internal range(i32 1073741952, 1612824705) i32 @zend_range_info(ptr nocap
   br label %.thread
 
 67:                                               ; preds = %22
-  %68 = getelementptr inbounds i8, ptr %1, i64 72
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %69 = load ptr, ptr %68, align 8
   %.not160 = icmp eq ptr %69, null
   br i1 %.not160, label %.thread, label %70
@@ -1001,7 +1001,7 @@ define internal range(i32 1073741952, 1612824705) i32 @zend_range_info(ptr nocap
 
 73:                                               ; preds = %70
   %74 = zext nneg i32 %71 to i64
-  %75 = getelementptr inbounds %struct._zend_ssa_var_info, ptr %69, i64 %74
+  %75 = getelementptr inbounds nuw %struct._zend_ssa_var_info, ptr %69, i64 %74
   %76 = load i32, ptr %75, align 8
   br label %.thread
 
@@ -1009,43 +1009,43 @@ define internal range(i32 1073741952, 1612824705) i32 @zend_range_info(ptr nocap
   %.pre-phi = phi i64 [ %31, %67 ], [ %31, %65 ], [ %31, %73 ], [ %31, %70 ], [ %.pre189, %58 ], [ %31, %54 ], [ %31, %60 ]
   %77 = phi ptr [ %27, %67 ], [ %27, %65 ], [ %27, %73 ], [ %27, %70 ], [ %.pre, %58 ], [ %27, %54 ], [ %27, %60 ]
   %.0148 = phi i32 [ -486539265, %67 ], [ %spec.select, %65 ], [ %76, %73 ], [ -486539265, %70 ], [ %59, %58 ], [ -521143298, %54 ], [ %62, %60 ]
-  %78 = getelementptr inbounds i8, ptr %0, i64 72
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %79 = load ptr, ptr %78, align 8
   %80 = ptrtoint ptr %79 to i64
   %81 = sub i64 %80, %.pre-phi
   %82 = ashr exact i64 %81, 5
   %83 = getelementptr inbounds %struct._zend_ssa_op, ptr %77, i64 %82
-  %84 = getelementptr inbounds i8, ptr %79, i64 29
+  %84 = getelementptr inbounds nuw i8, ptr %79, i64 29
   %85 = load i8, ptr %84, align 1
   %86 = icmp eq i8 %85, 1
   br i1 %86, label %87, label %116
 
 87:                                               ; preds = %.thread
-  %88 = getelementptr inbounds i8, ptr %23, i64 4
+  %88 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %89 = load i32, ptr %88, align 4
   %90 = and i32 %89, 33554432
   %.not164 = icmp eq i32 %90, 0
   br i1 %.not164, label %96, label %91
 
 91:                                               ; preds = %87
-  %92 = getelementptr inbounds i8, ptr %79, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %93 = load i32, ptr %92, align 8
   %94 = sext i32 %93 to i64
   %95 = getelementptr inbounds i8, ptr %79, i64 %94
   br label %103
 
 96:                                               ; preds = %87
-  %97 = getelementptr inbounds i8, ptr %23, i64 176
+  %97 = getelementptr inbounds nuw i8, ptr %23, i64 176
   %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %79, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %100 = load i32, ptr %99, align 8
   %101 = zext i32 %100 to i64
-  %102 = getelementptr inbounds %struct._zval_struct, ptr %98, i64 %101
+  %102 = getelementptr inbounds nuw %struct._zval_struct, ptr %98, i64 %101
   br label %103
 
 103:                                              ; preds = %96, %91
   %104 = phi ptr [ %95, %91 ], [ %102, %96 ]
-  %105 = getelementptr inbounds i8, ptr %104, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %106 = load i8, ptr %105, align 8
   switch i8 %106, label %109 [
     i8 11, label %.thread183
@@ -1059,7 +1059,7 @@ define internal range(i32 1073741952, 1612824705) i32 @zend_range_info(ptr nocap
 109:                                              ; preds = %103
   %110 = zext nneg i8 %106 to i32
   %111 = shl nuw i32 1, %110
-  %112 = getelementptr inbounds i8, ptr %104, i64 9
+  %112 = getelementptr inbounds nuw i8, ptr %104, i64 9
   %113 = load i8, ptr %112, align 1
   %.not165 = icmp eq i8 %113, 0
   br i1 %.not165, label %114, label %.thread183
@@ -1070,7 +1070,7 @@ define internal range(i32 1073741952, 1612824705) i32 @zend_range_info(ptr nocap
   br label %.thread183
 
 116:                                              ; preds = %.thread
-  %117 = getelementptr inbounds i8, ptr %1, i64 72
+  %117 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %118 = load ptr, ptr %117, align 8
   %.not163 = icmp eq ptr %118, null
   br i1 %.not163, label %.thread183, label %119
@@ -1082,7 +1082,7 @@ define internal range(i32 1073741952, 1612824705) i32 @zend_range_info(ptr nocap
 
 122:                                              ; preds = %119
   %123 = zext nneg i32 %120 to i64
-  %124 = getelementptr inbounds %struct._zend_ssa_var_info, ptr %118, i64 %123
+  %124 = getelementptr inbounds nuw %struct._zend_ssa_var_info, ptr %118, i64 %123
   %125 = load i32, ptr %124, align 8
   br label %.thread183
 
@@ -1093,7 +1093,7 @@ define internal range(i32 1073741952, 1612824705) i32 @zend_range_info(ptr nocap
   br i1 %127, label %128, label %182
 
 128:                                              ; preds = %.thread183
-  %129 = getelementptr inbounds i8, ptr %0, i64 80
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %130 = load ptr, ptr %129, align 8
   %131 = load ptr, ptr %26, align 8
   %132 = load ptr, ptr %28, align 8
@@ -1102,37 +1102,37 @@ define internal range(i32 1073741952, 1612824705) i32 @zend_range_info(ptr nocap
   %135 = sub i64 %133, %134
   %136 = ashr exact i64 %135, 5
   %137 = getelementptr inbounds %struct._zend_ssa_op, ptr %131, i64 %136
-  %138 = getelementptr inbounds i8, ptr %130, i64 29
+  %138 = getelementptr inbounds nuw i8, ptr %130, i64 29
   %139 = load i8, ptr %138, align 1
   %140 = icmp eq i8 %139, 1
   br i1 %140, label %141, label %170
 
 141:                                              ; preds = %128
-  %142 = getelementptr inbounds i8, ptr %23, i64 4
+  %142 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %143 = load i32, ptr %142, align 4
   %144 = and i32 %143, 33554432
   %.not167 = icmp eq i32 %144, 0
   br i1 %.not167, label %150, label %145
 
 145:                                              ; preds = %141
-  %146 = getelementptr inbounds i8, ptr %130, i64 8
+  %146 = getelementptr inbounds nuw i8, ptr %130, i64 8
   %147 = load i32, ptr %146, align 8
   %148 = sext i32 %147 to i64
   %149 = getelementptr inbounds i8, ptr %130, i64 %148
   br label %157
 
 150:                                              ; preds = %141
-  %151 = getelementptr inbounds i8, ptr %23, i64 176
+  %151 = getelementptr inbounds nuw i8, ptr %23, i64 176
   %152 = load ptr, ptr %151, align 8
-  %153 = getelementptr inbounds i8, ptr %130, i64 8
+  %153 = getelementptr inbounds nuw i8, ptr %130, i64 8
   %154 = load i32, ptr %153, align 8
   %155 = zext i32 %154 to i64
-  %156 = getelementptr inbounds %struct._zval_struct, ptr %152, i64 %155
+  %156 = getelementptr inbounds nuw %struct._zval_struct, ptr %152, i64 %155
   br label %157
 
 157:                                              ; preds = %150, %145
   %158 = phi ptr [ %149, %145 ], [ %156, %150 ]
-  %159 = getelementptr inbounds i8, ptr %158, i64 8
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 8
   %160 = load i8, ptr %159, align 8
   switch i8 %160, label %163 [
     i8 11, label %.thread185
@@ -1146,7 +1146,7 @@ define internal range(i32 1073741952, 1612824705) i32 @zend_range_info(ptr nocap
 163:                                              ; preds = %157
   %164 = zext nneg i8 %160 to i32
   %165 = shl nuw i32 1, %164
-  %166 = getelementptr inbounds i8, ptr %158, i64 9
+  %166 = getelementptr inbounds nuw i8, ptr %158, i64 9
   %167 = load i8, ptr %166, align 1
   %.not168 = icmp eq i8 %167, 0
   br i1 %.not168, label %168, label %.thread185
@@ -1157,7 +1157,7 @@ define internal range(i32 1073741952, 1612824705) i32 @zend_range_info(ptr nocap
   br label %.thread185
 
 170:                                              ; preds = %128
-  %171 = getelementptr inbounds i8, ptr %1, i64 72
+  %171 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %172 = load ptr, ptr %171, align 8
   %.not166 = icmp eq ptr %172, null
   br i1 %.not166, label %.thread185, label %173
@@ -1169,7 +1169,7 @@ define internal range(i32 1073741952, 1612824705) i32 @zend_range_info(ptr nocap
 
 176:                                              ; preds = %173
   %177 = zext nneg i32 %174 to i64
-  %178 = getelementptr inbounds %struct._zend_ssa_var_info, ptr %172, i64 %177
+  %178 = getelementptr inbounds nuw %struct._zend_ssa_var_info, ptr %172, i64 %177
   %179 = load i32, ptr %178, align 8
   br label %.thread185
 

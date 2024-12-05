@@ -46,17 +46,17 @@ define noundef i32 @sgemm_oncopy(i64 noundef %0, i64 noundef %1, ptr noalias nou
   %36 = shufflevector <4 x float> %32, <4 x float> %33, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   %37 = shufflevector <4 x float> %33, <4 x float> %32, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
   store <4 x float> %34, ptr %20, align 1, !tbaa !3
-  %38 = getelementptr inbounds i8, ptr %20, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store <4 x float> %35, ptr %38, align 1, !tbaa !3
-  %39 = getelementptr inbounds i8, ptr %20, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store <4 x float> %36, ptr %39, align 1, !tbaa !3
-  %40 = getelementptr inbounds i8, ptr %20, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %20, i64 48
   store <4 x float> %37, ptr %40, align 1, !tbaa !3
-  %41 = getelementptr inbounds i8, ptr %24, i64 16
-  %42 = getelementptr inbounds i8, ptr %23, i64 16
-  %43 = getelementptr inbounds i8, ptr %22, i64 16
-  %44 = getelementptr inbounds i8, ptr %21, i64 16
-  %45 = getelementptr inbounds i8, ptr %20, i64 64
+  %41 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %20, i64 64
   %46 = add nsw i64 %25, -1
   %47 = icmp samesign ugt i64 %25, 1
   br i1 %47, label %19, label %.loopexit17.us, !llvm.loop !6
@@ -73,17 +73,17 @@ define noundef i32 @sgemm_oncopy(i64 noundef %0, i64 noundef %1, ptr noalias nou
   %56 = load float, ptr %50, align 4, !tbaa !9
   %57 = load float, ptr %49, align 4, !tbaa !9
   store float %54, ptr %48, align 4, !tbaa !9
-  %58 = getelementptr inbounds i8, ptr %48, i64 4
+  %58 = getelementptr inbounds nuw i8, ptr %48, i64 4
   store float %55, ptr %58, align 4, !tbaa !9
-  %59 = getelementptr inbounds i8, ptr %48, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store float %56, ptr %59, align 4, !tbaa !9
-  %60 = getelementptr inbounds i8, ptr %48, i64 12
+  %60 = getelementptr inbounds nuw i8, ptr %48, i64 12
   store float %57, ptr %60, align 4, !tbaa !9
-  %61 = getelementptr inbounds i8, ptr %52, i64 4
-  %62 = getelementptr inbounds i8, ptr %51, i64 4
-  %63 = getelementptr inbounds i8, ptr %50, i64 4
-  %64 = getelementptr inbounds i8, ptr %49, i64 4
-  %65 = getelementptr inbounds i8, ptr %48, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %52, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %51, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %50, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %49, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %66 = add nsw i64 %53, -1
   %67 = icmp sgt i64 %53, 1
   br i1 %67, label %.preheader14.us, label %.loopexit15.us, !llvm.loop !11
@@ -128,17 +128,17 @@ define noundef i32 @sgemm_oncopy(i64 noundef %0, i64 noundef %1, ptr noalias nou
   %89 = load float, ptr %83, align 4, !tbaa !9
   %90 = load float, ptr %82, align 4, !tbaa !9
   store float %87, ptr %81, align 4, !tbaa !9
-  %91 = getelementptr inbounds i8, ptr %81, i64 4
+  %91 = getelementptr inbounds nuw i8, ptr %81, i64 4
   store float %88, ptr %91, align 4, !tbaa !9
-  %92 = getelementptr inbounds i8, ptr %81, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %81, i64 8
   store float %89, ptr %92, align 4, !tbaa !9
-  %93 = getelementptr inbounds i8, ptr %81, i64 12
+  %93 = getelementptr inbounds nuw i8, ptr %81, i64 12
   store float %90, ptr %93, align 4, !tbaa !9
-  %94 = getelementptr inbounds i8, ptr %85, i64 4
-  %95 = getelementptr inbounds i8, ptr %84, i64 4
-  %96 = getelementptr inbounds i8, ptr %83, i64 4
-  %97 = getelementptr inbounds i8, ptr %82, i64 4
-  %98 = getelementptr inbounds i8, ptr %81, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %85, i64 4
+  %95 = getelementptr inbounds nuw i8, ptr %84, i64 4
+  %96 = getelementptr inbounds nuw i8, ptr %83, i64 4
+  %97 = getelementptr inbounds nuw i8, ptr %82, i64 4
+  %98 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %99 = add nsw i64 %86, -1
   %100 = icmp sgt i64 %86, 1
   br i1 %100, label %80, label %.loopexit15, !llvm.loop !11
@@ -170,37 +170,37 @@ define noundef i32 @sgemm_oncopy(i64 noundef %0, i64 noundef %1, ptr noalias nou
   %115 = phi ptr [ %138, %.preheader12 ], [ %105, %108 ]
   %116 = phi i64 [ %141, %.preheader12 ], [ %111, %108 ]
   %117 = load float, ptr %115, align 4, !tbaa !9
-  %118 = getelementptr inbounds i8, ptr %115, i64 4
+  %118 = getelementptr inbounds nuw i8, ptr %115, i64 4
   %119 = load float, ptr %118, align 4, !tbaa !9
-  %120 = getelementptr inbounds i8, ptr %115, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %121 = load float, ptr %120, align 4, !tbaa !9
-  %122 = getelementptr inbounds i8, ptr %115, i64 12
+  %122 = getelementptr inbounds nuw i8, ptr %115, i64 12
   %123 = load float, ptr %122, align 4, !tbaa !9
   %124 = load float, ptr %114, align 4, !tbaa !9
-  %125 = getelementptr inbounds i8, ptr %114, i64 4
+  %125 = getelementptr inbounds nuw i8, ptr %114, i64 4
   %126 = load float, ptr %125, align 4, !tbaa !9
-  %127 = getelementptr inbounds i8, ptr %114, i64 8
+  %127 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %128 = load float, ptr %127, align 4, !tbaa !9
-  %129 = getelementptr inbounds i8, ptr %114, i64 12
+  %129 = getelementptr inbounds nuw i8, ptr %114, i64 12
   %130 = load float, ptr %129, align 4, !tbaa !9
   store float %117, ptr %113, align 4, !tbaa !9
-  %131 = getelementptr inbounds i8, ptr %113, i64 4
+  %131 = getelementptr inbounds nuw i8, ptr %113, i64 4
   store float %124, ptr %131, align 4, !tbaa !9
-  %132 = getelementptr inbounds i8, ptr %113, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %113, i64 8
   store float %119, ptr %132, align 4, !tbaa !9
-  %133 = getelementptr inbounds i8, ptr %113, i64 12
+  %133 = getelementptr inbounds nuw i8, ptr %113, i64 12
   store float %126, ptr %133, align 4, !tbaa !9
-  %134 = getelementptr inbounds i8, ptr %113, i64 16
+  %134 = getelementptr inbounds nuw i8, ptr %113, i64 16
   store float %121, ptr %134, align 4, !tbaa !9
-  %135 = getelementptr inbounds i8, ptr %113, i64 20
+  %135 = getelementptr inbounds nuw i8, ptr %113, i64 20
   store float %128, ptr %135, align 4, !tbaa !9
-  %136 = getelementptr inbounds i8, ptr %113, i64 24
+  %136 = getelementptr inbounds nuw i8, ptr %113, i64 24
   store float %123, ptr %136, align 4, !tbaa !9
-  %137 = getelementptr inbounds i8, ptr %113, i64 28
+  %137 = getelementptr inbounds nuw i8, ptr %113, i64 28
   store float %130, ptr %137, align 4, !tbaa !9
-  %138 = getelementptr inbounds i8, ptr %115, i64 16
-  %139 = getelementptr inbounds i8, ptr %114, i64 16
-  %140 = getelementptr inbounds i8, ptr %113, i64 32
+  %138 = getelementptr inbounds nuw i8, ptr %115, i64 16
+  %139 = getelementptr inbounds nuw i8, ptr %114, i64 16
+  %140 = getelementptr inbounds nuw i8, ptr %113, i64 32
   %141 = add nsw i64 %116, -1
   %142 = icmp samesign ugt i64 %116, 1
   br i1 %142, label %.preheader12, label %.loopexit13, !llvm.loop !13
@@ -221,11 +221,11 @@ define noundef i32 @sgemm_oncopy(i64 noundef %0, i64 noundef %1, ptr noalias nou
   %152 = load float, ptr %150, align 4, !tbaa !9
   %153 = load float, ptr %149, align 4, !tbaa !9
   store float %152, ptr %148, align 4, !tbaa !9
-  %154 = getelementptr inbounds i8, ptr %148, i64 4
+  %154 = getelementptr inbounds nuw i8, ptr %148, i64 4
   store float %153, ptr %154, align 4, !tbaa !9
-  %155 = getelementptr inbounds i8, ptr %150, i64 4
-  %156 = getelementptr inbounds i8, ptr %149, i64 4
-  %157 = getelementptr inbounds i8, ptr %148, i64 8
+  %155 = getelementptr inbounds nuw i8, ptr %150, i64 4
+  %156 = getelementptr inbounds nuw i8, ptr %149, i64 4
+  %157 = getelementptr inbounds nuw i8, ptr %148, i64 8
   %158 = add nsw i64 %151, -1
   %159 = icmp samesign ugt i64 %151, 1
   br i1 %159, label %.preheader10, label %.loopexit11, !llvm.loop !14
@@ -247,21 +247,21 @@ define noundef i32 @sgemm_oncopy(i64 noundef %0, i64 noundef %1, ptr noalias nou
   %168 = phi ptr [ %180, %.preheader8 ], [ %161, %164 ]
   %169 = phi i64 [ %182, %.preheader8 ], [ %165, %164 ]
   %170 = load float, ptr %168, align 4, !tbaa !9
-  %171 = getelementptr inbounds i8, ptr %168, i64 4
+  %171 = getelementptr inbounds nuw i8, ptr %168, i64 4
   %172 = load float, ptr %171, align 4, !tbaa !9
-  %173 = getelementptr inbounds i8, ptr %168, i64 8
+  %173 = getelementptr inbounds nuw i8, ptr %168, i64 8
   %174 = load float, ptr %173, align 4, !tbaa !9
-  %175 = getelementptr inbounds i8, ptr %168, i64 12
+  %175 = getelementptr inbounds nuw i8, ptr %168, i64 12
   %176 = load float, ptr %175, align 4, !tbaa !9
   store float %170, ptr %167, align 4, !tbaa !9
-  %177 = getelementptr inbounds i8, ptr %167, i64 4
+  %177 = getelementptr inbounds nuw i8, ptr %167, i64 4
   store float %172, ptr %177, align 4, !tbaa !9
-  %178 = getelementptr inbounds i8, ptr %167, i64 8
+  %178 = getelementptr inbounds nuw i8, ptr %167, i64 8
   store float %174, ptr %178, align 4, !tbaa !9
-  %179 = getelementptr inbounds i8, ptr %167, i64 12
+  %179 = getelementptr inbounds nuw i8, ptr %167, i64 12
   store float %176, ptr %179, align 4, !tbaa !9
-  %180 = getelementptr inbounds i8, ptr %168, i64 16
-  %181 = getelementptr inbounds i8, ptr %167, i64 16
+  %180 = getelementptr inbounds nuw i8, ptr %168, i64 16
+  %181 = getelementptr inbounds nuw i8, ptr %167, i64 16
   %182 = add nsw i64 %169, -1
   %183 = icmp samesign ugt i64 %169, 1
   br i1 %183, label %.preheader8, label %.loopexit9, !llvm.loop !15
@@ -279,8 +279,8 @@ define noundef i32 @sgemm_oncopy(i64 noundef %0, i64 noundef %1, ptr noalias nou
   %190 = phi i64 [ %194, %.preheader ], [ %186, %.loopexit9 ]
   %191 = load float, ptr %189, align 4, !tbaa !9
   store float %191, ptr %188, align 4, !tbaa !9
-  %192 = getelementptr inbounds i8, ptr %189, i64 4
-  %193 = getelementptr inbounds i8, ptr %188, i64 4
+  %192 = getelementptr inbounds nuw i8, ptr %189, i64 4
+  %193 = getelementptr inbounds nuw i8, ptr %188, i64 4
   %194 = add nsw i64 %190, -1
   %195 = icmp samesign ugt i64 %190, 1
   br i1 %195, label %.preheader, label %.loopexit, !llvm.loop !16

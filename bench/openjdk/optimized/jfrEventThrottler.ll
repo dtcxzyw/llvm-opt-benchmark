@@ -34,13 +34,13 @@ $_ZN7LogImplILN6LogTag4typeE64ELS1_156ELS1_160ELS1_0ELS1_0ELS1_0EE5writeILN8LogL
 define hidden void @_ZN17JfrEventThrottlerC2E10JfrEventId(ptr noundef nonnull align 8 dereferenceable(142) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   tail call void @_ZN18JfrAdaptiveSamplerC2Ev(ptr noundef nonnull align 8 dereferenceable(76) %0) #9
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV17JfrEventThrottler, i64 16), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
-  %4 = getelementptr inbounds i8, ptr %0, i64 136
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
   store i32 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 140
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 140
   store i8 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 141
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 141
   store i8 0, ptr %6, align 1
   ret void
 }
@@ -63,13 +63,13 @@ define hidden noundef zeroext i1 @_ZN17JfrEventThrottler6createEv() local_unname
 3:                                                ; preds = %0
   tail call void @_ZN18JfrAdaptiveSamplerC2Ev(ptr noundef nonnull align 8 dereferenceable(142) %1) #9
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV17JfrEventThrottler, i64 16), ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 80
-  %5 = getelementptr inbounds i8, ptr %1, i64 136
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
   store i32 91, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 140
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 140
   store i8 0, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 141
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 141
   store i8 0, ptr %7, align 1
   store ptr %1, ptr @_ZL10_throttler, align 8
   %8 = tail call noundef zeroext i1 @_ZN18JfrAdaptiveSampler10initializeEv(ptr noundef nonnull align 8 dereferenceable(76) %1) #9
@@ -91,7 +91,7 @@ define hidden void @_ZN17JfrEventThrottler7destroyEv() local_unnamed_addr #0 ali
 
 3:                                                ; preds = %0
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(142) %1) #9
   br label %7
@@ -116,13 +116,13 @@ define hidden void @_ZN17JfrEventThrottler9configureE10JfrEventIdll(i32 noundef 
 
 4:                                                ; preds = %3
   %5 = load ptr, ptr @_ZL10_throttler, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 72
   tail call void @_ZN6Thread11SpinAcquireEPViPKc(ptr noundef nonnull %6, ptr noundef null) #9
-  %7 = getelementptr inbounds i8, ptr %5, i64 112
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 112
   store i64 %1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 120
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 120
   store i64 %2, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 141
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 141
   store i8 1, ptr %9, align 1
   tail call void @_ZN18JfrAdaptiveSampler11reconfigureEv(ptr noundef nonnull align 8 dereferenceable(142) %5) #9
   tail call void @_ZN6Thread11SpinReleaseEPVi(ptr noundef nonnull %6) #9
@@ -134,13 +134,13 @@ define hidden void @_ZN17JfrEventThrottler9configureE10JfrEventIdll(i32 noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN17JfrEventThrottler9configureEll(ptr noundef nonnull align 8 dereferenceable(142) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @_ZN6Thread11SpinAcquireEPViPKc(ptr noundef nonnull %4, ptr noundef null) #9
-  %5 = getelementptr inbounds i8, ptr %0, i64 112
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i64 %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 120
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i64 %2, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 141
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 141
   store i8 1, ptr %7, align 1
   tail call void @_ZN18JfrAdaptiveSampler11reconfigureEv(ptr noundef nonnull align 8 dereferenceable(76) %0) #9
   tail call void @_ZN6Thread11SpinReleaseEPVi(ptr noundef nonnull %4) #9
@@ -158,7 +158,7 @@ define hidden noundef zeroext i1 @_ZN17JfrEventThrottler6acceptE10JfrEventIdl(i3
   br i1 %6, label %13, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %4, i64 140
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 140
   %9 = load i8, ptr %8, align 4
   %10 = trunc i8 %9 to i1
   br i1 %10, label %13, label %11
@@ -176,16 +176,16 @@ declare noundef zeroext i1 @_ZN18JfrAdaptiveSampler6sampleEl(ptr noundef nonnull
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN17JfrEventThrottler13update_paramsEPK16JfrSamplerWindow(ptr noundef nonnull align 8 dereferenceable(142) initializes((140, 141)) %0, ptr nocapture readnone %1) local_unnamed_addr #5 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, -2
-  %6 = getelementptr inbounds i8, ptr %0, i64 140
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %7 = zext i1 %5 to i8
   store i8 %7, ptr %6, align 4
   br i1 %5, label %60, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 120
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %10 = load i64, ptr %9, align 8
   switch i64 %10, label %19 [
     i64 1000, label %_Z9normalizePlS_.exit
@@ -225,11 +225,11 @@ _Z9normalizePlS_.exit.thread:                     ; preds = %13, %17, %21
   %24 = phi i64 [ %18, %17 ], [ %14, %13 ], [ %22, %21 ]
   %.sink.i = phi i64 [ 1000, %17 ], [ 1000, %13 ], [ %23, %21 ]
   store i64 %.sink.i, ptr %9, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 80
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %29
 
 _Z9normalizePlS_.exit:                            ; preds = %8, %11, %15, %19
-  %26 = getelementptr inbounds i8, ptr %0, i64 80
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %27 = icmp slt i64 %4, 10
   br i1 %27, label %28, label %29
 
@@ -267,20 +267,20 @@ _Z9normalizePlS_.exit:                            ; preds = %8, %11, %15, %19
 _Z37set_sample_points_and_window_durationR16JfrSamplerParamsll.exit.thread: ; preds = %38, %35, %29
   %.sink.i2.ph = phi i64 [ 60000, %29 ], [ 3600000, %35 ], [ 86400000, %38 ]
   store i64 %31, ptr %30, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 88
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i64 %.sink.i2.ph, ptr %44, align 8
   br label %50
 
 _Z37set_sample_points_and_window_durationR16JfrSamplerParamsll.exit: ; preds = %28, %41
   %45 = phi ptr [ %30, %41 ], [ %26, %28 ]
   %.sink.i2 = phi i64 [ %43, %41 ], [ %10, %28 ]
-  %46 = getelementptr inbounds i8, ptr %0, i64 88
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i64 %.sink.i2, ptr %46, align 8
   %47 = icmp ult i64 %.sink.i2, 1001
   br i1 %47, label %48, label %50
 
 48:                                               ; preds = %_Z37set_sample_points_and_window_durationR16JfrSamplerParamsll.exit
-  %49 = getelementptr inbounds i8, ptr %0, i64 96
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i64 25, ptr %49, align 8
   br label %_Z19set_window_lookbackR16JfrSamplerParams.exit
 
@@ -288,7 +288,7 @@ _Z37set_sample_points_and_window_durationR16JfrSamplerParamsll.exit: ; preds = %
   %51 = phi ptr [ %30, %_Z37set_sample_points_and_window_durationR16JfrSamplerParamsll.exit.thread ], [ %45, %_Z37set_sample_points_and_window_durationR16JfrSamplerParamsll.exit ]
   %.sink.i24 = phi i64 [ %.sink.i2.ph, %_Z37set_sample_points_and_window_durationR16JfrSamplerParamsll.exit.thread ], [ %.sink.i2, %_Z37set_sample_points_and_window_durationR16JfrSamplerParamsll.exit ]
   %52 = icmp eq i64 %.sink.i24, 60000
-  %53 = getelementptr inbounds i8, ptr %0, i64 96
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 96
   br i1 %52, label %54, label %55
 
 54:                                               ; preds = %50
@@ -301,11 +301,11 @@ _Z37set_sample_points_and_window_durationR16JfrSamplerParamsll.exit: ; preds = %
 
 _Z19set_window_lookbackR16JfrSamplerParams.exit:  ; preds = %48, %54, %55
   %56 = phi ptr [ %45, %48 ], [ %51, %54 ], [ %51, %55 ]
-  %57 = getelementptr inbounds i8, ptr %0, i64 128
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store double 0.000000e+00, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 104
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i8 1, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 141
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 141
   store i8 0, ptr %59, align 1
   br label %60
 
@@ -316,15 +316,15 @@ _Z19set_window_lookbackR16JfrSamplerParams.exit:  ; preds = %48, %54, %55
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN17JfrEventThrottler18next_window_paramsEPK16JfrSamplerWindow(ptr noundef nonnull align 8 dereferenceable(142) %0, ptr noundef %1) unnamed_addr #0 align 2 {
-  %3 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_160ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_160ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZL3logPK16JfrSamplerWindowPd.exit, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 128
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %6 = tail call noundef i64 @_ZNK16JfrSamplerWindow11sample_sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #9
   %7 = uitofp i64 %6 to double
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8
   %10 = icmp ult i64 %9, 2
   %11 = uitofp i64 %9 to double
@@ -335,7 +335,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN17JfrEventThro
   %16 = fmul double %14, %15
   %17 = tail call noundef double @llvm.fmuladd.f64(double %13, double %7, double %16)
   store double %17, ptr %5, align 8
-  %18 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_160ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %18 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_160ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not12.i = icmp eq ptr %18, null
   br i1 %.not12.i, label %_ZL3logPK16JfrSamplerWindowPd.exit, label %19
 
@@ -357,13 +357,13 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN17JfrEventThro
 
 31:                                               ; preds = %25, %19
   %32 = phi double [ %30, %25 ], [ 0.000000e+00, %19 ]
-  %33 = getelementptr inbounds i8, ptr %1, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %34 = load i64, ptr %33, align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE64ELS1_156ELS1_160ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str, double noundef %17, i64 noundef %20, i64 noundef %21, i64 noundef %22, double noundef %32, i64 noundef %34)
   br label %_ZL3logPK16JfrSamplerWindowPd.exit
 
 _ZL3logPK16JfrSamplerWindowPd.exit:               ; preds = %2, %4, %31
-  %35 = getelementptr inbounds i8, ptr %0, i64 141
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 141
   %36 = load i8, ptr %35, align 1
   %37 = trunc i8 %36 to i1
   br i1 %37, label %38, label %40
@@ -373,10 +373,10 @@ _ZL3logPK16JfrSamplerWindowPd.exit:               ; preds = %2, %4, %31
   br label %46
 
 40:                                               ; preds = %_ZL3logPK16JfrSamplerWindowPd.exit
-  %41 = getelementptr inbounds i8, ptr %0, i64 140
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %42 = load i8, ptr %41, align 4
   %43 = trunc i8 %42 to i1
-  %44 = getelementptr inbounds i8, ptr %0, i64 80
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %45 = select i1 %43, ptr @_ZL16_disabled_params, ptr %44
   br label %46
 

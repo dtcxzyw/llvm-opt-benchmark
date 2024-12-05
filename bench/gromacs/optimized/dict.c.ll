@@ -9,7 +9,7 @@ define void @Ptngc_comp_canonical_dict(ptr nocapture noundef writeonly %0, ptr n
 
 3:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %5 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %5, ptr %4, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -33,10 +33,10 @@ define void @Ptngc_comp_make_dict_hist(ptr nocapture noundef readonly %0, i32 no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %7 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds i32, ptr %4, i64 %9
+  %10 = getelementptr inbounds nuw i32, ptr %4, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = add i32 %11, 1
   store i32 %12, ptr %10, align 4
@@ -50,7 +50,7 @@ define void @Ptngc_comp_make_dict_hist(ptr nocapture noundef readonly %0, i32 no
 .preheader:                                       ; preds = %.preheader.preheader, %22
   %indvars.iv32 = phi i64 [ %indvars.iv.next33, %22 ], [ 0, %.preheader.preheader ]
   %.030 = phi i32 [ %.2, %22 ], [ 0, %.preheader.preheader ]
-  %13 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv32
+  %13 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv32
   %14 = load i32, ptr %13, align 4
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %22, label %15

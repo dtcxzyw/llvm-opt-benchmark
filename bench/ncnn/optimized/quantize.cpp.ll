@@ -59,7 +59,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn8Quantize10load_modelERKNS
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %5 = load i32, ptr %4, align 8
   %6 = load ptr, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
   call void %8(ptr dead_on_unwind nonnull writable sret(%"class.ncnn::Mat") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %5, i32 noundef 1)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 216
@@ -96,7 +96,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn8Quantize10load_modelERKNS
 
 24:                                               ; preds = %20
   %25 = load ptr, ptr %22, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load ptr, ptr %26, align 8
   invoke void %27(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef %23)
           to label %30 unwind label %88
@@ -171,7 +171,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn8Quantize10load_modelERKNS
 
 68:                                               ; preds = %64
   %69 = load ptr, ptr %66, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 24
   %71 = load ptr, ptr %70, align 8
   invoke void %71(ptr noundef nonnull align 8 dereferenceable(8) %66, ptr noundef %67)
           to label %74 unwind label %77
@@ -228,7 +228,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn8Quantize10load_modelERKNS
 
 98:                                               ; preds = %94
   %99 = load ptr, ptr %96, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 24
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 24
   %101 = load ptr, ptr %100, align 8
   invoke void %101(ptr noundef nonnull align 8 dereferenceable(8) %96, ptr noundef %97)
           to label %104 unwind label %105
@@ -315,7 +315,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8Quantize7forwardERKNS_3M
 
 .lr.ph220:                                        ; preds = %.lr.ph220.preheader, %.lr.ph220
   %indvars.iv235 = phi i64 [ 0, %.lr.ph220.preheader ], [ %indvars.iv.next236, %.lr.ph220 ]
-  %34 = getelementptr inbounds float, ptr %23, i64 %indvars.iv235
+  %34 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv235
   %35 = load float, ptr %34, align 4
   %36 = fmul fast float %35, %32
   %37 = tail call fast noundef float @llvm.round.f32(float %36)
@@ -323,7 +323,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8Quantize7forwardERKNS_3M
   %spec.select5.i = tail call i32 @llvm.smax.i32(i32 %38, i32 -127)
   %.06.i = tail call i32 @llvm.smin.i32(i32 %spec.select5.i, i32 127)
   %.0.i = trunc nsw i32 %.06.i to i8
-  %39 = getelementptr inbounds i8, ptr %12, i64 %indvars.iv235
+  %39 = getelementptr inbounds nuw i8, ptr %12, i64 %indvars.iv235
   store i8 %.0.i, ptr %39, align 1
   %indvars.iv.next236 = add nuw nsw i64 %indvars.iv235, 1
   %exitcond239.not = icmp eq i64 %indvars.iv.next236, %wide.trip.count238
@@ -331,10 +331,10 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8Quantize7forwardERKNS_3M
 
 40:                                               ; preds = %.lr.ph, %40
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %40 ]
-  %41 = getelementptr inbounds float, ptr %23, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv
   %42 = load float, ptr %41, align 4
   %43 = load ptr, ptr %28, align 8
-  %44 = getelementptr inbounds float, ptr %43, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw float, ptr %43, i64 %indvars.iv
   %45 = load float, ptr %44, align 4
   %46 = fmul fast float %45, %42
   %47 = tail call fast noundef float @llvm.round.f32(float %46)
@@ -342,7 +342,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8Quantize7forwardERKNS_3M
   %spec.select5.i206 = tail call i32 @llvm.smax.i32(i32 %48, i32 -127)
   %.06.i207 = tail call i32 @llvm.smin.i32(i32 %spec.select5.i206, i32 127)
   %.0.i208 = trunc nsw i32 %.06.i207 to i8
-  %49 = getelementptr inbounds i8, ptr %12, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw i8, ptr %12, i64 %indvars.iv
   store i8 %.0.i208, ptr %49, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -408,13 +408,13 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8Quantize7forwardERKNS_3M
   %89 = icmp eq i32 %88, 1
   %90 = load ptr, ptr %72, align 8
   %.in205.idx.us = select i1 %89, i64 0, i64 %indvars.iv245
-  %.in205.us = getelementptr inbounds float, ptr %90, i64 %.in205.idx.us
+  %.in205.us = getelementptr inbounds nuw float, ptr %90, i64 %.in205.idx.us
   %91 = load float, ptr %.in205.us, align 4
   br label %92
 
 92:                                               ; preds = %.lr.ph222.us, %92
   %indvars.iv240 = phi i64 [ 0, %.lr.ph222.us ], [ %indvars.iv.next241, %92 ]
-  %93 = getelementptr inbounds float, ptr %80, i64 %indvars.iv240
+  %93 = getelementptr inbounds nuw float, ptr %80, i64 %indvars.iv240
   %94 = load float, ptr %93, align 4
   %95 = fmul fast float %94, %91
   %96 = tail call fast noundef float @llvm.round.f32(float %95)
@@ -422,7 +422,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8Quantize7forwardERKNS_3M
   %spec.select5.i209.us = tail call i32 @llvm.smax.i32(i32 %97, i32 -127)
   %.06.i210.us = tail call i32 @llvm.smin.i32(i32 %spec.select5.i209.us, i32 127)
   %.0.i211.us = trunc nsw i32 %.06.i210.us to i8
-  %98 = getelementptr inbounds i8, ptr %87, i64 %indvars.iv240
+  %98 = getelementptr inbounds nuw i8, ptr %87, i64 %indvars.iv240
   store i8 %.0.i211.us, ptr %98, align 1
   %indvars.iv.next241 = add nuw nsw i64 %indvars.iv240, 1
   %exitcond244.not = icmp eq i64 %indvars.iv.next241, %wide.trip.count243
@@ -498,13 +498,13 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8Quantize7forwardERKNS_3M
   %140 = icmp eq i32 %139, 1
   %141 = load ptr, ptr %125, align 8
   %.in.idx.us = select i1 %140, i64 0, i64 %indvars.iv255
-  %.in.us = getelementptr inbounds float, ptr %141, i64 %.in.idx.us
+  %.in.us = getelementptr inbounds nuw float, ptr %141, i64 %.in.idx.us
   %142 = load float, ptr %.in.us, align 4
   br label %143
 
 143:                                              ; preds = %.lr.ph227.us, %143
   %indvars.iv250 = phi i64 [ 0, %.lr.ph227.us ], [ %indvars.iv.next251, %143 ]
-  %144 = getelementptr inbounds float, ptr %132, i64 %indvars.iv250
+  %144 = getelementptr inbounds nuw float, ptr %132, i64 %indvars.iv250
   %145 = load float, ptr %144, align 4
   %146 = fmul fast float %145, %142
   %147 = tail call fast noundef float @llvm.round.f32(float %146)
@@ -512,7 +512,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8Quantize7forwardERKNS_3M
   %spec.select5.i212.us = tail call i32 @llvm.smax.i32(i32 %148, i32 -127)
   %.06.i213.us = tail call i32 @llvm.smin.i32(i32 %spec.select5.i212.us, i32 127)
   %.0.i214.us = trunc nsw i32 %.06.i213.us to i8
-  %149 = getelementptr inbounds i8, ptr %138, i64 %indvars.iv250
+  %149 = getelementptr inbounds nuw i8, ptr %138, i64 %indvars.iv250
   store i8 %.0.i214.us, ptr %149, align 1
   %indvars.iv.next251 = add nuw nsw i64 %indvars.iv250, 1
   %exitcond254.not = icmp eq i64 %indvars.iv.next251, %wide.trip.count253
@@ -557,7 +557,7 @@ define linkonce_odr hidden void @_ZN4ncnn8QuantizeD2Ev(ptr noundef nonnull align
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %10, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
   invoke void %15(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %11)
           to label %18 unwind label %21
@@ -610,7 +610,7 @@ define linkonce_odr hidden void @_ZN4ncnn8QuantizeD0Ev(ptr noundef nonnull align
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %10, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
   invoke void %15(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %11)
           to label %_ZN4ncnn8QuantizeD2Ev.exit unwind label %18

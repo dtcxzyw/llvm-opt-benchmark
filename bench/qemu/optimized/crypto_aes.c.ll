@@ -1808,13 +1808,13 @@ if.end6:                                          ; preds = %if.end, %if.end, %i
   br i1 %cmp7, label %if.then8, label %if.else
 
 if.then8:                                         ; preds = %if.end6
-  %rounds = getelementptr inbounds i8, ptr %key, i64 240
+  %rounds = getelementptr inbounds nuw i8, ptr %key, i64 240
   store i32 10, ptr %rounds, align 4
   br label %if.end15
 
 if.else:                                          ; preds = %if.end6
   %cmp9 = icmp eq i32 %bits, 192
-  %rounds11 = getelementptr inbounds i8, ptr %key, i64 240
+  %rounds11 = getelementptr inbounds nuw i8, ptr %key, i64 240
   br i1 %cmp9, label %if.then10, label %if.else12
 
 if.then10:                                        ; preds = %if.else
@@ -2229,7 +2229,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %rounds = getelementptr inbounds i8, ptr %key, i64 240
+  %rounds = getelementptr inbounds nuw i8, ptr %key, i64 240
   %0 = load i32, ptr %rounds, align 4
   %mul = shl i32 %0, 2
   %cmp164 = icmp sgt i32 %mul, 0
@@ -2556,7 +2556,7 @@ if.end:                                           ; preds = %entry
   %arrayidx73 = getelementptr i8, ptr %key, i64 12
   %19 = load i32, ptr %arrayidx73, align 4
   %xor74 = xor i32 %xor72, %19
-  %rounds = getelementptr inbounds i8, ptr %key, i64 240
+  %rounds = getelementptr inbounds nuw i8, ptr %key, i64 240
   %20 = load i32, ptr %rounds, align 4
   %shr = ashr i32 %20, 1
   br label %for.cond
@@ -3045,7 +3045,7 @@ if.end:                                           ; preds = %entry
   %arrayidx73 = getelementptr i8, ptr %key, i64 12
   %19 = load i32, ptr %arrayidx73, align 4
   %xor74 = xor i32 %xor72, %19
-  %rounds = getelementptr inbounds i8, ptr %key, i64 240
+  %rounds = getelementptr inbounds nuw i8, ptr %key, i64 240
   %20 = load i32, ptr %rounds, align 4
   %shr = ashr i32 %20, 1
   br label %for.cond

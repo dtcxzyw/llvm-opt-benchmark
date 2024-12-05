@@ -47,17 +47,17 @@ $_ZNK3ozz9animation8internal16TrackSamplingJobINS0_15QuaternionTrackEE3RunEv = c
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local void @_ZN3ozz9animation8internal16TrackSamplingJobINS0_10FloatTrackEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat($_ZN3ozz9animation8internal16TrackSamplingJobINS0_10FloatTrackEEC5Ev) align 2 {
   store float 0.000000e+00, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation8internal16TrackSamplingJobINS0_10FloatTrackEE8ValidateEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp ne ptr %3, null
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = icmp ne ptr %6, null
   %8 = and i1 %4, %7
@@ -66,10 +66,10 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation8internal16Track
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation8internal16TrackSamplingJobINS0_10FloatTrackEE3RunEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #1 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp ne ptr %3, null
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = icmp ne ptr %6, null
   %8 = and i1 %4, %7
@@ -82,9 +82,9 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation8internal16Track
   %13 = fcmp olt float %12, 0.000000e+00
   %14 = select i1 %13, float 0.000000e+00, float %12
   %15 = load ptr, ptr %6, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq i64 %17, 0
   br i1 %20, label %.sink.split, label %21
@@ -99,10 +99,10 @@ _ZSt7advanceIPKflEvRT_T0_.exit.i.i:               ; preds = %21, %_ZSt7advanceIP
   %.017.i.i = phi ptr [ %.1.i.i, %_ZSt7advanceIPKflEvRT_T0_.exit.i.i ], [ %15, %21 ]
   %.01116.i.i = phi i64 [ %.112.i.i, %_ZSt7advanceIPKflEvRT_T0_.exit.i.i ], [ %17, %21 ]
   %25 = lshr i64 %.01116.i.i, 1
-  %26 = getelementptr inbounds float, ptr %.017.i.i, i64 %25
+  %26 = getelementptr inbounds nuw float, ptr %.017.i.i, i64 %25
   %27 = load float, ptr %26, align 4
   %28 = fcmp olt float %14, %27
-  %29 = getelementptr inbounds i8, ptr %26, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %30 = xor i64 %25, -1
   %31 = add nsw i64 %.01116.i.i, %30
   %.112.i.i = select i1 %28, i64 %25, i64 %31
@@ -120,10 +120,10 @@ _ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit:        ; preds = %_ZSt11upper_boundIP
   %33 = sub i64 %.pre-phi, %23
   %34 = ashr exact i64 %33, 2
   %35 = add nsw i64 %34, -1
-  %36 = getelementptr inbounds i8, ptr %6, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %37 = load ptr, ptr %36, align 8
   %38 = lshr i64 %35, 3
-  %39 = getelementptr inbounds i8, ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 %38
   %40 = load i8, ptr %39, align 1
   %41 = zext i8 %40 to i32
   %42 = trunc i64 %35 to i32
@@ -168,17 +168,17 @@ _ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit:        ; preds = %_ZSt11upper_boundIP
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local void @_ZN3ozz9animation8internal16TrackSamplingJobINS0_11Float2TrackEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat($_ZN3ozz9animation8internal16TrackSamplingJobINS0_11Float2TrackEEC5Ev) align 2 {
   store float 0.000000e+00, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation8internal16TrackSamplingJobINS0_11Float2TrackEE8ValidateEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp ne ptr %3, null
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = icmp ne ptr %6, null
   %8 = and i1 %4, %7
@@ -187,10 +187,10 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation8internal16Track
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation8internal16TrackSamplingJobINS0_11Float2TrackEE3RunEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #2 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp ne ptr %3, null
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = icmp ne ptr %6, null
   %8 = and i1 %4, %7
@@ -203,9 +203,9 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation8internal16Track
   %13 = fcmp olt float %12, 0.000000e+00
   %14 = select i1 %13, float 0.000000e+00, float %12
   %15 = load ptr, ptr %6, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq i64 %17, 0
   br i1 %20, label %21, label %22
@@ -224,10 +224,10 @@ _ZSt7advanceIPKflEvRT_T0_.exit.i.i:               ; preds = %22, %_ZSt7advanceIP
   %.017.i.i = phi ptr [ %.1.i.i, %_ZSt7advanceIPKflEvRT_T0_.exit.i.i ], [ %15, %22 ]
   %.01116.i.i = phi i64 [ %.112.i.i, %_ZSt7advanceIPKflEvRT_T0_.exit.i.i ], [ %17, %22 ]
   %26 = lshr i64 %.01116.i.i, 1
-  %27 = getelementptr inbounds float, ptr %.017.i.i, i64 %26
+  %27 = getelementptr inbounds nuw float, ptr %.017.i.i, i64 %26
   %28 = load float, ptr %27, align 4
   %29 = fcmp olt float %14, %28
-  %30 = getelementptr inbounds i8, ptr %27, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %31 = xor i64 %26, -1
   %32 = add nsw i64 %.01116.i.i, %31
   %.112.i.i = select i1 %29, i64 %26, i64 %32
@@ -245,10 +245,10 @@ _ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit:        ; preds = %_ZSt11upper_boundIP
   %34 = sub i64 %.pre-phi, %24
   %35 = ashr exact i64 %34, 2
   %36 = add nsw i64 %35, -1
-  %37 = getelementptr inbounds i8, ptr %6, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %38 = load ptr, ptr %37, align 8
   %39 = lshr i64 %36, 3
-  %40 = getelementptr inbounds i8, ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 %39
   %41 = load i8, ptr %40, align 1
   %42 = zext i8 %41 to i32
   %43 = trunc i64 %36 to i32
@@ -280,9 +280,9 @@ _ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit:        ; preds = %_ZSt11upper_boundIP
   %62 = load float, ptr %59, align 4
   %63 = fsub float %61, %62
   %64 = tail call float @llvm.fmuladd.f32(float %63, float %58, float %62)
-  %65 = getelementptr inbounds i8, ptr %60, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %60, i64 4
   %66 = load float, ptr %65, align 4
-  %67 = getelementptr inbounds i8, ptr %59, i64 4
+  %67 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %68 = load float, ptr %67, align 4
   %69 = fsub float %66, %68
   %70 = tail call float @llvm.fmuladd.f32(float %69, float %58, float %68)
@@ -301,17 +301,17 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local void @_ZN3ozz9animation8internal16TrackSamplingJobINS0_11Float3TrackEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat($_ZN3ozz9animation8internal16TrackSamplingJobINS0_11Float3TrackEEC5Ev) align 2 {
   store float 0.000000e+00, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation8internal16TrackSamplingJobINS0_11Float3TrackEE8ValidateEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp ne ptr %3, null
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = icmp ne ptr %6, null
   %8 = and i1 %4, %7
@@ -320,10 +320,10 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation8internal16Track
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation8internal16TrackSamplingJobINS0_11Float3TrackEE3RunEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #2 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp ne ptr %3, null
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = icmp ne ptr %6, null
   %8 = and i1 %4, %7
@@ -336,16 +336,16 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation8internal16Track
   %13 = fcmp olt float %12, 0.000000e+00
   %14 = select i1 %13, float 0.000000e+00, float %12
   %15 = load ptr, ptr %6, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq i64 %17, 0
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %9
   store <2 x float> zeroinitializer, ptr %3, align 4
-  %.sroa.223.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.223.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store float 0.000000e+00, ptr %.sroa.223.0..sroa_idx, align 4
   br label %76
 
@@ -359,10 +359,10 @@ _ZSt7advanceIPKflEvRT_T0_.exit.i.i:               ; preds = %22, %_ZSt7advanceIP
   %.017.i.i = phi ptr [ %.1.i.i, %_ZSt7advanceIPKflEvRT_T0_.exit.i.i ], [ %15, %22 ]
   %.01116.i.i = phi i64 [ %.112.i.i, %_ZSt7advanceIPKflEvRT_T0_.exit.i.i ], [ %17, %22 ]
   %26 = lshr i64 %.01116.i.i, 1
-  %27 = getelementptr inbounds float, ptr %.017.i.i, i64 %26
+  %27 = getelementptr inbounds nuw float, ptr %.017.i.i, i64 %26
   %28 = load float, ptr %27, align 4
   %29 = fcmp olt float %14, %28
-  %30 = getelementptr inbounds i8, ptr %27, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %31 = xor i64 %26, -1
   %32 = add nsw i64 %.01116.i.i, %31
   %.112.i.i = select i1 %29, i64 %26, i64 %32
@@ -380,10 +380,10 @@ _ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit:        ; preds = %_ZSt11upper_boundIP
   %34 = sub i64 %.pre-phi, %24
   %35 = ashr exact i64 %34, 2
   %36 = add nsw i64 %35, -1
-  %37 = getelementptr inbounds i8, ptr %6, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %38 = load ptr, ptr %37, align 8
   %39 = lshr i64 %36, 3
-  %40 = getelementptr inbounds i8, ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 %39
   %41 = load i8, ptr %40, align 1
   %42 = zext i8 %41 to i32
   %43 = trunc i64 %36 to i32
@@ -414,22 +414,22 @@ _ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit:        ; preds = %_ZSt11upper_boundIP
   %61 = load float, ptr %58, align 4
   %62 = fsub float %60, %61
   %63 = tail call float @llvm.fmuladd.f32(float %62, float %57, float %61)
-  %64 = getelementptr inbounds i8, ptr %59, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %65 = load float, ptr %64, align 4
-  %66 = getelementptr inbounds i8, ptr %58, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %58, i64 4
   %67 = load float, ptr %66, align 4
   %68 = fsub float %65, %67
   %69 = tail call float @llvm.fmuladd.f32(float %68, float %57, float %67)
-  %70 = getelementptr inbounds i8, ptr %59, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %71 = load float, ptr %70, align 4
-  %72 = getelementptr inbounds i8, ptr %58, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %73 = load float, ptr %72, align 4
   %74 = fsub float %71, %73
   %75 = tail call float @llvm.fmuladd.f32(float %74, float %57, float %73)
   %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %63, i64 0
   %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %69, i64 1
   store <2 x float> %.sroa.0.4.vec.insert.i, ptr %3, align 4
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store float %75, ptr %.sroa.22.0..sroa_idx, align 4
   br label %76
 
@@ -440,17 +440,17 @@ _ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit:        ; preds = %_ZSt11upper_boundIP
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local void @_ZN3ozz9animation8internal16TrackSamplingJobINS0_11Float4TrackEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat($_ZN3ozz9animation8internal16TrackSamplingJobINS0_11Float4TrackEEC5Ev) align 2 {
   store float 0.000000e+00, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation8internal16TrackSamplingJobINS0_11Float4TrackEE8ValidateEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp ne ptr %3, null
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = icmp ne ptr %6, null
   %8 = and i1 %4, %7
@@ -459,10 +459,10 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation8internal16Track
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation8internal16TrackSamplingJobINS0_11Float4TrackEE3RunEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #2 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp ne ptr %3, null
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = icmp ne ptr %6, null
   %8 = and i1 %4, %7
@@ -475,9 +475,9 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation8internal16Track
   %13 = fcmp olt float %12, 0.000000e+00
   %14 = select i1 %13, float 0.000000e+00, float %12
   %15 = load ptr, ptr %6, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq i64 %17, 0
   br i1 %20, label %21, label %22
@@ -496,10 +496,10 @@ _ZSt7advanceIPKflEvRT_T0_.exit.i.i:               ; preds = %22, %_ZSt7advanceIP
   %.017.i.i = phi ptr [ %.1.i.i, %_ZSt7advanceIPKflEvRT_T0_.exit.i.i ], [ %15, %22 ]
   %.01116.i.i = phi i64 [ %.112.i.i, %_ZSt7advanceIPKflEvRT_T0_.exit.i.i ], [ %17, %22 ]
   %26 = lshr i64 %.01116.i.i, 1
-  %27 = getelementptr inbounds float, ptr %.017.i.i, i64 %26
+  %27 = getelementptr inbounds nuw float, ptr %.017.i.i, i64 %26
   %28 = load float, ptr %27, align 4
   %29 = fcmp olt float %14, %28
-  %30 = getelementptr inbounds i8, ptr %27, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %31 = xor i64 %26, -1
   %32 = add nsw i64 %.01116.i.i, %31
   %.112.i.i = select i1 %29, i64 %26, i64 %32
@@ -517,10 +517,10 @@ _ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit:        ; preds = %_ZSt11upper_boundIP
   %34 = sub i64 %.pre-phi, %24
   %35 = ashr exact i64 %34, 2
   %36 = add nsw i64 %35, -1
-  %37 = getelementptr inbounds i8, ptr %6, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %38 = load ptr, ptr %37, align 8
   %39 = lshr i64 %36, 3
-  %40 = getelementptr inbounds i8, ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 %39
   %41 = load i8, ptr %40, align 1
   %42 = zext i8 %41 to i32
   %43 = trunc i64 %36 to i32
@@ -551,21 +551,21 @@ _ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit:        ; preds = %_ZSt11upper_boundIP
   %61 = load float, ptr %58, align 4
   %62 = fsub float %60, %61
   %63 = tail call float @llvm.fmuladd.f32(float %62, float %57, float %61)
-  %64 = getelementptr inbounds i8, ptr %59, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %65 = load float, ptr %64, align 4
-  %66 = getelementptr inbounds i8, ptr %58, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %58, i64 4
   %67 = load float, ptr %66, align 4
   %68 = fsub float %65, %67
   %69 = tail call float @llvm.fmuladd.f32(float %68, float %57, float %67)
-  %70 = getelementptr inbounds i8, ptr %59, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %71 = load float, ptr %70, align 4
-  %72 = getelementptr inbounds i8, ptr %58, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %73 = load float, ptr %72, align 4
   %74 = fsub float %71, %73
   %75 = tail call float @llvm.fmuladd.f32(float %74, float %57, float %73)
-  %76 = getelementptr inbounds i8, ptr %59, i64 12
+  %76 = getelementptr inbounds nuw i8, ptr %59, i64 12
   %77 = load float, ptr %76, align 4
-  %78 = getelementptr inbounds i8, ptr %58, i64 12
+  %78 = getelementptr inbounds nuw i8, ptr %58, i64 12
   %79 = load float, ptr %78, align 4
   %80 = fsub float %77, %79
   %81 = tail call float @llvm.fmuladd.f32(float %80, float %57, float %79)
@@ -574,7 +574,7 @@ _ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit:        ; preds = %_ZSt11upper_boundIP
   %.sroa.3.8.vec.insert.i = insertelement <2 x float> poison, float %75, i64 0
   %.sroa.3.12.vec.insert.i = insertelement <2 x float> %.sroa.3.8.vec.insert.i, float %81, i64 1
   store <2 x float> %.sroa.0.4.vec.insert.i, ptr %3, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i, ptr %.sroa.2.0..sroa_idx, align 4
   br label %82
 
@@ -585,17 +585,17 @@ _ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit:        ; preds = %_ZSt11upper_boundIP
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local void @_ZN3ozz9animation8internal16TrackSamplingJobINS0_15QuaternionTrackEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat($_ZN3ozz9animation8internal16TrackSamplingJobINS0_15QuaternionTrackEEC5Ev) align 2 {
   store float 0.000000e+00, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation8internal16TrackSamplingJobINS0_15QuaternionTrackEE8ValidateEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp ne ptr %3, null
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = icmp ne ptr %6, null
   %8 = and i1 %4, %7
@@ -604,10 +604,10 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation8internal16Track
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation8internal16TrackSamplingJobINS0_15QuaternionTrackEE3RunEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #2 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp ne ptr %3, null
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = icmp ne ptr %6, null
   %8 = and i1 %4, %7
@@ -620,16 +620,16 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation8internal16Track
   %13 = fcmp olt float %12, 0.000000e+00
   %14 = select i1 %13, float 0.000000e+00, float %12
   %15 = load ptr, ptr %6, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq i64 %17, 0
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %9
   store <2 x float> zeroinitializer, ptr %3, align 4
-  %.sroa.217.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.217.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store <2 x float> <float 0.000000e+00, float 1.000000e+00>, ptr %.sroa.217.0..sroa_idx, align 4
   br label %91
 
@@ -643,10 +643,10 @@ _ZSt7advanceIPKflEvRT_T0_.exit.i.i:               ; preds = %22, %_ZSt7advanceIP
   %.017.i.i = phi ptr [ %.1.i.i, %_ZSt7advanceIPKflEvRT_T0_.exit.i.i ], [ %15, %22 ]
   %.01116.i.i = phi i64 [ %.112.i.i, %_ZSt7advanceIPKflEvRT_T0_.exit.i.i ], [ %17, %22 ]
   %26 = lshr i64 %.01116.i.i, 1
-  %27 = getelementptr inbounds float, ptr %.017.i.i, i64 %26
+  %27 = getelementptr inbounds nuw float, ptr %.017.i.i, i64 %26
   %28 = load float, ptr %27, align 4
   %29 = fcmp olt float %14, %28
-  %30 = getelementptr inbounds i8, ptr %27, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %31 = xor i64 %26, -1
   %32 = add nsw i64 %.01116.i.i, %31
   %.112.i.i = select i1 %29, i64 %26, i64 %32
@@ -664,10 +664,10 @@ _ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit:        ; preds = %_ZSt11upper_boundIP
   %34 = sub i64 %.pre-phi, %24
   %35 = ashr exact i64 %34, 2
   %36 = add nsw i64 %35, -1
-  %37 = getelementptr inbounds i8, ptr %6, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %38 = load ptr, ptr %37, align 8
   %39 = lshr i64 %36, 3
-  %40 = getelementptr inbounds i8, ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 %39
   %41 = load i8, ptr %40, align 1
   %42 = zext i8 %41 to i32
   %43 = trunc i64 %36 to i32
@@ -698,21 +698,21 @@ _ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit:        ; preds = %_ZSt11upper_boundIP
   %61 = load float, ptr %58, align 4
   %62 = fsub float %60, %61
   %63 = tail call float @llvm.fmuladd.f32(float %62, float %57, float %61)
-  %64 = getelementptr inbounds i8, ptr %59, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %65 = load float, ptr %64, align 4
-  %66 = getelementptr inbounds i8, ptr %58, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %58, i64 4
   %67 = load float, ptr %66, align 4
   %68 = fsub float %65, %67
   %69 = tail call float @llvm.fmuladd.f32(float %68, float %57, float %67)
-  %70 = getelementptr inbounds i8, ptr %59, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %71 = load float, ptr %70, align 4
-  %72 = getelementptr inbounds i8, ptr %58, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %73 = load float, ptr %72, align 4
   %74 = fsub float %71, %73
   %75 = tail call float @llvm.fmuladd.f32(float %74, float %57, float %73)
-  %76 = getelementptr inbounds i8, ptr %59, i64 12
+  %76 = getelementptr inbounds nuw i8, ptr %59, i64 12
   %77 = load float, ptr %76, align 4
-  %78 = getelementptr inbounds i8, ptr %58, i64 12
+  %78 = getelementptr inbounds nuw i8, ptr %58, i64 12
   %79 = load float, ptr %78, align 4
   %80 = fsub float %77, %79
   %81 = tail call float @llvm.fmuladd.f32(float %80, float %57, float %79)
@@ -731,7 +731,7 @@ _ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit:        ; preds = %_ZSt11upper_boundIP
   %.sroa.3.8.vec.insert.i = insertelement <2 x float> poison, float %89, i64 0
   %.sroa.3.12.vec.insert.i = insertelement <2 x float> %.sroa.3.8.vec.insert.i, float %90, i64 1
   store <2 x float> %.sroa.044.4.vec.insert.i, ptr %3, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i, ptr %.sroa.2.0..sroa_idx, align 4
   br label %91
 

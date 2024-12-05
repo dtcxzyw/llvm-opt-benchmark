@@ -39,7 +39,7 @@ define internal void @lv_async_timer_cb(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !9
   %.sroa.0.0.copyload = load ptr, ptr %3, align 8, !tbaa !12
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !12
   tail call void @lv_timer_delete(ptr noundef %0) #2
   tail call void @lv_free(ptr noundef nonnull %3) #2

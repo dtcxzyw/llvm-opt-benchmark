@@ -28,13 +28,13 @@ define nonnull align 4 ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_i
   br label %4
 
 4:                                                ; preds = %1, %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %5
 }
 
 ; Function Attrs: nonlazybind uwtable
 define align 8 ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hff1b6b6dfec8cc43E"(ptr returned align 8 %0) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %2 = getelementptr inbounds i8, ptr %0, i64 160
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = tail call ptr @_ZN4core4sync6atomic11atomic_load17h0cbd2427093c4ab3E(ptr nonnull %2, i8 2)
   %4 = icmp ne ptr %3, inttoptr (i64 2 to ptr)
   %.not5 = icmp eq ptr %0, null
@@ -51,7 +51,7 @@ define align 8 ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hff
 
 ; Function Attrs: nonlazybind uwtable
 define align 8 ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$3get17h18482d60db569abeE"(ptr align 8 %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 160
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = tail call ptr @_ZN4core4sync6atomic11atomic_load17h0cbd2427093c4ab3E(ptr nonnull %2, i8 2)
   %4 = icmp eq ptr %3, inttoptr (i64 2 to ptr)
   %. = select i1 %4, ptr %0, ptr null
@@ -62,7 +62,7 @@ define align 8 ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$3get17h18482d60db569ab
 define align 4 ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$3get17h95b2f1b800e911ffE"(ptr align 8 %0) unnamed_addr #1 {
   %2 = tail call ptr @_ZN4core4sync6atomic11atomic_load17h0cbd2427093c4ab3E(ptr %0, i8 2)
   %3 = icmp eq ptr %2, inttoptr (i64 2 to ptr)
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.0.0 = select i1 %3, ptr %4, ptr null
   ret ptr %.sroa.0.0
 }

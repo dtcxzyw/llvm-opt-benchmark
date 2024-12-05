@@ -698,7 +698,7 @@ define dso_local void @helpSQL(ptr noundef %0, i16 noundef zeroext %1) local_unn
   br i1 %7, label %9, label %.preheader137
 
 .preheader137:                                    ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1
   br label %60
 
 9:                                                ; preds = %5, %2
@@ -709,7 +709,7 @@ define dso_local void @helpSQL(ptr noundef %0, i16 noundef zeroext %1) local_unn
   br i1 %13, label %.lr.ph170, label %14
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %3, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %16 = load i16, ptr %15, align 2
   %.fr = freeze i16 %16
   %17 = zext i16 %.fr to i32
@@ -881,7 +881,7 @@ sub_0:                                            ; preds = %.lr.ph150
   br i1 %82, label %83, label %.tail.thread
 
 83:                                               ; preds = %.tail, %.lr.ph150
-  %84 = getelementptr inbounds i8, ptr %77, i64 32
+  %84 = getelementptr inbounds nuw i8, ptr %77, i64 32
   %85 = load i32, ptr %84, align 8
   %86 = add i32 %.092149, 7
   %87 = add i32 %86, %85
@@ -929,13 +929,13 @@ sub_0133:                                         ; preds = %.lr.ph160
 
 105:                                              ; preds = %.tail132, %.lr.ph160
   call void @initPQExpBuffer(ptr noundef nonnull %4) #9
-  %106 = getelementptr inbounds i8, ptr %99, i64 24
+  %106 = getelementptr inbounds nuw i8, ptr %99, i64 24
   %107 = load ptr, ptr %106, align 8
   call void %107(ptr noundef nonnull %4) #9
-  %108 = getelementptr inbounds i8, ptr %99, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %99, i64 16
   %109 = load ptr, ptr %108, align 8
   %110 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.258, ptr noundef nonnull @.str.260, ptr noundef %109) #9
-  %111 = getelementptr inbounds i8, ptr %99, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %112 = load ptr, ptr %111, align 8
   %113 = load ptr, ptr %4, align 8
   %114 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %97, ptr noundef nonnull @.str.262, ptr noundef nonnull %98, ptr noundef %112, ptr noundef %113, ptr noundef %110) #9

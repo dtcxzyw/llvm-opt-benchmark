@@ -308,7 +308,7 @@ define void @sstegr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %155 = sext i32 %154 to i64
   %156 = getelementptr inbounds float, ptr %29, i64 %155
   %157 = load float, ptr %156, align 4
-  %158 = getelementptr inbounds float, ptr %30, i64 %indvars.iv
+  %158 = getelementptr inbounds nuw float, ptr %30, i64 %indvars.iv
   %159 = load float, ptr %158, align 4
   %160 = fadd float %157, %159
   store float %160, ptr %158, align 4
@@ -362,7 +362,7 @@ define void @sstegr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %177 = phi i32 [ %203, %._crit_edge293.us.thread ], [ %173, %.lr.ph302.split.us ]
   %indvars.iv311 = phi i64 [ %indvars.iv.next312, %._crit_edge293.us.thread ], [ 1, %.lr.ph302.split.us ]
   %indvars.iv305 = phi i64 [ %indvars.iv.next306, %._crit_edge293.us.thread ], [ 2, %.lr.ph302.split.us ]
-  %178 = getelementptr inbounds float, ptr %30, i64 %indvars.iv311
+  %178 = getelementptr inbounds nuw float, ptr %30, i64 %indvars.iv311
   %179 = load float, ptr %178, align 4
   %180 = load i32, ptr %10, align 4
   %indvars.iv.next312 = add nuw nsw i64 %indvars.iv311, 1
@@ -378,7 +378,7 @@ define void @sstegr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %indvars.iv307 = phi i64 [ %indvars.iv305, %.lr.ph292.us.preheader ], [ %indvars.iv.next308, %.lr.ph292.us ]
   %.0290.us = phi i32 [ 0, %.lr.ph292.us.preheader ], [ %.1.us, %.lr.ph292.us ]
   %.0250288.us = phi float [ %179, %.lr.ph292.us.preheader ], [ %.1251.us, %.lr.ph292.us ]
-  %183 = getelementptr inbounds float, ptr %30, i64 %indvars.iv307
+  %183 = getelementptr inbounds nuw float, ptr %30, i64 %indvars.iv307
   %184 = load float, ptr %183, align 4
   %185 = fcmp olt float %184, %.0250288.us
   %.1251.us = select i1 %185, float %184, float %.0250288.us
@@ -416,8 +416,8 @@ define void @sstegr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   store i32 %199, ptr %196, align 4
   store i32 %197, ptr %gep298.us, align 4
   %200 = load i32, ptr %195, align 4
-  %.idx = shl i64 %indvars.iv311, 3
-  %201 = getelementptr inbounds i8, ptr %34, i64 %.idx
+  %.idx = shl nuw i64 %indvars.iv311, 3
+  %201 = getelementptr inbounds nuw i8, ptr %34, i64 %.idx
   %202 = load i32, ptr %201, align 4
   store i32 %202, ptr %195, align 4
   store i32 %200, ptr %201, align 4
@@ -434,7 +434,7 @@ define void @sstegr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 .lr.ph302.split:                                  ; preds = %.lr.ph302.split.preheader, %._crit_edge293.thread
   %indvars.iv321 = phi i64 [ 1, %.lr.ph302.split.preheader ], [ %indvars.iv.next322, %._crit_edge293.thread ]
   %indvars.iv314 = phi i64 [ 2, %.lr.ph302.split.preheader ], [ %indvars.iv.next315, %._crit_edge293.thread ]
-  %205 = getelementptr inbounds float, ptr %30, i64 %indvars.iv321
+  %205 = getelementptr inbounds nuw float, ptr %30, i64 %indvars.iv321
   %206 = load float, ptr %205, align 4
   %207 = load i32, ptr %10, align 4
   %indvars.iv.next322 = add nuw nsw i64 %indvars.iv321, 1
@@ -450,7 +450,7 @@ define void @sstegr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %indvars.iv316 = phi i64 [ %indvars.iv314, %.lr.ph292.preheader ], [ %indvars.iv.next317, %.lr.ph292 ]
   %.0290 = phi i32 [ 0, %.lr.ph292.preheader ], [ %.1, %.lr.ph292 ]
   %.0250288 = phi float [ %206, %.lr.ph292.preheader ], [ %.1251, %.lr.ph292 ]
-  %210 = getelementptr inbounds float, ptr %30, i64 %indvars.iv316
+  %210 = getelementptr inbounds nuw float, ptr %30, i64 %indvars.iv316
   %211 = load float, ptr %210, align 4
   %212 = fcmp olt float %211, %.0250288
   %.1251 = select i1 %212, float %211, float %.0250288

@@ -86,7 +86,7 @@ define { i64, ptr } @load_module_meta(ptr noundef %0, i64 %1, ptr %2) local_unna
 
 38:                                               ; preds = %28
   %39 = load ptr, ptr %4, align 8
-  %40 = getelementptr inbounds i8, ptr %4, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %41 = load ptr, ptr %40, align 8
   %42 = call { i64, ptr } @block_module_meta(ptr %39, ptr %41) #11
   %43 = extractvalue { i64, ptr } %42, 0
@@ -128,7 +128,7 @@ define { i64, ptr } @load_module_meta(ptr noundef %0, i64 %1, ptr %2) local_unna
   %.merged49 = phi { i64, ptr } [ %69, %51 ], [ %22, %28 ]
   call void @locfile_free(ptr noundef %35) #11
   %71 = load ptr, ptr %4, align 8
-  %72 = getelementptr inbounds i8, ptr %4, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %73 = load ptr, ptr %72, align 8
   call void @block_free(ptr %71, ptr %73) #11
   br label %74
@@ -246,7 +246,7 @@ sub_0.i:                                          ; preds = %44
   br i1 %.not.i, label %sub_1.i, label %.tail.i
 
 sub_1.i:                                          ; preds = %sub_0.i
-  %55 = getelementptr inbounds i8, ptr %51, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %51, i64 1
   %56 = load i8, ptr %55, align 1
   %57 = zext i8 %56 to i32
   %58 = sub nsw i32 0, %57
@@ -272,7 +272,7 @@ sub_1.i:                                          ; preds = %sub_0.i
 69:                                               ; preds = %65
   %70 = tail call ptr @jv_string_value(i64 %.0.val, ptr %.8.val) #11
   %71 = tail call ptr @jv_string_value(i64 %46, ptr %47) #11
-  %72 = getelementptr inbounds i8, ptr %71, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = tail call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.17, ptr noundef %70, ptr noundef nonnull %72) #11
   %74 = extractvalue { i64, ptr } %73, 0
   %75 = extractvalue { i64, ptr } %73, 1
@@ -571,13 +571,13 @@ sub_0:                                            ; preds = %.preheader, %59
   br i1 %.not79, label %sub_1, label %.tail.thread
 
 sub_1:                                            ; preds = %sub_0
-  %31 = getelementptr inbounds i8, ptr %29, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 1
   %32 = load i8, ptr %31, align 1
   %.not80 = icmp eq i8 %32, 46
   br i1 %.not80, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
-  %33 = getelementptr inbounds i8, ptr %29, i64 2
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 2
   %34 = load i8, ptr %33, align 1
   %35 = icmp eq i8 %34, 0
   br i1 %35, label %36, label %.tail.thread
@@ -691,7 +691,7 @@ define i32 @load_program(ptr noundef %0, ptr noundef %1, ptr nocapture noundef w
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = call i32 @block_has_main(ptr %8, ptr %10) #11
   %.not57 = icmp eq i32 %11, 0
@@ -763,14 +763,14 @@ define i32 @load_program(ptr noundef %0, ptr noundef %1, ptr nocapture noundef w
   %64 = call { ptr, ptr } (...) @gen_noop() #11
   %65 = extractvalue { ptr, ptr } %64, 0
   %66 = extractvalue { ptr, ptr } %64, 1
-  %67 = getelementptr inbounds i8, ptr %5, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %68 = load i64, ptr %67, align 8
   %.not66 = icmp eq i64 %68, 0
   br i1 %.not66, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %56
   %69 = icmp eq i32 %63, 0
-  %70 = getelementptr inbounds i8, ptr %5, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br i1 %69, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %88
@@ -785,7 +785,7 @@ define i32 @load_program(ptr noundef %0, ptr noundef %1, ptr nocapture noundef w
   %75 = load ptr, ptr %70, align 8
   %76 = getelementptr inbounds %struct.block, ptr %75, i64 %.05461.us
   %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %76, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %79 = load ptr, ptr %78, align 8
   %80 = call i32 @block_is_const(ptr %77, ptr %79) #11
   %.not60.us = icmp eq i32 %80, 0
@@ -824,7 +824,7 @@ define i32 @load_program(ptr noundef %0, ptr noundef %1, ptr nocapture noundef w
   call void @free(ptr noundef %94) #11
   %95 = getelementptr inbounds %struct.block, ptr %.pre68, i64 %.05461
   %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %95, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %98 = load ptr, ptr %97, align 8
   call void @block_free(ptr %96, ptr %98) #11
   %99 = add nuw i64 %.05461, 1
@@ -836,7 +836,7 @@ define i32 @load_program(ptr noundef %0, ptr noundef %1, ptr nocapture noundef w
   %.sroa.4.0.lcssa = phi ptr [ %66, %56 ], [ %.sroa.4.1.us, %88 ], [ %66, %92 ]
   %100 = load ptr, ptr %5, align 8
   call void @free(ptr noundef %100) #11
-  %101 = getelementptr inbounds i8, ptr %5, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %102 = load ptr, ptr %101, align 8
   call void @free(ptr noundef %102) #11
   %.not59 = icmp eq i32 %63, 0
@@ -856,7 +856,7 @@ define i32 @load_program(ptr noundef %0, ptr noundef %1, ptr nocapture noundef w
   %111 = extractvalue { ptr, ptr } %110, 0
   %112 = extractvalue { ptr, ptr } %110, 1
   store ptr %111, ptr %2, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %112, ptr %.sroa.22.0..sroa_idx, align 8
   br label %113
 
@@ -895,7 +895,7 @@ define internal fastcc i32 @process_dependencies(ptr noundef %0, i64 %1, ptr %2,
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
   %.sroa.0110.0.copyload = load ptr, ptr %5, align 8
-  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.9.0.copyload = load ptr, ptr %.sroa.9.0..sroa_idx, align 8
   %13 = tail call { i64, ptr } @jv_copy(i64 %11, ptr %12) #11
   %14 = extractvalue { i64, ptr } %13, 0
@@ -905,10 +905,10 @@ define internal fastcc i32 @process_dependencies(ptr noundef %0, i64 %1, ptr %2,
   br i1 %17, label %.lr.ph.lr.ph, label %.outer._crit_edge
 
 .lr.ph.lr.ph:                                     ; preds = %7
-  %18 = getelementptr inbounds i8, ptr %6, i64 16
-  %19 = getelementptr inbounds i8, ptr %9, i64 8
-  %20 = getelementptr inbounds i8, ptr %6, i64 8
-  %21 = getelementptr inbounds i8, ptr %8, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer
@@ -1127,7 +1127,7 @@ default_search.exit:                              ; preds = %108, %94, %110
   %167 = load ptr, ptr %20, align 8
   %168 = getelementptr inbounds %struct.block, ptr %167, i64 %.0151.lcssa
   %169 = load ptr, ptr %168, align 8
-  %170 = getelementptr inbounds i8, ptr %168, i64 8
+  %170 = getelementptr inbounds nuw i8, ptr %168, i64 8
   %171 = load ptr, ptr %170, align 8
   %172 = tail call { ptr, ptr } @block_bind_library(ptr %169, ptr %171, ptr %.sroa.0110.0.ph199, ptr %.sroa.9.0.ph200, i32 noundef 128, ptr noundef %.0153) #11
   %173 = extractvalue { ptr, ptr } %172, 0
@@ -1248,7 +1248,7 @@ define internal fastcc i32 @load_library(ptr noundef %0, i64 %1, ptr %2, i32 nou
   %18 = extractvalue { ptr, ptr } %17, 0
   %19 = extractvalue { ptr, ptr } %17, 1
   store ptr %18, ptr %10, align 8
-  %.sroa.222.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
+  %.sroa.222.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %19, ptr %.sroa.222.0..sroa_idx, align 8
   %.not86 = icmp eq i32 %5, 0
   br i1 %.not86, label %20, label %89
@@ -1292,7 +1292,7 @@ define internal fastcc i32 @load_library(ptr noundef %0, i64 %1, ptr %2, i32 nou
   %41 = extractvalue { ptr, ptr } %40, 0
   %42 = extractvalue { ptr, ptr } %40, 1
   store ptr %41, ptr %10, align 8
-  %.sroa.212.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
+  %.sroa.212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %42, ptr %.sroa.212.0..sroa_idx, align 8
   br label %70
 
@@ -1322,7 +1322,7 @@ define internal fastcc i32 @load_library(ptr noundef %0, i64 %1, ptr %2, i32 nou
   %63 = call fastcc i32 @process_dependencies(ptr noundef %0, i64 %57, ptr %58, i64 %61, ptr %62, ptr noundef %10, ptr noundef %8)
   call void @free(ptr noundef %55) #11
   %64 = load ptr, ptr %10, align 8
-  %65 = getelementptr inbounds i8, ptr %10, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %66 = load ptr, ptr %65, align 8
   %67 = call { ptr, ptr } @block_bind_self(ptr %64, ptr %66, i32 noundef 128) #11
   %68 = extractvalue { ptr, ptr } %67, 0
@@ -1333,7 +1333,7 @@ define internal fastcc i32 @load_library(ptr noundef %0, i64 %1, ptr %2, i32 nou
 
 70:                                               ; preds = %36, %53, %43
   %.1 = phi i32 [ 0, %36 ], [ %63, %53 ], [ %51, %43 ]
-  %71 = getelementptr inbounds i8, ptr %8, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %72 = load i64, ptr %71, align 8
   %73 = add i64 %72, 1
   store i64 %73, ptr %71, align 8
@@ -1341,7 +1341,7 @@ define internal fastcc i32 @load_library(ptr noundef %0, i64 %1, ptr %2, i32 nou
   %75 = shl i64 %73, 3
   %76 = call ptr @jv_mem_realloc(ptr noundef %74, i64 noundef %75) #11
   store ptr %76, ptr %8, align 8
-  %77 = getelementptr inbounds i8, ptr %8, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %78 = load ptr, ptr %77, align 8
   %79 = load i64, ptr %71, align 8
   %80 = shl i64 %79, 4

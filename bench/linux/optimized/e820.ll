@@ -128,7 +128,7 @@ module asm ".previous\09\09\09\09\09"
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
 define dso_local zeroext i1 @e820__mapped_raw_any(i64 noundef %0, i64 noundef %1, i32 noundef %2) #0 align 16 {
   %4 = load ptr, ptr @e820_table_firmware, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %6 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %.loopexit, label %7
@@ -147,7 +147,7 @@ define dso_local zeroext i1 @e820__mapped_raw_any(i64 noundef %0, i64 noundef %1
   br i1 %14, label %15, label %20
 
 15:                                               ; preds = %.split.us
-  %16 = getelementptr inbounds i8, ptr %12, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %17 = load i64, ptr %16, align 1
   %18 = add i64 %17, %13
   %19 = icmp ugt i64 %18, %0
@@ -164,7 +164,7 @@ define dso_local zeroext i1 @e820__mapped_raw_any(i64 noundef %0, i64 noundef %1
   %25 = phi i32 [ %40, %39 ], [ 0, %7 ]
   %26 = sext i32 %25 to i64
   %27 = getelementptr [320 x %struct.e820_entry], ptr %5, i64 0, i64 %26
-  %28 = getelementptr inbounds i8, ptr %27, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load i32, ptr %28, align 1
   %30 = icmp eq i32 %29, %2
   br i1 %30, label %31, label %39
@@ -175,7 +175,7 @@ define dso_local zeroext i1 @e820__mapped_raw_any(i64 noundef %0, i64 noundef %1
   br i1 %33, label %34, label %39
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %27, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %36 = load i64, ptr %35, align 1
   %37 = add i64 %36, %32
   %38 = icmp ugt i64 %37, %0
@@ -195,7 +195,7 @@ define dso_local zeroext i1 @e820__mapped_raw_any(i64 noundef %0, i64 noundef %1
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
 define dso_local zeroext i1 @e820__mapped_any(i64 noundef %0, i64 noundef %1, i32 noundef %2) #0 align 16 {
   %4 = load ptr, ptr @e820_table, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %6 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %.loopexit, label %7
@@ -214,7 +214,7 @@ define dso_local zeroext i1 @e820__mapped_any(i64 noundef %0, i64 noundef %1, i3
   br i1 %14, label %15, label %20
 
 15:                                               ; preds = %.split.us
-  %16 = getelementptr inbounds i8, ptr %12, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %17 = load i64, ptr %16, align 1
   %18 = add i64 %17, %13
   %19 = icmp ugt i64 %18, %0
@@ -231,7 +231,7 @@ define dso_local zeroext i1 @e820__mapped_any(i64 noundef %0, i64 noundef %1, i3
   %25 = phi i32 [ %40, %39 ], [ 0, %7 ]
   %26 = sext i32 %25 to i64
   %27 = getelementptr [320 x %struct.e820_entry], ptr %5, i64 0, i64 %26
-  %28 = getelementptr inbounds i8, ptr %27, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load i32, ptr %28, align 1
   %30 = icmp eq i32 %29, %2
   br i1 %30, label %31, label %39
@@ -242,7 +242,7 @@ define dso_local zeroext i1 @e820__mapped_any(i64 noundef %0, i64 noundef %1, i3
   br i1 %33, label %34, label %39
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %27, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %36 = load i64, ptr %35, align 1
   %37 = add i64 %36, %32
   %38 = icmp ugt i64 %37, %0
@@ -267,7 +267,7 @@ define dso_local zeroext i1 @e820__mapped_all(i64 noundef %0, i64 noundef %1, i3
   br i1 %6, label %__e820__mapped_all.exit, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %4, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %9 = icmp eq i32 %2, 0
   br i1 %9, label %.split.us.i, label %.split.i
 
@@ -281,7 +281,7 @@ define dso_local zeroext i1 @e820__mapped_all(i64 noundef %0, i64 noundef %1, i3
   br i1 %15, label %16, label %.thread.us.i
 
 16:                                               ; preds = %.split.us.i
-  %17 = getelementptr inbounds i8, ptr %13, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %18 = load i64, ptr %17, align 1
   %19 = add i64 %18, %14
   %20 = icmp ugt i64 %19, %11
@@ -304,7 +304,7 @@ define dso_local zeroext i1 @e820__mapped_all(i64 noundef %0, i64 noundef %1, i3
   %28 = phi i64 [ %45, %.thread.i ], [ %0, %7 ]
   %29 = sext i32 %27 to i64
   %30 = getelementptr [320 x %struct.e820_entry], ptr %8, i64 0, i64 %29
-  %31 = getelementptr inbounds i8, ptr %30, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load i32, ptr %31, align 1
   %33 = icmp eq i32 %32, %2
   br i1 %33, label %34, label %.thread.i
@@ -315,7 +315,7 @@ define dso_local zeroext i1 @e820__mapped_all(i64 noundef %0, i64 noundef %1, i3
   br i1 %36, label %37, label %.thread.i
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %30, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %39 = load i64, ptr %38, align 1
   %40 = add i64 %39, %35
   %41 = icmp ugt i64 %40, %28
@@ -347,7 +347,7 @@ define dso_local i32 @e820__get_entry_type(i64 noundef %0, i64 noundef %1) local
   br i1 %5, label %.thread8, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %3, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 4
   br label %8
 
 8:                                                ; preds = %.thread, %6
@@ -360,7 +360,7 @@ define dso_local i32 @e820__get_entry_type(i64 noundef %0, i64 noundef %1) local
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %12, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %17 = load i64, ptr %16, align 1
   %18 = add i64 %17, %13
   %19 = icmp ugt i64 %18, %10
@@ -383,7 +383,7 @@ define dso_local i32 @e820__get_entry_type(i64 noundef %0, i64 noundef %1) local
   br i1 %27, label %.thread8, label %28
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %12, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %30 = load i32, ptr %29, align 1
   br label %.thread8
 
@@ -419,12 +419,12 @@ define internal fastcc void @__e820__range_add(ptr nocapture noundef %0, i64 nou
 
 11:                                               ; preds = %4
   %12 = zext nneg i32 %5 to i64
-  %13 = getelementptr inbounds i8, ptr %0, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %14 = getelementptr [320 x %struct.e820_entry], ptr %13, i64 0, i64 %12
   store i64 %1, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 %2, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %14, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i32 %3, ptr %16, align 4
   %17 = add nuw nsw i32 %5, 1
   store i32 %17, ptr %0, align 4
@@ -444,11 +444,11 @@ define dso_local void @e820__print_table(ptr noundef %0) local_unnamed_addr #3 s
 .preheader:                                       ; preds = %1, %.preheader
   %5 = phi ptr [ %22, %.preheader ], [ %2, %1 ]
   %6 = phi i32 [ %21, %.preheader ], [ 0, %1 ]
-  %7 = getelementptr inbounds i8, ptr %5, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %8 = sext i32 %6 to i64
   %9 = getelementptr [320 x %struct.e820_entry], ptr %7, i64 0, i64 %8
   %10 = load i64, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %9, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load i64, ptr %11, align 4
   %13 = add i64 %10, -1
   %14 = add i64 %13, %12
@@ -525,7 +525,7 @@ define internal fastcc void @e820_print_type(i32 noundef %0) unnamed_addr #3 sec
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local noundef range(i32 -1, 1) i32 @e820__update_table(ptr noundef %0) local_unnamed_addr #3 section ".init.text" align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %0, align 4
   %4 = icmp ult i32 %3, 2
   br i1 %4, label %.loopexit16, label %5
@@ -552,7 +552,7 @@ define dso_local noundef range(i32 -1, 1) i32 @e820__update_table(ptr noundef %0
   %indvars.iv = phi i64 [ 0, %.preheader15.preheader ], [ %indvars.iv.next, %9 ]
   %11 = getelementptr %struct.e820_entry, ptr %2, i64 %indvars.iv
   %12 = load i64, ptr %11, align 1
-  %13 = getelementptr inbounds i8, ptr %11, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %14 = load i64, ptr %13, align 1
   %15 = xor i64 %12, -1
   %16 = icmp ugt i64 %14, %15
@@ -583,7 +583,7 @@ define dso_local noundef range(i32 -1, 1) i32 @e820__update_table(ptr noundef %0
   %28 = phi i64 [ %54, %51 ], [ 0, %17 ]
   %29 = phi i32 [ %53, %51 ], [ 0, %17 ]
   %30 = getelementptr %struct.e820_entry, ptr %2, i64 %28
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load i64, ptr %31, align 1
   %33 = icmp eq i64 %32, 0
   br i1 %33, label %51, label %34
@@ -593,7 +593,7 @@ define dso_local noundef range(i32 -1, 1) i32 @e820__update_table(ptr noundef %0
   %36 = zext i32 %29 to i64
   %37 = getelementptr [640 x ptr], ptr @change_point, i64 0, i64 %36
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store i64 %35, ptr %39, align 8
   %40 = add i32 %29, 1
   %41 = load ptr, ptr %37, align 8
@@ -604,7 +604,7 @@ define dso_local noundef range(i32 -1, 1) i32 @e820__update_table(ptr noundef %0
   %45 = zext i32 %40 to i64
   %46 = getelementptr [640 x ptr], ptr @change_point, i64 0, i64 %45
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i64 %44, ptr %48, align 8
   %49 = add i32 %29, 2
   %50 = load ptr, ptr %46, align 8
@@ -634,7 +634,7 @@ define dso_local noundef range(i32 -1, 1) i32 @e820__update_table(ptr noundef %0
   %64 = phi i32 [ %129, %128 ], [ 0, %57 ]
   %65 = getelementptr [640 x ptr], ptr @change_point, i64 0, i64 %60
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load i64, ptr %67, align 8
   %69 = load ptr, ptr %66, align 8
   %70 = load i64, ptr %69, align 1
@@ -691,7 +691,7 @@ define dso_local noundef range(i32 -1, 1) i32 @e820__update_table(ptr noundef %0
   %99 = phi i32 [ 0, %.loopexit11.thread ], [ %104, %97 ]
   %100 = getelementptr [320 x ptr], ptr @overlap_list, i64 0, i64 %98
   %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 16
   %103 = load i32, ptr %102, align 1
   %104 = tail call i32 @llvm.umax.i32(i32 %103, i32 %99)
   %105 = add nuw nsw i64 %98, 1
@@ -736,7 +736,7 @@ define dso_local noundef range(i32 -1, 1) i32 @e820__update_table(ptr noundef %0
   %125 = zext i32 %122 to i64
   %126 = getelementptr [320 x %struct.e820_entry], ptr @new_entries, i64 0, i64 %125
   store i64 %68, ptr %126, align 4
-  %127 = getelementptr inbounds i8, ptr %126, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 16
   store i32 %108, ptr %127, align 4
   br label %128
 
@@ -752,7 +752,7 @@ define dso_local noundef range(i32 -1, 1) i32 @e820__update_table(ptr noundef %0
   %134 = phi i32 [ 0, %57 ], [ 0, %.thread ], [ %119, %118 ], [ %131, %128 ]
   %135 = zext i32 %134 to i64
   %136 = mul nuw nsw i64 %135, 20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr nonnull align 16 @new_entries, i64 %136, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2, ptr nonnull align 16 @new_entries, i64 %136, i1 false)
   store i32 %134, ptr %0, align 4
   br label %.loopexit16
 
@@ -768,9 +768,9 @@ declare dso_local void @sort(ptr noundef, i64 noundef, i64 noundef, ptr noundef,
 define internal range(i32 -1, 2) i32 @cpcompare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 section ".init.text" align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = icmp eq i64 %6, %8
   br i1 %9, label %13, label %10
@@ -832,21 +832,21 @@ define internal fastcc i64 @__e820__range_update(ptr nocapture noundef %0, i64 n
   br i1 %17, label %.loopexit, label %18
 
 18:                                               ; preds = %8
-  %19 = getelementptr inbounds i8, ptr %0, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
   br label %20
 
 20:                                               ; preds = %57, %18
   %21 = phi i64 [ 0, %18 ], [ %59, %57 ]
   %22 = phi i64 [ 0, %18 ], [ %58, %57 ]
   %23 = getelementptr [320 x %struct.e820_entry], ptr %19, i64 0, i64 %21
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load i32, ptr %24, align 1
   %26 = icmp eq i32 %25, %3
   br i1 %26, label %27, label %57
 
 27:                                               ; preds = %20
   %28 = load i64, ptr %23, align 1
-  %29 = getelementptr inbounds i8, ptr %23, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %30 = load i64, ptr %29, align 1
   %31 = add i64 %30, %28
   %32 = icmp ult i64 %28, %1
@@ -932,20 +932,20 @@ define dso_local i64 @e820__range_remove(i64 noundef %0, i64 noundef %1, i32 nou
   %16 = phi ptr [ %57, %54 ], [ %13, %11 ]
   %17 = phi i32 [ %56, %54 ], [ 0, %11 ]
   %18 = phi i64 [ %55, %54 ], [ 0, %11 ]
-  %19 = getelementptr inbounds i8, ptr %16, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %20 = sext i32 %17 to i64
   %21 = getelementptr [320 x %struct.e820_entry], ptr %19, i64 0, i64 %20
   br i1 %3, label %22, label %26
 
 22:                                               ; preds = %.preheader
-  %23 = getelementptr inbounds i8, ptr %21, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %24 = load i32, ptr %23, align 1
   %25 = icmp eq i32 %24, %2
   br i1 %25, label %26, label %54
 
 26:                                               ; preds = %22, %.preheader
   %27 = load i64, ptr %21, align 1
-  %28 = getelementptr inbounds i8, ptr %21, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %29 = load i64, ptr %28, align 1
   %30 = add i64 %29, %27
   %31 = icmp ult i64 %27, %0
@@ -964,7 +964,7 @@ define dso_local i64 @e820__range_remove(i64 noundef %0, i64 noundef %1, i32 nou
 
 38:                                               ; preds = %36
   %39 = sub nuw i64 %30, %7
-  %40 = getelementptr inbounds i8, ptr %21, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %41 = load i32, ptr %40, align 1
   tail call fastcc void @__e820__range_add(ptr noundef %16, i64 noundef %7, i64 noundef %39, i32 noundef %41) #15
   %42 = load i64, ptr %21, align 1
@@ -1075,10 +1075,10 @@ define internal fastcc range(i32 0, 2) i32 @e820_search_gap(ptr nocapture nounde
   %11 = phi i64 [ %8, %7 ], [ %30, %26 ]
   %12 = phi i32 [ 0, %7 ], [ %28, %26 ]
   %13 = phi i64 [ 4294967296, %7 ], [ %29, %26 ]
-  %14 = getelementptr inbounds i8, ptr %10, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %15 = getelementptr [320 x %struct.e820_entry], ptr %14, i64 0, i64 %11
   %16 = load i64, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %15, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %18 = load i64, ptr %17, align 4
   %19 = add i64 %18, %16
   %20 = icmp ugt i64 %13, %19
@@ -1169,11 +1169,11 @@ declare dso_local ptr @kmemdup(ptr noundef, i64 noundef, i32 noundef) local_unna
 define dso_local void @e820__memory_setup_extended(i64 noundef %0, i32 noundef %1) local_unnamed_addr #3 section ".init.text" align 16 {
   %3 = zext i32 %1 to i64
   %4 = tail call ptr @early_memremap(i64 noundef %0, i64 noundef %3) #17
-  %5 = getelementptr inbounds i8, ptr %4, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = udiv i32 %6, 20
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
-  %9 = tail call fastcc i32 @__append_e820_table(ptr noundef %8, i32 noundef %7) #15
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %9 = tail call fastcc i32 @__append_e820_table(ptr noundef nonnull %8, i32 noundef %7) #15
   %10 = load ptr, ptr @e820_table, align 8
   %11 = tail call i32 @e820__update_table(ptr noundef %10) #15, !range !23
   %12 = load ptr, ptr @e820_table_kexec, align 8
@@ -1199,7 +1199,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @__append_e820_table(ptr noc
   %4 = phi ptr [ %17, %13 ], [ %0, %2 ]
   %5 = phi i32 [ %18, %13 ], [ %1, %2 ]
   %6 = load i64, ptr %4, align 1
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i64, ptr %7, align 1
   %9 = sub i64 0, %8
   %10 = icmp ule i64 %6, %9
@@ -1208,7 +1208,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @__append_e820_table(ptr noc
   br i1 %12, label %13, label %.thread, !prof !33
 
 13:                                               ; preds = %.lr.ph
-  %14 = getelementptr inbounds i8, ptr %4, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %15 = load i32, ptr %14, align 1
   %16 = load ptr, ptr @e820_table, align 8
   tail call fastcc void @__e820__range_add(ptr noundef %16, i64 noundef %6, i64 noundef %8, i32 noundef %15) #15
@@ -1243,7 +1243,7 @@ define dso_local void @e820__register_nosave_regions(i64 noundef %0) local_unnam
   %10 = phi ptr [ %7, %5 ], [ %2, %1 ]
   %11 = phi i64 [ %26, %5 ], [ 0, %1 ]
   %12 = phi i32 [ %6, %5 ], [ 0, %1 ]
-  %13 = getelementptr inbounds i8, ptr %10, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %14 = sext i32 %12 to i64
   %15 = getelementptr [320 x %struct.e820_entry], ptr %13, i64 0, i64 %14
   %16 = load i64, ptr %15, align 1
@@ -1259,11 +1259,11 @@ define dso_local void @e820__register_nosave_regions(i64 noundef %0) local_unnam
 
 21:                                               ; preds = %20, %.preheader
   %22 = phi i64 [ %.pre, %20 ], [ %16, %.preheader ]
-  %23 = getelementptr inbounds i8, ptr %15, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %24 = load i64, ptr %23, align 1
   %25 = add i64 %24, %22
   %26 = lshr i64 %25, 12
-  %27 = getelementptr inbounds i8, ptr %15, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %28 = load i32, ptr %27, align 1
   switch i32 %28, label %29 [
     i32 1, label %32
@@ -1298,17 +1298,17 @@ define internal noundef i32 @e820__register_nvs_regions() #3 section ".init.text
   %4 = phi i32 [ %19, %18 ], [ %2, %0 ]
   %5 = phi ptr [ %20, %18 ], [ %1, %0 ]
   %6 = phi i32 [ %21, %18 ], [ 0, %0 ]
-  %7 = getelementptr inbounds i8, ptr %5, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %8 = sext i32 %6 to i64
   %9 = getelementptr [320 x %struct.e820_entry], ptr %7, i64 0, i64 %8
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i32, ptr %10, align 1
   %12 = icmp eq i32 %11, 4
   br i1 %12, label %13, label %18
 
 13:                                               ; preds = %.preheader
   %14 = load i64, ptr %9, align 1
-  %15 = getelementptr inbounds i8, ptr %9, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %16 = load i64, ptr %15, align 1
   %17 = tail call i32 @acpi_nvs_register(i64 noundef %14, i64 noundef %16) #17
   %.pre = load ptr, ptr @e820_table, align 8
@@ -1374,7 +1374,7 @@ define internal fastcc noundef range(i64 0, 1099511627777) i64 @e820_end_pfn(i64
   br i1 %7, label %.thread, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %5, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 4
   br label %10
 
 10:                                               ; preds = %30, %8
@@ -1382,7 +1382,7 @@ define internal fastcc noundef range(i64 0, 1099511627777) i64 @e820_end_pfn(i64
   %12 = phi i64 [ 0, %8 ], [ %31, %30 ]
   %13 = sext i32 %11 to i64
   %14 = getelementptr [320 x %struct.e820_entry], ptr %9, i64 0, i64 %13
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load i32, ptr %15, align 1
   %17 = icmp eq i32 %16, 1
   br i1 %17, label %18, label %30
@@ -1390,7 +1390,7 @@ define internal fastcc noundef range(i64 0, 1099511627777) i64 @e820_end_pfn(i64
 18:                                               ; preds = %10
   %19 = load i64, ptr %14, align 1
   %20 = lshr i64 %19, 12
-  %21 = getelementptr inbounds i8, ptr %14, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %22 = load i64, ptr %21, align 1
   %23 = add i64 %22, %19
   %24 = lshr i64 %23, 12
@@ -1500,13 +1500,13 @@ define dso_local void @e820__reserve_setup_data() local_unnamed_addr #3 section 
 
 8:                                                ; preds = %.preheader
   %9 = load i64, ptr %4, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = zext i32 %11 to i64
   %13 = add nuw nsw i64 %12, 16
   %14 = load ptr, ptr @e820_table, align 8
   %15 = tail call fastcc i64 @__e820__range_update(ptr noundef %14, i64 noundef %3, i64 noundef %13, i32 noundef 1, i32 noundef 128) #15
-  %16 = getelementptr inbounds i8, ptr %4, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %17 = load i32, ptr %16, align 8
   switch i32 %17, label %18 [
     i32 4, label %.thread
@@ -1537,15 +1537,15 @@ define dso_local void @e820__reserve_setup_data() local_unnamed_addr #3 section 
   br label %58
 
 33:                                               ; preds = %25
-  %34 = getelementptr inbounds i8, ptr %29, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %35 = load i32, ptr %34, align 8
   %36 = icmp eq i32 %35, -2147483648
   br i1 %36, label %.thread, label %37
 
 37:                                               ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %29, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %39 = load i64, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %29, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %41 = load i64, ptr %40, align 8
   %42 = load ptr, ptr @e820_table, align 8
   %43 = tail call fastcc i64 @__e820__range_update(ptr noundef %42, i64 noundef %39, i64 noundef %41, i32 noundef 1, i32 noundef 128) #15
@@ -1636,32 +1636,32 @@ define dso_local void @e820__reserve_resources() local_unnamed_addr #3 section "
   %19 = phi ptr [ %51, %48 ], [ %13, %12 ]
   %20 = phi i32 [ %50, %48 ], [ 0, %12 ]
   %21 = phi ptr [ %49, %48 ], [ %5, %12 ]
-  %22 = getelementptr inbounds i8, ptr %19, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %23 = sext i32 %20 to i64
   %24 = getelementptr %struct.e820_entry, ptr %22, i64 %23
   %25 = load i64, ptr %24, align 1
-  %26 = getelementptr inbounds i8, ptr %24, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %27 = load i64, ptr %26, align 1
   %28 = add i64 %25, -1
   %29 = add i64 %28, %27
   store i64 %25, ptr %21, align 8
-  %30 = getelementptr inbounds i8, ptr %21, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i64 %29, ptr %30, align 8
   %31 = getelementptr i8, ptr %24, i64 16
   %.val = load i32, ptr %31, align 1
   %32 = tail call fastcc ptr @e820_type_to_string(i32 %.val) #15
-  %33 = getelementptr inbounds i8, ptr %21, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %32, ptr %33, align 8
   %34 = load i32, ptr %31, align 1
   %35 = icmp eq i32 %34, 128
   %36 = icmp eq i32 %34, 1
   %37 = or i1 %35, %36
   %38 = select i1 %37, i64 16777728, i64 512
-  %39 = getelementptr inbounds i8, ptr %21, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store i64 %38, ptr %39, align 8
   %.val3 = load i32, ptr %31, align 1
   %40 = tail call fastcc i64 @e820_type_to_iores_desc(i32 %.val3) #15
-  %41 = getelementptr inbounds i8, ptr %21, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store i64 %40, ptr %41, align 8
   %42 = icmp ult i64 %25, 1048576
   br i1 %42, label %45, label %43
@@ -1692,11 +1692,11 @@ define dso_local void @e820__reserve_resources() local_unnamed_addr #3 section "
 .preheader:                                       ; preds = %.loopexit5, %.preheader
   %54 = phi ptr [ %67, %.preheader ], [ %16, %.loopexit5 ]
   %55 = phi i32 [ %66, %.preheader ], [ 0, %.loopexit5 ]
-  %56 = getelementptr inbounds i8, ptr %54, i64 4
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %57 = sext i32 %55 to i64
   %58 = getelementptr %struct.e820_entry, ptr %56, i64 %57
   %59 = load i64, ptr %58, align 1
-  %60 = getelementptr inbounds i8, ptr %58, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %61 = load i64, ptr %60, align 1
   %62 = add i64 %61, %59
   %63 = getelementptr i8, ptr %58, i64 16
@@ -1819,13 +1819,13 @@ define dso_local void @e820__reserve_resources_late() local_unnamed_addr #3 sect
   %9 = phi ptr [ %22, %20 ], [ %1, %4 ]
   %10 = phi i32 [ %24, %20 ], [ 0, %4 ]
   %11 = phi ptr [ %23, %20 ], [ %5, %4 ]
-  %12 = getelementptr inbounds i8, ptr %11, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %20
 
 15:                                               ; preds = %7
-  %16 = getelementptr inbounds i8, ptr %11, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %20, label %19
@@ -1848,17 +1848,17 @@ define dso_local void @e820__reserve_resources_late() local_unnamed_addr #3 sect
   %26 = phi i32 [ %50, %49 ], [ %21, %.loopexit4 ]
   %27 = phi ptr [ %51, %49 ], [ %22, %.loopexit4 ]
   %28 = phi i32 [ %52, %49 ], [ 0, %.loopexit4 ]
-  %29 = getelementptr inbounds i8, ptr %27, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %30 = sext i32 %28 to i64
   %31 = getelementptr [320 x %struct.e820_entry], ptr %29, i64 0, i64 %30
-  %32 = getelementptr inbounds i8, ptr %31, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load i32, ptr %32, align 1
   %34 = icmp eq i32 %33, 1
   br i1 %34, label %35, label %49
 
 35:                                               ; preds = %.preheader
   %36 = load i64, ptr %31, align 1
-  %37 = getelementptr inbounds i8, ptr %31, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %38 = load i64, ptr %37, align 1
   %39 = add i64 %38, %36
   %40 = add i64 %39, -1
@@ -1928,12 +1928,12 @@ define dso_local nonnull ptr @e820__memory_setup_default() local_unnamed_addr #3
 
 22:                                               ; preds = %7
   %23 = zext nneg i32 %18 to i64
-  %24 = getelementptr inbounds i8, ptr %17, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %25 = getelementptr [320 x %struct.e820_entry], ptr %24, i64 0, i64 %23
   store i64 0, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i64 651264, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %25, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store i32 1, ptr %27, align 4
   %28 = add nuw nsw i32 %18, 1
   store i32 %28, ptr %17, align 4
@@ -1977,11 +1977,11 @@ define dso_local void @e820__memblock_setup() local_unnamed_addr #3 section ".in
 .preheader:                                       ; preds = %0, %23
   %4 = phi ptr [ %25, %23 ], [ %1, %0 ]
   %5 = phi i32 [ %24, %23 ], [ 0, %0 ]
-  %6 = getelementptr inbounds i8, ptr %4, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %7 = sext i32 %5 to i64
   %8 = getelementptr [320 x %struct.e820_entry], ptr %6, i64 0, i64 %7
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
-  %10 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %11 = load i32, ptr %10, align 1
   %12 = icmp eq i32 %11, -268435457
   br i1 %12, label %13, label %17

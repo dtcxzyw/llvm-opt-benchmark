@@ -22,7 +22,7 @@ define i64 @wcslcat(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unname
 
 6:                                                ; preds = %.lr.ph
   %7 = add i64 %.in, -1
-  %8 = getelementptr inbounds i8, ptr %.02534, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %.02534, i64 4
   %.not = icmp eq i64 %7, 0
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !6
 
@@ -54,7 +54,7 @@ define i64 @wcslcat(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unname
   br i1 %.not32, label %22, label %19
 
 19:                                               ; preds = %.lr.ph41
-  %20 = getelementptr inbounds i8, ptr %.12638, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %.12638, i64 4
   store i32 %18, ptr %.12638, align 4
   %21 = add i64 %.140, -1
   br label %22
@@ -62,7 +62,7 @@ define i64 @wcslcat(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unname
 22:                                               ; preds = %19, %.lr.ph41
   %.227 = phi ptr [ %20, %19 ], [ %.12638, %.lr.ph41 ]
   %.2 = phi i64 [ %21, %19 ], [ 1, %.lr.ph41 ]
-  %23 = getelementptr inbounds i8, ptr %.02439, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %.02439, i64 4
   %24 = load i32, ptr %23, align 4
   %.not31 = icmp eq i32 %24, 0
   br i1 %.not31, label %._crit_edge, label %.lr.ph41, !llvm.loop !8

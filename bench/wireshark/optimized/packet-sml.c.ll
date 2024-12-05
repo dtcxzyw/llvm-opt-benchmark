@@ -629,7 +629,7 @@ define internal i32 @dissect_sml(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not11, label %9, label %18
 
 9:                                                ; preds = %7, %4
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_set_str(ptr noundef %11, i32 noundef 34, ptr noundef nonnull @.str.172) #5
   %12 = load ptr, ptr %10, align 8
@@ -747,7 +747,7 @@ define internal fastcc void @dissect_sml_file(ptr noundef %0, ptr noundef %1, pt
   %58 = add nsw i32 %55, -8
   %59 = tail call i64 @tvb_get_ntoh40(ptr noundef %0, i32 noundef %58) #5
   %.not = icmp eq i64 %59, 116418878234
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 328
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 328
   %.pre = load i16, ptr %.phi.trans.insert, align 8
   %60 = icmp eq i16 %.pre, 0
   br i1 %.not, label %77, label %61
@@ -762,9 +762,9 @@ define internal fastcc void @dissect_sml_file(ptr noundef %0, ptr noundef %1, pt
   br i1 %.not320, label %68, label %65
 
 65:                                               ; preds = %62
-  %66 = getelementptr inbounds i8, ptr %1, i64 332
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %54, ptr %66, align 4
-  %67 = getelementptr inbounds i8, ptr %1, i64 336
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 268435455, ptr %67, align 8
   br label %.loopexit
 
@@ -781,9 +781,9 @@ define internal fastcc void @dissect_sml_file(ptr noundef %0, ptr noundef %1, pt
   br i1 %.not322, label %79, label %74
 
 74:                                               ; preds = %71
-  %75 = getelementptr inbounds i8, ptr %1, i64 332
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %54, ptr %75, align 4
-  %76 = getelementptr inbounds i8, ptr %1, i64 336
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 268435455, ptr %76, align 8
   br label %.loopexit
 
@@ -795,7 +795,7 @@ define internal fastcc void @dissect_sml_file(ptr noundef %0, ptr noundef %1, pt
   br label %79
 
 79:                                               ; preds = %77, %.thread727, %71, %68
-  %80 = getelementptr inbounds i8, ptr %1, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %81
 
 81:                                               ; preds = %.backedge, %79
@@ -4006,15 +4006,15 @@ get_length.exit425:                               ; preds = %1659, %1670, %1675
   br i1 %.not336, label %.loopexit, label %1733
 
 1733:                                             ; preds = %1731
-  %1734 = getelementptr inbounds i8, ptr %1, i64 328
+  %1734 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %1735 = load i16, ptr %1734, align 8
   %.not337 = icmp eq i16 %1735, 0
   br i1 %.not337, label %.loopexit, label %1736
 
 1736:                                             ; preds = %1733
-  %1737 = getelementptr inbounds i8, ptr %1, i64 332
+  %1737 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %54, ptr %1737, align 4
-  %1738 = getelementptr inbounds i8, ptr %1, i64 336
+  %1738 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 268435455, ptr %1738, align 8
   br label %.loopexit
 

@@ -260,7 +260,7 @@ define internal i32 @dissect_trmac(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %10, label %395, label %11
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void @col_set_str(ptr noundef %13, i32 noundef 34, ptr noundef nonnull @.str.87) #3
   %14 = load ptr, ptr %12, align 8
@@ -288,11 +288,11 @@ define internal i32 @dissect_trmac(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %32, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %11
-  %33 = getelementptr inbounds i8, ptr %6, i64 1
-  %34 = getelementptr inbounds i8, ptr %6, i64 2
-  %35 = getelementptr inbounds i8, ptr %6, i64 3
-  %36 = getelementptr inbounds i8, ptr %6, i64 4
-  %37 = getelementptr inbounds i8, ptr %1, i64 408
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 3
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %38
 
 38:                                               ; preds = %.lr.ph, %sv_text.exit.thread

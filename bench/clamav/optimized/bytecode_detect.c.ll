@@ -33,66 +33,66 @@ define void @cli_detect_environment(ptr noundef initializes((0, 492)) %0) local_
   %3 = alloca i32, align 4
   %4 = alloca [128 x i8], align 16
   %5 = alloca %struct.utsname, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 484
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 484
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(492) %0, i8 0, i64 492, i1 false)
   store i8 8, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 485
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 485
   store i8 2, ptr %7, align 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 486
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 486
   store i8 10, ptr %8, align 2
-  %9 = getelementptr inbounds i8, ptr %0, i64 488
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 488
   store i8 3, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 262657, ptr %10, align 4
   %11 = tail call zeroext i1 @have_clamjit() #9
   %12 = zext i1 %11 to i8
-  %13 = getelementptr inbounds i8, ptr %0, i64 489
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 489
   store i8 %12, ptr %13, align 1
   %14 = tail call i32 @cl_retflevel() #9
-  %15 = getelementptr inbounds i8, ptr %0, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %14, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 210, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %18 = tail call ptr @cl_retver() #9
   %19 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %18, i64 noundef 64) #9
-  %20 = getelementptr inbounds i8, ptr %0, i64 92
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i8 0, ptr %20, align 4
   %21 = call i32 @uname(ptr noundef nonnull %5) #9
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %39
 
 23:                                               ; preds = %1
-  %24 = getelementptr inbounds i8, ptr %0, i64 223
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 223
   %25 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) %5, i64 noundef 64) #9
-  %26 = getelementptr inbounds i8, ptr %0, i64 287
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 287
   store i8 0, ptr %26, align 1
-  %27 = getelementptr inbounds i8, ptr %0, i64 288
-  %28 = getelementptr inbounds i8, ptr %5, i64 130
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 130
   %29 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(1) %28, i64 noundef 64) #9
-  %30 = getelementptr inbounds i8, ptr %0, i64 352
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 352
   store i8 0, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %0, i64 353
-  %32 = getelementptr inbounds i8, ptr %5, i64 195
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 353
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 195
   %33 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(1) %32, i64 noundef 64) #9
-  %34 = getelementptr inbounds i8, ptr %0, i64 417
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 417
   store i8 0, ptr %34, align 1
-  %35 = getelementptr inbounds i8, ptr %0, i64 418
-  %36 = getelementptr inbounds i8, ptr %5, i64 260
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 418
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 260
   %37 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull dereferenceable(1) %36, i64 noundef 64) #9
-  %38 = getelementptr inbounds i8, ptr %0, i64 482
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 482
   store i8 0, ptr %38, align 2
   br label %39
 
 39:                                               ; preds = %23, %1
-  %40 = getelementptr inbounds i8, ptr %0, i64 223
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 223
   %41 = load i8, ptr %40, align 1
   %.not = icmp eq i8 %41, 0
   br i1 %.not, label %42, label %44
 
 42:                                               ; preds = %39
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %40, ptr noundef nonnull align 1 dereferenceable(64) @str, i64 noundef 64, i1 false) #9
-  %43 = getelementptr inbounds i8, ptr %0, i64 287
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 287
   store i8 0, ptr %43, align 1
   br label %44
 
@@ -230,10 +230,10 @@ detect_SELinux.exit.i:                            ; preds = %75
 
 detect_os_features.exit:                          ; preds = %detect_SELinux.exit.thread.i, %detect_SELinux.exit.thread31.i, %83
   %.3.i = phi i8 [ %84, %83 ], [ %53, %detect_SELinux.exit.thread.i ], [ %53, %detect_SELinux.exit.thread31.i ]
-  %85 = getelementptr inbounds i8, ptr %0, i64 16
-  %86 = getelementptr inbounds i8, ptr %0, i64 487
-  %87 = getelementptr inbounds i8, ptr %0, i64 483
-  %88 = getelementptr inbounds i8, ptr %0, i64 490
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 487
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 483
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 490
   store i8 %.3.i, ptr %88, align 1
   call void @cli_detect_env_jit(ptr noundef %0) #9
   %89 = load i8, ptr %8, align 2
@@ -262,14 +262,14 @@ detect_os_features.exit:                          ; preds = %detect_SELinux.exit
   %111 = load i32, ptr %85, align 4
   %112 = or i32 %111, %107
   %113 = or i32 %112, %110
-  %114 = getelementptr inbounds i8, ptr %0, i64 4
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %113, ptr %114, align 4
   %115 = load i8, ptr %88, align 2
   %116 = zext i8 %115 to i32
   %117 = shl nuw i32 %116, 24
   %118 = load i32, ptr %10, align 4
   %119 = or i32 %117, %118
-  %120 = getelementptr inbounds i8, ptr %0, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %119, ptr %120, align 4
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.8) #9
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.9, i32 noundef %104, i32 noundef %113, i32 noundef %119) #9
@@ -302,16 +302,16 @@ detect_os_features.exit:                          ; preds = %detect_SELinux.exit
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.10, i32 noundef %122, i32 noundef %124, i32 noundef %126, i32 noundef %127, i32 noundef %128, i32 noundef %130, i32 noundef %132, i32 noundef %135, i32 noundef %137, i32 noundef %138, i32 noundef %140, i32 noundef %143, i32 noundef %145, i32 noundef %146) #9
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.11) #9
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.12, ptr noundef nonnull %17) #9
-  %147 = getelementptr inbounds i8, ptr %0, i64 93
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 93
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.13, ptr noundef nonnull %147) #9
-  %148 = getelementptr inbounds i8, ptr %0, i64 158
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 158
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.14, ptr noundef nonnull %148) #9
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.15, ptr noundef nonnull %40) #9
-  %149 = getelementptr inbounds i8, ptr %0, i64 288
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 288
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.16, ptr noundef nonnull %149) #9
-  %150 = getelementptr inbounds i8, ptr %0, i64 353
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 353
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.17, ptr noundef nonnull %150) #9
-  %151 = getelementptr inbounds i8, ptr %0, i64 418
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 418
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.18, ptr noundef nonnull %151) #9
   %152 = load i8, ptr %86, align 1
   %153 = zext i8 %152 to i32

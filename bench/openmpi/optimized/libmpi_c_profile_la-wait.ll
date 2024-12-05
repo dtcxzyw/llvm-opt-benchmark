@@ -55,15 +55,15 @@ define i32 @PMPI_Wait(ptr noundef %0, ptr noundef %1) #0 {
 
 17:                                               ; preds = %16
   %18 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_status_empty, i64 4), align 4
-  %19 = getelementptr inbounds i8, ptr %1, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %18, ptr %19, align 4
   %20 = load i32, ptr @ompi_status_empty, align 8
   store i32 %20, ptr %1, align 8
   %21 = load i64, ptr getelementptr inbounds (i8, ptr @ompi_status_empty, i64 16), align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %21, ptr %22, align 8
   %23 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_status_empty, i64 12), align 4
-  %24 = getelementptr inbounds i8, ptr %1, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 %23, ptr %24, align 4
   br label %31
 

@@ -60,20 +60,20 @@ while.body:                                       ; preds = %while.body.preheade
   %indvars.iv = phi i64 [ 1, %while.body.preheader ], [ %indvars.iv.next, %if.end25 ]
   %ipv6.065 = phi i32 [ 0, %while.body.preheader ], [ %ipv6.1, %if.end25 ]
   %trace.064 = phi i32 [ 0, %while.body.preheader ], [ %trace.1, %if.end25 ]
-  %arrayidx = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %argv, i64 %indvars.iv
   %1 = load ptr, ptr %arrayidx, align 8
   %2 = load i8, ptr %1, align 1
   %cmp4.not = icmp eq i8 %2, 45
   br i1 %cmp4.not, label %sub_1, label %while.end.loopexit.split.loop.exit
 
 sub_1:                                            ; preds = %while.body
-  %3 = getelementptr inbounds i8, ptr %1, i64 1
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %4 = load i8, ptr %3, align 1
   %.not74 = icmp eq i8 %4, 54
   br i1 %.not74, label %if.end7.tail, label %if.else
 
 if.end7.tail:                                     ; preds = %sub_1
-  %5 = getelementptr inbounds i8, ptr %1, i64 2
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %6 = load i8, ptr %5, align 1
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %if.end25, label %if.else
@@ -123,13 +123,13 @@ if.then28:                                        ; preds = %while.end
 
 if.end29:                                         ; preds = %while.end
   %idxprom31 = zext nneg i32 %argnext.0.lcssa to i64
-  %arrayidx32 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom31
+  %arrayidx32 = getelementptr inbounds nuw ptr, ptr %argv, i64 %idxprom31
   %13 = load ptr, ptr %arrayidx32, align 8
-  %arrayidx35 = getelementptr inbounds i8, ptr %arrayidx32, i64 8
+  %arrayidx35 = getelementptr inbounds nuw i8, ptr %arrayidx32, i64 8
   %14 = load ptr, ptr %arrayidx35, align 8
-  %arrayidx38 = getelementptr inbounds i8, ptr %arrayidx32, i64 16
+  %arrayidx38 = getelementptr inbounds nuw i8, ptr %arrayidx32, i64 16
   %15 = load ptr, ptr %arrayidx38, align 8
-  %arrayidx41 = getelementptr inbounds i8, ptr %arrayidx32, i64 24
+  %arrayidx41 = getelementptr inbounds nuw i8, ptr %arrayidx32, i64 24
   %16 = load ptr, ptr %arrayidx41, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %res.i)
   %call.i53 = tail call i32 @BIO_sock_init() #9
@@ -213,15 +213,15 @@ if.then48:                                        ; preds = %create_dgram_bio.ex
 
 if.end50:                                         ; preds = %lor.lhs.false45
   store ptr null, ptr %tserver_args, align 8
-  %net_rbio = getelementptr inbounds i8, ptr %tserver_args, i64 24
+  %net_rbio = getelementptr inbounds nuw i8, ptr %tserver_args, i64 24
   store ptr %call26.i, ptr %net_rbio, align 8
-  %net_wbio = getelementptr inbounds i8, ptr %tserver_args, i64 32
+  %net_wbio = getelementptr inbounds nuw i8, ptr %tserver_args, i64 32
   store ptr %call26.i, ptr %net_wbio, align 8
-  %alpn51 = getelementptr inbounds i8, ptr %tserver_args, i64 56
+  %alpn51 = getelementptr inbounds nuw i8, ptr %tserver_args, i64 56
   store ptr %alpn, ptr %alpn51, align 8
-  %alpnlen = getelementptr inbounds i8, ptr %tserver_args, i64 64
+  %alpnlen = getelementptr inbounds nuw i8, ptr %tserver_args, i64 64
   store i64 9, ptr %alpnlen, align 8
-  %ctx = getelementptr inbounds i8, ptr %tserver_args, i64 16
+  %ctx = getelementptr inbounds nuw i8, ptr %tserver_args, i64 16
   store ptr null, ptr %ctx, align 8
   %call52 = call ptr @ossl_quic_tserver_new(ptr noundef nonnull %tserver_args, ptr noundef %15, ptr noundef %16) #9
   %cmp53 = icmp eq ptr %call52, null
@@ -374,7 +374,7 @@ if.then132:                                       ; preds = %if.then129
 if.end135:                                        ; preds = %if.then129, %do.end126
   %call136 = call i32 @ossl_quic_tserver_tick(ptr noundef nonnull %call52) #9
   %35 = load i64, ptr %streamid, align 8
-  %arrayidx137 = getelementptr inbounds [4 x ptr], ptr @__const.main.response, i64 0, i64 %respnum.073
+  %arrayidx137 = getelementptr inbounds nuw [4 x ptr], ptr @__const.main.response, i64 0, i64 %respnum.073
   %36 = load ptr, ptr %arrayidx137, align 8
   %call139 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %36) #10
   %call140 = call i32 @ossl_quic_tserver_write(ptr noundef nonnull %call52, i64 noundef %35, ptr noundef %36, i64 noundef %call139, ptr noundef nonnull %numbytes) #9
@@ -495,7 +495,7 @@ if.end49.thread:                                  ; preds = %if.end33
   %div77.i = udiv i32 %div7.lhs.trunc.i, 1000
   %div7.zext.i = zext nneg i32 %div77.i to i64
   store i64 %div.i, ptr %timeout, align 8
-  %tmp39.sroa.2.0.timeout.sroa_idx = getelementptr inbounds i8, ptr %timeout, i64 8
+  %tmp39.sroa.2.0.timeout.sroa_idx = getelementptr inbounds nuw i8, ptr %timeout, i64 8
   store i64 %div7.zext.i, ptr %tmp39.sroa.2.0.timeout.sroa_idx, align 8
   br label %if.end58
 

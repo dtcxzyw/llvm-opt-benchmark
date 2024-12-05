@@ -36,7 +36,7 @@ target triple = "x86_64-pc-linux-gnu"
 define i32 @db_query_list_funcname(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = tail call ptr @__errno_location() #4
   store i32 0, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %2, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %4(ptr noundef %11, ptr noundef %5) #5
   %13 = load i32, ptr %9, align 4
@@ -106,7 +106,7 @@ define i32 @resolve_qos(i32 noundef %0, ptr nocapture noundef readonly %1, ptr n
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
   store ptr null, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %12 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %13, label %19
@@ -115,7 +115,7 @@ define i32 @resolve_qos(i32 noundef %0, ptr nocapture noundef readonly %1, ptr n
   br i1 %7, label %.thread, label %14
 
 14:                                               ; preds = %13
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load i32, ptr %15, align 8
   %17 = call ptr @openapi_fmt_rel_path_str(ptr noundef nonnull %9, ptr noundef %5) #5
   %18 = call i32 (i32, i32, ptr, i32, ptr, ptr, ptr, ...) @on_error(i32 noundef %0, i32 noundef %16, ptr noundef nonnull %4, i32 noundef 9003, ptr noundef %17, ptr noundef %6, ptr noundef nonnull @.str.3) #5
@@ -142,7 +142,7 @@ define i32 @resolve_qos(i32 noundef %0, ptr nocapture noundef readonly %1, ptr n
   br i1 %7, label %35, label %30
 
 30:                                               ; preds = %29
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load i32, ptr %31, align 8
   %33 = call ptr @openapi_fmt_rel_path_str(ptr noundef nonnull %9, ptr noundef %5) #5
   %34 = call i32 (i32, i32, ptr, i32, ptr, ptr, ptr, ...) @on_error(i32 noundef %0, i32 noundef %32, ptr noundef nonnull %4, i32 noundef %28, ptr noundef %33, ptr noundef %6, ptr noundef nonnull @.str.4) #5
@@ -153,7 +153,7 @@ define i32 @resolve_qos(i32 noundef %0, ptr nocapture noundef readonly %1, ptr n
   br label %.thread
 
 36:                                               ; preds = %25
-  %37 = getelementptr inbounds i8, ptr %27, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %38 = load i32, ptr %37, align 8
   %.not99 = icmp eq i32 %38, 0
   br i1 %.not99, label %48, label %39
@@ -167,7 +167,7 @@ define i32 @resolve_qos(i32 noundef %0, ptr nocapture noundef readonly %1, ptr n
   br i1 %brmerge, label %100, label %42
 
 42:                                               ; preds = %39
-  %43 = getelementptr inbounds i8, ptr %1, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %44 = load i32, ptr %43, align 8
   %45 = call ptr @openapi_fmt_rel_path_str(ptr noundef nonnull %9, ptr noundef %5) #5
   %46 = load i32, ptr %37, align 8
@@ -175,7 +175,7 @@ define i32 @resolve_qos(i32 noundef %0, ptr nocapture noundef readonly %1, ptr n
   br label %100
 
 48:                                               ; preds = %36
-  %49 = getelementptr inbounds i8, ptr %27, i64 256
+  %49 = getelementptr inbounds nuw i8, ptr %27, i64 256
   %50 = load ptr, ptr %49, align 8
   %.not100 = icmp eq ptr %50, null
   br i1 %.not100, label %60, label %51
@@ -189,7 +189,7 @@ define i32 @resolve_qos(i32 noundef %0, ptr nocapture noundef readonly %1, ptr n
   br i1 %brmerge106, label %100, label %54
 
 54:                                               ; preds = %51
-  %55 = getelementptr inbounds i8, ptr %1, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %56 = load i32, ptr %55, align 8
   %57 = call ptr @openapi_fmt_rel_path_str(ptr noundef nonnull %9, ptr noundef %5) #5
   %58 = load ptr, ptr %49, align 8
@@ -200,7 +200,7 @@ define i32 @resolve_qos(i32 noundef %0, ptr nocapture noundef readonly %1, ptr n
   br i1 %7, label %100, label %61
 
 61:                                               ; preds = %60
-  %62 = getelementptr inbounds i8, ptr %1, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %63 = load i32, ptr %62, align 8
   %64 = call ptr @openapi_fmt_rel_path_str(ptr noundef nonnull %9, ptr noundef %5) #5
   %65 = call i32 (i32, i32, ptr, i32, ptr, ptr, ptr, ...) @on_error(i32 noundef %0, i32 noundef %63, ptr noundef nonnull %4, i32 noundef 9001, ptr noundef %64, ptr noundef %6, ptr noundef nonnull @.str.7) #5
@@ -223,7 +223,7 @@ define i32 @resolve_qos(i32 noundef %0, ptr nocapture noundef readonly %1, ptr n
   br i1 %7, label %.thread, label %75
 
 75:                                               ; preds = %74
-  %76 = getelementptr inbounds i8, ptr %1, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %77 = load i32, ptr %76, align 8
   %78 = call ptr @openapi_fmt_rel_path_str(ptr noundef nonnull %9, ptr noundef %5) #5
   %79 = call i32 (i32, i32, ptr, i32, ptr, ptr, ptr, ...) @on_error(i32 noundef %0, i32 noundef %77, ptr noundef nonnull %4, i32 noundef 2066, ptr noundef %78, ptr noundef %6, ptr noundef nonnull @.str.8, i64 noundef %71) #5
@@ -258,7 +258,7 @@ define i32 @resolve_qos(i32 noundef %0, ptr nocapture noundef readonly %1, ptr n
   br i1 %7, label %94, label %.thread
 
 94:                                               ; preds = %93
-  %95 = getelementptr inbounds i8, ptr %1, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %96 = load i32, ptr %95, align 8
   %97 = call ptr @openapi_fmt_rel_path_str(ptr noundef nonnull %9, ptr noundef %5) #5
   %98 = call ptr @data_get_type_string(ptr noundef %3) #5
@@ -330,13 +330,13 @@ define i32 @load_prereqs_funcname(i32 noundef %0, ptr nocapture noundef readonly
   %5 = alloca %struct.slurmdb_tres_cond_t, align 8
   %6 = alloca %struct.slurmdb_qos_cond_t, align 8
   %7 = alloca %struct.slurmdb_assoc_cond_t, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 152
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %9 = load i32, ptr %8, align 8
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %.thread, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %2, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %12 = load ptr, ptr %11, align 8
   %.not40 = icmp eq ptr %12, null
   br i1 %.not40, label %13, label %16
@@ -344,7 +344,7 @@ define i32 @load_prereqs_funcname(i32 noundef %0, ptr nocapture noundef readonly
 13:                                               ; preds = %10
   %14 = tail call ptr @slurmdb_connection_get(ptr noundef null) #5
   store ptr %14, ptr %11, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 80
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i8 1, ptr %15, align 8
   %.pre = load i32, ptr %8, align 8
   br label %16
@@ -356,20 +356,20 @@ define i32 @load_prereqs_funcname(i32 noundef %0, ptr nocapture noundef readonly
   br i1 %.not41, label %.thread, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %2, i64 88
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %21 = load ptr, ptr %20, align 8
   %.not42 = icmp eq ptr %21, null
   br i1 %.not42, label %22, label %.thread
 
 22:                                               ; preds = %19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 48, i1 false)
-  %23 = getelementptr inbounds i8, ptr %5, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i16 1, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load i32, ptr %24, align 8
   %26 = tail call ptr @__errno_location() #4
   store i32 0, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %2, i64 72
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %28 = load ptr, ptr %27, align 8
   %29 = call ptr @slurmdb_tres_get(ptr noundef %28, ptr noundef nonnull %5) #5
   %30 = load i32, ptr %26, align 4
@@ -445,20 +445,20 @@ db_query_list_funcname.exit:                      ; preds = %43
   br i1 %.not45, label %97, label %59
 
 59:                                               ; preds = %.thread
-  %60 = getelementptr inbounds i8, ptr %2, i64 96
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %61 = load ptr, ptr %60, align 8
   %.not46 = icmp eq ptr %61, null
   br i1 %.not46, label %62, label %97
 
 62:                                               ; preds = %59
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 40, i1 false)
-  %63 = getelementptr inbounds i8, ptr %6, i64 34
+  %63 = getelementptr inbounds nuw i8, ptr %6, i64 34
   store i16 1, ptr %63, align 2
-  %64 = getelementptr inbounds i8, ptr %1, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %65 = load i32, ptr %64, align 8
   %66 = tail call ptr @__errno_location() #4
   store i32 0, ptr %66, align 4
-  %67 = getelementptr inbounds i8, ptr %2, i64 72
+  %67 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %68 = load ptr, ptr %67, align 8
   %69 = call ptr @slurmdb_qos_get(ptr noundef %68, ptr noundef nonnull %6) #5
   %70 = load i32, ptr %66, align 4
@@ -534,20 +534,20 @@ db_query_list_funcname.exit62:                    ; preds = %83
   br i1 %.not49, label %138, label %100
 
 100:                                              ; preds = %97
-  %101 = getelementptr inbounds i8, ptr %2, i64 104
+  %101 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %102 = load ptr, ptr %101, align 8
   %.not50 = icmp eq ptr %102, null
   br i1 %.not50, label %103, label %138
 
 103:                                              ; preds = %100
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %7, i8 0, i64 112, i1 false)
-  %104 = getelementptr inbounds i8, ptr %7, i64 98
+  %104 = getelementptr inbounds nuw i8, ptr %7, i64 98
   store i16 1, ptr %104, align 2
-  %105 = getelementptr inbounds i8, ptr %1, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %106 = load i32, ptr %105, align 8
   %107 = tail call ptr @__errno_location() #4
   store i32 0, ptr %107, align 4
-  %108 = getelementptr inbounds i8, ptr %2, i64 72
+  %108 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %109 = load ptr, ptr %108, align 8
   %110 = call ptr @slurmdb_associations_get(ptr noundef %109, ptr noundef nonnull %7) #5
   %111 = load i32, ptr %107, align 4
@@ -642,22 +642,22 @@ declare ptr @slurmdb_associations_get(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @compare_assoc(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 132
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 132
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %18, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 132
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %4, %7
   br i1 %8, label %9, label %18
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8
   %.not58 = icmp eq ptr %11, null
-  %12 = getelementptr inbounds i8, ptr %1, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %13 = load ptr, ptr %12, align 8
   %.not59 = icmp eq ptr %13, null
   br i1 %.not58, label %14, label %._crit_edge
@@ -677,10 +677,10 @@ define range(i32 0, 2) i32 @compare_assoc(ptr nocapture noundef readonly %0, ptr
   br label %51
 
 18:                                               ; preds = %2, %5
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not34 = icmp eq ptr %20, null
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8
   %.not35 = icmp eq ptr %22, null
   br i1 %.not34, label %23, label %._crit_edge64
@@ -697,10 +697,10 @@ define range(i32 0, 2) i32 @compare_assoc(ptr nocapture noundef readonly %0, ptr
   br i1 %.not39, label %26, label %51
 
 26:                                               ; preds = %23, %24
-  %27 = getelementptr inbounds i8, ptr %0, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %28 = load ptr, ptr %27, align 8
   %.not40 = icmp eq ptr %28, null
-  %29 = getelementptr inbounds i8, ptr %1, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %30 = load ptr, ptr %29, align 8
   %.not41 = icmp eq ptr %30, null
   br i1 %.not40, label %31, label %._crit_edge67
@@ -717,10 +717,10 @@ define range(i32 0, 2) i32 @compare_assoc(ptr nocapture noundef readonly %0, ptr
   br i1 %.not45, label %34, label %51
 
 34:                                               ; preds = %31, %32
-  %35 = getelementptr inbounds i8, ptr %0, i64 272
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %36 = load ptr, ptr %35, align 8
   %.not46 = icmp eq ptr %36, null
-  %37 = getelementptr inbounds i8, ptr %1, i64 272
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %38 = load ptr, ptr %37, align 8
   %.not47 = icmp eq ptr %38, null
   br i1 %.not46, label %39, label %._crit_edge70
@@ -737,10 +737,10 @@ define range(i32 0, 2) i32 @compare_assoc(ptr nocapture noundef readonly %0, ptr
   br i1 %.not51, label %42, label %51
 
 42:                                               ; preds = %39, %40
-  %43 = getelementptr inbounds i8, ptr %0, i64 320
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %44 = load ptr, ptr %43, align 8
   %.not52 = icmp eq ptr %44, null
-  %45 = getelementptr inbounds i8, ptr %1, i64 320
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %46 = load ptr, ptr %45, align 8
   %.not53 = icmp eq ptr %46, null
   br i1 %.not52, label %47, label %._crit_edge73
@@ -773,61 +773,61 @@ define range(i32 0, 2) i32 @fuzzy_match_tres(ptr nocapture noundef readonly %0, 
   br i1 %4, label %5, label %18
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load i32, ptr %16, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 9, ptr noundef nonnull @.str.19, ptr noundef %7, ptr noundef %9, i32 noundef %11, ptr noundef %13, ptr noundef %15, i32 noundef %17) #5
   br label %18
 
 18:                                               ; preds = %5, %2
-  %19 = getelementptr inbounds i8, ptr %1, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %20 = load i32, ptr %19, align 8
   %.not = icmp eq i32 %20, 0
   br i1 %.not, label %39, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i32 %20, %23
   br i1 %24, label %25, label %39
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %1, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %27 = load ptr, ptr %26, align 8
   %.not27 = icmp eq ptr %27, null
   br i1 %.not27, label %32, label %28
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %0, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load ptr, ptr %29, align 8
   %31 = tail call i32 @xstrcasecmp(ptr noundef nonnull %27, ptr noundef %30) #5
   %.not28 = icmp eq i32 %31, 0
   br i1 %.not28, label %32, label %39
 
 32:                                               ; preds = %28, %25
-  %33 = getelementptr inbounds i8, ptr %1, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %34 = load ptr, ptr %33, align 8
   %.not29 = icmp eq ptr %34, null
   br i1 %.not29, label %62, label %35
 
 35:                                               ; preds = %32
-  %36 = getelementptr inbounds i8, ptr %0, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %37 = load ptr, ptr %36, align 8
   %38 = tail call i32 @xstrcasecmp(ptr noundef nonnull %34, ptr noundef %37) #5
   %.not30 = icmp eq i32 %38, 0
   br i1 %.not30, label %62, label %39
 
 39:                                               ; preds = %35, %28, %21, %18
-  %40 = getelementptr inbounds i8, ptr %1, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %41 = load ptr, ptr %40, align 8
   %.not31 = icmp eq ptr %41, null
   br i1 %.not31, label %44, label %42
@@ -838,9 +838,9 @@ define range(i32 0, 2) i32 @fuzzy_match_tres(ptr nocapture noundef readonly %0, 
   br i1 %.not32, label %44, label %50
 
 44:                                               ; preds = %42, %39
-  %45 = getelementptr inbounds i8, ptr %1, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %48 = load ptr, ptr %47, align 8
   %49 = tail call i32 @xstrcasecmp(ptr noundef %46, ptr noundef %48) #5
   %.not33 = icmp eq i32 %49, 0
@@ -852,16 +852,16 @@ define range(i32 0, 2) i32 @fuzzy_match_tres(ptr nocapture noundef readonly %0, 
 
 50:                                               ; preds = %._crit_edge, %42
   %51 = phi ptr [ %.pre, %._crit_edge ], [ %41, %42 ]
-  %52 = getelementptr inbounds i8, ptr %0, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %53 = load ptr, ptr %52, align 8
   %54 = tail call i32 @xstrcasecmp(ptr noundef %51, ptr noundef %53) #5
   %.not34 = icmp eq i32 %54, 0
   br i1 %.not34, label %55, label %61
 
 55:                                               ; preds = %50
-  %56 = getelementptr inbounds i8, ptr %1, i64 40
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 40
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %59 = load ptr, ptr %58, align 8
   %60 = tail call i32 @xstrcasecmp(ptr noundef %57, ptr noundef %59) #5
   %.not35 = icmp eq i32 %60, 0

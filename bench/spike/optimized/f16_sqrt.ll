@@ -62,10 +62,10 @@ define i16 @f16_sqrt(i16 %0) local_unnamed_addr #0 {
   %28 = and i64 %27, 14
   %29 = zext nneg i8 %25 to i64
   %30 = or disjoint i64 %28, %29
-  %31 = getelementptr inbounds [16 x i16], ptr @softfloat_approxRecipSqrt_1k0s, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw [16 x i16], ptr @softfloat_approxRecipSqrt_1k0s, i64 0, i64 %30
   %32 = load i16, ptr %31, align 2
   %33 = zext i16 %32 to i64
-  %34 = getelementptr inbounds [16 x i16], ptr @softfloat_approxRecipSqrt_1k1s, i64 0, i64 %30
+  %34 = getelementptr inbounds nuw [16 x i16], ptr @softfloat_approxRecipSqrt_1k1s, i64 0, i64 %30
   %35 = load i16, ptr %34, align 2
   %36 = zext i16 %35 to i64
   %37 = and i64 %.057, 127

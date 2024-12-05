@@ -67,7 +67,7 @@ define internal range(i32 0, 2) i32 @x86CPUInfo(i32 noundef %0) #0 {
 
 .preheader.i:                                     ; preds = %22, %30
   %.010.i = phi i64 [ %31, %30 ], [ 0, %22 ]
-  %32 = getelementptr inbounds [6 x i8], ptr @CheckSlowModel.kSlowModels, i64 0, i64 %.010.i
+  %32 = getelementptr inbounds nuw [6 x i8], ptr @CheckSlowModel.kSlowModels, i64 0, i64 %.010.i
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i32
   %35 = icmp eq i32 %27, %34

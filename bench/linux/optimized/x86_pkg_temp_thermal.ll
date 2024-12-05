@@ -162,7 +162,7 @@ define internal i32 @pkg_thermal_cpu_online(i32 noundef %0) #3 align 16 {
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, ptrtoint (ptr @cpu_info to i64)
   %8 = inttoptr i64 %7 to ptr
-  %9 = getelementptr inbounds i8, ptr %8, i64 244
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 244
   %10 = load i32, ptr %9, align 4
   %11 = icmp sgt i32 %10, -1
   %12 = load i32, ptr @max_id, align 4
@@ -196,8 +196,8 @@ define internal i32 @pkg_thermal_cpu_online(i32 noundef %0) #3 align 16 {
   br i1 %31, label %34, label %32
 
 32:                                               ; preds = %30
-  %33 = getelementptr inbounds i8, ptr %21, i64 120
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %33, i64 %4) #8, !srcloc !6
+  %33 = getelementptr inbounds nuw i8, ptr %21, i64 120
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %33, i64 %4) #8, !srcloc !6
   br label %119
 
 34:                                               ; preds = %30
@@ -238,7 +238,7 @@ define internal i32 @pkg_thermal_cpu_online(i32 noundef %0) #3 align 16 {
 .thread:                                          ; preds = %49
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #8
-  %55 = getelementptr inbounds i8, ptr %47, i64 112
+  %55 = getelementptr inbounds nuw i8, ptr %47, i64 112
   store ptr inttoptr (i64 -12 to ptr), ptr %55, align 8
   br label %80
 
@@ -267,7 +267,7 @@ define internal i32 @pkg_thermal_cpu_online(i32 noundef %0) #3 align 16 {
   %72 = select i1 %69, i32 -274000, i32 %71
   %73 = getelementptr %struct.thermal_trip, ptr %53, i64 %56
   store i32 %72, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 12
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 12
   store i32 1, ptr %74, align 4
   %75 = add nuw nsw i64 %56, 1
   %76 = icmp eq i64 %75, %50
@@ -277,7 +277,7 @@ define internal i32 @pkg_thermal_cpu_online(i32 noundef %0) #3 align 16 {
   %77 = phi ptr [ %61, %59 ], [ %53, %62 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #8
-  %78 = getelementptr inbounds i8, ptr %47, i64 112
+  %78 = getelementptr inbounds nuw i8, ptr %47, i64 112
   store ptr %77, ptr %78, align 8
   %79 = icmp ugt ptr %77, inttoptr (i64 -4096 to ptr)
   br i1 %79, label %80, label %84
@@ -289,21 +289,21 @@ define internal i32 @pkg_thermal_cpu_online(i32 noundef %0) #3 align 16 {
   br label %117
 
 84:                                               ; preds = %.loopexit
-  %85 = getelementptr inbounds i8, ptr %47, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %47, i64 16
   store i64 68719476704, ptr %85, align 8
-  %86 = getelementptr inbounds i8, ptr %47, i64 24
+  %86 = getelementptr inbounds nuw i8, ptr %47, i64 24
   store volatile ptr %86, ptr %86, align 8
-  %87 = getelementptr inbounds i8, ptr %47, i64 32
+  %87 = getelementptr inbounds nuw i8, ptr %47, i64 32
   store volatile ptr %86, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %47, i64 40
+  %88 = getelementptr inbounds nuw i8, ptr %47, i64 40
   store ptr @pkg_temp_thermal_threshold_work_fn, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %47, i64 48
-  call void @init_timer_key(ptr noundef %89, ptr noundef nonnull @delayed_work_timer_fn, i32 noundef 2097152, ptr noundef null, ptr noundef null) #8
+  %89 = getelementptr inbounds nuw i8, ptr %47, i64 48
+  call void @init_timer_key(ptr noundef nonnull %89, ptr noundef nonnull @delayed_work_timer_fn, i32 noundef 2097152, ptr noundef null, ptr noundef null) #8
   store i32 %0, ptr %47, align 8
   %90 = load ptr, ptr %78, align 8
   %91 = select i1 %41, i32 3, i32 1
   %92 = call ptr @thermal_zone_device_register_with_trips(ptr noundef nonnull @.str.2, ptr noundef %90, i32 noundef %42, i32 noundef %91, ptr noundef nonnull %47, ptr noundef nonnull @tzone_ops, ptr noundef nonnull @pkg_temp_tz_params, i32 noundef 0, i32 noundef 0) #8
-  %93 = getelementptr inbounds i8, ptr %47, i64 104
+  %93 = getelementptr inbounds nuw i8, ptr %47, i64 104
   store ptr %92, ptr %93, align 8
   %94 = icmp ugt ptr %92, inttoptr (i64 -4096 to ptr)
   br i1 %94, label %95, label %98
@@ -321,14 +321,14 @@ define internal i32 @pkg_thermal_cpu_online(i32 noundef %0) #3 align 16 {
 101:                                              ; preds = %98
   %102 = call fastcc i64 @native_read_msr()
   %103 = trunc i64 %102 to i32
-  %104 = getelementptr inbounds i8, ptr %47, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i32 %103, ptr %104, align 8
   %105 = lshr i64 %102, 32
   %106 = trunc nuw i64 %105 to i32
-  %107 = getelementptr inbounds i8, ptr %47, i64 12
+  %107 = getelementptr inbounds nuw i8, ptr %47, i64 12
   store i32 %106, ptr %107, align 4
-  %108 = getelementptr inbounds i8, ptr %47, i64 120
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %108, i64 %4) #8, !srcloc !6
+  %108 = getelementptr inbounds nuw i8, ptr %47, i64 120
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %108, i64 %4) #8, !srcloc !6
   call void @_raw_spin_lock_irq(ptr noundef nonnull @pkg_temp_lock) #8
   %109 = load ptr, ptr @zones, align 8
   %110 = sext i32 %10 to i64
@@ -365,7 +365,7 @@ define internal noundef i32 @pkg_thermal_cpu_offline(i32 noundef %0) #3 align 16
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @cpu_info to i64)
   %6 = inttoptr i64 %5 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 244
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 244
   %8 = load i32, ptr %7, align 4
   %9 = icmp sgt i32 %8, -1
   %10 = load i32, ptr @max_id, align 4
@@ -382,7 +382,7 @@ define internal noundef i32 @pkg_thermal_cpu_offline(i32 noundef %0) #3 align 16
   br i1 %18, label %.thread, label %19
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %17, i64 120
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 120
   br label %21
 
 21:                                               ; preds = %30, %19
@@ -409,13 +409,13 @@ define internal noundef i32 @pkg_thermal_cpu_offline(i32 noundef %0) #3 align 16
 
 .thread5:                                         ; preds = %25, %21, %30
   %37 = phi i32 [ %32, %30 ], [ 64, %21 ], [ 64, %25 ]
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %20, i64 %2) #8, !srcloc !14
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %20, i64 %2) #8, !srcloc !14
   %38 = load i32, ptr @nr_cpu_ids, align 4
   %39 = icmp ugt i32 %38, %37
   br i1 %39, label %43, label %40
 
 40:                                               ; preds = %.thread5
-  %41 = getelementptr inbounds i8, ptr %17, i64 104
+  %41 = getelementptr inbounds nuw i8, ptr %17, i64 104
   %42 = load ptr, ptr %41, align 8
   tail call void @mutex_lock(ptr noundef nonnull @thermal_zone_mutex) #8
   store ptr null, ptr %41, align 8
@@ -435,14 +435,14 @@ define internal noundef i32 @pkg_thermal_cpu_offline(i32 noundef %0) #3 align 16
   %48 = load i64, ptr %3, align 8
   %49 = add i64 %48, ptrtoint (ptr @cpu_info to i64)
   %50 = inttoptr i64 %49 to ptr
-  %51 = getelementptr inbounds i8, ptr %50, i64 244
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 244
   %52 = load i32, ptr %51, align 4
   %53 = zext i32 %52 to i64
   %54 = getelementptr ptr, ptr %47, i64 %53
   store ptr null, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %17, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %56 = load i32, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %17, i64 12
+  %57 = getelementptr inbounds nuw i8, ptr %17, i64 12
   %58 = load i32, ptr %57, align 4
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 434, i32 %56, i32 %58) #8, !srcloc !15
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #8
@@ -457,7 +457,7 @@ define internal noundef i32 @pkg_thermal_cpu_offline(i32 noundef %0) #3 align 16
   br label %64
 
 64:                                               ; preds = %59, %46, %43
-  %65 = getelementptr inbounds i8, ptr %17, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %66 = load i8, ptr %65, align 4, !range !17, !noundef !18
   %67 = icmp eq i8 %66, 0
   %68 = select i1 %67, i1 true, i1 %45
@@ -465,8 +465,8 @@ define internal noundef i32 @pkg_thermal_cpu_offline(i32 noundef %0) #3 align 16
   br i1 %68, label %80, label %69
 
 69:                                               ; preds = %64
-  %70 = getelementptr inbounds i8, ptr %17, i64 16
-  %71 = tail call zeroext i1 @cancel_delayed_work_sync(ptr noundef %70) #8
+  %70 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %71 = tail call zeroext i1 @cancel_delayed_work_sync(ptr noundef nonnull %70) #8
   tail call void @_raw_spin_lock_irq(ptr noundef nonnull @pkg_temp_lock) #8
   br i1 %39, label %72, label %81
 
@@ -479,7 +479,7 @@ define internal noundef i32 @pkg_thermal_cpu_offline(i32 noundef %0) #3 align 16
   %76 = load i32, ptr @notify_delay_ms, align 4
   %77 = tail call i64 @__msecs_to_jiffies(i32 noundef %76) #8
   %78 = load ptr, ptr @system_wq, align 8
-  %79 = tail call zeroext i1 @queue_delayed_work_on(i32 noundef %37, ptr noundef %78, ptr noundef %70, i64 noundef %77) #8
+  %79 = tail call zeroext i1 @queue_delayed_work_on(i32 noundef %37, ptr noundef %78, ptr noundef nonnull %70, i64 noundef %77) #8
   br label %.thread7
 
 .thread7:                                         ; preds = %75, %72
@@ -494,7 +494,7 @@ define internal noundef i32 @pkg_thermal_cpu_offline(i32 noundef %0) #3 align 16
   br label %82
 
 82:                                               ; preds = %81, %80
-  %83 = getelementptr inbounds i8, ptr %17, i64 112
+  %83 = getelementptr inbounds nuw i8, ptr %17, i64 112
   %84 = load ptr, ptr %83, align 8
   tail call void @kfree(ptr noundef %84) #8
   tail call void @kfree(ptr noundef nonnull %17) #8
@@ -543,7 +543,7 @@ define internal noundef i32 @pkg_thermal_notify(i64 %0) #3 align 16 {
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, ptrtoint (ptr @cpu_info to i64)
   %24 = inttoptr i64 %23 to ptr
-  %25 = getelementptr inbounds i8, ptr %24, i64 244
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 244
   %26 = load i32, ptr %25, align 4
   %27 = icmp sgt i32 %26, -1
   %28 = load i32, ptr @max_id, align 4
@@ -560,7 +560,7 @@ define internal noundef i32 @pkg_thermal_notify(i64 %0) #3 align 16 {
   br i1 %36, label %.thread, label %37
 
 37:                                               ; preds = %31
-  %38 = getelementptr inbounds i8, ptr %35, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %39 = load i8, ptr %38, align 4, !range !17, !noundef !18
   %40 = icmp eq i8 %39, 0
   br i1 %40, label %41, label %.thread
@@ -568,11 +568,11 @@ define internal noundef i32 @pkg_thermal_notify(i64 %0) #3 align 16 {
 41:                                               ; preds = %37
   store i8 1, ptr %38, align 4
   %42 = load i32, ptr %35, align 8
-  %43 = getelementptr inbounds i8, ptr %35, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %44 = load i32, ptr @notify_delay_ms, align 4
   %45 = tail call i64 @__msecs_to_jiffies(i32 noundef %44) #8
   %46 = load ptr, ptr @system_wq, align 8
-  %47 = tail call zeroext i1 @queue_delayed_work_on(i32 noundef %42, ptr noundef %46, ptr noundef %43, i64 noundef %45) #8
+  %47 = tail call zeroext i1 @queue_delayed_work_on(i32 noundef %42, ptr noundef %46, ptr noundef nonnull %43, i64 noundef %45) #8
   br label %.thread
 
 .thread:                                          ; preds = %19, %41, %37, %31
@@ -616,7 +616,7 @@ define internal void @pkg_temp_thermal_threshold_work_fn(ptr nocapture readnone 
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, ptrtoint (ptr @cpu_info to i64)
   %9 = inttoptr i64 %8 to ptr
-  %10 = getelementptr inbounds i8, ptr %9, i64 244
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 244
   %11 = load i32, ptr %10, align 4
   %12 = icmp sgt i32 %11, -1
   %13 = load i32, ptr @max_id, align 4
@@ -637,10 +637,10 @@ define internal void @pkg_temp_thermal_threshold_work_fn(ptr nocapture readnone 
   br label %51
 
 22:                                               ; preds = %16
-  %23 = getelementptr inbounds i8, ptr %20, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store i8 0, ptr %23, align 4
   tail call void @thermal_clear_package_intr_status(i32 noundef 1, i64 noundef 640) #8
-  %24 = getelementptr inbounds i8, ptr %20, i64 104
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 104
   %25 = load ptr, ptr %24, align 8
   %26 = tail call { i64, i64 } asm sideeffect "1: rdmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 9 \0A .popsection\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 434) #8, !srcloc !20
   %27 = extractvalue { i64, i64 } %26, 0

@@ -137,17 +137,17 @@ define void @lv_image_buf_get_transformed_area(ptr nocapture noundef writeonly i
   store i32 0, ptr %8, align 16, !tbaa !31
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 0, ptr %15, align 4, !tbaa !32
-  %16 = getelementptr inbounds i8, ptr %8, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %1, ptr %16, align 8, !tbaa !31
-  %17 = getelementptr inbounds i8, ptr %8, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 0, ptr %17, align 4, !tbaa !32
-  %18 = getelementptr inbounds i8, ptr %8, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 0, ptr %18, align 16, !tbaa !31
-  %19 = getelementptr inbounds i8, ptr %8, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i32 %2, ptr %19, align 4, !tbaa !32
-  %20 = getelementptr inbounds i8, ptr %8, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 %1, ptr %20, align 8, !tbaa !31
-  %21 = getelementptr inbounds i8, ptr %8, i64 28
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 28
   store i32 %2, ptr %21, align 4, !tbaa !32
   call void @lv_point_transform(ptr noundef nonnull %8, i32 noundef %3, i32 noundef %14, i32 noundef %13, ptr noundef %6, i1 noundef zeroext true) #6
   call void @lv_point_transform(ptr noundef nonnull %16, i32 noundef %3, i32 noundef %14, i32 noundef %13, ptr noundef %6, i1 noundef zeroext true) #6

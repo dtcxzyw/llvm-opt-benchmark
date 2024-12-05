@@ -16,13 +16,13 @@ entry:
   %mul = shl i64 %period, 2
   %div = udiv i64 %mul, 3
   store i64 %div, ptr %ta, align 8
-  %clock_type2 = getelementptr inbounds i8, ptr %ta, i64 92
+  %clock_type2 = getelementptr inbounds nuw i8, ptr %ta, i64 92
   store i32 %clock_type, ptr %clock_type2, align 4
-  %current = getelementptr inbounds i8, ptr %ta, i64 88
+  %current = getelementptr inbounds nuw i8, ptr %ta, i64 88
   store i32 0, ptr %current, align 8
-  %windows = getelementptr inbounds i8, ptr %ta, i64 8
+  %windows = getelementptr inbounds nuw i8, ptr %ta, i64 8
   store i64 -1, ptr %windows, align 8
-  %max.i = getelementptr inbounds i8, ptr %ta, i64 16
+  %max.i = getelementptr inbounds nuw i8, ptr %ta, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %max.i, i8 0, i64 24, i1 false)
   %arrayidx4 = getelementptr i8, ptr %ta, i64 48
   store i64 -1, ptr %arrayidx4, align 8
@@ -30,7 +30,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %max.i12, i8 0, i64 24, i1 false)
   %div611 = lshr i64 %div, 1
   %add = add i64 %call, %div611
-  %expiration = getelementptr inbounds i8, ptr %ta, i64 40
+  %expiration = getelementptr inbounds nuw i8, ptr %ta, i64 40
   store i64 %add, ptr %expiration, align 8
   %add10 = add i64 %call, %div
   %expiration13 = getelementptr i8, ptr %ta, i64 80
@@ -43,7 +43,7 @@ declare i64 @qemu_clock_get_ns(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @timed_average_account(ptr nocapture noundef %ta, i64 noundef %value) local_unnamed_addr #0 {
 entry:
-  %clock_type.i = getelementptr inbounds i8, ptr %ta, i64 92
+  %clock_type.i = getelementptr inbounds nuw i8, ptr %ta, i64 92
   %0 = load i32, ptr %clock_type.i, align 4
   %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef %0) #4
   %1 = load i64, ptr %ta, align 8
@@ -51,7 +51,7 @@ entry:
   br i1 %cmp.not.i, label %if.else.i, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %entry
-  %windows.i = getelementptr inbounds i8, ptr %ta, i64 8
+  %windows.i = getelementptr inbounds nuw i8, ptr %ta, i64 8
   %sub1.i.i = add i64 %1, %call.i
   br label %for.body.i
 
@@ -63,14 +63,14 @@ for.body.i:                                       ; preds = %for.inc.i, %for.con
   %cmp1.i = phi i1 [ true, %for.cond.preheader.i ], [ false, %for.inc.i ]
   %indvars.iv.i = phi i64 [ 0, %for.cond.preheader.i ], [ 1, %for.inc.i ]
   %arrayidx.i = getelementptr [2 x %struct.TimedAverageWindow], ptr %windows.i, i64 0, i64 %indvars.iv.i
-  %expiration.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
+  %expiration.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 32
   %2 = load i64, ptr %expiration.i, align 8
   %cmp2.not.i = icmp sgt i64 %2, %call.i
   br i1 %cmp2.not.i, label %for.inc.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %for.body.i
   store i64 -1, ptr %arrayidx.i, align 8
-  %max.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %max.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %max.i.i, i8 0, i64 24, i1 false)
   %sub.i.i = sub i64 %call.i, %2
   %rem.i.i = srem i64 %sub.i.i, %1
@@ -82,13 +82,13 @@ for.inc.i:                                        ; preds = %if.then3.i, %for.bo
   br i1 %cmp1.i, label %for.body.i, label %check_expirations.exit, !llvm.loop !5
 
 check_expirations.exit:                           ; preds = %for.inc.i
-  %expiration8.i = getelementptr inbounds i8, ptr %ta, i64 40
+  %expiration8.i = getelementptr inbounds nuw i8, ptr %ta, i64 40
   %3 = load i64, ptr %expiration8.i, align 8
   %expiration11.i = getelementptr i8, ptr %ta, i64 80
   %4 = load i64, ptr %expiration11.i, align 8
   %cmp12.i = icmp sge i64 %3, %4
   %spec.select.i = zext i1 %cmp12.i to i32
-  %5 = getelementptr inbounds i8, ptr %ta, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %ta, i64 88
   store i32 %spec.select.i, ptr %5, align 8
   br label %for.body
 
@@ -96,11 +96,11 @@ for.body:                                         ; preds = %check_expirations.e
   %cmp = phi i1 [ true, %check_expirations.exit ], [ false, %for.inc ]
   %indvars.iv = phi i64 [ 0, %check_expirations.exit ], [ 1, %for.inc ]
   %arrayidx = getelementptr [2 x %struct.TimedAverageWindow], ptr %windows.i, i64 0, i64 %indvars.iv
-  %sum = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %sum = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   %6 = load i64, ptr %sum, align 8
   %add = add i64 %6, %value
   store i64 %add, ptr %sum, align 8
-  %count = getelementptr inbounds i8, ptr %arrayidx, i64 24
+  %count = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
   %7 = load i64, ptr %count, align 8
   %inc = add i64 %7, 1
   store i64 %inc, ptr %count, align 8
@@ -113,7 +113,7 @@ if.then:                                          ; preds = %for.body
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %for.body
-  %max = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %max = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %9 = load i64, ptr %max, align 8
   %cmp3 = icmp ugt i64 %value, %9
   br i1 %cmp3, label %if.then4, label %for.inc
@@ -132,7 +132,7 @@ for.end:                                          ; preds = %for.inc
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local range(i64 0, -1) i64 @timed_average_min(ptr nocapture noundef %ta) local_unnamed_addr #0 {
 entry:
-  %clock_type.i = getelementptr inbounds i8, ptr %ta, i64 92
+  %clock_type.i = getelementptr inbounds nuw i8, ptr %ta, i64 92
   %0 = load i32, ptr %clock_type.i, align 4
   %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef %0) #4
   %1 = load i64, ptr %ta, align 8
@@ -140,7 +140,7 @@ entry:
   br i1 %cmp.not.i, label %if.else.i, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %entry
-  %windows.i = getelementptr inbounds i8, ptr %ta, i64 8
+  %windows.i = getelementptr inbounds nuw i8, ptr %ta, i64 8
   %sub1.i.i = add i64 %1, %call.i
   br label %for.body.i
 
@@ -152,14 +152,14 @@ for.body.i:                                       ; preds = %for.inc.i, %for.con
   %cmp1.i = phi i1 [ true, %for.cond.preheader.i ], [ false, %for.inc.i ]
   %indvars.iv.i = phi i64 [ 0, %for.cond.preheader.i ], [ 1, %for.inc.i ]
   %arrayidx.i = getelementptr [2 x %struct.TimedAverageWindow], ptr %windows.i, i64 0, i64 %indvars.iv.i
-  %expiration.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
+  %expiration.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 32
   %2 = load i64, ptr %expiration.i, align 8
   %cmp2.not.i = icmp sgt i64 %2, %call.i
   br i1 %cmp2.not.i, label %for.inc.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %for.body.i
   store i64 -1, ptr %arrayidx.i, align 8
-  %max.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %max.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %max.i.i, i8 0, i64 24, i1 false)
   %sub.i.i = sub i64 %call.i, %2
   %rem.i.i = srem i64 %sub.i.i, %1
@@ -171,13 +171,13 @@ for.inc.i:                                        ; preds = %if.then3.i, %for.bo
   br i1 %cmp1.i, label %for.body.i, label %check_expirations.exit, !llvm.loop !5
 
 check_expirations.exit:                           ; preds = %for.inc.i
-  %expiration8.i = getelementptr inbounds i8, ptr %ta, i64 40
+  %expiration8.i = getelementptr inbounds nuw i8, ptr %ta, i64 40
   %3 = load i64, ptr %expiration8.i, align 8
   %expiration11.i = getelementptr i8, ptr %ta, i64 80
   %4 = load i64, ptr %expiration11.i, align 8
   %cmp12.i = icmp sge i64 %3, %4
   %spec.select.i = zext i1 %cmp12.i to i32
-  %5 = getelementptr inbounds i8, ptr %ta, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %ta, i64 88
   store i32 %spec.select.i, ptr %5, align 8
   %idxprom.i = zext i1 %cmp12.i to i64
   %arrayidx.i4 = getelementptr [2 x %struct.TimedAverageWindow], ptr %windows.i, i64 0, i64 %idxprom.i
@@ -190,7 +190,7 @@ check_expirations.exit:                           ; preds = %for.inc.i
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @timed_average_avg(ptr nocapture noundef %ta) local_unnamed_addr #0 {
 entry:
-  %clock_type.i = getelementptr inbounds i8, ptr %ta, i64 92
+  %clock_type.i = getelementptr inbounds nuw i8, ptr %ta, i64 92
   %0 = load i32, ptr %clock_type.i, align 4
   %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef %0) #4
   %1 = load i64, ptr %ta, align 8
@@ -198,7 +198,7 @@ entry:
   br i1 %cmp.not.i, label %if.else.i, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %entry
-  %windows.i = getelementptr inbounds i8, ptr %ta, i64 8
+  %windows.i = getelementptr inbounds nuw i8, ptr %ta, i64 8
   %sub1.i.i = add i64 %1, %call.i
   br label %for.body.i
 
@@ -210,14 +210,14 @@ for.body.i:                                       ; preds = %for.inc.i, %for.con
   %cmp1.i = phi i1 [ true, %for.cond.preheader.i ], [ false, %for.inc.i ]
   %indvars.iv.i = phi i64 [ 0, %for.cond.preheader.i ], [ 1, %for.inc.i ]
   %arrayidx.i = getelementptr [2 x %struct.TimedAverageWindow], ptr %windows.i, i64 0, i64 %indvars.iv.i
-  %expiration.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
+  %expiration.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 32
   %2 = load i64, ptr %expiration.i, align 8
   %cmp2.not.i = icmp sgt i64 %2, %call.i
   br i1 %cmp2.not.i, label %for.inc.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %for.body.i
   store i64 -1, ptr %arrayidx.i, align 8
-  %max.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %max.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %max.i.i, i8 0, i64 24, i1 false)
   %sub.i.i = sub i64 %call.i, %2
   %rem.i.i = srem i64 %sub.i.i, %1
@@ -229,23 +229,23 @@ for.inc.i:                                        ; preds = %if.then3.i, %for.bo
   br i1 %cmp1.i, label %for.body.i, label %check_expirations.exit, !llvm.loop !5
 
 check_expirations.exit:                           ; preds = %for.inc.i
-  %expiration8.i = getelementptr inbounds i8, ptr %ta, i64 40
+  %expiration8.i = getelementptr inbounds nuw i8, ptr %ta, i64 40
   %3 = load i64, ptr %expiration8.i, align 8
   %expiration11.i = getelementptr i8, ptr %ta, i64 80
   %4 = load i64, ptr %expiration11.i, align 8
   %cmp12.i = icmp sge i64 %3, %4
   %spec.select.i = zext i1 %cmp12.i to i32
-  %5 = getelementptr inbounds i8, ptr %ta, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %ta, i64 88
   store i32 %spec.select.i, ptr %5, align 8
   %idxprom.i = zext i1 %cmp12.i to i64
   %arrayidx.i5 = getelementptr [2 x %struct.TimedAverageWindow], ptr %windows.i, i64 0, i64 %idxprom.i
-  %count = getelementptr inbounds i8, ptr %arrayidx.i5, i64 24
+  %count = getelementptr inbounds nuw i8, ptr %arrayidx.i5, i64 24
   %6 = load i64, ptr %count, align 8
   %cmp.not = icmp eq i64 %6, 0
   br i1 %cmp.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %check_expirations.exit
-  %sum = getelementptr inbounds i8, ptr %arrayidx.i5, i64 16
+  %sum = getelementptr inbounds nuw i8, ptr %arrayidx.i5, i64 16
   %7 = load i64, ptr %sum, align 8
   %div = udiv i64 %7, %6
   br label %cond.end
@@ -258,7 +258,7 @@ cond.end:                                         ; preds = %check_expirations.e
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @timed_average_max(ptr nocapture noundef %ta) local_unnamed_addr #0 {
 entry:
-  %clock_type.i = getelementptr inbounds i8, ptr %ta, i64 92
+  %clock_type.i = getelementptr inbounds nuw i8, ptr %ta, i64 92
   %0 = load i32, ptr %clock_type.i, align 4
   %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef %0) #4
   %1 = load i64, ptr %ta, align 8
@@ -266,7 +266,7 @@ entry:
   br i1 %cmp.not.i, label %if.else.i, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %entry
-  %windows.i = getelementptr inbounds i8, ptr %ta, i64 8
+  %windows.i = getelementptr inbounds nuw i8, ptr %ta, i64 8
   %sub1.i.i = add i64 %1, %call.i
   br label %for.body.i
 
@@ -278,14 +278,14 @@ for.body.i:                                       ; preds = %for.inc.i, %for.con
   %cmp1.i = phi i1 [ true, %for.cond.preheader.i ], [ false, %for.inc.i ]
   %indvars.iv.i = phi i64 [ 0, %for.cond.preheader.i ], [ 1, %for.inc.i ]
   %arrayidx.i = getelementptr [2 x %struct.TimedAverageWindow], ptr %windows.i, i64 0, i64 %indvars.iv.i
-  %expiration.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
+  %expiration.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 32
   %2 = load i64, ptr %expiration.i, align 8
   %cmp2.not.i = icmp sgt i64 %2, %call.i
   br i1 %cmp2.not.i, label %for.inc.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %for.body.i
   store i64 -1, ptr %arrayidx.i, align 8
-  %max.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %max.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %max.i.i, i8 0, i64 24, i1 false)
   %sub.i.i = sub i64 %call.i, %2
   %rem.i.i = srem i64 %sub.i.i, %1
@@ -297,13 +297,13 @@ for.inc.i:                                        ; preds = %if.then3.i, %for.bo
   br i1 %cmp1.i, label %for.body.i, label %check_expirations.exit, !llvm.loop !5
 
 check_expirations.exit:                           ; preds = %for.inc.i
-  %expiration8.i = getelementptr inbounds i8, ptr %ta, i64 40
+  %expiration8.i = getelementptr inbounds nuw i8, ptr %ta, i64 40
   %3 = load i64, ptr %expiration8.i, align 8
   %expiration11.i = getelementptr i8, ptr %ta, i64 80
   %4 = load i64, ptr %expiration11.i, align 8
   %cmp12.i = icmp sge i64 %3, %4
   %spec.select.i = zext i1 %cmp12.i to i32
-  %5 = getelementptr inbounds i8, ptr %ta, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %ta, i64 88
   store i32 %spec.select.i, ptr %5, align 8
   %max.offs = select i1 %cmp12.i, i64 48, i64 8
   %max = getelementptr i8, ptr %windows.i, i64 %max.offs
@@ -314,7 +314,7 @@ check_expirations.exit:                           ; preds = %for.inc.i
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @timed_average_sum(ptr nocapture noundef %ta, ptr noundef writeonly %elapsed) local_unnamed_addr #0 {
 entry:
-  %clock_type.i = getelementptr inbounds i8, ptr %ta, i64 92
+  %clock_type.i = getelementptr inbounds nuw i8, ptr %ta, i64 92
   %0 = load i32, ptr %clock_type.i, align 4
   %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef %0) #4
   %1 = load i64, ptr %ta, align 8
@@ -322,7 +322,7 @@ entry:
   br i1 %cmp.not.i, label %if.else.i, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %entry
-  %windows.i = getelementptr inbounds i8, ptr %ta, i64 8
+  %windows.i = getelementptr inbounds nuw i8, ptr %ta, i64 8
   %sub1.i.i = add i64 %1, %call.i
   br label %for.body.i
 
@@ -334,14 +334,14 @@ for.body.i:                                       ; preds = %for.inc.i, %for.con
   %cmp1.i = phi i1 [ true, %for.cond.preheader.i ], [ false, %for.inc.i ]
   %indvars.iv.i = phi i64 [ 0, %for.cond.preheader.i ], [ 1, %for.inc.i ]
   %arrayidx.i = getelementptr [2 x %struct.TimedAverageWindow], ptr %windows.i, i64 0, i64 %indvars.iv.i
-  %expiration.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
+  %expiration.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 32
   %2 = load i64, ptr %expiration.i, align 8
   %cmp2.not.i = icmp sgt i64 %2, %call.i
   br i1 %cmp2.not.i, label %for.inc.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %for.body.i
   store i64 -1, ptr %arrayidx.i, align 8
-  %max.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %max.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %max.i.i, i8 0, i64 24, i1 false)
   %sub.i.i = sub i64 %call.i, %2
   %rem.i.i = srem i64 %sub.i.i, %1
@@ -353,13 +353,13 @@ for.inc.i:                                        ; preds = %if.then3.i, %for.bo
   br i1 %cmp1.i, label %for.body.i, label %for.end.i, !llvm.loop !5
 
 for.end.i:                                        ; preds = %for.inc.i
-  %expiration8.i = getelementptr inbounds i8, ptr %ta, i64 40
+  %expiration8.i = getelementptr inbounds nuw i8, ptr %ta, i64 40
   %3 = load i64, ptr %expiration8.i, align 8
   %expiration11.i = getelementptr i8, ptr %ta, i64 80
   %4 = load i64, ptr %expiration11.i, align 8
   %cmp12.i = icmp sge i64 %3, %4
   %spec.select.i = zext i1 %cmp12.i to i32
-  %5 = getelementptr inbounds i8, ptr %ta, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %ta, i64 88
   store i32 %spec.select.i, ptr %5, align 8
   %tobool.not.i = icmp eq ptr %elapsed, null
   br i1 %tobool.not.i, label %check_expirations.exit, label %if.then17.i

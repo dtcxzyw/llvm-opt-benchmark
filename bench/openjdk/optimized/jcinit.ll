@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden void @jICompress(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @jICMaster(ptr noundef %0, i32 noundef 0) #2
-  %2 = getelementptr inbounds i8, ptr %0, i64 256
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %5
@@ -19,14 +19,14 @@ define hidden void @jICompress(ptr noundef %0) local_unnamed_addr #0 {
 
 5:                                                ; preds = %4, %1
   tail call void @jIFDCT(ptr noundef nonnull %0) #2
-  %6 = getelementptr inbounds i8, ptr %0, i64 260
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 260
   %7 = load i32, ptr %6, align 4
   %.not22 = icmp eq i32 %7, 0
   br i1 %.not22, label %13, label %8
 
 8:                                                ; preds = %5
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store i32 1, ptr %10, align 8
   %11 = load ptr, ptr %0, align 8
   %12 = load ptr, ptr %11, align 8
@@ -34,7 +34,7 @@ define hidden void @jICompress(ptr noundef %0) local_unnamed_addr #0 {
   br label %18
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %0, i64 308
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 308
   %15 = load i32, ptr %14, align 4
   %.not23 = icmp eq i32 %15, 0
   br i1 %.not23, label %17, label %16
@@ -48,13 +48,13 @@ define hidden void @jICompress(ptr noundef %0) local_unnamed_addr #0 {
   br label %18
 
 18:                                               ; preds = %16, %17, %8
-  %19 = getelementptr inbounds i8, ptr %0, i64 240
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %20 = load i32, ptr %19, align 8
   %21 = icmp sgt i32 %20, 1
   br i1 %21, label %27, label %22
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %0, i64 264
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %24 = load i32, ptr %23, align 8
   %25 = icmp ne i32 %24, 0
   %26 = zext i1 %25 to i32
@@ -65,12 +65,12 @@ define hidden void @jICompress(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @jICCoefC(ptr noundef nonnull %0, i32 noundef %28) #2
   tail call void @jICMainC(ptr noundef nonnull %0, i32 noundef 0) #2
   tail call void @jIMWriter(ptr noundef nonnull %0) #2
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 48
   %32 = load ptr, ptr %31, align 8
   tail call void %32(ptr noundef nonnull %0) #2
-  %33 = getelementptr inbounds i8, ptr %0, i64 464
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr %34, align 8
   tail call void %35(ptr noundef nonnull %0) #2

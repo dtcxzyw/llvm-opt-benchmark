@@ -672,7 +672,7 @@ define internal i32 @dissect_a11(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %10, label %927, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void @col_set_str(ptr noundef %13, i32 noundef 34, ptr noundef nonnull @.str.243) #3
   %14 = load ptr, ptr %12, align 8
@@ -699,7 +699,7 @@ define internal i32 @dissect_a11(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 16:                                               ; preds = %11
   store i1 true, ptr @registration_request_msg, align 4
   %17 = load ptr, ptr %12, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 408
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %19 = load ptr, ptr %18, align 8
   %20 = tail call ptr @tvb_address_to_str(ptr noundef %19, ptr noundef %0, i32 noundef 2, i32 noundef 8) #3
   %21 = load ptr, ptr %18, align 8
@@ -732,7 +732,7 @@ define internal i32 @dissect_a11(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 43:                                               ; preds = %11
   %44 = load ptr, ptr %12, align 8
-  %45 = getelementptr inbounds i8, ptr %1, i64 408
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %46 = load ptr, ptr %45, align 8
   %47 = tail call ptr @tvb_address_to_str(ptr noundef %46, ptr noundef %0, i32 noundef 2, i32 noundef 8) #3
   %48 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #3
@@ -762,7 +762,7 @@ define internal i32 @dissect_a11(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 67:                                               ; preds = %11
   %68 = load ptr, ptr %12, align 8
-  %69 = getelementptr inbounds i8, ptr %1, i64 408
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %70 = load ptr, ptr %69, align 8
   %71 = tail call ptr @tvb_address_to_str(ptr noundef %70, ptr noundef %0, i32 noundef 2, i32 noundef 8) #3
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %68, i32 noundef 25, ptr noundef nonnull @.str.397, ptr noundef %71) #3
@@ -786,7 +786,7 @@ define internal i32 @dissect_a11(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 85:                                               ; preds = %11
   %86 = load ptr, ptr %12, align 8
-  %87 = getelementptr inbounds i8, ptr %1, i64 408
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %88 = load ptr, ptr %87, align 8
   %89 = tail call ptr @tvb_address_to_str(ptr noundef %88, ptr noundef %0, i32 noundef 2, i32 noundef 8) #3
   %90 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 3) #3
@@ -814,7 +814,7 @@ define internal i32 @dissect_a11(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 107:                                              ; preds = %11
   %108 = load ptr, ptr %12, align 8
-  %109 = getelementptr inbounds i8, ptr %1, i64 408
+  %109 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %110 = load ptr, ptr %109, align 8
   %111 = tail call ptr @tvb_address_to_str(ptr noundef %110, ptr noundef %0, i32 noundef 2, i32 noundef 8) #3
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %108, i32 noundef 25, ptr noundef nonnull @.str.399, ptr noundef %111) #3
@@ -838,7 +838,7 @@ define internal i32 @dissect_a11(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 125:                                              ; preds = %11
   %126 = load ptr, ptr %12, align 8
-  %127 = getelementptr inbounds i8, ptr %1, i64 408
+  %127 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %128 = load ptr, ptr %127, align 8
   %129 = tail call ptr @tvb_address_to_str(ptr noundef %128, ptr noundef %0, i32 noundef 2, i32 noundef 8) #3
   %130 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 3) #3
@@ -866,7 +866,7 @@ define internal i32 @dissect_a11(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 147:                                              ; preds = %11
   %148 = load ptr, ptr %12, align 8
-  %149 = getelementptr inbounds i8, ptr %1, i64 408
+  %149 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %150 = load ptr, ptr %149, align 8
   %151 = tail call ptr @tvb_address_to_str(ptr noundef %150, ptr noundef %0, i32 noundef 2, i32 noundef 8) #3
   %152 = load ptr, ptr %149, align 8
@@ -894,7 +894,7 @@ define internal i32 @dissect_a11(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 169:                                              ; preds = %11
   %170 = load ptr, ptr %12, align 8
-  %171 = getelementptr inbounds i8, ptr %1, i64 408
+  %171 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %172 = load ptr, ptr %171, align 8
   %173 = tail call ptr @tvb_address_to_str(ptr noundef %172, ptr noundef %0, i32 noundef 2, i32 noundef 8) #3
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %170, i32 noundef 25, ptr noundef nonnull @.str.402, ptr noundef %173) #3
@@ -918,7 +918,7 @@ define internal i32 @dissect_a11(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 187:                                              ; preds = %11
   %188 = load ptr, ptr %12, align 8
-  %189 = getelementptr inbounds i8, ptr %1, i64 408
+  %189 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %190 = load ptr, ptr %189, align 8
   %191 = tail call ptr @tvb_address_to_str(ptr noundef %190, ptr noundef %0, i32 noundef 2, i32 noundef 8) #3
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %188, i32 noundef 25, ptr noundef nonnull @.str.403, ptr noundef %191) #3
@@ -942,7 +942,7 @@ define internal i32 @dissect_a11(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 205:                                              ; preds = %11
   %206 = load ptr, ptr %12, align 8
-  %207 = getelementptr inbounds i8, ptr %1, i64 408
+  %207 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %208 = load ptr, ptr %207, align 8
   %209 = tail call ptr @tvb_address_to_str(ptr noundef %208, ptr noundef %0, i32 noundef 2, i32 noundef 8) #3
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %206, i32 noundef 25, ptr noundef nonnull @.str.404, ptr noundef %209) #3
@@ -968,7 +968,7 @@ define internal i32 @dissect_a11(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 225:                                              ; preds = %11
   %226 = load ptr, ptr %12, align 8
-  %227 = getelementptr inbounds i8, ptr %1, i64 408
+  %227 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %228 = load ptr, ptr %227, align 8
   %229 = tail call ptr @tvb_address_to_str(ptr noundef %228, ptr noundef %0, i32 noundef 2, i32 noundef 8) #3
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %226, i32 noundef 25, ptr noundef nonnull @.str.405, ptr noundef %229) #3
@@ -999,7 +999,7 @@ define internal i32 @dissect_a11(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 250:                                              ; preds = %11
   %251 = load ptr, ptr %12, align 8
-  %252 = getelementptr inbounds i8, ptr %1, i64 408
+  %252 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %253 = load ptr, ptr %252, align 8
   %254 = tail call ptr @tvb_address_to_str(ptr noundef %253, ptr noundef %0, i32 noundef 2, i32 noundef 8) #3
   %255 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #3
@@ -1029,7 +1029,7 @@ define internal i32 @dissect_a11(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 274:                                              ; preds = %11
   %275 = load ptr, ptr %12, align 8
-  %276 = getelementptr inbounds i8, ptr %1, i64 408
+  %276 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %277 = load ptr, ptr %276, align 8
   %278 = tail call ptr @tvb_address_to_str(ptr noundef %277, ptr noundef %0, i32 noundef 2, i32 noundef 8) #3
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %275, i32 noundef 25, ptr noundef nonnull @.str.407, ptr noundef %278) #3
@@ -1053,7 +1053,7 @@ define internal i32 @dissect_a11(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 292:                                              ; preds = %11
   %293 = load ptr, ptr %12, align 8
-  %294 = getelementptr inbounds i8, ptr %1, i64 408
+  %294 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %295 = load ptr, ptr %294, align 8
   %296 = tail call ptr @tvb_address_to_str(ptr noundef %295, ptr noundef %0, i32 noundef 2, i32 noundef 8) #3
   %297 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 3) #3
@@ -1102,7 +1102,7 @@ define internal i32 @dissect_a11(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %323, label %.lr.ph.i, label %dissect_a11_extensions.exit
 
 .lr.ph.i:                                         ; preds = %319
-  %324 = getelementptr inbounds i8, ptr %1, i64 408
+  %324 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %325
 
 325:                                              ; preds = %dissect_a11_radius.exit.i, %.lr.ph.i

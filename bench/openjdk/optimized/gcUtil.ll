@@ -13,20 +13,20 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef float @_ZN23AdaptiveWeightedAverage24compute_adaptive_averageEff(ptr nocapture noundef nonnull readonly align 4 dereferenceable(20) %0, float noundef %1, float noundef %2) local_unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i8, ptr %4, align 4
   %6 = trunc i8 %5 to i1
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = udiv i32 100, %9
   br label %11
 
 11:                                               ; preds = %7, %3
   %.0 = phi i32 [ 0, %3 ], [ %10, %7 ]
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i32, ptr %12, align 4
   %14 = tail call noundef i32 @llvm.umax.i32(i32 %13, i32 %.0)
   %15 = uitofp i32 %14 to float
@@ -41,11 +41,11 @@ define hidden noundef float @_ZN23AdaptiveWeightedAverage24compute_adaptive_aver
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN23AdaptiveWeightedAverage6sampleEf(ptr nocapture noundef nonnull align 4 dereferenceable(20) initializes((16, 20)) %0, float noundef %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = add i32 %4, 1
   store i32 %5, ptr %3, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
   %8 = trunc i8 %7 to i1
   %9 = icmp ult i32 %5, 101
@@ -69,7 +69,7 @@ _ZN23AdaptiveWeightedAverage15increment_countEv.exit: ; preds = %2
 _ZN23AdaptiveWeightedAverage24compute_adaptive_averageEff.exit: ; preds = %_ZN23AdaptiveWeightedAverage15increment_countEv.exit.thread, %_ZN23AdaptiveWeightedAverage15increment_countEv.exit, %13
   %15 = phi float [ %11, %_ZN23AdaptiveWeightedAverage15increment_countEv.exit ], [ %11, %13 ], [ %10, %_ZN23AdaptiveWeightedAverage15increment_countEv.exit.thread ]
   %.0.i = phi i32 [ 0, %_ZN23AdaptiveWeightedAverage15increment_countEv.exit ], [ %14, %13 ], [ 0, %_ZN23AdaptiveWeightedAverage15increment_countEv.exit.thread ]
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i32, ptr %16, align 4
   %18 = tail call noundef i32 @llvm.umax.i32(i32 %17, i32 %.0.i)
   %19 = uitofp i32 %18 to float
@@ -80,7 +80,7 @@ _ZN23AdaptiveWeightedAverage24compute_adaptive_averageEff.exit: ; preds = %_ZN23
   %24 = fdiv float %23, 1.000000e+02
   %25 = fadd float %24, %22
   store float %25, ptr %0, align 4
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store float %1, ptr %26, align 4
   ret void
 }
@@ -138,11 +138,11 @@ define hidden void @_ZNK30AdaptivePaddedNoZeroDevAverage8print_onEP12outputStrea
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN21AdaptivePaddedAverage6sampleEf(ptr nocapture noundef nonnull align 4 dereferenceable(32) initializes((16, 24)) %0, float noundef %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = add i32 %4, 1
   store i32 %5, ptr %3, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
   %8 = trunc i8 %7 to i1
   %9 = icmp ult i32 %5, 101
@@ -166,7 +166,7 @@ _ZN23AdaptiveWeightedAverage6sampleEf.exit:       ; preds = %_ZN23AdaptiveWeight
   %14 = phi i8 [ %7, %_ZN23AdaptiveWeightedAverage15increment_countEv.exit.i ], [ %7, %12 ], [ 1, %_ZN23AdaptiveWeightedAverage15increment_countEv.exit.thread.i ]
   %15 = phi float [ %11, %_ZN23AdaptiveWeightedAverage15increment_countEv.exit.i ], [ %11, %12 ], [ %10, %_ZN23AdaptiveWeightedAverage15increment_countEv.exit.thread.i ]
   %.0.i.i = phi i32 [ 0, %_ZN23AdaptiveWeightedAverage15increment_countEv.exit.i ], [ %13, %12 ], [ 0, %_ZN23AdaptiveWeightedAverage15increment_countEv.exit.thread.i ]
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i32, ptr %16, align 4
   %18 = tail call noundef i32 @llvm.umax.i32(i32 %17, i32 %.0.i.i)
   %19 = uitofp i32 %18 to float
@@ -177,7 +177,7 @@ _ZN23AdaptiveWeightedAverage6sampleEf.exit:       ; preds = %_ZN23AdaptiveWeight
   %24 = fdiv float %23, 1.000000e+02
   %25 = fadd float %24, %22
   store float %25, ptr %0, align 4
-  %26 = getelementptr inbounds i8, ptr %0, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = load float, ptr %26, align 4
   %28 = trunc i8 %14 to i1
   br i1 %28, label %_ZN23AdaptiveWeightedAverage24compute_adaptive_averageEff.exit, label %29
@@ -188,7 +188,7 @@ _ZN23AdaptiveWeightedAverage6sampleEf.exit:       ; preds = %_ZN23AdaptiveWeight
 
 _ZN23AdaptiveWeightedAverage24compute_adaptive_averageEff.exit: ; preds = %_ZN23AdaptiveWeightedAverage6sampleEf.exit, %29
   %.0.i = phi i32 [ 0, %_ZN23AdaptiveWeightedAverage6sampleEf.exit ], [ %30, %29 ]
-  %31 = getelementptr inbounds i8, ptr %0, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = fsub float %1, %25
   %33 = tail call noundef float @llvm.fabs.f32(float %32)
   %34 = tail call noundef i32 @llvm.umax.i32(i32 %17, i32 %.0.i)
@@ -200,11 +200,11 @@ _ZN23AdaptiveWeightedAverage24compute_adaptive_averageEff.exit: ; preds = %_ZN23
   %40 = fdiv float %39, 1.000000e+02
   %41 = fadd float %40, %38
   store float %41, ptr %26, align 4
-  %42 = getelementptr inbounds i8, ptr %0, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %43 = load i32, ptr %42, align 4
   %44 = uitofp i32 %43 to float
   %45 = tail call float @llvm.fmuladd.f32(float %44, float %41, float %25)
-  %46 = getelementptr inbounds i8, ptr %0, i64 20
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store float %45, ptr %46, align 4
   store float %1, ptr %31, align 4
   ret void
@@ -215,11 +215,11 @@ declare float @llvm.fmuladd.f32(float, float, float) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN30AdaptivePaddedNoZeroDevAverage6sampleEf(ptr nocapture noundef nonnull align 4 dereferenceable(32) initializes((16, 24)) %0, float noundef %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = add i32 %4, 1
   store i32 %5, ptr %3, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 4
   %8 = trunc i8 %7 to i1
   %9 = icmp ult i32 %5, 101
@@ -243,7 +243,7 @@ _ZN23AdaptiveWeightedAverage6sampleEf.exit:       ; preds = %_ZN23AdaptiveWeight
   %14 = phi i8 [ %7, %_ZN23AdaptiveWeightedAverage15increment_countEv.exit.i ], [ %7, %12 ], [ 1, %_ZN23AdaptiveWeightedAverage15increment_countEv.exit.thread.i ]
   %15 = phi float [ %11, %_ZN23AdaptiveWeightedAverage15increment_countEv.exit.i ], [ %11, %12 ], [ %10, %_ZN23AdaptiveWeightedAverage15increment_countEv.exit.thread.i ]
   %.0.i.i = phi i32 [ 0, %_ZN23AdaptiveWeightedAverage15increment_countEv.exit.i ], [ %13, %12 ], [ 0, %_ZN23AdaptiveWeightedAverage15increment_countEv.exit.thread.i ]
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i32, ptr %16, align 4
   %18 = tail call noundef i32 @llvm.umax.i32(i32 %17, i32 %.0.i.i)
   %19 = uitofp i32 %18 to float
@@ -258,14 +258,14 @@ _ZN23AdaptiveWeightedAverage6sampleEf.exit:       ; preds = %_ZN23AdaptiveWeight
   br i1 %26, label %27, label %_ZN23AdaptiveWeightedAverage6sampleEf.exit._crit_edge
 
 _ZN23AdaptiveWeightedAverage6sampleEf.exit._crit_edge: ; preds = %_ZN23AdaptiveWeightedAverage6sampleEf.exit
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 24
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.pre = load float, ptr %.phi.trans.insert, align 4
   br label %43
 
 27:                                               ; preds = %_ZN23AdaptiveWeightedAverage6sampleEf.exit
   %28 = fsub float %1, %25
   %29 = tail call noundef float @llvm.fabs.f32(float %28)
-  %30 = getelementptr inbounds i8, ptr %0, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %31 = load float, ptr %30, align 4
   %32 = trunc i8 %14 to i1
   br i1 %32, label %_ZN23AdaptiveWeightedAverage24compute_adaptive_averageEff.exit, label %33
@@ -289,12 +289,12 @@ _ZN23AdaptiveWeightedAverage24compute_adaptive_averageEff.exit: ; preds = %27, %
 
 43:                                               ; preds = %_ZN23AdaptiveWeightedAverage6sampleEf.exit._crit_edge, %_ZN23AdaptiveWeightedAverage24compute_adaptive_averageEff.exit
   %44 = phi float [ %.pre, %_ZN23AdaptiveWeightedAverage6sampleEf.exit._crit_edge ], [ %42, %_ZN23AdaptiveWeightedAverage24compute_adaptive_averageEff.exit ]
-  %45 = getelementptr inbounds i8, ptr %0, i64 16
-  %46 = getelementptr inbounds i8, ptr %0, i64 28
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %47 = load i32, ptr %46, align 4
   %48 = uitofp i32 %47 to float
   %49 = tail call float @llvm.fmuladd.f32(float %48, float %44, float %25)
-  %50 = getelementptr inbounds i8, ptr %0, i64 20
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store float %49, ptr %50, align 4
   store float %1, ptr %45, align 4
   ret void
@@ -302,22 +302,22 @@ _ZN23AdaptiveWeightedAverage24compute_adaptive_averageEff.exit: ; preds = %27, %
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN20LinearLeastSquareFitC2Ej(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((0, 61), (64, 81), (84, 88)) %0, i32 noundef %1) unnamed_addr #5 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   store i32 %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 60
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i8 0, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store float 0.000000e+00, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 68
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store float 0.000000e+00, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 76
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 %1, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i8 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 84
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store float 0.000000e+00, ptr %10, align 4
   ret void
 }
@@ -327,25 +327,25 @@ define hidden void @_ZN20LinearLeastSquareFit6updateEdd(ptr nocapture noundef no
   %4 = load double, ptr %0, align 8
   %5 = fadd double %1, %4
   store double %5, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load double, ptr %6, align 8
   %8 = tail call double @llvm.fmuladd.f64(double %1, double %1, double %7)
   store double %8, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load double, ptr %9, align 8
   %11 = fadd double %2, %10
   store double %11, ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load double, ptr %12, align 8
   %14 = tail call double @llvm.fmuladd.f64(double %1, double %2, double %13)
   store double %14, ptr %12, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = fptrunc double %1 to float
-  %17 = getelementptr inbounds i8, ptr %0, i64 52
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %18 = load i32, ptr %17, align 4
   %19 = add i32 %18, 1
   store i32 %19, ptr %17, align 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 60
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %21 = load i8, ptr %20, align 4
   %22 = trunc i8 %21 to i1
   %23 = icmp ult i32 %19, 101
@@ -368,7 +368,7 @@ _ZN23AdaptiveWeightedAverage15increment_countEv.exit.i: ; preds = %3
 _ZN23AdaptiveWeightedAverage6sampleEf.exit:       ; preds = %_ZN23AdaptiveWeightedAverage15increment_countEv.exit.thread.i, %_ZN23AdaptiveWeightedAverage15increment_countEv.exit.i, %26
   %28 = phi float [ %25, %_ZN23AdaptiveWeightedAverage15increment_countEv.exit.i ], [ %25, %26 ], [ %24, %_ZN23AdaptiveWeightedAverage15increment_countEv.exit.thread.i ]
   %.0.i.i = phi i32 [ 0, %_ZN23AdaptiveWeightedAverage15increment_countEv.exit.i ], [ %27, %26 ], [ 0, %_ZN23AdaptiveWeightedAverage15increment_countEv.exit.thread.i ]
-  %29 = getelementptr inbounds i8, ptr %0, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %30 = load i32, ptr %29, align 8
   %31 = tail call noundef i32 @llvm.umax.i32(i32 %30, i32 %.0.i.i)
   %32 = uitofp i32 %31 to float
@@ -379,15 +379,15 @@ _ZN23AdaptiveWeightedAverage6sampleEf.exit:       ; preds = %_ZN23AdaptiveWeight
   %37 = fdiv float %36, 1.000000e+02
   %38 = fadd float %37, %35
   store float %38, ptr %15, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 64
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store float %16, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 68
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %41 = fptrunc double %2 to float
-  %42 = getelementptr inbounds i8, ptr %0, i64 72
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %43 = load i32, ptr %42, align 8
   %44 = add i32 %43, 1
   store i32 %44, ptr %42, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 80
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %46 = load i8, ptr %45, align 8
   %47 = trunc i8 %46 to i1
   %48 = icmp ult i32 %44, 101
@@ -410,7 +410,7 @@ _ZN23AdaptiveWeightedAverage15increment_countEv.exit.i15: ; preds = %_ZN23Adapti
 _ZN23AdaptiveWeightedAverage6sampleEf.exit16:     ; preds = %_ZN23AdaptiveWeightedAverage15increment_countEv.exit.thread.i13, %_ZN23AdaptiveWeightedAverage15increment_countEv.exit.i15, %51
   %53 = phi float [ %50, %_ZN23AdaptiveWeightedAverage15increment_countEv.exit.i15 ], [ %50, %51 ], [ %49, %_ZN23AdaptiveWeightedAverage15increment_countEv.exit.thread.i13 ]
   %.0.i.i14 = phi i32 [ 0, %_ZN23AdaptiveWeightedAverage15increment_countEv.exit.i15 ], [ %52, %51 ], [ 0, %_ZN23AdaptiveWeightedAverage15increment_countEv.exit.thread.i13 ]
-  %54 = getelementptr inbounds i8, ptr %0, i64 76
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %55 = load i32, ptr %54, align 4
   %56 = tail call noundef i32 @llvm.umax.i32(i32 %55, i32 %.0.i.i14)
   %57 = uitofp i32 %56 to float
@@ -421,7 +421,7 @@ _ZN23AdaptiveWeightedAverage6sampleEf.exit16:     ; preds = %_ZN23AdaptiveWeight
   %62 = fdiv float %61, 1.000000e+02
   %63 = fadd float %62, %60
   store float %63, ptr %40, align 4
-  %64 = getelementptr inbounds i8, ptr %0, i64 84
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store float %41, ptr %64, align 4
   %65 = icmp ugt i32 %19, 1
   br i1 %65, label %66, label %82
@@ -439,12 +439,12 @@ _ZN23AdaptiveWeightedAverage6sampleEf.exit16:     ; preds = %_ZN23AdaptiveWeight
   %74 = fmul double %5, %73
   %75 = tail call double @llvm.fmuladd.f64(double %67, double %14, double %74)
   %76 = fdiv double %75, %70
-  %77 = getelementptr inbounds i8, ptr %0, i64 40
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store double %76, ptr %77, align 8
   %78 = fneg double %76
   %79 = tail call double @llvm.fmuladd.f64(double %78, double %5, double %11)
   %80 = fdiv double %79, %67
-  %81 = getelementptr inbounds i8, ptr %0, i64 32
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store double %80, ptr %81, align 8
   br label %82
 
@@ -457,21 +457,21 @@ declare double @llvm.fmuladd.f64(double, double, double) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef double @_ZN20LinearLeastSquareFit1yEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0, double noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 52
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %4 = load i32, ptr %3, align 4
   %5 = icmp ugt i32 %4, 1
   br i1 %5, label %6, label %12
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load double, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load double, ptr %9, align 8
   %11 = tail call double @llvm.fmuladd.f64(double %10, double %1, double %8)
   br label %16
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 68
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %14 = load float, ptr %13, align 4
   %15 = fpext float %14 to double
   br label %16
@@ -483,7 +483,7 @@ define hidden noundef double @_ZN20LinearLeastSquareFit1yEd(ptr nocapture nounde
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZN20LinearLeastSquareFit23decrement_will_decreaseEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load double, ptr %2, align 8
   %4 = fcmp oge double %3, 0.000000e+00
   ret i1 %4
@@ -491,7 +491,7 @@ define hidden noundef zeroext i1 @_ZN20LinearLeastSquareFit23decrement_will_decr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZN20LinearLeastSquareFit23increment_will_decreaseEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load double, ptr %2, align 8
   %4 = fcmp ole double %3, 0.000000e+00
   ret i1 %4

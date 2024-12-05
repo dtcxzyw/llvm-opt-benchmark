@@ -69,7 +69,7 @@ define void @_ZN2cv7fitLineERKNS_11_InputArrayERKNS_12_OutputArrayEiddd(ptr noun
   br i1 %26, label %27, label %30
 
 27:                                               ; preds = %.noexc
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load ptr, ptr %28, align 8, !noalias !4
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %18, ptr noundef nonnull align 8 dereferenceable(96) %29)
           to label %_ZNK2cv11_InputArray6getMatEi.exit unwind label %37
@@ -139,8 +139,8 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %27, %30
 
 52:                                               ; preds = %49
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %22) #17
-  %53 = getelementptr inbounds i8, ptr %23, i64 8
-  %54 = getelementptr inbounds i8, ptr %23, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store i64 0, ptr %54, align 8
   store i32 33619968, ptr %23, align 8
   store ptr %22, ptr %53, align 8
@@ -171,7 +171,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %27, %30
   br label %.body
 
 63:                                               ; preds = %49, %57
-  %64 = getelementptr inbounds i8, ptr %18, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %65 = load ptr, ptr %64, align 8
   %66 = fptrunc double %3 to float
   %67 = fptrunc double %4 to float
@@ -250,9 +250,9 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %27, %30
   %.0.i = phi ptr [ null, %81 ], [ null, %80 ], [ null, %79 ], [ @_ZN2cvL9weightL12EPfiS0_, %78 ], [ @_ZN2cvL8weightL1EPfiS0_, %69 ]
   %91 = shl nuw nsw i32 %31, 1
   %92 = zext nneg i32 %91 to i64
-  %93 = getelementptr inbounds i8, ptr %16, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %93, ptr %16, align 8
-  %94 = getelementptr inbounds i8, ptr %16, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %.not.i.i.i = icmp samesign ugt i32 %31, 132
   store i64 %92, ptr %94, align 8
   br i1 %.not.i.i.i, label %95, label %_ZN2cv10AutoBufferIfLm264EEC2Em.exit.i
@@ -269,13 +269,13 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %27, %30
 _ZN2cv10AutoBufferIfLm264EEC2Em.exit.i:           ; preds = %.noexc32, %90
   %98 = phi ptr [ %93, %90 ], [ %97, %.noexc32 ]
   %99 = zext nneg i32 %31 to i64
-  %100 = getelementptr inbounds float, ptr %98, i64 %99
+  %100 = getelementptr inbounds nuw float, ptr %98, i64 %99
   %.not.i = icmp eq i32 %31, 0
   %101 = call i32 @llvm.umin.i32(i32 range(i32 0, -2147483648) %31, i32 10)
-  %102 = getelementptr inbounds i8, ptr %13, i64 4
+  %102 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %103 = fpext float %76 to double
-  %104 = getelementptr inbounds i8, ptr %13, i64 8
-  %105 = getelementptr inbounds i8, ptr %13, i64 12
+  %104 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %13, i64 12
   %106 = shl nuw nsw i64 %99, 2
   br label %.preheader138.i
 
@@ -326,7 +326,7 @@ _ZN2cv3RNG7uniformEii.exit.i:                     ; preds = %122, %_ZN2cv3RNG7un
   %114 = trunc i64 %113 to i32
   %115 = urem i32 %114, %31
   %116 = zext nneg i32 %115 to i64
-  %117 = getelementptr inbounds float, ptr %98, i64 %116
+  %117 = getelementptr inbounds nuw float, ptr %98, i64 %116
   %118 = load float, ptr %117, align 4
   %119 = fcmp olt float %118, 0x3E80000000000000
   br i1 %119, label %120, label %122
@@ -403,16 +403,16 @@ _ZN2cv3RNG7uniformEii.exit.i:                     ; preds = %122, %_ZN2cv3RNG7un
 .lr.ph.i.i:                                       ; preds = %146, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %146 ]
   %.02223.i.i = phi double [ %162, %.lr.ph.i.i ], [ 0.000000e+00, %146 ]
-  %151 = getelementptr inbounds %"class.cv::Point_", ptr %65, i64 %indvars.iv.i.i
+  %151 = getelementptr inbounds nuw %"class.cv::Point_", ptr %65, i64 %indvars.iv.i.i
   %152 = load float, ptr %151, align 4
   %153 = fsub float %152, %149
-  %154 = getelementptr inbounds i8, ptr %151, i64 4
+  %154 = getelementptr inbounds nuw i8, ptr %151, i64 4
   %155 = load float, ptr %154, align 4
   %156 = fsub float %155, %148
   %157 = fmul float %156, %150
   %158 = call float @llvm.fmuladd.f32(float %124, float %153, float %157)
   %159 = call noundef float @llvm.fabs.f32(float %158)
-  %160 = getelementptr inbounds float, ptr %100, i64 %indvars.iv.i.i
+  %160 = getelementptr inbounds nuw float, ptr %100, i64 %indvars.iv.i.i
   store float %159, ptr %160, align 4
   %161 = fpext float %159 to double
   %162 = fadd double %.02223.i.i, %161
@@ -448,7 +448,7 @@ _ZN2cvL10calcDist2DEPKNS_6Point_IfEEiPfS4_.exit.i: ; preds = %.lr.ph.i.i, %146
 .lr.ph176.i:                                      ; preds = %169, %.lr.ph176.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph176.i ], [ 0, %169 ]
   %.0102173.i = phi double [ %173, %.lr.ph176.i ], [ 0.000000e+00, %169 ]
-  %170 = getelementptr inbounds float, ptr %98, i64 %indvars.iv.i
+  %170 = getelementptr inbounds nuw float, ptr %98, i64 %indvars.iv.i
   %171 = load float, ptr %170, align 4
   %172 = fpext float %171 to double
   %173 = fadd double %.0102173.i, %172
@@ -467,7 +467,7 @@ _ZN2cvL10calcDist2DEPKNS_6Point_IfEEiPfS4_.exit.i: ; preds = %.lr.ph.i.i, %146
 
 .lr.ph183.i:                                      ; preds = %.lr.ph183.i, %176
   %indvars.iv235.i = phi i64 [ %indvars.iv.next236.i, %.lr.ph183.i ], [ 0, %176 ]
-  %178 = getelementptr inbounds float, ptr %98, i64 %indvars.iv235.i
+  %178 = getelementptr inbounds nuw float, ptr %98, i64 %indvars.iv235.i
   %179 = load float, ptr %178, align 4
   %180 = fpext float %179 to double
   %181 = fmul double %177, %180
@@ -479,7 +479,7 @@ _ZN2cvL10calcDist2DEPKNS_6Point_IfEEiPfS4_.exit.i: ; preds = %.lr.ph.i.i, %146
 
 .lr.ph180.i:                                      ; preds = %._crit_edge177.i, %.lr.ph180.i
   %indvars.iv230.i = phi i64 [ %indvars.iv.next231.i, %.lr.ph180.i ], [ 0, %._crit_edge177.i ]
-  %183 = getelementptr inbounds float, ptr %98, i64 %indvars.iv230.i
+  %183 = getelementptr inbounds nuw float, ptr %98, i64 %indvars.iv230.i
   store float 1.000000e+00, ptr %183, align 4
   %indvars.iv.next231.i = add nuw nsw i64 %indvars.iv230.i, 1
   %exitcond234.not.i = icmp eq i64 %indvars.iv.next231.i, %99
@@ -528,14 +528,14 @@ _ZN2cvL10calcDist2DEPKNS_6Point_IfEEiPfS4_.exit.i: ; preds = %.lr.ph.i.i, %146
   %.2106119.i.i = phi double [ %211, %.preheader116.i.i ], [ 0.000000e+00, %.loopexit.i ]
   %.2109118.i.i = phi double [ %208, %.preheader116.i.i ], [ 0.000000e+00, %.loopexit.i ]
   %.2112117.i.i = phi double [ %205, %.preheader116.i.i ], [ 0.000000e+00, %.loopexit.i ]
-  %191 = getelementptr inbounds float, ptr %98, i64 %indvars.iv.i124.i
+  %191 = getelementptr inbounds nuw float, ptr %98, i64 %indvars.iv.i124.i
   %192 = load float, ptr %191, align 4
-  %193 = getelementptr inbounds %"class.cv::Point_", ptr %65, i64 %indvars.iv.i124.i
+  %193 = getelementptr inbounds nuw %"class.cv::Point_", ptr %65, i64 %indvars.iv.i124.i
   %194 = load float, ptr %193, align 4
   %195 = fmul float %192, %194
   %196 = fpext float %195 to double
   %197 = fadd double %.2122.i.i, %196
-  %198 = getelementptr inbounds i8, ptr %193, i64 4
+  %198 = getelementptr inbounds nuw i8, ptr %193, i64 4
   %199 = load float, ptr %198, align 4
   %200 = fmul float %192, %199
   %201 = fpext float %200 to double
@@ -701,9 +701,9 @@ _ZN2cvL9fitLine2DEPKNS_6Point_IfEEiifffPf.exit:   ; preds = %77, %240, %243
   %.0.i33 = phi ptr [ null, %256 ], [ null, %255 ], [ null, %254 ], [ @_ZN2cvL9weightL12EPfiS0_, %253 ], [ @_ZN2cvL8weightL1EPfiS0_, %244 ]
   %266 = shl nsw i32 %33, 1
   %267 = sext i32 %266 to i64
-  %268 = getelementptr inbounds i8, ptr %10, i64 16
+  %268 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %268, ptr %10, align 8
-  %269 = getelementptr inbounds i8, ptr %10, i64 8
+  %269 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.not.i.i.i34 = icmp ugt i32 %266, 264
   store i64 %267, ptr %269, align 8
   br i1 %.not.i.i.i34, label %270, label %_ZN2cv10AutoBufferIfLm264EEC2Em.exit.i35
@@ -725,12 +725,12 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit.i35:         ; preds = %.noexc62, %265
   %277 = getelementptr inbounds float, ptr %275, i64 %276
   %278 = icmp sgt i32 %33, 0
   %279 = call i32 @llvm.smin.i32(i32 %33, i32 10)
-  %280 = getelementptr inbounds i8, ptr %7, i64 4
-  %281 = getelementptr inbounds i8, ptr %7, i64 8
+  %280 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %281 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %282 = fpext float %251 to double
-  %283 = getelementptr inbounds i8, ptr %7, i64 12
-  %284 = getelementptr inbounds i8, ptr %7, i64 16
-  %285 = getelementptr inbounds i8, ptr %7, i64 20
+  %283 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %284 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %285 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %wide.trip.count.i.i = zext i32 %33 to i64
   %286 = shl nuw nsw i64 %wide.trip.count.i.i, 2
   br label %.preheader156.i
@@ -762,7 +762,7 @@ _ZN2cv3RNG7uniformEii.exit.i58:                   ; preds = %303, %_ZN2cv3RNG7un
   %291 = trunc i64 %290 to i32
   %292 = urem i32 %291, %33
   %293 = zext nneg i32 %292 to i64
-  %294 = getelementptr inbounds float, ptr %275, i64 %293
+  %294 = getelementptr inbounds nuw float, ptr %275, i64 %293
   %295 = load float, ptr %294, align 4
   %296 = fcmp olt float %295, 0x3E80000000000000
   br i1 %296, label %297, label %303
@@ -881,13 +881,13 @@ _ZN2cv3RNG7uniformEii.exit.i58:                   ; preds = %303, %_ZN2cv3RNG7un
 .lr.ph.i.i53:                                     ; preds = %344, %.lr.ph.i.i53
   %indvars.iv.i.i54 = phi i64 [ %indvars.iv.next.i.i55, %.lr.ph.i.i53 ], [ 0, %344 ]
   %.04142.i.i = phi double [ %377, %.lr.ph.i.i53 ], [ 0.000000e+00, %344 ]
-  %350 = getelementptr inbounds %"class.cv::Point3_", ptr %65, i64 %indvars.iv.i.i54
+  %350 = getelementptr inbounds nuw %"class.cv::Point3_", ptr %65, i64 %indvars.iv.i.i54
   %351 = load float, ptr %350, align 4
   %352 = fsub float %351, %348
-  %353 = getelementptr inbounds i8, ptr %350, i64 4
+  %353 = getelementptr inbounds nuw i8, ptr %350, i64 4
   %354 = load float, ptr %353, align 4
   %355 = fsub float %354, %349
-  %356 = getelementptr inbounds i8, ptr %350, i64 8
+  %356 = getelementptr inbounds nuw i8, ptr %350, i64 8
   %357 = load float, ptr %356, align 4
   %358 = fsub float %357, %347
   %359 = fneg float %355
@@ -907,7 +907,7 @@ _ZN2cv3RNG7uniformEii.exit.i58:                   ; preds = %303, %_ZN2cv3RNG7un
   %373 = call double @llvm.fmuladd.f64(double %370, double %370, double %372)
   %sqrt.i.i = call double @llvm.sqrt.f64(double %373)
   %374 = fptrunc double %sqrt.i.i to float
-  %375 = getelementptr inbounds float, ptr %277, i64 %indvars.iv.i.i54
+  %375 = getelementptr inbounds nuw float, ptr %277, i64 %indvars.iv.i.i54
   store float %374, ptr %375, align 4
   %376 = fpext float %374 to double
   %377 = fadd double %.04142.i.i, %376
@@ -943,7 +943,7 @@ _ZN2cvL10calcDist3DEPKNS_7Point3_IfEEiPfS4_.exit.i: ; preds = %.lr.ph.i.i53, %34
 .lr.ph187.i:                                      ; preds = %384, %.lr.ph187.i
   %indvars.iv.i49 = phi i64 [ %indvars.iv.next.i50, %.lr.ph187.i ], [ 0, %384 ]
   %.0123184.i = phi double [ %388, %.lr.ph187.i ], [ 0.000000e+00, %384 ]
-  %385 = getelementptr inbounds float, ptr %275, i64 %indvars.iv.i49
+  %385 = getelementptr inbounds nuw float, ptr %275, i64 %indvars.iv.i49
   %386 = load float, ptr %385, align 4
   %387 = fpext float %386 to double
   %388 = fadd double %.0123184.i, %387
@@ -962,7 +962,7 @@ _ZN2cvL10calcDist3DEPKNS_7Point3_IfEEiPfS4_.exit.i: ; preds = %.lr.ph.i.i53, %34
 
 .lr.ph194.i:                                      ; preds = %.lr.ph194.i, %391
   %indvars.iv239.i = phi i64 [ %indvars.iv.next240.i, %.lr.ph194.i ], [ 0, %391 ]
-  %393 = getelementptr inbounds float, ptr %275, i64 %indvars.iv239.i
+  %393 = getelementptr inbounds nuw float, ptr %275, i64 %indvars.iv239.i
   %394 = load float, ptr %393, align 4
   %395 = fpext float %394 to double
   %396 = fmul double %392, %395
@@ -974,7 +974,7 @@ _ZN2cvL10calcDist3DEPKNS_7Point3_IfEEiPfS4_.exit.i: ; preds = %.lr.ph.i.i53, %34
 
 .lr.ph191.i:                                      ; preds = %._crit_edge188.i, %.lr.ph191.i
   %indvars.iv234.i = phi i64 [ %indvars.iv.next235.i, %.lr.ph191.i ], [ 0, %._crit_edge188.i ]
-  %398 = getelementptr inbounds float, ptr %275, i64 %indvars.iv234.i
+  %398 = getelementptr inbounds nuw float, ptr %275, i64 %indvars.iv234.i
   store float 1.000000e+00, ptr %398, align 4
   %indvars.iv.next235.i = add nuw nsw i64 %indvars.iv234.i, 1
   %exitcond238.not.i = icmp eq i64 %indvars.iv.next235.i, %wide.trip.count.i.i
@@ -1049,7 +1049,7 @@ _ZN2cvL9fitLine3DEPNS_7Point3_IfEEiifffPf.exit:   ; preds = %252, %406, %409
 413:                                              ; preds = %412
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %24) #17
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %18) #17
-  %414 = getelementptr inbounds i8, ptr %17, i64 8
+  %414 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %415 = load i32, ptr %414, align 8
   %.not.i65 = icmp eq i32 %415, 0
   br i1 %.not.i65, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %416
@@ -1124,7 +1124,7 @@ declare void @_ZNK2cv3Mat6copyToERKNS_12_OutputArrayE(ptr noundef nonnull align 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %5, label %4
@@ -1185,9 +1185,9 @@ define void @cvFitLine(ptr noundef %0, i32 noundef %1, double noundef %2, double
   br label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit23
 
 22:                                               ; preds = %6
-  %23 = getelementptr inbounds i8, ptr %9, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %23, ptr %9, align 8
-  %24 = getelementptr inbounds i8, ptr %9, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 136, ptr %24, align 8
   invoke void @_ZN2cv10cvarrToMatEPKvbbiPNS_10AutoBufferIdLm136EEE(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %10, ptr noundef %0, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef 0, ptr noundef nonnull %9)
           to label %25 unwind label %40
@@ -1203,15 +1203,15 @@ define void @cvFitLine(ptr noundef %0, i32 noundef %1, double noundef %2, double
           to label %30 unwind label %42
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %12, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 0, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %12, i64 20
+  %32 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i32 0, ptr %32, align 4
   store i32 16842752, ptr %12, align 8
-  %33 = getelementptr inbounds i8, ptr %12, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %10, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %13, i64 8
-  %35 = getelementptr inbounds i8, ptr %13, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 0, ptr %35, align 8
   store i32 33619968, ptr %13, align 8
   store ptr %11, ptr %34, align 8
@@ -1327,11 +1327,11 @@ define internal fastcc void @_ZN2cvL14fitLine2D_wodsEPKNS_6Point_IfEEiPfS4_(ptr 
   %.0104126 = phi double [ %33, %.preheader ], [ 0.000000e+00, %15 ]
   %.0107125 = phi double [ %30, %.preheader ], [ 0.000000e+00, %15 ]
   %.0110124 = phi double [ %27, %.preheader ], [ 0.000000e+00, %15 ]
-  %17 = getelementptr inbounds %"class.cv::Point_", ptr %0, i64 %indvars.iv141
+  %17 = getelementptr inbounds nuw %"class.cv::Point_", ptr %0, i64 %indvars.iv141
   %18 = load float, ptr %17, align 4
   %19 = fpext float %18 to double
   %20 = fadd double %.097128, %19
-  %21 = getelementptr inbounds i8, ptr %17, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %22 = load float, ptr %21, align 4
   %23 = fpext float %22 to double
   %24 = fadd double %.099127, %23
@@ -1361,14 +1361,14 @@ define internal fastcc void @_ZN2cvL14fitLine2D_wodsEPKNS_6Point_IfEEiPfS4_(ptr 
   %.2106119 = phi double [ %57, %.preheader116 ], [ 0.000000e+00, %15 ]
   %.2109118 = phi double [ %54, %.preheader116 ], [ 0.000000e+00, %15 ]
   %.2112117 = phi double [ %51, %.preheader116 ], [ 0.000000e+00, %15 ]
-  %37 = getelementptr inbounds float, ptr %2, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
   %38 = load float, ptr %37, align 4
-  %39 = getelementptr inbounds %"class.cv::Point_", ptr %0, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw %"class.cv::Point_", ptr %0, i64 %indvars.iv
   %40 = load float, ptr %39, align 4
   %41 = fmul float %38, %40
   %42 = fpext float %41 to double
   %43 = fadd double %.2122, %42
-  %44 = getelementptr inbounds i8, ptr %39, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %45 = load float, ptr %44, align 4
   %46 = fmul float %38, %45
   %47 = fpext float %46 to double
@@ -1413,13 +1413,13 @@ define internal fastcc void @_ZN2cvL14fitLine2D_wodsEPKNS_6Point_IfEEiPfS4_(ptr 
   %75 = tail call noundef float @cosf(float noundef %74) #17
   store float %75, ptr %3, align 4
   %76 = tail call noundef float @sinf(float noundef %74) #17
-  %77 = getelementptr inbounds i8, ptr %3, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store float %76, ptr %77, align 4
   %78 = fptrunc double %60 to float
-  %79 = getelementptr inbounds i8, ptr %3, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store float %78, ptr %79, align 4
   %80 = fptrunc double %61 to float
-  %81 = getelementptr inbounds i8, ptr %3, i64 12
+  %81 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store float %80, ptr %81, align 4
   ret void
 }
@@ -1435,7 +1435,7 @@ define internal void @_ZN2cvL8weightL1EPfiS0_(ptr nocapture noundef readonly %0,
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %5 = getelementptr inbounds float, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
   %6 = load float, ptr %5, align 4
   %7 = tail call float @llvm.fabs.f32(float %6)
   %8 = fpext float %7 to double
@@ -1443,7 +1443,7 @@ define internal void @_ZN2cvL8weightL1EPfiS0_(ptr nocapture noundef readonly %0,
   %10 = select i1 %9, double 0x3EB0C6F7A0B5ED8D, double %8
   %11 = fdiv double 1.000000e+00, %10
   %12 = fptrunc double %11 to float
-  %13 = getelementptr inbounds float, ptr %2, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
   store float %12, ptr %13, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1464,7 +1464,7 @@ define internal void @_ZN2cvL9weightL12EPfiS0_(ptr nocapture noundef readonly %0
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %5 = getelementptr inbounds float, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
   %6 = load float, ptr %5, align 4
   %7 = fmul float %6, %6
   %8 = fpext float %7 to double
@@ -1472,7 +1472,7 @@ define internal void @_ZN2cvL9weightL12EPfiS0_(ptr nocapture noundef readonly %0
   %10 = tail call double @sqrt(double noundef %9) #17
   %11 = fptrunc double %10 to float
   %12 = fdiv float 1.000000e+00, %11
-  %13 = getelementptr inbounds float, ptr %2, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
   store float %12, ptr %13, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1496,11 +1496,11 @@ define internal void @_ZN2cvL10weightFairEPfiS0_f(ptr nocapture noundef readonly
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %9 = getelementptr inbounds float, ptr %0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
   %10 = load float, ptr %9, align 4
   %11 = tail call float @llvm.fmuladd.f32(float %10, float %7, float 1.000000e+00)
   %12 = fdiv float 1.000000e+00, %11
-  %13 = getelementptr inbounds float, ptr %2, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
   store float %12, ptr %13, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1524,14 +1524,14 @@ define internal void @_ZN2cvL12weightWelschEPfiS0_f(ptr nocapture noundef readon
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %9 = getelementptr inbounds float, ptr %0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
   %10 = load float, ptr %9, align 4
   %11 = fneg float %10
   %12 = fmul float %10, %11
   %13 = fmul float %7, %12
   %14 = fmul float %7, %13
   %15 = tail call noundef float @expf(float noundef %14) #17
-  %16 = getelementptr inbounds float, ptr %2, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
   store float %15, ptr %16, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1554,12 +1554,12 @@ define internal void @_ZN2cvL11weightHuberEPfiS0_f(ptr nocapture noundef readonl
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %8 = getelementptr inbounds float, ptr %0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
   %9 = load float, ptr %8, align 4
   %10 = fcmp olt float %9, %6
   %11 = fdiv float %6, %9
   %.sink = select i1 %10, float 1.000000e+00, float %11
-  %12 = getelementptr inbounds float, ptr %2, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
   store float %.sink, ptr %12, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1671,13 +1671,13 @@ define internal fastcc void @_ZN2cvL14fitLine3D_wodsEPKNS_7Point3_IfEEiPfS4_(ptr
   %.0181205 = phi float [ %37, %.lr.ph ], [ 0.000000e+00, %25 ]
   %.0184204 = phi float [ %43, %.lr.ph ], [ 0.000000e+00, %25 ]
   %.0187203 = phi float [ %39, %.lr.ph ], [ 0.000000e+00, %25 ]
-  %26 = getelementptr inbounds %"class.cv::Point3_", ptr %0, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw %"class.cv::Point3_", ptr %0, i64 %indvars.iv
   %27 = load float, ptr %26, align 4
-  %28 = getelementptr inbounds i8, ptr %26, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %29 = load float, ptr %28, align 4
-  %30 = getelementptr inbounds i8, ptr %26, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %31 = load float, ptr %30, align 4
-  %32 = getelementptr inbounds float, ptr %2, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
   %33 = load float, ptr %32, align 4
   %34 = fmul float %27, %27
   %35 = tail call float @llvm.fmuladd.f32(float %34, float %33, float %.0172208)
@@ -1710,11 +1710,11 @@ define internal fastcc void @_ZN2cvL14fitLine3D_wodsEPKNS_7Point3_IfEEiPfS4_(ptr
   %.2183225 = phi float [ %57, %.lr.ph233 ], [ 0.000000e+00, %25 ]
   %.2186224 = phi float [ %60, %.lr.ph233 ], [ 0.000000e+00, %25 ]
   %.2189223 = phi float [ %58, %.lr.ph233 ], [ 0.000000e+00, %25 ]
-  %50 = getelementptr inbounds %"class.cv::Point3_", ptr %0, i64 %indvars.iv262
+  %50 = getelementptr inbounds nuw %"class.cv::Point3_", ptr %0, i64 %indvars.iv262
   %51 = load float, ptr %50, align 4
-  %52 = getelementptr inbounds i8, ptr %50, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 4
   %53 = load float, ptr %52, align 4
-  %54 = getelementptr inbounds i8, ptr %50, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %55 = load float, ptr %54, align 4
   %56 = tail call float @llvm.fmuladd.f32(float %51, float %51, float %.2174228)
   %57 = tail call float @llvm.fmuladd.f32(float %51, float %53, float %.2183225)
@@ -1765,25 +1765,25 @@ define internal fastcc void @_ZN2cvL14fitLine3D_wodsEPKNS_7Point3_IfEEiPfS4_(ptr
   %84 = fadd float %83, %80
   store float %84, ptr %7, align 16
   %85 = fneg float %77
-  %86 = getelementptr inbounds i8, ptr %7, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store float %85, ptr %86, align 4
   %87 = fneg float %78
-  %88 = getelementptr inbounds i8, ptr %7, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store float %87, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %7, i64 12
+  %89 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store float %85, ptr %89, align 4
   %90 = fadd float %76, %83
-  %91 = getelementptr inbounds i8, ptr %7, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store float %90, ptr %91, align 16
   %92 = fneg float %81
-  %93 = getelementptr inbounds i8, ptr %7, i64 20
+  %93 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store float %92, ptr %93, align 4
-  %94 = getelementptr inbounds i8, ptr %7, i64 24
+  %94 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store float %87, ptr %94, align 8
-  %95 = getelementptr inbounds i8, ptr %7, i64 28
+  %95 = getelementptr inbounds nuw i8, ptr %7, i64 28
   store float %92, ptr %95, align 4
   %96 = fadd float %80, %76
-  %97 = getelementptr inbounds i8, ptr %7, i64 32
+  %97 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store float %96, ptr %97, align 16
   call void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %10, i32 noundef 3, i32 noundef 3, i32 noundef 5, ptr noundef nonnull %7, i64 noundef 0)
   invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %11, i32 noundef 3, i32 noundef 3, i32 noundef 5, ptr noundef nonnull %8, i64 noundef 0)
@@ -1794,20 +1794,20 @@ define internal fastcc void @_ZN2cvL14fitLine3D_wodsEPKNS_7Point3_IfEEiPfS4_(ptr
           to label %99 unwind label %143
 
 99:                                               ; preds = %98
-  %100 = getelementptr inbounds i8, ptr %13, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i32 0, ptr %100, align 8
-  %101 = getelementptr inbounds i8, ptr %13, i64 20
+  %101 = getelementptr inbounds nuw i8, ptr %13, i64 20
   store i32 0, ptr %101, align 4
   store i32 16842752, ptr %13, align 8
-  %102 = getelementptr inbounds i8, ptr %13, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %10, ptr %102, align 8
-  %103 = getelementptr inbounds i8, ptr %14, i64 8
-  %104 = getelementptr inbounds i8, ptr %14, i64 16
+  %103 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i64 0, ptr %104, align 8
   store i32 33619968, ptr %14, align 8
   store ptr %12, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %15, i64 8
-  %106 = getelementptr inbounds i8, ptr %15, i64 16
+  %105 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i64 0, ptr %106, align 8
   store i32 33619968, ptr %15, align 8
   store ptr %11, ptr %105, align 8
@@ -1816,24 +1816,24 @@ define internal fastcc void @_ZN2cvL14fitLine3D_wodsEPKNS_7Point3_IfEEiPfS4_(ptr
 
 108:                                              ; preds = %99
   %109 = load float, ptr %9, align 4
-  %110 = getelementptr inbounds i8, ptr %9, i64 4
+  %110 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %111 = load float, ptr %110, align 4
   %112 = fcmp uge float %109, %111
-  %113 = getelementptr inbounds i8, ptr %9, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %114 = load float, ptr %113, align 4
   %. = select i1 %112, float %111, float %109
   %115 = fcmp olt float %., %114
   %116 = select i1 %112, i64 3, i64 0
   %117 = select i1 %115, i64 %116, i64 6
-  %118 = getelementptr inbounds [9 x float], ptr %8, i64 0, i64 %117
+  %118 = getelementptr inbounds nuw [9 x float], ptr %8, i64 0, i64 %117
   %119 = load float, ptr %118, align 4
   %120 = fpext float %119 to double
-  %121 = getelementptr inbounds i8, ptr %118, i64 4
+  %121 = getelementptr inbounds nuw i8, ptr %118, i64 4
   %122 = load float, ptr %121, align 4
   %123 = fpext float %122 to double
   %124 = fmul double %123, %123
   %125 = call double @llvm.fmuladd.f64(double %120, double %120, double %124)
-  %126 = getelementptr inbounds i8, ptr %118, i64 8
+  %126 = getelementptr inbounds nuw i8, ptr %118, i64 8
   %127 = load float, ptr %126, align 4
   %128 = fpext float %127 to double
   %129 = call double @llvm.fmuladd.f64(double %128, double %128, double %125)
@@ -1845,16 +1845,16 @@ define internal fastcc void @_ZN2cvL14fitLine3D_wodsEPKNS_7Point3_IfEEiPfS4_(ptr
   %133 = fdiv float %119, %narrow.sel
   store float %133, ptr %3, align 4
   %134 = fdiv float %122, %narrow.sel
-  %135 = getelementptr inbounds i8, ptr %3, i64 4
+  %135 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store float %134, ptr %135, align 4
   %136 = fdiv float %127, %narrow.sel
-  %137 = getelementptr inbounds i8, ptr %3, i64 8
+  %137 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store float %136, ptr %137, align 4
-  %138 = getelementptr inbounds i8, ptr %3, i64 12
+  %138 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store float %72, ptr %138, align 4
-  %139 = getelementptr inbounds i8, ptr %3, i64 16
+  %139 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store float %73, ptr %139, align 4
-  %140 = getelementptr inbounds i8, ptr %3, i64 20
+  %140 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store float %74, ptr %140, align 4
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #17
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #17

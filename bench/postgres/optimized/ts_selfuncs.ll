@@ -20,7 +20,7 @@ define dso_local i64 @tsmatchsel(ptr nocapture noundef readonly %0) local_unname
   %3 = alloca %struct.VariableStatData, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i8, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = getelementptr i8, ptr %0, i64 64
@@ -39,49 +39,49 @@ define dso_local i64 @tsmatchsel(ptr nocapture noundef readonly %0) local_unname
   br i1 %19, label %26, label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %3, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %22 = load ptr, ptr %21, align 8
   %.not = icmp eq ptr %22, null
   br i1 %.not, label %128, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %3, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %25 = load ptr, ptr %24, align 8
   call void %25(ptr noundef nonnull %22) #9
   br label %128
 
 26:                                               ; preds = %16
-  %27 = getelementptr inbounds i8, ptr %17, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %28 = load i8, ptr %27, align 8
   %29 = trunc i8 %28 to i1
   br i1 %29, label %30, label %36
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %3, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %32 = load ptr, ptr %31, align 8
   %.not14 = icmp eq ptr %32, null
   br i1 %.not14, label %128, label %33
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %3, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %35 = load ptr, ptr %34, align 8
   call void %35(ptr noundef nonnull %32) #9
   br label %128
 
 36:                                               ; preds = %26
-  %37 = getelementptr inbounds i8, ptr %17, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %38 = load i32, ptr %37, align 4
   %39 = icmp eq i32 %38, 3615
   br i1 %39, label %40, label %115
 
 40:                                               ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %17, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %42 = load i64, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %3, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.val = load ptr, ptr %43, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2)
   %44 = inttoptr i64 %42 to ptr
-  %45 = getelementptr inbounds i8, ptr %44, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %46 = load i32, ptr %45, align 4
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %tsquerysel.exit, label %48
@@ -91,9 +91,9 @@ define dso_local i64 @tsmatchsel(ptr nocapture noundef readonly %0) local_unname
   br i1 %.not.i, label %109, label %49
 
 49:                                               ; preds = %48
-  %50 = getelementptr inbounds i8, ptr %.val, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 22
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 22
   %53 = load i8, ptr %52, align 2
   %54 = zext i8 %53 to i64
   %55 = getelementptr i8, ptr %51, i64 %54
@@ -101,13 +101,13 @@ define dso_local i64 @tsmatchsel(ptr nocapture noundef readonly %0) local_unname
   br i1 %56, label %57, label %96
 
 57:                                               ; preds = %49
-  %58 = getelementptr inbounds i8, ptr %2, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %2, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %61 = load i32, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %2, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %2, i64 40
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %65 = load i32, ptr %64, align 8
   %66 = add i32 %61, 2
   %.not.i.i = icmp eq i32 %65, %66
@@ -142,7 +142,7 @@ define dso_local i64 @tsmatchsel(ptr nocapture noundef readonly %0) local_unname
   store ptr %81, ptr %82, align 8
   %83 = getelementptr float, ptr %63, i64 %indvars.iv.i.i
   %84 = load float, ptr %83, align 4
-  %85 = getelementptr inbounds i8, ptr %82, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %82, i64 8
   store float %84, ptr %85, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -178,7 +178,7 @@ mcelem_tsquery_selec.exit.i:                      ; preds = %._crit_edge.i.i, %6
 
 103:                                              ; preds = %96, %mcelem_tsquery_selec.exit.i
   %.016.i = phi double [ %.027.i.i, %mcelem_tsquery_selec.exit.i ], [ %102, %96 ]
-  %104 = getelementptr inbounds i8, ptr %55, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %105 = load float, ptr %104, align 4
   %106 = fpext float %105 to double
   %107 = fsub double 1.000000e+00, %106
@@ -200,13 +200,13 @@ tsquerysel.exit:                                  ; preds = %40, %103, %109
 
 115:                                              ; preds = %36, %tsquerysel.exit
   %.0 = phi double [ %.0.i, %tsquerysel.exit ], [ 5.000000e-03, %36 ]
-  %116 = getelementptr inbounds i8, ptr %3, i64 16
+  %116 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %117 = load ptr, ptr %116, align 8
   %.not13 = icmp eq ptr %117, null
   br i1 %.not13, label %121, label %118
 
 118:                                              ; preds = %115
-  %119 = getelementptr inbounds i8, ptr %3, i64 24
+  %119 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %120 = load ptr, ptr %119, align 8
   call void %120(ptr noundef nonnull %117) #9
   br label %121
@@ -252,16 +252,16 @@ define internal fastcc double @tsquery_opr_selec(ptr noundef %0, ptr noundef %1,
   br i1 %8, label %9, label %103
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 4
   %12 = lshr i32 %11, 12
   %13 = zext nneg i32 %12 to i64
   %14 = getelementptr i8, ptr %1, i64 %13
   store ptr %14, ptr %6, align 8
   %15 = and i32 %11, 4095
-  %16 = getelementptr inbounds i8, ptr %6, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %15, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %18 = load i8, ptr %17, align 2
   %19 = trunc i8 %18 to i1
   %20 = icmp eq ptr %2, null
@@ -290,7 +290,7 @@ define internal fastcc double @tsquery_opr_selec(ptr noundef %0, ptr noundef %1,
   br i1 %29, label %30, label %39
 
 30:                                               ; preds = %24
-  %31 = getelementptr inbounds i8, ptr %26, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 1
   %32 = load i8, ptr %31, align 1
   %33 = icmp eq i8 %32, 1
   %34 = and i8 %32, -2
@@ -326,13 +326,13 @@ define internal fastcc double @tsquery_opr_selec(ptr noundef %0, ptr noundef %1,
   %51 = and i8 %27, 1
   %.not111 = icmp eq i8 %51, 0
   %.v = select i1 %.not111, i64 4, i64 1
-  %52 = getelementptr inbounds i8, ptr %26, i64 %.v
+  %52 = getelementptr inbounds nuw i8, ptr %26, i64 %.v
   %53 = tail call i32 @strncmp(ptr noundef %14, ptr noundef nonnull %52, i64 noundef %23) #10
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %55, label %63
 
 55:                                               ; preds = %50
-  %56 = getelementptr inbounds i8, ptr %25, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %57 = load float, ptr %56, align 8
   %58 = fpext float %57 to double
   %59 = fneg double %.094121
@@ -344,7 +344,7 @@ define internal fastcc double @tsquery_opr_selec(ptr noundef %0, ptr noundef %1,
 63:                                               ; preds = %55, %50, %48
   %.197 = phi i32 [ %62, %55 ], [ %.096120, %50 ], [ %.096120, %48 ]
   %.195 = phi double [ %61, %55 ], [ %.094121, %50 ], [ %.094121, %48 ]
-  %64 = getelementptr inbounds i8, ptr %25, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %65 = load float, ptr %64, align 8
   %66 = fpext float %65 to double
   %67 = fneg double %.099118
@@ -402,7 +402,7 @@ define internal fastcc double @tsquery_opr_selec(ptr noundef %0, ptr noundef %1,
   br i1 %.not, label %99, label %95
 
 95:                                               ; preds = %92
-  %96 = getelementptr inbounds i8, ptr %94, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %97 = load float, ptr %96, align 8
   %98 = fpext float %97 to double
   br label %135
@@ -414,7 +414,7 @@ define internal fastcc double @tsquery_opr_selec(ptr noundef %0, ptr noundef %1,
   br i1 %102, label %.thread116, label %135
 
 103:                                              ; preds = %5
-  %104 = getelementptr inbounds i8, ptr %0, i64 1
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %105 = load i8, ptr %104, align 1
   switch i8 %105, label %130 [
     i8 1, label %106
@@ -432,7 +432,7 @@ define internal fastcc double @tsquery_opr_selec(ptr noundef %0, ptr noundef %1,
 110:                                              ; preds = %103, %103
   %111 = getelementptr i8, ptr %0, i64 12
   %112 = tail call fastcc double @tsquery_opr_selec(ptr noundef %111, ptr noundef %1, ptr noundef %2, i32 noundef %3, float noundef %4)
-  %113 = getelementptr inbounds i8, ptr %0, i64 4
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %114 = load i32, ptr %113, align 4
   %115 = zext i32 %114 to i64
   %116 = getelementptr %union.QueryItem, ptr %0, i64 %115
@@ -443,7 +443,7 @@ define internal fastcc double @tsquery_opr_selec(ptr noundef %0, ptr noundef %1,
 119:                                              ; preds = %103
   %120 = getelementptr i8, ptr %0, i64 12
   %121 = tail call fastcc double @tsquery_opr_selec(ptr noundef %120, ptr noundef %1, ptr noundef %2, i32 noundef %3, float noundef %4)
-  %122 = getelementptr inbounds i8, ptr %0, i64 4
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %123 = load i32, ptr %122, align 4
   %124 = zext i32 %123 to i64
   %125 = getelementptr %union.QueryItem, ptr %0, i64 %124
@@ -495,7 +495,7 @@ declare ptr @bsearch(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr nou
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal i32 @compare_lexeme_textfreq(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8
   %6 = load i8, ptr %5, align 1
@@ -504,7 +504,7 @@ define internal i32 @compare_lexeme_textfreq(ptr nocapture noundef readonly %0, 
   br i1 %8, label %9, label %18
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %5, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %11 = load i8, ptr %10, align 1
   %12 = icmp eq i8 %11, 1
   %13 = and i8 %11, -2
@@ -545,7 +545,7 @@ define internal i32 @compare_lexeme_textfreq(ptr nocapture noundef readonly %0, 
   %34 = and i8 %6, 1
   %.not23 = icmp eq i8 %34, 0
   %.v = select i1 %.not23, i64 4, i64 1
-  %35 = getelementptr inbounds i8, ptr %5, i64 %.v
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 %.v
   %36 = sext i32 %4 to i64
   %37 = tail call i32 @strncmp(ptr noundef %33, ptr noundef nonnull %35, i64 noundef %36) #10
   br label %38

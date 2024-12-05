@@ -48,13 +48,13 @@ define dso_local i32 @ethnl_act_cable_test(ptr nocapture noundef readnone %0, pt
   %3 = alloca %struct.ethnl_req_info, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  %4 = getelementptr inbounds i8, ptr %1, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %11 = load ptr, ptr %10, align 8
   %12 = call i32 @ethnl_parse_header_dev_get(ptr noundef nonnull %3, ptr noundef %7, ptr noundef %9, ptr noundef %11, i1 noundef zeroext true) #5
   %13 = icmp slt i32 %12, 0
@@ -62,7 +62,7 @@ define dso_local i32 @ethnl_act_cable_test(ptr nocapture noundef readnone %0, pt
 
 14:                                               ; preds = %2
   %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 2144
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 2144
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %39, label %19
@@ -74,7 +74,7 @@ define dso_local i32 @ethnl_act_cable_test(ptr nocapture noundef readnone %0, pt
   br i1 %21, label %37, label %22
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %20, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 48
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %37, label %26
@@ -111,7 +111,7 @@ define dso_local i32 @ethnl_act_cable_test(ptr nocapture noundef readnone %0, pt
   br i1 %42, label %46, label %43
 
 43:                                               ; preds = %39
-  %44 = getelementptr inbounds i8, ptr %40, i64 1280
+  %44 = getelementptr inbounds nuw i8, ptr %40, i64 1280
   %45 = load ptr, ptr %44, align 8
   call void asm sideeffect "decl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %45, ptr elementtype(i32) %45) #5, !srcloc !5
   br label %46
@@ -153,7 +153,7 @@ define internal fastcc void @ethnl_cable_test_started(ptr noundef %0, i8 noundef
   br i1 %8, label %31, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 1368
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1368
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 @ethnl_fill_reply_header(ptr noundef nonnull %4, ptr noundef %11, i16 noundef zeroext 1) #5
   %13 = icmp eq i32 %12, 0
@@ -169,9 +169,9 @@ define internal fastcc void @ethnl_cable_test_started(ptr noundef %0, i8 noundef
 
 17:                                               ; preds = %14
   %18 = getelementptr i8, ptr %7, i64 -20
-  %19 = getelementptr inbounds i8, ptr %4, i64 192
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 192
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %4, i64 184
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 184
   %22 = load i32, ptr %21, align 8
   %23 = zext i32 %22 to i64
   %24 = getelementptr i8, ptr %20, i64 %23
@@ -206,21 +206,21 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 define dso_local i32 @ethnl_cable_test_alloc(ptr nocapture noundef initializes((1200, 1208)) %0, i8 noundef zeroext %1) #0 align 16 {
   %3 = alloca i8, align 1
   %4 = tail call ptr @__alloc_skb(i32 noundef 16404, i32 noundef 3264, i32 noundef 0, i32 noundef -1) #5
-  %5 = getelementptr inbounds i8, ptr %0, i64 1200
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1200
   store ptr %4, ptr %5, align 8
   %6 = icmp eq ptr %4, null
   br i1 %6, label %31, label %7
 
 7:                                                ; preds = %2
   %8 = tail call ptr @ethnl_bcastmsg_put(ptr noundef nonnull %4, i8 noundef zeroext %1) #5
-  %9 = getelementptr inbounds i8, ptr %0, i64 1208
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1208
   store ptr %8, ptr %9, align 8
   %10 = icmp eq ptr %8, null
   %.pre5 = load ptr, ptr %5, align 8
   br i1 %10, label %31, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 1368
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1368
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 @ethnl_fill_reply_header(ptr noundef %.pre5, ptr noundef %13, i16 noundef zeroext 1) #5
   %15 = icmp eq i32 %14, 0
@@ -237,16 +237,16 @@ define dso_local i32 @ethnl_cable_test_alloc(ptr nocapture noundef initializes((
   br i1 %18, label %19, label %31
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %.pre3, i64 192
+  %20 = getelementptr inbounds nuw i8, ptr %.pre3, i64 192
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %.pre3, i64 184
+  %22 = getelementptr inbounds nuw i8, ptr %.pre3, i64 184
   %23 = load i32, ptr %22, align 8
   %24 = zext i32 %23 to i64
   %25 = getelementptr i8, ptr %21, i64 %24
   %26 = call i32 @nla_put(ptr noundef %.pre3, i32 noundef 32771, i32 noundef 0, ptr noundef null) #5
   %27 = icmp slt i32 %26, 0
   %28 = select i1 %27, ptr null, ptr %25
-  %29 = getelementptr inbounds i8, ptr %0, i64 1216
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 1216
   store ptr %28, ptr %29, align 8
   %30 = icmp eq ptr %28, null
   br i1 %30, label %._crit_edge, label %34
@@ -275,7 +275,7 @@ declare dso_local i32 @ethnl_fill_reply_header(ptr noundef, ptr noundef, i16 nou
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @ethnl_cable_test_free(ptr nocapture noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1200
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1200
   %3 = load ptr, ptr %2, align 8
   tail call void @kfree_skb_reason(ptr noundef %3, i32 noundef 2) #5
   store ptr null, ptr %2, align 8
@@ -284,13 +284,13 @@ define dso_local void @ethnl_cable_test_free(ptr nocapture noundef %0) #0 align 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @ethnl_cable_test_finished(ptr nocapture noundef readonly %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1200
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1200
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 1216
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1216
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 192
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 192
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 184
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 184
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
   %11 = getelementptr i8, ptr %7, i64 %10
@@ -300,12 +300,12 @@ define dso_local void @ethnl_cable_test_finished(ptr nocapture noundef readonly 
   %15 = trunc i64 %14 to i16
   store i16 %15, ptr %5, align 2
   %16 = load ptr, ptr %2, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 1208
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 1208
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr i8, ptr %18, i64 -20
-  %20 = getelementptr inbounds i8, ptr %16, i64 192
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 192
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %16, i64 184
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 184
   %23 = load i32, ptr %22, align 8
   %24 = zext i32 %23 to i64
   %25 = getelementptr i8, ptr %21, i64 %24
@@ -315,7 +315,7 @@ define dso_local void @ethnl_cable_test_finished(ptr nocapture noundef readonly 
   %29 = trunc i64 %28 to i32
   store i32 %29, ptr %19, align 4
   %30 = load ptr, ptr %2, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 1368
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 1368
   %32 = load ptr, ptr %31, align 8
   %33 = tail call i32 @ethnl_multicast(ptr noundef %30, ptr noundef %32) #5
   ret void
@@ -328,11 +328,11 @@ declare dso_local i32 @ethnl_multicast(ptr noundef, ptr noundef) local_unnamed_a
 define dso_local noundef range(i32 -90, 1) i32 @ethnl_cable_test_result(ptr nocapture noundef readonly %0, i8 noundef zeroext %1, i8 noundef zeroext %2) #0 align 16 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 1200
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1200
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 192
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 192
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 184
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 184
   %11 = load i32, ptr %10, align 8
   %12 = zext i32 %11 to i64
   %13 = getelementptr i8, ptr %9, i64 %12
@@ -362,9 +362,9 @@ define dso_local noundef range(i32 -90, 1) i32 @ethnl_cable_test_result(ptr noca
 
 26:                                               ; preds = %22
   %27 = load ptr, ptr %6, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 192
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 192
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %27, i64 184
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 184
   %31 = load i32, ptr %30, align 8
   %32 = zext i32 %31 to i64
   %33 = getelementptr i8, ptr %29, i64 %32
@@ -377,7 +377,7 @@ define dso_local noundef range(i32 -90, 1) i32 @ethnl_cable_test_result(ptr noca
 
 38:                                               ; preds = %22, %18
   %39 = load ptr, ptr %6, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 200
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 200
   %41 = load ptr, ptr %40, align 8
   %42 = icmp ugt ptr %41, %13
   br i1 %42, label %43, label %44, !prof !6
@@ -407,11 +407,11 @@ define dso_local noundef range(i32 -90, 1) i32 @ethnl_cable_test_result(ptr noca
 define dso_local noundef range(i32 -90, 1) i32 @ethnl_cable_test_fault_length(ptr nocapture noundef readonly %0, i8 noundef zeroext %1, i32 noundef %2) #0 align 16 {
   %4 = alloca i32, align 4
   %5 = alloca i8, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 1200
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1200
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 192
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 192
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 184
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 184
   %11 = load i32, ptr %10, align 8
   %12 = zext i32 %11 to i64
   %13 = getelementptr i8, ptr %9, i64 %12
@@ -441,9 +441,9 @@ define dso_local noundef range(i32 -90, 1) i32 @ethnl_cable_test_fault_length(pt
 
 26:                                               ; preds = %22
   %27 = load ptr, ptr %6, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 192
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 192
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %27, i64 184
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 184
   %31 = load i32, ptr %30, align 8
   %32 = zext i32 %31 to i64
   %33 = getelementptr i8, ptr %29, i64 %32
@@ -456,7 +456,7 @@ define dso_local noundef range(i32 -90, 1) i32 @ethnl_cable_test_fault_length(pt
 
 38:                                               ; preds = %22, %18
   %39 = load ptr, ptr %6, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 200
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 200
   %41 = load ptr, ptr %40, align 8
   %42 = icmp ugt ptr %41, %13
   br i1 %42, label %43, label %44, !prof !6
@@ -489,15 +489,15 @@ define dso_local i32 @ethnl_act_cable_test_tdr(ptr nocapture noundef readnone %0
   %5 = alloca %struct.phy_tdr_config, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  %6 = getelementptr inbounds i8, ptr %1, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !10
   %8 = getelementptr i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %13 = load ptr, ptr %12, align 8
   %14 = call i32 @ethnl_parse_header_dev_get(ptr noundef nonnull %4, ptr noundef %9, ptr noundef %11, ptr noundef %13, i1 noundef zeroext true) #5
   %15 = icmp slt i32 %14, 0
@@ -505,7 +505,7 @@ define dso_local i32 @ethnl_act_cable_test_tdr(ptr nocapture noundef readnone %0
 
 16:                                               ; preds = %2
   %17 = load ptr, ptr %4, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 2144
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 2144
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %147, label %21
@@ -516,18 +516,18 @@ define dso_local i32 @ethnl_act_cable_test_tdr(ptr nocapture noundef readnone %0
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %3, i8 0, i64 40, i1 false), !annotation !10
   store i32 100, ptr %5, align 4
-  %24 = getelementptr inbounds i8, ptr %5, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 100, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %5, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 15000, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %5, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i8 -1, ptr %26, align 4
   %27 = icmp eq ptr %23, null
   br i1 %27, label %127, label %28
 
 28:                                               ; preds = %21
   %29 = load ptr, ptr %12, align 8
-  %30 = getelementptr inbounds i8, ptr %23, i64 2
+  %30 = getelementptr inbounds nuw i8, ptr %23, i64 2
   %31 = load i16, ptr %30, align 2
   %32 = icmp sgt i16 %31, -1
   br i1 %32, label %33, label %38
@@ -539,9 +539,9 @@ define dso_local i32 @ethnl_act_cable_test_tdr(ptr nocapture noundef readnone %0
 
 35:                                               ; preds = %33
   store ptr @nla_parse_nested.__msg, ptr %29, align 8
-  %36 = getelementptr inbounds i8, ptr %29, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr %23, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %29, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store ptr null, ptr %37, align 8
   br label %.thread23
 
@@ -555,7 +555,7 @@ define dso_local i32 @ethnl_act_cable_test_tdr(ptr nocapture noundef readnone %0
   br i1 %44, label %.thread23, label %45
 
 45:                                               ; preds = %38
-  %46 = getelementptr inbounds i8, ptr %3, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq ptr %47, null
   br i1 %48, label %52, label %49
@@ -568,7 +568,7 @@ define dso_local i32 @ethnl_act_cable_test_tdr(ptr nocapture noundef readnone %0
 
 52:                                               ; preds = %49, %45
   %53 = phi i32 [ %51, %49 ], [ 100, %45 ]
-  %54 = getelementptr inbounds i8, ptr %3, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %55 = load ptr, ptr %54, align 16
   %56 = icmp eq ptr %55, null
   br i1 %56, label %60, label %57
@@ -581,7 +581,7 @@ define dso_local i32 @ethnl_act_cable_test_tdr(ptr nocapture noundef readnone %0
 
 60:                                               ; preds = %57, %52
   %61 = phi i32 [ %59, %57 ], [ 15000, %52 ]
-  %62 = getelementptr inbounds i8, ptr %3, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %63 = load ptr, ptr %62, align 8
   %64 = icmp eq ptr %63, null
   br i1 %64, label %68, label %65
@@ -594,7 +594,7 @@ define dso_local i32 @ethnl_act_cable_test_tdr(ptr nocapture noundef readnone %0
 
 68:                                               ; preds = %65, %60
   %69 = phi i32 [ %67, %65 ], [ 100, %60 ]
-  %70 = getelementptr inbounds i8, ptr %3, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %71 = load ptr, ptr %70, align 16
   %72 = icmp eq ptr %71, null
   br i1 %72, label %84, label %73
@@ -615,9 +615,9 @@ define dso_local i32 @ethnl_act_cable_test_tdr(ptr nocapture noundef readnone %0
 80:                                               ; preds = %77
   store ptr @ethnl_act_cable_test_tdr_cfg.__msg, ptr %78, align 8
   %81 = load ptr, ptr %70, align 16
-  %82 = getelementptr inbounds i8, ptr %78, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %78, i64 8
   store ptr %81, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %78, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %78, i64 16
   store ptr null, ptr %83, align 8
   br label %.thread23
 
@@ -634,9 +634,9 @@ define dso_local i32 @ethnl_act_cable_test_tdr(ptr nocapture noundef readnone %0
 89:                                               ; preds = %86
   store ptr @ethnl_act_cable_test_tdr_cfg.__msg.2, ptr %87, align 8
   %90 = load ptr, ptr %46, align 8
-  %91 = getelementptr inbounds i8, ptr %87, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %87, i64 8
   store ptr %90, ptr %91, align 8
-  %92 = getelementptr inbounds i8, ptr %87, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %87, i64 16
   store ptr null, ptr %92, align 8
   br label %.thread23
 
@@ -653,9 +653,9 @@ define dso_local i32 @ethnl_act_cable_test_tdr(ptr nocapture noundef readnone %0
 98:                                               ; preds = %95
   store ptr @ethnl_act_cable_test_tdr_cfg.__msg.3, ptr %96, align 8
   %99 = load ptr, ptr %54, align 16
-  %100 = getelementptr inbounds i8, ptr %96, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %96, i64 8
   store ptr %99, ptr %100, align 8
-  %101 = getelementptr inbounds i8, ptr %96, i64 16
+  %101 = getelementptr inbounds nuw i8, ptr %96, i64 16
   store ptr null, ptr %101, align 8
   br label %.thread23
 
@@ -686,9 +686,9 @@ define dso_local i32 @ethnl_act_cable_test_tdr(ptr nocapture noundef readnone %0
 113:                                              ; preds = %110
   store ptr @ethnl_act_cable_test_tdr_cfg.__msg.5, ptr %111, align 8
   %114 = load ptr, ptr %62, align 8
-  %115 = getelementptr inbounds i8, ptr %111, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %111, i64 8
   store ptr %114, ptr %115, align 8
-  %116 = getelementptr inbounds i8, ptr %111, i64 16
+  %116 = getelementptr inbounds nuw i8, ptr %111, i64 16
   store ptr null, ptr %116, align 8
   br label %.thread23
 
@@ -706,9 +706,9 @@ define dso_local i32 @ethnl_act_cable_test_tdr(ptr nocapture noundef readnone %0
 123:                                              ; preds = %120
   store ptr @ethnl_act_cable_test_tdr_cfg.__msg.6, ptr %121, align 8
   %124 = load ptr, ptr %62, align 8
-  %125 = getelementptr inbounds i8, ptr %121, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %121, i64 8
   store ptr %124, ptr %125, align 8
-  %126 = getelementptr inbounds i8, ptr %121, i64 16
+  %126 = getelementptr inbounds nuw i8, ptr %121, i64 16
   store ptr null, ptr %126, align 8
   br label %.thread23
 
@@ -725,7 +725,7 @@ define dso_local i32 @ethnl_act_cable_test_tdr(ptr nocapture noundef readnone %0
   br i1 %129, label %145, label %130
 
 130:                                              ; preds = %127
-  %131 = getelementptr inbounds i8, ptr %128, i64 56
+  %131 = getelementptr inbounds nuw i8, ptr %128, i64 56
   %132 = load ptr, ptr %131, align 8
   %133 = icmp eq ptr %132, null
   br i1 %133, label %145, label %134
@@ -766,7 +766,7 @@ thread-pre-split:                                 ; preds = %145, %.thread23
   br i1 %150, label %154, label %151
 
 151:                                              ; preds = %147
-  %152 = getelementptr inbounds i8, ptr %148, i64 1280
+  %152 = getelementptr inbounds nuw i8, ptr %148, i64 1280
   %153 = load ptr, ptr %152, align 8
   call void asm sideeffect "decl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %153, ptr elementtype(i32) %153) #5, !srcloc !5
   br label %154
@@ -782,11 +782,11 @@ thread-pre-split:                                 ; preds = %145, %.thread23
 define dso_local noundef range(i32 -90, 1) i32 @ethnl_cable_test_amplitude(ptr nocapture noundef readonly %0, i8 noundef zeroext %1, i16 noundef signext %2) #0 align 16 {
   %4 = alloca i16, align 2
   %5 = alloca i8, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 1200
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1200
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 192
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 192
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 184
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 184
   %11 = load i32, ptr %10, align 8
   %12 = zext i32 %11 to i64
   %13 = getelementptr i8, ptr %9, i64 %12
@@ -816,9 +816,9 @@ define dso_local noundef range(i32 -90, 1) i32 @ethnl_cable_test_amplitude(ptr n
 
 26:                                               ; preds = %22
   %27 = load ptr, ptr %6, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 192
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 192
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %27, i64 184
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 184
   %31 = load i32, ptr %30, align 8
   %32 = zext i32 %31 to i64
   %33 = getelementptr i8, ptr %29, i64 %32
@@ -831,7 +831,7 @@ define dso_local noundef range(i32 -90, 1) i32 @ethnl_cable_test_amplitude(ptr n
 
 38:                                               ; preds = %22, %18
   %39 = load ptr, ptr %6, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 200
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 200
   %41 = load ptr, ptr %40, align 8
   %42 = icmp ugt ptr %41, %13
   br i1 %42, label %43, label %44, !prof !6
@@ -860,11 +860,11 @@ define dso_local noundef range(i32 -90, 1) i32 @ethnl_cable_test_amplitude(ptr n
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -90, 1) i32 @ethnl_cable_test_pulse(ptr nocapture noundef readonly %0, i16 noundef zeroext %1) #0 align 16 {
   %3 = alloca i16, align 2
-  %4 = getelementptr inbounds i8, ptr %0, i64 1200
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1200
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 192
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 192
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 184
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 184
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
   %11 = getelementptr i8, ptr %7, i64 %10
@@ -885,9 +885,9 @@ define dso_local noundef range(i32 -90, 1) i32 @ethnl_cable_test_pulse(ptr nocap
   br i1 %19, label %21, label %32
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %20, i64 192
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 192
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %20, i64 184
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 184
   %25 = load i32, ptr %24, align 8
   %26 = zext i32 %25 to i64
   %27 = getelementptr i8, ptr %23, i64 %26
@@ -899,7 +899,7 @@ define dso_local noundef range(i32 -90, 1) i32 @ethnl_cable_test_pulse(ptr nocap
   br label %43
 
 32:                                               ; preds = %16
-  %33 = getelementptr inbounds i8, ptr %20, i64 200
+  %33 = getelementptr inbounds nuw i8, ptr %20, i64 200
   %34 = load ptr, ptr %33, align 8
   %35 = icmp ugt ptr %34, %11
   br i1 %35, label %36, label %37, !prof !6
@@ -930,11 +930,11 @@ define dso_local noundef range(i32 -90, 1) i32 @ethnl_cable_test_step(ptr nocapt
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 1200
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1200
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 192
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 192
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 184
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 184
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
   %15 = getelementptr i8, ptr %11, i64 %14
@@ -973,9 +973,9 @@ define dso_local noundef range(i32 -90, 1) i32 @ethnl_cable_test_step(ptr nocapt
 
 32:                                               ; preds = %28
   %33 = load ptr, ptr %8, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 192
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 192
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %33, i64 184
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 184
   %37 = load i32, ptr %36, align 8
   %38 = zext i32 %37 to i64
   %39 = getelementptr i8, ptr %35, i64 %38
@@ -988,7 +988,7 @@ define dso_local noundef range(i32 -90, 1) i32 @ethnl_cable_test_step(ptr nocapt
 
 44:                                               ; preds = %28, %24, %20
   %45 = load ptr, ptr %8, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 200
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 200
   %47 = load ptr, ptr %46, align 8
   %48 = icmp ugt ptr %47, %15
   br i1 %48, label %49, label %50, !prof !6

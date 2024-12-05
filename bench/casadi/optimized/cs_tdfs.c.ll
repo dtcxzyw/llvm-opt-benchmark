@@ -22,7 +22,7 @@ define i32 @cs_tdfs(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef 
   %.038 = phi i32 [ 0, %11 ], [ %.1, %32 ]
   %.03037 = phi i32 [ %1, %11 ], [ %.131, %32 ]
   %13 = zext nneg i32 %.038 to i64
-  %14 = getelementptr inbounds i32, ptr %5, i64 %13
+  %14 = getelementptr inbounds nuw i32, ptr %5, i64 %13
   %15 = load i32, ptr %14, align 4
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds i32, ptr %2, i64 %16
@@ -45,7 +45,7 @@ define i32 @cs_tdfs(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef 
   store i32 %28, ptr %17, align 4
   %29 = add nuw nsw i32 %.038, 1
   %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr inbounds i32, ptr %5, i64 %30
+  %31 = getelementptr inbounds nuw i32, ptr %5, i64 %30
   store i32 %18, ptr %31, align 4
   br label %32
 

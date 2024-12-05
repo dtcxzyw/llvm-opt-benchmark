@@ -76,7 +76,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZN20AbstractDisassembler14print_locationEPhS0_S0_P12outputStreambb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 2 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = load i8, ptr @_ZN20AbstractDisassembler8_show_pcE, align 1
   %10 = trunc i8 %9 to i1
@@ -185,7 +185,7 @@ define hidden noundef i32 @_ZN20AbstractDisassembler17print_instructionEPhiiP12o
   br i1 %8, label %9, label %32
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load i32, ptr %10, align 8
   %12 = sext i32 %1 to i64
   %13 = getelementptr inbounds i8, ptr %0, i64 %12
@@ -198,11 +198,11 @@ define hidden noundef i32 @_ZN20AbstractDisassembler17print_instructionEPhiiP12o
   %15 = load i8, ptr %.03442, align 1
   %16 = zext i8 %15 to i32
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.10, i32 noundef %16) #3
-  %.035.ptr.c = getelementptr inbounds i8, ptr %.03442, i64 1
+  %.035.ptr.c = getelementptr inbounds nuw i8, ptr %.03442, i64 1
   %17 = load i8, ptr %.035.ptr.c, align 1
   %18 = zext i8 %17 to i32
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.10, i32 noundef %18) #3
-  %19 = getelementptr inbounds i8, ptr %.03442, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %.03442, i64 2
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str) #3
   %.not = icmp ugt ptr %19, %14
   br i1 %.not, label %._crit_edge, label %.preheader39, !llvm.loop !6
@@ -220,7 +220,7 @@ define hidden noundef i32 @_ZN20AbstractDisassembler17print_instructionEPhiiP12o
   %22 = load i8, ptr %.144, align 1
   %23 = zext i8 %22 to i32
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.10, i32 noundef %23) #3
-  %24 = getelementptr inbounds i8, ptr %.144, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.144, i64 1
   %25 = icmp ult ptr %24, %13
   br i1 %25, label %.lr.ph, label %.loopexit, !llvm.loop !8
 
@@ -255,7 +255,7 @@ _ZN20AbstractDisassembler15print_delimiterEP12outputStream.exit: ; preds = %._cr
   br i1 %4, label %33, label %39
 
 33:                                               ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %3, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %35 = load i32, ptr %34, align 8
   %36 = add i32 %35, 7
   %37 = and i32 %36, -8
@@ -284,7 +284,7 @@ define hidden noundef range(i32 0, 3) i32 @_ZN20AbstractDisassembler15print_deli
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZN20AbstractDisassembler13print_hexdataEPhiP12outputStreamb(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = add nsw i32 %6, 7
   %8 = sdiv i32 %7, 8
@@ -561,7 +561,7 @@ define hidden noundef ptr @_ZN20AbstractDisassembler27decode_instruction_abstrac
   %14 = load i8, ptr %.02732.us, align 1
   %15 = zext i8 %14 to i32
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.29, i32 noundef %15) #3
-  %16 = getelementptr inbounds i8, ptr %.02732.us, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.02732.us, i64 1
   %17 = and i32 %.02633.us, 1
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %20
@@ -608,7 +608,7 @@ define hidden noundef ptr @_ZN20AbstractDisassembler27decode_instruction_abstrac
   %26 = load i8, ptr %.02732, align 1
   %27 = zext i8 %26 to i32
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.29, i32 noundef %27) #3
-  %28 = getelementptr inbounds i8, ptr %.02732, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %.02732, i64 1
   %29 = icmp eq i32 %.02633, %2
   br i1 %29, label %30, label %31
 
@@ -667,7 +667,7 @@ define hidden void @_ZN20AbstractDisassembler21decode_range_abstractEPhS0_S0_S0_
   br label %_ZN20AbstractDisassembler15print_delimiterEP12outputStream.exit
 
 _ZN20AbstractDisassembler15print_delimiterEP12outputStream.exit: ; preds = %16, %13, %11
-  %17 = getelementptr inbounds i8, ptr %.02225, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %.02225, i64 4
   %.not = icmp ugt ptr %17, %1
   br i1 %.not, label %20, label %18
 
@@ -703,7 +703,7 @@ define hidden void @_ZN20AbstractDisassembler15decode_abstractEPhS0_P12outputStr
   %5 = icmp eq ptr %2, null
   %6 = load ptr, ptr @tty, align 8
   %7 = select i1 %5, ptr %6, ptr %2
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %11, label %_ZN12outputStream3bolEv.exit
@@ -739,7 +739,7 @@ _ZN12outputStream3bolEv.exit:                     ; preds = %4, %11
   br label %_ZN20AbstractDisassembler15print_delimiterEP12outputStream.exit.i
 
 _ZN20AbstractDisassembler15print_delimiterEP12outputStream.exit.i: ; preds = %21, %18, %16
-  %22 = getelementptr inbounds i8, ptr %.02225.i, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %.02225.i, i64 4
   %.not.i = icmp ugt ptr %22, %1
   br i1 %.not.i, label %25, label %23
 

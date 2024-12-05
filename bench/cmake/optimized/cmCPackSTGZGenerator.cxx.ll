@@ -230,7 +230,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #12
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 96
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 96
   %17 = load ptr, ptr %16, align 8
   call void %17(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull @.str.4)
   %18 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
@@ -253,7 +253,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %26 unwind label %38
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %0, i64 336
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %28 = load ptr, ptr %27, align 8
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(112) %5)
           to label %29 unwind label %38
@@ -439,9 +439,9 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN20cmCPackSTGZGenerator12Package
   br i1 %.not, label %._crit_edge, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 88
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %7 = load ptr, ptr %6, align 8
   %.not1112 = icmp eq ptr %5, %7
   br i1 %.not1112, label %._crit_edge, label %.lr.ph
@@ -454,7 +454,7 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN20cmCPackSTGZGenerator12Package
   %10 = and i64 %9, 4294967295
   %11 = icmp eq i64 %10, 0
   %12 = and i1 %.0614, %11
-  %13 = getelementptr inbounds i8, ptr %.sroa.08.013, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.08.013, i64 32
   %.not11 = icmp eq ptr %13, %7
   br i1 %.not11, label %._crit_edge.loopexit, label %.lr.ph
 
@@ -504,7 +504,7 @@ define dso_local noundef i32 @_ZN20cmCPackSTGZGenerator14GenerateHeaderEPSo(ptr 
           to label %28 unwind label %52
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %0, i64 336
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %30 = load ptr, ptr %29, align 8
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(112) %3)
           to label %31 unwind label %52
@@ -781,7 +781,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 103:                                              ; preds = %82
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #12
   %104 = load ptr, ptr %0, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 112
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 112
   %106 = load ptr, ptr %105, align 8
   %107 = invoke noundef zeroext i1 %106(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %21)
           to label %108 unwind label %114
@@ -810,7 +810,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 
 116:                                              ; preds = %110, %112
   %.1 = phi i32 [ %113, %112 ], [ %.011, %110 ]
-  %117 = getelementptr inbounds i8, ptr %.0, i64 1
+  %117 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   br label %110, !llvm.loop !8
 
 118:                                              ; preds = %110
@@ -953,7 +953,7 @@ declare noundef i32 @_ZN16cmCPackGenerator9DoPackageEv(ptr noundef nonnull align
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZN23cmCPackArchiveGenerator18GetOutputExtensionEv(ptr noundef nonnull align 8 dereferenceable(432) %0) unnamed_addr #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 400
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %3 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #12
   ret ptr %3
 }

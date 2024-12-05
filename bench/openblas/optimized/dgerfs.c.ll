@@ -119,9 +119,9 @@ define void @dgerfs_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 
 79:                                               ; preds = %79, %76
   %80 = phi i64 [ 1, %76 ], [ %83, %79 ]
-  %81 = getelementptr inbounds double, ptr %34, i64 %80
+  %81 = getelementptr inbounds nuw double, ptr %34, i64 %80
   store double 0.000000e+00, ptr %81, align 8, !tbaa !7
-  %82 = getelementptr inbounds double, ptr %35, i64 %80
+  %82 = getelementptr inbounds nuw double, ptr %35, i64 %80
   store double 0.000000e+00, ptr %82, align 8, !tbaa !7
   %83 = add nuw nsw i64 %80, 1
   %84 = icmp eq i64 %83, %78
@@ -152,7 +152,7 @@ define void @dgerfs_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 
 103:                                              ; preds = %.thread28, %96
   %104 = phi i64 [ 1, %96 ], [ %313, %.thread28 ]
-  %105 = getelementptr inbounds double, ptr %35, i64 %104
+  %105 = getelementptr inbounds nuw double, ptr %35, i64 %104
   %106 = mul nsw i64 %104, %100
   %107 = getelementptr double, ptr %94, i64 %106
   %108 = mul nsw i64 %104, %101
@@ -188,7 +188,7 @@ define void @dgerfs_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %130 = fcmp oge double %129, 0.000000e+00
   %131 = fneg double %129
   %132 = select i1 %130, double %129, double %131
-  %133 = getelementptr inbounds double, ptr %36, i64 %127
+  %133 = getelementptr inbounds nuw double, ptr %36, i64 %127
   store double %132, ptr %133, align 8, !tbaa !7
   %134 = add nuw nsw i64 %127, 1
   %135 = icmp eq i64 %134, %125
@@ -215,7 +215,7 @@ define void @dgerfs_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %149 = fcmp oge double %148, 0.000000e+00
   %150 = fneg double %148
   %151 = select i1 %149, double %148, double %150
-  %152 = getelementptr inbounds double, ptr %36, i64 %146
+  %152 = getelementptr inbounds nuw double, ptr %36, i64 %146
   %153 = load double, ptr %152, align 8, !tbaa !7
   %154 = call double @llvm.fmuladd.f64(double %151, double %142, double %153)
   store double %154, ptr %152, align 8, !tbaa !7
@@ -253,7 +253,7 @@ define void @dgerfs_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   br i1 %178, label %179, label %163, !llvm.loop !16
 
 179:                                              ; preds = %163
-  %180 = getelementptr inbounds double, ptr %36, i64 %160
+  %180 = getelementptr inbounds nuw double, ptr %36, i64 %160
   %181 = load double, ptr %180, align 8, !tbaa !7
   %182 = fadd double %176, %181
   store double %182, ptr %180, align 8, !tbaa !7
@@ -268,7 +268,7 @@ define void @dgerfs_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 186:                                              ; preds = %186, %.loopexit31
   %187 = phi i64 [ 1, %.loopexit31 ], [ %204, %186 ]
   %188 = phi double [ 0.000000e+00, %.loopexit31 ], [ %203, %186 ]
-  %189 = getelementptr inbounds double, ptr %36, i64 %187
+  %189 = getelementptr inbounds nuw double, ptr %36, i64 %187
   %190 = load double, ptr %189, align 8, !tbaa !7
   %191 = fcmp ogt double %190, %92
   %192 = getelementptr double, ptr %189, i64 %185
@@ -323,7 +323,7 @@ define void @dgerfs_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 
 227:                                              ; preds = %227, %223
   %228 = phi i64 [ 1, %223 ], [ %240, %227 ]
-  %229 = getelementptr inbounds double, ptr %36, i64 %228
+  %229 = getelementptr inbounds nuw double, ptr %36, i64 %228
   %230 = load double, ptr %229, align 8, !tbaa !7
   %231 = fcmp ogt double %230, %92
   %232 = getelementptr double, ptr %229, i64 %224
@@ -341,7 +341,7 @@ define void @dgerfs_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 
 .loopexit33:                                      ; preds = %227, %222
   store i32 0, ptr %19, align 4, !tbaa !3
-  %242 = getelementptr inbounds double, ptr %34, i64 %104
+  %242 = getelementptr inbounds nuw double, ptr %34, i64 %104
   br label %.loopexit30
 
 .loopexit30:                                      ; preds = %.loopexit30.backedge, %.loopexit33
@@ -377,7 +377,7 @@ define void @dgerfs_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 
 263:                                              ; preds = %263, %258
   %264 = phi i64 [ 1, %258 ], [ %270, %263 ]
-  %265 = getelementptr inbounds double, ptr %36, i64 %264
+  %265 = getelementptr inbounds nuw double, ptr %36, i64 %264
   %266 = load double, ptr %265, align 8, !tbaa !7
   %267 = getelementptr double, ptr %262, i64 %264
   %268 = load double, ptr %267, align 8, !tbaa !7
@@ -400,7 +400,7 @@ define void @dgerfs_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 
 279:                                              ; preds = %279, %274
   %280 = phi i64 [ 1, %274 ], [ %286, %279 ]
-  %281 = getelementptr inbounds double, ptr %36, i64 %280
+  %281 = getelementptr inbounds nuw double, ptr %36, i64 %280
   %282 = load double, ptr %281, align 8, !tbaa !7
   %283 = getelementptr double, ptr %278, i64 %280
   %284 = load double, ptr %283, align 8, !tbaa !7

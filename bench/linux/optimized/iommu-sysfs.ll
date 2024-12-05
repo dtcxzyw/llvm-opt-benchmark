@@ -38,7 +38,7 @@ define dso_local i32 @iommu_device_sysfs_add(ptr noundef initializes((32, 40)) %
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #7
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %7 = tail call noalias noundef align 8 dereferenceable_or_null(728) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 3520, i64 noundef 728) #8
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %7, ptr %8, align 8
   %9 = icmp eq ptr %7, null
   br i1 %9, label %30, label %10
@@ -47,13 +47,13 @@ define dso_local i32 @iommu_device_sysfs_add(ptr noundef initializes((32, 40)) %
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %5, i8 0, i64 24, i1 false), !annotation !5
   tail call void @device_initialize(ptr noundef nonnull %7) #7
   %11 = load ptr, ptr %8, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 672
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 672
   store ptr @iommu_class, ptr %12, align 8
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 64
   store ptr %1, ptr %14, align 8
   %15 = load ptr, ptr %8, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 680
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 680
   store ptr %2, ptr %16, align 8
   call void @llvm.va_start.p0(ptr nonnull %5)
   %17 = load ptr, ptr %8, align 8
@@ -70,7 +70,7 @@ define dso_local i32 @iommu_device_sysfs_add(ptr noundef initializes((32, 40)) %
 
 24:                                               ; preds = %20
   %25 = load ptr, ptr %8, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 120
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 120
   store ptr %0, ptr %26, align 8
   br label %30
 
@@ -109,9 +109,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @iommu_device_sysfs_remove(ptr nocapture noundef %0) #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 120
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 120
   store ptr null, ptr %4, align 8
   %5 = load ptr, ptr %2, align 8
   tail call void @device_unregister(ptr noundef %5) #7
@@ -124,9 +124,9 @@ declare dso_local void @device_unregister(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @iommu_device_link(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %10
@@ -179,9 +179,9 @@ declare dso_local void @sysfs_remove_link_from_group(ptr noundef, ptr noundef, p
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @iommu_device_unlink(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 align 16 {
   tail call void @sysfs_remove_link(ptr noundef %1, ptr noundef nonnull @.str.1) #7
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %10

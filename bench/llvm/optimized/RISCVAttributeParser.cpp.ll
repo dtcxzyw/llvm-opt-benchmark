@@ -57,12 +57,12 @@ define dso_local void @_ZN4llvm20RISCVAttributeParser10stackAlignEj(ptr dead_on_
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
-  %15 = getelementptr inbounds i8, ptr %4, i64 21
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 21
   %16 = icmp eq i64 %14, 0
   br i1 %16, label %.thread.i, label %.lr.ph.i
 
 .thread.i:                                        ; preds = %3
-  %17 = getelementptr inbounds i8, ptr %4, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i8 48, ptr %17, align 4, !noalias !4
   br label %_ZN4llvm6utostrB5cxx11Emb.exit
 
@@ -150,12 +150,12 @@ define dso_local void @_ZN4llvm20RISCVAttributeParser9atomicAbiEj(ptr dead_on_un
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
   call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
-  %12 = getelementptr inbounds i8, ptr %4, i64 21
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 21
   %13 = icmp eq i64 %11, 0
   br i1 %13, label %.thread.i, label %.lr.ph.i
 
 .thread.i:                                        ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %4, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i8 48, ptr %14, align 4, !noalias !15
   br label %_ZN4llvm12ErrorSuccessD2Ev.exit
 
@@ -219,7 +219,7 @@ define dso_local void @_ZN4llvm20RISCVAttributeParser7handlerEmRb(ptr dead_on_un
 
 6:                                                ; preds = %4, %5
   %.013.idx21 = phi i64 [ 0, %4 ], [ %.013.add, %5 ]
-  %.013.ptr22 = getelementptr inbounds i8, ptr @_ZN4llvm20RISCVAttributeParser15displayRoutinesE, i64 %.013.idx21
+  %.013.ptr22 = getelementptr inbounds nuw i8, ptr @_ZN4llvm20RISCVAttributeParser15displayRoutinesE, i64 %.013.idx21
   %7 = load i32, ptr %.013.ptr22, align 8
   %8 = zext i32 %7 to i64
   %9 = icmp eq i64 %2, %8
@@ -228,7 +228,7 @@ define dso_local void @_ZN4llvm20RISCVAttributeParser7handlerEmRb(ptr dead_on_un
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %.013.ptr22, i64 8
   %.unpack = load i64, ptr %11, align 8
-  %.elt15 = getelementptr inbounds i8, ptr %.013.ptr22, i64 16
+  %.elt15 = getelementptr inbounds nuw i8, ptr %.013.ptr22, i64 16
   %.unpack16 = load i64, ptr %.elt15, align 8
   %12 = getelementptr inbounds i8, ptr %1, i64 %.unpack16
   %13 = and i64 %.unpack, 1
@@ -349,7 +349,7 @@ define linkonce_odr hidden void @_ZN4llvm18ELFAttributeParserD2Ev(ptr noundef no
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %1
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(8) %3) #8
   %.pr = load ptr, ptr %2, align 8
@@ -358,7 +358,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %1
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit
   %10 = load ptr, ptr %.pr, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(8) %.pr) #8
   br label %_ZN4llvm13DataExtractor6CursorD2Ev.exit

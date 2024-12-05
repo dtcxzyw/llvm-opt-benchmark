@@ -66,19 +66,19 @@ module asm ".previous\09\09\09\09\09"
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @pci_dev_assign_slot(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @pci_slot_mutex) #7
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, %4
   br i1 %6, label %.loopexit, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load i32, ptr %8, align 8
   %10 = lshr i32 %9, 3
   %11 = and i32 %10, 31
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %13
 
 13:                                               ; preds = %21, %7
@@ -117,7 +117,7 @@ define dso_local ptr @pci_create_slot(ptr noundef %0, i32 noundef %1, ptr nounde
   br i1 %5, label %.thread, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br label %8
 
 8:                                                ; preds = %12, %6
@@ -162,14 +162,14 @@ define dso_local ptr @pci_create_slot(ptr noundef %0, i32 noundef %1, ptr nounde
   br i1 %34, label %.thread11, label %35
 
 35:                                               ; preds = %32
-  %36 = tail call i32 @kobject_rename(ptr noundef %19, ptr noundef nonnull %33) #7
+  %36 = tail call i32 @kobject_rename(ptr noundef nonnull %19, ptr noundef nonnull %33) #7
   tail call void @kfree(ptr noundef nonnull %33) #7
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %.thread10, label %.thread11
 
 .thread11:                                        ; preds = %32, %35, %24
   %38 = phi i32 [ -16, %24 ], [ %36, %35 ], [ -12, %32 ]
-  tail call void @kobject_put(ptr noundef %19) #7
+  tail call void @kobject_put(ptr noundef nonnull %19) #7
   br label %77
 
 .thread:                                          ; preds = %8, %17, %4
@@ -181,11 +181,11 @@ define dso_local ptr @pci_create_slot(ptr noundef %0, i32 noundef %1, ptr nounde
 42:                                               ; preds = %.thread
   store ptr %0, ptr %40, align 8
   %43 = trunc i32 %1 to i8
-  %44 = getelementptr inbounds i8, ptr %40, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %40, i64 32
   store i8 %43, ptr %44, align 8
   %45 = load ptr, ptr @pci_slots_kset, align 8
-  %46 = getelementptr inbounds i8, ptr %40, i64 40
-  %47 = getelementptr inbounds i8, ptr %40, i64 72
+  %46 = getelementptr inbounds nuw i8, ptr %40, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %40, i64 72
   store ptr %45, ptr %47, align 8
   %48 = tail call fastcc ptr @make_slot_name(ptr noundef %2)
   %49 = icmp eq ptr %48, null
@@ -196,35 +196,35 @@ define dso_local ptr @pci_create_slot(ptr noundef %0, i32 noundef %1, ptr nounde
   br label %77
 
 51:                                               ; preds = %42
-  %52 = getelementptr inbounds i8, ptr %40, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store volatile ptr %52, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %40, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %40, i64 16
   store volatile ptr %52, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 64
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store ptr %52, ptr %56, align 8
   store ptr %55, ptr %52, align 8
   store ptr %54, ptr %53, align 8
   store volatile ptr %52, ptr %54, align 8
-  %57 = tail call i32 (ptr, ptr, ptr, ptr, ...) @kobject_init_and_add(ptr noundef %46, ptr noundef nonnull @pci_slot_ktype, ptr noundef null, ptr noundef nonnull @.str, ptr noundef nonnull %48) #7
+  %57 = tail call i32 (ptr, ptr, ptr, ptr, ...) @kobject_init_and_add(ptr noundef nonnull %46, ptr noundef nonnull @pci_slot_ktype, ptr noundef null, ptr noundef nonnull @.str, ptr noundef nonnull %48) #7
   %58 = icmp eq i32 %57, 0
   br i1 %58, label %60, label %59
 
 59:                                               ; preds = %51
-  tail call void @kobject_put(ptr noundef %46) #7
+  tail call void @kobject_put(ptr noundef nonnull %46) #7
   br label %77
 
 60:                                               ; preds = %51
   tail call void @down_read(ptr noundef nonnull @pci_bus_sem) #7
-  %61 = getelementptr inbounds i8, ptr %0, i64 40
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %62 = load ptr, ptr %61, align 8
   %63 = icmp eq ptr %62, %61
   br i1 %63, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %60, %72
   %64 = phi ptr [ %73, %72 ], [ %62, %60 ]
-  %65 = getelementptr inbounds i8, ptr %64, i64 56
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 56
   %66 = load i32, ptr %65, align 8
   %67 = lshr i32 %66, 3
   %68 = and i32 %67, 31
@@ -232,7 +232,7 @@ define dso_local ptr @pci_create_slot(ptr noundef %0, i32 noundef %1, ptr nounde
   br i1 %69, label %70, label %72
 
 70:                                               ; preds = %.preheader
-  %71 = getelementptr inbounds i8, ptr %64, i64 48
+  %71 = getelementptr inbounds nuw i8, ptr %64, i64 48
   store ptr %40, ptr %71, align 8
   br label %72
 
@@ -331,15 +331,15 @@ declare dso_local void @up_read(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @pci_destroy_slot(ptr noundef %0) #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @pci_slot_mutex) #7
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
-  tail call void @kobject_put(ptr noundef %2) #7
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  tail call void @kobject_put(ptr noundef nonnull %2) #7
   tail call void @mutex_unlock(ptr noundef nonnull @pci_slot_mutex) #7
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @pci_hp_create_module_link(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %22, label %5
@@ -351,22 +351,22 @@ define dso_local void @pci_hp_create_module_link(ptr noundef %0) #0 align 16 {
 
 8:                                                ; preds = %5
   %9 = load ptr, ptr @module_kset, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr @kset_find_obj(ptr noundef %9, ptr noundef %11) #7
   %13 = icmp eq ptr %12, null
   br i1 %13, label %22, label %14
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
-  %16 = tail call i32 @sysfs_create_link(ptr noundef %15, ptr noundef nonnull %12, ptr noundef nonnull @.str.1) #7
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %16 = tail call i32 @sysfs_create_link(ptr noundef nonnull %15, ptr noundef nonnull %12, ptr noundef nonnull @.str.1) #7
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %21, label %18
 
 18:                                               ; preds = %14
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 280
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %20, ptr noundef nonnull @.str.2, i32 noundef %16) #10
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 280
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %20, ptr noundef nonnull @.str.2, i32 noundef %16) #10
   br label %21
 
 21:                                               ; preds = %18, %14
@@ -388,8 +388,8 @@ declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_ad
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @pci_hp_remove_module_link(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
-  tail call void @sysfs_remove_link(ptr noundef %2, ptr noundef nonnull @.str.1) #7
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  tail call void @sysfs_remove_link(ptr noundef nonnull %2, ptr noundef nonnull @.str.1) #7
   ret void
 }
 
@@ -399,8 +399,8 @@ declare dso_local void @sysfs_remove_link(ptr noundef, ptr noundef) local_unname
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 -12, 1) i32 @pci_slot_init() #0 align 16 {
   %1 = tail call ptr @bus_get_kset(ptr noundef nonnull @pci_bus_type) #7
-  %2 = getelementptr inbounds i8, ptr %1, i64 24
-  %3 = tail call ptr @kset_create_and_add(ptr noundef nonnull @.str.11, ptr noundef null, ptr noundef %2) #7
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %3 = tail call ptr @kset_create_and_add(ptr noundef nonnull @.str.11, ptr noundef null, ptr noundef nonnull %2) #7
   store ptr %3, ptr @pci_slots_kset, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %7
@@ -443,7 +443,7 @@ define internal void @pci_slot_release(ptr noundef %0) #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -40
   tail call void @down_read(ptr noundef nonnull @pci_bus_sem) #7
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, %4
   br i1 %6, label %.loopexit, label %7
@@ -455,7 +455,7 @@ define internal void @pci_slot_release(ptr noundef %0) #0 align 16 {
 9:                                                ; preds = %21, %7
   %10 = phi ptr [ %3, %7 ], [ %22, %21 ]
   %11 = phi ptr [ %5, %7 ], [ %23, %21 ]
-  %12 = getelementptr inbounds i8, ptr %11, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %13 = load i32, ptr %12, align 8
   %14 = lshr i32 %13, 3
   %15 = and i32 %14, 31
@@ -465,7 +465,7 @@ define internal void @pci_slot_release(ptr noundef %0) #0 align 16 {
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %9
-  %20 = getelementptr inbounds i8, ptr %11, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 48
   store ptr null, ptr %20, align 8
   %.pre = load ptr, ptr %2, align 8
   br label %21
@@ -473,7 +473,7 @@ define internal void @pci_slot_release(ptr noundef %0) #0 align 16 {
 21:                                               ; preds = %19, %9
   %22 = phi ptr [ %.pre, %19 ], [ %10, %9 ]
   %23 = load ptr, ptr %11, align 8
-  %24 = getelementptr inbounds i8, ptr %22, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %25 = icmp eq ptr %23, %24
   br i1 %25, label %.loopexit, label %9, !llvm.loop !10
 
@@ -483,7 +483,7 @@ define internal void @pci_slot_release(ptr noundef %0) #0 align 16 {
   %27 = getelementptr i8, ptr %0, i64 -24
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %26, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr %28, ptr %30, align 8
   store volatile ptr %29, ptr %28, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %26, align 8
@@ -494,7 +494,7 @@ define internal void @pci_slot_release(ptr noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i64 @pci_slot_attr_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %10, label %7
@@ -511,7 +511,7 @@ define internal i64 @pci_slot_attr_show(ptr noundef %0, ptr nocapture noundef re
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i64 @pci_slot_attr_store(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %11, label %8
@@ -528,14 +528,14 @@ define internal i64 @pci_slot_attr_store(ptr noundef %0, ptr nocapture noundef r
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @address_read_file(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i8, ptr %3, align 8
   %5 = icmp eq i8 %4, -1
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 200
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 200
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 216
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 216
   %11 = load i8, ptr %10, align 8
   %12 = zext i8 %11 to i32
   br i1 %5, label %13, label %15
@@ -561,7 +561,7 @@ declare dso_local i32 @sysfs_emit(ptr noundef, ptr noundef, ...) local_unnamed_a
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @max_speed_read_file(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 218
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 218
   %5 = load i8, ptr %4, align 2
   %6 = zext i8 %5 to i32
   %7 = tail call ptr @pci_speed_string(i32 noundef %6) #7
@@ -576,7 +576,7 @@ declare dso_local ptr @pci_speed_string(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @cur_speed_read_file(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 219
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 219
   %5 = load i8, ptr %4, align 1
   %6 = zext i8 %5 to i32
   %7 = tail call ptr @pci_speed_string(i32 noundef %6) #7

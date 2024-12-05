@@ -224,7 +224,7 @@ if.end62:                                         ; preds = %if.then60, %if.end5
 
 if.then64:                                        ; preds = %if.end62
   %9 = load ptr, ptr %p7, align 8
-  %type = getelementptr inbounds i8, ptr %9, i64 24
+  %type = getelementptr inbounds nuw i8, ptr %9, i64 24
   %10 = load ptr, ptr %type, align 8
   %call65 = call i32 @OBJ_obj2nid(ptr noundef %10) #2
   switch i32 %call65, label %end [
@@ -234,23 +234,23 @@ if.then64:                                        ; preds = %if.end62
 
 sw.bb66:                                          ; preds = %if.then64
   %11 = load ptr, ptr %p7, align 8
-  %d = getelementptr inbounds i8, ptr %11, i64 32
+  %d = getelementptr inbounds nuw i8, ptr %11, i64 32
   %12 = load ptr, ptr %d, align 8
   %cmp67.not = icmp eq ptr %12, null
   br i1 %cmp67.not, label %end, label %sw.epilog81
 
 sw.bb72:                                          ; preds = %if.then64
   %13 = load ptr, ptr %p7, align 8
-  %d73 = getelementptr inbounds i8, ptr %13, i64 32
+  %d73 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %14 = load ptr, ptr %d73, align 8
   %cmp74.not = icmp eq ptr %14, null
   br i1 %cmp74.not, label %end, label %sw.epilog81
 
 sw.epilog81:                                      ; preds = %sw.bb72, %sw.bb66
   %.pn = phi ptr [ %12, %sw.bb66 ], [ %14, %sw.bb72 ]
-  %crls.0.in = getelementptr inbounds i8, ptr %.pn, i64 24
+  %crls.0.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %crls.0 = load ptr, ptr %crls.0.in, align 8
-  %certs.0.in = getelementptr inbounds i8, ptr %.pn, i64 16
+  %certs.0.in = getelementptr inbounds nuw i8, ptr %.pn, i64 16
   %certs.0 = load ptr, ptr %certs.0.in, align 8
   %cmp82.not = icmp eq ptr %certs.0, null
   br i1 %cmp82.not, label %if.end102, label %for.cond.preheader

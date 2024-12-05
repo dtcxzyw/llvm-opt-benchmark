@@ -34,13 +34,13 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local noundef i32 @luaopen_io(ptr noundef %L) local_unnamed_addr #0 {
 entry:
   tail call void @lj_lib_register(ptr noundef %L, ptr noundef null, ptr noundef nonnull @lj_lib_init_io_method, ptr noundef nonnull @lj_lib_cf_io_method) #10
-  %top = getelementptr inbounds i8, ptr %L, i64 40
+  %top = getelementptr inbounds nuw i8, ptr %L, i64 40
   %0 = load ptr, ptr %top, align 8
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 -8
   %1 = load i64, ptr %add.ptr, align 8
   store i64 %1, ptr %0, align 8
   %2 = load ptr, ptr %top, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %2, i64 8
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %incdec.ptr, ptr %top, align 8
   tail call void @lua_setfield(ptr noundef %L, i32 noundef -10000, ptr noundef nonnull @.str) #10
   tail call void @lj_lib_register(ptr noundef %L, ptr noundef nonnull @.str.1, ptr noundef nonnull @lj_lib_init_io, ptr noundef nonnull @lj_lib_cf_io) #10
@@ -51,22 +51,22 @@ entry:
   %5 = load i64, ptr %add.ptr.i, align 8
   %and.i = and i64 %5, 140737488355327
   %6 = inttoptr i64 %and.i to ptr
-  %udtype.i = getelementptr inbounds i8, ptr %6, i64 10
+  %udtype.i = getelementptr inbounds nuw i8, ptr %6, i64 10
   store i8 1, ptr %udtype.i, align 2
   %7 = load ptr, ptr %top, align 8
   %add.ptr2.i = getelementptr inbounds i8, ptr %7, i64 -24
   %8 = load i64, ptr %add.ptr2.i, align 8
   %and4.i = and i64 %8, 140737488355327
-  %metatable.i = getelementptr inbounds i8, ptr %6, i64 32
+  %metatable.i = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i64 %and4.i, ptr %metatable.i, align 8
   store ptr %3, ptr %call.i, align 8
-  %type.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %type.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i32 2, ptr %type.i, align 8
   tail call void @lua_setfield(ptr noundef %L, i32 noundef -2, ptr noundef nonnull @.str.2) #10
-  %glref = getelementptr inbounds i8, ptr %L, i64 16
+  %glref = getelementptr inbounds nuw i8, ptr %L, i64 16
   %9 = load i64, ptr %glref, align 8
   %10 = inttoptr i64 %9 to ptr
-  %arrayidx = getelementptr inbounds i8, ptr %10, i64 712
+  %arrayidx = getelementptr inbounds nuw i8, ptr %10, i64 712
   store i64 %and.i, ptr %arrayidx, align 8
   %11 = load ptr, ptr @stdout, align 8
   %call.i13 = tail call ptr @lua_newuserdata(ptr noundef %L, i64 noundef 16) #10
@@ -75,21 +75,21 @@ entry:
   %13 = load i64, ptr %add.ptr.i15, align 8
   %and.i16 = and i64 %13, 140737488355327
   %14 = inttoptr i64 %and.i16 to ptr
-  %udtype.i17 = getelementptr inbounds i8, ptr %14, i64 10
+  %udtype.i17 = getelementptr inbounds nuw i8, ptr %14, i64 10
   store i8 1, ptr %udtype.i17, align 2
   %15 = load ptr, ptr %top, align 8
   %add.ptr2.i18 = getelementptr inbounds i8, ptr %15, i64 -24
   %16 = load i64, ptr %add.ptr2.i18, align 8
   %and4.i19 = and i64 %16, 140737488355327
-  %metatable.i20 = getelementptr inbounds i8, ptr %14, i64 32
+  %metatable.i20 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store i64 %and4.i19, ptr %metatable.i20, align 8
   store ptr %11, ptr %call.i13, align 8
-  %type.i21 = getelementptr inbounds i8, ptr %call.i13, i64 8
+  %type.i21 = getelementptr inbounds nuw i8, ptr %call.i13, i64 8
   store i32 2, ptr %type.i21, align 8
   tail call void @lua_setfield(ptr noundef %L, i32 noundef -2, ptr noundef nonnull @.str.3) #10
   %17 = load i64, ptr %glref, align 8
   %18 = inttoptr i64 %17 to ptr
-  %arrayidx7 = getelementptr inbounds i8, ptr %18, i64 720
+  %arrayidx7 = getelementptr inbounds nuw i8, ptr %18, i64 720
   store i64 %and.i16, ptr %arrayidx7, align 8
   %19 = load ptr, ptr @stderr, align 8
   %call.i22 = tail call ptr @lua_newuserdata(ptr noundef %L, i64 noundef 16) #10
@@ -98,16 +98,16 @@ entry:
   %21 = load i64, ptr %add.ptr.i24, align 8
   %and.i25 = and i64 %21, 140737488355327
   %22 = inttoptr i64 %and.i25 to ptr
-  %udtype.i26 = getelementptr inbounds i8, ptr %22, i64 10
+  %udtype.i26 = getelementptr inbounds nuw i8, ptr %22, i64 10
   store i8 1, ptr %udtype.i26, align 2
   %23 = load ptr, ptr %top, align 8
   %add.ptr2.i27 = getelementptr inbounds i8, ptr %23, i64 -24
   %24 = load i64, ptr %add.ptr2.i27, align 8
   %and4.i28 = and i64 %24, 140737488355327
-  %metatable.i29 = getelementptr inbounds i8, ptr %22, i64 32
+  %metatable.i29 = getelementptr inbounds nuw i8, ptr %22, i64 32
   store i64 %and4.i28, ptr %metatable.i29, align 8
   store ptr %19, ptr %call.i22, align 8
-  %type.i30 = getelementptr inbounds i8, ptr %call.i22, i64 8
+  %type.i30 = getelementptr inbounds nuw i8, ptr %call.i22, i64 8
   store i32 2, ptr %type.i30, align 8
   tail call void @lua_setfield(ptr noundef %L, i32 noundef -2, ptr noundef nonnull @.str.4) #10
   ret i32 1
@@ -120,9 +120,9 @@ declare void @lua_setfield(ptr noundef, i32 noundef, ptr noundef) local_unnamed_
 ; Function Attrs: nounwind uwtable
 define internal i32 @lj_cf_io_method_close(ptr noundef %L) #0 {
 entry:
-  %base = getelementptr inbounds i8, ptr %L, i64 32
+  %base = getelementptr inbounds nuw i8, ptr %L, i64 32
   %0 = load ptr, ptr %base, align 8
-  %top = getelementptr inbounds i8, ptr %L, i64 40
+  %top = getelementptr inbounds nuw i8, ptr %L, i64 40
   %1 = load ptr, ptr %top, align 8
   %cmp = icmp ult ptr %0, %1
   br i1 %cmp, label %land.lhs.true.i.i, label %if.else
@@ -136,7 +136,7 @@ land.lhs.true.i.i:                                ; preds = %entry
 land.lhs.true4.i.i:                               ; preds = %land.lhs.true.i.i
   %and.i.i = and i64 %2, 140737488355327
   %3 = inttoptr i64 %and.i.i to ptr
-  %udtype.i.i = getelementptr inbounds i8, ptr %3, i64 10
+  %udtype.i.i = getelementptr inbounds nuw i8, ptr %3, i64 10
   %4 = load i8, ptr %udtype.i.i, align 2
   %cmp7.i.i = icmp eq i8 %4, 1
   br i1 %cmp7.i.i, label %io_tofilep.exit.i, label %if.then.i.i
@@ -146,7 +146,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true4.i.i,
   unreachable
 
 io_tofilep.exit.i:                                ; preds = %land.lhs.true4.i.i
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 48
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %add.ptr.i.i, align 8
   %cmp.i = icmp eq ptr %5, null
   br i1 %cmp.i, label %if.then.i, label %if.end3
@@ -156,13 +156,13 @@ if.then.i:                                        ; preds = %io_tofilep.exit.i
   unreachable
 
 if.else:                                          ; preds = %entry
-  %glref = getelementptr inbounds i8, ptr %L, i64 16
+  %glref = getelementptr inbounds nuw i8, ptr %L, i64 16
   %6 = load i64, ptr %glref, align 8
   %7 = inttoptr i64 %6 to ptr
-  %arrayidx = getelementptr inbounds i8, ptr %7, i64 720
+  %arrayidx = getelementptr inbounds nuw i8, ptr %7, i64 720
   %8 = load i64, ptr %arrayidx, align 8
   %9 = inttoptr i64 %8 to ptr
-  %add.ptr = getelementptr inbounds i8, ptr %9, i64 48
+  %add.ptr = getelementptr inbounds nuw i8, ptr %9, i64 48
   %10 = load ptr, ptr %add.ptr, align 8
   %cmp1 = icmp eq ptr %10, null
   br i1 %cmp1, label %if.then2, label %if.end3
@@ -174,7 +174,7 @@ if.then2:                                         ; preds = %if.else
 if.end3:                                          ; preds = %io_tofilep.exit.i, %if.else
   %11 = phi ptr [ %10, %if.else ], [ %5, %io_tofilep.exit.i ]
   %iof.0 = phi ptr [ %add.ptr, %if.else ], [ %add.ptr.i.i, %io_tofilep.exit.i ]
-  %type.i = getelementptr inbounds i8, ptr %iof.0, i64 8
+  %type.i = getelementptr inbounds nuw i8, ptr %iof.0, i64 8
   %12 = load i32, ptr %type.i, align 8
   %and.i = and i32 %12, 3
   switch i32 %and.i, label %if.else11.i [
@@ -193,7 +193,7 @@ if.then6.i:                                       ; preds = %if.end3
   br label %if.end12.i
 
 if.else11.i:                                      ; preds = %if.end3
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %1, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %incdec.ptr.i, ptr %top, align 8
   store i64 -1, ptr %1, align 8
   tail call void @lua_pushlstring(ptr noundef nonnull %L, ptr noundef nonnull @.str.5, i64 noundef 26) #10
@@ -214,9 +214,9 @@ io_file_close.exit:                               ; preds = %if.else11.i, %if.en
 ; Function Attrs: nounwind uwtable
 define internal i32 @lj_cf_io_method_read(ptr noundef %L) #0 {
 entry:
-  %base.i.i = getelementptr inbounds i8, ptr %L, i64 32
+  %base.i.i = getelementptr inbounds nuw i8, ptr %L, i64 32
   %0 = load ptr, ptr %base.i.i, align 8
-  %top.i.i = getelementptr inbounds i8, ptr %L, i64 40
+  %top.i.i = getelementptr inbounds nuw i8, ptr %L, i64 40
   %1 = load ptr, ptr %top.i.i, align 8
   %cmp.i.i = icmp ult ptr %0, %1
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %if.then.i.i
@@ -230,7 +230,7 @@ land.lhs.true.i.i:                                ; preds = %entry
 land.lhs.true4.i.i:                               ; preds = %land.lhs.true.i.i
   %and.i.i = and i64 %2, 140737488355327
   %3 = inttoptr i64 %and.i.i to ptr
-  %udtype.i.i = getelementptr inbounds i8, ptr %3, i64 10
+  %udtype.i.i = getelementptr inbounds nuw i8, ptr %3, i64 10
   %4 = load i8, ptr %udtype.i.i, align 2
   %cmp7.i.i = icmp eq i8 %4, 1
   br i1 %cmp7.i.i, label %io_tofilep.exit.i, label %if.then.i.i
@@ -240,7 +240,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true4.i.i,
   unreachable
 
 io_tofilep.exit.i:                                ; preds = %land.lhs.true4.i.i
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 48
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %add.ptr.i.i, align 8
   %cmp.i = icmp eq ptr %5, null
   br i1 %cmp.i, label %if.then.i, label %io_tofile.exit
@@ -258,9 +258,9 @@ io_tofile.exit:                                   ; preds = %io_tofilep.exit.i
 define internal i32 @lj_cf_io_method_write(ptr noundef %L) #0 {
 entry:
   %len.i = alloca i32, align 4
-  %base.i.i = getelementptr inbounds i8, ptr %L, i64 32
+  %base.i.i = getelementptr inbounds nuw i8, ptr %L, i64 32
   %0 = load ptr, ptr %base.i.i, align 8
-  %top.i.i = getelementptr inbounds i8, ptr %L, i64 40
+  %top.i.i = getelementptr inbounds nuw i8, ptr %L, i64 40
   %1 = load ptr, ptr %top.i.i, align 8
   %cmp.i.i = icmp ult ptr %0, %1
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %if.then.i.i
@@ -274,7 +274,7 @@ land.lhs.true.i.i:                                ; preds = %entry
 land.lhs.true4.i.i:                               ; preds = %land.lhs.true.i.i
   %and.i.i = and i64 %2, 140737488355327
   %3 = inttoptr i64 %and.i.i to ptr
-  %udtype.i.i = getelementptr inbounds i8, ptr %3, i64 10
+  %udtype.i.i = getelementptr inbounds nuw i8, ptr %3, i64 10
   %4 = load i8, ptr %udtype.i.i, align 2
   %cmp7.i.i = icmp eq i8 %4, 1
   br i1 %cmp7.i.i, label %io_tofilep.exit.i, label %if.then.i.i
@@ -284,7 +284,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true4.i.i,
   unreachable
 
 io_tofilep.exit.i:                                ; preds = %land.lhs.true4.i.i
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 48
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %add.ptr.i.i, align 8
   %cmp.i = icmp eq ptr %5, null
   br i1 %cmp.i, label %if.then.i, label %io_tofile.exit
@@ -295,7 +295,7 @@ if.then.i:                                        ; preds = %io_tofilep.exit.i
 
 io_tofile.exit:                                   ; preds = %io_tofilep.exit.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i)
-  %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 8
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %cmp3.i = icmp ult ptr %add.ptr.i, %1
   br i1 %cmp3.i, label %for.body.i, label %io_file_write.exit
 
@@ -333,7 +333,7 @@ land.rhs.i:                                       ; preds = %if.end.i
 
 land.end.i:                                       ; preds = %land.rhs.i, %if.end.i
   %land.ext.i = phi i32 [ 0, %if.end.i ], [ %9, %land.rhs.i ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %tv.05.i, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %tv.05.i, i64 8
   %10 = load ptr, ptr %top.i.i, align 8
   %cmp.i2 = icmp ult ptr %incdec.ptr.i, %10
   br i1 %cmp.i2, label %for.body.i, label %io_file_write.exit, !llvm.loop !4
@@ -348,9 +348,9 @@ io_file_write.exit:                               ; preds = %land.end.i, %io_tof
 ; Function Attrs: nounwind uwtable
 define internal i32 @lj_cf_io_method_flush(ptr noundef %L) #0 {
 entry:
-  %base.i.i = getelementptr inbounds i8, ptr %L, i64 32
+  %base.i.i = getelementptr inbounds nuw i8, ptr %L, i64 32
   %0 = load ptr, ptr %base.i.i, align 8
-  %top.i.i = getelementptr inbounds i8, ptr %L, i64 40
+  %top.i.i = getelementptr inbounds nuw i8, ptr %L, i64 40
   %1 = load ptr, ptr %top.i.i, align 8
   %cmp.i.i = icmp ult ptr %0, %1
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %if.then.i.i
@@ -364,7 +364,7 @@ land.lhs.true.i.i:                                ; preds = %entry
 land.lhs.true4.i.i:                               ; preds = %land.lhs.true.i.i
   %and.i.i = and i64 %2, 140737488355327
   %3 = inttoptr i64 %and.i.i to ptr
-  %udtype.i.i = getelementptr inbounds i8, ptr %3, i64 10
+  %udtype.i.i = getelementptr inbounds nuw i8, ptr %3, i64 10
   %4 = load i8, ptr %udtype.i.i, align 2
   %cmp7.i.i = icmp eq i8 %4, 1
   br i1 %cmp7.i.i, label %io_tofilep.exit.i, label %if.then.i.i
@@ -374,7 +374,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true4.i.i,
   unreachable
 
 io_tofilep.exit.i:                                ; preds = %land.lhs.true4.i.i
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 48
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %add.ptr.i.i, align 8
   %cmp.i = icmp eq ptr %5, null
   br i1 %cmp.i, label %if.then.i, label %io_tofile.exit
@@ -394,9 +394,9 @@ io_tofile.exit:                                   ; preds = %io_tofilep.exit.i
 ; Function Attrs: nounwind uwtable
 define internal i32 @lj_cf_io_method_seek(ptr noundef %L) #0 {
 entry:
-  %base.i.i = getelementptr inbounds i8, ptr %L, i64 32
+  %base.i.i = getelementptr inbounds nuw i8, ptr %L, i64 32
   %0 = load ptr, ptr %base.i.i, align 8
-  %top.i.i = getelementptr inbounds i8, ptr %L, i64 40
+  %top.i.i = getelementptr inbounds nuw i8, ptr %L, i64 40
   %1 = load ptr, ptr %top.i.i, align 8
   %cmp.i.i = icmp ult ptr %0, %1
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %if.then.i.i
@@ -410,7 +410,7 @@ land.lhs.true.i.i:                                ; preds = %entry
 land.lhs.true4.i.i:                               ; preds = %land.lhs.true.i.i
   %and.i.i = and i64 %2, 140737488355327
   %3 = inttoptr i64 %and.i.i to ptr
-  %udtype.i.i = getelementptr inbounds i8, ptr %3, i64 10
+  %udtype.i.i = getelementptr inbounds nuw i8, ptr %3, i64 10
   %4 = load i8, ptr %udtype.i.i, align 2
   %cmp7.i.i = icmp eq i8 %4, 1
   br i1 %cmp7.i.i, label %io_tofilep.exit.i, label %if.then.i.i
@@ -420,7 +420,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true4.i.i,
   unreachable
 
 io_tofilep.exit.i:                                ; preds = %land.lhs.true4.i.i
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 48
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %add.ptr.i.i, align 8
   %cmp.i = icmp eq ptr %5, null
   br i1 %cmp.i, label %if.then.i, label %io_tofile.exit
@@ -432,7 +432,7 @@ if.then.i:                                        ; preds = %io_tofilep.exit.i
 io_tofile.exit:                                   ; preds = %io_tofilep.exit.i
   %call2 = tail call i32 @lj_lib_checkopt(ptr noundef nonnull %L, i32 noundef 2, i32 noundef 1, ptr noundef nonnull @.str.9) #10
   %6 = load ptr, ptr %base.i.i, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %6, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %6, i64 16
   %7 = load ptr, ptr %top.i.i, align 8
   %cmp10 = icmp ult ptr %add.ptr, %7
   br i1 %cmp10, label %if.then11, label %if.end22
@@ -481,9 +481,9 @@ return:                                           ; preds = %if.end26, %if.then2
 ; Function Attrs: nounwind uwtable
 define internal i32 @lj_cf_io_method_setvbuf(ptr noundef %L) #0 {
 entry:
-  %base.i.i = getelementptr inbounds i8, ptr %L, i64 32
+  %base.i.i = getelementptr inbounds nuw i8, ptr %L, i64 32
   %0 = load ptr, ptr %base.i.i, align 8
-  %top.i.i = getelementptr inbounds i8, ptr %L, i64 40
+  %top.i.i = getelementptr inbounds nuw i8, ptr %L, i64 40
   %1 = load ptr, ptr %top.i.i, align 8
   %cmp.i.i = icmp ult ptr %0, %1
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %if.then.i.i
@@ -497,7 +497,7 @@ land.lhs.true.i.i:                                ; preds = %entry
 land.lhs.true4.i.i:                               ; preds = %land.lhs.true.i.i
   %and.i.i = and i64 %2, 140737488355327
   %3 = inttoptr i64 %and.i.i to ptr
-  %udtype.i.i = getelementptr inbounds i8, ptr %3, i64 10
+  %udtype.i.i = getelementptr inbounds nuw i8, ptr %3, i64 10
   %4 = load i8, ptr %udtype.i.i, align 2
   %cmp7.i.i = icmp eq i8 %4, 1
   br i1 %cmp7.i.i, label %io_tofilep.exit.i, label %if.then.i.i
@@ -507,7 +507,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true4.i.i,
   unreachable
 
 io_tofilep.exit.i:                                ; preds = %land.lhs.true4.i.i
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 48
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %add.ptr.i.i, align 8
   %cmp.i = icmp eq ptr %5, null
   br i1 %cmp.i, label %if.then.i, label %io_tofile.exit
@@ -530,9 +530,9 @@ io_tofile.exit:                                   ; preds = %io_tofilep.exit.i
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @lj_cf_io_method_lines(ptr noundef %L) #0 {
 entry:
-  %base.i.i = getelementptr inbounds i8, ptr %L, i64 32
+  %base.i.i = getelementptr inbounds nuw i8, ptr %L, i64 32
   %0 = load ptr, ptr %base.i.i, align 8
-  %top.i.i = getelementptr inbounds i8, ptr %L, i64 40
+  %top.i.i = getelementptr inbounds nuw i8, ptr %L, i64 40
   %1 = load ptr, ptr %top.i.i, align 8
   %cmp.i.i = icmp ult ptr %0, %1
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %if.then.i.i
@@ -546,7 +546,7 @@ land.lhs.true.i.i:                                ; preds = %entry
 land.lhs.true4.i.i:                               ; preds = %land.lhs.true.i.i
   %and.i.i = and i64 %2, 140737488355327
   %3 = inttoptr i64 %and.i.i to ptr
-  %udtype.i.i = getelementptr inbounds i8, ptr %3, i64 10
+  %udtype.i.i = getelementptr inbounds nuw i8, ptr %3, i64 10
   %4 = load i8, ptr %udtype.i.i, align 2
   %cmp7.i.i = icmp eq i8 %4, 1
   br i1 %cmp7.i.i, label %io_tofilep.exit.i, label %if.then.i.i
@@ -556,7 +556,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true4.i.i,
   unreachable
 
 io_tofilep.exit.i:                                ; preds = %land.lhs.true4.i.i
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 48
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %add.ptr.i.i, align 8
   %cmp.i = icmp eq ptr %5, null
   br i1 %cmp.i, label %if.then.i, label %io_tofile.exit
@@ -586,9 +586,9 @@ io_file_lines.exit:                               ; preds = %io_tofile.exit
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @lj_cf_io_method___gc(ptr noundef %L) #0 {
 entry:
-  %base.i = getelementptr inbounds i8, ptr %L, i64 32
+  %base.i = getelementptr inbounds nuw i8, ptr %L, i64 32
   %0 = load ptr, ptr %base.i, align 8
-  %top.i = getelementptr inbounds i8, ptr %L, i64 40
+  %top.i = getelementptr inbounds nuw i8, ptr %L, i64 40
   %1 = load ptr, ptr %top.i, align 8
   %cmp.i = icmp ult ptr %0, %1
   br i1 %cmp.i, label %land.lhs.true.i, label %if.then.i
@@ -602,7 +602,7 @@ land.lhs.true.i:                                  ; preds = %entry
 land.lhs.true4.i:                                 ; preds = %land.lhs.true.i
   %and.i = and i64 %2, 140737488355327
   %3 = inttoptr i64 %and.i to ptr
-  %udtype.i = getelementptr inbounds i8, ptr %3, i64 10
+  %udtype.i = getelementptr inbounds nuw i8, ptr %3, i64 10
   %4 = load i8, ptr %udtype.i, align 2
   %cmp7.i = icmp eq i8 %4, 1
   br i1 %cmp7.i, label %io_tofilep.exit, label %if.then.i
@@ -612,13 +612,13 @@ if.then.i:                                        ; preds = %land.lhs.true4.i, %
   unreachable
 
 io_tofilep.exit:                                  ; preds = %land.lhs.true4.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %3, i64 48
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %add.ptr.i, align 8
   %cmp.not = icmp eq ptr %5, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %io_tofilep.exit
-  %type = getelementptr inbounds i8, ptr %3, i64 56
+  %type = getelementptr inbounds nuw i8, ptr %3, i64 56
   %6 = load i32, ptr %type, align 8
   %and = and i32 %6, 3
   switch i32 %and, label %default.unreachable [
@@ -642,7 +642,7 @@ default.unreachable:                              ; preds = %land.lhs.true
   unreachable
 
 if.else11.i:                                      ; preds = %land.lhs.true
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %1, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %incdec.ptr.i, ptr %top.i, align 8
   store i64 -1, ptr %1, align 8
   tail call void @lua_pushlstring(ptr noundef nonnull %L, ptr noundef nonnull @.str.5, i64 noundef 26) #10
@@ -662,9 +662,9 @@ if.end:                                           ; preds = %land.lhs.true, %if.
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @lj_cf_io_method___tostring(ptr noundef %L) #0 {
 entry:
-  %base.i = getelementptr inbounds i8, ptr %L, i64 32
+  %base.i = getelementptr inbounds nuw i8, ptr %L, i64 32
   %0 = load ptr, ptr %base.i, align 8
-  %top.i = getelementptr inbounds i8, ptr %L, i64 40
+  %top.i = getelementptr inbounds nuw i8, ptr %L, i64 40
   %1 = load ptr, ptr %top.i, align 8
   %cmp.i = icmp ult ptr %0, %1
   br i1 %cmp.i, label %land.lhs.true.i, label %if.then.i
@@ -678,7 +678,7 @@ land.lhs.true.i:                                  ; preds = %entry
 land.lhs.true4.i:                                 ; preds = %land.lhs.true.i
   %and.i = and i64 %2, 140737488355327
   %3 = inttoptr i64 %and.i to ptr
-  %udtype.i = getelementptr inbounds i8, ptr %3, i64 10
+  %udtype.i = getelementptr inbounds nuw i8, ptr %3, i64 10
   %4 = load i8, ptr %udtype.i, align 2
   %cmp7.i = icmp eq i8 %4, 1
   br i1 %cmp7.i, label %io_tofilep.exit, label %if.then.i
@@ -688,7 +688,7 @@ if.then.i:                                        ; preds = %land.lhs.true4.i, %
   unreachable
 
 io_tofilep.exit:                                  ; preds = %land.lhs.true4.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %3, i64 48
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %add.ptr.i, align 8
   %cmp.not = icmp eq ptr %5, null
   br i1 %cmp.not, label %if.else, label %if.then
@@ -725,9 +725,9 @@ declare i32 @luaL_fileresult(ptr noundef, i32 noundef, ptr noundef) local_unname
 define internal fastcc i32 @io_file_read(ptr noundef %L, ptr %iof.0.val, i32 noundef range(i32 0, 2) %start) unnamed_addr #0 {
 entry:
   %d.i = alloca double, align 8
-  %top = getelementptr inbounds i8, ptr %L, i64 40
+  %top = getelementptr inbounds nuw i8, ptr %L, i64 40
   %0 = load ptr, ptr %top, align 8
-  %base = getelementptr inbounds i8, ptr %L, i64 32
+  %base = getelementptr inbounds nuw i8, ptr %L, i64 32
   %1 = load ptr, ptr %base, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
@@ -747,7 +747,7 @@ if.else:                                          ; preds = %entry
   %sub = sub nsw i32 %conv, %start
   %add3 = add nsw i32 %sub, 20
   tail call void @luaL_checkstack(ptr noundef nonnull %L, i32 noundef %add3, ptr noundef nonnull @.str.6) #10
-  %glref.i50 = getelementptr inbounds i8, ptr %L, i64 16
+  %glref.i50 = getelementptr inbounds nuw i8, ptr %L, i64 16
   %2 = zext nneg i32 %start to i64
   br label %for.body
 
@@ -757,7 +757,7 @@ for.body:                                         ; preds = %if.else, %for.inc
   %ok.16 = phi i32 [ 1, %if.else ], [ %ok.2, %for.inc ]
   %dec8 = add nsw i32 %dec8.in, -1
   %3 = load ptr, ptr %base, align 8
-  %add.ptr = getelementptr inbounds %union.TValue, ptr %3, i64 %indvars.iv
+  %add.ptr = getelementptr inbounds nuw %union.TValue, ptr %3, i64 %indvars.iv
   %4 = load i64, ptr %add.ptr, align 8
   %shr = ashr i64 %4, 47
   %cmp7 = icmp eq i64 %shr, -5
@@ -766,10 +766,10 @@ for.body:                                         ; preds = %if.else, %for.inc
 if.then9:                                         ; preds = %for.body
   %and = and i64 %4, 140737488355327
   %5 = inttoptr i64 %and to ptr
-  %add.ptr13 = getelementptr inbounds i8, ptr %5, i64 24
+  %add.ptr13 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %6 = load i8, ptr %add.ptr13, align 1
   %cmp15 = icmp eq i8 %6, 42
-  %incdec.ptr = getelementptr inbounds i8, ptr %5, i64 25
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %5, i64 25
   %spec.select = select i1 %cmp15, ptr %incdec.ptr, ptr %add.ptr13
   %7 = load i8, ptr %spec.select, align 1
   %cmp20 = icmp eq i8 %7, 110
@@ -784,14 +784,14 @@ if.then22:                                        ; preds = %if.then9
 if.then.i:                                        ; preds = %if.then22
   %8 = load double, ptr %d.i, align 8
   %9 = load ptr, ptr %top, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %9, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %incdec.ptr.i, ptr %top, align 8
   store double %8, ptr %9, align 8
   br label %io_file_readnum.exit
 
 if.else.i:                                        ; preds = %if.then22
   %10 = load ptr, ptr %top, align 8
-  %incdec.ptr2.i = getelementptr inbounds i8, ptr %10, i64 8
+  %incdec.ptr2.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %incdec.ptr2.i, ptr %top, align 8
   store i64 -1, ptr %10, align 8
   br label %io_file_readnum.exit
@@ -821,7 +821,7 @@ for.cond.i:                                       ; preds = %if.else36, %for.con
   %m.0.i = phi i32 [ %add16.i, %for.cond.i ], [ 8192, %if.else36 ]
   %call.i40 = call ptr @lj_buf_tmp(ptr noundef %L, i32 noundef %m.0.i) #10
   %idx.ext.i = zext i32 %n.0.i to i64
-  %add.ptr.i = getelementptr inbounds i8, ptr %call.i40, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %call.i40, i64 %idx.ext.i
   %sub.i = sub i32 %m.0.i, %n.0.i
   %conv.i = zext i32 %sub.i to i64
   %call1.i = call i64 @fread(ptr noundef %add.ptr.i, i64 noundef 1, i64 noundef %conv.i, ptr noundef %iof.0.val)
@@ -833,7 +833,7 @@ for.cond.i:                                       ; preds = %if.else36, %for.con
 
 if.then.i41:                                      ; preds = %for.cond.i
   %12 = load ptr, ptr %top, align 8
-  %incdec.ptr.i43 = getelementptr inbounds i8, ptr %12, i64 8
+  %incdec.ptr.i43 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %incdec.ptr.i43, ptr %top, align 8
   %conv4.i = zext i32 %add.i to i64
   %call5.i = call ptr @lj_str_new(ptr noundef %L, ptr noundef %call.i40, i64 noundef %conv4.i) #10
@@ -842,9 +842,9 @@ if.then.i41:                                      ; preds = %for.cond.i
   store i64 %or.i.i, ptr %12, align 8
   %14 = load i64, ptr %glref.i50, align 8
   %15 = inttoptr i64 %14 to ptr
-  %gc.i = getelementptr inbounds i8, ptr %15, i64 16
+  %gc.i = getelementptr inbounds nuw i8, ptr %15, i64 16
   %16 = load i64, ptr %gc.i, align 8
-  %threshold.i = getelementptr inbounds i8, ptr %15, i64 24
+  %threshold.i = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load i64, ptr %threshold.i, align 8
   %cmp9.not.i = icmp ult i64 %16, %17
   br i1 %cmp9.not.i, label %for.inc, label %if.then13.i
@@ -875,7 +875,7 @@ if.then.i44:                                      ; preds = %if.then55
   %conv.i46 = zext i32 %call57 to i64
   %call1.i47 = call i64 @fread(ptr noundef %call.i45, i64 noundef 1, i64 noundef %conv.i46, ptr noundef %iof.0.val)
   %21 = load ptr, ptr %top, align 8
-  %incdec.ptr.i49 = getelementptr inbounds i8, ptr %21, i64 8
+  %incdec.ptr.i49 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %incdec.ptr.i49, ptr %top, align 8
   %conv3.i = and i64 %call1.i47, 4294967295
   %call4.i = call ptr @lj_str_new(ptr noundef nonnull %L, ptr noundef %call.i45, i64 noundef %conv3.i) #10
@@ -884,9 +884,9 @@ if.then.i44:                                      ; preds = %if.then55
   store i64 %or.i41.i, ptr %21, align 8
   %23 = load i64, ptr %glref.i50, align 8
   %24 = inttoptr i64 %23 to ptr
-  %gc.i51 = getelementptr inbounds i8, ptr %24, i64 16
+  %gc.i51 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %25 = load i64, ptr %gc.i51, align 8
-  %threshold.i52 = getelementptr inbounds i8, ptr %24, i64 24
+  %threshold.i52 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = load i64, ptr %threshold.i52, align 8
   %cmp.not.i53 = icmp ult i64 %25, %26
   br i1 %cmp.not.i53, label %if.end.i, label %if.then12.i
@@ -903,7 +903,7 @@ if.else.i55:                                      ; preds = %if.then55
   %call16.i = call i32 @getc(ptr noundef %iof.0.val)
   %call17.i = call i32 @ungetc(i32 noundef %call16.i, ptr noundef %iof.0.val)
   %27 = load ptr, ptr %top, align 8
-  %incdec.ptr19.i = getelementptr inbounds i8, ptr %27, i64 8
+  %incdec.ptr19.i = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %incdec.ptr19.i, ptr %top, align 8
   %28 = load i64, ptr %glref.i50, align 8
   %29 = add nuw i64 %28, 120
@@ -990,7 +990,7 @@ if.end:                                           ; preds = %entry, %if.end11
 land.lhs.true:                                    ; preds = %if.end
   %sub5 = add i32 %add, -1
   %idxprom = zext i32 %sub5 to i64
-  %arrayidx = getelementptr inbounds i8, ptr %call36, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw i8, ptr %call36, i64 %idxprom
   %0 = load i8, ptr %arrayidx, align 1
   %cmp7 = icmp eq i8 %0, 10
   br i1 %cmp7, label %if.then9, label %if.end11
@@ -1006,7 +1006,7 @@ if.end11:                                         ; preds = %land.lhs.true, %if.
   %spec.select = shl i32 %m.035, %add16
   %call = tail call ptr @lj_buf_tmp(ptr noundef %L, i32 noundef %spec.select) #10
   %idx.ext = zext i32 %add to i64
-  %add.ptr = getelementptr inbounds i8, ptr %call, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw i8, ptr %call, i64 %idx.ext
   %sub = sub i32 %spec.select, %add
   %call1 = tail call ptr @fgets(ptr noundef %add.ptr, i32 noundef %sub, ptr noundef %fp)
   %cmp = icmp eq ptr %call1, null
@@ -1016,21 +1016,21 @@ for.end:                                          ; preds = %if.end11, %entry, %
   %call26 = phi ptr [ %call36, %if.then9 ], [ %call30, %entry ], [ %call, %if.end11 ]
   %n.1 = phi i32 [ %sub10, %if.then9 ], [ 0, %entry ], [ %add, %if.end11 ]
   %ok.1 = phi i32 [ %or, %if.then9 ], [ 0, %entry ], [ %or, %if.end11 ]
-  %top = getelementptr inbounds i8, ptr %L, i64 40
+  %top = getelementptr inbounds nuw i8, ptr %L, i64 40
   %1 = load ptr, ptr %top, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %1, i64 8
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %incdec.ptr, ptr %top, align 8
   %conv18 = zext i32 %n.1 to i64
   %call19 = tail call ptr @lj_str_new(ptr noundef %L, ptr noundef %call26, i64 noundef %conv18) #10
   %2 = ptrtoint ptr %call19 to i64
   %or.i = or i64 %2, -703687441776640
   store i64 %or.i, ptr %1, align 8
-  %glref = getelementptr inbounds i8, ptr %L, i64 16
+  %glref = getelementptr inbounds nuw i8, ptr %L, i64 16
   %3 = load i64, ptr %glref, align 8
   %4 = inttoptr i64 %3 to ptr
-  %gc = getelementptr inbounds i8, ptr %4, i64 16
+  %gc = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load i64, ptr %gc, align 8
-  %threshold = getelementptr inbounds i8, ptr %4, i64 24
+  %threshold = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load i64, ptr %threshold, align 8
   %cmp23.not = icmp ult i64 %5, %6
   br i1 %cmp23.not, label %if.end30, label %if.then28
@@ -1105,18 +1105,18 @@ declare void @lua_pushcclosure(ptr noundef, ptr noundef, i32 noundef) local_unna
 ; Function Attrs: nounwind uwtable
 define internal i32 @io_file_iter(ptr noundef %L) #0 {
 entry:
-  %base = getelementptr inbounds i8, ptr %L, i64 32
+  %base = getelementptr inbounds nuw i8, ptr %L, i64 32
   %0 = load ptr, ptr %base, align 8
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 -16
   %1 = load i64, ptr %add.ptr, align 8
   %and = and i64 %1, 140737488355327
   %2 = inttoptr i64 %and to ptr
-  %upvalue = getelementptr inbounds i8, ptr %2, i64 48
+  %upvalue = getelementptr inbounds nuw i8, ptr %2, i64 48
   %3 = load i64, ptr %upvalue, align 8
   %and2 = and i64 %3, 140737488355327
   %4 = inttoptr i64 %and2 to ptr
-  %add.ptr3 = getelementptr inbounds i8, ptr %4, i64 48
-  %nupvalues = getelementptr inbounds i8, ptr %2, i64 11
+  %add.ptr3 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %nupvalues = getelementptr inbounds nuw i8, ptr %2, i64 11
   %5 = load i8, ptr %nupvalues, align 1
   %conv = zext i8 %5 to i32
   %sub = add nsw i32 %conv, -1
@@ -1129,13 +1129,13 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %top = getelementptr inbounds i8, ptr %L, i64 40
+  %top = getelementptr inbounds nuw i8, ptr %L, i64 40
   store ptr %0, ptr %top, align 8
   %tobool.not = icmp eq i32 %sub, 0
   br i1 %tobool.not, label %if.end13, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  %maxstack.i = getelementptr inbounds i8, ptr %L, i64 48
+  %maxstack.i = getelementptr inbounds nuw i8, ptr %L, i64 48
   %7 = load i64, ptr %maxstack.i, align 8
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i = sub i64 %7, %sub.ptr.rhs.cast.i
@@ -1151,7 +1151,7 @@ if.then.i:                                        ; preds = %if.then6
 
 lj_state_checkstack.exit:                         ; preds = %if.then.i, %if.then6
   %8 = phi ptr [ %.pre, %if.then.i ], [ %0, %if.then6 ]
-  %arrayidx9 = getelementptr inbounds i8, ptr %2, i64 56
+  %arrayidx9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %conv10 = sext i32 %sub to i64
   %mul = shl nsw i64 %conv10, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr nonnull align 8 %arrayidx9, i64 %mul, i1 false)
@@ -1174,7 +1174,7 @@ if.then17:                                        ; preds = %if.end13
   %12 = load i64, ptr %add.ptr19, align 8
   %and21 = and i64 %12, 140737488355327
   %13 = inttoptr i64 %and21 to ptr
-  %add.ptr22 = getelementptr inbounds i8, ptr %13, i64 24
+  %add.ptr22 = getelementptr inbounds nuw i8, ptr %13, i64 24
   tail call void @lj_err_callermsg(ptr noundef nonnull %L, ptr noundef nonnull %add.ptr22) #11
   unreachable
 
@@ -1185,7 +1185,7 @@ if.end23:                                         ; preds = %if.end13
   br i1 %cmp25, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %if.end23
-  %type = getelementptr inbounds i8, ptr %4, i64 56
+  %type = getelementptr inbounds nuw i8, ptr %4, i64 56
   %16 = load i32, ptr %type, align 8
   %and27 = and i32 %16, 4
   %tobool28.not = icmp eq i32 %and27, 0
@@ -1210,7 +1210,7 @@ if.then6.i:                                       ; preds = %if.then29
 
 if.else11.i:                                      ; preds = %if.then29
   %17 = load ptr, ptr %top, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %17, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %incdec.ptr.i, ptr %top, align 8
   store i64 -1, ptr %17, align 8
   tail call void @lua_pushlstring(ptr noundef nonnull %L, ptr noundef nonnull @.str.5, i64 noundef 26) #10
@@ -1242,32 +1242,32 @@ declare ptr @lua_pushfstring(ptr noundef, ptr noundef, ...) local_unnamed_addr #
 define internal i32 @lj_cf_io_open(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @lj_lib_checkstr(ptr noundef %L, i32 noundef 1) #10
-  %add.ptr = getelementptr inbounds i8, ptr %call, i64 24
+  %add.ptr = getelementptr inbounds nuw i8, ptr %call, i64 24
   %call1 = tail call ptr @lj_lib_optstr(ptr noundef %L, i32 noundef 2) #10
   %tobool.not = icmp eq ptr %call1, null
-  %add.ptr2 = getelementptr inbounds i8, ptr %call1, i64 24
+  %add.ptr2 = getelementptr inbounds nuw i8, ptr %call1, i64 24
   %cond = select i1 %tobool.not, ptr @.str.14, ptr %add.ptr2
   %call.i = tail call ptr @lua_newuserdata(ptr noundef %L, i64 noundef 16) #10
-  %top.i = getelementptr inbounds i8, ptr %L, i64 40
+  %top.i = getelementptr inbounds nuw i8, ptr %L, i64 40
   %0 = load ptr, ptr %top.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 -8
   %1 = load i64, ptr %add.ptr.i, align 8
   %and.i = and i64 %1, 140737488355327
   %2 = inttoptr i64 %and.i to ptr
-  %udtype.i = getelementptr inbounds i8, ptr %2, i64 10
+  %udtype.i = getelementptr inbounds nuw i8, ptr %2, i64 10
   store i8 1, ptr %udtype.i, align 2
-  %base.i = getelementptr inbounds i8, ptr %L, i64 32
+  %base.i = getelementptr inbounds nuw i8, ptr %L, i64 32
   %3 = load ptr, ptr %base.i, align 8
   %add.ptr1.i = getelementptr inbounds i8, ptr %3, i64 -16
   %4 = load i64, ptr %add.ptr1.i, align 8
   %and3.i = and i64 %4, 140737488355327
   %5 = inttoptr i64 %and3.i to ptr
-  %env.i = getelementptr inbounds i8, ptr %5, i64 16
+  %env.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   %6 = load i64, ptr %env.i, align 8
-  %metatable.i = getelementptr inbounds i8, ptr %2, i64 32
+  %metatable.i = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i64 %6, ptr %metatable.i, align 8
   store ptr null, ptr %call.i, align 8
-  %type.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %type.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i32 0, ptr %type.i, align 8
   %call4 = tail call noalias ptr @fopen64(ptr noundef nonnull %add.ptr, ptr noundef nonnull %cond)
   store ptr %call4, ptr %call.i, align 8
@@ -1287,32 +1287,32 @@ cond.end9:                                        ; preds = %entry, %cond.false7
 define internal i32 @lj_cf_io_popen(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @lj_lib_checkstr(ptr noundef %L, i32 noundef 1) #10
-  %add.ptr = getelementptr inbounds i8, ptr %call, i64 24
+  %add.ptr = getelementptr inbounds nuw i8, ptr %call, i64 24
   %call1 = tail call ptr @lj_lib_optstr(ptr noundef %L, i32 noundef 2) #10
   %tobool.not = icmp eq ptr %call1, null
-  %add.ptr2 = getelementptr inbounds i8, ptr %call1, i64 24
+  %add.ptr2 = getelementptr inbounds nuw i8, ptr %call1, i64 24
   %cond = select i1 %tobool.not, ptr @.str.14, ptr %add.ptr2
   %call.i = tail call ptr @lua_newuserdata(ptr noundef %L, i64 noundef 16) #10
-  %top.i = getelementptr inbounds i8, ptr %L, i64 40
+  %top.i = getelementptr inbounds nuw i8, ptr %L, i64 40
   %0 = load ptr, ptr %top.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 -8
   %1 = load i64, ptr %add.ptr.i, align 8
   %and.i = and i64 %1, 140737488355327
   %2 = inttoptr i64 %and.i to ptr
-  %udtype.i = getelementptr inbounds i8, ptr %2, i64 10
+  %udtype.i = getelementptr inbounds nuw i8, ptr %2, i64 10
   store i8 1, ptr %udtype.i, align 2
-  %base.i = getelementptr inbounds i8, ptr %L, i64 32
+  %base.i = getelementptr inbounds nuw i8, ptr %L, i64 32
   %3 = load ptr, ptr %base.i, align 8
   %add.ptr1.i = getelementptr inbounds i8, ptr %3, i64 -16
   %4 = load i64, ptr %add.ptr1.i, align 8
   %and3.i = and i64 %4, 140737488355327
   %5 = inttoptr i64 %and3.i to ptr
-  %env.i = getelementptr inbounds i8, ptr %5, i64 16
+  %env.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   %6 = load i64, ptr %env.i, align 8
-  %metatable.i = getelementptr inbounds i8, ptr %2, i64 32
+  %metatable.i = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i64 %6, ptr %metatable.i, align 8
   store ptr null, ptr %call.i, align 8
-  %type.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %type.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i32 1, ptr %type.i, align 8
   %call4 = tail call i32 @fflush(ptr noundef null)
   %call5 = tail call noalias ptr @popen(ptr noundef nonnull %add.ptr, ptr noundef nonnull %cond)
@@ -1333,26 +1333,26 @@ cond.end10:                                       ; preds = %entry, %cond.false8
 define internal i32 @lj_cf_io_tmpfile(ptr noundef %L) #0 {
 entry:
   %call.i = tail call ptr @lua_newuserdata(ptr noundef %L, i64 noundef 16) #10
-  %top.i = getelementptr inbounds i8, ptr %L, i64 40
+  %top.i = getelementptr inbounds nuw i8, ptr %L, i64 40
   %0 = load ptr, ptr %top.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 -8
   %1 = load i64, ptr %add.ptr.i, align 8
   %and.i = and i64 %1, 140737488355327
   %2 = inttoptr i64 %and.i to ptr
-  %udtype.i = getelementptr inbounds i8, ptr %2, i64 10
+  %udtype.i = getelementptr inbounds nuw i8, ptr %2, i64 10
   store i8 1, ptr %udtype.i, align 2
-  %base.i = getelementptr inbounds i8, ptr %L, i64 32
+  %base.i = getelementptr inbounds nuw i8, ptr %L, i64 32
   %3 = load ptr, ptr %base.i, align 8
   %add.ptr1.i = getelementptr inbounds i8, ptr %3, i64 -16
   %4 = load i64, ptr %add.ptr1.i, align 8
   %and3.i = and i64 %4, 140737488355327
   %5 = inttoptr i64 %and3.i to ptr
-  %env.i = getelementptr inbounds i8, ptr %5, i64 16
+  %env.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   %6 = load i64, ptr %env.i, align 8
-  %metatable.i = getelementptr inbounds i8, ptr %2, i64 32
+  %metatable.i = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i64 %6, ptr %metatable.i, align 8
   store ptr null, ptr %call.i, align 8
-  %type.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %type.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i32 0, ptr %type.i, align 8
   %call1 = tail call noalias ptr @tmpfile64()
   store ptr %call1, ptr %call.i, align 8
@@ -1378,13 +1378,13 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @lj_cf_io_read(ptr noundef %L) #0 {
 entry:
-  %glref.i = getelementptr inbounds i8, ptr %L, i64 16
+  %glref.i = getelementptr inbounds nuw i8, ptr %L, i64 16
   %0 = load i64, ptr %glref.i, align 8
   %1 = inttoptr i64 %0 to ptr
-  %arrayidx.i = getelementptr inbounds i8, ptr %1, i64 712
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %1, i64 712
   %2 = load i64, ptr %arrayidx.i, align 8
   %3 = inttoptr i64 %2 to ptr
-  %add.ptr.i = getelementptr inbounds i8, ptr %3, i64 48
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %3, i64 48
   %4 = load ptr, ptr %add.ptr.i, align 8
   %cmp.i = icmp eq ptr %4, null
   br i1 %cmp.i, label %if.then.i, label %io_stdfile.exit
@@ -1402,13 +1402,13 @@ io_stdfile.exit:                                  ; preds = %entry
 define internal i32 @lj_cf_io_write(ptr noundef %L) #0 {
 entry:
   %len.i = alloca i32, align 4
-  %glref.i = getelementptr inbounds i8, ptr %L, i64 16
+  %glref.i = getelementptr inbounds nuw i8, ptr %L, i64 16
   %0 = load i64, ptr %glref.i, align 8
   %1 = inttoptr i64 %0 to ptr
-  %arrayidx.i = getelementptr inbounds i8, ptr %1, i64 720
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %1, i64 720
   %2 = load i64, ptr %arrayidx.i, align 8
   %3 = inttoptr i64 %2 to ptr
-  %add.ptr.i = getelementptr inbounds i8, ptr %3, i64 48
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %3, i64 48
   %4 = load ptr, ptr %add.ptr.i, align 8
   %cmp.i = icmp eq ptr %4, null
   br i1 %cmp.i, label %if.then.i, label %io_stdfile.exit
@@ -1419,9 +1419,9 @@ if.then.i:                                        ; preds = %entry
 
 io_stdfile.exit:                                  ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i)
-  %base.i = getelementptr inbounds i8, ptr %L, i64 32
+  %base.i = getelementptr inbounds nuw i8, ptr %L, i64 32
   %5 = load ptr, ptr %base.i, align 8
-  %top.i = getelementptr inbounds i8, ptr %L, i64 40
+  %top.i = getelementptr inbounds nuw i8, ptr %L, i64 40
   %6 = load ptr, ptr %top.i, align 8
   %cmp3.i = icmp ult ptr %5, %6
   br i1 %cmp3.i, label %for.body.i, label %io_file_write.exit
@@ -1460,7 +1460,7 @@ land.rhs.i:                                       ; preds = %if.end.i
 
 land.end.i:                                       ; preds = %land.rhs.i, %if.end.i
   %land.ext.i = phi i32 [ 0, %if.end.i ], [ %10, %land.rhs.i ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %tv.05.i, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %tv.05.i, i64 8
   %11 = load ptr, ptr %top.i, align 8
   %cmp.i3 = icmp ult ptr %incdec.ptr.i, %11
   br i1 %cmp.i3, label %for.body.i, label %io_file_write.exit, !llvm.loop !4
@@ -1475,13 +1475,13 @@ io_file_write.exit:                               ; preds = %land.end.i, %io_std
 ; Function Attrs: nounwind uwtable
 define internal i32 @lj_cf_io_flush(ptr noundef %L) #0 {
 entry:
-  %glref.i = getelementptr inbounds i8, ptr %L, i64 16
+  %glref.i = getelementptr inbounds nuw i8, ptr %L, i64 16
   %0 = load i64, ptr %glref.i, align 8
   %1 = inttoptr i64 %0 to ptr
-  %arrayidx.i = getelementptr inbounds i8, ptr %1, i64 720
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %1, i64 720
   %2 = load i64, ptr %arrayidx.i, align 8
   %3 = inttoptr i64 %2 to ptr
-  %add.ptr.i = getelementptr inbounds i8, ptr %3, i64 48
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %3, i64 48
   %4 = load ptr, ptr %add.ptr.i, align 8
   %cmp.i = icmp eq ptr %4, null
   br i1 %cmp.i, label %if.then.i, label %io_stdfile.exit
@@ -1501,9 +1501,9 @@ io_stdfile.exit:                                  ; preds = %entry
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @lj_cf_io_input(ptr noundef %L) #0 {
 entry:
-  %base.i = getelementptr inbounds i8, ptr %L, i64 32
+  %base.i = getelementptr inbounds nuw i8, ptr %L, i64 32
   %0 = load ptr, ptr %base.i, align 8
-  %top.i = getelementptr inbounds i8, ptr %L, i64 40
+  %top.i = getelementptr inbounds nuw i8, ptr %L, i64 40
   %1 = load ptr, ptr %top.i, align 8
   %cmp.i = icmp ult ptr %0, %1
   br i1 %cmp.i, label %land.lhs.true.i, label %if.else13.i
@@ -1521,7 +1521,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 land.lhs.true4.i.i.i:                             ; preds = %if.then.i
   %and.i.i.i = and i64 %2, 140737488355327
   %3 = inttoptr i64 %and.i.i.i to ptr
-  %udtype.i.i.i = getelementptr inbounds i8, ptr %3, i64 10
+  %udtype.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 10
   %4 = load i8, ptr %udtype.i.i.i, align 2
   %cmp7.i.i.i = icmp eq i8 %4, 1
   br i1 %cmp7.i.i.i, label %io_tofilep.exit.i.i, label %if.then.i.i.i
@@ -1531,7 +1531,7 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true4.i.i.
   unreachable
 
 io_tofilep.exit.i.i:                              ; preds = %land.lhs.true4.i.i.i
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 48
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %add.ptr.i.i.i, align 8
   %cmp.i.i = icmp eq ptr %5, null
   br i1 %cmp.i.i, label %if.then.i.i, label %io_tofile.exit.i
@@ -1541,7 +1541,7 @@ if.then.i.i:                                      ; preds = %io_tofilep.exit.i.i
   unreachable
 
 io_tofile.exit.i:                                 ; preds = %io_tofilep.exit.i.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 8
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %add.ptr.i, ptr %top.i, align 8
   br label %if.end.i
 
@@ -1555,20 +1555,20 @@ if.end.i:                                         ; preds = %if.else.i, %io_tofi
   %add.ptr11.i = getelementptr inbounds i8, ptr %6, i64 -8
   %7 = load i64, ptr %add.ptr11.i, align 8
   %and.i = and i64 %7, 140737488355327
-  %glref.i = getelementptr inbounds i8, ptr %L, i64 16
+  %glref.i = getelementptr inbounds nuw i8, ptr %L, i64 16
   %8 = load i64, ptr %glref.i, align 8
   %9 = inttoptr i64 %8 to ptr
-  %arrayidx.i = getelementptr inbounds i8, ptr %9, i64 712
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %9, i64 712
   store i64 %and.i, ptr %arrayidx.i, align 8
   br label %io_std_getset.exit
 
 if.else13.i:                                      ; preds = %land.lhs.true.i, %entry
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %1, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %incdec.ptr.i, ptr %top.i, align 8
-  %glref15.i = getelementptr inbounds i8, ptr %L, i64 16
+  %glref15.i = getelementptr inbounds nuw i8, ptr %L, i64 16
   %10 = load i64, ptr %glref15.i, align 8
   %11 = inttoptr i64 %10 to ptr
-  %arrayidx18.i = getelementptr inbounds i8, ptr %11, i64 712
+  %arrayidx18.i = getelementptr inbounds nuw i8, ptr %11, i64 712
   %12 = load i64, ptr %arrayidx18.i, align 8
   %or.i.i.i = or i64 %12, -1829587348619264
   store i64 %or.i.i.i, ptr %1, align 8
@@ -1581,9 +1581,9 @@ io_std_getset.exit:                               ; preds = %if.end.i, %if.else1
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @lj_cf_io_output(ptr noundef %L) #0 {
 entry:
-  %base.i = getelementptr inbounds i8, ptr %L, i64 32
+  %base.i = getelementptr inbounds nuw i8, ptr %L, i64 32
   %0 = load ptr, ptr %base.i, align 8
-  %top.i = getelementptr inbounds i8, ptr %L, i64 40
+  %top.i = getelementptr inbounds nuw i8, ptr %L, i64 40
   %1 = load ptr, ptr %top.i, align 8
   %cmp.i = icmp ult ptr %0, %1
   br i1 %cmp.i, label %land.lhs.true.i, label %if.else13.i
@@ -1601,7 +1601,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 land.lhs.true4.i.i.i:                             ; preds = %if.then.i
   %and.i.i.i = and i64 %2, 140737488355327
   %3 = inttoptr i64 %and.i.i.i to ptr
-  %udtype.i.i.i = getelementptr inbounds i8, ptr %3, i64 10
+  %udtype.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 10
   %4 = load i8, ptr %udtype.i.i.i, align 2
   %cmp7.i.i.i = icmp eq i8 %4, 1
   br i1 %cmp7.i.i.i, label %io_tofilep.exit.i.i, label %if.then.i.i.i
@@ -1611,7 +1611,7 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true4.i.i.
   unreachable
 
 io_tofilep.exit.i.i:                              ; preds = %land.lhs.true4.i.i.i
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 48
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %add.ptr.i.i.i, align 8
   %cmp.i.i = icmp eq ptr %5, null
   br i1 %cmp.i.i, label %if.then.i.i, label %io_tofile.exit.i
@@ -1621,7 +1621,7 @@ if.then.i.i:                                      ; preds = %io_tofilep.exit.i.i
   unreachable
 
 io_tofile.exit.i:                                 ; preds = %io_tofilep.exit.i.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 8
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %add.ptr.i, ptr %top.i, align 8
   br label %if.end.i
 
@@ -1635,20 +1635,20 @@ if.end.i:                                         ; preds = %if.else.i, %io_tofi
   %add.ptr11.i = getelementptr inbounds i8, ptr %6, i64 -8
   %7 = load i64, ptr %add.ptr11.i, align 8
   %and.i = and i64 %7, 140737488355327
-  %glref.i = getelementptr inbounds i8, ptr %L, i64 16
+  %glref.i = getelementptr inbounds nuw i8, ptr %L, i64 16
   %8 = load i64, ptr %glref.i, align 8
   %9 = inttoptr i64 %8 to ptr
-  %arrayidx.i = getelementptr inbounds i8, ptr %9, i64 720
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %9, i64 720
   store i64 %and.i, ptr %arrayidx.i, align 8
   br label %io_std_getset.exit
 
 if.else13.i:                                      ; preds = %land.lhs.true.i, %entry
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %1, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %incdec.ptr.i, ptr %top.i, align 8
-  %glref15.i = getelementptr inbounds i8, ptr %L, i64 16
+  %glref15.i = getelementptr inbounds nuw i8, ptr %L, i64 16
   %10 = load i64, ptr %glref15.i, align 8
   %11 = inttoptr i64 %10 to ptr
-  %arrayidx18.i = getelementptr inbounds i8, ptr %11, i64 720
+  %arrayidx18.i = getelementptr inbounds nuw i8, ptr %11, i64 720
   %12 = load i64, ptr %arrayidx18.i, align 8
   %or.i.i.i = or i64 %12, -1829587348619264
   store i64 %or.i.i.i, ptr %1, align 8
@@ -1661,15 +1661,15 @@ io_std_getset.exit:                               ; preds = %if.end.i, %if.else1
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @lj_cf_io_lines(ptr noundef %L) #0 {
 entry:
-  %base = getelementptr inbounds i8, ptr %L, i64 32
+  %base = getelementptr inbounds nuw i8, ptr %L, i64 32
   %0 = load ptr, ptr %base, align 8
-  %top = getelementptr inbounds i8, ptr %L, i64 40
+  %top = getelementptr inbounds nuw i8, ptr %L, i64 40
   %1 = load ptr, ptr %top, align 8
   %cmp = icmp eq ptr %0, %1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %incdec.ptr = getelementptr inbounds i8, ptr %1, i64 8
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %incdec.ptr, ptr %top, align 8
   store i64 -1, ptr %1, align 8
   %.pre = load ptr, ptr %base, align 8
@@ -1683,7 +1683,7 @@ if.end:                                           ; preds = %if.then, %entry
 
 if.then4:                                         ; preds = %if.end
   %call = tail call fastcc ptr @io_file_open(ptr noundef nonnull %L, ptr noundef nonnull @.str.14)
-  %type = getelementptr inbounds i8, ptr %call, i64 8
+  %type = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i32 4, ptr %type, align 8
   %4 = load ptr, ptr %top, align 8
   %incdec.ptr6 = getelementptr inbounds i8, ptr %4, i64 -8
@@ -1694,10 +1694,10 @@ if.then4:                                         ; preds = %if.end
   br label %if.end11
 
 if.else:                                          ; preds = %if.end
-  %glref = getelementptr inbounds i8, ptr %L, i64 16
+  %glref = getelementptr inbounds nuw i8, ptr %L, i64 16
   %7 = load i64, ptr %glref, align 8
   %8 = inttoptr i64 %7 to ptr
-  %arrayidx = getelementptr inbounds i8, ptr %8, i64 712
+  %arrayidx = getelementptr inbounds nuw i8, ptr %8, i64 712
   %9 = load i64, ptr %arrayidx, align 8
   br label %if.end11
 
@@ -1737,21 +1737,21 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %and = and i64 %0, 140737488355327
   %1 = inttoptr i64 %and to ptr
-  %udtype = getelementptr inbounds i8, ptr %1, i64 10
+  %udtype = getelementptr inbounds nuw i8, ptr %1, i64 10
   %2 = load i8, ptr %udtype, align 2
   %cmp3 = icmp eq i8 %2, 1
   br i1 %cmp3, label %if.else, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true, %entry
-  %top = getelementptr inbounds i8, ptr %L, i64 40
+  %top = getelementptr inbounds nuw i8, ptr %L, i64 40
   %3 = load ptr, ptr %top, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %3, i64 8
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %incdec.ptr, ptr %top, align 8
   store i64 -1, ptr %3, align 8
   br label %if.end11
 
 if.else:                                          ; preds = %land.lhs.true
-  %add.ptr = getelementptr inbounds i8, ptr %1, i64 48
+  %add.ptr = getelementptr inbounds nuw i8, ptr %1, i64 48
   %4 = load ptr, ptr %add.ptr, align 8
   %cmp7.not = icmp eq ptr %4, null
   br i1 %cmp7.not, label %if.else10, label %if.then9
@@ -1787,28 +1787,28 @@ declare noalias noundef ptr @tmpfile64() local_unnamed_addr #3
 define internal fastcc noundef ptr @io_file_open(ptr noundef %L, ptr nocapture noundef readonly %mode) unnamed_addr #0 {
 entry:
   %call = tail call ptr @lj_lib_checkstr(ptr noundef %L, i32 noundef 1) #10
-  %add.ptr = getelementptr inbounds i8, ptr %call, i64 24
+  %add.ptr = getelementptr inbounds nuw i8, ptr %call, i64 24
   %call.i = tail call ptr @lua_newuserdata(ptr noundef %L, i64 noundef 16) #10
-  %top.i = getelementptr inbounds i8, ptr %L, i64 40
+  %top.i = getelementptr inbounds nuw i8, ptr %L, i64 40
   %0 = load ptr, ptr %top.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 -8
   %1 = load i64, ptr %add.ptr.i, align 8
   %and.i = and i64 %1, 140737488355327
   %2 = inttoptr i64 %and.i to ptr
-  %udtype.i = getelementptr inbounds i8, ptr %2, i64 10
+  %udtype.i = getelementptr inbounds nuw i8, ptr %2, i64 10
   store i8 1, ptr %udtype.i, align 2
-  %base.i = getelementptr inbounds i8, ptr %L, i64 32
+  %base.i = getelementptr inbounds nuw i8, ptr %L, i64 32
   %3 = load ptr, ptr %base.i, align 8
   %add.ptr1.i = getelementptr inbounds i8, ptr %3, i64 -16
   %4 = load i64, ptr %add.ptr1.i, align 8
   %and3.i = and i64 %4, 140737488355327
   %5 = inttoptr i64 %and3.i to ptr
-  %env.i = getelementptr inbounds i8, ptr %5, i64 16
+  %env.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   %6 = load i64, ptr %env.i, align 8
-  %metatable.i = getelementptr inbounds i8, ptr %2, i64 32
+  %metatable.i = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i64 %6, ptr %metatable.i, align 8
   store ptr null, ptr %call.i, align 8
-  %type.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %type.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i32 0, ptr %type.i, align 8
   %call2 = tail call noalias ptr @fopen64(ptr noundef nonnull %add.ptr, ptr noundef %mode)
   store ptr %call2, ptr %call.i, align 8

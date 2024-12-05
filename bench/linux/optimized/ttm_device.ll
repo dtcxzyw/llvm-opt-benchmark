@@ -56,10 +56,10 @@ define dso_local i32 @ttm_global_swapout(ptr noundef %0, i32 noundef %1) local_u
   br i1 %10, label %11, label %5, !llvm.loop !5
 
 11:                                               ; preds = %.preheader
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %8, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %13, ptr %15, align 8
   store volatile ptr %14, ptr %13, align 8
   %16 = load ptr, ptr getelementptr inbounds (i8, ptr @ttm_glob, i64 16), align 8
@@ -89,9 +89,9 @@ define dso_local i32 @ttm_device_swapout(ptr noundef %0, ptr noundef %1, i32 nou
   %4 = alloca %struct.ttm_resource_cursor, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
   store i32 0, ptr %4, align 4, !annotation !8
-  %5 = getelementptr inbounds i8, ptr %0, i64 2080
-  tail call void @_raw_spin_lock(ptr noundef %5) #7
-  %6 = getelementptr inbounds i8, ptr %0, i64 144
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 2080
+  tail call void @_raw_spin_lock(ptr noundef nonnull %5) #7
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 144
   br label %7
 
 7:                                                ; preds = %.loopexit5, %3
@@ -102,7 +102,7 @@ define dso_local i32 @ttm_device_swapout(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %11, label %.loopexit5, label %12
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %10, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 1
   %14 = load i8, ptr %13, align 1, !range !9, !noundef !10
   %15 = icmp eq i8 %14, 0
   br i1 %15, label %.loopexit5, label %16
@@ -114,19 +114,19 @@ define dso_local i32 @ttm_device_swapout(ptr noundef %0, ptr noundef %1, i32 nou
 
 .preheader:                                       ; preds = %16, %35
   %19 = phi ptr [ %36, %35 ], [ %17, %16 ]
-  %20 = getelementptr inbounds i8, ptr %19, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %35, label %23
 
 23:                                               ; preds = %.preheader
-  %24 = getelementptr inbounds i8, ptr %21, i64 384
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 384
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, %19
   br i1 %26, label %27, label %35
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %21, i64 216
+  %28 = getelementptr inbounds nuw i8, ptr %21, i64 216
   %29 = load i64, ptr %28, align 8
   %30 = call i32 @ttm_bo_swapout(ptr noundef nonnull %21, ptr noundef %1, i32 noundef %2) #7
   switch i32 %30, label %.loopexit [
@@ -151,7 +151,7 @@ define dso_local i32 @ttm_device_swapout(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %39, label %40, label %7, !llvm.loop !12
 
 40:                                               ; preds = %.loopexit5
-  call void @_raw_spin_unlock(ptr noundef %5) #7
+  call void @_raw_spin_unlock(ptr noundef nonnull %5) #7
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %31, %40
@@ -203,14 +203,14 @@ define dso_local noundef range(i32 -22, 1) i32 @ttm_device_init(ptr noundef %0, 
   %17 = icmp ugt ptr %16, inttoptr (i64 -4096 to ptr)
   %18 = select i1 %17, ptr null, ptr %16
   store ptr %18, ptr @ttm_debugfs_root, align 8
-  %19 = getelementptr inbounds i8, ptr %8, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %8, i64 104
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 104
   %22 = load i32, ptr %21, align 8
   %23 = zext i32 %22 to i64
   %24 = mul i64 %20, %23
   %25 = lshr i64 %24, 13
-  %26 = getelementptr inbounds i8, ptr %8, i64 88
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 88
   %27 = load i64, ptr %26, align 8
   %28 = sub i64 %20, %27
   %29 = mul i64 %28, %23
@@ -262,7 +262,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ttm_device_init(ptr noundef %0, 
   call void @mutex_unlock(ptr noundef nonnull @ttm_global_mutex) #7
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %8) #7
   %49 = call ptr (ptr, i32, i32, ...) @alloc_workqueue(ptr noundef nonnull @.str.1, i32 noundef 26, i32 noundef 16) #7
-  %50 = getelementptr inbounds i8, ptr %0, i64 2112
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 2112
   store ptr %49, ptr %50, align 8
   %51 = icmp eq ptr %49, null
   br i1 %51, label %52, label %60
@@ -289,36 +289,36 @@ define dso_local noundef range(i32 -22, 1) i32 @ttm_device_init(ptr noundef %0, 
   br label %76
 
 60:                                               ; preds = %48
-  %61 = getelementptr inbounds i8, ptr %0, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %61, align 8
   call void @ttm_sys_man_init(ptr noundef %0) #7
   %62 = icmp eq ptr %2, null
   br i1 %62, label %66, label %63
 
 63:                                               ; preds = %60
-  %64 = getelementptr inbounds i8, ptr %2, i64 640
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 640
   %65 = load i32, ptr %64, align 8
   br label %66
 
 66:                                               ; preds = %63, %60
   %67 = phi i32 [ %65, %63 ], [ -1, %60 ]
-  %68 = getelementptr inbounds i8, ptr %0, i64 216
-  call void @ttm_pool_init(ptr noundef %68, ptr noundef %2, i32 noundef %67, i1 noundef zeroext %5, i1 noundef zeroext %6) #7
-  %69 = getelementptr inbounds i8, ptr %0, i64 208
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  call void @ttm_pool_init(ptr noundef nonnull %68, ptr noundef %2, i32 noundef %67, i1 noundef zeroext %5, i1 noundef zeroext %6) #7
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store ptr %4, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %0, i64 2080
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 2080
   store i32 0, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %0, i64 2088
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 2088
   store volatile ptr %71, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %0, i64 2096
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 2096
   store volatile ptr %71, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %0, i64 2104
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 2104
   store ptr %3, ptr %73, align 8
   call void @mutex_lock(ptr noundef nonnull @ttm_global_mutex) #7
   %74 = load ptr, ptr getelementptr inbounds (i8, ptr @ttm_glob, i64 16), align 8
   store ptr %0, ptr getelementptr inbounds (i8, ptr @ttm_glob, i64 16), align 8
   store ptr getelementptr inbounds (i8, ptr @ttm_glob, i64 8), ptr %0, align 8
-  %75 = getelementptr inbounds i8, ptr %0, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %74, ptr %75, align 8
   store volatile ptr %0, ptr %74, align 8
   call void @mutex_unlock(ptr noundef nonnull @ttm_global_mutex) #7
@@ -341,23 +341,23 @@ declare dso_local void @ttm_pool_init(ptr noundef, ptr noundef, i32 noundef, i1 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @ttm_device_fini(ptr noundef %0) #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @ttm_global_mutex) #7
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %5, align 8
   store volatile ptr %4, ptr %3, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %0, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %2, align 8
   tail call void @mutex_unlock(ptr noundef nonnull @ttm_global_mutex) #7
-  %6 = getelementptr inbounds i8, ptr %0, i64 2112
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2112
   %7 = load ptr, ptr %6, align 8
   tail call void @drain_workqueue(ptr noundef %7) #7
   %8 = load ptr, ptr %6, align 8
   tail call void @destroy_workqueue(ptr noundef %8) #7
-  %9 = getelementptr inbounds i8, ptr %0, i64 144
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
   br label %12
 
 12:                                               ; preds = %18, %1
@@ -381,8 +381,8 @@ define dso_local void @ttm_device_fini(ptr noundef %0) #0 align 16 {
 21:                                               ; preds = %18
   store i8 0, ptr %10, align 8
   store ptr null, ptr %9, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 2080
-  tail call void @_raw_spin_lock(ptr noundef %22) #7
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 2080
+  tail call void @_raw_spin_lock(ptr noundef nonnull %22) #7
   br label %23
 
 23:                                               ; preds = %23, %21
@@ -393,9 +393,9 @@ define dso_local void @ttm_device_fini(ptr noundef %0) #0 align 16 {
   br i1 %27, label %28, label %23, !llvm.loop !22
 
 28:                                               ; preds = %23
-  tail call void @_raw_spin_unlock(ptr noundef %22) #7
-  %29 = getelementptr inbounds i8, ptr %0, i64 216
-  tail call void @ttm_pool_fini(ptr noundef %29) #7
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %22) #7
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  tail call void @ttm_pool_fini(ptr noundef nonnull %29) #7
   tail call void @mutex_lock(ptr noundef nonnull @ttm_global_mutex) #7
   %30 = load i32, ptr @ttm_glob_use_count, align 4
   %31 = add i32 %30, -1
@@ -428,10 +428,10 @@ declare dso_local void @ttm_pool_fini(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @ttm_device_clear_dma_mappings(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 2088
-  tail call fastcc void @ttm_device_clear_lru_dma_mappings(ptr noundef %0, ptr noundef %2)
-  %3 = getelementptr inbounds i8, ptr %0, i64 144
-  %4 = getelementptr inbounds i8, ptr %0, i64 2080
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 2088
+  tail call fastcc void @ttm_device_clear_lru_dma_mappings(ptr noundef %0, ptr noundef nonnull %2)
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 2080
   br label %5
 
 5:                                                ; preds = %.loopexit, %1
@@ -442,19 +442,19 @@ define dso_local void @ttm_device_clear_dma_mappings(ptr noundef %0) #0 align 16
   br i1 %9, label %.loopexit, label %10
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %8, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %12 = load i8, ptr %11, align 1, !range !9, !noundef !10
   %13 = icmp eq i8 %12, 0
   br i1 %13, label %.loopexit, label %14
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %8, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 48
   br label %16
 
 16:                                               ; preds = %ttm_device_clear_lru_dma_mappings.exit, %14
   %17 = phi i64 [ 0, %14 ], [ %65, %ttm_device_clear_lru_dma_mappings.exit ]
   %18 = getelementptr [4 x %struct.list_head], ptr %15, i64 0, i64 %17
-  tail call void @_raw_spin_lock(ptr noundef %4) #7
+  tail call void @_raw_spin_lock(ptr noundef nonnull %4) #7
   %19 = load volatile ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, %18
   %21 = getelementptr i8, ptr %19, i64 -56
@@ -466,7 +466,7 @@ define dso_local void @ttm_device_clear_dma_mappings(ptr noundef %0) #0 align 16
   %24 = phi ptr [ %60, %59 ], [ %19, %16 ]
   %25 = getelementptr i8, ptr %24, i64 -8
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 376
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 376
   %28 = load volatile i32, ptr %27, align 4
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %.thread.i, label %.preheader.i
@@ -474,7 +474,7 @@ define dso_local void @ttm_device_clear_dma_mappings(ptr noundef %0) #0 align 16
 .preheader.i:                                     ; preds = %.preheader6.i, %35
   %30 = phi i32 [ %36, %35 ], [ %28, %.preheader6.i ]
   %31 = add i32 %30, 1
-  %32 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %27, i32 %31, ptr elementtype(i32) %27, i32 %30) #7, !srcloc !23
+  %32 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %27, i32 %31, ptr nonnull elementtype(i32) %27, i32 %30) #7, !srcloc !23
   %33 = extractvalue { i8, i32 } %32, 0
   %34 = icmp ult i8 %33, 2
   tail call void @llvm.assume(i1 %34)
@@ -494,7 +494,7 @@ define dso_local void @ttm_device_clear_dma_mappings(ptr noundef %0) #0 align 16
   br i1 %41, label %43, label %42, !prof !17
 
 42:                                               ; preds = %.thread.i
-  tail call void @refcount_warn_saturate(ptr noundef %27, i32 noundef 0) #7
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %27, i32 noundef 0) #7
   br label %43
 
 43:                                               ; preds = %42, %.thread.i
@@ -504,29 +504,29 @@ define dso_local void @ttm_device_clear_dma_mappings(ptr noundef %0) #0 align 16
   br i1 %46, label %59, label %47, !llvm.loop !25
 
 47:                                               ; preds = %43
-  %48 = getelementptr inbounds i8, ptr %24, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %49 = load ptr, ptr %48, align 8
   %50 = load ptr, ptr %24, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store ptr %49, ptr %51, align 8
   store volatile ptr %50, ptr %49, align 8
   store volatile ptr %24, ptr %24, align 8
   store volatile ptr %24, ptr %48, align 8
-  tail call void @_raw_spin_unlock(ptr noundef %4) #7
-  %52 = getelementptr inbounds i8, ptr %26, i64 392
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %4) #7
+  %52 = getelementptr inbounds nuw i8, ptr %26, i64 392
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %53, null
   br i1 %54, label %58, label %55
 
 55:                                               ; preds = %47
-  %56 = getelementptr inbounds i8, ptr %26, i64 352
+  %56 = getelementptr inbounds nuw i8, ptr %26, i64 352
   %57 = load ptr, ptr %56, align 8
   tail call void @ttm_tt_unpopulate(ptr noundef %57, ptr noundef nonnull %53) #7
   br label %58
 
 58:                                               ; preds = %55, %47
   tail call void @ttm_bo_put(ptr noundef nonnull %26) #7
-  tail call void @_raw_spin_lock(ptr noundef %4) #7
+  tail call void @_raw_spin_lock(ptr noundef nonnull %4) #7
   br label %59
 
 59:                                               ; preds = %58, %43
@@ -538,7 +538,7 @@ define dso_local void @ttm_device_clear_dma_mappings(ptr noundef %0) #0 align 16
   br i1 %64, label %ttm_device_clear_lru_dma_mappings.exit, label %.preheader6.i
 
 ttm_device_clear_lru_dma_mappings.exit:           ; preds = %59, %16
-  tail call void @_raw_spin_unlock(ptr noundef %4) #7
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %4) #7
   %65 = add nuw nsw i64 %17, 1
   %66 = icmp eq i64 %65, 4
   br i1 %66, label %.loopexit, label %16, !llvm.loop !26
@@ -554,8 +554,8 @@ ttm_device_clear_lru_dma_mappings.exit:           ; preds = %59, %16
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @ttm_device_clear_lru_dma_mappings(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 2080
-  tail call void @_raw_spin_lock(ptr noundef %3) #7
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 2080
+  tail call void @_raw_spin_lock(ptr noundef nonnull %3) #7
   %4 = load volatile ptr, ptr %1, align 8
   %5 = icmp eq ptr %4, %1
   %6 = getelementptr i8, ptr %4, i64 -56
@@ -567,7 +567,7 @@ define internal fastcc void @ttm_device_clear_lru_dma_mappings(ptr noundef %0, p
   %9 = phi ptr [ %45, %44 ], [ %4, %2 ]
   %10 = getelementptr i8, ptr %9, i64 -8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 376
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 376
   %13 = load volatile i32, ptr %12, align 4
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %.thread, label %.preheader
@@ -575,7 +575,7 @@ define internal fastcc void @ttm_device_clear_lru_dma_mappings(ptr noundef %0, p
 .preheader:                                       ; preds = %.preheader6, %20
   %15 = phi i32 [ %21, %20 ], [ %13, %.preheader6 ]
   %16 = add i32 %15, 1
-  %17 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %12, i32 %16, ptr elementtype(i32) %12, i32 %15) #7, !srcloc !23
+  %17 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %12, i32 %16, ptr nonnull elementtype(i32) %12, i32 %15) #7, !srcloc !23
   %18 = extractvalue { i8, i32 } %17, 0
   %19 = icmp ult i8 %18, 2
   tail call void @llvm.assume(i1 %19)
@@ -595,7 +595,7 @@ define internal fastcc void @ttm_device_clear_lru_dma_mappings(ptr noundef %0, p
   br i1 %26, label %28, label %27, !prof !17
 
 27:                                               ; preds = %.thread
-  tail call void @refcount_warn_saturate(ptr noundef %12, i32 noundef 0) #7
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %12, i32 noundef 0) #7
   br label %28
 
 28:                                               ; preds = %27, %.thread
@@ -605,29 +605,29 @@ define internal fastcc void @ttm_device_clear_lru_dma_mappings(ptr noundef %0, p
   br i1 %31, label %44, label %32, !llvm.loop !25
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %9, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr %9, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %34, ptr %36, align 8
   store volatile ptr %35, ptr %34, align 8
   store volatile ptr %9, ptr %9, align 8
   store volatile ptr %9, ptr %33, align 8
-  tail call void @_raw_spin_unlock(ptr noundef %3) #7
-  %37 = getelementptr inbounds i8, ptr %11, i64 392
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %3) #7
+  %37 = getelementptr inbounds nuw i8, ptr %11, i64 392
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, null
   br i1 %39, label %43, label %40
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %11, i64 352
+  %41 = getelementptr inbounds nuw i8, ptr %11, i64 352
   %42 = load ptr, ptr %41, align 8
   tail call void @ttm_tt_unpopulate(ptr noundef %42, ptr noundef nonnull %38) #7
   br label %43
 
 43:                                               ; preds = %40, %32
   tail call void @ttm_bo_put(ptr noundef nonnull %11) #7
-  tail call void @_raw_spin_lock(ptr noundef %3) #7
+  tail call void @_raw_spin_lock(ptr noundef nonnull %3) #7
   br label %44
 
 44:                                               ; preds = %43, %28
@@ -639,7 +639,7 @@ define internal fastcc void @ttm_device_clear_lru_dma_mappings(ptr noundef %0, p
   br i1 %49, label %.loopexit, label %.preheader6
 
 .loopexit:                                        ; preds = %44, %2
-  tail call void @_raw_spin_unlock(ptr noundef %3) #7
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %3) #7
   ret void
 }
 

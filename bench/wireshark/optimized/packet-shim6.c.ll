@@ -258,25 +258,25 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 define internal i32 @dissect_shim6(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca %struct.ip6_shim, align 1
   %6 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 0, i64 noundef 3) #2
-  %7 = getelementptr inbounds i8, ptr %5, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i32
   %10 = shl nuw nsw i32 %9, 3
   %11 = add nuw nsw i32 %10, 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %13 = load i8, ptr %12, align 1
   %.not = icmp sgt i8 %13, -1
   br i1 %.not, label %17, label %14
 
 14:                                               ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   call void @col_append_sep_str(ptr noundef %16, i32 noundef 25, ptr noundef nonnull @.str.126, ptr noundef nonnull @.str.127) #2
   br label %22
 
 17:                                               ; preds = %4
   %18 = zext nneg i8 %13 to i32
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str_const(i32 noundef %18, ptr noundef nonnull @shimctrlvals, ptr noundef nonnull @.str.129) #2
   call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.126, ptr noundef nonnull @.str.128, ptr noundef %21) #2
@@ -306,13 +306,13 @@ define internal i32 @dissect_shim6(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %40
 
 40:                                               ; preds = %22
-  %41 = getelementptr inbounds i8, ptr %39, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 32
   %42 = load ptr, ptr %41, align 8
   %.not5.i = icmp eq ptr %42, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %43
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %42, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 28
   %45 = load i32, ptr %44, align 4
   %46 = or i32 %45, 2
   store i32 %46, ptr %44, align 4
@@ -321,7 +321,7 @@ define internal i32 @dissect_shim6(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not5.i85, label %proto_item_set_hidden.exit, label %47
 
 47:                                               ; preds = %43
-  %48 = getelementptr inbounds i8, ptr %.pre, i64 28
+  %48 = getelementptr inbounds nuw i8, ptr %.pre, i64 28
   %49 = load i32, ptr %48, align 4
   %50 = or i32 %49, 1
   store i32 %50, ptr %48, align 4
@@ -367,7 +367,7 @@ proto_item_set_hidden.exit:                       ; preds = %40, %22, %43, %47
   br i1 %.not83, label %83, label %80
 
 80:                                               ; preds = %70
-  %81 = getelementptr inbounds i8, ptr %1, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %82 = load ptr, ptr %81, align 8
   call void @col_append_str(ptr noundef %82, i32 noundef 25, ptr noundef nonnull @.str.134) #2
   br label %83
@@ -396,7 +396,7 @@ proto_item_set_hidden.exit:                       ; preds = %40, %22, %43, %47
   %91 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 8) #2
   %92 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 9) #2
   %93 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 10) #2
-  %94 = getelementptr inbounds i8, ptr %1, i64 408
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %95 = load ptr, ptr %94, align 8
   %96 = and i8 %88, 127
   %97 = zext nneg i8 %96 to i32
@@ -428,7 +428,7 @@ proto_item_set_hidden.exit:                       ; preds = %40, %22, %43, %47
   %119 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 8) #2
   %120 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 9) #2
   %121 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 10) #2
-  %122 = getelementptr inbounds i8, ptr %1, i64 408
+  %122 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %123 = load ptr, ptr %122, align 8
   %124 = and i8 %116, 127
   %125 = zext nneg i8 %124 to i32
@@ -455,7 +455,7 @@ proto_item_set_hidden.exit:                       ; preds = %40, %22, %43, %47
   %144 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 8) #2
   %145 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 9) #2
   %146 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 10) #2
-  %147 = getelementptr inbounds i8, ptr %1, i64 408
+  %147 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %148 = load ptr, ptr %147, align 8
   %149 = and i8 %141, 127
   %150 = zext nneg i8 %149 to i32
@@ -478,7 +478,7 @@ proto_item_set_hidden.exit:                       ; preds = %40, %22, %43, %47
   %165 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 8) #2
   %166 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 9) #2
   %167 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 10) #2
-  %168 = getelementptr inbounds i8, ptr %1, i64 408
+  %168 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %169 = load ptr, ptr %168, align 8
   %170 = and i8 %162, 127
   %171 = zext nneg i8 %170 to i32
@@ -501,7 +501,7 @@ proto_item_set_hidden.exit:                       ; preds = %40, %22, %43, %47
   %186 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 8) #2
   %187 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 9) #2
   %188 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 10) #2
-  %189 = getelementptr inbounds i8, ptr %1, i64 408
+  %189 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %190 = load ptr, ptr %189, align 8
   %191 = and i8 %183, 127
   %192 = zext nneg i8 %191 to i32
@@ -545,7 +545,7 @@ proto_item_set_hidden.exit:                       ; preds = %40, %22, %43, %47
   %228 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 8) #2
   %229 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 9) #2
   %230 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 10) #2
-  %231 = getelementptr inbounds i8, ptr %1, i64 408
+  %231 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %232 = load ptr, ptr %231, align 8
   %233 = and i8 %225, 127
   %234 = zext nneg i8 %233 to i32
@@ -568,7 +568,7 @@ proto_item_set_hidden.exit:                       ; preds = %40, %22, %43, %47
   %249 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 8) #2
   %250 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 9) #2
   %251 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 10) #2
-  %252 = getelementptr inbounds i8, ptr %1, i64 408
+  %252 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %253 = load ptr, ptr %252, align 8
   %254 = and i8 %246, 127
   %255 = zext nneg i8 %254 to i32
@@ -591,7 +591,7 @@ proto_item_set_hidden.exit:                       ; preds = %40, %22, %43, %47
   %270 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 8) #2
   %271 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 9) #2
   %272 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 10) #2
-  %273 = getelementptr inbounds i8, ptr %1, i64 408
+  %273 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %274 = load ptr, ptr %273, align 8
   %275 = and i8 %267, 127
   %276 = zext nneg i8 %275 to i32
@@ -695,13 +695,13 @@ dissect_shimopts.exit.us:                         ; preds = %.lr.ph, %dissect_sh
   br i1 %.not.i.i, label %proto_item_set_generated.exit.i, label %346
 
 346:                                              ; preds = %.lr.ph.split
-  %347 = getelementptr inbounds i8, ptr %345, i64 32
+  %347 = getelementptr inbounds nuw i8, ptr %345, i64 32
   %348 = load ptr, ptr %347, align 8
   %.not5.i.i = icmp eq ptr %348, null
   br i1 %.not5.i.i, label %proto_item_set_generated.exit.i, label %349
 
 349:                                              ; preds = %346
-  %350 = getelementptr inbounds i8, ptr %348, i64 28
+  %350 = getelementptr inbounds nuw i8, ptr %348, i64 28
   %351 = load i32, ptr %350, align 4
   %352 = or i32 %351, 2
   store i32 %352, ptr %350, align 4

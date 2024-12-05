@@ -30,9 +30,9 @@ define internal range(i32 0, 2) i32 @CorrelCompare(ptr nocapture noundef readonl
   br i1 %.not, label %5, label %10
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not6 = icmp ne ptr %7, %9
   %spec.select = zext i1 %.not6 to i32
@@ -49,7 +49,7 @@ define internal range(i32 0, -2147483648) i32 @CorrelHash(ptr nocapture noundef 
   %4 = ptrtoint ptr %3 to i64
   %5 = trunc i64 %4 to i32
   %6 = mul nsw i32 %5, 997
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = trunc i64 %9 to i32
@@ -76,14 +76,14 @@ define internal fastcc double @bddCorrelationAux(ptr noundef %0, ptr noundef %1,
   %13 = ptrtoint ptr %1 to i64
   %14 = and i64 %13, -2
   %15 = inttoptr i64 %14 to ptr
-  %16 = getelementptr inbounds i8, ptr %15, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %17 = load i64, ptr %16, align 8
   %18 = shl i64 %17, 1
   %19 = and i64 %13, 1
   %20 = or disjoint i64 %18, %19
   %21 = and i64 %8, -2
   %22 = inttoptr i64 %21 to ptr
-  %23 = getelementptr inbounds i8, ptr %22, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %24 = load i64, ptr %23, align 8
   %25 = shl i64 %24, 1
   %26 = and i64 %8, 1
@@ -106,13 +106,13 @@ define internal fastcc double @bddCorrelationAux(ptr noundef %0, ptr noundef %1,
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %12
-  %39 = getelementptr inbounds i8, ptr %0, i64 624
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 1, ptr %39, align 8
   br label %107
 
 40:                                               ; preds = %12
   store ptr %.1, ptr %36, align 8
-  %41 = getelementptr inbounds i8, ptr %36, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %.178, ptr %41, align 8
   %42 = call i32 @st__lookup(ptr noundef nonnull %3, ptr noundef nonnull %36, ptr noundef nonnull %5) #7
   %.not95 = icmp eq i32 %42, 0
@@ -133,10 +133,10 @@ define internal fastcc double @bddCorrelationAux(ptr noundef %0, ptr noundef %1,
   br i1 %51, label %58, label %52
 
 52:                                               ; preds = %46
-  %53 = getelementptr inbounds i8, ptr %0, i64 312
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %54 = load ptr, ptr %53, align 8
   %55 = zext i32 %50 to i64
-  %56 = getelementptr inbounds i32, ptr %54, i64 %55
+  %56 = getelementptr inbounds nuw i32, ptr %54, i64 %55
   %57 = load i32, ptr %56, align 4
   br label %58
 
@@ -147,10 +147,10 @@ define internal fastcc double @bddCorrelationAux(ptr noundef %0, ptr noundef %1,
   br i1 %61, label %68, label %62
 
 62:                                               ; preds = %58
-  %63 = getelementptr inbounds i8, ptr %0, i64 312
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %64 = load ptr, ptr %63, align 8
   %65 = zext i32 %60 to i64
-  %66 = getelementptr inbounds i32, ptr %64, i64 %65
+  %66 = getelementptr inbounds nuw i32, ptr %64, i64 %65
   %67 = load i32, ptr %66, align 4
   br label %68
 
@@ -160,9 +160,9 @@ define internal fastcc double @bddCorrelationAux(ptr noundef %0, ptr noundef %1,
   br i1 %.not96, label %75, label %70
 
 70:                                               ; preds = %68
-  %71 = getelementptr inbounds i8, ptr %.1, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %.1, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %.1, i64 24
   %74 = load ptr, ptr %73, align 8
   br label %75
 
@@ -173,9 +173,9 @@ define internal fastcc double @bddCorrelationAux(ptr noundef %0, ptr noundef %1,
   br i1 %.not97, label %81, label %76
 
 76:                                               ; preds = %75
-  %77 = getelementptr inbounds i8, ptr %49, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %49, i64 24
+  %79 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %80 = load ptr, ptr %79, align 8
   br label %81
 
@@ -216,7 +216,7 @@ define internal fastcc double @bddCorrelationAux(ptr noundef %0, ptr noundef %1,
   br i1 %99, label %100, label %102
 
 100:                                              ; preds = %97
-  %101 = getelementptr inbounds i8, ptr %0, i64 624
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 1, ptr %101, align 8
   br label %107
 
@@ -296,14 +296,14 @@ define internal fastcc double @bddCorrelationWeightsAux(ptr noundef %0, ptr noun
   %14 = ptrtoint ptr %1 to i64
   %15 = and i64 %14, -2
   %16 = inttoptr i64 %15 to ptr
-  %17 = getelementptr inbounds i8, ptr %16, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %18 = load i64, ptr %17, align 8
   %19 = shl i64 %18, 1
   %20 = and i64 %14, 1
   %21 = or disjoint i64 %19, %20
   %22 = and i64 %9, -2
   %23 = inttoptr i64 %22 to ptr
-  %24 = getelementptr inbounds i8, ptr %23, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %25 = load i64, ptr %24, align 8
   %26 = shl i64 %25, 1
   %27 = and i64 %9, 1
@@ -326,13 +326,13 @@ define internal fastcc double @bddCorrelationWeightsAux(ptr noundef %0, ptr noun
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %13
-  %40 = getelementptr inbounds i8, ptr %0, i64 624
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 1, ptr %40, align 8
   br label %113
 
 41:                                               ; preds = %13
   store ptr %.1, ptr %37, align 8
-  %42 = getelementptr inbounds i8, ptr %37, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %.187, ptr %42, align 8
   %43 = call i32 @st__lookup(ptr noundef nonnull %4, ptr noundef nonnull %37, ptr noundef nonnull %6) #7
   %.not104 = icmp eq i32 %43, 0
@@ -353,10 +353,10 @@ define internal fastcc double @bddCorrelationWeightsAux(ptr noundef %0, ptr noun
   br i1 %52, label %59, label %53
 
 53:                                               ; preds = %47
-  %54 = getelementptr inbounds i8, ptr %0, i64 312
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %55 = load ptr, ptr %54, align 8
   %56 = zext i32 %51 to i64
-  %57 = getelementptr inbounds i32, ptr %55, i64 %56
+  %57 = getelementptr inbounds nuw i32, ptr %55, i64 %56
   %58 = load i32, ptr %57, align 4
   br label %59
 
@@ -367,10 +367,10 @@ define internal fastcc double @bddCorrelationWeightsAux(ptr noundef %0, ptr noun
   br i1 %62, label %69, label %63
 
 63:                                               ; preds = %59
-  %64 = getelementptr inbounds i8, ptr %0, i64 312
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %65 = load ptr, ptr %64, align 8
   %66 = zext i32 %61 to i64
-  %67 = getelementptr inbounds i32, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw i32, ptr %65, i64 %66
   %68 = load i32, ptr %67, align 4
   br label %69
 
@@ -380,9 +380,9 @@ define internal fastcc double @bddCorrelationWeightsAux(ptr noundef %0, ptr noun
   br i1 %.not105, label %76, label %71
 
 71:                                               ; preds = %69
-  %72 = getelementptr inbounds i8, ptr %.1, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %.1, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %.1, i64 24
   %75 = load ptr, ptr %74, align 8
   br label %76
 
@@ -394,9 +394,9 @@ define internal fastcc double @bddCorrelationWeightsAux(ptr noundef %0, ptr noun
   br i1 %.not106, label %82, label %77
 
 77:                                               ; preds = %76
-  %78 = getelementptr inbounds i8, ptr %50, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %50, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %81 = load ptr, ptr %80, align 8
   br label %82
 
@@ -442,7 +442,7 @@ define internal fastcc double @bddCorrelationWeightsAux(ptr noundef %0, ptr noun
   br i1 %105, label %106, label %108
 
 106:                                              ; preds = %103
-  %107 = getelementptr inbounds i8, ptr %0, i64 624
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 1, ptr %107, align 8
   br label %113
 

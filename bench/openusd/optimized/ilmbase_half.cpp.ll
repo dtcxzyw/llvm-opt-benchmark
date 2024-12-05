@@ -138,7 +138,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8overflowEv.exit: ; preds = %
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_halflsERSoNS0_4halfE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, i16 %1) local_unnamed_addr #1 {
   %3 = zext i16 %1 to i64
-  %4 = getelementptr inbounds [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %3
   %5 = load float, ptr %4, align 4
   %6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %5)
   ret ptr %0
@@ -163,7 +163,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN32pxrInternal_v0_24__
 11:                                               ; preds = %2
   %12 = lshr i32 %6, 23
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds [512 x i16], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [512 x i16], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 0, i64 %13
   %15 = load i16, ptr %14, align 2
   %.not.i = icmp eq i16 %15, 0
   br i1 %.not.i, label %25, label %16
@@ -287,7 +287,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half9printBitsEPcNS0_4hal
   br i1 %.not15, label %17, label %4, !llvm.loop !8
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %0, i64 18
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 18
   store i8 0, ptr %18, align 1
   ret void
 }
@@ -326,7 +326,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half9printBitsEPcf(ptr no
   br i1 %.not15, label %18, label %4, !llvm.loop !9
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 34
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 34
   store i8 0, ptr %19, align 1
   ret void
 }

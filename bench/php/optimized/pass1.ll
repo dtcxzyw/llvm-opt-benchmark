@@ -33,22 +33,22 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden void @zend_optimizer_pass1(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca %struct._zend_execute_data, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 84
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %8 = load i32, ptr %7, align 4
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds %struct._zend_op, ptr %6, i64 %9
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw %struct._zend_op, ptr %6, i64 %9
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load i64, ptr %11, align 8
   %13 = and i64 %12, 16384
   %.not = icmp eq i64 %13, 0
   br i1 %.not, label %20, label %14
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = icmp eq ptr %0, %17
   %19 = zext i1 %18 to i8
   br label %20
@@ -59,17 +59,17 @@ define hidden void @zend_optimizer_pass1(ptr noundef %0, ptr noundef %1) local_u
   br i1 %.not506, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %20
-  %22 = getelementptr inbounds i8, ptr %0, i64 176
-  %23 = getelementptr inbounds i8, ptr %3, i64 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 16
-  %26 = getelementptr inbounds i8, ptr %4, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 24
   br label %27
 
 27:                                               ; preds = %.lr.ph, %.critedge
   %.0415505 = phi ptr [ %6, %.lr.ph ], [ %591, %.critedge ]
   %.0416503 = phi i8 [ %21, %.lr.ph ], [ %.1417, %.critedge ]
-  %28 = getelementptr inbounds i8, ptr %.0415505, i64 28
+  %28 = getelementptr inbounds nuw i8, ptr %.0415505, i64 28
   %29 = load i8, ptr %28, align 4
   switch i8 %29, label %.critedge [
     i8 8, label %30
@@ -133,18 +133,18 @@ define hidden void @zend_optimizer_pass1(ptr noundef %0, ptr noundef %1) local_u
   ]
 
 30:                                               ; preds = %27, %27
-  %31 = getelementptr inbounds i8, ptr %.0415505, i64 29
+  %31 = getelementptr inbounds nuw i8, ptr %.0415505, i64 29
   %32 = load i8, ptr %31, align 1
   %33 = icmp eq i8 %32, 1
   br i1 %33, label %34, label %43
 
 34:                                               ; preds = %30
   %35 = load ptr, ptr %22, align 8
-  %36 = getelementptr inbounds i8, ptr %.0415505, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %.0415505, i64 8
   %37 = load i32, ptr %36, align 8
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds %struct._zval_struct, ptr %35, i64 %38
-  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  %39 = getelementptr inbounds nuw %struct._zval_struct, ptr %35, i64 %38
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load i8, ptr %40, align 8
   %.not473 = icmp eq i8 %41, 6
   br i1 %.not473, label %43, label %42
@@ -154,18 +154,18 @@ define hidden void @zend_optimizer_pass1(ptr noundef %0, ptr noundef %1) local_u
   br label %43
 
 43:                                               ; preds = %42, %34, %30
-  %44 = getelementptr inbounds i8, ptr %.0415505, i64 30
+  %44 = getelementptr inbounds nuw i8, ptr %.0415505, i64 30
   %45 = load i8, ptr %44, align 2
   %46 = icmp eq i8 %45, 1
   br i1 %46, label %47, label %56
 
 47:                                               ; preds = %43
   %48 = load ptr, ptr %22, align 8
-  %49 = getelementptr inbounds i8, ptr %.0415505, i64 12
+  %49 = getelementptr inbounds nuw i8, ptr %.0415505, i64 12
   %50 = load i32, ptr %49, align 4
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds %struct._zval_struct, ptr %48, i64 %51
-  %53 = getelementptr inbounds i8, ptr %52, i64 8
+  %52 = getelementptr inbounds nuw %struct._zval_struct, ptr %48, i64 %51
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load i8, ptr %53, align 8
   %.not474 = icmp eq i8 %54, 6
   br i1 %.not474, label %56, label %55
@@ -175,13 +175,13 @@ define hidden void @zend_optimizer_pass1(ptr noundef %0, ptr noundef %1) local_u
   br label %56
 
 56:                                               ; preds = %43, %47, %55, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27
-  %57 = getelementptr inbounds i8, ptr %.0415505, i64 29
+  %57 = getelementptr inbounds nuw i8, ptr %.0415505, i64 29
   %58 = load i8, ptr %57, align 1
   %59 = icmp eq i8 %58, 1
   br i1 %59, label %60, label %.critedge
 
 60:                                               ; preds = %56
-  %61 = getelementptr inbounds i8, ptr %.0415505, i64 30
+  %61 = getelementptr inbounds nuw i8, ptr %.0415505, i64 30
   %62 = load i8, ptr %61, align 2
   %63 = icmp eq i8 %62, 1
   br i1 %63, label %64, label %.critedge
@@ -189,14 +189,14 @@ define hidden void @zend_optimizer_pass1(ptr noundef %0, ptr noundef %1) local_u
 64:                                               ; preds = %60
   %65 = load i8, ptr %28, align 4
   %66 = load ptr, ptr %22, align 8
-  %67 = getelementptr inbounds i8, ptr %.0415505, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %.0415505, i64 8
   %68 = load i32, ptr %67, align 8
   %69 = zext i32 %68 to i64
-  %70 = getelementptr inbounds %struct._zval_struct, ptr %66, i64 %69
-  %71 = getelementptr inbounds i8, ptr %.0415505, i64 12
+  %70 = getelementptr inbounds nuw %struct._zval_struct, ptr %66, i64 %69
+  %71 = getelementptr inbounds nuw i8, ptr %.0415505, i64 12
   %72 = load i32, ptr %71, align 4
   %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds %struct._zval_struct, ptr %66, i64 %73
+  %74 = getelementptr inbounds nuw %struct._zval_struct, ptr %66, i64 %73
   %75 = call i32 @zend_optimizer_eval_binary_op(ptr noundef nonnull %3, i8 noundef zeroext %65, ptr noundef %70, ptr noundef %74) #6
   %76 = icmp eq i32 %75, 0
   br i1 %76, label %77, label %.critedge
@@ -206,24 +206,24 @@ define hidden void @zend_optimizer_pass1(ptr noundef %0, ptr noundef %1) local_u
   br label %.critedge
 
 78:                                               ; preds = %27
-  %79 = getelementptr inbounds i8, ptr %.0415505, i64 20
+  %79 = getelementptr inbounds nuw i8, ptr %.0415505, i64 20
   %80 = load i32, ptr %79, align 4
   %81 = icmp eq i32 %80, 8
   br i1 %81, label %82, label %.critedge
 
 82:                                               ; preds = %78
-  %83 = getelementptr inbounds i8, ptr %.0415505, i64 30
+  %83 = getelementptr inbounds nuw i8, ptr %.0415505, i64 30
   %84 = load i8, ptr %83, align 2
   %85 = icmp eq i8 %84, 1
   br i1 %85, label %86, label %.critedge
 
 86:                                               ; preds = %82
   %87 = load ptr, ptr %22, align 8
-  %88 = getelementptr inbounds i8, ptr %.0415505, i64 12
+  %88 = getelementptr inbounds nuw i8, ptr %.0415505, i64 12
   %89 = load i32, ptr %88, align 4
   %90 = zext i32 %89 to i64
-  %91 = getelementptr inbounds %struct._zval_struct, ptr %87, i64 %90
-  %92 = getelementptr inbounds i8, ptr %91, i64 8
+  %91 = getelementptr inbounds nuw %struct._zval_struct, ptr %87, i64 %90
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %93 = load i8, ptr %92, align 8
   %.not472 = icmp eq i8 %93, 6
   br i1 %.not472, label %.critedge, label %94
@@ -233,19 +233,19 @@ define hidden void @zend_optimizer_pass1(ptr noundef %0, ptr noundef %1) local_u
   br label %.critedge
 
 95:                                               ; preds = %27
-  %96 = getelementptr inbounds i8, ptr %.0415505, i64 29
+  %96 = getelementptr inbounds nuw i8, ptr %.0415505, i64 29
   %97 = load i8, ptr %96, align 1
   %98 = icmp eq i8 %97, 1
   br i1 %98, label %99, label %.critedge
 
 99:                                               ; preds = %95
-  %100 = getelementptr inbounds i8, ptr %.0415505, i64 20
+  %100 = getelementptr inbounds nuw i8, ptr %.0415505, i64 20
   %101 = load i32, ptr %100, align 4
   %102 = load ptr, ptr %22, align 8
-  %103 = getelementptr inbounds i8, ptr %.0415505, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %.0415505, i64 8
   %104 = load i32, ptr %103, align 8
   %105 = zext i32 %104 to i64
-  %106 = getelementptr inbounds %struct._zval_struct, ptr %102, i64 %105
+  %106 = getelementptr inbounds nuw %struct._zval_struct, ptr %102, i64 %105
   %107 = call i32 @zend_optimizer_eval_cast(ptr noundef nonnull %3, i32 noundef %101, ptr noundef %106) #6
   %108 = icmp eq i32 %107, 0
   br i1 %108, label %109, label %.critedge
@@ -255,17 +255,17 @@ define hidden void @zend_optimizer_pass1(ptr noundef %0, ptr noundef %1) local_u
   br label %.critedge
 
 110:                                              ; preds = %27, %27
-  %111 = getelementptr inbounds i8, ptr %.0415505, i64 29
+  %111 = getelementptr inbounds nuw i8, ptr %.0415505, i64 29
   %112 = load i8, ptr %111, align 1
   %113 = icmp eq i8 %112, 1
   br i1 %113, label %114, label %.critedge
 
 114:                                              ; preds = %110
   %115 = load ptr, ptr %22, align 8
-  %116 = getelementptr inbounds i8, ptr %.0415505, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %.0415505, i64 8
   %117 = load i32, ptr %116, align 8
   %118 = zext i32 %117 to i64
-  %119 = getelementptr inbounds %struct._zval_struct, ptr %115, i64 %118
+  %119 = getelementptr inbounds nuw %struct._zval_struct, ptr %115, i64 %118
   %120 = call i32 @zend_optimizer_eval_unary_op(ptr noundef nonnull %3, i8 noundef zeroext %29, ptr noundef %119) #6
   %121 = icmp eq i32 %120, 0
   br i1 %121, label %122, label %.critedge
@@ -275,31 +275,31 @@ define hidden void @zend_optimizer_pass1(ptr noundef %0, ptr noundef %1) local_u
   br label %.critedge
 
 123:                                              ; preds = %27
-  %124 = getelementptr inbounds i8, ptr %.0415505, i64 30
+  %124 = getelementptr inbounds nuw i8, ptr %.0415505, i64 30
   %125 = load i8, ptr %124, align 2
   %126 = icmp eq i8 %125, 1
   br i1 %126, label %127, label %.critedge
 
 127:                                              ; preds = %123
   %128 = load ptr, ptr %22, align 8
-  %129 = getelementptr inbounds i8, ptr %.0415505, i64 12
+  %129 = getelementptr inbounds nuw i8, ptr %.0415505, i64 12
   %130 = load i32, ptr %129, align 4
   %131 = zext i32 %130 to i64
-  %132 = getelementptr inbounds %struct._zval_struct, ptr %128, i64 %131
-  %133 = getelementptr inbounds i8, ptr %132, i64 8
+  %132 = getelementptr inbounds nuw %struct._zval_struct, ptr %128, i64 %131
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
   %134 = load i8, ptr %133, align 8
   %135 = icmp eq i8 %134, 6
   br i1 %135, label %136, label %.critedge
 
 136:                                              ; preds = %127
   %137 = load ptr, ptr %132, align 8
-  %138 = getelementptr inbounds i8, ptr %137, i64 16
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 16
   %139 = load i64, ptr %138, align 8
   %140 = icmp eq i64 %139, 24
   br i1 %140, label %141, label %166
 
 141:                                              ; preds = %136
-  %142 = getelementptr inbounds i8, ptr %137, i64 24
+  %142 = getelementptr inbounds nuw i8, ptr %137, i64 24
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(24) %142, ptr noundef nonnull dereferenceable(24) @.str, i64 24)
   %.not467 = icmp eq i32 %bcmp, 0
   br i1 %.not467, label %143, label %166
@@ -317,8 +317,8 @@ define hidden void @zend_optimizer_pass1(ptr noundef %0, ptr noundef %1) local_u
   %147 = load ptr, ptr %22, align 8
   %148 = load i32, ptr %129, align 4
   %149 = zext i32 %148 to i64
-  %150 = getelementptr inbounds %struct._zval_struct, ptr %147, i64 %149
-  %151 = getelementptr inbounds i8, ptr %150, i64 9
+  %150 = getelementptr inbounds nuw %struct._zval_struct, ptr %147, i64 %149
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 9
   %152 = load i8, ptr %151, align 1
   %.not470 = icmp eq i8 %152, 0
   br i1 %.not470, label %160, label %153
@@ -342,7 +342,7 @@ define hidden void @zend_optimizer_pass1(ptr noundef %0, ptr noundef %1) local_u
   %161 = load ptr, ptr %22, align 8
   %162 = load i32, ptr %129, align 4
   %163 = zext i32 %162 to i64
-  %164 = getelementptr inbounds %struct._zval_struct, ptr %161, i64 %163, i32 1
+  %164 = getelementptr inbounds nuw %struct._zval_struct, ptr %161, i64 %163, i32 1
   store i32 1, ptr %164, align 8
   call fastcc void @replace_by_const_or_qm_assign(ptr noundef nonnull %0, ptr noundef nonnull %.0415505, ptr noundef %145)
   br label %165
@@ -365,7 +365,7 @@ define hidden void @zend_optimizer_pass1(ptr noundef %0, ptr noundef %1) local_u
   %172 = load ptr, ptr %22, align 8
   %173 = load i32, ptr %129, align 4
   %174 = zext i32 %173 to i64
-  %175 = getelementptr inbounds %struct._zval_struct, ptr %172, i64 %174
+  %175 = getelementptr inbounds nuw %struct._zval_struct, ptr %172, i64 %174
   %176 = call zeroext i1 @zend_optimizer_get_collected_constant(ptr noundef nonnull %170, ptr noundef %175, ptr noundef nonnull %3) #6
   %177 = load i8, ptr %23, align 8
   %178 = icmp ne i8 %177, 11
@@ -382,17 +382,17 @@ define hidden void @zend_optimizer_pass1(ptr noundef %0, ptr noundef %1) local_u
   br label %.critedge
 
 181:                                              ; preds = %27
-  %182 = getelementptr inbounds i8, ptr %.0415505, i64 30
+  %182 = getelementptr inbounds nuw i8, ptr %.0415505, i64 30
   %183 = load i8, ptr %182, align 2
   %184 = icmp eq i8 %183, 1
   br i1 %184, label %185, label %.critedge
 
 185:                                              ; preds = %181
   %186 = load ptr, ptr %22, align 8
-  %187 = getelementptr inbounds i8, ptr %.0415505, i64 12
+  %187 = getelementptr inbounds nuw i8, ptr %.0415505, i64 12
   %188 = load i32, ptr %187, align 4
   %189 = zext i32 %188 to i64
-  %190 = getelementptr inbounds %struct._zval_struct, ptr %186, i64 %189, i32 1
+  %190 = getelementptr inbounds nuw %struct._zval_struct, ptr %186, i64 %189, i32 1
   %191 = load i8, ptr %190, align 8
   %192 = icmp eq i8 %191, 6
   br i1 %192, label %193, label %.critedge
@@ -404,11 +404,11 @@ define hidden void @zend_optimizer_pass1(ptr noundef %0, ptr noundef %1) local_u
   br i1 %.not459, label %.critedge, label %196
 
 196:                                              ; preds = %193
-  %197 = getelementptr inbounds i8, ptr %195, i64 176
+  %197 = getelementptr inbounds nuw i8, ptr %195, i64 176
   %198 = load ptr, ptr %22, align 8
   %199 = load i32, ptr %187, align 4
   %200 = zext i32 %199 to i64
-  %201 = getelementptr inbounds %struct._zval_struct, ptr %198, i64 %200
+  %201 = getelementptr inbounds nuw %struct._zval_struct, ptr %198, i64 %200
   %202 = load ptr, ptr %201, align 8
   %203 = call ptr @zend_hash_find(ptr noundef nonnull %197, ptr noundef %202) #6
   %.not460 = icmp eq ptr %203, null
@@ -416,34 +416,34 @@ define hidden void @zend_optimizer_pass1(ptr noundef %0, ptr noundef %1) local_u
 
 204:                                              ; preds = %196
   %205 = load ptr, ptr %203, align 8, !nonnull !4, !noundef !4
-  %206 = getelementptr inbounds i8, ptr %205, i64 12
+  %206 = getelementptr inbounds nuw i8, ptr %205, i64 12
   %207 = load i32, ptr %206, align 4
   %208 = and i32 %207, 2055
   %or.cond481 = icmp eq i32 %208, 1
   br i1 %or.cond481, label %209, label %.critedge
 
 209:                                              ; preds = %204
-  %210 = getelementptr inbounds i8, ptr %195, i64 28
+  %210 = getelementptr inbounds nuw i8, ptr %195, i64 28
   %211 = load i32, ptr %210, align 4
   %212 = and i32 %211, 2
   %.not463 = icmp eq i32 %212, 0
   br i1 %.not463, label %213, label %.critedge
 
 213:                                              ; preds = %209
-  %214 = getelementptr inbounds i8, ptr %205, i64 8
+  %214 = getelementptr inbounds nuw i8, ptr %205, i64 8
   %215 = load i8, ptr %214, align 8
   %216 = icmp eq i8 %215, 11
   %217 = load ptr, ptr %205, align 8
   br i1 %216, label %218, label %227
 
 218:                                              ; preds = %213
-  %219 = getelementptr inbounds i8, ptr %217, i64 8
+  %219 = getelementptr inbounds nuw i8, ptr %217, i64 8
   %220 = load i16, ptr %219, align 8
   %.not466 = icmp eq i16 %220, 65
   br i1 %.not466, label %221, label %.critedge
 
 221:                                              ; preds = %218
-  %222 = getelementptr inbounds i8, ptr %217, i64 16
+  %222 = getelementptr inbounds nuw i8, ptr %217, i64 16
   %223 = load ptr, ptr %222, align 8
   %224 = call zeroext i1 @zend_optimizer_get_persistent_constant(ptr noundef %223, ptr noundef nonnull %3, i32 noundef 1) #6
   %225 = load i8, ptr %23, align 8
@@ -460,7 +460,7 @@ define hidden void @zend_optimizer_pass1(ptr noundef %0, ptr noundef %1) local_u
   br i1 %.not464, label %241, label %230
 
 230:                                              ; preds = %227
-  %231 = getelementptr inbounds i8, ptr %217, i64 4
+  %231 = getelementptr inbounds nuw i8, ptr %217, i64 4
   %232 = load i32, ptr %231, align 4
   %233 = and i32 %232, 128
   %.not465 = icmp eq i32 %233, 0
@@ -551,32 +551,32 @@ define hidden void @zend_optimizer_pass1(ptr noundef %0, ptr noundef %1) local_u
   %267 = getelementptr inbounds i8, ptr %.1.pn, i64 -20
   %268 = load i32, ptr %267, align 4
   %269 = zext i32 %268 to i64
-  %270 = getelementptr inbounds %struct._zval_struct, ptr %266, i64 %269
-  %271 = getelementptr inbounds i8, ptr %270, i64 8
+  %270 = getelementptr inbounds nuw %struct._zval_struct, ptr %266, i64 %269
+  %271 = getelementptr inbounds nuw i8, ptr %270, i64 8
   %272 = load i8, ptr %271, align 8
   %.not447 = icmp eq i8 %272, 6
   br i1 %.not447, label %273, label %.critedge
 
 273:                                              ; preds = %265
   %274 = load ptr, ptr %270, align 8
-  %275 = getelementptr inbounds i8, ptr %274, i64 16
+  %275 = getelementptr inbounds nuw i8, ptr %274, i64 16
   %276 = load i64, ptr %275, align 8
   %277 = icmp eq i64 %276, 6
   br i1 %277, label %278, label %369
 
 278:                                              ; preds = %273
-  %279 = getelementptr inbounds i8, ptr %274, i64 24
+  %279 = getelementptr inbounds nuw i8, ptr %274, i64 24
   %280 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %279, i64 noundef 6, ptr noundef nonnull @.str.1, i64 noundef 6) #6
   %.not448 = icmp eq i32 %280, 0
   br i1 %.not448, label %281, label %369
 
 281:                                              ; preds = %278
   %282 = load ptr, ptr %22, align 8
-  %283 = getelementptr inbounds i8, ptr %.1, i64 8
+  %283 = getelementptr inbounds nuw i8, ptr %.1, i64 8
   %284 = load i32, ptr %283, align 8
   %285 = zext i32 %284 to i64
-  %286 = getelementptr inbounds %struct._zval_struct, ptr %282, i64 %285
-  %287 = getelementptr inbounds i8, ptr %286, i64 8
+  %286 = getelementptr inbounds nuw %struct._zval_struct, ptr %282, i64 %285
+  %287 = getelementptr inbounds nuw i8, ptr %286, i64 8
   %288 = load i8, ptr %287, align 8
   %289 = icmp eq i8 %288, 6
   %290 = icmp ne ptr %.0410, null
@@ -588,15 +588,15 @@ define hidden void @zend_optimizer_pass1(ptr noundef %0, ptr noundef %1) local_u
   br i1 %292, label %293, label %298
 
 293:                                              ; preds = %291
-  %294 = getelementptr inbounds i8, ptr %.0410, i64 8
+  %294 = getelementptr inbounds nuw i8, ptr %.0410, i64 8
   %295 = load i32, ptr %294, align 8
   %296 = zext i32 %295 to i64
-  %297 = getelementptr inbounds %struct._zval_struct, ptr %282, i64 %296
+  %297 = getelementptr inbounds nuw %struct._zval_struct, ptr %282, i64 %296
   call void @zend_optimizer_collect_constant(ptr noundef %1, ptr noundef nonnull %286, ptr noundef %297) #6
   br label %298
 
 298:                                              ; preds = %293, %291
-  %299 = getelementptr inbounds i8, ptr %.0415505, i64 31
+  %299 = getelementptr inbounds nuw i8, ptr %.0415505, i64 31
   %300 = load i8, ptr %299, align 1
   %301 = icmp eq i8 %300, 0
   br i1 %301, label %302, label %.critedge
@@ -605,9 +605,9 @@ define hidden void @zend_optimizer_pass1(ptr noundef %0, ptr noundef %1) local_u
   %303 = load ptr, ptr %22, align 8
   %304 = load i32, ptr %283, align 8
   %305 = zext i32 %304 to i64
-  %306 = getelementptr inbounds %struct._zval_struct, ptr %303, i64 %305
+  %306 = getelementptr inbounds nuw %struct._zval_struct, ptr %303, i64 %305
   %307 = load ptr, ptr %306, align 8
-  %308 = getelementptr inbounds i8, ptr %307, i64 16
+  %308 = getelementptr inbounds nuw i8, ptr %307, i64 16
   %309 = load i64, ptr %308, align 8
   %310 = icmp sgt i64 %309, -1
   call void @llvm.assume(i1 %310)
@@ -615,8 +615,8 @@ define hidden void @zend_optimizer_pass1(ptr noundef %0, ptr noundef %1) local_u
   br i1 %311, label %.critedge488, label %312
 
 312:                                              ; preds = %302
-  %313 = getelementptr inbounds i8, ptr %307, i64 24
-  %314 = getelementptr inbounds i8, ptr %313, i64 %309
+  %313 = getelementptr inbounds nuw i8, ptr %307, i64 24
+  %314 = getelementptr inbounds nuw i8, ptr %313, i64 %309
   %315 = getelementptr inbounds i8, ptr %314, i64 -2
   %316 = ptrtoint ptr %315 to i64
   %317 = add i64 %316, 1
@@ -635,32 +635,32 @@ define hidden void @zend_optimizer_pass1(ptr noundef %0, ptr noundef %1) local_u
   br i1 %.not450, label %.critedge488, label %323
 
 323:                                              ; preds = %319
-  %324 = getelementptr inbounds i8, ptr %322, i64 1
+  %324 = getelementptr inbounds nuw i8, ptr %322, i64 1
   %325 = load i8, ptr %324, align 1
   %326 = icmp eq i8 %325, 58
   br i1 %326, label %.critedge, label %318
 
 .critedge488:                                     ; preds = %318, %319, %302
   store i8 -113, ptr %28, align 4
-  %327 = getelementptr inbounds i8, ptr %.0415505, i64 29
+  %327 = getelementptr inbounds nuw i8, ptr %.0415505, i64 29
   store i8 1, ptr %327, align 1
-  %328 = getelementptr inbounds i8, ptr %.0415505, i64 30
+  %328 = getelementptr inbounds nuw i8, ptr %.0415505, i64 30
   store i8 1, ptr %328, align 2
   store i8 0, ptr %299, align 1
   %329 = load i32, ptr %283, align 8
-  %330 = getelementptr inbounds i8, ptr %.0415505, i64 8
+  %330 = getelementptr inbounds nuw i8, ptr %.0415505, i64 8
   store i32 %329, ptr %330, align 8
-  %331 = getelementptr inbounds i8, ptr %.0410, i64 8
+  %331 = getelementptr inbounds nuw i8, ptr %.0410, i64 8
   %332 = load i32, ptr %331, align 8
-  %333 = getelementptr inbounds i8, ptr %.0415505, i64 12
+  %333 = getelementptr inbounds nuw i8, ptr %.0415505, i64 12
   store i32 %332, ptr %333, align 4
-  %334 = getelementptr inbounds i8, ptr %.0415505, i64 16
+  %334 = getelementptr inbounds nuw i8, ptr %.0415505, i64 16
   store i32 0, ptr %334, align 8
   %335 = load ptr, ptr %22, align 8
   %336 = load i32, ptr %267, align 4
   %337 = zext i32 %336 to i64
-  %338 = getelementptr inbounds %struct._zval_struct, ptr %335, i64 %337
-  %339 = getelementptr inbounds i8, ptr %338, i64 9
+  %338 = getelementptr inbounds nuw %struct._zval_struct, ptr %335, i64 %337
+  %339 = getelementptr inbounds nuw i8, ptr %338, i64 9
   %340 = load i8, ptr %339, align 1
   %.not452 = icmp eq i8 %340, 0
   br i1 %.not452, label %348, label %341
@@ -684,7 +684,7 @@ define hidden void @zend_optimizer_pass1(ptr noundef %0, ptr noundef %1) local_u
   %349 = load ptr, ptr %22, align 8
   %350 = load i32, ptr %267, align 4
   %351 = zext i32 %350 to i64
-  %352 = getelementptr inbounds %struct._zval_struct, ptr %349, i64 %351, i32 1
+  %352 = getelementptr inbounds nuw %struct._zval_struct, ptr %349, i64 %351, i32 1
   store i32 1, ptr %352, align 8
   store i8 0, ptr %262, align 4
   %353 = getelementptr inbounds i8, ptr %.1.pn, i64 -3
@@ -697,31 +697,31 @@ define hidden void @zend_optimizer_pass1(ptr noundef %0, ptr noundef %1) local_u
   store i8 0, ptr %355, align 1
   %356 = getelementptr inbounds i8, ptr %.1.pn, i64 -16
   store i32 -1, ptr %356, align 8
-  %357 = getelementptr inbounds i8, ptr %.1, i64 28
+  %357 = getelementptr inbounds nuw i8, ptr %.1, i64 28
   store i8 0, ptr %357, align 4
-  %358 = getelementptr inbounds i8, ptr %.1, i64 29
+  %358 = getelementptr inbounds nuw i8, ptr %.1, i64 29
   store i8 0, ptr %358, align 1
   store i32 -1, ptr %283, align 8
-  %359 = getelementptr inbounds i8, ptr %.1, i64 30
+  %359 = getelementptr inbounds nuw i8, ptr %.1, i64 30
   store i8 0, ptr %359, align 2
-  %360 = getelementptr inbounds i8, ptr %.1, i64 12
+  %360 = getelementptr inbounds nuw i8, ptr %.1, i64 12
   store i32 -1, ptr %360, align 4
-  %361 = getelementptr inbounds i8, ptr %.1, i64 31
+  %361 = getelementptr inbounds nuw i8, ptr %.1, i64 31
   store i8 0, ptr %361, align 1
-  %362 = getelementptr inbounds i8, ptr %.1, i64 16
+  %362 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   store i32 -1, ptr %362, align 8
-  %363 = getelementptr inbounds i8, ptr %.0410, i64 28
+  %363 = getelementptr inbounds nuw i8, ptr %.0410, i64 28
   store i8 0, ptr %363, align 4
-  %364 = getelementptr inbounds i8, ptr %.0410, i64 29
+  %364 = getelementptr inbounds nuw i8, ptr %.0410, i64 29
   store i8 0, ptr %364, align 1
   store i32 -1, ptr %331, align 8
-  %365 = getelementptr inbounds i8, ptr %.0410, i64 30
+  %365 = getelementptr inbounds nuw i8, ptr %.0410, i64 30
   store i8 0, ptr %365, align 2
-  %366 = getelementptr inbounds i8, ptr %.0410, i64 12
+  %366 = getelementptr inbounds nuw i8, ptr %.0410, i64 12
   store i32 -1, ptr %366, align 4
-  %367 = getelementptr inbounds i8, ptr %.0410, i64 31
+  %367 = getelementptr inbounds nuw i8, ptr %.0410, i64 31
   store i8 0, ptr %367, align 1
-  %368 = getelementptr inbounds i8, ptr %.0410, i64 16
+  %368 = getelementptr inbounds nuw i8, ptr %.0410, i64 16
   store i32 -1, ptr %368, align 8
   br label %.critedge
 
@@ -731,11 +731,11 @@ define hidden void @zend_optimizer_pass1(ptr noundef %0, ptr noundef %1) local_u
 
 370:                                              ; preds = %369
   %371 = load ptr, ptr %22, align 8
-  %372 = getelementptr inbounds i8, ptr %.1, i64 8
+  %372 = getelementptr inbounds nuw i8, ptr %.1, i64 8
   %373 = load i32, ptr %372, align 8
   %374 = zext i32 %373 to i64
-  %375 = getelementptr inbounds %struct._zval_struct, ptr %371, i64 %374
-  %376 = getelementptr inbounds i8, ptr %375, i64 8
+  %375 = getelementptr inbounds nuw %struct._zval_struct, ptr %371, i64 %374
+  %376 = getelementptr inbounds nuw i8, ptr %375, i64 8
   %377 = load i8, ptr %376, align 8
   %378 = icmp eq i8 %377, 6
   br i1 %378, label %379, label %.critedge
@@ -743,7 +743,7 @@ define hidden void @zend_optimizer_pass1(ptr noundef %0, ptr noundef %1) local_u
 379:                                              ; preds = %370
   %380 = load i32, ptr %267, align 4
   %381 = zext i32 %380 to i64
-  %382 = getelementptr inbounds %struct._zval_struct, ptr %371, i64 %381
+  %382 = getelementptr inbounds nuw %struct._zval_struct, ptr %371, i64 %381
   %383 = load ptr, ptr %382, align 8
   %384 = load ptr, ptr %375, align 8
   %385 = call i32 @zend_optimizer_eval_special_func_call(ptr noundef nonnull %3, ptr noundef %383, ptr noundef %384) #6
@@ -754,8 +754,8 @@ define hidden void @zend_optimizer_pass1(ptr noundef %0, ptr noundef %1) local_u
   %388 = load ptr, ptr %22, align 8
   %389 = load i32, ptr %267, align 4
   %390 = zext i32 %389 to i64
-  %391 = getelementptr inbounds %struct._zval_struct, ptr %388, i64 %390
-  %392 = getelementptr inbounds i8, ptr %391, i64 9
+  %391 = getelementptr inbounds nuw %struct._zval_struct, ptr %388, i64 %390
+  %392 = getelementptr inbounds nuw i8, ptr %391, i64 9
   %393 = load i8, ptr %392, align 1
   %.not455 = icmp eq i8 %393, 0
   br i1 %.not455, label %401, label %394
@@ -779,7 +779,7 @@ define hidden void @zend_optimizer_pass1(ptr noundef %0, ptr noundef %1) local_u
   %402 = load ptr, ptr %22, align 8
   %403 = load i32, ptr %267, align 4
   %404 = zext i32 %403 to i64
-  %405 = getelementptr inbounds %struct._zval_struct, ptr %402, i64 %404, i32 1
+  %405 = getelementptr inbounds nuw %struct._zval_struct, ptr %402, i64 %404, i32 1
   store i32 1, ptr %405, align 8
   store i8 0, ptr %262, align 4
   %406 = getelementptr inbounds i8, ptr %.1.pn, i64 -3
@@ -795,8 +795,8 @@ define hidden void @zend_optimizer_pass1(ptr noundef %0, ptr noundef %1) local_u
   %410 = load ptr, ptr %22, align 8
   %411 = load i32, ptr %372, align 8
   %412 = zext i32 %411 to i64
-  %413 = getelementptr inbounds %struct._zval_struct, ptr %410, i64 %412
-  %414 = getelementptr inbounds i8, ptr %413, i64 9
+  %413 = getelementptr inbounds nuw %struct._zval_struct, ptr %410, i64 %412
+  %414 = getelementptr inbounds nuw i8, ptr %413, i64 9
   %415 = load i8, ptr %414, align 1
   %.not457 = icmp eq i8 %415, 0
   br i1 %.not457, label %423, label %416
@@ -820,36 +820,36 @@ define hidden void @zend_optimizer_pass1(ptr noundef %0, ptr noundef %1) local_u
   %424 = load ptr, ptr %22, align 8
   %425 = load i32, ptr %372, align 8
   %426 = zext i32 %425 to i64
-  %427 = getelementptr inbounds %struct._zval_struct, ptr %424, i64 %426, i32 1
+  %427 = getelementptr inbounds nuw %struct._zval_struct, ptr %424, i64 %426, i32 1
   store i32 1, ptr %427, align 8
-  %428 = getelementptr inbounds i8, ptr %.1, i64 28
+  %428 = getelementptr inbounds nuw i8, ptr %.1, i64 28
   store i8 0, ptr %428, align 4
-  %429 = getelementptr inbounds i8, ptr %.1, i64 29
+  %429 = getelementptr inbounds nuw i8, ptr %.1, i64 29
   store i8 0, ptr %429, align 1
   store i32 -1, ptr %372, align 8
-  %430 = getelementptr inbounds i8, ptr %.1, i64 30
+  %430 = getelementptr inbounds nuw i8, ptr %.1, i64 30
   store i8 0, ptr %430, align 2
-  %431 = getelementptr inbounds i8, ptr %.1, i64 12
+  %431 = getelementptr inbounds nuw i8, ptr %.1, i64 12
   store i32 -1, ptr %431, align 4
-  %432 = getelementptr inbounds i8, ptr %.1, i64 31
+  %432 = getelementptr inbounds nuw i8, ptr %.1, i64 31
   store i8 0, ptr %432, align 1
-  %433 = getelementptr inbounds i8, ptr %.1, i64 16
+  %433 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   store i32 -1, ptr %433, align 8
   call fastcc void @replace_by_const_or_qm_assign(ptr noundef nonnull %0, ptr noundef %.0415505, ptr noundef %3)
   br label %.critedge
 
 434:                                              ; preds = %27
-  %435 = getelementptr inbounds i8, ptr %.0415505, i64 29
+  %435 = getelementptr inbounds nuw i8, ptr %.0415505, i64 29
   %436 = load i8, ptr %435, align 1
   %437 = icmp eq i8 %436, 1
   br i1 %437, label %438, label %.critedge
 
 438:                                              ; preds = %434
   %439 = load ptr, ptr %22, align 8
-  %440 = getelementptr inbounds i8, ptr %.0415505, i64 8
+  %440 = getelementptr inbounds nuw i8, ptr %.0415505, i64 8
   %441 = load i32, ptr %440, align 8
   %442 = zext i32 %441 to i64
-  %443 = getelementptr inbounds %struct._zval_struct, ptr %439, i64 %442
+  %443 = getelementptr inbounds nuw %struct._zval_struct, ptr %439, i64 %442
   %444 = call i32 @zend_optimizer_eval_strlen(ptr noundef nonnull %3, ptr noundef %443) #6
   %445 = icmp eq i32 %444, 0
   br i1 %445, label %446, label %.critedge
@@ -860,10 +860,10 @@ define hidden void @zend_optimizer_pass1(ptr noundef %0, ptr noundef %1) local_u
 
 447:                                              ; preds = %27
   %448 = load ptr, ptr %22, align 8
-  %449 = getelementptr inbounds i8, ptr %.0415505, i64 8
+  %449 = getelementptr inbounds nuw i8, ptr %.0415505, i64 8
   %450 = load i32, ptr %449, align 8
   %451 = zext i32 %450 to i64
-  %452 = getelementptr inbounds %struct._zval_struct, ptr %448, i64 %451
+  %452 = getelementptr inbounds nuw %struct._zval_struct, ptr %448, i64 %451
   %453 = load ptr, ptr %452, align 8
   %454 = call zeroext i1 @zend_optimizer_get_persistent_constant(ptr noundef %453, ptr noundef nonnull %3, i32 noundef 0) #6
   br i1 %454, label %455, label %.critedge
@@ -873,8 +873,8 @@ define hidden void @zend_optimizer_pass1(ptr noundef %0, ptr noundef %1) local_u
   %456 = load ptr, ptr %22, align 8
   %457 = load i32, ptr %449, align 8
   %458 = zext i32 %457 to i64
-  %459 = getelementptr inbounds %struct._zval_struct, ptr %456, i64 %458
-  %460 = getelementptr inbounds i8, ptr %459, i64 9
+  %459 = getelementptr inbounds nuw %struct._zval_struct, ptr %456, i64 %458
+  %460 = getelementptr inbounds nuw i8, ptr %459, i64 9
   %461 = load i8, ptr %460, align 1
   %.not439 = icmp eq i8 %461, 0
   br i1 %.not439, label %469, label %462
@@ -898,7 +898,7 @@ define hidden void @zend_optimizer_pass1(ptr noundef %0, ptr noundef %1) local_u
   %470 = load ptr, ptr %22, align 8
   %471 = load i32, ptr %449, align 8
   %472 = zext i32 %471 to i64
-  %473 = getelementptr inbounds %struct._zval_struct, ptr %470, i64 %472, i32 1
+  %473 = getelementptr inbounds nuw %struct._zval_struct, ptr %470, i64 %472, i32 1
   store i32 1, ptr %473, align 8
   call fastcc void @replace_by_const_or_qm_assign(ptr noundef nonnull %0, ptr noundef nonnull %.0415505, ptr noundef %3)
   br label %.critedge
@@ -909,21 +909,21 @@ define hidden void @zend_optimizer_pass1(ptr noundef %0, ptr noundef %1) local_u
 
 476:                                              ; preds = %474
   %477 = load ptr, ptr %22, align 8
-  %478 = getelementptr inbounds i8, ptr %.0415505, i64 8
+  %478 = getelementptr inbounds nuw i8, ptr %.0415505, i64 8
   %479 = load i32, ptr %478, align 8
   %480 = zext i32 %479 to i64
-  %481 = getelementptr inbounds %struct._zval_struct, ptr %477, i64 %480
-  %482 = getelementptr inbounds i8, ptr %481, i64 8
+  %481 = getelementptr inbounds nuw %struct._zval_struct, ptr %477, i64 %480
+  %482 = getelementptr inbounds nuw i8, ptr %481, i64 8
   %483 = load i8, ptr %482, align 8
   %484 = icmp eq i8 %483, 6
   br i1 %484, label %485, label %.critedge
 
 485:                                              ; preds = %476
-  %486 = getelementptr inbounds i8, ptr %.0415505, i64 12
+  %486 = getelementptr inbounds nuw i8, ptr %.0415505, i64 12
   %487 = load i32, ptr %486, align 4
   %488 = zext i32 %487 to i64
-  %489 = getelementptr inbounds %struct._zval_struct, ptr %477, i64 %488
-  %490 = getelementptr inbounds i8, ptr %489, i64 8
+  %489 = getelementptr inbounds nuw %struct._zval_struct, ptr %477, i64 %488
+  %490 = getelementptr inbounds nuw i8, ptr %489, i64 8
   %491 = load i8, ptr %490, align 8
   %.not438 = icmp eq i8 %491, 11
   br i1 %.not438, label %.critedge, label %492
@@ -933,17 +933,17 @@ define hidden void @zend_optimizer_pass1(ptr noundef %0, ptr noundef %1) local_u
   br label %.critedge
 
 493:                                              ; preds = %27, %27
-  %494 = getelementptr inbounds i8, ptr %.0415505, i64 29
+  %494 = getelementptr inbounds nuw i8, ptr %.0415505, i64 29
   %495 = load i8, ptr %494, align 1
   %496 = icmp eq i8 %495, 1
   br i1 %496, label %497, label %.critedge
 
 497:                                              ; preds = %493
   %498 = load ptr, ptr %22, align 8
-  %499 = getelementptr inbounds i8, ptr %.0415505, i64 8
+  %499 = getelementptr inbounds nuw i8, ptr %.0415505, i64 8
   %500 = load i32, ptr %499, align 8
   %501 = zext i32 %500 to i64
-  %502 = getelementptr inbounds %struct._zval_struct, ptr %498, i64 %501
+  %502 = getelementptr inbounds nuw %struct._zval_struct, ptr %498, i64 %501
   %503 = call i32 @zend_is_true(ptr noundef %502) #6
   %.not433 = icmp eq i32 %503, 0
   %504 = load i8, ptr %28, align 4
@@ -958,8 +958,8 @@ define hidden void @zend_optimizer_pass1(ptr noundef %0, ptr noundef %1) local_u
   %508 = load ptr, ptr %22, align 8
   %509 = load i32, ptr %499, align 8
   %510 = zext i32 %509 to i64
-  %511 = getelementptr inbounds %struct._zval_struct, ptr %508, i64 %510
-  %512 = getelementptr inbounds i8, ptr %511, i64 9
+  %511 = getelementptr inbounds nuw %struct._zval_struct, ptr %508, i64 %510
+  %512 = getelementptr inbounds nuw i8, ptr %511, i64 9
   %513 = load i8, ptr %512, align 1
   %.not436 = icmp eq i8 %513, 0
   br i1 %.not436, label %521, label %514
@@ -983,9 +983,9 @@ define hidden void @zend_optimizer_pass1(ptr noundef %0, ptr noundef %1) local_u
   %522 = load ptr, ptr %22, align 8
   %523 = load i32, ptr %499, align 8
   %524 = zext i32 %523 to i64
-  %525 = getelementptr inbounds %struct._zval_struct, ptr %522, i64 %524, i32 1
+  %525 = getelementptr inbounds nuw %struct._zval_struct, ptr %522, i64 %524, i32 1
   store i32 3, ptr %525, align 8
-  %526 = getelementptr inbounds i8, ptr %.0415505, i64 12
+  %526 = getelementptr inbounds nuw i8, ptr %.0415505, i64 12
   store i32 0, ptr %526, align 4
   br label %.critedge
 
@@ -998,8 +998,8 @@ define hidden void @zend_optimizer_pass1(ptr noundef %0, ptr noundef %1) local_u
   %530 = load ptr, ptr %22, align 8
   %531 = load i32, ptr %499, align 8
   %532 = zext i32 %531 to i64
-  %533 = getelementptr inbounds %struct._zval_struct, ptr %530, i64 %532
-  %534 = getelementptr inbounds i8, ptr %533, i64 9
+  %533 = getelementptr inbounds nuw %struct._zval_struct, ptr %530, i64 %532
+  %534 = getelementptr inbounds nuw i8, ptr %533, i64 9
   %535 = load i8, ptr %534, align 1
   %.not434 = icmp eq i8 %535, 0
   br i1 %.not434, label %543, label %536
@@ -1023,24 +1023,24 @@ define hidden void @zend_optimizer_pass1(ptr noundef %0, ptr noundef %1) local_u
   %544 = load ptr, ptr %22, align 8
   %545 = load i32, ptr %499, align 8
   %546 = zext i32 %545 to i64
-  %547 = getelementptr inbounds %struct._zval_struct, ptr %544, i64 %546, i32 1
+  %547 = getelementptr inbounds nuw %struct._zval_struct, ptr %544, i64 %546, i32 1
   store i32 2, ptr %547, align 8
-  %548 = getelementptr inbounds i8, ptr %.0415505, i64 12
+  %548 = getelementptr inbounds nuw i8, ptr %.0415505, i64 12
   store i32 0, ptr %548, align 4
   br label %.critedge
 
 549:                                              ; preds = %27, %27
-  %550 = getelementptr inbounds i8, ptr %.0415505, i64 29
+  %550 = getelementptr inbounds nuw i8, ptr %.0415505, i64 29
   %551 = load i8, ptr %550, align 1
   %552 = icmp eq i8 %551, 1
   br i1 %552, label %553, label %.critedge
 
 553:                                              ; preds = %549
   %554 = load ptr, ptr %22, align 8
-  %555 = getelementptr inbounds i8, ptr %.0415505, i64 8
+  %555 = getelementptr inbounds nuw i8, ptr %.0415505, i64 8
   %556 = load i32, ptr %555, align 8
   %557 = zext i32 %556 to i64
-  %558 = getelementptr inbounds %struct._zval_struct, ptr %554, i64 %557
+  %558 = getelementptr inbounds nuw %struct._zval_struct, ptr %554, i64 %557
   %559 = call i32 @zend_is_true(ptr noundef %558) #6
   %560 = load i8, ptr %28, align 4
   %561 = icmp eq i8 %560, 43
@@ -1050,8 +1050,8 @@ define hidden void @zend_optimizer_pass1(ptr noundef %0, ptr noundef %1) local_u
   %563 = load ptr, ptr %22, align 8
   %564 = load i32, ptr %555, align 8
   %565 = zext i32 %564 to i64
-  %566 = getelementptr inbounds %struct._zval_struct, ptr %563, i64 %565
-  %567 = getelementptr inbounds i8, ptr %566, i64 9
+  %566 = getelementptr inbounds nuw %struct._zval_struct, ptr %563, i64 %565
+  %567 = getelementptr inbounds nuw i8, ptr %566, i64 9
   %568 = load i8, ptr %567, align 1
   %.not430 = icmp eq i8 %568, 0
   br i1 %.not430, label %576, label %569
@@ -1075,16 +1075,16 @@ define hidden void @zend_optimizer_pass1(ptr noundef %0, ptr noundef %1) local_u
   %577 = load ptr, ptr %22, align 8
   %578 = load i32, ptr %555, align 8
   %579 = zext i32 %578 to i64
-  %580 = getelementptr inbounds %struct._zval_struct, ptr %577, i64 %579, i32 1
+  %580 = getelementptr inbounds nuw %struct._zval_struct, ptr %577, i64 %579, i32 1
   store i32 1, ptr %580, align 8
   store i8 0, ptr %550, align 1
   %.not432 = icmp eq i32 %.0, 0
-  %581 = getelementptr inbounds i8, ptr %.0415505, i64 12
+  %581 = getelementptr inbounds nuw i8, ptr %.0415505, i64 12
   br i1 %.not432, label %586, label %582
 
 582:                                              ; preds = %576
   store i8 42, ptr %28, align 4
-  %583 = getelementptr inbounds i8, ptr %.0415505, i64 30
+  %583 = getelementptr inbounds nuw i8, ptr %.0415505, i64 30
   %584 = load i8, ptr %583, align 2
   store i8 %584, ptr %550, align 1
   %585 = load i32, ptr %581, align 4
@@ -1095,12 +1095,12 @@ define hidden void @zend_optimizer_pass1(ptr noundef %0, ptr noundef %1) local_u
 586:                                              ; preds = %576
   store i8 0, ptr %28, align 4
   store i32 -1, ptr %555, align 8
-  %587 = getelementptr inbounds i8, ptr %.0415505, i64 30
+  %587 = getelementptr inbounds nuw i8, ptr %.0415505, i64 30
   store i8 0, ptr %587, align 2
   store i32 -1, ptr %581, align 4
-  %588 = getelementptr inbounds i8, ptr %.0415505, i64 31
+  %588 = getelementptr inbounds nuw i8, ptr %.0415505, i64 31
   store i8 0, ptr %588, align 1
-  %589 = getelementptr inbounds i8, ptr %.0415505, i64 16
+  %589 = getelementptr inbounds nuw i8, ptr %.0415505, i64 16
   store i32 -1, ptr %589, align 8
   br label %.critedge
 
@@ -1109,7 +1109,7 @@ define hidden void @zend_optimizer_pass1(ptr noundef %0, ptr noundef %1) local_u
 
 .critedge:                                        ; preds = %.preheader495, %.preheader, %257, %323, %127, %196, %123, %549, %582, %493, %527, %505, %369, %370, %379, %261, %265, %253, %244, %474, %476, %485, %492, %447, %434, %438, %446, %298, %348, %181, %185, %204, %209, %241, %193, %218, %221, %180, %179, %169, %171, %110, %114, %122, %95, %99, %109, %78, %82, %86, %94, %56, %60, %64, %77, %590, %586, %543, %521, %469, %423, %165, %27
   %.1417 = phi i8 [ %.0416503, %27 ], [ 0, %590 ], [ %.0416503, %586 ], [ %.0416503, %521 ], [ %.0416503, %543 ], [ %.0416503, %492 ], [ %.0416503, %485 ], [ %.0416503, %476 ], [ %.0416503, %474 ], [ %.0416503, %469 ], [ %.0416503, %447 ], [ %.0416503, %446 ], [ %.0416503, %438 ], [ %.0416503, %434 ], [ %.0416503, %423 ], [ %.0416503, %348 ], [ %.0416503, %298 ], [ %.0416503, %204 ], [ %.0416503, %209 ], [ %.0416503, %218 ], [ %.0416503, %241 ], [ %.0416503, %221 ], [ %.0416503, %193 ], [ %.0416503, %185 ], [ %.0416503, %181 ], [ %.0416503, %165 ], [ %.0416503, %179 ], [ %.0416503, %180 ], [ %.0416503, %171 ], [ %.0416503, %169 ], [ %.0416503, %122 ], [ %.0416503, %114 ], [ %.0416503, %110 ], [ %.0416503, %109 ], [ %.0416503, %99 ], [ %.0416503, %95 ], [ %.0416503, %94 ], [ %.0416503, %86 ], [ %.0416503, %82 ], [ %.0416503, %78 ], [ %.0416503, %77 ], [ %.0416503, %64 ], [ %.0416503, %60 ], [ %.0416503, %56 ], [ 0, %244 ], [ 0, %253 ], [ 0, %265 ], [ 0, %261 ], [ 0, %379 ], [ 0, %370 ], [ 0, %369 ], [ 0, %505 ], [ 0, %527 ], [ 0, %493 ], [ 0, %582 ], [ 0, %549 ], [ %.0416503, %123 ], [ %.0416503, %196 ], [ %.0416503, %127 ], [ %.0416503, %323 ], [ 0, %257 ], [ 0, %.preheader ], [ 0, %.preheader495 ]
-  %591 = getelementptr inbounds i8, ptr %.0415505, i64 32
+  %591 = getelementptr inbounds nuw i8, ptr %.0415505, i64 32
   %592 = icmp ult ptr %591, %10
   br i1 %592, label %27, label %._crit_edge
 
@@ -1123,19 +1123,19 @@ declare i32 @zend_optimizer_eval_binary_op(ptr noundef, i8 noundef zeroext, ptr 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @replace_by_const_or_qm_assign(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 29
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 29
   %5 = load i8, ptr %4, align 1
   %6 = icmp eq i8 %5, 1
   br i1 %6, label %7, label %28
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 176
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds %struct._zval_struct, ptr %9, i64 %12
-  %14 = getelementptr inbounds i8, ptr %13, i64 9
+  %13 = getelementptr inbounds nuw %struct._zval_struct, ptr %9, i64 %12
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 9
   %15 = load i8, ptr %14, align 1
   %.not = icmp eq i8 %15, 0
   br i1 %.not, label %23, label %16
@@ -1159,24 +1159,24 @@ define internal fastcc void @replace_by_const_or_qm_assign(ptr noundef %0, ptr n
   %24 = load ptr, ptr %8, align 8
   %25 = load i32, ptr %10, align 8
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds %struct._zval_struct, ptr %24, i64 %26, i32 1
+  %27 = getelementptr inbounds nuw %struct._zval_struct, ptr %24, i64 %26, i32 1
   store i32 1, ptr %27, align 8
   br label %28
 
 28:                                               ; preds = %23, %3
-  %29 = getelementptr inbounds i8, ptr %1, i64 30
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 30
   %30 = load i8, ptr %29, align 2
   %31 = icmp eq i8 %30, 1
   br i1 %31, label %32, label %53
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %0, i64 176
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 12
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %36 = load i32, ptr %35, align 4
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds %struct._zval_struct, ptr %34, i64 %37
-  %39 = getelementptr inbounds i8, ptr %38, i64 9
+  %38 = getelementptr inbounds nuw %struct._zval_struct, ptr %34, i64 %37
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 9
   %40 = load i8, ptr %39, align 1
   %.not44 = icmp eq i8 %40, 0
   br i1 %.not44, label %48, label %41
@@ -1200,27 +1200,27 @@ define internal fastcc void @replace_by_const_or_qm_assign(ptr noundef %0, ptr n
   %49 = load ptr, ptr %33, align 8
   %50 = load i32, ptr %35, align 4
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds %struct._zval_struct, ptr %49, i64 %51, i32 1
+  %52 = getelementptr inbounds nuw %struct._zval_struct, ptr %49, i64 %51, i32 1
   store i32 1, ptr %52, align 8
   br label %53
 
 53:                                               ; preds = %48, %28
-  %54 = getelementptr inbounds i8, ptr %1, i64 32
-  %55 = getelementptr inbounds i8, ptr %1, i64 31
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 31
   %56 = load i8, ptr %55, align 1
-  %57 = getelementptr inbounds i8, ptr %1, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %58 = load i32, ptr %57, align 8
   %59 = tail call zeroext i1 @zend_optimizer_replace_by_const(ptr noundef %0, ptr noundef nonnull %54, i8 noundef zeroext %56, i32 noundef %58, ptr noundef nonnull %2) #6
-  %60 = getelementptr inbounds i8, ptr %1, i64 28
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 28
   br i1 %59, label %61, label %64
 
 61:                                               ; preds = %53
   store i8 0, ptr %60, align 4
   store i8 0, ptr %4, align 1
-  %62 = getelementptr inbounds i8, ptr %1, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 -1, ptr %62, align 8
   store i8 0, ptr %29, align 2
-  %63 = getelementptr inbounds i8, ptr %1, i64 12
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 -1, ptr %63, align 4
   store i8 0, ptr %55, align 1
   store i32 -1, ptr %57, align 8
@@ -1228,10 +1228,10 @@ define internal fastcc void @replace_by_const_or_qm_assign(ptr noundef %0, ptr n
 
 64:                                               ; preds = %53
   store i8 31, ptr %60, align 4
-  %65 = getelementptr inbounds i8, ptr %1, i64 20
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 20
   store i32 0, ptr %65, align 4
   store i8 0, ptr %29, align 2
-  %66 = getelementptr inbounds i8, ptr %1, i64 12
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 -1, ptr %66, align 4
   %67 = tail call zeroext i1 @zend_optimizer_update_op1_const(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2) #6
   br label %68

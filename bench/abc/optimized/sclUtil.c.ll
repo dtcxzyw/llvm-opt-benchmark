@@ -21,7 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define void @Abc_SclMioGates2SclGates(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 256
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @Mio_LibraryReadBuf(ptr noundef %4) #16
   %6 = icmp eq ptr %5, null
@@ -44,13 +44,13 @@ define void @Abc_SclMioGates2SclGates(ptr noundef %0, ptr nocapture noundef %1) 
   %16 = add i32 %.val23.val, -1
   %or.cond.i.i = icmp ult i32 %16, 15
   %spec.store.select.i.i = select i1 %or.cond.i.i, i32 16, i32 %.val23.val
-  %17 = getelementptr inbounds i8, ptr %15, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store i32 %spec.store.select.i.i, ptr %15, align 8
   %.not.i.i = icmp eq i32 %spec.store.select.i.i, 0
   br i1 %.not.i.i, label %Vec_IntAlloc.exit.thread.i, label %Vec_IntAlloc.exit.i
 
 Vec_IntAlloc.exit.thread.i:                       ; preds = %8
-  %18 = getelementptr inbounds i8, ptr %15, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr null, ptr %18, align 8
   store i32 %.val23.val, ptr %17, align 4
   br label %Vec_IntStartFull.exit
@@ -59,7 +59,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %8
   %19 = sext i32 %spec.store.select.i.i to i64
   %20 = shl nsw i64 %19, 2
   %21 = tail call noalias ptr @malloc(i64 noundef %20) #17
-  %22 = getelementptr inbounds i8, ptr %15, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %21, ptr %22, align 8
   store i32 %.val23.val, ptr %17, align 4
   %.not.i = icmp eq ptr %21, null
@@ -72,7 +72,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %8
   br label %Vec_IntStartFull.exit
 
 Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.thread.i, %Vec_IntAlloc.exit.i, %23
-  %26 = getelementptr inbounds i8, ptr %1, i64 376
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 376
   store ptr %15, ptr %26, align 8
   %.val32 = load i32, ptr %14, align 4
   %27 = icmp sgt i32 %.val32, 0
@@ -83,7 +83,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   %indvars.iv = phi i64 [ %indvars.iv.next, %49 ], [ 0, %Vec_IntStartFull.exit ]
   %29 = getelementptr i8, ptr %28, i64 8
   %.val24.val = load ptr, ptr %29, align 8
-  %30 = getelementptr inbounds ptr, ptr %.val24.val, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw ptr, ptr %.val24.val, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %49, label %33
@@ -108,7 +108,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   %.not.i28.not = icmp eq i32 %.val5.i, 4
   %41 = icmp eq i32 %.val26, 1
   %or.cond = and i1 %41, %.not.i28.not
-  %42 = getelementptr inbounds i8, ptr %31, i64 56
+  %42 = getelementptr inbounds nuw i8, ptr %31, i64 56
   %43 = load ptr, ptr %42, align 8
   %.not31 = icmp eq ptr %43, null
   %or.cond36 = select i1 %or.cond, i1 %.not31, i1 false
@@ -120,7 +120,7 @@ Abc_ObjIsBarBuf.exit.thread:                      ; preds = %38
   %46 = load ptr, ptr %26, align 8
   %47 = getelementptr i8, ptr %46, i64 8
   %.val27 = load ptr, ptr %47, align 8
-  %48 = getelementptr inbounds i32, ptr %.val27, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw i32, ptr %.val27, i64 %indvars.iv
   store i32 %45, ptr %48, align 4
   %.pre35 = load ptr, ptr %13, align 8
   br label %49
@@ -135,7 +135,7 @@ Abc_ObjIsBarBuf.exit.thread:                      ; preds = %38
   br i1 %53, label %.lr.ph, label %.critedge, !llvm.loop !4
 
 .critedge:                                        ; preds = %49, %Vec_IntStartFull.exit
-  %54 = getelementptr inbounds i8, ptr %1, i64 368
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 368
   store ptr %0, ptr %54, align 8
   br label %55
 
@@ -154,7 +154,7 @@ declare ptr @Mio_GateReadName(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @Abc_SclSclGates2MioGates(ptr nocapture readnone %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 4
   %.val38 = load i32, ptr %5, align 4
@@ -162,7 +162,7 @@ define void @Abc_SclSclGates2MioGates(ptr nocapture readnone %0, ptr nocapture n
   br i1 %6, label %.lr.ph, label %.critedge.thread
 
 .lr.ph:                                           ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 256
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 256
   br label %8
 
 8:                                                ; preds = %.lr.ph, %45
@@ -172,7 +172,7 @@ define void @Abc_SclSclGates2MioGates(ptr nocapture readnone %0, ptr nocapture n
   %.02040 = phi i32 [ 0, %.lr.ph ], [ %.121, %45 ]
   %10 = getelementptr i8, ptr %9, i64 8
   %.val27.val = load ptr, ptr %10, align 8
-  %11 = getelementptr inbounds ptr, ptr %.val27.val, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw ptr, ptr %.val27.val, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %45, label %14
@@ -200,7 +200,7 @@ define void @Abc_SclSclGates2MioGates(ptr nocapture readnone %0, ptr nocapture n
   br i1 %or.cond, label %Abc_ObjIsBarBuf.exit, label %Abc_ObjIsBarBuf.exit.thread
 
 Abc_ObjIsBarBuf.exit:                             ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %12, i64 56
+  %23 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %24 = load ptr, ptr %23, align 8
   %.not37 = icmp eq ptr %24, null
   br i1 %.not37, label %45, label %Abc_ObjIsBarBuf.exit.thread
@@ -227,7 +227,7 @@ Abc_ObjIsBarBuf.exit.thread:                      ; preds = %19, %Abc_ObjIsBarBu
   %37 = load ptr, ptr %7, align 8
   %38 = load ptr, ptr %36, align 8
   %39 = tail call ptr @Mio_LibraryReadGateByName(ptr noundef %37, ptr noundef %38, ptr noundef null) #16
-  %40 = getelementptr inbounds i8, ptr %12, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %12, i64 56
   store ptr %39, ptr %40, align 8
   %41 = icmp eq ptr %39, null
   %42 = zext i1 %41 to i32
@@ -256,13 +256,13 @@ Abc_ObjIsBarBuf.exit.thread:                      ; preds = %19, %Abc_ObjIsBarBu
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %2, %50, %.critedge
-  %52 = getelementptr inbounds i8, ptr %1, i64 376
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 376
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %53, null
   br i1 %54, label %Vec_IntFreeP.exit, label %55
 
 55:                                               ; preds = %.critedge.thread
-  %56 = getelementptr inbounds i8, ptr %53, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %57 = load ptr, ptr %56, align 8
   %.not.i33 = icmp eq ptr %57, null
   br i1 %.not.i33, label %.thread.i, label %58
@@ -270,7 +270,7 @@ Abc_ObjIsBarBuf.exit.thread:                      ; preds = %19, %Abc_ObjIsBarBu
 58:                                               ; preds = %55
   tail call void @free(ptr noundef nonnull %57) #16
   %59 = load ptr, ptr %52, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store ptr null, ptr %60, align 8
   %.pre.i = load ptr, ptr %52, align 8
   %.not9.i = icmp eq ptr %.pre.i, null
@@ -283,7 +283,7 @@ Abc_ObjIsBarBuf.exit.thread:                      ; preds = %19, %Abc_ObjIsBarBu
   br label %Vec_IntFreeP.exit
 
 Vec_IntFreeP.exit:                                ; preds = %.critedge.thread, %58, %.thread.i
-  %62 = getelementptr inbounds i8, ptr %1, i64 368
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 368
   store ptr null, ptr %62, align 8
   ret void
 }
@@ -292,7 +292,7 @@ declare ptr @Mio_LibraryReadGateByName(ptr noundef, ptr noundef, ptr noundef) lo
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @Abc_SclTransferGates(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 4
   %.val18 = load i32, ptr %5, align 4
@@ -304,7 +304,7 @@ define void @Abc_SclTransferGates(ptr nocapture noundef readonly %0, ptr nocaptu
   %indvars.iv = phi i64 [ %indvars.iv.next, %30 ], [ 0, %2 ]
   %8 = getelementptr i8, ptr %7, i64 8
   %.val13.val = load ptr, ptr %8, align 8
-  %9 = getelementptr inbounds ptr, ptr %.val13.val, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %.val13.val, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %30, label %12
@@ -330,21 +330,21 @@ define void @Abc_SclTransferGates(ptr nocapture noundef readonly %0, ptr nocaptu
   br i1 %20, label %Abc_ObjIsBarBuf.exit, label %Abc_ObjIsBarBuf.exit.thread
 
 Abc_ObjIsBarBuf.exit:                             ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %10, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %22 = load ptr, ptr %21, align 8
   %.not17 = icmp eq ptr %22, null
   br i1 %.not17, label %30, label %Abc_ObjIsBarBuf.exit.thread
 
 Abc_ObjIsBarBuf.exit.thread:                      ; preds = %15, %18, %Abc_ObjIsBarBuf.exit
-  %23 = getelementptr inbounds i8, ptr %10, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %30, label %26
 
 26:                                               ; preds = %Abc_ObjIsBarBuf.exit.thread
-  %27 = getelementptr inbounds i8, ptr %24, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 56
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %10, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %10, i64 56
   store ptr %28, ptr %29, align 8
   %.pre = load ptr, ptr %3, align 8
   br label %30
@@ -368,7 +368,7 @@ define void @Abc_SclManPrintGateSizes(ptr nocapture noundef readonly %0, ptr noc
   %5 = alloca [64 x double], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %5, i8 0, i64 512, i1 false)
-  %6 = getelementptr inbounds i8, ptr %1, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr i8, ptr %7, i64 4
   %.val = load i32, ptr %8, align 4
@@ -387,7 +387,7 @@ define void @Abc_SclManPrintGateSizes(ptr nocapture noundef readonly %0, ptr noc
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %49 ]
   %.047 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1, %49 ]
   %.02946 = phi i32 [ 0, %.lr.ph ], [ %.130, %49 ]
-  %14 = getelementptr inbounds ptr, ptr %.val36.val, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw ptr, ptr %.val36.val, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %49, label %17
@@ -415,7 +415,7 @@ define void @Abc_SclManPrintGateSizes(ptr nocapture noundef readonly %0, ptr noc
   br i1 %or.cond, label %Abc_ObjIsBarBuf.exit, label %Abc_ObjIsBarBuf.exit.thread
 
 Abc_ObjIsBarBuf.exit:                             ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %15, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 56
   %27 = load ptr, ptr %26, align 8
   %.not44 = icmp eq ptr %27, null
   br i1 %.not44, label %49, label %Abc_ObjIsBarBuf.exit.thread
@@ -431,14 +431,14 @@ Abc_ObjIsBarBuf.exit.thread:                      ; preds = %22, %Abc_ObjIsBarBu
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds ptr, ptr %.val41, i64 %32
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 104
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 104
   %36 = load i32, ptr %35, align 8
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds [64 x i32], ptr %4, i64 0, i64 %37
   %39 = load i32, ptr %38, align 4
   %40 = add nsw i32 %39, 1
   store i32 %40, ptr %38, align 4
-  %41 = getelementptr inbounds i8, ptr %34, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %42 = load float, ptr %41, align 8
   %43 = fpext float %42 to double
   %44 = getelementptr inbounds [64 x double], ptr %5, i64 0, i64 %37
@@ -465,7 +465,7 @@ Abc_ObjIsBarBuf.exit.thread:                      ; preds = %22, %Abc_ObjIsBarBu
 
 52:                                               ; preds = %.critedge, %70
   %indvars.iv51 = phi i64 [ 0, %.critedge ], [ %indvars.iv.next52, %70 ]
-  %53 = getelementptr inbounds [64 x i32], ptr %4, i64 0, i64 %indvars.iv51
+  %53 = getelementptr inbounds nuw [64 x i32], ptr %4, i64 0, i64 %indvars.iv51
   %54 = load i32, ptr %53, align 4
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %70, label %56
@@ -478,7 +478,7 @@ Abc_ObjIsBarBuf.exit.thread:                      ; preds = %22, %Abc_ObjIsBarBu
   %61 = fmul double %60, 1.000000e+02
   %62 = fdiv double %61, %51
   %63 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, double noundef %62)
-  %64 = getelementptr inbounds [64 x double], ptr %5, i64 0, i64 %indvars.iv51
+  %64 = getelementptr inbounds nuw [64 x double], ptr %5, i64 0, i64 %indvars.iv51
   %65 = load double, ptr %64, align 8
   %66 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, double noundef %65)
   %67 = fmul double %65, 1.000000e+02
@@ -502,7 +502,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 ; Function Attrs: nounwind uwtable
 define void @Abc_SclPrintGateSizes(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   tail call void @Abc_SclMioGates2SclGates(ptr noundef %0, ptr noundef %1)
-  %3 = getelementptr inbounds i8, ptr %1, i64 376
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 376
   %4 = load ptr, ptr %3, align 8
   tail call void @Abc_SclManPrintGateSizes(ptr noundef %0, ptr noundef %1, ptr noundef %4)
   tail call void @Abc_SclSclGates2MioGates(ptr poison, ptr noundef %1)
@@ -511,7 +511,7 @@ define void @Abc_SclPrintGateSizes(ptr noundef %0, ptr nocapture noundef %1) loc
   br i1 %6, label %Vec_IntFreeP.exit, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %.thread.i, label %10
@@ -519,7 +519,7 @@ define void @Abc_SclPrintGateSizes(ptr noundef %0, ptr nocapture noundef %1) loc
 10:                                               ; preds = %7
   tail call void @free(ptr noundef nonnull %9) #16
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr null, ptr %12, align 8
   %.pre.i = load ptr, ptr %3, align 8
   %.not9.i = icmp eq ptr %.pre.i, null
@@ -532,14 +532,14 @@ define void @Abc_SclPrintGateSizes(ptr noundef %0, ptr nocapture noundef %1) loc
   br label %Vec_IntFreeP.exit
 
 Vec_IntFreeP.exit:                                ; preds = %2, %10, %.thread.i
-  %14 = getelementptr inbounds i8, ptr %1, i64 368
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 368
   store ptr null, ptr %14, align 8
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define ptr @Abc_SclFindMaxAreaCell(ptr noundef readonly %0) local_unnamed_addr #6 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load float, ptr %2, align 8
   br label %4
 
@@ -547,12 +547,12 @@ define ptr @Abc_SclFindMaxAreaCell(ptr noundef readonly %0) local_unnamed_addr #
   %.01219 = phi float [ %3, %1 ], [ %.1, %4 ]
   %.01318 = phi ptr [ %0, %1 ], [ %.114, %4 ]
   %.01517 = phi ptr [ %0, %1 ], [ %9, %4 ]
-  %5 = getelementptr inbounds i8, ptr %.01517, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %.01517, i64 24
   %6 = load float, ptr %5, align 8
   %7 = fcmp olt float %.01219, %6
   %.114 = select i1 %7, ptr %.01517, ptr %.01318
   %.1 = select i1 %7, float %6, float %.01219
-  %8 = getelementptr inbounds i8, ptr %.01517, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %.01517, i64 72
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, %0
   br i1 %.not, label %10, label %4, !llvm.loop !10
@@ -569,13 +569,13 @@ define noalias noundef ptr @Abc_SclFindMinAreas(ptr nocapture noundef readonly %
   %5 = add i32 %.val20, -1
   %or.cond.i.i = icmp ult i32 %5, 15
   %spec.store.select.i.i = select i1 %or.cond.i.i, i32 16, i32 %.val20
-  %6 = getelementptr inbounds i8, ptr %4, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %spec.store.select.i.i, ptr %4, align 8
   %.not.i.i = icmp eq i32 %spec.store.select.i.i, 0
   br i1 %.not.i.i, label %Vec_IntAlloc.exit.thread.i, label %Vec_IntAlloc.exit.i
 
 Vec_IntAlloc.exit.thread.i:                       ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %7, align 8
   store i32 %.val20, ptr %6, align 4
   br label %Vec_IntStartFull.exit
@@ -584,7 +584,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %2
   %8 = sext i32 %spec.store.select.i.i to i64
   %9 = shl nsw i64 %8, 2
   %10 = tail call noalias ptr @malloc(i64 noundef %9) #17
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %10, ptr %11, align 8
   store i32 %.val20, ptr %6, align 4
   %.not.i = icmp eq ptr %10, null
@@ -612,9 +612,9 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
 
 Abc_SclFindMaxAreaCell.exit.us:                   ; preds = %.lr.ph, %22
   %indvars.iv32 = phi i64 [ %indvars.iv.next33, %22 ], [ 0, %.lr.ph ]
-  %19 = getelementptr inbounds ptr, ptr %.val21.us.pre, i64 %indvars.iv32
+  %19 = getelementptr inbounds nuw ptr, ptr %.val21.us.pre, i64 %indvars.iv32
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %.pre36 = load i32, ptr %21, align 8
   br label %24
 
@@ -625,21 +625,21 @@ Abc_SclFindMaxAreaCell.exit.us:                   ; preds = %.lr.ph, %22
 
 24:                                               ; preds = %24, %Abc_SclFindMaxAreaCell.exit.us
   %.01924.us = phi ptr [ %20, %Abc_SclFindMaxAreaCell.exit.us ], [ %30, %24 ]
-  %25 = getelementptr inbounds i8, ptr %.01924.us, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.01924.us, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds i32, ptr %.val22, i64 %27
   store i32 %.pre36, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %.01924.us, i64 72
+  %29 = getelementptr inbounds nuw i8, ptr %.01924.us, i64 72
   %30 = load ptr, ptr %29, align 8
   %.not29 = icmp eq ptr %30, %20
   br i1 %.not29, label %22, label %24, !llvm.loop !12
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %49
   %indvars.iv = phi i64 [ %indvars.iv.next, %49 ], [ 0, %.lr.ph ]
-  %31 = getelementptr inbounds ptr, ptr %.val21.us.pre, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw ptr, ptr %.val21.us.pre, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %34 = load float, ptr %33, align 8
   br label %35
 
@@ -647,29 +647,29 @@ Abc_SclFindMaxAreaCell.exit.us:                   ; preds = %.lr.ph, %22
   %.01219.i = phi float [ %34, %.lr.ph.split ], [ %.1.i, %35 ]
   %.01318.i = phi ptr [ %32, %.lr.ph.split ], [ %.114.i, %35 ]
   %.01517.i = phi ptr [ %32, %.lr.ph.split ], [ %40, %35 ]
-  %36 = getelementptr inbounds i8, ptr %.01517.i, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %.01517.i, i64 24
   %37 = load float, ptr %36, align 8
   %38 = fcmp olt float %.01219.i, %37
   %.114.i = select i1 %38, ptr %.01517.i, ptr %.01318.i
   %.1.i = select i1 %38, float %37, float %.01219.i
-  %39 = getelementptr inbounds i8, ptr %.01517.i, i64 72
+  %39 = getelementptr inbounds nuw i8, ptr %.01517.i, i64 72
   %40 = load ptr, ptr %39, align 8
   %.not.i23 = icmp eq ptr %40, %32
   br i1 %.not.i23, label %Abc_SclFindMaxAreaCell.exit.loopexit, label %35, !llvm.loop !10
 
 Abc_SclFindMaxAreaCell.exit.loopexit:             ; preds = %35
-  %41 = getelementptr inbounds i8, ptr %.114.i, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %.114.i, i64 8
   %.pre = load i32, ptr %41, align 8
   br label %42
 
 42:                                               ; preds = %Abc_SclFindMaxAreaCell.exit.loopexit, %42
   %.01924 = phi ptr [ %32, %Abc_SclFindMaxAreaCell.exit.loopexit ], [ %48, %42 ]
-  %43 = getelementptr inbounds i8, ptr %.01924, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %.01924, i64 8
   %44 = load i32, ptr %43, align 8
   %45 = sext i32 %44 to i64
   %46 = getelementptr inbounds i32, ptr %.val22, i64 %45
   store i32 %.pre, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %.01924, i64 72
+  %47 = getelementptr inbounds nuw i8, ptr %.01924, i64 72
   %48 = load ptr, ptr %47, align 8
   %.not28 = icmp eq ptr %48, %32
   br i1 %.not28, label %49, label %42, !llvm.loop !12
@@ -687,7 +687,7 @@ Abc_SclFindMaxAreaCell.exit.loopexit:             ; preds = %35
 define void @Abc_SclMinsizePerform(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call ptr @Abc_SclFindMinAreas(ptr noundef %0, i32 noundef %2)
   tail call void @Abc_SclMioGates2SclGates(ptr noundef %0, ptr noundef %1)
-  %6 = getelementptr inbounds i8, ptr %1, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr i8, ptr %7, i64 4
   %.val35 = load i32, ptr %8, align 4
@@ -695,7 +695,7 @@ define void @Abc_SclMinsizePerform(ptr noundef %0, ptr nocapture noundef %1, i32
   br i1 %9, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %1, i64 376
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 376
   %11 = getelementptr i8, ptr %5, i64 8
   br label %12
 
@@ -704,7 +704,7 @@ define void @Abc_SclMinsizePerform(ptr noundef %0, ptr nocapture noundef %1, i32
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
   %14 = getelementptr i8, ptr %13, i64 8
   %.val25.val = load ptr, ptr %14, align 8
-  %15 = getelementptr inbounds ptr, ptr %.val25.val, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw ptr, ptr %.val25.val, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %36, label %18
@@ -732,7 +732,7 @@ define void @Abc_SclMinsizePerform(ptr noundef %0, ptr nocapture noundef %1, i32
   br i1 %or.cond, label %Abc_ObjIsBarBuf.exit, label %Abc_ObjIsBarBuf.exit.thread
 
 Abc_ObjIsBarBuf.exit:                             ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %16, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %28 = load ptr, ptr %27, align 8
   %.not34 = icmp eq ptr %28, null
   br i1 %.not34, label %36, label %Abc_ObjIsBarBuf.exit.thread
@@ -741,7 +741,7 @@ Abc_ObjIsBarBuf.exit.thread:                      ; preds = %23, %Abc_ObjIsBarBu
   %29 = load ptr, ptr %10, align 8
   %30 = getelementptr i8, ptr %29, i64 8
   %.val30 = load ptr, ptr %30, align 8
-  %31 = getelementptr inbounds i32, ptr %.val30, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i32, ptr %.val30, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4
   %.val29 = load ptr, ptr %11, align 8
   %33 = sext i32 %32 to i64
@@ -762,7 +762,7 @@ Abc_ObjIsBarBuf.exit.thread:                      ; preds = %23, %Abc_ObjIsBarBu
 
 .critedge:                                        ; preds = %36, %4
   tail call void @Abc_SclSclGates2MioGates(ptr poison, ptr noundef nonnull %1)
-  %41 = getelementptr inbounds i8, ptr %5, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %42 = load ptr, ptr %41, align 8
   %.not.i31 = icmp eq ptr %42, null
   br i1 %.not.i31, label %Vec_IntFree.exit, label %43
@@ -779,7 +779,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge, %43
 ; Function Attrs: nounwind uwtable
 define i32 @Abc_SclCountMinSize(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @Abc_SclFindMinAreas(ptr noundef %0, i32 noundef %2)
-  %5 = getelementptr inbounds i8, ptr %1, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 4
   %.val = load i32, ptr %7, align 4
@@ -789,7 +789,7 @@ define i32 @Abc_SclCountMinSize(ptr nocapture noundef readonly %0, ptr nocapture
 .lr.ph:                                           ; preds = %3
   %9 = getelementptr i8, ptr %6, i64 8
   %.val22.val = load ptr, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 376
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 376
   %11 = getelementptr i8, ptr %4, i64 8
   %wide.trip.count = zext nneg i32 %.val to i64
   br label %12
@@ -797,7 +797,7 @@ define i32 @Abc_SclCountMinSize(ptr nocapture noundef readonly %0, ptr nocapture
 12:                                               ; preds = %.lr.ph, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
   %.032 = phi i32 [ 0, %.lr.ph ], [ %.1, %37 ]
-  %13 = getelementptr inbounds ptr, ptr %.val22.val, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw ptr, ptr %.val22.val, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %37, label %16
@@ -825,7 +825,7 @@ define i32 @Abc_SclCountMinSize(ptr nocapture noundef readonly %0, ptr nocapture
   br i1 %or.cond, label %Abc_ObjIsBarBuf.exit, label %Abc_ObjIsBarBuf.exit.thread
 
 Abc_ObjIsBarBuf.exit:                             ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %14, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %26 = load ptr, ptr %25, align 8
   %.not30 = icmp eq ptr %26, null
   br i1 %.not30, label %37, label %Abc_ObjIsBarBuf.exit.thread
@@ -834,7 +834,7 @@ Abc_ObjIsBarBuf.exit.thread:                      ; preds = %21, %Abc_ObjIsBarBu
   %27 = load ptr, ptr %10, align 8
   %28 = getelementptr i8, ptr %27, i64 8
   %.val26 = load ptr, ptr %28, align 8
-  %29 = getelementptr inbounds i32, ptr %.val26, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw i32, ptr %.val26, i64 %indvars.iv
   %30 = load i32, ptr %29, align 4
   %.val25 = load ptr, ptr %11, align 8
   %31 = sext i32 %30 to i64
@@ -853,7 +853,7 @@ Abc_ObjIsBarBuf.exit.thread:                      ; preds = %21, %Abc_ObjIsBarBu
 
 .critedge:                                        ; preds = %37, %3
   %.0.lcssa = phi i32 [ 0, %3 ], [ %.1, %37 ]
-  %38 = getelementptr inbounds i8, ptr %4, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %39 = load ptr, ptr %38, align 8
   %.not.i27 = icmp eq ptr %39, null
   br i1 %.not.i27, label %Vec_IntFree.exit, label %40
@@ -971,7 +971,7 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @Abc_SclExtractBarBufs(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 256
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @Mio_LibraryReadBuf(ptr noundef %3) #16
   %5 = icmp eq ptr %4, null
@@ -983,13 +983,13 @@ define noalias noundef ptr @Abc_SclExtractBarBufs(ptr nocapture noundef readonly
 
 7:                                                ; preds = %1
   %8 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #17
-  %9 = getelementptr inbounds i8, ptr %8, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 0, ptr %9, align 4
   store i32 100, ptr %8, align 8
   %10 = tail call noalias dereferenceable_or_null(400) ptr @malloc(i64 noundef 400) #17
-  %11 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr i8, ptr %13, i64 4
   %.val19 = load i32, ptr %14, align 4
@@ -1001,7 +1001,7 @@ define noalias noundef ptr @Abc_SclExtractBarBufs(ptr nocapture noundef readonly
   %indvars.iv = phi i64 [ %indvars.iv.next, %Abc_ObjIsBarBuf.exit.thread ], [ 0, %7 ]
   %17 = getelementptr i8, ptr %16, i64 8
   %.val17.val = load ptr, ptr %17, align 8
-  %18 = getelementptr inbounds ptr, ptr %.val17.val, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw ptr, ptr %.val17.val, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %Abc_ObjIsBarBuf.exit.thread, label %21
@@ -1027,7 +1027,7 @@ define noalias noundef ptr @Abc_SclExtractBarBufs(ptr nocapture noundef readonly
   br i1 %29, label %Abc_ObjIsBarBuf.exit, label %Abc_ObjIsBarBuf.exit.thread
 
 Abc_ObjIsBarBuf.exit:                             ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %19, i64 56
+  %30 = getelementptr inbounds nuw i8, ptr %19, i64 56
   %31 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %31, null
   br i1 %.not, label %32, label %Abc_ObjIsBarBuf.exit.thread
@@ -1129,7 +1129,7 @@ define void @Abc_SclInsertBarBufs(ptr nocapture noundef readonly %0, ptr nocaptu
   %.val813 = phi i32 [ %.val810, %.lr.ph ], [ %.val8, %17 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
   %.val9 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds i32, ptr %.val9, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %.val9, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4
   %.val = load ptr, ptr %6, align 8
   %10 = getelementptr i8, ptr %.val, i64 8
@@ -1141,7 +1141,7 @@ define void @Abc_SclInsertBarBufs(ptr nocapture noundef readonly %0, ptr nocaptu
   br i1 %14, label %17, label %15
 
 15:                                               ; preds = %7
-  %16 = getelementptr inbounds i8, ptr %13, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 56
   store ptr null, ptr %16, align 8
   %.val8.pre = load i32, ptr %3, align 4
   br label %17

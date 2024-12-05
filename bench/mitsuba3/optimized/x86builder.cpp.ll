@@ -43,7 +43,7 @@ $_ZTIN6asmjit9_abi_1_103x8616EmitterImplicitTINS1_7BuilderEEE = comdat any
 define dso_local void @_ZN6asmjit9_abi_1_103x867BuilderC2EPNS0_10CodeHolderE(ptr noundef nonnull align 8 dereferenceable(410) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN6asmjit9_abi_1_1011BaseBuilderC2Ev(ptr noundef nonnull align 8 dereferenceable(410) %0) #8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6asmjit9_abi_1_103x867BuilderE, i64 16), ptr %0, align 8, !tbaa !3
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 6, ptr %3, align 8, !tbaa !6
   invoke void @_ZN6asmjit9_abi_1_103x8618assignEmitterFuncsEPNS0_11BaseEmitterE(ptr noundef nonnull %0)
           to label %4 unwind label %9
@@ -135,16 +135,16 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x867Builder8finalizeEv(ptr no
 
 5:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %2) #8
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8, !tbaa !28
   call void @_ZN6asmjit9_abi_1_103x869AssemblerC1EPNS0_10CodeHolderE(ptr noundef nonnull align 8 dereferenceable(176) %2, ptr noundef %7) #8
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load i32, ptr %8, align 8, !tbaa !29
-  %10 = getelementptr inbounds i8, ptr %2, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %11 = load i32, ptr %10, align 8, !tbaa !30
   %12 = or i32 %11, %9
   store i32 %12, ptr %10, align 8, !tbaa !30
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i32, ptr %13, align 8, !tbaa !31
   call void @_ZN6asmjit9_abi_1_1011BaseEmitter20addDiagnosticOptionsENS0_17DiagnosticOptionsE(ptr noundef nonnull align 8 dereferenceable(144) %2, i32 noundef %14) #8
   %15 = invoke noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder11serializeToEPNS0_11BaseEmitterE(ptr noundef nonnull align 8 dereferenceable(410) %0, ptr noundef nonnull %2)

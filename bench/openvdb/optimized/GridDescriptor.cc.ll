@@ -108,15 +108,15 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIc
 define void @_ZN7openvdb5v11_02io14GridDescriptorC2Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #13
-  %mUniqueName = getelementptr inbounds i8, ptr %this, i64 32
+  %mUniqueName = getelementptr inbounds nuw i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mUniqueName) #13
-  %mInstanceParentName = getelementptr inbounds i8, ptr %this, i64 64
+  %mInstanceParentName = getelementptr inbounds nuw i8, ptr %this, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mInstanceParentName) #13
-  %mGridType = getelementptr inbounds i8, ptr %this, i64 96
+  %mGridType = getelementptr inbounds nuw i8, ptr %this, i64 96
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mGridType) #13
-  %mSaveFloatAsHalf = getelementptr inbounds i8, ptr %this, i64 128
+  %mSaveFloatAsHalf = getelementptr inbounds nuw i8, ptr %this, i64 128
   store i8 0, ptr %mSaveFloatAsHalf, align 8
-  %mGridPos = getelementptr inbounds i8, ptr %this, i64 136
+  %mGridPos = getelementptr inbounds nuw i8, ptr %this, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mGridPos, i8 0, i64 24, i1 false)
   ret void
 }
@@ -129,22 +129,22 @@ define void @_ZN7openvdb5v11_02io14GridDescriptorC2ERKNSt7__cxx1112basic_stringI
 entry:
   %call.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull @.str.13, i64 noundef 0) #13, !noalias !4
   tail call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %this, ptr noundef nonnull align 8 dereferenceable(32) %name, i64 noundef 0, i64 noundef %call.i)
-  %mUniqueName = getelementptr inbounds i8, ptr %this, i64 32
+  %mUniqueName = getelementptr inbounds nuw i8, ptr %this, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %mUniqueName, ptr noundef nonnull align 8 dereferenceable(32) %name)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %mInstanceParentName = getelementptr inbounds i8, ptr %this, i64 64
+  %mInstanceParentName = getelementptr inbounds nuw i8, ptr %this, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mInstanceParentName) #13
-  %mGridType = getelementptr inbounds i8, ptr %this, i64 96
+  %mGridType = getelementptr inbounds nuw i8, ptr %this, i64 96
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %mGridType, ptr noundef nonnull align 8 dereferenceable(32) %type)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
   %frombool = zext i1 %half to i8
-  %mSaveFloatAsHalf = getelementptr inbounds i8, ptr %this, i64 128
+  %mSaveFloatAsHalf = getelementptr inbounds nuw i8, ptr %this, i64 128
   store i8 %frombool, ptr %mSaveFloatAsHalf, align 8
-  %mGridPos = getelementptr inbounds i8, ptr %this, i64 136
+  %mGridPos = getelementptr inbounds nuw i8, ptr %this, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mGridPos, i8 0, i64 24, i1 false)
   ret void
 
@@ -182,11 +182,11 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7openvdb5v11_02io14GridDescriptorD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #4 align 2 {
 entry:
-  %mGridType = getelementptr inbounds i8, ptr %this, i64 96
+  %mGridType = getelementptr inbounds nuw i8, ptr %this, i64 96
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mGridType) #13
-  %mInstanceParentName = getelementptr inbounds i8, ptr %this, i64 64
+  %mInstanceParentName = getelementptr inbounds nuw i8, ptr %this, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mInstanceParentName) #13
-  %mUniqueName = getelementptr inbounds i8, ptr %this, i64 32
+  %mUniqueName = getelementptr inbounds nuw i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mUniqueName) #13
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #13
   ret void
@@ -199,7 +199,7 @@ entry:
   %size.i3 = alloca i32, align 4
   %size.i = alloca i32, align 4
   %gridType = alloca %"class.std::__cxx11::basic_string", align 8
-  %mUniqueName = getelementptr inbounds i8, ptr %this, i64 32
+  %mUniqueName = getelementptr inbounds nuw i8, ptr %this, i64 32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %size.i)
   %call.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %mUniqueName) #13
   %conv.i = trunc i64 %call.i to i32
@@ -210,9 +210,9 @@ entry:
   %conv3.i = zext i32 %0 to i64
   %call4.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %call2.i, i64 noundef %conv3.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %size.i)
-  %mGridType = getelementptr inbounds i8, ptr %this, i64 96
+  %mGridType = getelementptr inbounds nuw i8, ptr %this, i64 96
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %gridType, ptr noundef nonnull align 8 dereferenceable(32) %mGridType)
-  %mSaveFloatAsHalf = getelementptr inbounds i8, ptr %this, i64 128
+  %mSaveFloatAsHalf = getelementptr inbounds nuw i8, ptr %this, i64 128
   %1 = load i8, ptr %mSaveFloatAsHalf, align 8
   %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.end
@@ -244,7 +244,7 @@ call1.i6.noexc:                                   ; preds = %if.end
 
 invoke.cont2:                                     ; preds = %call1.i6.noexc
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %size.i3)
-  %mInstanceParentName = getelementptr inbounds i8, ptr %this, i64 64
+  %mInstanceParentName = getelementptr inbounds nuw i8, ptr %this, i64 64
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %size.i12)
   %call.i13 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %mInstanceParentName) #13
   %conv.i14 = trunc i64 %call.i13 to i32
@@ -270,11 +270,11 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK7openvdb5v11_02io14GridDescriptor14writeStreamPosERSo(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(8) %os) local_unnamed_addr #5 align 2 {
 entry:
-  %mGridPos = getelementptr inbounds i8, ptr %this, i64 136
+  %mGridPos = getelementptr inbounds nuw i8, ptr %this, i64 136
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %mGridPos, i64 noundef 8)
-  %mBlockPos = getelementptr inbounds i8, ptr %this, i64 144
+  %mBlockPos = getelementptr inbounds nuw i8, ptr %this, i64 144
   %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %mBlockPos, i64 noundef 8)
-  %mEndPos = getelementptr inbounds i8, ptr %this, i64 152
+  %mEndPos = getelementptr inbounds nuw i8, ptr %this, i64 152
   %call3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %mEndPos, i64 noundef 8)
   ret void
 }
@@ -297,7 +297,7 @@ entry:
   %_openvdb_throw_os = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp37 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZN7openvdb5v11_010readStringB5cxx11ERSi(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %is)
-  %mUniqueName = getelementptr inbounds i8, ptr %this, i64 32
+  %mUniqueName = getelementptr inbounds nuw i8, ptr %this, i64 32
   %call = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %mUniqueName, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #13
   %call.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %mUniqueName, ptr noundef nonnull @.str.13, i64 noundef 0) #13, !noalias !7
@@ -305,7 +305,7 @@ entry:
   %call4 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #13
   call void @_ZN7openvdb5v11_010readStringB5cxx11ERSi(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(16) %is)
-  %mGridType = getelementptr inbounds i8, ptr %this, i64 96
+  %mGridType = getelementptr inbounds nuw i8, ptr %this, i64 96
   %call6 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %mGridType, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5) #13
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9) #13
@@ -371,7 +371,7 @@ invoke.cont11:                                    ; preds = %for.inc.i.i.i.i.i, 
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp3.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9) #13
-  %mSaveFloatAsHalf = getelementptr inbounds i8, ptr %this, i64 128
+  %mSaveFloatAsHalf = getelementptr inbounds nuw i8, ptr %this, i64 128
   store i8 1, ptr %mSaveFloatAsHalf, align 8
   %call15 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %mGridType) #13
   %sub = add i64 %call15, -10
@@ -407,7 +407,7 @@ if.end:                                           ; preds = %if.end.critedge, %i
 
 if.then18:                                        ; preds = %if.end
   call void @_ZN7openvdb5v11_010readStringB5cxx11ERSi(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp19, ptr noundef nonnull align 8 dereferenceable(16) %is)
-  %mInstanceParentName = getelementptr inbounds i8, ptr %this, i64 64
+  %mInstanceParentName = getelementptr inbounds nuw i8, ptr %this, i64 64
   %call20 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %mInstanceParentName, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp19) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp19) #13
   br label %if.end21
@@ -485,7 +485,7 @@ if.end44:                                         ; preds = %if.end21
   br i1 %cmp.i14.not, label %if.end52, label %if.then47
 
 if.then47:                                        ; preds = %if.end44
-  %mSaveFloatAsHalf49 = getelementptr inbounds i8, ptr %this, i64 128
+  %mSaveFloatAsHalf49 = getelementptr inbounds nuw i8, ptr %this, i64 128
   %16 = load i8, ptr %mSaveFloatAsHalf49, align 8
   %tobool = trunc i8 %16 to i1
   invoke void @_ZN7openvdb5v11_08GridBase18setSaveFloatAsHalfEb(ptr noundef nonnull align 8 dereferenceable(72) %15, i1 noundef zeroext %tobool)
@@ -498,17 +498,17 @@ lpad50:                                           ; preds = %invoke.cont55, %inv
   br label %eh.resume
 
 if.end52:                                         ; preds = %if.then47, %if.end44
-  %mGridPos = getelementptr inbounds i8, ptr %this, i64 136
+  %mGridPos = getelementptr inbounds nuw i8, ptr %this, i64 136
   %call54 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %mGridPos, i64 noundef 8)
           to label %invoke.cont53 unwind label %lpad50
 
 invoke.cont53:                                    ; preds = %if.end52
-  %mBlockPos = getelementptr inbounds i8, ptr %this, i64 144
+  %mBlockPos = getelementptr inbounds nuw i8, ptr %this, i64 144
   %call56 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %mBlockPos, i64 noundef 8)
           to label %invoke.cont55 unwind label %lpad50
 
 invoke.cont55:                                    ; preds = %invoke.cont53
-  %mEndPos = getelementptr inbounds i8, ptr %this, i64 152
+  %mEndPos = getelementptr inbounds nuw i8, ptr %this, i64 152
   %call58 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %mEndPos, i64 noundef 8)
           to label %nrvo.skipdtor unwind label %lpad50
 
@@ -629,7 +629,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 define linkonce_odr void @_ZN7openvdb5v11_011LookupErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
-  %mMessage.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mMessage.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage.i) #13
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #13
   ret void
@@ -645,13 +645,13 @@ declare void @_ZN7openvdb5v11_08GridBase18setSaveFloatAsHalfEb(ptr noundef nonnu
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10shared_ptrIN7openvdb5v11_08GridBaseEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_refcount.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_refcount.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_refcount.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN7openvdb5v11_08GridBaseELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %_M_use_count.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i acquire, align 8
   %cmp.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -659,10 +659,10 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   store i32 0, ptr %_M_use_count.i.i.i, align 8
-  %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
+  %_M_weak_count.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i, align 4
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
   br label %if.end8.sink.split.i.i.i
@@ -688,10 +688,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %if.else.i.
 
 if.then7.i.i.i:                                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
+  %vfn.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -713,7 +713,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.end8.sink.split.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.then.i.i.i
   %vtable2.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i, i64 24
+  %vfn3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable2.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
   br label %_ZNSt12__shared_ptrIN7openvdb5v11_08GridBaseELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -725,7 +725,7 @@ _ZNSt12__shared_ptrIN7openvdb5v11_08GridBaseELN9__gnu_cxx12_Lock_policyE2EED2Ev.
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK7openvdb5v11_02io14GridDescriptor10seekToGridERSi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(16) %is) local_unnamed_addr #5 align 2 {
 entry:
-  %mGridPos = getelementptr inbounds i8, ptr %this, i64 136
+  %mGridPos = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load i64, ptr %mGridPos, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi5seekgElSt12_Ios_Seekdir(ptr noundef nonnull align 8 dereferenceable(16) %is, i64 noundef %0, i32 noundef 0)
   ret void
@@ -736,7 +736,7 @@ declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi5seekgElSt12_Ios_S
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK7openvdb5v11_02io14GridDescriptor12seekToBlocksERSi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(16) %is) local_unnamed_addr #5 align 2 {
 entry:
-  %mBlockPos = getelementptr inbounds i8, ptr %this, i64 144
+  %mBlockPos = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load i64, ptr %mBlockPos, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi5seekgElSt12_Ios_Seekdir(ptr noundef nonnull align 8 dereferenceable(16) %is, i64 noundef %0, i32 noundef 0)
   ret void
@@ -745,7 +745,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK7openvdb5v11_02io14GridDescriptor9seekToEndERSi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(16) %is) local_unnamed_addr #5 align 2 {
 entry:
-  %mEndPos = getelementptr inbounds i8, ptr %this, i64 152
+  %mEndPos = getelementptr inbounds nuw i8, ptr %this, i64 152
   %0 = load i64, ptr %mEndPos, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi5seekgElSt12_Ios_Seekdir(ptr noundef nonnull align 8 dereferenceable(16) %is, i64 noundef %0, i32 noundef 0)
   ret void
@@ -754,7 +754,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK7openvdb5v11_02io14GridDescriptor10seekToGridERSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(8) %os) local_unnamed_addr #5 align 2 {
 entry:
-  %mGridPos = getelementptr inbounds i8, ptr %this, i64 136
+  %mGridPos = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load i64, ptr %mGridPos, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5seekpElSt12_Ios_Seekdir(ptr noundef nonnull align 8 dereferenceable(8) %os, i64 noundef %0, i32 noundef 0)
   ret void
@@ -765,7 +765,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5seekpElSt12_Ios_Se
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK7openvdb5v11_02io14GridDescriptor12seekToBlocksERSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(8) %os) local_unnamed_addr #5 align 2 {
 entry:
-  %mBlockPos = getelementptr inbounds i8, ptr %this, i64 144
+  %mBlockPos = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load i64, ptr %mBlockPos, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5seekpElSt12_Ios_Seekdir(ptr noundef nonnull align 8 dereferenceable(8) %os, i64 noundef %0, i32 noundef 0)
   ret void
@@ -774,7 +774,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK7openvdb5v11_02io14GridDescriptor9seekToEndERSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(8) %os) local_unnamed_addr #5 align 2 {
 entry:
-  %mEndPos = getelementptr inbounds i8, ptr %this, i64 152
+  %mEndPos = getelementptr inbounds nuw i8, ptr %this, i64 152
   %0 = load i64, ptr %mEndPos, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5seekpElSt12_Ios_Seekdir(ptr noundef nonnull align 8 dereferenceable(8) %os, i64 noundef %0, i32 noundef 0)
   ret void
@@ -975,7 +975,7 @@ define linkonce_odr void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
-  %mMessage = getelementptr inbounds i8, ptr %this, i64 8
+  %mMessage = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage) #13
   %tobool.not = icmp eq ptr %eType, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -1032,7 +1032,7 @@ terminate.lpad:                                   ; preds = %catch
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNK7openvdb5v11_09Exception4whatEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  %mMessage = getelementptr inbounds i8, ptr %this, i64 8
+  %mMessage = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %mMessage) #13
   ret ptr %call
 }
@@ -1089,7 +1089,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #9
 define linkonce_odr void @_ZN7openvdb5v11_09ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
-  %mMessage = getelementptr inbounds i8, ptr %this, i64 8
+  %mMessage = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage) #13
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #13
   ret void
@@ -1099,7 +1099,7 @@ entry:
 define linkonce_odr void @_ZN7openvdb5v11_09ExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
-  %mMessage.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mMessage.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage.i) #13
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #13
   tail call void @_ZdlPv(ptr noundef nonnull %this) #16
@@ -1154,7 +1154,7 @@ declare void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4rendEv(ptr 
 define linkonce_odr void @_ZN7openvdb5v11_011LookupErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
-  %mMessage.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mMessage.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage.i.i) #13
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #13
   tail call void @_ZdlPv(ptr noundef nonnull %this) #16

@@ -20,7 +20,7 @@ define hidden range(i32 0, 2) i32 @aom_rb_read_bit(ptr nocapture noundef %0) loc
   %4 = lshr i32 %3, 3
   %5 = load ptr, ptr %0, align 8
   %6 = zext nneg i32 %4 to i64
-  %7 = getelementptr inbounds i8, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = icmp ult ptr %7, %9
@@ -74,7 +74,7 @@ define hidden i32 @aom_rb_read_literal(ptr nocapture noundef %0, i32 noundef %1)
   %10 = lshr i32 %9, 3
   %11 = load ptr, ptr %0, align 8
   %12 = zext nneg i32 %10 to i64
-  %13 = getelementptr inbounds i8, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 %12
   %14 = load ptr, ptr %5, align 8
   %15 = icmp ult ptr %13, %14
   br i1 %15, label %16, label %24
@@ -132,7 +132,7 @@ define hidden i32 @aom_rb_read_unsigned_literal(ptr nocapture noundef %0, i32 no
   %10 = lshr i32 %9, 3
   %11 = load ptr, ptr %0, align 8
   %12 = zext nneg i32 %10 to i64
-  %13 = getelementptr inbounds i8, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 %12
   %14 = load ptr, ptr %5, align 8
   %15 = icmp ult ptr %13, %14
   br i1 %15, label %16, label %24
@@ -191,7 +191,7 @@ define hidden i32 @aom_rb_read_inv_signed_literal(ptr nocapture noundef %0, i32 
   %11 = lshr i32 %10, 3
   %12 = load ptr, ptr %0, align 8
   %13 = zext nneg i32 %11 to i64
-  %14 = getelementptr inbounds i8, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 %13
   %15 = load ptr, ptr %6, align 8
   %16 = icmp ult ptr %14, %15
   br i1 %16, label %17, label %25
@@ -246,7 +246,7 @@ define hidden i32 @aom_rb_read_uvlc(ptr nocapture noundef %0) local_unnamed_addr
   %8 = lshr i32 %7, 3
   %9 = load ptr, ptr %0, align 8
   %10 = zext nneg i32 %8 to i64
-  %11 = getelementptr inbounds i8, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 %10
   %12 = load ptr, ptr %3, align 8
   %13 = icmp ult ptr %11, %12
   br i1 %13, label %aom_rb_read_bit.exit, label %14
@@ -292,7 +292,7 @@ aom_rb_read_bit.exit.thread:                      ; preds = %14, %16, %aom_rb_re
   %28 = lshr i32 %27, 3
   %29 = load ptr, ptr %0, align 8
   %30 = zext nneg i32 %28 to i64
-  %31 = getelementptr inbounds i8, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 %30
   %32 = load ptr, ptr %3, align 8
   %33 = icmp ult ptr %31, %32
   br i1 %33, label %34, label %42
@@ -383,7 +383,7 @@ define hidden signext i16 @aom_rb_read_signed_primitive_refsubexpfin(ptr nocaptu
   %28 = lshr i32 %27, 3
   %29 = load ptr, ptr %0, align 8
   %30 = zext nneg i32 %28 to i64
-  %31 = getelementptr inbounds i8, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 %30
   %32 = load ptr, ptr %23, align 8
   %33 = icmp ult ptr %31, %32
   br i1 %33, label %34, label %42
@@ -429,7 +429,7 @@ aom_rb_read_literal.exit.i.i.i:                   ; preds = %aom_rb_read_bit.exi
   %56 = lshr i32 %55, 3
   %57 = load ptr, ptr %0, align 8
   %58 = zext nneg i32 %56 to i64
-  %59 = getelementptr inbounds i8, ptr %57, i64 %58
+  %59 = getelementptr inbounds nuw i8, ptr %57, i64 %58
   %60 = load ptr, ptr %23, align 8
   %61 = icmp ult ptr %59, %60
   br i1 %61, label %62, label %70
@@ -478,7 +478,7 @@ aom_rb_read_primitive_quniform.exit.i.i:          ; preds = %75, %._crit_edge.i.
   %82 = shl nuw i32 1, %81
   %83 = lshr i32 %80, 3
   %84 = zext nneg i32 %83 to i64
-  %85 = getelementptr inbounds i8, ptr %13, i64 %84
+  %85 = getelementptr inbounds nuw i8, ptr %13, i64 %84
   %86 = icmp ult ptr %85, %15
   br i1 %86, label %aom_rb_read_bit.exit.i.i, label %87
 
@@ -523,7 +523,7 @@ aom_rb_read_bit.exit.thread.i.i:                  ; preds = %aom_rb_read_bit.exi
   %105 = lshr i32 %104, 3
   %106 = load ptr, ptr %0, align 8
   %107 = zext nneg i32 %105 to i64
-  %108 = getelementptr inbounds i8, ptr %106, i64 %107
+  %108 = getelementptr inbounds nuw i8, ptr %106, i64 %107
   %109 = load ptr, ptr %14, align 8
   %110 = icmp ult ptr %108, %109
   br i1 %110, label %111, label %119

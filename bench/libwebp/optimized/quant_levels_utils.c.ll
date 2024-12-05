@@ -42,7 +42,7 @@ define hidden range(i32 0, 2) i32 @QuantizeLevels(ptr noundef %0, i32 noundef %1
   %21 = getelementptr inbounds i8, ptr %0, i64 %.0112139
   %22 = load i8, ptr %21, align 1
   %23 = zext i8 %22 to i64
-  %24 = getelementptr inbounds [256 x i32], ptr %6, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, 0
   %27 = zext i1 %26 to i32
@@ -87,7 +87,7 @@ define hidden range(i32 0, 2) i32 @QuantizeLevels(ptr noundef %0, i32 noundef %1
   %41 = fmul double %35, %40
   %42 = fdiv double %41, %37
   %43 = fadd double %42, %33
-  %44 = getelementptr inbounds [256 x double], ptr %8, i64 0, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [256 x double], ptr %8, i64 0, i64 %indvars.iv
   store double %43, ptr %44, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond174.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -96,10 +96,10 @@ define hidden range(i32 0, 2) i32 @QuantizeLevels(ptr noundef %0, i32 noundef %1
 ._crit_edge146:                                   ; preds = %38, %.preheader136.._crit_edge146_crit_edge
   %.pre-phi = phi i32 [ %.pre, %.preheader136.._crit_edge146_crit_edge ], [ %36, %38 ]
   %45 = zext nneg i32 %.0105.lcssa to i64
-  %46 = getelementptr inbounds [256 x i32], ptr %7, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw [256 x i32], ptr %7, i64 0, i64 %45
   store i32 0, ptr %46, align 4
   %47 = zext nneg i32 %.0106.lcssa to i64
-  %48 = getelementptr inbounds [256 x i32], ptr %7, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw [256 x i32], ptr %7, i64 0, i64 %47
   store i32 %.pre-phi, ptr %48, align 4
   %.not128147 = icmp samesign ugt i32 %.0105.lcssa, %.0106.lcssa
   %49 = icmp slt i32 %3, 3
@@ -148,7 +148,7 @@ define hidden range(i32 0, 2) i32 @QuantizeLevels(ptr noundef %0, i32 noundef %1
 
 .critedge:                                        ; preds = %56, %.critedge.split.loop.exit202
   %.1109.lcssa = phi i32 [ %65, %.critedge.split.loop.exit202 ], [ %smax, %56 ]
-  %66 = getelementptr inbounds [256 x i32], ptr %6, i64 0, i64 %indvars.iv178
+  %66 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %indvars.iv178
   %67 = load i32, ptr %66, align 4
   %68 = icmp sgt i32 %67, 0
   br i1 %68, label %69, label %81
@@ -170,7 +170,7 @@ define hidden range(i32 0, 2) i32 @QuantizeLevels(ptr noundef %0, i32 noundef %1
   br label %81
 
 81:                                               ; preds = %69, %.critedge
-  %82 = getelementptr inbounds [256 x i32], ptr %7, i64 0, i64 %indvars.iv178
+  %82 = getelementptr inbounds nuw [256 x i32], ptr %7, i64 0, i64 %indvars.iv178
   store i32 %.1109.lcssa, ptr %82, align 4
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
   %exitcond182.not = icmp eq i64 %indvars.iv.next179, %wide.trip.count181
@@ -181,16 +181,16 @@ define hidden range(i32 0, 2) i32 @QuantizeLevels(ptr noundef %0, i32 noundef %1
 
 .lr.ph152:                                        ; preds = %._crit_edge150, %91
   %indvars.iv183 = phi i64 [ %indvars.iv.next184, %91 ], [ 1, %._crit_edge150 ]
-  %83 = getelementptr inbounds [256 x double], ptr %10, i64 0, i64 %indvars.iv183
+  %83 = getelementptr inbounds nuw [256 x double], ptr %10, i64 0, i64 %indvars.iv183
   %84 = load double, ptr %83, align 8
   %85 = fcmp ogt double %84, 0.000000e+00
   br i1 %85, label %86, label %91
 
 86:                                               ; preds = %.lr.ph152
-  %87 = getelementptr inbounds [256 x double], ptr %9, i64 0, i64 %indvars.iv183
+  %87 = getelementptr inbounds nuw [256 x double], ptr %9, i64 0, i64 %indvars.iv183
   %88 = load double, ptr %87, align 8
   %89 = fdiv double %88, %84
-  %90 = getelementptr inbounds [256 x double], ptr %8, i64 0, i64 %indvars.iv183
+  %90 = getelementptr inbounds nuw [256 x double], ptr %8, i64 0, i64 %indvars.iv183
   store double %89, ptr %90, align 8
   br label %91
 
@@ -207,13 +207,13 @@ define hidden range(i32 0, 2) i32 @QuantizeLevels(ptr noundef %0, i32 noundef %1
   %.3154 = phi double [ %104, %.lr.ph157 ], [ 0.000000e+00, %.loopexit135 ]
   %92 = trunc nuw nsw i64 %indvars.iv188 to i32
   %93 = uitofp nneg i32 %92 to double
-  %94 = getelementptr inbounds [256 x i32], ptr %7, i64 0, i64 %indvars.iv188
+  %94 = getelementptr inbounds nuw [256 x i32], ptr %7, i64 0, i64 %indvars.iv188
   %95 = load i32, ptr %94, align 4
   %96 = sext i32 %95 to i64
   %97 = getelementptr inbounds [256 x double], ptr %8, i64 0, i64 %96
   %98 = load double, ptr %97, align 8
   %99 = fsub double %93, %98
-  %100 = getelementptr inbounds [256 x i32], ptr %6, i64 0, i64 %indvars.iv188
+  %100 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %indvars.iv188
   %101 = load i32, ptr %100, align 4
   %102 = sitofp i32 %101 to double
   %103 = fmul double %99, %102
@@ -243,14 +243,14 @@ define hidden range(i32 0, 2) i32 @QuantizeLevels(ptr noundef %0, i32 noundef %1
 
 .lr.ph165:                                        ; preds = %.lr.ph165.preheader, %.lr.ph165
   %indvars.iv194 = phi i64 [ %45, %.lr.ph165.preheader ], [ %indvars.iv.next195, %.lr.ph165 ]
-  %109 = getelementptr inbounds [256 x i32], ptr %7, i64 0, i64 %indvars.iv194
+  %109 = getelementptr inbounds nuw [256 x i32], ptr %7, i64 0, i64 %indvars.iv194
   %110 = load i32, ptr %109, align 4
   %111 = sext i32 %110 to i64
   %112 = getelementptr inbounds [256 x double], ptr %8, i64 0, i64 %111
   %113 = load double, ptr %112, align 8
   %114 = fadd double %113, 5.000000e-01
   %115 = fptoui double %114 to i8
-  %116 = getelementptr inbounds [256 x i8], ptr %11, i64 0, i64 %indvars.iv194
+  %116 = getelementptr inbounds nuw [256 x i8], ptr %11, i64 0, i64 %indvars.iv194
   store i8 %115, ptr %116, align 1
   %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
   %exitcond198.not = icmp eq i64 %indvars.iv.next195, %wide.trip.count197
@@ -261,7 +261,7 @@ define hidden range(i32 0, 2) i32 @QuantizeLevels(ptr noundef %0, i32 noundef %1
   %117 = getelementptr inbounds i8, ptr %0, i64 %.0103166
   %118 = load i8, ptr %117, align 1
   %119 = zext i8 %118 to i64
-  %120 = getelementptr inbounds [256 x i8], ptr %11, i64 0, i64 %119
+  %120 = getelementptr inbounds nuw [256 x i8], ptr %11, i64 0, i64 %119
   %121 = load i8, ptr %120, align 1
   store i8 %121, ptr %117, align 1
   %122 = add nuw i64 %.0103166, 1

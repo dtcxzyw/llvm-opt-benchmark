@@ -33,9 +33,9 @@ define dso_local noundef zeroext i1 @brin_doupdate(ptr noundef %0, i32 noundef %
   %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
   tail call void @llvm.assume(i1 %17)
   %18 = tail call i32 @errcode(i32 noundef 261) #5
-  %19 = getelementptr inbounds i8, ptr %0, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, i64 noundef %9, i64 noundef 8152, ptr noundef nonnull %21) #5
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 77, ptr noundef nonnull @__func__.brin_doupdate) #5
   unreachable
@@ -86,11 +86,11 @@ define dso_local noundef zeroext i1 @brin_doupdate(ptr noundef %0, i32 noundef %
 
 BufferGetPage.exit:                               ; preds = %33, %39
   %.0.i.i = phi ptr [ %38, %33 ], [ %44, %39 ]
-  %45 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   %46 = zext i16 %5 to i64
   %47 = add nsw i64 %46, -1
   %48 = getelementptr [0 x %struct.ItemIdData], ptr %45, i64 0, i64 %47
-  %49 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   %50 = load i16, ptr %49, align 4
   %51 = zext i16 %50 to i64
   %52 = getelementptr i8, ptr %.0.i.i, i64 %51
@@ -224,9 +224,9 @@ brin_can_do_samepage_update.exit.thread:          ; preds = %97, %brin_can_do_sa
 
 119:                                              ; preds = %brin_can_do_samepage_update.exit.thread
   tail call void @MarkBufferDirty(i32 noundef %4) #5
-  %120 = getelementptr inbounds i8, ptr %0, i64 56
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 114
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 114
   %123 = load i8, ptr %122, align 2
   %124 = icmp eq i8 %123, 112
   br i1 %124, label %125, label %143
@@ -237,13 +237,13 @@ brin_can_do_samepage_update.exit.thread:          ; preds = %97, %brin_can_do_sa
   br i1 %127, label %136, label %128
 
 128:                                              ; preds = %125
-  %129 = getelementptr inbounds i8, ptr %0, i64 40
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %130 = load i32, ptr %129, align 8
   %131 = icmp eq i32 %130, 0
   br i1 %131, label %132, label %143
 
 132:                                              ; preds = %128
-  %133 = getelementptr inbounds i8, ptr %0, i64 48
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %134 = load i32, ptr %133, align 8
   %135 = icmp eq i32 %134, 0
   br i1 %135, label %136, label %143
@@ -260,7 +260,7 @@ brin_can_do_samepage_update.exit.thread:          ; preds = %97, %brin_can_do_sa
   %140 = trunc nuw i64 %139 to i32
   store i32 %140, ptr %.0.i.i, align 4
   %141 = trunc i64 %138 to i32
-  %142 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
+  %142 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   store i32 %141, ptr %142, align 4
   br label %143
 
@@ -328,7 +328,7 @@ BufferGetPage.exit128:                            ; preds = %157, %163
 
 174:                                              ; preds = %BufferGetPage.exit128
   tail call void @PageInit(ptr noundef %.0.i.i127, i64 noundef 8192, i64 noundef 8) #5
-  %175 = getelementptr inbounds i8, ptr %.0.i.i127, i64 16
+  %175 = getelementptr inbounds nuw i8, ptr %.0.i.i127, i64 16
   %176 = load i16, ptr %175, align 4
   %177 = zext i16 %176 to i64
   %178 = getelementptr i8, ptr %.0.i.i127, i64 %177
@@ -355,7 +355,7 @@ BufferGetPage.exit128:                            ; preds = %157, %163
   br i1 %173, label %187, label %br_page_get_freespace.exit
 
 187:                                              ; preds = %186
-  %188 = getelementptr inbounds i8, ptr %.0.i.i127, i64 16
+  %188 = getelementptr inbounds nuw i8, ptr %.0.i.i127, i64 16
   %189 = load i16, ptr %188, align 4
   %190 = zext i16 %189 to i64
   %191 = getelementptr i8, ptr %.0.i.i127, i64 %190
@@ -387,9 +387,9 @@ br_page_get_freespace.exit:                       ; preds = %199, %195, %187, %1
   %.sroa.0.0.insert.insert = or disjoint i48 %.sroa.2.0.insert.insert, %.sroa.0.0.insert.ext
   tail call void @brinSetHeapBlockItemptr(i32 noundef %169, i32 noundef %1, i32 noundef %3, i48 %.sroa.0.0.insert.insert) #5
   tail call void @MarkBufferDirty(i32 noundef %169) #5
-  %203 = getelementptr inbounds i8, ptr %0, i64 56
+  %203 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %204 = load ptr, ptr %203, align 8
-  %205 = getelementptr inbounds i8, ptr %204, i64 114
+  %205 = getelementptr inbounds nuw i8, ptr %204, i64 114
   %206 = load i8, ptr %205, align 2
   %207 = icmp eq i8 %206, 112
   br i1 %207, label %208, label %246
@@ -400,24 +400,24 @@ br_page_get_freespace.exit:                       ; preds = %199, %195, %187, %1
   br i1 %210, label %219, label %211
 
 211:                                              ; preds = %208
-  %212 = getelementptr inbounds i8, ptr %0, i64 40
+  %212 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %213 = load i32, ptr %212, align 8
   %214 = icmp eq i32 %213, 0
   br i1 %214, label %215, label %246
 
 215:                                              ; preds = %211
-  %216 = getelementptr inbounds i8, ptr %0, i64 48
+  %216 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %217 = load i32, ptr %216, align 8
   %218 = icmp eq i32 %217, 0
   br i1 %218, label %219, label %246
 
 219:                                              ; preds = %215, %208
   %220 = select i1 %173, i8 -96, i8 32
-  %221 = getelementptr inbounds i8, ptr %14, i64 4
-  %222 = getelementptr inbounds i8, ptr %14, i64 12
+  %221 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %222 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store i16 %181, ptr %222, align 4
   store i32 %3, ptr %221, align 4
-  %223 = getelementptr inbounds i8, ptr %14, i64 8
+  %223 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 %1, ptr %223, align 4
   store i16 %5, ptr %14, align 4
   tail call void @XLogBeginInsert() #5
@@ -433,10 +433,10 @@ br_page_get_freespace.exit:                       ; preds = %199, %195, %187, %1
   %228 = trunc nuw i64 %227 to i32
   store i32 %228, ptr %.0.i.i, align 4
   %229 = trunc i64 %226 to i32
-  %230 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
+  %230 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   store i32 %229, ptr %230, align 4
   store i32 %228, ptr %.0.i.i127, align 4
-  %231 = getelementptr inbounds i8, ptr %.0.i.i127, i64 4
+  %231 = getelementptr inbounds nuw i8, ptr %.0.i.i127, i64 4
   store i32 %229, ptr %231, align 4
   %232 = icmp slt i32 %169, 0
   br i1 %232, label %233, label %239
@@ -460,7 +460,7 @@ br_page_get_freespace.exit:                       ; preds = %199, %195, %187, %1
 BufferGetPage.exit132:                            ; preds = %233, %239
   %.0.i.i131 = phi ptr [ %238, %233 ], [ %244, %239 ]
   store i32 %228, ptr %.0.i.i131, align 4
-  %245 = getelementptr inbounds i8, ptr %.0.i.i131, i64 4
+  %245 = getelementptr inbounds nuw i8, ptr %.0.i.i131, i64 4
   store i32 %229, ptr %245, align 4
   br label %246
 
@@ -506,13 +506,13 @@ define internal fastcc i32 @brin_getinsertbuffer(ptr noundef %0, i32 noundef %1,
 
 8:                                                ; preds = %4, %6
   %.071 = phi i32 [ %7, %6 ], [ -1, %4 ]
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %.thread, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %10, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, -1
   br i1 %14, label %.thread, label %16
@@ -523,8 +523,8 @@ define internal fastcc i32 @brin_getinsertbuffer(ptr noundef %0, i32 noundef %1,
 
 16:                                               ; preds = %.thread, %11
   %.072 = phi i32 [ %15, %.thread ], [ %13, %11 ]
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
-  %18 = getelementptr inbounds i8, ptr %0, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %19 = icmp slt i32 %1, 0
   %20 = add nsw i32 %1, -1
   %21 = zext nneg i32 %20 to i64
@@ -602,7 +602,7 @@ define internal fastcc i32 @brin_getinsertbuffer(ptr noundef %0, i32 noundef %1,
 
 BufferGetPage.exit:                               ; preds = %46, %50
   %.0.i.i = phi ptr [ %49, %46 ], [ %52, %50 ]
-  %53 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   %54 = load i16, ptr %53, align 4
   %55 = zext i16 %54 to i64
   %56 = getelementptr i8, ptr %.0.i.i, i64 %55
@@ -675,7 +675,7 @@ BufferGetPage.exit87:                             ; preds = %75, %81
   br i1 %88, label %br_page_get_freespace.exit.thread, label %89
 
 89:                                               ; preds = %BufferGetPage.exit87
-  %90 = getelementptr inbounds i8, ptr %.0.i.i86, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %.0.i.i86, i64 16
   %91 = load i16, ptr %90, align 4
   %92 = zext i16 %91 to i64
   %93 = getelementptr i8, ptr %.0.i.i86, i64 %92
@@ -706,10 +706,10 @@ br_page_get_freespace.exit.thread:                ; preds = %BufferGetPage.exit8
   br i1 %105, label %106, label %RelationGetSmgr.exit
 
 106:                                              ; preds = %br_page_get_freespace.exit.thread
-  %107 = getelementptr inbounds i8, ptr %0, i64 28
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %108 = load i32, ptr %107, align 4
   %.sroa.0.0.copyload.i = load i64, ptr %0, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 8
   %109 = tail call ptr @smgropen(i64 %.sroa.0.0.copyload.i, i32 %.sroa.2.0.copyload.i, i32 noundef %108) #5
   store ptr %109, ptr %9, align 8
@@ -719,7 +719,7 @@ br_page_get_freespace.exit.thread:                ; preds = %BufferGetPage.exit8
 
 RelationGetSmgr.exit:                             ; preds = %br_page_get_freespace.exit.thread, %106
   %110 = phi ptr [ %.pre.i, %106 ], [ %104, %br_page_get_freespace.exit.thread ]
-  %111 = getelementptr inbounds i8, ptr %110, i64 16
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 16
   store i32 %.2, ptr %111, align 8
   %112 = icmp ugt i32 %.071, %.2
   %or.cond83 = select i1 %5, i1 %112, i1 false
@@ -739,9 +739,9 @@ RelationGetSmgr.exit:                             ; preds = %br_page_get_freespa
   %118 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
   tail call void @llvm.assume(i1 %118)
   %119 = tail call i32 @errcode(i32 noundef 261) #5
-  %120 = getelementptr inbounds i8, ptr %0, i64 56
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 4
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 4
   %123 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, i64 noundef %2, i64 noundef %103, ptr noundef nonnull %122) #5
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 853, ptr noundef nonnull @__func__.brin_getinsertbuffer) #5
   unreachable
@@ -803,7 +803,7 @@ define internal fastcc void @brin_initialize_empty_new_buffer(ptr noundef %0, i3
 BufferGetPage.exit:                               ; preds = %6, %12
   %.0.i.i = phi ptr [ %11, %6 ], [ %17, %12 ]
   tail call void @PageInit(ptr noundef %.0.i.i, i64 noundef 8192, i64 noundef 8) #5
-  %18 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   %19 = load i16, ptr %18, align 4
   %20 = zext i16 %19 to i64
   %21 = getelementptr i8, ptr %.0.i.i, i64 %20
@@ -904,7 +904,7 @@ declare i32 @brinLockRevmapPageForUpdate(ptr noundef, i32 noundef) local_unnamed
 ; Function Attrs: nounwind uwtable
 define dso_local void @brin_page_init(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_addr #0 {
   tail call void @PageInit(ptr noundef %0, i64 noundef 8192, i64 noundef 8) #5
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i16, ptr %3, align 4
   %5 = zext i16 %4 to i64
   %6 = getelementptr i8, ptr %0, i64 %5
@@ -934,9 +934,9 @@ define dso_local zeroext range(i16 1, 0) i16 @brin_doinsert(ptr noundef %0, i32 
   %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
   tail call void @llvm.assume(i1 %12)
   %13 = tail call i32 @errcode(i32 noundef 261) #5
-  %14 = getelementptr inbounds i8, ptr %0, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, i64 noundef %6, i64 noundef 8152, ptr noundef nonnull %16) #5
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 363, ptr noundef nonnull @__func__.brin_doinsert) #5
   unreachable
@@ -971,7 +971,7 @@ define dso_local zeroext range(i16 1, 0) i16 @brin_doinsert(ptr noundef %0, i32 
 
 BufferGetPage.exit:                               ; preds = %23, %29
   %.0.i.i = phi ptr [ %28, %23 ], [ %34, %29 ]
-  %35 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   %36 = load i16, ptr %35, align 4
   %37 = zext i16 %36 to i64
   %38 = getelementptr i8, ptr %.0.i.i, i64 %37
@@ -1053,7 +1053,7 @@ BufferGetPage.exit60:                             ; preds = %57, %63
 
 74:                                               ; preds = %BufferGetPage.exit60
   tail call void @PageInit(ptr noundef %.0.i.i59, i64 noundef 8192, i64 noundef 8) #5
-  %75 = getelementptr inbounds i8, ptr %.0.i.i59, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %.0.i.i59, i64 16
   %76 = load i16, ptr %75, align 4
   %77 = zext i16 %76 to i64
   %78 = getelementptr i8, ptr %.0.i.i59, i64 %77
@@ -1079,7 +1079,7 @@ BufferGetPage.exit60:                             ; preds = %57, %63
   br i1 %73, label %88, label %br_page_get_freespace.exit63
 
 88:                                               ; preds = %86
-  %89 = getelementptr inbounds i8, ptr %.0.i.i59, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %.0.i.i59, i64 16
   %90 = load i16, ptr %89, align 4
   %91 = zext i16 %90 to i64
   %92 = getelementptr i8, ptr %.0.i.i59, i64 %91
@@ -1111,9 +1111,9 @@ br_page_get_freespace.exit63:                     ; preds = %100, %96, %88, %86
   %.sroa.0.0.insert.insert = or disjoint i48 %.sroa.2.0.insert.insert, %.sroa.0.0.insert.ext
   tail call void @brinSetHeapBlockItemptr(i32 noundef %54, i32 noundef %1, i32 noundef %4, i48 %.sroa.0.0.insert.insert) #5
   tail call void @MarkBufferDirty(i32 noundef %54) #5
-  %104 = getelementptr inbounds i8, ptr %0, i64 56
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 114
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 114
   %107 = load i8, ptr %106, align 2
   %108 = icmp eq i8 %107, 112
   br i1 %108, label %109, label %146
@@ -1124,13 +1124,13 @@ br_page_get_freespace.exit63:                     ; preds = %100, %96, %88, %86
   br i1 %111, label %120, label %112
 
 112:                                              ; preds = %109
-  %113 = getelementptr inbounds i8, ptr %0, i64 40
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %114 = load i32, ptr %113, align 8
   %115 = icmp eq i32 %114, 0
   br i1 %115, label %116, label %146
 
 116:                                              ; preds = %112
-  %117 = getelementptr inbounds i8, ptr %0, i64 48
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %118 = load i32, ptr %117, align 8
   %119 = icmp eq i32 %118, 0
   br i1 %119, label %120, label %146
@@ -1138,9 +1138,9 @@ br_page_get_freespace.exit63:                     ; preds = %100, %96, %88, %86
 120:                                              ; preds = %116, %109
   %121 = select i1 %73, i8 -112, i8 16
   store i32 %4, ptr %9, align 4
-  %122 = getelementptr inbounds i8, ptr %9, i64 4
+  %122 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %1, ptr %122, align 4
-  %123 = getelementptr inbounds i8, ptr %9, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i16 %81, ptr %123, align 4
   tail call void @XLogBeginInsert() #5
   call void @XLogRegisterData(ptr noundef nonnull %9, i32 noundef 10) #5
@@ -1155,7 +1155,7 @@ br_page_get_freespace.exit63:                     ; preds = %100, %96, %88, %86
   %129 = trunc nuw i64 %128 to i32
   store i32 %129, ptr %.0.i.i59, align 4
   %130 = trunc i64 %127 to i32
-  %131 = getelementptr inbounds i8, ptr %.0.i.i59, i64 4
+  %131 = getelementptr inbounds nuw i8, ptr %.0.i.i59, i64 4
   store i32 %130, ptr %131, align 4
   %132 = icmp slt i32 %54, 0
   br i1 %132, label %133, label %139
@@ -1179,7 +1179,7 @@ br_page_get_freespace.exit63:                     ; preds = %100, %96, %88, %86
 BufferGetPage.exit65:                             ; preds = %133, %139
   %.0.i.i64 = phi ptr [ %138, %133 ], [ %144, %139 ]
   store i32 %129, ptr %.0.i.i64, align 4
-  %145 = getelementptr inbounds i8, ptr %.0.i.i64, i64 4
+  %145 = getelementptr inbounds nuw i8, ptr %.0.i.i64, i64 4
   store i32 %130, ptr %145, align 4
   br label %146
 
@@ -1207,7 +1207,7 @@ declare void @PageInit(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define dso_local void @brin_metapage_init(ptr noundef %0, i32 noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   tail call void @PageInit(ptr noundef %0, i64 noundef 8192, i64 noundef 8) #5
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i16, ptr %4, align 4
   %6 = zext i16 %5 to i64
   %7 = getelementptr i8, ptr %0, i64 %6
@@ -1222,7 +1222,7 @@ define dso_local void @brin_metapage_init(ptr noundef %0, i32 noundef %1, i16 no
   store i32 %1, ptr %12, align 4
   %13 = getelementptr i8, ptr %0, i64 36
   store i32 0, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i16 40, ptr %14, align 4
   ret void
 }
@@ -1268,7 +1268,7 @@ BufferGetPage.exit:                               ; preds = %4, %10
   br i1 %.not14, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18
-  %25 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   br label %28
 
 26:                                               ; preds = %28
@@ -1287,7 +1287,7 @@ BufferGetPage.exit:                               ; preds = %4, %10
   br i1 %.not12, label %26, label %34
 
 34:                                               ; preds = %28
-  %35 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   %36 = load i16, ptr %35, align 4
   %37 = zext i16 %36 to i64
   %38 = getelementptr i8, ptr %.0.i.i, i64 %37
@@ -1343,8 +1343,8 @@ BufferGetPage.exit:                               ; preds = %7, %13
   br i1 %.not31, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %BufferGetPage.exit
-  %25 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
-  %26 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   br label %27
 
 27:                                               ; preds = %.lr.ph, %50
@@ -1456,7 +1456,7 @@ BufferGetPage.exit16:                             ; preds = %22
   %25 = zext nneg i32 %24 to i64
   %26 = getelementptr ptr, ptr %23, i64 %25
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load i16, ptr %28, align 4
   %30 = zext i16 %29 to i64
   %31 = getelementptr i8, ptr %27, i64 %30
@@ -1471,7 +1471,7 @@ BufferGetPage.exit16.thread:                      ; preds = %22
   %37 = sext i32 %36 to i64
   %38 = shl nsw i64 %37, 13
   %39 = getelementptr i8, ptr %35, i64 %38
-  %40 = getelementptr inbounds i8, ptr %39, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load i16, ptr %40, align 4
   %42 = zext i16 %41 to i64
   %43 = getelementptr i8, ptr %39, i64 %42
@@ -1487,7 +1487,7 @@ BufferGetPage.exit18:                             ; preds = %BufferGetPage.exit1
 
 49:                                               ; preds = %BufferGetPage.exit18
   %50 = tail call i32 @BufferGetBlockNumber(i32 noundef %1) #5
-  %51 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   %52 = load i16, ptr %51, align 4
   %53 = zext i16 %52 to i64
   %54 = getelementptr i8, ptr %.0.i.i, i64 %53

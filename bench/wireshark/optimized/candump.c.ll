@@ -51,18 +51,18 @@ define hidden range(i32 -1, 2) i32 @candump_open(ptr nocapture noundef %0, ptr n
   br label %25
 
 17:                                               ; preds = %8
-  %18 = getelementptr inbounds i8, ptr %0, i64 96
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr null, ptr %18, align 8
   %19 = load i32, ptr @candump_file_type_subtype, align 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 20
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %19, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %0, i64 144
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 125, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 148
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 6, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 112
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @candump_read, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 120
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr @candump_seek_read, ptr %24, align 8
   br label %25
 
@@ -75,9 +75,9 @@ define hidden range(i32 -1, 2) i32 @candump_open(ptr nocapture noundef %0, ptr n
 define internal fastcc range(i32 0, 2) i32 @candump_parse(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.candump_state_t, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %6, i8 0, i64 160, i1 false)
-  %7 = getelementptr inbounds i8, ptr %6, i64 104
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 104
   store ptr %0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 112
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 112
   br label %9
 
 9:                                                ; preds = %24, %5
@@ -129,7 +129,7 @@ define internal fastcc range(i32 0, 2) i32 @candump_parse(ptr noundef %0, ptr no
   br i1 %.not22, label %.loopexit, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds i8, ptr %6, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %33, i64 96, i1 false)
   br label %.loopexit
 
@@ -170,7 +170,7 @@ define internal range(i32 0, 2) i32 @candump_read(ptr nocapture noundef readonly
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @candump_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca %struct.msg_t, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i64 @file_seek(ptr noundef %9, i64 noundef %1, i32 noundef 0, ptr noundef %4) #6
   %11 = icmp eq i64 %10, -1
@@ -225,20 +225,20 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define internal fastcc range(i32 0, 2) i32 @candump_gen_packet(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef writeonly %3, ptr noundef writeonly %4) unnamed_addr #0 {
   %6 = alloca %struct.canfd_frame, align 4
   %7 = alloca %struct.can_frame, align 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load i64, ptr %10, align 8
   %12 = sub i64 %9, %11
   tail call void @ws_buffer_remove_start(ptr noundef %1, i64 noundef %12) #6
-  %13 = getelementptr inbounds i8, ptr %2, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %14 = load i32, ptr %13, align 4
   %.not = icmp eq i32 %14, 0
-  %15 = getelementptr inbounds i8, ptr %2, i64 25
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 25
   br i1 %.not, label %37, label %16
 
 16:                                               ; preds = %5
-  %17 = getelementptr inbounds i8, ptr %6, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(72) %17, i8 0, i64 68, i1 false)
   %18 = load i8, ptr %15, align 1
   %19 = icmp ugt i8 %18, 64
@@ -257,26 +257,26 @@ define internal fastcc range(i32 0, 2) i32 @candump_gen_packet(ptr nocapture nou
   br label %70
 
 25:                                               ; preds = %16
-  %26 = getelementptr inbounds i8, ptr %2, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %27 = load i32, ptr %26, align 8
   %28 = tail call i32 @llvm.bswap.i32(i32 %27)
   store i32 %28, ptr %6, align 4
-  %29 = getelementptr inbounds i8, ptr %2, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %30 = load i8, ptr %29, align 8
   %31 = or i8 %30, 4
-  %32 = getelementptr inbounds i8, ptr %6, i64 5
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 5
   store i8 %31, ptr %32, align 1
-  %33 = getelementptr inbounds i8, ptr %6, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i8 %18, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %6, i64 8
-  %35 = getelementptr inbounds i8, ptr %2, i64 26
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 26
   %36 = zext nneg i8 %18 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %34, ptr nonnull align 1 %35, i64 %36, i1 false)
   call void @ws_buffer_append(ptr noundef nonnull %1, ptr noundef nonnull %6, i64 noundef 72) #6
   br label %54
 
 37:                                               ; preds = %5
-  %38 = getelementptr inbounds i8, ptr %7, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %38, i8 0, i64 12, i1 false)
   %39 = load i8, ptr %15, align 1
   %40 = icmp ugt i8 %39, 8
@@ -295,14 +295,14 @@ define internal fastcc range(i32 0, 2) i32 @candump_gen_packet(ptr nocapture nou
   br label %70
 
 46:                                               ; preds = %37
-  %47 = getelementptr inbounds i8, ptr %2, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %48 = load i32, ptr %47, align 8
   %49 = tail call i32 @llvm.bswap.i32(i32 %48)
   store i32 %49, ptr %7, align 4
-  %50 = getelementptr inbounds i8, ptr %7, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i8 %39, ptr %50, align 4
-  %51 = getelementptr inbounds i8, ptr %7, i64 8
-  %52 = getelementptr inbounds i8, ptr %2, i64 26
+  %51 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 26
   %53 = zext nneg i8 %39 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %51, ptr nonnull align 1 %52, i64 %53, i1 false)
   call void @ws_buffer_append(ptr noundef nonnull %1, ptr noundef nonnull %7, i64 noundef 16) #6
@@ -311,25 +311,25 @@ define internal fastcc range(i32 0, 2) i32 @candump_gen_packet(ptr nocapture nou
 54:                                               ; preds = %46, %25
   store i32 0, ptr %0, align 8
   %55 = call ptr @wtap_block_create(i32 noundef 5) #6
-  %56 = getelementptr inbounds i8, ptr %0, i64 232
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store ptr %55, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %0, i64 4
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 1, ptr %57, align 4
-  %58 = getelementptr inbounds i8, ptr %0, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %58, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  %59 = getelementptr inbounds i8, ptr %0, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 6, ptr %59, align 8
   %60 = load i64, ptr %8, align 8
   %61 = load i64, ptr %10, align 8
   %62 = sub i64 %60, %61
   %63 = trunc i64 %62 to i32
-  %64 = getelementptr inbounds i8, ptr %0, i64 64
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %63, ptr %64, align 8
   %65 = load i64, ptr %8, align 8
   %66 = load i64, ptr %10, align 8
   %67 = sub i64 %65, %66
   %68 = trunc i64 %67 to i32
-  %69 = getelementptr inbounds i8, ptr %0, i64 68
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 %68, ptr %69, align 4
   br label %70
 

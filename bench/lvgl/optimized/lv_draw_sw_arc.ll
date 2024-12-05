@@ -146,7 +146,7 @@ define void @lv_draw_sw_arc(ptr noundef %0, ptr nocapture noundef readonly %1, p
   %84 = add i32 %.neg, %.fr182
   %85 = add i32 %.neg184, %.fr183
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #6
-  %86 = getelementptr inbounds i8, ptr %10, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %10, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %86, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %11) #6
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -157,7 +157,7 @@ define void @lv_draw_sw_arc(ptr noundef %0, ptr nocapture noundef readonly %1, p
   store ptr %11, ptr %10, align 16, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12) #6
   call void @lv_draw_sw_mask_radius_init(ptr noundef nonnull %12, ptr noundef nonnull %6, i32 noundef 32767, i1 noundef zeroext false) #6
-  %91 = getelementptr inbounds i8, ptr %10, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %12, ptr %91, align 8, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13) #6
   %92 = call i32 @lv_area_get_width(ptr noundef nonnull %9) #6
@@ -171,7 +171,7 @@ define void @lv_draw_sw_arc(ptr noundef %0, ptr nocapture noundef readonly %1, p
 
 97:                                               ; preds = %94
   call void @lv_draw_sw_mask_radius_init(ptr noundef nonnull %13, ptr noundef nonnull %9, i32 noundef 32767, i1 noundef zeroext true) #6
-  %98 = getelementptr inbounds i8, ptr %10, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %13, ptr %98, align 16, !tbaa !37
   br label %99
 
@@ -185,7 +185,7 @@ define void @lv_draw_sw_arc(ptr noundef %0, ptr nocapture noundef readonly %1, p
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %14, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #6
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %16) #6
-  %104 = getelementptr inbounds i8, ptr %16, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %16, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %104, i8 0, i64 64, i1 false)
   %105 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store ptr %103, ptr %105, align 8, !tbaa !38
@@ -305,7 +305,7 @@ define void @lv_draw_sw_arc(ptr noundef %0, ptr nocapture noundef readonly %1, p
   call void @lv_draw_sw_mask_radius_init(ptr noundef nonnull %21, ptr noundef nonnull %20, i32 noundef %175, i1 noundef zeroext false) #6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22) #6
   store ptr %21, ptr %22, align 16, !tbaa !37
-  %176 = getelementptr inbounds i8, ptr %22, i64 8
+  %176 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr null, ptr %176, align 8, !tbaa !37
   %177 = icmp sgt i32 %spec.select, 0
   br i1 %177, label %.lr.ph, label %._crit_edge
@@ -326,7 +326,7 @@ define void @lv_draw_sw_arc(ptr noundef %0, ptr nocapture noundef readonly %1, p
   br label %183
 
 183:                                              ; preds = %182, %179
-  %184 = getelementptr inbounds i8, ptr %.0118163, i64 %178
+  %184 = getelementptr inbounds nuw i8, ptr %.0118163, i64 %178
   %185 = add nuw nsw i32 %.0123162, 1
   %exitcond.not = icmp eq i32 %185, %spec.select
   br i1 %exitcond.not, label %._crit_edge, label %179, !llvm.loop !55
@@ -682,10 +682,10 @@ add_circle.exit157:                               ; preds = %.lr.ph.i153, %349, 
 
 .lr.ph166:                                        ; preds = %382, %.lr.ph166
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph166 ], [ 0, %382 ]
-  %398 = getelementptr inbounds i8, ptr %103, i64 %indvars.iv
+  %398 = getelementptr inbounds nuw i8, ptr %103, i64 %indvars.iv
   %399 = load i8, ptr %398, align 1, !tbaa !27
   %400 = zext i8 %399 to i16
-  %401 = getelementptr inbounds i8, ptr %397, i64 %indvars.iv
+  %401 = getelementptr inbounds nuw i8, ptr %397, i64 %indvars.iv
   %402 = load i8, ptr %401, align 1, !tbaa !27
   %403 = zext i8 %402 to i16
   %404 = mul nuw i16 %403, %400

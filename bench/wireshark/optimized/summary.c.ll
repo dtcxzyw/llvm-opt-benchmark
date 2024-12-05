@@ -19,24 +19,24 @@ define hidden void @summary_fill_in(ptr noundef %0, ptr noundef initializes((0, 
   %5 = alloca ptr, align 8
   %6 = alloca %struct.if_filter_opt_s, align 8
   %7 = alloca ptr, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i32 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
-  %11 = getelementptr inbounds i8, ptr %1, i64 76
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 76
   store i32 0, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %1, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 96
-  %14 = getelementptr inbounds i8, ptr %1, i64 104
-  %15 = getelementptr inbounds i8, ptr %1, i64 88
-  %16 = getelementptr inbounds i8, ptr %1, i64 32
-  %17 = getelementptr inbounds i8, ptr %1, i64 36
-  %18 = getelementptr inbounds i8, ptr %1, i64 48
-  %19 = getelementptr inbounds i8, ptr %1, i64 56
-  %20 = getelementptr inbounds i8, ptr %1, i64 40
-  %21 = getelementptr inbounds i8, ptr %1, i64 64
-  %22 = getelementptr inbounds i8, ptr %0, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %16, i8 0, i64 36, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
@@ -45,10 +45,10 @@ define hidden void @summary_fill_in(ptr noundef %0, ptr noundef initializes((0, 
   br i1 %.not, label %.loopexit, label %24
 
 24:                                               ; preds = %2
-  %25 = getelementptr inbounds i8, ptr %0, i64 280
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %26 = load ptr, ptr %25, align 8
   %27 = tail call ptr @frame_data_sequence_find(ptr noundef %26, i32 noundef 1) #5
-  %28 = getelementptr inbounds i8, ptr %27, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 56
   %29 = tail call double @nstime_to_sec(ptr noundef nonnull %28) #5
   store double %29, ptr %9, align 8
   %30 = tail call double @nstime_to_sec(ptr noundef nonnull %28) #5
@@ -61,13 +61,13 @@ define hidden void @summary_fill_in(ptr noundef %0, ptr noundef initializes((0, 
   %.0102 = phi i32 [ %112, %tally_frame_data.exit ], [ 1, %24 ]
   %32 = load ptr, ptr %25, align 8
   %33 = tail call ptr @frame_data_sequence_find(ptr noundef %32, i32 noundef %.0102) #5
-  %34 = getelementptr inbounds i8, ptr %33, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %35 = load i32, ptr %34, align 4
   %36 = zext i32 %35 to i64
   %37 = load i64, ptr %1, align 8
   %38 = add i64 %37, %36
   store i64 %38, ptr %1, align 8
-  %39 = getelementptr inbounds i8, ptr %33, i64 50
+  %39 = getelementptr inbounds nuw i8, ptr %33, i64 50
   %40 = load i16, ptr %39, align 2
   %41 = and i16 %40, 1
   %.not.i = icmp eq i16 %41, 0
@@ -123,7 +123,7 @@ define hidden void @summary_fill_in(ptr noundef %0, ptr noundef initializes((0, 
   br i1 %.not55.i, label %tally_frame_data.exit, label %68
 
 68:                                               ; preds = %65
-  %69 = getelementptr inbounds i8, ptr %33, i64 56
+  %69 = getelementptr inbounds nuw i8, ptr %33, i64 56
   %70 = tail call double @nstime_to_sec(ptr noundef nonnull %69) #5
   %71 = load i32, ptr %8, align 8
   %72 = add i32 %71, 1
@@ -224,80 +224,80 @@ tally_frame_data.exit:                            ; preds = %tally_frame_data.ex
   br i1 %.not93, label %.loopexit, label %.lr.ph, !llvm.loop !4
 
 .loopexit:                                        ; preds = %tally_frame_data.exit, %24, %2
-  %114 = getelementptr inbounds i8, ptr %0, i64 16
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %1, i64 112
+  %116 = getelementptr inbounds nuw i8, ptr %1, i64 112
   store ptr %115, ptr %116, align 8
-  %117 = getelementptr inbounds i8, ptr %0, i64 48
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %118 = load i64, ptr %117, align 8
-  %119 = getelementptr inbounds i8, ptr %1, i64 120
+  %119 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store i64 %118, ptr %119, align 8
-  %120 = getelementptr inbounds i8, ptr %0, i64 56
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %121 = load i16, ptr %120, align 8
   %122 = zext i16 %121 to i32
-  %123 = getelementptr inbounds i8, ptr %1, i64 260
+  %123 = getelementptr inbounds nuw i8, ptr %1, i64 260
   store i32 %122, ptr %123, align 4
-  %124 = getelementptr inbounds i8, ptr %0, i64 64
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %125 = load i32, ptr %124, align 8
-  %126 = getelementptr inbounds i8, ptr %1, i64 264
+  %126 = getelementptr inbounds nuw i8, ptr %1, i64 264
   store i32 %125, ptr %126, align 8
-  %127 = getelementptr inbounds i8, ptr %0, i64 32
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %128 = load i32, ptr %127, align 8
-  %129 = getelementptr inbounds i8, ptr %1, i64 304
+  %129 = getelementptr inbounds nuw i8, ptr %1, i64 304
   store i32 %128, ptr %129, align 8
-  %130 = getelementptr inbounds i8, ptr %0, i64 68
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %131 = load i32, ptr %130, align 4
-  %132 = getelementptr inbounds i8, ptr %1, i64 268
+  %132 = getelementptr inbounds nuw i8, ptr %1, i64 268
   store i32 %131, ptr %132, align 4
-  %133 = getelementptr inbounds i8, ptr %0, i64 72
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %134 = load ptr, ptr %133, align 8
-  %135 = getelementptr inbounds i8, ptr %1, i64 272
+  %135 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store ptr %134, ptr %135, align 8
-  %136 = getelementptr inbounds i8, ptr %0, i64 136
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %137 = load i32, ptr %136, align 8
-  %138 = getelementptr inbounds i8, ptr %1, i64 280
+  %138 = getelementptr inbounds nuw i8, ptr %1, i64 280
   store i32 %137, ptr %138, align 8
-  %139 = getelementptr inbounds i8, ptr %0, i64 120
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %140 = tail call double @nstime_to_sec(ptr noundef nonnull %139) #5
-  %141 = getelementptr inbounds i8, ptr %1, i64 24
+  %141 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store double %140, ptr %141, align 8
   %142 = load i32, ptr %22, align 8
-  %143 = getelementptr inbounds i8, ptr %1, i64 68
+  %143 = getelementptr inbounds nuw i8, ptr %1, i64 68
   store i32 %142, ptr %143, align 4
-  %144 = getelementptr inbounds i8, ptr %0, i64 112
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %145 = load i32, ptr %144, align 8
-  %146 = getelementptr inbounds i8, ptr %1, i64 284
+  %146 = getelementptr inbounds nuw i8, ptr %1, i64 284
   store i32 %145, ptr %146, align 4
-  %147 = getelementptr inbounds i8, ptr %0, i64 116
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %148 = load i32, ptr %147, align 4
   %149 = zext i32 %148 to i64
-  %150 = getelementptr inbounds i8, ptr %1, i64 288
+  %150 = getelementptr inbounds nuw i8, ptr %1, i64 288
   store i64 %149, ptr %150, align 8
-  %151 = getelementptr inbounds i8, ptr %0, i64 160
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %152 = load ptr, ptr %151, align 8
-  %153 = getelementptr inbounds i8, ptr %1, i64 296
+  %153 = getelementptr inbounds nuw i8, ptr %1, i64 296
   store ptr %152, ptr %153, align 8
   %154 = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 0, i32 noundef 56) #5
-  %155 = getelementptr inbounds i8, ptr %1, i64 312
+  %155 = getelementptr inbounds nuw i8, ptr %1, i64 312
   store ptr %154, ptr %155, align 8
-  %156 = getelementptr inbounds i8, ptr %0, i64 248
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %157 = load ptr, ptr %156, align 8
   %158 = tail call ptr @wtap_file_get_idb_info(ptr noundef %157) #5
   %159 = load ptr, ptr %158, align 8
-  %160 = getelementptr inbounds i8, ptr %159, i64 8
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 8
   %161 = load i32, ptr %160, align 8
   %.not108 = icmp eq i32 %161, 0
   br i1 %.not108, label %._crit_edge, label %.lr.ph104
 
 .lr.ph104:                                        ; preds = %.loopexit
-  %162 = getelementptr inbounds i8, ptr %3, i64 16
-  %163 = getelementptr inbounds i8, ptr %6, i64 8
-  %164 = getelementptr inbounds i8, ptr %3, i64 8
-  %165 = getelementptr inbounds i8, ptr %3, i64 40
-  %166 = getelementptr inbounds i8, ptr %3, i64 32
-  %167 = getelementptr inbounds i8, ptr %3, i64 44
-  %168 = getelementptr inbounds i8, ptr %3, i64 48
-  %169 = getelementptr inbounds i8, ptr %3, i64 24
+  %162 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %163 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %164 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %165 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %166 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %167 = getelementptr inbounds nuw i8, ptr %3, i64 44
+  %168 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %169 = getelementptr inbounds nuw i8, ptr %3, i64 24
   br label %170
 
 170:                                              ; preds = %.lr.ph104, %214
@@ -348,19 +348,19 @@ tally_frame_data.exit:                            ; preds = %tally_frame_data.ex
   store ptr %storemerge110, ptr %164, align 8
   store i32 0, ptr %165, align 8
   store i64 0, ptr %166, align 8
-  %196 = getelementptr inbounds i8, ptr %175, i64 20
+  %196 = getelementptr inbounds nuw i8, ptr %175, i64 20
   %197 = load i32, ptr %196, align 4
   store i32 %197, ptr %167, align 4
   %198 = load i32, ptr %175, align 8
   store i32 %198, ptr %168, align 8
   store ptr null, ptr %169, align 8
-  %199 = getelementptr inbounds i8, ptr %175, i64 24
+  %199 = getelementptr inbounds nuw i8, ptr %175, i64 24
   %200 = load i8, ptr %199, align 8
   %201 = icmp eq i8 %200, 1
   br i1 %201, label %202, label %214
 
 202:                                              ; preds = %195
-  %203 = getelementptr inbounds i8, ptr %175, i64 32
+  %203 = getelementptr inbounds nuw i8, ptr %175, i64 32
   %204 = load ptr, ptr %203, align 8
   %205 = load ptr, ptr %204, align 8
   %206 = load ptr, ptr %205, align 8
@@ -388,7 +388,7 @@ tally_frame_data.exit:                            ; preds = %tally_frame_data.ex
   %216 = call ptr @g_array_append_vals(ptr noundef %215, ptr noundef nonnull %3, i32 noundef 1) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %217 = load ptr, ptr %158, align 8
-  %218 = getelementptr inbounds i8, ptr %217, i64 8
+  %218 = getelementptr inbounds nuw i8, ptr %217, i64 8
   %219 = load i32, ptr %218, align 8
   %220 = zext i32 %219 to i64
   %221 = icmp samesign ult i64 %indvars.iv.next, %220
@@ -396,9 +396,9 @@ tally_frame_data.exit:                            ; preds = %tally_frame_data.ex
 
 ._crit_edge:                                      ; preds = %214, %.loopexit
   call void @g_free(ptr noundef nonnull %158) #5
-  %222 = getelementptr inbounds i8, ptr %1, i64 128
+  %222 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %223 = call i64 @g_strlcpy(ptr noundef nonnull %222, ptr noundef nonnull @.str, i64 noundef 65) #5
-  %224 = getelementptr inbounds i8, ptr %1, i64 193
+  %224 = getelementptr inbounds nuw i8, ptr %1, i64 193
   %225 = call i64 @g_strlcpy(ptr noundef nonnull %224, ptr noundef nonnull @.str, i64 noundef 65) #5
   %226 = call i32 @gcry_md_open(ptr noundef nonnull %7, i32 noundef 8, i32 noundef 0) #5
   %227 = load ptr, ptr %7, align 8

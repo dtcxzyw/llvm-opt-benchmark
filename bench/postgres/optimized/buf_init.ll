@@ -86,26 +86,26 @@ define dso_local void @InitBufferPool() local_unnamed_addr #0 {
   %39 = load ptr, ptr @BufferDescriptors, align 8
   %40 = getelementptr %union.BufferDescPadded, ptr %39, i64 %indvars.iv
   store i32 0, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %40, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
   store i32 0, ptr %41, align 4
-  %42 = getelementptr inbounds i8, ptr %40, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store i32 0, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %40, i64 12
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 12
   store i32 -1, ptr %43, align 4
-  %44 = getelementptr inbounds i8, ptr %40, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %40, i64 16
   store i32 -1, ptr %44, align 4
-  %45 = getelementptr inbounds i8, ptr %40, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %40, i64 24
   store volatile i32 0, ptr %45, align 4
-  %46 = getelementptr inbounds i8, ptr %40, i64 28
+  %46 = getelementptr inbounds nuw i8, ptr %40, i64 28
   store i32 -1, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %40, i64 20
+  %47 = getelementptr inbounds nuw i8, ptr %40, i64 20
   %48 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %48, ptr %47, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %49 = getelementptr inbounds i8, ptr %40, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %50 = trunc nuw nsw i64 %indvars.iv.next to i32
   store i32 %50, ptr %49, align 4
-  %51 = getelementptr inbounds i8, ptr %40, i64 36
+  %51 = getelementptr inbounds nuw i8, ptr %40, i64 36
   call void @LWLockInitialize(ptr noundef nonnull %51, i32 noundef 61) #2
   %.val = load i32, ptr %47, align 4
   %52 = load ptr, ptr @BufferIOCVArray, align 8

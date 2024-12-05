@@ -9,7 +9,7 @@ define range(i32 0, 2) i32 @cs_utsolve(ptr noundef readonly %0, ptr noundef %1) 
   br i1 %.not, label %.loopexit, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, -1
   %7 = icmp ne ptr %1, null
@@ -17,13 +17,13 @@ define range(i32 0, 2) i32 @cs_utsolve(ptr noundef readonly %0, ptr noundef %1) 
   br i1 %or.cond, label %8, label %.loopexit
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
   %17 = icmp sgt i32 %10, 0
   br i1 %17, label %.lr.ph39.preheader, label %.loopexit
@@ -34,14 +34,14 @@ define range(i32 0, 2) i32 @cs_utsolve(ptr noundef readonly %0, ptr noundef %1) 
 
 .lr.ph39:                                         ; preds = %.lr.ph39.preheader, %._crit_edge
   %indvars.iv42 = phi i64 [ 0, %.lr.ph39.preheader ], [ %indvars.iv.next43, %._crit_edge ]
-  %18 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv42
+  %18 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv42
   %19 = load i32, ptr %18, align 4
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
-  %20 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv.next43
+  %20 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.next43
   %21 = load i32, ptr %20, align 4
   %22 = add nsw i32 %21, -1
   %23 = icmp slt i32 %19, %22
-  %24 = getelementptr inbounds double, ptr %1, i64 %indvars.iv42
+  %24 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv42
   br i1 %23, label %.lr.ph, label %.lr.ph39.._crit_edge_crit_edge
 
 .lr.ph39.._crit_edge_crit_edge:                   ; preds = %.lr.ph39
@@ -79,7 +79,7 @@ define range(i32 0, 2) i32 @cs_utsolve(ptr noundef readonly %0, ptr noundef %1) 
   %41 = phi double [ %.pre45, %.lr.ph39.._crit_edge_crit_edge ], [ %36, %26 ]
   %42 = getelementptr inbounds double, ptr %16, i64 %.pre-phi
   %43 = load double, ptr %42, align 8
-  %44 = getelementptr inbounds double, ptr %1, i64 %indvars.iv42
+  %44 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv42
   %45 = fdiv double %41, %43
   store double %45, ptr %44, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next43, %wide.trip.count

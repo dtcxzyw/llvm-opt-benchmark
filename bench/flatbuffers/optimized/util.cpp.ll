@@ -103,7 +103,7 @@ entry:
   %file_info = alloca %struct.stat, align 8
   %call = call i32 @stat(ptr noundef %name, ptr noundef nonnull %file_info) #17
   %cmp.not = icmp eq i32 %call, 0
-  %st_mode = getelementptr inbounds i8, ptr %file_info, i64 24
+  %st_mode = getelementptr inbounds nuw i8, ptr %file_info, i64 24
   %0 = load i32, ptr %st_mode, align 8
   %and = and i32 %0, 16384
   %cmp1 = icmp ne i32 %and, 0
@@ -134,7 +134,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %file_info.i)
   %call.i = call i32 @stat(ptr noundef readonly %name, ptr noundef nonnull %file_info.i) #17
   %cmp.not.i = icmp eq i32 %call.i, 0
-  %st_mode.i = getelementptr inbounds i8, ptr %file_info.i, i64 24
+  %st_mode.i = getelementptr inbounds nuw i8, ptr %file_info.i, i64 24
   %0 = load i32, ptr %st_mode.i, align 8
   %and.i = and i32 %0, 16384
   %cmp1.i = icmp ne i32 %and.i, 0
@@ -642,7 +642,7 @@ if.then.i3:                                       ; preds = %for.body.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i3, %for.body.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.05.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.05.i, i64 1
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %call2
   br i1 %cmp.i.not.i, label %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit, label %for.body.i, !llvm.loop !5
 
@@ -834,8 +834,8 @@ lpad6:                                            ; preds = %invoke.cont5
 
 if.end21:                                         ; preds = %if.then19, %while.body
   %common_prefix_len.1 = phi i64 [ %sub.ptr.sub, %if.then19 ], [ %common_prefix_len.023, %while.body ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %a.021, i64 1
-  %incdec.ptr22 = getelementptr inbounds i8, ptr %b.022, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %a.021, i64 1
+  %incdec.ptr22 = getelementptr inbounds nuw i8, ptr %b.022, i64 1
   %7 = load i8, ptr %incdec.ptr, align 1
   %cmp11.not = icmp eq i8 %7, 0
   br i1 %cmp11.not, label %while.end, label %land.lhs.true, !llvm.loop !13
@@ -852,7 +852,7 @@ while.body27:                                     ; preds = %while.end, %while.b
   %9 = phi i8 [ %10, %while.body27 ], [ %8, %while.end ]
   %num_up.027 = phi i64 [ %spec.select, %while.body27 ], [ 0, %while.end ]
   %suffix.026 = phi ptr [ %incdec.ptr28, %while.body27 ], [ %add.ptr, %while.end ]
-  %incdec.ptr28 = getelementptr inbounds i8, ptr %suffix.026, i64 1
+  %incdec.ptr28 = getelementptr inbounds nuw i8, ptr %suffix.026, i64 1
   %cmp30 = icmp eq i8 %9, 47
   %inc = zext i1 %cmp30 to i64
   %spec.select = add i64 %num_up.027, %inc
@@ -1435,9 +1435,9 @@ for.inc.i33:                                      ; preds = %cond.true51.invoke.
   br i1 %cmp.i36, label %for.body.i25, label %return, !llvm.loop !18
 
 sw.bb11:                                          ; preds = %sw.epilog
-  %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
-  %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
-  %25 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
   store i64 0, ptr %25, align 8
   store ptr @_ZN11flatbuffers11CharToUpperEc, ptr %agg.tmp, align 8
   store ptr @_ZNSt17_Function_handlerIFccEPS0_E9_M_invokeERKSt9_Any_dataOc, ptr %_M_invoker.i, align 8
@@ -1480,9 +1480,9 @@ terminate.lpad.i.i51:                             ; preds = %if.then.i.i49
   unreachable
 
 sw.bb14:                                          ; preds = %sw.epilog
-  %_M_manager.i.i54 = getelementptr inbounds i8, ptr %agg.tmp15, i64 16
-  %_M_invoker.i55 = getelementptr inbounds i8, ptr %agg.tmp15, i64 24
-  %33 = getelementptr inbounds i8, ptr %agg.tmp15, i64 8
+  %_M_manager.i.i54 = getelementptr inbounds nuw i8, ptr %agg.tmp15, i64 16
+  %_M_invoker.i55 = getelementptr inbounds nuw i8, ptr %agg.tmp15, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %agg.tmp15, i64 8
   store i64 0, ptr %33, align 8
   store ptr @_ZN11flatbuffers11CharToLowerEc, ptr %agg.tmp15, align 8
   store ptr @_ZNSt17_Function_handlerIFccEPS0_E9_M_invokeERKSt9_Any_dataOc, ptr %_M_invoker.i55, align 8
@@ -1806,8 +1806,8 @@ entry:
   br i1 %cmp8.not, label %nrvo.skipdtor, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %_M_manager.i.i = getelementptr inbounds i8, ptr %transform, i64 16
-  %_M_invoker.i = getelementptr inbounds i8, ptr %transform, i64 24
+  %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %transform, i64 16
+  %_M_invoker.i = getelementptr inbounds nuw i8, ptr %transform, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc

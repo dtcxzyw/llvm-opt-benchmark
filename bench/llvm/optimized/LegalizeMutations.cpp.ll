@@ -23,7 +23,7 @@ define dso_local void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_o
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %0, align 8
   store i32 %1, ptr %0, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %.sroa.21.0..sroa_idx, align 8
   store ptr @"_ZNSt17_Function_handlerIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEZNS1_17LegalizeMutations8changeToEjS2_E3$_0E9_M_invokeERKSt9_Any_dataS6_", ptr %5, align 8
   store ptr @"_ZNSt17_Function_handlerIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEZNS1_17LegalizeMutations8changeToEjS2_E3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", ptr %4, align 8
@@ -41,7 +41,7 @@ define dso_local void @_ZN4llvm17LegalizeMutations8changeToEjj(ptr dead_on_unwin
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, %.sroa.0.0.insert.ext
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %6, align 8
   store i64 %.sroa.0.0.insert.insert, ptr %0, align 8
   store ptr @"_ZNSt17_Function_handlerIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEZNS1_17LegalizeMutations8changeToEjjE3$_0E9_M_invokeERKSt9_Any_dataS6_", ptr %5, align 8
@@ -57,7 +57,7 @@ define dso_local void @_ZN4llvm17LegalizeMutations15changeElementToEjj(ptr dead_
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, %.sroa.0.0.insert.ext
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %6, align 8
   store i64 %.sroa.0.0.insert.insert, ptr %0, align 8
   store ptr @"_ZNSt17_Function_handlerIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEZNS1_17LegalizeMutations15changeElementToEjjE3$_0E9_M_invokeERKSt9_Any_dataS6_", ptr %5, align 8
@@ -71,7 +71,7 @@ define dso_local void @_ZN4llvm17LegalizeMutations15changeElementToEjNS_3LLTE(pt
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %0, align 8
   store i32 %1, ptr %0, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %.sroa.21.0..sroa_idx, align 8
   store ptr @"_ZNSt17_Function_handlerIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEZNS1_17LegalizeMutations15changeElementToEjS2_E3$_0E9_M_invokeERKSt9_Any_dataS6_", ptr %5, align 8
   store ptr @"_ZNSt17_Function_handlerIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEZNS1_17LegalizeMutations15changeElementToEjS2_E3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", ptr %4, align 8
@@ -86,7 +86,7 @@ define dso_local void @_ZN4llvm17LegalizeMutations20changeElementCountToEjj(ptr 
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, %.sroa.0.0.insert.ext
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %6, align 8
   store i64 %.sroa.0.0.insert.insert, ptr %0, align 8
   store ptr @"_ZNSt17_Function_handlerIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEZNS1_17LegalizeMutations20changeElementCountToEjjE3$_0E9_M_invokeERKSt9_Any_dataS6_", ptr %5, align 8
@@ -100,7 +100,7 @@ define dso_local void @_ZN4llvm17LegalizeMutations20changeElementCountToEjNS_3LL
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %0, align 8
   store i32 %1, ptr %0, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %.sroa.21.0..sroa_idx, align 8
   store ptr @"_ZNSt17_Function_handlerIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEZNS1_17LegalizeMutations20changeElementCountToEjS2_E3$_0E9_M_invokeERKSt9_Any_dataS6_", ptr %5, align 8
   store ptr @"_ZNSt17_Function_handlerIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEZNS1_17LegalizeMutations20changeElementCountToEjS2_E3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", ptr %4, align 8
@@ -115,7 +115,7 @@ define dso_local void @_ZN4llvm17LegalizeMutations19changeElementSizeToEjj(ptr d
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, %.sroa.0.0.insert.ext
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %6, align 8
   store i64 %.sroa.0.0.insert.insert, ptr %0, align 8
   store ptr @"_ZNSt17_Function_handlerIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEZNS1_17LegalizeMutations19changeElementSizeToEjjE3$_0E9_M_invokeERKSt9_Any_dataS6_", ptr %5, align 8
@@ -131,7 +131,7 @@ define dso_local void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ej
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, %.sroa.0.0.insert.ext
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %6, align 8
   store i64 %.sroa.0.0.insert.insert, ptr %0, align 8
   store ptr @"_ZNSt17_Function_handlerIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEZNS1_17LegalizeMutations26widenScalarOrEltToNextPow2EjjE3$_0E9_M_invokeERKSt9_Any_dataS6_", ptr %5, align 8
@@ -147,7 +147,7 @@ define dso_local void @_ZN4llvm17LegalizeMutations32widenScalarOrEltToNextMultip
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, %.sroa.0.0.insert.ext
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %6, align 8
   store i64 %.sroa.0.0.insert.insert, ptr %0, align 8
   store ptr @"_ZNSt17_Function_handlerIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEZNS1_17LegalizeMutations32widenScalarOrEltToNextMultipleOfEjjE3$_0E9_M_invokeERKSt9_Any_dataS6_", ptr %5, align 8
@@ -163,7 +163,7 @@ define dso_local void @_ZN4llvm17LegalizeMutations22moreElementsToNextPow2Ejj(pt
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, %.sroa.0.0.insert.ext
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %6, align 8
   store i64 %.sroa.0.0.insert.insert, ptr %0, align 8
   store ptr @"_ZNSt17_Function_handlerIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEZNS1_17LegalizeMutations22moreElementsToNextPow2EjjE3$_0E9_M_invokeERKSt9_Any_dataS6_", ptr %5, align 8
@@ -188,7 +188,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal { i32, i64 } @"_ZNSt17_Function_handlerIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEZNS1_17LegalizeMutations8changeToEjS2_E3$_0E9_M_invokeERKSt9_Any_dataS6_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture nonnull readnone align 8 %1) #3 align 2 {
   %.val = load i32, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val2 = load i64, ptr %3, align 8
   %.fca.0.insert.i.i.i.i = insertvalue { i32, i64 } poison, i32 %.val, 0
   %.fca.1.insert.i.i.i.i = insertvalue { i32, i64 } %.fca.0.insert.i.i.i.i, i64 %.val2, 1
@@ -222,12 +222,12 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt4pairIjN4llvm3L
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal { i32, i64 } @"_ZNSt17_Function_handlerIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEZNS1_17LegalizeMutations8changeToEjjE3$_0E9_M_invokeERKSt9_Any_dataS6_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) #5 align 2 {
   %.val = load i32, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.val2 = load i32, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %4, align 8
   %5 = zext i32 %.val2 to i64
-  %6 = getelementptr inbounds %"class.llvm::LLT", ptr %.val3, i64 %5
+  %6 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %.val3, i64 %5
   %7 = load i64, ptr %6, align 8
   %.fca.0.insert.i.i.i.i = insertvalue { i32, i64 } poison, i32 %.val, 0
   %.fca.1.insert.i.i.i.i = insertvalue { i32, i64 } %.fca.0.insert.i.i.i.i, i64 %7, 1
@@ -262,18 +262,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt4pairIjN4llvm3L
 ; Function Attrs: mustprogress nounwind uwtable
 define internal { i32, i64 } @"_ZNSt17_Function_handlerIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEZNS1_17LegalizeMutations15changeElementToEjjE3$_0E9_M_invokeERKSt9_Any_dataS6_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) #6 align 2 {
   %3 = alloca %"class.llvm::LLT", align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val = load ptr, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %5 = load i32, ptr %0, align 8
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds %"class.llvm::LLT", ptr %.val, i64 %6
+  %7 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %.val, i64 %6
   %8 = load i64, ptr %7, align 8
   store i64 %8, ptr %3, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds %"class.llvm::LLT", ptr %.val, i64 %11
+  %12 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %.val, i64 %11
   %.sroa.01.0.copyload.i.i.i = load i64, ptr %12, align 8
   %13 = call i64 @_ZNK4llvm3LLT17changeElementTypeES0_(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 %.sroa.01.0.copyload.i.i.i)
   %14 = load i32, ptr %0, align 8
@@ -423,12 +423,12 @@ _ZN4llvm3LLT6vectorENS_12ElementCountES0_.exit:   ; preds = %37, %41
 ; Function Attrs: mustprogress nounwind uwtable
 define internal { i32, i64 } @"_ZNSt17_Function_handlerIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEZNS1_17LegalizeMutations15changeElementToEjS2_E3$_0E9_M_invokeERKSt9_Any_dataS6_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) #6 align 2 {
   %3 = alloca %"class.llvm::LLT", align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val = load ptr, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %5 = load i32, ptr %0, align 8
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds %"class.llvm::LLT", ptr %.val, i64 %6
+  %7 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %.val, i64 %6
   %8 = load i64, ptr %7, align 8
   store i64 %8, ptr %3, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -467,16 +467,16 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt4pairIjN4llvm3L
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal { i32, i64 } @"_ZNSt17_Function_handlerIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEZNS1_17LegalizeMutations20changeElementCountToEjjE3$_0E9_M_invokeERKSt9_Any_dataS6_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) #6 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val = load ptr, ptr %3, align 8
   %4 = load i32, ptr %0, align 8
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds %"class.llvm::LLT", ptr %.val, i64 %5
+  %6 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %.val, i64 %5
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds %"class.llvm::LLT", ptr %.val, i64 %10
+  %11 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %.val, i64 %10
   %12 = load i64, ptr %11, align 8
   %13 = and i64 %12, -7
   %spec.select.i.i.i.i.i = icmp ne i64 %13, 0
@@ -672,11 +672,11 @@ _ZN4llvm3LLT6vectorENS_12ElementCountES0_.exit:   ; preds = %30, %35
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal { i32, i64 } @"_ZNSt17_Function_handlerIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEZNS1_17LegalizeMutations20changeElementCountToEjS2_E3$_0E9_M_invokeERKSt9_Any_dataS6_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) #6 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val = load ptr, ptr %3, align 8
   %4 = load i32, ptr %0, align 8
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds %"class.llvm::LLT", ptr %.val, i64 %5
+  %6 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %.val, i64 %5
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
@@ -768,18 +768,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt4pairIjN4llvm3L
 ; Function Attrs: mustprogress nounwind uwtable
 define internal { i32, i64 } @"_ZNSt17_Function_handlerIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEZNS1_17LegalizeMutations19changeElementSizeToEjjE3$_0E9_M_invokeERKSt9_Any_dataS6_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) #6 align 2 {
   %3 = alloca %"class.llvm::LLT", align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val = load ptr, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %5 = load i32, ptr %0, align 8
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds %"class.llvm::LLT", ptr %.val, i64 %6
+  %7 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %.val, i64 %6
   %8 = load i64, ptr %7, align 8
   store i64 %8, ptr %3, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds %"class.llvm::LLT", ptr %.val, i64 %11
+  %12 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %.val, i64 %11
   %13 = load i64, ptr %12, align 8
   %14 = and i64 %13, 1
   %.not.i.i.i.i = icmp eq i64 %14, 0
@@ -848,12 +848,12 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt4pairIjN4llvm3L
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal { i32, i64 } @"_ZNSt17_Function_handlerIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEZNS1_17LegalizeMutations26widenScalarOrEltToNextPow2EjjE3$_0E9_M_invokeERKSt9_Any_dataS6_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) #5 align 2 {
   %.val = load i32, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.val2 = load i32, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %4, align 8
   %5 = zext i32 %.val to i64
-  %6 = getelementptr inbounds %"class.llvm::LLT", ptr %.val3, i64 %5
+  %6 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %.val3, i64 %5
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 1
   %.not.i.i.i.i = icmp eq i64 %8, 0
@@ -956,12 +956,12 @@ declare i32 @llvm.ctlz.i32(i32, i1 immarg) #7
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal { i32, i64 } @"_ZNSt17_Function_handlerIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEZNS1_17LegalizeMutations32widenScalarOrEltToNextMultipleOfEjjE3$_0E9_M_invokeERKSt9_Any_dataS6_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) #5 align 2 {
   %.val = load i32, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.val2 = load i32, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %4, align 8
   %5 = zext i32 %.val to i64
-  %6 = getelementptr inbounds %"class.llvm::LLT", ptr %.val3, i64 %5
+  %6 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %.val3, i64 %5
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 1
   %.not.i.i.i.i = icmp eq i64 %8, 0
@@ -1061,11 +1061,11 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt4pairIjN4llvm3L
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal { i32, i64 } @"_ZNSt17_Function_handlerIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEZNS1_17LegalizeMutations22moreElementsToNextPow2EjjE3$_0E9_M_invokeERKSt9_Any_dataS6_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) #6 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val = load ptr, ptr %3, align 8
   %4 = load i32, ptr %0, align 8
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds %"class.llvm::LLT", ptr %.val, i64 %5
+  %6 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %.val, i64 %5
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 2
   %.not.i.i.i.i.i = icmp eq i64 %8, 0
@@ -1258,10 +1258,10 @@ declare void @_ZN4llvm24reportInvalidSizeRequestEPKc(ptr noundef) local_unnamed_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal { i32, i64 } @"_ZNSt17_Function_handlerIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEZNS1_17LegalizeMutations9scalarizeEjE3$_0E9_M_invokeERKSt9_Any_dataS6_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) #5 align 2 {
   %.val = load i32, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val2 = load ptr, ptr %3, align 8
   %4 = zext i32 %.val to i64
-  %5 = getelementptr inbounds %"class.llvm::LLT", ptr %.val2, i64 %4
+  %5 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %.val2, i64 %4
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 2
   %.not.i.i.i.i = icmp eq i64 %7, 0

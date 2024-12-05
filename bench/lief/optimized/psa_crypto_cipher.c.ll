@@ -123,10 +123,10 @@ define hidden i32 @mbedtls_psa_cipher_encrypt_setup(ptr noundef %0, ptr nocaptur
 define internal fastcc i32 @psa_cipher_setup(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = alloca [24 x i8], align 16
   %7 = load i16, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @mbedtls_cipher_init(ptr noundef nonnull %8) #6
   store i32 %3, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %10 = load i16, ptr %9, align 2
   %11 = zext i16 %10 to i64
   %12 = tail call ptr @mbedtls_cipher_info_from_psa(i32 noundef %3, i16 noundef zeroext %7, i64 noundef %11, ptr noundef null)
@@ -147,7 +147,7 @@ define internal fastcc i32 @psa_cipher_setup(ptr noundef %0, ptr nocapture nound
 
 20:                                               ; preds = %16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, ptr noundef nonnull align 1 dereferenceable(16) %2, i64 16, i1 false)
-  %21 = getelementptr inbounds i8, ptr %6, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %22 = load i64, ptr %2, align 1
   store i64 %22, ptr %21, align 16
   %23 = call i32 @mbedtls_cipher_setkey(ptr noundef nonnull %8, ptr noundef nonnull %6, i32 noundef 192, i32 noundef %4) #6
@@ -195,7 +195,7 @@ define internal fastcc i32 @psa_cipher_setup(ptr noundef %0, ptr nocapture nound
 
 .thread._crit_edge:                               ; preds = %.thread, %34
   %41 = phi i8 [ %40, %34 ], [ 1, %.thread ]
-  %42 = getelementptr inbounds i8, ptr %0, i64 5
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 5
   store i8 %41, ptr %42, align 1
   %43 = icmp eq i32 %.pre, 8192
   %44 = lshr i32 %17, 8
@@ -227,7 +227,7 @@ define internal fastcc i32 @psa_cipher_setup(ptr noundef %0, ptr nocapture nound
 56:                                               ; preds = %48, %48, %48, %48, %48, %48, %50
   %57 = phi i32 [ %55, %50 ], [ %49, %48 ], [ %49, %48 ], [ %49, %48 ], [ %49, %48 ], [ %49, %48 ], [ %49, %48 ]
   %58 = trunc nuw i32 %57 to i8
-  %59 = getelementptr inbounds i8, ptr %0, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 %58, ptr %59, align 4
   br label %60
 
@@ -249,14 +249,14 @@ define hidden i32 @mbedtls_psa_cipher_decrypt_setup(ptr noundef %0, ptr nocaptur
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_psa_cipher_set_iv(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i8, ptr %4, align 4
   %6 = zext i8 %5 to i64
   %.not = icmp eq i64 %2, %6
   br i1 %.not, label %7, label %11
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = tail call i32 @mbedtls_cipher_set_iv(ptr noundef nonnull %8, ptr noundef %1, i64 noundef %2) #6
   %10 = tail call i32 @mbedtls_to_psa_error(i32 noundef %9) #6
   br label %11
@@ -279,11 +279,11 @@ define hidden i32 @mbedtls_psa_cipher_update(ptr noundef %0, ptr noundef %1, i64
   br i1 %10, label %20, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %13 = load i64, ptr %12, align 8
   %.fr25 = freeze i64 %13
   %14 = add i64 %.fr25, %2
-  %15 = getelementptr inbounds i8, ptr %0, i64 5
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i64
   %18 = urem i64 %14, %17
@@ -297,13 +297,13 @@ define hidden i32 @mbedtls_psa_cipher_update(ptr noundef %0, ptr noundef %1, i64
 
 22:                                               ; preds = %20
   %23 = icmp eq i32 %8, 71320576
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %23, label %25, label %67
 
 25:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %26 = load ptr, ptr %24, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %28 = load i32, ptr %27, align 8
   %29 = zext i32 %28 to i64
   store i64 0, ptr %7, align 8
@@ -312,7 +312,7 @@ define hidden i32 @mbedtls_psa_cipher_update(ptr noundef %0, ptr noundef %1, i64
   br i1 %30, label %psa_cipher_update_ecb.exit, label %31
 
 31:                                               ; preds = %25
-  %32 = getelementptr inbounds i8, ptr %0, i64 56
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %33 = load i64, ptr %32, align 8
   %.not.i = icmp eq i64 %33, 0
   br i1 %.not.i, label %51, label %34
@@ -320,7 +320,7 @@ define hidden i32 @mbedtls_psa_cipher_update(ptr noundef %0, ptr noundef %1, i64
 34:                                               ; preds = %31
   %35 = sub i64 %29, %33
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %2, i64 %35)
-  %36 = getelementptr inbounds i8, ptr %0, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %37 = getelementptr inbounds [16 x i8], ptr %36, i64 0, i64 %33
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %37, ptr align 1 %1, i64 %spec.select.i, i1 false)
   %38 = sub i64 %2, %spec.select.i
@@ -364,7 +364,7 @@ define hidden i32 @mbedtls_psa_cipher_update(ptr noundef %0, ptr noundef %1, i64
 
 54:                                               ; preds = %.lr.ph.i
   %55 = sub i64 %.15270.i, %29
-  %56 = getelementptr inbounds i8, ptr %.171.i, i64 %29
+  %56 = getelementptr inbounds nuw i8, ptr %.171.i, i64 %29
   %57 = load i64, ptr %7, align 8
   %58 = getelementptr inbounds i8, ptr %.15469.i, i64 %57
   %59 = load i64, ptr %5, align 8
@@ -380,7 +380,7 @@ define hidden i32 @mbedtls_psa_cipher_update(ptr noundef %0, ptr noundef %1, i64
   br i1 %.not64.i, label %psa_cipher_update_ecb.exit, label %61
 
 61:                                               ; preds = %._crit_edge.i
-  %62 = getelementptr inbounds i8, ptr %0, i64 40
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %63 = load i64, ptr %32, align 8
   %64 = getelementptr inbounds [16 x i8], ptr %62, i64 0, i64 %63
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %64, ptr align 1 %.1.lcssa.i, i64 %.152.lcssa.i, i1 false)
@@ -412,8 +412,8 @@ declare i32 @mbedtls_cipher_update(ptr noundef, ptr noundef, i64 noundef, ptr no
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_psa_cipher_finish(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca [16 x i8], align 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load i64, ptr %7, align 8
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %11, label %9
@@ -465,7 +465,7 @@ define hidden range(i32 -137, 1) i32 @mbedtls_psa_cipher_abort(ptr noundef %0) l
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @mbedtls_cipher_free(ptr noundef nonnull %6) #6
   br label %7
 
@@ -492,14 +492,14 @@ define hidden i32 @mbedtls_psa_cipher_encrypt(ptr nocapture noundef readonly %0,
   br i1 %.not25, label %25, label %18
 
 18:                                               ; preds = %17
-  %19 = getelementptr inbounds i8, ptr %13, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %20 = load i8, ptr %19, align 4
   %21 = zext i8 %20 to i64
   %.not.i = icmp eq i64 %5, %21
   br i1 %.not.i, label %mbedtls_psa_cipher_set_iv.exit, label %mbedtls_psa_cipher_set_iv.exit.thread
 
 mbedtls_psa_cipher_set_iv.exit:                   ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %13, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %23 = call i32 @mbedtls_cipher_set_iv(ptr noundef nonnull %22, ptr noundef %4, i64 noundef %5) #6
   %24 = call i32 @mbedtls_to_psa_error(i32 noundef %23) #6
   %.not26 = icmp eq i32 %24, 0
@@ -515,8 +515,8 @@ mbedtls_psa_cipher_set_iv.exit:                   ; preds = %18
   %29 = getelementptr inbounds i8, ptr %8, i64 %28
   %30 = sub i64 %9, %28
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
-  %31 = getelementptr inbounds i8, ptr %13, i64 8
-  %32 = getelementptr inbounds i8, ptr %13, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %33 = load i64, ptr %32, align 8
   %.not.i29 = icmp eq i64 %33, 0
   br i1 %.not.i29, label %36, label %34
@@ -573,7 +573,7 @@ mbedtls_psa_cipher_set_iv.exit.thread:            ; preds = %18, %11, %mbedtls_p
   br i1 %53, label %54, label %mbedtls_psa_cipher_abort.exit
 
 54:                                               ; preds = %mbedtls_psa_cipher_set_iv.exit.thread
-  %55 = getelementptr inbounds i8, ptr %13, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %13, i64 8
   br label %mbedtls_psa_cipher_abort.exit.sink.split
 
 mbedtls_psa_cipher_abort.exit.sink.split:         ; preds = %44, %54
@@ -601,14 +601,14 @@ define hidden i32 @mbedtls_psa_cipher_decrypt(ptr nocapture noundef readonly %0,
   br i1 %.not, label %14, label %50
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %11, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %16 = load i8, ptr %15, align 4
   %.not25 = icmp eq i8 %16, 0
   br i1 %.not25, label %22, label %mbedtls_psa_cipher_set_iv.exit
 
 mbedtls_psa_cipher_set_iv.exit:                   ; preds = %14
   %17 = zext i8 %16 to i64
-  %18 = getelementptr inbounds i8, ptr %11, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %19 = call i32 @mbedtls_cipher_set_iv(ptr noundef nonnull %18, ptr noundef %4, i64 noundef %17) #6
   %20 = call i32 @mbedtls_to_psa_error(i32 noundef %19) #6
   %.not26 = icmp eq i32 %20, 0
@@ -621,7 +621,7 @@ mbedtls_psa_cipher_set_iv.exit._crit_edge:        ; preds = %mbedtls_psa_cipher_
 
 22:                                               ; preds = %mbedtls_psa_cipher_set_iv.exit._crit_edge, %14
   %23 = phi i64 [ %21, %mbedtls_psa_cipher_set_iv.exit._crit_edge ], [ 0, %14 ]
-  %24 = getelementptr inbounds i8, ptr %4, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 %23
   %25 = sub i64 %5, %23
   %26 = call i32 @mbedtls_psa_cipher_update(ptr noundef nonnull %11, ptr noundef %24, i64 noundef %25, ptr noundef %6, i64 noundef %7, ptr noundef nonnull %12)
   %.not27 = icmp eq i32 %26, 0
@@ -632,8 +632,8 @@ mbedtls_psa_cipher_set_iv.exit._crit_edge:        ; preds = %mbedtls_psa_cipher_
   %29 = getelementptr inbounds i8, ptr %6, i64 %28
   %30 = sub i64 %7, %28
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  %31 = getelementptr inbounds i8, ptr %11, i64 8
-  %32 = getelementptr inbounds i8, ptr %11, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %33 = load i64, ptr %32, align 8
   %.not.i29 = icmp eq i64 %33, 0
   br i1 %.not.i29, label %36, label %34
@@ -689,7 +689,7 @@ mbedtls_psa_cipher_finish.exit.thread:            ; preds = %36, %34, %34, %42
   br i1 %53, label %54, label %mbedtls_psa_cipher_abort.exit
 
 54:                                               ; preds = %50
-  %55 = getelementptr inbounds i8, ptr %11, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %11, i64 8
   br label %mbedtls_psa_cipher_abort.exit.sink.split
 
 mbedtls_psa_cipher_abort.exit.sink.split:         ; preds = %44, %54

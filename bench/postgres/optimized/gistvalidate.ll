@@ -36,21 +36,21 @@ define dso_local zeroext i1 @gistvalidate(i32 noundef %0) local_unnamed_addr #0 
   unreachable
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 22
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 22
   %11 = load i8, ptr %10, align 2
   %12 = zext i8 %11 to i64
   %13 = getelementptr i8, ptr %9, i64 %12
-  %14 = getelementptr inbounds i8, ptr %13, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 80
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %13, i64 84
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 84
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %13, i64 92
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 92
   %19 = load i32, ptr %18, align 4
   %.not140 = icmp eq i32 %19, 0
   %spec.select = select i1 %.not140, i32 %17, i32 %19
-  %20 = getelementptr inbounds i8, ptr %13, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %21 = zext i32 %15 to i64
   %22 = tail call ptr @SearchSysCache1(i32 noundef 40, i64 noundef %21) #4
   %.not141 = icmp eq ptr %22, null
@@ -64,33 +64,33 @@ define dso_local zeroext i1 @gistvalidate(i32 noundef %0) local_unnamed_addr #0 
   unreachable
 
 26:                                               ; preds = %7
-  %27 = getelementptr inbounds i8, ptr %22, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 22
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 22
   %30 = load i8, ptr %29, align 2
   %31 = zext i8 %30 to i64
   %32 = getelementptr i8, ptr %28, i64 %31
-  %33 = getelementptr inbounds i8, ptr %32, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = tail call ptr @SearchSysCacheList(i32 noundef 4, i32 noundef 1, i64 noundef %21, i64 noundef 0, i64 noundef 0) #4
   %35 = tail call ptr @SearchSysCacheList(i32 noundef 5, i32 noundef 1, i64 noundef %21, i64 noundef 0, i64 noundef 0) #4
-  %36 = getelementptr inbounds i8, ptr %35, i64 64
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 64
   %37 = load i32, ptr %36, align 8
   %38 = icmp sgt i32 %37, 0
   br i1 %38, label %.lr.ph, label %.preheader
 
 .lr.ph:                                           ; preds = %26
-  %39 = getelementptr inbounds i8, ptr %35, i64 80
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 80
   br label %44
 
 .preheader:                                       ; preds = %121, %26
   %.0.lcssa = phi i1 [ true, %26 ], [ %.2, %121 ]
-  %40 = getelementptr inbounds i8, ptr %34, i64 64
+  %40 = getelementptr inbounds nuw i8, ptr %34, i64 64
   %41 = load i32, ptr %40, align 8
   %42 = icmp sgt i32 %41, 0
   br i1 %42, label %.lr.ph158, label %._crit_edge
 
 .lr.ph158:                                        ; preds = %.preheader
-  %43 = getelementptr inbounds i8, ptr %34, i64 80
+  %43 = getelementptr inbounds nuw i8, ptr %34, i64 80
   br label %125
 
 44:                                               ; preds = %.lr.ph, %121
@@ -98,15 +98,15 @@ define dso_local zeroext i1 @gistvalidate(i32 noundef %0) local_unnamed_addr #0 
   %.0155 = phi i1 [ true, %.lr.ph ], [ %.2, %121 ]
   %45 = getelementptr [0 x ptr], ptr %39, i64 0, i64 %indvars.iv
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 80
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 80
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 22
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 22
   %50 = load i8, ptr %49, align 2
   %51 = zext i8 %50 to i64
   %52 = getelementptr i8, ptr %48, i64 %51
-  %53 = getelementptr inbounds i8, ptr %52, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load i32, ptr %53, align 4
-  %55 = getelementptr inbounds i8, ptr %52, i64 12
+  %55 = getelementptr inbounds nuw i8, ptr %52, i64 12
   %56 = load i32, ptr %55, align 4
   %.not148 = icmp eq i32 %54, %56
   br i1 %.not148, label %65, label %57
@@ -117,7 +117,7 @@ define dso_local zeroext i1 @gistvalidate(i32 noundef %0) local_unnamed_addr #0 
 
 59:                                               ; preds = %57
   %60 = tail call i32 @errcode(i32 noundef 117833860) #4
-  %61 = getelementptr inbounds i8, ptr %52, i64 20
+  %61 = getelementptr inbounds nuw i8, ptr %52, i64 20
   %62 = load i32, ptr %61, align 4
   %63 = tail call ptr @format_procedure(i32 noundef %62) #4
   %64 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull %33, ptr noundef nonnull @.str.4, ptr noundef %63) #4
@@ -131,7 +131,7 @@ define dso_local zeroext i1 @gistvalidate(i32 noundef %0) local_unnamed_addr #0 
   br i1 %.not149, label %67, label %121
 
 67:                                               ; preds = %65
-  %68 = getelementptr inbounds i8, ptr %52, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %69 = load i16, ptr %68, align 4
   switch i16 %69, label %106 [
     i16 1, label %108
@@ -149,55 +149,55 @@ define dso_local zeroext i1 @gistvalidate(i32 noundef %0) local_unnamed_addr #0 
   ]
 
 70:                                               ; preds = %67
-  %71 = getelementptr inbounds i8, ptr %52, i64 20
+  %71 = getelementptr inbounds nuw i8, ptr %52, i64 20
   %72 = load i32, ptr %71, align 4
   %73 = tail call zeroext i1 (i32, i32, i1, i32, i32, ...) @check_amproc_signature(i32 noundef %72, i32 noundef %spec.select, i1 noundef zeroext false, i32 noundef 2, i32 noundef 2, i32 noundef 2281, i32 noundef 2281) #4
   br i1 %73, label %121, label %112
 
 74:                                               ; preds = %67, %67, %67
-  %75 = getelementptr inbounds i8, ptr %52, i64 20
+  %75 = getelementptr inbounds nuw i8, ptr %52, i64 20
   %76 = load i32, ptr %75, align 4
   %77 = tail call zeroext i1 (i32, i32, i1, i32, i32, ...) @check_amproc_signature(i32 noundef %76, i32 noundef 2281, i1 noundef zeroext true, i32 noundef 1, i32 noundef 1, i32 noundef 2281) #4
   br i1 %77, label %121, label %112
 
 78:                                               ; preds = %67
-  %79 = getelementptr inbounds i8, ptr %52, i64 20
+  %79 = getelementptr inbounds nuw i8, ptr %52, i64 20
   %80 = load i32, ptr %79, align 4
   %81 = tail call zeroext i1 (i32, i32, i1, i32, i32, ...) @check_amproc_signature(i32 noundef %80, i32 noundef 2281, i1 noundef zeroext true, i32 noundef 3, i32 noundef 3, i32 noundef 2281, i32 noundef 2281, i32 noundef 2281) #4
   br i1 %81, label %121, label %112
 
 82:                                               ; preds = %67
-  %83 = getelementptr inbounds i8, ptr %52, i64 20
+  %83 = getelementptr inbounds nuw i8, ptr %52, i64 20
   %84 = load i32, ptr %83, align 4
   %85 = tail call zeroext i1 (i32, i32, i1, i32, i32, ...) @check_amproc_signature(i32 noundef %84, i32 noundef 2281, i1 noundef zeroext true, i32 noundef 2, i32 noundef 2, i32 noundef 2281, i32 noundef 2281) #4
   br i1 %85, label %121, label %112
 
 86:                                               ; preds = %67
-  %87 = getelementptr inbounds i8, ptr %52, i64 20
+  %87 = getelementptr inbounds nuw i8, ptr %52, i64 20
   %88 = load i32, ptr %87, align 4
   %89 = tail call zeroext i1 (i32, i32, i1, i32, i32, ...) @check_amproc_signature(i32 noundef %88, i32 noundef 2281, i1 noundef zeroext false, i32 noundef 3, i32 noundef 3, i32 noundef %spec.select, i32 noundef %spec.select, i32 noundef 2281) #4
   br i1 %89, label %121, label %112
 
 90:                                               ; preds = %67
-  %91 = getelementptr inbounds i8, ptr %52, i64 20
+  %91 = getelementptr inbounds nuw i8, ptr %52, i64 20
   %92 = load i32, ptr %91, align 4
   %93 = tail call zeroext i1 (i32, i32, i1, i32, i32, ...) @check_amproc_signature(i32 noundef %92, i32 noundef 701, i1 noundef zeroext false, i32 noundef 5, i32 noundef 5, i32 noundef 2281, i32 noundef %17, i32 noundef 21, i32 noundef 26, i32 noundef 2281) #4
   br i1 %93, label %121, label %112
 
 94:                                               ; preds = %67
-  %95 = getelementptr inbounds i8, ptr %52, i64 20
+  %95 = getelementptr inbounds nuw i8, ptr %52, i64 20
   %96 = load i32, ptr %95, align 4
   %97 = tail call zeroext i1 @check_amoptsproc_signature(i32 noundef %96) #4
   br i1 %97, label %121, label %112
 
 98:                                               ; preds = %67
-  %99 = getelementptr inbounds i8, ptr %52, i64 20
+  %99 = getelementptr inbounds nuw i8, ptr %52, i64 20
   %100 = load i32, ptr %99, align 4
   %101 = tail call zeroext i1 (i32, i32, i1, i32, i32, ...) @check_amproc_signature(i32 noundef %100, i32 noundef 2278, i1 noundef zeroext true, i32 noundef 1, i32 noundef 1, i32 noundef 2281) #4
   br i1 %101, label %121, label %112
 
 102:                                              ; preds = %67
-  %103 = getelementptr inbounds i8, ptr %52, i64 20
+  %103 = getelementptr inbounds nuw i8, ptr %52, i64 20
   %104 = load i32, ptr %103, align 4
   %105 = tail call zeroext i1 (i32, i32, i1, i32, i32, ...) @check_amproc_signature(i32 noundef %104, i32 noundef 21, i1 noundef zeroext true, i32 noundef 1, i32 noundef 1, i32 noundef 21) #4
   br i1 %105, label %121, label %112
@@ -207,7 +207,7 @@ define dso_local zeroext i1 @gistvalidate(i32 noundef %0) local_unnamed_addr #0 
   br i1 %107, label %.sink.split, label %121
 
 108:                                              ; preds = %67
-  %109 = getelementptr inbounds i8, ptr %52, i64 20
+  %109 = getelementptr inbounds nuw i8, ptr %52, i64 20
   %110 = load i32, ptr %109, align 4
   %111 = tail call zeroext i1 (i32, i32, i1, i32, i32, ...) @check_amproc_signature(i32 noundef %110, i32 noundef 16, i1 noundef zeroext false, i32 noundef 5, i32 noundef 5, i32 noundef 2281, i32 noundef %17, i32 noundef 21, i32 noundef 26, i32 noundef 2281) #4
   br i1 %111, label %121, label %112
@@ -220,7 +220,7 @@ define dso_local zeroext i1 @gistvalidate(i32 noundef %0) local_unnamed_addr #0 
   %.str.6.sink = phi ptr [ @.str.5, %106 ], [ @.str.6, %112 ]
   %.sink = phi i32 [ 160, %106 ], [ 172, %112 ]
   %114 = tail call i32 @errcode(i32 noundef 117833860) #4
-  %115 = getelementptr inbounds i8, ptr %52, i64 20
+  %115 = getelementptr inbounds nuw i8, ptr %52, i64 20
   %116 = load i32, ptr %115, align 4
   %117 = tail call ptr @format_procedure(i32 noundef %116) #4
   %118 = load i16, ptr %68, align 4
@@ -242,13 +242,13 @@ define dso_local zeroext i1 @gistvalidate(i32 noundef %0) local_unnamed_addr #0 
   %.3157 = phi i1 [ %.0.lcssa, %.lr.ph158 ], [ %.7, %191 ]
   %126 = getelementptr [0 x ptr], ptr %43, i64 0, i64 %indvars.iv175
   %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 80
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 80
   %129 = load ptr, ptr %128, align 8
-  %130 = getelementptr inbounds i8, ptr %129, i64 22
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 22
   %131 = load i8, ptr %130, align 2
   %132 = zext i8 %131 to i64
   %133 = getelementptr i8, ptr %129, i64 %132
-  %134 = getelementptr inbounds i8, ptr %133, i64 16
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 16
   %135 = load i16, ptr %134, align 4
   %136 = icmp slt i16 %135, 1
   br i1 %136, label %137, label %147
@@ -259,7 +259,7 @@ define dso_local zeroext i1 @gistvalidate(i32 noundef %0) local_unnamed_addr #0 
 
 139:                                              ; preds = %137
   %140 = tail call i32 @errcode(i32 noundef 117833860) #4
-  %141 = getelementptr inbounds i8, ptr %133, i64 20
+  %141 = getelementptr inbounds nuw i8, ptr %133, i64 20
   %142 = load i32, ptr %141, align 4
   %143 = tail call ptr @format_operator(i32 noundef %142) #4
   %144 = load i16, ptr %134, align 4
@@ -270,13 +270,13 @@ define dso_local zeroext i1 @gistvalidate(i32 noundef %0) local_unnamed_addr #0 
 
 147:                                              ; preds = %139, %137, %125
   %.4 = phi i1 [ %.3157, %125 ], [ false, %137 ], [ false, %139 ]
-  %148 = getelementptr inbounds i8, ptr %133, i64 18
+  %148 = getelementptr inbounds nuw i8, ptr %133, i64 18
   %149 = load i8, ptr %148, align 2
   %.not146 = icmp eq i8 %149, 115
   br i1 %.not146, label %176, label %150
 
 150:                                              ; preds = %147
-  %151 = getelementptr inbounds i8, ptr %133, i64 8
+  %151 = getelementptr inbounds nuw i8, ptr %133, i64 8
   %152 = load i32, ptr %151, align 4
   %153 = tail call i32 @get_opfamily_proc(i32 noundef %15, i32 noundef %152, i32 noundef %152, i16 noundef signext 8) #4
   %.not147 = icmp eq i32 %153, 0
@@ -288,7 +288,7 @@ define dso_local zeroext i1 @gistvalidate(i32 noundef %0) local_unnamed_addr #0 
 
 156:                                              ; preds = %154
   %157 = tail call i32 @errcode(i32 noundef 117833860) #4
-  %158 = getelementptr inbounds i8, ptr %133, i64 20
+  %158 = getelementptr inbounds nuw i8, ptr %133, i64 20
   %159 = load i32, ptr %158, align 4
   %160 = tail call ptr @format_operator(i32 noundef %159) #4
   %161 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, ptr noundef nonnull %33, ptr noundef nonnull @.str.4, ptr noundef %160) #4
@@ -297,10 +297,10 @@ define dso_local zeroext i1 @gistvalidate(i32 noundef %0) local_unnamed_addr #0 
 
 162:                                              ; preds = %156, %154, %150
   %.5 = phi i1 [ %.4, %150 ], [ false, %154 ], [ false, %156 ]
-  %163 = getelementptr inbounds i8, ptr %133, i64 20
+  %163 = getelementptr inbounds nuw i8, ptr %133, i64 20
   %164 = load i32, ptr %163, align 4
   %165 = tail call i32 @get_op_rettype(i32 noundef %164) #4
-  %166 = getelementptr inbounds i8, ptr %133, i64 28
+  %166 = getelementptr inbounds nuw i8, ptr %133, i64 28
   %167 = load i32, ptr %166, align 4
   %168 = tail call zeroext i1 @opfamily_can_sort_type(i32 noundef %167, i32 noundef %165) #4
   br i1 %168, label %176, label %169
@@ -320,11 +320,11 @@ define dso_local zeroext i1 @gistvalidate(i32 noundef %0) local_unnamed_addr #0 
 176:                                              ; preds = %147, %171, %169, %162
   %.0126 = phi i32 [ %165, %162 ], [ %165, %169 ], [ %165, %171 ], [ 16, %147 ]
   %.6 = phi i1 [ %.5, %162 ], [ false, %169 ], [ false, %171 ], [ %.4, %147 ]
-  %177 = getelementptr inbounds i8, ptr %133, i64 20
+  %177 = getelementptr inbounds nuw i8, ptr %133, i64 20
   %178 = load i32, ptr %177, align 4
-  %179 = getelementptr inbounds i8, ptr %133, i64 8
+  %179 = getelementptr inbounds nuw i8, ptr %133, i64 8
   %180 = load i32, ptr %179, align 4
-  %181 = getelementptr inbounds i8, ptr %133, i64 12
+  %181 = getelementptr inbounds nuw i8, ptr %133, i64 12
   %182 = load i32, ptr %181, align 4
   %183 = tail call zeroext i1 @check_amop_signature(i32 noundef %178, i32 noundef %.0126, i32 noundef %180, i32 noundef %182) #4
   br i1 %183, label %191, label %184
@@ -356,13 +356,13 @@ define dso_local zeroext i1 @gistvalidate(i32 noundef %0) local_unnamed_addr #0 
   br i1 %.not142, label %._crit_edge166, label %.lr.ph163
 
 .lr.ph163:                                        ; preds = %._crit_edge
-  %196 = getelementptr inbounds i8, ptr %195, i64 4
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 4
   %197 = load i32, ptr %196, align 4
   %198 = icmp sgt i32 %197, 0
   br i1 %198, label %.lr.ph171, label %._crit_edge166
 
 .lr.ph171:                                        ; preds = %.lr.ph163
-  %199 = getelementptr inbounds i8, ptr %195, i64 16
+  %199 = getelementptr inbounds nuw i8, ptr %195, i64 16
   %200 = load ptr, ptr %199, align 8
   %wide.trip.count = zext nneg i32 %197 to i64
   br label %202
@@ -370,7 +370,7 @@ define dso_local zeroext i1 @gistvalidate(i32 noundef %0) local_unnamed_addr #0 
 ._crit_edge166:                                   ; preds = %211, %.lr.ph163, %._crit_edge
   %.0127.lcssa = phi ptr [ null, %._crit_edge ], [ null, %.lr.ph163 ], [ %.1128, %211 ]
   %.not144 = icmp eq ptr %.0127.lcssa, null
-  %201 = getelementptr inbounds i8, ptr %.0127.lcssa, i64 16
+  %201 = getelementptr inbounds nuw i8, ptr %.0127.lcssa, i64 16
   br label %212
 
 202:                                              ; preds = %.lr.ph171, %211
@@ -383,7 +383,7 @@ define dso_local zeroext i1 @gistvalidate(i32 noundef %0) local_unnamed_addr #0 
   br i1 %206, label %207, label %211
 
 207:                                              ; preds = %202
-  %208 = getelementptr inbounds i8, ptr %204, i64 4
+  %208 = getelementptr inbounds nuw i8, ptr %204, i64 4
   %209 = load i32, ptr %208, align 4
   %210 = icmp eq i32 %209, %17
   %spec.select150 = select i1 %210, ptr %204, ptr %.0127160170
@@ -485,12 +485,12 @@ declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @gistadjustmembers(i32 noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef readonly %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %2, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %._crit_edge36, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load i32, ptr %5, align 4
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph38, label %._crit_edge36
@@ -500,8 +500,8 @@ define dso_local void @gistadjustmembers(i32 noundef %0, i32 noundef %1, ptr nou
   br i1 %.not27, label %._crit_edge43, label %.lr.ph42
 
 .lr.ph42:                                         ; preds = %._crit_edge36
-  %9 = getelementptr inbounds i8, ptr %3, i64 4
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load i32, ptr %9, align 4
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %.lr.ph46, label %._crit_edge43
@@ -511,11 +511,11 @@ define dso_local void @gistadjustmembers(i32 noundef %0, i32 noundef %1, ptr nou
   %13 = load ptr, ptr %6, align 8
   %14 = getelementptr %union.ListCell, ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store i8 0, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %15, i64 25
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 25
   store i8 1, ptr %17, align 1
-  %18 = getelementptr inbounds i8, ptr %15, i64 28
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 28
   store i32 %0, ptr %18, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = load i32, ptr %5, align 4
@@ -528,7 +528,7 @@ define dso_local void @gistadjustmembers(i32 noundef %0, i32 noundef %1, ptr nou
   %22 = load ptr, ptr %10, align 8
   %23 = getelementptr %union.ListCell, ptr %22, i64 %indvars.iv49
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load i32, ptr %25, align 4
   switch i32 %26, label %.split [
     i32 1, label %27
@@ -546,21 +546,21 @@ define dso_local void @gistadjustmembers(i32 noundef %0, i32 noundef %1, ptr nou
   ]
 
 27:                                               ; preds = %.lr.ph46, %.lr.ph46, %.lr.ph46, %.lr.ph46, %.lr.ph46
-  %28 = getelementptr inbounds i8, ptr %24, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store i8 1, ptr %28, align 4
   br label %38
 
 29:                                               ; preds = %.lr.ph46, %.lr.ph46, %.lr.ph46, %.lr.ph46, %.lr.ph46, %.lr.ph46, %.lr.ph46
-  %30 = getelementptr inbounds i8, ptr %24, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store i8 0, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %24, i64 25
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 25
   store i8 1, ptr %31, align 1
-  %32 = getelementptr inbounds i8, ptr %24, i64 28
+  %32 = getelementptr inbounds nuw i8, ptr %24, i64 28
   store i32 %0, ptr %32, align 4
   br label %38
 
 .split:                                           ; preds = %.lr.ph46
-  %33 = getelementptr inbounds i8, ptr %24, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %34 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
   tail call void @llvm.assume(i1 %34)
   %35 = tail call i32 @errcode(i32 noundef 117833860) #4

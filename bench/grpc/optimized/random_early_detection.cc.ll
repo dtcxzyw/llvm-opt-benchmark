@@ -36,7 +36,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %hard_limit_ = getelementptr inbounds i8, ptr %this, i64 8
+  %hard_limit_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %hard_limit_, align 8
   %cmp2 = icmp ult i64 %size, %1
   br i1 %cmp2, label %if.then3, label %return
@@ -50,7 +50,7 @@ if.then3:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %arg_tuple.i.i.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %result.i.i.i)
   store double %div, ptr %arg_tuple.i.i.i, align 8
-  %mock_call_.i.i.i.i = getelementptr inbounds i8, ptr %bitsrc, i64 8
+  %mock_call_.i.i.i.i = getelementptr inbounds nuw i8, ptr %bitsrc, i64 8
   %2 = load ptr, ptr %mock_call_.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %2, @_ZN4absl12lts_202308029BitGenRef8NotAMockEmPKvPvS4_
   %.pre = load i64, ptr %bitsrc, align 8
@@ -71,7 +71,7 @@ _ZN4absl12lts_202308029BitGenRef10InvokeMockEPKvPvS4_.exit.if.then_crit_edge.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN4absl12lts_202308029BitGenRef10InvokeMockEPKvPvS4_.exit.if.then_crit_edge.i.i.i, %if.then3
   %4 = phi double [ %.pre.i.i.i, %_ZN4absl12lts_202308029BitGenRef10InvokeMockEPKvPvS4_.exit.if.then_crit_edge.i.i.i ], [ %div, %if.then3 ]
-  %generate_impl_fn_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %bitsrc, i64 16
+  %generate_impl_fn_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %bitsrc, i64 16
   %5 = load ptr, ptr %generate_impl_fn_.i.i.i.i.i.i.i.i, align 8
   br label %while.body.i.i.i.i.i
 

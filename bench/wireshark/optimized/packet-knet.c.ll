@@ -132,7 +132,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_knet_sctp(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_clear(ptr noundef %6, i32 noundef 25) #4
   %7 = load ptr, ptr %5, align 8
@@ -156,7 +156,7 @@ define internal i32 @dissect_knet_tcp(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %10, label %16, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void @col_clear(ptr noundef %13, i32 noundef 25) #4
   %14 = load ptr, ptr %12, align 8
@@ -173,7 +173,7 @@ define internal i32 @dissect_knet_tcp(ptr noundef %0, ptr noundef %1, ptr nounde
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_knet_udp(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_clear(ptr noundef %7, i32 noundef 25) #4
   %8 = load ptr, ptr %6, align 8
@@ -363,7 +363,7 @@ define internal fastcc void @dissect_knet(ptr noundef %0, ptr nocapture noundef 
   %20 = load i32, ptr @hf_knet_messageid, align 4
   %21 = tail call ptr @val_to_str_const(i32 noundef %19, ptr noundef nonnull @packettypenames, ptr noundef nonnull @.str.56) #4
   %22 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %13, i32 noundef %20, ptr noundef %0, i32 noundef %17, i32 noundef %..i, i32 noundef %19, ptr noundef nonnull @.str.55, ptr noundef %21, i32 noundef %19) #4
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = tail call ptr @val_to_str_const(i32 noundef %19, ptr noundef nonnull @packettypenames, ptr noundef nonnull @.str.58) #4
   tail call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %24, i32 noundef 25, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.55, ptr noundef %25, i32 noundef %19) #4
@@ -454,7 +454,7 @@ define internal fastcc range(i32 0, 256) i32 @dissect_messageid(ptr noundef %0, 
   %11 = tail call ptr @val_to_str_const(i32 noundef %8, ptr noundef nonnull @packettypenames, ptr noundef nonnull @.str.56) #4
   %12 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef %10, i32 noundef %., i32 noundef %8, ptr noundef nonnull @.str.55, ptr noundef %11, i32 noundef %8) #4
   %.not = icmp eq i32 %4, 0
-  %13 = getelementptr inbounds i8, ptr %3, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr @val_to_str_const(i32 noundef %8, ptr noundef nonnull @packettypenames, ptr noundef nonnull @.str.58) #4
   br i1 %.not, label %17, label %16

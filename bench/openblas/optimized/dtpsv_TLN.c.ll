@@ -23,50 +23,48 @@ define noundef i32 @dtpsv_TLN(i64 noundef %0, ptr noundef %1, ptr noundef %2, i6
   %15 = lshr i64 %14, 1
   %16 = getelementptr double, ptr %1, i64 %15
   %17 = getelementptr i8, ptr %16, i64 -8
-  %18 = getelementptr inbounds double, ptr %10, i64 %0
-  %.pre4 = add nsw i64 %0, -1
+  %18 = getelementptr double, ptr %10, i64 %0
   br label %19
 
 19:                                               ; preds = %._crit_edge, %12
-  %20 = phi i64 [ 0, %12 ], [ %39, %._crit_edge ]
-  %21 = phi ptr [ %17, %12 ], [ %38, %._crit_edge ]
+  %20 = phi i64 [ 0, %12 ], [ %38, %._crit_edge ]
+  %21 = phi ptr [ %17, %12 ], [ %37, %._crit_edge ]
   %22 = icmp eq i64 %20, 0
   br i1 %22, label %._crit_edge, label %23
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %21, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %25 = sub nsw i64 0, %20
   %26 = getelementptr inbounds double, ptr %18, i64 %25
   %27 = tail call double @ddot_k(i64 noundef %20, ptr noundef nonnull %24, i64 noundef 1, ptr noundef nonnull %26, i64 noundef 1) #2
   %28 = xor i64 %20, -1
-  %29 = add nsw i64 %0, %28
-  %30 = getelementptr inbounds double, ptr %10, i64 %29
-  %31 = load double, ptr %30, align 8, !tbaa !3
-  %32 = fsub double %31, %27
-  store double %32, ptr %30, align 8, !tbaa !3
+  %29 = getelementptr double, ptr %18, i64 %28
+  %30 = load double, ptr %29, align 8, !tbaa !3
+  %31 = fsub double %30, %27
+  store double %31, ptr %29, align 8, !tbaa !3
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %19, %23
-  %.pre-phi5 = phi i64 [ %29, %23 ], [ %.pre4, %19 ]
-  %33 = load double, ptr %21, align 8, !tbaa !3
-  %34 = getelementptr inbounds double, ptr %10, i64 %.pre-phi5
-  %35 = load double, ptr %34, align 8, !tbaa !3
-  %36 = fdiv double %35, %33
-  store double %36, ptr %34, align 8, !tbaa !3
-  %37 = sub nuw nsw i64 -2, %20
-  %38 = getelementptr inbounds double, ptr %21, i64 %37
-  %39 = add nuw nsw i64 %20, 1
-  %40 = icmp eq i64 %39, %0
-  br i1 %40, label %.loopexit, label %19, !llvm.loop !7
+  %.pre-phi = phi i64 [ %28, %23 ], [ -1, %19 ]
+  %32 = load double, ptr %21, align 8, !tbaa !3
+  %33 = getelementptr double, ptr %18, i64 %.pre-phi
+  %34 = load double, ptr %33, align 8, !tbaa !3
+  %35 = fdiv double %34, %32
+  store double %35, ptr %33, align 8, !tbaa !3
+  %36 = sub nuw nsw i64 -2, %20
+  %37 = getelementptr inbounds double, ptr %21, i64 %36
+  %38 = add nuw nsw i64 %20, 1
+  %39 = icmp eq i64 %38, %0
+  br i1 %39, label %.loopexit, label %19, !llvm.loop !7
 
 .loopexit:                                        ; preds = %._crit_edge, %9
-  br i1 %6, label %43, label %41
+  br i1 %6, label %42, label %40
 
-41:                                               ; preds = %.loopexit
-  %42 = tail call i32 @dcopy_k(i64 noundef %0, ptr noundef %4, i64 noundef 1, ptr noundef %2, i64 noundef %3) #2
-  br label %43
+40:                                               ; preds = %.loopexit
+  %41 = tail call i32 @dcopy_k(i64 noundef %0, ptr noundef %4, i64 noundef 1, ptr noundef %2, i64 noundef %3) #2
+  br label %42
 
-43:                                               ; preds = %41, %.loopexit
+42:                                               ; preds = %40, %.loopexit
   ret i32 0
 }
 

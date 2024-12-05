@@ -68,20 +68,20 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19CardTableBarrierSetC2EP19BarrierSetAssemblerP12BarrierSetC1P12BarrierSetC2P9CardTableRK15FakeRttiSupportI10BarrierSetNS9_4NameEE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %5) unnamed_addr #0 align 2 {
   %7 = alloca %class.FakeRttiSupport, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = load i64, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   %11 = or i64 %10, 3
   store i64 %11, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %9, ptr %12, align 8
   call void @_ZN10BarrierSetC2EP19BarrierSetAssemblerP12BarrierSetC1P12BarrierSetC2P17BarrierSetNMethodP20BarrierSetStackChunkRK15FakeRttiSupportIS_NS_4NameEE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef null, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(12) %7) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTV19CardTableBarrierSet, i64 16), ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i8 0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %4, ptr %14, align 8
   ret void
 }
@@ -97,14 +97,14 @@ define hidden void @_ZN19CardTableBarrierSetC2EP9CardTable(ptr noundef nonnull a
   store ptr getelementptr inbounds inrange(-16, 368) (i8, ptr @_ZTV21CardTableBarrierSetC2, i64 16), ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   store i64 3, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 1, ptr %7, align 8
   call void @_ZN10BarrierSetC2EP19BarrierSetAssemblerP12BarrierSetC1P12BarrierSetC2P17BarrierSetNMethodP20BarrierSetStackChunkRK15FakeRttiSupportIS_NS_4NameEE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef null, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(12) %3) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTV19CardTableBarrierSet, i64 16), ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i8 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %1, ptr %9, align 8
   ret void
 }
@@ -141,7 +141,7 @@ _ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.i: ; preds = %1
 
 20:                                               ; preds = %17
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 104
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 104
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(80) %0) #6
   %25 = zext i1 %24 to i8
@@ -149,7 +149,7 @@ _ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.i: ; preds = %1
 
 _ZN19CardTableBarrierSet38initialize_deferred_card_mark_barriersEv.exit: ; preds = %1, %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.i, %14, %17, %20
   %26 = phi i8 [ 0, %14 ], [ 0, %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.i ], [ 1, %17 ], [ %25, %20 ], [ 0, %1 ]
-  %27 = getelementptr inbounds i8, ptr %0, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i8 %26, ptr %27, align 8
   ret void
 }
@@ -186,7 +186,7 @@ _ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit: ; preds = %1
 
 20:                                               ; preds = %17
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 104
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 104
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(80) %0) #6
   %25 = zext i1 %24 to i8
@@ -194,7 +194,7 @@ _ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit: ; preds = %1
 
 _ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.thread: ; preds = %1, %17, %20, %14, %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit
   %26 = phi i8 [ 0, %14 ], [ 0, %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit ], [ 1, %17 ], [ %25, %20 ], [ 0, %1 ]
-  %27 = getelementptr inbounds i8, ptr %0, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i8 %26, ptr %27, align 8
   ret void
 }
@@ -202,14 +202,14 @@ _ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.thread: ; preds = %1
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19CardTableBarrierSetD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTV19CardTableBarrierSet, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %9, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(88) %3) #6
   br label %9
@@ -221,14 +221,14 @@ define hidden void @_ZN19CardTableBarrierSetD2Ev(ptr nocapture noundef nonnull a
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19CardTableBarrierSetD0Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTV19CardTableBarrierSet, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %_ZN19CardTableBarrierSetD2Ev.exit, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(88) %3) #6
   br label %_ZN19CardTableBarrierSetD2Ev.exit
@@ -240,7 +240,7 @@ _ZN19CardTableBarrierSetD2Ev.exit:                ; preds = %1, %5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19CardTableBarrierSet12write_regionE9MemRegion(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, ptr %1, i64 %2) unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   tail call void @_ZN9CardTable15dirty_MemRegionE9MemRegion(ptr noundef nonnull align 8 dereferenceable(88) %5, ptr %1, i64 %2) #6
   ret void
@@ -250,10 +250,10 @@ declare void @_ZN9CardTable15dirty_MemRegionE9MemRegion(ptr noundef nonnull alig
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK19CardTableBarrierSet8print_onEP12outputStream(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, ptr noundef %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(88) %4, ptr noundef %1) #6
   ret void
@@ -266,16 +266,16 @@ define hidden void @_ZN19CardTableBarrierSet27on_slowpath_allocation_exitEP10Jav
   br i1 %5, label %6, label %102
 
 6:                                                ; preds = %3
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %1, i64 1040
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 1040
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %7 = icmp eq i64 %.sroa.2.0.copyload.i.i, 0
   br i1 %7, label %_ZN19CardTableBarrierSet32flush_deferred_card_mark_barrierEP10JavaThread.exit, label %8
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %1, i64 1032
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 1032
   %.sroa.0.0.copyload.i.i = load ptr, ptr %9, align 8
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %12 = load ptr, ptr %11, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %1, ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.2.0.copyload.i.i) #6
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
@@ -284,7 +284,7 @@ define hidden void @_ZN19CardTableBarrierSet27on_slowpath_allocation_exitEP10Jav
 _ZN19CardTableBarrierSet32flush_deferred_card_mark_barrierEP10JavaThread.exit: ; preds = %6, %8
   %13 = load i8, ptr @UseCompressedClassPointers, align 1
   %14 = trunc i8 %13 to i1
-  %15 = getelementptr inbounds i8, ptr %2, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br i1 %14, label %16, label %26
 
 16:                                               ; preds = %_ZN19CardTableBarrierSet32flush_deferred_card_mark_barrierEP10JavaThread.exit
@@ -305,16 +305,16 @@ _ZN19CardTableBarrierSet32flush_deferred_card_mark_barrierEP10JavaThread.exit: ;
 
 _ZNK7oopDesc12is_typeArrayEv.exit:                ; preds = %16, %26
   %.0.i.i = phi ptr [ %25, %16 ], [ %27, %26 ]
-  %28 = getelementptr inbounds i8, ptr %.0.i.i, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
   %29 = load i32, ptr %28, align 4
   %30 = icmp eq i32 %29, 5
   br i1 %30, label %102, label %31
 
 31:                                               ; preds = %_ZNK7oopDesc12is_typeArrayEv.exit
-  %32 = getelementptr inbounds i8, ptr %0, i64 72
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
   %37 = tail call noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(88) %33, ptr noundef nonnull %2) #6
   br i1 %37, label %102, label %38
@@ -342,7 +342,7 @@ _ZNK7oopDesc12is_typeArrayEv.exit:                ; preds = %16, %26
 
 _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %51, %41
   %.0.i.i9 = phi ptr [ %50, %41 ], [ %52, %51 ]
-  %53 = getelementptr inbounds i8, ptr %.0.i.i9, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i9, i64 8
   %54 = load i32, ptr %53, align 8
   %55 = icmp sgt i32 %54, 0
   br i1 %55, label %56, label %66
@@ -359,7 +359,7 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %51, %41
 
 61:                                               ; preds = %56
   %62 = load ptr, ptr %.0.i.i9, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 256
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 256
   %64 = load ptr, ptr %63, align 8
   %65 = tail call noundef i64 %64(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i9, ptr noundef nonnull align 8 dereferenceable(16) %2) #6
   br label %_ZN7oopDesc4sizeEv.exit
@@ -370,7 +370,7 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %51, %41
 
 68:                                               ; preds = %66
   %69 = select i1 %40, i64 12, i64 16
-  %70 = getelementptr inbounds i8, ptr %2, i64 %69
+  %70 = getelementptr inbounds nuw i8, ptr %2, i64 %69
   %71 = load i32, ptr %70, align 4
   %72 = sext i32 %71 to i64
   %73 = and i32 %54, 63
@@ -392,27 +392,27 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %51, %41
 
 88:                                               ; preds = %66
   %89 = load ptr, ptr %.0.i.i9, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 256
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 256
   %91 = load ptr, ptr %90, align 8
   %92 = tail call noundef i64 %91(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i9, ptr noundef nonnull align 8 dereferenceable(16) %2) #6
   br label %_ZN7oopDesc4sizeEv.exit
 
 _ZN7oopDesc4sizeEv.exit:                          ; preds = %58, %61, %68, %88
   %.0.i1.i = phi i64 [ %65, %61 ], [ %60, %58 ], [ %87, %68 ], [ %92, %88 ]
-  %93 = getelementptr inbounds i8, ptr %0, i64 64
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %94 = load i8, ptr %93, align 8
   %95 = trunc i8 %94 to i1
   br i1 %95, label %96, label %98
 
 96:                                               ; preds = %_ZN7oopDesc4sizeEv.exit
-  %97 = getelementptr inbounds i8, ptr %1, i64 1032
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 1032
   store ptr %2, ptr %97, align 8
   store i64 %.0.i1.i, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   br label %102
 
 98:                                               ; preds = %_ZN7oopDesc4sizeEv.exit
   %99 = load ptr, ptr %0, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 56
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 56
   %101 = load ptr, ptr %100, align 8
   tail call void %101(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr nonnull %2, i64 %.0.i1.i) #6
   br label %102
@@ -423,16 +423,16 @@ _ZN7oopDesc4sizeEv.exit:                          ; preds = %58, %61, %68, %88
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19CardTableBarrierSet32flush_deferred_card_mark_barrierEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 1040
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 1040
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   %3 = icmp eq i64 %.sroa.2.0.copyload.i, 0
   br i1 %3, label %9, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %1, i64 1032
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 1032
   %.sroa.0.0.copyload.i = load ptr, ptr %5, align 8
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %1, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i) #6
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
@@ -445,22 +445,22 @@ define hidden void @_ZN19CardTableBarrierSet32flush_deferred_card_mark_barrierEP
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19CardTableBarrierSet16on_thread_detachEP6Thread(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(888) %1) #6
   br i1 %6, label %7, label %_ZN19CardTableBarrierSet32flush_deferred_card_mark_barrierEP10JavaThread.exit
 
 7:                                                ; preds = %2
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %1, i64 1040
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 1040
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %8 = icmp eq i64 %.sroa.2.0.copyload.i.i, 0
   br i1 %8, label %_ZN19CardTableBarrierSet32flush_deferred_card_mark_barrierEP10JavaThread.exit, label %9
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %1, i64 1032
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 1032
   %.sroa.0.0.copyload.i.i = load ptr, ptr %10, align 8
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %1, ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.2.0.copyload.i.i) #6
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
@@ -489,16 +489,16 @@ declare void @_ZN10BarrierSet16on_thread_attachEP6Thread(ptr noundef nonnull ali
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN19CardTableBarrierSet13make_parsableEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %1, i64 1040
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 1040
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %3 = icmp eq i64 %.sroa.2.0.copyload.i.i, 0
   br i1 %3, label %_ZN19CardTableBarrierSet32flush_deferred_card_mark_barrierEP10JavaThread.exit, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %1, i64 1032
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 1032
   %.sroa.0.0.copyload.i.i = load ptr, ptr %5, align 8
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %1, ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.2.0.copyload.i.i) #6
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
@@ -511,7 +511,7 @@ _ZN19CardTableBarrierSet32flush_deferred_card_mark_barrierEP10JavaThread.exit: ;
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN19CardTableBarrierSet12write_regionEP10JavaThread9MemRegion(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, ptr %2, i64 %3) unnamed_addr #0 comdat align 2 {
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr %2, i64 %3) #6
   ret void

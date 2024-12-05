@@ -113,7 +113,7 @@ define range(i32 -1, 1) i32 @net_set_keep_alive(i32 noundef %0) local_unnamed_ad
 
 6:                                                ; preds = %1
   store i32 1, ptr %3, align 4
-  %7 = getelementptr inbounds i8, ptr %3, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %4, ptr %7, align 4
   %8 = call i32 @setsockopt(i32 noundef %0, i32 noundef 1, i32 noundef 13, ptr noundef nonnull %3, i32 noundef 8) #6
   %9 = icmp slt i32 %8, 0
@@ -178,7 +178,7 @@ define i32 @net_stream_listen_ports(ptr nocapture noundef initializes((0, 4)) %0
   %7 = alloca i32, align 4
   %8 = load i16, ptr %2, align 2
   %9 = zext i16 %8 to i32
-  %10 = getelementptr inbounds i8, ptr %2, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %11 = load i16, ptr %10, align 2
   %12 = zext i16 %11 to i32
   %13 = sub nsw i32 %12, %9
@@ -197,8 +197,8 @@ define i32 @net_stream_listen_ports(ptr nocapture noundef initializes((0, 4)) %0
   br i1 %.not42, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %21 = getelementptr inbounds i8, ptr %5, i64 8
-  %22 = getelementptr inbounds i8, ptr %5, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 4
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %100, %.lr.ph
@@ -430,7 +430,7 @@ define ptr @sockaddr_to_string(ptr noundef %0, i32 noundef %1) local_unnamed_add
   ]
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %10 = load i8, ptr %9, align 2
   %.not = icmp eq i8 %10, 0
   br i1 %.not, label %24, label %11
@@ -440,7 +440,7 @@ define ptr @sockaddr_to_string(ptr noundef %0, i32 noundef %1) local_unnamed_add
   br label %24
 
 .sink.split:                                      ; preds = %2, %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %14 = load i16, ptr %13, align 2
   br label %15
 
@@ -489,9 +489,9 @@ declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @addrinfo_to_string(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = tail call ptr @sockaddr_to_string(ptr noundef %3, i32 noundef %5)
   ret ptr %6

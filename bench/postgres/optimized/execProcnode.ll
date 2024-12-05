@@ -243,19 +243,19 @@ define dso_local ptr @ExecInitNode(ptr noundef %0, ptr noundef %1, i32 noundef %
 
 95:                                               ; preds = %89, %87, %85, %83, %81, %79, %77, %75, %73, %71, %69, %67, %65, %63, %61, %59, %57, %55, %53, %51, %49, %47, %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %21, %19, %17, %15, %13, %11, %9, %7
   %.0148 = phi ptr [ %90, %89 ], [ %88, %87 ], [ %86, %85 ], [ %84, %83 ], [ %82, %81 ], [ %80, %79 ], [ %78, %77 ], [ %76, %75 ], [ %74, %73 ], [ %72, %71 ], [ %70, %69 ], [ %68, %67 ], [ %66, %65 ], [ %64, %63 ], [ %62, %61 ], [ %60, %59 ], [ %58, %57 ], [ %56, %55 ], [ %54, %53 ], [ %52, %51 ], [ %50, %49 ], [ %48, %47 ], [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ %12, %11 ], [ %10, %9 ], [ %8, %7 ]
-  %96 = getelementptr inbounds i8, ptr %.0148, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %.0148, i64 24
   %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %.0148, i64 32
+  %98 = getelementptr inbounds nuw i8, ptr %.0148, i64 32
   store ptr %97, ptr %98, align 8
   store ptr @ExecProcNodeFirst, ptr %96, align 8
-  %99 = getelementptr inbounds i8, ptr %0, i64 80
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 4
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 4
   %.not = icmp eq ptr %100, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %95
-  %102 = getelementptr inbounds i8, ptr %100, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %100, i64 16
   %103 = load i32, ptr %101, align 4
   %104 = icmp sgt i32 %103, 0
   br i1 %104, label %.lr.ph165, label %._crit_edge
@@ -276,19 +276,19 @@ define dso_local ptr @ExecInitNode(ptr noundef %0, ptr noundef %1, i32 noundef %
 
 ._crit_edge:                                      ; preds = %.lr.ph165, %.lr.ph, %95
   %.0149.lcssa = phi ptr [ null, %95 ], [ null, %.lr.ph ], [ %109, %.lr.ph165 ]
-  %113 = getelementptr inbounds i8, ptr %.0148, i64 88
+  %113 = getelementptr inbounds nuw i8, ptr %.0148, i64 88
   store ptr %.0149.lcssa, ptr %113, align 8
-  %114 = getelementptr inbounds i8, ptr %1, i64 196
+  %114 = getelementptr inbounds nuw i8, ptr %1, i64 196
   %115 = load i32, ptr %114, align 4
   %.not155 = icmp eq i32 %115, 0
   br i1 %.not155, label %122, label %116
 
 116:                                              ; preds = %._crit_edge
-  %117 = getelementptr inbounds i8, ptr %.0148, i64 144
+  %117 = getelementptr inbounds nuw i8, ptr %.0148, i64 144
   %118 = load i8, ptr %117, align 8
   %119 = trunc i8 %118 to i1
   %120 = tail call ptr @InstrAlloc(i32 noundef 1, i32 noundef %115, i1 noundef zeroext %119) #6
-  %121 = getelementptr inbounds i8, ptr %.0148, i64 40
+  %121 = getelementptr inbounds nuw i8, ptr %.0148, i64 40
   store ptr %120, ptr %121, align 8
   br label %122
 
@@ -392,9 +392,9 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @ExecSetExecProcNode(ptr nocapture noundef writeonly initializes((24, 40)) %0, ptr noundef %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr @ExecProcNodeFirst, ptr %4, align 8
   ret void
 }
@@ -408,19 +408,19 @@ declare ptr @InstrAlloc(i32 noundef, i32 noundef, i1 noundef zeroext) local_unna
 ; Function Attrs: nounwind uwtable
 define internal ptr @ExecProcNodeFirst(ptr noundef initializes((24, 32)) %0) #0 {
   tail call void @check_stack_depth() #6
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %7
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   br label %7
 
 7:                                                ; preds = %1, %4
   %ExecProcNodeInstr.sink = phi ptr [ %6, %4 ], [ @ExecProcNodeInstr, %1 ]
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %ExecProcNodeInstr.sink, ptr %8, align 8
   %9 = tail call ptr %ExecProcNodeInstr.sink(ptr noundef nonnull %0) #6
   ret ptr %9
@@ -438,7 +438,7 @@ define dso_local ptr @MultiExecProcNode(ptr noundef %0) local_unnamed_addr #0 {
   br label %4
 
 4:                                                ; preds = %1, %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load ptr, ptr %5, align 8
   %.not9 = icmp eq ptr %6, null
   br i1 %.not9, label %8, label %7
@@ -504,7 +504,7 @@ define dso_local void @ExecEndNode(ptr noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   tail call void @check_stack_depth() #6
-  %4 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %7, label %6
@@ -822,13 +822,13 @@ define internal noundef zeroext i1 @ExecShutdownNode_walker(ptr noundef %0, ptr 
 
 4:                                                ; preds = %2
   tail call void @check_stack_depth() #6
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %12, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %6, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %9 = load i8, ptr %8, align 4
   %10 = trunc i8 %9 to i1
   br i1 %10, label %11, label %12
@@ -879,7 +879,7 @@ define internal noundef zeroext i1 @ExecShutdownNode_walker(ptr noundef %0, ptr 
   br i1 %.not19, label %28, label %23
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %22, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %25 = load i8, ptr %24, align 4
   %26 = trunc i8 %25 to i1
   br i1 %26, label %27, label %28
@@ -911,28 +911,28 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   ]
 
 .preheader55:                                     ; preds = %tailrecurse
-  %4 = getelementptr inbounds i8, ptr %.tr54, i64 208
+  %4 = getelementptr inbounds nuw i8, ptr %.tr54, i64 208
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader55
-  %7 = getelementptr inbounds i8, ptr %.tr54, i64 200
+  %7 = getelementptr inbounds nuw i8, ptr %.tr54, i64 200
   br label %31
 
 .preheader:                                       ; preds = %tailrecurse
-  %8 = getelementptr inbounds i8, ptr %.tr54, i64 208
+  %8 = getelementptr inbounds nuw i8, ptr %.tr54, i64 208
   %9 = load i32, ptr %8, align 8
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %.lr.ph64, label %.loopexit
 
 .lr.ph64:                                         ; preds = %.preheader
-  %11 = getelementptr inbounds i8, ptr %.tr54, i64 200
+  %11 = getelementptr inbounds nuw i8, ptr %.tr54, i64 200
   br label %24
 
 12:                                               ; preds = %tailrecurse
   %13 = icmp slt i64 %0, 0
-  %14 = getelementptr inbounds i8, ptr %.tr54, i64 225
+  %14 = getelementptr inbounds nuw i8, ptr %.tr54, i64 225
   br i1 %13, label %15, label %16
 
 15:                                               ; preds = %12
@@ -941,13 +941,13 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 
 16:                                               ; preds = %12
   store i8 1, ptr %14, align 1
-  %17 = getelementptr inbounds i8, ptr %.tr54, i64 232
+  %17 = getelementptr inbounds nuw i8, ptr %.tr54, i64 232
   store i64 %0, ptr %17, align 8
   br label %.loopexit
 
 18:                                               ; preds = %tailrecurse
   %19 = icmp slt i64 %0, 0
-  %20 = getelementptr inbounds i8, ptr %.tr54, i64 224
+  %20 = getelementptr inbounds nuw i8, ptr %.tr54, i64 224
   br i1 %19, label %21, label %22
 
 21:                                               ; preds = %18
@@ -956,7 +956,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 
 22:                                               ; preds = %18
   store i8 1, ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %.tr54, i64 232
+  %23 = getelementptr inbounds nuw i8, ptr %.tr54, i64 232
   store i64 %0, ptr %23, align 8
   br label %.loopexit
 
@@ -985,25 +985,25 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br i1 %37, label %31, label %.loopexit, !llvm.loop !7
 
 38:                                               ; preds = %tailrecurse
-  %39 = getelementptr inbounds i8, ptr %.tr54, i64 72
+  %39 = getelementptr inbounds nuw i8, ptr %.tr54, i64 72
   %40 = load ptr, ptr %39, align 8
   %.not = icmp eq ptr %40, null
   br i1 %.not, label %.loopexit, label %tailrecurse.backedge
 
 41:                                               ; preds = %tailrecurse
-  %42 = getelementptr inbounds i8, ptr %.tr54, i64 64
+  %42 = getelementptr inbounds nuw i8, ptr %.tr54, i64 64
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
   br i1 %44, label %tailrecurse.backedge.sink.split, label %.loopexit
 
 tailrecurse.backedge.sink.split.sink.split:       ; preds = %tailrecurse, %tailrecurse
-  %45 = getelementptr inbounds i8, ptr %.tr54, i64 208
+  %45 = getelementptr inbounds nuw i8, ptr %.tr54, i64 208
   store i64 %0, ptr %45, align 8
   br label %tailrecurse.backedge.sink.split
 
 tailrecurse.backedge.sink.split:                  ; preds = %tailrecurse.backedge.sink.split.sink.split, %41
   %.sink81 = phi i64 [ 224, %41 ], [ 72, %tailrecurse.backedge.sink.split.sink.split ]
-  %46 = getelementptr inbounds i8, ptr %.tr54, i64 %.sink81
+  %46 = getelementptr inbounds nuw i8, ptr %.tr54, i64 %.sink81
   %47 = load ptr, ptr %46, align 8
   br label %tailrecurse.backedge
 
@@ -1017,10 +1017,10 @@ tailrecurse.backedge:                             ; preds = %tailrecurse.backedg
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @ExecProcNodeInstr(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   tail call void @InstrStartNode(ptr noundef %3) #6
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef %0) #6
   %7 = load ptr, ptr %2, align 8
@@ -1028,7 +1028,7 @@ define internal ptr @ExecProcNodeInstr(ptr noundef %0) #0 {
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %6, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %11 = load i16, ptr %10, align 4
   %12 = and i16 %11, 2
   %.not = icmp eq i16 %12, 0

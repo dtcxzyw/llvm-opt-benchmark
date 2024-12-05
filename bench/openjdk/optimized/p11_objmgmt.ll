@@ -20,14 +20,14 @@ define i64 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1CreateObject(ptr noundef 
 10:                                               ; preds = %4
   call void @jAttributeArrayToCKAttributeArray(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %6, ptr noundef nonnull %7) #5
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 1824
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 1824
   %13 = load ptr, ptr %12, align 8
   %14 = call zeroext i8 %13(ptr noundef nonnull %0) #5
   %.not = icmp eq i8 %14, 0
   br i1 %.not, label %15, label %26
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %8, i64 168
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 168
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %6, align 8
   %19 = load i64, ptr %7, align 8
@@ -68,14 +68,14 @@ define i64 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1CopyObject(ptr noundef %0
 11:                                               ; preds = %5
   call void @jAttributeArrayToCKAttributeArray(ptr noundef %0, ptr noundef %4, ptr noundef nonnull %7, ptr noundef nonnull %8) #5
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 1824
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1824
   %14 = load ptr, ptr %13, align 8
   %15 = call zeroext i8 %14(ptr noundef nonnull %0) #5
   %.not = icmp eq i8 %15, 0
   br i1 %.not, label %16, label %27
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %9, i64 176
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 176
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %7, align 8
   %20 = load i64, ptr %8, align 8
@@ -102,7 +102,7 @@ define void @Java_sun_security_pkcs11_wrapper_PKCS11_C_1DestroyObject(ptr nounde
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %5, i64 184
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 184
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i64 %9(i64 noundef %2, i64 noundef %3) #5
   %11 = tail call i64 @ckAssertReturnValueOK(ptr noundef %0, i64 noundef %10) #5
@@ -124,7 +124,7 @@ define void @Java_sun_security_pkcs11_wrapper_PKCS11_C_1GetAttributeValue(ptr no
 10:                                               ; preds = %5
   call void @jAttributeArrayToCKAttributeArray(ptr noundef %0, ptr noundef %4, ptr noundef nonnull %6, ptr noundef nonnull %7) #5
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 1824
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 1824
   %13 = load ptr, ptr %12, align 8
   %14 = call zeroext i8 %13(ptr noundef nonnull %0) #5
   %.not = icmp eq i8 %14, 0
@@ -160,7 +160,7 @@ define void @Java_sun_security_pkcs11_wrapper_PKCS11_C_1GetAttributeValue(ptr no
 
 ._crit_edge:                                      ; preds = %23, %.preheader82
   %.lcssa86 = phi i64 [ 0, %.preheader82 ], [ %24, %23 ]
-  %27 = getelementptr inbounds i8, ptr %8, i64 200
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 200
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %6, align 8
   %30 = call i64 %28(i64 noundef %2, i64 noundef %3, ptr noundef %29, i64 noundef %.lcssa86) #5
@@ -200,7 +200,7 @@ define void @Java_sun_security_pkcs11_wrapper_PKCS11_C_1GetAttributeValue(ptr no
   %.067.idx88 = phi i64 [ %.168.idx, %50 ], [ 0, %.preheader81 ]
   %41 = load ptr, ptr %6, align 8
   %42 = getelementptr inbounds %struct.CK_ATTRIBUTE, ptr %41, i64 %.189
-  %43 = getelementptr inbounds i8, ptr %42, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load i64, ptr %43, align 8
   %45 = icmp eq i64 %44, -1
   br i1 %45, label %46, label %50
@@ -248,7 +248,7 @@ define void @Java_sun_security_pkcs11_wrapper_PKCS11_C_1GetAttributeValue(ptr no
   store ptr %64, ptr %65, align 8
   %66 = load ptr, ptr %6, align 8
   %67 = getelementptr inbounds %struct.CK_ATTRIBUTE, ptr %66, i64 %.293
-  %68 = getelementptr inbounds i8, ptr %67, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %69 = load ptr, ptr %68, align 8
   %70 = icmp eq ptr %69, null
   br i1 %70, label %71, label %73
@@ -260,7 +260,7 @@ define void @Java_sun_security_pkcs11_wrapper_PKCS11_C_1GetAttributeValue(ptr no
   br label %112
 
 73:                                               ; preds = %.lr.ph94
-  %74 = getelementptr inbounds i8, ptr %67, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %67, i64 16
   store i64 %63, ptr %74, align 8
   %75 = add nuw i64 %.293, 1
   %76 = load i64, ptr %7, align 8
@@ -301,12 +301,12 @@ define void @Java_sun_security_pkcs11_wrapper_PKCS11_C_1GetAttributeValue(ptr no
 
 96:                                               ; preds = %.lr.ph98
   %97 = load ptr, ptr %0, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 1392
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 1392
   %99 = load ptr, ptr %98, align 8
   %100 = trunc i64 %.397 to i32
   call void %99(ptr noundef nonnull %0, ptr noundef %4, i32 noundef %100, ptr noundef nonnull %90) #5
   %101 = load ptr, ptr %0, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 1824
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 1824
   %103 = load ptr, ptr %102, align 8
   %104 = call zeroext i8 %103(ptr noundef nonnull %0) #5
   %.not78 = icmp eq i8 %104, 0
@@ -357,14 +357,14 @@ define void @Java_sun_security_pkcs11_wrapper_PKCS11_C_1SetAttributeValue(ptr no
 10:                                               ; preds = %5
   call void @jAttributeArrayToCKAttributeArray(ptr noundef %0, ptr noundef %4, ptr noundef nonnull %6, ptr noundef nonnull %7) #5
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 1824
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 1824
   %13 = load ptr, ptr %12, align 8
   %14 = call zeroext i8 %13(ptr noundef nonnull %0) #5
   %.not = icmp eq i8 %14, 0
   br i1 %.not, label %15, label %25
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %8, i64 208
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 208
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %6, align 8
   %19 = load i64, ptr %7, align 8
@@ -392,14 +392,14 @@ define void @Java_sun_security_pkcs11_wrapper_PKCS11_C_1FindObjectsInit(ptr noun
 9:                                                ; preds = %4
   call void @jAttributeArrayToCKAttributeArray(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %5, ptr noundef nonnull %6) #5
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 1824
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1824
   %12 = load ptr, ptr %11, align 8
   %13 = call zeroext i8 %12(ptr noundef nonnull %0) #5
   %.not = icmp eq i8 %13, 0
   br i1 %.not, label %14, label %24
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %7, i64 216
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 216
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %5, align 8
   %18 = load i64, ptr %6, align 8
@@ -433,7 +433,7 @@ define ptr @Java_sun_security_pkcs11_wrapper_PKCS11_C_1FindObjects(ptr noundef %
   br label %23
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %6, i64 224
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 224
   %15 = load ptr, ptr %14, align 8
   %16 = call i64 %15(i64 noundef %2, ptr noundef nonnull %10, i64 noundef %3, ptr noundef nonnull %5) #5
   %17 = call i64 @ckAssertReturnValueOK(ptr noundef %0, i64 noundef %16) #5
@@ -464,7 +464,7 @@ define void @Java_sun_security_pkcs11_wrapper_PKCS11_C_1FindObjectsFinal(ptr nou
   br i1 %5, label %11, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %4, i64 232
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 232
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 %8(i64 noundef %2) #5
   %10 = tail call i64 @ckAssertReturnValueOK(ptr noundef %0, i64 noundef %9) #5

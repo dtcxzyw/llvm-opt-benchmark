@@ -21,7 +21,7 @@ define hidden ptr @sockaddrToUnixAddressBytes(ptr noundef %0, ptr noundef %1, i3
   br i1 %7, label %12, label %8
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %1, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #8
   %11 = trunc i64 %10 to i32
   br label %12
@@ -29,7 +29,7 @@ define hidden ptr @sockaddrToUnixAddressBytes(ptr noundef %0, ptr noundef %1, i3
 12:                                               ; preds = %6, %8
   %.015 = phi i32 [ %11, %8 ], [ 0, %6 ]
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 1408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 1408
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr %15(ptr noundef nonnull %0, i32 noundef %.015) #9
   %.not = icmp eq i32 %.015, 0
@@ -37,12 +37,12 @@ define hidden ptr @sockaddrToUnixAddressBytes(ptr noundef %0, ptr noundef %1, i3
 
 17:                                               ; preds = %12
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 1664
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 1664
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 2
   tail call void %20(ptr noundef nonnull %0, ptr noundef %16, i32 noundef 0, i32 noundef %.015, ptr noundef nonnull %21) #9
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 120
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 120
   %24 = load ptr, ptr %23, align 8
   %25 = tail call ptr %24(ptr noundef nonnull %0) #9
   %.not16 = icmp eq ptr %25, null
@@ -61,11 +61,11 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 1) i32 @unixSocketAddressToSockaddr(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 110)) %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %2, i64 2
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(110) %5, i8 0, i64 108, i1 false)
   store i16 1, ptr %2, align 2
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 1472
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1472
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr %8(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null) #9
   %10 = icmp eq ptr %9, null
@@ -77,7 +77,7 @@ define hidden range(i32 -1, 1) i32 @unixSocketAddressToSockaddr(ptr noundef %0, 
 
 12:                                               ; preds = %4
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 1368
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 1368
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 %15(ptr noundef nonnull %0, ptr noundef %1) #9
   %17 = icmp ugt i32 %16, 106
@@ -89,7 +89,7 @@ define hidden range(i32 -1, 1) i32 @unixSocketAddressToSockaddr(ptr noundef %0, 
 
 19:                                               ; preds = %12
   %20 = zext nneg i32 %16 to i64
-  %21 = getelementptr inbounds i8, ptr %2, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %21, ptr nonnull align 1 %9, i64 %20, i1 false)
   %22 = add nuw nsw i32 %16, 3
   store i32 %22, ptr %3, align 4
@@ -98,7 +98,7 @@ define hidden range(i32 -1, 1) i32 @unixSocketAddressToSockaddr(ptr noundef %0, 
 23:                                               ; preds = %19, %18
   %.022 = phi i32 [ -1, %18 ], [ 0, %19 ]
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 1536
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 1536
   %26 = load ptr, ptr %25, align 8
   tail call void %26(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %9, i32 noundef 0) #9
   br label %27
@@ -149,11 +149,11 @@ declare ptr @__errno_location() local_unnamed_addr #7
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_nio_ch_UnixDomainSockets_bind0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.sockaddr_un, align 2
-  %6 = getelementptr inbounds i8, ptr %5, i64 2
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(110) %6, i8 0, i64 108, i1 false)
   store i16 1, ptr %5, align 2
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 1472
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1472
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr %9(ptr noundef nonnull %0, ptr noundef %3, ptr noundef null) #9
   %11 = icmp eq ptr %10, null
@@ -165,7 +165,7 @@ unixSocketAddressToSockaddr.exit.thread:          ; preds = %4
 
 12:                                               ; preds = %4
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 1368
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 1368
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 %15(ptr noundef nonnull %0, ptr noundef %3) #9
   %17 = icmp ult i32 %16, 107
@@ -174,7 +174,7 @@ unixSocketAddressToSockaddr.exit.thread:          ; preds = %4
 unixSocketAddressToSockaddr.exit:                 ; preds = %12
   tail call void @JNU_ThrowByName(ptr noundef nonnull %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2) #9
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 1536
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 1536
   %20 = load ptr, ptr %19, align 8
   tail call void %20(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %10, i32 noundef 0) #9
   br label %33
@@ -184,7 +184,7 @@ unixSocketAddressToSockaddr.exit:                 ; preds = %12
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %6, ptr nonnull align 1 %10, i64 %22, i1 false)
   %23 = add nuw nsw i32 %16, 3
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 1536
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 1536
   %26 = load ptr, ptr %25, align 8
   tail call void %26(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %10, i32 noundef 0) #9
   %27 = tail call i32 @fdval(ptr noundef nonnull %0, ptr noundef %2) #9
@@ -210,11 +210,11 @@ declare i32 @fdval(ptr noundef, ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define i32 @Java_sun_nio_ch_UnixDomainSockets_connect0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.sockaddr_un, align 2
-  %6 = getelementptr inbounds i8, ptr %5, i64 2
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(110) %6, i8 0, i64 108, i1 false)
   store i16 1, ptr %5, align 2
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 1472
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1472
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr %9(ptr noundef nonnull %0, ptr noundef %3, ptr noundef null) #9
   %11 = icmp eq ptr %10, null
@@ -226,7 +226,7 @@ unixSocketAddressToSockaddr.exit.thread:          ; preds = %4
 
 12:                                               ; preds = %4
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 1368
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 1368
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 %15(ptr noundef nonnull %0, ptr noundef %3) #9
   %17 = icmp ult i32 %16, 107
@@ -235,7 +235,7 @@ unixSocketAddressToSockaddr.exit.thread:          ; preds = %4
 unixSocketAddressToSockaddr.exit:                 ; preds = %12
   tail call void @JNU_ThrowByName(ptr noundef nonnull %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2) #9
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 1536
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 1536
   %20 = load ptr, ptr %19, align 8
   tail call void %20(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %10, i32 noundef 0) #9
   br label %35
@@ -245,7 +245,7 @@ unixSocketAddressToSockaddr.exit:                 ; preds = %12
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %6, ptr nonnull align 1 %10, i64 %22, i1 false)
   %23 = add nuw nsw i32 %16, 3
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 1536
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 1536
   %26 = load ptr, ptr %25, align 8
   tail call void %26(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %10, i32 noundef 0) #9
   %27 = tail call i32 @fdval(ptr noundef nonnull %0, ptr noundef %2) #9
@@ -312,7 +312,7 @@ define range(i32 -5, 2) i32 @Java_sun_nio_ch_UnixDomainSockets_accept0(ptr nound
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %6, i64 2
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %24 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #8
   %25 = trunc i64 %24 to i32
   br label %26
@@ -320,7 +320,7 @@ define range(i32 -5, 2) i32 @Java_sun_nio_ch_UnixDomainSockets_accept0(ptr nound
 26:                                               ; preds = %22, %19
   %.015.i = phi i32 [ %25, %22 ], [ 0, %19 ]
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 1408
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 1408
   %29 = load ptr, ptr %28, align 8
   %30 = call ptr %29(ptr noundef nonnull %0, i32 noundef %.015.i) #9
   %.not.i = icmp eq i32 %.015.i, 0
@@ -328,12 +328,12 @@ define range(i32 -5, 2) i32 @Java_sun_nio_ch_UnixDomainSockets_accept0(ptr nound
 
 31:                                               ; preds = %26
   %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 1664
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 1664
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %6, i64 2
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 2
   call void %34(ptr noundef nonnull %0, ptr noundef %30, i32 noundef 0, i32 noundef %.015.i, ptr noundef nonnull %35) #9
   %36 = load ptr, ptr %0, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 120
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 120
   %38 = load ptr, ptr %37, align 8
   %39 = call ptr %38(ptr noundef nonnull %0) #9
   %.not16.i = icmp ne ptr %39, null
@@ -347,7 +347,7 @@ sockaddrToUnixAddressBytes.exit:                  ; preds = %26
 
 41:                                               ; preds = %31, %sockaddrToUnixAddressBytes.exit
   %42 = load ptr, ptr %0, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 1392
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 1392
   %44 = load ptr, ptr %43, align 8
   call void %44(ptr noundef nonnull %0, ptr noundef %4, i32 noundef 0, ptr noundef nonnull %30) #9
   br label %sockaddrToUnixAddressBytes.exit.thread
@@ -390,7 +390,7 @@ define ptr @Java_sun_nio_ch_UnixDomainSockets_localAddress0(ptr noundef %0, ptr 
   br i1 %18, label %23, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %4, i64 2
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %21 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #8
   %22 = trunc i64 %21 to i32
   br label %23
@@ -398,7 +398,7 @@ define ptr @Java_sun_nio_ch_UnixDomainSockets_localAddress0(ptr noundef %0, ptr 
 23:                                               ; preds = %19, %16
   %.015.i = phi i32 [ %22, %19 ], [ 0, %16 ]
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 1408
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 1408
   %26 = load ptr, ptr %25, align 8
   %27 = call ptr %26(ptr noundef nonnull %0, i32 noundef %.015.i) #9
   %.not.i = icmp eq i32 %.015.i, 0
@@ -406,12 +406,12 @@ define ptr @Java_sun_nio_ch_UnixDomainSockets_localAddress0(ptr noundef %0, ptr 
 
 28:                                               ; preds = %23
   %29 = load ptr, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 1664
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 1664
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %4, i64 2
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 2
   call void %31(ptr noundef nonnull %0, ptr noundef %27, i32 noundef 0, i32 noundef %.015.i, ptr noundef nonnull %32) #9
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 120
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 120
   %35 = load ptr, ptr %34, align 8
   %36 = call ptr %35(ptr noundef nonnull %0) #9
   %.not16.i = icmp eq ptr %36, null

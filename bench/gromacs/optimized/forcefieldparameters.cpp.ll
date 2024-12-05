@@ -37,8 +37,8 @@ define void @_Z11pr_ffparamsP8_IO_FILEiPKcPK14gmx_ffparams_tb(ptr noundef %0, i3
   %8 = load i32, ptr %3, align 8
   %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef %8) #5
   %10 = tail call noundef i32 @_Z9pr_indentP8_IO_FILEi(ptr noundef %0, i32 noundef %6)
-  %11 = getelementptr inbounds i8, ptr %3, i64 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %11, align 8
   %15 = ptrtoint ptr %13 to i64
@@ -59,7 +59,7 @@ define void @_Z11pr_ffparamsP8_IO_FILEiPKcPK14gmx_ffparams_tb(ptr noundef %0, i3
 
 .lr.ph:                                           ; preds = %5
   %29 = add nsw i32 %6, 3
-  %30 = getelementptr inbounds i8, ptr %3, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 32
   br label %31
 
 31:                                               ; preds = %.lr.ph, %31
@@ -68,17 +68,17 @@ define void @_Z11pr_ffparamsP8_IO_FILEiPKcPK14gmx_ffparams_tb(ptr noundef %0, i3
   %33 = trunc nuw nsw i64 %indvars.iv to i32
   %34 = select i1 %4, i32 %33, i32 -1
   %35 = load ptr, ptr %11, align 8
-  %36 = getelementptr inbounds i32, ptr %35, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv
   %37 = load i32, ptr %36, align 4
   %38 = sext i32 %37 to i64
   %39 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %38
   %40 = load ptr, ptr %39, align 16
   %41 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %34, ptr noundef %40) #5
   %42 = load ptr, ptr %11, align 8
-  %43 = getelementptr inbounds i32, ptr %42, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv
   %44 = load i32, ptr %43, align 4
   %45 = load ptr, ptr %30, align 8
-  %46 = getelementptr inbounds %union.t_iparams, ptr %45, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw %union.t_iparams, ptr %45, i64 %indvars.iv
   tail call void @_Z10pr_iparamsP8_IO_FILEiRK9t_iparams(ptr noundef %0, i32 noundef %44, ptr noundef nonnull align 4 dereferenceable(48) %46)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %47 = load ptr, ptr %12, align 8
@@ -92,13 +92,13 @@ define void @_Z11pr_ffparamsP8_IO_FILEiPKcPK14gmx_ffparams_tb(ptr noundef %0, i3
   br i1 %53, label %31, label %._crit_edge, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %31, %5
-  %54 = getelementptr inbounds i8, ptr %3, i64 56
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %55 = load double, ptr %54, align 8
   tail call void @_Z9pr_doubleP8_IO_FILEiPKcd(ptr noundef %0, i32 noundef %6, ptr noundef nonnull @.str.3, double noundef %55)
-  %56 = getelementptr inbounds i8, ptr %3, i64 64
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %57 = load float, ptr %56, align 8
   tail call void @_Z7pr_realP8_IO_FILEiPKcf(ptr noundef %0, i32 noundef %6, ptr noundef nonnull @.str.4, float noundef %57)
-  %58 = getelementptr inbounds i8, ptr %3, i64 72
+  %58 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %59 = load i32, ptr %58, align 8
   %.fr8.i = freeze i32 %59
   %.not.i = icmp eq i32 %.fr8.i, 0
@@ -112,8 +112,8 @@ define void @_Z11pr_ffparamsP8_IO_FILEiPKcPK14gmx_ffparams_tb(ptr noundef %0, i3
 
 66:                                               ; preds = %._crit_edge
   %67 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.5) #5
-  %68 = getelementptr inbounds i8, ptr %3, i64 80
-  %69 = getelementptr inbounds i8, ptr %3, i64 88
+  %68 = getelementptr inbounds nuw i8, ptr %3, i64 80
+  %69 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %70 = load ptr, ptr %69, align 8
   %71 = load ptr, ptr %68, align 8
   %72 = ptrtoint ptr %70 to i64
@@ -155,34 +155,34 @@ define void @_Z11pr_ffparamsP8_IO_FILEiPKcPK14gmx_ffparams_tb(ptr noundef %0, i3
 88:                                               ; preds = %84, %79
   %.1.us.i = phi float [ %87, %84 ], [ %.0421.us.i, %79 ]
   %89 = load ptr, ptr %68, align 8
-  %90 = getelementptr inbounds %struct.gmx_cmapdata_t, ptr %89, i64 %.0433.us.i
+  %90 = getelementptr inbounds nuw %struct.gmx_cmapdata_t, ptr %89, i64 %.0433.us.i
   %91 = shl nsw i64 %indvars.iv.i, 2
   %92 = load ptr, ptr %90, align 8
-  %93 = getelementptr inbounds float, ptr %92, i64 %91
+  %93 = getelementptr inbounds nuw float, ptr %92, i64 %91
   %94 = load float, ptr %93, align 4
   %95 = fpext float %94 to double
   %96 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.14, double noundef %95) #5
   %97 = load ptr, ptr %68, align 8
-  %98 = getelementptr inbounds %struct.gmx_cmapdata_t, ptr %97, i64 %.0433.us.i
+  %98 = getelementptr inbounds nuw %struct.gmx_cmapdata_t, ptr %97, i64 %.0433.us.i
   %99 = or disjoint i64 %91, 1
   %100 = load ptr, ptr %98, align 8
-  %101 = getelementptr inbounds float, ptr %100, i64 %99
+  %101 = getelementptr inbounds nuw float, ptr %100, i64 %99
   %102 = load float, ptr %101, align 4
   %103 = fpext float %102 to double
   %104 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.14, double noundef %103) #5
   %105 = load ptr, ptr %68, align 8
-  %106 = getelementptr inbounds %struct.gmx_cmapdata_t, ptr %105, i64 %.0433.us.i
+  %106 = getelementptr inbounds nuw %struct.gmx_cmapdata_t, ptr %105, i64 %.0433.us.i
   %107 = or disjoint i64 %91, 2
   %108 = load ptr, ptr %106, align 8
-  %109 = getelementptr inbounds float, ptr %108, i64 %107
+  %109 = getelementptr inbounds nuw float, ptr %108, i64 %107
   %110 = load float, ptr %109, align 4
   %111 = fpext float %110 to double
   %112 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.14, double noundef %111) #5
   %113 = load ptr, ptr %68, align 8
-  %114 = getelementptr inbounds %struct.gmx_cmapdata_t, ptr %113, i64 %.0433.us.i
+  %114 = getelementptr inbounds nuw %struct.gmx_cmapdata_t, ptr %113, i64 %.0433.us.i
   %115 = or disjoint i64 %91, 3
   %116 = load ptr, ptr %114, align 8
-  %117 = getelementptr inbounds float, ptr %116, i64 %115
+  %117 = getelementptr inbounds nuw float, ptr %116, i64 %115
   %118 = load float, ptr %117, align 4
   %119 = fpext float %118 to double
   %120 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.15, double noundef %119) #5

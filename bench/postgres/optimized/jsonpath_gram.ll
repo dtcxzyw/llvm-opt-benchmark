@@ -200,7 +200,7 @@ define dso_local range(i32 0, 3) i32 @jsonpath_yyparse(ptr noundef %0, ptr nound
   %86 = sub nsw i64 1, %85
   %87 = getelementptr %union.YYSTYPE, ptr %.2357, i64 %86
   %.sroa.044.0.copyload = load ptr, ptr %87, align 8
-  %.sroa.102.0..sroa_idx = getelementptr inbounds i8, ptr %87, i64 8
+  %.sroa.102.0..sroa_idx = getelementptr inbounds nuw i8, ptr %87, i64 8
   %88 = load i64, ptr %.sroa.102.0..sroa_idx, align 8
   switch i32 %.0362, label %makeItemList.exit [
     i32 2, label %89
@@ -313,7 +313,7 @@ define dso_local range(i32 0, 3) i32 @jsonpath_yyparse(ptr noundef %0, ptr nound
   %92 = getelementptr i8, ptr %.2357, i64 -16
   %93 = load i8, ptr %92, align 8
   %94 = load ptr, ptr %0, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %96 = and i8 %93, 1
   store i8 %96, ptr %95, align 8
   br label %makeItemList.exit
@@ -362,13 +362,13 @@ define dso_local range(i32 0, 3) i32 @jsonpath_yyparse(ptr noundef %0, ptr nound
 
 makeItemString.exit:                              ; preds = %111, %114
   store i32 1, ptr %112, align 8
-  %115 = getelementptr inbounds i8, ptr %112, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %112, i64 8
   store ptr null, ptr %115, align 8
   %116 = load ptr, ptr %.2357, align 8
-  %117 = getelementptr inbounds i8, ptr %112, i64 16
-  %118 = getelementptr inbounds i8, ptr %112, i64 24
+  %117 = getelementptr inbounds nuw i8, ptr %112, i64 16
+  %118 = getelementptr inbounds nuw i8, ptr %112, i64 24
   store ptr %116, ptr %118, align 8
-  %119 = getelementptr inbounds i8, ptr %.2357, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %.2357, i64 8
   %120 = load i32, ptr %119, align 8
   store i32 %120, ptr %117, align 8
   br label %makeItemList.exit
@@ -385,7 +385,7 @@ makeItemString.exit:                              ; preds = %111, %114
 
 makeItemString.exit394:                           ; preds = %121, %124
   store i32 0, ptr %122, align 8
-  %125 = getelementptr inbounds i8, ptr %122, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %122, i64 8
   store ptr null, ptr %125, align 8
   br label %makeItemList.exit
 
@@ -401,9 +401,9 @@ makeItemString.exit394:                           ; preds = %121, %124
 
 makeItemBool.exit:                                ; preds = %126, %129
   store i32 3, ptr %127, align 8
-  %130 = getelementptr inbounds i8, ptr %127, i64 8
+  %130 = getelementptr inbounds nuw i8, ptr %127, i64 8
   store ptr null, ptr %130, align 8
-  %131 = getelementptr inbounds i8, ptr %127, i64 16
+  %131 = getelementptr inbounds nuw i8, ptr %127, i64 16
   store i8 1, ptr %131, align 8
   br label %makeItemList.exit
 
@@ -419,9 +419,9 @@ makeItemBool.exit:                                ; preds = %126, %129
 
 makeItemBool.exit399:                             ; preds = %132, %135
   store i32 3, ptr %133, align 8
-  %136 = getelementptr inbounds i8, ptr %133, i64 8
+  %136 = getelementptr inbounds nuw i8, ptr %133, i64 8
   store ptr null, ptr %136, align 8
-  %137 = getelementptr inbounds i8, ptr %133, i64 16
+  %137 = getelementptr inbounds nuw i8, ptr %133, i64 16
   store i8 0, ptr %137, align 8
   br label %makeItemList.exit
 
@@ -437,14 +437,14 @@ makeItemBool.exit399:                             ; preds = %132, %135
 
 makeItemNumeric.exit:                             ; preds = %138, %141
   store i32 2, ptr %139, align 8
-  %142 = getelementptr inbounds i8, ptr %139, i64 8
+  %142 = getelementptr inbounds nuw i8, ptr %139, i64 8
   store ptr null, ptr %142, align 8
   %143 = load ptr, ptr %.2357, align 8
   %144 = ptrtoint ptr %143 to i64
   %145 = call i64 @DirectFunctionCall3Coll(ptr noundef nonnull @numeric_in, i32 noundef 0, i64 noundef %144, i64 noundef 0, i64 noundef -1) #5
   %146 = inttoptr i64 %145 to ptr
   %147 = call ptr @pg_detoast_datum(ptr noundef %146) #5
-  %148 = getelementptr inbounds i8, ptr %139, i64 16
+  %148 = getelementptr inbounds nuw i8, ptr %139, i64 16
   store ptr %147, ptr %148, align 8
   br label %makeItemList.exit
 
@@ -460,14 +460,14 @@ makeItemNumeric.exit:                             ; preds = %138, %141
 
 makeItemNumeric.exit404:                          ; preds = %149, %152
   store i32 2, ptr %150, align 8
-  %153 = getelementptr inbounds i8, ptr %150, i64 8
+  %153 = getelementptr inbounds nuw i8, ptr %150, i64 8
   store ptr null, ptr %153, align 8
   %154 = load ptr, ptr %.2357, align 8
   %155 = ptrtoint ptr %154 to i64
   %156 = call i64 @DirectFunctionCall3Coll(ptr noundef nonnull @numeric_in, i32 noundef 0, i64 noundef %155, i64 noundef 0, i64 noundef -1) #5
   %157 = inttoptr i64 %156 to ptr
   %158 = call ptr @pg_detoast_datum(ptr noundef %157) #5
-  %159 = getelementptr inbounds i8, ptr %150, i64 16
+  %159 = getelementptr inbounds nuw i8, ptr %150, i64 16
   store ptr %158, ptr %159, align 8
   br label %makeItemList.exit
 
@@ -483,13 +483,13 @@ makeItemNumeric.exit404:                          ; preds = %149, %152
 
 makeItemVariable.exit:                            ; preds = %160, %163
   store i32 28, ptr %161, align 8
-  %164 = getelementptr inbounds i8, ptr %161, i64 8
+  %164 = getelementptr inbounds nuw i8, ptr %161, i64 8
   store ptr null, ptr %164, align 8
   %165 = load ptr, ptr %.2357, align 8
-  %166 = getelementptr inbounds i8, ptr %161, i64 16
-  %167 = getelementptr inbounds i8, ptr %161, i64 24
+  %166 = getelementptr inbounds nuw i8, ptr %161, i64 16
+  %167 = getelementptr inbounds nuw i8, ptr %161, i64 24
   store ptr %165, ptr %167, align 8
-  %168 = getelementptr inbounds i8, ptr %.2357, i64 8
+  %168 = getelementptr inbounds nuw i8, ptr %.2357, i64 8
   %169 = load i32, ptr %168, align 8
   store i32 %169, ptr %166, align 8
   br label %makeItemList.exit
@@ -555,9 +555,9 @@ makeItemVariable.exit:                            ; preds = %160, %163
 
 makeItemUnary.exit:                               ; preds = %191, %196
   store i32 30, ptr %194, align 8
-  %197 = getelementptr inbounds i8, ptr %194, i64 8
+  %197 = getelementptr inbounds nuw i8, ptr %194, i64 8
   store ptr null, ptr %197, align 8
-  %198 = getelementptr inbounds i8, ptr %194, i64 16
+  %198 = getelementptr inbounds nuw i8, ptr %194, i64 16
   store ptr %193, ptr %198, align 8
   br label %makeItemList.exit
 
@@ -582,11 +582,11 @@ makeItemUnary.exit:                               ; preds = %191, %196
 
 makeItemBinary.exit:                              ; preds = %201, %209
   store i32 %203, ptr %207, align 8
-  %210 = getelementptr inbounds i8, ptr %207, i64 8
+  %210 = getelementptr inbounds nuw i8, ptr %207, i64 8
   store ptr null, ptr %210, align 8
-  %211 = getelementptr inbounds i8, ptr %207, i64 16
+  %211 = getelementptr inbounds nuw i8, ptr %207, i64 16
   store ptr %205, ptr %211, align 8
-  %212 = getelementptr inbounds i8, ptr %207, i64 24
+  %212 = getelementptr inbounds nuw i8, ptr %207, i64 24
   store ptr %206, ptr %212, align 8
   br label %makeItemList.exit
 
@@ -605,11 +605,11 @@ makeItemBinary.exit:                              ; preds = %201, %209
 
 makeItemBinary.exit411:                           ; preds = %213, %219
   store i32 4, ptr %217, align 8
-  %220 = getelementptr inbounds i8, ptr %217, i64 8
+  %220 = getelementptr inbounds nuw i8, ptr %217, i64 8
   store ptr null, ptr %220, align 8
-  %221 = getelementptr inbounds i8, ptr %217, i64 16
+  %221 = getelementptr inbounds nuw i8, ptr %217, i64 16
   store ptr %215, ptr %221, align 8
-  %222 = getelementptr inbounds i8, ptr %217, i64 24
+  %222 = getelementptr inbounds nuw i8, ptr %217, i64 24
   store ptr %216, ptr %222, align 8
   br label %makeItemList.exit
 
@@ -628,11 +628,11 @@ makeItemBinary.exit411:                           ; preds = %213, %219
 
 makeItemBinary.exit414:                           ; preds = %223, %229
   store i32 5, ptr %227, align 8
-  %230 = getelementptr inbounds i8, ptr %227, i64 8
+  %230 = getelementptr inbounds nuw i8, ptr %227, i64 8
   store ptr null, ptr %230, align 8
-  %231 = getelementptr inbounds i8, ptr %227, i64 16
+  %231 = getelementptr inbounds nuw i8, ptr %227, i64 16
   store ptr %225, ptr %231, align 8
-  %232 = getelementptr inbounds i8, ptr %227, i64 24
+  %232 = getelementptr inbounds nuw i8, ptr %227, i64 24
   store ptr %226, ptr %232, align 8
   br label %makeItemList.exit
 
@@ -649,9 +649,9 @@ makeItemBinary.exit414:                           ; preds = %223, %229
 
 makeItemUnary.exit416:                            ; preds = %233, %237
   store i32 6, ptr %235, align 8
-  %238 = getelementptr inbounds i8, ptr %235, i64 8
+  %238 = getelementptr inbounds nuw i8, ptr %235, i64 8
   store ptr null, ptr %238, align 8
-  %239 = getelementptr inbounds i8, ptr %235, i64 16
+  %239 = getelementptr inbounds nuw i8, ptr %235, i64 16
   store ptr %234, ptr %239, align 8
   br label %makeItemList.exit
 
@@ -669,9 +669,9 @@ makeItemUnary.exit416:                            ; preds = %233, %237
 
 makeItemUnary.exit418:                            ; preds = %240, %245
   store i32 7, ptr %243, align 8
-  %246 = getelementptr inbounds i8, ptr %243, i64 8
+  %246 = getelementptr inbounds nuw i8, ptr %243, i64 8
   store ptr null, ptr %246, align 8
-  %247 = getelementptr inbounds i8, ptr %243, i64 16
+  %247 = getelementptr inbounds nuw i8, ptr %243, i64 16
   store ptr %242, ptr %247, align 8
   br label %makeItemList.exit
 
@@ -690,11 +690,11 @@ makeItemUnary.exit418:                            ; preds = %240, %245
 
 makeItemBinary.exit421:                           ; preds = %248, %254
   store i32 41, ptr %252, align 8
-  %255 = getelementptr inbounds i8, ptr %252, i64 8
+  %255 = getelementptr inbounds nuw i8, ptr %252, i64 8
   store ptr null, ptr %255, align 8
-  %256 = getelementptr inbounds i8, ptr %252, i64 16
+  %256 = getelementptr inbounds nuw i8, ptr %252, i64 16
   store ptr %250, ptr %256, align 8
-  %257 = getelementptr inbounds i8, ptr %252, i64 24
+  %257 = getelementptr inbounds nuw i8, ptr %252, i64 24
   store ptr %251, ptr %257, align 8
   br label %makeItemList.exit
 
@@ -731,13 +731,13 @@ makeItemBinary.exit421:                           ; preds = %248, %254
 
 makeItemString.exit425:                           ; preds = %271, %274
   store i32 1, ptr %272, align 8
-  %275 = getelementptr inbounds i8, ptr %272, i64 8
+  %275 = getelementptr inbounds nuw i8, ptr %272, i64 8
   store ptr null, ptr %275, align 8
   %276 = load ptr, ptr %.2357, align 8
-  %277 = getelementptr inbounds i8, ptr %272, i64 16
-  %278 = getelementptr inbounds i8, ptr %272, i64 24
+  %277 = getelementptr inbounds nuw i8, ptr %272, i64 16
+  %278 = getelementptr inbounds nuw i8, ptr %272, i64 24
   store ptr %276, ptr %278, align 8
-  %279 = getelementptr inbounds i8, ptr %.2357, i64 8
+  %279 = getelementptr inbounds nuw i8, ptr %.2357, i64 8
   %280 = load i32, ptr %279, align 8
   store i32 %280, ptr %277, align 8
   br label %makeItemList.exit
@@ -754,13 +754,13 @@ makeItemString.exit425:                           ; preds = %271, %274
 
 makeItemVariable.exit428:                         ; preds = %281, %284
   store i32 28, ptr %282, align 8
-  %285 = getelementptr inbounds i8, ptr %282, i64 8
+  %285 = getelementptr inbounds nuw i8, ptr %282, i64 8
   store ptr null, ptr %285, align 8
   %286 = load ptr, ptr %.2357, align 8
-  %287 = getelementptr inbounds i8, ptr %282, i64 16
-  %288 = getelementptr inbounds i8, ptr %282, i64 24
+  %287 = getelementptr inbounds nuw i8, ptr %282, i64 16
+  %288 = getelementptr inbounds nuw i8, ptr %282, i64 24
   store ptr %286, ptr %288, align 8
-  %289 = getelementptr inbounds i8, ptr %.2357, i64 8
+  %289 = getelementptr inbounds nuw i8, ptr %.2357, i64 8
   %290 = load i32, ptr %289, align 8
   store i32 %290, ptr %287, align 8
   br label %makeItemList.exit
@@ -781,7 +781,7 @@ makeItemVariable.exit428:                         ; preds = %281, %284
 
 makeItemType.exit:                                ; preds = %293, %296
   store i32 27, ptr %294, align 8
-  %297 = getelementptr inbounds i8, ptr %294, i64 8
+  %297 = getelementptr inbounds nuw i8, ptr %294, i64 8
   store ptr null, ptr %297, align 8
   br label %makeItemList.exit
 
@@ -797,7 +797,7 @@ makeItemType.exit:                                ; preds = %293, %296
 
 makeItemType.exit430:                             ; preds = %298, %301
   store i32 26, ptr %299, align 8
-  %302 = getelementptr inbounds i8, ptr %299, i64 8
+  %302 = getelementptr inbounds nuw i8, ptr %299, i64 8
   store ptr null, ptr %302, align 8
   br label %makeItemList.exit
 
@@ -813,7 +813,7 @@ makeItemType.exit430:                             ; preds = %298, %301
 
 makeItemType.exit432:                             ; preds = %303, %306
   store i32 40, ptr %304, align 8
-  %307 = getelementptr inbounds i8, ptr %304, i64 8
+  %307 = getelementptr inbounds nuw i8, ptr %304, i64 8
   store ptr null, ptr %307, align 8
   br label %makeItemList.exit
 
@@ -848,14 +848,14 @@ makeItemType.exit432:                             ; preds = %303, %306
   %328 = getelementptr i8, ptr %327, i64 16
   %.val.i = load ptr, ptr %328, align 8
   %329 = load ptr, ptr %.val.i, align 8
-  %330 = getelementptr inbounds i8, ptr %327, i64 4
+  %330 = getelementptr inbounds nuw i8, ptr %327, i64 4
   %331 = load i32, ptr %330, align 4
   %332 = icmp eq i32 %331, 1
   br i1 %332, label %makeItemList.exit, label %.preheader23.i
 
 .preheader23.i:                                   ; preds = %326, %.preheader23.i
   %.016.i = phi ptr [ %334, %.preheader23.i ], [ %329, %326 ]
-  %333 = getelementptr inbounds i8, ptr %.016.i, i64 8
+  %333 = getelementptr inbounds nuw i8, ptr %.016.i, i64 8
   %334 = load ptr, ptr %333, align 8
   %.not.i433 = icmp eq ptr %334, null
   br i1 %.not.i433, label %.preheader.i, label %.preheader23.i, !llvm.loop !5
@@ -870,7 +870,7 @@ makeItemType.exit432:                             ; preds = %303, %306
   %336 = load ptr, ptr %328, align 8
   %337 = getelementptr %union.ListCell, ptr %336, i64 %indvars.iv.i
   %338 = load ptr, ptr %337, align 8
-  %339 = getelementptr inbounds i8, ptr %.125.i, i64 8
+  %339 = getelementptr inbounds nuw i8, ptr %.125.i, i64 8
   store ptr %338, ptr %339, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %340 = load i32, ptr %330, align 4
@@ -890,7 +890,7 @@ makeItemType.exit432:                             ; preds = %303, %306
   br i1 %349, label %350, label %353
 
 350:                                              ; preds = %346
-  %351 = getelementptr inbounds i8, ptr %347, i64 8
+  %351 = getelementptr inbounds nuw i8, ptr %347, i64 8
   %352 = load ptr, ptr %351, align 8
   %.not.i435 = icmp eq ptr %352, null
   br i1 %.not.i435, label %makeItemList.exit, label %353
@@ -907,9 +907,9 @@ makeItemType.exit432:                             ; preds = %303, %306
 
 makeItemType.exit16.i:                            ; preds = %356, %353
   store i32 19, ptr %354, align 8
-  %357 = getelementptr inbounds i8, ptr %354, i64 8
+  %357 = getelementptr inbounds nuw i8, ptr %354, i64 8
   store ptr null, ptr %357, align 8
-  %358 = getelementptr inbounds i8, ptr %354, i64 16
+  %358 = getelementptr inbounds nuw i8, ptr %354, i64 16
   store ptr %347, ptr %358, align 8
   br label %makeItemList.exit
 
@@ -933,11 +933,11 @@ makeItemType.exit16.i:                            ; preds = %356, %353
 
 makeItemBinary.exit439:                           ; preds = %362, %368
   store i32 14, ptr %366, align 8
-  %369 = getelementptr inbounds i8, ptr %366, i64 8
+  %369 = getelementptr inbounds nuw i8, ptr %366, i64 8
   store ptr null, ptr %369, align 8
-  %370 = getelementptr inbounds i8, ptr %366, i64 16
+  %370 = getelementptr inbounds nuw i8, ptr %366, i64 16
   store ptr %364, ptr %370, align 8
-  %371 = getelementptr inbounds i8, ptr %366, i64 24
+  %371 = getelementptr inbounds nuw i8, ptr %366, i64 24
   store ptr %365, ptr %371, align 8
   br label %makeItemList.exit
 
@@ -956,11 +956,11 @@ makeItemBinary.exit439:                           ; preds = %362, %368
 
 makeItemBinary.exit442:                           ; preds = %372, %378
   store i32 15, ptr %376, align 8
-  %379 = getelementptr inbounds i8, ptr %376, i64 8
+  %379 = getelementptr inbounds nuw i8, ptr %376, i64 8
   store ptr null, ptr %379, align 8
-  %380 = getelementptr inbounds i8, ptr %376, i64 16
+  %380 = getelementptr inbounds nuw i8, ptr %376, i64 16
   store ptr %374, ptr %380, align 8
-  %381 = getelementptr inbounds i8, ptr %376, i64 24
+  %381 = getelementptr inbounds nuw i8, ptr %376, i64 24
   store ptr %375, ptr %381, align 8
   br label %makeItemList.exit
 
@@ -979,11 +979,11 @@ makeItemBinary.exit442:                           ; preds = %372, %378
 
 makeItemBinary.exit445:                           ; preds = %382, %388
   store i32 16, ptr %386, align 8
-  %389 = getelementptr inbounds i8, ptr %386, i64 8
+  %389 = getelementptr inbounds nuw i8, ptr %386, i64 8
   store ptr null, ptr %389, align 8
-  %390 = getelementptr inbounds i8, ptr %386, i64 16
+  %390 = getelementptr inbounds nuw i8, ptr %386, i64 16
   store ptr %384, ptr %390, align 8
-  %391 = getelementptr inbounds i8, ptr %386, i64 24
+  %391 = getelementptr inbounds nuw i8, ptr %386, i64 24
   store ptr %385, ptr %391, align 8
   br label %makeItemList.exit
 
@@ -1002,11 +1002,11 @@ makeItemBinary.exit445:                           ; preds = %382, %388
 
 makeItemBinary.exit448:                           ; preds = %392, %398
   store i32 17, ptr %396, align 8
-  %399 = getelementptr inbounds i8, ptr %396, i64 8
+  %399 = getelementptr inbounds nuw i8, ptr %396, i64 8
   store ptr null, ptr %399, align 8
-  %400 = getelementptr inbounds i8, ptr %396, i64 16
+  %400 = getelementptr inbounds nuw i8, ptr %396, i64 16
   store ptr %394, ptr %400, align 8
-  %401 = getelementptr inbounds i8, ptr %396, i64 24
+  %401 = getelementptr inbounds nuw i8, ptr %396, i64 24
   store ptr %395, ptr %401, align 8
   br label %makeItemList.exit
 
@@ -1025,11 +1025,11 @@ makeItemBinary.exit448:                           ; preds = %392, %398
 
 makeItemBinary.exit451:                           ; preds = %402, %408
   store i32 18, ptr %406, align 8
-  %409 = getelementptr inbounds i8, ptr %406, i64 8
+  %409 = getelementptr inbounds nuw i8, ptr %406, i64 8
   store ptr null, ptr %409, align 8
-  %410 = getelementptr inbounds i8, ptr %406, i64 16
+  %410 = getelementptr inbounds nuw i8, ptr %406, i64 16
   store ptr %404, ptr %410, align 8
-  %411 = getelementptr inbounds i8, ptr %406, i64 24
+  %411 = getelementptr inbounds nuw i8, ptr %406, i64 24
   store ptr %405, ptr %411, align 8
   br label %makeItemList.exit
 
@@ -1046,11 +1046,11 @@ makeItemBinary.exit451:                           ; preds = %402, %408
 
 makeItemBinary.exit454:                           ; preds = %412, %416
   store i32 39, ptr %414, align 8
-  %417 = getelementptr inbounds i8, ptr %414, i64 8
+  %417 = getelementptr inbounds nuw i8, ptr %414, i64 8
   store ptr null, ptr %417, align 8
-  %418 = getelementptr inbounds i8, ptr %414, i64 16
+  %418 = getelementptr inbounds nuw i8, ptr %414, i64 16
   store ptr %413, ptr %418, align 8
-  %419 = getelementptr inbounds i8, ptr %414, i64 24
+  %419 = getelementptr inbounds nuw i8, ptr %414, i64 24
   store ptr null, ptr %419, align 8
   br label %makeItemList.exit
 
@@ -1069,11 +1069,11 @@ makeItemBinary.exit454:                           ; preds = %412, %416
 
 makeItemBinary.exit457:                           ; preds = %420, %426
   store i32 39, ptr %424, align 8
-  %427 = getelementptr inbounds i8, ptr %424, i64 8
+  %427 = getelementptr inbounds nuw i8, ptr %424, i64 8
   store ptr null, ptr %427, align 8
-  %428 = getelementptr inbounds i8, ptr %424, i64 16
+  %428 = getelementptr inbounds nuw i8, ptr %424, i64 16
   store ptr %422, ptr %428, align 8
-  %429 = getelementptr inbounds i8, ptr %424, i64 24
+  %429 = getelementptr inbounds nuw i8, ptr %424, i64 24
   store ptr %423, ptr %429, align 8
   br label %makeItemList.exit
 
@@ -1101,7 +1101,7 @@ makeItemBinary.exit457:                           ; preds = %420, %426
 
 makeItemType.exit459:                             ; preds = %438, %441
   store i32 21, ptr %439, align 8
-  %442 = getelementptr inbounds i8, ptr %439, i64 8
+  %442 = getelementptr inbounds nuw i8, ptr %439, i64 8
   store ptr null, ptr %442, align 8
   br label %makeItemList.exit
 
@@ -1119,30 +1119,30 @@ makeItemType.exit459:                             ; preds = %438, %441
 
 makeItemType.exit.i461:                           ; preds = %448, %443
   store i32 23, ptr %446, align 8
-  %449 = getelementptr inbounds i8, ptr %446, i64 8
+  %449 = getelementptr inbounds nuw i8, ptr %446, i64 8
   store ptr null, ptr %449, align 8
   %.not.i19.i = icmp eq ptr %445, null
   br i1 %.not.i19.i, label %list_length.exit.i, label %450
 
 450:                                              ; preds = %makeItemType.exit.i461
-  %451 = getelementptr inbounds i8, ptr %445, i64 4
+  %451 = getelementptr inbounds nuw i8, ptr %445, i64 4
   %452 = load i32, ptr %451, align 4
   br label %list_length.exit.i
 
 list_length.exit.i:                               ; preds = %450, %makeItemType.exit.i461
   %453 = phi i32 [ %452, %450 ], [ 0, %makeItemType.exit.i461 ]
-  %454 = getelementptr inbounds i8, ptr %446, i64 16
+  %454 = getelementptr inbounds nuw i8, ptr %446, i64 16
   store i32 %453, ptr %454, align 8
   %455 = sext i32 %453 to i64
   %456 = shl nsw i64 %455, 4
   %457 = call ptr @palloc(i64 noundef %456) #5
-  %458 = getelementptr inbounds i8, ptr %446, i64 24
+  %458 = getelementptr inbounds nuw i8, ptr %446, i64 24
   store ptr %457, ptr %458, align 8
-  %459 = getelementptr inbounds i8, ptr %445, i64 4
+  %459 = getelementptr inbounds nuw i8, ptr %445, i64 4
   br i1 %.not.i19.i, label %makeItemList.exit, label %.lr.ph.i462
 
 .lr.ph.i462:                                      ; preds = %list_length.exit.i
-  %460 = getelementptr inbounds i8, ptr %445, i64 16
+  %460 = getelementptr inbounds nuw i8, ptr %445, i64 16
   %461 = load i32, ptr %459, align 4
   %462 = icmp sgt i32 %461, 0
   br i1 %462, label %.lr.ph27.i, label %makeItemList.exit
@@ -1152,12 +1152,12 @@ list_length.exit.i:                               ; preds = %450, %makeItemType.
   %463 = load ptr, ptr %460, align 8
   %464 = getelementptr %union.ListCell, ptr %463, i64 %indvars.iv.i463
   %465 = load ptr, ptr %464, align 8
-  %466 = getelementptr inbounds i8, ptr %465, i64 16
+  %466 = getelementptr inbounds nuw i8, ptr %465, i64 16
   %467 = load ptr, ptr %466, align 8
   %468 = load ptr, ptr %458, align 8
   %469 = getelementptr %struct.anon.4, ptr %468, i64 %indvars.iv.i463
   store ptr %467, ptr %469, align 8
-  %470 = getelementptr inbounds i8, ptr %465, i64 24
+  %470 = getelementptr inbounds nuw i8, ptr %465, i64 24
   %471 = load ptr, ptr %470, align 8
   %472 = load ptr, ptr %458, align 8
   %indvars.iv.next.i464 = add nuw nsw i64 %indvars.iv.i463, 1
@@ -1196,11 +1196,11 @@ list_length.exit.i:                               ; preds = %450, %makeItemType.
 
 makeAny.exit:                                     ; preds = %485, %488
   store i32 24, ptr %486, align 8
-  %489 = getelementptr inbounds i8, ptr %486, i64 8
+  %489 = getelementptr inbounds nuw i8, ptr %486, i64 8
   store ptr null, ptr %489, align 8
-  %490 = getelementptr inbounds i8, ptr %486, i64 16
+  %490 = getelementptr inbounds nuw i8, ptr %486, i64 16
   store i32 0, ptr %490, align 8
-  %491 = getelementptr inbounds i8, ptr %486, i64 20
+  %491 = getelementptr inbounds nuw i8, ptr %486, i64 20
   store i32 -1, ptr %491, align 4
   br label %makeItemList.exit
 
@@ -1218,12 +1218,12 @@ makeAny.exit:                                     ; preds = %485, %488
 
 makeAny.exit469:                                  ; preds = %492, %497
   store i32 24, ptr %495, align 8
-  %498 = getelementptr inbounds i8, ptr %495, i64 8
+  %498 = getelementptr inbounds nuw i8, ptr %495, i64 8
   store ptr null, ptr %498, align 8
   %499 = call i32 @llvm.smax.i32(i32 %494, i32 -1)
-  %500 = getelementptr inbounds i8, ptr %495, i64 16
+  %500 = getelementptr inbounds nuw i8, ptr %495, i64 16
   store i32 %499, ptr %500, align 8
-  %501 = getelementptr inbounds i8, ptr %495, i64 20
+  %501 = getelementptr inbounds nuw i8, ptr %495, i64 20
   store i32 %499, ptr %501, align 4
   br label %makeItemList.exit
 
@@ -1243,13 +1243,13 @@ makeAny.exit469:                                  ; preds = %492, %497
 
 makeAny.exit472:                                  ; preds = %502, %509
   store i32 24, ptr %507, align 8
-  %510 = getelementptr inbounds i8, ptr %507, i64 8
+  %510 = getelementptr inbounds nuw i8, ptr %507, i64 8
   store ptr null, ptr %510, align 8
   %511 = call i32 @llvm.smax.i32(i32 %504, i32 -1)
-  %512 = getelementptr inbounds i8, ptr %507, i64 16
+  %512 = getelementptr inbounds nuw i8, ptr %507, i64 16
   store i32 %511, ptr %512, align 8
   %513 = call i32 @llvm.smax.i32(i32 %506, i32 -1)
-  %514 = getelementptr inbounds i8, ptr %507, i64 20
+  %514 = getelementptr inbounds nuw i8, ptr %507, i64 20
   store i32 %513, ptr %514, align 4
   br label %makeItemList.exit
 
@@ -1269,7 +1269,7 @@ makeAny.exit472:                                  ; preds = %502, %509
 
 makeItemType.exit474:                             ; preds = %517, %520
   store i32 22, ptr %518, align 8
-  %521 = getelementptr inbounds i8, ptr %518, i64 8
+  %521 = getelementptr inbounds nuw i8, ptr %518, i64 8
   store ptr null, ptr %521, align 8
   br label %makeItemList.exit
 
@@ -1295,7 +1295,7 @@ makeItemType.exit474:                             ; preds = %517, %520
 
 makeItemType.exit476:                             ; preds = %526, %531
   store i32 %528, ptr %529, align 8
-  %532 = getelementptr inbounds i8, ptr %529, i64 8
+  %532 = getelementptr inbounds nuw i8, ptr %529, i64 8
   store ptr null, ptr %532, align 8
   br label %makeItemList.exit
 
@@ -1313,9 +1313,9 @@ makeItemType.exit476:                             ; preds = %526, %531
 
 makeItemUnary.exit480:                            ; preds = %533, %538
   store i32 29, ptr %536, align 8
-  %539 = getelementptr inbounds i8, ptr %536, i64 8
+  %539 = getelementptr inbounds nuw i8, ptr %536, i64 8
   store ptr null, ptr %539, align 8
-  %540 = getelementptr inbounds i8, ptr %536, i64 16
+  %540 = getelementptr inbounds nuw i8, ptr %536, i64 16
   store ptr %535, ptr %540, align 8
   br label %makeItemList.exit
 
@@ -1326,7 +1326,7 @@ makeItemUnary.exit480:                            ; preds = %533, %538
   br i1 %.not.i481, label %list_length.exit.thread, label %list_length.exit
 
 list_length.exit:                                 ; preds = %541
-  %544 = getelementptr inbounds i8, ptr %543, i64 4
+  %544 = getelementptr inbounds nuw i8, ptr %543, i64 4
   %545 = load i32, ptr %544, align 4
   switch i32 %545, label %570 [
     i32 0, label %list_length.exit.thread
@@ -1346,7 +1346,7 @@ list_length.exit.thread:                          ; preds = %list_length.exit, %
 
 makeItemBinary.exit484:                           ; preds = %list_length.exit.thread, %548
   store i32 46, ptr %546, align 8
-  %549 = getelementptr inbounds i8, ptr %546, i64 8
+  %549 = getelementptr inbounds nuw i8, ptr %546, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %549, i8 0, i64 24, i1 false)
   br label %makeItemList.exit
 
@@ -1365,11 +1365,11 @@ makeItemBinary.exit484:                           ; preds = %list_length.exit.th
 
 makeItemBinary.exit489:                           ; preds = %550, %555
   store i32 46, ptr %553, align 8
-  %556 = getelementptr inbounds i8, ptr %553, i64 8
+  %556 = getelementptr inbounds nuw i8, ptr %553, i64 8
   store ptr null, ptr %556, align 8
-  %557 = getelementptr inbounds i8, ptr %553, i64 16
+  %557 = getelementptr inbounds nuw i8, ptr %553, i64 16
   store ptr %552, ptr %557, align 8
-  %558 = getelementptr inbounds i8, ptr %553, i64 24
+  %558 = getelementptr inbounds nuw i8, ptr %553, i64 24
   store ptr null, ptr %558, align 8
   br label %makeItemList.exit
 
@@ -1390,11 +1390,11 @@ makeItemBinary.exit489:                           ; preds = %550, %555
 
 makeItemBinary.exit494:                           ; preds = %559, %566
   store i32 46, ptr %564, align 8
-  %567 = getelementptr inbounds i8, ptr %564, i64 8
+  %567 = getelementptr inbounds nuw i8, ptr %564, i64 8
   store ptr null, ptr %567, align 8
-  %568 = getelementptr inbounds i8, ptr %564, i64 16
+  %568 = getelementptr inbounds nuw i8, ptr %564, i64 16
   store ptr %561, ptr %568, align 8
-  %569 = getelementptr inbounds i8, ptr %564, i64 24
+  %569 = getelementptr inbounds nuw i8, ptr %564, i64 24
   store ptr %563, ptr %569, align 8
   br label %makeItemList.exit
 
@@ -1423,9 +1423,9 @@ makeItemBinary.exit494:                           ; preds = %559, %566
 
 makeItemUnary.exit498:                            ; preds = %576, %581
   store i32 37, ptr %579, align 8
-  %582 = getelementptr inbounds i8, ptr %579, i64 8
+  %582 = getelementptr inbounds nuw i8, ptr %579, i64 8
   store ptr null, ptr %582, align 8
-  %583 = getelementptr inbounds i8, ptr %579, i64 16
+  %583 = getelementptr inbounds nuw i8, ptr %579, i64 16
   store ptr %578, ptr %583, align 8
   br label %makeItemList.exit
 
@@ -1443,9 +1443,9 @@ makeItemUnary.exit498:                            ; preds = %576, %581
 
 makeItemUnary.exit502:                            ; preds = %584, %589
   store i32 50, ptr %587, align 8
-  %590 = getelementptr inbounds i8, ptr %587, i64 8
+  %590 = getelementptr inbounds nuw i8, ptr %587, i64 8
   store ptr null, ptr %590, align 8
-  %591 = getelementptr inbounds i8, ptr %587, i64 16
+  %591 = getelementptr inbounds nuw i8, ptr %587, i64 16
   store ptr %586, ptr %591, align 8
   br label %makeItemList.exit
 
@@ -1463,9 +1463,9 @@ makeItemUnary.exit502:                            ; preds = %584, %589
 
 makeItemUnary.exit506:                            ; preds = %592, %597
   store i32 51, ptr %595, align 8
-  %598 = getelementptr inbounds i8, ptr %595, i64 8
+  %598 = getelementptr inbounds nuw i8, ptr %595, i64 8
   store ptr null, ptr %598, align 8
-  %599 = getelementptr inbounds i8, ptr %595, i64 16
+  %599 = getelementptr inbounds nuw i8, ptr %595, i64 16
   store ptr %594, ptr %599, align 8
   br label %makeItemList.exit
 
@@ -1483,9 +1483,9 @@ makeItemUnary.exit506:                            ; preds = %592, %597
 
 makeItemUnary.exit510:                            ; preds = %600, %605
   store i32 52, ptr %603, align 8
-  %606 = getelementptr inbounds i8, ptr %603, i64 8
+  %606 = getelementptr inbounds nuw i8, ptr %603, i64 8
   store ptr null, ptr %606, align 8
-  %607 = getelementptr inbounds i8, ptr %603, i64 16
+  %607 = getelementptr inbounds nuw i8, ptr %603, i64 16
   store ptr %602, ptr %607, align 8
   br label %makeItemList.exit
 
@@ -1503,9 +1503,9 @@ makeItemUnary.exit510:                            ; preds = %600, %605
 
 makeItemUnary.exit514:                            ; preds = %608, %613
   store i32 53, ptr %611, align 8
-  %614 = getelementptr inbounds i8, ptr %611, i64 8
+  %614 = getelementptr inbounds nuw i8, ptr %611, i64 8
   store ptr null, ptr %614, align 8
-  %615 = getelementptr inbounds i8, ptr %611, i64 16
+  %615 = getelementptr inbounds nuw i8, ptr %611, i64 16
   store ptr %610, ptr %615, align 8
   br label %makeItemList.exit
 
@@ -1521,14 +1521,14 @@ makeItemUnary.exit514:                            ; preds = %608, %613
 
 makeItemNumeric.exit517:                          ; preds = %616, %619
   store i32 2, ptr %617, align 8
-  %620 = getelementptr inbounds i8, ptr %617, i64 8
+  %620 = getelementptr inbounds nuw i8, ptr %617, i64 8
   store ptr null, ptr %620, align 8
   %621 = load ptr, ptr %.2357, align 8
   %622 = ptrtoint ptr %621 to i64
   %623 = call i64 @DirectFunctionCall3Coll(ptr noundef nonnull @numeric_in, i32 noundef 0, i64 noundef %622, i64 noundef 0, i64 noundef -1) #5
   %624 = inttoptr i64 %623 to ptr
   %625 = call ptr @pg_detoast_datum(ptr noundef %624) #5
-  %626 = getelementptr inbounds i8, ptr %617, i64 16
+  %626 = getelementptr inbounds nuw i8, ptr %617, i64 16
   store ptr %625, ptr %626, align 8
   br label %makeItemList.exit
 
@@ -1544,14 +1544,14 @@ makeItemNumeric.exit517:                          ; preds = %616, %619
 
 makeItemNumeric.exit520:                          ; preds = %627, %630
   store i32 2, ptr %628, align 8
-  %631 = getelementptr inbounds i8, ptr %628, i64 8
+  %631 = getelementptr inbounds nuw i8, ptr %628, i64 8
   store ptr null, ptr %631, align 8
   %632 = load ptr, ptr %.2357, align 8
   %633 = ptrtoint ptr %632 to i64
   %634 = call i64 @DirectFunctionCall3Coll(ptr noundef nonnull @numeric_in, i32 noundef 0, i64 noundef %633, i64 noundef 0, i64 noundef -1) #5
   %635 = inttoptr i64 %634 to ptr
   %636 = call ptr @pg_detoast_datum(ptr noundef %635) #5
-  %637 = getelementptr inbounds i8, ptr %628, i64 16
+  %637 = getelementptr inbounds nuw i8, ptr %628, i64 16
   store ptr %636, ptr %637, align 8
   %638 = load i32, ptr %628, align 8
   %639 = icmp eq i32 %638, 2
@@ -1574,9 +1574,9 @@ makeItemNumeric.exit520:                          ; preds = %627, %630
 
 makeItemType.exit16.i522:                         ; preds = %645, %642
   store i32 19, ptr %643, align 8
-  %646 = getelementptr inbounds i8, ptr %643, i64 8
+  %646 = getelementptr inbounds nuw i8, ptr %643, i64 8
   store ptr null, ptr %646, align 8
-  %647 = getelementptr inbounds i8, ptr %643, i64 16
+  %647 = getelementptr inbounds nuw i8, ptr %643, i64 16
   store ptr %628, ptr %647, align 8
   br label %makeItemList.exit
 
@@ -1592,14 +1592,14 @@ makeItemType.exit16.i522:                         ; preds = %645, %642
 
 makeItemNumeric.exit528:                          ; preds = %648, %651
   store i32 2, ptr %649, align 8
-  %652 = getelementptr inbounds i8, ptr %649, i64 8
+  %652 = getelementptr inbounds nuw i8, ptr %649, i64 8
   store ptr null, ptr %652, align 8
   %653 = load ptr, ptr %.2357, align 8
   %654 = ptrtoint ptr %653 to i64
   %655 = call i64 @DirectFunctionCall3Coll(ptr noundef nonnull @numeric_in, i32 noundef 0, i64 noundef %654, i64 noundef 0, i64 noundef -1) #5
   %656 = inttoptr i64 %655 to ptr
   %657 = call ptr @pg_detoast_datum(ptr noundef %656) #5
-  %658 = getelementptr inbounds i8, ptr %649, i64 16
+  %658 = getelementptr inbounds nuw i8, ptr %649, i64 16
   store ptr %657, ptr %658, align 8
   %659 = call fastcc ptr @makeItemUnary(i32 noundef 20, ptr noundef nonnull %649)
   br label %makeItemList.exit
@@ -1635,14 +1635,14 @@ makeItemNumeric.exit528:                          ; preds = %648, %651
 
 makeItemNumeric.exit531:                          ; preds = %671, %674
   store i32 2, ptr %672, align 8
-  %675 = getelementptr inbounds i8, ptr %672, i64 8
+  %675 = getelementptr inbounds nuw i8, ptr %672, i64 8
   store ptr null, ptr %675, align 8
   %676 = load ptr, ptr %.2357, align 8
   %677 = ptrtoint ptr %676 to i64
   %678 = call i64 @DirectFunctionCall3Coll(ptr noundef nonnull @numeric_in, i32 noundef 0, i64 noundef %677, i64 noundef 0, i64 noundef -1) #5
   %679 = inttoptr i64 %678 to ptr
   %680 = call ptr @pg_detoast_datum(ptr noundef %679) #5
-  %681 = getelementptr inbounds i8, ptr %672, i64 16
+  %681 = getelementptr inbounds nuw i8, ptr %672, i64 16
   store ptr %680, ptr %681, align 8
   br label %makeItemList.exit
 
@@ -1662,13 +1662,13 @@ makeItemNumeric.exit531:                          ; preds = %671, %674
 
 makeItemString.exit535:                           ; preds = %684, %687
   store i32 1, ptr %685, align 8
-  %688 = getelementptr inbounds i8, ptr %685, i64 8
+  %688 = getelementptr inbounds nuw i8, ptr %685, i64 8
   store ptr null, ptr %688, align 8
   %689 = load ptr, ptr %.2357, align 8
-  %690 = getelementptr inbounds i8, ptr %685, i64 16
-  %691 = getelementptr inbounds i8, ptr %685, i64 24
+  %690 = getelementptr inbounds nuw i8, ptr %685, i64 16
+  %691 = getelementptr inbounds nuw i8, ptr %685, i64 24
   store ptr %689, ptr %691, align 8
-  %692 = getelementptr inbounds i8, ptr %.2357, i64 8
+  %692 = getelementptr inbounds nuw i8, ptr %.2357, i64 8
   %693 = load i32, ptr %692, align 8
   store i32 %693, ptr %690, align 8
   br label %makeItemList.exit
@@ -1689,13 +1689,13 @@ makeItemString.exit535:                           ; preds = %684, %687
 
 makeItemKey.exit:                                 ; preds = %696, %699
   store i32 1, ptr %697, align 8
-  %700 = getelementptr inbounds i8, ptr %697, i64 8
+  %700 = getelementptr inbounds nuw i8, ptr %697, i64 8
   store ptr null, ptr %700, align 8
   %701 = load ptr, ptr %.2357, align 8
-  %702 = getelementptr inbounds i8, ptr %697, i64 16
-  %703 = getelementptr inbounds i8, ptr %697, i64 24
+  %702 = getelementptr inbounds nuw i8, ptr %697, i64 16
+  %703 = getelementptr inbounds nuw i8, ptr %697, i64 24
   store ptr %701, ptr %703, align 8
-  %704 = getelementptr inbounds i8, ptr %.2357, i64 8
+  %704 = getelementptr inbounds nuw i8, ptr %.2357, i64 8
   %705 = load i32, ptr %704, align 8
   store i32 %705, ptr %702, align 8
   store i32 25, ptr %697, align 8
@@ -1879,7 +1879,7 @@ define internal fastcc ptr @makeItemUnary(i32 noundef range(i32 6, 54) %0, ptr n
   br i1 %5, label %6, label %26
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %32, label %26
@@ -1890,7 +1890,7 @@ define internal fastcc ptr @makeItemUnary(i32 noundef range(i32 6, 54) %0, ptr n
   br i1 %11, label %12, label %26
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   %.not14 = icmp eq ptr %14, null
   br i1 %.not14, label %15, label %26
@@ -1907,9 +1907,9 @@ define internal fastcc ptr @makeItemUnary(i32 noundef range(i32 6, 54) %0, ptr n
 
 makeItemType.exit:                                ; preds = %15, %18
   store i32 2, ptr %16, align 8
-  %19 = getelementptr inbounds i8, ptr %16, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr null, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = ptrtoint ptr %21 to i64
   %23 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @numeric_uminus, i32 noundef 0, i64 noundef %22) #5
@@ -1929,14 +1929,14 @@ makeItemType.exit:                                ; preds = %15, %18
 
 makeItemType.exit16:                              ; preds = %26, %29
   store i32 %0, ptr %27, align 8
-  %30 = getelementptr inbounds i8, ptr %27, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr null, ptr %30, align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %makeItemType.exit, %makeItemType.exit16
   %.sink18 = phi ptr [ %27, %makeItemType.exit16 ], [ %16, %makeItemType.exit ]
   %.sink = phi ptr [ %1, %makeItemType.exit16 ], [ %25, %makeItemType.exit ]
-  %31 = getelementptr inbounds i8, ptr %.sink18, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %.sink18, i64 16
   store ptr %.sink, ptr %31, align 8
   br label %32
 
@@ -1960,24 +1960,24 @@ define internal fastcc noundef zeroext i1 @makeItemLikeRegex(ptr noundef %0, ptr
 
 makeItemType.exit:                                ; preds = %5, %10
   store i32 42, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr null, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %0, ptr %12, align 8
   %13 = load ptr, ptr %1, align 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %13, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load i32, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %8, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i32 %16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %8, i64 36
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 36
   store i32 0, ptr %18, align 4
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %makeItemType.exit
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load i32, ptr %19, align 8
   %21 = icmp sgt i32 %20, 0
   br i1 %21, label %.lr.ph51, label %.thread

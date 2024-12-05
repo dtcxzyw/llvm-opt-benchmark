@@ -186,7 +186,7 @@ define internal i32 @dissect_t125(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %7 = alloca i8, align 1
   %8 = alloca i32, align 4
   store ptr %2, ptr @top_tree, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @col_set_str(ptr noundef %10, i32 noundef 34, ptr noundef nonnull @.str.54) #5
   %11 = load ptr, ptr %9, align 8
@@ -249,10 +249,10 @@ define internal range(i32 0, 2) i32 @dissect_t125_heur(ptr noundef %0, ptr nound
   store volatile i8 0, ptr %8, align 1
   store volatile i32 0, ptr %10, align 4
   call void @except_setup_try(ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull @dissect_t125_heur.catch_spec, i64 noundef 1) #5
-  %13 = getelementptr inbounds i8, ptr %12, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %14 = call i32 @_setjmp(ptr noundef nonnull %13) #6
   %.not = icmp eq i32 %14, 0
-  %15 = getelementptr inbounds i8, ptr %12, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %.sink = select i1 %.not, ptr null, ptr %15
   store volatile ptr %.sink, ptr %9, align 8
   %.0..0..0..0. = load volatile i32, ptr %10, align 4
@@ -295,35 +295,35 @@ define internal range(i32 0, 2) i32 @dissect_t125_heur(ptr noundef %0, ptr nound
 
 29:                                               ; preds = %28
   %.0..0..0..0.12 = load volatile ptr, ptr %9, align 8
-  %30 = getelementptr inbounds i8, ptr %.0..0..0..0.12, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.12, i64 8
   %31 = load volatile i64, ptr %30, align 8
   %32 = icmp eq i64 %31, 1
   br i1 %32, label %49, label %33
 
 33:                                               ; preds = %29
   %.0..0..0..0.13 = load volatile ptr, ptr %9, align 8
-  %34 = getelementptr inbounds i8, ptr %.0..0..0..0.13, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.13, i64 8
   %35 = load volatile i64, ptr %34, align 8
   %36 = icmp eq i64 %35, 4
   br i1 %36, label %49, label %37
 
 37:                                               ; preds = %33
   %.0..0..0..0.14 = load volatile ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %.0..0..0..0.14, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.14, i64 8
   %39 = load volatile i64, ptr %38, align 8
   %40 = icmp eq i64 %39, 3
   br i1 %40, label %49, label %41
 
 41:                                               ; preds = %37
   %.0..0..0..0.15 = load volatile ptr, ptr %9, align 8
-  %42 = getelementptr inbounds i8, ptr %.0..0..0..0.15, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.15, i64 8
   %43 = load volatile i64, ptr %42, align 8
   %44 = icmp eq i64 %43, 2
   br i1 %44, label %49, label %45
 
 45:                                               ; preds = %41
   %.0..0..0..0.16 = load volatile ptr, ptr %9, align 8
-  %46 = getelementptr inbounds i8, ptr %.0..0..0..0.16, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.16, i64 8
   %47 = load volatile i64, ptr %46, align 8
   %48 = icmp eq i64 %47, 7
   br i1 %48, label %49, label %51
@@ -352,7 +352,7 @@ define internal range(i32 0, 2) i32 @dissect_t125_heur(ptr noundef %0, ptr nound
   unreachable
 
 55:                                               ; preds = %53, %51
-  %56 = getelementptr inbounds i8, ptr %12, i64 40
+  %56 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %57 = load volatile ptr, ptr %56, align 8
   call void @except_free(ptr noundef %57) #5
   %58 = call ptr @except_pop() #5
@@ -478,7 +478,7 @@ define internal i32 @dissect_t125_T_userData(i1 noundef zeroext %0, ptr noundef 
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr @t125_heur_subdissector_list, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr @top_tree, align 8
   %16 = call i32 @dissector_try_heuristic(ptr noundef %12, ptr noundef nonnull %10, ptr noundef %14, ptr noundef %15, ptr noundef nonnull %8, ptr noundef null) #5
@@ -527,7 +527,7 @@ define internal i32 @dissect_t125_T_userData_01(i1 noundef zeroext %0, ptr nound
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr @t125_heur_subdissector_list, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr @top_tree, align 8
   %16 = call i32 @dissector_try_heuristic(ptr noundef %12, ptr noundef nonnull %10, ptr noundef %14, ptr noundef %15, ptr noundef nonnull %8, ptr noundef null) #5

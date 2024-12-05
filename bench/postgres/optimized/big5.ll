@@ -109,7 +109,7 @@ define internal fastcc zeroext i16 @BinarySearchRange(ptr nocapture noundef read
 13:                                               ; preds = %9
   %14 = zext i16 %8 to i32
   %15 = zext i16 %2 to i32
-  %16 = getelementptr inbounds i8, ptr %7, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 2
   %17 = load i16, ptr %16, align 2
   %18 = zext i16 %17 to i32
   %19 = icmp eq i16 %17, 0

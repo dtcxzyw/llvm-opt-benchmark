@@ -76,7 +76,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr inbounds [5 x ptr], ptr @package_loaders, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [5 x ptr], ptr @package_loaders, i64 0, i64 %indvars.iv
   %0 = load ptr, ptr %arrayidx, align 8
   %call4 = tail call ptr @lj_lib_pushcc(ptr noundef %L, ptr noundef %0, i32 noundef 1, i32 noundef 0) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -323,7 +323,7 @@ if.else15:                                        ; preds = %if.else
 cond.false:                                       ; preds = %if.else15
   %call.i28 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %name, i32 noundef 45) #8
   %tobool.not.i29 = icmp eq ptr %call.i28, null
-  %add.ptr.i = getelementptr inbounds i8, ptr %call.i28, i64 1
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %call.i28, i64 1
   %spec.select.i = select i1 %tobool.not.i29, ptr %name, ptr %add.ptr.i
   %call1.i30 = tail call ptr @luaL_gsub(ptr noundef %L, ptr noundef nonnull %spec.select.i, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28) #7
   %call2.i31 = tail call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %L, ptr noundef nonnull @.str.23, ptr noundef %call1.i30) #7
@@ -351,7 +351,7 @@ if.then22:                                        ; preds = %if.end20
   %5 = load ptr, ptr %plib.0.i, align 8
   %call.i36 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %name, i32 noundef 45) #8
   %tobool.not.i37 = icmp eq ptr %call.i36, null
-  %add.ptr.i38 = getelementptr inbounds i8, ptr %call.i36, i64 1
+  %add.ptr.i38 = getelementptr inbounds nuw i8, ptr %call.i36, i64 1
   %spec.select.i39 = select i1 %tobool.not.i37, ptr %name, ptr %add.ptr.i38
   %call1.i40 = tail call ptr @luaL_gsub(ptr noundef %L, ptr noundef nonnull %spec.select.i39, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28) #7
   %call2.i41 = tail call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %L, ptr noundef nonnull @.str.24, ptr noundef %call1.i40) #7
@@ -443,7 +443,7 @@ while.cond.i:                                     ; preds = %while.cond.i.backed
   ]
 
 while.body.i:                                     ; preds = %while.cond.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %path.addr.0.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %path.addr.0.i, i64 1
   br label %while.cond.i.backedge
 
 while.cond.i.backedge:                            ; preds = %while.body.i, %if.end9
@@ -540,7 +540,7 @@ if.end:                                           ; preds = %if.then, %entry
 if.then5:                                         ; preds = %if.end
   %call.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %call, i32 noundef 45) #8
   %tobool.not.i = icmp eq ptr %call.i, null
-  %add.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 1
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %call.i, i64 1
   %spec.select.i = select i1 %tobool.not.i, ptr %call, ptr %add.ptr.i
   %call1.i = tail call ptr @luaL_gsub(ptr noundef %L, ptr noundef %spec.select.i, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28) #7
   %call2.i = tail call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %L, ptr noundef nonnull @.str.24, ptr noundef %call1.i) #7
@@ -690,9 +690,9 @@ define internal noundef i32 @lj_cf_package_module(ptr noundef %L) #0 {
 entry:
   %ar.i = alloca %struct.lua_Debug, align 8
   %call = tail call ptr @luaL_checklstring(ptr noundef %L, i32 noundef 1, ptr noundef null) #7
-  %top = getelementptr inbounds i8, ptr %L, i64 40
+  %top = getelementptr inbounds nuw i8, ptr %L, i64 40
   %0 = load ptr, ptr %top, align 8
-  %base = getelementptr inbounds i8, ptr %L, i64 32
+  %base = getelementptr inbounds nuw i8, ptr %L, i64 32
   %1 = load ptr, ptr %base, align 8
   tail call void @luaL_pushmodule(ptr noundef %L, ptr noundef %call, i32 noundef 1) #7
   tail call void @lua_getfield(ptr noundef %L, i32 noundef -1, ptr noundef nonnull @.str.45) #7
@@ -708,7 +708,7 @@ if.else:                                          ; preds = %entry
   tail call void @lua_setfield(ptr noundef nonnull %L, i32 noundef -2, ptr noundef nonnull @.str.45) #7
   %call.i = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %call, i32 noundef 46) #8
   %cmp.i = icmp eq ptr %call.i, null
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %call.i, i64 1
   %dot.0.i = select i1 %cmp.i, ptr %call, ptr %incdec.ptr.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %dot.0.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %call to i64
@@ -776,7 +776,7 @@ entry:
   br i1 %tobool.not, label %if.end4, label %if.then
 
 if.then:                                          ; preds = %entry
-  %top = getelementptr inbounds i8, ptr %L, i64 40
+  %top = getelementptr inbounds nuw i8, ptr %L, i64 40
   %0 = load ptr, ptr %top, align 8
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 -8
   %1 = load i64, ptr %add.ptr, align 8
@@ -838,9 +838,9 @@ for.inc:                                          ; preds = %if.else22, %if.then
   br label %for.cond
 
 for.end:                                          ; preds = %if.end15
-  %top25 = getelementptr inbounds i8, ptr %L, i64 40
+  %top25 = getelementptr inbounds nuw i8, ptr %L, i64 40
   %2 = load ptr, ptr %top25, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %2, i64 8
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %incdec.ptr, ptr %top25, align 8
   store i64 -9223372036854775693, ptr %2, align 8
   tail call void @lua_setfield(ptr noundef %L, i32 noundef 2, ptr noundef %call) #7

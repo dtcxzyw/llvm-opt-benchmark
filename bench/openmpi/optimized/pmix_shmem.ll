@@ -43,9 +43,9 @@ add_internal_segment_header.exit.thread28:        ; preds = %15
   br label %add_internal_segment_header.exit.thread21
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 128
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i64 %12, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 152
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 152
   tail call void @pmix_string_copy(ptr noundef nonnull %20, ptr noundef %2, i64 noundef 4097) #8
   %21 = tail call fastcc i32 @segment_attach(ptr noundef %0, i64 noundef 0, i8 noundef zeroext 0)
   switch i32 %21, label %22 [
@@ -59,10 +59,10 @@ add_internal_segment_header.exit.thread28:        ; preds = %15
   br label %add_internal_segment_header.exit
 
 24:                                               ; preds = %18
-  %25 = getelementptr inbounds i8, ptr %0, i64 136
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %26 = load ptr, ptr %25, align 8
   store i32 0, ptr %26, align 1
-  %27 = getelementptr inbounds i8, ptr %0, i64 120
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %28 = load volatile i8, ptr %27, align 8
   %29 = trunc i8 %28 to i1
   br i1 %29, label %30, label %add_internal_segment_header.exit.thread26
@@ -141,7 +141,7 @@ define range(i32 -67, 1) i32 @pmix_shmem_segment_attach(ptr noundef %0, i64 noun
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 136
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %8 = load ptr, ptr %7, align 8
   %9 = atomicrmw volatile add ptr %8, i32 1 monotonic, align 4
   br label %10
@@ -152,14 +152,14 @@ define range(i32 -67, 1) i32 @pmix_shmem_segment_attach(ptr noundef %0, i64 noun
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -67, 1) i32 @segment_attach(ptr noundef %0, i64 noundef %1, i8 noundef zeroext %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 152
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %5 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull %4, i32 noundef 2) #8
   %6 = icmp eq i32 %5, -1
   br i1 %6, label %20, label %7
 
 7:                                                ; preds = %3
   %8 = inttoptr i64 %1 to ptr
-  %9 = getelementptr inbounds i8, ptr %0, i64 128
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %10 = load i64, ptr %9, align 8
   %11 = tail call ptr @mmap(ptr noundef %8, i64 noundef %10, i32 noundef 3, i32 noundef 1, i32 noundef %5, i64 noundef 0) #8
   %12 = icmp eq ptr %11, inttoptr (i64 -1 to ptr)
@@ -187,15 +187,15 @@ define internal fastcc range(i32 -67, 1) i32 @segment_attach(ptr noundef %0, i64
 .thread53:                                        ; preds = %14, %.thread48, %20
   %.0394559 = phi i32 [ -67, %20 ], [ -32, %.thread48 ], [ -64, %14 ]
   %.022354757 = phi ptr [ inttoptr (i64 -1 to ptr), %20 ], [ inttoptr (i64 -1 to ptr), %.thread48 ], [ %11, %14 ]
-  %21 = getelementptr inbounds i8, ptr %0, i64 120
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %22 = load volatile i8, ptr %21, align 8
   %23 = trunc i8 %22 to i1
   br i1 %23, label %24, label %pmix_shmem_segment_detach.exit
 
 24:                                               ; preds = %.thread53
-  %25 = getelementptr inbounds i8, ptr %0, i64 136
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 128
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %28 = load i64, ptr %27, align 8
   %29 = tail call i32 @munmap(ptr noundef %26, i64 noundef %28) #8
   store volatile i8 0, ptr %21, align 8
@@ -210,14 +210,14 @@ pmix_shmem_segment_detach.exit:                   ; preds = %20, %.thread53, %24
   br label %33
 
 31:                                               ; preds = %14
-  %32 = getelementptr inbounds i8, ptr %0, i64 120
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store volatile i8 1, ptr %32, align 8
   br label %33
 
 33:                                               ; preds = %pmix_shmem_segment_detach.exit, %31
   %.0223546 = phi ptr [ %.022354758, %pmix_shmem_segment_detach.exit ], [ %11, %31 ]
   %.03944 = phi i32 [ %.0394560, %pmix_shmem_segment_detach.exit ], [ 0, %31 ]
-  %34 = getelementptr inbounds i8, ptr %0, i64 136
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr %.0223546, ptr %34, align 8
   %35 = tail call i64 @sysconf(i32 noundef 30) #8
   %36 = icmp eq i64 %35, -1
@@ -237,7 +237,7 @@ data_addr_from_base.exit:                         ; preds = %33, %37
   %43 = add i64 %42, 4
   %44 = add i64 %43, %41
   %45 = inttoptr i64 %44 to ptr
-  %46 = getelementptr inbounds i8, ptr %0, i64 144
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %45, ptr %46, align 8
   ret i32 %.03944
 }
@@ -248,15 +248,15 @@ define range(i32 -1, 1) i32 @pmix_shmem_segment_detach(ptr noundef %0) local_unn
   br i1 %.not, label %14, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 120
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load volatile i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %14
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 136
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 128
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %10 = load i64, ptr %9, align 8
   %11 = tail call i32 @munmap(ptr noundef %8, i64 noundef %10) #8
   store volatile i8 0, ptr %3, align 8
@@ -275,7 +275,7 @@ declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @pmix_shmem_segment_chown(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 152
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %5 = tail call i32 @lchown(ptr noundef nonnull %4, i32 noundef %1, i32 noundef %2) #8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %8, label %6
@@ -295,7 +295,7 @@ declare noundef i32 @lchown(ptr nocapture noundef readonly, i32 noundef, i32 nou
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @pmix_shmem_segment_chmod(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 152
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %4 = tail call i32 @chmod(ptr noundef nonnull %3, i32 noundef %1) #8
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %7, label %5
@@ -315,7 +315,7 @@ declare noundef i32 @chmod(ptr nocapture noundef readonly, i32 noundef) local_un
 
 ; Function Attrs: nofree nounwind uwtable
 define range(i32 -1, 1) i32 @pmix_shmem_segment_unlink(ptr nocapture noundef %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 152
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = tail call i32 @unlink(ptr noundef nonnull %2) #8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4097) %2, i8 0, i64 4097, i1 false)
   %4 = icmp ne i32 %3, 0
@@ -331,29 +331,29 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @shmem_construct(ptr noundef %0) #7 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store volatile i8 0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 128
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4121) %3, i8 0, i64 4121, i1 false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @shmem_destruct(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load volatile i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %pmix_shmem_segment_detach.exit
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 136
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %7 = load ptr, ptr %6, align 8
   %8 = atomicrmw volatile sub ptr %7, i32 1 monotonic, align 4
   %9 = icmp eq i32 %8, 1
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %0, i64 152
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %12 = tail call i32 @unlink(ptr noundef nonnull %11) #8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4097) %11, i8 0, i64 4097, i1 false)
   br label %13
@@ -365,7 +365,7 @@ define internal void @shmem_destruct(ptr noundef %0) #0 {
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr %6, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 128
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %19 = load i64, ptr %18, align 8
   %20 = tail call i32 @munmap(ptr noundef %17, i64 noundef %19) #8
   store volatile i8 0, ptr %2, align 8

@@ -251,7 +251,7 @@ if.end:                                           ; preds = %cond.end9, %cond.en
   %cond265 = phi i8 [ %cond266, %if.then ], [ 4, %cond.end9.thread ], [ 2, %cond.end.thread ], [ %cond264, %cond.end9 ]
   %cmp.i3547 = phi i1 [ %cmp.i3549, %if.then ], [ false, %cond.end9.thread ], [ false, %cond.end.thread ], [ false, %cond.end9 ]
   %cond1045 = phi i8 [ %cond1046, %if.then ], [ 2, %cond.end9.thread ], [ 2, %cond.end.thread ], [ 4, %cond.end9 ]
-  %default_nan_mode = getelementptr inbounds i8, ptr %status, i64 7
+  %default_nan_mode = getelementptr inbounds nuw i8, ptr %status, i64 7
   %11 = load i8, ptr %default_nan_mode, align 1
   %tobool16 = trunc i8 %11 to i1
   br i1 %tobool16, label %return, label %if.end19
@@ -348,13 +348,13 @@ entry:
   %conv.i.i.i = zext nneg i16 %1 to i32
   %2 = and i16 %a, 1023
   %and.i11.i.i = zext nneg i16 %2 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 1
   store i8 %frombool.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 4
   store i32 %conv.i.i.i, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 8
   store i64 %and.i11.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
-  %.ph.i.sroa.gep115 = getelementptr inbounds i8, ptr %pb, i64 8
+  %.ph.i.sroa.gep115 = getelementptr inbounds nuw i8, ptr %pb, i64 8
   switch i16 %1, label %if.then33.i.i [
     i16 0, label %if.then.i.i
     i16 31, label %lor.lhs.false.i.i
@@ -369,7 +369,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   br label %float16a_unpack_canonical.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %status, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %status, i64 6
   %3 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %3 to i1
   br i1 %tobool9.i.i, label %if.then10.i.i, label %frac64_normalize.exit.i.i
@@ -428,9 +428,9 @@ float16a_unpack_canonical.exit:                   ; preds = %if.then8.i.i, %if.t
   %conv.i.i.i44 = zext nneg i16 %9 to i32
   %10 = and i16 %b, 1023
   %and.i11.i.i45 = zext nneg i16 %10 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i46 = getelementptr inbounds i8, ptr %pb, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i46 = getelementptr inbounds nuw i8, ptr %pb, i64 1
   store i8 %frombool.i.i.i43, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i46, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i47 = getelementptr inbounds i8, ptr %pb, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i47 = getelementptr inbounds nuw i8, ptr %pb, i64 4
   store i32 %conv.i.i.i44, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i47, align 4
   store i64 %and.i11.i.i45, ptr %.ph.i.sroa.gep115, align 8
   switch i16 %9, label %if.then33.i.i59 [
@@ -447,7 +447,7 @@ if.then8.i.i75:                                   ; preds = %if.then.i.i63
   br label %float16a_unpack_canonical.exit76
 
 if.else.i.i65:                                    ; preds = %if.then.i.i63
-  %flush_inputs_to_zero.i.i66 = getelementptr inbounds i8, ptr %status, i64 6
+  %flush_inputs_to_zero.i.i66 = getelementptr inbounds nuw i8, ptr %status, i64 6
   %11 = load i8, ptr %flush_inputs_to_zero.i.i66, align 2
   %tobool9.i.i67 = trunc i8 %11 to i1
   br i1 %tobool9.i.i67, label %if.then10.i.i73, label %frac64_normalize.exit.i.i68
@@ -588,7 +588,7 @@ if.end22.i.thread:                                ; preds = %if.end19.i
   br label %if.then25.i
 
 if.then25.i:                                      ; preds = %if.then.i, %if.end22.i.thread
-  %float_rounding_mode.i = getelementptr inbounds i8, ptr %status, i64 2
+  %float_rounding_mode.i = getelementptr inbounds nuw i8, ptr %status, i64 2
   %28 = load i8, ptr %float_rounding_mode.i, align 2
   %cmp27.i = icmp eq i8 %28, 1
   %frombool30.i = zext i1 %cmp27.i to i8
@@ -740,7 +740,7 @@ if.then.i110:                                     ; preds = %p_nan.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %p_nan.i, %if.then.i110
-  %default_nan_mode.i = getelementptr inbounds i8, ptr %status, i64 7
+  %default_nan_mode.i = getelementptr inbounds nuw i8, ptr %status, i64 7
   %38 = load i8, ptr %default_nan_mode.i, align 1
   %tobool.i = trunc i8 %38 to i1
   br i1 %tobool.i, label %if.then3.i, label %if.else.i105
@@ -799,17 +799,17 @@ if.then24.i:                                      ; preds = %if.then2.i.i, %.thr
 parts64_addsub.exit:                              ; preds = %.thread132, %if.then24.i, %40, %if.then6.i.i, %if.then3.i, %if.then8.i, %if.end7.i, %parts64_sub_normal.exit.thread, %if.then91.i, %if.else.i, %if.end49.i, %return_b.i, %if.then83.i, %if.end55.i, %if.then25.i
   %retval.i.0 = phi ptr [ %pa, %if.then25.i ], [ %pb, %return_b.i ], [ %pa, %if.end55.i ], [ %pa, %if.then83.i ], [ %pa, %if.end49.i ], [ %pa, %if.else.i ], [ %pa, %if.then91.i ], [ %pa, %parts64_sub_normal.exit.thread ], [ %pa, %if.end7.i ], [ %pa, %if.then8.i ], [ %pa, %if.then3.i ], [ %.ph.i126, %if.then24.i ], [ %pb, %40 ], [ %pa, %if.then6.i.i ], [ %pb, %.thread132 ]
   call fastcc void @parts64_uncanon(ptr noundef nonnull %retval.i.0, ptr noundef %status, ptr noundef nonnull @float16_params)
-  %sign.i.i.i = getelementptr inbounds i8, ptr %retval.i.0, i64 1
+  %sign.i.i.i = getelementptr inbounds nuw i8, ptr %retval.i.0, i64 1
   %43 = load i8, ptr %sign.i.i.i, align 1
   %conv.i.i.i111 = zext i8 %43 to i64
   %shl.i.i.i112 = shl nuw nsw i64 %conv.i.i.i111, 15
-  %exp.i.i.i = getelementptr inbounds i8, ptr %retval.i.0, i64 4
+  %exp.i.i.i = getelementptr inbounds nuw i8, ptr %retval.i.0, i64 4
   %44 = load i32, ptr %exp.i.i.i, align 4
   %45 = shl i32 %44, 10
   %46 = and i32 %45, 31744
   %and8.i.i.i = zext nneg i32 %46 to i64
   %or.i.i.i = or disjoint i64 %shl.i.i.i112, %and8.i.i.i
-  %47 = getelementptr inbounds i8, ptr %retval.i.0, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %retval.i.0, i64 8
   %48 = load i64, ptr %47, align 8
   %shl77.i9.i.i = and i64 %48, 1023
   %or.i11.i.i = or disjoint i64 %or.i.i.i, %shl77.i9.i.i
@@ -833,13 +833,13 @@ entry:
   br i1 %tobool.not.i.i, label %soft39.i, label %can_use_fpu.exit.i
 
 can_use_fpu.exit.i:                               ; preds = %entry
-  %float_rounding_mode.i.i = getelementptr inbounds i8, ptr %s, i64 2
+  %float_rounding_mode.i.i = getelementptr inbounds nuw i8, ptr %s, i64 2
   %2 = load i8, ptr %float_rounding_mode.i.i, align 2
   %cmp.i.i = icmp eq i8 %2, 0
   br i1 %cmp.i.i, label %if.end.i, label %soft39.i
 
 if.end.i:                                         ; preds = %can_use_fpu.exit.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %3 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i, label %if.end.i.i, label %float32_input_flush2.exit.i
@@ -934,13 +934,13 @@ entry:
   br i1 %tobool.not.i.i, label %soft39.i, label %can_use_fpu.exit.i
 
 can_use_fpu.exit.i:                               ; preds = %entry
-  %float_rounding_mode.i.i = getelementptr inbounds i8, ptr %s, i64 2
+  %float_rounding_mode.i.i = getelementptr inbounds nuw i8, ptr %s, i64 2
   %2 = load i8, ptr %float_rounding_mode.i.i, align 2
   %cmp.i.i = icmp eq i8 %2, 0
   br i1 %cmp.i.i, label %if.end.i, label %soft39.i
 
 if.end.i:                                         ; preds = %can_use_fpu.exit.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %3 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i, label %if.end.i.i, label %float32_input_flush2.exit.i
@@ -1035,13 +1035,13 @@ entry:
   br i1 %tobool.not.i.i, label %soft39.i, label %can_use_fpu.exit.i
 
 can_use_fpu.exit.i:                               ; preds = %entry
-  %float_rounding_mode.i.i = getelementptr inbounds i8, ptr %s, i64 2
+  %float_rounding_mode.i.i = getelementptr inbounds nuw i8, ptr %s, i64 2
   %2 = load i8, ptr %float_rounding_mode.i.i, align 2
   %cmp.i.i = icmp eq i8 %2, 0
   br i1 %cmp.i.i, label %if.end.i, label %soft39.i
 
 if.end.i:                                         ; preds = %can_use_fpu.exit.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %3 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i, label %if.end.i.i, label %float64_input_flush2.exit.i
@@ -1141,13 +1141,13 @@ entry:
   br i1 %tobool.not.i.i, label %soft39.i, label %can_use_fpu.exit.i
 
 can_use_fpu.exit.i:                               ; preds = %entry
-  %float_rounding_mode.i.i = getelementptr inbounds i8, ptr %s, i64 2
+  %float_rounding_mode.i.i = getelementptr inbounds nuw i8, ptr %s, i64 2
   %2 = load i8, ptr %float_rounding_mode.i.i, align 2
   %cmp.i.i = icmp eq i8 %2, 0
   br i1 %cmp.i.i, label %if.end.i, label %soft39.i
 
 if.end.i:                                         ; preds = %can_use_fpu.exit.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %3 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i, label %if.end.i.i, label %float64_input_flush2.exit.i
@@ -1256,13 +1256,13 @@ entry:
   %0 = trunc nuw nsw i64 %shr.i8.i.i to i32
   %conv.i.i.i = and i32 %0, 2047
   %and.i10.i.i = and i64 %a, 4503599627370495
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 1
   store i8 %frombool.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 4
   store i32 %conv.i.i.i, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 8
   store i64 %and.i10.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
-  %.ph.i48.i.sroa.gep52 = getelementptr inbounds i8, ptr %pb, i64 8
+  %.ph.i48.i.sroa.gep52 = getelementptr inbounds nuw i8, ptr %pb, i64 8
   switch i32 %conv.i.i.i, label %if.then33.i.i [
     i32 0, label %if.then.i.i
     i32 2047, label %lor.lhs.false.i.i
@@ -1277,7 +1277,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   br label %float64_unpack_canonical.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %status, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %status, i64 6
   %1 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %1 to i1
   br i1 %tobool9.i.i, label %if.then10.i.i, label %frac64_normalize.exit.i.i
@@ -1335,9 +1335,9 @@ float64_unpack_canonical.exit:                    ; preds = %if.then8.i.i, %if.t
   %6 = trunc nuw nsw i64 %shr.i8.i.i6 to i32
   %conv.i.i.i7 = and i32 %6, 2047
   %and.i10.i.i8 = and i64 %b, 4503599627370495
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i9 = getelementptr inbounds i8, ptr %pb, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i9 = getelementptr inbounds nuw i8, ptr %pb, i64 1
   store i8 %frombool.i.i.i5, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i9, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i10 = getelementptr inbounds i8, ptr %pb, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i10 = getelementptr inbounds nuw i8, ptr %pb, i64 4
   store i32 %conv.i.i.i7, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i10, align 4
   store i64 %and.i10.i.i8, ptr %.ph.i48.i.sroa.gep52, align 8
   switch i32 %conv.i.i.i7, label %if.then33.i.i31 [
@@ -1354,7 +1354,7 @@ if.then8.i.i30:                                   ; preds = %if.then.i.i19
   br label %float64_unpack_canonical.exit35
 
 if.else.i.i21:                                    ; preds = %if.then.i.i19
-  %flush_inputs_to_zero.i.i22 = getelementptr inbounds i8, ptr %status, i64 6
+  %flush_inputs_to_zero.i.i22 = getelementptr inbounds nuw i8, ptr %status, i64 6
   %7 = load i8, ptr %flush_inputs_to_zero.i.i22, align 2
   %tobool9.i.i23 = trunc i8 %7 to i1
   br i1 %tobool9.i.i23, label %if.then10.i.i28, label %frac64_normalize.exit.i.i24
@@ -1521,7 +1521,7 @@ parts64_sub_normal.exit:                          ; preds = %if.end19.i
   br label %if.then25.i
 
 if.then25.i:                                      ; preds = %parts64_sub_normal.exit, %if.then.i
-  %float_rounding_mode.i = getelementptr inbounds i8, ptr %status, i64 2
+  %float_rounding_mode.i = getelementptr inbounds nuw i8, ptr %status, i64 2
   %24 = load i8, ptr %float_rounding_mode.i, align 2
   %cmp27.i = icmp eq i8 %24, 1
   %frombool30.i = zext i1 %cmp27.i to i8
@@ -1699,7 +1699,7 @@ if.then.i.i41:                                    ; preds = %p_nan.i
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i41, %p_nan.i
-  %default_nan_mode.i.i = getelementptr inbounds i8, ptr %status, i64 7
+  %default_nan_mode.i.i = getelementptr inbounds nuw i8, ptr %status, i64 7
   %34 = load i8, ptr %default_nan_mode.i.i, align 1
   %tobool.i.i = trunc i8 %34 to i1
   br i1 %tobool.i.i, label %if.then3.i.i, label %if.else.i39.i
@@ -1786,13 +1786,13 @@ entry:
   %conv.i.i = zext nneg i16 %1 to i32
   %2 = and i16 %a, 127
   %and.i11.i = zext nneg i16 %2 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %pa, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 1
   store i8 %frombool.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i = getelementptr inbounds i8, ptr %pa, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 4
   store i32 %conv.i.i, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %pa, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 8
   store i64 %and.i11.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i, align 8
-  %.ph.i.sroa.gep130 = getelementptr inbounds i8, ptr %pb, i64 8
+  %.ph.i.sroa.gep130 = getelementptr inbounds nuw i8, ptr %pb, i64 8
   %trunc = trunc i16 %0 to i8
   switch i8 %trunc, label %if.then33.i [
     i8 0, label %if.then.i47
@@ -1808,7 +1808,7 @@ if.then8.i:                                       ; preds = %if.then.i47
   br label %parts64_canonicalize.exit
 
 if.else.i48:                                      ; preds = %if.then.i47
-  %flush_inputs_to_zero.i = getelementptr inbounds i8, ptr %status, i64 6
+  %flush_inputs_to_zero.i = getelementptr inbounds nuw i8, ptr %status, i64 6
   %3 = load i8, ptr %flush_inputs_to_zero.i, align 2
   %tobool9.i = trunc i8 %3 to i1
   br i1 %tobool9.i, label %if.then10.i, label %frac64_normalize.exit.i
@@ -1867,9 +1867,9 @@ parts64_canonicalize.exit:                        ; preds = %if.then8.i, %if.the
   %conv.i.i51 = zext nneg i16 %9 to i32
   %10 = and i16 %b, 127
   %and.i11.i52 = zext nneg i16 %10 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i53 = getelementptr inbounds i8, ptr %pb, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i53 = getelementptr inbounds nuw i8, ptr %pb, i64 1
   store i8 %frombool.i.i50, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i53, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i54 = getelementptr inbounds i8, ptr %pb, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i54 = getelementptr inbounds nuw i8, ptr %pb, i64 4
   store i32 %conv.i.i51, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i54, align 4
   store i64 %and.i11.i52, ptr %.ph.i.sroa.gep130, align 8
   %trunc133 = trunc i16 %8 to i8
@@ -1887,7 +1887,7 @@ if.then8.i85:                                     ; preds = %if.then.i72
   br label %parts64_canonicalize.exit86
 
 if.else.i75:                                      ; preds = %if.then.i72
-  %flush_inputs_to_zero.i76 = getelementptr inbounds i8, ptr %status, i64 6
+  %flush_inputs_to_zero.i76 = getelementptr inbounds nuw i8, ptr %status, i64 6
   %11 = load i8, ptr %flush_inputs_to_zero.i76, align 2
   %tobool9.i77 = trunc i8 %11 to i1
   br i1 %tobool9.i77, label %if.then10.i83, label %frac64_normalize.exit.i78
@@ -2054,7 +2054,7 @@ if.end22.i.thread:                                ; preds = %if.end19.i
   br label %if.then25.i
 
 if.then25.i:                                      ; preds = %if.then.i, %if.end22.i.thread
-  %float_rounding_mode.i = getelementptr inbounds i8, ptr %status, i64 2
+  %float_rounding_mode.i = getelementptr inbounds nuw i8, ptr %status, i64 2
   %28 = load i8, ptr %float_rounding_mode.i, align 2
   %cmp27.i = icmp eq i8 %28, 1
   %frombool30.i = zext i1 %cmp27.i to i8
@@ -2232,7 +2232,7 @@ if.then.i123:                                     ; preds = %p_nan.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %p_nan.i, %if.then.i123
-  %default_nan_mode.i = getelementptr inbounds i8, ptr %status, i64 7
+  %default_nan_mode.i = getelementptr inbounds nuw i8, ptr %status, i64 7
   %38 = load i8, ptr %default_nan_mode.i, align 1
   %tobool.i = trunc i8 %38 to i1
   br i1 %tobool.i, label %if.then3.i, label %if.else.i118
@@ -2291,17 +2291,17 @@ if.then24.i:                                      ; preds = %if.then2.i.i, %.thr
 parts64_addsub.exit:                              ; preds = %.thread149, %if.then24.i, %40, %if.then6.i.i, %if.then3.i, %if.then8.i100, %if.end7.i, %parts64_sub_normal.exit.thread, %if.then91.i, %if.else.i, %if.end49.i, %return_b.i, %if.then83.i, %if.end55.i, %if.then25.i
   %retval.i.0 = phi ptr [ %pa, %if.then25.i ], [ %pb, %return_b.i ], [ %pa, %if.end55.i ], [ %pa, %if.then83.i ], [ %pa, %if.end49.i ], [ %pa, %if.else.i ], [ %pa, %if.then91.i ], [ %pa, %parts64_sub_normal.exit.thread ], [ %pa, %if.end7.i ], [ %pa, %if.then8.i100 ], [ %pa, %if.then3.i ], [ %.ph.i143, %if.then24.i ], [ %pb, %40 ], [ %pa, %if.then6.i.i ], [ %pb, %.thread149 ]
   call fastcc void @parts64_uncanon(ptr noundef %retval.i.0, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
-  %sign.i.i = getelementptr inbounds i8, ptr %retval.i.0, i64 1
+  %sign.i.i = getelementptr inbounds nuw i8, ptr %retval.i.0, i64 1
   %43 = load i8, ptr %sign.i.i, align 1
   %conv.i.i125 = zext i8 %43 to i64
   %shl.i.i126 = shl nuw nsw i64 %conv.i.i125, 15
-  %exp.i.i = getelementptr inbounds i8, ptr %retval.i.0, i64 4
+  %exp.i.i = getelementptr inbounds nuw i8, ptr %retval.i.0, i64 4
   %44 = load i32, ptr %exp.i.i, align 4
   %45 = shl i32 %44, 7
   %46 = and i32 %45, 32640
   %and8.i.i = zext nneg i32 %46 to i64
   %or.i.i127 = or disjoint i64 %shl.i.i126, %and8.i.i
-  %47 = getelementptr inbounds i8, ptr %retval.i.0, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %retval.i.0, i64 8
   %48 = load i64, ptr %47, align 8
   %shl77.i9.i = and i64 %48, 127
   %or.i11.i = or disjoint i64 %or.i.i127, %shl77.i9.i
@@ -2335,13 +2335,13 @@ entry:
   %frombool.i = trunc nuw nsw i64 %f.coerce1.lobit.i to i8
   %and.i.i = and i64 %a.coerce1, 281474976710655
   store i8 0, ptr %pa, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %pa, i64 1
+  %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 1
   store i8 %frombool.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i, align 1
-  %.compoundliteral.sroa.33.0..sroa_idx.i = getelementptr inbounds i8, ptr %pa, i64 4
+  %.compoundliteral.sroa.33.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 4
   store i32 %conv.i, ptr %.compoundliteral.sroa.33.0..sroa_idx.i, align 4
-  %.compoundliteral.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %pa, i64 8
+  %.compoundliteral.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 8
   store i64 %and.i.i, ptr %.compoundliteral.sroa.4.0..sroa_idx.i, align 8
-  %.compoundliteral.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %pa, i64 16
+  %.compoundliteral.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 16
   store i64 %a.coerce0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i, align 8
   call fastcc void @parts128_canonicalize(ptr noundef %pa, ptr noundef %status, ptr noundef nonnull @float128_params)
   %shr.i16.i47 = lshr i64 %b.coerce1, 48
@@ -2351,13 +2351,13 @@ entry:
   %frombool.i50 = trunc nuw nsw i64 %f.coerce1.lobit.i49 to i8
   %and.i.i51 = and i64 %b.coerce1, 281474976710655
   store i8 0, ptr %pb, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx.i52 = getelementptr inbounds i8, ptr %pb, i64 1
+  %.compoundliteral.sroa.2.0..sroa_idx.i52 = getelementptr inbounds nuw i8, ptr %pb, i64 1
   store i8 %frombool.i50, ptr %.compoundliteral.sroa.2.0..sroa_idx.i52, align 1
-  %.compoundliteral.sroa.33.0..sroa_idx.i53 = getelementptr inbounds i8, ptr %pb, i64 4
+  %.compoundliteral.sroa.33.0..sroa_idx.i53 = getelementptr inbounds nuw i8, ptr %pb, i64 4
   store i32 %conv.i48, ptr %.compoundliteral.sroa.33.0..sroa_idx.i53, align 4
-  %.compoundliteral.sroa.4.0..sroa_idx.i54 = getelementptr inbounds i8, ptr %pb, i64 8
+  %.compoundliteral.sroa.4.0..sroa_idx.i54 = getelementptr inbounds nuw i8, ptr %pb, i64 8
   store i64 %and.i.i51, ptr %.compoundliteral.sroa.4.0..sroa_idx.i54, align 8
-  %.compoundliteral.sroa.5.0..sroa_idx.i55 = getelementptr inbounds i8, ptr %pb, i64 16
+  %.compoundliteral.sroa.5.0..sroa_idx.i55 = getelementptr inbounds nuw i8, ptr %pb, i64 16
   store i64 %b.coerce0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i55, align 8
   call fastcc void @parts128_canonicalize(ptr noundef %pb, ptr noundef %status, ptr noundef nonnull @float128_params)
   %2 = load i8, ptr %.compoundliteral.sroa.2.0..sroa_idx.i52, align 1
@@ -2387,7 +2387,7 @@ if.then20.i:                                      ; preds = %if.then.i
   br i1 %call.i9, label %parts128_addsub.exitthread-pre-split, label %if.then25.i
 
 if.then25.i:                                      ; preds = %if.then.i, %if.then20.i
-  %float_rounding_mode.i = getelementptr inbounds i8, ptr %status, i64 2
+  %float_rounding_mode.i = getelementptr inbounds nuw i8, ptr %status, i64 2
   %9 = load i8, ptr %float_rounding_mode.i, align 2
   %cmp27.i = icmp eq i8 %9, 1
   %frombool30.i = zext i1 %cmp27.i to i8
@@ -2487,7 +2487,7 @@ if.then.i61:                                      ; preds = %p_nan.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %p_nan.i, %if.then.i61
-  %default_nan_mode.i = getelementptr inbounds i8, ptr %status, i64 7
+  %default_nan_mode.i = getelementptr inbounds nuw i8, ptr %status, i64 7
   %12 = load i8, ptr %default_nan_mode.i, align 1
   %tobool.i = trunc i8 %12 to i1
   br i1 %tobool.i, label %if.then3.i, label %if.else.i59
@@ -2578,7 +2578,7 @@ parts128_addsub.exit:                             ; preds = %parts128_addsub.exi
 if.then.i63:                                      ; preds = %if.then91.i, %parts128_addsub.exit
   %retval.i7.084 = phi ptr [ %retval.i7.0, %parts128_addsub.exit ], [ %pa, %if.then91.i ]
   call fastcc void @parts128_uncanon_normal(ptr noundef nonnull %retval.i7.084, ptr noundef %status, ptr noundef nonnull @float128_params)
-  %exp.i65.phi.trans.insert = getelementptr inbounds i8, ptr %retval.i7.084, i64 4
+  %exp.i65.phi.trans.insert = getelementptr inbounds nuw i8, ptr %retval.i7.084, i64 4
   %.pre = load i32, ptr %exp.i65.phi.trans.insert, align 4
   %22 = zext i32 %.pre to i64
   %23 = shl i64 %22, 48
@@ -2586,25 +2586,25 @@ if.then.i63:                                      ; preds = %if.then91.i, %parts
   br label %parts128_uncanon.exit
 
 sw.bb.i:                                          ; preds = %parts128_addsub.exit
-  %exp.i = getelementptr inbounds i8, ptr %retval.i7.0, i64 4
+  %exp.i = getelementptr inbounds nuw i8, ptr %retval.i7.0, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %exp.i, i8 0, i64 20, i1 false)
   br label %parts128_uncanon.exit
 
 do.end.i:                                         ; preds = %if.end80.i, %if.end49.i, %parts128_addsub.exit
   %retval.i7.081 = phi ptr [ %retval.i7.0, %parts128_addsub.exit ], [ %pa, %if.end49.i ], [ %pa, %if.end80.i ]
-  %exp10.i = getelementptr inbounds i8, ptr %retval.i7.081, i64 4
+  %exp10.i = getelementptr inbounds nuw i8, ptr %retval.i7.081, i64 4
   store i32 32767, ptr %exp10.i, align 4
-  %frac_hi.i14.i = getelementptr inbounds i8, ptr %retval.i7.081, i64 8
+  %frac_hi.i14.i = getelementptr inbounds nuw i8, ptr %retval.i7.081, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %frac_hi.i14.i, i8 0, i64 16, i1 false)
   br label %parts128_uncanon.exit
 
 do.end18.i:                                       ; preds = %lor.lhs.false.i.i, %if.end55.i, %if.then3.i, %if.then24.i, %parts128_addsub.exit, %parts128_addsub.exit
   %retval.i7.076 = phi ptr [ %retval.i7.0, %parts128_addsub.exit ], [ %retval.i7.0, %parts128_addsub.exit ], [ %.ph.i91, %if.then24.i ], [ %pa, %if.then3.i ], [ %pa, %if.end55.i ], [ %pa, %lor.lhs.false.i.i ]
-  %exp20.i = getelementptr inbounds i8, ptr %retval.i7.076, i64 4
+  %exp20.i = getelementptr inbounds nuw i8, ptr %retval.i7.076, i64 4
   store i32 32767, ptr %exp20.i, align 4
-  %frac_hi.i15.i = getelementptr inbounds i8, ptr %retval.i7.076, i64 8
+  %frac_hi.i15.i = getelementptr inbounds nuw i8, ptr %retval.i7.076, i64 8
   %25 = load i64, ptr %frac_hi.i15.i, align 8
-  %frac_lo.i.i62 = getelementptr inbounds i8, ptr %retval.i7.076, i64 16
+  %frac_lo.i.i62 = getelementptr inbounds nuw i8, ptr %retval.i7.076, i64 16
   %26 = load i64, ptr %frac_lo.i.i62, align 8
   %27 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %25, i32 range(i32 1, -2147483646) 15, i64 %26) #14, !srcloc !5
   %shr.i.i = lshr i64 %25, 15
@@ -2619,9 +2619,9 @@ do.body21.i:                                      ; preds = %parts128_addsub.exi
 parts128_uncanon.exit:                            ; preds = %if.then.i63, %sw.bb.i, %do.end.i, %do.end18.i
   %conv1.i = phi i64 [ %24, %if.then.i63 ], [ 0, %sw.bb.i ], [ 9223090561878065152, %do.end.i ], [ 9223090561878065152, %do.end18.i ]
   %retval.i7.077 = phi ptr [ %retval.i7.084, %if.then.i63 ], [ %retval.i7.0, %sw.bb.i ], [ %retval.i7.081, %do.end.i ], [ %retval.i7.076, %do.end18.i ]
-  %sign.i64 = getelementptr inbounds i8, ptr %retval.i7.077, i64 1
+  %sign.i64 = getelementptr inbounds nuw i8, ptr %retval.i7.077, i64 1
   %28 = load i8, ptr %sign.i64, align 1
-  %frac_hi.i = getelementptr inbounds i8, ptr %retval.i7.077, i64 8
+  %frac_hi.i = getelementptr inbounds nuw i8, ptr %retval.i7.077, i64 8
   %29 = load i64, ptr %frac_hi.i, align 8
   %30 = and i8 %28, 1
   %conv.i66 = zext nneg i8 %30 to i64
@@ -2629,7 +2629,7 @@ parts128_uncanon.exit:                            ; preds = %if.then.i63, %sw.bb
   %or.i25.i = or disjoint i64 %conv1.i, %shl.i67
   %and8.i.i = and i64 %29, 281474976710655
   %or.i.i = or disjoint i64 %or.i25.i, %and8.i.i
-  %frac_lo.i = getelementptr inbounds i8, ptr %retval.i7.077, i64 16
+  %frac_lo.i = getelementptr inbounds nuw i8, ptr %retval.i7.077, i64 16
   %31 = load i64, ptr %frac_lo.i, align 8
   %.fca.0.insert.i = insertvalue { i64, i64 } poison, i64 %31, 0
   %.fca.1.insert.i = insertvalue { i64, i64 } %.fca.0.insert.i, i64 %or.i.i, 1
@@ -2656,11 +2656,11 @@ entry:
   %p64.i = alloca %struct.FloatParts64, align 8
   %pa = alloca %struct.FloatParts128, align 8
   %pb = alloca %struct.FloatParts128, align 8
-  %floatx80_rounding_precision.i12 = getelementptr inbounds i8, ptr %status, i64 3
+  %floatx80_rounding_precision.i12 = getelementptr inbounds nuw i8, ptr %status, i64 3
   %0 = load i8, ptr %floatx80_rounding_precision.i12, align 1
   %switch = icmp ult i8 %0, 3
-  %.ph.i.sroa.gep = getelementptr inbounds i8, ptr %pa, i64 8
-  %.ph.i.sroa.gep110 = getelementptr inbounds i8, ptr %pb, i64 8
+  %.ph.i.sroa.gep = getelementptr inbounds nuw i8, ptr %pa, i64 8
+  %.ph.i.sroa.gep110 = getelementptr inbounds nuw i8, ptr %pb, i64 8
   br i1 %switch, label %sw.bb.i14, label %sw.default.i41
 
 sw.bb.i14:                                        ; preds = %entry
@@ -2679,12 +2679,12 @@ if.end.i19:                                       ; preds = %sw.bb.i14
   %frombool.i87 = trunc nuw nsw i16 %f.coerce1.lobit.i to i8
   %and.i.i = zext nneg i16 %1 to i32
   store i8 0, ptr %pa, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %pa, i64 1
+  %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 1
   store i8 %frombool.i87, ptr %.compoundliteral.sroa.2.0..sroa_idx.i, align 1
-  %.compoundliteral.sroa.32.0..sroa_idx.i = getelementptr inbounds i8, ptr %pa, i64 4
+  %.compoundliteral.sroa.32.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 4
   store i32 %and.i.i, ptr %.compoundliteral.sroa.32.0..sroa_idx.i, align 4
   store i64 %a.coerce0, ptr %.ph.i.sroa.gep, align 8
-  %.compoundliteral.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %pa, i64 16
+  %.compoundliteral.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 16
   store i64 0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i, align 8
   %cmp.i21.not = icmp eq i16 %1, 32767
   br i1 %cmp.i21.not, label %lor.lhs.false.thread, label %lor.lhs.false
@@ -2728,12 +2728,12 @@ if.end.i:                                         ; preds = %sw.bb.i
   %frombool.i92 = trunc nuw nsw i16 %f.coerce1.lobit.i91 to i8
   %and.i.i93 = zext nneg i16 %6 to i32
   store i8 0, ptr %pb, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx.i94 = getelementptr inbounds i8, ptr %pb, i64 1
+  %.compoundliteral.sroa.2.0..sroa_idx.i94 = getelementptr inbounds nuw i8, ptr %pb, i64 1
   store i8 %frombool.i92, ptr %.compoundliteral.sroa.2.0..sroa_idx.i94, align 1
-  %.compoundliteral.sroa.32.0..sroa_idx.i95 = getelementptr inbounds i8, ptr %pb, i64 4
+  %.compoundliteral.sroa.32.0..sroa_idx.i95 = getelementptr inbounds nuw i8, ptr %pb, i64 4
   store i32 %and.i.i93, ptr %.compoundliteral.sroa.32.0..sroa_idx.i95, align 4
   store i64 %b.coerce0, ptr %.ph.i.sroa.gep110, align 8
-  %.compoundliteral.sroa.5.0..sroa_idx.i97 = getelementptr inbounds i8, ptr %pb, i64 16
+  %.compoundliteral.sroa.5.0..sroa_idx.i97 = getelementptr inbounds nuw i8, ptr %pb, i64 16
   store i64 0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i97, align 8
   %cmp.i.not = icmp eq i16 %6, 32767
   br i1 %cmp.i.not, label %if.else.i7, label %if.then10.i
@@ -2789,7 +2789,7 @@ if.then20.i:                                      ; preds = %if.then.i68
   br i1 %call.i73, label %parts128_addsub.exitthread-pre-split, label %if.then25.i
 
 if.then25.i:                                      ; preds = %if.then.i68, %if.then20.i
-  %float_rounding_mode.i = getelementptr inbounds i8, ptr %status, i64 2
+  %float_rounding_mode.i = getelementptr inbounds nuw i8, ptr %status, i64 2
   %18 = load i8, ptr %float_rounding_mode.i, align 2
   %cmp27.i = icmp eq i8 %18, 1
   %frombool30.i = zext i1 %cmp27.i to i8
@@ -2896,7 +2896,7 @@ if.then.i105:                                     ; preds = %p_nan.i
   br label %if.end.i103
 
 if.end.i103:                                      ; preds = %p_nan.i, %if.then.i105
-  %default_nan_mode.i = getelementptr inbounds i8, ptr %status, i64 7
+  %default_nan_mode.i = getelementptr inbounds nuw i8, ptr %status, i64 7
   %22 = load i8, ptr %default_nan_mode.i, align 1
   %tobool.i = trunc i8 %22 to i1
   br i1 %tobool.i, label %if.then3.i, label %if.else.i
@@ -3018,21 +3018,21 @@ sw.bb.i50:                                        ; preds = %parts128_addsub.exi
 
 if.then.i55:                                      ; preds = %sw.bb.i50
   call fastcc void @parts128_uncanon_normal(ptr noundef %retval.i58.0123, ptr noundef nonnull %status, ptr noundef %arrayidx.i124)
-  %frac_hi.i56 = getelementptr inbounds i8, ptr %retval.i58.0123, i64 8
+  %frac_hi.i56 = getelementptr inbounds nuw i8, ptr %retval.i58.0123, i64 8
   %35 = load i64, ptr %frac_hi.i56, align 8
-  %exp4.i = getelementptr inbounds i8, ptr %retval.i58.0123, i64 4
+  %exp4.i = getelementptr inbounds nuw i8, ptr %retval.i58.0123, i64 4
   %36 = load i32, ptr %exp4.i, align 4
   br label %if.end.i54
 
 if.else.i53:                                      ; preds = %sw.bb.i50
-  %sign.i = getelementptr inbounds i8, ptr %retval.i58.0123, i64 1
+  %sign.i = getelementptr inbounds nuw i8, ptr %retval.i58.0123, i64 1
   %37 = load i8, ptr %sign.i, align 1
-  %sign5.i = getelementptr inbounds i8, ptr %p64.i, i64 1
+  %sign5.i = getelementptr inbounds nuw i8, ptr %p64.i, i64 1
   %frombool.i = and i8 %37, 1
   store i8 %frombool.i, ptr %sign5.i, align 1
-  %exp6.i = getelementptr inbounds i8, ptr %retval.i58.0123, i64 4
+  %exp6.i = getelementptr inbounds nuw i8, ptr %retval.i58.0123, i64 4
   %38 = load i32, ptr %exp6.i, align 4
-  %exp7.i = getelementptr inbounds i8, ptr %p64.i, i64 4
+  %exp7.i = getelementptr inbounds nuw i8, ptr %p64.i, i64 4
   store i32 %38, ptr %exp7.i, align 4
   %39 = getelementptr i8, ptr %retval.i58.0123, i64 8
   %retval.i58.0.val = load i64, ptr %39, align 8
@@ -3041,7 +3041,7 @@ if.else.i53:                                      ; preds = %sw.bb.i50
   %cmp.i106 = icmp ne i64 %retval.i58.0.val86, 0
   %conv1.i = zext i1 %cmp.i106 to i64
   %or.i107 = or i64 %retval.i58.0.val, %conv1.i
-  %41 = getelementptr inbounds i8, ptr %p64.i, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %p64.i, i64 8
   store i64 %or.i107, ptr %41, align 8
   call fastcc void @parts64_uncanon_normal(ptr noundef %p64.i, ptr noundef nonnull %status, ptr noundef %arrayidx.i124)
   %42 = load i64, ptr %41, align 8
@@ -3051,7 +3051,7 @@ if.else.i53:                                      ; preds = %sw.bb.i50
 if.end.i54:                                       ; preds = %if.else.i53, %if.then.i55
   %exp.i46.0 = phi i32 [ %36, %if.then.i55 ], [ %43, %if.else.i53 ]
   %frac.i.0 = phi i64 [ %35, %if.then.i55 ], [ %42, %if.else.i53 ]
-  %exp_max.i = getelementptr inbounds i8, ptr %arrayidx.i124, i64 12
+  %exp_max.i = getelementptr inbounds nuw i8, ptr %arrayidx.i124, i64 12
   %44 = load i32, ptr %exp_max.i, align 4
   %cmp9.i.not = icmp eq i32 %exp.i46.0, %44
   br i1 %cmp9.i.not, label %floatx80_round_pack_canonical.exit.sink.split, label %floatx80_round_pack_canonical.exit
@@ -3059,7 +3059,7 @@ if.end.i54:                                       ; preds = %if.else.i53, %if.th
 sw.bb16.i:                                        ; preds = %parts128_addsub.exit.thread151, %parts128_addsub.exit.thread125, %parts128_addsub.exit, %parts128_addsub.exit
   %arrayidx.i130 = phi ptr [ %arrayidx.i128, %parts128_addsub.exit.thread125 ], [ %arrayidx.i, %parts128_addsub.exit ], [ %arrayidx.i, %parts128_addsub.exit ], [ %arrayidx.i154, %parts128_addsub.exit.thread151 ]
   %retval.i58.0129 = phi ptr [ %.ph.i143, %parts128_addsub.exit.thread125 ], [ %retval.i58.0, %parts128_addsub.exit ], [ %retval.i58.0, %parts128_addsub.exit ], [ %pa, %parts128_addsub.exit.thread151 ]
-  %frac_hi17.i = getelementptr inbounds i8, ptr %retval.i58.0129, i64 8
+  %frac_hi17.i = getelementptr inbounds nuw i8, ptr %retval.i58.0129, i64 8
   %45 = load i64, ptr %frac_hi17.i, align 8
   %or.i = or i64 %45, -9223372036854775808
   br label %floatx80_round_pack_canonical.exit.sink.split
@@ -3072,7 +3072,7 @@ floatx80_round_pack_canonical.exit.sink.split:    ; preds = %parts128_addsub.exi
   %arrayidx.i130.sink = phi ptr [ %arrayidx.i130, %sw.bb16.i ], [ %arrayidx.i115, %parts128_addsub.exit.thread ], [ %arrayidx.i124, %if.end.i54 ], [ %arrayidx.i, %parts128_addsub.exit ]
   %retval.i58.0116.ph = phi ptr [ %retval.i58.0129, %sw.bb16.i ], [ %pa, %parts128_addsub.exit.thread ], [ %retval.i58.0123, %if.end.i54 ], [ %retval.i58.0, %parts128_addsub.exit ]
   %frac.i.1.ph = phi i64 [ %or.i, %sw.bb16.i ], [ -9223372036854775808, %parts128_addsub.exit.thread ], [ -9223372036854775808, %if.end.i54 ], [ -9223372036854775808, %parts128_addsub.exit ]
-  %exp_max18.i = getelementptr inbounds i8, ptr %arrayidx.i130.sink, i64 12
+  %exp_max18.i = getelementptr inbounds nuw i8, ptr %arrayidx.i130.sink, i64 12
   %46 = load i32, ptr %exp_max18.i, align 4
   br label %floatx80_round_pack_canonical.exit
 
@@ -3080,7 +3080,7 @@ floatx80_round_pack_canonical.exit:               ; preds = %floatx80_round_pack
   %retval.i58.0116 = phi ptr [ %retval.i58.0123, %if.end.i54 ], [ %retval.i58.0, %parts128_addsub.exit ], [ %retval.i58.0116.ph, %floatx80_round_pack_canonical.exit.sink.split ]
   %exp.i46.1 = phi i32 [ %exp.i46.0, %if.end.i54 ], [ 0, %parts128_addsub.exit ], [ %46, %floatx80_round_pack_canonical.exit.sink.split ]
   %frac.i.1 = phi i64 [ %frac.i.0, %if.end.i54 ], [ 0, %parts128_addsub.exit ], [ %frac.i.1.ph, %floatx80_round_pack_canonical.exit.sink.split ]
-  %sign19.i = getelementptr inbounds i8, ptr %retval.i58.0116, i64 1
+  %sign19.i = getelementptr inbounds nuw i8, ptr %retval.i58.0116, i64 1
   %47 = load i8, ptr %sign19.i, align 1
   %tobool20.i = trunc i8 %47 to i1
   %shl.i108 = select i1 %tobool20.i, i32 32768, i32 0
@@ -3115,13 +3115,13 @@ entry:
   %conv.i.i.i = zext nneg i16 %1 to i32
   %2 = and i16 %a, 1023
   %and.i11.i.i = zext nneg i16 %2 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 1
   store i8 %frombool.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 4
   store i32 %conv.i.i.i, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 8
   store i64 %and.i11.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
-  %.ph.i.sroa.gep86 = getelementptr inbounds i8, ptr %pb, i64 8
+  %.ph.i.sroa.gep86 = getelementptr inbounds nuw i8, ptr %pb, i64 8
   switch i16 %1, label %if.then33.i.i [
     i16 0, label %if.then.i.i
     i16 31, label %lor.lhs.false.i.i
@@ -3136,7 +3136,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   br label %float16a_unpack_canonical.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %status, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %status, i64 6
   %3 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %3 to i1
   br i1 %tobool9.i.i, label %if.then10.i.i, label %frac64_normalize.exit.i.i
@@ -3195,9 +3195,9 @@ float16a_unpack_canonical.exit:                   ; preds = %if.then8.i.i, %if.t
   %conv.i.i.i42 = zext nneg i16 %9 to i32
   %10 = and i16 %b, 1023
   %and.i11.i.i43 = zext nneg i16 %10 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i44 = getelementptr inbounds i8, ptr %pb, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i44 = getelementptr inbounds nuw i8, ptr %pb, i64 1
   store i8 %frombool.i.i.i41, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i44, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i45 = getelementptr inbounds i8, ptr %pb, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i45 = getelementptr inbounds nuw i8, ptr %pb, i64 4
   store i32 %conv.i.i.i42, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i45, align 4
   store i64 %and.i11.i.i43, ptr %.ph.i.sroa.gep86, align 8
   switch i16 %9, label %if.then33.i.i57 [
@@ -3214,7 +3214,7 @@ if.then8.i.i73:                                   ; preds = %if.then.i.i61
   br label %float16a_unpack_canonical.exit74
 
 if.else.i.i63:                                    ; preds = %if.then.i.i61
-  %flush_inputs_to_zero.i.i64 = getelementptr inbounds i8, ptr %status, i64 6
+  %flush_inputs_to_zero.i.i64 = getelementptr inbounds nuw i8, ptr %status, i64 6
   %11 = load i8, ptr %flush_inputs_to_zero.i.i64, align 2
   %tobool9.i.i65 = trunc i8 %11 to i1
   br i1 %tobool9.i.i65, label %if.then10.i.i71, label %frac64_normalize.exit.i.i66
@@ -3333,7 +3333,7 @@ if.then.i80:                                      ; preds = %if.then41.i
   br label %if.end.i77
 
 if.end.i77:                                       ; preds = %if.then41.i, %if.then.i80
-  %default_nan_mode.i = getelementptr inbounds i8, ptr %status, i64 7
+  %default_nan_mode.i = getelementptr inbounds nuw i8, ptr %status, i64 7
   %19 = load i8, ptr %default_nan_mode.i, align 1
   %tobool.i = trunc i8 %19 to i1
   br i1 %tobool.i, label %if.then3.i, label %if.else.i78
@@ -3416,17 +3416,17 @@ if.else.i:                                        ; preds = %if.end51.i
 parts64_mul.exit:                                 ; preds = %.thread100, %if.then24.i, %21, %if.then6.i.i, %if.then3.i, %if.then54.i, %if.then46.i, %if.then31.i, %if.end.i
   %retval.i.0 = phi ptr [ %pa, %if.end.i ], [ %pa, %if.then31.i ], [ %pa, %if.then46.i ], [ %pa, %if.then54.i ], [ %pa, %if.then3.i ], [ %.ph.i94, %if.then24.i ], [ %pb, %21 ], [ %pa, %if.then6.i.i ], [ %pb, %.thread100 ]
   call fastcc void @parts64_uncanon(ptr noundef nonnull %retval.i.0, ptr noundef %status, ptr noundef nonnull @float16_params)
-  %sign.i.i.i = getelementptr inbounds i8, ptr %retval.i.0, i64 1
+  %sign.i.i.i = getelementptr inbounds nuw i8, ptr %retval.i.0, i64 1
   %24 = load i8, ptr %sign.i.i.i, align 1
   %conv.i.i.i81 = zext i8 %24 to i64
   %shl.i.i.i82 = shl nuw nsw i64 %conv.i.i.i81, 15
-  %exp.i.i.i = getelementptr inbounds i8, ptr %retval.i.0, i64 4
+  %exp.i.i.i = getelementptr inbounds nuw i8, ptr %retval.i.0, i64 4
   %25 = load i32, ptr %exp.i.i.i, align 4
   %26 = shl i32 %25, 10
   %27 = and i32 %26, 31744
   %and8.i.i.i = zext nneg i32 %27 to i64
   %or.i.i.i = or disjoint i64 %shl.i.i.i82, %and8.i.i.i
-  %28 = getelementptr inbounds i8, ptr %retval.i.0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %retval.i.0, i64 8
   %29 = load i64, ptr %28, align 8
   %shl77.i9.i.i = and i64 %29, 1023
   %or.i11.i.i = or disjoint i64 %or.i.i.i, %shl77.i9.i.i
@@ -3444,9 +3444,9 @@ entry:
   %conv2 = zext nneg i8 %1 to i32
   %shl3 = shl nuw i32 1, %conv2
   %or = or i32 %shl3, %shl
-  %sign4 = getelementptr inbounds i8, ptr %a, i64 1
+  %sign4 = getelementptr inbounds nuw i8, ptr %a, i64 1
   %2 = load i8, ptr %sign4, align 1
-  %sign6 = getelementptr inbounds i8, ptr %b, i64 1
+  %sign6 = getelementptr inbounds nuw i8, ptr %b, i64 1
   %3 = load i8, ptr %sign6, align 1
   %4 = xor i8 %3, %2
   %xor33 = and i8 %4, 1
@@ -3470,9 +3470,9 @@ if.then:                                          ; preds = %entry
   %conv1.i = zext i1 %cmp.i to i64
   %or.i = or i64 %conv1.i, %conv3.i.i
   store i64 %or.i, ptr %5, align 8
-  %exp = getelementptr inbounds i8, ptr %b, i64 4
+  %exp = getelementptr inbounds nuw i8, ptr %b, i64 4
   %7 = load i32, ptr %exp, align 4
-  %exp14 = getelementptr inbounds i8, ptr %a, i64 4
+  %exp14 = getelementptr inbounds nuw i8, ptr %a, i64 4
   %8 = load i32, ptr %exp14, align 4
   %add = add i32 %8, %7
   %add15 = add i32 %add, 1
@@ -3496,9 +3496,9 @@ if.then31:                                        ; preds = %entry
   store i16 %or1.i, ptr %s, align 2
   store i8 4, ptr %a, align 8
   store i8 0, ptr %sign4, align 1
-  %.compoundliteral.sroa.31.0..sroa_idx.i = getelementptr inbounds i8, ptr %a, i64 4
+  %.compoundliteral.sroa.31.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %a, i64 4
   store i32 2147483647, ptr %.compoundliteral.sroa.31.0..sroa_idx.i, align 4
-  %.compoundliteral.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %a, i64 8
+  %.compoundliteral.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %a, i64 8
   store i64 4611686018427387904, ptr %.compoundliteral.sroa.4.0..sroa_idx.i, align 8
   br label %return
 
@@ -3520,7 +3520,7 @@ if.then.i:                                        ; preds = %if.then41
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then41, %if.then.i
-  %default_nan_mode.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %12 = load i8, ptr %default_nan_mode.i, align 1
   %tobool.i = trunc i8 %12 to i1
   br i1 %tobool.i, label %if.then3.i, label %if.else.i
@@ -3528,9 +3528,9 @@ if.end.i:                                         ; preds = %if.then41, %if.then
 if.then3.i:                                       ; preds = %if.end.i
   store i8 4, ptr %a, align 8
   store i8 0, ptr %sign4, align 1
-  %.compoundliteral.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %a, i64 4
+  %.compoundliteral.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %a, i64 4
   store i32 2147483647, ptr %.compoundliteral.sroa.31.0..sroa_idx.i.i, align 4
-  %.compoundliteral.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %a, i64 8
+  %.compoundliteral.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %a, i64 8
   store i64 4611686018427387904, ptr %.compoundliteral.sroa.4.0..sroa_idx.i.i, align 8
   br label %return
 
@@ -3588,7 +3588,7 @@ if.then6.i.i:                                     ; preds = %if.end13.i
 
 if.then24.i:                                      ; preds = %if.then2.i.i, %.thread, %22
   %.ph.i40 = phi ptr [ %a, %.thread ], [ %b, %22 ], [ %b, %if.then2.i.i ]
-  %24 = getelementptr inbounds i8, ptr %.ph.i40, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.ph.i40, i64 8
   %25 = load i64, ptr %24, align 8
   %or4.i.i.i = or i64 %25, 4611686018427387904
   store i64 %or4.i.i.i, ptr %24, align 8
@@ -3635,13 +3635,13 @@ entry:
   br i1 %tobool.not.i, label %soft39.i, label %can_use_fpu.exit
 
 can_use_fpu.exit:                                 ; preds = %entry
-  %float_rounding_mode.i = getelementptr inbounds i8, ptr %s, i64 2
+  %float_rounding_mode.i = getelementptr inbounds nuw i8, ptr %s, i64 2
   %2 = load i8, ptr %float_rounding_mode.i, align 2
   %cmp.i5 = icmp eq i8 %2, 0
   br i1 %cmp.i5, label %if.end.i, label %soft39.i
 
 if.end.i:                                         ; preds = %can_use_fpu.exit
-  %flush_inputs_to_zero.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %3 = load i8, ptr %flush_inputs_to_zero.i, align 2
   %tobool.i = trunc i8 %3 to i1
   br i1 %tobool.i, label %if.end.i6, label %float32_input_flush2.exit
@@ -3730,13 +3730,13 @@ soft39.i:                                         ; preds = %float32_input_flush
   %and.i9.i.i = and i32 %shr.i8.i.i, 255
   %19 = and i32 %ua.i.sroa.0.0, 8388607
   %and.i11.i.i = zext nneg i32 %19 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa.i, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa.i, i64 1
   store i8 %frombool.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa.i, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa.i, i64 4
   store i32 %and.i9.i.i, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa.i, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa.i, i64 8
   store i64 %and.i11.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
-  %.ph.i.sroa.gep100.i = getelementptr inbounds i8, ptr %pb.i, i64 8
+  %.ph.i.sroa.gep100.i = getelementptr inbounds nuw i8, ptr %pb.i, i64 8
   %trunc.i = trunc i32 %shr.i8.i.i to i8
   switch i8 %trunc.i, label %if.then33.i.i [
     i8 0, label %if.then.i45.i
@@ -3752,7 +3752,7 @@ if.then8.i.i:                                     ; preds = %if.then.i45.i
   br label %parts64_canonicalize.exit.i
 
 if.else.i46.i:                                    ; preds = %if.then.i45.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %20 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %20 to i1
   br i1 %tobool9.i.i, label %if.then10.i.i, label %frac64_normalize.exit.i.i
@@ -3810,9 +3810,9 @@ parts64_canonicalize.exit.i:                      ; preds = %if.else49.i.i, %if.
   %and.i9.i51.i = and i32 %shr.i8.i50.i, 255
   %25 = and i32 %ub.i.sroa.0.0, 8388607
   %and.i11.i52.i = zext nneg i32 %25 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i53.i = getelementptr inbounds i8, ptr %pb.i, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i53.i = getelementptr inbounds nuw i8, ptr %pb.i, i64 1
   store i8 %frombool.i.i49.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i53.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i54.i = getelementptr inbounds i8, ptr %pb.i, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i54.i = getelementptr inbounds nuw i8, ptr %pb.i, i64 4
   store i32 %and.i9.i51.i, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i54.i, align 4
   store i64 %and.i11.i52.i, ptr %.ph.i.sroa.gep100.i, align 8
   %trunc101.i = trunc i32 %shr.i8.i50.i to i8
@@ -3830,7 +3830,7 @@ if.then8.i85.i:                                   ; preds = %if.then.i72.i
   br label %parts64_canonicalize.exit86.i
 
 if.else.i75.i:                                    ; preds = %if.then.i72.i
-  %flush_inputs_to_zero.i76.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i76.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %26 = load i8, ptr %flush_inputs_to_zero.i76.i, align 2
   %tobool9.i77.i = trunc i8 %26 to i1
   br i1 %tobool9.i77.i, label %if.then10.i83.i, label %frac64_normalize.exit.i78.i
@@ -3947,7 +3947,7 @@ if.then.i93.i:                                    ; preds = %if.then41.i.i
   br label %if.end.i91.i
 
 if.end.i91.i:                                     ; preds = %if.then.i93.i, %if.then41.i.i
-  %default_nan_mode.i.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode.i.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %33 = load i8, ptr %default_nan_mode.i.i, align 1
   %tobool.i.i = trunc i8 %33 to i1
   br i1 %tobool.i.i, label %if.then3.i.i, label %if.else.i92.i
@@ -4029,17 +4029,17 @@ if.else.i.i:                                      ; preds = %if.end51.i.i
 soft_f32_mul.exit:                                ; preds = %if.end.i.i, %if.then31.i.i, %if.then3.i.i, %if.then6.i.i.i, %.thread116.i, %35, %if.then24.i.i, %if.then46.i.i, %if.then54.i.i
   %retval.i.0.i = phi ptr [ %pa.i, %if.end.i.i ], [ %pa.i, %if.then31.i.i ], [ %pa.i, %if.then46.i.i ], [ %pa.i, %if.then54.i.i ], [ %pa.i, %if.then3.i.i ], [ %.ph.i110.i, %if.then24.i.i ], [ %pb.i, %35 ], [ %pa.i, %if.then6.i.i.i ], [ %pb.i, %.thread116.i ]
   call fastcc void @parts64_uncanon(ptr noundef %retval.i.0.i, ptr noundef nonnull %s, ptr noundef nonnull @float32_params)
-  %sign.i.i.i = getelementptr inbounds i8, ptr %retval.i.0.i, i64 1
+  %sign.i.i.i = getelementptr inbounds nuw i8, ptr %retval.i.0.i, i64 1
   %37 = load i8, ptr %sign.i.i.i, align 1
   %conv.i.i95.i = zext i8 %37 to i64
   %shl.i.i96.i = shl nuw nsw i64 %conv.i.i95.i, 31
-  %exp.i.i.i = getelementptr inbounds i8, ptr %retval.i.0.i, i64 4
+  %exp.i.i.i = getelementptr inbounds nuw i8, ptr %retval.i.0.i, i64 4
   %38 = load i32, ptr %exp.i.i.i, align 4
   %39 = shl i32 %38, 23
   %40 = and i32 %39, 2139095040
   %and8.i.i.i = zext nneg i32 %40 to i64
   %or.i.i.i = or disjoint i64 %shl.i.i96.i, %and8.i.i.i
-  %41 = getelementptr inbounds i8, ptr %retval.i.0.i, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %retval.i.0.i, i64 8
   %42 = load i64, ptr %41, align 8
   %shl77.i9.i.i = and i64 %42, 8388607
   %or.i11.i.i = or disjoint i64 %or.i.i.i, %shl77.i9.i.i
@@ -4064,13 +4064,13 @@ entry:
   br i1 %tobool.not.i, label %soft39.i, label %can_use_fpu.exit
 
 can_use_fpu.exit:                                 ; preds = %entry
-  %float_rounding_mode.i = getelementptr inbounds i8, ptr %s, i64 2
+  %float_rounding_mode.i = getelementptr inbounds nuw i8, ptr %s, i64 2
   %2 = load i8, ptr %float_rounding_mode.i, align 2
   %cmp.i5 = icmp eq i8 %2, 0
   br i1 %cmp.i5, label %if.end.i, label %soft39.i
 
 if.end.i:                                         ; preds = %can_use_fpu.exit
-  %flush_inputs_to_zero.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %3 = load i8, ptr %flush_inputs_to_zero.i, align 2
   %tobool.i = trunc i8 %3 to i1
   br i1 %tobool.i, label %if.end.i6, label %float64_input_flush2.exit
@@ -4164,13 +4164,13 @@ soft39.i:                                         ; preds = %fpclassify_not_nan1
   %17 = trunc nuw nsw i64 %shr.i8.i.i to i32
   %conv.i.i.i = and i32 %17, 2047
   %and.i10.i.i = and i64 %ua.i.sroa.0.0, 4503599627370495
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa.i, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa.i, i64 1
   store i8 %frombool.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa.i, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa.i, i64 4
   store i32 %conv.i.i.i, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa.i, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa.i, i64 8
   store i64 %and.i10.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
-  %.ph.i.sroa.gep100.i = getelementptr inbounds i8, ptr %pb.i, i64 8
+  %.ph.i.sroa.gep100.i = getelementptr inbounds nuw i8, ptr %pb.i, i64 8
   switch i32 %conv.i.i.i, label %if.then33.i.i [
     i32 0, label %if.then.i45.i
     i32 2047, label %lor.lhs.false.i.i
@@ -4185,7 +4185,7 @@ if.then8.i.i:                                     ; preds = %if.then.i45.i
   br label %parts64_canonicalize.exit.i
 
 if.else.i46.i:                                    ; preds = %if.then.i45.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %18 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %18 to i1
   br i1 %tobool9.i.i, label %if.then10.i.i, label %frac64_normalize.exit.i.i
@@ -4243,9 +4243,9 @@ parts64_canonicalize.exit.i:                      ; preds = %if.else49.i.i, %if.
   %23 = trunc nuw nsw i64 %shr.i8.i50.i to i32
   %conv.i.i51.i = and i32 %23, 2047
   %and.i10.i52.i = and i64 %ub.i.sroa.0.0, 4503599627370495
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i53.i = getelementptr inbounds i8, ptr %pb.i, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i53.i = getelementptr inbounds nuw i8, ptr %pb.i, i64 1
   store i8 %frombool.i.i49.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i53.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i54.i = getelementptr inbounds i8, ptr %pb.i, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i54.i = getelementptr inbounds nuw i8, ptr %pb.i, i64 4
   store i32 %conv.i.i51.i, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i54.i, align 4
   store i64 %and.i10.i52.i, ptr %.ph.i.sroa.gep100.i, align 8
   switch i32 %conv.i.i51.i, label %if.then33.i68.i [
@@ -4262,7 +4262,7 @@ if.then8.i85.i:                                   ; preds = %if.then.i72.i
   br label %parts64_canonicalize.exit86.i
 
 if.else.i75.i:                                    ; preds = %if.then.i72.i
-  %flush_inputs_to_zero.i76.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i76.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %24 = load i8, ptr %flush_inputs_to_zero.i76.i, align 2
   %tobool9.i77.i = trunc i8 %24 to i1
   br i1 %tobool9.i77.i, label %if.then10.i83.i, label %frac64_normalize.exit.i78.i
@@ -4379,7 +4379,7 @@ if.then.i94.i:                                    ; preds = %if.then41.i.i
   br label %if.end.i92.i
 
 if.end.i92.i:                                     ; preds = %if.then.i94.i, %if.then41.i.i
-  %default_nan_mode.i.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode.i.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %31 = load i8, ptr %default_nan_mode.i.i, align 1
   %tobool.i.i = trunc i8 %31 to i1
   br i1 %tobool.i.i, label %if.then3.i.i, label %if.else.i93.i
@@ -4461,18 +4461,18 @@ if.else.i.i:                                      ; preds = %if.end51.i.i
 soft_f64_mul.exit:                                ; preds = %if.end.i.i, %if.then31.i.i, %if.then3.i.i, %if.then6.i.i.i, %.thread114.i, %33, %if.then24.i.i, %if.then46.i.i, %if.then54.i.i
   %retval.i.0.i = phi ptr [ %pa.i, %if.end.i.i ], [ %pa.i, %if.then31.i.i ], [ %pa.i, %if.then46.i.i ], [ %pa.i, %if.then54.i.i ], [ %pa.i, %if.then3.i.i ], [ %.ph.i108.i, %if.then24.i.i ], [ %pb.i, %33 ], [ %pa.i, %if.then6.i.i.i ], [ %pb.i, %.thread114.i ]
   call fastcc void @parts64_uncanon(ptr noundef %retval.i.0.i, ptr noundef nonnull %s, ptr noundef nonnull @float64_params)
-  %sign.i.i.i = getelementptr inbounds i8, ptr %retval.i.0.i, i64 1
+  %sign.i.i.i = getelementptr inbounds nuw i8, ptr %retval.i.0.i, i64 1
   %35 = load i8, ptr %sign.i.i.i, align 1
   %36 = and i8 %35, 1
   %conv.i.i96.i = zext nneg i8 %36 to i64
   %shl.i.i97.i = shl nuw i64 %conv.i.i96.i, 63
-  %exp.i.i.i = getelementptr inbounds i8, ptr %retval.i.0.i, i64 4
+  %exp.i.i.i = getelementptr inbounds nuw i8, ptr %retval.i.0.i, i64 4
   %37 = load i32, ptr %exp.i.i.i, align 4
   %38 = and i32 %37, 2047
   %shl77.i.i.i = zext nneg i32 %38 to i64
   %and8.i.i.i = shl nuw nsw i64 %shl77.i.i.i, 52
   %or.i.i.i = or disjoint i64 %and8.i.i.i, %shl.i.i97.i
-  %39 = getelementptr inbounds i8, ptr %retval.i.0.i, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %retval.i.0.i, i64 8
   %40 = load i64, ptr %39, align 8
   %shl77.i9.i.i = and i64 %40, 4503599627370495
   %or.i11.i.i = or disjoint i64 %or.i.i.i, %shl77.i9.i.i
@@ -4496,11 +4496,11 @@ entry:
   %0 = trunc nuw nsw i64 %shr.i8.i.i to i32
   %conv.i.i.i = and i32 %0, 2047
   %and.i10.i.i = and i64 %a, 4503599627370495
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 1
   store i8 %frombool.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 4
   store i32 %conv.i.i.i, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 8
   store i64 %and.i10.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
   switch i32 %conv.i.i.i, label %if.then33.i.i [
     i32 0, label %if.then.i.i
@@ -4516,7 +4516,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   br label %float64_unpack_canonical.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %status, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %status, i64 6
   %1 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %1 to i1
   br i1 %tobool9.i.i, label %if.then10.i.i, label %frac64_normalize.exit.i.i
@@ -4571,11 +4571,11 @@ float64_unpack_canonical.exit:                    ; preds = %if.then8.i.i, %if.t
   %4 = trunc nuw nsw i64 %shr.i8.i.i6 to i32
   %conv.i.i.i7 = and i32 %4, 2047
   %and.i10.i.i8 = and i64 %b, 4503599627370495
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i9 = getelementptr inbounds i8, ptr %pb, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i9 = getelementptr inbounds nuw i8, ptr %pb, i64 1
   store i8 %frombool.i.i.i5, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i9, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i10 = getelementptr inbounds i8, ptr %pb, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i10 = getelementptr inbounds nuw i8, ptr %pb, i64 4
   store i32 %conv.i.i.i7, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i10, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i11 = getelementptr inbounds i8, ptr %pb, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i11 = getelementptr inbounds nuw i8, ptr %pb, i64 8
   store i64 %and.i10.i.i8, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i11, align 8
   switch i32 %conv.i.i.i7, label %if.then33.i.i31 [
     i32 0, label %if.then.i.i19
@@ -4591,7 +4591,7 @@ if.then8.i.i30:                                   ; preds = %if.then.i.i19
   br label %float64_unpack_canonical.exit35
 
 if.else.i.i21:                                    ; preds = %if.then.i.i19
-  %flush_inputs_to_zero.i.i22 = getelementptr inbounds i8, ptr %status, i64 6
+  %flush_inputs_to_zero.i.i22 = getelementptr inbounds nuw i8, ptr %status, i64 6
   %5 = load i8, ptr %flush_inputs_to_zero.i.i22, align 2
   %tobool9.i.i23 = trunc i8 %5 to i1
   br i1 %tobool9.i.i23, label %if.then10.i.i28, label %frac64_normalize.exit.i.i24
@@ -4659,15 +4659,15 @@ entry:
   ]
 
 entry.sw.epilog_crit_edge:                        ; preds = %entry
-  %exp.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %p, i64 4
+  %exp.i.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %p, i64 4
   %.pre = load i32, ptr %exp.i.i.phi.trans.insert, align 4
   br label %sw.epilog
 
 sw.bb:                                            ; preds = %entry
-  %exp = getelementptr inbounds i8, ptr %p, i64 4
+  %exp = getelementptr inbounds nuw i8, ptr %p, i64 4
   %1 = load i32, ptr %exp, align 4
   %cmp = icmp eq i32 %1, 0
-  %2 = getelementptr inbounds i8, ptr %p, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %p, i64 8
   %3 = load i64, ptr %2, align 8
   br i1 %cmp, label %if.then, label %if.else
 
@@ -4698,16 +4698,16 @@ if.else:                                          ; preds = %sw.bb
   br label %sw.epilog
 
 sw.bb8:                                           ; preds = %entry, %entry
-  %7 = getelementptr inbounds i8, ptr %p, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %p, i64 8
   %8 = load i64, ptr %7, align 8
   %shl.i13 = shl i64 %8, 29
   store i64 %shl.i13, ptr %7, align 8
-  %exp9 = getelementptr inbounds i8, ptr %p, i64 4
+  %exp9 = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 2047, ptr %exp9, align 4
   br label %sw.epilog
 
 sw.bb10:                                          ; preds = %entry
-  %exp11 = getelementptr inbounds i8, ptr %p, i64 4
+  %exp11 = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 2047, ptr %exp11, align 4
   br label %sw.epilog
 
@@ -4717,7 +4717,7 @@ do.body:                                          ; preds = %entry
 
 sw.epilog:                                        ; preds = %entry.sw.epilog_crit_edge, %frac64_normalize.exit, %if.else, %sw.bb10, %sw.bb8
   %9 = phi i32 [ %.pre, %entry.sw.epilog_crit_edge ], [ %retval.0.i, %frac64_normalize.exit ], [ %add7, %if.else ], [ 2047, %sw.bb10 ], [ 2047, %sw.bb8 ]
-  %sign.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %sign.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   %10 = load i8, ptr %sign.i.i, align 1
   %11 = and i8 %10, 1
   %conv.i.i = zext nneg i8 %11 to i64
@@ -4726,7 +4726,7 @@ sw.epilog:                                        ; preds = %entry.sw.epilog_cri
   %shl77.i.i = zext nneg i32 %12 to i64
   %and8.i.i = shl nuw nsw i64 %shl77.i.i, 52
   %or.i.i = or disjoint i64 %and8.i.i, %shl.i.i
-  %13 = getelementptr inbounds i8, ptr %p, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %p, i64 8
   %14 = load i64, ptr %13, align 8
   %shl77.i9.i = and i64 %14, 4503599627370495
   %or.i11.i = or disjoint i64 %or.i.i, %shl77.i9.i
@@ -4745,13 +4745,13 @@ entry:
   %conv.i.i = zext nneg i16 %1 to i32
   %2 = and i16 %a, 127
   %and.i11.i = zext nneg i16 %2 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %pa, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 1
   store i8 %frombool.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i = getelementptr inbounds i8, ptr %pa, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 4
   store i32 %conv.i.i, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %pa, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 8
   store i64 %and.i11.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i, align 8
-  %.ph.i.sroa.gep100 = getelementptr inbounds i8, ptr %pb, i64 8
+  %.ph.i.sroa.gep100 = getelementptr inbounds nuw i8, ptr %pb, i64 8
   %trunc = trunc i16 %0 to i8
   switch i8 %trunc, label %if.then33.i [
     i8 0, label %if.then.i45
@@ -4767,7 +4767,7 @@ if.then8.i:                                       ; preds = %if.then.i45
   br label %parts64_canonicalize.exit
 
 if.else.i46:                                      ; preds = %if.then.i45
-  %flush_inputs_to_zero.i = getelementptr inbounds i8, ptr %status, i64 6
+  %flush_inputs_to_zero.i = getelementptr inbounds nuw i8, ptr %status, i64 6
   %3 = load i8, ptr %flush_inputs_to_zero.i, align 2
   %tobool9.i = trunc i8 %3 to i1
   br i1 %tobool9.i, label %if.then10.i, label %frac64_normalize.exit.i
@@ -4826,9 +4826,9 @@ parts64_canonicalize.exit:                        ; preds = %if.then8.i, %if.the
   %conv.i.i50 = zext nneg i16 %9 to i32
   %10 = and i16 %b, 127
   %and.i11.i51 = zext nneg i16 %10 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i52 = getelementptr inbounds i8, ptr %pb, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i52 = getelementptr inbounds nuw i8, ptr %pb, i64 1
   store i8 %frombool.i.i49, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i52, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i53 = getelementptr inbounds i8, ptr %pb, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i53 = getelementptr inbounds nuw i8, ptr %pb, i64 4
   store i32 %conv.i.i50, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i53, align 4
   store i64 %and.i11.i51, ptr %.ph.i.sroa.gep100, align 8
   %trunc101 = trunc i16 %8 to i8
@@ -4846,7 +4846,7 @@ if.then8.i84:                                     ; preds = %if.then.i71
   br label %parts64_canonicalize.exit85
 
 if.else.i74:                                      ; preds = %if.then.i71
-  %flush_inputs_to_zero.i75 = getelementptr inbounds i8, ptr %status, i64 6
+  %flush_inputs_to_zero.i75 = getelementptr inbounds nuw i8, ptr %status, i64 6
   %11 = load i8, ptr %flush_inputs_to_zero.i75, align 2
   %tobool9.i76 = trunc i8 %11 to i1
   br i1 %tobool9.i76, label %if.then10.i82, label %frac64_normalize.exit.i77
@@ -4965,7 +4965,7 @@ if.then.i93:                                      ; preds = %if.then41.i
   br label %if.end.i91
 
 if.end.i91:                                       ; preds = %if.then41.i, %if.then.i93
-  %default_nan_mode.i = getelementptr inbounds i8, ptr %status, i64 7
+  %default_nan_mode.i = getelementptr inbounds nuw i8, ptr %status, i64 7
   %19 = load i8, ptr %default_nan_mode.i, align 1
   %tobool.i = trunc i8 %19 to i1
   br i1 %tobool.i, label %if.then3.i, label %if.else.i92
@@ -5048,17 +5048,17 @@ if.else.i:                                        ; preds = %if.end51.i
 parts64_mul.exit:                                 ; preds = %.thread116, %if.then24.i, %21, %if.then6.i.i, %if.then3.i, %if.then54.i, %if.then46.i, %if.then31.i, %if.end.i
   %retval.i.0 = phi ptr [ %pa, %if.end.i ], [ %pa, %if.then31.i ], [ %pa, %if.then46.i ], [ %pa, %if.then54.i ], [ %pa, %if.then3.i ], [ %.ph.i110, %if.then24.i ], [ %pb, %21 ], [ %pa, %if.then6.i.i ], [ %pb, %.thread116 ]
   call fastcc void @parts64_uncanon(ptr noundef %retval.i.0, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
-  %sign.i.i = getelementptr inbounds i8, ptr %retval.i.0, i64 1
+  %sign.i.i = getelementptr inbounds nuw i8, ptr %retval.i.0, i64 1
   %24 = load i8, ptr %sign.i.i, align 1
   %conv.i.i95 = zext i8 %24 to i64
   %shl.i.i96 = shl nuw nsw i64 %conv.i.i95, 15
-  %exp.i.i = getelementptr inbounds i8, ptr %retval.i.0, i64 4
+  %exp.i.i = getelementptr inbounds nuw i8, ptr %retval.i.0, i64 4
   %25 = load i32, ptr %exp.i.i, align 4
   %26 = shl i32 %25, 7
   %27 = and i32 %26, 32640
   %and8.i.i = zext nneg i32 %27 to i64
   %or.i.i = or disjoint i64 %shl.i.i96, %and8.i.i
-  %28 = getelementptr inbounds i8, ptr %retval.i.0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %retval.i.0, i64 8
   %29 = load i64, ptr %28, align 8
   %shl77.i9.i = and i64 %29, 127
   %or.i11.i = or disjoint i64 %or.i.i, %shl77.i9.i
@@ -5078,13 +5078,13 @@ entry:
   %frombool.i = trunc nuw nsw i64 %f.coerce1.lobit.i to i8
   %and.i.i = and i64 %a.coerce1, 281474976710655
   store i8 0, ptr %pa, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %pa, i64 1
+  %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 1
   store i8 %frombool.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i, align 1
-  %.compoundliteral.sroa.33.0..sroa_idx.i = getelementptr inbounds i8, ptr %pa, i64 4
+  %.compoundliteral.sroa.33.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 4
   store i32 %conv.i44, ptr %.compoundliteral.sroa.33.0..sroa_idx.i, align 4
-  %.compoundliteral.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %pa, i64 8
+  %.compoundliteral.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 8
   store i64 %and.i.i, ptr %.compoundliteral.sroa.4.0..sroa_idx.i, align 8
-  %.compoundliteral.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %pa, i64 16
+  %.compoundliteral.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 16
   store i64 %a.coerce0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i, align 8
   call fastcc void @parts128_canonicalize(ptr noundef %pa, ptr noundef %status, ptr noundef nonnull @float128_params)
   %shr.i16.i45 = lshr i64 %b.coerce1, 48
@@ -5094,13 +5094,13 @@ entry:
   %frombool.i48 = trunc nuw nsw i64 %f.coerce1.lobit.i47 to i8
   %and.i.i49 = and i64 %b.coerce1, 281474976710655
   store i8 0, ptr %pb, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx.i50 = getelementptr inbounds i8, ptr %pb, i64 1
+  %.compoundliteral.sroa.2.0..sroa_idx.i50 = getelementptr inbounds nuw i8, ptr %pb, i64 1
   store i8 %frombool.i48, ptr %.compoundliteral.sroa.2.0..sroa_idx.i50, align 1
-  %.compoundliteral.sroa.33.0..sroa_idx.i51 = getelementptr inbounds i8, ptr %pb, i64 4
+  %.compoundliteral.sroa.33.0..sroa_idx.i51 = getelementptr inbounds nuw i8, ptr %pb, i64 4
   store i32 %conv.i46, ptr %.compoundliteral.sroa.33.0..sroa_idx.i51, align 4
-  %.compoundliteral.sroa.4.0..sroa_idx.i52 = getelementptr inbounds i8, ptr %pb, i64 8
+  %.compoundliteral.sroa.4.0..sroa_idx.i52 = getelementptr inbounds nuw i8, ptr %pb, i64 8
   store i64 %and.i.i49, ptr %.compoundliteral.sroa.4.0..sroa_idx.i52, align 8
-  %.compoundliteral.sroa.5.0..sroa_idx.i53 = getelementptr inbounds i8, ptr %pb, i64 16
+  %.compoundliteral.sroa.5.0..sroa_idx.i53 = getelementptr inbounds nuw i8, ptr %pb, i64 16
   store i64 %b.coerce0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i53, align 8
   call fastcc void @parts128_canonicalize(ptr noundef %pb, ptr noundef %status, ptr noundef nonnull @float128_params)
   %2 = load i8, ptr %pa, align 8
@@ -5114,9 +5114,9 @@ entry:
   %5 = load i8, ptr %.compoundliteral.sroa.2.0..sroa_idx.i50, align 1
   %6 = xor i8 %5, %4
   %xor.i41 = and i8 %6, 1
-  %retval.i.0.sroa.gep = getelementptr inbounds i8, ptr %pb, i64 4
-  %retval.i.0.sroa.gep106 = getelementptr inbounds i8, ptr %pa, i64 4
-  %retval.i.0.sroa.gep107 = getelementptr inbounds i8, ptr %pb, i64 4
+  %retval.i.0.sroa.gep = getelementptr inbounds nuw i8, ptr %pb, i64 4
+  %retval.i.0.sroa.gep106 = getelementptr inbounds nuw i8, ptr %pa, i64 4
+  %retval.i.0.sroa.gep107 = getelementptr inbounds nuw i8, ptr %pb, i64 4
   switch i32 %or.i, label %if.end32.i [
     i32 4, label %if.then.i
     i32 10, label %if.then31.i
@@ -5231,7 +5231,7 @@ if.then.i68:                                      ; preds = %if.then41.i
   br label %if.end.i66
 
 if.end.i66:                                       ; preds = %if.then41.i, %if.then.i68
-  %default_nan_mode.i = getelementptr inbounds i8, ptr %status, i64 7
+  %default_nan_mode.i = getelementptr inbounds nuw i8, ptr %status, i64 7
   %38 = load i8, ptr %default_nan_mode.i, align 1
   %tobool.i = trunc i8 %38 to i1
   br i1 %tobool.i, label %if.then3.i, label %if.else.i67
@@ -5346,25 +5346,25 @@ if.then.i71:                                      ; preds = %parts128_mul.exit
 
 sw.bb.i:                                          ; preds = %parts128_mul.exit.thread85, %parts128_mul.exit
   %retval.i.087 = phi ptr [ %pa, %parts128_mul.exit.thread85 ], [ %retval.i.0, %parts128_mul.exit ]
-  %exp.i70 = getelementptr inbounds i8, ptr %retval.i.087, i64 4
+  %exp.i70 = getelementptr inbounds nuw i8, ptr %retval.i.087, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %exp.i70, i8 0, i64 20, i1 false)
   br label %parts128_uncanon.exit
 
 do.end.i:                                         ; preds = %parts128_mul.exit.thread88, %parts128_mul.exit
   %retval.i.090 = phi ptr [ %pa, %parts128_mul.exit.thread88 ], [ %retval.i.0, %parts128_mul.exit ]
-  %exp10.i = getelementptr inbounds i8, ptr %retval.i.090, i64 4
+  %exp10.i = getelementptr inbounds nuw i8, ptr %retval.i.090, i64 4
   store i32 32767, ptr %exp10.i, align 4
-  %frac_hi.i14.i = getelementptr inbounds i8, ptr %retval.i.090, i64 8
+  %frac_hi.i14.i = getelementptr inbounds nuw i8, ptr %retval.i.090, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %frac_hi.i14.i, i8 0, i64 16, i1 false)
   br label %parts128_uncanon.exit
 
 do.end18.i:                                       ; preds = %lor.lhs.false.i.i, %if.then6.i.i, %if.then31.i, %if.then3.i, %if.then24.i, %parts128_mul.exit, %parts128_mul.exit
   %retval.i.083 = phi ptr [ %retval.i.0, %parts128_mul.exit ], [ %retval.i.0, %parts128_mul.exit ], [ %.ph.i97, %if.then24.i ], [ %pa, %if.then3.i ], [ %pa, %if.then31.i ], [ %pa, %if.then6.i.i ], [ %pa, %lor.lhs.false.i.i ]
-  %exp20.i = getelementptr inbounds i8, ptr %retval.i.083, i64 4
+  %exp20.i = getelementptr inbounds nuw i8, ptr %retval.i.083, i64 4
   store i32 32767, ptr %exp20.i, align 4
-  %frac_hi.i15.i = getelementptr inbounds i8, ptr %retval.i.083, i64 8
+  %frac_hi.i15.i = getelementptr inbounds nuw i8, ptr %retval.i.083, i64 8
   %51 = load i64, ptr %frac_hi.i15.i, align 8
-  %frac_lo.i.i69 = getelementptr inbounds i8, ptr %retval.i.083, i64 16
+  %frac_lo.i.i69 = getelementptr inbounds nuw i8, ptr %retval.i.083, i64 16
   %52 = load i64, ptr %frac_lo.i.i69, align 8
   %53 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %51, i32 range(i32 1, -2147483646) 15, i64 %52) #14, !srcloc !5
   %shr.i.i = lshr i64 %51, 15
@@ -5379,9 +5379,9 @@ do.body21.i:                                      ; preds = %parts128_mul.exit
 parts128_uncanon.exit:                            ; preds = %if.then.i71, %sw.bb.i, %do.end.i, %do.end18.i
   %conv1.i = phi i64 [ %50, %if.then.i71 ], [ 0, %sw.bb.i ], [ 9223090561878065152, %do.end.i ], [ 9223090561878065152, %do.end18.i ]
   %retval.i.084 = phi ptr [ %retval.i.0, %if.then.i71 ], [ %retval.i.087, %sw.bb.i ], [ %retval.i.090, %do.end.i ], [ %retval.i.083, %do.end18.i ]
-  %sign.i72 = getelementptr inbounds i8, ptr %retval.i.084, i64 1
+  %sign.i72 = getelementptr inbounds nuw i8, ptr %retval.i.084, i64 1
   %54 = load i8, ptr %sign.i72, align 1
-  %frac_hi.i74 = getelementptr inbounds i8, ptr %retval.i.084, i64 8
+  %frac_hi.i74 = getelementptr inbounds nuw i8, ptr %retval.i.084, i64 8
   %55 = load i64, ptr %frac_hi.i74, align 8
   %56 = and i8 %54, 1
   %conv.i75 = zext nneg i8 %56 to i64
@@ -5389,7 +5389,7 @@ parts128_uncanon.exit:                            ; preds = %if.then.i71, %sw.bb
   %or.i25.i = or disjoint i64 %conv1.i, %shl.i76
   %and8.i.i = and i64 %55, 281474976710655
   %or.i.i = or disjoint i64 %or.i25.i, %and8.i.i
-  %frac_lo.i77 = getelementptr inbounds i8, ptr %retval.i.084, i64 16
+  %frac_lo.i77 = getelementptr inbounds nuw i8, ptr %retval.i.084, i64 16
   %57 = load i64, ptr %frac_lo.i77, align 8
   %.fca.0.insert.i = insertvalue { i64, i64 } poison, i64 %57, 0
   %.fca.1.insert.i = insertvalue { i64, i64 } %.fca.0.insert.i, i64 %or.i.i, 1
@@ -5410,11 +5410,11 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   tail call fastcc void @parts128_uncanon_normal(ptr noundef nonnull %p, ptr noundef %s, ptr noundef nonnull @float128_params)
-  %exp.i2.phi.trans.insert = getelementptr inbounds i8, ptr %p, i64 4
+  %exp.i2.phi.trans.insert = getelementptr inbounds nuw i8, ptr %p, i64 4
   %.pre = load i32, ptr %exp.i2.phi.trans.insert, align 4
-  %frac_hi.i.phi.trans.insert = getelementptr inbounds i8, ptr %p, i64 8
+  %frac_hi.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %p, i64 8
   %.pre3 = load i64, ptr %frac_hi.i.phi.trans.insert, align 8
-  %frac_lo.i.phi.trans.insert = getelementptr inbounds i8, ptr %p, i64 16
+  %frac_lo.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %p, i64 16
   %.pre4 = load i64, ptr %frac_lo.i.phi.trans.insert, align 8
   %1 = zext i32 %.pre to i64
   %2 = shl i64 %1, 48
@@ -5422,23 +5422,23 @@ if.then.i:                                        ; preds = %entry
   br label %parts128_uncanon.exit
 
 sw.bb.i:                                          ; preds = %entry
-  %exp.i = getelementptr inbounds i8, ptr %p, i64 4
+  %exp.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %exp.i, i8 0, i64 20, i1 false)
   br label %parts128_uncanon.exit
 
 do.end.i:                                         ; preds = %entry
-  %exp10.i = getelementptr inbounds i8, ptr %p, i64 4
+  %exp10.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 32767, ptr %exp10.i, align 4
-  %frac_hi.i14.i = getelementptr inbounds i8, ptr %p, i64 8
+  %frac_hi.i14.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %frac_hi.i14.i, i8 0, i64 16, i1 false)
   br label %parts128_uncanon.exit
 
 do.end18.i:                                       ; preds = %entry, %entry
-  %exp20.i = getelementptr inbounds i8, ptr %p, i64 4
+  %exp20.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 32767, ptr %exp20.i, align 4
-  %frac_hi.i15.i = getelementptr inbounds i8, ptr %p, i64 8
+  %frac_hi.i15.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   %4 = load i64, ptr %frac_hi.i15.i, align 8
-  %frac_lo.i.i = getelementptr inbounds i8, ptr %p, i64 16
+  %frac_lo.i.i = getelementptr inbounds nuw i8, ptr %p, i64 16
   %5 = load i64, ptr %frac_lo.i.i, align 8
   %6 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %4, i32 range(i32 1, -2147483646) 15, i64 %5) #14, !srcloc !5
   %shr.i.i = lshr i64 %4, 15
@@ -5454,7 +5454,7 @@ parts128_uncanon.exit:                            ; preds = %if.then.i, %sw.bb.i
   %7 = phi i64 [ %.pre4, %if.then.i ], [ 0, %sw.bb.i ], [ 0, %do.end.i ], [ %6, %do.end18.i ]
   %8 = phi i64 [ %.pre3, %if.then.i ], [ 0, %sw.bb.i ], [ 0, %do.end.i ], [ %shr.i.i, %do.end18.i ]
   %conv1.i = phi i64 [ %3, %if.then.i ], [ 0, %sw.bb.i ], [ 9223090561878065152, %do.end.i ], [ 9223090561878065152, %do.end18.i ]
-  %sign.i = getelementptr inbounds i8, ptr %p, i64 1
+  %sign.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   %9 = load i8, ptr %sign.i, align 1
   %10 = and i8 %9, 1
   %conv.i = zext nneg i8 %10 to i64
@@ -5473,29 +5473,29 @@ entry:
   %p64.i = alloca %struct.FloatParts64, align 8
   %pa = alloca %struct.FloatParts128, align 8
   %pb = alloca %struct.FloatParts128, align 8
-  %floatx80_rounding_precision.i27 = getelementptr inbounds i8, ptr %status, i64 3
+  %floatx80_rounding_precision.i27 = getelementptr inbounds nuw i8, ptr %status, i64 3
   %0 = load i8, ptr %floatx80_rounding_precision.i27, align 1
   %switch = icmp ult i8 %0, 3
-  %.ph.i.sroa.gep = getelementptr inbounds i8, ptr %pa, i64 8
-  %.ph.i.sroa.gep117 = getelementptr inbounds i8, ptr %pb, i64 8
-  %retval.i5.0.sroa.gep = getelementptr inbounds i8, ptr %pa, i64 1
-  %retval.i5.0.sroa.gep162 = getelementptr inbounds i8, ptr %pb, i64 1
-  %retval.i5.0.sroa.gep163 = getelementptr inbounds i8, ptr %pb, i64 1
-  %retval.i5.0.sroa.gep165 = getelementptr inbounds i8, ptr %pa, i64 4
-  %retval.i5.0.sroa.gep166 = getelementptr inbounds i8, ptr %pb, i64 4
-  %retval.i5.0.sroa.gep167 = getelementptr inbounds i8, ptr %pb, i64 4
-  %retval.i5.0.sroa.gep169 = getelementptr inbounds i8, ptr %pa, i64 8
-  %retval.i5.0.sroa.gep170 = getelementptr inbounds i8, ptr %pb, i64 8
-  %retval.i5.0.sroa.gep171 = getelementptr inbounds i8, ptr %pb, i64 8
-  %retval.i5.0.sroa.gep173 = getelementptr inbounds i8, ptr %pa, i64 4
-  %retval.i5.0.sroa.gep174 = getelementptr inbounds i8, ptr %pb, i64 4
-  %retval.i5.0.sroa.gep175 = getelementptr inbounds i8, ptr %pb, i64 4
-  %retval.i5.0.sroa.gep177 = getelementptr inbounds i8, ptr %pa, i64 8
-  %retval.i5.0.sroa.gep178 = getelementptr inbounds i8, ptr %pb, i64 8
-  %retval.i5.0.sroa.gep179 = getelementptr inbounds i8, ptr %pb, i64 8
-  %retval.i5.0.sroa.gep181 = getelementptr inbounds i8, ptr %pa, i64 16
-  %retval.i5.0.sroa.gep182 = getelementptr inbounds i8, ptr %pb, i64 16
-  %retval.i5.0.sroa.gep183 = getelementptr inbounds i8, ptr %pb, i64 16
+  %.ph.i.sroa.gep = getelementptr inbounds nuw i8, ptr %pa, i64 8
+  %.ph.i.sroa.gep117 = getelementptr inbounds nuw i8, ptr %pb, i64 8
+  %retval.i5.0.sroa.gep = getelementptr inbounds nuw i8, ptr %pa, i64 1
+  %retval.i5.0.sroa.gep162 = getelementptr inbounds nuw i8, ptr %pb, i64 1
+  %retval.i5.0.sroa.gep163 = getelementptr inbounds nuw i8, ptr %pb, i64 1
+  %retval.i5.0.sroa.gep165 = getelementptr inbounds nuw i8, ptr %pa, i64 4
+  %retval.i5.0.sroa.gep166 = getelementptr inbounds nuw i8, ptr %pb, i64 4
+  %retval.i5.0.sroa.gep167 = getelementptr inbounds nuw i8, ptr %pb, i64 4
+  %retval.i5.0.sroa.gep169 = getelementptr inbounds nuw i8, ptr %pa, i64 8
+  %retval.i5.0.sroa.gep170 = getelementptr inbounds nuw i8, ptr %pb, i64 8
+  %retval.i5.0.sroa.gep171 = getelementptr inbounds nuw i8, ptr %pb, i64 8
+  %retval.i5.0.sroa.gep173 = getelementptr inbounds nuw i8, ptr %pa, i64 4
+  %retval.i5.0.sroa.gep174 = getelementptr inbounds nuw i8, ptr %pb, i64 4
+  %retval.i5.0.sroa.gep175 = getelementptr inbounds nuw i8, ptr %pb, i64 4
+  %retval.i5.0.sroa.gep177 = getelementptr inbounds nuw i8, ptr %pa, i64 8
+  %retval.i5.0.sroa.gep178 = getelementptr inbounds nuw i8, ptr %pb, i64 8
+  %retval.i5.0.sroa.gep179 = getelementptr inbounds nuw i8, ptr %pb, i64 8
+  %retval.i5.0.sroa.gep181 = getelementptr inbounds nuw i8, ptr %pa, i64 16
+  %retval.i5.0.sroa.gep182 = getelementptr inbounds nuw i8, ptr %pb, i64 16
+  %retval.i5.0.sroa.gep183 = getelementptr inbounds nuw i8, ptr %pb, i64 16
   br i1 %switch, label %sw.bb.i29, label %sw.default.i56
 
 sw.bb.i29:                                        ; preds = %entry
@@ -5514,12 +5514,12 @@ if.end.i34:                                       ; preds = %sw.bb.i29
   %frombool.i = trunc nuw nsw i16 %f.coerce1.lobit.i to i8
   %and.i.i = zext nneg i16 %1 to i32
   store i8 0, ptr %pa, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %pa, i64 1
+  %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 1
   store i8 %frombool.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i, align 1
-  %.compoundliteral.sroa.32.0..sroa_idx.i = getelementptr inbounds i8, ptr %pa, i64 4
+  %.compoundliteral.sroa.32.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 4
   store i32 %and.i.i, ptr %.compoundliteral.sroa.32.0..sroa_idx.i, align 4
   store i64 %a.coerce0, ptr %.ph.i.sroa.gep, align 8
-  %.compoundliteral.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %pa, i64 16
+  %.compoundliteral.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 16
   store i64 0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i, align 8
   %cmp.i36.not = icmp eq i16 %1, 32767
   br i1 %cmp.i36.not, label %lor.lhs.false.thread, label %lor.lhs.false
@@ -5563,12 +5563,12 @@ if.end.i15:                                       ; preds = %sw.bb.i
   %frombool.i88 = trunc nuw nsw i16 %f.coerce1.lobit.i87 to i8
   %and.i.i89 = zext nneg i16 %6 to i32
   store i8 0, ptr %pb, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx.i90 = getelementptr inbounds i8, ptr %pb, i64 1
+  %.compoundliteral.sroa.2.0..sroa_idx.i90 = getelementptr inbounds nuw i8, ptr %pb, i64 1
   store i8 %frombool.i88, ptr %.compoundliteral.sroa.2.0..sroa_idx.i90, align 1
-  %.compoundliteral.sroa.32.0..sroa_idx.i91 = getelementptr inbounds i8, ptr %pb, i64 4
+  %.compoundliteral.sroa.32.0..sroa_idx.i91 = getelementptr inbounds nuw i8, ptr %pb, i64 4
   store i32 %and.i.i89, ptr %.compoundliteral.sroa.32.0..sroa_idx.i91, align 4
   store i64 %b.coerce0, ptr %.ph.i.sroa.gep117, align 8
-  %.compoundliteral.sroa.5.0..sroa_idx.i93 = getelementptr inbounds i8, ptr %pb, i64 16
+  %.compoundliteral.sroa.5.0..sroa_idx.i93 = getelementptr inbounds nuw i8, ptr %pb, i64 16
   store i64 0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i93, align 8
   %cmp.i17.not = icmp eq i16 %6, 32767
   br i1 %cmp.i17.not, label %if.else.i19, label %if.then10.i
@@ -5723,7 +5723,7 @@ if.then.i110:                                     ; preds = %if.then41.i
   br label %if.end.i109
 
 if.end.i109:                                      ; preds = %if.then41.i, %if.then.i110
-  %default_nan_mode.i = getelementptr inbounds i8, ptr %status, i64 7
+  %default_nan_mode.i = getelementptr inbounds nuw i8, ptr %status, i64 7
   %46 = load i8, ptr %default_nan_mode.i, align 1
   %tobool.i = trunc i8 %46 to i1
   br i1 %tobool.i, label %if.then3.i, label %if.else.i
@@ -5871,18 +5871,18 @@ if.then.i74:                                      ; preds = %sw.bb.i66
 
 if.else.i69:                                      ; preds = %sw.bb.i66
   %60 = load i8, ptr %retval.i5.0.sroa.phi, align 1
-  %sign5.i = getelementptr inbounds i8, ptr %p64.i, i64 1
+  %sign5.i = getelementptr inbounds nuw i8, ptr %p64.i, i64 1
   %frombool.i72 = and i8 %60, 1
   store i8 %frombool.i72, ptr %sign5.i, align 1
   %61 = load i32, ptr %retval.i5.0.sroa.phi164, align 4
-  %exp7.i = getelementptr inbounds i8, ptr %p64.i, i64 4
+  %exp7.i = getelementptr inbounds nuw i8, ptr %p64.i, i64 4
   store i32 %61, ptr %exp7.i, align 4
   %retval.i5.0.val = load i64, ptr %retval.i5.0.sroa.phi176, align 8
   %retval.i5.0.val81 = load i64, ptr %retval.i5.0.sroa.phi180, align 8
   %cmp.i111 = icmp ne i64 %retval.i5.0.val81, 0
   %conv1.i = zext i1 %cmp.i111 to i64
   %or.i112 = or i64 %retval.i5.0.val, %conv1.i
-  %62 = getelementptr inbounds i8, ptr %p64.i, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %p64.i, i64 8
   store i64 %or.i112, ptr %62, align 8
   call fastcc void @parts64_uncanon_normal(ptr noundef %p64.i, ptr noundef nonnull %status, ptr noundef %arrayidx.i)
   %63 = load i64, ptr %62, align 8
@@ -5892,7 +5892,7 @@ if.else.i69:                                      ; preds = %sw.bb.i66
 if.end.i73:                                       ; preds = %if.else.i69, %if.then.i74
   %exp.i61.0 = phi i32 [ %59, %if.then.i74 ], [ %64, %if.else.i69 ]
   %frac.i.0 = phi i64 [ %58, %if.then.i74 ], [ %63, %if.else.i69 ]
-  %exp_max.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 12
+  %exp_max.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 12
   %65 = load i32, ptr %exp_max.i, align 4
   %cmp9.i.not = icmp eq i32 %exp.i61.0, %65
   br i1 %cmp9.i.not, label %sw.bb13.i, label %floatx80_round_pack_canonical.exit
@@ -5900,17 +5900,17 @@ if.end.i73:                                       ; preds = %if.else.i69, %if.th
 sw.bb13.i:                                        ; preds = %parts128_mul.exit.thread, %if.end.i73, %parts128_mul.exit
   %arrayidx.i124 = phi ptr [ %arrayidx.i121, %parts128_mul.exit.thread ], [ %arrayidx.i, %if.end.i73 ], [ %arrayidx.i, %parts128_mul.exit ]
   %retval.i5.0123 = phi ptr [ %pa, %parts128_mul.exit.thread ], [ %retval.i5.0, %if.end.i73 ], [ %retval.i5.0, %parts128_mul.exit ]
-  %exp_max14.i = getelementptr inbounds i8, ptr %arrayidx.i124, i64 12
+  %exp_max14.i = getelementptr inbounds nuw i8, ptr %arrayidx.i124, i64 12
   %66 = load i32, ptr %exp_max14.i, align 4
   br label %floatx80_round_pack_canonical.exit
 
 sw.bb16.i:                                        ; preds = %parts128_mul.exit.thread158, %parts128_mul.exit.thread129, %parts128_mul.exit, %parts128_mul.exit
   %arrayidx.i134 = phi ptr [ %arrayidx.i132, %parts128_mul.exit.thread129 ], [ %arrayidx.i, %parts128_mul.exit ], [ %arrayidx.i, %parts128_mul.exit ], [ %arrayidx.i161, %parts128_mul.exit.thread158 ]
   %retval.i5.0133 = phi ptr [ %.ph.i147, %parts128_mul.exit.thread129 ], [ %retval.i5.0, %parts128_mul.exit ], [ %retval.i5.0, %parts128_mul.exit ], [ %pa, %parts128_mul.exit.thread158 ]
-  %frac_hi17.i = getelementptr inbounds i8, ptr %retval.i5.0133, i64 8
+  %frac_hi17.i = getelementptr inbounds nuw i8, ptr %retval.i5.0133, i64 8
   %67 = load i64, ptr %frac_hi17.i, align 8
   %or.i64 = or i64 %67, -9223372036854775808
-  %exp_max18.i = getelementptr inbounds i8, ptr %arrayidx.i134, i64 12
+  %exp_max18.i = getelementptr inbounds nuw i8, ptr %arrayidx.i134, i64 12
   %68 = load i32, ptr %exp_max18.i, align 4
   br label %floatx80_round_pack_canonical.exit
 
@@ -5922,7 +5922,7 @@ floatx80_round_pack_canonical.exit:               ; preds = %parts128_mul.exit.t
   %retval.i5.0122 = phi ptr [ %retval.i5.0133, %sw.bb16.i ], [ %retval.i5.0123, %sw.bb13.i ], [ %retval.i5.0, %if.end.i73 ], [ %retval.i5.0, %parts128_mul.exit ], [ %pa, %parts128_mul.exit.thread125 ]
   %exp.i61.1 = phi i32 [ %68, %sw.bb16.i ], [ %66, %sw.bb13.i ], [ %exp.i61.0, %if.end.i73 ], [ 0, %parts128_mul.exit ], [ 0, %parts128_mul.exit.thread125 ]
   %frac.i.1 = phi i64 [ %or.i64, %sw.bb16.i ], [ -9223372036854775808, %sw.bb13.i ], [ %frac.i.0, %if.end.i73 ], [ 0, %parts128_mul.exit ], [ 0, %parts128_mul.exit.thread125 ]
-  %sign19.i = getelementptr inbounds i8, ptr %retval.i5.0122, i64 1
+  %sign19.i = getelementptr inbounds nuw i8, ptr %retval.i5.0122, i64 1
   %69 = load i8, ptr %sign19.i, align 1
   %tobool20.i = trunc i8 %69 to i1
   %shl.i113 = select i1 %tobool20.i, i32 32768, i32 0
@@ -5942,7 +5942,7 @@ return:                                           ; preds = %floatx80_unpack_can
 define internal fastcc { i64, i16 } @floatx80_round_pack_canonical(ptr nocapture noundef nonnull %p, ptr nocapture noundef %s) unnamed_addr #3 {
 entry:
   %p64 = alloca %struct.FloatParts64, align 8
-  %floatx80_rounding_precision = getelementptr inbounds i8, ptr %s, i64 3
+  %floatx80_rounding_precision = getelementptr inbounds nuw i8, ptr %s, i64 3
   %0 = load i8, ptr %floatx80_rounding_precision, align 1
   %idxprom = zext i8 %0 to i64
   %arrayidx = getelementptr [3 x %struct.FloatFmt], ptr @floatx80_params, i64 0, i64 %idxprom
@@ -5961,21 +5961,21 @@ sw.bb:                                            ; preds = %entry
 
 if.then:                                          ; preds = %sw.bb
   tail call fastcc void @parts128_uncanon_normal(ptr noundef %p, ptr noundef nonnull %s, ptr noundef %arrayidx)
-  %frac_hi = getelementptr inbounds i8, ptr %p, i64 8
+  %frac_hi = getelementptr inbounds nuw i8, ptr %p, i64 8
   %2 = load i64, ptr %frac_hi, align 8
-  %exp4 = getelementptr inbounds i8, ptr %p, i64 4
+  %exp4 = getelementptr inbounds nuw i8, ptr %p, i64 4
   %3 = load i32, ptr %exp4, align 4
   br label %if.end
 
 if.else:                                          ; preds = %sw.bb
-  %sign = getelementptr inbounds i8, ptr %p, i64 1
+  %sign = getelementptr inbounds nuw i8, ptr %p, i64 1
   %4 = load i8, ptr %sign, align 1
-  %sign5 = getelementptr inbounds i8, ptr %p64, i64 1
+  %sign5 = getelementptr inbounds nuw i8, ptr %p64, i64 1
   %frombool = and i8 %4, 1
   store i8 %frombool, ptr %sign5, align 1
-  %exp6 = getelementptr inbounds i8, ptr %p, i64 4
+  %exp6 = getelementptr inbounds nuw i8, ptr %p, i64 4
   %5 = load i32, ptr %exp6, align 4
-  %exp7 = getelementptr inbounds i8, ptr %p64, i64 4
+  %exp7 = getelementptr inbounds nuw i8, ptr %p64, i64 4
   store i32 %5, ptr %exp7, align 4
   %6 = getelementptr i8, ptr %p, i64 8
   %p.val = load i64, ptr %6, align 8
@@ -5984,7 +5984,7 @@ if.else:                                          ; preds = %sw.bb
   %cmp.i = icmp ne i64 %p.val17, 0
   %conv1.i = zext i1 %cmp.i to i64
   %or.i = or i64 %p.val, %conv1.i
-  %8 = getelementptr inbounds i8, ptr %p64, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %p64, i64 8
   store i64 %or.i, ptr %8, align 8
   call fastcc void @parts64_uncanon_normal(ptr noundef %p64, ptr noundef nonnull %s, ptr noundef %arrayidx)
   %9 = load i64, ptr %8, align 8
@@ -5994,14 +5994,14 @@ if.else:                                          ; preds = %sw.bb
 if.end:                                           ; preds = %if.else, %if.then
   %frac.0 = phi i64 [ %2, %if.then ], [ %9, %if.else ]
   %exp.0 = phi i32 [ %3, %if.then ], [ %10, %if.else ]
-  %exp_max = getelementptr inbounds i8, ptr %arrayidx, i64 12
+  %exp_max = getelementptr inbounds nuw i8, ptr %arrayidx, i64 12
   %11 = load i32, ptr %exp_max, align 4
   %cmp9.not = icmp eq i32 %exp.0, %11
   %spec.select = select i1 %cmp9.not, i64 -9223372036854775808, i64 %frac.0
   br label %sw.epilog
 
 sw.bb16:                                          ; preds = %entry, %entry
-  %frac_hi17 = getelementptr inbounds i8, ptr %p, i64 8
+  %frac_hi17 = getelementptr inbounds nuw i8, ptr %p, i64 8
   %12 = load i64, ptr %frac_hi17, align 8
   %or = or i64 %12, -9223372036854775808
   br label %sw.epilog.sink.split
@@ -6012,14 +6012,14 @@ do.body:                                          ; preds = %entry
 
 sw.epilog.sink.split:                             ; preds = %entry, %sw.bb16
   %frac.1.ph = phi i64 [ %or, %sw.bb16 ], [ -9223372036854775808, %entry ]
-  %exp_max14.phi.trans.insert = getelementptr inbounds i8, ptr %arrayidx, i64 12
+  %exp_max14.phi.trans.insert = getelementptr inbounds nuw i8, ptr %arrayidx, i64 12
   %.pre = load i32, ptr %exp_max14.phi.trans.insert, align 4
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end, %sw.epilog.sink.split, %entry
   %frac.1 = phi i64 [ 0, %entry ], [ %spec.select, %if.end ], [ %frac.1.ph, %sw.epilog.sink.split ]
   %exp.1 = phi i32 [ 0, %entry ], [ %exp.0, %if.end ], [ %.pre, %sw.epilog.sink.split ]
-  %sign19 = getelementptr inbounds i8, ptr %p, i64 1
+  %sign19 = getelementptr inbounds nuw i8, ptr %p, i64 1
   %13 = load i8, ptr %sign19, align 1
   %tobool20 = trunc i8 %13 to i1
   %shl.i = select i1 %tobool20, i32 32768, i32 0
@@ -6041,10 +6041,10 @@ entry:
   %conv.i.i.i = zext nneg i16 %1 to i32
   %2 = and i16 %a, 1023
   %and.i11.i.i = zext nneg i16 %2 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa, i64 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa, i64 4
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 1
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 4
   store i32 %conv.i.i.i, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 8
   store i64 %and.i11.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
   switch i16 %1, label %if.then33.i.i [
     i16 0, label %if.then.i.i
@@ -6060,7 +6060,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   br label %float16a_unpack_canonical.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %status, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %status, i64 6
   %3 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %3 to i1
   br i1 %tobool9.i.i, label %if.then10.i.i, label %frac64_normalize.exit.i.i
@@ -6127,7 +6127,7 @@ if.then.i.i82:                                    ; preds = %float16a_unpack_can
   br i1 %cmp.i.i.i83, label %float16a_unpack_canonical.exit95, label %if.else.i.i84
 
 if.else.i.i84:                                    ; preds = %if.then.i.i82
-  %flush_inputs_to_zero.i.i85 = getelementptr inbounds i8, ptr %status, i64 6
+  %flush_inputs_to_zero.i.i85 = getelementptr inbounds nuw i8, ptr %status, i64 6
   %11 = load i8, ptr %flush_inputs_to_zero.i.i85, align 2
   %tobool9.i.i86 = trunc i8 %11 to i1
   br i1 %tobool9.i.i86, label %if.then10.i.i92, label %frac64_normalize.exit.i.i87
@@ -6182,7 +6182,7 @@ if.then.i.i117:                                   ; preds = %float16a_unpack_can
   br i1 %cmp.i.i.i118, label %float16a_unpack_canonical.exit130, label %if.else.i.i119
 
 if.else.i.i119:                                   ; preds = %if.then.i.i117
-  %flush_inputs_to_zero.i.i120 = getelementptr inbounds i8, ptr %status, i64 6
+  %flush_inputs_to_zero.i.i120 = getelementptr inbounds nuw i8, ptr %status, i64 6
   %18 = load i8, ptr %flush_inputs_to_zero.i.i120, align 2
   %tobool9.i.i121 = trunc i8 %18 to i1
   br i1 %tobool9.i.i121, label %if.then10.i.i127, label %frac64_normalize.exit.i.i122
@@ -6326,14 +6326,14 @@ if.then119.i:                                     ; preds = %if.then75.i, %if.en
   br label %return_inf.i
 
 if.end124.i:                                      ; preds = %if.end108.i
-  %sign127.i = getelementptr inbounds i8, ptr %p_widen.i, i64 1
+  %sign127.i = getelementptr inbounds nuw i8, ptr %p_widen.i, i64 1
   store i8 %spec.select, ptr %sign127.i, align 1
   %add.i = add nsw i32 %7, %pb.sroa.10.0
   %add130.i = add nsw i32 %add.i, 1
-  %exp131.i = getelementptr inbounds i8, ptr %p_widen.i, i64 4
+  %exp131.i = getelementptr inbounds nuw i8, ptr %p_widen.i, i64 4
   store i32 %add130.i, ptr %exp131.i, align 4
-  %frac_lo.i = getelementptr inbounds i8, ptr %p_widen.i, i64 16
-  %frac_hi.i137 = getelementptr inbounds i8, ptr %p_widen.i, i64 8
+  %frac_lo.i = getelementptr inbounds nuw i8, ptr %p_widen.i, i64 16
+  %frac_hi.i137 = getelementptr inbounds nuw i8, ptr %p_widen.i, i64 8
   %conv.i.i = zext i64 %pa.val to i128
   %conv1.i.i = zext i64 %pb.sroa.14.0 to i128
   %mul.i.i = mul nuw i128 %conv.i.i, %conv1.i.i
@@ -6362,11 +6362,11 @@ if.end137.i:                                      ; preds = %if.then134.i, %if.e
   br i1 %cmp140.i.not, label %if.end159.i, label %if.then142.i
 
 if.then142.i:                                     ; preds = %if.end137.i
-  %frac_hi.i140 = getelementptr inbounds i8, ptr %c_widen.i, i64 8
+  %frac_hi.i140 = getelementptr inbounds nuw i8, ptr %c_widen.i, i64 8
   store i64 %pc.sroa.24.0, ptr %frac_hi.i140, align 8
-  %frac_lo.i141 = getelementptr inbounds i8, ptr %c_widen.i, i64 16
+  %frac_lo.i141 = getelementptr inbounds nuw i8, ptr %c_widen.i, i64 16
   store i64 0, ptr %frac_lo.i141, align 8
-  %exp144.i = getelementptr inbounds i8, ptr %c_widen.i, i64 4
+  %exp144.i = getelementptr inbounds nuw i8, ptr %c_widen.i, i64 4
   store i32 %pc.sroa.20155.0, ptr %exp144.i, align 4
   %cmp151.i = icmp eq i8 %spec.select, %spec.select170
   br i1 %cmp151.i, label %if.then153.i, label %if.else154.i
@@ -6417,7 +6417,7 @@ if.then174.i:                                     ; preds = %finish_sign.i
   br label %parts64_muladd.exit
 
 return_sub_zero.i:                                ; preds = %if.else154.i, %if.then87.i
-  %float_rounding_mode.i = getelementptr inbounds i8, ptr %status, i64 2
+  %float_rounding_mode.i = getelementptr inbounds nuw i8, ptr %status, i64 2
   %39 = load i8, ptr %float_rounding_mode.i, align 2
   %cmp183.i = icmp eq i8 %39, 1
   %frombool186.i = zext i1 %cmp183.i to i8
@@ -6505,11 +6505,11 @@ if.then.i.i:                                      ; preds = %if.end.i
 
 parts64_pick_nan_muladd.exit:                     ; preds = %if.end.i, %if.then.i.i
   store i8 4, ptr %a, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %a, i64 1
+  %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %a, i64 1
   store i8 0, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %a, i64 4
+  %.compoundliteral.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %a, i64 4
   store i32 2147483647, ptr %.compoundliteral.sroa.31.0..sroa_idx.i.i, align 4
-  %.compoundliteral.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %a, i64 8
+  %.compoundliteral.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %a, i64 8
   store i64 4611686018427387904, ptr %.compoundliteral.sroa.4.0..sroa_idx.i.i, align 8
   br label %return
 
@@ -6519,7 +6519,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool12.not, label %if.end17, label %if.then13
 
 if.then13:                                        ; preds = %if.end
-  %sign = getelementptr inbounds i8, ptr %c, i64 1
+  %sign = getelementptr inbounds nuw i8, ptr %c, i64 1
   %5 = load i8, ptr %sign, align 1
   %6 = and i8 %5, 1
   %frombool = xor i8 %6, 1
@@ -6527,9 +6527,9 @@ if.then13:                                        ; preds = %if.end
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then13, %if.end
-  %sign18 = getelementptr inbounds i8, ptr %b, i64 1
+  %sign18 = getelementptr inbounds nuw i8, ptr %b, i64 1
   %7 = load i8, ptr %sign18, align 1
-  %sign21 = getelementptr inbounds i8, ptr %a, i64 1
+  %sign21 = getelementptr inbounds nuw i8, ptr %a, i64 1
   %8 = load i8, ptr %sign21, align 1
   %9 = trunc i32 %flags to i8
   %10 = lshr i8 %9, 1
@@ -6553,7 +6553,7 @@ if.then57:                                        ; preds = %if.end54
   br i1 %cmp60, label %land.lhs.true, label %return_inf
 
 land.lhs.true:                                    ; preds = %if.then57
-  %sign65 = getelementptr inbounds i8, ptr %c, i64 1
+  %sign65 = getelementptr inbounds nuw i8, ptr %c, i64 1
   %13 = load i8, ptr %sign65, align 1
   %14 = xor i8 %13, %xor245564
   %15 = and i8 %14, 1
@@ -6582,7 +6582,7 @@ if.then81:                                        ; preds = %do.end
   br label %return_normal
 
 if.then87:                                        ; preds = %do.end
-  %sign91 = getelementptr inbounds i8, ptr %c, i64 1
+  %sign91 = getelementptr inbounds nuw i8, ptr %c, i64 1
   %17 = load i8, ptr %sign91, align 1
   %18 = xor i8 %17, %xor245564
   %19 = and i8 %18, 1
@@ -6599,29 +6599,29 @@ if.end108:                                        ; preds = %if.end17
   br i1 %cmp111, label %if.then119, label %if.end124
 
 if.then119:                                       ; preds = %do.end, %if.end108
-  %sign120 = getelementptr inbounds i8, ptr %c, i64 1
+  %sign120 = getelementptr inbounds nuw i8, ptr %c, i64 1
   %20 = load i8, ptr %sign120, align 1
   %frombool123 = and i8 %20, 1
   store i8 %frombool123, ptr %sign21, align 1
   br label %return_inf
 
 if.end124:                                        ; preds = %if.end108
-  %sign127 = getelementptr inbounds i8, ptr %p_widen, i64 1
+  %sign127 = getelementptr inbounds nuw i8, ptr %p_widen, i64 1
   store i8 %spec.select, ptr %sign127, align 1
-  %exp = getelementptr inbounds i8, ptr %a, i64 4
+  %exp = getelementptr inbounds nuw i8, ptr %a, i64 4
   %21 = load i32, ptr %exp, align 4
-  %exp129 = getelementptr inbounds i8, ptr %b, i64 4
+  %exp129 = getelementptr inbounds nuw i8, ptr %b, i64 4
   %22 = load i32, ptr %exp129, align 4
   %add = add i32 %22, %21
   %add130 = add i32 %add, 1
-  %exp131 = getelementptr inbounds i8, ptr %p_widen, i64 4
+  %exp131 = getelementptr inbounds nuw i8, ptr %p_widen, i64 4
   store i32 %add130, ptr %exp131, align 4
   %23 = getelementptr i8, ptr %a, i64 8
   %a.val = load i64, ptr %23, align 8
   %24 = getelementptr i8, ptr %b, i64 8
   %b.val = load i64, ptr %24, align 8
-  %frac_lo.i = getelementptr inbounds i8, ptr %p_widen, i64 16
-  %frac_hi.i = getelementptr inbounds i8, ptr %p_widen, i64 8
+  %frac_lo.i = getelementptr inbounds nuw i8, ptr %p_widen, i64 16
+  %frac_hi.i = getelementptr inbounds nuw i8, ptr %p_widen, i64 8
   %conv.i.i = zext i64 %a.val to i128
   %conv1.i.i = zext i64 %b.val to i128
   %mul.i.i = mul nuw i128 %conv1.i.i, %conv.i.i
@@ -6652,15 +6652,15 @@ if.end137:                                        ; preds = %if.then134, %if.end
 if.then142:                                       ; preds = %if.end137
   %30 = getelementptr i8, ptr %c, i64 8
   %c.val = load i64, ptr %30, align 8
-  %frac_hi.i60 = getelementptr inbounds i8, ptr %c_widen, i64 8
+  %frac_hi.i60 = getelementptr inbounds nuw i8, ptr %c_widen, i64 8
   store i64 %c.val, ptr %frac_hi.i60, align 8
-  %frac_lo.i61 = getelementptr inbounds i8, ptr %c_widen, i64 16
+  %frac_lo.i61 = getelementptr inbounds nuw i8, ptr %c_widen, i64 16
   store i64 0, ptr %frac_lo.i61, align 8
-  %exp143 = getelementptr inbounds i8, ptr %c, i64 4
+  %exp143 = getelementptr inbounds nuw i8, ptr %c, i64 4
   %31 = load i32, ptr %exp143, align 4
-  %exp144 = getelementptr inbounds i8, ptr %c_widen, i64 4
+  %exp144 = getelementptr inbounds nuw i8, ptr %c_widen, i64 4
   store i32 %31, ptr %exp144, align 4
-  %sign148 = getelementptr inbounds i8, ptr %c, i64 1
+  %sign148 = getelementptr inbounds nuw i8, ptr %c, i64 1
   %32 = load i8, ptr %sign148, align 1
   %33 = xor i8 %32, %xor245564
   %34 = and i8 %33, 1
@@ -6695,7 +6695,7 @@ return_normal:                                    ; preds = %if.end159, %if.then
   br i1 %tobool167.not, label %finish_sign, label %if.then168
 
 if.then168:                                       ; preds = %return_normal
-  %exp169 = getelementptr inbounds i8, ptr %a, i64 4
+  %exp169 = getelementptr inbounds nuw i8, ptr %a, i64 4
   %37 = load i32, ptr %exp169, align 4
   %sub170 = add i32 %37, -1
   store i32 %sub170, ptr %exp169, align 4
@@ -6714,7 +6714,7 @@ if.then174:                                       ; preds = %finish_sign
   br label %return
 
 return_sub_zero:                                  ; preds = %if.else154, %if.then87
-  %float_rounding_mode = getelementptr inbounds i8, ptr %s, i64 2
+  %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %40 = load i8, ptr %float_rounding_mode, align 2
   %cmp183 = icmp eq i8 %40, 1
   %frombool186 = zext i1 %cmp183 to i8
@@ -6736,9 +6736,9 @@ d_nan:                                            ; preds = %land.lhs.true, %if.
   store i16 %or1.i57, ptr %s, align 2
   store i8 4, ptr %a, align 8
   store i8 0, ptr %sign21, align 1
-  %.compoundliteral.sroa.31.0..sroa_idx.i = getelementptr inbounds i8, ptr %a, i64 4
+  %.compoundliteral.sroa.31.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %a, i64 4
   store i32 2147483647, ptr %.compoundliteral.sroa.31.0..sroa_idx.i, align 4
-  %.compoundliteral.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %a, i64 8
+  %.compoundliteral.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %a, i64 8
   store i64 4611686018427387904, ptr %.compoundliteral.sroa.4.0..sroa_idx.i, align 8
   br label %return
 
@@ -6758,7 +6758,7 @@ entry:
   br i1 %tobool.i.not, label %soft, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %entry
-  %float_rounding_mode.i = getelementptr inbounds i8, ptr %s, i64 2
+  %float_rounding_mode.i = getelementptr inbounds nuw i8, ptr %s, i64 2
   %2 = load i8, ptr %float_rounding_mode.i, align 2
   %cmp.i = icmp eq i8 %2, 0
   %and = and i32 %flags, 8
@@ -6767,7 +6767,7 @@ land.rhs.i:                                       ; preds = %entry
   br i1 %or.cond, label %if.end11, label %soft
 
 if.end11:                                         ; preds = %land.rhs.i
-  %flush_inputs_to_zero.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %3 = load i8, ptr %flush_inputs_to_zero.i, align 2
   %tobool.i102 = trunc i8 %3 to i1
   br i1 %tobool.i102, label %if.end.i, label %float32_input_flush3.exit
@@ -6913,10 +6913,10 @@ soft:                                             ; preds = %if.else81, %land.lh
   %and.i9.i.i = and i32 %shr.i8.i.i, 255
   %28 = and i32 %ua.sroa.0.0, 8388607
   %and.i11.i.i = zext nneg i32 %28 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa.i, i64 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa.i, i64 4
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa.i, i64 1
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa.i, i64 4
   store i32 %and.i9.i.i, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa.i, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa.i, i64 8
   store i64 %and.i11.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
   %trunc.i = trunc i32 %shr.i8.i.i to i8
   switch i8 %trunc.i, label %if.then33.i.i [
@@ -6933,7 +6933,7 @@ if.then8.i.i:                                     ; preds = %if.then.i67.i
   br label %parts64_canonicalize.exit.i
 
 if.else.i68.i:                                    ; preds = %if.then.i67.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %29 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %29 to i1
   br i1 %tobool9.i.i, label %if.then10.i.i, label %frac64_normalize.exit.i.i
@@ -7000,7 +7000,7 @@ if.then.i94.i:                                    ; preds = %parts64_canonicaliz
   br i1 %cmp.i.i96.i, label %parts64_canonicalize.exit108.i, label %if.else.i97.i
 
 if.else.i97.i:                                    ; preds = %if.then.i94.i
-  %flush_inputs_to_zero.i98.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i98.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %35 = load i8, ptr %flush_inputs_to_zero.i98.i, align 2
   %tobool9.i99.i = trunc i8 %35 to i1
   br i1 %tobool9.i99.i, label %if.then10.i105.i, label %frac64_normalize.exit.i100.i
@@ -7055,7 +7055,7 @@ if.then.i133.i:                                   ; preds = %parts64_canonicaliz
   br i1 %cmp.i.i135.i, label %parts64_canonicalize.exit147.i, label %if.else.i136.i
 
 if.else.i136.i:                                   ; preds = %if.then.i133.i
-  %flush_inputs_to_zero.i137.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i137.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %40 = load i8, ptr %flush_inputs_to_zero.i137.i, align 2
   %tobool9.i138.i = trunc i8 %40 to i1
   br i1 %tobool9.i138.i, label %if.then10.i144.i, label %frac64_normalize.exit.i139.i
@@ -7193,14 +7193,14 @@ if.then119.i.i:                                   ; preds = %if.end108.i.i, %if.
   br label %return_inf.i.i
 
 if.end124.i.i:                                    ; preds = %if.end108.i.i
-  %sign127.i.i = getelementptr inbounds i8, ptr %p_widen.i.i, i64 1
+  %sign127.i.i = getelementptr inbounds nuw i8, ptr %p_widen.i.i, i64 1
   store i8 %spec.select.i, ptr %sign127.i.i, align 1
   %add.i.i54 = add nsw i32 %pb.sroa.10.0.i, %33
   %add130.i.i = add nsw i32 %add.i.i54, 1
-  %exp131.i.i = getelementptr inbounds i8, ptr %p_widen.i.i, i64 4
+  %exp131.i.i = getelementptr inbounds nuw i8, ptr %p_widen.i.i, i64 4
   store i32 %add130.i.i, ptr %exp131.i.i, align 4
-  %frac_lo.i.i = getelementptr inbounds i8, ptr %p_widen.i.i, i64 16
-  %frac_hi.i154.i = getelementptr inbounds i8, ptr %p_widen.i.i, i64 8
+  %frac_lo.i.i = getelementptr inbounds nuw i8, ptr %p_widen.i.i, i64 16
+  %frac_hi.i154.i = getelementptr inbounds nuw i8, ptr %p_widen.i.i, i64 8
   %conv.i.i.i = zext i64 %pa.val.i to i128
   %conv1.i.i.i = zext i64 %pb.sroa.15.0.i to i128
   %mul.i.i.i = mul nuw i128 %conv1.i.i.i, %conv.i.i.i
@@ -7229,11 +7229,11 @@ if.end137.i.i:                                    ; preds = %if.then134.i.i, %if
   br i1 %cmp140.i.not.i, label %if.end159.i.i, label %if.then142.i.i
 
 if.then142.i.i:                                   ; preds = %if.end137.i.i
-  %frac_hi.i157.i = getelementptr inbounds i8, ptr %c_widen.i.i, i64 8
+  %frac_hi.i157.i = getelementptr inbounds nuw i8, ptr %c_widen.i.i, i64 8
   store i64 %pc.sroa.25.0.i, ptr %frac_hi.i157.i, align 8
-  %frac_lo.i158.i = getelementptr inbounds i8, ptr %c_widen.i.i, i64 16
+  %frac_lo.i158.i = getelementptr inbounds nuw i8, ptr %c_widen.i.i, i64 16
   store i64 0, ptr %frac_lo.i158.i, align 8
-  %exp144.i.i = getelementptr inbounds i8, ptr %c_widen.i.i, i64 4
+  %exp144.i.i = getelementptr inbounds nuw i8, ptr %c_widen.i.i, i64 4
   store i32 %pc.sroa.20172.0.i, ptr %exp144.i.i, align 4
   %cmp151.i.i = icmp eq i8 %spec.select.i, %spec.select195.i
   br i1 %cmp151.i.i, label %if.then153.i.i, label %if.else154.i.i
@@ -7284,7 +7284,7 @@ if.then174.i.i:                                   ; preds = %finish_sign.i.i
   br label %soft_f32_muladd.exit
 
 return_sub_zero.i.i:                              ; preds = %if.else154.i.i, %if.then87.i.i
-  %float_rounding_mode.i.i = getelementptr inbounds i8, ptr %s, i64 2
+  %float_rounding_mode.i.i = getelementptr inbounds nuw i8, ptr %s, i64 2
   %63 = load i8, ptr %float_rounding_mode.i.i, align 2
   %cmp183.i.i = icmp eq i8 %63, 1
   %frombool186.i.i = zext i1 %cmp183.i.i to i8
@@ -7353,7 +7353,7 @@ entry:
   br i1 %tobool.i.not, label %soft, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %entry
-  %float_rounding_mode.i = getelementptr inbounds i8, ptr %s, i64 2
+  %float_rounding_mode.i = getelementptr inbounds nuw i8, ptr %s, i64 2
   %2 = load i8, ptr %float_rounding_mode.i, align 2
   %cmp.i = icmp eq i8 %2, 0
   %and = and i32 %flags, 8
@@ -7362,7 +7362,7 @@ land.rhs.i:                                       ; preds = %entry
   br i1 %or.cond, label %if.end11, label %soft
 
 if.end11:                                         ; preds = %land.rhs.i
-  %flush_inputs_to_zero.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %3 = load i8, ptr %flush_inputs_to_zero.i, align 2
   %tobool.i102 = trunc i8 %3 to i1
   br i1 %tobool.i102, label %if.end.i, label %float64_input_flush3.exit
@@ -7518,10 +7518,10 @@ soft:                                             ; preds = %fpclassify_not_nan4
   %25 = trunc nuw nsw i64 %shr.i8.i.i to i32
   %conv.i.i.i = and i32 %25, 2047
   %and.i10.i.i = and i64 %ua.sroa.0.0, 4503599627370495
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa.i, i64 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa.i, i64 4
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa.i, i64 1
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa.i, i64 4
   store i32 %conv.i.i.i, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa.i, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa.i, i64 8
   store i64 %and.i10.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
   switch i32 %conv.i.i.i, label %if.then33.i.i [
     i32 0, label %if.then.i67.i
@@ -7537,7 +7537,7 @@ if.then8.i.i:                                     ; preds = %if.then.i67.i
   br label %parts64_canonicalize.exit.i
 
 if.else.i68.i:                                    ; preds = %if.then.i67.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %26 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %26 to i1
   br i1 %tobool9.i.i, label %if.then10.i.i, label %frac64_normalize.exit.i.i
@@ -7604,7 +7604,7 @@ if.then.i94.i:                                    ; preds = %parts64_canonicaliz
   br i1 %cmp.i.i96.i, label %parts64_canonicalize.exit108.i, label %if.else.i97.i
 
 if.else.i97.i:                                    ; preds = %if.then.i94.i
-  %flush_inputs_to_zero.i98.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i98.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %32 = load i8, ptr %flush_inputs_to_zero.i98.i, align 2
   %tobool9.i99.i = trunc i8 %32 to i1
   br i1 %tobool9.i99.i, label %if.then10.i105.i, label %frac64_normalize.exit.i100.i
@@ -7658,7 +7658,7 @@ if.then.i133.i:                                   ; preds = %parts64_canonicaliz
   br i1 %cmp.i.i135.i, label %parts64_canonicalize.exit147.i, label %if.else.i136.i
 
 if.else.i136.i:                                   ; preds = %if.then.i133.i
-  %flush_inputs_to_zero.i137.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i137.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %37 = load i8, ptr %flush_inputs_to_zero.i137.i, align 2
   %tobool9.i138.i = trunc i8 %37 to i1
   br i1 %tobool9.i138.i, label %if.then10.i144.i, label %frac64_normalize.exit.i139.i
@@ -7795,14 +7795,14 @@ if.then119.i.i:                                   ; preds = %if.end108.i.i, %if.
   br label %return_inf.i.i
 
 if.end124.i.i:                                    ; preds = %if.end108.i.i
-  %sign127.i.i = getelementptr inbounds i8, ptr %p_widen.i.i, i64 1
+  %sign127.i.i = getelementptr inbounds nuw i8, ptr %p_widen.i.i, i64 1
   store i8 %spec.select.i, ptr %sign127.i.i, align 1
   %add.i.i = add nsw i32 %pb.sroa.10.0.i, %30
   %add130.i.i = add nsw i32 %add.i.i, 1
-  %exp131.i.i = getelementptr inbounds i8, ptr %p_widen.i.i, i64 4
+  %exp131.i.i = getelementptr inbounds nuw i8, ptr %p_widen.i.i, i64 4
   store i32 %add130.i.i, ptr %exp131.i.i, align 4
-  %frac_lo.i.i = getelementptr inbounds i8, ptr %p_widen.i.i, i64 16
-  %frac_hi.i154.i = getelementptr inbounds i8, ptr %p_widen.i.i, i64 8
+  %frac_lo.i.i = getelementptr inbounds nuw i8, ptr %p_widen.i.i, i64 16
+  %frac_hi.i154.i = getelementptr inbounds nuw i8, ptr %p_widen.i.i, i64 8
   %conv.i.i155.i = zext i64 %pa.val.i to i128
   %conv1.i.i.i = zext i64 %pb.sroa.15.0.i to i128
   %mul.i.i.i = mul nuw i128 %conv1.i.i.i, %conv.i.i155.i
@@ -7831,11 +7831,11 @@ if.end137.i.i:                                    ; preds = %if.then134.i.i, %if
   br i1 %cmp140.i.not.i, label %if.end159.i.i, label %if.then142.i.i
 
 if.then142.i.i:                                   ; preds = %if.end137.i.i
-  %frac_hi.i158.i = getelementptr inbounds i8, ptr %c_widen.i.i, i64 8
+  %frac_hi.i158.i = getelementptr inbounds nuw i8, ptr %c_widen.i.i, i64 8
   store i64 %pc.sroa.25.0.i, ptr %frac_hi.i158.i, align 8
-  %frac_lo.i159.i = getelementptr inbounds i8, ptr %c_widen.i.i, i64 16
+  %frac_lo.i159.i = getelementptr inbounds nuw i8, ptr %c_widen.i.i, i64 16
   store i64 0, ptr %frac_lo.i159.i, align 8
-  %exp144.i.i = getelementptr inbounds i8, ptr %c_widen.i.i, i64 4
+  %exp144.i.i = getelementptr inbounds nuw i8, ptr %c_widen.i.i, i64 4
   store i32 %pc.sroa.20172.0.i, ptr %exp144.i.i, align 4
   %cmp151.i.i = icmp eq i8 %spec.select.i, %spec.select195.i
   br i1 %cmp151.i.i, label %if.then153.i.i, label %if.else154.i.i
@@ -7886,7 +7886,7 @@ if.then174.i.i:                                   ; preds = %finish_sign.i.i
   br label %soft_f64_muladd.exit
 
 return_sub_zero.i.i:                              ; preds = %if.else154.i.i, %if.then87.i.i
-  %float_rounding_mode.i.i = getelementptr inbounds i8, ptr %s, i64 2
+  %float_rounding_mode.i.i = getelementptr inbounds nuw i8, ptr %s, i64 2
   %60 = load i8, ptr %float_rounding_mode.i.i, align 2
   %cmp183.i.i = icmp eq i8 %60, 1
   %frombool186.i.i = zext i1 %cmp183.i.i to i8
@@ -7955,11 +7955,11 @@ entry:
   %0 = trunc nuw nsw i64 %shr.i8.i.i to i32
   %conv.i.i.i = and i32 %0, 2047
   %and.i10.i.i = and i64 %a, 4503599627370495
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 1
   store i8 %frombool.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 4
   store i32 %conv.i.i.i, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 8
   store i64 %and.i10.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
   switch i32 %conv.i.i.i, label %if.then33.i.i [
     i32 0, label %if.then.i.i
@@ -7975,7 +7975,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   br label %float64_unpack_canonical.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %status, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %status, i64 6
   %1 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %1 to i1
   br i1 %tobool9.i.i, label %if.then10.i.i, label %frac64_normalize.exit.i.i
@@ -8030,11 +8030,11 @@ float64_unpack_canonical.exit:                    ; preds = %if.then8.i.i, %if.t
   %4 = trunc nuw nsw i64 %shr.i8.i.i7 to i32
   %conv.i.i.i8 = and i32 %4, 2047
   %and.i10.i.i9 = and i64 %b, 4503599627370495
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i10 = getelementptr inbounds i8, ptr %pb, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i10 = getelementptr inbounds nuw i8, ptr %pb, i64 1
   store i8 %frombool.i.i.i6, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i10, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i11 = getelementptr inbounds i8, ptr %pb, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i11 = getelementptr inbounds nuw i8, ptr %pb, i64 4
   store i32 %conv.i.i.i8, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i11, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i12 = getelementptr inbounds i8, ptr %pb, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i12 = getelementptr inbounds nuw i8, ptr %pb, i64 8
   store i64 %and.i10.i.i9, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i12, align 8
   switch i32 %conv.i.i.i8, label %if.then33.i.i32 [
     i32 0, label %if.then.i.i20
@@ -8050,7 +8050,7 @@ if.then8.i.i31:                                   ; preds = %if.then.i.i20
   br label %float64_unpack_canonical.exit36
 
 if.else.i.i22:                                    ; preds = %if.then.i.i20
-  %flush_inputs_to_zero.i.i23 = getelementptr inbounds i8, ptr %status, i64 6
+  %flush_inputs_to_zero.i.i23 = getelementptr inbounds nuw i8, ptr %status, i64 6
   %5 = load i8, ptr %flush_inputs_to_zero.i.i23, align 2
   %tobool9.i.i24 = trunc i8 %5 to i1
   br i1 %tobool9.i.i24, label %if.then10.i.i29, label %frac64_normalize.exit.i.i25
@@ -8105,11 +8105,11 @@ float64_unpack_canonical.exit36:                  ; preds = %if.then8.i.i31, %if
   %8 = trunc nuw nsw i64 %shr.i8.i.i39 to i32
   %conv.i.i.i40 = and i32 %8, 2047
   %and.i10.i.i41 = and i64 %c, 4503599627370495
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i42 = getelementptr inbounds i8, ptr %pc, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i42 = getelementptr inbounds nuw i8, ptr %pc, i64 1
   store i8 %frombool.i.i.i38, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i42, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i43 = getelementptr inbounds i8, ptr %pc, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i43 = getelementptr inbounds nuw i8, ptr %pc, i64 4
   store i32 %conv.i.i.i40, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i43, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i44 = getelementptr inbounds i8, ptr %pc, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i44 = getelementptr inbounds nuw i8, ptr %pc, i64 8
   store i64 %and.i10.i.i41, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i44, align 8
   switch i32 %conv.i.i.i40, label %if.then33.i.i64 [
     i32 0, label %if.then.i.i52
@@ -8125,7 +8125,7 @@ if.then8.i.i63:                                   ; preds = %if.then.i.i52
   br label %float64_unpack_canonical.exit68
 
 if.else.i.i54:                                    ; preds = %if.then.i.i52
-  %flush_inputs_to_zero.i.i55 = getelementptr inbounds i8, ptr %status, i64 6
+  %flush_inputs_to_zero.i.i55 = getelementptr inbounds nuw i8, ptr %status, i64 6
   %9 = load i8, ptr %flush_inputs_to_zero.i.i55, align 2
   %tobool9.i.i56 = trunc i8 %9 to i1
   br i1 %tobool9.i.i56, label %if.then10.i.i61, label %frac64_normalize.exit.i.i57
@@ -8190,10 +8190,10 @@ entry:
   %conv.i.i = zext nneg i16 %1 to i32
   %2 = and i16 %a, 127
   %and.i11.i = zext nneg i16 %2 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %pa, i64 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i = getelementptr inbounds i8, ptr %pa, i64 4
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 1
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 4
   store i32 %conv.i.i, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %pa, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 8
   store i64 %and.i11.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i, align 8
   %trunc = trunc i16 %0 to i8
   switch i8 %trunc, label %if.then33.i [
@@ -8210,7 +8210,7 @@ if.then8.i:                                       ; preds = %if.then.i67
   br label %parts64_canonicalize.exit
 
 if.else.i68:                                      ; preds = %if.then.i67
-  %flush_inputs_to_zero.i = getelementptr inbounds i8, ptr %status, i64 6
+  %flush_inputs_to_zero.i = getelementptr inbounds nuw i8, ptr %status, i64 6
   %3 = load i8, ptr %flush_inputs_to_zero.i, align 2
   %tobool9.i = trunc i8 %3 to i1
   br i1 %tobool9.i, label %if.then10.i, label %frac64_normalize.exit.i
@@ -8277,7 +8277,7 @@ if.then.i93:                                      ; preds = %parts64_canonicaliz
   br i1 %cmp.i.i95, label %parts64_canonicalize.exit107, label %if.else.i96
 
 if.else.i96:                                      ; preds = %if.then.i93
-  %flush_inputs_to_zero.i97 = getelementptr inbounds i8, ptr %status, i64 6
+  %flush_inputs_to_zero.i97 = getelementptr inbounds nuw i8, ptr %status, i64 6
   %10 = load i8, ptr %flush_inputs_to_zero.i97, align 2
   %tobool9.i98 = trunc i8 %10 to i1
   br i1 %tobool9.i98, label %if.then10.i104, label %frac64_normalize.exit.i99
@@ -8333,7 +8333,7 @@ if.then.i131:                                     ; preds = %parts64_canonicaliz
   br i1 %cmp.i.i133, label %parts64_canonicalize.exit145, label %if.else.i134
 
 if.else.i134:                                     ; preds = %if.then.i131
-  %flush_inputs_to_zero.i135 = getelementptr inbounds i8, ptr %status, i64 6
+  %flush_inputs_to_zero.i135 = getelementptr inbounds nuw i8, ptr %status, i64 6
   %17 = load i8, ptr %flush_inputs_to_zero.i135, align 2
   %tobool9.i136 = trunc i8 %17 to i1
   br i1 %tobool9.i136, label %if.then10.i142, label %frac64_normalize.exit.i137
@@ -8478,14 +8478,14 @@ if.then119.i:                                     ; preds = %if.then75.i, %if.en
   br label %return_inf.i
 
 if.end124.i:                                      ; preds = %if.end108.i
-  %sign127.i = getelementptr inbounds i8, ptr %p_widen.i, i64 1
+  %sign127.i = getelementptr inbounds nuw i8, ptr %p_widen.i, i64 1
   store i8 %spec.select, ptr %sign127.i, align 1
   %add.i = add nsw i32 %7, %pb.sroa.10.0
   %add130.i = add nsw i32 %add.i, 1
-  %exp131.i = getelementptr inbounds i8, ptr %p_widen.i, i64 4
+  %exp131.i = getelementptr inbounds nuw i8, ptr %p_widen.i, i64 4
   store i32 %add130.i, ptr %exp131.i, align 4
-  %frac_lo.i = getelementptr inbounds i8, ptr %p_widen.i, i64 16
-  %frac_hi.i152 = getelementptr inbounds i8, ptr %p_widen.i, i64 8
+  %frac_lo.i = getelementptr inbounds nuw i8, ptr %p_widen.i, i64 16
+  %frac_hi.i152 = getelementptr inbounds nuw i8, ptr %p_widen.i, i64 8
   %conv.i.i153 = zext i64 %pa.val to i128
   %conv1.i.i = zext i64 %pb.sroa.15.0 to i128
   %mul.i.i = mul nuw i128 %conv.i.i153, %conv1.i.i
@@ -8514,11 +8514,11 @@ if.end137.i:                                      ; preds = %if.then134.i, %if.e
   br i1 %cmp140.i.not, label %if.end159.i, label %if.then142.i
 
 if.then142.i:                                     ; preds = %if.end137.i
-  %frac_hi.i156 = getelementptr inbounds i8, ptr %c_widen.i, i64 8
+  %frac_hi.i156 = getelementptr inbounds nuw i8, ptr %c_widen.i, i64 8
   store i64 %pc.sroa.25.0, ptr %frac_hi.i156, align 8
-  %frac_lo.i157 = getelementptr inbounds i8, ptr %c_widen.i, i64 16
+  %frac_lo.i157 = getelementptr inbounds nuw i8, ptr %c_widen.i, i64 16
   store i64 0, ptr %frac_lo.i157, align 8
-  %exp144.i = getelementptr inbounds i8, ptr %c_widen.i, i64 4
+  %exp144.i = getelementptr inbounds nuw i8, ptr %c_widen.i, i64 4
   store i32 %pc.sroa.20171.0, ptr %exp144.i, align 4
   %cmp151.i = icmp eq i8 %spec.select, %spec.select194
   br i1 %cmp151.i, label %if.then153.i, label %if.else154.i
@@ -8569,7 +8569,7 @@ if.then174.i:                                     ; preds = %finish_sign.i
   br label %parts64_muladd.exit
 
 return_sub_zero.i:                                ; preds = %if.else154.i, %if.then87.i
-  %float_rounding_mode.i = getelementptr inbounds i8, ptr %status, i64 2
+  %float_rounding_mode.i = getelementptr inbounds nuw i8, ptr %status, i64 2
   %39 = load i8, ptr %float_rounding_mode.i, align 2
   %cmp183.i = icmp eq i8 %39, 1
   %frombool186.i = zext i1 %cmp183.i to i8
@@ -8629,13 +8629,13 @@ entry:
   %frombool.i71 = trunc nuw nsw i64 %f.coerce1.lobit.i to i8
   %and.i.i = and i64 %a.coerce1, 281474976710655
   store i8 0, ptr %pa, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %pa, i64 1
+  %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 1
   store i8 %frombool.i71, ptr %.compoundliteral.sroa.2.0..sroa_idx.i, align 1
-  %.compoundliteral.sroa.33.0..sroa_idx.i = getelementptr inbounds i8, ptr %pa, i64 4
+  %.compoundliteral.sroa.33.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 4
   store i32 %conv.i70, ptr %.compoundliteral.sroa.33.0..sroa_idx.i, align 4
-  %.compoundliteral.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %pa, i64 8
+  %.compoundliteral.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 8
   store i64 %and.i.i, ptr %.compoundliteral.sroa.4.0..sroa_idx.i, align 8
-  %.compoundliteral.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %pa, i64 16
+  %.compoundliteral.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 16
   store i64 %a.coerce0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i, align 8
   call fastcc void @parts128_canonicalize(ptr noundef %pa, ptr noundef %status, ptr noundef nonnull @float128_params)
   %shr.i16.i72 = lshr i64 %b.coerce1, 48
@@ -8645,13 +8645,13 @@ entry:
   %frombool.i75 = trunc nuw nsw i64 %f.coerce1.lobit.i74 to i8
   %and.i.i76 = and i64 %b.coerce1, 281474976710655
   store i8 0, ptr %pb, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx.i77 = getelementptr inbounds i8, ptr %pb, i64 1
+  %.compoundliteral.sroa.2.0..sroa_idx.i77 = getelementptr inbounds nuw i8, ptr %pb, i64 1
   store i8 %frombool.i75, ptr %.compoundliteral.sroa.2.0..sroa_idx.i77, align 1
-  %.compoundliteral.sroa.33.0..sroa_idx.i78 = getelementptr inbounds i8, ptr %pb, i64 4
+  %.compoundliteral.sroa.33.0..sroa_idx.i78 = getelementptr inbounds nuw i8, ptr %pb, i64 4
   store i32 %conv.i73, ptr %.compoundliteral.sroa.33.0..sroa_idx.i78, align 4
-  %.compoundliteral.sroa.4.0..sroa_idx.i79 = getelementptr inbounds i8, ptr %pb, i64 8
+  %.compoundliteral.sroa.4.0..sroa_idx.i79 = getelementptr inbounds nuw i8, ptr %pb, i64 8
   store i64 %and.i.i76, ptr %.compoundliteral.sroa.4.0..sroa_idx.i79, align 8
-  %.compoundliteral.sroa.5.0..sroa_idx.i80 = getelementptr inbounds i8, ptr %pb, i64 16
+  %.compoundliteral.sroa.5.0..sroa_idx.i80 = getelementptr inbounds nuw i8, ptr %pb, i64 16
   store i64 %b.coerce0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i80, align 8
   call fastcc void @parts128_canonicalize(ptr noundef %pb, ptr noundef %status, ptr noundef nonnull @float128_params)
   %shr.i16.i81 = lshr i64 %c.coerce1, 48
@@ -8661,13 +8661,13 @@ entry:
   %frombool.i84 = trunc nuw nsw i64 %f.coerce1.lobit.i83 to i8
   %and.i.i85 = and i64 %c.coerce1, 281474976710655
   store i8 0, ptr %pc, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx.i86 = getelementptr inbounds i8, ptr %pc, i64 1
+  %.compoundliteral.sroa.2.0..sroa_idx.i86 = getelementptr inbounds nuw i8, ptr %pc, i64 1
   store i8 %frombool.i84, ptr %.compoundliteral.sroa.2.0..sroa_idx.i86, align 1
-  %.compoundliteral.sroa.33.0..sroa_idx.i87 = getelementptr inbounds i8, ptr %pc, i64 4
+  %.compoundliteral.sroa.33.0..sroa_idx.i87 = getelementptr inbounds nuw i8, ptr %pc, i64 4
   store i32 %conv.i82, ptr %.compoundliteral.sroa.33.0..sroa_idx.i87, align 4
-  %.compoundliteral.sroa.4.0..sroa_idx.i88 = getelementptr inbounds i8, ptr %pc, i64 8
+  %.compoundliteral.sroa.4.0..sroa_idx.i88 = getelementptr inbounds nuw i8, ptr %pc, i64 8
   store i64 %and.i.i85, ptr %.compoundliteral.sroa.4.0..sroa_idx.i88, align 8
-  %.compoundliteral.sroa.5.0..sroa_idx.i89 = getelementptr inbounds i8, ptr %pc, i64 16
+  %.compoundliteral.sroa.5.0..sroa_idx.i89 = getelementptr inbounds nuw i8, ptr %pc, i64 16
   store i64 %c.coerce0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i89, align 8
   call fastcc void @parts128_canonicalize(ptr noundef %pc, ptr noundef %status, ptr noundef nonnull @float128_params)
   %3 = load i8, ptr %pa, align 8
@@ -8784,22 +8784,22 @@ if.then119.i:                                     ; preds = %if.then75.i, %if.en
   br label %return_inf.i
 
 if.end124.i:                                      ; preds = %if.end108.i
-  %sign127.i = getelementptr inbounds i8, ptr %p_widen.i, i64 1
+  %sign127.i = getelementptr inbounds nuw i8, ptr %p_widen.i, i64 1
   store i8 %spec.select, ptr %sign127.i, align 1
   %21 = load i32, ptr %.compoundliteral.sroa.33.0..sroa_idx.i, align 4
   %22 = load i32, ptr %.compoundliteral.sroa.33.0..sroa_idx.i78, align 4
   %add.i = add i32 %22, %21
   %add130.i = add i32 %add.i, 1
-  %exp131.i = getelementptr inbounds i8, ptr %p_widen.i, i64 4
+  %exp131.i = getelementptr inbounds nuw i8, ptr %p_widen.i, i64 4
   store i32 %add130.i, ptr %exp131.i, align 4
   %pa.val = load i64, ptr %.compoundliteral.sroa.4.0..sroa_idx.i, align 8
   %pa.val66 = load i64, ptr %.compoundliteral.sroa.5.0..sroa_idx.i, align 8
   %pb.val = load i64, ptr %.compoundliteral.sroa.4.0..sroa_idx.i79, align 8
   %pb.val67 = load i64, ptr %.compoundliteral.sroa.5.0..sroa_idx.i80, align 8
-  %frac_hi3.i = getelementptr inbounds i8, ptr %p_widen.i, i64 8
-  %frac_hm.i = getelementptr inbounds i8, ptr %p_widen.i, i64 16
-  %frac_lm.i = getelementptr inbounds i8, ptr %p_widen.i, i64 24
-  %frac_lo4.i = getelementptr inbounds i8, ptr %p_widen.i, i64 32
+  %frac_hi3.i = getelementptr inbounds nuw i8, ptr %p_widen.i, i64 8
+  %frac_hm.i = getelementptr inbounds nuw i8, ptr %p_widen.i, i64 16
+  %frac_lm.i = getelementptr inbounds nuw i8, ptr %p_widen.i, i64 24
+  %frac_lo4.i = getelementptr inbounds nuw i8, ptr %p_widen.i, i64 32
   %conv.i.i.i.i = zext i64 %pa.val66 to i128
   %conv1.i.i.i.i = zext i64 %pb.val to i128
   %mul.i.i.i.i = mul nuw i128 %conv1.i.i.i.i, %conv.i.i.i.i
@@ -8890,14 +8890,14 @@ if.end137.i:                                      ; preds = %if.then134.i, %if.e
 if.then142.i:                                     ; preds = %if.end137.i
   %pc.val = load i64, ptr %.compoundliteral.sroa.4.0..sroa_idx.i88, align 8
   %pc.val69 = load i64, ptr %.compoundliteral.sroa.5.0..sroa_idx.i89, align 8
-  %frac_hi1.i = getelementptr inbounds i8, ptr %c_widen.i, i64 8
+  %frac_hi1.i = getelementptr inbounds nuw i8, ptr %c_widen.i, i64 8
   store i64 %pc.val, ptr %frac_hi1.i, align 8
-  %frac_hm.i97 = getelementptr inbounds i8, ptr %c_widen.i, i64 16
+  %frac_hm.i97 = getelementptr inbounds nuw i8, ptr %c_widen.i, i64 16
   store i64 %pc.val69, ptr %frac_hm.i97, align 8
-  %frac_lm.i98 = getelementptr inbounds i8, ptr %c_widen.i, i64 24
+  %frac_lm.i98 = getelementptr inbounds nuw i8, ptr %c_widen.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %frac_lm.i98, i8 0, i64 16, i1 false)
   %64 = load i32, ptr %.compoundliteral.sroa.33.0..sroa_idx.i87, align 4
-  %exp144.i = getelementptr inbounds i8, ptr %c_widen.i, i64 4
+  %exp144.i = getelementptr inbounds nuw i8, ptr %c_widen.i, i64 4
   store i32 %64, ptr %exp144.i, align 4
   %65 = load i8, ptr %.compoundliteral.sroa.2.0..sroa_idx.i86, align 1
   %66 = xor i8 %65, %xor24.i65168
@@ -8955,7 +8955,7 @@ if.then174.i:                                     ; preds = %finish_sign.i
   br label %parts128_muladd.exit
 
 return_sub_zero.i:                                ; preds = %if.else154.i, %if.then87.i
-  %float_rounding_mode.i = getelementptr inbounds i8, ptr %status, i64 2
+  %float_rounding_mode.i = getelementptr inbounds nuw i8, ptr %status, i64 2
   %77 = load i8, ptr %float_rounding_mode.i, align 2
   %cmp183.i = icmp eq i8 %77, 1
   %frombool186.i = zext i1 %cmp183.i to i8
@@ -9045,11 +9045,11 @@ entry:
   %conv.i.i.i.i = zext nneg i16 %1 to i32
   %2 = and i16 %a, 1023
   %and.i11.i.i.i = zext nneg i16 %2 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %pa, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 1
   store i8 %frombool.i.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %pa, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 4
   store i32 %conv.i.i.i.i, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i.i, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %pa, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 8
   store i64 %and.i11.i.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i.i, align 8
   switch i16 %1, label %if.then33.i.i.i [
     i16 0, label %if.then.i.i.i
@@ -9065,7 +9065,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   br label %float16_unpack_canonical.exit
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  %flush_inputs_to_zero.i.i.i = getelementptr inbounds i8, ptr %status, i64 6
+  %flush_inputs_to_zero.i.i.i = getelementptr inbounds nuw i8, ptr %status, i64 6
   %3 = load i8, ptr %flush_inputs_to_zero.i.i.i, align 2
   %tobool9.i.i.i = trunc i8 %3 to i1
   br i1 %tobool9.i.i.i, label %if.then10.i.i.i, label %frac64_normalize.exit.i.i.i
@@ -9121,11 +9121,11 @@ float16_unpack_canonical.exit:                    ; preds = %if.then8.i.i.i, %if
   %conv.i.i.i.i6 = zext nneg i16 %7 to i32
   %8 = and i16 %b, 1023
   %and.i11.i.i.i7 = zext nneg i16 %8 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i.i8 = getelementptr inbounds i8, ptr %pb, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i.i8 = getelementptr inbounds nuw i8, ptr %pb, i64 1
   store i8 %frombool.i.i.i.i5, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i.i8, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i.i9 = getelementptr inbounds i8, ptr %pb, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i.i9 = getelementptr inbounds nuw i8, ptr %pb, i64 4
   store i32 %conv.i.i.i.i6, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i.i9, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i.i10 = getelementptr inbounds i8, ptr %pb, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i.i10 = getelementptr inbounds nuw i8, ptr %pb, i64 8
   store i64 %and.i11.i.i.i7, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i.i10, align 8
   switch i16 %7, label %if.then33.i.i.i30 [
     i16 0, label %if.then.i.i.i18
@@ -9141,7 +9141,7 @@ if.then8.i.i.i29:                                 ; preds = %if.then.i.i.i18
   br label %float16_unpack_canonical.exit34
 
 if.else.i.i.i20:                                  ; preds = %if.then.i.i.i18
-  %flush_inputs_to_zero.i.i.i21 = getelementptr inbounds i8, ptr %status, i64 6
+  %flush_inputs_to_zero.i.i.i21 = getelementptr inbounds nuw i8, ptr %status, i64 6
   %9 = load i8, ptr %flush_inputs_to_zero.i.i.i21, align 2
   %tobool9.i.i.i22 = trunc i8 %9 to i1
   br i1 %tobool9.i.i.i22, label %if.then10.i.i.i27, label %frac64_normalize.exit.i.i.i23
@@ -9192,17 +9192,17 @@ if.else49.i.i.i13:                                ; preds = %lor.lhs.false.i.i.i
 float16_unpack_canonical.exit34:                  ; preds = %if.then8.i.i.i29, %if.then10.i.i.i27, %frac64_normalize.exit.i.i.i23, %if.then33.i.i.i30, %if.then47.i.i.i17, %if.else49.i.i.i13
   %call = call fastcc ptr @parts64_div(ptr noundef %pa, ptr noundef %pb, ptr noundef %status)
   call fastcc void @parts64_uncanon(ptr noundef nonnull %call, ptr noundef %status, ptr noundef nonnull @float16_params)
-  %sign.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 1
+  %sign.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 1
   %12 = load i8, ptr %sign.i.i.i.i, align 1
   %conv.i.i.i.i35 = zext i8 %12 to i64
   %shl.i.i.i.i36 = shl nuw nsw i64 %conv.i.i.i.i35, 15
-  %exp.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 4
+  %exp.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 4
   %13 = load i32, ptr %exp.i.i.i.i, align 4
   %14 = shl i32 %13, 10
   %15 = and i32 %14, 31744
   %and8.i.i.i.i = zext nneg i32 %15 to i64
   %or.i.i.i.i = or disjoint i64 %shl.i.i.i.i36, %and8.i.i.i.i
-  %16 = getelementptr inbounds i8, ptr %call, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %call, i64 8
   %17 = load i64, ptr %16, align 8
   %shl77.i9.i.i.i = and i64 %17, 1023
   %or.i11.i.i.i = or disjoint i64 %or.i.i.i.i, %shl77.i9.i.i.i
@@ -9220,9 +9220,9 @@ entry:
   %conv2 = zext nneg i8 %1 to i32
   %shl3 = shl nuw i32 1, %conv2
   %or = or i32 %shl3, %shl
-  %sign4 = getelementptr inbounds i8, ptr %a, i64 1
+  %sign4 = getelementptr inbounds nuw i8, ptr %a, i64 1
   %2 = load i8, ptr %sign4, align 1
-  %sign6 = getelementptr inbounds i8, ptr %b, i64 1
+  %sign6 = getelementptr inbounds nuw i8, ptr %b, i64 1
   %3 = load i8, ptr %sign6, align 1
   %4 = xor i8 %3, %2
   %xor32 = and i8 %4, 1
@@ -9234,11 +9234,11 @@ entry:
 
 if.then:                                          ; preds = %entry
   store i8 %xor32, ptr %sign4, align 1
-  %exp = getelementptr inbounds i8, ptr %b, i64 4
+  %exp = getelementptr inbounds nuw i8, ptr %b, i64 4
   %5 = load i32, ptr %exp, align 4
   %6 = getelementptr i8, ptr %b, i64 8
   %b.val = load i64, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %a, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %a, i64 8
   %8 = load i64, ptr %7, align 8
   %cmp.i = icmp ult i64 %8, %b.val
   %shl.i = shl i64 %8, 63
@@ -9254,7 +9254,7 @@ if.then:                                          ; preds = %entry
   %or.i = or i64 %asmresult.i.i, %conv2.i
   store i64 %or.i, ptr %7, align 8
   %conv17.neg35 = sext i1 %cmp.i to i32
-  %exp18 = getelementptr inbounds i8, ptr %a, i64 4
+  %exp18 = getelementptr inbounds nuw i8, ptr %a, i64 4
   %10 = load i32, ptr %exp18, align 4
   %add.neg = sub i32 %conv17.neg35, %5
   %sub = add i32 %add.neg, %10
@@ -9282,7 +9282,7 @@ if.then.i:                                        ; preds = %if.then46
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then46, %if.then.i
-  %default_nan_mode.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %12 = load i8, ptr %default_nan_mode.i, align 1
   %tobool.i = trunc i8 %12 to i1
   br i1 %tobool.i, label %if.then3.i, label %if.else.i
@@ -9290,9 +9290,9 @@ if.end.i:                                         ; preds = %if.then46, %if.then
 if.then3.i:                                       ; preds = %if.end.i
   store i8 4, ptr %a, align 8
   store i8 0, ptr %sign4, align 1
-  %.compoundliteral.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %a, i64 4
+  %.compoundliteral.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %a, i64 4
   store i32 2147483647, ptr %.compoundliteral.sroa.31.0..sroa_idx.i.i, align 4
-  %.compoundliteral.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %a, i64 8
+  %.compoundliteral.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %a, i64 8
   store i64 4611686018427387904, ptr %.compoundliteral.sroa.4.0..sroa_idx.i.i, align 8
   br label %return
 
@@ -9350,7 +9350,7 @@ if.then6.i.i:                                     ; preds = %if.end13.i
 
 if.then24.i:                                      ; preds = %if.then2.i.i, %.thread, %22
   %.ph.i39 = phi ptr [ %a, %.thread ], [ %b, %22 ], [ %b, %if.then2.i.i ]
-  %24 = getelementptr inbounds i8, ptr %.ph.i39, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.ph.i39, i64 8
   %25 = load i64, ptr %24, align 8
   %or4.i.i.i = or i64 %25, 4611686018427387904
   store i64 %or4.i.i.i, ptr %24, align 8
@@ -9393,9 +9393,9 @@ d_nan:                                            ; preds = %entry, %if.then37
   store i16 %or1.i33, ptr %s, align 2
   store i8 4, ptr %a, align 8
   store i8 0, ptr %sign4, align 1
-  %.compoundliteral.sroa.31.0..sroa_idx.i = getelementptr inbounds i8, ptr %a, i64 4
+  %.compoundliteral.sroa.31.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %a, i64 4
   store i32 2147483647, ptr %.compoundliteral.sroa.31.0..sroa_idx.i, align 4
-  %.compoundliteral.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %a, i64 8
+  %.compoundliteral.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %a, i64 8
   store i64 4611686018427387904, ptr %.compoundliteral.sroa.4.0..sroa_idx.i, align 8
   br label %return
 
@@ -9415,13 +9415,13 @@ entry:
   br i1 %tobool.not.i, label %soft39.i, label %can_use_fpu.exit
 
 can_use_fpu.exit:                                 ; preds = %entry
-  %float_rounding_mode.i = getelementptr inbounds i8, ptr %s, i64 2
+  %float_rounding_mode.i = getelementptr inbounds nuw i8, ptr %s, i64 2
   %2 = load i8, ptr %float_rounding_mode.i, align 2
   %cmp.i5 = icmp eq i8 %2, 0
   br i1 %cmp.i5, label %if.end.i, label %soft39.i
 
 if.end.i:                                         ; preds = %can_use_fpu.exit
-  %flush_inputs_to_zero.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %3 = load i8, ptr %flush_inputs_to_zero.i, align 2
   %tobool.i = trunc i8 %3 to i1
   br i1 %tobool.i, label %if.end.i6, label %float32_input_flush2.exit
@@ -9503,13 +9503,13 @@ soft39.i:                                         ; preds = %if.else.i, %float32
   %and.i9.i.i = and i32 %shr.i8.i.i, 255
   %16 = and i32 %ua.i.sroa.0.0, 8388607
   %and.i11.i.i = zext nneg i32 %16 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa.i, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa.i, i64 1
   store i8 %frombool.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa.i, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa.i, i64 4
   store i32 %and.i9.i.i, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa.i, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa.i, i64 8
   store i64 %and.i11.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
-  %.ph.i.sroa.gep98.i = getelementptr inbounds i8, ptr %pb.i, i64 8
+  %.ph.i.sroa.gep98.i = getelementptr inbounds nuw i8, ptr %pb.i, i64 8
   %trunc.i = trunc i32 %shr.i8.i.i to i8
   switch i8 %trunc.i, label %if.then33.i.i [
     i8 0, label %if.then.i41.i
@@ -9525,7 +9525,7 @@ if.then8.i.i:                                     ; preds = %if.then.i41.i
   br label %parts64_canonicalize.exit.i
 
 if.else.i42.i:                                    ; preds = %if.then.i41.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %17 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %17 to i1
   br i1 %tobool9.i.i, label %if.then10.i.i, label %frac64_normalize.exit.i.i
@@ -9583,9 +9583,9 @@ parts64_canonicalize.exit.i:                      ; preds = %if.else49.i.i, %if.
   %and.i9.i47.i = and i32 %shr.i8.i46.i, 255
   %22 = and i32 %ub.i.sroa.0.0, 8388607
   %and.i11.i48.i = zext nneg i32 %22 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i49.i = getelementptr inbounds i8, ptr %pb.i, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i49.i = getelementptr inbounds nuw i8, ptr %pb.i, i64 1
   store i8 %frombool.i.i45.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i49.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i50.i = getelementptr inbounds i8, ptr %pb.i, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i50.i = getelementptr inbounds nuw i8, ptr %pb.i, i64 4
   store i32 %and.i9.i47.i, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i50.i, align 4
   store i64 %and.i11.i48.i, ptr %.ph.i.sroa.gep98.i, align 8
   %trunc99.i = trunc i32 %shr.i8.i46.i to i8
@@ -9603,7 +9603,7 @@ if.then8.i81.i:                                   ; preds = %if.then.i68.i
   br label %parts64_canonicalize.exit82.i
 
 if.else.i71.i:                                    ; preds = %if.then.i68.i
-  %flush_inputs_to_zero.i72.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i72.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %23 = load i8, ptr %flush_inputs_to_zero.i72.i, align 2
   %tobool9.i73.i = trunc i8 %23 to i1
   br i1 %tobool9.i73.i, label %if.then10.i79.i, label %frac64_normalize.exit.i74.i
@@ -9709,7 +9709,7 @@ if.then.i91.i:                                    ; preds = %if.then46.i.i
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i91.i, %if.then46.i.i
-  %default_nan_mode.i.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode.i.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %30 = load i8, ptr %default_nan_mode.i.i, align 1
   %tobool.i.i = trunc i8 %30 to i1
   br i1 %tobool.i.i, label %if.then3.i.i, label %if.else.i90.i
@@ -9804,17 +9804,17 @@ d_nan.i.i:                                        ; preds = %if.then37.i.i, %par
 soft_f32_div.exit:                                ; preds = %if.then.i.i10, %if.then3.i.i, %if.then6.i.i.i, %.thread114.i, %32, %if.then24.i.i, %if.end48.i.i, %if.end48.i.i, %if.then68.i.i, %if.then75.i.i, %d_nan.i.i
   %retval.i.0.i = phi ptr [ %pa.i, %if.then.i.i10 ], [ %pa.i, %d_nan.i.i ], [ %pa.i, %if.then68.i.i ], [ %pa.i, %if.then75.i.i ], [ %pa.i, %if.end48.i.i ], [ %pa.i, %if.end48.i.i ], [ %pa.i, %if.then3.i.i ], [ %.ph.i108.i, %if.then24.i.i ], [ %pb.i, %32 ], [ %pa.i, %if.then6.i.i.i ], [ %pb.i, %.thread114.i ]
   call fastcc void @parts64_uncanon(ptr noundef %retval.i.0.i, ptr noundef nonnull %s, ptr noundef nonnull @float32_params)
-  %sign.i.i.i = getelementptr inbounds i8, ptr %retval.i.0.i, i64 1
+  %sign.i.i.i = getelementptr inbounds nuw i8, ptr %retval.i.0.i, i64 1
   %34 = load i8, ptr %sign.i.i.i, align 1
   %conv.i.i.i = zext i8 %34 to i64
   %shl.i.i94.i = shl nuw nsw i64 %conv.i.i.i, 31
-  %exp.i.i.i = getelementptr inbounds i8, ptr %retval.i.0.i, i64 4
+  %exp.i.i.i = getelementptr inbounds nuw i8, ptr %retval.i.0.i, i64 4
   %35 = load i32, ptr %exp.i.i.i, align 4
   %36 = shl i32 %35, 23
   %37 = and i32 %36, 2139095040
   %and8.i.i.i = zext nneg i32 %37 to i64
   %or.i.i.i = or disjoint i64 %shl.i.i94.i, %and8.i.i.i
-  %38 = getelementptr inbounds i8, ptr %retval.i.0.i, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %retval.i.0.i, i64 8
   %39 = load i64, ptr %38, align 8
   %shl77.i9.i.i = and i64 %39, 8388607
   %or.i11.i.i = or disjoint i64 %or.i.i.i, %shl77.i9.i.i
@@ -9839,13 +9839,13 @@ entry:
   br i1 %tobool.not.i, label %soft39.i, label %can_use_fpu.exit
 
 can_use_fpu.exit:                                 ; preds = %entry
-  %float_rounding_mode.i = getelementptr inbounds i8, ptr %s, i64 2
+  %float_rounding_mode.i = getelementptr inbounds nuw i8, ptr %s, i64 2
   %2 = load i8, ptr %float_rounding_mode.i, align 2
   %cmp.i5 = icmp eq i8 %2, 0
   br i1 %cmp.i5, label %if.end.i, label %soft39.i
 
 if.end.i:                                         ; preds = %can_use_fpu.exit
-  %flush_inputs_to_zero.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %3 = load i8, ptr %flush_inputs_to_zero.i, align 2
   %tobool.i = trunc i8 %3 to i1
   br i1 %tobool.i, label %if.end.i6, label %float64_input_flush2.exit
@@ -9931,13 +9931,13 @@ soft39.i:                                         ; preds = %if.else.i, %lor.lhs
   %16 = trunc nuw nsw i64 %shr.i8.i.i to i32
   %conv.i.i.i = and i32 %16, 2047
   %and.i10.i.i = and i64 %ua.i.sroa.0.0, 4503599627370495
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa.i, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa.i, i64 1
   store i8 %frombool.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa.i, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa.i, i64 4
   store i32 %conv.i.i.i, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa.i, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa.i, i64 8
   store i64 %and.i10.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
-  %.ph.i.sroa.gep98.i = getelementptr inbounds i8, ptr %pb.i, i64 8
+  %.ph.i.sroa.gep98.i = getelementptr inbounds nuw i8, ptr %pb.i, i64 8
   switch i32 %conv.i.i.i, label %if.then33.i.i [
     i32 0, label %if.then.i41.i
     i32 2047, label %lor.lhs.false.i.i
@@ -9952,7 +9952,7 @@ if.then8.i.i:                                     ; preds = %if.then.i41.i
   br label %parts64_canonicalize.exit.i
 
 if.else.i42.i:                                    ; preds = %if.then.i41.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %17 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %17 to i1
   br i1 %tobool9.i.i, label %if.then10.i.i, label %frac64_normalize.exit.i.i
@@ -10010,9 +10010,9 @@ parts64_canonicalize.exit.i:                      ; preds = %if.else49.i.i, %if.
   %22 = trunc nuw nsw i64 %shr.i8.i46.i to i32
   %conv.i.i47.i = and i32 %22, 2047
   %and.i10.i48.i = and i64 %ub.i.sroa.0.0, 4503599627370495
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i49.i = getelementptr inbounds i8, ptr %pb.i, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i49.i = getelementptr inbounds nuw i8, ptr %pb.i, i64 1
   store i8 %frombool.i.i45.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i49.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i50.i = getelementptr inbounds i8, ptr %pb.i, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i50.i = getelementptr inbounds nuw i8, ptr %pb.i, i64 4
   store i32 %conv.i.i47.i, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i50.i, align 4
   store i64 %and.i10.i48.i, ptr %.ph.i.sroa.gep98.i, align 8
   switch i32 %conv.i.i47.i, label %if.then33.i64.i [
@@ -10029,7 +10029,7 @@ if.then8.i81.i:                                   ; preds = %if.then.i68.i
   br label %parts64_canonicalize.exit82.i
 
 if.else.i71.i:                                    ; preds = %if.then.i68.i
-  %flush_inputs_to_zero.i72.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i72.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %23 = load i8, ptr %flush_inputs_to_zero.i72.i, align 2
   %tobool9.i73.i = trunc i8 %23 to i1
   br i1 %tobool9.i73.i, label %if.then10.i79.i, label %frac64_normalize.exit.i74.i
@@ -10135,7 +10135,7 @@ if.then.i91.i:                                    ; preds = %if.then46.i.i
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i91.i, %if.then46.i.i
-  %default_nan_mode.i.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode.i.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %30 = load i8, ptr %default_nan_mode.i.i, align 1
   %tobool.i.i = trunc i8 %30 to i1
   br i1 %tobool.i.i, label %if.then3.i.i, label %if.else.i90.i
@@ -10230,18 +10230,18 @@ d_nan.i.i:                                        ; preds = %if.then37.i.i, %par
 soft_f64_div.exit:                                ; preds = %if.then.i.i9, %if.then3.i.i, %if.then6.i.i.i, %.thread112.i, %32, %if.then24.i.i, %if.end48.i.i, %if.end48.i.i, %if.then68.i.i, %if.then75.i.i, %d_nan.i.i
   %retval.i.0.i = phi ptr [ %pa.i, %if.then.i.i9 ], [ %pa.i, %d_nan.i.i ], [ %pa.i, %if.then68.i.i ], [ %pa.i, %if.then75.i.i ], [ %pa.i, %if.end48.i.i ], [ %pa.i, %if.end48.i.i ], [ %pa.i, %if.then3.i.i ], [ %.ph.i106.i, %if.then24.i.i ], [ %pb.i, %32 ], [ %pa.i, %if.then6.i.i.i ], [ %pb.i, %.thread112.i ]
   call fastcc void @parts64_uncanon(ptr noundef %retval.i.0.i, ptr noundef nonnull %s, ptr noundef nonnull @float64_params)
-  %sign.i.i.i = getelementptr inbounds i8, ptr %retval.i.0.i, i64 1
+  %sign.i.i.i = getelementptr inbounds nuw i8, ptr %retval.i.0.i, i64 1
   %34 = load i8, ptr %sign.i.i.i, align 1
   %35 = and i8 %34, 1
   %conv.i.i94.i = zext nneg i8 %35 to i64
   %shl.i.i95.i = shl nuw i64 %conv.i.i94.i, 63
-  %exp.i.i.i = getelementptr inbounds i8, ptr %retval.i.0.i, i64 4
+  %exp.i.i.i = getelementptr inbounds nuw i8, ptr %retval.i.0.i, i64 4
   %36 = load i32, ptr %exp.i.i.i, align 4
   %37 = and i32 %36, 2047
   %shl77.i.i.i = zext nneg i32 %37 to i64
   %and8.i.i.i = shl nuw nsw i64 %shl77.i.i.i, 52
   %or.i.i.i = or disjoint i64 %and8.i.i.i, %shl.i.i95.i
-  %38 = getelementptr inbounds i8, ptr %retval.i.0.i, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %retval.i.0.i, i64 8
   %39 = load i64, ptr %38, align 8
   %shl77.i9.i.i = and i64 %39, 4503599627370495
   %or.i11.i.i = or disjoint i64 %or.i.i.i, %shl77.i9.i.i
@@ -10265,11 +10265,11 @@ entry:
   %0 = trunc nuw nsw i64 %shr.i8.i.i to i32
   %conv.i.i.i = and i32 %0, 2047
   %and.i10.i.i = and i64 %a, 4503599627370495
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 1
   store i8 %frombool.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 4
   store i32 %conv.i.i.i, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 8
   store i64 %and.i10.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
   switch i32 %conv.i.i.i, label %if.then33.i.i [
     i32 0, label %if.then.i.i
@@ -10285,7 +10285,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   br label %float64_unpack_canonical.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %status, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %status, i64 6
   %1 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %1 to i1
   br i1 %tobool9.i.i, label %if.then10.i.i, label %frac64_normalize.exit.i.i
@@ -10340,11 +10340,11 @@ float64_unpack_canonical.exit:                    ; preds = %if.then8.i.i, %if.t
   %4 = trunc nuw nsw i64 %shr.i8.i.i6 to i32
   %conv.i.i.i7 = and i32 %4, 2047
   %and.i10.i.i8 = and i64 %b, 4503599627370495
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i9 = getelementptr inbounds i8, ptr %pb, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i9 = getelementptr inbounds nuw i8, ptr %pb, i64 1
   store i8 %frombool.i.i.i5, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i9, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i10 = getelementptr inbounds i8, ptr %pb, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i10 = getelementptr inbounds nuw i8, ptr %pb, i64 4
   store i32 %conv.i.i.i7, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i10, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i11 = getelementptr inbounds i8, ptr %pb, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i11 = getelementptr inbounds nuw i8, ptr %pb, i64 8
   store i64 %and.i10.i.i8, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i11, align 8
   switch i32 %conv.i.i.i7, label %if.then33.i.i31 [
     i32 0, label %if.then.i.i19
@@ -10360,7 +10360,7 @@ if.then8.i.i30:                                   ; preds = %if.then.i.i19
   br label %float64_unpack_canonical.exit35
 
 if.else.i.i21:                                    ; preds = %if.then.i.i19
-  %flush_inputs_to_zero.i.i22 = getelementptr inbounds i8, ptr %status, i64 6
+  %flush_inputs_to_zero.i.i22 = getelementptr inbounds nuw i8, ptr %status, i64 6
   %5 = load i8, ptr %flush_inputs_to_zero.i.i22, align 2
   %tobool9.i.i23 = trunc i8 %5 to i1
   br i1 %tobool9.i.i23, label %if.then10.i.i28, label %frac64_normalize.exit.i.i24
@@ -10426,13 +10426,13 @@ entry:
   %conv.i.i = zext nneg i16 %1 to i32
   %2 = and i16 %a, 127
   %and.i11.i = zext nneg i16 %2 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %pa, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 1
   store i8 %frombool.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i = getelementptr inbounds i8, ptr %pa, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 4
   store i32 %conv.i.i, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %pa, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 8
   store i64 %and.i11.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i, align 8
-  %.ph.i.sroa.gep98 = getelementptr inbounds i8, ptr %pb, i64 8
+  %.ph.i.sroa.gep98 = getelementptr inbounds nuw i8, ptr %pb, i64 8
   %trunc = trunc i16 %0 to i8
   switch i8 %trunc, label %if.then33.i [
     i8 0, label %if.then.i41
@@ -10448,7 +10448,7 @@ if.then8.i:                                       ; preds = %if.then.i41
   br label %parts64_canonicalize.exit
 
 if.else.i42:                                      ; preds = %if.then.i41
-  %flush_inputs_to_zero.i = getelementptr inbounds i8, ptr %status, i64 6
+  %flush_inputs_to_zero.i = getelementptr inbounds nuw i8, ptr %status, i64 6
   %3 = load i8, ptr %flush_inputs_to_zero.i, align 2
   %tobool9.i = trunc i8 %3 to i1
   br i1 %tobool9.i, label %if.then10.i, label %frac64_normalize.exit.i
@@ -10507,9 +10507,9 @@ parts64_canonicalize.exit:                        ; preds = %if.then8.i, %if.the
   %conv.i.i46 = zext nneg i16 %9 to i32
   %10 = and i16 %b, 127
   %and.i11.i47 = zext nneg i16 %10 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i48 = getelementptr inbounds i8, ptr %pb, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i48 = getelementptr inbounds nuw i8, ptr %pb, i64 1
   store i8 %frombool.i.i45, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i48, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i49 = getelementptr inbounds i8, ptr %pb, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i49 = getelementptr inbounds nuw i8, ptr %pb, i64 4
   store i32 %conv.i.i46, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i49, align 4
   store i64 %and.i11.i47, ptr %.ph.i.sroa.gep98, align 8
   %trunc99 = trunc i16 %8 to i8
@@ -10527,7 +10527,7 @@ if.then8.i80:                                     ; preds = %if.then.i67
   br label %parts64_canonicalize.exit81
 
 if.else.i70:                                      ; preds = %if.then.i67
-  %flush_inputs_to_zero.i71 = getelementptr inbounds i8, ptr %status, i64 6
+  %flush_inputs_to_zero.i71 = getelementptr inbounds nuw i8, ptr %status, i64 6
   %11 = load i8, ptr %flush_inputs_to_zero.i71, align 2
   %tobool9.i72 = trunc i8 %11 to i1
   br i1 %tobool9.i72, label %if.then10.i78, label %frac64_normalize.exit.i73
@@ -10634,7 +10634,7 @@ if.then.i90:                                      ; preds = %if.then46.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then46.i, %if.then.i90
-  %default_nan_mode.i = getelementptr inbounds i8, ptr %status, i64 7
+  %default_nan_mode.i = getelementptr inbounds nuw i8, ptr %status, i64 7
   %18 = load i8, ptr %default_nan_mode.i, align 1
   %tobool.i = trunc i8 %18 to i1
   br i1 %tobool.i, label %if.then3.i, label %if.else.i89
@@ -10732,17 +10732,17 @@ d_nan.i:                                          ; preds = %parts64_canonicaliz
 parts64_div.exit:                                 ; preds = %.thread114, %if.then24.i, %20, %if.then6.i.i, %if.then3.i, %if.end48.i, %if.end48.i, %d_nan.i, %if.then75.i, %if.then68.i, %if.then.i
   %retval.i.0 = phi ptr [ %pa, %if.then.i ], [ %pa, %d_nan.i ], [ %pa, %if.then68.i ], [ %pa, %if.then75.i ], [ %pa, %if.end48.i ], [ %pa, %if.end48.i ], [ %pa, %if.then3.i ], [ %.ph.i108, %if.then24.i ], [ %pb, %20 ], [ %pa, %if.then6.i.i ], [ %pb, %.thread114 ]
   call fastcc void @parts64_uncanon(ptr noundef %retval.i.0, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
-  %sign.i.i = getelementptr inbounds i8, ptr %retval.i.0, i64 1
+  %sign.i.i = getelementptr inbounds nuw i8, ptr %retval.i.0, i64 1
   %25 = load i8, ptr %sign.i.i, align 1
   %conv.i.i93 = zext i8 %25 to i64
   %shl.i.i94 = shl nuw nsw i64 %conv.i.i93, 15
-  %exp.i.i = getelementptr inbounds i8, ptr %retval.i.0, i64 4
+  %exp.i.i = getelementptr inbounds nuw i8, ptr %retval.i.0, i64 4
   %26 = load i32, ptr %exp.i.i, align 4
   %27 = shl i32 %26, 7
   %28 = and i32 %27, 32640
   %and8.i.i = zext nneg i32 %28 to i64
   %or.i.i = or disjoint i64 %shl.i.i94, %and8.i.i
-  %29 = getelementptr inbounds i8, ptr %retval.i.0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %retval.i.0, i64 8
   %30 = load i64, ptr %29, align 8
   %shl77.i9.i = and i64 %30, 127
   %or.i11.i = or disjoint i64 %or.i.i, %shl77.i9.i
@@ -10762,13 +10762,13 @@ entry:
   %frombool.i = trunc nuw nsw i64 %f.coerce1.lobit.i to i8
   %and.i.i = and i64 %a.coerce1, 281474976710655
   store i8 0, ptr %pa, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %pa, i64 1
+  %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 1
   store i8 %frombool.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i, align 1
-  %.compoundliteral.sroa.33.0..sroa_idx.i = getelementptr inbounds i8, ptr %pa, i64 4
+  %.compoundliteral.sroa.33.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 4
   store i32 %conv.i42, ptr %.compoundliteral.sroa.33.0..sroa_idx.i, align 4
-  %.compoundliteral.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %pa, i64 8
+  %.compoundliteral.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 8
   store i64 %and.i.i, ptr %.compoundliteral.sroa.4.0..sroa_idx.i, align 8
-  %.compoundliteral.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %pa, i64 16
+  %.compoundliteral.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 16
   store i64 %a.coerce0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i, align 8
   call fastcc void @parts128_canonicalize(ptr noundef %pa, ptr noundef %status, ptr noundef nonnull @float128_params)
   %shr.i16.i43 = lshr i64 %b.coerce1, 48
@@ -10778,13 +10778,13 @@ entry:
   %frombool.i46 = trunc nuw nsw i64 %f.coerce1.lobit.i45 to i8
   %and.i.i47 = and i64 %b.coerce1, 281474976710655
   store i8 0, ptr %pb, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx.i48 = getelementptr inbounds i8, ptr %pb, i64 1
+  %.compoundliteral.sroa.2.0..sroa_idx.i48 = getelementptr inbounds nuw i8, ptr %pb, i64 1
   store i8 %frombool.i46, ptr %.compoundliteral.sroa.2.0..sroa_idx.i48, align 1
-  %.compoundliteral.sroa.33.0..sroa_idx.i49 = getelementptr inbounds i8, ptr %pb, i64 4
+  %.compoundliteral.sroa.33.0..sroa_idx.i49 = getelementptr inbounds nuw i8, ptr %pb, i64 4
   store i32 %conv.i44, ptr %.compoundliteral.sroa.33.0..sroa_idx.i49, align 4
-  %.compoundliteral.sroa.4.0..sroa_idx.i50 = getelementptr inbounds i8, ptr %pb, i64 8
+  %.compoundliteral.sroa.4.0..sroa_idx.i50 = getelementptr inbounds nuw i8, ptr %pb, i64 8
   store i64 %and.i.i47, ptr %.compoundliteral.sroa.4.0..sroa_idx.i50, align 8
-  %.compoundliteral.sroa.5.0..sroa_idx.i51 = getelementptr inbounds i8, ptr %pb, i64 16
+  %.compoundliteral.sroa.5.0..sroa_idx.i51 = getelementptr inbounds nuw i8, ptr %pb, i64 16
   store i64 %b.coerce0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i51, align 8
   call fastcc void @parts128_canonicalize(ptr noundef %pb, ptr noundef %status, ptr noundef nonnull @float128_params)
   %2 = load i8, ptr %pa, align 8
@@ -10798,9 +10798,9 @@ entry:
   %5 = load i8, ptr %.compoundliteral.sroa.2.0..sroa_idx.i48, align 1
   %6 = xor i8 %5, %4
   %xor.i40 = and i8 %6, 1
-  %retval.i7.0.sroa.gep = getelementptr inbounds i8, ptr %pb, i64 4
-  %retval.i7.0.sroa.gep98 = getelementptr inbounds i8, ptr %pa, i64 4
-  %retval.i7.0.sroa.gep99 = getelementptr inbounds i8, ptr %pb, i64 4
+  %retval.i7.0.sroa.gep = getelementptr inbounds nuw i8, ptr %pb, i64 4
+  %retval.i7.0.sroa.gep98 = getelementptr inbounds nuw i8, ptr %pa, i64 4
+  %retval.i7.0.sroa.gep99 = getelementptr inbounds nuw i8, ptr %pb, i64 4
   switch i32 %or.i, label %if.end38.i [
     i32 4, label %if.then.i
     i32 2, label %d_nan.i
@@ -10808,7 +10808,7 @@ entry:
   ]
 
 if.then.i:                                        ; preds = %entry
-  %retval.i7.0.sroa.gep97 = getelementptr inbounds i8, ptr %pa, i64 4
+  %retval.i7.0.sroa.gep97 = getelementptr inbounds nuw i8, ptr %pa, i64 4
   store i8 %xor.i40, ptr %.compoundliteral.sroa.2.0..sroa_idx.i, align 1
   %7 = load i32, ptr %.compoundliteral.sroa.33.0..sroa_idx.i49, align 4
   %pb.val = load i64, ptr %.compoundliteral.sroa.4.0..sroa_idx.i50, align 8
@@ -10843,7 +10843,7 @@ if.then.i54:                                      ; preds = %if.then46.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then46.i, %if.then.i54
-  %default_nan_mode.i = getelementptr inbounds i8, ptr %status, i64 7
+  %default_nan_mode.i = getelementptr inbounds nuw i8, ptr %status, i64 7
   %10 = load i8, ptr %default_nan_mode.i, align 1
   %tobool.i = trunc i8 %10 to i1
   br i1 %tobool.i, label %if.then3.i, label %if.else.i53
@@ -10970,25 +10970,25 @@ if.then.i61:                                      ; preds = %parts128_div.exit
 
 sw.bb.i:                                          ; preds = %if.end63.i, %parts128_div.exit
   %retval.i7.075 = phi ptr [ %retval.i7.0, %parts128_div.exit ], [ %pa, %if.end63.i ]
-  %exp.i60 = getelementptr inbounds i8, ptr %retval.i7.075, i64 4
+  %exp.i60 = getelementptr inbounds nuw i8, ptr %retval.i7.075, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %exp.i60, i8 0, i64 20, i1 false)
   br label %parts128_uncanon.exit
 
 do.end.i:                                         ; preds = %parts128_div.exit.thread76, %parts128_div.exit
   %retval.i7.078 = phi ptr [ %pa, %parts128_div.exit.thread76 ], [ %retval.i7.0, %parts128_div.exit ]
-  %exp10.i = getelementptr inbounds i8, ptr %retval.i7.078, i64 4
+  %exp10.i = getelementptr inbounds nuw i8, ptr %retval.i7.078, i64 4
   store i32 32767, ptr %exp10.i, align 4
-  %frac_hi.i14.i = getelementptr inbounds i8, ptr %retval.i7.078, i64 8
+  %frac_hi.i14.i = getelementptr inbounds nuw i8, ptr %retval.i7.078, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %frac_hi.i14.i, i8 0, i64 16, i1 false)
   br label %parts128_uncanon.exit
 
 do.end18.i:                                       ; preds = %lor.lhs.false.i.i, %if.then6.i.i, %d_nan.i, %if.then3.i, %if.then24.i, %parts128_div.exit, %parts128_div.exit
   %retval.i7.071 = phi ptr [ %retval.i7.0, %parts128_div.exit ], [ %retval.i7.0, %parts128_div.exit ], [ %.ph.i87, %if.then24.i ], [ %pa, %if.then3.i ], [ %pa, %d_nan.i ], [ %pa, %if.then6.i.i ], [ %pa, %lor.lhs.false.i.i ]
-  %exp20.i = getelementptr inbounds i8, ptr %retval.i7.071, i64 4
+  %exp20.i = getelementptr inbounds nuw i8, ptr %retval.i7.071, i64 4
   store i32 32767, ptr %exp20.i, align 4
-  %frac_hi.i15.i = getelementptr inbounds i8, ptr %retval.i7.071, i64 8
+  %frac_hi.i15.i = getelementptr inbounds nuw i8, ptr %retval.i7.071, i64 8
   %25 = load i64, ptr %frac_hi.i15.i, align 8
-  %frac_lo.i.i59 = getelementptr inbounds i8, ptr %retval.i7.071, i64 16
+  %frac_lo.i.i59 = getelementptr inbounds nuw i8, ptr %retval.i7.071, i64 16
   %26 = load i64, ptr %frac_lo.i.i59, align 8
   %27 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %25, i32 range(i32 1, -2147483646) 15, i64 %26) #14, !srcloc !5
   %shr.i.i = lshr i64 %25, 15
@@ -11003,9 +11003,9 @@ do.body21.i:                                      ; preds = %parts128_div.exit
 parts128_uncanon.exit:                            ; preds = %if.then.i61, %sw.bb.i, %do.end.i, %do.end18.i
   %conv1.i = phi i64 [ %24, %if.then.i61 ], [ 0, %sw.bb.i ], [ 9223090561878065152, %do.end.i ], [ 9223090561878065152, %do.end18.i ]
   %retval.i7.072 = phi ptr [ %retval.i7.0, %if.then.i61 ], [ %retval.i7.075, %sw.bb.i ], [ %retval.i7.078, %do.end.i ], [ %retval.i7.071, %do.end18.i ]
-  %sign.i62 = getelementptr inbounds i8, ptr %retval.i7.072, i64 1
+  %sign.i62 = getelementptr inbounds nuw i8, ptr %retval.i7.072, i64 1
   %28 = load i8, ptr %sign.i62, align 1
-  %frac_hi.i = getelementptr inbounds i8, ptr %retval.i7.072, i64 8
+  %frac_hi.i = getelementptr inbounds nuw i8, ptr %retval.i7.072, i64 8
   %29 = load i64, ptr %frac_hi.i, align 8
   %30 = and i8 %28, 1
   %conv.i64 = zext nneg i8 %30 to i64
@@ -11013,7 +11013,7 @@ parts128_uncanon.exit:                            ; preds = %if.then.i61, %sw.bb
   %or.i25.i = or disjoint i64 %conv1.i, %shl.i65
   %and8.i.i = and i64 %29, 281474976710655
   %or.i.i = or disjoint i64 %or.i25.i, %and8.i.i
-  %frac_lo.i = getelementptr inbounds i8, ptr %retval.i7.072, i64 16
+  %frac_lo.i = getelementptr inbounds nuw i8, ptr %retval.i7.072, i64 16
   %31 = load i64, ptr %frac_lo.i, align 8
   %.fca.0.insert.i = insertvalue { i64, i64 } poison, i64 %31, 0
   %.fca.1.insert.i = insertvalue { i64, i64 } %.fca.0.insert.i, i64 %or.i.i, 1
@@ -11025,11 +11025,11 @@ define dso_local { i64, i16 } @floatx80_div(i64 %a.coerce0, i16 %a.coerce1, i64 
 entry:
   %pa = alloca %struct.FloatParts128, align 8
   %pb = alloca %struct.FloatParts128, align 8
-  %floatx80_rounding_precision.i = getelementptr inbounds i8, ptr %status, i64 3
+  %floatx80_rounding_precision.i = getelementptr inbounds nuw i8, ptr %status, i64 3
   %0 = load i8, ptr %floatx80_rounding_precision.i, align 1
   %switch.i = icmp ult i8 %0, 3
-  %.ph.i40.i.sroa.gep = getelementptr inbounds i8, ptr %pb, i64 8
-  %.ph.i40.i.sroa.gep35 = getelementptr inbounds i8, ptr %pa, i64 8
+  %.ph.i40.i.sroa.gep = getelementptr inbounds nuw i8, ptr %pb, i64 8
+  %.ph.i40.i.sroa.gep35 = getelementptr inbounds nuw i8, ptr %pa, i64 8
   br i1 %switch.i, label %sw.epilog.i, label %do.body.i
 
 do.body.i:                                        ; preds = %entry
@@ -11048,12 +11048,12 @@ if.end.i:                                         ; preds = %sw.epilog.i
   %frombool.i.i = trunc nuw nsw i16 %f.coerce1.lobit.i.i to i8
   %and.i.i.i = zext nneg i16 %1 to i32
   store i8 0, ptr %pa, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa, i64 1
+  %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 1
   store i8 %frombool.i.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.sroa.32.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa, i64 4
+  %.compoundliteral.sroa.32.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 4
   store i32 %and.i.i.i, ptr %.compoundliteral.sroa.32.0..sroa_idx.i.i, align 4
   store i64 %a.coerce0, ptr %.ph.i40.i.sroa.gep35, align 8
-  %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa, i64 16
+  %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 16
   store i64 0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i.i, align 8
   %cmp.not.i = icmp eq i16 %1, 32767
   br i1 %cmp.not.i, label %lor.lhs.false.thread, label %lor.lhs.false
@@ -11097,12 +11097,12 @@ if.end.i14:                                       ; preds = %sw.epilog.i8
   %frombool.i.i16 = trunc nuw nsw i16 %f.coerce1.lobit.i.i15 to i8
   %and.i.i.i17 = zext nneg i16 %5 to i32
   store i8 0, ptr %pb, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx.i.i18 = getelementptr inbounds i8, ptr %pb, i64 1
+  %.compoundliteral.sroa.2.0..sroa_idx.i.i18 = getelementptr inbounds nuw i8, ptr %pb, i64 1
   store i8 %frombool.i.i16, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i18, align 1
-  %.compoundliteral.sroa.32.0..sroa_idx.i.i19 = getelementptr inbounds i8, ptr %pb, i64 4
+  %.compoundliteral.sroa.32.0..sroa_idx.i.i19 = getelementptr inbounds nuw i8, ptr %pb, i64 4
   store i32 %and.i.i.i17, ptr %.compoundliteral.sroa.32.0..sroa_idx.i.i19, align 4
   store i64 %b.coerce0, ptr %.ph.i40.i.sroa.gep, align 8
-  %.compoundliteral.sroa.5.0..sroa_idx.i.i21 = getelementptr inbounds i8, ptr %pb, i64 16
+  %.compoundliteral.sroa.5.0..sroa_idx.i.i21 = getelementptr inbounds nuw i8, ptr %pb, i64 16
   store i64 0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i.i21, align 8
   %cmp.not.i22 = icmp eq i16 %5, 32767
   br i1 %cmp.not.i22, label %if.else.i24, label %if.then10.i23
@@ -11182,7 +11182,7 @@ if.then.i.i:                                      ; preds = %if.then46.i
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %if.then46.i
-  %default_nan_mode.i.i = getelementptr inbounds i8, ptr %status, i64 7
+  %default_nan_mode.i.i = getelementptr inbounds nuw i8, ptr %status, i64 7
   %17 = load i8, ptr %default_nan_mode.i.i, align 1
   %tobool.i.i = trunc i8 %17 to i1
   br i1 %tobool.i.i, label %if.then3.i.i, label %if.else.i.i
@@ -11328,11 +11328,11 @@ entry:
   %and.i9.i.i = and i32 %shr.i8.i.i, 255
   %0 = and i32 %a, 8388607
   %and.i11.i.i = zext nneg i32 %0 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 1
   store i8 %frombool.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 4
   store i32 %and.i9.i.i, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 8
   store i64 %and.i11.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
   %trunc.i = trunc i32 %shr.i8.i.i to i8
   switch i8 %trunc.i, label %if.then33.i.i [
@@ -11349,7 +11349,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   br label %float32_unpack_canonical.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %status, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %status, i64 6
   %1 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %1 to i1
   br i1 %tobool9.i.i, label %if.then10.i.i, label %frac64_normalize.exit.i.i
@@ -11404,11 +11404,11 @@ float32_unpack_canonical.exit:                    ; preds = %if.then8.i.i, %if.t
   %and.i9.i.i7 = and i32 %shr.i8.i.i6, 255
   %4 = and i32 %b, 8388607
   %and.i11.i.i8 = zext nneg i32 %4 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i9 = getelementptr inbounds i8, ptr %pb, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i9 = getelementptr inbounds nuw i8, ptr %pb, i64 1
   store i8 %frombool.i.i.i5, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i9, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i10 = getelementptr inbounds i8, ptr %pb, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i10 = getelementptr inbounds nuw i8, ptr %pb, i64 4
   store i32 %and.i9.i.i7, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i10, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i11 = getelementptr inbounds i8, ptr %pb, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i11 = getelementptr inbounds nuw i8, ptr %pb, i64 8
   store i64 %and.i11.i.i8, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i11, align 8
   %trunc.i12 = trunc i32 %shr.i8.i.i6 to i8
   switch i8 %trunc.i12, label %if.then33.i.i32 [
@@ -11425,7 +11425,7 @@ if.then8.i.i31:                                   ; preds = %if.then.i.i20
   br label %float32_unpack_canonical.exit36
 
 if.else.i.i22:                                    ; preds = %if.then.i.i20
-  %flush_inputs_to_zero.i.i23 = getelementptr inbounds i8, ptr %status, i64 6
+  %flush_inputs_to_zero.i.i23 = getelementptr inbounds nuw i8, ptr %status, i64 6
   %5 = load i8, ptr %flush_inputs_to_zero.i.i23, align 2
   %tobool9.i.i24 = trunc i8 %5 to i1
   br i1 %tobool9.i.i24, label %if.then10.i.i29, label %frac64_normalize.exit.i.i25
@@ -11476,17 +11476,17 @@ if.else49.i.i15:                                  ; preds = %lor.lhs.false.i.i13
 float32_unpack_canonical.exit36:                  ; preds = %if.then8.i.i31, %if.then10.i.i29, %frac64_normalize.exit.i.i25, %if.then33.i.i32, %if.then47.i.i19, %if.else49.i.i15
   %call = call fastcc ptr @parts64_modrem(ptr noundef %pa, ptr noundef %pb, ptr noundef %status)
   call fastcc void @parts64_uncanon(ptr noundef nonnull %call, ptr noundef %status, ptr noundef nonnull @float32_params)
-  %sign.i.i.i = getelementptr inbounds i8, ptr %call, i64 1
+  %sign.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 1
   %8 = load i8, ptr %sign.i.i.i, align 1
   %conv.i.i.i = zext i8 %8 to i64
   %shl.i.i.i37 = shl nuw nsw i64 %conv.i.i.i, 31
-  %exp.i.i.i = getelementptr inbounds i8, ptr %call, i64 4
+  %exp.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 4
   %9 = load i32, ptr %exp.i.i.i, align 4
   %10 = shl i32 %9, 23
   %11 = and i32 %10, 2139095040
   %and8.i.i.i = zext nneg i32 %11 to i64
   %or.i.i.i = or disjoint i64 %shl.i.i.i37, %and8.i.i.i
-  %12 = getelementptr inbounds i8, ptr %call, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %call, i64 8
   %13 = load i64, ptr %12, align 8
   %shl77.i9.i.i = and i64 %13, 8388607
   %or.i11.i.i = or disjoint i64 %or.i.i.i, %shl77.i9.i.i
@@ -11508,12 +11508,12 @@ entry:
   br i1 %cmp, label %if.then, label %if.end9
 
 if.then:                                          ; preds = %entry
-  %exp.i = getelementptr inbounds i8, ptr %a, i64 4
+  %exp.i = getelementptr inbounds nuw i8, ptr %a, i64 4
   %2 = load i32, ptr %exp.i, align 4
-  %exp1.i = getelementptr inbounds i8, ptr %b, i64 4
+  %exp1.i = getelementptr inbounds nuw i8, ptr %b, i64 4
   %3 = load i32, ptr %exp1.i, align 4
   %sub.i = sub i32 %2, %3
-  %4 = getelementptr inbounds i8, ptr %a, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %a, i64 8
   %cmp.i = icmp slt i32 %sub.i, -1
   br i1 %cmp.i, label %return, label %if.end3.i
 
@@ -11522,7 +11522,7 @@ if.end3.i:                                        ; preds = %if.then
   %cmp4.i = icmp eq i32 %sub.i, -1
   %shr.i = zext i1 %cmp4.i to i64
   %spec.select.i = lshr i64 %5, %shr.i
-  %6 = getelementptr inbounds i8, ptr %b, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %b, i64 8
   %7 = load i64, ptr %6, align 8
   %cmp7.i = icmp ule i64 %7, %spec.select.i
   %conv8.i = zext i1 %cmp7.i to i64
@@ -11791,7 +11791,7 @@ lor.lhs.false.i:                                  ; preds = %lt128.exit.i
   br i1 %or.cond.i, label %if.end64.i, label %if.then60.i
 
 if.then60.i:                                      ; preds = %lor.lhs.false.i, %lt128.exit.i, %if.else54.i
-  %sign.i = getelementptr inbounds i8, ptr %a, i64 1
+  %sign.i = getelementptr inbounds nuw i8, ptr %a, i64 1
   %46 = load i8, ptr %sign.i, align 1
   %lnot.i = and i8 %46, 1
   %frombool.i = xor i8 %lnot.i, 1
@@ -11866,18 +11866,18 @@ if.then.i:                                        ; preds = %if.then17
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then17, %if.then.i
-  %default_nan_mode.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %51 = load i8, ptr %default_nan_mode.i, align 1
   %tobool.i = trunc i8 %51 to i1
   br i1 %tobool.i, label %if.then3.i, label %if.else.i
 
 if.then3.i:                                       ; preds = %if.end.i
   store i8 4, ptr %a, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %a, i64 1
+  %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %a, i64 1
   store i8 0, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %a, i64 4
+  %.compoundliteral.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %a, i64 4
   store i32 2147483647, ptr %.compoundliteral.sroa.31.0..sroa_idx.i.i, align 4
-  %.compoundliteral.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %a, i64 8
+  %.compoundliteral.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %a, i64 8
   store i64 4611686018427387904, ptr %.compoundliteral.sroa.4.0..sroa_idx.i.i, align 8
   br label %return
 
@@ -11891,10 +11891,10 @@ if.else.i:                                        ; preds = %if.end.i
   br i1 %cmp5.i, label %if.then6.i, label %if.end13.i
 
 if.then6.i:                                       ; preds = %if.else.i
-  %sign.i21 = getelementptr inbounds i8, ptr %a, i64 1
+  %sign.i21 = getelementptr inbounds nuw i8, ptr %a, i64 1
   %55 = load i8, ptr %sign.i21, align 1
   %56 = and i8 %55, 1
-  %sign8.i = getelementptr inbounds i8, ptr %b, i64 1
+  %sign8.i = getelementptr inbounds nuw i8, ptr %b, i64 1
   %57 = load i8, ptr %sign8.i, align 1
   %58 = and i8 %57, 1
   %cmp11.i = icmp samesign ult i8 %56, %58
@@ -11937,7 +11937,7 @@ if.then6.i.i:                                     ; preds = %if.end13.i
 
 if.then24.i:                                      ; preds = %if.then2.i.i, %.thread, %61
   %.ph.i6 = phi ptr [ %a, %.thread ], [ %b, %61 ], [ %b, %if.then2.i.i ]
-  %63 = getelementptr inbounds i8, ptr %.ph.i6, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %.ph.i6, i64 8
   %64 = load i64, ptr %63, align 8
   %or4.i.i.i = or i64 %64, 4611686018427387904
   store i64 %or4.i.i.i, ptr %63, align 8
@@ -11959,11 +11959,11 @@ if.then27:                                        ; preds = %lor.lhs.false, %if.
   %or1.i = or i16 %65, 1
   store i16 %or1.i, ptr %s, align 2
   store i8 4, ptr %a, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %a, i64 1
+  %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %a, i64 1
   store i8 0, ptr %.compoundliteral.sroa.2.0..sroa_idx.i, align 1
-  %.compoundliteral.sroa.31.0..sroa_idx.i = getelementptr inbounds i8, ptr %a, i64 4
+  %.compoundliteral.sroa.31.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %a, i64 4
   store i32 2147483647, ptr %.compoundliteral.sroa.31.0..sroa_idx.i, align 4
-  %.compoundliteral.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %a, i64 8
+  %.compoundliteral.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %a, i64 8
   store i64 4611686018427387904, ptr %.compoundliteral.sroa.4.0..sroa_idx.i, align 8
   br label %return
 
@@ -11991,11 +11991,11 @@ entry:
   %0 = trunc nuw nsw i64 %shr.i8.i.i to i32
   %conv.i.i.i = and i32 %0, 2047
   %and.i10.i.i = and i64 %a, 4503599627370495
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 1
   store i8 %frombool.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 4
   store i32 %conv.i.i.i, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 8
   store i64 %and.i10.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
   switch i32 %conv.i.i.i, label %if.then33.i.i [
     i32 0, label %if.then.i.i
@@ -12011,7 +12011,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   br label %float64_unpack_canonical.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %status, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %status, i64 6
   %1 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %1 to i1
   br i1 %tobool9.i.i, label %if.then10.i.i, label %frac64_normalize.exit.i.i
@@ -12066,11 +12066,11 @@ float64_unpack_canonical.exit:                    ; preds = %if.then8.i.i, %if.t
   %4 = trunc nuw nsw i64 %shr.i8.i.i6 to i32
   %conv.i.i.i7 = and i32 %4, 2047
   %and.i10.i.i8 = and i64 %b, 4503599627370495
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i9 = getelementptr inbounds i8, ptr %pb, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i9 = getelementptr inbounds nuw i8, ptr %pb, i64 1
   store i8 %frombool.i.i.i5, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i9, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i10 = getelementptr inbounds i8, ptr %pb, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i10 = getelementptr inbounds nuw i8, ptr %pb, i64 4
   store i32 %conv.i.i.i7, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i10, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i11 = getelementptr inbounds i8, ptr %pb, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i11 = getelementptr inbounds nuw i8, ptr %pb, i64 8
   store i64 %and.i10.i.i8, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i11, align 8
   switch i32 %conv.i.i.i7, label %if.then33.i.i31 [
     i32 0, label %if.then.i.i19
@@ -12086,7 +12086,7 @@ if.then8.i.i30:                                   ; preds = %if.then.i.i19
   br label %float64_unpack_canonical.exit35
 
 if.else.i.i21:                                    ; preds = %if.then.i.i19
-  %flush_inputs_to_zero.i.i22 = getelementptr inbounds i8, ptr %status, i64 6
+  %flush_inputs_to_zero.i.i22 = getelementptr inbounds nuw i8, ptr %status, i64 6
   %5 = load i8, ptr %flush_inputs_to_zero.i.i22, align 2
   %tobool9.i.i23 = trunc i8 %5 to i1
   br i1 %tobool9.i.i23, label %if.then10.i.i28, label %frac64_normalize.exit.i.i24
@@ -12137,18 +12137,18 @@ if.else49.i.i14:                                  ; preds = %lor.lhs.false.i.i12
 float64_unpack_canonical.exit35:                  ; preds = %if.then8.i.i30, %if.then10.i.i28, %frac64_normalize.exit.i.i24, %if.then33.i.i31, %if.then47.i.i18, %if.else49.i.i14
   %call = call fastcc ptr @parts64_modrem(ptr noundef %pa, ptr noundef %pb, ptr noundef %status)
   call fastcc void @parts64_uncanon(ptr noundef nonnull %call, ptr noundef %status, ptr noundef nonnull @float64_params)
-  %sign.i.i.i = getelementptr inbounds i8, ptr %call, i64 1
+  %sign.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 1
   %8 = load i8, ptr %sign.i.i.i, align 1
   %9 = and i8 %8, 1
   %conv.i.i.i36 = zext nneg i8 %9 to i64
   %shl.i.i.i37 = shl nuw i64 %conv.i.i.i36, 63
-  %exp.i.i.i = getelementptr inbounds i8, ptr %call, i64 4
+  %exp.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 4
   %10 = load i32, ptr %exp.i.i.i, align 4
   %11 = and i32 %10, 2047
   %shl77.i.i.i = zext nneg i32 %11 to i64
   %and8.i.i.i = shl nuw nsw i64 %shl77.i.i.i, 52
   %or.i.i.i = or disjoint i64 %and8.i.i.i, %shl.i.i.i37
-  %12 = getelementptr inbounds i8, ptr %call, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %call, i64 8
   %13 = load i64, ptr %12, align 8
   %shl77.i9.i.i = and i64 %13, 4503599627370495
   %or.i11.i.i = or disjoint i64 %or.i.i.i, %shl77.i9.i.i
@@ -12167,13 +12167,13 @@ entry:
   %frombool.i.i = trunc nuw nsw i64 %f.coerce1.lobit.i.i to i8
   %and.i.i.i = and i64 %a.coerce1, 281474976710655
   store i8 0, ptr %pa, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa, i64 1
+  %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 1
   store i8 %frombool.i.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.sroa.33.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa, i64 4
+  %.compoundliteral.sroa.33.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 4
   store i32 %conv.i.i, ptr %.compoundliteral.sroa.33.0..sroa_idx.i.i, align 4
-  %.compoundliteral.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa, i64 8
+  %.compoundliteral.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 8
   store i64 %and.i.i.i, ptr %.compoundliteral.sroa.4.0..sroa_idx.i.i, align 8
-  %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa, i64 16
+  %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 16
   store i64 %a.coerce0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i.i, align 8
   call fastcc void @parts128_canonicalize(ptr noundef nonnull %pa, ptr noundef %status, ptr noundef nonnull @float128_params)
   %shr.i16.i.i4 = lshr i64 %b.coerce1, 48
@@ -12183,13 +12183,13 @@ entry:
   %frombool.i.i7 = trunc nuw nsw i64 %f.coerce1.lobit.i.i6 to i8
   %and.i.i.i8 = and i64 %b.coerce1, 281474976710655
   store i8 0, ptr %pb, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx.i.i9 = getelementptr inbounds i8, ptr %pb, i64 1
+  %.compoundliteral.sroa.2.0..sroa_idx.i.i9 = getelementptr inbounds nuw i8, ptr %pb, i64 1
   store i8 %frombool.i.i7, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i9, align 1
-  %.compoundliteral.sroa.33.0..sroa_idx.i.i10 = getelementptr inbounds i8, ptr %pb, i64 4
+  %.compoundliteral.sroa.33.0..sroa_idx.i.i10 = getelementptr inbounds nuw i8, ptr %pb, i64 4
   store i32 %conv.i.i5, ptr %.compoundliteral.sroa.33.0..sroa_idx.i.i10, align 4
-  %.compoundliteral.sroa.4.0..sroa_idx.i.i11 = getelementptr inbounds i8, ptr %pb, i64 8
+  %.compoundliteral.sroa.4.0..sroa_idx.i.i11 = getelementptr inbounds nuw i8, ptr %pb, i64 8
   store i64 %and.i.i.i8, ptr %.compoundliteral.sroa.4.0..sroa_idx.i.i11, align 8
-  %.compoundliteral.sroa.5.0..sroa_idx.i.i12 = getelementptr inbounds i8, ptr %pb, i64 16
+  %.compoundliteral.sroa.5.0..sroa_idx.i.i12 = getelementptr inbounds nuw i8, ptr %pb, i64 16
   store i64 %b.coerce0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i.i12, align 8
   call fastcc void @parts128_canonicalize(ptr noundef nonnull %pb, ptr noundef %status, ptr noundef nonnull @float128_params)
   %call = call fastcc ptr @parts128_modrem(ptr noundef %pa, ptr noundef %pb, ptr noundef null, ptr noundef %status)
@@ -12211,13 +12211,13 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %exp.i = getelementptr inbounds i8, ptr %a, i64 4
+  %exp.i = getelementptr inbounds nuw i8, ptr %a, i64 4
   %2 = load i32, ptr %exp.i, align 4
-  %exp1.i = getelementptr inbounds i8, ptr %b, i64 4
+  %exp1.i = getelementptr inbounds nuw i8, ptr %b, i64 4
   %3 = load i32, ptr %exp1.i, align 4
   %sub.i = sub i32 %2, %3
-  %frac_hi.i = getelementptr inbounds i8, ptr %a, i64 8
-  %frac_lo.i = getelementptr inbounds i8, ptr %a, i64 16
+  %frac_hi.i = getelementptr inbounds nuw i8, ptr %a, i64 8
+  %frac_lo.i = getelementptr inbounds nuw i8, ptr %a, i64 16
   %cmp.i = icmp slt i32 %sub.i, -1
   br i1 %cmp.i, label %if.then.i, label %if.end3.i
 
@@ -12237,9 +12237,9 @@ if.end3.i:                                        ; preds = %if.then
   %shr8.i.i = zext i1 %cmp4.i to i64
   %a0.0.i = lshr i64 %5, %shr8.i.i
   %a1.0.i = select i1 %cmp4.i, i64 %or.i.i, i64 %4
-  %frac_hi7.i = getelementptr inbounds i8, ptr %b, i64 8
+  %frac_hi7.i = getelementptr inbounds nuw i8, ptr %b, i64 8
   %6 = load i64, ptr %frac_hi7.i, align 8
-  %frac_lo8.i = getelementptr inbounds i8, ptr %b, i64 16
+  %frac_lo8.i = getelementptr inbounds nuw i8, ptr %b, i64 16
   %7 = load i64, ptr %frac_lo8.i, align 8
   %cmp.i.i = icmp ult i64 %6, %a0.0.i
   br i1 %cmp.i.i, label %if.then10.i, label %le128.exit.i
@@ -12631,7 +12631,7 @@ lor.lhs.false.i:                                  ; preds = %lt192.exit.i, %if.t
   br i1 %or.cond.i, label %if.end63.i, label %if.then59.i
 
 if.then59.i:                                      ; preds = %lor.lhs.false.i, %lt192.exit.i, %if.then3.i154.i, %if.then.i149.i
-  %sign.i = getelementptr inbounds i8, ptr %a, i64 1
+  %sign.i = getelementptr inbounds nuw i8, ptr %a, i64 1
   %84 = load i8, ptr %sign.i, align 1
   %lnot.i = and i8 %84, 1
   %frombool.i = xor i8 %lnot.i, 1
@@ -12753,35 +12753,35 @@ if.then.i22:                                      ; preds = %lor.lhs.false.i19, 
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i22, %lor.lhs.false.i19
-  %default_nan_mode.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %95 = load i8, ptr %default_nan_mode.i, align 1
   %tobool.i = trunc i8 %95 to i1
   br i1 %tobool.i, label %if.then3.i, label %if.else.i
 
 if.then3.i:                                       ; preds = %if.end.i
   store i8 4, ptr %a, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %a, i64 1
+  %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %a, i64 1
   store i8 0, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %a, i64 4
+  %.compoundliteral.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %a, i64 4
   store i32 2147483647, ptr %.compoundliteral.sroa.31.0..sroa_idx.i.i, align 4
-  %.compoundliteral.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %a, i64 8
+  %.compoundliteral.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %a, i64 8
   store i64 4611686018427387904, ptr %.compoundliteral.sroa.4.0..sroa_idx.i.i, align 8
-  %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %a, i64 16
+  %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %a, i64 16
   store i64 0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i.i, align 8
   br label %return
 
 if.else.i:                                        ; preds = %if.end.i
-  %frac_hi.i.i = getelementptr inbounds i8, ptr %a, i64 8
+  %frac_hi.i.i = getelementptr inbounds nuw i8, ptr %a, i64 8
   %96 = load i64, ptr %frac_hi.i.i, align 8
-  %frac_hi1.i.i = getelementptr inbounds i8, ptr %b, i64 8
+  %frac_hi1.i.i = getelementptr inbounds nuw i8, ptr %b, i64 8
   %97 = load i64, ptr %frac_hi1.i.i, align 8
   %cmp.i18.i = icmp eq i64 %96, %97
   br i1 %cmp.i18.i, label %if.then.i.i, label %frac128_cmp.exit.i
 
 if.then.i.i:                                      ; preds = %if.else.i
-  %frac_lo.i.i = getelementptr inbounds i8, ptr %a, i64 16
+  %frac_lo.i.i = getelementptr inbounds nuw i8, ptr %a, i64 16
   %98 = load i64, ptr %frac_lo.i.i, align 8
-  %frac_lo2.i.i = getelementptr inbounds i8, ptr %b, i64 16
+  %frac_lo2.i.i = getelementptr inbounds nuw i8, ptr %b, i64 16
   %99 = load i64, ptr %frac_lo2.i.i, align 8
   %cmp3.i.i20 = icmp eq i64 %98, %99
   br i1 %cmp3.i.i20, label %if.then6.i, label %frac128_cmp.exit.i
@@ -12793,10 +12793,10 @@ frac128_cmp.exit.i:                               ; preds = %if.then.i.i, %if.el
   br label %if.end13.i
 
 if.then6.i:                                       ; preds = %if.then.i.i
-  %sign.i21 = getelementptr inbounds i8, ptr %a, i64 1
+  %sign.i21 = getelementptr inbounds nuw i8, ptr %a, i64 1
   %100 = load i8, ptr %sign.i21, align 1
   %101 = and i8 %100, 1
-  %sign8.i = getelementptr inbounds i8, ptr %b, i64 1
+  %sign8.i = getelementptr inbounds nuw i8, ptr %b, i64 1
   %102 = load i8, ptr %sign8.i, align 1
   %103 = and i8 %102, 1
   %cmp11.i = icmp samesign uge i8 %101, %103
@@ -12835,7 +12835,7 @@ pickNaN.exit.i:                                   ; preds = %if.end13.i
 
 if.then24.i:                                      ; preds = %pickNaN.exit.i, %106
   %.ph.i28 = phi ptr [ %b, %106 ], [ %a, %pickNaN.exit.i ]
-  %frac_hi.i22.i = getelementptr inbounds i8, ptr %.ph.i28, i64 8
+  %frac_hi.i22.i = getelementptr inbounds nuw i8, ptr %.ph.i28, i64 8
   %108 = load i64, ptr %frac_hi.i22.i, align 8
   %or4.i.i.i = or i64 %108, 4611686018427387904
   store i64 %or4.i.i.i, ptr %frac_hi.i22.i, align 8
@@ -12858,13 +12858,13 @@ if.then27:                                        ; preds = %lor.lhs.false, %if.
   %or1.i = or i16 %110, 1
   store i16 %or1.i, ptr %s, align 2
   store i8 4, ptr %a, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %a, i64 1
+  %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %a, i64 1
   store i8 0, ptr %.compoundliteral.sroa.2.0..sroa_idx.i, align 1
-  %.compoundliteral.sroa.31.0..sroa_idx.i = getelementptr inbounds i8, ptr %a, i64 4
+  %.compoundliteral.sroa.31.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %a, i64 4
   store i32 2147483647, ptr %.compoundliteral.sroa.31.0..sroa_idx.i, align 4
-  %.compoundliteral.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %a, i64 8
+  %.compoundliteral.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %a, i64 8
   store i64 4611686018427387904, ptr %.compoundliteral.sroa.4.0..sroa_idx.i, align 8
-  %.compoundliteral.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %a, i64 16
+  %.compoundliteral.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %a, i64 16
   store i64 0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i, align 8
   br label %return
 
@@ -12887,7 +12887,7 @@ entry:
   %pa = alloca %struct.FloatParts128, align 8
   %pb = alloca %struct.FloatParts128, align 8
   store i64 0, ptr %quotient, align 8
-  %floatx80_rounding_precision.i = getelementptr inbounds i8, ptr %status, i64 3
+  %floatx80_rounding_precision.i = getelementptr inbounds nuw i8, ptr %status, i64 3
   %0 = load i8, ptr %floatx80_rounding_precision.i, align 1
   %switch.i = icmp ult i8 %0, 3
   br i1 %switch.i, label %sw.epilog.i, label %do.body.i
@@ -12908,13 +12908,13 @@ if.end.i:                                         ; preds = %sw.epilog.i
   %frombool.i.i = trunc nuw nsw i16 %f.coerce1.lobit.i.i to i8
   %and.i.i.i = zext nneg i16 %1 to i32
   store i8 0, ptr %pa, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa, i64 1
+  %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 1
   store i8 %frombool.i.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.sroa.32.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa, i64 4
+  %.compoundliteral.sroa.32.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 4
   store i32 %and.i.i.i, ptr %.compoundliteral.sroa.32.0..sroa_idx.i.i, align 4
-  %.compoundliteral.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa, i64 8
+  %.compoundliteral.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 8
   store i64 %a.coerce0, ptr %.compoundliteral.sroa.4.0..sroa_idx.i.i, align 8
-  %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa, i64 16
+  %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 16
   store i64 0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i.i, align 8
   %cmp.not.i = icmp eq i16 %1, 32767
   br i1 %cmp.not.i, label %lor.lhs.false.thread, label %lor.lhs.false
@@ -12958,13 +12958,13 @@ if.end.i15:                                       ; preds = %sw.epilog.i9
   %frombool.i.i17 = trunc nuw nsw i16 %f.coerce1.lobit.i.i16 to i8
   %and.i.i.i18 = zext nneg i16 %5 to i32
   store i8 0, ptr %pb, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx.i.i19 = getelementptr inbounds i8, ptr %pb, i64 1
+  %.compoundliteral.sroa.2.0..sroa_idx.i.i19 = getelementptr inbounds nuw i8, ptr %pb, i64 1
   store i8 %frombool.i.i17, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i19, align 1
-  %.compoundliteral.sroa.32.0..sroa_idx.i.i20 = getelementptr inbounds i8, ptr %pb, i64 4
+  %.compoundliteral.sroa.32.0..sroa_idx.i.i20 = getelementptr inbounds nuw i8, ptr %pb, i64 4
   store i32 %and.i.i.i18, ptr %.compoundliteral.sroa.32.0..sroa_idx.i.i20, align 4
-  %.compoundliteral.sroa.4.0..sroa_idx.i.i21 = getelementptr inbounds i8, ptr %pb, i64 8
+  %.compoundliteral.sroa.4.0..sroa_idx.i.i21 = getelementptr inbounds nuw i8, ptr %pb, i64 8
   store i64 %b.coerce0, ptr %.compoundliteral.sroa.4.0..sroa_idx.i.i21, align 8
-  %.compoundliteral.sroa.5.0..sroa_idx.i.i22 = getelementptr inbounds i8, ptr %pb, i64 16
+  %.compoundliteral.sroa.5.0..sroa_idx.i.i22 = getelementptr inbounds nuw i8, ptr %pb, i64 16
   store i64 0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i.i22, align 8
   %cmp.not.i23 = icmp eq i16 %5, 32767
   br i1 %cmp.not.i23, label %if.else.i25, label %if.then10.i24
@@ -13033,11 +13033,11 @@ entry:
   %conv.i.i.i = zext nneg i16 %1 to i32
   %2 = and i16 %a, 1023
   %and.i11.i.i = zext nneg i16 %2 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 %conv.i.i.i, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i64 %and.i11.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
   switch i16 %1, label %if.then33.i.i [
     i16 0, label %if.then.i.i
@@ -13053,7 +13053,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   br label %parts64_float_to_float.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %3 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %3 to i1
   br i1 %tobool9.i.i, label %if.then10.i.i, label %frac64_normalize.exit.i.i
@@ -13108,7 +13108,7 @@ sw.bb.i.i:                                        ; preds = %if.then.i
   %6 = load i16, ptr %s, align 2
   %or1.i.i.i4 = or i16 %6, 8193
   store i16 %or1.i.i.i4, ptr %s, align 2
-  %default_nan_mode.i.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode.i.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %7 = load i8, ptr %default_nan_mode.i.i, align 1
   %tobool.i.i = trunc i8 %7 to i1
   br i1 %tobool.i.i, label %if.then.i.i6, label %if.else.i.i5
@@ -13127,7 +13127,7 @@ if.else.i.i5:                                     ; preds = %sw.bb.i.i
   br label %parts64_float_to_float.exit
 
 sw.bb1.i.i:                                       ; preds = %if.then.i
-  %default_nan_mode2.i.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode2.i.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %8 = load i8, ptr %default_nan_mode2.i.i, align 1
   %tobool3.i.i = trunc i8 %8 to i1
   br i1 %tobool3.i.i, label %if.then4.i.i, label %parts64_float_to_float.exit
@@ -13167,11 +13167,11 @@ entry:
   %conv.i.i.i = zext nneg i16 %1 to i32
   %2 = and i16 %a, 1023
   %and.i11.i.i = zext nneg i16 %2 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 %conv.i.i.i, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i64 %and.i11.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
   switch i16 %1, label %if.then33.i.i [
     i16 0, label %if.then.i.i
@@ -13187,7 +13187,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   br label %parts64_float_to_float.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %3 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %3 to i1
   br i1 %tobool9.i.i, label %if.then10.i.i, label %frac64_normalize.exit.i.i
@@ -13242,7 +13242,7 @@ sw.bb.i.i:                                        ; preds = %if.then.i
   %6 = load i16, ptr %s, align 2
   %or1.i.i.i4 = or i16 %6, 8193
   store i16 %or1.i.i.i4, ptr %s, align 2
-  %default_nan_mode.i.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode.i.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %7 = load i8, ptr %default_nan_mode.i.i, align 1
   %tobool.i.i = trunc i8 %7 to i1
   br i1 %tobool.i.i, label %if.then.i.i6, label %if.else.i.i5
@@ -13261,7 +13261,7 @@ if.else.i.i5:                                     ; preds = %sw.bb.i.i
   br label %parts64_float_to_float.exit
 
 sw.bb1.i.i:                                       ; preds = %if.then.i
-  %default_nan_mode2.i.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode2.i.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %8 = load i8, ptr %default_nan_mode2.i.i, align 1
   %tobool3.i.i = trunc i8 %8 to i1
   br i1 %tobool3.i.i, label %if.then4.i.i, label %parts64_float_to_float.exit
@@ -13300,11 +13300,11 @@ entry:
   %and.i9.i.i = and i32 %shr.i8.i.i, 255
   %0 = and i32 %a, 8388607
   %and.i11.i.i = zext nneg i32 %0 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 %and.i9.i.i, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i64 %and.i11.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
   %trunc.i = trunc i32 %shr.i8.i.i to i8
   switch i8 %trunc.i, label %if.then33.i.i [
@@ -13321,7 +13321,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   br label %float32_unpack_canonical.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %1 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %1 to i1
   br i1 %tobool9.i.i, label %if.then10.i.i, label %frac64_normalize.exit.i.i
@@ -13386,7 +13386,7 @@ sw.bb.i.i:                                        ; preds = %if.then.i
   %6 = load i16, ptr %s, align 2
   %or1.i.i.i6 = or i16 %6, 8193
   store i16 %or1.i.i.i6, ptr %s, align 2
-  %default_nan_mode.i.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode.i.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %7 = load i8, ptr %default_nan_mode.i.i, align 1
   %tobool.i.i = trunc i8 %7 to i1
   br i1 %tobool.i.i, label %if.then.i.i8, label %if.else.i.i7
@@ -13405,7 +13405,7 @@ if.else.i.i7:                                     ; preds = %sw.bb.i.i
   br label %if.end
 
 sw.bb1.i.i:                                       ; preds = %if.then.i
-  %default_nan_mode2.i.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode2.i.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %8 = load i8, ptr %default_nan_mode2.i.i, align 1
   %tobool3.i.i = trunc i8 %8 to i1
   br i1 %tobool3.i.i, label %if.then4.i.i, label %if.end
@@ -13506,11 +13506,11 @@ if.else8:                                         ; preds = %if.else
   %and.i9.i.i = and i32 %shr.i, 255
   %2 = and i32 %a, 8388607
   %and.i11.i.i = zext nneg i32 %2 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   store i8 %frombool.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   store i32 %and.i9.i.i, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p.i, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   store i64 %and.i11.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
   %trunc.i = trunc i32 %shr.i to i8
   switch i8 %trunc.i, label %parts64_canonicalize.exit.i [
@@ -13527,7 +13527,7 @@ if.then8.i.i:                                     ; preds = %if.then.i6.i
   br label %soft_float32_to_float64.exit
 
 if.else.i.i:                                      ; preds = %if.then.i6.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %3 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %3 to i1
   br i1 %tobool9.i.i, label %if.then10.i.i, label %frac64_normalize.exit.i.i
@@ -13579,7 +13579,7 @@ sw.bb.i.i:                                        ; preds = %parts64_canonicaliz
   %6 = load i16, ptr %s, align 2
   %or1.i.i8.i = or i16 %6, 8193
   store i16 %or1.i.i8.i, ptr %s, align 2
-  %default_nan_mode.i.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode.i.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %7 = load i8, ptr %default_nan_mode.i.i, align 1
   %tobool.i.i = trunc i8 %7 to i1
   br i1 %tobool.i.i, label %if.then.i10.i, label %if.else.i9.i
@@ -13598,7 +13598,7 @@ if.else.i9.i:                                     ; preds = %sw.bb.i.i
   br label %soft_float32_to_float64.exit
 
 sw.bb1.i.i:                                       ; preds = %parts64_canonicalize.exit.thread13.i
-  %default_nan_mode2.i.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode2.i.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %8 = load i8, ptr %default_nan_mode2.i.i, align 1
   %tobool3.i.i = trunc i8 %8 to i1
   br i1 %tobool3.i.i, label %if.then4.i.i, label %soft_float32_to_float64.exit
@@ -13642,11 +13642,11 @@ entry:
   %0 = trunc nuw nsw i64 %shr.i8.i.i to i32
   %conv.i.i.i = and i32 %0, 2047
   %and.i10.i.i = and i64 %a, 4503599627370495
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 %conv.i.i.i, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i64 %and.i10.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
   switch i32 %conv.i.i.i, label %if.then33.i.i [
     i32 0, label %if.then.i.i
@@ -13662,7 +13662,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   br label %float64_unpack_canonical.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %1 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %1 to i1
   br i1 %tobool9.i.i, label %if.then10.i.i, label %frac64_normalize.exit.i.i
@@ -13727,7 +13727,7 @@ sw.bb.i.i:                                        ; preds = %if.then.i
   %6 = load i16, ptr %s, align 2
   %or1.i.i.i6 = or i16 %6, 8193
   store i16 %or1.i.i.i6, ptr %s, align 2
-  %default_nan_mode.i.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode.i.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %7 = load i8, ptr %default_nan_mode.i.i, align 1
   %tobool.i.i = trunc i8 %7 to i1
   br i1 %tobool.i.i, label %if.then.i.i8, label %if.else.i.i7
@@ -13746,7 +13746,7 @@ if.else.i.i7:                                     ; preds = %sw.bb.i.i
   br label %if.end
 
 sw.bb1.i.i:                                       ; preds = %if.then.i
-  %default_nan_mode2.i.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode2.i.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %8 = load i8, ptr %default_nan_mode2.i.i, align 1
   %tobool3.i.i = trunc i8 %8 to i1
   br i1 %tobool3.i.i, label %if.then4.i.i, label %if.end
@@ -13823,11 +13823,11 @@ entry:
   %0 = trunc nuw nsw i64 %shr.i8.i.i to i32
   %conv.i.i.i = and i32 %0, 2047
   %and.i10.i.i = and i64 %a, 4503599627370495
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 %conv.i.i.i, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i64 %and.i10.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
   switch i32 %conv.i.i.i, label %float64_unpack_canonical.exit [
     i32 0, label %if.then.i.i
@@ -13843,7 +13843,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   br label %parts64_float_to_float.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %1 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %1 to i1
   br i1 %tobool9.i.i, label %if.then10.i.i, label %frac64_normalize.exit.i.i
@@ -13895,7 +13895,7 @@ sw.bb.i.i:                                        ; preds = %float64_unpack_cano
   %4 = load i16, ptr %s, align 2
   %or1.i.i.i3 = or i16 %4, 8193
   store i16 %or1.i.i.i3, ptr %s, align 2
-  %default_nan_mode.i.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode.i.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %5 = load i8, ptr %default_nan_mode.i.i, align 1
   %tobool.i.i = trunc i8 %5 to i1
   br i1 %tobool.i.i, label %if.then.i.i5, label %if.else.i.i4
@@ -13914,7 +13914,7 @@ if.else.i.i4:                                     ; preds = %sw.bb.i.i
   br label %parts64_float_to_float.exit
 
 sw.bb1.i.i:                                       ; preds = %float64_unpack_canonical.exit.thread9
-  %default_nan_mode2.i.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode2.i.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %6 = load i8, ptr %default_nan_mode2.i.i, align 1
   %tobool3.i.i = trunc i8 %6 to i1
   br i1 %tobool3.i.i, label %if.then4.i.i, label %parts64_float_to_float.exit
@@ -13954,11 +13954,11 @@ entry:
   %conv.i.i.i = zext nneg i16 %1 to i32
   %2 = and i16 %a, 127
   %and.i11.i.i = zext nneg i16 %2 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 %conv.i.i.i, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i64 %and.i11.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
   %trunc.i = trunc i16 %0 to i8
   switch i8 %trunc.i, label %bfloat16_unpack_canonical.exit [
@@ -13975,7 +13975,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   br label %parts64_float_to_float.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %3 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %3 to i1
   br i1 %tobool9.i.i, label %if.then10.i.i, label %frac64_normalize.exit.i.i
@@ -14027,7 +14027,7 @@ sw.bb.i.i:                                        ; preds = %bfloat16_unpack_can
   %6 = load i16, ptr %s, align 2
   %or1.i.i.i3 = or i16 %6, 8193
   store i16 %or1.i.i.i3, ptr %s, align 2
-  %default_nan_mode.i.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode.i.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %7 = load i8, ptr %default_nan_mode.i.i, align 1
   %tobool.i.i = trunc i8 %7 to i1
   br i1 %tobool.i.i, label %if.then.i.i5, label %if.else.i.i4
@@ -14046,7 +14046,7 @@ if.else.i.i4:                                     ; preds = %sw.bb.i.i
   br label %parts64_float_to_float.exit
 
 sw.bb1.i.i:                                       ; preds = %bfloat16_unpack_canonical.exit.thread9
-  %default_nan_mode2.i.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode2.i.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %8 = load i8, ptr %default_nan_mode2.i.i, align 1
   %tobool3.i.i = trunc i8 %8 to i1
   br i1 %tobool3.i.i, label %if.then4.i.i, label %parts64_float_to_float.exit
@@ -14086,11 +14086,11 @@ entry:
   %conv.i.i.i = zext nneg i16 %1 to i32
   %2 = and i16 %a, 127
   %and.i11.i.i = zext nneg i16 %2 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 %conv.i.i.i, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i64 %and.i11.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
   %trunc.i = trunc i16 %0 to i8
   switch i8 %trunc.i, label %bfloat16_unpack_canonical.exit [
@@ -14107,7 +14107,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   br label %parts64_float_to_float.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %3 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %3 to i1
   br i1 %tobool9.i.i, label %if.then10.i.i, label %frac64_normalize.exit.i.i
@@ -14159,7 +14159,7 @@ sw.bb.i.i:                                        ; preds = %bfloat16_unpack_can
   %6 = load i16, ptr %s, align 2
   %or1.i.i.i3 = or i16 %6, 8193
   store i16 %or1.i.i.i3, ptr %s, align 2
-  %default_nan_mode.i.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode.i.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %7 = load i8, ptr %default_nan_mode.i.i, align 1
   %tobool.i.i = trunc i8 %7 to i1
   br i1 %tobool.i.i, label %if.then.i.i5, label %if.else.i.i4
@@ -14178,7 +14178,7 @@ if.else.i.i4:                                     ; preds = %sw.bb.i.i
   br label %parts64_float_to_float.exit
 
 sw.bb1.i.i:                                       ; preds = %bfloat16_unpack_canonical.exit.thread9
-  %default_nan_mode2.i.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode2.i.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %8 = load i8, ptr %default_nan_mode2.i.i, align 1
   %tobool3.i.i = trunc i8 %8 to i1
   br i1 %tobool3.i.i, label %if.then4.i.i, label %parts64_float_to_float.exit
@@ -14217,11 +14217,11 @@ entry:
   %and.i9.i.i = and i32 %shr.i8.i.i, 255
   %0 = and i32 %a, 8388607
   %and.i11.i.i = zext nneg i32 %0 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 %and.i9.i.i, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i64 %and.i11.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
   %trunc.i = trunc i32 %shr.i8.i.i to i8
   switch i8 %trunc.i, label %float32_unpack_canonical.exit [
@@ -14238,7 +14238,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   br label %parts64_float_to_float.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %1 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %1 to i1
   br i1 %tobool9.i.i, label %if.then10.i.i, label %frac64_normalize.exit.i.i
@@ -14290,7 +14290,7 @@ sw.bb.i.i:                                        ; preds = %float32_unpack_cano
   %4 = load i16, ptr %s, align 2
   %or1.i.i.i3 = or i16 %4, 8193
   store i16 %or1.i.i.i3, ptr %s, align 2
-  %default_nan_mode.i.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode.i.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %5 = load i8, ptr %default_nan_mode.i.i, align 1
   %tobool.i.i = trunc i8 %5 to i1
   br i1 %tobool.i.i, label %if.then.i.i5, label %if.else.i.i4
@@ -14309,7 +14309,7 @@ if.else.i.i4:                                     ; preds = %sw.bb.i.i
   br label %parts64_float_to_float.exit
 
 sw.bb1.i.i:                                       ; preds = %float32_unpack_canonical.exit.thread8
-  %default_nan_mode2.i.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode2.i.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %6 = load i8, ptr %default_nan_mode2.i.i, align 1
   %tobool3.i.i = trunc i8 %6 to i1
   br i1 %tobool3.i.i, label %if.then4.i.i, label %parts64_float_to_float.exit
@@ -14348,11 +14348,11 @@ entry:
   %0 = trunc nuw nsw i64 %shr.i8.i.i to i32
   %conv.i.i.i = and i32 %0, 2047
   %and.i10.i.i = and i64 %a, 4503599627370495
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 %conv.i.i.i, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i64 %and.i10.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
   switch i32 %conv.i.i.i, label %float64_unpack_canonical.exit [
     i32 0, label %if.then.i.i
@@ -14368,7 +14368,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   br label %parts64_float_to_float.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %1 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %1 to i1
   br i1 %tobool9.i.i, label %if.then10.i.i, label %frac64_normalize.exit.i.i
@@ -14420,7 +14420,7 @@ sw.bb.i.i:                                        ; preds = %float64_unpack_cano
   %4 = load i16, ptr %s, align 2
   %or1.i.i.i3 = or i16 %4, 8193
   store i16 %or1.i.i.i3, ptr %s, align 2
-  %default_nan_mode.i.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode.i.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %5 = load i8, ptr %default_nan_mode.i.i, align 1
   %tobool.i.i = trunc i8 %5 to i1
   br i1 %tobool.i.i, label %if.then.i.i5, label %if.else.i.i4
@@ -14439,7 +14439,7 @@ if.else.i.i4:                                     ; preds = %sw.bb.i.i
   br label %parts64_float_to_float.exit
 
 sw.bb1.i.i:                                       ; preds = %float64_unpack_canonical.exit.thread9
-  %default_nan_mode2.i.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode2.i.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %6 = load i8, ptr %default_nan_mode2.i.i, align 1
   %tobool3.i.i = trunc i8 %6 to i1
   br i1 %tobool3.i.i, label %if.then4.i.i, label %parts64_float_to_float.exit
@@ -14480,23 +14480,23 @@ entry:
   %frombool.i.i = trunc nuw nsw i64 %f.coerce1.lobit.i.i to i8
   %and.i.i.i = and i64 %a.coerce1, 281474976710655
   store i8 0, ptr %p128, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p128, i64 1
+  %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p128, i64 1
   store i8 %frombool.i.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.sroa.33.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p128, i64 4
+  %.compoundliteral.sroa.33.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p128, i64 4
   store i32 %conv.i.i, ptr %.compoundliteral.sroa.33.0..sroa_idx.i.i, align 4
-  %.compoundliteral.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p128, i64 8
+  %.compoundliteral.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p128, i64 8
   store i64 %and.i.i.i, ptr %.compoundliteral.sroa.4.0..sroa_idx.i.i, align 8
-  %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p128, i64 16
+  %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p128, i64 16
   store i64 %a.coerce0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i.i, align 8
   call fastcc void @parts128_canonicalize(ptr noundef nonnull %p128, ptr noundef %s, ptr noundef nonnull @float128_params)
   %1 = load i8, ptr %p128, align 8
   store i8 %1, ptr %p64, align 8
   %2 = load i8, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 1
-  %sign2.i = getelementptr inbounds i8, ptr %p64, i64 1
+  %sign2.i = getelementptr inbounds nuw i8, ptr %p64, i64 1
   %frombool.i = and i8 %2, 1
   store i8 %frombool.i, ptr %sign2.i, align 1
   %3 = load i32, ptr %.compoundliteral.sroa.33.0..sroa_idx.i.i, align 4
-  %exp3.i = getelementptr inbounds i8, ptr %p64, i64 4
+  %exp3.i = getelementptr inbounds nuw i8, ptr %p64, i64 4
   store i32 %3, ptr %exp3.i, align 4
   %cmp.i = icmp eq i8 %1, 2
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -14507,7 +14507,7 @@ if.then.i:                                        ; preds = %entry
   %cmp.i.i = icmp ne i64 %b.val12.i, 0
   %conv1.i.i = zext i1 %cmp.i.i to i64
   %or.i.i = or i64 %b.val.i, %conv1.i.i
-  %4 = getelementptr inbounds i8, ptr %p64, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %p64, i64 8
   store i64 %or.i.i, ptr %4, align 8
   br label %parts_float_to_float_narrow.exit
 
@@ -14517,7 +14517,7 @@ if.else.i:                                        ; preds = %entry
 
 if.then7.i:                                       ; preds = %if.else.i
   %5 = load i64, ptr %.compoundliteral.sroa.4.0..sroa_idx.i.i, align 8
-  %6 = getelementptr inbounds i8, ptr %p64, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %p64, i64 8
   store i64 %5, ptr %6, align 8
   switch i8 %1, label %do.body.i.i [
     i8 5, label %sw.bb.i.i
@@ -14528,7 +14528,7 @@ sw.bb.i.i:                                        ; preds = %if.then7.i
   %7 = load i16, ptr %s, align 2
   %or1.i.i.i = or i16 %7, 8193
   store i16 %or1.i.i.i, ptr %s, align 2
-  %default_nan_mode.i.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode.i.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %8 = load i8, ptr %default_nan_mode.i.i, align 1
   %tobool.i.i = trunc i8 %8 to i1
   br i1 %tobool.i.i, label %if.then.i.i, label %if.else.i.i
@@ -14547,7 +14547,7 @@ if.else.i.i:                                      ; preds = %sw.bb.i.i
   br label %parts_float_to_float_narrow.exit
 
 sw.bb1.i.i:                                       ; preds = %if.then7.i
-  %default_nan_mode2.i.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode2.i.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %9 = load i8, ptr %default_nan_mode2.i.i, align 1
   %tobool3.i.i = trunc i8 %9 to i1
   br i1 %tobool3.i.i, label %if.then4.i.i, label %parts_float_to_float_narrow.exit
@@ -14573,7 +14573,7 @@ parts_float_to_float_narrow.exit:                 ; preds = %if.then.i, %if.else
   %13 = and i32 %12, 2139095040
   %and8.i.i.i = zext nneg i32 %13 to i64
   %or.i.i.i = or disjoint i64 %shl.i.i.i, %and8.i.i.i
-  %14 = getelementptr inbounds i8, ptr %p64, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %p64, i64 8
   %15 = load i64, ptr %14, align 8
   %shl77.i9.i.i = and i64 %15, 8388607
   %or.i11.i.i = or disjoint i64 %or.i.i.i, %shl77.i9.i.i
@@ -14593,23 +14593,23 @@ entry:
   %frombool.i.i = trunc nuw nsw i64 %f.coerce1.lobit.i.i to i8
   %and.i.i.i = and i64 %a.coerce1, 281474976710655
   store i8 0, ptr %p128, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p128, i64 1
+  %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p128, i64 1
   store i8 %frombool.i.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.sroa.33.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p128, i64 4
+  %.compoundliteral.sroa.33.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p128, i64 4
   store i32 %conv.i.i, ptr %.compoundliteral.sroa.33.0..sroa_idx.i.i, align 4
-  %.compoundliteral.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p128, i64 8
+  %.compoundliteral.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p128, i64 8
   store i64 %and.i.i.i, ptr %.compoundliteral.sroa.4.0..sroa_idx.i.i, align 8
-  %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p128, i64 16
+  %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p128, i64 16
   store i64 %a.coerce0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i.i, align 8
   call fastcc void @parts128_canonicalize(ptr noundef nonnull %p128, ptr noundef %s, ptr noundef nonnull @float128_params)
   %1 = load i8, ptr %p128, align 8
   store i8 %1, ptr %p64, align 8
   %2 = load i8, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 1
-  %sign2.i = getelementptr inbounds i8, ptr %p64, i64 1
+  %sign2.i = getelementptr inbounds nuw i8, ptr %p64, i64 1
   %frombool.i = and i8 %2, 1
   store i8 %frombool.i, ptr %sign2.i, align 1
   %3 = load i32, ptr %.compoundliteral.sroa.33.0..sroa_idx.i.i, align 4
-  %exp3.i = getelementptr inbounds i8, ptr %p64, i64 4
+  %exp3.i = getelementptr inbounds nuw i8, ptr %p64, i64 4
   store i32 %3, ptr %exp3.i, align 4
   %cmp.i = icmp eq i8 %1, 2
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -14620,7 +14620,7 @@ if.then.i:                                        ; preds = %entry
   %cmp.i.i = icmp ne i64 %b.val12.i, 0
   %conv1.i.i = zext i1 %cmp.i.i to i64
   %or.i.i = or i64 %b.val.i, %conv1.i.i
-  %4 = getelementptr inbounds i8, ptr %p64, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %p64, i64 8
   store i64 %or.i.i, ptr %4, align 8
   br label %parts_float_to_float_narrow.exit
 
@@ -14630,7 +14630,7 @@ if.else.i:                                        ; preds = %entry
 
 if.then7.i:                                       ; preds = %if.else.i
   %5 = load i64, ptr %.compoundliteral.sroa.4.0..sroa_idx.i.i, align 8
-  %6 = getelementptr inbounds i8, ptr %p64, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %p64, i64 8
   store i64 %5, ptr %6, align 8
   switch i8 %1, label %do.body.i.i [
     i8 5, label %sw.bb.i.i
@@ -14641,7 +14641,7 @@ sw.bb.i.i:                                        ; preds = %if.then7.i
   %7 = load i16, ptr %s, align 2
   %or1.i.i.i = or i16 %7, 8193
   store i16 %or1.i.i.i, ptr %s, align 2
-  %default_nan_mode.i.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode.i.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %8 = load i8, ptr %default_nan_mode.i.i, align 1
   %tobool.i.i = trunc i8 %8 to i1
   br i1 %tobool.i.i, label %if.then.i.i, label %if.else.i.i
@@ -14660,7 +14660,7 @@ if.else.i.i:                                      ; preds = %sw.bb.i.i
   br label %parts_float_to_float_narrow.exit
 
 sw.bb1.i.i:                                       ; preds = %if.then7.i
-  %default_nan_mode2.i.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode2.i.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %9 = load i8, ptr %default_nan_mode2.i.i, align 1
   %tobool3.i.i = trunc i8 %9 to i1
   br i1 %tobool3.i.i, label %if.then4.i.i, label %parts_float_to_float_narrow.exit
@@ -14687,7 +14687,7 @@ parts_float_to_float_narrow.exit:                 ; preds = %if.then.i, %if.else
   %shl77.i.i.i = zext nneg i32 %13 to i64
   %and8.i.i.i = shl nuw nsw i64 %shl77.i.i.i, 52
   %or.i.i.i = or disjoint i64 %and8.i.i.i, %shl.i.i.i
-  %14 = getelementptr inbounds i8, ptr %p64, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %p64, i64 8
   %15 = load i64, ptr %14, align 8
   %shl77.i9.i.i = and i64 %15, 4503599627370495
   %or.i11.i.i = or disjoint i64 %or.i.i.i, %shl77.i9.i.i
@@ -14715,7 +14715,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp.i.i.i, label %float32_unpack_canonical.exit.thread, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %1 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %1 to i1
   br i1 %tobool9.i.i, label %if.then10.i.i, label %frac64_normalize.exit.i.i
@@ -14748,13 +14748,13 @@ float32_unpack_canonical.exit.thread:             ; preds = %if.then33.i.i, %if.
   %p64.sroa.14.0.ph = phi i64 [ 0, %lor.lhs.false.i.i ], [ 0, %if.then.i.i ], [ %shl.i.i.i, %frac64_normalize.exit.i.i ], [ 0, %if.then10.i.i ], [ %or.i.i, %if.then33.i.i ]
   %p64.sroa.0.0.ph = phi i8 [ 3, %lor.lhs.false.i.i ], [ 1, %if.then.i.i ], [ 2, %frac64_normalize.exit.i.i ], [ 1, %if.then10.i.i ], [ 2, %if.then33.i.i ]
   store i8 %p64.sroa.0.0.ph, ptr %p128, align 8
-  %sign2.i9 = getelementptr inbounds i8, ptr %p128, i64 1
+  %sign2.i9 = getelementptr inbounds nuw i8, ptr %p128, i64 1
   store i8 %frombool.i.i.i, ptr %sign2.i9, align 1
-  %exp3.i10 = getelementptr inbounds i8, ptr %p128, i64 4
+  %exp3.i10 = getelementptr inbounds nuw i8, ptr %p128, i64 4
   store i32 %p64.sroa.10.0.ph, ptr %exp3.i10, align 4
-  %frac_hi.i.i11 = getelementptr inbounds i8, ptr %p128, i64 8
+  %frac_hi.i.i11 = getelementptr inbounds nuw i8, ptr %p128, i64 8
   store i64 %p64.sroa.14.0.ph, ptr %frac_hi.i.i11, align 8
-  %frac_lo.i.i12 = getelementptr inbounds i8, ptr %p128, i64 16
+  %frac_lo.i.i12 = getelementptr inbounds nuw i8, ptr %p128, i64 16
   store i64 0, ptr %frac_lo.i.i12, align 8
   br label %parts_float_to_float_widen.exit
 
@@ -14763,13 +14763,13 @@ float32_unpack_canonical.exit:                    ; preds = %lor.lhs.false.i.i
   %tobool.not.i32.i.i = icmp samesign ult i32 %0, 4194304
   %conv53.i.i = select i1 %tobool.not.i32.i.i, i8 5, i8 4
   store i8 %conv53.i.i, ptr %p128, align 8
-  %sign2.i = getelementptr inbounds i8, ptr %p128, i64 1
+  %sign2.i = getelementptr inbounds nuw i8, ptr %p128, i64 1
   store i8 %frombool.i.i.i, ptr %sign2.i, align 1
-  %exp3.i = getelementptr inbounds i8, ptr %p128, i64 4
+  %exp3.i = getelementptr inbounds nuw i8, ptr %p128, i64 4
   store i32 %and.i9.i.i, ptr %exp3.i, align 4
-  %frac_hi.i.i = getelementptr inbounds i8, ptr %p128, i64 8
+  %frac_hi.i.i = getelementptr inbounds nuw i8, ptr %p128, i64 8
   store i64 %shl.i31.i.i, ptr %frac_hi.i.i, align 8
-  %frac_lo.i.i = getelementptr inbounds i8, ptr %p128, i64 16
+  %frac_lo.i.i = getelementptr inbounds nuw i8, ptr %p128, i64 16
   store i64 0, ptr %frac_lo.i.i, align 8
   br i1 %tobool.not.i32.i.i, label %sw.bb.i.i, label %sw.bb1.i.i
 
@@ -14777,7 +14777,7 @@ sw.bb.i.i:                                        ; preds = %float32_unpack_cano
   %4 = load i16, ptr %s, align 2
   %or1.i.i.i3 = or i16 %4, 8193
   store i16 %or1.i.i.i3, ptr %s, align 2
-  %default_nan_mode.i.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode.i.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %5 = load i8, ptr %default_nan_mode.i.i, align 1
   %tobool.i.i = trunc i8 %5 to i1
   br i1 %tobool.i.i, label %if.then.i.i5, label %if.else.i.i4
@@ -14796,7 +14796,7 @@ if.else.i.i4:                                     ; preds = %sw.bb.i.i
   br label %parts_float_to_float_widen.exit
 
 sw.bb1.i.i:                                       ; preds = %float32_unpack_canonical.exit
-  %default_nan_mode2.i.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode2.i.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %6 = load i8, ptr %default_nan_mode2.i.i, align 1
   %tobool3.i.i = trunc i8 %6 to i1
   br i1 %tobool3.i.i, label %if.then4.i.i, label %parts_float_to_float_widen.exit
@@ -14833,7 +14833,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp.i.i.i, label %float64_unpack_canonical.exit.thread, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %1 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %1 to i1
   br i1 %tobool9.i.i, label %if.then10.i.i, label %frac64_normalize.exit.i.i
@@ -14866,13 +14866,13 @@ float64_unpack_canonical.exit.thread:             ; preds = %if.then33.i.i, %if.
   %p64.sroa.14.0.ph = phi i64 [ 0, %lor.lhs.false.i.i ], [ 0, %if.then.i.i ], [ %shl.i.i.i, %frac64_normalize.exit.i.i ], [ 0, %if.then10.i.i ], [ %or.i.i, %if.then33.i.i ]
   %p64.sroa.0.0.ph = phi i8 [ 3, %lor.lhs.false.i.i ], [ 1, %if.then.i.i ], [ 2, %frac64_normalize.exit.i.i ], [ 1, %if.then10.i.i ], [ 2, %if.then33.i.i ]
   store i8 %p64.sroa.0.0.ph, ptr %p128, align 8
-  %sign2.i9 = getelementptr inbounds i8, ptr %p128, i64 1
+  %sign2.i9 = getelementptr inbounds nuw i8, ptr %p128, i64 1
   store i8 %frombool.i.i.i, ptr %sign2.i9, align 1
-  %exp3.i10 = getelementptr inbounds i8, ptr %p128, i64 4
+  %exp3.i10 = getelementptr inbounds nuw i8, ptr %p128, i64 4
   store i32 %p64.sroa.10.0.ph, ptr %exp3.i10, align 4
-  %frac_hi.i.i11 = getelementptr inbounds i8, ptr %p128, i64 8
+  %frac_hi.i.i11 = getelementptr inbounds nuw i8, ptr %p128, i64 8
   store i64 %p64.sroa.14.0.ph, ptr %frac_hi.i.i11, align 8
-  %frac_lo.i.i12 = getelementptr inbounds i8, ptr %p128, i64 16
+  %frac_lo.i.i12 = getelementptr inbounds nuw i8, ptr %p128, i64 16
   store i64 0, ptr %frac_lo.i.i12, align 8
   br label %parts_float_to_float_widen.exit
 
@@ -14881,13 +14881,13 @@ float64_unpack_canonical.exit:                    ; preds = %lor.lhs.false.i.i
   %tobool.not.i32.i.i = icmp samesign ult i64 %and.i10.i.i, 2251799813685248
   %conv53.i.i = select i1 %tobool.not.i32.i.i, i8 5, i8 4
   store i8 %conv53.i.i, ptr %p128, align 8
-  %sign2.i = getelementptr inbounds i8, ptr %p128, i64 1
+  %sign2.i = getelementptr inbounds nuw i8, ptr %p128, i64 1
   store i8 %frombool.i.i.i, ptr %sign2.i, align 1
-  %exp3.i = getelementptr inbounds i8, ptr %p128, i64 4
+  %exp3.i = getelementptr inbounds nuw i8, ptr %p128, i64 4
   store i32 2047, ptr %exp3.i, align 4
-  %frac_hi.i.i = getelementptr inbounds i8, ptr %p128, i64 8
+  %frac_hi.i.i = getelementptr inbounds nuw i8, ptr %p128, i64 8
   store i64 %shl.i31.i.i, ptr %frac_hi.i.i, align 8
-  %frac_lo.i.i = getelementptr inbounds i8, ptr %p128, i64 16
+  %frac_lo.i.i = getelementptr inbounds nuw i8, ptr %p128, i64 16
   store i64 0, ptr %frac_lo.i.i, align 8
   br i1 %tobool.not.i32.i.i, label %sw.bb.i.i, label %sw.bb1.i.i
 
@@ -14895,7 +14895,7 @@ sw.bb.i.i:                                        ; preds = %float64_unpack_cano
   %4 = load i16, ptr %s, align 2
   %or1.i.i.i3 = or i16 %4, 8193
   store i16 %or1.i.i.i3, ptr %s, align 2
-  %default_nan_mode.i.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode.i.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %5 = load i8, ptr %default_nan_mode.i.i, align 1
   %tobool.i.i = trunc i8 %5 to i1
   br i1 %tobool.i.i, label %if.then.i.i5, label %if.else.i.i4
@@ -14914,7 +14914,7 @@ if.else.i.i4:                                     ; preds = %sw.bb.i.i
   br label %parts_float_to_float_widen.exit
 
 sw.bb1.i.i:                                       ; preds = %float64_unpack_canonical.exit
-  %default_nan_mode2.i.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode2.i.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %6 = load i8, ptr %default_nan_mode2.i.i, align 1
   %tobool3.i.i = trunc i8 %6 to i1
   br i1 %tobool3.i.i, label %if.then4.i.i, label %parts_float_to_float_widen.exit
@@ -14936,7 +14936,7 @@ define dso_local i32 @floatx80_to_float32(i64 %a.coerce0, i16 %a.coerce1, ptr no
 entry:
   %p64 = alloca %struct.FloatParts64, align 8
   %p128 = alloca %struct.FloatParts128, align 8
-  %floatx80_rounding_precision.i = getelementptr inbounds i8, ptr %s, i64 3
+  %floatx80_rounding_precision.i = getelementptr inbounds nuw i8, ptr %s, i64 3
   %0 = load i8, ptr %floatx80_rounding_precision.i, align 1
   %switch.i = icmp ult i8 %0, 3
   br i1 %switch.i, label %sw.epilog.i, label %do.body.i
@@ -14957,13 +14957,13 @@ if.end.i:                                         ; preds = %sw.epilog.i
   %frombool.i.i = trunc nuw nsw i16 %f.coerce1.lobit.i.i to i8
   %and.i.i.i = zext nneg i16 %1 to i32
   store i8 0, ptr %p128, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p128, i64 1
+  %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p128, i64 1
   store i8 %frombool.i.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.sroa.32.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p128, i64 4
+  %.compoundliteral.sroa.32.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p128, i64 4
   store i32 %and.i.i.i, ptr %.compoundliteral.sroa.32.0..sroa_idx.i.i, align 4
-  %.compoundliteral.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p128, i64 8
+  %.compoundliteral.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p128, i64 8
   store i64 %a.coerce0, ptr %.compoundliteral.sroa.4.0..sroa_idx.i.i, align 8
-  %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p128, i64 16
+  %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p128, i64 16
   store i64 0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i.i, align 8
   %cmp.not.i = icmp eq i16 %1, 32767
   br i1 %cmp.not.i, label %if.then.thread, label %if.then
@@ -14977,9 +14977,9 @@ if.then.thread:                                   ; preds = %if.end.i
   %3 = select i1 %tobool.not.i.i, i8 5, i8 4
   %cond17.i = select i1 %cmp12.i, i8 3, i8 %3
   store i8 %cond17.i, ptr %p64, align 8
-  %sign2.i8 = getelementptr inbounds i8, ptr %p64, i64 1
+  %sign2.i8 = getelementptr inbounds nuw i8, ptr %p64, i64 1
   store i8 %frombool.i.i, ptr %sign2.i8, align 1
-  %exp3.i10 = getelementptr inbounds i8, ptr %p64, i64 4
+  %exp3.i10 = getelementptr inbounds nuw i8, ptr %p64, i64 4
   store i32 %and.i.i.i, ptr %exp3.i10, align 4
   br label %if.else.i4
 
@@ -14989,10 +14989,10 @@ if.then:                                          ; preds = %if.end.i
   %.pre = load i8, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 1
   %.pre7 = load i32, ptr %.compoundliteral.sroa.32.0..sroa_idx.i.i, align 4
   store i8 %.pr, ptr %p64, align 8
-  %sign2.i = getelementptr inbounds i8, ptr %p64, i64 1
+  %sign2.i = getelementptr inbounds nuw i8, ptr %p64, i64 1
   %frombool.i = and i8 %.pre, 1
   store i8 %frombool.i, ptr %sign2.i, align 1
-  %exp3.i = getelementptr inbounds i8, ptr %p64, i64 4
+  %exp3.i = getelementptr inbounds nuw i8, ptr %p64, i64 4
   store i32 %.pre7, ptr %exp3.i, align 4
   %cmp.i = icmp eq i8 %.pr, 2
   br i1 %cmp.i, label %if.then.i5, label %if.else.i4
@@ -15003,7 +15003,7 @@ if.then.i5:                                       ; preds = %if.then
   %cmp.i.i6 = icmp ne i64 %b.val12.i, 0
   %conv1.i.i = zext i1 %cmp.i.i6 to i64
   %or.i.i = or i64 %b.val.i, %conv1.i.i
-  %4 = getelementptr inbounds i8, ptr %p64, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %p64, i64 8
   store i64 %or.i.i, ptr %4, align 8
   br label %if.end
 
@@ -15016,7 +15016,7 @@ if.else.i4:                                       ; preds = %if.then.thread, %if
 
 if.then7.i:                                       ; preds = %if.else.i4
   %6 = load i64, ptr %.compoundliteral.sroa.4.0..sroa_idx.i.i, align 8
-  %7 = getelementptr inbounds i8, ptr %p64, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %p64, i64 8
   store i64 %6, ptr %7, align 8
   switch i8 %5, label %do.body.i.i [
     i8 5, label %sw.bb.i.i
@@ -15027,7 +15027,7 @@ sw.bb.i.i:                                        ; preds = %if.then7.i
   %8 = load i16, ptr %s, align 2
   %or1.i.i.i = or i16 %8, 8193
   store i16 %or1.i.i.i, ptr %s, align 2
-  %default_nan_mode.i.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode.i.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %9 = load i8, ptr %default_nan_mode.i.i, align 1
   %tobool.i.i = trunc i8 %9 to i1
   br i1 %tobool.i.i, label %if.then.i.i, label %if.else.i.i
@@ -15046,7 +15046,7 @@ if.else.i.i:                                      ; preds = %sw.bb.i.i
   br label %if.end
 
 sw.bb1.i.i:                                       ; preds = %if.then7.i
-  %default_nan_mode2.i.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode2.i.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %10 = load i8, ptr %default_nan_mode2.i.i, align 1
   %tobool3.i.i = trunc i8 %10 to i1
   br i1 %tobool3.i.i, label %if.then4.i.i, label %if.end
@@ -15067,27 +15067,27 @@ if.else:                                          ; preds = %sw.epilog.i
   %or1.i.i = or i16 %11, 1
   store i16 %or1.i.i, ptr %s, align 2
   store i8 4, ptr %p64, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %p64, i64 1
+  %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %p64, i64 1
   store i8 0, ptr %.compoundliteral.sroa.2.0..sroa_idx.i, align 1
-  %.compoundliteral.sroa.31.0..sroa_idx.i = getelementptr inbounds i8, ptr %p64, i64 4
+  %.compoundliteral.sroa.31.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %p64, i64 4
   store i32 2147483647, ptr %.compoundliteral.sroa.31.0..sroa_idx.i, align 4
-  %.compoundliteral.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %p64, i64 8
+  %.compoundliteral.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %p64, i64 8
   store i64 4611686018427387904, ptr %.compoundliteral.sroa.4.0..sroa_idx.i, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then4.i.i, %sw.bb1.i.i, %if.else.i.i, %if.then.i.i, %if.else.i4, %if.then.i5, %if.else
   call fastcc void @parts64_uncanon(ptr noundef nonnull %p64, ptr noundef nonnull %s, ptr noundef nonnull @float32_params)
-  %sign.i.i.i = getelementptr inbounds i8, ptr %p64, i64 1
+  %sign.i.i.i = getelementptr inbounds nuw i8, ptr %p64, i64 1
   %12 = load i8, ptr %sign.i.i.i, align 1
   %conv.i.i.i = zext i8 %12 to i64
   %shl.i.i.i = shl nuw nsw i64 %conv.i.i.i, 31
-  %exp.i.i.i = getelementptr inbounds i8, ptr %p64, i64 4
+  %exp.i.i.i = getelementptr inbounds nuw i8, ptr %p64, i64 4
   %13 = load i32, ptr %exp.i.i.i, align 4
   %14 = shl i32 %13, 23
   %15 = and i32 %14, 2139095040
   %and8.i.i.i = zext nneg i32 %15 to i64
   %or.i.i.i = or disjoint i64 %shl.i.i.i, %and8.i.i.i
-  %16 = getelementptr inbounds i8, ptr %p64, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %p64, i64 8
   %17 = load i64, ptr %16, align 8
   %shl77.i9.i.i = and i64 %17, 8388607
   %or.i11.i.i = or disjoint i64 %or.i.i.i, %shl77.i9.i.i
@@ -15100,7 +15100,7 @@ define dso_local i64 @floatx80_to_float64(i64 %a.coerce0, i16 %a.coerce1, ptr no
 entry:
   %p64 = alloca %struct.FloatParts64, align 8
   %p128 = alloca %struct.FloatParts128, align 8
-  %floatx80_rounding_precision.i = getelementptr inbounds i8, ptr %s, i64 3
+  %floatx80_rounding_precision.i = getelementptr inbounds nuw i8, ptr %s, i64 3
   %0 = load i8, ptr %floatx80_rounding_precision.i, align 1
   %switch.i = icmp ult i8 %0, 3
   br i1 %switch.i, label %sw.epilog.i, label %do.body.i
@@ -15121,13 +15121,13 @@ if.end.i:                                         ; preds = %sw.epilog.i
   %frombool.i.i = trunc nuw nsw i16 %f.coerce1.lobit.i.i to i8
   %and.i.i.i = zext nneg i16 %1 to i32
   store i8 0, ptr %p128, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p128, i64 1
+  %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p128, i64 1
   store i8 %frombool.i.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.sroa.32.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p128, i64 4
+  %.compoundliteral.sroa.32.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p128, i64 4
   store i32 %and.i.i.i, ptr %.compoundliteral.sroa.32.0..sroa_idx.i.i, align 4
-  %.compoundliteral.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p128, i64 8
+  %.compoundliteral.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p128, i64 8
   store i64 %a.coerce0, ptr %.compoundliteral.sroa.4.0..sroa_idx.i.i, align 8
-  %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p128, i64 16
+  %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p128, i64 16
   store i64 0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i.i, align 8
   %cmp.not.i = icmp eq i16 %1, 32767
   br i1 %cmp.not.i, label %if.then.thread, label %if.then
@@ -15141,9 +15141,9 @@ if.then.thread:                                   ; preds = %if.end.i
   %3 = select i1 %tobool.not.i.i, i8 5, i8 4
   %cond17.i = select i1 %cmp12.i, i8 3, i8 %3
   store i8 %cond17.i, ptr %p64, align 8
-  %sign2.i8 = getelementptr inbounds i8, ptr %p64, i64 1
+  %sign2.i8 = getelementptr inbounds nuw i8, ptr %p64, i64 1
   store i8 %frombool.i.i, ptr %sign2.i8, align 1
-  %exp3.i10 = getelementptr inbounds i8, ptr %p64, i64 4
+  %exp3.i10 = getelementptr inbounds nuw i8, ptr %p64, i64 4
   store i32 %and.i.i.i, ptr %exp3.i10, align 4
   br label %if.else.i4
 
@@ -15153,10 +15153,10 @@ if.then:                                          ; preds = %if.end.i
   %.pre = load i8, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 1
   %.pre7 = load i32, ptr %.compoundliteral.sroa.32.0..sroa_idx.i.i, align 4
   store i8 %.pr, ptr %p64, align 8
-  %sign2.i = getelementptr inbounds i8, ptr %p64, i64 1
+  %sign2.i = getelementptr inbounds nuw i8, ptr %p64, i64 1
   %frombool.i = and i8 %.pre, 1
   store i8 %frombool.i, ptr %sign2.i, align 1
-  %exp3.i = getelementptr inbounds i8, ptr %p64, i64 4
+  %exp3.i = getelementptr inbounds nuw i8, ptr %p64, i64 4
   store i32 %.pre7, ptr %exp3.i, align 4
   %cmp.i = icmp eq i8 %.pr, 2
   br i1 %cmp.i, label %if.then.i5, label %if.else.i4
@@ -15167,7 +15167,7 @@ if.then.i5:                                       ; preds = %if.then
   %cmp.i.i6 = icmp ne i64 %b.val12.i, 0
   %conv1.i.i = zext i1 %cmp.i.i6 to i64
   %or.i.i = or i64 %b.val.i, %conv1.i.i
-  %4 = getelementptr inbounds i8, ptr %p64, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %p64, i64 8
   store i64 %or.i.i, ptr %4, align 8
   br label %if.end
 
@@ -15180,7 +15180,7 @@ if.else.i4:                                       ; preds = %if.then.thread, %if
 
 if.then7.i:                                       ; preds = %if.else.i4
   %6 = load i64, ptr %.compoundliteral.sroa.4.0..sroa_idx.i.i, align 8
-  %7 = getelementptr inbounds i8, ptr %p64, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %p64, i64 8
   store i64 %6, ptr %7, align 8
   switch i8 %5, label %do.body.i.i [
     i8 5, label %sw.bb.i.i
@@ -15191,7 +15191,7 @@ sw.bb.i.i:                                        ; preds = %if.then7.i
   %8 = load i16, ptr %s, align 2
   %or1.i.i.i = or i16 %8, 8193
   store i16 %or1.i.i.i, ptr %s, align 2
-  %default_nan_mode.i.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode.i.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %9 = load i8, ptr %default_nan_mode.i.i, align 1
   %tobool.i.i = trunc i8 %9 to i1
   br i1 %tobool.i.i, label %if.then.i.i, label %if.else.i.i
@@ -15210,7 +15210,7 @@ if.else.i.i:                                      ; preds = %sw.bb.i.i
   br label %if.end
 
 sw.bb1.i.i:                                       ; preds = %if.then7.i
-  %default_nan_mode2.i.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode2.i.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %10 = load i8, ptr %default_nan_mode2.i.i, align 1
   %tobool3.i.i = trunc i8 %10 to i1
   br i1 %tobool3.i.i, label %if.then4.i.i, label %if.end
@@ -15231,28 +15231,28 @@ if.else:                                          ; preds = %sw.epilog.i
   %or1.i.i = or i16 %11, 1
   store i16 %or1.i.i, ptr %s, align 2
   store i8 4, ptr %p64, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %p64, i64 1
+  %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %p64, i64 1
   store i8 0, ptr %.compoundliteral.sroa.2.0..sroa_idx.i, align 1
-  %.compoundliteral.sroa.31.0..sroa_idx.i = getelementptr inbounds i8, ptr %p64, i64 4
+  %.compoundliteral.sroa.31.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %p64, i64 4
   store i32 2147483647, ptr %.compoundliteral.sroa.31.0..sroa_idx.i, align 4
-  %.compoundliteral.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %p64, i64 8
+  %.compoundliteral.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %p64, i64 8
   store i64 4611686018427387904, ptr %.compoundliteral.sroa.4.0..sroa_idx.i, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then4.i.i, %sw.bb1.i.i, %if.else.i.i, %if.then.i.i, %if.else.i4, %if.then.i5, %if.else
   call fastcc void @parts64_uncanon(ptr noundef nonnull %p64, ptr noundef nonnull %s, ptr noundef nonnull @float64_params)
-  %sign.i.i.i = getelementptr inbounds i8, ptr %p64, i64 1
+  %sign.i.i.i = getelementptr inbounds nuw i8, ptr %p64, i64 1
   %12 = load i8, ptr %sign.i.i.i, align 1
   %13 = and i8 %12, 1
   %conv.i.i.i = zext nneg i8 %13 to i64
   %shl.i.i.i = shl nuw i64 %conv.i.i.i, 63
-  %exp.i.i.i = getelementptr inbounds i8, ptr %p64, i64 4
+  %exp.i.i.i = getelementptr inbounds nuw i8, ptr %p64, i64 4
   %14 = load i32, ptr %exp.i.i.i, align 4
   %15 = and i32 %14, 2047
   %shl77.i.i.i = zext nneg i32 %15 to i64
   %and8.i.i.i = shl nuw nsw i64 %shl77.i.i.i, 52
   %or.i.i.i = or disjoint i64 %and8.i.i.i, %shl.i.i.i
-  %16 = getelementptr inbounds i8, ptr %p64, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %p64, i64 8
   %17 = load i64, ptr %16, align 8
   %shl77.i9.i.i = and i64 %17, 4503599627370495
   %or.i11.i.i = or disjoint i64 %or.i.i.i, %shl77.i9.i.i
@@ -15263,7 +15263,7 @@ if.end:                                           ; preds = %if.then4.i.i, %sw.b
 define dso_local { i64, i64 } @floatx80_to_float128(i64 %a.coerce0, i16 %a.coerce1, ptr nocapture noundef %s) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts128, align 8
-  %floatx80_rounding_precision.i = getelementptr inbounds i8, ptr %s, i64 3
+  %floatx80_rounding_precision.i = getelementptr inbounds nuw i8, ptr %s, i64 3
   %0 = load i8, ptr %floatx80_rounding_precision.i, align 1
   %switch.i = icmp ult i8 %0, 3
   br i1 %switch.i, label %sw.epilog.i, label %do.body.i
@@ -15277,10 +15277,10 @@ sw.epilog.i:                                      ; preds = %entry
   %1 = and i16 %a.coerce1, 32767
   %cmp2.i.i = icmp eq i16 %1, 0
   %.not.i = select i1 %cmp.i.i, i1 true, i1 %cmp2.i.i
-  %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 1
-  %.compoundliteral.sroa.32.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 4
-  %.compoundliteral.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 8
-  %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 16
+  %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
+  %.compoundliteral.sroa.32.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
+  %.compoundliteral.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
+  %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 16
   br i1 %.not.i, label %if.end.i, label %if.else
 
 if.end.i:                                         ; preds = %sw.epilog.i
@@ -15326,7 +15326,7 @@ sw.bb.i.i:                                        ; preds = %if.then.i6
   %5 = load i16, ptr %s, align 2
   %or1.i.i.i = or i16 %5, 8193
   store i16 %or1.i.i.i, ptr %s, align 2
-  %default_nan_mode.i.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode.i.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %6 = load i8, ptr %default_nan_mode.i.i, align 1
   %tobool.i.i = trunc i8 %6 to i1
   br i1 %tobool.i.i, label %if.then.i.i, label %if.else.i.i
@@ -15347,7 +15347,7 @@ if.else.i.i:                                      ; preds = %sw.bb.i.i
   br label %if.end
 
 sw.bb1.i.i:                                       ; preds = %if.then.i6
-  %default_nan_mode2.i.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode2.i.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %8 = load i8, ptr %default_nan_mode2.i.i, align 1
   %tobool3.i.i = trunc i8 %8 to i1
   br i1 %tobool3.i.i, label %if.then4.i.i, label %if.end
@@ -15401,7 +15401,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp.i.i.i, label %float32_unpack_canonical.exit.thread, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %1 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %1 to i1
   br i1 %tobool9.i.i, label %if.then10.i.i, label %frac64_normalize.exit.i.i
@@ -15434,13 +15434,13 @@ float32_unpack_canonical.exit.thread:             ; preds = %if.then33.i.i, %if.
   %p64.sroa.14.0.ph = phi i64 [ 0, %lor.lhs.false.i.i ], [ 0, %if.then.i.i ], [ %shl.i.i.i, %frac64_normalize.exit.i.i ], [ 0, %if.then10.i.i ], [ %or.i.i, %if.then33.i.i ]
   %p64.sroa.0.0.ph = phi i8 [ 3, %lor.lhs.false.i.i ], [ 1, %if.then.i.i ], [ 2, %frac64_normalize.exit.i.i ], [ 1, %if.then10.i.i ], [ 2, %if.then33.i.i ]
   store i8 %p64.sroa.0.0.ph, ptr %p128, align 8
-  %sign2.i9 = getelementptr inbounds i8, ptr %p128, i64 1
+  %sign2.i9 = getelementptr inbounds nuw i8, ptr %p128, i64 1
   store i8 %frombool.i.i.i, ptr %sign2.i9, align 1
-  %exp3.i10 = getelementptr inbounds i8, ptr %p128, i64 4
+  %exp3.i10 = getelementptr inbounds nuw i8, ptr %p128, i64 4
   store i32 %p64.sroa.10.0.ph, ptr %exp3.i10, align 4
-  %frac_hi.i.i11 = getelementptr inbounds i8, ptr %p128, i64 8
+  %frac_hi.i.i11 = getelementptr inbounds nuw i8, ptr %p128, i64 8
   store i64 %p64.sroa.14.0.ph, ptr %frac_hi.i.i11, align 8
-  %frac_lo.i.i12 = getelementptr inbounds i8, ptr %p128, i64 16
+  %frac_lo.i.i12 = getelementptr inbounds nuw i8, ptr %p128, i64 16
   store i64 0, ptr %frac_lo.i.i12, align 8
   br label %parts_float_to_float_widen.exit
 
@@ -15449,13 +15449,13 @@ float32_unpack_canonical.exit:                    ; preds = %lor.lhs.false.i.i
   %tobool.not.i32.i.i = icmp samesign ult i32 %0, 4194304
   %conv53.i.i = select i1 %tobool.not.i32.i.i, i8 5, i8 4
   store i8 %conv53.i.i, ptr %p128, align 8
-  %sign2.i = getelementptr inbounds i8, ptr %p128, i64 1
+  %sign2.i = getelementptr inbounds nuw i8, ptr %p128, i64 1
   store i8 %frombool.i.i.i, ptr %sign2.i, align 1
-  %exp3.i = getelementptr inbounds i8, ptr %p128, i64 4
+  %exp3.i = getelementptr inbounds nuw i8, ptr %p128, i64 4
   store i32 %and.i9.i.i, ptr %exp3.i, align 4
-  %frac_hi.i.i = getelementptr inbounds i8, ptr %p128, i64 8
+  %frac_hi.i.i = getelementptr inbounds nuw i8, ptr %p128, i64 8
   store i64 %shl.i31.i.i, ptr %frac_hi.i.i, align 8
-  %frac_lo.i.i = getelementptr inbounds i8, ptr %p128, i64 16
+  %frac_lo.i.i = getelementptr inbounds nuw i8, ptr %p128, i64 16
   store i64 0, ptr %frac_lo.i.i, align 8
   br i1 %tobool.not.i32.i.i, label %sw.bb.i.i, label %sw.bb1.i.i
 
@@ -15463,7 +15463,7 @@ sw.bb.i.i:                                        ; preds = %float32_unpack_cano
   %4 = load i16, ptr %s, align 2
   %or1.i.i.i3 = or i16 %4, 8193
   store i16 %or1.i.i.i3, ptr %s, align 2
-  %default_nan_mode.i.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode.i.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %5 = load i8, ptr %default_nan_mode.i.i, align 1
   %tobool.i.i = trunc i8 %5 to i1
   br i1 %tobool.i.i, label %if.then.i.i5, label %if.else.i.i4
@@ -15482,7 +15482,7 @@ if.else.i.i4:                                     ; preds = %sw.bb.i.i
   br label %parts_float_to_float_widen.exit
 
 sw.bb1.i.i:                                       ; preds = %float32_unpack_canonical.exit
-  %default_nan_mode2.i.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode2.i.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %6 = load i8, ptr %default_nan_mode2.i.i, align 1
   %tobool3.i.i = trunc i8 %6 to i1
   br i1 %tobool3.i.i, label %if.then4.i.i, label %parts_float_to_float_widen.exit
@@ -15519,7 +15519,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp.i.i.i, label %float64_unpack_canonical.exit.thread, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %1 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %1 to i1
   br i1 %tobool9.i.i, label %if.then10.i.i, label %frac64_normalize.exit.i.i
@@ -15552,13 +15552,13 @@ float64_unpack_canonical.exit.thread:             ; preds = %if.then33.i.i, %if.
   %p64.sroa.14.0.ph = phi i64 [ 0, %lor.lhs.false.i.i ], [ 0, %if.then.i.i ], [ %shl.i.i.i, %frac64_normalize.exit.i.i ], [ 0, %if.then10.i.i ], [ %or.i.i, %if.then33.i.i ]
   %p64.sroa.0.0.ph = phi i8 [ 3, %lor.lhs.false.i.i ], [ 1, %if.then.i.i ], [ 2, %frac64_normalize.exit.i.i ], [ 1, %if.then10.i.i ], [ 2, %if.then33.i.i ]
   store i8 %p64.sroa.0.0.ph, ptr %p128, align 8
-  %sign2.i9 = getelementptr inbounds i8, ptr %p128, i64 1
+  %sign2.i9 = getelementptr inbounds nuw i8, ptr %p128, i64 1
   store i8 %frombool.i.i.i, ptr %sign2.i9, align 1
-  %exp3.i10 = getelementptr inbounds i8, ptr %p128, i64 4
+  %exp3.i10 = getelementptr inbounds nuw i8, ptr %p128, i64 4
   store i32 %p64.sroa.10.0.ph, ptr %exp3.i10, align 4
-  %frac_hi.i.i11 = getelementptr inbounds i8, ptr %p128, i64 8
+  %frac_hi.i.i11 = getelementptr inbounds nuw i8, ptr %p128, i64 8
   store i64 %p64.sroa.14.0.ph, ptr %frac_hi.i.i11, align 8
-  %frac_lo.i.i12 = getelementptr inbounds i8, ptr %p128, i64 16
+  %frac_lo.i.i12 = getelementptr inbounds nuw i8, ptr %p128, i64 16
   store i64 0, ptr %frac_lo.i.i12, align 8
   br label %parts_float_to_float_widen.exit
 
@@ -15567,13 +15567,13 @@ float64_unpack_canonical.exit:                    ; preds = %lor.lhs.false.i.i
   %tobool.not.i32.i.i = icmp samesign ult i64 %and.i10.i.i, 2251799813685248
   %conv53.i.i = select i1 %tobool.not.i32.i.i, i8 5, i8 4
   store i8 %conv53.i.i, ptr %p128, align 8
-  %sign2.i = getelementptr inbounds i8, ptr %p128, i64 1
+  %sign2.i = getelementptr inbounds nuw i8, ptr %p128, i64 1
   store i8 %frombool.i.i.i, ptr %sign2.i, align 1
-  %exp3.i = getelementptr inbounds i8, ptr %p128, i64 4
+  %exp3.i = getelementptr inbounds nuw i8, ptr %p128, i64 4
   store i32 2047, ptr %exp3.i, align 4
-  %frac_hi.i.i = getelementptr inbounds i8, ptr %p128, i64 8
+  %frac_hi.i.i = getelementptr inbounds nuw i8, ptr %p128, i64 8
   store i64 %shl.i31.i.i, ptr %frac_hi.i.i, align 8
-  %frac_lo.i.i = getelementptr inbounds i8, ptr %p128, i64 16
+  %frac_lo.i.i = getelementptr inbounds nuw i8, ptr %p128, i64 16
   store i64 0, ptr %frac_lo.i.i, align 8
   br i1 %tobool.not.i32.i.i, label %sw.bb.i.i, label %sw.bb1.i.i
 
@@ -15581,7 +15581,7 @@ sw.bb.i.i:                                        ; preds = %float64_unpack_cano
   %4 = load i16, ptr %s, align 2
   %or1.i.i.i3 = or i16 %4, 8193
   store i16 %or1.i.i.i3, ptr %s, align 2
-  %default_nan_mode.i.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode.i.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %5 = load i8, ptr %default_nan_mode.i.i, align 1
   %tobool.i.i = trunc i8 %5 to i1
   br i1 %tobool.i.i, label %if.then.i.i5, label %if.else.i.i4
@@ -15600,7 +15600,7 @@ if.else.i.i4:                                     ; preds = %sw.bb.i.i
   br label %parts_float_to_float_widen.exit
 
 sw.bb1.i.i:                                       ; preds = %float64_unpack_canonical.exit
-  %default_nan_mode2.i.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode2.i.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %6 = load i8, ptr %default_nan_mode2.i.i, align 1
   %tobool3.i.i = trunc i8 %6 to i1
   br i1 %tobool3.i.i, label %if.then4.i.i, label %parts_float_to_float_widen.exit
@@ -15628,13 +15628,13 @@ entry:
   %frombool.i.i = trunc nuw nsw i64 %f.coerce1.lobit.i.i to i8
   %and.i.i.i = and i64 %a.coerce1, 281474976710655
   store i8 0, ptr %p, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.sroa.33.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 4
+  %.compoundliteral.sroa.33.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 %conv.i.i, ptr %.compoundliteral.sroa.33.0..sroa_idx.i.i, align 4
-  %.compoundliteral.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i64 %and.i.i.i, ptr %.compoundliteral.sroa.4.0..sroa_idx.i.i, align 8
-  %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 16
+  %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 16
   store i64 %a.coerce0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i.i, align 8
   call fastcc void @parts128_canonicalize(ptr noundef nonnull %p, ptr noundef %s, ptr noundef nonnull @float128_params)
   %1 = load i8, ptr %p, align 8
@@ -15651,7 +15651,7 @@ sw.bb.i.i:                                        ; preds = %if.then.i
   %2 = load i16, ptr %s, align 2
   %or1.i.i.i = or i16 %2, 8193
   store i16 %or1.i.i.i, ptr %s, align 2
-  %default_nan_mode.i.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode.i.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %3 = load i8, ptr %default_nan_mode.i.i, align 1
   %tobool.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i, label %if.then.i.i, label %if.else.i.i
@@ -15672,7 +15672,7 @@ if.else.i.i:                                      ; preds = %sw.bb.i.i
   br label %parts128_float_to_float.exit
 
 sw.bb1.i.i:                                       ; preds = %if.then.i
-  %default_nan_mode2.i.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode2.i.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %5 = load i8, ptr %default_nan_mode2.i.i, align 1
   %tobool3.i.i = trunc i8 %5 to i1
   br i1 %tobool3.i.i, label %if.then4.i.i, label %parts128_float_to_float.exit
@@ -15705,11 +15705,11 @@ entry:
   %conv.i.i.i.i = zext nneg i16 %1 to i32
   %2 = and i16 %a, 1023
   %and.i11.i.i.i = zext nneg i16 %2 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %p, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 %conv.i.i.i.i, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i.i, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i64 %and.i11.i.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i.i, align 8
   switch i16 %1, label %float16_unpack_canonical.exit.thread [
     i16 0, label %if.then.i.i.i
@@ -15725,7 +15725,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   br label %parts64_round_to_int.exit
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  %flush_inputs_to_zero.i.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %3 = load i8, ptr %flush_inputs_to_zero.i.i.i, align 2
   %tobool9.i.i.i = trunc i8 %3 to i1
   br i1 %tobool9.i.i.i, label %if.then10.i.i.i, label %float16_unpack_canonical.exit.thread7
@@ -15777,7 +15777,7 @@ sw.bb.i.i:                                        ; preds = %float16_unpack_cano
   %6 = load i16, ptr %s, align 2
   %or1.i.i.i = or i16 %6, 8193
   store i16 %or1.i.i.i, ptr %s, align 2
-  %default_nan_mode.i.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode.i.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %7 = load i8, ptr %default_nan_mode.i.i, align 1
   %tobool.i.i = trunc i8 %7 to i1
   br i1 %tobool.i.i, label %if.then.i.i, label %if.else.i.i
@@ -15796,7 +15796,7 @@ if.else.i.i:                                      ; preds = %sw.bb.i.i
   br label %parts64_round_to_int.exit
 
 sw.bb1.i.i:                                       ; preds = %float16_unpack_canonical.exit
-  %default_nan_mode2.i.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode2.i.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %8 = load i8, ptr %default_nan_mode2.i.i, align 1
   %tobool3.i.i = trunc i8 %8 to i1
   br i1 %tobool3.i.i, label %if.then4.i.i, label %parts64_round_to_int.exit
@@ -15809,7 +15809,7 @@ if.then4.i.i:                                     ; preds = %sw.bb1.i.i
   br label %parts64_round_to_int.exit
 
 sw.bb2.i:                                         ; preds = %float16_unpack_canonical.exit.thread, %float16_unpack_canonical.exit.thread7
-  %.in = getelementptr inbounds i8, ptr %s, i64 2
+  %.in = getelementptr inbounds nuw i8, ptr %s, i64 2
   %9 = load i8, ptr %.in, align 2
   %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef nonnull %p, i8 noundef zeroext %9, i32 noundef 0, i32 noundef 10)
   br i1 %call.i, label %if.then.i, label %parts64_round_to_int.exit
@@ -15847,11 +15847,11 @@ entry:
   %and.i9.i.i = and i32 %shr.i8.i.i, 255
   %0 = and i32 %a, 8388607
   %and.i11.i.i = zext nneg i32 %0 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 %and.i9.i.i, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i64 %and.i11.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
   %trunc.i = trunc i32 %shr.i8.i.i to i8
   switch i8 %trunc.i, label %float32_unpack_canonical.exit.thread [
@@ -15868,7 +15868,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   br label %parts64_round_to_int.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %1 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %1 to i1
   br i1 %tobool9.i.i, label %if.then10.i.i, label %float32_unpack_canonical.exit.thread9
@@ -15920,7 +15920,7 @@ sw.bb.i.i:                                        ; preds = %float32_unpack_cano
   %4 = load i16, ptr %s, align 2
   %or1.i.i.i4 = or i16 %4, 8193
   store i16 %or1.i.i.i4, ptr %s, align 2
-  %default_nan_mode.i.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode.i.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %5 = load i8, ptr %default_nan_mode.i.i, align 1
   %tobool.i.i = trunc i8 %5 to i1
   br i1 %tobool.i.i, label %if.then.i.i6, label %if.else.i.i5
@@ -15939,7 +15939,7 @@ if.else.i.i5:                                     ; preds = %sw.bb.i.i
   br label %parts64_round_to_int.exit
 
 sw.bb1.i.i:                                       ; preds = %float32_unpack_canonical.exit
-  %default_nan_mode2.i.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode2.i.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %6 = load i8, ptr %default_nan_mode2.i.i, align 1
   %tobool3.i.i = trunc i8 %6 to i1
   br i1 %tobool3.i.i, label %if.then4.i.i, label %parts64_round_to_int.exit
@@ -15952,7 +15952,7 @@ if.then4.i.i:                                     ; preds = %sw.bb1.i.i
   br label %parts64_round_to_int.exit
 
 sw.bb2.i:                                         ; preds = %float32_unpack_canonical.exit.thread, %float32_unpack_canonical.exit.thread9
-  %.in = getelementptr inbounds i8, ptr %s, i64 2
+  %.in = getelementptr inbounds nuw i8, ptr %s, i64 2
   %7 = load i8, ptr %.in, align 2
   %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef nonnull %p, i8 noundef zeroext %7, i32 noundef 0, i32 noundef 23)
   br i1 %call.i, label %if.then.i, label %parts64_round_to_int.exit
@@ -15990,11 +15990,11 @@ entry:
   %0 = trunc nuw nsw i64 %shr.i8.i.i to i32
   %conv.i.i.i = and i32 %0, 2047
   %and.i10.i.i = and i64 %a, 4503599627370495
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 %conv.i.i.i, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i64 %and.i10.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
   switch i32 %conv.i.i.i, label %float64_unpack_canonical.exit.thread [
     i32 0, label %if.then.i.i
@@ -16010,7 +16010,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   br label %parts64_round_to_int.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %1 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %1 to i1
   br i1 %tobool9.i.i, label %if.then10.i.i, label %float64_unpack_canonical.exit.thread10
@@ -16062,7 +16062,7 @@ sw.bb.i.i:                                        ; preds = %float64_unpack_cano
   %4 = load i16, ptr %s, align 2
   %or1.i.i.i4 = or i16 %4, 8193
   store i16 %or1.i.i.i4, ptr %s, align 2
-  %default_nan_mode.i.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode.i.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %5 = load i8, ptr %default_nan_mode.i.i, align 1
   %tobool.i.i = trunc i8 %5 to i1
   br i1 %tobool.i.i, label %if.then.i.i6, label %if.else.i.i5
@@ -16081,7 +16081,7 @@ if.else.i.i5:                                     ; preds = %sw.bb.i.i
   br label %parts64_round_to_int.exit
 
 sw.bb1.i.i:                                       ; preds = %float64_unpack_canonical.exit
-  %default_nan_mode2.i.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode2.i.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %6 = load i8, ptr %default_nan_mode2.i.i, align 1
   %tobool3.i.i = trunc i8 %6 to i1
   br i1 %tobool3.i.i, label %if.then4.i.i, label %parts64_round_to_int.exit
@@ -16094,7 +16094,7 @@ if.then4.i.i:                                     ; preds = %sw.bb1.i.i
   br label %parts64_round_to_int.exit
 
 sw.bb2.i:                                         ; preds = %float64_unpack_canonical.exit.thread, %float64_unpack_canonical.exit.thread10
-  %.in = getelementptr inbounds i8, ptr %s, i64 2
+  %.in = getelementptr inbounds nuw i8, ptr %s, i64 2
   %7 = load i8, ptr %.in, align 2
   %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef nonnull %p, i8 noundef zeroext %7, i32 noundef 0, i32 noundef 52)
   br i1 %call.i, label %if.then.i, label %parts64_round_to_int.exit
@@ -16133,11 +16133,11 @@ entry:
   %conv.i.i.i = zext nneg i16 %1 to i32
   %2 = and i16 %a, 127
   %and.i11.i.i = zext nneg i16 %2 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 %conv.i.i.i, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i64 %and.i11.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
   %trunc.i = trunc i16 %0 to i8
   switch i8 %trunc.i, label %bfloat16_unpack_canonical.exit.thread [
@@ -16154,7 +16154,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   br label %parts64_round_to_int.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %3 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %3 to i1
   br i1 %tobool9.i.i, label %if.then10.i.i, label %bfloat16_unpack_canonical.exit.thread10
@@ -16206,7 +16206,7 @@ sw.bb.i.i:                                        ; preds = %bfloat16_unpack_can
   %6 = load i16, ptr %s, align 2
   %or1.i.i.i4 = or i16 %6, 8193
   store i16 %or1.i.i.i4, ptr %s, align 2
-  %default_nan_mode.i.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode.i.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %7 = load i8, ptr %default_nan_mode.i.i, align 1
   %tobool.i.i = trunc i8 %7 to i1
   br i1 %tobool.i.i, label %if.then.i.i6, label %if.else.i.i5
@@ -16225,7 +16225,7 @@ if.else.i.i5:                                     ; preds = %sw.bb.i.i
   br label %parts64_round_to_int.exit
 
 sw.bb1.i.i:                                       ; preds = %bfloat16_unpack_canonical.exit
-  %default_nan_mode2.i.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode2.i.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %8 = load i8, ptr %default_nan_mode2.i.i, align 1
   %tobool3.i.i = trunc i8 %8 to i1
   br i1 %tobool3.i.i, label %if.then4.i.i, label %parts64_round_to_int.exit
@@ -16238,7 +16238,7 @@ if.then4.i.i:                                     ; preds = %sw.bb1.i.i
   br label %parts64_round_to_int.exit
 
 sw.bb2.i:                                         ; preds = %bfloat16_unpack_canonical.exit.thread, %bfloat16_unpack_canonical.exit.thread10
-  %.in = getelementptr inbounds i8, ptr %s, i64 2
+  %.in = getelementptr inbounds nuw i8, ptr %s, i64 2
   %9 = load i8, ptr %.in, align 2
   %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef nonnull %p, i8 noundef zeroext %9, i32 noundef 0, i32 noundef 7)
   br i1 %call.i, label %if.then.i, label %parts64_round_to_int.exit
@@ -16277,13 +16277,13 @@ entry:
   %frombool.i.i = trunc nuw nsw i64 %f.coerce1.lobit.i.i to i8
   %and.i.i.i = and i64 %a.coerce1, 281474976710655
   store i8 0, ptr %p, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.sroa.33.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 4
+  %.compoundliteral.sroa.33.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 %conv.i.i, ptr %.compoundliteral.sroa.33.0..sroa_idx.i.i, align 4
-  %.compoundliteral.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i64 %and.i.i.i, ptr %.compoundliteral.sroa.4.0..sroa_idx.i.i, align 8
-  %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 16
+  %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 16
   store i64 %a.coerce0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i.i, align 8
   call fastcc void @parts128_canonicalize(ptr noundef nonnull %p, ptr noundef %s, ptr noundef nonnull @float128_params)
   %1 = load i8, ptr %p, align 8
@@ -16299,7 +16299,7 @@ sw.bb.i.i:                                        ; preds = %entry
   %2 = load i16, ptr %s, align 2
   %or1.i.i.i = or i16 %2, 8193
   store i16 %or1.i.i.i, ptr %s, align 2
-  %default_nan_mode.i.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode.i.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %3 = load i8, ptr %default_nan_mode.i.i, align 1
   %tobool.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i, label %if.then.i.i, label %if.else.i.i
@@ -16320,7 +16320,7 @@ if.else.i.i:                                      ; preds = %sw.bb.i.i
   br label %parts128_round_to_int.exit
 
 sw.bb1.i.i:                                       ; preds = %entry
-  %default_nan_mode2.i.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode2.i.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %5 = load i8, ptr %default_nan_mode2.i.i, align 1
   %tobool3.i.i = trunc i8 %5 to i1
   br i1 %tobool3.i.i, label %if.then4.i.i, label %parts128_round_to_int.exit
@@ -16334,7 +16334,7 @@ if.then4.i.i:                                     ; preds = %sw.bb1.i.i
   br label %parts128_round_to_int.exit
 
 sw.bb2.i:                                         ; preds = %entry
-  %float_rounding_mode = getelementptr inbounds i8, ptr %s, i64 2
+  %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %6 = load i8, ptr %float_rounding_mode, align 2
   %call.i = call fastcc zeroext i1 @parts128_round_to_int_normal(ptr noundef nonnull %p, i8 noundef zeroext %6, i32 noundef 112)
   br i1 %call.i, label %if.then.i, label %parts128_round_to_int.exit
@@ -16358,7 +16358,7 @@ parts128_round_to_int.exit:                       ; preds = %entry, %entry, %if.
 define dso_local { i64, i16 } @floatx80_round_to_int(i64 %a.coerce0, i16 %a.coerce1, ptr nocapture noundef %status) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts128, align 8
-  %floatx80_rounding_precision.i = getelementptr inbounds i8, ptr %status, i64 3
+  %floatx80_rounding_precision.i = getelementptr inbounds nuw i8, ptr %status, i64 3
   %0 = load i8, ptr %floatx80_rounding_precision.i, align 1
   %switch.i = icmp ult i8 %0, 3
   br i1 %switch.i, label %sw.epilog.i, label %do.body.i
@@ -16379,13 +16379,13 @@ if.end.i:                                         ; preds = %sw.epilog.i
   %frombool.i.i = trunc nuw nsw i16 %f.coerce1.lobit.i.i to i8
   %and.i.i.i = zext nneg i16 %1 to i32
   store i8 0, ptr %p, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.sroa.32.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 4
+  %.compoundliteral.sroa.32.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 %and.i.i.i, ptr %.compoundliteral.sroa.32.0..sroa_idx.i.i, align 4
-  %.compoundliteral.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i64 %a.coerce0, ptr %.compoundliteral.sroa.4.0..sroa_idx.i.i, align 8
-  %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 16
+  %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 16
   store i64 0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i.i, align 8
   %cmp.not.i = icmp eq i16 %1, 32767
   br i1 %cmp.not.i, label %if.else.i, label %if.then10.i
@@ -16426,7 +16426,7 @@ sw.bb.i.i:                                        ; preds = %if.end
   %6 = load i16, ptr %status, align 2
   %or1.i.i.i = or i16 %6, 8193
   store i16 %or1.i.i.i, ptr %status, align 2
-  %default_nan_mode.i.i = getelementptr inbounds i8, ptr %status, i64 7
+  %default_nan_mode.i.i = getelementptr inbounds nuw i8, ptr %status, i64 7
   %7 = load i8, ptr %default_nan_mode.i.i, align 1
   %tobool.i.i = trunc i8 %7 to i1
   br i1 %tobool.i.i, label %if.then.i.i, label %if.else.i.i
@@ -16447,7 +16447,7 @@ if.else.i.i:                                      ; preds = %sw.bb.i.i
   br label %parts128_round_to_int.exit
 
 sw.bb1.i.i:                                       ; preds = %if.end
-  %default_nan_mode2.i.i = getelementptr inbounds i8, ptr %status, i64 7
+  %default_nan_mode2.i.i = getelementptr inbounds nuw i8, ptr %status, i64 7
   %9 = load i8, ptr %default_nan_mode2.i.i, align 1
   %tobool3.i.i = trunc i8 %9 to i1
   br i1 %tobool3.i.i, label %if.then4.i.i, label %parts128_round_to_int.exit
@@ -16463,7 +16463,7 @@ if.then4.i.i:                                     ; preds = %sw.bb1.i.i
 sw.bb2.i:                                         ; preds = %if.end
   %10 = load i8, ptr %floatx80_rounding_precision.i, align 1
   %idxprom = zext i8 %10 to i64
-  %float_rounding_mode = getelementptr inbounds i8, ptr %status, i64 2
+  %float_rounding_mode = getelementptr inbounds nuw i8, ptr %status, i64 2
   %11 = load i8, ptr %float_rounding_mode, align 2
   %frac_size.i = getelementptr [3 x %struct.FloatFmt], ptr @floatx80_params, i64 0, i64 %idxprom, i32 4
   %12 = load i32, ptr %frac_size.i, align 8
@@ -16504,10 +16504,10 @@ entry:
   %1 = and i16 %0, 31
   %2 = and i16 %a, 1023
   %and.i11.i.i.i = zext nneg i16 %2 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %p, i64 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   switch i16 %1, label %float16_unpack_canonical.exit.thread [
     i16 0, label %if.then.i.i.i
     i16 31, label %lor.lhs.false.i.i.i
@@ -16518,7 +16518,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br i1 %cmp.i.i.i.i, label %parts64_float_to_sint.exit, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  %flush_inputs_to_zero.i.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %3 = load i8, ptr %flush_inputs_to_zero.i.i.i, align 2
   %tobool9.i.i.i = trunc i8 %3 to i1
   br i1 %tobool9.i.i.i, label %if.then10.i.i.i, label %float16_unpack_canonical.exit.thread3
@@ -16614,10 +16614,10 @@ entry:
   %1 = and i16 %0, 31
   %2 = and i16 %a, 1023
   %and.i11.i.i.i = zext nneg i16 %2 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %p, i64 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   switch i16 %1, label %float16_unpack_canonical.exit.thread [
     i16 0, label %if.then.i.i.i
     i16 31, label %lor.lhs.false.i.i.i
@@ -16628,7 +16628,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br i1 %cmp.i.i.i.i, label %parts64_float_to_sint.exit, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  %flush_inputs_to_zero.i.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %3 = load i8, ptr %flush_inputs_to_zero.i.i.i, align 2
   %tobool9.i.i.i = trunc i8 %3 to i1
   br i1 %tobool9.i.i.i, label %if.then10.i.i.i, label %float16_unpack_canonical.exit.thread3
@@ -16724,10 +16724,10 @@ entry:
   %1 = and i16 %0, 31
   %2 = and i16 %a, 1023
   %and.i11.i.i.i = zext nneg i16 %2 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %p, i64 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   switch i16 %1, label %float16_unpack_canonical.exit.thread [
     i16 0, label %if.then.i.i.i
     i16 31, label %lor.lhs.false.i.i.i
@@ -16738,7 +16738,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br i1 %cmp.i.i.i.i, label %parts64_float_to_sint.exit, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  %flush_inputs_to_zero.i.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %3 = load i8, ptr %flush_inputs_to_zero.i.i.i, align 2
   %tobool9.i.i.i = trunc i8 %3 to i1
   br i1 %tobool9.i.i.i, label %if.then10.i.i.i, label %float16_unpack_canonical.exit.thread3
@@ -16834,10 +16834,10 @@ entry:
   %1 = and i16 %0, 31
   %2 = and i16 %a, 1023
   %and.i11.i.i.i = zext nneg i16 %2 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %p, i64 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   switch i16 %1, label %float16_unpack_canonical.exit.thread [
     i16 0, label %if.then.i.i.i
     i16 31, label %lor.lhs.false.i.i.i
@@ -16848,7 +16848,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br i1 %cmp.i.i.i.i, label %parts64_float_to_sint.exit, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  %flush_inputs_to_zero.i.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %3 = load i8, ptr %flush_inputs_to_zero.i.i.i, align 2
   %tobool9.i.i.i = trunc i8 %3 to i1
   br i1 %tobool9.i.i.i, label %parts64_float_to_sint.exit.sink.split, label %float16_unpack_canonical.exit.thread3
@@ -16936,10 +16936,10 @@ entry:
   %shr.i8.i.i = lshr i32 %a, 23
   %0 = and i32 %a, 8388607
   %and.i11.i.i = zext nneg i32 %0 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   %trunc.i = trunc i32 %shr.i8.i.i to i8
   switch i8 %trunc.i, label %float32_unpack_canonical.exit.thread [
     i8 0, label %if.then.i.i
@@ -16951,7 +16951,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp.i.i.i, label %parts64_float_to_sint.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %1 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %1 to i1
   br i1 %tobool9.i.i, label %if.then10.i.i, label %float32_unpack_canonical.exit.thread3
@@ -17046,10 +17046,10 @@ entry:
   %shr.i8.i.i = lshr i32 %a, 23
   %0 = and i32 %a, 8388607
   %and.i11.i.i = zext nneg i32 %0 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   %trunc.i = trunc i32 %shr.i8.i.i to i8
   switch i8 %trunc.i, label %float32_unpack_canonical.exit.thread [
     i8 0, label %if.then.i.i
@@ -17061,7 +17061,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp.i.i.i, label %parts64_float_to_sint.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %1 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %1 to i1
   br i1 %tobool9.i.i, label %if.then10.i.i, label %float32_unpack_canonical.exit.thread3
@@ -17156,10 +17156,10 @@ entry:
   %shr.i8.i.i = lshr i32 %a, 23
   %0 = and i32 %a, 8388607
   %and.i11.i.i = zext nneg i32 %0 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   %trunc.i = trunc i32 %shr.i8.i.i to i8
   switch i8 %trunc.i, label %float32_unpack_canonical.exit.thread [
     i8 0, label %if.then.i.i
@@ -17171,7 +17171,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp.i.i.i, label %parts64_float_to_sint.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %1 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %1 to i1
   br i1 %tobool9.i.i, label %parts64_float_to_sint.exit.sink.split, label %float32_unpack_canonical.exit.thread3
@@ -17260,10 +17260,10 @@ entry:
   %0 = trunc nuw nsw i64 %shr.i8.i.i to i32
   %conv.i.i.i = and i32 %0, 2047
   %and.i10.i.i = and i64 %a, 4503599627370495
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   switch i32 %conv.i.i.i, label %float64_unpack_canonical.exit.thread [
     i32 0, label %if.then.i.i
     i32 2047, label %lor.lhs.false.i.i
@@ -17274,7 +17274,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp.i.i.i, label %parts64_float_to_sint.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %1 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %1 to i1
   br i1 %tobool9.i.i, label %if.then10.i.i, label %float64_unpack_canonical.exit.thread3
@@ -17369,10 +17369,10 @@ entry:
   %0 = trunc nuw nsw i64 %shr.i8.i.i to i32
   %conv.i.i.i = and i32 %0, 2047
   %and.i10.i.i = and i64 %a, 4503599627370495
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   switch i32 %conv.i.i.i, label %float64_unpack_canonical.exit.thread [
     i32 0, label %if.then.i.i
     i32 2047, label %lor.lhs.false.i.i
@@ -17383,7 +17383,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp.i.i.i, label %parts64_float_to_sint.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %1 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %1 to i1
   br i1 %tobool9.i.i, label %if.then10.i.i, label %float64_unpack_canonical.exit.thread3
@@ -17478,10 +17478,10 @@ entry:
   %0 = trunc nuw nsw i64 %shr.i8.i.i to i32
   %conv.i.i.i = and i32 %0, 2047
   %and.i10.i.i = and i64 %a, 4503599627370495
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   switch i32 %conv.i.i.i, label %float64_unpack_canonical.exit.thread [
     i32 0, label %if.then.i.i
     i32 2047, label %lor.lhs.false.i.i
@@ -17492,7 +17492,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp.i.i.i, label %parts64_float_to_sint.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %1 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %1 to i1
   br i1 %tobool9.i.i, label %parts64_float_to_sint.exit.sink.split, label %float64_unpack_canonical.exit.thread3
@@ -17579,10 +17579,10 @@ entry:
   %0 = lshr i16 %a, 7
   %1 = and i16 %a, 127
   %and.i11.i.i = zext nneg i16 %1 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   %trunc.i = trunc i16 %0 to i8
   switch i8 %trunc.i, label %bfloat16_unpack_canonical.exit.thread [
     i8 0, label %if.then.i.i
@@ -17594,7 +17594,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp.i.i.i, label %parts64_float_to_sint.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %2 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %2 to i1
   br i1 %tobool9.i.i, label %if.then10.i.i, label %bfloat16_unpack_canonical.exit.thread3
@@ -17690,10 +17690,10 @@ entry:
   %0 = lshr i16 %a, 7
   %1 = and i16 %a, 127
   %and.i11.i.i = zext nneg i16 %1 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   %trunc.i = trunc i16 %0 to i8
   switch i8 %trunc.i, label %bfloat16_unpack_canonical.exit.thread [
     i8 0, label %if.then.i.i
@@ -17705,7 +17705,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp.i.i.i, label %parts64_float_to_sint.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %2 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %2 to i1
   br i1 %tobool9.i.i, label %if.then10.i.i, label %bfloat16_unpack_canonical.exit.thread3
@@ -17801,10 +17801,10 @@ entry:
   %0 = lshr i16 %a, 7
   %1 = and i16 %a, 127
   %and.i11.i.i = zext nneg i16 %1 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   %trunc.i = trunc i16 %0 to i8
   switch i8 %trunc.i, label %bfloat16_unpack_canonical.exit.thread [
     i8 0, label %if.then.i.i
@@ -17816,7 +17816,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp.i.i.i, label %parts64_float_to_sint.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %2 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %2 to i1
   br i1 %tobool9.i.i, label %if.then10.i.i, label %bfloat16_unpack_canonical.exit.thread3
@@ -17912,10 +17912,10 @@ entry:
   %0 = lshr i16 %a, 7
   %1 = and i16 %a, 127
   %and.i11.i.i = zext nneg i16 %1 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   %trunc.i = trunc i16 %0 to i8
   switch i8 %trunc.i, label %bfloat16_unpack_canonical.exit.thread [
     i8 0, label %if.then.i.i
@@ -17927,7 +17927,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp.i.i.i, label %parts64_float_to_sint.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %2 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %2 to i1
   br i1 %tobool9.i.i, label %parts64_float_to_sint.exit.sink.split, label %bfloat16_unpack_canonical.exit.thread3
@@ -18010,7 +18010,7 @@ parts64_float_to_sint.exit:                       ; preds = %parts64_float_to_si
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local signext i8 @float16_to_int8(i16 noundef zeroext %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
 entry:
-  %float_rounding_mode = getelementptr inbounds i8, ptr %s, i64 2
+  %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
   %call = tail call signext i8 @float16_to_int8_scalbn(i16 noundef zeroext %a, i8 noundef zeroext %0, i32 noundef 0, ptr noundef %s)
   ret i8 %call
@@ -18019,7 +18019,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local signext i16 @float16_to_int16(i16 noundef zeroext %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
 entry:
-  %float_rounding_mode = getelementptr inbounds i8, ptr %s, i64 2
+  %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
   %call = tail call signext i16 @float16_to_int16_scalbn(i16 noundef zeroext %a, i8 noundef zeroext %0, i32 noundef 0, ptr noundef %s)
   ret i16 %call
@@ -18028,7 +18028,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @float16_to_int32(i16 noundef zeroext %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
 entry:
-  %float_rounding_mode = getelementptr inbounds i8, ptr %s, i64 2
+  %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
   %call = tail call i32 @float16_to_int32_scalbn(i16 noundef zeroext %a, i8 noundef zeroext %0, i32 noundef 0, ptr noundef %s)
   ret i32 %call
@@ -18037,7 +18037,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @float16_to_int64(i16 noundef zeroext %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
 entry:
-  %float_rounding_mode = getelementptr inbounds i8, ptr %s, i64 2
+  %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
   %call = tail call i64 @float16_to_int64_scalbn(i16 noundef zeroext %a, i8 noundef zeroext %0, i32 noundef 0, ptr noundef %s)
   ret i64 %call
@@ -18046,7 +18046,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local signext i16 @float32_to_int16(i32 noundef %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
 entry:
-  %float_rounding_mode = getelementptr inbounds i8, ptr %s, i64 2
+  %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
   %call = tail call signext i16 @float32_to_int16_scalbn(i32 noundef %a, i8 noundef zeroext %0, i32 noundef 0, ptr noundef %s)
   ret i16 %call
@@ -18055,7 +18055,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @float32_to_int32(i32 noundef %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
 entry:
-  %float_rounding_mode = getelementptr inbounds i8, ptr %s, i64 2
+  %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
   %call = tail call i32 @float32_to_int32_scalbn(i32 noundef %a, i8 noundef zeroext %0, i32 noundef 0, ptr noundef %s)
   ret i32 %call
@@ -18064,7 +18064,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @float32_to_int64(i32 noundef %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
 entry:
-  %float_rounding_mode = getelementptr inbounds i8, ptr %s, i64 2
+  %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
   %call = tail call i64 @float32_to_int64_scalbn(i32 noundef %a, i8 noundef zeroext %0, i32 noundef 0, ptr noundef %s)
   ret i64 %call
@@ -18073,7 +18073,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local signext i16 @float64_to_int16(i64 noundef %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
 entry:
-  %float_rounding_mode = getelementptr inbounds i8, ptr %s, i64 2
+  %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
   %call = tail call signext i16 @float64_to_int16_scalbn(i64 noundef %a, i8 noundef zeroext %0, i32 noundef 0, ptr noundef %s)
   ret i16 %call
@@ -18082,7 +18082,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @float64_to_int32(i64 noundef %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
 entry:
-  %float_rounding_mode = getelementptr inbounds i8, ptr %s, i64 2
+  %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
   %call = tail call i32 @float64_to_int32_scalbn(i64 noundef %a, i8 noundef zeroext %0, i32 noundef 0, ptr noundef %s)
   ret i32 %call
@@ -18091,7 +18091,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @float64_to_int64(i64 noundef %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
 entry:
-  %float_rounding_mode = getelementptr inbounds i8, ptr %s, i64 2
+  %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
   %call = tail call i64 @float64_to_int64_scalbn(i64 noundef %a, i8 noundef zeroext %0, i32 noundef 0, ptr noundef %s)
   ret i64 %call
@@ -18100,7 +18100,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @float128_to_int32(i64 %a.coerce0, i64 %a.coerce1, ptr nocapture noundef %s) local_unnamed_addr #3 {
 entry:
-  %float_rounding_mode = getelementptr inbounds i8, ptr %s, i64 2
+  %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
   %call = tail call fastcc i32 @float128_to_int32_scalbn(i64 %a.coerce0, i64 %a.coerce1, i8 noundef zeroext %0, ptr noundef %s)
   ret i32 %call
@@ -18117,13 +18117,13 @@ entry:
   %frombool.i.i = trunc nuw nsw i64 %f.coerce1.lobit.i.i to i8
   %and.i.i.i = and i64 %a.coerce1, 281474976710655
   store i8 0, ptr %p, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.sroa.33.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 4
+  %.compoundliteral.sroa.33.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 %conv.i.i, ptr %.compoundliteral.sroa.33.0..sroa_idx.i.i, align 4
-  %.compoundliteral.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i64 %and.i.i.i, ptr %.compoundliteral.sroa.4.0..sroa_idx.i.i, align 8
-  %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 16
+  %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 16
   store i64 %a.coerce0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i.i, align 8
   call fastcc void @parts128_canonicalize(ptr noundef nonnull %p, ptr noundef %s, ptr noundef nonnull @float128_params)
   %1 = load i8, ptr %p, align 8
@@ -18192,7 +18192,7 @@ parts128_float_to_sint.exit:                      ; preds = %entry, %sw.epilog.i
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @float128_to_int64(i64 %a.coerce0, i64 %a.coerce1, ptr nocapture noundef %s) local_unnamed_addr #3 {
 entry:
-  %float_rounding_mode = getelementptr inbounds i8, ptr %s, i64 2
+  %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
   %call = tail call fastcc i64 @float128_to_int64_scalbn(i64 %a.coerce0, i64 %a.coerce1, i8 noundef zeroext %0, ptr noundef %s)
   ret i64 %call
@@ -18209,13 +18209,13 @@ entry:
   %frombool.i.i = trunc nuw nsw i64 %f.coerce1.lobit.i.i to i8
   %and.i.i.i = and i64 %a.coerce1, 281474976710655
   store i8 0, ptr %p, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.sroa.33.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 4
+  %.compoundliteral.sroa.33.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 %conv.i.i, ptr %.compoundliteral.sroa.33.0..sroa_idx.i.i, align 4
-  %.compoundliteral.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i64 %and.i.i.i, ptr %.compoundliteral.sroa.4.0..sroa_idx.i.i, align 8
-  %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 16
+  %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 16
   store i64 %a.coerce0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i.i, align 8
   call fastcc void @parts128_canonicalize(ptr noundef nonnull %p, ptr noundef %s, ptr noundef nonnull @float128_params)
   %1 = load i8, ptr %p, align 8
@@ -18283,7 +18283,7 @@ parts128_float_to_sint.exit:                      ; preds = %entry, %sw.epilog.i
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local { i64, i64 } @float128_to_int128(i64 %a.coerce0, i64 %a.coerce1, ptr nocapture noundef %s) local_unnamed_addr #3 {
 entry:
-  %float_rounding_mode = getelementptr inbounds i8, ptr %s, i64 2
+  %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
   %call = tail call fastcc { i64, i64 } @float128_to_int128_scalbn(i64 %a.coerce0, i64 %a.coerce1, i8 noundef zeroext %0, ptr noundef %s)
   ret { i64, i64 } %call
@@ -18300,13 +18300,13 @@ entry:
   %frombool.i.i = trunc nuw nsw i64 %f.coerce1.lobit.i.i to i8
   %and.i.i.i = and i64 %a.coerce1, 281474976710655
   store i8 0, ptr %p, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.sroa.33.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 4
+  %.compoundliteral.sroa.33.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 %conv.i.i, ptr %.compoundliteral.sroa.33.0..sroa_idx.i.i, align 4
-  %.compoundliteral.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i64 %and.i.i.i, ptr %.compoundliteral.sroa.4.0..sroa_idx.i.i, align 8
-  %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 16
+  %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 16
   store i64 %a.coerce0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i.i, align 8
   call fastcc void @parts128_canonicalize(ptr noundef nonnull %p, ptr noundef %s, ptr noundef nonnull @float128_params)
   %1 = load i8, ptr %p, align 8
@@ -18409,7 +18409,7 @@ return:                                           ; preds = %entry, %sw.epilog
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @floatx80_to_int32(i64 %a.coerce0, i16 %a.coerce1, ptr nocapture noundef %s) local_unnamed_addr #3 {
 entry:
-  %float_rounding_mode = getelementptr inbounds i8, ptr %s, i64 2
+  %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
   %call = tail call fastcc i32 @floatx80_to_int32_scalbn(i64 %a.coerce0, i16 %a.coerce1, i8 noundef zeroext %0, ptr noundef %s)
   ret i32 %call
@@ -18419,7 +18419,7 @@ entry:
 define internal fastcc i32 @floatx80_to_int32_scalbn(i64 %a.coerce0, i16 %a.coerce1, i8 noundef zeroext %rmode, ptr nocapture noundef %s) unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts128, align 8
-  %floatx80_rounding_precision.i = getelementptr inbounds i8, ptr %s, i64 3
+  %floatx80_rounding_precision.i = getelementptr inbounds nuw i8, ptr %s, i64 3
   %0 = load i8, ptr %floatx80_rounding_precision.i, align 1
   %switch.i = icmp ult i8 %0, 3
   br i1 %switch.i, label %sw.epilog.i, label %do.body.i
@@ -18440,13 +18440,13 @@ if.end.i:                                         ; preds = %sw.epilog.i
   %frombool.i.i = trunc nuw nsw i16 %f.coerce1.lobit.i.i to i8
   %and.i.i.i = zext nneg i16 %1 to i32
   store i8 0, ptr %p, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.sroa.32.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 4
+  %.compoundliteral.sroa.32.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 %and.i.i.i, ptr %.compoundliteral.sroa.32.0..sroa_idx.i.i, align 4
-  %.compoundliteral.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i64 %a.coerce0, ptr %.compoundliteral.sroa.4.0..sroa_idx.i.i, align 8
-  %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 16
+  %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 16
   store i64 0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i.i, align 8
   %cmp.not.i = icmp eq i16 %1, 32767
   br i1 %cmp.not.i, label %if.else.i, label %if.then10.i
@@ -18487,7 +18487,7 @@ sw.bb.i:                                          ; preds = %if.end
   br label %sw.epilog.i3
 
 sw.bb3.i:                                         ; preds = %if.end
-  %sign.i = getelementptr inbounds i8, ptr %p, i64 1
+  %sign.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   %6 = load i8, ptr %sign.i, align 1
   %tobool.i = trunc i8 %6 to i1
   %cond.i = select i1 %tobool.i, i64 -2147483648, i64 2147483647
@@ -18496,16 +18496,16 @@ sw.bb3.i:                                         ; preds = %if.end
 sw.bb6.i:                                         ; preds = %if.end
   %call.i = call fastcc zeroext i1 @parts128_round_to_int_normal(ptr noundef nonnull %p, i8 noundef zeroext %rmode, i32 noundef 126)
   %spec.select.i = select i1 %call.i, i16 16, i16 0
-  %exp.i = getelementptr inbounds i8, ptr %p, i64 4
+  %exp.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   %7 = load i32, ptr %exp.i, align 4
   %cmp.i = icmp slt i32 %7, 64
-  %frac_hi.i = getelementptr inbounds i8, ptr %p, i64 8
+  %frac_hi.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   %8 = load i64, ptr %frac_hi.i, align 8
   %sub.i = sub i32 63, %7
   %sh_prom.i = zext nneg i32 %sub.i to i64
   %shr.i = lshr i64 %8, %sh_prom.i
   %r.1.i = select i1 %cmp.i, i64 %shr.i, i64 -1
-  %sign11.i = getelementptr inbounds i8, ptr %p, i64 1
+  %sign11.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   %9 = load i8, ptr %sign11.i, align 1
   %tobool12.i = trunc i8 %9 to i1
   br i1 %tobool12.i, label %if.then13.i, label %if.else21.i
@@ -18544,7 +18544,7 @@ parts128_float_to_sint.exit:                      ; preds = %if.end, %sw.epilog.
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @floatx80_to_int64(i64 %a.coerce0, i16 %a.coerce1, ptr nocapture noundef %s) local_unnamed_addr #3 {
 entry:
-  %float_rounding_mode = getelementptr inbounds i8, ptr %s, i64 2
+  %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
   %call = tail call fastcc i64 @floatx80_to_int64_scalbn(i64 %a.coerce0, i16 %a.coerce1, i8 noundef zeroext %0, ptr noundef %s)
   ret i64 %call
@@ -18554,7 +18554,7 @@ entry:
 define internal fastcc i64 @floatx80_to_int64_scalbn(i64 %a.coerce0, i16 %a.coerce1, i8 noundef zeroext %rmode, ptr nocapture noundef %s) unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts128, align 8
-  %floatx80_rounding_precision.i = getelementptr inbounds i8, ptr %s, i64 3
+  %floatx80_rounding_precision.i = getelementptr inbounds nuw i8, ptr %s, i64 3
   %0 = load i8, ptr %floatx80_rounding_precision.i, align 1
   %switch.i = icmp ult i8 %0, 3
   br i1 %switch.i, label %sw.epilog.i, label %do.body.i
@@ -18575,13 +18575,13 @@ if.end.i:                                         ; preds = %sw.epilog.i
   %frombool.i.i = trunc nuw nsw i16 %f.coerce1.lobit.i.i to i8
   %and.i.i.i = zext nneg i16 %1 to i32
   store i8 0, ptr %p, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.sroa.32.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 4
+  %.compoundliteral.sroa.32.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 %and.i.i.i, ptr %.compoundliteral.sroa.32.0..sroa_idx.i.i, align 4
-  %.compoundliteral.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i64 %a.coerce0, ptr %.compoundliteral.sroa.4.0..sroa_idx.i.i, align 8
-  %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 16
+  %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 16
   store i64 0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i.i, align 8
   %cmp.not.i = icmp eq i16 %1, 32767
   br i1 %cmp.not.i, label %if.else.i, label %if.then10.i
@@ -18622,7 +18622,7 @@ sw.bb.i:                                          ; preds = %if.end
   br label %sw.epilog.i3
 
 sw.bb3.i:                                         ; preds = %if.end
-  %sign.i = getelementptr inbounds i8, ptr %p, i64 1
+  %sign.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   %6 = load i8, ptr %sign.i, align 1
   %tobool.i = trunc i8 %6 to i1
   %cond.i = select i1 %tobool.i, i64 -9223372036854775808, i64 9223372036854775807
@@ -18631,16 +18631,16 @@ sw.bb3.i:                                         ; preds = %if.end
 sw.bb6.i:                                         ; preds = %if.end
   %call.i = call fastcc zeroext i1 @parts128_round_to_int_normal(ptr noundef nonnull %p, i8 noundef zeroext %rmode, i32 noundef 126)
   %spec.select.i = select i1 %call.i, i16 16, i16 0
-  %exp.i = getelementptr inbounds i8, ptr %p, i64 4
+  %exp.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   %7 = load i32, ptr %exp.i, align 4
   %cmp.i = icmp slt i32 %7, 64
-  %frac_hi.i = getelementptr inbounds i8, ptr %p, i64 8
+  %frac_hi.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   %8 = load i64, ptr %frac_hi.i, align 8
   %sub.i = sub i32 63, %7
   %sh_prom.i = zext nneg i32 %sub.i to i64
   %shr.i = lshr i64 %8, %sh_prom.i
   %r.1.i = select i1 %cmp.i, i64 %shr.i, i64 -1
-  %sign11.i = getelementptr inbounds i8, ptr %p, i64 1
+  %sign11.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   %9 = load i8, ptr %sign11.i, align 1
   %tobool12.i = trunc i8 %9 to i1
   br i1 %tobool12.i, label %if.then13.i, label %if.else21.i
@@ -18776,7 +18776,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local signext i8 @bfloat16_to_int8(i16 noundef zeroext %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
 entry:
-  %float_rounding_mode = getelementptr inbounds i8, ptr %s, i64 2
+  %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
   %call = tail call signext i8 @bfloat16_to_int8_scalbn(i16 noundef zeroext %a, i8 noundef zeroext %0, i32 noundef 0, ptr noundef %s)
   ret i8 %call
@@ -18785,7 +18785,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local signext i16 @bfloat16_to_int16(i16 noundef zeroext %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
 entry:
-  %float_rounding_mode = getelementptr inbounds i8, ptr %s, i64 2
+  %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
   %call = tail call signext i16 @bfloat16_to_int16_scalbn(i16 noundef zeroext %a, i8 noundef zeroext %0, i32 noundef 0, ptr noundef %s)
   ret i16 %call
@@ -18794,7 +18794,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @bfloat16_to_int32(i16 noundef zeroext %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
 entry:
-  %float_rounding_mode = getelementptr inbounds i8, ptr %s, i64 2
+  %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
   %call = tail call i32 @bfloat16_to_int32_scalbn(i16 noundef zeroext %a, i8 noundef zeroext %0, i32 noundef 0, ptr noundef %s)
   ret i32 %call
@@ -18803,7 +18803,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @bfloat16_to_int64(i16 noundef zeroext %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
 entry:
-  %float_rounding_mode = getelementptr inbounds i8, ptr %s, i64 2
+  %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
   %call = tail call i64 @bfloat16_to_int64_scalbn(i16 noundef zeroext %a, i8 noundef zeroext %0, i32 noundef 0, ptr noundef %s)
   ret i64 %call
@@ -18847,10 +18847,10 @@ entry:
   %0 = trunc nuw nsw i64 %shr.i8.i.i to i32
   %conv.i.i.i = and i32 %0, 2047
   %and.i10.i.i = and i64 %a, 4503599627370495
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   switch i32 %conv.i.i.i, label %float64_unpack_canonical.exit.thread [
     i32 0, label %if.then.i.i
     i32 2047, label %lor.lhs.false.i.i
@@ -18861,7 +18861,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp.i.i.i, label %parts64_float_to_sint_modulo.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %1 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %1 to i1
   br i1 %tobool9.i.i, label %parts64_float_to_sint_modulo.exit.sink.split, label %float64_unpack_canonical.exit.thread3
@@ -18965,10 +18965,10 @@ entry:
   %0 = trunc nuw nsw i64 %shr.i8.i.i to i32
   %conv.i.i.i = and i32 %0, 2047
   %and.i10.i.i = and i64 %a, 4503599627370495
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   switch i32 %conv.i.i.i, label %float64_unpack_canonical.exit.thread [
     i32 0, label %if.then.i.i
     i32 2047, label %lor.lhs.false.i.i
@@ -18979,7 +18979,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp.i.i.i, label %parts64_float_to_sint_modulo.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %1 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %1 to i1
   br i1 %tobool9.i.i, label %parts64_float_to_sint_modulo.exit.sink.split, label %float64_unpack_canonical.exit.thread3
@@ -19078,10 +19078,10 @@ entry:
   %1 = and i16 %0, 31
   %2 = and i16 %a, 1023
   %and.i11.i.i.i = zext nneg i16 %2 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %p, i64 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   switch i16 %1, label %float16_unpack_canonical.exit.thread [
     i16 0, label %if.then.i.i.i
     i16 31, label %lor.lhs.false.i.i.i
@@ -19092,7 +19092,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br i1 %cmp.i.i.i.i, label %parts64_float_to_uint.exit, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  %flush_inputs_to_zero.i.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %3 = load i8, ptr %flush_inputs_to_zero.i.i.i, align 2
   %tobool9.i.i.i = trunc i8 %3 to i1
   br i1 %tobool9.i.i.i, label %if.then10.i.i.i, label %float16_unpack_canonical.exit.thread3
@@ -19191,10 +19191,10 @@ entry:
   %1 = and i16 %0, 31
   %2 = and i16 %a, 1023
   %and.i11.i.i.i = zext nneg i16 %2 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %p, i64 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   switch i16 %1, label %float16_unpack_canonical.exit.thread [
     i16 0, label %if.then.i.i.i
     i16 31, label %lor.lhs.false.i.i.i
@@ -19205,7 +19205,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br i1 %cmp.i.i.i.i, label %parts64_float_to_uint.exit, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  %flush_inputs_to_zero.i.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %3 = load i8, ptr %flush_inputs_to_zero.i.i.i, align 2
   %tobool9.i.i.i = trunc i8 %3 to i1
   br i1 %tobool9.i.i.i, label %if.then10.i.i.i, label %float16_unpack_canonical.exit.thread3
@@ -19304,10 +19304,10 @@ entry:
   %1 = and i16 %0, 31
   %2 = and i16 %a, 1023
   %and.i11.i.i.i = zext nneg i16 %2 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %p, i64 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   switch i16 %1, label %float16_unpack_canonical.exit.thread [
     i16 0, label %if.then.i.i.i
     i16 31, label %lor.lhs.false.i.i.i
@@ -19318,7 +19318,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br i1 %cmp.i.i.i.i, label %parts64_float_to_uint.exit, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  %flush_inputs_to_zero.i.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %3 = load i8, ptr %flush_inputs_to_zero.i.i.i, align 2
   %tobool9.i.i.i = trunc i8 %3 to i1
   br i1 %tobool9.i.i.i, label %if.then10.i.i.i, label %float16_unpack_canonical.exit.thread3
@@ -19417,10 +19417,10 @@ entry:
   %1 = and i16 %0, 31
   %2 = and i16 %a, 1023
   %and.i11.i.i.i = zext nneg i16 %2 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %p, i64 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   switch i16 %1, label %float16_unpack_canonical.exit.thread [
     i16 0, label %if.then.i.i.i
     i16 31, label %lor.lhs.false.i.i.i
@@ -19431,7 +19431,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br i1 %cmp.i.i.i.i, label %parts64_float_to_uint.exit, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  %flush_inputs_to_zero.i.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %3 = load i8, ptr %flush_inputs_to_zero.i.i.i, align 2
   %tobool9.i.i.i = trunc i8 %3 to i1
   br i1 %tobool9.i.i.i, label %parts64_float_to_uint.exit.sink.split, label %float16_unpack_canonical.exit.thread3
@@ -19520,10 +19520,10 @@ entry:
   %shr.i8.i.i = lshr i32 %a, 23
   %0 = and i32 %a, 8388607
   %and.i11.i.i = zext nneg i32 %0 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   %trunc.i = trunc i32 %shr.i8.i.i to i8
   switch i8 %trunc.i, label %float32_unpack_canonical.exit.thread [
     i8 0, label %if.then.i.i
@@ -19535,7 +19535,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp.i.i.i, label %parts64_float_to_uint.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %1 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %1 to i1
   br i1 %tobool9.i.i, label %if.then10.i.i, label %float32_unpack_canonical.exit.thread3
@@ -19633,10 +19633,10 @@ entry:
   %shr.i8.i.i = lshr i32 %a, 23
   %0 = and i32 %a, 8388607
   %and.i11.i.i = zext nneg i32 %0 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   %trunc.i = trunc i32 %shr.i8.i.i to i8
   switch i8 %trunc.i, label %float32_unpack_canonical.exit.thread [
     i8 0, label %if.then.i.i
@@ -19648,7 +19648,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp.i.i.i, label %parts64_float_to_uint.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %1 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %1 to i1
   br i1 %tobool9.i.i, label %if.then10.i.i, label %float32_unpack_canonical.exit.thread3
@@ -19746,10 +19746,10 @@ entry:
   %shr.i8.i.i = lshr i32 %a, 23
   %0 = and i32 %a, 8388607
   %and.i11.i.i = zext nneg i32 %0 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   %trunc.i = trunc i32 %shr.i8.i.i to i8
   switch i8 %trunc.i, label %float32_unpack_canonical.exit.thread [
     i8 0, label %if.then.i.i
@@ -19761,7 +19761,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp.i.i.i, label %parts64_float_to_uint.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %1 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %1 to i1
   br i1 %tobool9.i.i, label %parts64_float_to_uint.exit.sink.split, label %float32_unpack_canonical.exit.thread3
@@ -19851,10 +19851,10 @@ entry:
   %0 = trunc nuw nsw i64 %shr.i8.i.i to i32
   %conv.i.i.i = and i32 %0, 2047
   %and.i10.i.i = and i64 %a, 4503599627370495
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   switch i32 %conv.i.i.i, label %float64_unpack_canonical.exit.thread [
     i32 0, label %if.then.i.i
     i32 2047, label %lor.lhs.false.i.i
@@ -19865,7 +19865,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp.i.i.i, label %parts64_float_to_uint.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %1 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %1 to i1
   br i1 %tobool9.i.i, label %if.then10.i.i, label %float64_unpack_canonical.exit.thread3
@@ -19963,10 +19963,10 @@ entry:
   %0 = trunc nuw nsw i64 %shr.i8.i.i to i32
   %conv.i.i.i = and i32 %0, 2047
   %and.i10.i.i = and i64 %a, 4503599627370495
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   switch i32 %conv.i.i.i, label %float64_unpack_canonical.exit.thread [
     i32 0, label %if.then.i.i
     i32 2047, label %lor.lhs.false.i.i
@@ -19977,7 +19977,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp.i.i.i, label %parts64_float_to_uint.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %1 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %1 to i1
   br i1 %tobool9.i.i, label %if.then10.i.i, label %float64_unpack_canonical.exit.thread3
@@ -20075,10 +20075,10 @@ entry:
   %0 = trunc nuw nsw i64 %shr.i8.i.i to i32
   %conv.i.i.i = and i32 %0, 2047
   %and.i10.i.i = and i64 %a, 4503599627370495
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   switch i32 %conv.i.i.i, label %float64_unpack_canonical.exit.thread [
     i32 0, label %if.then.i.i
     i32 2047, label %lor.lhs.false.i.i
@@ -20089,7 +20089,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp.i.i.i, label %parts64_float_to_uint.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %1 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %1 to i1
   br i1 %tobool9.i.i, label %parts64_float_to_uint.exit.sink.split, label %float64_unpack_canonical.exit.thread3
@@ -20175,10 +20175,10 @@ entry:
   %0 = lshr i16 %a, 7
   %1 = and i16 %a, 127
   %and.i11.i.i = zext nneg i16 %1 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   %trunc.i = trunc i16 %0 to i8
   switch i8 %trunc.i, label %bfloat16_unpack_canonical.exit.thread [
     i8 0, label %if.then.i.i
@@ -20190,7 +20190,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp.i.i.i, label %parts64_float_to_uint.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %2 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %2 to i1
   br i1 %tobool9.i.i, label %if.then10.i.i, label %bfloat16_unpack_canonical.exit.thread3
@@ -20289,10 +20289,10 @@ entry:
   %0 = lshr i16 %a, 7
   %1 = and i16 %a, 127
   %and.i11.i.i = zext nneg i16 %1 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   %trunc.i = trunc i16 %0 to i8
   switch i8 %trunc.i, label %bfloat16_unpack_canonical.exit.thread [
     i8 0, label %if.then.i.i
@@ -20304,7 +20304,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp.i.i.i, label %parts64_float_to_uint.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %2 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %2 to i1
   br i1 %tobool9.i.i, label %if.then10.i.i, label %bfloat16_unpack_canonical.exit.thread3
@@ -20403,10 +20403,10 @@ entry:
   %0 = lshr i16 %a, 7
   %1 = and i16 %a, 127
   %and.i11.i.i = zext nneg i16 %1 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   %trunc.i = trunc i16 %0 to i8
   switch i8 %trunc.i, label %bfloat16_unpack_canonical.exit.thread [
     i8 0, label %if.then.i.i
@@ -20418,7 +20418,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp.i.i.i, label %parts64_float_to_uint.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %2 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %2 to i1
   br i1 %tobool9.i.i, label %if.then10.i.i, label %bfloat16_unpack_canonical.exit.thread3
@@ -20517,10 +20517,10 @@ entry:
   %0 = lshr i16 %a, 7
   %1 = and i16 %a, 127
   %and.i11.i.i = zext nneg i16 %1 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   %trunc.i = trunc i16 %0 to i8
   switch i8 %trunc.i, label %bfloat16_unpack_canonical.exit.thread [
     i8 0, label %if.then.i.i
@@ -20532,7 +20532,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp.i.i.i, label %parts64_float_to_uint.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %2 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %2 to i1
   br i1 %tobool9.i.i, label %parts64_float_to_uint.exit.sink.split, label %bfloat16_unpack_canonical.exit.thread3
@@ -20616,7 +20616,7 @@ parts64_float_to_uint.exit:                       ; preds = %parts64_float_to_ui
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i8 @float16_to_uint8(i16 noundef zeroext %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
 entry:
-  %float_rounding_mode = getelementptr inbounds i8, ptr %s, i64 2
+  %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
   %call = tail call zeroext i8 @float16_to_uint8_scalbn(i16 noundef zeroext %a, i8 noundef zeroext %0, i32 noundef 0, ptr noundef %s)
   ret i8 %call
@@ -20625,7 +20625,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i16 @float16_to_uint16(i16 noundef zeroext %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
 entry:
-  %float_rounding_mode = getelementptr inbounds i8, ptr %s, i64 2
+  %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
   %call = tail call zeroext i16 @float16_to_uint16_scalbn(i16 noundef zeroext %a, i8 noundef zeroext %0, i32 noundef 0, ptr noundef %s)
   ret i16 %call
@@ -20634,7 +20634,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @float16_to_uint32(i16 noundef zeroext %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
 entry:
-  %float_rounding_mode = getelementptr inbounds i8, ptr %s, i64 2
+  %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
   %call = tail call i32 @float16_to_uint32_scalbn(i16 noundef zeroext %a, i8 noundef zeroext %0, i32 noundef 0, ptr noundef %s)
   ret i32 %call
@@ -20643,7 +20643,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @float16_to_uint64(i16 noundef zeroext %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
 entry:
-  %float_rounding_mode = getelementptr inbounds i8, ptr %s, i64 2
+  %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
   %call = tail call i64 @float16_to_uint64_scalbn(i16 noundef zeroext %a, i8 noundef zeroext %0, i32 noundef 0, ptr noundef %s)
   ret i64 %call
@@ -20652,7 +20652,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i16 @float32_to_uint16(i32 noundef %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
 entry:
-  %float_rounding_mode = getelementptr inbounds i8, ptr %s, i64 2
+  %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
   %call = tail call zeroext i16 @float32_to_uint16_scalbn(i32 noundef %a, i8 noundef zeroext %0, i32 noundef 0, ptr noundef %s)
   ret i16 %call
@@ -20661,7 +20661,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @float32_to_uint32(i32 noundef %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
 entry:
-  %float_rounding_mode = getelementptr inbounds i8, ptr %s, i64 2
+  %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
   %call = tail call i32 @float32_to_uint32_scalbn(i32 noundef %a, i8 noundef zeroext %0, i32 noundef 0, ptr noundef %s)
   ret i32 %call
@@ -20671,7 +20671,7 @@ entry:
 define dso_local i64 @float32_to_uint64(i32 noundef %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
-  %float_rounding_mode = getelementptr inbounds i8, ptr %s, i64 2
+  %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %p.i)
   %f.lobit.i.i.i = lshr i32 %a, 31
@@ -20679,10 +20679,10 @@ entry:
   %shr.i8.i.i.i = lshr i32 %a, 23
   %1 = and i32 %a, 8388607
   %and.i11.i.i.i = zext nneg i32 %1 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   store i8 %frombool.i.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 8
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   %trunc.i.i = trunc i32 %shr.i8.i.i.i to i8
   switch i8 %trunc.i.i, label %float32_unpack_canonical.exit.thread.i [
     i8 0, label %if.then.i.i.i
@@ -20694,7 +20694,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br i1 %cmp.i.i.i.i, label %float32_to_uint64_scalbn.exit, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  %flush_inputs_to_zero.i.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %2 = load i8, ptr %flush_inputs_to_zero.i.i.i, align 2
   %tobool9.i.i.i = trunc i8 %2 to i1
   br i1 %tobool9.i.i.i, label %parts64_float_to_uint.exit.sink.split.i, label %float32_unpack_canonical.exit.thread3.i
@@ -20778,7 +20778,7 @@ float32_to_uint64_scalbn.exit:                    ; preds = %if.then.i.i.i, %par
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i16 @float64_to_uint16(i64 noundef %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
 entry:
-  %float_rounding_mode = getelementptr inbounds i8, ptr %s, i64 2
+  %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
   %call = tail call zeroext i16 @float64_to_uint16_scalbn(i64 noundef %a, i8 noundef zeroext %0, i32 noundef 0, ptr noundef %s)
   ret i16 %call
@@ -20787,7 +20787,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @float64_to_uint32(i64 noundef %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
 entry:
-  %float_rounding_mode = getelementptr inbounds i8, ptr %s, i64 2
+  %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
   %call = tail call i32 @float64_to_uint32_scalbn(i64 noundef %a, i8 noundef zeroext %0, i32 noundef 0, ptr noundef %s)
   ret i32 %call
@@ -20797,7 +20797,7 @@ entry:
 define dso_local i64 @float64_to_uint64(i64 noundef %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
-  %float_rounding_mode = getelementptr inbounds i8, ptr %s, i64 2
+  %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %p.i)
   %f.lobit.i.i.i = lshr i64 %a, 63
@@ -20806,10 +20806,10 @@ entry:
   %1 = trunc nuw nsw i64 %shr.i8.i.i.i to i32
   %conv.i.i.i.i = and i32 %1, 2047
   %and.i10.i.i.i = and i64 %a, 4503599627370495
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   store i8 %frombool.i.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 8
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   switch i32 %conv.i.i.i.i, label %float64_unpack_canonical.exit.thread.i [
     i32 0, label %if.then.i.i.i
     i32 2047, label %lor.lhs.false.i.i.i
@@ -20820,7 +20820,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br i1 %cmp.i.i.i.i, label %float64_to_uint64_scalbn.exit, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  %flush_inputs_to_zero.i.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %2 = load i8, ptr %flush_inputs_to_zero.i.i.i, align 2
   %tobool9.i.i.i = trunc i8 %2 to i1
   br i1 %tobool9.i.i.i, label %parts64_float_to_uint.exit.sink.split.i, label %float64_unpack_canonical.exit.thread3.i
@@ -20901,7 +20901,7 @@ float64_to_uint64_scalbn.exit:                    ; preds = %if.then.i.i.i, %par
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @float128_to_uint32(i64 %a.coerce0, i64 %a.coerce1, ptr nocapture noundef %s) local_unnamed_addr #3 {
 entry:
-  %float_rounding_mode = getelementptr inbounds i8, ptr %s, i64 2
+  %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
   %call = tail call fastcc i32 @float128_to_uint32_scalbn(i64 %a.coerce0, i64 %a.coerce1, i8 noundef zeroext %0, ptr noundef %s)
   ret i32 %call
@@ -20918,13 +20918,13 @@ entry:
   %frombool.i.i = trunc nuw nsw i64 %f.coerce1.lobit.i.i to i8
   %and.i.i.i = and i64 %a.coerce1, 281474976710655
   store i8 0, ptr %p, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.sroa.33.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 4
+  %.compoundliteral.sroa.33.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 %conv.i.i, ptr %.compoundliteral.sroa.33.0..sroa_idx.i.i, align 4
-  %.compoundliteral.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i64 %and.i.i.i, ptr %.compoundliteral.sroa.4.0..sroa_idx.i.i, align 8
-  %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 16
+  %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 16
   store i64 %a.coerce0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i.i, align 8
   call fastcc void @parts128_canonicalize(ptr noundef nonnull %p, ptr noundef %s, ptr noundef nonnull @float128_params)
   %1 = load i8, ptr %p, align 8
@@ -20996,7 +20996,7 @@ parts128_float_to_uint.exit:                      ; preds = %entry, %sw.epilog.i
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @float128_to_uint64(i64 %a.coerce0, i64 %a.coerce1, ptr nocapture noundef %s) local_unnamed_addr #3 {
 entry:
-  %float_rounding_mode = getelementptr inbounds i8, ptr %s, i64 2
+  %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
   %call = tail call fastcc i64 @float128_to_uint64_scalbn(i64 %a.coerce0, i64 %a.coerce1, i8 noundef zeroext %0, ptr noundef %s)
   ret i64 %call
@@ -21013,13 +21013,13 @@ entry:
   %frombool.i.i = trunc nuw nsw i64 %f.coerce1.lobit.i.i to i8
   %and.i.i.i = and i64 %a.coerce1, 281474976710655
   store i8 0, ptr %p, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.sroa.33.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 4
+  %.compoundliteral.sroa.33.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 %conv.i.i, ptr %.compoundliteral.sroa.33.0..sroa_idx.i.i, align 4
-  %.compoundliteral.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i64 %and.i.i.i, ptr %.compoundliteral.sroa.4.0..sroa_idx.i.i, align 8
-  %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 16
+  %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 16
   store i64 %a.coerce0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i.i, align 8
   call fastcc void @parts128_canonicalize(ptr noundef nonnull %p, ptr noundef %s, ptr noundef nonnull @float128_params)
   %1 = load i8, ptr %p, align 8
@@ -21089,7 +21089,7 @@ parts128_float_to_uint.exit:                      ; preds = %entry, %sw.epilog.i
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local { i64, i64 } @float128_to_uint128(i64 %a.coerce0, i64 %a.coerce1, ptr nocapture noundef %s) local_unnamed_addr #3 {
 entry:
-  %float_rounding_mode = getelementptr inbounds i8, ptr %s, i64 2
+  %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
   %call = tail call fastcc { i64, i64 } @float128_to_uint128_scalbn(i64 %a.coerce0, i64 %a.coerce1, i8 noundef zeroext %0, ptr noundef %s)
   ret { i64, i64 } %call
@@ -21106,13 +21106,13 @@ entry:
   %frombool.i.i = trunc nuw nsw i64 %f.coerce1.lobit.i.i to i8
   %and.i.i.i = and i64 %a.coerce1, 281474976710655
   store i8 0, ptr %p, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.sroa.33.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 4
+  %.compoundliteral.sroa.33.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 %conv.i.i, ptr %.compoundliteral.sroa.33.0..sroa_idx.i.i, align 4
-  %.compoundliteral.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i64 %and.i.i.i, ptr %.compoundliteral.sroa.4.0..sroa_idx.i.i, align 8
-  %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 16
+  %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 16
   store i64 %a.coerce0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i.i, align 8
   call fastcc void @parts128_canonicalize(ptr noundef nonnull %p, ptr noundef %s, ptr noundef nonnull @float128_params)
   %1 = load i8, ptr %p, align 8
@@ -21243,7 +21243,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br i1 %cmp.i.i.i.i, label %float32_to_uint64_scalbn.exit, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  %flush_inputs_to_zero.i.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %1 = load i8, ptr %flush_inputs_to_zero.i.i.i, align 2
   %tobool9.i.i.i = trunc i8 %1 to i1
   br i1 %tobool9.i.i.i, label %parts64_float_to_uint.exit.sink.split.i, label %if.then.i.i.thread
@@ -21353,7 +21353,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br i1 %cmp.i.i.i.i, label %float64_to_uint64_scalbn.exit, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  %flush_inputs_to_zero.i.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %1 = load i8, ptr %flush_inputs_to_zero.i.i.i, align 2
   %tobool9.i.i.i = trunc i8 %1 to i1
   br i1 %tobool9.i.i.i, label %parts64_float_to_uint.exit.sink.split.i, label %if.then.i.i.thread
@@ -21451,7 +21451,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i8 @bfloat16_to_uint8(i16 noundef zeroext %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
 entry:
-  %float_rounding_mode = getelementptr inbounds i8, ptr %s, i64 2
+  %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
   %call = tail call zeroext i8 @bfloat16_to_uint8_scalbn(i16 noundef zeroext %a, i8 noundef zeroext %0, i32 noundef 0, ptr noundef %s)
   ret i8 %call
@@ -21460,7 +21460,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i16 @bfloat16_to_uint16(i16 noundef zeroext %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
 entry:
-  %float_rounding_mode = getelementptr inbounds i8, ptr %s, i64 2
+  %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
   %call = tail call zeroext i16 @bfloat16_to_uint16_scalbn(i16 noundef zeroext %a, i8 noundef zeroext %0, i32 noundef 0, ptr noundef %s)
   ret i16 %call
@@ -21469,7 +21469,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @bfloat16_to_uint32(i16 noundef zeroext %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
 entry:
-  %float_rounding_mode = getelementptr inbounds i8, ptr %s, i64 2
+  %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
   %call = tail call i32 @bfloat16_to_uint32_scalbn(i16 noundef zeroext %a, i8 noundef zeroext %0, i32 noundef 0, ptr noundef %s)
   ret i32 %call
@@ -21478,7 +21478,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @bfloat16_to_uint64(i16 noundef zeroext %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
 entry:
-  %float_rounding_mode = getelementptr inbounds i8, ptr %s, i64 2
+  %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
   %call = tail call i64 @bfloat16_to_uint64_scalbn(i16 noundef zeroext %a, i8 noundef zeroext %0, i32 noundef 0, ptr noundef %s)
   ret i64 %call
@@ -21531,7 +21531,7 @@ if.end.i:                                         ; preds = %entry
 
 if.then3.i:                                       ; preds = %if.end.i
   %sub.i = sub i64 0, %a
-  %sign.i = getelementptr inbounds i8, ptr %p, i64 1
+  %sign.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 1, ptr %sign.i, align 1
   br label %if.end4.i
 
@@ -21543,26 +21543,26 @@ if.end4.i:                                        ; preds = %if.then3.i, %if.end
   %cond11.i = tail call i32 @llvm.smin.i32(i32 %cond.i, i32 65536)
   %reass.sub.i = add nsw i32 %cond11.i, 63
   %add.i = sub nsw i32 %reass.sub.i, %cast.i.i
-  %exp.i = getelementptr inbounds i8, ptr %p, i64 4
+  %exp.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 %add.i, ptr %exp.i, align 4
   %shl.i = shl i64 %f.0.i, %0
-  %1 = getelementptr inbounds i8, ptr %p, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i64 %shl.i, ptr %1, align 8
   br label %parts64_sint_to_float.exit
 
 parts64_sint_to_float.exit:                       ; preds = %if.then.i, %if.end4.i
   call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %status, ptr noundef nonnull @float16_params)
-  %sign.i.i.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %sign.i.i.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   %2 = load i8, ptr %sign.i.i.i.i, align 1
   %conv.i.i.i.i = zext i8 %2 to i64
   %shl.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i, 15
-  %exp.i.i.i.i = getelementptr inbounds i8, ptr %p, i64 4
+  %exp.i.i.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   %3 = load i32, ptr %exp.i.i.i.i, align 4
   %4 = shl i32 %3, 10
   %5 = and i32 %4, 31744
   %and8.i.i.i.i = zext nneg i32 %5 to i64
   %or.i.i.i.i = or disjoint i64 %shl.i.i.i.i, %and8.i.i.i.i
-  %6 = getelementptr inbounds i8, ptr %p, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %p, i64 8
   %7 = load i64, ptr %6, align 8
   %shl77.i9.i.i.i = and i64 %7, 1023
   %or.i11.i.i.i = or disjoint i64 %or.i.i.i.i, %shl77.i9.i.i.i
@@ -21591,7 +21591,7 @@ if.end.i.i:                                       ; preds = %entry
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
   %sub.i.i = sub nsw i64 0, %conv
-  %sign.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   store i8 1, ptr %sign.i.i, align 1
   br label %if.end4.i.i
 
@@ -21603,26 +21603,26 @@ if.end4.i.i:                                      ; preds = %if.then3.i.i, %if.e
   %cond11.i.i = tail call i32 @llvm.smin.i32(i32 %cond.i.i, i32 65536)
   %reass.sub.i.i = add nsw i32 %cond11.i.i, 63
   %add.i.i = sub nsw i32 %reass.sub.i.i, %cast.i.i.i
-  %exp.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   store i32 %add.i.i, ptr %exp.i.i, align 4
   %shl.i.i = shl i64 %f.0.i.i, %0
-  %1 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   store i64 %shl.i.i, ptr %1, align 8
   br label %int64_to_float16_scalbn.exit
 
 int64_to_float16_scalbn.exit:                     ; preds = %if.then.i.i, %if.end4.i.i
   call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @float16_params)
-  %sign.i.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i.i, align 1
   %conv.i.i.i.i.i = zext i8 %2 to i64
   %shl.i.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i.i, 15
-  %exp.i.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   %3 = load i32, ptr %exp.i.i.i.i.i, align 4
   %4 = shl i32 %3, 10
   %5 = and i32 %4, 31744
   %and8.i.i.i.i.i = zext nneg i32 %5 to i64
   %or.i.i.i.i.i = or disjoint i64 %shl.i.i.i.i.i, %and8.i.i.i.i.i
-  %6 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   %7 = load i64, ptr %6, align 8
   %shl77.i9.i.i.i.i = and i64 %7, 1023
   %or.i11.i.i.i.i = or disjoint i64 %or.i.i.i.i.i, %shl77.i9.i.i.i.i
@@ -21652,7 +21652,7 @@ if.end.i.i:                                       ; preds = %entry
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
   %sub.i.i = sub nsw i64 0, %conv
-  %sign.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   store i8 1, ptr %sign.i.i, align 1
   br label %if.end4.i.i
 
@@ -21664,26 +21664,26 @@ if.end4.i.i:                                      ; preds = %if.then3.i.i, %if.e
   %cond11.i.i = tail call i32 @llvm.smin.i32(i32 %cond.i.i, i32 65536)
   %reass.sub.i.i = add nsw i32 %cond11.i.i, 63
   %add.i.i = sub nsw i32 %reass.sub.i.i, %cast.i.i.i
-  %exp.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   store i32 %add.i.i, ptr %exp.i.i, align 4
   %shl.i.i = shl i64 %f.0.i.i, %0
-  %1 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   store i64 %shl.i.i, ptr %1, align 8
   br label %int64_to_float16_scalbn.exit
 
 int64_to_float16_scalbn.exit:                     ; preds = %if.then.i.i, %if.end4.i.i
   call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @float16_params)
-  %sign.i.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i.i, align 1
   %conv.i.i.i.i.i = zext i8 %2 to i64
   %shl.i.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i.i, 15
-  %exp.i.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   %3 = load i32, ptr %exp.i.i.i.i.i, align 4
   %4 = shl i32 %3, 10
   %5 = and i32 %4, 31744
   %and8.i.i.i.i.i = zext nneg i32 %5 to i64
   %or.i.i.i.i.i = or disjoint i64 %shl.i.i.i.i.i, %and8.i.i.i.i.i
-  %6 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   %7 = load i64, ptr %6, align 8
   %shl77.i9.i.i.i.i = and i64 %7, 1023
   %or.i11.i.i.i.i = or disjoint i64 %or.i.i.i.i.i, %shl77.i9.i.i.i.i
@@ -21712,7 +21712,7 @@ if.end.i.i:                                       ; preds = %entry
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
   %sub.i.i = sub i64 0, %a
-  %sign.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   store i8 1, ptr %sign.i.i, align 1
   br label %if.end4.i.i
 
@@ -21721,26 +21721,26 @@ if.end4.i.i:                                      ; preds = %if.then3.i.i, %if.e
   %0 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %f.0.i.i, i1 false)
   %cast.i.i.i = trunc nuw nsw i64 %0 to i32
   %add.i.i = sub nuw nsw i32 63, %cast.i.i.i
-  %exp.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   store i32 %add.i.i, ptr %exp.i.i, align 4
   %shl.i.i = shl i64 %f.0.i.i, %0
-  %1 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   store i64 %shl.i.i, ptr %1, align 8
   br label %int64_to_float16_scalbn.exit
 
 int64_to_float16_scalbn.exit:                     ; preds = %if.then.i.i, %if.end4.i.i
   call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @float16_params)
-  %sign.i.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i.i, align 1
   %conv.i.i.i.i.i = zext i8 %2 to i64
   %shl.i.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i.i, 15
-  %exp.i.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   %3 = load i32, ptr %exp.i.i.i.i.i, align 4
   %4 = shl i32 %3, 10
   %5 = and i32 %4, 31744
   %and8.i.i.i.i.i = zext nneg i32 %5 to i64
   %or.i.i.i.i.i = or disjoint i64 %shl.i.i.i.i.i, %and8.i.i.i.i.i
-  %6 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   %7 = load i64, ptr %6, align 8
   %shl77.i9.i.i.i.i = and i64 %7, 1023
   %or.i11.i.i.i.i = or disjoint i64 %or.i.i.i.i.i, %shl77.i9.i.i.i.i
@@ -21770,7 +21770,7 @@ if.end.i.i:                                       ; preds = %entry
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
   %sub.i.i = sub nsw i64 0, %conv
-  %sign.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   store i8 1, ptr %sign.i.i, align 1
   br label %if.end4.i.i
 
@@ -21779,26 +21779,26 @@ if.end4.i.i:                                      ; preds = %if.then3.i.i, %if.e
   %0 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %f.0.i.i, i1 false)
   %cast.i.i.i = trunc nuw nsw i64 %0 to i32
   %add.i.i = sub nsw i32 63, %cast.i.i.i
-  %exp.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   store i32 %add.i.i, ptr %exp.i.i, align 4
   %shl.i.i = shl i64 %f.0.i.i, %0
-  %1 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   store i64 %shl.i.i, ptr %1, align 8
   br label %int64_to_float16_scalbn.exit
 
 int64_to_float16_scalbn.exit:                     ; preds = %if.then.i.i, %if.end4.i.i
   call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @float16_params)
-  %sign.i.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i.i, align 1
   %conv.i.i.i.i.i = zext i8 %2 to i64
   %shl.i.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i.i, 15
-  %exp.i.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   %3 = load i32, ptr %exp.i.i.i.i.i, align 4
   %4 = shl i32 %3, 10
   %5 = and i32 %4, 31744
   %and8.i.i.i.i.i = zext nneg i32 %5 to i64
   %or.i.i.i.i.i = or disjoint i64 %shl.i.i.i.i.i, %and8.i.i.i.i.i
-  %6 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   %7 = load i64, ptr %6, align 8
   %shl77.i9.i.i.i.i = and i64 %7, 1023
   %or.i11.i.i.i.i = or disjoint i64 %or.i.i.i.i.i, %shl77.i9.i.i.i.i
@@ -21828,7 +21828,7 @@ if.end.i.i:                                       ; preds = %entry
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
   %sub.i.i = sub nsw i64 0, %conv
-  %sign.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   store i8 1, ptr %sign.i.i, align 1
   br label %if.end4.i.i
 
@@ -21837,26 +21837,26 @@ if.end4.i.i:                                      ; preds = %if.then3.i.i, %if.e
   %0 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %f.0.i.i, i1 false)
   %cast.i.i.i = trunc nuw nsw i64 %0 to i32
   %add.i.i = sub nsw i32 63, %cast.i.i.i
-  %exp.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   store i32 %add.i.i, ptr %exp.i.i, align 4
   %shl.i.i = shl i64 %f.0.i.i, %0
-  %1 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   store i64 %shl.i.i, ptr %1, align 8
   br label %int64_to_float16_scalbn.exit
 
 int64_to_float16_scalbn.exit:                     ; preds = %if.then.i.i, %if.end4.i.i
   call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @float16_params)
-  %sign.i.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i.i, align 1
   %conv.i.i.i.i.i = zext i8 %2 to i64
   %shl.i.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i.i, 15
-  %exp.i.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   %3 = load i32, ptr %exp.i.i.i.i.i, align 4
   %4 = shl i32 %3, 10
   %5 = and i32 %4, 31744
   %and8.i.i.i.i.i = zext nneg i32 %5 to i64
   %or.i.i.i.i.i = or disjoint i64 %shl.i.i.i.i.i, %and8.i.i.i.i.i
-  %6 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   %7 = load i64, ptr %6, align 8
   %shl77.i9.i.i.i.i = and i64 %7, 1023
   %or.i11.i.i.i.i = or disjoint i64 %or.i.i.i.i.i, %shl77.i9.i.i.i.i
@@ -21886,7 +21886,7 @@ if.end.i.i:                                       ; preds = %entry
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
   %sub.i.i = sub nsw i64 0, %conv
-  %sign.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   store i8 1, ptr %sign.i.i, align 1
   br label %if.end4.i.i
 
@@ -21895,26 +21895,26 @@ if.end4.i.i:                                      ; preds = %if.then3.i.i, %if.e
   %0 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %f.0.i.i, i1 false)
   %cast.i.i.i = trunc nuw nsw i64 %0 to i32
   %add.i.i = sub nsw i32 63, %cast.i.i.i
-  %exp.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   store i32 %add.i.i, ptr %exp.i.i, align 4
   %shl.i.i = shl i64 %f.0.i.i, %0
-  %1 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   store i64 %shl.i.i, ptr %1, align 8
   br label %int64_to_float16_scalbn.exit
 
 int64_to_float16_scalbn.exit:                     ; preds = %if.then.i.i, %if.end4.i.i
   call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @float16_params)
-  %sign.i.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i.i, align 1
   %conv.i.i.i.i.i = zext i8 %2 to i64
   %shl.i.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i.i, 15
-  %exp.i.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   %3 = load i32, ptr %exp.i.i.i.i.i, align 4
   %4 = shl i32 %3, 10
   %5 = and i32 %4, 31744
   %and8.i.i.i.i.i = zext nneg i32 %5 to i64
   %or.i.i.i.i.i = or disjoint i64 %shl.i.i.i.i.i, %and8.i.i.i.i.i
-  %6 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   %7 = load i64, ptr %6, align 8
   %shl77.i9.i.i.i.i = and i64 %7, 1023
   %or.i11.i.i.i.i = or disjoint i64 %or.i.i.i.i.i, %shl77.i9.i.i.i.i
@@ -21946,7 +21946,7 @@ if.end.i:                                         ; preds = %entry.split
 
 if.then3.i:                                       ; preds = %if.end.i
   %sub.i = sub i64 0, %a
-  %sign.i = getelementptr inbounds i8, ptr %p, i64 1
+  %sign.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 1, ptr %sign.i, align 1
   br label %if.end4.i
 
@@ -21958,10 +21958,10 @@ if.end4.i:                                        ; preds = %if.then3.i, %if.end
   %cond11.i = tail call i32 @llvm.smin.i32(i32 %cond.i, i32 65536)
   %reass.sub.i = add nsw i32 %cond11.i, 63
   %add.i = sub nsw i32 %reass.sub.i, %cast.i.i
-  %exp.i = getelementptr inbounds i8, ptr %p, i64 4
+  %exp.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 %add.i, ptr %exp.i, align 4
   %shl.i = shl i64 %f.0.i, %0
-  %1 = getelementptr inbounds i8, ptr %p, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i64 %shl.i, ptr %1, align 8
   br label %if.end
 
@@ -21972,7 +21972,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool.not.i, label %land.lhs.true.split, label %can_use_fpu.exit
 
 can_use_fpu.exit:                                 ; preds = %land.lhs.true
-  %float_rounding_mode.i = getelementptr inbounds i8, ptr %status, i64 2
+  %float_rounding_mode.i = getelementptr inbounds nuw i8, ptr %status, i64 2
   %4 = load i8, ptr %float_rounding_mode.i, align 2
   %cmp.i5 = icmp eq i8 %4, 0
   br i1 %cmp.i5, label %if.then, label %land.lhs.true.split
@@ -21993,7 +21993,7 @@ if.end.i7:                                        ; preds = %land.lhs.true.split
 
 if.then3.i15:                                     ; preds = %if.end.i7
   %sub.i16 = sub i64 0, %a
-  %sign.i17 = getelementptr inbounds i8, ptr %p, i64 1
+  %sign.i17 = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 1, ptr %sign.i17, align 1
   br label %if.end4.i9
 
@@ -22002,10 +22002,10 @@ if.end4.i9:                                       ; preds = %if.then3.i15, %if.e
   %5 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %f.0.i10, i1 false)
   %cast.i.i11 = trunc nuw nsw i64 %5 to i32
   %add.i12 = sub nuw nsw i32 63, %cast.i.i11
-  %exp.i13 = getelementptr inbounds i8, ptr %p, i64 4
+  %exp.i13 = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 %add.i12, ptr %exp.i13, align 4
   %shl.i14 = shl i64 %f.0.i10, %5
-  %6 = getelementptr inbounds i8, ptr %p, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i64 %shl.i14, ptr %6, align 8
   br label %if.end
 
@@ -22016,17 +22016,17 @@ if.then:                                          ; preds = %can_use_fpu.exit
 
 if.end:                                           ; preds = %if.end4.i9, %if.then.i18, %if.end4.i, %if.then.i
   call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %status, ptr noundef nonnull @float32_params)
-  %sign.i.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %sign.i.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   %8 = load i8, ptr %sign.i.i.i, align 1
   %conv.i.i.i = zext i8 %8 to i64
   %shl.i.i.i = shl nuw nsw i64 %conv.i.i.i, 31
-  %exp.i.i.i = getelementptr inbounds i8, ptr %p, i64 4
+  %exp.i.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   %9 = load i32, ptr %exp.i.i.i, align 4
   %10 = shl i32 %9, 23
   %11 = and i32 %10, 2139095040
   %and8.i.i.i = zext nneg i32 %11 to i64
   %or.i.i.i = or disjoint i64 %shl.i.i.i, %and8.i.i.i
-  %12 = getelementptr inbounds i8, ptr %p, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %p, i64 8
   %13 = load i64, ptr %12, align 8
   %shl77.i9.i.i = and i64 %13, 8388607
   %or.i11.i.i = or disjoint i64 %or.i.i.i, %shl77.i9.i.i
@@ -22065,7 +22065,7 @@ entry:
   br i1 %tobool.not.i.i, label %land.lhs.true.split.i, label %can_use_fpu.exit.i
 
 can_use_fpu.exit.i:                               ; preds = %entry
-  %float_rounding_mode.i.i = getelementptr inbounds i8, ptr %status, i64 2
+  %float_rounding_mode.i.i = getelementptr inbounds nuw i8, ptr %status, i64 2
   %2 = load i8, ptr %float_rounding_mode.i.i, align 2
   %cmp.i5.i = icmp eq i8 %2, 0
   br i1 %cmp.i5.i, label %if.then.i, label %land.lhs.true.split.i
@@ -22086,7 +22086,7 @@ if.end.i7.i:                                      ; preds = %land.lhs.true.split
 
 if.then3.i15.i:                                   ; preds = %if.end.i7.i
   %sub.i16.i = sub i64 0, %a
-  %sign.i17.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i17.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   store i8 1, ptr %sign.i17.i, align 1
   br label %if.end4.i9.i
 
@@ -22095,10 +22095,10 @@ if.end4.i9.i:                                     ; preds = %if.then3.i15.i, %if
   %3 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %f.0.i10.i, i1 false)
   %cast.i.i11.i = trunc nuw nsw i64 %3 to i32
   %add.i12.i = sub nuw nsw i32 63, %cast.i.i11.i
-  %exp.i13.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i13.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   store i32 %add.i12.i, ptr %exp.i13.i, align 4
   %shl.i14.i = shl i64 %f.0.i10.i, %3
-  %4 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   store i64 %shl.i14.i, ptr %4, align 8
   br label %if.end.i
 
@@ -22109,17 +22109,17 @@ if.then.i:                                        ; preds = %can_use_fpu.exit.i
 
 if.end.i:                                         ; preds = %if.end4.i9.i, %if.then.i18.i
   call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef nonnull %status, ptr noundef nonnull @float32_params)
-  %sign.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   %6 = load i8, ptr %sign.i.i.i.i, align 1
   %conv.i.i.i.i = zext i8 %6 to i64
   %shl.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i, 31
-  %exp.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   %7 = load i32, ptr %exp.i.i.i.i, align 4
   %8 = shl i32 %7, 23
   %9 = and i32 %8, 2139095040
   %and8.i.i.i.i = zext nneg i32 %9 to i64
   %or.i.i.i.i = or disjoint i64 %shl.i.i.i.i, %and8.i.i.i.i
-  %10 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   %11 = load i64, ptr %10, align 8
   %shl77.i9.i.i.i = and i64 %11, 8388607
   %or.i11.i.i.i = or disjoint i64 %or.i.i.i.i, %shl77.i9.i.i.i
@@ -22144,7 +22144,7 @@ entry:
   br i1 %tobool.not.i.i, label %land.lhs.true.split.i, label %can_use_fpu.exit.i
 
 can_use_fpu.exit.i:                               ; preds = %entry
-  %float_rounding_mode.i.i = getelementptr inbounds i8, ptr %status, i64 2
+  %float_rounding_mode.i.i = getelementptr inbounds nuw i8, ptr %status, i64 2
   %2 = load i8, ptr %float_rounding_mode.i.i, align 2
   %cmp.i5.i = icmp eq i8 %2, 0
   br i1 %cmp.i5.i, label %if.then.i, label %land.lhs.true.split.i
@@ -22165,7 +22165,7 @@ if.end.i7.i:                                      ; preds = %land.lhs.true.split
 
 if.then3.i15.i:                                   ; preds = %if.end.i7.i
   %sub.i16.i = sub nsw i64 0, %conv
-  %sign.i17.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i17.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   store i8 1, ptr %sign.i17.i, align 1
   br label %if.end4.i9.i
 
@@ -22174,10 +22174,10 @@ if.end4.i9.i:                                     ; preds = %if.then3.i15.i, %if
   %3 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %f.0.i10.i, i1 false)
   %cast.i.i11.i = trunc nuw nsw i64 %3 to i32
   %add.i12.i = sub nuw nsw i32 63, %cast.i.i11.i
-  %exp.i13.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i13.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   store i32 %add.i12.i, ptr %exp.i13.i, align 4
   %shl.i14.i = shl i64 %f.0.i10.i, %3
-  %4 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   store i64 %shl.i14.i, ptr %4, align 8
   br label %if.end.i
 
@@ -22188,17 +22188,17 @@ if.then.i:                                        ; preds = %can_use_fpu.exit.i
 
 if.end.i:                                         ; preds = %if.end4.i9.i, %if.then.i18.i
   call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef nonnull %status, ptr noundef nonnull @float32_params)
-  %sign.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   %6 = load i8, ptr %sign.i.i.i.i, align 1
   %conv.i.i.i.i = zext i8 %6 to i64
   %shl.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i, 31
-  %exp.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   %7 = load i32, ptr %exp.i.i.i.i, align 4
   %8 = shl i32 %7, 23
   %9 = and i32 %8, 2139095040
   %and8.i.i.i.i = zext nneg i32 %9 to i64
   %or.i.i.i.i = or disjoint i64 %shl.i.i.i.i, %and8.i.i.i.i
-  %10 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   %11 = load i64, ptr %10, align 8
   %shl77.i9.i.i.i = and i64 %11, 8388607
   %or.i11.i.i.i = or disjoint i64 %or.i.i.i.i, %shl77.i9.i.i.i
@@ -22223,7 +22223,7 @@ entry:
   br i1 %tobool.not.i.i, label %land.lhs.true.split.i, label %can_use_fpu.exit.i
 
 can_use_fpu.exit.i:                               ; preds = %entry
-  %float_rounding_mode.i.i = getelementptr inbounds i8, ptr %status, i64 2
+  %float_rounding_mode.i.i = getelementptr inbounds nuw i8, ptr %status, i64 2
   %2 = load i8, ptr %float_rounding_mode.i.i, align 2
   %cmp.i5.i = icmp eq i8 %2, 0
   br i1 %cmp.i5.i, label %if.then.i, label %land.lhs.true.split.i
@@ -22244,7 +22244,7 @@ if.end.i7.i:                                      ; preds = %land.lhs.true.split
 
 if.then3.i15.i:                                   ; preds = %if.end.i7.i
   %sub.i16.i = sub nsw i64 0, %conv
-  %sign.i17.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i17.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   store i8 1, ptr %sign.i17.i, align 1
   br label %if.end4.i9.i
 
@@ -22253,10 +22253,10 @@ if.end4.i9.i:                                     ; preds = %if.then3.i15.i, %if
   %3 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %f.0.i10.i, i1 false)
   %cast.i.i11.i = trunc nuw nsw i64 %3 to i32
   %add.i12.i = sub nuw nsw i32 63, %cast.i.i11.i
-  %exp.i13.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i13.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   store i32 %add.i12.i, ptr %exp.i13.i, align 4
   %shl.i14.i = shl i64 %f.0.i10.i, %3
-  %4 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   store i64 %shl.i14.i, ptr %4, align 8
   br label %if.end.i
 
@@ -22267,17 +22267,17 @@ if.then.i:                                        ; preds = %can_use_fpu.exit.i
 
 if.end.i:                                         ; preds = %if.end4.i9.i, %if.then.i18.i
   call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef nonnull %status, ptr noundef nonnull @float32_params)
-  %sign.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   %6 = load i8, ptr %sign.i.i.i.i, align 1
   %conv.i.i.i.i = zext i8 %6 to i64
   %shl.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i, 31
-  %exp.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   %7 = load i32, ptr %exp.i.i.i.i, align 4
   %8 = shl i32 %7, 23
   %9 = and i32 %8, 2139095040
   %and8.i.i.i.i = zext nneg i32 %9 to i64
   %or.i.i.i.i = or disjoint i64 %shl.i.i.i.i, %and8.i.i.i.i
-  %10 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   %11 = load i64, ptr %10, align 8
   %shl77.i9.i.i.i = and i64 %11, 8388607
   %or.i11.i.i.i = or disjoint i64 %or.i.i.i.i, %shl77.i9.i.i.i
@@ -22313,7 +22313,7 @@ if.end.i:                                         ; preds = %entry.split
 
 if.then3.i:                                       ; preds = %if.end.i
   %sub.i = sub i64 0, %a
-  %sign.i = getelementptr inbounds i8, ptr %p, i64 1
+  %sign.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 1, ptr %sign.i, align 1
   br label %if.end4.i
 
@@ -22325,10 +22325,10 @@ if.end4.i:                                        ; preds = %if.then3.i, %if.end
   %cond11.i = tail call i32 @llvm.smin.i32(i32 %cond.i, i32 65536)
   %reass.sub.i = add nsw i32 %cond11.i, 63
   %add.i = sub nsw i32 %reass.sub.i, %cast.i.i
-  %exp.i = getelementptr inbounds i8, ptr %p, i64 4
+  %exp.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 %add.i, ptr %exp.i, align 4
   %shl.i = shl i64 %f.0.i, %0
-  %1 = getelementptr inbounds i8, ptr %p, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i64 %shl.i, ptr %1, align 8
   br label %if.end
 
@@ -22339,7 +22339,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool.not.i, label %land.lhs.true.split, label %can_use_fpu.exit
 
 can_use_fpu.exit:                                 ; preds = %land.lhs.true
-  %float_rounding_mode.i = getelementptr inbounds i8, ptr %status, i64 2
+  %float_rounding_mode.i = getelementptr inbounds nuw i8, ptr %status, i64 2
   %4 = load i8, ptr %float_rounding_mode.i, align 2
   %cmp.i5 = icmp eq i8 %4, 0
   br i1 %cmp.i5, label %if.then, label %land.lhs.true.split
@@ -22360,7 +22360,7 @@ if.end.i7:                                        ; preds = %land.lhs.true.split
 
 if.then3.i15:                                     ; preds = %if.end.i7
   %sub.i16 = sub i64 0, %a
-  %sign.i17 = getelementptr inbounds i8, ptr %p, i64 1
+  %sign.i17 = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 1, ptr %sign.i17, align 1
   br label %if.end4.i9
 
@@ -22369,10 +22369,10 @@ if.end4.i9:                                       ; preds = %if.then3.i15, %if.e
   %5 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %f.0.i10, i1 false)
   %cast.i.i11 = trunc nuw nsw i64 %5 to i32
   %add.i12 = sub nuw nsw i32 63, %cast.i.i11
-  %exp.i13 = getelementptr inbounds i8, ptr %p, i64 4
+  %exp.i13 = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 %add.i12, ptr %exp.i13, align 4
   %shl.i14 = shl i64 %f.0.i10, %5
-  %6 = getelementptr inbounds i8, ptr %p, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i64 %shl.i14, ptr %6, align 8
   br label %if.end
 
@@ -22383,18 +22383,18 @@ if.then:                                          ; preds = %can_use_fpu.exit
 
 if.end:                                           ; preds = %if.end4.i9, %if.then.i18, %if.end4.i, %if.then.i
   call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %status, ptr noundef nonnull @float64_params)
-  %sign.i.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %sign.i.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   %8 = load i8, ptr %sign.i.i.i, align 1
   %9 = and i8 %8, 1
   %conv.i.i.i = zext nneg i8 %9 to i64
   %shl.i.i.i = shl nuw i64 %conv.i.i.i, 63
-  %exp.i.i.i = getelementptr inbounds i8, ptr %p, i64 4
+  %exp.i.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   %10 = load i32, ptr %exp.i.i.i, align 4
   %11 = and i32 %10, 2047
   %shl77.i.i.i = zext nneg i32 %11 to i64
   %and8.i.i.i = shl nuw nsw i64 %shl77.i.i.i, 52
   %or.i.i.i = or disjoint i64 %and8.i.i.i, %shl.i.i.i
-  %12 = getelementptr inbounds i8, ptr %p, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %p, i64 8
   %13 = load i64, ptr %12, align 8
   %shl77.i9.i.i = and i64 %13, 4503599627370495
   %or.i11.i.i = or disjoint i64 %or.i.i.i, %shl77.i9.i.i
@@ -22432,7 +22432,7 @@ entry:
   br i1 %tobool.not.i.i, label %land.lhs.true.split.i, label %can_use_fpu.exit.i
 
 can_use_fpu.exit.i:                               ; preds = %entry
-  %float_rounding_mode.i.i = getelementptr inbounds i8, ptr %status, i64 2
+  %float_rounding_mode.i.i = getelementptr inbounds nuw i8, ptr %status, i64 2
   %2 = load i8, ptr %float_rounding_mode.i.i, align 2
   %cmp.i5.i = icmp eq i8 %2, 0
   br i1 %cmp.i5.i, label %if.then.i, label %land.lhs.true.split.i
@@ -22453,7 +22453,7 @@ if.end.i7.i:                                      ; preds = %land.lhs.true.split
 
 if.then3.i15.i:                                   ; preds = %if.end.i7.i
   %sub.i16.i = sub i64 0, %a
-  %sign.i17.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i17.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   store i8 1, ptr %sign.i17.i, align 1
   br label %if.end4.i9.i
 
@@ -22462,10 +22462,10 @@ if.end4.i9.i:                                     ; preds = %if.then3.i15.i, %if
   %3 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %f.0.i10.i, i1 false)
   %cast.i.i11.i = trunc nuw nsw i64 %3 to i32
   %add.i12.i = sub nuw nsw i32 63, %cast.i.i11.i
-  %exp.i13.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i13.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   store i32 %add.i12.i, ptr %exp.i13.i, align 4
   %shl.i14.i = shl i64 %f.0.i10.i, %3
-  %4 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   store i64 %shl.i14.i, ptr %4, align 8
   br label %if.end.i
 
@@ -22476,18 +22476,18 @@ if.then.i:                                        ; preds = %can_use_fpu.exit.i
 
 if.end.i:                                         ; preds = %if.end4.i9.i, %if.then.i18.i
   call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef nonnull %status, ptr noundef nonnull @float64_params)
-  %sign.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   %6 = load i8, ptr %sign.i.i.i.i, align 1
   %7 = and i8 %6, 1
   %conv.i.i.i.i = zext nneg i8 %7 to i64
   %shl.i.i.i.i = shl nuw i64 %conv.i.i.i.i, 63
-  %exp.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   %8 = load i32, ptr %exp.i.i.i.i, align 4
   %9 = and i32 %8, 2047
   %shl77.i.i.i.i = zext nneg i32 %9 to i64
   %and8.i.i.i.i = shl nuw nsw i64 %shl77.i.i.i.i, 52
   %or.i.i.i.i = or disjoint i64 %and8.i.i.i.i, %shl.i.i.i.i
-  %10 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   %11 = load i64, ptr %10, align 8
   %shl77.i9.i.i.i = and i64 %11, 4503599627370495
   %or.i11.i.i.i = or disjoint i64 %or.i.i.i.i, %shl77.i9.i.i.i
@@ -22511,7 +22511,7 @@ entry:
   br i1 %tobool.not.i.i, label %land.lhs.true.split.i, label %can_use_fpu.exit.i
 
 can_use_fpu.exit.i:                               ; preds = %entry
-  %float_rounding_mode.i.i = getelementptr inbounds i8, ptr %status, i64 2
+  %float_rounding_mode.i.i = getelementptr inbounds nuw i8, ptr %status, i64 2
   %2 = load i8, ptr %float_rounding_mode.i.i, align 2
   %cmp.i5.i = icmp eq i8 %2, 0
   br i1 %cmp.i5.i, label %if.then.i, label %land.lhs.true.split.i
@@ -22532,7 +22532,7 @@ if.end.i7.i:                                      ; preds = %land.lhs.true.split
 
 if.then3.i15.i:                                   ; preds = %if.end.i7.i
   %sub.i16.i = sub nsw i64 0, %conv
-  %sign.i17.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i17.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   store i8 1, ptr %sign.i17.i, align 1
   br label %if.end4.i9.i
 
@@ -22541,10 +22541,10 @@ if.end4.i9.i:                                     ; preds = %if.then3.i15.i, %if
   %3 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %f.0.i10.i, i1 false)
   %cast.i.i11.i = trunc nuw nsw i64 %3 to i32
   %add.i12.i = sub nuw nsw i32 63, %cast.i.i11.i
-  %exp.i13.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i13.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   store i32 %add.i12.i, ptr %exp.i13.i, align 4
   %shl.i14.i = shl i64 %f.0.i10.i, %3
-  %4 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   store i64 %shl.i14.i, ptr %4, align 8
   br label %if.end.i
 
@@ -22555,18 +22555,18 @@ if.then.i:                                        ; preds = %can_use_fpu.exit.i
 
 if.end.i:                                         ; preds = %if.end4.i9.i, %if.then.i18.i
   call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef nonnull %status, ptr noundef nonnull @float64_params)
-  %sign.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   %6 = load i8, ptr %sign.i.i.i.i, align 1
   %7 = and i8 %6, 1
   %conv.i.i.i.i = zext nneg i8 %7 to i64
   %shl.i.i.i.i = shl nuw i64 %conv.i.i.i.i, 63
-  %exp.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   %8 = load i32, ptr %exp.i.i.i.i, align 4
   %9 = and i32 %8, 2047
   %shl77.i.i.i.i = zext nneg i32 %9 to i64
   %and8.i.i.i.i = shl nuw nsw i64 %shl77.i.i.i.i, 52
   %or.i.i.i.i = or disjoint i64 %and8.i.i.i.i, %shl.i.i.i.i
-  %10 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   %11 = load i64, ptr %10, align 8
   %shl77.i9.i.i.i = and i64 %11, 4503599627370495
   %or.i11.i.i.i = or disjoint i64 %or.i.i.i.i, %shl77.i9.i.i.i
@@ -22590,7 +22590,7 @@ entry:
   br i1 %tobool.not.i.i, label %land.lhs.true.split.i, label %can_use_fpu.exit.i
 
 can_use_fpu.exit.i:                               ; preds = %entry
-  %float_rounding_mode.i.i = getelementptr inbounds i8, ptr %status, i64 2
+  %float_rounding_mode.i.i = getelementptr inbounds nuw i8, ptr %status, i64 2
   %2 = load i8, ptr %float_rounding_mode.i.i, align 2
   %cmp.i5.i = icmp eq i8 %2, 0
   br i1 %cmp.i5.i, label %if.then.i, label %land.lhs.true.split.i
@@ -22611,7 +22611,7 @@ if.end.i7.i:                                      ; preds = %land.lhs.true.split
 
 if.then3.i15.i:                                   ; preds = %if.end.i7.i
   %sub.i16.i = sub nsw i64 0, %conv
-  %sign.i17.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i17.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   store i8 1, ptr %sign.i17.i, align 1
   br label %if.end4.i9.i
 
@@ -22620,10 +22620,10 @@ if.end4.i9.i:                                     ; preds = %if.then3.i15.i, %if
   %3 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %f.0.i10.i, i1 false)
   %cast.i.i11.i = trunc nuw nsw i64 %3 to i32
   %add.i12.i = sub nuw nsw i32 63, %cast.i.i11.i
-  %exp.i13.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i13.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   store i32 %add.i12.i, ptr %exp.i13.i, align 4
   %shl.i14.i = shl i64 %f.0.i10.i, %3
-  %4 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   store i64 %shl.i14.i, ptr %4, align 8
   br label %if.end.i
 
@@ -22634,18 +22634,18 @@ if.then.i:                                        ; preds = %can_use_fpu.exit.i
 
 if.end.i:                                         ; preds = %if.end4.i9.i, %if.then.i18.i
   call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef nonnull %status, ptr noundef nonnull @float64_params)
-  %sign.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   %6 = load i8, ptr %sign.i.i.i.i, align 1
   %7 = and i8 %6, 1
   %conv.i.i.i.i = zext nneg i8 %7 to i64
   %shl.i.i.i.i = shl nuw i64 %conv.i.i.i.i, 63
-  %exp.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   %8 = load i32, ptr %exp.i.i.i.i, align 4
   %9 = and i32 %8, 2047
   %shl77.i.i.i.i = zext nneg i32 %9 to i64
   %and8.i.i.i.i = shl nuw nsw i64 %shl77.i.i.i.i, 52
   %or.i.i.i.i = or disjoint i64 %and8.i.i.i.i, %shl.i.i.i.i
-  %10 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   %11 = load i64, ptr %10, align 8
   %shl77.i9.i.i.i = and i64 %11, 4503599627370495
   %or.i11.i.i.i = or disjoint i64 %or.i.i.i.i, %shl77.i9.i.i.i
@@ -22676,7 +22676,7 @@ if.end.i:                                         ; preds = %entry
 
 if.then3.i:                                       ; preds = %if.end.i
   %sub.i = sub i64 0, %a
-  %sign.i = getelementptr inbounds i8, ptr %p, i64 1
+  %sign.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 1, ptr %sign.i, align 1
   br label %if.end4.i
 
@@ -22688,26 +22688,26 @@ if.end4.i:                                        ; preds = %if.then3.i, %if.end
   %cond11.i = tail call i32 @llvm.smin.i32(i32 %cond.i, i32 65536)
   %reass.sub.i = add nsw i32 %cond11.i, 63
   %add.i = sub nsw i32 %reass.sub.i, %cast.i.i
-  %exp.i = getelementptr inbounds i8, ptr %p, i64 4
+  %exp.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 %add.i, ptr %exp.i, align 4
   %shl.i = shl i64 %f.0.i, %0
-  %1 = getelementptr inbounds i8, ptr %p, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i64 %shl.i, ptr %1, align 8
   br label %parts64_sint_to_float.exit
 
 parts64_sint_to_float.exit:                       ; preds = %if.then.i, %if.end4.i
   call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
-  %sign.i.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %sign.i.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   %2 = load i8, ptr %sign.i.i.i, align 1
   %conv.i.i.i = zext i8 %2 to i64
   %shl.i.i.i = shl nuw nsw i64 %conv.i.i.i, 15
-  %exp.i.i.i = getelementptr inbounds i8, ptr %p, i64 4
+  %exp.i.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   %3 = load i32, ptr %exp.i.i.i, align 4
   %4 = shl i32 %3, 7
   %5 = and i32 %4, 32640
   %and8.i.i.i = zext nneg i32 %5 to i64
   %or.i.i.i = or disjoint i64 %shl.i.i.i, %and8.i.i.i
-  %6 = getelementptr inbounds i8, ptr %p, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %p, i64 8
   %7 = load i64, ptr %6, align 8
   %shl77.i9.i.i = and i64 %7, 127
   %or.i11.i.i = or disjoint i64 %or.i.i.i, %shl77.i9.i.i
@@ -22736,7 +22736,7 @@ if.end.i.i:                                       ; preds = %entry
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
   %sub.i.i = sub nsw i64 0, %conv
-  %sign.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   store i8 1, ptr %sign.i.i, align 1
   br label %if.end4.i.i
 
@@ -22748,26 +22748,26 @@ if.end4.i.i:                                      ; preds = %if.then3.i.i, %if.e
   %cond11.i.i = tail call i32 @llvm.smin.i32(i32 %cond.i.i, i32 65536)
   %reass.sub.i.i = add nsw i32 %cond11.i.i, 63
   %add.i.i = sub nsw i32 %reass.sub.i.i, %cast.i.i.i
-  %exp.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   store i32 %add.i.i, ptr %exp.i.i, align 4
   %shl.i.i = shl i64 %f.0.i.i, %0
-  %1 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   store i64 %shl.i.i, ptr %1, align 8
   br label %int64_to_bfloat16_scalbn.exit
 
 int64_to_bfloat16_scalbn.exit:                    ; preds = %if.then.i.i, %if.end4.i.i
   call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
-  %sign.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i, align 1
   %conv.i.i.i.i = zext i8 %2 to i64
   %shl.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i, 15
-  %exp.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   %3 = load i32, ptr %exp.i.i.i.i, align 4
   %4 = shl i32 %3, 7
   %5 = and i32 %4, 32640
   %and8.i.i.i.i = zext nneg i32 %5 to i64
   %or.i.i.i.i = or disjoint i64 %shl.i.i.i.i, %and8.i.i.i.i
-  %6 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   %7 = load i64, ptr %6, align 8
   %shl77.i9.i.i.i = and i64 %7, 127
   %or.i11.i.i.i = or disjoint i64 %or.i.i.i.i, %shl77.i9.i.i.i
@@ -22797,7 +22797,7 @@ if.end.i.i:                                       ; preds = %entry
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
   %sub.i.i = sub nsw i64 0, %conv
-  %sign.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   store i8 1, ptr %sign.i.i, align 1
   br label %if.end4.i.i
 
@@ -22809,26 +22809,26 @@ if.end4.i.i:                                      ; preds = %if.then3.i.i, %if.e
   %cond11.i.i = tail call i32 @llvm.smin.i32(i32 %cond.i.i, i32 65536)
   %reass.sub.i.i = add nsw i32 %cond11.i.i, 63
   %add.i.i = sub nsw i32 %reass.sub.i.i, %cast.i.i.i
-  %exp.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   store i32 %add.i.i, ptr %exp.i.i, align 4
   %shl.i.i = shl i64 %f.0.i.i, %0
-  %1 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   store i64 %shl.i.i, ptr %1, align 8
   br label %int64_to_bfloat16_scalbn.exit
 
 int64_to_bfloat16_scalbn.exit:                    ; preds = %if.then.i.i, %if.end4.i.i
   call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
-  %sign.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i, align 1
   %conv.i.i.i.i = zext i8 %2 to i64
   %shl.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i, 15
-  %exp.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   %3 = load i32, ptr %exp.i.i.i.i, align 4
   %4 = shl i32 %3, 7
   %5 = and i32 %4, 32640
   %and8.i.i.i.i = zext nneg i32 %5 to i64
   %or.i.i.i.i = or disjoint i64 %shl.i.i.i.i, %and8.i.i.i.i
-  %6 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   %7 = load i64, ptr %6, align 8
   %shl77.i9.i.i.i = and i64 %7, 127
   %or.i11.i.i.i = or disjoint i64 %or.i.i.i.i, %shl77.i9.i.i.i
@@ -22858,7 +22858,7 @@ if.end.i.i:                                       ; preds = %entry
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
   %sub.i.i = sub nsw i64 0, %conv
-  %sign.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   store i8 1, ptr %sign.i.i, align 1
   br label %if.end4.i.i
 
@@ -22870,26 +22870,26 @@ if.end4.i.i:                                      ; preds = %if.then3.i.i, %if.e
   %cond11.i.i = tail call i32 @llvm.smin.i32(i32 %cond.i.i, i32 65536)
   %reass.sub.i.i = add nsw i32 %cond11.i.i, 63
   %add.i.i = sub nsw i32 %reass.sub.i.i, %cast.i.i.i
-  %exp.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   store i32 %add.i.i, ptr %exp.i.i, align 4
   %shl.i.i = shl i64 %f.0.i.i, %0
-  %1 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   store i64 %shl.i.i, ptr %1, align 8
   br label %int64_to_bfloat16_scalbn.exit
 
 int64_to_bfloat16_scalbn.exit:                    ; preds = %if.then.i.i, %if.end4.i.i
   call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
-  %sign.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i, align 1
   %conv.i.i.i.i = zext i8 %2 to i64
   %shl.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i, 15
-  %exp.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   %3 = load i32, ptr %exp.i.i.i.i, align 4
   %4 = shl i32 %3, 7
   %5 = and i32 %4, 32640
   %and8.i.i.i.i = zext nneg i32 %5 to i64
   %or.i.i.i.i = or disjoint i64 %shl.i.i.i.i, %and8.i.i.i.i
-  %6 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   %7 = load i64, ptr %6, align 8
   %shl77.i9.i.i.i = and i64 %7, 127
   %or.i11.i.i.i = or disjoint i64 %or.i.i.i.i, %shl77.i9.i.i.i
@@ -22918,7 +22918,7 @@ if.end.i.i:                                       ; preds = %entry
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
   %sub.i.i = sub i64 0, %a
-  %sign.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   store i8 1, ptr %sign.i.i, align 1
   br label %if.end4.i.i
 
@@ -22927,26 +22927,26 @@ if.end4.i.i:                                      ; preds = %if.then3.i.i, %if.e
   %0 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %f.0.i.i, i1 false)
   %cast.i.i.i = trunc nuw nsw i64 %0 to i32
   %add.i.i = sub nuw nsw i32 63, %cast.i.i.i
-  %exp.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   store i32 %add.i.i, ptr %exp.i.i, align 4
   %shl.i.i = shl i64 %f.0.i.i, %0
-  %1 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   store i64 %shl.i.i, ptr %1, align 8
   br label %int64_to_bfloat16_scalbn.exit
 
 int64_to_bfloat16_scalbn.exit:                    ; preds = %if.then.i.i, %if.end4.i.i
   call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
-  %sign.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i, align 1
   %conv.i.i.i.i = zext i8 %2 to i64
   %shl.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i, 15
-  %exp.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   %3 = load i32, ptr %exp.i.i.i.i, align 4
   %4 = shl i32 %3, 7
   %5 = and i32 %4, 32640
   %and8.i.i.i.i = zext nneg i32 %5 to i64
   %or.i.i.i.i = or disjoint i64 %shl.i.i.i.i, %and8.i.i.i.i
-  %6 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   %7 = load i64, ptr %6, align 8
   %shl77.i9.i.i.i = and i64 %7, 127
   %or.i11.i.i.i = or disjoint i64 %or.i.i.i.i, %shl77.i9.i.i.i
@@ -22976,7 +22976,7 @@ if.end.i.i:                                       ; preds = %entry
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
   %sub.i.i = sub nsw i64 0, %conv
-  %sign.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   store i8 1, ptr %sign.i.i, align 1
   br label %if.end4.i.i
 
@@ -22985,26 +22985,26 @@ if.end4.i.i:                                      ; preds = %if.then3.i.i, %if.e
   %0 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %f.0.i.i, i1 false)
   %cast.i.i.i = trunc nuw nsw i64 %0 to i32
   %add.i.i = sub nsw i32 63, %cast.i.i.i
-  %exp.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   store i32 %add.i.i, ptr %exp.i.i, align 4
   %shl.i.i = shl i64 %f.0.i.i, %0
-  %1 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   store i64 %shl.i.i, ptr %1, align 8
   br label %int64_to_bfloat16_scalbn.exit
 
 int64_to_bfloat16_scalbn.exit:                    ; preds = %if.then.i.i, %if.end4.i.i
   call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
-  %sign.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i, align 1
   %conv.i.i.i.i = zext i8 %2 to i64
   %shl.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i, 15
-  %exp.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   %3 = load i32, ptr %exp.i.i.i.i, align 4
   %4 = shl i32 %3, 7
   %5 = and i32 %4, 32640
   %and8.i.i.i.i = zext nneg i32 %5 to i64
   %or.i.i.i.i = or disjoint i64 %shl.i.i.i.i, %and8.i.i.i.i
-  %6 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   %7 = load i64, ptr %6, align 8
   %shl77.i9.i.i.i = and i64 %7, 127
   %or.i11.i.i.i = or disjoint i64 %or.i.i.i.i, %shl77.i9.i.i.i
@@ -23034,7 +23034,7 @@ if.end.i.i:                                       ; preds = %entry
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
   %sub.i.i = sub nsw i64 0, %conv
-  %sign.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   store i8 1, ptr %sign.i.i, align 1
   br label %if.end4.i.i
 
@@ -23043,26 +23043,26 @@ if.end4.i.i:                                      ; preds = %if.then3.i.i, %if.e
   %0 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %f.0.i.i, i1 false)
   %cast.i.i.i = trunc nuw nsw i64 %0 to i32
   %add.i.i = sub nsw i32 63, %cast.i.i.i
-  %exp.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   store i32 %add.i.i, ptr %exp.i.i, align 4
   %shl.i.i = shl i64 %f.0.i.i, %0
-  %1 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   store i64 %shl.i.i, ptr %1, align 8
   br label %int64_to_bfloat16_scalbn.exit
 
 int64_to_bfloat16_scalbn.exit:                    ; preds = %if.then.i.i, %if.end4.i.i
   call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
-  %sign.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i, align 1
   %conv.i.i.i.i = zext i8 %2 to i64
   %shl.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i, 15
-  %exp.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   %3 = load i32, ptr %exp.i.i.i.i, align 4
   %4 = shl i32 %3, 7
   %5 = and i32 %4, 32640
   %and8.i.i.i.i = zext nneg i32 %5 to i64
   %or.i.i.i.i = or disjoint i64 %shl.i.i.i.i, %and8.i.i.i.i
-  %6 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   %7 = load i64, ptr %6, align 8
   %shl77.i9.i.i.i = and i64 %7, 127
   %or.i11.i.i.i = or disjoint i64 %or.i.i.i.i, %shl77.i9.i.i.i
@@ -23092,7 +23092,7 @@ if.end.i.i:                                       ; preds = %entry
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
   %sub.i.i = sub nsw i64 0, %conv
-  %sign.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   store i8 1, ptr %sign.i.i, align 1
   br label %if.end4.i.i
 
@@ -23101,26 +23101,26 @@ if.end4.i.i:                                      ; preds = %if.then3.i.i, %if.e
   %0 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %f.0.i.i, i1 false)
   %cast.i.i.i = trunc nuw nsw i64 %0 to i32
   %add.i.i = sub nsw i32 63, %cast.i.i.i
-  %exp.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   store i32 %add.i.i, ptr %exp.i.i, align 4
   %shl.i.i = shl i64 %f.0.i.i, %0
-  %1 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   store i64 %shl.i.i, ptr %1, align 8
   br label %int64_to_bfloat16_scalbn.exit
 
 int64_to_bfloat16_scalbn.exit:                    ; preds = %if.then.i.i, %if.end4.i.i
   call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
-  %sign.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i, align 1
   %conv.i.i.i.i = zext i8 %2 to i64
   %shl.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i, 15
-  %exp.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   %3 = load i32, ptr %exp.i.i.i.i, align 4
   %4 = shl i32 %3, 7
   %5 = and i32 %4, 32640
   %and8.i.i.i.i = zext nneg i32 %5 to i64
   %or.i.i.i.i = or disjoint i64 %shl.i.i.i.i, %and8.i.i.i.i
-  %6 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   %7 = load i64, ptr %6, align 8
   %shl77.i9.i.i.i = and i64 %7, 127
   %or.i11.i.i.i = or disjoint i64 %or.i.i.i.i, %shl77.i9.i.i.i
@@ -23147,7 +23147,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i15, label %if.end, label %if.then4
 
 if.then4:                                         ; preds = %if.then
-  %sign = getelementptr inbounds i8, ptr %p, i64 1
+  %sign = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 1, ptr %sign, align 1
   %a.coerce1.neg.i = sub i64 0, %a.coerce1
   %a.coerce1.neg.z.i = zext i64 %a.coerce1.neg.i to i128
@@ -23175,7 +23175,7 @@ if.then11:                                        ; preds = %if.end
 if.end15:                                         ; preds = %if.then11, %if.end
   %shift.0 = phi i32 [ %add, %if.then11 ], [ %cast.i, %if.end ]
   %sub = sub nsw i32 127, %shift.0
-  %exp = getelementptr inbounds i8, ptr %p, i64 4
+  %exp = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 %sub, ptr %exp, align 4
   %a.sroa.2.0.insert.ext.i18 = zext i64 %a.addr.0.off64 to i128
   %a.sroa.2.0.insert.shift.i19 = shl nuw i128 %a.sroa.2.0.insert.ext.i18, 64
@@ -23186,9 +23186,9 @@ if.end15:                                         ; preds = %if.then11, %if.end
   %retval.sroa.0.0.extract.trunc.i22 = trunc i128 %shl.i to i64
   %retval.sroa.2.0.extract.shift.i23 = lshr i128 %shl.i, 64
   %retval.sroa.2.0.extract.trunc.i24 = trunc nuw i128 %retval.sroa.2.0.extract.shift.i23 to i64
-  %frac_hi = getelementptr inbounds i8, ptr %p, i64 8
+  %frac_hi = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i64 %retval.sroa.2.0.extract.trunc.i24, ptr %frac_hi, align 8
-  %frac_lo = getelementptr inbounds i8, ptr %p, i64 16
+  %frac_lo = getelementptr inbounds nuw i8, ptr %p, i64 16
   store i64 %retval.sroa.0.0.extract.trunc.i22, ptr %frac_lo, align 8
   br label %if.end24
 
@@ -23223,7 +23223,7 @@ if.end.i:                                         ; preds = %entry
 
 if.then3.i:                                       ; preds = %if.end.i
   %sub.i = sub i64 0, %a
-  %sign.i = getelementptr inbounds i8, ptr %p, i64 1
+  %sign.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 1, ptr %sign.i, align 1
   br label %if.end4.i
 
@@ -23232,10 +23232,10 @@ if.end4.i:                                        ; preds = %if.then3.i, %if.end
   %0 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %f.0.i, i1 false)
   %cast.i.i = trunc nuw nsw i64 %0 to i32
   %sub12.i = sub nuw nsw i32 63, %cast.i.i
-  %exp.i = getelementptr inbounds i8, ptr %p, i64 4
+  %exp.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 %sub12.i, ptr %exp.i, align 4
   %shl.i = shl i64 %f.0.i, %0
-  %frac_hi.i = getelementptr inbounds i8, ptr %p, i64 8
+  %frac_hi.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i64 %shl.i, ptr %frac_hi.i, align 8
   br label %parts128_sint_to_float.exit
 
@@ -23265,7 +23265,7 @@ if.end.i.i:                                       ; preds = %entry
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
   %sub.i.i = sub nsw i64 0, %conv
-  %sign.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   store i8 1, ptr %sign.i.i, align 1
   br label %if.end4.i.i
 
@@ -23274,10 +23274,10 @@ if.end4.i.i:                                      ; preds = %if.then3.i.i, %if.e
   %0 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %f.0.i.i, i1 false)
   %cast.i.i.i = trunc nuw nsw i64 %0 to i32
   %sub12.i.i = sub nuw nsw i32 63, %cast.i.i.i
-  %exp.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   store i32 %sub12.i.i, ptr %exp.i.i, align 4
   %shl.i.i = shl i64 %f.0.i.i, %0
-  %frac_hi.i.i = getelementptr inbounds i8, ptr %p.i, i64 8
+  %frac_hi.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   store i64 %shl.i.i, ptr %frac_hi.i.i, align 8
   br label %int64_to_float128.exit
 
@@ -23306,7 +23306,7 @@ if.end.i:                                         ; preds = %entry
 
 if.then3.i:                                       ; preds = %if.end.i
   %sub.i = sub i64 0, %a
-  %sign.i = getelementptr inbounds i8, ptr %p, i64 1
+  %sign.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 1, ptr %sign.i, align 1
   br label %if.end4.i
 
@@ -23315,10 +23315,10 @@ if.end4.i:                                        ; preds = %if.then3.i, %if.end
   %0 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %f.0.i, i1 false)
   %cast.i.i = trunc nuw nsw i64 %0 to i32
   %sub12.i = sub nuw nsw i32 63, %cast.i.i
-  %exp.i = getelementptr inbounds i8, ptr %p, i64 4
+  %exp.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 %sub12.i, ptr %exp.i, align 4
   %shl.i = shl i64 %f.0.i, %0
-  %frac_hi.i = getelementptr inbounds i8, ptr %p, i64 8
+  %frac_hi.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i64 %shl.i, ptr %frac_hi.i, align 8
   br label %parts128_sint_to_float.exit
 
@@ -23348,7 +23348,7 @@ if.end.i.i:                                       ; preds = %entry
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
   %sub.i.i = sub nsw i64 0, %conv
-  %sign.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   store i8 1, ptr %sign.i.i, align 1
   br label %if.end4.i.i
 
@@ -23357,10 +23357,10 @@ if.end4.i.i:                                      ; preds = %if.then3.i.i, %if.e
   %0 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %f.0.i.i, i1 false)
   %cast.i.i.i = trunc nuw nsw i64 %0 to i32
   %sub12.i.i = sub nuw nsw i32 63, %cast.i.i.i
-  %exp.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   store i32 %sub12.i.i, ptr %exp.i.i, align 4
   %shl.i.i = shl i64 %f.0.i.i, %0
-  %frac_hi.i.i = getelementptr inbounds i8, ptr %p.i, i64 8
+  %frac_hi.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   store i64 %shl.i.i, ptr %frac_hi.i.i, align 8
   br label %int64_to_floatx80.exit
 
@@ -23385,10 +23385,10 @@ if.else.i:                                        ; preds = %entry
   %cond7.i = tail call i32 @llvm.smin.i32(i32 %cond.i, i32 65536)
   %reass.sub.i = xor i32 %cast.i.i, 63
   %add.i = add nsw i32 %reass.sub.i, %cond7.i
-  %exp.i = getelementptr inbounds i8, ptr %p, i64 4
+  %exp.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 %add.i, ptr %exp.i, align 4
   %shl.i = shl i64 %a, %0
-  %1 = getelementptr inbounds i8, ptr %p, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i64 %shl.i, ptr %1, align 8
   br label %parts64_uint_to_float.exit
 
@@ -23396,17 +23396,17 @@ parts64_uint_to_float.exit:                       ; preds = %entry, %if.else.i
   %.sink.i = phi i8 [ 2, %if.else.i ], [ 1, %entry ]
   store i8 %.sink.i, ptr %p, align 8
   call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %status, ptr noundef nonnull @float16_params)
-  %sign.i.i.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %sign.i.i.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   %2 = load i8, ptr %sign.i.i.i.i, align 1
   %conv.i.i.i.i = zext i8 %2 to i64
   %shl.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i, 15
-  %exp.i.i.i.i = getelementptr inbounds i8, ptr %p, i64 4
+  %exp.i.i.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   %3 = load i32, ptr %exp.i.i.i.i, align 4
   %4 = shl i32 %3, 10
   %5 = and i32 %4, 31744
   %and8.i.i.i.i = zext nneg i32 %5 to i64
   %or.i.i.i.i = or disjoint i64 %shl.i.i.i.i, %and8.i.i.i.i
-  %6 = getelementptr inbounds i8, ptr %p, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %p, i64 8
   %7 = load i64, ptr %6, align 8
   %shl77.i9.i.i.i = and i64 %7, 1023
   %or.i11.i.i.i = or disjoint i64 %or.i.i.i.i, %shl77.i9.i.i.i
@@ -23431,10 +23431,10 @@ if.else.i.i:                                      ; preds = %entry
   %cond7.i.i = tail call i32 @llvm.smin.i32(i32 %cond.i.i, i32 65536)
   %reass.sub.i.i = xor i32 %cast.i.i.i, 63
   %add.i.i = add nsw i32 %reass.sub.i.i, %cond7.i.i
-  %exp.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   store i32 %add.i.i, ptr %exp.i.i, align 4
   %shl.i.i = shl i64 %conv, %0
-  %1 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   store i64 %shl.i.i, ptr %1, align 8
   br label %uint64_to_float16_scalbn.exit
 
@@ -23442,17 +23442,17 @@ uint64_to_float16_scalbn.exit:                    ; preds = %entry, %if.else.i.i
   %.sink.i.i = phi i8 [ 2, %if.else.i.i ], [ 1, %entry ]
   store i8 %.sink.i.i, ptr %p.i, align 8
   call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @float16_params)
-  %sign.i.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i.i, align 1
   %conv.i.i.i.i.i = zext i8 %2 to i64
   %shl.i.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i.i, 15
-  %exp.i.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   %3 = load i32, ptr %exp.i.i.i.i.i, align 4
   %4 = shl i32 %3, 10
   %5 = and i32 %4, 31744
   %and8.i.i.i.i.i = zext nneg i32 %5 to i64
   %or.i.i.i.i.i = or disjoint i64 %shl.i.i.i.i.i, %and8.i.i.i.i.i
-  %6 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   %7 = load i64, ptr %6, align 8
   %shl77.i9.i.i.i.i = and i64 %7, 1023
   %or.i11.i.i.i.i = or disjoint i64 %or.i.i.i.i.i, %shl77.i9.i.i.i.i
@@ -23478,10 +23478,10 @@ if.else.i.i:                                      ; preds = %entry
   %cond7.i.i = tail call i32 @llvm.smin.i32(i32 %cond.i.i, i32 65536)
   %reass.sub.i.i = xor i32 %cast.i.i.i, 63
   %add.i.i = add nsw i32 %reass.sub.i.i, %cond7.i.i
-  %exp.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   store i32 %add.i.i, ptr %exp.i.i, align 4
   %shl.i.i = shl i64 %conv, %0
-  %1 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   store i64 %shl.i.i, ptr %1, align 8
   br label %uint64_to_float16_scalbn.exit
 
@@ -23489,17 +23489,17 @@ uint64_to_float16_scalbn.exit:                    ; preds = %entry, %if.else.i.i
   %.sink.i.i = phi i8 [ 2, %if.else.i.i ], [ 1, %entry ]
   store i8 %.sink.i.i, ptr %p.i, align 8
   call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @float16_params)
-  %sign.i.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i.i, align 1
   %conv.i.i.i.i.i = zext i8 %2 to i64
   %shl.i.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i.i, 15
-  %exp.i.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   %3 = load i32, ptr %exp.i.i.i.i.i, align 4
   %4 = shl i32 %3, 10
   %5 = and i32 %4, 31744
   %and8.i.i.i.i.i = zext nneg i32 %5 to i64
   %or.i.i.i.i.i = or disjoint i64 %shl.i.i.i.i.i, %and8.i.i.i.i.i
-  %6 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   %7 = load i64, ptr %6, align 8
   %shl77.i9.i.i.i.i = and i64 %7, 1023
   %or.i11.i.i.i.i = or disjoint i64 %or.i.i.i.i.i, %shl77.i9.i.i.i.i
@@ -23521,10 +23521,10 @@ if.else.i.i:                                      ; preds = %entry
   %0 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %a, i1 true)
   %cast.i.i.i = trunc nuw nsw i64 %0 to i32
   %reass.sub.i.i = xor i32 %cast.i.i.i, 63
-  %exp.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   store i32 %reass.sub.i.i, ptr %exp.i.i, align 4
   %shl.i.i = shl i64 %a, %0
-  %1 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   store i64 %shl.i.i, ptr %1, align 8
   br label %uint64_to_float16_scalbn.exit
 
@@ -23532,17 +23532,17 @@ uint64_to_float16_scalbn.exit:                    ; preds = %entry, %if.else.i.i
   %.sink.i.i = phi i8 [ 2, %if.else.i.i ], [ 1, %entry ]
   store i8 %.sink.i.i, ptr %p.i, align 8
   call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @float16_params)
-  %sign.i.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i.i, align 1
   %conv.i.i.i.i.i = zext i8 %2 to i64
   %shl.i.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i.i, 15
-  %exp.i.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   %3 = load i32, ptr %exp.i.i.i.i.i, align 4
   %4 = shl i32 %3, 10
   %5 = and i32 %4, 31744
   %and8.i.i.i.i.i = zext nneg i32 %5 to i64
   %or.i.i.i.i.i = or disjoint i64 %shl.i.i.i.i.i, %and8.i.i.i.i.i
-  %6 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   %7 = load i64, ptr %6, align 8
   %shl77.i9.i.i.i.i = and i64 %7, 1023
   %or.i11.i.i.i.i = or disjoint i64 %or.i.i.i.i.i, %shl77.i9.i.i.i.i
@@ -23565,10 +23565,10 @@ if.else.i.i:                                      ; preds = %entry
   %0 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %conv, i1 true)
   %cast.i.i.i = trunc nuw nsw i64 %0 to i32
   %reass.sub.i.i = xor i32 %cast.i.i.i, 63
-  %exp.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   store i32 %reass.sub.i.i, ptr %exp.i.i, align 4
   %shl.i.i = shl i64 %conv, %0
-  %1 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   store i64 %shl.i.i, ptr %1, align 8
   br label %uint64_to_float16_scalbn.exit
 
@@ -23576,17 +23576,17 @@ uint64_to_float16_scalbn.exit:                    ; preds = %entry, %if.else.i.i
   %.sink.i.i = phi i8 [ 2, %if.else.i.i ], [ 1, %entry ]
   store i8 %.sink.i.i, ptr %p.i, align 8
   call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @float16_params)
-  %sign.i.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i.i, align 1
   %conv.i.i.i.i.i = zext i8 %2 to i64
   %shl.i.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i.i, 15
-  %exp.i.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   %3 = load i32, ptr %exp.i.i.i.i.i, align 4
   %4 = shl i32 %3, 10
   %5 = and i32 %4, 31744
   %and8.i.i.i.i.i = zext nneg i32 %5 to i64
   %or.i.i.i.i.i = or disjoint i64 %shl.i.i.i.i.i, %and8.i.i.i.i.i
-  %6 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   %7 = load i64, ptr %6, align 8
   %shl77.i9.i.i.i.i = and i64 %7, 1023
   %or.i11.i.i.i.i = or disjoint i64 %or.i.i.i.i.i, %shl77.i9.i.i.i.i
@@ -23609,10 +23609,10 @@ if.else.i.i:                                      ; preds = %entry
   %0 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %conv, i1 true)
   %cast.i.i.i = trunc nuw nsw i64 %0 to i32
   %reass.sub.i.i = xor i32 %cast.i.i.i, 63
-  %exp.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   store i32 %reass.sub.i.i, ptr %exp.i.i, align 4
   %shl.i.i = shl i64 %conv, %0
-  %1 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   store i64 %shl.i.i, ptr %1, align 8
   br label %uint64_to_float16_scalbn.exit
 
@@ -23620,17 +23620,17 @@ uint64_to_float16_scalbn.exit:                    ; preds = %entry, %if.else.i.i
   %.sink.i.i = phi i8 [ 2, %if.else.i.i ], [ 1, %entry ]
   store i8 %.sink.i.i, ptr %p.i, align 8
   call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @float16_params)
-  %sign.i.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i.i, align 1
   %conv.i.i.i.i.i = zext i8 %2 to i64
   %shl.i.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i.i, 15
-  %exp.i.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   %3 = load i32, ptr %exp.i.i.i.i.i, align 4
   %4 = shl i32 %3, 10
   %5 = and i32 %4, 31744
   %and8.i.i.i.i.i = zext nneg i32 %5 to i64
   %or.i.i.i.i.i = or disjoint i64 %shl.i.i.i.i.i, %and8.i.i.i.i.i
-  %6 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   %7 = load i64, ptr %6, align 8
   %shl77.i9.i.i.i.i = and i64 %7, 1023
   %or.i11.i.i.i.i = or disjoint i64 %or.i.i.i.i.i, %shl77.i9.i.i.i.i
@@ -23653,10 +23653,10 @@ if.else.i.i:                                      ; preds = %entry
   %0 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %conv, i1 true)
   %cast.i.i.i = trunc nuw nsw i64 %0 to i32
   %reass.sub.i.i = xor i32 %cast.i.i.i, 63
-  %exp.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   store i32 %reass.sub.i.i, ptr %exp.i.i, align 4
   %shl.i.i = shl i64 %conv, %0
-  %1 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   store i64 %shl.i.i, ptr %1, align 8
   br label %uint64_to_float16_scalbn.exit
 
@@ -23664,17 +23664,17 @@ uint64_to_float16_scalbn.exit:                    ; preds = %entry, %if.else.i.i
   %.sink.i.i = phi i8 [ 2, %if.else.i.i ], [ 1, %entry ]
   store i8 %.sink.i.i, ptr %p.i, align 8
   call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @float16_params)
-  %sign.i.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i.i, align 1
   %conv.i.i.i.i.i = zext i8 %2 to i64
   %shl.i.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i.i, 15
-  %exp.i.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   %3 = load i32, ptr %exp.i.i.i.i.i, align 4
   %4 = shl i32 %3, 10
   %5 = and i32 %4, 31744
   %and8.i.i.i.i.i = zext nneg i32 %5 to i64
   %or.i.i.i.i.i = or disjoint i64 %shl.i.i.i.i.i, %and8.i.i.i.i.i
-  %6 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   %7 = load i64, ptr %6, align 8
   %shl77.i9.i.i.i.i = and i64 %7, 1023
   %or.i11.i.i.i.i = or disjoint i64 %or.i.i.i.i.i, %shl77.i9.i.i.i.i
@@ -23711,7 +23711,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool.not.i, label %land.lhs.true.split, label %can_use_fpu.exit
 
 can_use_fpu.exit:                                 ; preds = %land.lhs.true
-  %float_rounding_mode.i = getelementptr inbounds i8, ptr %status, i64 2
+  %float_rounding_mode.i = getelementptr inbounds nuw i8, ptr %status, i64 2
   %3 = load i8, ptr %float_rounding_mode.i, align 2
   %cmp.i5 = icmp eq i8 %3, 0
   br i1 %cmp.i5, label %if.then, label %land.lhs.true.split
@@ -23735,10 +23735,10 @@ if.then:                                          ; preds = %can_use_fpu.exit
 if.end.sink.split:                                ; preds = %if.else.i, %if.else.i7
   %reass.sub.i9.sink = phi i32 [ %reass.sub.i9, %if.else.i7 ], [ %add.i, %if.else.i ]
   %.sink = phi i64 [ %4, %if.else.i7 ], [ %0, %if.else.i ]
-  %exp.i11 = getelementptr inbounds i8, ptr %p, i64 4
+  %exp.i11 = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 %reass.sub.i9.sink, ptr %exp.i11, align 4
   %shl.i12 = shl i64 %a, %.sink
-  %6 = getelementptr inbounds i8, ptr %p, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i64 %shl.i12, ptr %6, align 8
   br label %if.end
 
@@ -23746,17 +23746,17 @@ if.end:                                           ; preds = %if.end.sink.split, 
   %storemerge = phi i8 [ 1, %entry.split ], [ 1, %land.lhs.true.split ], [ 2, %if.end.sink.split ]
   store i8 %storemerge, ptr %p, align 8
   call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %status, ptr noundef nonnull @float32_params)
-  %sign.i.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %sign.i.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   %7 = load i8, ptr %sign.i.i.i, align 1
   %conv.i.i.i = zext i8 %7 to i64
   %shl.i.i.i = shl nuw nsw i64 %conv.i.i.i, 31
-  %exp.i.i.i = getelementptr inbounds i8, ptr %p, i64 4
+  %exp.i.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   %8 = load i32, ptr %exp.i.i.i, align 4
   %9 = shl i32 %8, 23
   %10 = and i32 %9, 2139095040
   %and8.i.i.i = zext nneg i32 %10 to i64
   %or.i.i.i = or disjoint i64 %shl.i.i.i, %and8.i.i.i
-  %11 = getelementptr inbounds i8, ptr %p, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %p, i64 8
   %12 = load i64, ptr %11, align 8
   %shl77.i9.i.i = and i64 %12, 8388607
   %or.i11.i.i = or disjoint i64 %or.i.i.i, %shl77.i9.i.i
@@ -23798,7 +23798,7 @@ land.lhs.true.i:                                  ; preds = %entry
   br i1 %tobool.not.i.i, label %land.lhs.true.split.i, label %can_use_fpu.exit.i
 
 can_use_fpu.exit.i:                               ; preds = %land.lhs.true.i
-  %float_rounding_mode.i.i = getelementptr inbounds i8, ptr %status, i64 2
+  %float_rounding_mode.i.i = getelementptr inbounds nuw i8, ptr %status, i64 2
   %3 = load i8, ptr %float_rounding_mode.i.i, align 2
   %cmp.i5.i = icmp eq i8 %3, 0
   br i1 %cmp.i5.i, label %if.then.i, label %land.lhs.true.split.i
@@ -23822,10 +23822,10 @@ if.then.i:                                        ; preds = %can_use_fpu.exit.i
 if.end.sink.split.i:                              ; preds = %if.else.i7.i, %if.else.i.i
   %reass.sub.i9.sink.i = phi i32 [ %reass.sub.i9.i, %if.else.i7.i ], [ %add.i.i, %if.else.i.i ]
   %.sink.i = phi i64 [ %4, %if.else.i7.i ], [ %0, %if.else.i.i ]
-  %exp.i11.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i11.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   store i32 %reass.sub.i9.sink.i, ptr %exp.i11.i, align 4
   %shl.i12.i = shl i64 %conv, %.sink.i
-  %6 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   store i64 %shl.i12.i, ptr %6, align 8
   br label %if.end.i
 
@@ -23833,17 +23833,17 @@ if.end.i:                                         ; preds = %if.end.sink.split.i
   %storemerge.i = phi i8 [ 1, %entry.split.i ], [ 1, %land.lhs.true.split.i ], [ 2, %if.end.sink.split.i ]
   store i8 %storemerge.i, ptr %p.i, align 8
   call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @float32_params)
-  %sign.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   %7 = load i8, ptr %sign.i.i.i.i, align 1
   %conv.i.i.i.i = zext i8 %7 to i64
   %shl.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i, 31
-  %exp.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   %8 = load i32, ptr %exp.i.i.i.i, align 4
   %9 = shl i32 %8, 23
   %10 = and i32 %9, 2139095040
   %and8.i.i.i.i = zext nneg i32 %10 to i64
   %or.i.i.i.i = or disjoint i64 %shl.i.i.i.i, %and8.i.i.i.i
-  %11 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   %12 = load i64, ptr %11, align 8
   %shl77.i9.i.i.i = and i64 %12, 8388607
   %or.i11.i.i.i = or disjoint i64 %or.i.i.i.i, %shl77.i9.i.i.i
@@ -23886,7 +23886,7 @@ land.lhs.true.i:                                  ; preds = %entry
   br i1 %tobool.not.i.i, label %land.lhs.true.split.i, label %can_use_fpu.exit.i
 
 can_use_fpu.exit.i:                               ; preds = %land.lhs.true.i
-  %float_rounding_mode.i.i = getelementptr inbounds i8, ptr %status, i64 2
+  %float_rounding_mode.i.i = getelementptr inbounds nuw i8, ptr %status, i64 2
   %3 = load i8, ptr %float_rounding_mode.i.i, align 2
   %cmp.i5.i = icmp eq i8 %3, 0
   br i1 %cmp.i5.i, label %if.then.i, label %land.lhs.true.split.i
@@ -23910,10 +23910,10 @@ if.then.i:                                        ; preds = %can_use_fpu.exit.i
 if.end.sink.split.i:                              ; preds = %if.else.i7.i, %if.else.i.i
   %reass.sub.i9.sink.i = phi i32 [ %reass.sub.i9.i, %if.else.i7.i ], [ %add.i.i, %if.else.i.i ]
   %.sink.i = phi i64 [ %4, %if.else.i7.i ], [ %0, %if.else.i.i ]
-  %exp.i11.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i11.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   store i32 %reass.sub.i9.sink.i, ptr %exp.i11.i, align 4
   %shl.i12.i = shl i64 %conv, %.sink.i
-  %6 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   store i64 %shl.i12.i, ptr %6, align 8
   br label %if.end.i
 
@@ -23921,17 +23921,17 @@ if.end.i:                                         ; preds = %if.end.sink.split.i
   %storemerge.i = phi i8 [ 1, %entry.split.i ], [ 1, %land.lhs.true.split.i ], [ 2, %if.end.sink.split.i ]
   store i8 %storemerge.i, ptr %p.i, align 8
   call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @float32_params)
-  %sign.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   %7 = load i8, ptr %sign.i.i.i.i, align 1
   %conv.i.i.i.i = zext i8 %7 to i64
   %shl.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i, 31
-  %exp.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   %8 = load i32, ptr %exp.i.i.i.i, align 4
   %9 = shl i32 %8, 23
   %10 = and i32 %9, 2139095040
   %and8.i.i.i.i = zext nneg i32 %10 to i64
   %or.i.i.i.i = or disjoint i64 %shl.i.i.i.i, %and8.i.i.i.i
-  %11 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   %12 = load i64, ptr %11, align 8
   %shl77.i9.i.i.i = and i64 %12, 8388607
   %or.i11.i.i.i = or disjoint i64 %or.i.i.i.i, %shl77.i9.i.i.i
@@ -23955,7 +23955,7 @@ entry:
   br i1 %tobool.not.i.i, label %land.lhs.true.split.i, label %can_use_fpu.exit.i
 
 can_use_fpu.exit.i:                               ; preds = %entry
-  %float_rounding_mode.i.i = getelementptr inbounds i8, ptr %status, i64 2
+  %float_rounding_mode.i.i = getelementptr inbounds nuw i8, ptr %status, i64 2
   %2 = load i8, ptr %float_rounding_mode.i.i, align 2
   %cmp.i5.i = icmp eq i8 %2, 0
   br i1 %cmp.i5.i, label %if.then.i, label %land.lhs.true.split.i
@@ -23969,10 +23969,10 @@ if.else.i7.i:                                     ; preds = %land.lhs.true.split
   %3 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %a, i1 true)
   %cast.i.i8.i = trunc nuw nsw i64 %3 to i32
   %reass.sub.i9.i = xor i32 %cast.i.i8.i, 63
-  %exp.i11.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i11.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   store i32 %reass.sub.i9.i, ptr %exp.i11.i, align 4
   %shl.i12.i = shl i64 %a, %3
-  %4 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   store i64 %shl.i12.i, ptr %4, align 8
   br label %if.end.i
 
@@ -23985,17 +23985,17 @@ if.end.i:                                         ; preds = %if.else.i7.i, %land
   %storemerge.i = phi i8 [ 1, %land.lhs.true.split.i ], [ 2, %if.else.i7.i ]
   store i8 %storemerge.i, ptr %p.i, align 8
   call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef nonnull %status, ptr noundef nonnull @float32_params)
-  %sign.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   %6 = load i8, ptr %sign.i.i.i.i, align 1
   %conv.i.i.i.i = zext i8 %6 to i64
   %shl.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i, 31
-  %exp.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   %7 = load i32, ptr %exp.i.i.i.i, align 4
   %8 = shl i32 %7, 23
   %9 = and i32 %8, 2139095040
   %and8.i.i.i.i = zext nneg i32 %9 to i64
   %or.i.i.i.i = or disjoint i64 %shl.i.i.i.i, %and8.i.i.i.i
-  %10 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   %11 = load i64, ptr %10, align 8
   %shl77.i9.i.i.i = and i64 %11, 8388607
   %or.i11.i.i.i = or disjoint i64 %or.i.i.i.i, %shl77.i9.i.i.i
@@ -24020,7 +24020,7 @@ entry:
   br i1 %tobool.not.i.i, label %land.lhs.true.split.i, label %can_use_fpu.exit.i
 
 can_use_fpu.exit.i:                               ; preds = %entry
-  %float_rounding_mode.i.i = getelementptr inbounds i8, ptr %status, i64 2
+  %float_rounding_mode.i.i = getelementptr inbounds nuw i8, ptr %status, i64 2
   %2 = load i8, ptr %float_rounding_mode.i.i, align 2
   %cmp.i5.i = icmp eq i8 %2, 0
   br i1 %cmp.i5.i, label %if.then.i, label %land.lhs.true.split.i
@@ -24034,10 +24034,10 @@ if.else.i7.i:                                     ; preds = %land.lhs.true.split
   %3 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %conv, i1 true)
   %cast.i.i8.i = trunc nuw nsw i64 %3 to i32
   %reass.sub.i9.i = xor i32 %cast.i.i8.i, 63
-  %exp.i11.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i11.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   store i32 %reass.sub.i9.i, ptr %exp.i11.i, align 4
   %shl.i12.i = shl i64 %conv, %3
-  %4 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   store i64 %shl.i12.i, ptr %4, align 8
   br label %if.end.i
 
@@ -24050,17 +24050,17 @@ if.end.i:                                         ; preds = %if.else.i7.i, %land
   %storemerge.i = phi i8 [ 1, %land.lhs.true.split.i ], [ 2, %if.else.i7.i ]
   store i8 %storemerge.i, ptr %p.i, align 8
   call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef nonnull %status, ptr noundef nonnull @float32_params)
-  %sign.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   %6 = load i8, ptr %sign.i.i.i.i, align 1
   %conv.i.i.i.i = zext i8 %6 to i64
   %shl.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i, 31
-  %exp.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   %7 = load i32, ptr %exp.i.i.i.i, align 4
   %8 = shl i32 %7, 23
   %9 = and i32 %8, 2139095040
   %and8.i.i.i.i = zext nneg i32 %9 to i64
   %or.i.i.i.i = or disjoint i64 %shl.i.i.i.i, %and8.i.i.i.i
-  %10 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   %11 = load i64, ptr %10, align 8
   %shl77.i9.i.i.i = and i64 %11, 8388607
   %or.i11.i.i.i = or disjoint i64 %or.i.i.i.i, %shl77.i9.i.i.i
@@ -24085,7 +24085,7 @@ entry:
   br i1 %tobool.not.i.i, label %land.lhs.true.split.i, label %can_use_fpu.exit.i
 
 can_use_fpu.exit.i:                               ; preds = %entry
-  %float_rounding_mode.i.i = getelementptr inbounds i8, ptr %status, i64 2
+  %float_rounding_mode.i.i = getelementptr inbounds nuw i8, ptr %status, i64 2
   %2 = load i8, ptr %float_rounding_mode.i.i, align 2
   %cmp.i5.i = icmp eq i8 %2, 0
   br i1 %cmp.i5.i, label %if.then.i, label %land.lhs.true.split.i
@@ -24099,10 +24099,10 @@ if.else.i7.i:                                     ; preds = %land.lhs.true.split
   %3 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %conv, i1 true)
   %cast.i.i8.i = trunc nuw nsw i64 %3 to i32
   %reass.sub.i9.i = xor i32 %cast.i.i8.i, 63
-  %exp.i11.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i11.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   store i32 %reass.sub.i9.i, ptr %exp.i11.i, align 4
   %shl.i12.i = shl i64 %conv, %3
-  %4 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   store i64 %shl.i12.i, ptr %4, align 8
   br label %if.end.i
 
@@ -24115,17 +24115,17 @@ if.end.i:                                         ; preds = %if.else.i7.i, %land
   %storemerge.i = phi i8 [ 1, %land.lhs.true.split.i ], [ 2, %if.else.i7.i ]
   store i8 %storemerge.i, ptr %p.i, align 8
   call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef nonnull %status, ptr noundef nonnull @float32_params)
-  %sign.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   %6 = load i8, ptr %sign.i.i.i.i, align 1
   %conv.i.i.i.i = zext i8 %6 to i64
   %shl.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i, 31
-  %exp.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   %7 = load i32, ptr %exp.i.i.i.i, align 4
   %8 = shl i32 %7, 23
   %9 = and i32 %8, 2139095040
   %and8.i.i.i.i = zext nneg i32 %9 to i64
   %or.i.i.i.i = or disjoint i64 %shl.i.i.i.i, %and8.i.i.i.i
-  %10 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   %11 = load i64, ptr %10, align 8
   %shl77.i9.i.i.i = and i64 %11, 8388607
   %or.i11.i.i.i = or disjoint i64 %or.i.i.i.i, %shl77.i9.i.i.i
@@ -24166,7 +24166,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool.not.i, label %land.lhs.true.split, label %can_use_fpu.exit
 
 can_use_fpu.exit:                                 ; preds = %land.lhs.true
-  %float_rounding_mode.i = getelementptr inbounds i8, ptr %status, i64 2
+  %float_rounding_mode.i = getelementptr inbounds nuw i8, ptr %status, i64 2
   %3 = load i8, ptr %float_rounding_mode.i, align 2
   %cmp.i5 = icmp eq i8 %3, 0
   br i1 %cmp.i5, label %if.then, label %land.lhs.true.split
@@ -24190,10 +24190,10 @@ if.then:                                          ; preds = %can_use_fpu.exit
 if.end.sink.split:                                ; preds = %if.else.i, %if.else.i7
   %reass.sub.i9.sink = phi i32 [ %reass.sub.i9, %if.else.i7 ], [ %add.i, %if.else.i ]
   %.sink = phi i64 [ %4, %if.else.i7 ], [ %0, %if.else.i ]
-  %exp.i11 = getelementptr inbounds i8, ptr %p, i64 4
+  %exp.i11 = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 %reass.sub.i9.sink, ptr %exp.i11, align 4
   %shl.i12 = shl i64 %a, %.sink
-  %6 = getelementptr inbounds i8, ptr %p, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i64 %shl.i12, ptr %6, align 8
   br label %if.end
 
@@ -24201,18 +24201,18 @@ if.end:                                           ; preds = %if.end.sink.split, 
   %storemerge = phi i8 [ 1, %entry.split ], [ 1, %land.lhs.true.split ], [ 2, %if.end.sink.split ]
   store i8 %storemerge, ptr %p, align 8
   call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %status, ptr noundef nonnull @float64_params)
-  %sign.i.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %sign.i.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   %7 = load i8, ptr %sign.i.i.i, align 1
   %8 = and i8 %7, 1
   %conv.i.i.i = zext nneg i8 %8 to i64
   %shl.i.i.i = shl nuw i64 %conv.i.i.i, 63
-  %exp.i.i.i = getelementptr inbounds i8, ptr %p, i64 4
+  %exp.i.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   %9 = load i32, ptr %exp.i.i.i, align 4
   %10 = and i32 %9, 2047
   %shl77.i.i.i = zext nneg i32 %10 to i64
   %and8.i.i.i = shl nuw nsw i64 %shl77.i.i.i, 52
   %or.i.i.i = or disjoint i64 %and8.i.i.i, %shl.i.i.i
-  %11 = getelementptr inbounds i8, ptr %p, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %p, i64 8
   %12 = load i64, ptr %11, align 8
   %shl77.i9.i.i = and i64 %12, 4503599627370495
   %or.i11.i.i = or disjoint i64 %or.i.i.i, %shl77.i9.i.i
@@ -24253,7 +24253,7 @@ land.lhs.true.i:                                  ; preds = %entry
   br i1 %tobool.not.i.i, label %land.lhs.true.split.i, label %can_use_fpu.exit.i
 
 can_use_fpu.exit.i:                               ; preds = %land.lhs.true.i
-  %float_rounding_mode.i.i = getelementptr inbounds i8, ptr %status, i64 2
+  %float_rounding_mode.i.i = getelementptr inbounds nuw i8, ptr %status, i64 2
   %3 = load i8, ptr %float_rounding_mode.i.i, align 2
   %cmp.i5.i = icmp eq i8 %3, 0
   br i1 %cmp.i5.i, label %if.then.i, label %land.lhs.true.split.i
@@ -24277,10 +24277,10 @@ if.then.i:                                        ; preds = %can_use_fpu.exit.i
 if.end.sink.split.i:                              ; preds = %if.else.i7.i, %if.else.i.i
   %reass.sub.i9.sink.i = phi i32 [ %reass.sub.i9.i, %if.else.i7.i ], [ %add.i.i, %if.else.i.i ]
   %.sink.i = phi i64 [ %4, %if.else.i7.i ], [ %0, %if.else.i.i ]
-  %exp.i11.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i11.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   store i32 %reass.sub.i9.sink.i, ptr %exp.i11.i, align 4
   %shl.i12.i = shl i64 %conv, %.sink.i
-  %6 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   store i64 %shl.i12.i, ptr %6, align 8
   br label %if.end.i
 
@@ -24288,18 +24288,18 @@ if.end.i:                                         ; preds = %if.end.sink.split.i
   %storemerge.i = phi i8 [ 1, %entry.split.i ], [ 1, %land.lhs.true.split.i ], [ 2, %if.end.sink.split.i ]
   store i8 %storemerge.i, ptr %p.i, align 8
   call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @float64_params)
-  %sign.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   %7 = load i8, ptr %sign.i.i.i.i, align 1
   %8 = and i8 %7, 1
   %conv.i.i.i.i = zext nneg i8 %8 to i64
   %shl.i.i.i.i = shl nuw i64 %conv.i.i.i.i, 63
-  %exp.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   %9 = load i32, ptr %exp.i.i.i.i, align 4
   %10 = and i32 %9, 2047
   %shl77.i.i.i.i = zext nneg i32 %10 to i64
   %and8.i.i.i.i = shl nuw nsw i64 %shl77.i.i.i.i, 52
   %or.i.i.i.i = or disjoint i64 %and8.i.i.i.i, %shl.i.i.i.i
-  %11 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   %12 = load i64, ptr %11, align 8
   %shl77.i9.i.i.i = and i64 %12, 4503599627370495
   %or.i11.i.i.i = or disjoint i64 %or.i.i.i.i, %shl77.i9.i.i.i
@@ -24341,7 +24341,7 @@ land.lhs.true.i:                                  ; preds = %entry
   br i1 %tobool.not.i.i, label %land.lhs.true.split.i, label %can_use_fpu.exit.i
 
 can_use_fpu.exit.i:                               ; preds = %land.lhs.true.i
-  %float_rounding_mode.i.i = getelementptr inbounds i8, ptr %status, i64 2
+  %float_rounding_mode.i.i = getelementptr inbounds nuw i8, ptr %status, i64 2
   %3 = load i8, ptr %float_rounding_mode.i.i, align 2
   %cmp.i5.i = icmp eq i8 %3, 0
   br i1 %cmp.i5.i, label %if.then.i, label %land.lhs.true.split.i
@@ -24365,10 +24365,10 @@ if.then.i:                                        ; preds = %can_use_fpu.exit.i
 if.end.sink.split.i:                              ; preds = %if.else.i7.i, %if.else.i.i
   %reass.sub.i9.sink.i = phi i32 [ %reass.sub.i9.i, %if.else.i7.i ], [ %add.i.i, %if.else.i.i ]
   %.sink.i = phi i64 [ %4, %if.else.i7.i ], [ %0, %if.else.i.i ]
-  %exp.i11.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i11.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   store i32 %reass.sub.i9.sink.i, ptr %exp.i11.i, align 4
   %shl.i12.i = shl i64 %conv, %.sink.i
-  %6 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   store i64 %shl.i12.i, ptr %6, align 8
   br label %if.end.i
 
@@ -24376,18 +24376,18 @@ if.end.i:                                         ; preds = %if.end.sink.split.i
   %storemerge.i = phi i8 [ 1, %entry.split.i ], [ 1, %land.lhs.true.split.i ], [ 2, %if.end.sink.split.i ]
   store i8 %storemerge.i, ptr %p.i, align 8
   call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @float64_params)
-  %sign.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   %7 = load i8, ptr %sign.i.i.i.i, align 1
   %8 = and i8 %7, 1
   %conv.i.i.i.i = zext nneg i8 %8 to i64
   %shl.i.i.i.i = shl nuw i64 %conv.i.i.i.i, 63
-  %exp.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   %9 = load i32, ptr %exp.i.i.i.i, align 4
   %10 = and i32 %9, 2047
   %shl77.i.i.i.i = zext nneg i32 %10 to i64
   %and8.i.i.i.i = shl nuw nsw i64 %shl77.i.i.i.i, 52
   %or.i.i.i.i = or disjoint i64 %and8.i.i.i.i, %shl.i.i.i.i
-  %11 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   %12 = load i64, ptr %11, align 8
   %shl77.i9.i.i.i = and i64 %12, 4503599627370495
   %or.i11.i.i.i = or disjoint i64 %or.i.i.i.i, %shl77.i9.i.i.i
@@ -24410,7 +24410,7 @@ entry:
   br i1 %tobool.not.i.i, label %land.lhs.true.split.i, label %can_use_fpu.exit.i
 
 can_use_fpu.exit.i:                               ; preds = %entry
-  %float_rounding_mode.i.i = getelementptr inbounds i8, ptr %status, i64 2
+  %float_rounding_mode.i.i = getelementptr inbounds nuw i8, ptr %status, i64 2
   %2 = load i8, ptr %float_rounding_mode.i.i, align 2
   %cmp.i5.i = icmp eq i8 %2, 0
   br i1 %cmp.i5.i, label %if.then.i, label %land.lhs.true.split.i
@@ -24424,10 +24424,10 @@ if.else.i7.i:                                     ; preds = %land.lhs.true.split
   %3 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %a, i1 true)
   %cast.i.i8.i = trunc nuw nsw i64 %3 to i32
   %reass.sub.i9.i = xor i32 %cast.i.i8.i, 63
-  %exp.i11.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i11.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   store i32 %reass.sub.i9.i, ptr %exp.i11.i, align 4
   %shl.i12.i = shl i64 %a, %3
-  %4 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   store i64 %shl.i12.i, ptr %4, align 8
   br label %if.end.i
 
@@ -24440,18 +24440,18 @@ if.end.i:                                         ; preds = %if.else.i7.i, %land
   %storemerge.i = phi i8 [ 1, %land.lhs.true.split.i ], [ 2, %if.else.i7.i ]
   store i8 %storemerge.i, ptr %p.i, align 8
   call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef nonnull %status, ptr noundef nonnull @float64_params)
-  %sign.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   %6 = load i8, ptr %sign.i.i.i.i, align 1
   %7 = and i8 %6, 1
   %conv.i.i.i.i = zext nneg i8 %7 to i64
   %shl.i.i.i.i = shl nuw i64 %conv.i.i.i.i, 63
-  %exp.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   %8 = load i32, ptr %exp.i.i.i.i, align 4
   %9 = and i32 %8, 2047
   %shl77.i.i.i.i = zext nneg i32 %9 to i64
   %and8.i.i.i.i = shl nuw nsw i64 %shl77.i.i.i.i, 52
   %or.i.i.i.i = or disjoint i64 %and8.i.i.i.i, %shl.i.i.i.i
-  %10 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   %11 = load i64, ptr %10, align 8
   %shl77.i9.i.i.i = and i64 %11, 4503599627370495
   %or.i11.i.i.i = or disjoint i64 %or.i.i.i.i, %shl77.i9.i.i.i
@@ -24475,7 +24475,7 @@ entry:
   br i1 %tobool.not.i.i, label %land.lhs.true.split.i, label %can_use_fpu.exit.i
 
 can_use_fpu.exit.i:                               ; preds = %entry
-  %float_rounding_mode.i.i = getelementptr inbounds i8, ptr %status, i64 2
+  %float_rounding_mode.i.i = getelementptr inbounds nuw i8, ptr %status, i64 2
   %2 = load i8, ptr %float_rounding_mode.i.i, align 2
   %cmp.i5.i = icmp eq i8 %2, 0
   br i1 %cmp.i5.i, label %if.then.i, label %land.lhs.true.split.i
@@ -24489,10 +24489,10 @@ if.else.i7.i:                                     ; preds = %land.lhs.true.split
   %3 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %conv, i1 true)
   %cast.i.i8.i = trunc nuw nsw i64 %3 to i32
   %reass.sub.i9.i = xor i32 %cast.i.i8.i, 63
-  %exp.i11.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i11.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   store i32 %reass.sub.i9.i, ptr %exp.i11.i, align 4
   %shl.i12.i = shl i64 %conv, %3
-  %4 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   store i64 %shl.i12.i, ptr %4, align 8
   br label %if.end.i
 
@@ -24505,18 +24505,18 @@ if.end.i:                                         ; preds = %if.else.i7.i, %land
   %storemerge.i = phi i8 [ 1, %land.lhs.true.split.i ], [ 2, %if.else.i7.i ]
   store i8 %storemerge.i, ptr %p.i, align 8
   call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef nonnull %status, ptr noundef nonnull @float64_params)
-  %sign.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   %6 = load i8, ptr %sign.i.i.i.i, align 1
   %7 = and i8 %6, 1
   %conv.i.i.i.i = zext nneg i8 %7 to i64
   %shl.i.i.i.i = shl nuw i64 %conv.i.i.i.i, 63
-  %exp.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   %8 = load i32, ptr %exp.i.i.i.i, align 4
   %9 = and i32 %8, 2047
   %shl77.i.i.i.i = zext nneg i32 %9 to i64
   %and8.i.i.i.i = shl nuw nsw i64 %shl77.i.i.i.i, 52
   %or.i.i.i.i = or disjoint i64 %and8.i.i.i.i, %shl.i.i.i.i
-  %10 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   %11 = load i64, ptr %10, align 8
   %shl77.i9.i.i.i = and i64 %11, 4503599627370495
   %or.i11.i.i.i = or disjoint i64 %or.i.i.i.i, %shl77.i9.i.i.i
@@ -24540,7 +24540,7 @@ entry:
   br i1 %tobool.not.i.i, label %land.lhs.true.split.i, label %can_use_fpu.exit.i
 
 can_use_fpu.exit.i:                               ; preds = %entry
-  %float_rounding_mode.i.i = getelementptr inbounds i8, ptr %status, i64 2
+  %float_rounding_mode.i.i = getelementptr inbounds nuw i8, ptr %status, i64 2
   %2 = load i8, ptr %float_rounding_mode.i.i, align 2
   %cmp.i5.i = icmp eq i8 %2, 0
   br i1 %cmp.i5.i, label %if.then.i, label %land.lhs.true.split.i
@@ -24554,10 +24554,10 @@ if.else.i7.i:                                     ; preds = %land.lhs.true.split
   %3 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %conv, i1 true)
   %cast.i.i8.i = trunc nuw nsw i64 %3 to i32
   %reass.sub.i9.i = xor i32 %cast.i.i8.i, 63
-  %exp.i11.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i11.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   store i32 %reass.sub.i9.i, ptr %exp.i11.i, align 4
   %shl.i12.i = shl i64 %conv, %3
-  %4 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   store i64 %shl.i12.i, ptr %4, align 8
   br label %if.end.i
 
@@ -24570,18 +24570,18 @@ if.end.i:                                         ; preds = %if.else.i7.i, %land
   %storemerge.i = phi i8 [ 1, %land.lhs.true.split.i ], [ 2, %if.else.i7.i ]
   store i8 %storemerge.i, ptr %p.i, align 8
   call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef nonnull %status, ptr noundef nonnull @float64_params)
-  %sign.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   %6 = load i8, ptr %sign.i.i.i.i, align 1
   %7 = and i8 %6, 1
   %conv.i.i.i.i = zext nneg i8 %7 to i64
   %shl.i.i.i.i = shl nuw i64 %conv.i.i.i.i, 63
-  %exp.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   %8 = load i32, ptr %exp.i.i.i.i, align 4
   %9 = and i32 %8, 2047
   %shl77.i.i.i.i = zext nneg i32 %9 to i64
   %and8.i.i.i.i = shl nuw nsw i64 %shl77.i.i.i.i, 52
   %or.i.i.i.i = or disjoint i64 %and8.i.i.i.i, %shl.i.i.i.i
-  %10 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   %11 = load i64, ptr %10, align 8
   %shl77.i9.i.i.i = and i64 %11, 4503599627370495
   %or.i11.i.i.i = or disjoint i64 %or.i.i.i.i, %shl77.i9.i.i.i
@@ -24608,10 +24608,10 @@ if.else.i:                                        ; preds = %entry
   %cond7.i = tail call i32 @llvm.smin.i32(i32 %cond.i, i32 65536)
   %reass.sub.i = xor i32 %cast.i.i, 63
   %add.i = add nsw i32 %reass.sub.i, %cond7.i
-  %exp.i = getelementptr inbounds i8, ptr %p, i64 4
+  %exp.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 %add.i, ptr %exp.i, align 4
   %shl.i = shl i64 %a, %0
-  %1 = getelementptr inbounds i8, ptr %p, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i64 %shl.i, ptr %1, align 8
   br label %parts64_uint_to_float.exit
 
@@ -24619,17 +24619,17 @@ parts64_uint_to_float.exit:                       ; preds = %entry, %if.else.i
   %.sink.i = phi i8 [ 2, %if.else.i ], [ 1, %entry ]
   store i8 %.sink.i, ptr %p, align 8
   call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
-  %sign.i.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %sign.i.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   %2 = load i8, ptr %sign.i.i.i, align 1
   %conv.i.i.i = zext i8 %2 to i64
   %shl.i.i.i = shl nuw nsw i64 %conv.i.i.i, 15
-  %exp.i.i.i = getelementptr inbounds i8, ptr %p, i64 4
+  %exp.i.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   %3 = load i32, ptr %exp.i.i.i, align 4
   %4 = shl i32 %3, 7
   %5 = and i32 %4, 32640
   %and8.i.i.i = zext nneg i32 %5 to i64
   %or.i.i.i = or disjoint i64 %shl.i.i.i, %and8.i.i.i
-  %6 = getelementptr inbounds i8, ptr %p, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %p, i64 8
   %7 = load i64, ptr %6, align 8
   %shl77.i9.i.i = and i64 %7, 127
   %or.i11.i.i = or disjoint i64 %or.i.i.i, %shl77.i9.i.i
@@ -24654,10 +24654,10 @@ if.else.i.i:                                      ; preds = %entry
   %cond7.i.i = tail call i32 @llvm.smin.i32(i32 %cond.i.i, i32 65536)
   %reass.sub.i.i = xor i32 %cast.i.i.i, 63
   %add.i.i = add nsw i32 %reass.sub.i.i, %cond7.i.i
-  %exp.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   store i32 %add.i.i, ptr %exp.i.i, align 4
   %shl.i.i = shl i64 %conv, %0
-  %1 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   store i64 %shl.i.i, ptr %1, align 8
   br label %uint64_to_bfloat16_scalbn.exit
 
@@ -24665,17 +24665,17 @@ uint64_to_bfloat16_scalbn.exit:                   ; preds = %entry, %if.else.i.i
   %.sink.i.i = phi i8 [ 2, %if.else.i.i ], [ 1, %entry ]
   store i8 %.sink.i.i, ptr %p.i, align 8
   call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
-  %sign.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i, align 1
   %conv.i.i.i.i = zext i8 %2 to i64
   %shl.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i, 15
-  %exp.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   %3 = load i32, ptr %exp.i.i.i.i, align 4
   %4 = shl i32 %3, 7
   %5 = and i32 %4, 32640
   %and8.i.i.i.i = zext nneg i32 %5 to i64
   %or.i.i.i.i = or disjoint i64 %shl.i.i.i.i, %and8.i.i.i.i
-  %6 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   %7 = load i64, ptr %6, align 8
   %shl77.i9.i.i.i = and i64 %7, 127
   %or.i11.i.i.i = or disjoint i64 %or.i.i.i.i, %shl77.i9.i.i.i
@@ -24701,10 +24701,10 @@ if.else.i.i:                                      ; preds = %entry
   %cond7.i.i = tail call i32 @llvm.smin.i32(i32 %cond.i.i, i32 65536)
   %reass.sub.i.i = xor i32 %cast.i.i.i, 63
   %add.i.i = add nsw i32 %reass.sub.i.i, %cond7.i.i
-  %exp.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   store i32 %add.i.i, ptr %exp.i.i, align 4
   %shl.i.i = shl i64 %conv, %0
-  %1 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   store i64 %shl.i.i, ptr %1, align 8
   br label %uint64_to_bfloat16_scalbn.exit
 
@@ -24712,17 +24712,17 @@ uint64_to_bfloat16_scalbn.exit:                   ; preds = %entry, %if.else.i.i
   %.sink.i.i = phi i8 [ 2, %if.else.i.i ], [ 1, %entry ]
   store i8 %.sink.i.i, ptr %p.i, align 8
   call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
-  %sign.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i, align 1
   %conv.i.i.i.i = zext i8 %2 to i64
   %shl.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i, 15
-  %exp.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   %3 = load i32, ptr %exp.i.i.i.i, align 4
   %4 = shl i32 %3, 7
   %5 = and i32 %4, 32640
   %and8.i.i.i.i = zext nneg i32 %5 to i64
   %or.i.i.i.i = or disjoint i64 %shl.i.i.i.i, %and8.i.i.i.i
-  %6 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   %7 = load i64, ptr %6, align 8
   %shl77.i9.i.i.i = and i64 %7, 127
   %or.i11.i.i.i = or disjoint i64 %or.i.i.i.i, %shl77.i9.i.i.i
@@ -24748,10 +24748,10 @@ if.else.i.i:                                      ; preds = %entry
   %cond7.i.i = tail call i32 @llvm.smin.i32(i32 %cond.i.i, i32 65536)
   %reass.sub.i.i = xor i32 %cast.i.i.i, 63
   %add.i.i = add nsw i32 %reass.sub.i.i, %cond7.i.i
-  %exp.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   store i32 %add.i.i, ptr %exp.i.i, align 4
   %shl.i.i = shl i64 %conv, %0
-  %1 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   store i64 %shl.i.i, ptr %1, align 8
   br label %uint64_to_bfloat16_scalbn.exit
 
@@ -24759,17 +24759,17 @@ uint64_to_bfloat16_scalbn.exit:                   ; preds = %entry, %if.else.i.i
   %.sink.i.i = phi i8 [ 2, %if.else.i.i ], [ 1, %entry ]
   store i8 %.sink.i.i, ptr %p.i, align 8
   call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
-  %sign.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i, align 1
   %conv.i.i.i.i = zext i8 %2 to i64
   %shl.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i, 15
-  %exp.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   %3 = load i32, ptr %exp.i.i.i.i, align 4
   %4 = shl i32 %3, 7
   %5 = and i32 %4, 32640
   %and8.i.i.i.i = zext nneg i32 %5 to i64
   %or.i.i.i.i = or disjoint i64 %shl.i.i.i.i, %and8.i.i.i.i
-  %6 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   %7 = load i64, ptr %6, align 8
   %shl77.i9.i.i.i = and i64 %7, 127
   %or.i11.i.i.i = or disjoint i64 %or.i.i.i.i, %shl77.i9.i.i.i
@@ -24791,10 +24791,10 @@ if.else.i.i:                                      ; preds = %entry
   %0 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %a, i1 true)
   %cast.i.i.i = trunc nuw nsw i64 %0 to i32
   %reass.sub.i.i = xor i32 %cast.i.i.i, 63
-  %exp.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   store i32 %reass.sub.i.i, ptr %exp.i.i, align 4
   %shl.i.i = shl i64 %a, %0
-  %1 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   store i64 %shl.i.i, ptr %1, align 8
   br label %uint64_to_bfloat16_scalbn.exit
 
@@ -24802,17 +24802,17 @@ uint64_to_bfloat16_scalbn.exit:                   ; preds = %entry, %if.else.i.i
   %.sink.i.i = phi i8 [ 2, %if.else.i.i ], [ 1, %entry ]
   store i8 %.sink.i.i, ptr %p.i, align 8
   call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
-  %sign.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i, align 1
   %conv.i.i.i.i = zext i8 %2 to i64
   %shl.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i, 15
-  %exp.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   %3 = load i32, ptr %exp.i.i.i.i, align 4
   %4 = shl i32 %3, 7
   %5 = and i32 %4, 32640
   %and8.i.i.i.i = zext nneg i32 %5 to i64
   %or.i.i.i.i = or disjoint i64 %shl.i.i.i.i, %and8.i.i.i.i
-  %6 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   %7 = load i64, ptr %6, align 8
   %shl77.i9.i.i.i = and i64 %7, 127
   %or.i11.i.i.i = or disjoint i64 %or.i.i.i.i, %shl77.i9.i.i.i
@@ -24835,10 +24835,10 @@ if.else.i.i:                                      ; preds = %entry
   %0 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %conv, i1 true)
   %cast.i.i.i = trunc nuw nsw i64 %0 to i32
   %reass.sub.i.i = xor i32 %cast.i.i.i, 63
-  %exp.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   store i32 %reass.sub.i.i, ptr %exp.i.i, align 4
   %shl.i.i = shl i64 %conv, %0
-  %1 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   store i64 %shl.i.i, ptr %1, align 8
   br label %uint64_to_bfloat16_scalbn.exit
 
@@ -24846,17 +24846,17 @@ uint64_to_bfloat16_scalbn.exit:                   ; preds = %entry, %if.else.i.i
   %.sink.i.i = phi i8 [ 2, %if.else.i.i ], [ 1, %entry ]
   store i8 %.sink.i.i, ptr %p.i, align 8
   call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
-  %sign.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i, align 1
   %conv.i.i.i.i = zext i8 %2 to i64
   %shl.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i, 15
-  %exp.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   %3 = load i32, ptr %exp.i.i.i.i, align 4
   %4 = shl i32 %3, 7
   %5 = and i32 %4, 32640
   %and8.i.i.i.i = zext nneg i32 %5 to i64
   %or.i.i.i.i = or disjoint i64 %shl.i.i.i.i, %and8.i.i.i.i
-  %6 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   %7 = load i64, ptr %6, align 8
   %shl77.i9.i.i.i = and i64 %7, 127
   %or.i11.i.i.i = or disjoint i64 %or.i.i.i.i, %shl77.i9.i.i.i
@@ -24879,10 +24879,10 @@ if.else.i.i:                                      ; preds = %entry
   %0 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %conv, i1 true)
   %cast.i.i.i = trunc nuw nsw i64 %0 to i32
   %reass.sub.i.i = xor i32 %cast.i.i.i, 63
-  %exp.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   store i32 %reass.sub.i.i, ptr %exp.i.i, align 4
   %shl.i.i = shl i64 %conv, %0
-  %1 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   store i64 %shl.i.i, ptr %1, align 8
   br label %uint64_to_bfloat16_scalbn.exit
 
@@ -24890,17 +24890,17 @@ uint64_to_bfloat16_scalbn.exit:                   ; preds = %entry, %if.else.i.i
   %.sink.i.i = phi i8 [ 2, %if.else.i.i ], [ 1, %entry ]
   store i8 %.sink.i.i, ptr %p.i, align 8
   call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
-  %sign.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i, align 1
   %conv.i.i.i.i = zext i8 %2 to i64
   %shl.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i, 15
-  %exp.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   %3 = load i32, ptr %exp.i.i.i.i, align 4
   %4 = shl i32 %3, 7
   %5 = and i32 %4, 32640
   %and8.i.i.i.i = zext nneg i32 %5 to i64
   %or.i.i.i.i = or disjoint i64 %shl.i.i.i.i, %and8.i.i.i.i
-  %6 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   %7 = load i64, ptr %6, align 8
   %shl77.i9.i.i.i = and i64 %7, 127
   %or.i11.i.i.i = or disjoint i64 %or.i.i.i.i, %shl77.i9.i.i.i
@@ -24923,10 +24923,10 @@ if.else.i.i:                                      ; preds = %entry
   %0 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %conv, i1 true)
   %cast.i.i.i = trunc nuw nsw i64 %0 to i32
   %reass.sub.i.i = xor i32 %cast.i.i.i, 63
-  %exp.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   store i32 %reass.sub.i.i, ptr %exp.i.i, align 4
   %shl.i.i = shl i64 %conv, %0
-  %1 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   store i64 %shl.i.i, ptr %1, align 8
   br label %uint64_to_bfloat16_scalbn.exit
 
@@ -24934,17 +24934,17 @@ uint64_to_bfloat16_scalbn.exit:                   ; preds = %entry, %if.else.i.i
   %.sink.i.i = phi i8 [ 2, %if.else.i.i ], [ 1, %entry ]
   store i8 %.sink.i.i, ptr %p.i, align 8
   call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
-  %sign.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %sign.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i, align 1
   %conv.i.i.i.i = zext i8 %2 to i64
   %shl.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i, 15
-  %exp.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %exp.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   %3 = load i32, ptr %exp.i.i.i.i, align 4
   %4 = shl i32 %3, 7
   %5 = and i32 %4, 32640
   %and8.i.i.i.i = zext nneg i32 %5 to i64
   %or.i.i.i.i = or disjoint i64 %shl.i.i.i.i, %and8.i.i.i.i
-  %6 = getelementptr inbounds i8, ptr %p.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   %7 = load i64, ptr %6, align 8
   %shl77.i9.i.i.i = and i64 %7, 127
   %or.i11.i.i.i = or disjoint i64 %or.i.i.i.i, %shl77.i9.i.i.i
@@ -24965,10 +24965,10 @@ if.else.i:                                        ; preds = %entry
   %0 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %a, i1 true)
   %cast.i.i = trunc nuw nsw i64 %0 to i32
   %sub.i = xor i32 %cast.i.i, 63
-  %exp.i = getelementptr inbounds i8, ptr %p, i64 4
+  %exp.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 %sub.i, ptr %exp.i, align 4
   %shl.i = shl i64 %a, %0
-  %frac_hi.i = getelementptr inbounds i8, ptr %p, i64 8
+  %frac_hi.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i64 %shl.i, ptr %frac_hi.i, align 8
   br label %parts128_uint_to_float.exit
 
@@ -25007,16 +25007,16 @@ if.then5:                                         ; preds = %if.then
 if.end:                                           ; preds = %if.then5, %if.then
   %shift.0 = phi i32 [ %add, %if.then5 ], [ %cast.i, %if.then ]
   %sub = sub nsw i32 127, %shift.0
-  %exp = getelementptr inbounds i8, ptr %p, i64 4
+  %exp = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 %sub, ptr %exp, align 4
   %sh_prom.i = zext nneg i32 %shift.0 to i128
   %shl.i = shl i128 %a.sroa.0.0.insert.insert.i, %sh_prom.i
   %retval.sroa.0.0.extract.trunc.i = trunc i128 %shl.i to i64
   %retval.sroa.2.0.extract.shift.i = lshr i128 %shl.i, 64
   %retval.sroa.2.0.extract.trunc.i = trunc nuw i128 %retval.sroa.2.0.extract.shift.i to i64
-  %frac_hi = getelementptr inbounds i8, ptr %p, i64 8
+  %frac_hi = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i64 %retval.sroa.2.0.extract.trunc.i, ptr %frac_hi, align 8
-  %frac_lo = getelementptr inbounds i8, ptr %p, i64 16
+  %frac_lo = getelementptr inbounds nuw i8, ptr %p, i64 16
   store i64 %retval.sroa.0.0.extract.trunc.i, ptr %frac_lo, align 8
   br label %if.end17
 
@@ -25048,11 +25048,11 @@ entry:
   %conv.i.i.i.i = zext nneg i16 %1 to i32
   %2 = and i16 %a, 1023
   %and.i11.i.i.i = zext nneg i16 %2 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %pa, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 1
   store i8 %frombool.i.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %pa, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 4
   store i32 %conv.i.i.i.i, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i.i, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %pa, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 8
   store i64 %and.i11.i.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i.i, align 8
   switch i16 %1, label %if.then33.i.i.i [
     i16 0, label %if.then.i.i.i
@@ -25068,7 +25068,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   br label %float16_unpack_canonical.exit
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  %flush_inputs_to_zero.i.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %3 = load i8, ptr %flush_inputs_to_zero.i.i.i, align 2
   %tobool9.i.i.i = trunc i8 %3 to i1
   br i1 %tobool9.i.i.i, label %if.then10.i.i.i, label %frac64_normalize.exit.i.i.i
@@ -25124,11 +25124,11 @@ float16_unpack_canonical.exit:                    ; preds = %if.then8.i.i.i, %if
   %conv.i.i.i.i6 = zext nneg i16 %7 to i32
   %8 = and i16 %b, 1023
   %and.i11.i.i.i7 = zext nneg i16 %8 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i.i8 = getelementptr inbounds i8, ptr %pb, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i.i8 = getelementptr inbounds nuw i8, ptr %pb, i64 1
   store i8 %frombool.i.i.i.i5, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i.i8, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i.i9 = getelementptr inbounds i8, ptr %pb, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i.i9 = getelementptr inbounds nuw i8, ptr %pb, i64 4
   store i32 %conv.i.i.i.i6, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i.i9, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i.i10 = getelementptr inbounds i8, ptr %pb, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i.i10 = getelementptr inbounds nuw i8, ptr %pb, i64 8
   store i64 %and.i11.i.i.i7, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i.i10, align 8
   switch i16 %7, label %if.then33.i.i.i30 [
     i16 0, label %if.then.i.i.i18
@@ -25144,7 +25144,7 @@ if.then8.i.i.i29:                                 ; preds = %if.then.i.i.i18
   br label %float16_unpack_canonical.exit34
 
 if.else.i.i.i20:                                  ; preds = %if.then.i.i.i18
-  %flush_inputs_to_zero.i.i.i21 = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i.i21 = getelementptr inbounds nuw i8, ptr %s, i64 6
   %9 = load i8, ptr %flush_inputs_to_zero.i.i.i21, align 2
   %tobool9.i.i.i22 = trunc i8 %9 to i1
   br i1 %tobool9.i.i.i22, label %if.then10.i.i.i27, label %frac64_normalize.exit.i.i.i23
@@ -25195,17 +25195,17 @@ if.else49.i.i.i13:                                ; preds = %lor.lhs.false.i.i.i
 float16_unpack_canonical.exit34:                  ; preds = %if.then8.i.i.i29, %if.then10.i.i.i27, %frac64_normalize.exit.i.i.i23, %if.then33.i.i.i30, %if.then47.i.i.i17, %if.else49.i.i.i13
   %call = call fastcc ptr @parts64_minmax(ptr noundef %pa, ptr noundef %pb, ptr noundef %s, i32 noundef %flags)
   call fastcc void @parts64_uncanon(ptr noundef nonnull %call, ptr noundef %s, ptr noundef nonnull @float16_params)
-  %sign.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 1
+  %sign.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 1
   %12 = load i8, ptr %sign.i.i.i.i, align 1
   %conv.i.i.i.i35 = zext i8 %12 to i64
   %shl.i.i.i.i36 = shl nuw nsw i64 %conv.i.i.i.i35, 15
-  %exp.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 4
+  %exp.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 4
   %13 = load i32, ptr %exp.i.i.i.i, align 4
   %14 = shl i32 %13, 10
   %15 = and i32 %14, 31744
   %and8.i.i.i.i = zext nneg i32 %15 to i64
   %or.i.i.i.i = or disjoint i64 %shl.i.i.i.i36, %and8.i.i.i.i
-  %16 = getelementptr inbounds i8, ptr %call, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %call, i64 8
   %17 = load i64, ptr %16, align 8
   %shl77.i9.i.i.i = and i64 %17, 1023
   %or.i11.i.i.i = or disjoint i64 %or.i.i.i.i, %shl77.i9.i.i.i
@@ -25281,11 +25281,11 @@ entry:
   %conv.i.i.i = zext nneg i16 %1 to i32
   %2 = and i16 %a, 127
   %and.i11.i.i = zext nneg i16 %2 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 1
   store i8 %frombool.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 4
   store i32 %conv.i.i.i, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 8
   store i64 %and.i11.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
   %trunc.i = trunc i16 %0 to i8
   switch i8 %trunc.i, label %if.then33.i.i [
@@ -25302,7 +25302,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   br label %bfloat16_unpack_canonical.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %3 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %3 to i1
   br i1 %tobool9.i.i, label %if.then10.i.i, label %frac64_normalize.exit.i.i
@@ -25358,11 +25358,11 @@ bfloat16_unpack_canonical.exit:                   ; preds = %if.then8.i.i, %if.t
   %conv.i.i.i6 = zext nneg i16 %7 to i32
   %8 = and i16 %b, 127
   %and.i11.i.i7 = zext nneg i16 %8 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i8 = getelementptr inbounds i8, ptr %pb, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i8 = getelementptr inbounds nuw i8, ptr %pb, i64 1
   store i8 %frombool.i.i.i5, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i8, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i9 = getelementptr inbounds i8, ptr %pb, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i9 = getelementptr inbounds nuw i8, ptr %pb, i64 4
   store i32 %conv.i.i.i6, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i9, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i10 = getelementptr inbounds i8, ptr %pb, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i10 = getelementptr inbounds nuw i8, ptr %pb, i64 8
   store i64 %and.i11.i.i7, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i10, align 8
   %trunc.i11 = trunc i16 %6 to i8
   switch i8 %trunc.i11, label %if.then33.i.i31 [
@@ -25379,7 +25379,7 @@ if.then8.i.i30:                                   ; preds = %if.then.i.i19
   br label %bfloat16_unpack_canonical.exit35
 
 if.else.i.i21:                                    ; preds = %if.then.i.i19
-  %flush_inputs_to_zero.i.i22 = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i22 = getelementptr inbounds nuw i8, ptr %s, i64 6
   %9 = load i8, ptr %flush_inputs_to_zero.i.i22, align 2
   %tobool9.i.i23 = trunc i8 %9 to i1
   br i1 %tobool9.i.i23, label %if.then10.i.i28, label %frac64_normalize.exit.i.i24
@@ -25430,17 +25430,17 @@ if.else49.i.i14:                                  ; preds = %lor.lhs.false.i.i12
 bfloat16_unpack_canonical.exit35:                 ; preds = %if.then8.i.i30, %if.then10.i.i28, %frac64_normalize.exit.i.i24, %if.then33.i.i31, %if.then47.i.i18, %if.else49.i.i14
   %call = call fastcc ptr @parts64_minmax(ptr noundef %pa, ptr noundef %pb, ptr noundef %s, i32 noundef %flags)
   call fastcc void @parts64_uncanon(ptr noundef nonnull %call, ptr noundef %s, ptr noundef nonnull @bfloat16_params)
-  %sign.i.i.i = getelementptr inbounds i8, ptr %call, i64 1
+  %sign.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 1
   %12 = load i8, ptr %sign.i.i.i, align 1
   %conv.i.i.i36 = zext i8 %12 to i64
   %shl.i.i.i37 = shl nuw nsw i64 %conv.i.i.i36, 15
-  %exp.i.i.i = getelementptr inbounds i8, ptr %call, i64 4
+  %exp.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 4
   %13 = load i32, ptr %exp.i.i.i, align 4
   %14 = shl i32 %13, 7
   %15 = and i32 %14, 32640
   %and8.i.i.i = zext nneg i32 %15 to i64
   %or.i.i.i = or disjoint i64 %shl.i.i.i37, %and8.i.i.i
-  %16 = getelementptr inbounds i8, ptr %call, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %call, i64 8
   %17 = load i64, ptr %16, align 8
   %shl77.i9.i.i = and i64 %17, 127
   %or.i11.i.i = or disjoint i64 %or.i.i.i, %shl77.i9.i.i
@@ -25515,11 +25515,11 @@ entry:
   %and.i9.i.i = and i32 %shr.i8.i.i, 255
   %0 = and i32 %a, 8388607
   %and.i11.i.i = zext nneg i32 %0 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 1
   store i8 %frombool.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 4
   store i32 %and.i9.i.i, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 8
   store i64 %and.i11.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
   %trunc.i = trunc i32 %shr.i8.i.i to i8
   switch i8 %trunc.i, label %if.then33.i.i [
@@ -25536,7 +25536,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   br label %float32_unpack_canonical.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %1 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %1 to i1
   br i1 %tobool9.i.i, label %if.then10.i.i, label %frac64_normalize.exit.i.i
@@ -25591,11 +25591,11 @@ float32_unpack_canonical.exit:                    ; preds = %if.then8.i.i, %if.t
   %and.i9.i.i7 = and i32 %shr.i8.i.i6, 255
   %4 = and i32 %b, 8388607
   %and.i11.i.i8 = zext nneg i32 %4 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i9 = getelementptr inbounds i8, ptr %pb, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i9 = getelementptr inbounds nuw i8, ptr %pb, i64 1
   store i8 %frombool.i.i.i5, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i9, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i10 = getelementptr inbounds i8, ptr %pb, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i10 = getelementptr inbounds nuw i8, ptr %pb, i64 4
   store i32 %and.i9.i.i7, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i10, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i11 = getelementptr inbounds i8, ptr %pb, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i11 = getelementptr inbounds nuw i8, ptr %pb, i64 8
   store i64 %and.i11.i.i8, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i11, align 8
   %trunc.i12 = trunc i32 %shr.i8.i.i6 to i8
   switch i8 %trunc.i12, label %if.then33.i.i32 [
@@ -25612,7 +25612,7 @@ if.then8.i.i31:                                   ; preds = %if.then.i.i20
   br label %float32_unpack_canonical.exit36
 
 if.else.i.i22:                                    ; preds = %if.then.i.i20
-  %flush_inputs_to_zero.i.i23 = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i23 = getelementptr inbounds nuw i8, ptr %s, i64 6
   %5 = load i8, ptr %flush_inputs_to_zero.i.i23, align 2
   %tobool9.i.i24 = trunc i8 %5 to i1
   br i1 %tobool9.i.i24, label %if.then10.i.i29, label %frac64_normalize.exit.i.i25
@@ -25663,17 +25663,17 @@ if.else49.i.i15:                                  ; preds = %lor.lhs.false.i.i13
 float32_unpack_canonical.exit36:                  ; preds = %if.then8.i.i31, %if.then10.i.i29, %frac64_normalize.exit.i.i25, %if.then33.i.i32, %if.then47.i.i19, %if.else49.i.i15
   %call = call fastcc ptr @parts64_minmax(ptr noundef %pa, ptr noundef %pb, ptr noundef %s, i32 noundef %flags)
   call fastcc void @parts64_uncanon(ptr noundef nonnull %call, ptr noundef %s, ptr noundef nonnull @float32_params)
-  %sign.i.i.i = getelementptr inbounds i8, ptr %call, i64 1
+  %sign.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 1
   %8 = load i8, ptr %sign.i.i.i, align 1
   %conv.i.i.i = zext i8 %8 to i64
   %shl.i.i.i37 = shl nuw nsw i64 %conv.i.i.i, 31
-  %exp.i.i.i = getelementptr inbounds i8, ptr %call, i64 4
+  %exp.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 4
   %9 = load i32, ptr %exp.i.i.i, align 4
   %10 = shl i32 %9, 23
   %11 = and i32 %10, 2139095040
   %and8.i.i.i = zext nneg i32 %11 to i64
   %or.i.i.i = or disjoint i64 %shl.i.i.i37, %and8.i.i.i
-  %12 = getelementptr inbounds i8, ptr %call, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %call, i64 8
   %13 = load i64, ptr %12, align 8
   %shl77.i9.i.i = and i64 %13, 8388607
   %or.i11.i.i = or disjoint i64 %or.i.i.i, %shl77.i9.i.i
@@ -25748,11 +25748,11 @@ entry:
   %0 = trunc nuw nsw i64 %shr.i8.i.i to i32
   %conv.i.i.i = and i32 %0, 2047
   %and.i10.i.i = and i64 %a, 4503599627370495
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 1
   store i8 %frombool.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 4
   store i32 %conv.i.i.i, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 8
   store i64 %and.i10.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
   switch i32 %conv.i.i.i, label %if.then33.i.i [
     i32 0, label %if.then.i.i
@@ -25768,7 +25768,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   br label %float64_unpack_canonical.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %1 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %1 to i1
   br i1 %tobool9.i.i, label %if.then10.i.i, label %frac64_normalize.exit.i.i
@@ -25823,11 +25823,11 @@ float64_unpack_canonical.exit:                    ; preds = %if.then8.i.i, %if.t
   %4 = trunc nuw nsw i64 %shr.i8.i.i6 to i32
   %conv.i.i.i7 = and i32 %4, 2047
   %and.i10.i.i8 = and i64 %b, 4503599627370495
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i9 = getelementptr inbounds i8, ptr %pb, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i9 = getelementptr inbounds nuw i8, ptr %pb, i64 1
   store i8 %frombool.i.i.i5, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i9, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i10 = getelementptr inbounds i8, ptr %pb, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i10 = getelementptr inbounds nuw i8, ptr %pb, i64 4
   store i32 %conv.i.i.i7, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i10, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i11 = getelementptr inbounds i8, ptr %pb, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i11 = getelementptr inbounds nuw i8, ptr %pb, i64 8
   store i64 %and.i10.i.i8, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i11, align 8
   switch i32 %conv.i.i.i7, label %if.then33.i.i31 [
     i32 0, label %if.then.i.i19
@@ -25843,7 +25843,7 @@ if.then8.i.i30:                                   ; preds = %if.then.i.i19
   br label %float64_unpack_canonical.exit35
 
 if.else.i.i21:                                    ; preds = %if.then.i.i19
-  %flush_inputs_to_zero.i.i22 = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i22 = getelementptr inbounds nuw i8, ptr %s, i64 6
   %5 = load i8, ptr %flush_inputs_to_zero.i.i22, align 2
   %tobool9.i.i23 = trunc i8 %5 to i1
   br i1 %tobool9.i.i23, label %if.then10.i.i28, label %frac64_normalize.exit.i.i24
@@ -25894,18 +25894,18 @@ if.else49.i.i14:                                  ; preds = %lor.lhs.false.i.i12
 float64_unpack_canonical.exit35:                  ; preds = %if.then8.i.i30, %if.then10.i.i28, %frac64_normalize.exit.i.i24, %if.then33.i.i31, %if.then47.i.i18, %if.else49.i.i14
   %call = call fastcc ptr @parts64_minmax(ptr noundef %pa, ptr noundef %pb, ptr noundef %s, i32 noundef %flags)
   call fastcc void @parts64_uncanon(ptr noundef nonnull %call, ptr noundef %s, ptr noundef nonnull @float64_params)
-  %sign.i.i.i = getelementptr inbounds i8, ptr %call, i64 1
+  %sign.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 1
   %8 = load i8, ptr %sign.i.i.i, align 1
   %9 = and i8 %8, 1
   %conv.i.i.i36 = zext nneg i8 %9 to i64
   %shl.i.i.i37 = shl nuw i64 %conv.i.i.i36, 63
-  %exp.i.i.i = getelementptr inbounds i8, ptr %call, i64 4
+  %exp.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 4
   %10 = load i32, ptr %exp.i.i.i, align 4
   %11 = and i32 %10, 2047
   %shl77.i.i.i = zext nneg i32 %11 to i64
   %and8.i.i.i = shl nuw nsw i64 %shl77.i.i.i, 52
   %or.i.i.i = or disjoint i64 %and8.i.i.i, %shl.i.i.i37
-  %12 = getelementptr inbounds i8, ptr %call, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %call, i64 8
   %13 = load i64, ptr %12, align 8
   %shl77.i9.i.i = and i64 %13, 4503599627370495
   %or.i11.i.i = or disjoint i64 %or.i.i.i, %shl77.i9.i.i
@@ -25980,13 +25980,13 @@ entry:
   %frombool.i.i = trunc nuw nsw i64 %f.coerce1.lobit.i.i to i8
   %and.i.i.i = and i64 %a.coerce1, 281474976710655
   store i8 0, ptr %pa, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa, i64 1
+  %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 1
   store i8 %frombool.i.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.sroa.33.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa, i64 4
+  %.compoundliteral.sroa.33.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 4
   store i32 %conv.i.i, ptr %.compoundliteral.sroa.33.0..sroa_idx.i.i, align 4
-  %.compoundliteral.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa, i64 8
+  %.compoundliteral.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 8
   store i64 %and.i.i.i, ptr %.compoundliteral.sroa.4.0..sroa_idx.i.i, align 8
-  %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa, i64 16
+  %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 16
   store i64 %a.coerce0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i.i, align 8
   call fastcc void @parts128_canonicalize(ptr noundef nonnull %pa, ptr noundef %s, ptr noundef nonnull @float128_params)
   %shr.i16.i.i4 = lshr i64 %b.coerce1, 48
@@ -25996,13 +25996,13 @@ entry:
   %frombool.i.i7 = trunc nuw nsw i64 %f.coerce1.lobit.i.i6 to i8
   %and.i.i.i8 = and i64 %b.coerce1, 281474976710655
   store i8 0, ptr %pb, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx.i.i9 = getelementptr inbounds i8, ptr %pb, i64 1
+  %.compoundliteral.sroa.2.0..sroa_idx.i.i9 = getelementptr inbounds nuw i8, ptr %pb, i64 1
   store i8 %frombool.i.i7, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i9, align 1
-  %.compoundliteral.sroa.33.0..sroa_idx.i.i10 = getelementptr inbounds i8, ptr %pb, i64 4
+  %.compoundliteral.sroa.33.0..sroa_idx.i.i10 = getelementptr inbounds nuw i8, ptr %pb, i64 4
   store i32 %conv.i.i5, ptr %.compoundliteral.sroa.33.0..sroa_idx.i.i10, align 4
-  %.compoundliteral.sroa.4.0..sroa_idx.i.i11 = getelementptr inbounds i8, ptr %pb, i64 8
+  %.compoundliteral.sroa.4.0..sroa_idx.i.i11 = getelementptr inbounds nuw i8, ptr %pb, i64 8
   store i64 %and.i.i.i8, ptr %.compoundliteral.sroa.4.0..sroa_idx.i.i11, align 8
-  %.compoundliteral.sroa.5.0..sroa_idx.i.i12 = getelementptr inbounds i8, ptr %pb, i64 16
+  %.compoundliteral.sroa.5.0..sroa_idx.i.i12 = getelementptr inbounds nuw i8, ptr %pb, i64 16
   store i64 %b.coerce0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i.i12, align 8
   call fastcc void @parts128_canonicalize(ptr noundef nonnull %pb, ptr noundef %s, ptr noundef nonnull @float128_params)
   %2 = load i8, ptr %pa, align 8
@@ -26060,7 +26060,7 @@ if.then.i.i:                                      ; preds = %if.end33.i
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %if.end33.i
-  %default_nan_mode.i.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode.i.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %6 = load i8, ptr %default_nan_mode.i.i, align 1
   %tobool.i.i = trunc i8 %6 to i1
   br i1 %tobool.i.i, label %if.then3.i.i, label %if.else.i.i
@@ -26324,7 +26324,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp.i.i.i, label %float16a_unpack_canonical.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %3 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %3 to i1
   br i1 %tobool9.i.i, label %if.then10.i.i, label %frac64_normalize.exit.i.i
@@ -26378,7 +26378,7 @@ if.then.i.i48:                                    ; preds = %float16a_unpack_can
   br i1 %cmp.i.i.i49, label %float16a_unpack_canonical.exit61, label %if.else.i.i50
 
 if.else.i.i50:                                    ; preds = %if.then.i.i48
-  %flush_inputs_to_zero.i.i51 = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i51 = getelementptr inbounds nuw i8, ptr %s, i64 6
   %9 = load i8, ptr %flush_inputs_to_zero.i.i51, align 2
   %tobool9.i.i52 = trunc i8 %9 to i1
   br i1 %tobool9.i.i52, label %if.then10.i.i58, label %frac64_normalize.exit.i.i53
@@ -26539,7 +26539,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc range(i32 -1, 3) i32 @float32_hs_compare(i32 noundef %xa, i32 noundef %xb, ptr nocapture noundef %s, i1 noundef zeroext %is_quiet) unnamed_addr #3 {
 entry:
-  %flush_inputs_to_zero.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %0 = load i8, ptr %flush_inputs_to_zero.i, align 2
   %tobool.i = trunc i8 %0 to i1
   br i1 %tobool.i, label %if.end.i, label %float32_input_flush2.exit
@@ -26817,7 +26817,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc range(i32 -1, 3) i32 @float64_hs_compare(i64 noundef %xa, i64 noundef %xb, ptr nocapture noundef %s, i1 noundef zeroext %is_quiet) unnamed_addr #3 {
 entry:
-  %flush_inputs_to_zero.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %0 = load i8, ptr %flush_inputs_to_zero.i, align 2
   %tobool.i = trunc i8 %0 to i1
   br i1 %tobool.i, label %if.end.i, label %float64_input_flush2.exit
@@ -27108,7 +27108,7 @@ if.then.i32:                                      ; preds = %entry
   br i1 %cmp.i.i, label %parts64_canonicalize.exit, label %if.else.i33
 
 if.else.i33:                                      ; preds = %if.then.i32
-  %flush_inputs_to_zero.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %2 = load i8, ptr %flush_inputs_to_zero.i, align 2
   %tobool9.i = trunc i8 %2 to i1
   br i1 %tobool9.i, label %if.then10.i, label %frac64_normalize.exit.i
@@ -27163,7 +27163,7 @@ if.then.i57:                                      ; preds = %parts64_canonicaliz
   br i1 %cmp.i.i59, label %parts64_canonicalize.exit71, label %if.else.i60
 
 if.else.i60:                                      ; preds = %if.then.i57
-  %flush_inputs_to_zero.i61 = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i61 = getelementptr inbounds nuw i8, ptr %s, i64 6
   %8 = load i8, ptr %flush_inputs_to_zero.i61, align 2
   %tobool9.i62 = trunc i8 %8 to i1
   br i1 %tobool9.i62, label %if.then10.i68, label %frac64_normalize.exit.i63
@@ -27334,13 +27334,13 @@ entry:
   %frombool.i = trunc nuw nsw i64 %f.coerce1.lobit.i to i8
   %and.i.i = and i64 %a.coerce1, 281474976710655
   store i8 0, ptr %pa, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %pa, i64 1
+  %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 1
   store i8 %frombool.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i, align 1
-  %.compoundliteral.sroa.33.0..sroa_idx.i = getelementptr inbounds i8, ptr %pa, i64 4
+  %.compoundliteral.sroa.33.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 4
   store i32 %conv.i29, ptr %.compoundliteral.sroa.33.0..sroa_idx.i, align 4
-  %.compoundliteral.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %pa, i64 8
+  %.compoundliteral.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 8
   store i64 %and.i.i, ptr %.compoundliteral.sroa.4.0..sroa_idx.i, align 8
-  %.compoundliteral.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %pa, i64 16
+  %.compoundliteral.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 16
   store i64 %a.coerce0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i, align 8
   call fastcc void @parts128_canonicalize(ptr noundef %pa, ptr noundef %s, ptr noundef nonnull @float128_params)
   %shr.i16.i30 = lshr i64 %b.coerce1, 48
@@ -27350,13 +27350,13 @@ entry:
   %frombool.i33 = trunc nuw nsw i64 %f.coerce1.lobit.i32 to i8
   %and.i.i34 = and i64 %b.coerce1, 281474976710655
   store i8 0, ptr %pb, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx.i35 = getelementptr inbounds i8, ptr %pb, i64 1
+  %.compoundliteral.sroa.2.0..sroa_idx.i35 = getelementptr inbounds nuw i8, ptr %pb, i64 1
   store i8 %frombool.i33, ptr %.compoundliteral.sroa.2.0..sroa_idx.i35, align 1
-  %.compoundliteral.sroa.33.0..sroa_idx.i36 = getelementptr inbounds i8, ptr %pb, i64 4
+  %.compoundliteral.sroa.33.0..sroa_idx.i36 = getelementptr inbounds nuw i8, ptr %pb, i64 4
   store i32 %conv.i31, ptr %.compoundliteral.sroa.33.0..sroa_idx.i36, align 4
-  %.compoundliteral.sroa.4.0..sroa_idx.i37 = getelementptr inbounds i8, ptr %pb, i64 8
+  %.compoundliteral.sroa.4.0..sroa_idx.i37 = getelementptr inbounds nuw i8, ptr %pb, i64 8
   store i64 %and.i.i34, ptr %.compoundliteral.sroa.4.0..sroa_idx.i37, align 8
-  %.compoundliteral.sroa.5.0..sroa_idx.i38 = getelementptr inbounds i8, ptr %pb, i64 16
+  %.compoundliteral.sroa.5.0..sroa_idx.i38 = getelementptr inbounds nuw i8, ptr %pb, i64 16
   store i64 %b.coerce0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i38, align 8
   call fastcc void @parts128_canonicalize(ptr noundef %pb, ptr noundef %s, ptr noundef nonnull @float128_params)
   %2 = load i8, ptr %pa, align 8
@@ -27512,7 +27512,7 @@ define internal fastcc range(i32 -1, 3) i32 @floatx80_do_compare(i64 %a.coerce0,
 entry:
   %pa = alloca %struct.FloatParts128, align 8
   %pb = alloca %struct.FloatParts128, align 8
-  %floatx80_rounding_precision.i7 = getelementptr inbounds i8, ptr %s, i64 3
+  %floatx80_rounding_precision.i7 = getelementptr inbounds nuw i8, ptr %s, i64 3
   %0 = load i8, ptr %floatx80_rounding_precision.i7, align 1
   %switch = icmp ult i8 %0, 3
   br i1 %switch, label %sw.bb.i9, label %sw.default.i36
@@ -27533,13 +27533,13 @@ if.end.i14:                                       ; preds = %sw.bb.i9
   %frombool.i = trunc nuw nsw i16 %f.coerce1.lobit.i to i8
   %and.i.i = zext nneg i16 %1 to i32
   store i8 0, ptr %pa, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %pa, i64 1
+  %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 1
   store i8 %frombool.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i, align 1
-  %.compoundliteral.sroa.32.0..sroa_idx.i = getelementptr inbounds i8, ptr %pa, i64 4
+  %.compoundliteral.sroa.32.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 4
   store i32 %and.i.i, ptr %.compoundliteral.sroa.32.0..sroa_idx.i, align 4
-  %.compoundliteral.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %pa, i64 8
+  %.compoundliteral.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 8
   store i64 %a.coerce0, ptr %.compoundliteral.sroa.4.0..sroa_idx.i, align 8
-  %.compoundliteral.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %pa, i64 16
+  %.compoundliteral.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 16
   store i64 0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i, align 8
   %cmp.i16.not = icmp eq i16 %1, 32767
   br i1 %cmp.i16.not, label %lor.lhs.false.thread, label %lor.lhs.false
@@ -27583,13 +27583,13 @@ if.end.i:                                         ; preds = %sw.bb.i
   %frombool.i54 = trunc nuw nsw i16 %f.coerce1.lobit.i53 to i8
   %and.i.i55 = zext nneg i16 %6 to i32
   store i8 0, ptr %pb, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx.i56 = getelementptr inbounds i8, ptr %pb, i64 1
+  %.compoundliteral.sroa.2.0..sroa_idx.i56 = getelementptr inbounds nuw i8, ptr %pb, i64 1
   store i8 %frombool.i54, ptr %.compoundliteral.sroa.2.0..sroa_idx.i56, align 1
-  %.compoundliteral.sroa.32.0..sroa_idx.i57 = getelementptr inbounds i8, ptr %pb, i64 4
+  %.compoundliteral.sroa.32.0..sroa_idx.i57 = getelementptr inbounds nuw i8, ptr %pb, i64 4
   store i32 %and.i.i55, ptr %.compoundliteral.sroa.32.0..sroa_idx.i57, align 4
-  %.compoundliteral.sroa.4.0..sroa_idx.i58 = getelementptr inbounds i8, ptr %pb, i64 8
+  %.compoundliteral.sroa.4.0..sroa_idx.i58 = getelementptr inbounds nuw i8, ptr %pb, i64 8
   store i64 %b.coerce0, ptr %.compoundliteral.sroa.4.0..sroa_idx.i58, align 8
-  %.compoundliteral.sroa.5.0..sroa_idx.i59 = getelementptr inbounds i8, ptr %pb, i64 16
+  %.compoundliteral.sroa.5.0..sroa_idx.i59 = getelementptr inbounds nuw i8, ptr %pb, i64 16
   store i64 0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i59, align 8
   %cmp.i.not = icmp eq i16 %6, 32767
   br i1 %cmp.i.not, label %if.else.i, label %if.then10.i
@@ -27768,11 +27768,11 @@ entry:
   %conv.i.i.i.i = zext nneg i16 %1 to i32
   %2 = and i16 %a, 1023
   %and.i11.i.i.i = zext nneg i16 %2 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %p, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 %conv.i.i.i.i, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i.i, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i64 %and.i11.i.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i.i, align 8
   switch i16 %1, label %float16_unpack_canonical.exit.thread [
     i16 0, label %if.then.i.i.i
@@ -27788,7 +27788,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   br label %parts64_scalbn.exit
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  %flush_inputs_to_zero.i.i.i = getelementptr inbounds i8, ptr %status, i64 6
+  %flush_inputs_to_zero.i.i.i = getelementptr inbounds nuw i8, ptr %status, i64 6
   %3 = load i8, ptr %flush_inputs_to_zero.i.i.i, align 2
   %tobool9.i.i.i = trunc i8 %3 to i1
   br i1 %tobool9.i.i.i, label %if.then10.i.i.i, label %float16_unpack_canonical.exit.thread5
@@ -27838,7 +27838,7 @@ sw.bb.i.i:                                        ; preds = %float16_unpack_cano
   %6 = load i16, ptr %status, align 2
   %or1.i.i.i = or i16 %6, 8193
   store i16 %or1.i.i.i, ptr %status, align 2
-  %default_nan_mode.i.i = getelementptr inbounds i8, ptr %status, i64 7
+  %default_nan_mode.i.i = getelementptr inbounds nuw i8, ptr %status, i64 7
   %7 = load i8, ptr %default_nan_mode.i.i, align 1
   %tobool.i.i = trunc i8 %7 to i1
   br i1 %tobool.i.i, label %if.then.i.i, label %if.else.i.i
@@ -27857,7 +27857,7 @@ if.else.i.i:                                      ; preds = %sw.bb.i.i
   br label %parts64_scalbn.exit
 
 sw.bb1.i.i:                                       ; preds = %float16_unpack_canonical.exit
-  %default_nan_mode2.i.i = getelementptr inbounds i8, ptr %status, i64 7
+  %default_nan_mode2.i.i = getelementptr inbounds nuw i8, ptr %status, i64 7
   %8 = load i8, ptr %default_nan_mode2.i.i, align 1
   %tobool3.i.i = trunc i8 %8 to i1
   br i1 %tobool3.i.i, label %if.then4.i.i, label %parts64_scalbn.exit
@@ -27904,11 +27904,11 @@ entry:
   %and.i9.i.i = and i32 %shr.i8.i.i, 255
   %0 = and i32 %a, 8388607
   %and.i11.i.i = zext nneg i32 %0 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 %and.i9.i.i, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i64 %and.i11.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
   %trunc.i = trunc i32 %shr.i8.i.i to i8
   switch i8 %trunc.i, label %float32_unpack_canonical.exit.thread [
@@ -27925,7 +27925,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   br label %parts64_scalbn.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %status, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %status, i64 6
   %1 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %1 to i1
   br i1 %tobool9.i.i, label %if.then10.i.i, label %float32_unpack_canonical.exit.thread7
@@ -27975,7 +27975,7 @@ sw.bb.i.i:                                        ; preds = %float32_unpack_cano
   %4 = load i16, ptr %status, align 2
   %or1.i.i.i3 = or i16 %4, 8193
   store i16 %or1.i.i.i3, ptr %status, align 2
-  %default_nan_mode.i.i = getelementptr inbounds i8, ptr %status, i64 7
+  %default_nan_mode.i.i = getelementptr inbounds nuw i8, ptr %status, i64 7
   %5 = load i8, ptr %default_nan_mode.i.i, align 1
   %tobool.i.i = trunc i8 %5 to i1
   br i1 %tobool.i.i, label %if.then.i.i5, label %if.else.i.i4
@@ -27994,7 +27994,7 @@ if.else.i.i4:                                     ; preds = %sw.bb.i.i
   br label %parts64_scalbn.exit
 
 sw.bb1.i.i:                                       ; preds = %float32_unpack_canonical.exit
-  %default_nan_mode2.i.i = getelementptr inbounds i8, ptr %status, i64 7
+  %default_nan_mode2.i.i = getelementptr inbounds nuw i8, ptr %status, i64 7
   %6 = load i8, ptr %default_nan_mode2.i.i, align 1
   %tobool3.i.i = trunc i8 %6 to i1
   br i1 %tobool3.i.i, label %if.then4.i.i, label %parts64_scalbn.exit
@@ -28041,11 +28041,11 @@ entry:
   %0 = trunc nuw nsw i64 %shr.i8.i.i to i32
   %conv.i.i.i = and i32 %0, 2047
   %and.i10.i.i = and i64 %a, 4503599627370495
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 %conv.i.i.i, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i64 %and.i10.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
   switch i32 %conv.i.i.i, label %float64_unpack_canonical.exit.thread [
     i32 0, label %if.then.i.i
@@ -28061,7 +28061,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   br label %parts64_scalbn.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %status, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %status, i64 6
   %1 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %1 to i1
   br i1 %tobool9.i.i, label %if.then10.i.i, label %float64_unpack_canonical.exit.thread8
@@ -28111,7 +28111,7 @@ sw.bb.i.i:                                        ; preds = %float64_unpack_cano
   %4 = load i16, ptr %status, align 2
   %or1.i.i.i3 = or i16 %4, 8193
   store i16 %or1.i.i.i3, ptr %status, align 2
-  %default_nan_mode.i.i = getelementptr inbounds i8, ptr %status, i64 7
+  %default_nan_mode.i.i = getelementptr inbounds nuw i8, ptr %status, i64 7
   %5 = load i8, ptr %default_nan_mode.i.i, align 1
   %tobool.i.i = trunc i8 %5 to i1
   br i1 %tobool.i.i, label %if.then.i.i5, label %if.else.i.i4
@@ -28130,7 +28130,7 @@ if.else.i.i4:                                     ; preds = %sw.bb.i.i
   br label %parts64_scalbn.exit
 
 sw.bb1.i.i:                                       ; preds = %float64_unpack_canonical.exit
-  %default_nan_mode2.i.i = getelementptr inbounds i8, ptr %status, i64 7
+  %default_nan_mode2.i.i = getelementptr inbounds nuw i8, ptr %status, i64 7
   %6 = load i8, ptr %default_nan_mode2.i.i, align 1
   %tobool3.i.i = trunc i8 %6 to i1
   br i1 %tobool3.i.i, label %if.then4.i.i, label %parts64_scalbn.exit
@@ -28178,11 +28178,11 @@ entry:
   %conv.i.i.i = zext nneg i16 %1 to i32
   %2 = and i16 %a, 127
   %and.i11.i.i = zext nneg i16 %2 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 %conv.i.i.i, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i64 %and.i11.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
   %trunc.i = trunc i16 %0 to i8
   switch i8 %trunc.i, label %bfloat16_unpack_canonical.exit.thread [
@@ -28199,7 +28199,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   br label %parts64_scalbn.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %status, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %status, i64 6
   %3 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %3 to i1
   br i1 %tobool9.i.i, label %if.then10.i.i, label %bfloat16_unpack_canonical.exit.thread8
@@ -28249,7 +28249,7 @@ sw.bb.i.i:                                        ; preds = %bfloat16_unpack_can
   %6 = load i16, ptr %status, align 2
   %or1.i.i.i3 = or i16 %6, 8193
   store i16 %or1.i.i.i3, ptr %status, align 2
-  %default_nan_mode.i.i = getelementptr inbounds i8, ptr %status, i64 7
+  %default_nan_mode.i.i = getelementptr inbounds nuw i8, ptr %status, i64 7
   %7 = load i8, ptr %default_nan_mode.i.i, align 1
   %tobool.i.i = trunc i8 %7 to i1
   br i1 %tobool.i.i, label %if.then.i.i5, label %if.else.i.i4
@@ -28268,7 +28268,7 @@ if.else.i.i4:                                     ; preds = %sw.bb.i.i
   br label %parts64_scalbn.exit
 
 sw.bb1.i.i:                                       ; preds = %bfloat16_unpack_canonical.exit
-  %default_nan_mode2.i.i = getelementptr inbounds i8, ptr %status, i64 7
+  %default_nan_mode2.i.i = getelementptr inbounds nuw i8, ptr %status, i64 7
   %8 = load i8, ptr %default_nan_mode2.i.i, align 1
   %tobool3.i.i = trunc i8 %8 to i1
   br i1 %tobool3.i.i, label %if.then4.i.i, label %parts64_scalbn.exit
@@ -28316,13 +28316,13 @@ entry:
   %frombool.i.i = trunc nuw nsw i64 %f.coerce1.lobit.i.i to i8
   %and.i.i.i = and i64 %a.coerce1, 281474976710655
   store i8 0, ptr %p, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.sroa.33.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 4
+  %.compoundliteral.sroa.33.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 %conv.i.i, ptr %.compoundliteral.sroa.33.0..sroa_idx.i.i, align 4
-  %.compoundliteral.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i64 %and.i.i.i, ptr %.compoundliteral.sroa.4.0..sroa_idx.i.i, align 8
-  %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 16
+  %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 16
   store i64 %a.coerce0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i.i, align 8
   call fastcc void @parts128_canonicalize(ptr noundef nonnull %p, ptr noundef %status, ptr noundef nonnull @float128_params)
   %1 = load i8, ptr %p, align 8
@@ -28338,7 +28338,7 @@ sw.bb.i.i:                                        ; preds = %entry
   %2 = load i16, ptr %status, align 2
   %or1.i.i.i = or i16 %2, 8193
   store i16 %or1.i.i.i, ptr %status, align 2
-  %default_nan_mode.i.i = getelementptr inbounds i8, ptr %status, i64 7
+  %default_nan_mode.i.i = getelementptr inbounds nuw i8, ptr %status, i64 7
   %3 = load i8, ptr %default_nan_mode.i.i, align 1
   %tobool.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i, label %if.then.i.i, label %if.else.i.i
@@ -28359,7 +28359,7 @@ if.else.i.i:                                      ; preds = %sw.bb.i.i
   br label %parts128_scalbn.exit
 
 sw.bb1.i.i:                                       ; preds = %entry
-  %default_nan_mode2.i.i = getelementptr inbounds i8, ptr %status, i64 7
+  %default_nan_mode2.i.i = getelementptr inbounds nuw i8, ptr %status, i64 7
   %5 = load i8, ptr %default_nan_mode2.i.i, align 1
   %tobool3.i.i = trunc i8 %5 to i1
   br i1 %tobool3.i.i, label %if.then4.i.i, label %parts128_scalbn.exit
@@ -28393,7 +28393,7 @@ parts128_scalbn.exit:                             ; preds = %entry, %entry, %if.
 define dso_local { i64, i16 } @floatx80_scalbn(i64 %a.coerce0, i16 %a.coerce1, i32 noundef %n, ptr nocapture noundef %status) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts128, align 8
-  %floatx80_rounding_precision.i = getelementptr inbounds i8, ptr %status, i64 3
+  %floatx80_rounding_precision.i = getelementptr inbounds nuw i8, ptr %status, i64 3
   %0 = load i8, ptr %floatx80_rounding_precision.i, align 1
   %switch.i = icmp ult i8 %0, 3
   br i1 %switch.i, label %sw.epilog.i, label %do.body.i
@@ -28414,13 +28414,13 @@ if.end.i:                                         ; preds = %sw.epilog.i
   %frombool.i.i = trunc nuw nsw i16 %f.coerce1.lobit.i.i to i8
   %and.i.i.i = zext nneg i16 %1 to i32
   store i8 0, ptr %p, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.sroa.32.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 4
+  %.compoundliteral.sroa.32.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 %and.i.i.i, ptr %.compoundliteral.sroa.32.0..sroa_idx.i.i, align 4
-  %.compoundliteral.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i64 %a.coerce0, ptr %.compoundliteral.sroa.4.0..sroa_idx.i.i, align 8
-  %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 16
+  %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 16
   store i64 0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i.i, align 8
   %cmp.not.i = icmp eq i16 %1, 32767
   br i1 %cmp.not.i, label %if.else.i, label %if.then10.i
@@ -28461,7 +28461,7 @@ sw.bb.i.i:                                        ; preds = %if.end
   %6 = load i16, ptr %status, align 2
   %or1.i.i.i = or i16 %6, 8193
   store i16 %or1.i.i.i, ptr %status, align 2
-  %default_nan_mode.i.i = getelementptr inbounds i8, ptr %status, i64 7
+  %default_nan_mode.i.i = getelementptr inbounds nuw i8, ptr %status, i64 7
   %7 = load i8, ptr %default_nan_mode.i.i, align 1
   %tobool.i.i = trunc i8 %7 to i1
   br i1 %tobool.i.i, label %if.then.i.i, label %if.else.i.i
@@ -28482,7 +28482,7 @@ if.else.i.i:                                      ; preds = %sw.bb.i.i
   br label %parts128_scalbn.exit
 
 sw.bb1.i.i:                                       ; preds = %if.end
-  %default_nan_mode2.i.i = getelementptr inbounds i8, ptr %status, i64 7
+  %default_nan_mode2.i.i = getelementptr inbounds nuw i8, ptr %status, i64 7
   %9 = load i8, ptr %default_nan_mode2.i.i, align 1
   %tobool3.i.i = trunc i8 %9 to i1
   br i1 %tobool3.i.i, label %if.then4.i.i, label %parts128_scalbn.exit
@@ -28532,11 +28532,11 @@ entry:
   %conv.i.i.i = zext nneg i16 %1 to i32
   %2 = and i16 %a, 1023
   %and.i11.i.i = zext nneg i16 %2 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 %conv.i.i.i, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i64 %and.i11.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
   switch i16 %1, label %float16a_unpack_canonical.exit.thread [
     i16 0, label %if.then.i.i
@@ -28552,7 +28552,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   br label %parts64_sqrt.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %status, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %status, i64 6
   %3 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %3 to i1
   br i1 %tobool9.i.i, label %if.then10.i.i, label %float16a_unpack_canonical.exit.thread61
@@ -28601,7 +28601,7 @@ sw.bb.i54:                                        ; preds = %float16a_unpack_can
   %6 = load i16, ptr %status, align 2
   %or1.i.i = or i16 %6, 8193
   store i16 %or1.i.i, ptr %status, align 2
-  %default_nan_mode.i = getelementptr inbounds i8, ptr %status, i64 7
+  %default_nan_mode.i = getelementptr inbounds nuw i8, ptr %status, i64 7
   %7 = load i8, ptr %default_nan_mode.i, align 1
   %tobool.i = trunc i8 %7 to i1
   br i1 %tobool.i, label %if.then.i, label %if.else.i55
@@ -28620,7 +28620,7 @@ if.else.i55:                                      ; preds = %sw.bb.i54
   br label %parts64_sqrt.exit
 
 sw.bb1.i:                                         ; preds = %float16a_unpack_canonical.exit
-  %default_nan_mode2.i = getelementptr inbounds i8, ptr %status, i64 7
+  %default_nan_mode2.i = getelementptr inbounds nuw i8, ptr %status, i64 7
   %8 = load i8, ptr %default_nan_mode2.i, align 1
   %tobool3.i = trunc i8 %8 to i1
   br i1 %tobool3.i, label %if.then4.i, label %parts64_sqrt.exit
@@ -28744,13 +28744,13 @@ entry:
   br i1 %tobool.i.not, label %soft, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %entry
-  %float_rounding_mode.i = getelementptr inbounds i8, ptr %s, i64 2
+  %float_rounding_mode.i = getelementptr inbounds nuw i8, ptr %s, i64 2
   %2 = load i8, ptr %float_rounding_mode.i, align 2
   %cmp.i.not = icmp eq i8 %2, 0
   br i1 %cmp.i.not, label %if.end, label %soft
 
 if.end:                                           ; preds = %land.rhs.i
-  %flush_inputs_to_zero.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %3 = load i8, ptr %flush_inputs_to_zero.i, align 2
   %tobool.i19 = trunc i8 %3 to i1
   br i1 %tobool.i19, label %if.end.i, label %float32_input_flush1.exit
@@ -28802,11 +28802,11 @@ soft:                                             ; preds = %lor.rhs.i, %entry, 
   %and.i9.i.i = and i32 %shr.i8.i.i, 255
   %9 = and i32 %ua.sroa.0.0, 8388607
   %and.i11.i.i = zext nneg i32 %9 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   store i8 %frombool.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   store i32 %and.i9.i.i, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p.i, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   store i64 %and.i11.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
   %trunc.i = trunc i32 %shr.i8.i.i to i8
   switch i8 %trunc.i, label %parts64_canonicalize.exit.thread.i [
@@ -28823,7 +28823,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   br label %soft_f32_sqrt.exit
 
 if.else.i60.i:                                    ; preds = %if.then.i.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %10 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %10 to i1
   br i1 %tobool9.i.i, label %if.then10.i.i, label %parts64_canonicalize.exit.thread70.i
@@ -28870,7 +28870,7 @@ parts64_canonicalize.exit.i:                      ; preds = %lor.lhs.false.i.i
 sw.bb.i62.i:                                      ; preds = %parts64_canonicalize.exit.i
   %or1.i.i63.i = or i16 %8, 8193
   store i16 %or1.i.i63.i, ptr %s, align 2
-  %default_nan_mode.i.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode.i.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %12 = load i8, ptr %default_nan_mode.i.i, align 1
   %tobool.i.i = trunc i8 %12 to i1
   br i1 %tobool.i.i, label %if.then.i65.i, label %if.else.i64.i
@@ -28889,7 +28889,7 @@ if.else.i64.i:                                    ; preds = %sw.bb.i62.i
   br label %soft_f32_sqrt.exit
 
 sw.bb1.i.i:                                       ; preds = %parts64_canonicalize.exit.i
-  %default_nan_mode2.i.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode2.i.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %13 = load i8, ptr %default_nan_mode2.i.i, align 1
   %tobool3.i.i = trunc i8 %13 to i1
   br i1 %tobool3.i.i, label %if.then4.i.i, label %soft_f32_sqrt.exit
@@ -29020,13 +29020,13 @@ entry:
   br i1 %tobool.i.not, label %soft, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %entry
-  %float_rounding_mode.i = getelementptr inbounds i8, ptr %s, i64 2
+  %float_rounding_mode.i = getelementptr inbounds nuw i8, ptr %s, i64 2
   %2 = load i8, ptr %float_rounding_mode.i, align 2
   %cmp.i.not = icmp eq i8 %2, 0
   br i1 %cmp.i.not, label %if.end, label %soft
 
 if.end:                                           ; preds = %land.rhs.i
-  %flush_inputs_to_zero.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %3 = load i8, ptr %flush_inputs_to_zero.i, align 2
   %tobool.i27 = trunc i8 %3 to i1
   br i1 %tobool.i27, label %if.end.i, label %float64_input_flush1.exit
@@ -29080,11 +29080,11 @@ soft:                                             ; preds = %lor.lhs.false, %fpc
   %9 = trunc nuw nsw i64 %shr.i8.i.i to i32
   %conv.i.i.i = and i32 %9, 2047
   %and.i10.i.i = and i64 %ua.sroa.0.0, 4503599627370495
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 1
   store i8 %frombool.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   store i32 %conv.i.i.i, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p.i, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   store i64 %and.i10.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
   switch i32 %conv.i.i.i, label %parts64_canonicalize.exit.thread.i [
     i32 0, label %if.then.i.i
@@ -29100,7 +29100,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   br label %soft_f64_sqrt.exit
 
 if.else.i60.i:                                    ; preds = %if.then.i.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %s, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %10 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %10 to i1
   br i1 %tobool9.i.i, label %if.then10.i.i, label %parts64_canonicalize.exit.thread85.i
@@ -29147,7 +29147,7 @@ parts64_canonicalize.exit.i:                      ; preds = %lor.lhs.false.i.i
 sw.bb.i61.i:                                      ; preds = %parts64_canonicalize.exit.i
   %or1.i.i62.i = or i16 %8, 8193
   store i16 %or1.i.i62.i, ptr %s, align 2
-  %default_nan_mode.i.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode.i.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %12 = load i8, ptr %default_nan_mode.i.i, align 1
   %tobool.i.i = trunc i8 %12 to i1
   br i1 %tobool.i.i, label %if.then.i64.i, label %if.else.i63.i
@@ -29166,7 +29166,7 @@ if.else.i63.i:                                    ; preds = %sw.bb.i61.i
   br label %soft_f64_sqrt.exit
 
 sw.bb1.i.i:                                       ; preds = %parts64_canonicalize.exit.i
-  %default_nan_mode2.i.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode2.i.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %13 = load i8, ptr %default_nan_mode2.i.i, align 1
   %tobool3.i.i = trunc i8 %13 to i1
   br i1 %tobool3.i.i, label %if.then4.i.i, label %soft_f64_sqrt.exit
@@ -29306,11 +29306,11 @@ entry:
   %0 = trunc nuw nsw i64 %shr.i8.i.i to i32
   %conv.i.i.i = and i32 %0, 2047
   %and.i10.i.i = and i64 %a, 4503599627370495
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 %conv.i.i.i, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i64 %and.i10.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
   switch i32 %conv.i.i.i, label %float64_unpack_canonical.exit.thread [
     i32 0, label %if.then.i.i
@@ -29326,7 +29326,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   br label %parts64_sqrt.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %status, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %status, i64 6
   %1 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %1 to i1
   br i1 %tobool9.i.i, label %if.then10.i.i, label %float64_unpack_canonical.exit.thread7
@@ -29375,7 +29375,7 @@ sw.bb.i.i:                                        ; preds = %float64_unpack_cano
   %4 = load i16, ptr %status, align 2
   %or1.i.i.i3 = or i16 %4, 8193
   store i16 %or1.i.i.i3, ptr %status, align 2
-  %default_nan_mode.i.i = getelementptr inbounds i8, ptr %status, i64 7
+  %default_nan_mode.i.i = getelementptr inbounds nuw i8, ptr %status, i64 7
   %5 = load i8, ptr %default_nan_mode.i.i, align 1
   %tobool.i.i = trunc i8 %5 to i1
   br i1 %tobool.i.i, label %if.then.i.i5, label %if.else.i.i4
@@ -29394,7 +29394,7 @@ if.else.i.i4:                                     ; preds = %sw.bb.i.i
   br label %parts64_sqrt.exit
 
 sw.bb1.i.i:                                       ; preds = %float64_unpack_canonical.exit
-  %default_nan_mode2.i.i = getelementptr inbounds i8, ptr %status, i64 7
+  %default_nan_mode2.i.i = getelementptr inbounds nuw i8, ptr %status, i64 7
   %6 = load i8, ptr %default_nan_mode2.i.i, align 1
   %tobool3.i.i = trunc i8 %6 to i1
   br i1 %tobool3.i.i, label %if.then4.i.i, label %parts64_sqrt.exit
@@ -29516,11 +29516,11 @@ entry:
   %conv.i.i = zext nneg i16 %1 to i32
   %2 = and i16 %a, 127
   %and.i11.i = zext nneg i16 %2 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i = getelementptr inbounds i8, ptr %p, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 %conv.i.i, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i64 %and.i11.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i, align 8
   %trunc = trunc i16 %0 to i8
   switch i8 %trunc, label %parts64_canonicalize.exit.thread [
@@ -29537,7 +29537,7 @@ if.then8.i:                                       ; preds = %if.then.i
   br label %parts64_sqrt.exit
 
 if.else.i60:                                      ; preds = %if.then.i
-  %flush_inputs_to_zero.i = getelementptr inbounds i8, ptr %status, i64 6
+  %flush_inputs_to_zero.i = getelementptr inbounds nuw i8, ptr %status, i64 6
   %3 = load i8, ptr %flush_inputs_to_zero.i, align 2
   %tobool9.i = trunc i8 %3 to i1
   br i1 %tobool9.i, label %if.then10.i, label %parts64_canonicalize.exit.thread71
@@ -29586,7 +29586,7 @@ sw.bb.i62:                                        ; preds = %parts64_canonicaliz
   %6 = load i16, ptr %status, align 2
   %or1.i.i63 = or i16 %6, 8193
   store i16 %or1.i.i63, ptr %status, align 2
-  %default_nan_mode.i = getelementptr inbounds i8, ptr %status, i64 7
+  %default_nan_mode.i = getelementptr inbounds nuw i8, ptr %status, i64 7
   %7 = load i8, ptr %default_nan_mode.i, align 1
   %tobool.i = trunc i8 %7 to i1
   br i1 %tobool.i, label %if.then.i65, label %if.else.i64
@@ -29605,7 +29605,7 @@ if.else.i64:                                      ; preds = %sw.bb.i62
   br label %parts64_sqrt.exit
 
 sw.bb1.i:                                         ; preds = %parts64_canonicalize.exit
-  %default_nan_mode2.i = getelementptr inbounds i8, ptr %status, i64 7
+  %default_nan_mode2.i = getelementptr inbounds nuw i8, ptr %status, i64 7
   %8 = load i8, ptr %default_nan_mode2.i, align 1
   %tobool3.i = trunc i8 %8 to i1
   br i1 %tobool3.i, label %if.then4.i, label %parts64_sqrt.exit
@@ -29730,13 +29730,13 @@ entry:
   %frombool.i = trunc nuw nsw i64 %f.coerce1.lobit.i to i8
   %and.i.i = and i64 %a.coerce1, 281474976710655
   store i8 0, ptr %p, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i, align 1
-  %.compoundliteral.sroa.33.0..sroa_idx.i = getelementptr inbounds i8, ptr %p, i64 4
+  %.compoundliteral.sroa.33.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 %conv.i, ptr %.compoundliteral.sroa.33.0..sroa_idx.i, align 4
-  %.compoundliteral.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i64 %and.i.i, ptr %.compoundliteral.sroa.4.0..sroa_idx.i, align 8
-  %.compoundliteral.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %p, i64 16
+  %.compoundliteral.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %p, i64 16
   store i64 %a.coerce0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i, align 8
   call fastcc void @parts128_canonicalize(ptr noundef %p, ptr noundef %status, ptr noundef nonnull @float128_params)
   %1 = load i8, ptr %p, align 8
@@ -29752,7 +29752,7 @@ sw.bb.i35:                                        ; preds = %entry
   %2 = load i16, ptr %status, align 2
   %or1.i.i = or i16 %2, 8193
   store i16 %or1.i.i, ptr %status, align 2
-  %default_nan_mode.i = getelementptr inbounds i8, ptr %status, i64 7
+  %default_nan_mode.i = getelementptr inbounds nuw i8, ptr %status, i64 7
   %3 = load i8, ptr %default_nan_mode.i, align 1
   %tobool.i = trunc i8 %3 to i1
   br i1 %tobool.i, label %if.then.i, label %if.else.i36
@@ -29770,7 +29770,7 @@ if.else.i36:                                      ; preds = %sw.bb.i35
   br label %do.end18.i
 
 sw.bb1.i:                                         ; preds = %entry
-  %default_nan_mode2.i = getelementptr inbounds i8, ptr %status, i64 7
+  %default_nan_mode2.i = getelementptr inbounds nuw i8, ptr %status, i64 7
   %5 = load i8, ptr %default_nan_mode2.i, align 1
   %tobool3.i = trunc i8 %5 to i1
   br i1 %tobool3.i, label %if.then4.i, label %do.end18.i
@@ -30149,7 +30149,7 @@ parts128_uncanon.exit:                            ; preds = %parts128_sqrt.exit,
 define dso_local { i64, i16 } @floatx80_sqrt(i64 %a.coerce0, i16 %a.coerce1, ptr nocapture noundef %s) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts128, align 8
-  %floatx80_rounding_precision.i = getelementptr inbounds i8, ptr %s, i64 3
+  %floatx80_rounding_precision.i = getelementptr inbounds nuw i8, ptr %s, i64 3
   %0 = load i8, ptr %floatx80_rounding_precision.i, align 1
   %switch.i = icmp ult i8 %0, 3
   br i1 %switch.i, label %sw.epilog.i, label %do.body.i
@@ -30170,13 +30170,13 @@ if.end.i:                                         ; preds = %sw.epilog.i
   %frombool.i.i = trunc nuw nsw i16 %f.coerce1.lobit.i.i to i8
   %and.i.i.i = zext nneg i16 %1 to i32
   store i8 0, ptr %p, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.sroa.32.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 4
+  %.compoundliteral.sroa.32.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 %and.i.i.i, ptr %.compoundliteral.sroa.32.0..sroa_idx.i.i, align 4
-  %.compoundliteral.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i64 %a.coerce0, ptr %.compoundliteral.sroa.4.0..sroa_idx.i.i, align 8
-  %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 16
+  %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 16
   store i64 0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i.i, align 8
   %cmp.not.i = icmp eq i16 %1, 32767
   br i1 %cmp.not.i, label %if.else.i, label %if.then10.i
@@ -30217,7 +30217,7 @@ sw.bb.i.i:                                        ; preds = %if.end
   %6 = load i16, ptr %s, align 2
   %or1.i.i.i = or i16 %6, 8193
   store i16 %or1.i.i.i, ptr %s, align 2
-  %default_nan_mode.i.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode.i.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %7 = load i8, ptr %default_nan_mode.i.i, align 1
   %tobool.i.i = trunc i8 %7 to i1
   br i1 %tobool.i.i, label %if.then.i.i, label %if.else.i.i
@@ -30238,7 +30238,7 @@ if.else.i.i:                                      ; preds = %sw.bb.i.i
   br label %parts128_sqrt.exit
 
 sw.bb1.i.i:                                       ; preds = %if.end
-  %default_nan_mode2.i.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode2.i.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %9 = load i8, ptr %default_nan_mode2.i.i, align 1
   %tobool3.i.i = trunc i8 %9 to i1
   br i1 %tobool3.i.i, label %if.then4.i.i, label %parts128_sqrt.exit
@@ -30591,11 +30591,11 @@ entry:
   %and.i9.i.i = and i32 %shr.i8.i.i, 255
   %0 = and i32 %a, 8388607
   %and.i11.i.i = zext nneg i32 %0 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 %and.i9.i.i, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i64 %and.i11.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
   %trunc.i = trunc i32 %shr.i8.i.i to i8
   switch i8 %trunc.i, label %if.then33.i.i [
@@ -30612,7 +30612,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   br label %float32_unpack_canonical.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %status, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %status, i64 6
   %1 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %1 to i1
   br i1 %tobool9.i.i, label %if.then10.i.i, label %frac64_normalize.exit.i.i
@@ -30694,23 +30694,23 @@ sw.bb.i:                                          ; preds = %entry
   %1 = load i16, ptr %s, align 2
   %or1.i.i = or i16 %1, 8193
   store i16 %or1.i.i, ptr %s, align 2
-  %default_nan_mode.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %2 = load i8, ptr %default_nan_mode.i, align 1
   %tobool.i = trunc i8 %2 to i1
   br i1 %tobool.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %sw.bb.i
   store i8 4, ptr %a, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %a, i64 1
+  %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %a, i64 1
   store i8 0, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %a, i64 4
+  %.compoundliteral.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %a, i64 4
   store i32 2147483647, ptr %.compoundliteral.sroa.31.0..sroa_idx.i.i, align 4
-  %.compoundliteral.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %a, i64 8
+  %.compoundliteral.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %a, i64 8
   store i64 4611686018427387904, ptr %.compoundliteral.sroa.4.0..sroa_idx.i.i, align 8
   br label %return
 
 if.else.i:                                        ; preds = %sw.bb.i
-  %3 = getelementptr inbounds i8, ptr %a, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %a, i64 8
   %4 = load i64, ptr %3, align 8
   %or4.i.i.i = or i64 %4, 4611686018427387904
   store i64 %or4.i.i.i, ptr %3, align 8
@@ -30718,18 +30718,18 @@ if.else.i:                                        ; preds = %sw.bb.i
   br label %return
 
 sw.bb1.i:                                         ; preds = %entry
-  %default_nan_mode2.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode2.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %5 = load i8, ptr %default_nan_mode2.i, align 1
   %tobool3.i = trunc i8 %5 to i1
   br i1 %tobool3.i, label %if.then4.i, label %return
 
 if.then4.i:                                       ; preds = %sw.bb1.i
   store i8 4, ptr %a, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx.i9.i = getelementptr inbounds i8, ptr %a, i64 1
+  %.compoundliteral.sroa.2.0..sroa_idx.i9.i = getelementptr inbounds nuw i8, ptr %a, i64 1
   store i8 0, ptr %.compoundliteral.sroa.2.0..sroa_idx.i9.i, align 1
-  %.compoundliteral.sroa.31.0..sroa_idx.i10.i = getelementptr inbounds i8, ptr %a, i64 4
+  %.compoundliteral.sroa.31.0..sroa_idx.i10.i = getelementptr inbounds nuw i8, ptr %a, i64 4
   store i32 2147483647, ptr %.compoundliteral.sroa.31.0..sroa_idx.i10.i, align 4
-  %.compoundliteral.sroa.4.0..sroa_idx.i11.i = getelementptr inbounds i8, ptr %a, i64 8
+  %.compoundliteral.sroa.4.0..sroa_idx.i11.i = getelementptr inbounds nuw i8, ptr %a, i64 8
   store i64 4611686018427387904, ptr %.compoundliteral.sroa.4.0..sroa_idx.i11.i, align 8
   br label %return
 
@@ -30738,12 +30738,12 @@ sw.bb6:                                           ; preds = %entry
   %or1.i = or i16 %6, 2
   store i16 %or1.i, ptr %s, align 2
   store i8 3, ptr %a, align 8
-  %sign = getelementptr inbounds i8, ptr %a, i64 1
+  %sign = getelementptr inbounds nuw i8, ptr %a, i64 1
   store i8 1, ptr %sign, align 1
   br label %return
 
 sw.bb8:                                           ; preds = %entry
-  %sign9 = getelementptr inbounds i8, ptr %a, i64 1
+  %sign9 = getelementptr inbounds nuw i8, ptr %a, i64 1
   %7 = load i8, ptr %sign9, align 1
   %tobool10 = trunc i8 %7 to i1
   br i1 %tobool10, label %d_nan, label %return
@@ -30753,15 +30753,15 @@ do.body:                                          ; preds = %entry
   unreachable
 
 if.end18:                                         ; preds = %entry
-  %sign19 = getelementptr inbounds i8, ptr %a, i64 1
+  %sign19 = getelementptr inbounds nuw i8, ptr %a, i64 1
   %8 = load i8, ptr %sign19, align 1
   %tobool20 = trunc i8 %8 to i1
   br i1 %tobool20, label %d_nan, label %do.end30
 
 do.end30:                                         ; preds = %if.end18
-  %exp = getelementptr inbounds i8, ptr %a, i64 4
+  %exp = getelementptr inbounds nuw i8, ptr %a, i64 4
   %9 = load i32, ptr %exp, align 4
-  %10 = getelementptr inbounds i8, ptr %a, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %a, i64 8
   %11 = load i64, ptr %10, align 8
   %add = add i32 %fmt.16.val, 2
   %cmp31 = icmp eq i32 %9, -1
@@ -31140,11 +31140,11 @@ d_nan:                                            ; preds = %if.end18, %sw.bb8
   %or1.i67 = or i16 %62, 1
   store i16 %or1.i67, ptr %s, align 2
   store i8 4, ptr %a, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %a, i64 1
+  %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %a, i64 1
   store i8 0, ptr %.compoundliteral.sroa.2.0..sroa_idx.i, align 1
-  %.compoundliteral.sroa.31.0..sroa_idx.i = getelementptr inbounds i8, ptr %a, i64 4
+  %.compoundliteral.sroa.31.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %a, i64 4
   store i32 2147483647, ptr %.compoundliteral.sroa.31.0..sroa_idx.i, align 4
-  %.compoundliteral.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %a, i64 8
+  %.compoundliteral.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %a, i64 8
   store i64 4611686018427387904, ptr %.compoundliteral.sroa.4.0..sroa_idx.i, align 8
   br label %return
 
@@ -31162,11 +31162,11 @@ entry:
   %0 = trunc nuw nsw i64 %shr.i8.i.i to i32
   %conv.i.i.i = and i32 %0, 2047
   %and.i10.i.i = and i64 %a, 4503599627370495
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 %conv.i.i.i, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i64 %and.i10.i.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
   switch i32 %conv.i.i.i, label %if.then33.i.i [
     i32 0, label %if.then.i.i
@@ -31182,7 +31182,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   br label %float64_unpack_canonical.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %status, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %status, i64 6
   %1 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %1 to i1
   br i1 %tobool9.i.i, label %if.then10.i.i, label %frac64_normalize.exit.i.i
@@ -31329,7 +31329,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define dso_local noundef zeroext i16 @float16_squash_input_denormal(i16 noundef zeroext %a, ptr nocapture noundef %status) local_unnamed_addr #2 {
 entry:
-  %flush_inputs_to_zero = getelementptr inbounds i8, ptr %status, i64 6
+  %flush_inputs_to_zero = getelementptr inbounds nuw i8, ptr %status, i64 6
   %0 = load i8, ptr %flush_inputs_to_zero, align 2
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.then, label %return
@@ -31357,7 +31357,7 @@ return:                                           ; preds = %if.then, %entry, %i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define dso_local noundef i32 @float32_squash_input_denormal(i32 noundef %a, ptr nocapture noundef %status) local_unnamed_addr #2 {
 entry:
-  %flush_inputs_to_zero = getelementptr inbounds i8, ptr %status, i64 6
+  %flush_inputs_to_zero = getelementptr inbounds nuw i8, ptr %status, i64 6
   %0 = load i8, ptr %flush_inputs_to_zero, align 2
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.then, label %return
@@ -31385,7 +31385,7 @@ return:                                           ; preds = %if.then, %entry, %i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define dso_local noundef i64 @float64_squash_input_denormal(i64 noundef %a, ptr nocapture noundef %status) local_unnamed_addr #2 {
 entry:
-  %flush_inputs_to_zero = getelementptr inbounds i8, ptr %status, i64 6
+  %flush_inputs_to_zero = getelementptr inbounds nuw i8, ptr %status, i64 6
   %0 = load i8, ptr %flush_inputs_to_zero, align 2
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.then, label %return
@@ -31413,7 +31413,7 @@ return:                                           ; preds = %if.then, %entry, %i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define dso_local noundef zeroext i16 @bfloat16_squash_input_denormal(i16 noundef zeroext %a, ptr nocapture noundef %status) local_unnamed_addr #2 {
 entry:
-  %flush_inputs_to_zero = getelementptr inbounds i8, ptr %status, i64 6
+  %flush_inputs_to_zero = getelementptr inbounds nuw i8, ptr %status, i64 6
   %0 = load i8, ptr %flush_inputs_to_zero, align 2
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.then, label %return
@@ -31453,7 +31453,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local { i64, i16 } @roundAndPackFloatx80(i8 noundef zeroext %roundingPrecision, i1 noundef zeroext %zSign, i32 noundef %zExp, i64 noundef %zSig0, i64 noundef %zSig1, ptr nocapture noundef %status) local_unnamed_addr #3 {
 entry:
-  %float_rounding_mode = getelementptr inbounds i8, ptr %status, i64 2
+  %float_rounding_mode = getelementptr inbounds nuw i8, ptr %status, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
   %cmp = icmp eq i8 %0, 0
   switch i8 %roundingPrecision, label %do.body [
@@ -31521,7 +31521,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %cmp32, label %if.then34, label %if.end77
 
 if.then34:                                        ; preds = %if.end
-  %flush_to_zero = getelementptr inbounds i8, ptr %status, i64 5
+  %flush_to_zero = getelementptr inbounds nuw i8, ptr %status, i64 5
   %3 = load i8, ptr %flush_to_zero, align 1
   %tobool35 = trunc i8 %3 to i1
   br i1 %tobool35, label %if.then36, label %if.end38
@@ -31534,7 +31534,7 @@ if.then36:                                        ; preds = %if.then34
   br label %return
 
 if.end38:                                         ; preds = %if.then34
-  %tininess_before_rounding = getelementptr inbounds i8, ptr %status, i64 4
+  %tininess_before_rounding = getelementptr inbounds nuw i8, ptr %status, i64 4
   %5 = load i8, ptr %tininess_before_rounding, align 2
   %tobool39 = trunc i8 %5 to i1
   %cmp42 = icmp ne i32 %zExp, 0
@@ -31712,7 +31712,7 @@ if.end162:                                        ; preds = %lor.lhs.false129
   br i1 %cmp163, label %if.then165, label %if.end229
 
 if.then165:                                       ; preds = %if.end162
-  %tininess_before_rounding166 = getelementptr inbounds i8, ptr %status, i64 4
+  %tininess_before_rounding166 = getelementptr inbounds nuw i8, ptr %status, i64 4
   %14 = load i8, ptr %tininess_before_rounding166, align 2
   %tobool167 = trunc i8 %14 to i1
   %cmp170 = icmp ne i32 %zExp, 0
@@ -31929,11 +31929,11 @@ entry:
   %and.i9.i.i = and i32 %shr.i8.i.i, 255
   %0 = and i32 %a, 8388607
   %and.i11.i.i = zext nneg i32 %0 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %xp, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %xp, i64 1
   store i8 %frombool.i.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %xp, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %xp, i64 4
   store i32 %and.i9.i.i, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %xp, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %xp, i64 8
   %trunc.i = trunc i32 %shr.i8.i.i to i8
   switch i8 %trunc.i, label %float32_unpack_canonical.exit.thread [
     i8 0, label %if.then.i.i
@@ -31945,7 +31945,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp.i.i.i, label %return, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %flush_inputs_to_zero.i.i = getelementptr inbounds i8, ptr %status, i64 6
+  %flush_inputs_to_zero.i.i = getelementptr inbounds nuw i8, ptr %status, i64 6
   %1 = load i8, ptr %flush_inputs_to_zero.i.i, align 2
   %tobool9.i.i = trunc i8 %1 to i1
   br i1 %tobool9.i.i, label %if.then10.i.i, label %float32_unpack_canonical.exit.thread62
@@ -31991,7 +31991,7 @@ sw.bb.i:                                          ; preds = %float32_unpack_cano
   %4 = load i16, ptr %status, align 2
   %or1.i.i = or i16 %4, 8193
   store i16 %or1.i.i, ptr %status, align 2
-  %default_nan_mode.i = getelementptr inbounds i8, ptr %status, i64 7
+  %default_nan_mode.i = getelementptr inbounds nuw i8, ptr %status, i64 7
   %5 = load i8, ptr %default_nan_mode.i, align 1
   %tobool.i = trunc i8 %5 to i1
   br i1 %tobool.i, label %if.then.i, label %if.else.i
@@ -32010,7 +32010,7 @@ if.else.i:                                        ; preds = %sw.bb.i
   br label %parts64_return_nan.exit
 
 sw.bb1.i:                                         ; preds = %float32_unpack_canonical.exit
-  %default_nan_mode2.i = getelementptr inbounds i8, ptr %status, i64 7
+  %default_nan_mode2.i = getelementptr inbounds nuw i8, ptr %status, i64 7
   %6 = load i8, ptr %default_nan_mode2.i, align 1
   %tobool3.i = trunc i8 %6 to i1
   br i1 %tobool3.i, label %if.then4.i, label %parts64_return_nan.exit
@@ -32047,24 +32047,24 @@ if.end:                                           ; preds = %float32_unpack_cano
   %12 = load i16, ptr %status, align 2
   %or1.i = or i16 %12, 16
   store i16 %or1.i, ptr %status, align 2
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i15 = getelementptr inbounds i8, ptr %tp, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i15 = getelementptr inbounds nuw i8, ptr %tp, i64 1
   store i8 0, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i15, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i16 = getelementptr inbounds i8, ptr %tp, i64 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i17 = getelementptr inbounds i8, ptr %tp, i64 8
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i16 = getelementptr inbounds nuw i8, ptr %tp, i64 4
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i17 = getelementptr inbounds nuw i8, ptr %tp, i64 8
   store i8 2, ptr %tp, align 8
   store i32 -1, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i16, align 4
   store i64 -5660435428506896384, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i17, align 8
   %call10 = call fastcc ptr @parts64_mul(ptr noundef %xp, ptr noundef %tp, ptr noundef nonnull %status)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %xp, ptr noundef nonnull align 8 dereferenceable(16) %call10, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %xnp, ptr noundef nonnull align 8 dereferenceable(16) %call10, i64 16, i1 false)
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i19 = getelementptr inbounds i8, ptr %rp, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i.i19 = getelementptr inbounds nuw i8, ptr %rp, i64 1
   store i8 0, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i19, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i20 = getelementptr inbounds i8, ptr %rp, i64 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i21 = getelementptr inbounds i8, ptr %rp, i64 8
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i.i20 = getelementptr inbounds nuw i8, ptr %rp, i64 4
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i.i21 = getelementptr inbounds nuw i8, ptr %rp, i64 8
   store i8 2, ptr %rp, align 8
   store i32 0, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i20, align 4
   store i64 -9223372036854775808, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i21, align 8
-  %flush_inputs_to_zero.i.i40 = getelementptr inbounds i8, ptr %status, i64 6
+  %flush_inputs_to_zero.i.i40 = getelementptr inbounds nuw i8, ptr %status, i64 6
   br label %for.body
 
 for.body:                                         ; preds = %if.end, %float64_unpack_canonical.exit
@@ -32177,7 +32177,7 @@ return:                                           ; preds = %if.then.i.i, %if.th
 define dso_local { i64, i16 } @floatx80_round(i64 %a.coerce0, i16 %a.coerce1, ptr nocapture noundef %status) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts128, align 8
-  %floatx80_rounding_precision.i = getelementptr inbounds i8, ptr %status, i64 3
+  %floatx80_rounding_precision.i = getelementptr inbounds nuw i8, ptr %status, i64 3
   %0 = load i8, ptr %floatx80_rounding_precision.i, align 1
   %switch.i = icmp ult i8 %0, 3
   br i1 %switch.i, label %sw.epilog.i, label %do.body.i
@@ -32198,13 +32198,13 @@ if.end.i:                                         ; preds = %sw.epilog.i
   %frombool.i.i = trunc nuw nsw i16 %f.coerce1.lobit.i.i to i8
   %and.i.i.i = zext nneg i16 %1 to i32
   store i8 0, ptr %p, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 1
+  %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.sroa.32.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 4
+  %.compoundliteral.sroa.32.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 %and.i.i.i, ptr %.compoundliteral.sroa.32.0..sroa_idx.i.i, align 4
-  %.compoundliteral.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %.compoundliteral.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i64 %a.coerce0, ptr %.compoundliteral.sroa.4.0..sroa_idx.i.i, align 8
-  %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 16
+  %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 16
   store i64 0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i.i, align 8
   %cmp.not.i = icmp eq i16 %1, 32767
   br i1 %cmp.not.i, label %if.else.i, label %if.then10.i
@@ -32261,13 +32261,13 @@ entry:
   %and.i9.i = and i32 %shr.i8.i, 255
   %0 = and i32 %a, 8388607
   %and.i11.i = zext nneg i32 %0 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %pa, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 1
   store i8 %frombool.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i = getelementptr inbounds i8, ptr %pa, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 4
   store i32 %and.i9.i, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %pa, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 8
   store i64 %and.i11.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i, align 8
-  %.ph.i.sroa.gep130 = getelementptr inbounds i8, ptr %pb, i64 8
+  %.ph.i.sroa.gep130 = getelementptr inbounds nuw i8, ptr %pb, i64 8
   %trunc = trunc i32 %shr.i8.i to i8
   switch i8 %trunc, label %if.then33.i [
     i8 0, label %if.then.i47
@@ -32283,7 +32283,7 @@ if.then8.i:                                       ; preds = %if.then.i47
   br label %parts64_canonicalize.exit
 
 if.else.i48:                                      ; preds = %if.then.i47
-  %flush_inputs_to_zero.i = getelementptr inbounds i8, ptr %status, i64 6
+  %flush_inputs_to_zero.i = getelementptr inbounds nuw i8, ptr %status, i64 6
   %1 = load i8, ptr %flush_inputs_to_zero.i, align 2
   %tobool9.i = trunc i8 %1 to i1
   br i1 %tobool9.i, label %if.then10.i, label %frac64_normalize.exit.i
@@ -32341,9 +32341,9 @@ parts64_canonicalize.exit:                        ; preds = %if.then8.i, %if.the
   %and.i9.i52 = and i32 %shr.i8.i51, 255
   %6 = and i32 %b, 8388607
   %and.i11.i53 = zext nneg i32 %6 to i64
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i54 = getelementptr inbounds i8, ptr %pb, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i54 = getelementptr inbounds nuw i8, ptr %pb, i64 1
   store i8 %frombool.i.i50, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i54, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i55 = getelementptr inbounds i8, ptr %pb, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i55 = getelementptr inbounds nuw i8, ptr %pb, i64 4
   store i32 %and.i9.i52, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i55, align 4
   store i64 %and.i11.i53, ptr %.ph.i.sroa.gep130, align 8
   %trunc133 = trunc i32 %shr.i8.i51 to i8
@@ -32361,7 +32361,7 @@ if.then8.i86:                                     ; preds = %if.then.i73
   br label %parts64_canonicalize.exit87
 
 if.else.i76:                                      ; preds = %if.then.i73
-  %flush_inputs_to_zero.i77 = getelementptr inbounds i8, ptr %status, i64 6
+  %flush_inputs_to_zero.i77 = getelementptr inbounds nuw i8, ptr %status, i64 6
   %7 = load i8, ptr %flush_inputs_to_zero.i77, align 2
   %tobool9.i78 = trunc i8 %7 to i1
   br i1 %tobool9.i78, label %if.then10.i84, label %frac64_normalize.exit.i79
@@ -32528,7 +32528,7 @@ if.end22.i.thread:                                ; preds = %if.end19.i
   br label %if.then25.i
 
 if.then25.i:                                      ; preds = %if.then.i, %if.end22.i.thread
-  %float_rounding_mode.i = getelementptr inbounds i8, ptr %status, i64 2
+  %float_rounding_mode.i = getelementptr inbounds nuw i8, ptr %status, i64 2
   %24 = load i8, ptr %float_rounding_mode.i, align 2
   %cmp27.i = icmp eq i8 %24, 1
   %frombool30.i = zext i1 %cmp27.i to i8
@@ -32706,7 +32706,7 @@ if.then.i124:                                     ; preds = %p_nan.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %p_nan.i, %if.then.i124
-  %default_nan_mode.i = getelementptr inbounds i8, ptr %status, i64 7
+  %default_nan_mode.i = getelementptr inbounds nuw i8, ptr %status, i64 7
   %34 = load i8, ptr %default_nan_mode.i, align 1
   %tobool.i = trunc i8 %34 to i1
   br i1 %tobool.i, label %if.then3.i, label %if.else.i119
@@ -32765,17 +32765,17 @@ if.then24.i:                                      ; preds = %if.then2.i.i, %.thr
 parts64_addsub.exit:                              ; preds = %.thread149, %if.then24.i, %36, %if.then6.i.i, %if.then3.i, %if.then8.i101, %if.end7.i, %parts64_sub_normal.exit.thread, %if.then91.i, %if.else.i, %if.end49.i, %return_b.i, %if.then83.i, %if.end55.i, %if.then25.i
   %retval.i.0 = phi ptr [ %pa, %if.then25.i ], [ %pb, %return_b.i ], [ %pa, %if.end55.i ], [ %pa, %if.then83.i ], [ %pa, %if.end49.i ], [ %pa, %if.else.i ], [ %pa, %if.then91.i ], [ %pa, %parts64_sub_normal.exit.thread ], [ %pa, %if.end7.i ], [ %pa, %if.then8.i101 ], [ %pa, %if.then3.i ], [ %.ph.i143, %if.then24.i ], [ %pb, %36 ], [ %pa, %if.then6.i.i ], [ %pb, %.thread149 ]
   call fastcc void @parts64_uncanon(ptr noundef %retval.i.0, ptr noundef %status, ptr noundef nonnull @float32_params)
-  %sign.i.i = getelementptr inbounds i8, ptr %retval.i.0, i64 1
+  %sign.i.i = getelementptr inbounds nuw i8, ptr %retval.i.0, i64 1
   %39 = load i8, ptr %sign.i.i, align 1
   %conv.i.i = zext i8 %39 to i64
   %shl.i.i126 = shl nuw nsw i64 %conv.i.i, 31
-  %exp.i.i = getelementptr inbounds i8, ptr %retval.i.0, i64 4
+  %exp.i.i = getelementptr inbounds nuw i8, ptr %retval.i.0, i64 4
   %40 = load i32, ptr %exp.i.i, align 4
   %41 = shl i32 %40, 23
   %42 = and i32 %41, 2139095040
   %and8.i.i = zext nneg i32 %42 to i64
   %or.i.i127 = or disjoint i64 %shl.i.i126, %and8.i.i
-  %43 = getelementptr inbounds i8, ptr %retval.i.0, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %retval.i.0, i64 8
   %44 = load i64, ptr %43, align 8
   %shl77.i9.i = and i64 %44, 8388607
   %or.i11.i = or disjoint i64 %or.i.i127, %shl77.i9.i
@@ -32794,13 +32794,13 @@ entry:
   %0 = trunc nuw nsw i64 %shr.i8.i to i32
   %conv.i.i = and i32 %0, 2047
   %and.i10.i = and i64 %a, 4503599627370495
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %pa, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 1
   store i8 %frombool.i.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i = getelementptr inbounds i8, ptr %pa, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 4
   store i32 %conv.i.i, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i, align 4
-  %.compoundliteral.i.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %pa, i64 8
+  %.compoundliteral.i.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 8
   store i64 %and.i10.i, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i, align 8
-  %.ph.i.sroa.gep131 = getelementptr inbounds i8, ptr %pb, i64 8
+  %.ph.i.sroa.gep131 = getelementptr inbounds nuw i8, ptr %pb, i64 8
   switch i32 %conv.i.i, label %if.then33.i [
     i32 0, label %if.then.i47
     i32 2047, label %lor.lhs.false.i
@@ -32815,7 +32815,7 @@ if.then8.i:                                       ; preds = %if.then.i47
   br label %parts64_canonicalize.exit
 
 if.else.i48:                                      ; preds = %if.then.i47
-  %flush_inputs_to_zero.i = getelementptr inbounds i8, ptr %status, i64 6
+  %flush_inputs_to_zero.i = getelementptr inbounds nuw i8, ptr %status, i64 6
   %1 = load i8, ptr %flush_inputs_to_zero.i, align 2
   %tobool9.i = trunc i8 %1 to i1
   br i1 %tobool9.i, label %if.then10.i, label %frac64_normalize.exit.i
@@ -32873,9 +32873,9 @@ parts64_canonicalize.exit:                        ; preds = %if.then8.i, %if.the
   %6 = trunc nuw nsw i64 %shr.i8.i51 to i32
   %conv.i.i52 = and i32 %6, 2047
   %and.i10.i53 = and i64 %b, 4503599627370495
-  %.compoundliteral.i.sroa.2.0..sroa_idx.i54 = getelementptr inbounds i8, ptr %pb, i64 1
+  %.compoundliteral.i.sroa.2.0..sroa_idx.i54 = getelementptr inbounds nuw i8, ptr %pb, i64 1
   store i8 %frombool.i.i50, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i54, align 1
-  %.compoundliteral.i.sroa.31.0..sroa_idx.i55 = getelementptr inbounds i8, ptr %pb, i64 4
+  %.compoundliteral.i.sroa.31.0..sroa_idx.i55 = getelementptr inbounds nuw i8, ptr %pb, i64 4
   store i32 %conv.i.i52, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i55, align 4
   store i64 %and.i10.i53, ptr %.ph.i.sroa.gep131, align 8
   switch i32 %conv.i.i52, label %if.then33.i69 [
@@ -32892,7 +32892,7 @@ if.then8.i86:                                     ; preds = %if.then.i73
   br label %parts64_canonicalize.exit87
 
 if.else.i76:                                      ; preds = %if.then.i73
-  %flush_inputs_to_zero.i77 = getelementptr inbounds i8, ptr %status, i64 6
+  %flush_inputs_to_zero.i77 = getelementptr inbounds nuw i8, ptr %status, i64 6
   %7 = load i8, ptr %flush_inputs_to_zero.i77, align 2
   %tobool9.i78 = trunc i8 %7 to i1
   br i1 %tobool9.i78, label %if.then10.i84, label %frac64_normalize.exit.i79
@@ -33059,7 +33059,7 @@ if.end22.i.thread:                                ; preds = %if.end19.i
   br label %if.then25.i
 
 if.then25.i:                                      ; preds = %if.then.i, %if.end22.i.thread
-  %float_rounding_mode.i = getelementptr inbounds i8, ptr %status, i64 2
+  %float_rounding_mode.i = getelementptr inbounds nuw i8, ptr %status, i64 2
   %24 = load i8, ptr %float_rounding_mode.i, align 2
   %cmp27.i = icmp eq i8 %24, 1
   %frombool30.i = zext i1 %cmp27.i to i8
@@ -33237,7 +33237,7 @@ if.then.i124:                                     ; preds = %p_nan.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %p_nan.i, %if.then.i124
-  %default_nan_mode.i = getelementptr inbounds i8, ptr %status, i64 7
+  %default_nan_mode.i = getelementptr inbounds nuw i8, ptr %status, i64 7
   %34 = load i8, ptr %default_nan_mode.i, align 1
   %tobool.i = trunc i8 %34 to i1
   br i1 %tobool.i, label %if.then3.i, label %if.else.i119
@@ -33296,18 +33296,18 @@ if.then24.i:                                      ; preds = %if.then2.i.i, %.thr
 parts64_addsub.exit:                              ; preds = %.thread148, %if.then24.i, %36, %if.then6.i.i, %if.then3.i, %if.then8.i101, %if.end7.i, %parts64_sub_normal.exit.thread, %if.then91.i, %if.else.i, %if.end49.i, %return_b.i, %if.then83.i, %if.end55.i, %if.then25.i
   %retval.i.0 = phi ptr [ %pa, %if.then25.i ], [ %pb, %return_b.i ], [ %pa, %if.end55.i ], [ %pa, %if.then83.i ], [ %pa, %if.end49.i ], [ %pa, %if.else.i ], [ %pa, %if.then91.i ], [ %pa, %parts64_sub_normal.exit.thread ], [ %pa, %if.end7.i ], [ %pa, %if.then8.i101 ], [ %pa, %if.then3.i ], [ %.ph.i142, %if.then24.i ], [ %pb, %36 ], [ %pa, %if.then6.i.i ], [ %pb, %.thread148 ]
   call fastcc void @parts64_uncanon(ptr noundef %retval.i.0, ptr noundef %status, ptr noundef nonnull @float64_params)
-  %sign.i.i = getelementptr inbounds i8, ptr %retval.i.0, i64 1
+  %sign.i.i = getelementptr inbounds nuw i8, ptr %retval.i.0, i64 1
   %39 = load i8, ptr %sign.i.i, align 1
   %40 = and i8 %39, 1
   %conv.i.i126 = zext nneg i8 %40 to i64
   %shl.i.i127 = shl nuw i64 %conv.i.i126, 63
-  %exp.i.i = getelementptr inbounds i8, ptr %retval.i.0, i64 4
+  %exp.i.i = getelementptr inbounds nuw i8, ptr %retval.i.0, i64 4
   %41 = load i32, ptr %exp.i.i, align 4
   %42 = and i32 %41, 2047
   %shl77.i.i = zext nneg i32 %42 to i64
   %and8.i.i = shl nuw nsw i64 %shl77.i.i, 52
   %or.i.i128 = or disjoint i64 %and8.i.i, %shl.i.i127
-  %43 = getelementptr inbounds i8, ptr %retval.i.0, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %retval.i.0, i64 8
   %44 = load i64, ptr %43, align 8
   %shl77.i9.i = and i64 %44, 4503599627370495
   %or.i11.i = or disjoint i64 %or.i.i128, %shl77.i9.i
@@ -33317,18 +33317,18 @@ parts64_addsub.exit:                              ; preds = %.thread148, %if.the
 ; Function Attrs: nounwind sspstrong memory(argmem: readwrite) uwtable
 define internal fastcc noundef zeroext i1 @parts128_sub_normal(ptr nocapture noundef nonnull %a, ptr nocapture noundef nonnull %b) unnamed_addr #11 {
 entry:
-  %exp = getelementptr inbounds i8, ptr %a, i64 4
+  %exp = getelementptr inbounds nuw i8, ptr %a, i64 4
   %0 = load i32, ptr %exp, align 4
-  %exp1 = getelementptr inbounds i8, ptr %b, i64 4
+  %exp1 = getelementptr inbounds nuw i8, ptr %b, i64 4
   %1 = load i32, ptr %exp1, align 4
   %sub = sub i32 %0, %1
   %cmp = icmp sgt i32 %sub, 0
   br i1 %cmp, label %if.else.i, label %if.else
 
 if.else.i:                                        ; preds = %entry
-  %frac_hi.i = getelementptr inbounds i8, ptr %b, i64 8
+  %frac_hi.i = getelementptr inbounds nuw i8, ptr %b, i64 8
   %2 = load i64, ptr %frac_hi.i, align 8
-  %frac_lo.i = getelementptr inbounds i8, ptr %b, i64 16
+  %frac_lo.i = getelementptr inbounds nuw i8, ptr %b, i64 16
   %3 = load i64, ptr %frac_lo.i, align 8
   %cmp2.i = icmp samesign ult i32 %sub, 64
   br i1 %cmp2.i, label %if.end27.i, label %if.else11.i
@@ -33367,13 +33367,13 @@ frac128_shrjam.exit:                              ; preds = %if.then20.i, %if.el
   %or33.i = or i64 %a1.0.i, %conv32.i
   store i64 %or33.i, ptr %frac_lo.i, align 8
   store i64 %a0.0.i, ptr %frac_hi.i, align 8
-  %frac_lo.i24 = getelementptr inbounds i8, ptr %a, i64 16
+  %frac_lo.i24 = getelementptr inbounds nuw i8, ptr %a, i64 16
   %6 = load i64, ptr %frac_lo.i24, align 8
   %7 = tail call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %6, i64 %or33.i)
   %8 = extractvalue { i64, i1 } %7, 1
   %9 = extractvalue { i64, i1 } %7, 0
   store i64 %9, ptr %frac_lo.i24, align 8
-  %frac_hi.i25 = getelementptr inbounds i8, ptr %a, i64 8
+  %frac_hi.i25 = getelementptr inbounds nuw i8, ptr %a, i64 8
   %10 = load i64, ptr %frac_hi.i25, align 8
   %11 = load i64, ptr %frac_hi.i, align 8
   %conv.i4.i.neg = sext i1 %8 to i64
@@ -33388,15 +33388,15 @@ if.else:                                          ; preds = %entry
 
 if.else.i29:                                      ; preds = %if.else
   store i32 %1, ptr %exp, align 4
-  %sign = getelementptr inbounds i8, ptr %a, i64 1
+  %sign = getelementptr inbounds nuw i8, ptr %a, i64 1
   %14 = load i8, ptr %sign, align 1
   %15 = and i8 %14, 1
   %frombool = xor i8 %15, 1
   store i8 %frombool, ptr %sign, align 1
   %sub7 = sub i32 0, %sub
-  %frac_hi.i26 = getelementptr inbounds i8, ptr %a, i64 8
+  %frac_hi.i26 = getelementptr inbounds nuw i8, ptr %a, i64 8
   %16 = load i64, ptr %frac_hi.i26, align 8
-  %frac_lo.i27 = getelementptr inbounds i8, ptr %a, i64 16
+  %frac_lo.i27 = getelementptr inbounds nuw i8, ptr %a, i64 16
   %17 = load i64, ptr %frac_lo.i27, align 8
   %cmp2.i30 = icmp slt i32 %sub7, 64
   br i1 %cmp2.i30, label %if.end27.i45, label %if.else11.i31
@@ -33435,13 +33435,13 @@ frac128_shrjam.exit53:                            ; preds = %if.then20.i42, %if.
   %or33.i41 = or i64 %a1.0.i37, %conv32.i40
   store i64 %or33.i41, ptr %frac_lo.i27, align 8
   store i64 %a0.0.i36, ptr %frac_hi.i26, align 8
-  %frac_lo.i54 = getelementptr inbounds i8, ptr %b, i64 16
+  %frac_lo.i54 = getelementptr inbounds nuw i8, ptr %b, i64 16
   %20 = load i64, ptr %frac_lo.i54, align 8
   %21 = tail call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %20, i64 %or33.i41)
   %22 = extractvalue { i64, i1 } %21, 1
   %23 = extractvalue { i64, i1 } %21, 0
   store i64 %23, ptr %frac_lo.i27, align 8
-  %frac_hi.i57 = getelementptr inbounds i8, ptr %b, i64 8
+  %frac_hi.i57 = getelementptr inbounds nuw i8, ptr %b, i64 8
   %24 = load i64, ptr %frac_hi.i57, align 8
   %conv.i4.i59.neg = sext i1 %22 to i64
   %25 = sub i64 %24, %a0.0.i36
@@ -33450,17 +33450,17 @@ frac128_shrjam.exit53:                            ; preds = %if.then20.i42, %if.
   br label %if.end19
 
 if.else9:                                         ; preds = %if.else
-  %frac_lo.i61 = getelementptr inbounds i8, ptr %a, i64 16
+  %frac_lo.i61 = getelementptr inbounds nuw i8, ptr %a, i64 16
   %27 = load i64, ptr %frac_lo.i61, align 8
-  %frac_lo1.i62 = getelementptr inbounds i8, ptr %b, i64 16
+  %frac_lo1.i62 = getelementptr inbounds nuw i8, ptr %b, i64 16
   %28 = load i64, ptr %frac_lo1.i62, align 8
   %29 = tail call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %27, i64 %28)
   %30 = extractvalue { i64, i1 } %29, 1
   %31 = extractvalue { i64, i1 } %29, 0
   store i64 %31, ptr %frac_lo.i61, align 8
-  %frac_hi.i64 = getelementptr inbounds i8, ptr %a, i64 8
+  %frac_hi.i64 = getelementptr inbounds nuw i8, ptr %a, i64 8
   %32 = load i64, ptr %frac_hi.i64, align 8
-  %frac_hi3.i65 = getelementptr inbounds i8, ptr %b, i64 8
+  %frac_hi3.i65 = getelementptr inbounds nuw i8, ptr %b, i64 8
   %33 = load i64, ptr %frac_hi3.i65, align 8
   %conv.i4.i66 = zext i1 %30 to i64
   %34 = tail call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %32, i64 %33)
@@ -33481,7 +33481,7 @@ if.then11:                                        ; preds = %if.else9
   %conv.i4.neg.i = sext i1 %42 to i64
   %44 = sub i64 %conv.i4.neg.i, %39
   store i64 %44, ptr %frac_hi.i64, align 8
-  %sign12 = getelementptr inbounds i8, ptr %a, i64 1
+  %sign12 = getelementptr inbounds nuw i8, ptr %a, i64 1
   %45 = load i8, ptr %sign12, align 1
   %46 = and i8 %45, 1
   %frombool17 = xor i8 %46, 1
@@ -33491,14 +33491,14 @@ if.then11:                                        ; preds = %if.else9
 if.end19:                                         ; preds = %frac128_shrjam.exit53, %if.then11, %if.else9, %frac128_shrjam.exit
   %47 = phi i64 [ %23, %frac128_shrjam.exit53 ], [ %43, %if.then11 ], [ %31, %if.else9 ], [ %9, %frac128_shrjam.exit ]
   %48 = phi i64 [ %26, %frac128_shrjam.exit53 ], [ %44, %if.then11 ], [ %39, %if.else9 ], [ %13, %frac128_shrjam.exit ]
-  %frac_hi.i70 = getelementptr inbounds i8, ptr %a, i64 8
+  %frac_hi.i70 = getelementptr inbounds nuw i8, ptr %a, i64 8
   %tobool.not.i = icmp eq i64 %48, 0
   br i1 %tobool.not.i, label %if.else.i72, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end19
   %49 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %48, i1 true)
   %cast.i.i = trunc nuw nsw i64 %49 to i32
-  %frac_lo.i71 = getelementptr inbounds i8, ptr %a, i64 16
+  %frac_lo.i71 = getelementptr inbounds nuw i8, ptr %a, i64 16
   %50 = tail call i64 asm "shld ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %47, i32 range(i32 0, 65) %cast.i.i, i64 %48) #14, !srcloc !14
   store i64 %50, ptr %frac_hi.i70, align 8
   %shl6.i = shl i64 %47, %49
@@ -33510,7 +33510,7 @@ if.else.i72:                                      ; preds = %if.end19
   br i1 %tobool8.not.i, label %if.end29, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.else.i72
-  %frac_lo7.i = getelementptr inbounds i8, ptr %a, i64 16
+  %frac_lo7.i = getelementptr inbounds nuw i8, ptr %a, i64 16
   %51 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %47, i1 true)
   %cast.i15.i = trunc nuw nsw i64 %51 to i32
   %shl15.i = shl i64 %47, %51
@@ -33538,18 +33538,18 @@ return:                                           ; preds = %if.end29, %if.then2
 ; Function Attrs: nounwind sspstrong memory(argmem: readwrite) uwtable
 define internal fastcc void @parts128_add_normal(ptr nocapture noundef nonnull %a, ptr nocapture noundef nonnull %b) unnamed_addr #11 {
 entry:
-  %exp = getelementptr inbounds i8, ptr %a, i64 4
+  %exp = getelementptr inbounds nuw i8, ptr %a, i64 4
   %0 = load i32, ptr %exp, align 4
-  %exp1 = getelementptr inbounds i8, ptr %b, i64 4
+  %exp1 = getelementptr inbounds nuw i8, ptr %b, i64 4
   %1 = load i32, ptr %exp1, align 4
   %sub = sub i32 %0, %1
   %cmp = icmp sgt i32 %sub, 0
   br i1 %cmp, label %if.else.i, label %if.else
 
 if.else.i:                                        ; preds = %entry
-  %frac_hi.i = getelementptr inbounds i8, ptr %b, i64 8
+  %frac_hi.i = getelementptr inbounds nuw i8, ptr %b, i64 8
   %2 = load i64, ptr %frac_hi.i, align 8
-  %frac_lo.i = getelementptr inbounds i8, ptr %b, i64 16
+  %frac_lo.i = getelementptr inbounds nuw i8, ptr %b, i64 16
   %3 = load i64, ptr %frac_lo.i, align 8
   %cmp2.i = icmp samesign ult i32 %sub, 64
   br i1 %cmp2.i, label %if.end27.i, label %if.else11.i
@@ -33596,9 +33596,9 @@ if.else:                                          ; preds = %entry
 
 if.else.i17:                                      ; preds = %if.else
   %sub4 = sub i32 0, %sub
-  %frac_hi.i14 = getelementptr inbounds i8, ptr %a, i64 8
+  %frac_hi.i14 = getelementptr inbounds nuw i8, ptr %a, i64 8
   %6 = load i64, ptr %frac_hi.i14, align 8
-  %frac_lo.i15 = getelementptr inbounds i8, ptr %a, i64 16
+  %frac_lo.i15 = getelementptr inbounds nuw i8, ptr %a, i64 16
   %7 = load i64, ptr %frac_lo.i15, align 8
   %cmp2.i18 = icmp slt i32 %sub4, 64
   br i1 %cmp2.i18, label %if.end27.i33, label %if.else11.i19
@@ -33642,17 +33642,17 @@ frac128_shrjam.exit41:                            ; preds = %if.then20.i30, %if.
   br label %if.end7
 
 if.end7:                                          ; preds = %if.else, %frac128_shrjam.exit41, %frac128_shrjam.exit
-  %frac_lo.i42 = getelementptr inbounds i8, ptr %a, i64 16
+  %frac_lo.i42 = getelementptr inbounds nuw i8, ptr %a, i64 16
   %11 = load i64, ptr %frac_lo.i42, align 8
-  %frac_lo1.i = getelementptr inbounds i8, ptr %b, i64 16
+  %frac_lo1.i = getelementptr inbounds nuw i8, ptr %b, i64 16
   %12 = load i64, ptr %frac_lo1.i, align 8
   %13 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %11, i64 %12)
   %14 = extractvalue { i64, i1 } %13, 1
   %15 = extractvalue { i64, i1 } %13, 0
   store i64 %15, ptr %frac_lo.i42, align 8
-  %frac_hi.i43 = getelementptr inbounds i8, ptr %a, i64 8
+  %frac_hi.i43 = getelementptr inbounds nuw i8, ptr %a, i64 8
   %16 = load i64, ptr %frac_hi.i43, align 8
-  %frac_hi3.i = getelementptr inbounds i8, ptr %b, i64 8
+  %frac_hi3.i = getelementptr inbounds nuw i8, ptr %b, i64 8
   %17 = load i64, ptr %frac_hi3.i, align 8
   %conv.i4.i = zext i1 %14 to i64
   %18 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %16, i64 %17)
@@ -33701,14 +33701,14 @@ if.then:                                          ; preds = %entry
   br label %if.end23
 
 sw.bb:                                            ; preds = %entry
-  %exp = getelementptr inbounds i8, ptr %p, i64 4
+  %exp = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 0, ptr %exp, align 4
-  %1 = getelementptr inbounds i8, ptr %p, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i64 0, ptr %1, align 8
   br label %if.end23
 
 do.body:                                          ; preds = %entry
-  %arm_althp = getelementptr inbounds i8, ptr %fmt, i64 24
+  %arm_althp = getelementptr inbounds nuw i8, ptr %fmt, i64 24
   %2 = load i8, ptr %arm_althp, align 8
   %tobool7 = trunc i8 %2 to i1
   br i1 %tobool7, label %if.else9, label %do.end
@@ -33718,16 +33718,16 @@ if.else9:                                         ; preds = %do.body
   unreachable
 
 do.end:                                           ; preds = %do.body
-  %exp_max = getelementptr inbounds i8, ptr %fmt, i64 12
+  %exp_max = getelementptr inbounds nuw i8, ptr %fmt, i64 12
   %3 = load i32, ptr %exp_max, align 4
-  %exp10 = getelementptr inbounds i8, ptr %p, i64 4
+  %exp10 = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 %3, ptr %exp10, align 4
-  %4 = getelementptr inbounds i8, ptr %p, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i64 0, ptr %4, align 8
   br label %if.end23
 
 do.body12:                                        ; preds = %entry, %entry
-  %arm_althp13 = getelementptr inbounds i8, ptr %fmt, i64 24
+  %arm_althp13 = getelementptr inbounds nuw i8, ptr %fmt, i64 24
   %5 = load i8, ptr %arm_althp13, align 8
   %tobool14 = trunc i8 %5 to i1
   br i1 %tobool14, label %if.else16, label %do.end18
@@ -33737,13 +33737,13 @@ if.else16:                                        ; preds = %do.body12
   unreachable
 
 do.end18:                                         ; preds = %do.body12
-  %exp_max19 = getelementptr inbounds i8, ptr %fmt, i64 12
+  %exp_max19 = getelementptr inbounds nuw i8, ptr %fmt, i64 12
   %6 = load i32, ptr %exp_max19, align 4
-  %exp20 = getelementptr inbounds i8, ptr %p, i64 4
+  %exp20 = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 %6, ptr %exp20, align 4
-  %frac_shift = getelementptr inbounds i8, ptr %fmt, i64 20
+  %frac_shift = getelementptr inbounds nuw i8, ptr %fmt, i64 20
   %7 = load i32, ptr %frac_shift, align 4
-  %8 = getelementptr inbounds i8, ptr %p, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %p, i64 8
   %9 = load i64, ptr %8, align 8
   %sh_prom.i = zext nneg i32 %7 to i64
   %shr.i = lshr i64 %9, %sh_prom.i
@@ -33761,17 +33761,17 @@ if.end23:                                         ; preds = %do.end18, %do.end, 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @parts64_uncanon_normal(ptr nocapture noundef nonnull %p, ptr nocapture noundef %s, ptr nocapture noundef readonly %fmt) unnamed_addr #3 {
 entry:
-  %exp_max1 = getelementptr inbounds i8, ptr %fmt, i64 12
+  %exp_max1 = getelementptr inbounds nuw i8, ptr %fmt, i64 12
   %0 = load i32, ptr %exp_max1, align 4
-  %frac_shift2 = getelementptr inbounds i8, ptr %fmt, i64 20
+  %frac_shift2 = getelementptr inbounds nuw i8, ptr %fmt, i64 20
   %1 = load i32, ptr %frac_shift2, align 4
-  %round_mask3 = getelementptr inbounds i8, ptr %fmt, i64 32
+  %round_mask3 = getelementptr inbounds nuw i8, ptr %fmt, i64 32
   %2 = load i64, ptr %round_mask3, align 8
   %add = add i64 %2, 1
   %shr = lshr i64 %2, 1
   %xor = xor i64 %shr, %2
   %or = or i64 %add, %2
-  %float_rounding_mode = getelementptr inbounds i8, ptr %s, i64 2
+  %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %3 = load i8, ptr %float_rounding_mode, align 2
   switch i8 %3, label %do.body [
     i8 0, label %sw.bb
@@ -33784,7 +33784,7 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %4 = getelementptr inbounds i8, ptr %p, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %p, i64 8
   %5 = load i64, ptr %4, align 8
   %and = and i64 %5, %or
   %cmp.not = icmp eq i64 %and, %xor
@@ -33795,14 +33795,14 @@ sw.bb6:                                           ; preds = %entry
   br label %sw.epilog
 
 sw.bb7:                                           ; preds = %entry
-  %sign = getelementptr inbounds i8, ptr %p, i64 1
+  %sign = getelementptr inbounds nuw i8, ptr %p, i64 1
   %6 = load i8, ptr %sign, align 1
   %tobool = trunc i8 %6 to i1
   %cond12 = select i1 %tobool, i64 0, i64 %2
   br label %sw.epilog
 
 sw.bb15:                                          ; preds = %entry
-  %sign16 = getelementptr inbounds i8, ptr %p, i64 1
+  %sign16 = getelementptr inbounds nuw i8, ptr %p, i64 1
   %7 = load i8, ptr %sign16, align 1
   %tobool17 = trunc i8 %7 to i1
   %cond22 = select i1 %tobool17, i64 %2, i64 0
@@ -33814,7 +33814,7 @@ sw.bb26:                                          ; preds = %entry
 
 sw.bb27:                                          ; preds = %sw.bb26, %entry
   %overflow_norm.0 = phi i8 [ 0, %entry ], [ 1, %sw.bb26 ]
-  %8 = getelementptr inbounds i8, ptr %p, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %p, i64 8
   %9 = load i64, ptr %8, align 8
   %and28 = and i64 %9, %add
   %tobool29.not = icmp eq i64 %and28, 0
@@ -33828,16 +33828,16 @@ do.body:                                          ; preds = %entry
 sw.epilog:                                        ; preds = %entry, %sw.bb27, %sw.bb15, %sw.bb7, %sw.bb6, %sw.bb
   %inc.0 = phi i64 [ %cond33, %sw.bb27 ], [ %cond22, %sw.bb15 ], [ %cond12, %sw.bb7 ], [ 0, %sw.bb6 ], [ %cond, %sw.bb ], [ %xor, %entry ]
   %overflow_norm.1 = phi i8 [ %overflow_norm.0, %sw.bb27 ], [ %frombool25, %sw.bb15 ], [ %6, %sw.bb7 ], [ 1, %sw.bb6 ], [ 0, %sw.bb ], [ 0, %entry ]
-  %exp34 = getelementptr inbounds i8, ptr %p, i64 4
+  %exp34 = getelementptr inbounds nuw i8, ptr %p, i64 4
   %10 = load i32, ptr %exp34, align 4
-  %exp_bias = getelementptr inbounds i8, ptr %fmt, i64 4
+  %exp_bias = getelementptr inbounds nuw i8, ptr %fmt, i64 4
   %11 = load i32, ptr %exp_bias, align 4
   %add35 = add i32 %11, %10
   %cmp36 = icmp sgt i32 %add35, 0
   br i1 %cmp36, label %if.then, label %if.else90
 
 if.then:                                          ; preds = %sw.epilog
-  %12 = getelementptr inbounds i8, ptr %p, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %p, i64 8
   %13 = load i64, ptr %12, align 8
   %and42 = and i64 %13, %2
   %tobool43.not = icmp eq i64 %and42, 0
@@ -33861,7 +33861,7 @@ if.end50:                                         ; preds = %if.then44, %if.then
   %18 = phi i64 [ %and49, %if.then44 ], [ %13, %if.then ]
   %exp.0 = phi i32 [ %exp.1, %if.then44 ], [ %add35, %if.then ]
   %flags.0 = phi i16 [ 16, %if.then44 ], [ 0, %if.then ]
-  %arm_althp = getelementptr inbounds i8, ptr %fmt, i64 24
+  %arm_althp = getelementptr inbounds nuw i8, ptr %fmt, i64 24
   %19 = load i8, ptr %arm_althp, align 8
   %tobool51 = trunc i8 %19 to i1
   br i1 %tobool51, label %if.then52, label %if.else
@@ -33879,14 +33879,14 @@ if.else:                                          ; preds = %if.end50
   br i1 %cmp65.not, label %if.end89, label %if.then73
 
 if.then73:                                        ; preds = %if.else
-  %rebias_overflow = getelementptr inbounds i8, ptr %s, i64 11
+  %rebias_overflow = getelementptr inbounds nuw i8, ptr %s, i64 11
   %20 = load i8, ptr %rebias_overflow, align 1
   %tobool75 = trunc i8 %20 to i1
   br i1 %tobool75, label %if.then76, label %if.else77
 
 if.then76:                                        ; preds = %if.then73
   %or74 = or disjoint i16 %flags.0, 4
-  %exp_re_bias = getelementptr inbounds i8, ptr %fmt, i64 8
+  %exp_re_bias = getelementptr inbounds nuw i8, ptr %fmt, i64 8
   %21 = load i32, ptr %exp_re_bias, align 8
   %sub = sub i32 %exp.0, %21
   br label %if.end89
@@ -33914,16 +33914,16 @@ if.end89:                                         ; preds = %if.else, %if.then79
   br label %if.end186
 
 if.else90:                                        ; preds = %sw.epilog
-  %rebias_underflow = getelementptr inbounds i8, ptr %s, i64 12
+  %rebias_underflow = getelementptr inbounds nuw i8, ptr %s, i64 12
   %23 = load i8, ptr %rebias_underflow, align 2
   %tobool91 = trunc i8 %23 to i1
   br i1 %tobool91, label %if.then98, label %if.else114
 
 if.then98:                                        ; preds = %if.else90
-  %exp_re_bias100 = getelementptr inbounds i8, ptr %fmt, i64 8
+  %exp_re_bias100 = getelementptr inbounds nuw i8, ptr %fmt, i64 8
   %24 = load i32, ptr %exp_re_bias100, align 8
   %add101 = add i32 %24, %add35
-  %25 = getelementptr inbounds i8, ptr %p, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %p, i64 8
   %26 = load i64, ptr %25, align 8
   %and102 = and i64 %26, %2
   %tobool103.not = icmp eq i64 %and102, 0
@@ -33952,19 +33952,19 @@ if.end113:                                        ; preds = %if.then104, %if.the
   br label %if.end186
 
 if.else114:                                       ; preds = %if.else90
-  %flush_to_zero = getelementptr inbounds i8, ptr %s, i64 5
+  %flush_to_zero = getelementptr inbounds nuw i8, ptr %s, i64 5
   %32 = load i8, ptr %flush_to_zero, align 1
   %tobool115 = trunc i8 %32 to i1
   br i1 %tobool115, label %if.then116, label %if.else119
 
 if.then116:                                       ; preds = %if.else114
   store i8 1, ptr %p, align 8
-  %33 = getelementptr inbounds i8, ptr %p, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i64 0, ptr %33, align 8
   br label %if.end186
 
 if.else119:                                       ; preds = %if.else114
-  %tininess_before_rounding = getelementptr inbounds i8, ptr %s, i64 4
+  %tininess_before_rounding = getelementptr inbounds nuw i8, ptr %s, i64 4
   %34 = load i8, ptr %tininess_before_rounding, align 2
   %tobool120 = trunc i8 %34 to i1
   %cmp122 = icmp ne i32 %add35, 0
@@ -33981,13 +33981,13 @@ if.then126:                                       ; preds = %if.else119
 
 if.end131:                                        ; preds = %if.else119, %if.then126
   %is_tiny.0.in = phi i1 [ %lnot128, %if.then126 ], [ true, %if.else119 ]
-  %m68k_denormal = getelementptr inbounds i8, ptr %fmt, i64 25
+  %m68k_denormal = getelementptr inbounds nuw i8, ptr %fmt, i64 25
   %38 = load i8, ptr %m68k_denormal, align 1
   %39 = and i8 %38, 1
   %40 = xor i8 %39, 1
   %lnot.ext134 = zext nneg i8 %40 to i32
   %sub135 = sub i32 %lnot.ext134, %add35
-  %41 = getelementptr inbounds i8, ptr %p, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %p, i64 8
   %cmp.not.i = icmp eq i32 %add35, %lnot.ext134
   br i1 %cmp.not.i, label %frac64_shrjam.exit, label %if.then.i
 
@@ -34094,7 +34094,7 @@ if.end186:                                        ; preds = %land.end, %if.end11
 ; Function Attrs: nounwind sspstrong memory(argmem: readwrite) uwtable
 define internal fastcc void @parts128_canonicalize(ptr nocapture noundef nonnull initializes((0, 1)) %p, ptr nocapture noundef %status, ptr nocapture noundef readonly %fmt) unnamed_addr #11 {
 entry:
-  %exp = getelementptr inbounds i8, ptr %p, i64 4
+  %exp = getelementptr inbounds nuw i8, ptr %p, i64 4
   %0 = load i32, ptr %exp, align 4
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.then, label %if.else21
@@ -34113,7 +34113,7 @@ if.then8:                                         ; preds = %if.then
   br label %if.end58
 
 if.else:                                          ; preds = %if.then
-  %flush_inputs_to_zero = getelementptr inbounds i8, ptr %status, i64 6
+  %flush_inputs_to_zero = getelementptr inbounds nuw i8, ptr %status, i64 6
   %3 = load i8, ptr %flush_inputs_to_zero, align 2
   %tobool9 = trunc i8 %3 to i1
   br i1 %tobool9, label %if.then10, label %if.else12
@@ -34155,11 +34155,11 @@ if.then9.i:                                       ; preds = %if.else.i
 frac128_normalize.exit:                           ; preds = %if.then.i, %if.else.i, %if.then9.i
   %retval.0.i = phi i32 [ %cast.i.i, %if.then.i ], [ %add.i, %if.then9.i ], [ 128, %if.else.i ]
   store i8 2, ptr %p, align 8
-  %frac_shift = getelementptr inbounds i8, ptr %fmt, i64 20
+  %frac_shift = getelementptr inbounds nuw i8, ptr %fmt, i64 20
   %8 = load i32, ptr %frac_shift, align 4
-  %exp_bias = getelementptr inbounds i8, ptr %fmt, i64 4
+  %exp_bias = getelementptr inbounds nuw i8, ptr %fmt, i64 4
   %9 = load i32, ptr %exp_bias, align 4
-  %m68k_denormal = getelementptr inbounds i8, ptr %fmt, i64 25
+  %m68k_denormal = getelementptr inbounds nuw i8, ptr %fmt, i64 25
   %10 = load i8, ptr %m68k_denormal, align 1
   %11 = and i8 %10, 1
   %12 = xor i8 %11, 1
@@ -34171,28 +34171,28 @@ frac128_normalize.exit:                           ; preds = %if.then.i, %if.else
   br label %if.end58
 
 if.else21:                                        ; preds = %entry
-  %exp_max = getelementptr inbounds i8, ptr %fmt, i64 12
+  %exp_max = getelementptr inbounds nuw i8, ptr %fmt, i64 12
   %14 = load i32, ptr %exp_max, align 4
   %cmp23 = icmp slt i32 %0, %14
   br i1 %cmp23, label %if.then33, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.else21
-  %arm_althp = getelementptr inbounds i8, ptr %fmt, i64 24
+  %arm_althp = getelementptr inbounds nuw i8, ptr %fmt, i64 24
   %15 = load i8, ptr %arm_althp, align 8
   %tobool31 = trunc i8 %15 to i1
   br i1 %tobool31, label %if.then33, label %if.else39
 
 if.then33:                                        ; preds = %lor.lhs.false, %if.else21
   store i8 2, ptr %p, align 8
-  %exp_bias35 = getelementptr inbounds i8, ptr %fmt, i64 4
+  %exp_bias35 = getelementptr inbounds nuw i8, ptr %fmt, i64 4
   %16 = load i32, ptr %exp_bias35, align 4
   %sub37 = sub i32 %0, %16
   store i32 %sub37, ptr %exp, align 4
-  %frac_shift38 = getelementptr inbounds i8, ptr %fmt, i64 20
+  %frac_shift38 = getelementptr inbounds nuw i8, ptr %fmt, i64 20
   %17 = load i32, ptr %frac_shift38, align 4
-  %frac_hi.i31 = getelementptr inbounds i8, ptr %p, i64 8
+  %frac_hi.i31 = getelementptr inbounds nuw i8, ptr %p, i64 8
   %18 = load i64, ptr %frac_hi.i31, align 8
-  %frac_lo.i32 = getelementptr inbounds i8, ptr %p, i64 16
+  %frac_lo.i32 = getelementptr inbounds nuw i8, ptr %p, i64 16
   %19 = load i64, ptr %frac_lo.i32, align 8
   %and.i = and i32 %17, 64
   %tobool.not.i33 = icmp eq i32 %and.i, 0
@@ -34230,7 +34230,7 @@ if.then47:                                        ; preds = %if.else39
   br label %if.end58
 
 if.else49:                                        ; preds = %if.else39
-  %frac_shift50 = getelementptr inbounds i8, ptr %fmt, i64 20
+  %frac_shift50 = getelementptr inbounds nuw i8, ptr %fmt, i64 20
   %23 = load i32, ptr %frac_shift50, align 4
   %and.i38 = and i32 %23, 64
   %tobool.not.i39 = icmp eq i32 %and.i38, 0
@@ -34264,17 +34264,17 @@ if.end58:                                         ; preds = %frac128_shl.exit, %
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @parts128_uncanon_normal(ptr nocapture noundef nonnull %p, ptr nocapture noundef %s, ptr nocapture noundef readonly %fmt) unnamed_addr #3 {
 entry:
-  %exp_max1 = getelementptr inbounds i8, ptr %fmt, i64 12
+  %exp_max1 = getelementptr inbounds nuw i8, ptr %fmt, i64 12
   %0 = load i32, ptr %exp_max1, align 4
-  %frac_shift2 = getelementptr inbounds i8, ptr %fmt, i64 20
+  %frac_shift2 = getelementptr inbounds nuw i8, ptr %fmt, i64 20
   %1 = load i32, ptr %frac_shift2, align 4
-  %round_mask3 = getelementptr inbounds i8, ptr %fmt, i64 32
+  %round_mask3 = getelementptr inbounds nuw i8, ptr %fmt, i64 32
   %2 = load i64, ptr %round_mask3, align 8
   %add = add i64 %2, 1
   %shr = lshr i64 %2, 1
   %xor = xor i64 %shr, %2
   %or = or i64 %add, %2
-  %float_rounding_mode = getelementptr inbounds i8, ptr %s, i64 2
+  %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %3 = load i8, ptr %float_rounding_mode, align 2
   switch i8 %3, label %do.body [
     i8 0, label %sw.bb
@@ -34291,14 +34291,14 @@ sw.bb:                                            ; preds = %entry
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %sw.bb
-  %frac_hi = getelementptr inbounds i8, ptr %p, i64 8
+  %frac_hi = getelementptr inbounds nuw i8, ptr %p, i64 8
   %4 = load i64, ptr %frac_hi, align 8
   %and = and i64 %4, 1
   %tobool.not = icmp eq i64 %and, 0
   br i1 %tobool.not, label %lor.lhs.false, label %cond.true
 
 lor.lhs.false:                                    ; preds = %if.then
-  %frac_lo = getelementptr inbounds i8, ptr %p, i64 16
+  %frac_lo = getelementptr inbounds nuw i8, ptr %p, i64 16
   %5 = load i64, ptr %frac_lo, align 8
   %and5 = and i64 %5, %2
   %cmp6.not = icmp eq i64 %and5, %xor
@@ -34308,7 +34308,7 @@ cond.true:                                        ; preds = %lor.lhs.false, %if.
   br label %sw.epilog
 
 if.else:                                          ; preds = %sw.bb
-  %frac_lo8 = getelementptr inbounds i8, ptr %p, i64 16
+  %frac_lo8 = getelementptr inbounds nuw i8, ptr %p, i64 16
   %6 = load i64, ptr %frac_lo8, align 8
   %and9 = and i64 %6, %or
   %cmp10.not = icmp eq i64 %and9, %xor
@@ -34319,14 +34319,14 @@ sw.bb17:                                          ; preds = %entry
   br label %sw.epilog
 
 sw.bb18:                                          ; preds = %entry
-  %sign = getelementptr inbounds i8, ptr %p, i64 1
+  %sign = getelementptr inbounds nuw i8, ptr %p, i64 1
   %7 = load i8, ptr %sign, align 1
   %tobool19 = trunc i8 %7 to i1
   %cond24 = select i1 %tobool19, i64 0, i64 %2
   br label %sw.epilog
 
 sw.bb27:                                          ; preds = %entry
-  %sign28 = getelementptr inbounds i8, ptr %p, i64 1
+  %sign28 = getelementptr inbounds nuw i8, ptr %p, i64 1
   %8 = load i8, ptr %sign28, align 1
   %tobool29 = trunc i8 %8 to i1
   %cond34 = select i1 %tobool29, i64 %2, i64 0
@@ -34342,7 +34342,7 @@ sw.bb39:                                          ; preds = %sw.bb38, %entry
   br i1 %cmp40, label %if.then42, label %if.else50
 
 if.then42:                                        ; preds = %sw.bb39
-  %frac_hi43 = getelementptr inbounds i8, ptr %p, i64 8
+  %frac_hi43 = getelementptr inbounds nuw i8, ptr %p, i64 8
   %9 = load i64, ptr %frac_hi43, align 8
   %and44 = and i64 %9, 1
   %tobool45.not = icmp eq i64 %and44, 0
@@ -34350,7 +34350,7 @@ if.then42:                                        ; preds = %sw.bb39
   br label %sw.epilog
 
 if.else50:                                        ; preds = %sw.bb39
-  %frac_lo51 = getelementptr inbounds i8, ptr %p, i64 16
+  %frac_lo51 = getelementptr inbounds nuw i8, ptr %p, i64 16
   %10 = load i64, ptr %frac_lo51, align 8
   %and52 = and i64 %10, %add
   %tobool53.not = icmp eq i64 %and52, 0
@@ -34364,16 +34364,16 @@ do.body:                                          ; preds = %entry
 sw.epilog:                                        ; preds = %entry, %cond.true, %lor.lhs.false, %if.then42, %if.else50, %if.else, %sw.bb27, %sw.bb18, %sw.bb17
   %inc.0 = phi i64 [ %cond49, %if.then42 ], [ %cond57, %if.else50 ], [ %cond34, %sw.bb27 ], [ %cond24, %sw.bb18 ], [ 0, %sw.bb17 ], [ %cond15, %if.else ], [ %xor, %cond.true ], [ 0, %lor.lhs.false ], [ %xor, %entry ]
   %overflow_norm.1 = phi i8 [ %overflow_norm.0, %if.then42 ], [ %overflow_norm.0, %if.else50 ], [ %frombool37, %sw.bb27 ], [ %7, %sw.bb18 ], [ 1, %sw.bb17 ], [ 0, %if.else ], [ 0, %cond.true ], [ 0, %lor.lhs.false ], [ 0, %entry ]
-  %exp59 = getelementptr inbounds i8, ptr %p, i64 4
+  %exp59 = getelementptr inbounds nuw i8, ptr %p, i64 4
   %11 = load i32, ptr %exp59, align 4
-  %exp_bias = getelementptr inbounds i8, ptr %fmt, i64 4
+  %exp_bias = getelementptr inbounds nuw i8, ptr %fmt, i64 4
   %12 = load i32, ptr %exp_bias, align 4
   %add60 = add i32 %12, %11
   %cmp61 = icmp sgt i32 %add60, 0
   br i1 %cmp61, label %if.then67, label %if.else123
 
 if.then67:                                        ; preds = %sw.epilog
-  %frac_lo68 = getelementptr inbounds i8, ptr %p, i64 16
+  %frac_lo68 = getelementptr inbounds nuw i8, ptr %p, i64 16
   %13 = load i64, ptr %frac_lo68, align 8
   %and69 = and i64 %13, %2
   %tobool70.not = icmp eq i64 %and69, 0
@@ -34384,7 +34384,7 @@ if.then71:                                        ; preds = %if.then67
   %15 = extractvalue { i64, i1 } %14, 1
   %16 = extractvalue { i64, i1 } %14, 0
   %conv.i = zext i1 %15 to i64
-  %frac_hi.i = getelementptr inbounds i8, ptr %p, i64 8
+  %frac_hi.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   %17 = load i64, ptr %frac_hi.i, align 8
   %18 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %17, i64 %conv.i)
   %19 = extractvalue { i64, i1 } %18, 1
@@ -34412,7 +34412,7 @@ if.end80:                                         ; preds = %if.end77, %if.then6
   %23 = phi i64 [ %and79, %if.end77 ], [ %13, %if.then67 ]
   %exp.0 = phi i32 [ %exp.1, %if.end77 ], [ %add60, %if.then67 ]
   %flags.0 = phi i16 [ 16, %if.end77 ], [ 0, %if.then67 ]
-  %arm_althp = getelementptr inbounds i8, ptr %fmt, i64 24
+  %arm_althp = getelementptr inbounds nuw i8, ptr %fmt, i64 24
   %24 = load i8, ptr %arm_althp, align 8
   %tobool81 = trunc i8 %24 to i1
   br i1 %tobool81, label %if.then82, label %if.else96
@@ -34422,7 +34422,7 @@ if.then82:                                        ; preds = %if.end80
   br i1 %cmp83, label %if.then91, label %if.end122
 
 if.then91:                                        ; preds = %if.then82
-  %frac_hi.i129 = getelementptr inbounds i8, ptr %p, i64 8
+  %frac_hi.i129 = getelementptr inbounds nuw i8, ptr %p, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %frac_hi.i129, i8 -1, i64 16, i1 false)
   %not92 = xor i64 %2, -1
   br label %if.end122
@@ -34432,21 +34432,21 @@ if.else96:                                        ; preds = %if.end80
   br i1 %cmp97.not, label %if.end122, label %if.then105
 
 if.then105:                                       ; preds = %if.else96
-  %rebias_overflow = getelementptr inbounds i8, ptr %s, i64 11
+  %rebias_overflow = getelementptr inbounds nuw i8, ptr %s, i64 11
   %25 = load i8, ptr %rebias_overflow, align 1
   %tobool107 = trunc i8 %25 to i1
   br i1 %tobool107, label %if.then108, label %if.else109
 
 if.then108:                                       ; preds = %if.then105
   %or106 = or disjoint i16 %flags.0, 4
-  %exp_re_bias = getelementptr inbounds i8, ptr %fmt, i64 8
+  %exp_re_bias = getelementptr inbounds nuw i8, ptr %fmt, i64 8
   %26 = load i32, ptr %exp_re_bias, align 8
   %sub = sub i32 %exp.0, %26
   br label %if.end122
 
 if.else109:                                       ; preds = %if.then105
   %tobool110 = trunc i8 %overflow_norm.1 to i1
-  %frac_hi.i130 = getelementptr inbounds i8, ptr %p, i64 8
+  %frac_hi.i130 = getelementptr inbounds nuw i8, ptr %p, i64 8
   br i1 %tobool110, label %if.then111, label %if.else117
 
 if.then111:                                       ; preds = %if.else109
@@ -34464,7 +34464,7 @@ if.end122:                                        ; preds = %if.else96, %if.then
   %27 = phi i64 [ %not92, %if.then91 ], [ %23, %if.then82 ], [ %23, %if.then108 ], [ %not114, %if.then111 ], [ 0, %if.else117 ], [ %23, %if.else96 ]
   %exp.2 = phi i32 [ %0, %if.then91 ], [ %exp.0, %if.then82 ], [ %sub, %if.then108 ], [ %sub113, %if.then111 ], [ %0, %if.else117 ], [ %exp.0, %if.else96 ]
   %flags.1 = phi i16 [ 1, %if.then91 ], [ %flags.0, %if.then82 ], [ %or106, %if.then108 ], [ 20, %if.then111 ], [ 20, %if.else117 ], [ %flags.0, %if.else96 ]
-  %frac_hi.i132 = getelementptr inbounds i8, ptr %p, i64 8
+  %frac_hi.i132 = getelementptr inbounds nuw i8, ptr %p, i64 8
   %28 = load i64, ptr %frac_hi.i132, align 8
   %and.i = and i32 %1, 64
   %tobool.not.i = icmp eq i32 %and.i, 0
@@ -34488,23 +34488,23 @@ frac128_shr.exit:                                 ; preds = %if.end122, %if.then
   br label %if.end256
 
 if.else123:                                       ; preds = %sw.epilog
-  %rebias_underflow = getelementptr inbounds i8, ptr %s, i64 12
+  %rebias_underflow = getelementptr inbounds nuw i8, ptr %s, i64 12
   %30 = load i8, ptr %rebias_underflow, align 2
   %tobool124 = trunc i8 %30 to i1
   br i1 %tobool124, label %if.then131, label %if.else150
 
 if.then131:                                       ; preds = %if.else123
-  %exp_re_bias133 = getelementptr inbounds i8, ptr %fmt, i64 8
+  %exp_re_bias133 = getelementptr inbounds nuw i8, ptr %fmt, i64 8
   %31 = load i32, ptr %exp_re_bias133, align 8
   %add134 = add i32 %31, %add60
-  %frac_lo135 = getelementptr inbounds i8, ptr %p, i64 16
+  %frac_lo135 = getelementptr inbounds nuw i8, ptr %p, i64 16
   %32 = load i64, ptr %frac_lo135, align 8
   %and136 = and i64 %32, %2
   %tobool137.not = icmp eq i64 %and136, 0
   br i1 %tobool137.not, label %if.then131.if.end149_crit_edge, label %if.then138
 
 if.then131.if.end149_crit_edge:                   ; preds = %if.then131
-  %frac_hi.i148.phi.trans.insert = getelementptr inbounds i8, ptr %p, i64 8
+  %frac_hi.i148.phi.trans.insert = getelementptr inbounds nuw i8, ptr %p, i64 8
   %.pre198 = load i64, ptr %frac_hi.i148.phi.trans.insert, align 8
   br label %if.end149
 
@@ -34513,7 +34513,7 @@ if.then138:                                       ; preds = %if.then131
   %34 = extractvalue { i64, i1 } %33, 1
   %35 = extractvalue { i64, i1 } %33, 0
   %conv.i137 = zext i1 %34 to i64
-  %frac_hi.i138 = getelementptr inbounds i8, ptr %p, i64 8
+  %frac_hi.i138 = getelementptr inbounds nuw i8, ptr %p, i64 8
   %36 = load i64, ptr %frac_hi.i138, align 8
   %37 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %36, i64 %conv.i137)
   %38 = extractvalue { i64, i1 } %37, 1
@@ -34540,7 +34540,7 @@ if.end149:                                        ; preds = %if.then131.if.end14
   %44 = phi i64 [ %41, %if.end145 ], [ %.pre198, %if.then131.if.end149_crit_edge ]
   %exp.4 = phi i32 [ %exp.5, %if.end145 ], [ %add134, %if.then131.if.end149_crit_edge ]
   %flags.3 = phi i16 [ 24, %if.end145 ], [ 8, %if.then131.if.end149_crit_edge ]
-  %frac_hi.i148 = getelementptr inbounds i8, ptr %p, i64 8
+  %frac_hi.i148 = getelementptr inbounds nuw i8, ptr %p, i64 8
   %and.i150 = and i32 %1, 64
   %tobool.not.i151 = icmp eq i32 %and.i150, 0
   %spec.select.i152 = select i1 %tobool.not.i151, i64 %44, i64 0
@@ -34563,19 +34563,19 @@ frac128_shr.exit161:                              ; preds = %if.end149, %if.then
   br label %if.end256
 
 if.else150:                                       ; preds = %if.else123
-  %flush_to_zero = getelementptr inbounds i8, ptr %s, i64 5
+  %flush_to_zero = getelementptr inbounds nuw i8, ptr %s, i64 5
   %46 = load i8, ptr %flush_to_zero, align 1
   %tobool151 = trunc i8 %46 to i1
   br i1 %tobool151, label %if.then152, label %if.else155
 
 if.then152:                                       ; preds = %if.else150
   store i8 1, ptr %p, align 8
-  %frac_hi.i162 = getelementptr inbounds i8, ptr %p, i64 8
+  %frac_hi.i162 = getelementptr inbounds nuw i8, ptr %p, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %frac_hi.i162, i8 0, i64 16, i1 false)
   br label %if.end256
 
 if.else155:                                       ; preds = %if.else150
-  %tininess_before_rounding = getelementptr inbounds i8, ptr %s, i64 4
+  %tininess_before_rounding = getelementptr inbounds nuw i8, ptr %s, i64 4
   %47 = load i8, ptr %tininess_before_rounding, align 2
   %tobool156 = trunc i8 %47 to i1
   %cmp158 = icmp ne i32 %add60, 0
@@ -34583,19 +34583,19 @@ if.else155:                                       ; preds = %if.else150
   br i1 %48, label %if.else155.if.end167_crit_edge, label %if.then162
 
 if.else155.if.end167_crit_edge:                   ; preds = %if.else155
-  %frac_hi.i168.phi.trans.insert = getelementptr inbounds i8, ptr %p, i64 8
+  %frac_hi.i168.phi.trans.insert = getelementptr inbounds nuw i8, ptr %p, i64 8
   %.pre = load i64, ptr %frac_hi.i168.phi.trans.insert, align 8
-  %frac_lo.i169.phi.trans.insert = getelementptr inbounds i8, ptr %p, i64 16
+  %frac_lo.i169.phi.trans.insert = getelementptr inbounds nuw i8, ptr %p, i64 16
   %.pre196 = load i64, ptr %frac_lo.i169.phi.trans.insert, align 8
   br label %if.end167
 
 if.then162:                                       ; preds = %if.else155
-  %frac_lo.i163 = getelementptr inbounds i8, ptr %p, i64 16
+  %frac_lo.i163 = getelementptr inbounds nuw i8, ptr %p, i64 16
   %49 = load i64, ptr %frac_lo.i163, align 8
   %50 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %49, i64 %inc.0)
   %51 = extractvalue { i64, i1 } %50, 1
   %conv.i165 = zext i1 %51 to i64
-  %frac_hi.i166 = getelementptr inbounds i8, ptr %p, i64 8
+  %frac_hi.i166 = getelementptr inbounds nuw i8, ptr %p, i64 8
   %52 = load i64, ptr %frac_hi.i166, align 8
   %53 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %52, i64 %conv.i165)
   %54 = extractvalue { i64, i1 } %53, 1
@@ -34606,14 +34606,14 @@ if.end167:                                        ; preds = %if.else155.if.end16
   %.pre197 = phi i64 [ %.pre196, %if.else155.if.end167_crit_edge ], [ %49, %if.then162 ]
   %55 = phi i64 [ %.pre, %if.else155.if.end167_crit_edge ], [ %52, %if.then162 ]
   %is_tiny.0.in = phi i1 [ true, %if.else155.if.end167_crit_edge ], [ %lnot164, %if.then162 ]
-  %m68k_denormal = getelementptr inbounds i8, ptr %fmt, i64 25
+  %m68k_denormal = getelementptr inbounds nuw i8, ptr %fmt, i64 25
   %56 = load i8, ptr %m68k_denormal, align 1
   %57 = and i8 %56, 1
   %58 = xor i8 %57, 1
   %lnot.ext170 = zext nneg i8 %58 to i32
   %sub171 = sub i32 %lnot.ext170, %add60
-  %frac_hi.i168 = getelementptr inbounds i8, ptr %p, i64 8
-  %frac_lo.i169 = getelementptr inbounds i8, ptr %p, i64 16
+  %frac_hi.i168 = getelementptr inbounds nuw i8, ptr %p, i64 8
+  %frac_lo.i169 = getelementptr inbounds nuw i8, ptr %p, i64 16
   %cmp.i = icmp eq i32 %sub171, 0
   br i1 %cmp.i, label %frac128_shrjam.exit, label %if.else.i
 
@@ -34780,22 +34780,22 @@ if.end256:                                        ; preds = %frac128_shr.exit161
 ; Function Attrs: nounwind sspstrong memory(argmem: readwrite) uwtable
 define internal fastcc void @parts256_add_normal(ptr nocapture noundef nonnull %a, ptr nocapture noundef nonnull %b) unnamed_addr #11 {
 entry:
-  %exp = getelementptr inbounds i8, ptr %a, i64 4
+  %exp = getelementptr inbounds nuw i8, ptr %a, i64 4
   %0 = load i32, ptr %exp, align 4
-  %exp1 = getelementptr inbounds i8, ptr %b, i64 4
+  %exp1 = getelementptr inbounds nuw i8, ptr %b, i64 4
   %1 = load i32, ptr %exp1, align 4
   %sub = sub i32 %0, %1
   %cmp = icmp sgt i32 %sub, 0
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %frac_hi.i = getelementptr inbounds i8, ptr %b, i64 8
+  %frac_hi.i = getelementptr inbounds nuw i8, ptr %b, i64 8
   %2 = load i64, ptr %frac_hi.i, align 8
-  %frac_hm.i = getelementptr inbounds i8, ptr %b, i64 16
+  %frac_hm.i = getelementptr inbounds nuw i8, ptr %b, i64 16
   %3 = load i64, ptr %frac_hm.i, align 8
-  %frac_lm.i = getelementptr inbounds i8, ptr %b, i64 24
+  %frac_lm.i = getelementptr inbounds nuw i8, ptr %b, i64 24
   %4 = load i64, ptr %frac_lm.i, align 8
-  %frac_lo.i = getelementptr inbounds i8, ptr %b, i64 32
+  %frac_lo.i = getelementptr inbounds nuw i8, ptr %b, i64 32
   %5 = load i64, ptr %frac_lo.i, align 8
   %cmp2.i = icmp samesign ult i32 %sub, 64
   br i1 %cmp2.i, label %if.end52.i, label %if.else11.i
@@ -34879,13 +34879,13 @@ if.else:                                          ; preds = %entry
 
 if.then3:                                         ; preds = %if.else
   %sub4 = sub i32 0, %sub
-  %frac_hi.i14 = getelementptr inbounds i8, ptr %a, i64 8
+  %frac_hi.i14 = getelementptr inbounds nuw i8, ptr %a, i64 8
   %10 = load i64, ptr %frac_hi.i14, align 8
-  %frac_hm.i15 = getelementptr inbounds i8, ptr %a, i64 16
+  %frac_hm.i15 = getelementptr inbounds nuw i8, ptr %a, i64 16
   %11 = load i64, ptr %frac_hm.i15, align 8
-  %frac_lm.i16 = getelementptr inbounds i8, ptr %a, i64 24
+  %frac_lm.i16 = getelementptr inbounds nuw i8, ptr %a, i64 24
   %12 = load i64, ptr %frac_lm.i16, align 8
-  %frac_lo.i17 = getelementptr inbounds i8, ptr %a, i64 32
+  %frac_lo.i17 = getelementptr inbounds nuw i8, ptr %a, i64 32
   %13 = load i64, ptr %frac_lo.i17, align 8
   %cmp2.i18 = icmp slt i32 %sub4, 64
   br i1 %cmp2.i18, label %if.end52.i55, label %if.else11.i19
@@ -34966,17 +34966,17 @@ frac256_shrjam.exit65:                            ; preds = %if.end40.i47, %if.e
   br label %if.end7
 
 if.end7:                                          ; preds = %if.else, %frac256_shrjam.exit65, %frac256_shrjam.exit
-  %frac_lo.i66 = getelementptr inbounds i8, ptr %a, i64 32
+  %frac_lo.i66 = getelementptr inbounds nuw i8, ptr %a, i64 32
   %19 = load i64, ptr %frac_lo.i66, align 8
-  %frac_lo1.i = getelementptr inbounds i8, ptr %b, i64 32
+  %frac_lo1.i = getelementptr inbounds nuw i8, ptr %b, i64 32
   %20 = load i64, ptr %frac_lo1.i, align 8
   %21 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %19, i64 %20)
   %22 = extractvalue { i64, i1 } %21, 1
   %23 = extractvalue { i64, i1 } %21, 0
   store i64 %23, ptr %frac_lo.i66, align 8
-  %frac_lm.i67 = getelementptr inbounds i8, ptr %a, i64 24
+  %frac_lm.i67 = getelementptr inbounds nuw i8, ptr %a, i64 24
   %24 = load i64, ptr %frac_lm.i67, align 8
-  %frac_lm3.i = getelementptr inbounds i8, ptr %b, i64 24
+  %frac_lm3.i = getelementptr inbounds nuw i8, ptr %b, i64 24
   %25 = load i64, ptr %frac_lm3.i, align 8
   %conv.i10.i = zext i1 %22 to i64
   %26 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %24, i64 %25)
@@ -34987,9 +34987,9 @@ if.end7:                                          ; preds = %if.else, %frac256_s
   %31 = extractvalue { i64, i1 } %29, 0
   %32 = or i1 %27, %30
   store i64 %31, ptr %frac_lm.i67, align 8
-  %frac_hm.i68 = getelementptr inbounds i8, ptr %a, i64 16
+  %frac_hm.i68 = getelementptr inbounds nuw i8, ptr %a, i64 16
   %33 = load i64, ptr %frac_hm.i68, align 8
-  %frac_hm6.i = getelementptr inbounds i8, ptr %b, i64 16
+  %frac_hm6.i = getelementptr inbounds nuw i8, ptr %b, i64 16
   %34 = load i64, ptr %frac_hm6.i, align 8
   %conv.i12.i = zext i1 %32 to i64
   %35 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %33, i64 %34)
@@ -35000,9 +35000,9 @@ if.end7:                                          ; preds = %if.else, %frac256_s
   %40 = extractvalue { i64, i1 } %38, 0
   %41 = or i1 %36, %39
   store i64 %40, ptr %frac_hm.i68, align 8
-  %frac_hi.i69 = getelementptr inbounds i8, ptr %a, i64 8
+  %frac_hi.i69 = getelementptr inbounds nuw i8, ptr %a, i64 8
   %42 = load i64, ptr %frac_hi.i69, align 8
-  %frac_hi9.i = getelementptr inbounds i8, ptr %b, i64 8
+  %frac_hi9.i = getelementptr inbounds nuw i8, ptr %b, i64 8
   %43 = load i64, ptr %frac_hi9.i, align 8
   %conv.i14.i = zext i1 %41 to i64
   %44 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %42, i64 %43)
@@ -35041,22 +35041,22 @@ if.end10:                                         ; preds = %if.then8, %if.end7
 ; Function Attrs: nounwind sspstrong memory(argmem: readwrite) uwtable
 define internal fastcc noundef zeroext i1 @parts256_sub_normal(ptr nocapture noundef nonnull %a, ptr nocapture noundef nonnull %b) unnamed_addr #11 {
 entry:
-  %exp = getelementptr inbounds i8, ptr %a, i64 4
+  %exp = getelementptr inbounds nuw i8, ptr %a, i64 4
   %0 = load i32, ptr %exp, align 4
-  %exp1 = getelementptr inbounds i8, ptr %b, i64 4
+  %exp1 = getelementptr inbounds nuw i8, ptr %b, i64 4
   %1 = load i32, ptr %exp1, align 4
   %sub = sub i32 %0, %1
   %cmp = icmp sgt i32 %sub, 0
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %frac_hi.i = getelementptr inbounds i8, ptr %b, i64 8
+  %frac_hi.i = getelementptr inbounds nuw i8, ptr %b, i64 8
   %2 = load i64, ptr %frac_hi.i, align 8
-  %frac_hm.i = getelementptr inbounds i8, ptr %b, i64 16
+  %frac_hm.i = getelementptr inbounds nuw i8, ptr %b, i64 16
   %3 = load i64, ptr %frac_hm.i, align 8
-  %frac_lm.i = getelementptr inbounds i8, ptr %b, i64 24
+  %frac_lm.i = getelementptr inbounds nuw i8, ptr %b, i64 24
   %4 = load i64, ptr %frac_lm.i, align 8
-  %frac_lo.i = getelementptr inbounds i8, ptr %b, i64 32
+  %frac_lo.i = getelementptr inbounds nuw i8, ptr %b, i64 32
   %5 = load i64, ptr %frac_lo.i, align 8
   %cmp2.i = icmp samesign ult i32 %sub, 64
   br i1 %cmp2.i, label %if.end52.i, label %if.else11.i
@@ -35132,13 +35132,13 @@ frac256_shrjam.exit:                              ; preds = %if.end40.i, %if.els
   store i64 %a2.2.i, ptr %frac_lm.i, align 8
   store i64 %a1.2.i, ptr %frac_hm.i, align 8
   store i64 %a0.2.i, ptr %frac_hi.i, align 8
-  %frac_lo.i24 = getelementptr inbounds i8, ptr %a, i64 32
+  %frac_lo.i24 = getelementptr inbounds nuw i8, ptr %a, i64 32
   %10 = load i64, ptr %frac_lo.i24, align 8
   %11 = tail call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %10, i64 %or60.i)
   %12 = extractvalue { i64, i1 } %11, 1
   %13 = extractvalue { i64, i1 } %11, 0
   store i64 %13, ptr %frac_lo.i24, align 8
-  %frac_lm.i25 = getelementptr inbounds i8, ptr %a, i64 24
+  %frac_lm.i25 = getelementptr inbounds nuw i8, ptr %a, i64 24
   %14 = load i64, ptr %frac_lm.i25, align 8
   %15 = load i64, ptr %frac_lm.i, align 8
   %conv.i10.i = zext i1 %12 to i64
@@ -35150,7 +35150,7 @@ frac256_shrjam.exit:                              ; preds = %if.end40.i, %if.els
   %21 = extractvalue { i64, i1 } %19, 0
   %22 = or i1 %17, %20
   store i64 %21, ptr %frac_lm.i25, align 8
-  %frac_hm.i26 = getelementptr inbounds i8, ptr %a, i64 16
+  %frac_hm.i26 = getelementptr inbounds nuw i8, ptr %a, i64 16
   %23 = load i64, ptr %frac_hm.i26, align 8
   %24 = load i64, ptr %frac_hm.i, align 8
   %conv.i12.i = zext i1 %22 to i64
@@ -35162,7 +35162,7 @@ frac256_shrjam.exit:                              ; preds = %if.end40.i, %if.els
   %30 = extractvalue { i64, i1 } %28, 0
   %31 = or i1 %26, %29
   store i64 %30, ptr %frac_hm.i26, align 8
-  %frac_hi.i27 = getelementptr inbounds i8, ptr %a, i64 8
+  %frac_hi.i27 = getelementptr inbounds nuw i8, ptr %a, i64 8
   %32 = load i64, ptr %frac_hi.i27, align 8
   %33 = load i64, ptr %frac_hi.i, align 8
   %conv.i14.i.neg = sext i1 %31 to i64
@@ -35177,19 +35177,19 @@ if.else:                                          ; preds = %entry
 
 if.then3:                                         ; preds = %if.else
   store i32 %1, ptr %exp, align 4
-  %sign = getelementptr inbounds i8, ptr %a, i64 1
+  %sign = getelementptr inbounds nuw i8, ptr %a, i64 1
   %36 = load i8, ptr %sign, align 1
   %37 = and i8 %36, 1
   %frombool = xor i8 %37, 1
   store i8 %frombool, ptr %sign, align 1
   %sub7 = sub i32 0, %sub
-  %frac_hi.i28 = getelementptr inbounds i8, ptr %a, i64 8
+  %frac_hi.i28 = getelementptr inbounds nuw i8, ptr %a, i64 8
   %38 = load i64, ptr %frac_hi.i28, align 8
-  %frac_hm.i29 = getelementptr inbounds i8, ptr %a, i64 16
+  %frac_hm.i29 = getelementptr inbounds nuw i8, ptr %a, i64 16
   %39 = load i64, ptr %frac_hm.i29, align 8
-  %frac_lm.i30 = getelementptr inbounds i8, ptr %a, i64 24
+  %frac_lm.i30 = getelementptr inbounds nuw i8, ptr %a, i64 24
   %40 = load i64, ptr %frac_lm.i30, align 8
-  %frac_lo.i31 = getelementptr inbounds i8, ptr %a, i64 32
+  %frac_lo.i31 = getelementptr inbounds nuw i8, ptr %a, i64 32
   %41 = load i64, ptr %frac_lo.i31, align 8
   %cmp2.i32 = icmp slt i32 %sub7, 64
   br i1 %cmp2.i32, label %if.end52.i69, label %if.else11.i33
@@ -35265,13 +35265,13 @@ frac256_shrjam.exit79:                            ; preds = %if.end40.i61, %if.e
   store i64 %a2.2.i41, ptr %frac_lm.i30, align 8
   store i64 %a1.2.i40, ptr %frac_hm.i29, align 8
   store i64 %a0.2.i39, ptr %frac_hi.i28, align 8
-  %frac_lo.i80 = getelementptr inbounds i8, ptr %b, i64 32
+  %frac_lo.i80 = getelementptr inbounds nuw i8, ptr %b, i64 32
   %46 = load i64, ptr %frac_lo.i80, align 8
   %47 = tail call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %46, i64 %or60.i46)
   %48 = extractvalue { i64, i1 } %47, 1
   %49 = extractvalue { i64, i1 } %47, 0
   store i64 %49, ptr %frac_lo.i31, align 8
-  %frac_lm.i83 = getelementptr inbounds i8, ptr %b, i64 24
+  %frac_lm.i83 = getelementptr inbounds nuw i8, ptr %b, i64 24
   %50 = load i64, ptr %frac_lm.i83, align 8
   %conv.i10.i85 = zext i1 %48 to i64
   %51 = tail call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %50, i64 %a2.2.i41)
@@ -35282,7 +35282,7 @@ frac256_shrjam.exit79:                            ; preds = %if.end40.i61, %if.e
   %56 = extractvalue { i64, i1 } %54, 0
   %57 = or i1 %52, %55
   store i64 %56, ptr %frac_lm.i30, align 8
-  %frac_hm.i87 = getelementptr inbounds i8, ptr %b, i64 16
+  %frac_hm.i87 = getelementptr inbounds nuw i8, ptr %b, i64 16
   %58 = load i64, ptr %frac_hm.i87, align 8
   %conv.i12.i89 = zext i1 %57 to i64
   %59 = tail call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %58, i64 %a1.2.i40)
@@ -35293,7 +35293,7 @@ frac256_shrjam.exit79:                            ; preds = %if.end40.i61, %if.e
   %64 = extractvalue { i64, i1 } %62, 0
   %65 = or i1 %60, %63
   store i64 %64, ptr %frac_hm.i29, align 8
-  %frac_hi.i91 = getelementptr inbounds i8, ptr %b, i64 8
+  %frac_hi.i91 = getelementptr inbounds nuw i8, ptr %b, i64 8
   %66 = load i64, ptr %frac_hi.i91, align 8
   %conv.i14.i93.neg = sext i1 %65 to i64
   %67 = sub i64 %66, %a0.2.i39
@@ -35302,17 +35302,17 @@ frac256_shrjam.exit79:                            ; preds = %if.end40.i61, %if.e
   br label %if.end19
 
 if.else9:                                         ; preds = %if.else
-  %frac_lo.i95 = getelementptr inbounds i8, ptr %a, i64 32
+  %frac_lo.i95 = getelementptr inbounds nuw i8, ptr %a, i64 32
   %69 = load i64, ptr %frac_lo.i95, align 8
-  %frac_lo1.i96 = getelementptr inbounds i8, ptr %b, i64 32
+  %frac_lo1.i96 = getelementptr inbounds nuw i8, ptr %b, i64 32
   %70 = load i64, ptr %frac_lo1.i96, align 8
   %71 = tail call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %69, i64 %70)
   %72 = extractvalue { i64, i1 } %71, 1
   %73 = extractvalue { i64, i1 } %71, 0
   store i64 %73, ptr %frac_lo.i95, align 8
-  %frac_lm.i98 = getelementptr inbounds i8, ptr %a, i64 24
+  %frac_lm.i98 = getelementptr inbounds nuw i8, ptr %a, i64 24
   %74 = load i64, ptr %frac_lm.i98, align 8
-  %frac_lm3.i99 = getelementptr inbounds i8, ptr %b, i64 24
+  %frac_lm3.i99 = getelementptr inbounds nuw i8, ptr %b, i64 24
   %75 = load i64, ptr %frac_lm3.i99, align 8
   %conv.i10.i100 = zext i1 %72 to i64
   %76 = tail call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %74, i64 %75)
@@ -35323,9 +35323,9 @@ if.else9:                                         ; preds = %if.else
   %81 = extractvalue { i64, i1 } %79, 0
   %82 = or i1 %77, %80
   store i64 %81, ptr %frac_lm.i98, align 8
-  %frac_hm.i102 = getelementptr inbounds i8, ptr %a, i64 16
+  %frac_hm.i102 = getelementptr inbounds nuw i8, ptr %a, i64 16
   %83 = load i64, ptr %frac_hm.i102, align 8
-  %frac_hm6.i103 = getelementptr inbounds i8, ptr %b, i64 16
+  %frac_hm6.i103 = getelementptr inbounds nuw i8, ptr %b, i64 16
   %84 = load i64, ptr %frac_hm6.i103, align 8
   %conv.i12.i104 = zext i1 %82 to i64
   %85 = tail call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %83, i64 %84)
@@ -35336,9 +35336,9 @@ if.else9:                                         ; preds = %if.else
   %90 = extractvalue { i64, i1 } %88, 0
   %91 = or i1 %86, %89
   store i64 %90, ptr %frac_hm.i102, align 8
-  %frac_hi.i106 = getelementptr inbounds i8, ptr %a, i64 8
+  %frac_hi.i106 = getelementptr inbounds nuw i8, ptr %a, i64 8
   %92 = load i64, ptr %frac_hi.i106, align 8
-  %frac_hi9.i107 = getelementptr inbounds i8, ptr %b, i64 8
+  %frac_hi9.i107 = getelementptr inbounds nuw i8, ptr %b, i64 8
   %93 = load i64, ptr %frac_hi9.i107, align 8
   %conv.i14.i108 = zext i1 %91 to i64
   %94 = tail call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %92, i64 %93)
@@ -35377,7 +35377,7 @@ if.then11:                                        ; preds = %if.else9
   %conv.i12.neg.i = sext i1 %117 to i64
   %118 = sub i64 %conv.i12.neg.i, %99
   store i64 %118, ptr %frac_hi.i106, align 8
-  %sign12 = getelementptr inbounds i8, ptr %a, i64 1
+  %sign12 = getelementptr inbounds nuw i8, ptr %a, i64 1
   %119 = load i8, ptr %sign12, align 1
   %120 = and i8 %119, 1
   %frombool17 = xor i8 %120, 1
@@ -35389,10 +35389,10 @@ if.end19:                                         ; preds = %frac256_shrjam.exit
   %122 = phi i64 [ %56, %frac256_shrjam.exit79 ], [ %109, %if.then11 ], [ %81, %if.else9 ], [ %21, %frac256_shrjam.exit ]
   %123 = phi i64 [ %64, %frac256_shrjam.exit79 ], [ %116, %if.then11 ], [ %90, %if.else9 ], [ %30, %frac256_shrjam.exit ]
   %124 = phi i64 [ %68, %frac256_shrjam.exit79 ], [ %118, %if.then11 ], [ %99, %if.else9 ], [ %35, %frac256_shrjam.exit ]
-  %frac_hi.i115 = getelementptr inbounds i8, ptr %a, i64 8
-  %frac_hm.i116 = getelementptr inbounds i8, ptr %a, i64 16
-  %frac_lm.i117 = getelementptr inbounds i8, ptr %a, i64 24
-  %frac_lo.i118 = getelementptr inbounds i8, ptr %a, i64 32
+  %frac_hi.i115 = getelementptr inbounds nuw i8, ptr %a, i64 8
+  %frac_hm.i116 = getelementptr inbounds nuw i8, ptr %a, i64 16
+  %frac_lm.i117 = getelementptr inbounds nuw i8, ptr %a, i64 24
+  %frac_lo.i118 = getelementptr inbounds nuw i8, ptr %a, i64 32
   %tobool.not.i = icmp eq i64 %124, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
@@ -35474,9 +35474,9 @@ return:                                           ; preds = %if.end29, %if.then2
 ; Function Attrs: nounwind sspstrong memory(argmem: readwrite) uwtable
 define internal fastcc noundef zeroext i1 @frac128_div(ptr nocapture noundef nonnull %a, i64 %b.8.val, i64 %b.16.val) unnamed_addr #11 {
 entry:
-  %frac_hi = getelementptr inbounds i8, ptr %a, i64 8
+  %frac_hi = getelementptr inbounds nuw i8, ptr %a, i64 8
   %0 = load i64, ptr %frac_hi, align 8
-  %frac_lo = getelementptr inbounds i8, ptr %a, i64 16
+  %frac_lo = getelementptr inbounds nuw i8, ptr %a, i64 16
   %1 = load i64, ptr %frac_lo, align 8
   %cmp.i = icmp ult i64 %0, %b.8.val
   br i1 %cmp.i, label %if.end, label %lt128.exit
@@ -35770,7 +35770,7 @@ define internal fastcc noundef zeroext i1 @parts64_round_to_int_normal(ptr nocap
 entry:
   %cond = tail call i32 @llvm.smax.i32(i32 %scale, i32 -65536)
   %cond6 = tail call i32 @llvm.smin.i32(i32 %cond, i32 65536)
-  %exp = getelementptr inbounds i8, ptr %a, i64 4
+  %exp = getelementptr inbounds nuw i8, ptr %a, i64 4
   %0 = load i32, ptr %exp, align 4
   %add = add i32 %0, %cond6
   store i32 %add, ptr %exp, align 4
@@ -35805,18 +35805,18 @@ sw.bb15:                                          ; preds = %if.then
   br label %sw.epilog
 
 sw.bb21:                                          ; preds = %if.then
-  %sign = getelementptr inbounds i8, ptr %a, i64 1
+  %sign = getelementptr inbounds nuw i8, ptr %a, i64 1
   %2 = load i8, ptr %sign, align 1
   %frombool23 = xor i8 %2, 1
   br label %sw.epilog
 
 sw.bb24:                                          ; preds = %if.then
-  %sign25 = getelementptr inbounds i8, ptr %a, i64 1
+  %sign25 = getelementptr inbounds nuw i8, ptr %a, i64 1
   %3 = load i8, ptr %sign25, align 1
   br label %sw.epilog
 
 sw.epilog.thread59:                               ; preds = %if.then
-  %4 = getelementptr inbounds i8, ptr %a, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %a, i64 8
   store i32 0, ptr %exp, align 4
   br label %if.then31
 
@@ -35825,14 +35825,14 @@ do.body:                                          ; preds = %if.then
   unreachable
 
 sw.epilog.thread:                                 ; preds = %sw.bb, %if.then
-  %5 = getelementptr inbounds i8, ptr %a, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %a, i64 8
   store i64 0, ptr %5, align 8
   store i32 0, ptr %exp, align 4
   br label %if.else
 
 sw.epilog:                                        ; preds = %if.then12, %sw.bb24, %sw.bb21, %sw.bb15
   %one.0 = phi i8 [ %3, %sw.bb24 ], [ %frombool23, %sw.bb21 ], [ %frombool19, %sw.bb15 ], [ %frombool, %if.then12 ]
-  %6 = getelementptr inbounds i8, ptr %a, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %a, i64 8
   store i64 0, ptr %6, align 8
   store i32 0, ptr %exp, align 4
   %tobool30 = trunc i8 %one.0 to i1
@@ -35858,7 +35858,7 @@ if.end38:                                         ; preds = %if.end33
   %shr40 = lshr i64 4611686018427387904, %sh_prom
   %sub = add i64 %shr, -1
   %or = or i64 %sub, %shr
-  %8 = getelementptr inbounds i8, ptr %a, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %a, i64 8
   %9 = load i64, ptr %8, align 8
   %and41 = and i64 %9, %sub
   %tobool42.not = icmp eq i64 %and41, 0
@@ -35884,14 +35884,14 @@ sw.bb55:                                          ; preds = %if.end44
   br label %if.then85
 
 sw.bb56:                                          ; preds = %if.end44
-  %sign57 = getelementptr inbounds i8, ptr %a, i64 1
+  %sign57 = getelementptr inbounds nuw i8, ptr %a, i64 1
   %10 = load i8, ptr %sign57, align 1
   %tobool58 = trunc i8 %10 to i1
   %cond63 = select i1 %tobool58, i64 0, i64 %sub
   br label %if.then85
 
 sw.bb64:                                          ; preds = %if.end44
-  %sign65 = getelementptr inbounds i8, ptr %a, i64 1
+  %sign65 = getelementptr inbounds nuw i8, ptr %a, i64 1
   %11 = load i8, ptr %sign65, align 1
   %tobool66 = trunc i8 %11 to i1
   %cond71 = select i1 %tobool66, i64 %sub, i64 0
@@ -35936,7 +35936,7 @@ return:                                           ; preds = %if.end38, %if.end33
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc noundef zeroext i1 @parts128_round_to_int_normal(ptr nocapture noundef nonnull %a, i8 noundef zeroext %rmode, i32 noundef %frac_size) unnamed_addr #3 {
 entry:
-  %exp = getelementptr inbounds i8, ptr %a, i64 4
+  %exp = getelementptr inbounds nuw i8, ptr %a, i64 4
   %0 = load i32, ptr %exp, align 4
   %cmp8 = icmp slt i32 %0, 0
   br i1 %cmp8, label %if.then, label %if.end33
@@ -35956,12 +35956,12 @@ sw.bb:                                            ; preds = %if.then
   br i1 %cmp10, label %if.then12, label %sw.epilog.thread
 
 if.then12:                                        ; preds = %sw.bb
-  %frac_lo.i = getelementptr inbounds i8, ptr %a, i64 16
+  %frac_lo.i = getelementptr inbounds nuw i8, ptr %a, i64 16
   %1 = load i64, ptr %frac_lo.i, align 8
   %2 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %1, i64 %1)
   %3 = extractvalue { i64, i1 } %2, 1
   %4 = extractvalue { i64, i1 } %2, 0
-  %frac_hi.i = getelementptr inbounds i8, ptr %a, i64 8
+  %frac_hi.i = getelementptr inbounds nuw i8, ptr %a, i64 8
   %5 = load i64, ptr %frac_hi.i, align 8
   %conv.i4.i = zext i1 %3 to i64
   %6 = shl i64 %5, 1
@@ -35977,13 +35977,13 @@ sw.bb15:                                          ; preds = %if.then
   br label %sw.epilog
 
 sw.bb21:                                          ; preds = %if.then
-  %sign = getelementptr inbounds i8, ptr %a, i64 1
+  %sign = getelementptr inbounds nuw i8, ptr %a, i64 1
   %8 = load i8, ptr %sign, align 1
   %frombool23 = xor i8 %8, 1
   br label %sw.epilog
 
 sw.bb24:                                          ; preds = %if.then
-  %sign25 = getelementptr inbounds i8, ptr %a, i64 1
+  %sign25 = getelementptr inbounds nuw i8, ptr %a, i64 1
   %9 = load i8, ptr %sign25, align 1
   br label %sw.epilog
 
@@ -36006,7 +36006,7 @@ sw.epilog:                                        ; preds = %if.then12, %sw.bb24
   br i1 %tobool30, label %if.then31, label %if.else
 
 if.then31:                                        ; preds = %sw.epilog.thread111, %sw.epilog
-  %frac_hi.i60115 = getelementptr inbounds i8, ptr %a, i64 8
+  %frac_hi.i60115 = getelementptr inbounds nuw i8, ptr %a, i64 8
   store i64 -9223372036854775808, ptr %frac_hi.i60115, align 8
   br label %return
 
@@ -36020,13 +36020,13 @@ if.end33:                                         ; preds = %entry
 
 if.end38:                                         ; preds = %if.end33
   %cmp40 = icmp samesign ult i32 %0, 64
-  %frac_lo.i62 = getelementptr inbounds i8, ptr %a, i64 16
+  %frac_lo.i62 = getelementptr inbounds nuw i8, ptr %a, i64 16
   %10 = load i64, ptr %frac_lo.i62, align 8
   br i1 %cmp40, label %if.then42, label %if.else45
 
 if.then42:                                        ; preds = %if.end38
   %sub = sub nuw nsw i32 125, %0
-  %frac_hi.i61 = getelementptr inbounds i8, ptr %a, i64 8
+  %frac_hi.i61 = getelementptr inbounds nuw i8, ptr %a, i64 8
   %11 = load i64, ptr %frac_hi.i61, align 8
   %cmp2.i = icmp samesign ugt i32 %0, 61
   br i1 %cmp2.i, label %if.end27.i, label %if.then20.i
@@ -36072,13 +36072,13 @@ if.end47:                                         ; preds = %done.i, %if.else45
   %shr48 = lshr i64 %frac_lsb.0, 1
   %sub49 = add i64 %frac_lsb.0, -1
   %or = or i64 %sub49, %frac_lsb.0
-  %frac_lo = getelementptr inbounds i8, ptr %a, i64 16
+  %frac_lo = getelementptr inbounds nuw i8, ptr %a, i64 16
   %and50 = and i64 %14, %sub49
   %tobool51.not = icmp eq i64 %and50, 0
   br i1 %tobool51.not, label %if.then52, label %if.end53
 
 if.then52:                                        ; preds = %if.end47
-  %frac_hi.i65 = getelementptr inbounds i8, ptr %a, i64 8
+  %frac_hi.i65 = getelementptr inbounds nuw i8, ptr %a, i64 8
   %15 = load i64, ptr %frac_hi.i65, align 8
   %tobool.not.i = icmp samesign ult i32 %shift_adj.0, 64
   %spec.select.i = select i1 %tobool.not.i, i64 %15, i64 %14
@@ -36120,14 +36120,14 @@ sw.bb65:                                          ; preds = %if.end53
   br label %sw.epilog93
 
 sw.bb66:                                          ; preds = %if.end53
-  %sign67 = getelementptr inbounds i8, ptr %a, i64 1
+  %sign67 = getelementptr inbounds nuw i8, ptr %a, i64 1
   %17 = load i8, ptr %sign67, align 1
   %tobool68 = trunc i8 %17 to i1
   %cond73 = select i1 %tobool68, i64 0, i64 %sub49
   br label %sw.epilog93
 
 sw.bb74:                                          ; preds = %if.end53
-  %sign75 = getelementptr inbounds i8, ptr %a, i64 1
+  %sign75 = getelementptr inbounds nuw i8, ptr %a, i64 1
   %18 = load i8, ptr %sign75, align 1
   %tobool76 = trunc i8 %18 to i1
   %cond81 = select i1 %tobool76, i64 %sub49, i64 0
@@ -36150,7 +36150,7 @@ sw.epilog93:                                      ; preds = %if.end53, %sw.bb82,
   %20 = extractvalue { i64, i1 } %19, 1
   %21 = extractvalue { i64, i1 } %19, 0
   %conv.i = zext i1 %20 to i64
-  %frac_hi.i73 = getelementptr inbounds i8, ptr %a, i64 8
+  %frac_hi.i73 = getelementptr inbounds nuw i8, ptr %a, i64 8
   %22 = load i64, ptr %frac_hi.i73, align 8
   br i1 %cmp94, label %if.then96, label %if.else106
 
@@ -36287,18 +36287,18 @@ if.then.i:                                        ; preds = %if.end33
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.end33, %if.then.i
-  %default_nan_mode.i = getelementptr inbounds i8, ptr %s, i64 7
+  %default_nan_mode.i = getelementptr inbounds nuw i8, ptr %s, i64 7
   %5 = load i8, ptr %default_nan_mode.i, align 1
   %tobool.i = trunc i8 %5 to i1
   br i1 %tobool.i, label %if.then3.i, label %if.else.i
 
 if.then3.i:                                       ; preds = %if.end.i
   store i8 4, ptr %a, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %a, i64 1
+  %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %a, i64 1
   store i8 0, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.sroa.31.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %a, i64 4
+  %.compoundliteral.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %a, i64 4
   store i32 2147483647, ptr %.compoundliteral.sroa.31.0..sroa_idx.i.i, align 4
-  %.compoundliteral.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %a, i64 8
+  %.compoundliteral.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %a, i64 8
   store i64 4611686018427387904, ptr %.compoundliteral.sroa.4.0..sroa_idx.i.i, align 8
   br label %return
 
@@ -36312,10 +36312,10 @@ if.else.i:                                        ; preds = %if.end.i
   br i1 %cmp5.i, label %if.then6.i, label %if.end13.i
 
 if.then6.i:                                       ; preds = %if.else.i
-  %sign.i = getelementptr inbounds i8, ptr %a, i64 1
+  %sign.i = getelementptr inbounds nuw i8, ptr %a, i64 1
   %9 = load i8, ptr %sign.i, align 1
   %10 = and i8 %9, 1
-  %sign8.i = getelementptr inbounds i8, ptr %b, i64 1
+  %sign8.i = getelementptr inbounds nuw i8, ptr %b, i64 1
   %11 = load i8, ptr %sign8.i, align 1
   %12 = and i8 %11, 1
   %cmp11.i = icmp samesign ult i8 %10, %12
@@ -36358,7 +36358,7 @@ if.then6.i.i:                                     ; preds = %if.end13.i
 
 if.then24.i:                                      ; preds = %if.then2.i.i, %.thread, %15
   %.ph.i44 = phi ptr [ %a, %.thread ], [ %b, %15 ], [ %b, %if.then2.i.i ]
-  %17 = getelementptr inbounds i8, ptr %.ph.i44, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.ph.i44, i64 8
   %18 = load i64, ptr %17, align 8
   %or4.i.i.i = or i64 %18, 4611686018427387904
   store i64 %or4.i.i.i, ptr %17, align 8
@@ -36366,9 +36366,9 @@ if.then24.i:                                      ; preds = %if.then2.i.i, %.thr
   br label %return
 
 if.end35:                                         ; preds = %entry
-  %exp = getelementptr inbounds i8, ptr %a, i64 4
+  %exp = getelementptr inbounds nuw i8, ptr %a, i64 4
   %19 = load i32, ptr %exp, align 4
-  %exp36 = getelementptr inbounds i8, ptr %b, i64 4
+  %exp36 = getelementptr inbounds nuw i8, ptr %b, i64 4
   %20 = load i32, ptr %exp36, align 4
   %cmp37.not = icmp eq i32 %or, 4
   br i1 %cmp37.not, label %if.end59, label %if.then45
@@ -36432,10 +36432,10 @@ if.end64:                                         ; preds = %if.then62, %if.end5
   br i1 %or.cond, label %if.then69, label %if.end88
 
 if.then69:                                        ; preds = %if.end64
-  %sign = getelementptr inbounds i8, ptr %a, i64 1
+  %sign = getelementptr inbounds nuw i8, ptr %a, i64 1
   %23 = load i8, ptr %sign, align 1
   %tobool70 = trunc i8 %23 to i1
-  %sign72 = getelementptr inbounds i8, ptr %b, i64 1
+  %sign72 = getelementptr inbounds nuw i8, ptr %b, i64 1
   %24 = load i8, ptr %sign72, align 1
   %25 = xor i8 %24, %23
   %26 = and i8 %25, 1

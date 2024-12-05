@@ -155,7 +155,7 @@ define internal ptr @H5O__group_create(ptr noundef %0, ptr noundef %1, ptr nocap
 
 17:                                               ; preds = %10
   %18 = tail call ptr @H5G_nameof(ptr noundef nonnull %4) #2
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %18, ptr %19, align 8
   %20 = icmp eq ptr %18, null
   br i1 %20, label %21, label %.thread
@@ -241,7 +241,7 @@ define internal range(i32 -1, 1) i32 @H5O__group_bh_info(ptr nocapture noundef r
   br label %.thread77
 
 21:                                               ; preds = %14
-  %22 = getelementptr inbounds i8, ptr %4, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %23 = load i64, ptr %22, align 8
   %.not51 = icmp eq i64 %23, -1
   br i1 %.not51, label %38, label %24
@@ -271,7 +271,7 @@ define internal range(i32 -1, 1) i32 @H5O__group_bh_info(ptr nocapture noundef r
 
 38:                                               ; preds = %32, %21
   %.139 = phi ptr [ %26, %32 ], [ null, %21 ]
-  %39 = getelementptr inbounds i8, ptr %4, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %40 = load i64, ptr %39, align 8
   %.not52 = icmp eq i64 %40, -1
   br i1 %.not52, label %56, label %41
@@ -301,7 +301,7 @@ define internal range(i32 -1, 1) i32 @H5O__group_bh_info(ptr nocapture noundef r
 
 56:                                               ; preds = %49, %38
   %.137 = phi ptr [ %43, %49 ], [ null, %38 ]
-  %57 = getelementptr inbounds i8, ptr %4, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %58 = load i64, ptr %57, align 8
   %.not53 = icmp eq i64 %58, -1
   br i1 %.not53, label %.thread, label %59
@@ -319,7 +319,7 @@ define internal range(i32 -1, 1) i32 @H5O__group_bh_info(ptr nocapture noundef r
   br label %.thread
 
 67:                                               ; preds = %59
-  %68 = getelementptr inbounds i8, ptr %2, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %69 = call i32 @H5HF_size(ptr noundef nonnull %61, ptr noundef nonnull %68) #2
   %70 = icmp slt i32 %69, 0
   br i1 %70, label %71, label %90

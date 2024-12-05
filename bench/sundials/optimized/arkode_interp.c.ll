@@ -28,7 +28,7 @@ define i32 @arkInterpResize(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 %12(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef %6) #12
@@ -45,9 +45,9 @@ define void @arkInterpFree(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
   br i1 %3, label %9, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef %0, ptr noundef nonnull %1) #12
   br label %9
@@ -62,9 +62,9 @@ define void @arkInterpPrintMem(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br i1 %3, label %9, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull %0, ptr noundef %1) #12
   br label %9
@@ -79,9 +79,9 @@ define i32 @arkInterpSetDegree(ptr noundef %0, ptr noundef %1, i32 noundef %2) l
   br i1 %4, label %11, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2) #12
   br label %11
@@ -97,9 +97,9 @@ define i32 @arkInterpInit(ptr noundef %0, ptr noundef %1, double noundef %2) loc
   br i1 %4, label %11, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef %0, ptr noundef nonnull %1, double noundef %2) #12
   br label %11
@@ -115,9 +115,9 @@ define i32 @arkInterpUpdate(ptr noundef %0, ptr noundef %1, double noundef %2) l
   br i1 %4, label %11, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef %0, ptr noundef nonnull %1, double noundef %2) #12
   br label %11
@@ -133,9 +133,9 @@ define i32 @arkInterpEvaluate(ptr noundef %0, ptr noundef %1, double noundef %2,
   br i1 %7, label %14, label %8
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 %12(ptr noundef %0, ptr noundef nonnull %1, double noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #12
   br label %14
@@ -168,17 +168,17 @@ define noalias noundef ptr @arkInterpCreate_Hermite(ptr noundef %0, i32 noundef 
 
 11:                                               ; preds = %7
   store ptr @arkInterpResize_Hermite, ptr %8, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @arkInterpFree_Hermite, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr @arkInterpPrintMem_Hermite, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr @arkInterpSetDegree_Hermite, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %8, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr @arkInterpInit_Hermite, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %8, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store ptr @arkInterpUpdate_Hermite, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %8, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @arkInterpEvaluate_Hermite, ptr %17, align 8
   %calloc = tail call dereferenceable_or_null(64) ptr @calloc(i64 1, i64 64)
   %18 = icmp eq ptr %calloc, null
@@ -190,23 +190,23 @@ define noalias noundef ptr @arkInterpCreate_Hermite(ptr noundef %0, i32 noundef 
   br label %32
 
 20:                                               ; preds = %11
-  %21 = getelementptr inbounds i8, ptr %5, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %8, ptr %21, align 8
   store ptr %calloc, ptr %5, align 8
   store i32 %1, ptr %calloc, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 544
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %23 = load i64, ptr %22, align 8
   %24 = add nsw i64 %23, 2
   store i64 %24, ptr %22, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 552
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %26 = load i64, ptr %25, align 8
   %27 = add nsw i64 %26, 5
   store i64 %27, ptr %25, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 424
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %29 = load double, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %calloc, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %calloc, i64 40
   store double %29, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %calloc, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %calloc, i64 48
   store double %29, ptr %31, align 8
   br label %32
 
@@ -232,43 +232,43 @@ define range(i32 -21, 1) i32 @arkInterpResize_Hermite(ptr noundef %0, ptr nounde
 
 11:                                               ; preds = %9
   %12 = load ptr, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = tail call i32 @arkResizeVec(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef nonnull %13) #12
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %36, label %15
 
 15:                                               ; preds = %11
   %16 = load ptr, ptr %1, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = tail call i32 @arkResizeVec(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef nonnull %17) #12
   %.not38 = icmp eq i32 %18, 0
   br i1 %.not38, label %36, label %19
 
 19:                                               ; preds = %15
   %20 = load ptr, ptr %1, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = tail call i32 @arkResizeVec(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef nonnull %21) #12
   %.not39 = icmp eq i32 %22, 0
   br i1 %.not39, label %36, label %23
 
 23:                                               ; preds = %19
   %24 = load ptr, ptr %1, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %26 = tail call i32 @arkResizeVec(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef nonnull %25) #12
   %.not40 = icmp eq i32 %26, 0
   br i1 %.not40, label %36, label %27
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %0, i64 424
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %29 = load double, ptr %28, align 8
   %30 = load ptr, ptr %1, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 40
   store double %29, ptr %31, align 8
   %32 = load ptr, ptr %1, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 48
   store double %29, ptr %33, align 8
   %34 = load ptr, ptr %1, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 56
   store double 0.000000e+00, ptr %35, align 8
   br label %36
 
@@ -290,7 +290,7 @@ define void @arkInterpFree_Hermite(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not, label %42, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not31 = icmp eq ptr %9, null
   br i1 %.not31, label %13, label %10
@@ -298,14 +298,14 @@ define void @arkInterpFree_Hermite(ptr noundef %0, ptr noundef %1) #0 {
 10:                                               ; preds = %7
   tail call void @arkFreeVec(ptr noundef nonnull %0, ptr noundef nonnull %8) #12
   %11 = load ptr, ptr %1, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr null, ptr %12, align 8
   %.pre = load ptr, ptr %1, align 8
   br label %13
 
 13:                                               ; preds = %10, %7
   %14 = phi ptr [ %.pre, %10 ], [ %6, %7 ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   %.not32 = icmp eq ptr %16, null
   br i1 %.not32, label %20, label %17
@@ -313,14 +313,14 @@ define void @arkInterpFree_Hermite(ptr noundef %0, ptr noundef %1) #0 {
 17:                                               ; preds = %13
   tail call void @arkFreeVec(ptr noundef nonnull %0, ptr noundef nonnull %15) #12
   %18 = load ptr, ptr %1, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr null, ptr %19, align 8
   %.pre36 = load ptr, ptr %1, align 8
   br label %20
 
 20:                                               ; preds = %17, %13
   %21 = phi ptr [ %.pre36, %17 ], [ %14, %13 ]
-  %22 = getelementptr inbounds i8, ptr %21, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load ptr, ptr %22, align 8
   %.not33 = icmp eq ptr %23, null
   br i1 %.not33, label %27, label %24
@@ -328,14 +328,14 @@ define void @arkInterpFree_Hermite(ptr noundef %0, ptr noundef %1) #0 {
 24:                                               ; preds = %20
   tail call void @arkFreeVec(ptr noundef nonnull %0, ptr noundef nonnull %22) #12
   %25 = load ptr, ptr %1, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store ptr null, ptr %26, align 8
   %.pre37 = load ptr, ptr %1, align 8
   br label %27
 
 27:                                               ; preds = %24, %20
   %28 = phi ptr [ %.pre37, %24 ], [ %21, %20 ]
-  %29 = getelementptr inbounds i8, ptr %28, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %30 = load ptr, ptr %29, align 8
   %.not34 = icmp eq ptr %30, null
   br i1 %.not34, label %34, label %31
@@ -343,16 +343,16 @@ define void @arkInterpFree_Hermite(ptr noundef %0, ptr noundef %1) #0 {
 31:                                               ; preds = %27
   tail call void @arkFreeVec(ptr noundef nonnull %0, ptr noundef nonnull %29) #12
   %32 = load ptr, ptr %1, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 32
   store ptr null, ptr %33, align 8
   br label %34
 
 34:                                               ; preds = %31, %27
-  %35 = getelementptr inbounds i8, ptr %0, i64 544
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %36 = load i64, ptr %35, align 8
   %37 = add nsw i64 %36, -2
   store i64 %37, ptr %35, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 552
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %39 = load i64, ptr %38, align 8
   %40 = add nsw i64 %39, -5
   store i64 %40, ptr %38, align 8
@@ -362,7 +362,7 @@ define void @arkInterpFree_Hermite(ptr noundef %0, ptr noundef %1) #0 {
   br label %42
 
 42:                                               ; preds = %34, %5
-  %43 = getelementptr inbounds i8, ptr %1, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %44 = load ptr, ptr %43, align 8
   %.not35 = icmp eq ptr %44, null
   br i1 %.not35, label %46, label %45
@@ -389,15 +389,15 @@ define void @arkInterpPrintMem_Hermite(ptr noundef readonly %0, ptr nocapture no
   %5 = load i32, ptr %4, align 8
   %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef %5) #12
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %9 = load double, ptr %8, align 8
   %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.1, double noundef %9) #12
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %13 = load double, ptr %12, align 8
   %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.2, double noundef %13) #12
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 56
   %17 = load double, ptr %16, align 8
   %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.3, double noundef %17) #12
   br label %19
@@ -453,22 +453,22 @@ define range(i32 -21, 1) i32 @arkInterpInit_Hermite(ptr noundef %0, ptr noundef 
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store double %2, ptr %7, align 8
   %8 = load ptr, ptr %1, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store double %2, ptr %9, align 8
   %10 = load ptr, ptr %1, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 56
   store double 0.000000e+00, ptr %11, align 8
   %12 = load ptr, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %24
 
 16:                                               ; preds = %5
-  %17 = getelementptr inbounds i8, ptr %0, i64 272
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 @arkAllocVec(ptr noundef nonnull %0, ptr noundef %18, ptr noundef nonnull %13) #12
   %.not = icmp eq i32 %19, 0
@@ -479,22 +479,22 @@ define range(i32 -21, 1) i32 @arkInterpInit_Hermite(ptr noundef %0, ptr noundef 
   br label %24
 
 arkInterpFree.exit:                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
   tail call void %23(ptr noundef nonnull %0, ptr noundef nonnull %1) #12
   br label %70
 
 24:                                               ; preds = %._crit_edge, %5
   %25 = phi ptr [ %.pre, %._crit_edge ], [ %12, %5 ]
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %37
 
 29:                                               ; preds = %24
-  %30 = getelementptr inbounds i8, ptr %0, i64 272
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %31 = load ptr, ptr %30, align 8
   %32 = tail call i32 @arkAllocVec(ptr noundef nonnull %0, ptr noundef %31, ptr noundef nonnull %26) #12
   %.not35 = icmp eq i32 %32, 0
@@ -505,9 +505,9 @@ arkInterpFree.exit:                               ; preds = %16
   br label %37
 
 arkInterpFree.exit38:                             ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %1, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
   tail call void %36(ptr noundef nonnull %0, ptr noundef nonnull %1) #12
   br label %70
@@ -519,13 +519,13 @@ arkInterpFree.exit38:                             ; preds = %29
   br i1 %40, label %41, label %.thread
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %38, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
   br i1 %44, label %45, label %53
 
 45:                                               ; preds = %41
-  %46 = getelementptr inbounds i8, ptr %0, i64 272
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %47 = load ptr, ptr %46, align 8
   %48 = tail call i32 @arkAllocVec(ptr noundef nonnull %0, ptr noundef %47, ptr noundef nonnull %42) #12
   %.not36 = icmp eq i32 %48, 0
@@ -537,9 +537,9 @@ arkInterpFree.exit38:                             ; preds = %29
   br label %53
 
 arkInterpFree.exit39:                             ; preds = %45
-  %49 = getelementptr inbounds i8, ptr %1, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load ptr, ptr %51, align 8
   tail call void %52(ptr noundef nonnull %0, ptr noundef nonnull %1) #12
   br label %70
@@ -551,28 +551,28 @@ arkInterpFree.exit39:                             ; preds = %45
   br i1 %56, label %57, label %.thread
 
 57:                                               ; preds = %53
-  %58 = getelementptr inbounds i8, ptr %55, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 32
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %59, null
   br i1 %60, label %61, label %.thread
 
 61:                                               ; preds = %57
-  %62 = getelementptr inbounds i8, ptr %0, i64 272
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %63 = load ptr, ptr %62, align 8
   %64 = tail call i32 @arkAllocVec(ptr noundef nonnull %0, ptr noundef %63, ptr noundef nonnull %58) #12
   %.not37 = icmp eq i32 %64, 0
   br i1 %.not37, label %arkInterpFree.exit40, label %.thread
 
 arkInterpFree.exit40:                             ; preds = %61
-  %65 = getelementptr inbounds i8, ptr %1, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load ptr, ptr %67, align 8
   tail call void %68(ptr noundef nonnull %0, ptr noundef nonnull %1) #12
   br label %70
 
 .thread:                                          ; preds = %37, %61, %57, %53
-  %69 = getelementptr inbounds i8, ptr %0, i64 628
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 628
   store i32 1, ptr %69, align 4
   br label %70
 
@@ -587,19 +587,19 @@ define range(i32 -21, 1) i32 @arkInterpUpdate_Hermite(ptr noundef %0, ptr nocapt
   br i1 %4, label %40, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 288
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %7 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %19
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 216
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 568
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %12 = load double, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 272
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 280
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 %10(ptr noundef nonnull %0, double noundef %12, ptr noundef %14, ptr noundef %16, i32 noundef 0) #12
   %.not21 = icmp eq i32 %17, 0
@@ -610,30 +610,30 @@ define range(i32 -21, 1) i32 @arkInterpUpdate_Hermite(ptr noundef %0, ptr nocapt
   br label %19
 
 19:                                               ; preds = %18, %5
-  %20 = getelementptr inbounds i8, ptr %0, i64 272
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %1, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 8
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %21, ptr noundef %24) #12
-  %25 = getelementptr inbounds i8, ptr %0, i64 280
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr %1, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %26, ptr noundef %29) #12
   %30 = load ptr, ptr %1, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 48
   %32 = load double, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %30, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 40
   store double %32, ptr %33, align 8
   %34 = load ptr, ptr %1, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 48
   store double %2, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 376
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %37 = load double, ptr %36, align 8
   %38 = load ptr, ptr %1, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 56
   store double %37, ptr %39, align 8
   br label %40
 
@@ -655,7 +655,7 @@ define range(i32 -28, 1) i32 @arkInterpEvaluate_Hermite(ptr noundef %0, ptr noun
   %13 = fmul double %2, %12
   %14 = fmul double %2, %13
   %15 = load ptr, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 56
   %17 = load double, ptr %16, align 8
   %18 = fmul double %17, %17
   %19 = fmul double %17, %18
@@ -664,19 +664,19 @@ define range(i32 -28, 1) i32 @arkInterpEvaluate_Hermite(ptr noundef %0, ptr noun
   %22 = tail call i32 @llvm.smax.i32(i32 %4, i32 0)
   %23 = load i32, ptr %15, align 8
   %. = tail call i32 @llvm.smin.i32(i32 %22, i32 %23)
-  %24 = getelementptr inbounds i8, ptr %0, i64 288
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %25 = load i32, ptr %24, align 8
   %.not = icmp eq i32 %25, 0
   br i1 %.not, label %26, label %37
 
 26:                                               ; preds = %10
-  %27 = getelementptr inbounds i8, ptr %0, i64 216
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 568
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %30 = load double, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 272
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 280
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %34 = load ptr, ptr %33, align 8
   %35 = tail call i32 %28(ptr noundef nonnull %0, double noundef %30, ptr noundef %32, ptr noundef %34, i32 noundef 1) #12
   %.not342 = icmp eq i32 %35, 0
@@ -714,9 +714,9 @@ define range(i32 -28, 1) i32 @arkInterpEvaluate_Hermite(ptr noundef %0, ptr noun
 
 44:                                               ; preds = %43
   %45 = load ptr, ptr %1, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 272
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %49 = load ptr, ptr %48, align 8
   tail call void @N_VLinearSum(double noundef 5.000000e-01, ptr noundef %47, double noundef 5.000000e-01, ptr noundef %49, ptr noundef %5) #12
   br label %471
@@ -730,9 +730,9 @@ define range(i32 -28, 1) i32 @arkInterpEvaluate_Hermite(ptr noundef %0, ptr noun
   %.0336 = select i1 %51, double %53, double %55
   %.0335 = select i1 %51, double %52, double %54
   %56 = load ptr, ptr %1, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 272
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %60 = load ptr, ptr %59, align 8
   tail call void @N_VLinearSum(double noundef %.0335, ptr noundef %58, double noundef %.0336, ptr noundef %60, ptr noundef %5) #12
   br label %471
@@ -746,7 +746,7 @@ define range(i32 -28, 1) i32 @arkInterpEvaluate_Hermite(ptr noundef %0, ptr noun
 62:                                               ; preds = %61
   store double %11, ptr %7, align 16
   %63 = fsub double 1.000000e+00, %11
-  %64 = getelementptr inbounds i8, ptr %7, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store double %63, ptr %64, align 8
   %65 = fadd double %2, %11
   %66 = fmul double %65, %17
@@ -758,7 +758,7 @@ define range(i32 -28, 1) i32 @arkInterpEvaluate_Hermite(ptr noundef %0, ptr noun
   store double %69, ptr %7, align 16
   %70 = fmul double %2, -2.000000e+00
   %71 = fdiv double %70, %17
-  %72 = getelementptr inbounds i8, ptr %7, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store double %71, ptr %72, align 8
   %73 = tail call double @llvm.fmuladd.f64(double %2, double 2.000000e+00, double 1.000000e+00)
   br label %80
@@ -769,25 +769,25 @@ define range(i32 -28, 1) i32 @arkInterpEvaluate_Hermite(ptr noundef %0, ptr noun
   store double %76, ptr %7, align 16
   %77 = fdiv double -2.000000e+00, %17
   %78 = fdiv double %77, %17
-  %79 = getelementptr inbounds i8, ptr %7, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store double %78, ptr %79, align 8
   br label %80
 
 80:                                               ; preds = %67, %74, %62
   %.sink = phi double [ %73, %67 ], [ %75, %74 ], [ %66, %62 ]
-  %81 = getelementptr inbounds i8, ptr %7, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store double %.sink, ptr %81, align 16
   %82 = load ptr, ptr %1, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
   %84 = load ptr, ptr %83, align 8
   store ptr %84, ptr %8, align 16
-  %85 = getelementptr inbounds i8, ptr %0, i64 272
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %8, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %86, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %0, i64 280
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %8, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %89, ptr %90, align 16
   %91 = call i32 @N_VLinearCombination(i32 noundef 3, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %5) #12
   %.not352 = icmp eq i32 %91, 0
@@ -806,11 +806,11 @@ define range(i32 -28, 1) i32 @arkInterpEvaluate_Hermite(ptr noundef %0, ptr noun
   store double %95, ptr %7, align 16
   %96 = tail call double @llvm.fmuladd.f64(double %11, double -3.000000e+00, double 1.000000e+00)
   %97 = tail call double @llvm.fmuladd.f64(double %12, double -2.000000e+00, double %96)
-  %98 = getelementptr inbounds i8, ptr %7, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store double %97, ptr %98, align 8
   %99 = fadd double %11, %12
   %100 = fmul double %99, %17
-  %101 = getelementptr inbounds i8, ptr %7, i64 16
+  %101 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store double %100, ptr %101, align 16
   %102 = tail call double @llvm.fmuladd.f64(double %11, double 2.000000e+00, double %2)
   %103 = fadd double %102, %12
@@ -824,11 +824,11 @@ define range(i32 -28, 1) i32 @arkInterpEvaluate_Hermite(ptr noundef %0, ptr noun
   store double %108, ptr %7, align 16
   %109 = fmul double %106, -6.000000e+00
   %110 = fdiv double %109, %17
-  %111 = getelementptr inbounds i8, ptr %7, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store double %110, ptr %111, align 8
   %112 = fmul double %11, 3.000000e+00
   %113 = tail call double @llvm.fmuladd.f64(double %2, double 2.000000e+00, double %112)
-  %114 = getelementptr inbounds i8, ptr %7, i64 16
+  %114 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store double %113, ptr %114, align 16
   %115 = tail call double @llvm.fmuladd.f64(double %2, double 4.000000e+00, double 1.000000e+00)
   %116 = tail call double @llvm.fmuladd.f64(double %11, double 3.000000e+00, double %115)
@@ -841,11 +841,11 @@ define range(i32 -28, 1) i32 @arkInterpEvaluate_Hermite(ptr noundef %0, ptr noun
   store double %120, ptr %7, align 16
   %121 = fmul double %118, -6.000000e+00
   %122 = fdiv double %121, %18
-  %123 = getelementptr inbounds i8, ptr %7, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store double %122, ptr %123, align 8
   %124 = tail call double @llvm.fmuladd.f64(double %2, double 6.000000e+00, double 2.000000e+00)
   %125 = fdiv double %124, %17
-  %126 = getelementptr inbounds i8, ptr %7, i64 16
+  %126 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store double %125, ptr %126, align 16
   %127 = tail call double @llvm.fmuladd.f64(double %2, double 6.000000e+00, double 4.000000e+00)
   %128 = fdiv double %127, %17
@@ -855,41 +855,41 @@ define range(i32 -28, 1) i32 @arkInterpEvaluate_Hermite(ptr noundef %0, ptr noun
   %130 = fdiv double 1.200000e+01, %19
   store double %130, ptr %7, align 16
   %131 = fdiv double -1.200000e+01, %19
-  %132 = getelementptr inbounds i8, ptr %7, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store double %131, ptr %132, align 8
   %133 = fdiv double 6.000000e+00, %18
-  %134 = getelementptr inbounds i8, ptr %7, i64 16
+  %134 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store double %133, ptr %134, align 16
   br label %135
 
 135:                                              ; preds = %105, %129, %117, %93
   %.sink358 = phi double [ %116, %105 ], [ %133, %129 ], [ %128, %117 ], [ %104, %93 ]
-  %136 = getelementptr inbounds i8, ptr %7, i64 24
+  %136 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store double %.sink358, ptr %136, align 8
   %137 = load ptr, ptr %1, align 8
-  %138 = getelementptr inbounds i8, ptr %137, i64 16
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 16
   %139 = load ptr, ptr %138, align 8
   store ptr %139, ptr %8, align 16
-  %140 = getelementptr inbounds i8, ptr %0, i64 272
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %141 = load ptr, ptr %140, align 8
-  %142 = getelementptr inbounds i8, ptr %8, i64 8
+  %142 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %141, ptr %142, align 8
-  %143 = getelementptr inbounds i8, ptr %137, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %137, i64 8
   %144 = load ptr, ptr %143, align 8
-  %145 = getelementptr inbounds i8, ptr %8, i64 16
+  %145 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %144, ptr %145, align 16
-  %146 = getelementptr inbounds i8, ptr %0, i64 280
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %147 = load ptr, ptr %146, align 8
-  %148 = getelementptr inbounds i8, ptr %8, i64 24
+  %148 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %147, ptr %148, align 8
   %149 = call i32 @N_VLinearCombination(i32 noundef 4, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %5) #12
   %.not351 = icmp eq i32 %149, 0
   br i1 %.not351, label %471, label %472
 
 arkInterpEvaluate.exit:                           ; preds = %43
-  %150 = getelementptr inbounds i8, ptr %1, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %151 = load ptr, ptr %150, align 8
-  %152 = getelementptr inbounds i8, ptr %151, i64 48
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 48
   %153 = load ptr, ptr %152, align 8
   %154 = tail call i32 %153(ptr noundef nonnull %0, ptr noundef nonnull %1, double noundef 0xBFD5555555555555, i32 noundef 0, i32 noundef 3, ptr noundef %5) #12
   %.not348 = icmp eq i32 %154, 0
@@ -897,13 +897,13 @@ arkInterpEvaluate.exit:                           ; preds = %43
 
 155:                                              ; preds = %arkInterpEvaluate.exit
   %156 = load ptr, ptr %1, align 8
-  %157 = getelementptr inbounds i8, ptr %156, i64 48
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 48
   %158 = load double, ptr %157, align 8
   %159 = fdiv double %17, 3.000000e+00
   %160 = fsub double %158, %159
-  %161 = getelementptr inbounds i8, ptr %0, i64 216
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %162 = load ptr, ptr %161, align 8
-  %163 = getelementptr inbounds i8, ptr %156, i64 24
+  %163 = getelementptr inbounds nuw i8, ptr %156, i64 24
   %164 = load ptr, ptr %163, align 8
   %165 = tail call i32 %162(ptr noundef nonnull %0, double noundef %160, ptr noundef %5, ptr noundef %164, i32 noundef 2) #12
   %.not349 = icmp eq i32 %165, 0
@@ -925,19 +925,19 @@ arkInterpEvaluate.exit:                           ; preds = %43
   %171 = tail call double @llvm.fmuladd.f64(double %11, double 6.000000e+00, double 1.000000e+00)
   %172 = tail call double @llvm.fmuladd.f64(double %12, double 1.600000e+01, double %171)
   %173 = tail call double @llvm.fmuladd.f64(double %13, double 9.000000e+00, double %172)
-  %174 = getelementptr inbounds i8, ptr %7, i64 8
+  %174 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store double %173, ptr %174, align 8
   %175 = fmul double %17, 2.500000e-01
   %176 = fmul double %12, -1.400000e+01
   %177 = tail call double @llvm.fmuladd.f64(double %11, double -5.000000e+00, double %176)
   %178 = tail call double @llvm.fmuladd.f64(double %13, double -9.000000e+00, double %177)
   %179 = fmul double %178, %175
-  %180 = getelementptr inbounds i8, ptr %7, i64 16
+  %180 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store double %179, ptr %180, align 16
   %181 = tail call double @llvm.fmuladd.f64(double %11, double 2.000000e+00, double %2)
   %182 = fadd double %181, %12
   %183 = fmul double %182, %17
-  %184 = getelementptr inbounds i8, ptr %7, i64 24
+  %184 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store double %183, ptr %184, align 8
   %185 = fmul double %17, 2.700000e+01
   %186 = fmul double %185, 2.500000e-01
@@ -957,17 +957,17 @@ arkInterpEvaluate.exit:                           ; preds = %43
   %197 = tail call double @llvm.fmuladd.f64(double %2, double 1.200000e+01, double %192)
   %198 = tail call double @llvm.fmuladd.f64(double %12, double 3.600000e+01, double %197)
   %199 = fdiv double %198, %17
-  %200 = getelementptr inbounds i8, ptr %7, i64 8
+  %200 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store double %199, ptr %200, align 8
   %201 = fmul double %11, -2.100000e+01
   %202 = tail call double @llvm.fmuladd.f64(double %2, double -5.000000e+00, double %201)
   %203 = tail call double @llvm.fmuladd.f64(double %12, double -1.800000e+01, double %202)
   %204 = fmul double %203, 5.000000e-01
-  %205 = getelementptr inbounds i8, ptr %7, i64 16
+  %205 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store double %204, ptr %205, align 16
   %206 = tail call double @llvm.fmuladd.f64(double %2, double 4.000000e+00, double 1.000000e+00)
   %207 = tail call double @llvm.fmuladd.f64(double %11, double 3.000000e+00, double %206)
-  %208 = getelementptr inbounds i8, ptr %7, i64 24
+  %208 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store double %207, ptr %208, align 8
   %209 = fmul double %11, 3.000000e+00
   %210 = tail call double @llvm.fmuladd.f64(double %12, double 2.000000e+00, double %209)
@@ -983,16 +983,16 @@ arkInterpEvaluate.exit:                           ; preds = %43
   %217 = tail call double @llvm.fmuladd.f64(double %2, double 9.600000e+01, double 1.200000e+01)
   %218 = tail call double @llvm.fmuladd.f64(double %11, double 1.080000e+02, double %217)
   %219 = fdiv double %218, %18
-  %220 = getelementptr inbounds i8, ptr %7, i64 8
+  %220 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store double %219, ptr %220, align 8
   %221 = tail call double @llvm.fmuladd.f64(double %2, double -2.100000e+01, double -2.500000e+00)
   %222 = tail call double @llvm.fmuladd.f64(double %11, double -2.700000e+01, double %221)
   %223 = fdiv double %222, %17
-  %224 = getelementptr inbounds i8, ptr %7, i64 16
+  %224 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store double %223, ptr %224, align 16
   %225 = tail call double @llvm.fmuladd.f64(double %2, double 6.000000e+00, double 4.000000e+00)
   %226 = fdiv double %225, %17
-  %227 = getelementptr inbounds i8, ptr %7, i64 24
+  %227 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store double %226, ptr %227, align 8
   %228 = tail call double @llvm.fmuladd.f64(double %2, double -8.100000e+01, double -1.350000e+01)
   %229 = tail call double @llvm.fmuladd.f64(double %11, double -8.100000e+01, double %228)
@@ -1005,14 +1005,14 @@ arkInterpEvaluate.exit:                           ; preds = %43
   store double %233, ptr %7, align 16
   %234 = tail call double @llvm.fmuladd.f64(double %2, double 2.160000e+02, double 9.600000e+01)
   %235 = fdiv double %234, %19
-  %236 = getelementptr inbounds i8, ptr %7, i64 8
+  %236 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store double %235, ptr %236, align 8
   %237 = tail call double @llvm.fmuladd.f64(double %2, double -5.400000e+01, double -2.100000e+01)
   %238 = fdiv double %237, %18
-  %239 = getelementptr inbounds i8, ptr %7, i64 16
+  %239 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store double %238, ptr %239, align 16
   %240 = fdiv double 6.000000e+00, %18
-  %241 = getelementptr inbounds i8, ptr %7, i64 24
+  %241 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store double %240, ptr %241, align 8
   %242 = tail call double @llvm.fmuladd.f64(double %2, double -1.620000e+02, double -8.100000e+01)
   %243 = fdiv double %242, %18
@@ -1022,48 +1022,48 @@ arkInterpEvaluate.exit:                           ; preds = %43
   %245 = fdiv double -2.160000e+02, %20
   store double %245, ptr %7, align 16
   %246 = fdiv double 2.160000e+02, %20
-  %247 = getelementptr inbounds i8, ptr %7, i64 8
+  %247 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store double %246, ptr %247, align 8
   %248 = fdiv double -5.400000e+01, %19
-  %249 = getelementptr inbounds i8, ptr %7, i64 16
+  %249 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store double %248, ptr %249, align 16
-  %250 = getelementptr inbounds i8, ptr %7, i64 24
+  %250 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store double 0.000000e+00, ptr %250, align 8
   %251 = fdiv double -1.620000e+02, %19
   br label %252
 
 252:                                              ; preds = %191, %231, %244, %213, %167
   %.sink360 = phi double [ %212, %191 ], [ %243, %231 ], [ %251, %244 ], [ %230, %213 ], [ %190, %167 ]
-  %253 = getelementptr inbounds i8, ptr %7, i64 32
+  %253 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store double %.sink360, ptr %253, align 16
   %254 = load ptr, ptr %1, align 8
-  %255 = getelementptr inbounds i8, ptr %254, i64 16
+  %255 = getelementptr inbounds nuw i8, ptr %254, i64 16
   %256 = load ptr, ptr %255, align 8
   store ptr %256, ptr %8, align 16
-  %257 = getelementptr inbounds i8, ptr %0, i64 272
+  %257 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %258 = load ptr, ptr %257, align 8
-  %259 = getelementptr inbounds i8, ptr %8, i64 8
+  %259 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %258, ptr %259, align 8
-  %260 = getelementptr inbounds i8, ptr %254, i64 8
+  %260 = getelementptr inbounds nuw i8, ptr %254, i64 8
   %261 = load ptr, ptr %260, align 8
-  %262 = getelementptr inbounds i8, ptr %8, i64 16
+  %262 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %261, ptr %262, align 16
-  %263 = getelementptr inbounds i8, ptr %0, i64 280
+  %263 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %264 = load ptr, ptr %263, align 8
-  %265 = getelementptr inbounds i8, ptr %8, i64 24
+  %265 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %264, ptr %265, align 8
-  %266 = getelementptr inbounds i8, ptr %254, i64 24
+  %266 = getelementptr inbounds nuw i8, ptr %254, i64 24
   %267 = load ptr, ptr %266, align 8
-  %268 = getelementptr inbounds i8, ptr %8, i64 32
+  %268 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %267, ptr %268, align 16
   %269 = call i32 @N_VLinearCombination(i32 noundef 5, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %5) #12
   %.not350 = icmp eq i32 %269, 0
   br i1 %.not350, label %471, label %472
 
 arkInterpEvaluate.exit354:                        ; preds = %43
-  %270 = getelementptr inbounds i8, ptr %1, i64 8
+  %270 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %271 = load ptr, ptr %270, align 8
-  %272 = getelementptr inbounds i8, ptr %271, i64 48
+  %272 = getelementptr inbounds nuw i8, ptr %271, i64 48
   %273 = load ptr, ptr %272, align 8
   %274 = tail call i32 %273(ptr noundef nonnull %0, ptr noundef nonnull %1, double noundef 0xBFD5555555555555, i32 noundef 0, i32 noundef 4, ptr noundef %5) #12
   %.not343 = icmp eq i32 %274, 0
@@ -1071,13 +1071,13 @@ arkInterpEvaluate.exit354:                        ; preds = %43
 
 275:                                              ; preds = %arkInterpEvaluate.exit354
   %276 = load ptr, ptr %1, align 8
-  %277 = getelementptr inbounds i8, ptr %276, i64 48
+  %277 = getelementptr inbounds nuw i8, ptr %276, i64 48
   %278 = load double, ptr %277, align 8
   %279 = fdiv double %17, 3.000000e+00
   %280 = fsub double %278, %279
-  %281 = getelementptr inbounds i8, ptr %0, i64 216
+  %281 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %282 = load ptr, ptr %281, align 8
-  %283 = getelementptr inbounds i8, ptr %276, i64 24
+  %283 = getelementptr inbounds nuw i8, ptr %276, i64 24
   %284 = load ptr, ptr %283, align 8
   %285 = tail call i32 %282(ptr noundef nonnull %0, double noundef %280, ptr noundef %5, ptr noundef %284, i32 noundef 2) #12
   %.not344 = icmp eq i32 %285, 0
@@ -1085,7 +1085,7 @@ arkInterpEvaluate.exit354:                        ; preds = %43
 
 arkInterpEvaluate.exit356:                        ; preds = %275
   %286 = load ptr, ptr %270, align 8
-  %287 = getelementptr inbounds i8, ptr %286, i64 48
+  %287 = getelementptr inbounds nuw i8, ptr %286, i64 48
   %288 = load ptr, ptr %287, align 8
   %289 = tail call i32 %288(ptr noundef nonnull %0, ptr noundef nonnull %1, double noundef 0xBFE5555555555555, i32 noundef 0, i32 noundef 4, ptr noundef %5) #12
   %.not345 = icmp eq i32 %289, 0
@@ -1093,13 +1093,13 @@ arkInterpEvaluate.exit356:                        ; preds = %275
 
 290:                                              ; preds = %arkInterpEvaluate.exit356
   %291 = load ptr, ptr %1, align 8
-  %292 = getelementptr inbounds i8, ptr %291, i64 48
+  %292 = getelementptr inbounds nuw i8, ptr %291, i64 48
   %293 = load double, ptr %292, align 8
   %294 = fmul double %17, 2.000000e+00
   %295 = fdiv double %294, 3.000000e+00
   %296 = fsub double %293, %295
   %297 = load ptr, ptr %281, align 8
-  %298 = getelementptr inbounds i8, ptr %291, i64 32
+  %298 = getelementptr inbounds nuw i8, ptr %291, i64 32
   %299 = load ptr, ptr %298, align 8
   %300 = tail call i32 %297(ptr noundef nonnull %0, double noundef %296, ptr noundef %5, ptr noundef %299, i32 noundef 2) #12
   %.not346 = icmp eq i32 %300, 0
@@ -1121,7 +1121,7 @@ arkInterpEvaluate.exit356:                        ; preds = %275
   %306 = tail call double @llvm.fmuladd.f64(double %11, double 3.000000e+01, double %305)
   store double %306, ptr %7, align 16
   %307 = fsub double 1.000000e+00, %306
-  %308 = getelementptr inbounds i8, ptr %7, i64 8
+  %308 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store double %307, ptr %308, align 8
   %309 = fmul double %17, 2.500000e-01
   %310 = fmul double %13, 6.300000e+01
@@ -1129,7 +1129,7 @@ arkInterpEvaluate.exit356:                        ; preds = %275
   %312 = tail call double @llvm.fmuladd.f64(double %12, double 4.900000e+01, double %311)
   %313 = tail call double @llvm.fmuladd.f64(double %11, double 1.300000e+01, double %312)
   %314 = fmul double %313, %309
-  %315 = getelementptr inbounds i8, ptr %7, i64 16
+  %315 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store double %314, ptr %315, align 16
   %316 = fmul double %13, 7.200000e+01
   %317 = tail call double @llvm.fmuladd.f64(double %14, double 2.700000e+01, double %316)
@@ -1137,14 +1137,14 @@ arkInterpEvaluate.exit356:                        ; preds = %275
   %319 = tail call double @llvm.fmuladd.f64(double %11, double 2.600000e+01, double %318)
   %320 = tail call double @llvm.fmuladd.f64(double %2, double 4.000000e+00, double %319)
   %321 = fmul double %320, %309
-  %322 = getelementptr inbounds i8, ptr %7, i64 24
+  %322 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store double %321, ptr %322, align 8
   %323 = fmul double %13, 1.890000e+02
   %324 = tail call double @llvm.fmuladd.f64(double %14, double 8.100000e+01, double %323)
   %325 = tail call double @llvm.fmuladd.f64(double %12, double 1.350000e+02, double %324)
   %326 = tail call double @llvm.fmuladd.f64(double %11, double 2.700000e+01, double %325)
   %327 = fmul double %326, %309
-  %328 = getelementptr inbounds i8, ptr %7, i64 32
+  %328 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store double %327, ptr %328, align 16
   %329 = fmul double %13, 2.160000e+02
   %330 = tail call double @llvm.fmuladd.f64(double %14, double 8.100000e+01, double %329)
@@ -1161,14 +1161,14 @@ arkInterpEvaluate.exit356:                        ; preds = %275
   %339 = fdiv double %338, %17
   store double %339, ptr %7, align 16
   %340 = fneg double %339
-  %341 = getelementptr inbounds i8, ptr %7, i64 8
+  %341 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store double %340, ptr %341, align 8
   %342 = fmul double %12, 2.520000e+02
   %343 = tail call double @llvm.fmuladd.f64(double %13, double 1.350000e+02, double %342)
   %344 = tail call double @llvm.fmuladd.f64(double %11, double 1.470000e+02, double %343)
   %345 = tail call double @llvm.fmuladd.f64(double %2, double 2.600000e+01, double %344)
   %346 = fmul double %345, 2.500000e-01
-  %347 = getelementptr inbounds i8, ptr %7, i64 16
+  %347 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store double %346, ptr %347, align 16
   %348 = fmul double %12, 2.880000e+02
   %349 = tail call double @llvm.fmuladd.f64(double %13, double 1.350000e+02, double %348)
@@ -1176,14 +1176,14 @@ arkInterpEvaluate.exit356:                        ; preds = %275
   %351 = tail call double @llvm.fmuladd.f64(double %2, double 5.200000e+01, double %350)
   %352 = fadd double %351, 4.000000e+00
   %353 = fmul double %352, 2.500000e-01
-  %354 = getelementptr inbounds i8, ptr %7, i64 24
+  %354 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store double %353, ptr %354, align 8
   %355 = fmul double %12, 7.560000e+02
   %356 = tail call double @llvm.fmuladd.f64(double %13, double 4.050000e+02, double %355)
   %357 = tail call double @llvm.fmuladd.f64(double %11, double 4.050000e+02, double %356)
   %358 = tail call double @llvm.fmuladd.f64(double %2, double 5.400000e+01, double %357)
   %359 = fmul double %358, 2.500000e-01
-  %360 = getelementptr inbounds i8, ptr %7, i64 32
+  %360 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store double %359, ptr %360, align 16
   %361 = fmul double %12, 8.640000e+02
   %362 = tail call double @llvm.fmuladd.f64(double %13, double 4.050000e+02, double %361)
@@ -1200,28 +1200,28 @@ arkInterpEvaluate.exit356:                        ; preds = %275
   %371 = fdiv double %370, %18
   store double %371, ptr %7, align 16
   %372 = fneg double %371
-  %373 = getelementptr inbounds i8, ptr %7, i64 8
+  %373 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store double %372, ptr %373, align 8
   %374 = fmul double %11, 3.780000e+02
   %375 = tail call double @llvm.fmuladd.f64(double %12, double 2.700000e+02, double %374)
   %376 = tail call double @llvm.fmuladd.f64(double %2, double 1.470000e+02, double %375)
   %377 = fadd double %376, 1.300000e+01
   %378 = fdiv double %377, %294
-  %379 = getelementptr inbounds i8, ptr %7, i64 16
+  %379 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store double %378, ptr %379, align 16
   %380 = fmul double %11, 4.320000e+02
   %381 = tail call double @llvm.fmuladd.f64(double %12, double 2.700000e+02, double %380)
   %382 = tail call double @llvm.fmuladd.f64(double %2, double 2.010000e+02, double %381)
   %383 = fadd double %382, 2.600000e+01
   %384 = fdiv double %383, %294
-  %385 = getelementptr inbounds i8, ptr %7, i64 24
+  %385 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store double %384, ptr %385, align 8
   %386 = fmul double %11, 1.134000e+03
   %387 = tail call double @llvm.fmuladd.f64(double %12, double 8.100000e+02, double %386)
   %388 = tail call double @llvm.fmuladd.f64(double %2, double 4.050000e+02, double %387)
   %389 = fadd double %388, 2.700000e+01
   %390 = fdiv double %389, %294
-  %391 = getelementptr inbounds i8, ptr %7, i64 32
+  %391 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store double %390, ptr %391, align 16
   %392 = fmul double %11, 1.296000e+03
   %393 = tail call double @llvm.fmuladd.f64(double %12, double 8.100000e+02, double %392)
@@ -1237,26 +1237,26 @@ arkInterpEvaluate.exit356:                        ; preds = %275
   %401 = fdiv double %400, %19
   store double %401, ptr %7, align 16
   %402 = fneg double %401
-  %403 = getelementptr inbounds i8, ptr %7, i64 8
+  %403 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store double %402, ptr %403, align 8
   %404 = fmul double %2, 7.560000e+02
   %405 = tail call double @llvm.fmuladd.f64(double %11, double 8.100000e+02, double %404)
   %406 = fadd double %405, 1.470000e+02
   %407 = fmul double %18, 2.000000e+00
   %408 = fdiv double %406, %407
-  %409 = getelementptr inbounds i8, ptr %7, i64 16
+  %409 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store double %408, ptr %409, align 16
   %410 = fmul double %2, 8.640000e+02
   %411 = tail call double @llvm.fmuladd.f64(double %11, double 8.100000e+02, double %410)
   %412 = fadd double %411, 2.010000e+02
   %413 = fdiv double %412, %407
-  %414 = getelementptr inbounds i8, ptr %7, i64 24
+  %414 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store double %413, ptr %414, align 8
   %415 = fmul double %2, 2.268000e+03
   %416 = tail call double @llvm.fmuladd.f64(double %11, double 2.430000e+03, double %415)
   %417 = fadd double %416, 4.050000e+02
   %418 = fdiv double %417, %407
-  %419 = getelementptr inbounds i8, ptr %7, i64 32
+  %419 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store double %418, ptr %419, align 16
   %420 = fmul double %2, 2.592000e+03
   %421 = tail call double @llvm.fmuladd.f64(double %11, double 2.430000e+03, double %420)
@@ -1269,19 +1269,19 @@ arkInterpEvaluate.exit356:                        ; preds = %275
   %426 = fdiv double %425, %20
   store double %426, ptr %7, align 16
   %427 = fneg double %426
-  %428 = getelementptr inbounds i8, ptr %7, i64 8
+  %428 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store double %427, ptr %428, align 8
   %429 = tail call double @llvm.fmuladd.f64(double %2, double 8.100000e+02, double 3.780000e+02)
   %430 = fdiv double %429, %19
-  %431 = getelementptr inbounds i8, ptr %7, i64 16
+  %431 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store double %430, ptr %431, align 16
   %432 = tail call double @llvm.fmuladd.f64(double %2, double 8.100000e+02, double 4.320000e+02)
   %433 = fdiv double %432, %19
-  %434 = getelementptr inbounds i8, ptr %7, i64 24
+  %434 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store double %433, ptr %434, align 8
   %435 = tail call double @llvm.fmuladd.f64(double %2, double 2.430000e+03, double 1.134000e+03)
   %436 = fdiv double %435, %19
-  %437 = getelementptr inbounds i8, ptr %7, i64 32
+  %437 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store double %436, ptr %437, align 16
   %438 = tail call double @llvm.fmuladd.f64(double %2, double 2.430000e+03, double 1.296000e+03)
   %439 = fdiv double %438, %19
@@ -1291,45 +1291,45 @@ arkInterpEvaluate.exit356:                        ; preds = %275
   %441 = fdiv double 6.480000e+03, %21
   store double %441, ptr %7, align 16
   %442 = fneg double %441
-  %443 = getelementptr inbounds i8, ptr %7, i64 8
+  %443 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store double %442, ptr %443, align 8
   %444 = fdiv double 8.100000e+02, %20
-  %445 = getelementptr inbounds i8, ptr %7, i64 16
+  %445 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store double %444, ptr %445, align 16
-  %446 = getelementptr inbounds i8, ptr %7, i64 24
+  %446 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store double %444, ptr %446, align 8
   %447 = fdiv double 2.430000e+03, %20
-  %448 = getelementptr inbounds i8, ptr %7, i64 32
+  %448 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store double %447, ptr %448, align 16
   br label %449
 
 449:                                              ; preds = %334, %397, %440, %424, %366, %302
   %.sink362 = phi double [ %365, %334 ], [ %423, %397 ], [ %447, %440 ], [ %439, %424 ], [ %396, %366 ], [ %333, %302 ]
-  %450 = getelementptr inbounds i8, ptr %7, i64 40
+  %450 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store double %.sink362, ptr %450, align 8
   %451 = load ptr, ptr %1, align 8
-  %452 = getelementptr inbounds i8, ptr %451, i64 16
+  %452 = getelementptr inbounds nuw i8, ptr %451, i64 16
   %453 = load ptr, ptr %452, align 8
   store ptr %453, ptr %8, align 16
-  %454 = getelementptr inbounds i8, ptr %0, i64 272
+  %454 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %455 = load ptr, ptr %454, align 8
-  %456 = getelementptr inbounds i8, ptr %8, i64 8
+  %456 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %455, ptr %456, align 8
-  %457 = getelementptr inbounds i8, ptr %451, i64 8
+  %457 = getelementptr inbounds nuw i8, ptr %451, i64 8
   %458 = load ptr, ptr %457, align 8
-  %459 = getelementptr inbounds i8, ptr %8, i64 16
+  %459 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %458, ptr %459, align 16
-  %460 = getelementptr inbounds i8, ptr %0, i64 280
+  %460 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %461 = load ptr, ptr %460, align 8
-  %462 = getelementptr inbounds i8, ptr %8, i64 24
+  %462 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %461, ptr %462, align 8
-  %463 = getelementptr inbounds i8, ptr %451, i64 24
+  %463 = getelementptr inbounds nuw i8, ptr %451, i64 24
   %464 = load ptr, ptr %463, align 8
-  %465 = getelementptr inbounds i8, ptr %8, i64 32
+  %465 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %464, ptr %465, align 16
-  %466 = getelementptr inbounds i8, ptr %451, i64 32
+  %466 = getelementptr inbounds nuw i8, ptr %451, i64 32
   %467 = load ptr, ptr %466, align 8
-  %468 = getelementptr inbounds i8, ptr %8, i64 40
+  %468 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store ptr %467, ptr %468, align 8
   %469 = call i32 @N_VLinearCombination(i32 noundef 6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %5) #12
   %.not347 = icmp eq i32 %469, 0
@@ -1395,17 +1395,17 @@ define noalias noundef ptr @arkInterpCreate_Lagrange(ptr noundef %0, i32 noundef
 
 11:                                               ; preds = %7
   store ptr @arkInterpResize_Lagrange, ptr %8, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @arkInterpFree_Lagrange, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr @arkInterpPrintMem_Lagrange, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr @arkInterpSetDegree_Lagrange, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %8, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr @arkInterpInit_Lagrange, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %8, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store ptr @arkInterpUpdate_Lagrange, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %8, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @arkInterpEvaluate_Lagrange, ptr %17, align 8
   %calloc = tail call dereferenceable_or_null(40) ptr @calloc(i64 1, i64 40)
   %18 = icmp eq ptr %calloc, null
@@ -1417,25 +1417,25 @@ define noalias noundef ptr @arkInterpCreate_Lagrange(ptr noundef %0, i32 noundef
   br label %37
 
 20:                                               ; preds = %11
-  %21 = getelementptr inbounds i8, ptr %5, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %8, ptr %21, align 8
   store ptr %calloc, ptr %5, align 8
   %22 = add nuw nsw i32 %1, 1
   store i32 %22, ptr %calloc, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load double, ptr %23, align 8
   %25 = fmul double %24, 1.000000e+02
-  %26 = getelementptr inbounds i8, ptr %calloc, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %calloc, i64 32
   store double %25, ptr %26, align 8
   %27 = add nuw nsw i32 %1, 2
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds i8, ptr %0, i64 544
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %30 = load i64, ptr %29, align 8
   %31 = add nsw i64 %30, %28
   store i64 %31, ptr %29, align 8
   %32 = add nuw nsw i32 %1, 3
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds i8, ptr %0, i64 552
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %35 = load i64, ptr %34, align 8
   %36 = add nsw i64 %35, %33
   store i64 %36, ptr %34, align 8
@@ -1457,13 +1457,13 @@ define range(i32 -21, 1) i32 @arkInterpResize_Lagrange(ptr noundef %0, ptr nound
 
 11:                                               ; preds = %9
   %12 = load ptr, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %12, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %.lr.ph, label %.loopexit
@@ -1471,7 +1471,7 @@ define range(i32 -21, 1) i32 @arkInterpResize_Lagrange(ptr noundef %0, ptr nound
 18:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = load ptr, ptr %1, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i32, ptr %20, align 4
   %22 = sext i32 %21 to i64
   %23 = icmp slt i64 %indvars.iv.next, %22
@@ -1480,16 +1480,16 @@ define range(i32 -21, 1) i32 @arkInterpResize_Lagrange(ptr noundef %0, ptr nound
 .lr.ph:                                           ; preds = %.preheader, %18
   %indvars.iv = phi i64 [ %indvars.iv.next, %18 ], [ 0, %.preheader ]
   %24 = phi ptr [ %19, %18 ], [ %12, %.preheader ]
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv
   %28 = tail call i32 @arkResizeVec(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %27) #12
   %.not19 = icmp eq i32 %28, 0
   br i1 %.not19, label %.loopexit20, label %18
 
 .loopexit:                                        ; preds = %18, %.preheader, %11
   %29 = phi ptr [ %12, %.preheader ], [ %12, %11 ], [ %19, %18 ]
-  %30 = getelementptr inbounds i8, ptr %29, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   store i32 0, ptr %30, align 8
   br label %.loopexit20
 
@@ -1511,7 +1511,7 @@ define void @arkInterpFree_Lagrange(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not, label %54, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not34 = icmp eq ptr %9, null
   br i1 %.not34, label %31, label %.preheader
@@ -1525,9 +1525,9 @@ define void @arkInterpFree_Lagrange(ptr noundef %0, ptr noundef %1) #0 {
   %12 = phi i32 [ %24, %23 ], [ %10, %.preheader ]
   %13 = phi ptr [ %25, %23 ], [ %6, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %23 ], [ 0, %.preheader ]
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
   %.not37 = icmp eq ptr %17, null
   br i1 %.not37, label %23, label %18
@@ -1535,9 +1535,9 @@ define void @arkInterpFree_Lagrange(ptr noundef %0, ptr noundef %1) #0 {
 18:                                               ; preds = %.lr.ph
   tail call void @arkFreeVec(ptr noundef nonnull %0, ptr noundef nonnull %16) #12
   %19 = load ptr, ptr %1, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
   store ptr null, ptr %22, align 8
   %.pre = load ptr, ptr %1, align 8
   %.pre41 = load i32, ptr %.pre, align 8
@@ -1552,7 +1552,7 @@ define void @arkInterpFree_Lagrange(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %27, label %.lr.ph, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %23
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %25, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %25, i64 8
   %.pre42 = load ptr, ptr %.phi.trans.insert, align 8
   br label %._crit_edge
 
@@ -1560,14 +1560,14 @@ define void @arkInterpFree_Lagrange(ptr noundef %0, ptr noundef %1) #0 {
   %28 = phi ptr [ %9, %.preheader ], [ %.pre42, %._crit_edge.loopexit ]
   tail call void @free(ptr noundef %28) #12
   %29 = load ptr, ptr %1, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr null, ptr %30, align 8
   %.pre43 = load ptr, ptr %1, align 8
   br label %31
 
 31:                                               ; preds = %._crit_edge, %7
   %32 = phi ptr [ %.pre43, %._crit_edge ], [ %6, %7 ]
-  %33 = getelementptr inbounds i8, ptr %32, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load ptr, ptr %33, align 8
   %.not35 = icmp eq ptr %34, null
   br i1 %.not35, label %38, label %35
@@ -1575,7 +1575,7 @@ define void @arkInterpFree_Lagrange(ptr noundef %0, ptr noundef %1) #0 {
 35:                                               ; preds = %31
   tail call void @free(ptr noundef nonnull %34) #12
   %36 = load ptr, ptr %1, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store ptr null, ptr %37, align 8
   %.pre44 = load ptr, ptr %1, align 8
   br label %38
@@ -1585,7 +1585,7 @@ define void @arkInterpFree_Lagrange(ptr noundef %0, ptr noundef %1) #0 {
   %40 = load i32, ptr %39, align 8
   %41 = add nsw i32 %40, 1
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds i8, ptr %0, i64 544
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %44 = load i64, ptr %43, align 8
   %45 = sub nsw i64 %44, %42
   store i64 %45, ptr %43, align 8
@@ -1593,7 +1593,7 @@ define void @arkInterpFree_Lagrange(ptr noundef %0, ptr noundef %1) #0 {
   %47 = load i32, ptr %46, align 8
   %48 = add nsw i32 %47, 2
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds i8, ptr %0, i64 552
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %51 = load i64, ptr %50, align 8
   %52 = sub nsw i64 %51, %49
   store i64 %52, ptr %50, align 8
@@ -1603,7 +1603,7 @@ define void @arkInterpFree_Lagrange(ptr noundef %0, ptr noundef %1) #0 {
   br label %54
 
 54:                                               ; preds = %38, %5
-  %55 = getelementptr inbounds i8, ptr %1, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %56 = load ptr, ptr %55, align 8
   %.not36 = icmp eq ptr %56, null
   br i1 %.not36, label %58, label %57
@@ -1630,11 +1630,11 @@ define void @arkInterpPrintMem_Lagrange(ptr noundef readonly %0, ptr nocapture n
   %5 = load i32, ptr %4, align 8
   %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.8, i32 noundef %5) #12
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.9, i32 noundef %9) #12
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   %.not23 = icmp eq ptr %13, null
   br i1 %.not23, label %29, label %14
@@ -1649,9 +1649,9 @@ define void @arkInterpPrintMem_Lagrange(ptr noundef readonly %0, ptr nocapture n
 .lr.ph:                                           ; preds = %14, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %14 ]
   %19 = phi ptr [ %25, %.lr.ph ], [ %16, %14 ]
-  %20 = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds double, ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw double, ptr %21, i64 %indvars.iv
   %23 = load double, ptr %22, align 8
   %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.11, double noundef %23) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1668,7 +1668,7 @@ define void @arkInterpPrintMem_Lagrange(ptr noundef readonly %0, ptr nocapture n
 
 29:                                               ; preds = %._crit_edge, %3
   %30 = phi ptr [ %.pre, %._crit_edge ], [ %11, %3 ]
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
   %.not24 = icmp eq ptr %32, null
   br i1 %.not24, label %48, label %33
@@ -1683,9 +1683,9 @@ define void @arkInterpPrintMem_Lagrange(ptr noundef readonly %0, ptr nocapture n
 .lr.ph29:                                         ; preds = %33, %.lr.ph29
   %indvars.iv32 = phi i64 [ %indvars.iv.next33, %.lr.ph29 ], [ 0, %33 ]
   %38 = phi ptr [ %44, %.lr.ph29 ], [ %35, %33 ]
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds ptr, ptr %40, i64 %indvars.iv32
+  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv32
   %42 = load ptr, ptr %41, align 8
   %43 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.14, ptr noundef %42) #12
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
@@ -1755,13 +1755,13 @@ define range(i32 -28, 1) i32 @arkInterpInit_Lagrange(ptr noundef %0, ptr noundef
 5:                                                ; preds = %3
   %6 = load ptr, ptr %1, align 8
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = icmp sgt i32 %7, %9
   br i1 %10, label %11, label %42
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %6, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %17, label %14
@@ -1769,14 +1769,14 @@ define range(i32 -28, 1) i32 @arkInterpInit_Lagrange(ptr noundef %0, ptr noundef
 14:                                               ; preds = %11
   tail call void @free(ptr noundef nonnull %13) #12
   %15 = load ptr, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr null, ptr %16, align 8
   %.pre = load ptr, ptr %1, align 8
   br label %17
 
 17:                                               ; preds = %14, %11
   %18 = phi ptr [ %.pre, %14 ], [ %6, %11 ]
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not64 = icmp eq ptr %20, null
   br i1 %.not64, label %42, label %.preheader70
@@ -1790,9 +1790,9 @@ define range(i32 -28, 1) i32 @arkInterpInit_Lagrange(ptr noundef %0, ptr noundef
   %23 = phi i32 [ %35, %34 ], [ %21, %.preheader70 ]
   %24 = phi ptr [ %36, %34 ], [ %18, %.preheader70 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %34 ], [ 0, %.preheader70 ]
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8
   %.not67 = icmp eq ptr %28, null
   br i1 %.not67, label %34, label %29
@@ -1800,9 +1800,9 @@ define range(i32 -28, 1) i32 @arkInterpInit_Lagrange(ptr noundef %0, ptr noundef
 29:                                               ; preds = %.lr.ph
   tail call void @arkFreeVec(ptr noundef nonnull %0, ptr noundef nonnull %27) #12
   %30 = load ptr, ptr %1, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds ptr, ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
   store ptr null, ptr %33, align 8
   %.pre92 = load ptr, ptr %1, align 8
   %.pre93 = load i32, ptr %.pre92, align 8
@@ -1817,7 +1817,7 @@ define range(i32 -28, 1) i32 @arkInterpInit_Lagrange(ptr noundef %0, ptr noundef
   br i1 %38, label %.lr.ph, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %34
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %36, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %36, i64 8
   %.pre94 = load ptr, ptr %.phi.trans.insert, align 8
   br label %._crit_edge
 
@@ -1825,14 +1825,14 @@ define range(i32 -28, 1) i32 @arkInterpInit_Lagrange(ptr noundef %0, ptr noundef
   %39 = phi ptr [ %20, %.preheader70 ], [ %.pre94, %._crit_edge.loopexit ]
   tail call void @free(ptr noundef %39) #12
   %40 = load ptr, ptr %1, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store ptr null, ptr %41, align 8
   %.pre95 = load ptr, ptr %1, align 8
   br label %42
 
 42:                                               ; preds = %17, %._crit_edge, %5
   %43 = phi ptr [ %18, %17 ], [ %.pre95, %._crit_edge ], [ %6, %5 ]
-  %44 = getelementptr inbounds i8, ptr %43, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, null
   br i1 %46, label %47, label %60
@@ -1844,22 +1844,22 @@ define range(i32 -28, 1) i32 @arkInterpInit_Lagrange(ptr noundef %0, ptr noundef
   %51 = tail call noalias ptr @malloc(i64 noundef %50) #13
   store ptr %51, ptr %44, align 8
   %52 = load ptr, ptr %1, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load ptr, ptr %53, align 8
   %55 = icmp eq ptr %54, null
   br i1 %55, label %arkInterpFree.exit, label %60
 
 arkInterpFree.exit:                               ; preds = %47
-  %56 = getelementptr inbounds i8, ptr %1, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load ptr, ptr %58, align 8
   tail call void %59(ptr noundef nonnull %0, ptr noundef nonnull %1) #12
   br label %135
 
 60:                                               ; preds = %47, %42
   %61 = phi ptr [ %52, %47 ], [ %43, %42 ]
-  %62 = getelementptr inbounds i8, ptr %61, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = load ptr, ptr %62, align 8
   %64 = icmp eq ptr %63, null
   %65 = load i32, ptr %61, align 8
@@ -1871,7 +1871,7 @@ arkInterpFree.exit:                               ; preds = %47
   %69 = tail call noalias ptr @malloc(i64 noundef %68) #13
   store ptr %69, ptr %62, align 8
   %70 = load ptr, ptr %1, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %72 = load ptr, ptr %71, align 8
   %73 = icmp eq ptr %72, null
   br i1 %73, label %arkInterpFree.exit68, label %.preheader
@@ -1882,13 +1882,13 @@ arkInterpFree.exit:                               ; preds = %47
   br i1 %75, label %.lr.ph75, label %.loopexit
 
 .lr.ph75:                                         ; preds = %.preheader
-  %76 = getelementptr inbounds i8, ptr %0, i64 272
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 272
   br label %86
 
 arkInterpFree.exit68:                             ; preds = %66
-  %77 = getelementptr inbounds i8, ptr %1, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load ptr, ptr %79, align 8
   tail call void %80(ptr noundef nonnull %0, ptr noundef nonnull %1) #12
   br label %135
@@ -1904,23 +1904,23 @@ arkInterpFree.exit68:                             ; preds = %66
 86:                                               ; preds = %.lr.ph75, %81
   %indvars.iv86 = phi i64 [ 0, %.lr.ph75 ], [ %indvars.iv.next87, %81 ]
   %87 = phi ptr [ %70, %.lr.ph75 ], [ %82, %81 ]
-  %88 = getelementptr inbounds i8, ptr %87, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds ptr, ptr %89, i64 %indvars.iv86
+  %90 = getelementptr inbounds nuw ptr, ptr %89, i64 %indvars.iv86
   store ptr null, ptr %90, align 8
   %91 = load ptr, ptr %76, align 8
   %92 = load ptr, ptr %1, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds ptr, ptr %94, i64 %indvars.iv86
+  %95 = getelementptr inbounds nuw ptr, ptr %94, i64 %indvars.iv86
   %96 = tail call i32 @arkAllocVec(ptr noundef nonnull %0, ptr noundef %91, ptr noundef %95) #12
   %.not66 = icmp eq i32 %96, 0
   br i1 %.not66, label %arkInterpFree.exit69, label %81
 
 arkInterpFree.exit69:                             ; preds = %86
-  %97 = getelementptr inbounds i8, ptr %1, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %100 = load ptr, ptr %99, align 8
   tail call void %100(ptr noundef nonnull %0, ptr noundef nonnull %1) #12
   br label %135
@@ -1928,7 +1928,7 @@ arkInterpFree.exit69:                             ; preds = %86
 .loopexit:                                        ; preds = %81, %60, %.preheader
   %101 = phi i32 [ %74, %.preheader ], [ %65, %60 ], [ %83, %81 ]
   %102 = phi ptr [ %70, %.preheader ], [ %61, %60 ], [ %82, %81 ]
-  %103 = getelementptr inbounds i8, ptr %102, i64 4
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 4
   %104 = load i32, ptr %103, align 4
   %105 = icmp sgt i32 %101, %104
   br i1 %105, label %106, label %107
@@ -1936,7 +1936,7 @@ arkInterpFree.exit69:                             ; preds = %86
 106:                                              ; preds = %.loopexit
   store i32 %101, ptr %103, align 4
   %.pre97 = load ptr, ptr %1, align 8
-  %.phi.trans.insert98 = getelementptr inbounds i8, ptr %.pre97, i64 4
+  %.phi.trans.insert98 = getelementptr inbounds nuw i8, ptr %.pre97, i64 4
   %.pre99 = load i32, ptr %.phi.trans.insert98, align 4
   br label %107
 
@@ -1949,13 +1949,13 @@ arkInterpFree.exit69:                             ; preds = %86
 .lr.ph78:                                         ; preds = %107, %.lr.ph78
   %indvars.iv89 = phi i64 [ %indvars.iv.next90, %.lr.ph78 ], [ 0, %107 ]
   %111 = phi ptr [ %115, %.lr.ph78 ], [ %109, %107 ]
-  %112 = getelementptr inbounds i8, ptr %111, i64 16
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 16
   %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds double, ptr %113, i64 %indvars.iv89
+  %114 = getelementptr inbounds nuw double, ptr %113, i64 %indvars.iv89
   store double 0.000000e+00, ptr %114, align 8
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
   %115 = load ptr, ptr %1, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 4
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 4
   %117 = load i32, ptr %116, align 4
   %118 = sext i32 %117 to i64
   %119 = icmp slt i64 %indvars.iv.next90, %118
@@ -1964,7 +1964,7 @@ arkInterpFree.exit69:                             ; preds = %86
 ._crit_edge79:                                    ; preds = %.lr.ph78, %107
   %.lcssa71 = phi ptr [ %109, %107 ], [ %115, %.lr.ph78 ]
   %.lcssa = phi i32 [ %108, %107 ], [ %117, %.lr.ph78 ]
-  %120 = getelementptr inbounds i8, ptr %.lcssa71, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %.lcssa71, i64 8
   %121 = load ptr, ptr %120, align 8
   %122 = tail call i32 @N_VConstVectorArray(i32 noundef %.lcssa, double noundef 0.000000e+00, ptr noundef %121) #12
   %.not65 = icmp eq i32 %122, 0
@@ -1972,18 +1972,18 @@ arkInterpFree.exit69:                             ; preds = %86
 
 123:                                              ; preds = %._crit_edge79
   %124 = load ptr, ptr %1, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 16
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 16
   %126 = load ptr, ptr %125, align 8
   store double %2, ptr %126, align 8
-  %127 = getelementptr inbounds i8, ptr %0, i64 272
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %128 = load ptr, ptr %127, align 8
   %129 = load ptr, ptr %1, align 8
-  %130 = getelementptr inbounds i8, ptr %129, i64 8
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 8
   %131 = load ptr, ptr %130, align 8
   %132 = load ptr, ptr %131, align 8
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %128, ptr noundef %132) #12
   %133 = load ptr, ptr %1, align 8
-  %134 = getelementptr inbounds i8, ptr %133, i64 24
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 24
   store i32 1, ptr %134, align 8
   br label %135
 
@@ -1999,25 +1999,25 @@ define range(i32 -21, 1) i32 @arkInterpUpdate_Lagrange(ptr noundef readonly %0, 
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load i32, ptr %7, align 8
   %9 = load i32, ptr %6, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load double, ptr %14, align 8
   %16 = fmul double %15, 1.000000e+02
-  %17 = getelementptr inbounds i8, ptr %0, i64 424
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %18 = load double, ptr %17, align 8
   %19 = tail call double @llvm.fabs.f64(double %18)
-  %20 = getelementptr inbounds i8, ptr %0, i64 376
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %21 = load double, ptr %20, align 8
   %22 = tail call double @llvm.fabs.f64(double %21)
   %23 = fadd double %19, %22
   %24 = fmul double %16, %23
-  %25 = getelementptr inbounds i8, ptr %6, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store double %24, ptr %25, align 8
   %26 = load double, ptr %11, align 8
   %27 = fsub double %2, %26
@@ -2032,7 +2032,7 @@ define range(i32 -21, 1) i32 @arkInterpUpdate_Lagrange(ptr noundef readonly %0, 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.05054 = phi double [ %28, %.lr.ph.preheader ], [ %.050., %.lr.ph ]
-  %30 = getelementptr inbounds double, ptr %11, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv
   %31 = load double, ptr %30, align 8
   %32 = fsub double %2, %31
   %33 = tail call double @llvm.fabs.f64(double %32)
@@ -2045,7 +2045,7 @@ define range(i32 -21, 1) i32 @arkInterpUpdate_Lagrange(ptr noundef readonly %0, 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %.050.lcssa = phi double [ %28, %5 ], [ %.050., %.lr.ph ]
   %35 = load ptr, ptr %1, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %37 = load double, ptr %36, align 8
   %38 = fcmp ugt double %.050.lcssa, %37
   br i1 %38, label %39, label %60
@@ -2065,13 +2065,13 @@ define range(i32 -21, 1) i32 @arkInterpUpdate_Lagrange(ptr noundef readonly %0, 
 .lr.ph58:                                         ; preds = %.lr.ph58.preheader, %.lr.ph58
   %indvars.iv61 = phi i64 [ %45, %.lr.ph58.preheader ], [ %indvars.iv.next62, %.lr.ph58 ]
   %indvars.iv.next62 = add nsw i64 %indvars.iv61, -1
-  %46 = getelementptr inbounds double, ptr %11, i64 %indvars.iv.next62
+  %46 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv.next62
   %47 = load double, ptr %46, align 8
-  %48 = getelementptr inbounds double, ptr %11, i64 %indvars.iv61
+  %48 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv61
   store double %47, ptr %48, align 8
-  %49 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv.next62
+  %49 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.next62
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv61
+  %51 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv61
   store ptr %50, ptr %51, align 8
   %52 = icmp samesign ugt i64 %indvars.iv61, 1
   br i1 %52, label %.lr.ph58, label %._crit_edge59
@@ -2079,14 +2079,14 @@ define range(i32 -21, 1) i32 @arkInterpUpdate_Lagrange(ptr noundef readonly %0, 
 ._crit_edge59:                                    ; preds = %.lr.ph58, %39
   store ptr %43, ptr %13, align 8
   store double %2, ptr %11, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 264
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %54 = load ptr, ptr %53, align 8
   %55 = load ptr, ptr %13, align 8
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %54, ptr noundef %55) #12
   %56 = add nsw i32 %8, 1
   %57 = tail call i32 @llvm.smin.i32(i32 %56, i32 %9)
   %58 = load ptr, ptr %1, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 24
   store i32 %57, ptr %59, align 8
   br label %60
 
@@ -2104,11 +2104,11 @@ define range(i32 -28, 1) i32 @arkInterpEvaluate_Lagrange(ptr noundef %0, ptr noc
 
 10:                                               ; preds = %6
   %11 = load ptr, ptr %1, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %11, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 @llvm.smax.i32(i32 %4, i32 0)
   %19 = add i32 %13, -1
@@ -2139,7 +2139,7 @@ define range(i32 -28, 1) i32 @arkInterpEvaluate_Lagrange(ptr noundef %0, ptr noc
 
 29:                                               ; preds = %25
   %30 = load double, ptr %15, align 8
-  %31 = getelementptr inbounds i8, ptr %15, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %32 = load double, ptr %31, align 8
   %33 = fsub double %30, %32
   %34 = tail call double @llvm.fmuladd.f64(double %2, double %33, double %30)
@@ -2174,7 +2174,7 @@ define range(i32 -28, 1) i32 @arkInterpEvaluate_Lagrange(ptr noundef %0, ptr noc
   br i1 %41, label %49, label %42
 
 42:                                               ; preds = %40
-  %43 = getelementptr inbounds double, ptr %15, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv.i
   %44 = load double, ptr %43, align 8
   %45 = fsub double %34, %44
   %46 = fsub double %30, %44
@@ -2195,7 +2195,7 @@ LBasis.exit:                                      ; preds = %49, %58
   br i1 %50, label %58, label %51
 
 51:                                               ; preds = %LBasis.exit
-  %52 = getelementptr inbounds double, ptr %15, i64 %indvars.iv.i91
+  %52 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv.i91
   %53 = load double, ptr %52, align 8
   %54 = fsub double %34, %53
   %55 = fsub double %32, %53
@@ -2231,7 +2231,7 @@ LBasis.exit:                                      ; preds = %49, %58
   br i1 %or.cond.us.i, label %70, label %63
 
 63:                                               ; preds = %.preheader.us.i
-  %64 = getelementptr inbounds double, ptr %15, i64 %indvars.iv.i97
+  %64 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv.i97
   %65 = load double, ptr %64, align 8
   %66 = fsub double %34, %65
   %67 = fsub double %30, %65
@@ -2252,7 +2252,7 @@ LBasis.exit:                                      ; preds = %49, %58
   br i1 %exitcond45.not.i, label %.lr.ph36.split.us.i103, label %.lr.ph36.split.us.i
 
 ._crit_edge.us.i:                                 ; preds = %70
-  %72 = getelementptr inbounds double, ptr %15, i64 %indvars.iv41.i
+  %72 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv41.i
   %73 = load double, ptr %72, align 8
   %74 = fsub double %30, %73
   %75 = fdiv double %.1.us.i, %74
@@ -2274,7 +2274,7 @@ LBasis.exit:                                      ; preds = %49, %58
   br i1 %or.cond.us.i109, label %87, label %80
 
 80:                                               ; preds = %.preheader.us.i106
-  %81 = getelementptr inbounds double, ptr %15, i64 %indvars.iv.i107
+  %81 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv.i107
   %82 = load double, ptr %81, align 8
   %83 = fsub double %34, %82
   %84 = fsub double %32, %82
@@ -2295,7 +2295,7 @@ LBasis.exit:                                      ; preds = %49, %58
   br i1 %exitcond45.not.i116, label %LBasis.exit96, label %.lr.ph36.split.us.i103
 
 ._crit_edge.us.i113:                              ; preds = %87
-  %89 = getelementptr inbounds double, ptr %15, i64 %indvars.iv41.i104
+  %89 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv41.i104
   %90 = load double, ptr %89, align 8
   %91 = fsub double %32, %90
   %92 = fdiv double %.1.us.i110, %91
@@ -2306,18 +2306,18 @@ LBasis.exit96:                                    ; preds = %88, %58, %59, %39
   %94 = phi double [ 1.000000e+00, %39 ], [ 0.000000e+00, %59 ], [ %.1.i93, %58 ], [ %.127.us.i114, %88 ]
   %95 = phi double [ 1.000000e+00, %39 ], [ 0.000000e+00, %59 ], [ %.1.i, %58 ], [ %.127.us.i, %88 ]
   %96 = load ptr, ptr %17, align 8
-  %97 = getelementptr inbounds i8, ptr %17, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %98 = load ptr, ptr %97, align 8
   tail call void @N_VLinearSum(double noundef %95, ptr noundef %96, double noundef %94, ptr noundef %98, ptr noundef %5) #12
   br label %175
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %99 = getelementptr inbounds [6 x double], ptr %7, i64 0, i64 %indvars.iv
+  %99 = getelementptr inbounds nuw [6 x double], ptr %7, i64 0, i64 %indvars.iv
   store double 0.000000e+00, ptr %99, align 8
-  %100 = getelementptr inbounds ptr, ptr %17, i64 %indvars.iv
+  %100 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
   %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds [6 x ptr], ptr %8, i64 0, i64 %indvars.iv
+  %102 = getelementptr inbounds nuw [6 x ptr], ptr %8, i64 0, i64 %indvars.iv
   store ptr %101, ptr %102, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2364,7 +2364,7 @@ LBasis.exit96:                                    ; preds = %88, %58, %59, %39
 
 .lr.ph.i119:                                      ; preds = %LBasis.exit126, %.lr.ph170.preheader
   %indvars.iv190 = phi i64 [ 0, %.lr.ph170.preheader ], [ %indvars.iv.next191, %LBasis.exit126 ]
-  %103 = getelementptr inbounds double, ptr %15, i64 %indvars.iv190
+  %103 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv190
   br label %104
 
 104:                                              ; preds = %114, %.lr.ph.i119
@@ -2374,7 +2374,7 @@ LBasis.exit96:                                    ; preds = %88, %58, %59, %39
   br i1 %105, label %114, label %106
 
 106:                                              ; preds = %104
-  %107 = getelementptr inbounds double, ptr %15, i64 %indvars.iv.i121
+  %107 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv.i121
   %108 = load double, ptr %107, align 8
   %109 = fsub double %34, %108
   %110 = load double, ptr %103, align 8
@@ -2390,7 +2390,7 @@ LBasis.exit96:                                    ; preds = %88, %58, %59, %39
   br i1 %exitcond.not.i125, label %LBasis.exit126, label %104
 
 LBasis.exit126:                                   ; preds = %114
-  %115 = getelementptr inbounds [6 x double], ptr %7, i64 0, i64 %indvars.iv190
+  %115 = getelementptr inbounds nuw [6 x double], ptr %7, i64 0, i64 %indvars.iv190
   store double %.1.i123, ptr %115, align 8
   %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
   %exitcond194.not = icmp eq i64 %indvars.iv.next191, %wide.trip.count193
@@ -2398,8 +2398,8 @@ LBasis.exit126:                                   ; preds = %114
 
 .lr.ph36.split.us.preheader.i128:                 ; preds = %LBasisD.exit144, %.lr.ph167.preheader
   %indvars.iv185 = phi i64 [ 0, %.lr.ph167.preheader ], [ %indvars.iv.next186, %LBasisD.exit144 ]
-  %116 = getelementptr inbounds double, ptr %15, i64 %indvars.iv185
-  %117 = getelementptr inbounds double, ptr %15, i64 %indvars.iv185
+  %116 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv185
+  %117 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv185
   br label %.lr.ph36.split.us.i130
 
 .lr.ph36.split.us.i130:                           ; preds = %130, %.lr.ph36.split.us.preheader.i128
@@ -2417,7 +2417,7 @@ LBasis.exit126:                                   ; preds = %114
   br i1 %or.cond.us.i136, label %129, label %121
 
 121:                                              ; preds = %.preheader.us.i133
-  %122 = getelementptr inbounds double, ptr %15, i64 %indvars.iv.i134
+  %122 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv.i134
   %123 = load double, ptr %122, align 8
   %124 = fsub double %34, %123
   %125 = load double, ptr %116, align 8
@@ -2440,7 +2440,7 @@ LBasis.exit126:                                   ; preds = %114
 
 ._crit_edge.us.i140:                              ; preds = %129
   %131 = load double, ptr %117, align 8
-  %132 = getelementptr inbounds double, ptr %15, i64 %indvars.iv41.i131
+  %132 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv41.i131
   %133 = load double, ptr %132, align 8
   %134 = fsub double %131, %133
   %135 = fdiv double %.1.us.i137, %134
@@ -2448,7 +2448,7 @@ LBasis.exit126:                                   ; preds = %114
   br label %130
 
 LBasisD.exit144:                                  ; preds = %130
-  %137 = getelementptr inbounds [6 x double], ptr %7, i64 0, i64 %indvars.iv185
+  %137 = getelementptr inbounds nuw [6 x double], ptr %7, i64 0, i64 %indvars.iv185
   store double %.127.us.i141, ptr %137, align 8
   %indvars.iv.next186 = add nuw nsw i64 %indvars.iv185, 1
   %exitcond189.not = icmp eq i64 %indvars.iv.next186, %wide.trip.count188
@@ -2456,9 +2456,9 @@ LBasisD.exit144:                                  ; preds = %130
 
 .lr.ph.split.us.preheader.i:                      ; preds = %LBasisD2.exit, %.lr.ph164.preheader
   %indvars.iv180 = phi i64 [ 0, %.lr.ph164.preheader ], [ %indvars.iv.next181, %LBasisD2.exit ]
-  %138 = getelementptr inbounds double, ptr %15, i64 %indvars.iv180
-  %139 = getelementptr inbounds double, ptr %15, i64 %indvars.iv180
-  %140 = getelementptr inbounds double, ptr %15, i64 %indvars.iv180
+  %138 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv180
+  %139 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv180
+  %140 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv180
   br label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %142, %.lr.ph.split.us.preheader.i
@@ -2492,7 +2492,7 @@ LBasisD.exit144:                                  ; preds = %130
   br i1 %or.cond50.us.us.i, label %156, label %148
 
 148:                                              ; preds = %.preheader.us.us.i
-  %149 = getelementptr inbounds double, ptr %15, i64 %indvars.iv.i145
+  %149 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv.i145
   %150 = load double, ptr %149, align 8
   %151 = fsub double %34, %150
   %152 = load double, ptr %138, align 8
@@ -2515,7 +2515,7 @@ LBasisD.exit144:                                  ; preds = %130
 
 ._crit_edge.us.us.i:                              ; preds = %156
   %158 = load double, ptr %139, align 8
-  %159 = getelementptr inbounds double, ptr %15, i64 %indvars.iv64.i
+  %159 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv64.i
   %160 = load double, ptr %159, align 8
   %161 = fsub double %158, %160
   %162 = fdiv double %.1.us.us.i, %161
@@ -2524,7 +2524,7 @@ LBasisD.exit144:                                  ; preds = %130
 
 ._crit_edge57.split.us.us.i:                      ; preds = %157
   %164 = load double, ptr %140, align 8
-  %165 = getelementptr inbounds double, ptr %15, i64 %indvars.iv69.i
+  %165 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv69.i
   %166 = load double, ptr %165, align 8
   %167 = fsub double %164, %166
   %168 = fdiv double %.142.us.us.i, %167
@@ -2532,7 +2532,7 @@ LBasisD.exit144:                                  ; preds = %130
   br label %142
 
 LBasisD2.exit:                                    ; preds = %142
-  %170 = getelementptr inbounds [6 x double], ptr %7, i64 0, i64 %indvars.iv180
+  %170 = getelementptr inbounds nuw [6 x double], ptr %7, i64 0, i64 %indvars.iv180
   store double %.144.us.i, ptr %170, align 8
   %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
   %exitcond184.not = icmp eq i64 %indvars.iv.next181, %wide.trip.count183
@@ -2542,7 +2542,7 @@ LBasisD2.exit:                                    ; preds = %142
   %indvars.iv175 = phi i64 [ 0, %.lr.ph161.preheader ], [ %indvars.iv.next176, %.lr.ph161 ]
   %171 = trunc nuw nsw i64 %indvars.iv175 to i32
   %172 = tail call double @LBasisD3(ptr noundef nonnull %1, i32 noundef %171, double noundef %34)
-  %173 = getelementptr inbounds [6 x double], ptr %7, i64 0, i64 %indvars.iv175
+  %173 = getelementptr inbounds nuw [6 x double], ptr %7, i64 0, i64 %indvars.iv175
   store double %172, ptr %173, align 8
   %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 1
   %exitcond179.not = icmp eq i64 %indvars.iv.next176, %wide.trip.count178
@@ -2570,13 +2570,13 @@ declare double @llvm.fabs.f64(double) #7
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define double @LBasis(ptr nocapture noundef readonly %0, i32 noundef %1, double noundef %2) local_unnamed_addr #8 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %9 = sext i32 %1 to i64
   %10 = zext i32 %1 to i64
   %wide.trip.count = zext nneg i32 %6 to i64
@@ -2590,7 +2590,7 @@ define double @LBasis(ptr nocapture noundef readonly %0, i32 noundef %1, double 
 
 13:                                               ; preds = %11
   %14 = load ptr, ptr %8, align 8
-  %15 = getelementptr inbounds double, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv
   %16 = load double, ptr %15, align 8
   %17 = fsub double %2, %16
   %18 = getelementptr inbounds double, ptr %14, i64 %9
@@ -2614,13 +2614,13 @@ define double @LBasis(ptr nocapture noundef readonly %0, i32 noundef %1, double 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define double @LBasisD(ptr nocapture noundef readonly %0, i32 noundef %1, double noundef %2) local_unnamed_addr #8 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph36.split.us.preheader, label %._crit_edge37
 
 .lr.ph36.split.us.preheader:                      ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %9 = sext i32 %1 to i64
   %10 = zext i32 %1 to i64
   %wide.trip.count44 = zext nneg i32 %6 to i64
@@ -2642,7 +2642,7 @@ define double @LBasisD(ptr nocapture noundef readonly %0, i32 noundef %1, double
 
 14:                                               ; preds = %.preheader.us
   %15 = load ptr, ptr %8, align 8
-  %16 = getelementptr inbounds double, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv
   %17 = load double, ptr %16, align 8
   %18 = fsub double %2, %17
   %19 = getelementptr inbounds double, ptr %15, i64 %9
@@ -2668,7 +2668,7 @@ define double @LBasisD(ptr nocapture noundef readonly %0, i32 noundef %1, double
   %26 = load ptr, ptr %8, align 8
   %27 = getelementptr inbounds double, ptr %26, i64 %9
   %28 = load double, ptr %27, align 8
-  %29 = getelementptr inbounds double, ptr %26, i64 %indvars.iv41
+  %29 = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv41
   %30 = load double, ptr %29, align 8
   %31 = fsub double %28, %30
   %32 = fdiv double %.1.us, %31
@@ -2683,13 +2683,13 @@ define double @LBasisD(ptr nocapture noundef readonly %0, i32 noundef %1, double
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define double @LBasisD2(ptr nocapture noundef readonly %0, i32 noundef %1, double noundef %2) local_unnamed_addr #8 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph.split.us.preheader, label %._crit_edge
 
 .lr.ph.split.us.preheader:                        ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %9 = sext i32 %1 to i64
   %10 = zext i32 %1 to i64
   %wide.trip.count72 = zext nneg i32 %6 to i64
@@ -2727,7 +2727,7 @@ define double @LBasisD2(ptr nocapture noundef readonly %0, i32 noundef %1, doubl
 
 18:                                               ; preds = %.preheader.us.us
   %19 = load ptr, ptr %8, align 8
-  %20 = getelementptr inbounds double, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv
   %21 = load double, ptr %20, align 8
   %22 = fsub double %2, %21
   %23 = getelementptr inbounds double, ptr %19, i64 %9
@@ -2753,7 +2753,7 @@ define double @LBasisD2(ptr nocapture noundef readonly %0, i32 noundef %1, doubl
   %30 = load ptr, ptr %8, align 8
   %31 = getelementptr inbounds double, ptr %30, i64 %9
   %32 = load double, ptr %31, align 8
-  %33 = getelementptr inbounds double, ptr %30, i64 %indvars.iv64
+  %33 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv64
   %34 = load double, ptr %33, align 8
   %35 = fsub double %32, %34
   %36 = fdiv double %.1.us.us, %35
@@ -2764,7 +2764,7 @@ define double @LBasisD2(ptr nocapture noundef readonly %0, i32 noundef %1, doubl
   %38 = load ptr, ptr %8, align 8
   %39 = getelementptr inbounds double, ptr %38, i64 %9
   %40 = load double, ptr %39, align 8
-  %41 = getelementptr inbounds double, ptr %38, i64 %indvars.iv69
+  %41 = getelementptr inbounds nuw double, ptr %38, i64 %indvars.iv69
   %42 = load double, ptr %41, align 8
   %43 = fsub double %40, %42
   %44 = fdiv double %.142.us.us, %43
@@ -2779,13 +2779,13 @@ define double @LBasisD2(ptr nocapture noundef readonly %0, i32 noundef %1, doubl
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define double @LBasisD3(ptr nocapture noundef readonly %0, i32 noundef %1, double noundef %2) local_unnamed_addr #8 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph88.split.us.preheader, label %._crit_edge
 
 .lr.ph88.split.us.preheader:                      ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %9 = sext i32 %1 to i64
   %10 = zext i32 %1 to i64
   %wide.trip.count105 = zext nneg i32 %6 to i64
@@ -2841,7 +2841,7 @@ define double @LBasisD3(ptr nocapture noundef readonly %0, i32 noundef %1, doubl
 
 23:                                               ; preds = %.preheader.us.us.us
   %24 = load ptr, ptr %8, align 8
-  %25 = getelementptr inbounds double, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw double, ptr %24, i64 %indvars.iv
   %26 = load double, ptr %25, align 8
   %27 = fsub double %2, %26
   %28 = getelementptr inbounds double, ptr %24, i64 %9
@@ -2867,7 +2867,7 @@ define double @LBasisD3(ptr nocapture noundef readonly %0, i32 noundef %1, doubl
   %35 = load ptr, ptr %8, align 8
   %36 = getelementptr inbounds double, ptr %35, i64 %9
   %37 = load double, ptr %36, align 8
-  %38 = getelementptr inbounds double, ptr %35, i64 %indvars.iv92
+  %38 = getelementptr inbounds nuw double, ptr %35, i64 %indvars.iv92
   %39 = load double, ptr %38, align 8
   %40 = fsub double %37, %39
   %41 = fdiv double %.1.us.us.us, %40
@@ -2878,7 +2878,7 @@ define double @LBasisD3(ptr nocapture noundef readonly %0, i32 noundef %1, doubl
   %43 = load ptr, ptr %8, align 8
   %44 = getelementptr inbounds double, ptr %43, i64 %9
   %45 = load double, ptr %44, align 8
-  %46 = getelementptr inbounds double, ptr %43, i64 %indvars.iv97
+  %46 = getelementptr inbounds nuw double, ptr %43, i64 %indvars.iv97
   %47 = load double, ptr %46, align 8
   %48 = fsub double %45, %47
   %49 = fdiv double %.159.us.us.us, %48
@@ -2889,7 +2889,7 @@ define double @LBasisD3(ptr nocapture noundef readonly %0, i32 noundef %1, doubl
   %51 = load ptr, ptr %8, align 8
   %52 = getelementptr inbounds double, ptr %51, i64 %9
   %53 = load double, ptr %52, align 8
-  %54 = getelementptr inbounds double, ptr %51, i64 %indvars.iv102
+  %54 = getelementptr inbounds nuw double, ptr %51, i64 %indvars.iv102
   %55 = load double, ptr %54, align 8
   %56 = fsub double %53, %55
   %57 = fdiv double %.161.us.us, %56

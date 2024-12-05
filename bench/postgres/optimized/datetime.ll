@@ -110,11 +110,11 @@ define range(i64 -2147483648, 2147483648) i64 @PGTYPESdate_from_asc(ptr noundef 
   br label %40
 
 29:                                               ; preds = %24, %22
-  %30 = getelementptr inbounds i8, ptr %4, i64 20
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %31 = load i32, ptr %30, align 4
-  %32 = getelementptr inbounds i8, ptr %4, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %33 = load i32, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %4, i64 12
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %35 = load i32, ptr %34, align 4
   %36 = call i32 @date2j(i32 noundef %31, i32 noundef %33, i32 noundef %35) #11
   %37 = call i32 @date2j(i32 noundef 2000, i32 noundef 1, i32 noundef 1) #11
@@ -148,9 +148,9 @@ define ptr @PGTYPESdate_to_asc(i64 noundef %0) local_unnamed_addr #0 {
   %4 = tail call i32 @date2j(i32 noundef 2000, i32 noundef 1, i32 noundef 1) #11
   %5 = trunc i64 %0 to i32
   %6 = add i32 %4, %5
-  %7 = getelementptr inbounds i8, ptr %2, i64 20
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
-  %9 = getelementptr inbounds i8, ptr %2, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 12
   call void @j2date(i32 noundef %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #11
   call void @EncodeDateOnly(ptr noundef nonnull %2, i32 noundef 1, ptr noundef nonnull %3, i1 noundef zeroext false) #11
   %10 = call ptr @pgtypes_strdup(ptr noundef nonnull %3) #11
@@ -218,11 +218,11 @@ define void @PGTYPESdate_today(ptr nocapture noundef writeonly %0) local_unnamed
   br i1 %5, label %6, label %17
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %2, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %2, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %12 = load i32, ptr %11, align 4
   %13 = call i32 @date2j(i32 noundef %8, i32 noundef %10, i32 noundef %12) #11
   %14 = call i32 @date2j(i32 noundef 2000, i32 noundef 1, i32 noundef 1) #11
@@ -244,9 +244,9 @@ define range(i32 -1, 1) i32 @PGTYPESdate_fmt_asc(i64 noundef %0, ptr nocapture n
   %6 = tail call i32 @date2j(i32 noundef 2000, i32 noundef 1, i32 noundef 1) #11
   %7 = trunc i64 %0 to i32
   %8 = add i32 %6, %7
-  %9 = getelementptr inbounds i8, ptr %4, i64 20
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
-  %11 = getelementptr inbounds i8, ptr %4, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 12
   call void @j2date(i32 noundef %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11) #11
   %12 = call i32 @date2j(i32 noundef 2000, i32 noundef 1, i32 noundef 1) #11
   %13 = add i32 %7, 1
@@ -266,7 +266,7 @@ define range(i32 -1, 1) i32 @PGTYPESdate_fmt_asc(i64 noundef %0, ptr nocapture n
   br i1 %.not5571, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %21 = getelementptr inbounds i8, ptr %19, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %22 = load i32, ptr %21, align 8
   br label %23
 
@@ -390,10 +390,10 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly %0, ptr
   %or.cond = and i1 %7, %8
   %9 = icmp ne ptr %1, null
   %or.cond3 = and i1 %9, %or.cond
-  %.4196.sroa.gep270 = getelementptr inbounds i8, ptr %5, i64 4
-  %.4196.sroa.gep271 = getelementptr inbounds i8, ptr %5, i64 8
-  %.4196.sroa.gep278 = getelementptr inbounds i8, ptr %4, i64 8
-  %.4196.sroa.gep279 = getelementptr inbounds i8, ptr %4, i64 16
+  %.4196.sroa.gep270 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %.4196.sroa.gep271 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.4196.sroa.gep278 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.4196.sroa.gep279 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br i1 %or.cond3, label %12, label %10
 
 10:                                               ; preds = %3
@@ -493,9 +493,9 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly %0, ptr
 
 55:                                               ; preds = %53
   store i32 2, ptr %6, align 4
-  %56 = getelementptr inbounds i8, ptr %6, i64 4
+  %56 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 2, ptr %56, align 4
-  %57 = getelementptr inbounds i8, ptr %6, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 2, ptr %57, align 4
   br label %72
 
@@ -506,9 +506,9 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly %0, ptr
 
 61:                                               ; preds = %58
   store i32 4, ptr %6, align 4
-  %62 = getelementptr inbounds i8, ptr %6, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 2, ptr %62, align 4
-  %63 = getelementptr inbounds i8, ptr %6, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 2, ptr %63, align 4
   br label %72
 
@@ -517,8 +517,8 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly %0, ptr
   %66 = load i8, ptr %65, align 1
   %67 = icmp eq i8 %66, 121
   store i32 2, ptr %6, align 4
-  %68 = getelementptr inbounds i8, ptr %6, i64 4
-  %69 = getelementptr inbounds i8, ptr %6, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br i1 %67, label %70, label %71
 
 70:                                               ; preds = %64
@@ -729,12 +729,12 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly %0, ptr
 
 162:                                              ; preds = %154
   store i32 %161, ptr %.4196.sroa.gep279, align 16
-  %163 = getelementptr inbounds i8, ptr %4, i64 12
+  %163 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %164 = load i32, ptr %163, align 4
-  %165 = getelementptr inbounds i8, ptr %4, i64 20
+  %165 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 %164, ptr %165, align 4
   store i32 %159, ptr %.4196.sroa.gep278, align 8
-  %166 = getelementptr inbounds i8, ptr %4, i64 4
+  %166 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %167 = load i32, ptr %166, align 4
   store i32 %167, ptr %163, align 4
   br label %187
@@ -745,9 +745,9 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly %0, ptr
 
 170:                                              ; preds = %168
   store i32 %161, ptr %.4196.sroa.gep279, align 16
-  %171 = getelementptr inbounds i8, ptr %4, i64 12
+  %171 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %172 = load i32, ptr %171, align 4
-  %173 = getelementptr inbounds i8, ptr %4, i64 20
+  %173 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 %172, ptr %173, align 4
   br label %187
 

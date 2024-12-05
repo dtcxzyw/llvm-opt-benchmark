@@ -46,8 +46,8 @@ module asm ".previous\09\09\09\09\09"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @workingset_age_nonresident(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 104
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %3, i64 %1, ptr elementtype(i64) %3) #6, !srcloc !5
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, i64 %1, ptr nonnull elementtype(i64) %3) #6, !srcloc !5
   ret void
 }
 
@@ -57,7 +57,7 @@ define dso_local ptr @workingset_eviction(ptr noundef %0, ptr nocapture noundef 
   %4 = lshr i64 %3, 58
   %5 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %4
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 13544
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 13544
   %8 = load volatile i64, ptr %7, align 8
   %9 = load i32, ptr @bucket_order, align 4
   %10 = load volatile i64, ptr %0, align 8
@@ -66,16 +66,16 @@ define dso_local ptr @workingset_eviction(ptr noundef %0, ptr nocapture noundef 
   br i1 %12, label %17, label %13
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 100
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %15 = load i32, ptr %14, align 4
   %16 = zext i32 %15 to i64
   br label %17
 
 17:                                               ; preds = %13, %2
   %18 = phi i64 [ %16, %13 ], [ 1, %2 ]
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %7, i64 %18, ptr elementtype(i64) %7) #6, !srcloc !5
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7, i64 %18, ptr nonnull elementtype(i64) %7) #6, !srcloc !5
   %19 = load volatile i64, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %6, i64 13120
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 13120
   %21 = load i32, ptr %20, align 64
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %23, label %24, !prof !6
@@ -121,7 +121,7 @@ define dso_local zeroext i1 @workingset_test_recent(ptr noundef %0, i1 noundef z
   store i8 %7, ptr %2, align 1
   %12 = load i32, ptr @bucket_order, align 4
   tail call void @__rcu_read_unlock() #6
-  %13 = getelementptr inbounds i8, ptr %11, i64 13544
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 13544
   %14 = load volatile i64, ptr %13, align 8
   %15 = tail call i64 @node_page_state(ptr noundef %11, i32 noundef 3) #6
   br i1 %1, label %19, label %16
@@ -172,7 +172,7 @@ define dso_local void @workingset_refault(ptr noundef %0, ptr noundef %1) local_
   br i1 %10, label %15, label %11
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 100
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %13 = load i32, ptr %12, align 4
   %14 = zext i32 %13 to i64
   br label %15
@@ -193,8 +193,8 @@ define dso_local void @workingset_refault(ptr noundef %0, ptr noundef %1) local_
 24:                                               ; preds = %15
   %25 = getelementptr i8, ptr %0, i64 1
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %25, i32 1, ptr elementtype(i8) %25) #6, !srcloc !11
-  %26 = getelementptr inbounds i8, ptr %19, i64 13544
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %26, i64 %16, ptr elementtype(i64) %26) #6, !srcloc !5
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 13544
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %26, i64 %16, ptr nonnull elementtype(i64) %26) #6, !srcloc !5
   %27 = or disjoint i32 %7, 12
   tail call void @mod_node_page_state(ptr noundef %19, i32 noundef %27, i64 noundef %22) #6
   %28 = load i8, ptr %3, align 1, !range !12, !noundef !13
@@ -229,40 +229,40 @@ define dso_local void @workingset_activation(ptr noundef %0) local_unnamed_addr 
   br i1 %8, label %13, label %9
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 100
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %11 = load i32, ptr %10, align 4
   %12 = zext i32 %11 to i64
   br label %13
 
 13:                                               ; preds = %9, %1
   %14 = phi i64 [ %12, %9 ], [ 1, %1 ]
-  %15 = getelementptr inbounds i8, ptr %5, i64 13544
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %15, i64 %14, ptr elementtype(i64) %15) #6, !srcloc !5
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 13544
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %15, i64 %14, ptr nonnull elementtype(i64) %15) #6, !srcloc !5
   tail call void @__rcu_read_unlock() #6
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @workingset_update_node(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 2
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %3 = load i8, ptr %2, align 2
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %51, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 3
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %7 = load i8, ptr %6, align 1
   %8 = icmp eq i8 %3, %7
   br i1 %8, label %9, label %51
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load volatile ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, %10
   br i1 %12, label %13, label %100
 
 13:                                               ; preds = %9
-  %14 = tail call zeroext i1 @list_lru_add_obj(ptr noundef nonnull @shadow_nodes, ptr noundef %10) #6
+  %14 = tail call zeroext i1 @list_lru_add_obj(ptr noundef nonnull @shadow_nodes, ptr noundef nonnull %10) #6
   %15 = load i64, ptr @vmemmap_base, align 8
   %16 = inttoptr i64 %15 to ptr
   %17 = ptrtoint ptr %0 to i64
@@ -275,7 +275,7 @@ define dso_local void @workingset_update_node(ptr noundef %0) #0 align 16 {
   %24 = add i64 %18, %23
   %25 = lshr i64 %24, 12
   %26 = getelementptr %struct.page, ptr %16, i64 %25
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load volatile i64, ptr %27, align 8
   %29 = and i64 %28, 1
   %30 = icmp eq i64 %29, 0
@@ -315,13 +315,13 @@ define dso_local void @workingset_update_node(ptr noundef %0) #0 align 16 {
   br label %93
 
 51:                                               ; preds = %5, %1
-  %52 = getelementptr inbounds i8, ptr %0, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %53 = load volatile ptr, ptr %52, align 8
   %54 = icmp eq ptr %53, %52
   br i1 %54, label %100, label %55
 
 55:                                               ; preds = %51
-  %56 = tail call zeroext i1 @list_lru_del_obj(ptr noundef nonnull @shadow_nodes, ptr noundef %52) #6
+  %56 = tail call zeroext i1 @list_lru_del_obj(ptr noundef nonnull @shadow_nodes, ptr noundef nonnull %52) #6
   %57 = load i64, ptr @vmemmap_base, align 8
   %58 = inttoptr i64 %57 to ptr
   %59 = ptrtoint ptr %0 to i64
@@ -334,7 +334,7 @@ define dso_local void @workingset_update_node(ptr noundef %0) #0 align 16 {
   %66 = add i64 %60, %65
   %67 = lshr i64 %66, 12
   %68 = getelementptr %struct.page, ptr %58, i64 %67
-  %69 = getelementptr inbounds i8, ptr %68, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %70 = load volatile i64, ptr %69, align 8
   %71 = and i64 %70, 1
   %72 = icmp eq i64 %71, 0
@@ -425,9 +425,9 @@ define internal i32 @workingset_init() #3 section ".init.text" align 16 {
 
 16:                                               ; preds = %13
   store ptr @count_shadow_nodes, ptr %11, align 8
-  %17 = getelementptr inbounds i8, ptr %11, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr @scan_shadow_nodes, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %11, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i32 0, ptr %18, align 8
   tail call void @shrinker_register(ptr noundef nonnull %11) #6
   br label %20
@@ -467,9 +467,9 @@ declare dso_local i32 @__list_lru_init(ptr noundef, i1 noundef zeroext, ptr noun
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i64 @count_shadow_nodes(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i64 @list_lru_count_one(ptr noundef nonnull @shadow_nodes, i32 noundef %4, ptr noundef %6) #6
   %8 = icmp eq i64 %7, 0
@@ -480,7 +480,7 @@ define internal i64 @count_shadow_nodes(ptr nocapture readnone %0, ptr nocapture
   %11 = sext i32 %10 to i64
   %12 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %11
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 13104
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 13104
   %15 = load i64, ptr %14, align 16
   %16 = lshr i64 %15, 3
   %17 = tail call i64 @llvm.usub.sat.i64(i64 %7, i64 %16)
@@ -493,12 +493,12 @@ define internal i64 @count_shadow_nodes(ptr nocapture readnone %0, ptr nocapture
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i64 @scan_shadow_nodes(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
-  %8 = tail call i64 @list_lru_walk_one_irq(ptr noundef nonnull @shadow_nodes, i32 noundef %4, ptr noundef %6, ptr noundef nonnull @shadow_lru_isolate, ptr noundef null, ptr noundef %7) #6
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %8 = tail call i64 @list_lru_walk_one_irq(ptr noundef nonnull @shadow_nodes, i32 noundef %4, ptr noundef %6, ptr noundef nonnull @shadow_lru_isolate, ptr noundef null, ptr noundef nonnull %7) #6
   ret i64 %8
 }
 
@@ -531,8 +531,8 @@ define internal noundef range(i32 1, 5) i32 @shadow_lru_isolate(ptr noundef %0, 
   br i1 %14, label %20, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %13, i64 136
-  %17 = tail call i32 @_raw_spin_trylock(ptr noundef %16) #6
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 136
+  %17 = tail call i32 @_raw_spin_trylock(ptr noundef nonnull %16) #6
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %20
 
@@ -555,7 +555,7 @@ define internal noundef range(i32 1, 5) i32 @shadow_lru_isolate(ptr noundef %0, 
   %30 = add i64 %29, %24
   %31 = lshr i64 %30, 12
   %32 = getelementptr %struct.page, ptr %22, i64 %31
-  %33 = getelementptr inbounds i8, ptr %32, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load volatile i64, ptr %33, align 8
   %35 = and i64 %34, 1
   %36 = icmp eq i64 %35, 0
@@ -636,7 +636,7 @@ define internal noundef range(i32 1, 5) i32 @shadow_lru_isolate(ptr noundef %0, 
   %79 = add i64 %78, %24
   %80 = lshr i64 %79, 12
   %81 = getelementptr %struct.page, ptr %74, i64 %80
-  %82 = getelementptr inbounds i8, ptr %81, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %83 = load volatile i64, ptr %82, align 8
   %84 = and i64 %83, 1
   %85 = icmp eq i64 %84, 0
@@ -714,8 +714,8 @@ define internal noundef range(i32 1, 5) i32 @shadow_lru_isolate(ptr noundef %0, 
 
 129:                                              ; preds = %128, %119
   %130 = phi ptr [ %.pre, %128 ], [ %113, %119 ]
-  %131 = getelementptr inbounds i8, ptr %130, i64 136
-  tail call void @_raw_spin_unlock(ptr noundef %131) #6
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 136
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %131) #6
   br label %132
 
 132:                                              ; preds = %129, %112, %19, %11

@@ -238,7 +238,7 @@ define dso_local noundef i64 @rb_obj_hide(i64 noundef returned %0) local_unnamed
 
 6:                                                ; preds = %1
   %7 = inttoptr i64 %0 to ptr
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %8, align 8
   br label %9
 
@@ -256,7 +256,7 @@ define dso_local noundef i64 @rb_obj_reveal(i64 noundef returned %0, i64 noundef
 
 7:                                                ; preds = %2
   %8 = inttoptr i64 %0 to ptr
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %1, ptr %9, align 8
   %10 = and i64 %1, 7
   %11 = icmp ne i64 %10, 0
@@ -275,7 +275,7 @@ RBASIC_SET_CLASS.exit:                            ; preds = %14, %7, %2
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden i64 @rb_class_allocate_instance(i64 noundef %0) #2 {
   %2 = inttoptr i64 %0 to ptr
-  %3 = getelementptr inbounds i8, ptr %2, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
   %6 = shl nuw nsw i64 %5, 3
@@ -307,7 +307,7 @@ define dso_local noundef i64 @rb_obj_setup(i64 noundef returned %0, i64 noundef 
   %7 = and i64 %6, 544
   %8 = or disjoint i64 %7, %4
   store i64 %8, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %1, ptr %9, align 8
   %10 = and i64 %1, 7
   %11 = icmp ne i64 %10, 0
@@ -422,7 +422,7 @@ define dso_local i64 @rb_class_real(i64 noundef %0) local_unnamed_addr #4 {
   br i1 %or.cond, label %.critedge2, label %.critedge
 
 .critedge2:                                       ; preds = %.lr.ph
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load i64, ptr %7, align 8
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !7
@@ -442,7 +442,7 @@ define dso_local i64 @rb_obj_class(i64 noundef %0) local_unnamed_addr #5 {
 
 6:                                                ; preds = %1
   %7 = inttoptr i64 %0 to ptr
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %rb_class_of.exit
 
 9:                                                ; preds = %1
@@ -487,7 +487,7 @@ rb_class_of.exit:                                 ; preds = %6, %9, %10, %11, %1
   br i1 %or.cond.i, label %.critedge2.i, label %rb_class_real.exit
 
 .critedge2.i:                                     ; preds = %.lr.ph.i
-  %22 = getelementptr inbounds i8, ptr %17, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %23 = load i64, ptr %22, align 8
   %.not.i1 = icmp eq i64 %23, 0
   br i1 %.not.i1, label %rb_class_real.exit, label %.lr.ph.i, !llvm.loop !7
@@ -507,7 +507,7 @@ define internal fastcc i64 @rb_class_of(i64 noundef %0) unnamed_addr #4 {
 
 6:                                                ; preds = %1
   %7 = inttoptr i64 %0 to ptr
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %17
 
 9:                                                ; preds = %1
@@ -548,7 +548,7 @@ define hidden void @rb_obj_copy_ivar(i64 noundef %0, i64 noundef %1) local_unnam
 
 5:                                                ; preds = %2
   %6 = inttoptr i64 %1 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @rb_st_copy(ptr noundef %8) #20
   tail call void @rb_obj_convert_to_too_complex(i64 noundef %0, ptr noundef %9) #20
@@ -557,7 +557,7 @@ define hidden void @rb_obj_copy_ivar(i64 noundef %0, i64 noundef %1) local_unnam
 10:                                               ; preds = %2
   %11 = tail call i32 @rb_shape_get_shape_id(i64 noundef %1) #20
   %12 = tail call ptr @rb_shape_get_shape_by_id(i32 noundef %11) #20
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i32, ptr %13, align 8
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %66, label %15
@@ -577,7 +577,7 @@ define hidden void @rb_obj_copy_ivar(i64 noundef %0, i64 noundef %1) local_unnam
   %21 = load i64, ptr %20, align 8
   %22 = and i64 %21, 8192
   %.not.i = icmp eq i64 %22, 0
-  %23 = getelementptr inbounds i8, ptr %20, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
   br i1 %.not.i, label %24, label %ROBJECT_IVPTR.exit
 
 24:                                               ; preds = %19
@@ -590,7 +590,7 @@ ROBJECT_IVPTR.exit:                               ; preds = %19, %24
   %27 = load i64, ptr %26, align 8
   %28 = and i64 %27, 8192
   %.not.i46 = icmp eq i64 %28, 0
-  %29 = getelementptr inbounds i8, ptr %26, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   br i1 %.not.i46, label %30, label %ROBJECT_IVPTR.exit48
 
 30:                                               ; preds = %ROBJECT_IVPTR.exit
@@ -600,9 +600,9 @@ ROBJECT_IVPTR.exit:                               ; preds = %19, %24
 ROBJECT_IVPTR.exit48:                             ; preds = %ROBJECT_IVPTR.exit, %30
   %.0.i47 = phi ptr [ %31, %30 ], [ %29, %ROBJECT_IVPTR.exit ]
   %32 = tail call ptr @rb_shape_get_shape(i64 noundef %0) #20
-  %33 = getelementptr inbounds i8, ptr %32, i64 25
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 25
   %34 = load i8, ptr %33, align 1
-  %35 = getelementptr inbounds i8, ptr %3, i64 25
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 25
   %36 = load i8, ptr %35, align 1
   %.not45 = icmp eq i8 %34, %36
   br i1 %.not45, label %44, label %37
@@ -622,9 +622,9 @@ ROBJECT_IVPTR.exit48:                             ; preds = %ROBJECT_IVPTR.exit,
 
 44:                                               ; preds = %37, %ROBJECT_IVPTR.exit48
   %.1 = phi ptr [ %38, %37 ], [ %.039, %ROBJECT_IVPTR.exit48 ]
-  %45 = getelementptr inbounds i8, ptr %32, i64 20
+  %45 = getelementptr inbounds nuw i8, ptr %32, i64 20
   %46 = load i32, ptr %45, align 4
-  %47 = getelementptr inbounds i8, ptr %.1, i64 20
+  %47 = getelementptr inbounds nuw i8, ptr %.1, i64 20
   %48 = load i32, ptr %47, align 4
   %49 = icmp ult i32 %46, %48
   br i1 %49, label %50, label %rbimpl_size_mul_or_raise.exit
@@ -777,7 +777,7 @@ define hidden noundef i64 @rb_obj_clone_setup(i64 noundef %0, i64 noundef return
   %4 = alloca [2 x i64], align 16
   %5 = tail call i64 @rb_singleton_class_clone_and_attach(i64 noundef %0, i64 noundef %1) #20
   %6 = inttoptr i64 %1 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %5, ptr %7, align 8
   %8 = and i64 %5, 7
   %9 = icmp ne i64 %8, 0
@@ -837,7 +837,7 @@ RB_OBJ_FROZEN.exit.thread:                        ; preds = %30, %19
   br i1 %37, label %43, label %38
 
 38:                                               ; preds = %RB_OBJ_FROZEN.exit.thread
-  %39 = getelementptr inbounds i8, ptr %36, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %40 = load i8, ptr %39, align 8
   %41 = icmp eq i8 %40, 4
   br i1 %41, label %42, label %43
@@ -887,7 +887,7 @@ RB_OBJ_FROZEN.exit.thread:                        ; preds = %30, %19
 rb_obj_freeze.exit:                               ; preds = %63, %56, %46, %44
   %64 = phi i64 [ %.pre41, %63 ], [ %51, %56 ], [ %51, %46 ], [ %45, %44 ]
   store i64 %0, ptr %4, align 16
-  %65 = getelementptr inbounds i8, ptr %4, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %64, ptr %65, align 8
   %66 = call i64 @rb_funcallv_kw(i64 noundef %1, i64 noundef 3169, i32 noundef 2, ptr noundef nonnull %4, i32 noundef 1) #20
   %67 = load i64, ptr %6, align 8
@@ -898,7 +898,7 @@ rb_obj_freeze.exit:                               ; preds = %63, %56, %46, %44
   br i1 %70, label %76, label %71
 
 71:                                               ; preds = %rb_obj_freeze.exit
-  %72 = getelementptr inbounds i8, ptr %69, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %69, i64 24
   %73 = load i8, ptr %72, align 8
   %74 = icmp eq i8 %73, 4
   br i1 %74, label %75, label %76
@@ -948,7 +948,7 @@ rb_obj_freeze.exit:                               ; preds = %63, %56, %46, %44
 rb_obj_freeze.exit35:                             ; preds = %96, %89, %79, %77
   %97 = phi i64 [ %.pre, %96 ], [ %84, %89 ], [ %84, %79 ], [ %78, %77 ]
   store i64 %0, ptr %4, align 16
-  %98 = getelementptr inbounds i8, ptr %4, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %97, ptr %98, align 8
   %99 = call i64 @rb_funcallv_kw(i64 noundef %1, i64 noundef 3169, i32 noundef 2, ptr noundef nonnull %4, i32 noundef 1) #20
   br label %101
@@ -1103,7 +1103,7 @@ define internal fastcc noundef i64 @mutable_obj_clone(i64 noundef %0, i64 nounde
 
 7:                                                ; preds = %2
   %8 = inttoptr i64 %0 to ptr
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   br label %rb_class_of.exit.i
 
 10:                                               ; preds = %2
@@ -1148,7 +1148,7 @@ rb_class_of.exit.i:                               ; preds = %15, %13, %12, %11, 
   br i1 %or.cond.i.i, label %.critedge2.i.i, label %rb_obj_class.exit
 
 .critedge2.i.i:                                   ; preds = %.lr.ph.i.i
-  %23 = getelementptr inbounds i8, ptr %18, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %24 = load i64, ptr %23, align 8
   %.not.i1.i = icmp eq i64 %24, 0
   br i1 %.not.i1.i, label %.thread.i.i, label %.lr.ph.i.i, !llvm.loop !7
@@ -1200,7 +1200,7 @@ define dso_local noundef i64 @rb_obj_dup(i64 noundef %0) #2 {
   ]
 
 rb_class_of.exit.i:                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.0.i.i = load i64, ptr %11, align 8
   %.not10.i.i = icmp eq i64 %.0.i.i, 0
   br i1 %.not10.i.i, label %.thread.i.i, label %.lr.ph.i.i
@@ -1217,7 +1217,7 @@ rb_class_of.exit.i:                               ; preds = %6
   br i1 %or.cond.i.i, label %.critedge2.i.i, label %rb_obj_class.exit
 
 .critedge2.i.i:                                   ; preds = %.lr.ph.i.i
-  %17 = getelementptr inbounds i8, ptr %12, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %18 = load i64, ptr %17, align 8
   %.not.i1.i = icmp eq i64 %18, 0
   br i1 %.not.i1.i, label %.thread.i.i, label %.lr.ph.i.i, !llvm.loop !7
@@ -1339,7 +1339,7 @@ switch.hole_check:                                ; preds = %27
   br i1 %switch.lobit, label %switch.lookup, label %30
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table.rb_check_convert_type_with_id.7, i64 0, i64 %28
+  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table.rb_check_convert_type_with_id.7, i64 0, i64 %28
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %rb_type.exit15
 
@@ -1349,7 +1349,7 @@ rb_type.exit15:                                   ; preds = %switch.lookup, %22,
   br i1 %.not, label %rb_class_of.exit.i, label %61
 
 rb_class_of.exit.i:                               ; preds = %rb_type.exit15
-  %35 = getelementptr inbounds i8, ptr %10, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.0.i.i = load i64, ptr %35, align 8
   %.not10.i.i = icmp eq i64 %.0.i.i, 0
   br i1 %.not10.i.i, label %rb_obj_class.exit, label %.lr.ph.i.i
@@ -1366,7 +1366,7 @@ rb_class_of.exit.i:                               ; preds = %rb_type.exit15
   br i1 %or.cond.i.i, label %.critedge2.i.i, label %rb_obj_class.exit
 
 .critedge2.i.i:                                   ; preds = %.lr.ph.i.i
-  %41 = getelementptr inbounds i8, ptr %36, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %42 = load i64, ptr %41, align 8
   %.not.i1.i = icmp eq i64 %42, 0
   br i1 %.not.i1.i, label %rb_obj_class.exit, label %.lr.ph.i.i, !llvm.loop !7
@@ -1377,7 +1377,7 @@ rb_obj_class.exit:                                ; preds = %.lr.ph.i.i, %.crite
 
 43:                                               ; preds = %rb_obj_class.exit
   %44 = inttoptr i64 %1 to ptr
-  %45 = getelementptr inbounds i8, ptr %44, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   br label %rb_class_of.exit.i16
 
 46:                                               ; preds = %rb_obj_class.exit
@@ -1422,7 +1422,7 @@ rb_class_of.exit.i16:                             ; preds = %51, %49, %48, %47, 
   br i1 %or.cond.i.i23, label %.critedge2.i.i25, label %rb_obj_class.exit29
 
 .critedge2.i.i25:                                 ; preds = %.lr.ph.i.i20
-  %59 = getelementptr inbounds i8, ptr %54, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %60 = load i64, ptr %59, align 8
   %.not.i1.i26 = icmp eq i64 %60, 0
   br i1 %.not.i1.i26, label %rb_obj_class.exit29, label %.lr.ph.i.i20, !llvm.loop !7
@@ -1460,7 +1460,7 @@ define dso_local i64 @rb_any_to_s(i64 noundef %0) #2 {
 
 6:                                                ; preds = %1
   %7 = inttoptr i64 %0 to ptr
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %rb_class_of.exit
 
 9:                                                ; preds = %1
@@ -1595,7 +1595,7 @@ class_or_module_required.exit:                    ; preds = %7, %7, %7
 
 17:                                               ; preds = %class_or_module_required.exit
   %18 = inttoptr i64 %0 to ptr
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   br label %rb_class_of.exit.i
 
 20:                                               ; preds = %class_or_module_required.exit
@@ -1640,7 +1640,7 @@ rb_class_of.exit.i:                               ; preds = %25, %23, %22, %21, 
   br i1 %or.cond.i.i, label %.critedge2.i.i, label %rb_obj_class.exit
 
 .critedge2.i.i:                                   ; preds = %.lr.ph.i.i
-  %33 = getelementptr inbounds i8, ptr %28, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %34 = load i64, ptr %33, align 8
   %.not.i1.i = icmp eq i64 %34, 0
   br i1 %.not.i1.i, label %rb_obj_class.exit, label %.lr.ph.i.i, !llvm.loop !7
@@ -1662,7 +1662,7 @@ define dso_local range(i64 0, 21) i64 @rb_obj_is_kind_of(i64 noundef %0, i64 nou
 
 7:                                                ; preds = %2
   %8 = inttoptr i64 %0 to ptr
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   br label %rb_class_of.exit
 
 10:                                               ; preds = %2
@@ -1713,16 +1713,16 @@ rb_class_of.exit:                                 ; preds = %7, %10, %11, %12, %
   ]
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %25, i64 72
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 72
   %30 = load i64, ptr %29, align 8
   %31 = inttoptr i64 %.0.i to ptr
-  %32 = getelementptr inbounds i8, ptr %31, i64 72
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 72
   %33 = load i64, ptr %32, align 8
   %.not.i108 = icmp ugt i64 %33, %30
   br i1 %.not.i108, label %34, label %class_search_class_ancestor.exit
 
 34:                                               ; preds = %28
-  %35 = getelementptr inbounds i8, ptr %31, i64 80
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 80
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr i64, ptr %36, i64 %30
   %38 = load i64, ptr %37, align 8
@@ -1731,7 +1731,7 @@ rb_class_of.exit:                                 ; preds = %7, %10, %11, %12, %
   br label %class_search_class_ancestor.exit
 
 41:                                               ; preds = %24
-  %42 = getelementptr inbounds i8, ptr %25, i64 136
+  %42 = getelementptr inbounds nuw i8, ptr %25, i64 136
   %43 = load i64, ptr %42, align 8
   %44 = icmp eq i64 %.0.i, %43
   br i1 %44, label %class_search_class_ancestor.exit, label %45
@@ -1751,16 +1751,16 @@ rb_class_of.exit:                                 ; preds = %7, %10, %11, %12, %
   br i1 %54, label %55, label %.critedge104
 
 55:                                               ; preds = %50
-  %56 = getelementptr inbounds i8, ptr %51, i64 72
+  %56 = getelementptr inbounds nuw i8, ptr %51, i64 72
   %57 = load i64, ptr %56, align 8
   %58 = inttoptr i64 %.0.i to ptr
-  %59 = getelementptr inbounds i8, ptr %58, i64 72
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 72
   %60 = load i64, ptr %59, align 8
   %.not.i110 = icmp ugt i64 %60, %57
   br i1 %.not.i110, label %61, label %.critedge104
 
 61:                                               ; preds = %55
-  %62 = getelementptr inbounds i8, ptr %58, i64 80
+  %62 = getelementptr inbounds nuw i8, ptr %58, i64 80
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr i64, ptr %63, i64 %57
   %65 = load i64, ptr %64, align 8
@@ -1768,7 +1768,7 @@ rb_class_of.exit:                                 ; preds = %7, %10, %11, %12, %
   br i1 %66, label %class_search_class_ancestor.exit, label %.critedge104
 
 .critedge104:                                     ; preds = %55, %61, %45, %50
-  %67 = getelementptr inbounds i8, ptr %25, i64 112
+  %67 = getelementptr inbounds nuw i8, ptr %25, i64 112
   %68 = load i64, ptr %67, align 8
   %.not10.i = icmp eq i64 %.0.i, 0
   %69 = icmp eq i64 %.0.i, %68
@@ -1777,20 +1777,20 @@ rb_class_of.exit:                                 ; preds = %7, %10, %11, %12, %
 
 .lr.ph.i:                                         ; preds = %.critedge104
   %70 = inttoptr i64 %68 to ptr
-  %71 = getelementptr inbounds i8, ptr %70, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 24
   %72 = load ptr, ptr %71, align 8
   br label %73
 
 73:                                               ; preds = %78, %.lr.ph.i
   %.0812.i = phi i64 [ %.0.i, %.lr.ph.i ], [ %80, %78 ]
   %74 = inttoptr i64 %.0812.i to ptr
-  %75 = getelementptr inbounds i8, ptr %74, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 24
   %76 = load ptr, ptr %75, align 8
   %77 = icmp eq ptr %76, %72
   br i1 %77, label %class_search_ancestor.exit, label %78
 
 78:                                               ; preds = %73
-  %79 = getelementptr inbounds i8, ptr %74, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %80 = load i64, ptr %79, align 8
   %.not.i113 = icmp eq i64 %80, 0
   %81 = icmp eq i64 %80, %68
@@ -1804,7 +1804,7 @@ class_search_ancestor.exit:                       ; preds = %73, %78, %.critedge
   br label %class_search_class_ancestor.exit
 
 83:                                               ; preds = %24
-  %84 = getelementptr inbounds i8, ptr %25, i64 112
+  %84 = getelementptr inbounds nuw i8, ptr %25, i64 112
   %85 = load i64, ptr %84, align 8
   %.not10.i114 = icmp eq i64 %.0.i, 0
   %86 = icmp eq i64 %.0.i, %85
@@ -1813,20 +1813,20 @@ class_search_ancestor.exit:                       ; preds = %73, %78, %.critedge
 
 .lr.ph.i116:                                      ; preds = %83
   %87 = inttoptr i64 %85 to ptr
-  %88 = getelementptr inbounds i8, ptr %87, i64 24
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 24
   %89 = load ptr, ptr %88, align 8
   br label %90
 
 90:                                               ; preds = %95, %.lr.ph.i116
   %.0812.i117 = phi i64 [ %.0.i, %.lr.ph.i116 ], [ %97, %95 ]
   %91 = inttoptr i64 %.0812.i117 to ptr
-  %92 = getelementptr inbounds i8, ptr %91, i64 24
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 24
   %93 = load ptr, ptr %92, align 8
   %94 = icmp eq ptr %93, %89
   br i1 %94, label %class_search_ancestor.exit121, label %95
 
 95:                                               ; preds = %90
-  %96 = getelementptr inbounds i8, ptr %91, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %91, i64 16
   %97 = load i64, ptr %96, align 8
   %.not.i118 = icmp eq i64 %97, 0
   %98 = icmp eq i64 %97, %85
@@ -1897,27 +1897,27 @@ class_or_module_required.exit:                    ; preds = %7, %7, %7
   unreachable
 
 class_or_module_required.exit5:                   ; preds = %17, %17, %17
-  %23 = getelementptr inbounds i8, ptr %18, i64 112
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 112
   %24 = load i64, ptr %23, align 8
   %25 = icmp eq i64 %0, %24
   br i1 %25, label %class_search_ancestor.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %class_or_module_required.exit5
   %26 = inttoptr i64 %24 to ptr
-  %27 = getelementptr inbounds i8, ptr %26, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %28 = load ptr, ptr %27, align 8
   br label %29
 
 29:                                               ; preds = %34, %.lr.ph.i
   %.0812.i = phi i64 [ %0, %.lr.ph.i ], [ %36, %34 ]
   %30 = inttoptr i64 %.0812.i to ptr
-  %31 = getelementptr inbounds i8, ptr %30, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, %28
   br i1 %33, label %class_search_ancestor.exit, label %34
 
 34:                                               ; preds = %29
-  %35 = getelementptr inbounds i8, ptr %30, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %36 = load i64, ptr %35, align 8
   %.not.i = icmp eq i64 %36, 0
   %37 = icmp eq i64 %36, %24
@@ -2001,7 +2001,7 @@ define hidden i64 @rb_mod_to_s(i64 noundef %0) #2 {
 
 12:                                               ; preds = %6
   %13 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @.str.8, i64 noundef 8) #20
-  %14 = getelementptr inbounds i8, ptr %7, i64 128
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %15 = load i64, ptr %14, align 8
   %16 = and i64 %15, 7
   %17 = icmp ne i64 %16, 0
@@ -2021,7 +2021,7 @@ define hidden i64 @rb_mod_to_s(i64 noundef %0) #2 {
   br label %39
 
 26:                                               ; preds = %20
-  %27 = getelementptr inbounds i8, ptr %21, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 8
   br label %rb_any_to_s.exit
 
 28:                                               ; preds = %12
@@ -2141,15 +2141,15 @@ define dso_local range(i64 0, 21) i64 @rb_class_inherited_p(i64 noundef %0, i64 
   br i1 %23, label %24, label %46
 
 24:                                               ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %20, i64 72
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 72
   %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %10, i64 72
+  %27 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %28 = load i64, ptr %27, align 8
   %29 = icmp ult i64 %28, %26
   br i1 %29, label %30, label %37
 
 30:                                               ; preds = %24
-  %31 = getelementptr inbounds i8, ptr %20, i64 80
+  %31 = getelementptr inbounds nuw i8, ptr %20, i64 80
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr i64, ptr %32, i64 %28
   %34 = load i64, ptr %33, align 8
@@ -2162,7 +2162,7 @@ define dso_local range(i64 0, 21) i64 @rb_class_inherited_p(i64 noundef %0, i64 
   br i1 %38, label %39, label %class_search_ancestor.exit.thread
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds i8, ptr %10, i64 80
+  %40 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr i64, ptr %41, i64 %26
   %43 = load i64, ptr %42, align 8
@@ -2185,7 +2185,7 @@ define dso_local range(i64 0, 21) i64 @rb_class_inherited_p(i64 noundef %0, i64 
   unreachable
 
 50:                                               ; preds = %46, %46, %46
-  %51 = getelementptr inbounds i8, ptr %10, i64 112
+  %51 = getelementptr inbounds nuw i8, ptr %10, i64 112
   %52 = load i64, ptr %51, align 8
   %.not10.i = icmp eq i64 %0, 0
   %53 = icmp eq i64 %0, %52
@@ -2194,20 +2194,20 @@ define dso_local range(i64 0, 21) i64 @rb_class_inherited_p(i64 noundef %0, i64 
 
 .lr.ph.i:                                         ; preds = %50
   %54 = inttoptr i64 %52 to ptr
-  %55 = getelementptr inbounds i8, ptr %54, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %56 = load ptr, ptr %55, align 8
   br label %57
 
 57:                                               ; preds = %62, %.lr.ph.i
   %.0812.i = phi i64 [ %0, %.lr.ph.i ], [ %64, %62 ]
   %58 = inttoptr i64 %.0812.i to ptr
-  %59 = getelementptr inbounds i8, ptr %58, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 24
   %60 = load ptr, ptr %59, align 8
   %61 = icmp eq ptr %60, %56
   br i1 %61, label %class_search_ancestor.exit.thread, label %62
 
 62:                                               ; preds = %57
-  %63 = getelementptr inbounds i8, ptr %58, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %64 = load i64, ptr %63, align 8
   %.not.i = icmp eq i64 %64, 0
   %65 = icmp eq i64 %64, %52
@@ -2221,20 +2221,20 @@ class_search_ancestor.exit:                       ; preds = %62, %50
 
 .lr.ph.i98:                                       ; preds = %class_search_ancestor.exit
   %66 = inttoptr i64 %0 to ptr
-  %67 = getelementptr inbounds i8, ptr %66, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 24
   %68 = load ptr, ptr %67, align 8
   br label %69
 
 69:                                               ; preds = %74, %.lr.ph.i98
   %.0812.i99 = phi i64 [ %1, %.lr.ph.i98 ], [ %76, %74 ]
   %70 = inttoptr i64 %.0812.i99 to ptr
-  %71 = getelementptr inbounds i8, ptr %70, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 24
   %72 = load ptr, ptr %71, align 8
   %73 = icmp eq ptr %72, %68
   br i1 %73, label %class_search_ancestor.exit103, label %74
 
 74:                                               ; preds = %69
-  %75 = getelementptr inbounds i8, ptr %70, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %76 = load i64, ptr %75, align 8
   %.not.i100 = icmp eq i64 %76, 0
   %77 = icmp eq i64 %76, %0
@@ -2262,7 +2262,7 @@ define hidden void @rb_undefined_alloc(i64 noundef %0) local_unnamed_addr #10 {
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i64 @rb_class_alloc(i64 noundef %0) unnamed_addr #2 {
   %2 = inttoptr i64 %0 to ptr
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = icmp ne i64 %4, 0
   %6 = load i64, ptr @rb_cBasicObject, align 8
@@ -2375,7 +2375,7 @@ rb_class_new_instance_kw.exit:                    ; preds = %8
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(read) uwtable
 define dso_local i64 @rb_class_superclass(i64 noundef %0) #9 {
   %2 = inttoptr i64 %0 to ptr
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load i64, ptr %3, align 8
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %5, label %10
@@ -2391,13 +2391,13 @@ define dso_local i64 @rb_class_superclass(i64 noundef %0) #9 {
   unreachable
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %2, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %12 = load i64, ptr %11, align 8
   %.not9 = icmp eq i64 %12, 0
   br i1 %.not9, label %19, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %2, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr i64, ptr %15, i64 %12
   %17 = getelementptr i8, ptr %16, i64 -8
@@ -2412,7 +2412,7 @@ define dso_local i64 @rb_class_superclass(i64 noundef %0) #9 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local i64 @rb_class_get_superclass(i64 noundef %0) local_unnamed_addr #4 {
   %2 = inttoptr i64 %0 to ptr
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load i64, ptr %3, align 8
   ret i64 %4
 }
@@ -2614,7 +2614,7 @@ switch.hole_check:                                ; preds = %14
   br i1 %switch.lobit, label %switch.lookup, label %17
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table.rb_check_convert_type_with_id.7, i64 0, i64 %15
+  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table.rb_check_convert_type_with_id.7, i64 0, i64 %15
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %rb_type.exit
 
@@ -2631,7 +2631,7 @@ rb_type.exit:                                     ; preds = %switch.lookup, %9, 
   br i1 %.not.i.i, label %sub_1.i.i, label %.tail.i.i
 
 sub_1.i.i:                                        ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %3, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %28 = load i8, ptr %27, align 1
   %29 = zext i8 %28 to i32
   %30 = sub nsw i32 111, %29
@@ -2639,7 +2639,7 @@ sub_1.i.i:                                        ; preds = %23
   br i1 %.not11.i.i, label %sub_2.i.i, label %.tail.i.i
 
 sub_2.i.i:                                        ; preds = %sub_1.i.i
-  %31 = getelementptr inbounds i8, ptr %3, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %32 = load i8, ptr %31, align 1
   %33 = zext i8 %32 to i32
   %34 = sub nsw i32 95, %33
@@ -2728,7 +2728,7 @@ switch.hole_check23:                              ; preds = %66
   br i1 %switch.lobit27, label %switch.lookup24, label %69
 
 switch.lookup24:                                  ; preds = %switch.hole_check23
-  %switch.gep28 = getelementptr inbounds [10 x i32], ptr @switch.table.rb_check_convert_type_with_id.7, i64 0, i64 %67
+  %switch.gep28 = getelementptr inbounds nuw [10 x i32], ptr @switch.table.rb_check_convert_type_with_id.7, i64 0, i64 %67
   %switch.load29 = load i32, ptr %switch.gep28, align 4
   br label %rb_type.exit17
 
@@ -2793,7 +2793,7 @@ switch.hole_check:                                ; preds = %14
   br i1 %switch.lobit, label %switch.lookup, label %17
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table.rb_check_convert_type_with_id.7, i64 0, i64 %15
+  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table.rb_check_convert_type_with_id.7, i64 0, i64 %15
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %rb_type.exit
 
@@ -2840,7 +2840,7 @@ switch.hole_check19:                              ; preds = %34
   br i1 %switch.lobit23, label %switch.lookup20, label %37
 
 switch.lookup20:                                  ; preds = %switch.hole_check19
-  %switch.gep24 = getelementptr inbounds [10 x i32], ptr @switch.table.rb_check_convert_type_with_id.7, i64 0, i64 %35
+  %switch.gep24 = getelementptr inbounds nuw [10 x i32], ptr @switch.table.rb_check_convert_type_with_id.7, i64 0, i64 %35
   %switch.load25 = load i32, ptr %switch.gep24, align 4
   br label %rb_type.exit17
 
@@ -2855,7 +2855,7 @@ rb_type.exit17:                                   ; preds = %switch.lookup20, %2
   %45 = load i64, ptr %44, align 8, !noalias !14
   %46 = and i64 %45, 8192
   %.not.i.i = icmp eq i64 %46, 0
-  %47 = getelementptr inbounds i8, ptr %44, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %48
 
 48:                                               ; preds = %42
@@ -2959,7 +2959,7 @@ switch.hole_check:                                ; preds = %14
   br i1 %switch.lobit, label %switch.lookup, label %17
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table.rb_check_convert_type_with_id.7, i64 0, i64 %15
+  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table.rb_check_convert_type_with_id.7, i64 0, i64 %15
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %rb_type.exit
 
@@ -2978,7 +2978,7 @@ rb_type.exit:                                     ; preds = %switch.lookup, %9, 
   br i1 %.not.i.i, label %sub_1.i.i, label %.tail.i.i
 
 sub_1.i.i:                                        ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %3, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i32
   %31 = sub nsw i32 111, %30
@@ -2986,7 +2986,7 @@ sub_1.i.i:                                        ; preds = %24
   br i1 %.not11.i.i, label %sub_2.i.i, label %.tail.i.i
 
 sub_2.i.i:                                        ; preds = %sub_1.i.i
-  %32 = getelementptr inbounds i8, ptr %3, i64 2
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i32
   %35 = sub nsw i32 95, %34
@@ -3078,7 +3078,7 @@ switch.hole_check27:                              ; preds = %67
   br i1 %switch.lobit31, label %switch.lookup28, label %70
 
 switch.lookup28:                                  ; preds = %switch.hole_check27
-  %switch.gep32 = getelementptr inbounds [10 x i32], ptr @switch.table.rb_check_convert_type_with_id.7, i64 0, i64 %68
+  %switch.gep32 = getelementptr inbounds nuw [10 x i32], ptr @switch.table.rb_check_convert_type_with_id.7, i64 0, i64 %68
   %switch.load33 = load i32, ptr %switch.gep32, align 4
   br label %rb_type.exit19
 
@@ -3134,7 +3134,7 @@ switch.hole_check:                                ; preds = %14
   br i1 %switch.lobit, label %switch.lookup, label %17
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table.rb_check_convert_type_with_id.7, i64 0, i64 %15
+  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table.rb_check_convert_type_with_id.7, i64 0, i64 %15
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %rb_type.exit
 
@@ -3189,7 +3189,7 @@ switch.hole_check23:                              ; preds = %36
   br i1 %switch.lobit27, label %switch.lookup24, label %39
 
 switch.lookup24:                                  ; preds = %switch.hole_check23
-  %switch.gep28 = getelementptr inbounds [10 x i32], ptr @switch.table.rb_check_convert_type_with_id.7, i64 0, i64 %37
+  %switch.gep28 = getelementptr inbounds nuw [10 x i32], ptr @switch.table.rb_check_convert_type_with_id.7, i64 0, i64 %37
   %switch.load29 = load i32, ptr %switch.gep28, align 4
   br label %rb_type.exit20
 
@@ -3204,7 +3204,7 @@ rb_type.exit20:                                   ; preds = %switch.lookup24, %3
   %47 = load i64, ptr %46, align 8, !noalias !17
   %48 = and i64 %47, 8192
   %.not.i.i = icmp eq i64 %48, 0
-  %49 = getelementptr inbounds i8, ptr %46, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %50
 
 50:                                               ; preds = %44
@@ -3249,7 +3249,7 @@ rb_integer_type_p.exit.thread11:                  ; preds = %4, %rb_integer_type
   br i1 %.not.i.i, label %sub_1.i.i, label %.tail.i.i
 
 sub_1.i.i:                                        ; preds = %rb_integer_type_p.exit.thread11
-  %16 = getelementptr inbounds i8, ptr %1, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i32
   %19 = sub nsw i32 111, %18
@@ -3257,7 +3257,7 @@ sub_1.i.i:                                        ; preds = %rb_integer_type_p.e
   br i1 %.not11.i.i, label %sub_2.i.i, label %.tail.i.i
 
 sub_2.i.i:                                        ; preds = %sub_1.i.i
-  %20 = getelementptr inbounds i8, ptr %1, i64 2
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i32
   %23 = sub nsw i32 95, %22
@@ -3359,7 +3359,7 @@ rb_integer_type_p.exit:                           ; preds = %3
 rb_integer_type_p.exit.thread17:                  ; preds = %3, %rb_integer_type_p.exit
   %12 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %15, align 8
   tail call void @rb_yjit_lazy_push_frame(ptr noundef %16) #20
@@ -3501,7 +3501,7 @@ RB_FLOAT_TYPE_P.exit:                             ; preds = %13
   br label %rb_float_value_inline.exit
 
 29:                                               ; preds = %RB_FLOAT_TYPE_P.exit
-  %30 = getelementptr inbounds i8, ptr %18, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %31 = load double, ptr %30, align 8
   br label %rb_float_value_inline.exit
 
@@ -3623,7 +3623,7 @@ rb_integer_type_p.exit82:                         ; preds = %81
 rb_integer_type_p.exit82.thread:                  ; preds = %81, %rb_integer_type_p.exit82
   %86 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %89 = load ptr, ptr %88, align 8
   %90 = load ptr, ptr %89, align 8
   tail call void @rb_yjit_lazy_push_frame(ptr noundef %90) #20
@@ -3678,7 +3678,7 @@ rb_integer_type_p.exit:                           ; preds = %3
 rb_integer_type_p.exit.thread18:                  ; preds = %3, %rb_integer_type_p.exit
   %12 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %15, align 8
   tail call void @rb_yjit_lazy_push_frame(ptr noundef %16) #20
@@ -3786,8 +3786,8 @@ define internal fastcc double @rb_cstr_to_dbl_raise(ptr noundef %0, i32 noundef 
   %5 = alloca ptr, align 8
   %6 = alloca [70 x i8], align 16
   %.not = icmp eq ptr %0, null
-  %.097.idx.ph.sroa.gep = getelementptr inbounds i8, ptr %6, i64 60
-  %.097.idx.ph.sroa.gep224 = getelementptr inbounds i8, ptr %6, i64 69
+  %.097.idx.ph.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 60
+  %.097.idx.ph.sroa.gep224 = getelementptr inbounds nuw i8, ptr %6, i64 69
   br i1 %.not, label %162, label %.preheader174
 
 .preheader174:                                    ; preds = %4, %.preheader174
@@ -3856,7 +3856,7 @@ define internal fastcc double @rb_cstr_to_dbl_raise(ptr noundef %0, i32 noundef 
   ]
 
 37:                                               ; preds = %35, %35
-  %38 = getelementptr inbounds i8, ptr %6, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 %36, ptr %6, align 16
   %.pr = load i8, ptr %12, align 1
   br label %39
@@ -4085,7 +4085,7 @@ thread-pre-split:                                 ; preds = %65, %58
   br i1 %.old151, label %119, label %122
 
 119:                                              ; preds = %116, %.critedge150
-  %120 = getelementptr inbounds i8, ptr %6, i64 1
+  %120 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %121 = load i8, ptr %120, align 1
   switch i8 %121, label %122 [
     i8 120, label %162
@@ -4207,7 +4207,7 @@ define internal fastcc double @rb_str_to_dbl_raise(i64 noundef %0, i32 noundef %
   %10 = load i64, ptr %9, align 8, !noalias !27
   %11 = and i64 %10, 8192
   %.not.i.i = icmp eq i64 %11, 0
-  %12 = getelementptr inbounds i8, ptr %9, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit.thread, label %RSTRING_PTR.exit
 
 RSTRING_PTR.exit:                                 ; preds = %4
@@ -4217,7 +4217,7 @@ RSTRING_PTR.exit:                                 ; preds = %4
 
 RSTRING_PTR.exit.thread:                          ; preds = %4, %RSTRING_PTR.exit
   %.sroa.2.0.i36 = phi ptr [ %.sroa.2.0.copyload.i, %RSTRING_PTR.exit ], [ %12, %4 ]
-  %.in = getelementptr inbounds i8, ptr %9, i64 16
+  %.in = getelementptr inbounds nuw i8, ptr %9, i64 16
   %13 = load i64, ptr %.in, align 8
   %.not28 = icmp eq i32 %1, 0
   br i1 %.not28, label %21, label %14
@@ -4687,7 +4687,7 @@ define hidden double @rb_num_to_dbl(i64 noundef %0) local_unnamed_addr #2 {
   ]
 
 29:                                               ; preds = %24
-  %30 = getelementptr inbounds i8, ptr %25, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %31 = load double, ptr %30, align 8
   br label %rb_float_flonum_value.exit
 
@@ -4744,7 +4744,7 @@ numeric_to_float.exit:                            ; preds = %42
 
 58:                                               ; preds = %numeric_to_float.exit
   %59 = inttoptr i64 %48 to ptr
-  %60 = getelementptr inbounds i8, ptr %59, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load double, ptr %60, align 8
   br label %rb_float_flonum_value.exit
 
@@ -4841,7 +4841,7 @@ define internal fastcc double @rat2dbl_without_to_f(i64 noundef %0) unnamed_addr
   br label %rb_float_value_inline.exit
 
 Check_Type.exit:                                  ; preds = %13
-  %27 = getelementptr inbounds i8, ptr %14, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %28 = load double, ptr %27, align 8
   br label %rb_float_value_inline.exit
 
@@ -4899,7 +4899,7 @@ rb_float_value_inline.exit:                       ; preds = %Check_Type.exit, %2
   br label %rb_float_value_inline.exit58
 
 Check_Type.exit54:                                ; preds = %39
-  %53 = getelementptr inbounds i8, ptr %40, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %54 = load double, ptr %53, align 8
   br label %rb_float_value_inline.exit58
 
@@ -4983,7 +4983,7 @@ define dso_local double @rb_num2dbl(i64 noundef %0) local_unnamed_addr #2 {
   ]
 
 35:                                               ; preds = %30
-  %36 = getelementptr inbounds i8, ptr %31, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %37 = load double, ptr %36, align 8
   br label %rb_float_flonum_value.exit
 
@@ -5021,7 +5021,7 @@ implicit_conversion_to_float.exit:                ; preds = %20, %30
 
 54:                                               ; preds = %implicit_conversion_to_float.exit
   %55 = inttoptr i64 %44 to ptr
-  %56 = getelementptr inbounds i8, ptr %55, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %57 = load double, ptr %56, align 8
   br label %rb_float_flonum_value.exit
 
@@ -5108,7 +5108,7 @@ define dso_local i64 @rb_Hash(i64 noundef %0) local_unnamed_addr #2 {
   br label %rb_array_len.exit
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %12, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %23 = load i64, ptr %22, align 8
   br label %rb_array_len.exit
 
@@ -5173,7 +5173,7 @@ define hidden i64 @rb_obj_dig(i32 noundef %0, ptr noundef %1, i64 noundef %2, i6
   ]
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %13, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %19 = load i64, ptr %18, align 8
   %.not.i = icmp eq i64 %19, %.sroa.039.045
   br i1 %.not.i, label %dig_basic_p.exit, label %20
@@ -5195,7 +5195,7 @@ dig_basic_p.exit:                                 ; preds = %17, %20
   br label %47
 
 26:                                               ; preds = %12
-  %27 = getelementptr inbounds i8, ptr %13, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %28 = load i64, ptr %27, align 8
   %.not.i26 = icmp eq i64 %28, %.sroa.036.047
   br i1 %.not.i26, label %dig_basic_p.exit30, label %29
@@ -5217,7 +5217,7 @@ dig_basic_p.exit30:                               ; preds = %26, %29
   br label %47
 
 35:                                               ; preds = %12
-  %36 = getelementptr inbounds i8, ptr %13, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %37 = load i64, ptr %36, align 8
   %.not.i31 = icmp eq i64 %37, %.sroa.0.050
   br i1 %.not.i31, label %dig_basic_p.exit35, label %38
@@ -5427,7 +5427,7 @@ define hidden void @InitVM_Object() local_unnamed_addr #2 {
 
 68:                                               ; preds = %0
   %69 = inttoptr i64 %63 to ptr
-  %70 = getelementptr inbounds i8, ptr %69, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   br label %rb_class_of.exit
 
 71:                                               ; preds = %0
@@ -5602,7 +5602,7 @@ rb_class_of.exit:                                 ; preds = %68, %71, %72, %73, 
 
 153:                                              ; preds = %rb_class_of.exit
   %154 = inttoptr i64 %148 to ptr
-  %155 = getelementptr inbounds i8, ptr %154, i64 8
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
   br label %rb_class_of.exit5
 
 156:                                              ; preds = %rb_class_of.exit
@@ -5663,7 +5663,7 @@ rb_class_of.exit5:                                ; preds = %153, %156, %157, %1
 
 180:                                              ; preds = %rb_class_of.exit5
   %181 = inttoptr i64 %175 to ptr
-  %182 = getelementptr inbounds i8, ptr %181, i64 8
+  %182 = getelementptr inbounds nuw i8, ptr %181, i64 8
   br label %rb_class_of.exit10
 
 183:                                              ; preds = %rb_class_of.exit5
@@ -5802,7 +5802,7 @@ define internal i64 @rb_obj_inspect(i64 noundef %0) #2 {
 
 8:                                                ; preds = %7
   %9 = inttoptr i64 %0 to ptr
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   br label %rb_class_of.exit
 
 11:                                               ; preds = %7
@@ -5843,7 +5843,7 @@ rb_class_of.exit:                                 ; preds = %8, %11, %12, %13, %
 
 24:                                               ; preds = %23
   %25 = inttoptr i64 %0 to ptr
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   br label %rb_any_to_s.exit
 
 27:                                               ; preds = %23
@@ -6076,7 +6076,7 @@ define internal i64 @rb_f_hash(i64 %0, i64 noundef %1) #2 {
   br label %rb_array_len.exit.i
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %13, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %24 = load i64, ptr %23, align 8
   br label %rb_array_len.exit.i
 
@@ -6536,7 +6536,7 @@ rb_enc_asciicompat.exit.thread:                   ; preds = %RB_SYMBOL_P.exit.th
 43:                                               ; preds = %rb_enc_asciicompat.exit
   %44 = load i64, ptr %4, align 8
   %45 = inttoptr i64 %44 to ptr
-  %46 = getelementptr inbounds i8, ptr %45, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load i64, ptr %46, align 8
   %48 = getelementptr i8, ptr %37, i64 %47
   %.not = icmp ult ptr %37, %48
@@ -6659,7 +6659,7 @@ rb_enc_asciicompat.exit.thread:                   ; preds = %RB_SYMBOL_P.exit.th
   br label %.loopexit146
 
 rb_class_of.exit:                                 ; preds = %96
-  %101 = getelementptr inbounds i8, ptr %89, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %.0.i140 = load i64, ptr %101, align 8
   %102 = call i32 @rb_method_basic_definition_p(i64 noundef %.0.i140, i64 noundef 2849) #20
   %.not130 = icmp eq i32 %102, 0
@@ -6851,7 +6851,7 @@ rb_enc_asciicompat.exit.thread:                   ; preds = %RB_SYMBOL_P.exit.th
 43:                                               ; preds = %rb_enc_asciicompat.exit
   %44 = load i64, ptr %4, align 8
   %45 = inttoptr i64 %44 to ptr
-  %46 = getelementptr inbounds i8, ptr %45, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load i64, ptr %46, align 8
   %48 = getelementptr i8, ptr %37, i64 %47
   %.not = icmp ult ptr %37, %48
@@ -7235,7 +7235,7 @@ rb_enc_asciicompat.exit.thread:                   ; preds = %RB_SYMBOL_P.exit.th
 41:                                               ; preds = %rb_enc_asciicompat.exit
   %42 = load i64, ptr %4, align 8
   %43 = inttoptr i64 %42 to ptr
-  %44 = getelementptr inbounds i8, ptr %43, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load i64, ptr %44, align 8
   %46 = getelementptr i8, ptr %35, i64 %45
   %.not = icmp ult ptr %35, %46
@@ -7563,7 +7563,7 @@ RB_FL_TEST.exit:                                  ; preds = %6
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_class_alloc_m(i64 noundef %0) #2 {
   %2 = inttoptr i64 %0 to ptr
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = icmp ne i64 %4, 0
   %6 = load i64, ptr @rb_cBasicObject, align 8
@@ -7637,7 +7637,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %class_ge
 define internal noundef i64 @rb_class_initialize(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef returned %2) #2 {
   %4 = alloca i64, align 8
   %5 = inttoptr i64 %2 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i64, ptr %6, align 8
   %.not = icmp ne i64 %7, 0
   %8 = load i64, ptr @rb_cBasicObject, align 8
@@ -7675,7 +7675,7 @@ rb_check_arity.exit:                              ; preds = %12
 
 20:                                               ; preds = %17
   %21 = inttoptr i64 %18 to ptr
-  %22 = getelementptr inbounds i8, ptr %21, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load i64, ptr %22, align 8
   %.not17 = icmp eq i64 %23, 0
   br i1 %.not17, label %24, label %26
@@ -7709,7 +7709,7 @@ rb_check_arity.exit:                              ; preds = %12
 RCLASS_SET_SUPER.exit:                            ; preds = %.split.i, %.split10.i, %28
   tail call void @rb_class_update_superclasses(i64 noundef %2) #20
   %29 = inttoptr i64 %.0 to ptr
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load i64, ptr %30, align 8
   %32 = tail call i64 @rb_make_metaclass(i64 noundef %2, i64 noundef %31) #20
   %33 = tail call i64 @rb_class_inherited(i64 noundef %.0, i64 noundef %2) #20
@@ -7763,7 +7763,7 @@ define internal i64 @builtin_inline_class_20(ptr nocapture readnone %0, i64 noun
 
 7:                                                ; preds = %2
   %8 = inttoptr i64 %1 to ptr
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   br label %rb_class_of.exit.i
 
 10:                                               ; preds = %2
@@ -7808,7 +7808,7 @@ rb_class_of.exit.i:                               ; preds = %15, %13, %12, %11, 
   br i1 %or.cond.i.i, label %.critedge2.i.i, label %rb_obj_class.exit
 
 .critedge2.i.i:                                   ; preds = %.lr.ph.i.i
-  %23 = getelementptr inbounds i8, ptr %18, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %24 = load i64, ptr %23, align 8
   %.not.i1.i = icmp eq i64 %24, 0
   br i1 %.not.i1.i, label %rb_obj_class.exit, label %.lr.ph.i.i, !llvm.loop !7
@@ -8063,7 +8063,7 @@ define internal fastcc i64 @class_call_alloc_func(ptr nocapture noundef nonnull 
 
 15:                                               ; preds = %9
   %16 = inttoptr i64 %10 to ptr
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   br label %rb_class_of.exit.i
 
 18:                                               ; preds = %9
@@ -8108,7 +8108,7 @@ rb_class_of.exit.i:                               ; preds = %23, %21, %20, %19, 
   br i1 %or.cond.i.i, label %.critedge2.i.i, label %rb_obj_class.exit
 
 .critedge2.i.i:                                   ; preds = %.lr.ph.i.i
-  %31 = getelementptr inbounds i8, ptr %26, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %32 = load i64, ptr %31, align 8
   %.not.i1.i = icmp eq i64 %32, 0
   br i1 %.not.i1.i, label %rb_obj_class.exit, label %.lr.ph.i.i, !llvm.loop !7
@@ -8130,7 +8130,7 @@ rb_obj_class.exit:                                ; preds = %.lr.ph.i.i, %.crite
   br i1 %or.cond.i, label %.critedge2.i, label %rb_class_real.exit
 
 .critedge2.i:                                     ; preds = %.lr.ph.i
-  %38 = getelementptr inbounds i8, ptr %33, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %39 = load i64, ptr %38, align 8
   %.not.i = icmp eq i64 %39, 0
   br i1 %.not.i, label %rb_class_real.exit, label %.lr.ph.i, !llvm.loop !7
@@ -8195,7 +8195,7 @@ sub_0:
   br i1 %.not, label %sub_1, label %.tail
 
 sub_1:                                            ; preds = %sub_0
-  %4 = getelementptr inbounds i8, ptr %0, i64 1
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %5 = load i8, ptr %4, align 1
   %6 = zext i8 %5 to i32
   %7 = sub nsw i32 111, %6
@@ -8203,7 +8203,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not11, label %sub_2, label %.tail
 
 sub_2:                                            ; preds = %sub_1
-  %8 = getelementptr inbounds i8, ptr %0, i64 2
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
   %11 = sub nsw i32 95, %10
@@ -8385,7 +8385,7 @@ define internal noundef i64 @inspect_obj(i64 noundef %0, i64 noundef returned %1
   %10 = load i64, ptr %9, align 8, !noalias !42
   %11 = and i64 %10, 8192
   %.not.i.i = icmp eq i64 %11, 0
-  %12 = getelementptr inbounds i8, ptr %9, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %13
 
 13:                                               ; preds = %7
@@ -8410,7 +8410,7 @@ define internal noundef i32 @inspect_i(i64 noundef %0, i64 noundef %1, i64 nound
 
 8:                                                ; preds = %3
   %9 = inttoptr i64 %1 to ptr
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   br label %rb_class_of.exit
 
 11:                                               ; preds = %3
@@ -8453,7 +8453,7 @@ rb_class_of.exit:                                 ; preds = %8, %11, %12, %13, %
   %24 = load i64, ptr %23, align 8, !noalias !45
   %25 = and i64 %24, 8192
   %.not.i.i = icmp eq i64 %25, 0
-  %26 = getelementptr inbounds i8, ptr %23, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %RSTRING_PTR.exit.thread
 
 RSTRING_PTR.exit:                                 ; preds = %22

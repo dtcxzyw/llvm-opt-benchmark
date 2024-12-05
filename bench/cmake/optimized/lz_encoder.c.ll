@@ -14,15 +14,15 @@ define dso_local range(i64 -1, 38654705880) i64 @lzma_lz_encoder_memusage(ptr no
   br i1 %3, label %18, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %2, i64 108
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 108
   %6 = load i32, ptr %5, align 4
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds i8, ptr %2, i64 112
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
   %11 = add nuw nsw i64 %10, %7
   %12 = shl nuw nsw i64 %11, 2
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
   %16 = add nuw nsw i64 %15, 224
@@ -39,16 +39,16 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @lz_encoder_prepare(ptr nocapture noundef nonnull %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, -1610612737
   %or.cond = icmp ult i64 %6, -1610608641
   br i1 %or.cond, label %111, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %2, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load i64, ptr %10, align 8
   %12 = icmp ugt i64 %9, %11
   br i1 %12, label %111, label %13
@@ -57,14 +57,14 @@ define internal fastcc noundef zeroext i1 @lz_encoder_prepare(ptr nocapture noun
   %14 = load i64, ptr %2, align 8
   %15 = add i64 %14, %5
   %16 = trunc i64 %15 to i32
-  %17 = getelementptr inbounds i8, ptr %0, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %16, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %2, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %19 = load i64, ptr %18, align 8
   %20 = load i64, ptr %10, align 8
   %21 = add i64 %20, %19
   %22 = trunc i64 %21 to i32
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %22, ptr %23, align 8
   %24 = load i64, ptr %4, align 8
   %25 = lshr i64 %24, 1
@@ -79,7 +79,7 @@ define internal fastcc noundef zeroext i1 @lz_encoder_prepare(ptr nocapture noun
   %33 = add i64 %31, %32
   %34 = lshr i64 %33, 1
   %35 = trunc i64 %34 to i32
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = load i32, ptr %36, align 8
   %38 = add i32 %16, 524288
   %39 = add i32 %38, %22
@@ -100,18 +100,18 @@ define internal fastcc noundef zeroext i1 @lz_encoder_prepare(ptr nocapture noun
 44:                                               ; preds = %43, %13
   %45 = load i64, ptr %10, align 8
   %46 = trunc i64 %45 to i32
-  %47 = getelementptr inbounds i8, ptr %0, i64 100
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store i32 %46, ptr %47, align 4
   %48 = load i64, ptr %8, align 8
   %49 = trunc i64 %48 to i32
-  %50 = getelementptr inbounds i8, ptr %0, i64 96
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 %49, ptr %50, align 8
   %51 = load i64, ptr %4, align 8
   %52 = trunc i64 %51 to i32
   %53 = add i32 %52, 1
-  %54 = getelementptr inbounds i8, ptr %0, i64 84
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 %53, ptr %54, align 4
-  %55 = getelementptr inbounds i8, ptr %2, i64 40
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %56 = load i32, ptr %55, align 8
   switch i32 %56, label %111 [
     i32 3, label %61
@@ -136,9 +136,9 @@ define internal fastcc noundef zeroext i1 @lz_encoder_prepare(ptr nocapture noun
 61:                                               ; preds = %44, %60, %59, %58, %57
   %lzma_mf_bt4_find.sink = phi ptr [ @lzma_mf_bt4_find, %60 ], [ @lzma_mf_bt3_find, %59 ], [ @lzma_mf_bt2_find, %58 ], [ @lzma_mf_hc4_find, %57 ], [ @lzma_mf_hc3_find, %44 ]
   %lzma_mf_bt4_skip.sink = phi ptr [ @lzma_mf_bt4_skip, %60 ], [ @lzma_mf_bt3_skip, %59 ], [ @lzma_mf_bt2_skip, %58 ], [ @lzma_mf_hc4_skip, %57 ], [ @lzma_mf_hc3_skip, %44 ]
-  %62 = getelementptr inbounds i8, ptr %0, i64 48
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %lzma_mf_bt4_find.sink, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %0, i64 56
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %lzma_mf_bt4_skip.sink, ptr %63, align 8
   %64 = load i32, ptr %55, align 8
   %65 = and i32 %64, 15
@@ -176,7 +176,7 @@ define internal fastcc noundef zeroext i1 @lz_encoder_prepare(ptr nocapture noun
 
 88:                                               ; preds = %85, %67, %70
   %.098 = phi i32 [ %83, %70 ], [ 65535, %67 ], [ %spec.select112, %85 ]
-  %89 = getelementptr inbounds i8, ptr %0, i64 88
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 %.098, ptr %89, align 8
   %90 = icmp samesign ugt i32 %65, 2
   %spec.select111.v = select i1 %90, i32 1025, i32 1
@@ -184,9 +184,9 @@ define internal fastcc noundef zeroext i1 @lz_encoder_prepare(ptr nocapture noun
   %91 = icmp samesign ugt i32 %65, 3
   %92 = add nuw nsw i32 %spec.select111, 65536
   %.2 = select i1 %91, i32 %92, i32 %spec.select111
-  %93 = getelementptr inbounds i8, ptr %0, i64 108
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %94 = load i32, ptr %93, align 4
-  %95 = getelementptr inbounds i8, ptr %0, i64 112
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %96 = load i32, ptr %95, align 8
   store i32 %.2, ptr %93, align 4
   %97 = lshr exact i32 %68, 4
@@ -198,20 +198,20 @@ define internal fastcc noundef zeroext i1 @lz_encoder_prepare(ptr nocapture noun
   br i1 %or.cond113, label %103, label %98
 
 98:                                               ; preds = %88
-  %99 = getelementptr inbounds i8, ptr %0, i64 64
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %100 = load ptr, ptr %99, align 8
   tail call void @lzma_free(ptr noundef %100, ptr noundef %1) #7
   store ptr null, ptr %99, align 8
-  %101 = getelementptr inbounds i8, ptr %0, i64 72
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %102 = load ptr, ptr %101, align 8
   tail call void @lzma_free(ptr noundef %102, ptr noundef %1) #7
   store ptr null, ptr %101, align 8
   br label %103
 
 103:                                              ; preds = %88, %98
-  %104 = getelementptr inbounds i8, ptr %2, i64 44
+  %104 = getelementptr inbounds nuw i8, ptr %2, i64 44
   %105 = load i32, ptr %104, align 4
-  %106 = getelementptr inbounds i8, ptr %0, i64 92
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i32 %105, ptr %106, align 4
   %107 = icmp eq i32 %105, 0
   br i1 %107, label %.sink.split, label %111
@@ -244,41 +244,41 @@ define dso_local i32 @lzma_lz_encoder_init(ptr nocapture noundef %0, ptr noundef
 
 11:                                               ; preds = %8
   store ptr %9, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr @lz_encode, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr @lz_encoder_end, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr @lz_encoder_update, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %9, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr null, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %9, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store i32 0, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %9, i64 96
-  %18 = getelementptr inbounds i8, ptr %9, i64 140
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 96
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 140
   store i32 0, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %9, i64 144
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 144
   store i32 0, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %9, i64 152
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   store ptr null, ptr %20, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 160
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 160
   store i64 -1, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 168
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 168
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.3.0..sroa_idx, i8 0, i64 56, i1 false)
   br label %21
 
 21:                                               ; preds = %4, %11
   %.032 = phi ptr [ %9, %11 ], [ %6, %4 ]
-  %22 = getelementptr inbounds i8, ptr %2, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = call i32 %3(ptr noundef nonnull %.032, ptr noundef %1, ptr noundef %23, ptr noundef nonnull %5) #7
   %.not = icmp eq i32 %24, 0
   br i1 %.not, label %25, label %lz_encoder_init.exit.thread
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %.032, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %.032, i64 32
   %27 = call fastcc zeroext i1 @lz_encoder_prepare(ptr noundef %26, ptr noundef %1, ptr noundef nonnull %5)
   br i1 %27, label %lz_encoder_init.exit.thread, label %28
 
@@ -288,7 +288,7 @@ define dso_local i32 @lzma_lz_encoder_init(ptr nocapture noundef %0, ptr noundef
   br i1 %30, label %31, label %42
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %.032, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %.032, i64 40
   %33 = load i32, ptr %32, align 8
   %34 = add i32 %33, 8
   %35 = zext i32 %34 to i64
@@ -300,22 +300,22 @@ define dso_local i32 @lzma_lz_encoder_init(ptr nocapture noundef %0, ptr noundef
 38:                                               ; preds = %31
   %39 = load i32, ptr %32, align 8
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds i8, ptr %36, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 %40
   store i64 0, ptr %41, align 1
   br label %42
 
 42:                                               ; preds = %38, %28
-  %43 = getelementptr inbounds i8, ptr %.032, i64 116
+  %43 = getelementptr inbounds nuw i8, ptr %.032, i64 116
   %44 = load i32, ptr %43, align 4
-  %45 = getelementptr inbounds i8, ptr %.032, i64 52
+  %45 = getelementptr inbounds nuw i8, ptr %.032, i64 52
   store i32 %44, ptr %45, align 4
-  %46 = getelementptr inbounds i8, ptr %.032, i64 56
-  %47 = getelementptr inbounds i8, ptr %.032, i64 68
-  %48 = getelementptr inbounds i8, ptr %.032, i64 96
+  %46 = getelementptr inbounds nuw i8, ptr %.032, i64 56
+  %47 = getelementptr inbounds nuw i8, ptr %.032, i64 68
+  %48 = getelementptr inbounds nuw i8, ptr %.032, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %46, i8 0, i64 20, i1 false)
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, null
-  %51 = getelementptr inbounds i8, ptr %.032, i64 140
+  %51 = getelementptr inbounds nuw i8, ptr %.032, i64 140
   %52 = load i32, ptr %51, align 4
   %53 = zext i32 %52 to i64
   %54 = shl nuw nsw i64 %53, 2
@@ -324,12 +324,12 @@ define dso_local i32 @lzma_lz_encoder_init(ptr nocapture noundef %0, ptr noundef
 55:                                               ; preds = %42
   %56 = call noalias ptr @lzma_alloc_zero(i64 noundef %54, ptr noundef %1) #7
   store ptr %56, ptr %48, align 8
-  %57 = getelementptr inbounds i8, ptr %.032, i64 144
+  %57 = getelementptr inbounds nuw i8, ptr %.032, i64 144
   %58 = load i32, ptr %57, align 8
   %59 = zext i32 %58 to i64
   %60 = shl nuw nsw i64 %59, 2
   %61 = call noalias ptr @lzma_alloc(i64 noundef %60, ptr noundef %1) #7
-  %62 = getelementptr inbounds i8, ptr %.032, i64 104
+  %62 = getelementptr inbounds nuw i8, ptr %.032, i64 104
   store ptr %61, ptr %62, align 8
   %63 = load ptr, ptr %48, align 8
   %64 = icmp eq ptr %63, null
@@ -350,44 +350,44 @@ define dso_local i32 @lzma_lz_encoder_init(ptr nocapture noundef %0, ptr noundef
   br label %69
 
 69:                                               ; preds = %68, %55
-  %70 = getelementptr inbounds i8, ptr %.032, i64 112
+  %70 = getelementptr inbounds nuw i8, ptr %.032, i64 112
   store i32 0, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %5, i64 48
+  %71 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %72 = load ptr, ptr %71, align 8
   %.not.i = icmp eq ptr %72, null
   br i1 %.not.i, label %89, label %73
 
 73:                                               ; preds = %69
-  %74 = getelementptr inbounds i8, ptr %5, i64 56
+  %74 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %75 = load i32, ptr %74, align 8
   %.not54.i = icmp eq i32 %75, 0
   br i1 %.not54.i, label %89, label %76
 
 76:                                               ; preds = %73
-  %77 = getelementptr inbounds i8, ptr %.032, i64 40
+  %77 = getelementptr inbounds nuw i8, ptr %.032, i64 40
   %78 = load i32, ptr %77, align 8
   %..i = call i32 @llvm.umin.i32(i32 %75, i32 %78)
   store i32 %..i, ptr %47, align 4
   %79 = load ptr, ptr %26, align 8
   %80 = zext i32 %75 to i64
-  %81 = getelementptr inbounds i8, ptr %72, i64 %80
+  %81 = getelementptr inbounds nuw i8, ptr %72, i64 %80
   %82 = zext i32 %..i to i64
   %83 = sub nsw i64 0, %82
   %84 = getelementptr inbounds i8, ptr %81, i64 %83
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %79, ptr nonnull align 1 %84, i64 %82, i1 false)
-  %85 = getelementptr inbounds i8, ptr %.032, i64 136
+  %85 = getelementptr inbounds nuw i8, ptr %.032, i64 136
   store i32 1, ptr %85, align 8
-  %86 = getelementptr inbounds i8, ptr %.032, i64 88
+  %86 = getelementptr inbounds nuw i8, ptr %.032, i64 88
   %87 = load ptr, ptr %86, align 8
   %88 = load i32, ptr %47, align 4
   call void %87(ptr noundef nonnull %26, i32 noundef %88) #7
   br label %89
 
 89:                                               ; preds = %76, %73, %69
-  %90 = getelementptr inbounds i8, ptr %.032, i64 136
+  %90 = getelementptr inbounds nuw i8, ptr %.032, i64 136
   store i32 0, ptr %90, align 8
-  %91 = getelementptr inbounds i8, ptr %.032, i64 152
-  %92 = getelementptr inbounds i8, ptr %2, i64 24
+  %91 = getelementptr inbounds nuw i8, ptr %.032, i64 152
+  %92 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %93 = call i32 @lzma_next_filter_init(ptr noundef nonnull %91, ptr noundef %1, ptr noundef nonnull %92) #7
   br label %lz_encoder_init.exit.thread
 
@@ -402,21 +402,21 @@ declare noalias ptr @lzma_alloc(i64 noundef, ptr noundef) local_unnamed_addr #2
 define internal i32 @lz_encode(ptr noundef %0, ptr noundef %1, ptr noalias noundef %2, ptr noalias noundef %3, i64 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6, i64 noundef %7, i32 noundef %8) #0 {
   %10 = alloca i64, align 8
   %11 = icmp ne i32 %8, 0
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
-  %13 = getelementptr inbounds i8, ptr %0, i64 136
-  %14 = getelementptr inbounds i8, ptr %0, i64 56
-  %15 = getelementptr inbounds i8, ptr %0, i64 64
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
-  %17 = getelementptr inbounds i8, ptr %0, i64 48
-  %18 = getelementptr inbounds i8, ptr %0, i64 44
-  %19 = getelementptr inbounds i8, ptr %0, i64 68
-  %20 = getelementptr inbounds i8, ptr %0, i64 52
-  %21 = getelementptr inbounds i8, ptr %0, i64 176
-  %22 = getelementptr inbounds i8, ptr %0, i64 152
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %.not49.i = icmp eq i32 %8, 0
-  %23 = getelementptr inbounds i8, ptr %0, i64 72
-  %24 = getelementptr inbounds i8, ptr %0, i64 88
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %26
 
 26:                                               ; preds = %108, %9
@@ -462,7 +462,7 @@ define internal i32 @lz_encode(ptr noundef %0, ptr noundef %1, ptr noalias nound
   %49 = zext i32 %48 to i64
   %50 = load ptr, ptr %12, align 8
   %51 = zext i32 %46 to i64
-  %52 = getelementptr inbounds i8, ptr %50, i64 %51
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 %51
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %50, ptr align 1 %52, i64 %49, i1 false)
   %53 = load i32, ptr %20, align 4
   %54 = add i32 %53, %46
@@ -592,18 +592,18 @@ fill_window.exit:                                 ; preds = %99, %101, %105
 
 ; Function Attrs: nounwind uwtable
 define internal void @lz_encoder_end(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 152
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
   tail call void @lzma_next_end(ptr noundef nonnull %3, ptr noundef %1) #7
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
-  %5 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load ptr, ptr %5, align 8
   tail call void @lzma_free(ptr noundef %6, ptr noundef %1) #7
-  %7 = getelementptr inbounds i8, ptr %0, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8
   tail call void @lzma_free(ptr noundef %8, ptr noundef %1) #7
   %9 = load ptr, ptr %4, align 8
   tail call void @lzma_free(ptr noundef %9, ptr noundef %1) #7
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   %12 = load ptr, ptr %0, align 8
@@ -624,7 +624,7 @@ define internal void @lz_encoder_end(ptr noundef %0, ptr noundef %1) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @lz_encoder_update(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %15, label %8
@@ -636,8 +636,8 @@ define internal i32 @lz_encoder_update(ptr noundef %0, ptr noundef %1, ptr nocap
   br i1 %.not, label %11, label %15
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 152
-  %13 = getelementptr inbounds i8, ptr %3, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %14 = tail call i32 @lzma_next_filter_update(ptr noundef nonnull %12, ptr noundef %1, ptr noundef nonnull %13) #7
   br label %15
 

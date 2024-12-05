@@ -42,14 +42,14 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @pcie_port_init_reg(ptr nocapture noundef readonly %d) local_unnamed_addr #0 {
 entry:
-  %config = getelementptr inbounds i8, ptr %d, i64 168
+  %config = getelementptr inbounds nuw i8, ptr %d, i64 168
   %0 = load ptr, ptr %config, align 8
   %add.ptr = getelementptr i8, ptr %0, i64 6
   store i16 0, ptr %add.ptr, align 1
   %1 = load ptr, ptr %config, align 8
   %add.ptr2 = getelementptr i8, ptr %1, i64 30
   store i16 0, ptr %add.ptr2, align 1
-  %wmask = getelementptr inbounds i8, ptr %d, i64 184
+  %wmask = getelementptr inbounds nuw i8, ptr %d, i64 184
   %2 = load ptr, ptr %wmask, align 8
   %add.ptr3 = getelementptr i8, ptr %2, i64 62
   %config.val.i = load i16, ptr %add.ptr3, align 1
@@ -72,7 +72,7 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
   br i1 %cmp.i, label %do.end10, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %next.i = getelementptr inbounds i8, ptr %c.06.i, i64 16
+  %next.i = getelementptr inbounds nuw i8, ptr %c.06.i, i64 16
   %c.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i = icmp eq ptr %c.0.i, null
   br i1 %tobool.not.i, label %if.end, label %for.body.i, !llvm.loop !5
@@ -80,22 +80,22 @@ for.inc.i:                                        ; preds = %for.body.i
 if.end:                                           ; preds = %for.inc.i, %entry
   %call1 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #8
   store i8 %chassis_number, ptr %call1, align 8
-  %slots = getelementptr inbounds i8, ptr %call1, i64 8
+  %slots = getelementptr inbounds nuw i8, ptr %call1, i64 8
   store ptr null, ptr %slots, align 8
   %1 = load ptr, ptr @chassis, align 8
-  %next = getelementptr inbounds i8, ptr %call1, i64 16
+  %next = getelementptr inbounds nuw i8, ptr %call1, i64 16
   store ptr %1, ptr %next, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.end7, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %le_prev = getelementptr inbounds i8, ptr %1, i64 24
+  %le_prev = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %next, ptr %le_prev, align 8
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then3, %if.end
   store ptr %call1, ptr @chassis, align 8
-  %le_prev9 = getelementptr inbounds i8, ptr %call1, i64 24
+  %le_prev9 = getelementptr inbounds nuw i8, ptr %call1, i64 24
   store ptr @chassis, ptr %le_prev9, align 8
   br label %do.end10
 
@@ -120,13 +120,13 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
   br i1 %cmp.i, label %if.end, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %next.i = getelementptr inbounds i8, ptr %c.06.i, i64 16
+  %next.i = getelementptr inbounds nuw i8, ptr %c.06.i, i64 16
   %c.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i = icmp eq ptr %c.0.i, null
   br i1 %tobool.not.i, label %return, label %for.body.i, !llvm.loop !5
 
 if.end:                                           ; preds = %for.body.i
-  %slots.i = getelementptr inbounds i8, ptr %c.06.i, i64 8
+  %slots.i = getelementptr inbounds nuw i8, ptr %c.06.i, i64 8
   %s.04.i = load ptr, ptr %slots.i, align 8
   %tobool.not5.i2 = icmp eq ptr %s.04.i, null
   br i1 %tobool.not5.i2, label %return, label %for.body.lr.ph.i
@@ -137,13 +137,13 @@ for.body.lr.ph.i:                                 ; preds = %if.end
 
 for.body.i3:                                      ; preds = %for.inc.i5, %for.body.lr.ph.i
   %s.06.i = phi ptr [ %s.04.i, %for.body.lr.ph.i ], [ %s.0.i, %for.inc.i5 ]
-  %slot1.i = getelementptr inbounds i8, ptr %s.06.i, i64 7154
+  %slot1.i = getelementptr inbounds nuw i8, ptr %s.06.i, i64 7154
   %2 = load i16, ptr %slot1.i, align 2
   %cmp.i4 = icmp eq i16 %2, %1
   br i1 %cmp.i4, label %return, label %for.inc.i5
 
 for.inc.i5:                                       ; preds = %for.body.i3
-  %next.i6 = getelementptr inbounds i8, ptr %s.06.i, i64 7168
+  %next.i6 = getelementptr inbounds nuw i8, ptr %s.06.i, i64 7168
   %s.0.i = load ptr, ptr %next.i6, align 8
   %tobool.not.i7 = icmp eq ptr %s.0.i, null
   br i1 %tobool.not.i7, label %return, label %for.body.i3, !llvm.loop !7
@@ -156,7 +156,7 @@ return:                                           ; preds = %for.inc.i, %for.inc
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local range(i32 -19, 1) i32 @pcie_chassis_add_slot(ptr noundef %slot) local_unnamed_addr #4 {
 entry:
-  %chassis = getelementptr inbounds i8, ptr %slot, i64 7152
+  %chassis = getelementptr inbounds nuw i8, ptr %slot, i64 7152
   %0 = load i8, ptr %chassis, align 16
   %c.04.i = load ptr, ptr @chassis, align 8
   %tobool.not5.i = icmp eq ptr %c.04.i, null
@@ -169,52 +169,52 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
   br i1 %cmp.i, label %if.end, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %next.i = getelementptr inbounds i8, ptr %c.06.i, i64 16
+  %next.i = getelementptr inbounds nuw i8, ptr %c.06.i, i64 16
   %c.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i = icmp eq ptr %c.0.i, null
   br i1 %tobool.not.i, label %return, label %for.body.i, !llvm.loop !5
 
 if.end:                                           ; preds = %for.body.i
-  %slots.i = getelementptr inbounds i8, ptr %c.06.i, i64 8
+  %slots.i = getelementptr inbounds nuw i8, ptr %c.06.i, i64 8
   %s.04.i = load ptr, ptr %slots.i, align 8
   %tobool.not5.i11 = icmp eq ptr %s.04.i, null
   br i1 %tobool.not5.i11, label %do.body.thread, label %for.body.lr.ph.i
 
 do.body.thread:                                   ; preds = %if.end
-  %next21 = getelementptr inbounds i8, ptr %slot, i64 7168
+  %next21 = getelementptr inbounds nuw i8, ptr %slot, i64 7168
   store ptr null, ptr %next21, align 16
   br label %if.end13
 
 for.body.lr.ph.i:                                 ; preds = %if.end
-  %slot1 = getelementptr inbounds i8, ptr %slot, i64 7154
+  %slot1 = getelementptr inbounds nuw i8, ptr %slot, i64 7154
   %2 = load i16, ptr %slot1, align 2
   %3 = and i16 %2, 255
   br label %for.body.i12
 
 for.body.i12:                                     ; preds = %for.inc.i14, %for.body.lr.ph.i
   %s.06.i = phi ptr [ %s.04.i, %for.body.lr.ph.i ], [ %s.0.i, %for.inc.i14 ]
-  %slot1.i = getelementptr inbounds i8, ptr %s.06.i, i64 7154
+  %slot1.i = getelementptr inbounds nuw i8, ptr %s.06.i, i64 7154
   %4 = load i16, ptr %slot1.i, align 2
   %cmp.i13 = icmp eq i16 %4, %3
   br i1 %cmp.i13, label %return, label %for.inc.i14
 
 for.inc.i14:                                      ; preds = %for.body.i12
-  %next.i15 = getelementptr inbounds i8, ptr %s.06.i, i64 7168
+  %next.i15 = getelementptr inbounds nuw i8, ptr %s.06.i, i64 7168
   %s.0.i = load ptr, ptr %next.i15, align 8
   %tobool.not.i16 = icmp eq ptr %s.0.i, null
   br i1 %tobool.not.i16, label %do.body, label %for.body.i12, !llvm.loop !7
 
 do.body:                                          ; preds = %for.inc.i14
-  %next = getelementptr inbounds i8, ptr %slot, i64 7168
+  %next = getelementptr inbounds nuw i8, ptr %slot, i64 7168
   store ptr %s.04.i, ptr %next, align 16
   %5 = load ptr, ptr %slots.i, align 8
-  %le_prev = getelementptr inbounds i8, ptr %5, i64 7176
+  %le_prev = getelementptr inbounds nuw i8, ptr %5, i64 7176
   store ptr %next, ptr %le_prev, align 8
   br label %if.end13
 
 if.end13:                                         ; preds = %do.body.thread, %do.body
   store ptr %slot, ptr %slots.i, align 8
-  %le_prev19 = getelementptr inbounds i8, ptr %slot, i64 7176
+  %le_prev19 = getelementptr inbounds nuw i8, ptr %slot, i64 7176
   store ptr %slots.i, ptr %le_prev19, align 8
   br label %return
 
@@ -226,15 +226,15 @@ return:                                           ; preds = %for.inc.i, %for.bod
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @pcie_chassis_del_slot(ptr nocapture noundef %s) local_unnamed_addr #5 {
 entry:
-  %next = getelementptr inbounds i8, ptr %s, i64 7168
+  %next = getelementptr inbounds nuw i8, ptr %s, i64 7168
   %0 = load ptr, ptr %next, align 16
   %cmp.not = icmp eq ptr %0, null
-  %le_prev9.phi.trans.insert = getelementptr inbounds i8, ptr %s, i64 7176
+  %le_prev9.phi.trans.insert = getelementptr inbounds nuw i8, ptr %s, i64 7176
   %.pre7 = load ptr, ptr %le_prev9.phi.trans.insert, align 8
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %le_prev5 = getelementptr inbounds i8, ptr %0, i64 7176
+  %le_prev5 = getelementptr inbounds nuw i8, ptr %0, i64 7176
   store ptr %.pre7, ptr %le_prev5, align 8
   %.pre = load ptr, ptr %next, align 16
   br label %if.end
@@ -249,7 +249,7 @@ if.end:                                           ; preds = %entry, %if.then
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @pcie_find_port_by_pn(ptr nocapture noundef readonly %bus, i8 noundef zeroext %pn) local_unnamed_addr #1 {
 entry:
-  %devices = getelementptr inbounds i8, ptr %bus, i64 184
+  %devices = getelementptr inbounds nuw i8, ptr %bus, i64 184
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
@@ -267,7 +267,7 @@ lor.lhs.false:                                    ; preds = %for.body
   br i1 %tobool2.not, label %for.inc, label %lor.lhs.false3
 
 lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %exp = getelementptr inbounds i8, ptr %0, i64 2168
+  %exp = getelementptr inbounds nuw i8, ptr %0, i64 2168
   %2 = load i8, ptr %exp, align 8
   %tobool4.not = icmp eq i8 %2, 0
   br i1 %tobool4.not, label %for.inc, label %if.end
@@ -279,7 +279,7 @@ if.end:                                           ; preds = %lor.lhs.false3
 
 if.end8:                                          ; preds = %if.end
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 30, ptr noundef nonnull @__func__.PCIE_PORT) #9
-  %port10 = getelementptr inbounds i8, ptr %call.i, i64 7136
+  %port10 = getelementptr inbounds nuw i8, ptr %call.i, i64 7136
   %3 = load i8, ptr %port10, align 16
   %cmp13 = icmp eq i8 %3, %pn
   br i1 %cmp13, label %return, label %for.inc
@@ -299,7 +299,7 @@ declare ptr @object_dynamic_cast(ptr noundef, ptr noundef) local_unnamed_addr #6
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @pcie_find_port_first(ptr nocapture noundef readonly %bus) local_unnamed_addr #1 {
 entry:
-  %devices = getelementptr inbounds i8, ptr %bus, i64 184
+  %devices = getelementptr inbounds nuw i8, ptr %bus, i64 184
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
@@ -317,7 +317,7 @@ lor.lhs.false:                                    ; preds = %for.body
   br i1 %tobool2.not, label %for.inc, label %lor.lhs.false3
 
 lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %exp = getelementptr inbounds i8, ptr %0, i64 2168
+  %exp = getelementptr inbounds nuw i8, ptr %0, i64 2168
   %2 = load i8, ptr %exp, align 8
   %tobool4.not = icmp eq i8 %2, 0
   br i1 %tobool4.not, label %for.inc, label %if.end
@@ -340,7 +340,7 @@ return:                                           ; preds = %for.inc, %if.end
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @pcie_count_ds_ports(ptr nocapture noundef readonly %bus) local_unnamed_addr #1 {
 entry:
-  %devices = getelementptr inbounds i8, ptr %bus, i64 184
+  %devices = getelementptr inbounds nuw i8, ptr %bus, i64 184
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
@@ -359,7 +359,7 @@ lor.lhs.false:                                    ; preds = %for.body
   br i1 %tobool2.not, label %for.inc, label %lor.lhs.false3
 
 lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %exp = getelementptr inbounds i8, ptr %0, i64 2168
+  %exp = getelementptr inbounds nuw i8, ptr %0, i64 2168
   %2 = load i8, ptr %exp, align 8
   %tobool4.not = icmp eq i8 %2, 0
   br i1 %tobool4.not, label %for.inc, label %if.end
@@ -420,15 +420,15 @@ entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #9
   %call.i6 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 21, ptr noundef nonnull @__func__.HOTPLUG_HANDLER_CLASS) #9
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @pcie_slot_props) #9
-  %pre_plug = getelementptr inbounds i8, ptr %call.i6, i64 112
+  %pre_plug = getelementptr inbounds nuw i8, ptr %call.i6, i64 112
   store ptr @pcie_cap_slot_pre_plug_cb, ptr %pre_plug, align 8
-  %plug = getelementptr inbounds i8, ptr %call.i6, i64 120
+  %plug = getelementptr inbounds nuw i8, ptr %call.i6, i64 120
   store ptr @pcie_cap_slot_plug_cb, ptr %plug, align 8
-  %unplug = getelementptr inbounds i8, ptr %call.i6, i64 136
+  %unplug = getelementptr inbounds nuw i8, ptr %call.i6, i64 136
   store ptr @pcie_cap_slot_unplug_cb, ptr %unplug, align 8
-  %unplug_request = getelementptr inbounds i8, ptr %call.i6, i64 128
+  %unplug_request = getelementptr inbounds nuw i8, ptr %call.i6, i64 128
   store ptr @pcie_cap_slot_unplug_request_cb, ptr %unplug_request, align 8
-  %is_hotpluggable_bus = getelementptr inbounds i8, ptr %call.i6, i64 144
+  %is_hotpluggable_bus = getelementptr inbounds nuw i8, ptr %call.i6, i64 144
   store ptr @pcie_slot_is_hotpluggbale_bus, ptr %is_hotpluggable_bus, align 8
   ret void
 }
@@ -444,10 +444,10 @@ declare void @pcie_cap_slot_unplug_request_cb(ptr noundef, ptr noundef, ptr noun
 ; Function Attrs: nounwind sspstrong uwtable
 define internal zeroext i1 @pcie_slot_is_hotpluggbale_bus(ptr nocapture readnone %plug_handler, ptr nocapture noundef readonly %bus) #1 {
 entry:
-  %parent = getelementptr inbounds i8, ptr %bus, i64 40
+  %parent = getelementptr inbounds nuw i8, ptr %bus, i64 40
   %0 = load ptr, ptr %parent, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 48, ptr noundef nonnull @__func__.PCIE_SLOT) #9
-  %hotplug = getelementptr inbounds i8, ptr %call.i, i64 7165
+  %hotplug = getelementptr inbounds nuw i8, ptr %call.i, i64 7165
   %1 = load i8, ptr %hotplug, align 1
   %tobool = trunc i8 %1 to i1
   ret i1 %tobool

@@ -128,7 +128,7 @@ _ZN4llvm11SmallPtrSetIPNS_2cl10SubCommandELj1EED2Ev.exit.i: ; preds = %12, %_ZNS
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #13
   %15 = load ptr, ptr %13, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %17 = icmp eq ptr %15, %16
   br i1 %17, label %_ZN4llvm2cl6OptionD2Ev.exit, label %18
 
@@ -173,7 +173,7 @@ _ZN4llvm11SmallPtrSetIPNS_2cl10SubCommandELj1EED2Ev.exit.i: ; preds = %12, %_ZNS
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #13
   %15 = load ptr, ptr %13, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %17 = icmp eq ptr %15, %16
   br i1 %17, label %_ZN4llvm2cl6OptionD2Ev.exit, label %18
 
@@ -223,7 +223,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm9OptBisect13shouldRunPassENS_9Strin
 29:                                               ; preds = %15
   store i64 2322261205765540162, ptr %22, align 1
   %30 = load ptr, ptr %21, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %31, ptr %21, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i
 
@@ -251,7 +251,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i:               ; preds = %29, %27
 43:                                               ; preds = %42
   store i32 542396238, ptr %32, align 1
   %44 = load ptr, ptr %35, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
   store ptr %45, ptr %35, align 8
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i
 
@@ -276,7 +276,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i:    ; preds = %43, %42, %40
   %56 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %46, ptr noundef nonnull align 1 dereferenceable(13) @.str.8, i64 13, i1 false)
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 13
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 13
   store ptr %58, ptr %56, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit10.i
 
@@ -296,7 +296,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit10.i:             ; preds = %55, %53
   %66 = getelementptr inbounds nuw i8, ptr %.0.i.i9.i, i64 32
   store i8 40, ptr %59, align 1
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 1
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 1
   store ptr %68, ptr %66, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit13.i
 
@@ -323,7 +323,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit13.i:             ; preds = %65, %63
 81:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit13.i
   store i16 8233, ptr %74, align 1
   %82 = load ptr, ptr %73, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 2
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 2
   store ptr %83, ptr %73, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit16.i
 
@@ -377,7 +377,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit19.i:  ; preds = %95, %94, %92
   %108 = getelementptr inbounds nuw i8, ptr %.0.i18.i, i64 32
   store i32 544108320, ptr %98, align 1
   %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 4
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 4
   store ptr %110, ptr %108, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit22.i
 
@@ -426,7 +426,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit25.i:  ; preds = %122, %121, %119
   %132 = getelementptr inbounds nuw i8, ptr %.0.i24.i, i64 32
   store i8 10, ptr %125, align 1
   %133 = load ptr, ptr %132, align 8
-  %134 = getelementptr inbounds i8, ptr %133, i64 1
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 1
   store ptr %134, ptr %132, align 8
   br label %_ZL16printPassMessageRKN4llvm9StringRefEiS0_b.exit
 
@@ -557,7 +557,7 @@ define linkonce_odr hidden void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagEN
   store i16 %14, ptr %5, align 2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %17 = getelementptr inbounds i8, ptr %0, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %15, i8 0, i64 52, i1 false)
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull %17, i64 noundef 1) #13
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -822,9 +822,9 @@ define internal void @_GLOBAL__sub_I_OptBisect.cpp() #11 section ".text.startup"
   %1 = alloca i8, align 1
   %2 = alloca %"class.std::function", align 8
   tail call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL14OptBisectLimit, i32 noundef 0, i32 noundef 0)
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL14OptBisectLimit, i64 128), align 8
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZL14OptBisectLimit, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIiEE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZL14OptBisectLimit, i64 136), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL14OptBisectLimit, i64 128), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL14OptBisectLimit, i64 144), align 8
+  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIiEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL14OptBisectLimit, i64 136), align 8
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIiLb0ENS0_6parserIiEEEE, i64 16), ptr @_ZL14OptBisectLimit, align 8
   tail call void @_ZN4llvm2cl12basic_parserIiEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL14OptBisectLimit, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL14OptBisectLimit) #13
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIiEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL14OptBisectLimit, i64 152), align 8
@@ -841,7 +841,7 @@ define internal void @_GLOBAL__sub_I_OptBisect.cpp() #11 section ".text.startup"
   %7 = and i16 %6, -8
   store i16 %7, ptr getelementptr inbounds nuw (i8, ptr @_ZL14OptBisectLimit, i64 10), align 2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 0, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -866,15 +866,15 @@ define internal void @_GLOBAL__sub_I_OptBisect.cpp() #11 section ".text.startup"
 __cxx_global_var_init.exit:                       ; preds = %0, %15
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
   store ptr @.str.1, ptr getelementptr inbounds nuw (i8, ptr @_ZL14OptBisectLimit, i64 32), align 8
-  store i64 31, ptr getelementptr inbounds (i8, ptr @_ZL14OptBisectLimit, i64 40), align 8
+  store i64 31, ptr getelementptr inbounds nuw (i8, ptr @_ZL14OptBisectLimit, i64 40), align 8
   call void @_ZN4llvm2cl3optIiLb0ENS0_6parserIiEEE4doneEv(ptr noundef nonnull align 8 dereferenceable(192) @_ZL14OptBisectLimit) #13
   %17 = call i32 @__cxa_atexit(ptr nonnull @_ZN4llvm2cl3optIiLb0ENS0_6parserIiEEED2Ev, ptr nonnull @_ZL14OptBisectLimit, ptr nonnull @__dso_handle) #13
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1)
   store i8 1, ptr %1, align 1
   call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL16OptBisectVerbose, i32 noundef 0, i32 noundef 0)
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL16OptBisectVerbose, i64 128), align 8
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZL16OptBisectVerbose, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZL16OptBisectVerbose, i64 136), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL16OptBisectVerbose, i64 128), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL16OptBisectVerbose, i64 144), align 8
+  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL16OptBisectVerbose, i64 136), align 8
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL16OptBisectVerbose, align 8
   call void @_ZN4llvm2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL16OptBisectVerbose, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL16OptBisectVerbose) #13
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL16OptBisectVerbose, i64 152), align 8
@@ -883,7 +883,7 @@ __cxx_global_var_init.exit:                       ; preds = %0, %15
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL16OptBisectVerbose, i64 176), align 8
   call void @_ZN4llvm2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) @_ZL16OptBisectVerbose, ptr nonnull align 1 dereferenceable(19) @.str.3, i64 18) #13
   store ptr @.str.4, ptr getelementptr inbounds nuw (i8, ptr @_ZL16OptBisectVerbose, i64 32), align 8
-  store i64 48, ptr getelementptr inbounds (i8, ptr @_ZL16OptBisectVerbose, i64 40), align 8
+  store i64 48, ptr getelementptr inbounds nuw (i8, ptr @_ZL16OptBisectVerbose, i64 40), align 8
   %18 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZL16OptBisectVerbose, i64 10), align 2
   %19 = and i16 %18, -97
   %20 = or disjoint i16 %19, 32

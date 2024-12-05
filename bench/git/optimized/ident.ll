@@ -86,7 +86,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not.i, label %if.then.i, label %if.then.xgetpwuid_self.exit_crit_edge
 
 if.then.xgetpwuid_self.exit_crit_edge:            ; preds = %if.then
-  %pw_gecos.i.phi.trans.insert = getelementptr inbounds i8, ptr %call2.i, i64 24
+  %pw_gecos.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %call2.i, i64 24
   %.pre = load ptr, ptr %pw_gecos.i.phi.trans.insert, align 8
   br label %xgetpwuid_self.exit
 
@@ -116,26 +116,26 @@ if.then.i2:                                       ; preds = %for.cond.i
   br i1 %tobool.not.i.i.i, label %if.then.i.i, label %strbuf_avail.exit.i.i
 
 strbuf_avail.exit.i.i:                            ; preds = %if.then.i2
-  %5 = load i64, ptr getelementptr inbounds (i8, ptr @git_default_name, i64 8), align 8
+  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @git_default_name, i64 8), align 8
   %.neg.i.i = add i64 %5, 1
   %tobool.not.i.i = icmp eq i64 %4, %.neg.i.i
   br i1 %tobool.not.i.i, label %if.then.i.i, label %strbuf_addch.exit.i
 
 if.then.i.i:                                      ; preds = %strbuf_avail.exit.i.i, %if.then.i2
   tail call void @strbuf_grow(ptr noundef nonnull @git_default_name, i64 noundef 1) #18
-  %.pre.i.i = load i64, ptr getelementptr inbounds (i8, ptr @git_default_name, i64 8), align 8
+  %.pre.i.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @git_default_name, i64 8), align 8
   %.pre8.i.i = add i64 %.pre.i.i, 1
   br label %strbuf_addch.exit.i
 
 strbuf_addch.exit.i:                              ; preds = %if.then.i.i, %strbuf_avail.exit.i.i
   %inc.pre-phi.i.i = phi i64 [ %.pre8.i.i, %if.then.i.i ], [ %.neg.i.i, %strbuf_avail.exit.i.i ]
   %6 = phi i64 [ %.pre.i.i, %if.then.i.i ], [ %5, %strbuf_avail.exit.i.i ]
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @git_default_name, i64 16), align 8
-  store i64 %inc.pre-phi.i.i, ptr getelementptr inbounds (i8, ptr @git_default_name, i64 8), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @git_default_name, i64 16), align 8
+  store i64 %inc.pre-phi.i.i, ptr getelementptr inbounds nuw (i8, ptr @git_default_name, i64 8), align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %7, i64 %6
   store i8 %3, ptr %arrayidx.i.i, align 1
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @git_default_name, i64 16), align 8
-  %9 = load i64, ptr getelementptr inbounds (i8, ptr @git_default_name, i64 8), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @git_default_name, i64 16), align 8
+  %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @git_default_name, i64 8), align 8
   %arrayidx3.i.i = getelementptr inbounds i8, ptr %8, i64 %9
   store i8 0, ptr %arrayidx3.i.i, align 1
   br label %for.inc.i
@@ -144,7 +144,7 @@ if.else.i:                                        ; preds = %for.cond.i
   %10 = load ptr, ptr %pw.0.i, align 8
   %11 = load i8, ptr %10, align 1
   %conv.i.i = zext i8 %11 to i64
-  %arrayidx.i9.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %conv.i.i
+  %arrayidx.i9.i = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %conv.i.i
   %12 = load i8, ptr %arrayidx.i9.i, align 1
   %13 = and i8 %12, 4
   %cmp.not.i.i = icmp eq i8 %13, 0
@@ -154,14 +154,14 @@ if.else.i:                                        ; preds = %for.cond.i
   br i1 %tobool.not.i.i10.i, label %if.then.i18.i, label %strbuf_avail.exit.i11.i
 
 strbuf_avail.exit.i11.i:                          ; preds = %if.else.i
-  %15 = load i64, ptr getelementptr inbounds (i8, ptr @git_default_name, i64 8), align 8
+  %15 = load i64, ptr getelementptr inbounds nuw (i8, ptr @git_default_name, i64 8), align 8
   %.neg.i12.i = add i64 %15, 1
   %tobool.not.i13.i = icmp eq i64 %14, %.neg.i12.i
   br i1 %tobool.not.i13.i, label %if.then.i18.i, label %strbuf_addch.exit21.i
 
 if.then.i18.i:                                    ; preds = %strbuf_avail.exit.i11.i, %if.else.i
   tail call void @strbuf_grow(ptr noundef nonnull @git_default_name, i64 noundef 1) #18
-  %.pre.i19.i = load i64, ptr getelementptr inbounds (i8, ptr @git_default_name, i64 8), align 8
+  %.pre.i19.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @git_default_name, i64 8), align 8
   %.pre8.i20.i = add i64 %.pre.i19.i, 1
   br label %strbuf_addch.exit21.i
 
@@ -169,22 +169,22 @@ strbuf_addch.exit21.i:                            ; preds = %if.then.i18.i, %str
   %inc.pre-phi.i14.i = phi i64 [ %.pre8.i20.i, %if.then.i18.i ], [ %.neg.i12.i, %strbuf_avail.exit.i11.i ]
   %16 = phi i64 [ %.pre.i19.i, %if.then.i18.i ], [ %15, %strbuf_avail.exit.i11.i ]
   %conv.i15.i = select i1 %cmp.not.i.i, i8 %11, i8 %and3.i.i
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @git_default_name, i64 16), align 8
-  store i64 %inc.pre-phi.i14.i, ptr getelementptr inbounds (i8, ptr @git_default_name, i64 8), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @git_default_name, i64 16), align 8
+  store i64 %inc.pre-phi.i14.i, ptr getelementptr inbounds nuw (i8, ptr @git_default_name, i64 8), align 8
   %arrayidx.i16.i = getelementptr inbounds i8, ptr %17, i64 %16
   store i8 %conv.i15.i, ptr %arrayidx.i16.i, align 1
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @git_default_name, i64 16), align 8
-  %19 = load i64, ptr getelementptr inbounds (i8, ptr @git_default_name, i64 8), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @git_default_name, i64 16), align 8
+  %19 = load i64, ptr getelementptr inbounds nuw (i8, ptr @git_default_name, i64 8), align 8
   %arrayidx3.i17.i = getelementptr inbounds i8, ptr %18, i64 %19
   store i8 0, ptr %arrayidx3.i17.i, align 1
   %20 = load ptr, ptr %pw.0.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %20, i64 1
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %20, i64 1
   %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %add.ptr.i) #19
   tail call void @strbuf_add(ptr noundef nonnull @git_default_name, ptr noundef nonnull %add.ptr.i, i64 noundef %call.i.i) #18
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %strbuf_addch.exit21.i, %strbuf_addch.exit.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %src.0.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %src.0.i, i64 1
   br label %for.cond.i, !llvm.loop !5
 
 copy_gecos.exit:                                  ; preds = %for.cond.i, %for.cond.i
@@ -261,26 +261,26 @@ xgetpwuid_self.exit:                              ; preds = %if.else.xgetpwuid_s
   br i1 %tobool.not.i.i.i, label %if.then.i.i, label %strbuf_avail.exit.i.i
 
 strbuf_avail.exit.i.i:                            ; preds = %xgetpwuid_self.exit
-  %6 = load i64, ptr getelementptr inbounds (i8, ptr @git_default_email, i64 8), align 8
+  %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @git_default_email, i64 8), align 8
   %.neg.i.i = add i64 %6, 1
   %tobool.not.i.i = icmp eq i64 %5, %.neg.i.i
   br i1 %tobool.not.i.i, label %if.then.i.i, label %strbuf_addch.exit.i
 
 if.then.i.i:                                      ; preds = %strbuf_avail.exit.i.i, %xgetpwuid_self.exit
   tail call void @strbuf_grow(ptr noundef nonnull @git_default_email, i64 noundef 1) #18
-  %.pre.i.i = load i64, ptr getelementptr inbounds (i8, ptr @git_default_email, i64 8), align 8
+  %.pre.i.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @git_default_email, i64 8), align 8
   %.pre8.i.i = add i64 %.pre.i.i, 1
   br label %strbuf_addch.exit.i
 
 strbuf_addch.exit.i:                              ; preds = %if.then.i.i, %strbuf_avail.exit.i.i
   %inc.pre-phi.i.i = phi i64 [ %.pre8.i.i, %if.then.i.i ], [ %.neg.i.i, %strbuf_avail.exit.i.i ]
   %7 = phi i64 [ %.pre.i.i, %if.then.i.i ], [ %6, %strbuf_avail.exit.i.i ]
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @git_default_email, i64 16), align 8
-  store i64 %inc.pre-phi.i.i, ptr getelementptr inbounds (i8, ptr @git_default_email, i64 8), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @git_default_email, i64 16), align 8
+  store i64 %inc.pre-phi.i.i, ptr getelementptr inbounds nuw (i8, ptr @git_default_email, i64 8), align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %8, i64 %7
   store i8 64, ptr %arrayidx.i.i, align 1
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @git_default_email, i64 16), align 8
-  %10 = load i64, ptr getelementptr inbounds (i8, ptr @git_default_email, i64 8), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @git_default_email, i64 16), align 8
+  %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @git_default_email, i64 8), align 8
   %arrayidx3.i.i = getelementptr inbounds i8, ptr %9, i64 %10
   store i8 0, ptr %arrayidx3.i.i, align 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %mailnamebuf.i.i)
@@ -354,7 +354,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i.i
   br i1 %tobool1.not.i.i.i, label %canonical_name.exit.thread3.i.i, label %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %if.then.i.i.i
-  %ai_canonname.i.i.i = getelementptr inbounds i8, ptr %11, i64 32
+  %ai_canonname.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 32
   %12 = load ptr, ptr %ai_canonname.i.i.i, align 8
   %tobool2.not.i.i.i = icmp eq ptr %12, null
   br i1 %tobool2.not.i.i.i, label %canonical_name.exit.thread3.i.i, label %land.lhs.true3.i.i.i
@@ -403,8 +403,8 @@ declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
 define dso_local void @reset_ident_date() local_unnamed_addr #3 {
 entry:
-  store i64 0, ptr getelementptr inbounds (i8, ptr @git_default_date, i64 8), align 8
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @git_default_date, i64 16), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @git_default_date, i64 8), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @git_default_date, i64 16), align 8
   %cmp3.not.i = icmp eq ptr %0, @strbuf_slopbuf
   br i1 %cmp3.not.i, label %strbuf_setlen.exit, label %if.then4.i
 
@@ -419,7 +419,7 @@ strbuf_setlen.exit:                               ; preds = %entry, %if.then4.i
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
 define dso_local range(i32 -1, 1) i32 @split_ident_line(ptr nocapture noundef writeonly initializes((0, 64)) %split, ptr noundef %line, i32 noundef %len) local_unnamed_addr #4 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %split, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %split, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 56, i1 false)
   store ptr %line, ptr %split, align 8
   %idx.ext = sext i32 %len to i64
@@ -434,7 +434,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %3 = phi i8 [ %4, %for.inc ], [ %1, %entry ]
   %cp.081 = phi ptr [ %add.ptr5, %for.inc ], [ %line, %entry ]
   %cmp3 = icmp eq i8 %3, 60
-  %add.ptr5 = getelementptr inbounds i8, ptr %cp.081, i64 1
+  %add.ptr5 = getelementptr inbounds nuw i8, ptr %cp.081, i64 1
   br i1 %cmp3, label %if.end9, label %for.inc
 
 for.inc:                                          ; preds = %for.body
@@ -445,7 +445,7 @@ for.inc:                                          ; preds = %for.body
   br i1 %5, label %for.body, label %return, !llvm.loop !7
 
 if.end9:                                          ; preds = %for.body
-  %mail_begin = getelementptr inbounds i8, ptr %split, i64 16
+  %mail_begin = getelementptr inbounds nuw i8, ptr %split, i64 16
   store ptr %add.ptr5, ptr %mail_begin, align 8
   %add.ptr11 = getelementptr inbounds i8, ptr %cp.081, i64 -1
   %cmp13.not83 = icmp ugt ptr %line, %add.ptr11
@@ -455,7 +455,7 @@ for.body15:                                       ; preds = %if.end9, %for.inc22
   %cp.184 = phi ptr [ %incdec.ptr23, %for.inc22 ], [ %add.ptr11, %if.end9 ]
   %6 = load i8, ptr %cp.184, align 1
   %idxprom = zext i8 %6 to i64
-  %arrayidx = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom
   %7 = load i8, ptr %arrayidx, align 1
   %8 = and i8 %7, 1
   %cmp17.not = icmp eq i8 %8, 0
@@ -467,12 +467,12 @@ for.inc22:                                        ; preds = %for.body15
   br i1 %cmp13.not, label %if.end30, label %for.body15, !llvm.loop !8
 
 for.end24:                                        ; preds = %for.body15
-  %add.ptr20 = getelementptr inbounds i8, ptr %cp.184, i64 1
+  %add.ptr20 = getelementptr inbounds nuw i8, ptr %cp.184, i64 1
   br label %if.end30
 
 if.end30:                                         ; preds = %for.inc22, %if.end9, %for.end24
   %add.ptr20.sink = phi ptr [ %add.ptr20, %for.end24 ], [ %line, %if.end9 ], [ %line, %for.inc22 ]
-  %name_end = getelementptr inbounds i8, ptr %split, i64 8
+  %name_end = getelementptr inbounds nuw i8, ptr %split, i64 8
   store ptr %add.ptr20.sink, ptr %name_end, align 8
   %cmp3585 = icmp ult ptr %add.ptr5, %add.ptr
   br i1 %cmp3585, label %for.body37, label %return
@@ -484,12 +484,12 @@ for.body37:                                       ; preds = %if.end30, %for.inc4
   br i1 %cmp39, label %for.cond53.preheader, label %for.inc43
 
 for.inc43:                                        ; preds = %for.body37
-  %incdec.ptr44 = getelementptr inbounds i8, ptr %cp.286, i64 1
+  %incdec.ptr44 = getelementptr inbounds nuw i8, ptr %cp.286, i64 1
   %cmp35 = icmp ult ptr %incdec.ptr44, %add.ptr
   br i1 %cmp35, label %for.body37, label %return, !llvm.loop !9
 
 for.cond53.preheader:                             ; preds = %for.body37
-  %mail_end = getelementptr inbounds i8, ptr %split, i64 24
+  %mail_end = getelementptr inbounds nuw i8, ptr %split, i64 24
   store ptr %cp.286, ptr %mail_end, align 8
   br label %for.cond53
 
@@ -502,21 +502,21 @@ for.cond53:                                       ; preds = %for.cond53.preheade
 
 for.cond62:                                       ; preds = %for.cond53, %land.rhs67
   %cp.3.pn = phi ptr [ %cp.4, %land.rhs67 ], [ %cp.3, %for.cond53 ]
-  %cp.4 = getelementptr inbounds i8, ptr %cp.3.pn, i64 1
+  %cp.4 = getelementptr inbounds nuw i8, ptr %cp.3.pn, i64 1
   %cmp65 = icmp ult ptr %cp.4, %add.ptr
   br i1 %cmp65, label %land.rhs67, label %person_only
 
 land.rhs67:                                       ; preds = %for.cond62
   %11 = load i8, ptr %cp.4, align 1
   %idxprom68 = zext i8 %11 to i64
-  %arrayidx69 = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom68
+  %arrayidx69 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom68
   %12 = load i8, ptr %arrayidx69, align 1
   %13 = and i8 %12, 1
   %cmp72.not = icmp eq i8 %13, 0
   br i1 %cmp72.not, label %if.end84, label %for.cond62, !llvm.loop !11
 
 if.end84:                                         ; preds = %land.rhs67
-  %date_begin = getelementptr inbounds i8, ptr %split, i64 32
+  %date_begin = getelementptr inbounds nuw i8, ptr %split, i64 32
   store ptr %cp.4, ptr %date_begin, align 8
   %call = tail call i64 @strspn(ptr noundef nonnull %cp.4, ptr noundef nonnull @.str.1) #19
   %tobool85.not = icmp eq i64 %call, 0
@@ -524,7 +524,7 @@ if.end84:                                         ; preds = %land.rhs67
 
 if.end87:                                         ; preds = %if.end84
   %add.ptr89 = getelementptr inbounds i8, ptr %cp.4, i64 %call
-  %date_end = getelementptr inbounds i8, ptr %split, i64 40
+  %date_end = getelementptr inbounds nuw i8, ptr %split, i64 40
   store ptr %add.ptr89, ptr %date_end, align 8
   %cmp9487 = icmp ult ptr %add.ptr89, %add.ptr
   br i1 %cmp9487, label %land.rhs96, label %person_only
@@ -533,14 +533,14 @@ land.rhs96:                                       ; preds = %if.end87, %for.inc1
   %cp.588 = phi ptr [ %incdec.ptr106, %for.inc105 ], [ %add.ptr89, %if.end87 ]
   %14 = load i8, ptr %cp.588, align 1
   %idxprom97 = zext i8 %14 to i64
-  %arrayidx98 = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom97
+  %arrayidx98 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom97
   %15 = load i8, ptr %arrayidx98, align 1
   %16 = and i8 %15, 1
   %cmp101.not = icmp eq i8 %16, 0
   br i1 %cmp101.not, label %lor.lhs.false, label %for.inc105
 
 for.inc105:                                       ; preds = %land.rhs96
-  %incdec.ptr106 = getelementptr inbounds i8, ptr %cp.588, i64 1
+  %incdec.ptr106 = getelementptr inbounds nuw i8, ptr %cp.588, i64 1
   %cmp94 = icmp ult ptr %incdec.ptr106, %add.ptr
   br i1 %cmp94, label %land.rhs96, label %person_only, !llvm.loop !12
 
@@ -551,21 +551,21 @@ lor.lhs.false:                                    ; preds = %land.rhs96
   ]
 
 if.end119:                                        ; preds = %lor.lhs.false, %lor.lhs.false
-  %tz_begin = getelementptr inbounds i8, ptr %split, i64 48
+  %tz_begin = getelementptr inbounds nuw i8, ptr %split, i64 48
   store ptr %cp.588, ptr %tz_begin, align 8
-  %add.ptr120 = getelementptr inbounds i8, ptr %cp.588, i64 1
+  %add.ptr120 = getelementptr inbounds nuw i8, ptr %cp.588, i64 1
   %call121 = tail call i64 @strspn(ptr noundef nonnull %add.ptr120, ptr noundef nonnull @.str.1) #19
   %tobool122.not = icmp eq i64 %call121, 0
   br i1 %tobool122.not, label %person_only, label %if.end124
 
 if.end124:                                        ; preds = %if.end119
   %add.ptr127 = getelementptr inbounds i8, ptr %add.ptr120, i64 %call121
-  %tz_end = getelementptr inbounds i8, ptr %split, i64 56
+  %tz_end = getelementptr inbounds nuw i8, ptr %split, i64 56
   store ptr %add.ptr127, ptr %tz_end, align 8
   br label %return
 
 person_only:                                      ; preds = %for.cond62, %for.inc105, %if.end87, %lor.lhs.false, %if.end119, %if.end84
-  %date_begin128 = getelementptr inbounds i8, ptr %split, i64 32
+  %date_begin128 = getelementptr inbounds nuw i8, ptr %split, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %date_begin128, i8 0, i64 32, i1 false)
   br label %return
 
@@ -593,12 +593,12 @@ entry:
   br i1 %tobool.not, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %buf1 = getelementptr inbounds i8, ptr %buf, i64 16
-  %mail_begin.i = getelementptr inbounds i8, ptr %ident.i, i64 16
-  %mail_end.i = getelementptr inbounds i8, ptr %ident.i, i64 24
-  %name_end.i = getelementptr inbounds i8, ptr %ident.i, i64 8
-  %buf21.i = getelementptr inbounds i8, ptr %namemail.i, i64 16
-  %len22.i = getelementptr inbounds i8, ptr %namemail.i, i64 8
+  %buf1 = getelementptr inbounds nuw i8, ptr %buf, i64 16
+  %mail_begin.i = getelementptr inbounds nuw i8, ptr %ident.i, i64 16
+  %mail_end.i = getelementptr inbounds nuw i8, ptr %ident.i, i64 24
+  %name_end.i = getelementptr inbounds nuw i8, ptr %ident.i, i64 8
+  %buf21.i = getelementptr inbounds nuw i8, ptr %namemail.i, i64 16
+  %len22.i = getelementptr inbounds nuw i8, ptr %namemail.i, i64 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %for.cond.preheader
@@ -629,9 +629,9 @@ do.body.i:                                        ; preds = %do.body.i.preheader
   br i1 %tobool.not.i, label %if.then9, label %do.cond.i
 
 do.cond.i:                                        ; preds = %do.body.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %str.addr.0.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %str.addr.0.i, i64 1
   %5 = load i8, ptr %str.addr.0.i, align 1
-  %incdec.ptr1.i = getelementptr inbounds i8, ptr %prefix.addr.0.i, i64 1
+  %incdec.ptr1.i = getelementptr inbounds nuw i8, ptr %prefix.addr.0.i, i64 1
   %cmp.i = icmp eq i8 %5, %4
   br i1 %cmp.i, label %do.body.i, label %for.inc, !llvm.loop !13
 
@@ -747,7 +747,7 @@ entry:
   %tobool3.not = icmp eq i32 %and2, 0
   %0 = load i32, ptr @fmt_ident.index, align 4
   %idxprom = zext nneg i32 %0 to i64
-  %arrayidx = getelementptr inbounds [2 x %struct.strbuf], ptr @fmt_ident.ident_pool, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [2 x %struct.strbuf], ptr @fmt_ident.ident_pool, i64 0, i64 %idxprom
   %1 = and i32 %0, 1
   %2 = xor i32 %1, 1
   store i32 %2, ptr @fmt_ident.index, align 4
@@ -926,7 +926,7 @@ switch.early.test.i.i:                            ; preds = %for.body.i
   ]
 
 for.inc.i:                                        ; preds = %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %for.body.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %str.addr.06.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %str.addr.06.i, i64 1
   %13 = load i8, ptr %incdec.ptr.i, align 1
   %tobool.not.i51 = icmp eq i8 %13, 0
   br i1 %tobool.not.i51, label %if.then88, label %for.body.i, !llvm.loop !15
@@ -938,9 +938,9 @@ if.then88:                                        ; preds = %for.inc.i
 
 if.end91:                                         ; preds = %switch.early.test.i.i, %if.then.i, %if.end81.if.end83.thread_crit_edge, %if.end83, %if.end35
   %name.addr.0 = phi ptr [ %name.addr.2, %if.end83 ], [ %name, %if.end35 ], [ %.pre, %if.end81.if.end83.thread_crit_edge ], [ @.str.17, %if.then.i ], [ %name.addr.2, %switch.early.test.i.i ]
-  %len2.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %len2.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   store i64 0, ptr %len2.i, align 8
-  %buf.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %buf.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   %14 = load ptr, ptr %buf.i, align 8
   %cmp3.not.i = icmp eq ptr %14, @strbuf_slopbuf
   br i1 %cmp3.not.i, label %strbuf_setlen.exit, label %if.then4.i
@@ -1153,7 +1153,7 @@ switch.early.test.i:                              ; preds = %while.body
   ]
 
 if.end:                                           ; preds = %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %while.body
-  %incdec.ptr = getelementptr inbounds i8, ptr %src.addr.028, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %src.addr.028, i64 1
   %2 = load i8, ptr %incdec.ptr, align 1
   %cmp.not = icmp eq i8 %2, 0
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !16
@@ -1161,14 +1161,14 @@ if.end:                                           ; preds = %switch.early.test.i
 while.end:                                        ; preds = %if.end, %switch.early.test.i, %entry
   %src.addr.0.lcssa = phi ptr [ %src, %entry ], [ %src.addr.028, %switch.early.test.i ], [ %incdec.ptr, %if.end ]
   %call2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %src.addr.0.lcssa) #19
+  %invariant.gep = getelementptr i8, ptr %src.addr.0.lcssa, i64 -1
   %cmp4.not30 = icmp eq i64 %call2, 0
   br i1 %cmp4.not30, label %while.end11.thread, label %while.body6
 
 while.body6:                                      ; preds = %while.end, %if.end10
-  %len.031 = phi i64 [ %sub, %if.end10 ], [ %call2, %while.end ]
-  %sub = add i64 %len.031, -1
-  %arrayidx = getelementptr inbounds i8, ptr %src.addr.0.lcssa, i64 %sub
-  %3 = load i8, ptr %arrayidx, align 1
+  %len.031 = phi i64 [ %dec, %if.end10 ], [ %call2, %while.end ]
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %len.031
+  %3 = load i8, ptr %gep, align 1
   %cmp.i17 = icmp ult i8 %3, 33
   br i1 %cmp.i17, label %if.end10, label %switch.early.test.i18
 
@@ -1185,7 +1185,8 @@ switch.early.test.i18:                            ; preds = %while.body6
   ]
 
 if.end10:                                         ; preds = %switch.early.test.i18, %switch.early.test.i18, %switch.early.test.i18, %switch.early.test.i18, %switch.early.test.i18, %switch.early.test.i18, %switch.early.test.i18, %switch.early.test.i18, %while.body6
-  %cmp4.not = icmp eq i64 %sub, 0
+  %dec = add i64 %len.031, -1
+  %cmp4.not = icmp eq i64 %dec, 0
   br i1 %cmp4.not, label %while.end11.thread, label %while.body6, !llvm.loop !17
 
 while.end11.thread:                               ; preds = %if.end10, %while.end
@@ -1194,14 +1195,14 @@ while.end11.thread:                               ; preds = %if.end10, %while.en
 
 for.body.lr.ph:                                   ; preds = %switch.early.test.i18
   tail call void @strbuf_grow(ptr noundef %sb, i64 noundef %len.031) #18
-  %buf = getelementptr inbounds i8, ptr %sb, i64 16
-  %len16 = getelementptr inbounds i8, ptr %sb, i64 8
+  %buf = getelementptr inbounds nuw i8, ptr %sb, i64 16
+  %len16 = getelementptr inbounds nuw i8, ptr %sb, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %i.036 = phi i64 [ 0, %for.body.lr.ph ], [ %inc18, %for.inc ]
   %src.addr.135 = phi ptr [ %src.addr.0.lcssa, %for.body.lr.ph ], [ %incdec.ptr14, %for.inc ]
-  %incdec.ptr14 = getelementptr inbounds i8, ptr %src.addr.135, i64 1
+  %incdec.ptr14 = getelementptr inbounds nuw i8, ptr %src.addr.135, i64 1
   %4 = load i8, ptr %src.addr.135, align 1
   switch i8 %4, label %sw.epilog [
     i8 10, label %for.inc
@@ -1224,9 +1225,9 @@ for.inc:                                          ; preds = %for.body, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !18
 
 for.end:                                          ; preds = %for.inc, %while.end11.thread
-  %buf19 = getelementptr inbounds i8, ptr %sb, i64 16
+  %buf19 = getelementptr inbounds nuw i8, ptr %sb, i64 16
   %7 = load ptr, ptr %buf19, align 8
-  %len20 = getelementptr inbounds i8, ptr %sb, i64 8
+  %len20 = getelementptr inbounds nuw i8, ptr %sb, i64 8
   %8 = load i64, ptr %len20, align 8
   %arrayidx21 = getelementptr inbounds i8, ptr %7, i64 %8
   store i8 0, ptr %arrayidx21, align 1
@@ -1366,8 +1367,8 @@ if.then2.i:                                       ; preds = %if.then.i
   br label %return
 
 if.end.i:                                         ; preds = %if.then.i
-  store i64 0, ptr getelementptr inbounds (i8, ptr @git_author_name, i64 8), align 8
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @git_author_name, i64 16), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @git_author_name, i64 8), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @git_author_name, i64 16), align 8
   %cmp3.not.i.i = icmp eq ptr %0, @strbuf_slopbuf
   br i1 %cmp3.not.i.i, label %strbuf_setlen.exit.i, label %if.then4.i.i
 
@@ -1400,8 +1401,8 @@ if.then11.i:                                      ; preds = %if.then9.i
   br label %return
 
 if.end14.i:                                       ; preds = %if.then9.i
-  store i64 0, ptr getelementptr inbounds (i8, ptr @git_author_email, i64 8), align 8
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @git_author_email, i64 16), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @git_author_email, i64 8), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @git_author_email, i64 16), align 8
   %cmp3.not.i23.i = icmp eq ptr %3, @strbuf_slopbuf
   br i1 %cmp3.not.i23.i, label %strbuf_setlen.exit25.i, label %if.then4.i24.i
 
@@ -1434,8 +1435,8 @@ if.then22.i:                                      ; preds = %if.then20.i
   br label %return
 
 if.end25.i:                                       ; preds = %if.then20.i
-  store i64 0, ptr getelementptr inbounds (i8, ptr @git_committer_name, i64 8), align 8
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @git_committer_name, i64 16), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @git_committer_name, i64 8), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @git_committer_name, i64 16), align 8
   %cmp3.not.i27.i = icmp eq ptr %6, @strbuf_slopbuf
   br i1 %cmp3.not.i27.i, label %strbuf_setlen.exit29.i, label %if.then4.i28.i
 
@@ -1468,8 +1469,8 @@ if.then33.i:                                      ; preds = %if.then31.i
   br label %return
 
 if.end36.i:                                       ; preds = %if.then31.i
-  store i64 0, ptr getelementptr inbounds (i8, ptr @git_committer_email, i64 8), align 8
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @git_committer_email, i64 16), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @git_committer_email, i64 8), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @git_committer_email, i64 16), align 8
   %cmp3.not.i31.i = icmp eq ptr %9, @strbuf_slopbuf
   br i1 %cmp3.not.i31.i, label %strbuf_setlen.exit33.i, label %if.then4.i32.i
 
@@ -1502,8 +1503,8 @@ if.then44.i:                                      ; preds = %if.then42.i
   br label %return
 
 if.end47.i:                                       ; preds = %if.then42.i
-  store i64 0, ptr getelementptr inbounds (i8, ptr @git_default_name, i64 8), align 8
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @git_default_name, i64 16), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @git_default_name, i64 8), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @git_default_name, i64 16), align 8
   %cmp3.not.i35.i = icmp eq ptr %12, @strbuf_slopbuf
   br i1 %cmp3.not.i35.i, label %strbuf_setlen.exit37.i, label %if.then4.i36.i
 
@@ -1539,8 +1540,8 @@ if.then56.i:                                      ; preds = %if.then54.i
   br label %return
 
 if.end59.i:                                       ; preds = %if.then54.i
-  store i64 0, ptr getelementptr inbounds (i8, ptr @git_default_email, i64 8), align 8
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @git_default_email, i64 16), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @git_default_email, i64 8), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @git_default_email, i64 16), align 8
   %cmp3.not.i39.i = icmp eq ptr %16, @strbuf_slopbuf
   br i1 %cmp3.not.i39.i, label %strbuf_setlen.exit41.i, label %if.then4.i40.i
 
@@ -1653,13 +1654,13 @@ set_env_if.exit29:                                ; preds = %set_env_if.exit20, 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local i32 @ident_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #10 {
 entry:
-  %mail_begin = getelementptr inbounds i8, ptr %a, i64 16
+  %mail_begin = getelementptr inbounds nuw i8, ptr %a, i64 16
   %0 = load ptr, ptr %mail_begin, align 8
-  %mail_end = getelementptr inbounds i8, ptr %a, i64 24
+  %mail_end = getelementptr inbounds nuw i8, ptr %a, i64 24
   %1 = load ptr, ptr %mail_end, align 8
-  %mail_begin1 = getelementptr inbounds i8, ptr %b, i64 16
+  %mail_begin1 = getelementptr inbounds nuw i8, ptr %b, i64 16
   %2 = load ptr, ptr %mail_begin1, align 8
-  %mail_end2 = getelementptr inbounds i8, ptr %b, i64 24
+  %mail_end2 = getelementptr inbounds nuw i8, ptr %b, i64 24
   %3 = load ptr, ptr %mail_end2, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
@@ -1680,10 +1681,10 @@ entry:
 
 if.end:                                           ; preds = %entry
   %4 = load ptr, ptr %a, align 8
-  %name_end = getelementptr inbounds i8, ptr %a, i64 8
+  %name_end = getelementptr inbounds nuw i8, ptr %a, i64 8
   %5 = load ptr, ptr %name_end, align 8
   %6 = load ptr, ptr %b, align 8
-  %name_end4 = getelementptr inbounds i8, ptr %b, i64 8
+  %name_end4 = getelementptr inbounds nuw i8, ptr %b, i64 8
   %7 = load ptr, ptr %name_end4, align 8
   %sub.ptr.lhs.cast.i8 = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i9 = ptrtoint ptr %4 to i64

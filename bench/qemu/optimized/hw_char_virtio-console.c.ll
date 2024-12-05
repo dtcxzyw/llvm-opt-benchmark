@@ -67,17 +67,17 @@ define internal void @virtserialport_class_init(ptr noundef %klass, ptr nocaptur
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #5
   %call.i7 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 30, ptr noundef nonnull @__func__.VIRTIO_SERIAL_PORT_CLASS) #5
-  %realize = getelementptr inbounds i8, ptr %call.i7, i64 184
+  %realize = getelementptr inbounds nuw i8, ptr %call.i7, i64 184
   store ptr @virtconsole_realize, ptr %realize, align 8
-  %unrealize = getelementptr inbounds i8, ptr %call.i7, i64 192
+  %unrealize = getelementptr inbounds nuw i8, ptr %call.i7, i64 192
   store ptr @virtconsole_unrealize, ptr %unrealize, align 8
-  %have_data = getelementptr inbounds i8, ptr %call.i7, i64 232
+  %have_data = getelementptr inbounds nuw i8, ptr %call.i7, i64 232
   store ptr @flush_buf, ptr %have_data, align 8
-  %set_guest_connected = getelementptr inbounds i8, ptr %call.i7, i64 200
+  %set_guest_connected = getelementptr inbounds nuw i8, ptr %call.i7, i64 200
   store ptr @set_guest_connected, ptr %set_guest_connected, align 8
-  %enable_backend = getelementptr inbounds i8, ptr %call.i7, i64 208
+  %enable_backend = getelementptr inbounds nuw i8, ptr %call.i7, i64 208
   store ptr @virtconsole_enable_backend, ptr %enable_backend, align 8
-  %guest_writable = getelementptr inbounds i8, ptr %call.i7, i64 224
+  %guest_writable = getelementptr inbounds nuw i8, ptr %call.i7, i64 224
   store ptr @guest_writable, ptr %guest_writable, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @virtserialport_properties) #5
   ret void
@@ -90,13 +90,13 @@ entry:
   %call.i9 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 28, ptr noundef nonnull @__func__.VIRTIO_CONSOLE) #5
   %call.i10 = tail call ptr @object_get_class(ptr noundef %dev) #5
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i10, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 30, ptr noundef nonnull @__func__.VIRTIO_SERIAL_PORT_GET_CLASS) #5
-  %id = getelementptr inbounds i8, ptr %call.i, i64 208
+  %id = getelementptr inbounds nuw i8, ptr %call.i, i64 208
   %0 = load i32, ptr %id, align 8
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %is_console = getelementptr inbounds i8, ptr %call1.i, i64 176
+  %is_console = getelementptr inbounds nuw i8, ptr %call1.i, i64 176
   %1 = load i8, ptr %is_console, align 8
   %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.end, label %if.then
@@ -106,12 +106,12 @@ if.then:                                          ; preds = %land.lhs.true
   br label %if.end12
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %chr = getelementptr inbounds i8, ptr %call.i9, i64 256
+  %chr = getelementptr inbounds nuw i8, ptr %call.i9, i64 256
   %call3 = tail call zeroext i1 @qemu_chr_fe_backend_connected(ptr noundef nonnull %chr) #5
   br i1 %call3, label %if.then4, label %if.end12
 
 if.then4:                                         ; preds = %if.end
-  %is_console5 = getelementptr inbounds i8, ptr %call1.i, i64 176
+  %is_console5 = getelementptr inbounds nuw i8, ptr %call1.i, i64 176
   %2 = load i8, ptr %is_console5, align 8
   %tobool6 = trunc i8 %2 to i1
   br i1 %tobool6, label %if.then7, label %if.else
@@ -133,7 +133,7 @@ if.end12:                                         ; preds = %if.then7, %if.else,
 define internal void @virtconsole_unrealize(ptr noundef %dev) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 28, ptr noundef nonnull @__func__.VIRTIO_CONSOLE) #5
-  %watch = getelementptr inbounds i8, ptr %call.i, i64 312
+  %watch = getelementptr inbounds nuw i8, ptr %call.i, i64 312
   %0 = load i32, ptr %watch, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -151,7 +151,7 @@ define internal i64 @flush_buf(ptr noundef %port, ptr noundef %buf, i64 noundef 
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %port, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 28, ptr noundef nonnull @__func__.VIRTIO_CONSOLE) #5
-  %chr = getelementptr inbounds i8, ptr %call.i, i64 256
+  %chr = getelementptr inbounds nuw i8, ptr %call.i, i64 256
   %call1 = tail call zeroext i1 @qemu_chr_fe_backend_connected(ptr noundef nonnull %chr) #5
   br i1 %call1, label %if.end, label %return
 
@@ -159,7 +159,7 @@ if.end:                                           ; preds = %entry
   %conv = trunc i64 %len to i32
   %call3 = tail call i32 @qemu_chr_fe_write(ptr noundef nonnull %chr, ptr noundef %buf, i32 noundef %conv) #5
   %conv4 = sext i32 %call3 to i64
-  %id = getelementptr inbounds i8, ptr %port, i64 208
+  %id = getelementptr inbounds nuw i8, ptr %port, i64 208
   %0 = load i32, ptr %id, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %1 = load i32, ptr @trace_events_enabled_count, align 4
@@ -184,7 +184,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #5
   %call10.i.i = tail call i32 @qemu_get_thread_id() #5
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %0, i64 noundef %len, i64 noundef range(i64 -2147483648, 2147483648) %conv4) #5
   br label %trace_virtio_console_flush_buf.exit
@@ -202,14 +202,14 @@ if.then6:                                         ; preds = %trace_virtio_consol
   %call.i15 = tail call ptr @object_get_class(ptr noundef nonnull %port) #5
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i15, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 30, ptr noundef nonnull @__func__.VIRTIO_SERIAL_PORT_GET_CLASS) #5
   %spec.store.select = tail call i64 @llvm.smax.i64(i64 %conv4, i64 0)
-  %is_console = getelementptr inbounds i8, ptr %call1.i, i64 176
+  %is_console = getelementptr inbounds nuw i8, ptr %call1.i, i64 176
   %7 = load i8, ptr %is_console, align 8
   %tobool = trunc i8 %7 to i1
   br i1 %tobool, label %return, label %if.then12
 
 if.then12:                                        ; preds = %if.then6
   tail call void @virtio_serial_throttle_port(ptr noundef nonnull %port, i1 noundef zeroext true) #5
-  %watch = getelementptr inbounds i8, ptr %call.i, i64 312
+  %watch = getelementptr inbounds nuw i8, ptr %call.i, i64 312
   %8 = load i32, ptr %watch, align 8
   %tobool13.not = icmp eq i32 %8, 0
   br i1 %tobool13.not, label %if.then14, label %return
@@ -231,18 +231,18 @@ entry:
   %call.i5 = tail call ptr @object_dynamic_cast_assert(ptr noundef %port, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #5
   %call.i6 = tail call ptr @object_get_class(ptr noundef %port) #5
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i6, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 30, ptr noundef nonnull @__func__.VIRTIO_SERIAL_PORT_GET_CLASS) #5
-  %is_console = getelementptr inbounds i8, ptr %call1.i, i64 176
+  %is_console = getelementptr inbounds nuw i8, ptr %call1.i, i64 176
   %0 = load i8, ptr %is_console, align 8
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %chr = getelementptr inbounds i8, ptr %call.i, i64 256
+  %chr = getelementptr inbounds nuw i8, ptr %call.i, i64 256
   tail call void @qemu_chr_fe_set_open(ptr noundef nonnull %chr, i32 noundef %guest_connected) #5
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %id = getelementptr inbounds i8, ptr %call.i5, i64 40
+  %id = getelementptr inbounds nuw i8, ptr %call.i5, i64 40
   %1 = load ptr, ptr %id, align 8
   %tobool3.not = icmp eq ptr %1, null
   br i1 %tobool3.not, label %if.end7, label %if.then4
@@ -260,7 +260,7 @@ if.end7:                                          ; preds = %if.then4, %if.end
 define internal void @virtconsole_enable_backend(ptr noundef %port, i1 noundef zeroext %enable) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %port, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 28, ptr noundef nonnull @__func__.VIRTIO_CONSOLE) #5
-  %chr = getelementptr inbounds i8, ptr %call.i, i64 256
+  %chr = getelementptr inbounds nuw i8, ptr %call.i, i64 256
   %call1 = tail call zeroext i1 @qemu_chr_fe_backend_connected(ptr noundef nonnull %chr) #5
   br i1 %call1, label %if.end, label %if.end7
 
@@ -270,7 +270,7 @@ if.end:                                           ; preds = %entry
 if.then2:                                         ; preds = %if.end
   %call.i5 = tail call ptr @object_get_class(ptr noundef %port) #5
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i5, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 30, ptr noundef nonnull @__func__.VIRTIO_SERIAL_PORT_GET_CLASS) #5
-  %is_console = getelementptr inbounds i8, ptr %call1.i, i64 176
+  %is_console = getelementptr inbounds nuw i8, ptr %call1.i, i64 176
   %0 = load i8, ptr %is_console, align 8
   %tobool5 = trunc i8 %0 to i1
   %cond = select i1 %tobool5, ptr null, ptr @chr_event
@@ -289,7 +289,7 @@ if.end7:                                          ; preds = %entry, %if.else, %i
 define internal void @guest_writable(ptr noundef %port) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %port, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 28, ptr noundef nonnull @__func__.VIRTIO_CONSOLE) #5
-  %chr = getelementptr inbounds i8, ptr %call.i, i64 256
+  %chr = getelementptr inbounds nuw i8, ptr %call.i, i64 256
   tail call void @qemu_chr_fe_accept_input(ptr noundef nonnull %chr) #5
   ret void
 }
@@ -318,7 +318,7 @@ define internal void @chr_read(ptr noundef %opaque, ptr noundef %buf, i32 nounde
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 30, ptr noundef nonnull @__func__.VIRTIO_SERIAL_PORT) #5
-  %id = getelementptr inbounds i8, ptr %call.i, i64 208
+  %id = getelementptr inbounds nuw i8, ptr %call.i, i64 208
   %0 = load i32, ptr %id, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %1 = load i32, ptr @trace_events_enabled_count, align 4
@@ -343,7 +343,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #5
   %call10.i.i = tail call i32 @qemu_get_thread_id() #5
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.7, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %0, i32 noundef %size) #5
   br label %trace_virtio_console_chr_read.exit
@@ -365,10 +365,10 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 30, ptr noundef nonnull @__func__.VIRTIO_SERIAL_PORT) #5
   %call.i10 = tail call ptr @object_get_class(ptr noundef %call.i) #5
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i10, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 30, ptr noundef nonnull @__func__.VIRTIO_SERIAL_PORT_GET_CLASS) #5
-  %is_console = getelementptr inbounds i8, ptr %call1.i, i64 176
+  %is_console = getelementptr inbounds nuw i8, ptr %call1.i, i64 176
   %0 = load i8, ptr %is_console, align 8
   %tobool = trunc i8 %0 to i1
-  %chr = getelementptr inbounds i8, ptr %opaque, i64 256
+  %chr = getelementptr inbounds nuw i8, ptr %opaque, i64 256
   br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -380,14 +380,14 @@ if.else:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %watch = getelementptr inbounds i8, ptr %opaque, i64 312
+  %watch = getelementptr inbounds nuw i8, ptr %opaque, i64 312
   %1 = load i32, ptr %watch, align 8
   %tobool3.not = icmp eq i32 %1, 0
   br i1 %tobool3.not, label %if.end10, label %if.then4
 
 if.then4:                                         ; preds = %if.end
   %call6 = tail call i32 @g_source_remove(i32 noundef %1) #5
-  %chr7 = getelementptr inbounds i8, ptr %opaque, i64 256
+  %chr7 = getelementptr inbounds nuw i8, ptr %opaque, i64 256
   %call8 = tail call i32 @qemu_chr_fe_add_watch(ptr noundef nonnull %chr7, i32 noundef 20, ptr noundef nonnull @chr_write_unblocked, ptr noundef nonnull %opaque) #5
   store i32 %call8, ptr %watch, align 8
   br label %if.end10
@@ -403,7 +403,7 @@ define internal void @chr_event(ptr noundef %opaque, i32 noundef %event) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 30, ptr noundef nonnull @__func__.VIRTIO_SERIAL_PORT) #5
-  %id = getelementptr inbounds i8, ptr %call.i, i64 208
+  %id = getelementptr inbounds nuw i8, ptr %call.i, i64 208
   %0 = load i32, ptr %id, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %1 = load i32, ptr @trace_events_enabled_count, align 4
@@ -428,7 +428,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #5
   %call10.i.i = tail call i32 @qemu_get_thread_id() #5
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %0, i32 noundef %event) #5
   br label %trace_virtio_console_chr_event.exit
@@ -449,7 +449,7 @@ sw.bb:                                            ; preds = %trace_virtio_consol
   br label %sw.epilog
 
 sw.bb2:                                           ; preds = %trace_virtio_console_chr_event.exit
-  %watch = getelementptr inbounds i8, ptr %opaque, i64 312
+  %watch = getelementptr inbounds nuw i8, ptr %opaque, i64 312
   %7 = load i32, ptr %watch, align 8
   %tobool.not = icmp eq i32 %7, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -489,7 +489,7 @@ declare i32 @qemu_chr_fe_add_watch(ptr noundef, i32 noundef, ptr noundef, ptr no
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @chr_write_unblocked(ptr nocapture readnone %do_not_use, i32 %cond, ptr noundef initializes((312, 316)) %opaque) #0 {
 entry:
-  %watch = getelementptr inbounds i8, ptr %opaque, i64 312
+  %watch = getelementptr inbounds nuw i8, ptr %opaque, i64 312
   store i32 0, ptr %watch, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 30, ptr noundef nonnull @__func__.VIRTIO_SERIAL_PORT) #5
   tail call void @virtio_serial_throttle_port(ptr noundef %call.i, i1 noundef zeroext false) #5
@@ -512,7 +512,7 @@ declare void @qemu_chr_fe_accept_input(ptr noundef) local_unnamed_addr #1
 define internal void @virtconsole_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 30, ptr noundef nonnull @__func__.VIRTIO_SERIAL_PORT_CLASS) #5
-  %is_console = getelementptr inbounds i8, ptr %call.i, i64 176
+  %is_console = getelementptr inbounds nuw i8, ptr %call.i, i64 176
   store i8 1, ptr %is_console, align 8
   ret void
 }

@@ -158,22 +158,22 @@ define range(i32 -1, 1) i32 @H5G__traverse_special(ptr noundef %0, ptr nocapture
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15)
   store ptr %13, ptr %15, align 8
-  %46 = getelementptr inbounds i8, ptr %15, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %14, ptr %46, align 8
   %47 = call i32 @H5G_loc_reset(ptr noundef nonnull %15) #6
   %48 = call i32 @H5G_name_reset(ptr noundef nonnull %12) #6
   %49 = call i32 @H5G_loc_copy(ptr noundef nonnull %15, ptr noundef %0, i32 noundef 1) #6
-  %50 = getelementptr inbounds i8, ptr %4, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %51 = load ptr, ptr %50, align 8
   %52 = call i32 @H5G_name_copy(ptr noundef nonnull %12, ptr noundef %51, i32 noundef 0) #6
   %.lobit = lshr exact i32 %45, 3
   %53 = trunc nuw nsw i32 %.lobit to i8
   store i8 %53, ptr %11, align 8
-  %54 = getelementptr inbounds i8, ptr %11, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i8 0, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %11, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %4, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %1, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %57 = load ptr, ptr %56, align 8
   %58 = call fastcc i32 @H5G__traverse_real(ptr noundef %15, ptr noundef %57, i32 noundef range(i32 0, 9) %45, ptr noundef nonnull @H5G__traverse_slink_cb, ptr noundef nonnull %11)
   %59 = icmp slt i32 %58, 0
@@ -278,7 +278,7 @@ thread-pre-split:                                 ; preds = %H5G__traverse_slink
   br label %H5G__traverse_ud.exit.thread
 
 112:                                              ; preds = %103
-  %113 = getelementptr inbounds i8, ptr %7, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %8, ptr %113, align 8
   store ptr %9, ptr %7, align 8
   %114 = call i32 @H5G_loc_reset(ptr noundef nonnull %7) #6
@@ -317,13 +317,13 @@ thread-pre-split:                                 ; preds = %H5G__traverse_slink
 135:                                              ; preds = %128
   %136 = load i32, ptr %106, align 8
   %137 = icmp eq i32 %136, 0
-  %138 = getelementptr inbounds i8, ptr %106, i64 40
+  %138 = getelementptr inbounds nuw i8, ptr %106, i64 40
   %139 = load ptr, ptr %138, align 8
-  %140 = getelementptr inbounds i8, ptr %1, i64 24
+  %140 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %141 = load ptr, ptr %140, align 8
-  %142 = getelementptr inbounds i8, ptr %1, i64 32
+  %142 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %143 = load ptr, ptr %142, align 8
-  %144 = getelementptr inbounds i8, ptr %1, i64 40
+  %144 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %145 = load i64, ptr %144, align 8
   %146 = call i64 @H5CX_get_lapl() #6
   br i1 %137, label %147, label %149
@@ -450,7 +450,7 @@ H5G__traverse_ud.exit:                            ; preds = %193
 
 thread-pre-split.thread:                          ; preds = %19, %78, %H5G__traverse_ud.exit, %thread-pre-split
   %207 = load ptr, ptr %4, align 8
-  %208 = getelementptr inbounds i8, ptr %207, i64 8
+  %208 = getelementptr inbounds nuw i8, ptr %207, i64 8
   %209 = load i64, ptr %208, align 8
   %.not = icmp eq i64 %209, -1
   br i1 %.not, label %220, label %210
@@ -474,7 +474,7 @@ thread-pre-split.thread:                          ; preds = %19, %78, %H5G__trav
 
 220:                                              ; preds = %210, %213, %thread-pre-split.thread
   %221 = load ptr, ptr %0, align 8
-  %222 = getelementptr inbounds i8, ptr %221, i64 16
+  %222 = getelementptr inbounds nuw i8, ptr %221, i64 16
   %223 = load i8, ptr %222, align 8
   %224 = trunc i8 %223 to i1
   br i1 %224, label %225, label %237
@@ -627,12 +627,12 @@ define internal fastcc range(i32 -1, 1) i32 @H5G__traverse_real(ptr nocapture no
 30:                                               ; preds = %5
   %31 = load ptr, ptr %29, align 8
   %32 = tail call ptr @H5G_rootof(ptr noundef %31) #6
-  %33 = getelementptr inbounds i8, ptr %32, i64 8
-  %34 = getelementptr inbounds i8, ptr %32, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 32
   br label %38
 
 35:                                               ; preds = %5
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = load ptr, ptr %36, align 8
   br label %38
 
@@ -640,13 +640,13 @@ define internal fastcc range(i32 -1, 1) i32 @H5G__traverse_real(ptr nocapture no
   %.sink288 = phi ptr [ %33, %30 ], [ %29, %35 ]
   %.sink = phi ptr [ %34, %30 ], [ %37, %35 ]
   store ptr %.sink288, ptr %6, align 8
-  %39 = getelementptr inbounds i8, ptr %6, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %.sink, ptr %39, align 8
   store ptr %7, ptr %9, align 8
-  %40 = getelementptr inbounds i8, ptr %9, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %8, ptr %40, align 8
   store ptr %10, ptr %12, align 8
-  %41 = getelementptr inbounds i8, ptr %12, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %11, ptr %41, align 8
   %42 = call i32 @H5G_loc_copy(ptr noundef nonnull %9, ptr noundef nonnull %6, i32 noundef 1) #6
   %43 = icmp sgt i32 %42, -1
@@ -693,19 +693,19 @@ define internal fastcc range(i32 -1, 1) i32 @H5G__traverse_real(ptr nocapture no
   br i1 %.not209213, label %.critedge, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %.preheader
-  %68 = getelementptr inbounds i8, ptr %65, i64 1
+  %68 = getelementptr inbounds nuw i8, ptr %65, i64 1
   %69 = and i32 %2, 16
   %.not112 = icmp eq i32 %69, 0
-  %70 = getelementptr inbounds i8, ptr %20, i64 16
-  %71 = getelementptr inbounds i8, ptr %20, i64 32
-  %72 = getelementptr inbounds i8, ptr %21, i64 32
-  %73 = getelementptr inbounds i8, ptr %21, i64 40
-  %74 = getelementptr inbounds i8, ptr %23, i64 1
-  %75 = getelementptr inbounds i8, ptr %25, i64 1
+  %70 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  %72 = getelementptr inbounds nuw i8, ptr %21, i64 32
+  %73 = getelementptr inbounds nuw i8, ptr %21, i64 40
+  %74 = getelementptr inbounds nuw i8, ptr %23, i64 1
+  %75 = getelementptr inbounds nuw i8, ptr %25, i64 1
   %76 = and i32 %2, 32
   %.not116 = icmp eq i32 %76, 0
-  %77 = getelementptr inbounds i8, ptr %26, i64 8
-  %78 = getelementptr inbounds i8, ptr %26, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %26, i64 16
   br label %.lr.ph
 
 79:                                               ; preds = %62
@@ -955,13 +955,13 @@ define internal fastcc range(i32 -1, 1) i32 @H5G__traverse_real(ptr nocapture no
   ]
 
 201:                                              ; preds = %199
-  %202 = getelementptr inbounds i8, ptr %198, i64 8
+  %202 = getelementptr inbounds nuw i8, ptr %198, i64 8
   %203 = load ptr, ptr %202, align 8
   %204 = load i64, ptr %203, align 8
   br label %.sink.split
 
 205:                                              ; preds = %199
-  %206 = getelementptr inbounds i8, ptr %198, i64 8
+  %206 = getelementptr inbounds nuw i8, ptr %198, i64 8
   %207 = load ptr, ptr %206, align 8
   %208 = call i64 @H5D_get_dcpl_id(ptr noundef %207) #6
   br label %.sink.split
@@ -1027,7 +1027,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5G__traverse_real(ptr nocapture no
 
 241:                                              ; preds = %233
   %242 = load ptr, ptr %9, align 8
-  %243 = getelementptr inbounds i8, ptr %242, i64 16
+  %243 = getelementptr inbounds nuw i8, ptr %242, i64 16
   %244 = load i8, ptr %243, align 8
   %245 = trunc i8 %244 to i1
   br i1 %245, label %246, label %254
@@ -1238,7 +1238,7 @@ define internal range(i32 -1, 1) i32 @H5G__traverse_slink_cb(ptr nocapture readn
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %4, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i8 0, ptr %12, align 8
   br label %24
 
@@ -1249,12 +1249,12 @@ define internal range(i32 -1, 1) i32 @H5G__traverse_slink_cb(ptr nocapture readn
   br label %24
 
 17:                                               ; preds = %6
-  %18 = getelementptr inbounds i8, ptr %4, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %3, align 8
   %22 = tail call i32 @H5O_loc_copy_deep(ptr noundef %20, ptr noundef %21) #6
-  %23 = getelementptr inbounds i8, ptr %4, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i8 1, ptr %23, align 8
   br label %24
 

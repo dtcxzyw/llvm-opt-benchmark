@@ -34,7 +34,7 @@ define void @prte_rml_recv_buffer_nb(ptr noundef %0, i32 noundef %1, i1 noundef 
 
 7:                                                ; preds = %5
   %8 = zext nneg i32 %6 to i64
-  %9 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %8, i32 2
+  %9 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %8, i32 2
   %10 = load i32, ptr %9, align 4
   %11 = icmp sgt i32 %10, 9
   br i1 %11, label %12, label %15
@@ -63,15 +63,15 @@ define void @prte_rml_recv_buffer_nb(ptr noundef %0, i32 noundef %1, i1 noundef 
 
 22:                                               ; preds = %21
   %23 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %17, ptr noundef null) #5
-  %24 = getelementptr inbounds i8, ptr %17, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 40
   store ptr @prte_rml_recv_request_t_class, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %17, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 48
   store i32 1, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %17, i64 56
-  %27 = getelementptr inbounds i8, ptr %17, i64 96
+  %26 = getelementptr inbounds nuw i8, ptr %17, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %17, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false)
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_rml_recv_request_t_class, i64 40), align 8
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_rml_recv_request_t_class, i64 40), align 8
   %29 = load ptr, ptr %28, align 8
   %.not6.i.i = icmp eq ptr %29, null
   br i1 %.not6.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i
@@ -80,30 +80,30 @@ define void @prte_rml_recv_buffer_nb(ptr noundef %0, i32 noundef %1, i1 noundef 
   %30 = phi ptr [ %32, %.lr.ph.i.i ], [ %29, %22 ]
   %.07.i.i = phi ptr [ %31, %.lr.ph.i.i ], [ %28, %22 ]
   tail call void %30(ptr noundef nonnull %17) #5
-  %31 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %32 = load ptr, ptr %31, align 8
   %.not.i.i = icmp eq ptr %32, null
   br i1 %.not.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i, !llvm.loop !4
 
 pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %21, %22
   %33 = zext i1 %2 to i8
-  %34 = getelementptr inbounds i8, ptr %17, i64 256
+  %34 = getelementptr inbounds nuw i8, ptr %17, i64 256
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 148
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 148
   tail call void @PMIx_Xfer_procid(ptr noundef nonnull %36, ptr noundef %0) #5
   %37 = load ptr, ptr %34, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 408
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 408
   store i32 %1, ptr %38, align 8
   %39 = load ptr, ptr %34, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 412
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 412
   store i8 %33, ptr %40, align 4
   %41 = load ptr, ptr %34, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 416
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 416
   store ptr %3, ptr %42, align 8
   %43 = load ptr, ptr %34, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 424
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 424
   store ptr %4, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %17, i64 120
+  %45 = getelementptr inbounds nuw i8, ptr %17, i64 120
   %46 = load ptr, ptr @prte_event_base, align 8
   %47 = tail call i32 @prte_event_assign(ptr noundef nonnull %45, ptr noundef %46, i32 noundef -1, i16 noundef signext 4, ptr noundef nonnull @prte_rml_base_post_recv, ptr noundef %17) #5
   fence release
@@ -131,7 +131,7 @@ define void @prte_rml_recv_cancel(ptr noundef %0, i32 noundef %1) local_unnamed_
 
 4:                                                ; preds = %2
   %5 = zext nneg i32 %3 to i64
-  %6 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %5, i32 2
+  %6 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %5, i32 2
   %7 = load i32, ptr %6, align 4
   %8 = icmp sgt i32 %7, 9
   br i1 %8, label %9, label %12
@@ -166,15 +166,15 @@ define void @prte_rml_recv_cancel(ptr noundef %0, i32 noundef %1) local_unnamed_
 
 22:                                               ; preds = %21
   %23 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %17, ptr noundef null) #5
-  %24 = getelementptr inbounds i8, ptr %17, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 40
   store ptr @prte_rml_recv_request_t_class, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %17, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 48
   store i32 1, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %17, i64 56
-  %27 = getelementptr inbounds i8, ptr %17, i64 96
+  %26 = getelementptr inbounds nuw i8, ptr %17, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %17, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false)
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_rml_recv_request_t_class, i64 40), align 8
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_rml_recv_request_t_class, i64 40), align 8
   %29 = load ptr, ptr %28, align 8
   %.not6.i.i = icmp eq ptr %29, null
   br i1 %.not6.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i
@@ -183,22 +183,22 @@ define void @prte_rml_recv_cancel(ptr noundef %0, i32 noundef %1) local_unnamed_
   %30 = phi ptr [ %32, %.lr.ph.i.i ], [ %29, %22 ]
   %.07.i.i = phi ptr [ %31, %.lr.ph.i.i ], [ %28, %22 ]
   tail call void %30(ptr noundef nonnull %17) #5
-  %31 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %32 = load ptr, ptr %31, align 8
   %.not.i.i = icmp eq ptr %32, null
   br i1 %.not.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i, !llvm.loop !4
 
 pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %21, %22
-  %33 = getelementptr inbounds i8, ptr %17, i64 248
+  %33 = getelementptr inbounds nuw i8, ptr %17, i64 248
   store i8 1, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %17, i64 256
+  %34 = getelementptr inbounds nuw i8, ptr %17, i64 256
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 148
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 148
   tail call void @PMIx_Xfer_procid(ptr noundef nonnull %36, ptr noundef %0) #5
   %37 = load ptr, ptr %34, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 408
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 408
   store i32 %1, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %17, i64 120
+  %39 = getelementptr inbounds nuw i8, ptr %17, i64 120
   %40 = load ptr, ptr @prte_event_base, align 8
   %41 = tail call i32 @prte_event_assign(ptr noundef nonnull %39, ptr noundef %40, i32 noundef -1, i16 noundef signext 4, ptr noundef nonnull @prte_rml_base_post_recv, ptr noundef %17) #5
   fence release

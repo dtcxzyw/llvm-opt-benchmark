@@ -517,9 +517,9 @@ define internal i32 @dissect_obdii_iso15765(ptr noundef %0, ptr noundef %1, ptr 
 
 7:                                                ; preds = %4
   %.sroa.0.0.copyload = load i32, ptr %3, align 4
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 4
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 4
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.6.0.copyload = load i32, ptr %.sroa.6.0..sroa_idx, align 4
   %8 = add i32 %.sroa.0.0.copyload, -3
   %or.cond = icmp ult i32 %8, -2
@@ -594,7 +594,7 @@ define internal i32 @dissect_obdii_iso15765(ptr noundef %0, ptr noundef %1, ptr 
 
 43:                                               ; preds = %41, %35
   %.054 = phi i8 [ %42, %41 ], [ %27, %35 ]
-  %44 = getelementptr inbounds i8, ptr %1, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %45 = load ptr, ptr %44, align 8
   tail call void @col_set_str(ptr noundef %45, i32 noundef 34, ptr noundef nonnull @.str.146) #6
   %46 = load ptr, ptr %44, align 8
@@ -606,14 +606,14 @@ define internal i32 @dissect_obdii_iso15765(ptr noundef %0, ptr noundef %1, ptr 
   %51 = load i32, ptr @hf_obdii_mode, align 4
   %52 = zext i8 %.054 to i32
   %53 = tail call ptr @proto_tree_add_uint(ptr noundef %50, i32 noundef %51, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %52) #6
-  %54 = getelementptr inbounds i8, ptr %5, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, i8 0, i64 24, i1 false)
   store ptr %1, ptr %5, align 8
-  %55 = getelementptr inbounds i8, ptr %5, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %10, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %5, i64 12
+  %56 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i8 %26, ptr %56, align 4
-  %57 = getelementptr inbounds i8, ptr %5, i64 13
+  %57 = getelementptr inbounds nuw i8, ptr %5, i64 13
   store i8 %.054, ptr %57, align 1
   br i1 %.053.in, label %58, label %60
 
@@ -646,7 +646,7 @@ define internal i32 @dissect_obdii_uds(ptr noundef %0, ptr noundef %1, ptr nound
   %9 = and i8 %8, 64
   %.not = icmp eq i8 %9, 0
   %10 = and i8 %8, -65
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void @col_set_str(ptr noundef %12, i32 noundef 34, ptr noundef nonnull @.str.146) #6
   %13 = load ptr, ptr %11, align 8
@@ -658,12 +658,12 @@ define internal i32 @dissect_obdii_uds(ptr noundef %0, ptr noundef %1, ptr nound
   %18 = load i32, ptr @hf_obdii_mode, align 4
   %19 = zext i8 %10 to i32
   %20 = tail call ptr @proto_tree_add_uint(ptr noundef %17, i32 noundef %18, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %19) #6
-  %21 = getelementptr inbounds i8, ptr %5, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, i8 0, i64 24, i1 false)
   store ptr %1, ptr %5, align 8
-  %22 = getelementptr inbounds i8, ptr %5, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i8 %7, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %5, i64 13
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 13
   store i8 %10, ptr %23, align 1
   br i1 %.not, label %24, label %26
 
@@ -727,7 +727,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @dissect_obdii_query(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %5 = load i8, ptr %4, align 4
   %6 = zext i8 %5 to i32
   %7 = add nsw i32 %6, -1
@@ -738,7 +738,7 @@ define internal fastcc i32 @dissect_obdii_query(ptr noundef %0, ptr nocapture no
   ]
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %1, i64 13
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 13
   %10 = load i8, ptr %9, align 1
   switch i8 %10, label %59 [
     i8 4, label %16
@@ -756,7 +756,7 @@ define internal fastcc i32 @dissect_obdii_query(ptr noundef %0, ptr nocapture no
 
 16:                                               ; preds = %8, %8, %11, %14
   %.037 = phi i16 [ %13, %11 ], [ %15, %14 ], [ 0, %8 ], [ 0, %8 ]
-  %17 = getelementptr inbounds i8, ptr %1, i64 13
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 13
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i32
   %20 = tail call ptr @val_to_str(i32 noundef %19, ptr noundef nonnull @obdii_mode_vals, ptr noundef nonnull @.str.301) #6
@@ -774,18 +774,18 @@ define internal fastcc i32 @dissect_obdii_query(ptr noundef %0, ptr nocapture no
   %25 = load i32, ptr @hf_obdii_mode01_pid, align 4
   %26 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %25, ptr noundef %0, i32 noundef 1, i32 noundef %7, i32 noundef %23) #6
   %27 = load ptr, ptr %1, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = load i32, ptr %30, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef nonnull @.str.302, i32 noundef %31, ptr noundef %20, ptr noundef %24) #6
   br label %57
 
 32:                                               ; preds = %16, %16
   %33 = load ptr, ptr %1, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %37 = load i32, ptr %36, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %35, i32 noundef 25, ptr noundef nonnull @.str.303, i32 noundef %37, ptr noundef %20) #6
   br label %57
@@ -796,9 +796,9 @@ define internal fastcc i32 @dissect_obdii_query(ptr noundef %0, ptr nocapture no
   %41 = load i32, ptr @hf_obdii_mode09_pid, align 4
   %42 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %41, ptr noundef %0, i32 noundef 1, i32 noundef %7, i32 noundef %39) #6
   %43 = load ptr, ptr %1, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %1, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %47 = load i32, ptr %46, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %45, i32 noundef 25, ptr noundef nonnull @.str.302, i32 noundef %47, ptr noundef %20, ptr noundef %40) #6
   br label %57
@@ -808,9 +808,9 @@ define internal fastcc i32 @dissect_obdii_query(ptr noundef %0, ptr nocapture no
   %50 = zext i16 %.037 to i32
   %51 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %49, ptr noundef nonnull @.str.301, i32 noundef %50) #6
   %52 = load ptr, ptr %1, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %1, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %56 = load i32, ptr %55, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %54, i32 noundef 25, ptr noundef nonnull @.str.302, i32 noundef %56, ptr noundef %20, ptr noundef %51) #6
   br label %57
@@ -828,18 +828,18 @@ define internal fastcc i32 @dissect_obdii_query(ptr noundef %0, ptr nocapture no
 define internal fastcc i32 @dissect_obdii_response(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca [33 x i8], align 16
   %5 = load ptr, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 13
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 13
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = tail call ptr @val_to_str(i32 noundef %12, ptr noundef nonnull @obdii_mode_vals, ptr noundef nonnull @.str.301) #6
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.304, i32 noundef %9, ptr noundef %13) #6
   %14 = load i8, ptr %10, align 1
   %15 = icmp eq i8 %14, 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %17 = load i8, ptr %16, align 4
   %18 = icmp eq i8 %17, 1
   %or.cond = select i1 %15, i1 %18, i1 false
@@ -851,14 +851,14 @@ define internal fastcc i32 @dissect_obdii_response(ptr noundef %0, ptr noundef n
 
 ._crit_edge:                                      ; preds = %3
   %21 = add i8 %17, -2
-  %22 = getelementptr inbounds i8, ptr %1, i64 14
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 14
   store i8 %21, ptr %22, align 2
   %.not = icmp eq i8 %21, 0
   br i1 %.not, label %.thread42, label %23
 
 23:                                               ; preds = %._crit_edge
   %24 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #6
-  %25 = getelementptr inbounds i8, ptr %1, i64 20
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 20
   store i8 %24, ptr %25, align 4
   %.pr = load i8, ptr %22, align 2
   %26 = icmp ugt i8 %.pr, 1
@@ -866,7 +866,7 @@ define internal fastcc i32 @dissect_obdii_response(ptr noundef %0, ptr noundef n
 
 27:                                               ; preds = %23
   %28 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 3) #6
-  %29 = getelementptr inbounds i8, ptr %1, i64 21
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 21
   store i8 %28, ptr %29, align 1
   %.pr36 = load i8, ptr %22, align 2
   %30 = icmp ugt i8 %.pr36, 2
@@ -874,7 +874,7 @@ define internal fastcc i32 @dissect_obdii_response(ptr noundef %0, ptr noundef n
 
 .thread37:                                        ; preds = %27
   %31 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #6
-  %32 = getelementptr inbounds i8, ptr %1, i64 22
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 22
   store i8 %31, ptr %32, align 2
   %.pr38.pr = load i8, ptr %22, align 2
   %33 = icmp ugt i8 %.pr38.pr, 3
@@ -882,7 +882,7 @@ define internal fastcc i32 @dissect_obdii_response(ptr noundef %0, ptr noundef n
 
 34:                                               ; preds = %.thread37
   %35 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 5) #6
-  %36 = getelementptr inbounds i8, ptr %1, i64 23
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 23
   store i8 %35, ptr %36, align 1
   %.pr40 = load i8, ptr %22, align 2
   %37 = icmp ugt i8 %.pr40, 4
@@ -890,7 +890,7 @@ define internal fastcc i32 @dissect_obdii_response(ptr noundef %0, ptr noundef n
 
 38:                                               ; preds = %34
   %39 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 6) #6
-  %40 = getelementptr inbounds i8, ptr %1, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 %39, ptr %40, align 8
   br label %.thread42
 
@@ -906,7 +906,7 @@ define internal fastcc i32 @dissect_obdii_response(ptr noundef %0, ptr noundef n
   call void @llvm.lifetime.start.p0(i64 33, ptr nonnull %4)
   %43 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #6
   %44 = load ptr, ptr %1, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load ptr, ptr %45, align 8
   %47 = zext i8 %43 to i32
   %48 = tail call ptr @val_to_str_ext(i32 noundef %47, ptr noundef nonnull @obdii_mode01_pid_vals_ext, ptr noundef nonnull @.str.301) #6
@@ -918,7 +918,7 @@ define internal fastcc i32 @dissect_obdii_response(ptr noundef %0, ptr noundef n
   %narrow.i = tail call i8 @llvm.umin.i8(i8 %52, i8 4)
   %spec.select.i = zext nneg i8 %narrow.i to i32
   %53 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %51, ptr noundef %0, i32 noundef 2, i32 noundef %spec.select.i, i32 noundef 0) #6
-  %54 = getelementptr inbounds i8, ptr %1, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 2, ptr %54, align 8
   switch i8 %43, label %.thread.i [
     i8 0, label %55
@@ -1025,26 +1025,26 @@ define internal fastcc i32 @dissect_obdii_response(ptr noundef %0, ptr noundef n
   br i1 %57, label %59, label %.thread.i
 
 59:                                               ; preds = %55
-  %60 = getelementptr inbounds i8, ptr %1, i64 20
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %61 = load i8, ptr %60, align 4
   %62 = zext i8 %61 to i32
   %63 = shl nuw i32 %62, 24
-  %64 = getelementptr inbounds i8, ptr %1, i64 21
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 21
   %65 = load i8, ptr %64, align 1
   %66 = zext i8 %65 to i32
   %67 = shl nuw nsw i32 %66, 16
   %68 = or disjoint i32 %67, %63
-  %69 = getelementptr inbounds i8, ptr %1, i64 22
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 22
   %70 = load i8, ptr %69, align 2
   %71 = zext i8 %70 to i32
   %72 = shl nuw nsw i32 %71, 8
   %73 = or disjoint i32 %68, %72
-  %74 = getelementptr inbounds i8, ptr %1, i64 23
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 23
   %75 = load i8, ptr %74, align 1
   %76 = zext i8 %75 to i32
   %77 = or disjoint i32 %73, %76
   %78 = add nuw nsw i32 %47, 32
-  %79 = getelementptr inbounds i8, ptr %4, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %4, i64 32
   br label %80
 
 80:                                               ; preds = %89, %59
@@ -1061,7 +1061,7 @@ define internal fastcc i32 @dissect_obdii_response(ptr noundef %0, ptr noundef n
 
 85:                                               ; preds = %80
   %86 = load ptr, ptr %1, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %88 = load ptr, ptr %87, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %88, i32 noundef 25, ptr noundef nonnull @.str.307, ptr noundef %.0493535.i, i32 noundef %84) #6
   br label %89
@@ -1088,18 +1088,18 @@ define internal fastcc i32 @dissect_obdii_response(ptr noundef %0, ptr noundef n
   br i1 %98, label %99, label %.thread.i
 
 99:                                               ; preds = %96
-  %100 = getelementptr inbounds i8, ptr %1, i64 20
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %101 = load i8, ptr %100, align 4
-  %102 = getelementptr inbounds i8, ptr %1, i64 21
+  %102 = getelementptr inbounds nuw i8, ptr %1, i64 21
   %103 = load i8, ptr %102, align 1
   %104 = load ptr, ptr %1, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %106 = load ptr, ptr %105, align 8
   %107 = zext i8 %101 to i32
   %108 = tail call ptr @val_to_str(i32 noundef %107, ptr noundef nonnull @obdii_fuel_system_status_vals, ptr noundef nonnull @.str.311) #6
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %106, i32 noundef 25, ptr noundef nonnull @.str.310, ptr noundef %108) #6
   %109 = load ptr, ptr %1, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
   %111 = load ptr, ptr %110, align 8
   %112 = zext i8 %103 to i32
   %113 = tail call ptr @val_to_str(i32 noundef %112, ptr noundef nonnull @obdii_fuel_system_status_vals, ptr noundef nonnull @.str.311) #6
@@ -1146,12 +1146,12 @@ define internal fastcc i32 @dissect_obdii_response(ptr noundef %0, ptr noundef n
   br i1 %138, label %139, label %.thread.i
 
 139:                                              ; preds = %136
-  %140 = getelementptr inbounds i8, ptr %1, i64 20
+  %140 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %141 = load i8, ptr %140, align 4
   %142 = zext i8 %141 to i32
   %143 = mul nuw nsw i32 %142, 3
   %144 = load ptr, ptr %1, align 8
-  %145 = getelementptr inbounds i8, ptr %144, i64 8
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 8
   %146 = load ptr, ptr %145, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %146, i32 noundef 25, ptr noundef nonnull @.str.313, i32 noundef %143) #6
   %147 = load i32, ptr @hf_obdii_mode01_fuel_pressure, align 4
@@ -1166,18 +1166,18 @@ define internal fastcc i32 @dissect_obdii_response(ptr noundef %0, ptr noundef n
   br i1 %153, label %154, label %.thread.i
 
 154:                                              ; preds = %151
-  %155 = getelementptr inbounds i8, ptr %1, i64 20
+  %155 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %156 = load i8, ptr %155, align 4
   %157 = zext i8 %156 to i32
   %158 = shl nuw nsw i32 %157, 8
-  %159 = getelementptr inbounds i8, ptr %1, i64 21
+  %159 = getelementptr inbounds nuw i8, ptr %1, i64 21
   %160 = load i8, ptr %159, align 1
   %161 = zext i8 %160 to i32
   %162 = or disjoint i32 %158, %161
   %163 = uitofp nneg i32 %162 to double
   %164 = fmul double %163, 2.500000e-01
   %165 = load ptr, ptr %1, align 8
-  %166 = getelementptr inbounds i8, ptr %165, i64 8
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 8
   %167 = load ptr, ptr %166, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %167, i32 noundef 25, ptr noundef nonnull @.str.314, double noundef %164) #6
   %168 = load i32, ptr @hf_obdii_mode01_engine_rpm, align 4
@@ -1192,10 +1192,10 @@ define internal fastcc i32 @dissect_obdii_response(ptr noundef %0, ptr noundef n
   br i1 %174, label %175, label %.thread.i
 
 175:                                              ; preds = %172
-  %176 = getelementptr inbounds i8, ptr %1, i64 20
+  %176 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %177 = load i8, ptr %176, align 4
   %178 = load ptr, ptr %1, align 8
-  %179 = getelementptr inbounds i8, ptr %178, i64 8
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 8
   %180 = load ptr, ptr %179, align 8
   %181 = zext i8 %177 to i32
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %180, i32 noundef 25, ptr noundef nonnull @.str.315, i32 noundef %181) #6
@@ -1211,14 +1211,14 @@ define internal fastcc i32 @dissect_obdii_response(ptr noundef %0, ptr noundef n
   br i1 %188, label %189, label %.thread.i
 
 189:                                              ; preds = %186
-  %190 = getelementptr inbounds i8, ptr %1, i64 20
+  %190 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %191 = load i8, ptr %190, align 4
   %192 = zext i8 %191 to i32
   %193 = add nsw i32 %192, -128
   %194 = sitofp i32 %193 to double
   %195 = fmul double %194, 5.000000e-01
   %196 = load ptr, ptr %1, align 8
-  %197 = getelementptr inbounds i8, ptr %196, i64 8
+  %197 = getelementptr inbounds nuw i8, ptr %196, i64 8
   %198 = load ptr, ptr %197, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %198, i32 noundef 25, ptr noundef nonnull @.str.316, double noundef %195) #6
   %199 = load i32, ptr @hf_obdii_mode01_timing_advance, align 4
@@ -1238,18 +1238,18 @@ define internal fastcc i32 @dissect_obdii_response(ptr noundef %0, ptr noundef n
   br i1 %208, label %209, label %.thread.i
 
 209:                                              ; preds = %206
-  %210 = getelementptr inbounds i8, ptr %1, i64 20
+  %210 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %211 = load i8, ptr %210, align 4
   %212 = zext i8 %211 to i32
   %213 = shl nuw nsw i32 %212, 8
-  %214 = getelementptr inbounds i8, ptr %1, i64 21
+  %214 = getelementptr inbounds nuw i8, ptr %1, i64 21
   %215 = load i8, ptr %214, align 1
   %216 = zext i8 %215 to i32
   %217 = or disjoint i32 %213, %216
   %218 = uitofp nneg i32 %217 to double
   %219 = fdiv double %218, 1.000000e+02
   %220 = load ptr, ptr %1, align 8
-  %221 = getelementptr inbounds i8, ptr %220, i64 8
+  %221 = getelementptr inbounds nuw i8, ptr %220, i64 8
   %222 = load ptr, ptr %221, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %222, i32 noundef 25, ptr noundef nonnull @.str.317, double noundef %219) #6
   %223 = load i32, ptr @hf_obdii_mode01_maf_air_flow_rate, align 4
@@ -1269,10 +1269,10 @@ define internal fastcc i32 @dissect_obdii_response(ptr noundef %0, ptr noundef n
   br i1 %232, label %233, label %.thread.i
 
 233:                                              ; preds = %230
-  %234 = getelementptr inbounds i8, ptr %1, i64 20
+  %234 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %235 = load i8, ptr %234, align 4
   %236 = load ptr, ptr %1, align 8
-  %237 = getelementptr inbounds i8, ptr %236, i64 8
+  %237 = getelementptr inbounds nuw i8, ptr %236, i64 8
   %238 = load ptr, ptr %237, align 8
   %239 = zext i8 %235 to i32
   %240 = tail call ptr @val_to_str(i32 noundef %239, ptr noundef nonnull @obdii_secondary_air_status_vals, ptr noundef nonnull @.str.311) #6
@@ -1289,7 +1289,7 @@ define internal fastcc i32 @dissect_obdii_response(ptr noundef %0, ptr noundef n
   br i1 %247, label %248, label %.thread.i
 
 248:                                              ; preds = %245
-  %249 = getelementptr inbounds i8, ptr %1, i64 20
+  %249 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %250 = load i8, ptr %249, align 4
   %251 = and i8 %250, 1
   %252 = and i8 %250, 2
@@ -1299,7 +1299,7 @@ define internal fastcc i32 @dissect_obdii_response(ptr noundef %0, ptr noundef n
   %256 = and i8 %250, 32
   %257 = and i8 %250, 64
   %258 = load ptr, ptr %1, align 8
-  %259 = getelementptr inbounds i8, ptr %258, i64 8
+  %259 = getelementptr inbounds nuw i8, ptr %258, i64 8
   %260 = load ptr, ptr %259, align 8
   %.not509.i = icmp eq i8 %251, 0
   %261 = select i1 %.not509.i, ptr @.str.321, ptr @.str.320
@@ -1314,7 +1314,7 @@ define internal fastcc i32 @dissect_obdii_response(ptr noundef %0, ptr noundef n
   %266 = select i1 %.not513.i, ptr @.str.325, ptr @.str.321
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %260, i32 noundef 25, ptr noundef nonnull @.str.319, ptr noundef nonnull %261, ptr noundef nonnull %262, ptr noundef nonnull %263, ptr noundef nonnull %264, ptr noundef nonnull %266) #6
   %267 = load ptr, ptr %1, align 8
-  %268 = getelementptr inbounds i8, ptr %267, i64 8
+  %268 = getelementptr inbounds nuw i8, ptr %267, i64 8
   %269 = load ptr, ptr %268, align 8
   %.not514.i = icmp eq i8 %255, 0
   %270 = select i1 %.not514.i, ptr @.str.321, ptr @.str.320
@@ -1335,7 +1335,7 @@ define internal fastcc i32 @dissect_obdii_response(ptr noundef %0, ptr noundef n
   br i1 %277, label %278, label %.thread.i
 
 278:                                              ; preds = %275
-  %279 = getelementptr inbounds i8, ptr %1, i64 20
+  %279 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %280 = load i8, ptr %279, align 4
   %281 = and i8 %280, 1
   %282 = and i8 %280, 2
@@ -1345,7 +1345,7 @@ define internal fastcc i32 @dissect_obdii_response(ptr noundef %0, ptr noundef n
   %286 = and i8 %280, 32
   %287 = and i8 %280, 64
   %288 = load ptr, ptr %1, align 8
-  %289 = getelementptr inbounds i8, ptr %288, i64 8
+  %289 = getelementptr inbounds nuw i8, ptr %288, i64 8
   %290 = load ptr, ptr %289, align 8
   %.not497.i = icmp eq i8 %281, 0
   %291 = select i1 %.not497.i, ptr @.str.321, ptr @.str.320
@@ -1356,7 +1356,7 @@ define internal fastcc i32 @dissect_obdii_response(ptr noundef %0, ptr noundef n
   %294 = select i1 %.not499.i, ptr @.str.325, ptr @.str.321
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %290, i32 noundef 25, ptr noundef nonnull @.str.327, ptr noundef nonnull %291, ptr noundef nonnull %292, ptr noundef nonnull %294) #6
   %295 = load ptr, ptr %1, align 8
-  %296 = getelementptr inbounds i8, ptr %295, i64 8
+  %296 = getelementptr inbounds nuw i8, ptr %295, i64 8
   %297 = load ptr, ptr %296, align 8
   %.not500.i = icmp eq i8 %283, 0
   %298 = select i1 %.not500.i, ptr @.str.321, ptr @.str.320
@@ -1367,7 +1367,7 @@ define internal fastcc i32 @dissect_obdii_response(ptr noundef %0, ptr noundef n
   %301 = select i1 %.not502.i, ptr @.str.325, ptr @.str.321
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %297, i32 noundef 25, ptr noundef nonnull @.str.328, ptr noundef nonnull %298, ptr noundef nonnull %299, ptr noundef nonnull %301) #6
   %302 = load ptr, ptr %1, align 8
-  %303 = getelementptr inbounds i8, ptr %302, i64 8
+  %303 = getelementptr inbounds nuw i8, ptr %302, i64 8
   %304 = load ptr, ptr %303, align 8
   %.not503.i = icmp eq i8 %285, 0
   %305 = select i1 %.not503.i, ptr @.str.321, ptr @.str.320
@@ -1378,7 +1378,7 @@ define internal fastcc i32 @dissect_obdii_response(ptr noundef %0, ptr noundef n
   %308 = select i1 %.not505.i, ptr @.str.325, ptr @.str.321
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %304, i32 noundef 25, ptr noundef nonnull @.str.329, ptr noundef nonnull %305, ptr noundef nonnull %306, ptr noundef nonnull %308) #6
   %309 = load ptr, ptr %1, align 8
-  %310 = getelementptr inbounds i8, ptr %309, i64 8
+  %310 = getelementptr inbounds nuw i8, ptr %309, i64 8
   %311 = load ptr, ptr %310, align 8
   %.not506.i = icmp eq i8 %287, 0
   %312 = select i1 %.not506.i, ptr @.str.321, ptr @.str.320
@@ -1395,14 +1395,14 @@ define internal fastcc i32 @dissect_obdii_response(ptr noundef %0, ptr noundef n
   br i1 %317, label %318, label %.thread.i
 
 318:                                              ; preds = %315
-  %319 = getelementptr inbounds i8, ptr %1, i64 20
+  %319 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %320 = load i8, ptr %319, align 4
   %321 = uitofp i8 %320 to double
   %322 = fdiv double %321, 2.000000e+02
-  %323 = getelementptr inbounds i8, ptr %1, i64 21
+  %323 = getelementptr inbounds nuw i8, ptr %1, i64 21
   %324 = load i8, ptr %323, align 1
   %325 = load ptr, ptr %1, align 8
-  %326 = getelementptr inbounds i8, ptr %325, i64 8
+  %326 = getelementptr inbounds nuw i8, ptr %325, i64 8
   %327 = load ptr, ptr %326, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %327, i32 noundef 25, ptr noundef nonnull @.str.331, double noundef %322) #6
   %328 = load i8, ptr %323, align 1
@@ -1415,7 +1415,7 @@ define internal fastcc i32 @dissect_obdii_response(ptr noundef %0, ptr noundef n
   %332 = fmul double %331, 7.812500e-03
   %333 = fadd double %332, -1.000000e+02
   %334 = load ptr, ptr %1, align 8
-  %335 = getelementptr inbounds i8, ptr %334, i64 8
+  %335 = getelementptr inbounds nuw i8, ptr %334, i64 8
   %336 = load ptr, ptr %335, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %336, i32 noundef 25, ptr noundef nonnull @.str.332, double noundef %333) #6
   br label %337
@@ -1436,10 +1436,10 @@ define internal fastcc i32 @dissect_obdii_response(ptr noundef %0, ptr noundef n
   br i1 %347, label %348, label %.thread.i
 
 348:                                              ; preds = %345
-  %349 = getelementptr inbounds i8, ptr %1, i64 20
+  %349 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %350 = load i8, ptr %349, align 4
   %351 = load ptr, ptr %1, align 8
-  %352 = getelementptr inbounds i8, ptr %351, i64 8
+  %352 = getelementptr inbounds nuw i8, ptr %351, i64 8
   %353 = load ptr, ptr %352, align 8
   %354 = zext i8 %350 to i32
   %355 = tail call ptr @val_to_str(i32 noundef %354, ptr noundef nonnull @obdii_standards_vals, ptr noundef nonnull @.str.333) #6
@@ -1456,16 +1456,16 @@ define internal fastcc i32 @dissect_obdii_response(ptr noundef %0, ptr noundef n
   br i1 %362, label %363, label %.thread.i
 
 363:                                              ; preds = %360
-  %364 = getelementptr inbounds i8, ptr %1, i64 20
+  %364 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %365 = load i8, ptr %364, align 4
   %366 = zext i8 %365 to i32
   %367 = shl nuw nsw i32 %366, 8
-  %368 = getelementptr inbounds i8, ptr %1, i64 21
+  %368 = getelementptr inbounds nuw i8, ptr %1, i64 21
   %369 = load i8, ptr %368, align 1
   %370 = zext i8 %369 to i32
   %371 = or disjoint i32 %367, %370
   %372 = load ptr, ptr %1, align 8
-  %373 = getelementptr inbounds i8, ptr %372, i64 8
+  %373 = getelementptr inbounds nuw i8, ptr %372, i64 8
   %374 = load ptr, ptr %373, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %374, i32 noundef 25, ptr noundef nonnull @.str.334, i32 noundef %371) #6
   %375 = load i32, ptr @hf_obdii_mode01_engine_uptime, align 4
@@ -1480,18 +1480,18 @@ define internal fastcc i32 @dissect_obdii_response(ptr noundef %0, ptr noundef n
   br i1 %381, label %382, label %.thread.i
 
 382:                                              ; preds = %379
-  %383 = getelementptr inbounds i8, ptr %1, i64 20
+  %383 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %384 = load i8, ptr %383, align 4
   %385 = zext i8 %384 to i32
   %386 = shl nuw nsw i32 %385, 8
-  %387 = getelementptr inbounds i8, ptr %1, i64 21
+  %387 = getelementptr inbounds nuw i8, ptr %1, i64 21
   %388 = load i8, ptr %387, align 1
   %389 = zext i8 %388 to i32
   %390 = or disjoint i32 %386, %389
   %391 = uitofp nneg i32 %390 to double
   %392 = fmul double %391, 7.900000e-02
   %393 = load ptr, ptr %1, align 8
-  %394 = getelementptr inbounds i8, ptr %393, i64 8
+  %394 = getelementptr inbounds nuw i8, ptr %393, i64 8
   %395 = load ptr, ptr %394, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %395, i32 noundef 25, ptr noundef nonnull @.str.335, double noundef %392) #6
   %396 = load i32, ptr @hf_obdii_mode01_fuel_rail_pressure, align 4
@@ -1516,32 +1516,32 @@ define internal fastcc i32 @dissect_obdii_response(ptr noundef %0, ptr noundef n
   br i1 %408, label %409, label %.thread.i
 
 409:                                              ; preds = %406
-  %410 = getelementptr inbounds i8, ptr %1, i64 20
+  %410 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %411 = load i8, ptr %410, align 4
   %412 = zext i8 %411 to i32
   %413 = shl nuw nsw i32 %412, 8
-  %414 = getelementptr inbounds i8, ptr %1, i64 21
+  %414 = getelementptr inbounds nuw i8, ptr %1, i64 21
   %415 = load i8, ptr %414, align 1
   %416 = zext i8 %415 to i32
   %417 = or disjoint i32 %413, %416
   %418 = uitofp nneg i32 %417 to double
   %419 = fmul double %418, 0x3F00000000000000
-  %420 = getelementptr inbounds i8, ptr %1, i64 22
+  %420 = getelementptr inbounds nuw i8, ptr %1, i64 22
   %421 = load i8, ptr %420, align 2
   %422 = zext i8 %421 to i32
   %423 = shl nuw nsw i32 %422, 8
-  %424 = getelementptr inbounds i8, ptr %1, i64 23
+  %424 = getelementptr inbounds nuw i8, ptr %1, i64 23
   %425 = load i8, ptr %424, align 1
   %426 = zext i8 %425 to i32
   %427 = or disjoint i32 %423, %426
   %428 = uitofp nneg i32 %427 to double
   %429 = fmul double %428, 0x3F20000000000000
   %430 = load ptr, ptr %1, align 8
-  %431 = getelementptr inbounds i8, ptr %430, i64 8
+  %431 = getelementptr inbounds nuw i8, ptr %430, i64 8
   %432 = load ptr, ptr %431, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %432, i32 noundef 25, ptr noundef nonnull @.str.336, double noundef %419) #6
   %433 = load ptr, ptr %1, align 8
-  %434 = getelementptr inbounds i8, ptr %433, i64 8
+  %434 = getelementptr inbounds nuw i8, ptr %433, i64 8
   %435 = load ptr, ptr %434, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %435, i32 noundef 25, ptr noundef nonnull @.str.337, double noundef %429) #6
   %436 = load i32, ptr @hf_obdii_mode01_oxygen_sensor_id, align 4
@@ -1581,10 +1581,10 @@ define internal fastcc i32 @dissect_obdii_response(ptr noundef %0, ptr noundef n
   br i1 %459, label %460, label %.thread.i
 
 460:                                              ; preds = %457
-  %461 = getelementptr inbounds i8, ptr %1, i64 20
+  %461 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %462 = load i8, ptr %461, align 4
   %463 = load ptr, ptr %1, align 8
-  %464 = getelementptr inbounds i8, ptr %463, i64 8
+  %464 = getelementptr inbounds nuw i8, ptr %463, i64 8
   %465 = load ptr, ptr %464, align 8
   %466 = zext i8 %462 to i32
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %465, i32 noundef 25, ptr noundef nonnull @.str.338, i32 noundef %466) #6
@@ -1600,18 +1600,18 @@ define internal fastcc i32 @dissect_obdii_response(ptr noundef %0, ptr noundef n
   br i1 %473, label %474, label %.thread.i
 
 474:                                              ; preds = %471
-  %475 = getelementptr inbounds i8, ptr %1, i64 20
+  %475 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %476 = load i8, ptr %475, align 4
   %477 = zext i8 %476 to i16
   %478 = shl nuw i16 %477, 8
-  %479 = getelementptr inbounds i8, ptr %1, i64 21
+  %479 = getelementptr inbounds nuw i8, ptr %1, i64 21
   %480 = load i8, ptr %479, align 1
   %481 = zext i8 %480 to i16
   %482 = or disjoint i16 %478, %481
   %483 = sitofp i16 %482 to double
   %484 = fmul double %483, 2.500000e-01
   %485 = load ptr, ptr %1, align 8
-  %486 = getelementptr inbounds i8, ptr %485, i64 8
+  %486 = getelementptr inbounds nuw i8, ptr %485, i64 8
   %487 = load ptr, ptr %486, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %487, i32 noundef 25, ptr noundef nonnull @.str.339, double noundef %484) #6
   %488 = load i32, ptr @hf_obdii_mode01_evap_system_vapor_pressure, align 4
@@ -1636,32 +1636,32 @@ define internal fastcc i32 @dissect_obdii_response(ptr noundef %0, ptr noundef n
   br i1 %500, label %501, label %.thread.i
 
 501:                                              ; preds = %498
-  %502 = getelementptr inbounds i8, ptr %1, i64 20
+  %502 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %503 = load i8, ptr %502, align 4
   %504 = zext i8 %503 to i32
   %505 = shl nuw nsw i32 %504, 8
-  %506 = getelementptr inbounds i8, ptr %1, i64 21
+  %506 = getelementptr inbounds nuw i8, ptr %1, i64 21
   %507 = load i8, ptr %506, align 1
   %508 = zext i8 %507 to i32
   %509 = or disjoint i32 %505, %508
   %510 = uitofp nneg i32 %509 to double
   %511 = fmul double %510, 0x3F00000000000000
-  %512 = getelementptr inbounds i8, ptr %1, i64 22
+  %512 = getelementptr inbounds nuw i8, ptr %1, i64 22
   %513 = load i8, ptr %512, align 2
   %514 = zext i8 %513 to i32
   %515 = add nsw i32 %514, -128
   %516 = sitofp i32 %515 to double
-  %517 = getelementptr inbounds i8, ptr %1, i64 23
+  %517 = getelementptr inbounds nuw i8, ptr %1, i64 23
   %518 = load i8, ptr %517, align 1
   %519 = uitofp i8 %518 to double
   %520 = fmul double %519, 3.906250e-03
   %521 = fadd double %520, %516
   %522 = load ptr, ptr %1, align 8
-  %523 = getelementptr inbounds i8, ptr %522, i64 8
+  %523 = getelementptr inbounds nuw i8, ptr %522, i64 8
   %524 = load ptr, ptr %523, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %524, i32 noundef 25, ptr noundef nonnull @.str.336, double noundef %511) #6
   %525 = load ptr, ptr %1, align 8
-  %526 = getelementptr inbounds i8, ptr %525, i64 8
+  %526 = getelementptr inbounds nuw i8, ptr %525, i64 8
   %527 = load ptr, ptr %526, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %527, i32 noundef 25, ptr noundef nonnull @.str.340, double noundef %521) #6
   %528 = load i32, ptr @hf_obdii_mode01_oxygen_sensor_id, align 4
@@ -1687,18 +1687,18 @@ define internal fastcc i32 @dissect_obdii_response(ptr noundef %0, ptr noundef n
 
 switch.lookup:                                    ; preds = %540
   %542 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_obdii_response, i64 0, i64 %542
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.dissect_obdii_response, i64 0, i64 %542
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %543
 
 543:                                              ; preds = %540, %switch.lookup
   %.in.i = phi ptr [ %switch.load, %switch.lookup ], [ @hf_obdii_mode01_catalyst_temp_22, %540 ]
   %544 = load i32, ptr %.in.i, align 4
-  %545 = getelementptr inbounds i8, ptr %1, i64 20
+  %545 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %546 = load i8, ptr %545, align 4
   %547 = zext i8 %546 to i32
   %548 = shl nuw nsw i32 %547, 8
-  %549 = getelementptr inbounds i8, ptr %1, i64 21
+  %549 = getelementptr inbounds nuw i8, ptr %1, i64 21
   %550 = load i8, ptr %549, align 1
   %551 = zext i8 %550 to i32
   %552 = or disjoint i32 %548, %551
@@ -1706,7 +1706,7 @@ switch.lookup:                                    ; preds = %540
   %554 = fdiv double %553, 1.000000e+01
   %555 = fadd double %554, -4.000000e+01
   %556 = load ptr, ptr %1, align 8
-  %557 = getelementptr inbounds i8, ptr %556, i64 8
+  %557 = getelementptr inbounds nuw i8, ptr %556, i64 8
   %558 = load ptr, ptr %557, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %558, i32 noundef 25, ptr noundef nonnull @.str.341, double noundef %555) #6
   %559 = load i32, ptr %54, align 8
@@ -1721,18 +1721,18 @@ switch.lookup:                                    ; preds = %540
   br i1 %565, label %566, label %.thread.i
 
 566:                                              ; preds = %563
-  %567 = getelementptr inbounds i8, ptr %1, i64 20
+  %567 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %568 = load i8, ptr %567, align 4
   %569 = zext i8 %568 to i32
   %570 = shl nuw nsw i32 %569, 8
-  %571 = getelementptr inbounds i8, ptr %1, i64 21
+  %571 = getelementptr inbounds nuw i8, ptr %1, i64 21
   %572 = load i8, ptr %571, align 1
   %573 = zext i8 %572 to i32
   %574 = or disjoint i32 %570, %573
   %575 = uitofp nneg i32 %574 to double
   %576 = fdiv double %575, 1.000000e+03
   %577 = load ptr, ptr %1, align 8
-  %578 = getelementptr inbounds i8, ptr %577, i64 8
+  %578 = getelementptr inbounds nuw i8, ptr %577, i64 8
   %579 = load ptr, ptr %578, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %579, i32 noundef 25, ptr noundef nonnull @.str.342, double noundef %576) #6
   %580 = load i32, ptr @hf_obdii_mode01_control_module_voltage, align 4
@@ -1747,11 +1747,11 @@ switch.lookup:                                    ; preds = %540
   br i1 %586, label %587, label %.thread.i
 
 587:                                              ; preds = %584
-  %588 = getelementptr inbounds i8, ptr %1, i64 20
+  %588 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %589 = load i8, ptr %588, align 4
   %590 = zext i8 %589 to i32
   %591 = shl nuw nsw i32 %590, 8
-  %592 = getelementptr inbounds i8, ptr %1, i64 21
+  %592 = getelementptr inbounds nuw i8, ptr %1, i64 21
   %593 = load i8, ptr %592, align 1
   %594 = zext i8 %593 to i32
   %595 = or disjoint i32 %591, %594
@@ -1759,7 +1759,7 @@ switch.lookup:                                    ; preds = %540
   %597 = uitofp nneg i32 %596 to double
   %598 = fdiv double %597, 2.550000e+02
   %599 = load ptr, ptr %1, align 8
-  %600 = getelementptr inbounds i8, ptr %599, i64 8
+  %600 = getelementptr inbounds nuw i8, ptr %599, i64 8
   %601 = load ptr, ptr %600, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %601, i32 noundef 25, ptr noundef nonnull @.str.343, double noundef %598) #6
   %602 = load i32, ptr @hf_obdii_mode01_absolute_load_value, align 4
@@ -1774,18 +1774,18 @@ switch.lookup:                                    ; preds = %540
   br i1 %608, label %609, label %.thread.i
 
 609:                                              ; preds = %606
-  %610 = getelementptr inbounds i8, ptr %1, i64 20
+  %610 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %611 = load i8, ptr %610, align 4
   %612 = zext i8 %611 to i32
   %613 = shl nuw nsw i32 %612, 8
-  %614 = getelementptr inbounds i8, ptr %1, i64 21
+  %614 = getelementptr inbounds nuw i8, ptr %1, i64 21
   %615 = load i8, ptr %614, align 1
   %616 = zext i8 %615 to i32
   %617 = or disjoint i32 %613, %616
   %618 = uitofp nneg i32 %617 to double
   %619 = fmul double %618, 0x3F00000000000000
   %620 = load ptr, ptr %1, align 8
-  %621 = getelementptr inbounds i8, ptr %620, i64 8
+  %621 = getelementptr inbounds nuw i8, ptr %620, i64 8
   %622 = load ptr, ptr %621, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %622, i32 noundef 25, ptr noundef nonnull @.str.344, double noundef %619) #6
   %623 = load i32, ptr @hf_obdii_mode01_fuel_air_commanded_equiv_ratio, align 4
@@ -1860,10 +1860,10 @@ switch.lookup:                                    ; preds = %540
   br i1 %665, label %666, label %.thread.i
 
 666:                                              ; preds = %663
-  %667 = getelementptr inbounds i8, ptr %1, i64 20
+  %667 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %668 = load i8, ptr %667, align 4
   %669 = load ptr, ptr %1, align 8
-  %670 = getelementptr inbounds i8, ptr %669, i64 8
+  %670 = getelementptr inbounds nuw i8, ptr %669, i64 8
   %671 = load ptr, ptr %670, align 8
   %672 = zext i8 %668 to i32
   %673 = tail call ptr @val_to_str(i32 noundef %672, ptr noundef nonnull @obdii_fuel_type_coding_vals, ptr noundef nonnull @.str.333) #6
@@ -1885,18 +1885,18 @@ switch.lookup:                                    ; preds = %540
   br i1 %683, label %684, label %.thread.i
 
 684:                                              ; preds = %681
-  %685 = getelementptr inbounds i8, ptr %1, i64 20
+  %685 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %686 = load i8, ptr %685, align 4
   %687 = zext i8 %686 to i32
   %688 = shl nuw nsw i32 %687, 8
-  %689 = getelementptr inbounds i8, ptr %1, i64 21
+  %689 = getelementptr inbounds nuw i8, ptr %1, i64 21
   %690 = load i8, ptr %689, align 1
   %691 = zext i8 %690 to i32
   %692 = or disjoint i32 %688, %691
   %693 = uitofp nneg i32 %692 to double
   %694 = fdiv double %693, 2.000000e+02
   %695 = load ptr, ptr %1, align 8
-  %696 = getelementptr inbounds i8, ptr %695, i64 8
+  %696 = getelementptr inbounds nuw i8, ptr %695, i64 8
   %697 = load ptr, ptr %696, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %697, i32 noundef 25, ptr noundef nonnull @.str.339, double noundef %694) #6
   %698 = load i32, ptr @hf_obdii_mode01_absolute_evap_system_vapor_pressure, align 4
@@ -1911,20 +1911,20 @@ switch.lookup:                                    ; preds = %540
   br i1 %704, label %705, label %.thread.i
 
 705:                                              ; preds = %702
-  %706 = getelementptr inbounds i8, ptr %1, i64 20
+  %706 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %707 = load i8, ptr %706, align 4
   %708 = uitofp i8 %707 to double
   %709 = fmul double %708, 1.000000e+02
   %710 = fmul double %709, 7.812500e-03
   %711 = fadd double %710, -1.000000e+02
-  %712 = getelementptr inbounds i8, ptr %1, i64 21
+  %712 = getelementptr inbounds nuw i8, ptr %1, i64 21
   %713 = load i8, ptr %712, align 1
   %714 = uitofp i8 %713 to double
   %715 = fmul double %714, 1.000000e+02
   %716 = fmul double %715, 7.812500e-03
   %717 = fadd double %716, -1.000000e+02
   %718 = load ptr, ptr %1, align 8
-  %719 = getelementptr inbounds i8, ptr %718, i64 8
+  %719 = getelementptr inbounds nuw i8, ptr %718, i64 8
   %720 = load ptr, ptr %719, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %720, i32 noundef 25, ptr noundef nonnull @.str.345, double noundef %711, double noundef %717) #6
   br label %dissect_obdii_mode_01.exit
@@ -1950,11 +1950,11 @@ switch.lookup:                                    ; preds = %540
   br i1 %732, label %733, label %.thread.i
 
 733:                                              ; preds = %730
-  %734 = getelementptr inbounds i8, ptr %1, i64 20
+  %734 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %735 = load i8, ptr %734, align 4
   %736 = zext i8 %735 to i32
   %737 = shl nuw nsw i32 %736, 8
-  %738 = getelementptr inbounds i8, ptr %1, i64 21
+  %738 = getelementptr inbounds nuw i8, ptr %1, i64 21
   %739 = load i8, ptr %738, align 1
   %740 = zext i8 %739 to i32
   %741 = or disjoint i32 %737, %740
@@ -1962,7 +1962,7 @@ switch.lookup:                                    ; preds = %540
   %743 = sitofp i32 %742 to double
   %744 = fmul double %743, 7.812500e-03
   %745 = load ptr, ptr %1, align 8
-  %746 = getelementptr inbounds i8, ptr %745, i64 8
+  %746 = getelementptr inbounds nuw i8, ptr %745, i64 8
   %747 = load ptr, ptr %746, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %747, i32 noundef 25, ptr noundef nonnull @.str.346, double noundef %744) #6
   %748 = load i32, ptr @hf_obdii_mode01_fuel_injection_timing, align 4
@@ -1977,18 +1977,18 @@ switch.lookup:                                    ; preds = %540
   br i1 %754, label %755, label %.thread.i
 
 755:                                              ; preds = %752
-  %756 = getelementptr inbounds i8, ptr %1, i64 20
+  %756 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %757 = load i8, ptr %756, align 4
   %758 = zext i8 %757 to i32
   %759 = shl nuw nsw i32 %758, 8
-  %760 = getelementptr inbounds i8, ptr %1, i64 21
+  %760 = getelementptr inbounds nuw i8, ptr %1, i64 21
   %761 = load i8, ptr %760, align 1
   %762 = zext i8 %761 to i32
   %763 = or disjoint i32 %759, %762
   %764 = uitofp nneg i32 %763 to double
   %765 = fdiv double %764, 2.000000e+01
   %766 = load ptr, ptr %1, align 8
-  %767 = getelementptr inbounds i8, ptr %766, i64 8
+  %767 = getelementptr inbounds nuw i8, ptr %766, i64 8
   %768 = load ptr, ptr %767, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %768, i32 noundef 25, ptr noundef nonnull @.str.347, double noundef %765) #6
   %769 = load i32, ptr @hf_obdii_mode01_engine_fuel_rate, align 4
@@ -2013,16 +2013,16 @@ switch.lookup:                                    ; preds = %540
   br i1 %781, label %782, label %.thread.i
 
 782:                                              ; preds = %779
-  %783 = getelementptr inbounds i8, ptr %1, i64 20
+  %783 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %784 = load i8, ptr %783, align 4
   %785 = zext i8 %784 to i32
   %786 = shl nuw nsw i32 %785, 8
-  %787 = getelementptr inbounds i8, ptr %1, i64 21
+  %787 = getelementptr inbounds nuw i8, ptr %1, i64 21
   %788 = load i8, ptr %787, align 1
   %789 = zext i8 %788 to i32
   %790 = or disjoint i32 %786, %789
   %791 = load ptr, ptr %1, align 8
-  %792 = getelementptr inbounds i8, ptr %791, i64 8
+  %792 = getelementptr inbounds nuw i8, ptr %791, i64 8
   %793 = load ptr, ptr %792, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %793, i32 noundef 25, ptr noundef nonnull @.str.348, i32 noundef %790) #6
   %794 = load i32, ptr @hf_obdii_mode01_torque_reference_engine, align 4
@@ -2038,7 +2038,7 @@ switch.lookup:                                    ; preds = %540
 
 .thread.i:                                        ; preds = %.loopexit.i, %779, %752, %730, %702, %681, %663, %606, %584, %563, %537, %498, %471, %457, %406, %379, %360, %345, %315, %275, %245, %230, %206, %186, %172, %151, %136, %96, %55, %42
   %798 = load ptr, ptr %1, align 8
-  %799 = getelementptr inbounds i8, ptr %798, i64 8
+  %799 = getelementptr inbounds nuw i8, ptr %798, i64 8
   %800 = load ptr, ptr %799, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %800, i32 noundef 25, ptr noundef nonnull @.str.349) #6
   %801 = load i8, ptr %22, align 2
@@ -2047,9 +2047,9 @@ switch.lookup:                                    ; preds = %540
 
 802:                                              ; preds = %.thread.i
   %803 = load ptr, ptr %1, align 8
-  %804 = getelementptr inbounds i8, ptr %803, i64 8
+  %804 = getelementptr inbounds nuw i8, ptr %803, i64 8
   %805 = load ptr, ptr %804, align 8
-  %806 = getelementptr inbounds i8, ptr %1, i64 20
+  %806 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %807 = load i8, ptr %806, align 4
   %808 = zext i8 %807 to i32
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %805, i32 noundef 25, ptr noundef nonnull @.str.350, i32 noundef %808) #6
@@ -2059,9 +2059,9 @@ switch.lookup:                                    ; preds = %540
 
 810:                                              ; preds = %802
   %811 = load ptr, ptr %1, align 8
-  %812 = getelementptr inbounds i8, ptr %811, i64 8
+  %812 = getelementptr inbounds nuw i8, ptr %811, i64 8
   %813 = load ptr, ptr %812, align 8
-  %814 = getelementptr inbounds i8, ptr %1, i64 21
+  %814 = getelementptr inbounds nuw i8, ptr %1, i64 21
   %815 = load i8, ptr %814, align 1
   %816 = zext i8 %815 to i32
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %813, i32 noundef 25, ptr noundef nonnull @.str.350, i32 noundef %816) #6
@@ -2071,9 +2071,9 @@ switch.lookup:                                    ; preds = %540
 
 .thread531.i:                                     ; preds = %810
   %818 = load ptr, ptr %1, align 8
-  %819 = getelementptr inbounds i8, ptr %818, i64 8
+  %819 = getelementptr inbounds nuw i8, ptr %818, i64 8
   %820 = load ptr, ptr %819, align 8
-  %821 = getelementptr inbounds i8, ptr %1, i64 22
+  %821 = getelementptr inbounds nuw i8, ptr %1, i64 22
   %822 = load i8, ptr %821, align 2
   %823 = zext i8 %822 to i32
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %820, i32 noundef 25, ptr noundef nonnull @.str.350, i32 noundef %823) #6
@@ -2083,9 +2083,9 @@ switch.lookup:                                    ; preds = %540
 
 825:                                              ; preds = %.thread531.i
   %826 = load ptr, ptr %1, align 8
-  %827 = getelementptr inbounds i8, ptr %826, i64 8
+  %827 = getelementptr inbounds nuw i8, ptr %826, i64 8
   %828 = load ptr, ptr %827, align 8
-  %829 = getelementptr inbounds i8, ptr %1, i64 23
+  %829 = getelementptr inbounds nuw i8, ptr %1, i64 23
   %830 = load i8, ptr %829, align 1
   %831 = zext i8 %830 to i32
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %828, i32 noundef 25, ptr noundef nonnull @.str.350, i32 noundef %831) #6
@@ -2093,7 +2093,7 @@ switch.lookup:                                    ; preds = %540
 
 .thread533.i:                                     ; preds = %825, %.thread531.i, %810, %802, %.thread.i
   %832 = load ptr, ptr %1, align 8
-  %833 = getelementptr inbounds i8, ptr %832, i64 8
+  %833 = getelementptr inbounds nuw i8, ptr %832, i64 8
   %834 = load ptr, ptr %833, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %834, i32 noundef 25, ptr noundef nonnull @.str.351) #6
   br label %dissect_obdii_mode_01.exit
@@ -2108,7 +2108,7 @@ dissect_obdii_mode_01.exit:                       ; preds = %99, %139, %154, %17
   %838 = zext i8 %837 to i32
   %839 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %836, ptr noundef %0, i32 noundef 1, i32 noundef %838, i32 noundef 0) #6
   %840 = load ptr, ptr %1, align 8
-  %841 = getelementptr inbounds i8, ptr %840, i64 8
+  %841 = getelementptr inbounds nuw i8, ptr %840, i64 8
   %842 = load ptr, ptr %841, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %842, i32 noundef 25, ptr noundef nonnull @.str.349) #6
   %843 = load i8, ptr %22, align 2
@@ -2117,9 +2117,9 @@ dissect_obdii_mode_01.exit:                       ; preds = %99, %139, %154, %17
 
 844:                                              ; preds = %835
   %845 = load ptr, ptr %1, align 8
-  %846 = getelementptr inbounds i8, ptr %845, i64 8
+  %846 = getelementptr inbounds nuw i8, ptr %845, i64 8
   %847 = load ptr, ptr %846, align 8
-  %848 = getelementptr inbounds i8, ptr %1, i64 20
+  %848 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %849 = load i8, ptr %848, align 4
   %850 = zext i8 %849 to i32
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %847, i32 noundef 25, ptr noundef nonnull @.str.350, i32 noundef %850) #6
@@ -2129,9 +2129,9 @@ dissect_obdii_mode_01.exit:                       ; preds = %99, %139, %154, %17
 
 852:                                              ; preds = %844
   %853 = load ptr, ptr %1, align 8
-  %854 = getelementptr inbounds i8, ptr %853, i64 8
+  %854 = getelementptr inbounds nuw i8, ptr %853, i64 8
   %855 = load ptr, ptr %854, align 8
-  %856 = getelementptr inbounds i8, ptr %1, i64 21
+  %856 = getelementptr inbounds nuw i8, ptr %1, i64 21
   %857 = load i8, ptr %856, align 1
   %858 = zext i8 %857 to i32
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %855, i32 noundef 25, ptr noundef nonnull @.str.350, i32 noundef %858) #6
@@ -2141,9 +2141,9 @@ dissect_obdii_mode_01.exit:                       ; preds = %99, %139, %154, %17
 
 .thread21.i:                                      ; preds = %852
   %860 = load ptr, ptr %1, align 8
-  %861 = getelementptr inbounds i8, ptr %860, i64 8
+  %861 = getelementptr inbounds nuw i8, ptr %860, i64 8
   %862 = load ptr, ptr %861, align 8
-  %863 = getelementptr inbounds i8, ptr %1, i64 22
+  %863 = getelementptr inbounds nuw i8, ptr %1, i64 22
   %864 = load i8, ptr %863, align 2
   %865 = zext i8 %864 to i32
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %862, i32 noundef 25, ptr noundef nonnull @.str.350, i32 noundef %865) #6
@@ -2153,9 +2153,9 @@ dissect_obdii_mode_01.exit:                       ; preds = %99, %139, %154, %17
 
 867:                                              ; preds = %.thread21.i
   %868 = load ptr, ptr %1, align 8
-  %869 = getelementptr inbounds i8, ptr %868, i64 8
+  %869 = getelementptr inbounds nuw i8, ptr %868, i64 8
   %870 = load ptr, ptr %869, align 8
-  %871 = getelementptr inbounds i8, ptr %1, i64 23
+  %871 = getelementptr inbounds nuw i8, ptr %1, i64 23
   %872 = load i8, ptr %871, align 1
   %873 = zext i8 %872 to i32
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %870, i32 noundef 25, ptr noundef nonnull @.str.350, i32 noundef %873) #6
@@ -2165,9 +2165,9 @@ dissect_obdii_mode_01.exit:                       ; preds = %99, %139, %154, %17
 
 875:                                              ; preds = %867
   %876 = load ptr, ptr %1, align 8
-  %877 = getelementptr inbounds i8, ptr %876, i64 8
+  %877 = getelementptr inbounds nuw i8, ptr %876, i64 8
   %878 = load ptr, ptr %877, align 8
-  %879 = getelementptr inbounds i8, ptr %1, i64 24
+  %879 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %880 = load i8, ptr %879, align 8
   %881 = zext i8 %880 to i32
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %878, i32 noundef 25, ptr noundef nonnull @.str.350, i32 noundef %881) #6
@@ -2175,7 +2175,7 @@ dissect_obdii_mode_01.exit:                       ; preds = %99, %139, %154, %17
 
 dissect_obdii_mode_07.exit:                       ; preds = %835, %844, %852, %.thread21.i, %867, %875
   %882 = load ptr, ptr %1, align 8
-  %883 = getelementptr inbounds i8, ptr %882, i64 8
+  %883 = getelementptr inbounds nuw i8, ptr %882, i64 8
   %884 = load ptr, ptr %883, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %884, i32 noundef 25, ptr noundef nonnull @.str.351) #6
   br label %dissect_obdii_mode_09.exit
@@ -2183,14 +2183,14 @@ dissect_obdii_mode_07.exit:                       ; preds = %835, %844, %852, %.
 885:                                              ; preds = %.thread42
   %886 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #6
   %887 = load ptr, ptr %1, align 8
-  %888 = getelementptr inbounds i8, ptr %887, i64 8
+  %888 = getelementptr inbounds nuw i8, ptr %887, i64 8
   %889 = load ptr, ptr %888, align 8
   %890 = zext i8 %886 to i32
   %891 = tail call ptr @val_to_str_ext(i32 noundef %890, ptr noundef nonnull @obdii_mode09_pid_vals_ext, ptr noundef nonnull @.str.301) #6
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %889, i32 noundef 25, ptr noundef nonnull @.str.305, ptr noundef %891) #6
   %892 = load i32, ptr @hf_obdii_mode09_pid, align 4
   %893 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %892, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %890) #6
-  %894 = getelementptr inbounds i8, ptr %1, i64 16
+  %894 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 2, ptr %894, align 8
   switch i8 %886, label %917 [
     i8 0, label %895
@@ -2265,23 +2265,23 @@ declare void @proto_item_prepend_text(ptr noundef, ptr noundef, ...) local_unnam
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @dissect_obdii_common_percent(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 14
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 14
   %6 = load i8, ptr %5, align 2
   %7 = icmp eq i8 %6, 1
   br i1 %7, label %8, label %23
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %1, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %10 = load i8, ptr %9, align 4
   %11 = zext i8 %10 to i32
   %12 = mul nuw nsw i32 %11, 100
   %13 = uitofp nneg i32 %12 to double
   %14 = fdiv double %13, 2.550000e+02
   %15 = load ptr, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.352, double noundef %14) #6
-  %18 = getelementptr inbounds i8, ptr %1, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load i32, ptr %18, align 8
   %20 = load i8, ptr %5, align 2
   %21 = zext i8 %20 to i32
@@ -2295,21 +2295,21 @@ define internal fastcc range(i32 0, 2) i32 @dissect_obdii_common_percent(ptr nou
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @dissect_obdii_common_temperature(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 14
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 14
   %6 = load i8, ptr %5, align 2
   %7 = icmp eq i8 %6, 1
   br i1 %7, label %8, label %21
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %1, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %10 = load i8, ptr %9, align 4
   %11 = zext i8 %10 to i32
   %12 = add nsw i32 %11, -40
   %13 = load ptr, ptr %1, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %15, i32 noundef 25, ptr noundef nonnull @.str.353, i32 noundef %12) #6
-  %16 = getelementptr inbounds i8, ptr %1, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load i32, ptr %16, align 8
   %18 = load i8, ptr %5, align 2
   %19 = zext i8 %18 to i32
@@ -2323,13 +2323,13 @@ define internal fastcc range(i32 0, 2) i32 @dissect_obdii_common_temperature(ptr
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @dissect_obdii_common_percent_neg(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 14
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 14
   %6 = load i8, ptr %5, align 2
   %7 = icmp eq i8 %6, 1
   br i1 %7, label %8, label %24
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %1, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %10 = load i8, ptr %9, align 4
   %11 = zext i8 %10 to i32
   %12 = mul nuw nsw i32 %11, 100
@@ -2337,10 +2337,10 @@ define internal fastcc range(i32 0, 2) i32 @dissect_obdii_common_percent_neg(ptr
   %14 = fmul double %13, 7.812500e-03
   %15 = fadd double %14, -1.000000e+02
   %16 = load ptr, ptr %1, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %18, i32 noundef 25, ptr noundef nonnull @.str.352, double noundef %15) #6
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load i32, ptr %19, align 8
   %21 = load i8, ptr %5, align 2
   %22 = zext i8 %21 to i32
@@ -2356,26 +2356,26 @@ declare ptr @proto_tree_add_double(ptr noundef, i32 noundef, ptr noundef, i32 no
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @dissect_obdii_common_fuel_rail_pressure(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 14
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 14
   %6 = load i8, ptr %5, align 2
   %7 = icmp eq i8 %6, 2
   br i1 %7, label %8, label %26
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %1, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %10 = load i8, ptr %9, align 4
   %11 = zext i8 %10 to i32
   %12 = shl nuw nsw i32 %11, 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 21
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 21
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i32
   %16 = or disjoint i32 %12, %15
   %17 = mul nuw nsw i32 %16, 10
   %18 = load ptr, ptr %1, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.313, i32 noundef %17) #6
-  %21 = getelementptr inbounds i8, ptr %1, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %22 = load i32, ptr %21, align 8
   %23 = load i8, ptr %5, align 2
   %24 = zext i8 %23 to i32
@@ -2389,20 +2389,20 @@ define internal fastcc range(i32 0, 2) i32 @dissect_obdii_common_fuel_rail_press
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @dissect_obdii_common_absolute_pressure(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 14
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 14
   %6 = load i8, ptr %5, align 2
   %7 = icmp eq i8 %6, 1
   br i1 %7, label %8, label %20
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %1, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %10 = load i8, ptr %9, align 4
   %11 = load ptr, ptr %1, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = zext i8 %10 to i32
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %13, i32 noundef 25, ptr noundef nonnull @.str.313, i32 noundef %14) #6
-  %15 = getelementptr inbounds i8, ptr %1, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = load i32, ptr %15, align 8
   %17 = load i8, ptr %5, align 2
   %18 = zext i8 %17 to i32
@@ -2416,25 +2416,25 @@ define internal fastcc range(i32 0, 2) i32 @dissect_obdii_common_absolute_pressu
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @dissect_obdii_common_distance_travelled(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 14
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 14
   %6 = load i8, ptr %5, align 2
   %7 = icmp eq i8 %6, 2
   br i1 %7, label %8, label %25
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %1, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %10 = load i8, ptr %9, align 4
   %11 = zext i8 %10 to i32
   %12 = shl nuw nsw i32 %11, 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 21
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 21
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i32
   %16 = or disjoint i32 %12, %15
   %17 = load ptr, ptr %1, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %19, i32 noundef 25, ptr noundef nonnull @.str.354, i32 noundef %16) #6
-  %20 = getelementptr inbounds i8, ptr %1, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %21 = load i32, ptr %20, align 8
   %22 = load i8, ptr %5, align 2
   %23 = zext i8 %22 to i32
@@ -2448,25 +2448,25 @@ define internal fastcc range(i32 0, 2) i32 @dissect_obdii_common_distance_travel
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @dissect_obdii_common_time(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 14
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 14
   %6 = load i8, ptr %5, align 2
   %7 = icmp eq i8 %6, 2
   br i1 %7, label %8, label %25
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %1, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %10 = load i8, ptr %9, align 4
   %11 = zext i8 %10 to i32
   %12 = shl nuw nsw i32 %11, 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 21
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 21
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i32
   %16 = or disjoint i32 %12, %15
   %17 = load ptr, ptr %1, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %19, i32 noundef 25, ptr noundef nonnull @.str.355, i32 noundef %16) #6
-  %20 = getelementptr inbounds i8, ptr %1, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %21 = load i32, ptr %20, align 8
   %22 = load i8, ptr %5, align 2
   %23 = zext i8 %22 to i32
@@ -2480,21 +2480,21 @@ define internal fastcc range(i32 0, 2) i32 @dissect_obdii_common_time(ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @dissect_obdii_common_torque(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 14
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 14
   %6 = load i8, ptr %5, align 2
   %7 = icmp eq i8 %6, 1
   br i1 %7, label %8, label %21
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %1, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %10 = load i8, ptr %9, align 4
   %11 = zext i8 %10 to i32
   %12 = add nsw i32 %11, -125
   %13 = load ptr, ptr %1, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %15, i32 noundef 25, ptr noundef nonnull @.str.356, i32 noundef %12) #6
-  %16 = getelementptr inbounds i8, ptr %1, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load i32, ptr %16, align 8
   %18 = load i8, ptr %5, align 2
   %19 = zext i8 %18 to i32

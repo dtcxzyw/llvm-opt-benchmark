@@ -38,9 +38,9 @@ $__clang_call_terminate = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN4i18n12phonenumbers19MappingFileProviderC2EPKiiPFPKNS0_16CountryLanguagesEiE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 12), (16, 24)) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %2, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %3, ptr %6, align 8
   ret void
 }
@@ -56,7 +56,7 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4i18n12pho
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i32, ptr %13, align 8
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds i32, ptr %12, i64 %15
@@ -68,10 +68,10 @@ _ZSt7advanceIPKilEvRT_T0_.exit.i.i:               ; preds = %11, %_ZSt7advanceIP
   %.017.i.i = phi ptr [ %.1.i.i, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i ], [ %12, %11 ]
   %.01116.i.i = phi i64 [ %.112.i.i, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i ], [ %15, %11 ]
   %19 = lshr i64 %.01116.i.i, 1
-  %20 = getelementptr inbounds i32, ptr %.017.i.i, i64 %19
+  %20 = getelementptr inbounds nuw i32, ptr %.017.i.i, i64 %19
   %21 = load i32, ptr %20, align 4
   %22 = icmp slt i32 %21, %1
-  %23 = getelementptr inbounds i8, ptr %20, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %24 = xor i64 %19, -1
   %25 = add nsw i64 %.01116.i.i, %24
   %.112.i.i = select i1 %22, i64 %25, i64 %19
@@ -90,14 +90,14 @@ _ZSt11lower_boundIPKiiET_S2_S2_RKT0_.exit:        ; preds = %_ZSt7advanceIPKilEv
   br i1 %.not, label %30, label %61
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds i8, ptr %0, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load ptr, ptr %31, align 8
   %33 = ptrtoint ptr %.0.lcssa.i.i to i64
   %34 = sub i64 %33, %17
   %35 = lshr exact i64 %34, 2
   %36 = trunc i64 %35 to i32
   %37 = tail call noundef ptr %32(i32 noundef %36)
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load i32, ptr %38, align 8
   %40 = icmp sgt i32 %39, 0
   br i1 %40, label %41, label %61
@@ -116,7 +116,7 @@ _ZSt11lower_boundIPKiiET_S2_S2_RKT0_.exit:        ; preds = %_ZSt7advanceIPKilEv
           to label %45 unwind label %55
 
 45:                                               ; preds = %44
-  %46 = getelementptr inbounds i8, ptr %8, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %47 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %46, i32 noundef %1)
           to label %48 unwind label %57
 
@@ -216,7 +216,7 @@ _ZN4i18n12phonenumbers12_GLOBAL__N_119ConstructFullLocaleERKNSt7__cxx1112basic_s
 
 _ZN4i18n12phonenumbers12_GLOBAL__N_119ConstructFullLocaleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_S9_PS7_.exit: ; preds = %_ZN4i18n12phonenumbers12_GLOBAL__N_119ConstructFullLocaleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_S9_PS7_.exit.preheader, %21
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %21 ], [ 0, %_ZN4i18n12phonenumbers12_GLOBAL__N_119ConstructFullLocaleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_S9_PS7_.exit.preheader ]
-  %22 = getelementptr inbounds [3 x %"struct.i18n::phonenumbers::(anonymous namespace)::NormalizedLocale"], ptr @_ZN4i18n12phonenumbers12_GLOBAL__N_118kNormalizedLocalesE, i64 0, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [3 x %"struct.i18n::phonenumbers::(anonymous namespace)::NormalizedLocale"], ptr @_ZN4i18n12phonenumbers12_GLOBAL__N_118kNormalizedLocalesE, i64 0, i64 %indvars.iv.i
   %23 = load ptr, ptr %22, align 16
   %24 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %23) #8
   %25 = icmp eq i32 %24, 0
@@ -256,11 +256,11 @@ _ZSt7advanceIPPKclEvRT_T0_.exit.i.i.i:            ; preds = %_ZNSt7__cxx1112basi
   %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPPKclEvRT_T0_.exit.i.i.i ], [ %.val, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit ]
   %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPPKclEvRT_T0_.exit.i.i.i ], [ %30, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit ]
   %34 = lshr i64 %.01116.i.i.i, 1
-  %35 = getelementptr inbounds ptr, ptr %.017.i.i.i, i64 %34
+  %35 = getelementptr inbounds nuw ptr, ptr %.017.i.i.i, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %36, ptr noundef nonnull readonly dereferenceable(1) %32) #9
   %38 = icmp slt i32 %37, 0
-  %39 = getelementptr inbounds i8, ptr %35, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %40 = xor i64 %34, -1
   %41 = add nsw i64 %.01116.i.i.i, %40
   %.112.i.i.i = select i1 %38, i64 %41, i64 %34
@@ -318,11 +318,11 @@ _ZSt7advanceIPPKclEvRT_T0_.exit.i.i.i62:          ; preds = %_ZN4i18n12phonenumb
   %.017.i.i.i63 = phi ptr [ %.1.i.i.i68, %_ZSt7advanceIPPKclEvRT_T0_.exit.i.i.i62 ], [ %.val42, %_ZN4i18n12phonenumbers12_GLOBAL__N_119GetNormalizedLocaleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ]
   %.01116.i.i.i64 = phi i64 [ %.112.i.i.i67, %_ZSt7advanceIPPKclEvRT_T0_.exit.i.i.i62 ], [ %53, %_ZN4i18n12phonenumbers12_GLOBAL__N_119GetNormalizedLocaleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ]
   %57 = lshr i64 %.01116.i.i.i64, 1
-  %58 = getelementptr inbounds ptr, ptr %.017.i.i.i63, i64 %57
+  %58 = getelementptr inbounds nuw ptr, ptr %.017.i.i.i63, i64 %57
   %59 = load ptr, ptr %58, align 8
   %60 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %59, ptr noundef nonnull readonly dereferenceable(1) %55) #9
   %61 = icmp slt i32 %60, 0
-  %62 = getelementptr inbounds i8, ptr %58, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %63 = xor i64 %57, -1
   %64 = add nsw i64 %.01116.i.i.i64, %63
   %.112.i.i.i67 = select i1 %61, i64 %64, i64 %57
@@ -365,11 +365,11 @@ _ZSt7advanceIPPKclEvRT_T0_.exit.i.i.i73:          ; preds = %74, %_ZSt7advanceIP
   %.017.i.i.i74 = phi ptr [ %.1.i.i.i79, %_ZSt7advanceIPPKclEvRT_T0_.exit.i.i.i73 ], [ %.val44, %74 ]
   %.01116.i.i.i75 = phi i64 [ %.112.i.i.i78, %_ZSt7advanceIPPKclEvRT_T0_.exit.i.i.i73 ], [ %75, %74 ]
   %79 = lshr i64 %.01116.i.i.i75, 1
-  %80 = getelementptr inbounds ptr, ptr %.017.i.i.i74, i64 %79
+  %80 = getelementptr inbounds nuw ptr, ptr %.017.i.i.i74, i64 %79
   %81 = load ptr, ptr %80, align 8
   %82 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %81, ptr noundef nonnull readonly dereferenceable(1) %77) #9
   %83 = icmp slt i32 %82, 0
-  %84 = getelementptr inbounds i8, ptr %80, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %85 = xor i64 %79, -1
   %86 = add nsw i64 %.01116.i.i.i75, %85
   %.112.i.i.i78 = select i1 %83, i64 %86, i64 %79
@@ -426,11 +426,11 @@ _ZSt7advanceIPPKclEvRT_T0_.exit.i.i.i84:          ; preds = %103, %_ZSt7advanceI
   %.017.i.i.i85 = phi ptr [ %.1.i.i.i90, %_ZSt7advanceIPPKclEvRT_T0_.exit.i.i.i84 ], [ %.val46, %103 ]
   %.01116.i.i.i86 = phi i64 [ %.112.i.i.i89, %_ZSt7advanceIPPKclEvRT_T0_.exit.i.i.i84 ], [ %104, %103 ]
   %108 = lshr i64 %.01116.i.i.i86, 1
-  %109 = getelementptr inbounds ptr, ptr %.017.i.i.i85, i64 %108
+  %109 = getelementptr inbounds nuw ptr, ptr %.017.i.i.i85, i64 %108
   %110 = load ptr, ptr %109, align 8
   %111 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %110, ptr noundef nonnull readonly dereferenceable(1) %106) #9
   %112 = icmp slt i32 %111, 0
-  %113 = getelementptr inbounds i8, ptr %109, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %109, i64 8
   %114 = xor i64 %108, -1
   %115 = add nsw i64 %.01116.i.i.i86, %114
   %.112.i.i.i89 = select i1 %112, i64 %115, i64 %108
@@ -490,11 +490,11 @@ _ZSt7advanceIPPKclEvRT_T0_.exit.i.i.i95:          ; preds = %128, %_ZSt7advanceI
   %.017.i.i.i96 = phi ptr [ %.1.i.i.i101, %_ZSt7advanceIPPKclEvRT_T0_.exit.i.i.i95 ], [ %.val48, %128 ]
   %.01116.i.i.i97 = phi i64 [ %.112.i.i.i100, %_ZSt7advanceIPPKclEvRT_T0_.exit.i.i.i95 ], [ %129, %128 ]
   %133 = lshr i64 %.01116.i.i.i97, 1
-  %134 = getelementptr inbounds ptr, ptr %.017.i.i.i96, i64 %133
+  %134 = getelementptr inbounds nuw ptr, ptr %.017.i.i.i96, i64 %133
   %135 = load ptr, ptr %134, align 8
   %136 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %135, ptr noundef nonnull readonly dereferenceable(1) %131) #9
   %137 = icmp slt i32 %136, 0
-  %138 = getelementptr inbounds i8, ptr %134, i64 8
+  %138 = getelementptr inbounds nuw i8, ptr %134, i64 8
   %139 = xor i64 %133, -1
   %140 = add nsw i64 %.01116.i.i.i97, %139
   %.112.i.i.i100 = select i1 %137, i64 %140, i64 %133
@@ -537,11 +537,11 @@ _ZSt7advanceIPPKclEvRT_T0_.exit.i.i.i106:         ; preds = %_ZN4i18n12phonenumb
   %.017.i.i.i107 = phi ptr [ %.1.i.i.i112, %_ZSt7advanceIPPKclEvRT_T0_.exit.i.i.i106 ], [ %.val50, %_ZN4i18n12phonenumbers12_GLOBAL__N_111HasLanguageEPKNS0_16CountryLanguagesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit102.thread ]
   %.01116.i.i.i108 = phi i64 [ %.112.i.i.i111, %_ZSt7advanceIPPKclEvRT_T0_.exit.i.i.i106 ], [ %149, %_ZN4i18n12phonenumbers12_GLOBAL__N_111HasLanguageEPKNS0_16CountryLanguagesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit102.thread ]
   %153 = lshr i64 %.01116.i.i.i108, 1
-  %154 = getelementptr inbounds ptr, ptr %.017.i.i.i107, i64 %153
+  %154 = getelementptr inbounds nuw ptr, ptr %.017.i.i.i107, i64 %153
   %155 = load ptr, ptr %154, align 8
   %156 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %155, ptr noundef nonnull readonly dereferenceable(1) %151) #9
   %157 = icmp slt i32 %156, 0
-  %158 = getelementptr inbounds i8, ptr %154, i64 8
+  %158 = getelementptr inbounds nuw i8, ptr %154, i64 8
   %159 = xor i64 %153, -1
   %160 = add nsw i64 %.01116.i.i.i108, %159
   %.112.i.i.i111 = select i1 %157, i64 %160, i64 %153

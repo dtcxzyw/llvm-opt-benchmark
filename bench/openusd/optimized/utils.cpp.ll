@@ -195,7 +195,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_ComputeBoneCountERKNS_15Us
 
 42:                                               ; preds = %.preheader, %42
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %42 ]
-  %43 = getelementptr inbounds [12 x i32], ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_boneVertsE, i64 0, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [12 x i32], ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_boneVertsE, i64 0, i64 %indvars.iv
   %44 = load i32, ptr %43, align 4
   %45 = add i32 %44, %40
   %46 = getelementptr i32, ptr %41, i64 %indvars.iv
@@ -466,7 +466,7 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIiSaI
   store ptr %30, ptr %13, align 8
   %31 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %30, ptr %31, align 8
-  %32 = getelementptr inbounds i32, ptr %30, i64 %26
+  %32 = getelementptr inbounds nuw i32, ptr %30, i64 %26
   %33 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %32, ptr %33, align 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %30, i8 -1, i64 %29, i1 false)
@@ -608,14 +608,14 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15UsdSkelTopology12GetNumJointsEv.exit34: 
 
 .noexc.i.i.i:                                     ; preds = %.noexc37
   %81 = ptrtoint ptr %15 to i64
-  %82 = getelementptr inbounds i8, ptr %80, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %80, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %82, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @"_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNIRZNS5_31UsdSkelImagingComputeBonePointsERKNS5_15UsdSkelTopologyEPKNS5_10GfMatrix4dEPNS5_7GfVec3fEmE3$_0EEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEEE", i64 16), ptr %80, align 64
   %83 = getelementptr inbounds nuw i8, ptr %80, i64 64
   store i64 %65, ptr %83, align 64
-  %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %80, i64 72
+  %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %80, i64 72
   store i64 0, ptr %.sroa.3.0..sroa_idx.i.i.i, align 8
-  %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %80, i64 80
+  %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %80, i64 80
   store i64 1, ptr %.sroa.5.0..sroa_idx.i.i.i, align 16
   %84 = getelementptr inbounds nuw i8, ptr %80, i64 88
   store i64 %81, ptr %84, align 8
@@ -894,20 +894,20 @@ define internal fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__31UsdSkelIma
   %23 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", ptr %22, i64 %.017
   %24 = sext i32 %18 to i64
   %25 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", ptr %22, i64 %24
-  %26 = getelementptr inbounds i8, ptr %23, i64 96
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %27 = load double, ptr %26, align 8, !noalias !11
-  %28 = getelementptr inbounds i8, ptr %23, i64 104
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 104
   %29 = load double, ptr %28, align 8, !noalias !11
-  %30 = getelementptr inbounds i8, ptr %23, i64 112
+  %30 = getelementptr inbounds nuw i8, ptr %23, i64 112
   %31 = load double, ptr %30, align 8, !noalias !11
   %32 = fptrunc double %27 to float
   %33 = fptrunc double %29 to float
   %34 = fptrunc double %31 to float
-  %35 = getelementptr inbounds i8, ptr %25, i64 96
+  %35 = getelementptr inbounds nuw i8, ptr %25, i64 96
   %36 = load double, ptr %35, align 8, !noalias !14
-  %37 = getelementptr inbounds i8, ptr %25, i64 104
+  %37 = getelementptr inbounds nuw i8, ptr %25, i64 104
   %38 = load double, ptr %37, align 8, !noalias !14
-  %39 = getelementptr inbounds i8, ptr %25, i64 112
+  %39 = getelementptr inbounds nuw i8, ptr %25, i64 112
   %40 = load double, ptr %39, align 8, !noalias !14
   %41 = fptrunc double %36 to float
   %42 = fptrunc double %38 to float
@@ -941,11 +941,11 @@ define internal fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__31UsdSkelIma
   %.not.i = phi i1 [ false, %14 ], [ true, %66 ]
   %indvars.iv.i.i = phi i64 [ 0, %14 ], [ 1, %66 ]
   %.idx.i.i = shl nuw nsw i64 %indvars.iv.i.i, 5
-  %67 = getelementptr inbounds i8, ptr %25, i64 %.idx.i.i
+  %67 = getelementptr inbounds nuw i8, ptr %25, i64 %.idx.i.i
   %68 = load double, ptr %67, align 8, !noalias !17
-  %69 = getelementptr inbounds i8, ptr %67, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %70 = load double, ptr %69, align 8, !noalias !17
-  %71 = getelementptr inbounds i8, ptr %67, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %72 = load double, ptr %71, align 8, !noalias !17
   %73 = fmul double %70, %64
   %74 = tail call double @llvm.fmuladd.f64(double %68, double %63, double %73)
@@ -956,19 +956,19 @@ define internal fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__31UsdSkelIma
   br i1 %brmerge.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127_ComputePointsForSingleBoneEPNS_7GfVec3fERKNS_10GfMatrix4dES5_.exit, label %66
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127_ComputePointsForSingleBoneEPNS_7GfVec3fERKNS_10GfMatrix4dES5_.exit: ; preds = %66
-  %78 = getelementptr inbounds i8, ptr %20, i64 %.idx
+  %78 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx
   %indvars.iv.i.mux.le.i = select i1 %77, i64 %indvars.iv.i.i, i64 2
   %.sroa.0249.0.vec.insert.i = insertelement <2 x float> poison, float %32, i64 0
   %.sroa.0249.4.vec.insert.i = insertelement <2 x float> %.sroa.0249.0.vec.insert.i, float %33, i64 1
-  %79 = getelementptr inbounds [3 x i32], ptr @_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127_ComputePointsForSingleBoneEPNS_7GfVec3fERKNS_10GfMatrix4dES5_E5iAxis, i64 0, i64 %indvars.iv.i.mux.le.i
+  %79 = getelementptr inbounds nuw [3 x i32], ptr @_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127_ComputePointsForSingleBoneEPNS_7GfVec3fERKNS_10GfMatrix4dES5_E5iAxis, i64 0, i64 %indvars.iv.i.mux.le.i
   %80 = load i32, ptr %79, align 4
   %81 = shl nsw i32 %80, 2
   %82 = sext i32 %81 to i64
   %83 = getelementptr inbounds double, ptr %25, i64 %82
   %84 = load double, ptr %83, align 8, !noalias !20
-  %85 = getelementptr inbounds i8, ptr %83, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %86 = load double, ptr %85, align 8, !noalias !20
-  %87 = getelementptr inbounds i8, ptr %83, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %83, i64 16
   %88 = load double, ptr %87, align 8, !noalias !20
   %89 = fptrunc double %84 to float
   %90 = fptrunc double %86 to float
@@ -990,15 +990,15 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127_ComputePointsForSingleBone
   %105 = fpext float %91 to double
   %106 = fmul double %98, %105
   %107 = fptrunc double %106 to float
-  %108 = getelementptr inbounds [3 x i32], ptr @_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127_ComputePointsForSingleBoneEPNS_7GfVec3fERKNS_10GfMatrix4dES5_E5jAxis, i64 0, i64 %indvars.iv.i.mux.le.i
+  %108 = getelementptr inbounds nuw [3 x i32], ptr @_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127_ComputePointsForSingleBoneEPNS_7GfVec3fERKNS_10GfMatrix4dES5_E5jAxis, i64 0, i64 %indvars.iv.i.mux.le.i
   %109 = load i32, ptr %108, align 4
   %110 = shl nsw i32 %109, 2
   %111 = sext i32 %110 to i64
   %112 = getelementptr inbounds double, ptr %25, i64 %111
   %113 = load double, ptr %112, align 8, !noalias !23
-  %114 = getelementptr inbounds i8, ptr %112, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %115 = load double, ptr %114, align 8, !noalias !23
-  %116 = getelementptr inbounds i8, ptr %112, i64 16
+  %116 = getelementptr inbounds nuw i8, ptr %112, i64 16
   %117 = load double, ptr %116, align 8, !noalias !23
   %118 = fptrunc double %113 to float
   %119 = fptrunc double %115 to float
@@ -1030,7 +1030,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127_ComputePointsForSingleBone
   %144 = fmul float %139, %133
   %145 = fmul float %139, %136
   store <2 x float> %.sroa.0249.4.vec.insert.i, ptr %78, align 4
-  %.sroa.4251.0..sroa_idx.i = getelementptr inbounds i8, ptr %78, i64 8
+  %.sroa.4251.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %78, i64 8
   store float %34, ptr %.sroa.4251.0..sroa_idx.i, align 4
   %146 = fadd float %140, %41
   %147 = fadd float %141, %42
@@ -1040,18 +1040,18 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127_ComputePointsForSingleBone
   %150 = fadd float %147, %144
   %.sroa.0.4.vec.insert.i108.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i106.i, float %150, i64 1
   %151 = fadd float %148, %145
-  %152 = getelementptr inbounds i8, ptr %78, i64 12
+  %152 = getelementptr inbounds nuw i8, ptr %78, i64 12
   store <2 x float> %.sroa.0.4.vec.insert.i108.i, ptr %152, align 4
-  %.sroa.236.0..sroa_idx.i = getelementptr inbounds i8, ptr %78, i64 20
+  %.sroa.236.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %78, i64 20
   store float %151, ptr %.sroa.236.0..sroa_idx.i, align 4
   %153 = fsub float %146, %143
   %.sroa.0.0.vec.insert.i124.i = insertelement <2 x float> poison, float %153, i64 0
   %154 = fsub float %147, %144
   %.sroa.0.4.vec.insert.i126.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i124.i, float %154, i64 1
   %155 = fsub float %148, %145
-  %156 = getelementptr inbounds i8, ptr %78, i64 24
+  %156 = getelementptr inbounds nuw i8, ptr %78, i64 24
   store <2 x float> %.sroa.0.4.vec.insert.i126.i, ptr %156, align 4
-  %.sroa.226.0..sroa_idx.i = getelementptr inbounds i8, ptr %78, i64 32
+  %.sroa.226.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %78, i64 32
   store float %155, ptr %.sroa.226.0..sroa_idx.i, align 4
   %157 = fsub float %41, %140
   %158 = fsub float %42, %141
@@ -1061,18 +1061,18 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127_ComputePointsForSingleBone
   %161 = fsub float %158, %144
   %.sroa.0.4.vec.insert.i144.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i142.i, float %161, i64 1
   %162 = fsub float %159, %145
-  %163 = getelementptr inbounds i8, ptr %78, i64 36
+  %163 = getelementptr inbounds nuw i8, ptr %78, i64 36
   store <2 x float> %.sroa.0.4.vec.insert.i144.i, ptr %163, align 4
-  %.sroa.216.0..sroa_idx.i = getelementptr inbounds i8, ptr %78, i64 44
+  %.sroa.216.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %78, i64 44
   store float %162, ptr %.sroa.216.0..sroa_idx.i, align 4
   %164 = fadd float %157, %143
   %.sroa.0.0.vec.insert.i160.i = insertelement <2 x float> poison, float %164, i64 0
   %165 = fadd float %158, %144
   %.sroa.0.4.vec.insert.i162.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i160.i, float %165, i64 1
   %166 = fadd float %159, %145
-  %167 = getelementptr inbounds i8, ptr %78, i64 48
+  %167 = getelementptr inbounds nuw i8, ptr %78, i64 48
   store <2 x float> %.sroa.0.4.vec.insert.i162.i, ptr %167, align 4
-  %.sroa.26.0..sroa_idx.i = getelementptr inbounds i8, ptr %78, i64 56
+  %.sroa.26.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %78, i64 56
   store float %166, ptr %.sroa.26.0..sroa_idx.i, align 4
   br label %168
 
@@ -1230,7 +1230,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %51 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 128, ptr noundef nonnull align 8 dereferenceable(12) %1)
-  %52 = getelementptr inbounds i8, ptr %51, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %52, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @"_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNIRZNS5_31UsdSkelImagingComputeBonePointsERKNS5_15UsdSkelTopologyEPKNS5_10GfMatrix4dEPNS5_7GfVec3fEmE3$_0EEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEEE", i64 16), ptr %51, align 64
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 64
@@ -1324,7 +1324,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i.backedge: ; pred
   br i1 %.not.i12.i, label %99, label %101
 
 99:                                               ; preds = %96, %.critedge.i
-  %100 = getelementptr inbounds i8, ptr %0, i64 88
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %.val.i.i = load ptr, ptr %100, align 8
   call fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__31UsdSkelImagingComputeBonePointsERKNS_15UsdSkelTopologyEPKNS_10GfMatrix4dEPNS_7GfVec3fEmENK3$_0clEmm"(ptr noundef nonnull readonly align 8 dereferenceable(48) %.val.i.i, i64 noundef %92, i64 noundef %93)
   br label %"_ZN3tbb6detail2d119partition_type_baseINS1_19auto_partition_typeEE7executeINS1_9start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNIRZNS9_31UsdSkelImagingComputeBonePointsERKNS9_15UsdSkelTopologyEPKNS9_10GfMatrix4dEPNS9_7GfVec3fEmE3$_0EEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEEES8_EEvRSL_RT0_RNS1_14execution_dataE.exit"
@@ -1340,7 +1340,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i.backedge: ; pred
   %105 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %105, ptr noundef nonnull readonly align 64 dereferenceable(24) %31, i64 24, i1 false)
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %107 = getelementptr inbounds i8, ptr %0, i64 88
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 88
   br label %108
 
 thread-pre-split.i.i:                             ; preds = %_ZN3tbb6detail2d118task_group_context28is_group_execution_cancelledEv.exit.i.i
@@ -1358,7 +1358,7 @@ thread-pre-split.i.i:                             ; preds = %_ZN3tbb6detail2d118
 
 .lr.ph.i.i.i:                                     ; preds = %108
   %.phi.trans.insert.i.i.i = zext i8 %.promoted4.i.i.i to i64
-  %.phi.trans.insert6.i.i.i = getelementptr inbounds [8 x i8], ptr %104, i64 0, i64 %.phi.trans.insert.i.i.i
+  %.phi.trans.insert6.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %104, i64 0, i64 %.phi.trans.insert.i.i.i
   %.pre.i.i.i = load i8, ptr %.phi.trans.insert6.i.i.i, align 1
   %113 = icmp ult i8 %.pre.i.i.i, %111
   br i1 %113, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i.i.i, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.exit.loopexit.i.i
@@ -1367,7 +1367,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exi
   %114 = phi i8 [ %142, %125 ], [ %.promoted.i.pr51.i.i, %.lr.ph.i.i.i ]
   %115 = phi i8 [ %128, %125 ], [ %.promoted4.i.i.i, %.lr.ph.i.i.i ]
   %116 = zext i8 %115 to i64
-  %117 = getelementptr inbounds %"class.tbb::detail::d1::blocked_range", ptr %105, i64 %116
+  %117 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %105, i64 %116
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 16
   %119 = load i64, ptr %118, align 8
   %120 = load i64, ptr %117, align 8
@@ -1378,11 +1378,11 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exi
   br i1 %124, label %125, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.exit.loopexit.i.i
 
 125:                                              ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i.i.i
-  %126 = getelementptr inbounds [8 x i8], ptr %104, i64 0, i64 %116
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 0, i64 %116
   %127 = add i8 %115, 1
   %128 = and i8 %127, 7
   %129 = zext nneg i8 %128 to i64
-  %130 = getelementptr inbounds %"class.tbb::detail::d1::blocked_range", ptr %105, i64 %129
+  %130 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %105, i64 %129
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %130, ptr noundef nonnull align 8 dereferenceable(24) %117, i64 24, i1 false)
   %131 = load i64, ptr %130, align 8
   store i64 %131, ptr %117, align 8
@@ -1399,7 +1399,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exi
   %139 = load i8, ptr %126, align 1
   %140 = add i8 %139, 1
   store i8 %140, ptr %126, align 1
-  %141 = getelementptr inbounds [8 x i8], ptr %104, i64 0, i64 %129
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 0, i64 %129
   store i8 %140, ptr %141, align 1
   %142 = add nuw nsw i8 %114, 1
   %exitcond.not.i.i.i = icmp ne i8 %142, 8
@@ -1436,13 +1436,13 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
 
 .noexc.i.i:                                       ; preds = %151
   %154 = zext i8 %109 to i64
-  %155 = getelementptr inbounds [8 x i8], ptr %104, i64 0, i64 %154
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 0, i64 %154
   %156 = load i8, ptr %155, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %157 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 128, ptr noundef nonnull align 8 dereferenceable(12) %1)
-  %158 = getelementptr inbounds %"class.tbb::detail::d1::blocked_range", ptr %105, i64 %154
-  %159 = getelementptr inbounds i8, ptr %157, i64 8
+  %158 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %105, i64 %154
+  %159 = getelementptr inbounds nuw i8, ptr %157, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %159, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @"_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNIRZNS5_31UsdSkelImagingComputeBonePointsERKNS5_15UsdSkelTopologyEPKNS5_10GfMatrix4dEPNS5_7GfVec3fEmE3$_0EEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEEE", i64 16), ptr %157, align 64
   %160 = getelementptr inbounds nuw i8, ptr %157, i64 64
@@ -1489,13 +1489,13 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
 
 182:                                              ; preds = %151
   %183 = zext i8 %146 to i64
-  %184 = getelementptr inbounds [8 x i8], ptr %104, i64 0, i64 %183
+  %184 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 0, i64 %183
   %185 = load i8, ptr %184, align 1
   %186 = icmp ult i8 %185, %152
   br i1 %186, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i.i, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.thread.i.i
 
 _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i.i: ; preds = %182
-  %187 = getelementptr inbounds %"class.tbb::detail::d1::blocked_range", ptr %105, i64 %183
+  %187 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %105, i64 %183
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 16
   %189 = load i64, ptr %188, align 8
   %190 = load i64, ptr %187, align 8
@@ -1507,7 +1507,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exi
 
 _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.thread.i.i: ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i.i, %182, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.exit._ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.thread_crit_edge.i.i
   %.pre-phi.i.i = phi i64 [ %.pre53.i.i, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.exit._ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.thread_crit_edge.i.i ], [ %183, %182 ], [ %183, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i.i ]
-  %195 = getelementptr inbounds %"class.tbb::detail::d1::blocked_range", ptr %105, i64 %.pre-phi.i.i
+  %195 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %105, i64 %.pre-phi.i.i
   %.val13.i.i = load ptr, ptr %107, align 8
   %.val14.i.i = load i64, ptr %195, align 8
   %196 = getelementptr i8, ptr %195, i64 8

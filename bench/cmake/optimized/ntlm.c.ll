@@ -35,7 +35,7 @@ define dso_local range(i32 0, 62) i32 @Curl_auth_decode_ntlm_type2_message(ptr n
   br i1 %.not, label %8, label %10
 
 8:                                                ; preds = %7
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %bcmp27 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %9, ptr noundef nonnull dereferenceable(4) @Curl_auth_decode_ntlm_type2_message.type2_marker, i64 4)
   %.not28 = icmp eq i32 %bcmp27, 0
   br i1 %.not28, label %16, label %10
@@ -45,7 +45,7 @@ define dso_local range(i32 0, 62) i32 @Curl_auth_decode_ntlm_type2_message(ptr n
   br i1 %.not33, label %.thread41, label %11
 
 11:                                               ; preds = %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 2642
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 2642
   %13 = load i64, ptr %12, align 2
   %14 = and i64 %13, 268435456
   %.not34 = icmp eq i64 %14, 0
@@ -56,11 +56,11 @@ define dso_local range(i32 0, 62) i32 @Curl_auth_decode_ntlm_type2_message(ptr n
   br label %.thread41
 
 16:                                               ; preds = %8
-  %17 = getelementptr inbounds i8, ptr %4, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %18 = tail call i32 @Curl_read32_le(ptr noundef nonnull %17) #7
   store i32 %18, ptr %2, align 8
-  %19 = getelementptr inbounds i8, ptr %2, i64 4
-  %20 = getelementptr inbounds i8, ptr %4, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %21 = load i64, ptr %20, align 1
   store i64 %21, ptr %19, align 4
   %22 = and i32 %18, 8388608
@@ -74,9 +74,9 @@ define dso_local range(i32 0, 62) i32 @Curl_auth_decode_ntlm_type2_message(ptr n
   br i1 %26, label %27, label %ntlm_decode_type2_target.exit
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %24, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %29 = tail call zeroext i16 @Curl_read16_le(ptr noundef nonnull %28) #7
-  %30 = getelementptr inbounds i8, ptr %24, i64 44
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 44
   %31 = tail call i32 @Curl_read32_le(ptr noundef nonnull %30) #7
   %32 = zext i16 %29 to i32
   %.not.i = icmp eq i16 %29, 0
@@ -100,7 +100,7 @@ define dso_local range(i32 0, 62) i32 @Curl_auth_decode_ntlm_type2_message(ptr n
   br i1 %.not30.i, label %.thread41, label %42
 
 42:                                               ; preds = %41
-  %43 = getelementptr inbounds i8, ptr %0, i64 2642
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 2642
   %44 = load i64, ptr %43, align 2
   %45 = and i64 %44, 268435456
   %.not31.i = icmp eq i64 %45, 0
@@ -112,10 +112,10 @@ define dso_local range(i32 0, 62) i32 @Curl_auth_decode_ntlm_type2_message(ptr n
 
 47:                                               ; preds = %36
   %48 = load ptr, ptr @Curl_cfree, align 8
-  %49 = getelementptr inbounds i8, ptr %2, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %50 = load ptr, ptr %49, align 8
   tail call void %48(ptr noundef %50) #7
-  %51 = getelementptr inbounds i8, ptr %24, i64 %34
+  %51 = getelementptr inbounds nuw i8, ptr %24, i64 %34
   %52 = zext i16 %29 to i64
   %53 = tail call ptr @Curl_memdup(ptr noundef %51, i64 noundef %52) #7
   store ptr %53, ptr %49, align 8
@@ -125,7 +125,7 @@ define dso_local range(i32 0, 62) i32 @Curl_auth_decode_ntlm_type2_message(ptr n
 ntlm_decode_type2_target.exit:                    ; preds = %23, %27, %47
   %.024.i = phi i16 [ %29, %47 ], [ 0, %27 ], [ 0, %23 ]
   %54 = zext i16 %.024.i to i32
-  %55 = getelementptr inbounds i8, ptr %2, i64 12
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %54, ptr %55, align 4
   br label %.thread41
 
@@ -135,7 +135,7 @@ ntlm_decode_type2_target.exit:                    ; preds = %23, %27, %47
 
 .thread:                                          ; preds = %46, %42, %56
   %.0.i.ph40 = phi i32 [ 27, %56 ], [ 61, %42 ], [ 61, %46 ]
-  %57 = getelementptr inbounds i8, ptr %0, i64 2642
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 2642
   %58 = load i64, ptr %57, align 2
   %59 = and i64 %58, 268435456
   %.not32 = icmp eq i64 %59, 0
@@ -164,11 +164,11 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 28) i32 @Curl_auth_create_ntlm_type1_message(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readnone %4, ptr nocapture noundef initializes((12, 16)) %5, ptr noundef %6) local_unnamed_addr #1 {
   %8 = load ptr, ptr @Curl_cfree, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %10 = load ptr, ptr %9, align 8
   tail call void %8(ptr noundef %10) #7
   store ptr null, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 0, ptr %11, align 4
   %12 = tail call ptr (ptr, ...) @curl_maprintf(ptr noundef nonnull @.str.3, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 6, i32 noundef 130, i32 noundef 8, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.2) #7
   %.not = icmp eq ptr %12, null
@@ -186,11 +186,11 @@ define dso_local range(i32 0, 28) i32 @Curl_auth_create_ntlm_type1_message(ptr n
 ; Function Attrs: nounwind uwtable
 define dso_local void @Curl_auth_cleanup_ntlm(ptr nocapture noundef initializes((12, 16)) %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr @Curl_cfree, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call void %2(ptr noundef %4) #7
   store ptr null, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %5, align 4
   ret void
 }
@@ -236,7 +236,7 @@ define dso_local i32 @Curl_auth_create_ntlm_type3_message(ptr noundef %0, ptr no
   %23 = ptrtoint ptr %.0120 to i64
   %24 = ptrtoint ptr %1 to i64
   %25 = sub i64 %23, %24
-  %26 = getelementptr inbounds i8, ptr %.0120, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %.0120, i64 1
   %.1121 = select i1 %.not136, ptr %1, ptr %26
   %.0119 = select i1 %.not136, ptr @.str.2, ptr %1
   %.0 = select i1 %.not136, i64 0, i64 %25
@@ -263,7 +263,7 @@ define dso_local i32 @Curl_auth_create_ntlm_type3_message(ptr noundef %0, ptr no
   br i1 %.not142, label %37, label %153
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds i8, ptr %3, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %39 = call i32 @Curl_ntlm_core_mk_lmv2_resp(ptr noundef nonnull %14, ptr noundef nonnull %13, ptr noundef nonnull %38, ptr noundef nonnull %7) #7
   %.not143 = icmp eq i32 %39, 0
   br i1 %.not143, label %40, label %153
@@ -285,7 +285,7 @@ define dso_local i32 @Curl_auth_create_ntlm_type3_message(ptr noundef %0, ptr no
   br i1 %.not138, label %46, label %153
 
 46:                                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %3, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 4
   call void @Curl_ntlm_core_lm_resp(ptr noundef nonnull %15, ptr noundef nonnull %47, ptr noundef nonnull %9) #7
   %48 = call i32 @Curl_ntlm_core_mk_lm_hash(ptr noundef %2, ptr noundef nonnull %16) #7
   %.not139 = icmp eq i32 %48, 0
@@ -345,7 +345,7 @@ define dso_local i32 @Curl_auth_create_ntlm_type3_message(ptr noundef %0, ptr no
   br i1 %91, label %92, label %95
 
 92:                                               ; preds = %52
-  %93 = getelementptr inbounds [1024 x i8], ptr %6, i64 0, i64 %90
+  %93 = getelementptr inbounds nuw [1024 x i8], ptr %6, i64 0, i64 %90
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %93, ptr noundef nonnull align 16 dereferenceable(24) %7, i64 24, i1 false)
   %94 = add nuw nsw i64 %90, 24
   br label %95
@@ -379,7 +379,7 @@ define dso_local i32 @Curl_auth_create_ntlm_type3_message(ptr noundef %0, ptr no
   br label %153
 
 110:                                              ; preds = %101
-  %111 = getelementptr inbounds [1024 x i8], ptr %6, i64 0, i64 %98
+  %111 = getelementptr inbounds nuw [1024 x i8], ptr %6, i64 0, i64 %98
   br i1 %.not, label %unicodecpy.exit.thread, label %112
 
 112:                                              ; preds = %110
@@ -389,7 +389,7 @@ define dso_local i32 @Curl_auth_create_ntlm_type3_message(ptr noundef %0, ptr no
 
 .lr.ph.i:                                         ; preds = %112, %.lr.ph.i
   %.08.i = phi i64 [ %120, %.lr.ph.i ], [ 0, %112 ]
-  %114 = getelementptr inbounds i8, ptr %.0119, i64 %.08.i
+  %114 = getelementptr inbounds nuw i8, ptr %.0119, i64 %.08.i
   %115 = load i8, ptr %114, align 1
   %116 = shl nuw i64 %.08.i, 1
   %117 = getelementptr inbounds i8, ptr %111, i64 %116
@@ -424,7 +424,7 @@ unicodecpy.exit.thread155:                        ; preds = %112, %unicodecpy.ex
 
 .lr.ph.i146:                                      ; preds = %unicodecpy.exit.thread155, %.lr.ph.i146
   %.08.i147 = phi i64 [ %135, %.lr.ph.i146 ], [ 0, %unicodecpy.exit.thread155 ]
-  %129 = getelementptr inbounds i8, ptr %.1121, i64 %.08.i147
+  %129 = getelementptr inbounds nuw i8, ptr %.1121, i64 %.08.i147
   %130 = load i8, ptr %129, align 1
   %131 = shl nuw i64 %.08.i147, 1
   %132 = getelementptr inbounds i8, ptr %127, i64 %131
@@ -447,7 +447,7 @@ unicodecpy.exit149.thread156:                     ; preds = %unicodecpy.exit.thr
 
 .lr.ph.i151:                                      ; preds = %unicodecpy.exit149.thread156, %.lr.ph.i151
   %.08.i152 = phi i64 [ %145, %.lr.ph.i151 ], [ 0, %unicodecpy.exit149.thread156 ]
-  %139 = getelementptr inbounds i8, ptr %11, i64 %.08.i152
+  %139 = getelementptr inbounds nuw i8, ptr %11, i64 %.08.i152
   %140 = load i8, ptr %139, align 1
   %141 = shl nuw i64 %.08.i152, 1
   %142 = getelementptr inbounds i8, ptr %138, i64 %141
@@ -464,11 +464,11 @@ unicodecpy.exit154:                               ; preds = %.lr.ph.i151, %unico
   %147 = add i64 %146, %.0118
   %148 = call i32 @Curl_bufref_memdup(ptr noundef %4, ptr noundef nonnull %6, i64 noundef %147) #7
   %149 = load ptr, ptr @Curl_cfree, align 8
-  %150 = getelementptr inbounds i8, ptr %3, i64 16
+  %150 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %151 = load ptr, ptr %150, align 8
   call void %149(ptr noundef %151) #7
   store ptr null, ptr %150, align 8
-  %152 = getelementptr inbounds i8, ptr %3, i64 12
+  %152 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %152, align 4
   br label %153
 

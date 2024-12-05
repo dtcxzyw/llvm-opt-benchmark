@@ -994,7 +994,7 @@ if.then11:                                        ; preds = %if.end9
 if.else16:                                        ; preds = %if.end9
   %1 = getelementptr i8, ptr %item, i64 8
   %item.val = load ptr, ptr %1, align 8
-  %tp_name = getelementptr inbounds i8, ptr %item.val, i64 24
+  %tp_name = getelementptr inbounds nuw i8, ptr %item.val, i64 24
   %2 = load ptr, ptr %tp_name, align 8
   %call18 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef nonnull %err, ptr noundef nonnull @.str, ptr noundef %2) #5
   br label %finish
@@ -1040,7 +1040,7 @@ define internal i32 @iomodule_traverse(ptr nocapture noundef readonly %mod, ptr 
 entry:
   %0 = getelementptr i8, ptr %mod, i64 32
   %mod.val = load ptr, ptr %0, align 8
-  %unsupported_operation = getelementptr inbounds i8, ptr %mod.val, i64 8
+  %unsupported_operation = getelementptr inbounds nuw i8, ptr %mod.val, i64 8
   %1 = load ptr, ptr %unsupported_operation, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %do.body6, label %if.then
@@ -1051,7 +1051,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool3.not, label %do.body6, label %return
 
 do.body6:                                         ; preds = %if.then, %entry
-  %PyIOBase_Type = getelementptr inbounds i8, ptr %mod.val, i64 16
+  %PyIOBase_Type = getelementptr inbounds nuw i8, ptr %mod.val, i64 16
   %2 = load ptr, ptr %PyIOBase_Type, align 8
   %tobool7.not = icmp eq ptr %2, null
   br i1 %tobool7.not, label %do.body17, label %if.then8
@@ -1062,7 +1062,7 @@ if.then8:                                         ; preds = %do.body6
   br i1 %tobool12.not, label %do.body17, label %return
 
 do.body17:                                        ; preds = %if.then8, %do.body6
-  %PyIncrementalNewlineDecoder_Type = getelementptr inbounds i8, ptr %mod.val, i64 24
+  %PyIncrementalNewlineDecoder_Type = getelementptr inbounds nuw i8, ptr %mod.val, i64 24
   %3 = load ptr, ptr %PyIncrementalNewlineDecoder_Type, align 8
   %tobool18.not = icmp eq ptr %3, null
   br i1 %tobool18.not, label %do.body28, label %if.then19
@@ -1073,7 +1073,7 @@ if.then19:                                        ; preds = %do.body17
   br i1 %tobool23.not, label %do.body28, label %return
 
 do.body28:                                        ; preds = %if.then19, %do.body17
-  %PyRawIOBase_Type = getelementptr inbounds i8, ptr %mod.val, i64 32
+  %PyRawIOBase_Type = getelementptr inbounds nuw i8, ptr %mod.val, i64 32
   %4 = load ptr, ptr %PyRawIOBase_Type, align 8
   %tobool29.not = icmp eq ptr %4, null
   br i1 %tobool29.not, label %do.body39, label %if.then30
@@ -1084,7 +1084,7 @@ if.then30:                                        ; preds = %do.body28
   br i1 %tobool34.not, label %do.body39, label %return
 
 do.body39:                                        ; preds = %if.then30, %do.body28
-  %PyBufferedIOBase_Type = getelementptr inbounds i8, ptr %mod.val, i64 40
+  %PyBufferedIOBase_Type = getelementptr inbounds nuw i8, ptr %mod.val, i64 40
   %5 = load ptr, ptr %PyBufferedIOBase_Type, align 8
   %tobool40.not = icmp eq ptr %5, null
   br i1 %tobool40.not, label %do.body50, label %if.then41
@@ -1095,7 +1095,7 @@ if.then41:                                        ; preds = %do.body39
   br i1 %tobool45.not, label %do.body50, label %return
 
 do.body50:                                        ; preds = %if.then41, %do.body39
-  %PyBufferedRWPair_Type = getelementptr inbounds i8, ptr %mod.val, i64 48
+  %PyBufferedRWPair_Type = getelementptr inbounds nuw i8, ptr %mod.val, i64 48
   %6 = load ptr, ptr %PyBufferedRWPair_Type, align 8
   %tobool51.not = icmp eq ptr %6, null
   br i1 %tobool51.not, label %do.body61, label %if.then52
@@ -1106,7 +1106,7 @@ if.then52:                                        ; preds = %do.body50
   br i1 %tobool56.not, label %do.body61, label %return
 
 do.body61:                                        ; preds = %if.then52, %do.body50
-  %PyBufferedRandom_Type = getelementptr inbounds i8, ptr %mod.val, i64 56
+  %PyBufferedRandom_Type = getelementptr inbounds nuw i8, ptr %mod.val, i64 56
   %7 = load ptr, ptr %PyBufferedRandom_Type, align 8
   %tobool62.not = icmp eq ptr %7, null
   br i1 %tobool62.not, label %do.body72, label %if.then63
@@ -1117,7 +1117,7 @@ if.then63:                                        ; preds = %do.body61
   br i1 %tobool67.not, label %do.body72, label %return
 
 do.body72:                                        ; preds = %if.then63, %do.body61
-  %PyBufferedReader_Type = getelementptr inbounds i8, ptr %mod.val, i64 64
+  %PyBufferedReader_Type = getelementptr inbounds nuw i8, ptr %mod.val, i64 64
   %8 = load ptr, ptr %PyBufferedReader_Type, align 8
   %tobool73.not = icmp eq ptr %8, null
   br i1 %tobool73.not, label %do.body83, label %if.then74
@@ -1128,7 +1128,7 @@ if.then74:                                        ; preds = %do.body72
   br i1 %tobool78.not, label %do.body83, label %return
 
 do.body83:                                        ; preds = %if.then74, %do.body72
-  %PyBufferedWriter_Type = getelementptr inbounds i8, ptr %mod.val, i64 72
+  %PyBufferedWriter_Type = getelementptr inbounds nuw i8, ptr %mod.val, i64 72
   %9 = load ptr, ptr %PyBufferedWriter_Type, align 8
   %tobool84.not = icmp eq ptr %9, null
   br i1 %tobool84.not, label %do.body94, label %if.then85
@@ -1139,7 +1139,7 @@ if.then85:                                        ; preds = %do.body83
   br i1 %tobool89.not, label %do.body94, label %return
 
 do.body94:                                        ; preds = %if.then85, %do.body83
-  %PyBytesIOBuffer_Type = getelementptr inbounds i8, ptr %mod.val, i64 80
+  %PyBytesIOBuffer_Type = getelementptr inbounds nuw i8, ptr %mod.val, i64 80
   %10 = load ptr, ptr %PyBytesIOBuffer_Type, align 8
   %tobool95.not = icmp eq ptr %10, null
   br i1 %tobool95.not, label %do.body105, label %if.then96
@@ -1150,7 +1150,7 @@ if.then96:                                        ; preds = %do.body94
   br i1 %tobool100.not, label %do.body105, label %return
 
 do.body105:                                       ; preds = %if.then96, %do.body94
-  %PyBytesIO_Type = getelementptr inbounds i8, ptr %mod.val, i64 88
+  %PyBytesIO_Type = getelementptr inbounds nuw i8, ptr %mod.val, i64 88
   %11 = load ptr, ptr %PyBytesIO_Type, align 8
   %tobool106.not = icmp eq ptr %11, null
   br i1 %tobool106.not, label %do.body116, label %if.then107
@@ -1161,7 +1161,7 @@ if.then107:                                       ; preds = %do.body105
   br i1 %tobool111.not, label %do.body116, label %return
 
 do.body116:                                       ; preds = %if.then107, %do.body105
-  %PyFileIO_Type = getelementptr inbounds i8, ptr %mod.val, i64 96
+  %PyFileIO_Type = getelementptr inbounds nuw i8, ptr %mod.val, i64 96
   %12 = load ptr, ptr %PyFileIO_Type, align 8
   %tobool117.not = icmp eq ptr %12, null
   br i1 %tobool117.not, label %do.body127, label %if.then118
@@ -1172,7 +1172,7 @@ if.then118:                                       ; preds = %do.body116
   br i1 %tobool122.not, label %do.body127, label %return
 
 do.body127:                                       ; preds = %if.then118, %do.body116
-  %PyStringIO_Type = getelementptr inbounds i8, ptr %mod.val, i64 104
+  %PyStringIO_Type = getelementptr inbounds nuw i8, ptr %mod.val, i64 104
   %13 = load ptr, ptr %PyStringIO_Type, align 8
   %tobool128.not = icmp eq ptr %13, null
   br i1 %tobool128.not, label %do.body138, label %if.then129
@@ -1183,7 +1183,7 @@ if.then129:                                       ; preds = %do.body127
   br i1 %tobool133.not, label %do.body138, label %return
 
 do.body138:                                       ; preds = %if.then129, %do.body127
-  %PyTextIOBase_Type = getelementptr inbounds i8, ptr %mod.val, i64 112
+  %PyTextIOBase_Type = getelementptr inbounds nuw i8, ptr %mod.val, i64 112
   %14 = load ptr, ptr %PyTextIOBase_Type, align 8
   %tobool139.not = icmp eq ptr %14, null
   br i1 %tobool139.not, label %do.body149, label %if.then140
@@ -1194,7 +1194,7 @@ if.then140:                                       ; preds = %do.body138
   br i1 %tobool144.not, label %do.body149, label %return
 
 do.body149:                                       ; preds = %if.then140, %do.body138
-  %PyTextIOWrapper_Type = getelementptr inbounds i8, ptr %mod.val, i64 120
+  %PyTextIOWrapper_Type = getelementptr inbounds nuw i8, ptr %mod.val, i64 120
   %15 = load ptr, ptr %PyTextIOWrapper_Type, align 8
   %tobool150.not = icmp eq ptr %15, null
   br i1 %tobool150.not, label %do.end159, label %if.then151
@@ -1217,7 +1217,7 @@ define internal noundef i32 @iomodule_clear(ptr nocapture noundef readonly %mod)
 entry:
   %0 = getelementptr i8, ptr %mod, i64 32
   %mod.val = load ptr, ptr %0, align 8
-  %unsupported_operation = getelementptr inbounds i8, ptr %mod.val, i64 8
+  %unsupported_operation = getelementptr inbounds nuw i8, ptr %mod.val, i64 8
   %1 = load ptr, ptr %unsupported_operation, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %do.body1, label %if.then
@@ -1240,7 +1240,7 @@ if.then1.i222:                                    ; preds = %if.end.i219
   br label %do.body1
 
 do.body1:                                         ; preds = %if.end.i219, %if.then1.i222, %if.then, %entry
-  %PyIOBase_Type = getelementptr inbounds i8, ptr %mod.val, i64 16
+  %PyIOBase_Type = getelementptr inbounds nuw i8, ptr %mod.val, i64 16
   %4 = load ptr, ptr %PyIOBase_Type, align 8
   %cmp4.not = icmp eq ptr %4, null
   br i1 %cmp4.not, label %do.body8, label %if.then5
@@ -1263,7 +1263,7 @@ if.then1.i213:                                    ; preds = %if.end.i210
   br label %do.body8
 
 do.body8:                                         ; preds = %if.end.i210, %if.then1.i213, %if.then5, %do.body1
-  %PyIncrementalNewlineDecoder_Type = getelementptr inbounds i8, ptr %mod.val, i64 24
+  %PyIncrementalNewlineDecoder_Type = getelementptr inbounds nuw i8, ptr %mod.val, i64 24
   %7 = load ptr, ptr %PyIncrementalNewlineDecoder_Type, align 8
   %cmp11.not = icmp eq ptr %7, null
   br i1 %cmp11.not, label %do.body15, label %if.then12
@@ -1286,7 +1286,7 @@ if.then1.i204:                                    ; preds = %if.end.i201
   br label %do.body15
 
 do.body15:                                        ; preds = %if.end.i201, %if.then1.i204, %if.then12, %do.body8
-  %PyRawIOBase_Type = getelementptr inbounds i8, ptr %mod.val, i64 32
+  %PyRawIOBase_Type = getelementptr inbounds nuw i8, ptr %mod.val, i64 32
   %10 = load ptr, ptr %PyRawIOBase_Type, align 8
   %cmp18.not = icmp eq ptr %10, null
   br i1 %cmp18.not, label %do.body22, label %if.then19
@@ -1309,7 +1309,7 @@ if.then1.i195:                                    ; preds = %if.end.i192
   br label %do.body22
 
 do.body22:                                        ; preds = %if.end.i192, %if.then1.i195, %if.then19, %do.body15
-  %PyBufferedIOBase_Type = getelementptr inbounds i8, ptr %mod.val, i64 40
+  %PyBufferedIOBase_Type = getelementptr inbounds nuw i8, ptr %mod.val, i64 40
   %13 = load ptr, ptr %PyBufferedIOBase_Type, align 8
   %cmp25.not = icmp eq ptr %13, null
   br i1 %cmp25.not, label %do.body29, label %if.then26
@@ -1332,7 +1332,7 @@ if.then1.i186:                                    ; preds = %if.end.i183
   br label %do.body29
 
 do.body29:                                        ; preds = %if.end.i183, %if.then1.i186, %if.then26, %do.body22
-  %PyBufferedRWPair_Type = getelementptr inbounds i8, ptr %mod.val, i64 48
+  %PyBufferedRWPair_Type = getelementptr inbounds nuw i8, ptr %mod.val, i64 48
   %16 = load ptr, ptr %PyBufferedRWPair_Type, align 8
   %cmp32.not = icmp eq ptr %16, null
   br i1 %cmp32.not, label %do.body36, label %if.then33
@@ -1355,7 +1355,7 @@ if.then1.i177:                                    ; preds = %if.end.i174
   br label %do.body36
 
 do.body36:                                        ; preds = %if.end.i174, %if.then1.i177, %if.then33, %do.body29
-  %PyBufferedRandom_Type = getelementptr inbounds i8, ptr %mod.val, i64 56
+  %PyBufferedRandom_Type = getelementptr inbounds nuw i8, ptr %mod.val, i64 56
   %19 = load ptr, ptr %PyBufferedRandom_Type, align 8
   %cmp39.not = icmp eq ptr %19, null
   br i1 %cmp39.not, label %do.body43, label %if.then40
@@ -1378,7 +1378,7 @@ if.then1.i168:                                    ; preds = %if.end.i165
   br label %do.body43
 
 do.body43:                                        ; preds = %if.end.i165, %if.then1.i168, %if.then40, %do.body36
-  %PyBufferedReader_Type = getelementptr inbounds i8, ptr %mod.val, i64 64
+  %PyBufferedReader_Type = getelementptr inbounds nuw i8, ptr %mod.val, i64 64
   %22 = load ptr, ptr %PyBufferedReader_Type, align 8
   %cmp46.not = icmp eq ptr %22, null
   br i1 %cmp46.not, label %do.body50, label %if.then47
@@ -1401,7 +1401,7 @@ if.then1.i159:                                    ; preds = %if.end.i156
   br label %do.body50
 
 do.body50:                                        ; preds = %if.end.i156, %if.then1.i159, %if.then47, %do.body43
-  %PyBufferedWriter_Type = getelementptr inbounds i8, ptr %mod.val, i64 72
+  %PyBufferedWriter_Type = getelementptr inbounds nuw i8, ptr %mod.val, i64 72
   %25 = load ptr, ptr %PyBufferedWriter_Type, align 8
   %cmp53.not = icmp eq ptr %25, null
   br i1 %cmp53.not, label %do.body57, label %if.then54
@@ -1424,7 +1424,7 @@ if.then1.i150:                                    ; preds = %if.end.i147
   br label %do.body57
 
 do.body57:                                        ; preds = %if.end.i147, %if.then1.i150, %if.then54, %do.body50
-  %PyBytesIOBuffer_Type = getelementptr inbounds i8, ptr %mod.val, i64 80
+  %PyBytesIOBuffer_Type = getelementptr inbounds nuw i8, ptr %mod.val, i64 80
   %28 = load ptr, ptr %PyBytesIOBuffer_Type, align 8
   %cmp60.not = icmp eq ptr %28, null
   br i1 %cmp60.not, label %do.body64, label %if.then61
@@ -1447,7 +1447,7 @@ if.then1.i141:                                    ; preds = %if.end.i138
   br label %do.body64
 
 do.body64:                                        ; preds = %if.end.i138, %if.then1.i141, %if.then61, %do.body57
-  %PyBytesIO_Type = getelementptr inbounds i8, ptr %mod.val, i64 88
+  %PyBytesIO_Type = getelementptr inbounds nuw i8, ptr %mod.val, i64 88
   %31 = load ptr, ptr %PyBytesIO_Type, align 8
   %cmp67.not = icmp eq ptr %31, null
   br i1 %cmp67.not, label %do.body71, label %if.then68
@@ -1470,7 +1470,7 @@ if.then1.i132:                                    ; preds = %if.end.i129
   br label %do.body71
 
 do.body71:                                        ; preds = %if.end.i129, %if.then1.i132, %if.then68, %do.body64
-  %PyFileIO_Type = getelementptr inbounds i8, ptr %mod.val, i64 96
+  %PyFileIO_Type = getelementptr inbounds nuw i8, ptr %mod.val, i64 96
   %34 = load ptr, ptr %PyFileIO_Type, align 8
   %cmp74.not = icmp eq ptr %34, null
   br i1 %cmp74.not, label %do.body78, label %if.then75
@@ -1493,7 +1493,7 @@ if.then1.i123:                                    ; preds = %if.end.i120
   br label %do.body78
 
 do.body78:                                        ; preds = %if.end.i120, %if.then1.i123, %if.then75, %do.body71
-  %PyStringIO_Type = getelementptr inbounds i8, ptr %mod.val, i64 104
+  %PyStringIO_Type = getelementptr inbounds nuw i8, ptr %mod.val, i64 104
   %37 = load ptr, ptr %PyStringIO_Type, align 8
   %cmp81.not = icmp eq ptr %37, null
   br i1 %cmp81.not, label %do.body85, label %if.then82
@@ -1516,7 +1516,7 @@ if.then1.i114:                                    ; preds = %if.end.i111
   br label %do.body85
 
 do.body85:                                        ; preds = %if.end.i111, %if.then1.i114, %if.then82, %do.body78
-  %PyTextIOBase_Type = getelementptr inbounds i8, ptr %mod.val, i64 112
+  %PyTextIOBase_Type = getelementptr inbounds nuw i8, ptr %mod.val, i64 112
   %40 = load ptr, ptr %PyTextIOBase_Type, align 8
   %cmp88.not = icmp eq ptr %40, null
   br i1 %cmp88.not, label %do.body92, label %if.then89
@@ -1539,7 +1539,7 @@ if.then1.i105:                                    ; preds = %if.end.i102
   br label %do.body92
 
 do.body92:                                        ; preds = %if.end.i102, %if.then1.i105, %if.then89, %do.body85
-  %PyTextIOWrapper_Type = getelementptr inbounds i8, ptr %mod.val, i64 120
+  %PyTextIOWrapper_Type = getelementptr inbounds nuw i8, ptr %mod.val, i64 120
   %43 = load ptr, ptr %PyTextIOWrapper_Type, align 8
   %cmp95.not = icmp eq ptr %43, null
   br i1 %cmp95.not, label %do.end98, label %if.then96
@@ -1977,7 +1977,7 @@ for.end.i:                                        ; preds = %for.cond.i
   br i1 %tobool33.not.i, label %if.end35.i, label %if.then34.i
 
 if.then34.i:                                      ; preds = %for.end.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %rawmode.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %rawmode.i, i64 1
   store i8 120, ptr %rawmode.i, align 1
   br label %if.end35.i
 
@@ -2094,7 +2094,7 @@ if.then85.i:                                      ; preds = %if.end80.i
 if.end91.i:                                       ; preds = %if.then85.i, %if.end80.i
   %49 = getelementptr i8, ptr %module, i64 32
   %module.val.i = load ptr, ptr %49, align 8
-  %PyFileIO_Type.i = getelementptr inbounds i8, ptr %module.val.i, i64 96
+  %PyFileIO_Type.i = getelementptr inbounds nuw i8, ptr %module.val.i, i64 96
   %50 = load ptr, ptr %PyFileIO_Type.i, align 8
   %tobool94.not.i = icmp eq i32 %closefd.0, 0
   %cond.i = select i1 %tobool94.not.i, ptr @_Py_FalseStruct, ptr @_Py_TrueStruct
@@ -2250,7 +2250,7 @@ if.else166.i:                                     ; preds = %if.else156.i
 
 if.end170.i:                                      ; preds = %if.else156.i, %if.end153.i
   %.sink.i = phi i64 [ 56, %if.end153.i ], [ %.mux.i, %if.else156.i ]
-  %PyBufferedWriter_Type.i = getelementptr inbounds i8, ptr %module.val.i, i64 %.sink.i
+  %PyBufferedWriter_Type.i = getelementptr inbounds nuw i8, ptr %module.val.i, i64 %.sink.i
   %Buffered_class.0.i = load ptr, ptr %PyBufferedWriter_Type.i, align 8
   %call171.i = call ptr (ptr, ptr, ...) @PyObject_CallFunction(ptr noundef %Buffered_class.0.i, ptr noundef nonnull @.str.33, ptr noundef nonnull %call95.i, i32 noundef %buffering.addr.1139.i) #5
   %cmp172.i = icmp eq ptr %call171.i, null
@@ -2288,7 +2288,7 @@ if.end.i218.i:                                    ; preds = %if.then177.i
   br i1 %cmp.i220.i, label %return.sink.split.i, label %_io_open_impl.exit
 
 if.end178.i:                                      ; preds = %Py_DECREF.exit232.i
-  %PyTextIOWrapper_Type.i = getelementptr inbounds i8, ptr %module.val.i, i64 120
+  %PyTextIOWrapper_Type.i = getelementptr inbounds nuw i8, ptr %module.val.i, i64 120
   %68 = load ptr, ptr %PyTextIOWrapper_Type.i, align 8
   %cond180.i = select i1 %or.cond5300.i, ptr @_Py_TrueStruct, ptr @_Py_FalseStruct
   %call181.i = call ptr (ptr, ptr, ...) @PyObject_CallFunction(ptr noundef %68, ptr noundef nonnull @.str.34, ptr noundef nonnull %call171.i, ptr noundef %encoding.0, ptr noundef %errors.0, ptr noundef %newline.0, ptr noundef nonnull %cond180.i) #5
@@ -2454,10 +2454,10 @@ skip_optional:                                    ; preds = %if.end4, %land.lhs.
 if.then.i:                                        ; preds = %skip_optional
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %4 = load ptr, ptr %3, align 8
-  %interp.i.i = getelementptr inbounds i8, ptr %4, i64 16
+  %interp.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load ptr, ptr %interp.i.i, align 8
   %call2.i = tail call ptr @_PyInterpreterState_GetConfig(ptr noundef %5) #5
-  %warn_default_encoding.i = getelementptr inbounds i8, ptr %call2.i, i64 184
+  %warn_default_encoding.i = getelementptr inbounds nuw i8, ptr %call2.i, i64 184
   %6 = load i32, ptr %warn_default_encoding.i, align 8
   %tobool.not.i = icmp eq i32 %6, 0
   br i1 %tobool.not.i, label %if.end7.i, label %if.then3.i
@@ -2593,7 +2593,7 @@ if.end:                                           ; preds = %entry
   %1 = load ptr, ptr @PyExc_OSError, align 8
   %2 = load ptr, ptr @PyExc_ValueError, align 8
   %call2 = tail call ptr (ptr, ptr, ...) @PyObject_CallFunction(ptr noundef nonnull @PyType_Type, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40, ptr noundef %1, ptr noundef %2) #5
-  %unsupported_operation = getelementptr inbounds i8, ptr %m.val, i64 8
+  %unsupported_operation = getelementptr inbounds nuw i8, ptr %m.val, i64 8
   store ptr %call2, ptr %unsupported_operation, align 8
   %cmp4 = icmp eq ptr %call2, null
   br i1 %cmp4, label %return, label %if.end6
@@ -2611,7 +2611,7 @@ if.end11:                                         ; preds = %if.end6
 
 do.body:                                          ; preds = %if.end11
   %call16 = tail call ptr @PyType_FromModuleAndSpec(ptr noundef nonnull %m, ptr noundef nonnull @nldecoder_spec, ptr noundef null) #5
-  %PyIncrementalNewlineDecoder_Type = getelementptr inbounds i8, ptr %m.val, i64 24
+  %PyIncrementalNewlineDecoder_Type = getelementptr inbounds nuw i8, ptr %m.val, i64 24
   store ptr %call16, ptr %PyIncrementalNewlineDecoder_Type, align 8
   %cmp18 = icmp eq ptr %call16, null
   br i1 %cmp18, label %return, label %if.end20
@@ -2623,7 +2623,7 @@ if.end20:                                         ; preds = %do.body
 
 do.body26:                                        ; preds = %if.end20
   %call27 = tail call ptr @PyType_FromModuleAndSpec(ptr noundef nonnull %m, ptr noundef nonnull @bytesiobuf_spec, ptr noundef null) #5
-  %PyBytesIOBuffer_Type = getelementptr inbounds i8, ptr %m.val, i64 80
+  %PyBytesIOBuffer_Type = getelementptr inbounds nuw i8, ptr %m.val, i64 80
   store ptr %call27, ptr %PyBytesIOBuffer_Type, align 8
   %cmp29 = icmp eq ptr %call27, null
   br i1 %cmp29, label %return, label %if.end31
@@ -2635,7 +2635,7 @@ if.end31:                                         ; preds = %do.body26
 
 do.body38:                                        ; preds = %if.end31
   %call39 = tail call ptr @PyType_FromModuleAndSpec(ptr noundef nonnull %m, ptr noundef nonnull @iobase_spec, ptr noundef null) #5
-  %PyIOBase_Type = getelementptr inbounds i8, ptr %m.val, i64 16
+  %PyIOBase_Type = getelementptr inbounds nuw i8, ptr %m.val, i64 16
   store ptr %call39, ptr %PyIOBase_Type, align 8
   %cmp41 = icmp eq ptr %call39, null
   br i1 %cmp41, label %return, label %if.end43
@@ -2648,7 +2648,7 @@ if.end43:                                         ; preds = %do.body38
 do.body50:                                        ; preds = %if.end43
   %4 = load ptr, ptr %PyIOBase_Type, align 8
   %call52 = tail call ptr @PyType_FromModuleAndSpec(ptr noundef nonnull %m, ptr noundef nonnull @textiobase_spec, ptr noundef %4) #5
-  %PyTextIOBase_Type = getelementptr inbounds i8, ptr %m.val, i64 112
+  %PyTextIOBase_Type = getelementptr inbounds nuw i8, ptr %m.val, i64 112
   store ptr %call52, ptr %PyTextIOBase_Type, align 8
   %cmp54 = icmp eq ptr %call52, null
   br i1 %cmp54, label %return, label %if.end56
@@ -2661,7 +2661,7 @@ if.end56:                                         ; preds = %do.body50
 do.body63:                                        ; preds = %if.end56
   %5 = load ptr, ptr %PyIOBase_Type, align 8
   %call65 = tail call ptr @PyType_FromModuleAndSpec(ptr noundef nonnull %m, ptr noundef nonnull @bufferediobase_spec, ptr noundef %5) #5
-  %PyBufferedIOBase_Type = getelementptr inbounds i8, ptr %m.val, i64 40
+  %PyBufferedIOBase_Type = getelementptr inbounds nuw i8, ptr %m.val, i64 40
   store ptr %call65, ptr %PyBufferedIOBase_Type, align 8
   %cmp67 = icmp eq ptr %call65, null
   br i1 %cmp67, label %return, label %if.end69
@@ -2674,7 +2674,7 @@ if.end69:                                         ; preds = %do.body63
 do.body76:                                        ; preds = %if.end69
   %6 = load ptr, ptr %PyIOBase_Type, align 8
   %call78 = tail call ptr @PyType_FromModuleAndSpec(ptr noundef nonnull %m, ptr noundef nonnull @rawiobase_spec, ptr noundef %6) #5
-  %PyRawIOBase_Type = getelementptr inbounds i8, ptr %m.val, i64 32
+  %PyRawIOBase_Type = getelementptr inbounds nuw i8, ptr %m.val, i64 32
   store ptr %call78, ptr %PyRawIOBase_Type, align 8
   %cmp80 = icmp eq ptr %call78, null
   br i1 %cmp80, label %return, label %if.end82
@@ -2687,7 +2687,7 @@ if.end82:                                         ; preds = %do.body76
 do.body89:                                        ; preds = %if.end82
   %7 = load ptr, ptr %PyBufferedIOBase_Type, align 8
   %call91 = tail call ptr @PyType_FromModuleAndSpec(ptr noundef nonnull %m, ptr noundef nonnull @bytesio_spec, ptr noundef %7) #5
-  %PyBytesIO_Type = getelementptr inbounds i8, ptr %m.val, i64 88
+  %PyBytesIO_Type = getelementptr inbounds nuw i8, ptr %m.val, i64 88
   store ptr %call91, ptr %PyBytesIO_Type, align 8
   %cmp93 = icmp eq ptr %call91, null
   br i1 %cmp93, label %return, label %if.end95
@@ -2700,7 +2700,7 @@ if.end95:                                         ; preds = %do.body89
 do.body102:                                       ; preds = %if.end95
   %8 = load ptr, ptr %PyBufferedIOBase_Type, align 8
   %call104 = tail call ptr @PyType_FromModuleAndSpec(ptr noundef nonnull %m, ptr noundef nonnull @bufferedwriter_spec, ptr noundef %8) #5
-  %PyBufferedWriter_Type = getelementptr inbounds i8, ptr %m.val, i64 72
+  %PyBufferedWriter_Type = getelementptr inbounds nuw i8, ptr %m.val, i64 72
   store ptr %call104, ptr %PyBufferedWriter_Type, align 8
   %cmp106 = icmp eq ptr %call104, null
   br i1 %cmp106, label %return, label %if.end108
@@ -2713,7 +2713,7 @@ if.end108:                                        ; preds = %do.body102
 do.body115:                                       ; preds = %if.end108
   %9 = load ptr, ptr %PyBufferedIOBase_Type, align 8
   %call117 = tail call ptr @PyType_FromModuleAndSpec(ptr noundef nonnull %m, ptr noundef nonnull @bufferedreader_spec, ptr noundef %9) #5
-  %PyBufferedReader_Type = getelementptr inbounds i8, ptr %m.val, i64 64
+  %PyBufferedReader_Type = getelementptr inbounds nuw i8, ptr %m.val, i64 64
   store ptr %call117, ptr %PyBufferedReader_Type, align 8
   %cmp119 = icmp eq ptr %call117, null
   br i1 %cmp119, label %return, label %if.end121
@@ -2726,7 +2726,7 @@ if.end121:                                        ; preds = %do.body115
 do.body128:                                       ; preds = %if.end121
   %10 = load ptr, ptr %PyBufferedIOBase_Type, align 8
   %call130 = tail call ptr @PyType_FromModuleAndSpec(ptr noundef nonnull %m, ptr noundef nonnull @bufferedrwpair_spec, ptr noundef %10) #5
-  %PyBufferedRWPair_Type = getelementptr inbounds i8, ptr %m.val, i64 48
+  %PyBufferedRWPair_Type = getelementptr inbounds nuw i8, ptr %m.val, i64 48
   store ptr %call130, ptr %PyBufferedRWPair_Type, align 8
   %cmp132 = icmp eq ptr %call130, null
   br i1 %cmp132, label %return, label %if.end134
@@ -2739,7 +2739,7 @@ if.end134:                                        ; preds = %do.body128
 do.body141:                                       ; preds = %if.end134
   %11 = load ptr, ptr %PyBufferedIOBase_Type, align 8
   %call143 = tail call ptr @PyType_FromModuleAndSpec(ptr noundef nonnull %m, ptr noundef nonnull @bufferedrandom_spec, ptr noundef %11) #5
-  %PyBufferedRandom_Type = getelementptr inbounds i8, ptr %m.val, i64 56
+  %PyBufferedRandom_Type = getelementptr inbounds nuw i8, ptr %m.val, i64 56
   store ptr %call143, ptr %PyBufferedRandom_Type, align 8
   %cmp145 = icmp eq ptr %call143, null
   br i1 %cmp145, label %return, label %if.end147
@@ -2752,7 +2752,7 @@ if.end147:                                        ; preds = %do.body141
 do.body154:                                       ; preds = %if.end147
   %12 = load ptr, ptr %PyRawIOBase_Type, align 8
   %call156 = tail call ptr @PyType_FromModuleAndSpec(ptr noundef nonnull %m, ptr noundef nonnull @fileio_spec, ptr noundef %12) #5
-  %PyFileIO_Type = getelementptr inbounds i8, ptr %m.val, i64 96
+  %PyFileIO_Type = getelementptr inbounds nuw i8, ptr %m.val, i64 96
   store ptr %call156, ptr %PyFileIO_Type, align 8
   %cmp158 = icmp eq ptr %call156, null
   br i1 %cmp158, label %return, label %if.end160
@@ -2765,7 +2765,7 @@ if.end160:                                        ; preds = %do.body154
 do.body167:                                       ; preds = %if.end160
   %13 = load ptr, ptr %PyTextIOBase_Type, align 8
   %call169 = tail call ptr @PyType_FromModuleAndSpec(ptr noundef nonnull %m, ptr noundef nonnull @stringio_spec, ptr noundef %13) #5
-  %PyStringIO_Type = getelementptr inbounds i8, ptr %m.val, i64 104
+  %PyStringIO_Type = getelementptr inbounds nuw i8, ptr %m.val, i64 104
   store ptr %call169, ptr %PyStringIO_Type, align 8
   %cmp171 = icmp eq ptr %call169, null
   br i1 %cmp171, label %return, label %if.end173
@@ -2778,7 +2778,7 @@ if.end173:                                        ; preds = %do.body167
 do.body180:                                       ; preds = %if.end173
   %14 = load ptr, ptr %PyTextIOBase_Type, align 8
   %call182 = tail call ptr @PyType_FromModuleAndSpec(ptr noundef nonnull %m, ptr noundef nonnull @textiowrapper_spec, ptr noundef %14) #5
-  %PyTextIOWrapper_Type = getelementptr inbounds i8, ptr %m.val, i64 120
+  %PyTextIOWrapper_Type = getelementptr inbounds nuw i8, ptr %m.val, i64 120
   store ptr %call182, ptr %PyTextIOWrapper_Type, align 8
   %cmp184 = icmp eq ptr %call182, null
   br i1 %cmp184, label %return, label %if.end186

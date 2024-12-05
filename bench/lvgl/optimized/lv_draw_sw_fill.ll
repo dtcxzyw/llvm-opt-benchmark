@@ -135,7 +135,7 @@ define void @lv_draw_sw_fill(ptr noundef %0, ptr noundef %1, ptr nocapture nound
   store ptr %76, ptr %77, align 8, !tbaa !32
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 66
   %79 = load i8, ptr %78, align 2, !tbaa !33
-  %invariant.gep = getelementptr inbounds i8, ptr %1, i64 59
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %1, i64 59
   %.not198 = icmp eq i8 %79, 0
   br i1 %.not198, label %.thread, label %.lr.ph.preheader
 
@@ -151,7 +151,7 @@ define void @lv_draw_sw_fill(ptr noundef %0, ptr noundef %1, ptr nocapture nound
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %80
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %80 ]
   %.idx = mul nuw nsw i64 %indvars.iv, 5
-  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %.idx
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx
   %81 = load i8, ptr %gep, align 1, !tbaa !36
   %.not = icmp eq i8 %81, -1
   br i1 %.not, label %80, label %82
@@ -248,14 +248,14 @@ define void @lv_draw_sw_fill(ptr noundef %0, ptr noundef %1, ptr nocapture nound
 
 .lr.ph185:                                        ; preds = %.preheader, %137
   %indvars.iv203 = phi i64 [ %indvars.iv.next204, %137 ], [ 0, %.preheader ]
-  %126 = getelementptr inbounds i8, ptr %.0147, i64 %indvars.iv203
+  %126 = getelementptr inbounds nuw i8, ptr %.0147, i64 %indvars.iv203
   %127 = load i8, ptr %126, align 1, !tbaa !21
   %128 = icmp ult i8 %127, -3
   br i1 %128, label %129, label %137
 
 129:                                              ; preds = %.lr.ph185
   %130 = zext i8 %127 to i16
-  %131 = getelementptr inbounds i8, ptr %.0, i64 %indvars.iv203
+  %131 = getelementptr inbounds nuw i8, ptr %.0, i64 %indvars.iv203
   %132 = load i8, ptr %131, align 1, !tbaa !21
   %133 = zext i8 %132 to i16
   %134 = mul nuw i16 %133, %130
@@ -330,14 +330,14 @@ define void @lv_draw_sw_fill(ptr noundef %0, ptr noundef %1, ptr nocapture nound
 
 .lr.ph188:                                        ; preds = %.thread217, %169
   %indvars.iv208 = phi i64 [ %indvars.iv.next209, %169 ], [ 0, %.thread217 ]
-  %158 = getelementptr inbounds i8, ptr %.0147, i64 %indvars.iv208
+  %158 = getelementptr inbounds nuw i8, ptr %.0147, i64 %indvars.iv208
   %159 = load i8, ptr %158, align 1, !tbaa !21
   %160 = icmp ult i8 %159, -3
   br i1 %160, label %161, label %169
 
 161:                                              ; preds = %.lr.ph188
   %162 = zext i8 %159 to i16
-  %163 = getelementptr inbounds i8, ptr %.0, i64 %indvars.iv208
+  %163 = getelementptr inbounds nuw i8, ptr %.0, i64 %indvars.iv208
   %164 = load i8, ptr %163, align 1, !tbaa !21
   %165 = zext i8 %164 to i16
   %166 = mul nuw i16 %165, %162

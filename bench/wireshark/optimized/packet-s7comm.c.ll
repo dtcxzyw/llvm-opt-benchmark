@@ -2992,7 +2992,7 @@ define hidden noundef i32 @s7comm_decode_ud_cpu_diagnostic_message(ptr noundef %
 
 .sink.split:                                      ; preds = %21, %16
   %.sink79 = phi ptr [ %15, %16 ], [ %20, %21 ]
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %25, i32 noundef 25, ptr noundef nonnull @.str.8, ptr noundef nonnull %.sink79) #7
   br label %26
@@ -3006,7 +3006,7 @@ define hidden noundef i32 @s7comm_decode_ud_cpu_diagnostic_message(ptr noundef %
   br label %36
 
 .sink.split81:                                    ; preds = %23, %22, %17
-  %30 = getelementptr inbounds i8, ptr %1, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = load ptr, ptr %30, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %31, i32 noundef 25, ptr noundef nonnull @.str.9, i32 noundef %11) #7
   br label %32
@@ -3078,7 +3078,7 @@ define internal fastcc noundef i32 @s7comm_add_timestamp_to_tree(ptr noundef %0,
 16:                                               ; preds = %.preheader
   %17 = add i32 %2, 9
   %18 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %17) #7
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %6, i64 1
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 1
   %.pre = load i8, ptr %.phi.trans.insert, align 1
   br label %32
 
@@ -3111,13 +3111,13 @@ define internal fastcc noundef i32 @s7comm_add_timestamp_to_tree(ptr noundef %0,
   %.078.in = phi i8 [ %18, %16 ], [ %31, %29 ]
   %.0 = phi i32 [ 10, %16 ], [ 8, %29 ]
   %.078 = lshr i8 %.078.in, 4
-  %34 = getelementptr inbounds i8, ptr %6, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %35 = load i8, ptr %34, align 1
   %36 = zext i8 %35 to i32
   %37 = mul nuw nsw i32 %36, 10
   %38 = zext nneg i8 %.078 to i32
   %39 = add nuw nsw i32 %37, %38
-  %40 = getelementptr inbounds i8, ptr %6, i64 2
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %41 = load i8, ptr %40, align 1
   %42 = icmp ult i8 %41, 89
   %spec.store.select = select i1 %42, i8 20, i8 %33
@@ -3126,39 +3126,39 @@ define internal fastcc noundef i32 @s7comm_add_timestamp_to_tree(ptr noundef %0,
   %45 = zext i8 %41 to i32
   %46 = add nuw nsw i32 %45, -1900
   %47 = add nsw i32 %46, %44
-  %48 = getelementptr inbounds i8, ptr %8, i64 20
+  %48 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i32 %47, ptr %48, align 4
-  %49 = getelementptr inbounds i8, ptr %6, i64 3
+  %49 = getelementptr inbounds nuw i8, ptr %6, i64 3
   %50 = load i8, ptr %49, align 1
   %51 = zext i8 %50 to i32
   %52 = add nsw i32 %51, -1
-  %53 = getelementptr inbounds i8, ptr %8, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 %52, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %6, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %55 = load i8, ptr %54, align 1
   %56 = zext i8 %55 to i32
-  %57 = getelementptr inbounds i8, ptr %8, i64 12
+  %57 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 %56, ptr %57, align 4
-  %58 = getelementptr inbounds i8, ptr %6, i64 5
+  %58 = getelementptr inbounds nuw i8, ptr %6, i64 5
   %59 = load i8, ptr %58, align 1
   %60 = zext i8 %59 to i32
-  %61 = getelementptr inbounds i8, ptr %8, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %60, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %6, i64 6
+  %62 = getelementptr inbounds nuw i8, ptr %6, i64 6
   %63 = load i8, ptr %62, align 1
   %64 = zext i8 %63 to i32
-  %65 = getelementptr inbounds i8, ptr %8, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %64, ptr %65, align 4
-  %66 = getelementptr inbounds i8, ptr %6, i64 7
+  %66 = getelementptr inbounds nuw i8, ptr %6, i64 7
   %67 = load i8, ptr %66, align 1
   %68 = zext i8 %67 to i32
   store i32 %68, ptr %8, align 8
-  %69 = getelementptr inbounds i8, ptr %8, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i32 -1, ptr %69, align 8
   %70 = call i64 @mktime(ptr noundef nonnull %8) #7
   store i64 %70, ptr %7, align 8
   %71 = mul nuw i32 %39, 1000000
-  %72 = getelementptr inbounds i8, ptr %7, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %71, ptr %72, align 8
   %73 = load i32, ptr %53, align 8
   %or.cond = icmp ult i32 %73, 12
@@ -3312,7 +3312,7 @@ define internal range(i32 0, 2) i32 @dissect_s7comm(ptr noundef %0, ptr noundef 
   br i1 %14, label %166, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
   tail call void @col_set_str(ptr noundef %17, i32 noundef 34, ptr noundef nonnull @.str.975) #7
   %18 = load ptr, ptr %16, align 8
@@ -3371,13 +3371,13 @@ define internal range(i32 0, 2) i32 @dissect_s7comm(ptr noundef %0, ptr noundef 
   br i1 %.not.i, label %proto_item_set_generated.exit, label %59
 
 59:                                               ; preds = %56
-  %60 = getelementptr inbounds i8, ptr %58, i64 32
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 32
   %61 = load ptr, ptr %60, align 8
   %.not5.i = icmp eq ptr %61, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %62
 
 62:                                               ; preds = %59
-  %63 = getelementptr inbounds i8, ptr %61, i64 28
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 28
   %64 = load i32, ptr %63, align 4
   %65 = or i32 %64, 2
   store i32 %65, ptr %63, align 4
@@ -3670,7 +3670,7 @@ define internal fastcc void @s7comm_decode_ud(ptr noundef %0, ptr noundef %1, pt
 
 26:                                               ; preds = %7
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.2295) #7
-  %27 = getelementptr inbounds i8, ptr %1, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %28 = load ptr, ptr %27, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %28, i32 noundef 25, ptr noundef nonnull @.str.2296) #7
   %29 = load i32, ptr @hf_s7comm_modetrans_param_unknown1, align 4
@@ -3706,7 +3706,7 @@ define internal fastcc void @s7comm_decode_ud(ptr noundef %0, ptr noundef %1, pt
 
 54:                                               ; preds = %42
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.2299) #7
-  %55 = getelementptr inbounds i8, ptr %1, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %56 = load ptr, ptr %55, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %56, i32 noundef 25, ptr noundef nonnull @.str.2300) #7
   %57 = load i32, ptr @hf_s7comm_pbc_unknown, align 4
@@ -3811,7 +3811,7 @@ define internal fastcc void @s7comm_decode_ud(ptr noundef %0, ptr noundef %1, pt
   %127 = load i32, ptr @hf_s7comm_userdata_param_funcgroup, align 4
   %128 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %127, ptr noundef %0, i32 noundef %52, i32 noundef 1, i32 noundef 0) #7
   %129 = add nuw nsw i32 %5, 6
-  %130 = getelementptr inbounds i8, ptr %1, i64 8
+  %130 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %131 = load ptr, ptr %130, align 8
   %132 = zext nneg i8 %122 to i32
   %133 = tail call ptr @val_to_str(i32 noundef %132, ptr noundef nonnull @userdata_type_names, ptr noundef nonnull @.str.2303) #7
@@ -4013,7 +4013,7 @@ define internal fastcc void @s7comm_decode_ud(ptr noundef %0, ptr noundef %1, pt
   %.2195.i = phi i16 [ %231, %242 ], [ %247, %243 ], [ %231, %240 ]
   %.0.i.i = phi i32 [ %235, %242 ], [ %246, %243 ], [ %235, %240 ]
   %248 = zext i8 %193 to i32
-  %249 = getelementptr inbounds i8, ptr %1, i64 272
+  %249 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %250 = load i32, ptr %249, align 8
   br label %308
 
@@ -4088,14 +4088,14 @@ s7comm_decode_ud_cpu_ar_send_pre_reass.exit.i:    ; preds = %277, %275
   %.2.i = phi i32 [ %.0.i182.i, %s7comm_decode_ud_cpu_ar_send_pre_reass.exit.i ], [ %235, %273 ]
   %297 = zext i8 %.0201 to i32
   %.not205.i = icmp eq i8 %.0201, 0
-  %298 = getelementptr inbounds i8, ptr %1, i64 272
+  %298 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %299 = load i32, ptr %298, align 8
   br i1 %.not205.i, label %321, label %308
 
 300:                                              ; preds = %237
   %301 = zext i8 %.0201 to i32
   %.not207.i = icmp eq i8 %.0201, 0
-  %302 = getelementptr inbounds i8, ptr %1, i64 272
+  %302 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %303 = load i32, ptr %302, align 8
   br i1 %.not207.i, label %321, label %308
 
@@ -4105,7 +4105,7 @@ s7comm_decode_ud_cpu_ar_send_pre_reass.exit.i:    ; preds = %277, %275
   %.0.i181.i = phi i32 [ %271, %254 ], [ %235, %251 ]
   %305 = or i8 %.0201, %193
   %.not206.i = icmp eq i8 %305, 0
-  %306 = getelementptr inbounds i8, ptr %1, i64 272
+  %306 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %307 = load i32, ptr %306, align 8
   br i1 %.not206.i, label %321, label %308
 
@@ -5007,7 +5007,7 @@ define internal fastcc void @s7comm_decode_plc_controls_updownload(ptr noundef %
   br i1 %.not174, label %.thread, label %145
 
 145:                                              ; preds = %144
-  %146 = getelementptr inbounds i8, ptr %1, i64 8
+  %146 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %147 = load ptr, ptr %146, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %147, i32 noundef 25, ptr noundef nonnull @.str.2086, i32 noundef %.pr) #7
   br label %.thread
@@ -5049,7 +5049,7 @@ define internal fastcc void @s7comm_decode_pi_service(ptr noundef %0, ptr nounde
   %31 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %29, ptr noundef %0, i32 noundef %27, i32 noundef 1, i32 noundef %30) #7
   %32 = add nuw nsw i32 %27, 1
   %33 = load i32, ptr @hf_s7comm_piservice_servicename, align 4
-  %34 = getelementptr inbounds i8, ptr %1, i64 408
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %35 = load ptr, ptr %34, align 8
   %36 = call ptr @proto_tree_add_item_ret_string(ptr noundef %2, i32 noundef %33, ptr noundef %0, i32 noundef %32, i32 noundef %30, i32 noundef 0, ptr noundef %35, ptr noundef nonnull %6) #7
   %37 = load ptr, ptr %6, align 8
@@ -5144,7 +5144,7 @@ define internal fastcc void @s7comm_decode_pi_service(ptr noundef %0, ptr nounde
   %49 = add nuw nsw i32 %4, 11
   %50 = load i32, ptr @hf_s7comm_data_pi_inse_unknown, align 4
   %51 = call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %50, ptr noundef %0, i32 noundef %49, i32 noundef 1, i32 noundef 0) #7
-  %52 = getelementptr inbounds i8, ptr %1, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %53 = load ptr, ptr %52, align 8
   %54 = load ptr, ptr %6, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %53, i32 noundef 25, ptr noundef nonnull @.str.2145, ptr noundef %54) #7
@@ -5230,7 +5230,7 @@ define internal fastcc void @s7comm_decode_pi_service(ptr noundef %0, ptr nounde
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %26, ptr noundef nonnull @.str.2151) #7
   %97 = load ptr, ptr %6, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2152, ptr noundef %97) #7
-  %98 = getelementptr inbounds i8, ptr %1, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %99 = load ptr, ptr %98, align 8
   %100 = load ptr, ptr %6, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %99, i32 noundef 25, ptr noundef nonnull @.str.2152, ptr noundef %100) #7
@@ -5245,7 +5245,7 @@ define internal fastcc void @s7comm_decode_pi_service(ptr noundef %0, ptr nounde
   %106 = load ptr, ptr %6, align 8
   %107 = load ptr, ptr %8, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2154, ptr noundef %106, ptr noundef %107) #7
-  %108 = getelementptr inbounds i8, ptr %1, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %109 = load ptr, ptr %108, align 8
   %110 = load ptr, ptr %6, align 8
   %111 = load ptr, ptr %8, align 8
@@ -5256,7 +5256,7 @@ define internal fastcc void @s7comm_decode_pi_service(ptr noundef %0, ptr nounde
   %113 = load i32, ptr @hf_s7comm_pi_n_x_addressident, align 4
   store i32 %113, ptr %9, align 16
   %114 = load i32, ptr @hf_s7comm_pi_n_x_password, align 4
-  %115 = getelementptr inbounds i8, ptr %9, i64 4
+  %115 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %114, ptr %115, align 4
   %116 = load ptr, ptr %6, align 8
   call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %116, i8 noundef zeroext 2, ptr noundef %9, i32 noundef %22)
@@ -5273,7 +5273,7 @@ define internal fastcc void @s7comm_decode_pi_service(ptr noundef %0, ptr nounde
   %121 = load i32, ptr @hf_s7comm_pi_n_x_addressident, align 4
   store i32 %121, ptr %9, align 16
   %122 = load i32, ptr @hf_s7comm_pi_n_x_filename, align 4
-  %123 = getelementptr inbounds i8, ptr %9, i64 4
+  %123 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %122, ptr %123, align 4
   %124 = load ptr, ptr %6, align 8
   call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %124, i8 noundef zeroext 2, ptr noundef %9, i32 noundef %22)
@@ -5283,7 +5283,7 @@ define internal fastcc void @s7comm_decode_pi_service(ptr noundef %0, ptr nounde
   %126 = load i32, ptr @hf_s7comm_pi_n_x_addressident, align 4
   store i32 %126, ptr %9, align 16
   %127 = load i32, ptr @hf_s7comm_pi_n_x_editwindowname, align 4
-  %128 = getelementptr inbounds i8, ptr %9, i64 4
+  %128 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %127, ptr %128, align 4
   %129 = load ptr, ptr %6, align 8
   call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %129, i8 noundef zeroext 2, ptr noundef %9, i32 noundef %22)
@@ -5293,10 +5293,10 @@ define internal fastcc void @s7comm_decode_pi_service(ptr noundef %0, ptr nounde
   %131 = load i32, ptr @hf_s7comm_pi_n_x_addressident, align 4
   store i32 %131, ptr %9, align 16
   %132 = load i32, ptr @hf_s7comm_pi_n_x_filename, align 4
-  %133 = getelementptr inbounds i8, ptr %9, i64 4
+  %133 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %132, ptr %133, align 4
   %134 = load i32, ptr @hf_s7comm_pi_n_x_editwindowname, align 4
-  %135 = getelementptr inbounds i8, ptr %9, i64 8
+  %135 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %134, ptr %135, align 8
   %136 = load ptr, ptr %6, align 8
   call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %136, i8 noundef zeroext 3, ptr noundef %9, i32 noundef %22)
@@ -5306,19 +5306,19 @@ define internal fastcc void @s7comm_decode_pi_service(ptr noundef %0, ptr nounde
   %138 = load i32, ptr @hf_s7comm_pi_n_x_addressident, align 4
   store i32 %138, ptr %9, align 16
   %139 = load i32, ptr @hf_s7comm_pi_n_x_editwindowname, align 4
-  %140 = getelementptr inbounds i8, ptr %9, i64 4
+  %140 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %139, ptr %140, align 4
   %141 = load i32, ptr @hf_s7comm_pi_n_x_seekpointer, align 4
-  %142 = getelementptr inbounds i8, ptr %9, i64 8
+  %142 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %141, ptr %142, align 8
   %143 = load i32, ptr @hf_s7comm_pi_n_x_windowsize, align 4
-  %144 = getelementptr inbounds i8, ptr %9, i64 12
+  %144 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 %143, ptr %144, align 4
   %145 = load i32, ptr @hf_s7comm_pi_n_x_comparestring, align 4
-  %146 = getelementptr inbounds i8, ptr %9, i64 16
+  %146 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 %145, ptr %146, align 16
   %147 = load i32, ptr @hf_s7comm_pi_n_x_skipcount, align 4
-  %148 = getelementptr inbounds i8, ptr %9, i64 20
+  %148 = getelementptr inbounds nuw i8, ptr %9, i64 20
   store i32 %147, ptr %148, align 4
   %149 = load ptr, ptr %6, align 8
   call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %149, i8 noundef zeroext 6, ptr noundef %9, i32 noundef %22)
@@ -5328,19 +5328,19 @@ define internal fastcc void @s7comm_decode_pi_service(ptr noundef %0, ptr nounde
   %151 = load i32, ptr @hf_s7comm_pi_n_x_addressident, align 4
   store i32 %151, ptr %9, align 16
   %152 = load i32, ptr @hf_s7comm_pi_n_x_interruptnr, align 4
-  %153 = getelementptr inbounds i8, ptr %9, i64 4
+  %153 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %152, ptr %153, align 4
   %154 = load i32, ptr @hf_s7comm_pi_n_x_priority, align 4
-  %155 = getelementptr inbounds i8, ptr %9, i64 8
+  %155 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %154, ptr %155, align 8
   %156 = load i32, ptr @hf_s7comm_pi_n_x_liftfast, align 4
-  %157 = getelementptr inbounds i8, ptr %9, i64 12
+  %157 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 %156, ptr %157, align 4
   %158 = load i32, ptr @hf_s7comm_pi_n_x_blsync, align 4
-  %159 = getelementptr inbounds i8, ptr %9, i64 16
+  %159 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 %158, ptr %159, align 16
   %160 = load i32, ptr @hf_s7comm_pi_n_x_filename, align 4
-  %161 = getelementptr inbounds i8, ptr %9, i64 20
+  %161 = getelementptr inbounds nuw i8, ptr %9, i64 20
   store i32 %160, ptr %161, align 4
   %162 = load ptr, ptr %6, align 8
   call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %162, i8 noundef zeroext 6, ptr noundef %9, i32 noundef %22)
@@ -5350,13 +5350,13 @@ define internal fastcc void @s7comm_decode_pi_service(ptr noundef %0, ptr nounde
   %164 = load i32, ptr @hf_s7comm_pi_n_x_addressident, align 4
   store i32 %164, ptr %9, align 16
   %165 = load i32, ptr @hf_s7comm_pi_n_x_magnr, align 4
-  %166 = getelementptr inbounds i8, ptr %9, i64 4
+  %166 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %165, ptr %166, align 4
   %167 = load i32, ptr @hf_s7comm_pi_n_x_dnr, align 4
-  %168 = getelementptr inbounds i8, ptr %9, i64 8
+  %168 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %167, ptr %168, align 8
   %169 = load i32, ptr @hf_s7comm_pi_n_x_spindlenumber, align 4
-  %170 = getelementptr inbounds i8, ptr %9, i64 12
+  %170 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 %169, ptr %170, align 4
   %171 = load ptr, ptr %6, align 8
   call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %171, i8 noundef zeroext 4, ptr noundef %9, i32 noundef %22)
@@ -5366,12 +5366,12 @@ define internal fastcc void @s7comm_decode_pi_service(ptr noundef %0, ptr nounde
   %173 = load i32, ptr @hf_s7comm_pi_n_x_addressident, align 4
   store i32 %173, ptr %9, align 16
   %174 = load i32, ptr @hf_s7comm_pi_n_x_wznr, align 4
-  %175 = getelementptr inbounds i8, ptr %9, i64 4
+  %175 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %174, ptr %175, align 4
-  %176 = getelementptr inbounds i8, ptr %9, i64 8
+  %176 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %174, ptr %176, align 8
   %177 = load i32, ptr @hf_s7comm_pi_n_x_dnr, align 4
-  %178 = getelementptr inbounds i8, ptr %9, i64 12
+  %178 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 %177, ptr %178, align 4
   %179 = load ptr, ptr %6, align 8
   call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %179, i8 noundef zeroext 4, ptr noundef %9, i32 noundef %22)
@@ -5381,7 +5381,7 @@ define internal fastcc void @s7comm_decode_pi_service(ptr noundef %0, ptr nounde
   %181 = load i32, ptr @hf_s7comm_pi_n_x_addressident, align 4
   store i32 %181, ptr %9, align 16
   %182 = load i32, ptr @hf_s7comm_pi_n_x_class, align 4
-  %183 = getelementptr inbounds i8, ptr %9, i64 4
+  %183 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %182, ptr %183, align 4
   %184 = load ptr, ptr %6, align 8
   call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %184, i8 noundef zeroext 2, ptr noundef %9, i32 noundef %22)
@@ -5391,10 +5391,10 @@ define internal fastcc void @s7comm_decode_pi_service(ptr noundef %0, ptr nounde
   %186 = load i32, ptr @hf_s7comm_pi_n_x_addressident, align 4
   store i32 %186, ptr %9, align 16
   %187 = load i32, ptr @hf_s7comm_pi_n_x_tnr, align 4
-  %188 = getelementptr inbounds i8, ptr %9, i64 4
+  %188 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %187, ptr %188, align 4
   %189 = load i32, ptr @hf_s7comm_pi_n_x_dnr, align 4
-  %190 = getelementptr inbounds i8, ptr %9, i64 8
+  %190 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %189, ptr %190, align 8
   %191 = load ptr, ptr %6, align 8
   call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %191, i8 noundef zeroext 3, ptr noundef %9, i32 noundef %22)
@@ -5404,7 +5404,7 @@ define internal fastcc void @s7comm_decode_pi_service(ptr noundef %0, ptr nounde
   %193 = load i32, ptr @hf_s7comm_pi_n_x_addressident, align 4
   store i32 %193, ptr %9, align 16
   %194 = load i32, ptr @hf_s7comm_pi_n_x_toolnumber, align 4
-  %195 = getelementptr inbounds i8, ptr %9, i64 4
+  %195 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %194, ptr %195, align 4
   %196 = load ptr, ptr %6, align 8
   call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %196, i8 noundef zeroext 2, ptr noundef %9, i32 noundef %22)
@@ -5414,10 +5414,10 @@ define internal fastcc void @s7comm_decode_pi_service(ptr noundef %0, ptr nounde
   %198 = load i32, ptr @hf_s7comm_pi_n_x_addressident, align 4
   store i32 %198, ptr %9, align 16
   %199 = load i32, ptr @hf_s7comm_pi_n_x_toolnumber, align 4
-  %200 = getelementptr inbounds i8, ptr %9, i64 4
+  %200 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %199, ptr %200, align 4
   %201 = load i32, ptr @hf_s7comm_pi_n_x_cenumber, align 4
-  %202 = getelementptr inbounds i8, ptr %9, i64 8
+  %202 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %201, ptr %202, align 8
   %203 = load ptr, ptr %6, align 8
   call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %203, i8 noundef zeroext 3, ptr noundef %9, i32 noundef %22)
@@ -5427,19 +5427,19 @@ define internal fastcc void @s7comm_decode_pi_service(ptr noundef %0, ptr nounde
   %205 = load i32, ptr @hf_s7comm_pi_n_x_addressident, align 4
   store i32 %205, ptr %9, align 16
   %206 = load i32, ptr @hf_s7comm_pi_n_x_datablocknumber, align 4
-  %207 = getelementptr inbounds i8, ptr %9, i64 4
+  %207 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %206, ptr %207, align 4
   %208 = load i32, ptr @hf_s7comm_pi_n_x_firstcolumnnumber, align 4
-  %209 = getelementptr inbounds i8, ptr %9, i64 8
+  %209 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %208, ptr %209, align 8
   %210 = load i32, ptr @hf_s7comm_pi_n_x_lastcolumnnumber, align 4
-  %211 = getelementptr inbounds i8, ptr %9, i64 12
+  %211 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 %210, ptr %211, align 4
   %212 = load i32, ptr @hf_s7comm_pi_n_x_firstrownumber, align 4
-  %213 = getelementptr inbounds i8, ptr %9, i64 16
+  %213 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 %212, ptr %213, align 16
   %214 = load i32, ptr @hf_s7comm_pi_n_x_lastrownumber, align 4
-  %215 = getelementptr inbounds i8, ptr %9, i64 20
+  %215 = getelementptr inbounds nuw i8, ptr %9, i64 20
   store i32 %214, ptr %215, align 4
   %216 = load ptr, ptr %6, align 8
   call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %216, i8 noundef zeroext 6, ptr noundef %9, i32 noundef %22)
@@ -5449,13 +5449,13 @@ define internal fastcc void @s7comm_decode_pi_service(ptr noundef %0, ptr nounde
   %218 = load i32, ptr @hf_s7comm_pi_n_x_addressident, align 4
   store i32 %218, ptr %9, align 16
   %219 = load i32, ptr @hf_s7comm_pi_n_x_direction, align 4
-  %220 = getelementptr inbounds i8, ptr %9, i64 4
+  %220 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %219, ptr %220, align 4
   %221 = load i32, ptr @hf_s7comm_pi_n_x_sourcefilename, align 4
-  %222 = getelementptr inbounds i8, ptr %9, i64 8
+  %222 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %221, ptr %222, align 8
   %223 = load i32, ptr @hf_s7comm_pi_n_x_destinationfilename, align 4
-  %224 = getelementptr inbounds i8, ptr %9, i64 12
+  %224 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 %223, ptr %224, align 4
   %225 = load ptr, ptr %6, align 8
   call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %225, i8 noundef zeroext 4, ptr noundef %9, i32 noundef %22)
@@ -5465,7 +5465,7 @@ define internal fastcc void @s7comm_decode_pi_service(ptr noundef %0, ptr nounde
   %227 = load i32, ptr @hf_s7comm_pi_n_x_addressident, align 4
   store i32 %227, ptr %9, align 16
   %228 = load i32, ptr @hf_s7comm_pi_n_x_channelnumber, align 4
-  %229 = getelementptr inbounds i8, ptr %9, i64 4
+  %229 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %228, ptr %229, align 4
   %230 = load ptr, ptr %6, align 8
   call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %230, i8 noundef zeroext 2, ptr noundef %9, i32 noundef %22)
@@ -5475,10 +5475,10 @@ define internal fastcc void @s7comm_decode_pi_service(ptr noundef %0, ptr nounde
   %232 = load i32, ptr @hf_s7comm_pi_n_x_addressident, align 4
   store i32 %232, ptr %9, align 16
   %233 = load i32, ptr @hf_s7comm_pi_n_x_filename, align 4
-  %234 = getelementptr inbounds i8, ptr %9, i64 4
+  %234 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %233, ptr %234, align 4
   %235 = load i32, ptr @hf_s7comm_pi_n_x_protection, align 4
-  %236 = getelementptr inbounds i8, ptr %9, i64 8
+  %236 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %235, ptr %236, align 8
   %237 = load ptr, ptr %6, align 8
   call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %237, i8 noundef zeroext 3, ptr noundef %9, i32 noundef %22)
@@ -5488,10 +5488,10 @@ define internal fastcc void @s7comm_decode_pi_service(ptr noundef %0, ptr nounde
   %239 = load i32, ptr @hf_s7comm_pi_n_x_addressident, align 4
   store i32 %239, ptr %9, align 16
   %240 = load i32, ptr @hf_s7comm_pi_n_x_oldfilename, align 4
-  %241 = getelementptr inbounds i8, ptr %9, i64 4
+  %241 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %240, ptr %241, align 4
   %242 = load i32, ptr @hf_s7comm_pi_n_x_newfilename, align 4
-  %243 = getelementptr inbounds i8, ptr %9, i64 8
+  %243 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %242, ptr %243, align 8
   %244 = load ptr, ptr %6, align 8
   call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %244, i8 noundef zeroext 3, ptr noundef %9, i32 noundef %22)
@@ -5501,7 +5501,7 @@ define internal fastcc void @s7comm_decode_pi_service(ptr noundef %0, ptr nounde
   %246 = load i32, ptr @hf_s7comm_pi_n_x_addressident, align 4
   store i32 %246, ptr %9, align 16
   %247 = load i32, ptr @hf_s7comm_pi_n_x_findmode, align 4
-  %248 = getelementptr inbounds i8, ptr %9, i64 4
+  %248 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %247, ptr %248, align 4
   %249 = load ptr, ptr %6, align 8
   call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %249, i8 noundef zeroext 2, ptr noundef %9, i32 noundef %22)
@@ -5511,7 +5511,7 @@ define internal fastcc void @s7comm_decode_pi_service(ptr noundef %0, ptr nounde
   %251 = load i32, ptr @hf_s7comm_pi_n_x_addressident, align 4
   store i32 %251, ptr %9, align 16
   %252 = load i32, ptr @hf_s7comm_pi_n_x_switch, align 4
-  %253 = getelementptr inbounds i8, ptr %9, i64 4
+  %253 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %252, ptr %253, align 4
   %254 = load ptr, ptr %6, align 8
   call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %254, i8 noundef zeroext 2, ptr noundef %9, i32 noundef %22)
@@ -5521,10 +5521,10 @@ define internal fastcc void @s7comm_decode_pi_service(ptr noundef %0, ptr nounde
   %256 = load i32, ptr @hf_s7comm_pi_n_x_addressident, align 4
   store i32 %256, ptr %9, align 16
   %257 = load i32, ptr @hf_s7comm_pi_n_x_functionnumber, align 4
-  %258 = getelementptr inbounds i8, ptr %9, i64 4
+  %258 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %257, ptr %258, align 4
   %259 = load i32, ptr @hf_s7comm_pi_n_x_semaphorevalue, align 4
-  %260 = getelementptr inbounds i8, ptr %9, i64 8
+  %260 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %259, ptr %260, align 8
   %261 = load ptr, ptr %6, align 8
   call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %261, i8 noundef zeroext 3, ptr noundef %9, i32 noundef %22)
@@ -5534,13 +5534,13 @@ define internal fastcc void @s7comm_decode_pi_service(ptr noundef %0, ptr nounde
   %263 = load i32, ptr @hf_s7comm_pi_n_x_addressident, align 4
   store i32 %263, ptr %9, align 16
   %264 = load i32, ptr @hf_s7comm_pi_n_x_onoff, align 4
-  %265 = getelementptr inbounds i8, ptr %9, i64 4
+  %265 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %264, ptr %265, align 4
   %266 = load i32, ptr @hf_s7comm_pi_n_x_mode, align 4
-  %267 = getelementptr inbounds i8, ptr %9, i64 8
+  %267 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %266, ptr %267, align 8
   %268 = load i32, ptr @hf_s7comm_pi_n_x_factor, align 4
-  %269 = getelementptr inbounds i8, ptr %9, i64 12
+  %269 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 %268, ptr %269, align 4
   %270 = load ptr, ptr %6, align 8
   call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %270, i8 noundef zeroext 4, ptr noundef %9, i32 noundef %22)
@@ -5550,10 +5550,10 @@ define internal fastcc void @s7comm_decode_pi_service(ptr noundef %0, ptr nounde
   %272 = load i32, ptr @hf_s7comm_pi_n_x_addressident, align 4
   store i32 %272, ptr %9, align 16
   %273 = load i32, ptr @hf_s7comm_pi_n_x_password, align 4
-  %274 = getelementptr inbounds i8, ptr %9, i64 4
+  %274 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %273, ptr %274, align 4
   %275 = load i32, ptr @hf_s7comm_pi_n_x_passwordlevel, align 4
-  %276 = getelementptr inbounds i8, ptr %9, i64 8
+  %276 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %275, ptr %276, align 8
   %277 = load ptr, ptr %6, align 8
   call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %277, i8 noundef zeroext 3, ptr noundef %9, i32 noundef %22)
@@ -5563,7 +5563,7 @@ define internal fastcc void @s7comm_decode_pi_service(ptr noundef %0, ptr nounde
   %279 = load i32, ptr @hf_s7comm_pi_n_x_addressident, align 4
   store i32 %279, ptr %9, align 16
   %280 = load i32, ptr @hf_s7comm_pi_n_x_linenumber, align 4
-  %281 = getelementptr inbounds i8, ptr %9, i64 4
+  %281 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %280, ptr %281, align 4
   %282 = load ptr, ptr %6, align 8
   call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %282, i8 noundef zeroext 2, ptr noundef %9, i32 noundef %22)
@@ -5573,13 +5573,13 @@ define internal fastcc void @s7comm_decode_pi_service(ptr noundef %0, ptr nounde
   %284 = load i32, ptr @hf_s7comm_pi_n_x_addressident, align 4
   store i32 %284, ptr %9, align 16
   %285 = load i32, ptr @hf_s7comm_pi_n_x_magnr, align 4
-  %286 = getelementptr inbounds i8, ptr %9, i64 4
+  %286 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %285, ptr %286, align 4
   %287 = load i32, ptr @hf_s7comm_pi_n_x_weargroup, align 4
-  %288 = getelementptr inbounds i8, ptr %9, i64 8
+  %288 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %287, ptr %288, align 8
   %289 = load i32, ptr @hf_s7comm_pi_n_x_toolstatus, align 4
-  %290 = getelementptr inbounds i8, ptr %9, i64 12
+  %290 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 %289, ptr %290, align 4
   %291 = load ptr, ptr %6, align 8
   call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %291, i8 noundef zeroext 4, ptr noundef %9, i32 noundef %22)
@@ -5589,13 +5589,13 @@ define internal fastcc void @s7comm_decode_pi_service(ptr noundef %0, ptr nounde
   %293 = load i32, ptr @hf_s7comm_pi_n_x_addressident, align 4
   store i32 %293, ptr %9, align 16
   %294 = load i32, ptr @hf_s7comm_pi_n_x_magnr, align 4
-  %295 = getelementptr inbounds i8, ptr %9, i64 4
+  %295 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %294, ptr %295, align 4
   %296 = load i32, ptr @hf_s7comm_pi_n_x_weargroup, align 4
-  %297 = getelementptr inbounds i8, ptr %9, i64 8
+  %297 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %296, ptr %297, align 8
   %298 = load i32, ptr @hf_s7comm_pi_n_x_wearsearchstrat, align 4
-  %299 = getelementptr inbounds i8, ptr %9, i64 12
+  %299 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 %298, ptr %299, align 4
   %300 = load ptr, ptr %6, align 8
   call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %300, i8 noundef zeroext 4, ptr noundef %9, i32 noundef %22)
@@ -5605,16 +5605,16 @@ define internal fastcc void @s7comm_decode_pi_service(ptr noundef %0, ptr nounde
   %302 = load i32, ptr @hf_s7comm_pi_n_x_addressident, align 4
   store i32 %302, ptr %9, align 16
   %303 = load i32, ptr @hf_s7comm_pi_n_x_toolid, align 4
-  %304 = getelementptr inbounds i8, ptr %9, i64 4
+  %304 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %303, ptr %304, align 4
   %305 = load i32, ptr @hf_s7comm_pi_n_x_toolnumber, align 4
-  %306 = getelementptr inbounds i8, ptr %9, i64 8
+  %306 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %305, ptr %306, align 8
   %307 = load i32, ptr @hf_s7comm_pi_n_x_duplonumber, align 4
-  %308 = getelementptr inbounds i8, ptr %9, i64 12
+  %308 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 %307, ptr %308, align 4
   %309 = load i32, ptr @hf_s7comm_pi_n_x_edgenumber, align 4
-  %310 = getelementptr inbounds i8, ptr %9, i64 16
+  %310 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 %309, ptr %310, align 16
   %311 = load ptr, ptr %6, align 8
   call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %311, i8 noundef zeroext 5, ptr noundef %9, i32 noundef %22)
@@ -5624,13 +5624,13 @@ define internal fastcc void @s7comm_decode_pi_service(ptr noundef %0, ptr nounde
   %313 = load i32, ptr @hf_s7comm_pi_n_x_addressident, align 4
   store i32 %313, ptr %9, align 16
   %314 = load i32, ptr @hf_s7comm_pi_n_x_toolid, align 4
-  %315 = getelementptr inbounds i8, ptr %9, i64 4
+  %315 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %314, ptr %315, align 4
   %316 = load i32, ptr @hf_s7comm_pi_n_x_toolnumber, align 4
-  %317 = getelementptr inbounds i8, ptr %9, i64 8
+  %317 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %316, ptr %317, align 8
   %318 = load i32, ptr @hf_s7comm_pi_n_x_duplonumber, align 4
-  %319 = getelementptr inbounds i8, ptr %9, i64 12
+  %319 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 %318, ptr %319, align 4
   %320 = load ptr, ptr %6, align 8
   call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %320, i8 noundef zeroext 4, ptr noundef %9, i32 noundef %22)
@@ -5640,19 +5640,19 @@ define internal fastcc void @s7comm_decode_pi_service(ptr noundef %0, ptr nounde
   %322 = load i32, ptr @hf_s7comm_pi_n_x_addressident, align 4
   store i32 %322, ptr %9, align 16
   %323 = load i32, ptr @hf_s7comm_pi_n_x_toolnumber, align 4
-  %324 = getelementptr inbounds i8, ptr %9, i64 4
+  %324 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %323, ptr %324, align 4
   %325 = load i32, ptr @hf_s7comm_pi_n_x_placenr, align 4
-  %326 = getelementptr inbounds i8, ptr %9, i64 8
+  %326 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %325, ptr %326, align 8
   %327 = load i32, ptr @hf_s7comm_pi_n_x_magnr, align 4
-  %328 = getelementptr inbounds i8, ptr %9, i64 12
+  %328 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 %327, ptr %328, align 4
   %329 = load i32, ptr @hf_s7comm_pi_n_x_placerefnr, align 4
-  %330 = getelementptr inbounds i8, ptr %9, i64 16
+  %330 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 %329, ptr %330, align 16
   %331 = load i32, ptr @hf_s7comm_pi_n_x_magrefnr, align 4
-  %332 = getelementptr inbounds i8, ptr %9, i64 20
+  %332 = getelementptr inbounds nuw i8, ptr %9, i64 20
   store i32 %331, ptr %332, align 4
   %333 = load ptr, ptr %6, align 8
   call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %333, i8 noundef zeroext 6, ptr noundef %9, i32 noundef %22)
@@ -5662,40 +5662,40 @@ define internal fastcc void @s7comm_decode_pi_service(ptr noundef %0, ptr nounde
   %335 = load i32, ptr @hf_s7comm_pi_n_x_addressident, align 4
   store i32 %335, ptr %9, align 16
   %336 = load i32, ptr @hf_s7comm_pi_n_x_magnrfrom, align 4
-  %337 = getelementptr inbounds i8, ptr %9, i64 4
+  %337 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %336, ptr %337, align 4
   %338 = load i32, ptr @hf_s7comm_pi_n_x_placenrfrom, align 4
-  %339 = getelementptr inbounds i8, ptr %9, i64 8
+  %339 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %338, ptr %339, align 8
   %340 = load i32, ptr @hf_s7comm_pi_n_x_magnrto, align 4
-  %341 = getelementptr inbounds i8, ptr %9, i64 12
+  %341 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 %340, ptr %341, align 4
   %342 = load i32, ptr @hf_s7comm_pi_n_x_placenrto, align 4
-  %343 = getelementptr inbounds i8, ptr %9, i64 16
+  %343 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 %342, ptr %343, align 16
   %344 = load i32, ptr @hf_s7comm_pi_n_x_magrefnr, align 4
-  %345 = getelementptr inbounds i8, ptr %9, i64 20
+  %345 = getelementptr inbounds nuw i8, ptr %9, i64 20
   store i32 %344, ptr %345, align 4
   %346 = load i32, ptr @hf_s7comm_pi_n_x_placerefnr, align 4
-  %347 = getelementptr inbounds i8, ptr %9, i64 24
+  %347 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i32 %346, ptr %347, align 8
   %348 = load i32, ptr @hf_s7comm_pi_n_x_halfplacesleft, align 4
-  %349 = getelementptr inbounds i8, ptr %9, i64 28
+  %349 = getelementptr inbounds nuw i8, ptr %9, i64 28
   store i32 %348, ptr %349, align 4
   %350 = load i32, ptr @hf_s7comm_pi_n_x_halfplacesright, align 4
-  %351 = getelementptr inbounds i8, ptr %9, i64 32
+  %351 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i32 %350, ptr %351, align 16
   %352 = load i32, ptr @hf_s7comm_pi_n_x_halfplacesup, align 4
-  %353 = getelementptr inbounds i8, ptr %9, i64 36
+  %353 = getelementptr inbounds nuw i8, ptr %9, i64 36
   store i32 %352, ptr %353, align 4
   %354 = load i32, ptr @hf_s7comm_pi_n_x_halfplacesdown, align 4
-  %355 = getelementptr inbounds i8, ptr %9, i64 40
+  %355 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store i32 %354, ptr %355, align 8
   %356 = load i32, ptr @hf_s7comm_pi_n_x_placetype, align 4
-  %357 = getelementptr inbounds i8, ptr %9, i64 44
+  %357 = getelementptr inbounds nuw i8, ptr %9, i64 44
   store i32 %356, ptr %357, align 4
   %358 = load i32, ptr @hf_s7comm_pi_n_x_searchdirection, align 4
-  %359 = getelementptr inbounds i8, ptr %9, i64 48
+  %359 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store i32 %358, ptr %359, align 16
   %360 = load ptr, ptr %6, align 8
   call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %360, i8 noundef zeroext 13, ptr noundef %9, i32 noundef %22)
@@ -5705,10 +5705,10 @@ define internal fastcc void @s7comm_decode_pi_service(ptr noundef %0, ptr nounde
   %362 = load i32, ptr @hf_s7comm_pi_n_x_addressident, align 4
   store i32 %362, ptr %9, align 16
   %363 = load i32, ptr @hf_s7comm_pi_n_x_toolname, align 4
-  %364 = getelementptr inbounds i8, ptr %9, i64 4
+  %364 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %363, ptr %364, align 4
   %365 = load i32, ptr @hf_s7comm_pi_n_x_duplonumber, align 4
-  %366 = getelementptr inbounds i8, ptr %9, i64 8
+  %366 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %365, ptr %366, align 8
   %367 = load ptr, ptr %6, align 8
   call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %367, i8 noundef zeroext 3, ptr noundef %9, i32 noundef %22)
@@ -5718,19 +5718,19 @@ define internal fastcc void @s7comm_decode_pi_service(ptr noundef %0, ptr nounde
   %369 = load i32, ptr @hf_s7comm_pi_n_x_addressident, align 4
   store i32 %369, ptr %9, align 16
   %370 = load i32, ptr @hf_s7comm_pi_n_x_toolnumber, align 4
-  %371 = getelementptr inbounds i8, ptr %9, i64 4
+  %371 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %370, ptr %371, align 4
   %372 = load i32, ptr @hf_s7comm_pi_n_x_placenrsource, align 4
-  %373 = getelementptr inbounds i8, ptr %9, i64 8
+  %373 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %372, ptr %373, align 8
   %374 = load i32, ptr @hf_s7comm_pi_n_x_magnrsource, align 4
-  %375 = getelementptr inbounds i8, ptr %9, i64 12
+  %375 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 %374, ptr %375, align 4
   %376 = load i32, ptr @hf_s7comm_pi_n_x_placenrdestination, align 4
-  %377 = getelementptr inbounds i8, ptr %9, i64 16
+  %377 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 %376, ptr %377, align 16
   %378 = load i32, ptr @hf_s7comm_pi_n_x_magnrdestination, align 4
-  %379 = getelementptr inbounds i8, ptr %9, i64 20
+  %379 = getelementptr inbounds nuw i8, ptr %9, i64 20
   store i32 %378, ptr %379, align 4
   %380 = load ptr, ptr %6, align 8
   call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %380, i8 noundef zeroext 6, ptr noundef %9, i32 noundef %22)
@@ -5740,10 +5740,10 @@ define internal fastcc void @s7comm_decode_pi_service(ptr noundef %0, ptr nounde
   %382 = load i32, ptr @hf_s7comm_pi_n_x_addressident, align 4
   store i32 %382, ptr %9, align 16
   %383 = load i32, ptr @hf_s7comm_pi_n_x_spindlenumber, align 4
-  %384 = getelementptr inbounds i8, ptr %9, i64 4
+  %384 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %383, ptr %384, align 4
   %385 = load i32, ptr @hf_s7comm_pi_n_x_incrementnumber, align 4
-  %386 = getelementptr inbounds i8, ptr %9, i64 8
+  %386 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %385, ptr %386, align 8
   %387 = load ptr, ptr %6, align 8
   call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %387, i8 noundef zeroext 3, ptr noundef %9, i32 noundef %22)
@@ -5753,25 +5753,25 @@ define internal fastcc void @s7comm_decode_pi_service(ptr noundef %0, ptr nounde
   %389 = load i32, ptr @hf_s7comm_pi_n_x_addressident, align 4
   store i32 %389, ptr %9, align 16
   %390 = load i32, ptr @hf_s7comm_pi_n_x_toolnumber, align 4
-  %391 = getelementptr inbounds i8, ptr %9, i64 4
+  %391 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %390, ptr %391, align 4
   %392 = load i32, ptr @hf_s7comm_pi_n_x_toolid, align 4
-  %393 = getelementptr inbounds i8, ptr %9, i64 8
+  %393 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %392, ptr %393, align 8
   %394 = load i32, ptr @hf_s7comm_pi_n_x_duplonumber, align 4
-  %395 = getelementptr inbounds i8, ptr %9, i64 12
+  %395 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 %394, ptr %395, align 4
   %396 = load i32, ptr @hf_s7comm_pi_n_x_placenrsource, align 4
-  %397 = getelementptr inbounds i8, ptr %9, i64 16
+  %397 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 %396, ptr %397, align 16
   %398 = load i32, ptr @hf_s7comm_pi_n_x_magnrsource, align 4
-  %399 = getelementptr inbounds i8, ptr %9, i64 20
+  %399 = getelementptr inbounds nuw i8, ptr %9, i64 20
   store i32 %398, ptr %399, align 4
   %400 = load i32, ptr @hf_s7comm_pi_n_x_placenrdestination, align 4
-  %401 = getelementptr inbounds i8, ptr %9, i64 24
+  %401 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i32 %400, ptr %401, align 8
   %402 = load i32, ptr @hf_s7comm_pi_n_x_magnrdestination, align 4
-  %403 = getelementptr inbounds i8, ptr %9, i64 28
+  %403 = getelementptr inbounds nuw i8, ptr %9, i64 28
   store i32 %402, ptr %403, align 4
   %404 = load ptr, ptr %6, align 8
   call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %404, i8 noundef zeroext 8, ptr noundef %9, i32 noundef %22)
@@ -5781,13 +5781,13 @@ define internal fastcc void @s7comm_decode_pi_service(ptr noundef %0, ptr nounde
   %406 = load i32, ptr @hf_s7comm_pi_n_x_addressident, align 4
   store i32 %406, ptr %9, align 16
   %407 = load i32, ptr @hf_s7comm_pi_n_x_toolnumber, align 4
-  %408 = getelementptr inbounds i8, ptr %9, i64 4
+  %408 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %407, ptr %408, align 4
   %409 = load i32, ptr @hf_s7comm_pi_n_x_dnr, align 4
-  %410 = getelementptr inbounds i8, ptr %9, i64 8
+  %410 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %409, ptr %410, align 8
   %411 = load i32, ptr @hf_s7comm_pi_n_x_monitoringmode, align 4
-  %412 = getelementptr inbounds i8, ptr %9, i64 12
+  %412 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 %411, ptr %412, align 4
   %413 = load ptr, ptr %6, align 8
   call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %413, i8 noundef zeroext 4, ptr noundef %9, i32 noundef %22)
@@ -5797,35 +5797,35 @@ define internal fastcc void @s7comm_decode_pi_service(ptr noundef %0, ptr nounde
   %415 = load i32, ptr @hf_s7comm_pi_n_x_addressident, align 4
   store i32 %415, ptr %9, align 16
   %416 = load i32, ptr @hf_s7comm_pi_n_x_magnrfrom, align 4
-  %417 = getelementptr inbounds i8, ptr %9, i64 4
+  %417 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %416, ptr %417, align 4
   %418 = load i32, ptr @hf_s7comm_pi_n_x_placenrfrom, align 4
-  %419 = getelementptr inbounds i8, ptr %9, i64 8
+  %419 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %418, ptr %419, align 8
   %420 = load i32, ptr @hf_s7comm_pi_n_x_magnrto, align 4
-  %421 = getelementptr inbounds i8, ptr %9, i64 12
+  %421 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 %420, ptr %421, align 4
   %422 = load i32, ptr @hf_s7comm_pi_n_x_placenrto, align 4
-  %423 = getelementptr inbounds i8, ptr %9, i64 16
+  %423 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 %422, ptr %423, align 16
   %424 = load i32, ptr @hf_s7comm_pi_n_x_magrefnr, align 4
-  %425 = getelementptr inbounds i8, ptr %9, i64 20
+  %425 = getelementptr inbounds nuw i8, ptr %9, i64 20
   store i32 %424, ptr %425, align 4
   %426 = load i32, ptr @hf_s7comm_pi_n_x_placerefnr, align 4
-  %427 = getelementptr inbounds i8, ptr %9, i64 24
+  %427 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i32 %426, ptr %427, align 8
   %428 = load i32, ptr @hf_s7comm_pi_n_x_searchdirection, align 4
-  %429 = getelementptr inbounds i8, ptr %9, i64 28
+  %429 = getelementptr inbounds nuw i8, ptr %9, i64 28
   store i32 %428, ptr %429, align 4
   %430 = load i32, ptr @hf_s7comm_pi_n_x_kindofsearch, align 4
-  %431 = getelementptr inbounds i8, ptr %9, i64 32
+  %431 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i32 %430, ptr %431, align 16
   %432 = load ptr, ptr %6, align 8
   call fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %26, ptr noundef %432, i8 noundef zeroext 9, ptr noundef %9, i32 noundef %22)
   br label %437
 
 433:                                              ; preds = %42
-  %434 = getelementptr inbounds i8, ptr %1, i64 8
+  %434 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %435 = load ptr, ptr %434, align 8
   %436 = load ptr, ptr %6, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %435, i32 noundef 25, ptr noundef nonnull @.str.2155, ptr noundef %436) #7
@@ -5927,7 +5927,7 @@ define internal fastcc range(i32 19, 277) i32 @s7comm_decode_plc_controls_filena
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %32, ptr noundef nonnull @.str.2128, ptr noundef %33) #7
   %34 = add nuw nsw i32 %3, 4
   %35 = load i32, ptr @hf_s7comm_data_blockcontrol_block_num, align 4
-  %36 = getelementptr inbounds i8, ptr %1, i64 408
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %37 = load ptr, ptr %36, align 8
   %38 = call ptr @proto_tree_add_item_ret_string(ptr noundef %25, i32 noundef %35, ptr noundef %0, i32 noundef %34, i32 noundef 5, i32 noundef 0, ptr noundef %37, ptr noundef nonnull %5) #7
   %39 = add nuw nsw i32 %3, 9
@@ -5935,7 +5935,7 @@ define internal fastcc range(i32 19, 277) i32 @s7comm_decode_plc_controls_filena
   %41 = call zeroext i1 @ws_strtoi32(ptr noundef %40, ptr noundef null, ptr noundef nonnull %6) #7
   %42 = call ptr @val_to_str(i32 noundef %23, ptr noundef nonnull @blocktype_names, ptr noundef nonnull @.str.2130) #7
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %25, ptr noundef nonnull @.str.2131, ptr noundef %42) #7
-  %43 = getelementptr inbounds i8, ptr %1, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %44 = load ptr, ptr %43, align 8
   %45 = call ptr @val_to_str(i32 noundef %23, ptr noundef nonnull @blocktype_names, ptr noundef nonnull @.str.2130) #7
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %44, i32 noundef 25, ptr noundef nonnull @.str.2132, ptr noundef %45) #7
@@ -5966,10 +5966,10 @@ define internal fastcc range(i32 19, 277) i32 @s7comm_decode_plc_controls_filena
   br label %66
 
 59:                                               ; preds = %15, %4
-  %60 = getelementptr inbounds i8, ptr %1, i64 408
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %61 = load ptr, ptr %60, align 8
   %62 = tail call ptr @tvb_get_string_enc(ptr noundef %61, ptr noundef %0, i32 noundef %11, i32 noundef %9, i32 noundef 0) #7
-  %63 = getelementptr inbounds i8, ptr %1, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %64 = load ptr, ptr %63, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %64, i32 noundef 25, ptr noundef nonnull @.str.2136, ptr noundef %62) #7
   %65 = add nuw nsw i32 %11, %9
@@ -5996,7 +5996,7 @@ declare ptr @try_str_to_str_idx(ptr noundef, ptr noundef, ptr noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i8 noundef zeroext range(i8 1, 14) %5, ptr nocapture noundef nonnull readonly %6, i32 noundef range(i32 20, 23) %7) unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %1, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %10, ptr noundef nonnull @.str.2081) #7
   %12 = zext nneg i8 %5 to i64
@@ -6034,7 +6034,7 @@ define internal fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, pt
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.2084, ptr noundef %29) #7
   %30 = tail call ptr @wmem_strbuf_get_str(ptr noundef %11) #7
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2294, ptr noundef %4, ptr noundef %30) #7
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = tail call ptr @wmem_strbuf_get_str(ptr noundef %11) #7
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %32, i32 noundef 25, ptr noundef nonnull @.str.2294, ptr noundef %4, ptr noundef %33) #7
@@ -6093,7 +6093,7 @@ define internal fastcc i32 @s7comm_decode_ud_cyclic_subfunc(ptr noundef %0, ptr 
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = zext i8 %2 to i32
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %16, i32 noundef 25, ptr noundef nonnull @.str.2354, i32 noundef %17) #7
@@ -6145,7 +6145,7 @@ define internal fastcc i32 @s7comm_decode_ud_cyclic_subfunc(ptr noundef %0, ptr 
   br i1 %or.cond, label %43, label %.thread
 
 43:                                               ; preds = %41
-  %44 = getelementptr inbounds i8, ptr %1, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %45 = load ptr, ptr %44, align 8
   %46 = zext i8 %2 to i32
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %45, i32 noundef 25, ptr noundef nonnull @.str.2354, i32 noundef %46) #7
@@ -6165,7 +6165,7 @@ define internal fastcc i32 @s7comm_decode_ud_cyclic_subfunc(ptr noundef %0, ptr 
   %53 = load i32, ptr @hf_s7comm_cycl_jobid, align 4
   %54 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %53, ptr noundef %0, i32 noundef %52, i32 noundef 1, i32 noundef 0) #7
   %55 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %52) #7
-  %56 = getelementptr inbounds i8, ptr %1, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %57 = load ptr, ptr %56, align 8
   %58 = zext i8 %55 to i32
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %57, i32 noundef 25, ptr noundef nonnull @.str.2354, i32 noundef %58) #7
@@ -6173,7 +6173,7 @@ define internal fastcc i32 @s7comm_decode_ud_cyclic_subfunc(ptr noundef %0, ptr 
   br label %.thread
 
 60:                                               ; preds = %48
-  %61 = getelementptr inbounds i8, ptr %1, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %62 = load ptr, ptr %61, align 8
   %63 = zext i8 %2 to i32
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %62, i32 noundef 25, ptr noundef nonnull @.str.2354, i32 noundef %63) #7
@@ -6352,7 +6352,7 @@ define internal fastcc noundef i32 @s7comm_decode_ud_block_subfunc(ptr noundef %
   %41 = zext i16 %38 to i32
   %42 = tail call ptr @val_to_str(i32 noundef %41, ptr noundef nonnull @blocktype_names, ptr noundef nonnull @.str.2130) #7
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %40, ptr noundef nonnull @.str.2128, ptr noundef %42) #7
-  %43 = getelementptr inbounds i8, ptr %1, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %44 = load ptr, ptr %43, align 8
   %45 = tail call ptr @val_to_str(i32 noundef %41, ptr noundef nonnull @blocktype_names, ptr noundef nonnull @.str.2130) #7
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %44, i32 noundef 25, ptr noundef nonnull @.str.2356, ptr noundef %45) #7
@@ -6413,14 +6413,14 @@ define internal fastcc noundef i32 @s7comm_decode_ud_block_subfunc(ptr noundef %
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %72, ptr noundef nonnull @.str.2128, ptr noundef %74) #7
   %75 = add i32 %8, 2
   %76 = load i32, ptr @hf_s7comm_ud_blockinfo_block_num_ascii, align 4
-  %77 = getelementptr inbounds i8, ptr %1, i64 408
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %78 = load ptr, ptr %77, align 8
   %79 = call ptr @proto_tree_add_item_ret_string(ptr noundef %2, i32 noundef %76, ptr noundef %0, i32 noundef %75, i32 noundef 5, i32 noundef 0, ptr noundef %78, ptr noundef nonnull %12) #7
   %80 = load ptr, ptr %12, align 8
   %81 = call zeroext i1 @ws_strtoi32(ptr noundef %80, ptr noundef null, ptr noundef nonnull %15) #7
   %82 = call ptr @val_to_str(i32 noundef %73, ptr noundef nonnull @blocktype_names, ptr noundef nonnull @.str.2130) #7
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2146, ptr noundef %82) #7
-  %83 = getelementptr inbounds i8, ptr %1, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %84 = load ptr, ptr %83, align 8
   %85 = call ptr @val_to_str(i32 noundef %73, ptr noundef nonnull @blocktype_names, ptr noundef nonnull @.str.2130) #7
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %84, i32 noundef 25, ptr noundef nonnull @.str.2358, ptr noundef %85) #7
@@ -6490,7 +6490,7 @@ define internal fastcc noundef i32 @s7comm_decode_ud_block_subfunc(ptr noundef %
   %133 = load i32, ptr @hf_s7comm_ud_blockinfo_block_num, align 4
   %134 = zext i16 %132 to i32
   %135 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %133, ptr noundef %0, i32 noundef %131, i32 noundef 2, i32 noundef %134) #7
-  %136 = getelementptr inbounds i8, ptr %1, i64 8
+  %136 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %137 = load ptr, ptr %136, align 8
   %138 = zext i8 %128 to i32
   %139 = tail call ptr @val_to_str(i32 noundef %138, ptr noundef nonnull @subblktype_names, ptr noundef nonnull @.str.2314) #7
@@ -6523,18 +6523,18 @@ define internal fastcc noundef i32 @s7comm_decode_ud_block_subfunc(ptr noundef %
   br i1 %.not.i, label %s7comm_get_timestring_from_s7time.exit, label %159
 
 159:                                              ; preds = %102
-  %160 = getelementptr inbounds i8, ptr %158, i64 16
+  %160 = getelementptr inbounds nuw i8, ptr %158, i64 16
   %161 = load i32, ptr %160, align 8
   %162 = sext i32 %161 to i64
   %163 = getelementptr [12 x [4 x i8]], ptr @mon_names, i64 0, i64 %162
-  %164 = getelementptr inbounds i8, ptr %158, i64 12
+  %164 = getelementptr inbounds nuw i8, ptr %158, i64 12
   %165 = load i32, ptr %164, align 4
-  %166 = getelementptr inbounds i8, ptr %158, i64 20
+  %166 = getelementptr inbounds nuw i8, ptr %158, i64 20
   %167 = load i32, ptr %166, align 4
   %168 = add i32 %167, 1900
-  %169 = getelementptr inbounds i8, ptr %158, i64 8
+  %169 = getelementptr inbounds nuw i8, ptr %158, i64 8
   %170 = load i32, ptr %169, align 8
-  %171 = getelementptr inbounds i8, ptr %158, i64 4
+  %171 = getelementptr inbounds nuw i8, ptr %158, i64 4
   %172 = load i32, ptr %171, align 4
   %173 = load i32, ptr %158, align 8
   %174 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %13, i64 noundef 30, ptr noundef nonnull @.str.2362, ptr noundef %163, i32 noundef %165, i32 noundef %168, i32 noundef %170, i32 noundef %172, i32 noundef %173, i32 noundef %155) #7
@@ -6564,18 +6564,18 @@ s7comm_get_timestring_from_s7time.exit:           ; preds = %102, %159
   br i1 %.not.i245, label %s7comm_get_timestring_from_s7time.exit246, label %189
 
 189:                                              ; preds = %s7comm_get_timestring_from_s7time.exit
-  %190 = getelementptr inbounds i8, ptr %188, i64 16
+  %190 = getelementptr inbounds nuw i8, ptr %188, i64 16
   %191 = load i32, ptr %190, align 8
   %192 = sext i32 %191 to i64
   %193 = getelementptr [12 x [4 x i8]], ptr @mon_names, i64 0, i64 %192
-  %194 = getelementptr inbounds i8, ptr %188, i64 12
+  %194 = getelementptr inbounds nuw i8, ptr %188, i64 12
   %195 = load i32, ptr %194, align 4
-  %196 = getelementptr inbounds i8, ptr %188, i64 20
+  %196 = getelementptr inbounds nuw i8, ptr %188, i64 20
   %197 = load i32, ptr %196, align 4
   %198 = add i32 %197, 1900
-  %199 = getelementptr inbounds i8, ptr %188, i64 8
+  %199 = getelementptr inbounds nuw i8, ptr %188, i64 8
   %200 = load i32, ptr %199, align 8
-  %201 = getelementptr inbounds i8, ptr %188, i64 4
+  %201 = getelementptr inbounds nuw i8, ptr %188, i64 4
   %202 = load i32, ptr %201, align 4
   %203 = load i32, ptr %188, align 8
   %204 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %13, i64 noundef 30, ptr noundef nonnull @.str.2362, ptr noundef %193, i32 noundef %195, i32 noundef %198, i32 noundef %200, i32 noundef %202, i32 noundef %203, i32 noundef %185) #7
@@ -6697,7 +6697,7 @@ define internal fastcc i32 @s7comm_decode_ud_cpu_alarm_main(ptr noundef %0, ptr 
 
 .lr.ph:                                           ; preds = %29
   %or.cond = icmp samesign ult i8 %3, 2
-  %38 = getelementptr inbounds i8, ptr %1, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br i1 %or.cond, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %156
@@ -7185,7 +7185,7 @@ define internal fastcc noundef i32 @s7comm_decode_message_service(ptr noundef %0
   br label %56
 
 56:                                               ; preds = %53, %50
-  %57 = getelementptr inbounds i8, ptr %1, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %58 = load ptr, ptr %57, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %58, i32 noundef 25, ptr noundef nonnull @.str.2381, ptr noundef nonnull %7) #7
   %59 = load i32, ptr @hf_s7comm_cpu_msgservice_username, align 4
@@ -7232,7 +7232,7 @@ define internal fastcc noundef i32 @s7comm_decode_message_service(ptr noundef %0
   %87 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %84) #7
   %88 = load i32, ptr @hf_s7comm_cpu_msgservice_almtype, align 4
   %89 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %88, ptr noundef %0, i32 noundef %84, i32 noundef 1, i32 noundef 0) #7
-  %90 = getelementptr inbounds i8, ptr %1, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %91 = load ptr, ptr %90, align 8
   %92 = zext i8 %87 to i32
   %93 = tail call ptr @val_to_str(i32 noundef %92, ptr noundef nonnull @cpu_msgservice_almtype_names, ptr noundef nonnull @.str.2303) #7
@@ -7363,10 +7363,10 @@ define internal fastcc noundef i32 @s7comm_decode_ud_ncprg_subfunc(ptr noundef %
 
 13:                                               ; preds = %10
   %14 = load i32, ptr @hf_s7comm_data_blockcontrol_filename, align 4
-  %15 = getelementptr inbounds i8, ptr %1, i64 408
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %16 = load ptr, ptr %15, align 8
   %17 = call ptr @proto_tree_add_item_ret_string(ptr noundef %2, i32 noundef %14, ptr noundef %0, i32 noundef %6, i32 noundef %5, i32 noundef 0, ptr noundef %16, ptr noundef nonnull %8) #7
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %8, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %19, i32 noundef 25, ptr noundef nonnull @.str.2136, ptr noundef %20) #7
@@ -7387,10 +7387,10 @@ define internal fastcc noundef i32 @s7comm_decode_ud_ncprg_subfunc(ptr noundef %
   %30 = add i32 %6, 2
   %31 = add i32 %5, -2
   %32 = load i32, ptr @hf_s7comm_data_blockcontrol_filename, align 4
-  %33 = getelementptr inbounds i8, ptr %1, i64 408
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %34 = load ptr, ptr %33, align 8
   %35 = call ptr @proto_tree_add_item_ret_string(ptr noundef %2, i32 noundef %32, ptr noundef %0, i32 noundef %30, i32 noundef %31, i32 noundef 0, ptr noundef %34, ptr noundef nonnull %8) #7
-  %36 = getelementptr inbounds i8, ptr %1, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr %8, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %37, i32 noundef 25, ptr noundef nonnull @.str.2136, ptr noundef %38) #7
@@ -9106,7 +9106,7 @@ define internal fastcc noundef i32 @s7comm_decode_message_service_ar_send_args(p
   br i1 %.not68, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   switch i8 %3, label %._crit_edge [
     i8 1, label %.lr.ph.split.us
     i8 2, label %.lr.ph.split.us62

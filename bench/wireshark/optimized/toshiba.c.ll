@@ -28,7 +28,7 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden range(i32 -1, 2) i32 @toshiba_open(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [240 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %4)
-  %5 = getelementptr inbounds i8, ptr %4, i64 239
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 239
   store i8 0, ptr %5, align 1
   br label %6
 
@@ -89,18 +89,18 @@ define hidden range(i32 -1, 2) i32 @toshiba_open(ptr nocapture noundef %0, ptr n
 
 29:                                               ; preds = %23
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %4)
-  %30 = getelementptr inbounds i8, ptr %0, i64 144
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 -1, ptr %30, align 8
   %31 = load i32, ptr @toshiba_file_type_subtype, align 4
-  %32 = getelementptr inbounds i8, ptr %0, i64 20
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %31, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %0, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 112
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @toshiba_read, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 120
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr @toshiba_seek_read, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 148
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 2, ptr %36, align 4
   br label %37
 
@@ -174,7 +174,7 @@ toshiba_seek_next_packet.exit.thread:             ; preds = %._crit_edge.i, %22,
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @toshiba_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = add i64 %1, -1
   %10 = tail call i64 @file_seek(ptr noundef %8, i64 noundef %9, i32 noundef 0, ptr noundef %4) #7
@@ -231,8 +231,8 @@ define internal fastcc range(i32 0, 2) i32 @parse_toshiba_packet(ptr noundef %0,
   %12 = alloca i32, align 4
   %13 = alloca [10 x i8], align 1
   %14 = alloca [10 x i8], align 1
-  %15 = getelementptr inbounds i8, ptr %1, i64 64
-  %16 = getelementptr inbounds i8, ptr %1, i64 80
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %17 = call ptr @file_gets(ptr noundef nonnull %6, i32 noundef 240, ptr noundef %0) #7
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %22
@@ -250,7 +250,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_toshiba_packet(ptr noundef %0,
   br i1 %.not, label %.preheader, label %25
 
 .preheader:                                       ; preds = %22
-  %24 = getelementptr inbounds i8, ptr %6, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 16
   br label %27
 
 25:                                               ; preds = %22
@@ -278,7 +278,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_toshiba_packet(ptr noundef %0,
   br i1 %.not56, label %34, label %27, !llvm.loop !8
 
 34:                                               ; preds = %33
-  %35 = getelementptr inbounds i8, ptr %6, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %36 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %35, ptr noundef nonnull @.str.4, ptr noundef nonnull %7) #7
   %.not57 = icmp eq i32 %36, 1
   br i1 %.not57, label %39, label %37
@@ -313,9 +313,9 @@ define internal fastcc range(i32 0, 2) i32 @parse_toshiba_packet(ptr noundef %0,
 48:                                               ; preds = %44
   store i32 0, ptr %1, align 8
   %49 = call ptr @wtap_block_create(i32 noundef 5) #7
-  %50 = getelementptr inbounds i8, ptr %1, i64 232
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 232
   store ptr %49, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %1, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 3, ptr %51, align 4
   %52 = load i32, ptr %9, align 4
   %53 = mul i32 %52, 3600
@@ -325,18 +325,18 @@ define internal fastcc range(i32 0, 2) i32 @parse_toshiba_packet(ptr noundef %0,
   %57 = load i32, ptr %11, align 4
   %58 = add i32 %56, %57
   %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds i8, ptr %1, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %59, ptr %60, align 8
   %61 = load i32, ptr %12, align 4
   %62 = mul i32 %61, 10000000
-  %63 = getelementptr inbounds i8, ptr %1, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 %62, ptr %63, align 8
   %64 = load i32, ptr %7, align 4
   store i32 %64, ptr %15, align 8
-  %65 = getelementptr inbounds i8, ptr %1, i64 68
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 68
   store i32 %64, ptr %65, align 4
   %66 = load i8, ptr %13, align 1
-  %67 = getelementptr inbounds i8, ptr %1, i64 72
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 72
   switch i8 %66, label %81 [
     i8 66, label %68
     i8 68, label %76
@@ -348,10 +348,10 @@ define internal fastcc range(i32 0, 2) i32 @parse_toshiba_packet(ptr noundef %0,
   %70 = icmp eq i8 %69, 84
   %71 = zext i1 %70 to i32
   store i32 %71, ptr %16, align 8
-  %72 = getelementptr inbounds i8, ptr %13, i64 1
+  %72 = getelementptr inbounds nuw i8, ptr %13, i64 1
   %73 = call i64 @strtol(ptr nocapture noundef nonnull %72, ptr noundef null, i32 noundef 10) #7
   %74 = trunc i64 %73 to i8
-  %75 = getelementptr inbounds i8, ptr %1, i64 84
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 84
   store i8 %74, ptr %75, align 4
   %.pre = load i32, ptr %7, align 4
   br label %82
@@ -362,7 +362,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_toshiba_packet(ptr noundef %0,
   %78 = icmp eq i8 %77, 84
   %79 = zext i1 %78 to i32
   store i32 %79, ptr %16, align 8
-  %80 = getelementptr inbounds i8, ptr %1, i64 84
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 84
   store i8 0, ptr %80, align 4
   br label %82
 
@@ -376,7 +376,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_toshiba_packet(ptr noundef %0,
   %84 = sext i32 %83 to i64
   call void @ws_buffer_assure_space(ptr noundef %2, i64 noundef %84) #7
   %85 = load ptr, ptr %2, align 8
-  %86 = getelementptr inbounds i8, ptr %2, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %87 = load i64, ptr %86, align 8
   %88 = getelementptr i8, ptr %85, i64 %87
   %89 = load i32, ptr %7, align 4
@@ -389,7 +389,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_toshiba_packet(ptr noundef %0,
   br i1 %94, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %82
-  %95 = getelementptr inbounds i8, ptr %6, i64 4
+  %95 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %wide.trip.count = zext nneg i32 %93 to i64
   br label %96
 

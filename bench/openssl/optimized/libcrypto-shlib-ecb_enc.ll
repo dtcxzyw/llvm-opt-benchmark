@@ -29,39 +29,39 @@ define void @DES_ecb_encrypt(ptr nocapture noundef readonly %input, ptr nocaptur
 entry:
   %ll = alloca [2 x i32], align 4
   %0 = load i32, ptr %input, align 1
-  %incdec.ptr8 = getelementptr inbounds i8, ptr %input, i64 4
+  %incdec.ptr8 = getelementptr inbounds nuw i8, ptr %input, i64 4
   store i32 %0, ptr %ll, align 4
   %1 = load i32, ptr %incdec.ptr8, align 1
-  %arrayidx27 = getelementptr inbounds i8, ptr %ll, i64 4
+  %arrayidx27 = getelementptr inbounds nuw i8, ptr %ll, i64 4
   store i32 %1, ptr %arrayidx27, align 4
   call void @DES_encrypt1(ptr noundef nonnull %ll, ptr noundef %ks, i32 noundef %enc) #2
   %2 = load i32, ptr %ll, align 4
   %conv29 = trunc i32 %2 to i8
-  %incdec.ptr30 = getelementptr inbounds i8, ptr %output, i64 1
+  %incdec.ptr30 = getelementptr inbounds nuw i8, ptr %output, i64 1
   store i8 %conv29, ptr %output, align 1
   %shr = lshr i32 %2, 8
   %conv32 = trunc i32 %shr to i8
-  %incdec.ptr33 = getelementptr inbounds i8, ptr %output, i64 2
+  %incdec.ptr33 = getelementptr inbounds nuw i8, ptr %output, i64 2
   store i8 %conv32, ptr %incdec.ptr30, align 1
   %shr34 = lshr i32 %2, 16
   %conv36 = trunc i32 %shr34 to i8
-  %incdec.ptr37 = getelementptr inbounds i8, ptr %output, i64 3
+  %incdec.ptr37 = getelementptr inbounds nuw i8, ptr %output, i64 3
   store i8 %conv36, ptr %incdec.ptr33, align 1
   %shr38 = lshr i32 %2, 24
   %conv40 = trunc nuw i32 %shr38 to i8
-  %incdec.ptr41 = getelementptr inbounds i8, ptr %output, i64 4
+  %incdec.ptr41 = getelementptr inbounds nuw i8, ptr %output, i64 4
   store i8 %conv40, ptr %incdec.ptr37, align 1
   %3 = load i32, ptr %arrayidx27, align 4
   %conv44 = trunc i32 %3 to i8
-  %incdec.ptr45 = getelementptr inbounds i8, ptr %output, i64 5
+  %incdec.ptr45 = getelementptr inbounds nuw i8, ptr %output, i64 5
   store i8 %conv44, ptr %incdec.ptr41, align 1
   %shr46 = lshr i32 %3, 8
   %conv48 = trunc i32 %shr46 to i8
-  %incdec.ptr49 = getelementptr inbounds i8, ptr %output, i64 6
+  %incdec.ptr49 = getelementptr inbounds nuw i8, ptr %output, i64 6
   store i8 %conv48, ptr %incdec.ptr45, align 1
   %shr50 = lshr i32 %3, 16
   %conv52 = trunc i32 %shr50 to i8
-  %incdec.ptr53 = getelementptr inbounds i8, ptr %output, i64 7
+  %incdec.ptr53 = getelementptr inbounds nuw i8, ptr %output, i64 7
   store i8 %conv52, ptr %incdec.ptr49, align 1
   %shr54 = lshr i32 %3, 24
   %conv56 = trunc nuw i32 %shr54 to i8

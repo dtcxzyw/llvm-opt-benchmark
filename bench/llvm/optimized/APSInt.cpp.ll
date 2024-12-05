@@ -43,7 +43,7 @@ define dso_local void @_ZN4llvm6APSIntC2ENS_9StringRefE(ptr nocapture noundef no
   %25 = load ptr, ptr %4, align 8
   %26 = lshr i32 %20, 6
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds i64, ptr %25, i64 %27
+  %28 = getelementptr inbounds nuw i64, ptr %25, i64 %27
   %.in.i.i.i.i.i = select i1 %24, ptr %4, ptr %28
   %29 = load i64, ptr %.in.i.i.i.i.i, align 8
   %30 = and i64 %23, %29
@@ -320,7 +320,7 @@ define dso_local void @_ZNK4llvm6APSInt7ProfileERNS_16FoldingSetNodeIDE(ptr noun
   br i1 %.not.i.i.i.i, label %8, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull %9, i64 noundef %6, i64 noundef 4) #6
   br label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit
 

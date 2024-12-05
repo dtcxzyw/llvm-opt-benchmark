@@ -40,11 +40,11 @@ define dso_local range(i32 -1, 1) i32 @set_winsize(i32 noundef %0, ptr nocapture
 
 7:                                                ; preds = %2
   %8 = load i16, ptr %3, align 2
-  %9 = getelementptr inbounds i8, ptr %1, i64 264
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 264
   store i16 %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %11 = load i16, ptr %10, align 2
-  %12 = getelementptr inbounds i8, ptr %1, i64 262
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 262
   store i16 %11, ptr %12, align 2
   %13 = call i32 @get_log_level() #6
   %14 = icmp sgt i32 %13, 5
@@ -99,7 +99,7 @@ define dso_local void @pty_thread_create(ptr noundef initializes((256, 260)) %0)
 
 10:                                               ; preds = %8, %6
   %.sink = phi i32 [ %9, %8 ], [ %7, %6 ]
-  %11 = getelementptr inbounds i8, ptr %0, i64 256
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store i32 %.sink, ptr %11, align 8
   %12 = icmp slt i32 %.sink, 0
   br i1 %12, label %13, label %15
@@ -119,7 +119,7 @@ define dso_local void @pty_thread_create(ptr noundef initializes((256, 260)) %0)
 
 20:                                               ; preds = %15
   %21 = call zeroext i16 @slurm_get_port(ptr noundef nonnull %2) #6
-  %22 = getelementptr inbounds i8, ptr %0, i64 260
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 260
   store i16 %21, ptr %22, align 4
   %23 = call i32 @get_log_level() #6
   %24 = icmp sgt i32 %23, 5
@@ -239,7 +239,7 @@ define internal noalias noundef ptr @_pty_thread(ptr nocapture noundef %0) #0 {
   %4 = alloca %struct.sockaddr_storage, align 8
   %5 = tail call i32 @xsignal_unblock(ptr noundef nonnull @pty_sigarray) #6
   %6 = tail call ptr @xsignal(i32 noundef 28, ptr noundef nonnull @_handle_sigwinch) #6
-  %7 = getelementptr inbounds i8, ptr %0, i64 256
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %8 = load i32, ptr %7, align 8
   %9 = call i32 @slurm_accept_msg_conn(i32 noundef %8, ptr noundef nonnull %4) #6
   %10 = icmp slt i32 %9, 0
@@ -251,16 +251,16 @@ define internal noalias noundef ptr @_pty_thread(ptr nocapture noundef %0) #0 {
 
 13:                                               ; preds = %1
   %14 = call i32 @net_set_keep_alive(i32 noundef %9) #6
-  %15 = getelementptr inbounds i8, ptr %0, i64 100
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %16 = load i32, ptr %15, align 4
   %17 = icmp ult i32 %16, 4
   br i1 %17, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %13
   %18 = getelementptr i8, ptr %0, i64 264
-  %19 = getelementptr inbounds i8, ptr %3, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %20 = getelementptr i8, ptr %0, i64 262
-  %21 = getelementptr inbounds i8, ptr %2, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 2
   br label %22
 
 22:                                               ; preds = %.lr.ph, %.backedge

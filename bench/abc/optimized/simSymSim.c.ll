@@ -20,8 +20,8 @@ define void @Sim_SymmsSimulate(ptr nocapture noundef %0, ptr nocapture noundef r
   br i1 %11, label %.lr.ph34.i, label %Sim_SymmsCreateSquare.exit
 
 .lr.ph34.i:                                       ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %14
 
 14:                                               ; preds = %.loopexit.i, %.lr.ph34.i
@@ -29,10 +29,10 @@ define void @Sim_SymmsSimulate(ptr nocapture noundef %0, ptr nocapture noundef r
   %.val33.i = phi ptr [ %.val30.i, %.lr.ph34.i ], [ %.val.i, %.loopexit.i ]
   %15 = getelementptr i8, ptr %.val33.i, i64 8
   %.val24.val.i = load ptr, ptr %15, align 8
-  %16 = getelementptr inbounds ptr, ptr %.val24.val.i, i64 %indvars.iv40.i
+  %16 = getelementptr inbounds nuw ptr, ptr %.val24.val.i, i64 %indvars.iv40.i
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %12, align 8
-  %19 = getelementptr inbounds i8, ptr %17, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %20 = load i32, ptr %19, align 8
   %21 = getelementptr i8, ptr %18, i64 8
   %.val23.i = load ptr, ptr %21, align 8
@@ -42,7 +42,7 @@ define void @Sim_SymmsSimulate(ptr nocapture noundef %0, ptr nocapture noundef r
   %25 = trunc nuw nsw i64 %indvars.iv40.i to i32
   %26 = lshr i64 %indvars.iv40.i, 5
   %27 = and i64 %26, 134217727
-  %28 = getelementptr inbounds i32, ptr %1, i64 %27
+  %28 = getelementptr inbounds nuw i32, ptr %1, i64 %27
   %29 = load i32, ptr %28, align 4
   %30 = and i32 %25, 31
   %31 = shl nuw i32 1, %30
@@ -60,7 +60,7 @@ define void @Sim_SymmsSimulate(ptr nocapture noundef %0, ptr nocapture noundef r
 
 .lr.ph.i:                                         ; preds = %.preheader25.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.preheader25.i ]
-  %35 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv.i
   store i32 -1, ptr %35, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %36 = load i32, ptr %13, align 8
@@ -70,7 +70,7 @@ define void @Sim_SymmsSimulate(ptr nocapture noundef %0, ptr nocapture noundef r
 
 .lr.ph29.i:                                       ; preds = %.preheader.i, %.lr.ph29.i
   %indvars.iv37.i = phi i64 [ %indvars.iv.next38.i, %.lr.ph29.i ], [ 0, %.preheader.i ]
-  %39 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv37.i
+  %39 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv37.i
   store i32 0, ptr %39, align 4
   %indvars.iv.next38.i = add nuw nsw i64 %indvars.iv37.i, 1
   %40 = load i32, ptr %13, align 8
@@ -79,7 +79,7 @@ define void @Sim_SymmsSimulate(ptr nocapture noundef %0, ptr nocapture noundef r
   br i1 %42, label %.lr.ph29.i, label %.loopexit.i, !llvm.loop !6
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %.lr.ph29.i, %.preheader.i, %.preheader25.i
-  %43 = getelementptr inbounds i32, ptr %24, i64 %27
+  %43 = getelementptr inbounds nuw i32, ptr %24, i64 %27
   %44 = load i32, ptr %43, align 4
   %45 = xor i32 %44, %31
   store i32 %45, ptr %43, align 4
@@ -102,7 +102,7 @@ Sim_SymmsCreateSquare.exit:                       ; preds = %.loopexit.i, %3
 53:                                               ; preds = %Sim_SymmsCreateSquare.exit
   %54 = load i64, ptr %7, align 8
   %.neg57 = mul i64 %54, -1000000
-  %55 = getelementptr inbounds i8, ptr %7, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %56 = load i64, ptr %55, align 8
   %.neg = sdiv i64 %56, -1000
   %.neg58 = add i64 %.neg, %.neg57
@@ -111,7 +111,7 @@ Sim_SymmsCreateSquare.exit:                       ; preds = %.loopexit.i, %3
 Abc_Clock.exit:                                   ; preds = %Sim_SymmsCreateSquare.exit, %53
   %.0.i.neg = phi i64 [ %.neg58, %53 ], [ 1, %Sim_SymmsCreateSquare.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  %57 = getelementptr inbounds i8, ptr %0, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr i8, ptr %58, i64 4
   %.val63 = load i32, ptr %59, align 4
@@ -119,8 +119,8 @@ Abc_Clock.exit:                                   ; preds = %Sim_SymmsCreateSqua
   br i1 %60, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %Abc_Clock.exit
-  %61 = getelementptr inbounds i8, ptr %0, i64 32
-  %62 = getelementptr inbounds i8, ptr %0, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %63
 
 63:                                               ; preds = %.lr.ph, %63
@@ -128,7 +128,7 @@ Abc_Clock.exit:                                   ; preds = %Sim_SymmsCreateSqua
   %64 = phi ptr [ %58, %.lr.ph ], [ %70, %63 ]
   %65 = getelementptr i8, ptr %64, i64 8
   %.val35 = load ptr, ptr %65, align 8
-  %66 = getelementptr inbounds ptr, ptr %.val35, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw ptr, ptr %.val35, i64 %indvars.iv
   %67 = load ptr, ptr %66, align 8
   %68 = load ptr, ptr %61, align 8
   %69 = load i32, ptr %62, align 8
@@ -150,7 +150,7 @@ Abc_Clock.exit:                                   ; preds = %Sim_SymmsCreateSqua
 76:                                               ; preds = %.critedge
   %77 = load i64, ptr %6, align 8
   %78 = mul nsw i64 %77, 1000000
-  %79 = getelementptr inbounds i8, ptr %6, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %80 = load i64, ptr %79, align 8
   %81 = sdiv i64 %80, 1000
   %82 = add nsw i64 %81, %78
@@ -160,7 +160,7 @@ Abc_Clock.exit46:                                 ; preds = %.critedge, %76
   %.0.i45 = phi i64 [ %82, %76 ], [ -1, %.critedge ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %83 = add i64 %.0.i45, %.0.i.neg
-  %84 = getelementptr inbounds i8, ptr %0, i64 216
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %85 = load i64, ptr %84, align 8
   %86 = add nsw i64 %83, %85
   store i64 %86, ptr %84, align 8
@@ -172,7 +172,7 @@ Abc_Clock.exit46:                                 ; preds = %.critedge, %76
 89:                                               ; preds = %Abc_Clock.exit46
   %90 = load i64, ptr %5, align 8
   %.neg60 = mul i64 %90, -1000000
-  %91 = getelementptr inbounds i8, ptr %5, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %92 = load i64, ptr %91, align 8
   %.neg59 = sdiv i64 %92, -1000
   %.neg61 = add i64 %.neg59, %.neg60
@@ -190,16 +190,16 @@ Abc_Clock.exit48:                                 ; preds = %Abc_Clock.exit46, %
   br i1 %96, label %.lr.ph69, label %.critedge2
 
 .lr.ph69:                                         ; preds = %Abc_Clock.exit48
-  %97 = getelementptr inbounds i8, ptr %0, i64 72
-  %98 = getelementptr inbounds i8, ptr %0, i64 80
-  %99 = getelementptr inbounds i8, ptr %0, i64 88
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %100 = getelementptr i8, ptr %2, i64 8
-  %101 = getelementptr inbounds i8, ptr %0, i64 48
-  %102 = getelementptr inbounds i8, ptr %0, i64 40
-  %103 = getelementptr inbounds i8, ptr %0, i64 32
-  %104 = getelementptr inbounds i8, ptr %0, i64 24
-  %105 = getelementptr inbounds i8, ptr %0, i64 104
-  %106 = getelementptr inbounds i8, ptr %0, i64 112
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 112
   br label %107
 
 107:                                              ; preds = %.lr.ph69, %Sim_SymmsDeriveInfo.exit
@@ -208,17 +208,17 @@ Abc_Clock.exit48:                                 ; preds = %Abc_Clock.exit46, %
   %108 = load ptr, ptr %97, align 8
   %109 = getelementptr i8, ptr %108, i64 8
   %.val40 = load ptr, ptr %109, align 8
-  %110 = getelementptr inbounds i32, ptr %.val40, i64 %indvars.iv72
+  %110 = getelementptr inbounds nuw i32, ptr %.val40, i64 %indvars.iv72
   %111 = load i32, ptr %110, align 4
   %112 = load ptr, ptr %98, align 8
   %113 = getelementptr i8, ptr %112, i64 8
   %.val41 = load ptr, ptr %113, align 8
-  %114 = getelementptr inbounds i32, ptr %.val41, i64 %indvars.iv72
+  %114 = getelementptr inbounds nuw i32, ptr %.val41, i64 %indvars.iv72
   %115 = load i32, ptr %114, align 4
   %116 = load ptr, ptr %99, align 8
   %117 = getelementptr i8, ptr %116, i64 8
   %.val42 = load ptr, ptr %117, align 8
-  %118 = getelementptr inbounds i32, ptr %.val42, i64 %indvars.iv72
+  %118 = getelementptr inbounds nuw i32, ptr %.val42, i64 %indvars.iv72
   %119 = load i32, ptr %118, align 4
   %120 = add nsw i32 %119, %115
   %121 = icmp eq i32 %111, %120
@@ -227,7 +227,7 @@ Abc_Clock.exit48:                                 ; preds = %Abc_Clock.exit46, %
 122:                                              ; preds = %107
   %123 = getelementptr i8, ptr %.val3668, i64 8
   %.val37.val = load ptr, ptr %123, align 8
-  %124 = getelementptr inbounds ptr, ptr %.val37.val, i64 %indvars.iv72
+  %124 = getelementptr inbounds nuw ptr, ptr %.val37.val, i64 %indvars.iv72
   %125 = load ptr, ptr %124, align 8
   %.val38 = load ptr, ptr %125, align 8
   %126 = getelementptr i8, ptr %.val38, i64 32
@@ -243,17 +243,17 @@ Abc_Clock.exit48:                                 ; preds = %Abc_Clock.exit46, %
   %132 = getelementptr i8, ptr %131, i64 16
   %.val43 = load i32, ptr %132, align 8
   %.val44 = load ptr, ptr %100, align 8
-  %133 = getelementptr inbounds ptr, ptr %.val44, i64 %indvars.iv72
+  %133 = getelementptr inbounds nuw ptr, ptr %.val44, i64 %indvars.iv72
   %134 = load ptr, ptr %133, align 8
   %135 = load ptr, ptr %101, align 8
   %136 = getelementptr i8, ptr %135, i64 8
   %.val106.i = load ptr, ptr %136, align 8
-  %137 = getelementptr inbounds ptr, ptr %.val106.i, i64 %indvars.iv72
+  %137 = getelementptr inbounds nuw ptr, ptr %.val106.i, i64 %indvars.iv72
   %138 = load ptr, ptr %137, align 8
   %139 = load ptr, ptr %102, align 8
   %140 = getelementptr i8, ptr %139, i64 8
   %.val100.i = load ptr, ptr %140, align 8
-  %141 = getelementptr inbounds ptr, ptr %.val100.i, i64 %indvars.iv72
+  %141 = getelementptr inbounds nuw ptr, ptr %.val100.i, i64 %indvars.iv72
   %142 = load ptr, ptr %141, align 8
   %143 = load ptr, ptr %103, align 8
   %144 = getelementptr i8, ptr %143, i64 8
@@ -277,16 +277,16 @@ Abc_Clock.exit48:                                 ; preds = %Abc_Clock.exit46, %
 
 .lr.ph.i52:                                       ; preds = %122, %.lr.ph.i52
   %indvars.iv.i53 = phi i64 [ %indvars.iv.next.i54, %.lr.ph.i52 ], [ 0, %122 ]
-  %153 = getelementptr inbounds i32, ptr %142, i64 %indvars.iv.i53
+  %153 = getelementptr inbounds nuw i32, ptr %142, i64 %indvars.iv.i53
   %154 = load i32, ptr %153, align 4
-  %155 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.i53
+  %155 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i53
   %156 = load i32, ptr %155, align 4
   %157 = and i32 %156, %154
-  %158 = getelementptr inbounds i32, ptr %147, i64 %indvars.iv.i53
+  %158 = getelementptr inbounds nuw i32, ptr %147, i64 %indvars.iv.i53
   %159 = load i32, ptr %158, align 4
   %160 = and i32 %157, %159
   %161 = load ptr, ptr %105, align 8
-  %162 = getelementptr inbounds i32, ptr %161, i64 %indvars.iv.i53
+  %162 = getelementptr inbounds nuw i32, ptr %161, i64 %indvars.iv.i53
   store i32 %160, ptr %162, align 4
   %163 = load i32, ptr %153, align 4
   %164 = load i32, ptr %155, align 4
@@ -295,7 +295,7 @@ Abc_Clock.exit48:                                 ; preds = %Abc_Clock.exit46, %
   %167 = xor i32 %166, -1
   %168 = and i32 %165, %167
   %169 = load ptr, ptr %106, align 8
-  %170 = getelementptr inbounds i32, ptr %169, i64 %indvars.iv.i53
+  %170 = getelementptr inbounds nuw i32, ptr %169, i64 %indvars.iv.i53
   store i32 %168, ptr %170, align 4
   %indvars.iv.next.i54 = add nuw nsw i64 %indvars.iv.i53, 1
   %171 = load i32, ptr %104, align 8
@@ -311,7 +311,7 @@ Abc_Clock.exit48:                                 ; preds = %Abc_Clock.exit46, %
   %.val10734.i = phi i32 [ %.val1074.i, %.lr.ph6.i ], [ %.val107.i, %188 ]
   %indvars.iv19.i = phi i64 [ 0, %.lr.ph6.i ], [ %indvars.iv.next20.i, %188 ]
   %.val105.i = load ptr, ptr %152, align 8
-  %176 = getelementptr inbounds i32, ptr %.val105.i, i64 %indvars.iv19.i
+  %176 = getelementptr inbounds nuw i32, ptr %.val105.i, i64 %indvars.iv19.i
   %177 = load i32, ptr %176, align 4
   %178 = load ptr, ptr %105, align 8
   %179 = ashr i32 %177, 5
@@ -347,7 +347,7 @@ Abc_Clock.exit48:                                 ; preds = %Abc_Clock.exit46, %
   %.val10837.i = phi i32 [ %.val108.i, %.critedge.i ], [ %.val107.i, %.critedge.preheader.i ]
   %indvars.iv22.i = phi i64 [ %indvars.iv.next23.i, %.critedge.i ], [ 0, %.critedge.preheader.i ]
   %.val104.i = load ptr, ptr %152, align 8
-  %193 = getelementptr inbounds i32, ptr %.val104.i, i64 %indvars.iv22.i
+  %193 = getelementptr inbounds nuw i32, ptr %.val104.i, i64 %indvars.iv22.i
   %194 = load i32, ptr %193, align 4
   %195 = load ptr, ptr %106, align 8
   %196 = ashr i32 %194, 5
@@ -388,17 +388,17 @@ Abc_Clock.exit48:                                 ; preds = %Abc_Clock.exit46, %
 
 .critedge2.i:                                     ; preds = %.critedge2.preheader.i, %.critedge2.i
   %indvars.iv25.i = phi i64 [ %indvars.iv.next26.i, %.critedge2.i ], [ 0, %.critedge2.preheader.i ]
-  %209 = getelementptr inbounds i32, ptr %142, i64 %indvars.iv25.i
+  %209 = getelementptr inbounds nuw i32, ptr %142, i64 %indvars.iv25.i
   %210 = load i32, ptr %209, align 4
-  %211 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv25.i
+  %211 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv25.i
   %212 = load i32, ptr %211, align 4
   %213 = xor i32 %212, -1
   %214 = and i32 %210, %213
-  %215 = getelementptr inbounds i32, ptr %147, i64 %indvars.iv25.i
+  %215 = getelementptr inbounds nuw i32, ptr %147, i64 %indvars.iv25.i
   %216 = load i32, ptr %215, align 4
   %217 = and i32 %214, %216
   %218 = load ptr, ptr %105, align 8
-  %219 = getelementptr inbounds i32, ptr %218, i64 %indvars.iv25.i
+  %219 = getelementptr inbounds nuw i32, ptr %218, i64 %indvars.iv25.i
   store i32 %217, ptr %219, align 4
   %220 = load i32, ptr %209, align 4
   %221 = load i32, ptr %211, align 4
@@ -407,7 +407,7 @@ Abc_Clock.exit48:                                 ; preds = %Abc_Clock.exit46, %
   %224 = xor i32 %223, -1
   %225 = and i32 %220, %224
   %226 = load ptr, ptr %106, align 8
-  %227 = getelementptr inbounds i32, ptr %226, i64 %indvars.iv25.i
+  %227 = getelementptr inbounds nuw i32, ptr %226, i64 %indvars.iv25.i
   store i32 %225, ptr %227, align 4
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
   %228 = load i32, ptr %104, align 8
@@ -423,7 +423,7 @@ Abc_Clock.exit48:                                 ; preds = %Abc_Clock.exit46, %
   %.val10941.i = phi i32 [ %.val10912.i, %.lr.ph14.i ], [ %.val109.i, %245 ]
   %indvars.iv28.i = phi i64 [ 0, %.lr.ph14.i ], [ %indvars.iv.next29.i, %245 ]
   %.val103.i = load ptr, ptr %208, align 8
-  %233 = getelementptr inbounds i32, ptr %.val103.i, i64 %indvars.iv28.i
+  %233 = getelementptr inbounds nuw i32, ptr %.val103.i, i64 %indvars.iv28.i
   %234 = load i32, ptr %233, align 4
   %235 = load ptr, ptr %105, align 8
   %236 = ashr i32 %234, 5
@@ -453,7 +453,7 @@ Abc_Clock.exit48:                                 ; preds = %Abc_Clock.exit46, %
   %.val11044.i = phi i32 [ %.val110.i, %.critedge4.i ], [ %.val109.i, %.critedge4.preheader.i ]
   %indvars.iv31.i = phi i64 [ %indvars.iv.next32.i, %.critedge4.i ], [ 0, %.critedge4.preheader.i ]
   %.val102.i = load ptr, ptr %208, align 8
-  %248 = getelementptr inbounds i32, ptr %.val102.i, i64 %indvars.iv31.i
+  %248 = getelementptr inbounds nuw i32, ptr %.val102.i, i64 %indvars.iv31.i
   %249 = load i32, ptr %248, align 4
   %250 = load ptr, ptr %106, align 8
   %251 = ashr i32 %249, 5
@@ -499,7 +499,7 @@ Sim_SymmsDeriveInfo.exit:                         ; preds = %.critedge4.i, %.cri
 269:                                              ; preds = %.critedge2
   %270 = load i64, ptr %4, align 8
   %271 = mul nsw i64 %270, 1000000
-  %272 = getelementptr inbounds i8, ptr %4, i64 8
+  %272 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %273 = load i64, ptr %272, align 8
   %274 = sdiv i64 %273, 1000
   %275 = add nsw i64 %274, %271
@@ -509,7 +509,7 @@ Abc_Clock.exit56:                                 ; preds = %.critedge2, %269
   %.0.i55 = phi i64 [ %275, %269 ], [ -1, %.critedge2 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %276 = add i64 %.0.i55, %.0.i47.neg
-  %277 = getelementptr inbounds i8, ptr %0, i64 208
+  %277 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %278 = load i64, ptr %277, align 8
   %279 = add nsw i64 %276, %278
   store i64 %279, ptr %277, align 8

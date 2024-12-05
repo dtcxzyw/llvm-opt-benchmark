@@ -59,9 +59,9 @@ define range(i32 -1, 1) i32 @H5T__conv_ref(ptr noundef readonly %0, ptr noundef 
   br label %.thread270
 
 21:                                               ; preds = %14
-  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 12
   %25 = load i32, ptr %24, align 4
   %.not230 = icmp eq i32 %25, 7
   br i1 %.not230, label %30, label %26
@@ -73,9 +73,9 @@ define range(i32 -1, 1) i32 @H5T__conv_ref(ptr noundef readonly %0, ptr noundef 
   br label %.thread270
 
 30:                                               ; preds = %21
-  %31 = getelementptr inbounds i8, ptr %1, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 12
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 12
   %34 = load i32, ptr %33, align 4
   %.not231 = icmp eq i32 %34, 7
   br i1 %.not231, label %39, label %35
@@ -87,7 +87,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ref(ptr noundef readonly %0, ptr noundef 
   br label %.thread270
 
 39:                                               ; preds = %30
-  %40 = getelementptr inbounds i8, ptr %32, i64 88
+  %40 = getelementptr inbounds nuw i8, ptr %32, i64 88
   %41 = load i8, ptr %40, align 8
   %42 = trunc i8 %41 to i1
   br i1 %42, label %47, label %43
@@ -99,7 +99,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ref(ptr noundef readonly %0, ptr noundef 
   br label %.thread270
 
 47:                                               ; preds = %39
-  %48 = getelementptr inbounds i8, ptr %2, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %48, align 4
   br label %.thread270
 
@@ -120,13 +120,13 @@ define range(i32 -1, 1) i32 @H5T__conv_ref(ptr noundef readonly %0, ptr noundef 
   br i1 %.not, label %57, label %66
 
 57:                                               ; preds = %56
-  %58 = getelementptr inbounds i8, ptr %0, i64 40
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load i64, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %1, i64 40
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %65 = load i64, ptr %64, align 8
   br label %66
 
@@ -142,8 +142,8 @@ define range(i32 -1, 1) i32 @H5T__conv_ref(ptr noundef readonly %0, ptr noundef 
   %.not227 = icmp eq i64 %6, 0
   %.1198. = select i1 %.not227, i64 %.1198, i64 %6
   %.0194 = select i1 %.not226, i64 0, i64 %.1198.
-  %68 = getelementptr inbounds i8, ptr %0, i64 40
-  %69 = getelementptr inbounds i8, ptr %1, i64 40
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 40
   br label %70
 
 70:                                               ; preds = %.lr.ph, %217
@@ -213,10 +213,10 @@ define range(i32 -1, 1) i32 @H5T__conv_ref(ptr noundef readonly %0, ptr noundef 
   %.1210335 = phi ptr [ %.0209, %98 ], [ %214, %212 ]
   store i8 0, ptr %10, align 1
   %100 = load ptr, ptr %68, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 104
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 104
   %102 = load ptr, ptr %101, align 8
   %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %100, i64 96
+  %104 = getelementptr inbounds nuw i8, ptr %100, i64 96
   %105 = load ptr, ptr %104, align 8
   %106 = call i32 %103(ptr noundef %105, ptr noundef %.1179340, ptr noundef nonnull %11) #4
   %107 = icmp slt i32 %106, 0
@@ -235,11 +235,11 @@ define range(i32 -1, 1) i32 @H5T__conv_ref(ptr noundef readonly %0, ptr noundef 
 
 115:                                              ; preds = %112
   %116 = load ptr, ptr %69, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 104
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 104
   %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
   %120 = load ptr, ptr %119, align 8
-  %121 = getelementptr inbounds i8, ptr %116, i64 96
+  %121 = getelementptr inbounds nuw i8, ptr %116, i64 96
   %122 = load ptr, ptr %121, align 8
   %123 = call i32 %120(ptr noundef %122, ptr noundef %.1210335, ptr noundef %.3207336) #4
   %124 = icmp slt i32 %123, 0
@@ -253,16 +253,16 @@ define range(i32 -1, 1) i32 @H5T__conv_ref(ptr noundef readonly %0, ptr noundef 
 
 129:                                              ; preds = %112
   %130 = load ptr, ptr %68, align 8
-  %131 = getelementptr inbounds i8, ptr %130, i64 104
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 104
   %132 = load ptr, ptr %131, align 8
-  %133 = getelementptr inbounds i8, ptr %132, i64 16
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 16
   %134 = load ptr, ptr %133, align 8
-  %135 = getelementptr inbounds i8, ptr %130, i64 96
+  %135 = getelementptr inbounds nuw i8, ptr %130, i64 96
   %136 = load ptr, ptr %135, align 8
-  %137 = getelementptr inbounds i8, ptr %130, i64 16
+  %137 = getelementptr inbounds nuw i8, ptr %130, i64 16
   %138 = load i64, ptr %137, align 8
   %139 = load ptr, ptr %69, align 8
-  %140 = getelementptr inbounds i8, ptr %139, i64 96
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 96
   %141 = load ptr, ptr %140, align 8
   %142 = call i64 %134(ptr noundef %136, ptr noundef %.1179340, i64 noundef %138, ptr noundef %141, ptr noundef nonnull %10) #4
   %143 = icmp eq i64 %142, 0
@@ -302,7 +302,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ref(ptr noundef readonly %0, ptr noundef 
   br i1 %160, label %161, label %166
 
 161:                                              ; preds = %158
-  %162 = getelementptr inbounds i8, ptr %.pre, i64 92
+  %162 = getelementptr inbounds nuw i8, ptr %.pre, i64 92
   %163 = load i32, ptr %162, align 4
   %164 = icmp eq i32 %163, 2
   br i1 %164, label %165, label %166
@@ -312,16 +312,16 @@ define range(i32 -1, 1) i32 @H5T__conv_ref(ptr noundef readonly %0, ptr noundef 
   br label %184
 
 166:                                              ; preds = %161, %158
-  %167 = getelementptr inbounds i8, ptr %.pre, i64 104
+  %167 = getelementptr inbounds nuw i8, ptr %.pre, i64 104
   %168 = load ptr, ptr %167, align 8
-  %169 = getelementptr inbounds i8, ptr %168, i64 24
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 24
   %170 = load ptr, ptr %169, align 8
-  %171 = getelementptr inbounds i8, ptr %.pre, i64 96
+  %171 = getelementptr inbounds nuw i8, ptr %.pre, i64 96
   %172 = load ptr, ptr %171, align 8
-  %173 = getelementptr inbounds i8, ptr %.pre, i64 16
+  %173 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   %174 = load i64, ptr %173, align 8
   %175 = load ptr, ptr %69, align 8
-  %176 = getelementptr inbounds i8, ptr %175, i64 96
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 96
   %177 = load ptr, ptr %176, align 8
   %178 = call i32 %170(ptr noundef %172, ptr noundef %.1179340, i64 noundef %174, ptr noundef %177, ptr noundef %.4, i64 noundef %142) #4
   %179 = icmp slt i32 %178, 0
@@ -340,7 +340,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ref(ptr noundef readonly %0, ptr noundef 
   br i1 %186, label %187, label %192
 
 187:                                              ; preds = %184
-  %188 = getelementptr inbounds i8, ptr %.pre403, i64 92
+  %188 = getelementptr inbounds nuw i8, ptr %.pre403, i64 92
   %189 = load i32, ptr %188, align 4
   %190 = icmp eq i32 %189, 2
   br i1 %190, label %191, label %192
@@ -350,18 +350,18 @@ define range(i32 -1, 1) i32 @H5T__conv_ref(ptr noundef readonly %0, ptr noundef 
   br label %212
 
 192:                                              ; preds = %187, %184
-  %193 = getelementptr inbounds i8, ptr %.pre403, i64 104
+  %193 = getelementptr inbounds nuw i8, ptr %.pre403, i64 104
   %194 = load ptr, ptr %193, align 8
-  %195 = getelementptr inbounds i8, ptr %194, i64 32
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 32
   %196 = load ptr, ptr %195, align 8
   %197 = load ptr, ptr %68, align 8
-  %198 = getelementptr inbounds i8, ptr %197, i64 80
-  %199 = getelementptr inbounds i8, ptr %197, i64 96
+  %198 = getelementptr inbounds nuw i8, ptr %197, i64 80
+  %199 = getelementptr inbounds nuw i8, ptr %197, i64 96
   %200 = load ptr, ptr %199, align 8
   %201 = load i32, ptr %198, align 8
-  %202 = getelementptr inbounds i8, ptr %.pre403, i64 96
+  %202 = getelementptr inbounds nuw i8, ptr %.pre403, i64 96
   %203 = load ptr, ptr %202, align 8
-  %204 = getelementptr inbounds i8, ptr %.pre403, i64 16
+  %204 = getelementptr inbounds nuw i8, ptr %.pre403, i64 16
   %205 = load i64, ptr %204, align 8
   %206 = call i32 %196(ptr noundef %200, ptr noundef %.4, i64 noundef %142, i32 noundef %201, ptr noundef %203, ptr noundef %.1210335, i64 noundef %205, ptr noundef %.3207336) #4
   %207 = icmp slt i32 %206, 0

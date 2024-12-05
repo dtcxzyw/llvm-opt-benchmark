@@ -38,7 +38,7 @@ define dso_local i64 @align_vdso_addr(i64 noundef %0) local_unnamed_addr #0 alig
   br i1 %13, label %23, label %14
 
 14:                                               ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %6, i64 44
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 44
   %16 = load i32, ptr %15, align 4
   %17 = and i32 %16, 4194304
   %18 = icmp eq i32 %17, 0
@@ -63,7 +63,7 @@ define dso_local i64 @align_vdso_addr(i64 noundef %0) local_unnamed_addr #0 alig
   br i1 %31, label %39, label %32
 
 32:                                               ; preds = %23
-  %33 = getelementptr inbounds i8, ptr %6, i64 44
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 44
   %34 = load i32, ptr %33, align 4
   %35 = and i32 %34, 4194304
   %36 = icmp eq i32 %35, 0
@@ -104,13 +104,13 @@ define internal noundef i32 @control_va_addr_alignment(ptr noundef %0) #2 sectio
   ]
 
 sub_1:                                            ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %7 = load i8, ptr %6, align 1
   %.not11 = icmp eq i8 %7, 50
   br i1 %.not11, label %.tail, label %.tail1.thread
 
 .tail:                                            ; preds = %sub_1
-  %8 = getelementptr inbounds i8, ptr %0, i64 2
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %9 = load i8, ptr %8, align 1
   %10 = icmp eq i8 %9, 0
   br i1 %10, label %11, label %.tail1.thread
@@ -120,13 +120,13 @@ sub_1:                                            ; preds = %4
   br label %30
 
 sub_13:                                           ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %0, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %13 = load i8, ptr %12, align 1
   %.not13 = icmp eq i8 %13, 52
   br i1 %.not13, label %.tail1, label %.tail1.thread
 
 .tail1:                                           ; preds = %sub_13
-  %14 = getelementptr inbounds i8, ptr %0, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %15 = load i8, ptr %14, align 1
   %16 = icmp eq i8 %15, 0
   br i1 %16, label %17, label %.thread
@@ -154,13 +154,13 @@ sub_07:                                           ; preds = %.tail1.thread
   br i1 %.not14, label %sub_18, label %.tail6.thread
 
 sub_18:                                           ; preds = %sub_07
-  %23 = getelementptr inbounds i8, ptr %0, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %24 = load i8, ptr %23, align 1
   %.not15 = icmp eq i8 %24, 110
   br i1 %.not15, label %.tail6, label %.tail6.thread
 
 .tail6:                                           ; preds = %sub_18
-  %25 = getelementptr inbounds i8, ptr %0, i64 2
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %26 = load i8, ptr %25, align 1
   %27 = icmp eq i8 %26, 0
   br i1 %27, label %28, label %.tail6.thread
@@ -179,22 +179,22 @@ sub_18:                                           ; preds = %sub_07
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i64 @__x64_sys_mmap(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4095
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %6, label %19
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 104
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 112
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %16 = load i64, ptr %15, align 8
   %17 = lshr exact i64 %3, 12
   %18 = tail call i64 @ksys_mmap_pgoff(i64 noundef %16, i64 noundef %14, i64 noundef %12, i64 noundef %10, i64 noundef %8, i64 noundef %17) #9
@@ -207,26 +207,26 @@ define dso_local i64 @__x64_sys_mmap(ptr nocapture noundef readonly %0) local_un
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i64 @__ia32_sys_mmap(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4095
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %6, label %25
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 112
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, 4294967295
-  %10 = getelementptr inbounds i8, ptr %0, i64 104
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %11 = load i64, ptr %10, align 8
   %12 = and i64 %11, 4294967295
-  %13 = getelementptr inbounds i8, ptr %0, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %14 = load i64, ptr %13, align 8
   %15 = and i64 %14, 4294967295
-  %16 = getelementptr inbounds i8, ptr %0, i64 88
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %17 = load i64, ptr %16, align 8
   %18 = and i64 %17, 4294967295
-  %19 = getelementptr inbounds i8, ptr %0, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %20 = load i64, ptr %19, align 8
   %21 = and i64 %20, 4294967295
   %22 = lshr exact i64 %3, 12
@@ -244,7 +244,7 @@ define dso_local i64 @arch_get_unmapped_area(ptr noundef readnone %0, i64 nounde
   %6 = alloca %struct.vm_unmapped_area_info, align 8
   %7 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #8, !srcloc !5
   %8 = inttoptr i64 %7 to ptr
-  %9 = getelementptr inbounds i8, ptr %8, i64 1192
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1192
   %10 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #9
   %11 = and i64 %4, 16
@@ -252,7 +252,7 @@ define dso_local i64 @arch_get_unmapped_area(ptr noundef readnone %0, i64 nounde
   br i1 %12, label %13, label %115
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %8, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, 2
   %17 = icmp ne i32 %16, 0
@@ -262,7 +262,7 @@ define dso_local i64 @arch_get_unmapped_area(ptr noundef readnone %0, i64 nounde
   br i1 %20, label %28, label %21
 
 21:                                               ; preds = %13
-  %22 = getelementptr inbounds i8, ptr %8, i64 44
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 44
   %23 = load i32, ptr %22, align 4
   %24 = and i32 %23, 4194304
   %25 = icmp eq i32 %24, 0
@@ -313,7 +313,7 @@ define dso_local i64 @arch_get_unmapped_area(ptr noundef readnone %0, i64 nounde
 
 53:                                               ; preds = %51
   %54 = add i64 %47, %2
-  %55 = getelementptr inbounds i8, ptr %48, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %48, i64 32
   %56 = load i64, ptr %55, align 8
   %57 = and i64 %56, 256
   %58 = icmp eq i64 %57, 0
@@ -326,16 +326,16 @@ define dso_local i64 @arch_get_unmapped_area(ptr noundef readnone %0, i64 nounde
 
 64:                                               ; preds = %53, %45, %43
   store i64 0, ptr %6, align 8
-  %65 = getelementptr inbounds i8, ptr %6, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %2, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %6, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %40, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %6, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 %41, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %6, i64 32
+  %68 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i64 0, ptr %68, align 8
   %69 = shl i64 %3, 12
-  %70 = getelementptr inbounds i8, ptr %6, i64 40
+  %70 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i64 %69, ptr %70, align 8
   %71 = icmp eq ptr %0, null
   br i1 %71, label %113, label %72
@@ -356,7 +356,7 @@ define dso_local i64 @arch_get_unmapped_area(ptr noundef readnone %0, i64 nounde
   br i1 %82, label %92, label %83
 
 83:                                               ; preds = %75
-  %84 = getelementptr inbounds i8, ptr %8, i64 44
+  %84 = getelementptr inbounds nuw i8, ptr %8, i64 44
   %85 = load i32, ptr %84, align 4
   %86 = and i32 %85, 4194304
   %87 = icmp eq i32 %86, 0
@@ -382,7 +382,7 @@ define dso_local i64 @arch_get_unmapped_area(ptr noundef readnone %0, i64 nounde
   br i1 %100, label %108, label %101
 
 101:                                              ; preds = %92
-  %102 = getelementptr inbounds i8, ptr %8, i64 44
+  %102 = getelementptr inbounds nuw i8, ptr %8, i64 44
   %103 = load i32, ptr %102, align 4
   %104 = and i32 %103, 4194304
   %105 = icmp eq i32 %104, 0
@@ -422,7 +422,7 @@ define dso_local i64 @arch_get_unmapped_area_topdown(ptr noundef %0, i64 noundef
   %6 = alloca %struct.vm_unmapped_area_info, align 8
   %7 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #8, !srcloc !5
   %8 = inttoptr i64 %7 to ptr
-  %9 = getelementptr inbounds i8, ptr %8, i64 1192
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1192
   %10 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 48, i1 false), !annotation !6
@@ -432,7 +432,7 @@ define dso_local i64 @arch_get_unmapped_area_topdown(ptr noundef %0, i64 noundef
   br i1 %13, label %20, label %14
 
 14:                                               ; preds = %5
-  %15 = getelementptr inbounds i8, ptr %8, i64 1240
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 1240
   %16 = load i32, ptr %15, align 8
   %17 = and i32 %16, 134217728
   %18 = icmp eq i32 %17, 0
@@ -454,7 +454,7 @@ define dso_local i64 @arch_get_unmapped_area_topdown(ptr noundef %0, i64 noundef
   br i1 %27, label %28, label %129
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %8, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %30 = load i32, ptr %29, align 8
   %31 = and i32 %30, 2
   %32 = icmp ne i32 %31, 0
@@ -479,7 +479,7 @@ define dso_local i64 @arch_get_unmapped_area_topdown(ptr noundef %0, i64 noundef
 
 44:                                               ; preds = %41
   %45 = add i64 %39, %2
-  %46 = getelementptr inbounds i8, ptr %42, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 32
   %47 = load i64, ptr %46, align 8
   %48 = and i64 %47, 256
   %49 = icmp eq i64 %48, 0
@@ -493,7 +493,7 @@ define dso_local i64 @arch_get_unmapped_area_topdown(ptr noundef %0, i64 noundef
 55:                                               ; preds = %44, %38, %36
   %56 = phi i64 [ %39, %44 ], [ %39, %38 ], [ 0, %36 ]
   store i64 1, ptr %6, align 8
-  %57 = getelementptr inbounds i8, ptr %6, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %2, ptr %57, align 8
   %58 = load i32, ptr %29, align 8
   %59 = and i32 %58, 2
@@ -501,11 +501,11 @@ define dso_local i64 @arch_get_unmapped_area_topdown(ptr noundef %0, i64 noundef
   %61 = and i64 %4, 128
   %62 = icmp eq i64 %61, 0
   %63 = or i1 %62, %60
-  %64 = getelementptr inbounds i8, ptr %6, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %65 = select i1 %63, i64 4096, i64 4294967296
   store i64 %65, ptr %64, align 8
   %66 = tail call i64 @get_mmap_base(i32 noundef 0) #9
-  %67 = getelementptr inbounds i8, ptr %6, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 %66, ptr %67, align 8
   %68 = icmp ugt i64 %56, 140737488351232
   br i1 %68, label %69, label %77
@@ -524,10 +524,10 @@ define dso_local i64 @arch_get_unmapped_area_topdown(ptr noundef %0, i64 noundef
   br label %77
 
 77:                                               ; preds = %73, %69, %55
-  %78 = getelementptr inbounds i8, ptr %6, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i64 0, ptr %78, align 8
   %79 = shl i64 %3, 12
-  %80 = getelementptr inbounds i8, ptr %6, i64 40
+  %80 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i64 %79, ptr %80, align 8
   %81 = icmp eq ptr %0, null
   br i1 %81, label %123, label %82
@@ -548,7 +548,7 @@ define dso_local i64 @arch_get_unmapped_area_topdown(ptr noundef %0, i64 noundef
   br i1 %92, label %102, label %93
 
 93:                                               ; preds = %85
-  %94 = getelementptr inbounds i8, ptr %8, i64 44
+  %94 = getelementptr inbounds nuw i8, ptr %8, i64 44
   %95 = load i32, ptr %94, align 4
   %96 = and i32 %95, 4194304
   %97 = icmp eq i32 %96, 0
@@ -574,7 +574,7 @@ define dso_local i64 @arch_get_unmapped_area_topdown(ptr noundef %0, i64 noundef
   br i1 %110, label %118, label %111
 
 111:                                              ; preds = %102
-  %112 = getelementptr inbounds i8, ptr %8, i64 44
+  %112 = getelementptr inbounds nuw i8, ptr %8, i64 44
   %113 = load i32, ptr %112, align 4
   %114 = and i32 %113, 4194304
   %115 = icmp eq i32 %114, 0

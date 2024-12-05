@@ -257,7 +257,7 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont56, %for
   %__n.010.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %div.i.i.i.i.i.i, %invoke.cont56 ]
   %__result.addr.09.i.i.i.i.i.pn = phi ptr [ %__result.addr.09.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %add.ptr, %invoke.cont56 ]
   %__first.sroa.0.08.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %add.ptr.i123, %invoke.cont56 ]
-  %__result.addr.09.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.09.i.i.i.i.i.pn, i64 8
+  %__result.addr.09.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__result.addr.09.i.i.i.i.i.pn, i64 8
   %38 = load double, ptr %__first.sroa.0.08.i.i.i.i.i, align 8, !tbaa !20
   store double %38, ptr %__result.addr.09.i.i.i.i.i, align 8, !tbaa !20
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds double, ptr %__first.sroa.0.08.i.i.i.i.i, i64 %1
@@ -266,7 +266,7 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont56, %for
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %for.inc, !llvm.loop !26
 
 if.else:                                          ; preds = %invoke.cont39
-  %add.ptr67 = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  %add.ptr67 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   %add.i = add nuw i64 %i.0449, 1
   %mul.i139 = mul i64 %25, %add.i
   %add.ptr.i140 = getelementptr inbounds nuw double, ptr %24, i64 %mul.i139
@@ -358,7 +358,7 @@ for.body106:                                      ; preds = %for.body106.prehead
   %indvars.iv = phi i64 [ 0, %for.body106.preheader ], [ %indvars.iv.next, %for.body106 ]
   %mul.i.i180 = mul i64 %46, %indvars.iv
   %add.ptr.i.i181 = getelementptr inbounds nuw double, ptr %44, i64 %mul.i.i180
-  %arrayidx111 = getelementptr inbounds double, ptr %add.ptr.i.i181, i64 %indvars.iv
+  %arrayidx111 = getelementptr inbounds nuw double, ptr %add.ptr.i.i181, i64 %indvars.iv
   store double 1.000000e+00, ptr %arrayidx111, align 8, !tbaa !20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond484.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -378,7 +378,7 @@ for.body122:                                      ; preds = %for.body122.lr.ph, 
   %indvars.iv.next489 = add nsw i64 %indvars.iv488, -1
   %mul.i.i185 = mul i64 %1, %indvars.iv.next489
   %add.ptr.i.i186 = getelementptr inbounds nuw double, ptr %cond.i.i, i64 %mul.i.i185
-  %arrayidx128 = getelementptr inbounds double, ptr %add.ptr.i.i186, i64 %indvars.iv.next489
+  %arrayidx128 = getelementptr inbounds nuw double, ptr %add.ptr.i.i186, i64 %indvars.iv.next489
   %60 = load double, ptr %arrayidx128, align 8, !tbaa !20
   %61 = tail call double @llvm.fabs.f64(double %60)
   %cmp130 = fcmp ogt double %61, 0x3CB0000000000000
@@ -386,7 +386,7 @@ for.body122:                                      ; preds = %for.body122.lr.ph, 
 
 if.then131:                                       ; preds = %for.body122
   %div = fdiv double 1.000000e+00, %60
-  %add.ptr142 = getelementptr inbounds double, ptr %call.i178, i64 %indvars.iv.next489
+  %add.ptr142 = getelementptr inbounds nuw double, ptr %call.i178, i64 %indvars.iv.next489
   %cmp.not3.i.i.i190 = icmp eq i64 %indvars.iv.next489, 0
   br i1 %cmp.not3.i.i.i190, label %invoke.cont145, label %for.body.i.i.i191.preheader
 
@@ -1671,7 +1671,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i = load ptr, ptr %0, align 8, !tbaa !61
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc.i.i unwind label %terminate.lpad.i.i
@@ -1684,7 +1684,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
 
 if.then.i.i.i.i:                                  ; preds = %.noexc.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !61
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 24
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN5boost10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit unwind label %terminate.lpad.i.i

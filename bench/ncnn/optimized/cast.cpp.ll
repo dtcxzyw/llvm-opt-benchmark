@@ -107,7 +107,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn4Cast7forwardERKNS_3MatER
 
 27:                                               ; preds = %23
   %28 = load ptr, ptr %25, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %30 = load ptr, ptr %29, align 8
   tail call void %30(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef %26)
   br label %33
@@ -297,10 +297,10 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn4Cast7forwardERKNS_3MatER
 
 137:                                              ; preds = %.lr.ph.us, %137
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %137 ]
-  %138 = getelementptr inbounds float, ptr %130, i64 %indvars.iv
+  %138 = getelementptr inbounds nuw float, ptr %130, i64 %indvars.iv
   %139 = load float, ptr %138, align 4
   %140 = tail call noundef zeroext i16 @_ZN4ncnn18float32_to_float16Ef(float noundef nofpclass(nan inf) %139)
-  %141 = getelementptr inbounds i16, ptr %136, i64 %indvars.iv
+  %141 = getelementptr inbounds nuw i16, ptr %136, i64 %indvars.iv
   store i16 %140, ptr %141, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -351,10 +351,10 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn4Cast7forwardERKNS_3MatER
 
 .lr.ph:                                           ; preds = %149, %.lr.ph
   %indvars.iv728 = phi i64 [ %indvars.iv.next729, %.lr.ph ], [ 0, %149 ]
-  %162 = getelementptr inbounds i16, ptr %155, i64 %indvars.iv728
+  %162 = getelementptr inbounds nuw i16, ptr %155, i64 %indvars.iv728
   %163 = load i16, ptr %162, align 2
   %164 = tail call fast noundef nofpclass(nan inf) float @_ZN4ncnn18float16_to_float32Et(i16 noundef zeroext %163)
-  %165 = getelementptr inbounds float, ptr %161, i64 %indvars.iv728
+  %165 = getelementptr inbounds nuw float, ptr %161, i64 %indvars.iv728
   store float %164, ptr %165, align 4
   %indvars.iv.next729 = add nuw nsw i64 %indvars.iv728, 1
   %exitcond732.not = icmp eq i64 %indvars.iv.next729, %wide.trip.count731
@@ -405,10 +405,10 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn4Cast7forwardERKNS_3MatER
 
 .lr.ph700:                                        ; preds = %173, %.lr.ph700
   %indvars.iv738 = phi i64 [ %indvars.iv.next739, %.lr.ph700 ], [ 0, %173 ]
-  %186 = getelementptr inbounds i8, ptr %179, i64 %indvars.iv738
+  %186 = getelementptr inbounds nuw i8, ptr %179, i64 %indvars.iv738
   %187 = load i8, ptr %186, align 1
   %188 = sitofp i8 %187 to float
-  %189 = getelementptr inbounds float, ptr %185, i64 %indvars.iv738
+  %189 = getelementptr inbounds nuw float, ptr %185, i64 %indvars.iv738
   store float %188, ptr %189, align 4
   %indvars.iv.next739 = add nuw nsw i64 %indvars.iv738, 1
   %exitcond742.not = icmp eq i64 %indvars.iv.next739, %wide.trip.count741
@@ -459,11 +459,11 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn4Cast7forwardERKNS_3MatER
 
 .lr.ph706:                                        ; preds = %197, %.lr.ph706
   %indvars.iv748 = phi i64 [ %indvars.iv.next749, %.lr.ph706 ], [ 0, %197 ]
-  %210 = getelementptr inbounds float, ptr %203, i64 %indvars.iv748
+  %210 = getelementptr inbounds nuw float, ptr %203, i64 %indvars.iv748
   %211 = load i32, ptr %210, align 4
   %212 = lshr i32 %211, 16
   %213 = trunc nuw i32 %212 to i16
-  %214 = getelementptr inbounds i16, ptr %209, i64 %indvars.iv748
+  %214 = getelementptr inbounds nuw i16, ptr %209, i64 %indvars.iv748
   store i16 %213, ptr %214, align 2
   %indvars.iv.next749 = add nuw nsw i64 %indvars.iv748, 1
   %exitcond752.not = icmp eq i64 %indvars.iv.next749, %wide.trip.count751
@@ -514,11 +514,11 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn4Cast7forwardERKNS_3MatER
 
 .lr.ph712:                                        ; preds = %222, %.lr.ph712
   %indvars.iv758 = phi i64 [ %indvars.iv.next759, %.lr.ph712 ], [ 0, %222 ]
-  %235 = getelementptr inbounds i16, ptr %228, i64 %indvars.iv758
+  %235 = getelementptr inbounds nuw i16, ptr %228, i64 %indvars.iv758
   %236 = load i16, ptr %235, align 2
   %237 = zext i16 %236 to i32
   %238 = shl nuw i32 %237, 16
-  %239 = getelementptr inbounds float, ptr %234, i64 %indvars.iv758
+  %239 = getelementptr inbounds nuw float, ptr %234, i64 %indvars.iv758
   store i32 %238, ptr %239, align 4
   %indvars.iv.next759 = add nuw nsw i64 %indvars.iv758, 1
   %exitcond762.not = icmp eq i64 %indvars.iv.next759, %wide.trip.count761

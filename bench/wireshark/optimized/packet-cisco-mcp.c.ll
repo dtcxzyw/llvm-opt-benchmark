@@ -126,7 +126,7 @@ define internal i32 @dissect_mcp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #2
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void @col_set_str(ptr noundef %13, i32 noundef 34, ptr noundef nonnull @.str.32) #2
   %14 = load ptr, ptr %12, align 8
@@ -141,7 +141,7 @@ define internal i32 @dissect_mcp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 .lr.ph:                                           ; preds = %4
   %20 = icmp eq i32 %19, 62
-  %21 = getelementptr inbounds i8, ptr %1, i64 408
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %22
 
 22:                                               ; preds = %.lr.ph, %131

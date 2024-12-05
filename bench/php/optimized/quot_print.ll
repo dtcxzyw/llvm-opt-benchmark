@@ -26,7 +26,7 @@ define dso_local noundef ptr @php_quot_print_decode(ptr nocapture noundef readon
 
 6:                                                ; preds = %.lr.ph
   %7 = add i64 %.0107146, -2
-  %8 = getelementptr inbounds i8, ptr %.0113145, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %.0113145, i64 1
   %9 = add i64 %.0115144, -1
   br label %10
 
@@ -34,7 +34,7 @@ define dso_local noundef ptr @php_quot_print_decode(ptr nocapture noundef readon
   %.1116 = phi i64 [ %9, %6 ], [ %.0115144, %.lr.ph ]
   %.1114 = phi ptr [ %8, %6 ], [ %.0113145, %.lr.ph ]
   %.1 = phi i64 [ %7, %6 ], [ %.0107146, %.lr.ph ]
-  %11 = getelementptr inbounds i8, ptr %.1114, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.1114, i64 1
   %12 = add i64 %.1116, -1
   %13 = icmp ugt i64 %12, 1
   br i1 %13, label %.lr.ph, label %.critedge
@@ -45,13 +45,13 @@ define dso_local noundef ptr @php_quot_print_decode(ptr nocapture noundef readon
   %15 = add i64 %14, 32
   %16 = tail call noalias ptr @_emalloc(i64 noundef %15) #7
   store i32 1, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %16, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store i32 22, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %16, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 0, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %16, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i64 %.0107.lcssa, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %16, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %.not132149 = icmp eq i64 %1, 0
   br i1 %.not132149, label %.critedge2, label %.lr.ph154
 
@@ -68,7 +68,7 @@ define dso_local noundef ptr @php_quot_print_decode(ptr nocapture noundef readon
 
 22:                                               ; preds = %.lr.ph154
   %23 = add i64 %.2117150, -1
-  %24 = getelementptr inbounds i8, ptr %.2151, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.2151, i64 1
   %25 = icmp eq i64 %23, 0
   br i1 %25, label %.critedge2, label %26
 
@@ -79,7 +79,7 @@ define dso_local noundef ptr @php_quot_print_decode(ptr nocapture noundef readon
 
 29:                                               ; preds = %26
   %30 = zext i8 %27 to i64
-  %31 = getelementptr inbounds [256 x i32], ptr @php_quot_print_decode.hexval_tbl, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw [256 x i32], ptr @php_quot_print_decode.hexval_tbl, i64 0, i64 %30
   %32 = load i32, ptr %31, align 4
   %33 = icmp ult i32 %32, 16
   br i1 %33, label %34, label %52
@@ -89,10 +89,10 @@ define dso_local noundef ptr @php_quot_print_decode(ptr nocapture noundef readon
   br i1 %35, label %43, label %36
 
 36:                                               ; preds = %34
-  %37 = getelementptr inbounds i8, ptr %.2151, i64 2
+  %37 = getelementptr inbounds nuw i8, ptr %.2151, i64 2
   %38 = load i8, ptr %37, align 1
   %39 = zext i8 %38 to i64
-  %40 = getelementptr inbounds [256 x i32], ptr @php_quot_print_decode.hexval_tbl, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw [256 x i32], ptr @php_quot_print_decode.hexval_tbl, i64 0, i64 %39
   %41 = load i32, ptr %40, align 4
   %42 = icmp ugt i32 %41, 15
   br i1 %42, label %43, label %44
@@ -105,11 +105,11 @@ define dso_local noundef ptr @php_quot_print_decode(ptr nocapture noundef readon
   %45 = shl nuw nsw i32 %32, 4
   %46 = or disjoint i32 %41, %45
   %47 = trunc nuw i32 %46 to i8
-  %48 = getelementptr inbounds i8, ptr %.0111152, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %.0111152, i64 1
   store i8 %47, ptr %.0111152, align 1
   %49 = add i64 %.0108153, 1
   %50 = add i64 %.2117150, -3
-  %51 = getelementptr inbounds i8, ptr %.2151, i64 3
+  %51 = getelementptr inbounds nuw i8, ptr %.2151, i64 3
   br label %82
 
 52:                                               ; preds = %29
@@ -142,10 +142,10 @@ define dso_local noundef ptr @php_quot_print_decode(ptr nocapture noundef readon
   br i1 %55, label %63, label %56
 
 56:                                               ; preds = %.lr.ph176
-  %57 = getelementptr inbounds i8, ptr %.3175, i64 1
+  %57 = getelementptr inbounds nuw i8, ptr %.3175, i64 1
   %58 = load i8, ptr %57, align 1
   %59 = zext i8 %58 to i64
-  %60 = getelementptr inbounds [256 x i32], ptr @php_quot_print_decode.hexval_tbl, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw [256 x i32], ptr @php_quot_print_decode.hexval_tbl, i64 0, i64 %59
   %61 = load i32, ptr %60, align 4
   %62 = icmp eq i32 %61, 64
   br i1 %62, label %63, label %.preheader
@@ -164,7 +164,7 @@ define dso_local noundef ptr @php_quot_print_decode(ptr nocapture noundef readon
   br i1 %or.cond, label %66, label %71
 
 66:                                               ; preds = %.preheader._crit_edge
-  %67 = getelementptr inbounds i8, ptr %.3.lcssa, i64 1
+  %67 = getelementptr inbounds nuw i8, ptr %.3.lcssa, i64 1
   %68 = load i8, ptr %67, align 1
   %69 = icmp eq i8 %68, 10
   %70 = sext i1 %69 to i64
@@ -176,7 +176,7 @@ define dso_local noundef ptr @php_quot_print_decode(ptr nocapture noundef readon
   %.4119 = phi i64 [ %.3118.lcssa, %.preheader._crit_edge ], [ %spec.select, %66 ]
   %.4 = phi ptr [ %.3.lcssa, %.preheader._crit_edge ], [ %spec.select134, %66 ]
   %72 = add i64 %.4119, -1
-  %73 = getelementptr inbounds i8, ptr %.4, i64 1
+  %73 = getelementptr inbounds nuw i8, ptr %.4, i64 1
   br label %82
 
 74:                                               ; preds = %52
@@ -187,10 +187,10 @@ define dso_local noundef ptr @php_quot_print_decode(ptr nocapture noundef readon
   %76 = zext i8 %21 to i32
   %77 = icmp eq i32 %spec.store.select, %76
   %spec.select135 = select i1 %77, i8 32, i8 %21
-  %78 = getelementptr inbounds i8, ptr %.0111152, i64 1
+  %78 = getelementptr inbounds nuw i8, ptr %.0111152, i64 1
   store i8 %spec.select135, ptr %.0111152, align 1
   %79 = add i64 %.2117150, -1
-  %80 = getelementptr inbounds i8, ptr %.2151, i64 1
+  %80 = getelementptr inbounds nuw i8, ptr %.2151, i64 1
   %81 = add i64 %.0108153, 1
   br label %82
 
@@ -224,14 +224,14 @@ define dso_local ptr @php_quot_print_encode(ptr nocapture noundef readonly %0, i
   %6 = add i64 %5, %4
   %7 = tail call noalias ptr @_safe_emalloc(i64 noundef 3, i64 noundef %6, i64 noundef 32) #8
   store i32 1, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %7, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 22, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %9, align 8
   %10 = mul i64 %6, 3
-  %11 = getelementptr inbounds i8, ptr %7, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %.not181 = icmp eq i64 %1, 0
   br i1 %.not181, label %._crit_edge, label %.lr.ph
 
@@ -241,7 +241,7 @@ define dso_local ptr @php_quot_print_encode(ptr nocapture noundef readonly %0, i
   %.0165183 = phi i64 [ %.1166, %85 ], [ %1, %2 ]
   %.0167182 = phi ptr [ %.1168, %85 ], [ %0, %2 ]
   %13 = add i64 %.0165183, -1
-  %14 = getelementptr inbounds i8, ptr %.0167182, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.0167182, i64 1
   %15 = load i8, ptr %.0167182, align 1
   %16 = zext i8 %15 to i32
   %17 = icmp eq i8 %15, 13
@@ -255,11 +255,11 @@ define dso_local ptr @php_quot_print_encode(ptr nocapture noundef readonly %0, i
   br i1 %or.cond, label %22, label %28
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %.0160185, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %.0160185, i64 1
   store i8 13, ptr %.0160185, align 1
-  %24 = getelementptr inbounds i8, ptr %.0167182, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %.0167182, i64 2
   %25 = load i8, ptr %14, align 1
-  %26 = getelementptr inbounds i8, ptr %.0160185, i64 2
+  %26 = getelementptr inbounds nuw i8, ptr %.0160185, i64 2
   store i8 %25, ptr %23, align 1
   %27 = add i64 %.0165183, -2
   br label %85
@@ -268,7 +268,7 @@ define dso_local ptr @php_quot_print_encode(ptr nocapture noundef readonly %0, i
   %29 = tail call ptr @__ctype_b_loc() #9
   %30 = load ptr, ptr %29, align 8
   %31 = zext i8 %15 to i64
-  %32 = getelementptr inbounds i16, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw i16, ptr %30, i64 %31
   %33 = load i16, ptr %32, align 2
   %34 = and i16 %33, 2
   %35 = icmp ne i16 %34, 0
@@ -322,30 +322,30 @@ define dso_local ptr @php_quot_print_encode(ptr nocapture noundef readonly %0, i
   br i1 %or.cond180, label %60, label %64
 
 60:                                               ; preds = %56, %52, %49, %45
-  %61 = getelementptr inbounds i8, ptr %.0160185, i64 1
+  %61 = getelementptr inbounds nuw i8, ptr %.0160185, i64 1
   store i8 61, ptr %.0160185, align 1
-  %62 = getelementptr inbounds i8, ptr %.0160185, i64 2
+  %62 = getelementptr inbounds nuw i8, ptr %.0160185, i64 2
   store i8 13, ptr %61, align 1
-  %63 = getelementptr inbounds i8, ptr %.0160185, i64 3
+  %63 = getelementptr inbounds nuw i8, ptr %.0160185, i64 3
   store i8 10, ptr %62, align 1
   br label %64
 
 64:                                               ; preds = %60, %56
   %.2163 = phi i64 [ 3, %60 ], [ %46, %56 ]
   %.2 = phi ptr [ %63, %60 ], [ %.0160185, %56 ]
-  %65 = getelementptr inbounds i8, ptr %.2, i64 1
+  %65 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   store i8 61, ptr %.2, align 1
   %66 = lshr i32 %16, 4
   %67 = zext nneg i32 %66 to i64
-  %68 = getelementptr inbounds i8, ptr @.str, i64 %67
+  %68 = getelementptr inbounds nuw i8, ptr @.str, i64 %67
   %69 = load i8, ptr %68, align 1
-  %70 = getelementptr inbounds i8, ptr %.2, i64 2
+  %70 = getelementptr inbounds nuw i8, ptr %.2, i64 2
   store i8 %69, ptr %65, align 1
   %71 = and i32 %16, 15
   %72 = zext nneg i32 %71 to i64
-  %73 = getelementptr inbounds i8, ptr @.str, i64 %72
+  %73 = getelementptr inbounds nuw i8, ptr @.str, i64 %72
   %74 = load i8, ptr %73, align 1
-  %75 = getelementptr inbounds i8, ptr %.2, i64 3
+  %75 = getelementptr inbounds nuw i8, ptr %.2, i64 3
   store i8 %74, ptr %70, align 1
   br label %85
 
@@ -355,18 +355,18 @@ define dso_local ptr @php_quot_print_encode(ptr nocapture noundef readonly %0, i
   br i1 %78, label %79, label %83
 
 79:                                               ; preds = %76
-  %80 = getelementptr inbounds i8, ptr %.0160185, i64 1
+  %80 = getelementptr inbounds nuw i8, ptr %.0160185, i64 1
   store i8 61, ptr %.0160185, align 1
-  %81 = getelementptr inbounds i8, ptr %.0160185, i64 2
+  %81 = getelementptr inbounds nuw i8, ptr %.0160185, i64 2
   store i8 13, ptr %80, align 1
-  %82 = getelementptr inbounds i8, ptr %.0160185, i64 3
+  %82 = getelementptr inbounds nuw i8, ptr %.0160185, i64 3
   store i8 10, ptr %81, align 1
   br label %83
 
 83:                                               ; preds = %79, %76
   %.3164 = phi i64 [ 1, %79 ], [ %77, %76 ]
   %.3 = phi ptr [ %82, %79 ], [ %.0160185, %76 ]
-  %84 = getelementptr inbounds i8, ptr %.3, i64 1
+  %84 = getelementptr inbounds nuw i8, ptr %.3, i64 1
   store i8 %15, ptr %.3, align 1
   br label %85
 
@@ -401,11 +401,11 @@ define dso_local ptr @php_quot_print_encode(ptr nocapture noundef readonly %0, i
   %97 = and i64 %88, -8
   %98 = add i64 %97, 32
   %99 = tail call ptr @_erealloc(ptr noundef nonnull %7, i64 noundef %98) #10
-  %100 = getelementptr inbounds i8, ptr %99, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 16
   store i64 %88, ptr %100, align 8
-  %101 = getelementptr inbounds i8, ptr %99, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %99, i64 8
   store i64 0, ptr %101, align 8
-  %102 = getelementptr inbounds i8, ptr %99, i64 4
+  %102 = getelementptr inbounds nuw i8, ptr %99, i64 4
   %103 = load i32, ptr %102, align 4
   %104 = and i32 %103, -513
   store i32 %104, ptr %102, align 4
@@ -416,13 +416,13 @@ define dso_local ptr @php_quot_print_encode(ptr nocapture noundef readonly %0, i
   %107 = add i64 %106, 32
   %108 = tail call noalias ptr @_emalloc(i64 noundef %107) #7
   store i32 1, ptr %108, align 4
-  %109 = getelementptr inbounds i8, ptr %108, i64 4
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 4
   store i32 22, ptr %109, align 4
-  %110 = getelementptr inbounds i8, ptr %108, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %108, i64 8
   store i64 0, ptr %110, align 8
-  %111 = getelementptr inbounds i8, ptr %108, i64 16
+  %111 = getelementptr inbounds nuw i8, ptr %108, i64 16
   store i64 %88, ptr %111, align 8
-  %112 = getelementptr inbounds i8, ptr %108, i64 24
+  %112 = getelementptr inbounds nuw i8, ptr %108, i64 24
   %113 = add i64 %88, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %112, ptr nonnull align 8 %12, i64 %113, i1 false)
   %114 = load i32, ptr %8, align 4
@@ -449,7 +449,7 @@ declare ptr @__ctype_b_loc() local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_quoted_printable_decode(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %cond = icmp eq i32 %5, 1
   br i1 %cond, label %7, label %6
@@ -459,8 +459,8 @@ define hidden void @zif_quoted_printable_decode(ptr noundef %0, ptr nocapture no
   br label %.thread224
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load i8, ptr %9, align 8
   %11 = icmp eq i8 %10, 6
   br i1 %11, label %.thread213, label %13
@@ -489,7 +489,7 @@ define hidden void @zif_quoted_printable_decode(ptr noundef %0, ptr nocapture no
 
 .thread217:                                       ; preds = %..thread217_crit_edge, %.thread213
   %15 = phi ptr [ %.pre, %..thread217_crit_edge ], [ %12, %.thread213 ]
-  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %19, label %22
@@ -497,23 +497,23 @@ define hidden void @zif_quoted_printable_decode(ptr noundef %0, ptr nocapture no
 19:                                               ; preds = %.thread217
   %20 = load ptr, ptr @zend_empty_string, align 8
   store ptr %20, ptr %1, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 6, ptr %21, align 8
   br label %99
 
 22:                                               ; preds = %.thread217
-  %23 = getelementptr inbounds i8, ptr %15, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %24 = and i64 %17, -8
   %25 = add i64 %24, 32
   %26 = call noalias ptr @_emalloc(i64 noundef %25) #7
   store i32 1, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %26, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
   store i32 22, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %26, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i64 0, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %26, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %invariant.gep = getelementptr i8, ptr %15, i64 25
-  %30 = getelementptr inbounds i8, ptr %26, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 24
   br label %.loopexit.outer
 
 .loopexit.outer:                                  ; preds = %.loopexit.outer.backedge, %22
@@ -683,7 +683,7 @@ php_hex2int.exit201:                              ; preds = %73, %67, %71
   store i8 0, ptr %97, align 1
   store i64 %.0170.ph, ptr %29, align 8
   store ptr %26, ptr %1, align 8
-  %98 = getelementptr inbounds i8, ptr %1, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 262, ptr %98, align 8
   br label %99
 
@@ -701,7 +701,7 @@ declare void @zend_wrong_parameter_error(i32 noundef, i32 noundef, ptr noundef, 
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_quoted_printable_encode(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %cond = icmp eq i32 %5, 1
   br i1 %cond, label %7, label %6
@@ -711,8 +711,8 @@ define hidden void @zif_quoted_printable_encode(ptr noundef %0, ptr nocapture no
   br label %.thread95
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load i8, ptr %9, align 8
   %11 = icmp eq i8 %10, 6
   br i1 %11, label %.thread84, label %13
@@ -741,7 +741,7 @@ define hidden void @zif_quoted_printable_encode(ptr noundef %0, ptr nocapture no
 
 .thread88:                                        ; preds = %..thread88_crit_edge, %.thread84
   %15 = phi ptr [ %.pre, %..thread88_crit_edge ], [ %12, %.thread84 ]
-  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load i64, ptr %16, align 8
   %.not69 = icmp eq i64 %17, 0
   br i1 %.not69, label %18, label %21
@@ -749,20 +749,20 @@ define hidden void @zif_quoted_printable_encode(ptr noundef %0, ptr nocapture no
 18:                                               ; preds = %.thread88
   %19 = load ptr, ptr @zend_empty_string, align 8
   store ptr %19, ptr %1, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 6, ptr %20, align 8
   br label %29
 
 21:                                               ; preds = %.thread88
-  %22 = getelementptr inbounds i8, ptr %15, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %23 = call ptr @php_quot_print_encode(ptr noundef nonnull %22, i64 noundef %17)
   store ptr %23, ptr %1, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %25 = load i32, ptr %24, align 4
   %26 = and i32 %25, 64
   %.not70 = icmp eq i32 %26, 0
   %27 = select i1 %.not70, i32 262, i32 6
-  %28 = getelementptr inbounds i8, ptr %1, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %27, ptr %28, align 8
   br label %29
 

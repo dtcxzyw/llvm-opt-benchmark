@@ -27,7 +27,7 @@ define i32 @stress_majorization_with_hierarchy(ptr noundef %0, i32 noundef %1, p
   %13 = and i32 %5, 4
   store ptr null, ptr %10, align 8
   store ptr null, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load ptr, ptr %14, align 8
   %.not = icmp ne ptr %15, null
   %16 = icmp sgt i32 %1, 0
@@ -41,13 +41,13 @@ define i32 @stress_majorization_with_hierarchy(ptr noundef %0, i32 noundef %1, p
 .preheader549:                                    ; preds = %.preheader549.preheader, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.preheader549.preheader ], [ %indvars.iv.next, %._crit_edge ]
   %.1459554 = phi i1 [ false, %.preheader549.preheader ], [ %.2460.lcssa, %._crit_edge ]
-  %17 = getelementptr inbounds %struct.vtx_data, ptr %0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw %struct.vtx_data, ptr %0, i64 %indvars.iv
   %18 = load i64, ptr %17, align 8
   %19 = icmp ugt i64 %18, 1
   br i1 %19, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader549
-  %20 = getelementptr inbounds i8, ptr %17, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %21 = load ptr, ptr %20, align 8
   br label %22
 
@@ -84,7 +84,7 @@ define i32 @stress_majorization_with_hierarchy(ptr noundef %0, i32 noundef %1, p
   br i1 %31, label %32, label %.loopexit548
 
 32:                                               ; preds = %30
-  %33 = getelementptr inbounds i8, ptr %2, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %34 = add nsw i32 %4, -1
   %35 = tail call i32 @stress_majorization_kD_mkernel(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %33, ptr noundef %3, i32 noundef %34, i32 noundef %5, i32 noundef %6, i32 noundef 15) #11
   %36 = icmp slt i32 %35, 0
@@ -92,16 +92,16 @@ define i32 @stress_majorization_with_hierarchy(ptr noundef %0, i32 noundef %1, p
 
 .lr.ph559:                                        ; preds = %32
   %37 = zext nneg i32 %34 to i64
-  %38 = getelementptr inbounds ptr, ptr %2, i64 %37
+  %38 = getelementptr inbounds nuw ptr, ptr %2, i64 %37
   br label %39
 
 39:                                               ; preds = %.lr.ph559, %39
   %indvars.iv704 = phi i64 [ 0, %.lr.ph559 ], [ %indvars.iv.next705, %39 ]
   %40 = load ptr, ptr %33, align 8
-  %41 = getelementptr inbounds double, ptr %40, i64 %indvars.iv704
+  %41 = getelementptr inbounds nuw double, ptr %40, i64 %indvars.iv704
   %42 = load double, ptr %41, align 8
   %43 = load ptr, ptr %38, align 8
-  %44 = getelementptr inbounds double, ptr %43, i64 %indvars.iv704
+  %44 = getelementptr inbounds nuw double, ptr %43, i64 %indvars.iv704
   store double %42, ptr %44, align 8
   %indvars.iv.next705 = add nuw nsw i64 %indvars.iv704, 1
   %exitcond708.not = icmp eq i64 %indvars.iv.next705, %wide.trip.count
@@ -109,7 +109,7 @@ define i32 @stress_majorization_with_hierarchy(ptr noundef %0, i32 noundef %1, p
 
 .loopexit548:                                     ; preds = %39, %30
   %45 = load ptr, ptr %2, align 8
-  %46 = getelementptr inbounds i8, ptr %2, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %47 = load ptr, ptr %46, align 8
   %48 = tail call i32 @compute_y_coords(ptr noundef %0, i32 noundef %1, ptr noundef %47, i32 noundef %1) #11
   %.not494 = icmp eq i32 %48, 0
@@ -146,7 +146,7 @@ define i32 @stress_majorization_with_hierarchy(ptr noundef %0, i32 noundef %1, p
   %.0451564 = phi double [ 0.000000e+00, %.lr.ph566 ], [ %82, %._crit_edge563 ]
   %62 = load ptr, ptr %10, align 8
   %63 = load ptr, ptr %11, align 8
-  %64 = getelementptr inbounds i32, ptr %63, i64 %indvars.iv714
+  %64 = getelementptr inbounds nuw i32, ptr %63, i64 %indvars.iv714
   %65 = load i32, ptr %64, align 4
   %66 = sext i32 %65 to i64
   %67 = getelementptr inbounds i32, ptr %62, i64 %66
@@ -169,7 +169,7 @@ define i32 @stress_majorization_with_hierarchy(ptr noundef %0, i32 noundef %1, p
   br i1 %83, label %84, label %87
 
 84:                                               ; preds = %61
-  %85 = getelementptr inbounds i8, ptr %64, i64 4
+  %85 = getelementptr inbounds nuw i8, ptr %64, i64 4
   %86 = load i32, ptr %85, align 4
   br label %87
 
@@ -342,14 +342,14 @@ define i32 @stress_majorization_with_hierarchy(ptr noundef %0, i32 noundef %1, p
 .preheader543.us:                                 ; preds = %.preheader543.us.preheader, %._crit_edge575.us
   %indvars.iv727 = phi i64 [ 0, %.preheader543.us.preheader ], [ %indvars.iv.next728, %._crit_edge575.us ]
   %.0442578.us = phi double [ 1.000000e+00, %.preheader543.us.preheader ], [ %161, %._crit_edge575.us ]
-  %155 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv727
+  %155 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv727
   %156 = load ptr, ptr %155, align 8
   br label %157
 
 157:                                              ; preds = %.preheader543.us, %157
   %indvars.iv722 = phi i64 [ 0, %.preheader543.us ], [ %indvars.iv.next723, %157 ]
   %.1443572.us = phi double [ %.0442578.us, %.preheader543.us ], [ %161, %157 ]
-  %158 = getelementptr inbounds double, ptr %156, i64 %indvars.iv722
+  %158 = getelementptr inbounds nuw double, ptr %156, i64 %indvars.iv722
   %159 = load double, ptr %158, align 8
   %160 = call double @llvm.fabs.f64(double %159)
   %161 = call double @llvm.maxnum.f64(double %.1443572.us, double %160)
@@ -371,13 +371,13 @@ define i32 @stress_majorization_with_hierarchy(ptr noundef %0, i32 noundef %1, p
 
 .preheader540.us:                                 ; preds = %.preheader540.us.preheader, %._crit_edge582.us
   %indvars.iv738 = phi i64 [ 0, %.preheader540.us.preheader ], [ %indvars.iv.next739, %._crit_edge582.us ]
-  %163 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv738
+  %163 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv738
   br label %164
 
 164:                                              ; preds = %.preheader540.us, %164
   %indvars.iv732 = phi i64 [ 0, %.preheader540.us ], [ %indvars.iv.next733, %164 ]
   %165 = load ptr, ptr %163, align 8
-  %166 = getelementptr inbounds double, ptr %165, i64 %indvars.iv732
+  %166 = getelementptr inbounds nuw double, ptr %165, i64 %indvars.iv732
   %167 = load double, ptr %166, align 8
   %168 = fmul double %162, %167
   store double %168, ptr %166, align 8
@@ -450,7 +450,7 @@ define i32 @stress_majorization_with_hierarchy(ptr noundef %0, i32 noundef %1, p
 
 189:                                              ; preds = %.lr.ph601, %189
   %indvars.iv750 = phi i64 [ 0, %.lr.ph601 ], [ %indvars.iv.next751, %189 ]
-  %190 = getelementptr inbounds float, ptr %.1472, i64 %indvars.iv750
+  %190 = getelementptr inbounds nuw float, ptr %.1472, i64 %indvars.iv750
   %191 = load float, ptr %190, align 4
   %192 = fmul float %191, %188
   store float %192, ptr %190, align 4
@@ -468,7 +468,7 @@ define i32 @stress_majorization_with_hierarchy(ptr noundef %0, i32 noundef %1, p
 
 .lr.ph604:                                        ; preds = %.lr.ph604.preheader, %.lr.ph604
   %indvars.iv755 = phi i64 [ 0, %.lr.ph604.preheader ], [ %indvars.iv.next756, %.lr.ph604 ]
-  %194 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv755
+  %194 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv755
   %195 = load ptr, ptr %194, align 8
   call void @orthog1(i32 noundef %1, ptr noundef %195) #11
   %indvars.iv.next756 = add nuw nsw i64 %indvars.iv755, 1
@@ -476,7 +476,7 @@ define i32 @stress_majorization_with_hierarchy(ptr noundef %0, i32 noundef %1, p
   br i1 %exitcond759.not, label %.lr.ph608.preheader, label %.lr.ph604
 
 .lr.ph608.preheader:                              ; preds = %.lr.ph604, %.loopexit538
-  %196 = getelementptr inbounds i8, ptr %2, i64 8
+  %196 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %197 = load ptr, ptr %196, align 8
   %198 = load double, ptr %197, align 8
   %smax763 = call i32 @llvm.smax.i32(i32 %1, i32 1)
@@ -486,7 +486,7 @@ define i32 @stress_majorization_with_hierarchy(ptr noundef %0, i32 noundef %1, p
 .lr.ph608:                                        ; preds = %.lr.ph608.preheader, %.lr.ph608
   %indvars.iv760 = phi i64 [ 0, %.lr.ph608.preheader ], [ %indvars.iv.next761, %.lr.ph608 ]
   %199 = load ptr, ptr %196, align 8
-  %200 = getelementptr inbounds double, ptr %199, i64 %indvars.iv760
+  %200 = getelementptr inbounds nuw double, ptr %199, i64 %indvars.iv760
   %201 = load double, ptr %200, align 8
   %202 = fsub double %201, %198
   store double %202, ptr %200, align 8
@@ -511,20 +511,20 @@ define i32 @stress_majorization_with_hierarchy(ptr noundef %0, i32 noundef %1, p
 .lr.ph612:                                        ; preds = %._crit_edge613, %.lr.ph616
   %indvars.iv772 = phi i64 [ 0, %.lr.ph616 ], [ %indvars.iv.next773, %._crit_edge613 ]
   %208 = mul nuw nsw i64 %indvars.iv772, %wide.trip.count
-  %209 = getelementptr inbounds float, ptr %207, i64 %208
-  %210 = getelementptr inbounds ptr, ptr %204, i64 %indvars.iv772
+  %209 = getelementptr inbounds nuw float, ptr %207, i64 %208
+  %210 = getelementptr inbounds nuw ptr, ptr %204, i64 %indvars.iv772
   store ptr %209, ptr %210, align 8
-  %211 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv772
+  %211 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv772
   br label %212
 
 212:                                              ; preds = %.lr.ph612, %212
   %indvars.iv766 = phi i64 [ 0, %.lr.ph612 ], [ %indvars.iv.next767, %212 ]
   %213 = load ptr, ptr %211, align 8
-  %214 = getelementptr inbounds double, ptr %213, i64 %indvars.iv766
+  %214 = getelementptr inbounds nuw double, ptr %213, i64 %indvars.iv766
   %215 = load double, ptr %214, align 8
   %216 = fptrunc double %215 to float
   %217 = load ptr, ptr %210, align 8
-  %218 = getelementptr inbounds float, ptr %217, i64 %indvars.iv766
+  %218 = getelementptr inbounds nuw float, ptr %217, i64 %indvars.iv766
   store float %216, ptr %218, align 4
   %indvars.iv.next767 = add nuw nsw i64 %indvars.iv766, 1
   %exitcond771.not = icmp eq i64 %indvars.iv.next767, %wide.trip.count770
@@ -572,7 +572,7 @@ define i32 @stress_majorization_with_hierarchy(ptr noundef %0, i32 noundef %1, p
 .lr.ph622.preheader:                              ; preds = %.preheader537
   %230 = sext i32 %.1618 to i64
   %wide.trip.count786 = zext i32 %indvars.iv784 to i64
-  %invariant.gep885 = getelementptr inbounds double, ptr %226, i64 %indvars.iv788
+  %invariant.gep885 = getelementptr inbounds nuw double, ptr %226, i64 %indvars.iv788
   br label %.lr.ph622
 
 .lr.ph631.preheader:                              ; preds = %._crit_edge623, %225
@@ -589,7 +589,7 @@ define i32 @stress_majorization_with_hierarchy(ptr noundef %0, i32 noundef %1, p
   %233 = load float, ptr %232, align 4
   %234 = fpext float %233 to double
   %235 = fadd double %.0468619, %234
-  %gep886 = getelementptr inbounds double, ptr %invariant.gep885, i64 %indvars.iv779
+  %gep886 = getelementptr inbounds nuw double, ptr %invariant.gep885, i64 %indvars.iv779
   %236 = load double, ptr %gep886, align 8
   %237 = fsub double %236, %234
   store double %237, ptr %gep886, align 8
@@ -605,7 +605,7 @@ define i32 @stress_majorization_with_hierarchy(ptr noundef %0, i32 noundef %1, p
 ._crit_edge623:                                   ; preds = %._crit_edge623.loopexit, %.preheader537
   %.0468.lcssa = phi double [ 0.000000e+00, %.preheader537 ], [ %235, %._crit_edge623.loopexit ]
   %.1.lcssa = phi i32 [ %.1618, %.preheader537 ], [ %238, %._crit_edge623.loopexit ]
-  %239 = getelementptr inbounds double, ptr %226, i64 %indvars.iv788
+  %239 = getelementptr inbounds nuw double, ptr %226, i64 %indvars.iv788
   %240 = load double, ptr %239, align 8
   %241 = fsub double %240, %.0468.lcssa
   store double %241, ptr %239, align 8
@@ -618,7 +618,7 @@ define i32 @stress_majorization_with_hierarchy(ptr noundef %0, i32 noundef %1, p
   %indvars.iv795 = phi i64 [ %231, %.lr.ph631.preheader ], [ %indvars.iv.next796, %.lr.ph631 ]
   %indvars.iv793 = phi i64 [ 0, %.lr.ph631.preheader ], [ %indvars.iv.next794, %.lr.ph631 ]
   %.2630 = phi i32 [ 0, %.lr.ph631.preheader ], [ %248, %.lr.ph631 ]
-  %242 = getelementptr inbounds double, ptr %226, i64 %indvars.iv793
+  %242 = getelementptr inbounds nuw double, ptr %226, i64 %indvars.iv793
   %243 = load double, ptr %242, align 8
   %244 = fptrunc double %243 to float
   %245 = sext i32 %.2630 to i64
@@ -645,8 +645,8 @@ define i32 @stress_majorization_with_hierarchy(ptr noundef %0, i32 noundef %1, p
 .lr.ph635:                                        ; preds = %.lr.ph635.preheader, %.lr.ph635
   %indvars.iv803 = phi i64 [ 1, %.lr.ph635.preheader ], [ %indvars.iv.next804, %.lr.ph635 ]
   %252 = mul nuw nsw i64 %indvars.iv803, %wide.trip.count
-  %253 = getelementptr inbounds float, ptr %250, i64 %252
-  %254 = getelementptr inbounds ptr, ptr %249, i64 %indvars.iv803
+  %253 = getelementptr inbounds nuw float, ptr %250, i64 %252
+  %254 = getelementptr inbounds nuw ptr, ptr %249, i64 %indvars.iv803
   store ptr %253, ptr %254, align 8
   %indvars.iv.next804 = add nuw nsw i64 %indvars.iv803, 1
   %exitcond807.not = icmp eq i64 %indvars.iv.next804, %wide.trip.count806
@@ -665,9 +665,9 @@ define i32 @stress_majorization_with_hierarchy(ptr noundef %0, i32 noundef %1, p
   br i1 %263, label %._crit_edge681, label %.lr.ph680
 
 .lr.ph680:                                        ; preds = %._crit_edge636
-  %invariant.gep = getelementptr inbounds i8, ptr %226, i64 8
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %226, i64 8
   %264 = fpext float %219 to double
-  %265 = getelementptr inbounds i8, ptr %249, i64 8
+  %265 = getelementptr inbounds nuw i8, ptr %249, i64 8
   %266 = fptrunc double %8 to float
   %267 = zext nneg i32 %1 to i64
   %smax841 = call i32 @llvm.smax.i32(i32 %1, i32 1)
@@ -702,14 +702,14 @@ define i32 @stress_majorization_with_hierarchy(ptr noundef %0, i32 noundef %1, p
 
 .lr.ph639:                                        ; preds = %.lr.ph655, %.lr.ph639
   %indvars.iv808 = phi i64 [ %indvars.iv.next809, %.lr.ph639 ], [ 0, %.lr.ph655 ]
-  %272 = getelementptr inbounds ptr, ptr %204, i64 %indvars.iv808
+  %272 = getelementptr inbounds nuw ptr, ptr %204, i64 %indvars.iv808
   %273 = load ptr, ptr %272, align 8
-  %274 = getelementptr inbounds float, ptr %273, i64 %indvars.iv829
+  %274 = getelementptr inbounds nuw float, ptr %273, i64 %indvars.iv829
   %275 = load float, ptr %274, align 4
   call void @set_vector_valf(i32 noundef %271, float noundef %275, ptr noundef %255) #11
   %276 = load ptr, ptr %272, align 8
-  %277 = getelementptr inbounds float, ptr %276, i64 %indvars.iv829
-  %278 = getelementptr inbounds i8, ptr %277, i64 4
+  %277 = getelementptr inbounds nuw float, ptr %276, i64 %indvars.iv829
+  %278 = getelementptr inbounds nuw i8, ptr %277, i64 4
   call void @vectors_mult_additionf(i32 noundef %271, ptr noundef %255, float noundef -1.000000e+00, ptr noundef nonnull %278) #11
   call void @square_vec(i32 noundef %271, ptr noundef %255) #11
   call void @vectors_additionf(i32 noundef %271, ptr noundef %255, ptr noundef %256, ptr noundef %256) #11
@@ -734,12 +734,12 @@ define i32 @stress_majorization_with_hierarchy(ptr noundef %0, i32 noundef %1, p
   %.4644 = add i32 %.3653, 1
   %280 = sext i32 %.4644 to i64
   %wide.trip.count827 = zext i32 %indvars.iv816 to i64
-  %invariant.gep887 = getelementptr inbounds double, ptr %invariant.gep, i64 %indvars.iv829
+  %invariant.gep887 = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %indvars.iv829
   br label %.lr.ph648
 
 .lr.ph643:                                        ; preds = %.lr.ph643.preheader, %286
   %indvars.iv813 = phi i64 [ 0, %.lr.ph643.preheader ], [ %indvars.iv.next814, %286 ]
-  %281 = getelementptr inbounds float, ptr %256, i64 %indvars.iv813
+  %281 = getelementptr inbounds nuw float, ptr %256, i64 %indvars.iv813
   %282 = load float, ptr %281, align 4
   %283 = fcmp oge float %282, 0x47EFFFFFE0000000
   %284 = fcmp olt float %282, 0.000000e+00
@@ -759,7 +759,7 @@ define i32 @stress_majorization_with_hierarchy(ptr noundef %0, i32 noundef %1, p
   %indvars.iv822 = phi i64 [ 0, %.lr.ph648.preheader ], [ %indvars.iv.next823, %.lr.ph648 ]
   %indvars.iv820 = phi i64 [ %280, %.lr.ph648.preheader ], [ %indvars.iv.next821, %.lr.ph648 ]
   %.1469645 = phi double [ 0.000000e+00, %.lr.ph648.preheader ], [ %293, %.lr.ph648 ]
-  %287 = getelementptr inbounds float, ptr %256, i64 %indvars.iv822
+  %287 = getelementptr inbounds nuw float, ptr %256, i64 %indvars.iv822
   %288 = load float, ptr %287, align 4
   %289 = getelementptr inbounds float, ptr %258, i64 %indvars.iv820
   %290 = load float, ptr %289, align 4
@@ -767,7 +767,7 @@ define i32 @stress_majorization_with_hierarchy(ptr noundef %0, i32 noundef %1, p
   store float %291, ptr %289, align 4
   %292 = fpext float %291 to double
   %293 = fadd double %.1469645, %292
-  %gep888 = getelementptr inbounds double, ptr %invariant.gep887, i64 %indvars.iv822
+  %gep888 = getelementptr inbounds nuw double, ptr %invariant.gep887, i64 %indvars.iv822
   %294 = load double, ptr %gep888, align 8
   %295 = fsub double %294, %292
   store double %295, ptr %gep888, align 8
@@ -783,7 +783,7 @@ define i32 @stress_majorization_with_hierarchy(ptr noundef %0, i32 noundef %1, p
 ._crit_edge649:                                   ; preds = %.preheader532.thread, %._crit_edge649.loopexit
   %.1469.lcssa = phi double [ %293, %._crit_edge649.loopexit ], [ 0.000000e+00, %.preheader532.thread ]
   %.4.lcssa = phi i32 [ %296, %._crit_edge649.loopexit ], [ %.4644876, %.preheader532.thread ]
-  %297 = getelementptr inbounds double, ptr %226, i64 %indvars.iv829
+  %297 = getelementptr inbounds nuw double, ptr %226, i64 %indvars.iv829
   %298 = load double, ptr %297, align 8
   %299 = fsub double %298, %.1469.lcssa
   store double %299, ptr %297, align 8
@@ -799,7 +799,7 @@ define i32 @stress_majorization_with_hierarchy(ptr noundef %0, i32 noundef %1, p
   %indvars.iv836 = phi i64 [ %indvars.iv.next837, %.lr.ph659 ], [ %267, %.lr.ph659.preheader ]
   %indvars.iv834 = phi i64 [ %indvars.iv.next835, %.lr.ph659 ], [ 0, %.lr.ph659.preheader ]
   %.5658 = phi i32 [ %306, %.lr.ph659 ], [ 0, %.lr.ph659.preheader ]
-  %300 = getelementptr inbounds double, ptr %226, i64 %indvars.iv834
+  %300 = getelementptr inbounds nuw double, ptr %226, i64 %indvars.iv834
   %301 = load double, ptr %300, align 8
   %302 = fptrunc double %301 to float
   %303 = sext i32 %.5658 to i64
@@ -814,9 +814,9 @@ define i32 @stress_majorization_with_hierarchy(ptr noundef %0, i32 noundef %1, p
 
 .lr.ph661:                                        ; preds = %.preheader534, %.lr.ph661
   %indvars.iv844 = phi i64 [ %indvars.iv.next845, %.lr.ph661 ], [ 0, %.preheader534 ]
-  %307 = getelementptr inbounds ptr, ptr %204, i64 %indvars.iv844
+  %307 = getelementptr inbounds nuw ptr, ptr %204, i64 %indvars.iv844
   %308 = load ptr, ptr %307, align 8
-  %309 = getelementptr inbounds ptr, ptr %249, i64 %indvars.iv844
+  %309 = getelementptr inbounds nuw ptr, ptr %249, i64 %indvars.iv844
   %310 = load ptr, ptr %309, align 8
   call void @right_mult_with_vector_ff(ptr noundef %258, i32 noundef %1, ptr noundef %308, ptr noundef %310) #11
   %indvars.iv.next845 = add nuw nsw i64 %indvars.iv844, 1
@@ -826,9 +826,9 @@ define i32 @stress_majorization_with_hierarchy(ptr noundef %0, i32 noundef %1, p
 .lr.ph664:                                        ; preds = %.lr.ph661, %.lr.ph664
   %indvars.iv849 = phi i64 [ %indvars.iv.next850, %.lr.ph664 ], [ 0, %.lr.ph661 ]
   %.0463662 = phi double [ %316, %.lr.ph664 ], [ 0.000000e+00, %.lr.ph661 ]
-  %311 = getelementptr inbounds ptr, ptr %204, i64 %indvars.iv849
+  %311 = getelementptr inbounds nuw ptr, ptr %204, i64 %indvars.iv849
   %312 = load ptr, ptr %311, align 8
-  %313 = getelementptr inbounds ptr, ptr %249, i64 %indvars.iv849
+  %313 = getelementptr inbounds nuw ptr, ptr %249, i64 %indvars.iv849
   %314 = load ptr, ptr %313, align 8
   %315 = call double @vectors_inner_productf(i32 noundef %1, ptr noundef %312, ptr noundef %314) #11
   %316 = fadd double %.0463662, %315
@@ -844,7 +844,7 @@ define i32 @stress_majorization_with_hierarchy(ptr noundef %0, i32 noundef %1, p
 .lr.ph670:                                        ; preds = %._crit_edge665, %.lr.ph670
   %indvars.iv854 = phi i64 [ %indvars.iv.next855, %.lr.ph670 ], [ 0, %._crit_edge665 ]
   %.1464667 = phi double [ %323, %.lr.ph670 ], [ %318, %._crit_edge665 ]
-  %319 = getelementptr inbounds ptr, ptr %204, i64 %indvars.iv854
+  %319 = getelementptr inbounds nuw ptr, ptr %204, i64 %indvars.iv854
   %320 = load ptr, ptr %319, align 8
   call void @right_mult_with_vector_ff(ptr noundef %.1472, i32 noundef %1, ptr noundef %320, ptr noundef %255) #11
   %321 = load ptr, ptr %319, align 8
@@ -879,9 +879,9 @@ define i32 @stress_majorization_with_hierarchy(ptr noundef %0, i32 noundef %1, p
   br label %343
 
 337:                                              ; preds = %.lr.ph675
-  %338 = getelementptr inbounds ptr, ptr %204, i64 %indvars.iv859
+  %338 = getelementptr inbounds nuw ptr, ptr %204, i64 %indvars.iv859
   %339 = load ptr, ptr %338, align 8
-  %340 = getelementptr inbounds ptr, ptr %249, i64 %indvars.iv859
+  %340 = getelementptr inbounds nuw ptr, ptr %249, i64 %indvars.iv859
   %341 = load ptr, ptr %340, align 8
   %342 = call i32 @conjugate_gradient_mkernel(ptr noundef %.1472, ptr noundef %339, ptr noundef %341, i32 noundef %1, double noundef 1.000000e-03, i32 noundef %1) #11
   %.not508 = icmp eq i32 %342, 0
@@ -914,18 +914,18 @@ define i32 @stress_majorization_with_hierarchy(ptr noundef %0, i32 noundef %1, p
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge685.us
   %indvars.iv870 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next871, %._crit_edge685.us ]
-  %346 = getelementptr inbounds ptr, ptr %204, i64 %indvars.iv870
-  %347 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv870
+  %346 = getelementptr inbounds nuw ptr, ptr %204, i64 %indvars.iv870
+  %347 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv870
   br label %348
 
 348:                                              ; preds = %.preheader.us, %348
   %indvars.iv864 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next865, %348 ]
   %349 = load ptr, ptr %346, align 8
-  %350 = getelementptr inbounds float, ptr %349, i64 %indvars.iv864
+  %350 = getelementptr inbounds nuw float, ptr %349, i64 %indvars.iv864
   %351 = load float, ptr %350, align 4
   %352 = fpext float %351 to double
   %353 = load ptr, ptr %347, align 8
-  %354 = getelementptr inbounds double, ptr %353, i64 %indvars.iv864
+  %354 = getelementptr inbounds nuw double, ptr %353, i64 %indvars.iv864
   store double %352, ptr %354, align 8
   %indvars.iv.next865 = add nuw nsw i64 %indvars.iv864, 1
   %exitcond869.not = icmp eq i64 %indvars.iv.next865, %wide.trip.count868

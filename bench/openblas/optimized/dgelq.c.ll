@@ -219,10 +219,10 @@ thread-pre-split:                                 ; preds = %17, %.thread
   %134 = sitofp i32 %133 to double
   store double %134, ptr %4, align 8, !tbaa !7
   %135 = uitofp nneg i32 %98 to double
-  %136 = getelementptr inbounds i8, ptr %4, i64 8
+  %136 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store double %135, ptr %136, align 8, !tbaa !7
   %137 = sitofp i32 %99 to double
-  %138 = getelementptr inbounds i8, ptr %4, i64 16
+  %138 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store double %137, ptr %138, align 8, !tbaa !7
   %139 = select i1 %29, i32 %106, i32 %70
   %140 = uitofp nneg i32 %139 to double
@@ -248,12 +248,12 @@ thread-pre-split:                                 ; preds = %17, %.thread
   br i1 %150, label %153, label %151
 
 151:                                              ; preds = %147, %146
-  %152 = getelementptr inbounds i8, ptr %4, i64 40
+  %152 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @dgelqt_(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %11, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %152, ptr noundef nonnull %11, ptr noundef nonnull %6, ptr noundef nonnull %8) #5
   br label %155
 
 153:                                              ; preds = %147
-  %154 = getelementptr inbounds i8, ptr %4, i64 40
+  %154 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @dlaswlq_(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %154, ptr noundef nonnull %11, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #5
   br label %155
 

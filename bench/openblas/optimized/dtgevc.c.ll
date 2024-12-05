@@ -183,7 +183,7 @@ define void @dtgevc_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   br i1 %111, label %112, label %122
 
 112:                                              ; preds = %106
-  %113 = getelementptr inbounds i32, ptr %36, i64 %100
+  %113 = getelementptr inbounds nuw i32, ptr %36, i64 %100
   %114 = load i32, ptr %113, align 4, !tbaa !3
   %115 = icmp eq i32 %114, 0
   br i1 %115, label %116, label %120
@@ -199,7 +199,7 @@ define void @dtgevc_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   br label %128
 
 122:                                              ; preds = %106, %104
-  %123 = getelementptr inbounds i32, ptr %36, i64 %100
+  %123 = getelementptr inbounds nuw i32, ptr %36, i64 %100
   %124 = load i32, ptr %123, align 4, !tbaa !3
   %125 = icmp ne i32 %124, 0
   %126 = zext i1 %125 to i32
@@ -450,7 +450,7 @@ define void @dtgevc_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 .loopexit369:                                     ; preds = %273, %251
   %291 = phi double [ 0.000000e+00, %251 ], [ %288, %273 ]
   %292 = phi double [ 0.000000e+00, %251 ], [ %282, %273 ]
-  %293 = getelementptr inbounds double, ptr %53, i64 %252
+  %293 = getelementptr inbounds nuw double, ptr %53, i64 %252
   store double %292, ptr %293, align 8, !tbaa !7
   %294 = getelementptr double, ptr %250, i64 %252
   store double %291, ptr %294, align 8, !tbaa !7
@@ -531,7 +531,7 @@ define void @dtgevc_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %348 = add i32 %37, 1
   %349 = add i32 %41, 1
   %350 = add i32 %45, 1
-  %351 = getelementptr inbounds i8, ptr %25, i64 8
+  %351 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %352 = shl nsw i64 %47, 3
   %353 = getelementptr i8, ptr %8, i64 %352
   %354 = sext i32 %37 to i64
@@ -572,13 +572,13 @@ define void @dtgevc_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   br i1 %63, label %376, label %.thread118.thread
 
 376:                                              ; preds = %.thread113
-  %377 = getelementptr inbounds i32, ptr %36, i64 %361
+  %377 = getelementptr inbounds nuw i32, ptr %36, i64 %361
   %378 = load i32, ptr %377, align 4, !tbaa !3
   %379 = icmp eq i32 %378, 0
   br i1 %379, label %.thread294, label %.thread118.thread
 
 380:                                              ; preds = %375
-  %381 = getelementptr inbounds i32, ptr %36, i64 %361
+  %381 = getelementptr inbounds nuw i32, ptr %36, i64 %361
   %382 = load i32, ptr %381, align 4, !tbaa !3
   %383 = icmp eq i32 %382, 0
   br i1 %383, label %1033, label %.thread118
@@ -1259,12 +1259,12 @@ thread-pre-split120:                              ; preds = %569, %573
   br i1 %420, label %875, label %865
 
 865:                                              ; preds = %856
-  %866 = getelementptr inbounds [4 x double], ptr %22, i64 0, i64 %.pre282
+  %866 = getelementptr inbounds nuw [4 x double], ptr %22, i64 0, i64 %.pre282
   %867 = load double, ptr %866, align 8, !tbaa !7
   %868 = call double @llvm.fmuladd.f64(double %853, double %867, double %864)
   %869 = getelementptr inbounds [4 x double], ptr %35, i64 0, i64 %858
   store double %868, ptr %869, align 8, !tbaa !7
-  %870 = getelementptr inbounds [4 x double], ptr %23, i64 0, i64 %.pre282
+  %870 = getelementptr inbounds nuw [4 x double], ptr %23, i64 0, i64 %.pre282
   %871 = load double, ptr %870, align 8, !tbaa !7
   %872 = fmul double %851, %867
   %873 = call double @llvm.fmuladd.f64(double %850, double %871, double %872)
@@ -1550,7 +1550,7 @@ thread-pre-split120:                              ; preds = %569, %573
   %1047 = add i32 %37, 1
   %1048 = add i32 %41, 1
   %1049 = add i32 %49, 1
-  %1050 = getelementptr inbounds i8, ptr %25, i64 8
+  %1050 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %1051 = getelementptr i8, ptr %14, i64 -16
   %1052 = shl nsw i64 %51, 3
   %1053 = getelementptr i8, ptr %10, i64 %1052

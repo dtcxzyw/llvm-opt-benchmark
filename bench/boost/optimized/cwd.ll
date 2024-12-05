@@ -175,7 +175,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i: ; p
   %59 = zext nneg i32 %58 to i64
   %60 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %59
   %61 = load i8, ptr %60, align 1, !tbaa !11, !noalias !12
-  %62 = getelementptr inbounds i8, ptr %35, i64 1
+  %62 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store i8 %61, ptr %62, align 1, !tbaa !11
   %63 = zext nneg i32 %57 to i64
   %64 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %63

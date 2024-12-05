@@ -310,7 +310,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_vuze_dht(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.137) #3
   %7 = load ptr, ptr %5, align 8
@@ -488,7 +488,7 @@ dissect_vuze_dht_request_header.exit:             ; preds = %87, %82, %77, %51, 
   br i1 %.not.i.i, label %dissect_vuze_dht_keys.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %101
-  %111 = getelementptr inbounds i8, ptr %1, i64 408
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %112
 
 112:                                              ; preds = %112, %.lr.ph.i.i
@@ -640,7 +640,7 @@ dissect_vuze_dht_keys.exit.i:                     ; preds = %112, %101
   %207 = add i32 %.0, 1
   %208 = load i32, ptr @hf_vuze_dht_key_data, align 4
   %209 = tail call ptr @proto_tree_add_item(ptr noundef %204, i32 noundef %208, ptr noundef %0, i32 noundef %207, i32 noundef %199, i32 noundef 0) #3
-  %210 = getelementptr inbounds i8, ptr %1, i64 408
+  %210 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %211 = load ptr, ptr %210, align 8
   %212 = tail call ptr @tvb_bytes_to_str(ptr noundef %211, ptr noundef %0, i32 noundef %207, i32 noundef %199) #3
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %202, ptr noundef nonnull @.str.179, i32 noundef %199, ptr noundef %212) #3
@@ -828,11 +828,11 @@ define internal fastcc noundef i32 @dissect_vuze_dht_address(ptr noundef %0, ptr
   %19 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %18, ptr noundef %0, i32 noundef %16, i32 noundef 4, i32 noundef 0) #3
   %20 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %16, i32 noundef 4) #3
   store i32 2, ptr %6, align 8
-  %21 = getelementptr inbounds i8, ptr %6, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 4, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %6, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %20, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %6, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr null, ptr %23, align 8
   br label %32
 
@@ -841,11 +841,11 @@ define internal fastcc noundef i32 @dissect_vuze_dht_address(ptr noundef %0, ptr
   %26 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %25, ptr noundef %0, i32 noundef %16, i32 noundef 16, i32 noundef 0) #3
   %27 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %16, i32 noundef 16) #3
   store i32 3, ptr %6, align 8
-  %28 = getelementptr inbounds i8, ptr %6, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 16, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %6, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %27, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %6, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr null, ptr %30, align 8
   br label %32
 
@@ -857,7 +857,7 @@ define internal fastcc noundef i32 @dissect_vuze_dht_address(ptr noundef %0, ptr
   %33 = add i32 %16, %9
   %34 = load i32, ptr @hf_vuze_dht_address_port, align 4
   %35 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %34, ptr noundef %0, i32 noundef %33, i32 noundef 2, i32 noundef 0) #3
-  %36 = getelementptr inbounds i8, ptr %1, i64 408
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %37 = load ptr, ptr %36, align 8
   %38 = call ptr @address_to_str(ptr noundef %37, ptr noundef nonnull %6) #3
   %39 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %33) #3
@@ -896,7 +896,7 @@ define internal fastcc i32 @dissect_vuze_dht_network_coordinates(ptr noundef %0,
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %17 = getelementptr inbounds i8, ptr %1, i64 408
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %18
 
 18:                                               ; preds = %.lr.ph, %dissect_vuze_dht_network_coordinate.exit
@@ -1002,7 +1002,7 @@ define internal fastcc noundef i32 @dissect_vuze_dht_value_group(ptr noundef %0,
 
 .lr.ph:                                           ; preds = %5
   %15 = icmp sgt i32 %4, 10
-  %16 = getelementptr inbounds i8, ptr %1, i64 408
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %17
 
 17:                                               ; preds = %.lr.ph, %dissect_vuze_dht_value.exit

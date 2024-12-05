@@ -160,7 +160,7 @@ if.then:                                          ; preds = %lor.lhs.false15, %l
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false18
-  %rwflag21 = getelementptr inbounds i8, ptr %call, i64 8
+  %rwflag21 = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i32 %rwflag, ptr %rwflag21, align 8
   %cmp22.not = icmp eq ptr %cb, null
   %cond = select i1 %cmp22.not, ptr @PEM_def_callback, ptr %cb
@@ -201,7 +201,7 @@ sw.bb:                                            ; preds = %entry
   %call3 = tail call i32 @UI_get_result_maxsize(ptr noundef %uis) #4
   %1 = load ptr, ptr %call2, align 8
   %cond = tail call i32 @llvm.smin.i32(i32 %call3, i32 1024)
-  %rwflag = getelementptr inbounds i8, ptr %call2, i64 8
+  %rwflag = getelementptr inbounds nuw i8, ptr %call2, i64 8
   %2 = load i32, ptr %rwflag, align 8
   %call4 = tail call ptr @UI_get0_user_data(ptr noundef %ui) #4
   %call5 = call i32 %1(ptr noundef nonnull %result, i32 noundef %cond, i32 noundef %2, ptr noundef %call4) #4
@@ -210,7 +210,7 @@ sw.bb:                                            ; preds = %entry
 
 if.end9:                                          ; preds = %sw.bb
   %idxprom = zext nneg i32 %call5 to i64
-  %arrayidx = getelementptr inbounds [1025 x i8], ptr %result, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [1025 x i8], ptr %result, i64 0, i64 %idxprom
   store i8 0, ptr %arrayidx, align 1
   %call11 = call i32 @UI_set_result_ex(ptr noundef %ui, ptr noundef %uis, ptr noundef nonnull %result, i32 noundef %call5) #4
   %cmp12 = icmp sgt i32 %call11, -1

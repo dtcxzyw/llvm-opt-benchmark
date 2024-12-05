@@ -25,25 +25,25 @@ define dso_local ptr @i915_gem_prime_export(ptr noundef %0, i32 noundef %1) loca
   %3 = alloca %struct.dma_buf_export_info, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #6
   store ptr @.str, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
-  %6 = getelementptr inbounds i8, ptr %3, i64 24
-  %7 = getelementptr inbounds i8, ptr %3, i64 32
-  %8 = getelementptr inbounds i8, ptr %3, i64 40
-  %9 = getelementptr inbounds i8, ptr %3, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(48) %4, i8 0, i64 32, i1 false)
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 32, i1 false)
   store ptr @i915_dmabuf_ops, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 216
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %11 = load i64, ptr %10, align 8
   store i64 %11, ptr %6, align 8
   store i32 %1, ptr %7, align 8
   store ptr %0, ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 248
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 464
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 72
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %24, label %19
@@ -56,7 +56,7 @@ define dso_local ptr @i915_gem_prime_export(ptr noundef %0, i32 noundef %1) loca
   br i1 %21, label %24, label %28
 
 24:                                               ; preds = %19, %2
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = call ptr @drm_gem_dmabuf_export(ptr noundef %26, ptr noundef nonnull %3) #6
   br label %28
@@ -81,15 +81,15 @@ declare dso_local ptr @drm_gem_dmabuf_export(ptr noundef, ptr noundef) local_unn
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @i915_gem_prime_import(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, @i915_dmabuf_ops
   br i1 %5, label %6, label %21
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 112
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, %0
   br i1 %11, label %12, label %21
@@ -114,17 +114,17 @@ define dso_local ptr @i915_gem_prime_import(ptr noundef %0, ptr noundef %1) loca
   br label %41
 
 21:                                               ; preds = %6, %2
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr @dma_buf_attach(ptr noundef %1, ptr noundef %23) #6
   %25 = icmp ugt ptr %24, inttoptr (i64 -4096 to ptr)
   br i1 %25, label %41, label %26
 
 26:                                               ; preds = %21
-  %27 = getelementptr inbounds i8, ptr %1, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 24
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incq $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %29, ptr elementtype(i64) %29) #6, !srcloc !8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incq $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %29, ptr nonnull elementtype(i64) %29) #6, !srcloc !8
   %30 = tail call ptr @i915_gem_object_alloc() #6
   %31 = icmp eq ptr %30, null
   br i1 %31, label %32, label %33
@@ -138,15 +138,15 @@ define dso_local ptr @i915_gem_prime_import(ptr noundef %0, ptr noundef %1) loca
   %34 = load i64, ptr %1, align 8
   tail call void @drm_gem_private_object_init(ptr noundef %0, ptr noundef nonnull %30, i64 noundef %34) #6
   tail call void @i915_gem_object_init(ptr noundef nonnull %30, ptr noundef nonnull @i915_gem_object_dmabuf_ops, ptr noundef nonnull @i915_gem_prime_import.lock_class, i32 noundef 8) #6
-  %35 = getelementptr inbounds i8, ptr %30, i64 240
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 240
   store ptr %24, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 120
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %30, i64 248
+  %38 = getelementptr inbounds nuw i8, ptr %30, i64 248
   store ptr %37, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %30, i64 646
+  %39 = getelementptr inbounds nuw i8, ptr %30, i64 646
   store i16 64, ptr %39, align 2
-  %40 = getelementptr inbounds i8, ptr %30, i64 648
+  %40 = getelementptr inbounds nuw i8, ptr %30, i64 648
   store i16 0, ptr %40, align 8
   br label %41
 
@@ -176,7 +176,7 @@ declare dso_local void @dma_buf_put(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @i915_gem_dmabuf_attach(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 align 16 {
   %3 = alloca %struct.i915_gem_ww_ctx, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #6
   %6 = tail call zeroext i1 @i915_gem_object_can_migrate(ptr noundef %5, i32 noundef 0) #6
@@ -185,14 +185,14 @@ define internal i32 @i915_gem_dmabuf_attach(ptr nocapture noundef readonly %0, p
 7:                                                ; preds = %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false), !annotation !9
   call void @i915_gem_ww_ctx_init(ptr noundef nonnull %3, i1 noundef zeroext true) #6
-  %8 = getelementptr inbounds i8, ptr %5, i64 672
-  %9 = getelementptr inbounds i8, ptr %3, i64 48
-  %10 = getelementptr inbounds i8, ptr %5, i64 248
-  %11 = getelementptr inbounds i8, ptr %5, i64 528
-  %12 = getelementptr inbounds i8, ptr %3, i64 24
-  %13 = getelementptr inbounds i8, ptr %3, i64 32
-  %14 = getelementptr inbounds i8, ptr %5, i64 536
-  %15 = getelementptr inbounds i8, ptr %3, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 672
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 248
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 528
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 536
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 40
   br label %16
 
 16:                                               ; preds = %.backedge, %7
@@ -284,7 +284,7 @@ define internal i32 @i915_gem_dmabuf_attach(ptr nocapture noundef readonly %0, p
 .lr.ph:                                           ; preds = %56, %65
   %59 = phi i32 [ %66, %65 ], [ %57, %56 ]
   %60 = add i32 %59, 1
-  %61 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %8, i32 %60, ptr elementtype(i32) %8, i32 %59) #6, !srcloc !13
+  %61 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %8, i32 %60, ptr nonnull elementtype(i32) %8, i32 %59) #6, !srcloc !13
   %62 = extractvalue { i8, i32 } %61, 0
   %63 = icmp ult i8 %62, 2
   call void @llvm.assume(i1 %63)
@@ -328,17 +328,17 @@ select.unfold:                                    ; preds = %.thread8, %69
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @i915_gem_dmabuf_detach(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 672
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %5, ptr elementtype(i32) %5) #6, !srcloc !18
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 672
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %5, ptr nonnull elementtype(i32) %5) #6, !srcloc !18
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal ptr @i915_gem_map_dma_buf(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
   %7 = tail call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 3264, i64 noundef 16) #7
@@ -346,9 +346,9 @@ define internal ptr @i915_gem_map_dma_buf(ptr nocapture noundef readonly %0, i32
   br i1 %8, label %52, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %5, i64 744
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 744
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %13 = load i32, ptr %12, align 4
   %14 = tail call i32 @sg_alloc_table(ptr noundef nonnull %7, i32 noundef %13, i32 noundef 3264) #6
   %15 = icmp eq i32 %14, 0
@@ -356,7 +356,7 @@ define internal ptr @i915_gem_map_dma_buf(ptr nocapture noundef readonly %0, i32
 
 16:                                               ; preds = %9
   %17 = load ptr, ptr %10, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 12
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %.loopexit, label %21
@@ -372,27 +372,27 @@ define internal ptr @i915_gem_map_dma_buf(ptr nocapture noundef readonly %0, i32
   %27 = phi ptr [ %39, %24 ], [ %22, %21 ]
   %28 = load i64, ptr %27, align 8
   %29 = and i64 %28, -4
-  %30 = getelementptr inbounds i8, ptr %27, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 12
   %31 = load i32, ptr %30, align 4
   %32 = load i64, ptr %26, align 8
   %33 = and i64 %32, 3
   %34 = or disjoint i64 %33, %29
   store i64 %34, ptr %26, align 8
-  %35 = getelementptr inbounds i8, ptr %26, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i32 0, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %26, i64 12
+  %36 = getelementptr inbounds nuw i8, ptr %26, i64 12
   store i32 %31, ptr %36, align 4
   %37 = tail call ptr @sg_next(ptr noundef %26) #6
   %38 = add nuw i32 %25, 1
   %39 = tail call ptr @sg_next(ptr noundef %27) #6
   %40 = load ptr, ptr %10, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 12
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 12
   %42 = load i32, ptr %41, align 4
   %43 = icmp ult i32 %38, %42
   br i1 %43, label %24, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %24, %16
-  %44 = getelementptr inbounds i8, ptr %0, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8
   %46 = tail call i32 @dma_map_sgtable(ptr noundef %45, ptr noundef nonnull %7, i32 noundef %1, i64 noundef 32) #6
   %47 = icmp eq i32 %46, 0
@@ -427,20 +427,20 @@ declare dso_local void @drm_gem_dmabuf_release(ptr noundef) #3
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @i915_gem_begin_cpu_access(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
   %3 = alloca %struct.i915_gem_ww_ctx, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   %6 = icmp ult i32 %1, 2
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false), !annotation !9
   call void @i915_gem_ww_ctx_init(ptr noundef nonnull %3, i1 noundef zeroext true) #6
-  %7 = getelementptr inbounds i8, ptr %5, i64 672
-  %8 = getelementptr inbounds i8, ptr %3, i64 48
-  %9 = getelementptr inbounds i8, ptr %5, i64 248
-  %10 = getelementptr inbounds i8, ptr %5, i64 528
-  %11 = getelementptr inbounds i8, ptr %3, i64 24
-  %12 = getelementptr inbounds i8, ptr %3, i64 32
-  %13 = getelementptr inbounds i8, ptr %5, i64 536
-  %14 = getelementptr inbounds i8, ptr %3, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 672
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 248
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 528
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 536
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 40
   br label %15
 
 15:                                               ; preds = %66, %2
@@ -522,7 +522,7 @@ define internal i32 @i915_gem_begin_cpu_access(ptr nocapture noundef readonly %0
 .lr.ph:                                           ; preds = %49, %58
   %52 = phi i32 [ %59, %58 ], [ %50, %49 ]
   %53 = add i32 %52, 1
-  %54 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %7, i32 %53, ptr elementtype(i32) %7, i32 %52) #6, !srcloc !13
+  %54 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %7, i32 %53, ptr nonnull elementtype(i32) %7, i32 %52) #6, !srcloc !13
   %55 = extractvalue { i8, i32 } %54, 0
   %56 = icmp ult i8 %55, 2
   call void @llvm.assume(i1 %56)
@@ -541,7 +541,7 @@ define internal i32 @i915_gem_begin_cpu_access(ptr nocapture noundef readonly %0
 
 .thread6:                                         ; preds = %.lr.ph, %.loopexit
   %63 = call i32 @i915_gem_object_set_to_cpu_domain(ptr noundef %5, i1 noundef zeroext %6) #6
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %7, ptr elementtype(i32) %7) #6, !srcloc !18
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %7, ptr nonnull elementtype(i32) %7) #6, !srcloc !18
   br label %.thread
 
 .thread:                                          ; preds = %37, %.thread6, %.loopexit
@@ -564,19 +564,19 @@ define internal i32 @i915_gem_begin_cpu_access(ptr nocapture noundef readonly %0
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @i915_gem_end_cpu_access(ptr nocapture noundef readonly %0, i32 %1) #0 align 16 {
   %3 = alloca %struct.i915_gem_ww_ctx, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false), !annotation !9
   call void @i915_gem_ww_ctx_init(ptr noundef nonnull %3, i1 noundef zeroext true) #6
-  %6 = getelementptr inbounds i8, ptr %5, i64 672
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
-  %8 = getelementptr inbounds i8, ptr %5, i64 248
-  %9 = getelementptr inbounds i8, ptr %5, i64 528
-  %10 = getelementptr inbounds i8, ptr %3, i64 24
-  %11 = getelementptr inbounds i8, ptr %3, i64 32
-  %12 = getelementptr inbounds i8, ptr %5, i64 536
-  %13 = getelementptr inbounds i8, ptr %3, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 672
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 248
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 528
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 536
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 40
   br label %14
 
 14:                                               ; preds = %65, %2
@@ -658,7 +658,7 @@ define internal i32 @i915_gem_end_cpu_access(ptr nocapture noundef readonly %0, 
 .lr.ph:                                           ; preds = %48, %57
   %51 = phi i32 [ %58, %57 ], [ %49, %48 ]
   %52 = add i32 %51, 1
-  %53 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %6, i32 %52, ptr elementtype(i32) %6, i32 %51) #6, !srcloc !13
+  %53 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %6, i32 %52, ptr nonnull elementtype(i32) %6, i32 %51) #6, !srcloc !13
   %54 = extractvalue { i8, i32 } %53, 0
   %55 = icmp ult i8 %54, 2
   call void @llvm.assume(i1 %55)
@@ -677,7 +677,7 @@ define internal i32 @i915_gem_end_cpu_access(ptr nocapture noundef readonly %0, 
 
 .thread6:                                         ; preds = %.lr.ph, %.loopexit
   %62 = call i32 @i915_gem_object_set_to_gtt_domain(ptr noundef %5, i1 noundef zeroext false) #6
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %6, ptr elementtype(i32) %6) #6, !srcloc !18
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %6, ptr nonnull elementtype(i32) %6) #6, !srcloc !18
   br label %.thread
 
 .thread:                                          ; preds = %36, %.thread6, %.loopexit
@@ -699,11 +699,11 @@ define internal i32 @i915_gem_end_cpu_access(ptr nocapture noundef readonly %0, 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @i915_gem_dmabuf_mmap(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 216
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 216
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = load i64, ptr %1, align 8
   %10 = sub i64 %8, %9
@@ -711,11 +711,11 @@ define internal i32 @i915_gem_dmabuf_mmap(ptr nocapture noundef readonly %0, ptr
   br i1 %11, label %36, label %12
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %4, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 7168
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 7168
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, 2
   %20 = icmp eq i32 %19, 0
@@ -726,15 +726,15 @@ define internal i32 @i915_gem_dmabuf_mmap(ptr nocapture noundef readonly %0, ptr
   br label %36
 
 23:                                               ; preds = %12
-  %24 = getelementptr inbounds i8, ptr %4, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %36, label %27
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %25, i64 176
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 176
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 88
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 88
   %31 = load ptr, ptr %30, align 8
   %32 = tail call i32 %31(ptr noundef nonnull %25, ptr noundef %1) #6
   %33 = icmp eq i32 %32, 0
@@ -752,7 +752,7 @@ define internal i32 @i915_gem_dmabuf_mmap(ptr nocapture noundef readonly %0, ptr
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @i915_gem_dmabuf_vmap(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @i915_gem_object_pin_map(ptr noundef %4, i32 noundef 0) #6
   %6 = icmp ugt ptr %5, inttoptr (i64 -4096 to ptr)
@@ -765,7 +765,7 @@ define internal i32 @i915_gem_dmabuf_vmap(ptr nocapture noundef readonly %0, ptr
 
 10:                                               ; preds = %2
   store ptr %5, ptr %1, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i8 0, ptr %11, align 8
   br label %12
 
@@ -776,13 +776,13 @@ define internal i32 @i915_gem_dmabuf_vmap(ptr nocapture noundef readonly %0, ptr
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @i915_gem_dmabuf_vunmap(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 216
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 216
   %6 = load i64, ptr %5, align 8
   tail call void @__i915_gem_object_flush_map(ptr noundef %4, i64 noundef 0, i64 noundef %6) #6
-  %7 = getelementptr inbounds i8, ptr %4, i64 672
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %7, ptr elementtype(i32) %7) #6, !srcloc !18
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 672
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %7, ptr nonnull elementtype(i32) %7) #6, !srcloc !18
   ret void
 }
 
@@ -857,9 +857,9 @@ declare dso_local void @refcount_warn_saturate(ptr noundef, i32 noundef) local_u
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @i915_gem_object_get_pages_dmabuf(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 240
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @dma_buf_map_attachment(ptr noundef %5, i32 noundef 0) #6
   %7 = icmp ugt ptr %6, inttoptr (i64 -4096 to ptr)
@@ -875,9 +875,9 @@ define internal i32 @i915_gem_object_get_pages_dmabuf(ptr noundef %0) #0 align 1
   br i1 %12, label %25, label %13
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %3, i64 7168
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 7168
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 28
   %17 = load i64, ptr %16, align 4
   %18 = and i64 %17, 524288
   %19 = icmp eq i64 %18, 0
@@ -905,7 +905,7 @@ define internal i32 @i915_gem_object_get_pages_dmabuf(ptr noundef %0) #0 align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @i915_gem_object_put_pages_dmabuf(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 240
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %4 = load ptr, ptr %3, align 8
   tail call void @dma_buf_unmap_attachment(ptr noundef %4, ptr noundef %1, i32 noundef 0) #6
   ret void

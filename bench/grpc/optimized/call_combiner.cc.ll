@@ -43,12 +43,12 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN9grpc_core12CallCombinerC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #3 align 2 {
 entry:
-  %queue_ = getelementptr inbounds i8, ptr %this, i64 8
-  %stub_.i = getelementptr inbounds i8, ptr %this, i64 80
+  %queue_ = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %stub_.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   store ptr %stub_.i, ptr %queue_, align 8
-  %tail_.i = getelementptr inbounds i8, ptr %this, i64 72
+  %tail_.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   store ptr %stub_.i, ptr %tail_.i, align 8
-  %cancel_state_ = getelementptr inbounds i8, ptr %this, i64 88
+  %cancel_state_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   store i64 0, ptr %stub_.i, align 8
   store atomic i64 0, ptr %cancel_state_ monotonic, align 8
   store atomic i64 0, ptr %this monotonic, align 8
@@ -58,7 +58,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN9grpc_core12CallCombinerD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(96) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %cancel_state_ = getelementptr inbounds i8, ptr %this, i64 88
+  %cancel_state_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load i64, ptr %cancel_state_, align 8
   %and = and i64 %0, 1
   %tobool.not = icmp eq i64 %and, 0
@@ -70,15 +70,15 @@ if.then:                                          ; preds = %entry
           to label %if.end unwind label %terminate.lpad
 
 if.end:                                           ; preds = %if.then, %entry
-  %queue_ = getelementptr inbounds i8, ptr %this, i64 8
+  %queue_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load atomic i64, ptr %queue_ monotonic, align 8
   %atomic-temp.i.0.i.i = inttoptr i64 %1 to ptr
-  %stub_.i = getelementptr inbounds i8, ptr %this, i64 80
+  %stub_.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %cmp.not.i = icmp eq ptr %stub_.i, %atomic-temp.i.0.i.i
   br i1 %cmp.not.i, label %do.body2.i, label %if.then6.invoke.i
 
 do.body2.i:                                       ; preds = %if.end
-  %tail_.i = getelementptr inbounds i8, ptr %this, i64 72
+  %tail_.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %2 = load ptr, ptr %tail_.i, align 8
   %cmp4.not.i = icmp eq ptr %2, %atomic-temp.i.0.i.i
   br i1 %cmp4.not.i, label %_ZN9grpc_core32MultiProducerSingleConsumerQueueD2Ev.exit, label %if.then6.invoke.i
@@ -293,7 +293,7 @@ _ZN4absl12lts_202308026StatusC2ERKS1_.exit12:     ; preds = %if.else, %if.then.i
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %_ZN4absl12lts_202308026StatusC2ERKS1_.exit12
-  %error_data = getelementptr inbounds i8, ptr %closure, i64 24
+  %error_data = getelementptr inbounds nuw i8, ptr %closure, i64 24
   store i64 %call, ptr %error_data, align 8
   %14 = load i64, ptr %agg.tmp2, align 8
   %and.i.i.i13 = and i64 %14, 1
@@ -312,7 +312,7 @@ terminate.lpad.i16:                               ; preds = %if.then.i.i15
   unreachable
 
 _ZN4absl12lts_202308026StatusD2Ev.exit18:         ; preds = %invoke.cont4, %if.then.i.i15
-  %queue_ = getelementptr inbounds i8, ptr %this, i64 8
+  %queue_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call5 = call noundef zeroext i1 @_ZN9grpc_core32MultiProducerSingleConsumerQueue4PushEPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(80) %queue_, ptr noundef nonnull %closure)
   br label %if.end
 
@@ -350,7 +350,7 @@ entry:
   ]
 
 while.body.preheader:                             ; preds = %entry
-  %queue_ = getelementptr inbounds i8, ptr %this, i64 8
+  %queue_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   br label %while.body
 
 if.then:                                          ; preds = %entry
@@ -363,7 +363,7 @@ while.body:                                       ; preds = %while.body.preheade
   br i1 %cmp4, label %while.body, label %if.end6, !llvm.loop !4
 
 if.end6:                                          ; preds = %while.body
-  %error_data = getelementptr inbounds i8, ptr %call, i64 24
+  %error_data = getelementptr inbounds nuw i8, ptr %call, i64 24
   %1 = load i64, ptr %error_data, align 8
   call void @_ZN9grpc_core8internal21StatusMoveFromHeapPtrEm(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %error, i64 noundef %1)
   store i64 0, ptr %error_data, align 8
@@ -472,7 +472,7 @@ entry:
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
   %ref.tmp11 = alloca %"class.grpc_core::DebugLocation", align 1
   %agg.tmp13 = alloca %"class.absl::lts_20230802::Status", align 8
-  %cancel_state_ = getelementptr inbounds i8, ptr %this, i64 88
+  %cancel_state_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   br label %while.body
 
 while.body:                                       ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit19, %entry
@@ -644,7 +644,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i9
 
 _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %invoke.cont, %if.then.i.i9
   %or = or i64 %call, 1
-  %cancel_state_ = getelementptr inbounds i8, ptr %this, i64 88
+  %cancel_state_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   br label %while.body
 
 while.body:                                       ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit24, %_ZN4absl12lts_202308026StatusD2Ev.exit
@@ -772,10 +772,10 @@ init.check:                                       ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %options.i.i.i.i)
   store i64 4, ptr %options.i.i.i.i, align 8
-  %1 = getelementptr inbounds i8, ptr %options.i.i.i.i, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %options.i.i.i.i, i64 8
   store i64 32, ptr %1, align 8
   %call.i.i.i.i = call noundef i64 @_ZN9grpc_core13PerCpuOptions6ShardsEv(ptr noundef nonnull align 8 dereferenceable(16) %options.i.i.i.i)
-  store i64 %call.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 8), align 8
+  store i64 %call.i.i.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 8), align 8
   %2 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %call.i.i.i.i, i64 2344)
   %3 = extractvalue { i64, i1 } %2, 1
   %4 = extractvalue { i64, i1 } %2, 0
@@ -792,7 +792,7 @@ new.ctorloop.i.i.i.i:                             ; preds = %init.check
   br label %_ZN9grpc_core10NoDestructINS_20GlobalStatsCollectorEEC2IJEEEDpOT_.exit
 
 _ZN9grpc_core10NoDestructINS_20GlobalStatsCollectorEEC2IJEEEDpOT_.exit: ; preds = %init.check, %new.ctorloop.i.i.i.i
-  store ptr %call3.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 16), align 8
+  store ptr %call3.i.i.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 16), align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %options.i.i.i.i)
   br label %init.end
 

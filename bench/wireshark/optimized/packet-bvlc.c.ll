@@ -569,7 +569,7 @@ define internal i32 @dissect_bvlc(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %8, label %17, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_set_str(ptr noundef %11, i32 noundef 34, ptr noundef nonnull @.str.129) #3
   %12 = load ptr, ptr %10, align 8
@@ -735,7 +735,7 @@ define internal i32 @dissect_bscvlc(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 71:                                               ; preds = %.critedge2, %69, %67, %66
   %.8343 = phi i32 [ %.5340, %.critedge2 ], [ %68, %67 ], [ %70, %69 ], [ %6, %66 ]
-  %72 = getelementptr inbounds i8, ptr %1, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %73 = load ptr, ptr %72, align 8
   tail call void @col_set_str(ptr noundef %73, i32 noundef 34, ptr noundef nonnull @.str.132) #3
   %74 = load ptr, ptr %72, align 8
@@ -1114,7 +1114,7 @@ define internal fastcc i32 @dissect_ipv4_bvlc(ptr noundef %0, ptr noundef %1, pt
   br i1 %or.cond, label %102, label %14
 
 14:                                               ; preds = %3
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = tail call ptr @val_to_str_const(i32 noundef %8, ptr noundef nonnull @bvlc_function_names, ptr noundef nonnull @.str.411) #3
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %16, i32 noundef 25, ptr noundef nonnull @.str.410, ptr noundef %17) #3
@@ -1283,7 +1283,7 @@ define internal fastcc i32 @dissect_ipv6_bvlc(ptr noundef %0, ptr noundef %1, pt
 
 switch.lookup:                                    ; preds = %3
   %11 = zext nneg i8 %5 to i64
-  %switch.gep = getelementptr inbounds [13 x i32], ptr @switch.table.dissect_ipv6_bvlc, i64 0, i64 %11
+  %switch.gep = getelementptr inbounds nuw [13 x i32], ptr @switch.table.dissect_ipv6_bvlc, i64 0, i64 %11
   %switch.load = load i32, ptr %switch.gep, align 4
   %12 = zext i16 %6 to i32
   %13 = icmp samesign ugt i32 %switch.load, %12
@@ -1292,7 +1292,7 @@ switch.lookup:                                    ; preds = %3
 14:                                               ; preds = %.thread, %switch.lookup
   %15 = phi i32 [ %10, %.thread ], [ %12, %switch.lookup ]
   %.01162 = phi i32 [ 0, %.thread ], [ %switch.load, %switch.lookup ]
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr @val_to_str_const(i32 noundef %8, ptr noundef nonnull @bvlc_ipv6_function_names, ptr noundef nonnull @.str.411) #3
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.410, ptr noundef %18) #3

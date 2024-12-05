@@ -20,23 +20,23 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_tso_start: ;
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
 define dso_local void @tso_build_hdr(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2, i32 noundef %3, i1 noundef zeroext %4) #0 align 16 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 192
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 178
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 178
   %9 = load i16, ptr %8, align 2
   %10 = zext i16 %9 to i64
   %11 = getelementptr i8, ptr %7, i64 %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 200
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %11 to i64
   %15 = ptrtoint ptr %13 to i64
   %16 = sub i64 %14, %15
   %17 = trunc i64 %16 to i32
-  %18 = getelementptr inbounds i8, ptr %2, i64 18
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 18
   %19 = load i8, ptr %18, align 2
   %20 = zext i8 %19 to i32
   %21 = add i32 %17, %20
-  %22 = getelementptr inbounds i8, ptr %0, i64 180
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %23 = load i16, ptr %22, align 4
   %24 = zext i16 %23 to i64
   %25 = getelementptr i8, ptr %7, i64 %24
@@ -44,7 +44,7 @@ define dso_local void @tso_build_hdr(ptr nocapture noundef readonly %0, ptr noca
   %27 = sub i64 %26, %15
   %28 = sext i32 %21 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %13, i64 %28, i1 false)
-  %29 = getelementptr inbounds i8, ptr %2, i64 19
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 19
   %30 = load i8, ptr %29, align 1, !range !5, !noundef !6
   %31 = icmp eq i8 %30, 0
   br i1 %31, label %32, label %48
@@ -54,16 +54,16 @@ define dso_local void @tso_build_hdr(ptr nocapture noundef readonly %0, ptr noca
   %34 = shl i64 %27, 32
   %35 = ashr exact i64 %34, 32
   %36 = getelementptr i8, ptr %1, i64 %35
-  %37 = getelementptr inbounds i8, ptr %2, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %38 = load i16, ptr %37, align 8
   %39 = tail call i16 @llvm.bswap.i16(i16 %38)
-  %40 = getelementptr inbounds i8, ptr %36, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 4
   store i16 %39, ptr %40, align 4
   %41 = add i32 %21, %3
   %42 = sub i32 %41, %33
   %43 = trunc i32 %42 to i16
   %44 = tail call i16 @llvm.bswap.i16(i16 %43)
-  %45 = getelementptr inbounds i8, ptr %36, i64 2
+  %45 = getelementptr inbounds nuw i8, ptr %36, i64 2
   store i16 %44, ptr %45, align 2
   %46 = load i16, ptr %37, align 8
   %47 = add i16 %46, 1
@@ -79,7 +79,7 @@ define dso_local void @tso_build_hdr(ptr nocapture noundef readonly %0, ptr noca
   %54 = add i32 %3, %53
   %55 = trunc i32 %54 to i16
   %56 = tail call i16 @llvm.bswap.i16(i16 %55)
-  %57 = getelementptr inbounds i8, ptr %51, i64 4
+  %57 = getelementptr inbounds nuw i8, ptr %51, i64 4
   store i16 %56, ptr %57, align 4
   br label %58
 
@@ -100,15 +100,15 @@ define dso_local void @tso_build_hdr(ptr nocapture noundef readonly %0, ptr noca
   br i1 %71, label %81, label %72
 
 72:                                               ; preds = %58
-  %73 = getelementptr inbounds i8, ptr %2, i64 20
+  %73 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %74 = load i32, ptr %73, align 4
-  %75 = getelementptr inbounds i8, ptr %69, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %69, i64 4
   %76 = tail call i32 @llvm.bswap.i32(i32 %74)
   store i32 %76, ptr %75, align 1
   br i1 %4, label %86, label %77
 
 77:                                               ; preds = %72
-  %78 = getelementptr inbounds i8, ptr %69, i64 12
+  %78 = getelementptr inbounds nuw i8, ptr %69, i64 12
   %79 = load i16, ptr %78, align 4
   %80 = and i16 %79, -3329
   store i16 %80, ptr %78, align 4
@@ -118,7 +118,7 @@ define dso_local void @tso_build_hdr(ptr nocapture noundef readonly %0, ptr noca
   %82 = trunc i32 %3 to i16
   %83 = add i16 %82, 8
   %84 = tail call i16 @llvm.bswap.i16(i16 %83)
-  %85 = getelementptr inbounds i8, ptr %69, i64 4
+  %85 = getelementptr inbounds nuw i8, ptr %69, i64 4
   store i16 %84, ptr %85, align 2
   br label %86
 
@@ -140,15 +140,15 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
 define dso_local void @tso_build_data(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2) #4 align 16 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 20
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %5 = load i32, ptr %4, align 4
   %6 = add i32 %5, %2
   store i32 %6, ptr %4, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = sub i32 %8, %2
   store i32 %9, ptr %7, align 4
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = sext i32 %2 to i64
   %13 = getelementptr i8, ptr %11, i64 %12
@@ -158,23 +158,23 @@ define dso_local void @tso_build_data(ptr nocapture noundef readonly %0, ptr noc
 
 15:                                               ; preds = %3
   %16 = load i32, ptr %1, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 192
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 188
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %20 = load i32, ptr %19, align 4
   %21 = zext i32 %20 to i64
   %22 = getelementptr i8, ptr %18, i64 %21
-  %23 = getelementptr inbounds i8, ptr %22, i64 2
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 2
   %24 = load i8, ptr %23, align 2
   %25 = zext i8 %24 to i32
   %26 = icmp slt i32 %16, %25
   br i1 %26, label %27, label %46
 
 27:                                               ; preds = %15
-  %28 = getelementptr inbounds i8, ptr %22, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %22, i64 48
   %29 = sext i32 %16 to i64
   %30 = getelementptr [17 x %struct.bio_vec], ptr %28, i64 0, i64 %29
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load i32, ptr %31, align 8
   store i32 %32, ptr %7, align 4
   %33 = load ptr, ptr %30, align 8
@@ -185,7 +185,7 @@ define dso_local void @tso_build_data(ptr nocapture noundef readonly %0, ptr noc
   %38 = load i64, ptr @page_offset_base, align 8
   %39 = add i64 %37, %38
   %40 = inttoptr i64 %39 to ptr
-  %41 = getelementptr inbounds i8, ptr %30, i64 12
+  %41 = getelementptr inbounds nuw i8, ptr %30, i64 12
   %42 = load i32, ptr %41, align 4
   %43 = zext i32 %42 to i64
   %44 = getelementptr i8, ptr %40, i64 %43
@@ -201,24 +201,24 @@ define dso_local void @tso_build_data(ptr nocapture noundef readonly %0, ptr noc
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @tso_start(ptr noundef %0, ptr nocapture noundef initializes((0, 4), (16, 19), (20, 24)) %1) #5 align 16 {
   %3 = alloca %struct.vlan_hdr, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 192
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 188
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %7 = load i32, ptr %6, align 4
   %8 = zext i32 %7 to i64
   %9 = getelementptr i8, ptr %5, i64 %8
-  %10 = getelementptr inbounds i8, ptr %9, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load i32, ptr %10, align 8
   %12 = and i32 %11, 17
   %13 = icmp eq i32 %12, 0
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 178
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 178
   %.pre = load i16, ptr %.phi.trans.insert, align 2
   %.pre13 = zext i16 %.pre to i64
   br i1 %13, label %._crit_edge, label %14
 
 14:                                               ; preds = %2
   %15 = getelementptr i8, ptr %5, i64 %.pre13
-  %16 = getelementptr inbounds i8, ptr %15, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 12
   %17 = load i16, ptr %16, align 4
   %18 = lshr i16 %17, 2
   %19 = and i16 %18, 60
@@ -228,7 +228,7 @@ define dso_local i32 @tso_start(ptr noundef %0, ptr nocapture noundef initialize
 ._crit_edge:                                      ; preds = %2, %14
   %21 = phi i32 [ %20, %14 ], [ 8, %2 ]
   %22 = getelementptr i8, ptr %5, i64 %.pre13
-  %23 = getelementptr inbounds i8, ptr %0, i64 200
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %24 = load ptr, ptr %23, align 8
   %25 = ptrtoint ptr %22 to i64
   %26 = ptrtoint ptr %24 to i64
@@ -236,40 +236,40 @@ define dso_local i32 @tso_start(ptr noundef %0, ptr nocapture noundef initialize
   %28 = trunc i64 %27 to i32
   %29 = add i32 %21, %28
   %30 = trunc nuw nsw i32 %21 to i8
-  %31 = getelementptr inbounds i8, ptr %1, i64 18
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 18
   store i8 %30, ptr %31, align 2
   %32 = load ptr, ptr %4, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 180
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %34 = load i16, ptr %33, align 4
   %35 = zext i16 %34 to i64
   %36 = getelementptr i8, ptr %32, i64 %35
-  %37 = getelementptr inbounds i8, ptr %36, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %38 = load i16, ptr %37, align 4
   %39 = tail call i16 @llvm.bswap.i16(i16 %38)
-  %40 = getelementptr inbounds i8, ptr %1, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i16 %39, ptr %40, align 8
   %41 = icmp eq i32 %21, 8
   br i1 %41, label %51, label %42
 
 42:                                               ; preds = %._crit_edge
-  %43 = getelementptr inbounds i8, ptr %0, i64 178
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 178
   %44 = load ptr, ptr %4, align 8
   %45 = load i16, ptr %43, align 2
   %46 = zext i16 %45 to i64
   %47 = getelementptr i8, ptr %44, i64 %46
-  %48 = getelementptr inbounds i8, ptr %47, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 4
   %49 = load i32, ptr %48, align 4
   %50 = tail call i32 @llvm.bswap.i32(i32 %49)
   br label %51
 
 51:                                               ; preds = %42, %._crit_edge
   %52 = phi i32 [ %50, %42 ], [ 0, %._crit_edge ]
-  %53 = getelementptr inbounds i8, ptr %1, i64 20
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 20
   store i32 %52, ptr %53, align 4
   store i32 0, ptr %1, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 176
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %55 = load i16, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %0, i64 120
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %57 = load i16, ptr %56, align 8
   %58 = zext i16 %57 to i32
   switch i16 %55, label %.loopexit [
@@ -297,8 +297,8 @@ define dso_local i32 @tso_start(ptr noundef %0, ptr nocapture noundef initialize
 
 66:                                               ; preds = %64, %59
   %67 = phi i32 [ %65, %64 ], [ 14, %59 ]
-  %68 = getelementptr inbounds i8, ptr %0, i64 112
-  %69 = getelementptr inbounds i8, ptr %0, i64 116
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %70 = icmp eq ptr %0, null
   br i1 %70, label %.split.us, label %.split
 
@@ -328,7 +328,7 @@ define dso_local i32 @tso_start(ptr noundef %0, ptr nocapture noundef initialize
   br i1 %84, label %.thread5, label %85, !prof !12
 
 85:                                               ; preds = %75
-  %86 = getelementptr inbounds i8, ptr %79, i64 2
+  %86 = getelementptr inbounds nuw i8, ptr %79, i64 2
   %87 = load i16, ptr %86, align 2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #7
   switch i16 %87, label %.loopexit [
@@ -381,7 +381,7 @@ define dso_local i32 @tso_start(ptr noundef %0, ptr nocapture noundef initialize
   br label %.loopexit
 
 113:                                              ; preds = %106
-  %114 = getelementptr inbounds i8, ptr %107, i64 2
+  %114 = getelementptr inbounds nuw i8, ptr %107, i64 2
   %115 = load i16, ptr %114, align 2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #7
   switch i16 %115, label %.loopexit [
@@ -396,21 +396,21 @@ define dso_local i32 @tso_start(ptr noundef %0, ptr nocapture noundef initialize
 .loopexit:                                        ; preds = %113, %85, %.thread5, %63, %51
   %118 = phi i16 [ 0, %63 ], [ %55, %51 ], [ 0, %.thread5 ], [ %87, %85 ], [ %115, %113 ]
   %119 = icmp eq i16 %118, -8826
-  %120 = getelementptr inbounds i8, ptr %1, i64 19
+  %120 = getelementptr inbounds nuw i8, ptr %1, i64 19
   %121 = zext i1 %119 to i8
   store i8 %121, ptr %120, align 1
-  %122 = getelementptr inbounds i8, ptr %0, i64 112
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %123 = load i32, ptr %122, align 8
-  %124 = getelementptr inbounds i8, ptr %0, i64 116
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %125 = load i32, ptr %124, align 4
   %126 = add i32 %125, %29
   %127 = sub i32 %123, %126
-  %128 = getelementptr inbounds i8, ptr %1, i64 4
+  %128 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %127, ptr %128, align 4
   %129 = load ptr, ptr %23, align 8
   %130 = sext i32 %29 to i64
   %131 = getelementptr i8, ptr %129, i64 %130
-  %132 = getelementptr inbounds i8, ptr %1, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %131, ptr %132, align 8
   %133 = icmp eq i32 %123, %126
   br i1 %133, label %134, label %163
@@ -421,17 +421,17 @@ define dso_local i32 @tso_start(ptr noundef %0, ptr nocapture noundef initialize
   %137 = load i32, ptr %6, align 4
   %138 = zext i32 %137 to i64
   %139 = getelementptr i8, ptr %136, i64 %138
-  %140 = getelementptr inbounds i8, ptr %139, i64 2
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 2
   %141 = load i8, ptr %140, align 2
   %142 = zext i8 %141 to i32
   %143 = icmp slt i32 %135, %142
   br i1 %143, label %144, label %163
 
 144:                                              ; preds = %134
-  %145 = getelementptr inbounds i8, ptr %139, i64 48
+  %145 = getelementptr inbounds nuw i8, ptr %139, i64 48
   %146 = sext i32 %135 to i64
   %147 = getelementptr [17 x %struct.bio_vec], ptr %145, i64 0, i64 %146
-  %148 = getelementptr inbounds i8, ptr %147, i64 8
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 8
   %149 = load i32, ptr %148, align 8
   store i32 %149, ptr %128, align 4
   %150 = load ptr, ptr %147, align 8
@@ -442,7 +442,7 @@ define dso_local i32 @tso_start(ptr noundef %0, ptr nocapture noundef initialize
   %155 = load i64, ptr @page_offset_base, align 8
   %156 = add i64 %154, %155
   %157 = inttoptr i64 %156 to ptr
-  %158 = getelementptr inbounds i8, ptr %147, i64 12
+  %158 = getelementptr inbounds nuw i8, ptr %147, i64 12
   %159 = load i32, ptr %158, align 4
   %160 = zext i32 %159 to i64
   %161 = getelementptr i8, ptr %157, i64 %160

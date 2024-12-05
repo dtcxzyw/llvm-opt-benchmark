@@ -61,9 +61,9 @@ $_ZTIN4YAML12EventHandlerE = comdat any
 define void @_ZN4YAML14EmitFromEventsC2ERNS_7EmitterE(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 96)) %this, ptr noundef nonnull align 8 dereferenceable(72) %emitter) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML14EmitFromEventsE, i64 16), ptr %this, align 8
-  %m_emitter = getelementptr inbounds i8, ptr %this, i64 8
+  %m_emitter = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %emitter, ptr %m_emitter, align 8
-  %m_stateStack = getelementptr inbounds i8, ptr %this, i64 16
+  %m_stateStack = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %m_stateStack, i8 0, i64 80, i1 false)
   tail call void @_ZNSt11_Deque_baseIN4YAML14EmitFromEvents5State5valueESaIS3_EE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %m_stateStack, i64 noundef 0)
   ret void
@@ -88,25 +88,25 @@ define void @_ZN4YAML14EmitFromEvents6OnNullERKNS_4MarkEm(ptr nocapture noundef 
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator.2", align 1
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  %_M_start.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
+  %_M_start.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_finish.i.i.i, align 8
   %2 = load ptr, ptr %_M_start.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %1, %2
   br i1 %cmp.i.i.i.i, label %_ZN4YAML14EmitFromEvents9BeginNodeEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %_M_first3.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
+  %_M_first3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %3 = load ptr, ptr %_M_first3.i.i.i.i.i, align 8, !noalias !4
   %cmp.i.i.i1.i = icmp eq ptr %1, %3
   br i1 %cmp.i.i.i1.i, label %if.then.i.i.i.i, label %_ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEE3topEv.exit.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i
-  %_M_node5.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
+  %_M_node5.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %4 = load ptr, ptr %_M_node5.i.i.i.i.i, align 8, !noalias !4
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 -8
   %5 = load ptr, ptr %add.ptr.i.i.i.i, align 8
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 512
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 512
   br label %_ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEE3topEv.exit.i
 
 _ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEE3topEv.exit.i: ; preds = %if.then.i.i.i.i, %if.end.i
@@ -119,7 +119,7 @@ _ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEE3topEv.exit.
   ]
 
 sw.bb.i:                                          ; preds = %_ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEE3topEv.exit.i
-  %m_emitter.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_emitter.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %8 = load ptr, ptr %m_emitter.i, align 8
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZN4YAML7Emitter13SetLocalValueENS_13EMITTER_MANIPE(ptr noundef nonnull align 8 dereferenceable(72) %8, i32 noundef 32)
   %9 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !7
@@ -128,7 +128,7 @@ sw.bb.i:                                          ; preds = %_ZNSt5stackIN4YAML1
   br i1 %cmp.i.i.i4.i, label %sw.epilog.sink.split.sink.split.i, label %sw.epilog.sink.split.i
 
 sw.bb7.i:                                         ; preds = %_ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEE3topEv.exit.i
-  %m_emitter8.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_emitter8.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %11 = load ptr, ptr %m_emitter8.i, align 8
   %call.i11.i = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZN4YAML7Emitter13SetLocalValueENS_13EMITTER_MANIPE(ptr noundef nonnull align 8 dereferenceable(72) %11, i32 noundef 33)
   %12 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !10
@@ -138,11 +138,11 @@ sw.bb7.i:                                         ; preds = %_ZNSt5stackIN4YAML1
 
 sw.epilog.sink.split.sink.split.i:                ; preds = %sw.bb7.i, %sw.bb.i
   %.sink.ph.i = phi i32 [ 2, %sw.bb.i ], [ 1, %sw.bb7.i ]
-  %_M_node5.i.i.i.i17.i = getelementptr inbounds i8, ptr %this, i64 88
+  %_M_node5.i.i.i.i17.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %14 = load ptr, ptr %_M_node5.i.i.i.i17.i, align 8, !noalias !13
   %add.ptr.i.i.i18.i = getelementptr inbounds i8, ptr %14, i64 -8
   %15 = load ptr, ptr %add.ptr.i.i.i18.i, align 8
-  %add.ptr.i.i.i.i19.i = getelementptr inbounds i8, ptr %15, i64 512
+  %add.ptr.i.i.i.i19.i = getelementptr inbounds nuw i8, ptr %15, i64 512
   br label %sw.epilog.sink.split.i
 
 sw.epilog.sink.split.i:                           ; preds = %sw.epilog.sink.split.sink.split.i, %sw.bb7.i, %sw.bb.i
@@ -164,7 +164,7 @@ invoke.cont:                                      ; preds = %_ZN4YAML14EmitFromE
 invoke.cont4:                                     ; preds = %invoke.cont
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #14
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #14
-  %m_emitter = getelementptr inbounds i8, ptr %this, i64 8
+  %m_emitter = getelementptr inbounds nuw i8, ptr %this, i64 8
   %16 = load ptr, ptr %m_emitter, align 8
   %call.i = call noundef nonnull align 8 dereferenceable(72) ptr @_ZN4YAML7Emitter5WriteERKNS_5_NullE(ptr noundef nonnull align 8 dereferenceable(72) %16, ptr noundef nonnull align 1 dereferenceable(1) @_ZN4YAML4NullE)
   ret void
@@ -189,25 +189,25 @@ ehcleanup:                                        ; preds = %lpad3, %lpad
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4YAML14EmitFromEvents9BeginNodeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  %_M_start.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
+  %_M_start.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %_M_start.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i, label %sw.epilog, label %if.end
 
 if.end:                                           ; preds = %entry
-  %_M_first3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
+  %_M_first3.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %2 = load ptr, ptr %_M_first3.i.i.i.i, align 8, !noalias !14
   %cmp.i.i.i1 = icmp eq ptr %0, %2
   br i1 %cmp.i.i.i1, label %if.then.i.i.i, label %_ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEE3topEv.exit
 
 if.then.i.i.i:                                    ; preds = %if.end
-  %_M_node5.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
+  %_M_node5.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %3 = load ptr, ptr %_M_node5.i.i.i.i, align 8, !noalias !14
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 -8
   %4 = load ptr, ptr %add.ptr.i.i.i, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 512
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 512
   br label %_ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEE3topEv.exit
 
 _ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEE3topEv.exit: ; preds = %if.end, %if.then.i.i.i
@@ -220,7 +220,7 @@ _ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEE3topEv.exit:
   ]
 
 sw.bb:                                            ; preds = %_ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEE3topEv.exit
-  %m_emitter = getelementptr inbounds i8, ptr %this, i64 8
+  %m_emitter = getelementptr inbounds nuw i8, ptr %this, i64 8
   %7 = load ptr, ptr %m_emitter, align 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZN4YAML7Emitter13SetLocalValueENS_13EMITTER_MANIPE(ptr noundef nonnull align 8 dereferenceable(72) %7, i32 noundef 32)
   %8 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !17
@@ -229,7 +229,7 @@ sw.bb:                                            ; preds = %_ZNSt5stackIN4YAML1
   br i1 %cmp.i.i.i4, label %sw.epilog.sink.split.sink.split, label %sw.epilog.sink.split
 
 sw.bb7:                                           ; preds = %_ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEE3topEv.exit
-  %m_emitter8 = getelementptr inbounds i8, ptr %this, i64 8
+  %m_emitter8 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %10 = load ptr, ptr %m_emitter8, align 8
   %call.i11 = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZN4YAML7Emitter13SetLocalValueENS_13EMITTER_MANIPE(ptr noundef nonnull align 8 dereferenceable(72) %10, i32 noundef 33)
   %11 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !20
@@ -239,11 +239,11 @@ sw.bb7:                                           ; preds = %_ZNSt5stackIN4YAML1
 
 sw.epilog.sink.split.sink.split:                  ; preds = %sw.bb7, %sw.bb
   %.sink.ph = phi i32 [ 2, %sw.bb ], [ 1, %sw.bb7 ]
-  %_M_node5.i.i.i.i17 = getelementptr inbounds i8, ptr %this, i64 88
+  %_M_node5.i.i.i.i17 = getelementptr inbounds nuw i8, ptr %this, i64 88
   %13 = load ptr, ptr %_M_node5.i.i.i.i17, align 8, !noalias !13
   %add.ptr.i.i.i18 = getelementptr inbounds i8, ptr %13, i64 -8
   %14 = load ptr, ptr %add.ptr.i.i.i18, align 8
-  %add.ptr.i.i.i.i19 = getelementptr inbounds i8, ptr %14, i64 512
+  %add.ptr.i.i.i.i19 = getelementptr inbounds nuw i8, ptr %14, i64 512
   br label %sw.epilog.sink.split
 
 sw.epilog.sink.split:                             ; preds = %sw.epilog.sink.split.sink.split, %sw.bb7, %sw.bb
@@ -278,14 +278,14 @@ land.lhs.true3:                                   ; preds = %land.lhs.true
   br i1 %cmp.i.i8.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true3
-  %m_emitter = getelementptr inbounds i8, ptr %this, i64 8
+  %m_emitter = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_emitter, align 8
   call void @_ZN4YAML11VerbatimTagERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull sret(%"struct.YAML::_Tag") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %tag)
   %call.i9 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZN4YAML7Emitter5WriteERKNS_4_TagE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(68) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  %content.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
+  %content.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %content.i) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(68) %ref.tmp) #14
   br label %if.end
@@ -293,7 +293,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.then
   %1 = landingpad { ptr, i32 }
           cleanup
-  %content.i10 = getelementptr inbounds i8, ptr %ref.tmp, i64 32
+  %content.i10 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %content.i10) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(68) %ref.tmp) #14
   br label %common.resume
@@ -303,11 +303,11 @@ if.end:                                           ; preds = %invoke.cont, %land.
   br i1 %tobool.not, label %if.end15, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  %m_emitter7 = getelementptr inbounds i8, ptr %this, i64 8
+  %m_emitter7 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load ptr, ptr %m_emitter7, align 8
   call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %stream.i)
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %stream.i), !noalias !23
-  %add.ptr.i = getelementptr inbounds i8, ptr %stream.i, i64 16
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %stream.i, i64 16
   %call.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i, i64 noundef %anchor)
           to label %invoke.cont.i unwind label %lpad.i, !noalias !23
 
@@ -377,25 +377,25 @@ entry:
   %stream.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ref.tmp = alloca %"struct.YAML::_Alias", align 8
   %ref.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  %_M_start.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
+  %_M_start.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_finish.i.i.i, align 8
   %2 = load ptr, ptr %_M_start.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %1, %2
   br i1 %cmp.i.i.i.i, label %_ZN4YAML14EmitFromEvents9BeginNodeEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %_M_first3.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
+  %_M_first3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %3 = load ptr, ptr %_M_first3.i.i.i.i.i, align 8, !noalias !26
   %cmp.i.i.i1.i = icmp eq ptr %1, %3
   br i1 %cmp.i.i.i1.i, label %if.then.i.i.i.i, label %_ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEE3topEv.exit.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i
-  %_M_node5.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
+  %_M_node5.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %4 = load ptr, ptr %_M_node5.i.i.i.i.i, align 8, !noalias !26
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 -8
   %5 = load ptr, ptr %add.ptr.i.i.i.i, align 8
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 512
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 512
   br label %_ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEE3topEv.exit.i
 
 _ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEE3topEv.exit.i: ; preds = %if.then.i.i.i.i, %if.end.i
@@ -408,7 +408,7 @@ _ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEE3topEv.exit.
   ]
 
 sw.bb.i:                                          ; preds = %_ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEE3topEv.exit.i
-  %m_emitter.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_emitter.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %8 = load ptr, ptr %m_emitter.i, align 8
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZN4YAML7Emitter13SetLocalValueENS_13EMITTER_MANIPE(ptr noundef nonnull align 8 dereferenceable(72) %8, i32 noundef 32)
   %9 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !29
@@ -417,7 +417,7 @@ sw.bb.i:                                          ; preds = %_ZNSt5stackIN4YAML1
   br i1 %cmp.i.i.i4.i, label %sw.epilog.sink.split.sink.split.i, label %sw.epilog.sink.split.i
 
 sw.bb7.i:                                         ; preds = %_ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEE3topEv.exit.i
-  %m_emitter8.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_emitter8.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %11 = load ptr, ptr %m_emitter8.i, align 8
   %call.i11.i = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZN4YAML7Emitter13SetLocalValueENS_13EMITTER_MANIPE(ptr noundef nonnull align 8 dereferenceable(72) %11, i32 noundef 33)
   %12 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !32
@@ -427,11 +427,11 @@ sw.bb7.i:                                         ; preds = %_ZNSt5stackIN4YAML1
 
 sw.epilog.sink.split.sink.split.i:                ; preds = %sw.bb7.i, %sw.bb.i
   %.sink.ph.i = phi i32 [ 2, %sw.bb.i ], [ 1, %sw.bb7.i ]
-  %_M_node5.i.i.i.i17.i = getelementptr inbounds i8, ptr %this, i64 88
+  %_M_node5.i.i.i.i17.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %14 = load ptr, ptr %_M_node5.i.i.i.i17.i, align 8, !noalias !13
   %add.ptr.i.i.i18.i = getelementptr inbounds i8, ptr %14, i64 -8
   %15 = load ptr, ptr %add.ptr.i.i.i18.i, align 8
-  %add.ptr.i.i.i.i19.i = getelementptr inbounds i8, ptr %15, i64 512
+  %add.ptr.i.i.i.i19.i = getelementptr inbounds nuw i8, ptr %15, i64 512
   br label %sw.epilog.sink.split.i
 
 sw.epilog.sink.split.i:                           ; preds = %sw.epilog.sink.split.sink.split.i, %sw.bb7.i, %sw.bb.i
@@ -442,11 +442,11 @@ sw.epilog.sink.split.i:                           ; preds = %sw.epilog.sink.spli
   br label %_ZN4YAML14EmitFromEvents9BeginNodeEv.exit
 
 _ZN4YAML14EmitFromEvents9BeginNodeEv.exit:        ; preds = %entry, %_ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEE3topEv.exit.i, %sw.epilog.sink.split.i
-  %m_emitter = getelementptr inbounds i8, ptr %this, i64 8
+  %m_emitter = getelementptr inbounds nuw i8, ptr %this, i64 8
   %16 = load ptr, ptr %m_emitter, align 8
   call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %stream.i)
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %stream.i), !noalias !35
-  %add.ptr.i = getelementptr inbounds i8, ptr %stream.i, i64 16
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %stream.i, i64 16
   %call.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i, i64 noundef %anchor)
           to label %invoke.cont.i unwind label %lpad.i, !noalias !35
 
@@ -499,25 +499,25 @@ ehcleanup:                                        ; preds = %lpad3, %lpad
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4YAML14EmitFromEvents8OnScalarERKNS_4MarkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSB_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this, ptr nocapture nonnull readnone align 1 %0, ptr noundef nonnull align 8 dereferenceable(32) %tag, i64 noundef %anchor, ptr noundef nonnull align 8 dereferenceable(32) %value) unnamed_addr #0 align 2 {
 entry:
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  %_M_start.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
+  %_M_start.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_finish.i.i.i, align 8
   %2 = load ptr, ptr %_M_start.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %1, %2
   br i1 %cmp.i.i.i.i, label %_ZN4YAML14EmitFromEvents9BeginNodeEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %_M_first3.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
+  %_M_first3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %3 = load ptr, ptr %_M_first3.i.i.i.i.i, align 8, !noalias !38
   %cmp.i.i.i1.i = icmp eq ptr %1, %3
   br i1 %cmp.i.i.i1.i, label %if.then.i.i.i.i, label %_ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEE3topEv.exit.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i
-  %_M_node5.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
+  %_M_node5.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %4 = load ptr, ptr %_M_node5.i.i.i.i.i, align 8, !noalias !38
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 -8
   %5 = load ptr, ptr %add.ptr.i.i.i.i, align 8
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 512
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 512
   br label %_ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEE3topEv.exit.i
 
 _ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEE3topEv.exit.i: ; preds = %if.then.i.i.i.i, %if.end.i
@@ -530,7 +530,7 @@ _ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEE3topEv.exit.
   ]
 
 sw.bb.i:                                          ; preds = %_ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEE3topEv.exit.i
-  %m_emitter.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_emitter.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %8 = load ptr, ptr %m_emitter.i, align 8
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZN4YAML7Emitter13SetLocalValueENS_13EMITTER_MANIPE(ptr noundef nonnull align 8 dereferenceable(72) %8, i32 noundef 32)
   %9 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !41
@@ -539,7 +539,7 @@ sw.bb.i:                                          ; preds = %_ZNSt5stackIN4YAML1
   br i1 %cmp.i.i.i4.i, label %sw.epilog.sink.split.sink.split.i, label %sw.epilog.sink.split.i
 
 sw.bb7.i:                                         ; preds = %_ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEE3topEv.exit.i
-  %m_emitter8.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_emitter8.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %11 = load ptr, ptr %m_emitter8.i, align 8
   %call.i11.i = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZN4YAML7Emitter13SetLocalValueENS_13EMITTER_MANIPE(ptr noundef nonnull align 8 dereferenceable(72) %11, i32 noundef 33)
   %12 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !44
@@ -549,11 +549,11 @@ sw.bb7.i:                                         ; preds = %_ZNSt5stackIN4YAML1
 
 sw.epilog.sink.split.sink.split.i:                ; preds = %sw.bb7.i, %sw.bb.i
   %.sink.ph.i = phi i32 [ 2, %sw.bb.i ], [ 1, %sw.bb7.i ]
-  %_M_node5.i.i.i.i17.i = getelementptr inbounds i8, ptr %this, i64 88
+  %_M_node5.i.i.i.i17.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %14 = load ptr, ptr %_M_node5.i.i.i.i17.i, align 8, !noalias !13
   %add.ptr.i.i.i18.i = getelementptr inbounds i8, ptr %14, i64 -8
   %15 = load ptr, ptr %add.ptr.i.i.i18.i, align 8
-  %add.ptr.i.i.i.i19.i = getelementptr inbounds i8, ptr %15, i64 512
+  %add.ptr.i.i.i.i19.i = getelementptr inbounds nuw i8, ptr %15, i64 512
   br label %sw.epilog.sink.split.i
 
 sw.epilog.sink.split.i:                           ; preds = %sw.epilog.sink.split.sink.split.i, %sw.bb7.i, %sw.bb.i
@@ -565,7 +565,7 @@ sw.epilog.sink.split.i:                           ; preds = %sw.epilog.sink.spli
 
 _ZN4YAML14EmitFromEvents9BeginNodeEv.exit:        ; preds = %entry, %_ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEE3topEv.exit.i, %sw.epilog.sink.split.i
   tail call void @_ZN4YAML14EmitFromEvents9EmitPropsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(32) %tag, i64 noundef %anchor)
-  %m_emitter = getelementptr inbounds i8, ptr %this, i64 8
+  %m_emitter = getelementptr inbounds nuw i8, ptr %this, i64 8
   %16 = load ptr, ptr %m_emitter, align 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZN4YAML7Emitter5WriteERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %16, ptr noundef nonnull align 8 dereferenceable(32) %value)
   ret void
@@ -575,25 +575,25 @@ _ZN4YAML14EmitFromEvents9BeginNodeEv.exit:        ; preds = %entry, %_ZNSt5stack
 define void @_ZN4YAML14EmitFromEvents15OnSequenceStartERKNS_4MarkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmNS_12EmitterStyle5valueE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr nocapture nonnull readnone align 1 %0, ptr noundef nonnull align 8 dereferenceable(32) %tag, i64 noundef %anchor, i32 noundef %style) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca i32, align 4
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  %_M_start.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
+  %_M_start.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_finish.i.i.i, align 8
   %2 = load ptr, ptr %_M_start.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %1, %2
   br i1 %cmp.i.i.i.i, label %_ZN4YAML14EmitFromEvents9BeginNodeEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %_M_first3.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
+  %_M_first3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %3 = load ptr, ptr %_M_first3.i.i.i.i.i, align 8, !noalias !47
   %cmp.i.i.i1.i = icmp eq ptr %1, %3
   br i1 %cmp.i.i.i1.i, label %if.then.i.i.i.i, label %_ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEE3topEv.exit.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i
-  %_M_node5.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
+  %_M_node5.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %4 = load ptr, ptr %_M_node5.i.i.i.i.i, align 8, !noalias !47
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 -8
   %5 = load ptr, ptr %add.ptr.i.i.i.i, align 8
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 512
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 512
   br label %_ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEE3topEv.exit.i
 
 _ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEE3topEv.exit.i: ; preds = %if.then.i.i.i.i, %if.end.i
@@ -606,7 +606,7 @@ _ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEE3topEv.exit.
   ]
 
 sw.bb.i:                                          ; preds = %_ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEE3topEv.exit.i
-  %m_emitter.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_emitter.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %8 = load ptr, ptr %m_emitter.i, align 8
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZN4YAML7Emitter13SetLocalValueENS_13EMITTER_MANIPE(ptr noundef nonnull align 8 dereferenceable(72) %8, i32 noundef 32)
   %9 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !50
@@ -615,7 +615,7 @@ sw.bb.i:                                          ; preds = %_ZNSt5stackIN4YAML1
   br i1 %cmp.i.i.i4.i, label %sw.epilog.sink.split.sink.split.i, label %sw.epilog.sink.split.i
 
 sw.bb7.i:                                         ; preds = %_ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEE3topEv.exit.i
-  %m_emitter8.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_emitter8.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %11 = load ptr, ptr %m_emitter8.i, align 8
   %call.i11.i = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZN4YAML7Emitter13SetLocalValueENS_13EMITTER_MANIPE(ptr noundef nonnull align 8 dereferenceable(72) %11, i32 noundef 33)
   %12 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !53
@@ -625,11 +625,11 @@ sw.bb7.i:                                         ; preds = %_ZNSt5stackIN4YAML1
 
 sw.epilog.sink.split.sink.split.i:                ; preds = %sw.bb7.i, %sw.bb.i
   %.sink.ph.i = phi i32 [ 2, %sw.bb.i ], [ 1, %sw.bb7.i ]
-  %_M_node5.i.i.i.i17.i = getelementptr inbounds i8, ptr %this, i64 88
+  %_M_node5.i.i.i.i17.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %14 = load ptr, ptr %_M_node5.i.i.i.i17.i, align 8, !noalias !13
   %add.ptr.i.i.i18.i = getelementptr inbounds i8, ptr %14, i64 -8
   %15 = load ptr, ptr %add.ptr.i.i.i18.i, align 8
-  %add.ptr.i.i.i.i19.i = getelementptr inbounds i8, ptr %15, i64 512
+  %add.ptr.i.i.i.i19.i = getelementptr inbounds nuw i8, ptr %15, i64 512
   br label %sw.epilog.sink.split.i
 
 sw.epilog.sink.split.i:                           ; preds = %sw.epilog.sink.split.sink.split.i, %sw.bb7.i, %sw.bb.i
@@ -651,20 +651,20 @@ sw.bb2:                                           ; preds = %_ZN4YAML14EmitFromE
 
 sw.epilog.sink.split:                             ; preds = %_ZN4YAML14EmitFromEvents9BeginNodeEv.exit, %sw.bb2
   %.sink4 = phi i32 [ 28, %sw.bb2 ], [ 29, %_ZN4YAML14EmitFromEvents9BeginNodeEv.exit ]
-  %m_emitter3 = getelementptr inbounds i8, ptr %this, i64 8
+  %m_emitter3 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %16 = load ptr, ptr %m_emitter3, align 8
   %call.i1 = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZN4YAML7Emitter13SetLocalValueENS_13EMITTER_MANIPE(ptr noundef nonnull align 8 dereferenceable(72) %16, i32 noundef %.sink4)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.epilog.sink.split, %_ZN4YAML14EmitFromEvents9BeginNodeEv.exit
-  %m_emitter5 = getelementptr inbounds i8, ptr %this, i64 8
+  %m_emitter5 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %17 = load ptr, ptr %m_emitter5, align 8
   tail call void @_ZN4YAML7Emitter29RestoreGlobalModifiedSettingsEv(ptr noundef nonnull align 8 dereferenceable(72) %17)
   %18 = load ptr, ptr %m_emitter5, align 8
   %call.i2 = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZN4YAML7Emitter13SetLocalValueENS_13EMITTER_MANIPE(ptr noundef nonnull align 8 dereferenceable(72) %18, i32 noundef 26)
   store i32 0, ptr %ref.tmp, align 4
   %19 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %_M_last.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
+  %_M_last.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %20 = load ptr, ptr %_M_last.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %20, i64 -4
   %cmp.not.i.i.i = icmp eq ptr %19, %add.ptr.i.i.i
@@ -673,12 +673,12 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 if.then.i.i.i:                                    ; preds = %sw.epilog
   store i32 0, ptr %19, align 4
   %21 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %21, i64 4
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %21, i64 4
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8
   br label %_ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEE4pushEOS3_.exit
 
 if.else.i.i.i:                                    ; preds = %sw.epilog
-  %m_stateStack = getelementptr inbounds i8, ptr %this, i64 16
+  %m_stateStack = getelementptr inbounds nuw i8, ptr %this, i64 16
   call void @_ZNSt5dequeIN4YAML14EmitFromEvents5State5valueESaIS3_EE16_M_push_back_auxIJS3_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %m_stateStack, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp)
   br label %_ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEE4pushEOS3_.exit
 
@@ -691,12 +691,12 @@ declare void @_ZN4YAML7Emitter29RestoreGlobalModifiedSettingsEv(ptr noundef nonn
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4YAML14EmitFromEvents13OnSequenceEndEv(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_emitter = getelementptr inbounds i8, ptr %this, i64 8
+  %m_emitter = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_emitter, align 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZN4YAML7Emitter13SetLocalValueENS_13EMITTER_MANIPE(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef 27)
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %1 = load ptr, ptr %_M_finish.i.i, align 8
-  %_M_first.i.i = getelementptr inbounds i8, ptr %this, i64 72
+  %_M_first.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %2 = load ptr, ptr %_M_first.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %1, %2
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
@@ -707,16 +707,16 @@ if.then.i.i:                                      ; preds = %entry
 
 if.else.i.i:                                      ; preds = %entry
   tail call void @_ZdlPv(ptr noundef %2) #15
-  %_M_node.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
+  %_M_node.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %3 = load ptr, ptr %_M_node.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 -8
   store ptr %add.ptr.i.i.i, ptr %_M_node.i.i.i, align 8
   %4 = load ptr, ptr %add.ptr.i.i.i, align 8
   store ptr %4, ptr %_M_first.i.i, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 512
-  %_M_last.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 512
+  %_M_last.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   store ptr %add.ptr.i.i.i.i, ptr %_M_last.i.i.i.i, align 8
-  %add.ptr8.i.i.i = getelementptr inbounds i8, ptr %4, i64 508
+  %add.ptr8.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 508
   br label %_ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEE3popEv.exit
 
 _ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEE3popEv.exit: ; preds = %if.then.i.i, %if.else.i.i
@@ -729,25 +729,25 @@ _ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEE3popEv.exit:
 define void @_ZN4YAML14EmitFromEvents10OnMapStartERKNS_4MarkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmNS_12EmitterStyle5valueE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr nocapture nonnull readnone align 1 %0, ptr noundef nonnull align 8 dereferenceable(32) %tag, i64 noundef %anchor, i32 noundef %style) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca i32, align 4
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  %_M_start.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
+  %_M_start.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_finish.i.i.i, align 8
   %2 = load ptr, ptr %_M_start.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %1, %2
   br i1 %cmp.i.i.i.i, label %_ZN4YAML14EmitFromEvents9BeginNodeEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %_M_first3.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
+  %_M_first3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %3 = load ptr, ptr %_M_first3.i.i.i.i.i, align 8, !noalias !56
   %cmp.i.i.i1.i = icmp eq ptr %1, %3
   br i1 %cmp.i.i.i1.i, label %if.then.i.i.i.i, label %_ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEE3topEv.exit.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i
-  %_M_node5.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
+  %_M_node5.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %4 = load ptr, ptr %_M_node5.i.i.i.i.i, align 8, !noalias !56
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 -8
   %5 = load ptr, ptr %add.ptr.i.i.i.i, align 8
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 512
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 512
   br label %_ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEE3topEv.exit.i
 
 _ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEE3topEv.exit.i: ; preds = %if.then.i.i.i.i, %if.end.i
@@ -760,7 +760,7 @@ _ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEE3topEv.exit.
   ]
 
 sw.bb.i:                                          ; preds = %_ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEE3topEv.exit.i
-  %m_emitter.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_emitter.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %8 = load ptr, ptr %m_emitter.i, align 8
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZN4YAML7Emitter13SetLocalValueENS_13EMITTER_MANIPE(ptr noundef nonnull align 8 dereferenceable(72) %8, i32 noundef 32)
   %9 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !59
@@ -769,7 +769,7 @@ sw.bb.i:                                          ; preds = %_ZNSt5stackIN4YAML1
   br i1 %cmp.i.i.i4.i, label %sw.epilog.sink.split.sink.split.i, label %sw.epilog.sink.split.i
 
 sw.bb7.i:                                         ; preds = %_ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEE3topEv.exit.i
-  %m_emitter8.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_emitter8.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %11 = load ptr, ptr %m_emitter8.i, align 8
   %call.i11.i = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZN4YAML7Emitter13SetLocalValueENS_13EMITTER_MANIPE(ptr noundef nonnull align 8 dereferenceable(72) %11, i32 noundef 33)
   %12 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !62
@@ -779,11 +779,11 @@ sw.bb7.i:                                         ; preds = %_ZNSt5stackIN4YAML1
 
 sw.epilog.sink.split.sink.split.i:                ; preds = %sw.bb7.i, %sw.bb.i
   %.sink.ph.i = phi i32 [ 2, %sw.bb.i ], [ 1, %sw.bb7.i ]
-  %_M_node5.i.i.i.i17.i = getelementptr inbounds i8, ptr %this, i64 88
+  %_M_node5.i.i.i.i17.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %14 = load ptr, ptr %_M_node5.i.i.i.i17.i, align 8, !noalias !13
   %add.ptr.i.i.i18.i = getelementptr inbounds i8, ptr %14, i64 -8
   %15 = load ptr, ptr %add.ptr.i.i.i18.i, align 8
-  %add.ptr.i.i.i.i19.i = getelementptr inbounds i8, ptr %15, i64 512
+  %add.ptr.i.i.i.i19.i = getelementptr inbounds nuw i8, ptr %15, i64 512
   br label %sw.epilog.sink.split.i
 
 sw.epilog.sink.split.i:                           ; preds = %sw.epilog.sink.split.sink.split.i, %sw.bb7.i, %sw.bb.i
@@ -805,20 +805,20 @@ sw.bb2:                                           ; preds = %_ZN4YAML14EmitFromE
 
 sw.epilog.sink.split:                             ; preds = %_ZN4YAML14EmitFromEvents9BeginNodeEv.exit, %sw.bb2
   %.sink4 = phi i32 [ 28, %sw.bb2 ], [ 29, %_ZN4YAML14EmitFromEvents9BeginNodeEv.exit ]
-  %m_emitter3 = getelementptr inbounds i8, ptr %this, i64 8
+  %m_emitter3 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %16 = load ptr, ptr %m_emitter3, align 8
   %call.i1 = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZN4YAML7Emitter13SetLocalValueENS_13EMITTER_MANIPE(ptr noundef nonnull align 8 dereferenceable(72) %16, i32 noundef %.sink4)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.epilog.sink.split, %_ZN4YAML14EmitFromEvents9BeginNodeEv.exit
-  %m_emitter5 = getelementptr inbounds i8, ptr %this, i64 8
+  %m_emitter5 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %17 = load ptr, ptr %m_emitter5, align 8
   tail call void @_ZN4YAML7Emitter29RestoreGlobalModifiedSettingsEv(ptr noundef nonnull align 8 dereferenceable(72) %17)
   %18 = load ptr, ptr %m_emitter5, align 8
   %call.i2 = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZN4YAML7Emitter13SetLocalValueENS_13EMITTER_MANIPE(ptr noundef nonnull align 8 dereferenceable(72) %18, i32 noundef 30)
   store i32 1, ptr %ref.tmp, align 4
   %19 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %_M_last.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
+  %_M_last.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %20 = load ptr, ptr %_M_last.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %20, i64 -4
   %cmp.not.i.i.i = icmp eq ptr %19, %add.ptr.i.i.i
@@ -827,12 +827,12 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 if.then.i.i.i:                                    ; preds = %sw.epilog
   store i32 1, ptr %19, align 4
   %21 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %21, i64 4
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %21, i64 4
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8
   br label %_ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEE4pushEOS3_.exit
 
 if.else.i.i.i:                                    ; preds = %sw.epilog
-  %m_stateStack = getelementptr inbounds i8, ptr %this, i64 16
+  %m_stateStack = getelementptr inbounds nuw i8, ptr %this, i64 16
   call void @_ZNSt5dequeIN4YAML14EmitFromEvents5State5valueESaIS3_EE16_M_push_back_auxIJS3_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %m_stateStack, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp)
   br label %_ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEE4pushEOS3_.exit
 
@@ -843,12 +843,12 @@ _ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEE4pushEOS3_.e
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4YAML14EmitFromEvents8OnMapEndEv(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_emitter = getelementptr inbounds i8, ptr %this, i64 8
+  %m_emitter = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_emitter, align 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZN4YAML7Emitter13SetLocalValueENS_13EMITTER_MANIPE(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef 31)
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %1 = load ptr, ptr %_M_finish.i.i, align 8
-  %_M_first.i.i = getelementptr inbounds i8, ptr %this, i64 72
+  %_M_first.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %2 = load ptr, ptr %_M_first.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %1, %2
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
@@ -859,16 +859,16 @@ if.then.i.i:                                      ; preds = %entry
 
 if.else.i.i:                                      ; preds = %entry
   tail call void @_ZdlPv(ptr noundef %2) #15
-  %_M_node.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
+  %_M_node.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %3 = load ptr, ptr %_M_node.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 -8
   store ptr %add.ptr.i.i.i, ptr %_M_node.i.i.i, align 8
   %4 = load ptr, ptr %add.ptr.i.i.i, align 8
   store ptr %4, ptr %_M_first.i.i, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 512
-  %_M_last.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 512
+  %_M_last.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   store ptr %add.ptr.i.i.i.i, ptr %_M_last.i.i.i.i, align 8
-  %add.ptr8.i.i.i = getelementptr inbounds i8, ptr %4, i64 508
+  %add.ptr8.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 508
   br label %_ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEE3popEv.exit
 
 _ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEE3popEv.exit: ; preds = %if.then.i.i, %if.else.i.i
@@ -894,7 +894,7 @@ invoke.cont:                                      ; preds = %entry
           to label %.noexc unwind label %lpad2
 
 .noexc:                                           ; preds = %invoke.cont
-  %content.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %content.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %content.i, ptr noundef nonnull align 8 dereferenceable(32) %content)
           to label %invoke.cont3 unwind label %lpad.i
 
@@ -905,7 +905,7 @@ lpad.i:                                           ; preds = %.noexc
   br label %lpad2.body
 
 invoke.cont3:                                     ; preds = %.noexc
-  %type.i = getelementptr inbounds i8, ptr %agg.result, i64 64
+  %type.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 64
   store i32 0, ptr %type.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #14
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #14
@@ -936,17 +936,17 @@ ehcleanup:                                        ; preds = %lpad2.body, %lpad
 define linkonce_odr void @_ZN4YAML14EmitFromEventsD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML14EmitFromEventsE, i64 16), ptr %this, align 8
-  %m_stateStack = getelementptr inbounds i8, ptr %this, i64 16
+  %m_stateStack = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_stateStack, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_node5.i.i6.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  %_M_node5.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_node5.i.i6.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
+  %_M_node5.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %1 = load ptr, ptr %_M_node5.i.i.i.i, align 8
   %2 = load ptr, ptr %_M_node5.i.i6.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %cmp3.i.i.i.i = icmp ult ptr %1, %add.ptr.i.i.i
   br i1 %cmp3.i.i.i.i, label %for.body.i.i.i.i, label %_ZNSt11_Deque_baseIN4YAML14EmitFromEvents5State5valueESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i.i.i
 
@@ -954,7 +954,7 @@ for.body.i.i.i.i:                                 ; preds = %if.then.i.i.i, %for
   %__n.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %1, %if.then.i.i.i ]
   %3 = load ptr, ptr %__n.04.i.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %3) #15
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__n.04.i.i.i.i, i64 8
+  %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__n.04.i.i.i.i, i64 8
   %cmp.i.i.i.i = icmp ult ptr %__n.04.i.i.i.i, %2
   br i1 %cmp.i.i.i.i, label %for.body.i.i.i.i, label %_ZNSt11_Deque_baseIN4YAML14EmitFromEvents5State5valueESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i.i, !llvm.loop !65
 
@@ -975,17 +975,17 @@ _ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEED2Ev.exit: ;
 define linkonce_odr void @_ZN4YAML14EmitFromEventsD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML14EmitFromEventsE, i64 16), ptr %this, align 8
-  %m_stateStack.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_stateStack.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_stateStack.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i, label %_ZN4YAML14EmitFromEventsD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_node5.i.i6.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  %_M_node5.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_node5.i.i6.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
+  %_M_node5.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %1 = load ptr, ptr %_M_node5.i.i.i.i.i, align 8
   %2 = load ptr, ptr %_M_node5.i.i6.i.i.i, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %cmp3.i.i.i.i.i = icmp ult ptr %1, %add.ptr.i.i.i.i
   br i1 %cmp3.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZNSt11_Deque_baseIN4YAML14EmitFromEvents5State5valueESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i.i.i.i
 
@@ -993,7 +993,7 @@ for.body.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i, %f
   %__n.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %1, %if.then.i.i.i.i ]
   %3 = load ptr, ptr %__n.04.i.i.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %3) #15
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__n.04.i.i.i.i.i, i64 8
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__n.04.i.i.i.i.i, i64 8
   %cmp.i.i.i.i.i = icmp ult ptr %__n.04.i.i.i.i.i, %2
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZNSt11_Deque_baseIN4YAML14EmitFromEvents5State5valueESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i.i.i, !llvm.loop !65
 
@@ -1065,15 +1065,15 @@ entry:
   %add = add nuw nsw i64 %div16, 1
   %0 = tail call i64 @llvm.umax.i64(i64 %div16, i64 5)
   %.sroa.speculated = add nuw nsw i64 %0, 3
-  %_M_map_size = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_map_size = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 %.sroa.speculated, ptr %_M_map_size, align 8
   %mul.i.i.i = shl nuw nsw i64 %.sroa.speculated, 3
   %call5.i.i2.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #17
   store ptr %call5.i.i2.i, ptr %this, align 8
   %sub = sub nsw i64 %.sroa.speculated, %add
   %div137 = lshr i64 %sub, 1
-  %add.ptr = getelementptr inbounds ptr, ptr %call5.i.i2.i, i64 %div137
-  %add.ptr14 = getelementptr inbounds ptr, ptr %add.ptr, i64 %add
+  %add.ptr = getelementptr inbounds nuw ptr, ptr %call5.i.i2.i, i64 %div137
+  %add.ptr14 = getelementptr inbounds nuw ptr, ptr %add.ptr, i64 %add
   br label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %invoke.cont.i
@@ -1083,7 +1083,7 @@ for.body.i:                                       ; preds = %entry, %invoke.cont
 
 invoke.cont.i:                                    ; preds = %for.body.i
   store ptr %call5.i.i.i5.i, ptr %__cur.08.i, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__cur.08.i, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__cur.08.i, i64 8
   %cmp.i8 = icmp ult ptr %incdec.ptr.i, %add.ptr14
   br i1 %cmp.i8, label %for.body.i, label %try.cont, !llvm.loop !67
 
@@ -1099,7 +1099,7 @@ for.body.i.i:                                     ; preds = %lpad.i, %for.body.i
   %__n.04.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %add.ptr, %lpad.i ]
   %4 = load ptr, ptr %__n.04.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %4) #15
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__n.04.i.i, i64 8
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__n.04.i.i, i64 8
   %cmp.i.i = icmp ult ptr %incdec.ptr.i.i, %__cur.08.i
   br i1 %cmp.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseIN4YAML14EmitFromEvents5State5valueESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i, !llvm.loop !65
 
@@ -1139,28 +1139,28 @@ lpad23:                                           ; preds = %lpad.body
           to label %eh.resume unwind label %terminate.lpad
 
 try.cont:                                         ; preds = %invoke.cont.i
-  %_M_start = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_node.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_start = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %_M_node.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %add.ptr, ptr %_M_node.i, align 8
   %12 = load ptr, ptr %add.ptr, align 8
-  %_M_first.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_first.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %12, ptr %_M_first.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %12, i64 512
-  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 32
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %12, i64 512
+  %_M_last.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
-  %_M_finish = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_finish = getelementptr inbounds nuw i8, ptr %this, i64 48
   %add.ptr27 = getelementptr inbounds i8, ptr %add.ptr14, i64 -8
-  %_M_node.i10 = getelementptr inbounds i8, ptr %this, i64 72
+  %_M_node.i10 = getelementptr inbounds nuw i8, ptr %this, i64 72
   store ptr %add.ptr27, ptr %_M_node.i10, align 8
   %13 = load ptr, ptr %add.ptr27, align 8
-  %_M_first.i11 = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_first.i11 = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr %13, ptr %_M_first.i11, align 8
-  %add.ptr.i12 = getelementptr inbounds i8, ptr %13, i64 512
-  %_M_last.i13 = getelementptr inbounds i8, ptr %this, i64 64
+  %add.ptr.i12 = getelementptr inbounds nuw i8, ptr %13, i64 512
+  %_M_last.i13 = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr %add.ptr.i12, ptr %_M_last.i13, align 8
   store ptr %12, ptr %_M_start, align 8
   %rem = and i64 %__num_elements, 127
-  %add.ptr36 = getelementptr inbounds i32, ptr %13, i64 %rem
+  %add.ptr36 = getelementptr inbounds nuw i32, ptr %13, i64 %rem
   store ptr %add.ptr36, ptr %_M_finish, align 8
   ret void
 
@@ -1194,11 +1194,11 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt5dequeIN4YAML14EmitFromEvents5State5valueESaIS3_EE16_M_push_back_auxIJS3_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 4 dereferenceable(4) %__args) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
-  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_node.i.i = getelementptr inbounds i8, ptr %this, i64 72
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %_M_start.i = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %_M_node.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_node.i.i, align 8
-  %_M_node1.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_node1.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_node1.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -1209,14 +1209,14 @@ entry:
   %sub.i.i = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
   %mul.i.i = shl nsw i64 %sub.i.i, 7
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %_M_first.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_first.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %3 = load ptr, ptr %_M_first.i.i, align 8
   %sub.ptr.lhs.cast3.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast4.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub5.i.i = sub i64 %sub.ptr.lhs.cast3.i.i, %sub.ptr.rhs.cast4.i.i
   %sub.ptr.div6.i.i = ashr exact i64 %sub.ptr.sub5.i.i, 2
   %add.i.i = add nsw i64 %mul.i.i, %sub.ptr.div6.i.i
-  %_M_last.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_last.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %4 = load ptr, ptr %_M_last.i.i, align 8
   %5 = load ptr, ptr %_M_start.i, align 8
   %sub.ptr.lhs.cast8.i.i = ptrtoint ptr %4 to i64
@@ -1232,7 +1232,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %_M_map_size.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_map_size.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %6 = load i64, ptr %_M_map_size.i, align 8
   %7 = load ptr, ptr %this, align 8
   %sub.ptr.rhs.cast.i = ptrtoint ptr %7 to i64
@@ -1250,18 +1250,18 @@ if.then.i:                                        ; preds = %if.end
 _ZNSt5dequeIN4YAML14EmitFromEvents5State5valueESaIS3_EE22_M_reserve_map_at_backEm.exit: ; preds = %if.end, %if.then.i
   %8 = phi ptr [ %0, %if.end ], [ %.pre, %if.then.i ]
   %call5.i.i.i = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #17
-  %add.ptr = getelementptr inbounds i8, ptr %8, i64 8
+  %add.ptr = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %call5.i.i.i, ptr %add.ptr, align 8
   %9 = load ptr, ptr %_M_finish.i, align 8
   %10 = load i32, ptr %__args, align 4
   store i32 %10, ptr %9, align 4
   %11 = load ptr, ptr %_M_node.i.i, align 8
-  %add.ptr12 = getelementptr inbounds i8, ptr %11, i64 8
+  %add.ptr12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %add.ptr12, ptr %_M_node.i.i, align 8
   %12 = load ptr, ptr %add.ptr12, align 8
   store ptr %12, ptr %_M_first.i.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %12, i64 512
-  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 64
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %12, i64 512
+  %_M_last.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
   store ptr %12, ptr %_M_finish.i, align 8
   ret void
@@ -1273,9 +1273,9 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #9
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt5dequeIN4YAML14EmitFromEvents5State5valueESaIS3_EE17_M_reallocate_mapEmb(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %__nodes_to_add, i1 noundef zeroext %__add_at_front) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_node = getelementptr inbounds i8, ptr %this, i64 72
+  %_M_node = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_node, align 8
-  %_M_node3 = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_node3 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_node3, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
@@ -1283,7 +1283,7 @@ entry:
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 3
   %add = add nsw i64 %sub.ptr.div, 1
   %add4 = add i64 %add, %__nodes_to_add
-  %_M_map_size = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_map_size = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i64, ptr %_M_map_size, align 8
   %mul = shl i64 %add4, 1
   %cmp = icmp ugt i64 %2, %mul
@@ -1293,11 +1293,11 @@ if.then:                                          ; preds = %entry
   %3 = load ptr, ptr %this, align 8
   %sub = sub i64 %2, %add4
   %div17 = lshr i64 %sub, 1
-  %add.ptr = getelementptr inbounds ptr, ptr %3, i64 %div17
+  %add.ptr = getelementptr inbounds nuw ptr, ptr %3, i64 %div17
   %cond = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
   %add.ptr9 = getelementptr inbounds ptr, ptr %add.ptr, i64 %cond
   %cmp13 = icmp ult ptr %add.ptr9, %1
-  %add.ptr21 = getelementptr inbounds i8, ptr %0, i64 8
+  %add.ptr21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr21, %1
   br i1 %cmp13, label %if.then14, label %if.else
 
@@ -1347,10 +1347,10 @@ _ZNSt11_Deque_baseIN4YAML14EmitFromEvents5State5valueESaIS3_EE15_M_allocate_mapE
   %call5.i.i2.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #17
   %sub40 = sub i64 %add38, %add4
   %div4116 = lshr i64 %sub40, 1
-  %add.ptr42 = getelementptr inbounds ptr, ptr %call5.i.i2.i, i64 %div4116
+  %add.ptr42 = getelementptr inbounds nuw ptr, ptr %call5.i.i2.i, i64 %div4116
   %cond47 = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
   %add.ptr48 = getelementptr inbounds ptr, ptr %add.ptr42, i64 %cond47
-  %add.ptr55 = getelementptr inbounds i8, ptr %0, i64 8
+  %add.ptr55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i27 = icmp eq ptr %add.ptr55, %1
   br i1 %tobool.not.i.i.i.i.i27, label %_ZSt4copyIPPN4YAML14EmitFromEvents5State5valueES5_ET0_T_S7_S6_.exit30, label %if.then.i.i.i.i.i28
 
@@ -1371,19 +1371,19 @@ if.end65:                                         ; preds = %if.then.i.i.i.i.i19
   %__new_nstart.0 = phi ptr [ %add.ptr48, %_ZSt4copyIPPN4YAML14EmitFromEvents5State5valueES5_ET0_T_S7_S6_.exit30 ], [ %add.ptr9, %if.then14 ], [ %add.ptr9, %if.then.i.i.i.i.i ], [ %add.ptr9, %if.else ], [ %add.ptr9, %if.then.i.i.i.i.i19 ]
   store ptr %__new_nstart.0, ptr %_M_node3, align 8
   %5 = load ptr, ptr %__new_nstart.0, align 8
-  %_M_first.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_first.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %5, ptr %_M_first.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %5, i64 512
-  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 32
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %5, i64 512
+  %_M_last.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
   %add.ptr70 = getelementptr inbounds ptr, ptr %__new_nstart.0, i64 %add
   %add.ptr71 = getelementptr inbounds i8, ptr %add.ptr70, i64 -8
   store ptr %add.ptr71, ptr %_M_node, align 8
   %6 = load ptr, ptr %add.ptr71, align 8
-  %_M_first.i32 = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_first.i32 = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr %6, ptr %_M_first.i32, align 8
-  %add.ptr.i33 = getelementptr inbounds i8, ptr %6, i64 512
-  %_M_last.i34 = getelementptr inbounds i8, ptr %this, i64 64
+  %add.ptr.i33 = getelementptr inbounds nuw i8, ptr %6, i64 512
+  %_M_last.i34 = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr %add.ptr.i33, ptr %_M_last.i34, align 8
   ret void
 }

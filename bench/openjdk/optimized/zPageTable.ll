@@ -77,7 +77,7 @@ define hidden void @_ZN10ZPageTableC2Ev(ptr nocapture noundef nonnull writeonly 
   unreachable
 
 _ZN11ZGranuleMapIP5ZPageEC2Em.exit:               ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN2os21commit_memory_or_exitEPcmbPKc(ptr noundef nonnull %10, i64 noundef %9, i1 noundef zeroext false, ptr noundef nonnull @.str.11) #7
   store ptr %10, ptr %13, align 8
   ret void
@@ -85,9 +85,9 @@ _ZN11ZGranuleMapIP5ZPageEC2Em.exit:               ; preds = %1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN10ZPageTable6insertEP5ZPage(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i64, ptr %5, align 8
   %7 = sub i64 %6, %4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
@@ -98,20 +98,20 @@ define hidden void @_ZN10ZPageTable6insertEP5ZPage(ptr nocapture noundef nonnull
   br i1 %.not.i, label %_ZN11ZGranuleMapIP5ZPageE3putE7zoffsetmS1_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %12
 
 12:                                               ; preds = %12, %.lr.ph.i
   %.09.i = phi i64 [ %8, %.lr.ph.i ], [ %15, %12 ]
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds ptr, ptr %13, i64 %.09.i
+  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %.09.i
   store volatile ptr %1, ptr %14, align 8
   %15 = add nuw nsw i64 %.09.i, 1
   %16 = icmp samesign ult i64 %15, %10
   br i1 %16, label %12, label %_ZN11ZGranuleMapIP5ZPageE3putE7zoffsetmS1_.exit, !llvm.loop !7
 
 _ZN11ZGranuleMapIP5ZPageE3putE7zoffsetmS1_.exit:  ; preds = %12, %2
-  %17 = getelementptr inbounds i8, ptr %1, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %18 = load i8, ptr %17, align 1
   %19 = icmp eq i8 %18, 1
   br i1 %19, label %20, label %22
@@ -129,9 +129,9 @@ declare void @_ZN16ZGenerationYoung20register_with_remsetEP5ZPage(ptr noundef no
 
 ; Function Attrs: mustprogress nofree norecurse nounwind uwtable
 define hidden void @_ZN10ZPageTable6removeEP5ZPage(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i64, ptr %5, align 8
   %7 = sub i64 %6, %4
   %8 = lshr i64 %4, 21
@@ -141,13 +141,13 @@ define hidden void @_ZN10ZPageTable6removeEP5ZPage(ptr nocapture noundef nonnull
   br i1 %.not.i, label %_ZN11ZGranuleMapIP5ZPageE3putE7zoffsetmS1_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %12
 
 12:                                               ; preds = %12, %.lr.ph.i
   %.09.i = phi i64 [ %8, %.lr.ph.i ], [ %15, %12 ]
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds ptr, ptr %13, i64 %.09.i
+  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %.09.i
   store volatile ptr null, ptr %14, align 8
   %15 = add nuw nsw i64 %.09.i, 1
   %16 = icmp samesign ult i64 %15, %10
@@ -159,9 +159,9 @@ _ZN11ZGranuleMapIP5ZPageE3putE7zoffsetmS1_.exit:  ; preds = %12, %2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN10ZPageTable7replaceEP5ZPageS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i64, ptr %6, align 8
   %8 = sub i64 %7, %5
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
@@ -172,20 +172,20 @@ define hidden void @_ZN10ZPageTable7replaceEP5ZPageS1_(ptr nocapture noundef non
   br i1 %.not.i.i, label %_ZN11ZGranuleMapIP5ZPageE11release_putE7zoffsetmS1_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %13
 
 13:                                               ; preds = %13, %.lr.ph.i.i
   %.09.i.i = phi i64 [ %9, %.lr.ph.i.i ], [ %16, %13 ]
   %14 = load ptr, ptr %12, align 8
-  %15 = getelementptr inbounds ptr, ptr %14, i64 %.09.i.i
+  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %.09.i.i
   store volatile ptr %2, ptr %15, align 8
   %16 = add nuw nsw i64 %.09.i.i, 1
   %17 = icmp samesign ult i64 %16, %11
   br i1 %17, label %13, label %_ZN11ZGranuleMapIP5ZPageE11release_putE7zoffsetmS1_.exit, !llvm.loop !7
 
 _ZN11ZGranuleMapIP5ZPageE11release_putE7zoffsetmS1_.exit: ; preds = %13, %3
-  %18 = getelementptr inbounds i8, ptr %2, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %19 = load i8, ptr %18, align 1
   %20 = icmp eq i8 %19, 1
   br i1 %20, label %21, label %23
@@ -201,7 +201,7 @@ _ZN11ZGranuleMapIP5ZPageE11release_putE7zoffsetmS1_.exit: ; preds = %13, %3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN32ZGenerationPagesParallelIteratorC2EPK10ZPageTable13ZGenerationIdP14ZPageAllocator(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((8, 16)) %0, ptr noundef %1, i8 noundef zeroext %2, ptr noundef %3) unnamed_addr #0 align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %5, align 8
   %6 = load i64, ptr @ZAddressOffsetMax, align 8
   %7 = lshr i64 %6, 21
@@ -220,9 +220,9 @@ define hidden void @_ZN32ZGenerationPagesParallelIteratorC2EPK10ZPageTable13ZGen
 12:                                               ; preds = %4
   %13 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 4168, i8 noundef zeroext 5, i32 noundef 0) #7
   store i32 %8, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %13, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store volatile i32 0, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %13, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(4160) %15, i8 0, i64 4160, i1 false)
   br label %_ZN26ZPageTableParallelIteratorC2EPK10ZPageTable.exit
 
@@ -234,11 +234,11 @@ define hidden void @_ZN32ZGenerationPagesParallelIteratorC2EPK10ZPageTable13ZGen
 
 _ZN26ZPageTableParallelIteratorC2EPK10ZPageTable.exit: ; preds = %10, %12
   %.0.i.i.i = phi ptr [ %13, %12 ], [ %11, %10 ]
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.0.i.i.i, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 %2, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %3, ptr %20, align 8
   tail call void @_ZNK14ZPageAllocator19enable_safe_destroyEv(ptr noundef nonnull align 8 dereferenceable(609) %3) #7
   %21 = load ptr, ptr %20, align 8
@@ -252,12 +252,12 @@ declare void @_ZNK14ZPageAllocator19enable_safe_recycleEv(ptr noundef nonnull al
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN32ZGenerationPagesParallelIteratorD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   tail call void @_ZNK14ZPageAllocator20disable_safe_recycleEv(ptr noundef nonnull align 8 dereferenceable(609) %3) #7
   %4 = load ptr, ptr %2, align 8
   tail call void @_ZNK14ZPageAllocator20disable_safe_destroyEv(ptr noundef nonnull align 8 dereferenceable(609) %4) #7
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr @ZIndexDistributorStrategy, align 8
   switch i64 %6, label %16 [
     i64 0, label %7
@@ -270,7 +270,7 @@ define hidden void @_ZN32ZGenerationPagesParallelIteratorD2Ev(ptr nocapture noun
   br i1 %9, label %_ZN26ZPageTableParallelIteratorD2Ev.exit, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void @_ZN2os4freeEPv(ptr noundef %12) #7
   br label %.sink.split.i.i
@@ -301,20 +301,20 @@ declare void @_ZNK14ZPageAllocator20disable_safe_destroyEv(ptr noundef nonnull a
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN24ZGenerationPagesIteratorC2EPK10ZPageTable13ZGenerationIdP14ZPageAllocator(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((16, 49), (56, 64)) %0, ptr nocapture noundef readonly %1, i8 noundef zeroext %2, ptr noundef nonnull %3) unnamed_addr #0 align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load i64, ptr %1, align 8
   store i64 0, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %7, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr null, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 %2, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %3, ptr %13, align 8
   tail call void @_ZNK14ZPageAllocator19enable_safe_destroyEv(ptr noundef nonnull align 8 dereferenceable(609) %3) #7
   %14 = load ptr, ptr %13, align 8
@@ -324,7 +324,7 @@ define hidden void @_ZN24ZGenerationPagesIteratorC2EPK10ZPageTable13ZGenerationI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN24ZGenerationPagesIteratorD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   tail call void @_ZNK14ZPageAllocator20disable_safe_recycleEv(ptr noundef nonnull align 8 dereferenceable(609) %3) #7
   %4 = load ptr, ptr %2, align 8
@@ -436,7 +436,7 @@ tailrecurse.i.i:                                  ; preds = %tailrecurse.i.i, %2
   br i1 %9, label %_ZN26ZIndexDistributorClaimTree20claim_variables_sizeEv.exit, label %tailrecurse.i.i
 
 _ZN26ZIndexDistributorClaimTree20claim_variables_sizeEv.exit: ; preds = %tailrecurse.i.i
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = add nsw i32 %8, 16
   %12 = sext i32 %11 to i64
   %13 = shl nsw i64 %12, 2
@@ -444,7 +444,7 @@ _ZN26ZIndexDistributorClaimTree20claim_variables_sizeEv.exit: ; preds = %tailrec
   %15 = add i64 %14, %13
   %16 = tail call noundef ptr @_ZN2os6mallocEm8MEMFLAGS(i64 noundef %15, i8 noundef zeroext 5) #7
   store ptr %16, ptr %10, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
   %19 = ptrtoint ptr %16 to i64
   %20 = add i64 %19, -1

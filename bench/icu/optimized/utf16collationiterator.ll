@@ -62,11 +62,11 @@ $_ZN6icu_7515MaybeStackArrayIcLi40EE8copyFromERKS1_R10UErrorCode = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EEC2Ev(ptr noundef nonnull align 8 dereferenceable(53) %this) unnamed_addr #0 comdat($_ZN6icu_7515MaybeStackArrayIcLi40EEC5Ev) align 2 {
 entry:
-  %stackArray = getelementptr inbounds i8, ptr %this, i64 13
+  %stackArray = getelementptr inbounds nuw i8, ptr %this, i64 13
   store ptr %stackArray, ptr %this, align 8
-  %capacity = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 40, ptr %capacity, align 8
-  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i8 0, ptr %needToRelease, align 4
   ret void
 }
@@ -74,11 +74,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EEC2Ei10UErrorCode(ptr noundef nonnull align 8 dereferenceable(53) %this, i32 noundef %newCapacity, i32 noundef %status) unnamed_addr #1 comdat($_ZN6icu_7515MaybeStackArrayIcLi40EEC5Ei10UErrorCode) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
+  %stackArray.i = getelementptr inbounds nuw i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
-  %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 40, ptr %capacity.i, align 8
-  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i8 0, ptr %needToRelease.i, align 4
   %cmp.i = icmp slt i32 %status, 1
   %cmp = icmp sgt i32 %newCapacity, 40
@@ -139,7 +139,7 @@ if.then3:                                         ; preds = %if.then
   br i1 %cmp4, label %if.then5, label %if.end14
 
 if.then5:                                         ; preds = %if.then3
-  %capacity = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
   %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %0)
   %length.addr.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %newCapacity)
@@ -149,7 +149,7 @@ if.then5:                                         ; preds = %if.then3
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then5, %if.then3
-  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %2 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i, label %_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit, label %if.then.i
@@ -161,7 +161,7 @@ if.then.i:                                        ; preds = %if.end14
 
 _ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %if.end14, %if.then.i
   store ptr %call, ptr %this, align 8
-  %capacity16 = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity16 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %newCapacity, ptr %capacity16, align 8
   store i8 1, ptr %needToRelease.i, align 4
   br label %return
@@ -174,7 +174,7 @@ return:                                           ; preds = %entry, %if.then, %_
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EED2Ev(ptr noundef nonnull align 8 dereferenceable(53) %this) unnamed_addr #0 comdat($_ZN6icu_7515MaybeStackArrayIcLi40EED5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i
@@ -198,7 +198,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease, align 4
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -229,21 +229,21 @@ define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EEC2EOS1_(ptr noundef non
 entry:
   %0 = load ptr, ptr %src, align 8
   store ptr %0, ptr %this, align 8
-  %capacity = getelementptr inbounds i8, ptr %this, i64 8
-  %capacity3 = getelementptr inbounds i8, ptr %src, i64 8
+  %capacity = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %capacity3 = getelementptr inbounds nuw i8, ptr %src, i64 8
   %1 = load i32, ptr %capacity3, align 8
   store i32 %1, ptr %capacity, align 8
-  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
-  %needToRelease4 = getelementptr inbounds i8, ptr %src, i64 12
+  %needToRelease = getelementptr inbounds nuw i8, ptr %this, i64 12
+  %needToRelease4 = getelementptr inbounds nuw i8, ptr %src, i64 12
   %2 = load i8, ptr %needToRelease4, align 4
   store i8 %2, ptr %needToRelease, align 4
   %3 = load ptr, ptr %src, align 8
-  %stackArray = getelementptr inbounds i8, ptr %src, i64 13
+  %stackArray = getelementptr inbounds nuw i8, ptr %src, i64 13
   %cmp = icmp eq ptr %3, %stackArray
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %stackArray6 = getelementptr inbounds i8, ptr %this, i64 13
+  %stackArray6 = getelementptr inbounds nuw i8, ptr %this, i64 13
   store ptr %stackArray6, ptr %this, align 8
   %4 = load i32, ptr %capacity3, align 8
   %conv = sext i32 %4 to i64
@@ -266,11 +266,11 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE17resetToStackArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %stackArray = getelementptr inbounds i8, ptr %this, i64 13
+  %stackArray = getelementptr inbounds nuw i8, ptr %this, i64 13
   store ptr %stackArray, ptr %this, align 8
-  %capacity = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 40, ptr %capacity, align 8
-  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i8 0, ptr %needToRelease, align 4
   ret void
 }
@@ -278,7 +278,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef nonnull align 8 dereferenceable(53) ptr @_ZN6icu_7515MaybeStackArrayIcLi40EEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(53) %this, ptr noundef nonnull align 8 dereferenceable(53) %src) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i
@@ -289,20 +289,20 @@ if.then.i:                                        ; preds = %entry
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry, %if.then.i
-  %capacity = getelementptr inbounds i8, ptr %src, i64 8
+  %capacity = getelementptr inbounds nuw i8, ptr %src, i64 8
   %2 = load i32, ptr %capacity, align 8
-  %capacity2 = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity2 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %2, ptr %capacity2, align 8
-  %needToRelease = getelementptr inbounds i8, ptr %src, i64 12
+  %needToRelease = getelementptr inbounds nuw i8, ptr %src, i64 12
   %3 = load i8, ptr %needToRelease, align 4
   store i8 %3, ptr %needToRelease.i, align 4
   %4 = load ptr, ptr %src, align 8
-  %stackArray = getelementptr inbounds i8, ptr %src, i64 13
+  %stackArray = getelementptr inbounds nuw i8, ptr %src, i64 13
   %cmp = icmp eq ptr %4, %stackArray
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %invoke.cont
-  %stackArray4 = getelementptr inbounds i8, ptr %this, i64 13
+  %stackArray4 = getelementptr inbounds nuw i8, ptr %this, i64 13
   store ptr %stackArray4, ptr %this, align 8
   %5 = load i32, ptr %capacity, align 8
   %conv = sext i32 %5 to i64
@@ -330,7 +330,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef i32 @_ZNK6icu_7515MaybeStackArrayIcLi40EE11getCapacityEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %capacity = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
   ret i32 %0
 }
@@ -346,7 +346,7 @@ entry:
 define weak_odr noundef ptr @_ZNK6icu_7515MaybeStackArrayIcLi40EE13getArrayLimitEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %capacity = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i32, ptr %capacity, align 8
   %idx.ext = sext i32 %1 to i64
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %idx.ext
@@ -378,7 +378,7 @@ entry:
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit, label %if.then.i
@@ -390,7 +390,7 @@ if.then.i:                                        ; preds = %if.then
 
 _ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %if.then, %if.then.i
   store ptr %otherArray, ptr %this, align 8
-  %capacity = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %otherCapacity, ptr %capacity, align 8
   store i8 0, ptr %needToRelease.i, align 4
   br label %if.end
@@ -405,7 +405,7 @@ declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef ptr @_ZN6icu_7515MaybeStackArrayIcLi40EE13orphanOrCloneEiRi(ptr noundef nonnull align 8 dereferenceable(53) %this, i32 noundef %length, ptr noundef nonnull align 4 dereferenceable(4) %resultCapacity) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease, align 4
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.else, label %if.then
@@ -419,7 +419,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp, label %return, label %if.else3
 
 if.else3:                                         ; preds = %if.else
-  %capacity = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i32, ptr %capacity, align 8
   %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %2)
   %conv = sext i32 %spec.select to i64
@@ -436,9 +436,9 @@ if.end14:                                         ; preds = %do.body, %if.then
   %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
   store i32 %length.addr.0, ptr %resultCapacity, align 4
-  %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
+  %stackArray.i = getelementptr inbounds nuw i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
-  %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 40, ptr %capacity.i, align 8
   store i8 0, ptr %needToRelease, align 4
   br label %return
@@ -456,7 +456,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %do.end
 
 if.end:                                           ; preds = %entry
-  %capacity = getelementptr inbounds i8, ptr %src, i64 8
+  %capacity = getelementptr inbounds nuw i8, ptr %src, i64 8
   %1 = load i32, ptr %capacity, align 8
   %cmp.i3 = icmp sgt i32 %1, 0
   br i1 %cmp.i3, label %if.then.i, label %if.then3
@@ -468,7 +468,7 @@ if.then.i:                                        ; preds = %if.end
   br i1 %cmp2.not.i, label %if.then3, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  %needToRelease.i.i = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %2 = load i8, ptr %needToRelease.i.i, align 4
   %tobool.not.i.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i.i, label %do.body, label %if.then.i.i
@@ -484,7 +484,7 @@ if.then3:                                         ; preds = %if.then.i, %if.end
 
 do.body:                                          ; preds = %if.then.i.i, %if.then3.i
   store ptr %call.i, ptr %this, align 8
-  %capacity16.i = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity16.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %1, ptr %capacity16.i, align 8
   store i8 1, ptr %needToRelease.i.i, align 4
   %4 = load ptr, ptr %src, align 8
@@ -502,19 +502,19 @@ define void @_ZN6icu_7522UTF16CollationIteratorC2ERKS0_PKDs(ptr noundef nonnull 
 entry:
   tail call void @_ZN6icu_7517CollationIteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(389) %this, ptr noundef nonnull align 8 dereferenceable(389) %other)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7522UTF16CollationIteratorE, i64 16), ptr %this, align 8
-  %start = getelementptr inbounds i8, ptr %this, i64 392
+  %start = getelementptr inbounds nuw i8, ptr %this, i64 392
   store ptr %newText, ptr %start, align 8
-  %pos = getelementptr inbounds i8, ptr %this, i64 400
-  %pos2 = getelementptr inbounds i8, ptr %other, i64 400
+  %pos = getelementptr inbounds nuw i8, ptr %this, i64 400
+  %pos2 = getelementptr inbounds nuw i8, ptr %other, i64 400
   %0 = load ptr, ptr %pos2, align 8
-  %start3 = getelementptr inbounds i8, ptr %other, i64 392
+  %start3 = getelementptr inbounds nuw i8, ptr %other, i64 392
   %1 = load ptr, ptr %start3, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %add.ptr = getelementptr inbounds i8, ptr %newText, i64 %sub.ptr.sub
   store ptr %add.ptr, ptr %pos, align 8
-  %limit4 = getelementptr inbounds i8, ptr %other, i64 408
+  %limit4 = getelementptr inbounds nuw i8, ptr %other, i64 408
   %2 = load ptr, ptr %limit4, align 8
   %cmp = icmp eq ptr %2, null
   %3 = load ptr, ptr %start3, align 8
@@ -523,7 +523,7 @@ entry:
   %sub.ptr.sub9 = sub i64 %sub.ptr.lhs.cast7, %sub.ptr.rhs.cast8
   %add.ptr11 = getelementptr inbounds i8, ptr %newText, i64 %sub.ptr.sub9
   %cond = select i1 %cmp, ptr null, ptr %add.ptr11
-  %limit = getelementptr inbounds i8, ptr %this, i64 408
+  %limit = getelementptr inbounds nuw i8, ptr %this, i64 408
   store ptr %cond, ptr %limit, align 8
   ret void
 }
@@ -558,16 +558,16 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %pos = getelementptr inbounds i8, ptr %this, i64 400
+  %pos = getelementptr inbounds nuw i8, ptr %this, i64 400
   %0 = load ptr, ptr %pos, align 8
-  %start = getelementptr inbounds i8, ptr %this, i64 392
+  %start = getelementptr inbounds nuw i8, ptr %this, i64 392
   %1 = load ptr, ptr %start, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %pos2 = getelementptr inbounds i8, ptr %other, i64 400
+  %pos2 = getelementptr inbounds nuw i8, ptr %other, i64 400
   %2 = load ptr, ptr %pos2, align 8
-  %start3 = getelementptr inbounds i8, ptr %other, i64 392
+  %start3 = getelementptr inbounds nuw i8, ptr %other, i64 392
   %3 = load ptr, ptr %start3, align 8
   %sub.ptr.lhs.cast4 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast5 = ptrtoint ptr %3 to i64
@@ -586,11 +586,11 @@ declare noundef zeroext i1 @_ZNK6icu_7517CollationIteratoreqERKS0_(ptr noundef n
 define void @_ZN6icu_7522UTF16CollationIterator13resetToOffsetEi(ptr noundef nonnull align 8 dereferenceable(416) %this, i32 noundef %newOffset) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZN6icu_7517CollationIterator5resetEv(ptr noundef nonnull align 8 dereferenceable(389) %this)
-  %start = getelementptr inbounds i8, ptr %this, i64 392
+  %start = getelementptr inbounds nuw i8, ptr %this, i64 392
   %0 = load ptr, ptr %start, align 8
   %idx.ext = sext i32 %newOffset to i64
   %add.ptr = getelementptr inbounds i16, ptr %0, i64 %idx.ext
-  %pos = getelementptr inbounds i8, ptr %this, i64 400
+  %pos = getelementptr inbounds nuw i8, ptr %this, i64 400
   store ptr %add.ptr, ptr %pos, align 8
   ret void
 }
@@ -600,9 +600,9 @@ declare void @_ZN6icu_7517CollationIterator5resetEv(ptr noundef nonnull align 8 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK6icu_7522UTF16CollationIterator9getOffsetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(416) %this) unnamed_addr #8 align 2 {
 entry:
-  %pos = getelementptr inbounds i8, ptr %this, i64 400
+  %pos = getelementptr inbounds nuw i8, ptr %this, i64 400
   %0 = load ptr, ptr %pos, align 8
-  %start = getelementptr inbounds i8, ptr %this, i64 392
+  %start = getelementptr inbounds nuw i8, ptr %this, i64 392
   %1 = load ptr, ptr %start, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
@@ -615,9 +615,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @_ZN6icu_7522UTF16CollationIterator14handleNextCE32ERiR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(416) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %c, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #9 align 2 {
 entry:
-  %pos = getelementptr inbounds i8, ptr %this, i64 400
+  %pos = getelementptr inbounds nuw i8, ptr %this, i64 400
   %1 = load ptr, ptr %pos, align 8
-  %limit = getelementptr inbounds i8, ptr %this, i64 408
+  %limit = getelementptr inbounds nuw i8, ptr %this, i64 408
   %2 = load ptr, ptr %limit, align 8
   %cmp = icmp eq ptr %1, %2
   br i1 %cmp, label %if.then, label %if.end
@@ -627,26 +627,26 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %incdec.ptr = getelementptr inbounds i8, ptr %1, i64 2
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %1, i64 2
   store ptr %incdec.ptr, ptr %pos, align 8
   %3 = load i16, ptr %1, align 2
   %conv = zext i16 %3 to i32
   store i32 %conv, ptr %c, align 4
-  %trie = getelementptr inbounds i8, ptr %this, i64 8
+  %trie = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load ptr, ptr %trie, align 8
-  %data32 = getelementptr inbounds i8, ptr %4, i64 16
+  %data32 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load ptr, ptr %data32, align 8
   %6 = load ptr, ptr %4, align 8
   %shr = lshr i32 %conv, 5
   %idxprom = zext nneg i32 %shr to i64
-  %arrayidx = getelementptr inbounds i16, ptr %6, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw i16, ptr %6, i64 %idxprom
   %7 = load i16, ptr %arrayidx, align 2
   %conv4 = zext i16 %7 to i32
   %shl = shl nuw nsw i32 %conv4, 2
   %and = and i32 %conv, 31
   %add5 = add nuw nsw i32 %shl, %and
   %idxprom6 = zext nneg i32 %add5 to i64
-  %arrayidx7 = getelementptr inbounds i32, ptr %5, i64 %idxprom6
+  %arrayidx7 = getelementptr inbounds nuw i32, ptr %5, i64 %idxprom6
   %8 = load i32, ptr %arrayidx7, align 4
   br label %return
 
@@ -658,9 +658,9 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef zeroext i16 @_ZN6icu_7522UTF16CollationIterator23handleGetTrailSurrogateEv(ptr nocapture noundef nonnull align 8 dereferenceable(416) %this) unnamed_addr #9 align 2 {
 entry:
-  %pos = getelementptr inbounds i8, ptr %this, i64 400
+  %pos = getelementptr inbounds nuw i8, ptr %this, i64 400
   %0 = load ptr, ptr %pos, align 8
-  %limit = getelementptr inbounds i8, ptr %this, i64 408
+  %limit = getelementptr inbounds nuw i8, ptr %this, i64 408
   %1 = load ptr, ptr %limit, align 8
   %cmp = icmp eq ptr %0, %1
   br i1 %cmp, label %return, label %if.end
@@ -672,7 +672,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp3, label %if.then4, label %return
 
 if.then4:                                         ; preds = %if.end
-  %incdec.ptr = getelementptr inbounds i8, ptr %0, i64 2
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %0, i64 2
   store ptr %incdec.ptr, ptr %pos, align 8
   br label %return
 
@@ -684,13 +684,13 @@ return:                                           ; preds = %if.end, %if.then4, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef signext range(i8 0, 2) i8 @_ZN6icu_7522UTF16CollationIterator18foundNULTerminatorEv(ptr nocapture noundef nonnull align 8 dereferenceable(416) %this) unnamed_addr #10 align 2 {
 entry:
-  %limit = getelementptr inbounds i8, ptr %this, i64 408
+  %limit = getelementptr inbounds nuw i8, ptr %this, i64 408
   %0 = load ptr, ptr %limit, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %pos = getelementptr inbounds i8, ptr %this, i64 400
+  %pos = getelementptr inbounds nuw i8, ptr %this, i64 400
   %1 = load ptr, ptr %pos, align 8
   %incdec.ptr = getelementptr inbounds i8, ptr %1, i64 -2
   store ptr %incdec.ptr, ptr %pos, align 8
@@ -705,9 +705,9 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef range(i32 -1, 10559488) i32 @_ZN6icu_7522UTF16CollationIterator13nextCodePointER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(416) %this, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #9 align 2 {
 entry:
-  %pos = getelementptr inbounds i8, ptr %this, i64 400
+  %pos = getelementptr inbounds nuw i8, ptr %this, i64 400
   %1 = load ptr, ptr %pos, align 8
-  %limit = getelementptr inbounds i8, ptr %this, i64 408
+  %limit = getelementptr inbounds nuw i8, ptr %this, i64 408
   %2 = load ptr, ptr %limit, align 8
   %cmp = icmp eq ptr %1, %2
   br i1 %cmp, label %return, label %if.end
@@ -725,7 +725,7 @@ if.then6:                                         ; preds = %if.end
   br label %return
 
 if.end9:                                          ; preds = %if.end
-  %incdec.ptr = getelementptr inbounds i8, ptr %1, i64 2
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %1, i64 2
   store ptr %incdec.ptr, ptr %pos, align 8
   %and = and i32 %conv, 64512
   %cmp11 = icmp ne i32 %and, 55296
@@ -741,7 +741,7 @@ land.lhs.true16:                                  ; preds = %if.end9
   br i1 %cmp20, label %if.then21, label %return
 
 if.then21:                                        ; preds = %land.lhs.true16
-  %incdec.ptr23 = getelementptr inbounds i8, ptr %1, i64 4
+  %incdec.ptr23 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store ptr %incdec.ptr23, ptr %pos, align 8
   %shl = shl nuw nsw i32 %conv, 10
   %add = add nsw i32 %shl, -56613888
@@ -756,9 +756,9 @@ return:                                           ; preds = %if.end9, %land.lhs.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef range(i32 -1, 10559488) i32 @_ZN6icu_7522UTF16CollationIterator17previousCodePointER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(416) %this, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #9 align 2 {
 entry:
-  %pos = getelementptr inbounds i8, ptr %this, i64 400
+  %pos = getelementptr inbounds nuw i8, ptr %this, i64 400
   %1 = load ptr, ptr %pos, align 8
-  %start = getelementptr inbounds i8, ptr %this, i64 392
+  %start = getelementptr inbounds nuw i8, ptr %this, i64 392
   %2 = load ptr, ptr %start, align 8
   %cmp = icmp eq ptr %1, %2
   br i1 %cmp, label %return, label %if.end
@@ -801,8 +801,8 @@ entry:
   br i1 %cmp5, label %land.rhs.lr.ph, label %while.end
 
 land.rhs.lr.ph:                                   ; preds = %entry
-  %pos = getelementptr inbounds i8, ptr %this, i64 400
-  %limit = getelementptr inbounds i8, ptr %this, i64 408
+  %pos = getelementptr inbounds nuw i8, ptr %this, i64 400
+  %limit = getelementptr inbounds nuw i8, ptr %this, i64 408
   %1 = load ptr, ptr %limit, align 8
   %.fr = freeze ptr %1
   %cmp6 = icmp eq ptr %.fr, null
@@ -817,7 +817,7 @@ land.rhs.us:                                      ; preds = %land.rhs.lr.ph, %if
 
 while.body.us:                                    ; preds = %land.rhs.us
   %3 = load i16, ptr %2, align 2
-  %incdec.ptr.us = getelementptr inbounds i8, ptr %2, i64 2
+  %incdec.ptr.us = getelementptr inbounds nuw i8, ptr %2, i64 2
   store ptr %incdec.ptr.us, ptr %pos, align 8
   %dec.us = add nsw i32 %num.addr.06.us, -1
   %4 = and i16 %3, -1024
@@ -833,7 +833,7 @@ land.lhs.true15.us:                               ; preds = %while.body.us
   br i1 %cmp19.us, label %if.then20.us, label %if.end23.us
 
 if.then20.us:                                     ; preds = %land.lhs.true15.us
-  %incdec.ptr22.us = getelementptr inbounds i8, ptr %2, i64 4
+  %incdec.ptr22.us = getelementptr inbounds nuw i8, ptr %2, i64 4
   store ptr %incdec.ptr22.us, ptr %pos, align 8
   br label %if.end23.us
 
@@ -858,7 +858,7 @@ if.then:                                          ; preds = %while.body
   br label %while.end
 
 if.end:                                           ; preds = %while.body
-  %incdec.ptr = getelementptr inbounds i8, ptr %8, i64 2
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %8, i64 2
   store ptr %incdec.ptr, ptr %pos, align 8
   %dec = add nsw i32 %num.addr.06, -1
   %10 = and i16 %9, -1024
@@ -872,7 +872,7 @@ land.lhs.true15:                                  ; preds = %if.end
   br i1 %cmp19, label %if.then20, label %if.end23
 
 if.then20:                                        ; preds = %land.lhs.true15
-  %incdec.ptr22 = getelementptr inbounds i8, ptr %8, i64 4
+  %incdec.ptr22 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store ptr %incdec.ptr22, ptr %pos, align 8
   br label %if.end23
 
@@ -888,13 +888,13 @@ while.end:                                        ; preds = %land.rhs.us, %if.en
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN6icu_7522UTF16CollationIterator21backwardNumCodePointsEiR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(416) %this, i32 noundef %num, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #11 align 2 {
 entry:
-  %pos = getelementptr inbounds i8, ptr %this, i64 400
+  %pos = getelementptr inbounds nuw i8, ptr %this, i64 400
   %cmp2 = icmp sgt i32 %num, 0
   br i1 %cmp2, label %land.rhs.lr.ph, label %while.end
 
 land.rhs.lr.ph:                                   ; preds = %entry
   %pos.promoted = load ptr, ptr %pos, align 8
-  %start = getelementptr inbounds i8, ptr %this, i64 392
+  %start = getelementptr inbounds nuw i8, ptr %this, i64 392
   %1 = load ptr, ptr %start, align 8
   br label %land.rhs
 
@@ -939,23 +939,23 @@ while.end:                                        ; preds = %land.rhs, %if.end, 
 define void @_ZN6icu_7525FCDUTF16CollationIteratorC2ERKS0_PKDs(ptr noundef nonnull align 8 dereferenceable(521) %this, ptr noundef nonnull align 8 dereferenceable(521) %other, ptr noundef %newText) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_7517CollationIteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(416) %this, ptr noundef nonnull align 8 dereferenceable(416) %other)
-  %start.i = getelementptr inbounds i8, ptr %this, i64 392
+  %start.i = getelementptr inbounds nuw i8, ptr %this, i64 392
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %start.i, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7525FCDUTF16CollationIteratorE, i64 16), ptr %this, align 8
-  %rawStart = getelementptr inbounds i8, ptr %this, i64 416
+  %rawStart = getelementptr inbounds nuw i8, ptr %this, i64 416
   store ptr %newText, ptr %rawStart, align 8
-  %segmentStart = getelementptr inbounds i8, ptr %this, i64 424
-  %segmentStart2 = getelementptr inbounds i8, ptr %other, i64 424
+  %segmentStart = getelementptr inbounds nuw i8, ptr %this, i64 424
+  %segmentStart2 = getelementptr inbounds nuw i8, ptr %other, i64 424
   %0 = load ptr, ptr %segmentStart2, align 8
-  %rawStart3 = getelementptr inbounds i8, ptr %other, i64 416
+  %rawStart3 = getelementptr inbounds nuw i8, ptr %other, i64 416
   %1 = load ptr, ptr %rawStart3, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %add.ptr = getelementptr inbounds i8, ptr %newText, i64 %sub.ptr.sub
   store ptr %add.ptr, ptr %segmentStart, align 8
-  %segmentLimit = getelementptr inbounds i8, ptr %this, i64 432
-  %segmentLimit4 = getelementptr inbounds i8, ptr %other, i64 432
+  %segmentLimit = getelementptr inbounds nuw i8, ptr %this, i64 432
+  %segmentLimit4 = getelementptr inbounds nuw i8, ptr %other, i64 432
   %2 = load ptr, ptr %segmentLimit4, align 8
   %cmp = icmp eq ptr %2, null
   %3 = load ptr, ptr %rawStart3, align 8
@@ -965,8 +965,8 @@ entry:
   %add.ptr11 = getelementptr inbounds i8, ptr %newText, i64 %sub.ptr.sub9
   %cond = select i1 %cmp, ptr null, ptr %add.ptr11
   store ptr %cond, ptr %segmentLimit, align 8
-  %rawLimit = getelementptr inbounds i8, ptr %this, i64 440
-  %rawLimit12 = getelementptr inbounds i8, ptr %other, i64 440
+  %rawLimit = getelementptr inbounds nuw i8, ptr %this, i64 440
+  %rawLimit12 = getelementptr inbounds nuw i8, ptr %other, i64 440
   %4 = load ptr, ptr %rawLimit12, align 8
   %cmp13 = icmp eq ptr %4, null
   %5 = load ptr, ptr %rawStart3, align 8
@@ -976,22 +976,22 @@ entry:
   %add.ptr22 = getelementptr inbounds i8, ptr %newText, i64 %sub.ptr.sub20
   %cond24 = select i1 %cmp13, ptr null, ptr %add.ptr22
   store ptr %cond24, ptr %rawLimit, align 8
-  %nfcImpl = getelementptr inbounds i8, ptr %this, i64 448
-  %nfcImpl25 = getelementptr inbounds i8, ptr %other, i64 448
+  %nfcImpl = getelementptr inbounds nuw i8, ptr %this, i64 448
+  %nfcImpl25 = getelementptr inbounds nuw i8, ptr %other, i64 448
   %6 = load ptr, ptr %nfcImpl25, align 8
   store ptr %6, ptr %nfcImpl, align 8
-  %normalized = getelementptr inbounds i8, ptr %this, i64 456
-  %normalized26 = getelementptr inbounds i8, ptr %other, i64 456
+  %normalized = getelementptr inbounds nuw i8, ptr %this, i64 456
+  %normalized26 = getelementptr inbounds nuw i8, ptr %other, i64 456
   invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %normalized, ptr noundef nonnull align 8 dereferenceable(64) %normalized26)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %checkDir = getelementptr inbounds i8, ptr %this, i64 520
-  %checkDir27 = getelementptr inbounds i8, ptr %other, i64 520
+  %checkDir = getelementptr inbounds nuw i8, ptr %this, i64 520
+  %checkDir27 = getelementptr inbounds nuw i8, ptr %other, i64 520
   %7 = load i8, ptr %checkDir27, align 8
   store i8 %7, ptr %checkDir, align 8
   %cmp29.not = icmp ne i8 %7, 0
-  %start = getelementptr inbounds i8, ptr %other, i64 392
+  %start = getelementptr inbounds nuw i8, ptr %other, i64 392
   %8 = load ptr, ptr %start, align 8
   %9 = load ptr, ptr %segmentStart2, align 8
   %cmp31 = icmp eq ptr %8, %9
@@ -1005,16 +1005,16 @@ if.then:                                          ; preds = %invoke.cont
   %sub.ptr.sub36 = sub i64 %sub.ptr.lhs.cast34, %sub.ptr.rhs.cast35
   %add.ptr38 = getelementptr inbounds i8, ptr %newText, i64 %sub.ptr.sub36
   store ptr %add.ptr38, ptr %start.i, align 8
-  %pos = getelementptr inbounds i8, ptr %other, i64 400
+  %pos = getelementptr inbounds nuw i8, ptr %other, i64 400
   %11 = load ptr, ptr %pos, align 8
   %12 = load ptr, ptr %rawStart3, align 8
   %sub.ptr.lhs.cast41 = ptrtoint ptr %11 to i64
   %sub.ptr.rhs.cast42 = ptrtoint ptr %12 to i64
   %sub.ptr.sub43 = sub i64 %sub.ptr.lhs.cast41, %sub.ptr.rhs.cast42
   %add.ptr45 = getelementptr inbounds i8, ptr %newText, i64 %sub.ptr.sub43
-  %pos46 = getelementptr inbounds i8, ptr %this, i64 400
+  %pos46 = getelementptr inbounds nuw i8, ptr %this, i64 400
   store ptr %add.ptr45, ptr %pos46, align 8
-  %limit = getelementptr inbounds i8, ptr %other, i64 408
+  %limit = getelementptr inbounds nuw i8, ptr %other, i64 408
   %13 = load ptr, ptr %limit, align 8
   %cmp47 = icmp eq ptr %13, null
   %14 = load ptr, ptr %rawStart3, align 8
@@ -1032,7 +1032,7 @@ lpad:                                             ; preds = %entry
   resume { ptr, i32 } %15
 
 if.else:                                          ; preds = %invoke.cont
-  %fUnion.i = getelementptr inbounds i8, ptr %this, i64 464
+  %fUnion.i = getelementptr inbounds nuw i8, ptr %this, i64 464
   %16 = load i16, ptr %fUnion.i, align 8
   %17 = and i16 %16, 17
   %tobool.not.i = icmp eq i16 %17, 0
@@ -1044,30 +1044,30 @@ if.else.i:                                        ; preds = %if.else
   br i1 %tobool6.not.i, label %if.else9.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.else.i
-  %fBuffer.i = getelementptr inbounds i8, ptr %this, i64 466
+  %fBuffer.i = getelementptr inbounds nuw i8, ptr %this, i64 466
   br label %invoke.cont75
 
 if.else9.i:                                       ; preds = %if.else.i
-  %fArray.i = getelementptr inbounds i8, ptr %this, i64 480
+  %fArray.i = getelementptr inbounds nuw i8, ptr %this, i64 480
   %19 = load ptr, ptr %fArray.i, align 8
   br label %invoke.cont75
 
 invoke.cont75:                                    ; preds = %if.else9.i, %if.then7.i, %if.else
   %retval.0.i = phi ptr [ %fBuffer.i, %if.then7.i ], [ %19, %if.else9.i ], [ null, %if.else ]
   store ptr %retval.0.i, ptr %start.i, align 8
-  %pos65 = getelementptr inbounds i8, ptr %other, i64 400
+  %pos65 = getelementptr inbounds nuw i8, ptr %other, i64 400
   %20 = load ptr, ptr %pos65, align 8
   %21 = load ptr, ptr %start, align 8
   %sub.ptr.lhs.cast67 = ptrtoint ptr %20 to i64
   %sub.ptr.rhs.cast68 = ptrtoint ptr %21 to i64
   %sub.ptr.sub69 = sub i64 %sub.ptr.lhs.cast67, %sub.ptr.rhs.cast68
   %add.ptr71 = getelementptr inbounds i8, ptr %retval.0.i, i64 %sub.ptr.sub69
-  %pos72 = getelementptr inbounds i8, ptr %this, i64 400
+  %pos72 = getelementptr inbounds nuw i8, ptr %this, i64 400
   store ptr %add.ptr71, ptr %pos72, align 8
   %cmp.i.i = icmp slt i16 %16, 0
   %22 = ashr i16 %16, 5
   %shr.i.i = sext i16 %22 to i32
-  %fLength.i = getelementptr inbounds i8, ptr %this, i64 468
+  %fLength.i = getelementptr inbounds nuw i8, ptr %this, i64 468
   %23 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %23, i32 %shr.i.i
   %idx.ext = sext i32 %cond.i to i64
@@ -1076,7 +1076,7 @@ invoke.cont75:                                    ; preds = %if.else9.i, %if.the
 
 if.end:                                           ; preds = %invoke.cont75, %if.then
   %add.ptr77.sink = phi ptr [ %add.ptr77, %invoke.cont75 ], [ %cond58, %if.then ]
-  %limit78 = getelementptr inbounds i8, ptr %this, i64 408
+  %limit78 = getelementptr inbounds nuw i8, ptr %this, i64 408
   store ptr %add.ptr77.sink, ptr %limit78, align 8
   ret void
 }
@@ -1090,7 +1090,7 @@ declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 derefere
 define void @_ZN6icu_7525FCDUTF16CollationIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(521) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7525FCDUTF16CollationIteratorE, i64 16), ptr %this, align 8
-  %normalized = getelementptr inbounds i8, ptr %this, i64 456
+  %normalized = getelementptr inbounds nuw i8, ptr %this, i64 456
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %normalized) #14
   tail call void @_ZN6icu_7517CollationIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(416) %this) #14
   ret void
@@ -1111,9 +1111,9 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %checkDir = getelementptr inbounds i8, ptr %this, i64 520
+  %checkDir = getelementptr inbounds nuw i8, ptr %this, i64 520
   %0 = load i8, ptr %checkDir, align 8
-  %checkDir2 = getelementptr inbounds i8, ptr %other, i64 520
+  %checkDir2 = getelementptr inbounds nuw i8, ptr %other, i64 520
   %1 = load i8, ptr %checkDir2, align 8
   %cmp.not = icmp eq i8 %0, %1
   br i1 %cmp.not, label %if.end5, label %return
@@ -1123,14 +1123,14 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp8, label %land.lhs.true, label %if.then24
 
 land.lhs.true:                                    ; preds = %if.end5
-  %start = getelementptr inbounds i8, ptr %this, i64 392
+  %start = getelementptr inbounds nuw i8, ptr %this, i64 392
   %2 = load ptr, ptr %start, align 8
-  %segmentStart = getelementptr inbounds i8, ptr %this, i64 424
+  %segmentStart = getelementptr inbounds nuw i8, ptr %this, i64 424
   %3 = load ptr, ptr %segmentStart, align 8
   %cmp9 = icmp eq ptr %2, %3
-  %start11 = getelementptr inbounds i8, ptr %other, i64 392
+  %start11 = getelementptr inbounds nuw i8, ptr %other, i64 392
   %4 = load ptr, ptr %start11, align 8
-  %segmentStart12 = getelementptr inbounds i8, ptr %other, i64 424
+  %segmentStart12 = getelementptr inbounds nuw i8, ptr %other, i64 424
   %5 = load ptr, ptr %segmentStart12, align 8
   %6 = icmp ne ptr %4, %5
   %cmp15.not = xor i1 %cmp9, %6
@@ -1140,16 +1140,16 @@ lor.lhs.false:                                    ; preds = %land.lhs.true
   br i1 %cmp9, label %if.then24, label %if.else
 
 if.then24:                                        ; preds = %if.end5, %lor.lhs.false
-  %pos = getelementptr inbounds i8, ptr %this, i64 400
+  %pos = getelementptr inbounds nuw i8, ptr %this, i64 400
   %7 = load ptr, ptr %pos, align 8
-  %rawStart = getelementptr inbounds i8, ptr %this, i64 416
+  %rawStart = getelementptr inbounds nuw i8, ptr %this, i64 416
   %8 = load ptr, ptr %rawStart, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %7 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %8 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %pos25 = getelementptr inbounds i8, ptr %other, i64 400
+  %pos25 = getelementptr inbounds nuw i8, ptr %other, i64 400
   %9 = load ptr, ptr %pos25, align 8
-  %rawStart26 = getelementptr inbounds i8, ptr %other, i64 416
+  %rawStart26 = getelementptr inbounds nuw i8, ptr %other, i64 416
   %10 = load ptr, ptr %rawStart26, align 8
   %sub.ptr.lhs.cast27 = ptrtoint ptr %9 to i64
   %sub.ptr.rhs.cast28 = ptrtoint ptr %10 to i64
@@ -1158,12 +1158,12 @@ if.then24:                                        ; preds = %if.end5, %lor.lhs.f
   br label %return
 
 if.else:                                          ; preds = %lor.lhs.false
-  %rawStart33 = getelementptr inbounds i8, ptr %this, i64 416
+  %rawStart33 = getelementptr inbounds nuw i8, ptr %this, i64 416
   %11 = load ptr, ptr %rawStart33, align 8
   %sub.ptr.lhs.cast34 = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast35 = ptrtoint ptr %11 to i64
   %sub.ptr.sub36 = sub i64 %sub.ptr.lhs.cast34, %sub.ptr.rhs.cast35
-  %rawStart39 = getelementptr inbounds i8, ptr %other, i64 416
+  %rawStart39 = getelementptr inbounds nuw i8, ptr %other, i64 416
   %12 = load ptr, ptr %rawStart39, align 8
   %sub.ptr.lhs.cast40 = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast41 = ptrtoint ptr %12 to i64
@@ -1172,12 +1172,12 @@ if.else:                                          ; preds = %lor.lhs.false
   br i1 %cmp44, label %land.rhs, label %return
 
 land.rhs:                                         ; preds = %if.else
-  %pos45 = getelementptr inbounds i8, ptr %this, i64 400
+  %pos45 = getelementptr inbounds nuw i8, ptr %this, i64 400
   %13 = load ptr, ptr %pos45, align 8
   %sub.ptr.lhs.cast47 = ptrtoint ptr %13 to i64
   %sub.ptr.rhs.cast48 = ptrtoint ptr %2 to i64
   %sub.ptr.sub49 = sub i64 %sub.ptr.lhs.cast47, %sub.ptr.rhs.cast48
-  %pos51 = getelementptr inbounds i8, ptr %other, i64 400
+  %pos51 = getelementptr inbounds nuw i8, ptr %other, i64 400
   %14 = load ptr, ptr %pos51, align 8
   %sub.ptr.lhs.cast53 = ptrtoint ptr %14 to i64
   %sub.ptr.rhs.cast54 = ptrtoint ptr %4 to i64
@@ -1194,21 +1194,21 @@ return:                                           ; preds = %if.else, %land.rhs,
 define void @_ZN6icu_7525FCDUTF16CollationIterator13resetToOffsetEi(ptr noundef nonnull align 8 dereferenceable(521) %this, i32 noundef %newOffset) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZN6icu_7517CollationIterator5resetEv(ptr noundef nonnull align 8 dereferenceable(389) %this)
-  %rawStart = getelementptr inbounds i8, ptr %this, i64 416
+  %rawStart = getelementptr inbounds nuw i8, ptr %this, i64 416
   %0 = load ptr, ptr %rawStart, align 8
   %idx.ext = sext i32 %newOffset to i64
   %add.ptr = getelementptr inbounds i16, ptr %0, i64 %idx.ext
-  %pos = getelementptr inbounds i8, ptr %this, i64 400
+  %pos = getelementptr inbounds nuw i8, ptr %this, i64 400
   store ptr %add.ptr, ptr %pos, align 8
-  %segmentStart = getelementptr inbounds i8, ptr %this, i64 424
+  %segmentStart = getelementptr inbounds nuw i8, ptr %this, i64 424
   store ptr %add.ptr, ptr %segmentStart, align 8
-  %start = getelementptr inbounds i8, ptr %this, i64 392
+  %start = getelementptr inbounds nuw i8, ptr %this, i64 392
   store ptr %add.ptr, ptr %start, align 8
-  %rawLimit = getelementptr inbounds i8, ptr %this, i64 440
+  %rawLimit = getelementptr inbounds nuw i8, ptr %this, i64 440
   %1 = load ptr, ptr %rawLimit, align 8
-  %limit = getelementptr inbounds i8, ptr %this, i64 408
+  %limit = getelementptr inbounds nuw i8, ptr %this, i64 408
   store ptr %1, ptr %limit, align 8
-  %checkDir = getelementptr inbounds i8, ptr %this, i64 520
+  %checkDir = getelementptr inbounds nuw i8, ptr %this, i64 520
   store i8 1, ptr %checkDir, align 8
   ret void
 }
@@ -1216,38 +1216,38 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK6icu_7525FCDUTF16CollationIterator9getOffsetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(521) %this) unnamed_addr #8 align 2 {
 entry:
-  %checkDir = getelementptr inbounds i8, ptr %this, i64 520
+  %checkDir = getelementptr inbounds nuw i8, ptr %this, i64 520
   %0 = load i8, ptr %checkDir, align 8
   %cmp.not = icmp eq i8 %0, 0
   br i1 %cmp.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %start = getelementptr inbounds i8, ptr %this, i64 392
+  %start = getelementptr inbounds nuw i8, ptr %this, i64 392
   %1 = load ptr, ptr %start, align 8
-  %segmentStart = getelementptr inbounds i8, ptr %this, i64 424
+  %segmentStart = getelementptr inbounds nuw i8, ptr %this, i64 424
   %2 = load ptr, ptr %segmentStart, align 8
   %cmp2 = icmp eq ptr %1, %2
   br i1 %cmp2, label %if.then, label %if.else
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
-  %pos = getelementptr inbounds i8, ptr %this, i64 400
+  %pos = getelementptr inbounds nuw i8, ptr %this, i64 400
   %3 = load ptr, ptr %pos, align 8
   br label %return
 
 if.else:                                          ; preds = %lor.lhs.false
-  %pos4 = getelementptr inbounds i8, ptr %this, i64 400
+  %pos4 = getelementptr inbounds nuw i8, ptr %this, i64 400
   %4 = load ptr, ptr %pos4, align 8
   %cmp6 = icmp eq ptr %4, %1
   br i1 %cmp6, label %return, label %if.else15
 
 if.else15:                                        ; preds = %if.else
-  %segmentLimit = getelementptr inbounds i8, ptr %this, i64 432
+  %segmentLimit = getelementptr inbounds nuw i8, ptr %this, i64 432
   %5 = load ptr, ptr %segmentLimit, align 8
   br label %return
 
 return:                                           ; preds = %if.else, %if.else15, %if.then
   %.sink2 = phi ptr [ %5, %if.else15 ], [ %3, %if.then ], [ %2, %if.else ]
-  %rawStart16 = getelementptr inbounds i8, ptr %this, i64 416
+  %rawStart16 = getelementptr inbounds nuw i8, ptr %this, i64 416
   %6 = load ptr, ptr %rawStart16, align 8
   %sub.ptr.lhs.cast17 = ptrtoint ptr %.sink2 to i64
   %sub.ptr.rhs.cast18 = ptrtoint ptr %6 to i64
@@ -1260,26 +1260,26 @@ return:                                           ; preds = %if.else, %if.else15
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN6icu_7525FCDUTF16CollationIterator14handleNextCE32ERiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(521) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %c, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #1 align 2 {
 entry:
-  %checkDir = getelementptr inbounds i8, ptr %this, i64 520
+  %checkDir = getelementptr inbounds nuw i8, ptr %this, i64 520
   %checkDir.promoted = load i8, ptr %checkDir, align 8
   %cmp33 = icmp sgt i8 %checkDir.promoted, 0
   br i1 %cmp33, label %entry.if.then_crit_edge, label %if.else.lr.ph
 
 entry.if.then_crit_edge:                          ; preds = %entry
-  %pos.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 400
+  %pos.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 400
   %.pre = load ptr, ptr %pos.phi.trans.insert, align 8
-  %limit.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 408
+  %limit.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 408
   %.pre36 = load ptr, ptr %limit.phi.trans.insert, align 8
   br label %if.then
 
 if.else.lr.ph:                                    ; preds = %entry
-  %segmentStart.i30 = getelementptr inbounds i8, ptr %this, i64 424
-  %pos.i = getelementptr inbounds i8, ptr %this, i64 400
-  %start.i = getelementptr inbounds i8, ptr %this, i64 392
-  %segmentLimit.i = getelementptr inbounds i8, ptr %this, i64 432
+  %segmentStart.i30 = getelementptr inbounds nuw i8, ptr %this, i64 424
+  %pos.i = getelementptr inbounds nuw i8, ptr %this, i64 400
+  %start.i = getelementptr inbounds nuw i8, ptr %this, i64 392
+  %segmentLimit.i = getelementptr inbounds nuw i8, ptr %this, i64 432
   %0 = load ptr, ptr %segmentLimit.i, align 8
-  %limit33 = getelementptr inbounds i8, ptr %this, i64 408
-  %rawLimit.i = getelementptr inbounds i8, ptr %this, i64 440
+  %limit33 = getelementptr inbounds nuw i8, ptr %this, i64 408
+  %rawLimit.i = getelementptr inbounds nuw i8, ptr %this, i64 440
   %1 = load ptr, ptr %rawLimit.i, align 8
   %pos.i.promoted = load ptr, ptr %pos.i, align 8
   %segmentStart.i30.promoted = load ptr, ptr %segmentStart.i30, align 8
@@ -1291,8 +1291,8 @@ if.else.lr.ph:                                    ; preds = %entry
 if.then:                                          ; preds = %_ZN6icu_7525FCDUTF16CollationIterator15switchToForwardEv.exit.thread, %entry.if.then_crit_edge
   %3 = phi ptr [ %.pre36, %entry.if.then_crit_edge ], [ %1, %_ZN6icu_7525FCDUTF16CollationIterator15switchToForwardEv.exit.thread ]
   %4 = phi ptr [ %.pre, %entry.if.then_crit_edge ], [ %17, %_ZN6icu_7525FCDUTF16CollationIterator15switchToForwardEv.exit.thread ]
-  %pos = getelementptr inbounds i8, ptr %this, i64 400
-  %limit = getelementptr inbounds i8, ptr %this, i64 408
+  %pos = getelementptr inbounds nuw i8, ptr %this, i64 400
+  %limit = getelementptr inbounds nuw i8, ptr %this, i64 408
   %cmp2 = icmp eq ptr %4, %3
   br i1 %cmp2, label %if.then3, label %if.end
 
@@ -1301,7 +1301,7 @@ if.then3:                                         ; preds = %if.then
   br label %return
 
 if.end:                                           ; preds = %if.then
-  %incdec.ptr = getelementptr inbounds i8, ptr %4, i64 2
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %4, i64 2
   store ptr %incdec.ptr, ptr %pos, align 8
   %5 = load i16, ptr %4, align 2
   %conv5 = zext i16 %5 to i32
@@ -1312,14 +1312,14 @@ if.end:                                           ; preds = %if.then
 land.lhs.true.i:                                  ; preds = %if.end
   %shr.i = lshr i32 %conv5, 5
   %idxprom.i = zext nneg i32 %shr.i to i64
-  %arrayidx.i = getelementptr inbounds [2048 x i8], ptr @_ZN6icu_7512CollationFCD9tcccIndexE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [2048 x i8], ptr @_ZN6icu_7512CollationFCD9tcccIndexE, i64 0, i64 %idxprom.i
   %6 = load i8, ptr %arrayidx.i, align 1
   %cmp1.not.i = icmp eq i8 %6, 0
   br i1 %cmp1.not.i, label %for.end, label %_ZN6icu_7512CollationFCD7hasTcccEi.exit
 
 _ZN6icu_7512CollationFCD7hasTcccEi.exit:          ; preds = %land.lhs.true.i
   %idxprom2.i = zext i8 %6 to i64
-  %arrayidx3.i = getelementptr inbounds [0 x i32], ptr @_ZN6icu_7512CollationFCD8tcccBitsE, i64 0, i64 %idxprom2.i
+  %arrayidx3.i = getelementptr inbounds nuw [0 x i32], ptr @_ZN6icu_7512CollationFCD8tcccBitsE, i64 0, i64 %idxprom2.i
   %7 = load i32, ptr %arrayidx3.i, align 4
   %and.i = and i32 %conv5, 31
   %8 = shl nuw i32 1, %and.i
@@ -1347,14 +1347,14 @@ land.lhs.true:                                    ; preds = %lor.lhs.false
 land.lhs.true.i15:                                ; preds = %land.lhs.true
   %shr.i16 = lshr i32 %conv13, 5
   %idxprom.i17 = zext nneg i32 %shr.i16 to i64
-  %arrayidx.i18 = getelementptr inbounds [2048 x i8], ptr @_ZN6icu_7512CollationFCD9lcccIndexE, i64 0, i64 %idxprom.i17
+  %arrayidx.i18 = getelementptr inbounds nuw [2048 x i8], ptr @_ZN6icu_7512CollationFCD9lcccIndexE, i64 0, i64 %idxprom.i17
   %12 = load i8, ptr %arrayidx.i18, align 1
   %cmp1.not.i19 = icmp eq i8 %12, 0
   br i1 %cmp1.not.i19, label %for.end, label %_ZN6icu_7512CollationFCD7hasLcccEi.exit
 
 _ZN6icu_7512CollationFCD7hasLcccEi.exit:          ; preds = %land.lhs.true.i15
   %idxprom2.i21 = zext i8 %12 to i64
-  %arrayidx3.i22 = getelementptr inbounds [0 x i32], ptr @_ZN6icu_7512CollationFCD8lcccBitsE, i64 0, i64 %idxprom2.i21
+  %arrayidx3.i22 = getelementptr inbounds nuw [0 x i32], ptr @_ZN6icu_7512CollationFCD8lcccBitsE, i64 0, i64 %idxprom2.i21
   %13 = load i32, ptr %arrayidx3.i22, align 4
   %and.i23 = and i32 %conv13, 31
   %14 = shl nuw i32 1, %and.i23
@@ -1375,7 +1375,7 @@ if.then21:                                        ; preds = %if.then16
 
 if.end22:                                         ; preds = %if.then16
   %16 = load ptr, ptr %pos, align 8
-  %incdec.ptr24 = getelementptr inbounds i8, ptr %16, i64 2
+  %incdec.ptr24 = getelementptr inbounds nuw i8, ptr %16, i64 2
   store ptr %incdec.ptr24, ptr %pos, align 8
   br label %for.end.sink.split
 
@@ -1386,7 +1386,7 @@ land.lhs.true31:                                  ; preds = %_ZN6icu_7525FCDUTF1
   br i1 %cmp34.not, label %if.else7.i, label %if.then35
 
 if.then35:                                        ; preds = %land.lhs.true31
-  %incdec.ptr37 = getelementptr inbounds i8, ptr %pos.i.promoted, i64 2
+  %incdec.ptr37 = getelementptr inbounds nuw i8, ptr %pos.i.promoted, i64 2
   store ptr %incdec.ptr37, ptr %pos.i, align 8
   br label %for.end.sink.split
 
@@ -1425,21 +1425,21 @@ for.end.sink.split:                               ; preds = %if.then35, %if.end2
 
 for.end:                                          ; preds = %for.end.sink.split, %land.lhs.true, %land.lhs.true.i15, %if.end, %land.lhs.true.i, %_ZN6icu_7512CollationFCD7hasTcccEi.exit, %_ZN6icu_7512CollationFCD7hasLcccEi.exit, %lor.lhs.false
   %19 = phi i32 [ %conv5, %land.lhs.true ], [ %conv5, %land.lhs.true.i15 ], [ %conv5, %if.end ], [ %conv5, %land.lhs.true.i ], [ %conv5, %_ZN6icu_7512CollationFCD7hasTcccEi.exit ], [ %conv5, %_ZN6icu_7512CollationFCD7hasLcccEi.exit ], [ %conv5, %lor.lhs.false ], [ %conv25, %for.end.sink.split ]
-  %trie = getelementptr inbounds i8, ptr %this, i64 8
+  %trie = getelementptr inbounds nuw i8, ptr %this, i64 8
   %20 = load ptr, ptr %trie, align 8
-  %data32 = getelementptr inbounds i8, ptr %20, i64 16
+  %data32 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %21 = load ptr, ptr %data32, align 8
   %22 = load ptr, ptr %20, align 8
   %shr = lshr i32 %19, 5
   %idxprom = zext nneg i32 %shr to i64
-  %arrayidx = getelementptr inbounds i16, ptr %22, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw i16, ptr %22, i64 %idxprom
   %23 = load i16, ptr %arrayidx, align 2
   %conv43 = zext i16 %23 to i32
   %shl = shl nuw nsw i32 %conv43, 2
   %and = and i32 %19, 31
   %add44 = add nuw nsw i32 %shl, %and
   %idxprom45 = zext nneg i32 %add44 to i64
-  %arrayidx46 = getelementptr inbounds i32, ptr %21, i64 %idxprom45
+  %arrayidx46 = getelementptr inbounds nuw i32, ptr %21, i64 %idxprom45
   %24 = load i32, ptr %arrayidx46, align 4
   br label %return
 
@@ -1456,10 +1456,10 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %pos = getelementptr inbounds i8, ptr %this, i64 400
+  %pos = getelementptr inbounds nuw i8, ptr %this, i64 400
   %1 = load ptr, ptr %pos, align 8
-  %nfcImpl = getelementptr inbounds i8, ptr %this, i64 448
-  %rawLimit = getelementptr inbounds i8, ptr %this, i64 440
+  %nfcImpl = getelementptr inbounds nuw i8, ptr %this, i64 448
+  %rawLimit = getelementptr inbounds nuw i8, ptr %this, i64 440
   %.pre = load ptr, ptr %rawLimit, align 8
   br label %for.cond
 
@@ -1469,20 +1469,20 @@ for.cond:                                         ; preds = %if.end31, %if.end
   %p.0 = phi ptr [ %1, %if.end ], [ %p.3, %if.end31 ]
   %prevCC.0 = phi i16 [ 0, %if.end ], [ %retval.0.i, %if.end31 ]
   %4 = load ptr, ptr %nfcImpl, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %p.0, i64 2
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %p.0, i64 2
   %5 = load i16, ptr %p.0, align 2
   %conv.i11 = zext i16 %5 to i32
-  %minDecompNoCP.i = getelementptr inbounds i8, ptr %4, i64 8
+  %minDecompNoCP.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i16, ptr %minDecompNoCP.i, align 8
   %cmp.i12 = icmp ult i16 %5, %6
   br i1 %cmp.i12, label %_ZNK6icu_7515Normalizer2Impl9nextFCD16ERPKDsS2_.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %for.cond
-  %smallFCD.i.i = getelementptr inbounds i8, ptr %4, i64 56
+  %smallFCD.i.i = getelementptr inbounds nuw i8, ptr %4, i64 56
   %7 = load ptr, ptr %smallFCD.i.i, align 8
   %shr.i.i = lshr i32 %conv.i11, 8
   %idxprom.i.i = zext nneg i32 %shr.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %7, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 %idxprom.i.i
   %8 = load i8, ptr %arrayidx.i.i, align 1
   %cmp.i.i = icmp eq i8 %8, 0
   %conv.i.i = zext i8 %8 to i16
@@ -1512,7 +1512,7 @@ if.then9.i:                                       ; preds = %land.lhs.true5.i
   %shl.i = shl nuw nsw i32 %conv.i11, 10
   %add.i = add nsw i32 %shl.i, -56613888
   %sub.i = add nuw nsw i32 %add.i, %conv6.i
-  %incdec.ptr11.i = getelementptr inbounds i8, ptr %p.0, i64 4
+  %incdec.ptr11.i = getelementptr inbounds nuw i8, ptr %p.0, i64 4
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.then9.i, %land.lhs.true5.i, %if.end.i
@@ -1533,9 +1533,9 @@ _ZNK6icu_7515Normalizer2Impl9nextFCD16ERPKDsS2_.exit: ; preds = %for.cond, %lor.
   br i1 %or.cond10, label %if.end8, label %if.then7
 
 if.then7:                                         ; preds = %_ZNK6icu_7515Normalizer2Impl9nextFCD16ERPKDsS2_.exit
-  %segmentLimit = getelementptr inbounds i8, ptr %this, i64 432
+  %segmentLimit = getelementptr inbounds nuw i8, ptr %this, i64 432
   store ptr %p.0, ptr %segmentLimit, align 8
-  %limit = getelementptr inbounds i8, ptr %this, i64 408
+  %limit = getelementptr inbounds nuw i8, ptr %this, i64 408
   store ptr %p.0, ptr %limit, align 8
   br label %for.end
 
@@ -1565,20 +1565,20 @@ do.body:                                          ; preds = %do.body.preheader, 
   br i1 %cmp19.not, label %do.end, label %land.rhs
 
 land.rhs:                                         ; preds = %do.body
-  %incdec.ptr.i14 = getelementptr inbounds i8, ptr %p.1, i64 2
+  %incdec.ptr.i14 = getelementptr inbounds nuw i8, ptr %p.1, i64 2
   %16 = load i16, ptr %p.1, align 2
   %conv.i15 = zext i16 %16 to i32
-  %minDecompNoCP.i16 = getelementptr inbounds i8, ptr %.pre75, i64 8
+  %minDecompNoCP.i16 = getelementptr inbounds nuw i8, ptr %.pre75, i64 8
   %17 = load i16, ptr %minDecompNoCP.i16, align 8
   %cmp.i17 = icmp ult i16 %16, %17
   br i1 %cmp.i17, label %do.end, label %lor.lhs.false.i18
 
 lor.lhs.false.i18:                                ; preds = %land.rhs
-  %smallFCD.i.i19 = getelementptr inbounds i8, ptr %.pre75, i64 56
+  %smallFCD.i.i19 = getelementptr inbounds nuw i8, ptr %.pre75, i64 56
   %18 = load ptr, ptr %smallFCD.i.i19, align 8
   %shr.i.i20 = lshr i32 %conv.i15, 8
   %idxprom.i.i21 = zext nneg i32 %shr.i.i20 to i64
-  %arrayidx.i.i22 = getelementptr inbounds i8, ptr %18, i64 %idxprom.i.i21
+  %arrayidx.i.i22 = getelementptr inbounds nuw i8, ptr %18, i64 %idxprom.i.i21
   %19 = load i8, ptr %arrayidx.i.i22, align 1
   %cmp.i.i23 = icmp eq i8 %19, 0
   %conv.i.i24 = zext i8 %19 to i16
@@ -1608,7 +1608,7 @@ if.then9.i42:                                     ; preds = %land.lhs.true5.i34
   %shl.i43 = shl nuw nsw i32 %conv.i15, 10
   %add.i44 = add nsw i32 %shl.i43, -56613888
   %sub.i45 = add nuw nsw i32 %add.i44, %conv6.i35
-  %incdec.ptr11.i46 = getelementptr inbounds i8, ptr %p.1, i64 4
+  %incdec.ptr11.i46 = getelementptr inbounds nuw i8, ptr %p.1, i64 4
   br label %_ZNK6icu_7515Normalizer2Impl9nextFCD16ERPKDsS2_.exit47
 
 _ZNK6icu_7515Normalizer2Impl9nextFCD16ERPKDsS2_.exit47: ; preds = %if.end.i29, %land.lhs.true5.i34, %if.then9.i42
@@ -1625,7 +1625,7 @@ _ZNK6icu_7515Normalizer2Impl9nextFCD16ERPKDsS2_.exit47.do.end_crit_edge: ; preds
 do.end:                                           ; preds = %land.rhs, %lor.lhs.false.i18, %do.body, %_ZNK6icu_7515Normalizer2Impl9nextFCD16ERPKDsS2_.exit47.do.end_crit_edge
   %23 = phi ptr [ %.pre74, %_ZNK6icu_7515Normalizer2Impl9nextFCD16ERPKDsS2_.exit47.do.end_crit_edge ], [ %.pre75, %do.body ], [ %.pre75, %lor.lhs.false.i18 ], [ %.pre75, %land.rhs ]
   %24 = load ptr, ptr %pos, align 8
-  %normalized.i = getelementptr inbounds i8, ptr %this, i64 456
+  %normalized.i = getelementptr inbounds nuw i8, ptr %this, i64 456
   %sub.ptr.lhs.cast.i = ptrtoint ptr %p.1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %24 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -1637,11 +1637,11 @@ do.end:                                           ; preds = %land.rhs, %lor.lhs.
   br i1 %cmp.i.i49, label %if.end.i51, label %return
 
 if.end.i51:                                       ; preds = %do.end
-  %segmentStart.i = getelementptr inbounds i8, ptr %this, i64 424
+  %segmentStart.i = getelementptr inbounds nuw i8, ptr %this, i64 424
   store ptr %24, ptr %segmentStart.i, align 8
-  %segmentLimit.i = getelementptr inbounds i8, ptr %this, i64 432
+  %segmentLimit.i = getelementptr inbounds nuw i8, ptr %this, i64 432
   store ptr %p.1, ptr %segmentLimit.i, align 8
-  %fUnion.i.i = getelementptr inbounds i8, ptr %this, i64 464
+  %fUnion.i.i = getelementptr inbounds nuw i8, ptr %this, i64 464
   %26 = load i16, ptr %fUnion.i.i, align 8
   %27 = and i16 %26, 17
   %tobool.not.i.i = icmp eq i16 %27, 0
@@ -1653,27 +1653,27 @@ if.else.i.i:                                      ; preds = %if.end.i51
   br i1 %tobool6.not.i.i, label %if.else9.i.i, label %if.then7.i.i
 
 if.then7.i.i:                                     ; preds = %if.else.i.i
-  %fBuffer.i.i = getelementptr inbounds i8, ptr %this, i64 466
+  %fBuffer.i.i = getelementptr inbounds nuw i8, ptr %this, i64 466
   br label %if.end29
 
 if.else9.i.i:                                     ; preds = %if.else.i.i
-  %fArray.i.i = getelementptr inbounds i8, ptr %this, i64 480
+  %fArray.i.i = getelementptr inbounds nuw i8, ptr %this, i64 480
   %29 = load ptr, ptr %fArray.i.i, align 8
   br label %if.end29
 
 if.end29:                                         ; preds = %if.else9.i.i, %if.then7.i.i, %if.end.i51
   %retval.0.i.i = phi ptr [ %fBuffer.i.i, %if.then7.i.i ], [ %29, %if.else9.i.i ], [ null, %if.end.i51 ]
-  %start.i = getelementptr inbounds i8, ptr %this, i64 392
+  %start.i = getelementptr inbounds nuw i8, ptr %this, i64 392
   store ptr %retval.0.i.i, ptr %start.i, align 8
   %cmp.i.i.i = icmp slt i16 %26, 0
   %30 = ashr i16 %26, 5
   %shr.i.i.i = sext i16 %30 to i32
-  %fLength.i.i = getelementptr inbounds i8, ptr %this, i64 468
+  %fLength.i.i = getelementptr inbounds nuw i8, ptr %this, i64 468
   %31 = load i32, ptr %fLength.i.i, align 4
   %cond.i.i = select i1 %cmp.i.i.i, i32 %31, i32 %shr.i.i.i
   %idx.ext.i = sext i32 %cond.i.i to i64
   %add.ptr.i = getelementptr inbounds i16, ptr %retval.0.i.i, i64 %idx.ext.i
-  %limit.i = getelementptr inbounds i8, ptr %this, i64 408
+  %limit.i = getelementptr inbounds nuw i8, ptr %this, i64 408
   store ptr %add.ptr.i, ptr %limit.i, align 8
   store ptr %retval.0.i.i, ptr %pos, align 8
   br label %for.end
@@ -1687,14 +1687,14 @@ if.end31:                                         ; preds = %lor.lhs.false, %if.
   br i1 %or.cond, label %if.then38, label %for.cond, !llvm.loop !8
 
 if.then38:                                        ; preds = %if.end31
-  %segmentLimit39 = getelementptr inbounds i8, ptr %this, i64 432
+  %segmentLimit39 = getelementptr inbounds nuw i8, ptr %this, i64 432
   store ptr %p.3, ptr %segmentLimit39, align 8
-  %limit40 = getelementptr inbounds i8, ptr %this, i64 408
+  %limit40 = getelementptr inbounds nuw i8, ptr %this, i64 408
   store ptr %p.3, ptr %limit40, align 8
   br label %for.end
 
 for.end:                                          ; preds = %if.then38, %if.end29, %if.then7
-  %checkDir = getelementptr inbounds i8, ptr %this, i64 520
+  %checkDir = getelementptr inbounds nuw i8, ptr %this, i64 520
   store i8 0, ptr %checkDir, align 8
   br label %return
 
@@ -1706,43 +1706,43 @@ return:                                           ; preds = %do.end, %entry, %fo
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN6icu_7525FCDUTF16CollationIterator15switchToForwardEv(ptr nocapture noundef nonnull align 8 dereferenceable(521) %this) local_unnamed_addr #10 align 2 {
 entry:
-  %checkDir = getelementptr inbounds i8, ptr %this, i64 520
+  %checkDir = getelementptr inbounds nuw i8, ptr %this, i64 520
   %0 = load i8, ptr %checkDir, align 8
   %cmp = icmp slt i8 %0, 0
-  %segmentStart = getelementptr inbounds i8, ptr %this, i64 424
+  %segmentStart = getelementptr inbounds nuw i8, ptr %this, i64 424
   br i1 %cmp, label %if.then, label %if.else7
 
 if.then:                                          ; preds = %entry
-  %pos = getelementptr inbounds i8, ptr %this, i64 400
+  %pos = getelementptr inbounds nuw i8, ptr %this, i64 400
   %1 = load ptr, ptr %pos, align 8
   store ptr %1, ptr %segmentStart, align 8
-  %start = getelementptr inbounds i8, ptr %this, i64 392
+  %start = getelementptr inbounds nuw i8, ptr %this, i64 392
   store ptr %1, ptr %start, align 8
-  %segmentLimit = getelementptr inbounds i8, ptr %this, i64 432
+  %segmentLimit = getelementptr inbounds nuw i8, ptr %this, i64 432
   %2 = load ptr, ptr %segmentLimit, align 8
   %cmp3 = icmp eq ptr %1, %2
   br i1 %cmp3, label %if.end21.sink.split, label %if.end21
 
 if.else7:                                         ; preds = %entry
-  %start8 = getelementptr inbounds i8, ptr %this, i64 392
+  %start8 = getelementptr inbounds nuw i8, ptr %this, i64 392
   %3 = load ptr, ptr %start8, align 8
   %4 = load ptr, ptr %segmentStart, align 8
   %cmp10 = icmp eq ptr %3, %4
   br i1 %cmp10, label %if.end21.sink.split, label %if.else12
 
 if.else12:                                        ; preds = %if.else7
-  %segmentLimit13 = getelementptr inbounds i8, ptr %this, i64 432
+  %segmentLimit13 = getelementptr inbounds nuw i8, ptr %this, i64 432
   %5 = load ptr, ptr %segmentLimit13, align 8
   store ptr %5, ptr %segmentStart, align 8
   store ptr %5, ptr %start8, align 8
-  %pos16 = getelementptr inbounds i8, ptr %this, i64 400
+  %pos16 = getelementptr inbounds nuw i8, ptr %this, i64 400
   store ptr %5, ptr %pos16, align 8
   br label %if.end21.sink.split
 
 if.end21.sink.split:                              ; preds = %if.else12, %if.else7, %if.then
-  %rawLimit = getelementptr inbounds i8, ptr %this, i64 440
+  %rawLimit = getelementptr inbounds nuw i8, ptr %this, i64 440
   %6 = load ptr, ptr %rawLimit, align 8
-  %limit = getelementptr inbounds i8, ptr %this, i64 408
+  %limit = getelementptr inbounds nuw i8, ptr %this, i64 408
   store ptr %6, ptr %limit, align 8
   br label %if.end21
 
@@ -1755,17 +1755,17 @@ if.end21:                                         ; preds = %if.end21.sink.split
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef signext range(i8 0, 2) i8 @_ZN6icu_7525FCDUTF16CollationIterator18foundNULTerminatorEv(ptr nocapture noundef nonnull align 8 dereferenceable(521) %this) unnamed_addr #10 align 2 {
 entry:
-  %limit = getelementptr inbounds i8, ptr %this, i64 408
+  %limit = getelementptr inbounds nuw i8, ptr %this, i64 408
   %0 = load ptr, ptr %limit, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %pos = getelementptr inbounds i8, ptr %this, i64 400
+  %pos = getelementptr inbounds nuw i8, ptr %this, i64 400
   %1 = load ptr, ptr %pos, align 8
   %incdec.ptr = getelementptr inbounds i8, ptr %1, i64 -2
   store ptr %incdec.ptr, ptr %pos, align 8
-  %rawLimit = getelementptr inbounds i8, ptr %this, i64 440
+  %rawLimit = getelementptr inbounds nuw i8, ptr %this, i64 440
   store ptr %incdec.ptr, ptr %rawLimit, align 8
   store ptr %incdec.ptr, ptr %limit, align 8
   br label %return
@@ -1778,26 +1778,26 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 -1, 10559488) i32 @_ZN6icu_7525FCDUTF16CollationIterator13nextCodePointER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(521) %this, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #1 align 2 {
 entry:
-  %checkDir = getelementptr inbounds i8, ptr %this, i64 520
+  %checkDir = getelementptr inbounds nuw i8, ptr %this, i64 520
   %checkDir.promoted = load i8, ptr %checkDir, align 8
   %cmp34 = icmp sgt i8 %checkDir.promoted, 0
   br i1 %cmp34, label %entry.if.then_crit_edge, label %if.else37.lr.ph
 
 entry.if.then_crit_edge:                          ; preds = %entry
-  %pos.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 400
+  %pos.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 400
   %.pre = load ptr, ptr %pos.phi.trans.insert, align 8
-  %limit.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 408
+  %limit.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 408
   %.pre37 = load ptr, ptr %limit.phi.trans.insert, align 8
   br label %if.then
 
 if.else37.lr.ph:                                  ; preds = %entry
-  %segmentStart.i28 = getelementptr inbounds i8, ptr %this, i64 424
-  %pos.i = getelementptr inbounds i8, ptr %this, i64 400
-  %start.i = getelementptr inbounds i8, ptr %this, i64 392
-  %segmentLimit.i = getelementptr inbounds i8, ptr %this, i64 432
+  %segmentStart.i28 = getelementptr inbounds nuw i8, ptr %this, i64 424
+  %pos.i = getelementptr inbounds nuw i8, ptr %this, i64 400
+  %start.i = getelementptr inbounds nuw i8, ptr %this, i64 392
+  %segmentLimit.i = getelementptr inbounds nuw i8, ptr %this, i64 432
   %0 = load ptr, ptr %segmentLimit.i, align 8
-  %limit43 = getelementptr inbounds i8, ptr %this, i64 408
-  %rawLimit.i = getelementptr inbounds i8, ptr %this, i64 440
+  %limit43 = getelementptr inbounds nuw i8, ptr %this, i64 408
+  %rawLimit.i = getelementptr inbounds nuw i8, ptr %this, i64 440
   %1 = load ptr, ptr %rawLimit.i, align 8
   %pos.i.promoted = load ptr, ptr %pos.i, align 8
   %segmentStart.i28.promoted = load ptr, ptr %segmentStart.i28, align 8
@@ -1809,13 +1809,13 @@ if.else37.lr.ph:                                  ; preds = %entry
 if.then:                                          ; preds = %_ZN6icu_7525FCDUTF16CollationIterator15switchToForwardEv.exit.thread, %entry.if.then_crit_edge
   %3 = phi ptr [ %.pre37, %entry.if.then_crit_edge ], [ %1, %_ZN6icu_7525FCDUTF16CollationIterator15switchToForwardEv.exit.thread ]
   %4 = phi ptr [ %.pre, %entry.if.then_crit_edge ], [ %16, %_ZN6icu_7525FCDUTF16CollationIterator15switchToForwardEv.exit.thread ]
-  %pos = getelementptr inbounds i8, ptr %this, i64 400
-  %limit = getelementptr inbounds i8, ptr %this, i64 408
+  %pos = getelementptr inbounds nuw i8, ptr %this, i64 400
+  %limit = getelementptr inbounds nuw i8, ptr %this, i64 408
   %cmp2 = icmp eq ptr %4, %3
   br i1 %cmp2, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then
-  %incdec.ptr = getelementptr inbounds i8, ptr %4, i64 2
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %4, i64 2
   store ptr %incdec.ptr, ptr %pos, align 8
   %5 = load i16, ptr %4, align 2
   %conv5 = zext i16 %5 to i32
@@ -1825,14 +1825,14 @@ if.end:                                           ; preds = %if.then
 land.lhs.true.i:                                  ; preds = %if.end
   %shr.i = lshr i32 %conv5, 5
   %idxprom.i = zext nneg i32 %shr.i to i64
-  %arrayidx.i = getelementptr inbounds [2048 x i8], ptr @_ZN6icu_7512CollationFCD9tcccIndexE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [2048 x i8], ptr @_ZN6icu_7512CollationFCD9tcccIndexE, i64 0, i64 %idxprom.i
   %6 = load i8, ptr %arrayidx.i, align 1
   %cmp1.not.i = icmp eq i8 %6, 0
   br i1 %cmp1.not.i, label %for.end, label %_ZN6icu_7512CollationFCD7hasTcccEi.exit
 
 _ZN6icu_7512CollationFCD7hasTcccEi.exit:          ; preds = %land.lhs.true.i
   %idxprom2.i = zext i8 %6 to i64
-  %arrayidx3.i = getelementptr inbounds [0 x i32], ptr @_ZN6icu_7512CollationFCD8tcccBitsE, i64 0, i64 %idxprom2.i
+  %arrayidx3.i = getelementptr inbounds nuw [0 x i32], ptr @_ZN6icu_7512CollationFCD8tcccBitsE, i64 0, i64 %idxprom2.i
   %7 = load i32, ptr %arrayidx3.i, align 4
   %and.i = and i32 %conv5, 31
   %8 = shl nuw i32 1, %and.i
@@ -1858,14 +1858,14 @@ land.lhs.true:                                    ; preds = %lor.lhs.false
 land.lhs.true.i13:                                ; preds = %land.lhs.true
   %shr.i14 = lshr i32 %conv13, 5
   %idxprom.i15 = zext nneg i32 %shr.i14 to i64
-  %arrayidx.i16 = getelementptr inbounds [2048 x i8], ptr @_ZN6icu_7512CollationFCD9lcccIndexE, i64 0, i64 %idxprom.i15
+  %arrayidx.i16 = getelementptr inbounds nuw [2048 x i8], ptr @_ZN6icu_7512CollationFCD9lcccIndexE, i64 0, i64 %idxprom.i15
   %11 = load i8, ptr %arrayidx.i16, align 1
   %cmp1.not.i17 = icmp eq i8 %11, 0
   br i1 %cmp1.not.i17, label %for.end, label %_ZN6icu_7512CollationFCD7hasLcccEi.exit
 
 _ZN6icu_7512CollationFCD7hasLcccEi.exit:          ; preds = %land.lhs.true.i13
   %idxprom2.i19 = zext i8 %11 to i64
-  %arrayidx3.i20 = getelementptr inbounds [0 x i32], ptr @_ZN6icu_7512CollationFCD8lcccBitsE, i64 0, i64 %idxprom2.i19
+  %arrayidx3.i20 = getelementptr inbounds nuw [0 x i32], ptr @_ZN6icu_7512CollationFCD8lcccBitsE, i64 0, i64 %idxprom2.i19
   %12 = load i32, ptr %arrayidx3.i20, align 4
   %and.i21 = and i32 %conv13, 31
   %13 = shl nuw i32 1, %and.i21
@@ -1881,7 +1881,7 @@ if.then16:                                        ; preds = %_ZN6icu_7512Collati
 
 if.end22:                                         ; preds = %if.then16
   %15 = load ptr, ptr %pos, align 8
-  %incdec.ptr24 = getelementptr inbounds i8, ptr %15, i64 2
+  %incdec.ptr24 = getelementptr inbounds nuw i8, ptr %15, i64 2
   store ptr %incdec.ptr24, ptr %pos, align 8
   br label %for.end.sink.split
 
@@ -1895,7 +1895,7 @@ land.lhs.true28:                                  ; preds = %if.else
 
 if.then31:                                        ; preds = %land.lhs.true28
   store ptr %4, ptr %pos, align 8
-  %rawLimit = getelementptr inbounds i8, ptr %this, i64 440
+  %rawLimit = getelementptr inbounds nuw i8, ptr %this, i64 440
   store ptr %4, ptr %rawLimit, align 8
   store ptr %4, ptr %limit, align 8
   br label %return
@@ -1907,7 +1907,7 @@ land.lhs.true41:                                  ; preds = %_ZN6icu_7525FCDUTF1
   br i1 %cmp44.not, label %if.else7.i, label %if.then45
 
 if.then45:                                        ; preds = %land.lhs.true41
-  %incdec.ptr47 = getelementptr inbounds i8, ptr %pos.i.promoted, i64 2
+  %incdec.ptr47 = getelementptr inbounds nuw i8, ptr %pos.i.promoted, i64 2
   store ptr %incdec.ptr47, ptr %pos.i, align 8
   br label %for.end.sink.split
 
@@ -1952,8 +1952,8 @@ for.end:                                          ; preds = %for.end.sink.split,
   br i1 %cmp52, label %land.lhs.true53, label %return
 
 land.lhs.true53:                                  ; preds = %for.end
-  %pos54 = getelementptr inbounds i8, ptr %this, i64 400
-  %limit55 = getelementptr inbounds i8, ptr %this, i64 408
+  %pos54 = getelementptr inbounds nuw i8, ptr %this, i64 400
+  %limit55 = getelementptr inbounds nuw i8, ptr %this, i64 408
   %19 = load ptr, ptr %limit55, align 8
   %cmp56.not = icmp eq ptr %18, %19
   br i1 %cmp56.not, label %return, label %land.lhs.true57
@@ -1966,7 +1966,7 @@ land.lhs.true57:                                  ; preds = %land.lhs.true53
   br i1 %cmp61, label %if.then62, label %return
 
 if.then62:                                        ; preds = %land.lhs.true57
-  %incdec.ptr64 = getelementptr inbounds i8, ptr %18, i64 2
+  %incdec.ptr64 = getelementptr inbounds nuw i8, ptr %18, i64 2
   store ptr %incdec.ptr64, ptr %pos54, align 8
   %shl = shl nuw nsw i32 %c.0, 10
   %add = add nsw i32 %shl, -56613888
@@ -1981,26 +1981,26 @@ return:                                           ; preds = %land.lhs.true28, %f
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 -1, 10559488) i32 @_ZN6icu_7525FCDUTF16CollationIterator17previousCodePointER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(521) %this, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #1 align 2 {
 entry:
-  %checkDir = getelementptr inbounds i8, ptr %this, i64 520
+  %checkDir = getelementptr inbounds nuw i8, ptr %this, i64 520
   %checkDir.promoted = load i8, ptr %checkDir, align 8
   %cmp28 = icmp slt i8 %checkDir.promoted, 0
-  %pos.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 400
+  %pos.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 400
   br i1 %cmp28, label %entry.if.then_crit_edge, label %if.else.lr.ph
 
 entry.if.then_crit_edge:                          ; preds = %entry
   %.pre = load ptr, ptr %pos.phi.trans.insert, align 8
-  %start.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 392
+  %start.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 392
   %.pre31 = load ptr, ptr %start.phi.trans.insert, align 8
   br label %if.then
 
 if.else.lr.ph:                                    ; preds = %entry
-  %segmentLimit.i = getelementptr inbounds i8, ptr %this, i64 432
-  %limit.i = getelementptr inbounds i8, ptr %this, i64 408
-  %segmentStart.i = getelementptr inbounds i8, ptr %this, i64 424
+  %segmentLimit.i = getelementptr inbounds nuw i8, ptr %this, i64 432
+  %limit.i = getelementptr inbounds nuw i8, ptr %this, i64 408
+  %segmentStart.i = getelementptr inbounds nuw i8, ptr %this, i64 424
   %0 = load ptr, ptr %segmentStart.i, align 8
-  %rawStart.i = getelementptr inbounds i8, ptr %this, i64 416
+  %rawStart.i = getelementptr inbounds nuw i8, ptr %this, i64 416
   %1 = load ptr, ptr %rawStart.i, align 8
-  %start.i = getelementptr inbounds i8, ptr %this, i64 392
+  %start.i = getelementptr inbounds nuw i8, ptr %this, i64 392
   %pos.i.promoted = load ptr, ptr %pos.phi.trans.insert, align 8
   %start.i.promoted = load ptr, ptr %start.i, align 8
   %2 = icmp eq i8 %checkDir.promoted, 0
@@ -2009,7 +2009,7 @@ if.else.lr.ph:                                    ; preds = %entry
 if.then:                                          ; preds = %_ZN6icu_7525FCDUTF16CollationIterator16switchToBackwardEv.exit.thread, %entry.if.then_crit_edge
   %3 = phi ptr [ %.pre31, %entry.if.then_crit_edge ], [ %1, %_ZN6icu_7525FCDUTF16CollationIterator16switchToBackwardEv.exit.thread ]
   %4 = phi ptr [ %.pre, %entry.if.then_crit_edge ], [ %.ph, %_ZN6icu_7525FCDUTF16CollationIterator16switchToBackwardEv.exit.thread ]
-  %pos = getelementptr inbounds i8, ptr %this, i64 400
+  %pos = getelementptr inbounds nuw i8, ptr %this, i64 400
   %cmp2 = icmp eq ptr %4, %3
   br i1 %cmp2, label %return, label %if.end
 
@@ -2024,14 +2024,14 @@ if.end:                                           ; preds = %if.then
 land.lhs.true.i:                                  ; preds = %if.end
   %shr.i = lshr i32 %conv5, 5
   %idxprom.i = zext nneg i32 %shr.i to i64
-  %arrayidx.i = getelementptr inbounds [2048 x i8], ptr @_ZN6icu_7512CollationFCD9lcccIndexE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [2048 x i8], ptr @_ZN6icu_7512CollationFCD9lcccIndexE, i64 0, i64 %idxprom.i
   %6 = load i8, ptr %arrayidx.i, align 1
   %cmp1.not.i = icmp eq i8 %6, 0
   br i1 %cmp1.not.i, label %for.end, label %_ZN6icu_7512CollationFCD7hasLcccEi.exit
 
 _ZN6icu_7512CollationFCD7hasLcccEi.exit:          ; preds = %land.lhs.true.i
   %idxprom2.i = zext i8 %6 to i64
-  %arrayidx3.i = getelementptr inbounds [0 x i32], ptr @_ZN6icu_7512CollationFCD8lcccBitsE, i64 0, i64 %idxprom2.i
+  %arrayidx3.i = getelementptr inbounds nuw [0 x i32], ptr @_ZN6icu_7512CollationFCD8lcccBitsE, i64 0, i64 %idxprom2.i
   %7 = load i32, ptr %arrayidx3.i, align 4
   %and.i = and i32 %conv5, 31
   %8 = shl nuw i32 1, %and.i
@@ -2058,14 +2058,14 @@ land.lhs.true:                                    ; preds = %lor.lhs.false
 land.lhs.true.i12:                                ; preds = %land.lhs.true
   %shr.i13 = lshr i32 %conv13, 5
   %idxprom.i14 = zext nneg i32 %shr.i13 to i64
-  %arrayidx.i15 = getelementptr inbounds [2048 x i8], ptr @_ZN6icu_7512CollationFCD9tcccIndexE, i64 0, i64 %idxprom.i14
+  %arrayidx.i15 = getelementptr inbounds nuw [2048 x i8], ptr @_ZN6icu_7512CollationFCD9tcccIndexE, i64 0, i64 %idxprom.i14
   %11 = load i8, ptr %arrayidx.i15, align 1
   %cmp1.not.i16 = icmp eq i8 %11, 0
   br i1 %cmp1.not.i16, label %for.end, label %_ZN6icu_7512CollationFCD7hasTcccEi.exit
 
 _ZN6icu_7512CollationFCD7hasTcccEi.exit:          ; preds = %land.lhs.true.i12
   %idxprom2.i18 = zext i8 %11 to i64
-  %arrayidx3.i19 = getelementptr inbounds [0 x i32], ptr @_ZN6icu_7512CollationFCD8tcccBitsE, i64 0, i64 %idxprom2.i18
+  %arrayidx3.i19 = getelementptr inbounds nuw [0 x i32], ptr @_ZN6icu_7512CollationFCD8tcccBitsE, i64 0, i64 %idxprom2.i18
   %12 = load i32, ptr %arrayidx3.i19, align 4
   %and.i20 = and i32 %conv13, 31
   %13 = shl nuw i32 1, %and.i20
@@ -2132,8 +2132,8 @@ for.end:                                          ; preds = %land.lhs.true, %lan
   br i1 %cmp42, label %land.lhs.true43, label %return
 
 land.lhs.true43:                                  ; preds = %for.end
-  %pos44 = getelementptr inbounds i8, ptr %this, i64 400
-  %start45 = getelementptr inbounds i8, ptr %this, i64 392
+  %pos44 = getelementptr inbounds nuw i8, ptr %this, i64 400
+  %start45 = getelementptr inbounds nuw i8, ptr %this, i64 392
   %19 = load ptr, ptr %start45, align 8
   %cmp46.not = icmp eq ptr %18, %19
   br i1 %cmp46.not, label %return, label %land.lhs.true47
@@ -2166,10 +2166,10 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %pos = getelementptr inbounds i8, ptr %this, i64 400
+  %pos = getelementptr inbounds nuw i8, ptr %this, i64 400
   %1 = load ptr, ptr %pos, align 8
-  %nfcImpl = getelementptr inbounds i8, ptr %this, i64 448
-  %rawStart = getelementptr inbounds i8, ptr %this, i64 416
+  %nfcImpl = getelementptr inbounds nuw i8, ptr %this, i64 448
+  %rawStart = getelementptr inbounds nuw i8, ptr %this, i64 416
   %.pre = load ptr, ptr %rawStart, align 8
   br label %for.cond
 
@@ -2182,7 +2182,7 @@ for.cond:                                         ; preds = %if.end36, %if.end
   %incdec.ptr.i = getelementptr inbounds i8, ptr %p.0, i64 -2
   %5 = load i16, ptr %incdec.ptr.i, align 2
   %conv.i14 = zext i16 %5 to i32
-  %minDecompNoCP.i = getelementptr inbounds i8, ptr %4, i64 8
+  %minDecompNoCP.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i16, ptr %minDecompNoCP.i, align 8
   %cmp.i15 = icmp ult i16 %5, %6
   br i1 %cmp.i15, label %_ZNK6icu_7515Normalizer2Impl13previousFCD16EPKDsRS2_.exit, label %if.end.i
@@ -2193,11 +2193,11 @@ if.end.i:                                         ; preds = %for.cond
   br i1 %cmp3.i, label %if.else.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %smallFCD.i.i = getelementptr inbounds i8, ptr %4, i64 56
+  %smallFCD.i.i = getelementptr inbounds nuw i8, ptr %4, i64 56
   %7 = load ptr, ptr %smallFCD.i.i, align 8
   %shr.i.i = lshr i32 %conv.i14, 8
   %idxprom.i.i = zext nneg i32 %shr.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %7, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 %idxprom.i.i
   %8 = load i8, ptr %arrayidx.i.i, align 1
   %cmp.i.i = icmp eq i8 %8, 0
   %conv.i.i = zext i8 %8 to i16
@@ -2246,9 +2246,9 @@ _ZNK6icu_7515Normalizer2Impl13previousFCD16EPKDsRS2_.exit: ; preds = %for.cond, 
   br i1 %or.cond12, label %if.end7, label %if.then6
 
 if.then6:                                         ; preds = %_ZNK6icu_7515Normalizer2Impl13previousFCD16EPKDsRS2_.exit
-  %segmentStart = getelementptr inbounds i8, ptr %this, i64 424
+  %segmentStart = getelementptr inbounds nuw i8, ptr %this, i64 424
   store ptr %p.0, ptr %segmentStart, align 8
-  %start = getelementptr inbounds i8, ptr %this, i64 392
+  %start = getelementptr inbounds nuw i8, ptr %this, i64 392
   store ptr %p.0, ptr %start, align 8
   br label %for.end
 
@@ -2287,7 +2287,7 @@ land.rhs:                                         ; preds = %land.lhs.true22
   %incdec.ptr.i17 = getelementptr inbounds i8, ptr %p.1, i64 -2
   %16 = load i16, ptr %incdec.ptr.i17, align 2
   %conv.i18 = zext i16 %16 to i32
-  %minDecompNoCP.i19 = getelementptr inbounds i8, ptr %15, i64 8
+  %minDecompNoCP.i19 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i16, ptr %minDecompNoCP.i19, align 8
   %cmp.i20 = icmp ult i16 %16, %17
   br i1 %cmp.i20, label %do.end, label %if.end.i21
@@ -2298,11 +2298,11 @@ if.end.i21:                                       ; preds = %land.rhs
   br i1 %cmp3.i23, label %if.else.i39, label %if.then4.i24
 
 if.then4.i24:                                     ; preds = %if.end.i21
-  %smallFCD.i.i25 = getelementptr inbounds i8, ptr %15, i64 56
+  %smallFCD.i.i25 = getelementptr inbounds nuw i8, ptr %15, i64 56
   %18 = load ptr, ptr %smallFCD.i.i25, align 8
   %shr.i.i26 = lshr i32 %conv.i18, 8
   %idxprom.i.i27 = zext nneg i32 %shr.i.i26 to i64
-  %arrayidx.i.i28 = getelementptr inbounds i8, ptr %18, i64 %idxprom.i.i27
+  %arrayidx.i.i28 = getelementptr inbounds nuw i8, ptr %18, i64 %idxprom.i.i27
   %19 = load i8, ptr %arrayidx.i.i28, align 1
   %cmp.i.i29 = icmp eq i8 %19, 0
   %conv.i.i30 = zext i8 %19 to i16
@@ -2342,7 +2342,7 @@ _ZNK6icu_7515Normalizer2Impl13previousFCD16EPKDsRS2_.exit50: ; preds = %if.then4
 do.end:                                           ; preds = %if.then4.i24, %land.rhs, %land.lhs.true22, %do.body, %_ZNK6icu_7515Normalizer2Impl13previousFCD16EPKDsRS2_.exit50
   %23 = load ptr, ptr %pos, align 8
   %24 = load ptr, ptr %nfcImpl, align 8
-  %normalized.i = getelementptr inbounds i8, ptr %this, i64 456
+  %normalized.i = getelementptr inbounds nuw i8, ptr %this, i64 456
   %sub.ptr.lhs.cast.i = ptrtoint ptr %23 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %p.1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -2354,11 +2354,11 @@ do.end:                                           ; preds = %if.then4.i24, %land
   br i1 %cmp.i.i52, label %if.end.i54, label %return
 
 if.end.i54:                                       ; preds = %do.end
-  %segmentStart.i = getelementptr inbounds i8, ptr %this, i64 424
+  %segmentStart.i = getelementptr inbounds nuw i8, ptr %this, i64 424
   store ptr %p.1, ptr %segmentStart.i, align 8
-  %segmentLimit.i = getelementptr inbounds i8, ptr %this, i64 432
+  %segmentLimit.i = getelementptr inbounds nuw i8, ptr %this, i64 432
   store ptr %23, ptr %segmentLimit.i, align 8
-  %fUnion.i.i = getelementptr inbounds i8, ptr %this, i64 464
+  %fUnion.i.i = getelementptr inbounds nuw i8, ptr %this, i64 464
   %26 = load i16, ptr %fUnion.i.i, align 8
   %27 = and i16 %26, 17
   %tobool.not.i.i = icmp eq i16 %27, 0
@@ -2370,27 +2370,27 @@ if.else.i.i:                                      ; preds = %if.end.i54
   br i1 %tobool6.not.i.i, label %if.else9.i.i, label %if.then7.i.i
 
 if.then7.i.i:                                     ; preds = %if.else.i.i
-  %fBuffer.i.i = getelementptr inbounds i8, ptr %this, i64 466
+  %fBuffer.i.i = getelementptr inbounds nuw i8, ptr %this, i64 466
   br label %if.end34
 
 if.else9.i.i:                                     ; preds = %if.else.i.i
-  %fArray.i.i = getelementptr inbounds i8, ptr %this, i64 480
+  %fArray.i.i = getelementptr inbounds nuw i8, ptr %this, i64 480
   %29 = load ptr, ptr %fArray.i.i, align 8
   br label %if.end34
 
 if.end34:                                         ; preds = %if.else9.i.i, %if.then7.i.i, %if.end.i54
   %retval.0.i.i = phi ptr [ %fBuffer.i.i, %if.then7.i.i ], [ %29, %if.else9.i.i ], [ null, %if.end.i54 ]
-  %start.i = getelementptr inbounds i8, ptr %this, i64 392
+  %start.i = getelementptr inbounds nuw i8, ptr %this, i64 392
   store ptr %retval.0.i.i, ptr %start.i, align 8
   %cmp.i.i.i = icmp slt i16 %26, 0
   %30 = ashr i16 %26, 5
   %shr.i.i.i = sext i16 %30 to i32
-  %fLength.i.i = getelementptr inbounds i8, ptr %this, i64 468
+  %fLength.i.i = getelementptr inbounds nuw i8, ptr %this, i64 468
   %31 = load i32, ptr %fLength.i.i, align 4
   %cond.i.i = select i1 %cmp.i.i.i, i32 %31, i32 %shr.i.i.i
   %idx.ext.i = sext i32 %cond.i.i to i64
   %add.ptr.i55 = getelementptr inbounds i16, ptr %retval.0.i.i, i64 %idx.ext.i
-  %limit.i = getelementptr inbounds i8, ptr %this, i64 408
+  %limit.i = getelementptr inbounds nuw i8, ptr %this, i64 408
   store ptr %add.ptr.i55, ptr %limit.i, align 8
   store ptr %add.ptr.i55, ptr %pos, align 8
   br label %for.end
@@ -2405,14 +2405,14 @@ if.end36:                                         ; preds = %lor.lhs.false, %if.
   br i1 %or.cond, label %if.then44, label %for.cond, !llvm.loop !10
 
 if.then44:                                        ; preds = %if.end36
-  %segmentStart45 = getelementptr inbounds i8, ptr %this, i64 424
+  %segmentStart45 = getelementptr inbounds nuw i8, ptr %this, i64 424
   store ptr %p.3, ptr %segmentStart45, align 8
-  %start46 = getelementptr inbounds i8, ptr %this, i64 392
+  %start46 = getelementptr inbounds nuw i8, ptr %this, i64 392
   store ptr %p.3, ptr %start46, align 8
   br label %for.end
 
 for.end:                                          ; preds = %if.then44, %if.end34, %if.then6
-  %checkDir = getelementptr inbounds i8, ptr %this, i64 520
+  %checkDir = getelementptr inbounds nuw i8, ptr %this, i64 520
   store i8 0, ptr %checkDir, align 8
   br label %return
 
@@ -2424,49 +2424,49 @@ return:                                           ; preds = %do.end, %entry, %fo
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN6icu_7525FCDUTF16CollationIterator16switchToBackwardEv(ptr nocapture noundef nonnull align 8 dereferenceable(521) %this) local_unnamed_addr #10 align 2 {
 entry:
-  %checkDir = getelementptr inbounds i8, ptr %this, i64 520
+  %checkDir = getelementptr inbounds nuw i8, ptr %this, i64 520
   %0 = load i8, ptr %checkDir, align 8
   %cmp = icmp sgt i8 %0, 0
   br i1 %cmp, label %if.then, label %if.else7
 
 if.then:                                          ; preds = %entry
-  %pos = getelementptr inbounds i8, ptr %this, i64 400
+  %pos = getelementptr inbounds nuw i8, ptr %this, i64 400
   %1 = load ptr, ptr %pos, align 8
-  %segmentLimit = getelementptr inbounds i8, ptr %this, i64 432
+  %segmentLimit = getelementptr inbounds nuw i8, ptr %this, i64 432
   store ptr %1, ptr %segmentLimit, align 8
-  %limit = getelementptr inbounds i8, ptr %this, i64 408
+  %limit = getelementptr inbounds nuw i8, ptr %this, i64 408
   store ptr %1, ptr %limit, align 8
-  %segmentStart = getelementptr inbounds i8, ptr %this, i64 424
+  %segmentStart = getelementptr inbounds nuw i8, ptr %this, i64 424
   %2 = load ptr, ptr %segmentStart, align 8
   %cmp3 = icmp eq ptr %1, %2
   br i1 %cmp3, label %if.then4, label %if.end21
 
 if.then4:                                         ; preds = %if.then
-  %rawStart = getelementptr inbounds i8, ptr %this, i64 416
+  %rawStart = getelementptr inbounds nuw i8, ptr %this, i64 416
   %3 = load ptr, ptr %rawStart, align 8
-  %start = getelementptr inbounds i8, ptr %this, i64 392
+  %start = getelementptr inbounds nuw i8, ptr %this, i64 392
   store ptr %3, ptr %start, align 8
   br label %if.end21
 
 if.else7:                                         ; preds = %entry
-  %start8 = getelementptr inbounds i8, ptr %this, i64 392
+  %start8 = getelementptr inbounds nuw i8, ptr %this, i64 392
   %4 = load ptr, ptr %start8, align 8
-  %segmentStart9 = getelementptr inbounds i8, ptr %this, i64 424
+  %segmentStart9 = getelementptr inbounds nuw i8, ptr %this, i64 424
   %5 = load ptr, ptr %segmentStart9, align 8
   %cmp10 = icmp eq ptr %4, %5
   br i1 %cmp10, label %if.end17, label %if.else12
 
 if.else12:                                        ; preds = %if.else7
-  %segmentLimit14 = getelementptr inbounds i8, ptr %this, i64 432
+  %segmentLimit14 = getelementptr inbounds nuw i8, ptr %this, i64 432
   store ptr %5, ptr %segmentLimit14, align 8
-  %limit15 = getelementptr inbounds i8, ptr %this, i64 408
+  %limit15 = getelementptr inbounds nuw i8, ptr %this, i64 408
   store ptr %5, ptr %limit15, align 8
-  %pos16 = getelementptr inbounds i8, ptr %this, i64 400
+  %pos16 = getelementptr inbounds nuw i8, ptr %this, i64 400
   store ptr %5, ptr %pos16, align 8
   br label %if.end17
 
 if.end17:                                         ; preds = %if.else7, %if.else12
-  %rawStart18 = getelementptr inbounds i8, ptr %this, i64 416
+  %rawStart18 = getelementptr inbounds nuw i8, ptr %this, i64 416
   %6 = load ptr, ptr %rawStart18, align 8
   store ptr %6, ptr %start8, align 8
   br label %if.end21
@@ -2518,9 +2518,9 @@ while.end:                                        ; preds = %land.rhs, %entry
 ; Function Attrs: mustprogress uwtable
 define noundef signext range(i8 0, 2) i8 @_ZN6icu_7525FCDUTF16CollationIterator9normalizeEPKDsS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(521) %this, ptr noundef %from, ptr noundef %to, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
 entry:
-  %nfcImpl = getelementptr inbounds i8, ptr %this, i64 448
+  %nfcImpl = getelementptr inbounds nuw i8, ptr %this, i64 448
   %0 = load ptr, ptr %nfcImpl, align 8
-  %normalized = getelementptr inbounds i8, ptr %this, i64 456
+  %normalized = getelementptr inbounds nuw i8, ptr %this, i64 456
   %sub.ptr.lhs.cast = ptrtoint ptr %to to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %from to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
@@ -2532,11 +2532,11 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %segmentStart = getelementptr inbounds i8, ptr %this, i64 424
+  %segmentStart = getelementptr inbounds nuw i8, ptr %this, i64 424
   store ptr %from, ptr %segmentStart, align 8
-  %segmentLimit = getelementptr inbounds i8, ptr %this, i64 432
+  %segmentLimit = getelementptr inbounds nuw i8, ptr %this, i64 432
   store ptr %to, ptr %segmentLimit, align 8
-  %fUnion.i = getelementptr inbounds i8, ptr %this, i64 464
+  %fUnion.i = getelementptr inbounds nuw i8, ptr %this, i64 464
   %2 = load i16, ptr %fUnion.i, align 8
   %3 = and i16 %2, 17
   %tobool.not.i = icmp eq i16 %3, 0
@@ -2548,27 +2548,27 @@ if.else.i:                                        ; preds = %if.end
   br i1 %tobool6.not.i, label %if.else9.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.else.i
-  %fBuffer.i = getelementptr inbounds i8, ptr %this, i64 466
+  %fBuffer.i = getelementptr inbounds nuw i8, ptr %this, i64 466
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 if.else9.i:                                       ; preds = %if.else.i
-  %fArray.i = getelementptr inbounds i8, ptr %this, i64 480
+  %fArray.i = getelementptr inbounds nuw i8, ptr %this, i64 480
   %5 = load ptr, ptr %fArray.i, align 8
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7513UnicodeString9getBufferEv.exit:      ; preds = %if.end, %if.then7.i, %if.else9.i
   %retval.0.i = phi ptr [ %fBuffer.i, %if.then7.i ], [ %5, %if.else9.i ], [ null, %if.end ]
-  %start = getelementptr inbounds i8, ptr %this, i64 392
+  %start = getelementptr inbounds nuw i8, ptr %this, i64 392
   store ptr %retval.0.i, ptr %start, align 8
   %cmp.i.i = icmp slt i16 %2, 0
   %6 = ashr i16 %2, 5
   %shr.i.i = sext i16 %6 to i32
-  %fLength.i = getelementptr inbounds i8, ptr %this, i64 468
+  %fLength.i = getelementptr inbounds nuw i8, ptr %this, i64 468
   %7 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %7, i32 %shr.i.i
   %idx.ext = sext i32 %cond.i to i64
   %add.ptr = getelementptr inbounds i16, ptr %retval.0.i, i64 %idx.ext
-  %limit = getelementptr inbounds i8, ptr %this, i64 408
+  %limit = getelementptr inbounds nuw i8, ptr %this, i64 408
   store ptr %add.ptr, ptr %limit, align 8
   br label %return
 

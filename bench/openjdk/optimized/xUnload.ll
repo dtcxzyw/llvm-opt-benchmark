@@ -147,13 +147,13 @@ define hidden void @_ZN7XUnload6unlinkEv(ptr nocapture noundef nonnull readonly 
   %.not.i = icmp eq i32 %8, 0
   %9 = zext i1 %.not.i to i8
   store i8 %9, ptr %3, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @_ZL32XSubPhaseConcurrentClassesUnlink, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #8
   %13 = extractvalue { i64, i64 } %12, 0
   store i64 %13, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %15 = extractvalue { i64, i64 } %12, 1
   store i64 %15, ptr %14, align 8
   br i1 %.not.i, label %16, label %_ZN10XStatTimerC2ERK10XStatPhase.exit
@@ -198,12 +198,12 @@ _ZN26SuspendibleThreadSetJoinerD2Ev.exit:         ; preds = %_ZN11MutexLockerC2E
   %28 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #8
   %29 = extractvalue { i64, i64 } %28, 0
   store i64 %29, ptr %2, align 8
-  %30 = getelementptr inbounds i8, ptr %2, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %31 = extractvalue { i64, i64 } %28, 1
   store i64 %31, ptr %30, align 8
   %32 = load ptr, ptr %10, align 8
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8
   call void %35(ptr noundef nonnull align 8 dereferenceable(48) %32, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %2) #8
   br label %_ZN10XStatTimerD2Ev.exit
@@ -240,13 +240,13 @@ define hidden void @_ZN7XUnload5purgeEv(ptr nocapture noundef nonnull readnone a
   %.not.i = icmp eq i32 %8, 0
   %9 = zext i1 %.not.i to i8
   store i8 %9, ptr %3, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @_ZL31XSubPhaseConcurrentClassesPurge, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #8
   %13 = extractvalue { i64, i64 } %12, 0
   store i64 %13, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %15 = extractvalue { i64, i64 } %12, 1
   store i64 %15, ptr %14, align 8
   br i1 %.not.i, label %16, label %_ZN26SuspendibleThreadSetJoinerD2Ev.exit
@@ -272,12 +272,12 @@ _ZN26SuspendibleThreadSetJoinerD2Ev.exit:         ; preds = %6, %16
   %22 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #8
   %23 = extractvalue { i64, i64 } %22, 0
   store i64 %23, ptr %2, align 8
-  %24 = getelementptr inbounds i8, ptr %2, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %25 = extractvalue { i64, i64 } %22, 1
   store i64 %25, ptr %24, align 8
   %26 = load ptr, ptr %10, align 8
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
   call void %29(ptr noundef nonnull align 8 dereferenceable(48) %26, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %2) #8
   br label %_ZN10XStatTimerD2Ev.exit
@@ -400,7 +400,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK21XIsUnloadingBehaviour12has_
 5:                                                ; preds = %2
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %9 = load volatile ptr, ptr %8, align 8
   %.not.i.i = icmp eq ptr %9, %7
   br i1 %.not.i.i, label %_ZN14XReentrantLock4lockEv.exit.i, label %10
@@ -411,7 +411,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK21XIsUnloadingBehaviour12has_
   br label %_ZN14XReentrantLock4lockEv.exit.i
 
 _ZN14XReentrantLock4lockEv.exit.i:                ; preds = %10, %5
-  %12 = getelementptr inbounds i8, ptr %4, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %13 = load i64, ptr %12, align 8
   %14 = add i64 %13, 1
   store i64 %14, ptr %12, align 8
@@ -419,16 +419,16 @@ _ZN14XReentrantLock4lockEv.exit.i:                ; preds = %10, %5
 
 _ZN7XLockerI14XReentrantLockEC2EPS0_.exit:        ; preds = %2, %_ZN14XReentrantLock4lockEv.exit.i
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV22XIsUnloadingOopClosure, i64 16), ptr %3, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV28XPhantomIsAliveObjectClosure, i64 16), ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i8 0, ptr %16, align 8
   call void @_ZN8XNMethod21nmethod_oops_do_innerEP7nmethodP10OopClosure(ptr noundef %1, ptr noundef nonnull %3) #8
   %17 = load i8, ptr %16, align 8
   br i1 %.not.i, label %_ZN7XLockerI14XReentrantLockED2Ev.exit, label %18
 
 18:                                               ; preds = %_ZN7XLockerI14XReentrantLockEC2EPS0_.exit
-  %19 = getelementptr inbounds i8, ptr %4, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %20 = load i64, ptr %19, align 8
   %21 = add i64 %20, -1
   store i64 %21, ptr %19, align 8
@@ -436,7 +436,7 @@ _ZN7XLockerI14XReentrantLockEC2EPS0_.exit:        ; preds = %2, %_ZN14XReentrant
   br i1 %22, label %23, label %_ZN7XLockerI14XReentrantLockED2Ev.exit
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds i8, ptr %4, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store volatile ptr null, ptr %24, align 8
   %25 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(56) %4) #8
   br label %_ZN7XLockerI14XReentrantLockED2Ev.exit
@@ -451,7 +451,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN30XCompiledICProtectionBehavio
   %3 = tail call noundef ptr @_ZN8XNMethod19ic_lock_for_nmethodEP7nmethod(ptr noundef %1) #8
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %7 = load volatile ptr, ptr %6, align 8
   %.not.i = icmp eq ptr %7, %5
   br i1 %.not.i, label %_ZN14XReentrantLock4lockEv.exit, label %8
@@ -462,7 +462,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN30XCompiledICProtectionBehavio
   br label %_ZN14XReentrantLock4lockEv.exit
 
 _ZN14XReentrantLock4lockEv.exit:                  ; preds = %2, %8
-  %10 = getelementptr inbounds i8, ptr %3, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %11 = load i64, ptr %10, align 8
   %12 = add i64 %11, 1
   store i64 %12, ptr %10, align 8
@@ -472,7 +472,7 @@ _ZN14XReentrantLock4lockEv.exit:                  ; preds = %2, %8
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN30XCompiledICProtectionBehaviour6unlockEP7nmethod(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 {
   %3 = tail call noundef ptr @_ZN8XNMethod19ic_lock_for_nmethodEP7nmethod(ptr noundef %1) #8
-  %4 = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, -1
   store i64 %6, ptr %4, align 8
@@ -480,7 +480,7 @@ define linkonce_odr hidden void @_ZN30XCompiledICProtectionBehaviour6unlockEP7nm
   br i1 %7, label %8, label %_ZN14XReentrantLock6unlockEv.exit
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %3, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store volatile ptr null, ptr %9, align 8
   %10 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(56) %3) #8
   br label %_ZN14XReentrantLock6unlockEv.exit
@@ -503,7 +503,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN30XCompiledICProtectionBehavio
   %8 = tail call noundef ptr @_ZN8XNMethod19ic_lock_for_nmethodEP7nmethod(ptr noundef nonnull %1) #8
   %9 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %12 = load volatile ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, %10
   br label %14
@@ -580,7 +580,7 @@ _ZN28XPhantomIsAliveObjectClosure11do_object_bEP7oopDesc.exit: ; preds = %11, %1
   br i1 %.not5, label %23, label %_ZN28XPhantomIsAliveObjectClosure11do_object_bEP7oopDesc.exit.thread
 
 23:                                               ; preds = %_ZN28XPhantomIsAliveObjectClosure11do_object_bEP7oopDesc.exit
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 1, ptr %24, align 8
   br label %_ZN28XPhantomIsAliveObjectClosure11do_object_bEP7oopDesc.exit.thread
 

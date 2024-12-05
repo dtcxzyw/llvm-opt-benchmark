@@ -5,11 +5,11 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 0, 33554433) i32 @nlmsvc_share_file(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 184
-  %5 = getelementptr inbounds i8, ptr %1, i64 168
-  %6 = getelementptr inbounds i8, ptr %2, i64 192
-  %7 = getelementptr inbounds i8, ptr %2, i64 456
-  %8 = getelementptr inbounds i8, ptr %2, i64 460
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 184
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 168
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 192
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 456
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 460
   br label %9
 
 9:                                                ; preds = %33, %3
@@ -19,20 +19,20 @@ define dso_local noundef range(i32 0, 33554433) i32 @nlmsvc_share_file(ptr nound
   br i1 %12, label %39, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %11, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, %0
   br i1 %16, label %17, label %.critedge
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %11, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %19 = load i32, ptr %18, align 8
   %20 = load i32, ptr %4, align 8
   %21 = icmp eq i32 %19, %20
   br i1 %21, label %22, label %.critedge
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %11, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %6, align 8
   %26 = zext i32 %19 to i64
@@ -42,7 +42,7 @@ define dso_local noundef range(i32 0, 33554433) i32 @nlmsvc_share_file(ptr nound
 
 .critedge:                                        ; preds = %17, %22, %13
   %28 = load i32, ptr %7, align 8
-  %29 = getelementptr inbounds i8, ptr %11, i64 44
+  %29 = getelementptr inbounds nuw i8, ptr %11, i64 44
   %30 = load i32, ptr %29, align 4
   %31 = and i32 %30, %28
   %32 = icmp eq i32 %31, 0
@@ -50,7 +50,7 @@ define dso_local noundef range(i32 0, 33554433) i32 @nlmsvc_share_file(ptr nound
 
 33:                                               ; preds = %.critedge
   %34 = load i32, ptr %8, align 4
-  %35 = getelementptr inbounds i8, ptr %11, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %36 = load i32, ptr %35, align 8
   %37 = and i32 %36, %34
   %38 = icmp eq i32 %37, 0
@@ -70,12 +70,12 @@ define dso_local noundef range(i32 0, 33554433) i32 @nlmsvc_share_file(ptr nound
   %48 = load i32, ptr %4, align 8
   %49 = zext i32 %48 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %46, ptr align 1 %47, i64 %49, i1 false)
-  %50 = getelementptr inbounds i8, ptr %43, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %43, i64 16
   store ptr %1, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %43, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store ptr %0, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %43, i64 24
-  %53 = getelementptr inbounds i8, ptr %43, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %43, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %43, i64 32
   store ptr %46, ptr %53, align 8
   store i32 %48, ptr %52, align 8
   %54 = load ptr, ptr %5, align 8
@@ -86,10 +86,10 @@ define dso_local noundef range(i32 0, 33554433) i32 @nlmsvc_share_file(ptr nound
 .loopexit:                                        ; preds = %22, %45
   %55 = phi ptr [ %43, %45 ], [ %11, %22 ]
   %56 = load i32, ptr %7, align 8
-  %57 = getelementptr inbounds i8, ptr %55, i64 40
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 40
   store i32 %56, ptr %57, align 8
   %58 = load i32, ptr %8, align 4
-  %59 = getelementptr inbounds i8, ptr %55, i64 44
+  %59 = getelementptr inbounds nuw i8, ptr %55, i64 44
   store i32 %58, ptr %59, align 4
   br label %.loopexit3
 
@@ -103,33 +103,33 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @nlmsvc_unshare_file(ptr noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 184
-  %5 = getelementptr inbounds i8, ptr %1, i64 168
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 184
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.loopexit, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %2, i64 192
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 192
   br label %10
 
 10:                                               ; preds = %.critedge, %8
   %11 = phi ptr [ %6, %8 ], [ %29, %.critedge ]
   %12 = phi ptr [ %5, %8 ], [ %11, %.critedge ]
-  %13 = getelementptr inbounds i8, ptr %11, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, %0
   br i1 %15, label %16, label %.critedge
 
 16:                                               ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %11, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %18 = load i32, ptr %17, align 8
   %19 = load i32, ptr %4, align 8
   %20 = icmp eq i32 %18, %19
   br i1 %20, label %21, label %.critedge
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %11, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %9, align 8
   %25 = zext i32 %18 to i64
@@ -157,7 +157,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @nlmsvc_traverse_shares(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 168
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %.preheader
@@ -173,7 +173,7 @@ define dso_local void @nlmsvc_traverse_shares(ptr noundef %0, ptr nocapture noun
 
 11:                                               ; preds = %18, %.preheader
   %12 = phi ptr [ %9, %.preheader ], [ %19, %18 ]
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 %2(ptr noundef %14, ptr noundef %0) #6
   %16 = icmp eq i32 %15, 0

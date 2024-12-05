@@ -54,10 +54,10 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN5RarVM7ExecuteEP18VM_PreparedProgram(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((8, 36)) %0, ptr nocapture noundef initializes((32, 40)) %1) local_unnamed_addr #5 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef nonnull align 4 dereferenceable(28) %4, i64 28, i1 false)
-  %5 = getelementptr inbounds i8, ptr %1, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr null, ptr %5, align 8
   %6 = load i32, ptr %1, align 8
   %.not = icmp eq i32 %6, 0
@@ -65,10 +65,10 @@ define void @_ZN5RarVM7ExecuteEP18VM_PreparedProgram(ptr nocapture noundef nonnu
 
 7:                                                ; preds = %2
   %8 = tail call noundef zeroext i1 @_ZN5RarVM21ExecuteStandardFilterE18VM_StandardFilters(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %6)
-  %9 = getelementptr inbounds i8, ptr %1, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 262143
-  %12 = getelementptr inbounds i8, ptr %1, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i32 %11, ptr %12, align 8
   %13 = load i32, ptr %1, align 8
   %.off = add i32 %13, -4
@@ -81,7 +81,7 @@ define void @_ZN5RarVM7ExecuteEP18VM_PreparedProgram(ptr nocapture noundef nonnu
   %16 = load ptr, ptr %0, align 8
   %17 = zext nneg i32 %11 to i64
   %.idx = select i1 %brmerge.not, i64 %17, i64 0
-  %18 = getelementptr inbounds i8, ptr %16, i64 %.idx
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx
   br label %.sink.split
 
 19:                                               ; preds = %7
@@ -113,14 +113,14 @@ define noundef zeroext i1 @_ZN5RarVM21ExecuteStandardFilterE18VM_StandardFilters
   ]
 
 4:                                                ; preds = %2, %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8
   %7 = add i32 %6, -262145
   %or.cond = icmp ult i32 %7, -262141
   br i1 %or.cond, label %.loopexit, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i32, ptr %9, align 8
   %11 = add nsw i32 %6, -4
   %invariant.op = add i32 %10, 1
@@ -136,7 +136,7 @@ define noundef zeroext i1 @_ZN5RarVM21ExecuteStandardFilterE18VM_StandardFilters
 15:                                               ; preds = %.lr.ph336, %35
   %.0214334 = phi ptr [ %13, %.lr.ph336 ], [ %.1215, %35 ]
   %.0216333 = phi i32 [ 0, %.lr.ph336 ], [ %.1217, %35 ]
-  %16 = getelementptr inbounds i8, ptr %.0214334, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.0214334, i64 1
   %17 = load i8, ptr %.0214334, align 1
   %18 = add nuw nsw i32 %.0216333, 1
   %19 = icmp eq i8 %17, -24
@@ -174,7 +174,7 @@ define noundef zeroext i1 @_ZN5RarVM21ExecuteStandardFilterE18VM_StandardFilters
   br label %32
 
 32:                                               ; preds = %.sink.split, %29, %24
-  %33 = getelementptr inbounds i8, ptr %.0214334, i64 5
+  %33 = getelementptr inbounds nuw i8, ptr %.0214334, i64 5
   %34 = add nuw nsw i32 %.0216333, 5
   br label %35
 
@@ -185,7 +185,7 @@ define noundef zeroext i1 @_ZN5RarVM21ExecuteStandardFilterE18VM_StandardFilters
   br i1 %36, label %15, label %.loopexit, !llvm.loop !4
 
 37:                                               ; preds = %2
-  %38 = getelementptr inbounds i8, ptr %0, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %39 = load i32, ptr %38, align 8
   %40 = add i32 %39, -262145
   %or.cond3 = icmp ult i32 %40, -262124
@@ -197,7 +197,7 @@ define noundef zeroext i1 @_ZN5RarVM21ExecuteStandardFilterE18VM_StandardFilters
   br i1 %.not339, label %.loopexit, label %.lr.ph332.preheader
 
 .lr.ph332.preheader:                              ; preds = %41
-  %43 = getelementptr inbounds i8, ptr %0, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %44 = load i32, ptr %43, align 8
   %45 = lshr i32 %44, 4
   %46 = load ptr, ptr %0, align 8
@@ -216,7 +216,7 @@ define noundef zeroext i1 @_ZN5RarVM21ExecuteStandardFilterE18VM_StandardFilters
   %51 = zext nneg i8 %48 to i64
   %52 = add nuw nsw i64 %51, 4294967280
   %53 = and i64 %52, 4294967295
-  %54 = getelementptr inbounds [16 x i8], ptr @_ZZN5RarVM21ExecuteStandardFilterE18VM_StandardFiltersE5Masks, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw [16 x i8], ptr @_ZZN5RarVM21ExecuteStandardFilterE18VM_StandardFiltersE5Masks, i64 0, i64 %53
   %55 = load i8, ptr %54, align 1
   %56 = zext i8 %55 to i32
   %57 = shl nuw nsw i64 1, %53
@@ -237,7 +237,7 @@ define noundef zeroext i1 @_ZN5RarVM21ExecuteStandardFilterE18VM_StandardFilters
   %64 = lshr i32 %63, 3
   %65 = and i32 %63, 7
   %66 = zext nneg i32 %64 to i64
-  %67 = getelementptr inbounds i8, ptr %.0226330, i64 %66
+  %67 = getelementptr inbounds nuw i8, ptr %.0226330, i64 %66
   %68 = load i32, ptr %67, align 1
   %69 = lshr i32 %68, %65
   %70 = and i32 %69, 15
@@ -249,7 +249,7 @@ define noundef zeroext i1 @_ZN5RarVM21ExecuteStandardFilterE18VM_StandardFilters
   %74 = lshr i32 %73, 3
   %75 = and i32 %73, 7
   %76 = zext nneg i32 %74 to i64
-  %77 = getelementptr inbounds i8, ptr %.0226330, i64 %76
+  %77 = getelementptr inbounds nuw i8, ptr %.0226330, i64 %76
   %78 = load i32, ptr %77, align 1
   %79 = lshr i32 %78, %75
   %80 = sub i32 %79, %.0232329
@@ -263,7 +263,7 @@ define noundef zeroext i1 @_ZN5RarVM21ExecuteStandardFilterE18VM_StandardFilters
   %indvars.iv.i = phi i64 [ 0, %72 ], [ %indvars.iv.next.i, %85 ]
   %.01821.i = phi i32 [ %83, %72 ], [ %92, %85 ]
   %.01920.i = phi i32 [ %84, %72 ], [ %93, %85 ]
-  %gep.i = getelementptr inbounds i8, ptr %77, i64 %indvars.iv.i
+  %gep.i = getelementptr inbounds nuw i8, ptr %77, i64 %indvars.iv.i
   %86 = load i8, ptr %gep.i, align 1
   %87 = trunc i32 %.01821.i to i8
   %88 = and i8 %86, %87
@@ -283,15 +283,15 @@ _ZN5RarVM21FilterItanium_SetBitsEPhjjj.exit:      ; preds = %85, %.preheader, %6
   br i1 %exitcond366.not, label %.loopexit282, label %.preheader, !llvm.loop !7
 
 .loopexit282:                                     ; preds = %_ZN5RarVM21FilterItanium_SetBitsEPhjjj.exit, %50, %.lr.ph332
-  %95 = getelementptr inbounds i8, ptr %.0226330, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %.0226330, i64 16
   %96 = add nuw nsw i32 %.0235328, 16
   %97 = add nuw nsw i32 %.0232329, 1
   %98 = icmp ult i32 %96, %42
   br i1 %98, label %.lr.ph332, label %.loopexit, !llvm.loop !8
 
 99:                                               ; preds = %2
-  %100 = getelementptr inbounds i8, ptr %0, i64 8
-  %101 = getelementptr inbounds i8, ptr %0, i64 24
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %102 = load i32, ptr %101, align 8
   %103 = load i32, ptr %100, align 8
   %104 = shl i32 %102, 1
@@ -315,11 +315,11 @@ _ZN5RarVM21FilterItanium_SetBitsEPhjjj.exit:      ; preds = %85, %.preheader, %6
   %110 = load ptr, ptr %0, align 8
   %111 = add i32 %.1238319, 1
   %112 = zext i32 %.1238319 to i64
-  %113 = getelementptr inbounds i8, ptr %110, i64 %112
+  %113 = getelementptr inbounds nuw i8, ptr %110, i64 %112
   %114 = load i8, ptr %113, align 1
   %115 = sub i8 %.0241318, %114
   %116 = zext i32 %.0242317 to i64
-  %117 = getelementptr inbounds i8, ptr %110, i64 %116
+  %117 = getelementptr inbounds nuw i8, ptr %110, i64 %116
   store i8 %115, ptr %117, align 1
   %118 = add i32 %.0242317, %103
   %119 = icmp ult i32 %118, %104
@@ -332,12 +332,12 @@ _ZN5RarVM21FilterItanium_SetBitsEPhjjj.exit:      ; preds = %85, %.preheader, %6
   br i1 %exitcond365.not, label %.loopexit, label %.lr.ph326, !llvm.loop !10
 
 121:                                              ; preds = %2
-  %122 = getelementptr inbounds i8, ptr %0, i64 8
-  %123 = getelementptr inbounds i8, ptr %0, i64 24
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %124 = load i32, ptr %123, align 8
   %125 = load i32, ptr %122, align 8
   %126 = add i32 %125, -3
-  %127 = getelementptr inbounds i8, ptr %0, i64 12
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %128 = load i32, ptr %127, align 4
   %129 = add i32 %124, -131073
   %or.cond9 = icmp ult i32 %129, -131070
@@ -352,7 +352,7 @@ _ZN5RarVM21FilterItanium_SetBitsEPhjjj.exit:      ; preds = %85, %.preheader, %6
 133:                                              ; preds = %130
   %134 = load ptr, ptr %0, align 8
   %135 = zext nneg i32 %124 to i64
-  %136 = getelementptr inbounds i8, ptr %134, i64 %135
+  %136 = getelementptr inbounds nuw i8, ptr %134, i64 %135
   %137 = zext nneg i32 %126 to i64
   %138 = sub nsw i64 0, %137
   %invariant.gep = getelementptr i8, ptr %136, i64 %138
@@ -400,12 +400,12 @@ _ZN5RarVM21FilterItanium_SetBitsEPhjjj.exit:      ; preds = %85, %.preheader, %6
 
 156:                                              ; preds = %.lr.ph309, %155, %141
   %.0248 = phi i32 [ %.0246307, %141 ], [ %., %155 ], [ %.0246307, %.lr.ph309 ]
-  %157 = getelementptr inbounds i8, ptr %.1244308, i64 1
+  %157 = getelementptr inbounds nuw i8, ptr %.1244308, i64 1
   %158 = load i8, ptr %.1244308, align 1
   %159 = trunc nuw i32 %.0248 to i8
   %160 = sub i8 %159, %158
   %161 = zext i8 %160 to i32
-  %162 = getelementptr inbounds i8, ptr %136, i64 %indvars.iv357
+  %162 = getelementptr inbounds nuw i8, ptr %136, i64 %indvars.iv357
   store i8 %160, ptr %162, align 1
   %indvars.iv.next358 = add nuw nsw i64 %indvars.iv357, 3
   %163 = icmp samesign ult i64 %indvars.iv.next358, %135
@@ -429,13 +429,13 @@ _ZN5RarVM21FilterItanium_SetBitsEPhjjj.exit:      ; preds = %85, %.preheader, %6
 
 .lr.ph316:                                        ; preds = %.lr.ph316.preheader, %.lr.ph316
   %indvars.iv362 = phi i64 [ %167, %.lr.ph316.preheader ], [ %indvars.iv.next363, %.lr.ph316 ]
-  %169 = getelementptr inbounds i8, ptr %136, i64 %indvars.iv362
-  %170 = getelementptr inbounds i8, ptr %169, i64 1
+  %169 = getelementptr inbounds nuw i8, ptr %136, i64 %indvars.iv362
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 1
   %171 = load i8, ptr %170, align 1
   %172 = load i8, ptr %169, align 1
   %173 = add i8 %172, %171
   store i8 %173, ptr %169, align 1
-  %174 = getelementptr inbounds i8, ptr %169, i64 2
+  %174 = getelementptr inbounds nuw i8, ptr %169, i64 2
   %175 = load i8, ptr %174, align 1
   %176 = add i8 %175, %171
   store i8 %176, ptr %174, align 1
@@ -444,13 +444,13 @@ _ZN5RarVM21FilterItanium_SetBitsEPhjjj.exit:      ; preds = %85, %.preheader, %6
   br i1 %177, label %.lr.ph316, label %.loopexit, !llvm.loop !13
 
 178:                                              ; preds = %2
-  %179 = getelementptr inbounds i8, ptr %0, i64 8
-  %180 = getelementptr inbounds i8, ptr %0, i64 24
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %180 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %181 = load i32, ptr %180, align 8
   %182 = load i32, ptr %179, align 8
   %183 = load ptr, ptr %0, align 8
   %184 = zext i32 %181 to i64
-  %185 = getelementptr inbounds i8, ptr %183, i64 %184
+  %185 = getelementptr inbounds nuw i8, ptr %183, i64 %184
   %186 = icmp ugt i32 %181, 131072
   %187 = add i32 %182, -129
   %188 = icmp ult i32 %187, -128
@@ -458,12 +458,12 @@ _ZN5RarVM21FilterItanium_SetBitsEPhjjj.exit:      ; preds = %85, %.preheader, %6
   br i1 %or.cond15, label %.loopexit, label %.lr.ph305
 
 .lr.ph305:                                        ; preds = %178
-  %189 = getelementptr inbounds i8, ptr %3, i64 4
-  %190 = getelementptr inbounds i8, ptr %3, i64 8
-  %191 = getelementptr inbounds i8, ptr %3, i64 12
-  %192 = getelementptr inbounds i8, ptr %3, i64 16
-  %193 = getelementptr inbounds i8, ptr %3, i64 20
-  %194 = getelementptr inbounds i8, ptr %3, i64 24
+  %189 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %190 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %191 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %192 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %193 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  %194 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %195 = zext nneg i32 %182 to i64
   br label %196
 
@@ -497,12 +497,12 @@ _ZN5RarVM21FilterItanium_SetBitsEPhjjj.exit:      ; preds = %85, %.preheader, %6
   %206 = add i32 %204, %205
   %207 = lshr i32 %206, 3
   %208 = and i32 %207, 255
-  %209 = getelementptr inbounds i8, ptr %.1234293, i64 1
+  %209 = getelementptr inbounds nuw i8, ptr %.1234293, i64 1
   %210 = load i8, ptr %.1234293, align 1
   %211 = zext i8 %210 to i32
   %212 = sub nsw i32 %208, %211
   %213 = trunc i32 %212 to i8
-  %214 = getelementptr inbounds i8, ptr %185, i64 %indvars.iv350
+  %214 = getelementptr inbounds nuw i8, ptr %185, i64 %indvars.iv350
   store i8 %213, ptr %214, align 1
   %215 = sub nsw i32 %212, %.0230294
   %sext = shl i32 %215, 24
@@ -554,7 +554,7 @@ _ZN5RarVM21FilterItanium_SetBitsEPhjjj.exit:      ; preds = %85, %.preheader, %6
   %indvars.iv = phi i64 [ 1, %247 ], [ %indvars.iv.next, %248 ]
   %.0210291 = phi i32 [ 0, %247 ], [ %spec.select275, %248 ]
   %.0211290 = phi i32 [ %220, %247 ], [ %spec.select, %248 ]
-  %249 = getelementptr inbounds [7 x i32], ptr %3, i64 0, i64 %indvars.iv
+  %249 = getelementptr inbounds nuw [7 x i32], ptr %3, i64 0, i64 %indvars.iv
   %250 = load i32, ptr %249, align 4
   %251 = icmp ult i32 %250, %.0211290
   %spec.select = tail call i32 @llvm.umin.i32(i32 %250, i32 %.0211290)
@@ -644,7 +644,7 @@ define void @_ZN5RarVM7PrepareEPhjP18VM_PreparedProgram(ptr nocapture noundef no
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.01722 = phi i8 [ 0, %.lr.ph.preheader ], [ %8, %.lr.ph ]
-  %6 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1
   %8 = xor i8 %7, %.01722
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -664,8 +664,8 @@ define void @_ZN5RarVM7PrepareEPhjP18VM_PreparedProgram(ptr nocapture noundef no
 
 13:                                               ; preds = %10, %25
   %indvars.iv26 = phi i64 [ 0, %10 ], [ %indvars.iv.next27, %25 ]
-  %14 = getelementptr inbounds [6 x %struct.StandardFilters], ptr @_ZZN5RarVM7PrepareEPhjP18VM_PreparedProgramE7StdList, i64 0, i64 %indvars.iv26
-  %15 = getelementptr inbounds i8, ptr %14, i64 4
+  %14 = getelementptr inbounds nuw [6 x %struct.StandardFilters], ptr @_ZZN5RarVM7PrepareEPhjP18VM_PreparedProgramE7StdList, i64 0, i64 %indvars.iv26
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = xor i32 %16, %12
   %18 = icmp eq i32 %17, -1
@@ -677,7 +677,7 @@ define void @_ZN5RarVM7PrepareEPhjP18VM_PreparedProgram(ptr nocapture noundef no
   br i1 %21, label %22, label %25
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %14, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %24 = load i32, ptr %23, align 4
   store i32 %24, ptr %3, align 8
   br label %.loopexit
@@ -763,7 +763,7 @@ define void @_ZN5RarVM9SetMemoryEmPhm(ptr nocapture noundef nonnull readonly ali
 
 6:                                                ; preds = %4
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 %1
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 %1
   %.not = icmp eq ptr %2, %8
   %.not14 = icmp eq i64 %3, 0
   %or.cond = or i1 %.not14, %.not
@@ -787,7 +787,7 @@ define noundef i32 @_ZN5RarVM21FilterItanium_GetBitsEPhjj(ptr nocapture noundef 
   %5 = lshr i32 %2, 3
   %6 = and i32 %2, 7
   %7 = zext nneg i32 %5 to i64
-  %8 = getelementptr inbounds i8, ptr %1, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 %7
   %9 = load i32, ptr %8, align 1
   %10 = lshr i32 %9, %6
   %11 = sub i32 32, %3
@@ -806,14 +806,14 @@ define void @_ZN5RarVM21FilterItanium_SetBitsEPhjjj(ptr nocapture noundef nonnul
   %11 = xor i32 %10, -1
   %12 = shl i32 %2, %7
   %13 = zext nneg i32 %6 to i64
-  %invariant.gep = getelementptr inbounds i8, ptr %1, i64 %13
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %1, i64 %13
   br label %14
 
 14:                                               ; preds = %5, %14
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %14 ]
   %.01821 = phi i32 [ %11, %5 ], [ %21, %14 ]
   %.01920 = phi i32 [ %12, %5 ], [ %22, %14 ]
-  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv
   %15 = load i8, ptr %gep, align 1
   %16 = trunc i32 %.01821 to i8
   %17 = and i8 %15, %16

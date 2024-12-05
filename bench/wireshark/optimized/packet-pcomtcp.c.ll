@@ -238,12 +238,12 @@ define internal i32 @dissect_pcomtcp(ptr noundef %0, ptr noundef %1, ptr noundef
   %12 = zext nneg i8 %9 to i32
   %13 = tail call ptr @val_to_str(i32 noundef %12, ptr noundef nonnull @pcomp_protocol_vals, ptr noundef nonnull @.str.66) #2
   %14 = load ptr, ptr @global_pcomtcp_tcp_ports, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 284
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %16 = load i32, ptr %15, align 4
   %17 = tail call i32 @value_is_in_range(ptr noundef %14, i32 noundef %16) #2
   %.not = icmp eq i32 %17, 0
   %.str.68..str.67 = select i1 %.not, ptr @.str.68, ptr @.str.67
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
   tail call void @col_set_str(ptr noundef %19, i32 noundef 34, ptr noundef nonnull @.str.57) #2
   %20 = load ptr, ptr %18, align 8
@@ -300,7 +300,7 @@ define internal i32 @dissect_pcomascii(ptr noundef %0, ptr noundef %1, ptr nound
   %7 = load i32, ptr @ett_pcomascii, align 4
   %8 = tail call ptr @proto_item_add_subtree(ptr noundef %6, i32 noundef %7) #2
   %9 = load ptr, ptr @global_pcomtcp_tcp_ports, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 284
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %11 = load i32, ptr %10, align 4
   %12 = tail call i32 @value_is_in_range(ptr noundef %9, i32 noundef %11) #2
   %.not = icmp eq i32 %12, 0
@@ -333,7 +333,7 @@ define internal i32 @dissect_pcomascii(ptr noundef %0, ptr noundef %1, ptr nound
   %.0101124 = phi ptr [ %27, %24 ], [ %19, %20 ]
   %.0102123 = phi i32 [ %26, %24 ], [ %18, %20 ]
   %.0103122 = phi i32 [ 2, %24 ], [ 3, %20 ]
-  %28 = getelementptr inbounds i8, ptr %1, i64 408
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %29 = load ptr, ptr %28, align 8
   %30 = tail call ptr @tvb_get_string_enc(ptr noundef %29, ptr noundef %0, i32 noundef %17, i32 noundef %.0103122, i32 noundef 0) #2
   %31 = load i32, ptr @hf_pcomascii_command_code, align 4
@@ -386,7 +386,7 @@ define internal i32 @dissect_pcomascii(ptr noundef %0, ptr noundef %1, ptr nound
   %42 = phi i1 [ false, %39 ], [ true, %38 ], [ true, %37 ], [ true, %36 ], [ false, %35 ], [ false, %34 ], [ false, %.thread ], [ false, %.thread ], [ false, %.thread ], [ false, %.thread ]
   %.0 = phi i32 [ 0, %39 ], [ 8, %38 ], [ 4, %37 ], [ 1, %36 ], [ 8, %35 ], [ 4, %34 ], [ 1, %.thread ], [ 1, %.thread ], [ 1, %.thread ], [ 1, %.thread ]
   %43 = load ptr, ptr @global_pcomtcp_tcp_ports, align 8
-  %44 = getelementptr inbounds i8, ptr %1, i64 288
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %45 = load i32, ptr %44, align 8
   %46 = tail call i32 @value_is_in_range(ptr noundef %43, i32 noundef %45) #2
   %.not114 = icmp eq i32 %46, 0
@@ -494,7 +494,7 @@ define internal i32 @dissect_pcombinary(ptr noundef %0, ptr noundef %1, ptr noun
   %9 = load i32, ptr @hf_pcombinary_stx, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 6, i32 noundef 0) #2
   %11 = load ptr, ptr @global_pcomtcp_tcp_ports, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 284
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %13 = load i32, ptr %12, align 4
   %14 = tail call i32 @value_is_in_range(ptr noundef %11, i32 noundef %13) #2
   %.not = icmp eq i32 %14, 0

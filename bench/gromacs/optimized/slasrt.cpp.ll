@@ -33,7 +33,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 13:                                               ; preds = %11
   store i32 1, ptr %5, align 16
-  %14 = getelementptr inbounds i8, ptr %5, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %9, ptr %14, align 4
   br label %15
 

@@ -44,7 +44,7 @@ define void @_ZN5boost6fibers16fiber_properties6notifyEv(ptr noundef nonnull ali
   %8 = tail call ptr @__dynamic_cast(ptr nonnull %7, ptr nonnull @_ZTIN5boost6fibers4algo9algorithmE, ptr nonnull @_ZTIN5boost6fibers4algo30algorithm_with_properties_baseE, i64 0) #6
   %9 = load ptr, ptr %2, align 8, !tbaa !3
   %10 = load ptr, ptr %8, align 8, !tbaa !10
-  %11 = getelementptr inbounds i8, ptr %10, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %12 = load ptr, ptr %11, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef %9, ptr noundef nonnull %0) #6
   br label %13

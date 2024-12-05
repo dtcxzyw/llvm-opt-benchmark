@@ -76,7 +76,7 @@ define hidden void @_ZN16EpsilonArguments10initializeEv(ptr noundef nonnull alig
   br i1 %7, label %8, label %13
 
 8:                                                ; preds = %4
-  %9 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
+  %9 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %11, label %10
 
@@ -101,7 +101,7 @@ define hidden void @_ZN16EpsilonArguments10initializeEv(ptr noundef nonnull alig
   br i1 %18, label %19, label %23
 
 19:                                               ; preds = %16
-  %20 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
+  %20 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
   %.not1 = icmp eq ptr %20, null
   br i1 %.not1, label %22, label %21
 
@@ -171,11 +171,11 @@ define hidden noundef ptr @_ZN16EpsilonArguments11create_heapEv(ptr nocapture no
   %2 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 480, i8 noundef zeroext 5, i32 noundef 0) #5
   tail call void @_ZN13CollectedHeapC2Ev(ptr noundef nonnull align 8 dereferenceable(480) %2) #5
   store ptr getelementptr inbounds inrange(-16, 464) (i8, ptr @_ZTV11EpsilonHeap, i64 16), ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 120
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 120
   tail call void @_ZN15GCMemoryManagerC1EPKc(ptr noundef nonnull align 8 dereferenceable(191) %3, ptr noundef nonnull @.str.6) #5
-  %4 = getelementptr inbounds i8, ptr %2, i64 312
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 312
   store ptr null, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 320
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 320
   tail call void @_ZN12VirtualSpaceC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %5) #5
   ret ptr %2
 }

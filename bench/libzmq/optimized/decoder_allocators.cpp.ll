@@ -17,12 +17,12 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN3zmq31shared_message_memory_allocatorC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %this, i64 noundef %bufsize_) unnamed_addr #0 align 2 {
 entry:
-  %_max_size = getelementptr inbounds i8, ptr %this, i64 16
+  %_max_size = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
   store i64 %bufsize_, ptr %_max_size, align 8
-  %_msg_content = getelementptr inbounds i8, ptr %this, i64 24
+  %_msg_content = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr null, ptr %_msg_content, align 8
-  %_max_counters = getelementptr inbounds i8, ptr %this, i64 32
+  %_max_counters = getelementptr inbounds nuw i8, ptr %this, i64 32
   %sub = add i64 %bufsize_, 32
   %div = udiv i64 %sub, 33
   store i64 %div, ptr %_max_counters, align 8
@@ -32,12 +32,12 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN3zmq31shared_message_memory_allocatorC2Emm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %this, i64 noundef %bufsize_, i64 noundef %max_messages_) unnamed_addr #0 align 2 {
 entry:
-  %_max_size = getelementptr inbounds i8, ptr %this, i64 16
+  %_max_size = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
   store i64 %bufsize_, ptr %_max_size, align 8
-  %_msg_content = getelementptr inbounds i8, ptr %this, i64 24
+  %_msg_content = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr null, ptr %_msg_content, align 8
-  %_max_counters = getelementptr inbounds i8, ptr %this, i64 32
+  %_max_counters = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i64 %max_messages_, ptr %_max_counters, align 8
   ret void
 }
@@ -60,7 +60,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then.i, %land.lhs.true.i, %entry
-  %_msg_content.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_msg_content.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr null, ptr %_msg_content.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 16, i1 false)
   ret void
@@ -84,7 +84,7 @@ if.then:                                          ; preds = %land.lhs.true
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
-  %_msg_content.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_msg_content.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr null, ptr %_msg_content.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 16, i1 false)
   ret void
@@ -105,9 +105,9 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.not, label %if.end5, label %if.end5.thread
 
 if.end5.thread:                                   ; preds = %if.then
-  %_msg_content.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_msg_content.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr null, ptr %_msg_content.i.i, align 8
-  %2 = getelementptr inbounds i8, ptr %this, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 0, ptr %2, align 8
   br label %if.then8
 
@@ -117,10 +117,10 @@ if.end5:                                          ; preds = %if.then
   br i1 %tobool7.not, label %if.then8, label %if.else
 
 if.then8:                                         ; preds = %if.end5.thread, %entry, %if.end5
-  %_max_size = getelementptr inbounds i8, ptr %this, i64 16
+  %_max_size = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load i64, ptr %_max_size, align 8
   %add = add i64 %3, 8
-  %_max_counters = getelementptr inbounds i8, ptr %this, i64 32
+  %_max_counters = getelementptr inbounds nuw i8, ptr %this, i64 32
   %4 = load i64, ptr %_max_counters, align 8
   %mul = mul i64 %4, 40
   %add9 = add i64 %add, %mul
@@ -148,14 +148,14 @@ if.else:                                          ; preds = %if.end5
   br label %if.end21
 
 if.end21:                                         ; preds = %if.else, %do.end
-  %_max_size22 = getelementptr inbounds i8, ptr %this, i64 16
+  %_max_size22 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %8 = load i64, ptr %_max_size22, align 8
-  %_buf_size = getelementptr inbounds i8, ptr %this, i64 8
+  %_buf_size = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 %8, ptr %_buf_size, align 8
   %9 = load ptr, ptr %this, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %9, i64 8
+  %add.ptr = getelementptr inbounds nuw i8, ptr %9, i64 8
   %add.ptr25 = getelementptr inbounds i8, ptr %add.ptr, i64 %8
-  %_msg_content = getelementptr inbounds i8, ptr %this, i64 24
+  %_msg_content = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %add.ptr25, ptr %_msg_content, align 8
   ret ptr %add.ptr
 }
@@ -164,7 +164,7 @@ if.end21:                                         ; preds = %if.else, %do.end
 define noundef ptr @_ZN3zmq31shared_message_memory_allocator7releaseEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((8, 16), (24, 32)) %this) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_msg_content.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_msg_content.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr null, ptr %_msg_content.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 16, i1 false)
   ret ptr %0
@@ -187,7 +187,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN3zmq31shared_message_memory_allocator5clearEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 16), (24, 32)) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %_msg_content = getelementptr inbounds i8, ptr %this, i64 24
+  %_msg_content = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr null, ptr %_msg_content, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
   ret void
@@ -231,7 +231,7 @@ if.end4:                                          ; preds = %if.then3, %do.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i64 @_ZNK3zmq31shared_message_memory_allocator4sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #9 align 2 {
 entry:
-  %_buf_size = getelementptr inbounds i8, ptr %this, i64 8
+  %_buf_size = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %_buf_size, align 8
   ret i64 %0
 }
@@ -240,7 +240,7 @@ entry:
 define noundef nonnull ptr @_ZN3zmq31shared_message_memory_allocator4dataEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %0, i64 8
+  %add.ptr = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %add.ptr
 }
 

@@ -18,7 +18,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %mul = shl i64 %number, 6
-  %bit_size = getelementptr inbounds i8, ptr %self, i64 24
+  %bit_size = getelementptr inbounds nuw i8, ptr %self, i64 24
   %0 = load i64, ptr %bit_size, align 8
   %add = add i64 %0, %mul
   store i64 %add, ptr %bit_size, align 8
@@ -33,7 +33,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define internal fastcc i64 @add_empty_words(ptr nocapture noundef %self, i32 noundef %v, i64 noundef %number) unnamed_addr #0 {
 entry:
-  %rlw = getelementptr inbounds i8, ptr %self, i64 32
+  %rlw = getelementptr inbounds nuw i8, ptr %self, i64 32
   %0 = load ptr, ptr %rlw, align 8
   %.val = load i64, ptr %0, align 8
   %1 = trunc i64 %.val to i32
@@ -62,11 +62,11 @@ if.else:                                          ; preds = %entry
   br i1 %cmp7.not, label %if.end15, label %if.then11
 
 if.then11:                                        ; preds = %land.lhs.true, %if.else
-  %buffer_size.i.i = getelementptr inbounds i8, ptr %self, i64 8
+  %buffer_size.i.i = getelementptr inbounds nuw i8, ptr %self, i64 8
   %3 = load i64, ptr %buffer_size.i.i, align 8
   %add.i.i = add i64 %3, 1
   %4 = load ptr, ptr %self, align 8
-  %alloc_size.i.i.i = getelementptr inbounds i8, ptr %self, i64 16
+  %alloc_size.i.i.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %5 = load i64, ptr %alloc_size.i.i.i, align 8
   %cmp.i.i.i = icmp ugt i64 %add.i.i, %5
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %buffer_push_rlw.exit
@@ -132,8 +132,8 @@ if.end15:                                         ; preds = %if.else, %buffer_pu
   br i1 %cmp21105, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.end15
-  %buffer_size.i.i45 = getelementptr inbounds i8, ptr %self, i64 8
-  %alloc_size.i.i.i47 = getelementptr inbounds i8, ptr %self, i64 16
+  %buffer_size.i.i45 = getelementptr inbounds nuw i8, ptr %self, i64 8
+  %alloc_size.i.i.i47 = getelementptr inbounds nuw i8, ptr %self, i64 16
   %tobool23.not = icmp eq i32 %v, 0
   br i1 %tobool23.not, label %while.body.us, label %while.body
 
@@ -247,11 +247,11 @@ while.end:                                        ; preds = %buffer_push_rlw.exi
   br i1 %cmp29.not, label %if.end37, label %if.then30
 
 if.then30:                                        ; preds = %while.end
-  %buffer_size.i.i72 = getelementptr inbounds i8, ptr %self, i64 8
+  %buffer_size.i.i72 = getelementptr inbounds nuw i8, ptr %self, i64 8
   %33 = load i64, ptr %buffer_size.i.i72, align 8
   %add.i.i73 = add i64 %33, 1
   %34 = load ptr, ptr %self, align 8
-  %alloc_size.i.i.i74 = getelementptr inbounds i8, ptr %self, i64 16
+  %alloc_size.i.i.i74 = getelementptr inbounds nuw i8, ptr %self, i64 16
   %35 = load i64, ptr %alloc_size.i.i.i74, align 8
   %cmp.i.i.i75 = icmp ugt i64 %add.i.i73, %35
   br i1 %cmp.i.i.i75, label %if.then.i.i.i81, label %buffer_push_rlw.exit92
@@ -318,11 +318,11 @@ if.end37:                                         ; preds = %if.end35, %while.en
 ; Function Attrs: nounwind uwtable
 define dso_local void @ewah_add_dirty_words(ptr nocapture noundef %self, ptr nocapture noundef readonly %buffer, i64 noundef %number, i32 noundef %negate) local_unnamed_addr #0 {
 entry:
-  %rlw = getelementptr inbounds i8, ptr %self, i64 32
-  %buffer_size = getelementptr inbounds i8, ptr %self, i64 8
-  %alloc_size.i = getelementptr inbounds i8, ptr %self, i64 16
+  %rlw = getelementptr inbounds nuw i8, ptr %self, i64 32
+  %buffer_size = getelementptr inbounds nuw i8, ptr %self, i64 8
+  %alloc_size.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %tobool.not = icmp eq i32 %negate, 0
-  %bit_size = getelementptr inbounds i8, ptr %self, i64 24
+  %bit_size = getelementptr inbounds nuw i8, ptr %self, i64 24
   %.pre = load ptr, ptr %rlw, align 8
   br label %while.body
 
@@ -373,7 +373,7 @@ buffer_grow.exit:                                 ; preds = %while.body, %st_mul
   %sub.ptr.rhs.cast.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %div1615.i = lshr i64 %sub.ptr.sub.i, 3
-  %add.ptr.i = getelementptr inbounds i64, ptr %6, i64 %div1615.i
+  %add.ptr.i = getelementptr inbounds nuw i64, ptr %6, i64 %div1615.i
   store ptr %add.ptr.i, ptr %rlw, align 8
   br i1 %tobool.not, label %if.else, label %for.cond.preheader
 
@@ -383,7 +383,7 @@ for.cond.preheader:                               ; preds = %buffer_grow.exit
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %i.028 = phi i64 [ %inc7, %for.body ], [ 0, %for.cond.preheader ]
-  %arrayidx = getelementptr inbounds i64, ptr %buffer.addr.0, i64 %i.028
+  %arrayidx = getelementptr inbounds nuw i64, ptr %buffer.addr.0, i64 %i.028
   %7 = load i64, ptr %arrayidx, align 8
   %not = xor i64 %7, -1
   %8 = load ptr, ptr %self, align 8
@@ -456,7 +456,7 @@ buffer_push_rlw.exit:                             ; preds = %if.end17, %st_mult.
   %add.ptr.i26 = getelementptr inbounds i64, ptr %19, i64 %20
   %add.ptr1.i = getelementptr inbounds i8, ptr %add.ptr.i26, i64 -8
   store ptr %add.ptr1.i, ptr %rlw, align 8
-  %add.ptr18 = getelementptr inbounds i64, ptr %buffer.addr.0, i64 %cond.i
+  %add.ptr18 = getelementptr inbounds nuw i64, ptr %buffer.addr.0, i64 %cond.i
   br label %while.body
 
 while.end:                                        ; preds = %if.end
@@ -469,7 +469,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 3) i64 @ewah_add(ptr nocapture noundef %self, i64 noundef %word) local_unnamed_addr #0 {
 entry:
-  %bit_size = getelementptr inbounds i8, ptr %self, i64 24
+  %bit_size = getelementptr inbounds nuw i8, ptr %self, i64 24
   %0 = load i64, ptr %bit_size, align 8
   %add = add i64 %0, 64
   store i64 %add, ptr %bit_size, align 8
@@ -498,7 +498,7 @@ return:                                           ; preds = %if.end4, %if.then2,
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i64 0, 2) i64 @add_empty_word(ptr nocapture noundef %self, i32 noundef range(i32 0, 2) %v) unnamed_addr #0 {
 entry:
-  %rlw = getelementptr inbounds i8, ptr %self, i64 32
+  %rlw = getelementptr inbounds nuw i8, ptr %self, i64 32
   %0 = load ptr, ptr %rlw, align 8
   %.val15 = load i64, ptr %0, align 8
   %cmp = icmp ult i64 %.val15, 8589934592
@@ -540,11 +540,11 @@ if.then15:                                        ; preds = %land.lhs.true7
   br label %return
 
 if.else:                                          ; preds = %land.lhs.true7, %if.end
-  %buffer_size.i.i = getelementptr inbounds i8, ptr %self, i64 8
+  %buffer_size.i.i = getelementptr inbounds nuw i8, ptr %self, i64 8
   %3 = load i64, ptr %buffer_size.i.i, align 8
   %add.i.i = add i64 %3, 1
   %4 = load ptr, ptr %self, align 8
-  %alloc_size.i.i.i = getelementptr inbounds i8, ptr %self, i64 16
+  %alloc_size.i.i.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %5 = load i64, ptr %alloc_size.i.i.i, align 8
   %cmp.i.i.i = icmp ugt i64 %add.i.i, %5
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %buffer_push_rlw.exit
@@ -602,18 +602,18 @@ return:                                           ; preds = %buffer_push_rlw.exi
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i64 1, 3) i64 @add_literal(ptr nocapture noundef %self, i64 noundef range(i64 1, -1) %new_data) unnamed_addr #0 {
 entry:
-  %rlw = getelementptr inbounds i8, ptr %self, i64 32
+  %rlw = getelementptr inbounds nuw i8, ptr %self, i64 32
   %0 = load ptr, ptr %rlw, align 8
   %.val = load i64, ptr %0, align 8
   %cmp = icmp ugt i64 %.val, -8589934593
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %buffer_size.i.i = getelementptr inbounds i8, ptr %self, i64 8
+  %buffer_size.i.i = getelementptr inbounds nuw i8, ptr %self, i64 8
   %1 = load i64, ptr %buffer_size.i.i, align 8
   %add.i.i = add i64 %1, 1
   %2 = load ptr, ptr %self, align 8
-  %alloc_size.i.i.i = getelementptr inbounds i8, ptr %self, i64 16
+  %alloc_size.i.i.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %3 = load i64, ptr %alloc_size.i.i.i, align 8
   %cmp.i.i.i = icmp ugt i64 %add.i.i, %3
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %buffer_push_rlw.exit
@@ -692,7 +692,7 @@ buffer_push.exit:                                 ; preds = %buffer_push_rlw.exi
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %div1615.i.i = lshr i64 %sub.ptr.sub.i.i, 3
-  %add.ptr.i.i = getelementptr inbounds i64, ptr %16, i64 %div1615.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw i64, ptr %16, i64 %div1615.i.i
   store ptr %add.ptr.i.i, ptr %rlw, align 8
   store i64 %inc.pre-phi.i, ptr %buffer_size.i.i, align 8
   %arrayidx.i = getelementptr inbounds i64, ptr %16, i64 %15
@@ -705,12 +705,12 @@ if.end:                                           ; preds = %entry
   %or1.i = add i64 %17, 8589934592
   %and.i12 = and i64 %or1.i, %or.i11
   store i64 %and.i12, ptr %0, align 8
-  %buffer_size.i13 = getelementptr inbounds i8, ptr %self, i64 8
+  %buffer_size.i13 = getelementptr inbounds nuw i8, ptr %self, i64 8
   %18 = load i64, ptr %buffer_size.i13, align 8
   %add.i14 = add i64 %18, 1
   %19 = load ptr, ptr %rlw, align 8
   %20 = load ptr, ptr %self, align 8
-  %alloc_size.i.i16 = getelementptr inbounds i8, ptr %self, i64 16
+  %alloc_size.i.i16 = getelementptr inbounds nuw i8, ptr %self, i64 16
   %21 = load i64, ptr %alloc_size.i.i16, align 8
   %cmp.i.i17 = icmp ugt i64 %add.i14, %21
   br i1 %cmp.i.i17, label %if.then.i.i25, label %buffer_push.exit36
@@ -744,7 +744,7 @@ buffer_push.exit36:                               ; preds = %if.end, %st_mult.ex
   %sub.ptr.rhs.cast.i.i20 = ptrtoint ptr %20 to i64
   %sub.ptr.sub.i.i21 = sub i64 %sub.ptr.lhs.cast.i.i19, %sub.ptr.rhs.cast.i.i20
   %div1615.i.i22 = lshr i64 %sub.ptr.sub.i.i21, 3
-  %add.ptr.i.i23 = getelementptr inbounds i64, ptr %24, i64 %div1615.i.i22
+  %add.ptr.i.i23 = getelementptr inbounds nuw i64, ptr %24, i64 %div1615.i.i22
   store ptr %add.ptr.i.i23, ptr %rlw, align 8
   store i64 %inc.pre-phi.i18, ptr %buffer_size.i13, align 8
   %arrayidx.i24 = getelementptr inbounds i64, ptr %24, i64 %23
@@ -762,7 +762,7 @@ entry:
   %add = add i64 %i, 1
   %sub = add i64 %i, 64
   %div23 = lshr i64 %sub, 6
-  %bit_size = getelementptr inbounds i8, ptr %self, i64 24
+  %bit_size = getelementptr inbounds nuw i8, ptr %self, i64 24
   %0 = load i64, ptr %bit_size, align 8
   %sub3 = add i64 %0, 63
   %div424 = lshr i64 %sub3, 6
@@ -787,7 +787,7 @@ if.end:                                           ; preds = %if.then9, %if.then
   br label %if.end41
 
 if.end12:                                         ; preds = %entry
-  %rlw = getelementptr inbounds i8, ptr %self, i64 32
+  %rlw = getelementptr inbounds nuw i8, ptr %self, i64 32
   %1 = load ptr, ptr %rlw, align 8
   %.val26 = load i64, ptr %1, align 8
   %cmp14 = icmp ult i64 %.val26, 8589934592
@@ -808,7 +808,7 @@ if.end23:                                         ; preds = %if.end12
   %rem24 = and i64 %i, 63
   %shl25 = shl nuw i64 1, %rem24
   %3 = load ptr, ptr %self, align 8
-  %buffer_size = getelementptr inbounds i8, ptr %self, i64 8
+  %buffer_size = getelementptr inbounds nuw i8, ptr %self, i64 8
   %4 = load i64, ptr %buffer_size, align 8
   %5 = getelementptr i64, ptr %3, i64 %4
   %arrayidx = getelementptr i8, ptr %5, i64 -8
@@ -845,7 +845,7 @@ if.end41:                                         ; preds = %if.then32, %if.end2
 ; Function Attrs: nounwind uwtable
 define dso_local void @ewah_each_bit(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %callback, ptr noundef %payload) local_unnamed_addr #0 {
 entry:
-  %buffer_size = getelementptr inbounds i8, ptr %self, i64 8
+  %buffer_size = getelementptr inbounds nuw i8, ptr %self, i64 8
   %0 = load i64, ptr %buffer_size, align 8
   %cmp42.not = icmp eq i64 %0, 0
   br i1 %cmp42.not, label %while.end, label %while.body
@@ -940,17 +940,17 @@ while.end:                                        ; preds = %while.cond.loopexit
 define dso_local ptr @ewah_new() local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @xmalloc(i64 noundef 40) #11
-  %alloc_size = getelementptr inbounds i8, ptr %call, i64 16
+  %alloc_size = getelementptr inbounds nuw i8, ptr %call, i64 16
   store i64 32, ptr %alloc_size, align 8
   %call3 = tail call ptr @xmalloc(i64 noundef 256) #11
   store ptr %call3, ptr %call, align 8
-  %buffer_size.i = getelementptr inbounds i8, ptr %call, i64 8
+  %buffer_size.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i64 1, ptr %buffer_size.i, align 8
   store i64 0, ptr %call3, align 8
-  %bit_size.i = getelementptr inbounds i8, ptr %call, i64 24
+  %bit_size.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   store i64 0, ptr %bit_size.i, align 8
   %0 = load ptr, ptr %call, align 8
-  %rlw.i = getelementptr inbounds i8, ptr %call, i64 32
+  %rlw.i = getelementptr inbounds nuw i8, ptr %call, i64 32
   store ptr %0, ptr %rlw.i, align 8
   ret ptr %call
 }
@@ -964,7 +964,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %alloc_size = getelementptr inbounds i8, ptr %self, i64 16
+  %alloc_size = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load i64, ptr %alloc_size, align 8
   %tobool1.not = icmp eq i64 %0, 0
   br i1 %tobool1.not, label %if.end3, label %if.then2
@@ -988,17 +988,17 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local range(i32 0, 2) i32 @ewah_iterator_next(ptr nocapture noundef writeonly %next, ptr nocapture noundef %it) local_unnamed_addr #5 {
 entry:
-  %pointer = getelementptr inbounds i8, ptr %it, i64 16
+  %pointer = getelementptr inbounds nuw i8, ptr %it, i64 16
   %0 = load i64, ptr %pointer, align 8
-  %buffer_size = getelementptr inbounds i8, ptr %it, i64 8
+  %buffer_size = getelementptr inbounds nuw i8, ptr %it, i64 8
   %1 = load i64, ptr %buffer_size, align 8
   %cmp.not = icmp ult i64 %0, %1
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %compressed = getelementptr inbounds i8, ptr %it, i64 24
+  %compressed = getelementptr inbounds nuw i8, ptr %it, i64 24
   %2 = load i64, ptr %compressed, align 8
-  %rl = getelementptr inbounds i8, ptr %it, i64 40
+  %rl = getelementptr inbounds nuw i8, ptr %it, i64 40
   %3 = load i64, ptr %rl, align 8
   %cmp1 = icmp ult i64 %2, %3
   br i1 %cmp1, label %if.then2, label %if.else
@@ -1006,14 +1006,14 @@ if.end:                                           ; preds = %entry
 if.then2:                                         ; preds = %if.end
   %inc = add nuw i64 %2, 1
   store i64 %inc, ptr %compressed, align 8
-  %b = getelementptr inbounds i8, ptr %it, i64 56
+  %b = getelementptr inbounds nuw i8, ptr %it, i64 56
   %4 = load i32, ptr %b, align 8
   %tobool.not = icmp ne i32 %4, 0
   %cond = sext i1 %tobool.not to i64
   br label %if.end8
 
 if.else:                                          ; preds = %if.end
-  %literals = getelementptr inbounds i8, ptr %it, i64 32
+  %literals = getelementptr inbounds nuw i8, ptr %it, i64 32
   %5 = load i64, ptr %literals, align 8
   %inc4 = add i64 %5, 1
   store i64 %inc4, ptr %literals, align 8
@@ -1033,9 +1033,9 @@ if.end8:                                          ; preds = %if.else, %if.then2
   br i1 %cmp11, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %if.end8
-  %literals12 = getelementptr inbounds i8, ptr %it, i64 32
+  %literals12 = getelementptr inbounds nuw i8, ptr %it, i64 32
   %10 = load i64, ptr %literals12, align 8
-  %lw = getelementptr inbounds i8, ptr %it, i64 48
+  %lw = getelementptr inbounds nuw i8, ptr %it, i64 48
   %11 = load i64, ptr %lw, align 8
   %cmp13 = icmp eq i64 %10, %11
   br i1 %cmp13, label %if.then14, label %return
@@ -1051,7 +1051,7 @@ if.then14:                                        ; preds = %land.lhs.true
 if.then19:                                        ; preds = %if.then14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %compressed, i8 0, i64 16, i1 false)
   %14 = load ptr, ptr %it, align 8
-  %b.i = getelementptr inbounds i8, ptr %it, i64 56
+  %b.i = getelementptr inbounds nuw i8, ptr %it, i64 56
   %arrayidx20.i = getelementptr inbounds i64, ptr %14, i64 %inc16
   %arrayidx.val1621.i = load i64, ptr %arrayidx20.i, align 8
   %shr.i22.i = lshr i64 %arrayidx.val1621.i, 1
@@ -1112,20 +1112,20 @@ define dso_local void @ewah_iterator_init(ptr nocapture noundef writeonly initia
 entry:
   %0 = load ptr, ptr %parent, align 8
   store ptr %0, ptr %it, align 8
-  %buffer_size = getelementptr inbounds i8, ptr %parent, i64 8
+  %buffer_size = getelementptr inbounds nuw i8, ptr %parent, i64 8
   %1 = load i64, ptr %buffer_size, align 8
-  %buffer_size2 = getelementptr inbounds i8, ptr %it, i64 8
+  %buffer_size2 = getelementptr inbounds nuw i8, ptr %it, i64 8
   store i64 %1, ptr %buffer_size2, align 8
-  %pointer = getelementptr inbounds i8, ptr %it, i64 16
-  %lw = getelementptr inbounds i8, ptr %it, i64 48
-  %rl = getelementptr inbounds i8, ptr %it, i64 40
-  %b = getelementptr inbounds i8, ptr %it, i64 56
+  %pointer = getelementptr inbounds nuw i8, ptr %it, i64 16
+  %lw = getelementptr inbounds nuw i8, ptr %it, i64 48
+  %rl = getelementptr inbounds nuw i8, ptr %it, i64 40
+  %b = getelementptr inbounds nuw i8, ptr %it, i64 56
   %cmp.not = icmp eq i64 %1, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %pointer, i8 0, i64 44, i1 false)
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %compressed = getelementptr inbounds i8, ptr %it, i64 24
+  %compressed = getelementptr inbounds nuw i8, ptr %it, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %compressed, i8 0, i64 16, i1 false)
   %arrayidx.val1621.i = load i64, ptr %0, align 8
   %shr.i22.i = lshr i64 %arrayidx.val1621.i, 1
@@ -1187,8 +1187,8 @@ entry:
   %rlw_j = alloca %struct.rlw_iterator, align 8
   call void @rlwit_init(ptr noundef nonnull %rlw_i, ptr noundef %ewah_i) #11
   call void @rlwit_init(ptr noundef nonnull %rlw_j, ptr noundef %ewah_j) #11
-  %0 = getelementptr inbounds i8, ptr %rlw_i, i64 40
-  %1 = getelementptr inbounds i8, ptr %rlw_i, i64 44
+  %0 = getelementptr inbounds nuw i8, ptr %rlw_i, i64 40
+  %1 = getelementptr inbounds nuw i8, ptr %rlw_i, i64 44
   %rlw_i.val113 = load i32, ptr %0, align 8
   %rlw_i.val29114 = load i32, ptr %1, align 4
   %add.i115 = sub i32 0, %rlw_i.val113
@@ -1196,14 +1196,14 @@ entry:
   br i1 %cmp.not116, label %if.end50, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %entry
-  %2 = getelementptr inbounds i8, ptr %rlw_j, i64 40
-  %3 = getelementptr inbounds i8, ptr %rlw_j, i64 44
-  %bit_size.i = getelementptr inbounds i8, ptr %out, i64 24
-  %literal_word_start = getelementptr inbounds i8, ptr %rlw_i, i64 24
-  %literal_word_start37 = getelementptr inbounds i8, ptr %rlw_j, i64 24
-  %rlw.i = getelementptr inbounds i8, ptr %out, i64 32
-  %buffer_size.i.i.i = getelementptr inbounds i8, ptr %out, i64 8
-  %alloc_size.i.i.i.i = getelementptr inbounds i8, ptr %out, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %rlw_j, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %rlw_j, i64 44
+  %bit_size.i = getelementptr inbounds nuw i8, ptr %out, i64 24
+  %literal_word_start = getelementptr inbounds nuw i8, ptr %rlw_i, i64 24
+  %literal_word_start37 = getelementptr inbounds nuw i8, ptr %rlw_j, i64 24
+  %rlw.i = getelementptr inbounds nuw i8, ptr %out, i64 32
+  %buffer_size.i.i.i = getelementptr inbounds nuw i8, ptr %out, i64 8
+  %alloc_size.i.i.i.i = getelementptr inbounds nuw i8, ptr %out, i64 16
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.end41
@@ -1228,7 +1228,7 @@ while.body8:                                      ; preds = %while.cond3.prehead
   %rlw_j.rlw_i = select i1 %cmp13, ptr %rlw_j, ptr %rlw_i
   %rlw_i.rlw_j = select i1 %cmp13, ptr %rlw_i, ptr %rlw_j
   %predator.0.sroa.gep.predator.0.sroa.gep19.sroa.sel107.v.sroa.sel.v.sroa.sel.v = select i1 %cmp13, ptr %rlw_j, ptr %rlw_i
-  %predator.0.sroa.gep.predator.0.sroa.gep19.sroa.sel107.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %predator.0.sroa.gep.predator.0.sroa.gep19.sroa.sel107.v.sroa.sel.v.sroa.sel.v, i64 52
+  %predator.0.sroa.gep.predator.0.sroa.gep19.sroa.sel107.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %predator.0.sroa.gep.predator.0.sroa.gep19.sroa.sel107.v.sroa.sel.v.sroa.sel.v, i64 52
   %7 = load i32, ptr %predator.0.sroa.gep.predator.0.sroa.gep19.sroa.sel107.v.sroa.sel.v.sroa.sel, align 4
   %tobool = icmp ne i32 %7, 0
   %lnot.ext = zext i1 %tobool to i32
@@ -1501,12 +1501,12 @@ if.end41:                                         ; preds = %for.end, %while.end
 if.end50:                                         ; preds = %if.end41, %land.rhs, %entry
   %rlw_j.sink = phi ptr [ %rlw_j, %entry ], [ %rlw_i, %land.rhs ], [ %rlw_j, %if.end41 ]
   %call49 = call i64 @rlwit_discharge(ptr noundef nonnull %rlw_j.sink, ptr noundef %out, i64 noundef -1, i32 noundef 0) #11
-  %bit_size = getelementptr inbounds i8, ptr %ewah_i, i64 24
+  %bit_size = getelementptr inbounds nuw i8, ptr %ewah_i, i64 24
   %51 = load i64, ptr %bit_size, align 8
-  %bit_size51 = getelementptr inbounds i8, ptr %ewah_j, i64 24
+  %bit_size51 = getelementptr inbounds nuw i8, ptr %ewah_j, i64 24
   %52 = load i64, ptr %bit_size51, align 8
   %cond.i42 = call noundef i64 @llvm.umax.i64(i64 %51, i64 %52)
-  %bit_size53 = getelementptr inbounds i8, ptr %out, i64 24
+  %bit_size53 = getelementptr inbounds nuw i8, ptr %out, i64 24
   store i64 %cond.i42, ptr %bit_size53, align 8
   ret void
 }
@@ -1533,17 +1533,17 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call.i = tail call ptr @xmalloc(i64 noundef 40) #11
-  %alloc_size.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %alloc_size.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store i64 32, ptr %alloc_size.i, align 8
   %call3.i = tail call ptr @xmalloc(i64 noundef 256) #11
   store ptr %call3.i, ptr %call.i, align 8
-  %buffer_size.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %buffer_size.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i64 1, ptr %buffer_size.i.i, align 8
   store i64 0, ptr %call3.i, align 8
-  %bit_size.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %bit_size.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store i64 0, ptr %bit_size.i.i, align 8
   %2 = load ptr, ptr %call.i, align 8
-  %rlw.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %rlw.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   store ptr %2, ptr %rlw.i.i, align 8
   br label %return
 
@@ -1561,7 +1561,7 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load i64, ptr @bitmap_pool_size, align 8
   %cmp = icmp eq i64 %0, 16
-  %alloc_size.i.phi.trans.insert = getelementptr inbounds i8, ptr %self, i64 16
+  %alloc_size.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %self, i64 16
   %.pre = load i64, ptr %alloc_size.i.phi.trans.insert, align 8
   %1 = icmp eq i64 %.pre, 0
   br i1 %cmp, label %if.end.i, label %lor.lhs.false
@@ -1582,14 +1582,14 @@ ewah_free.exit:                                   ; preds = %lor.lhs.false, %if.
   br label %return
 
 if.end3:                                          ; preds = %lor.lhs.false
-  %buffer_size.i = getelementptr inbounds i8, ptr %self, i64 8
+  %buffer_size.i = getelementptr inbounds nuw i8, ptr %self, i64 8
   store i64 1, ptr %buffer_size.i, align 8
   %3 = load ptr, ptr %self, align 8
   store i64 0, ptr %3, align 8
-  %bit_size.i = getelementptr inbounds i8, ptr %self, i64 24
+  %bit_size.i = getelementptr inbounds nuw i8, ptr %self, i64 24
   store i64 0, ptr %bit_size.i, align 8
   %4 = load ptr, ptr %self, align 8
-  %rlw.i = getelementptr inbounds i8, ptr %self, i64 32
+  %rlw.i = getelementptr inbounds nuw i8, ptr %self, i64 32
   store ptr %4, ptr %rlw.i, align 8
   %inc = add i64 %0, 1
   store i64 %inc, ptr @bitmap_pool_size, align 8
@@ -1604,10 +1604,10 @@ return:                                           ; preds = %entry, %if.end3, %e
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define dso_local i32 @ewah_checksum(ptr nocapture noundef readonly %self) local_unnamed_addr #6 {
 entry:
-  %bit_size = getelementptr inbounds i8, ptr %self, i64 24
+  %bit_size = getelementptr inbounds nuw i8, ptr %self, i64 24
   %0 = load i64, ptr %bit_size, align 8
   %conv = trunc i64 %0 to i32
-  %buffer_size = getelementptr inbounds i8, ptr %self, i64 8
+  %buffer_size = getelementptr inbounds nuw i8, ptr %self, i64 8
   %1 = load i64, ptr %buffer_size, align 8
   %mul = shl i64 %1, 3
   %tobool.not5 = icmp eq i64 %mul, 0
@@ -1623,7 +1623,7 @@ while.body:                                       ; preds = %while.body.preheade
   %p.06 = phi ptr [ %incdec.ptr, %while.body ], [ %2, %while.body.preheader ]
   %dec = add i64 %size.08, -1
   %sub = mul i32 %crc.07, 31
-  %incdec.ptr = getelementptr inbounds i8, ptr %p.06, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %p.06, i64 1
   %3 = load i8, ptr %p.06, align 1
   %conv1 = zext i8 %3 to i32
   %add = add i32 %sub, %conv1

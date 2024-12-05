@@ -33,14 +33,14 @@ define dso_local noundef nonnull ptr @archive_version_string() local_unnamed_add
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i32 @archive_errno(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 36
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local ptr @archive_error_string(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4
@@ -60,21 +60,21 @@ define dso_local ptr @archive_error_string(ptr nocapture noundef readonly %0) lo
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i32 @archive_file_count(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i32 @archive_format(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local ptr @archive_format_name(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
@@ -111,11 +111,11 @@ define dso_local i64 @archive_position_uncompressed(ptr noundef %0) local_unname
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @archive_clear_error(ptr nocapture noundef writeonly initializes((36, 48), (56, 64)) %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr null, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 36
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 0, ptr %4, align 4
   ret void
 }
@@ -123,14 +123,14 @@ define dso_local void @archive_clear_error(ptr nocapture noundef writeonly initi
 ; Function Attrs: nounwind uwtable
 define dso_local void @archive_set_error(ptr noundef initializes((36, 40)) %0, i32 noundef %1, ptr noundef %2, ...) local_unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 36
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %1, ptr %5, align 4
   %6 = icmp eq ptr %2, null
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 0, ptr %9, align 8
   call void @llvm.va_start.p0(ptr nonnull %4)
   call void @archive_string_vsprintf(ptr noundef nonnull %8, ptr noundef nonnull %2, ptr noundef nonnull %4) #17
@@ -140,7 +140,7 @@ define dso_local void @archive_set_error(ptr noundef initializes((36, 40)) %0, i
 
 11:                                               ; preds = %3, %7
   %.sink = phi ptr [ %10, %7 ], [ null, %3 ]
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.sink, ptr %12, align 8
   ret void
 }
@@ -149,17 +149,17 @@ declare void @archive_string_vsprintf(ptr noundef, ptr noundef, ptr noundef) loc
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @archive_copy_error(ptr noundef initializes((36, 40), (56, 64)) %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 36
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 36
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %4, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
   tail call void @archive_string_concat(ptr noundef nonnull %6, ptr noundef nonnull %8) #17
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %9, ptr %10, align 8
   ret void
 }
@@ -188,7 +188,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #9
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @__archive_mktemp(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.archive_string, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = icmp eq ptr %0, null
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   br i1 %4, label %5, label %15
@@ -323,7 +323,7 @@ define dso_local range(i32 -30, 1) i32 @archive_utility_string_sort(ptr nocaptur
 2:                                                ; preds = %2, %1
   %.0 = phi i32 [ 0, %1 ], [ %6, %2 ]
   %3 = zext i32 %.0 to i64
-  %4 = getelementptr inbounds ptr, ptr %0, i64 %3
+  %4 = getelementptr inbounds nuw ptr, ptr %0, i64 %3
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   %6 = add i32 %.0, 1
@@ -350,7 +350,7 @@ define internal fastcc range(i32 -30, 1) i32 @archive_utility_string_sort_helper
   %.06181 = phi ptr [ null, %4 ], [ %.162, %23 ]
   %.06380 = phi ptr [ null, %4 ], [ %.164, %23 ]
   %.06579 = phi i32 [ 0, %4 ], [ %.166, %23 ]
-  %7 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %5) #18
   %10 = icmp slt i32 %9, 0
@@ -391,7 +391,7 @@ define internal fastcc range(i32 -30, 1) i32 @archive_utility_string_sort_helper
   %.160 = phi i32 [ %12, %11 ], [ %.05982, %17 ]
   %24 = load ptr, ptr %7, align 8
   %25 = zext i32 %.05982.sink to i64
-  %26 = getelementptr inbounds ptr, ptr %.sink114, i64 %25
+  %26 = getelementptr inbounds nuw ptr, ptr %.sink114, i64 %25
   store ptr %24, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -408,9 +408,9 @@ define internal fastcc range(i32 -30, 1) i32 @archive_utility_string_sort_helper
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv97 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next98, %.lr.ph ]
-  %29 = getelementptr inbounds ptr, ptr %.164, i64 %indvars.iv97
+  %29 = getelementptr inbounds nuw ptr, ptr %.164, i64 %indvars.iv97
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv97
+  %31 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv97
   store ptr %30, ptr %31, align 8
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond102.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count101
@@ -419,7 +419,7 @@ define internal fastcc range(i32 -30, 1) i32 @archive_utility_string_sort_helper
 ._crit_edge:                                      ; preds = %.lr.ph, %27
   %.pre-phi = phi i64 [ 0, %27 ], [ %wide.trip.count101, %.lr.ph ]
   tail call void @free(ptr noundef %.164) #17
-  %32 = getelementptr inbounds ptr, ptr %0, i64 %.pre-phi
+  %32 = getelementptr inbounds nuw ptr, ptr %0, i64 %.pre-phi
   store ptr %5, ptr %32, align 8
   %33 = tail call fastcc i32 @archive_utility_string_sort_helper(ptr noundef %.162, i32 noundef %.166)
   %.not90 = icmp eq i32 %.166, 0
@@ -432,12 +432,12 @@ define internal fastcc range(i32 -30, 1) i32 @archive_utility_string_sort_helper
 
 35:                                               ; preds = %.lr.ph87, %35
   %indvars.iv103 = phi i64 [ 0, %.lr.ph87 ], [ %indvars.iv.next104, %35 ]
-  %36 = getelementptr inbounds ptr, ptr %.162, i64 %indvars.iv103
+  %36 = getelementptr inbounds nuw ptr, ptr %.162, i64 %indvars.iv103
   %37 = load ptr, ptr %36, align 8
   %38 = trunc nuw i64 %indvars.iv103 to i32
   %39 = add i32 %34, %38
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds ptr, ptr %0, i64 %40
+  %41 = getelementptr inbounds nuw ptr, ptr %0, i64 %40
   store ptr %37, ptr %41, align 8
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond108.not = icmp eq i64 %indvars.iv.next104, %wide.trip.count107

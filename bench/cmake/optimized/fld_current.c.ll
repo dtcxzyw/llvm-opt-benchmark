@@ -13,13 +13,13 @@ define dso_local i32 @set_current_field(ptr noundef %0, ptr noundef %1) local_un
   br i1 %or.cond, label %5, label %72
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %0, %7
   br i1 %.not, label %8, label %72
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %1, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 3
   %.not51 = icmp eq i32 %11, 3
@@ -33,11 +33,11 @@ define dso_local i32 @set_current_field(ptr noundef %0, ptr noundef %1) local_un
   br i1 %.not52, label %16, label %21
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %0, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %1, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %19 = load i16, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i16 %19, ptr %20, align 4
   br label %72
 
@@ -47,7 +47,7 @@ define dso_local i32 @set_current_field(ptr noundef %0, ptr noundef %1) local_un
   br i1 %.not53, label %23, label %72
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %0, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %25 = load ptr, ptr %24, align 8
   %.not54 = icmp eq ptr %25, %1
   br i1 %.not54, label %72, label %26
@@ -57,7 +57,7 @@ define dso_local i32 @set_current_field(ptr noundef %0, ptr noundef %1) local_un
   br i1 %27, label %28, label %72
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %0, i64 120
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %30 = load ptr, ptr %29, align 8
   %.not55 = icmp eq ptr %30, null
   br i1 %.not55, label %36, label %31
@@ -73,15 +73,15 @@ define dso_local i32 @set_current_field(ptr noundef %0, ptr noundef %1) local_un
   br label %36
 
 36:                                               ; preds = %31, %28
-  %37 = getelementptr inbounds i8, ptr %1, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %38 = load i16, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 28
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %40 = load i16, ptr %39, align 4
   %.not56 = icmp eq i16 %38, %40
   br i1 %.not56, label %60, label %41
 
 41:                                               ; preds = %36
-  %42 = getelementptr inbounds i8, ptr %0, i64 104
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %43 = load ptr, ptr %42, align 8
   %.not57 = icmp eq ptr %43, null
   br i1 %.not57, label %49, label %44
@@ -101,7 +101,7 @@ define dso_local i32 @set_current_field(ptr noundef %0, ptr noundef %1) local_un
   %50 = phi i16 [ %.pre, %44 ], [ %38, %41 ]
   %51 = sext i16 %50 to i32
   %52 = tail call i32 @_nc_Set_Form_Page(ptr noundef nonnull %0, i32 noundef %51, ptr noundef nonnull %1) #5
-  %53 = getelementptr inbounds i8, ptr %0, i64 96
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %54 = load ptr, ptr %53, align 8
   %.not58 = icmp eq ptr %54, null
   br i1 %.not58, label %62, label %55
@@ -122,7 +122,7 @@ define dso_local i32 @set_current_field(ptr noundef %0, ptr noundef %1) local_un
 
 62:                                               ; preds = %60, %55, %49
   %.1 = phi i32 [ %52, %55 ], [ %52, %49 ], [ %61, %60 ]
-  %63 = getelementptr inbounds i8, ptr %0, i64 112
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %64 = load ptr, ptr %63, align 8
   %.not59 = icmp eq ptr %64, null
   br i1 %.not59, label %70, label %65
@@ -164,7 +164,7 @@ define dso_local ptr @current_field(ptr noundef readonly %0) local_unnamed_addr 
   %.not = icmp eq ptr %0, null
   %2 = load ptr, ptr @_nc_Default_Form, align 8
   %3 = select i1 %.not, ptr %2, ptr %0
-  %4 = getelementptr inbounds i8, ptr %3, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %5 = load ptr, ptr %4, align 8
   ret ptr %5
 }
@@ -175,13 +175,13 @@ define dso_local range(i32 -32768, 32768) i32 @field_index(ptr noundef readonly 
   br i1 %.not, label %9, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
   %.not3 = icmp eq ptr %4, null
   br i1 %.not3, label %9, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 34
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %7 = load i16, ptr %6, align 2
   %8 = sext i16 %7 to i32
   br label %9

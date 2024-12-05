@@ -232,17 +232,17 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -2147483648, 2) i32 @italian_UTF_8_stem(ptr noundef initializes((20, 24)) %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 20
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %3, ptr %4, align 4
   %5 = tail call i32 @find_among(ptr noundef nonnull %0, ptr noundef nonnull @a_0, i32 noundef 7) #2
   %.not104.i = icmp eq i32 %5, 0
   br i1 %.not104.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  %7 = getelementptr inbounds i8, ptr %0, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   br label %8
 
 8:                                                ; preds = %35, %.lr.ph.i
@@ -308,8 +308,8 @@ define hidden range(i32 -2147483648, 2) i32 @italian_UTF_8_stem(ptr noundef init
   br i1 %.not.i, label %._crit_edge.i, label %8
 
 ._crit_edge.i:                                    ; preds = %35, %29, %1
-  %38 = getelementptr inbounds i8, ptr %0, i64 12
-  %39 = getelementptr inbounds i8, ptr %0, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %.outer
 
 .outer:                                           ; preds = %._crit_edge.i, %.loopexit
@@ -399,7 +399,7 @@ define hidden range(i32 -2147483648, 2) i32 @italian_UTF_8_stem(ptr noundef init
 74:                                               ; preds = %.loopexit
   store i32 %3, ptr %2, align 8
   %75 = load i32, ptr %38, align 4
-  %76 = getelementptr inbounds i8, ptr %0, i64 40
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr i8, ptr %77, i64 8
   store i32 %75, ptr %78, align 4
@@ -521,7 +521,7 @@ define hidden range(i32 -2147483648, 2) i32 @italian_UTF_8_stem(ptr noundef init
   br label %r_mark_regions.exit
 
 r_mark_regions.exit:                              ; preds = %118, %121, %126, %133, %138
-  %142 = getelementptr inbounds i8, ptr %0, i64 16
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %83, ptr %142, align 8
   %143 = load i32, ptr %38, align 4
   store i32 %143, ptr %2, align 8

@@ -30,7 +30,7 @@ define hidden range(i32 0, 8) i32 @phar_path_check(ptr nocapture noundef %0, ptr
   br i1 %11, label %12, label %.thread.preheader
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %4, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, 46
   br i1 %15, label %.loopexit, label %.thread.preheader
@@ -117,13 +117,13 @@ define hidden range(i32 0, 8) i32 @phar_path_check(ptr nocapture noundef %0, ptr
   br i1 %48, label %106, label %.loopexit
 
 49:                                               ; preds = %22
-  %50 = getelementptr inbounds i8, ptr %.0137, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %.0137, i64 1
   %51 = load i8, ptr %4, align 1
   %52 = icmp eq i8 %51, 47
   br i1 %52, label %53, label %57
 
 53:                                               ; preds = %49
-  %54 = getelementptr inbounds i8, ptr %4, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store ptr %54, ptr %0, align 8
   %55 = load i64, ptr %1, align 8
   %56 = add i64 %55, -1
@@ -145,11 +145,11 @@ define hidden range(i32 0, 8) i32 @phar_path_check(ptr nocapture noundef %0, ptr
 
 64:                                               ; preds = %23, %27, %119, %86, %36, %28
   %.2139 = phi ptr [ %.0137, %28 ], [ %.0137, %36 ], [ %87, %86 ], [ %122, %119 ], [ %.0137, %27 ], [ %.0137, %23 ]
-  %65 = getelementptr inbounds i8, ptr %.2139, i64 1
+  %65 = getelementptr inbounds nuw i8, ptr %.2139, i64 1
   br label %.thread.backedge
 
 66:                                               ; preds = %27
-  %67 = getelementptr inbounds i8, ptr %.0137, i64 1
+  %67 = getelementptr inbounds nuw i8, ptr %.0137, i64 1
   %68 = load i8, ptr %67, align 1
   %69 = icmp ult i8 %68, 46
   br i1 %69, label %.thread.backedge, label %70
@@ -163,13 +163,13 @@ define hidden range(i32 0, 8) i32 @phar_path_check(ptr nocapture noundef %0, ptr
   br i1 %73, label %.loopexit, label %.thread.backedge
 
 74:                                               ; preds = %28
-  %75 = getelementptr inbounds i8, ptr %.0137, i64 1
+  %75 = getelementptr inbounds nuw i8, ptr %.0137, i64 1
   %76 = load i8, ptr %4, align 1
   %77 = icmp eq i8 %76, 47
   br i1 %77, label %78, label %80
 
 78:                                               ; preds = %74
-  %79 = getelementptr inbounds i8, ptr %4, i64 1
+  %79 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store ptr %79, ptr %0, align 8
   br label %80
 
@@ -183,51 +183,51 @@ define hidden range(i32 0, 8) i32 @phar_path_check(ptr nocapture noundef %0, ptr
   br label %.loopexit
 
 86:                                               ; preds = %38
-  %87 = getelementptr inbounds i8, ptr %.0137, i64 1
+  %87 = getelementptr inbounds nuw i8, ptr %.0137, i64 1
   %88 = load i8, ptr %87, align 1
   %or.cond = icmp slt i8 %88, -64
   br i1 %or.cond, label %64, label %.loopexit
 
 89:                                               ; preds = %40
-  %90 = getelementptr inbounds i8, ptr %.0137, i64 1
+  %90 = getelementptr inbounds nuw i8, ptr %.0137, i64 1
   %91 = load i8, ptr %90, align 1
   %92 = and i8 %91, -32
   %or.cond5 = icmp eq i8 %92, -96
   br i1 %or.cond5, label %119, label %.loopexit
 
 93:                                               ; preds = %44, %40
-  %94 = getelementptr inbounds i8, ptr %.0137, i64 1
+  %94 = getelementptr inbounds nuw i8, ptr %.0137, i64 1
   %95 = load i8, ptr %94, align 1
   %or.cond8 = icmp slt i8 %95, -64
   br i1 %or.cond8, label %119, label %.loopexit
 
 96:                                               ; preds = %44
-  %97 = getelementptr inbounds i8, ptr %.0137, i64 1
+  %97 = getelementptr inbounds nuw i8, ptr %.0137, i64 1
   %98 = load i8, ptr %97, align 1
   %or.cond11 = icmp slt i8 %98, -96
   br i1 %or.cond11, label %119, label %.loopexit
 
 99:                                               ; preds = %44
-  %100 = getelementptr inbounds i8, ptr %.0137, i64 1
+  %100 = getelementptr inbounds nuw i8, ptr %.0137, i64 1
   %101 = load i8, ptr %100, align 1
   %102 = add i8 %101, 112
   %or.cond14 = icmp ult i8 %102, 48
   br i1 %or.cond14, label %124, label %.loopexit
 
 103:                                              ; preds = %45
-  %104 = getelementptr inbounds i8, ptr %.0137, i64 1
+  %104 = getelementptr inbounds nuw i8, ptr %.0137, i64 1
   %105 = load i8, ptr %104, align 1
   %or.cond17 = icmp slt i8 %105, -64
   br i1 %or.cond17, label %124, label %.loopexit
 
 106:                                              ; preds = %47
-  %107 = getelementptr inbounds i8, ptr %.0137, i64 1
+  %107 = getelementptr inbounds nuw i8, ptr %.0137, i64 1
   %108 = load i8, ptr %107, align 1
   %or.cond20 = icmp slt i8 %108, -112
   br i1 %or.cond20, label %124, label %.loopexit
 
 109:                                              ; preds = %70
-  %110 = getelementptr inbounds i8, ptr %.0137, i64 2
+  %110 = getelementptr inbounds nuw i8, ptr %.0137, i64 2
   %111 = load i8, ptr %110, align 1
   %112 = icmp eq i8 %111, 0
   br i1 %112, label %.loopexit, label %113
@@ -250,20 +250,20 @@ define hidden range(i32 0, 8) i32 @phar_path_check(ptr nocapture noundef %0, ptr
 
 119:                                              ; preds = %124, %96, %93, %89
   %120 = phi i64 [ 1, %89 ], [ 1, %93 ], [ 1, %96 ], [ 2, %124 ]
-  %121 = getelementptr inbounds i8, ptr %.0137, i64 %120
-  %122 = getelementptr inbounds i8, ptr %121, i64 1
+  %121 = getelementptr inbounds nuw i8, ptr %.0137, i64 %120
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 1
   %123 = load i8, ptr %122, align 1
   %or.cond23 = icmp slt i8 %123, -64
   br i1 %or.cond23, label %64, label %.loopexit
 
 124:                                              ; preds = %106, %103, %99
-  %125 = getelementptr inbounds i8, ptr %.0137, i64 2
+  %125 = getelementptr inbounds nuw i8, ptr %.0137, i64 2
   %126 = load i8, ptr %125, align 1
   %or.cond26 = icmp slt i8 %126, -64
   br i1 %or.cond26, label %119, label %.loopexit
 
 127:                                              ; preds = %115
-  %128 = getelementptr inbounds i8, ptr %.0137, i64 3
+  %128 = getelementptr inbounds nuw i8, ptr %.0137, i64 3
   %129 = load i8, ptr %128, align 1
   switch i8 %129, label %.thread.backedge [
     i8 47, label %.loopexit

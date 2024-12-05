@@ -63,13 +63,13 @@ define dso_local void @_ZN4llvm5MachO13RecordVisitor17visitObjCCategoryERKNS0_18
 define dso_local void @_ZN4llvm5MachO15SymbolConverter11visitGlobalERKNS0_12GlobalRecordE(ptr noundef nonnull align 8 dereferenceable(41) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(21) %1) unnamed_addr #3 align 2 {
   %3 = alloca %"struct.llvm::MachO::SimpleSymbol", align 8
   %.sroa.0.0.copyload.i = load ptr, ptr %1, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   call void @_ZN4llvm5MachO11parseSymbolENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::MachO::SimpleSymbol") align 8 %3, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i) #9
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val = load i8, ptr %7, align 8
   %8 = icmp ult i8 %.val, 3
   %brmerge.not.i = and i1 %8, %6
@@ -83,7 +83,7 @@ define dso_local void @_ZN4llvm5MachO15SymbolConverter11visitGlobalERKNS0_12Glob
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %14 = load i8, ptr %13, align 8
   %.sroa.03.0.copyload = load ptr, ptr %3, align 8
-  %.sroa.24.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.24.0.copyload = load i64, ptr %.sroa.24.0..sroa_idx, align 8
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 17
   %16 = load i8, ptr %15, align 1
@@ -134,7 +134,7 @@ define dso_local void @_ZN4llvm5MachO15SymbolConverter8addIVarsENS_8ArrayRefIPNS
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 24
+  %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 24
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 33
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -156,7 +156,7 @@ define dso_local void @_ZN4llvm5MachO15SymbolConverter8addIVarsENS_8ArrayRefIPNS
 
 27:                                               ; preds = %20
   %.sroa.0.0.copyload.i = load ptr, ptr %21, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %21, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
@@ -183,7 +183,7 @@ define dso_local void @_ZN4llvm5MachO15SymbolConverter8addIVarsENS_8ArrayRefIPNS
   br label %34
 
 34:                                               ; preds = %20, %27
-  %35 = getelementptr inbounds i8, ptr %.017, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %.017, i64 8
   %.not = icmp eq ptr %35, %9
   br i1 %.not, label %._crit_edge, label %20
 
@@ -208,7 +208,7 @@ define dso_local void @_ZN4llvm5MachO15SymbolConverter18visitObjCInterfaceERKNS0
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load i8, ptr %12, align 8
   %14 = trunc i8 %13 to i1
-  %15 = getelementptr inbounds i8, ptr %1, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val = load i8, ptr %15, align 8
   %16 = icmp ult i8 %.val, 3
   %brmerge.not.i = and i1 %16, %14
@@ -230,7 +230,7 @@ define dso_local void @_ZN4llvm5MachO15SymbolConverter18visitObjCInterfaceERKNS0
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load ptr, ptr %27, align 8
   %.sroa.0.0.copyload.i = load ptr, ptr %1, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 17
   %30 = load i8, ptr %29, align 1
@@ -258,14 +258,14 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %39
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %43 = load ptr, ptr %42, align 8
   %.sroa.0.0.copyload.i35 = load ptr, ptr %1, align 8
-  %.sroa.2.0..sroa_idx.i36 = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.2.0..sroa_idx.i36 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.2.0.copyload.i37 = load i64, ptr %.sroa.2.0..sroa_idx.i36, align 8
   store ptr @.str.1, ptr %4, align 8, !alias.scope !15
-  %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 15, ptr %.sroa.23.0..sroa_idx.i.i.i, align 8, !alias.scope !15
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %.sroa.0.0.copyload.i35, ptr %44, align 8, !alias.scope !15
-  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %.sroa.2.0.copyload.i37, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !alias.scope !15
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i8 6, ptr %45, align 8, !alias.scope !15
@@ -290,14 +290,14 @@ _ZN4llvmplERKNS_5TwineES2_.exit59:                ; preds = %53
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %57 = load ptr, ptr %56, align 8
   %.sroa.0.0.copyload.i40 = load ptr, ptr %1, align 8
-  %.sroa.2.0..sroa_idx.i41 = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.2.0..sroa_idx.i41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.2.0.copyload.i42 = load i64, ptr %.sroa.2.0..sroa_idx.i41, align 8
   store ptr @.str.3, ptr %6, align 8, !alias.scope !20
-  %.sroa.23.0..sroa_idx.i.i.i57 = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.23.0..sroa_idx.i.i.i57 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 14, ptr %.sroa.23.0..sroa_idx.i.i.i57, align 8, !alias.scope !20
   %58 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %.sroa.0.0.copyload.i40, ptr %58, align 8, !alias.scope !20
-  %.sroa.2.0..sroa_idx.i.i.i58 = getelementptr inbounds i8, ptr %6, i64 24
+  %.sroa.2.0..sroa_idx.i.i.i58 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 %.sroa.2.0.copyload.i42, ptr %.sroa.2.0..sroa_idx.i.i.i58, align 8, !alias.scope !20
   %59 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i8 6, ptr %59, align 8, !alias.scope !20
@@ -322,14 +322,14 @@ _ZN4llvmplERKNS_5TwineES2_.exit79:                ; preds = %67
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %71 = load ptr, ptr %70, align 8
   %.sroa.0.0.copyload.i60 = load ptr, ptr %1, align 8
-  %.sroa.2.0..sroa_idx.i61 = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.2.0..sroa_idx.i61 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.2.0.copyload.i62 = load i64, ptr %.sroa.2.0..sroa_idx.i61, align 8
   store ptr @.str.5, ptr %8, align 8, !alias.scope !25
-  %.sroa.23.0..sroa_idx.i.i.i77 = getelementptr inbounds i8, ptr %8, i64 8
+  %.sroa.23.0..sroa_idx.i.i.i77 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 18, ptr %.sroa.23.0..sroa_idx.i.i.i77, align 8, !alias.scope !25
   %72 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %.sroa.0.0.copyload.i60, ptr %72, align 8, !alias.scope !25
-  %.sroa.2.0..sroa_idx.i.i.i78 = getelementptr inbounds i8, ptr %8, i64 24
+  %.sroa.2.0..sroa_idx.i.i.i78 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 %.sroa.2.0.copyload.i62, ptr %.sroa.2.0..sroa_idx.i.i.i78, align 8, !alias.scope !25
   %73 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i8 6, ptr %73, align 8, !alias.scope !25
@@ -355,7 +355,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit79:                ; preds = %67
   %87 = sub i64 %85, %86
   %88 = ashr exact i64 %87, 3
   %.sroa.0.0.copyload.i80 = load ptr, ptr %1, align 8
-  %.sroa.2.0..sroa_idx.i81 = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.2.0..sroa_idx.i81 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.2.0.copyload.i82 = load i64, ptr %.sroa.2.0..sroa_idx.i81, align 8
   call void @_ZN4llvm5MachO15SymbolConverter8addIVarsENS_8ArrayRefIPNS0_14ObjCIVarRecordEEENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(41) %0, ptr %82, i64 %88, ptr %.sroa.0.0.copyload.i80, i64 %.sroa.2.0.copyload.i82)
   %89 = load ptr, ptr %9, align 8
@@ -431,7 +431,7 @@ _ZNSt6vectorIPN4llvm5MachO18ObjCCategoryRecordESaIS3_EED2Ev.exit: ; preds = %._c
   br label %_ZNSt6vectorIPN4llvm5MachO14ObjCIVarRecordESaIS3_EED2Ev.exit92
 
 _ZNSt6vectorIPN4llvm5MachO14ObjCIVarRecordESaIS3_EED2Ev.exit92: ; preds = %108, %117
-  %122 = getelementptr inbounds i8, ptr %.sroa.094.0113, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %.sroa.094.0113, i64 8
   %.not111 = icmp eq ptr %122, %98
   br i1 %.not111, label %._crit_edge.loopexit, label %108
 }
@@ -455,7 +455,7 @@ define dso_local void @_ZN4llvm5MachO15SymbolConverter17visitObjCCategoryERKNS0_
   %10 = ashr exact i64 %9, 3
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %.sroa.0.0.copyload.i = load ptr, ptr %11, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 72
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   call void @_ZN4llvm5MachO15SymbolConverter8addIVarsENS_8ArrayRefIPNS0_14ObjCIVarRecordEEENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(41) %0, ptr %4, i64 %10, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i)
   %12 = load ptr, ptr %3, align 8

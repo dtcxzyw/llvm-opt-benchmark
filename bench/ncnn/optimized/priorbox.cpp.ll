@@ -104,7 +104,7 @@ define hidden noundef i32 @_ZN4ncnn8PriorBox10load_paramERKNS_9ParamDictE(ptr no
 
 29:                                               ; preds = %25
   %30 = load ptr, ptr %27, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %32 = load ptr, ptr %31, align 8
   invoke void %32(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef %28)
           to label %35 unwind label %320
@@ -179,7 +179,7 @@ define hidden noundef i32 @_ZN4ncnn8PriorBox10load_paramERKNS_9ParamDictE(ptr no
 
 73:                                               ; preds = %69
   %74 = load ptr, ptr %71, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 24
   %76 = load ptr, ptr %75, align 8
   invoke void %76(ptr noundef nonnull align 8 dereferenceable(8) %71, ptr noundef %72)
           to label %79 unwind label %83
@@ -222,7 +222,7 @@ define hidden noundef i32 @_ZN4ncnn8PriorBox10load_paramERKNS_9ParamDictE(ptr no
 
 92:                                               ; preds = %89
   %93 = load ptr, ptr %90, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 24
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 24
   %95 = load ptr, ptr %94, align 8
   invoke void %95(ptr noundef nonnull align 8 dereferenceable(8) %90, ptr noundef %91)
           to label %98 unwind label %103
@@ -291,7 +291,7 @@ define hidden noundef i32 @_ZN4ncnn8PriorBox10load_paramERKNS_9ParamDictE(ptr no
 
 122:                                              ; preds = %118
   %123 = load ptr, ptr %120, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 24
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 24
   %125 = load ptr, ptr %124, align 8
   invoke void %125(ptr noundef nonnull align 8 dereferenceable(8) %120, ptr noundef %121)
           to label %128 unwind label %360
@@ -366,7 +366,7 @@ define hidden noundef i32 @_ZN4ncnn8PriorBox10load_paramERKNS_9ParamDictE(ptr no
 
 166:                                              ; preds = %162
   %167 = load ptr, ptr %164, align 8
-  %168 = getelementptr inbounds i8, ptr %167, i64 24
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 24
   %169 = load ptr, ptr %168, align 8
   invoke void %169(ptr noundef nonnull align 8 dereferenceable(8) %164, ptr noundef %165)
           to label %172 unwind label %176
@@ -409,7 +409,7 @@ define hidden noundef i32 @_ZN4ncnn8PriorBox10load_paramERKNS_9ParamDictE(ptr no
 
 185:                                              ; preds = %182
   %186 = load ptr, ptr %183, align 8
-  %187 = getelementptr inbounds i8, ptr %186, i64 24
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 24
   %188 = load ptr, ptr %187, align 8
   invoke void %188(ptr noundef nonnull align 8 dereferenceable(8) %183, ptr noundef %184)
           to label %191 unwind label %195
@@ -477,7 +477,7 @@ define hidden noundef i32 @_ZN4ncnn8PriorBox10load_paramERKNS_9ParamDictE(ptr no
 
 214:                                              ; preds = %210
   %215 = load ptr, ptr %212, align 8
-  %216 = getelementptr inbounds i8, ptr %215, i64 24
+  %216 = getelementptr inbounds nuw i8, ptr %215, i64 24
   %217 = load ptr, ptr %216, align 8
   invoke void %217(ptr noundef nonnull align 8 dereferenceable(8) %212, ptr noundef %213)
           to label %220 unwind label %400
@@ -552,7 +552,7 @@ define hidden noundef i32 @_ZN4ncnn8PriorBox10load_paramERKNS_9ParamDictE(ptr no
 
 258:                                              ; preds = %254
   %259 = load ptr, ptr %256, align 8
-  %260 = getelementptr inbounds i8, ptr %259, i64 24
+  %260 = getelementptr inbounds nuw i8, ptr %259, i64 24
   %261 = load ptr, ptr %260, align 8
   invoke void %261(ptr noundef nonnull align 8 dereferenceable(8) %256, ptr noundef %257)
           to label %264 unwind label %268
@@ -595,7 +595,7 @@ define hidden noundef i32 @_ZN4ncnn8PriorBox10load_paramERKNS_9ParamDictE(ptr no
 
 277:                                              ; preds = %274
   %278 = load ptr, ptr %275, align 8
-  %279 = getelementptr inbounds i8, ptr %278, i64 24
+  %279 = getelementptr inbounds nuw i8, ptr %278, i64 24
   %280 = load ptr, ptr %279, align 8
   invoke void %280(ptr noundef nonnull align 8 dereferenceable(8) %275, ptr noundef %276)
           to label %283 unwind label %315
@@ -617,13 +617,13 @@ define hidden noundef i32 @_ZN4ncnn8PriorBox10load_paramERKNS_9ParamDictE(ptr no
   %286 = getelementptr inbounds nuw i8, ptr %0, i64 424
   store float %285, ptr %286, align 8
   %287 = call fast noundef nofpclass(nan inf) float @_ZNK4ncnn9ParamDict3getEif(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 4, float noundef nofpclass(nan inf) 0x3FB99999A0000000)
-  %288 = getelementptr inbounds i8, ptr %0, i64 428
+  %288 = getelementptr inbounds nuw i8, ptr %0, i64 428
   store float %287, ptr %288, align 4
   %289 = call fast noundef nofpclass(nan inf) float @_ZNK4ncnn9ParamDict3getEif(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 5, float noundef nofpclass(nan inf) 0x3FC99999A0000000)
-  %290 = getelementptr inbounds i8, ptr %0, i64 432
+  %290 = getelementptr inbounds nuw i8, ptr %0, i64 432
   store float %289, ptr %290, align 8
   %291 = call fast noundef nofpclass(nan inf) float @_ZNK4ncnn9ParamDict3getEif(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 6, float noundef nofpclass(nan inf) 0x3FC99999A0000000)
-  %292 = getelementptr inbounds i8, ptr %0, i64 436
+  %292 = getelementptr inbounds nuw i8, ptr %0, i64 436
   store float %291, ptr %292, align 4
   %293 = call noundef i32 @_ZNK4ncnn9ParamDict3getEii(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 7, i32 noundef 1)
   %294 = getelementptr inbounds nuw i8, ptr %0, i64 440
@@ -691,7 +691,7 @@ define hidden noundef i32 @_ZN4ncnn8PriorBox10load_paramERKNS_9ParamDictE(ptr no
 
 330:                                              ; preds = %326
   %331 = load ptr, ptr %328, align 8
-  %332 = getelementptr inbounds i8, ptr %331, i64 24
+  %332 = getelementptr inbounds nuw i8, ptr %331, i64 24
   %333 = load ptr, ptr %332, align 8
   invoke void %333(ptr noundef nonnull align 8 dereferenceable(8) %328, ptr noundef %329)
           to label %336 unwind label %339
@@ -738,7 +738,7 @@ define hidden noundef i32 @_ZN4ncnn8PriorBox10load_paramERKNS_9ParamDictE(ptr no
 
 350:                                              ; preds = %347
   %351 = load ptr, ptr %348, align 8
-  %352 = getelementptr inbounds i8, ptr %351, i64 24
+  %352 = getelementptr inbounds nuw i8, ptr %351, i64 24
   %353 = load ptr, ptr %352, align 8
   invoke void %353(ptr noundef nonnull align 8 dereferenceable(8) %348, ptr noundef %349)
           to label %438 unwind label %355
@@ -780,7 +780,7 @@ define hidden noundef i32 @_ZN4ncnn8PriorBox10load_paramERKNS_9ParamDictE(ptr no
 
 370:                                              ; preds = %366
   %371 = load ptr, ptr %368, align 8
-  %372 = getelementptr inbounds i8, ptr %371, i64 24
+  %372 = getelementptr inbounds nuw i8, ptr %371, i64 24
   %373 = load ptr, ptr %372, align 8
   invoke void %373(ptr noundef nonnull align 8 dereferenceable(8) %368, ptr noundef %369)
           to label %376 unwind label %379
@@ -827,7 +827,7 @@ define hidden noundef i32 @_ZN4ncnn8PriorBox10load_paramERKNS_9ParamDictE(ptr no
 
 390:                                              ; preds = %387
   %391 = load ptr, ptr %388, align 8
-  %392 = getelementptr inbounds i8, ptr %391, i64 24
+  %392 = getelementptr inbounds nuw i8, ptr %391, i64 24
   %393 = load ptr, ptr %392, align 8
   invoke void %393(ptr noundef nonnull align 8 dereferenceable(8) %388, ptr noundef %389)
           to label %438 unwind label %395
@@ -869,7 +869,7 @@ define hidden noundef i32 @_ZN4ncnn8PriorBox10load_paramERKNS_9ParamDictE(ptr no
 
 410:                                              ; preds = %406
   %411 = load ptr, ptr %408, align 8
-  %412 = getelementptr inbounds i8, ptr %411, i64 24
+  %412 = getelementptr inbounds nuw i8, ptr %411, i64 24
   %413 = load ptr, ptr %412, align 8
   invoke void %413(ptr noundef nonnull align 8 dereferenceable(8) %408, ptr noundef %409)
           to label %416 unwind label %419
@@ -916,7 +916,7 @@ define hidden noundef i32 @_ZN4ncnn8PriorBox10load_paramERKNS_9ParamDictE(ptr no
 
 430:                                              ; preds = %427
   %431 = load ptr, ptr %428, align 8
-  %432 = getelementptr inbounds i8, ptr %431, i64 24
+  %432 = getelementptr inbounds nuw i8, ptr %431, i64 24
   %433 = load ptr, ptr %432, align 8
   invoke void %433(ptr noundef nonnull align 8 dereferenceable(8) %428, ptr noundef %429)
           to label %438 unwind label %435
@@ -1085,7 +1085,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8PriorBox7forwardERKSt6ve
   %indvars.iv491 = phi i64 [ 1, %._crit_edge.us394.us.us.us.us ], [ %indvars.iv.next492, %83 ]
   %.2279381.us.us.us.us.us = phi ptr [ %109, %._crit_edge.us394.us.us.us.us ], [ %96, %83 ]
   %84 = load ptr, ptr %47, align 8
-  %85 = getelementptr inbounds float, ptr %84, i64 %indvars.iv491
+  %85 = getelementptr inbounds nuw float, ptr %84, i64 %indvars.iv491
   %86 = load float, ptr %85, align 4
   %87 = tail call fast float @llvm.sqrt.f32(float %86)
   %.reass387.us.us.us.us.us = fmul fast float %factor.op.fmul378.reass.reass.us.us.us.us.us, %87
@@ -1093,15 +1093,15 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8PriorBox7forwardERKSt6ve
   %89 = fsub fast float %.0281390.us.us.us.us.us, %.reass387.us.us.us.us.us
   store float %89, ptr %.2279381.us.us.us.us.us, align 4
   %90 = fsub fast float %82, %88
-  %91 = getelementptr inbounds i8, ptr %.2279381.us.us.us.us.us, i64 4
+  %91 = getelementptr inbounds nuw i8, ptr %.2279381.us.us.us.us.us, i64 4
   store float %90, ptr %91, align 4
   %92 = fadd fast float %.reass387.us.us.us.us.us, %.0281390.us.us.us.us.us
-  %93 = getelementptr inbounds i8, ptr %.2279381.us.us.us.us.us, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %.2279381.us.us.us.us.us, i64 8
   store float %92, ptr %93, align 4
   %94 = fadd fast float %88, %82
-  %95 = getelementptr inbounds i8, ptr %.2279381.us.us.us.us.us, i64 12
+  %95 = getelementptr inbounds nuw i8, ptr %.2279381.us.us.us.us.us, i64 12
   store float %94, ptr %95, align 4
-  %96 = getelementptr inbounds i8, ptr %.2279381.us.us.us.us.us, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %.2279381.us.us.us.us.us, i64 16
   %indvars.iv.next492 = add nuw nsw i64 %indvars.iv491, 1
   %exitcond495.not = icmp eq i64 %indvars.iv.next492, %wide.trip.count494
   br i1 %exitcond495.not, label %._crit_edge384.us.us.us.us.us, label %83, !llvm.loop !4
@@ -1110,22 +1110,22 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8PriorBox7forwardERKSt6ve
   %indvars.iv486 = phi i64 [ %indvars.iv.next487, %97 ], [ 0, %.preheader.us.us.us.us.us ]
   %.1278375.us.us.us.us.us = phi ptr [ %109, %97 ], [ %.0277391.us.us.us.us.us, %.preheader.us.us.us.us.us ]
   %98 = load ptr, ptr %44, align 8
-  %99 = getelementptr inbounds float, ptr %98, i64 %indvars.iv486
+  %99 = getelementptr inbounds nuw float, ptr %98, i64 %indvars.iv486
   %100 = load float, ptr %99, align 4
   %.reass377.us.us.us.us.us = fmul fast float %factor.op.fmul, %100
   %101 = fmul fast float %100, 5.000000e-01
   %102 = fsub fast float %.0281390.us.us.us.us.us, %.reass377.us.us.us.us.us
   store float %102, ptr %.1278375.us.us.us.us.us, align 4
   %103 = fsub fast float %82, %101
-  %104 = getelementptr inbounds i8, ptr %.1278375.us.us.us.us.us, i64 4
+  %104 = getelementptr inbounds nuw i8, ptr %.1278375.us.us.us.us.us, i64 4
   store float %103, ptr %104, align 4
   %105 = fadd fast float %.reass377.us.us.us.us.us, %.0281390.us.us.us.us.us
-  %106 = getelementptr inbounds i8, ptr %.1278375.us.us.us.us.us, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %.1278375.us.us.us.us.us, i64 8
   store float %105, ptr %106, align 4
   %107 = fadd fast float %101, %82
-  %108 = getelementptr inbounds i8, ptr %.1278375.us.us.us.us.us, i64 12
+  %108 = getelementptr inbounds nuw i8, ptr %.1278375.us.us.us.us.us, i64 12
   store float %107, ptr %108, align 4
-  %109 = getelementptr inbounds i8, ptr %.1278375.us.us.us.us.us, i64 16
+  %109 = getelementptr inbounds nuw i8, ptr %.1278375.us.us.us.us.us, i64 16
   %indvars.iv.next487 = add nuw nsw i64 %indvars.iv486, 1
   %exitcond490.not = icmp eq i64 %indvars.iv.next487, %wide.trip.count489
   br i1 %exitcond490.not, label %._crit_edge.us394.us.us.us.us, label %97, !llvm.loop !6
@@ -1176,7 +1176,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8PriorBox7forwardERKSt6ve
   %indvars.iv475 = phi i64 [ %indvars.iv.next476, %128 ], [ 1, %.preheader.us.us.us ]
   %.2279381.us.us.us = phi ptr [ %141, %128 ], [ %.0277391.us.us.us, %.preheader.us.us.us ]
   %129 = load ptr, ptr %47, align 8
-  %130 = getelementptr inbounds float, ptr %129, i64 %indvars.iv475
+  %130 = getelementptr inbounds nuw float, ptr %129, i64 %indvars.iv475
   %131 = load float, ptr %130, align 4
   %132 = tail call fast float @llvm.sqrt.f32(float %131)
   %.reass387.us.us.us = fmul fast float %factor.op.fmul378.reass.reass.us.us.us, %132
@@ -1184,15 +1184,15 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8PriorBox7forwardERKSt6ve
   %134 = fsub fast float %.0281390.us.us.us, %.reass387.us.us.us
   store float %134, ptr %.2279381.us.us.us, align 4
   %135 = fsub fast float %124, %133
-  %136 = getelementptr inbounds i8, ptr %.2279381.us.us.us, i64 4
+  %136 = getelementptr inbounds nuw i8, ptr %.2279381.us.us.us, i64 4
   store float %135, ptr %136, align 4
   %137 = fadd fast float %.reass387.us.us.us, %.0281390.us.us.us
-  %138 = getelementptr inbounds i8, ptr %.2279381.us.us.us, i64 8
+  %138 = getelementptr inbounds nuw i8, ptr %.2279381.us.us.us, i64 8
   store float %137, ptr %138, align 4
   %139 = fadd fast float %133, %124
-  %140 = getelementptr inbounds i8, ptr %.2279381.us.us.us, i64 12
+  %140 = getelementptr inbounds nuw i8, ptr %.2279381.us.us.us, i64 12
   store float %139, ptr %140, align 4
-  %141 = getelementptr inbounds i8, ptr %.2279381.us.us.us, i64 16
+  %141 = getelementptr inbounds nuw i8, ptr %.2279381.us.us.us, i64 16
   %indvars.iv.next476 = add nuw nsw i64 %indvars.iv475, 1
   %exitcond479.not = icmp eq i64 %indvars.iv.next476, %wide.trip.count478
   br i1 %exitcond479.not, label %._crit_edge384.us.us.us, label %128, !llvm.loop !4
@@ -1240,22 +1240,22 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8PriorBox7forwardERKSt6ve
   %indvars.iv464 = phi i64 [ %indvars.iv.next465, %154 ], [ 0, %.preheader.us395.us.us ]
   %.1278375.us400.us.us = phi ptr [ %166, %154 ], [ %.0277391.us396.us.us, %.preheader.us395.us.us ]
   %155 = load ptr, ptr %44, align 8
-  %156 = getelementptr inbounds float, ptr %155, i64 %indvars.iv464
+  %156 = getelementptr inbounds nuw float, ptr %155, i64 %indvars.iv464
   %157 = load float, ptr %156, align 4
   %.reass377.us402.us.us = fmul fast float %factor.op.fmul, %157
   %158 = fmul fast float %157, 5.000000e-01
   %159 = fsub fast float %.0281390.us397.us.us, %.reass377.us402.us.us
   store float %159, ptr %.1278375.us400.us.us, align 4
   %160 = fsub fast float %153, %158
-  %161 = getelementptr inbounds i8, ptr %.1278375.us400.us.us, i64 4
+  %161 = getelementptr inbounds nuw i8, ptr %.1278375.us400.us.us, i64 4
   store float %160, ptr %161, align 4
   %162 = fadd fast float %.reass377.us402.us.us, %.0281390.us397.us.us
-  %163 = getelementptr inbounds i8, ptr %.1278375.us400.us.us, i64 8
+  %163 = getelementptr inbounds nuw i8, ptr %.1278375.us400.us.us, i64 8
   store float %162, ptr %163, align 4
   %164 = fadd fast float %158, %153
-  %165 = getelementptr inbounds i8, ptr %.1278375.us400.us.us, i64 12
+  %165 = getelementptr inbounds nuw i8, ptr %.1278375.us400.us.us, i64 12
   store float %164, ptr %165, align 4
-  %166 = getelementptr inbounds i8, ptr %.1278375.us400.us.us, i64 16
+  %166 = getelementptr inbounds nuw i8, ptr %.1278375.us400.us.us, i64 16
   %indvars.iv.next465 = add nuw nsw i64 %indvars.iv464, 1
   %exitcond468.not = icmp eq i64 %indvars.iv.next465, %wide.trip.count467
   br i1 %exitcond468.not, label %._crit_edge.us404.us.us, label %154, !llvm.loop !6
@@ -1286,7 +1286,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8PriorBox7forwardERKSt6ve
 
 .lr.ph422:                                        ; preds = %171, %.lr.ph422
   %indvars.iv502 = phi i64 [ %indvars.iv.next503, %.lr.ph422 ], [ 0, %171 ]
-  %176 = getelementptr inbounds float, ptr %172, i64 %indvars.iv502
+  %176 = getelementptr inbounds nuw float, ptr %172, i64 %indvars.iv502
   %177 = load float, ptr %176, align 4
   %178 = fcmp fast olt float %177, 0.000000e+00
   %.sroa.speculated319 = select i1 %178, float 0.000000e+00, float %177
@@ -1303,7 +1303,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8PriorBox7forwardERKSt6ve
   br i1 %18, label %.thread, label %186
 
 .thread:                                          ; preds = %26, %183
-  %184 = getelementptr inbounds i8, ptr %5, i64 116
+  %184 = getelementptr inbounds nuw i8, ptr %5, i64 116
   %185 = load i32, ptr %184, align 4
   br label %186
 
@@ -1312,7 +1312,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8PriorBox7forwardERKSt6ve
   br i1 %21, label %187, label %190
 
 187:                                              ; preds = %186
-  %188 = getelementptr inbounds i8, ptr %5, i64 120
+  %188 = getelementptr inbounds nuw i8, ptr %5, i64 120
   %189 = load i32, ptr %188, align 8
   br label %190
 
@@ -1470,7 +1470,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8PriorBox7forwardERKSt6ve
   %indvars.iv = phi i64 [ %indvars.iv.next, %279 ], [ 0, %.preheader324.us.us361 ]
   %.1275328.us344.us = phi ptr [ %295, %279 ], [ %.0274338.us.us364, %.preheader324.us.us361 ]
   %280 = load ptr, ptr %217, align 8
-  %281 = getelementptr inbounds float, ptr %280, i64 %indvars.iv
+  %281 = getelementptr inbounds nuw float, ptr %280, i64 %indvars.iv
   %282 = load float, ptr %281, align 4
   %283 = fmul fast float %282, 5.000000e-01
   %284 = fsub fast float %.1339.us.us363, %283
@@ -1478,17 +1478,17 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8PriorBox7forwardERKSt6ve
   store float %285, ptr %.1275328.us344.us, align 4
   %286 = fsub fast float %.0272.us, %283
   %287 = fmul fast float %286, %258
-  %288 = getelementptr inbounds i8, ptr %.1275328.us344.us, i64 4
+  %288 = getelementptr inbounds nuw i8, ptr %.1275328.us344.us, i64 4
   store float %287, ptr %288, align 4
   %289 = fadd fast float %283, %.1339.us.us363
   %290 = fmul fast float %289, %256
-  %291 = getelementptr inbounds i8, ptr %.1275328.us344.us, i64 8
+  %291 = getelementptr inbounds nuw i8, ptr %.1275328.us344.us, i64 8
   store float %290, ptr %291, align 4
   %292 = fadd fast float %283, %.0272.us
   %293 = fmul fast float %292, %258
-  %294 = getelementptr inbounds i8, ptr %.1275328.us344.us, i64 12
+  %294 = getelementptr inbounds nuw i8, ptr %.1275328.us344.us, i64 12
   store float %293, ptr %294, align 4
-  %295 = getelementptr inbounds i8, ptr %.1275328.us344.us, i64 16
+  %295 = getelementptr inbounds nuw i8, ptr %.1275328.us344.us, i64 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge331.split.split.us345.us, label %279, !llvm.loop !11
@@ -1512,7 +1512,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8PriorBox7forwardERKSt6ve
   %indvars.iv450 = phi i64 [ %indvars.iv.next451, %._crit_edge.us.us.us.us ], [ 0, %.preheader324.us.us.us ]
   %.1275328.us.us.us.us = phi ptr [ %.4.us.us.us.us, %._crit_edge.us.us.us.us ], [ %.0274338.us.us.us, %.preheader324.us.us.us ]
   %299 = load ptr, ptr %217, align 8
-  %300 = getelementptr inbounds float, ptr %299, i64 %indvars.iv450
+  %300 = getelementptr inbounds nuw float, ptr %299, i64 %indvars.iv450
   %301 = load float, ptr %300, align 4
   %302 = fmul fast float %301, 5.000000e-01
   %303 = fsub fast float %.1339.us.us.us, %302
@@ -1520,22 +1520,22 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8PriorBox7forwardERKSt6ve
   store float %304, ptr %.1275328.us.us.us.us, align 4
   %305 = fsub fast float %.0272.us, %302
   %306 = fmul fast float %305, %258
-  %307 = getelementptr inbounds i8, ptr %.1275328.us.us.us.us, i64 4
+  %307 = getelementptr inbounds nuw i8, ptr %.1275328.us.us.us.us, i64 4
   store float %306, ptr %307, align 4
   %308 = fadd fast float %302, %.1339.us.us.us
   %309 = fmul fast float %308, %256
-  %310 = getelementptr inbounds i8, ptr %.1275328.us.us.us.us, i64 8
+  %310 = getelementptr inbounds nuw i8, ptr %.1275328.us.us.us.us, i64 8
   store float %309, ptr %310, align 4
   %311 = fadd fast float %302, %.0272.us
   %312 = fmul fast float %311, %258
-  %313 = getelementptr inbounds i8, ptr %.1275328.us.us.us.us, i64 12
+  %313 = getelementptr inbounds nuw i8, ptr %.1275328.us.us.us.us, i64 12
   store float %312, ptr %313, align 4
-  %314 = getelementptr inbounds i8, ptr %.1275328.us.us.us.us, i64 16
+  %314 = getelementptr inbounds nuw i8, ptr %.1275328.us.us.us.us, i64 16
   br i1 %259, label %315, label %.lr.ph.us.us.us.us.preheader
 
 315:                                              ; preds = %298
   %316 = load ptr, ptr %220, align 8
-  %317 = getelementptr inbounds float, ptr %316, i64 %indvars.iv450
+  %317 = getelementptr inbounds nuw float, ptr %316, i64 %indvars.iv450
   %318 = load float, ptr %317, align 4
   %319 = fmul fast float %318, %301
   %320 = tail call fast float @llvm.sqrt.f32(float %319)
@@ -1545,17 +1545,17 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8PriorBox7forwardERKSt6ve
   store float %323, ptr %314, align 4
   %324 = fsub fast float %.0272.us, %321
   %325 = fmul fast float %324, %258
-  %326 = getelementptr inbounds i8, ptr %.1275328.us.us.us.us, i64 20
+  %326 = getelementptr inbounds nuw i8, ptr %.1275328.us.us.us.us, i64 20
   store float %325, ptr %326, align 4
   %327 = fadd fast float %321, %.1339.us.us.us
   %328 = fmul fast float %327, %256
-  %329 = getelementptr inbounds i8, ptr %.1275328.us.us.us.us, i64 24
+  %329 = getelementptr inbounds nuw i8, ptr %.1275328.us.us.us.us, i64 24
   store float %328, ptr %329, align 4
   %330 = fadd fast float %321, %.0272.us
   %331 = fmul fast float %330, %258
-  %332 = getelementptr inbounds i8, ptr %.1275328.us.us.us.us, i64 28
+  %332 = getelementptr inbounds nuw i8, ptr %.1275328.us.us.us.us, i64 28
   store float %331, ptr %332, align 4
-  %333 = getelementptr inbounds i8, ptr %.1275328.us.us.us.us, i64 32
+  %333 = getelementptr inbounds nuw i8, ptr %.1275328.us.us.us.us, i64 32
   br label %.lr.ph.us.us.us.us.preheader
 
 .lr.ph.us.us.us.us.preheader:                     ; preds = %315, %298
@@ -1566,7 +1566,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8PriorBox7forwardERKSt6ve
   %indvars.iv445 = phi i64 [ %indvars.iv.next446, %366 ], [ 0, %.lr.ph.us.us.us.us.preheader ]
   %.3326.us.us.us.us = phi ptr [ %.4.us.us.us.us, %366 ], [ %.3326.us.us.us.us.ph, %.lr.ph.us.us.us.us.preheader ]
   %334 = load ptr, ptr %223, align 8
-  %335 = getelementptr inbounds float, ptr %334, i64 %indvars.iv445
+  %335 = getelementptr inbounds nuw float, ptr %334, i64 %indvars.iv445
   %336 = load float, ptr %335, align 4
   %337 = tail call fast float @llvm.sqrt.f32(float %336)
   %338 = fmul fast float %302, %337
@@ -1576,17 +1576,17 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8PriorBox7forwardERKSt6ve
   %341 = fdiv fast float %302, %337
   %342 = fsub fast float %.0272.us, %341
   %343 = fmul fast float %342, %262
-  %344 = getelementptr inbounds i8, ptr %.3326.us.us.us.us, i64 4
+  %344 = getelementptr inbounds nuw i8, ptr %.3326.us.us.us.us, i64 4
   store float %343, ptr %344, align 4
   %345 = fadd fast float %338, %.1339.us.us.us
   %346 = fmul fast float %345, %263
-  %347 = getelementptr inbounds i8, ptr %.3326.us.us.us.us, i64 8
+  %347 = getelementptr inbounds nuw i8, ptr %.3326.us.us.us.us, i64 8
   store float %346, ptr %347, align 4
   %348 = fadd fast float %341, %.0272.us
   %349 = fmul fast float %348, %264
-  %350 = getelementptr inbounds i8, ptr %.3326.us.us.us.us, i64 12
+  %350 = getelementptr inbounds nuw i8, ptr %.3326.us.us.us.us, i64 12
   store float %349, ptr %350, align 4
-  %351 = getelementptr inbounds i8, ptr %.3326.us.us.us.us, i64 16
+  %351 = getelementptr inbounds nuw i8, ptr %.3326.us.us.us.us, i64 16
   %352 = load i32, ptr %227, align 8
   %.not301.us.us.us.us = icmp eq i32 %352, 0
   br i1 %.not301.us.us.us.us, label %366, label %353
@@ -1597,17 +1597,17 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8PriorBox7forwardERKSt6ve
   store float %355, ptr %351, align 4
   %356 = fsub fast float %.0272.us, %338
   %357 = fmul fast float %356, %266
-  %358 = getelementptr inbounds i8, ptr %.3326.us.us.us.us, i64 20
+  %358 = getelementptr inbounds nuw i8, ptr %.3326.us.us.us.us, i64 20
   store float %357, ptr %358, align 4
   %359 = fadd fast float %341, %.1339.us.us.us
   %360 = fmul fast float %359, %267
-  %361 = getelementptr inbounds i8, ptr %.3326.us.us.us.us, i64 24
+  %361 = getelementptr inbounds nuw i8, ptr %.3326.us.us.us.us, i64 24
   store float %360, ptr %361, align 4
   %362 = fadd fast float %338, %.0272.us
   %363 = fmul fast float %362, %268
-  %364 = getelementptr inbounds i8, ptr %.3326.us.us.us.us, i64 28
+  %364 = getelementptr inbounds nuw i8, ptr %.3326.us.us.us.us, i64 28
   store float %363, ptr %364, align 4
-  %365 = getelementptr inbounds i8, ptr %.3326.us.us.us.us, i64 32
+  %365 = getelementptr inbounds nuw i8, ptr %.3326.us.us.us.us, i64 32
   br label %366
 
 366:                                              ; preds = %353, %.lr.ph.us.us.us.us
@@ -1637,7 +1637,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8PriorBox7forwardERKSt6ve
   %indvars.iv439 = phi i64 [ %indvars.iv.next440, %369 ], [ 0, %.preheader324.us.us350.us ]
   %.1275328.us334.us.us.us = phi ptr [ %403, %369 ], [ %.0274338.us.us353.us, %.preheader324.us.us350.us ]
   %370 = load ptr, ptr %217, align 8
-  %371 = getelementptr inbounds float, ptr %370, i64 %indvars.iv439
+  %371 = getelementptr inbounds nuw float, ptr %370, i64 %indvars.iv439
   %372 = load float, ptr %371, align 4
   %373 = fmul fast float %372, 5.000000e-01
   %374 = fsub fast float %.1339.us.us352.us, %373
@@ -1645,19 +1645,19 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8PriorBox7forwardERKSt6ve
   store float %375, ptr %.1275328.us334.us.us.us, align 4
   %376 = fsub fast float %.0272.us, %373
   %377 = fmul fast float %376, %258
-  %378 = getelementptr inbounds i8, ptr %.1275328.us334.us.us.us, i64 4
+  %378 = getelementptr inbounds nuw i8, ptr %.1275328.us334.us.us.us, i64 4
   store float %377, ptr %378, align 4
   %379 = fadd fast float %373, %.1339.us.us352.us
   %380 = fmul fast float %379, %256
-  %381 = getelementptr inbounds i8, ptr %.1275328.us334.us.us.us, i64 8
+  %381 = getelementptr inbounds nuw i8, ptr %.1275328.us334.us.us.us, i64 8
   store float %380, ptr %381, align 4
   %382 = fadd fast float %373, %.0272.us
   %383 = fmul fast float %382, %258
-  %384 = getelementptr inbounds i8, ptr %.1275328.us334.us.us.us, i64 12
+  %384 = getelementptr inbounds nuw i8, ptr %.1275328.us334.us.us.us, i64 12
   store float %383, ptr %384, align 4
-  %385 = getelementptr inbounds i8, ptr %.1275328.us334.us.us.us, i64 16
+  %385 = getelementptr inbounds nuw i8, ptr %.1275328.us334.us.us.us, i64 16
   %386 = load ptr, ptr %220, align 8
-  %387 = getelementptr inbounds float, ptr %386, i64 %indvars.iv439
+  %387 = getelementptr inbounds nuw float, ptr %386, i64 %indvars.iv439
   %388 = load float, ptr %387, align 4
   %389 = fmul fast float %388, %372
   %390 = tail call fast float @llvm.sqrt.f32(float %389)
@@ -1667,17 +1667,17 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8PriorBox7forwardERKSt6ve
   store float %393, ptr %385, align 4
   %394 = fsub fast float %.0272.us, %391
   %395 = fmul fast float %394, %258
-  %396 = getelementptr inbounds i8, ptr %.1275328.us334.us.us.us, i64 20
+  %396 = getelementptr inbounds nuw i8, ptr %.1275328.us334.us.us.us, i64 20
   store float %395, ptr %396, align 4
   %397 = fadd fast float %391, %.1339.us.us352.us
   %398 = fmul fast float %397, %256
-  %399 = getelementptr inbounds i8, ptr %.1275328.us334.us.us.us, i64 24
+  %399 = getelementptr inbounds nuw i8, ptr %.1275328.us334.us.us.us, i64 24
   store float %398, ptr %399, align 4
   %400 = fadd fast float %391, %.0272.us
   %401 = fmul fast float %400, %258
-  %402 = getelementptr inbounds i8, ptr %.1275328.us334.us.us.us, i64 28
+  %402 = getelementptr inbounds nuw i8, ptr %.1275328.us334.us.us.us, i64 28
   store float %401, ptr %402, align 4
-  %403 = getelementptr inbounds i8, ptr %.1275328.us334.us.us.us, i64 32
+  %403 = getelementptr inbounds nuw i8, ptr %.1275328.us334.us.us.us, i64 32
   %indvars.iv.next440 = add nuw nsw i64 %indvars.iv439, 1
   %exitcond443.not = icmp eq i64 %indvars.iv.next440, %wide.trip.count442
   br i1 %exitcond443.not, label %._crit_edge331.split.split.us.us.us.us, label %369, !llvm.loop !11
@@ -1708,7 +1708,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8PriorBox7forwardERKSt6ve
 
 .lr.ph370:                                        ; preds = %408, %.lr.ph370
   %indvars.iv461 = phi i64 [ %indvars.iv.next462, %.lr.ph370 ], [ 0, %408 ]
-  %413 = getelementptr inbounds float, ptr %409, i64 %indvars.iv461
+  %413 = getelementptr inbounds nuw float, ptr %409, i64 %indvars.iv461
   %414 = load float, ptr %413, align 4
   %415 = fcmp fast olt float %414, 0.000000e+00
   %.sroa.speculated311 = select i1 %415, float 0.000000e+00, float %414
@@ -1735,9 +1735,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8PriorBox7forwardERKSt6ve
   %427 = mul i64 %425, %426
   %428 = getelementptr inbounds i8, ptr %423, i64 %427
   %429 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %430 = getelementptr inbounds i8, ptr %0, i64 428
-  %431 = getelementptr inbounds i8, ptr %0, i64 432
-  %432 = getelementptr inbounds i8, ptr %0, i64 436
+  %430 = getelementptr inbounds nuw i8, ptr %0, i64 428
+  %431 = getelementptr inbounds nuw i8, ptr %0, i64 432
+  %432 = getelementptr inbounds nuw i8, ptr %0, i64 436
   br label %433
 
 433:                                              ; preds = %.lr.ph373, %433
@@ -1746,15 +1746,15 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8PriorBox7forwardERKSt6ve
   %434 = load float, ptr %429, align 8
   store float %434, ptr %.0263371, align 4
   %435 = load float, ptr %430, align 4
-  %436 = getelementptr inbounds i8, ptr %.0263371, i64 4
+  %436 = getelementptr inbounds nuw i8, ptr %.0263371, i64 4
   store float %435, ptr %436, align 4
   %437 = load float, ptr %431, align 8
-  %438 = getelementptr inbounds i8, ptr %.0263371, i64 8
+  %438 = getelementptr inbounds nuw i8, ptr %.0263371, i64 8
   store float %437, ptr %438, align 4
   %439 = load float, ptr %432, align 4
-  %440 = getelementptr inbounds i8, ptr %.0263371, i64 12
+  %440 = getelementptr inbounds nuw i8, ptr %.0263371, i64 12
   store float %439, ptr %440, align 4
-  %441 = getelementptr inbounds i8, ptr %.0263371, i64 16
+  %441 = getelementptr inbounds nuw i8, ptr %.0263371, i64 16
   %442 = add nuw nsw i32 %.0372, 1
   %443 = load i32, ptr %421, align 4
   %444 = sdiv i32 %443, 4
@@ -1799,7 +1799,7 @@ define linkonce_odr hidden void @_ZN4ncnn8PriorBoxD2Ev(ptr noundef nonnull align
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %10, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
   invoke void %15(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %11)
           to label %18 unwind label %24
@@ -1845,7 +1845,7 @@ define linkonce_odr hidden void @_ZN4ncnn8PriorBoxD2Ev(ptr noundef nonnull align
 
 34:                                               ; preds = %30
   %35 = load ptr, ptr %32, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   invoke void %37(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef %33)
           to label %40 unwind label %46
@@ -1891,7 +1891,7 @@ define linkonce_odr hidden void @_ZN4ncnn8PriorBoxD2Ev(ptr noundef nonnull align
 
 56:                                               ; preds = %52
   %57 = load ptr, ptr %54, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %59 = load ptr, ptr %58, align 8
   invoke void %59(ptr noundef nonnull align 8 dereferenceable(8) %54, ptr noundef %55)
           to label %62 unwind label %65

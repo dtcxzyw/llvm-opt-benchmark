@@ -65,7 +65,7 @@ define hidden void @callback(ptr nocapture readnone %0, i32 %1, ptr noundef %2) 
   %4 = load ptr, ptr @jvm_xawt, align 8
   %5 = tail call ptr @JNU_GetEnv(ptr noundef %4, i32 noundef 65538) #5
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 1128
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1128
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr @jTaskbarCls, align 8
   %10 = load ptr, ptr @jTaskbarCallback, align 8
@@ -78,12 +78,12 @@ declare ptr @JNU_GetEnv(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XTaskbarPeer_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 168
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 168
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr %8(ptr noundef nonnull %0, ptr noundef %1) #5
   store ptr %9, ptr @jTaskbarCls, align 8
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 904
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 904
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr %12(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #5
   store ptr %13, ptr @jTaskbarCallback, align 8
@@ -92,7 +92,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XTaskbarPeer_init(ptr noundef
 
 15:                                               ; preds = %5
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr %18(ptr noundef nonnull %0, ptr noundef nonnull @.str.2) #5
   %20 = icmp eq ptr %19, null
@@ -100,7 +100,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XTaskbarPeer_init(ptr noundef
 
 21:                                               ; preds = %15
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 264
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 264
   %24 = load ptr, ptr %23, align 8
   %25 = tail call ptr %24(ptr noundef nonnull %0, ptr noundef nonnull %19, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4) #5
   store ptr %25, ptr @jMenuItemGetLabel, align 8
@@ -120,7 +120,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XTaskbarPeer_init(ptr noundef
 
 32:                                               ; preds = %30
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 1352
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 1352
   %35 = load ptr, ptr %34, align 8
   %36 = tail call ptr %35(ptr noundef nonnull %0, ptr noundef %2, ptr noundef null) #5
   %.not26 = icmp eq ptr %36, null
@@ -131,7 +131,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XTaskbarPeer_init(ptr noundef
   %39 = tail call ptr %38(ptr noundef nonnull %36) #5
   store ptr %39, ptr @entry, align 8
   %40 = load ptr, ptr %0, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 1360
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 1360
   %42 = load ptr, ptr %41, align 8
   tail call void %42(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %36) #5
   br label %43
@@ -146,15 +146,15 @@ declare i32 @gtk_load(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr 
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_awt_X11_XTaskbarPeer_runloop(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @gtk, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 248
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 248
   %5 = load ptr, ptr %4, align 8
   tail call void %5() #5
   %6 = load ptr, ptr @gtk, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 432
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 432
   %8 = load ptr, ptr %7, align 8
   tail call void %8() #5
   %9 = load ptr, ptr @gtk, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 256
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 256
   %11 = load ptr, ptr %10, align 8
   tail call void %11() #5
   ret void
@@ -163,7 +163,7 @@ define void @Java_sun_awt_X11_XTaskbarPeer_runloop(ptr nocapture noundef readnon
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_awt_X11_XTaskbarPeer_setBadge(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr @gtk, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 248
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 248
   %7 = load ptr, ptr %6, align 8
   tail call void %7() #5
   %8 = load ptr, ptr @fp_unity_launcher_entry_set_count, align 8
@@ -187,7 +187,7 @@ define void @Java_sun_awt_X11_XTaskbarPeer_setBadge(ptr nocapture noundef readno
 
 19:                                               ; preds = %16, %4
   %20 = load ptr, ptr @gtk, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 256
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 256
   %22 = load ptr, ptr %21, align 8
   tail call void %22() #5
   ret void
@@ -196,7 +196,7 @@ define void @Java_sun_awt_X11_XTaskbarPeer_setBadge(ptr nocapture noundef readno
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_awt_X11_XTaskbarPeer_setUrgent(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @gtk, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 248
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 248
   %6 = load ptr, ptr %5, align 8
   tail call void %6() #5
   %7 = load ptr, ptr @fp_unity_launcher_entry_set_urgent, align 8
@@ -217,7 +217,7 @@ define void @Java_sun_awt_X11_XTaskbarPeer_setUrgent(ptr nocapture noundef readn
 
 16:                                               ; preds = %13, %3
   %17 = load ptr, ptr @gtk, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 256
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 256
   %19 = load ptr, ptr %18, align 8
   tail call void %19() #5
   ret void
@@ -226,7 +226,7 @@ define void @Java_sun_awt_X11_XTaskbarPeer_setUrgent(ptr nocapture noundef readn
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_awt_X11_XTaskbarPeer_updateProgress(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, double noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr @gtk, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 248
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 248
   %7 = load ptr, ptr %6, align 8
   tail call void %7() #5
   %8 = load ptr, ptr @fp_unity_launcher_entry_set_progress, align 8
@@ -250,7 +250,7 @@ define void @Java_sun_awt_X11_XTaskbarPeer_updateProgress(ptr nocapture noundef 
 
 19:                                               ; preds = %16, %4
   %20 = load ptr, ptr @gtk, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 256
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 256
   %22 = load ptr, ptr %21, align 8
   tail call void %22() #5
   ret void
@@ -261,7 +261,7 @@ define hidden void @deleteGlobalRef(ptr noundef %0) #0 {
   %2 = load ptr, ptr @jvm_xawt, align 8
   %3 = tail call ptr @JNU_GetEnv(ptr noundef %2, i32 noundef 65538) #5
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 176
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 176
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull %3, ptr noundef %0) #5
   ret void
@@ -270,7 +270,7 @@ define hidden void @deleteGlobalRef(ptr noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define hidden void @fill_menu(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 1368
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1368
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 %5(ptr noundef nonnull %0, ptr noundef %1) #5
   %7 = icmp sgt i32 %6, 0
@@ -279,11 +279,11 @@ define hidden void @fill_menu(ptr noundef %0, ptr noundef %1) local_unnamed_addr
 .lr.ph:                                           ; preds = %2, %64
   %.041 = phi i32 [ %65, %64 ], [ 0, %2 ]
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 1384
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1384
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr %10(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %.041) #5
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 1824
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1824
   %14 = load ptr, ptr %13, align 8
   %15 = tail call zeroext i8 %14(ptr noundef nonnull %0) #5
   %.not = icmp eq i8 %15, 0
@@ -291,22 +291,22 @@ define hidden void @fill_menu(ptr noundef %0, ptr noundef %1) local_unnamed_addr
 
 16:                                               ; preds = %.lr.ph
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 168
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 168
   %19 = load ptr, ptr %18, align 8
   %20 = tail call ptr %19(ptr noundef nonnull %0, ptr noundef %11) #5
   %21 = load ptr, ptr @gtk, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 512
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 512
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr @globalRefs, align 8
   %25 = tail call ptr %23(ptr noundef %24, ptr noundef %20) #5
   store ptr %25, ptr @globalRefs, align 8
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 272
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 272
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr @jMenuItemGetLabel, align 8
   %30 = tail call ptr (ptr, ptr, ptr, ...) %28(ptr noundef nonnull %0, ptr noundef %20, ptr noundef %29) #5
   %31 = load ptr, ptr %0, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 1824
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 1824
   %33 = load ptr, ptr %32, align 8
   %34 = tail call zeroext i8 %33(ptr noundef nonnull %0) #5
   %35 = icmp eq i8 %34, 0
@@ -316,7 +316,7 @@ define hidden void @fill_menu(ptr noundef %0, ptr noundef %1) local_unnamed_addr
 
 37:                                               ; preds = %16
   %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 1352
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 1352
   %40 = load ptr, ptr %39, align 8
   %41 = tail call ptr %40(ptr noundef nonnull %0, ptr noundef nonnull %30, ptr noundef null) #5
   %.not39 = icmp eq ptr %41, null
@@ -330,7 +330,7 @@ sub_0:                                            ; preds = %37
   br i1 %.not43, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
-  %45 = getelementptr inbounds i8, ptr %41, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %41, i64 1
   %46 = load i8, ptr %45, align 1
   %47 = icmp eq i8 %46, 0
   br i1 %47, label %48, label %.tail.thread
@@ -347,14 +347,14 @@ sub_0:                                            ; preds = %37
 
 53:                                               ; preds = %.tail.thread, %48
   %54 = load ptr, ptr %0, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 1360
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 1360
   %56 = load ptr, ptr %55, align 8
   tail call void %56(ptr noundef nonnull %0, ptr noundef nonnull %30, ptr noundef nonnull %41) #5
   %57 = load ptr, ptr @fp_dbusmenu_menuitem_child_append, align 8
   %58 = load ptr, ptr @menu, align 8
   %59 = tail call i32 %57(ptr noundef %58, ptr noundef %43) #5
   %60 = load ptr, ptr @gtk, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 416
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 416
   %62 = load ptr, ptr %61, align 8
   %63 = tail call i64 %62(ptr noundef %43, ptr noundef nonnull @.str.9, ptr noundef nonnull @callback, ptr noundef %20, ptr noundef null, i32 noundef 0) #5
   br label %64
@@ -371,7 +371,7 @@ sub_0:                                            ; preds = %37
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_awt_X11_XTaskbarPeer_setNativeMenu(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @gtk, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 248
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 248
   %6 = load ptr, ptr %5, align 8
   tail call void %6() #5
   %7 = load ptr, ptr @menu, align 8
@@ -393,13 +393,13 @@ define void @Java_sun_awt_X11_XTaskbarPeer_setNativeMenu(ptr noundef %0, ptr noc
   %15 = load ptr, ptr @fp_dbusmenu_menuitem_take_children, align 8
   %16 = tail call ptr %15(ptr noundef %14) #5
   %17 = load ptr, ptr @gtk, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 528
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 528
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %17, i64 504
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 504
   %21 = load ptr, ptr %20, align 8
   tail call void %19(ptr noundef %16, ptr noundef %21) #5
   %22 = load ptr, ptr @gtk, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 528
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 528
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr @globalRefs, align 8
   tail call void %24(ptr noundef %25, ptr noundef nonnull @deleteGlobalRef) #5
@@ -413,7 +413,7 @@ define void @Java_sun_awt_X11_XTaskbarPeer_setNativeMenu(ptr noundef %0, ptr noc
 
 27:                                               ; preds = %26, %13
   %28 = load ptr, ptr @gtk, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 256
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 256
   %30 = load ptr, ptr %29, align 8
   tail call void %30() #5
   ret void

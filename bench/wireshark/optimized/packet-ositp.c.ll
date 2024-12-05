@@ -611,7 +611,7 @@ define internal fastcc i32 @dissect_ositp_internal(ptr noundef %0, ptr noundef %
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @col_clear(ptr noundef %10, i32 noundef 25) #8
   %11 = tail call i32 @tvb_offset_exists(ptr noundef %0, i32 noundef 0) #8
@@ -619,13 +619,13 @@ define internal fastcc i32 @dissect_ositp_internal(ptr noundef %0, ptr noundef %
   br i1 %.not197, label %.loopexit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %1, i64 382
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 382
   %.not46.i = icmp eq ptr %2, null
-  %13 = getelementptr inbounds i8, ptr %1, i64 380
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 380
   %.not153.i = icmp eq i32 %3, 0
-  %14 = getelementptr inbounds i8, ptr %1, i64 272
-  %15 = getelementptr inbounds i8, ptr %1, i64 20
-  %16 = getelementptr inbounds i8, ptr %1, i64 288
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 272
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 288
   br label %17
 
 17:                                               ; preds = %.lr.ph, %788
@@ -955,7 +955,7 @@ ositp_decode_CR_CC.exit:                          ; preds = %42, %90, %98
   br i1 %.not227.i, label %197, label %192
 
 192:                                              ; preds = %188
-  %193 = getelementptr inbounds i8, ptr %191, i64 24
+  %193 = getelementptr inbounds nuw i8, ptr %191, i64 24
   %194 = load i32, ptr %193, align 8
   %195 = shl i32 %194, 16
   %196 = or disjoint i32 %195, %190
@@ -1112,13 +1112,13 @@ ositp_decode_CR_CC.exit:                          ; preds = %42, %90, %98
   br i1 %.not.i.i, label %proto_item_set_generated.exit.i, label %260
 
 260:                                              ; preds = %.thread281.i
-  %261 = getelementptr inbounds i8, ptr %259, i64 32
+  %261 = getelementptr inbounds nuw i8, ptr %259, i64 32
   %262 = load ptr, ptr %261, align 8
   %.not5.i.i = icmp eq ptr %262, null
   br i1 %.not5.i.i, label %proto_item_set_generated.exit.i, label %263
 
 263:                                              ; preds = %260
-  %264 = getelementptr inbounds i8, ptr %262, i64 28
+  %264 = getelementptr inbounds nuw i8, ptr %262, i64 28
   %265 = load i32, ptr %264, align 4
   %266 = or i32 %265, 2
   store i32 %266, ptr %264, align 4
@@ -1229,7 +1229,7 @@ proto_item_set_generated.exit.thread.i:           ; preds = %.thread268.i
 
 308:                                              ; preds = %300
   %309 = load i32, ptr %15, align 4
-  %310 = getelementptr inbounds i8, ptr %297, i64 40
+  %310 = getelementptr inbounds nuw i8, ptr %297, i64 40
   %311 = load i32, ptr %310, align 8
   %.not250.i = icmp eq i32 %309, %311
   br i1 %.not250.i, label %315, label %312
@@ -2212,10 +2212,10 @@ define internal fastcc void @ositp_decode_var_part(ptr noundef %0, i32 noundef %
 
 .lr.ph421:                                        ; preds = %7
   %trunc = trunc nuw i32 %3 to i8
-  %10 = getelementptr inbounds i8, ptr %5, i64 236
-  %11 = getelementptr inbounds i8, ptr %5, i64 240
-  %12 = getelementptr inbounds i8, ptr %5, i64 212
-  %13 = getelementptr inbounds i8, ptr %5, i64 216
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 236
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 240
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 212
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 216
   br label %14
 
 14:                                               ; preds = %.lr.ph421, %323
@@ -2511,13 +2511,13 @@ define internal fastcc void @ositp_decode_var_part(ptr noundef %0, i32 noundef %
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %200
 
 200:                                              ; preds = %._crit_edge431
-  %201 = getelementptr inbounds i8, ptr %199, i64 32
+  %201 = getelementptr inbounds nuw i8, ptr %199, i64 32
   %202 = load ptr, ptr %201, align 8
   %.not5.i = icmp eq ptr %202, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %203
 
 203:                                              ; preds = %200
-  %204 = getelementptr inbounds i8, ptr %202, i64 28
+  %204 = getelementptr inbounds nuw i8, ptr %202, i64 28
   %205 = load i32, ptr %204, align 4
   %206 = or i32 %205, 1
   store i32 %206, ptr %204, align 4
@@ -2531,13 +2531,13 @@ define internal fastcc void @ositp_decode_var_part(ptr noundef %0, i32 noundef %
   br i1 %.not.i397, label %proto_item_set_hidden.exit399, label %210
 
 210:                                              ; preds = %._crit_edge432
-  %211 = getelementptr inbounds i8, ptr %209, i64 32
+  %211 = getelementptr inbounds nuw i8, ptr %209, i64 32
   %212 = load ptr, ptr %211, align 8
   %.not5.i398 = icmp eq ptr %212, null
   br i1 %.not5.i398, label %proto_item_set_hidden.exit399, label %213
 
 213:                                              ; preds = %210
-  %214 = getelementptr inbounds i8, ptr %212, i64 28
+  %214 = getelementptr inbounds nuw i8, ptr %212, i64 28
   %215 = load i32, ptr %214, align 4
   %216 = or i32 %215, 1
   store i32 %216, ptr %214, align 4
@@ -2576,13 +2576,13 @@ proto_item_set_hidden.exit:                       ; preds = %203, %200, %._crit_
   br i1 %.not.i400, label %proto_item_set_hidden.exit402, label %230
 
 230:                                              ; preds = %._crit_edge
-  %231 = getelementptr inbounds i8, ptr %229, i64 32
+  %231 = getelementptr inbounds nuw i8, ptr %229, i64 32
   %232 = load ptr, ptr %231, align 8
   %.not5.i401 = icmp eq ptr %232, null
   br i1 %.not5.i401, label %proto_item_set_hidden.exit402, label %233
 
 233:                                              ; preds = %230
-  %234 = getelementptr inbounds i8, ptr %232, i64 28
+  %234 = getelementptr inbounds nuw i8, ptr %232, i64 28
   %235 = load i32, ptr %234, align 4
   %236 = or i32 %235, 1
   store i32 %236, ptr %234, align 4
@@ -2596,13 +2596,13 @@ proto_item_set_hidden.exit:                       ; preds = %203, %200, %._crit_
   br i1 %.not.i403, label %proto_item_set_hidden.exit405, label %240
 
 240:                                              ; preds = %._crit_edge430
-  %241 = getelementptr inbounds i8, ptr %239, i64 32
+  %241 = getelementptr inbounds nuw i8, ptr %239, i64 32
   %242 = load ptr, ptr %241, align 8
   %.not5.i404 = icmp eq ptr %242, null
   br i1 %.not5.i404, label %proto_item_set_hidden.exit405, label %243
 
 243:                                              ; preds = %240
-  %244 = getelementptr inbounds i8, ptr %242, i64 28
+  %244 = getelementptr inbounds nuw i8, ptr %242, i64 28
   %245 = load i32, ptr %244, align 4
   %246 = or i32 %245, 1
   store i32 %246, ptr %244, align 4

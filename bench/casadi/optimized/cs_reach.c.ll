@@ -9,7 +9,7 @@ define i32 @cs_reach(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, pt
   br i1 %.not, label %.loopexit, label %6
 
 6:                                                ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, -1
   %10 = icmp ne ptr %1, null
@@ -17,7 +17,7 @@ define i32 @cs_reach(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, pt
   br i1 %or.cond, label %11, label %.loopexit
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %1, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, -1
   %15 = icmp ne ptr %3, null
@@ -25,13 +25,13 @@ define i32 @cs_reach(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, pt
   br i1 %or.cond3, label %16, label %.loopexit
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load i32, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = sext i32 %2 to i64
   %26 = getelementptr inbounds i32, ptr %20, i64 %25

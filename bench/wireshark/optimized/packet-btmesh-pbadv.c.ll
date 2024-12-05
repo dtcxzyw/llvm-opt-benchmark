@@ -170,7 +170,7 @@ define internal i32 @dissect_btmesh_pbadv_msg(ptr noundef %0, ptr noundef %1, pt
   %5 = alloca ptr, align 8
   %6 = alloca %struct.btle_mesh_transport_ctx_t, align 4
   %7 = alloca %struct._pbadv_fragment_key, align 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @col_set_str(ptr noundef %9, i32 noundef 34, ptr noundef nonnull @.str.57) #4
   %10 = load i32, ptr @proto_btmesh_pbadv, align 4
@@ -184,7 +184,7 @@ define internal i32 @dissect_btmesh_pbadv_msg(ptr noundef %0, ptr noundef %1, pt
   %18 = load i32, ptr @hf_btmesh_pbadv_trnumber, align 4
   %19 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %18, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #4
   store i32 %14, ptr %7, align 4
-  %20 = getelementptr inbounds i8, ptr %7, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i8 %17, ptr %20, align 4
   %21 = load i32, ptr @ett_btmesh_generic_provisioning, align 4
   %22 = call ptr @proto_tree_add_subtree(ptr noundef %13, ptr noundef %0, i32 noundef 5, i32 noundef -1, i32 noundef %21, ptr noundef nonnull %5, ptr noundef nonnull @.str.72) #4
@@ -224,9 +224,9 @@ define internal i32 @dissect_btmesh_pbadv_msg(ptr noundef %0, ptr noundef %1, pt
 43:                                               ; preds = %41
   %44 = call i32 @tvb_reported_length(ptr noundef %0) #4
   store i32 1, ptr %6, align 4
-  %45 = getelementptr inbounds i8, ptr %6, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 0, ptr %45, align 4
-  %46 = getelementptr inbounds i8, ptr %6, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %46, align 4
   %47 = load ptr, ptr @btmesh_provisioning_handle, align 8
   %48 = and i32 %44, 255
@@ -241,9 +241,9 @@ define internal i32 @dissect_btmesh_pbadv_msg(ptr noundef %0, ptr noundef %1, pt
   br label %114
 
 55:                                               ; preds = %30
-  %56 = getelementptr inbounds i8, ptr %1, i64 80
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 50
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 50
   %59 = load i16, ptr %58, align 2
   %60 = and i16 %59, 8
   %.not148 = icmp eq i16 %60, 0
@@ -284,9 +284,9 @@ define internal i32 @dissect_btmesh_pbadv_msg(ptr noundef %0, ptr noundef %1, pt
   %77 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 5) #4
   %78 = lshr i8 %77, 2
   %79 = zext nneg i8 %78 to i32
-  %80 = getelementptr inbounds i8, ptr %1, i64 80
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 50
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 50
   %83 = load i16, ptr %82, align 2
   %84 = and i16 %83, 8
   %.not147 = icmp eq i16 %84, 0
@@ -349,9 +349,9 @@ default.unreachable160:                           ; preds = %4
 114:                                              ; preds = %85, %90, %52, %43, %64, %67, %68
   %.0144 = phi i32 [ 6, %90 ], [ 6, %85 ], [ 9, %43 ], [ 9, %52 ], [ 9, %68 ], [ 9, %64 ], [ 9, %67 ]
   %.0143 = phi i32 [ %79, %90 ], [ %79, %85 ], [ 0, %43 ], [ 0, %52 ], [ 0, %68 ], [ 0, %64 ], [ 0, %67 ]
-  %115 = getelementptr inbounds i8, ptr %1, i64 80
+  %115 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %116 = load ptr, ptr %115, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 50
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 50
   %118 = load i16, ptr %117, align 2
   %119 = and i16 %118, 8
   %.not159 = icmp eq i16 %119, 0
@@ -363,7 +363,7 @@ default.unreachable160:                           ; preds = %4
   br i1 %.not152, label %.thread, label %122
 
 122:                                              ; preds = %120
-  %123 = getelementptr inbounds i8, ptr %121, i64 48
+  %123 = getelementptr inbounds nuw i8, ptr %121, i64 48
   %124 = load i32, ptr %123, align 8
   %125 = and i32 %124, 1
   %.not153 = icmp eq i32 %125, 0
@@ -383,9 +383,9 @@ default.unreachable160:                           ; preds = %4
 
 131:                                              ; preds = %129
   store i32 1, ptr %6, align 4
-  %132 = getelementptr inbounds i8, ptr %6, i64 4
+  %132 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 1, ptr %132, align 4
-  %133 = getelementptr inbounds i8, ptr %6, i64 8
+  %133 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %.0143, ptr %133, align 4
   %134 = call ptr @proto_tree_get_root(ptr noundef %22) #4
   %135 = call i32 @call_dissector_with_data(ptr noundef nonnull %130, ptr noundef nonnull %127, ptr noundef nonnull %1, ptr noundef %134, ptr noundef nonnull %6) #4
@@ -467,7 +467,7 @@ declare void @reassembly_table_register(ptr noundef, ptr noundef) local_unnamed_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @pbadv_fragment_hash(ptr nocapture noundef readonly %0) #2 {
   %2 = load i32, ptr %0, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i8, ptr %3, align 4
   %5 = zext i8 %4 to i32
   %6 = add i32 %2, %5
@@ -482,9 +482,9 @@ define internal range(i32 0, 2) i32 @pbadv_fragment_equal(ptr nocapture noundef 
   br i1 %5, label %6, label %13
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i8, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %1, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %10 = load i8, ptr %9, align 4
   %11 = icmp eq i8 %8, %10
   %12 = zext i1 %11 to i32
@@ -500,9 +500,9 @@ define internal noalias noundef ptr @pbadv_fragment_temporary_key(ptr nocapture 
   %4 = tail call noalias dereferenceable_or_null(8) ptr @g_slice_alloc(i64 noundef 8) #5
   %5 = load i32, ptr %2, align 4
   store i32 %5, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %2, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %7 = load i8, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 %7, ptr %8, align 4
   ret ptr %4
 }
@@ -512,9 +512,9 @@ define internal noalias noundef ptr @pbadv_fragment_persistent_key(ptr nocapture
   %4 = tail call noalias dereferenceable_or_null(8) ptr @g_slice_alloc(i64 noundef 8) #5
   %5 = load i32, ptr %2, align 4
   store i32 %5, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %2, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %7 = load i8, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 %7, ptr %8, align 4
   ret ptr %4
 }

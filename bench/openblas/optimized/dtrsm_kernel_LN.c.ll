@@ -68,7 +68,7 @@ define noundef i32 @dtrsm_kernel_LN(i64 noundef %0, i64 noundef %1, i64 noundef 
   %51 = mul nsw i64 %46, %27
   %52 = getelementptr inbounds double, ptr %49, i64 %51
   %53 = and i64 %46, 2147483647
-  %54 = getelementptr inbounds double, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw double, ptr %52, i64 %53
   %55 = load double, ptr %54, align 8, !tbaa !3
   %.not47 = icmp eq i64 %53, 0
   br i1 %.not47, label %.split.us, label %.split
@@ -88,7 +88,7 @@ define noundef i32 @dtrsm_kernel_LN(i64 noundef %0, i64 noundef %1, i64 noundef 
   %62 = fmul double %.lcssa45, %61
   store double %62, ptr %58, align 8, !tbaa !3
   store double %62, ptr %60, align 8, !tbaa !3
-  %63 = getelementptr inbounds i8, ptr %58, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %58, i64 8
   br i1 %56, label %.thread25, label %.thread.us, !llvm.loop !7
 
 .split:                                           ; preds = %44, %89
@@ -115,7 +115,7 @@ define noundef i32 @dtrsm_kernel_LN(i64 noundef %0, i64 noundef %1, i64 noundef 
 
 79:                                               ; preds = %79, %69
   %80 = phi i64 [ 0, %69 ], [ %86, %79 ]
-  %81 = getelementptr inbounds double, ptr %66, i64 %80
+  %81 = getelementptr inbounds nuw double, ptr %66, i64 %80
   %82 = load double, ptr %81, align 8, !tbaa !3
   %83 = getelementptr double, ptr %77, i64 %80
   %84 = load double, ptr %83, align 8, !tbaa !3
@@ -126,7 +126,7 @@ define noundef i32 @dtrsm_kernel_LN(i64 noundef %0, i64 noundef %1, i64 noundef 
   br i1 %87, label %.backedge32, label %79, !llvm.loop !10
 
 .backedge32:                                      ; preds = %79
-  %88 = getelementptr inbounds i8, ptr %72, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %72, i64 8
   br i1 %70, label %89, label %69, !llvm.loop !7
 
 89:                                               ; preds = %.backedge32
@@ -176,10 +176,10 @@ define noundef i32 @dtrsm_kernel_LN(i64 noundef %0, i64 noundef %1, i64 noundef 
   %115 = getelementptr inbounds i8, ptr %104, i64 %.idx17
   %.idx18 = shl i64 %114, 4
   %116 = getelementptr i8, ptr %101, i64 %.idx18
-  %117 = getelementptr inbounds i8, ptr %115, i64 1920
-  %118 = getelementptr inbounds i8, ptr %115, i64 2040
+  %117 = getelementptr inbounds nuw i8, ptr %115, i64 1920
+  %118 = getelementptr inbounds nuw i8, ptr %115, i64 2040
   %119 = load double, ptr %118, align 8, !tbaa !3
-  %120 = getelementptr inbounds i8, ptr %105, i64 120
+  %120 = getelementptr inbounds nuw i8, ptr %105, i64 120
   br label %.split50
 
 .thread26.us:                                     ; preds = %158, %.thread26.us
@@ -192,7 +192,7 @@ define noundef i32 @dtrsm_kernel_LN(i64 noundef %0, i64 noundef %1, i64 noundef 
   %127 = fmul double %163, %126
   store double %127, ptr %123, align 8, !tbaa !3
   store double %127, ptr %125, align 8, !tbaa !3
-  %128 = getelementptr inbounds i8, ptr %123, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %123, i64 8
   br i1 %121, label %.split52.us, label %.thread26.us, !llvm.loop !7
 
 .split52.us:                                      ; preds = %.thread26.us
@@ -226,7 +226,7 @@ define noundef i32 @dtrsm_kernel_LN(i64 noundef %0, i64 noundef %1, i64 noundef 
 
 148:                                              ; preds = %148, %138
   %149 = phi i64 [ 0, %138 ], [ %155, %148 ]
-  %150 = getelementptr inbounds double, ptr %136, i64 %149
+  %150 = getelementptr inbounds nuw double, ptr %136, i64 %149
   %151 = load double, ptr %150, align 8, !tbaa !3
   %152 = getelementptr double, ptr %146, i64 %149
   %153 = load double, ptr %152, align 8, !tbaa !3
@@ -237,7 +237,7 @@ define noundef i32 @dtrsm_kernel_LN(i64 noundef %0, i64 noundef %1, i64 noundef 
   br i1 %156, label %.backedge, label %148, !llvm.loop !10
 
 .backedge:                                        ; preds = %148
-  %157 = getelementptr inbounds i8, ptr %141, i64 8
+  %157 = getelementptr inbounds nuw i8, ptr %141, i64 8
   br i1 %139, label %158, label %138, !llvm.loop !7
 
 158:                                              ; preds = %.backedge
@@ -312,8 +312,8 @@ define noundef i32 @dtrsm_kernel_LN(i64 noundef %0, i64 noundef %1, i64 noundef 
   %210 = getelementptr inbounds double, ptr %207, i64 %209
   %211 = and i64 %204, 2147483647
   %.not3056 = icmp eq i64 %211, 0
-  %212 = getelementptr inbounds double, ptr %194, i64 %211
-  %213 = getelementptr inbounds double, ptr %210, i64 %211
+  %212 = getelementptr inbounds nuw double, ptr %194, i64 %211
+  %213 = getelementptr inbounds nuw double, ptr %210, i64 %211
   %214 = load double, ptr %213, align 8, !tbaa !3
   %215 = load double, ptr %212, align 8, !tbaa !3
   %216 = fmul double %214, %215
@@ -331,7 +331,7 @@ define noundef i32 @dtrsm_kernel_LN(i64 noundef %0, i64 noundef %1, i64 noundef 
 
 222:                                              ; preds = %222, %.lr.ph
   %223 = phi i64 [ 0, %.lr.ph ], [ %229, %222 ]
-  %224 = getelementptr inbounds double, ptr %219, i64 %223
+  %224 = getelementptr inbounds nuw double, ptr %219, i64 %223
   %225 = load double, ptr %224, align 8, !tbaa !3
   %226 = getelementptr double, ptr %194, i64 %223
   %227 = load double, ptr %226, align 8, !tbaa !3
@@ -392,9 +392,9 @@ define noundef i32 @dtrsm_kernel_LN(i64 noundef %0, i64 noundef %1, i64 noundef 
   %.idx23 = shl nsw i64 %259, 7
   %260 = getelementptr inbounds i8, ptr %249, i64 %.idx23
   %261 = getelementptr double, ptr %246, i64 %259
-  %262 = getelementptr inbounds i8, ptr %260, i64 1920
-  %263 = getelementptr inbounds i8, ptr %250, i64 120
-  %264 = getelementptr inbounds i8, ptr %260, i64 2040
+  %262 = getelementptr inbounds nuw i8, ptr %260, i64 1920
+  %263 = getelementptr inbounds nuw i8, ptr %250, i64 120
+  %264 = getelementptr inbounds nuw i8, ptr %260, i64 2040
   %265 = load double, ptr %264, align 8, !tbaa !3
   %266 = load double, ptr %263, align 8, !tbaa !3
   %267 = fmul double %265, %266
@@ -412,7 +412,7 @@ define noundef i32 @dtrsm_kernel_LN(i64 noundef %0, i64 noundef %1, i64 noundef 
 
 274:                                              ; preds = %274, %268
   %275 = phi i64 [ 0, %268 ], [ %281, %274 ]
-  %276 = getelementptr inbounds double, ptr %271, i64 %275
+  %276 = getelementptr inbounds nuw double, ptr %271, i64 %275
   %277 = load double, ptr %276, align 8, !tbaa !3
   %278 = getelementptr double, ptr %250, i64 %275
   %279 = load double, ptr %278, align 8, !tbaa !3

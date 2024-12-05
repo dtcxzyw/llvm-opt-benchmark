@@ -210,13 +210,13 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local_un
   br i1 %57, label %58, label %83
 
 58:                                               ; preds = %56
-  %59 = getelementptr inbounds i8, ptr %54, i64 65
+  %59 = getelementptr inbounds nuw i8, ptr %54, i64 65
   %60 = load i8, ptr %59, align 1
   %.not41 = icmp eq i8 %60, 0
   br i1 %.not41, label %65, label %61
 
 61:                                               ; preds = %58
-  %62 = getelementptr inbounds i8, ptr %54, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %63 = load ptr, ptr %62, align 8
   %64 = call fastcc i32 @list_config(ptr noundef %63)
   br label %83
@@ -253,13 +253,13 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local_un
 
 76:                                               ; preds = %75, %72
   %77 = phi i16 [ 5555, %75 ], [ %73, %72 ]
-  %78 = getelementptr inbounds i8, ptr %54, i64 64
+  %78 = getelementptr inbounds nuw i8, ptr %54, i64 64
   %79 = load i8, ptr %78, align 8
   %.not44 = icmp eq i8 %79, 0
   br i1 %.not44, label %83, label %80
 
 80:                                               ; preds = %76
-  %81 = getelementptr inbounds i8, ptr %54, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %82 = load ptr, ptr %81, align 8
   call fastcc void @run_listener(ptr noundef %82, i16 noundef zeroext %77, ptr noundef %.3)
   br label %83
@@ -440,14 +440,14 @@ define internal fastcc void @run_listener(ptr noundef %0, i16 noundef zeroext %1
   br label %62
 
 50:                                               ; preds = %43
-  %51 = getelementptr inbounds i8, ptr %7, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %51, align 4
   store i16 2, ptr %7, align 4
   %52 = call i32 @htonl(i32 noundef 0) #13
-  %53 = getelementptr inbounds i8, ptr %7, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %52, ptr %53, align 4
   %54 = call zeroext i16 @htons(i16 noundef zeroext %1) #13
-  %55 = getelementptr inbounds i8, ptr %7, i64 2
+  %55 = getelementptr inbounds nuw i8, ptr %7, i64 2
   store i16 %54, ptr %55, align 2
   %56 = call i32 @bind(i32 noundef %30, ptr noundef nonnull %7, i32 noundef 16) #12
   %57 = icmp slt i32 %56, 0

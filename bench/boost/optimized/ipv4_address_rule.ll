@@ -119,20 +119,20 @@ define void @_ZNK5boost4urls22implementation_defined19ipv4_address_rule_t5parseE
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false), !noalias !3
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store i32 2, ptr %13, align 8, !tbaa !12, !noalias !3
-  %14 = getelementptr inbounds i8, ptr %6, i64 64
-  %.sroa.0.24..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.i.i.i, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %.sroa.0.24..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.24..sroa_idx.i.i.i, i64 24, i1 false), !tbaa.struct !15, !noalias !3
-  %15 = getelementptr inbounds i8, ptr %6, i64 88
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 88
   store i32 2, ptr %15, align 8, !tbaa !12, !noalias !3
-  %16 = getelementptr inbounds i8, ptr %6, i64 96
-  %.sroa.0.48..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.i.i.i, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 96
+  %.sroa.0.48..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.48..sroa_idx.i.i.i, i64 24, i1 false), !tbaa.struct !15, !noalias !3
-  %17 = getelementptr inbounds i8, ptr %6, i64 120
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 120
   store i32 2, ptr %17, align 8, !tbaa !12, !noalias !3
-  %18 = getelementptr inbounds i8, ptr %6, i64 128
-  %.sroa.0.72..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.i.i.i, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 128
+  %.sroa.0.72..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.72..sroa_idx.i.i.i, i64 24, i1 false), !tbaa.struct !15, !noalias !3
-  %19 = getelementptr inbounds i8, ptr %6, i64 152
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 152
   store i32 2, ptr %19, align 8, !tbaa !12, !noalias !3
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %.sroa.0.i.i.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #8, !noalias !3
@@ -173,17 +173,17 @@ _ZNKR5boost6system6resultISt5tupleIJhhhhEENS0_10error_codeEE5errorEv.exit: ; pre
   %34 = lshr i32 %28, 8
   %35 = trunc i32 %34 to i8
   %36 = trunc i32 %28 to i8
-  %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 4
-  %.sroa.839.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
+  %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %.sroa.839.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.839.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.12.0..sroa_idx, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %6) #8, !noalias !3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #8
   store i8 %36, ptr %0, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %35, ptr %.sroa.5.0..sroa_idx, align 1
-  %.sroa.638.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 2
+  %.sroa.638.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i8 %33, ptr %.sroa.638.0..sroa_idx, align 2
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 3
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 3
   store i8 %31, ptr %.sroa.7.0..sroa_idx, align 1
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 2, ptr %37, align 8, !tbaa !24
@@ -232,14 +232,14 @@ define linkonce_odr hidden void @_ZN5boost4urls7grammar6detail14parse_sequenceIL
   %11 = alloca %"struct.std::integral_constant", align 1
   %12 = alloca %"class.boost::system::result.44", align 8
   %13 = alloca %"class.boost::system::error_code", align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 128
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 128
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8, !tbaa !26
   call void @_ZNK5boost4urls7grammar22implementation_defined16dec_octet_rule_t5parseERPKcS5_(ptr dead_on_unwind nonnull writable sret(%"class.boost::system::result.44") align 8 %12, ptr noundef nonnull align 1 dereferenceable(1) %16, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %12, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #8
-  %17 = getelementptr inbounds i8, ptr %0, i64 152
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %18 = load i32, ptr %17, align 8, !tbaa !12
   %19 = icmp eq i32 %18, 1
   br i1 %19, label %24, label %20
@@ -272,7 +272,7 @@ _ZNKR5boost6system6resultIhNS0_10error_codeEE5errorEv.exit: ; preds = %22, %23
   br i1 %28, label %_ZNKR5boost6system6resultINS_4core17basic_string_viewIcEENS0_10error_codeEE5errorEv.exit.i.i.i.i, label %32
 
 _ZNKR5boost6system6resultINS_4core17basic_string_viewIcEENS0_10error_codeEE5errorEv.exit.i.i.i.i: ; preds = %24
-  %.sroa.54.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 16
+  %.sroa.54.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 16
   %.sroa.54.0.copyload.i.i.i.i = load i64, ptr %.sroa.54.0..sroa_idx.i.i.i.i, align 8, !tbaa !17, !noalias !46
   %29 = and i64 %.sroa.54.0.copyload.i.i.i.i, 1
   %.not.i.i.i.i.i.i = icmp eq i64 %29, 0
@@ -333,15 +333,15 @@ define linkonce_odr hidden void @_ZN5boost4urls7grammar6detail14parse_sequenceIL
   %11 = alloca %"struct.std::integral_constant.35", align 1
   %12 = alloca %"class.boost::system::result.44", align 8
   %13 = alloca %"class.boost::system::error_code", align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 96
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8, !tbaa !26
-  %17 = getelementptr inbounds i8, ptr %16, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 1
   call void @_ZNK5boost4urls7grammar22implementation_defined16dec_octet_rule_t5parseERPKcS5_(ptr dead_on_unwind nonnull writable sret(%"class.boost::system::result.44") align 8 %12, ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %12, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #8
-  %18 = getelementptr inbounds i8, ptr %0, i64 120
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %19 = load i32, ptr %18, align 8, !tbaa !12
   %20 = icmp eq i32 %19, 1
   br i1 %20, label %25, label %21
@@ -366,7 +366,7 @@ _ZNKR5boost6system6resultIhNS0_10error_codeEE5errorEv.exit: ; preds = %23, %24
 
 25:                                               ; preds = %6
   %26 = load ptr, ptr %15, align 8, !tbaa !26
-  %27 = getelementptr inbounds i8, ptr %26, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #8, !noalias !59
   call void @_ZNK5boost4urls7grammar22implementation_defined13ch_delim_rule5parseERPKcS5_(ptr dead_on_unwind nonnull writable sret(%"class.boost::system::result.89") align 8 %8, ptr noundef nonnull align 1 dereferenceable(1) %27, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2) #8, !noalias !59
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -375,7 +375,7 @@ _ZNKR5boost6system6resultIhNS0_10error_codeEE5errorEv.exit: ; preds = %23, %24
   br i1 %30, label %_ZNKR5boost6system6resultINS_4core17basic_string_viewIcEENS0_10error_codeEE5errorEv.exit.i.i.i.i, label %34
 
 _ZNKR5boost6system6resultINS_4core17basic_string_viewIcEENS0_10error_codeEE5errorEv.exit.i.i.i.i: ; preds = %25
-  %.sroa.54.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 16
+  %.sroa.54.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 16
   %.sroa.54.0.copyload.i.i.i.i = load i64, ptr %.sroa.54.0..sroa_idx.i.i.i.i, align 8, !tbaa !17, !noalias !59
   %31 = and i64 %.sroa.54.0.copyload.i.i.i.i, 1
   %.not.i.i.i.i.i.i = icmp eq i64 %31, 0
@@ -430,15 +430,15 @@ define linkonce_odr hidden void @_ZN5boost4urls7grammar6detail14parse_sequenceIL
   %11 = alloca %"class.boost::system::result.44", align 8
   %12 = alloca %"class.boost::system::error_code", align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %14 = getelementptr inbounds i8, ptr %0, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8, !tbaa !26
-  %17 = getelementptr inbounds i8, ptr %16, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 2
   call void @_ZNK5boost4urls7grammar22implementation_defined16dec_octet_rule_t5parseERPKcS5_(ptr dead_on_unwind nonnull writable sret(%"class.boost::system::result.44") align 8 %11, ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #8
-  %18 = getelementptr inbounds i8, ptr %0, i64 88
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %19 = load i32, ptr %18, align 8, !tbaa !12
   %20 = icmp eq i32 %19, 1
   br i1 %20, label %25, label %21
@@ -463,7 +463,7 @@ _ZNKR5boost6system6resultIhNS0_10error_codeEE5errorEv.exit: ; preds = %23, %24
 
 25:                                               ; preds = %6
   %26 = load ptr, ptr %15, align 8, !tbaa !26
-  %27 = getelementptr inbounds i8, ptr %26, i64 2
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #8, !noalias !70
   call void @_ZNK5boost4urls7grammar22implementation_defined13ch_delim_rule5parseERPKcS5_(ptr dead_on_unwind nonnull writable sret(%"class.boost::system::result.89") align 8 %9, ptr noundef nonnull align 1 dereferenceable(1) %27, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2) #8, !noalias !70
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -472,7 +472,7 @@ _ZNKR5boost6system6resultIhNS0_10error_codeEE5errorEv.exit: ; preds = %23, %24
   br i1 %30, label %_ZNKR5boost6system6resultINS_4core17basic_string_viewIcEENS0_10error_codeEE5errorEv.exit.i.i.i.i, label %34
 
 _ZNKR5boost6system6resultINS_4core17basic_string_viewIcEENS0_10error_codeEE5errorEv.exit.i.i.i.i: ; preds = %25
-  %.sroa.54.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 16
+  %.sroa.54.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.sroa.54.0.copyload.i.i.i.i = load i64, ptr %.sroa.54.0..sroa_idx.i.i.i.i, align 8, !tbaa !17, !noalias !70
   %31 = and i64 %.sroa.54.0.copyload.i.i.i.i, 1
   %.not.i.i.i.i.i.i = icmp eq i64 %31, 0
@@ -497,7 +497,7 @@ _ZNKR5boost6system6resultIvNS0_10error_codeEE5errorEv.exit.i.i: ; preds = %32
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #8, !noalias !70
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #8
   %35 = load ptr, ptr %15, align 8, !tbaa !26
-  %36 = getelementptr inbounds i8, ptr %35, i64 3
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 3
   call void @_ZNK5boost4urls7grammar22implementation_defined16dec_octet_rule_t5parseERPKcS5_(ptr dead_on_unwind nonnull writable sret(%"class.boost::system::result.44") align 8 %7, ptr noundef nonnull align 1 dereferenceable(1) %36, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #8

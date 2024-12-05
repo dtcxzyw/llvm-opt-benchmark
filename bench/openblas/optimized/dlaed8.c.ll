@@ -125,7 +125,7 @@ define void @dlaed8_(ptr nocapture noundef readonly %0, ptr nocapture noundef %1
 
 93:                                               ; preds = %93, %90
   %94 = phi i64 [ 1, %90 ], [ %97, %93 ]
-  %95 = getelementptr inbounds i32, ptr %46, i64 %94
+  %95 = getelementptr inbounds nuw i32, ptr %46, i64 %94
   %96 = trunc i64 %94 to i32
   store i32 %96, ptr %95, align 4, !tbaa !3
   %97 = add nuw nsw i64 %94, 1
@@ -178,16 +178,16 @@ thread-pre-split22:                               ; preds = %110
 
 124:                                              ; preds = %124, %121
   %125 = phi i64 [ 1, %121 ], [ %135, %124 ]
-  %126 = getelementptr inbounds i32, ptr %34, i64 %125
+  %126 = getelementptr inbounds nuw i32, ptr %34, i64 %125
   %127 = load i32, ptr %126, align 4, !tbaa !3
   %128 = sext i32 %127 to i64
   %129 = getelementptr inbounds double, ptr %29, i64 %128
   %130 = load double, ptr %129, align 8, !tbaa !7
-  %131 = getelementptr inbounds double, ptr %36, i64 %125
+  %131 = getelementptr inbounds nuw double, ptr %36, i64 %125
   store double %130, ptr %131, align 8, !tbaa !7
   %132 = getelementptr inbounds double, ptr %35, i64 %128
   %133 = load double, ptr %132, align 8, !tbaa !7
-  %134 = getelementptr inbounds double, ptr %41, i64 %125
+  %134 = getelementptr inbounds nuw double, ptr %41, i64 %125
   store double %133, ptr %134, align 8, !tbaa !7
   %135 = add nuw nsw i64 %125, 1
   %136 = icmp eq i64 %135, %123
@@ -207,16 +207,16 @@ thread-pre-split22:                               ; preds = %110
 
 142:                                              ; preds = %142, %139
   %143 = phi i64 [ 1, %139 ], [ %153, %142 ]
-  %144 = getelementptr inbounds i32, ptr %46, i64 %143
+  %144 = getelementptr inbounds nuw i32, ptr %46, i64 %143
   %145 = load i32, ptr %144, align 4, !tbaa !3
   %146 = sext i32 %145 to i64
   %147 = getelementptr inbounds double, ptr %36, i64 %146
   %148 = load double, ptr %147, align 8, !tbaa !7
-  %149 = getelementptr inbounds double, ptr %29, i64 %143
+  %149 = getelementptr inbounds nuw double, ptr %29, i64 %143
   store double %148, ptr %149, align 8, !tbaa !7
   %150 = getelementptr inbounds double, ptr %41, i64 %146
   %151 = load double, ptr %150, align 8, !tbaa !7
-  %152 = getelementptr inbounds double, ptr %35, i64 %143
+  %152 = getelementptr inbounds nuw double, ptr %35, i64 %143
   store double %151, ptr %152, align 8, !tbaa !7
   %153 = add nuw nsw i64 %143, 1
   %154 = icmp eq i64 %153, %141
@@ -264,12 +264,12 @@ thread-pre-split22:                               ; preds = %110
 
 184:                                              ; preds = %184, %181
   %185 = phi i64 [ 1, %181 ], [ %192, %184 ]
-  %186 = getelementptr inbounds i32, ptr %46, i64 %185
+  %186 = getelementptr inbounds nuw i32, ptr %46, i64 %185
   %187 = load i32, ptr %186, align 4, !tbaa !3
   %188 = sext i32 %187 to i64
   %189 = getelementptr inbounds i32, ptr %34, i64 %188
   %190 = load i32, ptr %189, align 4, !tbaa !3
-  %191 = getelementptr inbounds i32, ptr %42, i64 %185
+  %191 = getelementptr inbounds nuw i32, ptr %42, i64 %185
   store i32 %190, ptr %191, align 4, !tbaa !3
   %192 = add nuw nsw i64 %185, 1
   %193 = icmp eq i64 %192, %183
@@ -287,12 +287,12 @@ thread-pre-split22:                               ; preds = %110
 
 200:                                              ; preds = %200, %198
   %201 = phi i64 [ 1, %198 ], [ %213, %200 ]
-  %202 = getelementptr inbounds i32, ptr %46, i64 %201
+  %202 = getelementptr inbounds nuw i32, ptr %46, i64 %201
   %203 = load i32, ptr %202, align 4, !tbaa !3
   %204 = sext i32 %203 to i64
   %205 = getelementptr inbounds i32, ptr %34, i64 %204
   %206 = load i32, ptr %205, align 4, !tbaa !3
-  %207 = getelementptr inbounds i32, ptr %42, i64 %201
+  %207 = getelementptr inbounds nuw i32, ptr %42, i64 %201
   store i32 %206, ptr %207, align 4, !tbaa !3
   %208 = mul nsw i32 %206, %30
   %209 = sext i32 %208 to i64
@@ -605,19 +605,19 @@ thread-pre-split22:                               ; preds = %110
 
 418:                                              ; preds = %418, %415
   %419 = phi i64 [ 1, %415 ], [ %432, %418 ]
-  %420 = getelementptr inbounds i32, ptr %45, i64 %419
+  %420 = getelementptr inbounds nuw i32, ptr %45, i64 %419
   %421 = load i32, ptr %420, align 4, !tbaa !3
   %422 = sext i32 %421 to i64
   %423 = getelementptr inbounds double, ptr %29, i64 %422
   %424 = load double, ptr %423, align 8, !tbaa !7
-  %425 = getelementptr inbounds double, ptr %36, i64 %419
+  %425 = getelementptr inbounds nuw double, ptr %36, i64 %419
   store double %424, ptr %425, align 8, !tbaa !7
   %426 = getelementptr inbounds i32, ptr %46, i64 %422
   %427 = load i32, ptr %426, align 4, !tbaa !3
   %428 = sext i32 %427 to i64
   %429 = getelementptr inbounds i32, ptr %34, i64 %428
   %430 = load i32, ptr %429, align 4, !tbaa !3
-  %431 = getelementptr inbounds i32, ptr %42, i64 %419
+  %431 = getelementptr inbounds nuw i32, ptr %42, i64 %419
   store i32 %430, ptr %431, align 4, !tbaa !3
   %432 = add nuw nsw i64 %419, 1
   %433 = icmp eq i64 %432, %417
@@ -635,19 +635,19 @@ thread-pre-split22:                               ; preds = %110
 
 440:                                              ; preds = %440, %438
   %441 = phi i64 [ 1, %438 ], [ %459, %440 ]
-  %442 = getelementptr inbounds i32, ptr %45, i64 %441
+  %442 = getelementptr inbounds nuw i32, ptr %45, i64 %441
   %443 = load i32, ptr %442, align 4, !tbaa !3
   %444 = sext i32 %443 to i64
   %445 = getelementptr inbounds double, ptr %29, i64 %444
   %446 = load double, ptr %445, align 8, !tbaa !7
-  %447 = getelementptr inbounds double, ptr %36, i64 %441
+  %447 = getelementptr inbounds nuw double, ptr %36, i64 %441
   store double %446, ptr %447, align 8, !tbaa !7
   %448 = getelementptr inbounds i32, ptr %46, i64 %444
   %449 = load i32, ptr %448, align 4, !tbaa !3
   %450 = sext i32 %449 to i64
   %451 = getelementptr inbounds i32, ptr %34, i64 %450
   %452 = load i32, ptr %451, align 4, !tbaa !3
-  %453 = getelementptr inbounds i32, ptr %42, i64 %441
+  %453 = getelementptr inbounds nuw i32, ptr %42, i64 %441
   store i32 %452, ptr %453, align 4, !tbaa !3
   %454 = mul nsw i32 %452, %30
   %455 = sext i32 %454 to i64

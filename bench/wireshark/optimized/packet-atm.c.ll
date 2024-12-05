@@ -557,9 +557,9 @@ define hidden void @proto_register_atm() local_unnamed_addr #1 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal ptr @atm_value(ptr nocapture noundef readonly %0) #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 88
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 5
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 5
   %5 = load i8, ptr %4, align 1
   %6 = zext i8 %5 to i64
   %7 = inttoptr i64 %6 to ptr
@@ -652,7 +652,7 @@ define internal i32 @dissect_atm_pw_untruncated(ptr noundef %0, ptr noundef %1, 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_atm_oam_cell(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.147) #10
   %7 = load i32, ptr @proto_atm, align 4
@@ -674,10 +674,10 @@ define internal i32 @dissect_atm_pw_oam_cell(ptr noundef %0, ptr noundef %1, ptr
   unreachable
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @col_set_str(ptr noundef %8, i32 noundef 34, ptr noundef nonnull @.str.147) #10
-  %9 = getelementptr inbounds i8, ptr %3, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %10 = load i32, ptr %9, align 4
   tail call fastcc void @dissect_atm_cell_payload(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, i32 noundef 7, i32 noundef %10, ptr noundef %3)
   %11 = tail call i32 @tvb_reported_length(ptr noundef %0) #10
@@ -745,10 +745,10 @@ declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_lane(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.160) #10
-  %7 = getelementptr inbounds i8, ptr %3, i64 6
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 6
   %8 = load i8, ptr %7, align 2
   switch i8 %8, label %137 [
     i8 1, label %9
@@ -995,13 +995,13 @@ declare ptr @create_capture_dissector_handle(ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @capture_atm(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %4, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %7 = load i8, ptr %6, align 4
   %8 = icmp eq i8 %7, 4
   br i1 %8, label %9, label %14
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %4, i64 5
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 5
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = tail call i32 @try_capture_dissector(ptr noundef nonnull @.str.163, i32 noundef %12, ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %4) #10
@@ -1016,7 +1016,7 @@ declare void @capture_dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @capture_lane(ptr noundef %0, i32 %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %4, i64 6
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 6
   %7 = load i8, ptr %6, align 2
   %8 = zext i8 %7 to i32
   %9 = tail call i32 @try_capture_dissector(ptr noundef nonnull @.str.170, i32 noundef %8, ptr noundef %0, i32 noundef 2, i32 noundef %2, ptr noundef %3, ptr noundef %4) #10
@@ -1029,13 +1029,13 @@ declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #5
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @dissect_atm_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3, ptr noundef nonnull %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #1 {
   %7 = alloca [8 x i8], align 1
-  %8 = getelementptr inbounds i8, ptr %4, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %9 = load i8, ptr %8, align 4
   %10 = icmp eq i8 %9, 4
   br i1 %10, label %11, label %18
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %4, i64 5
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 5
   %13 = load i8, ptr %12, align 1
   %14 = icmp eq i8 %13, 3
   %15 = load i32, ptr @dissect_lanesscop, align 4
@@ -1048,14 +1048,14 @@ define internal fastcc i32 @dissect_atm_common(ptr noundef %0, ptr noundef %1, p
   br label %18
 
 18:                                               ; preds = %17, %11, %6
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8
   tail call void @col_set_str(ptr noundef %20, i32 noundef 34, ptr noundef nonnull @.str.147) #10
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %21, label %27
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %4, i64 14
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 14
   %23 = load i16, ptr %22, align 2
   switch i16 %23, label %27 [
     i16 0, label %.sink.split
@@ -1081,7 +1081,7 @@ define internal fastcc i32 @dissect_atm_common(ptr noundef %0, ptr noundef %1, p
 
 30:                                               ; preds = %27
   %31 = load ptr, ptr %19, align 8
-  %32 = getelementptr inbounds i8, ptr %4, i64 5
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 5
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i32
   %35 = tail call ptr @val_to_str(i32 noundef %34, ptr noundef nonnull @aal5_hltype_vals, ptr noundef nonnull @.str.315) #10
@@ -1108,7 +1108,7 @@ define internal fastcc i32 @dissect_atm_common(ptr noundef %0, ptr noundef %1, p
 
 46:                                               ; preds = %41
   %47 = load i32, ptr @hf_atm_channel, align 4
-  %48 = getelementptr inbounds i8, ptr %4, i64 14
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 14
   %49 = load i16, ptr %48, align 2
   %50 = zext i16 %49 to i32
   %51 = tail call ptr @proto_tree_add_uint(ptr noundef %45, i32 noundef %47, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %50) #10
@@ -1157,7 +1157,7 @@ define internal fastcc i32 @dissect_atm_common(ptr noundef %0, ptr noundef %1, p
 
 74:                                               ; preds = %71
   %75 = load i32, ptr @hf_atm_traffic_type, align 4
-  %76 = getelementptr inbounds i8, ptr %4, i64 5
+  %76 = getelementptr inbounds nuw i8, ptr %4, i64 5
   %77 = load i8, ptr %76, align 1
   %78 = zext i8 %77 to i32
   %79 = tail call ptr @proto_tree_add_uint(ptr noundef %.0, i32 noundef %75, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %78) #10
@@ -1177,7 +1177,7 @@ define internal fastcc i32 @dissect_atm_common(ptr noundef %0, ptr noundef %1, p
 .sink.split.i:                                    ; preds = %82, %81, %74
   %hf_atm_traffic_vcmx.sink.i = phi ptr [ @hf_atm_traffic_lane, %81 ], [ @hf_atm_traffic_ipsilon, %82 ], [ @hf_atm_traffic_vcmx, %74 ]
   %83 = load i32, ptr %hf_atm_traffic_vcmx.sink.i, align 4
-  %84 = getelementptr inbounds i8, ptr %4, i64 6
+  %84 = getelementptr inbounds nuw i8, ptr %4, i64 6
   %85 = load i8, ptr %84, align 2
   %86 = zext i8 %85 to i32
   %87 = tail call ptr @proto_tree_add_uint(ptr noundef %.0, i32 noundef %83, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %86) #10
@@ -1188,12 +1188,12 @@ define internal fastcc i32 @dissect_atm_common(ptr noundef %0, ptr noundef %1, p
 
 89:                                               ; preds = %88
   %90 = load i32, ptr @hf_atm_vpi, align 4
-  %91 = getelementptr inbounds i8, ptr %4, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %92 = load i16, ptr %91, align 4
   %93 = zext i16 %92 to i32
   %94 = tail call ptr @proto_tree_add_uint(ptr noundef %.0, i32 noundef %90, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %93) #10
   %95 = load i32, ptr @hf_atm_vci, align 4
-  %96 = getelementptr inbounds i8, ptr %4, i64 10
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 10
   %97 = load i16, ptr %96, align 2
   %98 = zext i16 %97 to i32
   %99 = tail call ptr @proto_tree_add_uint(ptr noundef %.0, i32 noundef %95, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %98) #10
@@ -1216,7 +1216,7 @@ define internal fastcc i32 @dissect_atm_common(ptr noundef %0, ptr noundef %1, p
   br i1 %.not183.i, label %138, label %109
 
 109:                                              ; preds = %106, %105
-  %110 = getelementptr inbounds i8, ptr %4, i64 16
+  %110 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %111 = load i16, ptr %110, align 4
   %112 = icmp ne i16 %111, 0
   %113 = icmp ne ptr %2, null
@@ -1228,7 +1228,7 @@ define internal fastcc i32 @dissect_atm_common(ptr noundef %0, ptr noundef %1, p
   %116 = load i32, ptr @hf_atm_cells, align 4
   %117 = tail call ptr @proto_tree_add_uint(ptr noundef %.0, i32 noundef %116, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %115) #10
   %118 = load i32, ptr @hf_atm_aal5_uu, align 4
-  %119 = getelementptr inbounds i8, ptr %4, i64 18
+  %119 = getelementptr inbounds nuw i8, ptr %4, i64 18
   %120 = load i16, ptr %119, align 2
   %121 = lshr i16 %120, 8
   %122 = zext nneg i16 %121 to i32
@@ -1239,12 +1239,12 @@ define internal fastcc i32 @dissect_atm_common(ptr noundef %0, ptr noundef %1, p
   %127 = zext nneg i16 %126 to i32
   %128 = tail call ptr @proto_tree_add_uint(ptr noundef %.0, i32 noundef %124, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %127) #10
   %129 = load i32, ptr @hf_atm_aal5_len, align 4
-  %130 = getelementptr inbounds i8, ptr %4, i64 20
+  %130 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %131 = load i16, ptr %130, align 4
   %132 = zext i16 %131 to i32
   %133 = tail call ptr @proto_tree_add_uint(ptr noundef %.0, i32 noundef %129, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %132) #10
   %134 = load i32, ptr @hf_atm_aal5_crc, align 4
-  %135 = getelementptr inbounds i8, ptr %4, i64 24
+  %135 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %136 = load i32, ptr %135, align 4
   %137 = tail call ptr @proto_tree_add_uint(ptr noundef %.0, i32 noundef %134, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %136) #10
   br label %183
@@ -1328,11 +1328,11 @@ define internal fastcc i32 @dissect_atm_common(ptr noundef %0, ptr noundef %1, p
 183:                                              ; preds = %181, %156, %154, %150, %149, %147, %114, %109
   %.0.i = phi ptr [ %0, %114 ], [ %0, %109 ], [ %182, %181 ], [ %0, %156 ], [ %0, %154 ], [ %0, %150 ], [ %0, %149 ], [ %0, %147 ]
   %184 = load ptr, ptr @atm_reassembled_vpi_vci_table, align 8
-  %185 = getelementptr inbounds i8, ptr %4, i64 8
+  %185 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %186 = load i16, ptr %185, align 4
   %187 = zext i16 %186 to i32
   %188 = shl nuw i32 %187, 16
-  %189 = getelementptr inbounds i8, ptr %4, i64 10
+  %189 = getelementptr inbounds nuw i8, ptr %4, i64 10
   %190 = load i16, ptr %189, align 2
   %191 = zext i16 %190 to i32
   %192 = or disjoint i32 %188, %191
@@ -1367,7 +1367,7 @@ define internal fastcc i32 @dissect_atm_common(ptr noundef %0, ptr noundef %1, p
 
 205:                                              ; preds = %202
   %206 = load ptr, ptr @atm_type_aal5_table, align 8
-  %207 = getelementptr inbounds i8, ptr %4, i64 5
+  %207 = getelementptr inbounds nuw i8, ptr %4, i64 5
   %208 = load i8, ptr %207, align 1
   %209 = zext i8 %208 to i32
   %210 = tail call i32 @dissector_try_uint_new(ptr noundef %206, i32 noundef %209, ptr noundef %.0.i, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 1, ptr noundef nonnull %4) #10
@@ -1383,11 +1383,11 @@ define internal fastcc i32 @dissect_atm_common(ptr noundef %0, ptr noundef %1, p
   %215 = call ptr @tvb_memcpy(ptr noundef %.0.i, ptr noundef nonnull %7, i32 noundef 0, i64 noundef 8) #10
   %216 = load i8, ptr %7, align 1
   %217 = icmp eq i8 %216, -86
-  %218 = getelementptr inbounds i8, ptr %7, i64 1
+  %218 = getelementptr inbounds nuw i8, ptr %7, i64 1
   %219 = load i8, ptr %218, align 1
   %220 = icmp eq i8 %219, -86
   %or.cond.i = select i1 %217, i1 %220, i1 false
-  %221 = getelementptr inbounds i8, ptr %7, i64 2
+  %221 = getelementptr inbounds nuw i8, ptr %7, i64 2
   %222 = load i8, ptr %221, align 1
   %223 = icmp eq i8 %222, 3
   %or.cond7.i = select i1 %or.cond.i, i1 %223, i1 false
@@ -1427,12 +1427,12 @@ define internal fastcc i32 @dissect_atm_common(ptr noundef %0, ptr noundef %1, p
   br i1 %223, label %245, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %244
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %7, i64 4
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %7, i64 4
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 1
   br label %256
 
 245:                                              ; preds = %244
-  %246 = getelementptr inbounds i8, ptr %7, i64 3
+  %246 = getelementptr inbounds nuw i8, ptr %7, i64 3
   %247 = load i8, ptr %246, align 1
   switch i8 %247, label %248 [
     i8 -52, label %253
@@ -1441,7 +1441,7 @@ define internal fastcc i32 @dissect_atm_common(ptr noundef %0, ptr noundef %1, p
 
 248:                                              ; preds = %245
   %249 = icmp eq i8 %247, 0
-  %250 = getelementptr inbounds i8, ptr %7, i64 4
+  %250 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %251 = load i8, ptr %250, align 1
   %252 = icmp eq i8 %251, -128
   %or.cond15.i = select i1 %249, i1 %252, i1 false
@@ -1458,7 +1458,7 @@ define internal fastcc i32 @dissect_atm_common(ptr noundef %0, ptr noundef %1, p
   br i1 %258, label %259, label %270
 
 259:                                              ; preds = %256
-  %260 = getelementptr inbounds i8, ptr %7, i64 5
+  %260 = getelementptr inbounds nuw i8, ptr %7, i64 5
   %261 = load i8, ptr %260, align 1
   switch i8 %261, label %262 [
     i8 -52, label %267
@@ -1467,7 +1467,7 @@ define internal fastcc i32 @dissect_atm_common(ptr noundef %0, ptr noundef %1, p
 
 262:                                              ; preds = %259
   %263 = icmp eq i8 %261, 0
-  %264 = getelementptr inbounds i8, ptr %7, i64 6
+  %264 = getelementptr inbounds nuw i8, ptr %7, i64 6
   %265 = load i8, ptr %264, align 1
   %266 = icmp eq i8 %265, -128
   %or.cond23.i = select i1 %263, i1 %266, i1 false
@@ -1492,7 +1492,7 @@ define internal fastcc i32 @dissect_atm_common(ptr noundef %0, ptr noundef %1, p
 
 275:                                              ; preds = %194
   %276 = load i32, ptr @hf_atm_cid, align 4
-  %277 = getelementptr inbounds i8, ptr %4, i64 12
+  %277 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %278 = load i8, ptr %277, align 4
   %279 = zext i8 %278 to i32
   %280 = tail call ptr @proto_tree_add_uint(ptr noundef %.0, i32 noundef %276, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %279) #10
@@ -1520,7 +1520,7 @@ define internal fastcc i32 @dissect_atm_common(ptr noundef %0, ptr noundef %1, p
 293:                                              ; preds = %291, %289
   %.2.i = phi ptr [ %292, %291 ], [ %0, %289 ]
   %294 = load ptr, ptr @atm_type_aal2_table, align 8
-  %295 = getelementptr inbounds i8, ptr %4, i64 5
+  %295 = getelementptr inbounds nuw i8, ptr %4, i64 5
   %296 = load i8, ptr %295, align 1
   %297 = zext i8 %296 to i32
   %298 = tail call i32 @dissector_try_uint(ptr noundef %294, i32 noundef %297, ptr noundef %.2.i, ptr noundef nonnull %1, ptr noundef %2) #10
@@ -1599,7 +1599,7 @@ define internal fastcc void @dissect_atm_cell(ptr noundef %0, ptr noundef %1, pt
 38:                                               ; preds = %7
   %39 = load i32, ptr @hf_atm_header_error_check, align 4
   %40 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %39, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #10
-  %41 = getelementptr inbounds i8, ptr %1, i64 408
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %42 = load ptr, ptr %41, align 8
   %43 = tail call ptr @tvb_memdup(ptr noundef %42, ptr noundef %0, i32 noundef 0, i64 noundef 5) #10
   br label %44
@@ -1675,41 +1675,41 @@ get_header_err.exit:                              ; preds = %44
 71:                                               ; preds = %70
   %72 = load i32, ptr %6, align 4
   store i32 %72, ptr %8, align 4
-  %73 = getelementptr inbounds i8, ptr %6, i64 4
+  %73 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %74 = load i8, ptr %73, align 4
-  %75 = getelementptr inbounds i8, ptr %6, i64 5
+  %75 = getelementptr inbounds nuw i8, ptr %6, i64 5
   %76 = load i8, ptr %75, align 1
-  %77 = getelementptr inbounds i8, ptr %6, i64 6
+  %77 = getelementptr inbounds nuw i8, ptr %6, i64 6
   %78 = load i8, ptr %77, align 2
-  %79 = getelementptr inbounds i8, ptr %8, i64 6
+  %79 = getelementptr inbounds nuw i8, ptr %8, i64 6
   store i8 %78, ptr %79, align 2
-  %80 = getelementptr inbounds i8, ptr %6, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %81 = load i16, ptr %80, align 4
-  %82 = getelementptr inbounds i8, ptr %6, i64 10
+  %82 = getelementptr inbounds nuw i8, ptr %6, i64 10
   %83 = load i16, ptr %82, align 2
-  %84 = getelementptr inbounds i8, ptr %6, i64 12
+  %84 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %85 = load i8, ptr %84, align 4
-  %86 = getelementptr inbounds i8, ptr %8, i64 12
+  %86 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i8 %85, ptr %86, align 4
-  %87 = getelementptr inbounds i8, ptr %6, i64 14
+  %87 = getelementptr inbounds nuw i8, ptr %6, i64 14
   %88 = load i16, ptr %87, align 2
-  %89 = getelementptr inbounds i8, ptr %8, i64 14
+  %89 = getelementptr inbounds nuw i8, ptr %8, i64 14
   store i16 %88, ptr %89, align 2
-  %90 = getelementptr inbounds i8, ptr %6, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %91 = load i16, ptr %90, align 4
-  %92 = getelementptr inbounds i8, ptr %8, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i16 %91, ptr %92, align 4
-  %93 = getelementptr inbounds i8, ptr %6, i64 18
+  %93 = getelementptr inbounds nuw i8, ptr %6, i64 18
   %94 = load i16, ptr %93, align 2
-  %95 = getelementptr inbounds i8, ptr %8, i64 18
+  %95 = getelementptr inbounds nuw i8, ptr %8, i64 18
   store i16 %94, ptr %95, align 2
-  %96 = getelementptr inbounds i8, ptr %6, i64 20
+  %96 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %97 = load i16, ptr %96, align 4
-  %98 = getelementptr inbounds i8, ptr %8, i64 20
+  %98 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i16 %97, ptr %98, align 4
-  %99 = getelementptr inbounds i8, ptr %6, i64 24
+  %99 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %100 = load i32, ptr %99, align 4
-  %101 = getelementptr inbounds i8, ptr %8, i64 24
+  %101 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 %100, ptr %101, align 4
   br label %104
 
@@ -1722,13 +1722,13 @@ get_header_err.exit:                              ; preds = %44
   %.sink83 = phi i8 [ %33, %102 ], [ %76, %71 ]
   %.sink82 = phi i16 [ %14, %102 ], [ %81, %71 ]
   %.sink = phi i16 [ %28, %102 ], [ %83, %71 ]
-  %105 = getelementptr inbounds i8, ptr %8, i64 4
+  %105 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i8 %.sink84, ptr %105, align 4
-  %106 = getelementptr inbounds i8, ptr %8, i64 5
+  %106 = getelementptr inbounds nuw i8, ptr %8, i64 5
   store i8 %.sink83, ptr %106, align 1
-  %107 = getelementptr inbounds i8, ptr %8, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i16 %.sink82, ptr %107, align 4
-  %108 = getelementptr inbounds i8, ptr %8, i64 10
+  %108 = getelementptr inbounds nuw i8, ptr %8, i64 10
   store i16 %.sink, ptr %108, align 2
   call fastcc void @dissect_atm_cell_payload(ptr noundef %0, i32 noundef %.072, ptr noundef %1, ptr noundef %2, i32 noundef %.071, i32 noundef 1, ptr noundef %8)
   ret void
@@ -1749,11 +1749,11 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 define internal fastcc void @dissect_atm_cell_payload(ptr noundef %0, i32 noundef range(i32 0, 6) %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 256) %4, i32 noundef %5, ptr noundef nonnull %6) unnamed_addr #1 {
   %8 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %1) #10
   %9 = load ptr, ptr @atm_cell_payload_vpi_vci_table, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %11 = load i16, ptr %10, align 4
   %12 = zext i16 %11 to i32
   %13 = shl nuw i32 %12, 16
-  %14 = getelementptr inbounds i8, ptr %6, i64 10
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 10
   %15 = load i16, ptr %14, align 2
   %16 = zext i16 %15 to i32
   %17 = or disjoint i32 %13, %16
@@ -1770,7 +1770,7 @@ define internal fastcc void @dissect_atm_cell_payload(ptr noundef %0, i32 nounde
   ]
 
 20:                                               ; preds = %19
-  %21 = getelementptr inbounds i8, ptr %2, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %22 = load ptr, ptr %21, align 8
   tail call void @col_set_str(ptr noundef %22, i32 noundef 34, ptr noundef nonnull @.str.149) #10
   %23 = load ptr, ptr %21, align 8
@@ -1799,7 +1799,7 @@ define internal fastcc void @dissect_atm_cell_payload(ptr noundef %0, i32 nounde
   br label %116
 
 44:                                               ; preds = %19
-  %45 = getelementptr inbounds i8, ptr %2, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %46 = load ptr, ptr %45, align 8
   tail call void @col_set_str(ptr noundef %46, i32 noundef 34, ptr noundef nonnull @.str.152) #10
   %47 = load ptr, ptr %45, align 8
@@ -1842,7 +1842,7 @@ define internal fastcc void @dissect_atm_cell_payload(ptr noundef %0, i32 nounde
   br i1 %.not120, label %82, label %78
 
 78:                                               ; preds = %77
-  %79 = getelementptr inbounds i8, ptr %2, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %80 = load ptr, ptr %79, align 8
   tail call void @col_set_str(ptr noundef %80, i32 noundef 34, ptr noundef nonnull @.str.155) #10
   %81 = load ptr, ptr %79, align 8
@@ -1862,7 +1862,7 @@ define internal fastcc void @dissect_atm_cell_payload(ptr noundef %0, i32 nounde
   br label %94
 
 88:                                               ; preds = %82
-  %89 = getelementptr inbounds i8, ptr %2, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %90 = load ptr, ptr %89, align 8
   %91 = lshr i8 %87, 4
   %92 = zext nneg i8 %91 to i32

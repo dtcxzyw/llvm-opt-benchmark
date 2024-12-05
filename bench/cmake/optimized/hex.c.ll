@@ -24,15 +24,15 @@ define dso_local void @rhash_byte_to_hex(ptr nocapture noundef writeonly %0, ptr
   %narrow = add nuw nsw i8 %7, %5
   %10 = or disjoint i8 %7, 48
   %.in = select i1 %9, i8 %narrow, i8 %10
-  %11 = getelementptr inbounds i8, ptr %.027, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.027, i64 1
   store i8 %.in, ptr %.027, align 1
   %12 = icmp samesign ugt i8 %8, 9
   %narrow22 = add nuw nsw i8 %8, %5
   %13 = or disjoint i8 %8, 48
   %.in23 = select i1 %12, i8 %narrow22, i8 %13
-  %14 = getelementptr inbounds i8, ptr %.027, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %.027, i64 2
   store i8 %.in23, ptr %11, align 1
-  %15 = getelementptr inbounds i8, ptr %.01626, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %.01626, i64 1
   %16 = add i64 %.01725, -1
   %.not21 = icmp eq i64 %16, 0
   br i1 %.not21, label %._crit_edge, label %.lr.ph, !llvm.loop !5
@@ -70,7 +70,7 @@ define dso_local void @rhash_byte_to_base32(ptr nocapture noundef writeonly %0, 
   %16 = and i32 %15, 7
   %17 = zext nneg i8 %14 to i32
   %18 = shl nuw nsw i32 %17, %16
-  %19 = getelementptr inbounds i8, ptr %.03039, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %.03039, i64 1
   %20 = icmp ult ptr %19, %5
   br i1 %20, label %21, label %27
 
@@ -98,7 +98,7 @@ define dso_local void @rhash_byte_to_base32(ptr nocapture noundef writeonly %0, 
   %36 = and i8 %35, 31
   %37 = icmp eq i32 %.02840, 3
   %spec.select.idx = zext i1 %37 to i64
-  %spec.select = getelementptr inbounds i8, ptr %.03039, i64 %spec.select.idx
+  %spec.select = getelementptr inbounds nuw i8, ptr %.03039, i64 %spec.select.idx
   br label %38
 
 38:                                               ; preds = %28, %27
@@ -108,7 +108,7 @@ define dso_local void @rhash_byte_to_base32(ptr nocapture noundef writeonly %0, 
   %39 = icmp ult i8 %.1, 26
   %.v = select i1 %39, i8 %7, i8 24
   %40 = add i8 %.v, %.1
-  %41 = getelementptr inbounds i8, ptr %.041, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %.041, i64 1
   store i8 %40, ptr %.041, align 1
   %42 = icmp ult ptr %.131, %5
   br i1 %42, label %8, label %._crit_edge, !llvm.loop !7
@@ -141,7 +141,7 @@ define dso_local void @rhash_byte_to_base64(ptr nocapture noundef writeonly %0, 
   %13 = and i32 %12, 7
   %14 = zext nneg i8 %11 to i32
   %15 = shl nuw nsw i32 %14, %13
-  %16 = getelementptr inbounds i8, ptr %.03543, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.03543, i64 1
   %17 = icmp ult ptr %16, %4
   br i1 %17, label %18, label %24
 
@@ -169,7 +169,7 @@ define dso_local void @rhash_byte_to_base64(ptr nocapture noundef writeonly %0, 
   %33 = and i8 %32, 63
   %34 = icmp eq i32 %.03344, 2
   %spec.select.idx = zext i1 %34 to i64
-  %spec.select = getelementptr inbounds i8, ptr %.03543, i64 %spec.select.idx
+  %spec.select = getelementptr inbounds nuw i8, ptr %.03543, i64 %spec.select.idx
   br label %35
 
 35:                                               ; preds = %25, %24
@@ -199,7 +199,7 @@ define dso_local void @rhash_byte_to_base64(ptr nocapture noundef writeonly %0, 
 
 46:                                               ; preds = %39, %41, %43
   %47 = phi i8 [ %45, %43 ], [ %40, %39 ], [ %42, %41 ]
-  %48 = getelementptr inbounds i8, ptr %.045, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %.045, i64 1
   store i8 %47, ptr %.045, align 1
   %49 = icmp ult ptr %.136, %4
   br i1 %49, label %.lr.ph, label %._crit_edge, !llvm.loop !8
@@ -209,13 +209,13 @@ define dso_local void @rhash_byte_to_base64(ptr nocapture noundef writeonly %0, 
   br i1 %.not, label %._crit_edge.thread, label %50
 
 50:                                               ; preds = %._crit_edge
-  %51 = getelementptr inbounds i8, ptr %.045, i64 2
+  %51 = getelementptr inbounds nuw i8, ptr %.045, i64 2
   store i8 61, ptr %48, align 1
   %52 = icmp eq i32 %.134, 4
   br i1 %52, label %53, label %._crit_edge.thread
 
 53:                                               ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %.045, i64 3
+  %54 = getelementptr inbounds nuw i8, ptr %.045, i64 3
   store i8 61, ptr %51, align 1
   br label %._crit_edge.thread
 
@@ -246,7 +246,7 @@ define dso_local i64 @rhash_base64_url_encoded_helper(ptr noundef %0, ptr nounde
   %.02349 = phi ptr [ %1, %.lr.ph ], [ %111, %rhash_urlencode.exit ]
   %.02448 = phi i64 [ %2, %.lr.ph ], [ %110, %rhash_urlencode.exit ]
   %9 = tail call i64 @llvm.umin.i64(i64 %.02448, i64 120)
-  %10 = getelementptr inbounds i8, ptr %.02349, i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr %.02349, i64 %9
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %8, %51
@@ -265,7 +265,7 @@ define dso_local i64 @rhash_base64_url_encoded_helper(ptr noundef %0, ptr nounde
   %18 = and i32 %17, 7
   %19 = zext nneg i8 %16 to i32
   %20 = shl nuw nsw i32 %19, %18
-  %21 = getelementptr inbounds i8, ptr %.03543.i, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %.03543.i, i64 1
   %22 = icmp ult ptr %21, %10
   br i1 %22, label %23, label %29
 
@@ -293,7 +293,7 @@ define dso_local i64 @rhash_base64_url_encoded_helper(ptr noundef %0, ptr nounde
   %38 = and i8 %37, 63
   %39 = icmp eq i32 %.03344.i, 2
   %spec.select.idx.i = zext i1 %39 to i64
-  %spec.select.i = getelementptr inbounds i8, ptr %.03543.i, i64 %spec.select.idx.i
+  %spec.select.i = getelementptr inbounds nuw i8, ptr %.03543.i, i64 %spec.select.idx.i
   br label %40
 
 40:                                               ; preds = %30, %29
@@ -323,7 +323,7 @@ define dso_local i64 @rhash_base64_url_encoded_helper(ptr noundef %0, ptr nounde
 
 51:                                               ; preds = %48, %46, %44
   %52 = phi i8 [ %50, %48 ], [ %45, %44 ], [ %47, %46 ]
-  %53 = getelementptr inbounds i8, ptr %.045.i, i64 1
+  %53 = getelementptr inbounds nuw i8, ptr %.045.i, i64 1
   store i8 %52, ptr %.045.i, align 1
   %54 = icmp ult ptr %.136.i, %10
   br i1 %54, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !8
@@ -333,13 +333,13 @@ define dso_local i64 @rhash_base64_url_encoded_helper(ptr noundef %0, ptr nounde
   br i1 %.not.i, label %rhash_byte_to_base64.exit, label %55
 
 55:                                               ; preds = %._crit_edge.i
-  %56 = getelementptr inbounds i8, ptr %.045.i, i64 2
+  %56 = getelementptr inbounds nuw i8, ptr %.045.i, i64 2
   store i8 61, ptr %53, align 1
   %57 = icmp eq i32 %.134.i, 4
   br i1 %57, label %58, label %rhash_byte_to_base64.exit
 
 58:                                               ; preds = %55
-  %59 = getelementptr inbounds i8, ptr %.045.i, i64 3
+  %59 = getelementptr inbounds nuw i8, ptr %.045.i, i64 3
   store i8 61, ptr %56, align 1
   br label %rhash_byte_to_base64.exit
 
@@ -364,7 +364,7 @@ rhash_byte_to_base64.exit:                        ; preds = %._crit_edge.i, %55,
   %67 = zext nneg i8 %64 to i32
   %68 = lshr i32 %67, 5
   %69 = zext nneg i32 %68 to i64
-  %70 = getelementptr inbounds [4 x i32], ptr @url_safe_char_mask, i64 0, i64 %69
+  %70 = getelementptr inbounds nuw [4 x i32], ptr @url_safe_char_mask, i64 0, i64 %69
   %71 = load i32, ptr %70, align 4
   %72 = and i32 %67, 31
   %73 = shl nuw i32 1, %72
@@ -394,7 +394,7 @@ rhash_byte_to_base64.exit:                        ; preds = %._crit_edge.i, %55,
   %83 = zext nneg i8 %80 to i32
   %84 = lshr i32 %83, 5
   %85 = zext nneg i32 %84 to i64
-  %86 = getelementptr inbounds [4 x i32], ptr @url_safe_char_mask, i64 0, i64 %85
+  %86 = getelementptr inbounds nuw [4 x i32], ptr @url_safe_char_mask, i64 0, i64 %85
   %87 = load i32, ptr %86, align 4
   %88 = and i32 %83, 31
   %89 = shl nuw i32 1, %88
@@ -403,26 +403,26 @@ rhash_byte_to_base64.exit:                        ; preds = %._crit_edge.i, %55,
   br i1 %.not59.i, label %93, label %91
 
 91:                                               ; preds = %82
-  %92 = getelementptr inbounds i8, ptr %.04563.i, i64 1
+  %92 = getelementptr inbounds nuw i8, ptr %.04563.i, i64 1
   store i8 %80, ptr %.04563.i, align 1
   br label %103
 
 93:                                               ; preds = %82, %.lr.ph.i27
   %94 = lshr i8 %80, 4
   %95 = and i8 %80, 15
-  %96 = getelementptr inbounds i8, ptr %.04563.i, i64 1
+  %96 = getelementptr inbounds nuw i8, ptr %.04563.i, i64 1
   store i8 37, ptr %.04563.i, align 1
   %97 = icmp ugt i8 %80, -97
   %narrow.i = add nuw nsw i8 %94, %7
   %98 = or disjoint i8 %94, 48
   %.in.i = select i1 %97, i8 %narrow.i, i8 %98
-  %99 = getelementptr inbounds i8, ptr %.04563.i, i64 2
+  %99 = getelementptr inbounds nuw i8, ptr %.04563.i, i64 2
   store i8 %.in.i, ptr %96, align 1
   %100 = icmp samesign ugt i8 %95, 9
   %narrow60.i = add nuw nsw i8 %95, %7
   %101 = or disjoint i8 %95, 48
   %.in61.i = select i1 %100, i8 %narrow60.i, i8 %101
-  %102 = getelementptr inbounds i8, ptr %.04563.i, i64 3
+  %102 = getelementptr inbounds nuw i8, ptr %.04563.i, i64 3
   store i8 %.in61.i, ptr %99, align 1
   br label %103
 
@@ -444,7 +444,7 @@ rhash_urlencode.exit:                             ; preds = %77, %._crit_edge.i2
   %108 = add i64 %.0.i, %.02250
   %109 = getelementptr inbounds i8, ptr %.02151, i64 %.0.i
   %110 = sub i64 %.02448, %9
-  %111 = getelementptr inbounds i8, ptr %.02349, i64 120
+  %111 = getelementptr inbounds nuw i8, ptr %.02349, i64 120
   %.not25 = icmp eq i64 %110, 0
   br i1 %.not25, label %.loopexit, label %8, !llvm.loop !11
 
@@ -469,7 +469,7 @@ rhash_urlencode.exit:                             ; preds = %77, %._crit_edge.i2
   %122 = and i32 %121, 7
   %123 = zext nneg i8 %120 to i32
   %124 = shl nuw nsw i32 %123, %122
-  %125 = getelementptr inbounds i8, ptr %.03543.i34, i64 1
+  %125 = getelementptr inbounds nuw i8, ptr %.03543.i34, i64 1
   %126 = icmp ult ptr %125, %113
   br i1 %126, label %127, label %133
 
@@ -497,7 +497,7 @@ rhash_urlencode.exit:                             ; preds = %77, %._crit_edge.i2
   %142 = and i8 %141, 63
   %143 = icmp eq i32 %.03344.i33, 2
   %spec.select.idx.i35 = zext i1 %143 to i64
-  %spec.select.i36 = getelementptr inbounds i8, ptr %.03543.i34, i64 %spec.select.idx.i35
+  %spec.select.i36 = getelementptr inbounds nuw i8, ptr %.03543.i34, i64 %spec.select.idx.i35
   br label %144
 
 144:                                              ; preds = %134, %133
@@ -527,7 +527,7 @@ rhash_urlencode.exit:                             ; preds = %77, %._crit_edge.i2
 
 155:                                              ; preds = %152, %150, %148
   %156 = phi i8 [ %154, %152 ], [ %149, %148 ], [ %151, %150 ]
-  %157 = getelementptr inbounds i8, ptr %.045.i32, i64 1
+  %157 = getelementptr inbounds nuw i8, ptr %.045.i32, i64 1
   store i8 %156, ptr %.045.i32, align 1
   %158 = icmp ult ptr %.136.i37, %113
   br i1 %158, label %.lr.ph.i31, label %._crit_edge.i41, !llvm.loop !8
@@ -537,13 +537,13 @@ rhash_urlencode.exit:                             ; preds = %77, %._crit_edge.i2
   br i1 %.not.i42, label %rhash_byte_to_base64.exit45, label %159
 
 159:                                              ; preds = %._crit_edge.i41
-  %160 = getelementptr inbounds i8, ptr %.045.i32, i64 2
+  %160 = getelementptr inbounds nuw i8, ptr %.045.i32, i64 2
   store i8 61, ptr %157, align 1
   %161 = icmp eq i32 %.134.i38, 4
   br i1 %161, label %162, label %rhash_byte_to_base64.exit45
 
 162:                                              ; preds = %159
-  %163 = getelementptr inbounds i8, ptr %.045.i32, i64 3
+  %163 = getelementptr inbounds nuw i8, ptr %.045.i32, i64 3
   store i8 61, ptr %160, align 1
   br label %rhash_byte_to_base64.exit45
 
@@ -581,7 +581,7 @@ define dso_local i64 @rhash_urlencode(ptr noundef %0, ptr nocapture noundef read
   %9 = zext nneg i8 %6 to i32
   %10 = lshr i32 %9, 5
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds [4 x i32], ptr @url_safe_char_mask, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i32], ptr @url_safe_char_mask, i64 0, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = and i32 %9, 31
   %15 = shl nuw i32 1, %14
@@ -617,7 +617,7 @@ define dso_local i64 @rhash_urlencode(ptr noundef %0, ptr nocapture noundef read
   %27 = zext nneg i8 %24 to i32
   %28 = lshr i32 %27, 5
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds [4 x i32], ptr @url_safe_char_mask, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i32], ptr @url_safe_char_mask, i64 0, i64 %29
   %31 = load i32, ptr %30, align 4
   %32 = and i32 %27, 31
   %33 = shl nuw i32 1, %32
@@ -626,26 +626,26 @@ define dso_local i64 @rhash_urlencode(ptr noundef %0, ptr nocapture noundef read
   br i1 %.not59, label %37, label %35
 
 35:                                               ; preds = %26
-  %36 = getelementptr inbounds i8, ptr %.04563, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %.04563, i64 1
   store i8 %24, ptr %.04563, align 1
   br label %47
 
 37:                                               ; preds = %26, %.lr.ph
   %38 = lshr i8 %24, 4
   %39 = and i8 %24, 15
-  %40 = getelementptr inbounds i8, ptr %.04563, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %.04563, i64 1
   store i8 37, ptr %.04563, align 1
   %41 = icmp ugt i8 %24, -97
   %narrow = add nuw nsw i8 %38, %22
   %42 = or disjoint i8 %38, 48
   %.in = select i1 %41, i8 %narrow, i8 %42
-  %43 = getelementptr inbounds i8, ptr %.04563, i64 2
+  %43 = getelementptr inbounds nuw i8, ptr %.04563, i64 2
   store i8 %.in, ptr %40, align 1
   %44 = icmp samesign ugt i8 %39, 9
   %narrow60 = add nuw nsw i8 %39, %22
   %45 = or disjoint i8 %39, 48
   %.in61 = select i1 %44, i8 %narrow60, i8 %45
-  %46 = getelementptr inbounds i8, ptr %.04563, i64 3
+  %46 = getelementptr inbounds nuw i8, ptr %.04563, i64 3
   store i8 %.in61, ptr %43, align 1
   br label %47
 
@@ -687,13 +687,13 @@ define dso_local i32 @rhash_sprintI64(ptr noundef writeonly %0, i64 noundef %1) 
   br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !12
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %3, i64 23
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 23
   store i8 0, ptr %10, align 1
   %11 = icmp eq i64 %1, 0
   br i1 %11, label %12, label %.preheader26
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %3, i64 22
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 22
   store i8 48, ptr %13, align 2
   br label %.loopexit27
 

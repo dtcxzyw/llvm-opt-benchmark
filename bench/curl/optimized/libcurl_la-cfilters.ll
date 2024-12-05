@@ -14,30 +14,30 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden void @Curl_cf_def_get_host(ptr nocapture noundef readonly %cf, ptr noundef %data, ptr noundef %phost, ptr noundef %pdisplay_host, ptr noundef %pport) local_unnamed_addr #0 {
 entry:
-  %next = getelementptr inbounds i8, ptr %cf, i64 8
+  %next = getelementptr inbounds nuw i8, ptr %cf, i64 8
   %0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %0, align 8
-  %get_host = getelementptr inbounds i8, ptr %1, i64 40
+  %get_host = getelementptr inbounds nuw i8, ptr %1, i64 40
   %2 = load ptr, ptr %get_host, align 8
   tail call void %2(ptr noundef nonnull %0, ptr noundef %data, ptr noundef %phost, ptr noundef %pdisplay_host, ptr noundef %pport) #11
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %conn = getelementptr inbounds i8, ptr %cf, i64 24
+  %conn = getelementptr inbounds nuw i8, ptr %cf, i64 24
   %3 = load ptr, ptr %conn, align 8
-  %name = getelementptr inbounds i8, ptr %3, i64 80
+  %name = getelementptr inbounds nuw i8, ptr %3, i64 80
   %4 = load ptr, ptr %name, align 8
   store ptr %4, ptr %phost, align 8
   %5 = load ptr, ptr %conn, align 8
-  %dispname = getelementptr inbounds i8, ptr %5, i64 88
+  %dispname = getelementptr inbounds nuw i8, ptr %5, i64 88
   %6 = load ptr, ptr %dispname, align 8
   store ptr %6, ptr %pdisplay_host, align 8
   %7 = load ptr, ptr %conn, align 8
-  %port = getelementptr inbounds i8, ptr %7, i64 1144
+  %port = getelementptr inbounds nuw i8, ptr %7, i64 1144
   %8 = load i32, ptr %port, align 8
   store i32 %8, ptr %pport, align 4
   br label %if.end
@@ -55,14 +55,14 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @Curl_cf_def_data_pending(ptr nocapture noundef readonly %cf, ptr noundef %data) local_unnamed_addr #0 {
 entry:
-  %next = getelementptr inbounds i8, ptr %cf, i64 8
+  %next = getelementptr inbounds nuw i8, ptr %cf, i64 8
   %0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
   %1 = load ptr, ptr %0, align 8
-  %has_data_pending = getelementptr inbounds i8, ptr %1, i64 56
+  %has_data_pending = getelementptr inbounds nuw i8, ptr %1, i64 56
   %2 = load ptr, ptr %has_data_pending, align 8
   %call = tail call zeroext i1 %2(ptr noundef nonnull %0, ptr noundef %data) #11
   br label %cond.end
@@ -75,14 +75,14 @@ cond.end:                                         ; preds = %entry, %cond.true
 ; Function Attrs: nounwind uwtable
 define hidden i64 @Curl_cf_def_send(ptr nocapture noundef readonly %cf, ptr noundef %data, ptr noundef %buf, i64 noundef %len, ptr noundef %err) local_unnamed_addr #0 {
 entry:
-  %next = getelementptr inbounds i8, ptr %cf, i64 8
+  %next = getelementptr inbounds nuw i8, ptr %cf, i64 8
   %0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
   %1 = load ptr, ptr %0, align 8
-  %do_send = getelementptr inbounds i8, ptr %1, i64 64
+  %do_send = getelementptr inbounds nuw i8, ptr %1, i64 64
   %2 = load ptr, ptr %do_send, align 8
   %call = tail call i64 %2(ptr noundef nonnull %0, ptr noundef %data, ptr noundef %buf, i64 noundef %len, ptr noundef %err) #11
   br label %cond.end
@@ -95,14 +95,14 @@ cond.end:                                         ; preds = %entry, %cond.true
 ; Function Attrs: nounwind uwtable
 define hidden i64 @Curl_cf_def_recv(ptr nocapture noundef readonly %cf, ptr noundef %data, ptr noundef %buf, i64 noundef %len, ptr noundef %err) local_unnamed_addr #0 {
 entry:
-  %next = getelementptr inbounds i8, ptr %cf, i64 8
+  %next = getelementptr inbounds nuw i8, ptr %cf, i64 8
   %0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
   %1 = load ptr, ptr %0, align 8
-  %do_recv = getelementptr inbounds i8, ptr %1, i64 72
+  %do_recv = getelementptr inbounds nuw i8, ptr %1, i64 72
   %2 = load ptr, ptr %do_recv, align 8
   %call = tail call i64 %2(ptr noundef nonnull %0, ptr noundef %data, ptr noundef %buf, i64 noundef %len, ptr noundef %err) #11
   br label %cond.end
@@ -115,14 +115,14 @@ cond.end:                                         ; preds = %entry, %cond.true
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @Curl_cf_def_conn_is_alive(ptr nocapture noundef readonly %cf, ptr noundef %data, ptr noundef %input_pending) local_unnamed_addr #0 {
 entry:
-  %next = getelementptr inbounds i8, ptr %cf, i64 8
+  %next = getelementptr inbounds nuw i8, ptr %cf, i64 8
   %0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
   %1 = load ptr, ptr %0, align 8
-  %is_alive = getelementptr inbounds i8, ptr %1, i64 88
+  %is_alive = getelementptr inbounds nuw i8, ptr %1, i64 88
   %2 = load ptr, ptr %is_alive, align 8
   %call = tail call zeroext i1 %2(ptr noundef nonnull %0, ptr noundef %data, ptr noundef %input_pending) #11
   br label %cond.end
@@ -135,14 +135,14 @@ cond.end:                                         ; preds = %entry, %cond.true
 ; Function Attrs: nounwind uwtable
 define hidden i32 @Curl_cf_def_conn_keep_alive(ptr nocapture noundef readonly %cf, ptr noundef %data) local_unnamed_addr #0 {
 entry:
-  %next = getelementptr inbounds i8, ptr %cf, i64 8
+  %next = getelementptr inbounds nuw i8, ptr %cf, i64 8
   %0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
   %1 = load ptr, ptr %0, align 8
-  %keep_alive = getelementptr inbounds i8, ptr %1, i64 96
+  %keep_alive = getelementptr inbounds nuw i8, ptr %1, i64 96
   %2 = load ptr, ptr %keep_alive, align 8
   %call = tail call i32 %2(ptr noundef nonnull %0, ptr noundef %data) #11
   br label %cond.end
@@ -155,14 +155,14 @@ cond.end:                                         ; preds = %entry, %cond.true
 ; Function Attrs: nounwind uwtable
 define hidden i32 @Curl_cf_def_query(ptr nocapture noundef readonly %cf, ptr noundef %data, i32 noundef %query, ptr noundef %pres1, ptr noundef %pres2) local_unnamed_addr #0 {
 entry:
-  %next = getelementptr inbounds i8, ptr %cf, i64 8
+  %next = getelementptr inbounds nuw i8, ptr %cf, i64 8
   %0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
   %1 = load ptr, ptr %0, align 8
-  %query2 = getelementptr inbounds i8, ptr %1, i64 104
+  %query2 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %2 = load ptr, ptr %query2, align 8
   %call = tail call i32 %2(ptr noundef nonnull %0, ptr noundef %data, i32 noundef %query, ptr noundef %pres1, ptr noundef %pres2) #11
   br label %cond.end
@@ -185,11 +185,11 @@ if.then:                                          ; preds = %entry
 
 while.body:                                       ; preds = %if.then, %while.body
   %cf.08 = phi ptr [ %0, %if.then ], [ %1, %while.body ]
-  %next = getelementptr inbounds i8, ptr %cf.08, i64 8
+  %next = getelementptr inbounds nuw i8, ptr %cf.08, i64 8
   %1 = load ptr, ptr %next, align 8
   store ptr null, ptr %next, align 8
   %2 = load ptr, ptr %cf.08, align 8
-  %destroy = getelementptr inbounds i8, ptr %2, i64 16
+  %destroy = getelementptr inbounds nuw i8, ptr %2, i64 16
   %3 = load ptr, ptr %destroy, align 8
   tail call void %3(ptr noundef nonnull %cf.08, ptr noundef %data) #11
   %4 = load ptr, ptr @Curl_cfree, align 8
@@ -204,7 +204,7 @@ if.end:                                           ; preds = %while.body, %entry
 ; Function Attrs: nounwind uwtable
 define hidden void @Curl_conn_cf_discard_all(ptr noundef %data, ptr nocapture noundef %conn, i32 noundef %index) local_unnamed_addr #0 {
 entry:
-  %cfilter = getelementptr inbounds i8, ptr %conn, i64 432
+  %cfilter = getelementptr inbounds nuw i8, ptr %conn, i64 432
   %idxprom = sext i32 %index to i64
   %arrayidx = getelementptr inbounds [2 x ptr], ptr %cfilter, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
@@ -217,11 +217,11 @@ if.then.i:                                        ; preds = %entry
 
 while.body.i:                                     ; preds = %while.body.i, %if.then.i
   %cf.08.i = phi ptr [ %0, %if.then.i ], [ %1, %while.body.i ]
-  %next.i = getelementptr inbounds i8, ptr %cf.08.i, i64 8
+  %next.i = getelementptr inbounds nuw i8, ptr %cf.08.i, i64 8
   %1 = load ptr, ptr %next.i, align 8
   store ptr null, ptr %next.i, align 8
   %2 = load ptr, ptr %cf.08.i, align 8
-  %destroy.i = getelementptr inbounds i8, ptr %2, i64 16
+  %destroy.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   %3 = load ptr, ptr %destroy.i, align 8
   tail call void %3(ptr noundef nonnull %cf.08.i, ptr noundef %data) #11
   %4 = load ptr, ptr @Curl_cfree, align 8
@@ -236,9 +236,9 @@ Curl_conn_cf_discard_chain.exit:                  ; preds = %while.body.i, %entr
 ; Function Attrs: nounwind uwtable
 define hidden void @Curl_conn_close(ptr noundef %data, i32 noundef %index) local_unnamed_addr #0 {
 entry:
-  %conn = getelementptr inbounds i8, ptr %data, i64 32
+  %conn = getelementptr inbounds nuw i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn, align 8
-  %cfilter = getelementptr inbounds i8, ptr %0, i64 432
+  %cfilter = getelementptr inbounds nuw i8, ptr %0, i64 432
   %idxprom = sext i32 %index to i64
   %arrayidx = getelementptr inbounds [2 x ptr], ptr %cfilter, i64 0, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8
@@ -247,7 +247,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %1, align 8
-  %do_close = getelementptr inbounds i8, ptr %2, i64 32
+  %do_close = getelementptr inbounds nuw i8, ptr %2, i64 32
   %3 = load ptr, ptr %do_close, align 8
   tail call void %3(ptr noundef nonnull %1, ptr noundef nonnull %data) #11
   br label %if.end
@@ -259,9 +259,9 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind uwtable
 define hidden i64 @Curl_conn_recv(ptr noundef %data, i32 noundef %num, ptr noundef %buf, i64 noundef %len, ptr noundef %code) local_unnamed_addr #0 {
 entry:
-  %conn = getelementptr inbounds i8, ptr %data, i64 32
+  %conn = getelementptr inbounds nuw i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn, align 8
-  %cfilter = getelementptr inbounds i8, ptr %0, i64 432
+  %cfilter = getelementptr inbounds nuw i8, ptr %0, i64 432
   %idxprom = sext i32 %num to i64
   %arrayidx = getelementptr inbounds [2 x ptr], ptr %cfilter, i64 0, i64 %idxprom
   %cf.010 = load ptr, ptr %arrayidx, align 8
@@ -270,21 +270,21 @@ entry:
 
 land.rhs:                                         ; preds = %entry, %while.body
   %cf.012 = phi ptr [ %cf.0, %while.body ], [ %cf.010, %entry ]
-  %connected = getelementptr inbounds i8, ptr %cf.012, i64 36
+  %connected = getelementptr inbounds nuw i8, ptr %cf.012, i64 36
   %bf.load = load i8, ptr %connected, align 4
   %bf.clear = and i8 %bf.load, 1
   %tobool3.not = icmp eq i8 %bf.clear, 0
   br i1 %tobool3.not, label %while.body, label %if.then
 
 while.body:                                       ; preds = %land.rhs
-  %next = getelementptr inbounds i8, ptr %cf.012, i64 8
+  %next = getelementptr inbounds nuw i8, ptr %cf.012, i64 8
   %cf.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %cf.0, null
   br i1 %tobool.not, label %if.end, label %land.rhs, !llvm.loop !6
 
 if.then:                                          ; preds = %land.rhs
   %1 = load ptr, ptr %cf.012, align 8
-  %do_recv = getelementptr inbounds i8, ptr %1, i64 72
+  %do_recv = getelementptr inbounds nuw i8, ptr %1, i64 72
   %2 = load ptr, ptr %do_recv, align 8
   %call = tail call i64 %2(ptr noundef nonnull %cf.012, ptr noundef %data, ptr noundef %buf, i64 noundef %len, ptr noundef %code) #11
   br label %return
@@ -304,9 +304,9 @@ declare void @Curl_failf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define hidden i64 @Curl_conn_send(ptr noundef %data, i32 noundef %num, ptr noundef %mem, i64 noundef %len, ptr noundef %code) local_unnamed_addr #0 {
 entry:
-  %conn = getelementptr inbounds i8, ptr %data, i64 32
+  %conn = getelementptr inbounds nuw i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn, align 8
-  %cfilter = getelementptr inbounds i8, ptr %0, i64 432
+  %cfilter = getelementptr inbounds nuw i8, ptr %0, i64 432
   %idxprom = sext i32 %num to i64
   %arrayidx = getelementptr inbounds [2 x ptr], ptr %cfilter, i64 0, i64 %idxprom
   %cf.010 = load ptr, ptr %arrayidx, align 8
@@ -315,21 +315,21 @@ entry:
 
 land.rhs:                                         ; preds = %entry, %while.body
   %cf.012 = phi ptr [ %cf.0, %while.body ], [ %cf.010, %entry ]
-  %connected = getelementptr inbounds i8, ptr %cf.012, i64 36
+  %connected = getelementptr inbounds nuw i8, ptr %cf.012, i64 36
   %bf.load = load i8, ptr %connected, align 4
   %bf.clear = and i8 %bf.load, 1
   %tobool3.not = icmp eq i8 %bf.clear, 0
   br i1 %tobool3.not, label %while.body, label %if.then
 
 while.body:                                       ; preds = %land.rhs
-  %next = getelementptr inbounds i8, ptr %cf.012, i64 8
+  %next = getelementptr inbounds nuw i8, ptr %cf.012, i64 8
   %cf.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %cf.0, null
   br i1 %tobool.not, label %if.end, label %land.rhs, !llvm.loop !7
 
 if.then:                                          ; preds = %land.rhs
   %1 = load ptr, ptr %cf.012, align 8
-  %do_send = getelementptr inbounds i8, ptr %1, i64 64
+  %do_send = getelementptr inbounds nuw i8, ptr %1, i64 64
   %2 = load ptr, ptr %do_send, align 8
   %call = tail call i64 %2(ptr noundef nonnull %cf.012, ptr noundef %data, ptr noundef %mem, i64 noundef %len, ptr noundef %code) #11
   br label %return
@@ -354,7 +354,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   store ptr %cft, ptr %call, align 8
-  %ctx2 = getelementptr inbounds i8, ptr %call, i64 16
+  %ctx2 = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr %ctx, ptr %ctx2, align 8
   br label %out
 
@@ -367,22 +367,22 @@ out:                                              ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define hidden void @Curl_conn_cf_add(ptr noundef %data, ptr noundef %conn, i32 noundef %index, ptr noundef initializes((8, 16), (24, 36)) %cf) local_unnamed_addr #0 {
 entry:
-  %cfilter = getelementptr inbounds i8, ptr %conn, i64 432
+  %cfilter = getelementptr inbounds nuw i8, ptr %conn, i64 432
   %idxprom = sext i32 %index to i64
   %arrayidx = getelementptr inbounds [2 x ptr], ptr %cfilter, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
-  %next = getelementptr inbounds i8, ptr %cf, i64 8
+  %next = getelementptr inbounds nuw i8, ptr %cf, i64 8
   store ptr %0, ptr %next, align 8
-  %conn5 = getelementptr inbounds i8, ptr %cf, i64 24
+  %conn5 = getelementptr inbounds nuw i8, ptr %cf, i64 24
   store ptr %conn, ptr %conn5, align 8
-  %sockindex = getelementptr inbounds i8, ptr %cf, i64 32
+  %sockindex = getelementptr inbounds nuw i8, ptr %cf, i64 32
   store i32 %index, ptr %sockindex, align 8
   store ptr %cf, ptr %arrayidx, align 8
   %tobool.not = icmp eq ptr %data, null
   br i1 %tobool.not, label %do.end14, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %verbose = getelementptr inbounds i8, ptr %data, i64 2706
+  %verbose = getelementptr inbounds nuw i8, ptr %data, i64 2706
   %bf.load = load i64, ptr %verbose, align 2
   %1 = and i64 %bf.load, 536870912
   %tobool10.not = icmp eq i64 %1, 0
@@ -390,7 +390,7 @@ land.lhs.true:                                    ; preds = %entry
 
 land.lhs.true13:                                  ; preds = %land.lhs.true
   %2 = load ptr, ptr %cf, align 8
-  %log_level = getelementptr inbounds i8, ptr %2, i64 12
+  %log_level = getelementptr inbounds nuw i8, ptr %2, i64 12
   %3 = load i32, ptr %log_level, align 4
   %cmp = icmp sgt i32 %3, 0
   br i1 %cmp, label %if.then, label %do.end14
@@ -408,28 +408,28 @@ declare void @Curl_trc_cf_infof(ptr noundef, ptr noundef, ptr noundef, ...) loca
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @Curl_conn_cf_insert_after(ptr nocapture noundef %cf_at, ptr noundef %cf_new) local_unnamed_addr #3 {
 entry:
-  %next = getelementptr inbounds i8, ptr %cf_at, i64 8
+  %next = getelementptr inbounds nuw i8, ptr %cf_at, i64 8
   %0 = load ptr, ptr %next, align 8
   store ptr %cf_new, ptr %next, align 8
-  %conn = getelementptr inbounds i8, ptr %cf_at, i64 24
-  %sockindex = getelementptr inbounds i8, ptr %cf_at, i64 32
+  %conn = getelementptr inbounds nuw i8, ptr %cf_at, i64 24
+  %sockindex = getelementptr inbounds nuw i8, ptr %cf_at, i64 32
   br label %do.body6
 
 do.body6:                                         ; preds = %do.body6, %entry
   %cf_new.addr.0 = phi ptr [ %cf_new, %entry ], [ %3, %do.body6 ]
   %1 = load ptr, ptr %conn, align 8
-  %conn7 = getelementptr inbounds i8, ptr %cf_new.addr.0, i64 24
+  %conn7 = getelementptr inbounds nuw i8, ptr %cf_new.addr.0, i64 24
   store ptr %1, ptr %conn7, align 8
   %2 = load i32, ptr %sockindex, align 8
-  %sockindex8 = getelementptr inbounds i8, ptr %cf_new.addr.0, i64 32
+  %sockindex8 = getelementptr inbounds nuw i8, ptr %cf_new.addr.0, i64 32
   store i32 %2, ptr %sockindex8, align 8
-  %next9 = getelementptr inbounds i8, ptr %cf_new.addr.0, i64 8
+  %next9 = getelementptr inbounds nuw i8, ptr %cf_new.addr.0, i64 8
   %3 = load ptr, ptr %next9, align 8
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %do.end11, label %do.body6, !llvm.loop !8
 
 do.end11:                                         ; preds = %do.body6
-  %next9.le = getelementptr inbounds i8, ptr %cf_new.addr.0, i64 8
+  %next9.le = getelementptr inbounds nuw i8, ptr %cf_new.addr.0, i64 8
   store ptr %0, ptr %next9.le, align 8
   ret void
 }
@@ -441,7 +441,7 @@ entry:
 
 while.cond:                                       ; preds = %while.body, %entry
   %cf.pn = phi ptr [ %cf, %entry ], [ %0, %while.body ]
-  %pprev.0 = getelementptr inbounds i8, ptr %cf.pn, i64 8
+  %pprev.0 = getelementptr inbounds nuw i8, ptr %cf.pn, i64 8
   %0 = load ptr, ptr %pprev.0, align 8
   %tobool.not.not.not.not.not.not = icmp ne ptr %0, null
   br i1 %tobool.not.not.not.not.not.not, label %while.body, label %lor.lhs.false.critedge
@@ -451,8 +451,8 @@ while.body:                                       ; preds = %while.cond
   br i1 %cmp, label %if.then, label %while.cond, !llvm.loop !9
 
 if.then:                                          ; preds = %while.body
-  %pprev.0.le = getelementptr inbounds i8, ptr %cf.pn, i64 8
-  %next1 = getelementptr inbounds i8, ptr %discard, i64 8
+  %pprev.0.le = getelementptr inbounds nuw i8, ptr %cf.pn, i64 8
+  %next1 = getelementptr inbounds nuw i8, ptr %discard, i64 8
   %1 = load ptr, ptr %next1, align 8
   store ptr %1, ptr %pprev.0.le, align 8
   br label %if.then6
@@ -461,10 +461,10 @@ lor.lhs.false.critedge:                           ; preds = %while.cond
   br i1 %destroy_always, label %if.then6, label %if.end8
 
 if.then6:                                         ; preds = %if.then, %lor.lhs.false.critedge
-  %next7 = getelementptr inbounds i8, ptr %discard, i64 8
+  %next7 = getelementptr inbounds nuw i8, ptr %discard, i64 8
   store ptr null, ptr %next7, align 8
   %2 = load ptr, ptr %discard, align 8
-  %destroy = getelementptr inbounds i8, ptr %2, i64 16
+  %destroy = getelementptr inbounds nuw i8, ptr %2, i64 16
   %3 = load ptr, ptr %destroy, align 8
   tail call void %3(ptr noundef nonnull %discard, ptr noundef %data) #11
   %4 = load ptr, ptr @Curl_cfree, align 8
@@ -484,7 +484,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %cf, align 8
-  %do_connect = getelementptr inbounds i8, ptr %0, i64 24
+  %do_connect = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1 = load ptr, ptr %do_connect, align 8
   %call = tail call i32 %1(ptr noundef nonnull %cf, ptr noundef %data, i1 noundef zeroext %blocking, ptr noundef %done) #11
   br label %return
@@ -502,7 +502,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %cf, align 8
-  %do_close = getelementptr inbounds i8, ptr %0, i64 32
+  %do_close = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1 = load ptr, ptr %do_close, align 8
   tail call void %1(ptr noundef nonnull %cf, ptr noundef %data) #11
   br label %if.end
@@ -519,7 +519,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %cf, align 8
-  %do_send = getelementptr inbounds i8, ptr %0, i64 64
+  %do_send = getelementptr inbounds nuw i8, ptr %0, i64 64
   %1 = load ptr, ptr %do_send, align 8
   %call = tail call i64 %1(ptr noundef nonnull %cf, ptr noundef %data, ptr noundef %buf, i64 noundef %len, ptr noundef %err) #11
   br label %return
@@ -541,7 +541,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %cf, align 8
-  %do_recv = getelementptr inbounds i8, ptr %0, i64 72
+  %do_recv = getelementptr inbounds nuw i8, ptr %0, i64 72
   %1 = load ptr, ptr %do_recv, align 8
   %call = tail call i64 %1(ptr noundef nonnull %cf, ptr noundef %data, ptr noundef %buf, i64 noundef %len, ptr noundef %err) #11
   br label %return
@@ -562,9 +562,9 @@ entry:
   %appconnected.i19 = alloca %struct.curltime, align 8
   %connected.i = alloca %struct.curltime, align 8
   %appconnected.i = alloca %struct.curltime, align 8
-  %conn = getelementptr inbounds i8, ptr %data, i64 32
+  %conn = getelementptr inbounds nuw i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn, align 8
-  %cfilter = getelementptr inbounds i8, ptr %0, i64 432
+  %cfilter = getelementptr inbounds nuw i8, ptr %0, i64 432
   %idxprom = sext i32 %sockindex to i64
   %arrayidx = getelementptr inbounds [2 x ptr], ptr %cfilter, i64 0, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8
@@ -572,7 +572,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %connected = getelementptr inbounds i8, ptr %1, i64 36
+  %connected = getelementptr inbounds nuw i8, ptr %1, i64 36
   %bf.load = load i8, ptr %connected, align 4
   %bf.clear = and i8 %bf.load, 1
   %tobool5.not = icmp eq i8 %bf.clear, 0
@@ -581,7 +581,7 @@ if.end:                                           ; preds = %entry
 
 if.then8:                                         ; preds = %if.end
   %2 = load ptr, ptr %1, align 8
-  %do_connect = getelementptr inbounds i8, ptr %2, i64 24
+  %do_connect = getelementptr inbounds nuw i8, ptr %2, i64 24
   %3 = load ptr, ptr %do_connect, align 8
   %call = tail call i32 %3(ptr noundef nonnull %1, ptr noundef nonnull %data, i1 noundef zeroext %blocking, ptr noundef nonnull %done) #11
   %tobool10.not = icmp eq i32 %call, 0
@@ -594,13 +594,13 @@ land.lhs.true:                                    ; preds = %if.then8
 
 if.then12:                                        ; preds = %land.lhs.true
   %5 = load ptr, ptr %conn, align 8
-  %cfilter.i.i = getelementptr inbounds i8, ptr %5, i64 432
+  %cfilter.i.i = getelementptr inbounds nuw i8, ptr %5, i64 432
   br label %for.body.us.i.i
 
 for.body.us.i.i:                                  ; preds = %for.inc.us.i.i, %if.then12
   %cmp.us.i.i = phi i1 [ false, %for.inc.us.i.i ], [ true, %if.then12 ]
   %i.06.us.i.i = phi i64 [ 1, %for.inc.us.i.i ], [ 0, %if.then12 ]
-  %arrayidx.us.i.i = getelementptr inbounds [2 x ptr], ptr %cfilter.i.i, i64 0, i64 %i.06.us.i.i
+  %arrayidx.us.i.i = getelementptr inbounds nuw [2 x ptr], ptr %cfilter.i.i, i64 0, i64 %i.06.us.i.i
   %6 = load ptr, ptr %arrayidx.us.i.i, align 8
   %tobool.not6.i.us.i.i = icmp eq ptr %6, null
   br i1 %tobool.not6.i.us.i.i, label %for.inc.us.i.i, label %for.body.us.i.us.i.i
@@ -608,7 +608,7 @@ for.body.us.i.i:                                  ; preds = %for.inc.us.i.i, %if
 for.body.us.i.us.i.i:                             ; preds = %for.body.us.i.i, %for.inc.us.i.us.i.i
   %cf.addr.07.us.i.us.i.i = phi ptr [ %9, %for.inc.us.i.us.i.i ], [ %6, %for.body.us.i.i ]
   %7 = load ptr, ptr %cf.addr.07.us.i.us.i.i, align 8
-  %cntrl.us.i.us.i.i = getelementptr inbounds i8, ptr %7, i64 80
+  %cntrl.us.i.us.i.i = getelementptr inbounds nuw i8, ptr %7, i64 80
   %8 = load ptr, ptr %cntrl.us.i.us.i.i, align 8
   %cmp.us.i.us.i.i = icmp eq ptr %8, @Curl_cf_def_cntrl
   br i1 %cmp.us.i.us.i.i, label %for.inc.us.i.us.i.i, label %if.end.us.i.us.i.i
@@ -618,7 +618,7 @@ if.end.us.i.us.i.i:                               ; preds = %for.body.us.i.us.i.
   br label %for.inc.us.i.us.i.i
 
 for.inc.us.i.us.i.i:                              ; preds = %if.end.us.i.us.i.i, %for.body.us.i.us.i.i
-  %next.us.i.us.i.i = getelementptr inbounds i8, ptr %cf.addr.07.us.i.us.i.i, i64 8
+  %next.us.i.us.i.i = getelementptr inbounds nuw i8, ptr %cf.addr.07.us.i.us.i.i, i64 8
   %9 = load ptr, ptr %next.us.i.us.i.i, align 8
   %tobool.not.us.i.us.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.us.i.us.i.i, label %for.inc.us.i.i, label %for.body.us.i.us.i.i, !llvm.loop !10
@@ -638,12 +638,12 @@ Curl_conn_ev_update_info.exit:                    ; preds = %for.inc.us.i.i
 if.then.i:                                        ; preds = %Curl_conn_ev_update_info.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %connected.i, i8 0, i64 16, i1 false)
   %12 = load ptr, ptr %.val, align 8
-  %query.i = getelementptr inbounds i8, ptr %12, i64 104
+  %query.i = getelementptr inbounds nuw i8, ptr %12, i64 104
   %13 = load ptr, ptr %query.i, align 8
   %call.i = call i32 %13(ptr noundef nonnull %.val, ptr noundef nonnull %data, i32 noundef 4, ptr noundef null, ptr noundef nonnull %connected.i) #11
   %14 = load i64, ptr %connected.i, align 8
   %tobool1.i = icmp ne i64 %14, 0
-  %tv_usec.i = getelementptr inbounds i8, ptr %connected.i, i64 8
+  %tv_usec.i = getelementptr inbounds nuw i8, ptr %connected.i, i64 8
   %15 = load i32, ptr %tv_usec.i, align 8
   %tobool2.i = icmp ne i32 %15, 0
   %or.cond.i = select i1 %tobool1.i, i1 true, i1 %tobool2.i
@@ -656,12 +656,12 @@ if.then3.i:                                       ; preds = %if.then.i
 if.end.i:                                         ; preds = %if.then3.i, %if.then.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %appconnected.i, i8 0, i64 16, i1 false)
   %16 = load ptr, ptr %.val, align 8
-  %query5.i = getelementptr inbounds i8, ptr %16, i64 104
+  %query5.i = getelementptr inbounds nuw i8, ptr %16, i64 104
   %17 = load ptr, ptr %query5.i, align 8
   %call6.i = call i32 %17(ptr noundef nonnull %.val, ptr noundef nonnull %data, i32 noundef 5, ptr noundef null, ptr noundef nonnull %appconnected.i) #11
   %18 = load i64, ptr %appconnected.i, align 8
   %tobool8.i = icmp ne i64 %18, 0
-  %tv_usec10.i = getelementptr inbounds i8, ptr %appconnected.i, i64 8
+  %tv_usec10.i = getelementptr inbounds nuw i8, ptr %appconnected.i, i64 8
   %19 = load i32, ptr %tv_usec10.i, align 8
   %tobool11.i = icmp ne i32 %19, 0
   %or.cond1.i = select i1 %tobool8.i, i1 true, i1 %tobool11.i
@@ -675,12 +675,12 @@ conn_report_connect_stats.exit:                   ; preds = %Curl_conn_ev_update
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %connected.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %appconnected.i)
   %20 = load ptr, ptr %conn, align 8
-  %keepalive = getelementptr inbounds i8, ptr %20, i64 728
+  %keepalive = getelementptr inbounds nuw i8, ptr %20, i64 728
   %call16 = call { i64, i32 } @Curl_now() #11
   %21 = extractvalue { i64, i32 } %call16, 0
   %22 = extractvalue { i64, i32 } %call16, 1
   store i64 %21, ptr %keepalive, align 8
-  %tmp.sroa.2.0.keepalive.sroa_idx = getelementptr inbounds i8, ptr %20, i64 736
+  %tmp.sroa.2.0.keepalive.sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 736
   store i32 %22, ptr %tmp.sroa.2.0.keepalive.sroa_idx, align 8
   br label %return
 
@@ -696,12 +696,12 @@ if.then18:                                        ; preds = %if.then8
 if.then.i21:                                      ; preds = %if.then18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %connected.i18, i8 0, i64 16, i1 false)
   %25 = load ptr, ptr %.val17, align 8
-  %query.i22 = getelementptr inbounds i8, ptr %25, i64 104
+  %query.i22 = getelementptr inbounds nuw i8, ptr %25, i64 104
   %26 = load ptr, ptr %query.i22, align 8
   %call.i23 = call i32 %26(ptr noundef nonnull %.val17, ptr noundef nonnull %data, i32 noundef 4, ptr noundef null, ptr noundef nonnull %connected.i18) #11
   %27 = load i64, ptr %connected.i18, align 8
   %tobool1.i24 = icmp ne i64 %27, 0
-  %tv_usec.i25 = getelementptr inbounds i8, ptr %connected.i18, i64 8
+  %tv_usec.i25 = getelementptr inbounds nuw i8, ptr %connected.i18, i64 8
   %28 = load i32, ptr %tv_usec.i25, align 8
   %tobool2.i26 = icmp ne i32 %28, 0
   %or.cond.i27 = select i1 %tobool1.i24, i1 true, i1 %tobool2.i26
@@ -714,12 +714,12 @@ if.then3.i36:                                     ; preds = %if.then.i21
 if.end.i28:                                       ; preds = %if.then3.i36, %if.then.i21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %appconnected.i19, i8 0, i64 16, i1 false)
   %29 = load ptr, ptr %.val17, align 8
-  %query5.i29 = getelementptr inbounds i8, ptr %29, i64 104
+  %query5.i29 = getelementptr inbounds nuw i8, ptr %29, i64 104
   %30 = load ptr, ptr %query5.i29, align 8
   %call6.i30 = call i32 %30(ptr noundef nonnull %.val17, ptr noundef nonnull %data, i32 noundef 5, ptr noundef null, ptr noundef nonnull %appconnected.i19) #11
   %31 = load i64, ptr %appconnected.i19, align 8
   %tobool8.i31 = icmp ne i64 %31, 0
-  %tv_usec10.i32 = getelementptr inbounds i8, ptr %appconnected.i19, i64 8
+  %tv_usec10.i32 = getelementptr inbounds nuw i8, ptr %appconnected.i19, i64 8
   %32 = load i32, ptr %tv_usec10.i32, align 8
   %tobool11.i33 = icmp ne i32 %32, 0
   %or.cond1.i34 = select i1 %tobool8.i31, i1 true, i1 %tobool11.i33
@@ -742,13 +742,13 @@ return:                                           ; preds = %land.lhs.true, %if.
 ; Function Attrs: nounwind uwtable
 define hidden void @Curl_conn_ev_update_info(ptr noundef %data, ptr nocapture noundef readonly %conn) local_unnamed_addr #0 {
 entry:
-  %cfilter.i = getelementptr inbounds i8, ptr %conn, i64 432
+  %cfilter.i = getelementptr inbounds nuw i8, ptr %conn, i64 432
   br label %for.body.us.i
 
 for.body.us.i:                                    ; preds = %for.inc.us.i, %entry
   %cmp.us.i = phi i1 [ false, %for.inc.us.i ], [ true, %entry ]
   %i.06.us.i = phi i64 [ 1, %for.inc.us.i ], [ 0, %entry ]
-  %arrayidx.us.i = getelementptr inbounds [2 x ptr], ptr %cfilter.i, i64 0, i64 %i.06.us.i
+  %arrayidx.us.i = getelementptr inbounds nuw [2 x ptr], ptr %cfilter.i, i64 0, i64 %i.06.us.i
   %0 = load ptr, ptr %arrayidx.us.i, align 8
   %tobool.not6.i.us.i = icmp eq ptr %0, null
   br i1 %tobool.not6.i.us.i, label %for.inc.us.i, label %for.body.us.i.us.i
@@ -756,7 +756,7 @@ for.body.us.i:                                    ; preds = %for.inc.us.i, %entr
 for.body.us.i.us.i:                               ; preds = %for.body.us.i, %for.inc.us.i.us.i
   %cf.addr.07.us.i.us.i = phi ptr [ %3, %for.inc.us.i.us.i ], [ %0, %for.body.us.i ]
   %1 = load ptr, ptr %cf.addr.07.us.i.us.i, align 8
-  %cntrl.us.i.us.i = getelementptr inbounds i8, ptr %1, i64 80
+  %cntrl.us.i.us.i = getelementptr inbounds nuw i8, ptr %1, i64 80
   %2 = load ptr, ptr %cntrl.us.i.us.i, align 8
   %cmp.us.i.us.i = icmp eq ptr %2, @Curl_cf_def_cntrl
   br i1 %cmp.us.i.us.i, label %for.inc.us.i.us.i, label %if.end.us.i.us.i
@@ -766,7 +766,7 @@ if.end.us.i.us.i:                                 ; preds = %for.body.us.i.us.i
   br label %for.inc.us.i.us.i
 
 for.inc.us.i.us.i:                                ; preds = %if.end.us.i.us.i, %for.body.us.i.us.i
-  %next.us.i.us.i = getelementptr inbounds i8, ptr %cf.addr.07.us.i.us.i, i64 8
+  %next.us.i.us.i = getelementptr inbounds nuw i8, ptr %cf.addr.07.us.i.us.i, i64 8
   %3 = load ptr, ptr %next.us.i.us.i, align 8
   %tobool.not.us.i.us.i = icmp eq ptr %3, null
   br i1 %tobool.not.us.i.us.i, label %for.inc.us.i, label %for.body.us.i.us.i, !llvm.loop !10
@@ -783,7 +783,7 @@ declare { i64, i32 } @Curl_now() local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden zeroext i1 @Curl_conn_is_connected(ptr nocapture noundef readonly %conn, i32 noundef %sockindex) local_unnamed_addr #4 {
 entry:
-  %cfilter = getelementptr inbounds i8, ptr %conn, i64 432
+  %cfilter = getelementptr inbounds nuw i8, ptr %conn, i64 432
   %idxprom = sext i32 %sockindex to i64
   %arrayidx = getelementptr inbounds [2 x ptr], ptr %cfilter, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
@@ -791,7 +791,7 @@ entry:
   br i1 %tobool.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
-  %connected = getelementptr inbounds i8, ptr %0, i64 36
+  %connected = getelementptr inbounds nuw i8, ptr %0, i64 36
   %bf.load = load i8, ptr %connected, align 4
   %bf.clear = and i8 %bf.load, 1
   %tobool1 = icmp ne i8 %bf.clear, 0
@@ -805,9 +805,9 @@ land.end:                                         ; preds = %land.rhs, %entry
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @Curl_conn_is_ip_connected(ptr nocapture noundef readonly %data, i32 noundef %sockindex) local_unnamed_addr #5 {
 entry:
-  %conn = getelementptr inbounds i8, ptr %data, i64 32
+  %conn = getelementptr inbounds nuw i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn, align 8
-  %cfilter = getelementptr inbounds i8, ptr %0, i64 432
+  %cfilter = getelementptr inbounds nuw i8, ptr %0, i64 432
   %idxprom = sext i32 %sockindex to i64
   %arrayidx = getelementptr inbounds [2 x ptr], ptr %cfilter, i64 0, i64 %idxprom
   %cf.04 = load ptr, ptr %arrayidx, align 8
@@ -815,14 +815,14 @@ entry:
   br i1 %tobool.not5, label %return, label %while.body
 
 while.cond:                                       ; preds = %if.end
-  %next = getelementptr inbounds i8, ptr %cf.06, i64 8
+  %next = getelementptr inbounds nuw i8, ptr %cf.06, i64 8
   %cf.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %cf.0, null
   br i1 %tobool.not, label %return, label %while.body, !llvm.loop !12
 
 while.body:                                       ; preds = %entry, %while.cond
   %cf.06 = phi ptr [ %cf.0, %while.cond ], [ %cf.04, %entry ]
-  %connected = getelementptr inbounds i8, ptr %cf.06, i64 36
+  %connected = getelementptr inbounds nuw i8, ptr %cf.06, i64 36
   %bf.load = load i8, ptr %connected, align 4
   %bf.clear = and i8 %bf.load, 1
   %tobool1.not.not.not = icmp ne i8 %bf.clear, 0
@@ -830,7 +830,7 @@ while.body:                                       ; preds = %entry, %while.cond
 
 if.end:                                           ; preds = %while.body
   %1 = load ptr, ptr %cf.06, align 8
-  %flags = getelementptr inbounds i8, ptr %1, i64 8
+  %flags = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2 = load i32, ptr %flags, align 8
   %and = and i32 %2, 1
   %tobool2.not = icmp eq i32 %and, 0
@@ -850,14 +850,14 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %cf.addr.05 = phi ptr [ %3, %for.inc ], [ %cf, %entry ]
   %0 = load ptr, ptr %cf.addr.05, align 8
-  %flags = getelementptr inbounds i8, ptr %0, i64 8
+  %flags = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load i32, ptr %flags, align 8
   %2 = and i32 %1, 3
   %or.cond.not.not = icmp eq i32 %2, 0
   br i1 %or.cond.not.not, label %for.inc, label %return.loopexit
 
 for.inc:                                          ; preds = %for.body
-  %next = getelementptr inbounds i8, ptr %cf.addr.05, i64 8
+  %next = getelementptr inbounds nuw i8, ptr %cf.addr.05, i64 8
   %3 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %return.loopexit, label %for.body, !llvm.loop !13
@@ -879,7 +879,7 @@ entry:
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %cfilter = getelementptr inbounds i8, ptr %conn, i64 432
+  %cfilter = getelementptr inbounds nuw i8, ptr %conn, i64 432
   %idxprom = sext i32 %sockindex to i64
   %arrayidx = getelementptr inbounds [2 x ptr], ptr %cfilter, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
@@ -889,14 +889,14 @@ cond.true:                                        ; preds = %entry
 for.body.i:                                       ; preds = %cond.true, %for.inc.i
   %cf.addr.05.i = phi ptr [ %4, %for.inc.i ], [ %0, %cond.true ]
   %1 = load ptr, ptr %cf.addr.05.i, align 8
-  %flags.i = getelementptr inbounds i8, ptr %1, i64 8
+  %flags.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2 = load i32, ptr %flags.i, align 8
   %3 = and i32 %2, 3
   %or.cond.not.not = icmp eq i32 %3, 0
   br i1 %or.cond.not.not, label %for.inc.i, label %cond.end.loopexit
 
 for.inc.i:                                        ; preds = %for.body.i
-  %next.i = getelementptr inbounds i8, ptr %cf.addr.05.i, i64 8
+  %next.i = getelementptr inbounds nuw i8, ptr %cf.addr.05.i, i64 8
   %4 = load ptr, ptr %next.i, align 8
   %tobool.not.i = icmp eq ptr %4, null
   br i1 %tobool.not.i, label %cond.end.loopexit, label %for.body.i, !llvm.loop !13
@@ -918,7 +918,7 @@ entry:
   br i1 %tobool.not, label %return, label %cond.end
 
 cond.end:                                         ; preds = %entry
-  %cfilter = getelementptr inbounds i8, ptr %conn, i64 432
+  %cfilter = getelementptr inbounds nuw i8, ptr %conn, i64 432
   %idxprom = sext i32 %sockindex to i64
   %arrayidx = getelementptr inbounds [2 x ptr], ptr %cfilter, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
@@ -928,14 +928,14 @@ cond.end:                                         ; preds = %entry
 for.body:                                         ; preds = %cond.end, %for.inc
   %cf.07 = phi ptr [ %4, %for.inc ], [ %0, %cond.end ]
   %1 = load ptr, ptr %cf.07, align 8
-  %flags = getelementptr inbounds i8, ptr %1, i64 8
+  %flags = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2 = load i32, ptr %flags, align 8
   %3 = and i32 %2, 7
   %or.cond12.not.not = icmp eq i32 %3, 0
   br i1 %or.cond12.not.not, label %for.inc, label %return.loopexit
 
 for.inc:                                          ; preds = %for.body
-  %next = getelementptr inbounds i8, ptr %cf.07, i64 8
+  %next = getelementptr inbounds nuw i8, ptr %cf.07, i64 8
   %4 = load ptr, ptr %next, align 8
   %tobool1.not = icmp eq ptr %4, null
   br i1 %tobool1.not, label %return.loopexit, label %for.body, !llvm.loop !14
@@ -953,9 +953,9 @@ return:                                           ; preds = %return.loopexit, %e
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @Curl_conn_data_pending(ptr noundef %data, i32 noundef %sockindex) local_unnamed_addr #0 {
 entry:
-  %conn = getelementptr inbounds i8, ptr %data, i64 32
+  %conn = getelementptr inbounds nuw i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn, align 8
-  %cfilter = getelementptr inbounds i8, ptr %0, i64 432
+  %cfilter = getelementptr inbounds nuw i8, ptr %0, i64 432
   %idxprom = sext i32 %sockindex to i64
   %arrayidx = getelementptr inbounds [2 x ptr], ptr %cfilter, i64 0, i64 %idxprom
   %cf.08 = load ptr, ptr %arrayidx, align 8
@@ -964,21 +964,21 @@ entry:
 
 land.rhs:                                         ; preds = %entry, %while.body
   %cf.010 = phi ptr [ %cf.0, %while.body ], [ %cf.08, %entry ]
-  %connected = getelementptr inbounds i8, ptr %cf.010, i64 36
+  %connected = getelementptr inbounds nuw i8, ptr %cf.010, i64 36
   %bf.load = load i8, ptr %connected, align 4
   %bf.clear = and i8 %bf.load, 1
   %tobool3.not = icmp eq i8 %bf.clear, 0
   br i1 %tobool3.not, label %while.body, label %if.then
 
 while.body:                                       ; preds = %land.rhs
-  %next = getelementptr inbounds i8, ptr %cf.010, i64 8
+  %next = getelementptr inbounds nuw i8, ptr %cf.010, i64 8
   %cf.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %cf.0, null
   br i1 %tobool.not, label %return, label %land.rhs, !llvm.loop !15
 
 if.then:                                          ; preds = %land.rhs
   %1 = load ptr, ptr %cf.010, align 8
-  %has_data_pending = getelementptr inbounds i8, ptr %1, i64 56
+  %has_data_pending = getelementptr inbounds nuw i8, ptr %1, i64 56
   %2 = load ptr, ptr %has_data_pending, align 8
   %call = tail call zeroext i1 %2(ptr noundef nonnull %cf.010, ptr noundef %data) #11
   br label %return
@@ -999,20 +999,20 @@ while.cond:                                       ; preds = %land.rhs, %entry
   br i1 %tobool.not, label %while.end15, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %while.cond
-  %connected = getelementptr inbounds i8, ptr %cf.addr.0, i64 36
+  %connected = getelementptr inbounds nuw i8, ptr %cf.addr.0, i64 36
   %bf.load = load i8, ptr %connected, align 4
   %bf.clear = and i8 %bf.load, 1
   %tobool1.not = icmp eq i8 %bf.clear, 0
   br i1 %tobool1.not, label %land.lhs.true2, label %while.body13.preheader
 
 land.lhs.true2:                                   ; preds = %land.lhs.true
-  %next = getelementptr inbounds i8, ptr %cf.addr.0, i64 8
+  %next = getelementptr inbounds nuw i8, ptr %cf.addr.0, i64 8
   %0 = load ptr, ptr %next, align 8
   %tobool3.not = icmp eq ptr %0, null
   br i1 %tobool3.not, label %while.body13.preheader, label %land.rhs
 
 land.rhs:                                         ; preds = %land.lhs.true2
-  %connected5 = getelementptr inbounds i8, ptr %0, i64 36
+  %connected5 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %bf.load6 = load i8, ptr %connected5, align 4
   %bf.clear7 = and i8 %bf.load6, 1
   %tobool9.not = icmp eq i8 %bf.clear7, 0
@@ -1024,10 +1024,10 @@ while.body13.preheader:                           ; preds = %land.lhs.true2, %la
 while.body13:                                     ; preds = %while.body13.preheader, %while.body13
   %cf.addr.110 = phi ptr [ %3, %while.body13 ], [ %cf.addr.0, %while.body13.preheader ]
   %1 = load ptr, ptr %cf.addr.110, align 8
-  %adjust_pollset = getelementptr inbounds i8, ptr %1, i64 48
+  %adjust_pollset = getelementptr inbounds nuw i8, ptr %1, i64 48
   %2 = load ptr, ptr %adjust_pollset, align 8
   tail call void %2(ptr noundef nonnull %cf.addr.110, ptr noundef %data, ptr noundef %ps) #11
-  %next14 = getelementptr inbounds i8, ptr %cf.addr.110, i64 8
+  %next14 = getelementptr inbounds nuw i8, ptr %cf.addr.110, i64 8
   %3 = load ptr, ptr %next14, align 8
   %tobool12.not = icmp eq ptr %3, null
   br i1 %tobool12.not, label %while.end15, label %while.body13, !llvm.loop !17
@@ -1039,15 +1039,15 @@ while.end15:                                      ; preds = %while.cond, %while.
 ; Function Attrs: nounwind uwtable
 define hidden void @Curl_conn_adjust_pollset(ptr noundef %data, ptr noundef %ps) local_unnamed_addr #0 {
 entry:
-  %conn = getelementptr inbounds i8, ptr %data, i64 32
+  %conn = getelementptr inbounds nuw i8, ptr %data, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %entry, %Curl_conn_cf_adjust_pollset.exit
   %cmp = phi i1 [ true, %entry ], [ false, %Curl_conn_cf_adjust_pollset.exit ]
   %indvars.iv = phi i64 [ 0, %entry ], [ 1, %Curl_conn_cf_adjust_pollset.exit ]
   %0 = load ptr, ptr %conn, align 8
-  %cfilter = getelementptr inbounds i8, ptr %0, i64 432
-  %arrayidx = getelementptr inbounds [2 x ptr], ptr %cfilter, i64 0, i64 %indvars.iv
+  %cfilter = getelementptr inbounds nuw i8, ptr %0, i64 432
+  %arrayidx = getelementptr inbounds nuw [2 x ptr], ptr %cfilter, i64 0, i64 %indvars.iv
   %1 = load ptr, ptr %arrayidx, align 8
   br label %while.cond.i
 
@@ -1057,20 +1057,20 @@ while.cond.i:                                     ; preds = %land.rhs.i, %for.bo
   br i1 %tobool.not.i, label %Curl_conn_cf_adjust_pollset.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %while.cond.i
-  %connected.i = getelementptr inbounds i8, ptr %cf.addr.0.i, i64 36
+  %connected.i = getelementptr inbounds nuw i8, ptr %cf.addr.0.i, i64 36
   %bf.load.i = load i8, ptr %connected.i, align 4
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool1.not.i = icmp eq i8 %bf.clear.i, 0
   br i1 %tobool1.not.i, label %land.lhs.true2.i, label %while.body13.i.preheader
 
 land.lhs.true2.i:                                 ; preds = %land.lhs.true.i
-  %next.i = getelementptr inbounds i8, ptr %cf.addr.0.i, i64 8
+  %next.i = getelementptr inbounds nuw i8, ptr %cf.addr.0.i, i64 8
   %2 = load ptr, ptr %next.i, align 8
   %tobool3.not.i = icmp eq ptr %2, null
   br i1 %tobool3.not.i, label %while.body13.i.preheader, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %land.lhs.true2.i
-  %connected5.i = getelementptr inbounds i8, ptr %2, i64 36
+  %connected5.i = getelementptr inbounds nuw i8, ptr %2, i64 36
   %bf.load6.i = load i8, ptr %connected5.i, align 4
   %bf.clear7.i = and i8 %bf.load6.i, 1
   %tobool9.not.i = icmp eq i8 %bf.clear7.i, 0
@@ -1082,10 +1082,10 @@ while.body13.i.preheader:                         ; preds = %land.rhs.i, %land.l
 while.body13.i:                                   ; preds = %while.body13.i.preheader, %while.body13.i
   %cf.addr.110.i = phi ptr [ %5, %while.body13.i ], [ %cf.addr.0.i, %while.body13.i.preheader ]
   %3 = load ptr, ptr %cf.addr.110.i, align 8
-  %adjust_pollset.i = getelementptr inbounds i8, ptr %3, i64 48
+  %adjust_pollset.i = getelementptr inbounds nuw i8, ptr %3, i64 48
   %4 = load ptr, ptr %adjust_pollset.i, align 8
   tail call void %4(ptr noundef nonnull %cf.addr.110.i, ptr noundef %data, ptr noundef %ps) #11
-  %next14.i = getelementptr inbounds i8, ptr %cf.addr.110.i, i64 8
+  %next14.i = getelementptr inbounds nuw i8, ptr %cf.addr.110.i, i64 8
   %5 = load ptr, ptr %next14.i, align 8
   %tobool12.not.i = icmp eq ptr %5, null
   br i1 %tobool12.not.i, label %Curl_conn_cf_adjust_pollset.exit, label %while.body13.i, !llvm.loop !17
@@ -1100,9 +1100,9 @@ for.end:                                          ; preds = %Curl_conn_cf_adjust
 ; Function Attrs: nounwind uwtable
 define hidden void @Curl_conn_get_host(ptr noundef %data, i32 noundef %sockindex, ptr noundef %phost, ptr noundef %pdisplay_host, ptr noundef %pport) local_unnamed_addr #0 {
 entry:
-  %conn = getelementptr inbounds i8, ptr %data, i64 32
+  %conn = getelementptr inbounds nuw i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn, align 8
-  %cfilter = getelementptr inbounds i8, ptr %0, i64 432
+  %cfilter = getelementptr inbounds nuw i8, ptr %0, i64 432
   %idxprom = sext i32 %sockindex to i64
   %arrayidx = getelementptr inbounds [2 x ptr], ptr %cfilter, i64 0, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8
@@ -1111,21 +1111,21 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %1, align 8
-  %get_host = getelementptr inbounds i8, ptr %2, i64 40
+  %get_host = getelementptr inbounds nuw i8, ptr %2, i64 40
   %3 = load ptr, ptr %get_host, align 8
   tail call void %3(ptr noundef nonnull %1, ptr noundef nonnull %data, ptr noundef %phost, ptr noundef %pdisplay_host, ptr noundef %pport) #11
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %name = getelementptr inbounds i8, ptr %0, i64 80
+  %name = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %name, align 8
   store ptr %4, ptr %phost, align 8
   %5 = load ptr, ptr %conn, align 8
-  %dispname = getelementptr inbounds i8, ptr %5, i64 88
+  %dispname = getelementptr inbounds nuw i8, ptr %5, i64 88
   %6 = load ptr, ptr %dispname, align 8
   store ptr %6, ptr %pdisplay_host, align 8
   %7 = load ptr, ptr %conn, align 8
-  %remote_port = getelementptr inbounds i8, ptr %7, i64 1148
+  %remote_port = getelementptr inbounds nuw i8, ptr %7, i64 1148
   %8 = load i32, ptr %remote_port, align 4
   store i32 %8, ptr %pport, align 4
   br label %if.end
@@ -1153,7 +1153,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %result.08.us = phi i32 [ %result.2.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
   %cf.addr.07.us = phi ptr [ %2, %for.inc.us ], [ %cf, %for.body.lr.ph ]
   %0 = load ptr, ptr %cf.addr.07.us, align 8
-  %cntrl.us = getelementptr inbounds i8, ptr %0, i64 80
+  %cntrl.us = getelementptr inbounds nuw i8, ptr %0, i64 80
   %1 = load ptr, ptr %cntrl.us, align 8
   %cmp.us = icmp eq ptr %1, @Curl_cf_def_cntrl
   br i1 %cmp.us, label %for.inc.us, label %if.end.us
@@ -1164,7 +1164,7 @@ if.end.us:                                        ; preds = %for.body.us
 
 for.inc.us:                                       ; preds = %if.end.us, %for.body.us
   %result.2.us = phi i32 [ %result.08.us, %for.body.us ], [ %call.us, %if.end.us ]
-  %next.us = getelementptr inbounds i8, ptr %cf.addr.07.us, i64 8
+  %next.us = getelementptr inbounds nuw i8, ptr %cf.addr.07.us, i64 8
   %2 = load ptr, ptr %next.us, align 8
   %tobool.not.us = icmp eq ptr %2, null
   br i1 %tobool.not.us, label %for.end, label %for.body.us, !llvm.loop !10
@@ -1172,7 +1172,7 @@ for.inc.us:                                       ; preds = %if.end.us, %for.bod
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %cf.addr.07 = phi ptr [ %5, %for.inc ], [ %cf, %for.body.lr.ph ]
   %3 = load ptr, ptr %cf.addr.07, align 8
-  %cntrl = getelementptr inbounds i8, ptr %3, i64 80
+  %cntrl = getelementptr inbounds nuw i8, ptr %3, i64 80
   %4 = load ptr, ptr %cntrl, align 8
   %cmp = icmp eq ptr %4, @Curl_cf_def_cntrl
   br i1 %cmp, label %for.inc, label %if.end
@@ -1183,7 +1183,7 @@ if.end:                                           ; preds = %for.body
   br i1 %tobool4, label %for.inc, label %for.end
 
 for.inc:                                          ; preds = %if.end, %for.body
-  %next = getelementptr inbounds i8, ptr %cf.addr.07, i64 8
+  %next = getelementptr inbounds nuw i8, ptr %cf.addr.07, i64 8
   %5 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %5, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !10
@@ -1202,7 +1202,7 @@ entry:
 
 land.lhs.true:                                    ; preds = %entry
   %0 = load ptr, ptr %cf, align 8
-  %query = getelementptr inbounds i8, ptr %0, i64 104
+  %query = getelementptr inbounds nuw i8, ptr %0, i64 104
   %1 = load ptr, ptr %query, align 8
   %call = call i32 %1(ptr noundef nonnull %cf, ptr noundef %data, i32 noundef 3, ptr noundef null, ptr noundef nonnull %sock) #11
   %tobool1.not = icmp eq i32 %call, 0
@@ -1219,13 +1219,13 @@ return:                                           ; preds = %land.lhs.true, %ent
 define hidden i32 @Curl_conn_get_socket(ptr noundef %data, i32 noundef %sockindex) local_unnamed_addr #0 {
 entry:
   %sock.i = alloca i32, align 4
-  %conn = getelementptr inbounds i8, ptr %data, i64 32
+  %conn = getelementptr inbounds nuw i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %cond.end
 
 cond.end:                                         ; preds = %entry
-  %cfilter = getelementptr inbounds i8, ptr %0, i64 432
+  %cfilter = getelementptr inbounds nuw i8, ptr %0, i64 432
   %idxprom = sext i32 %sockindex to i64
   %arrayidx = getelementptr inbounds [2 x ptr], ptr %cfilter, i64 0, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8
@@ -1233,7 +1233,7 @@ cond.end:                                         ; preds = %entry
   br i1 %tobool2.not, label %cond.true6, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %cond.end
-  %connected = getelementptr inbounds i8, ptr %1, i64 36
+  %connected = getelementptr inbounds nuw i8, ptr %1, i64 36
   %bf.load = load i8, ptr %connected, align 4
   %bf.clear = and i8 %bf.load, 1
   %tobool3.not = icmp eq i8 %bf.clear, 0
@@ -1242,7 +1242,7 @@ land.lhs.true:                                    ; preds = %cond.end
 Curl_conn_cf_get_socket.exit:                     ; preds = %land.lhs.true
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %sock.i)
   %2 = load ptr, ptr %1, align 8
-  %query.i = getelementptr inbounds i8, ptr %2, i64 104
+  %query.i = getelementptr inbounds nuw i8, ptr %2, i64 104
   %3 = load ptr, ptr %query.i, align 8
   %call.i = call i32 %3(ptr noundef nonnull %1, ptr noundef nonnull %data, i32 noundef 3, ptr noundef null, ptr noundef nonnull %sock.i) #11
   %tobool1.not.i = icmp eq i32 %call.i, 0
@@ -1252,7 +1252,7 @@ Curl_conn_cf_get_socket.exit:                     ; preds = %land.lhs.true
   br label %return
 
 cond.true6:                                       ; preds = %land.lhs.true, %cond.end
-  %sock = getelementptr inbounds i8, ptr %0, i64 392
+  %sock = getelementptr inbounds nuw i8, ptr %0, i64 392
   %arrayidx9 = getelementptr inbounds [2 x i32], ptr %sock, i64 0, i64 %idxprom
   %5 = load i32, ptr %arrayidx9, align 4
   br label %return
@@ -1265,13 +1265,13 @@ return:                                           ; preds = %entry, %cond.true6,
 ; Function Attrs: nounwind uwtable
 define hidden void @Curl_conn_forget_socket(ptr noundef %data, i32 noundef %sockindex) local_unnamed_addr #0 {
 entry:
-  %conn = getelementptr inbounds i8, ptr %data, i64 32
+  %conn = getelementptr inbounds nuw i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end7, label %if.then
 
 if.then:                                          ; preds = %entry
-  %cfilter = getelementptr inbounds i8, ptr %0, i64 432
+  %cfilter = getelementptr inbounds nuw i8, ptr %0, i64 432
   %idxprom = sext i32 %sockindex to i64
   %arrayidx = getelementptr inbounds [2 x ptr], ptr %cfilter, i64 0, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8
@@ -1281,7 +1281,7 @@ if.then:                                          ; preds = %entry
 for.body.us.i:                                    ; preds = %if.then, %for.inc.us.i
   %cf.addr.07.us.i = phi ptr [ %4, %for.inc.us.i ], [ %1, %if.then ]
   %2 = load ptr, ptr %cf.addr.07.us.i, align 8
-  %cntrl.us.i = getelementptr inbounds i8, ptr %2, i64 80
+  %cntrl.us.i = getelementptr inbounds nuw i8, ptr %2, i64 80
   %3 = load ptr, ptr %cntrl.us.i, align 8
   %cmp.us.i = icmp eq ptr %3, @Curl_cf_def_cntrl
   br i1 %cmp.us.i, label %for.inc.us.i, label %if.end.us.i
@@ -1291,7 +1291,7 @@ if.end.us.i:                                      ; preds = %for.body.us.i
   br label %for.inc.us.i
 
 for.inc.us.i:                                     ; preds = %if.end.us.i, %for.body.us.i
-  %next.us.i = getelementptr inbounds i8, ptr %cf.addr.07.us.i, i64 8
+  %next.us.i = getelementptr inbounds nuw i8, ptr %cf.addr.07.us.i, i64 8
   %4 = load ptr, ptr %next.us.i, align 8
   %tobool.not.us.i = icmp eq ptr %4, null
   br i1 %tobool.not.us.i, label %do.end.loopexit, label %for.body.us.i, !llvm.loop !10
@@ -1302,7 +1302,7 @@ do.end.loopexit:                                  ; preds = %for.inc.us.i
 
 do.end:                                           ; preds = %do.end.loopexit, %if.then
   %5 = phi ptr [ %.pre, %do.end.loopexit ], [ %0, %if.then ]
-  %sock = getelementptr inbounds i8, ptr %5, i64 392
+  %sock = getelementptr inbounds nuw i8, ptr %5, i64 392
   %arrayidx6 = getelementptr inbounds [2 x i32], ptr %sock, i64 0, i64 %idxprom
   store i32 -1, ptr %arrayidx6, align 4
   br label %if.end7
@@ -1314,13 +1314,13 @@ if.end7:                                          ; preds = %do.end, %entry
 ; Function Attrs: nounwind uwtable
 define hidden void @Curl_conn_ev_data_attach(ptr nocapture noundef readonly %conn, ptr noundef %data) local_unnamed_addr #0 {
 entry:
-  %cfilter.i = getelementptr inbounds i8, ptr %conn, i64 432
+  %cfilter.i = getelementptr inbounds nuw i8, ptr %conn, i64 432
   br label %for.body.us.i
 
 for.body.us.i:                                    ; preds = %for.inc.us.i, %entry
   %cmp.us.i = phi i1 [ false, %for.inc.us.i ], [ true, %entry ]
   %i.06.us.i = phi i64 [ 1, %for.inc.us.i ], [ 0, %entry ]
-  %arrayidx.us.i = getelementptr inbounds [2 x ptr], ptr %cfilter.i, i64 0, i64 %i.06.us.i
+  %arrayidx.us.i = getelementptr inbounds nuw [2 x ptr], ptr %cfilter.i, i64 0, i64 %i.06.us.i
   %0 = load ptr, ptr %arrayidx.us.i, align 8
   %tobool.not6.i.us.i = icmp eq ptr %0, null
   br i1 %tobool.not6.i.us.i, label %for.inc.us.i, label %for.body.us.i.us.i
@@ -1328,7 +1328,7 @@ for.body.us.i:                                    ; preds = %for.inc.us.i, %entr
 for.body.us.i.us.i:                               ; preds = %for.body.us.i, %for.inc.us.i.us.i
   %cf.addr.07.us.i.us.i = phi ptr [ %3, %for.inc.us.i.us.i ], [ %0, %for.body.us.i ]
   %1 = load ptr, ptr %cf.addr.07.us.i.us.i, align 8
-  %cntrl.us.i.us.i = getelementptr inbounds i8, ptr %1, i64 80
+  %cntrl.us.i.us.i = getelementptr inbounds nuw i8, ptr %1, i64 80
   %2 = load ptr, ptr %cntrl.us.i.us.i, align 8
   %cmp.us.i.us.i = icmp eq ptr %2, @Curl_cf_def_cntrl
   br i1 %cmp.us.i.us.i, label %for.inc.us.i.us.i, label %if.end.us.i.us.i
@@ -1338,7 +1338,7 @@ if.end.us.i.us.i:                                 ; preds = %for.body.us.i.us.i
   br label %for.inc.us.i.us.i
 
 for.inc.us.i.us.i:                                ; preds = %if.end.us.i.us.i, %for.body.us.i.us.i
-  %next.us.i.us.i = getelementptr inbounds i8, ptr %cf.addr.07.us.i.us.i, i64 8
+  %next.us.i.us.i = getelementptr inbounds nuw i8, ptr %cf.addr.07.us.i.us.i, i64 8
   %3 = load ptr, ptr %next.us.i.us.i, align 8
   %tobool.not.us.i.us.i = icmp eq ptr %3, null
   br i1 %tobool.not.us.i.us.i, label %for.inc.us.i, label %for.body.us.i.us.i, !llvm.loop !10
@@ -1353,13 +1353,13 @@ cf_cntrl_all.exit:                                ; preds = %for.inc.us.i
 ; Function Attrs: nounwind uwtable
 define hidden void @Curl_conn_ev_data_detach(ptr nocapture noundef readonly %conn, ptr noundef %data) local_unnamed_addr #0 {
 entry:
-  %cfilter.i = getelementptr inbounds i8, ptr %conn, i64 432
+  %cfilter.i = getelementptr inbounds nuw i8, ptr %conn, i64 432
   br label %for.body.us.i
 
 for.body.us.i:                                    ; preds = %for.inc.us.i, %entry
   %cmp.us.i = phi i1 [ false, %for.inc.us.i ], [ true, %entry ]
   %i.06.us.i = phi i64 [ 1, %for.inc.us.i ], [ 0, %entry ]
-  %arrayidx.us.i = getelementptr inbounds [2 x ptr], ptr %cfilter.i, i64 0, i64 %i.06.us.i
+  %arrayidx.us.i = getelementptr inbounds nuw [2 x ptr], ptr %cfilter.i, i64 0, i64 %i.06.us.i
   %0 = load ptr, ptr %arrayidx.us.i, align 8
   %tobool.not6.i.us.i = icmp eq ptr %0, null
   br i1 %tobool.not6.i.us.i, label %for.inc.us.i, label %for.body.us.i.us.i
@@ -1367,7 +1367,7 @@ for.body.us.i:                                    ; preds = %for.inc.us.i, %entr
 for.body.us.i.us.i:                               ; preds = %for.body.us.i, %for.inc.us.i.us.i
   %cf.addr.07.us.i.us.i = phi ptr [ %3, %for.inc.us.i.us.i ], [ %0, %for.body.us.i ]
   %1 = load ptr, ptr %cf.addr.07.us.i.us.i, align 8
-  %cntrl.us.i.us.i = getelementptr inbounds i8, ptr %1, i64 80
+  %cntrl.us.i.us.i = getelementptr inbounds nuw i8, ptr %1, i64 80
   %2 = load ptr, ptr %cntrl.us.i.us.i, align 8
   %cmp.us.i.us.i = icmp eq ptr %2, @Curl_cf_def_cntrl
   br i1 %cmp.us.i.us.i, label %for.inc.us.i.us.i, label %if.end.us.i.us.i
@@ -1377,7 +1377,7 @@ if.end.us.i.us.i:                                 ; preds = %for.body.us.i.us.i
   br label %for.inc.us.i.us.i
 
 for.inc.us.i.us.i:                                ; preds = %if.end.us.i.us.i, %for.body.us.i.us.i
-  %next.us.i.us.i = getelementptr inbounds i8, ptr %cf.addr.07.us.i.us.i, i64 8
+  %next.us.i.us.i = getelementptr inbounds nuw i8, ptr %cf.addr.07.us.i.us.i, i64 8
   %3 = load ptr, ptr %next.us.i.us.i, align 8
   %tobool.not.us.i.us.i = icmp eq ptr %3, null
   br i1 %tobool.not.us.i.us.i, label %for.inc.us.i, label %for.body.us.i.us.i, !llvm.loop !10
@@ -1392,15 +1392,15 @@ cf_cntrl_all.exit:                                ; preds = %for.inc.us.i
 ; Function Attrs: nounwind uwtable
 define hidden i32 @Curl_conn_ev_data_setup(ptr noundef %data) local_unnamed_addr #0 {
 entry:
-  %conn = getelementptr inbounds i8, ptr %data, i64 32
+  %conn = getelementptr inbounds nuw i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn, align 8
-  %cfilter.i = getelementptr inbounds i8, ptr %0, i64 432
+  %cfilter.i = getelementptr inbounds nuw i8, ptr %0, i64 432
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %entry
   %cmp.i = phi i1 [ false, %for.inc.i ], [ true, %entry ]
   %i.06.i = phi i64 [ 1, %for.inc.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds [2 x ptr], ptr %cfilter.i, i64 0, i64 %i.06.i
+  %arrayidx.i = getelementptr inbounds nuw [2 x ptr], ptr %cfilter.i, i64 0, i64 %i.06.i
   %1 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not6.i.i = icmp eq ptr %1, null
   br i1 %tobool.not6.i.i, label %for.inc.i, label %for.body.i.i
@@ -1408,7 +1408,7 @@ for.body.i:                                       ; preds = %for.inc.i, %entry
 for.body.i.i:                                     ; preds = %for.body.i, %for.inc.i.i
   %cf.addr.07.i.i = phi ptr [ %4, %for.inc.i.i ], [ %1, %for.body.i ]
   %2 = load ptr, ptr %cf.addr.07.i.i, align 8
-  %cntrl.i.i = getelementptr inbounds i8, ptr %2, i64 80
+  %cntrl.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
   %3 = load ptr, ptr %cntrl.i.i, align 8
   %cmp.i.i = icmp eq ptr %3, @Curl_cf_def_cntrl
   br i1 %cmp.i.i, label %for.inc.i.i, label %if.end.i.i
@@ -1419,7 +1419,7 @@ if.end.i.i:                                       ; preds = %for.body.i.i
   br i1 %tobool4.i.i, label %for.inc.i.i, label %cf_cntrl_all.exit
 
 for.inc.i.i:                                      ; preds = %if.end.i.i, %for.body.i.i
-  %next.i.i = getelementptr inbounds i8, ptr %cf.addr.07.i.i, i64 8
+  %next.i.i = getelementptr inbounds nuw i8, ptr %cf.addr.07.i.i, i64 8
   %4 = load ptr, ptr %next.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i, label %for.inc.i, label %for.body.i.i, !llvm.loop !10
@@ -1435,15 +1435,15 @@ cf_cntrl_all.exit:                                ; preds = %for.inc.i, %if.end.
 ; Function Attrs: nounwind uwtable
 define hidden i32 @Curl_conn_ev_data_idle(ptr noundef %data) local_unnamed_addr #0 {
 entry:
-  %conn = getelementptr inbounds i8, ptr %data, i64 32
+  %conn = getelementptr inbounds nuw i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn, align 8
-  %cfilter.i = getelementptr inbounds i8, ptr %0, i64 432
+  %cfilter.i = getelementptr inbounds nuw i8, ptr %0, i64 432
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %entry
   %cmp.i = phi i1 [ false, %for.inc.i ], [ true, %entry ]
   %i.06.i = phi i64 [ 1, %for.inc.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds [2 x ptr], ptr %cfilter.i, i64 0, i64 %i.06.i
+  %arrayidx.i = getelementptr inbounds nuw [2 x ptr], ptr %cfilter.i, i64 0, i64 %i.06.i
   %1 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not6.i.i = icmp eq ptr %1, null
   br i1 %tobool.not6.i.i, label %for.inc.i, label %for.body.i.i
@@ -1451,7 +1451,7 @@ for.body.i:                                       ; preds = %for.inc.i, %entry
 for.body.i.i:                                     ; preds = %for.body.i, %for.inc.i.i
   %cf.addr.07.i.i = phi ptr [ %4, %for.inc.i.i ], [ %1, %for.body.i ]
   %2 = load ptr, ptr %cf.addr.07.i.i, align 8
-  %cntrl.i.i = getelementptr inbounds i8, ptr %2, i64 80
+  %cntrl.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
   %3 = load ptr, ptr %cntrl.i.i, align 8
   %cmp.i.i = icmp eq ptr %3, @Curl_cf_def_cntrl
   br i1 %cmp.i.i, label %for.inc.i.i, label %if.end.i.i
@@ -1462,7 +1462,7 @@ if.end.i.i:                                       ; preds = %for.body.i.i
   br i1 %tobool4.i.i, label %for.inc.i.i, label %cf_cntrl_all.exit
 
 for.inc.i.i:                                      ; preds = %if.end.i.i, %for.body.i.i
-  %next.i.i = getelementptr inbounds i8, ptr %cf.addr.07.i.i, i64 8
+  %next.i.i = getelementptr inbounds nuw i8, ptr %cf.addr.07.i.i, i64 8
   %4 = load ptr, ptr %next.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i, label %for.inc.i, label %for.body.i.i, !llvm.loop !10
@@ -1478,15 +1478,15 @@ cf_cntrl_all.exit:                                ; preds = %for.inc.i, %if.end.
 ; Function Attrs: nounwind uwtable
 define hidden void @Curl_conn_ev_data_done_send(ptr noundef %data) local_unnamed_addr #0 {
 entry:
-  %conn = getelementptr inbounds i8, ptr %data, i64 32
+  %conn = getelementptr inbounds nuw i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn, align 8
-  %cfilter.i = getelementptr inbounds i8, ptr %0, i64 432
+  %cfilter.i = getelementptr inbounds nuw i8, ptr %0, i64 432
   br label %for.body.us.i
 
 for.body.us.i:                                    ; preds = %for.inc.us.i, %entry
   %cmp.us.i = phi i1 [ false, %for.inc.us.i ], [ true, %entry ]
   %i.06.us.i = phi i64 [ 1, %for.inc.us.i ], [ 0, %entry ]
-  %arrayidx.us.i = getelementptr inbounds [2 x ptr], ptr %cfilter.i, i64 0, i64 %i.06.us.i
+  %arrayidx.us.i = getelementptr inbounds nuw [2 x ptr], ptr %cfilter.i, i64 0, i64 %i.06.us.i
   %1 = load ptr, ptr %arrayidx.us.i, align 8
   %tobool.not6.i.us.i = icmp eq ptr %1, null
   br i1 %tobool.not6.i.us.i, label %for.inc.us.i, label %for.body.us.i.us.i
@@ -1494,7 +1494,7 @@ for.body.us.i:                                    ; preds = %for.inc.us.i, %entr
 for.body.us.i.us.i:                               ; preds = %for.body.us.i, %for.inc.us.i.us.i
   %cf.addr.07.us.i.us.i = phi ptr [ %4, %for.inc.us.i.us.i ], [ %1, %for.body.us.i ]
   %2 = load ptr, ptr %cf.addr.07.us.i.us.i, align 8
-  %cntrl.us.i.us.i = getelementptr inbounds i8, ptr %2, i64 80
+  %cntrl.us.i.us.i = getelementptr inbounds nuw i8, ptr %2, i64 80
   %3 = load ptr, ptr %cntrl.us.i.us.i, align 8
   %cmp.us.i.us.i = icmp eq ptr %3, @Curl_cf_def_cntrl
   br i1 %cmp.us.i.us.i, label %for.inc.us.i.us.i, label %if.end.us.i.us.i
@@ -1504,7 +1504,7 @@ if.end.us.i.us.i:                                 ; preds = %for.body.us.i.us.i
   br label %for.inc.us.i.us.i
 
 for.inc.us.i.us.i:                                ; preds = %if.end.us.i.us.i, %for.body.us.i.us.i
-  %next.us.i.us.i = getelementptr inbounds i8, ptr %cf.addr.07.us.i.us.i, i64 8
+  %next.us.i.us.i = getelementptr inbounds nuw i8, ptr %cf.addr.07.us.i.us.i, i64 8
   %4 = load ptr, ptr %next.us.i.us.i, align 8
   %tobool.not.us.i.us.i = icmp eq ptr %4, null
   br i1 %tobool.not.us.i.us.i, label %for.inc.us.i, label %for.body.us.i.us.i, !llvm.loop !10
@@ -1519,16 +1519,16 @@ cf_cntrl_all.exit:                                ; preds = %for.inc.us.i
 ; Function Attrs: nounwind uwtable
 define hidden void @Curl_conn_ev_data_done(ptr noundef %data, i1 noundef zeroext %premature) local_unnamed_addr #0 {
 entry:
-  %conn = getelementptr inbounds i8, ptr %data, i64 32
+  %conn = getelementptr inbounds nuw i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn, align 8
   %conv = zext i1 %premature to i32
-  %cfilter.i = getelementptr inbounds i8, ptr %0, i64 432
+  %cfilter.i = getelementptr inbounds nuw i8, ptr %0, i64 432
   br label %for.body.us.i
 
 for.body.us.i:                                    ; preds = %for.inc.us.i, %entry
   %cmp.us.i = phi i1 [ false, %for.inc.us.i ], [ true, %entry ]
   %i.06.us.i = phi i64 [ 1, %for.inc.us.i ], [ 0, %entry ]
-  %arrayidx.us.i = getelementptr inbounds [2 x ptr], ptr %cfilter.i, i64 0, i64 %i.06.us.i
+  %arrayidx.us.i = getelementptr inbounds nuw [2 x ptr], ptr %cfilter.i, i64 0, i64 %i.06.us.i
   %1 = load ptr, ptr %arrayidx.us.i, align 8
   %tobool.not6.i.us.i = icmp eq ptr %1, null
   br i1 %tobool.not6.i.us.i, label %for.inc.us.i, label %for.body.us.i.us.i
@@ -1536,7 +1536,7 @@ for.body.us.i:                                    ; preds = %for.inc.us.i, %entr
 for.body.us.i.us.i:                               ; preds = %for.body.us.i, %for.inc.us.i.us.i
   %cf.addr.07.us.i.us.i = phi ptr [ %4, %for.inc.us.i.us.i ], [ %1, %for.body.us.i ]
   %2 = load ptr, ptr %cf.addr.07.us.i.us.i, align 8
-  %cntrl.us.i.us.i = getelementptr inbounds i8, ptr %2, i64 80
+  %cntrl.us.i.us.i = getelementptr inbounds nuw i8, ptr %2, i64 80
   %3 = load ptr, ptr %cntrl.us.i.us.i, align 8
   %cmp.us.i.us.i = icmp eq ptr %3, @Curl_cf_def_cntrl
   br i1 %cmp.us.i.us.i, label %for.inc.us.i.us.i, label %if.end.us.i.us.i
@@ -1546,7 +1546,7 @@ if.end.us.i.us.i:                                 ; preds = %for.body.us.i.us.i
   br label %for.inc.us.i.us.i
 
 for.inc.us.i.us.i:                                ; preds = %if.end.us.i.us.i, %for.body.us.i.us.i
-  %next.us.i.us.i = getelementptr inbounds i8, ptr %cf.addr.07.us.i.us.i, i64 8
+  %next.us.i.us.i = getelementptr inbounds nuw i8, ptr %cf.addr.07.us.i.us.i, i64 8
   %4 = load ptr, ptr %next.us.i.us.i, align 8
   %tobool.not.us.i.us.i = icmp eq ptr %4, null
   br i1 %tobool.not.us.i.us.i, label %for.inc.us.i, label %for.body.us.i.us.i, !llvm.loop !10
@@ -1561,16 +1561,16 @@ cf_cntrl_all.exit:                                ; preds = %for.inc.us.i
 ; Function Attrs: nounwind uwtable
 define hidden i32 @Curl_conn_ev_data_pause(ptr noundef %data, i1 noundef zeroext %do_pause) local_unnamed_addr #0 {
 entry:
-  %conn = getelementptr inbounds i8, ptr %data, i64 32
+  %conn = getelementptr inbounds nuw i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn, align 8
   %conv = zext i1 %do_pause to i32
-  %cfilter.i = getelementptr inbounds i8, ptr %0, i64 432
+  %cfilter.i = getelementptr inbounds nuw i8, ptr %0, i64 432
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %entry
   %cmp.i = phi i1 [ false, %for.inc.i ], [ true, %entry ]
   %i.06.i = phi i64 [ 1, %for.inc.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds [2 x ptr], ptr %cfilter.i, i64 0, i64 %i.06.i
+  %arrayidx.i = getelementptr inbounds nuw [2 x ptr], ptr %cfilter.i, i64 0, i64 %i.06.i
   %1 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not6.i.i = icmp eq ptr %1, null
   br i1 %tobool.not6.i.i, label %for.inc.i, label %for.body.i.i
@@ -1578,7 +1578,7 @@ for.body.i:                                       ; preds = %for.inc.i, %entry
 for.body.i.i:                                     ; preds = %for.body.i, %for.inc.i.i
   %cf.addr.07.i.i = phi ptr [ %4, %for.inc.i.i ], [ %1, %for.body.i ]
   %2 = load ptr, ptr %cf.addr.07.i.i, align 8
-  %cntrl.i.i = getelementptr inbounds i8, ptr %2, i64 80
+  %cntrl.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
   %3 = load ptr, ptr %cntrl.i.i, align 8
   %cmp.i.i = icmp eq ptr %3, @Curl_cf_def_cntrl
   br i1 %cmp.i.i, label %for.inc.i.i, label %if.end.i.i
@@ -1589,7 +1589,7 @@ if.end.i.i:                                       ; preds = %for.body.i.i
   br i1 %tobool4.i.i, label %for.inc.i.i, label %cf_cntrl_all.exit
 
 for.inc.i.i:                                      ; preds = %if.end.i.i, %for.body.i.i
-  %next.i.i = getelementptr inbounds i8, ptr %cf.addr.07.i.i, i64 8
+  %next.i.i = getelementptr inbounds nuw i8, ptr %cf.addr.07.i.i, i64 8
   %4 = load ptr, ptr %next.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i, label %for.inc.i, label %for.body.i.i, !llvm.loop !10
@@ -1605,15 +1605,15 @@ cf_cntrl_all.exit:                                ; preds = %for.inc.i, %if.end.
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @Curl_conn_is_alive(ptr noundef %data, ptr nocapture noundef readonly %conn, ptr noundef %input_pending) local_unnamed_addr #0 {
 entry:
-  %cfilter = getelementptr inbounds i8, ptr %conn, i64 432
+  %cfilter = getelementptr inbounds nuw i8, ptr %conn, i64 432
   %0 = load ptr, ptr %cfilter, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %land.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %conn1 = getelementptr inbounds i8, ptr %0, i64 24
+  %conn1 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1 = load ptr, ptr %conn1, align 8
-  %bits = getelementptr inbounds i8, ptr %1, i64 704
+  %bits = getelementptr inbounds nuw i8, ptr %1, i64 704
   %bf.load = load i32, ptr %bits, align 8
   %2 = and i32 %bf.load, 64
   %tobool2.not = icmp eq i32 %2, 0
@@ -1621,7 +1621,7 @@ land.lhs.true:                                    ; preds = %entry
 
 land.rhs:                                         ; preds = %land.lhs.true
   %3 = load ptr, ptr %0, align 8
-  %is_alive = getelementptr inbounds i8, ptr %3, i64 88
+  %is_alive = getelementptr inbounds nuw i8, ptr %3, i64 88
   %4 = load ptr, ptr %is_alive, align 8
   %call = tail call zeroext i1 %4(ptr noundef nonnull %0, ptr noundef %data, ptr noundef %input_pending) #11
   br label %land.end
@@ -1634,7 +1634,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 ; Function Attrs: nounwind uwtable
 define hidden i32 @Curl_conn_keep_alive(ptr noundef %data, ptr nocapture noundef readonly %conn, i32 noundef %sockindex) local_unnamed_addr #0 {
 entry:
-  %cfilter = getelementptr inbounds i8, ptr %conn, i64 432
+  %cfilter = getelementptr inbounds nuw i8, ptr %conn, i64 432
   %idxprom = sext i32 %sockindex to i64
   %arrayidx = getelementptr inbounds [2 x ptr], ptr %cfilter, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
@@ -1643,7 +1643,7 @@ entry:
 
 cond.true:                                        ; preds = %entry
   %1 = load ptr, ptr %0, align 8
-  %keep_alive = getelementptr inbounds i8, ptr %1, i64 96
+  %keep_alive = getelementptr inbounds nuw i8, ptr %1, i64 96
   %2 = load ptr, ptr %keep_alive, align 8
   %call = tail call i32 %2(ptr noundef nonnull %0, ptr noundef %data) #11
   br label %cond.end
@@ -1658,7 +1658,7 @@ define hidden range(i64 -2147483648, 2147483648) i64 @Curl_conn_get_max_concurre
 entry:
   %n = alloca i32, align 4
   store i32 0, ptr %n, align 4
-  %cfilter = getelementptr inbounds i8, ptr %conn, i64 432
+  %cfilter = getelementptr inbounds nuw i8, ptr %conn, i64 432
   %idxprom = sext i32 %sockindex to i64
   %arrayidx = getelementptr inbounds [2 x ptr], ptr %cfilter, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
@@ -1667,7 +1667,7 @@ entry:
 
 cond.true:                                        ; preds = %entry
   %1 = load ptr, ptr %0, align 8
-  %query = getelementptr inbounds i8, ptr %1, i64 104
+  %query = getelementptr inbounds nuw i8, ptr %1, i64 104
   %2 = load ptr, ptr %query, align 8
   %call = call i32 %2(ptr noundef nonnull %0, ptr noundef %data, i32 noundef 1, ptr noundef nonnull %n, ptr noundef null) #11
   %3 = icmp ne i32 %call, 0
@@ -1687,7 +1687,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @Curl_pollset_reset(ptr nocapture noundef readnone %data, ptr nocapture noundef writeonly initializes((0, 32)) %ps) local_unnamed_addr #6 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %ps, i64 20
+  %0 = getelementptr inbounds nuw i8, ptr %ps, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %0, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %ps, i8 -1, i64 20, i1 false)
   ret void
@@ -1703,7 +1703,7 @@ entry:
   br i1 %cmp, label %for.cond.preheader, label %if.end73
 
 for.cond.preheader:                               ; preds = %entry
-  %num = getelementptr inbounds i8, ptr %ps, i64 20
+  %num = getelementptr inbounds nuw i8, ptr %ps, i64 20
   %0 = load i32, ptr %num, align 4
   %cmp741.not = icmp eq i32 %0, 0
   br i1 %cmp741.not, label %for.end, label %for.body.preheader
@@ -1714,15 +1714,15 @@ for.body.preheader:                               ; preds = %for.cond.preheader
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [5 x i32], ptr %ps, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [5 x i32], ptr %ps, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 4
   %cmp8 = icmp eq i32 %1, %sock
   br i1 %cmp8, label %if.then9, label %for.inc
 
 if.then9:                                         ; preds = %for.body
-  %arrayidx.le = getelementptr inbounds [5 x i32], ptr %ps, i64 0, i64 %indvars.iv
-  %actions = getelementptr inbounds i8, ptr %ps, i64 24
-  %arrayidx12 = getelementptr inbounds [5 x i8], ptr %actions, i64 0, i64 %indvars.iv
+  %arrayidx.le = getelementptr inbounds nuw [5 x i32], ptr %ps, i64 0, i64 %indvars.iv
+  %actions = getelementptr inbounds nuw i8, ptr %ps, i64 24
+  %arrayidx12 = getelementptr inbounds nuw [5 x i8], ptr %actions, i64 0, i64 %indvars.iv
   %2 = load i8, ptr %arrayidx12, align 1
   %3 = trunc i32 %remove_flags to i8
   %4 = xor i8 %3, -1
@@ -1741,21 +1741,20 @@ if.then25:                                        ; preds = %if.then9
 
 if.then29:                                        ; preds = %if.then25
   %idxprom35 = zext i32 %add to i64
-  %arrayidx36 = getelementptr inbounds [5 x i32], ptr %ps, i64 0, i64 %idxprom35
+  %arrayidx36 = getelementptr inbounds nuw [5 x i32], ptr %ps, i64 0, i64 %idxprom35
   %sub = sub nuw i32 %0, %add
   %conv39 = zext i32 %sub to i64
   %mul = shl nuw nsw i64 %conv39, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %arrayidx.le, ptr nonnull align 4 %arrayidx36, i64 %mul, i1 false)
-  %arrayidx46 = getelementptr inbounds [5 x i8], ptr %actions, i64 0, i64 %idxprom35
+  %arrayidx46 = getelementptr inbounds nuw [5 x i8], ptr %actions, i64 0, i64 %idxprom35
   %7 = load i32, ptr %num, align 4
   %sub49 = sub i32 %7, %add
   %conv50 = zext i32 %sub49 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %arrayidx12, ptr nonnull align 1 %arrayidx46, i64 %conv50, i1 false)
-  %.pre = load i32, ptr %num, align 4
   br label %if.end52
 
 if.end52:                                         ; preds = %if.then29, %if.then25
-  %dec.pre-phi.in = phi i32 [ %.pre, %if.then29 ], [ %0, %if.then25 ]
+  %dec.pre-phi.in = phi i32 [ %7, %if.then29 ], [ %0, %if.then25 ]
   %dec.pre-phi = add i32 %dec.pre-phi.in, -1
   br label %if.end73.sink.split
 
@@ -1772,11 +1771,11 @@ for.end:                                          ; preds = %for.inc, %for.cond.
 
 if.then62:                                        ; preds = %for.end
   %idxprom64 = zext nneg i32 %0 to i64
-  %arrayidx65 = getelementptr inbounds [5 x i32], ptr %ps, i64 0, i64 %idxprom64
+  %arrayidx65 = getelementptr inbounds nuw [5 x i32], ptr %ps, i64 0, i64 %idxprom64
   store i32 %sock, ptr %arrayidx65, align 4
   %conv66 = trunc i32 %add_flags to i8
-  %actions67 = getelementptr inbounds i8, ptr %ps, i64 24
-  %arrayidx69 = getelementptr inbounds [5 x i8], ptr %actions67, i64 0, i64 %idxprom64
+  %actions67 = getelementptr inbounds nuw i8, ptr %ps, i64 24
+  %arrayidx69 = getelementptr inbounds nuw [5 x i8], ptr %actions67, i64 0, i64 %idxprom64
   store i8 %conv66, ptr %arrayidx69, align 1
   %add70 = add nuw nsw i32 %0, 1
   br label %if.end73.sink.split
@@ -1807,7 +1806,7 @@ entry:
   br i1 %cmp.i, label %for.cond.preheader.i, label %Curl_pollset_change.exit
 
 for.cond.preheader.i:                             ; preds = %entry
-  %num.i = getelementptr inbounds i8, ptr %ps, i64 20
+  %num.i = getelementptr inbounds nuw i8, ptr %ps, i64 20
   %0 = load i32, ptr %num.i, align 4
   %cmp741.not.i = icmp eq i32 %0, 0
   br i1 %cmp741.not.i, label %for.end.i, label %for.body.preheader.i
@@ -1818,15 +1817,15 @@ for.body.preheader.i:                             ; preds = %for.cond.preheader.
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %arrayidx.i = getelementptr inbounds [5 x i32], ptr %ps, i64 0, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw [5 x i32], ptr %ps, i64 0, i64 %indvars.iv.i
   %1 = load i32, ptr %arrayidx.i, align 4
   %cmp8.i = icmp eq i32 %1, %sock
   br i1 %cmp8.i, label %if.then9.i, label %for.inc.i
 
 if.then9.i:                                       ; preds = %for.body.i
-  %arrayidx.i.le = getelementptr inbounds [5 x i32], ptr %ps, i64 0, i64 %indvars.iv.i
-  %actions.i = getelementptr inbounds i8, ptr %ps, i64 24
-  %arrayidx12.i = getelementptr inbounds [5 x i8], ptr %actions.i, i64 0, i64 %indvars.iv.i
+  %arrayidx.i.le = getelementptr inbounds nuw [5 x i32], ptr %ps, i64 0, i64 %indvars.iv.i
+  %actions.i = getelementptr inbounds nuw i8, ptr %ps, i64 24
+  %arrayidx12.i = getelementptr inbounds nuw [5 x i8], ptr %actions.i, i64 0, i64 %indvars.iv.i
   %2 = load i8, ptr %arrayidx12.i, align 1
   %3 = xor i8 %or9, -1
   %conv14.i = and i8 %2, %3
@@ -1844,21 +1843,20 @@ if.then25.i:                                      ; preds = %if.then9.i
 
 if.then29.i:                                      ; preds = %if.then25.i
   %idxprom35.i = zext i32 %add.i to i64
-  %arrayidx36.i = getelementptr inbounds [5 x i32], ptr %ps, i64 0, i64 %idxprom35.i
+  %arrayidx36.i = getelementptr inbounds nuw [5 x i32], ptr %ps, i64 0, i64 %idxprom35.i
   %sub.i = sub nuw i32 %0, %add.i
   %conv39.i = zext i32 %sub.i to i64
   %mul.i = shl nuw nsw i64 %conv39.i, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %arrayidx.i.le, ptr nonnull align 4 %arrayidx36.i, i64 %mul.i, i1 false)
-  %arrayidx46.i = getelementptr inbounds [5 x i8], ptr %actions.i, i64 0, i64 %idxprom35.i
+  %arrayidx46.i = getelementptr inbounds nuw [5 x i8], ptr %actions.i, i64 0, i64 %idxprom35.i
   %6 = load i32, ptr %num.i, align 4
   %sub49.i = sub i32 %6, %add.i
   %conv50.i = zext i32 %sub49.i to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %arrayidx12.i, ptr nonnull align 1 %arrayidx46.i, i64 %conv50.i, i1 false)
-  %.pre.i = load i32, ptr %num.i, align 4
   br label %if.end52.i
 
 if.end52.i:                                       ; preds = %if.then29.i, %if.then25.i
-  %dec.pre-phi.in.i = phi i32 [ %.pre.i, %if.then29.i ], [ %0, %if.then25.i ]
+  %dec.pre-phi.in.i = phi i32 [ %6, %if.then29.i ], [ %0, %if.then25.i ]
   %dec.pre-phi.i = add i32 %dec.pre-phi.in.i, -1
   br label %if.end73.sink.split.i
 
@@ -1875,11 +1873,11 @@ for.end.i:                                        ; preds = %for.inc.i, %for.con
 
 if.then62.i:                                      ; preds = %for.end.i
   %idxprom64.i = zext nneg i32 %0 to i64
-  %arrayidx65.i = getelementptr inbounds [5 x i32], ptr %ps, i64 0, i64 %idxprom64.i
+  %arrayidx65.i = getelementptr inbounds nuw [5 x i32], ptr %ps, i64 0, i64 %idxprom64.i
   store i32 %sock, ptr %arrayidx65.i, align 4
   %conv66.i = trunc nuw nsw i32 %or to i8
-  %actions67.i = getelementptr inbounds i8, ptr %ps, i64 24
-  %arrayidx69.i = getelementptr inbounds [5 x i8], ptr %actions67.i, i64 0, i64 %idxprom64.i
+  %actions67.i = getelementptr inbounds nuw i8, ptr %ps, i64 24
+  %arrayidx69.i = getelementptr inbounds nuw [5 x i8], ptr %actions67.i, i64 0, i64 %idxprom64.i
   store i8 %conv66.i, ptr %arrayidx69.i, align 1
   %add70.i = add nuw nsw i32 %0, 1
   br label %if.end73.sink.split.i
@@ -1902,8 +1900,8 @@ entry:
   br i1 %tobool.not.i, label %ps_add.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %entry
-  %num.i.i = getelementptr inbounds i8, ptr %ps, i64 20
-  %actions.i.i = getelementptr inbounds i8, ptr %ps, i64 24
+  %num.i.i = getelementptr inbounds nuw i8, ptr %ps, i64 20
+  %actions.i.i = getelementptr inbounds nuw i8, ptr %ps, i64 24
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.cond.preheader.i
@@ -1917,7 +1915,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.con
   br i1 %tobool2.not.i, label %ps_add.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %for.body.i
-  %arrayidx.i = getelementptr inbounds i32, ptr %socks, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw i32, ptr %socks, i64 %indvars.iv.i
   %1 = load i32, ptr %arrayidx.i, align 4
   %cmp3.i = icmp sgt i32 %1, -1
   br i1 %cmp3.i, label %if.end.i, label %ps_add.exit
@@ -1943,13 +1941,13 @@ for.body.preheader.i.i:                           ; preds = %for.cond.preheader.
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
-  %arrayidx.i.i = getelementptr inbounds [5 x i32], ptr %ps, i64 0, i64 %indvars.iv.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [5 x i32], ptr %ps, i64 0, i64 %indvars.iv.i.i
   %3 = load i32, ptr %arrayidx.i.i, align 4
   %cmp8.i.i = icmp eq i32 %3, %1
   br i1 %cmp8.i.i, label %if.then9.i.i, label %for.inc.i.i
 
 if.then9.i.i:                                     ; preds = %for.body.i.i
-  %arrayidx12.i.i = getelementptr inbounds [5 x i8], ptr %actions.i.i, i64 0, i64 %indvars.iv.i.i
+  %arrayidx12.i.i = getelementptr inbounds nuw [5 x i8], ptr %actions.i.i, i64 0, i64 %indvars.iv.i.i
   %4 = load i8, ptr %arrayidx12.i.i, align 1
   %conv21.i.i = or i8 %4, 3
   store i8 %conv21.i.i, ptr %arrayidx12.i.i, align 1
@@ -1966,9 +1964,9 @@ for.end.i.i:                                      ; preds = %for.inc.i.i
 
 if.then62.i.i:                                    ; preds = %for.end.i.i, %for.cond.preheader.i.i
   %idxprom64.i.pre-phi.i = phi i64 [ %wide.trip.count.i.i, %for.end.i.i ], [ 0, %for.cond.preheader.i.i ]
-  %arrayidx65.i.i = getelementptr inbounds [5 x i32], ptr %ps, i64 0, i64 %idxprom64.i.pre-phi.i
+  %arrayidx65.i.i = getelementptr inbounds nuw [5 x i32], ptr %ps, i64 0, i64 %idxprom64.i.pre-phi.i
   store i32 %1, ptr %arrayidx65.i.i, align 4
-  %arrayidx69.i.i = getelementptr inbounds [5 x i8], ptr %actions.i.i, i64 0, i64 %idxprom64.i.pre-phi.i
+  %arrayidx69.i.i = getelementptr inbounds nuw [5 x i8], ptr %actions.i.i, i64 0, i64 %idxprom64.i.pre-phi.i
   store i8 3, ptr %arrayidx69.i.i, align 1
   %add70.i.i = add nuw nsw i32 %2, 1
   store i32 %add70.i.i, ptr %num.i.i, align 4
@@ -1983,13 +1981,13 @@ for.body.preheader.i24.i:                         ; preds = %for.cond.preheader.
 
 for.body.i26.i:                                   ; preds = %for.inc.i30.i, %for.body.preheader.i24.i
   %indvars.iv.i27.i = phi i64 [ 0, %for.body.preheader.i24.i ], [ %indvars.iv.next.i31.i, %for.inc.i30.i ]
-  %arrayidx.i28.i = getelementptr inbounds [5 x i32], ptr %ps, i64 0, i64 %indvars.iv.i27.i
+  %arrayidx.i28.i = getelementptr inbounds nuw [5 x i32], ptr %ps, i64 0, i64 %indvars.iv.i27.i
   %5 = load i32, ptr %arrayidx.i28.i, align 4
   %cmp8.i29.i = icmp eq i32 %5, %1
   br i1 %cmp8.i29.i, label %if.then9.i41.i, label %for.inc.i30.i
 
 if.then9.i41.i:                                   ; preds = %for.body.i26.i
-  %arrayidx12.i44.i = getelementptr inbounds [5 x i8], ptr %actions.i.i, i64 0, i64 %indvars.iv.i27.i
+  %arrayidx12.i44.i = getelementptr inbounds nuw [5 x i8], ptr %actions.i.i, i64 0, i64 %indvars.iv.i27.i
   %6 = load i8, ptr %arrayidx12.i44.i, align 1
   %conv21.i45.i = or i8 %6, 1
   store i8 %conv21.i45.i, ptr %arrayidx12.i44.i, align 1
@@ -2006,9 +2004,9 @@ for.end.i33.i:                                    ; preds = %for.inc.i30.i
 
 if.then62.i35.i:                                  ; preds = %for.end.i33.i, %for.cond.preheader.i21.i
   %idxprom64.i36.pre-phi.i = phi i64 [ %wide.trip.count.i25.i, %for.end.i33.i ], [ 0, %for.cond.preheader.i21.i ]
-  %arrayidx65.i37.i = getelementptr inbounds [5 x i32], ptr %ps, i64 0, i64 %idxprom64.i36.pre-phi.i
+  %arrayidx65.i37.i = getelementptr inbounds nuw [5 x i32], ptr %ps, i64 0, i64 %idxprom64.i36.pre-phi.i
   store i32 %1, ptr %arrayidx65.i37.i, align 4
-  %arrayidx69.i39.i = getelementptr inbounds [5 x i8], ptr %actions.i.i, i64 0, i64 %idxprom64.i36.pre-phi.i
+  %arrayidx69.i39.i = getelementptr inbounds nuw [5 x i8], ptr %actions.i.i, i64 0, i64 %idxprom64.i36.pre-phi.i
   store i8 1, ptr %arrayidx69.i39.i, align 1
   %add70.i40.i = add nuw nsw i32 %2, 1
   store i32 %add70.i40.i, ptr %num.i.i, align 4
@@ -2025,13 +2023,13 @@ for.body.preheader.i51.i:                         ; preds = %for.cond.preheader.
 
 for.body.i53.i:                                   ; preds = %for.inc.i57.i, %for.body.preheader.i51.i
   %indvars.iv.i54.i = phi i64 [ 0, %for.body.preheader.i51.i ], [ %indvars.iv.next.i58.i, %for.inc.i57.i ]
-  %arrayidx.i55.i = getelementptr inbounds [5 x i32], ptr %ps, i64 0, i64 %indvars.iv.i54.i
+  %arrayidx.i55.i = getelementptr inbounds nuw [5 x i32], ptr %ps, i64 0, i64 %indvars.iv.i54.i
   %8 = load i32, ptr %arrayidx.i55.i, align 4
   %cmp8.i56.i = icmp eq i32 %8, %1
   br i1 %cmp8.i56.i, label %if.then9.i68.i, label %for.inc.i57.i
 
 if.then9.i68.i:                                   ; preds = %for.body.i53.i
-  %arrayidx12.i71.i = getelementptr inbounds [5 x i8], ptr %actions.i.i, i64 0, i64 %indvars.iv.i54.i
+  %arrayidx12.i71.i = getelementptr inbounds nuw [5 x i8], ptr %actions.i.i, i64 0, i64 %indvars.iv.i54.i
   %9 = load i8, ptr %arrayidx12.i71.i, align 1
   %conv21.i72.i = or i8 %9, 2
   store i8 %conv21.i72.i, ptr %arrayidx12.i71.i, align 1
@@ -2048,9 +2046,9 @@ for.end.i60.i:                                    ; preds = %for.inc.i57.i
 
 if.then62.i62.i:                                  ; preds = %for.end.i60.i, %for.cond.preheader.i48.i
   %idxprom64.i63.pre-phi.i = phi i64 [ %wide.trip.count.i52.i, %for.end.i60.i ], [ 0, %for.cond.preheader.i48.i ]
-  %arrayidx65.i64.i = getelementptr inbounds [5 x i32], ptr %ps, i64 0, i64 %idxprom64.i63.pre-phi.i
+  %arrayidx65.i64.i = getelementptr inbounds nuw [5 x i32], ptr %ps, i64 0, i64 %idxprom64.i63.pre-phi.i
   store i32 %1, ptr %arrayidx65.i64.i, align 4
-  %arrayidx69.i66.i = getelementptr inbounds [5 x i8], ptr %actions.i.i, i64 0, i64 %idxprom64.i63.pre-phi.i
+  %arrayidx69.i66.i = getelementptr inbounds nuw [5 x i8], ptr %actions.i.i, i64 0, i64 %idxprom64.i63.pre-phi.i
   store i8 2, ptr %arrayidx69.i66.i, align 1
   %add70.i67.i = add nuw nsw i32 %7, 1
   store i32 %add70.i67.i, ptr %num.i.i, align 4
@@ -2068,7 +2066,7 @@ ps_add.exit:                                      ; preds = %for.body.i, %lor.lh
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @Curl_pollset_check(ptr nocapture noundef readnone %data, ptr nocapture noundef readonly %ps, i32 noundef %sock, ptr nocapture noundef writeonly %pwant_read, ptr nocapture noundef writeonly %pwant_write) local_unnamed_addr #8 {
 entry:
-  %num = getelementptr inbounds i8, ptr %ps, i64 20
+  %num = getelementptr inbounds nuw i8, ptr %ps, i64 20
   %0 = load i32, ptr %num, align 4
   %cmp10.not = icmp eq i32 %0, 0
   br i1 %cmp10.not, label %for.end, label %for.body.preheader
@@ -2084,14 +2082,14 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.cond
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.cond ]
-  %arrayidx = getelementptr inbounds [5 x i32], ptr %ps, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [5 x i32], ptr %ps, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 4
   %cmp1 = icmp eq i32 %1, %sock
   br i1 %cmp1, label %if.then, label %for.cond
 
 if.then:                                          ; preds = %for.body
-  %actions = getelementptr inbounds i8, ptr %ps, i64 24
-  %arrayidx3 = getelementptr inbounds [5 x i8], ptr %actions, i64 0, i64 %indvars.iv
+  %actions = getelementptr inbounds nuw i8, ptr %ps, i64 24
+  %arrayidx3 = getelementptr inbounds nuw [5 x i8], ptr %actions, i64 0, i64 %indvars.iv
   %2 = load i8, ptr %arrayidx3, align 1
   %3 = and i8 %2, 1
   store i8 %3, ptr %pwant_read, align 1

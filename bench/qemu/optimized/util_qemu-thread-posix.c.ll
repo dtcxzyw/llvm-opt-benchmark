@@ -89,7 +89,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %initialized.i = getelementptr inbounds i8, ptr %mutex, i64 40
+  %initialized.i = getelementptr inbounds nuw i8, ptr %mutex, i64 40
   store i8 1, ptr %initialized.i, align 8
   ret void
 }
@@ -110,7 +110,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_mutex_destroy(ptr noundef %mutex) local_unnamed_addr #1 {
 entry:
-  %initialized = getelementptr inbounds i8, ptr %mutex, i64 40
+  %initialized = getelementptr inbounds nuw i8, ptr %mutex, i64 40
   %0 = load i8, ptr %initialized, align 8
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.end, label %if.else
@@ -144,7 +144,7 @@ define dso_local void @qemu_mutex_lock_impl(ptr noundef %mutex, ptr noundef %fil
 entry:
   %_now.i.i.i7 = alloca %struct.timeval, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8
-  %initialized = getelementptr inbounds i8, ptr %mutex, i64 40
+  %initialized = getelementptr inbounds nuw i8, ptr %mutex, i64 40
   %0 = load i8, ptr %initialized, align 8
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.end, label %if.else
@@ -177,7 +177,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #21
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #21
   %5 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
+  %tv_usec.i.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.6, i32 noundef %call10.i.i.i, i64 noundef %5, i64 noundef %6, ptr noundef nonnull %mutex, ptr noundef %file, i32 noundef %line) #21
   br label %qemu_mutex_pre_lock.exit
@@ -220,7 +220,7 @@ if.then8.i.i.i17:                                 ; preds = %if.then.i.i.i14
   %call9.i.i.i18 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i7, ptr noundef null) #21
   %call10.i.i.i19 = tail call i32 @qemu_get_thread_id() #21
   %11 = load i64, ptr %_now.i.i.i7, align 8
-  %tv_usec.i.i.i20 = getelementptr inbounds i8, ptr %_now.i.i.i7, i64 8
+  %tv_usec.i.i.i20 = getelementptr inbounds nuw i8, ptr %_now.i.i.i7, i64 8
   %12 = load i64, ptr %tv_usec.i.i.i20, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i.i19, i64 noundef %11, i64 noundef %12, ptr noundef nonnull %mutex, ptr noundef %file, i32 noundef %line) #21
   br label %qemu_mutex_post_lock.exit
@@ -241,7 +241,7 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #2
 define dso_local range(i32 -16, 1) i32 @qemu_mutex_trylock_impl(ptr noundef %mutex, ptr noundef %file, i32 noundef %line) local_unnamed_addr #1 {
 entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
-  %initialized = getelementptr inbounds i8, ptr %mutex, i64 40
+  %initialized = getelementptr inbounds nuw i8, ptr %mutex, i64 40
   %0 = load i8, ptr %initialized, align 8
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.end, label %if.else
@@ -281,7 +281,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #21
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #21
   %5 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
+  %tv_usec.i.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i.i, i64 noundef %5, i64 noundef %6, ptr noundef nonnull %mutex, ptr noundef %file, i32 noundef %line) #21
   br label %qemu_mutex_post_lock.exit
@@ -310,7 +310,7 @@ declare i32 @pthread_mutex_trylock(ptr noundef) local_unnamed_addr #2
 define dso_local void @qemu_mutex_unlock_impl(ptr noundef %mutex, ptr noundef %file, i32 noundef %line) local_unnamed_addr #1 {
 entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
-  %initialized = getelementptr inbounds i8, ptr %mutex, i64 40
+  %initialized = getelementptr inbounds nuw i8, ptr %mutex, i64 40
   %0 = load i8, ptr %initialized, align 8
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.end, label %if.else
@@ -343,7 +343,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #21
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #21
   %5 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
+  %tv_usec.i.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i.i, i64 noundef %5, i64 noundef %6, ptr noundef nonnull %mutex, ptr noundef %file, i32 noundef %line) #21
   br label %qemu_mutex_pre_unlock.exit
@@ -385,7 +385,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %initialized = getelementptr inbounds i8, ptr %mutex, i64 40
+  %initialized = getelementptr inbounds nuw i8, ptr %mutex, i64 40
   store i8 1, ptr %initialized, align 8
   ret void
 }
@@ -402,7 +402,7 @@ declare i32 @pthread_mutexattr_destroy(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_rec_mutex_destroy(ptr noundef %mutex) local_unnamed_addr #1 {
 entry:
-  %initialized.i = getelementptr inbounds i8, ptr %mutex, i64 40
+  %initialized.i = getelementptr inbounds nuw i8, ptr %mutex, i64 40
   %0 = load i8, ptr %initialized.i, align 8
   %tobool.i = trunc i8 %0 to i1
   br i1 %tobool.i, label %if.end.i, label %if.else.i
@@ -477,7 +477,7 @@ if.then8:                                         ; preds = %if.end5
   unreachable
 
 if.end9:                                          ; preds = %if.end5
-  %initialized = getelementptr inbounds i8, ptr %cond, i64 48
+  %initialized = getelementptr inbounds nuw i8, ptr %cond, i64 48
   store i8 1, ptr %initialized, align 8
   ret void
 }
@@ -494,7 +494,7 @@ declare i32 @pthread_condattr_destroy(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_cond_destroy(ptr noundef %cond) local_unnamed_addr #1 {
 entry:
-  %initialized = getelementptr inbounds i8, ptr %cond, i64 48
+  %initialized = getelementptr inbounds nuw i8, ptr %cond, i64 48
   %0 = load i8, ptr %initialized, align 8
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.end, label %if.else
@@ -523,7 +523,7 @@ declare i32 @pthread_cond_destroy(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_cond_signal(ptr noundef %cond) local_unnamed_addr #1 {
 entry:
-  %initialized = getelementptr inbounds i8, ptr %cond, i64 48
+  %initialized = getelementptr inbounds nuw i8, ptr %cond, i64 48
   %0 = load i8, ptr %initialized, align 8
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.end, label %if.else
@@ -551,7 +551,7 @@ declare i32 @pthread_cond_signal(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_cond_broadcast(ptr noundef %cond) local_unnamed_addr #1 {
 entry:
-  %initialized = getelementptr inbounds i8, ptr %cond, i64 48
+  %initialized = getelementptr inbounds nuw i8, ptr %cond, i64 48
   %0 = load i8, ptr %initialized, align 8
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.end, label %if.else
@@ -581,7 +581,7 @@ define dso_local void @qemu_cond_wait_impl(ptr noundef %cond, ptr noundef %mutex
 entry:
   %_now.i.i.i7 = alloca %struct.timeval, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8
-  %initialized = getelementptr inbounds i8, ptr %cond, i64 48
+  %initialized = getelementptr inbounds nuw i8, ptr %cond, i64 48
   %0 = load i8, ptr %initialized, align 8
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.end, label %if.else
@@ -614,7 +614,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #21
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #21
   %5 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
+  %tv_usec.i.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %mutex, ptr noundef %file, i32 noundef %line) #21
   br label %qemu_mutex_pre_unlock.exit
@@ -649,7 +649,7 @@ if.then8.i.i.i17:                                 ; preds = %if.then.i.i.i14
   %call9.i.i.i18 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i7, ptr noundef null) #21
   %call10.i.i.i19 = tail call i32 @qemu_get_thread_id() #21
   %11 = load i64, ptr %_now.i.i.i7, align 8
-  %tv_usec.i.i.i20 = getelementptr inbounds i8, ptr %_now.i.i.i7, i64 8
+  %tv_usec.i.i.i20 = getelementptr inbounds nuw i8, ptr %_now.i.i.i7, i64 8
   %12 = load i64, ptr %tv_usec.i.i.i20, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i.i19, i64 noundef %11, i64 noundef %12, ptr noundef %mutex, ptr noundef %file, i32 noundef %line) #21
   br label %qemu_mutex_post_lock.exit
@@ -681,7 +681,7 @@ entry:
   %rem.i = srem i32 %ms, 1000
   %mul.i = mul nsw i32 %rem.i, 1000000
   %conv.i = sext i32 %mul.i to i64
-  %tv_nsec.i = getelementptr inbounds i8, ptr %ts, i64 8
+  %tv_nsec.i = getelementptr inbounds nuw i8, ptr %ts, i64 8
   %0 = load i64, ptr %tv_nsec.i, align 8
   %add.i = add i64 %0, %conv.i
   store i64 %add.i, ptr %tv_nsec.i, align 8
@@ -710,7 +710,7 @@ define internal fastcc zeroext i1 @qemu_cond_timedwait_ts(ptr noundef %cond, ptr
 entry:
   %_now.i.i9 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
-  %initialized = getelementptr inbounds i8, ptr %cond, i64 48
+  %initialized = getelementptr inbounds nuw i8, ptr %cond, i64 48
   %0 = load i8, ptr %initialized, align 8
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.end, label %if.else
@@ -743,7 +743,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #21
   %call10.i.i = tail call i32 @qemu_get_thread_id() #21
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %mutex, ptr noundef %file, i32 noundef %line) #21
   br label %trace_qemu_mutex_unlock.exit
@@ -778,7 +778,7 @@ if.then8.i.i19:                                   ; preds = %if.then.i.i16
   %call9.i.i20 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i9, ptr noundef null) #21
   %call10.i.i21 = tail call i32 @qemu_get_thread_id() #21
   %11 = load i64, ptr %_now.i.i9, align 8
-  %tv_usec.i.i22 = getelementptr inbounds i8, ptr %_now.i.i9, i64 8
+  %tv_usec.i.i22 = getelementptr inbounds nuw i8, ptr %_now.i.i9, i64 8
   %12 = load i64, ptr %tv_usec.i.i22, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i21, i64 noundef %11, i64 noundef %12, ptr noundef %mutex, ptr noundef %file, i32 noundef %line) #21
   br label %trace_qemu_mutex_locked.exit
@@ -816,7 +816,7 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 qemu_mutex_init.exit:                             ; preds = %entry
-  %initialized.i.i = getelementptr inbounds i8, ptr %sem, i64 40
+  %initialized.i.i = getelementptr inbounds nuw i8, ptr %sem, i64 40
   store i8 1, ptr %initialized.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %attr.i)
   %call.i4 = call i32 @pthread_condattr_init(ptr noundef nonnull %attr.i) #21
@@ -828,7 +828,7 @@ if.then.i6:                                       ; preds = %qemu_mutex_init.exi
   unreachable
 
 if.end.i:                                         ; preds = %qemu_mutex_init.exit
-  %cond = getelementptr inbounds i8, ptr %sem, i64 48
+  %cond = getelementptr inbounds nuw i8, ptr %sem, i64 48
   %call2.i = call i32 @pthread_cond_init(ptr noundef nonnull %cond, ptr noundef nonnull %attr.i) #21
   %tobool3.not.i = icmp eq i32 %call2.i, 0
   br i1 %tobool3.not.i, label %if.end5.i, label %if.then4.i
@@ -847,7 +847,7 @@ if.then8.i:                                       ; preds = %if.end5.i
   unreachable
 
 qemu_cond_init.exit:                              ; preds = %if.end5.i
-  %initialized.i = getelementptr inbounds i8, ptr %sem, i64 96
+  %initialized.i = getelementptr inbounds nuw i8, ptr %sem, i64 96
   store i8 1, ptr %initialized.i, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %attr.i)
   %cmp = icmp slt i32 %init, 0
@@ -858,7 +858,7 @@ if.then:                                          ; preds = %qemu_cond_init.exit
   unreachable
 
 if.end:                                           ; preds = %qemu_cond_init.exit
-  %count = getelementptr inbounds i8, ptr %sem, i64 104
+  %count = getelementptr inbounds nuw i8, ptr %sem, i64 104
   store i32 %init, ptr %count, align 8
   ret void
 }
@@ -866,7 +866,7 @@ if.end:                                           ; preds = %qemu_cond_init.exit
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_sem_destroy(ptr noundef %sem) local_unnamed_addr #1 {
 entry:
-  %initialized.i = getelementptr inbounds i8, ptr %sem, i64 96
+  %initialized.i = getelementptr inbounds nuw i8, ptr %sem, i64 96
   %0 = load i8, ptr %initialized.i, align 8
   %tobool.i = trunc i8 %0 to i1
   br i1 %tobool.i, label %if.end.i, label %if.else.i
@@ -876,7 +876,7 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 if.end.i:                                         ; preds = %entry
-  %cond = getelementptr inbounds i8, ptr %sem, i64 48
+  %cond = getelementptr inbounds nuw i8, ptr %sem, i64 48
   store i8 0, ptr %initialized.i, align 8
   %call.i = tail call i32 @pthread_cond_destroy(ptr noundef nonnull %cond) #21
   %tobool3.not.i = icmp eq i32 %call.i, 0
@@ -887,7 +887,7 @@ if.then4.i:                                       ; preds = %if.end.i
   unreachable
 
 qemu_cond_destroy.exit:                           ; preds = %if.end.i
-  %initialized.i2 = getelementptr inbounds i8, ptr %sem, i64 40
+  %initialized.i2 = getelementptr inbounds nuw i8, ptr %sem, i64 40
   %1 = load i8, ptr %initialized.i2, align 8
   %tobool.i3 = trunc i8 %1 to i1
   br i1 %tobool.i3, label %if.end.i5, label %if.else.i4
@@ -916,7 +916,7 @@ entry:
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
   tail call void %1(ptr noundef %sem, ptr noundef nonnull @.str.1, i32 noundef 275) #21
-  %count = getelementptr inbounds i8, ptr %sem, i64 104
+  %count = getelementptr inbounds nuw i8, ptr %sem, i64 104
   %2 = load i32, ptr %count, align 8
   %cmp = icmp eq i32 %2, -1
   br i1 %cmp, label %if.then, label %if.else
@@ -928,7 +928,7 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %inc = add nuw i32 %2, 1
   store i32 %inc, ptr %count, align 8
-  %initialized.i = getelementptr inbounds i8, ptr %sem, i64 96
+  %initialized.i = getelementptr inbounds nuw i8, ptr %sem, i64 96
   %3 = load i8, ptr %initialized.i, align 8
   %tobool.i = trunc i8 %3 to i1
   br i1 %tobool.i, label %if.end.i, label %if.else.i
@@ -938,7 +938,7 @@ if.else.i:                                        ; preds = %if.else
   unreachable
 
 if.end.i:                                         ; preds = %if.else
-  %cond = getelementptr inbounds i8, ptr %sem, i64 48
+  %cond = getelementptr inbounds nuw i8, ptr %sem, i64 48
   %call.i = tail call i32 @pthread_cond_signal(ptr noundef nonnull %cond) #21
   %tobool2.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool2.not.i, label %if.end, label %if.then3.i
@@ -963,7 +963,7 @@ entry:
   %rem.i = srem i32 %ms, 1000
   %mul.i = mul nsw i32 %rem.i, 1000000
   %conv.i = sext i32 %mul.i to i64
-  %tv_nsec.i = getelementptr inbounds i8, ptr %ts, i64 8
+  %tv_nsec.i = getelementptr inbounds nuw i8, ptr %ts, i64 8
   %0 = load i64, ptr %tv_nsec.i, align 8
   %add.i = add i64 %0, %conv.i
   store i64 %add.i, ptr %tv_nsec.i, align 8
@@ -986,14 +986,14 @@ compute_abs_deadline.exit:                        ; preds = %entry, %if.then.i
   %2 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %3 = inttoptr i64 %2 to ptr
   call void %3(ptr noundef %sem, ptr noundef nonnull @.str.1, i32 noundef 291) #21
-  %count = getelementptr inbounds i8, ptr %sem, i64 104
+  %count = getelementptr inbounds nuw i8, ptr %sem, i64 104
   %4 = load i32, ptr %count, align 8
   %cmp15 = icmp eq i32 %4, 0
   br i1 %cmp15, label %while.body2.lr.ph, label %if.then9
 
 while.body2.lr.ph:                                ; preds = %compute_abs_deadline.exit
   %cmp3 = icmp eq i32 %ms, 0
-  %cond = getelementptr inbounds i8, ptr %sem, i64 48
+  %cond = getelementptr inbounds nuw i8, ptr %sem, i64 48
   br i1 %cmp3, label %if.end11, label %while.body2
 
 while.cond1:                                      ; preds = %while.body2
@@ -1023,13 +1023,13 @@ entry:
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
   tail call void %1(ptr noundef %sem, ptr noundef nonnull @.str.1, i32 noundef 312) #21
-  %count = getelementptr inbounds i8, ptr %sem, i64 104
+  %count = getelementptr inbounds nuw i8, ptr %sem, i64 104
   %2 = load i32, ptr %count, align 8
   %cmp6 = icmp eq i32 %2, 0
   br i1 %cmp6, label %while.end8.lr.ph, label %while.end12
 
 while.end8.lr.ph:                                 ; preds = %entry
-  %cond = getelementptr inbounds i8, ptr %sem, i64 48
+  %cond = getelementptr inbounds nuw i8, ptr %sem, i64 48
   br label %while.end8
 
 while.end8:                                       ; preds = %while.end8.lr.ph, %while.end8
@@ -1054,7 +1054,7 @@ entry:
   %not.init = xor i1 %init, true
   %cond = zext i1 %not.init to i32
   store i32 %cond, ptr %ev, align 4
-  %initialized = getelementptr inbounds i8, ptr %ev, i64 4
+  %initialized = getelementptr inbounds nuw i8, ptr %ev, i64 4
   store i8 1, ptr %initialized, align 4
   ret void
 }
@@ -1062,7 +1062,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_event_destroy(ptr nocapture noundef %ev) local_unnamed_addr #1 {
 entry:
-  %initialized = getelementptr inbounds i8, ptr %ev, i64 4
+  %initialized = getelementptr inbounds nuw i8, ptr %ev, i64 4
   %0 = load i8, ptr %initialized, align 4
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.end, label %if.else
@@ -1079,7 +1079,7 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_event_set(ptr noundef %ev) local_unnamed_addr #1 {
 entry:
-  %initialized = getelementptr inbounds i8, ptr %ev, i64 4
+  %initialized = getelementptr inbounds nuw i8, ptr %ev, i64 4
   %0 = load i8, ptr %initialized, align 4
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.end, label %if.else
@@ -1112,7 +1112,7 @@ if.end14:                                         ; preds = %while.end6, %if.the
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_event_reset(ptr nocapture noundef %ev) local_unnamed_addr #1 {
 entry:
-  %initialized = getelementptr inbounds i8, ptr %ev, i64 4
+  %initialized = getelementptr inbounds nuw i8, ptr %ev, i64 4
   %0 = load i8, ptr %initialized, align 4
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.end, label %if.else
@@ -1130,7 +1130,7 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_event_wait(ptr noundef %ev) local_unnamed_addr #1 {
 entry:
-  %initialized = getelementptr inbounds i8, ptr %ev, i64 4
+  %initialized = getelementptr inbounds nuw i8, ptr %ev, i64 4
   %0 = load i8, ptr %initialized, align 4
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %while.end, label %if.else
@@ -1230,10 +1230,10 @@ if.end3:                                          ; preds = %if.then1, %if.end
   %call8 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %set, ptr noundef nonnull %oldset) #21
   %call9 = call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #25
   %call10 = call noalias ptr @g_strdup(ptr noundef %name) #21
-  %name11 = getelementptr inbounds i8, ptr %call9, i64 16
+  %name11 = getelementptr inbounds nuw i8, ptr %call9, i64 16
   store ptr %call10, ptr %name11, align 8
   store ptr %start_routine, ptr %call9, align 8
-  %arg13 = getelementptr inbounds i8, ptr %call9, i64 8
+  %arg13 = getelementptr inbounds nuw i8, ptr %call9, i64 8
   store ptr %arg, ptr %arg13, align 8
   %call15 = call i32 @pthread_create(ptr noundef %thread, ptr noundef nonnull %attr, ptr noundef nonnull @qemu_thread_start, ptr noundef nonnull %call9) #21
   %tobool16.not = icmp eq i32 %call15, 0
@@ -1277,14 +1277,14 @@ define internal ptr @qemu_thread_start(ptr noundef %args) #1 {
 entry:
   %__cancel_buf = alloca %struct.__pthread_unwind_buf_t, align 16
   %0 = load ptr, ptr %args, align 8
-  %arg2 = getelementptr inbounds i8, ptr %args, i64 8
+  %arg2 = getelementptr inbounds nuw i8, ptr %args, i64 8
   %1 = load ptr, ptr %arg2, align 8
   %2 = load i8, ptr @name_threads, align 1
   %tobool = trunc nuw i8 %2 to i1
   br i1 %tobool, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %name = getelementptr inbounds i8, ptr %args, i64 16
+  %name = getelementptr inbounds nuw i8, ptr %args, i64 16
   %3 = load ptr, ptr %name, align 8
   %tobool3.not = icmp eq ptr %3, null
   br i1 %tobool3.not, label %if.end, label %if.then
@@ -1295,7 +1295,7 @@ if.then:                                          ; preds = %land.lhs.true
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
-  %name6 = getelementptr inbounds i8, ptr %args, i64 16
+  %name6 = getelementptr inbounds nuw i8, ptr %args, i64 16
   %4 = load ptr, ptr %name6, align 8
   call void @g_free(ptr noundef %4) #21
   call void @g_free(ptr noundef nonnull %args) #21

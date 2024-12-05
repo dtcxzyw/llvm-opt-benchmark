@@ -25,23 +25,23 @@ define ptr @ARKUserControl(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   br i1 %10, label %34, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %9, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %13 = load ptr, ptr %12, align 8
   store ptr @SUNAdaptController_GetType_ARKUserControl, ptr %13, align 8
   %14 = load ptr, ptr %12, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr @SUNAdaptController_EstimateStep_ARKUserControl, ptr %15, align 8
   %16 = load ptr, ptr %12, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store ptr @SUNAdaptController_Reset_ARKUserControl, ptr %17, align 8
   %18 = load ptr, ptr %12, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 40
   store ptr @SUNAdaptController_Write_ARKUserControl, ptr %19, align 8
   %20 = load ptr, ptr %12, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 56
   store ptr @SUNAdaptController_UpdateH_ARKUserControl, ptr %21, align 8
   %22 = load ptr, ptr %12, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 64
   store ptr @SUNAdaptController_Space_ARKUserControl, ptr %23, align 8
   %24 = tail call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #12
   %25 = icmp eq ptr %24, null
@@ -53,15 +53,15 @@ define ptr @ARKUserControl(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
 
 28:                                               ; preds = %11
   store ptr %24, ptr %9, align 8
-  %29 = getelementptr inbounds i8, ptr %24, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store ptr %1, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %24, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 40
   store ptr %2, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %24, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 48
   store ptr %3, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %24, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store double 1.000000e+00, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %24, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store double 1.000000e+00, ptr %33, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
   br label %34
@@ -82,38 +82,38 @@ define noundef i32 @SUNAdaptController_GetType_ARKUserControl(ptr nocapture read
 define range(i32 -9984, 1) i32 @SUNAdaptController_EstimateStep_ARKUserControl(ptr nocapture noundef readonly %0, double noundef %1, i32 %2, double noundef %3, ptr noundef %4) #0 {
   %6 = fcmp ugt double %3, 1.000000e+00
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 568
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 568
   %11 = load double, ptr %10, align 8
   br i1 %6, label %16, label %12
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %9, i64 376
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 376
   %14 = load double, ptr %13, align 8
   %15 = fadd double %11, %14
   br label %16
 
 16:                                               ; preds = %5, %12
   %17 = phi double [ %15, %12 ], [ %11, %5 ]
-  %18 = getelementptr inbounds i8, ptr %7, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %9, i64 264
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 264
   %21 = load ptr, ptr %20, align 8
   %22 = load double, ptr %7, align 8
-  %23 = getelementptr inbounds i8, ptr %7, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %24 = load double, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %7, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %26 = load double, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %7, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %28 = load double, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %9, i64 448
+  %29 = getelementptr inbounds nuw i8, ptr %9, i64 448
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 92
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 92
   %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds i8, ptr %30, i64 88
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 88
   %34 = load i32, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %7, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %36 = load ptr, ptr %35, align 8
   %37 = tail call i32 %19(ptr noundef %21, double noundef %17, double noundef %1, double noundef %22, double noundef %24, double noundef %3, double noundef %26, double noundef %28, i32 noundef %32, i32 noundef %34, ptr noundef %4, ptr noundef %36) #11
   %.not = icmp eq i32 %37, 0
@@ -124,15 +124,15 @@ define range(i32 -9984, 1) i32 @SUNAdaptController_EstimateStep_ARKUserControl(p
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @SUNAdaptController_Reset_ARKUserControl(ptr nocapture noundef readonly %0) #3 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store double 1.000000e+00, ptr %3, align 8
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store double 1.000000e+00, ptr %5, align 8
   %6 = load ptr, ptr %0, align 8
   store double 0.000000e+00, ptr %6, align 8
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store double 0.000000e+00, ptr %8, align 8
   ret i32 0
 }
@@ -144,19 +144,19 @@ define noundef i32 @SUNAdaptController_Write_ARKUserControl(ptr nocapture nounde
   %5 = load double, ptr %4, align 8
   %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.1, double noundef %5) #11
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load double, ptr %8, align 8
   %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.2, double noundef %9) #11
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load double, ptr %12, align 8
   %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.3, double noundef %13) #11
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load double, ptr %16, align 8
   %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.4, double noundef %17) #11
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %21 = load ptr, ptr %20, align 8
   %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef %21) #11
   ret i32 0
@@ -166,17 +166,17 @@ define noundef i32 @SUNAdaptController_Write_ARKUserControl(ptr nocapture nounde
 define noundef i32 @SUNAdaptController_UpdateH_ARKUserControl(ptr nocapture noundef readonly %0, double noundef %1, double noundef %2) #5 {
   %4 = load ptr, ptr %0, align 8
   %5 = load double, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store double %5, ptr %6, align 8
   %7 = load ptr, ptr %0, align 8
   store double %1, ptr %7, align 8
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load double, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store double %10, ptr %11, align 8
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store double %2, ptr %13, align 8
   ret i32 0
 }

@@ -146,10 +146,10 @@ if.then:                                          ; preds = %entry
   ]
 
 sw.default.i:                                     ; preds = %if.then
-  %arrayidx.i = getelementptr inbounds i8, ptr %str, i64 21
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %str, i64 21
   %1 = load i8, ptr %arrayidx.i, align 1
   %idxprom.i = zext i8 %1 to i64
-  %arrayidx1.i = getelementptr inbounds [257 x i8], ptr @_ZZN8proxygen25HTTPCommonHeadersInternal4hashEPKcmE11asso_values, i64 0, i64 %idxprom.i
+  %arrayidx1.i = getelementptr inbounds nuw [257 x i8], ptr @_ZZN8proxygen25HTTPCommonHeadersInternal4hashEPKcmE11asso_values, i64 0, i64 %idxprom.i
   %2 = load i8, ptr %arrayidx1.i, align 1
   %conv2.i = zext i8 %2 to i32
   %add.i = add nuw nsw i32 %conv2.i, %conv.i
@@ -157,11 +157,11 @@ sw.default.i:                                     ; preds = %if.then
 
 sw.bb.i:                                          ; preds = %sw.default.i, %if.then, %if.then, %if.then, %if.then, %if.then, %if.then, %if.then, %if.then, %if.then, %if.then, %if.then, %if.then, %if.then, %if.then, %if.then, %if.then, %if.then, %if.then, %if.then
   %hval.0.i = phi i32 [ %add.i, %sw.default.i ], [ %conv.i, %if.then ], [ %conv.i, %if.then ], [ %conv.i, %if.then ], [ %conv.i, %if.then ], [ %conv.i, %if.then ], [ %conv.i, %if.then ], [ %conv.i, %if.then ], [ %conv.i, %if.then ], [ %conv.i, %if.then ], [ %conv.i, %if.then ], [ %conv.i, %if.then ], [ %conv.i, %if.then ], [ %conv.i, %if.then ], [ %conv.i, %if.then ], [ %conv.i, %if.then ], [ %conv.i, %if.then ], [ %conv.i, %if.then ], [ %conv.i, %if.then ], [ %conv.i, %if.then ]
-  %arrayidx3.i = getelementptr inbounds i8, ptr %str, i64 2
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %str, i64 2
   %3 = load i8, ptr %arrayidx3.i, align 1
   %add5.i = add i8 %3, 1
   %idxprom7.i = zext i8 %add5.i to i64
-  %arrayidx8.i = getelementptr inbounds [257 x i8], ptr @_ZZN8proxygen25HTTPCommonHeadersInternal4hashEPKcmE11asso_values, i64 0, i64 %idxprom7.i
+  %arrayidx8.i = getelementptr inbounds nuw [257 x i8], ptr @_ZZN8proxygen25HTTPCommonHeadersInternal4hashEPKcmE11asso_values, i64 0, i64 %idxprom7.i
   %4 = load i8, ptr %arrayidx8.i, align 1
   %conv9.i = zext i8 %4 to i32
   %add10.i = add nuw nsw i32 %hval.0.i, %conv9.i
@@ -173,7 +173,7 @@ _ZN8proxygen25HTTPCommonHeadersInternal4hashEPKcm.exit: ; preds = %if.then, %sw.
   %arrayidx12.i = getelementptr i8, ptr %5, i64 -1
   %6 = load i8, ptr %arrayidx12.i, align 1
   %idxprom13.i = zext i8 %6 to i64
-  %arrayidx14.i = getelementptr inbounds [257 x i8], ptr @_ZZN8proxygen25HTTPCommonHeadersInternal4hashEPKcmE11asso_values, i64 0, i64 %idxprom13.i
+  %arrayidx14.i = getelementptr inbounds nuw [257 x i8], ptr @_ZZN8proxygen25HTTPCommonHeadersInternal4hashEPKcmE11asso_values, i64 0, i64 %idxprom13.i
   %7 = load i8, ptr %arrayidx14.i, align 1
   %conv15.i = zext i8 %7 to i32
   %add16.i = add nuw nsw i32 %hval.1.i, %conv15.i
@@ -182,21 +182,21 @@ _ZN8proxygen25HTTPCommonHeadersInternal4hashEPKcm.exit: ; preds = %if.then, %sw.
 
 if.then3:                                         ; preds = %_ZN8proxygen25HTTPCommonHeadersInternal4hashEPKcm.exit
   %idxprom = zext nneg i32 %add16.i to i64
-  %arrayidx = getelementptr inbounds [116 x i8], ptr @_ZN8proxygenL6lookupE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [116 x i8], ptr @_ZN8proxygenL6lookupE, i64 0, i64 %idxprom
   %8 = load i8, ptr %arrayidx, align 1
   %cmp4 = icmp sgt i8 %8, -1
   br i1 %cmp4, label %if.then5, label %return
 
 if.then5:                                         ; preds = %if.then3
   %conv = zext nneg i8 %8 to i64
-  %arrayidx7 = getelementptr inbounds [87 x i8], ptr @_ZN8proxygenL11lengthtableE, i64 0, i64 %conv
+  %arrayidx7 = getelementptr inbounds nuw [87 x i8], ptr @_ZN8proxygenL11lengthtableE, i64 0, i64 %conv
   %9 = load i8, ptr %arrayidx7, align 1
   %conv8 = zext i8 %9 to i64
   %cmp9 = icmp eq i64 %len, %conv8
   br i1 %cmp9, label %if.then10, label %return
 
 if.then10:                                        ; preds = %if.then5
-  %arrayidx12 = getelementptr inbounds [87 x %"struct.proxygen::HTTPCommonHeaderName"], ptr @_ZN8proxygenL8wordlistE, i64 0, i64 %conv
+  %arrayidx12 = getelementptr inbounds nuw [87 x %"struct.proxygen::HTTPCommonHeaderName"], ptr @_ZN8proxygenL8wordlistE, i64 0, i64 %conv
   %10 = load ptr, ptr %arrayidx12, align 16
   %11 = load i8, ptr %str, align 1
   %12 = load i8, ptr %10, align 1
@@ -211,18 +211,18 @@ for.body.i:                                       ; preds = %if.then10, %if.then
   %s2.addr.05.i = phi ptr [ %incdec.ptr1.i, %if.then.i ], [ %10, %if.then10 ]
   %14 = load i8, ptr %s1.addr.07.i, align 1
   %idxprom.i13 = zext i8 %14 to i64
-  %arrayidx.i14 = getelementptr inbounds [256 x i8], ptr @_ZN8proxygenL14gperf_downcaseE, i64 0, i64 %idxprom.i13
+  %arrayidx.i14 = getelementptr inbounds nuw [256 x i8], ptr @_ZN8proxygenL14gperf_downcaseE, i64 0, i64 %idxprom.i13
   %15 = load i8, ptr %arrayidx.i14, align 1
   %16 = load i8, ptr %s2.addr.05.i, align 1
   %idxprom2.i = zext i8 %16 to i64
-  %arrayidx3.i15 = getelementptr inbounds [256 x i8], ptr @_ZN8proxygenL14gperf_downcaseE, i64 0, i64 %idxprom2.i
+  %arrayidx3.i15 = getelementptr inbounds nuw [256 x i8], ptr @_ZN8proxygenL14gperf_downcaseE, i64 0, i64 %idxprom2.i
   %17 = load i8, ptr %arrayidx3.i15, align 1
   %cmp5.i = icmp eq i8 %15, %17
   br i1 %cmp5.i, label %if.then.i, label %return
 
 if.then.i:                                        ; preds = %for.body.i
-  %incdec.ptr1.i = getelementptr inbounds i8, ptr %s2.addr.05.i, i64 1
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %s1.addr.07.i, i64 1
+  %incdec.ptr1.i = getelementptr inbounds nuw i8, ptr %s2.addr.05.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %s1.addr.07.i, i64 1
   %dec.i = add nsw i64 %n.addr.06.i, -1
   %cmp.not.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.not.i, label %return, label %for.body.i, !llvm.loop !4
@@ -265,10 +265,10 @@ if.then.i:                                        ; preds = %entry
   ]
 
 sw.default.i.i:                                   ; preds = %if.then.i
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %name, i64 21
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %name, i64 21
   %1 = load i8, ptr %arrayidx.i.i, align 1
   %idxprom.i.i = zext i8 %1 to i64
-  %arrayidx1.i.i = getelementptr inbounds [257 x i8], ptr @_ZZN8proxygen25HTTPCommonHeadersInternal4hashEPKcmE11asso_values, i64 0, i64 %idxprom.i.i
+  %arrayidx1.i.i = getelementptr inbounds nuw [257 x i8], ptr @_ZZN8proxygen25HTTPCommonHeadersInternal4hashEPKcmE11asso_values, i64 0, i64 %idxprom.i.i
   %2 = load i8, ptr %arrayidx1.i.i, align 1
   %conv2.i.i = zext i8 %2 to i32
   %add.i.i = add nuw nsw i32 %conv2.i.i, %conv.i.i
@@ -276,11 +276,11 @@ sw.default.i.i:                                   ; preds = %if.then.i
 
 sw.bb.i.i:                                        ; preds = %sw.default.i.i, %if.then.i, %if.then.i, %if.then.i, %if.then.i, %if.then.i, %if.then.i, %if.then.i, %if.then.i, %if.then.i, %if.then.i, %if.then.i, %if.then.i, %if.then.i, %if.then.i, %if.then.i, %if.then.i, %if.then.i, %if.then.i, %if.then.i
   %hval.0.i.i = phi i32 [ %add.i.i, %sw.default.i.i ], [ %conv.i.i, %if.then.i ], [ %conv.i.i, %if.then.i ], [ %conv.i.i, %if.then.i ], [ %conv.i.i, %if.then.i ], [ %conv.i.i, %if.then.i ], [ %conv.i.i, %if.then.i ], [ %conv.i.i, %if.then.i ], [ %conv.i.i, %if.then.i ], [ %conv.i.i, %if.then.i ], [ %conv.i.i, %if.then.i ], [ %conv.i.i, %if.then.i ], [ %conv.i.i, %if.then.i ], [ %conv.i.i, %if.then.i ], [ %conv.i.i, %if.then.i ], [ %conv.i.i, %if.then.i ], [ %conv.i.i, %if.then.i ], [ %conv.i.i, %if.then.i ], [ %conv.i.i, %if.then.i ], [ %conv.i.i, %if.then.i ]
-  %arrayidx3.i.i = getelementptr inbounds i8, ptr %name, i64 2
+  %arrayidx3.i.i = getelementptr inbounds nuw i8, ptr %name, i64 2
   %3 = load i8, ptr %arrayidx3.i.i, align 1
   %add5.i.i = add i8 %3, 1
   %idxprom7.i.i = zext i8 %add5.i.i to i64
-  %arrayidx8.i.i = getelementptr inbounds [257 x i8], ptr @_ZZN8proxygen25HTTPCommonHeadersInternal4hashEPKcmE11asso_values, i64 0, i64 %idxprom7.i.i
+  %arrayidx8.i.i = getelementptr inbounds nuw [257 x i8], ptr @_ZZN8proxygen25HTTPCommonHeadersInternal4hashEPKcmE11asso_values, i64 0, i64 %idxprom7.i.i
   %4 = load i8, ptr %arrayidx8.i.i, align 1
   %conv9.i.i = zext i8 %4 to i32
   %add10.i.i = add nuw nsw i32 %hval.0.i.i, %conv9.i.i
@@ -292,7 +292,7 @@ _ZN8proxygen25HTTPCommonHeadersInternal4hashEPKcm.exit.i: ; preds = %sw.bb.i.i, 
   %arrayidx12.i.i = getelementptr i8, ptr %5, i64 -1
   %6 = load i8, ptr %arrayidx12.i.i, align 1
   %idxprom13.i.i = zext i8 %6 to i64
-  %arrayidx14.i.i = getelementptr inbounds [257 x i8], ptr @_ZZN8proxygen25HTTPCommonHeadersInternal4hashEPKcmE11asso_values, i64 0, i64 %idxprom13.i.i
+  %arrayidx14.i.i = getelementptr inbounds nuw [257 x i8], ptr @_ZZN8proxygen25HTTPCommonHeadersInternal4hashEPKcmE11asso_values, i64 0, i64 %idxprom13.i.i
   %7 = load i8, ptr %arrayidx14.i.i, align 1
   %conv15.i.i = zext i8 %7 to i32
   %add16.i.i = add nuw nsw i32 %hval.1.i.i, %conv15.i.i
@@ -301,21 +301,21 @@ _ZN8proxygen25HTTPCommonHeadersInternal4hashEPKcm.exit.i: ; preds = %sw.bb.i.i, 
 
 if.then3.i:                                       ; preds = %_ZN8proxygen25HTTPCommonHeadersInternal4hashEPKcm.exit.i
   %idxprom.i = zext nneg i32 %add16.i.i to i64
-  %arrayidx.i = getelementptr inbounds [116 x i8], ptr @_ZN8proxygenL6lookupE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [116 x i8], ptr @_ZN8proxygenL6lookupE, i64 0, i64 %idxprom.i
   %8 = load i8, ptr %arrayidx.i, align 1
   %cmp4.i = icmp sgt i8 %8, -1
   br i1 %cmp4.i, label %if.then5.i, label %cond.end
 
 if.then5.i:                                       ; preds = %if.then3.i
   %conv.i = zext nneg i8 %8 to i64
-  %arrayidx7.i = getelementptr inbounds [87 x i8], ptr @_ZN8proxygenL11lengthtableE, i64 0, i64 %conv.i
+  %arrayidx7.i = getelementptr inbounds nuw [87 x i8], ptr @_ZN8proxygenL11lengthtableE, i64 0, i64 %conv.i
   %9 = load i8, ptr %arrayidx7.i, align 1
   %conv8.i = zext i8 %9 to i64
   %cmp9.i = icmp eq i64 %len, %conv8.i
   br i1 %cmp9.i, label %if.then10.i, label %cond.end
 
 if.then10.i:                                      ; preds = %if.then5.i
-  %arrayidx12.i = getelementptr inbounds [87 x %"struct.proxygen::HTTPCommonHeaderName"], ptr @_ZN8proxygenL8wordlistE, i64 0, i64 %conv.i
+  %arrayidx12.i = getelementptr inbounds nuw [87 x %"struct.proxygen::HTTPCommonHeaderName"], ptr @_ZN8proxygenL8wordlistE, i64 0, i64 %conv.i
   %10 = load ptr, ptr %arrayidx12.i, align 16
   %11 = load i8, ptr %name, align 1
   %12 = load i8, ptr %10, align 1
@@ -330,24 +330,24 @@ for.body.i.i:                                     ; preds = %if.then10.i, %if.th
   %s2.addr.05.i.i = phi ptr [ %incdec.ptr1.i.i, %if.then.i.i ], [ %10, %if.then10.i ]
   %14 = load i8, ptr %s1.addr.07.i.i, align 1
   %idxprom.i13.i = zext i8 %14 to i64
-  %arrayidx.i14.i = getelementptr inbounds [256 x i8], ptr @_ZN8proxygenL14gperf_downcaseE, i64 0, i64 %idxprom.i13.i
+  %arrayidx.i14.i = getelementptr inbounds nuw [256 x i8], ptr @_ZN8proxygenL14gperf_downcaseE, i64 0, i64 %idxprom.i13.i
   %15 = load i8, ptr %arrayidx.i14.i, align 1
   %16 = load i8, ptr %s2.addr.05.i.i, align 1
   %idxprom2.i.i = zext i8 %16 to i64
-  %arrayidx3.i15.i = getelementptr inbounds [256 x i8], ptr @_ZN8proxygenL14gperf_downcaseE, i64 0, i64 %idxprom2.i.i
+  %arrayidx3.i15.i = getelementptr inbounds nuw [256 x i8], ptr @_ZN8proxygenL14gperf_downcaseE, i64 0, i64 %idxprom2.i.i
   %17 = load i8, ptr %arrayidx3.i15.i, align 1
   %cmp5.i.i = icmp eq i8 %15, %17
   br i1 %cmp5.i.i, label %if.then.i.i, label %cond.end
 
 if.then.i.i:                                      ; preds = %for.body.i.i
-  %incdec.ptr1.i.i = getelementptr inbounds i8, ptr %s2.addr.05.i.i, i64 1
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %s1.addr.07.i.i, i64 1
+  %incdec.ptr1.i.i = getelementptr inbounds nuw i8, ptr %s2.addr.05.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %s1.addr.07.i.i, i64 1
   %dec.i.i = add nsw i64 %n.addr.06.i.i, -1
   %cmp.not.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp.not.i.i, label %cond.false, label %for.body.i.i, !llvm.loop !4
 
 cond.false:                                       ; preds = %if.then.i.i
-  %code = getelementptr inbounds i8, ptr %arrayidx12.i, i64 8
+  %code = getelementptr inbounds nuw i8, ptr %arrayidx12.i, i64 8
   %18 = load i8, ptr %code, align 8
   br label %cond.end
 
@@ -365,25 +365,25 @@ entry:
 
 arrayctor.loop:                                   ; preds = %arrayctor.loop, %entry
   %arrayctor.cur.idx = phi i64 [ 8, %entry ], [ %arrayctor.cur.add, %arrayctor.loop ]
-  %arrayctor.cur.ptr = getelementptr inbounds i8, ptr %call, i64 %arrayctor.cur.idx
+  %arrayctor.cur.ptr = getelementptr inbounds nuw i8, ptr %call, i64 %arrayctor.cur.idx
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arrayctor.cur.ptr) #8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 32
   %arrayctor.done = icmp eq i64 %arrayctor.cur.add, 2856
   br i1 %arrayctor.done, label %for.cond.preheader, label %arrayctor.loop
 
 for.cond.preheader:                               ; preds = %arrayctor.loop
-  %.ptr = getelementptr inbounds i8, ptr %call, i64 8
+  %.ptr = getelementptr inbounds nuw i8, ptr %call, i64 8
   %cmp20 = icmp eq i8 %type, 1
   br i1 %cmp20, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.cond.preheader, %for.body.us
   %j.09.us = phi i64 [ %inc.us, %for.body.us ], [ 0, %for.cond.preheader ]
-  %arrayidx.us = getelementptr inbounds [87 x %"struct.proxygen::HTTPCommonHeaderName"], ptr @_ZN8proxygenL8wordlistE, i64 0, i64 %j.09.us
-  %code1.us = getelementptr inbounds i8, ptr %arrayidx.us, i64 8
+  %arrayidx.us = getelementptr inbounds nuw [87 x %"struct.proxygen::HTTPCommonHeaderName"], ptr @_ZN8proxygenL8wordlistE, i64 0, i64 %j.09.us
+  %code1.us = getelementptr inbounds nuw i8, ptr %arrayidx.us, i64 8
   %0 = load i8, ptr %code1.us, align 8
   %1 = load ptr, ptr %arrayidx.us, align 16
   %idxprom17.us = zext i8 %0 to i64
-  %arrayidx18.us = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.ptr, i64 %idxprom17.us
+  %arrayidx18.us = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.ptr, i64 %idxprom17.us
   %call19.us = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx18.us, ptr noundef %1)
   %call23.us = tail call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx18.us) #8
   %call26.us = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx18.us) #8
@@ -394,12 +394,12 @@ for.body.us:                                      ; preds = %for.cond.preheader,
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %j.09 = phi i64 [ %inc, %for.body ], [ 0, %for.cond.preheader ]
-  %arrayidx = getelementptr inbounds [87 x %"struct.proxygen::HTTPCommonHeaderName"], ptr @_ZN8proxygenL8wordlistE, i64 0, i64 %j.09
-  %code1 = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %arrayidx = getelementptr inbounds nuw [87 x %"struct.proxygen::HTTPCommonHeaderName"], ptr @_ZN8proxygenL8wordlistE, i64 0, i64 %j.09
+  %code1 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %2 = load i8, ptr %code1, align 8
   %3 = load ptr, ptr %arrayidx, align 16
   %idxprom17 = zext i8 %2 to i64
-  %arrayidx18 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.ptr, i64 %idxprom17
+  %arrayidx18 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.ptr, i64 %idxprom17
   %call19 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx18, ptr noundef %3)
   %inc = add nuw nsw i64 %j.09, 1
   %exitcond.not = icmp eq i64 %inc, 87

@@ -21,7 +21,7 @@ define { i64, i64 } @NullRect() local_unnamed_addr #1 {
 ; Function Attrs: nounwind uwtable
 define i64 @RectArea(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
   %2 = load i32, ptr %0, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %2, %4
   br i1 %5, label %.loopexit, label %.preheader
@@ -31,9 +31,9 @@ define i64 @RectArea(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
   %.01418 = phi i64 [ 1, %18 ], [ 0, %1 ]
   %.01517 = phi i64 [ %19, %18 ], [ 1, %1 ]
   %7 = or disjoint i64 %.01418, 2
-  %8 = getelementptr inbounds [4 x i32], ptr %0, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i32], ptr %0, i64 0, i64 %7
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds [4 x i32], ptr %0, i64 0, i64 %.01418
+  %10 = getelementptr inbounds nuw [4 x i32], ptr %0, i64 0, i64 %.01418
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %9, %11
   br i1 %12, label %.loopexit, label %13
@@ -71,20 +71,20 @@ define internal fastcc void @graphviz_exit() unnamed_addr #4 {
 define { i64, i64 } @CombineRect(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 {
   %3 = alloca %struct.Rect, align 4
   %4 = load i32, ptr %0, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 4
   %7 = icmp sgt i32 %4, %6
-  %.034.sroa.gep = getelementptr inbounds i8, ptr %3, i64 4
+  %.034.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 4
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %2
-  %.sroa.4.0..0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.4.0..0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..0..sroa_idx, align 4
   br label %28
 
 9:                                                ; preds = %2
   %10 = load i32, ptr %1, align 4
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i32, ptr %11, align 4
   %13 = icmp sgt i32 %10, %12
   br i1 %13, label %14, label %.preheader
@@ -97,24 +97,24 @@ define { i64, i64 } @CombineRect(ptr nocapture noundef readonly %0, ptr nocaptur
   %15 = phi i1 [ false, %.preheader ], [ true, %9 ]
   %.034.sroa.phi = phi ptr [ %.034.sroa.gep, %.preheader ], [ %3, %9 ]
   %.034 = phi i64 [ 1, %.preheader ], [ 0, %9 ]
-  %16 = getelementptr inbounds [4 x i32], ptr %0, i64 0, i64 %.034
+  %16 = getelementptr inbounds nuw [4 x i32], ptr %0, i64 0, i64 %.034
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds [4 x i32], ptr %1, i64 0, i64 %.034
+  %18 = getelementptr inbounds nuw [4 x i32], ptr %1, i64 0, i64 %.034
   %19 = load i32, ptr %18, align 4
   %. = tail call i32 @llvm.smin.i32(i32 %17, i32 %19)
   store i32 %., ptr %.034.sroa.phi, align 4
   %20 = or disjoint i64 %.034, 2
-  %21 = getelementptr inbounds [4 x i32], ptr %0, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i32], ptr %0, i64 0, i64 %20
   %22 = load i32, ptr %21, align 4
-  %23 = getelementptr inbounds [4 x i32], ptr %1, i64 0, i64 %20
+  %23 = getelementptr inbounds nuw [4 x i32], ptr %1, i64 0, i64 %20
   %24 = load i32, ptr %23, align 4
   %25 = tail call i32 @llvm.smax.i32(i32 %22, i32 %24)
-  %26 = getelementptr inbounds [4 x i32], ptr %3, i64 0, i64 %20
+  %26 = getelementptr inbounds nuw [4 x i32], ptr %3, i64 0, i64 %20
   store i32 %25, ptr %26, align 4
   br i1 %15, label %.preheader, label %27
 
 27:                                               ; preds = %.preheader
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.4.0.copyload29 = load i64, ptr %.sroa.4.0..sroa_idx, align 4
   br label %28
 
@@ -135,17 +135,17 @@ define noundef zeroext i1 @Overlap(ptr nocapture noundef readonly %0, ptr nocapt
   %.not.not = phi i1 [ false, %2 ], [ true, %10 ]
   %.01112 = phi i64 [ 0, %2 ], [ 1, %10 ]
   %4 = or disjoint i64 %.01112, 2
-  %5 = getelementptr inbounds [4 x i32], ptr %0, i64 0, i64 %.01112
+  %5 = getelementptr inbounds nuw [4 x i32], ptr %0, i64 0, i64 %.01112
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds [4 x i32], ptr %1, i64 0, i64 %4
+  %7 = getelementptr inbounds nuw [4 x i32], ptr %1, i64 0, i64 %4
   %8 = load i32, ptr %7, align 4
   %9 = icmp sgt i32 %6, %8
   br i1 %9, label %.split.loop.exit13, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds [4 x i32], ptr %1, i64 0, i64 %.01112
+  %11 = getelementptr inbounds nuw [4 x i32], ptr %1, i64 0, i64 %.01112
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds [4 x i32], ptr %0, i64 0, i64 %4
+  %13 = getelementptr inbounds nuw [4 x i32], ptr %0, i64 0, i64 %4
   %14 = load i32, ptr %13, align 4
   %15 = icmp sgt i32 %12, %14
   %brmerge = or i1 %15, %.not.not

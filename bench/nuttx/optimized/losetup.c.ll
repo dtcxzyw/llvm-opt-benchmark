@@ -17,7 +17,7 @@ define range(i32 -2147483648, 1) i32 @losetup(ptr noundef %0, ptr noundef %1, i1
   br i1 %8, label %43, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %6, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 28
   %11 = load i32, ptr %10, align 4
   %12 = sub nsw i32 %11, %3
   %13 = zext i16 %2 to i32
@@ -34,27 +34,27 @@ define range(i32 -2147483648, 1) i32 @losetup(ptr noundef %0, ptr noundef %1, i1
   %20 = load i32, ptr %10, align 4
   %21 = sub nsw i32 %20, %3
   %22 = sdiv i32 %21, %13
-  %23 = getelementptr inbounds i8, ptr %16, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store i32 %22, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %16, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %16, i64 48
   store i16 %2, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %16, i64 44
+  %25 = getelementptr inbounds nuw i8, ptr %16, i64 44
   store i32 %3, ptr %25, align 4
   br i1 %4, label %.critedge, label %26
 
 26:                                               ; preds = %18
-  %27 = getelementptr inbounds i8, ptr %16, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %28 = call i32 (ptr, ptr, i32, ...) @file_open(ptr noundef nonnull %27, ptr noundef %1, i32 noundef 1027) #6
   %29 = icmp sgt i32 %28, -1
   br i1 %29, label %30, label %.critedge
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %16, i64 51
+  %31 = getelementptr inbounds nuw i8, ptr %16, i64 51
   store i8 1, ptr %31, align 1
   br label %35
 
 .critedge:                                        ; preds = %18, %26
-  %32 = getelementptr inbounds i8, ptr %16, i64 56
+  %32 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %33 = call i32 (ptr, ptr, i32, ...) @file_open(ptr noundef nonnull %32, ptr noundef %1, i32 noundef 1025) #6
   %34 = icmp slt i32 %33, 0
   br i1 %34, label %41, label %35
@@ -65,7 +65,7 @@ define range(i32 -2147483648, 1) i32 @losetup(ptr noundef %0, ptr noundef %1, i1
   br i1 %37, label %38, label %43
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %16, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %40 = call i32 @file_close(ptr noundef nonnull %39) #6
   br label %41
 
@@ -107,23 +107,23 @@ define i32 @loteardown(ptr noundef %0) local_unnamed_addr #0 {
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = call i32 @close_blockdriver(ptr noundef %6) #6
-  %10 = getelementptr inbounds i8, ptr %8, i64 50
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 50
   %11 = load i8, ptr %10, align 2
   %.not = icmp eq i8 %11, 0
   br i1 %.not, label %12, label %21
 
 12:                                               ; preds = %5
   %13 = call i32 @unregister_blockdriver(ptr noundef %0) #6
-  %14 = getelementptr inbounds i8, ptr %8, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %15 = load ptr, ptr %14, align 8
   %.not11 = icmp eq ptr %15, null
   br i1 %.not11, label %19, label %16
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %8, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %18 = call i32 @file_close(ptr noundef nonnull %17) #6
   br label %19
 
@@ -145,14 +145,14 @@ declare i32 @unregister_blockdriver(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @loop_open(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @nxmutex_lock(ptr noundef %3) #6
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %14
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %3, i64 50
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 50
   %8 = load i8, ptr %7, align 2
   %9 = icmp eq i8 %8, -1
   br i1 %9, label %12, label %10
@@ -174,14 +174,14 @@ define internal i32 @loop_open(ptr nocapture noundef readonly %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @loop_close(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @nxmutex_lock(ptr noundef %3) #6
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %14
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %3, i64 50
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 50
   %8 = load i8, ptr %7, align 2
   %9 = icmp eq i8 %8, 0
   br i1 %9, label %12, label %10
@@ -203,23 +203,23 @@ define internal i32 @loop_close(ptr nocapture noundef readonly %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal range(i64 -2147483648, -9223372036854775808) i64 @loop_read(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = add i32 %3, %2
-  %8 = getelementptr inbounds i8, ptr %6, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %9 = load i32, ptr %8, align 8
   %10 = icmp ugt i32 %7, %9
   br i1 %10, label %36, label %11
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %6, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %13 = load i16, ptr %12, align 8
   %14 = zext i16 %13 to i32
   %15 = mul i32 %2, %14
-  %16 = getelementptr inbounds i8, ptr %6, i64 44
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 44
   %17 = load i32, ptr %16, align 4
   %18 = add i32 %15, %17
-  %19 = getelementptr inbounds i8, ptr %6, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %20 = tail call i32 @file_seek(ptr noundef nonnull %19, i32 noundef %18, i32 noundef 0) #6
   %21 = icmp slt i32 %20, 0
   br i1 %21, label %36, label %.preheader
@@ -256,16 +256,16 @@ define internal range(i64 -2147483648, -9223372036854775808) i64 @loop_read(ptr 
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @loop_write(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load i16, ptr %7, align 8
   %9 = zext i16 %8 to i32
   %10 = mul i32 %2, %9
-  %11 = getelementptr inbounds i8, ptr %6, i64 44
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 44
   %12 = load i32, ptr %11, align 4
   %13 = add i32 %10, %12
-  %14 = getelementptr inbounds i8, ptr %6, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %15 = tail call i32 @file_seek(ptr noundef nonnull %14, i32 noundef %13, i32 noundef 0) #6
   br label %16
 
@@ -300,22 +300,22 @@ define internal range(i32 -22, 1) i32 @loop_geometry(ptr nocapture noundef reado
   br i1 %.not, label %16, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %1, i8 0, i64 44, i1 false)
   store i8 1, ptr %1, align 4
-  %6 = getelementptr inbounds i8, ptr %5, i64 51
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 51
   %7 = load i8, ptr %6, align 1
-  %8 = getelementptr inbounds i8, ptr %1, i64 2
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %9 = and i8 %7, 1
   store i8 %9, ptr %8, align 2
-  %10 = getelementptr inbounds i8, ptr %5, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %11, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %14 = load i16, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i16 %14, ptr %15, align 4
   br label %16
 

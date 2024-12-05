@@ -177,7 +177,7 @@ define internal i32 @dissect_dpaux(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 8:                                                ; preds = %5, %4
   %.0 = phi i1 [ %7, %5 ], [ true, %4 ]
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @col_set_str(ptr noundef %10, i32 noundef 34, ptr noundef nonnull @.str.74) #2
   %11 = load ptr, ptr %9, align 8
@@ -202,20 +202,20 @@ define internal i32 @dissect_dpaux(ptr noundef %0, ptr noundef %1, ptr noundef %
   %24 = add i8 %23, 1
   %25 = zext i8 %21 to i32
   %26 = and i32 %25, 1
-  %27 = getelementptr inbounds i8, ptr %1, i64 20
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %28 = load i32, ptr %27, align 4
-  %29 = getelementptr inbounds i8, ptr %1, i64 208
-  %30 = getelementptr inbounds i8, ptr %1, i64 232
-  %31 = getelementptr inbounds i8, ptr %1, i64 284
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds i8, ptr %1, i64 288
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %34 = load i32, ptr %33, align 8
   %35 = tail call nonnull ptr @conversation_new(i32 noundef %28, ptr noundef nonnull %29, ptr noundef nonnull %30, i32 noundef 0, i32 noundef %32, i32 noundef %34, i32 noundef 0) #2
   %36 = tail call ptr @wmem_file_scope() #2
   %37 = tail call noalias ptr @wmem_alloc(ptr noundef %36, i64 noundef 8) #2
   %38 = zext i8 %19 to i32
   store i32 %38, ptr %37, align 4
-  %39 = getelementptr inbounds i8, ptr %37, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 4
   store i32 %22, ptr %39, align 4
   %40 = load i32, ptr @proto_dpaux, align 4
   tail call void @conversation_add_proto_data(ptr noundef nonnull %35, i32 noundef %40, ptr noundef nonnull %37) #2
@@ -281,13 +281,13 @@ define internal i32 @dissect_dpaux(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 80:                                               ; preds = %76, %72
   %81 = phi i8 [ %79, %76 ], [ 0, %72 ]
-  %82 = getelementptr inbounds i8, ptr %1, i64 20
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %83 = load i32, ptr %82, align 4
-  %84 = getelementptr inbounds i8, ptr %1, i64 208
-  %85 = getelementptr inbounds i8, ptr %1, i64 232
-  %86 = getelementptr inbounds i8, ptr %1, i64 284
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %87 = load i32, ptr %86, align 4
-  %88 = getelementptr inbounds i8, ptr %1, i64 288
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %89 = load i32, ptr %88, align 8
   %90 = tail call ptr @find_conversation(i32 noundef %83, ptr noundef nonnull %84, ptr noundef nonnull %85, i32 noundef 0, i32 noundef %87, i32 noundef %89, i32 noundef 0) #2
   %.not.i21 = icmp eq ptr %90, null
@@ -334,7 +334,7 @@ switch.hole_check:                                ; preds = %105
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %108 = zext nneg i8 %73 to i64
-  %switch.gep = getelementptr inbounds [9 x ptr], ptr @switch.table.dissect_dpaux, i64 0, i64 %108
+  %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @switch.table.dissect_dpaux, i64 0, i64 %108
   %switch.load = load ptr, ptr %switch.gep, align 8
   %109 = load ptr, ptr %9, align 8
   tail call void @col_set_str(ptr noundef %109, i32 noundef 25, ptr noundef nonnull %switch.load) #2
@@ -354,7 +354,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %.not6980.i, label %123, label %117
 
 117:                                              ; preds = %113
-  %118 = getelementptr inbounds i8, ptr %.078.i, i64 4
+  %118 = getelementptr inbounds nuw i8, ptr %.078.i, i64 4
   %119 = load i32, ptr %118, align 4
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %114, i32 noundef 25, ptr noundef nonnull @.str.89, i32 noundef %115, ptr noundef nonnull %116, i32 noundef %119) #2
   %120 = load i32, ptr @hf_dpaux_addr, align 4
@@ -379,7 +379,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %.not75.i, label %dissect_dpaux_from_source.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %129
-  %131 = getelementptr inbounds i8, ptr %.078.i, i64 4
+  %131 = getelementptr inbounds nuw i8, ptr %.078.i, i64 4
   br label %132
 
 132:                                              ; preds = %dissect_dpaux_register.exit.i, %.preheader.i
@@ -410,16 +410,16 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %148, label %149, label %144
 
 149:                                              ; preds = %145
-  %150 = getelementptr inbounds i8, ptr %146, i64 4
+  %150 = getelementptr inbounds nuw i8, ptr %146, i64 4
   %151 = load i8, ptr %150, align 4
   %cond.i.i = icmp eq i8 %151, 0
   br i1 %cond.i.i, label %152, label %dissect_dpaux_register.exit.i
 
 152:                                              ; preds = %149
-  %153 = getelementptr inbounds i8, ptr %146, i64 8
+  %153 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %154 = load ptr, ptr %153, align 8
   %155 = load i32, ptr %154, align 4
-  %156 = getelementptr inbounds i8, ptr %146, i64 16
+  %156 = getelementptr inbounds nuw i8, ptr %146, i64 16
   %157 = load ptr, ptr %156, align 8
   %158 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %141, ptr noundef %0, i32 noundef range(i32 1, 256) %134, i32 noundef %155, i32 noundef 0, ptr noundef %157, i32 noundef 0, i32 noundef 0) #2
   br label %dissect_dpaux_register.exit.i

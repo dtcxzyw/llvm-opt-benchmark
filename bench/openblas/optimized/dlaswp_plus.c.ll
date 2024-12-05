@@ -24,7 +24,7 @@ define noundef i32 @dlaswp_plus(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
   %21 = load i32, ptr %13, align 4, !tbaa !3
   %22 = sext i32 %21 to i64
   %23 = getelementptr inbounds double, ptr %11, i64 %12
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = getelementptr inbounds double, ptr %11, i64 %22
   %26 = icmp eq ptr %24, %25
   br i1 %26, label %.loopexit, label %.preheader
@@ -68,7 +68,7 @@ define noundef i32 @dlaswp_plus(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
   %51 = phi ptr [ %227, %226 ], [ %11, %38 ]
   %52 = phi i64 [ %228, %226 ], [ %39, %38 ]
   %53 = getelementptr inbounds double, ptr %51, i64 %12
-  %54 = getelementptr inbounds i8, ptr %53, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = getelementptr inbounds double, ptr %54, i64 %5
   %56 = getelementptr inbounds double, ptr %54, i64 %40
   %57 = getelementptr inbounds double, ptr %54, i64 %41
@@ -101,16 +101,16 @@ define noundef i32 @dlaswp_plus(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
   %81 = phi ptr [ %131, %130 ], [ %54, %50 ]
   %82 = add nsw i64 %66, -1
   %83 = load double, ptr %81, align 8, !tbaa !7
-  %84 = getelementptr inbounds i8, ptr %81, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %85 = load double, ptr %84, align 8, !tbaa !7
   %86 = load double, ptr %80, align 8, !tbaa !7
-  %87 = getelementptr inbounds i8, ptr %80, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %88 = load double, ptr %87, align 8, !tbaa !7
   %89 = load double, ptr %79, align 8, !tbaa !7
-  %90 = getelementptr inbounds i8, ptr %79, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %91 = load double, ptr %90, align 8, !tbaa !7
   %92 = load double, ptr %78, align 8, !tbaa !7
-  %93 = getelementptr inbounds i8, ptr %78, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %94 = load double, ptr %93, align 8, !tbaa !7
   %95 = load double, ptr %73, align 8, !tbaa !7
   %96 = load double, ptr %75, align 8, !tbaa !7
@@ -264,10 +264,10 @@ define noundef i32 @dlaswp_plus(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
   br label %130
 
 130:                                              ; preds = %129, %128, %125, %122, %120, %119, %116, %112, %110, %109
-  %131 = getelementptr inbounds i8, ptr %81, i64 16
-  %132 = getelementptr inbounds i8, ptr %80, i64 16
-  %133 = getelementptr inbounds i8, ptr %79, i64 16
-  %134 = getelementptr inbounds i8, ptr %78, i64 16
+  %131 = getelementptr inbounds nuw i8, ptr %81, i64 16
+  %132 = getelementptr inbounds nuw i8, ptr %80, i64 16
+  %133 = getelementptr inbounds nuw i8, ptr %79, i64 16
+  %134 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %135 = sext i32 %105 to i64
   %136 = getelementptr inbounds double, ptr %51, i64 %135
   %137 = getelementptr inbounds double, ptr %136, i64 %41
@@ -299,16 +299,16 @@ define noundef i32 @dlaswp_plus(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
   %160 = phi ptr [ %65, %50 ], [ %144, %130 ]
   %161 = phi ptr [ %44, %50 ], [ %145, %130 ]
   %162 = load double, ptr %147, align 8, !tbaa !7
-  %163 = getelementptr inbounds i8, ptr %147, i64 8
+  %163 = getelementptr inbounds nuw i8, ptr %147, i64 8
   %164 = load double, ptr %163, align 8, !tbaa !7
   %165 = load double, ptr %148, align 8, !tbaa !7
-  %166 = getelementptr inbounds i8, ptr %148, i64 8
+  %166 = getelementptr inbounds nuw i8, ptr %148, i64 8
   %167 = load double, ptr %166, align 8, !tbaa !7
   %168 = load double, ptr %149, align 8, !tbaa !7
-  %169 = getelementptr inbounds i8, ptr %149, i64 8
+  %169 = getelementptr inbounds nuw i8, ptr %149, i64 8
   %170 = load double, ptr %169, align 8, !tbaa !7
   %171 = load double, ptr %150, align 8, !tbaa !7
-  %172 = getelementptr inbounds i8, ptr %150, i64 8
+  %172 = getelementptr inbounds nuw i8, ptr %150, i64 8
   %173 = load double, ptr %172, align 8, !tbaa !7
   %174 = load double, ptr %155, align 8, !tbaa !7
   %175 = load double, ptr %153, align 8, !tbaa !7
@@ -462,10 +462,10 @@ define noundef i32 @dlaswp_plus(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
   br i1 %47, label %226, label %207
 
 207:                                              ; preds = %206
-  %208 = getelementptr inbounds i8, ptr %150, i64 16
-  %209 = getelementptr inbounds i8, ptr %149, i64 16
-  %210 = getelementptr inbounds i8, ptr %148, i64 16
-  %211 = getelementptr inbounds i8, ptr %147, i64 16
+  %208 = getelementptr inbounds nuw i8, ptr %150, i64 16
+  %209 = getelementptr inbounds nuw i8, ptr %149, i64 16
+  %210 = getelementptr inbounds nuw i8, ptr %148, i64 16
+  %211 = getelementptr inbounds nuw i8, ptr %147, i64 16
   %212 = load i32, ptr %161, align 4, !tbaa !3
   %213 = sext i32 %212 to i64
   %214 = getelementptr inbounds double, ptr %51, i64 %213
@@ -504,7 +504,7 @@ define noundef i32 @dlaswp_plus(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
 
 233:                                              ; preds = %.loopexit60
   %234 = getelementptr inbounds double, ptr %230, i64 %12
-  %235 = getelementptr inbounds i8, ptr %234, i64 8
+  %235 = getelementptr inbounds nuw i8, ptr %234, i64 8
   %236 = getelementptr inbounds double, ptr %235, i64 %5
   %237 = load i32, ptr %13, align 4, !tbaa !3
   %238 = getelementptr inbounds i32, ptr %13, i64 %9
@@ -536,10 +536,10 @@ define noundef i32 @dlaswp_plus(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
   %260 = phi ptr [ %300, %299 ], [ %235, %248 ]
   %261 = add nsw i64 %251, -1
   %262 = load double, ptr %260, align 8, !tbaa !7
-  %263 = getelementptr inbounds i8, ptr %260, i64 8
+  %263 = getelementptr inbounds nuw i8, ptr %260, i64 8
   %264 = load double, ptr %263, align 8, !tbaa !7
   %265 = load double, ptr %259, align 8, !tbaa !7
-  %266 = getelementptr inbounds i8, ptr %259, i64 8
+  %266 = getelementptr inbounds nuw i8, ptr %259, i64 8
   %267 = load double, ptr %266, align 8, !tbaa !7
   %268 = load double, ptr %254, align 8, !tbaa !7
   %269 = load double, ptr %256, align 8, !tbaa !7
@@ -647,8 +647,8 @@ define noundef i32 @dlaswp_plus(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
   br label %299
 
 299:                                              ; preds = %298, %297, %294, %291, %289, %288, %285, %281, %279, %278
-  %300 = getelementptr inbounds i8, ptr %260, i64 16
-  %301 = getelementptr inbounds i8, ptr %259, i64 16
+  %300 = getelementptr inbounds nuw i8, ptr %260, i64 16
+  %301 = getelementptr inbounds nuw i8, ptr %259, i64 16
   %302 = sext i32 %274 to i64
   %303 = getelementptr inbounds double, ptr %230, i64 %302
   %304 = getelementptr inbounds double, ptr %303, i64 %5
@@ -674,10 +674,10 @@ define noundef i32 @dlaswp_plus(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
   %321 = load double, ptr %317, align 8, !tbaa !7
   %322 = load double, ptr %315, align 8, !tbaa !7
   %323 = load double, ptr %310, align 8, !tbaa !7
-  %324 = getelementptr inbounds i8, ptr %310, i64 8
+  %324 = getelementptr inbounds nuw i8, ptr %310, i64 8
   %325 = load double, ptr %324, align 8, !tbaa !7
   %326 = load double, ptr %311, align 8, !tbaa !7
-  %327 = getelementptr inbounds i8, ptr %311, i64 8
+  %327 = getelementptr inbounds nuw i8, ptr %311, i64 8
   %328 = load double, ptr %327, align 8, !tbaa !7
   %329 = icmp eq ptr %316, %310
   br i1 %329, label %330, label %336
@@ -783,8 +783,8 @@ define noundef i32 @dlaswp_plus(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
   br i1 %355, label %367, label %356
 
 356:                                              ; preds = %353
-  %357 = getelementptr inbounds i8, ptr %311, i64 16
-  %358 = getelementptr inbounds i8, ptr %310, i64 16
+  %357 = getelementptr inbounds nuw i8, ptr %311, i64 16
+  %358 = getelementptr inbounds nuw i8, ptr %310, i64 16
   %359 = load i32, ptr %318, align 4, !tbaa !3
   %360 = sext i32 %359 to i64
   %361 = getelementptr inbounds double, ptr %230, i64 %360
@@ -812,7 +812,7 @@ define noundef i32 @dlaswp_plus(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
 
 373:                                              ; preds = %369
   %374 = getelementptr inbounds double, ptr %370, i64 %12
-  %375 = getelementptr inbounds i8, ptr %374, i64 8
+  %375 = getelementptr inbounds nuw i8, ptr %374, i64 8
   %376 = load i32, ptr %13, align 4, !tbaa !3
   %377 = getelementptr inbounds i32, ptr %13, i64 %9
   %378 = load i32, ptr %377, align 4, !tbaa !3
@@ -838,7 +838,7 @@ define noundef i32 @dlaswp_plus(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
   %394 = phi ptr [ %429, %428 ], [ %375, %385 ]
   %395 = add nsw i64 %388, -1
   %396 = load double, ptr %394, align 8, !tbaa !7
-  %397 = getelementptr inbounds i8, ptr %394, i64 8
+  %397 = getelementptr inbounds nuw i8, ptr %394, i64 8
   %398 = load double, ptr %397, align 8, !tbaa !7
   %399 = load double, ptr %390, align 8, !tbaa !7
   %400 = load double, ptr %391, align 8, !tbaa !7
@@ -923,7 +923,7 @@ define noundef i32 @dlaswp_plus(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
   br label %428
 
 428:                                              ; preds = %427, %426, %423, %420, %418, %417, %414, %410, %408, %407
-  %429 = getelementptr inbounds i8, ptr %394, i64 16
+  %429 = getelementptr inbounds nuw i8, ptr %394, i64 16
   %430 = sext i32 %403 to i64
   %431 = getelementptr inbounds double, ptr %370, i64 %430
   %432 = sext i32 %401 to i64
@@ -940,7 +940,7 @@ define noundef i32 @dlaswp_plus(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
   %440 = phi ptr [ %382, %373 ], [ %433, %428 ]
   %441 = phi ptr [ %383, %373 ], [ %434, %428 ]
   %442 = load double, ptr %436, align 8, !tbaa !7
-  %443 = getelementptr inbounds i8, ptr %436, i64 8
+  %443 = getelementptr inbounds nuw i8, ptr %436, i64 8
   %444 = load double, ptr %443, align 8, !tbaa !7
   %445 = load double, ptr %440, align 8, !tbaa !7
   %446 = load double, ptr %439, align 8, !tbaa !7
@@ -1027,7 +1027,7 @@ define noundef i32 @dlaswp_plus(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
   br i1 %473, label %.loopexit, label %474
 
 474:                                              ; preds = %471
-  %475 = getelementptr inbounds i8, ptr %436, i64 16
+  %475 = getelementptr inbounds nuw i8, ptr %436, i64 16
   %476 = load i32, ptr %441, align 4, !tbaa !3
   %477 = sext i32 %476 to i64
   %478 = getelementptr inbounds double, ptr %370, i64 %477

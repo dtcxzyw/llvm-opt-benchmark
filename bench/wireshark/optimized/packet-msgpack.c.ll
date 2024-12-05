@@ -315,7 +315,7 @@ dissect_msgpack_integer.exit:                     ; preds = %31, %37, %42, %50, 
   %109 = add i32 %108, 1
   store i32 %109, ptr %4, align 4
   %110 = icmp eq i8 %7, -54
-  %111 = getelementptr inbounds i8, ptr %1, i64 408
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br i1 %110, label %112, label %120
 
 112:                                              ; preds = %106
@@ -385,7 +385,7 @@ dissect_msgpack_float.exit:                       ; preds = %112, %120
   %148 = phi i1 [ false, %144 ], [ false, %.thread.i ], [ false, %139 ], [ true, %133 ]
   %.361.i = phi i32 [ 4, %144 ], [ 1, %.thread.i ], [ 2, %139 ], [ 0, %133 ]
   %.3.i = phi i32 [ %147, %144 ], [ %138, %.thread.i ], [ %143, %139 ], [ %spec.select.i, %133 ]
-  %149 = getelementptr inbounds i8, ptr %1, i64 408
+  %149 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %150 = load ptr, ptr %149, align 8
   %151 = load i32, ptr %4, align 4
   %152 = add nuw nsw i32 %.361.i, 1
@@ -482,7 +482,7 @@ declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 n
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_msgpack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3, ptr noundef %4, ptr nocapture noundef nonnull %5) unnamed_addr #0 {
   %7 = and i8 %3, 15
-  %8 = getelementptr inbounds i8, ptr %1, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %4, null
   %10 = select i1 %.not, ptr @.str.55, ptr %4
@@ -516,7 +516,7 @@ define internal fastcc void @dissect_msgpack_array(ptr noundef %0, ptr noundef %
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_msgpack_map(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3, ptr noundef %4, ptr nocapture noundef nonnull %5) unnamed_addr #0 {
   %7 = and i8 %3, 15
-  %8 = getelementptr inbounds i8, ptr %1, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %4, null
   %10 = select i1 %.not, ptr @.str.60, ptr %4

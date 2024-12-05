@@ -25,7 +25,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %indvars.iv41 = phi i64 [ %indvars.iv.next42, %for.inc54.us ], [ 0, %for.body.lr.ph ]
   %x.addr.030.us = phi float [ %add.us, %for.inc54.us ], [ %x, %for.body.lr.ph ]
   %offset.addr.029.us = phi i32 [ %offset.addr.2.us, %for.inc54.us ], [ %offset, %for.body.lr.ph ]
-  %arrayidx.us = getelementptr inbounds i8, ptr %segs, i64 %indvars.iv41
+  %arrayidx.us = getelementptr inbounds nuw i8, ptr %segs, i64 %indvars.iv41
   %0 = load i8, ptr %arrayidx.us, align 1
   %conv.us = zext i8 %0 to i32
   %and.us = and i32 %conv.us, 7
@@ -59,11 +59,11 @@ for.body18.us:                                    ; preds = %if.then.us, %for.bo
   %cmp31.us = icmp samesign ugt i32 %j.025.us, 1
   %conv42.us = uitofp i1 %cmp31.us to float
   %add43.us = fadd float %add14.us, %conv42.us
-  %add.ptr46.us = getelementptr inbounds i8, ptr %add.ptr.us, i64 4
+  %add.ptr46.us = getelementptr inbounds nuw i8, ptr %add.ptr.us, i64 4
   store float %add43.us, ptr %add.ptr46.us, align 4
-  %add.ptr49.us = getelementptr inbounds i8, ptr %add.ptr.us, i64 8
+  %add.ptr49.us = getelementptr inbounds nuw i8, ptr %add.ptr.us, i64 8
   store float 0.000000e+00, ptr %add.ptr49.us, align 4
-  %add.ptr52.us = getelementptr inbounds i8, ptr %add.ptr.us, i64 12
+  %add.ptr52.us = getelementptr inbounds nuw i8, ptr %add.ptr.us, i64 12
   store i32 %c.coerce, ptr %add.ptr52.us, align 1
   %indvars.iv.next38 = add nsw i64 %indvars.iv37, 16
   %inc.us = add nuw nsw i32 %j.025.us, 1
@@ -84,7 +84,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv33 = phi i64 [ %indvars.iv.next34, %for.inc54 ], [ 0, %for.body.lr.ph ]
   %x.addr.030 = phi float [ %add, %for.inc54 ], [ %x, %for.body.lr.ph ]
   %offset.addr.029 = phi i32 [ %offset.addr.2, %for.inc54 ], [ %offset, %for.body.lr.ph ]
-  %arrayidx = getelementptr inbounds i8, ptr %segs, i64 %indvars.iv33
+  %arrayidx = getelementptr inbounds nuw i8, ptr %segs, i64 %indvars.iv33
   %4 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %4 to i32
   %and = and i32 %conv, 7
@@ -118,11 +118,11 @@ for.body18:                                       ; preds = %if.then, %for.body1
   %cond41 = select i1 %cmp31, i32 %and, i32 0
   %conv42 = uitofp nneg i32 %cond41 to float
   %add43 = fadd float %add14, %conv42
-  %add.ptr46 = getelementptr inbounds i8, ptr %add.ptr, i64 4
+  %add.ptr46 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 4
   store float %add43, ptr %add.ptr46, align 4
-  %add.ptr49 = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  %add.ptr49 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   store float 0.000000e+00, ptr %add.ptr49, align 4
-  %add.ptr52 = getelementptr inbounds i8, ptr %add.ptr, i64 12
+  %add.ptr52 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 12
   store i32 %c.coerce, ptr %add.ptr52, align 1
   %indvars.iv.next = add nsw i64 %indvars.iv, 16
   %inc = add nuw nsw i32 %j.025, 1
@@ -159,11 +159,11 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load i8, ptr %color, align 1
-  %arrayidx3 = getelementptr inbounds i8, ptr %color, i64 1
+  %arrayidx3 = getelementptr inbounds nuw i8, ptr %color, i64 1
   %1 = load i8, ptr %arrayidx3, align 1
-  %arrayidx6 = getelementptr inbounds i8, ptr %color, i64 2
+  %arrayidx6 = getelementptr inbounds nuw i8, ptr %color, i64 2
   %2 = load i8, ptr %arrayidx6, align 1
-  %arrayidx9 = getelementptr inbounds i8, ptr %color, i64 3
+  %arrayidx9 = getelementptr inbounds nuw i8, ptr %color, i64 3
   %3 = load i8, ptr %arrayidx9, align 1
   %4 = zext i8 %3 to i32
   %5 = shl nuw i32 %4, 24
@@ -215,25 +215,25 @@ if.else:                                          ; preds = %while.body
   %tobool22.not = icmp eq i32 %and, 0
   %add23 = fadd float %y.addr.058, 1.000000e+00
   %cond = select i1 %tobool22.not, float %y.addr.058, float %add23
-  %h_seg28 = getelementptr inbounds i8, ptr %arrayidx19, i64 1
+  %h_seg28 = getelementptr inbounds nuw i8, ptr %arrayidx19, i64 1
   %15 = load i8, ptr %h_seg28, align 1
   %conv29 = zext i8 %15 to i32
-  %v_seg34 = getelementptr inbounds i8, ptr %arrayidx19, i64 2
+  %v_seg34 = getelementptr inbounds nuw i8, ptr %arrayidx19, i64 2
   %16 = load i8, ptr %v_seg34, align 1
   %conv35 = zext i8 %16 to i32
   %add38 = add nsw i32 %conv61, -31
   %idxprom39 = sext i32 %add38 to i64
   %arrayidx40 = getelementptr inbounds [96 x %struct.stb_easy_font_info_struct], ptr @stb_easy_font_charinfo, i64 0, i64 %idxprom39
-  %h_seg41 = getelementptr inbounds i8, ptr %arrayidx40, i64 1
+  %h_seg41 = getelementptr inbounds nuw i8, ptr %arrayidx40, i64 1
   %17 = load i8, ptr %h_seg41, align 1
   %conv42 = zext i8 %17 to i32
   %sub43 = sub nsw i32 %conv42, %conv29
-  %v_seg49 = getelementptr inbounds i8, ptr %arrayidx40, i64 2
+  %v_seg49 = getelementptr inbounds nuw i8, ptr %arrayidx40, i64 2
   %18 = load i8, ptr %v_seg49, align 1
   %conv50 = zext i8 %18 to i32
   %sub51 = sub nsw i32 %conv50, %conv35
   %idxprom52 = zext i8 %15 to i64
-  %arrayidx53 = getelementptr inbounds [214 x i8], ptr @stb_easy_font_hseg, i64 0, i64 %idxprom52
+  %arrayidx53 = getelementptr inbounds nuw [214 x i8], ptr @stb_easy_font_hseg, i64 0, i64 %idxprom52
   %cmp27.i = icmp sgt i32 %sub43, 0
   br i1 %cmp27.i, label %for.body.lr.ph.i, label %stb_easy_font_draw_segs.exit
 
@@ -245,7 +245,7 @@ for.body.us.i:                                    ; preds = %for.inc54.us.i, %fo
   %indvars.iv41.i = phi i64 [ %indvars.iv.next42.i, %for.inc54.us.i ], [ 0, %for.body.lr.ph.i ]
   %x.addr.030.us.i = phi float [ %add.us.i, %for.inc54.us.i ], [ %x.addr.059, %for.body.lr.ph.i ]
   %offset.addr.029.us.i = phi i32 [ %offset.addr.2.us.i, %for.inc54.us.i ], [ %offset.056, %for.body.lr.ph.i ]
-  %arrayidx.us.i = getelementptr inbounds i8, ptr %arrayidx53, i64 %indvars.iv41.i
+  %arrayidx.us.i = getelementptr inbounds nuw i8, ptr %arrayidx53, i64 %indvars.iv41.i
   %19 = load i8, ptr %arrayidx.us.i, align 1
   %conv.us.i = zext i8 %19 to i32
   %and.us.i = and i32 %conv.us.i, 7
@@ -279,11 +279,11 @@ for.body18.us.i:                                  ; preds = %for.body18.us.i, %i
   %cmp31.us.i = icmp samesign ugt i32 %j.025.us.i, 1
   %conv42.us.i = uitofp i1 %cmp31.us.i to float
   %add43.us.i = fadd float %add14.us.i, %conv42.us.i
-  %add.ptr46.us.i = getelementptr inbounds i8, ptr %add.ptr.us.i, i64 4
+  %add.ptr46.us.i = getelementptr inbounds nuw i8, ptr %add.ptr.us.i, i64 4
   store float %add43.us.i, ptr %add.ptr46.us.i, align 4
-  %add.ptr49.us.i = getelementptr inbounds i8, ptr %add.ptr.us.i, i64 8
+  %add.ptr49.us.i = getelementptr inbounds nuw i8, ptr %add.ptr.us.i, i64 8
   store float 0.000000e+00, ptr %add.ptr49.us.i, align 4
-  %add.ptr52.us.i = getelementptr inbounds i8, ptr %add.ptr.us.i, i64 12
+  %add.ptr52.us.i = getelementptr inbounds nuw i8, ptr %add.ptr.us.i, i64 12
   store i32 %c.sroa.0.0.insert.insert.reass, ptr %add.ptr52.us.i, align 1
   %indvars.iv.next38.i = add nsw i64 %indvars.iv37.i, 16
   %inc.us.i = add nuw nsw i32 %j.025.us.i, 1
@@ -303,7 +303,7 @@ for.inc54.us.i:                                   ; preds = %for.inc54.us.loopex
 stb_easy_font_draw_segs.exit:                     ; preds = %for.inc54.us.i, %if.else
   %offset.addr.0.lcssa.i = phi i32 [ %offset.056, %if.else ], [ %offset.addr.2.us.i, %for.inc54.us.i ]
   %idxprom54 = zext i8 %16 to i64
-  %arrayidx55 = getelementptr inbounds [253 x i8], ptr @stb_easy_font_vseg, i64 0, i64 %idxprom54
+  %arrayidx55 = getelementptr inbounds nuw [253 x i8], ptr @stb_easy_font_vseg, i64 0, i64 %idxprom54
   %cmp27.i48 = icmp sgt i32 %sub51, 0
   br i1 %cmp27.i48, label %for.body.lr.ph.i50, label %stb_easy_font_draw_segs.exit52
 
@@ -315,7 +315,7 @@ for.body.i:                                       ; preds = %for.inc54.i, %for.b
   %indvars.iv33.i = phi i64 [ %indvars.iv.next34.i, %for.inc54.i ], [ 0, %for.body.lr.ph.i50 ]
   %x.addr.030.i = phi float [ %add.i, %for.inc54.i ], [ %x.addr.059, %for.body.lr.ph.i50 ]
   %offset.addr.029.i = phi i32 [ %offset.addr.2.i, %for.inc54.i ], [ %offset.addr.0.lcssa.i, %for.body.lr.ph.i50 ]
-  %arrayidx.i = getelementptr inbounds i8, ptr %arrayidx55, i64 %indvars.iv33.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %arrayidx55, i64 %indvars.iv33.i
   %23 = load i8, ptr %arrayidx.i, align 1
   %conv.i = zext i8 %23 to i32
   %and.i = and i32 %conv.i, 7
@@ -349,11 +349,11 @@ for.body18.i:                                     ; preds = %for.body18.i, %if.t
   %cond41.i = select i1 %cmp31.i, i32 %and.i, i32 0
   %conv42.i = uitofp nneg i32 %cond41.i to float
   %add43.i = fadd float %add14.i, %conv42.i
-  %add.ptr46.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
+  %add.ptr46.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 4
   store float %add43.i, ptr %add.ptr46.i, align 4
-  %add.ptr49.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
+  %add.ptr49.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   store float 0.000000e+00, ptr %add.ptr49.i, align 4
-  %add.ptr52.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 12
+  %add.ptr52.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 12
   store i32 %c.sroa.0.0.insert.insert.reass, ptr %add.ptr52.i, align 1
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 16
   %inc.i = add nuw nsw i32 %j.025.i, 1
@@ -383,7 +383,7 @@ if.end63:                                         ; preds = %stb_easy_font_draw_
   %offset.1 = phi i32 [ %offset.056, %if.then17 ], [ %offset.addr.0.lcssa.i49, %stb_easy_font_draw_segs.exit52 ]
   %y.addr.1 = phi float [ %add, %if.then17 ], [ %y.addr.058, %stb_easy_font_draw_segs.exit52 ]
   %x.addr.1 = phi float [ %x, %if.then17 ], [ %add62, %stb_easy_font_draw_segs.exit52 ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %text.addr.057, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %text.addr.057, i64 1
   %28 = load i8, ptr %incdec.ptr, align 1
   %tobool12 = icmp ne i8 %28, 0
   %cmp = icmp slt i32 %offset.1, %vbuf_size
@@ -434,7 +434,7 @@ if.else:                                          ; preds = %while.cond
 if.end9:                                          ; preds = %if.else, %if.then
   %len.1 = phi float [ 0.000000e+00, %if.then ], [ %add8, %if.else ]
   %max_len.2 = phi float [ %max_len.1, %if.then ], [ %max_len.0, %if.else ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %text.addr.0, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %text.addr.0, i64 1
   br label %while.cond, !llvm.loop !8
 
 while.end:                                        ; preds = %while.cond
@@ -467,7 +467,7 @@ if.then:                                          ; preds = %while.cond
 if.end:                                           ; preds = %while.cond, %if.then
   %y.1 = phi float [ %add, %if.then ], [ %y.0, %while.cond ]
   %nonempty_line.1 = phi i32 [ 0, %if.then ], [ 1, %while.cond ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %text.addr.0, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %text.addr.0, i64 1
   br label %while.cond, !llvm.loop !9
 
 while.end:                                        ; preds = %while.cond

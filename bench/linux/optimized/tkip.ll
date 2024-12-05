@@ -55,7 +55,7 @@ define dso_local noundef ptr @ieee80211_tkip_add_iv(ptr noundef writeonly initia
   %10 = trunc i64 %2 to i8
   %11 = getelementptr i8, ptr %0, i64 3
   store i8 %10, ptr %9, align 1
-  %12 = getelementptr inbounds i8, ptr %1, i64 15
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 15
   %13 = load i8, ptr %12, align 1
   %14 = shl i8 %13, 6
   %15 = or disjoint i8 %14, 32
@@ -88,8 +88,8 @@ define dso_local void @ieee80211_get_tkip_p1k_iv(ptr noundef %0, i32 noundef %1,
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %12, %3
-  %17 = getelementptr inbounds i8, ptr %6, i64 5062
-  tail call fastcc void @tkip_mixing_phase1(ptr noundef %8, ptr noundef %7, ptr noundef %17, i32 noundef %1)
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 5062
+  tail call fastcc void @tkip_mixing_phase1(ptr noundef %8, ptr noundef %7, ptr noundef nonnull %17, i32 noundef %1)
   br label %18
 
 18:                                               ; preds = %16, %12
@@ -109,7 +109,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
 define dso_local void @ieee80211_get_tkip_rx_p1k(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #4 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = trunc i32 %2 to i16
   %7 = lshr i32 %2, 16
   %8 = trunc nuw i32 %7 to i16
@@ -214,13 +214,13 @@ define dso_local void @ieee80211_get_tkip_rx_p1k(ptr nocapture noundef readonly 
 
 tkip_mixing_phase1.exit:                          ; preds = %17
   store i16 %41, ptr %3, align 2
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 2
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i16 %56, ptr %.sroa.6.0..sroa_idx, align 2
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 4
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i16 %71, ptr %.sroa.8.0..sroa_idx, align 2
-  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 6
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 6
   store i16 %86, ptr %.sroa.10.0..sroa_idx, align 2
-  %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i16 %101, ptr %.sroa.12.0..sroa_idx, align 2
   ret void
 }
@@ -348,9 +348,9 @@ define internal fastcc void @tkip_mixing_phase1(ptr nocapture noundef readonly %
   br i1 %107, label %108, label %20, !llvm.loop !6
 
 108:                                              ; preds = %20
-  %109 = getelementptr inbounds i8, ptr %1, i64 16
+  %109 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 1, ptr %109, align 4
-  %110 = getelementptr inbounds i8, ptr %1, i64 12
+  %110 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 %3, ptr %110, align 4
   ret void
 }
@@ -358,7 +358,7 @@ define internal fastcc void @tkip_mixing_phase1(ptr nocapture noundef readonly %
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @ieee80211_get_tkip_p2k(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 16)) %2) #1 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -488
-  %5 = getelementptr inbounds i8, ptr %1, i64 200
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %6 = load ptr, ptr %5, align 8
   %7 = load i16, ptr %6, align 2
   %8 = tail call i32 @ieee80211_hdrlen(i16 noundef zeroext %7) #14
@@ -386,8 +386,8 @@ define dso_local void @ieee80211_get_tkip_p2k(ptr noundef %0, ptr nocapture noun
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %23, %3
-  %28 = getelementptr inbounds i8, ptr %17, i64 5062
-  tail call fastcc void @tkip_mixing_phase1(ptr noundef %19, ptr noundef %18, ptr noundef %28, i32 noundef %12)
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 5062
+  tail call fastcc void @tkip_mixing_phase1(ptr noundef %19, ptr noundef %18, ptr noundef nonnull %28, i32 noundef %12)
   br label %29
 
 29:                                               ; preds = %27, %23
@@ -559,7 +559,7 @@ define dso_local i32 @ieee80211_tkip_encrypt_data(ptr noundef %0, ptr noundef %1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, i8 0, i64 16, i1 false), !annotation !9
   %7 = getelementptr i8, ptr %1, i64 48
-  %8 = getelementptr inbounds i8, ptr %2, i64 200
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %9 = load ptr, ptr %8, align 8
   %10 = load i16, ptr %9, align 2
   %11 = tail call i32 @ieee80211_hdrlen(i16 noundef zeroext %10) #14
@@ -587,8 +587,8 @@ define dso_local i32 @ieee80211_tkip_encrypt_data(ptr noundef %0, ptr noundef %1
   br i1 %29, label %30, label %ieee80211_get_tkip_p2k.exit
 
 30:                                               ; preds = %26, %5
-  %31 = getelementptr inbounds i8, ptr %20, i64 5062
-  tail call fastcc void @tkip_mixing_phase1(ptr noundef %22, ptr noundef %21, ptr noundef %31, i32 noundef %15)
+  %31 = getelementptr inbounds nuw i8, ptr %20, i64 5062
+  tail call fastcc void @tkip_mixing_phase1(ptr noundef %22, ptr noundef %21, ptr noundef nonnull %31, i32 noundef %15)
   br label %ieee80211_get_tkip_p2k.exit
 
 ieee80211_get_tkip_p2k.exit:                      ; preds = %26, %30
@@ -610,9 +610,9 @@ declare dso_local i32 @ieee80211_wep_encrypt_data(ptr noundef, ptr noundef, i64 
 define dso_local i32 @ieee80211_tkip_decrypt_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readnone %5, i32 noundef %6, i32 noundef %7, ptr nocapture noundef writeonly %8, ptr nocapture noundef writeonly %9) local_unnamed_addr #1 align 16 {
   %11 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #13
-  %12 = getelementptr inbounds i8, ptr %1, i64 536
-  %13 = getelementptr inbounds i8, ptr %1, i64 556
-  %14 = getelementptr inbounds i8, ptr %1, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 536
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 556
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %15 = sext i32 %7 to i64
   %16 = getelementptr [16 x %struct.tkip_ctx_rx], ptr %14, i64 0, i64 %15
   %17 = icmp ult i64 %3, 12
@@ -638,14 +638,14 @@ define dso_local i32 @ieee80211_tkip_decrypt_data(ptr noundef %0, ptr noundef %1
 
 34:                                               ; preds = %18
   %35 = lshr i32 %31, 6
-  %36 = getelementptr inbounds i8, ptr %1, i64 551
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 551
   %37 = load i8, ptr %36, align 1
   %38 = sext i8 %37 to i32
   %39 = icmp eq i32 %35, %38
   br i1 %39, label %40, label %104
 
 40:                                               ; preds = %34
-  %41 = getelementptr inbounds i8, ptr %16, i64 20
+  %41 = getelementptr inbounds nuw i8, ptr %16, i64 20
   %42 = load i32, ptr %41, align 4
   %43 = icmp ult i32 %29, %42
   br i1 %43, label %104, label %44
@@ -655,7 +655,7 @@ define dso_local i32 @ieee80211_tkip_decrypt_data(ptr noundef %0, ptr noundef %1
   br i1 %45, label %61, label %46
 
 46:                                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %16, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %48 = load i16, ptr %47, align 4
   %49 = zext i16 %48 to i32
   %50 = icmp samesign ult i32 %25, %49
@@ -672,14 +672,14 @@ define dso_local i32 @ieee80211_tkip_decrypt_data(ptr noundef %0, ptr noundef %1
   br i1 %56, label %57, label %104
 
 57:                                               ; preds = %53
-  %58 = getelementptr inbounds i8, ptr %16, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %59 = load i32, ptr %58, align 4
   %60 = icmp eq i32 %59, 0
   br i1 %60, label %61, label %104
 
 61:                                               ; preds = %57, %51, %44
   %62 = icmp eq i32 %6, 0
-  %63 = getelementptr inbounds i8, ptr %16, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %16, i64 16
   br i1 %62, label %64, label %.thread
 
 .thread:                                          ; preds = %61
@@ -694,20 +694,20 @@ define dso_local i32 @ieee80211_tkip_decrypt_data(ptr noundef %0, ptr noundef %1
   br i1 %67, label %68, label %69
 
 68:                                               ; preds = %64
-  tail call fastcc void @tkip_mixing_phase1(ptr noundef %13, ptr noundef %16, ptr noundef %4, i32 noundef %29)
+  tail call fastcc void @tkip_mixing_phase1(ptr noundef nonnull %13, ptr noundef %16, ptr noundef %4, i32 noundef %29)
   br label %69
 
 69:                                               ; preds = %68, %64
   %70 = load ptr, ptr %1, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 448
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 448
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 160
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 160
   %74 = load ptr, ptr %73, align 8
   %75 = icmp eq ptr %74, null
   br i1 %75, label %98, label %76
 
 76:                                               ; preds = %69
-  %77 = getelementptr inbounds i8, ptr %1, i64 40
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %78 = load i32, ptr %77, align 8
   %79 = and i32 %78, 1
   %80 = icmp eq i32 %79, 0
@@ -719,31 +719,31 @@ define dso_local i32 @ieee80211_tkip_decrypt_data(ptr noundef %0, ptr noundef %1
   br i1 %83, label %98, label %84
 
 84:                                               ; preds = %81
-  %85 = getelementptr inbounds i8, ptr %1, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 4056
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 4056
   %88 = load i32, ptr %87, align 8
   %89 = icmp eq i32 %88, 4
   br i1 %89, label %90, label %94
 
 90:                                               ; preds = %84
-  %91 = getelementptr inbounds i8, ptr %86, i64 1672
+  %91 = getelementptr inbounds nuw i8, ptr %86, i64 1672
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr i8, ptr %92, i64 -1904
   br label %94
 
 94:                                               ; preds = %90, %84
   %95 = phi ptr [ %93, %90 ], [ %86, %84 ]
-  %96 = getelementptr inbounds i8, ptr %1, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %97 = load ptr, ptr %96, align 8
-  tail call fastcc void @drv_update_tkip_key(ptr noundef %70, ptr noundef %95, ptr noundef %12, ptr noundef %97, i32 noundef %29, ptr noundef %16)
+  tail call fastcc void @drv_update_tkip_key(ptr noundef %70, ptr noundef %95, ptr noundef nonnull %12, ptr noundef %97, i32 noundef %29, ptr noundef %16)
   store i32 2, ptr %63, align 4
   br label %98
 
 98:                                               ; preds = %69, %76, %81, %94
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %11, i8 0, i64 16, i1 false), !annotation !9
   %99 = trunc nuw i32 %25 to i16
-  call fastcc void @tkip_mixing_phase2(ptr noundef %13, ptr noundef %16, i16 noundef zeroext %99, ptr noundef nonnull %11)
+  call fastcc void @tkip_mixing_phase2(ptr noundef nonnull %13, ptr noundef %16, i16 noundef zeroext %99, ptr noundef nonnull %11)
   %100 = add i64 %3, -12
   %101 = call i32 @ieee80211_wep_decrypt_data(ptr noundef %0, ptr noundef nonnull %11, i64 noundef 16, ptr noundef %30, i64 noundef %100) #13
   %102 = icmp eq i32 %101, 0
@@ -764,34 +764,34 @@ define dso_local i32 @ieee80211_tkip_decrypt_data(ptr noundef %0, ptr noundef %1
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
 define internal fastcc void @drv_update_tkip_key(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #8 align 16 {
   %7 = icmp eq ptr %3, null
-  %8 = getelementptr inbounds i8, ptr %3, i64 2680
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 2680
   %9 = select i1 %7, ptr null, ptr %8
   %10 = icmp eq ptr %1, null
   br i1 %10, label %19, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %1, i64 4056
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 4056
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 4
   br i1 %14, label %15, label %19
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %1, i64 1672
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 1672
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr i8, ptr %17, i64 -1904
   br label %19
 
 19:                                               ; preds = %15, %11, %6
   %20 = phi ptr [ %18, %15 ], [ %1, %11 ], [ null, %6 ]
-  %21 = getelementptr inbounds i8, ptr %20, i64 1256
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 1256
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 1415
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1415
   %24 = load i8, ptr %23, align 1, !range !10, !noundef !11
   %25 = icmp eq i8 %24, 0
   br i1 %25, label %26, label %.thread
 
 26:                                               ; preds = %19
-  %27 = getelementptr inbounds i8, ptr %20, i64 1264
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 1264
   %28 = load i32, ptr %27, align 8
   %29 = and i32 %28, 32
   %30 = icmp ne i32 %29, 0
@@ -802,14 +802,14 @@ define internal fastcc void @drv_update_tkip_key(ptr noundef %0, ptr noundef %1,
 33:                                               ; preds = %26
   store i1 true, ptr @drv_update_tkip_key.__already_done, align 1
   tail call void asm sideeffect "2763: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2763b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2763) #13, !srcloc !13
-  %34 = getelementptr inbounds i8, ptr %20, i64 1248
+  %34 = getelementptr inbounds nuw i8, ptr %20, i64 1248
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
-  %37 = getelementptr inbounds i8, ptr %35, i64 296
-  %38 = getelementptr inbounds i8, ptr %20, i64 1280
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 296
+  %38 = getelementptr inbounds nuw i8, ptr %20, i64 1280
   %39 = select i1 %36, ptr %38, ptr %37
   %40 = load i32, ptr %27, align 8
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, ptr noundef %39, i32 noundef %40) #13
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, ptr noundef nonnull %39, i32 noundef %40) #13
   tail call void asm sideeffect "2764: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2764b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2764) #13, !srcloc !14
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 259, i32 2313, i64 12) #13, !srcloc !15
   tail call void asm sideeffect "2765: nop\0A\09.pushsection .discard.instr_end\0A\09.long 2765b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2765) #13, !srcloc !16
@@ -817,7 +817,7 @@ define internal fastcc void @drv_update_tkip_key(ptr noundef %0, ptr noundef %1,
   br label %.thread
 
 .thread:                                          ; preds = %19, %33, %26
-  %41 = getelementptr inbounds i8, ptr %20, i64 1264
+  %41 = getelementptr inbounds nuw i8, ptr %20, i64 1264
   %42 = load i32, ptr %41, align 8
   %43 = and i32 %42, 32
   %44 = icmp eq i32 %43, 0
@@ -844,7 +844,7 @@ define internal fastcc void @drv_update_tkip_key(ptr noundef %0, ptr noundef %1,
   br i1 %54, label %59, label %55
 
 55:                                               ; preds = %52
-  %56 = getelementptr inbounds i8, ptr %53, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %57 = load ptr, ptr %56, align 8
   %58 = tail call i32 @__SCT__tp_func_drv_update_tkip_key(ptr noundef %57, ptr noundef %0, ptr noundef %20, ptr noundef %2, ptr noundef %9, i32 noundef %4) #13
   br label %59
@@ -864,16 +864,16 @@ define internal fastcc void @drv_update_tkip_key(ptr noundef %0, ptr noundef %1,
   br label %66
 
 66:                                               ; preds = %63, %59, %46, %45
-  %67 = getelementptr inbounds i8, ptr %0, i64 448
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 160
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 160
   %70 = load ptr, ptr %69, align 8
   %71 = icmp eq ptr %70, null
   br i1 %71, label %74, label %72
 
 72:                                               ; preds = %66
-  %73 = getelementptr inbounds i8, ptr %20, i64 4056
-  tail call void %70(ptr noundef %0, ptr noundef %73, ptr noundef %2, ptr noundef %9, i32 noundef %4, ptr noundef %5) #13
+  %73 = getelementptr inbounds nuw i8, ptr %20, i64 4056
+  tail call void %70(ptr noundef %0, ptr noundef nonnull %73, ptr noundef %2, ptr noundef %9, i32 noundef %4, ptr noundef %5) #13
   br label %74
 
 74:                                               ; preds = %72, %66
@@ -897,7 +897,7 @@ define internal fastcc void @drv_update_tkip_key(ptr noundef %0, ptr noundef %1,
   br i1 %83, label %88, label %84
 
 84:                                               ; preds = %81
-  %85 = getelementptr inbounds i8, ptr %82, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %86 = load ptr, ptr %85, align 8
   %87 = tail call i32 @__SCT__tp_func_drv_return_void(ptr noundef %86, ptr noundef %0) #13
   br label %88

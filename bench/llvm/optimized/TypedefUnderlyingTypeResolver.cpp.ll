@@ -152,7 +152,7 @@ define dso_local void @_ZNK5clang10extractapi29TypedefUnderlyingTypeResolver25ge
   %10 = alloca %"class.llvm::StringRef", align 8
   store i64 %2, ptr %6, align 8
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %6) #5
-  %11 = getelementptr inbounds i8, ptr %8, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 24
   call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(152) %8, ptr noundef nonnull %11, i64 noundef 128) #5
   %.sroa.04.0.copyload = load i64, ptr %6, align 8
   %12 = call noundef ptr @_ZNK5clang10extractapi29TypedefUnderlyingTypeResolver21getUnderlyingTypeDeclENS_8QualTypeE(ptr nonnull align 8 poison, i64 %.sroa.04.0.copyload)
@@ -182,7 +182,7 @@ define dso_local void @_ZNK5clang10extractapi29TypedefUnderlyingTypeResolver25ge
   %25 = inttoptr i64 %23 to ptr
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load i64, ptr %27, align 8
   %30 = and i64 %29, 4294967295
   br label %_ZNK4llvm9StringRef3strB5cxx11Ev.exit
@@ -238,7 +238,7 @@ _ZNK5clang4Decl23getImportedOwningModuleEv.exit.thread: ; preds = %32, %37, %_ZN
   %49 = load ptr, ptr %8, align 8
   %50 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(152) %8) #5
   store ptr %.sroa.021.0, ptr %10, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %.sroa.3.0, ptr %.sroa.3.0..sroa_idx, align 8
   call void @_ZN5clang10extractapi6APISet21createSymbolReferenceEN4llvm9StringRefES3_S3_(ptr dead_on_unwind writable sret(%"struct.clang::extractapi::SymbolReference") align 8 %0, ptr noundef nonnull align 8 dereferenceable(488) %3, ptr %47, i64 %48, ptr %49, i64 %50, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %10) #5
   %51 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(152) %8) #5
@@ -273,7 +273,7 @@ declare void @_ZN5clang10extractapi6APISet21createSymbolReferenceEN4llvm9StringR
 define dso_local void @_ZNK5clang10extractapi29TypedefUnderlyingTypeResolver13getUSRForTypeB5cxx11ENS_8QualTypeE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, i64 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.llvm::SmallString", align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(152) %5, ptr noundef nonnull %6, i64 noundef 128) #5
   %7 = call noundef ptr @_ZNK5clang10extractapi29TypedefUnderlyingTypeResolver21getUnderlyingTypeDeclENS_8QualTypeE(ptr nonnull align 8 poison, i64 %2)
   %.not = icmp eq ptr %7, null

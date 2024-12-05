@@ -46,13 +46,13 @@ define internal range(i32 1, 3) i32 @mbc_case_fold(i32 noundef %0, ptr nocapture
   br i1 %or.cond, label %12, label %10
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %3, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 115, ptr %11, align 1
   br label %16
 
 12:                                               ; preds = %5
   %13 = zext i8 %7 to i64
-  %14 = getelementptr inbounds [256 x i8], ptr @EncISO_8859_16_ToLowerCaseTable, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [256 x i8], ptr @EncISO_8859_16_ToLowerCaseTable, i64 0, i64 %13
   %15 = load i8, ptr %14, align 1
   br label %16
 
@@ -61,7 +61,7 @@ define internal range(i32 1, 3) i32 @mbc_case_fold(i32 noundef %0, ptr nocapture
   %.0 = phi i32 [ 1, %12 ], [ 2, %10 ]
   store i8 %.sink, ptr %3, align 1
   %.pn = load ptr, ptr %1, align 8
-  %storemerge = getelementptr inbounds i8, ptr %.pn, i64 1
+  %storemerge = getelementptr inbounds nuw i8, ptr %.pn, i64 1
   store ptr %storemerge, ptr %1, align 8
   ret i32 %.0
 }
@@ -87,7 +87,7 @@ define internal range(i32 0, 2) i32 @is_code_ctype(i32 noundef %0, i32 noundef %
 
 5:                                                ; preds = %3
   %6 = zext nneg i32 %0 to i64
-  %7 = getelementptr inbounds [256 x i16], ptr @EncISO_8859_16_CtypeTable, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [256 x i16], ptr @EncISO_8859_16_CtypeTable, i64 0, i64 %6
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = lshr i32 %9, %1
@@ -118,7 +118,7 @@ define internal i32 @case_map(ptr nocapture noundef %0, ptr nocapture noundef %1
   %12 = phi ptr [ %57, %53 ], [ %8, %6 ]
   %.069 = phi i32 [ %spec.select, %53 ], [ %7, %6 ]
   %.05368 = phi ptr [ %54, %53 ], [ %3, %6 ]
-  %13 = getelementptr inbounds i8, ptr %12, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %13, ptr %1, align 8
   %14 = load i8, ptr %12, align 1
   %15 = icmp eq i8 %14, -33
@@ -131,7 +131,7 @@ define internal i32 @case_map(ptr nocapture noundef %0, ptr nocapture noundef %1
 
 18:                                               ; preds = %16
   %19 = or i32 %.069, 262144
-  %20 = getelementptr inbounds i8, ptr %.05368, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %.05368, i64 1
   store i8 83, ptr %.05368, align 1
   %21 = and i32 %.069, 32768
   %.not64 = icmp eq i32 %21, 0
@@ -145,13 +145,13 @@ define internal i32 @case_map(ptr nocapture noundef %0, ptr nocapture noundef %1
 
 25:                                               ; preds = %23
   %26 = or i32 %.069, 262144
-  %27 = getelementptr inbounds i8, ptr %.05368, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.05368, i64 1
   store i8 115, ptr %.05368, align 1
   br label %53
 
 28:                                               ; preds = %.lr.ph
   %29 = zext i8 %14 to i64
-  %30 = getelementptr inbounds [256 x i16], ptr @EncISO_8859_16_CtypeTable, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw [256 x i16], ptr @EncISO_8859_16_CtypeTable, i64 0, i64 %29
   %31 = load i16, ptr %30, align 2
   %32 = and i16 %31, 1024
   %.not = icmp eq i16 %32, 0
@@ -162,7 +162,7 @@ define internal i32 @case_map(ptr nocapture noundef %0, ptr nocapture noundef %1
 
 34:                                               ; preds = %28
   %35 = or i32 %.069, 262144
-  %36 = getelementptr inbounds [256 x i8], ptr @EncISO_8859_16_ToLowerCaseTable, i64 0, i64 %29
+  %36 = getelementptr inbounds nuw [256 x i8], ptr @EncISO_8859_16_ToLowerCaseTable, i64 0, i64 %29
   %37 = load i8, ptr %36, align 1
   br label %53
 
@@ -215,7 +215,7 @@ define internal i32 @case_map(ptr nocapture noundef %0, ptr nocapture noundef %1
   %.055 = phi i8 [ %22, %18 ], [ 115, %25 ], [ -33, %23 ], [ %37, %34 ], [ %44, %43 ], [ %46, %45 ], [ %48, %47 ], [ -76, %49 ], [ -66, %50 ], [ %52, %51 ], [ %14, %38 ], [ -78, %41 ]
   %.154 = phi ptr [ %20, %18 ], [ %27, %25 ], [ %.05368, %23 ], [ %.05368, %34 ], [ %.05368, %43 ], [ %.05368, %45 ], [ %.05368, %47 ], [ %.05368, %49 ], [ %.05368, %50 ], [ %.05368, %51 ], [ %.05368, %38 ], [ %.05368, %41 ]
   %.1 = phi i32 [ %19, %18 ], [ %26, %25 ], [ %.069, %23 ], [ %35, %34 ], [ %42, %43 ], [ %42, %45 ], [ %42, %47 ], [ %42, %49 ], [ %42, %50 ], [ %42, %51 ], [ %.069, %38 ], [ %42, %41 ]
-  %54 = getelementptr inbounds i8, ptr %.154, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %.154, i64 1
   store i8 %.055, ptr %.154, align 1
   %55 = and i32 %.1, 32768
   %.not65 = icmp eq i32 %55, 0

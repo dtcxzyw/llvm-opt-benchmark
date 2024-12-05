@@ -193,21 +193,21 @@ lor.lhs.false36:                                  ; preds = %if.end29
   br i1 %tobool38.not, label %err, label %lor.lhs.false39
 
 lor.lhs.false39:                                  ; preds = %lor.lhs.false36
-  %offset = getelementptr inbounds i8, ptr %hdr, i64 8
+  %offset = getelementptr inbounds nuw i8, ptr %hdr, i64 8
   %2 = load i64, ptr %offset, align 8
   %call40 = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.4, i32 noundef 76, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.12, i64 noundef %2, i64 noundef 0) #7
   %tobool41.not = icmp eq i32 %call40, 0
   br i1 %tobool41.not, label %err, label %lor.lhs.false42
 
 lor.lhs.false42:                                  ; preds = %lor.lhs.false39
-  %len = getelementptr inbounds i8, ptr %hdr, i64 16
+  %len = getelementptr inbounds nuw i8, ptr %hdr, i64 16
   %3 = load i64, ptr %len, align 8
   %call43 = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.4, i32 noundef 77, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.10, i64 noundef %3, i64 noundef 16) #7
   %tobool44.not = icmp eq i32 %call43, 0
   br i1 %tobool44.not, label %err, label %lor.lhs.false45
 
 lor.lhs.false45:                                  ; preds = %lor.lhs.false42
-  %is_fin = getelementptr inbounds i8, ptr %hdr, i64 32
+  %is_fin = getelementptr inbounds nuw i8, ptr %hdr, i64 32
   %bf.load = load i8, ptr %is_fin, align 8
   %4 = lshr i8 %bf.load, 1
   %.lobit = and i8 %4, 1
@@ -636,7 +636,7 @@ for.body:                                         ; preds = %lor.lhs.false40, %f
   %i.073 = phi i64 [ %inc, %for.body ], [ 0, %lor.lhs.false40 ]
   %call53 = call i32 @test_random() #7
   %conv54 = trunc i32 %call53 to i8
-  %arrayidx = getelementptr inbounds i8, ptr %call7, i64 %i.073
+  %arrayidx = getelementptr inbounds nuw i8, ptr %call7, i64 %i.073
   store i8 %conv54, ptr %arrayidx, align 1
   %inc = add nuw nsw i64 %i.073, 1
   %exitcond.not = icmp eq i64 %inc, 8192
@@ -692,7 +692,7 @@ for.body79:                                       ; preds = %for.cond76.preheade
 
 if.then84:                                        ; preds = %for.body79
   %3 = load i8, ptr %ref_src_cur.178, align 1
-  %incdec.ptr = getelementptr inbounds i8, ptr %ref_dst_cur.077, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %ref_dst_cur.077, i64 1
   store i8 %3, ptr %ref_dst_cur.077, align 1
   %inc85 = add i64 %expected.076, 1
   br label %if.end95
@@ -709,7 +709,7 @@ if.else:                                          ; preds = %for.body79
 if.end95:                                         ; preds = %if.else, %if.then84
   %expected.1 = phi i64 [ %inc85, %if.then84 ], [ %expected.076, %if.else ]
   %ref_dst_cur.1 = phi ptr [ %incdec.ptr, %if.then84 ], [ %ref_dst_cur.077, %if.else ]
-  %incdec.ptr96 = getelementptr inbounds i8, ptr %ref_src_cur.178, i64 1
+  %incdec.ptr96 = getelementptr inbounds nuw i8, ptr %ref_src_cur.178, i64 1
   %inc98 = add nuw i64 %i.175, 1
   %exitcond93.not = icmp eq i64 %inc98, %add64
   br i1 %exitcond93.not, label %for.end99, label %for.body79, !llvm.loop !10
@@ -736,7 +736,7 @@ for.cond113.preheader:                            ; preds = %lor.lhs.false105
   br i1 %cmp11485.not, label %for.end153, label %for.body116.lr.ph
 
 for.body116.lr.ph:                                ; preds = %for.cond113.preheader
-  %len = getelementptr inbounds i8, ptr %hdr, i64 16
+  %len = getelementptr inbounds nuw i8, ptr %hdr, i64 16
   br label %for.body116
 
 for.body116:                                      ; preds = %for.body116.lr.ph, %if.end149
@@ -761,7 +761,7 @@ for.body127:                                      ; preds = %for.cond124.prehead
   %cur_rd.081 = phi i64 [ %add142, %if.end133 ], [ 0, %for.cond124.preheader ]
   %j.080 = phi i64 [ %inc144, %if.end133 ], [ 0, %for.cond124.preheader ]
   %arrayidx128 = getelementptr inbounds [2 x %struct.ossl_qtx_iovec_st], ptr %iov, i64 0, i64 %j.080
-  %buf_len = getelementptr inbounds i8, ptr %arrayidx128, i64 8
+  %buf_len = getelementptr inbounds nuw i8, ptr %arrayidx128, i64 8
   %5 = load i64, ptr %buf_len, align 8
   %add129 = add i64 %5, %rd.087
   %call130 = call i32 @test_size_t_le(ptr noundef nonnull @.str.4, i32 noundef 314, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.53, i64 noundef %add129, i64 noundef %expected.0.lcssa) #7
@@ -1043,7 +1043,7 @@ lor.lhs.false147:                                 ; preds = %lor.lhs.false144
   br i1 %tobool150.not, label %err, label %lor.lhs.false151
 
 lor.lhs.false151:                                 ; preds = %lor.lhs.false147
-  %add.ptr = getelementptr inbounds i8, ptr %buf, i64 2
+  %add.ptr = getelementptr inbounds nuw i8, ptr %buf, i64 2
   %call153 = call i32 %cond(ptr noundef %call, ptr noundef nonnull %add.ptr, i64 noundef 12, ptr noundef nonnull %readbytes, ptr noundef nonnull %fin) #7, !callees !13
   %cmp154 = icmp ne i32 %call153, 0
   %conv155 = zext i1 %cmp154 to i32
@@ -1098,7 +1098,7 @@ land.lhs.true187:                                 ; preds = %land.lhs.true179
   br i1 %tobool192.not, label %err, label %lor.lhs.false193
 
 lor.lhs.false193:                                 ; preds = %lor.lhs.false177, %land.lhs.true187
-  %add.ptr195 = getelementptr inbounds i8, ptr %buf, i64 14
+  %add.ptr195 = getelementptr inbounds nuw i8, ptr %buf, i64 14
   %call196 = call i32 %cond(ptr noundef %call, ptr noundef nonnull %add.ptr195, i64 noundef 5, ptr noundef nonnull %readbytes, ptr noundef nonnull %fin) #7, !callees !13
   %cmp197 = icmp ne i32 %call196, 0
   %conv198 = zext i1 %cmp197 to i32
@@ -1126,7 +1126,7 @@ lor.lhs.false209:                                 ; preds = %lor.lhs.false206
   br i1 %tobool212.not, label %err, label %lor.lhs.false213
 
 lor.lhs.false213:                                 ; preds = %lor.lhs.false209
-  %add.ptr216 = getelementptr inbounds i8, ptr %buf, i64 19
+  %add.ptr216 = getelementptr inbounds nuw i8, ptr %buf, i64 19
   %call217 = call i32 %cond(ptr noundef %call, ptr noundef nonnull %add.ptr216, i64 noundef 26, ptr noundef nonnull %readbytes, ptr noundef nonnull %fin) #7, !callees !13
   %cmp218 = icmp ne i32 %call217, 0
   %conv219 = zext i1 %cmp218 to i32
@@ -1240,7 +1240,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %i.092 = phi i64 [ %inc, %for.body ], [ 0, %for.body.preheader ]
   %call12 = tail call i32 @test_random() #7
   %conv = trunc i32 %call12 to i8
-  %arrayidx = getelementptr inbounds i8, ptr %call, i64 %i.092
+  %arrayidx = getelementptr inbounds nuw i8, ptr %call, i64 %i.092
   store i8 %conv, ptr %arrayidx, align 1
   %inc = add nuw nsw i64 %i.092, 1
   %exitcond.not = icmp eq i64 %inc, 10000
@@ -1270,7 +1270,7 @@ if.end28:                                         ; preds = %for.body20
   %add31 = add nuw nsw i64 %3, 10
   %spec.select = call i64 @llvm.umax.i64(i64 %add31, i64 %queued_min.193)
   %queued_min.3 = select i1 %cmp29.not, i64 %queued_min.193, i64 %spec.select
-  %add.ptr = getelementptr inbounds i8, ptr %call, i64 %3
+  %add.ptr = getelementptr inbounds nuw i8, ptr %call, i64 %3
   %call37 = call i32 @ossl_quic_rstream_queue_data(ptr noundef %call6, ptr noundef null, i64 noundef %3, ptr noundef %add.ptr, i64 noundef 10, i32 noundef 0) #7
   %cmp38 = icmp ne i32 %call37, 0
   %conv39 = zext i1 %cmp38 to i32
@@ -1584,7 +1584,7 @@ for.body4:                                        ; preds = %for.end, %if.end9
   %i.118 = phi i64 [ %inc13, %if.end9 ], [ 0, %for.end ]
   %arrayidx5 = getelementptr inbounds %struct.ossl_qtx_iovec_st, ptr %iov, i64 %i.118
   %1 = load ptr, ptr %arrayidx5, align 8
-  %buf_len7 = getelementptr inbounds i8, ptr %arrayidx5, i64 8
+  %buf_len7 = getelementptr inbounds nuw i8, ptr %arrayidx5, i64 8
   %2 = load i64, ptr %buf_len7, align 8
   %bcmp = tail call i32 @bcmp(ptr %cur.019, ptr %1, i64 %2)
   %tobool.not = icmp eq i32 %bcmp, 0

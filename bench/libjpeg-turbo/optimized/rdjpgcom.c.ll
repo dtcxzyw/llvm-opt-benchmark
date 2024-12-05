@@ -77,14 +77,14 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %keymatch.exit37 ]
   %.060 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %keymatch.exit37 ]
   %.02059 = phi i32 [ 0, %.lr.ph.preheader ], [ %.121, %keymatch.exit37 ]
-  %12 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %14 = load i8, ptr %13, align 1
   %.not.not = icmp eq i8 %14, 45
   br i1 %.not.not, label %15, label %._crit_edge.loopexit
 
 15:                                               ; preds = %.lr.ph
-  %16 = getelementptr inbounds i8, ptr %13, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 1
   %17 = load i8, ptr %16, align 1
   %.not18.i.not = icmp eq i8 %17, 0
   br i1 %.not18.i.not, label %keymatch.exit37.thread, label %.lr.ph.i
@@ -93,8 +93,8 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
   %18 = phi i8 [ %34, %33 ], [ %17, %15 ]
   %.pn.i = phi ptr [ %19, %33 ], [ %16, %15 ]
   %.01219.i.idx = phi i64 [ %.01219.i.add, %33 ], [ 0, %15 ]
-  %.01219.i.ptr = getelementptr inbounds i8, ptr @.str.1, i64 %.01219.i.idx
-  %19 = getelementptr inbounds i8, ptr %.pn.i, i64 1
+  %.01219.i.ptr = getelementptr inbounds nuw i8, ptr @.str.1, i64 %.01219.i.idx
+  %19 = getelementptr inbounds nuw i8, ptr %.pn.i, i64 1
   %20 = sext i8 %18 to i32
   %.01219.i.add = add nuw nsw i64 %.01219.i.idx, 1
   %21 = load i8, ptr %.01219.i.ptr, align 1
@@ -137,8 +137,8 @@ keymatch.exit:                                    ; preds = %33
   %36 = phi i8 [ %52, %51 ], [ %17, %.lr.ph.i30.preheader ]
   %.pn.i31 = phi ptr [ %37, %51 ], [ %16, %.lr.ph.i30.preheader ]
   %.01219.i32.idx = phi i64 [ %.01219.i32.add, %51 ], [ 0, %.lr.ph.i30.preheader ]
-  %.01219.i32.ptr = getelementptr inbounds i8, ptr @.str.2, i64 %.01219.i32.idx
-  %37 = getelementptr inbounds i8, ptr %.pn.i31, i64 1
+  %.01219.i32.ptr = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.01219.i32.idx
+  %37 = getelementptr inbounds nuw i8, ptr %.pn.i31, i64 1
   %38 = sext i8 %36 to i32
   %.01219.i32.add = add nuw nsw i64 %.01219.i32.idx, 1
   %39 = load i8, ptr %.01219.i32.ptr, align 1
@@ -215,7 +215,7 @@ keymatch.exit37:                                  ; preds = %51, %keymatch.exit
 
 71:                                               ; preds = %70
   %72 = zext nneg i32 %.022.lcssa to i64
-  %73 = getelementptr inbounds ptr, ptr %1, i64 %72
+  %73 = getelementptr inbounds nuw ptr, ptr %1, i64 %72
   %74 = load ptr, ptr %73, align 8
   %75 = tail call noalias ptr @fopen(ptr noundef %74, ptr noundef nonnull @.str.4)
   store ptr %75, ptr @infile, align 8
@@ -590,7 +590,7 @@ read_1_byte.exit11.i:                             ; preds = %read_2_bytes.exit
 
 switch.lookup:                                    ; preds = %read_1_byte.exit11.i
   %126 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table.scan_JPEG_header, i64 0, i64 %126
+  %switch.gep = getelementptr inbounds nuw [16 x ptr], ptr @switch.table.scan_JPEG_header, i64 0, i64 %126
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %127
 

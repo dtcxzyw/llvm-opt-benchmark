@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define noundef i32 @_ZNK5arrow7compute10SwissTable24early_filter_imp_avx2_x8EiPKjPhS4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, i32 noundef %num_hashes, ptr nocapture noundef readonly %hashes, ptr nocapture noundef writeonly %out_match_bitvector, ptr nocapture noundef writeonly %out_local_slots) local_unnamed_addr #0 align 2 {
 entry:
-  %log_blocks_ = getelementptr inbounds i8, ptr %this, i64 4
+  %log_blocks_ = getelementptr inbounds nuw i8, ptr %this, i64 4
   %cmp200 = icmp sgt i32 %num_hashes, 7
   br i1 %cmp200, label %for.body.lr.ph, label %for.end
 
@@ -21,13 +21,13 @@ for.body.lr.ph:                                   ; preds = %entry
   %add = select i1 %cmp.i198, i32 16, i32 %2
   %vecinit.i307 = insertelement <8 x i32> poison, i32 %add, i64 0
   %vecinit7.i314 = shufflevector <8 x i32> %vecinit.i307, <8 x i32> poison, <8 x i32> zeroinitializer
-  %blocks_ = getelementptr inbounds i8, ptr %this, i64 16
+  %blocks_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %wide.trip.count = zext nneg i32 %div203204 to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %add.ptr = getelementptr inbounds <4 x i64>, ptr %hashes, i64 %indvars.iv
+  %add.ptr = getelementptr inbounds nuw <4 x i64>, ptr %hashes, i64 %indvars.iv
   %3 = load <8 x i32>, ptr %add.ptr, align 1
   %4 = load i32, ptr %log_blocks_, align 4
   %sub = sub nsw i32 25, %4
@@ -42,14 +42,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %9 = lshr <4 x i64> %8, splat (i64 32)
   %and.i112 = lshr <4 x i64> %6, splat (i64 32)
   %10 = load ptr, ptr %blocks_, align 8
-  %is_cpu_.i = getelementptr inbounds i8, ptr %10, i64 9
+  %is_cpu_.i = getelementptr inbounds nuw i8, ptr %10, i64 9
   %11 = load i8, ptr %is_cpu_.i, align 1
   %tobool.i = trunc i8 %11 to i1
-  %is_mutable_.i = getelementptr inbounds i8, ptr %10, i64 8
+  %is_mutable_.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i8, ptr %is_mutable_.i, align 8
   %tobool2.i = trunc i8 %12 to i1
   %13 = select i1 %tobool.i, i1 %tobool2.i, i1 false
-  %data_.i = getelementptr inbounds i8, ptr %10, i64 16
+  %data_.i = getelementptr inbounds nuw i8, ptr %10, i64 16
   %14 = load ptr, ptr %data_.i, align 8
   %cond.i199 = select i1 %13, ptr %14, ptr null
   %15 = tail call <4 x i64> @llvm.x86.avx2.gather.q.q.256(<4 x i64> zeroinitializer, ptr %cond.i199, <4 x i64> %and.i109, <4 x i64> splat (i64 -1), i8 1)
@@ -116,14 +116,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %52 = shufflevector <8 x i32> %51, <8 x i32> poison, <8 x i32> <i32 0, i32 4, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
   %53 = bitcast <8 x i32> %52 to <4 x i64>
   %54 = extractelement <4 x i64> %53, i64 0
-  %arrayidx = getelementptr inbounds i64, ptr %out_local_slots, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw i64, ptr %out_local_slots, i64 %indvars.iv
   store i64 %54, ptr %arrayidx, align 8
   %55 = bitcast <8 x i32> %blend to <32 x i8>
   %56 = icmp sgt <32 x i8> %55, splat (i8 -1)
   %57 = bitcast <32 x i1> %56 to i32
   %58 = tail call noundef i32 @llvm.x86.bmi.pext.32(i32 %57, i32 286331153)
   %conv = trunc i32 %58 to i8
-  %arrayidx78 = getelementptr inbounds i8, ptr %out_match_bitvector, i64 %indvars.iv
+  %arrayidx78 = getelementptr inbounds nuw i8, ptr %out_match_bitvector, i64 %indvars.iv
   store i8 %conv, ptr %arrayidx78, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -142,7 +142,7 @@ declare <4 x i64> @llvm.x86.avx2.gather.q.q.256(<4 x i64>, ptr, <4 x i64>, <4 x 
 define noundef i32 @_ZNK5arrow7compute10SwissTable25early_filter_imp_avx2_x32EiPKjPhS4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, i32 noundef %num_hashes, ptr nocapture noundef readonly %hashes, ptr nocapture noundef writeonly %out_match_bitvector, ptr nocapture noundef writeonly %out_local_slots) local_unnamed_addr #2 align 2 {
 entry:
   %block_bytes = alloca [16 x i64], align 16
-  %log_blocks_5 = getelementptr inbounds i8, ptr %this, i64 4
+  %log_blocks_5 = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = load i32, ptr %log_blocks_5, align 4
   %cmp71044.not = icmp eq i32 %0, 31
   br i1 %cmp71044.not, label %for.end, label %for.body.lr.ph
@@ -152,12 +152,12 @@ for.body.lr.ph:                                   ; preds = %entry
   %cmp4.i = icmp slt i32 %0, 30
   %cmp1.i = icmp samesign ult i32 %0, 14
   %cmp.i1034 = icmp slt i32 %0, 6
-  %blocks_ = getelementptr inbounds i8, ptr %this, i64 16
+  %blocks_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %blocks_, align 8
-  %is_cpu_.i = getelementptr inbounds i8, ptr %1, i64 9
+  %is_cpu_.i = getelementptr inbounds nuw i8, ptr %1, i64 9
   %2 = load i8, ptr %is_cpu_.i, align 1
   %tobool.i = trunc i8 %2 to i1
-  %data_.i = getelementptr inbounds i8, ptr %1, i64 16
+  %data_.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %3 = load ptr, ptr %data_.i, align 8
   %cond.i1035 = select i1 %tobool.i, ptr %3, ptr null
   %4 = select i1 %cmp4.i, i64 40, i64 72
@@ -169,9 +169,9 @@ for.body.lr.ph:                                   ; preds = %entry
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %6 = mul nuw nsw i64 %indvars.iv, %add
-  %add.ptr = getelementptr inbounds i8, ptr %cond.i1035, i64 %6
+  %add.ptr = getelementptr inbounds nuw i8, ptr %cond.i1035, i64 %6
   %7 = load i64, ptr %add.ptr, align 8
-  %arrayidx = getelementptr inbounds [16 x i64], ptr %block_bytes, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [16 x i64], ptr %block_bytes, i64 0, i64 %indvars.iv
   store i64 %7, ptr %arrayidx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -179,11 +179,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 for.end.loopexit:                                 ; preds = %for.body
   %.pre = load <32 x i8>, ptr %block_bytes, align 16
-  %add.ptr13.phi.trans.insert = getelementptr inbounds i8, ptr %block_bytes, i64 32
+  %add.ptr13.phi.trans.insert = getelementptr inbounds nuw i8, ptr %block_bytes, i64 32
   %.pre1056 = load <32 x i8>, ptr %add.ptr13.phi.trans.insert, align 16
-  %add.ptr16.phi.trans.insert = getelementptr inbounds i8, ptr %block_bytes, i64 64
+  %add.ptr16.phi.trans.insert = getelementptr inbounds nuw i8, ptr %block_bytes, i64 64
   %.pre1057 = load <32 x i8>, ptr %add.ptr16.phi.trans.insert, align 16
-  %add.ptr19.phi.trans.insert = getelementptr inbounds i8, ptr %block_bytes, i64 96
+  %add.ptr19.phi.trans.insert = getelementptr inbounds nuw i8, ptr %block_bytes, i64 96
   %.pre1058 = load <32 x i8>, ptr %add.ptr19.phi.trans.insert, align 16
   %8 = shufflevector <32 x i8> %.pre, <32 x i8> poison, <32 x i32> <i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0, i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 23, i32 22, i32 21, i32 20, i32 19, i32 18, i32 17, i32 16, i32 31, i32 30, i32 29, i32 28, i32 27, i32 26, i32 25, i32 24>
   %9 = shufflevector <32 x i8> %.pre1056, <32 x i8> poison, <32 x i32> <i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0, i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 23, i32 22, i32 21, i32 20, i32 19, i32 18, i32 17, i32 16, i32 31, i32 30, i32 29, i32 28, i32 27, i32 26, i32 25, i32 24>
@@ -277,13 +277,13 @@ for.body68.lr.ph:                                 ; preds = %for.end
 for.body68:                                       ; preds = %for.body68.lr.ph, %for.body68
   %indvars.iv1050 = phi i64 [ 0, %for.body68.lr.ph ], [ %indvars.iv.next1051, %for.body68 ]
   %add.ptr71.idx = shl nsw i64 %indvars.iv1050, 7
-  %add.ptr71 = getelementptr inbounds i8, ptr %hashes, i64 %add.ptr71.idx
+  %add.ptr71 = getelementptr inbounds nuw i8, ptr %hashes, i64 %add.ptr71.idx
   %58 = load <8 x i32>, ptr %add.ptr71, align 1
-  %add.ptr77 = getelementptr inbounds i8, ptr %add.ptr71, i64 32
+  %add.ptr77 = getelementptr inbounds nuw i8, ptr %add.ptr71, i64 32
   %59 = load <8 x i32>, ptr %add.ptr77, align 1
-  %add.ptr82 = getelementptr inbounds i8, ptr %add.ptr71, i64 64
+  %add.ptr82 = getelementptr inbounds nuw i8, ptr %add.ptr71, i64 64
   %60 = load <8 x i32>, ptr %add.ptr82, align 1
-  %add.ptr87 = getelementptr inbounds i8, ptr %add.ptr71, i64 96
+  %add.ptr87 = getelementptr inbounds nuw i8, ptr %add.ptr71, i64 96
   %61 = load <8 x i32>, ptr %add.ptr87, align 1
   %62 = lshr <8 x i32> %58, splat (i32 16)
   %63 = lshr <8 x i32> %59, splat (i32 16)
@@ -359,11 +359,11 @@ for.body68:                                       ; preds = %for.body68.lr.ph, %
   %113 = shufflevector <32 x i8> %109, <32 x i8> poison, <32 x i32> <i32 0, i32 4, i32 8, i32 12, i32 1, i32 5, i32 9, i32 13, i32 2, i32 6, i32 10, i32 14, i32 3, i32 7, i32 11, i32 15, i32 16, i32 20, i32 24, i32 28, i32 17, i32 21, i32 25, i32 29, i32 18, i32 22, i32 26, i32 30, i32 19, i32 23, i32 27, i32 31>
   %114 = bitcast <32 x i8> %113 to <8 x i32>
   %115 = shufflevector <8 x i32> %114, <8 x i32> poison, <8 x i32> <i32 0, i32 4, i32 1, i32 5, i32 2, i32 6, i32 3, i32 7>
-  %add.ptr186 = getelementptr inbounds <4 x i64>, ptr %out_local_slots, i64 %indvars.iv1050
+  %add.ptr186 = getelementptr inbounds nuw <4 x i64>, ptr %out_local_slots, i64 %indvars.iv1050
   store <8 x i32> %115, ptr %add.ptr186, align 1
   %116 = bitcast <8 x i32> %112 to <32 x i8>
   %117 = icmp slt <32 x i8> %116, zeroinitializer
-  %arrayidx189 = getelementptr inbounds i32, ptr %out_match_bitvector, i64 %indvars.iv1050
+  %arrayidx189 = getelementptr inbounds nuw i32, ptr %out_match_bitvector, i64 %indvars.iv1050
   store <32 x i1> %117, ptr %arrayidx189, align 4
   %indvars.iv.next1051 = add nuw nsw i64 %indvars.iv1050, 1
   %exitcond1055.not = icmp eq i64 %indvars.iv.next1051, %wide.trip.count1054
@@ -382,17 +382,17 @@ entry:
   %cmp8 = icmp eq i32 %byte_size, 2
   %cond = select i1 %cmp8, i32 65535, i32 -1
   %cond9 = select i1 %cmp7, i32 255, i32 %cond
-  %blocks_ = getelementptr inbounds i8, ptr %this, i64 16
+  %blocks_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %blocks_, align 8
-  %is_cpu_.i = getelementptr inbounds i8, ptr %0, i64 9
+  %is_cpu_.i = getelementptr inbounds nuw i8, ptr %0, i64 9
   %1 = load i8, ptr %is_cpu_.i, align 1
   %tobool.i = trunc i8 %1 to i1
-  %data_.i = getelementptr inbounds i8, ptr %0, i64 16
+  %data_.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %2 = load ptr, ptr %data_.i, align 8
   %cond.i = select i1 %tobool.i, ptr %2, ptr null
   %idx.ext = sext i32 %byte_offset to i64
   %add.ptr = getelementptr inbounds i8, ptr %cond.i, i64 %idx.ext
-  %log_blocks_ = getelementptr inbounds i8, ptr %this, i64 4
+  %log_blocks_ = getelementptr inbounds nuw i8, ptr %this, i64 4
   %3 = load i32, ptr %log_blocks_, align 4
   %cmp11 = icmp eq i32 %3, 0
   %cmp2673 = icmp sgt i32 %num_keys, 7
@@ -417,7 +417,7 @@ while.end21:                                      ; preds = %entry
 
 for.body.lr.ph:                                   ; preds = %while.end21
   %div8286 = lshr i32 %num_keys, 3
-  %arrayidx = getelementptr inbounds i8, ptr %cond.i, i64 8
+  %arrayidx = getelementptr inbounds nuw i8, ptr %cond.i, i64 8
   %4 = load i64, ptr %arrayidx, align 8
   %vecinit.i220 = insertelement <4 x i64> poison, i64 %4, i64 0
   %vecinit3.i223 = shufflevector <4 x i64> %vecinit.i220, <4 x i64> poison, <4 x i32> zeroinitializer
@@ -427,14 +427,14 @@ for.body.lr.ph:                                   ; preds = %while.end21
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv77 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next78, %for.body ]
-  %arrayidx27 = getelementptr inbounds i64, ptr %local_slots, i64 %indvars.iv77
+  %arrayidx27 = getelementptr inbounds nuw i64, ptr %local_slots, i64 %indvars.iv77
   %6 = load i64, ptr %arrayidx27, align 8
   %vecinit.i229 = insertelement <4 x i64> poison, i64 %6, i64 0
   %vecinit3.i232 = shufflevector <4 x i64> %vecinit.i229, <4 x i64> poison, <4 x i32> <i32 0, i32 poison, i32 0, i32 poison>
   %7 = bitcast <4 x i64> %vecinit3.i232 to <32 x i8>
   %8 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> %5, <32 x i8> %7)
   %9 = shufflevector <32 x i8> %8, <32 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <32 x i32> <i32 0, i32 32, i32 32, i32 32, i32 1, i32 32, i32 32, i32 32, i32 2, i32 32, i32 32, i32 32, i32 3, i32 32, i32 32, i32 32, i32 20, i32 48, i32 48, i32 48, i32 21, i32 48, i32 48, i32 48, i32 22, i32 48, i32 48, i32 48, i32 23, i32 48, i32 48, i32 48>
-  %add.ptr33 = getelementptr inbounds <4 x i64>, ptr %out_group_ids, i64 %indvars.iv77
+  %add.ptr33 = getelementptr inbounds nuw <4 x i64>, ptr %out_group_ids, i64 %indvars.iv77
   store <32 x i8> %9, ptr %add.ptr33, align 1
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next78, %wide.trip.count80
@@ -442,9 +442,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 for.body38:                                       ; preds = %for.body38.lr.ph, %for.body38
   %indvars.iv = phi i64 [ 0, %for.body38.lr.ph ], [ %indvars.iv.next, %for.body38 ]
-  %add.ptr40 = getelementptr inbounds <4 x i64>, ptr %hashes, i64 %indvars.iv
+  %add.ptr40 = getelementptr inbounds nuw <4 x i64>, ptr %hashes, i64 %indvars.iv
   %10 = load <8 x i32>, ptr %add.ptr40, align 1
-  %arrayidx44 = getelementptr inbounds i64, ptr %local_slots, i64 %indvars.iv
+  %arrayidx44 = getelementptr inbounds nuw i64, ptr %local_slots, i64 %indvars.iv
   %11 = load i64, ptr %arrayidx44, align 8
   %vecinit.i238 = insertelement <4 x i64> poison, i64 %11, i64 0
   %vecinit3.i241 = shufflevector <4 x i64> %vecinit.i238, <4 x i64> poison, <4 x i32> <i32 0, i32 poison, i32 0, i32 poison>
@@ -461,7 +461,7 @@ for.body38:                                       ; preds = %for.body38.lr.ph, %
   %add.i = add <8 x i32> %mul.i79, %mul.i
   %17 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %add.ptr, <8 x i32> %add.i, <8 x i32> splat (i32 -1), i8 1)
   %and.i65 = and <8 x i32> %17, %vecinit7.i216
-  %add.ptr62 = getelementptr inbounds <4 x i64>, ptr %out_group_ids, i64 %indvars.iv
+  %add.ptr62 = getelementptr inbounds nuw <4 x i64>, ptr %out_group_ids, i64 %indvars.iv
   store <8 x i32> %and.i65, ptr %add.ptr62, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

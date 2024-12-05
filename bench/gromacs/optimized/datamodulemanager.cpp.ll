@@ -119,16 +119,16 @@ $_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE = co
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN3gmx25AnalysisDataModuleManager4ImplC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 30), (32, 40)) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 27
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 27
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(27) %0, i8 0, i64 27, i1 false)
   store i8 1, ptr %2, align 1
-  %3 = getelementptr inbounds i8, ptr %0, i64 28
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 0, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 29
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 29
   store i8 0, ptr %4, align 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 36
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 0, ptr %6, align 4
   ret void
 }
@@ -142,7 +142,7 @@ define void @_ZN3gmx25AnalysisDataModuleManager4Impl19checkModulePropertyERKNS_1
   %5 = alloca %"class.gmx::ExceptionInitializer", align 8
   %6 = alloca %"class.gmx::ExceptionInfo", align 8
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(8) %0)
   switch i32 %1, label %19 [
@@ -191,11 +191,11 @@ define void @_ZN3gmx25AnalysisDataModuleManager4Impl19checkModulePropertyERKNS_1
 23:                                               ; preds = %22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx8APIErrorE, i64 16), ptr %4, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %6, align 8
-  %24 = getelementptr inbounds i8, ptr %6, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @__PRETTY_FUNCTION__._ZN3gmx25AnalysisDataModuleManager4Impl19checkModulePropertyERKNS_19IAnalysisDataModuleENS0_12DataPropertyEb, ptr %24, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr @.str.1, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 204, ptr %.sroa.3.0..sroa_idx, align 8
   invoke void @_ZN3gmxlsINS_8APIErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3std10is_base_ofINS_16GromacsExceptionET_EE5valueES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::APIError") align 8 %21, ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %25 unwind label %28
@@ -250,8 +250,8 @@ define linkonce_odr void @_ZN3gmxlsINS_8APIErrorENS_22ExceptionInfoLocation_ENS_
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %6 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   store ptr %6, ptr %4, align 8
   store ptr @_ZTIN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, ptr %5, align 8
@@ -265,7 +265,7 @@ define linkonce_odr void @_ZN3gmxlsINS_8APIErrorENS_22ExceptionInfoLocation_ENS_
 
 _ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i.i: ; preds = %9
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(8) %10) #19
   br label %_ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEEvRKNS_13ExceptionInfoIT_T0_EE.exit
@@ -279,7 +279,7 @@ _ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i.i: ; preds
 
 _ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i: ; preds = %14
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   call void %19(ptr noundef nonnull align 8 dereferenceable(8) %16) #19
   br label %_ZNSt10unique_ptrIN3gmx8internal14IExceptionInfoESt14default_deleteIS2_EED2Ev.exit5.i
@@ -290,12 +290,12 @@ _ZNSt10unique_ptrIN3gmx8internal14IExceptionInfoESt14default_deleteIS2_EED2Ev.ex
 _ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEEvRKNS_13ExceptionInfoIT_T0_EE.exit: ; preds = %9, %_ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8
   store ptr %22, ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
-  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %25 = load ptr, ptr %24, align 8
   store ptr null, ptr %24, align 8
   store ptr %25, ptr %23, align 8
@@ -340,7 +340,7 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnul
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %10
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #19
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   ret void
 
@@ -360,13 +360,13 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx8APIErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx16GromacsExceptionE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN3gmx16GromacsExceptionD2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load atomic i64, ptr %5 acquire, align 8
   %7 = icmp eq i64 %6, 4294967297
   %8 = trunc i64 %6 to i32
@@ -374,10 +374,10 @@ define linkonce_odr void @_ZN3gmx8APIErrorD2Ev(ptr noundef nonnull align 8 deref
 
 9:                                                ; preds = %4
   store i32 0, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #19
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
@@ -403,10 +403,10 @@ define linkonce_odr void @_ZN3gmx8APIErrorD2Ev(ptr noundef nonnull align 8 deref
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #19
-  %26 = getelementptr inbounds i8, ptr %3, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %27 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i = icmp eq i8 %27, 0
   br i1 %.not.i.i.i.i.i.i.i, label %31, label %28
@@ -428,7 +428,7 @@ define linkonce_odr void @_ZN3gmx8APIErrorD2Ev(ptr noundef nonnull align 8 deref
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %33, %9
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #19
   br label %_ZN3gmx16GromacsExceptionD2Ev.exit
@@ -449,9 +449,9 @@ define linkonce_odr void @_ZN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %.not4.i.i.i.i = icmp eq ptr %3, %5
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
@@ -467,7 +467,7 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull 
   br label %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i: ; preds = %7, %.lr.ph.i.i.i.i
-  %8 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %8, %5
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !5
 
@@ -646,12 +646,12 @@ declare void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef no
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK3gmx25AnalysisDataModuleManager4Impl21checkModulePropertiesERKNS_19IAnalysisDataModuleE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %4
 
 4:                                                ; preds = %2, %4
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds [3 x i8], ptr %3, i64 0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [3 x i8], ptr %3, i64 0, i64 %indvars.iv
   %6 = load i8, ptr %5, align 1
   %7 = trunc i8 %6 to i1
   %8 = trunc nuw nsw i64 %indvars.iv to i32
@@ -671,7 +671,7 @@ define void @_ZNK3gmx25AnalysisDataModuleManager4Impl11presentDataEPNS_20Abstrac
   %6 = alloca %"class.gmx::ExceptionInitializer", align 8
   %7 = alloca %"class.gmx::ExceptionInfo", align 8
   %8 = alloca %"class.gmx::AnalysisDataPointSetRef", align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i32, ptr %9, align 8
   switch i32 %10, label %12 [
     i32 0, label %94
@@ -684,17 +684,17 @@ define void @_ZNK3gmx25AnalysisDataModuleManager4Impl11presentDataEPNS_20Abstrac
 
 12:                                               ; preds = %3
   %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %1)
-  %16 = getelementptr inbounds i8, ptr %0, i64 27
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 27
   %17 = load i8, ptr %16, align 1
   %18 = trunc i8 %17 to i1
   br i1 %18, label %19, label %26
 
 19:                                               ; preds = %12
   %20 = load ptr, ptr %2, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noundef i32 %22(ptr noundef nonnull align 8 dereferenceable(8) %2)
   %24 = and i32 %23, 8
@@ -704,16 +704,16 @@ define void @_ZNK3gmx25AnalysisDataModuleManager4Impl11presentDataEPNS_20Abstrac
 26:                                               ; preds = %19, %12
   %27 = phi i1 [ false, %12 ], [ %25, %19 ]
   %28 = load ptr, ptr %1, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
   %31 = tail call noundef i32 %30(ptr noundef nonnull align 8 dereferenceable(16) %1)
   %32 = icmp sgt i32 %31, 0
   br i1 %32, label %.lr.ph40, label %._crit_edge41
 
 .lr.ph40:                                         ; preds = %26
-  %33 = getelementptr inbounds i8, ptr %4, i64 32
-  %34 = getelementptr inbounds i8, ptr %4, i64 40
-  %35 = getelementptr inbounds i8, ptr %4, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %36
 
 36:                                               ; preds = %.lr.ph40, %._crit_edge
@@ -746,11 +746,11 @@ define void @_ZNK3gmx25AnalysisDataModuleManager4Impl11presentDataEPNS_20Abstrac
 46:                                               ; preds = %45
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx8APIErrorE, i64 16), ptr %5, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %7, align 8
-  %47 = getelementptr inbounds i8, ptr %7, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @__PRETTY_FUNCTION__._ZNK3gmx25AnalysisDataModuleManager4Impl11presentDataEPNS_20AbstractAnalysisDataEPNS_19IAnalysisDataModuleE, ptr %47, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr @.str.1, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 234, ptr %.sroa.3.0..sroa_idx, align 8
   invoke void @_ZN3gmxlsINS_8APIErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3std10is_base_ofINS_16GromacsExceptionET_EE5valueES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::APIError") align 8 %44, ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %48 unwind label %51
@@ -786,7 +786,7 @@ define void @_ZNK3gmx25AnalysisDataModuleManager4Impl11presentDataEPNS_20Abstrac
 
 54:                                               ; preds = %41, %40
   %55 = load ptr, ptr %2, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 40
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 40
   %57 = load ptr, ptr %56, align 8
   call void %57(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(12) %4)
   %.sroa.0.0.copyload.i.i.i36 = load ptr, ptr %33, align 8
@@ -802,10 +802,10 @@ define void @_ZNK3gmx25AnalysisDataModuleManager4Impl11presentDataEPNS_20Abstrac
 .lr.ph:                                           ; preds = %54, %.lr.ph
   %.ptr = phi ptr [ %.sroa.0.0.copyload.i.i.i, %.lr.ph ], [ %.sroa.0.0.copyload.i.i.i36, %54 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %54 ]
-  %65 = getelementptr inbounds %"class.gmx::AnalysisDataPointSetInfo", ptr %.ptr, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw %"class.gmx::AnalysisDataPointSetInfo", ptr %.ptr, i64 %indvars.iv
   call void @_ZN3gmx23AnalysisDataPointSetRefC1ERKNS_23AnalysisDataFrameHeaderERKNS_24AnalysisDataPointSetInfoERKNS_8ArrayRefIKNS_17AnalysisDataValueEEE(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 4 dereferenceable(16) %65, ptr noundef nonnull align 8 dereferenceable(16) %35)
   %66 = load ptr, ptr %2, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 48
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 48
   %68 = load ptr, ptr %67, align 8
   call void %68(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(40) %8)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -821,17 +821,17 @@ define void @_ZNK3gmx25AnalysisDataModuleManager4Impl11presentDataEPNS_20Abstrac
 
 ._crit_edge:                                      ; preds = %.lr.ph, %54
   %75 = load ptr, ptr %2, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 56
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 56
   %77 = load ptr, ptr %76, align 8
   call void %77(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(12) %4)
   %78 = load i32, ptr %4, align 8
   %79 = load ptr, ptr %2, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 64
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 64
   %81 = load ptr, ptr %80, align 8
   call void %81(ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %78)
   %82 = add nuw nsw i32 %.02538, 1
   %83 = load ptr, ptr %1, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
   %85 = load ptr, ptr %84, align 8
   %86 = call noundef i32 %85(ptr noundef nonnull align 8 dereferenceable(16) %1)
   %87 = icmp slt i32 %82, %86
@@ -844,7 +844,7 @@ define void @_ZNK3gmx25AnalysisDataModuleManager4Impl11presentDataEPNS_20Abstrac
 
 90:                                               ; preds = %._crit_edge41
   %91 = load ptr, ptr %2, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 72
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 72
   %93 = load ptr, ptr %92, align 8
   call void %93(ptr noundef nonnull align 8 dereferenceable(8) %2)
   br label %94
@@ -905,20 +905,20 @@ define linkonce_odr void @_ZNKSt14default_deleteIN3gmx25AnalysisDataModuleManage
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not4.i.i.i.i.i = icmp eq ptr %5, %7
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoES3_EvT_S5_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %4, %_ZSt8_DestroyIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoEEvPT_.exit.i.i.i.i.i
   %.05.i.i.i.i.i = phi ptr [ %44, %_ZSt8_DestroyIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoEEvPT_.exit.i.i.i.i.i ], [ %5, %4 ]
-  %8 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoEEvPT_.exit.i.i.i.i.i, label %10
 
 10:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %11 = getelementptr inbounds i8, ptr %9, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load atomic i64, ptr %11 acquire, align 8
   %13 = icmp eq i64 %12, 4294967297
   %14 = trunc i64 %12 to i32
@@ -926,10 +926,10 @@ define linkonce_odr void @_ZNKSt14default_deleteIN3gmx25AnalysisDataModuleManage
 
 15:                                               ; preds = %10
   store i32 0, ptr %11, align 8
-  %16 = getelementptr inbounds i8, ptr %9, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 0, ptr %16, align 4
   %17 = load ptr, ptr %9, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(16) %9) #19
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i.i
@@ -955,10 +955,10 @@ define linkonce_odr void @_ZNKSt14default_deleteIN3gmx25AnalysisDataModuleManage
 
 28:                                               ; preds = %26
   %29 = load ptr, ptr %9, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load ptr, ptr %30, align 8
   tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %9) #19
-  %32 = getelementptr inbounds i8, ptr %9, i64 12
+  %32 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %33 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %33, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %37, label %34
@@ -980,13 +980,13 @@ define linkonce_odr void @_ZNKSt14default_deleteIN3gmx25AnalysisDataModuleManage
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i.i: ; preds = %39, %15
   %41 = load ptr, ptr %9, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %43 = load ptr, ptr %42, align 8
   tail call void %43(ptr noundef nonnull align 8 dereferenceable(16) %9) #19
   br label %_ZSt8_DestroyIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoEEvPT_.exit.i.i.i.i.i
 
 _ZSt8_DestroyIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoEEvPT_.exit.i.i.i.i.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i.i, %39, %26, %.lr.ph.i.i.i.i.i
-  %44 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i = icmp eq ptr %44, %7
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !10
 
@@ -1015,7 +1015,7 @@ _ZN3gmx25AnalysisDataModuleManager4ImplD2Ev.exit: ; preds = %_ZSt8_DestroyIPN3gm
 define void @_ZN3gmx25AnalysisDataModuleManager25dataPropertyAboutToChangeENS0_12DataPropertyEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #2 align 2 {
   %4 = zext i1 %2 to i8
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %10, label %9
@@ -1025,9 +1025,9 @@ define void @_ZN3gmx25AnalysisDataModuleManager25dataPropertyAboutToChangeENS0_1
   unreachable
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %5, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %12 = zext i32 %1 to i64
-  %13 = getelementptr inbounds [3 x i8], ptr %11, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw [3 x i8], ptr %11, i64 0, i64 %12
   %14 = load i8, ptr %13, align 1
   %15 = trunc i8 %14 to i1
   %16 = xor i1 %2, %15
@@ -1035,7 +1035,7 @@ define void @_ZN3gmx25AnalysisDataModuleManager25dataPropertyAboutToChangeENS0_1
 
 17:                                               ; preds = %10
   %18 = load ptr, ptr %5, align 8
-  %19 = getelementptr inbounds i8, ptr %5, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not11 = icmp eq ptr %18, %20
   br i1 %.not11, label %._crit_edge, label %.lr.ph
@@ -1044,17 +1044,17 @@ define void @_ZN3gmx25AnalysisDataModuleManager25dataPropertyAboutToChangeENS0_1
   %.sroa.08.012 = phi ptr [ %22, %.lr.ph ], [ %18, %17 ]
   %21 = load ptr, ptr %.sroa.08.012, align 8
   tail call void @_ZN3gmx25AnalysisDataModuleManager4Impl19checkModulePropertyERKNS_19IAnalysisDataModuleENS0_12DataPropertyEb(ptr noundef nonnull align 8 dereferenceable(8) %21, i32 noundef %1, i1 noundef zeroext %2)
-  %22 = getelementptr inbounds i8, ptr %.sroa.08.012, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.08.012, i64 24
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
   %.not = icmp eq ptr %22, %25
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %17
   %.lcssa = phi ptr [ %5, %17 ], [ %23, %.lr.ph ]
-  %26 = getelementptr inbounds i8, ptr %.lcssa, i64 24
-  %27 = getelementptr inbounds [3 x i8], ptr %26, i64 0, i64 %12
+  %26 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 24
+  %27 = getelementptr inbounds nuw [3 x i8], ptr %26, i64 0, i64 %12
   store i8 %4, ptr %27, align 1
   br label %28
 
@@ -1066,12 +1066,12 @@ define void @_ZN3gmx25AnalysisDataModuleManager25dataPropertyAboutToChangeENS0_1
 define void @_ZN3gmx25AnalysisDataModuleManager9addModuleEPNS_20AbstractAnalysisDataERKSt10shared_ptrINS_19IAnalysisDataModuleEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr %0, align 8
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
   br label %7
 
 7:                                                ; preds = %7, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %7 ]
-  %8 = getelementptr inbounds [3 x i8], ptr %6, i64 0, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [3 x i8], ptr %6, i64 0, i64 %indvars.iv.i
   %9 = load i8, ptr %8, align 1
   %10 = trunc i8 %9 to i1
   %11 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -1082,7 +1082,7 @@ define void @_ZN3gmx25AnalysisDataModuleManager9addModuleEPNS_20AbstractAnalysis
 
 _ZNK3gmx25AnalysisDataModuleManager4Impl21checkModulePropertiesERKNS_19IAnalysisDataModuleE.exit: ; preds = %7
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %14 = load i32, ptr %13, align 8
   %.not = icmp eq i32 %14, 2
   br i1 %.not, label %15, label %16
@@ -1096,7 +1096,7 @@ _ZNK3gmx25AnalysisDataModuleManager4Impl21checkModulePropertiesERKNS_19IAnalysis
   tail call void @_ZNK3gmx25AnalysisDataModuleManager4Impl11presentDataEPNS_20AbstractAnalysisDataEPNS_19IAnalysisDataModuleE(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef %1, ptr noundef %17)
   %18 = load ptr, ptr %2, align 8
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef i32 %21(ptr noundef nonnull align 8 dereferenceable(8) %18)
   %23 = and i32 %22, 8
@@ -1105,28 +1105,28 @@ _ZNK3gmx25AnalysisDataModuleManager4Impl21checkModulePropertiesERKNS_19IAnalysis
 
 24:                                               ; preds = %16
   %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 27
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 27
   store i8 0, ptr %26, align 1
   br label %27
 
 27:                                               ; preds = %24, %16
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %28, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %32 = load ptr, ptr %31, align 8
   %.not.i = icmp eq ptr %30, %32
   br i1 %.not.i, label %49, label %33
 
 33:                                               ; preds = %27
   %34 = load ptr, ptr %2, align 8
-  %35 = getelementptr inbounds i8, ptr %2, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %36 = load ptr, ptr %35, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %36, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoEEE9constructIS3_JRKSt10shared_ptrINS0_19IAnalysisDataModuleEEEEEvRS4_PT_DpOT0_.exit.i, label %37
 
 37:                                               ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %36, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %39 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i = icmp eq i8 %39, 0
   br i1 %.not.i.i.i.i.i.i.i, label %43, label %40
@@ -1143,12 +1143,12 @@ _ZNK3gmx25AnalysisDataModuleManager4Impl21checkModulePropertiesERKNS_19IAnalysis
 
 _ZNSt16allocator_traitsISaIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoEEE9constructIS3_JRKSt10shared_ptrINS0_19IAnalysisDataModuleEEEEEvRS4_PT_DpOT0_.exit.i: ; preds = %43, %40, %33
   store ptr %34, ptr %30, align 8
-  %45 = getelementptr inbounds i8, ptr %30, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %36, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %30, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store i8 0, ptr %46, align 8
   %47 = load ptr, ptr %29, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   store ptr %48, ptr %29, align 8
   br label %_ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE12emplace_backIJRKSt10shared_ptrINS0_19IAnalysisDataModuleEEEEERS3_DpOT_.exit
 
@@ -1162,7 +1162,7 @@ _ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE12emplace
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE17_M_realloc_insertIJRKSt10shared_ptrINS0_19IAnalysisDataModuleEEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -1184,116 +1184,115 @@ _ZNKSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE12_M_che
   %16 = select i1 %14, i64 384307168202282325, i64 %15
   %17 = ptrtoint ptr %1 to i64
   %18 = sub i64 %17, %8
-  %19 = sdiv exact i64 %18, 24
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %_ZNSt12_Vector_baseIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_M_allocateEm.exit, label %20
+  br i1 %.not.i, label %_ZNSt12_Vector_baseIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_M_allocateEm.exit, label %19
 
-20:                                               ; preds = %_ZNKSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE12_M_check_lenEmPKc.exit
-  %21 = mul nuw nsw i64 %16, 24
-  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #20
+19:                                               ; preds = %_ZNKSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE12_M_check_lenEmPKc.exit
+  %20 = mul nuw nsw i64 %16, 24
+  %21 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %20) #20
   br label %_ZNSt12_Vector_baseIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE12_M_check_lenEmPKc.exit, %20
-  %23 = phi ptr [ %22, %20 ], [ null, %_ZNKSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE12_M_check_lenEmPKc.exit ]
-  %24 = getelementptr inbounds %"struct.gmx::AnalysisDataModuleManager::Impl::ModuleInfo", ptr %23, i64 %19
-  %25 = load ptr, ptr %2, align 8
-  %26 = getelementptr inbounds i8, ptr %2, i64 8
-  %27 = load ptr, ptr %26, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %27, null
-  br i1 %.not.i.i.i.i.i, label %36, label %28
+_ZNSt12_Vector_baseIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE12_M_check_lenEmPKc.exit, %19
+  %22 = phi ptr [ %21, %19 ], [ null, %_ZNKSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE12_M_check_lenEmPKc.exit ]
+  %23 = getelementptr inbounds i8, ptr %22, i64 %18
+  %24 = load ptr, ptr %2, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %26 = load ptr, ptr %25, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %26, null
+  br i1 %.not.i.i.i.i.i, label %35, label %27
 
-28:                                               ; preds = %_ZNSt12_Vector_baseIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_M_allocateEm.exit
-  %29 = getelementptr inbounds i8, ptr %27, i64 8
-  %30 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i = icmp eq i8 %30, 0
-  br i1 %.not.i.i.i.i.i.i, label %34, label %31
+27:                                               ; preds = %_ZNSt12_Vector_baseIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_M_allocateEm.exit
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %29 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i = icmp eq i8 %29, 0
+  br i1 %.not.i.i.i.i.i.i, label %33, label %30
 
-31:                                               ; preds = %28
-  %32 = load i32, ptr %29, align 4
-  %33 = add nsw i32 %32, 1
-  store i32 %33, ptr %29, align 4
-  br label %36
+30:                                               ; preds = %27
+  %31 = load i32, ptr %28, align 4
+  %32 = add nsw i32 %31, 1
+  store i32 %32, ptr %28, align 4
+  br label %35
 
-34:                                               ; preds = %28
-  %35 = atomicrmw volatile add ptr %29, i32 1 acq_rel, align 4
-  br label %36
+33:                                               ; preds = %27
+  %34 = atomicrmw volatile add ptr %28, i32 1 acq_rel, align 4
+  br label %35
 
-36:                                               ; preds = %34, %31, %_ZNSt12_Vector_baseIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_M_allocateEm.exit
-  store ptr %25, ptr %24, align 8
-  %37 = getelementptr inbounds i8, ptr %24, i64 8
-  store ptr %27, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %24, i64 16
-  store i8 0, ptr %38, align 8
+35:                                               ; preds = %33, %30, %_ZNSt12_Vector_baseIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_M_allocateEm.exit
+  store ptr %24, ptr %23, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  store ptr %26, ptr %36, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  store i8 0, ptr %37, align 8
   %.not10.i.i.i = icmp eq ptr %6, %1
   br i1 %.not10.i.i.i, label %_ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %36, %.lr.ph.i.i.i
-  %.012.i.i.i = phi ptr [ %48, %.lr.ph.i.i.i ], [ %23, %36 ]
-  %.0911.i.i.i = phi ptr [ %47, %.lr.ph.i.i.i ], [ %6, %36 ]
+.lr.ph.i.i.i:                                     ; preds = %35, %.lr.ph.i.i.i
+  %.012.i.i.i = phi ptr [ %47, %.lr.ph.i.i.i ], [ %22, %35 ]
+  %.0911.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i ], [ %6, %35 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
-  %39 = load ptr, ptr %.0911.i.i.i, align 8, !alias.scope !15, !noalias !12
-  store ptr %39, ptr %.012.i.i.i, align 8, !alias.scope !12, !noalias !15
-  %40 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 8
-  %41 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 8
-  %42 = load ptr, ptr %41, align 8, !alias.scope !15, !noalias !12
-  store ptr null, ptr %41, align 8, !alias.scope !15, !noalias !12
-  store ptr %42, ptr %40, align 8, !alias.scope !12, !noalias !15
+  %38 = load ptr, ptr %.0911.i.i.i, align 8, !alias.scope !15, !noalias !12
+  store ptr %38, ptr %.012.i.i.i, align 8, !alias.scope !12, !noalias !15
+  %39 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
+  %41 = load ptr, ptr %40, align 8, !alias.scope !15, !noalias !12
+  store ptr null, ptr %40, align 8, !alias.scope !15, !noalias !12
+  store ptr %41, ptr %39, align 8, !alias.scope !12, !noalias !15
   store ptr null, ptr %.0911.i.i.i, align 8, !alias.scope !15, !noalias !12
-  %43 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
-  %44 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
-  %45 = load i8, ptr %44, align 8, !alias.scope !15, !noalias !12
-  %46 = and i8 %45, 1
-  store i8 %46, ptr %43, align 8, !alias.scope !12, !noalias !15
-  %47 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 24
-  %48 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 24
-  %.not.i.i.i = icmp eq ptr %47, %1
+  %42 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
+  %44 = load i8, ptr %43, align 8, !alias.scope !15, !noalias !12
+  %45 = and i8 %44, 1
+  store i8 %45, ptr %42, align 8, !alias.scope !12, !noalias !15
+  %46 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 24
+  %.not.i.i.i = icmp eq ptr %46, %1
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %.lr.ph.i.i.i, !llvm.loop !17
 
-_ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %.lr.ph.i.i.i, %36
-  %.0.lcssa.i.i.i = phi ptr [ %23, %36 ], [ %48, %.lr.ph.i.i.i ]
-  %49 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 24
+_ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %.lr.ph.i.i.i, %35
+  %.0.lcssa.i.i.i = phi ptr [ %22, %35 ], [ %47, %.lr.ph.i.i.i ]
+  %48 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 24
   %.not10.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i26, label %_ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32, label %.lr.ph.i.i.i27
 
 .lr.ph.i.i.i27:                                   ; preds = %_ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %.lr.ph.i.i.i27
-  %.012.i.i.i28 = phi ptr [ %59, %.lr.ph.i.i.i27 ], [ %49, %_ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
-  %.0911.i.i.i29 = phi ptr [ %58, %.lr.ph.i.i.i27 ], [ %1, %_ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
+  %.012.i.i.i28 = phi ptr [ %58, %.lr.ph.i.i.i27 ], [ %48, %_ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
+  %.0911.i.i.i29 = phi ptr [ %57, %.lr.ph.i.i.i27 ], [ %1, %_ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
-  %50 = load ptr, ptr %.0911.i.i.i29, align 8, !alias.scope !21, !noalias !18
-  store ptr %50, ptr %.012.i.i.i28, align 8, !alias.scope !18, !noalias !21
-  %51 = getelementptr inbounds i8, ptr %.012.i.i.i28, i64 8
-  %52 = getelementptr inbounds i8, ptr %.0911.i.i.i29, i64 8
-  %53 = load ptr, ptr %52, align 8, !alias.scope !21, !noalias !18
-  store ptr null, ptr %52, align 8, !alias.scope !21, !noalias !18
-  store ptr %53, ptr %51, align 8, !alias.scope !18, !noalias !21
+  %49 = load ptr, ptr %.0911.i.i.i29, align 8, !alias.scope !21, !noalias !18
+  store ptr %49, ptr %.012.i.i.i28, align 8, !alias.scope !18, !noalias !21
+  %50 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 8
+  %52 = load ptr, ptr %51, align 8, !alias.scope !21, !noalias !18
+  store ptr null, ptr %51, align 8, !alias.scope !21, !noalias !18
+  store ptr %52, ptr %50, align 8, !alias.scope !18, !noalias !21
   store ptr null, ptr %.0911.i.i.i29, align 8, !alias.scope !21, !noalias !18
-  %54 = getelementptr inbounds i8, ptr %.012.i.i.i28, i64 16
-  %55 = getelementptr inbounds i8, ptr %.0911.i.i.i29, i64 16
-  %56 = load i8, ptr %55, align 8, !alias.scope !21, !noalias !18
-  %57 = and i8 %56, 1
-  store i8 %57, ptr %54, align 8, !alias.scope !18, !noalias !21
-  %58 = getelementptr inbounds i8, ptr %.0911.i.i.i29, i64 24
-  %59 = getelementptr inbounds i8, ptr %.012.i.i.i28, i64 24
-  %.not.i.i.i30 = icmp eq ptr %58, %5
+  %53 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 16
+  %55 = load i8, ptr %54, align 8, !alias.scope !21, !noalias !18
+  %56 = and i8 %55, 1
+  store i8 %56, ptr %53, align 8, !alias.scope !18, !noalias !21
+  %57 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 24
+  %.not.i.i.i30 = icmp eq ptr %57, %5
   br i1 %.not.i.i.i30, label %_ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32, label %.lr.ph.i.i.i27, !llvm.loop !17
 
 _ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32: ; preds = %.lr.ph.i.i.i27, %_ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit
-  %.0.lcssa.i.i.i31 = phi ptr [ %49, %_ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ], [ %59, %.lr.ph.i.i.i27 ]
+  %.0.lcssa.i.i.i31 = phi ptr [ %48, %_ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ], [ %58, %.lr.ph.i.i.i27 ]
   %.not.i33 = icmp eq ptr %6, null
-  br i1 %.not.i33, label %_ZNSt12_Vector_baseIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE13_M_deallocateEPS3_m.exit, label %60
+  br i1 %.not.i33, label %_ZNSt12_Vector_baseIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE13_M_deallocateEPS3_m.exit, label %59
 
-60:                                               ; preds = %_ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32
+59:                                               ; preds = %_ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32
   tail call void @_ZdlPv(ptr noundef nonnull %6) #21
   br label %_ZNSt12_Vector_baseIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE13_M_deallocateEPS3_m.exit
 
-_ZNSt12_Vector_baseIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32, %60
-  %61 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %23, ptr %0, align 8
+_ZNSt12_Vector_baseIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32, %59
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %22, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8
-  %62 = getelementptr inbounds %"struct.gmx::AnalysisDataModuleManager::Impl::ModuleInfo", ptr %23, i64 %16
-  store ptr %62, ptr %61, align 8
+  %61 = getelementptr inbounds nuw %"struct.gmx::AnalysisDataModuleManager::Impl::ModuleInfo", ptr %22, i64 %16
+  store ptr %61, ptr %60, align 8
   ret void
 }
 
@@ -1303,12 +1302,12 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx25AnalysisDataModuleManager11applyModuleEPNS_20AbstractAnalysisDataEPNS_19IAnalysisDataModuleE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 align 2 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   br label %6
 
 6:                                                ; preds = %6, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %6 ]
-  %7 = getelementptr inbounds [3 x i8], ptr %5, i64 0, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw [3 x i8], ptr %5, i64 0, i64 %indvars.iv.i
   %8 = load i8, ptr %7, align 1
   %9 = trunc i8 %8 to i1
   %10 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -1319,7 +1318,7 @@ define void @_ZN3gmx25AnalysisDataModuleManager11applyModuleEPNS_20AbstractAnaly
 
 _ZNK3gmx25AnalysisDataModuleManager4Impl21checkModulePropertiesERKNS_19IAnalysisDataModuleE.exit: ; preds = %6
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 3
   br i1 %14, label %16, label %15
@@ -1336,7 +1335,7 @@ _ZNK3gmx25AnalysisDataModuleManager4Impl21checkModulePropertiesERKNS_19IAnalysis
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZNK3gmx25AnalysisDataModuleManager16hasSerialModulesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #14 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 28
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %4 = load i8, ptr %3, align 4
   %5 = trunc i8 %4 to i1
   ret i1 %5
@@ -1345,7 +1344,7 @@ define noundef zeroext i1 @_ZNK3gmx25AnalysisDataModuleManager16hasSerialModules
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx25AnalysisDataModuleManager15notifyDataStartEPNS_20AbstractAnalysisDataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %.preheader, label %9
@@ -1377,22 +1376,22 @@ define void @_ZN3gmx25AnalysisDataModuleManager15notifyDataStartEPNS_20AbstractA
 
 ._crit_edge:                                      ; preds = %10, %.preheader
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store i32 1, ptr %18, align 8
   %19 = load ptr, ptr %0, align 8
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %19, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = icmp ne ptr %20, %22
-  %24 = getelementptr inbounds i8, ptr %19, i64 28
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 28
   %25 = zext i1 %23 to i8
   store i8 %25, ptr %24, align 4
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 29
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 29
   store i8 0, ptr %27, align 1
   %28 = load ptr, ptr %0, align 8
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %28, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %31 = load ptr, ptr %30, align 8
   %.not13 = icmp eq ptr %29, %31
   br i1 %.not13, label %._crit_edge17, label %.lr.ph16
@@ -1401,12 +1400,12 @@ define void @_ZN3gmx25AnalysisDataModuleManager15notifyDataStartEPNS_20AbstractA
   %32 = phi ptr [ %45, %_ZNK3gmx25AnalysisDataModuleManager4Impl21checkModulePropertiesERKNS_19IAnalysisDataModuleE.exit ], [ %28, %._crit_edge ]
   %.sroa.08.014 = phi ptr [ %44, %_ZNK3gmx25AnalysisDataModuleManager4Impl21checkModulePropertiesERKNS_19IAnalysisDataModuleE.exit ], [ %29, %._crit_edge ]
   %33 = load ptr, ptr %.sroa.08.014, align 8
-  %34 = getelementptr inbounds i8, ptr %32, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 24
   br label %35
 
 35:                                               ; preds = %35, %.lr.ph16
   %indvars.iv.i = phi i64 [ 0, %.lr.ph16 ], [ %indvars.iv.next.i, %35 ]
-  %36 = getelementptr inbounds [3 x i8], ptr %34, i64 0, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw [3 x i8], ptr %34, i64 0, i64 %indvars.iv.i
   %37 = load i8, ptr %36, align 1
   %38 = trunc i8 %37 to i1
   %39 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -1418,12 +1417,12 @@ define void @_ZN3gmx25AnalysisDataModuleManager15notifyDataStartEPNS_20AbstractA
 _ZNK3gmx25AnalysisDataModuleManager4Impl21checkModulePropertiesERKNS_19IAnalysisDataModuleE.exit: ; preds = %35
   %40 = load ptr, ptr %.sroa.08.014, align 8
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %43 = load ptr, ptr %42, align 8
   tail call void %43(ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef nonnull %1)
-  %44 = getelementptr inbounds i8, ptr %.sroa.08.014, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %.sroa.08.014, i64 24
   %45 = load ptr, ptr %0, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load ptr, ptr %46, align 8
   %.not = icmp eq ptr %44, %47
   br i1 %.not, label %._crit_edge17, label %.lr.ph16, !llvm.loop !24
@@ -1439,7 +1438,7 @@ declare noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEi(ptr noundef n
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx25AnalysisDataModuleManager23notifyParallelDataStartEPNS_20AbstractAnalysisDataERKNS_27AnalysisDataParallelOptionsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #2 align 2 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %.preheader, label %10
@@ -1471,17 +1470,17 @@ define void @_ZN3gmx25AnalysisDataModuleManager23notifyParallelDataStartEPNS_20A
 
 ._crit_edge:                                      ; preds = %11, %.preheader
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
   store i32 1, ptr %19, align 8
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 28
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 28
   store i8 0, ptr %21, align 4
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 29
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 29
   store i8 0, ptr %23, align 1
   %24 = load ptr, ptr %0, align 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %24, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %27 = load ptr, ptr %26, align 8
   %.not14 = icmp eq ptr %25, %27
   br i1 %.not14, label %._crit_edge18, label %.lr.ph17
@@ -1490,12 +1489,12 @@ define void @_ZN3gmx25AnalysisDataModuleManager23notifyParallelDataStartEPNS_20A
   %28 = phi ptr [ %50, %48 ], [ %24, %._crit_edge ]
   %.sroa.07.015 = phi ptr [ %49, %48 ], [ %25, %._crit_edge ]
   %29 = load ptr, ptr %.sroa.07.015, align 8
-  %30 = getelementptr inbounds i8, ptr %28, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 24
   br label %31
 
 31:                                               ; preds = %31, %.lr.ph17
   %indvars.iv.i = phi i64 [ 0, %.lr.ph17 ], [ %indvars.iv.next.i, %31 ]
-  %32 = getelementptr inbounds [3 x i8], ptr %30, i64 0, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw [3 x i8], ptr %30, i64 0, i64 %indvars.iv.i
   %33 = load i8, ptr %32, align 1
   %34 = trunc i8 %33 to i1
   %35 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -1507,29 +1506,29 @@ define void @_ZN3gmx25AnalysisDataModuleManager23notifyParallelDataStartEPNS_20A
 _ZNK3gmx25AnalysisDataModuleManager4Impl21checkModulePropertiesERKNS_19IAnalysisDataModuleE.exit: ; preds = %31
   %36 = load ptr, ptr %.sroa.07.015, align 8
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
   %40 = tail call noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
-  %41 = getelementptr inbounds i8, ptr %.sroa.07.015, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.07.015, i64 16
   %42 = zext i1 %40 to i8
   store i8 %42, ptr %41, align 8
   %43 = load ptr, ptr %0, align 8
   br i1 %40, label %44, label %46
 
 44:                                               ; preds = %_ZNK3gmx25AnalysisDataModuleManager4Impl21checkModulePropertiesERKNS_19IAnalysisDataModuleE.exit
-  %45 = getelementptr inbounds i8, ptr %43, i64 29
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 29
   store i8 1, ptr %45, align 1
   br label %48
 
 46:                                               ; preds = %_ZNK3gmx25AnalysisDataModuleManager4Impl21checkModulePropertiesERKNS_19IAnalysisDataModuleE.exit
-  %47 = getelementptr inbounds i8, ptr %43, i64 28
+  %47 = getelementptr inbounds nuw i8, ptr %43, i64 28
   store i8 1, ptr %47, align 4
   br label %48
 
 48:                                               ; preds = %44, %46
-  %49 = getelementptr inbounds i8, ptr %.sroa.07.015, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.07.015, i64 24
   %50 = load ptr, ptr %0, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load ptr, ptr %51, align 8
   %.not = icmp eq ptr %49, %52
   br i1 %.not, label %._crit_edge18, label %.lr.ph17, !llvm.loop !26
@@ -1541,17 +1540,17 @@ _ZNK3gmx25AnalysisDataModuleManager4Impl21checkModulePropertiesERKNS_19IAnalysis
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK3gmx25AnalysisDataModuleManager16notifyFrameStartERKNS_23AnalysisDataFrameHeaderE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(12) %1) local_unnamed_addr #2 align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 2, ptr %4, align 8
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 28
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %7 = load i8, ptr %6, align 4
   %8 = trunc i8 %7 to i1
   br i1 %8, label %9, label %.loopexit
 
 9:                                                ; preds = %2
   %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not8 = icmp eq ptr %10, %12
   br i1 %.not8, label %.loopexit, label %.lr.ph
@@ -1559,7 +1558,7 @@ define void @_ZNK3gmx25AnalysisDataModuleManager16notifyFrameStartERKNS_23Analys
 .lr.ph:                                           ; preds = %9, %22
   %13 = phi ptr [ %23, %22 ], [ %5, %9 ]
   %.sroa.04.09 = phi ptr [ %24, %22 ], [ %10, %9 ]
-  %14 = getelementptr inbounds i8, ptr %.sroa.04.09, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.04.09, i64 16
   %15 = load i8, ptr %14, align 8
   %16 = trunc i8 %15 to i1
   br i1 %16, label %22, label %17
@@ -1567,7 +1566,7 @@ define void @_ZNK3gmx25AnalysisDataModuleManager16notifyFrameStartERKNS_23Analys
 17:                                               ; preds = %.lr.ph
   %18 = load ptr, ptr %.sroa.04.09, align 8
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %21 = load ptr, ptr %20, align 8
   tail call void %21(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 4 dereferenceable(12) %1)
   %.pre = load ptr, ptr %0, align 8
@@ -1575,8 +1574,8 @@ define void @_ZNK3gmx25AnalysisDataModuleManager16notifyFrameStartERKNS_23Analys
 
 22:                                               ; preds = %.lr.ph, %17
   %23 = phi ptr [ %13, %.lr.ph ], [ %.pre, %17 ]
-  %24 = getelementptr inbounds i8, ptr %.sroa.04.09, i64 24
-  %25 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.04.09, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %26 = load ptr, ptr %25, align 8
   %.not = icmp eq ptr %24, %26
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !27
@@ -1588,14 +1587,14 @@ define void @_ZNK3gmx25AnalysisDataModuleManager16notifyFrameStartERKNS_23Analys
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK3gmx25AnalysisDataModuleManager24notifyParallelFrameStartERKNS_23AnalysisDataFrameHeaderE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(12) %1) local_unnamed_addr #2 align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 29
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 29
   %5 = load i8, ptr %4, align 1
   %6 = trunc i8 %5 to i1
   br i1 %6, label %7, label %.loopexit
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not8 = icmp eq ptr %8, %10
   br i1 %.not8, label %.loopexit, label %.lr.ph
@@ -1603,7 +1602,7 @@ define void @_ZNK3gmx25AnalysisDataModuleManager24notifyParallelFrameStartERKNS_
 .lr.ph:                                           ; preds = %7, %20
   %11 = phi ptr [ %21, %20 ], [ %3, %7 ]
   %.sroa.04.09 = phi ptr [ %22, %20 ], [ %8, %7 ]
-  %12 = getelementptr inbounds i8, ptr %.sroa.04.09, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.04.09, i64 16
   %13 = load i8, ptr %12, align 8
   %14 = trunc i8 %13 to i1
   br i1 %14, label %15, label %20
@@ -1611,7 +1610,7 @@ define void @_ZNK3gmx25AnalysisDataModuleManager24notifyParallelFrameStartERKNS_
 15:                                               ; preds = %.lr.ph
   %16 = load ptr, ptr %.sroa.04.09, align 8
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %19 = load ptr, ptr %18, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 4 dereferenceable(12) %1)
   %.pre = load ptr, ptr %0, align 8
@@ -1619,8 +1618,8 @@ define void @_ZNK3gmx25AnalysisDataModuleManager24notifyParallelFrameStartERKNS_
 
 20:                                               ; preds = %.lr.ph, %15
   %21 = phi ptr [ %11, %.lr.ph ], [ %.pre, %15 ]
-  %22 = getelementptr inbounds i8, ptr %.sroa.04.09, i64 24
-  %23 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.04.09, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %24 = load ptr, ptr %23, align 8
   %.not = icmp eq ptr %22, %24
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !28
@@ -1635,13 +1634,13 @@ define void @_ZNK3gmx25AnalysisDataModuleManager15notifyPointsAddERKNS_23Analysi
   %4 = alloca %"class.gmx::ExceptionInitializer", align 8
   %5 = alloca %"class.gmx::ExceptionInfo", align 8
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 28
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 28
   %8 = load i8, ptr %7, align 4
   %9 = trunc i8 %8 to i1
   br i1 %9, label %10, label %.loopexit
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %6, i64 27
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 27
   %12 = load i8, ptr %11, align 1
   %13 = trunc i8 %12 to i1
   br i1 %13, label %27, label %14
@@ -1666,11 +1665,11 @@ define void @_ZNK3gmx25AnalysisDataModuleManager15notifyPointsAddERKNS_23Analysi
 19:                                               ; preds = %18
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx8APIErrorE, i64 16), ptr %3, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %5, align 8
-  %20 = getelementptr inbounds i8, ptr %5, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @__PRETTY_FUNCTION__._ZNK3gmx25AnalysisDataModuleManager15notifyPointsAddERKNS_23AnalysisDataPointSetRefE, ptr %20, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr @.str.1, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 411, ptr %.sroa.3.0..sroa_idx, align 8
   invoke void @_ZN3gmxlsINS_8APIErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3std10is_base_ofINS_16GromacsExceptionET_EE5valueES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::APIError") align 8 %17, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %21 unwind label %24
@@ -1707,7 +1706,7 @@ define void @_ZNK3gmx25AnalysisDataModuleManager15notifyPointsAddERKNS_23Analysi
 27:                                               ; preds = %._crit_edge, %10
   %28 = phi ptr [ %.pre, %._crit_edge ], [ %6, %10 ]
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %28, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %31 = load ptr, ptr %30, align 8
   %.not25 = icmp eq ptr %29, %31
   br i1 %.not25, label %.loopexit, label %.lr.ph
@@ -1715,7 +1714,7 @@ define void @_ZNK3gmx25AnalysisDataModuleManager15notifyPointsAddERKNS_23Analysi
 .lr.ph:                                           ; preds = %27, %41
   %32 = phi ptr [ %42, %41 ], [ %28, %27 ]
   %.sroa.013.026 = phi ptr [ %43, %41 ], [ %29, %27 ]
-  %33 = getelementptr inbounds i8, ptr %.sroa.013.026, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.013.026, i64 16
   %34 = load i8, ptr %33, align 8
   %35 = trunc i8 %34 to i1
   br i1 %35, label %41, label %36
@@ -1723,7 +1722,7 @@ define void @_ZNK3gmx25AnalysisDataModuleManager15notifyPointsAddERKNS_23Analysi
 36:                                               ; preds = %.lr.ph
   %37 = load ptr, ptr %.sroa.013.026, align 8
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 48
   %40 = load ptr, ptr %39, align 8
   tail call void %40(ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull align 8 dereferenceable(40) %1)
   %.pre27 = load ptr, ptr %0, align 8
@@ -1731,8 +1730,8 @@ define void @_ZNK3gmx25AnalysisDataModuleManager15notifyPointsAddERKNS_23Analysi
 
 41:                                               ; preds = %.lr.ph, %36
   %42 = phi ptr [ %32, %.lr.ph ], [ %.pre27, %36 ]
-  %43 = getelementptr inbounds i8, ptr %.sroa.013.026, i64 24
-  %44 = getelementptr inbounds i8, ptr %42, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.013.026, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %45 = load ptr, ptr %44, align 8
   %.not = icmp eq ptr %43, %45
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !29
@@ -1756,13 +1755,13 @@ define void @_ZNK3gmx25AnalysisDataModuleManager23notifyParallelPointsAddERKNS_2
   %4 = alloca %"class.gmx::ExceptionInitializer", align 8
   %5 = alloca %"class.gmx::ExceptionInfo", align 8
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 29
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 29
   %8 = load i8, ptr %7, align 1
   %9 = trunc i8 %8 to i1
   br i1 %9, label %10, label %.loopexit
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %6, i64 27
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 27
   %12 = load i8, ptr %11, align 1
   %13 = trunc i8 %12 to i1
   br i1 %13, label %27, label %14
@@ -1787,11 +1786,11 @@ define void @_ZNK3gmx25AnalysisDataModuleManager23notifyParallelPointsAddERKNS_2
 19:                                               ; preds = %18
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx8APIErrorE, i64 16), ptr %3, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %5, align 8
-  %20 = getelementptr inbounds i8, ptr %5, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @__PRETTY_FUNCTION__._ZNK3gmx25AnalysisDataModuleManager23notifyParallelPointsAddERKNS_23AnalysisDataPointSetRefE, ptr %20, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr @.str.1, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 436, ptr %.sroa.3.0..sroa_idx, align 8
   invoke void @_ZN3gmxlsINS_8APIErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3std10is_base_ofINS_16GromacsExceptionET_EE5valueES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::APIError") align 8 %17, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %21 unwind label %24
@@ -1828,7 +1827,7 @@ define void @_ZNK3gmx25AnalysisDataModuleManager23notifyParallelPointsAddERKNS_2
 27:                                               ; preds = %._crit_edge, %10
   %28 = phi ptr [ %.pre, %._crit_edge ], [ %6, %10 ]
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %28, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %31 = load ptr, ptr %30, align 8
   %.not25 = icmp eq ptr %29, %31
   br i1 %.not25, label %.loopexit, label %.lr.ph
@@ -1836,7 +1835,7 @@ define void @_ZNK3gmx25AnalysisDataModuleManager23notifyParallelPointsAddERKNS_2
 .lr.ph:                                           ; preds = %27, %41
   %32 = phi ptr [ %42, %41 ], [ %28, %27 ]
   %.sroa.013.026 = phi ptr [ %43, %41 ], [ %29, %27 ]
-  %33 = getelementptr inbounds i8, ptr %.sroa.013.026, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.013.026, i64 16
   %34 = load i8, ptr %33, align 8
   %35 = trunc i8 %34 to i1
   br i1 %35, label %36, label %41
@@ -1844,7 +1843,7 @@ define void @_ZNK3gmx25AnalysisDataModuleManager23notifyParallelPointsAddERKNS_2
 36:                                               ; preds = %.lr.ph
   %37 = load ptr, ptr %.sroa.013.026, align 8
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 48
   %40 = load ptr, ptr %39, align 8
   tail call void %40(ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull align 8 dereferenceable(40) %1)
   %.pre27 = load ptr, ptr %0, align 8
@@ -1852,8 +1851,8 @@ define void @_ZNK3gmx25AnalysisDataModuleManager23notifyParallelPointsAddERKNS_2
 
 41:                                               ; preds = %.lr.ph, %36
   %42 = phi ptr [ %32, %.lr.ph ], [ %.pre27, %36 ]
-  %43 = getelementptr inbounds i8, ptr %.sroa.013.026, i64 24
-  %44 = getelementptr inbounds i8, ptr %42, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.013.026, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %45 = load ptr, ptr %44, align 8
   %.not = icmp eq ptr %43, %45
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !30
@@ -1872,27 +1871,27 @@ define void @_ZNK3gmx25AnalysisDataModuleManager23notifyParallelPointsAddERKNS_2
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK3gmx25AnalysisDataModuleManager17notifyFrameFinishERKNS_23AnalysisDataFrameHeaderE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(12) %1) local_unnamed_addr #2 align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 1, ptr %4, align 8
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 36
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 36
   %7 = load i32, ptr %6, align 4
   %8 = add nsw i32 %7, 1
   store i32 %8, ptr %6, align 4
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %11 = load i8, ptr %10, align 4
   %12 = trunc i8 %11 to i1
   br i1 %12, label %13, label %..loopexit_crit_edge
 
 ..loopexit_crit_edge:                             ; preds = %2
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %9, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.pre21 = load ptr, ptr %.phi.trans.insert, align 8
   br label %.loopexit
 
 13:                                               ; preds = %2
   %14 = load ptr, ptr %9, align 8
-  %15 = getelementptr inbounds i8, ptr %9, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not16 = icmp eq ptr %14, %16
   br i1 %.not16, label %.loopexit, label %.lr.ph
@@ -1900,7 +1899,7 @@ define void @_ZNK3gmx25AnalysisDataModuleManager17notifyFrameFinishERKNS_23Analy
 .lr.ph:                                           ; preds = %13, %26
   %17 = phi ptr [ %27, %26 ], [ %9, %13 ]
   %.sroa.011.017 = phi ptr [ %28, %26 ], [ %14, %13 ]
-  %18 = getelementptr inbounds i8, ptr %.sroa.011.017, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.011.017, i64 16
   %19 = load i8, ptr %18, align 8
   %20 = trunc i8 %19 to i1
   br i1 %20, label %26, label %21
@@ -1908,7 +1907,7 @@ define void @_ZNK3gmx25AnalysisDataModuleManager17notifyFrameFinishERKNS_23Analy
 21:                                               ; preds = %.lr.ph
   %22 = load ptr, ptr %.sroa.011.017, align 8
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 56
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 4 dereferenceable(12) %1)
   %.pre = load ptr, ptr %0, align 8
@@ -1916,8 +1915,8 @@ define void @_ZNK3gmx25AnalysisDataModuleManager17notifyFrameFinishERKNS_23Analy
 
 26:                                               ; preds = %.lr.ph, %21
   %27 = phi ptr [ %17, %.lr.ph ], [ %.pre, %21 ]
-  %28 = getelementptr inbounds i8, ptr %.sroa.011.017, i64 24
-  %29 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.011.017, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %30 = load ptr, ptr %29, align 8
   %.not = icmp eq ptr %28, %30
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !31
@@ -1934,12 +1933,12 @@ define void @_ZNK3gmx25AnalysisDataModuleManager17notifyFrameFinishERKNS_23Analy
   %34 = load ptr, ptr %.sroa.05.019, align 8
   %35 = load i32, ptr %1, align 4
   %36 = load ptr, ptr %34, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 64
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 64
   %38 = load ptr, ptr %37, align 8
   tail call void %38(ptr noundef nonnull align 8 dereferenceable(8) %34, i32 noundef %35)
-  %39 = getelementptr inbounds i8, ptr %.sroa.05.019, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %.sroa.05.019, i64 24
   %40 = load ptr, ptr %0, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load ptr, ptr %41, align 8
   %.not15 = icmp eq ptr %39, %42
   br i1 %.not15, label %._crit_edge, label %.lr.ph20, !llvm.loop !32
@@ -1951,14 +1950,14 @@ define void @_ZNK3gmx25AnalysisDataModuleManager17notifyFrameFinishERKNS_23Analy
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK3gmx25AnalysisDataModuleManager25notifyParallelFrameFinishERKNS_23AnalysisDataFrameHeaderE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(12) %1) local_unnamed_addr #2 align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 29
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 29
   %5 = load i8, ptr %4, align 1
   %6 = trunc i8 %5 to i1
   br i1 %6, label %7, label %.loopexit
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not8 = icmp eq ptr %8, %10
   br i1 %.not8, label %.loopexit, label %.lr.ph
@@ -1966,7 +1965,7 @@ define void @_ZNK3gmx25AnalysisDataModuleManager25notifyParallelFrameFinishERKNS
 .lr.ph:                                           ; preds = %7, %20
   %11 = phi ptr [ %21, %20 ], [ %3, %7 ]
   %.sroa.04.09 = phi ptr [ %22, %20 ], [ %8, %7 ]
-  %12 = getelementptr inbounds i8, ptr %.sroa.04.09, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.04.09, i64 16
   %13 = load i8, ptr %12, align 8
   %14 = trunc i8 %13 to i1
   br i1 %14, label %15, label %20
@@ -1974,7 +1973,7 @@ define void @_ZNK3gmx25AnalysisDataModuleManager25notifyParallelFrameFinishERKNS
 15:                                               ; preds = %.lr.ph
   %16 = load ptr, ptr %.sroa.04.09, align 8
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 56
   %19 = load ptr, ptr %18, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 4 dereferenceable(12) %1)
   %.pre = load ptr, ptr %0, align 8
@@ -1982,8 +1981,8 @@ define void @_ZNK3gmx25AnalysisDataModuleManager25notifyParallelFrameFinishERKNS
 
 20:                                               ; preds = %.lr.ph, %15
   %21 = phi ptr [ %11, %.lr.ph ], [ %.pre, %15 ]
-  %22 = getelementptr inbounds i8, ptr %.sroa.04.09, i64 24
-  %23 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.04.09, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %24 = load ptr, ptr %23, align 8
   %.not = icmp eq ptr %22, %24
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !33
@@ -1995,7 +1994,7 @@ define void @_ZNK3gmx25AnalysisDataModuleManager25notifyParallelFrameFinishERKNS
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK3gmx25AnalysisDataModuleManager16notifyDataFinishEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 1
   br i1 %5, label %7, label %6
@@ -2008,7 +2007,7 @@ define void @_ZNK3gmx25AnalysisDataModuleManager16notifyDataFinishEv(ptr nocaptu
   store i32 3, ptr %3, align 8
   %8 = load ptr, ptr %0, align 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %8, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not6 = icmp eq ptr %9, %11
   br i1 %.not6, label %._crit_edge, label %.lr.ph
@@ -2017,12 +2016,12 @@ define void @_ZNK3gmx25AnalysisDataModuleManager16notifyDataFinishEv(ptr nocaptu
   %.sroa.03.07 = phi ptr [ %16, %.lr.ph ], [ %9, %7 ]
   %12 = load ptr, ptr %.sroa.03.07, align 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 72
   %15 = load ptr, ptr %14, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(8) %12)
-  %16 = getelementptr inbounds i8, ptr %.sroa.03.07, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.03.07, i64 24
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %16, %19
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34

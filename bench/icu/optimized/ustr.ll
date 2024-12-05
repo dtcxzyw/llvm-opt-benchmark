@@ -19,8 +19,8 @@ entry:
   br i1 %cmp, label %for.end, label %if.end
 
 if.end:                                           ; preds = %entry
-  %fCapacity = getelementptr inbounds i8, ptr %s, i64 12
-  %fLength = getelementptr inbounds i8, ptr %s, i64 8
+  %fCapacity = getelementptr inbounds nuw i8, ptr %s, i64 12
+  %fLength = getelementptr inbounds nuw i8, ptr %s, i64 8
   %cmp1 = icmp eq i32 %length, -1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %s, i8 0, i64 16, i1 false)
   br i1 %cmp1, label %if.then2, label %if.end3
@@ -72,7 +72,7 @@ for.body.preheader:                               ; preds = %ustr_resize.exit
 
 for.body:                                         ; preds = %for.body.preheader, %ustr_ucat.exit
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %ustr_ucat.exit ]
-  %add.ptr = getelementptr inbounds i8, ptr %source, i64 %indvars.iv
+  %add.ptr = getelementptr inbounds nuw i8, ptr %source, i64 %indvars.iv
   call void @u_charsToUChars_75(ptr noundef %add.ptr, ptr noundef nonnull %charToAppend, i32 noundef 1) #9
   %4 = load i16, ptr %charToAppend, align 2
   %5 = load i32, ptr %status, align 4
@@ -154,9 +154,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %fCapacity = getelementptr inbounds i8, ptr %dst, i64 12
+  %fCapacity = getelementptr inbounds nuw i8, ptr %dst, i64 12
   %1 = load i32, ptr %fCapacity, align 4
-  %fLength = getelementptr inbounds i8, ptr %dst, i64 8
+  %fLength = getelementptr inbounds nuw i8, ptr %dst, i64 8
   %2 = load i32, ptr %fLength, align 8
   %cmp1.not = icmp sgt i32 %1, %2
   %.pre12 = load ptr, ptr %dst, align 8
@@ -240,9 +240,9 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %fCapacity = getelementptr inbounds i8, ptr %dst, i64 12
+  %fCapacity = getelementptr inbounds nuw i8, ptr %dst, i64 12
   %1 = load i32, ptr %fCapacity, align 4
-  %fLength = getelementptr inbounds i8, ptr %src, i64 8
+  %fLength = getelementptr inbounds nuw i8, ptr %src, i64 8
   %2 = load i32, ptr %fLength, align 8
   %cmp2 = icmp slt i32 %1, %2
   br i1 %cmp2, label %if.end.i, label %if.end10
@@ -264,7 +264,7 @@ if.end.i:                                         ; preds = %if.end
 
 if.then5.i:                                       ; preds = %if.end.i
   store i32 7, ptr %status, align 4
-  %fLength.i = getelementptr inbounds i8, ptr %dst, i64 8
+  %fLength.i = getelementptr inbounds nuw i8, ptr %dst, i64 8
   store i32 0, ptr %fLength.i, align 8
   br label %ustr_resize.exit
 
@@ -289,7 +289,7 @@ if.end16:                                         ; preds = %lor.lhs.false12
   %8 = load i32, ptr %fLength, align 8
   %call = tail call ptr @u_memcpy_75(ptr noundef nonnull %7, ptr noundef nonnull %6, i32 noundef %8) #9
   %9 = load i32, ptr %fLength, align 8
-  %fLength21 = getelementptr inbounds i8, ptr %dst, i64 8
+  %fLength21 = getelementptr inbounds nuw i8, ptr %dst, i64 8
   store i32 %9, ptr %fLength21, align 8
   %10 = load ptr, ptr %dst, align 8
   %idxprom = sext i32 %9 to i64
@@ -311,7 +311,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %fCapacity = getelementptr inbounds i8, ptr %s, i64 12
+  %fCapacity = getelementptr inbounds nuw i8, ptr %s, i64 12
   %1 = load i32, ptr %fCapacity, align 4
   %cmp1.not = icmp sgt i32 %1, %len
   %.pre10 = load ptr, ptr %s, align 8
@@ -333,7 +333,7 @@ if.end.i:                                         ; preds = %if.end
 
 if.then5.i:                                       ; preds = %if.end.i
   store i32 7, ptr %status, align 4
-  %fLength.i = getelementptr inbounds i8, ptr %s, i64 8
+  %fLength.i = getelementptr inbounds nuw i8, ptr %s, i64 8
   store i32 0, ptr %fLength.i, align 8
   br label %ustr_resize.exit
 
@@ -350,7 +350,7 @@ ustr_resize.exit.if.end8_crit_edge:               ; preds = %ustr_resize.exit
 
 if.end8:                                          ; preds = %ustr_resize.exit.if.end8_crit_edge, %if.end
   %4 = phi ptr [ %.pre, %ustr_resize.exit.if.end8_crit_edge ], [ %.pre10, %if.end ]
-  %fLength = getelementptr inbounds i8, ptr %s, i64 8
+  %fLength = getelementptr inbounds nuw i8, ptr %s, i64 8
   store i32 %len, ptr %fLength, align 8
   %idxprom = sext i32 %len to i64
   %arrayidx = getelementptr inbounds i16, ptr %4, i64 %idxprom
@@ -364,7 +364,7 @@ return:                                           ; preds = %ustr_resize.exit, %
 ; Function Attrs: nounwind uwtable
 define dso_local void @ustr_cat(ptr noundef %dst, ptr noundef readonly %src, ptr nocapture noundef %status) local_unnamed_addr #1 {
 entry:
-  %fLength = getelementptr inbounds i8, ptr %src, i64 8
+  %fLength = getelementptr inbounds nuw i8, ptr %src, i64 8
   %0 = load i32, ptr %fLength, align 8
   %1 = load i32, ptr %status, align 4
   %cmp.i = icmp sgt i32 %1, 0
@@ -373,9 +373,9 @@ entry:
   br i1 %or.cond.i, label %ustr_ncat.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %fCapacity.i = getelementptr inbounds i8, ptr %dst, i64 12
+  %fCapacity.i = getelementptr inbounds nuw i8, ptr %dst, i64 12
   %2 = load i32, ptr %fCapacity.i, align 4
-  %fLength.i = getelementptr inbounds i8, ptr %dst, i64 8
+  %fLength.i = getelementptr inbounds nuw i8, ptr %dst, i64 8
   %3 = load i32, ptr %fLength.i, align 8
   %add.i = add nsw i32 %3, %0
   %cmp2.i = icmp slt i32 %2, %add.i
@@ -447,9 +447,9 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %fCapacity = getelementptr inbounds i8, ptr %dst, i64 12
+  %fCapacity = getelementptr inbounds nuw i8, ptr %dst, i64 12
   %1 = load i32, ptr %fCapacity, align 4
-  %fLength = getelementptr inbounds i8, ptr %dst, i64 8
+  %fLength = getelementptr inbounds nuw i8, ptr %dst, i64 8
   %2 = load i32, ptr %fLength, align 8
   %add = add nsw i32 %2, %n
   %cmp2 = icmp slt i32 %1, %add
@@ -497,7 +497,7 @@ do.body:                                          ; preds = %ustr_resize.exit.do
   %conv = sext i32 %n to i64
   %mul16 = shl nsw i64 %conv, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %add.ptr, ptr align 2 %7, i64 %mul16, i1 false)
-  %fLength17 = getelementptr inbounds i8, ptr %src, i64 8
+  %fLength17 = getelementptr inbounds nuw i8, ptr %src, i64 8
   %8 = load i32, ptr %fLength17, align 8
   %9 = load i32, ptr %fLength, align 8
   %add19 = add nsw i32 %9, %8
@@ -538,9 +538,9 @@ if.then2:                                         ; preds = %if.end
   br i1 %cmp.i, label %if.end5, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then2
-  %fCapacity.i = getelementptr inbounds i8, ptr %dst, i64 12
+  %fCapacity.i = getelementptr inbounds nuw i8, ptr %dst, i64 12
   %2 = load i32, ptr %fCapacity.i, align 4
-  %fLength.i = getelementptr inbounds i8, ptr %dst, i64 8
+  %fLength.i = getelementptr inbounds nuw i8, ptr %dst, i64 8
   %3 = load i32, ptr %fLength.i, align 8
   %cmp1.not.i = icmp sgt i32 %2, %3
   %.pre12.i = load ptr, ptr %dst, align 8
@@ -657,9 +657,9 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp.i40, label %if.end5, label %if.end.i41
 
 if.end.i41:                                       ; preds = %if.else
-  %fCapacity.i42 = getelementptr inbounds i8, ptr %dst, i64 12
+  %fCapacity.i42 = getelementptr inbounds nuw i8, ptr %dst, i64 12
   %21 = load i32, ptr %fCapacity.i42, align 4
-  %fLength.i43 = getelementptr inbounds i8, ptr %dst, i64 8
+  %fLength.i43 = getelementptr inbounds nuw i8, ptr %dst, i64 8
   %22 = load i32, ptr %fLength.i43, align 8
   %cmp1.not.i44 = icmp sgt i32 %21, %22
   %.pre12.i45 = load ptr, ptr %dst, align 8
@@ -723,9 +723,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %fCapacity = getelementptr inbounds i8, ptr %dst, i64 12
+  %fCapacity = getelementptr inbounds nuw i8, ptr %dst, i64 12
   %1 = load i32, ptr %fCapacity, align 4
-  %fLength = getelementptr inbounds i8, ptr %dst, i64 8
+  %fLength = getelementptr inbounds nuw i8, ptr %dst, i64 8
   %2 = load i32, ptr %fLength, align 8
   %add = add nsw i32 %2, %len
   %cmp1 = icmp slt i32 %1, %add

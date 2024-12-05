@@ -47,13 +47,13 @@ define noalias noundef ptr @color_filter_new(ptr noundef %0, ptr noundef %1, ptr
   %7 = tail call noalias ptr @g_strdup(ptr noundef %0) #15
   store ptr %7, ptr %6, align 8
   %8 = tail call noalias ptr @g_strdup(ptr noundef %1) #15
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %10, ptr noundef nonnull align 2 dereferenceable(6) %2, i64 6, i1 false)
-  %11 = getelementptr inbounds i8, ptr %6, i64 22
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 22
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %11, ptr noundef nonnull align 2 dereferenceable(6) %3, i64 6, i1 false)
-  %12 = getelementptr inbounds i8, ptr %6, i64 28
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 28
   store i32 %4, ptr %12, align 4
   ret ptr %6
 }
@@ -78,13 +78,13 @@ define noalias ptr @color_filters_get_tmp(i8 noundef zeroext %0) local_unnamed_a
   %6 = load ptr, ptr @color_filter_list, align 8
   %7 = tail call ptr @g_slist_find_custom(ptr noundef %6, ptr noundef %5, ptr noundef nonnull @color_filters_find_by_name_cb) #15
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %15
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noalias ptr @g_strdup(ptr noundef %13) #15
   br label %15
@@ -139,17 +139,17 @@ define range(i32 0, 2) i32 @color_filters_set_tmp(i8 noundef zeroext %0, ptr nou
   br i1 %15, label %16, label %.split47.us
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %13, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %18 = load ptr, ptr %17, align 8
   call void @g_free(ptr noundef %18) #15
-  %19 = getelementptr inbounds i8, ptr %13, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %20 = load ptr, ptr %19, align 8
   call void @dfilter_free(ptr noundef %20) #15
   %21 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.2) #15
   store ptr %21, ptr %17, align 8
   %22 = load ptr, ptr %5, align 8
   store ptr %22, ptr %19, align 8
-  %23 = getelementptr inbounds i8, ptr %13, i64 28
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 28
   store i32 %2, ptr %23, align 4
   br label %24
 
@@ -176,7 +176,7 @@ define range(i32 0, 2) i32 @color_filters_set_tmp(i8 noundef zeroext %0, ptr nou
   br i1 %.not48, label %35, label %31
 
 31:                                               ; preds = %30
-  %32 = getelementptr inbounds i8, ptr %29, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %33) #16
   %.not41 = icmp eq i32 %34, 0
@@ -190,7 +190,7 @@ define range(i32 0, 2) i32 @color_filters_set_tmp(i8 noundef zeroext %0, ptr nou
 .split47.us:                                      ; preds = %35, %14
   %.us-phi = phi ptr [ %10, %14 ], [ %26, %35 ]
   %37 = load ptr, ptr %6, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef %.us-phi, ptr noundef %1, ptr noundef %39) #15
   store ptr %40, ptr %3, align 8
@@ -199,10 +199,10 @@ define range(i32 0, 2) i32 @color_filters_set_tmp(i8 noundef zeroext %0, ptr nou
   br label %.loopexit
 
 41:                                               ; preds = %35
-  %42 = getelementptr inbounds i8, ptr %29, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %43 = load ptr, ptr %42, align 8
   call void @g_free(ptr noundef %43) #15
-  %44 = getelementptr inbounds i8, ptr %29, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %45 = load ptr, ptr %44, align 8
   call void @dfilter_free(ptr noundef %45) #15
   %46 = call noalias ptr @g_strdup(ptr noundef nonnull %spec.select43) #15
@@ -210,7 +210,7 @@ define range(i32 0, 2) i32 @color_filters_set_tmp(i8 noundef zeroext %0, ptr nou
   %47 = load ptr, ptr %5, align 8
   store ptr %47, ptr %44, align 8
   %48 = select i1 %.not48, i32 %2, i32 1
-  %49 = getelementptr inbounds i8, ptr %29, i64 28
+  %49 = getelementptr inbounds nuw i8, ptr %29, i64 28
   store i32 %48, ptr %49, align 4
   store i1 true, ptr @tmp_colors_set, align 4
   br label %50
@@ -282,10 +282,10 @@ define range(i32 0, 2) i32 @color_filters_reset_tmp(ptr nocapture noundef writeo
 define void @color_filter_delete(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   tail call void @g_free(ptr noundef %2) #15
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @g_free(ptr noundef %4) #15
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   tail call void @dfilter_free(ptr noundef %6) #15
   tail call void @g_free(ptr noundef nonnull %0) #15
@@ -306,10 +306,10 @@ declare void @g_slist_free_full(ptr noundef, ptr noundef) local_unnamed_addr #2
 define internal void @color_filter_delete_cb(ptr noundef %0) #0 {
   %2 = load ptr, ptr %0, align 8
   tail call void @g_free(ptr noundef %2) #15
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @g_free(ptr noundef %4) #15
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   tail call void @dfilter_free(ptr noundef %6) #15
   tail call void @g_free(ptr noundef nonnull %0) #15
@@ -366,21 +366,21 @@ define internal fastcc range(i32 0, 2) i32 @color_filters_get(ptr nocapture noun
   %36 = tail call noalias ptr @g_strdup(ptr noundef %9) #15
   store ptr %36, ptr %35, align 8
   %37 = tail call noalias ptr @g_strdup(ptr noundef null) #15
-  %38 = getelementptr inbounds i8, ptr %35, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %37, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %35, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store i16 %29, ptr %39, align 8
-  %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %35, i64 18
+  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %35, i64 18
   store i16 %32, ptr %.sroa.22.0..sroa_idx.i, align 2
-  %.sroa.33.0..sroa_idx.i = getelementptr inbounds i8, ptr %35, i64 20
+  %.sroa.33.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %35, i64 20
   store i16 %34, ptr %.sroa.33.0..sroa_idx.i, align 4
-  %40 = getelementptr inbounds i8, ptr %35, i64 22
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 22
   store i16 %17, ptr %40, align 2
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %35, i64 24
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %35, i64 24
   store i16 %20, ptr %.sroa.2.0..sroa_idx.i, align 2
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %35, i64 26
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %35, i64 26
   store i16 %22, ptr %.sroa.3.0..sroa_idx.i, align 2
-  %41 = getelementptr inbounds i8, ptr %35, i64 28
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 28
   store i32 1, ptr %41, align 4
   %42 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.2) #15
   store ptr %42, ptr %38, align 8
@@ -468,7 +468,7 @@ define void @color_filters_cleanup() local_unnamed_addr #0 {
 define void @color_filters_clone(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct._color_clone, align 8
   store ptr %0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr @color_filter_list, align 8
   call void @g_slist_foreach(ptr noundef %5, ptr noundef nonnull @color_filters_clone_cb, ptr noundef nonnull %3) #15
@@ -483,24 +483,24 @@ define internal void @color_filters_clone_cb(ptr nocapture noundef readonly %0, 
   %4 = load ptr, ptr %0, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #15
   store ptr %5, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noalias ptr @g_strdup(ptr noundef %7) #15
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %10, ptr noundef nonnull readonly align 8 dereferenceable(6) %11, i64 6, i1 false)
-  %12 = getelementptr inbounds i8, ptr %3, i64 22
-  %13 = getelementptr inbounds i8, ptr %0, i64 22
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 22
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 22
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %12, ptr noundef nonnull readonly align 2 dereferenceable(6) %13, i64 6, i1 false)
-  %14 = getelementptr inbounds i8, ptr %0, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %3, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 28
   store i32 %15, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %3, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %1, align 8
   tail call void %19(ptr noundef nonnull %3, ptr noundef %20) #15
@@ -556,15 +556,15 @@ define range(i32 0, 2) i32 @color_filters_apply(ptr noundef %0, ptr noundef %1, 
 define internal void @color_filter_validate_cb(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 28
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %18
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = call zeroext i1 @dfilter_compile_full(ptr noundef %8, ptr noundef nonnull %9, ptr noundef nonnull %3, i32 noundef 6, ptr noundef nonnull @__func__.color_filter_validate_cb) #15
   br i1 %10, label %18, label %11
 
@@ -572,7 +572,7 @@ define internal void @color_filter_validate_cb(ptr noundef %0, ptr nocapture nou
   %12 = load ptr, ptr %0, align 8
   %13 = load ptr, ptr %7, align 8
   %14 = load ptr, ptr %3, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.15, ptr noundef %12, ptr noundef %13, ptr noundef %16) #15
   store ptr %17, ptr %1, align 8
@@ -588,15 +588,15 @@ define internal void @color_filter_validate_cb(ptr noundef %0, ptr nocapture nou
 define internal void @color_filter_compile_cb(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 28
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %18
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = call zeroext i1 @dfilter_compile_full(ptr noundef %8, ptr noundef nonnull %9, ptr noundef nonnull %3, i32 noundef 6, ptr noundef nonnull @__func__.color_filter_compile_cb) #15
   br i1 %10, label %18, label %11
 
@@ -604,7 +604,7 @@ define internal void @color_filter_compile_cb(ptr noundef %0, ptr nocapture noun
   %12 = load ptr, ptr %0, align 8
   %13 = load ptr, ptr %7, align 8
   %14 = load ptr, ptr %3, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef %12, ptr noundef %13, ptr noundef %16) #15
   store ptr %17, ptr %1, align 8
@@ -646,7 +646,7 @@ define void @color_filters_prime_edt(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @prime_edt(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %6, label %5
@@ -682,13 +682,13 @@ define range(i32 0, 2) i32 @color_filters_use_hfid(i32 noundef %0) local_unnamed
 define internal range(i32 -1, 1) i32 @find_hfid(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
   %3 = ptrtoint ptr %1 to i64
   %4 = trunc i64 %3 to i32
-  %5 = getelementptr inbounds i8, ptr %0, i64 28
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %12
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not7 = icmp eq ptr %9, null
   br i1 %.not7, label %12, label %10
@@ -728,13 +728,13 @@ define range(i32 0, 2) i32 @color_filters_use_proto(i32 noundef %0) local_unname
 define internal range(i32 -1, 1) i32 @find_proto(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
   %3 = ptrtoint ptr %1 to i64
   %4 = trunc i64 %3 to i32
-  %5 = getelementptr inbounds i8, ptr %0, i64 28
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %12
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not7 = icmp eq ptr %9, null
   br i1 %.not7, label %12, label %10
@@ -753,7 +753,7 @@ define internal range(i32 -1, 1) i32 @find_proto(ptr nocapture noundef readonly 
 
 ; Function Attrs: nounwind uwtable
 define ptr @color_filters_colorize_packet(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   %4 = load ptr, ptr @color_filter_list, align 8
@@ -764,13 +764,13 @@ define ptr @color_filters_colorize_packet(ptr noundef %0) local_unnamed_addr #0 
 .preheader:                                       ; preds = %1, %13
   %.01118 = phi ptr [ %.011.pr, %13 ], [ %4, %1 ]
   %5 = load ptr, ptr %.01118, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 28
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %7 = load i32, ptr %6, align 4
   %.not15 = icmp eq i32 %7, 0
   br i1 %.not15, label %8, label %13
 
 8:                                                ; preds = %.preheader
-  %9 = getelementptr inbounds i8, ptr %5, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %10 = load ptr, ptr %9, align 8
   %.not16 = icmp eq ptr %10, null
   br i1 %.not16, label %13, label %11
@@ -780,7 +780,7 @@ define ptr @color_filters_colorize_packet(ptr noundef %0) local_unnamed_addr #0 
   br i1 %12, label %.loopexit, label %13
 
 13:                                               ; preds = %11, %8, %.preheader
-  %14 = getelementptr inbounds i8, ptr %.01118, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.01118, i64 8
   %.011.pr = load ptr, ptr %14, align 8
   %.not14 = icmp eq ptr %.011.pr, null
   br i1 %.not14, label %.loopexit, label %.preheader, !llvm.loop !8
@@ -1027,7 +1027,7 @@ define internal fastcc i32 @read_filters_file(ptr noundef %0, ptr noundef nonnul
 
 69:                                               ; preds = %67
   %70 = load ptr, ptr %12, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %72 = load ptr, ptr %71, align 8
   call void (ptr, ...) @report_warning(ptr noundef nonnull @.str.17, ptr noundef %.2, ptr noundef %0, ptr noundef %72) #15
   call void @df_error_free(ptr noundef nonnull %12) #15
@@ -1045,27 +1045,27 @@ define internal fastcc i32 @read_filters_file(ptr noundef %0, ptr noundef nonnul
   %81 = call noalias ptr @g_strdup(ptr noundef %.2) #15
   store ptr %81, ptr %80, align 8
   %82 = call noalias ptr @g_strdup(ptr noundef nonnull %.267) #15
-  %83 = getelementptr inbounds i8, ptr %80, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %80, i64 8
   store ptr %82, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %80, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %80, i64 16
   store i16 %77, ptr %84, align 8
-  %.sroa.298.0..sroa_idx = getelementptr inbounds i8, ptr %80, i64 18
+  %.sroa.298.0..sroa_idx = getelementptr inbounds nuw i8, ptr %80, i64 18
   store i16 %78, ptr %.sroa.298.0..sroa_idx, align 2
-  %.sroa.399.0..sroa_idx = getelementptr inbounds i8, ptr %80, i64 20
+  %.sroa.399.0..sroa_idx = getelementptr inbounds nuw i8, ptr %80, i64 20
   store i16 %79, ptr %.sroa.399.0..sroa_idx, align 4
-  %85 = getelementptr inbounds i8, ptr %80, i64 22
+  %85 = getelementptr inbounds nuw i8, ptr %80, i64 22
   store i16 %74, ptr %85, align 2
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %80, i64 24
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %80, i64 24
   store i16 %75, ptr %.sroa.2.0..sroa_idx, align 2
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %80, i64 26
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %80, i64 26
   store i16 %76, ptr %.sroa.3.0..sroa_idx, align 2
-  %86 = getelementptr inbounds i8, ptr %80, i64 28
+  %86 = getelementptr inbounds nuw i8, ptr %80, i64 28
   store i32 %.375, ptr %86, align 4
   %87 = load ptr, ptr %11, align 8
   br i1 %16, label %88, label %92
 
 88:                                               ; preds = %73
-  %89 = getelementptr inbounds i8, ptr %80, i64 32
+  %89 = getelementptr inbounds nuw i8, ptr %80, i64 32
   store ptr %87, ptr %89, align 8
   %90 = load ptr, ptr @color_filter_list, align 8
   %91 = call ptr @g_slist_append(ptr noundef %90, ptr noundef nonnull %80) #15
@@ -1174,7 +1174,7 @@ define range(i32 0, 2) i32 @color_filters_write(ptr noundef %0, ptr nocapture no
   call void @g_free(ptr noundef %15) #15
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   store ptr %16, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %3, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %24, align 8
   %25 = call ptr @get_configuration_namespace() #15
   %26 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.18, ptr noundef %25) #15
@@ -1210,7 +1210,7 @@ define range(i32 0, 2) i32 @color_filters_export(ptr noundef %0, ptr noundef %1,
 13:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store ptr %6, ptr %5, align 8
-  %14 = getelementptr inbounds i8, ptr %5, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %2, ptr %14, align 8
   %15 = tail call ptr @get_configuration_namespace() #15
   %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.18, ptr noundef %15) #15
@@ -1242,22 +1242,22 @@ define internal void @color_filter_list_clone_cb(ptr nocapture noundef readonly 
   %4 = load ptr, ptr %0, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #15
   store ptr %5, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noalias ptr @g_strdup(ptr noundef %7) #15
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %10, ptr noundef nonnull readonly align 8 dereferenceable(6) %11, i64 6, i1 false)
-  %12 = getelementptr inbounds i8, ptr %3, i64 22
-  %13 = getelementptr inbounds i8, ptr %0, i64 22
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 22
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 22
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %12, ptr noundef nonnull readonly align 2 dereferenceable(6) %13, i64 6, i1 false)
-  %14 = getelementptr inbounds i8, ptr %0, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %3, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 28
   store i32 %15, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %3, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %17, align 8
   %18 = load ptr, ptr %1, align 8
   %19 = tail call ptr @g_slist_append(ptr noundef %18, ptr noundef nonnull %3) #15
@@ -1294,7 +1294,7 @@ declare ptr @get_configuration_namespace() local_unnamed_addr #2
 ; Function Attrs: nofree nounwind uwtable
 define internal void @write_filter(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #12 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %35
@@ -1306,28 +1306,28 @@ define internal void @write_filter(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %9, label %10, label %35
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %12 = load i32, ptr %11, align 4
   %.not15 = icmp eq i32 %12, 0
   %13 = select i1 %.not15, ptr @.str.21, ptr @.str.20
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load i16, ptr %16, align 8
   %18 = zext i16 %17 to i32
-  %19 = getelementptr inbounds i8, ptr %0, i64 18
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %20 = load i16, ptr %19, align 2
   %21 = zext i16 %20 to i32
-  %22 = getelementptr inbounds i8, ptr %0, i64 20
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %23 = load i16, ptr %22, align 4
   %24 = zext i16 %23 to i32
-  %25 = getelementptr inbounds i8, ptr %0, i64 22
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 22
   %26 = load i16, ptr %25, align 2
   %27 = zext i16 %26 to i32
-  %28 = getelementptr inbounds i8, ptr %0, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %29 = load i16, ptr %28, align 2
   %30 = zext i16 %29 to i32
-  %31 = getelementptr inbounds i8, ptr %0, i64 26
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %32 = load i16, ptr %31, align 2
   %33 = zext i16 %32 to i32
   %34 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.19, ptr noundef nonnull %13, ptr noundef %7, ptr noundef %15, i32 noundef %18, i32 noundef %21, i32 noundef %24, i32 noundef %27, i32 noundef %30, i32 noundef %33) #15

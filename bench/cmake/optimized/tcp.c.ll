@@ -24,7 +24,7 @@ define dso_local i32 @uv_tcp_init_ex(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %6, label %maybe_new_socket.exit.thread, label %8
 
 8:                                                ; preds = %7
-  %9 = getelementptr inbounds i8, ptr %1, i64 184
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %10 = load i32, ptr %9, align 8
   %.not.i = icmp eq i32 %10, -1
   br i1 %.not.i, label %11, label %maybe_new_socket.exit.thread
@@ -45,13 +45,13 @@ define dso_local i32 @uv_tcp_init_ex(ptr noundef %0, ptr noundef %1, i32 noundef
 
 maybe_new_socket.exit:                            ; preds = %16, %11
   %.0.i = phi i32 [ %15, %16 ], [ %12, %11 ]
-  %18 = getelementptr inbounds i8, ptr %1, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %21 = load ptr, ptr %20, align 8
   store ptr %19, ptr %21, align 8
   %22 = load ptr, ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %19, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %22, ptr %23, align 8
   br label %maybe_new_socket.exit.thread
 
@@ -87,7 +87,7 @@ define dso_local i32 @uv__tcp_bind(ptr noundef %0, ptr noundef %1, i32 noundef %
 
 .thread:                                          ; preds = %7, %8
   %11 = phi i32 [ %9, %8 ], [ 10, %7 ]
-  %12 = getelementptr inbounds i8, ptr %0, i64 184
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %13 = load i32, ptr %12, align 8
   %.not.i = icmp eq i32 %13, -1
   br i1 %.not.i, label %14, label %21
@@ -108,7 +108,7 @@ define dso_local i32 @uv__tcp_bind(ptr noundef %0, ptr noundef %1, i32 noundef %
 
 21:                                               ; preds = %.thread, %8, %17
   store i32 1, ptr %5, align 4
-  %22 = getelementptr inbounds i8, ptr %0, i64 184
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %23 = load i32, ptr %22, align 8
   %24 = call i32 @setsockopt(i32 noundef %23, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %5, i32 noundef 4) #8
   %.not22 = icmp eq i32 %24, 0
@@ -159,9 +159,9 @@ define dso_local i32 @uv__tcp_bind(ptr noundef %0, ptr noundef %1, i32 noundef %
 
 .critedge:                                        ; preds = %45, %40
   %49 = phi i32 [ 0, %40 ], [ -98, %45 ]
-  %50 = getelementptr inbounds i8, ptr %0, i64 232
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store i32 %49, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 88
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %52 = load i32, ptr %51, align 8
   %53 = or i32 %52, 8192
   store i32 %53, ptr %51, align 8
@@ -190,13 +190,13 @@ declare i32 @bind(i32 noundef, ptr, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @uv__tcp_connect(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 120
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %maybe_new_socket.exit.thread
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %1, i64 232
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %10 = load i32, ptr %9, align 8
   %.not31 = icmp eq i32 %10, 0
   br i1 %.not31, label %11, label %.critedge35
@@ -208,7 +208,7 @@ define dso_local i32 @uv__tcp_connect(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %14, label %maybe_new_socket.exit.sink.split, label %15
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %1, i64 184
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %17 = load i32, ptr %16, align 8
   %.not.i = icmp eq i32 %17, -1
   br i1 %.not.i, label %18, label %maybe_new_socket.exit.sink.split
@@ -228,7 +228,7 @@ define dso_local i32 @uv__tcp_connect(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %maybe_new_socket.exit.thread
 
 maybe_new_socket.exit.sink.split:                 ; preds = %15, %11
-  %25 = getelementptr inbounds i8, ptr %1, i64 88
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %26 = load i32, ptr %25, align 8
   %27 = or i32 %26, 49152
   store i32 %27, ptr %25, align 8
@@ -236,7 +236,7 @@ maybe_new_socket.exit.sink.split:                 ; preds = %15, %11
 
 maybe_new_socket.exit:                            ; preds = %maybe_new_socket.exit.sink.split, %21
   %28 = tail call ptr @__errno_location() #9
-  %29 = getelementptr inbounds i8, ptr %1, i64 184
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 184
   br label %30
 
 30:                                               ; preds = %34, %maybe_new_socket.exit
@@ -264,25 +264,25 @@ maybe_new_socket.exit:                            ; preds = %maybe_new_socket.ex
   br label %maybe_new_socket.exit.thread
 
 .critedge35:                                      ; preds = %34, %34, %30, %36, %8
-  %39 = getelementptr inbounds i8, ptr %0, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 2, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %1, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 32
   %43 = load i32, ptr %42, align 8
   %44 = add i32 %43, 1
   store i32 %44, ptr %42, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 64
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %4, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 72
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %1, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 80
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %47, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 88
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %47, ptr %48, align 8
   store ptr %0, ptr %6, align 8
   %49 = load ptr, ptr %40, align 8
-  %50 = getelementptr inbounds i8, ptr %1, i64 136
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 136
   tail call void @uv__io_start(ptr noundef %49, ptr noundef nonnull %50, i32 noundef 4) #8
   %51 = load i32, ptr %9, align 8
   %.not34 = icmp eq i32 %51, 0
@@ -306,7 +306,7 @@ declare void @uv__io_feed(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @uv_tcp_open(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @uv__fd_exists(ptr noundef %4, i32 noundef %1) #8
   %.not = icmp eq i32 %5, 0
@@ -334,7 +334,7 @@ declare i32 @uv__stream_open(ptr noundef, i32 noundef, i32 noundef) local_unname
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @uv_tcp_getsockname(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 232
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %8
@@ -355,7 +355,7 @@ declare i32 @getsockname(i32 noundef, ptr, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @uv_tcp_getpeername(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 232
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %8
@@ -376,14 +376,14 @@ declare i32 @getpeername(i32 noundef, ptr, ptr noundef) #2
 define dso_local range(i32 -2147483647, -2147483648) i32 @uv_tcp_close_reset(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.linger, align 8
   store i64 1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 256
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %19
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 184
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %9 = load i32, ptr %8, align 8
   %10 = call i32 @setsockopt(i32 noundef %9, i32 noundef 1, i32 noundef 13, ptr noundef nonnull %3, i32 noundef 8) #8
   %.not6 = icmp eq i32 %10, 0
@@ -416,7 +416,7 @@ declare void @uv_close(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @uv__tcp_listen(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 232
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %maybe_new_socket.exit
@@ -448,14 +448,14 @@ define dso_local i32 @uv__tcp_listen(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %.not26, label %22, label %18
 
 18:                                               ; preds = %17
-  %19 = getelementptr inbounds i8, ptr %0, i64 88
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %20 = load i32, ptr %19, align 8
   %21 = or i32 %20, 67108864
   store i32 %21, ptr %19, align 8
   br label %22
 
 22:                                               ; preds = %18, %17
-  %23 = getelementptr inbounds i8, ptr %0, i64 184
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %24 = load i32, ptr %23, align 8
   %.not.i = icmp eq i32 %24, -1
   br i1 %.not.i, label %25, label %32
@@ -491,15 +491,15 @@ define dso_local i32 @uv__tcp_listen(ptr noundef %0, i32 noundef %1, ptr noundef
   br label %maybe_new_socket.exit
 
 39:                                               ; preds = %32
-  %40 = getelementptr inbounds i8, ptr %0, i64 136
-  %41 = getelementptr inbounds i8, ptr %0, i64 224
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store ptr %2, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 88
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %43 = load i32, ptr %42, align 8
   %44 = or i32 %43, 8192
   store i32 %44, ptr %42, align 8
   store ptr @uv__server_io, ptr %40, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %46 = load ptr, ptr %45, align 8
   tail call void @uv__io_start(ptr noundef %46, ptr noundef nonnull %40, i32 noundef 1) #8
   br label %maybe_new_socket.exit
@@ -587,7 +587,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv__tcp_keepalive(i32 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -2147483647, -2147483648) i32 @uv_tcp_nodelay(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 184
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, -1
   br i1 %.not, label %.sink.split, label %6
@@ -613,7 +613,7 @@ uv__tcp_nodelay.exit:                             ; preds = %6
 
 .sink.split:                                      ; preds = %uv__tcp_nodelay.exit.thread, %uv__tcp_nodelay.exit, %2
   %.not11 = icmp eq i32 %1, 0
-  %11 = getelementptr inbounds i8, ptr %0, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, -16777217
   %masksel = select i1 %.not11, i32 0, i32 16777216
@@ -628,7 +628,7 @@ uv__tcp_nodelay.exit:                             ; preds = %6
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -2147483647, -2147483648) i32 @uv_tcp_keepalive(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 184
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, -1
   br i1 %.not, label %.sink.split, label %6
@@ -640,7 +640,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_tcp_keepalive(ptr n
 
 .sink.split:                                      ; preds = %6, %3
   %.not12 = icmp eq i32 %1, 0
-  %8 = getelementptr inbounds i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, -33554433
   %masksel = select i1 %.not12, i32 0, i32 33554432
@@ -656,7 +656,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_tcp_keepalive(ptr n
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local noundef i32 @uv_tcp_simultaneous_accepts(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #6 {
   %.not = icmp eq i32 %1, 0
-  %3 = getelementptr inbounds i8, ptr %0, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, -67108865
   %masksel = select i1 %.not, i32 67108864, i32 0
@@ -702,9 +702,9 @@ define dso_local i32 @uv_socketpair(i32 noundef %0, i32 noundef %1, ptr nocaptur
 17:                                               ; preds = %15
   %18 = load i32, ptr %6, align 4
   store i32 %18, ptr %2, align 4
-  %19 = getelementptr inbounds i8, ptr %6, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %2, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %20, ptr %21, align 4
   br label %42
 
@@ -721,7 +721,7 @@ define dso_local i32 @uv_socketpair(i32 noundef %0, i32 noundef %1, ptr nocaptur
   br i1 %.not18, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %6, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %29 = load i32, ptr %28, align 4
   %30 = call i32 @uv__nonblock_ioctl(i32 noundef %29, i32 noundef 1) #8
   %.not23 = icmp eq i32 %30, 0
@@ -730,9 +730,9 @@ define dso_local i32 @uv_socketpair(i32 noundef %0, i32 noundef %1, ptr nocaptur
 31:                                               ; preds = %27, %26
   %32 = load i32, ptr %6, align 4
   store i32 %32, ptr %2, align 4
-  %33 = getelementptr inbounds i8, ptr %6, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %34 = load i32, ptr %33, align 4
-  %35 = getelementptr inbounds i8, ptr %2, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %34, ptr %35, align 4
   br label %42
 
@@ -740,7 +740,7 @@ define dso_local i32 @uv_socketpair(i32 noundef %0, i32 noundef %1, ptr nocaptur
   %.014 = phi i32 [ %25, %23 ], [ %30, %27 ]
   %37 = load i32, ptr %6, align 4
   %38 = call i32 @uv__close(i32 noundef %37) #8
-  %39 = getelementptr inbounds i8, ptr %6, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %40 = load i32, ptr %39, align 4
   %41 = call i32 @uv__close(i32 noundef %40) #8
   br label %42
